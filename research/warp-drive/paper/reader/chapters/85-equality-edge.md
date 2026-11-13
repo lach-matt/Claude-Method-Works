@@ -761,3 +761,161 @@ env/|s̃| in the vv component; and the remainder O(𝒟/|s̃|) is of the same or
 where |Ξ| is small, T/|s̃| ≤ λ). *The derivatives.* ∂_v commutes with dRic^H, and by (H_N) every amplitude's derivative
 is at most C κ times the amplitude; so the derivatives of E_S obey the same bounds with the factor κ^k. ∎
 
+
+### The crossover {#sec:edge-crossover}
+
+In this section and the next, g_λ is the metric of [[thm:main]], N = K + 3, K ≥ 6, τ0 is admissible, ρ0 := (v_s −
+τ0)/√μ0, and (H_N), (H_D) and (B_(c′)) hold on (v_s, v_s + x0], c′ := max(c, M*) with c the cost of
+[[lem:edge-degree-two]]. With S of [[prop:edge-horizon-value]] put
+
+    σ := S/(λ³ A d env),      Λ := λ^(N−2) env^(N−1)/env,      ê := E_S/(λ³ A d env),               {#eq:edge-sigma}
+
+so that σ = ν(1 + 2iT0) 𝟙_(T0≤1) − Γ_R i^N Ξ Λ + ê, and by [[eq:edge-s]]
+
+    |ê| ≤ C [(|ν| T0² + λ) 𝟙_(T0≤1) + (Λ/κ) 𝟙_(T0>1) + (ϵ′ + 1/κ + λ) Γ_R |Ξ| Λ].
+
+Two facts are used throughout. First, T = T0(1 + O(κ^(α−1))): κ − κ_(N−1) = Σ_(k<N−1) (κ_k − κ_(k+1)) and κ_(k+1) −
+κ_k = κ_k′/κ_k ([[lem:edge-logderivatives]] (c)), each at most c_R (2κ)^α in modulus by (H_N). Second, Λ = λ^(N−2)
+Π_(k<N−1) κ_k = Π_(k<N−1) (λκ_k)/λ lies between 2^(−(N−1)) T0^(N−2) κ and 2^(N−1) T0^(N−2) κ. Where ρ0 = ρ*, r0 − ρ*√μ0
+= x and, by [[prop:layer-linear]] (d), ν(r0) = −c_ν x² (1 + O(x)), ν′ = −2c_ν x (1 + O(x)) and |ν″| ≤ 3c_ν near v_s,
+with c_ν > 0; elsewhere ν_* := inf |ν| > 0 near v_s. ε(v′) denotes the part of g_λ⁻¹(dΦ0, dΦ0) other than −Re[S
+e^(iv′/λ)] at a boundary point; by the proof of [[thm:very-edge]] below, |ε| ≤ C κ^(2c′) env².
+
+**Proposition {#prop:l-26}** (The crossover windows.) Assume in addition (H_N+2) and (H_t) on (v_s, v_s + x0], and, if
+ρ0 = ρ*, (H_*). There are λ_26, M, x0′ and P1 such that for λ ≤ λ_26, every window J = [v, v + 4πλ] ⊂ (v_s, v_s + x0′]
+with env(v + 4πλ) ≤ λ^(P1) on which |ν|/M ≤ Γ_R |Ξ| Λ ≤ M |ν| |1 + 2iT0| has, at every x̂, points where g_λ⁻¹(dΦ0,
+dΦ0) is positive and points where it is negative. This holds for every N and every value of c_N(ρ0), c_N = 1/2
+included.
+
+*Proof.* (1) *Splitting.* σ = A_s + B_s + ê, where A_s is the whole stage sum Σ_(j≤N+1) λ^j H_j,vv(v, √μ0) divided by
+λ³ A d env, which by [[prop:layer-structure]] (c) is ν(r0) st(v) + λ a₁(r0, v), st := Σ_(k≤N−2) (k + 1)(iλ)^k
+env^(k)/env, a₁ a finite sum of smooth coefficients times λ^k env^(k)/env, so that |a₁| ≤ C and |a₁′| ≤ C(1 + T0 κ^α);
+B_s := −Γ_R i^N Ξ_ex Λ with the exact Ξ_ex := (1 − c_N) − (i/λ) s⁻¹env^(N−1)/env^(N−1), no replacement of s⁻¹ being
+made; and ê the rest, every term of which is O((1/κ + λ)|B_s|) with |∂_v^k ê| ≤ C κ^k (1/κ + λ)|B_s|, k ≤ 2, by the
+proofs of [[lem:edge-constraint]] and [[prop:edge-horizon-value]] (the lower families of F_ρ, the corrections of the
+solve, the commutators with c_N, α and r^(−7/2), the remainder of [[lem:edge-ingoing]] and its forcing term's part).
+The term ϵ′ |S_U| of [[eq:edge-s]] does not occur, as s⁻¹ is kept.
+
+(2) *Derivatives.* By [[lem:edge-sinv]] (b) for g = env^(N−1), Ξ_ex′ = −c_N′ + (i/λ) ρ_g, and by [[lem:edge-sinv]] (c),
+whose hypotheses are (H_N+2), |Ξ_ex′| ≤ C(1 + λκ^(1+α)). With Λ′/Λ = κ_(N−1) − κ, (H_t) and |Ξ_ex| ≥ c_N/2 (T0 ≤ 1), B_s′
+= −B_s (κ − κ_(N−1))(1 + O(T0 + κ^(−α))). And A_s′ = ν′ st + ν st′ + λ a₁′ with |st′| ≤ C T0 κ^α, since (env^(k)/env)′ =
+(env^(k)/env)(κ_k − κ), |κ_k − κ| ≤ C k κ^α and |env^(k)/env| ≤ (2κ)^k. For the second derivatives, |B_s″| ≤ C |B_s|
+κ^(1+α), by (H_N) and ρ_g′ = κ_g′(1 + ρ_g)/s̃_g − s̃_g ρ_g, |ρ_g′|/λ ≤ C κ^(1+α) ([[lem:edge-sinv]] (b), (c)); |A_s″| ≤
+C(|ν| + λ) κ^(1+α) (at ρ*, |ν″| ≤ 3c_ν ≤ C|ν|κ as κx² ≥ c_* and |ν| ≥ c_ν x²/2, and |ν′| ≤ C|ν|κ^α, see (4)); and |ê″| ≤
+C(κ + λκ²)|B_s|.
+
+(3) *|A_s| at a near-cancellation.* Off ρ*, |ν| ≥ ν_*. At ρ*, x² ≥ Mλ on J: if x² < Mλ, then κ ≥ c_*/(Mλ) by (H_*),
+T0 ≥ c_*/M and Λ ≥ 2^(−(N−1)) T0^(N−2) κ ≫ M|ν|, against the hypothesis on J. So |A_s − ν| ≤ C(|ν| T0 + λ) ≤ |ν|/8
+for λ small and M large, using λ ≤ 2|ν|/(c_ν M) at ρ*.
+
+(4) *The dichotomy.* Put τ := c_t κ^(α−1) |ν|/16, κ at v. Over J, |σ′| ≤ C|ν|κ^α by (2): at ρ*, |ν′| ≤ 2c_ν x(1 + o(1))
+≤ C|ν|κ^α, since κ^(−α) ≤ α c_R x ([[lem:edge-kappa]] (a)); off ρ*, |ν′| ≤ C ≤ C|ν|/ν_*.
+
+If |A_s + B_s| ≥ τ on J, then |σ| ≥ τ/2, since |ê| ≤ C(1/κ + λ)M|ν| is much smaller than τ (κ^(α−1) ≫ 1/κ, and λ ≪
+κ^(α−1) as T0 → 0); arg σ moves over J by at most 4πλ C|ν|κ^α/(τ/2) = 128πC T0/c_t ≤ π/6; and |ε| ≤ C κ^(2c′) env²
+≤ |S|/4 pointwise once env ≤ λ^(P1). [[lem:edge-two-signs]] (A) applies to f = Re[−S e^(i·/λ)] + ε.
+
+Otherwise |A_s + B_s| < τ at some t₀ ∈ J, hence |A_s + B_s| ≤ τ + 4πλC|ν|κ^α ≤ 2τ on J, as λκ = T0 → 0. Then B_s = −A_s +
+O(τ) = |ν|(1 + O(1/8 + τ/|ν|)) lies near the positive real axis, ν being negative. So Re B_s′ ≤ −|ν| c_t κ^α/2 by (2) and
+(H_t); and Re A_s′ ≤ C(|ν| T0 κ^α + λ(1 + T0κ^α)), because Re(ν′ st) ≤ 0 at ρ* (ν′ < 0 and Re st ≥ 1/2) and |ν′| ≤ C
+≪ |ν|κ^α off ρ*. With |ê′| ≤ C(1 + T0)M|ν|, Re σ′ ≤ −|ν| c_t κ^α/3. As S = λ³ A d env σ, S′ = λ³ A d env (κσ + σ′)
+and |κσ| ≤ 2κτ = c_t |ν| κ^α/8, so
+
+    |S′| ≥ λ³ A |d| env |ν| c_t κ^α/5 =: L0      on J
+
+(env changes by a factor at most e^(8πT0) ≤ 2 across J), while |S″| = λ³ A |d| env |κ²σ + κ′σ + 2κσ′ + σ″| ≤ C λ³ A |d|
+env |ν| κ^(1+α) ≤ L0/(80πλ) once λκ ≤ c_t/(400πC), which holds as T0 → 0; and |ε| ≤ πλL0/5 once env ≤ λ^(P1), since |ν| ≥
+ν_* off ρ* and |ν| ≥ c_ν Mλ/2 at ρ*. [[lem:edge-two-signs]] (B) applies. ∎
+
+Nothing in (4) depends on c_N(ρ0) or on N modulo 4: the transversality is Λ′/Λ = κ_(N−1) − κ with (H_t), and the sign
+of B_s′ against A_s′ is fixed by ν ≤ 0, ν′ ≤ 0 at ρ* and Λ decreasing. No lower bound for |σ| is used where |σ| is small.
+At ρ* the stage family below the top, λa₁, is kept in A_s exactly, and only its smallness against ν, step (3), is used;
+that is (H_*).
+
+At ρ0 = ρ* without (H_*) the family below the top is needed. Write, with ρ*√μ0 the value of r0 at the edge,
+
+    b̂4(r0, ϑ) := c_(4,0),vv(√μ0; r0, ϑ)/(A d(ϑ)),      b̂5(r0, ϑ) := c_(5,1),vv(√μ0; r0, ϑ)/(i A d(ϑ)),
+
+with c_(j,k) of [[prop:layer-structure]] (b), the derivative ∂_v acting on r0 as well; so the family contributes λ(b̂4 +
+i T0 b̂5 + …) to a₁.
+
+**Lemma {#lem:edge-next-family}** (The family below the top at ρ*.) [[pending:computational-1]] At μ0 = 1, for every
+angular profile of the waves, c_(4,0),vv(1; r0, ϑ) = A [α4(r0) d(ϑ) + β4(r0) Δd(ϑ)], Δ the Laplacian of S³ (Δf = (cos ϑ
+sin ϑ)⁻¹ ∂_ϑ(cos ϑ sin ϑ ∂_ϑ f)), with
+
+    α4(r0) = −i (6376r0⁹ − 26460r0⁸ + 58590r0⁷ − 74865r0⁶ + 132300r0⁵ − 122661r0⁴ + 8400r0³ + 4320r0² + 25340)
+             / (90720 r0⁹),
+    β4(r0) = i (r0 − 1)(2r0³ − 3r0² − 2)²/(72 r0⁷),
+
+and c_(5,1),vv(1; r0, ϑ) = 3i c_(4,0),vv(1; r0, ϑ). For general μ0, b̂4(ρ*√μ0, ϑ) = μ0^(−9/4) b̂4|_(μ0=1)(ρ*, ϑ).
+
+Given this, β4 vanishes at ρ* (the factor 2r0³ − 3r0² − 2 is that of [[eq:layer-nu]]), and the division of the
+numerator of α4 by 2ρ³ − 3ρ² − 2 gives, for every ϑ and every wave with d ≠ 0,
+
+    b̂4(ρ*√μ0, ϑ) = μ0^(−9/4) i (366ρ*² − 153ρ* − 934)/420 = −0.0381909… μ0^(−9/4) i,      b̂5 = 3 b̂4,
+
+purely imaginary and nonzero; (366ρ*² − 153ρ* − 934)/420 is the real root of 9261000y³ + 48686400y² +
+66864105y + 2483108. So δ_* := inf_ϑ dist(b̂4(ρ*√μ0, ϑ), [0, ∞)) = 0.0381909… μ0^(−9/4) > 0.
+
+**Lemma {#lem:edge-rho-star}** (ρ* without (H_*).) Let ρ0 = ρ*, assume (H_N+2), (H_D) and (H_t) on (v_s, v_s + x0], and
+δ_* > 0. There are λ_28, M, x0′ and P1 such that for λ ≤ λ_28 every window J = [v, v + 4πλ] ⊂ (v_s, v_s + x0′] with
+env(v + 4πλ) ≤ λ^(P1) has, at every x̂, points where g_λ⁻¹(dΦ0, dΦ0) is positive and points where it is negative, for
+every N.
+
+*Proof.* If (H_*) holds, this is the proof of [[thm:very-edge]] below at ρ*; so let liminf κ(v)(v − v_s)² = 0. Then
+α > 1/2, since α ≤ 1/2 gives κx² ≥ (αc_R)^(−1/α) x^(2−1/α) ≥ c > 0 by [[lem:edge-kappa]] (a). Split by the size of ν at
+the left end t₀ of J; ν moves over J by at most 8πc_ν x λ ≪ λ. Let C_a bound |a₁| and put M′ := 16 C_a.
+
+(1) *|ν(t₀)| ≥ 2M′λ.* Then |λa₁| ≤ |ν|/8 on J, which is all that step (3) of [[prop:l-26]] and the cases of the proof of
+[[thm:very-edge]] take from (H_*) at ρ*: the bound λ ≪ Λ of Case 1 (Λ ≥ M|ν|/(Γ_R|Ξ|) ≥ c M M′ λ), the bound λ ≪ |ν| of
+Case 2 and of Case 3 (i), and, for N ≡ 0 modulo 4, [[prop:l-26]] itself. The other use of (H_*) in [[prop:l-26]], |ν″| ≤
+C|ν|κ, is replaced by |ν″| ≤ 3c_ν ≤ |ν| κ^(1+α), which holds near v_s since x² κ^(1+α) ≥ κx/(α c_R) → ∞ (κ^α ≥ 1/(α c_R
+x)); the phase bounds use |ν′| ≤ 3c_ν x ≤ C|ν|κ^α and λ/x ≤ (λc_ν/M′)^(1/2).
+
+(2) *|ν(t₀)| < 2M′λ.* Then |ν| ≤ 3M′λ on J. With a₁ = b̂4(r0, ϑ) + iT0 b̂5 + O(T0² + λ) and b̂4(r0) − b̂4(ρ*√μ0) =
+O(x),
+
+    A_s = ν(1 + 2iT0) + λ b̂4(ρ*√μ0, ϑ) + O(λ(T0 + x + λ)),      dist(A_s, [0, ∞)) ≥ λδ_*/2
+
+for T0, x and λ small, because dist(z + ν, [0, ∞)) = dist(z, [|ν|, ∞)) ≥ dist(z, [0, ∞)) for ν ≤ 0. Three cases, those
+of the proof of [[thm:very-edge]] with |ν| replaced by λ.
+
+*R1:* Γ_R|Ξ|Λ ≥ Mλ or T0 > 1. Then |σ| ≥ Γ_R|Ξ|Λ/2, the phase moves as in Case 1, and [[lem:edge-two-signs]] (A)
+applies.
+
+*R2:* Γ_R|Ξ|Λ ≤ λδ_*/M. Then T0 → 0 (Λ ≥ 2^(−(N−1)) T0^(N−2) κ and Λ ≤ Cλ), |σ| ≥ λδ_*/4, and arg σ moves over J by at
+most 4πλ(|ν′| + C|ν|T0κ^α + Cλ(1 + T0κ^α) + |B_s′|)/(λδ_*/4). Here |ν′| ≤ C x ≤ Cλ^(1/2), and |B_s′| ≤ Γ_R
+Λ(|Ξ_ex′| + |Ξ_ex| |κ − κ_(N−1)|) ≤ C λδ_* κ^α/M by step (2) of [[prop:l-26]], |Ξ_ex| ≥ c_N/2 and κ ≥ 1. So the motion is
+at most C(λ^(1/2) + λ^(1−α) T0^(1+α))/δ_* + 16πC T0 κ^(α−1)/M → 0, and [[lem:edge-two-signs]] (A) applies.
+
+*R3:* otherwise. Then Λ ≍ λ, so T0 ≍ λ^(2/(N−1)) → 0 and λκ^(1+α) = T0^(1+α) λ^(−α) ≍ λ^(2(1+α)/(N−1)−α) → ∞, as α >
+1/2 > 2/(N − 3) for N ≥ 9. Put τ := c_t δ_* λ κ^(α−1)/16; |ê| ≤ C(1/κ + λ)Mλ ≪ τ, as κ^(−α) → 0 and λκ^(1−α) = T0 κ^(−α)
+→ 0. If |A_s + B_s| ≥ τ on J, then |σ| ≥ τ/2, and arg σ moves by at most 8πλ C(λ^(1/2) + λκ^α)/τ ≤ C′(λ^(1/2) κ^(1−α) +
+T0)/δ_* ≤ C′(λ^(α−1/2) + T0)/δ_* → 0, using κ ≤ 1/λ and α > 1/2: [[lem:edge-two-signs]] (A). Otherwise |A_s + B_s| ≤ 2τ
+on J, and with B_s′ = −B_s(κ − κ_(N−1))(1 + O(T0 + κ^(−α))) ([[prop:l-26]] (2)),
+
+    σ′ = [ν′ + A_s(κ − κ_(N−1))] − (A_s + B_s)(κ − κ_(N−1)) + O(λκ^α (T0 + κ^(−α))) + ν′(st − 1) + ν st′ + λa₁′ + ê′.
+
+Since ν′ ≤ 0 and κ − κ_(N−1) ≥ c_t κ^α > 0 by (H_t), and |s + cz| ≥ c dist(z, [0, ∞)) for real s ≤ 0 and c > 0, |ν′ +
+A_s(κ − κ_(N−1))| ≥ (κ − κ_(N−1)) dist(A_s, [0, ∞)) ≥ c_t δ_* λ κ^α/2. The rest is at most C(τκ^α + λκ^α(T0 + κ^(−α)) +
+λ^(1/2) T0 + M′λ T0 κ^α + λ(1 + T0κ^α) + (1 + T0)Mλ), which is much smaller than λκ^α (for instance λ^(1/2) T0/(λκ^α) =
+λ^(1/2) κ^(1−α) ≤ λ^(α−1/2) → 0, as κ ≤ 1/λ). So |σ′| ≥ c_t δ_* λ κ^α/3, while |σ″| ≤ C(1 + λκ^(1+α)) ≤ 2Cλκ^(1+α) by
+step (2) of [[prop:l-26]] with |ν″| ≤ 3c_ν, and |σ′| ≤ C(λ^(1/2) + λκ^α). [[lem:edge-two-signs]] (B) applies as in step
+(4) of [[prop:l-26]], with L0 := λ³ A |d| env c_t δ_* λ κ^α/5: |κσ| ≤ 2κτ = c_t δ_* λκ^α/8; |S″| ≤ L0/(80πλ) once T0 ≤
+c(δ_*, c_t), the terms of S″ (2κ|σ′| ≤ Cκ(λ^(1/2) + λκ^α), κ²|σ| ≤ 2κ²τ, |σ″|) being small against κ^α times λ³A|d|env
+δ_*; and |ε| ≤ πλL0/5 once env ≤ λ^(P1). ∎
+
+The phase of b̂4 decides this case: nothing in step (2) uses N modulo 4 or c_N, the transversality being (H_t), and the
+direction of A_s is held away from [0, ∞) by b̂4. b̂5 is not used. If b̂4 were a positive real number of small modulus,
+with N ≡ 2 modulo 4, the real parts of ν′ + A_s(κ − κ_(N−1)) could cancel and λ T0′ b̂5 the rest, and the argument
+would not decide such windows.
+
+**Remark {#rem:edge-crossover-numbers}** (Numerical observation.) The crossover was modelled with unit constants (N = 12,
+c_N = 6/5, ν = −1/9, Γ_R = 1, exact derivatives of exp(−1/x) and of the envelope of the numerical point): over the
+whole crossover 1/4 ≤ |S_U|/|S_st| ≤ 4 the least ratio of |σ_main| to the error bound of Case 3 below was 11.7, 95.3,
+6.27·10³ and 2.71·10⁷ at λ = 10⁻¹⁰, 10⁻²⁰, 10⁻⁴⁰ and 10⁻⁸⁰, and arg σ_main moved by at most 0.009 over 4πλ. At c_N =
+1/2 (ρ0² = 23, N = 12), with ρ_g of [[eq:edge-rho-sharp]] in Ξ_ex, every window of the crossover was decided at λ =
+10⁻⁴⁰ and 10⁻⁸⁰, by (A) on a logarithmic grid and by (B) on the windows around the minimum of |σ|, which was below
+1.8·10⁻¹³ |ν| T0². At ρ*, with exp(−1/x^(1/2)) (κx² → 0) and N = 9, …, 13 at λ = 10⁻⁴⁰, with b̂4 and b̂5 = 3b̂4 of
+[[lem:edge-next-family]], every one of the 122 windows of each run was decided, while adversarial values (|b̂4| =
+0.0033, |b̂5| = 1.0·10⁻⁴, chosen so that σ and σ′ vanish together) left a window undecided. No proof uses these figures.

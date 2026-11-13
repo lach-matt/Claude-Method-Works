@@ -203,9 +203,10 @@ J_1 + 6 + 2L′_1 derivatives, 2L′_1 = 6T + 8, that is 10T + 15. Op(r_1)Op(λ�
 J_2 + 12 derivatives of c_1, that is 6T + 13 of a. The main symbol c = Σ ∂_ξ^(α′)(∂_ξ^α λ · D_x^α a) D_x^(α′)λ′/(α!α′!)
 has pointwise order (𝗍 − 𝗆) + 𝗆 − 𝗍 − |α| − |α′| ≤ 0, the variable orders cancelling at every point, so that the
 seminorm of c of order 0 and regularity 12 is at most C|a|^𝗆_(J_1+J_2+10), and [[lem:fwd-l2]] bounds Op(c) on L²
-without loss. The terms with residual factors and the low norm ‖Op(a)u‖_(−3T) are bounded by [[lem:fwd-crude]] at constant orders in [−3T, 3T], with at most 3T + 7
-derivatives. So (a) holds with 10T + 15 derivatives, without loss. Multiplication by ℓ is Op(ℓ) ((S4), [[eq:ii-a1-1-1]]),
-so [[lem:ii-a-8-5]] (a) holds with d_0 = 10T + 15, and its b-regularity part follows by Leibniz's rule as there.
+without loss. The terms with residual factors and the low norm ‖Op(a)u‖_(−3T) are bounded by [[lem:fwd-crude]] at
+constant orders in [−3T, 3T], with at most 3T + 7 derivatives. So (a) holds with 10T + 15 derivatives, without
+loss. Multiplication by ℓ is Op(ℓ) ((S4), [[eq:ii-a1-1-1]]), so [[lem:ii-a-8-5]] (a) holds with
+d_0 = 10T + 15, and its b-regularity part follows by Leibniz's rule as there.
 
 *(b)–(d).* Op(a_1)Op(a_2) − Op(a_1a_2) is a sum over pairs of charts. In a pair, the local operator of a_2 is
 expressed in the chart of a_1: with κ the transition and κ(x) − κ(x′) = Φ(x, x′)(x − x′), the substitution

@@ -288,12 +288,21 @@ before it depends on, we take c ≤ min(½, 1/R_9).
 (c) 𝒦 is compact. Its boundary lies in the union of Σ^IVP ∩ {r ≤ R_ν}, {t_IVP = −ν}, Σ^fut_(r_1) ∩ {ρ′_I ≥ c},
 Σ^past_(r_1), {ρ′_I = c}, {t^♭_* = T̂ + 3} and {r = r_♭}. These are spacelike, for g_(b₀) and for every metric C⁰-close
 to it on 𝒦 whose difference from g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b); 𝒦 lies to the future of the first three and
-to the past of the other four. So Ω_(ext,r_1) ∪ 𝒦 is closed under past causal curves within 𝒟. 𝒦⁺ := 𝒦 ∩ {t_IVP ≥ 0}
-is the domain of dependence of its part of Σ^IVP together with Σ^fut_(r_1) ∩ {ρ′_I ≥ c}; and 𝒦⁻ := 𝒦 ∩ {t_IVP ≤ 0} is,
-for the reversed time orientation, the domain of dependence of its part of Σ^IVP together with Σ^past_(r_1) ∩ 𝒟, where
-𝒦 reaches below the past slab of Ω_(ext,r_1) (for r slightly above r_1, where ν(r) > (r − r_1)/12).
+to the past of the other four. So Ω_(ext,r_1) ∪ 𝒦 is closed under past causal curves within 𝒟. 𝒦 reaches below the
+past slab of Ω_(ext,r_1) only for r slightly above r_1, where ν(r) > (r − r_1)/12.
 
 (d) 𝒮 lies near the interior of ℐ⁺: x¹ is bounded on it. On 𝒮, t_IVP ≥ r/4.
+
+(e) Put 𝒟^± := 𝒟 ∩ {±t_IVP ≥ 0}, 𝒦⁺ := 𝒦 ∩ {t_IVP ≥ 0} and
+
+    𝒦⁻ := 𝒟⁻ ∩ {r − 2t_IVP ≤ 2R_8}.
+
+Then 𝒟⁺ = (Ω_(ext,r_1) ∩ {t_IVP ≥ 0}) ∪ 𝒦⁺ ∪ 𝒮, and away from the faces at infinity its boundary lies in
+Σ^IVP ∪ {t^♭_* = T̂ + 3} ∪ {r = r_♭}, with 𝒟⁺ to the future of the first and to the past of the other two; Σ^IVP ⊂ 𝒟⁺.
+𝒦⁻ is compact, 𝒦 ∩ {t_IVP ≤ 0} ⊂ 𝒟⁻ ∩ {r ≤ R_8} ⊂ 𝒦⁻, 𝒟⁻ ⊂ 𝒦⁻ ∪ Ω_(ext,r_1), and Σ^IVP ∩ 𝒦⁻ = Σ^IVP ∩ {r ≤ 2R_8}.
+For g_(b₀) and every metric C⁰-close to it on 𝒦⁻, every future directed causal curve from a point of 𝒦⁻ that is future
+inextendible in 𝒟⁻ stays in 𝒦⁻ and meets Σ^IVP: 𝒦⁻ is, for the reversed time orientation, the domain of dependence of
+Σ^IVP ∩ {r ≤ 2R_8} within 𝒟⁻.
 
 *Proof.* (a) As x¹ ≤ T″ − 1 on 𝒟, ρ′_I < c gives |x| > (T″ − x¹)/c ≥ 1/c ≥ R_9. For r ≥ R_9 ≥ R₃, t_IVP = t − C″.
 (b) For r ≥ R_8 ≥ 2r_1, ν(r) ≤ r/32 ≤ (r − r_1)/12, so the points of 𝒟 there with t_IVP < 0 lie in the past slab
@@ -309,19 +318,31 @@ future timelike ([[lem:ii-c-3-2]] (1)); Σ^fut_(r_1) and Σ^past_(r_1) are space
 compact 𝒦 these persist for C⁰-close metrics. The points of 𝒦 with r ≥ r_1 and t_IVP < 0 lie below the past slab
 {−(r − r_1)/12 ≤ t_IVP ≤ 0} of Ω_(ext,r_1), that is to the past of Σ^past_(r_1), and by (b) they have r < R_8. The
 boundary that 𝒮 shares with Ω_(ext,r_1) ∪ 𝒦 lies in {ρ′_I = c} ∪ Σ^fut_(r_1), with 𝒮 to its future; so no past
-directed causal curve enters 𝒮 from Ω_(ext,r_1) ∪ 𝒦. *Domains of dependence.* Let p ∈ 𝒦⁺, and let γ be a past directed
-causal curve from p, past inextendible in 𝒟, for one of the metrics named. t_IVP decreases strictly along γ. γ cannot
-leave 𝒦⁺ through {ρ′_I = c}, {t^♭_* = T̂ + 3} or {r = r_♭}, 𝒦 lying to their past; and it cannot stay in the compact
-set 𝒦⁺, on which t_IVP is a time function: parametrised by t_IVP it would converge and extend, as in the proof of
-[[lem:ii-f-1-3]]. So it meets Σ^IVP ∩ 𝒦 or Σ^fut_(r_1) ∩ {ρ′_I ≥ c}. Likewise a future directed causal curve from
-p ∈ 𝒦⁻, along which t_IVP and t_IVP + ν increase, cannot leave 𝒦⁻ through {t_IVP = −ν}, and so meets Σ^IVP ∩ 𝒦 or
-Σ^past_(r_1) ∩ 𝒟. (d) 𝒮 is disjoint from Ω_(ext,r_1) and lies near
+directed causal curve enters 𝒮 from Ω_(ext,r_1) ∪ 𝒦. A point of 𝒦 with r ≥ r_1 below the past slab has
+−ν(r) ≤ t_IVP < −(r − r_1)/12. (d) 𝒮 is disjoint from Ω_(ext,r_1) and lies near
 infinity, so by (b) it lies in {t_IVP ≥ 0} ∖ Ω_(ext,r_1), above Σ^fut_(r_1); so x¹ ≥ C″ − r_1 − 2 as in (c), and
 x¹ ≤ T″ − 1. ρ′_I < c ≤ ½ gives t > (1 − c)|x| + T″ ≥ ½|x| + T″, so t_IVP > ½|x| + T″ − C″ ≥ r/4, as r ≥ R_9 ≥ 4C″.
-∎
+(e) By (d), 𝒮 ⊂ 𝒟⁺, and 𝒟 = Ω_(ext,r_1) ∪ 𝒦 ∪ 𝒮; this gives the first claim. As N_ν ⊃ {t_IVP ≥ 0}, 𝒟⁺ is the set
+{t_IVP ≥ 0, t^♭_* ≤ T̂ + 3} of M, which gives its boundary and Σ^IVP ⊂ 𝒟⁺; 𝒟⁺ lies to the past of {t^♭_* = T̂ + 3} and
+of {r = r_♭} as 𝒦 does in (c). 𝒦⁻ is closed, and on it t_IVP ≥ −ν(r) ≥ −r/32, so r ≤ 2R_8 + 2t_IVP ≤ 2R_8: 𝒦⁻ is
+compact. On 𝒟⁻ ∩ {r ≤ R_8}, r − 2t_IVP ≤ r + 2ν(r) ≤ (17/16)R_8 < 2R_8. A point of 𝒦 with t_IVP ≤ 0 has r < r_1, or
+r ≥ r_1 and (r − r_1)/12 ≤ ν(r) ≤ r/32, so r < 2r_1 ≤ R_8; and (b), with Σ^IVP_(r_1) ⊂ Ω_(ext,r_1), places the points
+of 𝒟⁻ with r ≥ R_8 in Ω_(ext,r_1). This gives the inclusions; at t_IVP = 0 the definition of 𝒦⁻ reads r ≤ 2R_8. On the face F := 𝒟⁻ ∩ {r − 2t_IVP = 2R_8}, r ≥ 2R_8 − r/16, so r ≥ (32/17)R_8 > R_8 ≥ max(R₃, 3R₁), and
+t_IVP = t − C″. There, with u := m₀r⁻² ≤ 1/25, g_(b₀)⁻¹ = η⁻¹ − u(∂_t + ∂_r)^(⊗2) ([[prop:iii-b-3-6]]), so
+g_(b₀)⁻¹(dr − 2dt, dr − 2dt) = −3 − u < 0; and (dr − 2dt)(∂_t) = −2 < 0, where ∂_t is future timelike for g_(b₀)
+(g_(b₀)(∂_t, ∂_t) = −1 + u < 0 and dt_IVP(∂_t) = 1 > 0, dt_IVP being past timelike, [[lem:iii-b-3-7]] (b)). A timelike
+covector that is negative on one future timelike vector is negative on every future causal vector, so r − 2t_IVP
+decreases strictly along future directed causal curves near F, for g_(b₀) and, with the margin on the compact F, for
+every metric C⁰-close to it; likewise t_IVP + ν increases along them near {t_IVP = −ν}, which is spacelike with N_ν to
+its future ([[prop:iii-k-1-2]]), and t_IVP is a time function on 𝒦⁻ (dt_IVP is past timelike for g_(b₀) with a margin
+on 𝒦⁻). Let γ be a future directed causal curve from p ∈ 𝒦⁻, future inextendible in 𝒟⁻. It cannot leave 𝒦⁻ through
+{t_IVP = −ν} or through F; and it cannot stay in 𝒦⁻ ∖ Σ^IVP, as, parametrised by t_IVP, it would converge in the compact
+𝒦⁻ and extend, as in the proof of [[lem:ii-f-1-3]]. So it meets Σ^IVP ∩ 𝒦⁻. ∎
 
 The slab 𝒮 is bounded by {ρ′_I = c} ∪ Σ^fut_(r_1) to the past and by {t^♭_* = T̂ + 3} to the future. Its points near
-ℐ⁺ depend on all of Σ^IVP, so it is solved after 𝒦, together with the exterior: [[sec:iv3-0]]–[[sec:iv3-2]].
+ℐ⁺ depend on all of Σ^IVP. So the forward problem is posed on all of 𝒟⁺ at once, with data on Σ^IVP only
+([[sec:iv3-0]]–[[sec:iv3-2]]): the hypersurfaces where 𝒮, 𝒦⁺ and Ω_(ext,r_1) meet lie inside 𝒟⁺ and carry no data. The
+backward problem is posed on 𝒦⁻ ([[sec:s27-local]]) and, near infinity, on the past slab of Ω_(ext,r_1).
 
 #### The local theory on compact sets {#sec:s27-local}
 

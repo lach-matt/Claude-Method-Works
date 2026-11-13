@@ -1031,19 +1031,19 @@ coordinates on Ω, in which Ω_* = {t^♭ ≥ 1} and Ω ∖ Ω_* = {τ_1(x) ≤ 
 b-vector field, lie in C^∞_b: near 𝓘⁺, t^♭ = t_*(1 − (t_*/r)^ℓ) with (t_*/r)^ℓ conormal and ∂_(t_*)t^♭ ≥ ½ (as in the
 proof of [[lem:ii-f1-2-6]] (a)), and the rest of Ω_2 is compact. As ∂_(t_*) = (∂_(t_*)t^♭)∂_(t^♭), and a vector field
 V in x taken at fixed t_* is the same field taken at fixed t^♭ plus (V t^♭)∂_(t^♭), the b-vector fields over Ω_2 are
-spanned over C^∞_b by ∂_(t^♭) and the r∂_(x^i), and the e3b-vector fields by ∂_(t^♭) and
-fields whose coefficients in (t^♭, x) depend on x only: near 𝓘⁺ the fields r∂_r = −½x_I∂_(x_I) and r^(−1/2)Z_(ij),
-which span the x_I∂_ω (with x_I = r^(−1/2) as in [[sec:ii-e-1-1]], and the rotation fields Z_(ij) of
-[[sec:ii-f-6-1]]), and the ∂_(x^i) elsewhere; here and below, fields in x are taken at fixed t^♭. On Ω_2, x_I²(1 + r),
-ρ_+ and ρ_K are positive functions which, with their inverses, lie in C^∞_b ([[eq:ii-f1-1-1]], t_* lying in
-[1, 2/C′]); so each weight x_I^(2a)ρ_+^bρ_K^c is (1 + r)^(−a) times a function of that kind.
+spanned over C^∞_b by ∂_(t^♭) and the r∂_(x^i), and the e3b-vector fields by ∂_(t^♭) and fields whose coefficients in
+(t^♭, x) depend on x only: near 𝓘⁺ the fields r∂_r = −½x_I∂_(x_I) and r^(−1/2)Z_(ij), which span the x_I∂_ω (with
+x_I = r^(−1/2) as in [[sec:ii-e-1-1]], and the rotation fields Z_(ij) of [[sec:ii-f-6-1]]), and the ∂_(x^i) elsewhere;
+here and below, fields in x are taken at fixed t^♭. On Ω_2, x_I²(1 + r), ρ_+ and ρ_K are positive functions which,
+with their inverses, lie in C^∞_b ([[eq:ii-f1-1-1]], t_* lying in [1, 2/C′]); so each weight x_I^(2a)ρ_+^bρ_K^c is
+(1 + r)^(−a) times a function of that kind.
 
 *Seeley's operator in t^♭.* Let c_l, ε_l = 3^(−l) be the constants of Seeley's operator in the proof of
 [[lem:ii-e-1-3]] (b), so that Σ_l |c_l| ε_l^(−q) < ∞ and Σ_l c_l (−ε_l⁻¹)^q = 1 for q ∈ ℕ_0 ([[sec:ii-f1-2-5]]), and
 c_Σ := Σ_l |c_l| as in the proof of [[lem:ii-f1-2-1]]; let χ_♭ ∈ C^∞(ℝ), 0 ≤ χ_♭ ≤ 1, equal 1 on [0, ¼] and 0 on
 [½, ∞). For a function q on Ω_* put E_♭q := q on Ω_* and, in the coordinates (t^♭, x),
 
-    (E_♭q)(1 − τ, x) := Σ_(l≥0) c_l χ_♭(τ/ε_l) q(1 + τ/ε_l, x)      on Ω ∖ Ω_*  (τ > 0).                  {#eq:s09-seeley}
+    (E_♭q)(1 − τ, x) := Σ_(l≥0) c_l χ_♭(τ/ε_l) q(1 + τ/ε_l, x)      on Ω ∖ Ω_*  (τ > 0).                 {#eq:s09-seeley}
 
 E_♭q uses q only on Ω_* ∩ {t^♭ ≤ 3/2} ⊂ Ω_2, at the same x, and it commutes with multiplication by functions of x and
 with vector fields in x whose coefficients depend on x only. At (1 − τ, x), ∂^j_(t^♭)E_♭q is
@@ -1053,7 +1053,7 @@ over τ′ ∈ [0, ½] of |∂^j_(τ′)(χ_♭(τ′) q(1 + τ′, x))|. With t
 Ω_2, this gives, for every j and every weight w,
 
     ‖E_♭q‖_(C^((0;j),w)_b(Ω)) ≤ C_j ‖q‖_(C^((0;j),w)_b(Ω_*)),      |(E_♭q)(1 − τ, x)| ≤ c_Σ sup_(1≤t′≤3/2) |q(t′, x)|,
-                                                                                                    {#eq:s09-seeley-bound}
+                                                                                                   {#eq:s09-seeley-bound}
 
 with C_j depending only on j, w, t^♭ and χ_♭. For an operator Q = Σ_(|β|≤2) q_β ∂^β on Ω_*, ∂^β the derivatives in
 the coordinates (t^♭, x), put E_♭Q := Σ_β (E_♭q_β)∂^β. If Q = Σ_γ q′_γ V^γ, the V^γ being products of at most two
@@ -1065,11 +1065,11 @@ of the covector in the coordinates (t^♭, x).
 [[def:ii-c-3-3]] there, of class ((0;k),(2ℓ_I,ℓ_+,ℓ_K)), with data p_0, p̃_1 on 𝓘⁺ ∩ Ω_* = 𝓘⁺ ∩ Ω (t^♭ = t_* on 𝓘⁺),
 with P̃ as in [[eq:ii-c-3-2]], and with ‖P − P_0‖_((0;0)), over Ω_*, small. Put P^♭ := P on Ω_* and
 
-    P^♭ := P_0 + χ_I ½x_I²ρ_+²(2p̃_1 A + p_0) + E_♭P̃   on Ω ∖ Ω_*,      A := x_I∂_(x_I) − 2ρ_+∂_(ρ_+).     {#eq:s09-off-star}
+    P^♭ := P_0 + χ_I ½x_I²ρ_+²(2p̃_1 A + p_0) + E_♭P̃   on Ω ∖ Ω_*,   A := x_I∂_(x_I) − 2ρ_+∂_(ρ_+).   {#eq:s09-off-star}
 
 (a) P^♭ has (1) and (2) of [[def:ii-c-3-3]] on Ω, with the data p_0, p̃_1, and for every j ≤ k
 
-    ‖P^♭ − P_0‖_((0;j),(2ℓ_I,ℓ_+,ℓ_K)) ≤ C_j ‖P − P_0‖_((0;j),(2ℓ_I,ℓ_+,ℓ_K)),                            {#eq:s09-off-star-bound}
+    ‖P^♭ − P_0‖_((0;j),(2ℓ_I,ℓ_+,ℓ_K)) ≤ C_j ‖P − P_0‖_((0;j),(2ℓ_I,ℓ_+,ℓ_K)),                   {#eq:s09-off-star-bound}
 
 the left side over Ω and the right over Ω_*, with C_j depending only on j, t^♭ and the weights. The representation of
 P̃^♭ := P^♭ − P_0 − χ_I ½x_I²ρ_+²(2p̃_1A + p_0) built below is linear in that of P̃, so [[eq:s09-off-star-bound]]
@@ -1606,13 +1606,13 @@ which P is of class ((D_0;k+d′),·), as k + d′ + D_0 ≤ k + d), the forward
     ‖u‖_(H^(k,(α_I,α_+−δ,−ℵ))_b) ≤ C ‖u‖_(X(𝗌;k+d′)) ≤ C_k (‖f‖_(Y(𝗌;k+d′)) + e_(k+d′) ‖f‖_(Y(𝗌;D_1)))
         ≤ C_k (‖f‖_(H^(k+d)_b) + ‖P − P_0‖_((0;k+d)) ‖f‖_(H^d_b)),
 
-the b-norms with the weights of [[eq:ii-f1-1-5]], by [[eq:ii-f1-5-1]] (D_1 + d″ ≤ d), [[eq:ii-f1-3-1]] (k + d′ +
-D_0 ≤ k + d) and [[eq:s09-off-star-bound]], the last bounding the norm of P^♭ over Ω by that of P over Ω_*. Uniqueness in the stated class is [[lem:ii-f1-2-2]] at s′ = s_u, whose smallness is among those fixing ε_0
-([[sec:ii-f1-3-1]]): an element of the class lies in the space with s′ = s_u, and P, of class ((d^U_0;0),·) by
-[[eq:ii-f1-3-1]] as k + d ≥ D_0 ≥ d^U_0, acts on it as [[prop:ii-e-3-4]] (i) at s′ = s_u requires. Below s_u the
-smallness of [[prop:ii-e-3-4]] (i), whose d_0 depends on s′, is not implied by that of ‖P − P_0‖_((0;d)), and Pu need
-not be defined; this is why the uniqueness class is restricted to s′ ≥ s_u. The continuity is proved in
-[[sec:ii-f1-6]]. ∎
+the b-norms with the weights of [[eq:ii-f1-1-5]], by [[eq:ii-f1-5-1]] (D_1 + d″ ≤ d), [[eq:ii-f1-3-1]] (k + d′ + D_0 ≤
+k + d) and [[eq:s09-off-star-bound]], the last bounding the norm of P^♭ over Ω by that of P over Ω_*. Uniqueness in the
+stated class is [[lem:ii-f1-2-2]] at s′ = s_u, whose smallness is among those fixing ε_0 ([[sec:ii-f1-3-1]]): an element
+of the class lies in the space with s′ = s_u, and P, of class ((d^U_0;0),·) by [[eq:ii-f1-3-1]] as k + d ≥ D_0 ≥ d^U_0,
+acts on it as [[prop:ii-e-3-4]] (i) at s′ = s_u requires. Below s_u the smallness of [[prop:ii-e-3-4]] (i), whose d_0
+depends on s′, is not implied by that of ‖P − P_0‖_((0;d)), and Pu need not be defined; this is why the uniqueness class
+is restricted to s′ ≥ s_u. The continuity is proved in [[sec:ii-f1-6]]. ∎
 
 *Proof of [[cor:ii-f1-1-2]].* By [[eq:ii-f1-1-1]],
 
@@ -1724,54 +1724,98 @@ Remark 11.4] in dimension 3 + 1). For the scalar wave operator, S = 0 and the ga
 [Hin26c, (12.7)] prints 0 < ε_+ < ε_I < 1/2, which contradicts α_+ < α_I − 1/2; with α_I = −1/2 − ε_I and α_+ = −1 −
 ε_+ the condition is ε_+ > ε_I. This is [Hin26c, Remark 11.4] in dimension 4 + 1.
 
-**Remark {#rem:ii-f1-7-4}** (The exponent of the time function.) Let ℓ_♭ ∈ [ℓ_I, ½], let t^♭ be the function of
-[[lem:ii-c-3-2]] built for g_0 with ℓ = ℓ_♭ in place of ℓ_I, and ϵ_G its threshold; let Ω_*, its slabs, the spaces of
-[[sec:ii-f1-1-1]] and the cut-offs of this chapter be built from this t^♭. There are C_♭ ≥ 1, depending only on upper
-bounds for x_I²ρ_+²g_0 and its inverse, and ε_♭ > 0, depending only on g_0 and ℓ_♭, such that [[thm:ii-f1-1-1]], also
-in the form of [[rem:ii-f1-7-1]], and [[cor:ii-f1-1-2]] hold, with ε_0, d and C_k depending also on ℓ_♭, for every P
-as there whose metric g satisfies in addition
+**Remark {#rem:ii-f1-7-4}** (The exponent of the time function.) Let ℓ_♭ ∈ [ℓ_I, ½], and let t^♭ be the function of
+[[lem:ii-c-3-2]] built for g_0 with ℓ = ℓ_♭ in place of ℓ_I, given on {r ≥ r^♯, t_* ≥ ½} by the formulae of its proof
+([[lem:ii-e-1-2]] (iv)); let Ω_*, its slabs, the spaces of [[sec:ii-f1-1-1]], the cut-offs of this chapter and the
+operator P^♭ of [[lem:s09-off-star]] be built from this t^♭. Distances between metrics are measured in the norm of
+[[eq:ii-f1-7-1]] below, taken over the set named. Let ϵ_G > 0 be the threshold of [[lem:ii-c-3-2]] for g_0 and this
+t^♭, taken so small that every metric g′ within ϵ_G of g_0 on a set U ⊂ {r ≥ r^♯, t_* ≥ ½} has, at the points of U,
+the properties (A) of the proof, with the r^♯, δ_♮ and η_0 of [[lem:ii-e-1-2]] (iv) depending only on g_0 and ℓ_♭;
+such ϵ_G exists, and depends only on g_0 and ℓ_♭ (the proof). There are K_♭ ≥ 1, depending only on t^♭ and on upper
+bounds for x_I²ρ_+²g_0 and its inverse on {r ≥ r^♯, t_* ≥ ½}, and η_♭ > 0, depending only on g_0 and ℓ_♭, such that
+[[thm:ii-f1-1-1]], also in the form of [[rem:ii-f1-7-1]], and [[cor:ii-f1-1-2]] hold, with ε_0, d and C_k depending
+also on ℓ_♭, for every P as there whose metric g satisfies in addition
 
-    ‖g − g_0‖_(𝒢̃^(0,(2ℓ_♭,0,0))_(e3b)) < ε_♭,                                                        {#eq:ii-f1-7-1}
+    ‖g − g_0‖_(𝒢̃^(0,(2ℓ_♭,0,0))_(e3b)) < η_♭,                                                        {#eq:ii-f1-7-1}
 
 the norm being taken over Ω_* as in [[thm:ii-f1-1-1]]; the continuity statement holds on the set of such P. For
 ℓ_♭ = ℓ_I, [[eq:ii-f1-7-1]] follows from ‖P − P_0‖_((0;d)) < ε_0 for ε_0 small ([[lem:ii-c-3-7]]), and the remark is
-the theorem. Moreover, the proof applies [[lem:ii-c-3-2]] (1)–(2) only to g_0, to g, to metrics g′ with
-‖g′ − g_0‖ ≤ C_♭‖g − g_0‖, and to metrics g′ that the proof of [[thm:ii-f-8-1]] takes within any prescribed distance
-of g_0, all distances in the norm of [[eq:ii-f1-7-1]]; its other uses of t^♭ concern the function alone.
+the theorem. Moreover, the proof applies (A) only to g_0, to g on Ω_*, to metrics g′ within K_♭‖g − g_0‖ of g_0 on the
+sets where they are used, ‖g − g_0‖ being taken over Ω_*, and to metrics g′ that the proof of [[thm:ii-f-8-1]] takes
+within any prescribed distance of g_0; its other uses of t^♭ concern the function alone.
 
 *Proof.* In [[ch:s05]]–[[ch:s09]] and in [[rem:ii-g-3-2]] the time function enters in two ways only, and ℓ_I is
 otherwise the weight of the class.
 
-(A) Through the hypothesis of [[lem:ii-c-3-2]]: for a metric g′ within ϵ_G of g_0 in the norm of [[eq:ii-f1-7-1]],
-dr is future timelike on {r_0 ≤ r ≤ r^♮} and dt^♭ is past timelike. The settings of [[sec:ii-c-4]], of [[ch:s06]]
-and of [[sec:ii-e-1-1]] ask this of the metric of an operator, and [[lem:ii-e-1-2]] (iv) carries it over to P^ext;
-those settings obtain it from the smallness of ε_P through [[lem:ii-c-3-7]], which gives it at the exponent ℓ_I only.
+(A) Through the timelike hypotheses of [[lem:ii-c-3-2]] and [[lem:ii-e-1-2]] (iv): for the metric g′ of an operator
+considered, dt^♭ is past timelike at the points of Ω° ∪ Ω⁻_*, and dr is future timelike at those of
+{r^♯ ≤ r ≤ r^♮ + δ_♮, t_* ≥ ½}, at which the operator is given. The settings of [[sec:ii-c-4]], of [[ch:s06]] and of
+[[sec:ii-e-1-1]] ask this on Ω_* or on Ω, and [[lem:ii-e-1-2]] (iv) asks it on Ω⁻_* for P^ext; they obtain it from the
+smallness of ε_P through [[lem:ii-c-3-7]] and [[lem:ii-e-1-2]] (ii), which gives it at the exponent ℓ_I only.
 
 (B) Through the form of t^♭ given by [[lem:ii-c-3-2]] (a)–(c) and its proof, and through the constant C′ of (b).
 
-*The metrics of (A).* For a metric g′ write G := x_I²ρ_+²g′ in a fixed e3b-frame, and |·| for pointwise norms. G_0
-and G_0⁻¹ are bounded on Ω ([[rem:s05-metric-class]] (b)), and the norm of g′ − g_0 in [[eq:ii-f1-7-1]] is
-equivalent to sup x_I^(−2ℓ_♭)|G − G_0|. From
+*The threshold in (A).* The proof of [[lem:ii-c-3-2]] is pointwise: at a point it bounds g′⁻¹ − g_0⁻¹ by the norm of
+g′ − g_0 at that point, and it orients g′ by continuity along g_0 + τ(g′ − g_0), τ ∈ [0, 1]. So (A) holds for g′ at
+the points of Ω° at which g′ is within the threshold of that lemma of g_0, and so does its (1) on {r_0 ≤ r ≤ r^♮}.
+Three further facts give (A) elsewhere; each holds for every g′ within some ϵ′ > 0 of g_0, with ϵ′, r^♯, δ_♮ and η_0
+depending only on g_0 and ℓ_♭, and ϵ_G is taken at most ϵ′.
 
-    (G_0 + H)⁻¹ − G_0⁻¹ = −(G_0 + H)⁻¹ H G_0⁻¹,
+(a) *Bounded radii.* On {r^♯ ≤ r ≤ r′_0 + 1, t_* ≥ ½}, t^♭ = C′(t_* + R̃(r)), as C ≥ 4(r′_0 + 1), so
+dt^♭ = C′((1 − R̃′)dt_* + R̃′dt) with dt = dt_* + dr. The proof of [[lem:ii-c-3-2]] gives g_0⁻¹(dt_*, dt_*) ≤ −c_0 on
+{r_0 ≤ r ≤ r′_0 + 1} ((H6)), g_0⁻¹(dt, dt) ≤ −½ on {r ≥ r′_0 − 1} ((K1)) and g_0⁻¹(dr, dr) ≤ −c_1 on
+{r_0 ≤ r ≤ r^♮} (its (1) with h = 0), with c_0, c_1 > 0, dt_* and dt past timelike and dr future timelike for g_0.
+These are statements about the stationary g_0 on sets compact in x, so they hold at every t_*, and, with halved
+constants, on {r^♯ ≤ r ≤ r′_0 + 1} and on {r^♯ ≤ r ≤ r^♮ + δ_♮}, for r^♯ close to r_0 and δ_♮ small. On
+{r ≤ r′_0 + 1} the factor x_I²ρ_+² and the weight are bounded above and below, so the norm bounds g′ − g_0 in supremum
+in the frame dt_*, dx^i; for ϵ′ small the three bounds hold for g′ with the constants halved again, and dt_*, dt and dr
+keep along g_0 + τ(g′ − g_0) the cones they have for g_0. So dt^♭, a positive combination of dt_* and, where R̃′ ≠ 0,
+of dt, is past timelike for g′ there, and dr is future timelike.
 
-|(G_0 + H)⁻¹ − G_0⁻¹| ≤ 2|G_0⁻¹|²|H| where |G_0⁻¹||H| ≤ ½, and likewise with G_0⁻¹ in place of G_0. So, while they are
-small, sup x_I^(−2ℓ_♭)|G − G_0| and sup x_I^(−2ℓ_♭)|G⁻¹ − G_0⁻¹| bound each other up to factors depending only on upper
-bounds for G_0 and G_0⁻¹. The metrics to which the proof of [[thm:ii-f1-1-1]] applies (A), itself or through the
-results of [[ch:s05]]–[[ch:s08]] that it cites, are the following.
+(b) *Near 𝓘⁺.* The proof of [[lem:ii-c-3-2]] bounds the coefficients of g′⁻¹ − ḡ⁻¹ in its basis by
+C₁(ϵ + ρ_I^(1−ℓ_♭))ρ_I^(ℓ_♭), with ϵ the distance of g′ from g_0 and ρ_I = t_*/r, using ρ_+ ≤ 1 only to bound powers of
+ρ_+; as ρ_+ is bounded on {t_* ≥ ½}, the bound holds there with a constant C₁′ depending only on g_0, as in the proof of
+[[lem:ii-e-1-2]] (iv). The estimate of the proof of [[lem:ii-c-3-2]] for g′⁻¹(d(t_*F₁), d(t_*F₁)) then gives
+g′⁻¹(dt^♭, dt^♭) ≤ −ℓ_♭ρ_I^(ℓ_♭+1) on N := {t_* ≥ ½, ρ_I ≤ ρ_1} when ϵ ≤ ϵ′, for some ρ_1 ∈ (0, ρ₋] and ϵ′ depending
+only on ℓ_♭, C₁′ and t^♭; there t^♭ = t_*F₁, ρ₋ being the point of the gluing of that proof. N is connected and meets
+Ω°, where dt^♭ is past timelike for g_0 ([[lem:ii-c-3-2]] (2) with h = 0); as dt^♭ is timelike for g_0 on all of N,
+it is past timelike there, and so for g′, along g_0 + τ(g′ − g_0).
 
-(i) g_0, and the metric g of P, by [[eq:ii-f1-7-1]].
+(c) *Below {t_* = 1}.* F < 1 on (0, ∞): F ≤ F₁ < 1 on (0, 2/C], and F = F₂ ≤ C′(1 + C) < 1 on [ρ⁺, ∞) (the proof
+of [[lem:ii-c-3-2]]). So t^♭ = F(1/r) ≤ 1 − κ_1 on the compact set {t_* = 1, r′_0 + 1 ≤ r ≤ 1/ρ_1}, for some κ_1 > 0
+depending only on g_0 and ℓ_♭, and, t^♭ being increasing in t_* ([[sec:s09-off-star]]), on
+{t_* ≤ 1, r′_0 + 1 ≤ r ≤ 1/ρ_1}. Now Ω⁻_* lies in {t^♭ ≥ 1 − η_0, r ≥ r^♯, t_* > ½}, and a point of it in neither Ω°
+nor the set of (a) has r > r′_0 + 1 and t_* ≤ 1. Taking η_0 < κ_1, such a point has r > 1/ρ_1 ≥ t_*/ρ_1, so it lies in
+N, where (b) applies.
 
-(ii) The metric g_ε of P_ε ([[eq:ii-f1-2-8]]): g_ε⁻¹ = (1 − χ̃_ε)g_0⁻¹ + χ̃_ε g⁻¹ with 0 ≤ χ̃_ε ≤ 1 (the proof of
-[[lem:ii-f1-2-6]] (b)), so |G_ε⁻¹ − G_0⁻¹| ≤ |G⁻¹ − G_0⁻¹| pointwise, for every ε.
+So (A) holds at every point of Ω° ∪ Ω⁻_* and of {r^♯ ≤ r ≤ r^♮ + δ_♮, t_* ≥ ½} at which g′ is within ϵ_G of g_0.
 
-(iii) The metrics of P^ext ([[lem:ii-e-1-2]]) and of P_ε^ext = χ_ε P_0 + χ̃_ε P^ext ([[sec:ii-f1-2-6]]). Near 𝓘⁺ on
-{t_* ≥ ½}, (ii) of [[lem:ii-e-1-2]], whose proof preserves every weight in the parameters, taken with d_0 = k = 0 and
-the weight 2ℓ_♭ at 𝓘⁺, bounds the second-order coefficients of P^ext − P_0, and so G_ext⁻¹ − G_0⁻¹, by a constant
-times the bound for G⁻¹ − G_0⁻¹; for P_ε^ext the convex combination of (ii) gives the same. In the proof of
-[[lem:ii-e-1-2]] (iv), the bound C(ε_P + ρ_I^(1−ℓ_I))ρ_I^(ℓ_I) of the coefficients of g⁻¹ − ḡ⁻¹ near 𝓘⁺ is then used
-with ℓ_♭ in place of ℓ_I and C‖g − g_0‖ in place of ε_P; elsewhere that proof uses (A) for g on Ω_*, and the closeness
-of the extended metric to g_0 in supremum at bounded times near {r = r_0}, which involves no weight at 𝓘⁺.
+*The metrics of (A).* With 𝗀′ and |·| as in [[lem:s09-off-star]] (b), 𝗀_0 and 𝗀_0⁻¹ are bounded on
+{r ≥ r^♯, t_* ≥ ½} ([[rem:s05-metric-class]] (b), g_0 being stationary and ρ_+ bounded there), and the norm of g′ − g_0
+in [[eq:ii-f1-7-1]] over a set is equivalent to the supremum over it of x_I^(−2ℓ_♭)|𝗀′ − 𝗀_0|. From the identity
+
+    (𝗀_0 + H)⁻¹ − 𝗀_0⁻¹ = −(𝗀_0 + H)⁻¹ H 𝗀_0⁻¹
+
+it follows that |(𝗀_0 + H)⁻¹ − 𝗀_0⁻¹| ≤ 2|𝗀_0⁻¹|²|H| where |𝗀_0⁻¹||H| ≤ ½ (then |(𝗀_0 + H)⁻¹| ≤ 2|𝗀_0⁻¹| by a Neumann
+series), and likewise with 𝗀_0⁻¹ in place of 𝗀_0. So, while they are small, sup x_I^(−2ℓ_♭)|𝗀′ − 𝗀_0| and sup
+x_I^(−2ℓ_♭)|𝗀′⁻¹ − 𝗀_0⁻¹| bound each other up to factors depending only on upper bounds for 𝗀_0 and 𝗀_0⁻¹. The metrics to
+which the proof of [[thm:ii-f1-1-1]] applies (A), itself or through the results of [[ch:s05]]–[[ch:s08]] that it cites,
+are the following.
+
+(i) g_0; the metric g of P, on Ω_*, by [[eq:ii-f1-7-1]]; and the metric g^♭ of P^♭, on Ω, to which the proof applies
+[[ch:s07]] (the convention after [[lem:ii-f1-2-1]]): by [[lem:s09-off-star]] (b),
+sup_Ω x_I^(−2ℓ_♭)|(𝗀^♭)⁻¹ − 𝗀_0⁻¹| ≤ c_♭ sup_(Ω_*) x_I^(−2ℓ_♭)|𝗀⁻¹ − 𝗀_0⁻¹|.
+
+(ii) The metric g_ε of P_ε ([[eq:ii-f1-2-8]], built from P^♭): g_ε⁻¹ = (1 − χ̃_ε)g_0⁻¹ + χ̃_ε(g^♭)⁻¹ with
+0 ≤ χ̃_ε ≤ 1 (the proof of [[lem:ii-f1-2-6]] (b)), so |𝗀_ε⁻¹ − 𝗀_0⁻¹| ≤ |(𝗀^♭)⁻¹ − 𝗀_0⁻¹| pointwise, for every ε.
+
+(iii) The metrics of P^ext ([[lem:ii-e-1-2]], built from P^♭) and of P_ε^ext = χ_ε P_0 + χ̃_ε P^ext
+([[sec:ii-f1-2-6]]), on {r ≥ r^♯, t_* ≥ ½}. (ii) of [[lem:ii-e-1-2]], whose proof preserves every weight in the
+parameters, taken with d_0 = k = 0 and the weight 2ℓ_♭ at 𝓘⁺, bounds the second-order coefficients of P^ext − P_0, and
+so 𝗀_ext⁻¹ − 𝗀_0⁻¹, there by a constant times the bound for (𝗀^♭)⁻¹ − 𝗀_0⁻¹ over Ω; for P_ε^ext the convex
+combination of (ii) gives the same. So these metrics lie within a constant times ‖g − g_0‖ of g_0 on
+{r ≥ r^♯, t_* ≥ ½}, and the threshold ϵ_G gives them (A) on Ω⁻_* in place of the smallness of ε_P in
+[[lem:ii-e-1-2]] (iv).
 
 (iv) In the proof of [[thm:ii-f-8-1]], (A) is used for g_0 and for metrics that differ from g_0 by an amount small in
 𝒢̃^(0,(1,0,0))_(e3b) once the parameters of that proof are chosen (Λ and t_(*,0) large, τ_1 and ε small): the metrics
@@ -1781,28 +1825,34 @@ other differences are supported where x_I is bounded below. The metrics G_θ of 
 they equal G_0. As x_I ≤ 1 and 2ℓ_♭ ≤ 1, x_I ≤ x_I^(2ℓ_♭), so smallness in 𝒢̃^(0,(1,0,0))_(e3b) gives smallness in
 the norm of [[eq:ii-f1-7-1]]: these metrics lie within any prescribed distance of g_0 in that norm.
 
-Let C_♭ ≥ 1 bound the factors of (ii) and (iii), so that the metrics there lie within C_♭‖g − g_0‖ of g_0, and let
-ε_♭ be so small that C_♭ε_♭ < ϵ_G and that the identity above applies to every metric of (i)–(iii). Then (A) holds for
-the metrics of (i)–(iii) by [[eq:ii-f1-7-1]], and for those of (iv) when the prescribed distance is ϵ_G.
+Let K_♭ ≥ 1 bound the factors of (i)–(iii), so that the metrics there lie within K_♭‖g − g_0‖ of g_0 on the sets where
+they are given, ‖g − g_0‖ being taken over Ω_*; K_♭ depends only on c_♭, on the constant of [[lem:ii-e-1-2]] (ii) and on
+upper bounds for 𝗀_0 and 𝗀_0⁻¹. Let η_♭ be so small that K_♭η_♭ < ϵ_G and that the identity above applies to every
+metric of (i)–(iii). Then (A) holds for the metrics of (i)–(iii) by [[eq:ii-f1-7-1]] and the choice of ϵ_G, and for
+those of (iv) when the prescribed distance is ϵ_G.
 
 *(B).* (a) gives t^♭ = t_* on 𝓘⁺ for every ℓ, which is all that [[sec:ii-c-4]], [[ch:s06]], [[sec:ii-e-1-1]] and
 [[lem:ii-f1-2-6]] use of t^♭ at 𝓘⁺. In (b), C′ = (1 − C^(−ℓ))/(1 + C) depends on ℓ; every constant chosen from it
 (T_♭ = 2/C′ in [[sec:ii-c1-3-2]], the bounds t_* ≤ T/C′ on slabs, T ≥ 8/C′ in [[sec:ii-f-6-3]], τ_0 < C′τ_1/2 in
 [[sec:ii-f-7-3]]) is chosen with the C′ of ℓ_♭, and no condition relates C′ to ℓ_I. (c) and the gluing on
-{r ≤ r′_0 + 1} involve ℓ only through C′. Near 𝓘⁺, t^♭ = t_*(1 − (t_*/r)^(ℓ_♭)), and
-(t_*/r)^(ℓ_♭) = (x_I²/(1 − x_I²))^(ℓ_♭) is conormal: its b-derivatives, and at bounded t_* its edge derivatives, are
-bounded, and it tends to 0 at 𝓘⁺. Only these properties are used: in the collar of [[sec:ii-e-1-5]]
-(∂_(t_*)t^♭ = 1 − (1 + ℓ_♭)(t_*/r)^(ℓ_♭) ≥ ½ for r large, and t^♭ − t_* = −t_*^(1+ℓ_♭)x_I^(2ℓ_♭), with x_I = r^(−1/2)
-there, has bounded edge derivatives), in the proof
-of [[lem:ii-e-3-3]] (t^♭ ≤ t_*, and t_*^(1+ℓ_♭)x_I^(2ℓ_♭) < ω_0/4 near a compact part of 𝓘⁺), in [[lem:s07-extension]],
-in [[lem:ii-f1-2-6]] (a) and through it in [[lem:ii-f1-2-2]] and [[lem:ii-f1-2-7]], and in (T2)–(T3) of
-[[rem:ii-g-3-2]], with ε = ℓ_♭ there. The one comparison of ℓ_♭ with ℓ_I is in [[lem:ii-f1-2-6]] (b), which shows
-δ_ε ∈ x_I^(2ℓ_I)C^∞_b: near 𝓘⁺ the term log(1 − (t_*/r)^(ℓ_♭)) of −L is (t_*/r)^(ℓ_♭) times an element of C^∞_b, so it
-lies in x_I^(2ℓ_♭)C^∞_b ⊂ x_I^(2ℓ_I)C^∞_b, as x_I^(2(ℓ_♭−ℓ_I)) ∈ C^∞_b for ℓ_♭ ≥ ℓ_I; and the term
-log t_* − (log t_*)|_(𝓘⁺) ∘ π lies in x_I C^∞_b ⊂ x_I^(2ℓ_I)C^∞_b, as there. This is where ℓ_♭ ≥ ℓ_I is needed.
+{r ≤ r′_0 + 1} involve ℓ only through C′; [[sec:ii-f1-2-5]] uses the form (c) on N_κ. [[lem:s09-off-star]] and (a), (c)
+above use that t^♭ increases in t_* and that F < 1, which the proof of [[lem:ii-c-3-2]] gives for every ℓ. Near 𝓘⁺,
+t^♭ = t_*(1 − (t_*/r)^(ℓ_♭)), and (t_*/r)^(ℓ_♭) = (x_I²/(1 − x_I²))^(ℓ_♭) is conormal: its b-derivatives, and at
+bounded t_* its edge derivatives, are bounded, and it tends to 0 at 𝓘⁺. Only these properties are used: in the collar
+of [[sec:ii-e-1-5]] (∂_(t_*)t^♭ = 1 − (1 + ℓ_♭)(t_*/r)^(ℓ_♭) ≥ ½ for r large, and t^♭ − t_* = −t_*^(1+ℓ_♭)x_I^(2ℓ_♭),
+with x_I = r^(−1/2) there, has bounded edge derivatives), in [[lem:ii-e-4-1]] (a) (Seeley's extension across a level
+set of t^♭ in those collar coordinates), in [[ch:s06]] (the cut-off χ of [[eq:ii-d-1-2]] and the factor ψ_− of the
+proof of [[prop:ii-d-3-6]], functions of t^♭ with bounded derivatives, 𝖧t^♭ being bounded on the support of ψ_−), in
+the proof of [[lem:ii-e-3-3]] (t^♭ ≤ t_*, and t_*^(1+ℓ_♭)x_I^(2ℓ_♭) < ω_0/4 near a compact part of 𝓘⁺), in
+[[lem:s07-extension]], in [[lem:s09-off-star]] (the coordinates (t^♭, x) on Ω_2), in [[lem:ii-f1-2-6]] (a) and through
+it in [[lem:ii-f1-2-2]] and [[lem:ii-f1-2-7]], and in (T2)–(T3) of [[rem:ii-g-3-2]], with ε = ℓ_♭ there. The one
+comparison of ℓ_♭ with ℓ_I is in [[lem:ii-f1-2-6]] (b), which shows δ_ε ∈ x_I^(2ℓ_I)C^∞_b: near 𝓘⁺ the term
+log(1 − (t_*/r)^(ℓ_♭)) of −L is (t_*/r)^(ℓ_♭) times an element of C^∞_b, so it lies in x_I^(2ℓ_♭)C^∞_b ⊂
+x_I^(2ℓ_I)C^∞_b, as x_I^(2(ℓ_♭−ℓ_I)) ∈ C^∞_b for ℓ_♭ ≥ ℓ_I; and the term log t_* − (log t_*)|_(𝓘⁺) ∘ π lies in
+x_I C^∞_b ⊂ x_I^(2ℓ_I)C^∞_b, as there. This is where ℓ_♭ ≥ ℓ_I is needed.
 
 *Constants.* With (A) and (B), the proof of [[thm:ii-f1-1-1]] runs as written: the threshold of [[lem:ii-c-3-2]] in
-[[sec:ii-f1-3-1]] is met by [[eq:ii-f1-7-1]] and (i)–(iii) instead of through [[lem:ii-c-3-7]], and [[lem:ii-f1-2-2]]
-is applied to P_0, P and P_ε, which satisfy (A). The constants depend on t^♭, so on ℓ_♭, and on P only through ε_0 and
-ε_♭. [[rem:ii-f1-7-1]] changes only the orders, and [[cor:ii-f1-1-2]] only the densities, so they hold in the same
-way. ∎
+[[sec:ii-f1-3-1]], and that of [[lem:ii-e-1-2]] (iv), are met by [[eq:ii-f1-7-1]] and (i)–(iii) instead of through
+[[lem:ii-c-3-7]], and [[lem:ii-f1-2-2]] is applied to P_0, P^♭ and P_ε, which satisfy (A). The constants depend on t^♭,
+so on ℓ_♭, and on P only through ε_0 and η_♭. [[rem:ii-f1-7-1]] changes only the orders, and [[cor:ii-f1-1-2]] only the
+densities, so they hold in the same way. ∎

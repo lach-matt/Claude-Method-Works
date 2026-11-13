@@ -7,13 +7,13 @@ point where the wave is largest, and ε1 is limited by the distance from g0 to d
 is read on symmetric 2-tensors, and the bound is proved in three readings: the operator norm, the Frobenius norm and
 the largest absolute entry ([[prop:lambda0]]).
 
-On the way we prove the constants on which these bounds rest: those of the domain at the point
-([[lem:lambda0-point]]), the envelope constant c_e ([[lem:envelope-constant]]), whose lower end c_e > 1 is also what
-[[rem:layer-threshold-size]] uses, and ε1 and C_app in the three readings ([[prop:lambda0-norms]]); the admissible
-range of ε1 there is that of [[sec:profiles]]. Every number below is justified by an inequality between explicit
-rationals, or by the value of an elementary function at a rational point, and can be checked by hand. The last section
-also records a numerical value of the first stage's mean correction at the point where the wave is largest, which
-would sharpen the bounds and which no proof uses ([[rem:m22-value]]).
+On the way we prove the constants on which these bounds rest: those of the domain at the point ([[lem:lambda0-point]]),
+the envelope constant c_e ([[lem:envelope-constant]]), whose lower end c_e > 1 is also what [[rem:layer-threshold-size]]
+uses, and ε1 and C_app in the three readings ([[prop:lambda0-norms]]); the admissible range of ε1 there is that of
+[[sec:profiles]]. Every number below outside [[rem:m22-value]] is justified by an inequality between explicit rationals,
+or by the value of an elementary function at a rational point, and can be checked by hand. The last section also records
+a numerical value of the first stage's mean correction at the point where the wave is largest, which would sharpen the
+bounds and which no proof uses ([[rem:m22-value]]).
 
 ### The numerical point {#sec:lambda0-point}
 
@@ -21,8 +21,9 @@ would sharpen the bounds and which no proof uses ([[rem:m22-value]]).
 τ0 = −2, the envelope env of [[lem:envelope-constant]], with v_start = 1/2 and v_end = 7/2, and a = δ0 = q0/2. Then
 V = v_end + T = 9/2, and μ' = (2/9) A² env² ([[eq:mu-rate]]).
 
-These parameters satisfy the hypotheses of [[thm:main]]: μ0 = 1 > √72 l5² = √72/100, since 72 < 10⁴;
-v_start − τ0 = 5/2 > √μ0 + 1 = 2; env ∈ C_c^∞([1/2, 7/2]) by [[lem:envelope-constant]] (a); and 0 < δ0 = q0/2 < q0.
+These parameters satisfy the hypotheses of [[thm:main]]: l5, A and T are positive; μ0 = 1 > √72 l5² = √72/100, since 72
+< 10⁴; v_start − τ0 = 5/2 > √μ0 + 1 = 2; env ∈ C_c^∞([1/2, 7/2]) by [[lem:envelope-constant]] (a); and 0 < δ0 = q0/2 <
+q0. As μ0 > √72 l5², the point is not one of equality, and [[thm:layer]] does not apply there.
 
 **Lemma {#lem:lambda0-point}** (The domain at the numerical point.) At the numerical point:
 
@@ -301,8 +302,8 @@ The proof of [[thm:main]] takes g_app of [[thm:approximant]] with N = K + 3 stag
 with |g̃ − g0| ≤ ε1 < s0 on Ω is Lorentzian, hence nondegenerate. This gives the last statement. ∎
 
 At the numerical point 10 l5 = 1, and 409 · 0.0024433 < 1; so in each reading the wavelength 10 l5 exceeds λ0 by a
-factor above 409. The bound uses only the condition C λ0 ≤ ε1. The other conditions that the proofs of [[thm:main]]
-and [[thm:uniform-existence]] place on λ0 can only make it smaller, and no lower bound for λ0 is given.
+factor above 409. Of the conditions that the proofs of [[thm:main]] and [[thm:uniform-existence]] place on λ0, the bound
+uses only C λ0 ≤ ε1; the others can only make λ0 smaller, and no lower bound for λ0 is given.
 
 **Remark {#rem:m22-value}** (Numerical observation.) The bounds of [[prop:lambda0-norms]] hold whatever the mean m1 of
 g1 at X* is: in (i) and (iii) it enters only through its entry M_22, and in (ii) through |m1(X*)|_F ≥ |M_22|. For the

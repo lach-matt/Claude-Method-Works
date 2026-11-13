@@ -1,23 +1,26 @@
 ## The loss of the tame estimates and the constants of the settling theorem {#ch:explicit-constants}
 
 The proof of [[thm:settling]] applies the Nash–Moser theorem [[thm:ii-g-2-1]] to the gauge-fixed Einstein equation
-with the tame estimates of [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]]. Those estimates hold with a loss d of
-b-regularity that does not depend on the order, and [[thm:ii-g-2-1]] then asks smallness in the regularity
-N_NM = 21d + 6. The threshold λ1 on the wavelength and the threshold δ on the data in [[thm:settling]] are produced by
-the proof, and are positive. This chapter states what the proof makes explicit about d, N_NM, δ and λ1.
+with the tame estimates of [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]]. It applies it with one loss d of b-regularity
+that does not depend on the order, at least the loss with which those estimates are proved ([[thm:iii-k-3-2]],
+[[thm:loss-d]]), and [[thm:ii-g-2-1]] then asks smallness in the regularity N_NM = 21d + 6. The threshold λ1 on the
+wavelength and the threshold δ on the data in [[thm:settling]] are produced by the proof, and are positive. This
+chapter states what the proof makes explicit about d, N_NM, δ and λ1.
 
-The loss d is a number assigned by the rules of [[lem:iii-j2-1-2]] to the composition of model inverses, transforms
-and differential operators that the proofs of [[ch:s19]]–[[ch:s23]] perform ([[def:ec-accounted-loss]]). Its
-elementary losses other than that of the forward solution operators have closed forms in the weights, the threshold
-quantities of the operators and the index sets ([[lem:ec-closed-forms]]); three nested iterations contribute their
-numbers of steps; and at one parameter point of the gauge and damping parameters two of these iterations alone make d
-larger than 7.959 × 10¹⁵ and N_NM larger than 1.671 × 10¹⁷, each of their steps being charged at least one derivative
-for the inverse of the model at the transition face, whose incoming threshold is non-negative ([[lem:ec-theta-in]],
-[[thm:loss-d]]). That parameter point lies outside the set on which [[thm:settling]] is proved
-([[rem:ec-point-outside]]), and the bounds bound what this proof's choices produce, not the optimal loss. No upper
-bound for d is proved: the loss of the forward solution operators is fixed by its proof without a value
-([[rem:ec-other-losses]]), and the upper bound at one choice of the weights in [[rem:ec-integer-bound]] is an
-observation. The same formulas bound δ and λ1 from above in terms of d ([[prop:ec-delta-cap]]). The chapter ends with
+The loss of the tame estimates is a number d_acc assigned by the rules of [[lem:iii-j2-1-2]] to the composition of
+model inverses, transforms and differential operators that the proofs of [[ch:s19]]–[[ch:s23]] perform
+([[def:ec-accounted-loss]]), and d ≥ d_acc. Its elementary losses other than that of the forward solution operators
+have closed forms in the weights, the threshold quantities of the operators, the index sets and the order of the
+bounds of the background terms ([[lem:ec-closed-forms]], [[rem:ec-other-losses]]); the iterations of the
+construction contribute their numbers of steps, among them three nested ones; and at one parameter point of the gauge
+and damping parameters two of these iterations alone make d_acc, and so d, larger than 7.959 × 10¹⁵ and N_NM larger
+than 1.671 × 10¹⁷, each of their steps being charged at least one derivative for the inverse of the model at the
+transition face, whose incoming threshold is non-negative ([[lem:ec-theta-in]], [[thm:loss-d]]). That parameter point
+lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds bound what this
+proof's choices produce, not the optimal loss. No upper bound for d is proved: the loss of the forward solution
+operators is fixed by its proof without a value ([[rem:ec-other-losses]]), and the upper bound for d_acc at one choice
+of the weights in [[rem:ec-integer-bound]] is an observation. The same formulas bound δ and λ1 from above in terms of
+d ([[prop:ec-delta-cap]]). The chapter ends with
 the parts of the first constants of the linear theory that are in hand, and with the places where explicit evaluation
 stops ([[rem:ec-not-evaluated]]).
 No result of this chapter is used in the proof of any theorem of this paper.
@@ -25,11 +28,11 @@ No result of this chapter is used in the proof of any theorem of this paper.
 ### The computational point {#sec:ec-point}
 
 **Definition {#def:ec-point}** (The computational point.) The *computational point* is the choice of the gauge and
-constraint damping parameters of [[ch:s14]]
+constraint damping parameters of [[ch:s13]] and [[ch:s14]]
 
-    γ_C = 10⁶  (h = 1/γ_C = 10⁻⁶),     γ_Υ = e_Υ = 1/100,     (v, e) = (1/2, 1/102400),
+    γ_C = 10⁶  (h = 1/γ_C = 10⁻⁶),     γ_Υ = e_Υ = 1/100,     (v_C, e_C) = (1/2, 1/102400),
 
-the last pair as in [[sec:s14-model]]. At it
+the last pair as fixed in [[eq:iv4-0-1]]. At it
 
     z := 4e_Υγ_Υ² = 4·10⁻⁶,     λ_♯ := 3/2 + (1 − e_Υ)γ_Υ = 15099/10000,
 
@@ -47,10 +50,11 @@ at it. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-1
 
 ### Sums of the gauge potential offsets {#sec:ec-gap-sums}
 
-The gap condition (G) of [[def:iii-i10-1-3]] excludes exponents in two windows just above 2 and 3. This section shows
-that at the gauge parameters of the computational point the exponents built from the class roots stay out of those
-windows by a margin larger than δ_50, so that (G) imposes nothing beyond ε_K < ε_ind. The elementary bounds, for a > 0
-and 0 ≤ y ≤ 8a²,
+The gap condition (G) of [[def:iii-i10-1-3]] excludes exponents in windows just above 2 and 3. This section shows
+that at the gauge parameters of the computational point the numbers of the set 𝒮 of [[prop:gap-sums]], built from 2,
+3, λ_♯ and the gauge potential offsets defined below, stay out of those windows by a margin larger than δ_50, so that, on
+these exponents, (G) imposes nothing beyond ε_K < ε_ind ([[rem:gap-sums]]). The elementary bounds, for a > 0 and
+0 ≤ y ≤ 8a²,
 
     a + y/(2a) − y²/(8a³) ≤ (a² + y)^(1/2) ≤ a + y/(2a),                                                {#eq:ec-sqrt}
 
@@ -78,8 +82,8 @@ when ε < 5.019·10⁻⁸, a bound more than 2.5 times δ_50.
 1.3333327·10⁻⁶ < 𝔡₀ < 1.3333334·10⁻⁶. By [[prop:np-10-52]] (i), δ₂ = z(1 + θ₂)/15 and δ′₁ = 3z(1 + θ₁)/20 with
 |θ₁|, |θ₂| ≤ z by [[eq:s14-theta]], so 2.666655·10⁻⁷ < δ₂ < 2.666678·10⁻⁷ and 5.999975·10⁻⁷ < δ′₁ < 6.000025·10⁻⁷.
 For 𝔡₁, at u = 2, 𝔡₁ = ½((9 + B₂)^(1/2) − 3) = B₂/(2(3 + (9 + B₂)^(1/2))) with B₂ := 2z − 4w₂ and
-w₂ := (4 + A)^(1/2) − 2 = A/(2 + (4 + A)^(1/2)), A := z + z²/4 = 4.000004·10⁻⁶. By [[eq:ec-sqrt]],
-4 + A/4 − A²/64 ≤ 2 + (4 + A)^(1/2) ≤ 4 + A/4, with A/4 = 1.000001·10⁻⁶ and A²/64 < 2.6·10⁻¹³; so
+w₂ := (4 + A₂)^(1/2) − 2 = A₂/(2 + (4 + A₂)^(1/2)), A₂ := z + z²/4 = 4.000004·10⁻⁶. By [[eq:ec-sqrt]],
+4 + A₂/4 − A₂²/64 ≤ 2 + (4 + A₂)^(1/2) ≤ 4 + A₂/4, with A₂/4 = 1.000001·10⁻⁶ and A₂²/64 < 2.6·10⁻¹³; so
 
     1.00000074999956·10⁻⁶ < w₂ < 1.00000074999963·10⁻⁶,     3.99999700000147·10⁻⁶ < B₂ < 3.99999700000177·10⁻⁶,
 
@@ -114,16 +118,16 @@ and on the offsets. The least value is the first, at g = λ_♯, t = 0, k = 3 an
 least 1.38888·10⁻⁷. Finally 5.0190·10⁻⁸/δ_50 > 2.58 by [[lem:s14-delta50]]. ∎
 
 **Remark {#rem:gap-sums}** (The gap condition.) The gap condition (G) of [[def:iii-i10-1-3]], assumed in
-[[thm:settling]], has three windows: no λ in the exponent set Λ of [[def:iii-i10-1-1]] has real part in
-(2, 2 + ε_K] or in (3, 3 + ε_K], and no λ + d_c0 or λ + d_c1, λ ∈ Λ, has real part in (2, 2 + ε_K]; here
+[[thm:settling]], has three windows: no ν in the exponent set Λ of [[def:iii-i10-1-1]] has real part in
+(2, 2 + ε_K] or in (3, 3 + ε_K], and no ν + d_c0 or ν + d_c1, ν ∈ Λ, has real part in (2, 2 + ε_K]; here
 d_c0 = 𝔡₀ and d_c1 = 𝔡₁. The set Λ contains 2, 3 and λ_♯ and is closed under the increments
 π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}. If these increments include 𝔡₁, 1 + 𝔡₀, 1 + δ₂ and 1 + δ′₁, then 𝒮 ⊂ Λ: 𝒮 is the set of
 sums of one of the generators 2, 3, λ_♯, any number of increments 𝔡₁ and at most one increment of integer part 1,
 and a sum with two increments of integer part 1 is at least λ_♯ + 2 > 3 + ε_K, so it misses all three windows. By
 [[prop:gap-sums]] no element of 𝒮 lies in the first two windows when ε_K < 5.019·10⁻⁸. The third window adds
-nothing: for λ = g + n𝔡₁ ∈ 𝒮 (t = 0), λ + 𝔡₁ − 2 = s − 2 and λ + 𝔡₀ − 2 = s′ − 3 with s = g + (n + 1)𝔡₁ and
-s′ = g + (1 + 𝔡₀) + n𝔡₁ in 𝒮, so by [[prop:gap-sums]] again neither λ + 𝔡₁ nor λ + 𝔡₀ lies in (2, 2 + ε_K] when
-ε_K < 5.019·10⁻⁸; every other λ ∈ 𝒮 is at least λ_♯ + 1 > 5/2, so that λ + d_c0 and λ + d_c1 exceed 2 + ε_K.
+nothing: for ν = g + n𝔡₁ ∈ 𝒮 (t = 0), ν + 𝔡₁ − 2 = s − 2 and ν + 𝔡₀ − 2 = s′ − 3 with s = g + (n + 1)𝔡₁ and
+s′ = g + (1 + 𝔡₀) + n𝔡₁ in 𝒮, so by [[prop:gap-sums]] again neither ν + 𝔡₁ nor ν + 𝔡₀ lies in (2, 2 + ε_K] when
+ε_K < 5.019·10⁻⁸; every other ν ∈ 𝒮 is at least λ_♯ + 1 > 5/2, so that ν + d_c0 and ν + d_c1 exceed 2 + ε_K.
 [[thm:settling]] takes ε_K < ε_ind(h) ≤ δ_50 < 5.019·10⁻⁸ for every h ∈ 𝖧; so these sums impose no condition beyond
 those of [[thm:settling]]. No other result of this paper uses [[prop:gap-sums]].
 
@@ -141,11 +145,16 @@ m applications of one step, each taking the previous output as input, the sum of
 d_acc is the number so assigned to the larger of the two constructions of [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]],
 for given choices of the weights, the orders and the inner products that the proofs leave free.
 
-By [[lem:iii-j2-1-2]], [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d := d_acc, and then [[thm:ii-g-2-1]], as
-applied in the proof of [[thm:iii-k-4-3]], asks smallness in H^(N_NM) with N_NM = 21d_acc + 6. Every rule of
+By [[lem:iii-j2-1-2]], [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d := d_acc. Every rule of
 [[lem:iii-j2-1-2]] gives an upper bound, so d_acc bounds the least loss with which the estimates hold from above, and
 may exceed it. Each elementary loss is a non-negative integer, so d_acc is at least the sum of the losses of any
 family of steps that are composed one after another in the construction.
+
+[[thm:ii-g-2-1]] is applied in the proof of [[thm:iii-k-3-2]] with N_NM = 21d_NM + 6, where d_NM is the largest of
+the losses of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]]: that of [[lem:iii-k-2-3]], a construction,
+accounted by [[def:ec-accounted-loss]], and the other two as their proofs fix them. As (iii) of [[thm:ii-g-2-1]] asks
+[[eq:ii-g-2-4]] of the right inverse of [[lem:iii-k-2-3]], whose loss is that of [[eq:iii-j2-4-2]], d_NM ≥ d_acc
+([[thm:loss-d]]).
 
 One threshold enters the lower bounds below: the incoming threshold ϑ_in of [[eq:i-a-1-5]] of the transition face
 model N_tf(L_b^(·), ±1) of [[cor:iii-f1-3-4]], taken, as its proof takes it, for 2L_b, which has the form (H1)–(H2) of
@@ -160,58 +169,65 @@ put A := 2 Id − a. For every fibre inner product h, at every point of ∂X,
 
 and ϑ_in ≥ −2 Re μ for every eigenvalue μ of A + S at any point of ∂X.
 
-(b) For P̂ = (2L_b)^(σ), with L_b the operator of [[ch:s15]], at every point of ∂X
+(b) For P̂ = (2L_b)^(σ), with L_b the operator of [[ch:s15]], A + S is the endomorphism of the model 2L̄ of
+[[ch:s15]]; extended to {|x| > 0} as homogeneous of degree 0, as S̄ is in [[eq:iii-f-2-2]], it satisfies there
 
-    ρ(A + S) = −Ē^C ι_(ḡ⁻¹ℓ) Ḡ + (ℓ ⊗_s ·) Ē^Υ Ḡ,        ℓ := dt̄ + d|x|,                             {#eq:ec-theta-in-l}
+    ρ(A + S) = −Ē^C ι_(ḡ⁻¹ζ) Ḡ + (ζ ⊗_s ·) Ē^Υ Ḡ,        ζ := dt̄ + d|x|,                             {#eq:ec-theta-in-l}
 
-and A + S has a kernel of dimension at least 5. Hence the incoming threshold ϑ_in of (2L_b)^(σ), and that of
-N_tf((2L_b)^(·), ±1), is non-negative in every fibre inner product.
+and at every point of ∂X it has a kernel of dimension at least 5. Hence the incoming threshold ϑ_in of (2L_b)^(σ),
+and that of N_tf((2L_b)^(·), ±1), is non-negative in every fibre inner product.
 
-*Proof.* (a) Write D := ρ∂_ρ. By (H2) and [[eq:i-c-1-2]], near ∂X,
+*Proof.* (a) By (H2) and [[eq:i-c-1-2]], near ∂X,
 
-    ρ⁻²P̂(0) = (−D² + 2D) Id − A D + B + ρR,
+    ρ⁻²P̂(0) = (−(ρ∂_ρ)² + 2ρ∂_ρ) Id − A ρ∂_ρ + B + ρR,
 
 with A = A(ω), B a family of operators on 𝕊³ (angular derivatives of order at most 2 and terms of order 0) and
-R ∈ Diff²_b. For the density ρ⁻⁵dρ dω the formal adjoint of D is −D + 4, so (ρ²D)^† = −ρ²D + 2ρ² and
-(ρ²D²)^† = ρ²(D² − 4D + 4), and ρ²(−D² + 2D) is formally self-adjoint. Let H be the matrix of h, smooth in (ρ, ω) up
-to ρ = 0. Then Im_h(ρ²(−D² + 2D) Id) = (2i)⁻¹H⁻¹[H, ρ²(−D² + 2D)], each of whose terms carries DH ∈ ρC^∞, so it lies
-in ρ³(C^∞D + C^∞). Next (ρ²AD)^(∗h) = H⁻¹(−ρ²D + 2ρ²)A^∗H = −ρ²A^(∗h)D + ρ²C^∞, so
-Im_h(−ρ²AD) = iρ² Re_h(A) D + ρ²C^∞. The h-adjoint of ρ²B has no D-term. By [[rem:i-a-hypotheses]] (a),
+R ∈ Diff²_b. For the density ρ⁻⁵dρ dω the formal adjoint of ρ∂_ρ is −ρ∂_ρ + 4, so
+(ρ²·ρ∂_ρ)^† = −ρ²·ρ∂_ρ + 2ρ² and (ρ²(ρ∂_ρ)²)^† = ρ²((ρ∂_ρ)² − 4ρ∂_ρ + 4), and ρ²(−(ρ∂_ρ)² + 2ρ∂_ρ) is formally
+self-adjoint. Let H be the matrix of h, smooth in (ρ, ω) up to ρ = 0. Then
+Im_h(ρ²(−(ρ∂_ρ)² + 2ρ∂_ρ) Id) = (2i)⁻¹H⁻¹[H, ρ²(−(ρ∂_ρ)² + 2ρ∂_ρ)], each of whose terms carries ρ∂_ρH ∈ ρC^∞, so
+it lies in ρ³(C^∞ρ∂_ρ + C^∞). Next (ρ²A ρ∂_ρ)^(∗h) = H⁻¹(−ρ²·ρ∂_ρ + 2ρ²)A^∗H = −ρ²A^(∗h)ρ∂_ρ + ρ²C^∞, so
+Im_h(−ρ²A ρ∂_ρ) = iρ² Re_h(A) ρ∂_ρ + ρ²C^∞. The h-adjoint of ρ²B has no ρ∂_ρ-term. By [[rem:i-a-hypotheses]] (a),
 Im_h P̂(0) ∈ ρ²Diff¹_b, and so are the imaginary parts of the other terms; hence Im_h(ρ³R) ∈ ρ³Diff²_b ∩ ρ²Diff¹_b,
-which is ρ³Diff¹_b. Altogether ρ⁻¹Im_h P̂(0) is i Re_h(A) ρD plus terms with angular derivatives and terms vanishing
-at ρ = 0. As ρD = −∂_r has symbol −iξ at ξ dr + rη ([[lem:i-a-4-4]] (a)), and the angular terms have symbols linear in
-η, p_in = i Re_h(A)(−i)(−2) = −2 Re_h(A) at ρ = 0. With S + S^(∗h) = 2 Re_h S this is [[eq:ec-theta-in]]. If
+which is ρ³Diff¹_b. Altogether ρ⁻¹Im_h P̂(0) is i Re_h(A) ρ²∂_ρ plus terms with angular derivatives and terms
+vanishing at ρ = 0. As ρ²∂_ρ = −∂_r has symbol −iξ at ξ dr + rη ([[lem:i-a-4-4]] (a)), and the angular terms have
+symbols linear in η, p_in = i Re_h(A)(−i)(−2) = −2 Re_h(A) at ρ = 0. With S + S^(∗h) = 2 Re_h S this is [[eq:ec-theta-in]]. If
 (A + S)v = μv with v ≠ 0 at a point of ∂X, then h(Re_h(A + S)v, v) = Re h((A + S)v, v) = (Re μ) h(v, v); so the
 h-self-adjoint Re_h(A + S) has an eigenvalue at most Re μ there, p_in − (S + S^(∗h)) has one at least −2 Re μ, and
 ϑ_in ≥ −2 Re μ.
 
 (b) By [[lem:iii-f-2-1]] (3), (H2) holds with S = S̄ near infinity, and (2L_b)^(0) − (2L̄)^(0) ∈ ρ⁴Diff²_b changes
-only R; so A + S is that of 2L̄. We compute A and S̄ as endomorphisms of the fibres of S²T*: a change of frame by a
-matrix function of ω commutes with D, conjugates A and S alike, and adds only terms that belong to B. In the Cartesian
-frame □̄ acts componentwise, and its stationary part is −Σ_i ∂²_(x^i) = ρ²(−D² + 2D + Δ_(𝕊³)) on each component; so □̄
-contributes nothing to A. The other terms of [[eq:iii-f-2-1]] are of order at most 1. On stationary sections, in
+only R; so A + S is that of 2L̄. As (2L̄)^(0) is homogeneous under dilations of x, in the Cartesian frame A has
+coefficients that depend on ω = x/|x| alone, and so has S̄ ([[eq:iii-f-2-2]]); both extend to {|x| > 0} as
+homogeneous of degree 0, and the value of A + S at a point of ∂X is their value at every x on the ray it ends. We
+compute A and S̄ as endomorphisms of the fibres of S²T*: a change of frame by a matrix function of ω commutes with
+ρ∂_ρ, conjugates A and S alike, and adds only terms that belong to B. In the Cartesian frame □̄ acts componentwise,
+and its stationary part is −Σ_i ∂²_(x^i) = ρ²(−(ρ∂_ρ)² + 2ρ∂_ρ + Δ_(𝕊³)) on each component; so □̄ contributes nothing
+to A. The other terms of [[eq:iii-f-2-1]] are of order at most 1. On stationary sections, in
 (t_*, x), the Cartesian derivative ∂_(t̄) = ∂_(t_*) acts as 0 and ∂_(x^i) acts as ∂_(x^i)|_(t_*) =
 (x^i/|x|)∂_r + (tangential derivatives); so the ∂_r-coefficient of ∂_μ is (d|x|)_μ. As in the proof of
 [[lem:iii-f-2-1]] (2), the ∂_r-coefficient of δ̄*ω = sym ∂ω is d|x| ⊗_s ω, and that of δ̄h = −ḡ^(μν) ∂_μ h_(ν·) is
 −ι_(ḡ⁻¹d|x|)h. So the ∂_r-coefficient of 2L̄ − □̄ on stationary sections is 2(−Ē^C ι_(ḡ⁻¹d|x|) Ḡ +
-(d|x| ⊗_s ·) Ē^Υ Ḡ), and as ∂_r = −ρD this term is −ρ²AD with
+(d|x| ⊗_s ·) Ē^Υ Ḡ), and as ∂_r = −ρ²∂_ρ this term is −ρ²A ρ∂_ρ with
 
-    ρA = 2(−Ē^C ι_(ḡ⁻¹d|x|) Ḡ + (d|x| ⊗_s ·) Ē^Υ Ḡ).
+    ρA = 2(−Ē^C ι_(ḡ⁻¹d|x|) Ḡ + (d|x| ⊗_s ·) Ē^Υ Ḡ)     on {|x| > 0}.
 
-Adding [[eq:iii-f-2-2]], ρS̄ = −Ē^C ι_(ḡ⁻¹dt_*) Ḡ + (dt_* ⊗_s ·) Ē^Υ Ḡ, and using dt_* + 2d|x| = dt̄ + d|x| = ℓ gives
-[[eq:ec-theta-in-l]]. Its first term is ι_(ḡ⁻¹ℓ)Ḡ : S²T* → T* followed by −Ē^C, and its second is Ē^ΥḠ : S²T* → T*
-followed by ℓ ⊗_s ·. So A + S vanishes on the common kernel of two linear maps from the fibre of S²T*, of dimension 15,
-to that of T*, of dimension 5, and that kernel has dimension at least 15 − 10 = 5. By (a) with μ = 0, ϑ_in ≥ 0 in
-every fibre inner product. On {r̂ > 1}, N_tf((2L_b)^(·), σ̂) satisfies (H1)–(H2), with S_0 = S(0, ·) in place of S
+Adding [[eq:iii-f-2-2]], ρS̄ = −Ē^C ι_(ḡ⁻¹dt_*) Ḡ + (dt_* ⊗_s ·) Ē^Υ Ḡ, and using dt_* + 2d|x| = dt̄ + d|x| = ζ gives
+[[eq:ec-theta-in-l]]. Its first term is ι_(ḡ⁻¹ζ)Ḡ : S²T* → T* followed by −Ē^C, and its second is Ē^ΥḠ : S²T* → T*
+followed by ζ ⊗_s ·. So at every x with |x| > 0, where ρ ≠ 0, A + S vanishes on the common kernel of two linear maps
+from the fibre of S²T*, of dimension 15, to that of T*, of dimension 5, and that kernel has dimension at least
+15 − 10 = 5. By homogeneity, so has the kernel of A + S at every point of ∂X. By (a) with μ = 0, ϑ_in ≥ 0 in every
+fibre inner product. On {r̂ > 1}, N_tf((2L_b)^(·), σ̂) satisfies (H1)–(H2), with S_0 = S(0, ·) in place of S
 and N(P⁽⁰⁾) in place of P⁽⁰⁾ ([[sec:i-c-4-1]] (a)), and the coefficient of ρ̂∂_ρ̂ in N(P⁽⁰⁾) is a ([[eq:i-c-1-3]]);
 so its A + S is the same endomorphism, and (a) applies to it with ρ̂ for ρ. ∎
 
-The losses of the following model inverses and transforms are given by their proofs in closed form. For a weight β
-and an index set E, n(E, β) denotes the number of pairs (z, m′) ∈ E with Re z ≤ β. ϑ_in and ϑ_ℋ are the thresholds of
-[[eq:i-a-1-5]] of the operator concerned, and s_c > ½ + ϑ_ℋ is the constant regularity order its proof fixes.
+The losses of the following model inverses, transforms and integrations are given by their proofs in closed form, and
+for one of them a lower bound in closed form. For a weight β and an index set E, n(E, β) denotes the number of pairs
+(z, m′) ∈ E with Re z ≤ β. ϑ_in and ϑ_ℋ are the thresholds of [[eq:i-a-1-5]] of the operator concerned, and
+s_c > ½ + ϑ_ℋ is the constant regularity order its proof fixes.
 
 **Lemma {#lem:ec-closed-forms}** (Closed forms of the elementary losses.) The proofs of the cited results give them
-with the following losses.
+the following losses, and in (d) a lower bound for the loss.
 
 (a) [[lem:ii-g1-4-1]]: ℓ = max(⌈sup 𝗋 − 𝗋_out⌉, ⌈(s − 1)_+⌉) and ℓ̃ = max(⌈𝗋_out − inf 𝗋⌉, ⌈(−s)_+⌉).
 
@@ -222,25 +238,30 @@ for ∂^j_σ.
 
     ℓ = max(⌈(ϑ_in/2 + 5/2 + ε/2 − β_scf)_+⌉, ⌈(s_c − 1)_+⌉).                                           {#eq:ec-low-loss}
 
-(d) [[cor:iii-f1-3-4]]: ℓ_tf := max(⌈sup 𝗋 − 𝗋_out⌉, ⌈(s − 1)_+⌉) + max(⌈𝗋_out − inf 𝗋⌉, ⌈(−s)_+⌉), for the orders
-(s, 𝗋) of its proof, with 𝗋_out = β_sctf − 2 − ϵ/2; and ℓ_tf ≥ 1.
+(d) [[cor:iii-f1-3-4]]: its loss is at least ℓ_tf := max(⌈sup 𝗋 − 𝗋_out⌉, ⌈(s − 1)_+⌉) + max(⌈𝗋_out − inf 𝗋⌉,
+⌈(−s)_+⌉), for the orders (s, 𝗋) of its proof at each ϵ it takes, with 𝗋_out = β_sctf − 2 − ϵ/2; and ℓ_tf ≥ 1.
 
-(e) [[thm:iii-g1-3-1]] (2), at a spectral parameter ϰ with Re ϰ < ℓ_I: with δ > 0 the small number of Step 5 of its
-proof,
+(e) [[thm:iii-g1-3-1]] (2), at a spectral parameter ϰ with Re ϰ < ℓ_I: with δ_ι > 0 the small number δ of Step 5 of
+its proof,
 
-    d_ι(ϰ) = 6 + ⌈max(0, Re ϰ − 2 + δ)⌉ + ⌈max(0, Re ϰ − 3/2) + δ⌉ + 2⌈ℓ_I − Re ϰ⌉.                    {#eq:ec-iota-loss}
+    d_ι(ϰ) = 6 + ⌈max(0, Re ϰ − 2 + δ_ι)⌉ + ⌈max(0, Re ϰ − 3/2) + δ_ι⌉ + 2⌈ℓ_I − Re ϰ⌉.                {#eq:ec-iota-loss}
 
-That is 7 + 2⌈ℓ_I − Re ϰ⌉ for Re ϰ < 2 − δ. Let 3 < ℓ_I < 3.5 and δ < 3.5 − ℓ_I. Then d_ι ≤ 12 for
-2 − δ ≤ Re ϰ < ℓ_I; over a strip λ₋ ≤ Re ϰ ≤ ℓ_I − ε with λ₋ < 3/2 and ε small, sup d_ι ≤ max(7 + 2⌈ℓ_I − λ₋⌉, 12);
-and if moreover λ₋ > ℓ_I − 2, sup d_ι = 12.
+That is 7 + 2⌈ℓ_I − Re ϰ⌉ for Re ϰ < 2 − δ_ι. Let 3 < ℓ_I < 3.5 and δ_ι < 3.5 − ℓ_I. Then d_ι ≤ 12 for
+2 − δ_ι ≤ Re ϰ < ℓ_I; over a strip λ₋ ≤ Re ϰ ≤ ℓ_I − ε with λ₋ < 3/2 and ε small,
+sup d_ι ≤ max(7 + 2⌈ℓ_I − λ₋⌉, 12); and if moreover λ₋ > ℓ_I − 2, sup d_ι = 12.
 
 (f) [[prop:iii-g3-2-4]] at finite regularity, and so [[prop:iii-g3-3-7]] and [[cor:iii-g3-3-1]] (1): l′ = 2⌈ℓ_I⌉ + 10
-+ sup d_ι over the strip; l′ = 30 when 3 < ℓ_I < 3.5, λ₋ ∈ (ℓ_I − 2, 3/2) and δ < 3.5 − ℓ_I.
++ sup d_ι over the strip; l′ = 30 when 3 < ℓ_I < 3.5, λ₋ ∈ (ℓ_I − 2, 3/2) and δ_ι < 3.5 − ℓ_I.
 
 (g) [[prop:iii-a-4-2]]: with n_ι := n(E_ι, β_ι), n_K := n(E_K, β_K), n_I := n(E_I, β_I),
 B := max(β_K, β_ι + max(0, −min Re π_1E_I)) and ℓ_F := ⌈(max(β_ι − β_scf, β_K) + ε − ½)_+⌉,
 
     (1):  l = 1 + n_ι + 2 max(n_K + ⌊β_K⌋, n_I + ⌊B⌋),     (2):  l = n_ι + n_K + ℓ_F.  {#eq:ec-fourier-loss}
+
+(h) [[lem:iii-i2-3-1]]: with γ > 0 the number of its proof (β_ι − β_I when this is not an integer, β_ι − β_I − ε′
+with the ε′ of that proof when it is) and ε ∈ (0, 1) the loss at which that proof applies [[prop:ii-g1-3-5]] (1),
+
+    ℓ = max(⌈(β_K + ½ + ε)_+⌉, ⌈γ + ½⌉).                                                                {#eq:ec-moment-loss}
 
 *Proof.* (a) is the statement of [[lem:ii-g1-4-1]].
 
@@ -254,31 +275,34 @@ as in [[cor:ii-g1-4-2]], decay orders with values in [𝗋_out, 𝗋_in], and �
 [[lem:iii-i2-4-2]] is the proof of [[prop:ii-g1-4-7]] for L̃_b.
 
 (d) The proof of [[cor:iii-f1-3-4]] obtains the bound near sctf from [[eq:ii-g1-4-1a]] and [[eq:ii-g1-4-1b]] with the
-losses ℓ, ℓ̃ of (a), replaces k by k + ℓ̃ and enlarges ℓ; so its loss is at least ℓ + ℓ̃ as displayed. Its orders are
+losses ℓ, ℓ̃ of (a), replaces k by k + ℓ̃ and enlarges ℓ, so that it does not depend on ϵ; so its loss is at least
+ℓ + ℓ̃ at each ϵ, which is ℓ_tf. Its orders are
 those of [[lem:i-a-7-1]] at σ_* = ±1, with 𝗋 = 𝗋_in at the incoming radial sets, where 𝗋_in > (−1 + ϑ_in)/2 (the
 weight α₊ being 0); and 𝗋_out = β_sctf − 2 − ϵ/2 < −½, as β_sctf < 3/2. By [[lem:ec-theta-in]] (b), ϑ_in ≥ 0 in
 the fibre inner product in which the orders are chosen; so sup 𝗋 ≥ 𝗋_in > −½ > 𝗋_out, ⌈sup 𝗋 − 𝗋_out⌉ ≥ 1 and
 ℓ_tf ≥ 1.
 
 (e) Step 5 of the proof of [[thm:iii-g1-3-1]] extends v^(−2−ϰ)f by 0 to F, which lies in Ḣ^((s−1;k+d),μ)_(b;b) at the
-same order k + d, with s := min(½, 2 − Re ϰ) − δ, s − ½ ∉ ℤ, and inverts N_sf(ϰ) at that order. It then applies
+same order k + d, with s := min(½, 2 − Re ϰ) − δ_ι, s − ½ ∉ ℤ, and inverts N_sf(ϰ) at that order. It then applies
 [[lem:iii-g1-2-1]], which loses m(s) = 2 + ⌈max(0, −s)⌉ + j, with j the least integer with s + j > ½, that is
 j = ⌈½ − s⌉; and then at most ⌈ℓ_I − Re ϰ⌉ + 2 steps, each losing two b-derivatives. So
 
     d_ι = m(s) + 2(⌈ℓ_I − Re ϰ⌉ + 2) = 6 + ⌈max(0, −s)⌉ + ⌈½ − s⌉ + 2⌈ℓ_I − Re ϰ⌉
 
-suffices. Here −s = max(−½, Re ϰ − 2) + δ, so max(0, −s) = max(0, Re ϰ − 2 + δ) for δ < ½, and
-½ − s = max(0, Re ϰ − 3/2) + δ. This is [[eq:ec-iota-loss]]. For Re ϰ < 2 − δ the first ceiling vanishes and the second
-is 1 (its argument lies in (0, 1)), which gives 7 + 2⌈ℓ_I − Re ϰ⌉. Let 3 < ℓ_I < 3.5, δ < 3.5 − ℓ_I and
-2 ≤ Re ϰ < ℓ_I. If Re ϰ < ℓ_I − 1, then ⌈ℓ_I − Re ϰ⌉ = 2, Re ϰ − 2 + δ < ℓ_I − 3 + δ < 1 and
-Re ϰ − 3/2 + δ < ℓ_I − 5/2 + δ < 1, so d_ι = 6 + 1 + 1 + 4 = 12. If ℓ_I − 1 ≤ Re ϰ < ℓ_I, then
-⌈ℓ_I − Re ϰ⌉ = 1, Re ϰ − 2 + δ < 3/2 + δ < 2 and Re ϰ − 3/2 + δ < 2, so d_ι ≤ 6 + 2 + 2 + 2 = 12. On the strip,
-d_ι is at most 7 + 2⌈ℓ_I − λ₋⌉ where Re ϰ < 2 − δ, as ⌈ℓ_I − Re ϰ⌉ ≤ ⌈ℓ_I − λ₋⌉, and at most 12 where Re ϰ ≥ 2 − δ
-(between 2 − δ and 2 the value is 6 + 1 + 1 + 2⌈ℓ_I − Re ϰ⌉ ≤ 12); and the value 12 is attained at Re ϰ = 2, as
-ℓ_I − 1 > 2. If λ₋ > ℓ_I − 2, then 7 + 2⌈ℓ_I − λ₋⌉ ≤ 7 + 4 = 11, so sup d_ι = 12.
+suffices. Here −s = max(−½, Re ϰ − 2) + δ_ι, so max(0, −s) = max(0, Re ϰ − 2 + δ_ι) for δ_ι < ½, and
+½ − s = max(0, Re ϰ − 3/2) + δ_ι. This is [[eq:ec-iota-loss]]. For Re ϰ < 2 − δ_ι the first ceiling vanishes and the
+second is 1 (its argument lies in (0, 1)), which gives 7 + 2⌈ℓ_I − Re ϰ⌉. Let 3 < ℓ_I < 3.5, δ_ι < 3.5 − ℓ_I and
+2 ≤ Re ϰ < ℓ_I. If Re ϰ < ℓ_I − 1, then ⌈ℓ_I − Re ϰ⌉ = 2, Re ϰ − 2 + δ_ι < ℓ_I − 3 + δ_ι < 1 and
+Re ϰ − 3/2 + δ_ι < ℓ_I − 5/2 + δ_ι < 1, so d_ι = 6 + 1 + 1 + 4 = 12. If ℓ_I − 1 ≤ Re ϰ < ℓ_I, then
+⌈ℓ_I − Re ϰ⌉ = 1, Re ϰ − 2 + δ_ι < 3/2 + δ_ι < 2 and Re ϰ − 3/2 + δ_ι < 2, so d_ι ≤ 6 + 2 + 2 + 2 = 12. On the
+strip, d_ι is at most 7 + 2⌈ℓ_I − λ₋⌉ where Re ϰ < 2 − δ_ι, as ⌈ℓ_I − Re ϰ⌉ ≤ ⌈ℓ_I − λ₋⌉, and at most 12 where
+Re ϰ ≥ 2 − δ_ι (between 2 − δ_ι and 2 the value is 6 + 1 + 1 + 2⌈ℓ_I − Re ϰ⌉ ≤ 12); and the value 12 is attained at
+Re ϰ = 2, as ℓ_I − 1 > 2. If λ₋ > ℓ_I − 2, then 7 + 2⌈ℓ_I − λ₋⌉ ≤ 7 + 4 = 11, so sup d_ι = 12.
 
 (f) The proof of [[prop:iii-g3-2-4]] at finite regularity applies [[lem:iii-g3-2-2]], with the loss
-l = 2⌈ℓ_I⌉ + 10 of its statement, and then [[thm:iii-g1-3-1]] (2) on the strip, and takes l′ := l + sup d_ι.
+l = 2⌈ℓ_I⌉ + 10 of its statement, and then [[thm:iii-g1-3-1]] (2) on the strip, and takes l′ := l + sup d_ι. Here,
+as in [[ch:s17]], λ ∈ ℂ is an exponent at ι⁺ with Re λ < ℓ_I (not the wavelength), and z is the variable of the
+ι⁺-normal operator N_(ι⁺)(z).
 The map of [[prop:iii-g3-3-7]] is continuous by [[prop:iii-g3-2-4]] on a strip containing λ, with the loss l′, and the
 l of its statement is this l′ (that of [[lem:iii-g3-3-5]]). Its right inverse applies the map u ↦ f of the proof of
 [[lem:iii-g3-3-5]], which applies the second-order operator N_(ι⁺) (loss 2), splits f = f₁ + f₂, keeps f₂, and maps

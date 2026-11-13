@@ -222,12 +222,12 @@ whose Cauchy data on Σ° have compact support. Then Q[Y] is constant, and for e
 
 *Proof.* Q[Y] is constant by [[eq:gd-2-1]].
 
-(1) *The cut-off.* Let 𝒦_Y ⊂ Σ° be the support of the data. Ω^♯ is globally hyperbolic on each component, with Cauchy
+(1) *The cut-off.* Let 𝒞_Y ⊂ Σ° be the support of the data. Ω^♯ is globally hyperbolic on each component, with Cauchy
 hypersurface Σ° ([[lem:ix-1-2]]), and □ is normally hyperbolic ([[lem:ix-2-1]] (a)); so [[thm:std-bgp-cauchy]] (5)
-gives a smooth solution on Ω^♯ with the data of Y, supported in J(𝒦_Y), and by [[lem:ix-1-1]] and [[lem:gd-r3-1]] Y is
-its restriction to N⁺. So Y vanishes on N⁺ ∖ J⁺(𝒦_Y), a relatively open set containing Σ° ∖ 𝒦_Y. Take
-χ_Y ∈ C_c^∞(M°_♭) equal to 1 on a neighbourhood of 𝒦_Y. Then U := (1 − χ_Y)Y vanishes on a neighbourhood of Σ° in N⁺:
-near 𝒦_Y because χ_Y = 1, elsewhere because Y = 0. So F := □U = −[□, χ_Y]Y is smooth, supported in a compact subset of
+gives a smooth solution on Ω^♯ with the data of Y, supported in J(𝒞_Y), and by [[lem:ix-1-1]] and [[lem:gd-r3-1]] Y is
+its restriction to N⁺. So Y vanishes on N⁺ ∖ J⁺(𝒞_Y), a relatively open set containing Σ° ∖ 𝒞_Y. Take
+χ_Y ∈ C_c^∞(M°_♭) equal to 1 on a neighbourhood of 𝒞_Y. Then U := (1 − χ_Y)Y vanishes on a neighbourhood of Σ° in N⁺:
+near 𝒞_Y because χ_Y = 1, elsewhere because Y = 0. So F := □U = −[□, χ_Y]Y is smooth, supported in a compact subset of
 N⁺, and vanishes near Σ°.
 
 (2) *The forward problem.* Let T_a := min t_* on supp F. For p ∈ N⁺ with t_*(p) < T_a, the past of p in N⁺ lies in
@@ -333,8 +333,8 @@ the μ_b-weight γ_+), and α_K < 3, where the Taylor term of order 2 enters.
     𝔨(w, r) := r⁻²((w + r)(w(w + 2r))^(−1/2) − 1),        𝔨(w, r) := 0  for w < 0,                     {#eq:hr-kernel}
 
 so that a_0(t, r) := r⁻²H(t − r) + 𝔨(t − r, r) = tr⁻²(t² − r²)^(−1/2)H(t − r), H the Heaviside function. Let
-R_T ≥ 3R₁, let h ∈ C^∞([r_♭, ∞)) equal −2r for r ≤ R_T and −2r_*(r) for r ≥ 2R_T, r_* of [[sec:iii-b-4]], and put
-T := v + h(r). On {r ≥ 2R_T}, v = x¹ + 2r_*, so T = x¹ = t − |x| ([[eq:iii-b-4-1]]); near infinity
+R_T ≥ 3R₁, let 𝔥 ∈ C^∞([r_♭, ∞)) equal −2r for r ≤ R_T and −2r_*(r) for r ≥ 2R_T, r_* of [[sec:iii-b-4]], and put
+T := v + 𝔥(r). On {r ≥ 2R_T}, v = x¹ + 2r_*, so T = x¹ = t − |x| ([[eq:iii-b-4-1]]); near infinity
 t_* = x¹ + C′ − 8m₀|x|⁻¹ ([[eq:iii-b-3-6]]); and on {r ≤ 2R_T}, t_* − v and T − v are functions of r. So |T − t_*| is
 bounded on {r ≥ r_♭}. Fix T_2 so large that {T ≥ T_2} ⊂ {t^♭_* ≥ T̂}, and χ_on ∈ C^∞(ℝ) equal to 0 on (−∞, T_2] and to
 1 on [T_2 + 1, ∞). Put
@@ -388,7 +388,7 @@ as F′ = −1, dψ = dv − dr = dt; so u_ex = a dt.
 
 *(b) Near infinity.* On {r ≥ 2R_T}, dv = dT + 2f⁻¹dr, so g = −f dT² − 2 dT dr + r²γ, and
 
-    W* = r⁻²dT + dr/(r(r − r_h)),        dψ = dT + p(r) dr,        p(r) := 1 + m₀/(r(r − r_h)).
+    W* = r⁻²dT + dr/(r(r − r_h)),        dψ = dT + 𝔭(r) dr,        𝔭(r) := 1 + m₀/(r(r − r_h)).
 
 For a spherically symmetric 1-form Y = A dT + B dr, the calculation of the proof of [[lem:gd-r2-9]], with g^(TT) = 0,
 g^(Tr) = −1 and g^(rr) = f, gives, for φ := δY and q := r³(dY)_(Tr),
@@ -398,13 +398,13 @@ g^(Tr) = −1 and g^(rr) = f, gives, for φ := δY and q := r³(dY)_(Tr),
 
 and no angular components. For Y = u_ex, with χ := χ_on(T),
 
-    φ = χ′/(r(r − r_h)) + p ∂_T𝔞 − r_h³r⁻³∂_r𝔞,        q = 2χ + r²χ′/(r − r_h) + r³p ∂_T𝔞 − r³∂_r𝔞,
+    φ = χ′/(r(r − r_h)) + 𝔭 ∂_T𝔞 − r_h³r⁻³∂_r𝔞,        q = 2χ + r²χ′/(r − r_h) + r³𝔭 ∂_T𝔞 − r³∂_r𝔞,
 
 and substituting gives, for all functions χ of T and 𝔞 of (T, r), with a := χr⁻² + 𝔞,
 
     f_ex = (Pa) dψ + R_T dT + R_r dr,                                                                    {#eq:hr-far}
-    R_T = m₀r⁻²∂_r²𝔞 + 3m₀r⁻³∂_r𝔞 − 2m₀r⁻³p ∂_T𝔞 − 2m₀r⁻⁴(r − r_h)⁻¹χ′,
-    R_r = m₀r⁻²p ∂_r²𝔞 + 3m₀(r² + rr_h − r_h²)r⁻⁴(r − r_h)⁻¹∂_r𝔞 − 2m₀(2r − r_h)r⁻²(r − r_h)⁻²∂_T𝔞
+    R_T = m₀r⁻²∂_r²𝔞 + 3m₀r⁻³∂_r𝔞 − 2m₀r⁻³𝔭 ∂_T𝔞 − 2m₀r⁻⁴(r − r_h)⁻¹χ′,
+    R_r = m₀r⁻²𝔭 ∂_r²𝔞 + 3m₀(r² + rr_h − r_h²)r⁻⁴(r − r_h)⁻¹∂_r𝔞 − 2m₀(2r − r_h)r⁻²(r − r_h)⁻²∂_T𝔞
           − r_h(3r² − 2rr_h + r_h²)r⁻⁴(r − r_h)⁻²χ′,
 
 with Pa = 2∂_T∂_ra − ∂_r²a − (3/r)∂_ra + (3/r)∂_Ta. By [[eq:hr-flat]], Pa = 0, so f_ex = R_T dT + R_r dr there: every
@@ -502,8 +502,8 @@ supported data.) Let ε > 0; on each {r_♭ < r ≤ R′, t_* ≥ T′}, with ev
 
 (c) in the last clause of [[cor:gd-r4-4]], ℒ_(Y_h)g − (Q[Y_h]/4π²)ℒ_(W*)g = (m₀Q[Y_h]/8π²)t_*^(−2)ℒ_(W*)g +
 O(t_*^(−3+ε)); so ġ_H + ℒ_(Y_h)g settles to ṁK* + (c_∞ + Q[Y_h]/4π²)ℒ_(W*)g at the rate of ġ_H, for the
-representative of [[cor:gd-r4-4]] that of [[thm:harmonic-rate]], and for that of [[thm:gd-r3-4]] that of
-[[cor:gd-r5-3]].
+representative of [[cor:gd-r4-4]] that of [[thm:harmonic-rate]], whose c is c_∞, and for that of [[thm:gd-r3-4]]
+that of [[cor:gd-r5-3]].
 
 *Proof.* (a) and (c) are [[cor:gd-r7-4]] for Y and Y_h. (b): (ġ_H)_0 = ṁK* + ℒ_(Z′_0)g exactly
 ([[prop:gd-r2-13]] (a)), and [[cor:gd-r7-4]] applies to Z′_0. ∎
@@ -518,7 +518,7 @@ h_0 := (ġ − ṁK_V)_0 = ℒ_(Y[h_0])g ([[thm:rw-settling]] (a)) and X_(RW,0) 
 
     F_(Y,0) = □(X_(RW,0) + ṁ(1 − χ_K)W**_H),        so        J_(h,0) = □X_(RW,0)  on {χ_K = 1}.
 
-*Proof.* F_Y = Υ̇⁰(ġ) − ṁ□(χ_KW**_H) on N⁺ ([[eq:gd-r3-2]]), ġ = ġ_RW − ℒ_(X_RW)g and (ġ_RW)_0 = ṁK_V
+*Proof.* F_Y = Υ̇⁰(ġ) − ṁ□(χ_KW**_H) on N⁺ ([[sec:hg-late]]), ġ = ġ_RW − ℒ_(X_RW)g and (ġ_RW)_0 = ṁK_V
 ([[thm:rw-settling]] (a)). Averaging, Υ̇⁰(ġ)_0 = ṁΥ̇⁰(K_V) + □X_(RW,0) = ṁ□W**_H + □X_(RW,0), so
 F_(Y,0) = □X_(RW,0) + ṁ□((1 − χ_K)W**_H). On {χ_K = 1}, F_Y = J_h ([[sec:hg-late]]). ∎
 
@@ -608,24 +608,23 @@ for every α < min(p_0, 3/2) with α ≠ 1. In particular the spherically symmet
 settles faster than t_*^(−1/2−δ_♯).
 
 (b) Suppose that outside a ball (γ̇, k̇) are ṁ times the data of K_V, as for the data of [[thm:settling]], glued to
-exact Tangherlini data beyond a ball ([[ch:after-shell]]). Then Z′_0 = ṁZ^(K) + Z_c + c″(∂_t)^♭, where Z_c solves
-□Z_c = 0 with data of compact support, c″ is a constant, and Z^(K) is one solution of □Z^(K) = 0, independent of the
+exact Tangherlini data beyond a ball ([[ch:after-shell]]). Then Z′_0 = ṁZ^(V) + Z_c + c″(∂_t)^♭, where Z_c solves
+□Z_c = 0 with data of compact support, c″ is a constant, and Z^(V) is one solution of □Z^(V) = 0, independent of the
 perturbation, with data of order exactly 1. So (ġ_H)_0 − ṁK* − cℒ_(W*)g = O(t_*^(−1+ε)) for every ε > 0. If ṁ = 0, as
-for data with compact support, then
+for data with compact support, then the data of Z′_0 − c′(∂_t)^♭ vanish near infinity, so that p_0 = ∞, and
 
     (ġ_H)_0 − cℒ_(W*)g = (m₀c/2) t_*^(−2) ℒ_(W*)g + O(t_*^(−3+ε)).
-
-*Proof.* (a) Near Σ°, Z′_0 = Y_0 − ṁW**_H ([[eq:gd-r7-4]]). Y_0 = ζ(∂_v)^♭ + rH_L dv, with dζ = 𝔷 algebraic in h_0
-and the first derivatives of H_L ([[lem:gd-1-4]] (b)). In the class S′ = 0 ([[cor:viii-2-3]]), so ġ = ḣ near Σ°
-([[thm:viii-2-2]] (2)), whose data ḣ_0 and ḣ_1 = rℒ_(∂_(t_IVP))ḣ lie in H^(∞,(ℰ_0,ℓ_0))_b(Σ^IVP)
-([[lem:viii-1-1]]); and K_V ∈ |x|⁻²C^∞ is stationary ([[eq:iii-b-3-7]]). So along Σ^IVP near infinity the components
-of h_0 and of its normal derivative are conormal of every order below q, resp. q + 1. Hence 𝔷 is conormal of every order
-below q and rH_L of every order below q − 1; ζ has a limit ζ_∞ at infinity along Σ^IVP, with ζ − ζ_∞ of every order
-below q − 1; and ∇Y_0 is of every order below q. So Y_0 has data of every order below q − 1,
-with Killing multiple ζ_∞. W**_H has data of order 1 with no Killing part: near infinity on Σ^IVP = {t = C″}
-([[lem:iii-b-3-9]]), v = |x| + O(1); from [[eq:np-10-2]], A = 1/(2r) + O(r⁻²) and B = −1/(4r) + O(r⁻² log r);
-dv = dt + ((2 − f)/f)d|x| ([[eq:iii-b-4-2]]) and W* = r⁻²dt + O(r⁻³)d|x|; and V = −(∂_mT_m)∂_t ([[eq:gd-0-1]]) with
-T_m(|x|) = 2|x| − 2r_*, so ∂_mT_m = 2/|x| + O(|x|⁻³) and V^♭ = (2/|x|)dt + O(|x|⁻³). So
+*Proof.* (a) Near Σ°, Z′_0 = Y_0 − ṁW**_H ([[eq:gd-r7-4]]). Y_0 = ζ(∂_v)^♭ + rH_L dv, with dζ = 𝔷 algebraic in h_0 and
+the first derivatives of H_L ([[lem:gd-1-4]] (b)). In the class S′ = S⁰′ = 0, so ġ_(S′) = ġ⁰_(S⁰′) = 0 and ġ = ḣ on 𝒟′,
+near Σ° ([[cor:viii-2-3]], [[thm:viii-2-2]] (2)); the data ḣ_0 and ḣ_1 = rℒ_(∂_(t_IVP))ḣ of ḣ lie in
+H^(∞,(ℰ_0,ℓ_0))_b(Σ^IVP) ([[lem:viii-1-1]]); and K_V ∈ |x|⁻²C^∞ is stationary ([[eq:iii-b-3-7]]). So along Σ^IVP near
+infinity the components of h_0 and of its normal derivative are conormal of every order below q, resp. q + 1. Hence 𝔷 is
+conormal of every order below q and rH_L of every order below q − 1; ζ has a limit ζ_∞ at infinity along Σ^IVP, with ζ −
+ζ_∞ of every order below q − 1; and ∇Y_0 is of every order below q. So Y_0 has data of every order below q − 1, with
+Killing multiple ζ_∞. W**_H has data of order 1 with no Killing part: near infinity on Σ^IVP = {t = C″}
+([[lem:iii-b-3-9]]), v = |x| + O(1); from [[eq:np-10-2]], A = 1/(2r) + O(r⁻²) and B = −1/(4r) + O(r⁻² log r); dv = dt +
+((2 − f)/f)d|x| ([[eq:iii-b-4-2]]) and W* = r⁻²dt + O(r⁻³)d|x|; and V = −(∂_mT_m)∂_t ([[eq:gd-0-1]]) with T_m(|x|) = 2|x|
+− 2r_*, so ∂_mT_m = 2/|x| + O(|x|⁻³) and V^♭ = (2/|x|)dt + O(|x|⁻³). So
 
     W**_H = −dt/|x| + d|x|/(4|x|) + O(|x|⁻² log|x|),        ∂_tW**_H = ½W* = O(|x|⁻²),
 
@@ -634,26 +633,37 @@ every order below q − 1, with Killing multiple c′ = ζ_∞; and q − 1 > ½
 at every p < min(p_0, 3/2), with [[eq:gd-r7-4]], gives the rate.
 
 (b) The data (ḣ_0, ḣ_1) of [[lem:viii-1-1]] are determined at each point by linear algebraic equations in (γ̇, k̇) and
-finitely many of their derivatives; so outside a ball they are ṁ times those of the initial solution ḣ^(K) of
-[[prop:viii-1-2]] for the data of K_V, and ḣ − ṁḣ^(K) has data of compact support. It solves L^♮(ḣ − ṁḣ^(K)) = 0, an
-equation whose principal part is ½□_g ⊗ id; so it vanishes on the Cauchy development ℰ, in the interior of 𝒟, of the
-part of Σ° outside a large ball ([[thm:std-bgp-development]], [[thm:std-bgp-cauchy]] (3)). ḣ^(K) induces the data of K_V
-([[lem:viii-1-1]] (1)), so k := ḣ^(K) − K_V induces zero data, with DRic(k) = 0. By [[thm:ix-2-2]] and Step 1 of its
-proof (with Z = 0 and U := U^♯ ∩ {t_IVP < 1}, so that Ω′_+ ⊂ 𝒟), k = ℒ_(Y_K)g near Σ°, with Y_K = 0 on Σ° and ∇_nY_K^♭
-= k(n, ·) + ½k(n, n)n^♭ = −K_V(n, ·) − ½K_V(n, n)n^♭ there, as ḣ^(K)(n, ·) = 0 on Σ^IVP ([[lem:viii-1-1]]); averaging
-over SO(4), we take Y_K spherically symmetric. Near infinity on Σ^IVP, K_V = |x|⁻²(dt − d|x|)² ([[sec:hg-exterior]]), so
-∇_nY_K is conormal of order 2: Y_K has data of order 1 and no Killing part. On ℰ, h_0 = (ḣ − ṁK_V)_0 = ṁk = ℒ_(ṁY_K)g,
-so ℒ_(Y_0−ṁY_K)g = 0: Y_0 − ṁY_K is a spherically symmetric Killing field on ℰ, whose orbit space is connected, so it
-equals c″(∂_v)^♭ ([[lem:gd-1-4]] (c)). Let Z^(K) be the solution of □Z^(K) = 0 on N⁺ with the data of Y_K − W**_H on Σ°
-([[lem:ix-1-1]], [[lem:gd-r3-1]]). Its data have order 1, and exactly 1: its value on Σ° near infinity is dt/|x|
-− d|x|/(4|x|) + O(|x|⁻² log|x|), and subtracting c′(∂_t)^♭ = −c′dt + O(|x|⁻²) leaves a term of order 0 unless c′ = 0.
-Then Z_c := Z′_0 − ṁZ^(K) − c″(∂_t)^♭ solves □Z_c = 0, with data of compact support. [[cor:gd-r7-6]] for Z^(K) at every
-p < 1 and [[cor:gd-r7-4]] for Z_c give the rate t_*^(−1+ε), the Killing part dropping out of the metric. If ṁ = 0: then
-Z′_0 = Y_0 near Σ°, h_0 vanishes outside the domain of influence of a ball, so 𝔷 = 0 there and Y_0 = ζ_∞(∂_v)^♭ near
-infinity on Σ°; [[cor:gd-r7-4]] applied to Z′_0 − ζ_∞(∂_t)^♭ gives the last display, with c = (Q[Z′_0] − 4π²m₀ζ_∞)/4π².
-For data with compact support, ġ_0 = 0 near Σ° outside a ball, and δm[ġ_0] = ṁδm[K_V] + δm[h_0] = ṁ ([[lem:gd-1-4]] (a),
-[[thm:rw-settling]] (a)) is constant on the simply connected orbit space of the interior of N⁺ ([[lem:gd-1-4]] (b)); so
-ṁ = 0. ∎
+finitely many of their derivatives; so outside a ball they are ṁ times those of the initial solution ḣ^(V) of
+[[prop:viii-1-2]] for the data of K_V, and ḣ − ṁḣ^(V) has data of compact support. (The data of K_V satisfy the
+linearised constraint equations: they are the derivative in m at m₀ of the data of the vacuum metrics g_((m,0)).)
+ḣ − ṁḣ^(V) solves L^♮(ḣ − ṁḣ^(V)) = 0, an equation whose principal part is ½□_g ⊗ id; so it vanishes on the Cauchy
+development ℰ, in the interior of 𝒟, of the part of Σ° outside a large ball ([[thm:std-bgp-development]],
+[[thm:std-bgp-cauchy]] (3)). ḣ^(V) induces the data of K_V ([[lem:viii-1-1]] (1)), so k := ḣ^(V) − K_V induces zero
+data; and DRic(k) = 0 on 𝒟, as DRic(ḣ^(V)) = 0 there ([[prop:viii-1-2]] (1)) and DRic(K_V) = 0 ([[sec:rw-setting]]).
+By [[thm:ix-2-2]] and Step 1 of its proof (with Z = 0 and U := U^♯ ∩ {t_IVP < 1}, so that Ω′_+ ⊂ 𝒟), k = ℒ_(Y_V)g
+near Σ°, with Y_V = 0 on Σ° and ∇_nY_V^♭ = k(n, ·) + ½k(n, n)n^♭ = −K_V(n, ·) − ½K_V(n, n)n^♭ there, as
+ḣ^(V)(n, ·) = 0 on Σ^IVP ([[lem:viii-1-1]]); averaging over SO(4), we take Y_V spherically symmetric. Near infinity on
+Σ^IVP, K_V = |x|⁻²(dt − d|x|)² ([[sec:hg-exterior]]), so ∇_nY_V is conormal of order 2: Y_V has data of order 1 and no
+Killing part. On ℰ, h_0 = (ḣ − ṁK_V)_0 = ṁk = ℒ_(ṁY_V)g, so ℒ_(Y_0−ṁY_V)g = 0: Y_0 − ṁY_V is a spherically symmetric
+Killing field on ℰ, whose orbit space is connected, so it equals c″(∂_v)^♭ ([[lem:gd-1-4]] (c)). Let Z^(V) be the
+solution of □Z^(V) = 0 on N⁺ with the data of Y_V − W**_H on Σ° ([[lem:ix-1-1]], [[lem:gd-r3-1]]). Its data have order
+1, and exactly 1: its value on Σ° near infinity is dt/|x| − d|x|/(4|x|) + O(|x|⁻² log|x|), and subtracting
+c′(∂_t)^♭ = −c′dt + O(|x|⁻²) leaves a term of order 0 unless c′ = 0. Then Z_c := Z′_0 − ṁZ^(V) − c″(∂_t)^♭ solves
+□Z_c = 0, and its data, those of Y_0 − ṁY_V − c″(∂_v)^♭ near Σ° ([[eq:gd-r7-4]]), have compact support.
+[[cor:gd-r7-6]] for Z^(V) at every p < 1 and [[cor:gd-r7-4]] for Z_c give the rate t_*^(−1+ε), the Killing part
+dropping out of the metric.
+
+*If ṁ = 0*, then ḣ vanishes on ℰ, and ġ = ḣ near Σ° (as in (a)); so h_0 = ġ_0 = 0 on a neighbourhood U of Σ° ∖ B in N⁺, B
+a large ball. On U, H_L = 0 and, as δm[h_0] = 0 ([[thm:rw-settling]] (a)), the tensor h′ of [[lem:gd-1-4]] (b) is h_0 =
+0; so 𝔷 = 0, and Y_0 = ζ(∂_v)^♭ with ζ locally constant. Σ° ∖ B is connected and ζ tends to ζ_∞ along it, so ζ = ζ_∞ and
+Y_0 = ζ_∞(∂_v)^♭ near Σ° ∖ B. As Z′_0 = Y_0 near Σ° ([[eq:gd-r7-4]] with ṁ = 0), Z′_0 − ζ_∞(∂_t)^♭ vanishes near Σ° ∖ B.
+Its data vanish near infinity, so they have every order, with Killing multiple ζ_∞ ([[def:hr-order]]): c′ = ζ_∞, p_0 = ∞
+and c = (Q[Z′_0] − 4π²m₀ζ_∞)/4π². [[cor:gd-r7-4]] applied to Z′_0 − ζ_∞(∂_t)^♭, whose charge is 4π²c, as Q[(∂_t)^♭] =
+4π²m₀, and whose metric part is ℒ_(Z′_0)g = (ġ_H)_0 ([[eq:gd-r7-4]]), gives the last display.
+
+*Data with compact support have ṁ = 0:* ġ_0 = 0 near Σ° outside a ball, and δm[ġ_0] = ṁδm[K_V] + δm[h_0] = ṁ
+([[lem:gd-1-4]] (a), [[thm:rw-settling]] (a)) is constant on the simply connected orbit space of the interior of N⁺
+([[lem:gd-1-4]] (b)); so ṁ = 0. ∎
 
 ### The 1-forms with no part of degree l ≤ 1 {#sec:hr-subspace}
 
@@ -668,8 +678,9 @@ that subspace, at every b-weight of (−1, 3).
 s > 5/2, and the frame dt_*, dx¹, …, dx⁴ of [[ch:s01]], the *Cartesian frame*. On stationary 1-forms P̂(0) = □,
 computed in the ingoing chart, as t_* − v is a function of r. A 1-form on {r = c} decomposes into its dt_* and dr
 components and its angular part, and by [[lem:iii-a1-1-6]] a 1-form is a sum of *scalar types of degree l*,
-aS dt_* + bS dr + c dS with S ∈ 𝒮_l, l ≥ 0, and *vector types of degree l*, ψY with Y ∈ 𝒱_l, l ≥ 1, the coefficients
-functions of r (of (t_*, r) on spacetime).
+aS dt_* + bS dr + c dS with S ∈ 𝒮_l, l ≥ 0, and *vector types of degree l*, ϖY with Y ∈ 𝒱_l, l ≥ 1, the coefficients
+functions of r (of (t_*, r) on spacetime). As dt_* = dv + (t_* − v)′dr, the scalar type aS dt_* + bS dr + c dS is
+aS dv + (b + a(t_* − v)′)S dr + c dS, so the same types are written with dv in place of dt_*, as in [[lem:gd-r8-3]].
 
 **Definition {#def:gd-r8-1}** (The projections.) O(4) acts on X by x ↦ gx, isometries of g that fix t, r and t_*, and on
 1-forms by T_gu := (g⁻¹)^*u; in the Cartesian frame (T_gu)(x) = A_gu(g⁻¹x) with the constant orthogonal matrix
@@ -732,9 +743,9 @@ and the forward solution is unique with an O(4)-invariant support condition, so 
 orthogonality of characters, and Π_0Π_cl = Π_GΠ_0(1 − Π_0) = 0.
 
 (d) For Π_(≥2): the map u ↦ (∫_(𝕊³) u_μ(cω) dω)_μ, the means of the components in the Cartesian frame, is
-SO(4)-equivariant into ℂ ⊕ ℂ⁴, on which SO(4) acts by τ_0 ⊕ τ_1. Equivariance gives M ∘ P_τ = P_τ^♭ ∘ M, M that map
+SO(4)-equivariant into ℂ ⊕ ℂ⁴, on which SO(4) acts by τ_0 ⊕ τ_1. Equivariance gives 𝔐 ∘ P_τ = P_τ^♭ ∘ 𝔐, 𝔐 that map
 and P_τ^♭ the projections on ℂ ⊕ ℂ⁴, and P_(τ_0)^♭ + P_(τ_1)^♭ = 1 there by the orthogonality of characters; so
-M ∘ Π_(≥2) = 0. For Π_cl: G contains each reflection x_i ↦ −x_i, so the
+𝔐 ∘ Π_(≥2) = 0. For Π_cl: G contains each reflection x_i ↦ −x_i, so the
 spatial Cartesian components of a class 1-form are odd under it and have zero mean, and the mean of its time component
 is the time component of its l = 0 part, which vanishes on ran Π_cl.
 
@@ -750,15 +761,15 @@ G-invariant and has Π_0u = Π_GΠ_0(1 − Π_0)u = 0. The class 1-forms are sum
 
 **Lemma {#lem:gd-r8-3}** ((G) on the subspace.)
 
-(a) (*The radial systems.*) Let κ := l(l + 2). On ω = aS dv + bS dr + c dS, S ∈ 𝒮_l, a, b, c functions of r,
-P̂(0)ω = E_vS dv + E_rS dr + E_θ dS with
+(a) (*The radial systems.*) Let k_l² := l(l + 2), the κ of [[prop:np-10-16]]. On ω = aS dv + bS dr + c dS, S ∈ 𝒮_l, a, b,
+c functions of r, P̂(0)ω = E_vS dv + E_rS dr + E_θ dS with
 
-    r³E_v = −[r(r² − m₀)a″ + 3(r² − m₀)a′ − κra],
-    r⁴E_r = −[r²(r² − m₀)b″ + (3r³ + m₀r)b′ − (κr² + 3r² − 3m₀)b + 2κrc − 3r²a],
-    r³E_θ = −[r(r² − m₀)c″ + (r² + m₀)c′ − κrc + 2r²a + 2(r² − m₀)b],                                    {#eq:gd-r8-1}
+    r³E_v = −[r(r² − m₀)a″ + 3(r² − m₀)a′ − k_l²ra],
+    r⁴E_r = −[r²(r² − m₀)b″ + (3r³ + m₀r)b′ − (k_l²r² + 3r² − 3m₀)b + 2k_l²rc − 3r²a],
+    r³E_θ = −[r(r² − m₀)c″ + (r² + m₀)c′ − k_l²rc + 2r²a + 2(r² − m₀)b],                                    {#eq:gd-r8-1}
 
-and δω = −r⁻³[(r³a)′ + (r³fb)′ − κrc]S. On ω = ψY, Y ∈ 𝒱_l, ψ a function of r and Λ_l := (l + 1)²,
-P̂(0)ω = −r⁻²[r(rfψ′)′ − Λ_lψ]Y. The types do not couple.
+and δω = −r⁻³[(r³a)′ + (r³fb)′ − k_l²rc]S. On ω = ϖY, Y ∈ 𝒱_l, ϖ a function of r and Λ_l := (l + 1)²,
+P̂(0)ω = −r⁻²[r(rfϖ′)′ − Λ_lϖ]Y. The types do not couple.
 
 (b) (*The roots.*) In the Cartesian frame the indicial roots of the scalar type of degree l are
 {−l − 1, −l, 1 − l, l + 1, l + 2, l + 3}, and those of the vector type of degree l are {−l, l + 2}.
@@ -771,19 +782,19 @@ l ≥ 2 is ≤ −l ≤ −2 or ≥ l + 2 ≥ 4. The ends −1 and 3 are roots o
 (2, 3).
 
 *Proof.* (a) In the ingoing chart |det g|^(1/2) = r³γ^(1/2), g^(vv) = 0, g^(vr) = 1, g^(rr) = f, g^(ij) = r⁻²γ^(ij), and
-Δ̂S = −κS. So ω^v = bS, ω^r = (a + fb)S, ω^i = r⁻²cγ^(ij)∂_jS, and δω = −|det g|^(−1/2)∂_μ(|det g|^(1/2)ω^μ) is the
+Δ̂S = −k_l²S. So ω^v = bS, ω^r = (a + fb)S, ω^i = r⁻²cγ^(ij)∂_jS, and δω = −|det g|^(−1/2)∂_μ(|det g|^(1/2)ω^μ) is the
 stated formula; write δω = 𝒹S. For F := dω, F_(vr) = −a′S, F_(vi) = −a∂_iS, F_(ri) = e∂_iS with e := c′ − b, and
 F_(ij) = 0; raising, F^(vr) = a′S, F^(vi) = r⁻²eγ^(ij)∂_jS and F^(ri) = r⁻²(fe − a)γ^(ij)∂_jS. With
 (δF)^ν = −|det g|^(−1/2)∂_μ(|det g|^(1/2)F^(μν)),
 
-    (δF)^v = (r⁻³(r³a′)′ − κr⁻²e)S,    (δF)^r = κr⁻²(a − fe)S,    (δF)^i = −r⁻³(r(fe − a))′γ^(ij)∂_jS,
+    (δF)^v = (r⁻³(r³a′)′ − k_l²r⁻²e)S,    (δF)^r = k_l²r⁻²(a − fe)S,    (δF)^i = −r⁻³(r(fe − a))′γ^(ij)∂_jS,
 
-and lowering with g_(vv) = −f, g_(vr) = 1, g_(ij) = r²γ_(ij) gives (δF)_v = (−fr⁻³(r³a′)′ + κr⁻²a)S,
-(δF)_r = (r⁻³(r³a′)′ − κr⁻²e)S and (δF)_i = r⁻¹(r(a − fe))′∂_iS. As P̂(0)ω = dδω + δdω on stationary ω,
-E_v = −fr⁻³(r³a′)′ + κr⁻²a, E_r = 𝒹′ + r⁻³(r³a′)′ − κr⁻²e and E_θ = 𝒹 + r⁻¹(r(a − fe))′, which with r³f = r(r² − m₀)
-multiply out to [[eq:gd-r8-1]]. For ψY, δ(ψY) = r⁻²ψδ̸Y = 0, d(ψY) has the components ψ′Y_i and ψ(d̸Y)_(ij), and the
-same calculation gives (δd(ψY))_v = (δd(ψY))_r = 0 and the stated angular part, with δ̸d̸Y = Λ_lY
-([[lem:iii-a1-1-4]] (2)). Each formula maps a type and degree to itself.
+and lowering with g_(vv) = −f, g_(vr) = 1, g_(ij) = r²γ_(ij) gives (δF)_v = (−fr⁻³(r³a′)′ + k_l²r⁻²a)S, (δF)_r =
+(r⁻³(r³a′)′ − k_l²r⁻²e)S and (δF)_i = r⁻¹(r(a − fe))′∂_iS. As P̂(0)ω = dδω + δdω on stationary ω, E_v = −fr⁻³(r³a′)′ +
+k_l²r⁻²a, E_r = 𝒹′ + r⁻³(r³a′)′ − k_l²r⁻²e and E_θ = 𝒹 + r⁻¹(r(a − fe))′, which with r³f = r(r² − m₀) multiply out to
+[[eq:gd-r8-1]]. For ϖY, δ(ϖY) = r⁻²ϖδ̸Y = 0, d(ϖY) has the components ϖ′Y_i and ϖ(d̸Y)_(ij), and the same calculation
+gives (δd(ϖY))_v = (δd(ϖY))_r = 0 and the stated angular part, with δ̸d̸Y = Λ_lY ([[lem:iii-a1-1-4]] (2)). Each formula
+maps a type and degree to itself.
 
 (b) This is [[lem:iii-d-4-1]] at z = 0, the parameter value γ_Υ = 0 at which the operator there is □: its roots of type
 sl are 1 − (l + 2), 1 − (l + 1), 1 − l, l + 1, l + 2, l + 3, those of type vl are −l and l + 2, and those of type s0 are
@@ -803,28 +814,29 @@ l ≤ 1 (for instance u ∈ ran Π, by [[lem:gd-r8-2]] (e)). Then u = 0.
 
 *Proof.* We follow the proof of [[lem:iii-d1-2-1]] (2), with the growth at infinity excluded mode by mode. Expand u in
 types and degrees ([[lem:iii-a1-1-6]]; the projections act in the angles and preserve smoothness at r_h in the ingoing
-chart and the conormal bounds); only degrees l ≥ 2 occur. Let κ := l(l + 2) and ρ := 1/r.
+chart and the conormal bounds); only degrees l ≥ 2 occur. Let k_l² := l(l + 2) and ρ := 1/r.
 
 *(a) The divergence.* φ := δu is smooth, stationary and in 𝒜^(β+1) near infinity, and δdφ = δ(P̂(0)u) = 0, as
-δ□ = δdδ = □_0δ. Its degree-l component solves (r³fφ_l′)′ = κrφ_l. At r = ∞ this equation has a regular singular point
+δ□ = δdδ = □_0δ. Its degree-l component solves (r³fφ_l′)′ = k_l²rφ_l. At r = ∞ this equation has a regular singular point
 with the indicial roots ρ^(l+2) and ρ^(−l) (the proof of [[lem:iii-d1-2-1]] (2) (c)); φ_l = O(r^(−β−1)) with
 β + 1 > 0 excludes ρ^(−l) for every l ≥ 0, so φ_l = O(r^(−l−2)) and φ_l′ = O(r^(−l−3)). On [r_1, R] ⊂ (r_h, ∞),
-[r³fφ_l′φ̄_l]_(r_1)^R = ∫_(r_1)^R (r³f|φ_l′|² + κr|φ_l|²) dr, and the bracket tends to 0 as r_1 → r_h (f → 0) and as
+[r³fφ_l′φ̄_l]_(r_1)^R = ∫_(r_1)^R (r³f|φ_l′|² + k_l²r|φ_l|²) dr, and the bracket tends to 0 as r_1 → r_h (f → 0) and as
 R → ∞. So φ_l = 0: δu = 0 on {r > r_h}.
 
-*(b) The field.* F := du ∈ 𝒜^(β+1) has δF = P̂(0)u − dδu = 0 on {r > r_h}. *Vector type.* A component r^(−1/2)Φ(r)Y, Y
-∈ 𝒱_l, of u has −Φ_** + V_1Φ = 0 with V_1 > 0 ([[prop:np-10-16]] (iii), (v) at σ = 0, Λ = (l + 1)² ≥ 9). Φ is smooth in
-r at r_h, and Φ = O(r^(3/2−β)), as |Y| is r⁻¹ in the Euclidean metric. The equation has a regular singular point at r
-= ∞, where r^(−1/2)Φ grows like r^(l+1) or decays like r^(−l−1), as V_1 = ((l + 1)² − ¼)r⁻² + O(r⁻⁴); as l + 1 > 1 − β,
-the first is excluded, so Φ = O(r^(−l−1/2)) and Φ_* = fΦ′ = O(r^(−l−3/2)). The energy identity of the proof of
-[[lem:iii-d1-2-1]] (2), ∫(|Φ_*|² + V_1|Φ|²) dr_* = [Φ_*Φ̄], whose end terms vanish, gives Φ = 0. *Scalar type.* With W
-:= r³F_tr, R[W] = (r²M_t)′ = 0 (M = δdu = 0), and Φ := r^(−1/2)W solves −Φ_** + V_2Φ = 0 with V_2 > 0 for κ ≥ 3
-([[prop:np-10-16]] (iv)–(v)). F_tr = F_vr is smooth at r_h, and W = O(r^(2−β)). R[W] = 0 has a regular singular point at
-r = ∞, with the indicial roots W ∼ r^(l+2) and W ∼ r^(−l); as l + 2 > 2 − β, W = O(r^(−l)), so Φ = O(r^(−l−1/2)), Φ_*
-= O(r^(−l−3/2)), and the energy identity gives Φ = 0. So F_tr = 0, and with M = 0 [[prop:np-10-16]] (iv) gives a = b = 0
-for the gauge-invariant pair there: each scalar component of u is d(c_lS) on {r > r_h}, for a function c_l of r.
+*(b) The field.* F := du ∈ 𝒜^(β+1) has δF = P̂(0)u − dδu = 0 on {r > r_h}. *Vector type.* A component r^(−1/2)Φ(r)Y, Y ∈
+𝒱_l, of u has −Φ_** + V_1Φ = 0 with V_1 > 0 ([[prop:np-10-16]] (iii), (v) at σ = 0, Λ = (l + 1)² ≥ 9). Φ is smooth in r
+at r_h, and Φ = O(r^(3/2−β)), as |Y| is r⁻¹ in the Euclidean metric. The equation has a regular singular point at r = ∞,
+where r^(−1/2)Φ grows like r^(l+1) or decays like r^(−l−1), as V_1 = ((l + 1)² − ¼)r⁻² + O(r⁻⁴); as l + 1 > 1 − β, the
+first is excluded, so Φ = O(r^(−l−1/2)) and Φ_* = fΦ′ = O(r^(−l−3/2)). The energy identity of the proof of
+[[lem:iii-d1-2-1]] (2), ∫(|Φ_*|² + V_1|Φ|²) dr_* = [Φ_*Φ̄], whose end terms vanish, gives Φ = 0. *Scalar type.* With W :=
+r³F_tr, R[W] = (r²M_t)′ = 0 (M = δdu = 0), and Φ := r^(−1/2)W solves −Φ_** + V_2Φ = 0 with V_2 > 0 as k_l² ≥ 3
+([[prop:np-10-16]] (iv)–(v), whose κ is k_l²). F_tr = F_vr is smooth at r_h, and W = O(r^(2−β)). R[W] = 0 has a regular
+singular point at r = ∞, with the indicial roots W ∼ r^(l+2) and W ∼ r^(−l); as l + 2 > 2 − β, W = O(r^(−l)), so Φ =
+O(r^(−l−1/2)), Φ_* = O(r^(−l−3/2)), and the energy identity gives Φ = 0. So F_tr = 0, and with M = 0 [[prop:np-10-16]]
+(iv) gives a = b = 0 for the gauge-invariant pair there: each scalar component of u is d(c_lS) on {r > r_h}, for a
+function c_l of r.
 
-*(c) The gauge.* So u = Σ_(l≥2) d(c_lS_l) on {r > r_h}, and δu = 0 gives (r³fc_l′)′ = κrc_l. c_l dS has size |c_l|/r
+*(c) The gauge.* So u = Σ_(l≥2) d(c_lS_l) on {r > r_h}, and δu = 0 gives (r³fc_l′)′ = k_l²rc_l. c_l dS has size |c_l|/r
 in the Cartesian frame, so c_l = O(r^(1−β)). At r = ∞ the indicial roots are r^l and r^(−l−2), and r^l is excluded as
 l > 1 − β, which holds for l ≥ 2 as β > −1. So c_l = O(r^(−l−2)), and the energy identity of (a) gives c_l = 0. So
 u = 0 on {r > r_h}.
@@ -974,9 +986,11 @@ Part (a) is all that is used below: [[thm:gd-r8-10]] works at weights in (−1, 
 (û, b̂, Ŝ): no augmentation is needed.
 
 *Proof.* [[lem:gd-r8-3]] (c), [[prop:gd-r8-5]], [[prop:gd-r8-6]] and [[thm:gd-r8-7]]. The proof of
-[[prop:ii-g1-4-7]] uses of the operator only [[thm:i-c-6-4]] (4) with m_1 = m_2 = 0 and (5), and [[lem:ii-g1-4-1]],
-which involves no operator; the proof of [[lem:iii-i2-4-2]] is that proof with the augmented estimates of [[ch:s18]] in
-place of those of [[ch:s03]], which are no longer needed. ∎
+[[prop:ii-g1-4-7]] uses of the operator only [[thm:i-c-6-4]] (4) with m_1 = m_2 = 0 at its weight α, which
+[[thm:i-c-6-4]] (5) supplies when α is not the weight of the hypotheses, and [[lem:ii-g1-4-1]], which involves no
+operator. For P_Π, [[thm:gd-r8-7]] states (4) at every α with α + 2 ∈ (−1, 3), so (5) is not needed; (2), the adjoint
+estimate, is not used. The proof of [[lem:iii-i2-4-2]] is that proof with the augmented estimates of [[ch:s18]] in place
+of those of [[ch:s03]], which are no longer needed. ∎
 
 ### The rate of the representative {#sec:hr-rate}
 
@@ -1032,12 +1046,15 @@ of k. There is no singular part and no W*.
 
 *Proof.* Πu = u by [[lem:gd-r8-2]] (b). We follow the proof of [[thm:gd-r6-4]].
 
-*The decomposition.* For f with Πf = f, (û_(reg,1), b̂_1) := P̃(σ)⁻¹(f̂, 0) has b̂_1 = 0 and
-û_(reg,1) = P_Π(σ)⁻¹f̂ for 0 < |σ| ≤ c: Π_0 commutes with P̂(σ), fixes the column f̂_*(σ), the transform of the
-SO(4)-invariant [□, χ^H_K]W*, and the row, φ_* and h being SO(4)-invariant, and kills f̂ (Π_0Π = 0); so
-P̃(σ)(Π_0û_(reg,1), b̂_1) = (Π_0f̂, ⟨û_(reg,1), φ_*⟩_h) = (0, 0), whence Π_0û_(reg,1) = 0, b̂_1 = 0, and
-P̂(σ)û_(reg,1) = f̂. So u_sing = 0 and u = u_hi + u_reg, with c at most the constant c_k of [[cor:gd-r8-9]] at the
-weight below.
+*The decomposition.* For f with Πf = f, (û_(reg,1), b̂_1) := P̃(σ)⁻¹(f̂, 0) has b̂_1 = 0 and û_(reg,1) = P_Π(σ)⁻¹f̂ for 0
+< |σ| ≤ c: Π_0 commutes with P̂(σ), fixes the column f̂_*(σ), the transform of the SO(4)-invariant [□, χ^H_K]W*, and the
+row, φ_* and h being SO(4)-invariant, and kills f̂ (Π_0Π = 0); so P̃(σ)(Π_0û_(reg,1), b̂_1) = (Π_0f̂, ⟨û_(reg,1),
+φ_*⟩_h) = (0, 0), whence Π_0û_(reg,1) = 0, b̂_1 = 0, and P̂(σ)û_(reg,1) = f̂. Moreover Πû_(reg,1) = û_(reg,1): Π commutes
+with
+P̂(σ), Π^(*h) = Π ([[lem:gd-r8-2]] (a)), and Πφ_* = ΠΠ_0φ_* = 0, as ΠΠ_0 = 0 (the orthogonality of characters, and Π_G(1
+− Π_0)Π_0 = 0); so P̃(σ)(Πû_(reg,1), 0) = (ΠP̂(σ)û_(reg,1), ⟨û_(reg,1), Πφ_*⟩_h) = (Πf̂, 0) = (f̂, 0), and the
+invertibility of P̃(σ) gives Πû_(reg,1) = û_(reg,1). As P_Π(σ) is invertible ([[thm:gd-r8-7]] (a)), û_(reg,1) =
+P_Π(σ)⁻¹f̂. So u_sing = 0 and u = u_hi + u_reg, with c at most the constant c_k of [[cor:gd-r8-9]] at the weight below.
 
 *Step 2* is that of [[thm:gd-r6-4]]: [[lem:iii-i2-4-1]] at (w_I, γ_+ + 2, α_K), whose conditions are w_I − 1 ≥ 3/2 and
 w_I ≥ γ_+ + 1 + ϵ_1 (as α_K > 1 − ϵ_1), gives u_hi ∈ H^(∞,(3/2−ϵ,𝔪,𝔪))_b; and [[prop:ii-g1-3-3]] (1) with ϵ_PP gives
@@ -1079,15 +1096,15 @@ constant bounded by finitely many norms of the data.
     γ_+ ∈ (max(½, α_K − 1), ½ + δ_♯),        β ∈ (γ_+ − ½, δ_♯),        η ∈ (0, ½ + δ_♯ − γ_+),
 
 possible as α_K − 1 < ½ + δ_♯; then γ_+ < ¾ < 1 and β > 0. As in the proof of [[cor:gd-r5-3]] at this β, with
-[[thm:gd-r4-3]] (some p ∈ (½ + β, min(3/2, q_ḣ − 1)), which is nonempty as q_ḣ − 1 > ½ + 2γ_Υ), b_+ := ½ + β and
-b_I ∈ (b_+, p): Y := χ(t^♭_*)Z_1 ∈ H^(k,(b_I,b_+,−1/2))_b(Ω_*, μ_b), and χ′Y is the forward solution of
-f := χ′J_h + [□, χ′]Y. Put f_(≥2) := Π_cl f; its forward solution is Π_cl(χ′Y) ([[lem:gd-r8-2]] (b)). f vanishes near
-ℐ⁺, so every w_I is allowed. χ′J_h has ι⁺-order 5/2 + δ_♯ − η > γ_+ + 2 and K⁺-order w − η > 2 + ε_t − η > α_K
-([[prop:gd-r3-2]]; η < δ_♯ < ¼); [□, χ′]Y ∈ H^(∞,(𝔪,b_++2,𝔪))_b with b_+ > γ_+; and Π_cl preserves these classes
-([[lem:gd-r8-2]] (b)). So f_(≥2) satisfies the hypotheses of [[thm:gd-r8-10]] with Π = Π_cl, which gives
-Π_cl(χ′Y) = O(t_*^(−α_K)) on compact sets, with every derivative. At late times on compact sets χ′ = χ(t^♭_*) = χ_K = 1,
-so Z_(1,≥2) = Π_cl(χ′Y), and (ġ_H)_(≥2) = h_(≥2) + ℒ_(Z_(1,≥2))g, as ṁK_V and ℒ_(W**_H)g have no part with l ≥ 2;
-and |h|_k = O(t_*^(−w+ε′)) ([[eq:gd-0-2]]). ∎
+[[thm:gd-r4-3]] (some p ∈ (½ + β, min(3/2, q_ḣ − 1)), which is nonempty as q_ḣ − 1 > ½ + 2γ_Υ), b_+ := ½ + β and b_I ∈
+(b_+, p): Y := χ(t^♭_*)Z_1 ∈ H^(k,(b_I,b_+,−1/2))_b(Ω_*, μ_b), and χ′Y is the forward solution of f := χ′J_h + [□, χ′]Y.
+Put f_(≥2) := Π_cl f; its forward solution is Π_cl(χ′Y) ([[lem:gd-r8-2]] (b)). f vanishes near ℐ⁺, so every w_I is
+allowed. χ′J_h has ι⁺-order 5/2 + δ_♯ − η > γ_+ + 2 and K⁺-order w − η > 2 + ε_t − η > α_K ([[prop:gd-r3-2]] with some β′
+∈ (0, δ_♯ − η), which exists as η < ½ + δ_♯ − γ_+ < δ_♯; and w − η > 2 − ¼ > 3/2 + δ_♯ > α_K, as η < δ_♯ < ¼); [□, χ′]Y ∈
+H^(∞,(𝔪,b_++2,𝔪))_b with b_+ > γ_+; and Π_cl preserves these classes ([[lem:gd-r8-2]] (b)). So f_(≥2) satisfies the
+hypotheses of [[thm:gd-r8-10]] with Π = Π_cl, which gives Π_cl(χ′Y) = O(t_*^(−α_K)) on compact sets, with every
+derivative. At late times on compact sets χ′ = χ(t^♭_*) = χ_K = 1, so Z_(1,≥2) = Π_cl(χ′Y), and (ġ_H)_(≥2) = h_(≥2) +
+ℒ_(Z_(1,≥2))g, as ṁK_V and ℒ_(W**_H)g have no part with l ≥ 2; and |h|_k = O(t_*^(−w+ε′)) ([[eq:gd-0-2]]). ∎
 
 **Theorem {#thm:harmonic-rate}** (The harmonic-gauge representative and its rate.) Let (γ̇, k̇) be data in the class of
 [[cor:viii-2-3]], ġ its linear solution and ṁ its mass change, and let ġ_H = ġ + ℒ_Zg be the representative of
@@ -1097,7 +1114,8 @@ supremum of the orders of its data ([[def:hr-order]]), and
 
     c := (Q[Z′_0] − 4π²m₀c′)/4π².
 
-On each {r_♭ < r ≤ R′, t_* ≥ T′}, with every number of derivatives:
+Then c = c_∞, the constant of [[cor:gd-r4-4]], and on each {r_♭ < r ≤ R′, t_* ≥ T′}, with every number of
+derivatives:
 
 (a) ġ_H − ṁK* − cℒ_(W*)g = O(t_*^(−α)) for every α < min(p_0, 3/2), where p_0 ≥ q − 1 > ½ + 2γ_Υ, q of
 [[cor:gd-r7-7]]. As γ_Υ ≥ δ_♯, this is faster than t_*^(−1/2−δ_♯) for every perturbation in the class.
@@ -1110,14 +1128,19 @@ symmetric part is
 
     (ġ_H)_0 = cℒ_(W*)g + (m₀c/2) t_*^(−2) ℒ_(W*)g + O(t_*^(−3+ε))        for every ε > 0.
 
-In every case the part with l ≥ 2 is O(t_*^(−3/2−κ)) for every κ < δ_♯. K* = K + ℒ_(W**)g is the gauge-fixed mass
+In every case the part with l ≥ 2 is O(t_*^(−3/2−κ)) for every κ < δ_♯. K* = K̄ + ℒ_(W**)g is the gauge-fixed mass
 change of [[prop:np-10-2]] (iv) (c), smooth across the horizon, with K* − (v/2)ℒ_(W*)g stationary: ṁK* grows linearly
 in v.
 
 *Proof.* In the class, ġ_H − ṁK* − cℒ_(W*)g = ((ġ_H)_0 − ṁK* − cℒ_(W*)g) + (ġ_H)_(≥2), as K* and ℒ_(W*)g are
 spherically symmetric. The first term is [[cor:gd-r7-7]] (a), (b) and its last display; the case α = 1 of (a) follows
 from a slightly larger α when min(p_0, 3/2) > 1. The second is [[cor:gd-r8-11]], whose exponent 3/2 + δ_♯ exceeds 3/2
-and 1 and is below 2: so in (c) the rate of the sum is that of the part with l ≥ 2. ∎
+and 1 and is below 2: so in (c) the rate of the sum is that of the part with l ≥ 2.
+
+*c = c_∞.* Take R′ ≥ 2r_h and α ∈ (0, ½), possible in (a) as p_0 > ½. Subtracting the bound of [[cor:gd-r4-4]] from
+(a) gives (c − c_∞)ℒ_(W*)g = O(t_*^(−α)) on {r_♭ < r ≤ R′, t_* ≥ T′}. W* and g are stationary and spherically
+symmetric, so the value of ℒ_(W*)g on (∂_v, ∂_r) is a function of r alone, and at r = 2r_h it is −(7/24)r_h⁻³
+([[cor:gd-r7-4]]). Along {r = 2r_h}, t_* − v is constant; letting t_* → ∞ there gives (7/24)r_h⁻³|c − c_∞| = 0. ∎
 
 On each {r_♭ < r ≤ R′}, t_* − v and t_* − t are bounded, so the rates hold with v or t in place of t_*. Without decay of
 the data of Z′_0 the growth ṁK* can be traded for a stationary term that does not decay at infinity

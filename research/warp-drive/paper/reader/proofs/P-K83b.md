@@ -126,3 +126,48 @@ On the other hand, ξ(H) = N_sΠ + Y_s^RH′, |dH|² = −Π² + N_s²H′² and
     −2T_m(ξ, n)√G = −R³(Π² + 2y_sΠH′ + N_s²H′²) − (k_T² + 2)RH².
 
 Since 𝔅_T has compact support in (R1, R2), integrating [[eq:loc-tensor-flux]] in R gives [[eq:loc-tensor-charge]].
+
+<!-- Part 2. Block 2.1: replaces lem:loc-scalar-reduction, statement and proof. -->
+
+**Lemma {#lem:loc-scalar-reduction}** (The scalar modes.) On the static slice put x := μ/R², so that f = 1 − x and
+Rf′ = 2x, and write ′ := d/dR. A class seed is a sum of scalar modes, tensor modes and an l = 0 part, and 𝔈_V, 𝔈_K and
+the constraints split mode by mode. Write a scalar mode of degree l = 2j ≥ 2 as h_RR = aS, h_Rϑ = R b ∂_ϑS, h|_(S³) =
+R²(cSγ̂ + eŜ), its other components vanishing, with S := P_j(cos 2ϑ), k² := l(l + 2), Ŝ := D̂D̂S + (k²/3)γ̂S, and k
+likewise with (p, q_k, w, z) in place of (a, b, c, e); put ‖S‖² := ∫_0^(π/2) S² sc dϑ, m := k² − 3 and H_KI := m + 6x.
+
+(a) The vector field X = αS∂_R + β̃ ∂_ϑS ∂_ϑ shifts (a, b, c, e) by ((1/f)′α + 2α′/f, α/(Rf) + Rβ̃′, 2α/R −
+(2k²/3)β̃, 2β̃), so that b = e = 0 is reached by β̃ = −e/2 and α = −Rf(b − Re′/2); the quantities A := a + (1/f)′α +
+2α′/f and F := c/2 − fb + k²e/6 + fRe′/2 are gauge invariant. The direction k_ψ with ψ_g = ψS has trace-free angular
+part ψŜ, so z = 0 is reached by ψ = −R²z. Both gauges are local in R.
+
+(b) For z = 0 the momentum constraint of the mode is ℳ = 𝔪_R S dR + 𝔪_ϑ ∂_ϑS dϑ, with
+
+    𝔪_R := (3fp − 3w − k²q_k)/R − 3w′,        𝔪_ϑ := (4 − 3x)q_k − fp + Rf q_k′ − 2w.                {#eq:loc-mom-modes}
+
+With Z := R³(w − fq_k), the map Z ↦ (q_k, w, p) = (−3Z′/(R²H_KI), Z/R³ + fq_k, ((4 − 3x)q_k + Rf q_k′ − 2w)/f) solves
+the constraint, every compactly supported solution is the image of its own Z, and on the constraint
+
+    𝔈_K = (2π)² ‖S‖² ∫ 6k²m Z²/(R³H_KI²) dR.                                                           {#eq:loc-ek}
+
+(c) For b = e = 0 put A := a and F := c/2. Then DScal[h] = C(A, F) S, with
+
+    C(A, F) := R⁻²((k² + 6 + 6x)fA + 3Rf²A′ + 4(k² − 3)F − 6R(1 + 3f)F′ − 6R²fF″),                       {#eq:loc-c}
+
+and 𝔈_V(h) = (2π)² ‖S‖² ∫ E_V(A, F) dR, with
+
+    E_V(A, F) := Rf²(k²/2 + 6 + 12x)A² + 6R²f³AA′ − 3R³f²A′F′ − 6R³f²AF″ − 12R²f(1 + f)AF′
+                 + 3k²RfAF + (10k² − 24)RF² − 12R³fFF″ − 12R²(1 + 3f)FF′.                                {#eq:loc-ev-af}
+
+With ℓ := A − (2R/f)F′ + (2H_KI/(3f²))F and κ_M := (k² + 6 + 6x)/(3Rf),
+
+    ℓ′ + κ_Mℓ − (2k²H_KI/(9Rf³)) F = (R/(3f²)) C(A, F),                                                {#eq:loc-moncrief}
+
+so the map ℓ ↦ (A, F), F = 9Rf³(ℓ′ + κ_Mℓ)/(2k²H_KI), A = ℓ + (2R/f)F′ − (2H_KI/(3f²))F, solves C = 0, and every
+compactly supported solution is the image of its own ℓ. With Φ_M := R^(3/2)f²ℓ/H_KI, on the constraint,
+
+    𝔈_V = (2π)² ‖S‖² (27m/(2k²)) ∫ (f Φ_M′² + Qp Φ_M²/(16R²H_KI²)) dR,
+    Qp := 1296x³ + (624m − 144)x² + 36m(m − 12)x + 16m³ + 60m².                                          {#eq:loc-ev}
+
+(d) The l = 0 part of a seed is a gauge seed and contributes nothing to 𝔈_V and 𝔈_K: on the constraint, h_(l=0) =
+L_(RF∂_R)γ for a compactly supported F, and k_(l=0) = k_ψ with ψ_g := −N_s ∫_R^∞ R′w(R′)/(f(R′)N_s(R′)) dR′, where
+k_(l=0)|_(S³) = R²wγ̂; ψ_g vanishes beyond the support and is a constant multiple of N_s on its inner side.

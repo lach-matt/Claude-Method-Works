@@ -365,7 +365,7 @@ The remaining chapters prove the following; each is stated in full where it is p
   start of the shell, where timelike curves of g_λ cross it ([[thm:layer]], [[cor:layer]]), and at the very edge of
   the layer the character of the boundary is decided column by column ([[thm:very-edge]]).
 - *Physical wavelengths.* An upper bound for λ0 at a numerical point, and an approximate value, which is not proved, of
-  the first stage's mean correction there ([[prop:lambda0]]); at the prescribed wavelength 10 l5 there is no separation
-  of scales, and existence holds where the solution is the seed ([[thm:ten-l5]]).
+  the first stage's mean correction there ([[prop:lambda0]], [[rem:m22-value]]); at the prescribed wavelength 10 l5
+  there is no separation of scales, and existence holds where the solution is the seed ([[thm:ten-l5]]).
 
 [[ch:scope]] collects what is claimed and what is not.

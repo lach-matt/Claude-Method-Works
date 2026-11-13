@@ -923,9 +923,9 @@ At a point of Ω_c, v^((0)) + ṽ(s) = −∫_s^(s_c) w_♯ ds′ = −∫_s^(s_
     e^(−γs)|ṽ(s)| ≤ ∫_(−∞)^s e^(−γ(s−s′))e^(−γs′)|w_♯(s′)| ds′,
 
 the second a convolution with a kernel of L¹-norm γ⁻¹; integration in (ρ₀, ω) with the weight ρ₀^(−2a₀) gives (b) for
-m = 0. Over a point of ℐ⁺_c whose curve lies in Ω_c for all ρ_I < c, w_♯ = w along
-it, and for almost every such point ∫ e^(−2γs′)|w|² ds′ is finite; then |ṽ(s)|² ≤ (2γ)⁻¹e^(2γs)∫ e^(−2γs′)|w|² ds′ by
-Cauchy–Schwarz on (−∞, s], so v(s) = v^((0)) + ṽ(s) → v^((0)) as s → −∞. (c): in the coordinates (z, y, ω),
+m = 0. Over a point of ℐ⁺_c whose curve lies in Ω_c for all ρ_I < c, w_♯ = w along it, and for almost every such point
+∫ e^(−2γs′)|w|² ds′ is finite; then |ṽ(s)|² ≤ (2γ)⁻¹e^(2γs)∫ e^(−2γs′)|w|² ds′ by Cauchy–Schwarz on (−∞, s], so
+v(s) = v^((0)) + ṽ(s) → v^((0)) as s → −∞. (c): in the coordinates (z, y, ω),
 z := log ρ₀, y := log ρ, X₀ − X_I = ∂_z and log ρ_I = y − z, so the density is dz dy dg̸ and {ρ_I = c} is
 {z = z_c(y) := y − log c}. By [[lem:iv2-1-1]] (b), v(z, y) = ∫_(z_c(y))^z w(z′, y) dz′. The weight is
 ρ₀^(−a₀)ρ_I^(−γ) = e^(−γy)e^(−(a₀−γ)z), and
@@ -958,9 +958,9 @@ u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c), ũ_j ∈ H^(k,(a₀,2β))_b in every slot j,
 *Proof.* On U, ρ_I = (2 − x¹)/|x| ([[eq:iii-c-1-2]]), and the upper condition of [[eq:iv2-0-5]] reads
 x¹ ≤ y_* + 2|x|^(1−ℓ^♭_I) (the proof of [[lem:iv2-1-1]]). Over a point of ℐ⁺ with x¹ ≤ y_* it holds at every |x|, and
 the lower condition holds for ρ_I ≤ c, as in the proof of [[lem:iv2-1-1]] (b); so the whole X_I-curve {0 < ρ_I < c}
-over the point lies in Ω_c, and the point lies in Ω̄_c. Over a point with x¹ > y_*, it gives
-|x| ≤ ((x¹ − y_*)/2)^(−1/(ℓ^♭_I−1)) on Ω_c, so ρ_I is bounded below on Ω_c over a neighbourhood of the point, which
-therefore is not in Ω̄_c. This proves the description of ℐ⁺ ∩ Ω̄_c.
+over the point lies in Ω_c, and the point lies in Ω̄_c. Over a point with x¹ > y_*, the upper condition gives the
+bound |x| ≤ ((x¹ − y_*)/2)^(−1/(ℓ^♭_I−1)) on Ω_c, so ρ_I is bounded below on Ω_c over a neighbourhood of the point,
+which therefore is not in Ω̄_c. This proves the description of ℐ⁺ ∩ Ω̄_c.
 
 (b) By the same bound, ρ_I ≥ c_z > 0 on Ω_c over the compact set supp z, and ρ₀ = 1/(2 − x¹) is bounded above and
 below there. So χ_Iz, whose b-derivatives are bounded, is supported in a region of finite b-volume on which the weights
@@ -968,10 +968,9 @@ are bounded, and lies in H^(∞,(a₀,2β))_b(Ω_c); and u₆ = χ_I(u^((0)) + z
 
 (a) If (u^((0)), ũ) and (u′^((0)), ũ′) are decompositions of u, then z := u^((0)) − u′^((0)) satisfies
 χ_Iz = ũ′₆ − ũ₆ ∈ H^(0,(a₀,2β))_b(Ω_c). In the coordinates (s, ρ₀, ω), s := log ρ_I, of the proof of [[lem:iv2-1-2]],
-the square of this norm is comparable to ∫(∫ e^(−2βs)|χ_Iz|² ds) ρ₀^(−2a₀)(dρ₀/ρ₀)dg̸, which is therefore finite. Over a
-point with x¹ ≤ y_* the
-inner integral runs over (−∞, log c), on which χ_I = 1 for s ≤ log(c/4), and ∫_(−∞)^(log(c/4)) e^(−2βs) ds = ∞ as
-β > 0. So z = 0 at almost every such point. ∎
+the square of this norm is comparable to ∫(∫ e^(−2βs)|χ_Iz|² ds) ρ₀^(−2a₀)(dρ₀/ρ₀)dg̸, which is therefore finite. Over
+a point with x¹ ≤ y_* the inner integral runs over (−∞, log c), on which χ_I = 1 for s ≤ log(c/4), and
+∫_(−∞)^(log(c/4)) e^(−2βs) ds = ∞ as β > 0. So z = 0 at almost every such point. ∎
 
 The estimates below bound the norm of a decomposition that they construct, linearly in the data, and so bound the norm
 of u. Where a choice linear in u is needed, in the smoothing of the proof of [[thm:iv2-3-1]], the decomposition is
@@ -1820,21 +1819,21 @@ such that for every spacetime metric g with (g − g_(b₀))|_(Σ_IVP) = h₀ an
 
 *Proof.* We follow [Hin26], which follows [HV18b, Proposition 3.10] and [HV24, Theorem 4.2]; the dimension enters only
 through the size of the frame. Near Σ_IVP write g_(b₀) = a dt_IVP² + 2dt_IVP ⊗_s b + γ_(b₀) and set h₀ := γ̃, extended
-to S²T* by h₀(ν_(b₀), ·) := 0, so that g₀ := g_(b₀) + h₀ induces γ. Let ν_(b₀) and ν₀ = ν_(b₀) + ν̃ be the future unit
-normals; ν̃ ∈ H^(∞,(ℰ₀,ℓ₀))_b. We seek h₁ = rh̃₁ such that g := g₀ + t_IVP h̃₁ (still with unit normal ν₀ at Σ_IVP)
-has second fundamental form k and Υ⁰(g, g_(b₀)) = 0 there. For X, Y tangent to Σ_IVP, g(ν, Y) = 0 along Σ_IVP, so
+to S²T* by h₀(ν_(b₀), ·) := 0, so that g₀ := g_(b₀) + h₀ induces γ. Here ν_(b₀) is the future unit normal of Σ_IVP for
+g_(b₀); as g₀(ν_(b₀), Y) = g_(b₀)(ν_(b₀), Y) = 0 for Y tangent to Σ_IVP and g₀(ν_(b₀), ν_(b₀)) = −1, it is also the
+future unit normal ν₀ for g₀. We seek h₁ = rh̃₁ such that g := g₀ + t_IVP h̃₁ (still with unit normal ν₀ at Σ_IVP) has
+second fundamental form k and Υ⁰(g, g_(b₀)) = 0 there. For X, Y tangent to Σ_IVP, g(ν, Y) = 0 along Σ_IVP, so
 X(g(ν, Y)) = 0 gives k_g(X, Y) = −g(ν, ∇^g_XY) for the second fundamental form k_g of g with unit normal ν. As g = g₀
-on Σ_IVP, with the same unit normal ν₀, k_g(X, Y) = −g₀(∇^g_XY, ν₀). Writing g₀ = g_(b₀) + h₀ and ν₀ = ν_(b₀) + ν̃,
+on Σ_IVP, with the same unit normal ν₀, k_g(X, Y) = −g₀(∇^g_XY, ν₀). As h₀(·, ν₀) = 0, g₀(Z, ν₀) = g_(b₀)(Z, ν_(b₀)) for
+every vector Z, so
 
-    g₀(∇^(g₀)_XY, ν₀) = −k_(b₀)(X, Y) + h₀(∇^(g_(b₀))_XY, ν_(b₀)) + g₀(∇^(g_(b₀))_XY, ν̃)
-                          + g₀((∇^(g₀)_X − ∇^(g_(b₀))_X)Y, ν₀),
+    g₀(∇^(g₀)_XY, ν₀) = −k_(b₀)(X, Y) + g₀((∇^(g₀)_X − ∇^(g_(b₀))_X)Y, ν₀),
 
 as g_(b₀)(∇^(g_(b₀))_XY, ν_(b₀)) = −k_(b₀)(X, Y). Subtracting this from g₀(∇^g_XY, ν₀) = −k_(b₀)(X, Y) − k̃(X, Y),
 which is k_g = k, gives the first of the two conditions; the second is Υ⁰(g, g_(b₀)) = 0 at Σ_IVP. They are the
-conditions of [Hin26, (5.80) and (5.81)], written in the convention of [[lem:iii-b-3-9]]:
+conditions of [Hin26, (5.80) and (5.81)], written in the convention of [[lem:iii-b-3-9]] and with this choice of h₀:
 
-    g₀((∇^g_X − ∇^(g₀)_X)Y, ν₀) = −k̃(X, Y) − h₀(∇^(g_(b₀))_XY, ν_(b₀)) − g₀(∇^(g_(b₀))_XY, ν̃)
-                                    − g₀((∇^(g₀)_X − ∇^(g_(b₀))_X)Y, ν₀),
+    g₀((∇^g_X − ∇^(g₀)_X)Y, ν₀) = −k̃(X, Y) − g₀((∇^(g₀)_X − ∇^(g_(b₀))_X)Y, ν₀),
     tr_(g₀)(∇^g − ∇^(g₀)) = −tr_(g₀)(∇^(g₀) − ∇^(g_(b₀))).
 
 Each x-derivative of h₀ gains a factor r⁻¹ (b-regularity), the Christoffel symbols of g_(b₀) are O(r⁻³) with all
@@ -1844,7 +1843,7 @@ i ≥ 1, at t_IVP = 0,
 
     2(Γ(g)_(λμν) − Γ(g₀)_(λμν)) = (t_IVP)_(;μ)(h̃₁)_(νλ) + (t_IVP)_(;ν)(h̃₁)_(μλ) − (t_IVP)_(;λ)(h̃₁)_(μν),
 
-with e_it_IVP = 0 (i ≥ 1) and e₀t_IVP in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b and bounded away from 0. The first equation at
+with e_it_IVP = 0 (i ≥ 1) and e₀t_IVP = ν_(b₀)t_IVP smooth and bounded away from 0. The first equation at
 (e_i, e_j), i, j = 1, …, 4, reads −½(e₀t_IVP)(h̃₁)_(ij) = ⋯ and determines (h̃₁)_(ij); the e^j-component of the second
 determines (h̃₁)_(0j); and its e⁰-component, −½(e₀t_IVP)(h̃₁)₀₀ = f₀ + ½(e₀t_IVP)(g₀)^(ij)(h̃₁)_(ij), with f₀ the
 e⁰-component of its right side, determines (h̃₁)₀₀; all lie in H^(∞,(ℰ₀+1,ℓ₀+1))_b, linearly and continuously in the

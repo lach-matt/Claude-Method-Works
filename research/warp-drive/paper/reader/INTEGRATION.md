@@ -1071,3 +1071,21 @@ Items found while chapters were written in parallel; each is settled once, editi
   horizon frame, K = K_0 + K_C + K_Υ, the weight grading and diagonal values) and chapter 21 labelled displays for
   prop:i-b-8-1 and prop:i-b-6-7, or chapter 70 restates them. Its minor 14 and nit 23 on chapter 71 were sent to F-71.
   The chapter 70 fix round waits for reader B.
+- F3-S04 done (report reports/F3-S04.md): chapter 23's (S15) from [Hin26d] (Prop 2.3, (2.3)/(2.5), Lemma 3.42, p. 52,
+  p. 75), the truncated-operator subalgebra, Prop 9.2's growing kernel ranges, Lemma 4.2's auxiliary G_j; chapter 25's
+  lemmas ii-d-2-1 to 2-5 with global errors and Lemma 4.1's localisers, φ_E supplied, prop:ii-d-3-6 (1)-(2) at
+  t_(*,−) − ½. R4-S04 reads chapter 23. F4-S06 now: trapped-set Steps 2, 4 by the Step 3 localisers, Step 1b(ii)'s
+  R_2^♭ term (needs a 1.5-order gain where S4 Prop 2.4 (e) gives one: to be proved), chapter 26's prop:ii-e-3-2 (φ_E
+  and cut-offs per U), and the (S15) entry in the appendix of quoted results.
+- P-U71-forward evaluated d_FWD ≤ 20,180 (exact part D_0 + 76; D_0 ≤ 20,104 by counted indices at T = 100). The
+  D_0 count is structural in places; a completion round writes it site by site, then an independent reader. Its
+  report lists chapter statements (23, 25-28) to strengthen with old and new text: apply after the running fix
+  rounds on 25, 26, 28. Effect on d: about 3.6×10¹² on d ≈ 4.62×10¹⁶ (the source's FWD was 877).
+- R-84: 1 Major (env of either sign; the window W_λ for env ≤ 0 or dipping negative; repair with the absolute value
+  of env and a phase shift π), 6 minor (forbidden line starts; numerical observations kept as remarks; summary; λ_L
+  conditions and an explicit Λ_0; L.12 (iii); thm:layer-past's M := M_P), 11 nits. F-84 running, with the "numerical
+  point of prop:lambda0" sentences at ~1177, ~1240 (R-86's replacement: "the envelope env_C of [[eq:envelope]]").
+- R-86: chapter 86 CONFIRMED after the coordinator applied the reader's exact text (lines 13-16, 24-25, 304-305);
+  chapter 3 lines 368-369 now cite rem:m22-value too. INTEGRATION: proofs/P-F-edge.md lines 4-5 (or wherever chapter
+  85 carries them) "for the envelope of the numerical point" → "for the envelope env_C"; retire proofs/P-C-lambda0.md
+  (its labels are now defined in chapter 86).
