@@ -1009,8 +1009,8 @@ directed and densities F_A² (A = 1, …, n), F_A smooth and transported by [[eq
 
 - (i) (Ω) holds for g0, for the generators of every family;
 - (ii′) on the overlap of the supports of any two families |g0⁻¹(du_A, du_B)| ≥ c > 0, and the frequencies are ν_A :=
-  Λ^(A−1), with Λ > (m* + m*²/2) Ē²/c, where m* := N + 2, N is the number of stages, and Ē bounds |du_A| in orthonormal
-  frames on the supports;
+  Λ^(A−1), with Λ > (m* + m*²/2) Ē²/c, where m* := 2N + 4, N is the number of stages, and Ē bounds |du_A| in
+  orthonormal frames on the supports;
 - (iii) the wave of family A is the wave W_A of the dust (u_A, F_A) at frequency ν_A ([[def:vlasov-wave]]), at the phase
   θ_A = ν_A u_A/λ: torus-polarised, with its gauge part;
 - (iv) the supports of the families lie at distance at least δ > 0 from the axes.
@@ -1028,8 +1028,11 @@ m_1 + Σ_A W_A(X, θ_A + φ_1^A(X)), W_A the waves of (iii).
 
 *Proof.* The stage system is that of [[lem:two-dust-stages]] with n phases: (a) the mean, a linear wave equation; (b)
 n phase corrections, each transported along its own generator; (c) the pure harmonics of each family, transported along
-its own generator; (d) every mixed harmonic e^(i j·θ) with at least two nonzero entries and |j|₁ ≤ m + 2 at stage m,
-divided by Q_j. On the overlaps |Q_j| ≥ 2 ν_B1 ν_B2 c*, by (ii′). The phase corrections and the mean change Q_j by O(λ),
+its own generator; (d) every mixed harmonic e^(i j·θ) with at least two nonzero entries and |j|₁ ≤ 2m + 4 at stage m,
+divided by Q_j. The bound on |j|₁: the waves W_A carry the first harmonic of θ_A and, through their gauge parts, the
+second, so g_1 has |j|₁ ≤ 2; a product of profiles ĝ_(l_1), …, ĝ_(l_p) enters the expansion of the reduced Ricci tensor
+at order λ^(l_1 + ⋯ + l_p − 2) at most, and, by induction on the stage, ĝ_l has |j|₁ ≤ 2l, so the residual of order
+λ^m has |j|₁ ≤ 2(m + 2). On the overlaps |Q_j| ≥ 2 ν_B1 ν_B2 c* for |j|₁ ≤ m* = 2N + 4, by (ii′). The phase corrections and the mean change Q_j by O(λ),
 and this change is moved to the next order, as in [[lem:two-dust-nonresonance]], since |j|₁ is bounded at each stage;
 each division costs one derivative, and there are finitely many stages. Every generator through a point of Ω reaches Σ_τ0
 inside Ω, by (Ω), so the Picard argument of [[thm:approximant]] closes the stage system. Stage 0: with g_1 := Σ_A W_A
@@ -1039,8 +1042,8 @@ wave W_A is that of R[g0 + λ W_A], a product of two different waves has only mi
 order λ⁻¹ vanish since each W_A depends on one phase. By [[lem:vlasov-wave]], R^(0)_A = Ric(g0) − F_A² du_A ⊗ du_A, with
 no oscillating part, the gauge part χ_A k_A ⊗ k_A removing the second harmonic of the quadratic term; the sum of these
 means is Ric(g0) − Σ_A F_A² du_A ⊗ du_A = 0, g0 being the Einstein–n-null-dust solution. The mixed harmonics R^(0)_× are
-removed by the mixed harmonics of q, divided by the symbols Q_j of [[eq:vlasov-symbol]] with |j|₁ = 2, bounded below
-by (ii′). The assembly is that of [[thm:two-dust-approximant]]: the stages m = 1, …, N by (a)–(d) above, and the passage
+removed by the mixed harmonics of q, divided by the symbols Q_j of [[eq:vlasov-symbol]] with |j|₁ ≤ 4, bounded below
+by (ii′), since q enters R^(0) only through −½ g0^(ab) ∂_a ∂_b, as multiplication of the harmonic e^(i j·θ) by ½ Q_j. The assembly is that of [[thm:two-dust-approximant]]: the stages m = 1, …, N by (a)–(d) above, and the passage
 to the fixed phases ν_A u_A/λ by the Taylor expansion in the phase corrections. ∎
 
 Let s_A(h) := h(ℓ_A, ℓ_A), and let Y_A, G1^A, G2^A, 𝒫 and the energy be those of [[thm:two-dust-uniform]] (defined

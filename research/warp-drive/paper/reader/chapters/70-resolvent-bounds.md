@@ -2332,7 +2332,7 @@ z = hσ as in [[sec:i-b-8-4]], ‖·‖_𝐨 and ‖·‖_(𝐨′) the semiclas
 (b) For h < h_1, Ch^M ≤ ¼ and CC_K h ≤ ¼, so the last two terms are at most ‖u‖_𝐨/2. (c) h_1 ≤ (4C)^(−1/M) ≤ 1, so
 C_0 ≥ (1 − ν′²)^(−1/2) ≥ 1. If Im σ < ν′|σ|, then h = |Re σ|⁻¹ and |Re σ|² = |σ|² − (Im σ)² > |σ|²(1 − ν′²), so
 h < (1 − ν′²)^(−1/2)|σ|⁻¹ ≤ h_1; (b) and P_(h,z) = h²P̂(σ) give ‖u‖_𝐨 ≤ 2Ch^(1−δ)‖P̂(σ)u‖_(𝐨′), and
-h^(1−δ) ≤ (1 − ν′²)^(−(1−δ)/2)|σ|^(−(1−δ)). Otherwise h = |σ|⁻¹ ≤ C_0⁻¹ < h_1 and δ = 0, so
+h^(1−δ) ≤ (1 − ν′²)^(−(1−δ)/2)|σ|^(−(1−δ)). Otherwise h = |σ|⁻¹ ≤ C_0⁻¹ < h_1 (as ν′ > 0) and δ = 0, so
 ‖u‖_𝐨 ≤ 2C|σ|⁻¹‖P̂(σ)u‖_(𝐨′), and |σ|⁻¹ ≤ |σ|^(−1+δ) ≤ (1 − ν′²)^(−(1−δ)/2)|σ|^(−1+δ) as |σ| ≥ 1. ∎
 
 The assumptions C_a ≥ ½ and C ≥ ¼ cost nothing, as enlarging a constant keeps an estimate true. The thresholds h_a and

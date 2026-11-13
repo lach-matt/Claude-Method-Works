@@ -442,8 +442,8 @@ becomes: -->
 <!-- Part 3. Block 3.6: the paragraph after the proof of prop:margins-seed (chapter lines 1702-1703) becomes: -->
 
 By [[prop:bg-seed]] (c), the background itself lies in the tube of (b), which gives Γ > 0 on its seed region; with
-[[prop:bg-region-three-end]] this gives Γ > 0 on all of region III on the slice Σ_τ0 of [[sec:loc-setting]], {0.70 ≤ R
-≤ R_u2}, and so [[cor:loc-charge-seed]] there.
+[[prop:bg-region-three-end]] this gives Γ > 0 on all of region III on the slice Σ_τ0 of [[sec:loc-setting]],
+{0.70 ≤ R ≤ R_u2}, and so [[cor:loc-charge-seed]] there.
 
 <!-- Part 3. Block 3.7: in the paragraph that opens sec:bg-below, after "([[prop:bg-seed]]);" insert: -->
 
