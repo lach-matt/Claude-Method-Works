@@ -464,8 +464,10 @@ C(J; C¹) ∩ C¹(J; C), H^r lying in C¹ for r ≥ 4, so by [[thm:std-ds-contin
 C(I; H^r), and the limit solves the system in the sense of distributions, with the same bound.
 
 (iv) *The spacetime norm, in tame form.* Let s ≥ 0 be an integer, the data and the forcing smooth, so that V is smooth
-on X by (ii), and translate τ so that I = [0, τ_1]. Below ‖·‖_p is the norm of H^p(X), ‖·‖_(C^j) that of C^j(X), and
-𝔠 := (A⁰, A^c, B). Two facts on X are used: H³(X) ⊂ L^∞(X), and ‖v‖_p ≤ C‖v‖_(p₀)^(1−λ)‖v‖_(p₁)^λ for
+on X by (ii). The data are given at τ = 0, inside I; in what follows I stands for I ∩ {τ ≥ 0} =: [0, τ_1] and X for
+[0, τ_1] × 𝕋⁴, and I ∩ {τ ≤ 0} is treated in the same way with τ replaced by −τ, the squared norms on I × 𝕋⁴ being the
+sums of those on the two halves (V is smooth across τ = 0). Below ‖·‖_p is the norm of H^p(X), ‖·‖_(C^j) that of C^j(X),
+and 𝔠 := (A⁰, A^c, B). Two facts on X are used: H³(X) ⊂ L^∞(X), and ‖v‖_p ≤ C‖v‖_(p₀)^(1−λ)‖v‖_(p₁)^λ for
 p = (1 − λ)p₀ + λp₁, λ ∈ [0, 1]. On ℝ × 𝕋⁴, where ‖v‖_p is equivalent to (Σ_n ∫⟨(ξ, n)⟩^(2p)|v̂(ξ, n)|² dξ)^(1/2) by
 Plancherel's theorem, the first holds as Σ_n ∫⟨(ξ, n)⟩^(−6) dξ < ∞ in dimension 5, and the second by Hölder's
 inequality with the exponents 1/(1 − λ) and 1/λ; on X they follow through the extension operator of
@@ -708,7 +710,7 @@ principal part is ½□_(g_0+h) ⊗ id, and its coefficients are smooth function
 when |S| + |S⁰| is small ([[lem:s27-translated-exterior]] (a)).
 
 *The regions.* c_♮, Σ_in and Σ_fin are those of [[sec:iv3-1]]. As T″ − x¹ ≥ 1 on 𝒟, ρ′_I ≥ 1/r ≥ c_♮/4 wherever ρ′_I
-is defined on 𝒟 ∩ {r ≤ R_K + 2}. Let A be larger by 1 than the largest value of t_IVP + ½r on the compact set
+is defined on 𝒟 ∩ {r ≤ R_K + 2}. Let A be larger by 1 than the supremum of t_IVP + ½r on the bounded set
 𝒦⁺ ∪ (𝒮 ∩ {ρ′_I ≥ c_♮/4}) ∪ (𝒟⁺ ∩ {r ≤ R_K + 2}), and put
 
     Q := (𝒟⁺ ∩ {t_IVP + ½r ≤ A}) ∖ {ρ′_I < c_♮/4},
@@ -761,10 +763,12 @@ r < R_K + 2 lies in O_3, as Q ⊃ 𝒟⁺ ∩ {r ≤ R_K + 2}. Let p ∈ 𝒟⁺
 ρ′_I(p) ≥ c_♮, as otherwise p ∈ O_4. If p ∈ 𝒮 or p ∈ Σ^fut_(r_1), then t_IVP + ½r ≤ A − 1 at p, p lying in the closure
 of 𝒮 ∩ {ρ′_I ≥ c_♮/4}, and ρ′_I > c_♮/4 near p; so a neighbourhood of p in 𝒟⁺ lies in Q, and p ∈ O_3. Otherwise a
 neighbourhood of p in 𝒟⁺ lies in Ω_(ext,r_1), and p ∈ O_1 if τ′(p) < ¼, p ∈ O_2 if τ′(p) ≥ ¼. Where two of the
-solutions of (i)–(iii) are defined they agree: on Q ∩ Ω_(ext,r_1) both solve the forward problem with the same data and
-forcing, and agree by the uniqueness clause of (L); on the other overlaps as in [[thm:iv2-2-4]]. So they define one ġ on
-𝒟⁺; and a partition of unity subordinate to O_1, …, O_4, by functions of t_IVP, τ′, ρ′_I and r bounded with all their
-b-derivatives, bounds its norms by the sum of those of the pieces. As the pieces overlap on open sets, no gluing across
+solutions of (i)–(iii) are defined they agree: on Q ∩ Ω_(ext,r_1), a compact set of the first kind (Q and
+Ω_(ext,r_1) ∩ {t_IVP ≥ 0} are closed under past causal curves within 𝒟⁺, and its part of Σ^IVP is the annulus
+{r_1 ≤ r ≤ 2A}), both solve the forward problem with the same data and forcing, and agree by the uniqueness clause of
+(L); on the other overlaps as in [[thm:iv2-2-4]]. So they define one ġ on 𝒟⁺; and a partition of unity subordinate to
+O_1, …, O_4, by functions of t_IVP, τ′, ρ′_I and r bounded with all their b-derivatives, bounds its norms by the sum of
+those of the pieces. As the pieces overlap on open sets, no gluing across
 a hypersurface is needed here (compare [[lem:s27-gluing]]).
 
 *The estimate.* The estimates compose as in *The estimate* of the proof of [[thm:iv2-2-4]]. [[eq:iv3-2-q]] has the form

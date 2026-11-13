@@ -1211,3 +1211,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - F-P-U71-assembly done (reports/F-P-U71-assembly.md): all 13 findings fixed; refreshed chapter 71 and chapter 3
   integration list in the report. R2-P-U71-assembly reads it. Chapter 71 integration waits on that reading,
   R-P-U71-forward and R-P-U71-close.
+- F-83 done (reports/F-83.md). Open: [[pending:class-domain-of-dependence]] (uniqueness on non-annular domains), R-83 m4
+  (cone development with null dust needs an Einstein-null-dust characteristic existence theorem), the [Rac16, (4.21)]
+  Appendix A entry: all to P-K83c. M-83b merges P-K83b with F-83's renames. Then R2-83 reads chapter 83.

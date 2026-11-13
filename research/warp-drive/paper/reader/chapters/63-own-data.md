@@ -990,7 +990,7 @@ d/dr = x̂·∂_x + f′ ∂_t.
 So on W (|t − v1| ≤ r, [[lem:own-wedge]] (b)) every second derivative of ψ, and the r-derivative along the ray of
 every first derivative, are combinations with coefficients bounded by 1 + 4/r of first derivatives of Γψ, Γ ∈ {∂_t, Z,
 Ω}, and of r⁻¹ ∂ψ.
-(b) If ∫_(r_σ)^∞ r^(2a+3)(F² + (dF/dr)²) dr < ∞ on almost every ray, with F := Ω^γ ∂ψ, then for R′ ≥ r_σ
+(b) If F := Ω^γ ∂ψ satisfies ∫_(S³) ∫_(r_σ)^∞ r^(2a+3) (|F|² + |dF/dr|²) dr dω < ∞, then for R′ ≥ r_σ
 
     ∫_(S³) R′^(2a+3) |F(R′, ω)|² dω ≤ 2 ‖r^(a+3/2) F‖ ‖r^(a+3/2) dF/dr‖,                                     {#eq:own-s1}
 
@@ -1600,24 +1600,28 @@ is at most k1/2 and k1/2 + 4 ≤ k1 for k1 ≥ 8. Summing over |α| ≤ k1 and t
 *Step 3 (closing).* With y(σ) := sup_[T,σ] 𝔈_(k1)^(1/2), Gronwall's inequality gives
 y² ≤ C_E e^(C_E K_κ)(𝔈_(k1)(T) + 𝔉_(k1) + 2y κ_∞), so 𝔈_(k1) ≤ C_*(𝔈_(k1)(T) + 𝔉_(k1) + λ²) on [T, σ*], with C_*
 independent of T, J, λ and ε_B. By [[lem:own-n-data]] (ii) and (iii), 𝔉_(k1) ≤ C(λ² + ν(λ)). By [[lem:own-truncation]]
-(iii) with k = k1, which applies as J ≥ 2k1 + 7, the cap satisfies 𝔈_(k1)(T) ≤ C(λ, J)|T|^(2a−6) (this is condition
-(ii) of [[prop:far-window]], whose hypotheses on the initial slice and on N are [[lem:own-truncation]] (iii) and
-[[lem:own-n-data]] (i)), and as a < 3 this is at most λ² for T ≤ T_1(λ, J). Put ε_B² := C_*(C(λ² + ν(λ)) + 2λ²), which
-depends on neither T nor J. So ε_B → 0 as λ → 0, ε_B ≤ ε_2 for λ ≤ λ_2, and 𝔈_(k1) ≤ ε_B² < 4ε_B² on [T, σ*]; and by
-Step 1, |g_T⁻¹ − g_b0⁻¹| ≤ 0.0232 < 0.0474 on W_T ∩ {t̃ ≤ σ*}: (BA) is improved. *Openness.* At σ* the bounds of Step 1
-give |H| ≤ 1/50. For x with r ≥ ϱ_0 (the exterior regions of [[lem:own-exterior]]) and t̃ ∈ [σ*, σ* + δ′], the time
-segment from (σ*, x) lies in W_T (v increases with t at fixed x, and v > v1 at t̃ = T, r ≥ ϱ_0), and ∂_t H is bounded
-on W_T ∩ {t̃ ≤ σ′} for σ′ ∈ (σ*, σ_1(T)); so |H| ≤ 1/25 there for δ′ small, and |g_T⁻¹ − g_b0⁻¹| ≤ 0.0474 < 7/25 by
-[[lem:own-margins]] (a). The points of W_T with r ≤ ϱ_0 form a compact set, on which no margin is needed. By
-[[lem:own-exterior]] (c), 𝔈_(k1) is continuous on [T, σ* + δ′], and (BA) holds on [T, σ* + δ″] for some δ″ > 0. The set
-where (BA) holds is therefore open and closed in [T, σ_1(T)), and contains T (on Σ̃_T, 𝔈_(k1)(T) ≤ λ²
-and |g_T − g_b0| ≤ 1/50). With the bounds of Step 1, the local theory continues g_T beyond any σ_1(T) < 0: g_T exists
-on all of W_T, with 𝔈_(k1) ≤ ε_B².
+(iii) with k = k1, which applies as J ≥ 2k1 + 7, the cap satisfies 𝔈_(k1)(T) ≤ C(λ, J)|T|^(2a−6) (condition (ii) of
+[[prop:far-window]]), and as a < 3 this is at most λ² for T ≤ T_1(λ, J). Put ε_B² := C_*(C(λ² + ν(λ)) + 2λ²), with
+C_* ≥ 1, which depends on neither T nor J. So ε_B → 0 as λ → 0, ε_B ≤ ε_2 for λ ≤ λ_2, and 𝔈_(k1) ≤ ε_B² < 4ε_B² on
+[T, σ*]; and by Step 1, |H| ≤ 1/100 < 1/50 on W_T ∩ {t̃ ≤ σ*}: (BA) is improved.
+
+*Openness.* Let σ′ ∈ (σ*, σ_1(T)); every derivative of g_T is bounded on W_T ∩ {t̃ ≤ σ′}, say |∂H| ≤ C_1 there. Let
+p ∈ W_T with σ* < t̃(p) ≤ σ* + δ′ ≤ σ′. Along the segment from p on which v and x̂ are fixed and r increases,
+t̃ = v − r − f(r) decreases at the rate 1 + f′ ≥ 1, while v ≥ v1 and r ≥ 4R stay true; so it reaches Σ̃_(σ*) after an
+increase of r by at most δ′, inside W_T ∩ {t̃ ≤ σ′}, with Euclidean length at most √2 δ′. Hence
+|H(p)| ≤ 1/100 + √2 C_1 δ′ ≤ 1/50 for δ′ small, and [[lem:own-exterior]] applies on [T, σ* + δ′] with c = 0.0232: by its
+(c), 𝔈_(k1) is continuous there, and as 𝔈_(k1)(σ*) ≤ ε_B², (BA) holds on [T, σ* + δ″] for some δ″ > 0. The set of the
+σ* ∈ [T, σ_1(T)) at which (BA) holds is therefore open; it is closed, both conditions being closed; and it contains T,
+since on Σ̃_T, 𝔈_(k1)(T) ≤ λ² ≤ 4ε_B² and H = H_D, |H_D| ≤ 1/50 (the proof of [[lem:own-truncation]] (iii)). So (BA),
+and with it 𝔈_(k1) ≤ ε_B² and the bounds of Step 1, hold on [T, σ_1(T)). If σ_1(T) < 0, these bounds, uniform on
+W_T ∩ {t̃ < σ_1(T)}, let the local theory continue g_T with bounded derivatives beyond σ_1(T) ([[lem:own-truncation]]
+(iv)), against the definition of σ_1(T); so σ_1(T) = 0, and the same continuation across {t̃ = 0} shows that g_T exists
+and is smooth on all of W_T, with 𝔈_(k1) ≤ ε_B² and the bounds of Step 1 on [T, 0].
 
 *Step 4 (higher orders at fixed λ and J).* For k1 < k ≤ k_J, induct on k: in the commuted equations at order k the
 terms of top order are linear in the order-k quantities, with coefficients bounded by [[eq:own-pointwise]] and its
-analogues at the orders at most k − 1 (in (B) the second-largest order is at most k/2, and k/2 + 4 ≤ k − 1 for
-k ≥ 10), so [[eq:own-gronwall]] holds at order k with ε_B replaced by C_(k−1)(λ, J) in the pointwise factors, 𝔈_k being
+analogues at the orders at most k − 1 (in (B) the second-largest order is at most ⌊k/2⌋, and ⌊k/2⌋ + 4 ≤ k − 1 for
+k ≥ 9), so [[eq:own-gronwall]] holds at order k with ε_B replaced by C_(k−1)(λ, J) in the pointwise factors, 𝔈_k being
 finite and continuous by [[lem:own-exterior]] (c), and Gronwall's inequality closes without smallness:
 𝔈_k ≤ C_k(λ, J)(𝔈_k(T) + 𝔉_k + λ²). This is finite and uniform in T by [[lem:own-n-data]] (i), (iii) and the cap
 𝔈_k(T) ≤ C(λ, J)|T|^(2a−6) of [[lem:own-truncation]] (iii), which applies as J ≥ 2k + 7 for k ≤ k_J.
