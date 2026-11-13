@@ -176,10 +176,10 @@ is {t̃ = T} on r ≥ 4R, δ_0 := V′_P − κ_P − v1 (≥ 4 by [[lem:interio
 V_T := V′_P − δ_0/2 − h_P(T − C_f), and let χ_T(v) be smooth, 0 for v ≤ V_T and 1 for v ≥ V_T + δ_0/4, with derivatives
 bounded independently of T. Put
 
-    D_T := (1 − χ_T) g_λ + χ_T (g_b0 + Σ + Σ′_J),                                                      {#eq:cutoff-data}
+    𝔤_T := (1 − χ_T) g_λ + χ_T (g_b0 + Σ + Σ′_J),                                                      {#eq:cutoff-data}
 
 defined where g_λ is defined or χ_T = 1. The *truncated problem* is the Cauchy problem for Ric^H(g) = 0 relative to g0
-with data (g, ∂_τ g) on 𝒮_T equal to those of D_T. (Σ and Σ′_J are defined on {v ≥ v1}, which contains the support of
+with data (g, ∂_τ g) on 𝒮_T equal to those of 𝔤_T. (Σ and Σ′_J are defined on {v ≥ v1}, which contains the support of
 χ_T, as V_T ≥ v1 + δ_0/2.)
 
 [[lem:own-truncation]] (i), (ii) and (iv) hold for these problems, for T ≤ T_0 with T_0 depending on λ and J, with
@@ -193,9 +193,9 @@ Write 𝒮^♭_T := Σ̃_T ∩ {v ≤ V_T + δ_0/4} for the part of the initial 
 {r_T ≤ r ≤ r_T + d_V} along the rays of Σ̃_T (v increases along them with dv/dr ≥ 1, [[lem:own-wedge]] (b)), and
 r_T ≥ c_W (1 + |T|). Near Σ̃_T put
 
-    H_0 := Σ + Σ′_J,     M := (1 − χ_T) m_J  (M := 0 where χ_T = 1),     H_D := D_T − g_b0 = H_0 + M,     {#eq:cutoff-hd}
+    H_0 := Σ + Σ′_J,     M := (1 − χ_T) m_J  (M := 0 where χ_T = 1),     H_D := 𝔤_T − g_b0 = H_0 + M,     {#eq:cutoff-hd}
 
-the identity on the strip being D_T − g_b0 = Σ + Σ′_J + (1 − χ_T)(g_λ − g_b0 − Σ − Σ′_J). Let δ := g_T − D_T, defined on
+the identity on the strip being 𝔤_T − g_b0 = Σ + Σ′_J + (1 − χ_T)(g_λ − g_b0 − Σ − Σ′_J). Let δ := g_T − 𝔤_T, defined on
 W_T ∩ {t̃ ≤ T + δ_T} near Σ̃_T. Then h_R = g_T − g_b0 − Σ = Σ′_J + M + δ there.
 
 **Definition {#def:cutoff-classes}** (two classes on the initial slice). Let N_0 be an integer and q ∈ ℝ. A family of
@@ -248,7 +248,7 @@ By [[lem:cutoff-classes]] (c), ℱ − P(H_0) ∈ ℬ^((J+3)/2).
 *Coordinates at the slice.* Use (y, x), y := t̃ − T, on r ≥ 4R: ∂_y = ∂_t, and ∂̃_i := ∂_i + f′ x̂_i ∂_t is tangent to
 the slices, so ∂_i = ∂̃_i − f′ x̂_i ∂_y with f′ x̂_i tame of order 2 (f′ ∈ |x|⁻² C^∞). The classes may therefore be
 defined with ∂_y and ∂̃_i in place of ∂_t and ∂_i. Put δ_ν := ∂_y^ν δ|_(y=0), functions on Σ̃_T. The Cauchy data of g_T
-and D_T agree, so δ_0 = δ_1 = 0 and every ∂̃^γ δ_0, ∂̃^γ δ_1 vanishes. We show by induction on ν ≥ 2 that
+and 𝔤_T agree, so δ_0 = δ_1 = 0 and every ∂̃^γ δ_0, ∂̃^γ δ_1 vanishes. We show by induction on ν ≥ 2 that
 
     |∂̃^γ δ_ν| ≤ C (r^(−4−ν−|γ|) + 1_(𝒮^♭_T) r^(−(J+3)/2))   for ν + |γ| ≤ N_0,                    {#eq:cutoff-induction}
 
@@ -315,7 +315,7 @@ and ∂Γ^α δ = Σ_β ((∂c_(α,β)) ∂^β δ + c_(α,β) ∂∂^β δ) give
 J ≥ 2k + 7, then r^(|α|−(J+3)/2) ≤ r⁻⁵ for |α| ≤ k. On Σ̃_T, |H| = |Σ + Σ′_J + M| ≤ 1/50 for T ≤ T_0, so by
 [[lem:own-margins]] (d) and w ≤ C r^(2a), E_T[φ] ≤ C ∫_(Σ̃_T) r^(2a) |∂φ|² d⁴x; with d⁴x = r³ dr dω along the rays,
 E_T[Γ^α h_R] ≤ C ∫_(r_T)^∞ r^(2a−10+3) dr = C r_T^(2a−6)/(6 − 2a) ≤ C |T|^(2a−6), as r_T ≥ c_W (1 + |T|). The last
-statement: χ_T = 0 on {v ≤ V_T}, where D_T = g_λ and δ = 0 near Σ̃_T ([[lem:own-truncation]] (ii)); χ_T = 1 and M = 0
+statement: χ_T = 0 on {v ≤ V_T}, where 𝔤_T = g_λ and δ = 0 near Σ̃_T ([[lem:own-truncation]] (ii)); χ_T = 1 and M = 0
 on {v ≥ V_T + δ_0/4}, where δ, ∂δ vanish and [[eq:cutoff-jets]] holds without the strip term. ∎
 
 **Remark {#rem:cutoff-growth}** (the order of the matching). The condition J ≥ 2k + 7 is what the commuted fields need.
@@ -323,10 +323,11 @@ If the data beyond the band were those of g_b0 + Σ, that is with Σ′_J replac
 (1 − χ_T) h_λ, h_λ := g_λ − g_b0 − Σ, of strip order 9/2 only: by [[lem:cutoff-polynomial]] the coefficient of r^(−9/2)
 of h_λ is G_(9,0), of weight −9/2 and constant in v, and the rest is of strip order 5. Since P(Σ + h_λ) = 0, the forcing
 at the slice is ℱ = P(Σ + h_λ − χ_T h_λ) = χ_T′(v)(ℓ + 3/(2r)) h_λ + O(r⁻⁶) = −3 χ_T′(v) r^(−11/2) G_(9,0) + O(r⁻⁶) on
-the band, and by [[eq:cutoff-jet-equation]] δ_2 = 2ℱ/g_D⁻¹(dt̃, dt̃) and δ_3 = −6 χ_T″(v) r^(−11/2) G_(9,0)/g_D⁻¹(dt̃,
-dt̃) + O(r⁻⁶): a derivative ∂_y falls on χ_T without gain. In (y, r, x̂), Z = (y + T + β_f) ∂_y + r ∂_r with ∂_r at
-fixed (y, x̂) and β_f := f − v1 − r f′ bounded, and ∂_r v = 1 + f′ there. So at y = 0, ∂_y Z² δ = ((T + β_f)² + 2 (T +
-β_f) r (1 + f′)) δ_3 + O(|T| r^(−11/2) + T² r⁻⁶), and the bracket is −T² + O(|T|) on the band, where r = |T| + O(1).
+the band, and by [[eq:cutoff-jet-equation]] δ_2 = 2ℱ/g_D⁻¹(dt̃, dt̃) and
+δ_3 = −6 χ_T″(v) r^(−11/2) G_(9,0)/g_D⁻¹(dt̃, dt̃) + O(r⁻⁶): a derivative ∂_y falls on χ_T without gain. In (y, r, x̂),
+Z = (y + T + β_f) ∂_y + r ∂_r with ∂_r at fixed (y, x̂) and β_f := f − v1 − r f′ bounded, and ∂_r v = 1 + f′ there. So
+at y = 0, ∂_y Z² δ = ((T + β_f)² + 2 (T + β_f) r (1 + f′)) δ_3 + O(|T| r^(−11/2) + T² r⁻⁶), and the bracket is
+−T² + O(|T|) on the band, where r = |T| + O(1).
 Hence |∂_y Z² h_R| ≥ c T² r^(−11/2) where |χ_T″| and |G_(9,0)| are bounded below, and E_T[Z² h_R] ≥ c |T|^(2a−4) when
 G_(9,0) ≢ 0, which is unbounded as T → −∞ for every a > 2; with k factors Z the order is |T|^(2a+2k−8). In general a
 mismatch of strip order q gives E_T[Γ^α h_R] up to C |T|^(2a+2|α|−2q+1), and [[prop:cutoff-cap]] uses q = (J + 1)/2.
@@ -339,8 +340,8 @@ of [[prop:own-vacuum]] satisfies on Σ̃_T: D_T = 0 on {v ≤ V_T}; |D_T| + |∂
 energy of weight 1 on Σ̃_T is at most C λ² |T|⁻² + C |T|⁻⁴.
 
 *Proof.* D(g) is linear in ∂(g − g_b0) with coefficients in g⁻¹, plus terms (g⁻¹ − g_b0⁻¹)Γ̂, so
-|D(g_b0 + H)| ≤ C(|∂H| + r⁻³ |H|), and ∂D(g) involves ∂²g linearly. On Σ̃_T, g_T and ∂g_T are those of D_T, and
-∂²g_T = ∂² D_T + ∂²δ. On {v ≤ V_T}, D_T = D(g_λ) = 0 near Σ̃_T ([[thm:past-construction]]). On the strip,
+|D(g_b0 + H)| ≤ C(|∂H| + r⁻³ |H|), and ∂D(g) involves ∂²g linearly. On Σ̃_T, g_T and ∂g_T are those of 𝔤_T, and
+∂²g_T = ∂² 𝔤_T + ∂²δ. On {v ≤ V_T}, D_T = D(g_λ) = 0 near Σ̃_T ([[thm:past-construction]]). On the strip,
 H_D = (g_λ − g_b0) − χ_T m_J, so D(g_b0 + H_D) = D(g_λ) + O(r^(−(J+1)/2)) = O(r^(−(J+1)/2)), its derivative likewise,
 and |∂²δ| ≤ C r^(−(J+3)/2) + C r⁻⁶ by [[lem:cutoff-jets]]; as J ≥ 9 this is O(r⁻⁵). Beyond the band H_D = Σ + Σ′_J;
 D(g_b0 + Σ) = O(λ r⁻³) with ∂D(g_b0 + Σ) = O(λ r⁻⁴) (homogeneity, as in the proof of [[prop:own-vacuum]]), the terms of

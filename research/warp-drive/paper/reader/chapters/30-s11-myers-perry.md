@@ -1465,9 +1465,9 @@ segments, not a pointwise one, and it is what the contour shift uses. The residu
 coefficients of N(A, ·)⁻¹ that enter, of negative and of non-negative powers, map C^∞(∂M) to itself by (E2)): by the
 order count these lie in H^(∞,(E(α)∪̄F,γ′)) for every γ′ < γ (the extended union E ∪̄ F of [[def:s11-b-analysis]] (4)
 is precisely the addition of pole orders, (z, k + l + 1) from orders k + 1 and l + 1). The integral on Re ι = γ lies in
-H^(∞,γ)_b by (M1), using (E1) for all |ι|-weighted norms. So v ∈ H^(∞,(E_0,γ)) near ρ = 0. If γ = β we are done. Otherwise γ < β (and
-γ ≤ α + 1); repeat with α replaced by γ − δ′ for small δ′ > 0 and the expansion found so far moved into the right side:
-(A − N(A)) applied to ρ^ι(log ρ)^j a is, by Taylor expansion of the coefficients A_j(ρ) at ρ = 0, an expansion with
+H^(∞,γ)_b by (M1), using (E1) for all |ι|-weighted norms. So v ∈ H^(∞,(E_0,γ)) near ρ = 0. If γ = β we are done.
+Otherwise γ < β (and γ ≤ α + 1); repeat with α replaced by γ − δ′ for small δ′ > 0 and the expansion found so far moved
+into the right side: (A − N(A)) applied to ρ^ι(log ρ)^j a is, by Taylor expansion of the coefficients A_j(ρ) at ρ = 0, an expansion with
 exponents in ι + 1 + ℕ₀ and the same log powers, which is E_0 + 1; so f′ ∈ H^(∞,(F∪̄(E_0+1),β)) + H^(∞,γ+1−δ′), and the
 same argument gives E_1 up to the weight min(β, γ + 1 − δ′). Each step raises the weight by almost 1 until β is reached;
 finitely many steps suffice, the index sets being contained in E. (The poles of N(A, ·)⁻¹ that enter at a later step are
@@ -1488,8 +1488,9 @@ put
     u := (ℓ!/(2πi)) ∮_ι ρ^ζ (ζ − ι)^(−ℓ−1) N(A, ζ)⁻¹f₀ dζ.                                                {#eq:iii-a-1-4}
 
 As N(A)(ρ^ζ g) = ρ^ζ N(A, ζ)g, N(A)u = ρ^ι(log ρ)^ℓ f₀ exactly. By the residue theorem
-u = ρ^ι Σ_(j≤ℓ+q)(log ρ)^j u_j, u_j ∈ H^(k+m)(∂M) (the Laurent coefficients of N(A, ·)⁻¹ gain m derivatives),
-q = ord(ι). Then χu ∈ H^(k+m,(ι,ℓ+q)) and f − A(χu) has the term removed, up to (A − N(A))(χu), an expansion with
+u = ρ^ι Σ_(j≤ℓ+q)(log ρ)^j u_j, q = ord(ι), where u_j is ℓ!/j! times the coefficient of (ζ − ι)^(ℓ−j) in the Laurent
+expansion of N(A, ζ)⁻¹ at ι, applied to f₀; so u_j ∈ H^(k+m)(∂M), as every Laurent coefficient gains m derivatives by
+(E2). Then χu ∈ H^(k+m,(ι,ℓ+q)) and f − A(χu) has the term removed, up to (A − N(A))(χu), an expansion with
 exponents in ι + 1 + ℕ₀ and log powers ≤ ℓ + q (Taylor expansion of the coefficients; this term depends smoothly on b
 when A does), and up to commutator terms supported away from ρ = 0, which are 𝒜^∞ near ∂M. Iterating over the finitely
 many terms with Re ι ≤ β (new terms with exponents ι + j and log powers raised by the pole orders met, which is the

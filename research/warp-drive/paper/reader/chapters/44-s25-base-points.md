@@ -311,12 +311,40 @@ dependence on the coordinates W′_ν of the rows of 𝒩 ⊔ 𝒩_rot is throug
 
 The motion coordinates enter through f^S, f^b, f^(s1), but they lie at the base level, below every new row. On 𝒫_k the
 lower coordinates are, by the induction, affine functions of the free ones with coefficients of the same smallness.
-S^(h,p⃗,β) and A_b are bounded uniformly in b and (h, p⃗) small ([[lem:iii-i15-2-4]], [[def:iii-i15-2-3]]). So in the
-new coordinates C^(k+1) = −id + A_k with |A_k| ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|), C uniform in b, by the direct
-bound. At the levels below 3 the same direct bound applies: there C^(k+1) is the K⁺-coefficient of
-u = u_0 − Σ m(W′) given by [[lem:iii-i8-3-2]], a bounded functional of G′, uniform in b by (P1), minus W′, and G′
-depends on the new W′ only through the small terms listed above, the rows there being rows of [[eq:iii-i15-1-1]]. At
-the base level the new coordinates are the motion parameters (S′, b′, S^(0)′_1), which enter G′ through f^S, f^b,
+
+*The induction bound.* Write ‖·‖_(k) for the seminorm of 𝒴^♮(β_k) of [[lem:iii-i13-2-2]] (of 𝒴(β_k) of
+[[sec:iii-i8-1]] when β_k < 3, and of 𝒴^♮(α − ε) when k = K, as in [[lem:iii-i14-2-5]]), and ‖F‖ for a seminorm of F
+in 𝒴^♮(α − ε), of large enough regularity ([[sec:iii-i8-1]]). The induction carries a bound: on 𝒫_k the coordinates
+and u(p⃗′) are affine in F and in the free coordinates W⃗_free, and |p⃗′| and the seminorms of u(p⃗′) in 𝒵_(β_k) that
+are used below are at most C(‖F‖ + |W⃗_free|), C uniform in b and in (h, p⃗, q) small. At k = 0 this is
+[[prop:iii-i8-4-1]] (i) at b (Step 1); the step from k to k + 1 is shown below.
+
+*The bound on A_k.* Let δW′ be a change of the new coordinates, those of higher rate being fixed, and let δp⃗′, δG′
+and δu be the changes it causes along 𝒫_k; every row coordinate changes by at most C|δW′|. By the list above, with
+the induction bound for R_q δu,
+
+    ‖δG′‖_(k+1) ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|δW′|.
+
+The change of C^(k+1) on the new rows is −δW′ + A_kδW′, where A_kδW′ is the tuple of the S^(h,p⃗,β_(k+1))_ν(δG′) and
+A_(b,ν)(δG′). The forward solution of L_(h,p⃗)δu_0 = δG′ is δu_0 = δu + Σ_(𝒩⊔𝒩_rot) m_ν(δW′_ν), δW′_ν here the change
+of every row coordinate, and δu_0 satisfies the hypothesis of [[lem:iii-i13-2-2]] with w := min(β_k − 2, λ_♯ − 1), as
+u_0 does (Step 2 of the proof of [[thm:iii-i14-3-1]]). So [[lem:iii-i15-2-4]] gives
+
+    |A_kδW′| ≤ C‖δG′‖_(k+1) + C(‖h‖ + |p⃗|)‖δu_0‖_(w),     C uniform in b.
+
+The last term does not vanish at (0, p⃗_b) when b ≠ b₀; it is bounded as follows. ‖δu‖_(w) ≤ C|δW′| by the induction
+bound, as ‖·‖_(w) is bounded by a seminorm of 𝒵_(β_k) (w ≤ β_k − 2); and ‖m_ν(W)‖_(w) ≤ C|W| for every row, m_ν(W)
+having K⁺-weight at least λ_♯ − 1 − ε ≥ w − ε, ι⁺-weight λ_♯ − ε and support away from ℐ⁺ ([[lem:iii-i9-2-2]],
+[[lem:iii-i15-2-1]]). So ‖δu_0‖_(w) ≤ C|δW′|, and, as |p⃗| ≤ |p⃗ − p⃗_b| + |p⃗_b| = |p⃗ − p⃗_b| + |b − b₀|,
+
+    |A_k| ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|),     C uniform in b,
+
+by the direct bound. At the levels below 3 the same direct bound applies: there C^(k+1)_ν is the K⁺-coefficient
+S^(h,p⃗)_(λ,k)(G′) of u_0 := u + Σ_(𝒩⊔𝒩_rot) m_ν(W′_ν) given by [[lem:iii-i8-3-2]], transferred to P_4 as in Step 1
+and applied from an admissible level α″ ∈ (2, 2 + w], whose hypothesis u_0 meets, minus W′_ν; and G′ depends on the new
+W′ only through the small terms listed above, the rows there being rows of [[eq:iii-i15-1-1]]. The bound of
+[[lem:iii-i8-3-2]], C‖G′‖_(𝒴(β_(k+1))) + C(‖h‖ + |p⃗|)‖u_0‖_(α″), uniform in b by (P1)–(P4), has the same form, and
+the estimate above holds with ‖·‖_(α″) in place of ‖·‖_(w). At the base level the new coordinates are the motion parameters (S′, b′, S^(0)′_1), which enter G′ through f^S, f^b,
 f^(s1) in full. There the level map is that of [[cor:iii-i7-4-6]], the composite of the maps of [[lem:iii-i7-4-3]] and
 [[lem:iii-i7-4-5]], and [[prop:iii-i15-2-12]] bounds those directly, within C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) of ±id,
 with ‖q‖ entering through Δ_q and R_q as above. Their composite is block-triangular, not of the form −id + A_k; what

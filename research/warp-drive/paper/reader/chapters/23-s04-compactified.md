@@ -1699,13 +1699,13 @@ and L maps H^(−N) to H^(−N−m) ([[lem:ii-a-8-6]] (a)). Hence
 w_t ∈ H^(𝗌−κ+K) ⊂ H^(K′) for t > 0. We show ⟨Ǎ_εLw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εLv, Ǎ_εv⟩ as t → 0, for fixed ε > 0.
 Symbols of C^((M))_ν S̃^𝗄 act with exact orders ([[prop:ii-a1-2-4]] (a)), and only remainders lose δ. So Ǎ_ε has
 order 𝗄 − κ for this ε, and as v ∈ H^(𝗌−κ), Ǎ_εw_t → Ǎ_εv strongly in H^((m−1)/2). Next, Ǎ_εLw_t = Ǎ_εT_tLv +
-Ǎ_ε[L, T_t]v. The first term tends to Ǎ_εLv in H^((1−m)/2): T_t → I strongly on H^(𝗌−m+1), applied to ΦLu; the part with
-[L, Φ]u is handled as in Step 0, uniformly in t, with Φ_0T_t(I − Φ) and Φ_0T_tL(I − Φ) in place of Φ_0(I − Φ) and Φ_0L(I
-− Φ) ([[prop:ii-a1-2-4]] (e) with the expressions T_t and T_tL, τ_t being bounded in S̃⁰). For the second, L and T_t have
-the constant orders m and 0. So [[prop:ii-a1-2-4]] (d), with a_1 = ℓ_f and a_2 = τ_t bounded in S̃⁰, shows that [L, T_t]
-is bounded of order m − 1, uniformly in t; and it tends to 0 as an operator of order m − 1 + δ, since τ_t → 1 in S̃^δ.
-Hence Ǎ_ε[L, T_t]v is bounded in H^((1−m)/2) uniformly in t and tends to 0 in 𝒟′, so weakly in H^((1−m)/2). A weakly null
-sequence paired with a strongly convergent one tends to 0.
+Ǎ_ε[L, T_t]v. The first term tends to Ǎ_εLv in H^((1−m)/2): T_t → I strongly on H^(𝗌−m+1), applied to ΦLu; the part
+with [L, Φ]u is handled as in Step 0, uniformly in t, with Φ_0T_t(I − Φ) and Φ_0T_tL(I − Φ) in place of Φ_0(I − Φ)
+and Φ_0L(I − Φ) ([[prop:ii-a1-2-4]] (e) with the expressions T_t and T_tL, τ_t being bounded in S̃⁰). For the second,
+L and T_t have the constant orders m and 0. So [[prop:ii-a1-2-4]] (d), with a_1 = ℓ_f and a_2 = τ_t bounded in S̃⁰,
+shows that [L, T_t] is bounded of order m − 1, uniformly in t; and it tends to 0 as an operator of order m − 1 + δ,
+since τ_t → 1 in S̃^δ. Hence Ǎ_ε[L, T_t]v is bounded in H^((1−m)/2) uniformly in t and tends to 0 in 𝒟′, so weakly in
+H^((1−m)/2). A weakly null sequence paired with a strongly convergent one tends to 0.
 
 *Step 2: the inequality at v.* Apply [[eq:ii-a1-4-2]] at w = w_t and let t → 0. The pairing converges by Step 1. The
 other terms converge: E_ε has order at most 𝗌 − κ, 𝗌 − 1/2 + δ_0 ≤ 𝗌 − κ, and T_t → I strongly on H^(𝗌−κ).

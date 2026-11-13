@@ -478,9 +478,9 @@ So [[lem:iv2-1-2]] holds on Ω^♮_(c_♮) := Ω^♮ ∩ {ρ′_I < c_♮}, in t
 (ρ′_0, ρ′_I, ω) ↦ (ρ′_0, ω): a domain of ℐ⁺ containing ℐ⁺ ∩ cl Ω^♮, and in general larger. Near ℐ⁺, Ω^♮ ends at the
 future boundary {t^♭_* = T̂ + 3}, and t^♭_* = t_*(1 − ρ_I^(1/2)) increases along an X′_I-curve at fixed x¹ towards ℐ⁺;
 so the curves through points with t^♭_* < T̂ + 3 < t_* leave Ω^♮ before they reach ℐ⁺, at points of ℐ⁺ with
-t_* > T̂ + 3. The classes on Ω^♮ below, H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮) and the classes of [[cor:iv3-2-3]], are those of
-[[eq:iv2-0-3]] in the translated chart with χ_I := χ̂(ρ′_I) and ℐ⁺_♮ in place of ℐ⁺_c: they norm the radiation field,
-and the coefficients of the expansion at ℐ⁺, as functions on ℐ⁺_♮.
+t_* > T̂ + 3. The classes on Ω^♮ below are taken accordingly: in H^(k,α_0,(−,ℓ^♭_I))_b(Ω^♮), which is [[eq:iv2-0-3]] in
+terms of u, in the translated chart and with χ_I := χ̂(ρ′_I), the radiation field is a function on ℐ⁺_♮, and in the
+classes of [[cor:iv3-2-3]] so are the coefficients of the expansion at ℐ⁺.
 
 #### The solution on Ω^♮ {#sec:iv3-2}
 
