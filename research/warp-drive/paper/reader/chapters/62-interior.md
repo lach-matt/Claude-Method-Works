@@ -383,8 +383,8 @@ V′_P. So at a fixed λ the data of either solution are available on a bounded 
 
     g0 = η + m dv dv,     g0⁻¹ = η⁻¹ − m L0 L0,     m := μ_end r⁻²,     L0 = ∂_τ − x̂·∂_x
 
-([[eq:background]]); there g0 = g_(b₀) in the chart of [[lem:vii-1-2]] ((a) there). On r ≥ 4R ≥ 20R₁, m ≤ 1/400. By
-[[lem:interior-where]] (ii) and [[lem:iii-b-3-5]] (a), on r ≥ 4R
+([[eq:background]]); there g0 = g_(b₀) in the chart of [[lem:vii-1-2]] ([[lem:interior-chart]] (a)). On r ≥ 4R ≥ 20R₁,
+m ≤ 1/400. By [[lem:interior-where]] (ii) and [[lem:iii-b-3-5]] (a), on r ≥ 4R
 
     F′(r) = 2μ_end/(r² − μ_end) ∈ (0, ¼],     F(r) − F(4R) ≤ T_(μ_end)(4R) = μ_end^(1/2) log((4R + R₁)/(4R − R₁)),
 

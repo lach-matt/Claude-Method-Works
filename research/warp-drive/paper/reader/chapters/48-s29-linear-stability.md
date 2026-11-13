@@ -478,20 +478,18 @@ the operator L of [[eq:viii-0-1]] with E_C = E_Υ = 0.
 *Linearised data.* As in [[lem:viii-1-1]] (1): a symmetric 2-tensor k, defined near a piece of Σ^IVP or on one side of
 it up to Σ^IVP, *induces* the linearised data (γ̇, K̇), the s-derivatives at s = 0 of the first and second fundamental
 forms of Σ^IVP for g + sk, with K(X, Y) := g(∇_X n, Y). They are linear in k and depend only on its 1-jet at Σ^IVP;
-γ̇ is the restriction of k to TΣ^IVP. The definition uses only the 1-jet of k at Σ^IVP from the side where k is given,
-so it applies to a tensor given on one side of Σ^IVP up to it. K is the second fundamental form, written k_(b₀) for g
-in [[sec:viii-0]]–[[sec:viii-2]], where k̇ denotes its variation; so the linearised data (γ̇, k̇) of [[thm:viii-2-2]]
-are a pair (γ̇, K̇) in the present notation, and the tensor ḣ of [[prop:viii-1-2]] induces them ([[lem:viii-1-1]] (1)).
+γ̇ is the restriction of k to TΣ^IVP. K is the second fundamental form, written k_(b₀) for g in
+[[sec:viii-0]]–[[sec:viii-2]], where k̇ denotes its variation; so the linearised data (γ̇, k̇) of [[thm:viii-2-2]] are
+a pair (γ̇, K̇) in the present notation, and the tensor ḣ of [[prop:viii-1-2]] induces them ([[lem:viii-1-1]] (1)).
 
 *The Cauchy problem.* We use [[thm:std-bgp-causal]], [[thm:std-bgp-development]], [[def:std-normally-hyperbolic]] and
 [[thm:std-bgp-cauchy]]. The two operators to which they are applied below, 2L⁰ and 2δ_gG_gδ*_g, have in local
 coordinates the principal part −g^(αβ)∂_α∂_β ⊗ id ([[lem:ix-2-1]] (a)), which is the local form that
 [[def:std-normally-hyperbolic]] gives: they are normally hyperbolic as they stand. (With ∂ → iζ their principal symbol
 is g⁻¹(ζ, ζ) Id; [BGP] writes the same symbol −⟨ξ, ξ⟩ with ∂ → ξ.) [BGP]'s globally hyperbolic manifolds are connected
-([[thm:std-bgp-causal]] (1)). A Cauchy
-development below may have several connected components, and every statement taken from [BGP] is applied on each
-component C, with Cauchy hypersurface S ∩ C: components of an open set are open and closed in it, so an inextendible
-causal curve of C is one of D(S) and meets S, and it does so in C.
+([[thm:std-bgp-causal]] (1)). A Cauchy development below may have several connected components, and every statement
+taken from [BGP] is applied on each component C, with Cauchy hypersurface S ∩ C: components of an open set are open and
+closed in it, so an inextendible causal curve of C is one of D(S) and meets S, and it does so in C.
 
 ### The Cauchy problem, and the domain {#sec:ix-1}
 
