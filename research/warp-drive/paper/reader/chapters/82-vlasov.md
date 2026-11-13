@@ -1293,7 +1293,8 @@ eikonals are those of its metric with the data of D. No smallness of the referen
 for every j, uniformly in n, and by the Arzelà–Ascoli theorem and a diagonal argument a subsequence converges in C^j(Ω̄)
 for every j to a smooth metric g, invariant under T² and both reflections, with ‖g − g̊‖_(H^(m+1)) ≤ C d(D) on every
 Σ_τ. For α ∈ S¹ let u^(n)_α be the eikonal of g^(n) with the data u_D(·, α) (the future root), which exists on a
-neighbourhood of its tube D^(n)_α(S) by [[lem:vlasov-open]], g^(n) being C²-close to g̊, and F^(n)_α the solution of
+neighbourhood of its tube D^(n)_α(S) by the proof of [[lem:vlasov-open]], g^(n) being C²-close to g̊ and u_D C¹-close to
+ů on Σ_τ0, and F^(n)_α the solution of
 [[eq:vlasov-amplitude]] for g^(n) with the data F_D(·, α); they are smooth in (x, α), with derivatives bounded uniformly
 in n, the rays depending smoothly on g^(n) and on the data. For α = α_A they are the family A of g^(n): its eikonal has
 the same data and solves the same equation, and its density solves div(q_A ℓ_A) = 0, which is [[eq:vlasov-amplitude]]
