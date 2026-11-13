@@ -82,8 +82,8 @@ This bound is uniform in l and degenerates as Im σ → 0, where the content of 
 
 From here on σ is real and nonzero.
 
-**Lemma {#lem:rb-flux}** (The flux.) Write u_h = A e^(−iσr_*) + B e^(iσr_*) + o(1) as r_* → ∞. Then
-|A|² = 1 + |B|², and the Wronskian 𝒲 := u_h u_∞′ − u_h′ u_∞ equals 2iσA. In particular |𝒲| ≥ 2|σ|.
+**Lemma {#lem:rb-flux}** (The flux.) Write u_h = A e^(−iσr_*) + B e^(iσr_*) + o(1) as r_* → ∞.
+Then |A|² = 1 + |B|², and the Wronskian 𝒲 := u_h u_∞′ − u_h′ u_∞ equals 2iσA. In particular |𝒲| ≥ 2|σ|.
 
 *Proof.* V_l is real, so Im(ūu′) is constant for every solution u. For u_h it is −σ at −∞, and −σ|A|² + σ|B|² at +∞,
 the cross terms being real; so |A|² = 1 + |B|². 𝒲 is constant; at +∞, with u_∞ = e^(iσr_*)(1 + o(1)) and
@@ -121,8 +121,8 @@ u″ = (V_l − σ²)u − 𝒲⁻¹(u_∞′u_h − u_h′u_∞)F = (V_l − σ
 c_− and c_+ these coefficients. If two such solutions exist, their difference solves the homogeneous equation and is a
 multiple of u_h and of u_∞, so it vanishes since 𝒲 ≠ 0.
 
-(b) For x ≤ x′, [[lem:rb-growth]] gives
-|u_h(x)||u_∞(x′)| ≤ 2 exp((2|σ|)⁻¹(∫_(−∞)^x V_l + ∫_(x′)^∞ V_l)) ≤ 2 exp(I_l/(2|σ|)), as V_l ≥ 0, and |𝒲| ≥ 2|σ|. A
+(b) For x ≤ x′, [[lem:rb-growth]]
+gives |u_h(x)||u_∞(x′)| ≤ 2 exp((2|σ|)⁻¹(∫_(−∞)^x V_l + ∫_(x′)^∞ V_l)) ≤ 2 exp(I_l/(2|σ|)), as V_l ≥ 0, and |𝒲| ≥ 2|σ|. A
 kernel bounded by K on J × J defines an operator on L²(J) of norm at most its Hilbert–Schmidt norm, KΛ_J. ∎
 
 This is the injectivity of [[prop:iii-d-6-2]] at real σ, harmonic by harmonic, with a constant obtained by inequalities
@@ -227,8 +227,8 @@ the bound falls below the computed norm somewhere. No proof uses these values.
 ### Above the barrier {#sec:rb-above}
 
 **Proposition {#prop:resolvent-above-barrier}** (Above the barrier.) Let m = 1. For every l, V_l, as a function of
-r_*, has exactly one critical point, a maximum; write V_max := max V_l. If σ is real and σ² > V_max, then
-|u_h|² ≤ 2σ²/(σ² − V_max) and |u_∞|² ≤ 2σ²/(σ² − V_max) everywhere. Hence, for every r_*-interval J of length Λ_J,
+r_*, has exactly one critical point, a maximum; write V_max := max V_l. If σ is real and σ² > V_max,
+then |u_h|² ≤ 2σ²/(σ² − V_max) and |u_∞|² ≤ 2σ²/(σ² − V_max) everywhere. Hence, for every r_*-interval J of length Λ_J,
 
     ‖χ_J R_l(σ) χ_J‖ ≤ Λ_J|σ|/(σ² − V_max);
 
@@ -355,8 +355,8 @@ integrable. Integrate over [−R, R] and let R → ∞: at ±∞, |u′|² → �
 Im(Fū) = −Im(u″ū) = −(Im(u′ū))′, and Im(u′ū) → ±σ|c_±|² at ±∞; integrating gives the flux identity.
 
 Under the sign conditions every integrand on the left of [[eq:pb-identity]] is nonnegative. Dropping the term with q and
-restricting the other two to I, the left side is at least 2m′X² + w_IY². On the right, F vanishes outside I and
-|φ| ≤ p_I on I, so the integral is at most ‖F‖(2p_IX + M′Y); and
+restricting the other two to I, the left side is at least 2m′X² + w_IY². On the right, F vanishes outside I
+and |φ| ≤ p_I on I, so the integral is at most ‖F‖(2p_IX + M′Y); and
 2σ²(φ(∞)|c_+|² − φ(−∞)|c_−|²) ≤ 2σ²p_∞(|c_+|² + |c_−|²) = −2σp_∞Im∫Fū ≤ 2|σ|p_∞‖F‖Y. Hence, with
 M_σ := M′ + 2p_∞|σ|,
 
@@ -407,8 +407,8 @@ is [[eq:pb-weight]]. U = V_(1,0) gives U_y = z, U′ = −2ηz and −φU′ = 2
 are 2, −39/8, 2κ − 9/4 and 53/8, which is [[eq:pb-weight-scalar]]; and c_l − c_1 = 2(κ − 3) gives w_l − w_1 = (κ − 3)ψ.
 Substituting z = 1 − 2y in P_1 gives ½p, and expanding the right side of [[eq:pb-p-certificate]] gives p. Its first term
 is nonnegative on [0, 1] and its second is positive on (0, 1], since 29y² − 36y + 15 has discriminant 1296 − 1740 < 0;
-at y = 0, p = 15. So p > 0 on [0, 1], w_1 > 0 on ℝ, and w_l ≥ w_1 because κ ≥ 3 and ψ ≥ 0. φ is increasing as φ′ = 4η
-> 0, and |φ| < 1. ∎
+at y = 0, p = 15. So p > 0 on [0, 1], w_1 > 0 on ℝ, and w_l ≥ w_1 because κ ≥ 3 and ψ ≥ 0. φ is increasing as φ′ =
+4η > 0, and |φ| < 1. ∎
 
 **Lemma {#lem:morawetz-weight-interval}** (The weight on I.) Let l ≥ 1 and c := c_l. On I:
 
@@ -562,8 +562,8 @@ Re(−ib_σu(2φū′ + (φ′ − 2q)ū)) = 2b_σφ Im(uū′). Integrating ove
 
     2∫(φ′ − q)|u′|² + ∫W|u|² + 2a_σ∫q|u|² = Re∫F(2φū′ + (φ′ − 2q)ū) − 2b_σ∫φ Im(uū′).
 
-Integration by parts gives the energy identity ∫Fū = ‖u′‖² + ∫V|u|² − σ²‖u‖², norms over ℝ. Its imaginary part gives
-|b_σ|‖u‖² ≤ ‖F‖‖u‖_I, and its real part, with V ≥ 0, ‖u′‖² ≤ ‖F‖‖u‖_I + a_+‖u‖², a_+ := max(a_σ, 0). As |φ| ≤ 1,
+Integration by parts gives the energy identity ∫Fū = ‖u′‖² + ∫V|u|² − σ²‖u‖², norms over ℝ. Its imaginary part
+gives |b_σ|‖u‖² ≤ ‖F‖‖u‖_I, and its real part, with V ≥ 0, ‖u′‖² ≤ ‖F‖‖u‖_I + a_+‖u‖², a_+ := max(a_σ, 0). As |φ| ≤ 1,
 
     |2b_σ∫φ Im(uū′)| ≤ 2|b_σ|‖u‖‖u′‖ ≤ 2|b_σ|‖u‖(‖F‖‖u‖_I)^(1/2) + 2|b_σ|a_+^(1/2)‖u‖²
                       ≤ 2(|b_σ|^(1/2) + a_+^(1/2))‖F‖‖u‖_I ≤ 4|σ|‖F‖‖u‖_I,
@@ -661,9 +661,9 @@ l = 1, …, 6; so rows A′, B′ and E, C3, C4, C5 and C6 serve every l ≥ 1, 
 *Proof.* The hypotheses. Θ_E has Θ_z = 1 − z² ≥ 0. For Θ_A, Θ_B, Θ_C and Θ_T the Bernstein coefficients of Θ_z on [−1, 1]
 (on [−1, 0] and [0, 1] for Θ_C) are positive ([[sec:tb-morawetz-monotone]]), so Θ_z > 0 on [−1, 1] by
 [[lem:bernstein-lower-bound]]. For Θ_T, g = y/2 ≥ 0, and the Bernstein coefficients of 4Θ_z(1 − 2y) − y/2 on [0, 1] are
-positive. So [[lem:morawetz-polynomial-weight]] applies to each pair. Each Θ is increasing on [−1, 1], so on I,
-|Θ| ≤ max(|Θ(7/8)|, |Θ(−7/18)|) = Θ(7/8), and φ(±∞) = Θ(±1); these values are listed in [[sec:tb-morawetz-monotone]] and
-give p_I and p_∞. For Θ_T, q = ½(1 − y)y^(5/2), whose derivative ¼y^(3/2)(5 − 7y) vanishes on (0, 1) only at y = 5/7.
+positive. So [[lem:morawetz-polynomial-weight]] applies to each pair. Each Θ is increasing on [−1, 1], so on
+I, |Θ| ≤ max(|Θ(7/8)|, |Θ(−7/18)|) = Θ(7/8), and φ(±∞) = Θ(±1); these values are listed in [[sec:tb-morawetz-monotone]]
+and give p_I and p_∞. For Θ_T, q = ½(1 − y)y^(5/2), whose derivative ¼y^(3/2)(5 − 7y) vanishes on (0, 1) only at y = 5/7.
 
 The weights. By [[lem:morawetz-polynomial-weight]], W = ηG with G of [[eq:pb-weight-poly]], a polynomial in y for
 V = V_(a,b). [[sec:tb-morawetz-weights]] lists G at the corners A1 = (15/4, 5/4), A2 = (15/4, 9/4), B1 = (35/4, −7/4),
@@ -709,8 +709,8 @@ real σ ≠ 0, ‖χ_I R_l(σ) χ_I‖ ≤ B*_l(σ); B*_l is even in σ, increas
 B*_l is at most the least of B_6 and the bound of row C6, which the line "every l ≥ 6" below evaluates.
 
 (ii) For l = 0 put B*_0(σ) := B_0(σ) of [[prop:morawetz-l-zero]] for 0 < |σ| < 1, and
-B*_0(σ) := min(B_0(σ), Λ|σ|/(σ² − 25/48)) for |σ| ≥ 1. Then ‖χ_I R_0(σ) χ_I‖ ≤ B*_0(σ), and B*_0(σ) < 7.8128 for
-|σ| ≥ 1.
+B*_0(σ) := min(B_0(σ), Λ|σ|/(σ² − 25/48)) for |σ| ≥ 1. Then ‖χ_I R_0(σ) χ_I‖ ≤ B*_0(σ), and B*_0(σ) < 7.8128
+for |σ| ≥ 1.
 
 At σ → 0 and |σ| = 1/2, 1, 2, 3 and 10, B*_l is at most:
 
@@ -1019,8 +1019,8 @@ at most 11.51, 16.98, 30.01, 57.44, 113.10 and 224.86 at |σ| = 3, 6, 12, 24, 48
 
 *Proof.* As in the proof of [[prop:morawetz-harmonics]] (ii), max V_(κ+3/4,9/4) ≤ (κ + 3/4)/4 + 1/3: at most 6.521 for
 l ≤ 4 and 9.271 for l ≤ 5. When σ² exceeds it, the bound above the barrier, [[prop:resolvent-above-barrier]], gives
-‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V). So for |σ| ≥ 3 the harmonics l ≤ 4 are bounded by Λ|σ|/(σ² − 6.521), and for
-|σ| ≥ 6 the harmonics l ≤ 5 by Λ|σ|/(σ² − 9.271); the others are bounded by B_(C5)(σ), respectively B_(C6)(σ), as
+‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V). So for |σ| ≥ 3 the harmonics l ≤ 4 are bounded by Λ|σ|/(σ² − 6.521), and
+for |σ| ≥ 6 the harmonics l ≤ 5 by Λ|σ|/(σ² − 9.271); the others are bounded by B_(C5)(σ), respectively B_(C6)(σ), as
 row C5 serves every l ≥ 5 and row C6 every l ≥ 6. At |σ| = 3 the first term is at most 3.7436 · 3/2.479 < 4.54 and
 B_(C5)(3) < 11.51; for |σ| ≥ 6 the first term is at most 3.7436 · 6/26.729 < 0.85, as Λt/(t² − c) decreases for
 t² > c, and the values given are B_(C6)(σ), rounded up. ∎
@@ -1297,8 +1297,8 @@ Together with [[prop:morawetz-resolvent-l-ge-1]] and [[prop:morawetz-l-zero]], w
 0 < |σ| ≤ 3, this bounds ‖χ_I R_l(σ) χ_I‖ uniformly in l for every real 0 < |σ| ≤ 384.
 
 **Proposition {#prop:band-points}** (Sampled frequencies.) For every harmonic l ≥ 0, ‖χ_I R_l(σ) χ_I‖ is at most
-8.878, 4.683, 5.990, 4.097, 3.022 and 2.252 at |σ| = 3, 6, 12, 24, 48 and 96; at most 2.024, 1.869 and 1.743 at
-|σ| = 128, 160 and 192; and at most 1.677, 1.815 and 1.963 for every |σ| in [s − 1/20, s] with s = 256, 320 and 384.
+8.878, 4.683, 5.990, 4.097, 3.022 and 2.252 at |σ| = 3, 6, 12, 24, 48 and 96; at most 2.024, 1.869 and 1.743
+at |σ| = 128, 160 and 192; and at most 1.677, 1.815 and 1.963 for every |σ| in [s − 1/20, s] with s = 256, 320 and 384.
 
 *Proof.* At |σ| = 3, [[prop:band-polynomial]] with zΨ_5 gives B♯(3) < 8.878 for l ≥ 5, and [[lem:band-barrier]] gives
 4.531 for l ≤ 4. At |σ| = 6, zΨ_11 gives B♯(6) < 4.683 for l ≥ 11 and [[lem:band-barrier]] gives 4.100 for l ≤ 10. At
@@ -1311,11 +1311,11 @@ the photon sphere and wide in the flanks, one multiplier for each l_1 = 5, …, 
 arithmetic on the 7,620 subintervals of width 1/20 of [3, 384], gives for every l ≥ 0 the bounds 3.7719, 2.3724,
 1.5222 and 0.99697 at |σ| = 12, 24, 48 and 96, and 0.83951, 0.73083, 0.66429, 0.56257, 0.49119 and 0.47635 on the
 subintervals ending at |σ| = 128, 160, 192, 256, 320 and 384 (0.43792 at 384 when more multipliers are admitted); its
-largest value on [3, 384] is 11.477, on [3.2, 3.25]. These values times |σ|^(1/2) are 9.77, 9.20 and 8.58 at
-|σ| = 96, 192 and 384 (the last with 0.43792), so between |σ| = 96 and 384 they decay roughly like |σ|^(−0.6); the
-scaling of the best multiplier at the trapped harmonic (the l with max V_l nearest σ²) suggests |σ|^(−1/2) for larger
-|σ|. These values are not proved here ([[prop:band-points]] proves weaker ones from |σ| = 12 on), and no proof uses
-them.
+largest value on [3, 384] is 11.477, on [3.2, 3.25]. These values times |σ|^(1/2) are 9.77, 9.20 and 8.58
+at |σ| = 96, 192 and 384 (the last with 0.43792), so between |σ| = 96 and 384 they decay roughly like |σ|^(−0.6); the
+scaling of the best multiplier at the trapped harmonic (the l with max V_l nearest σ²) suggests |σ|^(−1/2) for
+larger |σ|. These values are not proved here ([[prop:band-points]] proves weaker ones from |σ| = 12 on), and no proof
+uses them.
 
 #### One derivative on the band {#sec:band-one-derivative}
 
@@ -1366,12 +1366,13 @@ notation is that of [[sec:morawetz-identity]]: y = 1/r², z = 1 − 2y, η = (1 
 I = {6/5 ≤ r ≤ 4}. For a polynomial p of degree n and an interval [α, β], b_0, …, b_n are the Bernstein coefficients of
 p on [α, β] in the notation of [[lem:bernstein-lower-bound]], so that min_k b_k ≤ p ≤ max_k b_k on [α, β]. A list gives
 b_0, …, b_n in order, each rounded to five significant digits, or to the nearest integer when it exceeds 10⁵; a
-least coefficient in a column of its own is rounded down and a greatest one rounded up. An entry of a column headed
-"product ≥" (respectively "product ≤") is the product of the exact factors, rounded down (respectively up); it may differ
-in its last digit from the product of the printed factors, which also satisfies the bound the table asserts. A piece "r_1–r_2" of I is the interval r_2 ≤ r ≤ r_1, that is
-1/r_1² ≤ y ≤ 1/r_2². Since η increases on [0, 3/5] and decreases on [3/5, 1] in y, its least value on a piece is at an
-end, and "η ≥" is that value rounded down; "η ≤" is its greatest value on the piece, rounded up (6√15/125 < 0.18591 on a
-piece that contains y = 3/5).
+least coefficient in a column of its own is rounded down and a greatest one rounded up. A piece "r_1–r_2" of I is the
+interval r_2 ≤ r ≤ r_1, that is 1/r_1² ≤ y ≤ 1/r_2². Since η increases on [0, 3/5] and decreases on [3/5, 1] in y, its
+least value on a piece is at an end, and "η ≥" is that value rounded down; "η ≤" is its greatest value on the piece,
+rounded up (6√15/125 < 0.18591 on a piece that contains y = 3/5). An entry of a column headed "product ≥" (respectively
+"product ≤") is the product of the two exact factors, rounded down (respectively up), and not the product of the two
+printed factors, from which it may differ in the last digit; the product of the printed factors satisfies the same
+bound against the constant of its table.
 
 #### The weight polynomials {#sec:tb-morawetz-weights}
 
@@ -2495,8 +2496,8 @@ the indicial family out.
 
 write a stationary 1-form of scalar type l as (ω_0dt + ω_1dr)S + ω_2r dS. Let N^y_l(ι) be the indicial family in the
 coordinates y, so that N^n_l(ι) has the entries ν_iN^y_l(ι)_(ij)/ν_j; at l = 1 the coordinate y_6, and at l = 0 the
-coordinates y_3, y_4, y_6 and ω_2, are absent, and the corresponding rows and columns are dropped. With
-|w|_ν² := Σ_j ν_j²|w_j|², the vector v with v_j = ν_jw_j has |v| = |w|_ν and |N^n_l(β)v| = |N^y_l(β)w|_ν.
+coordinates y_3, y_4, y_6 and ω_2, are absent, and the corresponding rows and columns are dropped.
+With |w|_ν² := Σ_j ν_j²|w_j|², the vector v with v_j = ν_jw_j has |v| = |w|_ν and |N^n_l(β)v| = |N^y_l(β)w|_ν.
 
 **Lemma {#lem:rb-indicial-explicit}** (The indicial family of the block.) Put ϖ := κ + 2ι − ι². Then
 
@@ -2562,10 +2563,11 @@ on the complement of the zero-energy state), is at most
 at l = 0, 2 and 4 respectively. Hence the inverse bound of the scalar-type blocks at (s, α) = (1, −1) is at least
 1/(2.6181 · 10⁻⁷) > 3.81 · 10⁶.
 
-*Proof.* Let β := α + 2. By [[lem:rb-quasimode]] with v_j = ν_jw_j, the least singular value is at most
-|N^y_l(β)w|_ν/((1 + β² + κ)^(1/2)|w|_ν) for every nonzero w. Take for w the integer vectors below, in the coordinates
-(y_0, y_1, y_2, y_5) at l = 0 and (y_0, …, y_6) at l = 2, 4, and evaluate N^y_l(β)w by [[eq:rb-indicial-explicit]]
-with v_C = 1/2 and e_C = 1/102400 ([[sec:iv4-0]]), in exact rational arithmetic. The two norms satisfy
+*Proof.* Let β := α + 2. By [[lem:rb-quasimode]] with v_j = ν_jw_j, the least singular value is at
+most |N^y_l(β)w|_ν/((1 + β² + κ)^(1/2)|w|_ν) for every nonzero w. Take for w the integer vectors below, in the
+coordinates (y_0, y_1, y_2, y_5) at l = 0 and (y_0, …, y_6) at l = 2, 4, and evaluate N^y_l(β)w by
+[[eq:rb-indicial-explicit]] with v_C = 1/2 and e_C = 1/102400 ([[sec:iv4-0]]), in exact rational arithmetic. The two
+norms satisfy
 
     l = 0, β = 1:    w = (100000000000000, 1007162254783, 57142808753792, 61891238140479),
                      |N^y_0(1)w|_ν < 6.99009 · 10⁸,  |w|_ν > 1.57349 · 10¹⁴;

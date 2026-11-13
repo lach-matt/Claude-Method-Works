@@ -639,22 +639,22 @@ seminorms O(|p⃗′|) ([[lem:iii-i9-2-2]]).
 E^Υ_(g,H) is compactly supported in space, and E^Υ_(g,∞) is |x|⁻¹ times coefficients smooth on X̄, which gains one
 ι⁺-order and no K⁺-order. So J_h has ι⁺-order min(ϰ_♯ − η + 1, ϰ_♯ + 1 − η) and K⁺-order w − η.
 
-*The inequalities.* η < δ_♯ − β gives ϰ_♯ − η > 3/2 + β; and w > 2 ([[sec:hg-setting]]), so w − η > ½
-for η < δ_♯ < ¼ (0 < e_Υ < 1 and 0 < γ_Υ < ¼, [[eq:iii-c-1-1]]). ∎
+*The inequalities.* η < δ_♯ − β gives ϰ_♯ − η > 3/2 + β; and w > 2 ([[sec:hg-setting]]), so w − η > ½ for
+η < δ_♯ < ¼ (0 < e_Υ < 1 and 0 < γ_Υ < ¼, [[eq:iii-c-1-1]]). ∎
 
 ### The harmonic gauge on the late region {#sec:hg-late}
 
 On Ω_*, in the class, [[lem:gd-r2-10]] gives
 
-    −Θ(ġ) = E^ΥG(ġ − χ_KṁK_V) + Dϑ_tot(p⃗′) − ṁΘ(χ_KK_V).                                                {#eq:gd-r3-1}
+    Υ̇⁰(ġ) = E^ΥG(ġ − χ_KṁK_V) + Dϑ_tot(p⃗′) + ṁΥ̇⁰(χ_KK_V).                                              {#eq:gd-r3-1}
 
-With □W**_H = −Θ(K_V) ([[prop:np-10-2]] (iv) (b)) put, on N⁺,
+With □W**_H = Υ̇⁰(K_V) ([[prop:np-10-2]] (iv) (b)) put, on N⁺,
 
-    F_Y := −Θ(ġ) − ṁ□(χ_KW**_H),
+    F_Y := Υ̇⁰(ġ) − ṁ□(χ_KW**_H),
 
 so that on Ω_*
 
-    F_Y = E^ΥG(ġ − χ_KṁK_V) + Dϑ_tot(p⃗′) − ṁ([Θ, χ_K]K_V + [□, χ_K]W**_H).                                {#eq:gd-r3-2}
+    F_Y = E^ΥG(ġ − χ_KṁK_V) + Dϑ_tot(p⃗′) + ṁ([Υ̇⁰, χ_K]K_V − [□, χ_K]W**_H).                              {#eq:gd-r3-2}
 
 So F_Y = J_h on {χ_K = 1}. On {χ_K = 0}, F_Y = E^ΥGġ: the row terms are supported in supp χ_K ([[lem:iii-i9-2-2]] (c))
 and the terms of ϑ_(tot,2) carry dχ_K. In particular F_Y = E^ΥGġ near ℐ⁺, as supp χ_K ⊂ {|x| < t/2}
@@ -675,16 +675,16 @@ vanishing there), with the exponents of [[eq:iii-c-3-2]]: above 3/2 + 2γ_Υ for
 ϰ_♯ and 3/2 + 2γ_Υ for π₁₁, and 3/2 for π̸₀, the radiation field. Without π̸₀ the least is ϰ_♯, as e_Υ ≥ 0, and |x|⁻¹
 adds one: the ℐ⁺-order is ϰ_♯ + 1 − η > 5/2 > b_I + 1. *ι⁺.* On {χ_K = 1} the order is ϰ_♯ + 1 − η ([[prop:gd-r3-2]]).
 Elsewhere near ι⁺: ġ − χ_KṁK_V = h′ + h_rem(q′) + Dh_tot(p⃗′) has ι⁺-order ϰ_♯ − η, as the terms of h_tot lie in 𝒜^𝒢,
-𝒜^(𝒢+1) ([[lem:iii-i7-2-2]], 𝒢 = (2, 0) ∪ (2 + ℰ_ind), [[eq:iii-i7-1-1]]) and 𝒜^((λ,k)+ℱ) ([[lem:iii-i9-2-2]] (b)), so
+𝒜^(𝒢+1) ([[lem:iii-i7-2-2]], 𝒢 = (2, 0) ∪ (2 + ℰ_ind), [[eq:iii-i7-1-1]]) and 𝒜^((ϰ,k)+ℱ) ([[lem:iii-i9-2-2]] (b)), so
 E^ΥG of it has ι⁺-order ϰ_♯ + 1 − η; Dϑ_tot(p⃗′) has min(3, ϰ_♯ + 1) − η ([[eq:iii-i7-2-1]], [[lem:iii-i9-2-2]] (b));
-[Θ, χ_K]K_V has order 3, as dχ_K ∈ ρ_+C^∞ and K_V is stationary in |x|⁻²C^∞(X̄); [□, χ_K] = (□_0χ_K) − 2∇_(∇χ_K) gains
+[Υ̇⁰, χ_K]K_V has order 3, as dχ_K ∈ ρ_+C^∞ and K_V is stationary in |x|⁻²C^∞(X̄); [□, χ_K] = (□_0χ_K) − 2∇_(∇χ_K) gains
 two orders near (ι⁺)°, as ∂χ_K ∈ ρ_+C^∞ there ([[sec:iii-i4-1]]) and Cartesian derivatives map ρ_+^aC^∞ into
-ρ_+^(a+1)C^∞, and W**_H has order 1 on (ι⁺)°, as |rA|, |rB| and |r∂_μT_μ| are bounded and r(v/2)|W*| ≤ C t_*r⁻¹ is
-bounded there; so [□, χ_K]W**_H has order 3. Every one of these exceeds b_+ + 2 = β + 5/2. *K⁺.* On {χ_K = 1}, α − 2 − η
-> ½; supp dχ_K and {χ_K < 1} stay away from K⁺. *Support.* χ(t^♭_*)F_Y vanishes on {t^♭_* < 2}. ∎
+ρ_+^(a+1)C^∞, and W**_H has order 1 on (ι⁺)°, as |rA|, |rB| and |r∂_mT_m| are bounded and r(v/2)|W*| ≤ C t_*r⁻¹ is
+bounded there; so [□, χ_K]W**_H has order 3. Every one of these exceeds b_+ + 2 = β + 5/2. *K⁺.* On {χ_K = 1}, w − η > ½;
+ supp dχ_K and {χ_K < 1} stay away from K⁺. *Support.* χ(t^♭_*)F_Y vanishes on {t^♭_* < 2}. ∎
 
-Without the term ṁ□(χ_KW**_H) the forcing term near K⁺ would be J_h − ṁΘ(K_V), and Θ(K_V) = −r⁻³dv near the horizon
-is stationary and nonzero, of K⁺-order 0, below the ½ of the space. That is why the mass change is carried
+Without the term ṁ□(χ_KW**_H) the forcing term near K⁺ would be J_h + ṁΥ̇⁰(K_V), and Υ̇⁰(K_V) = r⁻³dv near the
+horizon is stationary and nonzero, of K⁺-order 0, below the ½ of the space. That is why the mass change is carried
 explicitly by W**.
 
 **Theorem {#thm:gd-r3-4}** (The harmonic gauge on the late region.) Let β, b_+, b_I and χ be as in [[lem:gd-r3-5]].
@@ -696,7 +696,7 @@ relaxed form of [[rem:ii-f1-7-1]], with the orders of [[rem:gd-orders]]. Let Y b
 
 (i) ġ_H is G-invariant, DRic(ġ_H) = 0, and ġ_H = ġ on N⁺ ∩ {t^♭_* < 2}; so it induces (γ̇, k̇) exactly.
 
-(ii) Θ(ġ_H) = −(1 − χ(t^♭_*))χ^♮_0E^ΥGġ, with χ^♮_0 of [[lem:iii-k-1-1]]. So ġ_H is in harmonic gauge on
+(ii) Υ̇⁰(ġ_H) = (1 − χ(t^♭_*))χ^♮_0E^ΥGġ, with χ^♮_0 of [[lem:iii-k-1-1]]. So ġ_H is in harmonic gauge on
 N⁺ ∩ {t^♭_* ≥ 3}, out to ℐ⁺, and near Σ°, where χ^♮_0 = 0.
 
 (iii) On each {r_♭ < r ≤ R′, t_* ≥ T′}, with the derivatives of [[eq:gd-r2-2]],
