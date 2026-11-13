@@ -1,4 +1,4 @@
-### The resolvent bound on the band 3 ≤ |σ| ≤ 384 {#sec:band}
+## The resolvent bound on the band 3 ≤ |σ| ≤ 384 {#sec:band}
 
 This part proves that the cut-off resolvent of the scalar wave operator on five-dimensional Schwarzschild–Tangherlini
 with m = 1 is bounded by 11.477 for every harmonic and every real 3 ≤ |σ| ≤ 384, and derives from it the one-derivative
@@ -7,10 +7,12 @@ d/dr_* = −2η d/dy, I = {6/5 ≤ r ≤ 4} = {−7/18 ≤ z ≤ 7/8}, Λ < 3.74
 V_(a,b) = aU + bQ, κ = l(l + 2), and V_l = V_(κ+3/4,9/4) is the potential of the harmonic l. We also write v := 1/r, so
 that y = v², η = (1 − v²)v³ and I = {1/4 ≤ v ≤ 5/6}.
 
-Two results of [[ch:resolvent-bounds]] are used. First, for real σ ≠ 0 and f ∈ L²(ℝ) vanishing off I, u := R_l(σ)f is
-a C² solution of −u″ + (V_l − σ²)u = f with u − c_±e^(±iσr_*) → 0 and u′ ∓ iσu → 0 as r_* → ±∞, as required in
-[[lem:morawetz-identity]]. Second, the bound above the barrier: if σ² > max V_l, then
-‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V_l).
+For real σ ≠ 0, R_l(σ) is the outgoing resolvent of −∂²_(r_*) + V_l − σ² on L²(ℝ, dr_*) ([[ch:resolvent-bounds]]),
+and χ_I is multiplication by the indicator function of I. Two results of that chapter are used, stated here exactly.
+First ([[pending:resolvent-outgoing]]), for real σ ≠ 0 and f ∈ L²(ℝ) vanishing off I, u := R_l(σ)f is a solution,
+with u and u′ locally absolutely continuous, of −u″ + (V_l − σ²)u = f almost everywhere, with u − c_±e^(±iσr_*) → 0
+and u′ ∓ iσu → 0 as r_* → ±∞, as required in [[lem:morawetz-identity]]. Second ([[pending:resolvent-above-barrier]]),
+the bound above the barrier: if σ² > max V_l, then ‖χ_I R_l(σ) χ_I‖ ≤ Λ|σ|/(σ² − max V_l).
 
 The route is the multiplier method of [[lem:morawetz-identity]], with two changes. The final inequality is solved exactly
 and the flux term is combined with the pairing, which gives the constant B♯ of [[lem:band-sharp]]. And the multiplier is
@@ -22,7 +24,8 @@ covers a whole range of frequencies.
 ### The multiplier bound in sharp form {#sec:band-sharp}
 
 **Lemma {#lem:band-sharp}** (The multiplier bound in sharp form.) Let V be as in [[lem:morawetz-identity]], σ ≠ 0 real,
-f ∈ L²(ℝ) vanishing off I, and u a solution with the asymptotics stated there. Let φ be a real smooth nondecreasing
+f ∈ L²(ℝ) vanishing off I, and u a solution, with u and u′ locally absolutely continuous, of −u″ + (V − σ²)u = f
+almost everywhere, with the asymptotics stated there. Let φ be a real smooth nondecreasing
 function on ℝ with limits φ(±∞), with φ′, φ″, φ‴ integrable and tending to 0 at ±∞, and suppose that
 w := −φV′ − ½φ‴ ≥ 0 on ℝ. Put
 
@@ -35,9 +38,10 @@ Then ‖u‖_I ≤ B♯‖f‖, where
 B♯ increases with |σ|, M′, p_I and p_∞, and decreases as m′ or w_I increases.
 
 *Proof.* In the proof of [[lem:morawetz-identity]] take the Lagrangian term q = 0. The pointwise identity there,
-Re(f(2φū′ + φ′ū)) = 2φ′|u′|² + w|u|² + E′, does not use the values of φ at ±∞, and its boundary term
-E = −φ|u′|² − φ′Re(u′ū) + ½φ″|u|² + (V − σ²)φ|u|² tends to −2σ²φ(±∞)|c_±|² at ±∞, since |u′|² → σ²|c_±|²,
-|u|² → |c_±|² and φ′, φ″, V → 0. Integrating over ℝ,
+Re(f(2φū′ + φ′ū)) = 2φ′|u′|² + w|u|² + E′, holds almost everywhere and does not use the values of φ at ±∞. Its
+boundary term E = −φ|u′|² − φ′Re(u′ū) + ½φ″|u|² + (V − σ²)φ|u|² is locally absolutely continuous, since u and u′ are,
+and it tends to −2σ²φ(±∞)|c_±|² at ±∞, since |u′|² → σ²|c_±|², |u|² → |c_±|² and φ′, φ″, V → 0. Integrating over
+[−R, R], where ∫E′ = E(R) − E(−R), and letting R → ∞ (the integrand on the left is nonnegative, f vanishes off I),
 
     ∫(2φ′|u′|² + w|u|²) = Re∫f(2φū′ + φ′ū) + 2σ²(φ(∞)|c_+|² − φ(−∞)|c_−|²).                    {#eq:band-identity}
 

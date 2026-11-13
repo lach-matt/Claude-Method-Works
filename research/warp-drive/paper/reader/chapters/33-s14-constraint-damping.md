@@ -2489,14 +2489,6 @@ lists ℛ^sc_l (l ≥ 0), ℛ^v_l (l ≥ 1) and ℛ^t_l (l ≥ 2). There is a co
 is the distance of the entry −49 − δ_50 of ℛ^sc_50 from −49; and among the entries that do not depend on h, the least
 distance of a non-integer entry with |ι| ≤ 50 from ℤ is δ_50. By (i), δ_50 ≤ 50z/(2·51·101) = 2·10⁻⁴/10302.
 
-*The constants.* ε_ind(h) is the largest number that the bound [[eq:iii-f1-2-2]] of [[ch:s15]] admits as its constant
-ε_ind at γ_C = h⁻¹, when ε_ind(h) ≤ 1; the ε_ind of [[ch:s15]] is any number in (0, min(1, ε_ind(h))]. The number
-δ_50 is a constant of its own: it is fixed by the gauge parameters (e_Υ, γ_Υ) of [[ch:s13]] alone, through z, and not by
-h, being ι^Υ_(s50,51) − 51, the distance from 51 of a root of the gauge potential operator at scalar type 50. It is
-neither the constant of [[ch:s13]] that bounds from below the distances from ℤ of the roots of the gauge potential
-operator with |Re ι| ≤ 10, nor the ε_ind of [[ch:s15]], which it bounds from above. Its value is given by
-[[cor:s14-eps-ind-point]], which also proves ε_ind(10⁻⁶) = δ_50.
-
 *Proof.* (i) As a quadratic in s, Q_l has discriminant (2 + 2κ + z)² − 4κ(κ + 1) − 4zκ = (z + 2)² + 4κ = 4u² + 4z + z²,
 so its roots are s_± = (2 + 2κ + z ± (4u² + 4z + z²)^(1/2))/2 = u² + z/2 ± (u + w), both positive. For each,
 ι′ = (1 ± (1 + 4s)^(1/2))/2, and 1 + 4s_± = (2u ± 1)² + 2z ± 4w. So the roots in ι = ι′ + 1 are as stated, and the
@@ -2555,6 +2547,13 @@ Next, f(u) := (u − 1)/(u(2u − 1)) is decreasing for u ≥ 2 (the numerator o
 
 and d₁(u) > d₂(u) by (i). So the least distance is d₂ at l = 50. ∎
 
+**Remark {#rem:s14-delta50}** (The constants ε_ind(h) and δ_50.) ε_ind(h) is the largest number that the bound
+[[eq:iii-f1-2-2]] of [[ch:s15]] admits as its constant ε_ind at γ_C = h⁻¹, when ε_ind(h) ≤ 1; the ε_ind of [[ch:s15]] is
+any number in (0, min(1, ε_ind(h))]. The number δ_50 is a constant of its own: it is fixed by the gauge parameters (e_Υ,
+γ_Υ) of [[ch:s13]] alone, through z, and not by h, being ι^Υ_(s50,51) − 51, the distance from 51 of a root of the gauge
+potential operator at scalar type 50. It is neither the constant of [[ch:s13]] that bounds from below the distances from
+ℤ of the roots of the gauge potential operator with |Re ι| ≤ 10, nor the ε_ind of [[ch:s15]], which it bounds from
+above. Its value is given by [[cor:s14-eps-ind-point]], which also proves ε_ind(10⁻⁶) = δ_50.
 **Remark {#rem:s14-eps-point}** (The point h = 10⁻⁶.) At h = 10⁻⁶, ε_ind(10⁻⁶) = δ_50, and every entry of the lists of
 (iii) that comes from a root of P_l, P_0 or p_(v), is not an integer and has modulus at most 50 lies at distance more
 than 2.93·10⁻⁶ from ℤ ([[cor:s14-eps-ind-point]]). Later chapters use only ε_ind(h) > 0 and ε_ind(h) ≤ δ_50, which

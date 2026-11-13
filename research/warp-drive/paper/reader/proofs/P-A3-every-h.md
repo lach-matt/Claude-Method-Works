@@ -159,37 +159,38 @@ roots with real part at least 2. For l ≥ 2 the latter three have real part gre
 [[eq:s14-y]]. Its coefficients in σ are polynomials in K = h²κ and h, hence continuous on Ω₁; its leading coefficient
 is −1, that of P being −h³; and its roots are the numbers hι, ι a root of P(·; κ, h), with the same multiplicities. By
 [[lem:s14-line-far]] F has no root with real part −1/2, so by [[lem:s14-half-plane-count]] with H = {Re σ < −1/2} the
-number N of roots of P(·; κ, h) with real part less than −1/(2h) is the same at every point of Ω₁. At κ = 3, that is
+number N_− of roots of P(·; κ, h) with real part less than −1/(2h) is the same at every point of Ω₁. At κ = 3, that is
 l = 1, [[lem:s14-small-h]] (a) gives, as h → 0⁺, three roots with hι → 1/τ_j, which are less than −1/2 by
-[[lem:s14-limit-sides]] (b), and three roots converging to finite limits, for which hι → 0. So N = 3 for small h, hence
-N = 3 on all of Ω₁.
+[[lem:s14-limit-sides]] (b), and three roots converging to finite limits, for which hι → 0. So N_− = 3 for small h,
+hence N_− = 3 on all of Ω₁.
 
 *Degrees l ≥ 2.* On Ω₂ := (3, ∞) × (0, 10⁻⁶] the polynomial P(·; κ, h) has leading coefficient −h³ ≠ 0 and, by
-[[lem:s14-line-two]], no root with real part 2. By [[lem:s14-half-plane-count]] with H = {Re ι > 2} the number N′ of
+[[lem:s14-line-two]], no root with real part 2. By [[lem:s14-half-plane-count]] with H = {Re ι > 2} the number N_+ of
 its roots with real part greater than 2 is the same at every point of Ω₂, and we find it at κ = 8, that is l = 2, for
 small h. By [[lem:s14-small-h]] (a), three roots of P_2 converge to the pairwise distinct numbers 2, ι₊, ι₋, and the
 real parts of the other three tend to −∞. The roots converging to ι₊ and ι₋ have real part greater than 2 for small h,
 by [[lem:s14-limit-sides]] (a). For the third, choose δ > 0 smaller than |ι₊ − 2| and |ι₋ − 2| and such that Q_5 < 0
-on [2, 2 + δ], which is possible as Q_5(2) < 0 ([[lem:s14-q5]] (a)). For small h exactly one root ρ_h of P_2 lies in
-the disc |ι − 2| < δ; its complex conjugate is also a root in that disc, so ρ_h is real. Now P_2(2) = f₀ > 0 by
-[[lem:s14-line-two]] (a), while P_2(2 + δ/2) tends to 4(δ/2)Q_5(2 + δ/2) < 0 as h → 0⁺, by [[eq:s14-q5]]. So for small
-h, P_2 has a root in (2, 2 + δ/2), which is ρ_h, and ρ_h > 2. Hence N′ = 3, at every point of Ω₂. As P(·; κ, h) has
-six roots and N = 3, no root lies in the strip −1/(2h) ≤ Re ι ≤ 2 when (κ, h) ∈ Ω₂, in particular when κ = l(l + 2)
-with l ≥ 2.
+on [2, 2 + δ], which is possible as Q_5(2) = −(15 + 3κ)e/4 < 0 ([[lem:s14-q5]] (a)). For small h exactly one root ι_h
+of P_2 lies in the disc |ι − 2| < δ; its complex conjugate is also a root in that disc, so ι_h is real. Now
+P_2(2) = f₀ > 0 by [[lem:s14-line-two]] (a), while P_2(2 + δ/2) tends to 4(δ/2)Q_5(2 + δ/2) < 0 as h → 0⁺, by
+[[eq:s14-q5]]. So for small h, P_2 has a root in (2, 2 + δ/2), which is ι_h, and ι_h > 2. Hence N_+ = 3, at every point
+of Ω₂. As P(·; κ, h) has six roots and N_− = 3, no root lies in the strip −1/(2h) ≤ Re ι ≤ 2 when (κ, h) ∈ Ω₂, in
+particular when κ = l(l + 2) with l ≥ 2.
 
-*Degree l = 1.* P_1(2) = 0 for every h, so P_1 = (ι − 2)R with R a polynomial of degree 5 in ι, of leading coefficient
-−h³, whose coefficients are polynomials in h. By [[lem:s14-line-two]], R(2 + iy) = P_1(2 + iy)/(iy) ≠ 0 for real
-y ≠ 0, and R(2) = ∂_ιP_1(2) = f₁ ≠ 0; so R has no root with real part 2, and by [[lem:s14-half-plane-count]] with
-Ω = {3} × (0, 10⁻⁶] the number of its roots with real part greater than 2 does not depend on h. As h → 0⁺, three roots
-of P_1 converge to the pairwise distinct numbers 2, ι₊, ι₋ and the real parts of the other three tend to −∞
-([[lem:s14-small-h]] (a)). For small h exactly one root of P_1 lies in a small disc about 2, and ι = 2 is a root
-there; so the five roots of R are the other five. Two of them converge to ι₊ and ι₋ and have real part greater than 2
-for small h ([[lem:s14-limit-sides]] (a)), and three have real parts tending to −∞. So R has exactly two roots with
-real part greater than 2, for every h ∈ (0, 10⁻⁶]. Its roots with real part less than −1/(2h) are those of P_1, three
-by the first part. So R has no root with real part in [−1/(2h), 2], and the roots of P_1 are ι = 2, simple as
-R(2) ≠ 0, two with real part greater than 2, and three with real part less than −1/(2h). ∎
+*Degree l = 1.* P_1(2) = 0 for every h, so P_1 = (ι − 2)P̃_1 with P̃_1 a polynomial of degree 5 in ι, of leading
+coefficient −h³, whose coefficients are polynomials in h. By [[lem:s14-line-two]], P̃_1(2 + iy) = P_1(2 + iy)/(iy) ≠ 0
+for real y ≠ 0, and P̃_1(2) = ∂_ιP_1(2) = f₁ ≠ 0; so P̃_1 has no root with real part 2, and by
+[[lem:s14-half-plane-count]] with Ω = {3} × (0, 10⁻⁶] the number of its roots with real part greater than 2 does not
+depend on h. As h → 0⁺, three roots of P_1 converge to the pairwise distinct numbers 2, ι₊, ι₋ and the real parts of
+the other three tend to −∞ ([[lem:s14-small-h]] (a)). For small h exactly one root of P_1 lies in a small disc about
+2, and ι = 2 is a root there; so the five roots of P̃_1 are the other five. Two of them converge to ι₊ and ι₋ and have
+real part greater than 2 for small h ([[lem:s14-limit-sides]] (a)), and three have real parts tending to −∞. So P̃_1
+has exactly two roots with real part greater than 2, for every h ∈ (0, 10⁻⁶]. Its roots with real part less than
+−1/(2h) are those of P_1, three by the first part. So P̃_1 has no root with real part in [−1/(2h), 2], and the roots
+of P_1 are ι = 2, simple as P̃_1(2) ≠ 0, two with real part greater than 2, and three with real part less than
+−1/(2h). ∎
 
-Since −1/(2h) ≤ −5·10⁵ < −100 and 2 > 19/10, [[prop:s14-scalar-every-h]] is the part of [[prop:np-10-54]] (i)–(ii)
+Since −1/(2h) ≤ −5·10⁵ < −100 and 2 > 19/10, [[prop:s14-scalar-every-h]] gives the part of [[prop:np-10-54]] (i)–(ii)
 that concerns the scalar types l ≥ 1. It holds at every h ∈ (0, 10⁻⁶] and every l ≥ 1, with no exceptional value of h;
 as h_* ≤ 10⁻⁶, this includes every h ∈ 𝖧 of [[eq:iv4-0-1]].
 

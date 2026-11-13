@@ -128,10 +128,10 @@ x_I in [[prop:iv-3-1]] and [[prop:iv1-2-2]]). From here on R₀ is this radius.
 The causal structure of Ω_(ext,r₀) is that of a domain of dependence of Σ_(IVP,r₀). We record it in the form used for
 uniqueness.
 
-**Lemma {#lem:s26-development}** (Ω_(ext,r₀) is a Cauchy development.) Let r₀ ≥ R₀, let g₀ = g_(b₀), or g₀ ∈ 𝒢 with g₀ − g_(b₀) satisfying the pointwise bounds of the proof of [[lem:iii-c1-1-1]], and let
-g := g₀ + h with h as in [[lem:iii-c1-1-1]] and smooth in the interior of Ω_(ext,r₀). Time-orient g by ∂_t. Then the
-interior Ω° of Ω_(ext,r₀) is globally hyperbolic for g, and Σ° := Ω° ∩ {t_IVP = 0} is a smooth spacelike Cauchy
-hypersurface of Ω°.
+**Lemma {#lem:s26-development}** (Ω_(ext,r₀) is a Cauchy development.) Let r₀ ≥ R₀, let g₀ = g_(b₀), or g₀ ∈ 𝒢 with g₀ −
+g_(b₀) satisfying the pointwise bounds of the proof of [[lem:iii-c1-1-1]], and let g := g₀ + h with h as in
+[[lem:iii-c1-1-1]] and smooth in the interior of Ω_(ext,r₀). Time-orient g by ∂_t. Then the interior Ω° of Ω_(ext,r₀) is
+globally hyperbolic for g, and Σ° := Ω° ∩ {t_IVP = 0} is a smooth spacelike Cauchy hypersurface of Ω°.
 
 *Proof.* Write g = η + δ as in the proof of [[lem:iii-c1-1-1]]; |δ| is small on Ω_(ext,r₀) for r₀ large. For
 c ∈ [−½, ½] the covector dt + c d|x| is timelike for η with η⁻¹-norm −(1 − c²) ≤ −¾ (the calculation of that proof, in
@@ -332,13 +332,13 @@ This is possible. For η, dρ_I = |x|⁻¹(−½ρ_I dx⁰ − (1 − ½ρ_I)dx�
 
     η⁻¹(dρ_I, dρ_I) = −2|x|⁻²ρ_I(1 − ½ρ_I) < 0     (ρ_I < 2)                                          {#eq:iv-3-1}
 
-([Hin23a, (3.8)], with η⁻¹(dx⁰, dx¹) = −2, η⁻¹(dx⁰, dx⁰) = η⁻¹(dx¹, dx¹) = 0). The correction from δ := g_(b₀) − η is O(ρ²)
-relative to ρ_I|x|⁻²: η⁻¹dρ_I = |x|⁻¹((2 − ρ_I)∂₀ + ρ_I∂₁), and with δ_(ab) := δ(∂_a, ∂_b) as in the proof of
-[[lem:iii-c1-1-1]], δ₀₀, δ₀₁ ∈ ρ₀²ρ_I³C^∞ and δ₁₁ ∈ ρ₀²ρ_I²C^∞ ([[def:iii-c-3-4]], [[lem:iii-c-3-5]] (1)), so
-δ(η⁻¹dρ_I, η⁻¹dρ_I) = |x|⁻²((2 − ρ_I)²δ₀₀ + 2ρ_I(2 − ρ_I)δ₀₁ + ρ_I²δ₁₁) ∈ ρ_I|x|⁻² · ρ²C^∞, and the terms quadratic
-in δ are smaller. So [[eq:iv-3-1]] persists for ρ = ρ₀x_I² small; this is the role of the bound
-x̄_I ≤ 1/√(8m) of [Hin23a]. Here c_♯ is fixed by the three conditions above in the Minkowski coordinates of
-[[sec:iii-c-1]]; the bound of [Hin23a], stated in its tortoise coordinates ([[prop:np-10-64]] (8)), is not used.
+([Hin23a, (3.8)], with η⁻¹(dx⁰, dx¹) = −2, η⁻¹(dx⁰, dx⁰) = η⁻¹(dx¹, dx¹) = 0). The correction from δ := g_(b₀) − η is
+O(ρ²) relative to ρ_I|x|⁻²: η⁻¹dρ_I = |x|⁻¹((2 − ρ_I)∂₀ + ρ_I∂₁), and with δ_(ab) := δ(∂_a, ∂_b) as in the proof of
+[[lem:iii-c1-1-1]], δ₀₀, δ₀₁ ∈ ρ₀²ρ_I³C^∞ and δ₁₁ ∈ ρ₀²ρ_I²C^∞ ([[def:iii-c-3-4]], [[lem:iii-c-3-5]] (1)), so δ(η⁻¹dρ_I,
+η⁻¹dρ_I) = |x|⁻²((2 − ρ_I)²δ₀₀ + 2ρ_I(2 − ρ_I)δ₀₁ + ρ_I²δ₁₁) ∈ ρ_I|x|⁻² · ρ²C^∞, and the terms quadratic in δ are
+smaller. So [[eq:iv-3-1]] persists for ρ = ρ₀x_I² small; this is the role of the bound x̄_I ≤ 1/√(8m) of [Hin23a]. Here
+c_♯ is fixed by the three conditions above in the Minkowski coordinates of [[sec:iii-c-1]]; the bound of [Hin23a], stated
+in its tortoise coordinates ([[prop:np-10-64]] (8)), is not used.
 
 Let Ω ⊂ {x_I < c} ∩ {ρ₀ < 1} ∩ {t_* ≤ T₀}, c < c_♯, be open. Its boundary in the interior consists of two
 hypersurfaces, each smooth or piecewise smooth (there is no boundary term at a corner of Σ_in, where u vanishes):
@@ -373,30 +373,29 @@ the eb-sense.
 
     2 Re⟨wLu, wVu⟩_(L²(Ω,μ_b)) = ⟨Qu, u⟩ + ℬ_fin(u),     Q := L*W + W*L = [L, W] − (div_(μ_b)W)L.
 
-It is the integral over Ω of the pointwise identity 2 Re(w²Lu · Vū) = div_(μ_b)J + q(u) of the vector field method.
-As L is real and formally self-adjoint ([[lem:iv-2-1]]), L = −div_(μ_b)(G∇u) + V₀u with G its principal symbol and
-V₀ := L(1); J is the energy current of W, including the potential term; and q(u), built from G, its derivative along W,
-∇W, div_(μ_b)W, V₀ and WV₀, is a quadratic form in u and its first derivatives with no products of u with its
-derivatives. We write ⟨Qu, u⟩ for ∫_Ω q(u)μ_b, which is the pairing of Qu with u when u vanishes near Σ_fin, and
-ℬ_fin(u) for the flux of J through Σ_fin. There is no boundary term at Σ_in, where u vanishes to second order, and
-none at I₀ ∪ ℐ⁺ in the following approximation, which is needed as the forward solution is not known beforehand to lie in the
-weighted space. Approximate f in H^(k,(α₀,2α_I))_b by f_j supported in {ρ₀ ≥ 1/j}. The forward solution u_j of
-Lu_j = f_j vanishes near I₀, the causal future of supp f_j staying in {x¹ ≥ x¹_j} for some x¹_j, so away from spatial
-infinity. Apply the identity to u_j on Ω_ε := Ω ∩ {x_I > ε}, whose added boundary {x_I = ε} is spacelike by
-[[eq:iv-3-1]], with Ω_ε to its past: it is a further final boundary, with a boundary term of the same sign as ℬ_fin.
-The Poincaré inequality below does not depend on where an X_I-curve ends. So the estimate holds for u_j on Ω_ε,
-uniformly in ε and j; let ε → 0, then j → ∞, the u_j converging to u locally uniformly with their derivatives and the
-uniform bound passing to the limit. ℬ_fin(u) ≥ 0: it is the flux through Σ_fin of the energy current of the future
-timelike W, and Σ_fin is spacelike or null with Ω to its past. It also contains the potential term, a positive
-multiple of V₀|u|² with V₀ := L(1) = ¾x_I² + O(x_I³) > 0 (near I₀, ¾ρ_I), of the same sign; so does the boundary term
-of the proof of [[prop:iv-4-1]].
+It is the integral over Ω of the pointwise identity 2 Re(w²Lu · Vū) = div_(μ_b)J + q(u) of the vector field method. As L
+is real and formally self-adjoint ([[lem:iv-2-1]]), L = −div_(μ_b)(G∇u) + V₀u with G its principal symbol and V₀ := L(1);
+J is the energy current of W, including the potential term; and q(u), built from G, its derivative along W, ∇W,
+div_(μ_b)W, V₀ and WV₀, is a quadratic form in u and its first derivatives with no products of u with its derivatives. We
+write ⟨Qu, u⟩ for ∫_Ω q(u)μ_b, which is the pairing of Qu with u when u vanishes near Σ_fin, and ℬ_fin(u) for the flux of
+J through Σ_fin. There is no boundary term at Σ_in, where u vanishes to second order, and none at I₀ ∪ ℐ⁺ in the
+following approximation, which is needed as the forward solution is not known beforehand to lie in the weighted space.
+Approximate f in H^(k,(α₀,2α_I))_b by f_j supported in {ρ₀ ≥ 1/j}. The forward solution u_j of Lu_j = f_j vanishes near
+I₀, the causal future of supp f_j staying in {x¹ ≥ x¹_j} for some x¹_j, so away from spatial infinity. Apply the identity
+to u_j on Ω_ε := Ω ∩ {x_I > ε}, whose added boundary {x_I = ε} is spacelike by [[eq:iv-3-1]], with Ω_ε to its past: it is
+a further final boundary, with a boundary term of the same sign as ℬ_fin. The Poincaré inequality below does not depend
+on where an X_I-curve ends. So the estimate holds for u_j on Ω_ε, uniformly in ε and j; let ε → 0, then j → ∞, the u_j
+converging to u locally uniformly with their derivatives and the uniform bound passing to the limit. ℬ_fin(u) ≥ 0: it is
+the flux through Σ_fin of the energy current of the future timelike W, and Σ_fin is spacelike or null with Ω to its past.
+It also contains the potential term, a positive multiple of V₀|u|² with V₀ := L(1) = ¾x_I² + O(x_I³) > 0 (near I₀, ¾ρ_I),
+of the same sign; so does the boundary term of the proof of [[prop:iv-4-1]].
 
-*The bulk term.* Modulo ρ₀^(−2α₀)x_I^(−4α_I+1)Diff²_(e,b), L may be replaced by the leading part L₀ of
-[[eq:iv-2-2]], and μ_b by μ̄_b := |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| ([[lem:iv-2-1]]). Accordingly q(u)μ_b differs from the bulk term
-q̄(u)μ̄_b of L₀ and μ̄_b by a quadratic form in u and V′u, V′ ∈ {X₀, X_I, x_IΘ}, with coefficients in w²x_IC^∞: the
-principal symbols of L and L₀ differ by an element of x_IC^∞, V₀ − ¾x_I² ∈ x_I³C^∞, μ_b/μ̄_b ∈ 1 + ρ²C^∞, and
-differentiation along eb-vector fields preserves these classes. For L₀ and μ̄_b, X₀ and X_I are skew-adjoint on
-L²(μ̄_b), −div_(μ̄_b)W = −V(w²) = w²(2α₀ − 2(1 + κ)α_I), and, with c_A := 1 + 2(α₀ − α_I) + κ(1 − 2α_I) > 0,
+*The bulk term.* Modulo ρ₀^(−2α₀)x_I^(−4α_I+1)Diff²_(e,b), L may be replaced by the leading part L₀ of [[eq:iv-2-2]], and
+μ_b by μ̄_b := |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| ([[lem:iv-2-1]]). Accordingly q(u)μ_b differs from the bulk term q̄(u)μ̄_b of L₀
+and μ̄_b by a quadratic form in u and V′u, V′ ∈ {X₀, X_I, x_IΘ}, with coefficients in w²x_IC^∞: the principal symbols of
+L and L₀ differ by an element of x_IC^∞, V₀ − ¾x_I² ∈ x_I³C^∞, μ_b/μ̄_b ∈ 1 + ρ²C^∞, and differentiation along eb-vector
+fields preserves these classes. For L₀ and μ̄_b, X₀ and X_I are skew-adjoint on L²(μ̄_b), −div_(μ̄_b)W = −V(w²) = w²(2α₀
+− 2(1 + κ)α_I), and, with c_A := 1 + 2(α₀ − α_I) + κ(1 − 2α_I) > 0,
 
     Q̄ := [L₀, W] − (div_(μ̄_b)W)L₀
        = 4|α_I|(X₀ − X_I)*w²(X₀ − X_I) + 4κ(α₀ − α_I)X_I*w²X_I + c_Ax_Iw(Δ̸ + ¾)wx_I                   {#eq:iv-3-3}
@@ -742,11 +741,11 @@ near supp φ_i; multiplication by these is bounded on H^s_b. Then ab = Σ_i(ψ_i
 
 *On a domain Ω.* After a partition of unity in ω, a diffeomorphism that flattens the boundary hypersurfaces of Ω, with
 its derivatives and those of its inverse bounded (composition with it is bounded on every W^(j,2) and on L^∞, by the
-chain rule), makes Ω locally a half-space or, near an edge where two of them meet, a quadrant. The extension operator of [[thm:std-ly-extension]] acts
-in the normal variable alone, the others being parameters, so its bounds hold fibrewise; it is one operator bounded on
-every W^(j,2) and on L^∞. Applied in the normal variable of each hypersurface in turn, it gives extensions Ea, Eb of a, b
-to M_♯ with ‖Ea‖_(H^s_b) ≤ C‖a‖_(H^s_b(Ω)), ‖Ea‖_(L^∞) ≤ C‖a‖_(L^∞(Ω)), and likewise for b. As ab = (Ea)(Eb) on Ω, the
-bound on M_♯ gives the bound on Ω. ∎
+chain rule), makes Ω locally a half-space or, near an edge where two of them meet, a quadrant. The extension operator of
+[[thm:std-ly-extension]] acts in the normal variable alone, the others being parameters, so its bounds hold fibrewise; it
+is one operator bounded on every W^(j,2) and on L^∞. Applied in the normal variable of each hypersurface in turn, it
+gives extensions Ea, Eb of a, b to M_♯ with ‖Ea‖_(H^s_b) ≤ C‖a‖_(H^s_b(Ω)), ‖Ea‖_(L^∞) ≤ C‖a‖_(L^∞(Ω)), and likewise for
+b. As ab = (Ea)(Eb) on Ω, the bound on M_♯ gives the bound on Ω. ∎
 
 **Lemma {#lem:iv1-2-4}** ([Hin23a, Lemma 3.34], the commutator identity.) In any associative algebra, for
 L, Z₁, …, Z_l, with ad_Z := [·, Z],
@@ -1340,26 +1339,26 @@ and
     L_(g_(b₀))(Rh) = ρ₀²R(ρ₀⁻²L_(g_(b₀))h) + ρ₀²[ρ₀⁻²L_(g_(b₀)), R]h.
 
 Index sets are closed under + ℕ₀, so ℰ₀ + j ⊂ ℰ₀. The first term: ρ₀⁻²L_(g_(b₀))h ∈ H^(∞,(ℰ₀,α₀+1),(−′,ℓ^♭_I+1))_b by
-[[eq:iii-c1-3-4]], and R removes its expansion at I₀ up to α₁ ≤ α₀ + 1 (the converse part of [[lem:iii-a-1-3]]), so
-the first term lies in H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. For the second, by [[lem:iii-c-4-1]] and [[eq:iii-c1-3-5]] below,
-A := ρ₀⁻²L_(g_(b₀)) = −ρ_I(X_I − 3/2 − Ā)(X₀ − X_I) + ρ₀⁻²R̃_b with ρ₀⁻²R̃_b ∈ ρ_I²C^∞Diff²_b, the leading part having
-coefficients independent of ρ₀. X₀ commutes with X₀, X_I, ∂_ω, ρ_I and the constant Ā, and maps a ∈ C^∞ to
-X₀a ∈ ρ₀C^∞; so R commutes with the leading part, and [A, R] = [ρ₀⁻²R̃_b, R] ∈ ρ₀ρ_I²Diff^(p+1)_b. (The cruder
-[A, R] ∈ ρ₀ρ_IDiff^(p+1)_b would not do: on the radiation field ρ_I^(3/2) of slot 6 it gives ρ_I^(5/2), below the weight
-ℓ^♭_I + 1 ∈ (5/2, 3) of the target.) Split h = h_e + h_r, with h_e the terms of its expansion at I₀ with real part at
-most α₀ (those known) and h_r ∈ H^(∞,α₀) at I₀. Then Rh_e = 0, so [A, R]h_e = −RAh_e. At I₀, Ah_e has its expansion in
-ℰ₀ (smooth coefficients only add ℕ₀), and R removes its terms up to α₁, leaving order > α₁. At ℐ⁺, Ah_e lies in
-(−′, ℓ^♭_I + 1): the leading part sends the slots other than 6 from the weight ℓ^♭_I to ℓ^♭_I + 1 and annihilates the
-radiation field ρ_I^(3/2)a of slot 6 (column 6 of Ā vanishes: Ā_(j6) = 0 for j < 6, Ā being lower triangular, and
-Ā₆₆ = Ā₇₆ = 0; so on it X_I − 3/2 − Ā acts as X_I − 3/2, which commutes past X₀ − X_I), and ρ₀⁻²R̃_b gains ρ_I². And [A, R]h_r ∈ H^(∞,α₀+1) at I₀, with α₀ + 1 ≥ α₁, and it has the weight at
-least 3/2 + 2 > ℓ^♭_I + 1 at ℐ⁺. So ρ₀²[A, R]h ∈ H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. The data of Rh lie in
-H^(∞,α₁)_b(Σ_(IVP,r₀)). Indeed X₀ is not tangent to Σ_IVP near I₀ (there X₀ = ρ∂_ρ + 2ρ∂_τ in the coordinates (τ, ρ)),
-so these data involve the normal derivatives ∂^j_(τ′)h on Σ_IVP. These are determined by h₀, h₁ and the equation, which
-is non-characteristic on Σ_IVP, with coefficients in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b (jℰ₀ ⊂ ℰ₀ for the nonlinear terms); so the
-jet of h on Σ_IVP has its expansion at ∂Σ_IVP in ℰ₀ up to ℓ₀ ≥ α₁, and R removes its terms with real part at most α₁
-(the converse part of [[lem:iii-a-1-3]]). [[eq:iii-c1-2-2]] with h = 0 and α₀ replaced by α₁ > ℓ^♭_I gives
-Rh ∈ H^(∞,α₁,(−,ℓ^♭_I))_b, and [[lem:iii-a-1-3]] gives h ∈ H^(∞,(ℰ₀,α₁),(−,ℓ^♭_I))_b. After finitely many steps,
-h ∈ H^(∞,(ℰ₀,ℓ₀),(−,ℓ^♭_I))_b.
+[[eq:iii-c1-3-4]], and R removes its expansion at I₀ up to α₁ ≤ α₀ + 1 (the converse part of [[lem:iii-a-1-3]]), so the
+first term lies in H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. For the second, by [[lem:iii-c-4-1]] and [[eq:iii-c1-3-5]] below, A :=
+ρ₀⁻²L_(g_(b₀)) = −ρ_I(X_I − 3/2 − Ā)(X₀ − X_I) + ρ₀⁻²R̃_b with ρ₀⁻²R̃_b ∈ ρ_I²C^∞Diff²_b, the leading part having
+coefficients independent of ρ₀. X₀ commutes with X₀, X_I, ∂_ω, ρ_I and the constant Ā, and maps a ∈ C^∞ to X₀a ∈ ρ₀C^∞;
+so R commutes with the leading part, and [A, R] = [ρ₀⁻²R̃_b, R] ∈ ρ₀ρ_I²Diff^(p+1)_b. (The cruder [A, R] ∈
+ρ₀ρ_IDiff^(p+1)_b would not do: on the radiation field ρ_I^(3/2) of slot 6 it gives ρ_I^(5/2), below the weight ℓ^♭_I + 1
+∈ (5/2, 3) of the target.) Split h = h_e + h_r, with h_e the terms of its expansion at I₀ with real part at most α₀
+(those known) and h_r ∈ H^(∞,α₀) at I₀. Then Rh_e = 0, so [A, R]h_e = −RAh_e. At I₀, Ah_e has its expansion in ℰ₀ (smooth
+coefficients only add ℕ₀), and R removes its terms up to α₁, leaving order > α₁. At ℐ⁺, Ah_e lies in (−′, ℓ^♭_I + 1): the
+leading part sends the slots other than 6 from the weight ℓ^♭_I to ℓ^♭_I + 1 and annihilates the radiation field
+ρ_I^(3/2)a of slot 6 (column 6 of Ā vanishes: Ā_(j6) = 0 for j < 6, Ā being lower triangular, and Ā₆₆ = Ā₇₆ = 0; so on it
+X_I − 3/2 − Ā acts as X_I − 3/2, which commutes past X₀ − X_I), and ρ₀⁻²R̃_b gains ρ_I². And [A, R]h_r ∈ H^(∞,α₀+1) at
+I₀, with α₀ + 1 ≥ α₁, and it has the weight at least 3/2 + 2 > ℓ^♭_I + 1 at ℐ⁺. So ρ₀²[A, R]h ∈
+H^(∞,α₁+2,(−′,ℓ^♭_I+1))_b. The data of Rh lie in H^(∞,α₁)_b(Σ_(IVP,r₀)). Indeed X₀ is not tangent to Σ_IVP near I₀ (there
+X₀ = ρ∂_ρ + 2ρ∂_τ in the coordinates (τ, ρ)), so these data involve the normal derivatives ∂^j_(τ′)h on Σ_IVP. These are
+determined by h₀, h₁ and the equation, which is non-characteristic on Σ_IVP, with coefficients in C^∞ + H^(∞,(ℰ₀,ℓ₀))_b
+(jℰ₀ ⊂ ℰ₀ for the nonlinear terms); so the jet of h on Σ_IVP has its expansion at ∂Σ_IVP in ℰ₀ up to ℓ₀ ≥ α₁, and R
+removes its terms with real part at most α₁ (the converse part of [[lem:iii-a-1-3]]). [[eq:iii-c1-2-2]] with h = 0 and α₀
+replaced by α₁ > ℓ^♭_I gives Rh ∈ H^(∞,α₁,(−,ℓ^♭_I))_b, and [[lem:iii-a-1-3]] gives h ∈ H^(∞,(ℰ₀,α₁),(−,ℓ^♭_I))_b. After
+finitely many steps, h ∈ H^(∞,(ℰ₀,ℓ₀),(−,ℓ^♭_I))_b.
 
 *Step 2 (the expansion at ℐ⁺).* Suppose h ∈ H^(∞,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,α_I)_b for some α_I ∈ [ℓ^♭_I, ℓ_I) and some ℰ_I^C of
 [[def:iii-c-3-1]] with ℰ₀ ⊂ ℰ_I^C; Step 1 gives this for α_I = ℓ^♭_I, with any such ℰ_I^C (one exists:
@@ -1540,11 +1539,11 @@ the same estimate applied to their difference with ḣ, and higher derivatives f
 [Hin26, footnote 59].
 
 (3) The metrics φ_S*g_(b₀) + h_S and φ_S*(g_(b₀) + h) have the same Cauchy data on Σ_(IVP,r₁) ([[eq:iii-c2-3-1]],
-[[eq:iii-c2-3-3]]), hence the same first and second fundamental forms and the same Υ⁰ there, Υ⁰ involving the metric
-and its first derivatives only; so (3) does not depend on (1). By the proof of (1), the Ricci tensor and Υ⁰ of
-φ_S*(g_(b₀) + h) vanish on 𝒰 ⊃ Σ_(IVP,r₁). So the data of φ_S*g_(b₀) + h_S at Σ_(IVP,r₁) satisfy the constraints, and
-Υ^(χ₀E_Υ) = Υ⁰ = 0 there (χ₀ = 0 near Σ_(IVP,r₁)). [[rem:iii-c1-2-2]] (1), with [[rem:iii-c1-2-2]] (2) for the background φ_S*g_(b₀) and with
-[[prop:np-10-57-d]] for the cut-off gauge, applied to [[eq:iii-c2-3-3]], gives the conclusions on Ω_(ext,r₁). ∎
+[[eq:iii-c2-3-3]]), hence the same first and second fundamental forms and the same Υ⁰ there, Υ⁰ involving the metric and
+its first derivatives only; so (3) does not depend on (1). By the proof of (1), the Ricci tensor and Υ⁰ of φ_S*(g_(b₀) +
+h) vanish on 𝒰 ⊃ Σ_(IVP,r₁). So the data of φ_S*g_(b₀) + h_S at Σ_(IVP,r₁) satisfy the constraints, and Υ^(χ₀E_Υ) = Υ⁰ =
+0 there (χ₀ = 0 near Σ_(IVP,r₁)). [[rem:iii-c1-2-2]] (1), with [[rem:iii-c1-2-2]] (2) for the background φ_S*g_(b₀) and
+with [[prop:np-10-57-d]] for the cut-off gauge, applied to [[eq:iii-c2-3-3]], gives the conclusions on Ω_(ext,r₁). ∎
 
 **Remark {#rem:iii-c2-3-2}** ([Hin26, Remark 5.24] in dimension 4 + 1.) If h₀ = h₁ = 0, then h_S = 0 by uniqueness,
 and the metric is φ_S*g_(b₀). On all of Σ_IVP such data are compactly supported perturbations of the Myers–Perry data,
@@ -1586,20 +1585,20 @@ data. So h₁ = rh̃₁ ∈ H^(∞,(ℰ₀,ℓ₀))_b. ∎
 
 These data enter [[thm:iii-c1-3-1]] when min Re ℰ₀ > 3/2 + 2γ_Υ, ℓ₀ > 3/2 and ‖h_j‖_(H^(k₀,ℓ^♭₀)_b) < ε₀ as in
 [[thm:iii-c1-2-1]] (k₀ = N_NM = 153), which holds for (γ̃, κ̃) small in a suitable norm, by the continuity in
-[[prop:iii-c2-4-1]]; and then they enter [[thm:iii-c2-3-1]]. If (γ, κ) satisfy the constraints, the solutions are vacuum ([[rem:iii-c1-2-2]] (1), [[thm:iii-c2-3-1]] (3)).
+[[prop:iii-c2-4-1]]; and then they enter [[thm:iii-c2-3-1]]. If (γ, κ) satisfy the constraints, the solutions are vacuum
+([[rem:iii-c1-2-2]] (1), [[thm:iii-c2-3-1]] (3)).
 
-**Proposition {#prop:iii-c2-4-2}** (Data at Boyer–Lindquist time 0; [Hin26, Section 5.7.1 and Remark 5.26] in
-dimension 4 + 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), Σ^BL := t_BL⁻¹(0) near spatial infinity, and
-γ^BL_(b₀), κ^BL_(b₀) the first and second fundamental forms of Σ^BL for g_(b₀). Let ℰ₀, ℓ₀ and ℓ^♭₀ be as in
-[[thm:iii-c1-3-1]], δ ∈ (0, ¼] small, and let γ^BL = γ^BL_(b₀) + γ̃^BL and κ^BL = κ^BL_(b₀) + κ̃^BL be symmetric 2-tensors on
-Σ^BL ∩ {r > δ⁻¹} satisfying the vacuum constraint equations, with γ̃^BL ∈ H^(∞,(ℰ₀,ℓ₀))_b and
-κ̃^BL ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b. Let h^BL_0, h^BL_1 be the gauged Cauchy data on Σ^BL that the proof of [[prop:iii-c2-4-1]]
-gives with t_BL in place of t_IVP, and assume them small in H^(N_NM,ℓ^♭₀)_b, N_NM = 153 as in [[thm:iv2-3-1]] (by the
-continuity in [[prop:iii-c2-4-1]], this holds for (γ̃^BL, κ̃^BL) small in a suitable norm). Then the solution h of the
-gauge-fixed equation with Υ⁰, Ric(g_(b₀) + h) − δ*_(g_(b₀),E_C)Υ⁰(g_(b₀) + h, g_(b₀)) = 0, with these data, on the domain
-of dependence D_δ of Σ^BL ∩ {r > δ⁻¹} within the conic neighbourhood U_δ := {|t/r| < δ, r > δ⁻¹} of spatial infinity,
-induces on Σ_IVP ∩ {r > r₀}, for r₀ large, data (h₀, h₁) in H^(∞,(ℰ₀,ℓ₀))_b: the index set is unchanged, and no index
-set ℰ_log arises.
+**Proposition {#prop:iii-c2-4-2}** (Data at Boyer–Lindquist time 0; [Hin26, Section 5.7.1 and Remark 5.26] in dimension 4
++ 1.) Let t_BL be the Boyer–Lindquist time of g_(b₀), Σ^BL := t_BL⁻¹(0) near spatial infinity, and γ^BL_(b₀), κ^BL_(b₀)
+the first and second fundamental forms of Σ^BL for g_(b₀). Let ℰ₀, ℓ₀ and ℓ^♭₀ be as in [[thm:iii-c1-3-1]], δ ∈ (0, ¼]
+small, and let γ^BL = γ^BL_(b₀) + γ̃^BL and κ^BL = κ^BL_(b₀) + κ̃^BL be symmetric 2-tensors on Σ^BL ∩ {r > δ⁻¹}
+satisfying the vacuum constraint equations, with γ̃^BL ∈ H^(∞,(ℰ₀,ℓ₀))_b and κ̃^BL ∈ H^(∞,(ℰ₀+1,ℓ₀+1))_b. Let h^BL_0,
+h^BL_1 be the gauged Cauchy data on Σ^BL that the proof of [[prop:iii-c2-4-1]] gives with t_BL in place of t_IVP, and
+assume them small in H^(N_NM,ℓ^♭₀)_b, N_NM = 153 as in [[thm:iv2-3-1]] (by the continuity in [[prop:iii-c2-4-1]], this
+holds for (γ̃^BL, κ̃^BL) small in a suitable norm). Then the solution h of the gauge-fixed equation with Υ⁰, Ric(g_(b₀) +
+h) − δ*_(g_(b₀),E_C)Υ⁰(g_(b₀) + h, g_(b₀)) = 0, with these data, on the domain of dependence D_δ of Σ^BL ∩ {r > δ⁻¹}
+within the conic neighbourhood U_δ := {|t/r| < δ, r > δ⁻¹} of spatial infinity, induces on Σ_IVP ∩ {r > r₀}, for r₀
+large, data (h₀, h₁) in H^(∞,(ℰ₀,ℓ₀))_b: the index set is unchanged, and no index set ℰ_log arises.
 
 *Proof.* *The time functions.* On {|x| ≥ R₃}, t_IVP = t − C″ ([[lem:iii-b-3-7]] (b)), with t = t_KS + T_m the time of
 [[eq:iii-b-3-3]] and T_m = 2m r⁻¹ + O(r⁻³) ([[lem:iii-b-3-5]] (a)). For the Tangherlini metric of mass m,

@@ -364,7 +364,7 @@ v1 = V′_P − κ_P − (τ_S − τ0) − m_Ω ≤ V′_P − κ_P − 1 − m
 
 (iii) *Under a nearby metric.* Let g be a smooth Lorentzian metric on an open set containing W ∪ Z, and ε_g a
 continuous function of τ with 0 ≤ ε_g ≤ 1/8 and |g − g0|_op, |g⁻¹ − g0⁻¹|_op ≤ ε_g(τ) at the points of W ∪ Z, with
-I(τ) := 2 ∫_τ^(τ_max) ε_g finite. Then ∂_τ is timelike for g, taken future directed, and
+I(τ) := 2 ∫_τ^(τ_max) ε_g finite. Then ∂_τ is timelike for g on W ∪ Z, taken future directed, and
 
     W_+ := {v ≥ v1 + I(τ), t̃ ≤ 0, r ≥ 4R} ⊂ D⁻(Σ_far; g):
 
@@ -417,7 +417,7 @@ r = v − τ ≥ v1 − τ on W.
 
 using V′ ≥ τ_top + 2R + q_end + 1. For v ≤ v1 + ½ and r ≥ 4R, τ = v − r ≤ τ_S + ½ ≤ τ_top + ½ ≤ τ′_end − ½. If
 τ ≥ τ0, then v + (τ − τ′_end) ≤ v1 + τ_S + 1 − τ′_end = V′ + 2 − m_Ω ≤ V′ − 1, and r ≥ 4R > a′: the point lies in
-Ω′, strictly inside its defining inequalities. If τ ≤ τ0, then, as h_P ≤ κ_P and v1 = V′_P − κ_P − (τ_S − τ0) − m_Ω
+Ω′, strictly inside its defining inequalities other than τ ≥ τ0. If τ ≤ τ0, then, as h_P ≤ κ_P and v1 = V′_P − κ_P − (τ_S − τ0) − m_Ω
 by the definitions of m_Ω and V′_P,
 
     v + h_P(τ) ≤ v1 + ½ + κ_P = V′_P − (τ_S − τ0) − m_Ω + ½ ≤ V′_P − 1 − 3 + ½ < V′_P − 3,
@@ -437,8 +437,9 @@ and ζ(∂_τ) = 1 + 2ε_g > 0. So ζ(Y) > 0 for every future causal Y of g (whe
 dv(Y) ≥ −2ε_g dτ(Y). Along a future causal curve of g parametrised by τ, v − I(τ) is therefore nondecreasing, as
 dI/dτ = −2ε_g. *t̃ for g.* |ζ_±|_E² = 4 + (1 ∓ 2F′)² ≤ 25/4, so g⁻¹(ζ_±, ζ_±) ≤ −7/4 + (25/4)ε_g < 0 for
 ε_g < 7/25, and g⁻¹(dt̃, dt̃) ≤ −15/16 + (17/16)ε_g < 0. With ζ_+(∂_τ) = 2 and ζ_−(∂_τ) = −2 as before, t̃ is a time
-function of g on {r ≥ 4R} with |dr(Y)| < 2 dt̃(Y) for future causal Y of g. For p in W_+ and c a future inextendible
-causal curve of g from p, v ≥ v1 + I(τ) ≥ v1 along c while it is in W, as v − I is nondecreasing; and the argument of
+function of g on W ∪ Z with |dr(Y)| < 2 dt̃(Y) for future causal Y of g there. The argument of (i) uses these
+properties only on {t̃ ≤ 0, r ≥ 4R}, which is W ∪ Z. For p in W_+ and c a future inextendible causal curve of g from
+p, v ≥ v1 + I(τ) ≥ v1 along c while it is in W, as v − I is nondecreasing; and the argument of
 (i) applies verbatim: c meets Σ_far.
 
 (iv) (a) On Ω′, item 4 of [[thm:past-construction]] gives the estimates of [[thm:uniform-existence]], so

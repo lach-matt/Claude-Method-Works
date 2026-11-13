@@ -894,7 +894,8 @@ d_((ω,η))ℛ = dℛ_c at r = r_c (since ∂_rℛ(r_c) = 0). So dG_(z₀) = ϱ�
 the three covectors dφ₊, dφ₋, dℛ_c, only dp̃ has a dp_r component (it is α ≠ 0), while r_c and ℛ_c are functions of
 (ω, η), so dr_c and dℛ_c have neither a dp_r nor a dr component. If c₊ dφ₊ + c₋ dφ₋ + c₀ dℛ_c = 0, the dp_r component
 gives (c₊ + c₋)α = 0, so c₋ = −c₊ and the dp̃ terms cancel, leaving −2c₊√𝒮(dr − dr_c) + c₀ dℛ_c = 0; its dr component
-gives 2c₊√𝒮 = 0. So c₊ = c₋ = 0, and c₀ = 0 as dℛ_c ≠ 0; the three covectors are independent. Hence Γ_u and Γ_s are smooth hypersurfaces of Σ near Γ_b, meeting
+gives 2c₊√𝒮 = 0. So c₊ = c₋ = 0, and c₀ = 0 as dℛ_c ≠ 0; the three covectors are independent. Hence Γ_u and Γ_s
+are smooth hypersurfaces of Σ near Γ_b, meeting
 transversally in Γ_b, and 𝖧 is tangent to both by [[eq:vi-b1-2-2]]. For the bracket,
 {φ₊, φ₋} = 2{p̃, (r − r_c)√𝒮}, which at r = r_c is 2√𝒮({p̃, r} − {p̃, r_c}) = 2α√𝒮. Here {p̃, r} = ∂_(p_r)p̃ = α,
 and {p̃, r_c} = 0 because, in a frame, p̃ is a function of (r, p_r, Φ, Ψ) and r_c of (Φ, Ψ, 𝔎), which Poisson-commute
@@ -1017,7 +1018,8 @@ is smooth and positive. Let p ∈ Γ_b. By [[lem:vi-b1-3-1]], e^(sH_𝒢)|_(Γ_b
 e^(sc₁X₁) e^(sc₂X₂), the c_i being constant along the orbit. Differentiating, D_(πp) e^(sH_𝔥) = De^(sc₀X₀) De^(sc₁X₁)
 De^(sc₂X₂) + s Σ_i X_i ⊗ dc_i. Here e^(tX₁) and e^(tX₂) are cotangent lifts of rotations of 𝕊³ (by the frame's J₁₂ and
 J₃₄), with derivatives bounded uniformly in t on 𝒴. Every b with |b − b₀| ≤ ε_K lies in ℬ ([[def:s12-radii]]), so
-‖A‖² < m₀/400 and [[lem:vi-b1-3-2]] applies; it enters at the rotated point e^(sc₁X₁) e^(sc₂X₂) πp; the rotations commute with X₀ and have derivatives bounded on 𝒴, so its constant there is at most C·C_(πp). Hence
+‖A‖² < m₀/400 and [[lem:vi-b1-3-2]] applies; it enters at the rotated point e^(sc₁X₁) e^(sc₂X₂) πp; the rotations
+commute with X₀ and have derivatives bounded on 𝒴, so its constant there is at most C·C_(πp). Hence
 |D_p e^(sH_𝒢)|_(TΓ_b)| ≤ C_p(1 + |s|)², and by [[lem:vi-b1-3-3]], |D_p e^(s𝖵)|_(TΓ_b)| ≤ C′_p(1 + |s|)³. Now let ϵ > 0.
 Identify Γ_b with Γ_(b₀) smoothly in b by ι_b(ω, η) := (ω, κ_b(ω, η)η) on Γ^𝕊_(b₀), where κ_b, near 1, solves ℛ_c(ω,
 κ_bη) = 0 with ℛ_c taken at b ([[lem:vi-b1-2-1]]: the radial derivative η·∂_ηℛ_c is −8m₀² ≠ 0 at b₀, from ℛ_c = C(m₀ −
@@ -1105,7 +1107,8 @@ of ℋ_b, [[lem:vi-b-1-2]]): on {r₀ − 2δ₀ ≤ r < r_h}, dr is timelike fo
 [[prop:vi-b-2-2]]. On {r₂ ≤ r < r_h}, for b near b₀, χ_H(|Ψ_b(x)|) = 1, so Ψ_b^* r_A = (r₊(b)/r_h)|x| (the remark after
 [[lem:vi-b-1-2]]) and g̃_b⁻¹(dr, dr) = (r_h/r₊(b))² (g^KS_b)⁻¹(dr_A, dr_A) ∘ Ψ_b, as in the proof of [[lem:vi-b-2-1]];
 this is negative by [[lem:vi-b-1-1]], since there r₋ < r_A ∘ Ψ_b = (r₊(b)/r_h)r < r₊(b) (the paragraph after
-[[eq:vi-b-1-1]]). So r decreases strictly along γ. On compact subsets of the compactified Σ_(z₀) ∩ {r₀ − δ₀ ≤ r ≤ r₁}, r₁ < r_h, the rescaled
+[[eq:vi-b-1-1]]). So r decreases strictly along γ. On compact subsets of the compactified
+Σ_(z₀) ∩ {r₀ − δ₀ ≤ r ≤ r₁}, r₁ < r_h, the rescaled
 ṙ is bounded above by a negative constant, so γ reaches {r < r₀ − δ₀} in finite time. Backward, r increases strictly
 along an interior curve. If the curve meets ℋ_b backward, it crossed it inward there, and its earlier part is an
 exterior curve, treated above. Otherwise, with s₀ a parameter at which γ is inside, r → r̄ ≤ r_h as s → −∞. The case
