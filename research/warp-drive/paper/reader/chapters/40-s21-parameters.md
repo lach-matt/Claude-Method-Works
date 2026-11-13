@@ -1334,9 +1334,9 @@ let 𝒴_2(α) be the sections supported in supp χ^♯_K ([[eq:iii-i-1-2]]) lyi
 𝒴(α) := 𝒴_1(α) + 𝒴_2(α), real sections: the analogue of [Hin26, (11.195)]. In this and the next section, and in
 [[ch:s22]], 𝒴_1(α), 𝒴_2(α) and 𝒴(α) denote these classes. For α ∈ (2, 3), 𝒴(α) lies in the class of
 [[sec:iii-i8-1]] of the same name: 𝒴_1(α) has plain ι⁺-weight 4 − ε, and the exponents of ℰ_src + 2 below 4 lie in
-ℰ_++ + 2 by [[eq:iii-i9-1-3]]. "h small" means as in [[sec:iii-i8-1]]. For complex W, the tensors f^ν(W) and r^ν(W)
-of [[lem:iii-i9-2-6]] (b), (c) and (e) lie in 𝒴_2(α) + i𝒴_2(α); the conjugation-symmetric sums over 𝒩 are real and lie in
-𝒴_2(α).
+ℰ_++ + 2 by [[eq:iii-i9-1-3]]. "h small" means as in [[sec:iii-i8-1]]. For complex W and h ∈ 𝒳^∞, the tensors f^ν(W),
+r^ν(W) and E^ν(W) of [[lem:iii-i9-2-6]] (b), (c) and (e) lie in 𝒴_2(α) + i𝒴_2(α); the conjugation-symmetric sums over 𝒩
+are real and lie in 𝒴_2(α).
 
 ### Correction terms of the fourth kind and the operator {#sec:iii-i9-2}
 
@@ -1450,11 +1450,11 @@ stationary, which gives the weight of m_ν.
 
 (f) s1: h is injective by the rows of [[eq:iii-h-3-1]] ([[sec:iii-i7-1]]). v1: by the choice of 𝒱′. s0: 𝒮_0 = ℝ, and
 h⁽⁰⁾_(b₀,s0) has the nonzero leading term h̄⁽⁰⁾_s0 ([[prop:iii-d3-3-1]] (1)). s2, c0, c1: h_τ(S) has the leading term
-(δ̄*)^(0)ω̄, nonzero for the nonzero indicial solution ω̄ that S ≠ 0 gives ([[prop:iii-d3-3-1]] (4)–(7)). The
+(δ̄*)^(0)ω̄, where (δ̄*)^(0) is the zero energy operator of δ* for the Minkowski model, and this is nonzero for the
+nonzero indicial solution ω̄ that S ≠ 0 gives ([[prop:iii-d3-3-1]] (4)–(7)). The
 complex-linear extension keeps injectivity. ∎
 
-Here (δ*_(g_(b₀)))^(0) is the zero energy operator of δ*_(g_(b₀)) of [[eq:iii-d3-1-2]], and (δ̄*)^(0) that of the
-Minkowski model.
+Here (δ*_(g_(b₀)))^(0) is, as in [[sec:iii-i8-2]], the zero energy operator of δ*_(g_(b₀)) of [[eq:iii-d3-1-2]].
 The gauge towers of [[prop:iii-d3-3-1]] have exactly the lengths needed: every counterterm ϑ_ν has K⁺-order
 κ_ν > 9/2 + δ_♯, above the 4 + ε_K that the forcings of [[ch:s22]] carry; the shortest towers (length 2, the class
 roots) are compensated by their larger rate λ + d_τ.
@@ -1497,10 +1497,14 @@ L_(h,p⃗).
 
 *At a base point with parameter b.* The rows and towers are built at b ([[lem:iii-i15-1-1]] (P6)): there
 m_ν(W) := χ_K δ*_(g_b)ω^b_ν(W), with ω^b_ν(W) := Σ_(i=0)^(K_τ) a_ν^((i))(t_*)ω̆^i_(τ,b)(W) built as in
-[[def:iii-i9-2-1]] from the 1-forms ω̆^i_(τ,b)(W) of [[prop:iii-d3-3-1]] at b, while the corrections h_ν and the
-counterterms ϑ_(ν,♯) in P_4 stay those built at b₀. [[lem:iii-i9-2-2]] holds at b for the tensors built at b, with
-the same proof ((P3); (P5) for the s0 rows, whose gauge 1-form is Killing for every g_b; (f) by [[lem:iii-i15-1-2]]),
-and so does [[lem:iii-i9-2-5]]. [[lem:iii-i9-2-4]] is an identity at (0, 0), so at b₀; its form at b is
+[[def:iii-i9-2-1]] from the 1-forms ω̆^i_(τ,b)(W) of [[prop:iii-d3-3-1]] at b, while the corrections and the
+counterterms in P_4 stay those built at b₀. We write ω^(b₀)_ν := ω_ν, m^(b₀)_ν, h^(b₀)_ν, ϑ^(b₀)_ν and ϑ^(b₀)_(ν,♯) for the
+tensors of [[def:iii-i9-2-1]] built at b₀; so ϑ^(b₀)_ν = δ_(g_(b₀),E_Υ)G_(g_(b₀))m^(b₀)_ν involves the row built at b₀,
+not m_ν, and h^(b₀)_ν, ϑ^(b₀)_(ν,♯) are the h_ν, ϑ_(ν,♯) of P_4 at every base point, which is how h_ν, ϑ_ν and ϑ_(ν,♯)
+are read in (a), (b) and (d) of [[lem:iii-i9-2-6]]. [[lem:iii-i9-2-2]] holds at b for the tensors built at b, with
+the same proof ((P3); (P5) for the s0 rows, whose gauge 1-form is Killing for every g_b; (f) by [[lem:iii-i15-1-2]]);
+the conjugation symmetry of [[def:iii-i9-2-1]] holds for them, the towers at b being real ((P3)); and
+[[lem:iii-i9-2-5]] holds at b. [[lem:iii-i9-2-4]] is an identity at (0, 0), so at b₀; its form at b is
 [[lem:iii-i9-2-6]] (e) below.
 
 **Lemma {#lem:iii-i9-2-6}** ([Hin26, Lemma 11.57] in dimension 4 + 1.) Let p⃗ ∈ 𝒫 (with parameter b ∈ ℬ̄_*) and
@@ -1532,18 +1536,24 @@ In particular, for h ∈ 𝒳^∞, r^ν_(h,p⃗)(W) ∈ 𝒴_2(α), each seminor
 (d) All are linear in the direction (complex-linear in W), continuous in (h, p⃗) with h ∈ 𝒳^k, and at (0, 0) given by
 [[eq:iii-i7-2-3]] and [[lem:iii-i9-2-4]].
 
-(e) Let b ∈ ℬ̄_*, with the rows m_ν built at b, and let h^b_ν, ϑ^b_ν, ϑ^b_(ν,♯) and ζ^b_ν := m_ν − h^b_ν be the tensors
-of [[def:iii-i9-2-1]] and of (c) built at b, with g_b and the 1-forms ω̆^i_(τ,b) in place of g_(b₀) and ω̆^i_τ. Then
+(e) Let b ∈ ℬ̄_*, with the rows m_ν built at b, and let h^b_ν, ϑ^b_ν, ϑ^b_(ν,♯) and
+ζ^b_ν := δ*_(g_b)(χ_Kω^b_ν) = m_ν − h^b_ν be the tensors of [[def:iii-i9-2-1]] and of (c) built at b, with g_b and the
+1-forms ω̆^i_(τ,b) in place of g_(b₀) and ω̆^i_τ. Then
 
     f^ν_(h,p⃗)(W) = L_(h,p⃗)m_ν(W) + r^ν_(h,p⃗)(W) + E^ν_(h,p⃗)(W),
     r^ν_(h,p⃗)(W) := −(L_(h,p⃗) − L_b)ζ^b_ν(W) + (δ*_(g_0,E_C) − δ*_(g_b,E_C))ϑ^b_(ν,♯)(W),
-    E^ν_(h,p⃗)(W) := L_(h,p⃗)(h_ν − h^b_ν)(W) + δ*_(g_0,E_C)(ϑ_(ν,♯) − ϑ^b_(ν,♯))(W),                 {#eq:s21-rows-at-b}
+    E^ν_(h,p⃗)(W) := L_(h,p⃗)(h^(b₀)_ν − h^b_ν)(W) + δ*_(g_0,E_C)(ϑ^(b₀)_(ν,♯) − ϑ^b_(ν,♯))(W),         {#eq:s21-rows-at-b}
 
 which is the identity [[eq:iii-i15-1-1]]. r^ν_(h,p⃗)(W) is supported in supp χ_K and lies in the class
 [[eq:iii-i9-2-5]], with norm ≤ C_ε|W|(‖h‖_(𝒳^k) + |p⃗|) uniformly on ℬ̄_*; so it lies in 𝒴_2(α) for h ∈ 𝒳^∞, as in (c),
 and r^ν_(0,p⃗_b)(W) = O(|b − b₀||W|). E^ν_(h,p⃗)(W), the difference between the corrections and counterterms built at
-b₀ and at b, is supported in supp χ_K, has K⁺-weight κ_ν − ε > α for every small ε > 0, and has size
-O(|b − b₀||W|), uniformly for (h, p⃗) small. At b = b₀, E^ν = 0 and (e) is (c).
+b₀ and at b, is supported in supp χ_K and lies in the class of (b): for every ε > 0
+
+    E^ν_(h,p⃗)(W) ∈ H^(k−2,∞,((λ+2,k)+ℱ+((0,0)∪ℰ_+),a_++Re λ+2−ε),κ_ν−ε)_b(Ω_*),   with norm ≤ C_ε|b − b₀||W|,
+
+C_ε uniform for (h, p⃗) small and b ∈ ℬ̄_*. So, for h ∈ 𝒳^∞, E^ν_(h,p⃗)(W) lies in 𝒴_2(α), and in the class 𝒴_2(α′)
+of [[sec:iii-i8-1]] for every α′ ∈ (2, 3), as f^ν does in (b), each seminorm bounded by C|b − b₀||W|(1 + ‖h‖_(𝒳^(k′)))
+for some k′. At b = b₀, E^ν = 0 and (e) is (c).
 
 *Proof.* (a) As [[lem:iii-i8-2-6]] (a): the counts of [[lem:iii-i7-3-1]] use h_tot only through
 g′ − η ∈ H^(k,(ℰ_+,a_+))_b near (ι⁺)°, which still holds ([[lem:iii-i9-2-5]]), and the derivative in S, b or S⁽⁰⁾_1
@@ -1606,8 +1616,8 @@ Re e_ν + a_K ≥ λ_♯ − 1 + 4 + ε_K > α by (H2) (e_ν ≥ λ − 1); so r
 (d) Linearity is clear from [[eq:iii-i9-2-3]]; continuity as in [[lem:iii-i7-3-1]] (c), g′ and g_0 depending smoothly
 on (h, p⃗) ([[lem:iii-i7-1-3]] (a), [[lem:iii-i9-2-5]]); the values at (0, 0) are [[lem:iii-i9-2-4]].
 
-(e) *The identity.* The first line of the proof of (c), f^ν = L_(h,p⃗)h_ν + δ*_(g_0,E_C)ϑ_(ν,♯), uses only
-[[eq:iii-i9-2-6]] and L_(h,p⃗) = L^(g′,g_0), and holds at every base point; adding and subtracting the tensors built at
+(e) *The identity.* The first line of the proof of (c), f^ν = L_(h,p⃗)h^(b₀)_ν + δ*_(g_0,E_C)ϑ^(b₀)_(ν,♯) (the tensors of
+P_4 being those built at b₀), uses only [[eq:iii-i9-2-6]] and L_(h,p⃗) = L^(g′,g_0), and holds at every base point; adding and subtracting the tensors built at
 b, f^ν = L_(h,p⃗)h^b_ν + δ*_(g_0,E_C)ϑ^b_(ν,♯) + E^ν. By [[eq:s21-conv]] at g_b, h^b_ν = m_ν − ζ^b_ν, and the display of
 the proof of (c), at g_b, which is Ricci flat, gives L_bζ^b_ν = δ*_(g_b,E_C)ϑ^b_(ν,♯). Writing
 L_(h,p⃗)ζ^b_ν = L_bζ^b_ν + (L_(h,p⃗) − L_b)ζ^b_ν gives [[eq:s21-rows-at-b]], as in the proof of
@@ -1617,12 +1627,37 @@ g_0 − g_b ∈ ρ_+²C^∞ with seminorms O(|p⃗|) ([[lem:iii-i7-1-3]] (a), (c
 ([[eq:iii-i7-1-3]]; every correction is supported in 𝒞), so L_(h,p⃗) − L_b = L^(g_b+h,g_b) − L_b has coefficients of
 K⁺-weight a_K with norm O(‖h‖_(𝒳^k)). And g_0 − g_b = (1 − χ_K)((ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_(b₀) − g_b) is supported in
 supp(1 − χ_K), so the second term is supported in 𝒞. The constants are uniform in b by (P3), and the case h = 0,
-p⃗ = p⃗_b, |p⃗_b| = |b − b₀|, gives the bound at (0, p⃗_b). *E^ν.* h_ν − h^b_ν = −dχ_K ⊗_s (ω_ν − ω^b_ν) is supported
-in 𝒞, and ϑ_(ν,♯) − ϑ^b_(ν,♯) in supp χ_K; both are b-differences of the towers and of tensors built from them, of
-size O(|b − b₀||W|) as the towers are smooth in b ((P3)). Near K⁺ the corrections vanish, and the counterterms are
-½□^Υ_(b₀)ω_ν and ½□^Υ_bω^b_ν, each of K⁺-weight κ_ν − ε by (d) of [[lem:iii-i9-2-2]] at b₀ and at b;
-δ*_(g_0,E_C) = δ*_(g_b,E_C) there is stationary and keeps the weight, and κ_ν − ε > 4 + ε_K ≥ α as in (a). At
-b = b₀ the tensors built at b are those built at b₀, so E^ν = 0. ∎
+p⃗ = p⃗_b, |p⃗_b| = |b − b₀|, gives the bound at (0, p⃗_b).
+
+*E^ν: support and size.* Put Δh := h^(b₀)_ν − h^b_ν and Δϑ := ϑ^(b₀)_(ν,♯) − ϑ^b_(ν,♯), so that
+E^ν = L_(h,p⃗)Δh + δ*_(g_0,E_C)Δϑ. Δh = −dχ_K ⊗_s (ω^(b₀)_ν − ω^b_ν) is supported in 𝒞, and Δϑ in supp χ_K
+([[lem:iii-i9-2-2]] (c) at b₀ and at b), so E^ν is supported in supp χ_K. By (P3) the 1-forms ω̆^i_(τ,b)(W) are smooth
+in b as polyhomogeneous sections with the index sets of [[eq:iii-i9-2-1]], which do not depend on b, and g_b is smooth
+in b; so the tensors of [[def:iii-i9-2-1]] built at b are smooth in b in the classes of [[lem:iii-i9-2-2]] (b) and (d)
+at b, and the mean value theorem along the segment from b₀ to b, which lies in ℬ̄_*, shows that Δh and Δϑ have the
+memberships of h_ν and ϑ_(ν,♯) there, with every seminorm at most C|b − b₀||W|.
+
+*E^ν at ι⁺.* Near (ι⁺)°, Δh ∈ 𝒜^((λ,k)+ℱ) and Δϑ ∈ 𝒜^((λ+1,k)+ℱ). There
+L_(h,p⃗) = D_(g′)Ric − δ*_(g_0,E_C)D_1Υ^(E_Υ)(g′, g_0) lies in ρ_+²(C^∞ + H^((ℰ_+,a_+))_b)Diff²_b, as
+g′ − η ∈ ρ_+²C^∞ + H^(k,(ℰ_+,a_+))_b and g_0 − η ∈ ρ_+²C^∞ ([[lem:iii-i9-2-5]], [[lem:iii-i7-1-3]] (c)), and
+δ*_(g_0,E_C) ∈ ρ_+Diff¹_b with smooth coefficients. So, by the counts of (b), L_(h,p⃗)Δh and δ*_(g_0,E_C)Δϑ have the
+ι⁺-data ((λ + 2, k) + ℱ + ((0, 0) ∪ ℰ_+), a_+ + Re λ + 2 − ε), with norms at most C_ε|b − b₀||W|.
+
+*E^ν at K⁺.* Near K⁺, χ_K = 1, so Δh = 0 and, by [[lem:iii-i9-2-2]] (d) at b₀ and at b,
+Δϑ = ½(□^Υ_(b₀)ω^(b₀)_ν − □^Υ_bω^b_ν). By [[eq:iii-i9-2-2]] at b₀ and at b this is a^((K_τ+1)) and a^((K_τ+2)) times
+differences of stationary tensors, smooth on compact spatial sets and of size O(|b − b₀||W|) there; a^((K_τ+1)) has
+K⁺-weight κ_ν − ε, and a^((K_τ+2)) a larger one (the proof of [[lem:iii-i9-2-2]] (d)). δ*_(g_0,E_C) = δ*_(g_b,E_C)
+there ([[eq:iii-i7-1-3]]) is stationary and keeps the weight. So E^ν has K⁺-weight κ_ν − ε with norm at most
+C|b − b₀||W|, and the two weights combine at the corner of ι⁺ and K⁺ as in [[prop:iii-i-4-1]]. This is the class
+stated in (e), with constants uniform in b ((P3)).
+
+*E^ν in 𝒴_2.* The memberships follow from the class and the support (supp χ_K ⊂ supp χ^♯_K) as in the proof of (b).
+For 𝒴_2(α): the ι⁺-index set lies in ℰ_rows + 2 ⊂ ℰ_src + 2 by [[eq:iii-i9-1-3]]; the remainder satisfies
+a_+ + Re λ + 2 > 2λ_♯ + 2 > w_+ by (H1) and [[eq:iii-i9-1-1]]; and κ_ν − ε > 9/2 + δ_♯ − ε > 4 + ε_K ≥ α as in (a). For
+𝒴_2(α′): if Re λ < 2, then (λ, k) ∈ ℳ and the index set lies in ℰ_++ + 2 by [[eq:iii-i8-1-1]]; if Re λ ≥ 2, every
+exponent has real part at least 4; and κ_ν − ε > 3.
+The seminorm bound holds as L_(h,p⃗) = L_b + (L_(h,p⃗) − L_b), the coefficients of the second having size
+O(‖h‖_(𝒳^(k′)) + |p⃗|) at the regularity used. At b = b₀ the tensors built at b are those built at b₀, so E^ν = 0. ∎
 
 *The exact linearisation.* By (c) and (e), f^ν = L_(h,p⃗)m_ν + r^ν + E^ν holds exactly, with E^ν = 0 at b₀, and r^ν
 carries a factor of ι⁺-order at least λ_♯ (from h, h_tot, or g_0 − g_(b₀), resp. g_0 − g_b at b), which lifts it from

@@ -49,13 +49,13 @@ C_♭ t_* ≤ t^♭_* ≤ t_* there ([[lem:ii-c-3-2]] (b)); a sublevel set {t^�
 
     T̂ := 2/C_♭ ≥ 2,     T_ι := (T̂ + 2)/C_♭,     T_K := max(10, T_ι + 2),
 
-so that {t^♭_* ≥ T̂} ⊂ Ω_*. Every level used below, the top of the region 𝒟 of [[prop:iii-k-1-2]] and the levels of
-the support classes of [[sec:iii-k-3]], lies at t^♭_* ≥ T̂ ≥ 2. The cut-off χ_−, the region 𝒟 and the support classes
-are defined by t^♭_*. Its differential is past timelike for every g_(b₀) + h with h small in 𝒢̃^(0,(1,0,0))_(e3b),
-on {t_* > 1} by [[lem:ii-c-3-2]] (2) and on {t_* > ½} by [[lem:s27-below]], a margin that survives the perturbations
-used below; the timelike margin of dt_* near ℐ⁺ is
-only of order m₀r⁻², as g_(b₀)⁻¹(dt_*, dt_*) = −16m₀r⁻² + O(r⁻⁴) there, and a perturbation h₀₀ of order ρ_I^z,
-Re z < 2, can overturn it. t^♭_* is smooth on M_(1/2) near ℐ⁺ ([[lem:ii-c-3-2]] (a)) and equals t_* on ℐ⁺.
+so that {t^♭_* ≥ T̂} ⊂ Ω_*. Every level used below, the top of the region 𝒟 of [[prop:iii-k-1-2]] and the levels of the
+support classes of [[sec:iii-k-3]], lies at t^♭_* ≥ T̂ ≥ 2. The cut-off χ_−, the region 𝒟 and the support classes are
+defined by t^♭_*. Its differential is past timelike for every g_(b₀) + h with h small in 𝒢̃^(0,(1,0,0))_(e3b), on
+{t_* > 1} by [[lem:ii-c-3-2]] (2), and on {t_* > ½}, for h small in that class on {t_* ≥ ½}, by [[lem:s27-below]]; this
+margin survives the perturbations used below. The timelike margin of dt_* near ℐ⁺ is only of order m₀r⁻², as
+g_(b₀)⁻¹(dt_*, dt_*) = −16m₀r⁻² + O(r⁻⁴) there, and a perturbation h₀₀ of order ρ_I^z, Re z < 2, can overturn it. t^♭_*
+is smooth on M_(1/2) near ℐ⁺ ([[lem:ii-c-3-2]] (a)) and equals t_* on ℐ⁺.
 
 *The cut-off χ_K and the background.* We take the cut-offs χ^♭_K, χ_K, χ^♯_K of [[sec:iii-b-5]] with the condition
 [[eq:iii-i-1-2]] at the threshold T_K in place of 10, a condition of the same kind:
@@ -97,13 +97,13 @@ of [[thm:iii-c1-3-1]]. The weights ℓ_I, ε_+, ε_K and α of the cone are thos
 [[ch:s17]], in which the weights at null infinity are shifted by ½ ([[eq:iii-c1-1-1]]). [[thm:vi-c-2-1]] shows that all
 the conditions can be met together.
 
-*The cut-off χ_ι.* We take the cut-off χ_ι = χ(t_*) of [[sec:iii-g2-4]] with χ = 0 on (−∞, T_ι] and χ = 1 on
-[T_ι + 1, ∞). Then χ_ι = 0 on {t_* ≤ T_ι} ⊃ {t^♭_* ≤ T̂ + 2} (as C_♭t_* ≤ t^♭_*), and supp dχ_ι ⊂
-{T_ι ≤ t_* ≤ T_ι + 1} is disjoint from supp χ_K, as T_K > T_ι + 1. [[sec:iii-g2-4]] uses χ_ι in the proof of
-[[thm:iii-g2-4-2]] only through χ_ι = 1 near ι⁺ and through the commutator [L_b, χ_ι] = χ′(t_*)[L_b, t_*] +
-½χ″(t_*)[[L_b, t_*], t_*], supported where χ′(t_*) ≠ 0, a compact t_*-interval; [[ch:s23]] uses it in
-[[eq:iii-j-2-1]] and the results built on it only as a real function of t_*, equal to 1 near ι⁺ and supported in Ω_*.
-Both hold for this choice, so it is admissible, and the ι⁺-terms of Φ do not reach the region of the initial family.
+*The cut-off χ_ι.* We take the cut-off χ_ι = χ(t_*) of [[sec:iii-g2-4]] with χ = 0 on (−∞, T_ι] and χ = 1 on [T_ι + 1,
+∞). Then χ_ι = 0 on {t_* ≤ T_ι} ⊃ {t^♭_* ≤ T̂ + 2} (as C_♭t_* ≤ t^♭_*), and supp dχ_ι ⊂ {T_ι ≤ t_* ≤ T_ι + 1} is disjoint
+from supp χ_K, as T_K > T_ι + 1. [[sec:iii-g2-4]] uses χ_ι in the proof of [[thm:iii-g2-4-2]] only through χ_ι = 1 near
+ι⁺ and through the commutator of L_b with χ_ι, which is χ′(t_*) and χ″(t_*) times commutators of L_b with t_* and so is
+supported where χ′(t_*) ≠ 0, a compact t_*-interval; [[ch:s23]] uses it in [[eq:iii-j-2-1]] and the results built on it
+only as a real function of t_*, equal to 1 near ι⁺ and supported in Ω_*. Both hold for this choice, so it is admissible,
+and the ι⁺-terms of Φ do not reach the region of the initial family.
 
 ### The initial family {#sec:iii-k-1}
 

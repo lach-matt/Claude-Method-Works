@@ -28,9 +28,13 @@ of it in [[def:s12-radii]]. Every result of the chapter holds for every such r_�
 *Notation.* The black-hole mass is m, as in [[ch:s05]]: b = (m, A), b₀ = (m₀, 0), R₁ = m₀^(1/2). Some letters keep
 the meaning they have in [[ch:s11]] and carry a second one here, separated by context: H_(m,A) is the Kerr–Schild
 function of [[def:iii-b-3-2]], while H_p is the Hamilton vector field of p, with H_p f = ∂_ζ p ∂_z f − ∂_z p ∂_ζ f;
-ψ is the profile of t_* in [[sec:vi-a-0]]–[[sec:vi-a-6]] and an azimuth in [[sec:vi-b1-0]]–[[sec:vi-b1-5]]; Φ is a
-momentum in [[sec:vi-b1-0]] and Φ_m the change of time of [[eq:iii-b-3-3]]; E is a momentum, not a bundle. The
-Poisson bracket is {a, b} := H_a b. The polar angle on 𝕊³ is ϑ.
+F_A is the function of [[def:iii-b-3-2]], while F is the shift of a time function τ′ = τ − F(r); ψ is the profile of
+t_* in [[sec:vi-a-0]]–[[sec:vi-a-6]] and an azimuth in [[sec:vi-b1-0]]–[[sec:vi-b1-5]]; Φ is a momentum in
+[[sec:vi-b1-0]] and Φ_m the change of time of [[eq:iii-b-3-3]]; E is a momentum, not a bundle; u := 1 − 2m r⁻² in
+[[sec:vi-a-3]] and u := r² in [[sec:vi-b1-1]]; C is the squared angular momentum |η|²_g̸ at b₀ and, in estimates, a
+constant; q_± and q_(z₀) are the functions of (H3) and (Γ.4). The separation constant of [[sec:vi-b1-0]], which plays
+the part of Carter's constant, is written 𝔎, the letter 𝒦 being the Kretschmann scalar. The Poisson bracket is
+{a, b} := H_a b. The polar angle on 𝕊³ is ϑ.
 
 ### The radii {#sec:s12-radii}
 

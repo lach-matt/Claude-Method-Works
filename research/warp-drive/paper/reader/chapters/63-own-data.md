@@ -51,8 +51,8 @@ infinity ([[prop:own-uniqueness]]);
 (2) its data (γ, k) on Σ^IVP satisfy γ − γ_b0 ∈ H^(∞,(ℰ_0^½,ℓ0))_b, k − k_b0 ∈ H^(∞,(ℰ_0^½+1,ℓ0+1))_b, with
 ‖(γ − γ_b0, k − k_b0)‖_(d_1) < ε in the norm of [[sec:s27-class]] taken with ℰ_0 = ℰ_0^½;
 
-(3) the maximal vacuum development of (γ, k) settles to a Tangherlini metric g_(m′,0) with |m′ − μ_end| < ε_m: on
-{r_♭ ≤ r ≤ R′, t_* ≥ T′}, |(t_*∂_(t_*))^i ∂_x^β (g − g_(m′,0))| ≤ C t_*^(−2−ε_t) for every R′, i and β, with C and T′
+(3) the maximal vacuum development ĝ of (γ, k) settles to a Tangherlini metric g_(m′,0) with |m′ − μ_end| < ε_m: on
+{r_♭ ≤ r ≤ R′, t_* ≥ T′}, |(t_*∂_(t_*))^i ∂_x^β (ĝ − g_(m′,0))| ≤ C t_*^(−2−ε_t) for every R′, i and β, with C and T′
 depending on them.
 
 The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The proof is in Section [[sec:own-proof]].
@@ -166,9 +166,9 @@ W_TT has order 3/2 and harmonic ±1, χ order 2 and harmonic ±2 ([[eq:past-clas
 Products, ∂_v, ℓ, Ω, ∂_θ, the transports of [[lem:decay-calculus]] (d) (leading term −r^(1−q) f_q/(q − 5/2)), the mean
 integrals 2/(2q − 5) ∫ S_q and the phase integrals from past null infinity each change k by an even number or not at
 all, and keep the parity; a mean over θ is nonzero only on even harmonics. So the means m_j have only integer orders, and
-after the shell, where g_app − g0 = Σ_j λ^j m_j ([[lem:vii-1-1]]), g_app − g0 has no term of half-integer order. The
-coefficient G_5^∞ is therefore carried by g_λ − g_app, in agreement with (c): its two-scale expansion vanishes at every
-order in λ.
+after the shell, where g_app − g0 = Σ_j λ^j m_j ([[lem:np-10-50-a]] on Ω′, step (3) of the proof of [[prop:past-items]]
+on P′), g_app − g0 has no term of half-integer order. The coefficient G_5^∞ is therefore carried by g_λ − g_app, in
+agreement with (c): its two-scale expansion vanishes at every order in λ.
 
 **Remark {#rem:own-tail-bump}** (Numerical observation.) For the bump envelope env_b(v) = exp(−1/(1 − y²)),
 y = (v − 2)/(3/2), on [½, 7/2], e^(−2iω) ê_b(ω) is real, env_b being even about v = 2, so a_1 vanishes exactly at the
@@ -321,13 +321,12 @@ approximant with N_k stages. There is λ_P(K, k) > 0 such that for λ ≤ λ_P(K
     |∂^i Ω^β (g_λ − g_app)| ≤ C_k λ^(K−3−i) t_P⁻²,     i + |β| ≤ k − 3.                                   {#eq:own-p-iii}
 
 *Proof.* The proof of [[thm:past-construction]] at order k: the data of w_n at τ0 by [[prop:own-near-order]];
-[[thm:uniform-existence]] at the regularity k, whose proof uses k only through Sobolev indices, as in the proof of
-[[lem:vii-1-1]]; and the limit n → ∞, the bounds at order k being inherited by weak lower
-semicontinuity. The solution built at order k is g_λ: the two approximants differ by Σ_(j>N_6) λ^j [g_j] = O(λ^(N_6))
-t_P^(−3/2) in C¹, so the solution at order k lies in the uniqueness class of item 5 of [[thm:past-construction]] for the
-order 6. The energies E and 𝒩_P contain the rotations, which cost no power of λ, and [[lem:past-sobolev]] (a) costs three
-derivatives in ∂_r and Ω; on the near region (T_λ/t)^(β0(k)) ≤ λ^(−2β0(k)) is absorbed by K′ − 2β0(k) ≥ K + 3. This gives
-[[eq:own-p-iii]]. ∎
+[[thm:uniform-existence]] at the regularity k ([[rem:ue-every-order]]); and the limit n → ∞, the bounds at order k being
+inherited by weak lower semicontinuity. The solution built at order k is g_λ: the two approximants differ by Σ_(j>N_6)
+λ^j [g_j] = O(λ^(N_6)) t_P^(−3/2) in C¹, so the solution at order k lies in the uniqueness class of item 5 of
+[[thm:past-construction]] for the order 6. The energies E and 𝒩_P contain the rotations, which cost no power of λ, and
+[[lem:past-sobolev]] (a) costs three derivatives in ∂_r and Ω; on the near region (T_λ/t)^(β0(k)) ≤ λ^(−2β0(k)) is
+absorbed by K′ − 2β0(k) ≥ K + 3. This gives [[eq:own-p-iii]]. ∎
 
 So no order fails; what grows with k is the number of stages N_k, and λ_P(K, k) decreases.
 
@@ -396,16 +395,17 @@ gains ½. The transport (b), L0 φ_j = −½ m_j(ℓ, ℓ) − ½ q_j, integrate
 ĝ_(j+1)), and (c) with coefficients in E_(3/2) (for m_j, Ψ_j and ℓφ_j) and E_(5/2) (for ∂_v φ_j and r⁻¹ Ω φ_j), while
 m_j, ℓφ_j, Ψ_j, r⁻¹ Ω φ_j are in L_2, φ_j and ∂_v φ_j in L_1 and ĝ_(j+1) in O_2, and the known forcing terms lie in L_3;
 so every input of (a) and (c) has exponent at least 3 and every input of (b) at least 2, and each order adds ½.
-After the shell every oscillating profile vanishes ([[lem:interior-far-part]] (v)) and μ = μ_end. The forcing terms of
-the stage equations are then products of earlier means and terms in μ: two factors r⁻² with two derivatives, a ∂_v of a
-leading coefficient vanishing by the induction (∂_v M_(i,4) = ∂_v M_(i,5) = 0 there, by [[eq:own-flat-recursion]] with
-M_(i,2) = M_(i,3) = 0), or −(μ/r²) ℓℓ, Γ[g0]·∂ and ∂∂g0, which add r⁻² to r⁻⁴ to a factor r⁻²; every one is O(r⁻⁶). So
-they enter only from q = 6, and through k = 9 the coefficients obey the flat recursion of [[lem:bondi-half-order]], which
-reads [[eq:own-flat-recursion]] by [[eq:own-box-p]] at μ = 0 and raises the degree in v by one every second order; from q
-= 6 on, products of polynomials and the constant μ keep the coefficients polynomial in v. ∎
+After the shell every oscillating profile vanishes ([[lem:np-10-50-a]], and step (3) of the proof of [[prop:past-items]]
+on P′) and μ = μ_end. The forcing terms of the stage equations are then products of earlier means and terms in μ: two
+factors r⁻² with two derivatives, a ∂_v of a leading coefficient vanishing by the induction (∂_v M_(i,4) = ∂_v M_(i,5) =
+0 there, by [[eq:own-flat-recursion]] with M_(i,2) = M_(i,3) = 0), or −(μ/r²) ℓℓ, Γ[g0]·∂ and ∂∂g0, which add r⁻² to r⁻⁴
+to a factor r⁻²; every one is O(r⁻⁶). So they enter only from q = 6, and through k = 9 the coefficients obey the flat
+recursion of [[lem:bondi-half-order]], which reads [[eq:own-flat-recursion]] by [[eq:own-box-p]] at μ = 0 and raises the
+degree in v by one every second order; from q = 6 on, products of polynomials and the constant μ keep the coefficients
+polynomial in v. ∎
 
-On {v > v_end}, g_app − g0 = Σ_j λ^j m_j ([[lem:vii-1-1]]), so for the remainder e := g_λ − g_app there the expansions of
-[[prop:bondi-hierarchy]] and [[lem:own-means]] give
+On {v > v_end}, g_app − g0 = Σ_j λ^j m_j ([[lem:np-10-50-a]] on Ω′, step (3) of the proof of [[prop:past-items]] on P′),
+so for the remainder e := g_λ − g_app there the expansions of [[prop:bondi-hierarchy]] and [[lem:own-means]] give
 
     e = Σ_(k=4)^8 r^(−k/2) e_k + e_(8),     e_k := G_k − Σ_j λ^j M_(j,k),     e_(8) := u_8 − Σ_j λ^j m_(j,8),
                                                                                                     {#eq:own-e-expansion}
@@ -806,8 +806,8 @@ equations, with g_(T′) as principal part, −½ g_(T′)^(ab)∂_a∂_b δ = �
 kernels of [[cor:far-kernels]]. δ = 0 near N ∩ W_T, where both equal g_λ. On Σ̃_T, δ = h_(R,T′)(T) − h_(R,T)(T): the
 second is the cap, and the first is bounded by Step 2 run for g_(T′) on W_(T′) ∩ {t̃ ≤ T}, whose data are tails:
 𝔈[h_(R,T′)](T) ≤ C(𝔈(T′) + 𝔉_(k1)(T′, T) + (∫_(−∞)^T κ_Σ)²) =: ϑ(T), with 𝔉(T′, T) ≤ C(λ)|T|^(2a−7) (N ∩ {t̃ ≤ T} lies in
-r ≥ |T| − C, [[lem:own-n-data]] (iii)), the cap at most C(λ)|T′|^(2a−6) and ∫_(−∞)^T κ_Σ ≤ C λ |T|^(a−3). So the energy of
-δ on W_T is at most C ϑ(T) → 0 as T → −∞, uniformly in T′ < T: (g_T) is a Cauchy family in the energy of weight a on
+r ≥ |T| − C, [[lem:own-n-data]] (iii)), the cap at most C(λ)|T′|^(2a−6) and ∫_(−∞)^T κ_Σ ≤ C λ |T|^(a−3). So the energy
+of δ on W_T is at most C ϑ(T) → 0 as T → −∞, uniformly in T′ < T: (g_T) is a Cauchy family in the energy of weight a on
 every W_(T_0), and with the bounds of Step 4 at every order it converges in C^k on compact subsets of W for every k. The
 limit g is smooth, solves Ric^H(g; g_b0) = 0, has 𝔈_(k1) ≤ ε_B² and 𝔈_k ≤ C_k(λ) by lower semicontinuity, and
 E_σ[Γ^α h_R] ≤ C ϑ(σ) → 0 as σ → −∞. Each g_T is smooth across N and equals g_λ on its side v ≤ v1

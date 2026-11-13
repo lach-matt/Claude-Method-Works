@@ -480,3 +480,10 @@ Items found while chapters were written in parallel; each is settled once, editi
 - S15 (R-S15): the edition's sign (B = +2H_T/k_V) is correct and the sources' minus sign doubles H_T and f_a; no
   conclusion changes. The source's numeral 1 + 2.93e-6 is a root location, not a bound; prop:np-10-52's ε_ind ≤ δ₅₀ is
   stronger and proved. The two ε_ind bounds differ by a factor of about 5.
+- S25 second reading (R2-S25): order acyclic; lem:s25a-ball correct and independent of S20. Step 2 must repoint the
+  11 citations of "lem:iii-i15-1-1 (P6)" in S21, S22, S24. The S24 cycle is repaired inside 44 (a new corollary).
+- Appendix A second fix (F2-95): [BW15] Corollary 12 dropped (the slab norm is undefined there); eq:std-slab proved
+  from [BW15, Def. 7, Thm 8, p. 13]. n = dim X throughout the 0-calculus. thm:std-gn-moser proved in the appendix
+  (ℝⁿ and ℝ^k × N; S26's domains stay with S26). [Hö83], [Hö85], [Ho85] removed; [Tre19], [KP88] added; [RS1] 1980.
+  Citations to change in other chapters: 45 (654, 670-673), 06, 09, 22, 35, 62 and proof D1 (list in F2-95). Chapter
+  46 cites an undefined thm:std-ds-stability (S27's entry, still to be written).

@@ -654,22 +654,25 @@ with C depending on m, k, α₀, α_I and the classes, not on f or h.
 
     2 Re⟨wL_gu, wVu⟩ = ⟨Qu, u⟩ + ℬ_fin(u),     Q = [L_g, W] − (div W)L_g + (L_g* − L_g)W,
 
-with ℬ_fin ≥ 0, as in [[prop:iv-3-1]]. The scalar part −2X_I(X₀ − X_I) + x_I²Δ̸ gives the Q̄ of [[eq:iv-3-3]]; the
-constant ¾ is absent here, and it only increased Q̄ there. Write
+with ℬ_fin ≥ 0, as in [[prop:iv-3-1]]. Write
 
     Y := w(X₀ − X_I)u,     Z := wX_Iu,     Vu = w⁻¹(Y − κZ).
+
+The scalar part −2X_I(X₀ − X_I) + x_I²Δ̸ acts on each slot, and the fibre inner product is constant; so it gives the Q̄
+of [[eq:iv-3-3]] with Δ̸ in place of Δ̸ + ¾, whose bulk term is, by the proof of [[prop:iv-3-1]],
+4|α_I||Y|² + 4κ(α₀ − α_I)|Z|² + c_Aρ_Iw²|∇̸u|² (the ¾ of [[eq:iv-3-3]] only added a nonnegative term).
 
 The first-order term 2Ā(X₀ − X_I) of [[eq:iv1-1-1]] contributes, up to terms of order 0 in u and terms with a factor
 x_I,
 
     4 Re⟨ĀY, Y − κZ⟩ = 4⟨DY, Y⟩ − 4κ Re⟨DY, Z⟩ + O(ε)(|Y|² + |Z|²).
 
-On each slot, the quadratic form in (Y_j, Z_j) from Q̄ and this term is
+On each slot, the quadratic form in (Y_j, Z_j) from the scalar part and this term is
 
     4(d_j − α_I)|Y_j|² − 4κd_j Re(Y_jZ̄_j) + 4κ(α₀ − α_I)|Z_j|².
 
 It is positive definite if 4(d_j − α_I)(α₀ − α_I) > κd_j². As d_j ≥ 0, α_I < 0 and α₀ > α_I, this holds for κ > 0
-small. Fix such κ, then ε small. The angular term of Q̄, (1 + 2(α₀ − α_I) + κ(1 − 2α_I))x_I²|∇̸u|², is positive, so
+small. Fix such κ, then ε small. The angular term c_Aρ_Iw²|∇̸u|² is nonnegative and bounds Σ_j|x_IwΘ_ju|²/C, so
 ⟨Qu, u⟩ controls ‖wu‖²_(H¹_(e,b)) modulo two terms: ‖wu‖²_(L²_b), which the Poincaré inequality of the proof of
 [[prop:iv-3-1]] removes; and the contribution of L̃_g, whose coefficients are O(c^(γ′)) on {x_I < c} for every
 γ′ < min(2 min Re ℱ − 2, 2ℓ_I − 2) by the smallness in [[prop:iv1-1-2]], and which is absorbed for c small, as in
@@ -695,30 +698,55 @@ the inner sum over the indices. The commutators of the X_j with the leading part
 x_IDiff^(1;1)_(e,b;b): for the scalar part by [[lem:iv-2-2]]; and Ā is constant and commutes with the X_j (X₀, X_I act
 on the slot coordinates, and the rotations commute with Ā by the equivariance of [[lem:iii-c-4-2]]). These terms are
 absorbed for x_I small. For L̃_g = Σ_i(x_Ia_i + ã_i)P_i, with a_i ∈ C^∞, ã_i ∈ H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b and P_i
-spanning Diff²_(e,b), [Hin23a, (3.56)–(3.58)] apply as they stand: the x_Ia_i-terms are absorbed; the ã_i-terms are
-bounded by the Moser estimate ([[lem:iv1-2-3]]): for b-derivatives V₁, …, V_q, V′₁, …, V′_(m−q+1) and an
-eb-derivative W′,
+spanning Diff²_(e,b), the x_Ia_i-terms are absorbed. By Leibniz's rule the ã_i-terms are sums of products
+(V₁⋯V_qã)(W′V′₁⋯V′_ru), q + r ≤ m + 1, with V_l, V′_l among the X_j and W′ an eb-vector field (the commutators of the
+X_j with P_i stay in Diff²_(e,b), as said below). For q = 0 such a product is bounded by
+‖ã‖_(L^∞)‖u‖_(H^((1;m))) ≤ C‖ã‖_(H³)‖u‖_(H^((1;m))). For q ≥ 1, move W′ to the right of the V′_l: as [X_j, W′] is an
+eb-vector field for each X_j, this costs only products of the same form with fewer V′_l. Then the estimate for
+products of derivatives, [[thm:std-gn-moser]] (2), in the coordinates of the proof of [[lem:iv1-2-3]] (after the
+extension from Ω described there and with the weights divided out), applied with f := V₁ã, g := W′u and s := m, the
+remaining q − 1 derivatives falling on f and r ≤ m − q + 1 on g, gives
 
-    ‖(V₁⋯V_q ã) W′V′₁⋯V′_(m−q+1)u‖ ≤ C(‖ã‖_(H⁴)‖u‖_(H^((1;m))) + ‖ã‖_(H^(m+1))‖u‖_(H^((1;3)))).
+    ‖(V₁⋯V_qã)(V′₁⋯V′_rW′u)‖ ≤ C(‖V₁ã‖_(L^∞)‖W′u‖_(H^m_b) + ‖V₁ã‖_(H^m_b)‖W′u‖_(L^∞))
+                              ≤ C(‖ã‖_(H⁴)‖u‖_(H^((1;m))) + ‖ã‖_(H^(m+1))‖u‖_(H^((1;3)))),
 
+by [[eq:iv-0-1]] (H³_b ⊂ L^∞) and ‖W′u‖_(H^j_b) ≤ C‖u‖_(H^((1;j))), which holds by moving W′ to the left in the same way.
 The first term is absorbed near ℐ⁺, the coefficients decaying at ℐ⁺; the second is bounded by ‖h‖_(H^(m+3)) times
 [[eq:iv1-2-2]] at m = 3, by ‖ã_i‖_(H^(m+1)) ≤ C‖h‖_(H^(m+3)) (the coefficients are rational in at most two
 b-derivatives of h). Commutators of the X_j preserve Diff^k_(e,b): for X₀, X_I as eb-vector fields, and for the
 rotations by the argument for [[eq:iv-2-3]] ([Hin23a, (3.19a)–(3.19b)]). This proves [[eq:iv1-2-1]]. At m = 3 the
 constant depends on ‖h‖_(H⁸) ([Hin23a, (3.54)]). ∎
 
-**Lemma {#lem:iv1-2-3}** (Moser estimates on M_♯.) For s ≥ 3 > 5/2 = ½ dim M_♯ and a, b in the weighted b-Sobolev
-spaces,
+**Lemma {#lem:iv1-2-3}** (Moser estimates on M_♯.) Let s ≥ 0 be an integer, and let Ω be M_♯ or a domain in it whose
+boundary hypersurfaces in the interior are, in the charts of the proof, graphs over coordinate hyperplanes of functions
+bounded with all their derivatives; the domains of this chapter on which the lemma is used are of this kind (Ω_c, Ω_N,
+Ω⁺₁, Ω_(ext,r₀) and the parts cut from them by level sets of ρ_I, τ′ and t_IVP). For a, b on Ω with finite right side,
 
-    ‖ab‖_(H^(s,(β₀+γ₀,β₁+γ₁))_b) ≤ C(‖a‖_(ρ₀^(β₀)x_I^(β₁)L^∞)‖b‖_(H^(s,(γ₀,γ₁))_b)
-                                      + ‖a‖_(H^(s,(β₀,β₁))_b)‖b‖_(ρ₀^(γ₀)x_I^(γ₁)L^∞)),
+    ‖ab‖_(H^(s,(β₀+γ₀,β₁+γ₁))_b(Ω)) ≤ C(‖a‖_(ρ₀^(β₀)x_I^(β₁)L^∞)‖b‖_(H^(s,(γ₀,γ₁))_b(Ω))
+                                        + ‖a‖_(H^(s,(β₀,β₁))_b(Ω))‖b‖_(ρ₀^(γ₀)x_I^(γ₁)L^∞)),
 
-and H^s_b embeds in L^∞ ([[eq:iv-0-1]]).
+and for s ≥ 3 > 5/2 = ½ dim M_♯, H^s_b embeds in L^∞ ([[eq:iv-0-1]]). Every Sobolev order in this chapter is an integer.
 
-*Proof.* In the coordinates z₀ = log ρ₀, z₁ = log x_I, b-Sobolev spaces are uniformly local Sobolev spaces on
-ℝ² × 𝕊³ (dimension 5), and the weights become exponentials. The estimate is the standard Moser estimate there
-([Tay11, Chapter 13, Propositions 3.6–3.7]; [[thm:std-moser-taylor]]), applied to the products after dividing out the
-weights. ∎
+*Proof.* Multiplication by ρ₀^(β₀)x_I^(β₁) maps H^s_b and L^∞ onto the weighted spaces, so we may take all weights 0.
+For s = 0 the bound is ‖ab‖_(L²) ≤ ‖a‖_(L^∞)‖b‖_(L²); let s ≥ 1.
+
+*On M_♯.* Cover M_♯ by finitely many charts: near I₀ ∩ ℐ⁺ the coordinates (z₀, z₁, ω), z₀ := log ρ₀, z₁ := log x_I;
+near the interior of I₀, (log ρ, τ, ω); near the interior of ℐ⁺, (log ρ₀, log x_I, ω) with ρ₀ in a compact interval;
+and a relatively compact part. In each chart the b-vector fields are combinations, with coefficients bounded with all
+their derivatives, of the two coordinate fields of ℝ² and the rotation fields of 𝕊³, and conversely, and the b-density
+is bounded above and below by the product measure. So for functions supported in a chart, extended by 0, the norm of
+H^s_b is equivalent to that of H^s(ℝ² × 𝕊³) of [[cor:std-moser-product]] (2), with k = 2, N = 𝕊³ and 𝒱 those fields.
+Let φ_i be a partition of unity on M_♯ subordinate to the charts and ψ_i ∈ C^∞(M_♯) supported in them with ψ_i = 1
+near supp φ_i; multiplication by these is bounded on H^s_b. Then ab = Σ_i(ψ_ia)(φ_ib), and [[cor:std-moser-product]]
+(2) applied to each product gives the bound.
+
+*On a domain Ω.* After a partition of unity in ω, a diffeomorphism that flattens the boundary hypersurfaces of Ω, with
+its derivatives and those of its inverse bounded (composition with it is bounded on every W^(j,2) and on L^∞, by the
+chain rule), makes Ω locally a half-space or, near an edge where two of them meet, a quadrant. The extension operator of [[thm:std-ly-extension]] acts
+in the normal variable alone, the others being parameters, so its bounds hold fibrewise; it is one operator bounded on
+every W^(j,2) and on L^∞. Applied in the normal variable of each hypersurface in turn, it gives extensions Ea, Eb of a, b
+to M_♯ with ‖Ea‖_(H^s_b) ≤ C‖a‖_(H^s_b(Ω)), ‖Ea‖_(L^∞) ≤ C‖a‖_(L^∞(Ω)), and likewise for b. As ab = (Ea)(Eb) on Ω, the
+bound on M_♯ gives the bound on Ω. ∎
 
 **Lemma {#lem:iv1-2-4}** ([Hin23a, Lemma 3.34], the commutator identity.) In any associative algebra, for
 L, Z₁, …, Z_l, with ad_Z := [·, Z],
@@ -780,11 +808,13 @@ f_♭ ∈ H^(k,(a₀,2β))_b in every slot. The solution class H^(k,α₀,(−,�
 H^(k,α₀,ℓ^♭_I)_b except π̸₀ġ ∈ H^(k,α₀,((3/2,0),ℓ^♭_I))_b. In terms of u it is
 
     𝒴^k_(a₀)(Ω) := {u : u_j ∈ H^(k,(a₀,2β))_b (j ≠ 6),  u₆ = χ_Iu^((0)) + ũ₆,
-                         u^((0)) ∈ H^(k,a₀)_b(ℐ⁺ ∩ Ω̄),  ũ₆ ∈ H^(k,(a₀,2β))_b},                          {#eq:iv2-0-3}
+                         u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c),  ũ₆ ∈ H^(k,(a₀,2β))_b},                             {#eq:iv2-0-3}
 
-with χ_I := χ̂(ρ_I), χ̂ ∈ C_c^∞([0, c/2)) equal to 1 near 0, c the constant of [[lem:iv2-2-1]] (so u^((0)) is used only
-over Ω_c; another χ̂ gives an equivalent norm), u^((0)) extended to be constant in ρ_I, and the norm the sum of the
-norms; the radiation field of π̸₀ġ is ρ₀^(3/2)u^((0)), the coefficient of ρ_I^(3/2). Away from U the classes impose only
+with χ_I := χ̂(ρ_I), χ̂ ∈ C_c^∞([0, c/2)) equal to 1 on [0, c/4], c the constant of [[lem:iv2-2-1]] (so u^((0)) is used
+only over Ω_c := Ω⁺ ∩ {ρ_I < c}; another such χ̂ gives an equivalent norm), u^((0)) a function of (ρ₀, ω) extended to be
+constant in ρ_I, and the norm the sum of the norms. Here ℐ⁺_c is the image of Ω_c under (ρ₀, ρ_I, ω) ↦ (ρ₀, ω), a
+domain in ℐ⁺ containing ℐ⁺ ∩ Ω̄_c and in general larger: an integral curve of X_I near Σ_(fut,r₀) leaves Ω⁺ through
+Σ_(fut,r₀) before it reaches ℐ⁺. The radiation field of π̸₀ġ is ρ₀^(3/2)u^((0)), the coefficient of ρ_I^(3/2). Away from U the classes impose only
 H^k.
 
 *The operator.* Let g₀ ∈ 𝒢 ([[def:iii-c-3-4]]) with Ric(g₀) = 0 and g₀ − g_(b₀) small in the sense of the pointwise
@@ -845,7 +875,7 @@ and let w ∈ H^(m,(a₀,2γ))_b(Ω_c) vanish on {ρ_I > c/2}. Let v on Ω_c van
 
 (b) If X_Iv = w and γ > 0, then v = v^((0)) + ṽ with v^((0)) a function of (ρ₀, ω), and
 
-    ‖v^((0))‖_(H^(m,a₀)_b(ℐ⁺∩Ω̄_c)) ≤ (2γ)^(−1/2)c^γ‖w‖_(H^(m,(a₀,2γ))_b),
+    ‖v^((0))‖_(H^(m,a₀)_b(ℐ⁺_c)) ≤ (2γ)^(−1/2)c^γ‖w‖_(H^(m,(a₀,2γ))_b),
     ‖ṽ‖_(H^(m,(a₀,2γ))_b) ≤ γ⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
 
 (c) If (X₀ − X_I)v = w and a₀ > γ, then ‖v‖_(H^(m,(a₀,2γ))_b) ≤ (a₀ − γ)⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
@@ -1016,7 +1046,7 @@ d = Ā_(jj) ≥ d_* > γ₁ gives Y_j ∈ H^(k+2,(a₀,2γ₁))_b, the right sid
 *Second integration.* Now u₂ ∈ H^(k+2,(a₀,2γ₁))_b, so by Step 4 (with two derivatives lost), F ∈ H^(k,(a₀,2γ₂))_b,
 γ₂ := min(β, γ₁ + ½ − ε) = β. As in the first integration, with d_* > β ([[eq:iv2-0-1]]) and a₀ > β,
 u_(2,j) ∈ H^(k,(a₀,2β))_b for j ≠ 6. For slot 6, Z₆ ∈ H^(k,(a₀,2β))_b by [[lem:iv2-1-2]] (c), and [[lem:iv2-1-2]] (b),
-β > 0, gives u_(2,6) = u^((0)) + ũ₆ with u^((0)) ∈ H^(k,a₀)_b(ℐ⁺ ∩ Ω̄_c) and ũ₆ ∈ H^(k,(a₀,2β))_b.
+β > 0, gives u_(2,6) = u^((0)) + ũ₆ with u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c) and ũ₆ ∈ H^(k,(a₀,2β))_b.
 
 *Step 6 (assembly).* On Ω_c, u = u₂ + χ_cu₁, with χ_cu₁ supported in {ρ_I ≥ c/4}; on Ω⁺ ∩ {ρ_I > c/2}, Step 3; on Ω_N,
 Step 1. As χ_I = χ̂(ρ_I) vanishes for ρ_I ≥ c/2, u₆ − χ_Iu^((0)) = ũ₆ + (1 − χ_I)u^((0)) + χ_cu_(1,6) on Ω_c, and
@@ -1059,7 +1089,7 @@ in H^(8,ℓ^♭₀,(−,ℓ^♭_I))_b, and ‖h_j‖_(H^(2d+k,ℓ^♭₀)_b) < �
 
 *(i) Smoothing.* Componentwise: for the slots other than 6, and separately for the remainder ũ₆ and the radiation
 field u^((0)) of slot 6, the operator S̃_θ of Step 4 of the proof of [[prop:ii-g-3-1]], which acts on weighted b-Sobolev
-spaces without support conditions, built in the same way on Ω_(ext,r₀) and on ℐ⁺ ∩ Ω_(ext,r₀) respectively; then
+spaces without support conditions, built in the same way on Ω_(ext,r₀) and on ℐ⁺_c ([[eq:iv2-0-3]]) respectively; then
 reassemble with χ_I. The norm of B^k is the sum of these norms, so [[eq:ii-g-2-1]] holds; the support conditions are
 vacuous.
 

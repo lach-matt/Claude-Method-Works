@@ -308,12 +308,12 @@ is. The minimum over the unit circle is the least eigenvalue of S. ∎
 
 **Remark {#rem:after-shell-distance-values}** (Numerical observation.) Evaluated by quadrature of the Gram matrix,
 ϰ(5/2, 7/2) ≈ 7.655 × 10⁻⁴ and ϰ(7/2, 7/2) ≈ 1.737 × 10⁻³. The constant is small because the interval (1/2, 1) is
-short in the variable log s. Quadrature was also applied to the lower bound in the proof of [[prop:after-shell-outside]]
-(b), with 𝔱, A_a and φ_a as there, for the model metric (1 + r⁻²) dr² + r² g_(𝕊³) (that is, α = r⁻² and β = 0) and
-Ξ = 10⁻², at (a, ℓ0) = (5/2, 7/2) and (7/2, 7/2) and R = 10², 10³, 10⁴. The distance D_R of r^(ℓ0)𝔱 from
-span(r^(ℓ0−2), r^(ℓ0−3)) in L²((R/2, R), dr/r) was found with D_R/(Ξ R^(ℓ0−a)) within a relative 10⁻² of
-2A_a dist(s^(ℓ0−a) cos(log s + log R + φ_a), span(s^(ℓ0−2), s^(ℓ0−3))) and above 2A_a ϰ(a, ℓ0) in all six cases. No
-proof uses these values; only the positivity of [[lem:after-shell-distance]] is used.
+short in the variable log s. Quadrature also tests the lower bound in the proof of [[prop:after-shell-outside]] (b),
+with 𝔱, A_a and φ_a as there, on an instance: the model metric (1 + r⁻²) dr² + r² g_(𝕊³) (that is, α = r⁻² and
+β = 0), Ξ = 10⁻², (a, ℓ0) = (5/2, 7/2) and (7/2, 7/2), and R = 10², 10³, 10⁴. In all six cases the distance D_R of
+r^(ℓ0)𝔱 from span(r^(ℓ0−2), r^(ℓ0−3)) in L²((R/2, R), dr/r) gives a ratio D_R/(Ξ R^(ℓ0−a)) within a relative 10⁻² of
+2A_a dist(s^(ℓ0−a) cos(log s + log R + φ_a), span(s^(ℓ0−2), s^(ℓ0−3))) and above 2A_a ϰ(a, ℓ0). No proof uses these
+values; only the positivity of [[lem:after-shell-distance]] is used.
 
 **Proposition {#prop:after-shell-outside}** (Perturbations outside the class.) Let 3/2 < a ≤ ℓ0. Put r_2 := 2r_χ, take
 a cut-off χ_1(r) equal to 0 for r ≤ r_2 and to 1 for r ≥ 2r_2, and let
@@ -325,33 +325,36 @@ a cut-off χ_1(r) equal to 0 for r ≤ r_2 and to 1 for r ≥ 2r_2, and let
 {r ≤ r_2}, and (γ_Ξ, k_Ξ) is G-invariant smooth vacuum data, isometric to (γ_λ, k_λ), and a perturbation of order a and
 size C_P Ξ.
 
-(b) There are R_P ≥ 4r_2 and c_P := (2π²)^(1/2) A_a ϰ(a, ℓ0), with A_a := ((4 − a)² + 1)^(1/2), such that for
-0 < Ξ ≤ Ξ1, R ≥ R_P and every d,
+(b) There are R_ob ≥ 4r_2 and c_P := (2π²)^(1/2) A_a ϰ(a, ℓ0), with A_a := ((4 − a)² + 1)^(1/2), such that for
+0 < Ξ ≤ Ξ1, R ≥ R_ob and every d,
 
-    N^((d))_R(γ_Ξ, k_Ξ) ≥ c_P Ξ R^(ℓ0−a)   (a < ℓ0),      N^((d))_R(γ_Ξ, k_Ξ) ≥ c_P Ξ (log₂(R/R_P))^(1/2)   (a = ℓ0).
+    N^((d))_R(γ_Ξ, k_Ξ) ≥ c_P Ξ R^(ℓ0−a)   (a < ℓ0),      N^((d))_R(γ_Ξ, k_Ξ) ≥ c_P Ξ (log₂(R/R_ob))^(1/2)   (a = ℓ0).
                                                                                                   {#eq:after-shell-lower}
 
-(c) Hence (S) fails for (γ_Ξ, k_Ξ) at every Ξ ∈ (0, Ξ1]. For a < ℓ0, once R > max(R_P, (δ/(c_P Ξ))^(1/(ℓ0−a))), no
+(c) Hence (S) fails for (γ_Ξ, k_Ξ) at every Ξ ∈ (0, Ξ1]. For a < ℓ0, once R > max(R_ob, (δ/(c_P Ξ))^(1/(ℓ0−a))), no
 data in the class that agree with (γ_Ξ, k_Ξ) on {r < R} have norm ‖·‖_(d_1) < δ; for a = ℓ0, once
-R > R_P 2^((δ/(c_P Ξ))²).
+R > R_ob 2^((δ/(c_P Ξ))²).
 
-*Proof.* (a) |∂_r^j(χ_1 ζ_a)| ≤ C_j r^(1−a−j), so φ_Ξ′ ≥ 1/2 for Ξ ≤ Ξ1 := (2 sup|(χ_1 ζ_a)′|)⁻¹. Also φ_Ξ(r) = r for
-r ≤ r_2 and φ_Ξ(r) → ∞, so φ_Ξ is an increasing bijection of [r_♭, ∞) and Ψ_Ξ a diffeomorphism, with inverse
+*Proof.* (a) |∂_r^j(χ_1 ζ_a)| ≤ C_j r^(1−a−j), so φ_Ξ′ ≥ 1/2 for Ξ ≤ Ξ1′ := min(1, (2 sup|(χ_1 ζ_a)′|)⁻¹). Also
+φ_Ξ(r) = r for r ≤ r_2 and φ_Ξ(r) → ∞, so φ_Ξ is an increasing bijection of [r_♭, ∞) (Σ is identified with
+{|x| ≥ r_♭}, [[sec:vii-2]]) and Ψ_Ξ a diffeomorphism, with inverse
 x ↦ φ_Ξ⁻¹(|x|) x/|x|, commuting with O(4). The constraint map is natural under diffeomorphisms, so the pull-back is
 vacuum. It is G-invariant, as (γ_λ, k_λ) is and G ⊂ O(4). On {r ≥ r_2} ⊂ {r ≥ 4R_i}, which Ψ_Ξ maps to itself, the data
 are (γ^(m_λ), k^(m_λ)), which are O(4)-invariant ([[lem:vii-2-1]] (b)). An O(4)-invariant symmetric 2-tensor is
 A(r) x̂ ⊗ x̂ + B(r)(δ − x̂ ⊗ x̂): the stabiliser O(3) of x̂ acts irreducibly on x̂^⊥ and fixes no vector there, so an
 invariant symmetric bilinear form has no x̂ ⊗ x̂^⊥ part and is a multiple of the identity on x̂^⊥. By
-[[lem:vii-2-1]] (a), α := A − 1 and β := B − 1 lie in ρ²C^∞, and k^(m_λ) = C x̂ ⊗ x̂ + D(δ − x̂ ⊗ x̂) with
-C, D ∈ ρ³C^∞. Since A x̂ ⊗ x̂ + B(δ − x̂ ⊗ x̂) = A dr² + B r² g_(𝕊³), a radial map r ↦ φ(r) pulls it back to
+[[lem:vii-2-1]] (a), α := A − 1 and β := B − 1 lie in ρ²C^∞, and k^(m_λ) = Ã x̂ ⊗ x̂ + B̃(δ − x̂ ⊗ x̂) with
+Ã, B̃ ∈ ρ³C^∞. Since A x̂ ⊗ x̂ + B(δ − x̂ ⊗ x̂) = A dr² + B r² g_(𝕊³), a radial map r ↦ φ(r) pulls it back to
 
     Ψ*(A x̂ ⊗ x̂ + B(δ − x̂ ⊗ x̂)) = A(φ) φ′² x̂ ⊗ x̂ + B(φ) (φ²/r²)(δ − x̂ ⊗ x̂).               {#eq:after-shell-radial}
 
 Hence h = [A(φ_Ξ) φ_Ξ′² − A] x̂ ⊗ x̂ + [B(φ_Ξ) φ_Ξ²/r² − B](δ − x̂ ⊗ x̂) on {r ≥ r_2} and h = 0 inside, and likewise κ
-with (C, D). Write A(φ) φ′² − A = (φ′² − 1) + (α(φ) − α) φ′² + α(φ′² − 1), with α(φ) − α = Ξ χ_1 ζ_a ∫_0^1
+with (Ã, B̃). Write A(φ) φ′² − A = (φ′² − 1) + (α(φ) − α) φ′² + α(φ′² − 1), with α(φ) − α = Ξ χ_1 ζ_a ∫_0^1
 α′(r + sΞ χ_1 ζ_a) ds. The three terms are conormal, with constants times Ξ, of orders a, a + 2 and a + 2; the B terms
-likewise, and the (C, D) terms are of order a + 3. The components x̂_i x̂_j lie in C^∞ of the radial compactification. So
-[[eq:after-shell-order]] holds with C_P Ξ in place of Ξ, and with C_β Ξ at all orders.
+likewise, and the (Ã, B̃) terms are of order a + 3. The components x̂_i x̂_j lie in C^∞ of the radial compactification.
+So, for Ξ ≤ Ξ1′, [[eq:after-shell-order]] holds with C_P Ξ in place of Ξ, C_P not depending on Ξ, and with C_β Ξ at
+all orders. Put Ξ1 := min(Ξ1′, C_P⁻¹); then for 0 < Ξ ≤ Ξ1 the size C_P Ξ lies in (0, 1], as
+[[def:after-shell-order]] requires.
 
 (b) Let R ≥ 4r_2 and let (γ′, k′) be admissible for N^((d))_R. Write u := γ′ − γ_λ as in
 [[eq:after-shell-expansion]], and Γ := {R/2 < r < R}, which lies in {χ_c = 1} ∩ {χ_1 = 1} ∩ {r < R}. On Γ, u = h, so
@@ -377,12 +380,12 @@ r = Rs, so that dr/r = ds/s and r^(ℓ0) β_z r^(−z) = β_z R^(ℓ0−z) s^(�
         = 2Ξ A_a R^(ℓ0−a) dist(s^(ℓ0−a) cos(log s + log R + φ_a), span(s^(ℓ0−2), s^(ℓ0−3))) ≥ 2Ξ A_a ϰ(a, ℓ0) R^(ℓ0−a)
 
 by [[lem:after-shell-distance]]. On (R/2, R), r^(ℓ0−2−a) ≤ 2^(2+a) R^(ℓ0−2−a) and r^(ℓ0−2a) ≤ 2^(2a) R^(ℓ0−2a), so
-‖r^(ℓ0) e‖_(L²((R/2,R), dr/r)) ≤ (log 2)^(1/2) C_e (2^(2+a) Ξ R^(ℓ0−2−a) + 2^(2a) Ξ² R^(ℓ0−2a)). For R ≥ R_P this is at
+‖r^(ℓ0) e‖_(L²((R/2,R), dr/r)) ≤ (log 2)^(1/2) C_e (2^(2+a) Ξ R^(ℓ0−2−a) + 2^(2a) Ξ² R^(ℓ0−2a)). For R ≥ R_ob this is at
 most Ξ A_a ϰ R^(ℓ0−a), uniformly in Ξ ≤ 1, since R⁻² and R^(−a) tend to 0. By the triangle inequality the infimum is at
 least Ξ A_a ϰ R^(ℓ0−a), which gives [[eq:after-shell-lower]] for a < ℓ0. For a = ℓ0, apply the same to the disjoint
-annuli Γ_j := {2^(−j−1) R < r < 2^(−j) R} with 2^(−j) R ≥ R_P. The coefficients b2, b3 are common to all of them, so the
+annuli Γ_j := {2^(−j−1) R < r < 2^(−j) R} with 2^(−j) R ≥ R_ob. The coefficients b2, b3 are common to all of them, so the
 square of the norm over their union is at least the sum of the squares of the separate infima, each at least
-(c_P Ξ)², over ⌊log₂(R/R_P)⌋ + 1 ≥ log₂(R/R_P) annuli.
+(c_P Ξ)², over ⌊log₂(R/R_ob)⌋ + 1 ≥ log₂(R/R_ob) annuli.
 
 (c) follows from [[eq:after-shell-lower]] at d = d_1: N^((d_1))_R ≥ δ in the stated ranges, and N^((d_1))_R → ∞. ∎
 
@@ -427,8 +430,9 @@ write p(Q) for the inverse.
 
     K̃_p − K_p = ∇²f + ρ⁴C^∞,      tr ∇²f = 2μ_end r⁻³ + O(r⁻⁵),                                {#eq:after-shell-hessian}
 
-∇²f the Euclidean Hessian. In particular K_(p_λ) − k^(m_λ) = −∇²f + ρ⁵C^∞ has a ρ³ coefficient of size μ_end, which
-does not depend on any perturbation.
+∇²f the Euclidean Hessian. If w = 0, then g̃_p − g_p ∈ ρ⁴C^∞ and K̃_p − K_p − ∇²f ∈ ρ⁵C^∞, smoothly in (m, A, c).
+In particular K_(p_λ) − k^(m_λ) = −∇²f + ρ⁵C^∞ has a ρ³ coefficient of size μ_end, which does not depend on any
+perturbation.
 
 *Proof.* (a) g^KS_(m,A) − η = H_(m,A) k_A ⊗ k_A is independent of t, with H_(m,A) ∈ |x|⁻²C^∞ and the coefficients of k_A
 in C^∞ of the compactification, smoothly in (m, A) (proof of [[prop:iii-b-3-6]]). The map 𝒫_p is affine, and on the
@@ -461,7 +465,7 @@ and G^(0i) lie in ρ²C^∞ and ∂f ∈ ρ²C^∞. The values on the graph are 
 G(f, y) − G(0, y) = f ∂_0 G(0, y) + ρ⁴C^∞, where ∂_0 G_p = O(|w| ρ³). Inserting these in [[eq:v-0-2]], the
 term −D′_iβ′_j − D′_jβ′_i contributes 2∂_i∂_j f + ρ⁵C^∞, and 1/(2N′) = 1/2 + ρ²C^∞, which gives K̃_p − K_p = ∇²f + ρ⁴C^∞
 and g̃_p − g_p ∈ ρ³C^∞. At w = 0, G_p does not depend on y⁰, there is no change of the point of evaluation, and
-K̃_p − K_p − ∇²f ∈ ρ⁵C^∞; this is used in (c). For the trace: f is radial, ∇²f = f″ x̂ ⊗ x̂ + (f′/r)(δ − x̂ ⊗ x̂), and by
+so g̃_p − g_p = g′ − g ∈ ρ⁴C^∞ and K̃_p − K_p − ∇²f ∈ ρ⁵C^∞, smoothly in (m, A, c); this is used in (c). For the trace: f is radial, ∇²f = f″ x̂ ⊗ x̂ + (f′/r)(δ − x̂ ⊗ x̂), and by
 [[eq:after-shell-f]] f′ = 2μ_end r⁻² + 2μ_end² r⁻⁴ + O(r⁻⁶), so tr ∇²f = f″ + 3f′/r = (−4μ_end + 6μ_end) r⁻³ + O(r⁻⁵). At
 p_λ, (g_(p_λ), K_(p_λ)) are the data of g^KS_(m_λ,0) on {t_KS = 0}, and their difference from (γ^(m_λ), k^(m_λ)) is the
 case w = 0 of the above, with the sign of ∇²f reversed.
@@ -469,8 +473,9 @@ case w = 0 of the above, with the sign of ∇²f reversed.
 (c) C¹ and O(4)-equivariance follow as in the proof of [[prop:v-2-3]], since (a) gives the bounds of [[lem:v-2-2]] and
 the graph is O(4)-invariant. By Schur's lemma, as there, D𝔮̃(p_λ) consists of scalars c̃_E (from m to 𝔔_(e₀)) and c̃_J
 (from A to (𝔔_(e_ab)), times I₆), and a matrix (ã11 ã12; ã21 ã22) ⊗ I₄ from (w, c) to (𝔔_(e_l), 𝔔_(e′_l)), with zero
-elsewhere. We compare with the charges 𝔮 of the members (g_p, K_p), for which the proof of [[prop:v-2-3]] computes, at
-every base point (m, 0, 0, 0) with m in place of m₀, c_E = 6π², a11 = a22 = −6π²m, a12 = 0 and c_J = −4π²m.
+elsewhere. We compare with the charges 𝔮 of the members (g_p, K_p), for which [[prop:v-2-3]] gives, at
+p_λ = (m_λ, 0, 0, 0), c_E = 6π², a11 = a22 = −6π²m_λ, a12 = 0 and c_J = −4π²m_λ; p_λ is a base point of the range of
+[[def:v-2-1]], as m_λ lies in I_m = [¾μ_end, (5/4)μ_end] ([[sec:vii-2]]), so |m_λ − μ_end| < ½μ_end.
 
 The flux 𝔟_X is linear in the data, a degree-0 flux of a change in ρ³C^∞ of the metric or ρ⁴C^∞ of K tends to 0
 (ρ⁴ · r³ → 0), and the term ∇²f carries no momentum at any radius: (∇²f − Δf δ)x̂ = −3(f′/r) x̂, which is odd. So by (d),
@@ -483,10 +488,11 @@ c-derivatives of the rest tend to 0, as r · ρ⁵ · r³ → 0 and ρ⁴ · r³
 D𝔮̃(p_λ) = c̃_E (ã11 ã22)⁴ c̃_J⁶ = 6π² (6π² m_λ)⁸ (4π² m_λ)⁶ ≠ 0. The p₂-block of D𝔮̃_0 is diag(c_E, a11 I₄), invertible.
 The rest is the inverse function theorem. ∎
 
-So, by [[lem:vii-0-1]], a smooth vacuum data set on Σ that agrees for r large with the data (g̃_p, K̃_p) of a nearby
-translated, rotated and boosted Myers–Perry metric differs from (γ_λ, k_λ) by an element of the class: the class
-contains these data on Hintz's own surface. On the slices {y⁰ = 0} of [[def:v-2-1]] it does not: by (d), already at p_λ
-the second fundamental form differs from k^(m_λ) by a fixed term of order r⁻³, of size μ_end, so the members of
+So, by [[lem:vii-0-1]], whose proof applies at every order, a smooth vacuum data set on Σ that agrees for r large with
+the data (g̃_p, K̃_p) of a nearby translated, rotated and boosted Myers–Perry metric differs from (γ_λ, k_λ) by an
+element of the class: the class contains these data on Hintz's own surface. On the slices {y⁰ = 0} of [[def:v-2-1]]
+these data lie in the class too, as g_p − δ ∈ ρ²C^∞ and K_p ∈ ρ³C^∞ far out by (a) and (d), but not near
+(γ_λ, k_λ): by (d), already at p_λ the second fundamental form differs from k^(m_λ) by a fixed term of order r⁻³, of size μ_end, so the members of
 [[def:v-2-1]] are at a distance from (γ_λ, k_λ), in the norm of the class, that no smallness of a perturbation removes.
 This is why the gluing below takes its family on Σ, as [[prop:vii-2-2]] does in the class. That the mass and the boost
 are fixed by the energy and momentum alone (c) is what makes the coefficient of ρ² of the glued data decay with R when
@@ -650,7 +656,7 @@ the data on every ball. Over the admissible ℓ0 of [[thm:settling]], this cover
 (ii) If 3/2 < a ≤ ℓ0, the decay rate does not decide. (S_∞) holds for a perturbation exactly when it lies in the class
 with ‖·‖_(d_1) < δ, and (S) only if it lies in the class at regularity d_1 ([[cor:after-shell-membership]]). At every
 such a and every Ξ ∈ (0, Ξ1], some perturbation of order a and size C_P Ξ fails (S): every data set in the class that
-agrees with it on {r < R} has norm at least c_P Ξ R^(ℓ0−a), or c_P Ξ (log₂(R/R_P))^(1/2) at a = ℓ0
+agrees with it on {r < R} has norm at least c_P Ξ R^(ℓ0−a), or c_P Ξ (log₂(R/R_ob))^(1/2) at a = ℓ0
 ([[prop:after-shell-outside]]). The gluing of [[prop:after-shell-gluing]] does no worse than this order for every
 perturbation of order a ([[cor:after-shell-glued-norm]]), and attains it for these examples.
 

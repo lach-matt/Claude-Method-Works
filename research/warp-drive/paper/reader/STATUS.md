@@ -35,7 +35,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 41 S22 | NOT CONFIRMED 1M 3m 6n | done | running |
 | 42 S23 | NOT CONFIRMED 0M 5m 12n | done | CONFIRMED (third reading 0M 1m 1n; both applied as specified) |
 | 43 S24 | NOT CONFIRMED 0M 5m 8n | done | CONFIRMED (5 nits); depends on S4 |
-| 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | running (38a and 44) |
+| 44 S25 | NOT CONFIRMED 3M 8m 7n | step 1 done (38a created) | NOT CONFIRMED 0M 2m 8n (38a and 44); third fix running; step 2 after S21-S22 settle |
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | running | - |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | running (translation carried; level-1/2 lemma) | - |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | running | - |
@@ -48,7 +48,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 65 M Ch 15 | being written | - | - |
 | 70 M Ch 17 | being written | - | - |
 | 66, 71, 80-90 | not yet written | - | - |
-| 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | NOT CONFIRMED 0M 7m 9n; second fix running |
+| 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | second fix done (slab norm proved, n = dim X, gn-moser proved); confirming reader running |
 
 ## Proof files (merged into their chapters after an independent reading)
 

@@ -1224,7 +1224,7 @@ E ∪̄ {(0, 0)}. It remains to treat f ∈ H^(k,α,(F⃗,β⃗)) (E = ∅). Sub
 which lies in H^(k,∞,(F⃗,β⃗)) by hypothesis, we may assume u = f = 0 near x = 1. The operator x∂_x commutes with x∂_x and
 with b-derivatives on H, so the case k = 0 applied to derivatives gives every k. The solution operators below act in x
 alone, commute with multiplication by functions of y and with ρ^w(log ρ)^j for defining functions ρ of the faces of H,
-and are bounded on x^α L²(|dx/x|; 𝒦) for any Hilbert space 𝒦; applied to the terms and the remainders of the
+and are bounded on x^α L²(|dx/x|; 𝓗) for any Hilbert space 𝓗; applied to the terms and the remainders of the
 expansions [[eq:s11-partial]] at the faces [0, 1) × ∂_jH (inductively on the number of faces), they preserve (F⃗, β⃗).
 So we drop y. If α < 0: u(x) = −∫_x^1 f(s) ds/s, and by Cauchy–Schwarz with ∫_x^1 s^α ds/s ≤ |α|⁻¹x^α and
 ∫_0^s x^(−α) dx/x = |α|⁻¹s^(−α),
@@ -1358,7 +1358,7 @@ Define
 uses, is the same whether "of order ≥ k + 1" or "of order k + 1" is used).
 
 The Mellin transform is ℳg(ι) := ∫_0^∞ ρ^(−ι) g(ρ) dρ/ρ. In the variable s = −log ρ it is the Fourier–Laplace transform
-∫ e^(ιs) g(e^(−s)) ds, so Plancherel's theorem gives (M1): for g supported in ρ < ρ₀, g ∈ ρ^γ L²(|dρ/ρ|; 𝒦) if and only
+∫ e^(ιs) g(e^(−s)) ds, so Plancherel's theorem gives (M1): for g supported in ρ < ρ₀, g ∈ ρ^γ L²(|dρ/ρ|; 𝓗) if and only
 if ℳg is holomorphic in Re ι < γ with sup_(c<γ) ∫ |ℳg(c + iη)|² dη < ∞, and then 2π‖ρ^(−γ)g‖² equals the integral on
 Re ι = γ; ℳ(ρ∂_ρ g) = ιℳg; and g = (2πi)⁻¹ ∫_(Re ι=c) ρ^ι ℳg(ι) dι for c ≤ γ. So g ∈ H^(k,γ)_b(M) if and only if
 Σ_(j+|β|≤k) ∫_(Re ι=γ) |ι|^(2j) ‖ℳg(ι)‖²_(H^(|β|)(∂M)) |dι| < ∞ (with the same bound for Re ι < γ). (M2)
