@@ -1632,3 +1632,113 @@ negative from there on: it changes sign exactly once. ∎
 varying degree-two term of size λ^(1/10) m0 and an unstructured one of size λ³ m0, the maxima over 80 consecutive
 carrier periods around R = 1 decreased strictly and changed sign once; with an unstructured term of size m0/3 they
 changed sign more than once. No proof uses this observation.
+
+### Dips {#sec:edge-dips}
+
+Some regularity of the edge is needed for the conclusions of [[thm:very-edge]] and [[thm:edge-past]] at every level
+below λ^(3+δ): for an envelope whose intervals of zeros accumulate at v_s the boundary is spacelike throughout some
+intervals of length 4πλ below that level, for every small λ.
+
+**Proposition {#prop:edge-dips}** (Dips.) Let ϕ(t) := e^(−1/(1−t²)) for |t| < 1 and ϕ(t) := 0 otherwise, and near v_s
+let
+
+    env(v) := Σ_(n≥n0) h_n ϕ(s_n (v − v_s − 2^(−n))),      h_n := e^(−n²),      s_n := 2^(n+2),           {#eq:edge-dips}
+
+continued to a C_c^∞ envelope; it is smooth and flat at v_s, as h_n s_n^k → 0 for every k. The bump n lives on v − v_s
+∈ [3/4, 5/4] · 2^(−n), so env = 0 on J_n := v_s + (5/4, 3/2) · 2^(−n). Let δ ∈ (0, 1/2]. There is λ_25(δ) > 0 such that
+for λ ≤ λ_25(δ), with n the least index with h_n ≤ λ^(3+δ), at every x̂ ∈ S³ and every v ∈ J_n′ := v_s + [(5/4)2^(−n),
+(3/2)2^(−n) − ρ_w], ρ_w = O(λ) the reach of [[lem:layer-remainder-weak]] (resp. [[lem:layer-remainder-past]]),
+
+    g_λ⁻¹(dΦ0, dΦ0)(v, r_q(v), x̂) ≤ −m0(v)/2 < 0,
+
+for the metric of [[thm:main]], K ≥ 6, and for that of [[thm:past-construction]]. J_n′ lies in the layer, below the
+level λ^(3+δ) (E = h_n/e there), and is longer than 4πλ. So for this envelope, for every small λ, intervals of length
+4πλ below λ^(3+δ) on which the boundary is spacelike throughout occur on every column.
+
+*Proof.* Fix v ∈ J_n′ and x̂, and put X := (v, r_q(v), x̂), v1 := v + ρ_w and L := log(1/λ).
+
+(1) *The oscillating profiles vanish at X.* W, χ, the ĝ_m and the phase terms of the fixed-phase rewriting solve, at
+fixed v, transports along ℓ whose forcing terms and data at that v are polynomials in env^(k)(v) and in the oscillating
+profiles at that v, every monomial with an oscillating factor ((F1) of [[sec:layer-flat]], and step (i) of the proof of
+[[lem:stage-data]]); this is the argument of the proof of [[prop:mean-mass]] outside the shell, applied at a v with
+env^(k)(v) = 0 for every k. By induction on the order they vanish at X. The phases φ_m, which the means drive, enter
+g_app only through the phase of the oscillating profiles. So at X, g_λ − g0 = Σ_(j≥1) λ^j m_j + w. The same holds for
+the stages of [[thm:past-approximant]], which are transports at fixed v from past null infinity.
+
+(2) *Bounds.* With B_k := Σ_(i≤k) sup |ϕ^(i)|, ε_k(v1) ≤ 2 h_n s_n^k B_k: the bump n − 1 starts at (3/2)2^(−n), beyond
+v1, and the bumps m > n add at most h_n s_n^k B_k, as h_(m+1) s_(m+1)^k ≤ h_m s_m^k/2 once e^(2m+1) ≥ 2^(k+1). By
+[[lem:layer-flat]] (b) (by [[lem:layer-flat-past]] for Theorem 2), |m_j| ≤ C ε_(2j+1)(v)². By
+[[lem:layer-remainder-weak]] (Theorem 1), |w| ≤ C λ^(N−5) ε_(M*)(v1) given ε_4(v1) ≤ λ; by [[lem:layer-remainder-past]]
+(Theorem 2), |w| ≤ C λ^(N_P−3) ε_(M_P)(v1) given ε_(M_P)(v1) ≤ λ³. Both hypotheses hold for λ small, since h_n ≤ λ^(3+δ)
+and s_n^k B_k = e^(O(L^(1/2))).
+
+(3) *The margin.* m0 ≥ √(μ/μ0) − 1 ≥ (μ − μ0)/(3μ0), as √x − 1 = (x − 1)/(√x + 1) and μ ≤ 4μ0 in the layer, so
+
+    m0(v) ≥ (2A²/(27μ0)) ∫_(v_s)^v env² ≥ (2A²/(27μ0)) h_n² s_n⁻¹ I_ϕ,      I_ϕ := ∫_(−1)^1 ϕ².
+
+(4) *The ratio.* [[lem:layer-inverse]] with k = g_λ − g0 gives |g_λ⁻¹(dΦ0, dΦ0) + m0| ≤ C|k| ≤ C′(max_(j≤N) λ^j
+ε_(2j+1)(v)² + λ^(N−5) ε_(M*)(v1)) for Theorem 1, and the same with N_P, M_P and λ^(N_P−3) for Theorem 2. Its ratio to
+the bound of (3) is at most
+
+    C″ (max_(j≤N) λ^j s_n^(4j+3) B_(2j+1)² + λ^(N−5) h_n⁻¹ s_n^(M*+1) B_(M*)).
+
+Since h_(n−1) > λ^(3+δ), h_n = h_(n−1) e^(−(2n−1)) > λ^(3+δ) e^(−(2n−1)), and n ≤ ((3 + δ)L)^(1/2) + 1; so h_n ≥
+λ^(3.4+δ) once 2((3 + δ)L)^(1/2) + 1 ≤ 0.4L, that is for λ ≤ λ_h(δ) := exp(−y_h²), y_h := (2(3 + δ)^(1/2) + (4(3 +
+δ) + 1.6)^(1/2))/0.8; for instance λ_h(1/10) = 10^(−35.79…) and λ_h(1/2) = 10^(−40.14…). Then the ratio is at most C″
+(max_j λ^j s_n^(4j+3) B_(2j+1)² + λ^(N−8.4−δ) s_n^(M*+1) B_(M*)), which tends to 0 as λ → 0, since N − 8.4 − δ ≥ 0.1 for
+N ≥ 9 and δ ≤ 1/2, and s_n = 2^(n+2) grows slower than every power of 1/λ; for Theorem 2 the exponent is N_P − 6.4 −
+δ. Let λ_25(δ) be the least of λ_h(δ) and the thresholds below which the hypotheses of (2) and (4)'s ratio ≤ 1/2 hold.
+Then g_λ⁻¹(dΦ0, dΦ0) ≤ −m0 + m0/2.
+
+Finally, sup_(v′≤v) env = h_n ϕ(0) = h_n/e ≤ λ^(3+δ) on J_n′, the layer contains J_n′ for λ small (μ − μ0 there is
+of order h_n², against 4μ0 C_Φ λ, as in the proof of [[thm:layer]]), and J_n′ has length at least 2^(−n−3) ≫ 4πλ. ∎
+
+**Remark {#rem:edge-criterion}** (Where the ratio decides.) At a boundary point in the deep layer write g_λ⁻¹(dΦ0, dΦ0) =
+−m0 − Re[S e^(iv/λ)] + ρ with |ρ| ≤ D(v), where (S, D) is the following: on a zero interval as in [[prop:edge-dips]],
+S := 0 and D the bound of its step (4), the first-degree terms being part of w there; in the band λ^(3+δ) ≤ E ≤
+λ^(3−δ), S the first-degree amplitude of [[prop:layer-regions]] (iii) and D ≤ λ^γ m0; on an edge where (H_N) and (H_D)
+hold, S of [[prop:edge-horizon-value]] (for the metric of [[thm:main]]) or of [[lem:edge-resummation]] (for that of
+[[thm:past-construction]]) and D = C κ^(2c′) env². On an interval J = [v, v + 4πλ] on which S varies little, the
+boundary has timelike points at x̂ if max_J (|S| − m0) ≥ C(λ^γ m0 + D), and none if max_J (|S| + D) < min_J m0, since
+g_λ⁻¹(dΦ0, dΦ0) ≤ −m0 + |S| + D. So the ratio |S|/m0 decides up to the factor 1 ± 2λ^γ in the band, a zero interval
+as in [[prop:edge-dips]] is spacelike, and the very edge of [[thm:edge-past]] and [[thm:very-edge]] has timelike
+points; where env > 0 and no listed D is below m0, at a dip of a general envelope, the criterion decides nothing.
+
+**Remark {#rem:edge-dips-numbers}** (Numerical observation.) The three terms of step (4) of the proof of
+[[prop:edge-dips]] were evaluated in log10 with unit constants (A = μ0 = 1, every constant of the lemmas 1). At δ = 1/10
+the ratio for the metric of [[thm:main]] was +221, −86, −6544, −82950 and −877515 in log10 at λ = 10^(−10²), …,
+10^(−10⁶), and at δ = 1/2 it was +286, +335, −2578, −42399 and −476461: the decay λ^(0.1) wins only from λ about
+10^(−10⁴) on. The ratios for the metric of [[thm:past-construction]] and of the means were negative throughout. With the
+zero intervals removed, or with the bump heights h_n near λ⁴, the ratio became large. No proof uses these figures.
+
+### The thresholds {#sec:edge-thresholds}
+
+**Remark {#rem:edge-thresholds}** (What the thresholds are.) The thresholds λ_E, λ_1E, λ_26, λ_28, λ_D and λ_24 of
+this chapter are finite expressions in the constants of [[ch:data]], [[ch:uniform-existence]] and
+[[ch:past-construction]], in the bounds of the stage profiles, and in the envelope's constants of
+[[def:edge-hypotheses]]; they are not evaluated. The constants C_L11 and C_L4 of the threshold λ_L of [[thm:layer]]
+([[eq:layer-threshold]]) are likewise finite expressions in the bounds of the stage profiles and the constants of
+[[ch:data]] and [[ch:uniform-existence]], obtained by following the proofs of [[lem:layer-flat]],
+[[cor:layer-expansion]] and [[lem:layer-remainder]], and are not written out here [[pending:issue-2]].
+
+The threshold λ_25(δ) of [[prop:edge-dips]] is explicit. Write λ = 10^(−E) and s := ((3 + δ) ln 10)^(1/2), so that n +
+2 ≤ s E^(1/2) + 3. With h_n ≥ λ^(3.4+δ) (for λ ≤ λ_h(δ)) and ε_k(v1) ≤ 2h_n s_n^k B_k, each condition of the proof
+reads −aE + b E^(1/2) + c + γ ≤ log10 τ and holds for every E ≥ E_i := y₊², y₊ := (b + (b² + 4a(c + γ − log10
+τ))^(1/2))/(2a). For the remainder of the metric of [[thm:main]], a = N − 8.4 − δ, b = (M* + 1) s log10 2, c =
+log10(27/I_ϕ) + log10 B_(M*) + 3(M* + 1) log10 2 and τ = 1/4; for its means, each j ≤ N, a = j and τ = 1/(4N); the
+same for the metric of [[thm:past-construction]] with N_P and M_P; for the hypotheses ε_4(v1) ≤ λ and ε_(M_P)(v1) ≤ λ³
+of the remainder lemmas, a = 2 + δ and a = δ; and λ ≤ λ_h(δ), e^(2n+1) ≥ 2^(M_P+1), and the length of J_n′. Here γ is
+log10 of a product of the constant of [[lem:layer-inverse]], that of the remainder lemma or of [[lem:layer-flat]] (b),
+μ0 and A⁻², and for the length of J_n′ γ = log10(4π + C_ρ), C_ρ λ := ρ_w. Then
+
+    λ_25(δ) = min(λ_rec, 10^(−E_25(δ))),      E_25(δ) := max_i E_i(δ),
+
+λ_rec the threshold below which the lemmas used hold. The constants in γ and λ_rec are not evaluated, but the condition
+ε_(M_P)(v1) ≤ λ³ involves none of them: there a = δ ≤ 1/2, b = M_P s log10 2 and c = 3M_P log10 2 + log10(2B_(M_P)),
+with τ = 1 and γ = 0. As M_P = 2N_P + 8 ≥ 44, s ≥ (3 ln 10)^(1/2) ≥ 2.6282 and 2B_(M_P) ≥ 2(ϕ(0) + |ϕ′(1/2)|) ≥ 1,
+we have b ≥ 34.81 and c ≥ 39.73, so y₊ ≥ 34.81 + (34.81² + 2 · 39.73)^(1/2) ≥ 70.74 and
+
+    λ_25(δ) ≤ 10^(−5004)      for every δ ∈ (0, 1/2] and every K ≥ 6,
+
+whatever the other constants are. With the value of B_(M_P) the same condition gives λ_25(δ) ≤ 10^(−6613.6) for every
+δ ∈ (0, 1/2] [[pending:computational-2]].

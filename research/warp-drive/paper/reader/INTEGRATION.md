@@ -1116,3 +1116,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - F-66 done (report reports/F-66.md); R2-66 reading. Flags for integration: OUTLINE.md:121 still has τ; wrapped lines
   starting with "|" at 03:296 and "=" at 65:631, 65:671 (global line-start sweep). Possible gap in cor:gd-r7-7 (b)
   (data with compact support on Σ° need not vanish near r_♭) is with R2-66.
+- R-P-K83a: 0 Major, 2 minor, 7 nits; the mathematics holds (chapter 47's lemmas apply in the four-dimensional band;
+  KID space ≤ 15 and smooth; continuity; the dust change; the edit list balances). F-83 merges it into chapter 83 with
+  R-83's findings; the momentum-seed sliver up to 1.8614 stays pending for P-K83b.

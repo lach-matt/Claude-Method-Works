@@ -81,11 +81,11 @@ nondecreasing, and m0(v) ≥ √(μ(v)/μ0) − 1 ≥ δ_η for v ≥ v_s + η.
 (c) env vanishes on (−∞, v_s), so env and all its derivatives vanish at v_s; hence so do μ − μ0, μ′ and all their
 derivatives, and with them every derivative of m0.
 
-(d) Write X = X^v ∂_v + X^r ∂_r + X_ang. Then g0(X, X) = −F (X^v)² + 2 X^v X^r + r² |X_ang|²_γ ≤ 0, and dτ(X) = X^v − X^r
-> 0, since dτ = dv − dr and X is future directed. If X^v = 0, then |X_ang| = 0 and X^r < 0. If X^v < 0, then X^r < X^v
-< 0, so 2 X^v X^r > 2 (X^v)² > F (X^v)², as F < 1, and g0(X, X) > 0, a contradiction. So X^v ≥ 0, with X^v = 0 only for
-X a positive multiple of −∂_r; and for X^v > 0 the inequality 2 X^v X^r ≤ F (X^v)² gives X^r ≤ F X^v/2. The bound is
-attained by the outgoing null direction ∂_v + (F/2) ∂_r.
+(d) Write X = X^v ∂_v + X^r ∂_r + X_ang. Then g0(X, X) = −F (X^v)² + 2 X^v X^r + r² |X_ang|²_γ ≤ 0, and
+dτ(X) = X^v − X^r > 0, since dτ = dv − dr and X is future directed. If X^v = 0, then |X_ang| = 0 and X^r < 0. If
+X^v < 0, then X^r < X^v < 0, so 2 X^v X^r > 2 (X^v)² > F (X^v)², as F < 1, and g0(X, X) > 0, a contradiction. So
+X^v ≥ 0, with X^v = 0 only for X a positive multiple of −∂_r; and for X^v > 0 the inequality 2 X^v X^r ≤ F (X^v)² gives
+X^r ≤ F X^v/2. The bound is attained by the outgoing null direction ∂_v + (F/2) ∂_r.
 
 (e) By [[prop:vaidya]] (d), g0⁻¹(dτ, dτ) = −1 − μ/r² < 0, so Y is timelike, and dτ(Y) = 1 + μ/r² > 0. With
 g0⁻¹(dτ, dr) = μ/r² and g0⁻¹(dτ, dv) = −1 ([[lem:domain]] (c)), dΦ(Y) = −g0⁻¹(dτ, dr) + ρ′ g0⁻¹(dτ, dv) = −μ/r² − ρ′. ∎
@@ -123,9 +123,8 @@ with τ, so the boundary term in ∂_τ ‖u‖² is at most 0. Hence [[eq:energ
 the norms on R ∩ Σ_τ, and Gronwall's inequality gives u = 0 on R. The derivatives of u vanish on Ω ∩ {v = v_s} because
 u is smooth on Ω and vanishes on Ω ∩ {v < v_s}, whose closure contains Ω ∩ {v = v_s}. ∎
 
-So the λ-dependent profiles of g_app, whatever they are near v_s, cancel exactly against the remainder w there: g_λ =
-g_app + w = g0 on R. Here the principal part of the difference equation is g0 and the face {v = v_s} is exactly null
-for it, so no tilt of that face is needed.
+So g_app = g0 and w = 0 on R. Here the principal part of the difference equation is g0 and the face {v = v_s} is
+exactly null for it, so no tilt of that face is needed.
 
 ### The boundary {#sec:eq-boundary}
 
@@ -182,13 +181,14 @@ let s* be the first such parameter and p := γ(s*), so Φ_σ(p) = 0 and Φ_σ < 
 extended a little past its v-interval, keeps a g_λ-timelike differential near p when v(p) > v_s, by continuity of the
 margins above, with dΦ(Z) < 0 for future causal Z (the sign of dΦ(Y), [[lem:eq-seed]] (e)). Near the corner v = v_s +
 η*, Φ_σ is the larger of its two pieces; near v = v_s, r = √μ0, it is the smaller of Φ0 and Φ1 := Φ0 − c_σ λ (v −
-v_s). If v(p) > v_s: the maximum of two functions strictly decreasing along γ near p is strictly decreasing, so Φ_σ(γ(s))
-> 0 for s < s* close to s*, a contradiction. If v(p) < v_s: γ cannot pass from {v > v_s} into {v < v_s}, since on {v ≤
-v_s}, where g_λ = g0, v does not decrease ([[lem:eq-seed]] (d)); so γ lies in {v < v_s} on an interval before s*, where
-Φ_σ = Φ0 < 0, that is r < √μ0, and r does not increase there ([[prop:eq-boundary]] (a)): r(p) < √μ0, a contradiction.
-If v(p) = v_s: g_λ⁻¹(dΦ1, dΦ1) = −2 c_σ λ < 0 at p (m0 = 0, σ = 0 and g_λ = g0 there), so Φ1 decreases strictly along
-γ near p. Points of γ before p with v > v_s would have Φ_σ = Φ1 > Φ1(p) = 0, which is impossible; so γ approaches p
-within {v ≤ v_s}, where Φ_σ = Φ0 < 0, that is r < √μ0, and r does not increase there: r(p) < √μ0, a contradiction. ∎
+v_s). If v(p) > v_s: the maximum of two functions strictly decreasing along γ near p is strictly decreasing, so
+Φ_σ(γ(s)) > 0 for s < s* close to s*, a contradiction. If v(p) < v_s: γ cannot pass from {v > v_s} into {v < v_s},
+since on {v ≤ v_s}, where g_λ = g0, v does not decrease ([[lem:eq-seed]] (d)); so γ lies in {v < v_s} on an interval
+before s*, where Φ_σ = Φ0 < 0, that is r < √μ0, and r does not increase there ([[prop:eq-boundary]] (a)): r(p) < √μ0,
+a contradiction. If v(p) = v_s: g_λ⁻¹(dΦ1, dΦ1) = −2 c_σ λ < 0 at p (m0 = 0, σ = 0 and g_λ = g0 there), so Φ1
+decreases strictly along γ near p. Points of γ before p with v > v_s would have Φ_σ = Φ1 > Φ1(p) = 0, which is
+impossible; so γ approaches p within {v ≤ v_s}, where Φ_σ = Φ0 < 0, that is r < √μ0, and r does not increase there:
+r(p) < √μ0, a contradiction. ∎
 
 The statement concerns the inner boundary only; the face {v = v_end + T} of D_T^λ is not treated.
 
@@ -200,9 +200,9 @@ perturbation of first degree in the waves exactly and bound the rest by the marg
 
 ### The spheres' horizon at equality {#sec:eq-horizon}
 
-Let C_θ be the constant C3 of [[eq:theta-plus-close]] in the proof of [[prop:one-zero]], so that |θ⁺_λ − θ⁺_0| and
-|∂_r(θ⁺_λ − θ⁺_0)| are at most C_θ λ on the columns, θ⁺_0 := θ⁺(g0); let R_max be the largest r on the columns, c_θ :=
-3/(R_max² + μ(v_end)), and C_h := C_θ/c_θ.
+Let C_θ be the constant C3 of [[eq:theta-plus-close]] in the proof of [[prop:one-zero]], so that the functions
+|θ⁺_λ − θ⁺_0| and |∂_r(θ⁺_λ − θ⁺_0)| are at most C_θ λ on the columns, θ⁺_0 := θ⁺(g0); let R_max be the largest r on
+the columns, c_θ := 3/(R_max² + μ(v_end)), and C_h := C_θ/c_θ.
 
 **Proposition {#prop:eq-horizon}** (The spheres' horizon at equality.) Let K ≥ 6 and λ ≤ λ_H ([[prop:one-zero]]), λ
 small.
@@ -226,9 +226,9 @@ So θ⁺_λ has at most one zero, with the signs stated. Nothing in this uses r_
 
     −θ⁺_0(r_q) − 3 d_h/μ = 3 d_h² (μ + √μ r_q + r_q²)/(μ r_q (μ + r_q²))
 
-holds: −θ⁺_0(r_q) = 3 d_h (√μ + r_q)/(r_q (r_q² + μ)), and (√μ + r_q) μ − r_q (r_q² + μ) = μ√μ − r_q³ = d_h (μ + √μ r_q
-+ r_q²). The right side is nonnegative, so θ⁺_λ(r_q) ≤ −3 d_h/μ + C_θ λ ≤ −3 C′ λ/μ(v_end) + C_θ λ < 0, while θ⁺_λ > 0
-at √μ + C_h λ; the intermediate value theorem and (a) give exactly one zero. ∎
+holds: −θ⁺_0(r_q) = 3 d_h (√μ + r_q)/(r_q (r_q² + μ)), and (√μ + r_q) μ − r_q (r_q² + μ) = μ√μ − r_q³ =
+d_h (μ + √μ r_q + r_q²). The right side is nonnegative, so θ⁺_λ(r_q) ≤ −3 d_h/μ + C_θ λ ≤ −3 C′ λ/μ(v_end) + C_θ λ < 0,
+while θ⁺_λ > 0 at √μ + C_h λ; the intermediate value theorem and (a) give exactly one zero. ∎
 
 So at equality item 6 of [[thm:main]] holds in this form: exactly one zero on the columns with v ≤ v_s (at the boundary
 itself) and on those with √μ(v) − r_q(v) ≥ C′ λ, a condition that fails only on a set of v whose width tends to 0 with
@@ -249,11 +249,12 @@ The metric g_λ of [[thm:main]] is g_app + w, with g_app = g0 + λ [g1] + Σ_(j=
 fixed-phase form of [[thm:approximant]] built with the stage data of [[lem:stage-data]] (stage N's included). Write
 k := g_λ − g0 and, for an integer c ≥ 0,
 
-    E(v) := sup_(v′≤v) env(v′),      ε_c(v) := Σ_(i≤c) sup_(v′≤v) |env^(i)(v′)|,                     {#eq:layer-costs}
+    E(v) := sup_(v′≤v) |env(v′)|,      ε_c(v) := Σ_(i≤c) sup_(v′≤v) |env^(i)(v′)|,                   {#eq:layer-costs}
 
-both continuous, nondecreasing and zero for v ≤ v_s. A quantity is *of degree at least two* if, with μ − μ0 counted as
-of degree two, it is a sum of products of at least two factors of the form A env^(i) times smooth coefficients. A
-profile H(v, r, ϑ) e^(iθ), H complex, is the complex form of a first harmonic of the phase, and its real part is meant.
+both continuous, nondecreasing and zero for v ≤ v_s. E is the *level* of the envelope, and E = ε_0; no sign of env is
+assumed. A quantity is *of degree at least two* if, with μ − μ0 counted as of degree two, it is a sum of products of at
+least two factors of the form A env^(i) times smooth coefficients. A profile H(v, r, ϑ) e^(iθ), H complex, is the
+complex form of a first harmonic of the phase, and its real part is meant.
 We write ĝ_1 := W = W_TT + χ dv ⊗ dv, so that the oscillating profiles of the ansatz [[eq:ansatz]] are ĝ_1, …, ĝ_(N+1).
 
 **Definition {#def:layer-class}** (The class 𝔖.) A symmetric 2-tensor h, invariant under T² and both reflections, is
@@ -269,8 +270,8 @@ Since v is constant along γ_X, every bound weighted by ε_c(v) holds with the s
 *Constants.* In this and the following sections C denotes a constant depending on N, the order of differentiation, Ω
 (through a, δ0, b(τ0) and τ_end − τ0), μ0, A, finitely many norms sup |env^(i)|, the bounds of the profiles of
 [[thm:approximant]] and of the stage data of [[lem:stage-data]] on Ω × S¹ (each smooth with all derivatives bounded
-independently of λ), the numbers M and C of [[thm:uniform-existence]] and C1 of [[eq:eq-c1]]; never on λ, v, v1 or
-the point.
+independently of λ), the number C of [[thm:uniform-existence]] and C1 of [[eq:eq-c1]]; never on λ, v, v1 or the
+point.
 
 ### The seed's operators on one harmonic {#sec:layer-operators}
 
