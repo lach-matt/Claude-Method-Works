@@ -550,8 +550,9 @@ F ∈ L²(ℝ) vanish outside I, and let u := (−∂²_(r_*) + V − σ²)⁻¹
     ‖u‖_I ≤ B⁺(σ)‖F‖,     B⁺(σ) := ((2/m′ + (M′ + 4|σ| + 2 max q)²/w_I)/w_I)^(1/2),
 
 and the bounds of [[lem:morawetz-identity]] for ‖u′‖_I and for ∫_I W_1|u|², with p_I = p_∞ = 1, hold with 2|σ|
-replaced by 4|σ| + 2 max q. When q = 0, or when Re σ² ≥ 0, the term 2 max q may be dropped. If instead |φ| ≤ p on ℝ for
-a constant p > 0, and the other hypotheses hold, then ‖u‖_I ≤ ((2p²/m′ + (M′ + 4p|σ| + 2 max q)²/w_I)/w_I)^(1/2)‖F‖.
+replaced by 4|σ| + 2 max q, where max q := sup_ℝ q. When q = 0, or when Re σ² ≥ 0, the term 2 max q may be dropped.
+If instead |φ| ≤ p_φ on ℝ for a constant p_φ > 0, and the other hypotheses hold, then
+‖u‖_I ≤ ((2p_φ²/m′ + (M′ + 4p_φ|σ| + 2 max q)²/w_I)/w_I)^(1/2)‖F‖.
 
 *Proof.* Write σ² = a_σ + ib_σ. The operator −∂² + V is self-adjoint and nonnegative, so u ∈ H²(ℝ); off I, u solves
 the homogeneous equation and lies in L², so near ±∞ it is a multiple of the solution that behaves like e^(±iσr_*),
@@ -574,16 +575,16 @@ dropped; if a_σ < 0, the real part of the energy identity gives |a_σ|‖u‖²
 −2a_σ∫q|u|² ≤ 2 max q ‖F‖‖u‖_I, and this term is moved to the right. Then the left side is at least 2m′X² + w_IY²,
 X := ‖u′‖_I, Y := ‖u‖_I, and, as |φ| ≤ 1 on I, the right side is at most ‖F‖(2X + (M′ + 4|σ| + 2 max q)Y); the rest is
 the algebra of the proof of [[lem:morawetz-identity]] with p_I = p_∞ = 1, with M′ + 4|σ| + 2 max q in place of
-M′ + 2|σ|. For the last statement, φ/p and q/p satisfy the hypotheses with |φ/p| ≤ 1; since W, φ′ − q and φ′ − 2q are
-linear in (φ, q), their constants are m′/p, M′/p, w_I/p and max q/p, and the bound just proved for them is the one
-stated. ∎
+M′ + 2|σ|. For the last statement, φ/p_φ and q/p_φ satisfy the hypotheses with |φ/p_φ| ≤ 1; since W, φ′ − q and
+φ′ − 2q are linear in (φ, q), their constants are m′/p_φ, M′/p_φ, w_I/p_φ and max q/p_φ, and the bound just proved for
+them is the one stated. ∎
 
 So the real-axis bounds are stable under Im σ > 0: B⁺ is continuous in σ and bounded on compact subsets of
 {Im σ ≥ 0, σ ≠ 0}, and the degeneration of [[lem:rb-off-axis]] as Im σ → 0 is not met. As Im σ → 0, B⁺ tends to the
 constant with 4|σ|, not to the real-axis one: the factor 2 is the price of bounding the b_σ-term by norms over ℝ. Every
 multiplier below satisfies |φ| ≤ 1 or is used in the scaled form: φ = z has |z| < 1, with q = 0 for every l ≥ 1
 ([[prop:morawetz-resolvent-l-ge-1]]) and max q = 2√6/27 for l = 0 ([[prop:morawetz-l-zero]]); the multipliers of
-[[prop:morawetz-master-potentials]] are taken with p := sup_ℝ|φ|, as stated there.
+[[prop:morawetz-master-potentials]] are taken with p_φ := sup_ℝ|φ|, as stated there.
 
 ### Polynomial multipliers {#sec:morawetz-polynomial}
 
@@ -954,15 +955,14 @@ and 0.0413, and (m′, M′) = (935/16384, 0.4157) and (0.1384, 0.563). The larg
 and every harmonic are 70.17, 64.82, 160.01 and 498.25. Multiplied by 15/16, the transfer of [[lem:rb-transfer]],
 rows A and B bound the vector-type 1-form blocks at l = 1 (21.25, 40.20, 89.57, 270.73) and at l ≥ 2 (12.05, 18.30,
 37.76, 112.73), and row B the tensor-type blocks, every l ≥ 2 (the same). Every potential of the rows is real, bounded
-and nonnegative, so off the real axis [[lem:morawetz-complex]] applies in its scaled form, with p := sup_ℝ|φ|: p = 1 in
-rows T1 and T3, and p = p_∞ in the others, whose multipliers increase from Θ(−1) to Θ(1). There max q is 0 in rows A to
-S3 and less than 0.20534, 0.06161 and 0.10659 in rows T1, T2 and T3.
+and nonnegative, so off the real axis [[lem:morawetz-complex]] applies in its scaled form, with p_φ := sup_ℝ|φ|:
+p_φ = 1 in rows T1 and T3, and p_φ = p_∞ in the others, whose multipliers increase from Θ(−1) to Θ(1). There max q is 0
+in rows A to S3 and less than 0.20534, 0.06161 and 0.10659 in rows T1, T2 and T3.
 
 *Proof.* Rows A, B, C, S4, S3 and T2: V^□ = V_(κ+3/4,9/4) and V^v = V_(κ+3/4,5/4), and at l ≥ 1, κ + 3/4 ≥ 15/4, which
 is row A of [[prop:morawetz-polynomial]]. At l ≥ 2, κ + 3/4 ≥ 35/4 and V^s = V_(κ+3/4,−7/4), V_T = V^□ lie in its row B.
-At l ≥ 3, κ + 3/4 ≥ 63/4 and b ∈ {9/4, 5/4, −7/4, −27/4} ⊂ [−27/4, 9/4], so V^□, V^v, V^s, V_T and V_V lie in its row
-C.
-V_S at l = 3 and at l ≥ 4 are its rows S3 and S4, and V_V at l = 2 its row T2. The values are those of
+At l ≥ 3, κ + 3/4 ≥ 63/4 and b ∈ {9/4, 5/4, −7/4, −27/4} ⊂ [−27/4, 9/4], so V^□, V^v, V^s, V_T and V_V lie in its
+row C. V_S at l = 3 and at l ≥ 4 are its rows S3 and S4, and V_V at l = 2 its row T2. The values are those of
 [[prop:morawetz-polynomial]].
 
 Row T1 (a = 15/4, b = −7/4). Here a + b = 2 < 4, so P_(a,b)(−1) = 2(a + b − 4) < 0: with q = 0 the weight of
@@ -1004,7 +1004,7 @@ which is 1296y³ + 2976y² − 1260y + 3500 ≥ 3500 − 1260y > 0 on [0, 1] for
 nonnegative, and it is bounded, with V and V′ integrable and tending to 0 at ±∞ ([[sec:morawetz-identity]]). The
 multipliers of rows A, B, C, S4, S3 and T2 increase, so sup_ℝ|φ| = max(Θ(1), −Θ(−1)) = p_∞
 ([[sec:tb-morawetz-monotone]]); in rows T1 and T3, |φ| ≤ 1. Since the sign conditions of [[lem:morawetz-identity]]
-hold on ℝ in every row, [[lem:morawetz-complex]] applies, in its scaled form with p := sup_ℝ|φ|. The values of max q:
+hold on ℝ in every row, [[lem:morawetz-complex]] applies, in its scaled form with p_φ := sup_ℝ|φ|. The values of max q:
 in rows A to S3, q = 0; in row T2 it is that of Θ_T in [[prop:morawetz-polynomial]]; in rows T1 and T3 they are computed
 above. ∎
 
