@@ -71,7 +71,8 @@ The reference profile is the pair (ψ_s, μ_s) with μ_s := 0.8221111759474543 a
     c_5 =  0.000036266230280898565,      c_4 = −0.0006828865263100425,     c_3 =  0.005975740440748802,
     c_2 = −0.032306921548756716,         c_1 =  0.11720807953605501,       c_0 = −0.25734075580969945.
 
-We call ψ_s the reference quintic; [[rem:bg-grid]] says how it was chosen, and no proof uses that. The seed region R ∈
+We call ψ_s the reference quintic; [[rem:bg-grid]] relates it to a numerical solution, and no proof uses that relation.
+The seed region R ∈
 [0.70, 1.861] of Σ_τ0 has v̂ = τ0 + R ∈ [0.02, 1.181], inside the interval of definition. [[prop:margins-seed]] uses the
 pair, and [[prop:bg-seed]] compares the background with it.
 
@@ -257,14 +258,16 @@ v̂_k. For k = 0 the values are exact: R_0 = 13/2, P_0 = 1/2, μ_0 = 3/2 and v̂
 ### The slice Σ_τ0 over the shell {#sec:table-sigma0}
 
 Row k is the point of Σ_τ0 on the ingoing ray v = v_k: R0_k := v̂_k + 0.68 (seven decimals), a_k := (3/2) α_k w_k² with
-w_k := (1 − μ_k/R_k²)/(3P_k) (six decimals), and N_k := −2μ_k R0_k⁻³ − μ_k² R0_k⁻⁵ + (1/2) a_k R0_k⁻² (eight decimals),
-from the shell table. By [[lem:margins-shell-data]] the true value of N_κ at the point is within 5 × 10⁻⁶ of N_k. On the
-cell v ∈ [v_k, v_(k+1)], M_k (rounded up to two decimals) is the bound of [[lem:margins-curvature]] (a) for the second
-v-derivative of N_κ along Σ_τ0, built from S_0, S_1 and S_2 := sup|α″| (the column S2_k, rounded up to one decimal). By
-the monotone pieces of [[lem:margins-bump]], S_0 and S_1 are the larger end values of α and |α′| on the cell, except
-that S_1 = 4.8 × 2.17036 on the cells k = 14 and 105, which contain v = 3.75 ∓ 0.75 × 3^(−1/4); and S_2 is the larger
-end value of |α″|, except on the cells k = 6, 23, 96 and 113, which contain a zero of β‴ in the variable y = (4v −
-15)/3, where the extremal value of [[lem:margins-bump]] (c) times 6.4 is used. The sign column is − when max(N_k,
+w_k := (1 − μ_k/R_k²)/(3P_k) (six decimals), and N_k := −2μ_k ρ⁻³ − μ_k² ρ⁻⁵ + (1/2) a ρ⁻² (eight decimals), from the
+shell table, where ρ := v̂_k + 0.68 and a := (3/2) α_k w_k² are taken before rounding. By the proof of
+[[thm:margins-hyperbolic]] the true value of N_κ at the point is within 5 × 10⁻⁶ of N_k. On the cell v ∈ [v_k,
+v_(k+1)], M_k (rounded up to two decimals) is the bound of [[lem:margins-curvature]] (a) for the second v-derivative of
+N_κ along Σ_τ0, built from S_0, S_1 and S_2 := sup|α″|, for which the printed column S2_k (rounded up to one decimal)
+is used. By the monotone pieces of [[lem:margins-bump]], S_0 and S_1 are the larger end values of α and |α′| on the
+cell, taken from the shell table with 5 × 10⁻¹⁰ and 5 × 10⁻⁹ added for its rounding, except that S_1 = 4.8 × 2.17036 on
+the cells k = 14 and 105, which contain v = 3.75 ∓ 0.75 × 3^(−1/4); and S_2 is the larger end value of |α″|, except on
+the cells k = 6, 23, 96 and 113, which contain a zero of β‴ in the variable y = (4v − 15)/3, where the extremal value
+of [[lem:margins-bump]] (c) times 6.4 is used. The sign column is − when max(N_k,
 N_(k+1)) + 5 × 10⁻⁶ + M_k/51200 < 0, + when min(N_k, N_(k+1)) − 5 × 10⁻⁶ − M_k/51200 > 0, and 0 otherwise. The bound
 column prints that maximum (rounded up) or minimum (rounded down). The three cells marked 0 are treated in the proof of
 [[thm:margins-hyperbolic]].
@@ -396,14 +399,19 @@ column prints that maximum (rounded up) or minimum (rounded down). The three cel
 ### The bent slice over the shell {#sec:table-sigma-bent}
 
 Row k is the point of Σ′ = {v̂ − R − φ(R) = τ0} on the ingoing ray v = v_k. Its radius R′_k (seven decimals)
-satisfies |R′_k + φ_k − R0_k| ≤ 2 × 10⁻⁷. The numbers φ_k, φ′_k and φ″_k are the bend of [[prop:margins-bend]] and its
-derivatives at R′_k (seven, six and seven decimals; φ_k and φ′_k as [[lem:margins-bump-table]] (c) gives them), and Ξ_k
-(seven decimals) is the numerator [[eq:margins-xi]] at the point, with μ = μ_k, μ̇ = a_k and V = 1 + φ′_k. On the cell v
-∈ [v_k, v_(k+1)], Φ4_k (rounded up) is the supremum of |φ⁗| over R ∈ [R′_k, R′_(k+1)], found from the monotone pieces of
-β″ ([[lem:margins-bump]] (c)) in the variable of the lobe that meets the interval; M′_k (rounded up) is the bound of
-[[lem:margins-curvature]] (b), with S_0, S_1 and S_2 as in [[sec:table-sigma0]]; and c_k (rounded down) is the lower
-bound for c := 3(1 − fV)/(R V²(2 − fV)²) of the proof of [[thm:margins-hyperbolic]]. The bound column (rounded up) is
-−c_k (min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200), an upper bound for κ′K′^l_l on the cell.
+satisfies |R′_k + φ_k − R0_k| ≤ 10⁻⁷. The numbers φ_k, φ′_k and φ″_k are the bend of [[prop:margins-bend]] and its
+derivatives at R′_k, rounded to seven, six and seven decimals ([[lem:margins-bump-table]] (c) reproduces φ_k and φ′_k
+from the bump table to within 10⁻⁶ and 1.7 × 10⁻⁶). Ξ_k (seven decimals) is the numerator [[eq:margins-xi]] at R =
+R′_k with μ = μ_k, μ̇ = (3/2) α_k w_k², V′ = 1 + φ′(R′_k) and V″ = φ″(R′_k), all taken before rounding. On the cell v ∈
+[v_k, v_(k+1)], Φ4_k (rounded up to three decimals) is the supremum of |φ⁗| over R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3
+× 10⁻⁶], an interval that contains the true radii of the cell's points of Σ′; it is found from the monotone pieces of β″
+([[lem:margins-bump]] (c)) in the variable of each lobe that meets the interval, with the extremal values of
+[[lem:margins-bump]] (c) at interior extremal points. M′_k (rounded up to two decimals) is the bound of
+[[lem:margins-curvature]] (b), built from the printed Φ4_k and S2_k and from S_0 and S_1 as in [[sec:table-sigma0]].
+And c_k (rounded down to five decimals) is the lower bound for c := 3(1 − fV)/(R V²(2 − fV)²) on the cell of the proof
+of [[thm:margins-hyperbolic]], with R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], μ ∈ [μ_k − 10⁻⁵, μ_(k+1) + 10⁻⁵]
+and V in the interval given there. The bound column (rounded up to seven decimals) is −c_k (min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − M′_k/51200), an
+upper bound for κ′K′^l_l on the cell.
 
 | k | R′_k | φ_k | φ′_k | φ″_k | Ξ_k | Φ4_k | M′_k | c_k | bound |
 |---|---|---|---|---|---|---|---|---|---|

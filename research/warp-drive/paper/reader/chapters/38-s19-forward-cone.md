@@ -69,8 +69,10 @@ This section is [Hin26, (11.1)–(11.11)] in dimension 4 + 1.
 a further condition of the same kind as those of [[sec:iii-b-5]] (supports in {t > T} with T large), and compatible
 with them.
 
-*Time function and domain.* t^♭_* is the function of [[lem:ii-c-3-2]] with ℓ = ℓ_I = ½, built for g_(b₀)
-([Hin26, (11.3)]), and Ω_* := cl_M{t^♭_* ≥ 1} ⊂ Ω = cl_M{t_* ≥ 1} ([Hin26, (11.4)]). L²-based spaces on Ω_* use the
+*Time function and domain.* t^♭_* is the function of [[lem:ii-c-3-2]] with ℓ = ℓ_I for a number ℓ_I ∈ (0, ½) fixed
+once and for all, built for g_(b₀) ([Hin26, (11.3)]), and Ω_* := cl_M{t^♭_* ≥ 1} ⊂ Ω = cl_M{t_* ≥ 1} ([Hin26, (11.4)]).
+The value ½, which [[lem:ii-c-3-2]] allows, is excluded because [[eq:iii-i-3-7]] fails there (see its proof); [Hin26]
+likewise takes ℓ_I < ½. L²-based spaces on Ω_* use the
 unweighted b-density μ_b = |dt_* dx|/(t_*⟨x⟩⁴) of [[cor:ii-f1-1-2]] ([Hin26] has t_*⁻¹⟨x⟩⁻³|dt_* dx|), and weights
 are listed at (𝓘⁺, ι⁺, K⁺), with the defining functions ρ_I, ρ_+, ρ_K of [[eq:iii-b-2-2]].
 

@@ -19,9 +19,13 @@ identities of the background ([[pending:two-dust-identities]]):
     (S1)  μ_u = −(2/3) B e^(−2s) R_v,   μ_v = −(2/3) α e^(−2s) R_u;      (S2)  R_uv = −e^(2s) μ/R³;
     (S3)  R_vv = −α/(3R²) on 𝒩 and R_uu = −B/(3R²) on 𝒩′;                (S4)  ψ_u = B/(3R² R_u),
 
-and R_u < 0 on the domain. Rácz's quantities on a round slice are κ (the radial extrinsic curvature) and K^l_l (the
-trace on the spheres), with the sign conventions of [[pending:lem-racz-split-formulas]]; the split is hyperbolic where κ
-K^l_l < 0.
+and R_u < 0 on the domain. We use the time orientation in which u and v increase to the future. Rácz's quantities on a
+round slice are κ (the radial extrinsic curvature) and K^l_l (the trace on the spheres), with the sign conventions of
+[[pending:lem-racz-split-formulas]]. The split is hyperbolic where κK^l_l < 0 ([[thm:std-racz-hyperbolic]]). It is not
+hyperbolic where κK^l_l > 0: by [Rac16, (4.22), p. 13], the characteristic roots ξ_n of the split at a leaf covector
+ξ_S solve K^l_l ξ_n² − 2ξ_n (k·ξ_S) + κ|ξ_S|² = 0, where k is the mixed part of the extrinsic curvature; the leaves are
+three-dimensional, so there is ξ_S ≠ 0 with k·ξ_S = 0, and for it the discriminant is −4κK^l_l|ξ_S|² < 0, so the roots
+are not real.
 
 ### Enclosures and quadrature {#sec:margins-tools}
 
@@ -103,7 +107,7 @@ total variation on [0, 1] is |e_4| + (|e_4| + |e_5|) + (|e_5| + |e_6|) + |e_6| w
 **Lemma {#lem:margins-bump-table}** (The bump table.) Let C, D, C̃_j and D̃_j be as in [[sec:table-bump]], δ = 1/20, and
 K := ∫_(−1)^1 β.
 
-(a) |C(y_j) − C̃_j| ≤ 5 × 10⁻⁵ and |D(y_j) − D̃_j| ≤ 10⁻⁴ for 0 ≤ j ≤ 40; in particular |K − 1.2069048540| ≤ 5 × 10⁻⁵.
+(a) |C(y_j) − C̃_j| ≤ 5 × 10⁻⁵ and |D(y_j) − D̃_j| ≤ 10⁻⁴ for 0 ≤ j ≤ 40; in particular |K − 1.2069048544| ≤ 5 × 10⁻⁵.
 
 (b) For y_j ≤ y ≤ y_(j+1),
 
@@ -129,7 +133,7 @@ sup|β′| ∫_(y_j)^y (y − s)(s − y_j) ds ≤ 2.1704 δ³/6 ≤ 4.6 × 10�
 D(y) = yK − ∫ sβ(s) ds = yK because β is even. (c) The formulas follow from φ(R) = ∫_(3.5)^R (R − t) φ″(t) dt and the
 substitution t = c_X + h_X s. The error in φ′ is at most 0.01 (h_P + l1 h_L + l2 h_R) × 2.7 × 10⁻⁴ ≤ 1.7 × 10⁻⁶. For φ,
 a lobe in progress contributes at most 0.01 h_X² × 1.5 × 10⁻⁴ and a completed lobe, where D = y_X K with |y_X| ≤ 7.2, at
-most 0.01 h_X² × 7.2 × 5 × 10⁻⁵; in all at most 0.01 (0.09 × 2.3 × 10⁻⁴ + 0.0487 × 3.6 × 10⁻⁴ + 0.0553 × 1.5 × 10⁻⁴) ≤
+most 0.01 h_X² × 7.2 × 5 × 10⁻⁵; in all at most 0.01 (0.09 × 2.3 × 10⁻⁴ + 0.0487 × 3.6 × 10⁻⁴ + 0.05533 × 1.5 × 10⁻⁴) ≤
 10⁻⁶. ∎
 
 ### The bend {#sec:margins-bend}
@@ -174,9 +178,10 @@ with l1 h_L = 54/305. At R = 4.415, 4.43 and 4.445 (y_P = y_21, y_22, y_23) the 
     0.01 (0.09 D̃_j − (54/305) K̃ (R − c_L)) = −0.0011576361,  −0.0011591651,  −0.0011584676,
 
 and by [[lem:margins-bump-table]] (a) the true values differ from these by at most 0.01(0.09 × 10⁻⁴ + (54/305) × 0.67 ×
-5 × 10⁻⁵) ≤ 1.6 × 10⁻⁷. So φ(4.43) < min(φ(4.415), φ(4.445)), and as φ is convex on [4.1, 4.7] its minimum point x* lies
-in (4.415, 4.445). There [[lem:margins-enclosure]] (b), with h = 0.015 and sup|φ″| ≤ 0.01, gives φ ≥ −0.0011591651 −
-1.6 × 10⁻⁷ − 2.9 × 10⁻⁷ ≥ −0.0011596, while φ(4.43) ≤ −0.0011591651 + 1.6 × 10⁻⁷ ≤ −0.0011590.
+5 × 10⁻⁵) ≤ 1.5 × 10⁻⁷. So φ(4.43) < min(φ(4.415), φ(4.445)), and as φ is convex on [4.1, 4.7] its minimum point x* lies
+in (4.415, 4.445). There [[lem:margins-enclosure]] (b), with h = 0.015 and sup|φ″| ≤ 0.01, so that (h²/8) sup|φ″| ≤
+2.82 × 10⁻⁷, gives φ ≥ −0.0011591651 − 1.5 × 10⁻⁷ − 2.82 × 10⁻⁷ = −0.0011595971 ≥ −0.0011596, while φ(4.43) ≤
+−0.0011591651 + 1.5 × 10⁻⁷ ≤ −0.0011590.
 
 (c) By the description of φ′ in (b), |φ′| ≤ 0.01 (54/305) K ≤ 0.0021370 by [[lem:margins-bump-table]] (a). Since the
 lobes are disjoint, |φ^(k)| on the lobe of half-width h and weight c ∈ {1, l1, l2} is at most 0.01 c
@@ -196,10 +201,11 @@ constant for v ≥ 4.5, and μ ≤ 3.6059 everywhere.
 
 (b) Let F(r) := 2r + √(3/2) ln((r − √(3/2))/(r + √(3/2))) and τ_ray(R) := F(R) − F(2.321) − R. Where v̂ ≤ v̂(v = 3) the
 null ray u = 5.7 is {τ = τ_ray(R)}. Since τ_ray(3.43718) = −0.68000009 and τ_ray(3.43719) = −0.67998718, it crosses Σ_τ0
-at a single radius R_* ∈ (3.43718, 3.43719), with v̂ = τ0 + R_* < 2.7572 < v̂(v = 3) = 3.14533.
+at a single radius R_* ∈ (3.43718, 3.43719), with v̂ = τ0 + R_* < 2.7572 < v̂(v = 3) = 3.14533. This R_* is the radius
+of [[lem:bg-rstar]], which encloses it in [3.43718006, 3.43718007].
 
 (c) Every point with R ≥ R_* and τ ≤ τ0 lies in region I. In particular Σ_τ0 ∩ {R ≥ R_*}, Σ′ ∩ {R ≥ R_*} and every point
-between Σ′ and Σ_τ0 do.
+with R ≥ R_* between Σ′ and Σ_τ0 do.
 
 *Proof.* (a) In region I, B = 0, so μ_u = 0 by (S1) and ψ_u = 0 by (S4). Thus μ is constant along ingoing rays, equal to
 its value on 𝒩, and ψ = 0, its value on 𝒩. With dv̂ = −(e^(2s)/R_u) dv (which is ψ = 0) and du = (dR − R_v dv)/R_u, the

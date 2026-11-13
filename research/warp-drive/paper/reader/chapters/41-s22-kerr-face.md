@@ -1578,15 +1578,18 @@ L_(0,p⃗_b)u = G satisfy the hypothesis of [[lem:iii-i13-2-2]] with the same w_
 then S^(h_j,p⃗_j,β)_ν(G_j) → S^(0,p⃗_b,β)_ν(G).
 
 *Proof.* The proof of [[lem:iii-i11-3-3]], with [[lem:iii-i13-2-2]] in place of [[lem:iii-i11-3-2]], 𝒴^♮(β) in place
-of 𝒴⁰(α) and [[eq:iii-i13-2-2]] in place of [[eq:iii-i11-3-2]]. In detail: R_j := G_j − G − (L_(h_j,p⃗_j) −
-L_(0,p⃗_b))u_j tends to 0 in 𝒴^♮(β) by the count of Step 0, the u_j being bounded, and S^(h_j,p⃗_j,β)_ν(G_j) − S^(0,p⃗_b,β)_ν(G) =
-S^(0,p⃗_b,β)_ν(R_j), which the bound of [[lem:iii-i13-2-2]] at (0, p⃗_b) bounds by C‖R_j‖_(𝒴^♮(β)) +
-C|p⃗_b|‖u_j − u‖_(w). At b = b_0 this tends to 0. Otherwise fix an admissible α′ ∈ (2, min(3, 2 + w_0)) and
-w ∈ (0, α′ − 2). By [[eq:iii-i13-2-2]] for u_j and u, whose terms m_ν and u^rot_β have ι⁺-weight above 3/2 as in the
-proof of [[lem:iii-i11-3-3]], u_j − u lies in [[eq:iii-i8-4-2]] at α′; and R_j → 0 in 𝒴^♮(β) ⊂ 𝒴^♮(α′), which lies in
-the class 𝒴(α′) of [[sec:iii-i8-1]] (the last sentence of [[lem:iii-i13-2-2]]). Uniqueness and (i) of
-[[prop:iii-i8-4-1]] at α′, at the base point (0, p⃗_b), give, as there, u_j − u → 0 in the space of [[eq:iii-i8-4-2]]
-at α′, so ‖u_j − u‖_(w) → 0, and S^(0,p⃗_b,β)_ν(R_j) → 0. ∎
+of 𝒴⁰(α) and [[eq:iii-i13-2-2]] in place of [[eq:iii-i11-3-2]]. In detail, with L_j := L_(h_j,p⃗_j), the forcing
+
+    R_j := G_j − G − (L_j − L_(0,p⃗_b))u_j
+
+of u_j − u for L_(0,p⃗_b) tends to 0 in 𝒴^♮(β) by the count of Step 0, the u_j being bounded; and
+S^(h_j,p⃗_j,β)_ν(G_j) − S^(0,p⃗_b,β)_ν(G) = S^(0,p⃗_b,β)_ν(R_j), which the bound of [[lem:iii-i13-2-2]] at (0, p⃗_b)
+bounds by C‖R_j‖_(𝒴^♮(β)) + C|p⃗_b|‖u_j − u‖_(w) for every w ∈ (0, w_0]. At b = b_0 this tends to 0. Otherwise fix an
+admissible α′ ∈ (2, min(3, 2 + w_0)) and w ∈ (0, α′ − 2). By [[eq:iii-i13-2-2]] for u_j and u, whose terms m_ν and
+u^rot_β have ι⁺-weight above 3/2 as in the proof of [[lem:iii-i11-3-3]], u_j − u lies in [[eq:iii-i8-4-2]] at α′; and
+R_j → 0 in 𝒴^♮(β) ⊂ 𝒴^♮(α′), which lies in the class 𝒴(α′) of [[sec:iii-i8-1]] (the last sentence of
+[[lem:iii-i13-2-2]]). Uniqueness and (i) of [[prop:iii-i8-4-1]] at α′, at the base point (0, p⃗_b), give, as there,
+u_j − u → 0 in the space of [[eq:iii-i8-4-2]] at α′; so ‖u_j − u‖_(w) → 0, and S^(0,p⃗_b,β)_ν(R_j) → 0. ∎
 
 **Proposition {#prop:iii-i13-2-4}** (The enlarged sources at the top level.) [[thm:iii-i11-4-1]] and
 [[thm:iii-i12-3-1]] hold with F ∈ 𝒴^♮(α) in place of F ∈ 𝒴⁰(α), with the same conclusions.
@@ -1615,10 +1618,10 @@ b ∈ ℬ̄_*, with the rotation tower T_(v1,b) in place of the antiderivative, 
 *Notation.* In this section L_0 := L̂_b(0), L_1 := [L_b, t_*], L_2 := ½[[L_b, t_*], t_*]; h := h_(b,s1),
 h̆^j := h̆^j_(b,s1); 𝒢_* is the space of sections conormal at ∂X of order above −3 ([[lem:iii-i12-2-3]]); and
 
-    T_(v1,b)(aV) := Σ_j a^((j)) h̆^j_(b,v1)(V),     h̆⁰_(b,v1) := h_(b,v1),
+    T_(v1,b)(aV) := Σ_(j≤2) a^((j)) h̆^j_(b,v1)(V),     h̆⁰_(b,v1) := h_(b,v1),
 
-is the v1 tower T_v1 of [[sec:iii-i12-1]] at b, the tower of the rotation rows of [[def:iii-i14-1-3]]. Its companion
-h̆¹_(b,v1)(V) satisfies
+is the v1 tower T_v1 of [[sec:iii-i12-1]] at b, the truncation to j ≤ 2 of the tower of the rotation rows of
+[[def:iii-i14-1-3]]. Its companion h̆¹_(b,v1)(V) satisfies
 
     L_0h̆¹_(b,v1)(V) = −L_1ġ_b(ḃ_V),                                                                    {#eq:iii-i15-2-6}
 
@@ -1673,13 +1676,15 @@ coefficients, which are independent of b ((P3)) or, for ġ_b, smooth in b; so th
 **Corollary {#cor:iii-i15-2-10}** ([[thm:iii-i12-3-1]] at b.) Let α > 4 be admissible, b ∈ ℬ̄_*, and (h, p⃗) a small
 base point with black hole parameter b. Let G ∈ 𝒴^♮(α−) := ⋂_(ε>0) 𝒴^♮(α − ε), let u_0 be the forward solution of
 L_(h,p⃗)u_0 = G, and let u = u_0 − Σ_(ν∈𝒩″) m_ν(W_ν), where 𝒩″ is a finite set of rows of 𝒩 and of rotation rows
-m_ν(W) = χ_K T_(v1,b)(a_ν W), a_ν = t_*^(−λ)(log t_*)^k, (λ, k) ∈ ℰ_♯ ∩ {Re ≤ 2}, W ∈ 𝒱_(1,ℂ) ([[def:iii-i14-1-3]]).
-Suppose that u has the K⁺-weight α − 2 − ε and the ι⁺- and ℐ⁺-data of [[eq:iii-i11-4-2]]. Then
-[[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]] hold at b, uniformly in b, with h^(≤1)_(b,s1), ġ_b and the towers T_(ψ,b) at b in
-place of those at b_0, the v1 tower being T_(v1,b). Two changes are needed:
+m_ν(W) of [[def:iii-i14-1-3]], built at b, a_ν = t_*^(−λ)(log t_*)^k, (λ, k) ∈ ℰ_♯ ∩ {Re ≤ 2}, W ∈ 𝒱_(1,ℂ), which equal
+χ_K T_(v1,b)(a_ν W) up to terms of K⁺-order Re λ + 3 − ε > α (by [[lem:iii-i10-2-1]] (a), the difference consists of
+the terms with a_ν^((3)) and a_ν^((4)), the tower length K_v1 of [[sec:iii-i9-2]] being 3). Suppose that u has the
+K⁺-weight α − 2 − ε and the ι⁺- and ℐ⁺-data of [[eq:iii-i11-4-2]]. Then [[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]] hold at
+b, uniformly in b, with h^(≤1)_(b,s1), ġ_b and the towers T_(ψ,b) at b in place of those at b_0, the v1 tower being
+T_(v1,b). Two changes are needed:
 
-- Step 2 of the proof uses [[lem:iii-i15-2-9]] (c) in place of [[lem:iii-i12-2-4]], so that the v1 coefficients and
-  the early ġ terms enter through the rotation towers T_(v1,b).
+- Steps 3 and 4 of the proof use [[lem:iii-i15-2-9]] (c) in place of [[lem:iii-i12-2-4]], so that the v1 coefficients
+  and the early ġ terms enter through the rotation towers T_(v1,b).
 
 - The conormal towers C of Step 1 (viii) include T_(v1,b)(Y^c_v1), and Ẏ_v1 := a_v1 + Y^c_v1. At b the level-3
   conormal rotation tower has the K⁺-rate α_κ + 2 ∈ [3 + η_2 − 2ε, 4), below α, since its bottom h_(b,v1) need not
@@ -1696,10 +1701,17 @@ that proof). It uses G through the decomposition of its Step 0 and, in its Steps
 the ι⁺-exponents produced lie in ℰ_♯. Both hold at b for G ∈ 𝒴^♮(α−). For G ∈ 𝒴^♮(α) they follow by the argument of
 the proof of [[prop:iii-i13-2-4]], whose inputs hold at b: [[lem:iii-i13-1-3]] concerns only Λ, ℰ_♯ and ℰ^♮, which do
 not depend on b, and [[prop:iii-i13-2-1]] and [[lem:iii-i13-2-2]] are stated at b. The passage to G ∈ 𝒴^♮(α−) is the
-argument of the proof of [[lem:iii-i14-2-5]], which uses of the base point only the indicial roots and the transition
-face propositions, uniform in b by [[lem:iii-i15-1-1]] (P2), (P4). Step 0 at b: [[lem:iii-i13-2-2]] at β = α gives
-u_0 = u_I + u_ι + v as there, the spacetime and spectral v1 terms u^rot_ι and v^rot being polyhomogeneous towers of the
-types (ii) and (vi) of Step 1; and L_b u has K⁺-order α − ε by the tower relations, L_b m_ν involving only the top of
-the tower for the rotation rows as for the other rows (of K⁺-order Re λ + 4 > α). Step 1 is unchanged at b: its pieces
-are those of (P2)–(P4). Step 2 is the assembly, with [[lem:iii-i15-2-9]] (c) in place of [[lem:iii-i12-2-4]]. Steps 3–6
-are unchanged, with the conormal rotation tower of the second change in C. ∎
+argument of the proof of [[lem:iii-i14-2-5]]: the K⁺-weight of the forcing enters only through β_K = α − ε in Step 0 of
+the proof of [[prop:iii-i11-3-1]], the K⁺-weight α − ε of f′ in Step 0 of the expansion lemmas and the zf-weights
+α − 1 − j − ε of the Taylor levels, each of which a forcing of K⁺-weight α − ε′ for every ε′ > 0 meets for every ε; and
+this uses of the base point only the indicial roots and the transition face propositions, uniform in b by
+[[lem:iii-i15-1-1]] (P2), (P4). Step 0 at b: [[lem:iii-i13-2-2]] at β = α (whose hypothesis u_0 = u + Σ_(𝒩″) m_ν(W_ν)
+meets with w_0 := min(α − 2, λ_♯ − 1), as in the proof of [[thm:iii-i11-4-1]]: u has K⁺-weight α − 2 − ε and the ι⁺-
+and ℐ⁺-data of [[eq:iii-i11-4-2]], and the m_ν have K⁺-rates at least λ_♯ − 1 > 0, ι⁺-weight λ_♯ − ε > 3/2 and vanish
+near ℐ⁺) gives u_0 = u_I + u_ι + v as there, the spacetime and spectral v1 terms u^rot_ι and v^rot being polyhomogeneous
+towers of the types (ii) and (vi) of Step 1; and L_b u has K⁺-order α − ε by the tower relations, L_b m_ν involving
+only the top of the tower for the rotation rows as for the other rows (of K⁺-order Re λ + 4 > α). Step 1 is unchanged
+at b: its pieces are those of (P2)–(P4). Step 2, the assembly, is unchanged, with the conormal rotation tower of the
+second change in C. Step 3 applies [[lem:iii-i15-2-9]] (c) in place of [[lem:iii-i12-2-4]] to w := u − χ_K C
+(L_b(χ_K C) has K⁺-order α − ε, the rotation tower included), and Step 4 reads its exponents, which are those of
+[[lem:iii-i12-2-4]]. Steps 5–6 are unchanged. ∎

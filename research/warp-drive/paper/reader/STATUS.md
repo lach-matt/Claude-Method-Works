@@ -6,7 +6,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 
 | file | first reading | fix round | second reading |
 |---|---|---|---|
-| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | third reading NOT CONFIRMED 0M 3m 5n; third fix done; envelope audit running |
+| 00-03 front, Ch 1-3 | NOT CONFIRMED 3M 8m 12n | done | fourth fix running (06-07 sentence, K = d_1 + 14, ε_K clause, ε_K < ε_Υ, S⁰, envelope remark) |
 | 04-05 Ch 4-5 | NOT CONFIRMED 4M 10m | done (W2) | third reading CONFIRMED (6 notation nits) |
 | 06-07 Ch 6-7 | NOT CONFIRMED 0M 9m 15n | done | CONFIRMED; new text read (Step 8 correct, 7 nits); the cut's minor moves to Ch 3 (sentence in INTEGRATION) |
 | 08-09 Ch 8-9 | NOT CONFIRMED 1M 8m 11n | done | CONFIRMED (third reading; 2 nits) |
@@ -39,7 +39,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 45 S26 | NOT CONFIRMED 3M 9m 7n | done (H^153 smallness, symmetric identity, Moser at integer s ≥ 0) | running |
 | 46 S27 | NOT CONFIRMED 3M 8m 8n | done (translation S⁰, ΠU′, lem:s27-below, ε split) | running |
 | 47 S28 | NOT CONFIRMED 3M 7m 11n (CD03 projection) | running | - |
-| 48 S29 | running (Part IX at r_♭ to adjudicate) | - | - |
+| 48 S29 | NOT CONFIRMED 1M 8m 8n (S27 translation follow-up) | running | - |
 | 60 S30 | NOT CONFIRMED 1M 5m 7n (quantifier order) | done | CONFIRMED (4 nits); S27 translation follow-up pending (lines from F-S27) |
 | 61 M Ch 11 | NOT CONFIRMED 1M 6m 9n (MP data are in the class) | done | running |
 | 62 M Ch 12 | NOT CONFIRMED 1M 7m 10n (inner radius; open B accepted) | done (open B written out; inner-radius clause) | running |
@@ -48,7 +48,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 65 M Ch 15 | being written | - | - |
 | 70 M Ch 17 | being written | - | - |
 | 66, 71, 80-90 | not yet written | - | - |
-| 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | second fix done (slab norm proved, n = dim X, gn-moser proved); confirming reader running |
+| 95 Appendix A | (in R-04-05-95) | merged; citations resolved, new proofs added | CONFIRMED (5 nits); CD03 block and Sbierski entry to be read after their edits |
 
 ## Proof files (merged into their chapters after an independent reading)
 

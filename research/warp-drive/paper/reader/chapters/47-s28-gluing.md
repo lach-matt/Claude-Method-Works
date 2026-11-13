@@ -600,12 +600,12 @@ distance min(r − 1, 4 − r) being radial: take x := h(r) with h smooth, 0 < h
 h(r) = 4 − r near 4. Hypothesis (Fin) holds: 𝒦₀ is the restriction of 𝔎 to 𝒜, with the basis [[eq:v-0-4]]. Indeed, the
 fifteen elements of 𝔎 are polynomials, bounded with all derivatives on 𝒜, and ψ² is integrable, so they lie in
 H̊¹_(x²,ψ) × H̊²_(x²,ψ) (*The spaces* in [[sec:s28-solvability]]), and P*_((0,δ)) annihilates them ([[lem:v-1-1]]); and
-an element of the kernel of ΦP*_((0,δ)) is
-annihilated by P*_((0,δ)), Φ being multiplication by positive functions, so it is smooth in 𝒜° by interior regularity
-and is one of them by [[lem:v-1-1]], 𝒜° being connected. The elements of 𝔎 are polynomials, linearly independent on
-every open set. A pair (K′, g′) with ‖K′‖_(C^(k+3)(𝒜)) + ‖g′ − δ‖_(C^(k+4)(𝒜)) < ε lies in 𝒩_(Cε), as x ≤ 1, C
-depending only on x. So [[lem:s28-setting]] and [[lem:v-3-2]] apply: for such (K′, g′), ε small, and (δJ, δρ) ∈ 𝒮 of
-small norm, [[eq:v-3-1]] has a solution (δK, δg) = T_(u′)z, u′ := (K′, g′), with z ∈ B, unique there, continuous in
+an element of the kernel of ΦP*_((0,δ)) is annihilated by P*_((0,δ)), Φ being multiplication by positive functions, so
+it is smooth in 𝒜° by interior regularity and is one of them by [[lem:v-1-1]], 𝒜° being connected. The elements of 𝔎
+are polynomials, linearly independent on every open set. A pair (K′, g′) with
+‖K′‖_(C^(k+3)(𝒜)) + ‖g′ − δ‖_(C^(k+4)(𝒜)) < ε lies in 𝒩_(Cε), as x ≤ 1, C depending only on x. So [[lem:s28-setting]]
+and [[lem:v-3-2]] apply: for such (K′, g′), ε small, and (δJ, δρ) ∈ 𝒮 of small norm, [[eq:v-3-1]] has a solution
+(δK, δg) = T_(u′)z, u′ := (K′, g′), with z ∈ B, unique there, continuous in
 (u′, (δJ, δρ)), with ‖(δK, δg)‖_(C²(𝒜)) ≤ C‖(δJ, δρ)‖_𝒮 ([[lem:v-3-2]] (c), [[lem:s28-setting]] (c)); and when
 (K′, g′) ∈ C^∞(𝒜) and (δJ, δρ) ∈ C^∞_c(𝒜°) is supported in Γ̄(2, 3) with C^(k+2)(𝒜)-norm small enough, (δK, δg) ∈ C^∞(𝒜)
 and extends smoothly by zero across ∂𝒜 ([[lem:v-3-2]] (c), and [[lem:s28-setting]] (b) with Ω_c := Γ̄(2, 3)).
@@ -671,9 +671,8 @@ R ≥ R(r′) some Q_R with |Q_R − 𝔔⁰| ≤ r′ has F̂_R(Q_R) = 0; put R
 by Step 3, as R ≥ R_𝒢, (J, ρ)(û_(Q_R,R)) = 0. Put p_R := p(Q_R), and let (ĝ_R, K̂_R) be (g, K) on {R₀ < r ≤ R},
 𝒮_R⁻¹û_(Q_R,R) on Γ(R, 4R) and (g_(p_R), K_(p_R)) on {r ≥ 4R}. These are smooth, as χ is constant near ∂𝒜 and δu
 extends smoothly by zero. They are vacuum everywhere, and ĝ_R is Riemannian, being C⁰-close to δ on Γ(R, 4R). Finally
-𝔮(p_R) = Q_R.
-Choose Q_R for an admissible r′ = r′(R) ≤ 2 inf{r′ : R ≥ R(r′)} + R⁻¹, which exists as R ≥ R(r′₀), and tends to 0 as
-R → ∞, since every r′ > 0 is admissible once R ≥ R(r′). Then 𝔮(p_R) → 𝔔⁰. ∎
+𝔮(p_R) = Q_R. Choose Q_R for an admissible r′ = r′(R) ≤ 2 inf{r′ : R ≥ R(r′)} + R⁻¹, which exists as R ≥ R(r′₀), and
+tends to 0 as R → ∞, since every r′ > 0 is admissible once R ≥ R(r′). Then 𝔮(p_R) → 𝔔⁰. ∎
 
 **Remark {#rem:v-3-4}** (What the settling theorem takes from [[thm:v-3-1]].) The data (ĝ_R, K̂_R) equal, for
 r ≥ 4R, the data that 𝔤_(p_R) = 𝒫_(p_R)*g^KS_(m,A) induces on {y⁰ = 0}. By uniqueness for the vacuum Cauchy problem,
@@ -685,7 +684,7 @@ K̃_p that the member 𝔤_p induces on the graph differs from the one on the sl
 K̃_p − K_p = ∇²f + |x|⁻⁴C^∞(X̄) ([[lem:after-shell-mp-data]] (d), whose base mass μ_end is m₀ here). By (a) and (b) of
 the same lemma, the |x|⁻³ coefficient of K̃_p depends smoothly on p, through (m, w) only; at p₀, where 𝒫_(p₀) is the
 identity, K̃_(p₀) = k^(m₀) = k_(b₀) by the definition in [[sec:vii-2]]. So the |x|⁻³ coefficient of K_(p_R) − k_(b₀) is
-within C|p_R − p₀| of that of −∇²f, which is −2m₀(δ − 3x̂ ⊗ x̂) ≠ 0 (tr ∇²f = 2m₀|x|⁻³ + O(|x|⁻⁵)); so it is not zero,
+within C|p_R − p₀| of that of −∇²f, which is −2m₀(δ − 3x̂ ⊗ x̂) (tr ∇²f = 2m₀|x|⁻³ + O(|x|⁻⁵)); so it is not zero,
 U being small. So the glued data of [[thm:v-3-1]] are not small in the data class [[eq:vii-0-1]] of [[thm:iii-k-4-3]]
 at any R. Gluing a decaying perturbation with smallness in that class takes the members on Σ^IVP ([[ch:after-shell]]).
 
@@ -718,10 +717,9 @@ that g^KS_(m,0) induces on this graph over {|x| > R₃}, as tensors on {|x| > R�
 
 **Lemma {#lem:vii-2-1}** (Tangherlini on Σ^IVP.) (a) γ^m − δ ∈ |x|⁻²C^∞(X̄) and k^m ∈ |x|⁻³C^∞(X̄) on the
 compactified {|x| > R₃}, smoothly in m ∈ I_m, and |x|²(γ^m − γ_(b₀)) and |x|³(k^m − k_(b₀)) have C^∞(X̄)-seminorms
-O(|m − m₀|). In particular
-|||(γ^m, k^m)|||_(2,j) ([[eq:v-0-3]]) is bounded for every j, uniformly in m. (b) (γ^m, k^m) are vacuum and
-O(4)-invariant. (c) Their charges ([[prop:v-1-3]]) are 𝔔_(e₀) = 6π²m and 𝔔_X = 0 for X in the other three groups of
-[[eq:v-0-4]].
+O(|m − m₀|). In particular |||(γ^m, k^m)|||_(2,j) ([[eq:v-0-3]]) is bounded for every j, uniformly in m. (b) (γ^m, k^m)
+are vacuum and O(4)-invariant. (c) Their charges ([[prop:v-1-3]]) are 𝔔_(e₀) = 6π²m and 𝔔_X = 0 for X in the other
+three groups of [[eq:v-0-4]].
 
 *Proof.* (a) g^KS_(m,0) − η = (m/r²) ℓ ⊗ ℓ with ℓ = dt_KS + x̂ · dx, independent of t_KS and a classical symbol of order
 −2 in x, smoothly in m, and f′ ∈ |x|⁻²C^∞ near infinity ([[lem:iii-b-3-5]] (a)). The graph is spacelike for each

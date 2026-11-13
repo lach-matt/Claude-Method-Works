@@ -546,3 +546,19 @@ Items found while chapters were written in parallel; each is settled once, editi
   (= chapter 40's d_c0, d_c1), 𝒬. Chapter 33's proof of prop:np-10-52 (iii) defines d_s0 again (rename at integration).
 - Proof H fixed (F-P-H): S-bounds where R ≥ 1/2 rest on chapter 85's first-degree horizon value (pending ch85-s-bounds);
   rem:l-24-eps for chapter 85.
+- Envelope audit (A-envelope): the proof needs env ∈ C_c^∞ (def:approximant, thm:main's smoothness); about K + 10
+  derivatives are used and K ≥ 6, so sin⁴ (C³) is covered for no admissible K. Every λ0 constant uses
+  env_C = c·cos¹²(πy/2)·exp(−y²/(1−y²)), y = (2v−4)/3 (same support, ∫env² = 105/128); no proved constant uses sin⁴.
+  Repairs: ch 10 moves sin⁴ into rem:bondi-solver; P-D1 says the cone results do not use thm:main; P-F's envelope is
+  env_C; ch 86 states its numerical point with env_C; ch 63 gets a closed form for the transform ("ω = 10, …, 320"
+  holds only on 10, 20, …, 320; ê vanishes exactly at 2πn/3); ch 3 an optional remark. Do not swap env_C into the sin⁴
+  sites (∫env′² differs; P-D1 needs sin⁴'s analyticity at the ends).
+- S29 (R-S29): Part IX holds at r_♭ as written. Major: the S27 translation follow-up (ġ⁰ = −ℒ_(V⁰(S′^(0)_1))g); chapter
+  3 line ~288 follows (sent to the Ch 3 fix). Σ^IVP is right: chapter 45 must rename Σ_IVP → Σ^IVP and
+  Σ_(IVP/fut/past,r₀) → Σ^IVP/fut/past_(r₀). Θ(k) → −Υ̇⁰(k) (lem:iii-b-6-3); chapters 64 and 66 follow. Decision
+  pending: chapters 46 and 48 use 𝒦 for a set, clashing with OUTLINE's Kretschmann 𝒦 — choose one new letter for both
+  chapters at integration (grep for an unused one).
+- Appendix A and bibliography confirmed (R2-95). Nits: bracket the re-indexed exponent inside the [Usu26] quotation;
+  a [BW15] hypothesis left to "so do we"; equation numbers in the S-heading; Chebyshev quoted for n ≥ 0 but its points
+  defined for n ≥ 1; 46 bibliography entries are cited nowhere (prune at integration). Still to read: the [CD03]
+  Prop. 5.10 block (after the S28 fix) and the extended thm:std-sbierski; add [Hin26c, Lemma 3.5] to (S6).

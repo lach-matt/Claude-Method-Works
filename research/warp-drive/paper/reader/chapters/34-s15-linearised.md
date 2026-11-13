@@ -919,10 +919,20 @@ linearised Einstein tensor at g_(b_0) has δG^t_t = −(3/(2r³))(r²f²b)′ an
 
 *Proof.* (a) and (b) are D Ric written out with the Christoffel symbols above, ∂_t acting as −iσ, and, in (b), the
 identities D̂^iS_i = kS (from S_i = −D̂_iS/k and D̂^iD̂_iS = −k²S) and D̂_iS_j = (k/3)γ_ij S (from
-D̂_iD̂_jS = −γ_ijS and k² = 3). (c) The two formulas are the tt-component and the difference of the rr- and
-tt-components of the Einstein tensor of a warped product with fibre 𝕊³ of radius r; at A = f, B = f⁻¹ one has
-r²(1 − B⁻¹) = m_0 and AB = 1, and the variations of A and B are −a and b, which gives δ(r²(1 − B⁻¹)) = r²f²b and
-δ log AB = −a/f + fb. ∎
+D̂_iD̂_jS = −γ_ijS and k² = 3). The formula for D Ric above is D Ric(h)_μν = ∇_αδΓ^α_μν − ∇_νδΓ^α_αμ with
+δΓ^α_μν := ½g^(αβ)(∇_μh_νβ + ∇_νh_μβ − ∇_βh_μν), as δΓ^α_αμ = ½∂_μ tr h. For h as in (b), with the factor e^(−iσt)
+omitted and S^i := γ^(ij)S_j, the components of δΓ that do not vanish are, up to the symmetry in the lower indices,
+
+    δΓ^t_tt = (m_0/r³)aS,   δΓ^t_rr = −(2a′ + iσb + 2m_0a/(r³f))S/(2f),   δΓ^t_ri = (ka − iσrc)S_i/(2f),
+    δΓ^t_ij = −raSγ_ij,   δΓ^r_tt = −f(iσa + m_0fb/r³)S,   δΓ^r_tr = −(iσfb/2 + m_0a/r³)S,
+    δΓ^r_ti = −(f/2)(ka + iσrc)S_i,   δΓ^r_rr = (fb′/2 + m_0b/r³)S,   δΓ^r_ri = −f(kb/2 + c)S_i,
+    δΓ^r_ij = rf(fb + kc/3)Sγ_ij,   δΓ^i_tt = −(m_0fc/r⁴)S^i,   δΓ^i_tr = (ka − iσrc)S^i/(2r²),
+    δΓ^i_rr = (c′/r + c/(r²f) + kb/(2r²))S^i,   δΓ^i_jk = fcγ_jkS^i;
+
+for h as in (a) they are obtained by putting S = 1 and c = 0 and dropping the terms in S_i and S^i, which come from
+D̂_iS = −kS_i. (c) The two formulas are the tt-component and the difference of the rr- and tt-components of the Einstein
+tensor of a warped product with fibre 𝕊³ of radius r; at A = f, B = f⁻¹ one has r²(1 − B⁻¹) = m_0 and AB = 1, and the
+variations of A and B are −a and b, which gives δ(r²(1 − B⁻¹)) = r²f²b and δ log AB = −a/f + fb. ∎
 
 **Corollary {#cor:s15-low}** (Vanishing in the low sectors.) (a) In [[lem:s15-low]] (a), if σ ≠ 0 and
 D Ric(h) = 0, then a = b = 0. (b) In [[lem:s15-low]] (b), if D Ric(h) = 0 on an interval on which

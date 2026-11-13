@@ -1622,9 +1622,9 @@ and then
 
 which is [Hin26, (6.40)]. In both dimensions dt_* ⊗_s ω̄^(0)_s0 has b = −¼, e′ = −½ and its other components 0, and
 dt_* ⊗_s B̆ = (0, 0, 0, −ρ⁻¹S, ½ρ⁻¹d_𝕊S, 0), the values of [Hin26, pp. 132–133]. On Schwarzschild,
-g = −f dt² + f⁻¹dr² + r²g_(𝕊²) with f = 1 − 2M/r, with t_* := t − r_*, c := r⁻¹dt and the trace weight 1, the
-1-form □^Υ(t_*ω_s0), ω_s0 := −f dt, has on (dt, dr) the ρ¹ term (2eγ − 4γ − 2, 2γ) and the ρ² term
-(2M, 2M(2γ + 1)).
+g = −f dt² + f⁻¹dr² + r²g_(𝕊²) with f = 1 − 2M/r, with t_* := t − r_* for a tortoise coordinate r_*, a function of r
+with dr_*/dr = f⁻¹ on {r > 2M}, with c := r⁻¹dt and the trace weight 1, the 1-form □^Υ(t_*ω_s0), ω_s0 := −f dt, has
+on (dt, dr) the ρ¹ term (2eγ − 4γ − 2, 2γ) and the ρ² term (2M, 2M(2γ + 1)).
 
 (v) ι^Υ_(s1,2) = ½(1 + (17 + 2z − 2(z² + 4z + 16)^(1/2))^(1/2)) = 2 + z/12 + O(z²) and
 ι^Υ_(s0,2) = ½(1 + (9 + 4z)^(1/2)) = 2 + z/3 + O(z²), and ι^Υ_(s1,2) < ι^Υ_(s0,2) for every z > 0. In particular 1 and
@@ -1737,11 +1737,12 @@ N_1(ι) = −2(ι − 1 − γ_Υ) at v1.
 Q_l((l + 2)(l + 3)) = (l + 2)(8l + 12 − 3z). So for every z > 0 the negative sl roots other than 1 − l,
 μ_(l,0) := 1 − ι^Υ_(sl,l+1) and μ_(l,1) := 1 − ι^Υ_(sl,l+2), satisfy −l − 1 < μ_(l,0) < −l and μ_(l,1) < −l − 1
 ([[prop:np-10-15]] (i)), and for 0 < z < 20/3 also μ_(l,1) > −l − 2. As z → 0,
-μ_(l,0) = −l − lz/(2(l + 1)(2l + 1)) + O(z²) and μ_(l,1) = −l − 1 − (l + 2)z/(2(l + 1)(2l + 3)) + O(z²). μ_s0 := 1 − ι^Υ_(s0,2) = ½(1 − (9 + 4z)^(1/2))
-= −1 − z/3 + O(z²) lies in (−2, −1) for 0 < z < 4. The sl roots 1 − l and the vl roots −l are roots at every z. For
-0 < z < 4 the roots ≤ 0 of each type are these, together with 0 at s0. In dimension 3 + 1 the corresponding roots are
-−(1 + z)^(1/2), −ι♮_(sl,l) and −ι♮_(sl,l+1) of [[lem:s13-dim-four]] (3), which are [Hin26]'s −λ^Υ_(s0,1), −λ^Υ_(sl,l)
-and −λ^Υ_(sl,l+1), with first-order coefficient 1/(2(2l + 1)) in z, [Hin26]'s 2/(2l + 1) in its parameter z/4.
+μ_(l,0) = −l − lz/(2(l + 1)(2l + 1)) + O(z²) and μ_(l,1) = −l − 1 − (l + 2)z/(2(l + 1)(2l + 3)) + O(z²).
+μ_s0 := 1 − ι^Υ_(s0,2) = ½(1 − (9 + 4z)^(1/2)) = −1 − z/3 + O(z²) lies in (−2, −1) for 0 < z < 4. The sl roots
+1 − l and the vl roots −l are roots at every z. For 0 < z < 4 the roots ≤ 0 of each type are these, together with 0 at
+s0. In dimension 3 + 1 the corresponding roots are −(1 + z)^(1/2), −ι♮_(sl,l) and −ι♮_(sl,l+1) of
+[[lem:s13-dim-four]] (3), which are [Hin26]'s −λ^Υ_(s0,1), −λ^Υ_(sl,l) and −λ^Υ_(sl,l+1), with first-order coefficient
+1/(2(2l + 1)) in z, [Hin26]'s 2/(2l + 1) in its parameter z/4.
 
 (iii) (*The symmetric gradient.*) N(δ̄*(0), ι) is injective on the types sl and vl for l ≥ 2 and every ι ∈ ℂ, on s0
 and s1 for ι ≠ 0, and on v1 for ι ≠ −1. The same holds in dimension 3 + 1, where these families are
@@ -1989,8 +1990,12 @@ is wider, the same construction applies to the further roots, given the correspo
 its right side, which on Schwarzschild is (2M, 2M(2γ_Υ + 1)) on (dt, dr) ([[prop:np-10-29]] (iv)); in dimension
 4 + 1 that term vanishes ([[prop:np-10-29]] (i)). (d) The coefficients β_e and (a_2, b_2, k_2) of [[prop:np-10-29]]
 carry e_Υ⁻¹, in both dimensions: at e_Υ = 0, −1 at s0 and −2 at s1 are indicial roots of P_b, the integer coincidences
-that e_Υ > 0 removes [Hin26, p. 81]. The same coincidences at e_Υ = 0 are those of [[prop:np-10-30]] (iv) at z = 0,
-and [[prop:np-10-30]] (vi) shows what they do to the model recursion, for every γ_Υ ≠ 0: at the first step of the class
-−l the recursion has no solution, so that a solution there needs a term ρ^(−l−1)log ρ, while for the class 1 − l the
-first two steps are solvable, for exactly one choice of the free kernel coefficient. Whether the stationary correction
-of the class μ_(l,1) needs a logarithm at e_Υ = 0 is not determined here; with e_Υ > 0 none of these cases arises.
+that e_Υ > 0 removes [Hin26, p. 81]. At z = 0 these roots are μ_s0 = −1 and μ_(1,1) = −2. The second is also
+μ_(1,0) − 1, one of the meetings of the classes that [[prop:np-10-30]] (iv) lists at z = 0; the first is not among
+them, as in dimension 4 + 1 the s0 class meets no root at z = 0: μ_s0 + 2 = 1, μ_s0 − 1 = −2 and μ_s0 − 2 = −3 are
+not among the s0 roots −1, 0, 2, 3 ([[lem:iii-d-4-1]]). [[prop:np-10-30]] (vi) shows what the meetings at sl
+do to the model recursion, for every γ_Υ ≠ 0: at the first step of the class μ_(l,0) = −l (l = 1, 2, 3) the recursion
+has no solution, so that a solution there needs a term ρ^(−l−1)log ρ; for the class 1 − l the first step is solvable
+(l = 2, 3, 4), and so is the second (l = 2, 3), for exactly one choice of the free kernel coefficient. Whether the
+stationary correction of the class μ_(l,1) needs a logarithm at e_Υ = 0 is not determined here, in either dimension,
+nor, in dimension 3 + 1, whether those of the classes μ_s0 and μ_(l,0) do; with e_Υ > 0 none of these cases arises.
