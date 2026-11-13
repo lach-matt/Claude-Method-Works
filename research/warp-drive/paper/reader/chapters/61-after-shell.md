@@ -376,7 +376,8 @@ the (C, D) terms are of order a + 3. The components x̂_i x̂_j lie in C^∞ of 
 
 with τ := tr_δ h, which is radial, and b_z := tr u^((z)). Integrating first in r at fixed ω,
 
-    ‖r^(ℓ0)(τ − ρ² b2 − ρ³ b3)‖_(L²(Γ, dr/r dω)) ≥ (2π²)^(1/2) inf_(β2,β3∈ℝ) ‖r^(ℓ0)(τ − β2 r⁻² − β3 r⁻³)‖_(L²((R/2,R), dr/r)).
+    ‖r^(ℓ0)(τ − ρ² b2 − ρ³ b3)‖_(L²(Γ, dr/r dω))
+        ≥ (2π²)^(1/2) inf_(β2,β3∈ℝ) ‖r^(ℓ0)(τ − β2 r⁻² − β3 r⁻³)‖_(L²((R/2,R), dr/r)).
 
 On Γ, φ_Ξ = r + Ξ ζ_a. By [[eq:after-shell-radial]], τ = (φ_Ξ′² − 1) + 3(φ_Ξ²/r² − 1) + e_αβ, where e_αβ collects the
 α and β terms. With φ_Ξ′ = 1 + Ξ ζ_a′, ζ_a′ = r^(−a)((1 − a) cos log r − sin log r), and φ_Ξ/r = 1 + Ξ r^(−a) cos log r,

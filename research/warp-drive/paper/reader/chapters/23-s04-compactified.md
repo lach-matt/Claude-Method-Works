@@ -759,23 +759,66 @@ in σ. ∎
 Ḣ^𝗌_(𝒱_σ)(Ω̄) := {u ∈ H^𝗌_(𝒱_σ)(M) : supp u ⊂ Ω̄}, and H̄^𝗌_(𝒱_σ)(Ω) := {u|_Ω : u ∈ H^𝗌_(𝒱_σ)(M)} with the quotient
 norm, that is, the norm of the minimal extension.
 
-**Lemma {#lem:ii-a-7-3}** ([Hin26c, Lemma 3.17].) The L² pairing extends to H̄^𝗌(Ω) × Ḣ^(−𝗌)(Ω̄) with a uniform bound,
-and c‖u‖_(H̄^𝗌(Ω)) ≤ sup_(‖v‖_(Ḣ^(−𝗌)(Ω̄)) = 1) |⟨u, v⟩| ≤ C‖u‖_(H̄^𝗌(Ω)), uniformly; likewise with the roles of the two
-spaces exchanged.
+For u ∈ H̄^𝗌(Ω) and v ∈ Ḣ^(−𝗌)(Ω̄) the pairing is defined through an extension ũ ∈ H^𝗌(M) of u, as ⟨ũ, v⟩. It does not
+depend on ũ when v ∈ C_c^∞(Ω), since ũ − ũ′ vanishes on Ω; for general v this needs a property of Ω. We say that Ω
+has *property (D)* for 𝗌 if C_c^∞(Ω) is dense in Ḣ^(−𝗌)_(𝒱_σ)(Ω̄) for each σ. Then ⟨ũ, v⟩ does not depend on ũ, by
+continuity in v. Property (D) fails for some open sets (a domain slit along a hypersurface, whose two sides may carry
+different extensions); [[lem:ii-a-7-d]] gives it for the domains used.
 
-*Proof.* With ũ the minimal extension, |⟨u, v⟩| = |⟨ũ, v⟩| ≤ C‖ũ‖‖v‖. For the lower bound, extend
-λ ∈ Ḣ^(−𝗌)(Ω̄)* by 0 on the orthogonal complement to λ̃ of the same norm, represent it by ũ ([[lem:ii-a-7-1]] (2)), and
-put u := ũ|_Ω; then λ(v) = ⟨v, u⟩ for v supported in Ω̄, and ‖u‖_(H̄^𝗌) ≤ ‖ũ‖ ≤ C‖λ‖. The other case is the same with
-the roles of the spaces exchanged. ∎
+**Lemma {#lem:ii-a-7-3}** ([Hin26c, Lemma 3.17].) Let Ω ⊂ M be open, u ∈ H̄^𝗌(Ω) with an extension ũ ∈ H^𝗌(M), and
+v ∈ Ḣ^(−𝗌)(Ω̄). All constants below are uniform in σ.
+
+(1) |⟨ũ, v⟩| ≤ C‖ũ‖_(H^𝗌)‖v‖_(H^(−𝗌)); if Ω has property (D) for 𝗌, then |⟨ũ, v⟩| ≤ C‖u‖_(H̄^𝗌(Ω))‖v‖_(H^(−𝗌)).
+
+(2) c‖u‖_(H̄^𝗌(Ω)) ≤ sup_(‖v‖_(Ḣ^(−𝗌)(Ω̄)) = 1) |⟨ũ, v⟩|, for every extension ũ.
+
+(3) Every λ ∈ Ḣ^(−𝗌)(Ω̄)* is λ(v) = ⟨v, ũ⟩ for some ũ ∈ H^𝗌(M) with ‖ũ‖ ≤ C‖λ‖. Every λ ∈ H̄^𝗌(Ω)* is
+λ(u) = ⟨ũ, w⟩ for every extension ũ of u, for some w ∈ Ḣ^(−𝗌)(Ω̄) with ‖w‖ ≤ C‖λ‖.
+
+The same holds with 𝗌 and −𝗌, and the roles of the two kinds of spaces, exchanged.
+
+*Proof.* (1) The first bound is [[lem:ii-a-7-1]] (1). Under (D), ⟨ũ, v⟩ is the same for every extension, in particular
+for the minimal one, whose norm is ‖u‖_(H̄^𝗌(Ω)). (3) Ḣ^(−𝗌)(Ω̄) is a closed subspace of H^(−𝗌)(M); extend λ by 0 on
+its orthogonal complement to λ̃ of the same norm and represent λ̃ by ũ ([[lem:ii-a-7-1]] (2)). For the second
+statement, λ composed with the restriction to Ω is a functional on H^𝗌(M) of norm at most ‖λ‖; represent it by
+w ∈ H^(−𝗌)(M) ([[lem:ii-a-7-1]] (2), with −𝗌 for 𝗌). It vanishes on C_c^∞(M ∖ Ω̄), whose elements restrict to 0 on Ω;
+so w is supported in Ω̄. (2) Apply the first part of (3) to λ(v) := ⟨ũ, v⟩, v ∈ Ḣ^(−𝗌)(Ω̄): there is ũ′ ∈ H^𝗌(M) with
+⟨ũ − ũ′, v⟩ = 0 for all such v and ‖ũ′‖ ≤ C‖λ‖. Taking v ∈ C_c^∞(Ω) shows ũ′|_Ω = u, so
+‖u‖_(H̄^𝗌(Ω)) ≤ ‖ũ′‖ ≤ C‖λ‖, the claim. The exchanged case is the same. ∎
+
+**Lemma {#lem:ii-a-7-d}** (Property (D) at a compact boundary.) Let Ω ⊂ M be open, and suppose that ∂Ω is a compact
+smooth hypersurface in M. Then Ω has property (D) for every variable order 𝗌.
+
+*Proof.* Fix σ; the property is qualitative. Let v ∈ Ḣ^(−𝗌)(Ω̄), and let ψ, ψ′ ∈ C_c^∞(M) equal 1 near ∂Ω, with
+supp ψ′ in the interior of {ψ = 1}.
+
+*Away from ∂Ω.* Let θ be 1 − ψ′ on Ω and 0 on M ∖ Ω; it is smooth, as ψ′ = 1 near ∂Ω, and θ = 1 on the support of
+(1 − ψ)v. Multiplication by θ is bounded on H^(−𝗌). Take φ_j ∈ C_c^∞(M) tending to (1 − ψ)v in H^(−𝗌) (C_c^∞ is dense,
+by (S8), as in the proof of [[lem:ii-a1-2-3]] (a)). Then θφ_j ∈ C_c^∞(Ω) tends to θ(1 − ψ)v = (1 − ψ)v.
+
+*Near ∂Ω.* Cover a neighbourhood of ∂Ω by finitely many coordinate patches in which Ω = {x_1 > 0} and in which
+H^(−𝗌), for distributions supported in the patch, is the variable order Sobolev space of ℝ^n, and write
+ψv = Σ_i ψ_iv with ψ_i ∈ C_c^∞ of the patches. Fix ϱ ∈ C_c^∞(ℝ^n) with ∫ϱ = 1 and supp ϱ ⊂ {x_1 ≥ 1}, and put
+ϱ_ε(x) := ε^(−n)ϱ(x/ε), ε ∈ (0, 1]. Convolution with ϱ_ε maps a distribution supported in {x_1 ≥ 0} to a smooth
+function supported in {x_1 ≥ ε}. It is the Fourier multiplier ϱ̂(εξ). As ϱ̂ ∈ 𝒮 and ε^(|γ|)⟨εξ⟩^(−|γ|) ≤ C⟨ξ⟩^(−|γ|)
+for ε ≤ 1, these symbols are bounded in S⁰, so the multipliers are uniformly bounded on H^(−𝗌) (S8). They converge to I
+on C_c^∞ in every H^t, as ϱ̂(εξ) → ϱ̂(0) = 1, hence strongly on H^(−𝗌). So ϱ_ε ∗ (ψ_iv), which for small ε lies in
+C_c^∞ of the part of the patch in Ω, tends to ψ_iv in H^(−𝗌). ∎
+
+For the domains of the forward problems, the spatial domain {r > r_0} ⊂ X̃ has a compact smooth boundary in the
+interior of X̃, so it has property (D) for every order. Pairings of an extendible distribution with an element of
+C_c^∞(Ω) need no property of Ω.
 
 **Proposition {#prop:ii-a-7-4}** ([Hin26c, Proposition 3.18].) In the setting of (S9) with Ω ⊂ X open, the Fourier
-transform in t is an isomorphism
+transform in t is an isomorphism (in the extendible case, for Ω with property (D) for 𝗌 at every σ, for instance Ω
+with a compact smooth boundary, [[lem:ii-a-7-d]])
 
     Ḣ^𝗌_𝒱(ℝ × Ω̄) → L²(ℝ_σ; ⟨τσ⟩^(−𝗌) Ḣ^𝗌_(𝒱̂_σ)(Ω̄))     and     H̄^𝗌_𝒱(ℝ × Ω) → L²(ℝ_σ; ⟨τσ⟩^(−𝗌) H̄^𝗌_(𝒱̂_σ)(Ω)).
 
 *Proof.* The supported case is (S9) restricted to the closed subspace of distributions supported in ℝ × Ω̄, whose
-transforms are supported in Ω̄ for each σ. For the extendible case, by [[lem:ii-a-7-3]] (without parameter), the
-supported case, [[lem:ii-a-7-3]] (1) at each σ, and the Cauchy–Schwarz inequality,
+transforms are supported in Ω̄ for each σ. For the extendible case, let ũ be the minimal extension of u. By
+[[lem:ii-a-7-3]] (2) (without parameter), the supported case, [[lem:ii-a-7-3]] (1) at each σ (which uses property (D)
+of Ω, the transform of ũ at σ being an extension of û(σ) but not the minimal one), and the Cauchy–Schwarz inequality,
 
     ‖u‖²_(H̄^𝗌) ≤ C sup_(‖v‖_(Ḣ^(−𝗌)) = 1) |∫ ⟨û(σ), v̂(σ)⟩ dσ|² ≤ C′ ‖û‖²_(L²(⟨τσ⟩^(−𝗌) H̄^𝗌_(𝒱̂_σ)));
 

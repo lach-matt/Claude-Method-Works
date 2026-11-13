@@ -283,7 +283,7 @@ Item (i). The data of g_λ on Σ^IVP ∩ {r ≤ R}, continued G-equivariantly to
 [[cor:vii-2-3]]. Their development g is G-invariant and vacuum, induces the data of g_λ on the ball Σ^IVP ∩ {r < R},
 and by [[eq:vii-0-2]] satisfies g − g_(m′,0) = O(t_*^(−2−ε)) on every set {r_♭ ≤ r ≤ R′, t_* ≥ T′}, where g_(m′,0) is
 the Tangherlini metric of mass m′, |m′ − μ_end| < ε_m. A spatially compact subset of the exterior of the black hole is
-a set on which r is bounded, and at the times t_* ≥ T′ it lies in such a set.
+a set of points of M on which r is bounded, by R′ say, and its points with t_* ≥ T′ lie in {r_♭ ≤ r ≤ R′, t_* ≥ T′}.
 
 Item (ii). The data class of (ii) in [[thm:settling]] is H^(∞,(ℰ_0,ℓ_0))_b × H^(∞,(ℰ_0+1,ℓ_0+1))_b with
 [[eq:vii-0-1]]: the elements of ℰ_0 below ℓ_0 give the polyhomogeneous terms of orders 2 and 3 in the metric, those of
@@ -296,10 +296,10 @@ b = (m′, A), with |m′ − μ_end| + |A| = |b − b₀| < ε_m: mass within �
 ### Remarks on the statement {#sec:vii-5}
 
 **Remark {#rem:vii-4-1}** (The development and g_λ.) The development g of [[thm:settling-precise]] (i) and g_λ are
-vacuum metrics that induce the same data on Σ^IVP ∩ {r < R}, in different gauges. That they agree up to a
-diffeomorphism on the domain of dependence of Σ^IVP ∩ {r_♭ < r < R} in (Ω′, g_λ), and so form one vacuum spacetime
-there, follows from a change of gauge on a compact region, where both metrics are C^k-close to g_(b₀); it is shown in
-[[ch:interior]] ([[prop:interior]]). Nothing in [[thm:settling-precise]] or in its proof uses it.
+vacuum metrics that induce the same data on Σ^IVP ∩ {r < R}, in different gauges. That, near
+Σ^IVP ∩ {r_♭ < r < R} and on the common domain of dependence of this set, they agree up to an isometry that is the
+identity on it, and so give one vacuum spacetime, is shown in [[ch:interior]] ([[prop:interior]]); there both metrics
+are close to g_(b₀) on a compact region. Nothing in [[thm:settling-precise]] or in its proof uses it.
 
 **Remark {#rem:settling-class}** (Perturbations and gluing.) [[thm:settling-precise]] (ii) takes the perturbation in
 the data class of [[thm:iii-k-4-3]], and not in a class of decaying data reached by gluing. Gluing a perturbation that

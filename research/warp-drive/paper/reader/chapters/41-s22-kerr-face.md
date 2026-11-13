@@ -1,15 +1,15 @@
 ## The expansion at the Kerr face {#ch:s22}
 
-This chapter proves, in dimension 4 + 1, [Hin26, Theorem 11.59] (pp. 278–292), following its proof. With the
-correction terms of the fourth kind of [[ch:s21]], the forward solution of the linearised gauge-fixed Einstein equation, for a
+This chapter proves, in dimension 4 + 1, [Hin26, Theorem 11.59] (pp. 278–292), following its proof. With the correction
+terms of the fourth kind of [[ch:s21]], the forward solution of the linearised gauge-fixed Einstein equation, for a
 forcing of K⁺-order α ≤ 4 + ε_K, is made to decay at K⁺ at the order α − 2 by a unique choice of the modification
-parameters ([[thm:iii-i11-4-1]], the form of [Hin26, (11.222)] in dimension 4 + 1). The solution so obtained is,
-modulo a remainder of K⁺-order α, a sum of towers of the zero energy states whose coefficients are functions of t_*:
-partially polyhomogeneous, except for a conormal boost coefficient of order α − 2 and a conormal black hole parameter of
-order α − 1; and it is partially polyhomogeneous at ι⁺ with an index set ℰ_♯ to the order 3 + η_2, where η_2 < ε_+ is
-as close to ε_+ as desired ([[thm:iii-i12-3-1]], the form of [Hin26, (11.196)] in dimension 4 + 1). The expansion is
-also obtained at every level β ∈ (3, 4 + ε_K], and for the enlarged sources that the linearisation in the black hole
-parameters of [[ch:s23]] produces ([[sec:iii-i13-2]]).
+parameters ([[thm:iii-i11-4-1]], the form of [Hin26, (11.222)] in dimension 4 + 1). The solution so obtained is, modulo a
+remainder of K⁺-order α, a sum of towers of the zero energy states whose coefficients are functions of t_*: partially
+polyhomogeneous, except for a conormal boost coefficient of order α − 2 and a conormal black hole parameter of order α −
+1; and it is partially polyhomogeneous at ι⁺ with an index set ℰ_♯ to the order 3 + η_2, where η_2 < ε_+ is as close to
+ε_+ as desired ([[thm:iii-i12-3-1]], the form of [Hin26, (11.196)] in dimension 4 + 1). The expansion is also obtained at
+every level β ∈ (3, 4 + ε_K], and for the enlarged sources that the linearisation in the black hole parameters of
+[[ch:s23]] produces ([[sec:iii-i13-2]]).
 
 The argument has two phases. In spacetime ([[sec:iii-i10-3]]) the ι⁺-terms of the forcing of u-exponent below 2 are
 solved by the ι⁺-normal operator up to the K⁺-order α ≤ 4 + ε_K, and the K⁺-terms this produces below the order α − 2
@@ -95,12 +95,12 @@ Everything of [[sec:iii-i9-1]] is kept, at b: the enlarged index set ℰ_ind, �
 
     0 < ε_K < ε_+ < min(δ_♯, ε_ind),     w_+ := 5 + ε_+,
 
-the hypotheses (H1)–(H3) on the class, the types 𝒯 = {s1, v1, s0, s2, c0, c1} with the shifts d_τ, the rows
-ν = (τ, λ, k) with K⁺-exponent e_ν = λ + d_τ and the finite set 𝒩 of the rows with Re e_ν ≤ 2, the coefficient spaces
-𝒲_τ (with 𝒲_v1 = 0), the index sets ℰ_rows and ℰ_src with [[eq:iii-i9-1-3]], and the forcing spaces 𝒴_1(α), 𝒴_2(α),
-𝒴(α). From [[sec:iii-i9-2]] are kept the tower lengths K_τ, the stationary 1-forms ω̆^i_τ and their index
-sets [[eq:iii-i9-2-1]], the states h_τ, the functions r_ν, a_ν, the rows m_ν, the corrections h_ν and counterterms ϑ_ν, the
-operator P_4, its linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(h,p⃗). ℰ^♯_+ is the set [[eq:iii-i1-3-2]],
+the hypotheses (H1)–(H3) on the class, the types 𝒯 = {s1, v1, s0, s2, c0, c1} with the shifts d_τ, the rows ν = (τ, λ, k)
+with K⁺-exponent e_ν = λ + d_τ and the finite set 𝒩 of the rows with Re e_ν ≤ 2, the coefficient spaces 𝒲_τ (with 𝒲_v1 =
+0), the index sets ℰ_rows and ℰ_src with [[eq:iii-i9-1-3]], and the forcing spaces 𝒴_1(α), 𝒴_2(α), 𝒴(α). From
+[[sec:iii-i9-2]] are kept the tower lengths K_τ, the stationary 1-forms ω̆^i_τ and their index sets [[eq:iii-i9-2-1]],
+the states h_τ, the functions r_ν, a_ν, the rows m_ν, the corrections h_ν and counterterms ϑ_ν, the operator P_4, its
+linearisation L_(h,p⃗) and the tensors f^ν_(h,p⃗), r^ν_(h,p⃗). ℰ^♯_+ is the set [[eq:iii-i1-3-2]],
 
     λ_♯ = 3/2 + (1 − e_Υ)γ_Υ = min Re ℰ^♯_+,
 
@@ -532,25 +532,25 @@ for every N; f̂_ḃ(0), f̂_S(0) ∈ 𝒜^(3+ℰ_col) near ∂X; and on X^±_(s
 r̂ and σr = ±r̂, f̂_ḃ and f̂_S are polyhomogeneous at tf with the index set 3 + ℰ_col, smooth in r̂ up to zf, and rapidly
 decaying at scf.
 
-*Proof.* On {r ≥ 1}, χ_K = χ_c(r/t_*) ([[eq:iii-h-1-2]]), and L_b ġ(ḃ) = 0, L_b(t_*h(S) + h̆(S)) = 0
-([[sec:iii-h-2]]); so there f = L_b(χ_K w) = [L_b, χ_K]w, with w = ġ(ḃ), resp. t_*h(S) + h̆(S). On sections a(t_*)w(x),
-L_b = L_0 + L_1∂_(t_*) + L_2∂²_(t_*), with L_1 = [L_b, t_*] and L_2 = ½[[L_b, t_*], t_*] ([[sec:iii-i6-1]]), and
-L_k ∈ ρ^(2−k)Diff^(2−k)_b(X̄) has smooth coefficients ([[lem:iii-i3-1-1]], as it is applied to them there). The
-t_*-derivatives and the b-derivatives in x of χ_c(r/t_*) are sums of terms r^(−k)φ(t_*/r), k ∈ {0, 1, 2}, with φ smooth
-and, when at least one derivative falls on χ_c, supported in [2, 4]; for instance r∂_r[χ_c(r/t_*)] =
-(r/t_*)χ′_c(r/t_*) and ∂_(t_*)[χ_c(r/t_*)] = −r⁻¹(r/t_*)²χ′_c(r/t_*). Every term of
-[L_b, χ_K]w = Σ_k [L_k∂^k_(t_*), χ_K]w carries at least one derivative of χ_K; a t_*-derivative of χ_K costs a factor
-r⁻¹ = ρ and a b-derivative in x costs nothing, L_k ∈ ρ^(2−k)Diff^(2−k)_b, and ∂_(t_*)w is 0, resp. h(S), with
-∂²_(t_*)w = 0. So [L_b, χ_K]w is a finite sum of terms φ(t_*/r)ρ²(Qv)(x) with v ∈ {ġ(ḃ), h̆(S)}, and of terms
-φ(t_*/r)ρ(Qh(S))(x), which come from t_*h(S) (there ρ²t_* = (t_*/r)ρ, and the factor t_*/r is absorbed into φ); here φ
-is smooth and supported in [2, 4], and Q is a b-differential operator whose coefficients are smooth at ∂X. With
-t_* = sr, F(s, x) = r⁴f(sr, x) is the corresponding finite sum of terms φ(s)r²(Qv)(x) and φ(s)r³(Qh(S))(x), smooth in
-s and supported in [2, 4]. Now ġ_b(1, 0) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) and ġ_b(0, Ȧ) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) ([[eq:iii-f3-2-2]]),
-h(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) ([[eq:iii-f3-4-2]]), and h̆(S) = h̆¹_(b,s1)(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) ([[eq:iii-d2-3-4]]).
-So r²ġ_b(1, 0), r²h̆(S) and r³h(S) lie in 𝒜^((0,0)∪ℰ_ind), and r²ġ_b(0, Ȧ) lies in 𝒜^((1,0)∪(1+ℰ_ind)); b-derivatives
-preserve these index sets, and the coefficients of Q, smooth at ∂X, add ℕ₀. Hence F, with all its s-derivatives, is
-polyhomogeneous at ∂X with the index set ℰ_col, which lies in {Re ≥ 0} as min Re ℰ_ind > 0. These index sets depend
-neither on ḃ and S nor on b ([[lem:iii-i15-1-1]] (P3)). The statements on G follow by integrating the expansion of F against e^(iξs), with
+*Proof.* On {r ≥ 1}, χ_K = χ_c(r/t_*) ([[eq:iii-h-1-2]]), and L_b ġ(ḃ) = 0, L_b(t_*h(S) + h̆(S)) = 0 ([[sec:iii-h-2]]);
+so there f = L_b(χ_K w) = [L_b, χ_K]w, with w = ġ(ḃ), resp. t_*h(S) + h̆(S). On sections a(t_*)w(x), L_b = L_0 +
+L_1∂_(t_*) + L_2∂²_(t_*), with L_1 = [L_b, t_*] and L_2 = ½[[L_b, t_*], t_*] ([[sec:iii-i6-1]]), and L_k ∈
+ρ^(2−k)Diff^(2−k)_b(X̄) has smooth coefficients ([[lem:iii-i3-1-1]], as it is applied to them there). The t_*-derivatives
+and the b-derivatives in x of χ_c(r/t_*) are sums of terms r^(−k)φ(t_*/r), k ∈ {0, 1, 2}, with φ smooth and, when at
+least one derivative falls on χ_c, supported in [2, 4]; for instance r∂_r[χ_c(r/t_*)] = (r/t_*)χ′_c(r/t_*) and
+∂_(t_*)[χ_c(r/t_*)] = −r⁻¹(r/t_*)²χ′_c(r/t_*). Every term of [L_b, χ_K]w = Σ_(j≤2) [L_j∂^j_(t_*), χ_K]w carries at least
+one derivative of χ_K; a t_*-derivative of χ_K costs a factor r⁻¹ (ρ times a function smooth at ∂X) and a b-derivative in
+x costs nothing, L_j ∈ ρ^(2−j)Diff^(2−j)_b, and ∂_(t_*)w is 0, resp. h(S), with ∂²_(t_*)w = 0. So [L_b, χ_K]w is a finite
+sum of terms φ(t_*/r)ρ²(Qv)(x) with v ∈ {ġ(ḃ), h̆(S)}, and of terms φ(t_*/r)ρ(Qh(S))(x), which come from t_*h(S) (there
+ρ²t_* = (t_*/r)ρ, and the factor t_*/r is absorbed into φ); here φ is smooth and supported in [2, 4], and Q is a
+b-differential operator whose coefficients are smooth at ∂X. With t_* = sr, F(s, x) = r⁴f(sr, x) is the corresponding
+finite sum of terms φ(s)r²(Qv)(x) and φ(s)r³(Qh(S))(x), smooth in s and supported in [2, 4]. Now ġ_b(1, 0) ∈
+𝒜^((2,0)∪(2+ℰ_ind)) and ġ_b(0, Ȧ) ∈ 𝒜^((3,0)∪(3+ℰ_ind)) ([[eq:iii-f3-2-2]]), h(S) ∈ 𝒜^((3,0)∪(3+ℰ_ind))
+([[eq:iii-f3-4-2]]), and h̆(S) = h̆¹_(b,s1)(S) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) ([[eq:iii-d2-3-4]]). So r²ġ_b(1, 0), r²h̆(S) and
+r³h(S) lie in 𝒜^((0,0)∪ℰ_ind), and r²ġ_b(0, Ȧ) lies in 𝒜^((1,0)∪(1+ℰ_ind)); b-derivatives preserve these index sets, and
+the coefficients of Q, smooth at ∂X, add ℕ₀. Hence F, with all its s-derivatives, is polyhomogeneous at ∂X with the index
+set ℰ_col, which lies in {Re ≥ 0} as min Re ℰ_ind > 0. These index sets depend neither on ḃ and S nor on b
+([[lem:iii-i15-1-1]] (P3)). The statements on G follow by integrating the expansion of F against e^(iξs), with
 integrations by parts in s for the decay in ξ (Im ξ ≥ 0, s > 0), and r⁻³G(σr, x) = ρ³_tf G(±r̂, x). ∎
 
 ### The lemmas of the spectral phase {#sec:iii-i11-2}

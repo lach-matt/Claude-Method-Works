@@ -943,13 +943,14 @@ finitely many below 2). *Step 2* takes c_K := α_0, so ℓ_K(λ_0) = α_0 − Re
 ℓ_K(λ_0) ∈ (α_0 − 2, 1) ⊂ (0, 1), as Re λ_0 ∈ [λ_♯, 2) and α_0 < 5/2 < λ_♯ + 1. The coefficients at λ_0 of F_2 and of
 later errors (of K⁺-weight α_0 − ε for every ε) have R-weight at least ℓ_K(λ_0) − 2 − ε for every ε, which is the
 hypothesis of [[cor:iii-g2-4-3]]; the errors have K⁺-weight α_0 − ε; and u_(λ_0) has K⁺-weight
-min(Re λ_0 − 1, ℓ_K(λ_0)) − ε > α_0 − 2 for ε small. The iteration and its termination are those of the proof of [[prop:iii-i5-2-1]], all
-exponents lying in (ℰ^♯_+ ∪ ℰ_++) + ℕ₀ℰ^ι_ind ⊂ ℰ_++ below 2, by [[eq:iii-i8-1-1]]. So f^♭ ∈ ⋂_ε H^(∞,ℓ_I+1,4−ε,α_0−ε)_b,
-and Steps 3–6 apply with α_0 − ε′ for α_K, for every small ε′ (their hypotheses on α_K are open conditions).
-[[sec:iii-i7-4]] uses [[prop:iii-i4-4-1]] (1), whose space of forcings contains 𝒴(α_0) (F_2 has ι⁺-weight above α_+ + 2
-for α_+ < min Re ℰ_++), [[prop:iii-i6-2-1]], and, in [[lem:iii-i7-4-1]] and in the proof of [[prop:iii-i15-2-12]], the
-bound of the difference of L and the reference operator applied to the solution, in the space 𝒴^S_(α,α_+) of
-[[sec:iii-i7-4]] for the boost parameter and in 𝒴_1(α_0) for the parameters (ḃ, Ṡ⁽⁰⁾_1), unchanged. ∎
+min(Re λ_0 − 1, ℓ_K(λ_0)) − ε > α_0 − 2 for ε small. The iteration and its termination are those of the proof of
+[[prop:iii-i5-2-1]], all exponents lying in (ℰ^♯_+ ∪ ℰ_++) + ℕ₀ℰ^ι_ind ⊂ ℰ_++ below 2, by [[eq:iii-i8-1-1]]. So
+f^♭ ∈ ⋂_ε H^(∞,ℓ_I+1,4−ε,α_0−ε)_b, and Steps 3–6 apply with α_0 − ε′ for α_K, for every small ε′ (their hypotheses on
+α_K are open conditions). [[sec:iii-i7-4]] uses [[prop:iii-i4-4-1]] (1), whose space of forcings contains 𝒴(α_0)
+(F_2 has ι⁺-weight above α_+ + 2 for α_+ < min Re ℰ_++), [[prop:iii-i6-2-1]], and, in [[lem:iii-i7-4-1]] and in the
+proof of [[prop:iii-i15-2-12]], the bound of the difference of L and the reference operator applied to the solution,
+in the space 𝒴^S_(α,α_+) of [[sec:iii-i7-4]] for the boost parameter and in 𝒴_1(α_0) for the parameters
+(ḃ, Ṡ⁽⁰⁾_1), unchanged. ∎
 
 **Lemma {#lem:iii-i8-3-2}** (The expansion; [Hin26, Proposition 11.51, Part 1] in dimension 4 + 1.) Let α′ < α be
 admissible, α − α′ < a_K − 2, let p⃗ (with parameter b ∈ ℬ̄_*) and h be small, and F ∈ 𝒴(α). Suppose that the forward
@@ -1564,5 +1565,4 @@ parts (b) and (c) give the classes and the exact form f^ν = L_(h,p⃗)m_ν + r^
 (11.194)] in its L_b form follows, at a plain ι⁺-weight: f^ν − L_(b₀)m_ν = (L_(h,p⃗) − L_(b₀))m_ν + r^ν has ι⁺-weight
 Re λ + 2 + λ_♯ − ε; at b, by (e), the same holds for f^ν − E^ν − L_bm_ν. [Hin26]'s index set
 (λ + 2, k) + ((0, 0) ∪ ℰ_ind ∪ ℰ_+ ∪ ℰ̃′_++) has here no ℰ̃′_++-term, the new corrections lying in 𝒳 by (H3) ([Hin26,
-Remark 11.62]).
-[Hin26, (11.191)], for the logarithmic s0 correction at the exponent 1, has no analogue.
+Remark 11.62]). [Hin26, (11.191)], for the logarithmic s0 correction at the exponent 1, has no analogue.
