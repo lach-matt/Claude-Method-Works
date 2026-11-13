@@ -1258,3 +1258,5 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R3-70 CONFIRMED; chapter 70 CONFIRMED (with chapter 21's two nit edits).
 - M-83c done. Crosswalk sweep item: crosswalk/95 has 25 rows for 67 labels (pre-existing); check whether the
   rule for chapter 95 is one row per label, and complete it in the crosswalk sweep if so.
+- P-K82 done: the two-dust corollary proved with one narrowing (vacuum weak limit on Ω₂′ inside the adapted domain).
+  FOR THE FINAL REPORT once confirmed. Merge into chapter 82 after F3-82 and R-P-K82; block 5 for chapter 03.
