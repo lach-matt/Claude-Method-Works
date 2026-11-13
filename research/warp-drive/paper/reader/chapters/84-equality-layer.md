@@ -927,13 +927,13 @@ W_λ, points where it is timelike for g_λ (g_λ⁻¹(dΦ0, dΦ0) > 0) and point
 spacelike throughout the layer, and not timelike throughout it. The statement holds for every C_c^∞ envelope,
 whatever its sign, and every admissible τ0, including (v_s − τ0)/√μ0 = ρ*.
 
-*Proof.* Put M := M* = 2N + 8, m := 56 M, p := 14, κ := 64, y := λ^p, Δτ := τ_end − τ0, ε_t := 2 C1 λ and L := (4π + 2 C1
-Δτ) λ. Fix η1 ∈ (0, min(1, T)] as follows. If (v_s − τ0)/√μ0 ≠ ρ*, then ν(v_s − τ0) ≠ 0 ([[prop:layer-linear]] (d)), and
-η1 is so small that ν_* := min_(v_s≤v≤v_s+η1) |ν(v − τ0)| > 0. If (v_s − τ0)/√μ0 = ρ*, then ν, as a function of ρ = (v −
-τ0)/√μ0, has a double zero at ρ* with ν″ := d²ν/dρ² ≠ 0 there, so Taylor's formula gives ν(v − τ0) = (ν″(ρ*)/(2μ0)) (v −
-v_s)² (1 + o(1)) as v ↓ v_s, and η1 is so small that |ν(v − τ0)| ≥ ν_2 (v − v_s)² on [v_s, v_s + η1], ν_2
-:= |ν″(ρ*)|/(4μ0). Each step below needs λ ≤ Λ for a number Λ > 0 that does not depend on λ; [[sec:layer-threshold]]
-lists them, and λ_L is their minimum.
+*Proof.* Put M := M* = 2N + 8, m := 56 M, p := 14, κ := 64, y := λ^p, Δτ := τ_end − τ0, ε_t := 2 C1 λ and
+L := (4π + 2 C1 Δτ) λ. Fix η1 ∈ (0, min(1, T)] as follows. If (v_s − τ0)/√μ0 ≠ ρ*, then ν(v_s − τ0) ≠ 0
+([[prop:layer-linear]] (d)), and η1 is so small that ν_* := min_(v_s≤v≤v_s+η1) |ν(v − τ0)| > 0. If
+(v_s − τ0)/√μ0 = ρ*, then ν, as a function of ρ = (v − τ0)/√μ0, has a double zero at ρ* with ν″ := d²ν/dρ² ≠ 0
+there, so Taylor's formula gives ν(v − τ0) = (ν″(ρ*)/(2μ0)) (v − v_s)² (1 + o(1)) as v ↓ v_s, and η1 is so small
+that the bound |ν(v − τ0)| ≥ ν_2 (v − v_s)² holds on [v_s, v_s + η1], with ν_2 := |ν″(ρ*)|/(4μ0). Each step below
+needs λ ≤ Λ for a number Λ > 0 that does not depend on λ; [[sec:layer-threshold]] lists them, and λ_L is their minimum.
 
 *The window.* Let λ ≤ 1 and λ ≤ Λ_0 := min(E(v_s + η1/2)^(1/p), η1/(2(4π + 2 C1 Δτ))), a positive number since
 v_s = inf supp env. Then y ≤ E(v_s + η1/2), so v* := v*(y) of [[lem:layer-levels]] exists and v_s < v* ≤ v_s + η1/2;

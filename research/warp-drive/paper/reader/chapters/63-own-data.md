@@ -1284,38 +1284,59 @@ is at most k1/2 and k1/2 + 4 ≤ k1 for k1 ≥ 8. Summing over |α| ≤ k1 and t
 
 *Step 3 (closing).* With y(σ) := sup_[T,σ] 𝔈_(k1)^(1/2), Gronwall's inequality gives
 y² ≤ C_E e^(C_E K_κ)(𝔈_(k1)(T) + 𝔉_(k1) + 2y κ_∞), so 𝔈_(k1) ≤ C_*(𝔈_(k1)(T) + 𝔉_(k1) + λ²) on [T, σ*], with C_*
-independent of T, λ and ε_B. Put ε_B² := C_*(sup_(T≤T_1(λ)) 𝔈_(k1)(T) + C(λ² + ν(λ)) + λ²). By [[lem:own-n-data]] (ii)
-and (iii), 𝔉_(k1) ≤ C(λ² + ν(λ)); by [[prop:far-window]] (ii), the cap energy satisfies 𝔈_(k1)(T) ≤ C(λ)|T|^(2a−6), which
-is below λ² for T ≤ T_1(λ), the hypotheses of [[prop:far-window]] on the initial slice and on N being
-[[lem:own-truncation]] (iii) and [[lem:own-n-data]] (i). [[pending:issue-2]] So ε_B → 0 as λ → 0, ε_B ≤ ε_2 for λ ≤ λ_2,
-and 𝔈_(k1) ≤ ε_B² < 4ε_B² on [T, σ*]: (BA) is improved. *Openness.* At σ* the bounds of Step 1 give |H| ≤ 1/50. For x
-with r ≥ ϱ_0 (the exterior regions of [[lem:own-exterior]]) and t̃ ∈ [σ*, σ* + δ′], the time segment from (σ*, x) lies in
-W_T (v increases with t at fixed x, and v > v1 at t̃ = T, r ≥ ϱ_0), and ∂_t H is bounded on W_T ∩ {t̃ ≤ σ′} for σ′ ∈ (σ*,
-σ_1(T)); so |H| ≤ 1/25 there for δ′ small, and |g_T⁻¹ − g_b0⁻¹| ≤ 0.0474 < 7/25 by [[lem:own-margins]] (a). The points of
-W_T with r ≤ ϱ_0 form a compact set, on which no margin is needed. By [[lem:own-exterior]], 𝔈_(k1) is continuous on [T,
-σ* + δ′], and (BA) holds on [T, σ* + δ″] for some δ″ > 0. The set where (BA) holds is therefore open and closed in [T,
-σ_1(T)), and contains T. With the bounds of Step 1, the local theory continues g_T beyond any σ_1(T) < 0: g_T exists on
-all of W_T, with 𝔈_(k1) ≤ ε_B².
+independent of T, J, λ and ε_B. By [[lem:own-n-data]] (ii) and (iii), 𝔉_(k1) ≤ C(λ² + ν(λ)). By [[lem:own-truncation]]
+(iii) with k = k1, which applies as J ≥ 2k1 + 7, the cap satisfies 𝔈_(k1)(T) ≤ C(λ, J)|T|^(2a−6) (this is condition
+(ii) of [[prop:far-window]], whose hypotheses on the initial slice and on N are [[lem:own-truncation]] (iii) and
+[[lem:own-n-data]] (i)), and as a < 3 this is at most λ² for T ≤ T_1(λ, J). Put ε_B² := C_*(C(λ² + ν(λ)) + 2λ²), which
+depends on neither T nor J. So ε_B → 0 as λ → 0, ε_B ≤ ε_2 for λ ≤ λ_2, and 𝔈_(k1) ≤ ε_B² < 4ε_B² on [T, σ*]; and by
+Step 1, |g_T⁻¹ − g_b0⁻¹| ≤ 0.0232 < 0.0474 on W_T ∩ {t̃ ≤ σ*}: (BA) is improved. *Openness.* At σ* the bounds of Step 1
+give |H| ≤ 1/50. For x with r ≥ ϱ_0 (the exterior regions of [[lem:own-exterior]]) and t̃ ∈ [σ*, σ* + δ′], the time
+segment from (σ*, x) lies in W_T (v increases with t at fixed x, and v > v1 at t̃ = T, r ≥ ϱ_0), and ∂_t H is bounded
+on W_T ∩ {t̃ ≤ σ′} for σ′ ∈ (σ*, σ_1(T)); so |H| ≤ 1/25 there for δ′ small, and |g_T⁻¹ − g_b0⁻¹| ≤ 0.0474 < 7/25 by
+[[lem:own-margins]] (a). The points of W_T with r ≤ ϱ_0 form a compact set, on which no margin is needed. By
+[[lem:own-exterior]] (c), 𝔈_(k1) is continuous on [T, σ* + δ′], and (BA) holds on [T, σ* + δ″] for some δ″ > 0. The set
+where (BA) holds is therefore open and closed in [T, σ_1(T)), and contains T (on Σ̃_T, 𝔈_(k1)(T) ≤ λ² and
+|g_T − g_b0| ≤ 1/50). With the bounds of Step 1, the local theory continues g_T beyond any σ_1(T) < 0: g_T exists on all
+of W_T, with 𝔈_(k1) ≤ ε_B².
 
-*Step 4 (every order at fixed λ).* For k > k1, induct on k: in the commuted equations at order k the terms of top order
-are linear in the order-k quantities, with coefficients bounded by [[eq:own-pointwise]] and its analogues at the orders
-at most k − 1 (in (B) the second-largest order is at most k/2, and k/2 + 4 ≤ k − 1 for k ≥ 10), so
-[[eq:own-gronwall]] holds at order k with ε_B replaced by C_(k−1)(λ) in the pointwise factors, and Gronwall's inequality
-closes without smallness: 𝔈_k ≤ C_k(λ)(𝔈_k(T) + 𝔉_k + λ²), finite and uniform in T by [[lem:own-n-data]] (i), (iii) and
-the cap at order k.
+*Step 4 (higher orders at fixed λ and J).* For k1 < k ≤ k_J, induct on k: in the commuted equations at order k the
+terms of top order are linear in the order-k quantities, with coefficients bounded by [[eq:own-pointwise]] and its
+analogues at the orders at most k − 1 (in (B) the second-largest order is at most k/2, and k/2 + 4 ≤ k − 1 for
+k ≥ 10), so [[eq:own-gronwall]] holds at order k with ε_B replaced by C_(k−1)(λ, J) in the pointwise factors, 𝔈_k being
+finite and continuous by [[lem:own-exterior]] (c), and Gronwall's inequality closes without smallness:
+𝔈_k ≤ C_k(λ, J)(𝔈_k(T) + 𝔉_k + λ²). This is finite and uniform in T by [[lem:own-n-data]] (i), (iii) and the cap
+𝔈_k(T) ≤ C(λ, J)|T|^(2a−6) of [[lem:own-truncation]] (iii), which applies as J ≥ 2k + 7 for k ≤ k_J.
 
-*Step 5 (the limit).* For T′ < T ≤ T_1, δ := g_(T′) − g_T on W_T solves the linear system obtained by subtracting the two
-equations, with g_(T′) as principal part, −½ g_(T′)^(ab)∂_a∂_b δ = ½(g_(T′)^(ab) − g_T^(ab))∂_a∂_b g_T +
-(Q(g_(T′))(∂g_(T′), ∂g_(T′)) − Q(g_T)(∂g_T, ∂g_T)), linear in (δ, ∂δ), whose coefficients ∂∂H_T, ∂H_T, ∂H_(T′) give the
-kernels of [[cor:far-kernels]]. δ = 0 near N ∩ W_T, where both equal g_λ. On Σ̃_T, δ = h_(R,T′)(T) − h_(R,T)(T): the
-second is the cap, and the first is bounded by Step 2 run for g_(T′) on W_(T′) ∩ {t̃ ≤ T}, whose data are tails:
-𝔈[h_(R,T′)](T) ≤ C(𝔈(T′) + 𝔉_(k1)(T′, T) + (∫_(−∞)^T κ_Σ)²) =: ϑ(T), with 𝔉(T′, T) ≤ C(λ)|T|^(2a−7) (N ∩ {t̃ ≤ T} lies in
-r ≥ |T| − C, [[lem:own-n-data]] (iii)), the cap at most C(λ)|T′|^(2a−6) and ∫_(−∞)^T κ_Σ ≤ C λ |T|^(a−3). So the energy
-of δ on W_T is at most C ϑ(T) → 0 as T → −∞, uniformly in T′ < T: (g_T) is a Cauchy family in the energy of weight a on
-every W_(T_0), and with the bounds of Step 4 at every order it converges in C^k on compact subsets of W for every k. The
-limit g is smooth, solves Ric^H(g; g_b0) = 0, has 𝔈_(k1) ≤ ε_B² and 𝔈_k ≤ C_k(λ) by lower semicontinuity, and
-E_σ[Γ^α h_R] ≤ C ϑ(σ) → 0 as σ → −∞. Each g_T is smooth across N and equals g_λ on its side v ≤ v1
-([[lem:own-truncation]] (ii)), so g and g_λ join smoothly. G-invariance passes to the limit.
+*Step 5 (the limit).* For T′ < T ≤ T_1(λ, J), ξ := g_(T′) − g_T on W_T solves the linear system obtained by subtracting
+the two equations, with g_(T′) as principal part, −½ g_(T′)^(ab)∂_a∂_b ξ = ½(g_(T′)^(ab) − g_T^(ab))∂_a∂_b g_T +
+(Q(g_(T′))(∂g_(T′), ∂g_(T′)) − Q(g_T)(∂g_T, ∂g_T)) ([[eq:own-p-split]]), linear in (ξ, ∂ξ), whose coefficients ∂∂H_T,
+∂H_T, ∂H_(T′) give the kernels of [[cor:far-kernels]]. ξ = 0 near N ∩ W_T, where both equal g_λ. On Σ̃_T,
+ξ = h_(R,T′)(T) − h_(R,T)(T): the second is the cap, and the first is bounded by Step 2 run for g_(T′) on
+W_(T′) ∩ {t̃ ≤ T}, whose data are tails: 𝔈[h_(R,T′)](T) ≤ C(𝔈(T′) + 𝔉_(k1)(T′, T) + (∫_(−∞)^T κ_Σ)²) =: ϑ(T), with
+𝔉(T′, T) ≤ C(λ)|T|^(2a−7) (N ∩ {t̃ ≤ T} lies in r ≥ |T| − C, [[lem:own-n-data]] (iii)), the cap at most
+C(λ, J)|T′|^(2a−6) and ∫_(−∞)^T κ_Σ ≤ C λ |T|^(a−3). So the energy of ξ on W_T is at most C ϑ(T) → 0 as T → −∞,
+uniformly in T′ < T: (g_T) is a Cauchy family in the energy of weight a on every W_(T″).
+
+*Convergence.* Let K′ := W ∩ {T″ ≤ t̃ ≤ 0, r ≤ R′}, which is compact and connected and meets N. By Step 4 and the
+analogues of [[eq:own-pointwise]] at the order k_J (Step 1 with k_J in place of k1), |Γ^β h_R| and |∂Γ^β h_R| are
+bounded on K′ uniformly in T for |β| ≤ k_J − 3. As ∂_i = r⁻¹ x̂_i (Z − (t − v1)∂_t) − r⁻² x_j Ω_ij
+([[lem:own-rays]] (a)), every Cartesian derivative of order j of h_R is, on K′, a combination of the Γ^β h_R, |β| ≤ j,
+with coefficients bounded on K′; so the g_T are bounded in C^(k_J−2)(K′) uniformly in T. By the Arzelà–Ascoli theorem
+every sequence T_n → −∞ has a subsequence along which g_(T_n) converges in C^(k_J−3)(K′). Two such limits g^(1), g^(2)
+coincide: ∫_(K′) |∂(g_(T_n) − g_(T′_n))|² d⁵x ≤ C |T″| ϑ(max(T_n, T′_n)) → 0 by the Cauchy property, w ≥ 1 and
+[[lem:own-margins]] (d), so ∂(g^(1) − g^(2)) = 0 on K′, and g^(1) = g^(2) = g_λ on N ∩ K′. Hence the whole family
+converges in C^(k_J−3)(K′), and so on every compact subset of W. Its limit g^(J) is of class C^(k_J−3), k_J − 3 ≥ 5,
+solves Ric^H(g^(J); g_b0) = 0, equals g_λ on N with its derivatives of order at most k_J − 3, and, with
+h_R^(J) := g^(J) − g_b0 − Σ, has 𝔈_(k1) ≤ ε_B² and 𝔈_k ≤ C_k(λ, J) for k ≤ k_J by lower semicontinuity, satisfies
+[[eq:own-pointwise]] (the g_T satisfy it with constants independent of T, and its derivatives have order at most
+k1 − 2 ≤ k_J − 3), and has E_σ[Γ^α h_R^(J)] ≤ C ϑ(σ) → 0 as σ → −∞ for |α| ≤ k1. G-invariance passes to the limit.
+
+*The limit does not depend on J.* For J′ ≥ J ≥ 2k1 + 7, g^(J′) = g^(J) by [[lem:cutoff-independence]], which is in
+Section [[sec:own-vacuum]]; its proof uses only the properties of g^(J) and g^(J′) just listed and
+[[lem:own-two-continuations]], not the conclusions of this theorem. Write g for the common limit. As g = g^(J) is of class
+C^(k_J−3) for every J, g is smooth, and as it equals g_λ on N with all its derivatives (each g_T equals g_λ on its side
+v ≤ v1, [[lem:own-truncation]] (ii)), g and g_λ join smoothly across N. Taking J := max(2k1 + 7, 2k + 7) gives
+𝔈_k ≤ C_k(λ) := C_k(λ, J) for every k.
 
 *Step 6 (the class on S).* On S = {t = f(r)}, r d/dr (h_R|_S) = (Z h_R)|_S + (v1 − f + r f′)(∂_t h_R)|_S, with
 r f′ ∈ C^∞ in ρ := 1/r and f smooth in ρ (f′ ∈ |x|⁻² C^∞): every (ρ∂_ρ)^j Ω^β (h_R|_S) is a combination of restrictions
