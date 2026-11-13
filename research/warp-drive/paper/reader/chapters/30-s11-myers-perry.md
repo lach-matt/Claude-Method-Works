@@ -721,8 +721,10 @@ and the coefficient of dr² is
 
     −f₀² + Σ_i (r² + a_i²)μ_i² f_i² + F + UK² = −U²K² + U²K²(1 − F) + F + UK² = F(1 + UK) = FΠ/(Π − mr²).
 
-So g^KS_(m,A) is the metric [[eq:s11-er08]] with these spins on a dense open subset of its domain, and is Ricci-flat
-there; being smooth, it is Ricci-flat on the whole of its domain.
+So g^KS_(m,A) is the metric [[eq:s11-er08]] with these spins on the set where x₁² + x₂² > 0, x₃² + x₄² > 0 and
+Π(r_A) ≠ mr_A², and is Ricci-flat there. This set is dense in the domain: its complement there lies in two 2-planes
+and in the level sets {r_A = c} for the finitely many positive roots c of Π(c) − mc², each of which is the quadric
+{xᵀ(c²I − A²)⁻¹x = 1} by [[lem:iii-b-3-1]]. Being smooth, g^KS_(m,A) is Ricci-flat on the whole of its domain.
 
 *Every A.* For O ∈ O(4), s and p² are unchanged under A ↦ OAOᵀ, 𝖬(r) becomes O𝖬(r)Oᵀ, Q(r, Ox) for OAOᵀ is Q(r, x) for
 A, so r_(OAOᵀ)(Ox) = r_A(x), and the coefficient vector of ℓ, F and H are carried along. So the linear map

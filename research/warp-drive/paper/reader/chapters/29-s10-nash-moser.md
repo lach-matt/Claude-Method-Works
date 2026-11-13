@@ -1,7 +1,7 @@
 ## The Nash–Moser theorem; Fourier transforms, resolvent bounds and the radiation field {#ch:s10}
 
 This chapter proves two sets of general tools in dimension 4 + 1. The first half carries the three tools of [Hin26c,
-Section 12.2, pp. 233–243] on which the nonlinear step rests: a Nash–Moser theorem with support classes
+Section 12.2] on which the nonlinear step rests: a Nash–Moser theorem with support classes
 ([[thm:ii-g-2-1]]), smoothing operators on spaces of supported weighted b-Sobolev functions ([[prop:ii-g-3-1]]), and
 tame bounds for products and nonlinear functions ([[lem:ii-g-4-1]]). None of the three depends on the dimension; the
 dimension enters only through the spaces to which they are applied, and [[sec:ii-g-5]] records the weights of a forward
@@ -10,7 +10,7 @@ at each stage and with the supports tracked. The smoothing operators are built w
 charts at the hypersurface {t^♭ = 1} written out for the domain Ω_* of [[sec:ii-f1-1-1]], and the tame bounds are proved
 from the Gagliardo–Nirenberg inequality, read off the Fourier transform.
 
-The second half carries [Hin26c, Sections 13.1–13.3, pp. 243–260], the tools by which forward solutions are shown to
+The second half carries [Hin26c, Sections 13.1–13.3], the tools by which forward solutions are shown to
 decay faster than [[thm:ii-f1-1-1]] alone gives: the Fourier transform in time on weighted b-Sobolev spaces, on the line
 and on the resolved product spaces ([[sec:ii-g1-2]], [[sec:ii-g1-3]]); the translation of the resolvent estimates of
 [[ch:s01]], [[ch:s02]] and [[ch:s03]] at nonzero, high and low frequencies into b-Sobolev spaces with a loss of
@@ -25,7 +25,7 @@ nothing in this chapter depends on it beyond these inequalities.
 
 ### Scope of the first half {#sec:ii-g-1}
 
-[Hin26c, Section 12], "Application I: nonlinear scalar waves", has five subsections. Its Section 12.2 holds the three
+[Hin26c, Section 12, pp. 233–243], "Application I: nonlinear scalar waves", has five subsections. Its Section 12.2 holds the three
 general tools used later: the Nash–Moser theorem ([Hin26c, Theorem 12.4], with [Hin26c, Remark 12.5] on the norms),
 smoothing operators on spaces of supported b-Sobolev functions ([Hin26c, Proposition 12.6 and Example 12.7]), and tame
 bounds for products and nonlinear functions ([Hin26c, Lemma 12.8]). They are proved in [[sec:ii-g-2]],
@@ -93,8 +93,8 @@ support property of the right inverses at every u ∈ U. Hypothesis (iii) asks i
 the proof uses: in the step *Supports* of the proof, u_j ∈ B^∞_(η_j) and e_j ∈ F^∞_(η_j). So the conclusion is
 unchanged. The weaker hypothesis is what the right inverses of the nonlinear stability theorem provide
 ([[lem:iii-k-2-3]]): at a base point whose tail does not vanish below the level, the linearisation contains a term in
-the boost direction that need not vanish there. The right inverses of [Hin26, p. 322, Step 3 (3)] have the support
-property only under the same restriction.
+the boost direction that need not vanish there. [Hin26, p. 322, Step 3 (3)] asserts the support property at every base
+point; there too it holds only under this restriction.
 
 **Remark {#rem:ii-g-2-2}** ([Hin26c, Remark 12.5].) The monotonicity of the norms costs nothing: if the inclusions are
 continuous, |v|′_s := max_(t≤s) |v|_t is an equivalent norm on B^s and is non-decreasing in s, and likewise for F^s.
@@ -217,9 +217,9 @@ Let t be a real function on M′ ∖ ⋃_(H∈ℋ_b) H, and c_1 ∈ (0, 1], such
 (T1) t is smooth with dt ≠ 0 on {|t| < 2c_1}, and this set meets each H ∈ ℋ̄ only in H° (away from all other faces),
 with dt|_(TH) ≠ 0 there;
 
-(T2) every point p of the closure of {|t| ≤ c_1} ∩ H, H ∈ ℋ_b, lies on no other boundary hypersurface, and has a
-neighbourhood V in M′ with a function t̄ ∈ C^∞(V) such that dt̄|_(TH) ≠ 0 on V ∩ H and t − t̄ ∈ ρ_H^ε C^∞_b(V) for some
-ε > 0, C^∞_b denoting the functions bounded with all their derivatives along 𝒱_b;
+(T2) for H ∈ ℋ_b, every point p ∈ H of the closure of {|t| ≤ c_1} in M′ lies on no other boundary hypersurface, and
+has a neighbourhood V in M′ with a function t̄ ∈ C^∞(V) such that dt̄|_(TH) ≠ 0 on V ∩ H and t − t̄ ∈ ρ_H^ε C^∞_b(V)
+for some ε > 0, C^∞_b denoting the functions bounded with all their derivatives along 𝒱_b;
 
 (T3) the functions of t used below, ψ(t) with ψ ∈ C^∞(ℝ) constant on (−∞, −c_1] and on [c_1, ∞), are smooth on M′
 with all derivatives along 𝒱_b bounded (that is, ψ(t) ∈ C^∞_b).
@@ -455,7 +455,7 @@ conditions [Hin26c, (12.23)] of its proof, (p − 1)(1 − ε_I) ≥ 1 and (p �
 
 ### Improving decay: scope, and what dimension 4 + 1 changes {#sec:ii-g1-1}
 
-[Hin26c, Section 13], "Improving decay", has four subsections. Its Sections 13.1–13.3 are general tools, proved here in
+[Hin26c, Section 13, pp. 243–260], "Improving decay", has four subsections. Its Sections 13.1–13.3 are general tools, proved here in
 dimension 4 + 1 in the forms used later: the Fourier transform on the line ([Hin26c, Lemmas 13.2, 13.4, 13.6,
 Corollaries 13.3, 13.5, 13.7]) and on the resolved spaces ([Hin26c, Lemma 13.8, Propositions 13.9 and 13.11, Lemma
 13.10, Remark 13.12]); the resolvent bounds ([Hin26c, Lemma 13.13, Corollary 13.14, Proposition 13.16, Corollary 13.17,

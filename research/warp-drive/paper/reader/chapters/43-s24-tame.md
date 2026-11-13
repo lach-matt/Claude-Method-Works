@@ -52,6 +52,13 @@ companions at b_0 and the index set ℰ_ind are replaced by those at b, derivati
 of exponent of real part at most 2 are the rotation rows with the assigned coordinates of [[def:iii-i15-2-3]]. At a
 rotating b the solution map of [[thm:iii-i14-3-1]] is the one constructed in [[prop:iii-i15-2-5]].
 
+*The inner radius.* Every result of the chapter holds with the inner radius r₀ = r_♭ ∈ (0, ½R₁] of [[def:s12-radii]]
+as a parameter, with constants that depend on it. No result names the inner radius: all work on Ω_* = cl_M{t^♭_* ≥ 1}
+([[sec:iii-i-1]]) with the spaces of [[ch:s04]], extendible at the inner boundary, and with the theorems of
+[[ch:s04]]–[[ch:s10]], which hold at every such radius. The fixed radii used are scale-free ({r ≤ t_*/8}, {r ≥ 2}) or
+far out, and the loops, levels and windows of [[sec:iii-j2-3]] are fixed by weights at infinity and at K⁺, not by the
+inner radius.
+
 *Notation.* As in [[ch:s23]]. In particular w_+ := 5 + ε_+; ρ_+ and ρ_K are the defining functions of ι⁺ and K⁺ near
 their corner, ρ_+ = 1/r and ρ_K = R = r/t_*, so t_*⁻¹ = ρ_+ρ_K there ([[sec:iii-i2-1]]); μ runs over the indicial roots
 of L̂_(b_0)(0) ([[prop:iii-f1-2-3]]), which do not depend on b ([[lem:iii-i15-1-1]] (P2)), and −μ is read as −Re μ; the
