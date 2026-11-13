@@ -767,7 +767,7 @@ R^(0) of g_app, and it equals ℛ^(0)(X, θ1 + φ_1^in, θ2 + φ_1^out) = 0, sin
 
 ### The uniform estimate {#sec:two-dust-uniform}
 
-Let g_app be a two-phase approximant ([[def:two-dust-approximant]]), F := −Ric^H(g_app), and
+Let g_app be a two-phase approximant ([[def:two-dust-approximant]]), ℰ := −Ric^H(g_app), and
 
     ℓ_app^𝔨 := g_app⁻¹ dϕ_𝔨,   s_𝔨(w) := w(ℓ_𝔨, ℓ_𝔨),   G1^𝔨 := [F_𝔨 g1],   G2^𝔨 := [F_𝔨² g1],
     Y_𝔨 := [F_𝔨 g1 + λ F_𝔨 g2],   ω_in := G1^out(ℓ_in, ℓ_in),   ω_out := G1^in(ℓ_out, ℓ_out),
@@ -801,7 +801,7 @@ its ℓ_in ⊗ ℓ_in component, and then go through the eight steps.
 
 **Lemma {#lem:two-dust-facts}** (The linearisation with two phases.) Let P(w) := (d/ds) Ric^H(g_app + s w) at s = 0, and
 for g := g_app + w let P_g be P with its principal part −½ g_app^(ab) ∂_a∂_b replaced by −½ g^(ab) ∂_a∂_b, so that
-Ric^H(g_app + w) = 0 reads P_g(w) = F + 𝒬(w), 𝒬(w) the terms of second and higher order in (w, ∂w) other than the
+Ric^H(g_app + w) = 0 reads P_g(w) = ℰ + 𝒬(w), 𝒬(w) the terms of second and higher order in (w, ∂w) other than the
 principal part. Then:
 
 (L1) P(w) = −½ g_app^(ab) ∂_a∂_b w + ½ λ⁻¹ Σ_𝔨 s_𝔨(w) G2^𝔨 + B·∂w + C·w, with B and C two-phase profiles: there is no
@@ -871,7 +871,7 @@ angular components, and (du ⊗ du)(ℓ_in, ℓ_in) = g0⁻¹(du, dv)² = e^(−
 (L5) c^(ττ) = g0^(ττ) − (g0^(ττ)/g^(ττ)) g^(ττ) = 0, and the formula for c^(ab) is algebra. g0^(ττ) ≤ −1 − μ/R² by
 [[lem:two-dust-domain]] (a). The last identity is the product rule.
 
-(L6) is [[eq:two-dust-psi]] with F = ½ 𝒫 s_𝔨(h), and the remarks after it. (L7) is [[sec:two-dust-phases]]. ∎
+(L6) is [[eq:two-dust-psi]] with ξ = ½ 𝒫 s_𝔨(h), and the remarks after it. (L7) is [[sec:two-dust-phases]]. ∎
 
 **Lemma {#lem:two-dust-phases}** (The phase shifts.) Let w be smooth on Ω₂ ∩ {τ ≤ τ*}. The system
 
@@ -896,14 +896,14 @@ a power of λ would be lost.
 **Lemma {#lem:two-dust-h}** (The equation for h.) With φ_𝔨 from [[eq:two-dust-phases]] and h := w − Σ_𝔨 φ_𝔨 Y_𝔨, the
 equation Ric^H(g_app + w) = 0 is
 
-    −½ g^(ab) ∂_a∂_b h + B·dh + C·h = F + 𝒬(w) − Σ_𝔨 𝒬_φ^𝔨 − ½ λ⁻¹ Σ_𝔨 ((1 − 𝒫) s_𝔨(h)) G2^𝔨
+    −½ g^(ab) ∂_a∂_b h + B·dh + C·h = ℰ + 𝒬(w) − Σ_𝔨 𝒬_φ^𝔨 − ½ λ⁻¹ Σ_𝔨 ((1 − 𝒫) s_𝔨(h)) G2^𝔨
           + λ⁻¹ Σ_𝔨 ((ℓ_app^𝔨 − ℓ_𝔨)·dφ_𝔨) G2^𝔨 − Σ_𝔨 φ_𝔨 [T1^𝔨] + ½ Σ_𝔨 (□̃_app φ_𝔨) G1^𝔨
           + ½ λ Σ_𝔨 (□̃_app φ_𝔨) [F_𝔨 g2] − Σ_𝔨 (B1^𝔨·dφ_𝔨 + C1^𝔨 φ_𝔨).                                  {#eq:two-dust-h}
 
 Every coefficient on the right is a bounded profile, except the one of order λ⁻¹ of each family, which multiplies
 (1 − 𝒫) s_𝔨(h) = O(λ ∂s_𝔨(h)) by (M3); and |ℓ_app^𝔨 − ℓ_𝔨| ≤ C λ.
 
-*Proof.* Insert w = h + Σ_𝔨 φ_𝔨 Y_𝔨 in P_g(w) = F + 𝒬(w) and use (L1) for P_g(h) and (L2) for P_g(φ_𝔨 Y_𝔨). The terms of
+*Proof.* Insert w = h + Σ_𝔨 φ_𝔨 Y_𝔨 in P_g(w) = ℰ + 𝒬(w) and use (L1) for P_g(h) and (L2) for P_g(φ_𝔨 Y_𝔨). The terms of
 order λ⁻¹ are ½ λ⁻¹ Σ_𝔨 s_𝔨(h) G2^𝔨 − λ⁻¹ Σ_𝔨 (ℓ_app^𝔨·dφ_𝔨) G2^𝔨, and by [[eq:two-dust-phases]], ℓ_𝔨·dφ_𝔨 = ½ 𝒫 s_𝔨(h),
 so they are ½ λ⁻¹ Σ_𝔨 ((1 − 𝒫) s_𝔨(h)) G2^𝔨 − λ⁻¹ Σ_𝔨 ((ℓ_app^𝔨 − ℓ_𝔨)·dφ_𝔨) G2^𝔨. Move them and the terms of (L2) to
 the right side. ∎
@@ -911,7 +911,7 @@ the right side. ∎
 **Lemma {#lem:two-dust-ell-ell}** (The ℓ_in ⊗ ℓ_in component.) With s := s_in(h),
 
     □̃ s = c1·dh + c0·h + Σ_𝔨 (c2^𝔨·dφ_𝔨 + c3^𝔨 φ_𝔨) − q ω_in Ψ_out + q λ⁻¹ ((1 − 𝒫) s_out(h)) G2^out(ℓ_in, ℓ_in)
-          + Σ_𝔨 c4^(𝔨,ab) ∂_a∂_b φ_𝔨 − 2q F(ℓ_in, ℓ_in) − 2q 𝒬(w)(ℓ_in, ℓ_in) + 2q Σ_𝔨 𝒬_φ^𝔨(ℓ_in, ℓ_in)
+          + Σ_𝔨 c4^(𝔨,ab) ∂_a∂_b φ_𝔨 − 2q ℰ(ℓ_in, ℓ_in) − 2q 𝒬(w)(ℓ_in, ℓ_in) + 2q Σ_𝔨 𝒬_φ^𝔨(ℓ_in, ℓ_in)
           + Σ_(b,i) c^(bi) (∂_b∂_i h)(ℓ_in, ℓ_in),                                                 {#eq:two-dust-ell-ell}
 
 with c0, c1, c2^𝔨, c3^𝔨 bounded coefficients (profiles, and profiles times the function q of (L5)), ω_in and
@@ -958,7 +958,7 @@ spacelike, both generators transverse to Σ_τ), and |∂g| ≤ Λ with Λ indep
 
 - (a) the commutator [∂^α, g^(ab)] ∂_a∂_b h: ‖∂^i g_app‖_∞ ≤ C λ^(1−i), so at most C 𝒩₂, and the w part at most
   C M λ^(K−4) 𝒩₂, with ∂^i w in L^∞ for i ≤ 4 and in L² for i ≥ 5, as in Step 4 there;
-- (b) F: at most C_R λ^K, by (E3);
+- (b) ℰ: at most C_R λ^K, by (E3);
 - (c) B·dh and C·h: at most C 𝒩₂, a derivative on a profile costing λ⁻¹ and the weight paying for it;
 - (d) ½ λ⁻¹ ((1 − 𝒫) s_𝔨(h)) G2^𝔨: Σ_i λ^(i−1) ‖∂^i (1 − 𝒫) s_𝔨‖ ≤ C Σ_i λ^i ‖∂^i ∂s_𝔨‖ ≤ C 𝒩₂, by (M3), (M4), (M6);
 - (e) λ⁻¹ ((ℓ_app^𝔨 − ℓ_𝔨)·dφ_𝔨) G2^𝔨: ℓ_app^𝔨 − ℓ_𝔨 is λ times a profile, by (L4), so at most C 𝒩₂;
@@ -994,7 +994,7 @@ coefficient a_in, and [[lem:transport]]. In ½ □̃ 𝒫 s_in = ½ 𝒫 □̃ s
 - (a) 𝒫 of the terms of [[eq:two-dust-ell-ell]]: c1·dh, c0·h, c2^𝔨·dφ_𝔨 and c3^𝔨 φ_𝔨 give at most C 𝒩₂. The coupling:
   ‖𝒫(q ω_in Ψ_out)‖ ≤ C ‖Ψ_out‖ by (M1), and λ^j ‖∂^j 𝒫(q ω_in Ψ_out)‖ ≤ C Σ_(i≤j) λ^i ‖∂^i Ψ_out‖ ≤ C 𝒩₂, each
   derivative on the profile q ω_in costing λ⁻¹ and the weight paying for it. q λ⁻¹ ((1 − 𝒫) s_out) G2^out(ℓ_in, ℓ_in)
-  is at most C 𝒩₂ by (M3); c4^𝔨 ∂² φ_𝔨 at most C 𝒩₂ by (L6); F, 𝒬(w) and 𝒬_φ^𝔨 give C_R λ^K, C M² λ^(K+1) and
+  is at most C 𝒩₂ by (M3); c4^𝔨 ∂² φ_𝔨 at most C 𝒩₂ by (L6); ℰ, 𝒬(w) and 𝒬_φ^𝔨 give C_R λ^K, C M² λ^(K+1) and
   C M λ^(K−5) 𝒩₂; and Σ c^(bi) ∂_b∂_i h, written 𝒫 ∂_i(c ∂_b h) − 𝒫((∂_i c) ∂_b h) with the Bernstein bound on the ∂_i,
   is at most C λ⁻¹ ‖c ∂h‖ + C ‖∂h‖ ≤ C 𝒩₂, as |c| ≤ C (λ + |w|); at level j only k + 1 derivatives of h occur, where
   taking the second derivatives directly would need k + 2.
