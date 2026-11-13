@@ -223,7 +223,7 @@ term, cos 0 = 1, is again halved when k is odd. The latter telescopes by 2 sin �
 for k odd the halved term contributes sin θ. Summing over k gives [[eq:tl5-cheb-derivative]], and the bound follows
 from |T_k| ≤ 1 on [−1, 1]. ∎
 
-**Lemma {#lem:tl5-rounding}** (The rounding.) For n, a ≥ 0 one has T_n^(a)(1) = Π_(r<a) (n² − r²)/(2r + 1), and on
+**Lemma {#lem:tl5-rounding}** (The rounding.) For n, a ≥ 0 one has T_n^(a)(1) = ∏_(r<a) (n² − r²)/(2r + 1), and on
 [−1, 1] one has |T_n^(a)| ≤ T_n^(a)(1). Hence, if two fields F and F̃ of the form [[eq:tl5-fields]] have
 coefficients that differ by at most ε₀, then for every multi-index γ
 
@@ -249,7 +249,7 @@ the map [[eq:tl5-cheb-derivative]]; it is the coefficient vector of Σ_(i ≤ n)
 integers, and their sum is Θ_n^(a). For a point c = (c₁, c₂, c₃) of [−1, 1]³, a field F and a multi-index γ put
 
     J^F_γ(c) := [F̃_γ(c) − r_γ(c), F̃_γ(c) + r_γ(c)],
-    r_γ(c) := (ε₀/γ!) Π_(d=1,2,3) Σ_(l=0..n_d) (𝟙^(γ_d)_(n_d))_l |T_l(c_d)|,      (n₁, n₂, n₃) := (24, 30, 15),
+    r_γ(c) := (ε₀/γ!) ∏_(d=1,2,3) Σ_(l=0..n_d) (𝟙^(γ_d)_(n_d))_l |T_l(c_d)|,      (n₁, n₂, n₃) := (24, 30, 15),
 
 with F̃ the printed field; the radius r_γ(c) depends neither on the field nor on the kind. Let Λ^F_γ be the number
 (Σ_ijk |C̃^(F,γ)_ijk| + ε₀Θ_γ)/γ! rounded upward to four significant digits, where C̃^(F,γ) arises from the printed
@@ -333,11 +333,12 @@ points (t_p, t_q, x_r) with t_p := (2p − 23)/24 (0 ≤ p, q ≤ 23) and x_r ru
 intervals [−1 + d_k, −1 + d_(k+1)] and [1 − d_(k+1), 1 − d_k] (0 ≤ k ≤ 9) and the eight numbers
 −3/4 + (2r + 1)·3/32 (0 ≤ r ≤ 7); [[sec:tab-d-points]] numbers them x_0 < x_1 < … < x_27.
 
-**Lemma {#lem:tl5-positive}** (Positivity.) Let 𝔟 be one of the boxes of the subdivisions in the proofs of
-[[prop:tl5-box-first]] and [[prop:tl5-boxes-second]], and c a point of G. For every approximant of either kind, the
-enclosure of R on 𝔟 by [[lem:tl5-field-box]] (γ = 0) lies in [1.80, ∞) and J^R_0(c) lies in [1.17, ∞). In the
-evaluations of [[lem:tl5-jet-enclosure]] on 𝔟, at its centre and at c, the constant term of every reciprocal and of
-every square root formed is a positive interval.
+**Lemma {#lem:tl5-positive}** (Positivity.) Let 𝔟 be one of the boxes of the subdivision in the proof of
+[[prop:tl5-box-first]], taken with the first kind, or of the subdivisions in the proof of [[prop:tl5-boxes-second]],
+taken with the second kind, and let c be a point of G. For that kind the enclosure of R on 𝔟 by [[lem:tl5-field-box]]
+(γ = 0) lies in [1.80, ∞), and for either kind J^R_0(c) lies in [1.17, ∞). In the evaluations of
+[[lem:tl5-jet-enclosure]] on 𝔟 and at its centre, for that kind, and at c, for either kind, the constant term of
+every reciprocal and of every square root formed is a positive interval.
 
 *Proof.* The lower ends of J^R_0(c) and of the enclosure of R on 𝔟 are the first numbers that the entries of
 [[sec:tab-d-points]] and [[sec:tab-d-boxes]] require, and those sections record that they exceed 1.172 at every

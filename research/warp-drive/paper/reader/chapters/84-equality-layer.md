@@ -911,60 +911,91 @@ No regularity of env at its edge beyond smoothness is used: the lemmas hold for 
 ### The theorem {#sec:layer-theorem}
 
 **Theorem {#thm:layer}** (Timelike points of the boundary in the layer.) Let μ0 = √72 l5², A > 0, env ∈
-C_c^∞([v_start, v_end]) not identically zero, v_s := inf supp env, τ0 with v_s − τ0 > √μ0 + 1, K ≥ 6, and let g_λ, 0 < λ
-≤ λ0, be the metric of [[thm:main]]: built with the approximant of [[thm:approximant]] with N = K + 3 stages and the
-stage data of [[lem:stage-data]], the correction of [[prop:exact-correction]], and [[thm:uniform-existence]]. There are
-λ_L ∈ (0, λ0] and, for every λ ≤ λ_L, an interval W_λ = [v*_λ, v*_λ + 4πλ], v*_λ the point where env first reaches the
-level λ^14, with v_s < v*_λ, v*_λ → v_s as λ → 0 and W_λ inside the layer v_s < v < v_s + η_λ of
-[[prop:eq-boundary]] (c), such that for every λ ≤ λ_L and every x̂ ∈ S³, with ϑ the polar angle of x̂,
+C_c^∞([v_start, v_end]) not identically zero, of either sign, v_s := inf supp env, τ0 with v_s − τ0 > √μ0 + 1, K ≥ 6,
+and let g_λ, 0 < λ ≤ λ0, be the metric of [[thm:main]]: built with the approximant of [[thm:approximant]] with
+N = K + 3 stages and the stage data of [[lem:stage-data]], the correction of [[prop:exact-correction]], and
+[[thm:uniform-existence]]. There are λ_L ∈ (0, λ0] and, for every λ ≤ λ_L, an interval W_λ = [v*_λ, v*_λ + 4πλ],
+v*_λ the point where |env| first reaches the level λ^14, with v_s < v*_λ, v*_λ → v_s as λ → 0, env of one sign on
+W_λ, and W_λ inside the layer v_s < v < v_s + η_λ of [[prop:eq-boundary]] (c), such that for every λ ≤ λ_L and every
+x̂ ∈ S³, with ϑ the polar angle of x̂,
 
     g_λ⁻¹(dΦ0, dΦ0)(v, r_q(v), x̂) = −λ³ A env(v) ν(v − τ0) Re[d(ϑ) e^(iv/λ)] + ρ_λ(v, x̂)   on W_λ,
-    sup_(W_λ × S³) |ρ_λ| ≤ δ(λ) λ³ A inf_(W_λ) (env |ν(· − τ0)|) inf_ϑ |d(ϑ)|,      δ(λ) → 0,           {#eq:layer-main}
+    sup_(W_λ × S³) |ρ_λ| ≤ δ(λ) λ³ A inf_(W_λ) (|env| |ν(· − τ0)|) inf_ϑ |d(ϑ)|,                       {#eq:layer-main}
 
-with d of [[eq:layer-divergence]], |d| ≥ 8/3 at every angle ([[lem:layer-angular]]), and ν of [[eq:layer-nu]]. So on
-every column the boundary {x_K = 1} has, in every half of W_λ, points where it is timelike for g_λ (g_λ⁻¹(dΦ0, dΦ0) >
-0) and points where it is spacelike. The boundary is not spacelike throughout the layer, and not timelike throughout
-it. The statement holds for every C_c^∞ envelope and every admissible τ0, including (v_s − τ0)/√μ0 = ρ*.
+where δ(λ) ≤ 1/2 for λ ≤ λ_L and δ(λ) → 0 as λ → 0, with d of [[eq:layer-divergence]], |d| ≥ 8/3 at every angle
+([[lem:layer-angular]]), and ν of [[eq:layer-nu]]. So on every column the boundary {x_K = 1} has, in every half of
+W_λ, points where it is timelike for g_λ (g_λ⁻¹(dΦ0, dΦ0) > 0) and points where it is spacelike. The boundary is not
+spacelike throughout the layer, and not timelike throughout it. The statement holds for every C_c^∞ envelope,
+whatever its sign, and every admissible τ0, including (v_s − τ0)/√μ0 = ρ*.
 
-*Proof.* Put M := M* = 2N + 8, m := 56 M, p := 14, κ := 64, y := λ^p, v* := v*(y) of [[lem:layer-levels]] (defined
-once y < E(v_s + 1)), W_λ := [v*, v* + 4πλ], ε_t := 2 C1 λ, v1 := v* + 4πλ + ε_t (τ_end − τ0) and L := v1 − v* = O(λ).
-Every boundary point X = (v, r_q(v), x̂) with v ∈ W_λ lies in the region R of [[lem:layer-remainder]] with this v1,
-since τ(X) ≤ τ_end, and has r(X) = r_q(v) ≥ q0. In what follows each condition holds for λ small, and λ_L is the least
-of the thresholds so obtained ([[sec:layer-threshold]]).
+*Proof.* Put M := M* = 2N + 8, m := 56 M, p := 14, κ := 64, y := λ^p, Δτ := τ_end − τ0, ε_t := 2 C1 λ and
+L := (4π + 2 C1 Δτ) λ. Fix η1 ∈ (0, min(1, T)] as follows. If (v_s − τ0)/√μ0 ≠ ρ*, then ν(v_s − τ0) ≠ 0
+([[prop:layer-linear]] (d)), and η1 is so small that ν_* := min_(v_s≤v≤v_s+η1) |ν(v − τ0)| > 0. If
+(v_s − τ0)/√μ0 = ρ*, then ν, as a function of ρ = (v − τ0)/√μ0, has a double zero at ρ* with ν″ := d²ν/dρ² ≠ 0
+there, so Taylor's formula gives ν(v − τ0) = (ν″(ρ*)/(2μ0)) (v − v_s)² (1 + o(1)) as v ↓ v_s, and η1 is so small that
+|ν(v − τ0)| ≥ ν_2 (v − v_s)² on [v_s, v_s + η1], ν_2 := |ν″(ρ*)|/(4μ0). Each step below needs λ ≤ Λ for a number
+Λ > 0 that does not depend on λ; [[sec:layer-threshold]] lists them, and λ_L is their minimum.
 
-*The window.* L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4 holds for λ small, since its left side divided by y is O(λ
-y^(−1/m)) = O(λ^(1−p/m)) and p/m < 1. So by [[lem:layer-levels]], on [v*, v1] env ∈ [3y/4, 5y/4], E ≤ 5y/4, ε_M(v1) ≤
-C y^(1−M/m) and ε_4(v1) ≤ C y^(1−4/m) ≤ λ, the hypothesis of [[lem:layer-remainder-weak]], since p(1 − 4/m) > 1. As
-y → 0, v* → v_s: E(v_s + x) > 0 for every x > 0, so E(v*) = y < E(v_s + x) forces v* < v_s + x.
+*The window.* Let λ ≤ 1 and λ ≤ Λ_0 := min(E(v_s + η1/2)^(1/p), η1/(2(4π + 2 C1 Δτ))), a positive number since
+v_s = inf supp env. Then y ≤ E(v_s + η1/2), so v* := v*(y) of [[lem:layer-levels]] exists and v_s < v* ≤ v_s + η1/2;
+and L ≤ η1/2. Put W_λ := [v*, v* + 4πλ] and v1 := v* + L = v* + 4πλ + ε_t Δτ. Then W_λ ⊂ [v*, v1] ⊂ (v_s, v_s + η1],
+v1 ≤ v_♯ and v1 − v_s ≤ 1. The hypothesis L C_(1,m) (2y)^(1−1/m) M_m^(1/m) ≤ y/4 of [[lem:layer-levels]] reads
+8 · 2^(−1/m) C_(1,m) M_m^(1/m) (4π + 2 C1 Δτ) λ^(1−p/m) ≤ 1, which is λ ≤ Λ_4, as p/m < 1. So on [v*, v1] env has
+one sign σ ∈ {1, −1}, |env| ∈ [3y/4, 5y/4], and E ≤ 5y/4. By [[lem:layer-interpolation]] and y ≤ 1, for c ≤ M,
 
-*Every point of W_λ is in the layer.* μ(v1) − μ0 ≤ (2/9) A² (v1 − v_s) (5y/4)², which is o(λ) since 2p > 1, while
-μ(v_s + η_λ) − μ0 = μ0((1 + 2 C_Φ λ)² − 1) ≥ 4 μ0 C_Φ λ; μ is nondecreasing, so v1 < v_s + η_λ.
+    ε_c(v1) ≤ Σ_(i≤c) C_(i,m) (5y/4)^(1−i/m) M_m^(i/m) ≤ y^(1−c/m) Σ_(i≤c) C_(i,m) (5/4)^(1−i/m) M_m^(i/m).
+
+So ε := ε_M(v1) ≤ C_ε y^(1−M/m), C_ε := Σ_(i≤M) C_(i,m) (5/4)^(1−i/m) M_m^(i/m); and each of the five terms of
+ε_4(v1) is at most λ/5 when λ ≤ Λ_5′, as p(1 − i/m) > 1 for i ≤ 4, so ε_4(v1) ≤ λ, the hypothesis of
+[[lem:layer-remainder-weak]]. As λ → 0, v* → v_s: E(v_s + x) > 0 for every x > 0, and v* ≤ v_s + x once
+y ≤ E(v_s + x).
+
+*The boundary points of W_λ.* Every boundary point X = (v, r_q(v), x̂) with v ∈ W_λ lies in the region R of
+[[lem:layer-remainder]] with this v1, since τ(X) ≤ τ_end gives v + ε_t (τ(X) − τ0) ≤ v* + 4πλ + ε_t Δτ = v1, and
+r(X) = r_q(v) ≥ q0. It lies in the layer: E ≤ 5y/4 on (−∞, v1] by [[lem:layer-levels]], so
+μ(v1) − μ0 = (2/9) A² ∫_(v_s)^(v1) env² ≤ (2/9) A² (v1 − v_s) (5y/4)² ≤ (25/72) A² λ^(2p), which is at most 4 μ0 C_Φ λ
+when λ ≤ Λ_6, while μ(v_s + η_λ) − μ0 = μ0((1 + 2 C_Φ λ)² − 1) > 4 μ0 C_Φ λ; μ is nondecreasing, so v1 < v_s + η_λ.
 
 *The expansion.* At X, [[lem:layer-inverse]] with k = Σ_j λ^j [g_j] + w, [[cor:layer-expansion]] and
-[[lem:layer-remainder-weak]] give, with ε := ε_M(v1),
+[[lem:layer-remainder-weak]] give
 
-    g_λ⁻¹(dΦ0, dΦ0) = −λ³ A env ν Re[d e^(iθ)] + ρ_λ,
-    |ρ_λ| ≤ C (y² + λ⁴ ε + λ ε² + λ^(N−5) ε) + |q|,      |q| ≤ C (λ² ε + λ ε² + λ^(N−5) ε)²,
+    g_λ⁻¹(dΦ0, dΦ0) = −λ³ A env ν Re[d e^(iθ)] + ρ_λ,      ρ_λ := −m0 + e + q,
+    |e| ≤ C_L11 (λ⁴ ε + λ ε² + C_L4 λ^(N−5) ε),      |q| ≤ C_q |k(Φ0♯, ·)| (|k(Φ0♯, ·)| + |k|²),
 
-the term y² bounding m0 ≤ C(E(v)² + ∫_(v_s)^v env²) ≤ C y². With ε ≤ C y^(1−M/m), M/m = 1/56,
+with C_L11 a constant for which the three bounds of [[eq:layer-expansion]] hold, C_L4 the constant of
+[[lem:layer-remainder-weak]] and C_q that of [[eq:layer-inverse]]. The margin satisfies 0 ≤ m0 ≤ C_m0 (5y/4)²,
+C_m0 := (A²/(9μ0))(1 + (μ0 μ(v_end))^(1/4)): by [[eq:eq-margin]], concavity of the square root and v − v_s ≤ 1,
+√(μ/μ0) − 1 ≤ (μ − μ0)/(2μ0) = (A²/(9μ0)) ∫_(v_s)^v env² ≤ (A²/(9μ0)) E(v)², and
+r_q μ′/(2μ) = (A²/9) (μ0 μ)^(1/4) env²/μ ≤ (A²/(9μ0)) (μ0 μ(v_end))^(1/4) E(v)².
 
-    |ρ_λ| ≤ C (λ^28 + λ^(4+13.75) + λ^(1+27.5) + λ^(N−5+13.75)).
+*Domination.* On W_λ, |env| ≥ 3y/4 and |d| ≥ d_* := 8/3 ([[lem:layer-angular]]). In the generic case
+|ν(v − τ0)| ≥ ν_*, since W_λ ⊂ [v_s, v_s + η1]; at ρ*, |ν(v − τ0)| ≥ ν_2 (v − v_s)² ≥ ν_2 (v* − v_s)² ≥
+ν_2 (y/C_κ)^(2/κ), by [[lem:layer-levels]]. So in both cases
 
-*Domination.* If (v_s − τ0)/√μ0 ≠ ρ*, then ν(v_s − τ0) ≠ 0, and by continuity |ν(v − τ0)| ≥ ν_* > 0 on W_λ for λ small;
-so λ³ A env |ν| |d| ≥ λ³ A (3y/4) ν_* (8/3) = 2 A ν_* λ^17. The four exponents of the bound on ρ_λ are 28, 17.75, 28.5
-and N + 8.75 ≥ 17.75 (N ≥ 9), all above 17, and |q| is smaller still; so δ(λ) → 0. If (v_s − τ0)/√μ0 = ρ*, then
-ν(v − τ0) = (ν″(ρ*)/(2μ0)) (v − v_s)² (1 + o(1)), with ν″ := d²ν/dρ² ≠ 0, and v − v_s ≥ v* − v_s ≥ (y/C_κ)^(1/κ)
-([[lem:layer-levels]]), so the signal is at least c λ³ y^(1+2/κ) = c λ^(17.4375); the same four exponents exceed 17.4375,
-the least being 17.75, and again δ(λ) → 0.
+    λ³ A |env| |ν(v − τ0)| |d(ϑ)| ≥ 10 G λ^(3+z)   on W_λ × S³,      G := 3 A ν_♭ d_*/40,           {#eq:layer-signal}
 
-*Sign change.* ν ≤ 0, so −ν = |ν|. The phase v/λ turns twice on W_λ, and in each half of W_λ there are points where
-Re[d(ϑ) e^(iv/λ)] = |d(ϑ)| and points where it equals −|d(ϑ)|. At the former, by [[eq:layer-main]], g_λ⁻¹(dΦ0, dΦ0) ≥
-λ³ A env |ν| |d| (1 − δ(λ)) > 0: timelike; at the latter it is at most −λ³ A env |ν| |d| (1 − δ(λ)) < 0: spacelike. ∎
+with z := p and ν_♭ := ν_* in the generic case, and z := p(1 + 2/κ) and ν_♭ := ν_2 C_κ^(−2/κ) at ρ*. When
+λ ≤ min(Λ_8a, Λ_8b, Λ_8c, Λ_8d), each of m0, C_L11 λ⁴ ε, C_L11 λ ε² and C_L11 C_L4 λ^(N−5) ε is at most G λ^(3+z), by
+the bounds on m0 and ε above. Then, by [[eq:layer-expansion]] and |w| ≤ C_L4 λ^(N−5) ε, C_L11 (λ² ε + λ ε² + |w|) ≤
+G (λ^(1+z) + 2 λ^(3+z)) ≤ 3 G λ^(1+z) bounds |k(Φ0♯, ·)|, and C_L11 (λ ε + |w|) ≤ 2 G λ^z bounds |k|; so
+|q| ≤ C_q (9 G² λ^(2+2z) + 12 G³ λ^(1+3z)) ≤ C_q G² (9 + 12 G) λ^(2+2z), as z ≥ 1, and this is at most G λ^(3+z)
+when λ ≤ Λ_8e. Hence |ρ_λ| ≤ 5 G λ^(3+z), and by [[eq:layer-signal]] the bound of [[eq:layer-main]] holds with
+δ(λ) ≤ 1/2. As λ → 0, each of the five terms divided by λ^(3+z) tends to zero: with ε ≤ C_ε λ^(p(1−M/m)) and
+M/m = 1/56, the quotients are at most constant multiples of λ to the powers 2p − 3 − z, 1 + p(1 − M/m) − z,
+2p(1 − M/m) − 2 − z, N − 8 + p(1 − M/m) − z and z − 1, which are 11, 0.75, 11.5, N − 8.25 and 13 in the generic
+case and 10.5625, 0.3125, 11.0625, N − 8.6875 and 13.4375 at ρ*, all positive since N ≥ 9. So δ(λ) → 0.
 
-The exponent conditions used are, with s := p in the generic case and s := p(1 + 2/κ) at ρ*: 2p > 3 + s (the margin);
-4 + p(1 − M/m) > 3 + s (the term λ⁴ ε); 1 + 2p(1 − M/m) > 3 + s (degree two); N − 5 + p(1 − M/m) > 3 + s (the remainder,
-which needs N ≥ 9, that is K ≥ 6); p/m < 1 (the window); p(1 − 4/m) > 1 (the hypothesis of
-[[lem:layer-remainder-weak]]); and 2p > 1 (the layer). They are linear in p.
+*Sign change.* ν ≤ 0, so −ν = |ν|, and env = σ |env| on W_λ; so the first term of [[eq:layer-main]] is
+λ³ A |env| |ν| Re[σ d(ϑ) e^(iv/λ)]: an envelope of the other sign shifts the phase by π. The phase v/λ turns twice on
+W_λ, and in each half of W_λ there are points where Re[σ d(ϑ) e^(iv/λ)] = |d(ϑ)| and points where it equals −|d(ϑ)|.
+At the former, by [[eq:layer-main]], g_λ⁻¹(dΦ0, dΦ0) ≥ λ³ A |env| |ν| |d| (1 − δ(λ)) > 0: timelike; at the latter it
+is at most −λ³ A |env| |ν| |d| (1 − δ(λ)) < 0: spacelike. ∎
+
+The exponent conditions used are, with z := p in the generic case and z := p(1 + 2/κ) at ρ*: 2p > 3 + z (the margin);
+4 + p(1 − M/m) > 3 + z (the term λ⁴ ε); 1 + 2p(1 − M/m) > 3 + z (degree two); N − 5 + p(1 − M/m) > 3 + z (the
+remainder, which needs N ≥ 9, that is K ≥ 6); z > 1 (the term q); p/m < 1 (the window); p(1 − 4/m) > 1 (the
+hypothesis of [[lem:layer-remainder-weak]]); 2p > 1 (the layer); and, for [[thm:layer-past]], p(1 − M/m) > 3 (the
+hypothesis of [[lem:layer-remainder-past]]). They are linear in p.
 
 **Corollary {#cor:layer}** (Timelike curves cross the boundary.) Under the hypotheses of [[thm:layer]], at each point of
 W_λ where {x_K = 1} is timelike for g_λ, some future timelike curves of g_λ cross it from {x_K > 1} into D_T. So at
