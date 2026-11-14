@@ -339,7 +339,8 @@ on stationary sections □̄ acts in the Cartesian frame as −Δ on each compon
 
 The second and the last follow from Δ(fg) = (Δf)g + 2∇f·∇g + fΔg with x·∇(x_ix_j) = 2x_ix_j, Δ(x_ix_j) = 2δ_(ij),
 x·∇(x_iW_j) = 2x_iW_j and Δ(x_iW_j) = 2∂_iW_j, the Killing equation removing the last term after symmetrising; the
-fifth and sixth from x·W = 0, ∂_jW_j = 0 and x·∇W_i = W_i.
+third and fourth are direct, as ∂_j(x_ix_j) = 5x_i; the fifth and sixth follow from x·W = 0, ∂_jW_j = 0 (a consequence
+of the Killing equation) and x·∇W_i = W_i.
 
 (a) Let h := r^(−ι)K. Then tr h = 0 (tr Σ(dx^i)² = 4, tr dr² = 1, ⟨dr, V̂⟩ = 0) and ι_(∂_t̄)h = 0, so Ḡh = h and,
 as c̄_Υ^♯ = −r⁻¹∂_t̄, Ē^ΥḠh = −γ_Υ(2ι_(c̄_Υ^♯)h − e_Υc̄_Υ tr h) = 0 ([[sec:iii-f1-1]]). For K_s0, h_(ij) =
@@ -357,17 +358,19 @@ which is [[eq:sp-gauge]].
 no mixed time–space components, and by the identities
 Σ_j∂_j(r^(−2)((2 + e_Υ)δ_(ij) + (4 + 2e_Υ)n_in_j)) = (−2(2 + e_Υ) + (4 + 2e_Υ))r^(−3)n_i = 0; so δ̄Ḡh = 0.
 Finally Δ(r^(−2)) = 0, so Δ(r^(−2)dt̄²) = 0 and Δ(r^(−2)δ_(ij)) = 0, while Δ(r^(−2)n_in_j) = r^(−4)(2δ_(ij) −
-8n_in_j). So (2L̄)^(0)h = □̄h = (4 + 2e_Υ)r^(−4)(2δ_(ij) − 8n_in_j)dx^idx^j = 4(e_Υ + 2)r^(−4)K_s0.
+8n_in_j). The terms of (2L̄)^(0)h other than □̄h vanish, so
+(2L̄)^(0)h = □̄h = (4 + 2e_Υ)r^(−4)(2δ_(ij) − 8n_in_j)dx^idx^j = 4(e_Υ + 2)r^(−4)K_s0.
 
-(c) Let k_τ ∈ ℂ^(n_τ) be the coefficient vector of K_τ, which by (a) satisfies N_τ(ι)k_τ = (ι − 4)(2S_τ − ι − 2)k_τ,
-so k_τ spans ker N_τ(4), the root 4 being simple. K(5) = 3, and by [[eq:sp-matrix]] a vector (μ_0, μ_1, μ_2, μ_3)
+(c) K_s0 and Z are invariant under SO(4), of type s0, and K_v1 lies in W_π = ℂ² ⊗ π for the representation π of
+vector type 1 that contains W; let k_τ ∈ ℂ^(n_τ) be the vector with K_s0 = k_s0, resp. K_v1 = k_v1 ⊗ W, and z the one
+of Z. By (a), N_τ(ι)k_τ = (ι − 4)(2S_τ − ι − 2)k_τ, so k_τ spans ker N_τ(4), the root 4 being simple. K(5) = 3, and by [[eq:sp-matrix]] a vector (μ_0, μ_1, μ_2, μ_3)
 lies in ker 𝔐_τ(5) exactly when
 
     N_τ(4)μ_0 = 0,  N_τ(3)μ_1 = −2(5/2 − S_τ)μ_0,  N_τ(2)μ_2 = −4(3/2 − S_τ)μ_1,  N_τ(1)μ_3 = −6(1/2 − S_τ)μ_2.
 
 *Type s0.* N_s0(3) and N_s0(1) are invertible. By (a) at ι = 3, N_s0(3)k_s0 = 2(5/2 − S_s0)k_s0, so μ_0 := k_s0
 gives μ_1 = −k_s0. By (a) at ι = 2, N_s0(2)k_s0 = 4(2 − S_s0)k_s0, so −4(3/2 − S_s0)μ_1 = N_s0(2)k_s0 − 2k_s0, which
-by (b) equals N_s0(2)(k_s0 − z/(2(e_Υ + 2))), z the coefficient vector of Z. So μ_2 := k_s0 − z/(2(e_Υ + 2)) and
+by (b) equals N_s0(2)(k_s0 − z/(2(e_Υ + 2))). So μ_2 := k_s0 − z/(2(e_Υ + 2)) and
 μ_3 := −6N_s0(1)⁻¹(1/2 − S_s0)μ_2 complete a kernel vector with μ_0 ≠ 0. A second one is (0, 0, w, μ_3), w spanning
 ker N_s0(2) and μ_3 := −6N_s0(1)⁻¹(1/2 − S_s0)w. *Type v1.* N_v1(2) and N_v1(1) are invertible. For μ_0 := a k_v1
 and w ∈ ker N_v1(3), μ_1 := −a k_v1 + w solves the second equation, by (a) at ι = 3, and μ_2, μ_3 are then determined;
