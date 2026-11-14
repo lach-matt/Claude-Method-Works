@@ -1308,3 +1308,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   Values for the paper: l_* = L ∈ [39, 50], take 50; K_ι ≤ 2 on Σ (the texts' bounds 52 and 101 also hold).
 - F4-82 done (reports/F4-82.md); merge notes forwarded to F-P-K82 ((1)-(6), the C(𝒩^∞)² term, invariant sections).
   R4-82 reads chapter 82.
+- R3-85 CONFIRMED (reviews/R3-85.md): chapter 85 CONFIRMED; seven exact nits applied by N3-85 (lem:layer-flat (e)
+  range possibly extended to j ≤ 5 in chapter 84). R4-82 reads chapter 82 after F4-82.
