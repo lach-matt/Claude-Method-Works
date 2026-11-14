@@ -1300,3 +1300,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   confirming read of the changed hunks.
 - F-P-U71-IS done (reports/F-P-U71-IS.md, diff in scratch f_is/fix.diff); R2-P-U71-IS reads it. Open by statement, not by
   gap: whether a non-real root of modulus > 50 from P_l with hκ > 70 exists; nothing depends on it.
+- F4-81 done (reports/F4-81.md). Its P-K82 wording (support condition with normalised phases, normalisation point
+  outside the 𝒱_B) forwarded to F-P-K82. R5-81 reads the changed hunks.
