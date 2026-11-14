@@ -1159,16 +1159,42 @@ below 0.02 for n = 4, 8, 16. No proof uses these values.
 
 ### The high-frequency step with n families {#sec:vlasov-n}
 
-In this section g0 is a smooth class Einstein–n-null-dust solution on Ω, n families u_A with ℓ_A := g0⁻¹du_A future
-directed and densities F_A² (A = 1, …, n), F_A smooth and transported by [[eq:vlasov-amplitude]], such that:
+In this section g0 is a smooth class metric on Ω, and u_A and F_A ≥ 0 (A = 1, …, n) are smooth invariant functions on Ω
+with Ric(g0) = Σ_A F_A² du_A ⊗ du_A. Put ℓ_A := g0⁻¹du_A. For each A let S_A ⊂ Σ_τ0 ∩ Ω be a compact invariant set with
+supp F_A ∩ Σ_τ0 ⊂ int S_A (interior relative to Σ_τ0), let 𝒱_A be the tube of S_A for u_A and 𝒯_A ⊂ 𝒱_A that of
+supp F_A ∩ Σ_τ0, the *support* of family A ([[def:vlasov-label]]). We assume that u_A is an eikonal of g0, with ℓ_A
+future directed, on a neighbourhood of 𝒱_A, and that F_A is transported by [[eq:vlasov-amplitude]] and vanishes off 𝒯_A;
+and:
 
-- (i) (Ω) holds for g0, for the generators of every family;
+- (i) (Ω) holds for g0;
 - (ii′) on the overlap of the supports of any two families |g0⁻¹(du_A, du_B)| ≥ c > 0, and the frequencies are ν_A :=
   Λ^(A−1), with Λ > (m* + m*²/2) Ē²/c, where m* := 2N + 4, N is the number of stages, and Ē bounds |du_A| in
   orthonormal frames on the supports;
 - (iii) the wave of family A is the wave W_A of the dust (u_A, F_A) at frequency ν_A ([[def:vlasov-wave]]), at the phase
   θ_A = ν_A u_A/λ: torus-polarised, with its gauge part;
-- (iv) the supports of the families lie at distance at least δ > 0 from the axes.
+- (iv) every 𝒱_A lies at distance at least δ > 0 from the axes.
+
+Off a neighbourhood of 𝒱_A the function u_A is not an eikonal in general, and nothing of family A is posed there:
+
+(v) *Localisation.* (a) Every transport of family A runs along ℓ_A and is posed on 𝒱_A: the gauge part of its wave, its
+phase corrections and pure harmonics in [[thm:vlasov-n-approximant]], its oscillating gauge transports in
+[[thm:vlasov-n-data]], and φ_A and Ψ_A in [[thm:vlasov-n-uniform]]. The integral curve of ℓ_A through a point of 𝒱_A,
+followed backward, reaches Σ_τ0 inside 𝒱_A, since 𝒱_A is a tube. The transport estimates hold on the slices 𝒱_A ∩ Σ_τ:
+in the argument of [[lem:class-transport]] on 𝒱_A ∩ {τ0 ≤ t ≤ τ}, with the field ℓ_A, the flux through the part of the
+boundary ruled by integral curves of ℓ_A vanishes, and that through the lateral boundary of Ω is nonnegative by (Ω),
+ℓ_A being future directed and null; this is the estimate of [[lem:two-dust-transport]] for Z_A := ℓ_A/ℓ_A(τ), with the
+norms on 𝒱_A ∩ Σ_τ. (b) If the data of the pure harmonics of family A vanish off supp F_A ∩ Σ_τ0, every profile that
+carries a harmonic e^(i j·θ) with j_A ≠ 0 vanishes off 𝒯_A. Indeed F_A vanishes off 𝒯_A, and so does the gauge part of
+W_A, whose transport has zero data and the source F_A²/ν_A² ([[def:vlasov-wave]]): the integral curves of ℓ_A through
+points of 𝒱_A ∖ 𝒯_A start outside supp F_A, integral curves not meeting. At each stage, a term of the residual that
+carries such a harmonic is a product with a factor that carries a harmonic of θ_A, the means and the phase corrections
+carrying none; by induction on the stage it vanishes off 𝒯_A. The pure harmonics of family A are transported along ℓ_A
+with such sources and with data vanishing off supp F_A ∩ Σ_τ0, so they vanish on the integral curves from points of
+Σ_τ0 ∖ supp F_A, that is off 𝒯_A; and the mixed harmonics are quotients of such terms by Q_j, pointwise. (c) Hence the
+phase corrections of family A, φ_A and Ψ_A enter every other equation only multiplied by profiles that vanish off 𝒯_A,
+a compact subset of the tube of int S_A, which is relatively open in Ω and lies in 𝒱_A. These products, extended by
+zero, are smooth on Ω, and the norms of φ_A and Ψ_A are taken on 𝒱_A ∩ Σ_τ. The contraction s_A(h) := h(ℓ_A, ℓ_A),
+and the ℓ_A ⊗ ℓ_A component of the equation for h, use ℓ_A = g0⁻¹du_A on the whole of Ω.
 
 By [[lem:vlasov-hierarchy]] with m = m*, every symbol [[eq:vlasov-symbol]] with at least two nonzero entries and |j|₁ ≤
 m* satisfies |Q_j| ≥ 2 ν_B1 ν_B2 c* on the overlaps, c* := c − m* Ē²/Λ − m*² Ē²/(2Λ) > 0. These conditions are those of
@@ -1176,7 +1202,8 @@ the two-dust theorem with one transport and one phase per family, the mixed symb
 used; we list what changes from two families to n.
 
 **Theorem {#thm:vlasov-n-approximant}** (The approximant with n phases.) Under (i)–(iv), for every N ≥ 1 and every
-smooth choice of stage data there are profiles g_1, …, g_N in (X, θ_1, …, θ_n), independent of λ, such that g_app = g0 +
+smooth choice of stage data, those of the pure harmonics of family A vanishing off supp F_A ∩ Σ_τ0 for every A, there
+are profiles g_1, …, g_N in (X, θ_1, …, θ_n), independent of λ, such that g_app = g0 +
 λ [g_1] + Σ_(l=2)^N λ^l [g_l], with the phases θ_A = ν_A u_A/λ, is an n-phase approximant with N stages of order K =
 N − 1 at every regularity k, in the sense of [[def:two-dust-approximant]] with one phase per family, and with g_1 =
 m_1 + Σ_A W_A(X, θ_A + φ_1^A(X)), W_A the waves of (iii).
@@ -1190,14 +1217,17 @@ at order λ^(l_1 + ⋯ + l_p − 2) at most, and, by induction on the stage, ĝ_
 λ^m has |j|₁ ≤ 2(m + 2). On the overlaps |Q_j| ≥ 2 ν_B1 ν_B2 c* for |j|₁ ≤ m* = 2N + 4, by (ii′). The phase
 corrections and the mean change Q_j by O(λ), and this change is moved to the next order, as in
 [[lem:two-dust-nonresonance]], since |j|₁ is bounded at each stage; each division costs one derivative, and there are
-finitely many stages. Every generator through a point of Ω reaches Σ_τ0 inside Ω, by (Ω), so the Picard argument of
-[[thm:approximant]] closes the stage system.
+finitely many stages. The transports of family A are posed on 𝒱_A, whose generators reach Σ_τ0 inside 𝒱_A, with the
+estimates of (v) (a), and the transported unknowns of family A enter the other equations only through products that
+vanish off 𝒯_A, by (v) (b)–(c); the Q_j are divided only on the overlaps of the supports, where (ii′) holds. So the
+Picard argument of [[thm:approximant]] closes the stage system.
 
 Stage 0: with g_1 := Σ_A W_A and ĝ_2 := q, R[g0 + λ Σ_A W_A + λ² q] has R^(−1) = 0, and its coefficient of λ⁰ is R^(0) =
 Σ_A (R^(0)_A − Ric(g0)) + Ric(g0) + R^(0)_× + (the contribution of q), as in [[lem:two-dust-stage-zero]] (a)–(b) with n
 phases: a term with two phase derivatives on one wave W_A is that of R[g0 + λ W_A], a product of two different waves has
 only mixed harmonics, and the cross terms of order λ⁻¹ vanish since each W_A depends on one phase. By
-[[lem:vlasov-wave]], R^(0)_A = Ric(g0) − F_A² du_A ⊗ du_A, with no oscillating part, the gauge part χ_A k_A ⊗ k_A
+[[lem:vlasov-wave]] on 𝒱_A, where u_A is an eikonal, and since W_A and F_A vanish off 𝒯_A, R^(0)_A = Ric(g0) −
+F_A² du_A ⊗ du_A on Ω, with no oscillating part, the gauge part χ_A k_A ⊗ k_A
 removing the second harmonic of the quadratic term; so the first three terms add up to Ric(g0) − Σ_A F_A² du_A ⊗ du_A +
 R^(0)_× = R^(0)_×, g0 being the Einstein–n-null-dust solution. The mixed harmonics R^(0)_× are removed by the mixed
 harmonics of q, divided by the symbols Q_j of [[eq:vlasov-symbol]] with |j|₁ ≤ 4, bounded below by (ii′), since q enters
@@ -1219,20 +1249,24 @@ on Σ_τ0 for Ric^H(g) = 0 with w := g − g_app satisfying (E4) of [[thm:unifor
 
     w = h + Σ_A φ_A Y_A,      𝒩_n(τ) ≤ M(n) λ^K   on [τ0, τ_end],                                {#eq:vlasov-n-remainder}
 
-𝒩_n the energy [[eq:two-dust-energy]] summed over the n families. In particular |w| ≤ M(n) λ^(K−3) and |∂w| ≤
-M(n) λ^(K−4) on Ω.
+𝒩_n the energy [[eq:two-dust-energy]] summed over the n families, the norms of φ_A and Ψ_A taken on 𝒱_A ∩ Σ_τ
+((v) (c)), and φ_A Y_A extended by zero off 𝒯_A. In particular |w| ≤ M(n) λ^(K−3) and |∂w| ≤ M(n) λ^(K−4) on Ω.
 
 *Proof.* The proof of [[thm:two-dust-uniform]], with these changes.
 
-(1) *The decomposition.* The phase shifts solve n transports ℓ_A·dφ_A = ½ 𝒫 s_A(h), φ_A = 0 on Σ_τ0, coupled through the
-bounded maps φ ↦ 𝒫([Y_B(ℓ_A, ℓ_A)] φ) of [[eq:mollifier-m1]]; on slabs of a length independent of the data the coupled
-map is a contraction, and Picard's theorem gives the decomposition.
+(1) *The decomposition.* The phase shifts solve n transports ℓ_A·dφ_A = ½ 𝒫 s_A(h) on 𝒱_A, φ_A = 0 on 𝒱_A ∩ Σ_τ0, coupled
+through the bounded maps φ ↦ 𝒫([Y_B(ℓ_A, ℓ_A)] φ) of [[eq:mollifier-m1]], the product [Y_B(ℓ_A, ℓ_A)] φ_B extended by
+zero off 𝒯_B and the result restricted to 𝒱_A; on slabs of a length independent of the data the coupled map is a
+contraction in the norms on the 𝒱_A ∩ Σ_τ, by (v) (a), and Picard's theorem gives the decomposition. For the bounds of
+Step 1 of [[thm:two-dust-uniform]] on φ_A Y_A, write it as (χ_A φ_A) Y_A with χ_A a smooth cut-off equal to 1 on 𝒯_A
+and vanishing off the tube of int S_A, independent of λ, and apply Sobolev's inequality to χ_A φ_A on Σ_τ.
 
 (2) *The term of order λ⁻¹.* The part of order λ⁻¹ of the linearisation is ½ λ⁻¹ Σ_A s_A(h) G2^A, linear in the waves,
 as in (L1) of [[lem:two-dust-facts]].
 
-(3) *The ℓ_A ⊗ ℓ_A component.* Contracting the equation for h with ℓ_A ⊗ ℓ_A kills family A's term of order λ⁻¹ and its
-□̃φ_A term, as for one family. Every B ≠ A remains exactly as the other family remains in [[lem:two-dust-ell-ell]]:
+(3) *The ℓ_A ⊗ ℓ_A component.* Contracting the equation for h with ℓ_A ⊗ ℓ_A, ℓ_A = g0⁻¹du_A on the whole of Ω, kills
+family A's term of order λ⁻¹ and its □̃φ_A term, as for one family: they carry G2^A and G1^A, which vanish off 𝒯_A, and
+on 𝒯_A, ℓ_A is null and G1^A(ℓ_A, ·) = G2^A(ℓ_A, ·) = 0. Every B ≠ A remains exactly as the other family remains in [[lem:two-dust-ell-ell]]:
 ½ λ⁻¹((1 − 𝒫) s_B(h)) G2^B(ℓ_A, ℓ_A) = O(∂ s_B(h)) and λ⁻¹((ℓ_app^B − ℓ_B)·dφ_B) G2^B(ℓ_A, ℓ_A) = O(|dφ_B|), with Ψ_B :=
 □̃φ_B carrying a bounded coefficient. The torus part of W_B vanishes on vectors of the orbit space, so G2^B(ℓ_A, ℓ_A) is
 the contribution of the gauge part, ν_B² [∂²_(θ_B) χ_B] (ℓ_A·du_B)², a bounded profile in θ_B alone, as for two
