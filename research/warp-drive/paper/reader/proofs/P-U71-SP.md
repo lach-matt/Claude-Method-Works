@@ -126,27 +126,25 @@ when c′ > Re ϰ_0 − 2;
 
 *Proof.* (a) By [[eq:sp-chain]], N_sf(ϰ_0)u_j = −N_sf′(ϰ_0)u_(j−1) − ½N_sf″(ϰ_0)u_(j−2), where by [[eq:iii-g-1-2]] and
 [[eq:iii-g-1-3]] N_sf′(ϰ) = −2∂_v − 2(v∂_v + ϰ) + a(ω) and N_sf″ = −2. These operators map Ḣ^((s;k),c)_(b;b) into
-Ḣ^((s−1;k),c)_(b;b) for every k: near v = 0 because ∂_v(v∂_v) = (v∂_v + 1)∂_v and ∂_v commutes with the ℒ_Ω, so
-that words pass through ∂_v, and near R = 0 because ∂_v = −R(R∂_R). By induction on j, [[thm:iii-g-5-1]] (3) gives
-u_j ∈ Ḣ^((s;∞),c)_(b;b). Near R = 0 this space is H^∞_(b,c) ([[sec:iii-g-1-2]]), so |W^αu_j| ≤ C_αv^(−c) on
-{v ≥ 4} for every word W^α in v∂_v and the ℒ_Ω ([[lem:i-c-2-2]] (f)). Let W̃^α be W^α with every v∂_v replaced by
-v∂_v + 1 (W̃^α = Id for the empty word). Then W^αI = IW̃^α, as v∂_vI = I(v∂_v + 1) (both sides vanish on {v < −1}
-and have the same v-derivative) and the ℒ_Ω commute with I. Put g := W̃^αu_j. It lies in Ḣ^(s−|α|,c)_b, |α| the
-length of the word, and |g| ≤ C′_αv^(−c) on {v ≥ 4}. Moreover 𝔮_0(g) = 0. Indeed 𝔮_0 commutes with the ℒ_Ω,
-𝔮_0(u_j) = 0, and 𝔮_0((v∂_v + 1)w) = 0 for every w ∈ Ḣ^(s′,c)_b, s′ ∈ ℝ: for w ∈ C_c^∞((−1, ∞) × 𝕊³) it is
-∫ ∂_v(vw) dv = 0, such w are dense ([[lem:i-a-6-1]] (a), [[lem:i-c-2-2]] (d), as in the proof of [[lem:sp-moments]]),
-and w ↦ 𝔮_0((v∂_v + 1)w) is continuous, v∂_v + 1 mapping Ḣ^(s′,c)_b into Ḣ^(s′−1,c)_b ([[def:sp-moments]], c > 1).
-Moving the ℒ_Ω at the left end of W̃^α through 𝔮_0, one reaches either a factor
-v∂_v + 1, which gives 0, or, if W̃^α has none, 𝔮_0(u_j) = 0. Take χ ∈ C^∞(ℝ) equal to 1 on (−∞, 3] and to 0 on
-[4, ∞). Then I(χg) is constant on {v ≥ 4}, equal to ⟨χg, 1⟩, and so, on {v ≥ 4},
+Ḣ^((s−1;k),c)_(b;b) for every k: near v = 0 because ∂_v(v∂_v) = (v∂_v + 1)∂_v and ∂_v commutes with the ℒ_Ω, so that
+words pass through ∂_v, and near R = 0 because ∂_v = −R(R∂_R). By induction on j, [[thm:iii-g-5-1]] (3) gives u_j ∈
+Ḣ^((s;∞),c)_(b;b). Near R = 0 this space is H^∞_(b,c) ([[sec:iii-g-1-2]]), so |W^αu_j| ≤ C_αv^(−c) on {v ≥ 4} for every
+word W^α in v∂_v and the ℒ_Ω ([[lem:i-c-2-2]] (f)). Let W̃^α be W^α with every v∂_v replaced by v∂_v + 1 (W̃^α = Id for
+the empty word). Then W^αI = IW̃^α, as v∂_vI = I(v∂_v + 1) (both sides vanish on {v < −1} and have the same v-derivative)
+and the ℒ_Ω commute with I. Put g := W̃^αu_j. It lies in Ḣ^(s−|α|,c)_b, |α| the length of the word, and |g| ≤ C′_αv^(−c)
+on {v ≥ 4}. Moreover 𝔮_0(g) = 0. Indeed 𝔮_0 commutes with the ℒ_Ω, 𝔮_0(u_j) = 0, and 𝔮_0((v∂_v + 1)w) = 0 for every w ∈
+Ḣ^(s′,c)_b, s′ ∈ ℝ: for w ∈ C_c^∞((−1, ∞) × 𝕊³) it is ∫ ∂_v(vw) dv = 0, such w are dense ([[lem:i-a-6-1]] (a),
+[[lem:i-c-2-2]] (d), as in the proof of [[lem:sp-moments]]), and w ↦ 𝔮_0((v∂_v + 1)w) is continuous, v∂_v + 1 mapping
+Ḣ^(s′,c)_b into Ḣ^(s′−1,c)_b ([[def:sp-moments]], c > 1). Moving the ℒ_Ω at the left end of W̃^α through 𝔮_0, one reaches
+either a factor v∂_v + 1, which gives 0, or, if W̃^α has none, 𝔮_0(u_j) = 0. Take χ ∈ C^∞(ℝ) equal to 1 on (−∞, 3] and to
+0 on [4, ∞). Then I(χg) is constant on {v ≥ 4}, equal to ⟨χg, 1⟩, and so, on {v ≥ 4},
 
     W^αIu_j(v) = Ig(v) = ⟨χg, 1⟩ + ∫_3^v (1 − χ)g dv′ = 𝔮_0(g) − ∫_v^∞ g dv′ = −∫_v^∞ g dv′.
 
 So |W^αIu_j| ≤ C′_αv^(1−c)/(c − 1) on {v ≥ 4}, for every word W^α; hence Iu_j ∈ 𝒜^(c−1) ⊂ H^∞_(b,c′) near R = 0
-([[lem:i-c-2-2]] (f)). On {v < 5} we use W^αIu_j = I(W̃^αu_j) again. By (i) of the proof of
-[[lem:iii-g1-2-1]] each W̃^αu_j lies in H^s(ℝ; H^m(𝕊³)) for every m; the primitive maps this space into
-H^(s+1)(ℝ; H^m(𝕊³)) locally ((iii) (α) there); and the latter lies in H^(s+1) for m large, as in (i) there. So
-Iu_j ∈ Ḣ^((s+1;∞),c′)_(b;b).
+([[lem:i-c-2-2]] (f)). On {v < 5} we use W^αIu_j = I(W̃^αu_j) again. By (i) of the proof of [[lem:iii-g1-2-1]] each
+W̃^αu_j lies in H^s(ℝ; H^m(𝕊³)) for every m; the primitive maps this space into H^(s+1)(ℝ; H^m(𝕊³)) locally ((iii) (α)
+there); and the latter lies in H^(s+1) for m large, as in (i) there. So Iu_j ∈ Ḣ^((s+1;∞),c′)_(b;b).
 
 (b) By [[lem:iii-g-1-2]] (e), N_sf(ϰ + 1)∂_v = ∂_vN_sf(ϰ) for every ϰ; differentiating in ϰ,
 N_sf^(i)(ϰ_0)∂_v = ∂_vN_sf^(i)(ϰ_0 − 1). So F_j := Σ_(i≤j)(i!)⁻¹N_sf^(i)(ϰ_0 − 1)Iu_(j−i) has
