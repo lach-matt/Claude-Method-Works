@@ -394,8 +394,8 @@ point lies in more than m_ℬ ≤ N_ℬ of the U_β, 1 ≤ Σ_β χ°_β ≤ N_�
 vanishes outside φ_α(F), with F ⊂ U_α ∩ U_β compact, put T^ϕ_(βα)w := (ϕw) ∘ φ_α ∘ φ_β⁻¹ on φ_β(U_α ∩ U_β),
 extended by 0. If the derivatives of ϕ of order at most |k| are bounded, then ‖T^ϕ_(βα)w‖_(H^k) ≤ C‖w‖_(H^k). For
 k ≥ 0 this is Leibniz's rule, the chain rule and the change of variables, the transition maps and their inverses
-having bounded derivatives ((S1)). For k < 0 it follows by duality, the L²-adjoint of T^ϕ_(βα) being T^(ϕ′)_(αβ) with ϕ′ := (ϕ̄ |det D(φ_β ∘ φ_α⁻¹)|) ∘ φ_α ∘ φ_β⁻¹, a
-function of the same kind. Now (φ_β)_*(χ°_βφ_α^*w_α) = T^ϕ_(βα)w_α with ϕ := χ̌ · (χ° ∘ φ_β ∘ φ_α⁻¹), where
+having bounded derivatives ((S1)). For k < 0 it follows by duality, the L²-adjoint of T^ϕ_(βα) being T^(ϕ′)_(αβ)
+with ϕ′ := (ϕ̄ |det D(φ_β ∘ φ_α⁻¹)|) ∘ φ_α ∘ φ_β⁻¹, a function of the same kind. Now (φ_β)_*(χ°_βφ_α^*w_α) = T^ϕ_(βα)w_α with ϕ := χ̌ · (χ° ∘ φ_β ∘ φ_α⁻¹), where
 χ̌ ∈ C_c^∞((−2, 2)ⁿ) equals 1 on K and χ° ∘ φ_β ∘ φ_α⁻¹, extended by 0, is smooth, as φ_β⁻¹(supp χ°) is compact;
 and it vanishes unless α ∈ A_β. So the left side of the first bound is at most Σ_β N_ℬ Σ_(α∈A_β) C‖w_α‖², which is
 at most CN_ℬ² Σ_α ‖w_α‖². For the second, ϑ_αu = Σ_(β∈A_α) ϑ_αζχ°_βu with ζ := (Σ_γ χ°_γ)⁻¹, whose derivatives in
