@@ -572,13 +572,16 @@ unknown α. For a wave with a trace on the spheres, ξ2 = ξ1, the mean curvatur
 *Proof.* The coefficients of the angular second derivatives of the metric unknown in ρ and of the first derivatives of
 the momentum unknowns in J, and 𝒮, involve γ, its inverse, Π and α, undifferentiated ([[lem:constraints-evolution]]
 (a)), and γ = γ0 + λ (…), the dots a polynomial in λ with profile coefficients. In (γ^(rr))^(3/2) H, γ^(rr) is
-undifferentiated, and H = H̃/ν with H̃ = ½ tr_Π(∂_r Π − 𝓛_σ Π). The torus directions are tangent to the spheres, so the
-part of order λ⁰ of ∂_r Π is ∂_r Π0 plus the oscillating part Σ_A ν_A ∂_r u_A ∂_(θ_A) W_A, and Π^(AB) = Π0^(AB) + O(λ),
-so the part of order λ⁰ of H̃ is H̃0 plus Σ_A ν_A ∂_r u_A ∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless.
-The harmonics of order λ² contribute O(λ) to first derivatives, and so does the shift of the foliation, whose
-oscillating part is of order λ². The metric unknown enters these coefficients only through ν_U² = ν² + α and γ_U⁻¹,
-algebraically, so the same holds as functions of α. If ξ2 = ξ1, tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ∂_r
-u_A sin θ_A at order λ⁰. ∎
+undifferentiated, and H = H̃/ν with H̃ = ½ tr_Π(∂_r Π − 𝓛_σ Π). The torus directions are tangent to the spheres. The
+shift σ is Π⁻¹ applied to the components γ_(rB), and its part of order λ vanishes: with Π = Π0 + λ Σ_A W_A + O(λ²), it
+is −λ Π0⁻¹(Σ_A W_A(σ0, ·)), σ0 the shift of γ0, and the W_A have torus components only while σ0 is an orbit vector.
+So σ = σ0 + O(λ²). Hence the part of order λ⁰ of ∂_r Π − 𝓛_σ Π is that of γ0 plus the oscillating part
+Σ_A ν_A (∂_r u_A − σ0^C ∂_C u_A) ∂_(θ_A) W_A (𝓛_(σ0) differentiates λ W_A along the spheres, where the phase is not
+constant), and Π^(AB) = Π0^(AB) + O(λ), so the part of order λ⁰ of H̃ is H̃0 plus ½ Σ_A ν_A (∂_r u_A − σ0^C ∂_C u_A)
+∂_(θ_A) tr W_A = 0, the torus-polarised W_A being traceless. The harmonics of order λ² contribute O(λ) to first
+derivatives, and so does the oscillating part of the shift, which is of order λ². The metric unknown enters these
+coefficients only through ν_U² = ν² + α and γ_U⁻¹, algebraically, so the same holds as functions of α. If ξ2 = ξ1,
+tr W_A = 4 ξ1 cos θ_A + O(λ) and H̃ acquires −2 ξ1 ν_A (∂_r u_A − σ0^C ∂_C u_A) sin θ_A at order λ⁰. ∎
 
 Next the commutator of the wave operator with a generator, which the uniform estimate needs for each family. For a
 radial family on a round background it is [[lem:two-dust-commutator]], whose proof uses that the generator is
