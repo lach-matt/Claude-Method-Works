@@ -716,8 +716,9 @@ and products with A0⁻¹ need not be of class 𝔓 or 𝔏 up to λ = 1, but th
 factors are of class 𝔓, also λ^|I| |𝓛^I ∂_y^β c| ≤ C λ for |I| ≥ 1 and the bounds (C0) for ∂_r c, by the Leibniz rule
 and the bounds on |p⁻¹| and |A0⁻¹|; Steps 1–2 of the proof of [[lem:vlasov-scaled-evolution]] use only these bounds. The
 argument w is read in E ⊂ S³ × ℝ⁵, T*S³ ⊂ S³ × ℝ⁴ by the round metric, so that a function of class 𝔏 in (x, α, w) is
-one of (x, α, y) with y ∈ ℝ⁶; 𝓛_i of the argument w then differs from the derivative X_i of its components in ℝ⁵ by a
-term of order zero in w with constant coefficients, which has the same bounds.
+one of (x, y), y = (α, w) ∈ ℝ⁶, extended off the fibres of E by the orthogonal projection onto them; 𝓛_i of the
+argument w then differs from the derivative X_i of its components in ℝ⁵ by a term of order zero in w with constant
+coefficients (X_i is linear on ℝ⁴), which has the same bounds.
 
 **Lemma {#lem:vlasov-structure}** (The structure of the constraints.) Let (γ, κ) be data on Σ and 𝒯(x, α) a smooth
 function, valued in the space of the values of the constraint map. Then 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯(·, α) has the form
@@ -894,8 +895,8 @@ with g̃(V) := g̃(α_V, ∇α_V, w_V). Since A0 is invertible, 𝔉(U) = 0 if a
 U_(i+1) solve L_(U_i) U_(i+1) = −𝔈(U_i) with zero data at r = a.
 
 *The forcing.* 𝔈(V) is (𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0)) plus G(x, Y), Y := (α_V, ∇α_V, w_V), with G of class 𝔏 vanishing
-with its first derivatives in Y at Y = 0; so G = Σ_(s,t) Y_s Y_t G_(st)(x, Y) with G_(st) := ∫_0^1 (1 − σ) ∂_s ∂_t
-G(x, σ Y) dσ of class 𝔏. By (K4) and the chain rule of Step 1 of the proof of [[lem:vlasov-scaled-evolution]], every term
+with its first derivatives in Y at Y = 0; so G = Σ_(i,j) Y_i Y_j G_(ij)(x, Y) with G_(ij) := ∫_0^1 (1 − s) ∂_i ∂_j
+G(x, s Y) ds of class 𝔏. By (K4) and the chain rule of Step 1 of the proof of [[lem:vlasov-scaled-evolution]], every term
 of λ^|I| 𝓛^I G(·, Y), |I| ≤ k, is a product with at least two factors 𝓛^J Y, at most one with |J| > k/2; putting it in L²
 and the others in sup norm, with ‖Y‖_(⌊k/2⌋+1),∞ ≤ C λ⁻² ‖V‖_(𝒴_k) ≤ 1 by (N1), (N2) and ⌊k/2⌋ + 4 ≤ k, and ‖Y‖_(k) ≤
 2 ‖V‖_(𝒴_k) by (N4),
