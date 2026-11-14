@@ -689,8 +689,8 @@ of |I′|, |I″| is at most ⌊j/2⌋,
 
     (P1) ‖f · g‖_(j) ≤ C ‖f‖_(j),∞ ‖g‖_(j);      (P2) ‖f · g‖_(j) ≤ C (‖f‖_(⌊j/2⌋),∞ ‖g‖_(j) + ‖f‖_(j) ‖g‖_(⌊j/2⌋),∞).
 
-*Classes of coefficients.* Fix smooth functions φ_1, …, φ_(n_φ) on Σ (the phases;
-n_φ = 0 is allowed) and a closed ball 𝔅 ⊂ ℝ^d centred at 0. A *profile function* is a smooth function
+*Classes of coefficients.* Fix smooth functions φ_1, …, φ_(n_φ) on Σ (the phases; n_φ = 0 is allowed) and a closed
+ball 𝔅 ⊂ ℝ^d centred at 0. A *profile function* is a smooth function
 h(x, θ_1, …, θ_(n_φ), λ, y) on Σ × T^(n_φ) × [0, 1] × 𝔅, and [h](x, y) := h(x, φ_1(x)/λ, …, φ_(n_φ)(x)/λ, λ, y). By
 the chain rule 𝓛_i [h] = [X_i h] + λ⁻¹ Σ_B X_i(φ_B) [∂_(θ_B) h] and ∂_r [h] = [∂_r h] + λ⁻¹ Σ_B ∂_r φ_B [∂_(θ_B) h], so
 
@@ -711,7 +711,13 @@ of the values of 𝔉_J) are of class 𝔓 in (x, α), f is of class 𝔏 in (x,
 class 𝔏 in (x, α, ∇α, w) and g̃(x, 0) = 0. We assume the *signs*: there are η0, p0, δ_e, A00 > 0 and 𝒮(x, α) of class 𝔓
 with values in the invertible linear maps from the values of 𝔉_J to E* such that, for |α| ≤ η0, p ≥ p0, P(ζ, ζ) ≥
 δ_e |ζ|² for every covector ζ of S³, the bilinear form 𝒮A0 on E is symmetric with 𝒮A0 ≥ A00, and every 𝒮A^B is a
-symmetric bilinear form on E. The class bounds include bounds for |p⁻¹|, |𝒮⁻¹| and |A0⁻¹| on |α| ≤ η0.
+symmetric bilinear form on E. The class bounds include bounds for |p⁻¹|, |𝒮⁻¹| and |A0⁻¹| on |α| ≤ η0. Quotients by p
+and products with A0⁻¹ need not be of class 𝔓 or 𝔏 up to λ = 1, but they satisfy the bounds (C0), and, when their
+factors are of class 𝔓, also λ^|I| |𝓛^I ∂_y^β c| ≤ C λ for |I| ≥ 1 and the bounds (C0) for ∂_r c, by the Leibniz rule
+and the bounds on |p⁻¹| and |A0⁻¹|; Steps 1–2 of the proof of [[lem:vlasov-scaled-evolution]] use only these bounds. The
+argument w is read in E ⊂ S³ × ℝ⁵, T*S³ ⊂ S³ × ℝ⁴ by the round metric, so that a function of class 𝔏 in (x, α, w) is
+one of (x, α, y) with y ∈ ℝ⁶; 𝓛_i of the argument w then differs from the derivative X_i of its components in ℝ⁵ by a
+term of order zero in w with constant coefficients, which has the same bounds.
 
 **Lemma {#lem:vlasov-structure}** (The structure of the constraints.) Let (γ, κ) be data on Σ and 𝒯(x, α) a smooth
 function, valued in the space of the values of the constraint map. Then 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯(·, α) has the form
