@@ -197,14 +197,16 @@ which is [[eq:class-kato-sphere]] with n =
 3, A^0 := H, A^(ab) := −HB^(K)⟨∂_K, W_ab⟩ and F := HC (the remark after [[cor:class-kato-sphere]]), on [0, R2 −
 0.70]; we multiply these coefficients by a smooth cut-off equal to 1 on a neighbourhood 𝒩 of the graph of (ū, P̄)
 and add I times one minus the cut-off to A^0, which makes them smooth and symmetric everywhere and leaves them
-unchanged on 𝒩. Fix r0 := r̄ in [[cor:class-kato-sphere]]. For ε small, ‖P − P̄‖_(C^s) ≤ ε0, and
+unchanged on 𝒩. Fix r0 ∈ (0, r̄] in [[cor:class-kato-sphere]] so small that the points (t, ω, u, π) with |u − ū(t, ω)|
+≤ r0 and |π − P̄(t, ω)| ≤ r0 lie in 𝒩, and take ε0 ≤ r0. For ε small, ‖P − P̄‖_(C^s) ≤ ε0, and
 [[cor:class-kato-sphere]] (a), (b), with the datum ū(0) at t = 0, gives a smooth solution on the whole interval with
 sup_t ‖u − ū‖_(L²(S³)) ≤ C ‖P − P̄‖_(C⁰), sup_t ‖u‖_(H^s(S³)) ≤ C, s > 3, and sup |u − ū| ≤ C ‖P − P̄‖_(C⁰)^(1/(4s)); so
 sup |u − ū| → 0 as ε → 0, the solution stays in 𝒩 and solves (4.19). The isometries T² × Z2 × Z2 carry solutions of the
 class of [[cor:class-kato-sphere]] (a) with the invariant datum ū(0) to such solutions, so by the uniqueness there the
 solution is invariant. The leaves are three-spheres, so the axes are interior points of the leaves and need no condition.
 By [[cor:class-kato-sphere]] (c), u = ū on every set Ω as there on which P = P̄; outside 𝒫 the free data are the
-background's, and the complement of the union of these sets is the domain of influence of 𝒫 for the system. By
+background's, and the complement of the union of these sets is the domain of influence of 𝒫 for the system (4.19),
+the condition of [[cor:class-kato-sphere]] (c) being imposed at states in 𝒩, where the coefficients are unchanged. By
 [[thm:std-racz-hyperbolic]] the fields built from the solution and the free data satisfy the constraints in the domain of
 dependence of the initial sphere, which here is all of {0.70 ≤ R ≤ R2}.
 

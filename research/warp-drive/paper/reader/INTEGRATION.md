@@ -1274,3 +1274,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   R-P-K82 and R3-82.
 - R-P-K82 NOT CONFIRMED 1M 11m 9n (reviews/R-P-K82.md). F-P-K82 aligns P-K82 to the chapter 82 of F3-82 and closes
   the Major and the gaps. R3-82 told to skip the P-K82 impact (covered by R-P-K82).
+- F3-81 done (reports/F3-81.md). Decision by the coordinator: data on W_0 (the general case; Σ_τ0 ∩ Ω when the phases
+  fit, also proved). For the final report: the theorem as stated in the source did not say where the datum lives.
+  Chapter 83's r0 text applied (lines 200-201, 207-209). The five P-K82 changes were forwarded to F-P-K82, and R3-82 was
+  told chapter 81 is stable. R4-81 and R2-83 are reading.
