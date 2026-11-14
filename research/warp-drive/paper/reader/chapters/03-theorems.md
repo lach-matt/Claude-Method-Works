@@ -368,7 +368,8 @@ The remaining chapters prove the following; each is stated in full where it is p
   them for small amplitude when the first-order part is T² × Z2 × Z2-invariant ([[thm:charge-sign]]).
 - *The boundary at equality.* If μ0 = √72 l5², the curvature boundary is spacelike for g_λ away from a layer at the
   start of the shell, where timelike curves of g_λ cross it ([[thm:layer]], [[cor:layer]]), and at the very edge of
-  the layer the character of the boundary is decided column by column ([[thm:very-edge]]).
+  the layer the character of the boundary is decided column by column for envelopes with the edge hypotheses of
+  [[def:edge-hypotheses]], among them env_C ([[thm:very-edge]], [[cor:edge-envelope]]).
 - *Physical wavelengths.* An upper bound for λ0 at a numerical point, and an approximate value, which is not proved, of
   the first stage's mean correction there ([[prop:lambda0]], [[rem:m22-value]]); at the prescribed wavelength 10 l5
   there is no separation of scales, and existence holds where the solution is the seed ([[thm:ten-l5]]).

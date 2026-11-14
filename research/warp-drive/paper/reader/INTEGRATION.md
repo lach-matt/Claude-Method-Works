@@ -1292,3 +1292,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   re-broke 80:987. Left for the chapter 03 pass: 03:296 (wrapped line starting with a forbidden prefix).
   Not wrapped lines, kept: the block quote at 01:25-36, headings after ∎ in 27, nested list items in 48, quoted
   enumerations in 95.
+- R3-82 NOT CONFIRMED 1M 1m 3n (reviews/R3-82.md): prop:vlasov-uniform-n weighted-norm bootstrap. F4-82 applies the fix.
+  F-P-K82 told to check its uniform-in-n approximants against the repaired proposition.
