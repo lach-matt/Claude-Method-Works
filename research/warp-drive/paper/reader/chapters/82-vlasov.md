@@ -819,12 +819,12 @@ p(α_V)⁻¹ (F_ρ − b·∇α − c α − e·w). For |I| ≤ k, by (K1),
 Put e_I := λ^(2|I|) (‖𝓛^I α‖² + ‖∇𝓛^I α‖²) and g_I := λ^(2|I|) ‖∇²𝓛^I α‖². Integrating by parts on S³, d/dr ½
 (‖f‖² + ‖∇f‖²) = ⟨f − Δf, ∂_r f⟩. For a symmetric (2,0)-tensor P̂ with P̂(ζ, ζ) ≥ δ_P |ζ|² and |P̂| + |∇P̂| ≤ M,
 
-    ⟨Δf, P̂^(AB) ∇_A ∇_B f⟩ ≥ δ_P ‖∇²f‖² − C_M (‖∇f‖ ‖∇²f‖ + ‖∇f‖²):                                   {#eq:vlasov-elliptic}
+    ⟨Δf, P̂^(AB) ∇_A ∇_B f⟩ ≥ δ_P ‖∇²f‖² − C_M (‖∇f‖ ‖∇²f‖ + ‖∇f‖²):                               {#eq:vlasov-elliptic}
 
-integrating by parts twice, ⟨Δf, P̂^(AB) ∇_A ∇_B f⟩ = −∫ ∇^C f (∇_C P̂^(AB)) ∇_A ∇_B f − ∫ ∇^C f P̂^(AB) ∇_C ∇_A ∇_B f, and
-∇_C ∇_A ∇_B f = ∇_A ∇_B ∇_C f + (curvature of the round S³) · ∇f, while −∫ ∇^C f P̂^(AB) ∇_A ∇_B ∇_C f = ∫ P̂^(AB) ∇_A ∇^C
-f ∇_B ∇_C f + ∫ (∇_A P̂^(AB)) ∇^C f ∇_B ∇_C f ≥ δ_P ‖∇²f‖² − M ‖∇f‖ ‖∇²f‖. Here P̂ ≥ δ_P := δ_e/sup p and |P̂| + |∇P̂| ≤ C_0 by
-Step 1. With f := 𝓛^I α, using |⟨f, P̂·∇²f⟩| ≤ C_0 ‖f‖ ‖∇²f‖ and ‖f − Δf‖ ≤ ‖f‖ + √3 ‖∇²f‖,
+integrating by parts twice, ⟨Δf, P̂^(AB) ∇_A ∇_B f⟩ = −∫ ∇^C f (∇_C P̂^(AB)) ∇_A ∇_B f − ∫ ∇^C f P̂^(AB) ∇_C ∇_A ∇_B f,
+and ∇_C ∇_A ∇_B f = ∇_A ∇_B ∇_C f + (curvature of the round S³) · ∇f, while −∫ ∇^C f P̂^(AB) ∇_A ∇_B ∇_C f =
+∫ P̂^(AB) ∇_A ∇^C f ∇_B ∇_C f + ∫ (∇_A P̂^(AB)) ∇^C f ∇_B ∇_C f ≥ δ_P ‖∇²f‖² − M ‖∇f‖ ‖∇²f‖. Here P̂ ≥ δ_P := δ_e/sup p
+and |P̂| + |∇P̂| ≤ C_0 by Step 1. With f := 𝓛^I α, using |⟨f, P̂·∇²f⟩| ≤ C_0 ‖f‖ ‖∇²f‖ and ‖f − Δf‖ ≤ ‖f‖ + √3 ‖∇²f‖,
 
     λ^(2|I|) d/dr ½ (‖f‖² + ‖∇f‖²) ≤ −δ_P g_I + C (e_I^(1/2) g_I^(1/2) + e_I)
                                          + (e_I^(1/2) + √3 g_I^(1/2)) λ^|I| (‖𝒦_I‖ + ‖𝓛^I R_ρ‖).
@@ -851,10 +851,11 @@ So ½ d/dr h_I ≤ C (1 + μ_V) λ^(2|I|) ‖𝓛^I w‖² + C λ^|I| ‖𝓛^I 
 *Step 5: closing.* For ϵ ∈ (0, 1/12] put 𝓔 := Σ_(|I|≤k) ϵ^|I| ½ (e_I + h_I) and 𝓖 := Σ_(|I|≤k) ϵ^|I| g_I. Then
 𝓔 ≥ c_ϵ (‖α‖²_(k;1) + ‖w‖²_(k)) with c_ϵ := ½ ϵ^k min(1, A00), 𝓔 ≤ C (‖α‖²_(k;1) + ‖w‖²_(k)), and ‖α‖²_(k;2) ≤
 ϵ^(−k) (𝓖 + 2𝓔). In the sum of Step 3 over I with the weights ϵ^|I|, the commutator terms are at most
-Σ_I ϵ^|I| C (e_I + g_I)^(1/2) (Σ_(|J|<|I|) g_J)^(1/2) ≤ (δ_P/8) 𝓖 + C𝓔 + C′ Σ_J g_J Σ_(|I|>|J|) ϵ^|I|; there are 6^i words
-of length i, so Σ_(|I|>|J|) ϵ^|I| ≤ 2 (6ϵ)^(|J|+1) ≤ 12 · 6^k ϵ · ϵ^|J|, and with ϵ := min(1/12, δ_P/(96 · 6^k C′)) these
-terms are at most (δ_P/4) 𝓖 + C𝓔. The other terms of Step 3 are at most (δ_P/8) 𝓖 + C_ϵ (𝓔 + ‖F‖²_(k)), by Young's
-inequality. In the sum of Step 4, C ‖w‖_(k) ‖α‖_(k;2) ≤ C ‖w‖_(k) ϵ^(−k/2) (𝓖 + 2𝓔)^(1/2) ≤ (δ_P/8) 𝓖 + C_ϵ 𝓔. Hence
+Σ_I ϵ^|I| C (e_I + g_I)^(1/2) (Σ_(|J|<|I|) g_J)^(1/2) ≤ (δ_P/8) 𝓖 + C𝓔 + C′ Σ_J g_J Σ_(|I|>|J|) ϵ^|I|; there are
+6^i words of length i, so Σ_(|I|>|J|) ϵ^|I| ≤ 2 (6ϵ)^(|J|+1) ≤ 12 · 6^k ϵ · ϵ^|J|, and with ϵ := min(1/12,
+δ_P/(96 · 6^k C′)) these terms are at most (δ_P/4) 𝓖 + C𝓔. The other terms of Step 3 are at most (δ_P/8) 𝓖 +
+C_ϵ (𝓔 + ‖F‖²_(k)), by Young's inequality. In the sum of Step 4, C ‖w‖_(k) ‖α‖_(k;2) ≤ C ‖w‖_(k) ϵ^(−k/2) (𝓖 +
+2𝓔)^(1/2) ≤ (δ_P/8) 𝓖 + C_ϵ 𝓔. Hence
 
     d𝓔/dr ≤ −(δ_P/4) 𝓖 + C_ϵ (1 + μ_V) 𝓔 + C_ϵ ‖F‖²_(k),      𝓔(a) = 0,
 
@@ -880,8 +881,8 @@ on λ, such that if ε ≤ η λ⁴, there is a smooth U on Σ with zero data at
 
     𝔉(U) = 0 on Σ,      ‖U‖_(𝒴_k) ≤ C ε;                                              {#eq:vlasov-scaled-solution}
 
-it is the only smooth solution with zero data at r = a and ‖U‖_(𝒴_k) ≤ C ε. If 𝔉 commutes with a group of isometries of the
-round S³ acting on U by pull-back, U is invariant under that group.
+it is the only smooth solution with zero data at r = a and ‖U‖_(𝒴_k) ≤ C ε. If 𝔉 commutes with a group of isometries
+of the round S³ acting on U by pull-back, U is invariant under that group.
 
 *Proof.* *The scheme.* For V = (α_V, w_V) let L_V U be the left side of [[eq:vlasov-scaled-linear]] with the coefficients
 of [[eq:vlasov-structure]]: p(α_V), P(α_V), B^C(α_V), f̂(α_V, w_V), and the linear parts at U = 0 of the remaining terms,
@@ -934,9 +935,10 @@ the estimate of the contraction gives ‖U − U′‖_(𝒴_j) ≤ ½ ‖U − 
 λ^|I| 𝓛^I 𝔈(U_i), |I| ≤ k′, has at most one factor of order greater than k′/2, so ‖𝔈(U_i)‖_(k′) ≤ C_t (1 + ‖U_i‖_(𝒴_(k′)
 (a,r))) at r, and sup_r ‖𝔈(U_i)‖_(4) ≤ C_t, with C_t independent of i. By [[eq:vlasov-scaled-tame]], ℰ_i(r) :=
 ‖U_i‖_(𝒴_(k′)(a,r)) satisfies ℰ_(i+1)(r)² ≤ C_t′ (1 + ∫_a^r ℰ_i²) with C_t′ independent of i. By induction ℰ_i(r)² ≤
-C_t′ e^(C_t′(r−a)): this holds for ℰ_0 = 0, and if it holds for ℰ_i then ℰ_(i+1)(r)² ≤ C_t′ (1 + ∫_a^r C_t′ e^(C_t′(r′−a)) dr′) =
-C_t′ e^(C_t′(r−a)). So the U_i are bounded in 𝒴_(k′), and U ∈ 𝒴_(k′), for every k′: U is smooth in the angles, and the
-equations 𝔉(U) = 0, solved for ∂_r α and ∂_r w, give its r-derivatives, so U is smooth.
+C_t′ e^(C_t′(r−a)): this holds for ℰ_0 = 0, and if it holds for ℰ_i then ℰ_(i+1)(r)² ≤
+C_t′ (1 + ∫_a^r C_t′ e^(C_t′(r′−a)) dr′) = C_t′ e^(C_t′(r−a)). So the U_i are bounded in 𝒴_(k′), and U ∈ 𝒴_(k′), for
+every k′: U is smooth in the angles, and the equations 𝔉(U) = 0, solved for ∂_r α and ∂_r w, give its r-derivatives,
+so U is smooth.
 
 *Invariance.* If 𝔉 commutes with an isometry ι of the round S³, then L_(V∘ι) U∘ι = (L_V U)∘ι and 𝔈(V∘ι) = 𝔈(V)∘ι,
 so by the uniqueness in [[lem:vlasov-scaled-evolution]] each U_i is ι-invariant, and so is U. ∎
@@ -1020,8 +1022,9 @@ The changes are these. At ů, P̊̃_A := ζ′_A P̊_A + (1 − ζ′_A) T_g̊ i
 being future null where ζ′_A > 0; so P̊̃_A is future causal with P̊̃_A(τ) ≥ c > 0 on the compact Ω, and on each lateral
 boundary component {F = 0} of Ω, dF(P̊̃_A) ≥ c′ > 0, dF being positive on the compact set of the future causal vectors Y
 at its points with dτ(Y) ≥ c and |Y| ≤ c⁻¹. By Step 1, |P̃_A − P̊̃_A| ≤ C 𝒩_k on Ω, so in the bootstrap of Step 3,
-P̃_A(τ) ≥ c/2 and dF(P̃_A) ≥ c′/2 for ε small. The proof of [[lem:class-transport]] uses of its field P only P(τ) ≥ c_P,
-|P| + |∂P| ≤ c_P⁻¹ and dF(P) ≥ 0 on the lateral boundary, so it applies to P̃_A. In Step 3, by the third equation, q_A
+P̃_A(τ) ≥ c/2 and dF(P̃_A) ≥ c′/2 for ε small. The proof of [[lem:class-transport]] uses of its field P only the bounds
+P(τ) ≥ c_P and |P| + |∂P| ≤ c_P⁻¹ and dF(P) ≥ 0 on the lateral boundary, so it applies to P̃_A. In Step 3, by the third
+equation, q_A
 vanishes along every integral curve of P̃_A on which it vanishes initially; every point of Ω lies on such a curve from
 Σ_τ0, followed backward inside Ω, P̃_A pointing out of Ω at its lateral boundary; so supp q_A lies in the tube for P̃_A
 of the compact set supp q_A ∩ Σ_τ0, inside that of S_A. The integral curves of P̃_A from S_A stay within C ε of those
@@ -1045,8 +1048,8 @@ at its lateral boundary, so the curve through a point of Ω near one of 𝒯_A, 
 of int S_A. By (ii) it lies in the interior of {ζ′_A = 1}, where P̃_A = P_A and [[eq:vlasov-localised]] is
 (Aug2)–(Aug4). On Σ_τ0 ∩ 𝒯_A the data are the datum's, so ν_A := g⁻¹(p_A, p_A) vanishes there; ν_A is constant along
 the integral curves of P_A in 𝒯_A ([[prop:class-augmented]] (b)), so ν_A = 0 on 𝒯_A, and dν_A = 0 there. As in Step
-10, dp_A = 0 on Σ_τ0 ∩ 𝒯_A; by [[prop:class-augmented]] (b), i_(P_A) dp_A = 0 and ℒ_(P_A) dp_A = 0 on 𝒯_A, so dp_A
-= 0 on 𝒯_A. Let Φ(x0, t) be the point reached at the parameter t by the integral curve of P_A from x0 ∈ int S_A: Φ is
+10, dp_A = 0 on Σ_τ0 ∩ 𝒯_A; by [[prop:class-augmented]] (b), i_(P_A) dp_A = 0 and ℒ_(P_A) dp_A = 0 on 𝒯_A, so
+dp_A = 0 on 𝒯_A. Let Φ(x0, t) be the point reached at the parameter t by the integral curve of P_A from x0 ∈ int S_A: Φ is
 a smooth bijection onto 𝒯_A with invertible differential, integral curves not meeting and τ increasing along them.
 Define u_A on 𝒯_A by u_A(Φ(x0, t)) := u_A^D(x0), u_A^D the datum's function. The pull-back Φ*p_A is closed, and its
 dt-component is p_A(P_A) = ν_A ∘ Φ = 0, so its dx0-components do not depend on t; at t = 0 they are the spatial
