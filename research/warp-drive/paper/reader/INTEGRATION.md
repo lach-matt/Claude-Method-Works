@@ -1298,3 +1298,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   outside excluded constructs). R3-85 reads chapter 85.
 - R4-81: 0M 2m 4n (reviews/R4-81.md). F4-81 applies them and runs the lint the reader could not run; then a short
   confirming read of the changed hunks.
+- F-P-U71-IS done (reports/F-P-U71-IS.md, diff in scratch f_is/fix.diff); R2-P-U71-IS reads it. Open by statement, not by
+  gap: whether a non-real root of modulus > 50 from P_l with hκ > 70 exists; nothing depends on it.

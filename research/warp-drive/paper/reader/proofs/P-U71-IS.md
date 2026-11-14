@@ -6,8 +6,9 @@ This section carries out, at the computational point of [[def:ec-point]], the co
 ([[prop:is-ci-pp]]), with bounds for their logarithmic orders ([[prop:is-logs]]), and bounds for the multiplicities of
 the indicial roots of L̂_b(0), which are simple on the strip −101 ≤ Re ≤ 5 except possibly at non-real roots of
 modulus greater than 50 that come from the polynomials P_l of large l ([[prop:is-mult]]). This is the statement (IS) of
-[[rem:uc-missing]], which asks the multiplicities on the half-plane Re ≤ 5, save the exponents of the least ℰ_++ above
-2λ_♯; these depend on ℰ_+, and nothing below uses them ([[rem:is-summary]]). From these it determines Λ ∩ {Re ≤ 3 + ε_+}
+[[rem:uc-missing]] (which asks the multiplicities on the half-plane Re ≤ 5), except the exponents of the least ℰ_++
+above 2λ_♯: these depend on ℰ_+, and nothing below uses them ([[rem:is-summary]]). From these it determines
+Λ ∩ {Re ≤ 3 + ε_+}
 ([[prop:is-lambda]]); it shows that (G) holds exactly for ε_K < μ_G, where
 
     1.64160217197·10⁻¹⁴ < μ_G < 1.64160217198·10⁻¹⁴                                                   {#eq:is-mu}
