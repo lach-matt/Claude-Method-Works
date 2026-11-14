@@ -351,24 +351,24 @@ order at most k − 1 are at most Cε on Ω_U. For the background write ů_in :=
 
 Then W t1 = 1.015 τ_L/3.5756 ≤ 3.2918 × 10⁻⁴, and on 𝒟, ϑ ≤ α′ < π/2 and on its angular face ϑ ≥ α − 3.2958 × 10⁻⁴ > 0.
 
-(1) *Where 𝒟 lies.* By the definition of t, τ = τ0 + (1 − t)φ(R) + tδ1 and −τ_L ≤ φ ≤ 0 ([[prop:margins-bend]] (b)); so on 𝒟,
-−τ_L ≤ τ − τ0 ≤ tδ1 ≤ t1δ1 < τ_L, and as |v_in − v̂| ≤ Cε, R = v̂ − τ satisfies
+(1) *Where 𝒟 lies.* By the definition of t, τ = τ0 + (1 − t)φ(R) + tδ1 and −τ_L ≤ φ ≤ 0 ([[prop:margins-bend]] (b)); so
+on 𝒟, −τ_L ≤ τ − τ0 ≤ tδ1 ≤ t1δ1 < τ_L, and as |v_in − v̂| ≤ Cε, R = v̂ − τ satisfies
 
     3.44 + t(c_v − δ1) − Cε ≤ R ≤ 5.85 + τ_L + Cε < 5.86.
 
 Every point of 𝒟 lies in region I. Where τ ≤ τ0 this is [[lem:margins-region-one]] (c), as R ≥ 3.4399 > R_*. Where
 τ > τ0, the ray u = 5.7 is {τ = τ_ray(R)} with dτ_ray/dR = 2/f − 1 ≥ 1 ([[lem:margins-region-one]] (b), (c), its time
-v̂ ≤ τ0 + τ_L + 3.4384 < v̂(v = 3) there), so it meets the slice {τ = const} at a radius at most R_* + (τ − τ0), which is
-at most 3.43719 + tδ1 < 3.44 + t(c_v − δ1) − Cε, since c_v ≥ 2δ1; and u decreases strictly in R along that slice (proof of
-[[cor:class-two-dust]]), so u < 5.7 at the points of 𝒟. Hence on 𝒟, by [[lem:margins-region-one]] (a),
+v̂ ≤ τ0 + τ_L + 3.4384 < v̂(v = 3) there), so it meets the slice {τ = const} at a radius at most R_* + (τ − τ0), which
+is at most 3.43719 + tδ1 < 3.44 + t(c_v − δ1) − Cε, since c_v ≥ 2δ1; and u decreases strictly in R along that slice
+(proof of [[cor:class-two-dust]]), so u < 5.7 at the points of 𝒟. Hence on 𝒟, by [[lem:margins-region-one]] (a),
 
     g0 = −f dτ² + 2(1 − f) dτ dR + (2 − f) dR² + R² dΩ₃²,      f = 1 − μ/R²,      3/2 ≤ μ ≤ 3.6059,
 
-so 0.69 < f ≤ 1 − 1.5/5.86² ≤ 0.95632; the inverse has g0^(ττ) = −(2 − f), g0^(τR) = 1 − f, g0^(RR) = f,
-g0^(ϑϑ) = R⁻² and no other entry pairing dϑ with dτ or dR. The background's outgoing density vanishes on 𝒟, as ℬ = 0
-in region I. 𝒟 lies in the interior of Ω_L, since R > 0.70, v̂ + τ = 2τ + R < 2τ0 + 6 and t1 < 1, and so in the interior of Ω_U, as 0.8 < R < 5.9 on 𝒟. On 𝒟 the coordinate
-field ∂_t of the chart (t, x) is (δ1 − φ)∂_τ, with g0(∂_τ, ∂_τ) = −f < 0 and dτ(∂_τ) = 1: it is future timelike, for g
-as well when ε is small.
+so 0.69 < f ≤ 1 − 1.5/5.86² ≤ 0.95632; the inverse has g0^(ττ) = −(2 − f), g0^(τR) = 1 − f, g0^(RR) = f, g0^(ϑϑ) = R⁻²
+and no other entry pairing dϑ with dτ or dR. The background's outgoing density vanishes on 𝒟, as ℬ = 0 in region I. 𝒟
+lies in the interior of Ω_L, since R > 0.70, v̂ + τ = 2τ + R < 2τ0 + 6 and t1 < 1, and so in the interior of Ω_U, as
+0.8 < R < 5.9 on 𝒟. On 𝒟 the coordinate field ∂_t of the chart (t, x) is (δ1 − φ)∂_τ, with g0(∂_τ, ∂_τ) = −f < 0 and
+dτ(∂_τ) = 1: it is future timelike, for g as well when ε is small.
 
 A point y of the lens with ϑ(y) < α − 3.3 × 10⁻⁴ lies in 𝒟. Indeed τ(y) ≤ τ0 gives t(y) ≤ |φ|/(δ1 + |φ|) ≤ t1, so
 ϑ(y) < α′ − 3.2958 × 10⁻⁴ ≤ α′ − W t(y); and v̂(y) = τ + R lies in [τ0 + 3.5 − τ_L, τ0 + 5.75], so c_a + c_v t(y) ≤ τ0 +
@@ -385,18 +385,18 @@ nonzero causal vector. As in the proof of [[thm:loc-bent-slice]] (c), dt = η/(�
 where φ′ ≠ 0, so 3.5 < R < 5.75, the left side is at least 1 + 1.5/5.75² − 2 × 0.002137 × 3.6059/3.5² − 0.002137² ≥
 1.04410; elsewhere it is 2 − f = 1 + μ/R² ≥ 1 + 1.5/5.86² ≥ 1.04368; and 1.0216² ≤ 1.04367. A nonzero future causal
 vector Y of g0 has τ̇ := dτ(Y) > 0 and x := dR(Y)/τ̇ between the roots −1 and f/(2 − f) of (2 − f)x² + 2(1 − f)x − f,
-so that η(Y) = τ̇(1 − κ_Lx) ≥ (1 − |κ_L|)τ̇ and dv̂(Y) = (1 + x)τ̇ ≤ 2τ̇/(2 − f).
+so that η(Y) = τ̇(1 − κ_L x) ≥ (1 − |κ_L|)τ̇ and dv̂(Y) = (1 + x)τ̇ ≤ 2τ̇/(2 − f).
 
 For F_1: since g0⁻¹(dϑ, dϑ) = R⁻² and g0⁻¹(dϑ, η) = 0,
 
     g0⁻¹(dF_1, dF_1) = R⁻² + (W/(δ1 − φ))² g0⁻¹(η, η) ≤ R⁻² − (1.0216 W/(δ1 − φ))².
 
-Where R ≥ 3.5, 1.0216 W/(δ1 − φ) ≥ 1.015/3.5 ≥ 1.015/R; where R < 3.5, φ = 0 and 1.0216 W/δ1 = 1.015 (1 + τ_L/δ1)/3.5 ≥
-0.3236 ≥ 1.1/R, as δ1 ≤ 0.01 and R ≥ 3.43. So g0⁻¹(dF_1, dF_1) ≤ −0.03 R⁻², and dF_1(∂_t) = W > 0. For F_2: dv̂(Y) ≤
-1.9163 τ̇ ≤ 1.9205 η(Y), while c_v dt(Y) = c_v η(Y)/(δ1 − φ) ≥ 4.48 η(Y); so (c_v dt − dv̂)(Y) ≥ 2.5 η(Y) > 0. These bounds
-for F_1 and F_2 are strict, uniformly on the compact 𝒟, and g − g0 and dv_in − dv̂ are at most Cε there; so for ε small
-they hold for g and v_in. For F_3: dF_3 = dv_in + c_v dt, where dv_in is null for g and dv_in(Y) = −g(P, Y) ≥ 0 for future
-causal Y; so dF_3 is positive on the nonzero future causal vectors, dt being so.
+Where R ≥ 3.5, 1.0216 W/(δ1 − φ) ≥ 1.015/3.5 ≥ 1.015/R; where R < 3.5, φ = 0 and 1.0216 W/δ1 = 1.015
+(1 + τ_L/δ1)/3.5 ≥ 0.3236 ≥ 1.1/R, as δ1 ≤ 0.01 and R ≥ 3.43. So g0⁻¹(dF_1, dF_1) ≤ −0.03 R⁻², and dF_1(∂_t) = W > 0.
+For F_2: dv̂(Y) ≤ 1.9163 τ̇ ≤ 1.9205 η(Y), while c_v dt(Y) = c_v η(Y)/(δ1 − φ) ≥ 4.48 η(Y); so (c_v dt − dv̂)(Y) ≥ 2.5
+η(Y) > 0. These bounds for F_1 and F_2 are strict, uniformly on the compact 𝒟, and g − g0 and dv_in − dv̂ are at most Cε
+there; so for ε small they hold for g and v_in. For F_3: dF_3 = dv_in + c_v dt, where dv_in is null for g and
+dv_in(Y) = −g(P, Y) ≥ 0 for future causal Y; so dF_3 is positive on the nonzero future causal vectors, dt being so.
 
 Consequently a past directed causal curve γ of g that starts in 𝒟 stays in 𝒟 while t > 0. Let y = γ(s*) be its last
 point with γ([0, s*]) ⊂ 𝒟, and suppose t(y) > 0. Along γ, t decreases, so t ≤ t1 continues to hold; the F_i negative
@@ -430,8 +430,8 @@ the square |∇²u_in|² is χ_Z S_ax + (1 − χ_Z) S_loc. Where χ_Z ≠ 1, S_
 since there g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of [[prop:class-augmented]] (a));
 where χ_Z ≠ 0, S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near axis 2.
 
-Put w := g − g0 and 𝔡 := (w, ∂_t w, ∂_x w, p − p̊, Θ − Θ̊, q_in − q̊_in). Write (i) in the first-order form of Step 9 of the
-proof of [[thm:class-stability-off-axes]], in the chart (t, x), with the difference of the principal parts taken as
+Put w := g − g0 and 𝔡 := (w, ∂_t w, ∂_x w, p − p̊, Θ − Θ̊, q_in − q̊_in). Write (i) in the first-order form of Step 9 of
+the proof of [[thm:class-stability-off-axes]], in the chart (t, x), with the difference of the principal parts taken as
 in Step 4 there, ½(g^(ab) − g0^(ab)) ∂_a ∂_b g0, and (ii)–(iv) as transports along P. Subtracting the background's
 equations from the development's gives on 𝒟 a linear system 𝐀^0 ∂_t 𝔡 + 𝐀^j ∂_j 𝔡 = F_𝔡, with 𝐀^0 = diag(1, −g^(tt),
 g^(ab)) on the wave block and P^t on the transports, 𝐀^j its other matrices, all symmetric and evaluated at the
