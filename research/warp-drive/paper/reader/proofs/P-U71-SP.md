@@ -361,9 +361,10 @@ Finally Δ(r^(−2)) = 0, so Δ(r^(−2)dt̄²) = 0 and Δ(r^(−2)δ_(ij)) = 0,
 8n_in_j). The terms of (2L̄)^(0)h other than □̄h vanish, so
 (2L̄)^(0)h = □̄h = (4 + 2e_Υ)r^(−4)(2δ_(ij) − 8n_in_j)dx^idx^j = 4(e_Υ + 2)r^(−4)K_s0.
 
-(c) K_s0 and Z are invariant under SO(4), of type s0, and K_v1 lies in W_π = ℂ² ⊗ π for the representation π of
-vector type 1 that contains W; let k_τ ∈ ℂ^(n_τ) be the vector with K_s0 = k_s0, resp. K_v1 = k_v1 ⊗ W, and z the one
-of Z. By (a), N_τ(ι)k_τ = (ι − 4)(2S_τ − ι − 2)k_τ, so k_τ spans ker N_τ(4), the root 4 being simple. K(5) = 3, and by [[eq:sp-matrix]] a vector (μ_0, μ_1, μ_2, μ_3)
+(c) K_s0 and Z are invariant under SO(4), of type s0. The rotation 1-forms are the sum of the two irreducible
+representations π of vector type 1; for W in one of them, K_v1 lies in W_π = ℂ² ⊗ π. Let k_τ ∈ ℂ^(n_τ) be the vector
+with K_s0 = k_s0, resp. K_v1 = k_v1 ⊗ W, and z the one of Z. By (a), N_τ(ι)k_τ = (ι − 4)(2S_τ − ι − 2)k_τ, so k_τ
+spans ker N_τ(4), the root 4 being simple. K(5) = 3, and by [[eq:sp-matrix]] a vector (μ_0, μ_1, μ_2, μ_3)
 lies in ker 𝔐_τ(5) exactly when
 
     N_τ(4)μ_0 = 0,  N_τ(3)μ_1 = −2(5/2 − S_τ)μ_0,  N_τ(2)μ_2 = −4(3/2 − S_τ)μ_1,  N_τ(1)μ_3 = −6(1/2 − S_τ)μ_2.
