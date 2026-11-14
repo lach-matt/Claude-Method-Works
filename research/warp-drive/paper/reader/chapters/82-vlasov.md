@@ -1638,7 +1638,8 @@ for the orbit part (1 + 𝔪) dr² + r² dϑ² of γ, its angle β0 from the out
 which decreases on r² > 2 + √5 and is > 0.249 on [2.64, 3.36]. There |𝔗| ≤ 1.7 · 1.0694/(2.64 · 0.8485) < 0.82, since
 𝔪 > 0.0885 there, so cos²β0 = (1 + 𝔗²)⁻¹ > 0.59; and dk/dα = 3 cos α ≥ 3 cos 0.6 > 2.47. Hence ∂_α β0 = cos²β0 ∂_k 𝔗
 dk/dα > 0.59 · 0.249 · 2.47 > 0.36 =: b_* on S, and β0(x, ·) is increasing, so injective: the field is labelled by
-initial direction.
+initial direction. The tubes of S lie in r ≥ 2.64, so u is an eikonal in each label, with ℓ_α future directed, on the
+neighbourhood ({r > 2} × (−0.65, 0.65)) ∩ (Ω × S¹) of 𝒟(S).
 
 *(V2).* A ray from S̃ is in Ω only while r ≤ b(τ) = 9 − 2τ, and r ≥ 2.64 + 0.56 τ on it, so only for τ ≤ 6.36/2.56 <
 2.49. Over that time |ϑ − ϑ0| ≤ ∫_0^2.49 1.7 (2.64 + 0.56 s)⁻² ds = (1.7/0.56)(1/2.64 − 1/4.0344) < 0.3975. So on the
@@ -1650,13 +1651,17 @@ form satisfying (Ω), (V1) on S with J0 = 1 and b_* = 0.36, (V2) with 2δ = 0.53
 datum D_ε has the field ε F0, the labels u_α|Σ_0 with the future roots, and the metric data of g0 on Σ_0 corrected to
 satisfy the constraints with the stress of the field: 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯_ε(·, α), 𝒯_ε the constraint stress of ∫ ε²
 F0(·, α)² du_α ⊗ du_α dα, has the structure of [[lem:vlasov-structure]] with λ = 1 and no phases, the signs by (V3) and
-[[lem:vlasov-symmetrizer]], and sup_r ‖𝔉(0)‖_(12) ≤ C ε², since the data of g0 satisfy the vacuum constraints; so
-[[prop:vlasov-scaled-correction]] with k = 12 gives a smooth invariant correction U with ‖U‖_(𝒴_12) ≤ C ε², which at λ =
-1, with the equations for the r-derivatives, bounds U in C⁹. So d(D_ε) ≤ C ε, and [[prop:vlasov-cauchy]] around (g0, 0,
+[[lem:vlasov-symmetrizer]], and sup_r ‖𝔉(0)‖_(20) ≤ C ε², since the data of g0 satisfy the vacuum constraints; so
+[[prop:vlasov-scaled-correction]] with k = 20 gives a smooth invariant correction U with ‖U‖_(𝒴_20) ≤ C ε², which at
+λ = 1 bounds U in C⁹. Indeed, by the induction in the data step of the proof of [[prop:vlasov-uniform-n]] with 2m = 20,
+U is bounded in H^20(S³) and ∂_r^i U in H^(21−2i)(S³), 1 ≤ i ≤ 10, uniformly in r, and H^s(S³) ⊂ C^l(S³) for
+s > l + 3/2; as 20 > 9 + 3/2 and 21 − 2i > (9 − i) + 3/2 for i ≤ 9, every ∂_r^i ∂_ω^l U with i + l ≤ 9 is bounded, and
+the Cartesian derivatives of order at most 9 are combinations of these with bounded coefficients (r ≥ a > 0). So
+d(D_ε) ≤ C ε, and [[prop:vlasov-cauchy]] around (g0, 0,
 u), with m = 6, gives for ε small the solution on Ω, with ‖g − g0‖_(H^7) ≤ C ε on every Σ_τ, hence, by Sobolev's
 inequality on the slices and the equations for the τ-derivatives, C²-close to g0, and with eikonals C¹-close to u_α. By
-[[lem:vlasov-open]] it satisfies (V1) with the margins J0/2 = 1/2 and b_*/2 = 0.18 and (V2) with dist(D_α(S), axes) ≥
-0.265, and (Ω), (V3) by openness. ∎
+[[lem:vlasov-open]], whose eikonals u″ are those of the solution, it satisfies (V1) with the margins J0/2 = 1/2 and
+b_*/2 = 0.18 and (V2) with dist(D_α(S), axes) ≥ 0.265, and (Ω), (V3) by openness. ∎
 
 **Remark {#rem:vlasov-test-family}** (Numerical observation.) For the family with data u_α = cos α ρ(r) + 3 sin α ϑ on
 Σ_0, ρ′ = (1 + 1/r²)^(1/2), outgoing labels α ∈ [−0.5, 0.5] and ingoing labels α ∈ [π − 0.15, π + 0.15] (inside the
