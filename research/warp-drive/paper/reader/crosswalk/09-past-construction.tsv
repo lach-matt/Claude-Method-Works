@@ -29,7 +29,6 @@ eq:near-bootstrap	docket68/n1star/N1STAR-PROOF.md:1572	NP (9.9a)
 eq:psi-prime-transport	docket68/n1star/N1STAR-PROOF.md:1593	NP (9.9b)	
 eq:near-lines	docket68/n1star/N1STAR-PROOF.md:1597-1610	NP (9.9)	
 sec:past-proof	docket68/n1star/N1STAR-PROOF.md:1236-1256	NP Theorem P (P-i)-(P-v) with D622 fold	listed unlabelled as what the proof gives; maps to items 1-5 of thm:past-construction; (P-i) on P cup Omega, the Omega part by the tilted surfaces {v + eps(tau - tau0) = v_start}; the class of (P-v) stated on P; N stages
-thm:past-construction (proof)	docket68/n1star/N1STAR-PROOF.md:1628-1658	NP proof of Theorem P	ledger5 L1 exponent arithmetic written inline; gauge5 G3 replaced by the r^-2 L2 estimate and NP's deduction; gauge step checks the hypotheses of lem:gauge-propagation (constraints from Ric = 0 on P)
 sec:past-items	docket68/n1star/N1STAR-PROOF.md:1706-1751	NP Prop 9.10 and the paragraph after it	
 prop:past-items	docket68/n1star/N1STAR-PROOF.md:1706-1745	NP Proposition 9.10 with D622, D625, D632 folds	proofs of Props 3.3-3.4 cited, not repeated; horizon5 H2b and support5c C13 covered by lem:sphere-two-scale; stage5 S4 cross-check dropped; lam* < lam <= lam_P covered by the step for larger lam of prop:mean-mass
 sec:flux	docket68/n1star/N1STAR-PROOF.md:1659-1679; paper/RESPONSE-HL-5D.md:667-680	NP 9.5 (9.10) as corrected; P (6.1)	1680-1705 (history, open paragraph) dropped

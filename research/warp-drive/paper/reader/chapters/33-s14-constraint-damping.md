@@ -612,7 +612,7 @@ positive for r ≥ 99, as 3r³ − 250r² = r²(3r − 250) ≥ 47r² > 2r + 150
     det = n_D(x)/(2560000000000000(x + 160)⁶(x + 320)²(25x³ − 1920064x − 204820480)²),
 
 where n_T = Σ_(k=0)^7 t_kx^k and n_D = Σ_(k=0)^(14) d_kx^k have the integer coefficients of the table of the trace and
-determinant numerators on Tangherlini space in [[app:tables]]; among them
+determinant numerators on Tangherlini space in [[sec:tab-s14-numerators]]; among them
 
     t_0 = −1718058975468810403840000,     d_0 = 691283997693777039477894644527792128000000,
     d_1 = 31003448547550721811482399641771704320000,     d_2 = −460291250745815174622431267350323920896000,
@@ -834,6 +834,201 @@ which is positive iff h < h_2. The angular eigenvalue −s is below
 −201/2 as well. At h = 10⁻⁶ the roots of χ are −10004.11… and −4995.83…. Finally X_s and ℓ(dr) are B-self-adjoint, so
 by Weyl's inequality the largest eigenvalue of (r_h/2)(X_s − h⁻¹ℓ(dr)) is at most (r_h/2)(λ_max(X_s) −
 h⁻¹λ_min(ℓ(dr))) = ϑ_0 − c₁h⁻¹. ∎
+
+### The scalar type l ≥ 1 for every h ∈ (0, 10⁻⁶] {#sec:s14-every-h}
+
+This section proves the statements of [[prop:np-10-54]] (i)–(ii) about the polynomials P_l, l ≥ 1, at every
+h ∈ (0, 10⁻⁶]. As in [[sec:s14-model]], (v, e) = (1/2, 1/102400). Up to [[prop:s14-scalar-every-h]] the exact
+value of e enters only through [[lem:s14-small-h]] (a), proved at this value: there the roots ι₊, ι₋ of Q_5 are
+distinct by [[lem:s14-q5]] (b), whose proof uses it. Every inequality proved below uses only 10⁻⁶ < e < 10⁻⁵.
+We let κ be any real number ≥ 0 and write P(ι; κ, h) for the determinant of the matrix [[eq:s14-nl]] at v = 1/2 with
+this κ, so that P_l(ι) = P(ι; l(l + 2), h). It is a polynomial in (ι, κ, h), of degree 6 in ι with leading coefficient
+−h³: this is f₆ of [[eq:s14-f-two]] below, and for κ = l(l + 2) it is [[prop:np-10-12]] (iii).
+
+The argument has three steps. As (κ, h) varies, no root of P(·; κ, h) meets the line Re ι = 2, except the root ι = 2
+at κ = 3 ([[lem:s14-line-two]]); no root meets the line Re ι = −1/(2h) ([[lem:s14-line-far]]); and the number of roots
+on each side of these lines is read off in the limit h → 0⁺ from [[lem:s14-small-h]].
+
+**Lemma {#lem:s14-half-plane-count}** (Counting roots in a half-plane.) Let Ω ⊂ ℝ² be connected, and for ϖ ∈ Ω let
+p_ϖ(z) = a_n(ϖ)zⁿ + … + a_0(ϖ) be a polynomial whose coefficients are continuous functions on Ω, with a_n(ϖ) ≠ 0. Let
+H ⊂ ℂ be an open half-plane with boundary line L. If no p_ϖ has a root on L, then the number of roots of p_ϖ in H,
+counted with multiplicity, is the same for every ϖ ∈ Ω.
+
+*Proof.* Fix ϖ₀ ∈ Ω. Every root z of p_ϖ satisfies |z| ≤ 1 + max_(j<n) |a_j(ϖ)/a_n(ϖ)|, and the right side is
+continuous in ϖ. So there are a neighbourhood V of ϖ₀ in Ω and a number R, larger than the distance from 0 to L, such
+that every root of p_ϖ, ϖ ∈ V, has modulus less than R. Let G := H ∩ {|z| < R}, a bounded convex open set whose
+boundary Γ consists of a segment of L and an arc of the circle |z| = R. As p_(ϖ₀) has no root on Γ,
+m₀ := min_Γ |p_(ϖ₀)| > 0, and after shrinking V, |p_ϖ − p_(ϖ₀)| < m₀ on Γ for ϖ ∈ V, since Γ is bounded and the
+coefficients are continuous. By Rouché's theorem p_ϖ and p_(ϖ₀) have equally many roots in G, and these are all their
+roots in H. So the number is locally constant on Ω, hence constant, Ω being connected. ∎
+
+#### The line Re ι = 2 {#sec:s14-every-h-two}
+
+At ι = 2 + w the matrix [[eq:s14-nl]] at v = 1/2 is, with a := κ − 2w − w²,
+
+    ( ha − w,        2w,                          2κ               )
+    ( 2e(w + 3),     h(a + 3) + e(w + 3) − 2w,    −(1 + 2h)κ       )
+    ( −2e,           −(e + 2h),                   h(a − 1) + 1 − w ).                                    {#eq:s14-hn-two}
+
+Write it as M₀ + hM₁, where M₀ is its value at h = 0 and M₁ has rows (a, 0, 0), (0, a + 3, −2κ), (0, −2, a − 1). The
+determinant is multilinear in the columns, so P(2 + w; κ, h) = P⁽⁰⁾ + hP⁽¹⁾ + h²P⁽²⁾ + h³P⁽³⁾, where P⁽⁰⁾ = det M₀,
+P⁽³⁾ = det M₁, P⁽¹⁾ is the sum of the three determinants of M₀ with one column replaced by the same column of M₁, and
+P⁽²⁾ is the sum of the three determinants of M₁ with one column replaced by the same column of M₀. Expanding,
+
+    P⁽⁰⁾ = w(e(5w² + 10w − 15 − 3κ) − 2w² + 2w),
+    P⁽¹⁾ = e(6w⁴ + 29w³ + 36w² + 9w − 9κw² − 21κw + 3κ² − 9κ) − 5w⁴ − 7w³ + (5κ + 7)w² − (κ + 3)w,
+    P⁽²⁾ = e(w⁵ + 7w⁴ + 17w³ + 17w² + 6w − 2κw³ − 8κw² − 9κw + κ²w + κ² − 3κ)
+           − 4w⁵ − 15w⁴ + (8κ − 9)w³ + (16κ + 7)w² − (4κ² − κ + 3)w − κ² + 3κ,
+    P⁽³⁾ = −(w² + 2w − κ)(w² + 4w + 3 − κ)(w² − 1 − κ),                                               {#eq:s14-ph-two}
+
+the last because det M₁ = a((a + 3)(a − 1) − 4κ), a = −(w² + 2w − κ) and
+a² + 2a − 3 − 4κ = (w² + 4w + 3 − κ)(w² − 1 − κ). (P⁽⁰⁾ = 4wQ_5(2 + w), in accordance with [[eq:s14-q5]].) Collecting
+the powers of w, P(2 + w; κ, h) = f₀ + f₁w + … + f₆w⁶ with
+
+    f₀ = hκ(κ − 3)(3e − (1 − e)h + (κ + 1)h²),
+    f₁ = −3e(κ + 5) − h(κ + 3 + 21eκ − 9e) − h²((4 − e)κ² − (1 − 9e)κ + 3 − 6e) − 6h³(κ² − 1),
+    f₂ = 2 + 10e + h(5κ + 7 − 9eκ + 36e) + h²(16κ + 7 − 8eκ + 17e) − h³(3κ² − 12κ − 11),
+    f₃ = −2 + 5e − h(7 − 29e) + h²(8κ − 9 − 2eκ + 17e) + 12h³κ,
+    f₄ = −h(5 − 6e) − h²(15 − 7e) + h³(3κ − 10),
+    f₅ = −h²(4 − e) − 6h³,
+    f₆ = −h³.                                                                                            {#eq:s14-f-two}
+
+**Lemma {#lem:s14-line-two}** (The line Re ι = 2.) Let κ ≥ 3 and 0 < h ≤ 10⁻⁶.
+
+(a) P(2; κ, h) = f₀, which is positive for κ > 3 and zero for κ = 3; and ∂_ιP(2; κ, h) = f₁ < 0.
+
+(b) P(2 + iy; κ, h) ≠ 0 for every real y ≠ 0.
+
+Hence for κ > 3 no root of P(·; κ, h) has real part 2, and for κ = 3 the only one is ι = 2, which is simple.
+
+*Proof.* (a) As h < e, 3e − (1 − e)h > 2e > 0, so f₀ has the sign of κ − 3. In f₁ the brackets are positive:
+κ + 3 + 21eκ − 9e > κ, (4 − e)κ² − (1 − 9e)κ + 3 − 6e > 3κ² − κ > 0 and κ² − 1 > 0; so f₁ < −3e(κ + 5) < 0.
+
+(b) The f_j are real, so P(2 + iy; κ, h) = Φ(y²) + iyΨ(y²) with the real polynomials
+
+    Φ(s) := f₀ − f₂s + f₄s² − f₆s³,     Ψ(s) := f₁ − f₃s + f₅s².
+
+Then −Φ(s) − h(κ + s)Ψ(s) = d₀ + d₁s + d₂s² + d₃s³ with d₀ = −f₀ − hκf₁, d₁ = f₂ + hκf₃ − hf₁,
+d₂ = −f₄ − hκf₅ + hf₃ and d₃ = f₆ − hf₅, and inserting [[eq:s14-f-two]] and collecting terms,
+
+    d₀ = hκ(24e + h(2κ + 20eκ − 6e) + h²((3 − e)κ² + (1 + 9e)κ + 6 − 6e) + 6h³(κ² − 1)),
+    d₁ = 2 + 10e + h((3 − e)κ + 7 + 51e) + h²((10 + 42e)κ + 10 + 8e)
+         + h³((9 − 3e)κ² + (2 + 26e)κ + 14 − 6e) + 6h⁴(3κ² − 1),
+    d₂ = h(3 − e) + h²(8 + 22e) + h³((9 − 3e)κ + 1 + 17e) + 18h⁴κ,
+    d₃ = h³(3 − e) + 6h⁴.                                                                                {#eq:s14-d-two}
+
+For instance, in d₀ the terms of order e give −3e(κ − 3) + 3e(κ + 5) = 24e, those of order h give
+(1 − e)(κ − 3) + κ + 3 + 21eκ − 9e = 2κ + 20eκ − 6e, and those of order h² give
+−(κ − 3)(κ + 1) + (4 − e)κ² − (1 − 9e)κ + 3 − 6e = (3 − e)κ² + (1 + 9e)κ + 6 − 6e. For κ > 1 and 0 < e < 1/3 every
+bracket in [[eq:s14-d-two]] is positive, so d₀, d₂, d₃ > 0 and d₁ > 2. If P(2 + iy; κ, h) = 0 with y ≠ 0, then
+Φ(y²) = Ψ(y²) = 0, so −Φ(y²) − h(κ + y²)Ψ(y²) = 0, while d₀ + d₁y² + d₂y⁴ + d₃y⁶ ≥ d₁y² > 0. ∎
+
+#### The line Re ι = −1/(2h) {#sec:s14-every-h-far}
+
+**Lemma {#lem:s14-line-far}** (The line Re ι = −1/(2h).) Let κ ≥ 0 and 0 < h ≤ 10⁻⁶. Then P(·; κ, h) has no root
+with real part −1/(2h).
+
+*Proof.* Put K := h²κ and F(σ) := h³P(σ/h; κ, h). Multiply the matrix [[eq:s14-nl]] at v = 1/2 by h, put ι = σ/h and
+κ = K/h², then multiply its third column by h and divide its third row by h. The determinant becomes F(σ), and the
+matrix becomes, with 𝔪 := K − σ − σ²,
+
+    Y := ( 𝔪 + 2h(σ + 1),   2σ − 4h,                                2K                 )
+         ( 2e(σ + h),       𝔪 − σ + 2hσ + 4h + 3h² + e(σ + h),      −(1 + 2h)K         )
+         ( −2e,             −(e + 2h),                              𝔪 + 2hσ + 3h − h² ).                  {#eq:s14-y}
+
+A root ι of P(·; κ, h) with real part −1/(2h) gives the root σ = hι = −1/2 + iy of F = det Y, y real. On this line
+𝔪 = K + 1/4 + y² is real, |σ|² = 1/4 + y² ≤ 𝔪 and K ≤ 𝔪. Put m := 𝔪^(1/2) ≥ 1/2; then |σ| ≤ m, K ≤ m², 1 ≤ 2m and
+m ≤ 2m². Write Y = Y⁰ + Z, where Y⁰ is the upper triangular matrix with rows (𝔪, 2σ, 2K), (0, 𝔪 − σ, −K) and
+(0, 0, 𝔪). Then
+
+    det Y⁰ = 𝔪²(𝔪 − σ),     |det Y⁰| ≥ 𝔪² Re(𝔪 − σ) = m⁴(m² + 1/2) > m⁶.
+
+The rows of Z are (2h(σ + 1), −4h, 0), (2e(σ + h), 2hσ + 4h + 3h² + e(σ + h), −2hK) and (−2e, −(e + 2h),
+2hσ + 3h − h²). Let α_i and β_i be the sums of the moduli of the entries of row i of Y⁰ and of Z. With the bounds
+above,
+
+    α₁ ≤ m² + 2m + 2m² ≤ 7m²,     α₂ ≤ (m² + m) + m² ≤ 4m²,     α₃ = m²,
+    β₁ ≤ 2h(m + 1) + 4h ≤ 14hm ≤ 28hm²,
+    β₂ ≤ 2e(m + h) + (2hm + 4h + 3h² + e(m + h)) + 2hm² ≤ (6e + 22h + 12eh + 12h²)m² ≤ (6e + 23h)m²,
+    β₃ ≤ 2e + (e + 2h) + (2hm + 3h + h²) ≤ (12e + 24h + 4h²)m² ≤ (12e + 25h)m²,
+
+where 1 ≤ 4m² and m ≤ 2m² were used to bring every term to a multiple of m². The determinant is multilinear in the
+rows, so det Y − det Y⁰ is the sum, over the seven nonempty sets S ⊂ {1, 2, 3}, of the determinants of the matrices
+whose rows i ∈ S are those of Z and whose other rows are those of Y⁰. By Hadamard's inequality, and since the
+Euclidean norm of a vector is at most the sum of the moduli of its entries, such a determinant has modulus at most
+the product of β_i over i ∈ S and of α_i over i ∉ S. Hence, the expression in the middle being increasing in each α_i
+and each β_i,
+
+    |det Y − det Y⁰| ≤ (α₁ + β₁)(α₂ + β₂)(α₃ + β₃) − α₁α₂α₃ ≤ 28m⁶((1 + 4h)(1 + (6e + 23h)/4)(1 + 12e + 25h) − 1).
+
+As e < 10⁻⁵ and h ≤ 10⁻⁶, the numbers 4h, (6e + 23h)/4 and 12e + 25h are below 1.5·10⁻⁴, and the right side is
+below 28m⁶((1 + 1.5·10⁻⁴)³ − 1) < 0.02m⁶ < |det Y⁰|. So det Y ≠ 0 on the line Re σ = −1/2. ∎
+
+#### The count {#sec:s14-every-h-count}
+
+**Lemma {#lem:s14-limit-sides}** (The limits as h → 0⁺.) Let l ≥ 1.
+
+(a) The roots ι₊, ι₋ of Q_5 have real part greater than 2.
+
+(b) The three numbers 1/τ_j of [[lem:s14-small-h]] (a) are real and less than −1/2.
+
+*Proof.* (a) By [[eq:s14-q5]] at v = 1/2,
+
+    4Q_5(ι) = e(5(ι − 3)(ι + 1) − 3κ) − 2(ι − 2)(ι − 3) = (5e − 2)ι² + (10 − 10e)ι − 12 − 15e − 3eκ,
+
+a quadratic with leading coefficient 5e − 2 < 0, and 4Q_5(2) = −e(15 + 3κ) < 0, 4Q_5(3) = −3eκ < 0. The midpoint of
+its roots is μ := (5 − 5e)/(2 − 5e) = 5/2 + 15e/(4 − 10e), which lies in (5/2, 3) as 0 < e < 1/10. If the roots are
+not real, their real part is μ. If they are real, Q_5 ≥ 0 exactly on the closed interval between them, which contains
+μ and neither 2 nor 3, so it lies in (2, 3).
+
+(b) The factor τ + 1 of [[eq:s14-ttau]] gives 1/τ = −1. The quadratic factor q(τ) := (5e − 2)τ² + (e − 3)τ − 1 has
+q(−2) = 18e − 3 < 0, q(−1) = 4e > 0, q(−1/2) = 3e/4 > 0 and q(0) = −1 < 0; so its roots lie in (−2, −1) and
+(−1/2, 0), and their reciprocals in (−1, −1/2) and (−∞, −2). ∎
+
+**Proposition {#prop:s14-scalar-every-h}** (The scalar type l ≥ 1 for every h ∈ (0, 10⁻⁶].) Let l ≥ 1 and
+0 < h ≤ 10⁻⁶. Counted with multiplicity, P_l has three roots with real part less than −1/(2h) ≤ −5·10⁵ and three
+roots with real part at least 2. For l ≥ 2 the latter three have real part greater than 2. For l = 1 one of them is
+ι = 2, a simple root, and the other two have real part greater than 2. In particular no root of P_l has real part in
+[−1/(2h), 2), and the only root with real part 2 is ι = 2 at l = 1.
+
+*Proof.* *The roots on the left.* On Ω₁ := [3, ∞) × (0, 10⁻⁶] ∋ (κ, h) consider F(σ) = h³P(σ/h; κ, h) = det Y of
+[[eq:s14-y]]. Its coefficients in σ are polynomials in K = h²κ and h, hence continuous on Ω₁; its leading coefficient
+is −1, that of P being −h³; and its roots are the numbers hι, ι a root of P(·; κ, h), with the same multiplicities. By
+[[lem:s14-line-far]] F has no root with real part −1/2, so by [[lem:s14-half-plane-count]] with H = {Re σ < −1/2} the
+number N_− of roots of P(·; κ, h) with real part less than −1/(2h) is the same at every point of Ω₁. At κ = 3, that is
+l = 1, [[lem:s14-small-h]] (a) gives, as h → 0⁺, three roots with hι → 1/τ_j, which are less than −1/2 by
+[[lem:s14-limit-sides]] (b), and three roots converging to finite limits, for which hι → 0. So N_− = 3 for small h,
+hence N_− = 3 on all of Ω₁.
+
+*Degrees l ≥ 2.* On Ω₂ := (3, ∞) × (0, 10⁻⁶] the polynomial P(·; κ, h) has leading coefficient −h³ ≠ 0 and, by
+[[lem:s14-line-two]], no root with real part 2. By [[lem:s14-half-plane-count]] with H = {Re ι > 2} the number N_+ of
+its roots with real part greater than 2 is the same at every point of Ω₂, and we find it at κ = 8, that is l = 2, for
+small h. By [[lem:s14-small-h]] (a), three roots of P_2 converge to the pairwise distinct numbers 2, ι₊, ι₋, and the
+real parts of the other three tend to −∞. The roots converging to ι₊ and ι₋ have real part greater than 2 for small h,
+by [[lem:s14-limit-sides]] (a). For the third, choose δ > 0 smaller than |ι₊ − 2| and |ι₋ − 2| and such that Q_5 < 0
+on [2, 2 + δ], which is possible as Q_5(2) = −(15 + 3κ)e/4 < 0 ([[lem:s14-q5]] (a)). For small h exactly one root ι_h
+of P_2 lies in the disc |ι − 2| < δ; its complex conjugate is also a root in that disc, so ι_h is real. Now
+P_2(2) = f₀ > 0 by [[lem:s14-line-two]] (a), while P_2(2 + δ/2) tends to 4(δ/2)Q_5(2 + δ/2) < 0 as h → 0⁺, by
+[[eq:s14-q5]]. So for small h, P_2 has a root in (2, 2 + δ/2), which is ι_h, and ι_h > 2. Hence N_+ = 3, at every point
+of Ω₂. As P(·; κ, h) has six roots and N_− = 3, no root lies in the strip −1/(2h) ≤ Re ι ≤ 2 when (κ, h) ∈ Ω₂, in
+particular when κ = l(l + 2) with l ≥ 2.
+
+*Degree l = 1.* P_1(2) = 0 for every h, so P_1 = (ι − 2)P̃_1 with P̃_1 a polynomial of degree 5 in ι, of leading
+coefficient −h³, whose coefficients are polynomials in h. By [[lem:s14-line-two]], P̃_1(2 + iy) = P_1(2 + iy)/(iy) ≠ 0
+for real y ≠ 0, and P̃_1(2) = ∂_ιP_1(2) = f₁ ≠ 0; so P̃_1 has no root with real part 2, and by
+[[lem:s14-half-plane-count]] with Ω = {3} × (0, 10⁻⁶] the number of its roots with real part greater than 2 does not
+depend on h. As h → 0⁺, three roots of P_1 converge to the pairwise distinct numbers 2, ι₊, ι₋ and the real parts of
+the other three tend to −∞ ([[lem:s14-small-h]] (a)). For small h exactly one root of P_1 lies in a small disc about
+2, and ι = 2 is a root there; so the five roots of P̃_1 are the other five. Two of them converge to ι₊ and ι₋ and have
+real part greater than 2 for small h ([[lem:s14-limit-sides]] (a)), and three have real parts tending to −∞. So P̃_1
+has exactly two roots with real part greater than 2, for every h ∈ (0, 10⁻⁶]. Its roots with real part less than
+−1/(2h) are those of P_1, three by the first part. So P̃_1 has no root with real part in [−1/(2h), 2], and the roots
+of P_1 are ι = 2, simple as P̃_1(2) ≠ 0, two with real part greater than 2, and three with real part less than
+−1/(2h). ∎
+
+Since −1/(2h) ≤ −5·10⁵ < −100 and 2 > 19/10, [[prop:s14-scalar-every-h]] gives the part of [[prop:np-10-54]] (i)–(ii)
+that concerns the scalar types l ≥ 1. It holds at every h ∈ (0, 10⁻⁶] and every l ≥ 1, with no exceptional value of h;
+as h_* ≤ 10⁻⁶, this includes every h ∈ 𝖧 of [[eq:iv4-0-1]].
 
 ### The inputs in dimension 4 + 1 {#sec:iv4-1}
 
@@ -2631,3 +2826,419 @@ above. Its value is given by [[lem:s14-delta50]], which does not involve h; [[co
 [[prop:np-10-52]] (iii) that comes from a root of P_l, P_0 or p_(v), is not an integer and has modulus at most 50 has
 real part at distance more than 2.93·10⁻⁶ from ℤ ([[cor:s14-eps-ind-point]]). Later chapters use only ε_ind(h) > 0
 and ε_ind(h) ≤ δ_50, which hold for every admissible h by [[prop:np-10-52]] (iii).
+
+### The indicial roots at the damping point γ_C = 10⁶ {#sec:s14-pa}
+
+This section determines the number ε_ind(h) of [[prop:np-10-52]] (iii) at h = 10⁻⁶, that is at γ_C = 10⁶, and shows that
+there the real parts of the non-integer roots ι with |ι − 1| ≤ 50 of P_l, P_0 and p_(v) keep a distance of more than
+2.93·10⁻⁶ from the integers. The point h = 10⁻⁶ is the right end of the interval (0, 10⁻⁶] on which [[prop:np-10-52]]
+(iii) defines ε_ind; it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which the theorems of this paper are stated, and
+[[rem:s14-eps-ind-scope]] says what this section gives for h ∈ 𝖧. As in [[sec:s14-model]], (v, e) = (1/2, 1/102400), κ =
+l(l + 2), and P_l, P_0, p_(v) and C are the polynomials of [[prop:np-10-12]] at this point. Throughout this section
+
+    h := 10⁻⁶,     ε₀ := e/h = 625/64,     x := hκ,     δ_C := 2.94·10⁻⁶,
+
+and z = 4e_Υγ_Υ² = 4·10⁻⁶ as in [[sec:s14-simple]]. An entry of the lists of [[prop:np-10-52]] that comes from a
+root ι of P_l, P_0 or p_(v) is ι − 1, and its modulus is at most 50 exactly when |ι − 1| ≤ 50. The tables this
+section uses are in [[sec:tab-a]].
+
+The elementary bounds, for a > 0 and 0 ≤ y ≤ 8a²,
+
+    a + y/(2a) − y²/(8a³) ≤ (a² + y)^(1/2) ≤ a + y/(2a),                                                {#eq:s14-pa-sqrt}
+
+follow from (a + y/(2a))² = a² + y + y²/(4a²) and (a + y/(2a) − y²/(8a³))² = a² + y − (y³/(8a⁴))(1 − y/(8a²)).
+
+#### The number δ_50 {#sec:s14-pa-delta}
+
+**Lemma {#lem:s14-delta50}** (The value of δ_50.) The number δ_50 of [[prop:np-10-52]] (iii), which depends on z
+only and not on h, satisfies
+
+    1.941370568463·10⁻⁸ < δ_50 < 1.941370568464·10⁻⁸,
+
+so δ_50 = 1.94137056846·10⁻⁸ to twelve significant figures; and δ_50 < 2·10⁻⁴/10302 < 1.9413707·10⁻⁸ < 1.94138·10⁻⁸.
+
+*Proof.* By [[prop:np-10-52]] (i) at u = 51, δ_50 = d₂ = ½((101² + B)^(1/2) − 101) = B/(2(101 + (10201 + B)^(1/2))),
+where B := 2z − 4w, w := (2601 + A)^(1/2) − 51 = A/(51 + (2601 + A)^(1/2)) and A := z + z²/4 = 4.000004·10⁻⁶. By
+[[eq:s14-pa-sqrt]] with a = 51, the denominator of w lies between 102 + A/102 − A²/(8·51³) and 102 + A/102, where
+A/102 = 3.921572549019…·10⁻⁸ and A²/(8·51³) < 1.6·10⁻¹⁷. Dividing,
+
+    3.921572547511889·10⁻⁸ < w < 3.921572547511890·10⁻⁸,     7.843137098099524·10⁻⁶ < B < 7.843137098099525·10⁻⁶.
+
+By [[eq:s14-pa-sqrt]] with a = 101,
+
+    B/(404 + B/101) ≤ δ_50 ≤ B/(404 + B/101 − B²/(4·101³)),
+
+with 7.7654·10⁻⁸ < B/101 < 7.7655·10⁻⁸ and B²/(4·101³) < 1.5·10⁻¹⁷. With the bounds on B the left quotient exceeds
+1.94137056846335·10⁻⁸ and the right one is below 1.94137056846336·10⁻⁸, which gives the first claim. For the second,
+w > z/102: indeed A·102 > z(102 + A/102) because 102(A − z) = 25.5z² > zA/102. So δ_50 < B/404 < (2z − 4z/102)/404 =
+50z/10302 = 2·10⁻⁴/10302 = 1.94137060764…·10⁻⁸. ∎
+
+#### The vector type and the scalar type 0 {#sec:s14-pa-vector}
+
+**Lemma {#lem:s14-vector-distance}** (The vector type at γ_C = 10⁶.) Let l ≥ 1 and Γ := 250002000000. The roots of
+p_(v) are −499999 ± (Γ + (l + 1)²)^(1/2). The smaller is below −10⁶. The larger, ι_v, is at least 3, and if ι_v ≤ 51
+and ι_v ∉ ℤ then
+
+    dist(ι_v, ℤ) ≥ 3/1000100 > 2.9997·10⁻⁶.
+
+*Proof.* At h = 10⁻⁶ and v = 1/2, −h⁻¹p_(v)(ι) = ι² + 999998ι − κ − 3·10⁶ ([[prop:np-10-12]] (ii)). Since
+499999² = 249999000001 and κ = (l + 1)² − 1, (ι + 499999)² = Γ + (l + 1)² at a root, which gives the roots; ι_v
+increases with l and equals (250002000004)^(1/2) − 499999 = 500002 − 499999 = 3 at l = 1.
+
+Let ι_v ≤ 51 and let n be the integer nearest ι_v; then 3 ≤ n ≤ 51. Put k := n − 1. Expanding,
+(n + 499999)² − Γ = n² + 999998n − 2999999 = X_k, where X_k := k² + 10⁶(k − 2). Hence
+
+    (ι_v − n)(ι_v + n + 999998) = (ι_v + 499999)² − (n + 499999)² = (l + 1)² − X_k,
+
+and if ι_v ≠ n the integer (l + 1)² − X_k is not 0. We show that its modulus is at least 3. As 10⁶ = 2⁶·5⁶,
+X_k ≡ k² modulo 64 and modulo 25. Modulo 4, (l + 1)² − X_k ≡ (l + 1)² − k² ∈ {0, 1, −1}, so it is not ±2. Suppose
+(l + 1)² − X_k = f with f = ±1, that is X_k + f = (l + 1)² is a square. Modulo 8 the squares are 0, 1, 4: if k is
+odd, k² + 1 ≡ 2, so f = −1; if k ≡ 2 (mod 4), k² ± 1 ≡ 5 or 3, impossible; if 4 | k, k² − 1 ≡ 7, so f = +1. Modulo
+5 the squares are 0, 1, 4: f = +1 excludes k ≡ ±1 and f = −1 excludes k ≡ ±2 (mod 5). If k² + f ≡ 0 (mod 5) it must
+be ≡ 0 (mod 25), a square divisible by 5 being divisible by 25; among 2 ≤ k ≤ 50 this leaves, of
+k ∈ {8, 12, 28, 32, 48} with f = +1, only k = 32 (k² + 1 = 65, 145, 785, 1025, 2305), and of the odd k ≡ ±1 (mod 5)
+with f = −1 only k = 49 (k² − 1 = 2400). What remains is f = +1 with k ∈ {20, 32, 40} and f = −1 with
+k ∈ {5, 15, 25, 35, 45, 49}; for these nine, X_k + f lies strictly between two consecutive squares
+([[sec:tab-a-vector]]). So |(l + 1)² − X_k| ≥ 3, and since ι_v ≤ 51 and n ≤ 51,
+|ι_v − n| = |(l + 1)² − X_k|/(ι_v + n + 999998) ≥ 3/1000100. The smaller root is −499999 − (Γ + (l + 1)²)^(1/2) <
+−10⁶. ∎
+
+**Lemma {#lem:s14-scalar-zero}** (The scalar type 0 at γ_C = 10⁶.) The root ι₁ > 2 of C (proof of
+[[prop:np-10-54]]) satisfies 2 + δ_C < ι₁ < 5/2.
+
+*Proof.* With C₀(ι) = (5e − 2)ι + 5e + 4 and C_h = 3h(1 + 2ι − ι²) + h²ι(3 + 2ι − ι²) + ehι(ι + 1), as in the proof
+of [[prop:np-10-54]], C₀(2 + δ_C) = 15e − (2 − 5e)δ_C > 1.46·10⁻⁴ − 5.9·10⁻⁶ > 0 and C_h(2 + δ_C) > 0, as
+1 + 2ι − ι² and 3 + 2ι − ι² are positive at ι = 2 + δ_C. At ι = 5/2, C₀ = −1 + 35e/2 < 0 and
+C_h = −3h/4 + 35h²/8 + 35eh/4 < 0. C has exactly one root in (2, ∞), with C(2) > 0, so C > 0 on (2, ι₁) and C < 0 on
+(ι₁, ∞), and the two signs place ι₁ in (2 + δ_C, 5/2). ∎
+
+#### The sextic: decomposition, majorants and counting {#sec:s14-pa-sextic}
+
+**Lemma {#lem:s14-sextic-split}** (The sextic at γ_C = 10⁶.) Let l ≥ 1.
+
+(i) P_l(ι) = U(ι, x) + hW(ι, x), where
+
+    U := (2 + x − ι)𝒬(ι, x),   𝒬(ι, x) := 2ι² − (3x + 10)ι + x² + (5 + 3ε₀)x + 12,   W := R₁ + hR₂ + h²R₃,
+                                                                                                   {#eq:s14-pa-split}
+
+with R₁, R₂, R₃ the polynomials of [[sec:tab-a-split]]; the coefficients of 64·10¹⁸P_l in ι are those of
+[[sec:tab-a-sextic]].
+
+(ii) 𝒬(2 + x, x) = 3(ε₀ − 1)x = 1683x/64, ∂_ι𝒬 = 4ι − 3x − 10, and W(2 + x, x) = −(1683/64)x c(x), with
+c = c⁰ + hc₁ + h²c₂,
+
+    c⁰(x) := x² + 5866x/1683 + 5000/561,     c₁(x) := 64x⁴/1683 − 2308x³/1683 − 4439x²/561 − 1019x/99 − 2,
+    c₂(x) := 64x⁵/1683 − 241x⁴/1683 − 415x³/187 − 625x²/99 − 11329x/1683 − 1378/561.
+
+One has |hc₁ + h²c₂| < 0.011, 0.43 and 1.43 on [0, 16], [0, 50] and [0, 70]; hence c > 0 on [0, 70], and c ≤ 11, 39,
+321, 2684, 5155 on [0, 0.5], [0, 4], [0, 16], [0, 50], [0, 70].
+
+(iii) The discriminant of 𝒬(·, x) is Δ_𝒬(x) := x² − 1715x/8 + 4, with roots x₋ ∈ (0.01866, 0.01867) and x₊ > 214.
+For x₋ < x < x₊ the roots of 𝒬(·, x) are ζ and ζ̄,
+
+    ζ := a + ib,     a = a(x) := (3x + 10)/4,     b = b(x) := (−Δ_𝒬(x))^(1/2)/4 > 0,
+
+with |2 + x − ζ|² = 𝒬(2 + x, x)/2 = 1683x/128, |ζ|² = (8x² + 2195x/8 + 96)/16, and b increasing on (x₋, 107].
+
+(iv) For 0 < x ≤ x₋ the roots of 𝒬(·, x) are real, a ± Δ_𝒬(x)^(1/2)/4, and for 0.018 ≤ x ≤ 0.5 both roots of 𝒬(·, x)
+lie at distance more than 0.40 from 2 + x.
+
+(v) Let Λ(x) be −½ times the coefficient of ι² in the remainder of W(·, x) on division by U(·, x). Then
+Λ = Λ⁰ + hΛ₁ + h²Λ₂ with
+
+    Λ⁰ = 17x²/8 − 5851x/128 − 9055/128,     Λ₁ = 47x³/8 − 2587x²/16 − 1079831x/8192 − 43031/128,
+    Λ₂ = 129x⁴/32 − 36419x³/512 − 157055x²/32768 + 1864635x/16384 − 12933/64,
+
+and for x₋ < x < x₊, with Π := Λ − c,
+
+    Re(W(ζ, x)/∂_ιU(ζ, x)) = Π(x)/2.                                                                    {#eq:s14-pa-re}
+
+Here Π⁰ := Λ⁰ − c⁰ = 9x²/8 − 10598081x/215424 − 5719855/71808; |Π − Π⁰| < 0.57 on [0, 35] and < 4.17 on [0, 70];
+|Π⁰| ≤ 618 and |Π⁰′| ≤ 49.2 on [0, 35], |Π⁰| ≤ 1990 and |Π⁰′| ≤ 108.4 on [0, 70].
+
+*Proof.* (i) Put e = ε₀h and κ = x/h in the matrix [[eq:s14-nl]], multiply its third column by h and divide its
+third row by h. This leaves the determinant unchanged and gives M⁰ + hM¹, where
+
+    M⁰ := ( 2 + x − ι      2(ι − 2)        2x        )      M¹ := ( 2ι − ι²         0                       0           )
+          ( 0              4 + x − 2ι      −x        ),           ( 2ε₀(ι + 1)      (ι + 1)(ε₀ + 3 − ι)     −2x         )
+          ( −2ε₀           −(ε₀ + 2)       3 + x − ι )            ( 0               0                       2ι − ι² − 1 )
+
+(the middle entry of M¹ is 3 + 2ι − ι² + ε₀(ι + 1)). Since the determinant is linear in each row, P_l is a
+polynomial of degree at most 3 in h: its coefficient of h⁰ is det M⁰, that of h¹ the sum of the three determinants
+of M⁰ with one row replaced by the same row of M¹, that of h² the sum of the three determinants of M¹ with one row
+replaced by the same row of M⁰, and that of h³ is det M¹. Expanding det M⁰ along its first column and det M¹ along
+its first row,
+
+    det M⁰ = (2 + x − ι)((4 + x − 2ι)(3 + x − ι) − (ε₀ + 2)x) + 4ε₀x(2 + x − ι) = (2 + x − ι)𝒬(ι, x) = U,
+    det M¹ = (2ι − ι²)(ι + 1)(ε₀ + 3 − ι)(2ι − ι² − 1) = ι(ι − 2)(ι − 1)²(ι + 1)(ε₀ + 3 − ι) = R₃.
+
+The first and the third rows of M¹ have one nonzero entry each; expanding along them, and expanding along its first
+column the determinant D₂ of M⁰ with its second row replaced by that of M¹,
+
+    R₁ = (2ι − ι²)((4 + x − 2ι)(3 + x − ι) − (ε₀ + 2)x) + D₂ − (ι − 1)²(2 + x − ι)(4 + x − 2ι),
+    D₂ = (2 + x − ι)((ι + 1)(ε₀ + 3 − ι)(3 + x − ι) − 2(ε₀ + 2)x) − 4ε₀(ι + 1)((ι − 2)(3 + x − ι) + (ε₀ + 2)x)
+         + 4ε₀x(2(ι − 2) + (ι + 1)(ε₀ + 3 − ι)),
+
+and likewise, replacing the first, the second and the third row of M¹ by that of M⁰,
+
+    R₂ = −(ι − 1)²(ι + 1)((2 + x − ι)(ε₀ + 3 − ι) − 4ε₀(ι − 2)) − (2ι − ι²)(ι − 1)²(4 + x − 2ι)
+         + (2ι − ι²)((ι + 1)(ε₀ + 3 − ι)(3 + x − ι) − 2(ε₀ + 2)x).
+
+Multiplying out gives the polynomials R₁ and R₂ of [[sec:tab-a-split]]; these are identities in (ι, x, h, ε₀).
+Substituting x = hκ, ε₀ = 625/64 and h = 10⁻⁶ gives the coefficients of [[sec:tab-a-sextic]].
+
+(ii) 𝒬(2 + x, x) = 8 + 8x + 2x² − (3x + 10)(2 + x) + x² + 5x + 3ε₀x + 12 = (3ε₀ − 3)x. The value of W at ι = 2 + x is
+the s-free part of R₁(2 + x + s, x) ([[sec:tab-a-split]]), −1683x³/64 − 2933x²/32 − 1875x/8 = −(1683/64)x c⁰(x), plus
+h R₂(2 + x, x) + h² R₃(2 + x). From the formulas of (i),
+
+    R₂(2 + x, x) = −x(x⁴ + 3x³ − 3x² − 7x + 6 − ε₀(4x³ + 21x² + 27x + 6)),
+    R₃(2 + x) = x(2 + x)(1 + x)²(3 + x)(ε₀ + 1 − x),
+
+which at ε₀ = 625/64 are −(1683/64)x c₁(x) and −(1683/64)x c₂(x); indeed c₂ = (2 + x)(1 + x)²(3 + x)(64x − 689)/1683.
+The bounds on hc₁ + h²c₂ follow by summing the absolute values of the terms at the right end of each interval, and
+the bounds on c from c⁰(0.5) < 10.92, c⁰(4) < 38.86, c⁰(16) < 320.69, c⁰(50) < 2683.2 and c⁰(70) < 5153, c⁰ being
+increasing on [0, ∞).
+
+(iii) The discriminant is (3x + 10)² − 8(x² + (5 + 3ε₀)x + 12) = x² − (24ε₀ − 20)x + 4, and 24ε₀ − 20 = 1715/8;
+Δ_𝒬(0.01866) > 0 > Δ_𝒬(0.01867). For complex roots |2 + x − ζ|² = (2 + x − ζ)(2 + x − ζ̄) = 𝒬(2 + x, x)/2, and
+|ζ|² = a² + b² = ((3x + 10)² − x² + 1715x/8 − 4)/16. b² = −Δ_𝒬/16 has derivative (1715/8 − 2x)/16 > 0 for x < 107.
+
+(iv) On [0.018, x₋], Δ_𝒬 decreases from Δ_𝒬(0.018) < 0.1416, so the smaller root a − Δ_𝒬^(1/2)/4 exceeds
+2 + x + (1/2 − x/4) − 0.0941 > 2 + x + 0.401; the larger one is farther. On [x₋, 0.5], |2 + x − ζ| = (1683x/128)^(1/2)
+≥ (1683·0.01866/128)^(1/2) > 0.49.
+
+(v) For x₋ < x < x₊ the roots of U(·, x) are 2 + x, ζ and ζ̄, distinct since 𝒬(2 + x, x) ≠ 0 and b > 0, and U has
+leading coefficient −2 in ι. For a cubic U with leading coefficient −2 and distinct roots r₁, r₂, r₃, and any
+polynomial F, Σ_j F(r_j)/U′(r_j) = −½·(coefficient of ι² in the remainder of F modulo U), because F and its
+remainder agree at the roots, and for the polynomials 1, ι, ι² the sum is 0, 0, −½ (Lagrange interpolation of the
+remainder at the three roots). So Λ(x) = Σ_j W(r_j)/∂_ιU(r_j). W and U have real coefficients, so
+2 Re(W(ζ)/∂_ιU(ζ)) = W(ζ)/∂_ιU(ζ) + W(ζ̄)/∂_ιU(ζ̄) = Λ(x) − W(2 + x, x)/∂_ιU(2 + x, x), and
+∂_ιU(2 + x, x) = −𝒬(2 + x, x), so by (ii) the last quotient is c(x). The quotient of W by U is the polynomial 𝒲 of
+[[sec:tab-a-split]]: multiplying out, W − 𝒲U has degree at most 2 in ι, and its coefficient of ι² is
+−2(Λ⁰ + hΛ₁ + h²Λ₂). The bounds on Π − Π⁰ = h(Λ₁ − c₁) + h²(Λ₂ − c₂) follow by summing the absolute values of the
+terms at x = 35 and x = 70; those on the quadratic Π⁰ and on Π⁰′ = 9x/4 − 10598081/215424 from its vertex value
+−617.5 at x = 21.87 and its values −79.66, −423.4 and 1989.1 at x = 0, 35, 70. ∎
+
+**Lemma {#lem:s14-majorant}** (Majorants.) Let g(s, x) = Σ_(j,k) g_jk s^j x^k be a polynomial, p a function of x (the
+centre), and f(ι, x) := g(ι − p(x), x). Put ḡ(S, T) := Σ_(j,k) |g_jk| S^j T^k. Then |f(ι, x)| ≤ ḡ(S, T) whenever
+|ι − p(x)| ≤ S and 0 ≤ x ≤ T, and ḡ increases in S and in T.
+
+*Proof.* The triangle inequality, term by term. ∎
+
+We write N̄ := R̄₂ + hR̄₃ and N̄′ := R̄₂′ + hR̄₃′, which bound R₂ + hR₃ and its ι-derivative on |ι| ≤ S, 0 ≤ x ≤ T
+(centre p = 0), and M̄_B, M̄_a (with M̄_B′, M̄_a′ for the s-derivatives) for the majorants of the re-expansions R₁(2 +
+x + s, x) and R₁(a(x) + s, x), polynomials in (s, x) with the centres p = 2 + x and p = a(x); R̄_j, R̄_j′ and the two
+re-expansions are printed in [[sec:tab-a-split]], and M̄_B, M̄_a, M̄_B′, M̄_a′ are their majorants. By the lemma, on |ι
+− p| ≤ ϱ with p = 2 + x, resp. p = ζ (so that |ι − a| ≤ b + ϱ and
+|ι| ≤ |ζ| + ϱ), and x_a ≤ x ≤ x_b for an interval [x_a, x_b] of [[sec:tab-a-pieces]],
+
+    |W| ≤ M̄_B(ϱ, x_b) + hN̄(2 + x_b + ϱ, x_b),   resp.   |W| ≤ M̄_a(b + ϱ, x_b) + hN̄(|ζ| + ϱ, x_b),
+
+and likewise for ∂_ιW with the primed majorants.
+
+**Lemma {#lem:s14-fixed-point}** (A perturbed simple root.) Let p ∈ ℂ, ϱ > 0 and D := {|ι − p| ≤ ϱ}; let V and W be
+polynomials with V ≠ 0 on D, and put Ξ := −hW/V. If |Ξ| ≤ ϱ and |Ξ′| ≤ L_Ξ < 1 on D, then (ι − p)V + hW has exactly
+one zero ι* in D, and
+
+    |ι* − p| ≤ |Ξ(p)|/(1 − L_Ξ),     |ι* − p − Ξ(p)| ≤ L_Ξ|Ξ(p)|/(1 − L_Ξ).
+
+If p is real and V, W have real coefficients, ι* is real. On D, |Ξ′| ≤ h(sup|W′|/inf|V| + sup|W|·sup|V′|/inf|V|²).
+
+*Proof.* The zeros of (ι − p)V + hW in D are the fixed points of ι ↦ p + Ξ(ι), which maps the closed convex set D into
+itself and is a contraction with constant L_Ξ there; so there is exactly one, ι*. Then |ι* − p| = |Ξ(ι*)| ≤ |Ξ(p)| +
+L_Ξ|ι* − p|, and |ι* − p − Ξ(p)| = |Ξ(ι*) − Ξ(p)| ≤ L_Ξ|ι* − p|. In the real case the conjugate of ι* is a zero in D,
+so equals ι*. The last bound is the quotient rule. ∎
+
+**Lemma {#lem:s14-sextic-count}** (Counting the roots.) (a) For 0 < x ≤ 70, P_l has exactly three roots, counted with
+multiplicity, in |ι| < 1000. (b) For x ≥ 70, P_l has no root with |ι − 1| ≤ 50.
+
+*Proof.* (a) For x ≤ 70 the roots of U(·, x) are 2 + x ≤ 72 and the roots of 𝒬(·, x), which by
+[[lem:s14-sextic-split]] (iii)–(iv) have modulus at most (3657)^(1/2) < 61. On |ι| = 1000, therefore,
+|U| ≥ 928·2·939² > 1.63·10⁹, while by [[lem:s14-majorant]] with p = 0
+
+    |hW| ≤ h(R̄₁(1000, 70) + hR̄₂(1000, 70) + h²R̄₃(1000)) < 10⁻⁶(5.67·10¹² + 4.3·10⁹ + 1.02·10⁶) < 5.7·10⁶.
+
+By Rouché's theorem P_l = U + hW has three zeros in |ι| < 1000, as U has.
+
+(b) If |ι − 1| ≤ 50, then |ι| ≤ 51, Re ι ≤ 51 and |2 + x − ι| ≥ x − 49, and |hW| ≤ h(R̄₁ + hR̄₂ + h²R̄₃)(51, x) ≤
+0.00862x² + 1.3823x + 45.381. If 70 ≤ x < x₊, both roots of 𝒬 have real part a = (3x + 10)/4, so they lie at
+distance at least y := (3x − 194)/4 ≥ 4 from ι, and |U| ≥ 2(x − 49)y² ≥ 42y²; with x = (4y + 194)/3 the bound on
+|hW| becomes at most 0.0156y² + 3.36y + 172, which is less than 42y² for y ≥ 4. If x ≥ x₊, the roots of 𝒬 are real
+and at least (3x + 10 − x)/4, as Δ_𝒬(x)^(1/2) < x, so they lie at distance at least y′ := (2x − 194)/4 ≥ 58 from ι,
+and |U| ≥ 330y′², while with x = 2y′ + 97 the bound on |hW| becomes at most 0.0345y′² + 6.2y′ + 261 < 330y′². In both
+cases |hW| < |U| on the disc, so P_l has no zero there. ∎
+
+**Corollary {#cor:s14-remote-point}** (The remote roots at γ_C = 10⁶.) Let h = 10⁻⁶, l ≥ 1 and hκ ≤ 70. The three
+roots of P_l in |ι| < 1000 given by [[lem:s14-sextic-count]] (a) are its three roots with real part at least 2, and
+its other three roots have real part less than −5·10⁵.
+
+*Proof.* By [[prop:s14-scalar-every-h]], three roots of P_l have real part less than −5·10⁵, hence modulus greater
+than 1000, and the other three have real part at least 2. The three roots in |ι| < 1000 of [[lem:s14-sextic-count]] (a)
+are therefore the latter. ∎
+
+#### Degrees with κ ≤ 18000 {#sec:s14-pa-small}
+
+**Lemma {#lem:s14-sextic-small}** (The roots near 2 and 3.) Let 1 ≤ l ≤ 133, so that 3 ≤ κ ≤ 17955 and
+3h ≤ x < 0.018 < x₋. The three roots of P_l in |ι| < 1000 are real, and:
+
+(a) for l = 1 they are 2 and one root in each of (2 + 3h, a(x)) and (a(x), 3 − δ_C);
+
+(b) for l = 2 they lie one in each of (2 + 2.93h, 2 + 2.94h), (2 + 8h, a(x)) and (a(x), 3 − δ_C);
+
+(c) for 3 ≤ l ≤ 133 they lie one in each of (2 + δ_C, 2 + x), (2 + x, a(x)) and (a(x), 3 − δ_C).
+
+*Proof.* We use four signs.
+
+(α) P_l(2 + x) = hW(2 + x, x) = −(1683/64)h x c(x) < 0, by [[lem:s14-sextic-split]] (ii), as U(2 + x, x) = 0.
+
+(β) P_l(a(x)) > 0. Indeed 2 + x − a = −(2 − x)/4 and 𝒬(a, x) = −Δ_𝒬(x)/8, so U(a, x) = (2 − x)Δ_𝒬(x)/32 ≥
+1.982·0.1415/32 > 0.0087, Δ_𝒬 being decreasing on [0, 0.018]; and |W(a, x)| ≤ M̄_a(0, 0.018) + hN̄(2.52, 0.018) < 49,
+the s-free part of R₁(a + s, x) being at most 47.6 in modulus there. So |hW| < 5·10⁻⁵.
+
+(γ) P_l(3 − δ_C) < 0. By [[sec:tab-a-expansions]] with ξ = −2.94, P_l(3 − δ_C) = h(L₀(−2.94, κ) + E) with
+L₀(−2.94, κ) = −1619κ/64 − 2.12 and |E| ≤ h(10⁻⁶κ³ + 24.3κ² + 414κ + 1290) ≤ 0.439κ + 0.0013 for κ ≤ 18000.
+
+(δ) By [[sec:tab-a-expansions]], P_l(2 + hξ) = h²(G₀(ξ, κ) + E) with |E| ≤ h(κ³ + 20κ² + 690κ + 1251) for |ξ| ≤ 3.
+At κ = 8, |E| ≤ 0.0086, G₀(2.93, 8) = 0.8968… and G₀(2.94, 8) = −2.9043…, so P_2(2 + 2.93h) > 0 > P_2(2 + 2.94h).
+For 15 ≤ κ ≤ 18000, G₀(2.94, κ) = (1811κ² − 11133.66κ)/64 − 422.1968… ≥ 28.29κ² − 174κ − 422.2, while hκ³ ≤ 0.018κ²
+gives |E| ≤ 0.0181κ² + 0.0007κ + 0.0013; the difference exceeds 3300 at κ = 15 and increases, so P_l(2 + δ_C) > 0.
+
+In (c), 2 + δ_C < 2 + x < a(x) < 3 − δ_C and the signs of P_l at these points are +, −, +, −; so P_l has a root in
+each of the three open intervals. These are three distinct roots in |ι| < 1000, hence all of them by
+[[lem:s14-sextic-count]]. In (b), the signs at 2 + 2.93h, 2 + 2.94h give the first root, and the signs −, +, − at
+2 + 8h = 2 + x, a(x), 3 − δ_C the other two. In (a), P_1(2) = 0 ([[prop:np-10-12]] (iii)), and the signs −, +, − at
+2 + 3h = 2 + x, a(x), 3 − δ_C give two more roots; so the root 2 is simple. ∎
+
+#### Degrees with κ ≥ 18000 {#sec:s14-pa-large}
+
+**Lemma {#lem:s14-sextic-large}** (Location of the roots.) Let l ≥ 134, so that x ≥ 0.018, and let x ≤ 70. Each
+statement uses the row of [[sec:tab-a-pieces]] whose interval [x_a, x_b] contains x.
+
+(a) P_l has exactly one root ι_B with |ι_B − (2 + x)| ≤ ϱ; it is real, and |ι_B − 2 − x + hc(x)| ≤ e_B.
+
+(b) If x ≤ 0.03, the other two roots of P_l in |ι| < 1000 lie in |ι − a(x)| < 0.45.
+
+(c) If x ≥ 0.03, P_l has exactly one root ι_P with |ι_P − ζ| ≤ ϱ, its conjugate is the only root with
+|ι − ζ̄| ≤ ϱ, and
+
+    |ι_P − ζ| ≤ Ξ_ζ/(1 − L_Ξ),     |Re ι_P − a(x) + hΠ(x)/2| ≤ e_P,
+
+with Ξ_ζ, L_Ξ and e_P from the row. The roots ι_B, ι_P and ῑ_P are the three roots of P_l in |ι| < 1000.
+
+*Proof.* (a) U = (ι − (2 + x))V_B with V_B := −𝒬, so [[lem:s14-fixed-point]] applies with p = 2 + x, V = −𝒬 and
+Ξ_B = hW/𝒬. On the disc, |𝒬| ≥ 2(d_* − ϱ)² ≥ 𝒬_min with d_* the distance bound of the row (from
+[[lem:s14-sextic-split]] (iv) in the first row and from |2 + x − ζ| = (1683x/128)^(1/2) ≥ (1683x_a/128)^(1/2) in the
+others), and |∂_ι𝒬| = |4(ι − 2 − x) + x − 2| ≤ 4ϱ + max(2, x_b − 2) ≤ 𝒬′_max. With the majorant bounds M₀, M₁ of
+the row, |Ξ_B| ≤ hM₀/𝒬_min ≤ ϱ and |Ξ_B′| ≤ L_Ξ < 1. As Ξ_B(2 + x) = hW(2 + x, x)/𝒬(2 + x, x) = −hc(x) by
+[[lem:s14-sextic-split]] (ii), the lemma gives the root, real, with |ι_B − 2 − x + hc(x)| ≤ L_Ξhc(x)/(1 − L_Ξ) ≤ e_B.
+
+(b) For 0.018 ≤ x ≤ 0.03, |Δ_𝒬(x)| ≤ max(Δ_𝒬(0.018), −Δ_𝒬(0.03)) < 2.4304, so the roots of 𝒬 lie within 0.3898 of a.
+On |ι − a| = 0.45 they are at distance at least 0.0602 from ι, and |2 + x − ι| ≥ (1/2 − x/4) − 0.45 ≥ 0.0425, so
+|U| ≥ 0.0425·2·0.0602² > 3.08·10⁻⁴, while |hW| ≤ h(M̄_a(0.45, 0.03) + hN̄(2.98, 0.03)) < 10⁻⁶·94. By Rouché's theorem
+P_l has two zeros in |ι − a| < 0.45, as U has (2 + x lies outside, |2 + x − a| = 1/2 − x/4 > 0.49).
+
+(c) U = (ι − ζ)V with V(ι) := 2(2 + x − ι)(ι − ζ̄). On |ι − ζ| ≤ ϱ, |V| ≥ 2(d⁻ − ϱ)(2b⁻ − ϱ) ≥ V_min and
+|V′| = |2(2 + x − ι) − 2(ι − ζ̄)| ≤ 2(d⁺ + ϱ) + 2(2b⁺ + ϱ) ≤ V′_max, with the bounds d^±, b^±, r⁺ of the row from
+[[lem:s14-sextic-split]] (iii). With M₀, M₁ of the row, |Ξ| ≤ hM₀/V_min ≤ ϱ and |Ξ′| ≤ L_Ξ < 1, and |Ξ(ζ)| =
+h|W(ζ)|/|V(ζ)| ≤ hM_ζ/(4d⁻b⁻) ≤ Ξ_ζ, as |V(ζ)| = 2|2 + x − ζ|·2b. [[lem:s14-fixed-point]] gives ι_P and the first
+bound. Since V(ζ) = ∂_ιU(ζ), [[eq:s14-pa-re]] gives Re Ξ(ζ) = −hΠ(x)/2, and
+|Re(ι_P − ζ − Ξ(ζ))| ≤ L_Ξ|Ξ(ζ)|/(1 − L_Ξ) ≤ e_P. The conjugate statement follows from the real coefficients.
+Finally, with ϱ_B and ϱ_P the radii of the two tables, ϱ_P < b⁻ and ϱ_B + ϱ_P < d⁻ for every pair of rows,
+so the discs about 2 + x, ζ and ζ̄, resp. the disc of (b) and the disc about 2 + x (as 0.45 + 0.001 < 0.49), are
+disjoint and lie in |ι| < 1000; by [[lem:s14-sextic-count]] they hold all three roots there. ∎
+
+**Lemma {#lem:s14-crossings}** (The crossings of the integers.) Let l ≥ 1 with 0.5 ≤ x ≤ 70, and let 3 ≤ n ≤ 51 be an
+integer. With K_n and K′_n as in [[sec:tab-a-crossings]]:
+
+(a) if |ι_B − n| ≤ δ_C, then |κ − K_n| < 3.1 when n ≤ 17 and |κ − K_n| < 33 when n ≥ 18;
+
+(b) if |Re ι_P − n| ≤ δ_C, then |κ − K′_n| < 27 when n ≤ 28 and |κ − K′_n| < 103 when n ≥ 29.
+
+*Proof.* (a) By [[lem:s14-sextic-large]] (a), ι_B = 2 + x − hc(x) + ξ_B with |ξ_B| ≤ e_B ≤ 29h. If |ι_B − n| ≤ δ_C,
+then |x − (n − 2) − hc(x)| ≤ δ_C + e_B; dividing by h,
+
+    |κ − (n − 2)/h − c(x)| ≤ (δ_C + e_B)/h,     |x − (n − 2)| ≤ hc(x) + δ_C + e_B.
+
+As c ≤ 5155, |x − (n − 2)| < 0.006; so n ≤ 17 gives x < 15.01, where e_B ≤ 0.1h, c ≤ 321 and |x − (n − 2)| ≤ 325h,
+and n ≥ 18 gives x ≤ 49.01, where e_B ≤ 29h, c ≤ 2684 and |x − (n − 2)| ≤ 2716h. Since K_n = (n − 2)/h + c⁰(n − 2),
+
+    |κ − K_n| ≤ (δ_C + e_B)/h + |c(x) − c⁰(x)| + |c⁰(x) − c⁰(n − 2)|,
+
+and c⁰′(y) = 2y + 5866/1683 is at most 35.5 on [0, 16] and 103.5 on [0, 50]. By [[lem:s14-sextic-split]] (ii) this is
+at most 2.94 + 0.1 + 0.011 + 35.5·325·10⁻⁶ < 3.1 for n ≤ 17, and 2.94 + 29 + 0.43 + 103.5·2716·10⁻⁶ < 33 for n ≥ 18.
+
+(b) By [[lem:s14-sextic-large]] (c), Re ι_P = a(x) − hΠ(x)/2 + ξ_P with |ξ_P| ≤ e_P. Put x_n := (4n − 10)/3, so that
+a(x) − n = 3(x − x_n)/4. If |Re ι_P − n| ≤ δ_C, then |x − x_n − 2hΠ(x)/3| ≤ 4(δ_C + e_P)/3, so
+
+    |κ − x_n/h − 2Π(x)/3| ≤ 4(δ_C + e_P)/(3h),     |x − x_n| ≤ 2h|Π(x)|/3 + 4(δ_C + e_P)/3,
+
+and, as K′_n = x_n/h + 2Π⁰(x_n)/3,
+
+    |κ − K′_n| ≤ 4(δ_C + e_P)/(3h) + (2/3)(|Π(x) − Π⁰(x)| + |Π⁰(x) − Π⁰(x_n)|).
+
+If n ≤ 28 then x ≤ 35 (as |x − x_n| < 0.002 and x₂₈ = 34), so e_P ≤ 17h, |Π| ≤ 619, |x − x_n| ≤ 440h, and by
+[[lem:s14-sextic-split]] (v) the right side is at most (4/3)(19.94) + (2/3)(0.57 + 49.2·440·10⁻⁶) < 27. If n ≥ 29
+then x ≥ 35, e_P ≤ 72h, |Π| ≤ 1995, |x − x_n| ≤ 1430h, and the right side is at most
+(4/3)(74.94) + (2/3)(4.17 + 108.4·1430·10⁻⁶) < 103. ∎
+
+#### The distance from the integers, and ε_ind at γ_C = 10⁶ {#sec:s14-pa-distance}
+
+**Proposition {#prop:s14-damping-distance}** (The roots of the constraint damping polynomials at γ_C = 10⁶.) Let
+h = 10⁻⁶, and let ι be a root of P_l (l ≥ 1), of P_0 or of p_(v) (l ≥ 1) with |ι − 1| ≤ 50 and ι ∉ ℤ. Then
+
+    dist(Re ι, ℤ) > 2.94·10⁻⁶,
+
+except for the root of P_2 near 2, which satisfies 2.93·10⁻⁶ < ι − 2 < 2.94·10⁻⁶. In particular every such root has
+dist(Re ι, ℤ) > 2.93·10⁻⁶ > 2.9·10⁻⁶, the least distance occurring at scalar type l = 2. The only roots of P_l
+(l ≥ 1) and of P_0 that are integers and satisfy |ι − 1| ≤ 50 are ι = 2 at l = 0 and at l = 1.
+
+*Proof.* *Vector type.* By [[lem:s14-vector-distance]], the smaller root of p_(v) has |ι − 1| > 50, and a non-integer
+larger root ι_v ≤ 51 has distance at least 2.9997·10⁻⁶ > δ_C from ℤ.
+
+*Scalar type 0.* P_0 = −(ι − 2)C; the roots of C other than ι₁ have real part below −100 (proof of
+[[prop:np-10-54]]), and ι₁ ∈ (2 + δ_C, 5/2) by [[lem:s14-scalar-zero]].
+
+*Scalar type l ≥ 1, κ ≤ 18000.* By [[lem:s14-sextic-count]] (a) three roots have |ι| > 1000, and by
+[[lem:s14-sextic-small]] the other three lie in (2, 3) at distance more than δ_C from 2 and from 3, except ι = 2 at
+l = 1 and the root of P_2 in (2 + 2.93h, 2 + 2.94h).
+
+*Scalar type l ≥ 1, 0.018 ≤ x ≤ 70.* Three roots have |ι| > 1000; the others are those of
+[[lem:s14-sextic-large]]. For x ≤ 0.5, ι_B lies between 2 + x − hc(x) − e_B > 2.0179 and 2 + x ≤ 2.5; for
+x ≤ 0.03 the other two have real parts in (a − 0.45, a + 0.45) ⊂ (2.06, 2.98); and for 0.03 ≤ x ≤ 0.5,
+|ι_P − ζ| ≤ 0.0023, so Re ι_P ∈ (2.52, 2.88). For 0.5 ≤ x ≤ 70, ι_B > 2.49 and Re ι_P > 2.87. If one of them lies in
+|ι − 1| ≤ 50, its real part is at most 51, so an integer n with |Re ι − n| ≤ δ_C satisfies 3 ≤ n ≤ 51, and for such
+an n [[lem:s14-crossings]] gives |κ − K_n| < 3.1, resp. 33, or |κ − K′_n| < 27, resp. 103. By
+[[sec:tab-a-crossings]], every value l(l + 2) differs from K_n by more than 14.39 for n ≤ 17 and by more than 321.67
+for n ≥ 18, and from K′_n by more than 141.07 for n ≤ 28 and by more than 392.12 for n ≥ 29. So no such n exists,
+and the real part is more than δ_C from every integer.
+
+*Scalar type l ≥ 1, x ≥ 70.* No root has |ι − 1| ≤ 50, by [[lem:s14-sextic-count]] (b).
+
+The cases show that a root within δ_C of an integer, with |ι − 1| ≤ 50, is ι = 2 at l = 0 or l = 1 or the root of
+P_2 near 2. ∎
+
+**Corollary {#cor:s14-eps-ind-point}** (ε_ind at γ_C = 10⁶.) ε_ind(10⁻⁶) = δ_50, where the infimum of [[prop:np-10-52]]
+(iii) is taken over all the lists ℛ^sc_l (l ≥ 0), ℛ^v_l (l ≥ 1) and ℛ^t_l (l ≥ 2), the scalar types 0 and 1 included. It
+is attained by the entry −49 − δ_50 of ℛ^sc_50, and 1.941370568463·10⁻⁸ < δ_50 < 1.941370568464·10⁻⁸. Every entry of
+these lists at h = 10⁻⁶ that comes from a root of P_l, of C or of p_(v), is not an integer and has modulus at most 50
+has real part at distance more than 2.93·10⁻⁶ from ℤ.
+
+*Proof.* The entries that do not depend on h are the integers −l, l + 2, 2 − l, l + 4, 1 − l and l + 3, the four
+roots of Q_l(ι − 1) for each l ≥ 1 (at l = 1 these are 2 − ι^Υ_(s1,j) and 1 + ι^Υ_(s1,j), j = 2, 3), and at scalar
+type 0 the numbers 2 − ι^Υ_(s0,2) and 1 + ι^Υ_(s0,2). By [[prop:np-10-52]] (iii) and its proof, the least distance
+from ℤ of such an entry that is not an integer and has |ι| ≤ 50 is δ_50, attained by 1 − l − d₂ at l = 50, which is
+−49 − δ_50. At the scalar types 0 and 1 these distances are ι^Υ_(s0,2) − 2 = z/(3/2 + (9/4 + z)^(1/2)) >
+z/(3 + z/3) > 1.33·10⁻⁶, and, at u = 2, d₂ = z(1 + θ₂)/12 > 3.3·10⁻⁷ and d₁ = 3z(1 + θ₁)/20 > 5.9·10⁻⁷ by
+[[eq:s14-theta]]; all exceed δ_50. The remaining entries are ι − 1 for the roots ι of P_l and of p_(v), l ≥ 1, and of
+C at scalar type 0, those that [[ch:s15]] removes left out. The roots of C are roots of P_0 = −(ι − 2)C, so
+dist(Re(ι − 1), ℤ) = dist(Re ι, ℤ) > 2.93·10⁻⁶ > δ_50 by [[prop:s14-damping-distance]] whenever ι − 1 ∉ ℤ and
+|ι − 1| ≤ 50. So the infimum is a minimum, equal to δ_50, and [[lem:s14-delta50]] gives its value. ∎
+
+**Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) The theorems of this paper take h in 𝖧 = (0,
+h_*) ∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧, and
+[[prop:s14-damping-distance]] and [[cor:s14-eps-ind-point]] are used by none of them. For h ∈ 𝖧 the theorems use only 0
+< ε_ind(h) ≤ δ_50, which [[prop:np-10-52]] (iii) gives for every such h. [[lem:s14-delta50]] and [[prop:gap-sums]]
+concern numbers fixed by the gauge parameters (e_Υ, γ_Υ) alone, not by h, so they hold whatever h is. What changes for h
+∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in every constant,
+and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50. [[cor:s14-eps-ind-point]] shows that
+this upper bound is attained at the end h = 10⁻⁶ of the interval on which ε_ind is defined.

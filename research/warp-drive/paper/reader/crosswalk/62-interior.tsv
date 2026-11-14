@@ -4,17 +4,18 @@ sec:interior-development	docket68/n1star/BEYOND5.md:18-31	BEYOND5 section 1	repa
 lem:interior-damping	docket68/n1star/BEYOND5.md:906-914	BEYOND5 Proposition 6.2 proof, VAL site "IV6-SOLV Lemma 0.5 (6) below r_h/2"	written as a lemma extending S14 prop:np-10-14 (i)-(ii) to (0, r_h/2]
 prop:interior	docket68/n1star/BEYOND5.md:36-47, 885-922; docket68/n1star/BEYOND5-R0-PROOF.md:17-60	BEYOND5 Propositions 6.1 and 6.2	census proof replaced by thm:settling-precise at general r_flat (ch 60) plus the four inner-radius facts; f(r_flat) <= -3 is census9 C27 written out; P's final wording wins: the clause "g's own x_K = 1 surface within O(lambda + eps_m) of r_q" of Prop 6.1 is not stated
 rem:interior-condition	docket68/n1star/BEYOND5.md:36-55	BEYOND5 (1.1) and the seed paragraph	example recomputed exactly at ch:lambda0's point (A = 1); history of 5/8 R_1 dropped
-eq:interior-condition	docket68/n1star/BEYOND5.md:40	BEYOND5 (1.1)
-sec:interior-one-spacetime	docket68/n1star/BEYOND5.md:58-74	BEYOND5 section 2
+eq:interior-condition	docket68/n1star/BEYOND5.md:40	BEYOND5 (1.1)	
+sec:interior-one-spacetime	docket68/n1star/BEYOND5.md:58-74	BEYOND5 section 2	
+lem:interior-chart	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:140-158; docket68/n1star/proof5/PART-VII-ASSEMBLY.md:104-138	VII Lemma 1.2 (a) and its proof, on {|x| >= r_flat/2}; VII Lemma 1.1 at j = 0	lemma composed in the edition (fix F2-62) for the comparison in lem:interior-one-spacetime's proof (BEYOND5 Lemma 6.3); the 25C_Jλ bound and the inverse-metric bound by a Neumann series written out; J := d_1 + 10
 lem:interior-one-spacetime	docket68/n1star/BEYOND5.md:80-146	BEYOND5 Lemma 6.3	N renamed M_gl; B taken open (pending issue-1); global hyperbolicity by [BGP, Lemma A.5.9] (thm:std-bgp-development) in place of the [Chr11] argument; acausality in M_gl proved by the Gaussian time s
 rem:interior-one-spacetime	docket68/n1star/BEYOND5.md:148-161, 70-74	BEYOND5 "What it does and does not say"; section 2 second bullet	late-time claim (VII1) given its reason for g_(b0)
-sec:interior-own-data	docket68/n1star/BEYOND5.md:162-175	BEYOND5 3 (b)
+sec:interior-own-data	docket68/n1star/BEYOND5.md:162-175	BEYOND5 3 (b)	
 eq:interior-placing	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:150-159	Part VII Lemma 1.2's proof (= ch 60 lem:vii-1-2 proof)	restated choices used by SG R9.1 (ii)
-lem:interior-where	docket68/n1star/BEYOND5.md:177-186	BEYOND5 Lemma 6.4 (i)-(ii)
+lem:interior-where	docket68/n1star/BEYOND5.md:177-186	BEYOND5 Lemma 6.4 (i)-(ii)	
 rem:interior-reach	docket68/n1star/BEYOND5.md:187-196	BEYOND5 Lemma 6.4 (iii)	a statement about the proofs' constants; made a remark
 lem:interior-far-part	docket68/n1star/SETTLE-GLAM5.md:3376-3470, 3707-3744	SG Lemma R9.1 (= BEYOND5 Lemma 6.4 (iv)) with R10.0's deletion of (iii)(b)	N renamed H_1, S renamed Sigma_far, Zb renamed Z, eps renamed eps_g; |F'| <= 1/4 and v1 > tau_max derived from T_m; (iv) stated for a general continuation with size nu (SG's lambda + eps); B1-B4 written out
 rem:interior-far-part-numerical	docket68/n1star/SETTLE-GLAM5.md:3451-3460	SG R9.1 "Computed": B2', B4'	class (b) numerical observation
-def:half-class	docket68/n1star/BEYOND5.md:229-244	BEYOND5 Lemma 6.4 (v), bracket D517/D519
+def:half-class	docket68/n1star/BEYOND5.md:229-244	BEYOND5 Lemma 6.4 (v), bracket D517/D519	
 eq:half-class	docket68/n1star/BEYOND5.md:234-235	BEYOND5 E_0^(1/2)	ell_I in (3, ell_0) added as in eq:vii-0-1
 lem:half-class	docket68/n1star/BEYOND5.md:229-240	BEYOND5 Lemma 6.4 (v), D517	Lemma 0.1's proof in rho^(1/2)
 rem:half-class-changes	docket68/n1star/BEYOND5.md:240-244	BEYOND5 Lemma 6.4 (v), D519	citations by edition key (lem:iii-c-3-2 (a),(e), def:iii-i10-1-1)

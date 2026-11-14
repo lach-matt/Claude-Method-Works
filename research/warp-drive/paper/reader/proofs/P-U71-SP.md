@@ -13,10 +13,11 @@ alone ([[thm:sp-reduction]]). In particular the poles in {Re ϰ ≥ 2} are exact
 of L̂_b(0) with Re μ > 1 and j ≥ 1 an integer, and the order of each is at most the number of such roots of one type,
 with multiplicity, among ϰ_0 − 1, ϰ_0 − 2, …. The second is the evaluation at the computational point of
 [[def:ec-point]]: every pole of real part at most 5 is simple and lies in spec_ι⁺(L̄), and the poles are listed
-([[thm:sp-spectrum]]). The orders of these poles therefore contribute exactly 1 to l_*; with the logarithmic orders and
-the multiplicities that the index sets carry, l_* = 50 is admissible, and, with the least ℰ^C_I, K_ι ≤ 2 on the set Σ
-of [[def:iii-j-1-1]] ([[cor:sp-lstar]]). Nothing depends on the black hole parameter, as N_ι⁺(2L_b) = N_ι⁺(2L̄) for
-every b ([[lem:iii-h2-3-2]]).
+([[thm:sp-spectrum]]). The orders of these poles therefore contribute exactly 1 to l_*. With the logarithmic orders of
+the index sets as constructed and the multiplicities of the indicial roots of L̂_b(0), the least admissible l_* is the
+largest of those logarithmic orders, a number in [39, 50], and we take l_* = 50; with the least ℰ^C_I, K_ι ≤ 2 on the
+set Σ of [[def:iii-j-1-1]] ([[cor:sp-lstar]]). Nothing depends on the black hole parameter, as N_ι⁺(2L_b) = N_ι⁺(2L̄)
+for every b ([[lem:iii-h2-3-2]]).
 
 *Setting.* The hypotheses of [[thm:iii-g-5-1]] and of [[thm:iii-g1-3-1]] are assumed throughout, as in [[ch:s16]]; at
 the computational point they are the hypotheses under which its formulas are evaluated ([[rem:ec-point-outside]]).
@@ -210,8 +211,8 @@ N_sf(ϰ_0 − K − 1) is injective ([[prop:iii-g-3-2]]); by [[eq:sp-chain]] and
 j. As ∂_v^(K+1)I^(K+1)u_j = u_j, every u_j vanishes.
 
 *Surjectivity.* Let T_𝔫: 𝒳^𝔫 → 𝒴^𝔫, (u_j) ↦ (Σ_(i≤j)(i!)⁻¹N_sf^(i)(ϰ_0)u_(j−i))_j, so that 𝒦_𝔫(N_sf, ϰ_0) = ker T_𝔫.
-N_sf(ϰ_0) is Fredholm of index 0 ([[thm:iii-g-5-1]] (1)); choose Φ: 𝒳 → 𝒴 of finite rank with N_sf(ϰ_0) + Φ
-invertible, as in the proof of [[thm:iii-g-5-1]]. T_𝔫 + diag(Φ, …, Φ) is block lower triangular with invertible
+N_sf(ϰ_0) is Fredholm of index 0 ([[thm:iii-g-5-1]] (1)); choose 𝔉: 𝒳 → 𝒴 of finite rank with N_sf(ϰ_0) + 𝔉
+invertible, as in the proof of [[thm:iii-g-5-1]]. T_𝔫 + diag(𝔉, …, 𝔉) is block lower triangular with invertible
 diagonal blocks, hence invertible (solve row by row); so T_𝔫 = B(Id − G) with B invertible and G of finite rank. For
 such an operator dim ker T_𝔫 = codim ran T_𝔫. Indeed, let E ⊃ ran G be finite-dimensional; A := Id − G maps E into
 E, every x with Ax = 0 lies in E, A induces the identity on 𝒳^𝔫/E, and if Ax ∈ E then x ∈ E. So ran A + E = 𝒳^𝔫
@@ -528,41 +529,50 @@ number l_* of [[def:iii-i10-1-1]] bounds at real part at most 5, these orders co
 multiplicities of the indicial roots of L̂_b(0) with real part in (1, 4] are all 1 ([[lem:sp-roots]] (b)). So the
 least admissible l_* is max(1, L, M), where L is the largest logarithmic order of ℰ_ind ∪ ℰ^ι_ind ∪ ℰ^C_I at real part
 at most 5 and M the largest multiplicity of an indicial root of L̂_b(0) of real part at most 5. Here M ≤ 7; and for
-the index sets as constructed, with the least ℰ^C_I, 39 ≤ L ≤ 50. Hence max(1, L, M) = L: the least admissible l_* is
-L ∈ [39, 50], and l_* = 50 is admissible.
+the index sets as constructed, with the least ℰ^C_I (the least index set satisfying (2)–(3) of [[def:iii-c-3-1]], which
+exists by [[lem:iii-c-3-2]] (e) with ℰ̃ = ∅), 39 ≤ L ≤ 50. Hence max(1, L, M) = L: the least admissible l_* is
+L ∈ [39, 50], and we take l_* = 50, which is admissible.
 
 (b) For ϰ ∈ Σ ([[def:iii-j-1-1]]), K_ι(ϰ) ≤ m_ι(ϰ) + m_♯(ϰ) ([[prop:iii-g3-2-4]]) with m_ι(ϰ) ∈ {0, 1}, equal to 1
-exactly when ϰ is a point of [[thm:sp-spectrum]] (a); so K_ι(ϰ) ≤ 2 + k(ℰ^C_(I,♯), ϰ) ≤ l_* + 2, which is at most
-2l_* + 1 as l_* ≥ 1 (52 and 101 at l_* = 50). With the least ℰ^C_I, whose logarithmic orders are all 0, m_♯(ϰ) ≤ 1;
-so K_ι(ϰ) ≤ 2 for every ϰ ∈ Σ, and K_ι(ϰ) ≤ 1 unless ϰ ∈ spec_ι⁺(L̄) ∩ π_1ℰ^C_I, a set that contains 3. The pole at λ_♯
-has K_ι(λ_♯) = 1; whether the value 2 is taken is not decided here.
+exactly when ϰ is a point of [[thm:sp-spectrum]] (a). With the least ℰ^C_I, whose logarithmic orders are all 0,
+m_♯(ϰ) ≤ 1; so K_ι(ϰ) ≤ 2 for every ϰ ∈ Σ, and K_ι(ϰ) ≤ 1 unless ϰ ∈ spec_ι⁺(L̄) ∩ π_1ℰ^C_I, a set that contains 3.
+The bounds K_ι(ϰ) ≤ 2 + k(ℰ^C_(I,♯), ϰ) ≤ l_* + 2 and K_ι(ϰ) ≤ 2l_* + 1 ([[lem:iii-j-1-2]]) hold as well, for every
+ℰ^C_I whose logarithmic orders l_* bounds; at l_* = 50 they give 52 and 101. The pole at λ_♯ has K_ι(λ_♯) = 1; whether
+the value 2 is taken is not decided here.
 
 (c) In the step of [[sec:s23-step]] at an exponent ϰ₀, the solution map 𝒮_(ϰ₀) raises the logarithmic order by at
-most m_ι(ϰ₀): by at most 1 at the points of [[thm:sp-spectrum]] (a), and not at all at every other ϰ₀ with
-Re ϰ₀ ≤ 5. Likewise each raise "by a pole order of N_ι⁺(L̄, ·)⁻¹" in [[lem:iii-i10-1-2]] (c) is at most 1.
+most m_ι(ϰ₀) ([[cor:iii-g3-3-1]] (1)): by at most 1 at the points of [[thm:sp-spectrum]] (a), and not at all at every
+other ϰ₀ with Re ϰ₀ ≤ 5. Likewise each raise "by a pole order of N_ι⁺(L̄, ·)⁻¹" in [[lem:iii-i10-1-2]] (c) is at
+most 1.
 
 (d) On {2 ≤ Re ϰ ≤ 3 + ε_+}, ε_+ < 1/4, the poles are 3; ι₁; and the roots ι of P_l (l ≥ 1) with 2 < Re ι ≤ 3 + ε_+,
 together with ι + 1 for those with Re ι ≤ 2 + ε_+. All are simple. Of these poles, 3 lies in Λ ([[def:iii-i10-1-1]]);
-whether any other lies in Λ, which [[prop:is-lambda]] describes on {Re ≤ 3 + ε_+}, is not decided here, and no bound
-depends on it, each raise being at most 1 by (c). The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1, 2, 3) are
-not poles.
+whether ι₁, a root ι of some P_l or such an ι + 1 lies in Λ is not decided here, and no bound depends on it, each raise
+being at most 1 by (c). The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1, 2, 3) are not poles.
 
 *Proof.* (a) The orders are [[thm:sp-spectrum]] (b) and the multiplicities [[lem:sp-roots]] (b); the set of poles at
 real part at most 5 is not empty, so the pole orders require l_* ≥ 1. That M ≤ 7 is stated in [[prop:is-mult]];
-directly, (C1) holds at the computational point ([[prop:np-10-54]] (i), (ii)), so by [[prop:iii-f1-2-3]] (a), (b), at
-each type and degree n_τ ≤ 7 roots, counted with multiplicity, have real part at most 0, and n_τ have real part above
-1, and no root has multiplicity above 7. For L: every exponent of ℰ_ind of real part at most 5 has logarithmic order
-at most 39, and (5, 39) ∈ ℰ_ind; those of ℰ^ι_ind have orders at most 50 there ([[prop:is-logs]] (b), (c)); and the
-least ℰ^C_I has all orders 0 ([[prop:is-ci-pp]] (a)). So 39 ≤ L ≤ 50, and L ≥ 39 > 7 ≥ M.
+directly, (C1) holds at the computational point, the indicial roots of □^C_b at scalar type l ≥ 1, scalar type 0 and
+vector type l being the roots of P_l, P_0 and p_(v) ([[prop:np-10-12]] (ii), (iii)), which [[prop:np-10-54]] (i),
+(ii) locates as (C1) requires; so by [[prop:iii-f1-2-3]] (a), (b), at each type and degree n_τ ≤ 7 roots, counted with
+multiplicity, have real part at most 0, and n_τ have real part above 1, and no root has multiplicity above 7. For L:
+[[prop:is-logs]] gives 39 ≤ L ≤ 50 for the index sets as constructed and the least ℰ^C_I, whose logarithmic orders are
+all 0 (proof of (b)). So L ≥ 39 > 7 ≥ M.
 
-(b) The first bound is that of [[prop:iii-g3-2-4]] with (a), as Σ ⊂ {Re < 3 + ε_+}: m_♯(ϰ) = k(ℰ^C_(I,♯), ϰ) + 1 if
-ϰ ∈ π_1ℰ^C_(I,♯) and m_♯(ϰ) = 0 otherwise, and k(ℰ^C_(I,♯), ϰ) ≤ l_* as in the proof of [[lem:iii-j-1-2]]. With the
-least ℰ^C_I, ℰ^C_(I,♯) = (λ_♯, 0) ∪ ℰ^C_I ([[eq:iii-g3-2-1]]) has all logarithmic orders 0, so m_♯(ϰ) ∈ {0, 1}, equal
-to 1 exactly on {λ_♯} ∪ π_1ℰ^C_I. So K_ι(ϰ) ≤ 2, with K_ι(ϰ) = 2 possible only where m_ι(ϰ) = m_♯(ϰ) = 1, that is on
-spec_ι⁺(L̄) ∩ ({λ_♯} ∪ π_1ℰ^C_I) = spec_ι⁺(L̄) ∩ π_1ℰ^C_I, as λ_♯ < 2 and spec_ι⁺(L̄) ⊂ {Re ≥ 2}
-([[lem:iii-g1-4-2]] (a)). The point 3 is in
-[[thm:sp-spectrum]] (a) and 3 = 1 + 4/2 ∈ π_1ℰ^C_I ([[prop:is-ci-pp]] (a), with n = 4 and c = 0). (λ_♯, 0) ∈
-Spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I) by [[cor:iii-g3-2-6]], so the pole at λ_♯ is simple.
+(b) The first bound is that of [[prop:iii-g3-2-4]] with (a), as Σ ⊂ {Re < 3 + ε_+}: m_♯(ϰ) = k(ℰ^C_(I,♯), ϰ) + 1
+if ϰ ∈ π_1ℰ^C_(I,♯) and m_♯(ϰ) = 0 otherwise. The least ℰ^C_I is the union of the index sets ℰ_((m)) of the proof
+of [[lem:iii-c-3-2]] (e) with ℰ_((0)) = ℰ̃ = ∅, and every logarithmic order of each ℰ_((m)) is 0, by induction on m.
+For m = 0 there is nothing to prove. If it holds for ℰ_((m)), it holds for ℰ′_m = ℰ_((m)) ∪ ⋃_(s∈σ_Υ)(3/2 + s, 0)
+and for ℰ′_m + (ℰ′_m − 1), as logarithmic orders add in a sum of index sets ([[def:s11-b-analysis]] (4)); and the
+smallest index set containing a set of pairs (z, 0) consists of the pairs (z + j, 0), j ∈ ℕ₀, so it holds for
+ℰ_((m+1)). Hence ℰ^C_(I,♯) = (λ_♯, 0) ∪ ℰ^C_I ([[eq:iii-g3-2-1]]) has all logarithmic orders 0, and
+m_♯(ϰ) ∈ {0, 1}, equal to 1 exactly on {λ_♯} ∪ π_1ℰ^C_I. So K_ι(ϰ) ≤ 2, with K_ι(ϰ) = 2 possible only where
+m_ι(ϰ) = m_♯(ϰ) = 1, that is on spec_ι⁺(L̄) ∩ ({λ_♯} ∪ π_1ℰ^C_I) = spec_ι⁺(L̄) ∩ π_1ℰ^C_I, as λ_♯ < 2 and
+spec_ι⁺(L̄) ⊂ {Re ≥ 2} ([[lem:iii-g1-4-2]] (a)). The point 3 is in [[thm:sp-spectrum]] (a), and (3, 0) ∈ ℰ^C_I by
+[[lem:iii-c-3-2]] (a). For any ℰ^C_I whose logarithmic orders at real part at most 5 are bounded by l_*,
+k(ℰ^C_(I,♯), ϰ) ≤ l_* as in the proof of [[lem:iii-j-1-2]], which gives K_ι(ϰ) ≤ 2 + k(ℰ^C_(I,♯), ϰ) ≤ l_* + 2;
+and l_* + 2 ≤ 2l_* + 1 as l_* ≥ 1. Finally (λ_♯, 0) ∈ Spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I) by [[cor:iii-g3-2-6]], so the pole
+at λ_♯ is simple: K_ι(λ_♯) = 1.
 
 (c) 𝒮_(ϰ₀)(f) is the solution that [[cor:iii-g3-3-1]] (1) gives, whose logarithmic powers are at most J + K, J the
 largest power of log t_* in f and K the order at ϰ₀ of the pole of [[eq:iii-g3-2-2]]; its proof uses K only as the
@@ -575,8 +585,9 @@ by [[thm:sp-spectrum]] (b).
 (d) This is [[thm:sp-spectrum]] (a) restricted to the strip. Beyond it lie 4 + 𝔡₀, 4 + 𝔡₁ and the integers 4, 5, and
 also ι₁ + 1 > 3 + δ_C and every ι_v(l) ≥ ι_v(2) > 3 + 4·10⁻⁶, since ε_+ < ε_ind = δ_50 < δ̄ < 2·10⁻⁸
 ([[eq:iii-i9-1-1]], [[def:ec-point]]) and (500002 + 4·10⁻⁶)² < 250002000009; ι_v increases with l. The number 3 is
-one of the generators of Λ in [[def:iii-i10-1-1]]. For the last statement, by [[lem:sp-exceptional]]: these numbers
-lie in 3/2 + σ_Υ + {1, 2, 3} ⊂ Q; they are not integers, not 4 + 𝔡₀ or 4 + 𝔡₁, and not ι₁ + j, as
+one of the generators of Λ in [[def:iii-i10-1-1]]; no statement of this section uses whether another pole on the strip
+lies in Λ, the bound of (c) holding at every exponent. For the last statement, by [[lem:sp-exceptional]]: these
+numbers lie in 3/2 + σ_Υ + {1, 2, 3} ⊂ Q; they are not integers, not 4 + 𝔡₀ or 4 + 𝔡₁, and not ι₁ + j, as
 ι₁ + j ∈ (j + 2, j + 5/2); and a number q ∈ Q equal to ι + j or ι_v(l) + j, with Re ι > 2 or ι_v(l) > 2, would give
 ι = q − j ∈ Q or ι_v(l) = q − j ∈ Q, which [[lem:sp-exceptional]] excludes. ∎
 
@@ -587,4 +598,5 @@ the roots of P_l only in {Re ι > 2} with no real root in (2, 5], and shows thos
 suffices for every statement above but leaves the largest l contributing a pole below real part 5 unevaluated. This
 section does not determine the multiplicities of the indicial roots of real part at most 0 or in (4, 5]: they are 1
 at real part in [−101, 5] ([[prop:is-mult]]) and at most 7 everywhere ([[prop:iii-f1-2-3]] (b)). Nor does it
-determine L of [[cor:sp-lstar]] (a), which lies in [39, 50] ([[prop:is-logs]]); l_* = 50 serves in either case.
+determine L of [[cor:sp-lstar]] (a), which lies in [39, 50] ([[prop:is-logs]]); l_* = 50 is admissible for every
+value of L in that range.

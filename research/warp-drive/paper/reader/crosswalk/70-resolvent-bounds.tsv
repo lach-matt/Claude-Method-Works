@@ -88,18 +88,6 @@ rem:band-observed	paper/reader/proofs/P-B2-band.md:284-293; docket68/n1star/E2-P
 sec:band-one-derivative	paper/reader/proofs/P-B2-band.md:295	proof B2	
 cor:band-one-derivative	paper/reader/proofs/P-B2-band.md:297-323; docket68/n1star/E2-PILOT.md:745-758	E2-PILOT W1-W3 (e2h1band5), as proved by proof B2; P 1559-1561	283.06 / 305.31 / 308.46, in particular 963.4 and 1516
 rem:rb-large-frequency-observed	docket68/n1star/E2-PILOT.md:609-665, 769-772, 816-855; paper/RESPONSE-HL-5D.md:1561-1562	E2-PILOT s.3j and s.4 measured maxima (e2high5, e2trap5, e2meas5)	class (b) C255, S8, C116; ratios recomputed against prop:band-points (7.5 to 58)
-sec:tb-morawetz	paper/reader/proofs/T-B.md:1-11	tables of proof B	long tables kept in chapter 70 beside sec:tb2, to transfer to Appendix B (app:tables); R2-P-B nits 1-2 applied (nearest integer above 10^5; product columns are rounded exact products)
-sec:tb-morawetz-weights	paper/reader/proofs/T-B.md:13-38	tables of proof B	to transfer to Appendix B; F written Theta
-sec:tb-morawetz-positivity	paper/reader/proofs/T-B.md:40-89	tables of proof B	to transfer to Appendix B
-sec:tb-morawetz-pieces	paper/reader/proofs/T-B.md:91-441	tables of proof B	to transfer to Appendix B; zeta column written k_S
-sec:tb-morawetz-constants	paper/reader/proofs/T-B.md:443-535	tables of proof B	to transfer to Appendix B; key sec:tb-morawetz-mM renamed (keys are lowercase)
-sec:tb-morawetz-monotone	paper/reader/proofs/T-B.md:537-558	tables of proof B	to transfer to Appendix B
-sec:tb-morawetz-t1t3	paper/reader/proofs/T-B.md:560-612	tables of proof B	to transfer to Appendix B
-sec:tb2	paper/reader/proofs/T-B2.md:1-7	tables of proof B2	to transfer to Appendix B (app:tables)
-sec:tb2-polynomial-multipliers	paper/reader/proofs/T-B2.md:9-35	tables of proof B2	
-sec:tb2-bernstein	paper/reader/proofs/T-B2.md:37-133	tables of proof B2	
-sec:tb2-algebraic-rows	paper/reader/proofs/T-B2.md:135-152	tables of proof B2	range labels (d)-(f) kept
-sec:tb2-points	paper/reader/proofs/T-B2.md:154-171	tables of proof B2	
 sec:rb-effective	docket68/n1star/INVERSE5-SIX.md:109-110	INVERSE5-SIX s.2	
 lem:rb-parametrix	docket68/n1star/INVERSE5-SIX.md:111-114	INVERSE5-SIX Lemma R1	
 rem:rb-parametrix-model	docket68/n1star/INVERSE5-SIX.md:115-124	INVERSE5-SIX R1 "At II.F:1534"	written for the edition's lem:ii-f-5-5 (kernel bound (i) of its proof); computation K7 dropped

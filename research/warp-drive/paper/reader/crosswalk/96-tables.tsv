@@ -1,0 +1,35 @@
+label	source	source_name	note
+app:tables	paper/reader/STYLE.md:75-77	Appendix B as STYLE section 5 defines it (the ruling of 2026-11-13)	appendix heading; opening paragraph new
+sec:tab-a	paper/reader/proofs/T-A.md:1-246	tables of proof A (T-A)	merged verbatim from the confirmed tables of proof A; an opening paragraph naming the objects and the results of chapter 33 that use them added before T-A's own
+sec:tab-a-sextic	paper/reader/proofs/T-A.md:6-16	T-A, the sextic	merged verbatim from the confirmed tables of proof A
+sec:tab-a-split	paper/reader/proofs/T-A.md:18-61	T-A, the parts of the sextic	merged verbatim from the confirmed tables of proof A
+sec:tab-a-expansions	paper/reader/proofs/T-A.md:63-102	T-A, the expansions near 2 and near 3	merged verbatim from the confirmed tables of proof A
+sec:tab-a-pieces	paper/reader/proofs/T-A.md:104-158	T-A, the location constants	merged verbatim from the confirmed tables of proof A
+sec:tab-a-crossings	paper/reader/proofs/T-A.md:160-227	T-A, the crossings	merged verbatim from the confirmed tables of proof A
+sec:tab-a-vector	paper/reader/proofs/T-A.md:229-246	T-A, the vector type	merged verbatim from the confirmed tables of proof A
+sec:tab-s14-numerators	paper/reader/chapters/33-s14-constraint-damping.md:580-627	computed from chapter 33's definitions in the proof of prop:np-10-14 (iii)	computed exactly from chapter 33's definitions (eq:s14-tang, the middle piece of eq:s14-cform, eq:s14-s; m = 1, r_0 = 100, (v, e) = (1/2, 1/102400), r = 100 + 5x/8) over the denominators printed at 33:611-612; t_0 and d_0-d_3 agree with 33:617-619, and every bound at 33:621-626 holds with the full table; no source table
+sec:tb-morawetz	paper/reader/proofs/T-B.md:1-11	tables of proof B	long tables kept in chapter 70 beside sec:tb2, to transfer to Appendix B (app:tables); R2-P-B nits 1-2 applied (nearest integer above 10^5; product columns are rounded exact products)
+sec:tb-morawetz-weights	paper/reader/proofs/T-B.md:13-38	tables of proof B	to transfer to Appendix B; F written Theta
+sec:tb-morawetz-positivity	paper/reader/proofs/T-B.md:40-89	tables of proof B	to transfer to Appendix B
+sec:tb-morawetz-pieces	paper/reader/proofs/T-B.md:91-441	tables of proof B	to transfer to Appendix B; zeta column written k_S
+sec:tb-morawetz-constants	paper/reader/proofs/T-B.md:443-535	tables of proof B	to transfer to Appendix B; key sec:tb-morawetz-mM renamed (keys are lowercase)
+sec:tb-morawetz-monotone	paper/reader/proofs/T-B.md:537-558	tables of proof B	to transfer to Appendix B
+sec:tb-morawetz-t1t3	paper/reader/proofs/T-B.md:560-612	tables of proof B	to transfer to Appendix B
+sec:tb2	paper/reader/proofs/T-B2.md:1-7	tables of proof B2	to transfer to Appendix B (app:tables)
+sec:tb2-polynomial-multipliers	paper/reader/proofs/T-B2.md:9-35	tables of proof B2	
+sec:tb2-bernstein	paper/reader/proofs/T-B2.md:37-133	tables of proof B2	
+sec:tb2-algebraic-rows	paper/reader/proofs/T-B2.md:135-152	tables of proof B2	range labels (d)-(f) kept
+sec:tb2-points	paper/reader/proofs/T-B2.md:154-171	tables of proof B2	
+sec:cone-tables	paper/reader/proofs/T-D1.md:1; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
+sec:cone-table-c1	paper/reader/proofs/T-D1.md:14; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
+sec:cone-table-c2	paper/reader/proofs/T-D1.md:226; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
+sec:cone-table-jumps	paper/reader/proofs/T-D1.md:558; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
+sec:cone-table-n1	paper/reader/proofs/T-D1.md:589; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter); one line start with | rewrapped
+sec:cone-table-n2	paper/reader/proofs/T-D1.md:617; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter); one line start with | rewrapped
+sec:cone-table-constants	paper/reader/proofs/T-D1.md:653; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
+sec:tab-d-tables	paper/reader/proofs/T-D234.md:1; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
+sec:tab-d-coefficients	paper/reader/proofs/T-D234.md:16; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
+sec:tab-d-constants	paper/reader/proofs/T-D234.md:7492; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
+sec:tab-d-points	paper/reader/proofs/T-D234.md:7606; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
+sec:tab-d-boxes	paper/reader/proofs/T-D234.md:8821; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
+sec:tab-d-worked	paper/reader/proofs/T-D234.md:11248; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
