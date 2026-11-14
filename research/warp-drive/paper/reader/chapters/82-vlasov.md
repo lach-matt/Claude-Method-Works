@@ -265,10 +265,10 @@ and labels) put S_x := {α : (x, α) ∈ S}, S_α := {x : (x, α) ∈ S}, let D_
 - (V2) dist(D_α(S), axes) ≥ 2δ > 0 for every α.
 - (V3) On Σ_τ0 ∩ Ω the spheres {r = const} have positive mean curvature.
 
-The tube D_α of supp q(·, α) ∩ Σ_τ0 lies in D_α(S), and 𝒟(S) is compact, as in [[rem:vlasov-v2]]. A neighbourhood of
-each D_α(S) alone would not do: the cut-offs of [[sec:vlasov-uniform]] are smooth in (x, α), and they need the
-neighbourhood 𝒲 of (V1). (V3) is the first of the two signs of [[lem:constraints-evolution]] (a);
-the second, 𝒮 A0 > 0 for the symmetrizer 𝒮 of [[eq:data-symmetrizer]], holds on every slice ([[lem:vlasov-symmetrizer]]).
+The tube D_α of supp q(·, α) ∩ Σ_τ0 lies in D_α(S), and 𝒟(S) is compact, as in [[rem:vlasov-v2]]. A neighbourhood of each
+D_α(S) alone would not do: the cut-offs of [[sec:vlasov-uniform]] are smooth in (x, α), and they need the neighbourhood 𝒲
+of (V1). (V3) is the first of the two signs of [[lem:constraints-evolution]] (a); the second, 𝒮 A0 > 0 for the
+symmetrizer 𝒮 of [[eq:data-symmetrizer]], holds on every slice ([[lem:vlasov-symmetrizer]]).
 
 **Theorem {#thm:vlasov}** (Restricted massless Vlasov limits.) Let (g, F, u) satisfy (Ω), (V1), (V2) and (V3). Then
 there are smooth metrics g_i on Ω, invariant under T² and under both reflections, with Ric(g_i) = 0,
