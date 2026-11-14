@@ -112,7 +112,7 @@ D_l^(1/2)/125000, as 125000²(16u² + 16z + 4z²) = 4u²·250000² + 1000000 + 1
 d₂ = ½((1 + 4s_−)^(1/2) − (2u − 1)) and d₁ = ½((1 + 4s_+)^(1/2) − (2u + 1)). And 9/4 + z = 562501/250000.
 (b) is exact arithmetic on the printed numbers; 𝔡₀ is the bracket of 562501^(1/2) minus 750, divided by 500.
 (c) If r𝔡₀ + s𝔡₁ = t with r, s, t ∈ ℚ and s ≠ 0, then I^(1/2) ∈ ℚ(562501^(1/2)), so I ∈ ℚ(562501^(1/2)) ∩ ℚ(D^(1/2)).
-3 divides D = 3·333333666667 exactly once (the digit sum of the cofactor is 43) and does not divide 562501 (digit
+3 divides D = 3·333333666667 exactly once (the digit sum of the cofactor is 55) and does not divide 562501 (digit
 sum 19), so 562501·D is not a square and the two quadratic fields differ; their intersection is ℚ, so D^(1/2) ∈ ℚ,
 which is false, as 3 ∥ D. If s = 0 and r ≠ 0, then 562501^(1/2) ∈ ℚ, false as 750² < 562501 < 751². ∎
 
@@ -416,7 +416,7 @@ by [[lem:is-reduction]] it is the least excess with that n.
 | 0.4901 − δ′₁ | 1470299 | .4661 | 1470298 | 1470299 | 279654 | 351683 | (2.3181480·10⁻¹⁴, 2.3181481·10⁻¹⁴) |
 | 0.4901 − δ₂ | 1470300 | .4661 | 1470299 | 1470300 | 279655 | 351680 | (8.0959353·10⁻¹⁴, 8.0959354·10⁻¹⁴) |
 
-The candidate with p = 0 gives (N + 1)𝔡₁ − y > (1 − frac)𝔡₁ ≥ 0.1506·𝔡₁ > 5.019·10⁻⁸ in every row. The three
+The candidate with p = 0 gives (N + 1)𝔡₁ − y ≥ (0.99995 − frac)𝔡₁ ≥ 0.1505·𝔡₁ > 5.01·10⁻⁸ in every row. The three
 smallest entries in full: for y = 1.4901,
 
     1.47953934242725117564684196040 < 1109655𝔡₀ < 1.47953934242725117564684196263,
@@ -432,7 +432,7 @@ y ∈ (0.49009973333346607403357761515, 0.49009973333346607403357761516), so the
 (8.0959353086·10⁻¹⁴, 8.0959353088·10⁻¹⁴). So the least excess over all windows is μ_G, and (G) holds exactly for
 ε_K < μ_G. Finally μ_G < 1.95·10⁻⁸ < δ_50 by [[lem:s14-delta50]], and ε_+ may be taken in (ε_K, δ_50). ∎
 
-**Proposition {#prop:is-count}** (N_Λ, k̄_0 and J_*.) For ℰ_ind and ℰ^ι_ind as constructed and every ε_+ ∈ (μ_G, δ̄):
+**Proposition {#prop:is-count}** (N_Λ, k̄_0 and J_*.) For ℰ_ind and ℰ^ι_ind as constructed and every ε_+ ∈ (0, δ̄):
 
 (a) 1.62066·10¹³ < N_Λ < 1.67472·10¹³;
 
