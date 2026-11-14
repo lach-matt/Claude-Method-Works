@@ -633,11 +633,10 @@ uses them. Every indicial root of L̂_b(0) has multiplicity at most 7, and at mo
 [[def:iii-i10-1-1]] asks l_* to bound them at real part at most 5, a half-plane that contains the roots below −101;
 for these the bound 7 serves, and their exact multiplicities, which this paper does not decide, are not needed. So the
 part of l_* that (IS) fixes is at most 50, and (G), N_Λ, k̄_0 and J_* are [[thm:is-gap]] and [[prop:is-count]]. Two
-further things are not determined by this paper. (1) The orders of the poles of
-N_ι⁺(L̄, ·)⁻¹, statement (SP) of [[rem:uc-missing]]; l_* depends on them. (2) The coefficient c_b of [[def:is-cb]] at a
-rotating b; for index sets that keep 𝔡₁ it decides whether ε_K may be taken up to μ♭ ([[cor:is-flat]]) or only below
-μ_G ([[thm:is-gap]]); whether an admissible ℰ_ind can omit 𝔡₁ is not decided either. Neither question in (2) enters an
-upper bound for d: the index sets as constructed serve with every ε_K < μ_G, and the two questions decide only whether
-smaller index sets, with a larger ε_K, are available. The individual roots ι ∈ Z of [[prop:is-iota]] are fixed by the
-polynomials of [[prop:np-10-12]] and located by [[sec:s14-pa]]; they lie above 3 as exponents of ℰ^ι_ind and do not enter
-Λ below 3 + ε_+.
+further things are not determined by this paper. (1) The orders of the poles of N_ι⁺(L̄, ·)⁻¹, statement (SP) of
+[[rem:uc-missing]]; l_* depends on them. (2) The coefficient c_b of [[def:is-cb]] at a rotating b; for index sets that
+keep 𝔡₁ it decides whether ε_K may be taken up to μ♭ ([[cor:is-flat]]) or only below μ_G ([[thm:is-gap]]); whether an
+admissible ℰ_ind can omit 𝔡₁ is not decided either. Neither question in (2) enters an upper bound for d: the index sets
+as constructed serve with every ε_K < μ_G, and the two questions decide only whether smaller index sets, with a larger
+ε_K, are available. The individual roots ι ∈ Z of [[prop:is-iota]] are fixed by the polynomials of [[prop:np-10-12]]
+and located by [[sec:s14-pa]]; they lie above 3 as exponents of ℰ^ι_ind and do not enter Λ below 3 + ε_+.
