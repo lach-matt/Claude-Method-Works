@@ -1139,15 +1139,17 @@ term of the metric equation for the difference, T := Σ_A q_A p_A ⊗ p_A minus 
 
 and by the Cauchy–Schwarz inequality and Σ_A 2π/n = 2π its first part is bounded in H^k by C times the weighted family
 norm; so is the difference of the terms Ric(P_A, P_A) = Σ_B (2π/n) (q_B/(2π/n)) g⁻¹(p_A, p_B)² of Step 6, uniformly in
-A. (3) Every other term is estimated family by family, with constants uniform in A because the sampled families are
-smooth in α uniformly. (4) The residuals add C_k n^(−k) to the right side. So Step 8 gives 𝒩(τ) ≤ C2 (𝒩(τ0) +
-C_k n^(−k) + ∫_(τ0)^τ (𝒩 + 𝒩²)) with C2 independent of n, 𝒩(τ0) ≤ C d(D) + C_k n^(−k) by the data step, and the
-bootstrap closes for d(D) ≤ ε0 and n ≥ n0. Step 9 of that proof (for N_f = n, a fixed n) gives the solution of the
-augmented system on Ω, smooth and invariant, and Step 10 shows that it solves the class Einstein–n-null-dust system,
-D_n satisfying the constraints and the gauge condition. The integral curves of the P_A from the S_A stay within
-C (d(D) + C_k n^(−k)) of the tubes of ů, so (V2) keeps the families off the axes. At the order m′ ≥ m the inequality of
-Step 8 is linear in the order-m′ norm, with coefficients bounded by the order-m norm (Step 9 of that proof) and uniform
-in n by (1)–(4), which gives the clause on m′. The last statement is Sobolev's inequality for m ≥ 6. ∎
+A. (3) Every other term is estimated family by family, with constants uniform in A because the sampled families, the
+sets 𝒱̊_A and the cut-offs ζ′_A come from functions smooth in α, uniformly. (4) The residuals add C_k n^(−k) to the right
+side. So Step 8 gives 𝒩(τ) ≤ C2 (𝒩(τ0) + C_k n^(−k) + ∫_(τ0)^τ (𝒩 + 𝒩²)) with C2 independent of n, 𝒩(τ0) ≤ C d(D) +
+C_k n^(−k) by the data step, and the bootstrap closes for d(D) ≤ ε0 and n ≥ n0. Step 9 of the proof of
+[[thm:class-stability-off-axes]], as in (ii) of the proof of [[lem:vlasov-local-stability]] (for N_f = n, a fixed n),
+gives the solution on Ω, smooth and invariant, and (iii) there, D_n satisfying the constraints and the gauge condition,
+gives the eikonals u_A on the tubes 𝒯_A and the equations stated. The integral curves of the P̃_A from the S_A stay
+within C (d(D) + C_k n^(−k)) of the tubes of ů, so (V2) keeps the families off the axes. At the order m′ ≥ m the
+inequality of Step 8 is linear in the order-m′ norm, with coefficients bounded by the order-m norm (Step 9 of that
+proof) and uniform in n by (1)–(4), which gives the clause on m′, with the data step at the index 2m′. The last
+statement is Sobolev's inequality for m ≥ 6. ∎
 
 **Remark {#rem:vlasov-uniform-model}** (Numerical observation.) In a mean-field wave–transport model of the quadrature
 step, w_tt − w_xx = Σ_A (2π/n) q_A with q_A transported at speed tanh(2w + cos α_A), with no derivative-loss coupling,
