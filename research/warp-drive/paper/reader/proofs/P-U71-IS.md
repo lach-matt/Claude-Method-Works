@@ -177,14 +177,15 @@ n_f as follows: f = 0, n_f = 1; f = 𝔡₀ or 𝔡₁, n_f = 0; f = δ′₁, �
 
     𝔡₁ < 𝔡₀ < 1 < 1 + δ₂ < 1 + 𝔡₁ < 1 + δ′₁ < 1 + 2𝔡₁ < 1 + 𝔡₀ < 1 + 𝔡₀ + 𝔡₁ < 1 + 2𝔡₀.                    {#eq:is-low}
 
-*Proof.* *Each construction.* By [[lem:is-roots]] (a), every root of real part above a weight α ∈ (−ε_Υ, 2) is in R,
-and E(α) = R + ℕ₀ for every α ∈ [0, ι^Υ_(s1,2)); in (F1), [[lem:iii-f3-2-1]] and the step u₂ of [[lem:iii-d3-2-1]] the
-weights lie there. By [[eq:is-l1]], π_1E = (π_1F + ℕ₀) ∪ (R + ℕ₀) in (F1) and [[lem:iii-f3-2-1]], and in
+*Proof.* *Each construction.* By [[lem:is-roots]] (a), every root of real part above a weight α ≥ 0 is in R, and
+E(α) = R + ℕ₀ for every α ∈ [0, ι^Υ_(s1,2)), as ι^Υ_(s1,2) is the least element of R; in (F1), [[lem:iii-f3-2-1]] and
+the step u₂ of [[lem:iii-d3-2-1]] the weights lie there (in (k − ε_Υ, k), k = 1, 2, in (0, k), and just below
+ι^Υ_(s1,2)). By [[eq:is-l1]], π_1E = (π_1F + ℕ₀) ∪ (R + ℕ₀) in (F1) and [[lem:iii-f3-2-1]], and in
 [[lem:iii-d3-2-1]] the solution u₀ + χ_∂u₁ + u₂ has the exponents m, those of ℱ₁ + ℕ₀ (u₁, by [[lem:iii-a-1-5]]), and
 those of (𝒢 + ℕ₀) ∪ (R + ℕ₀) with 𝒢 ⊂ π_1ℱ₁ + ℕ₀ (u₂). So every exponent of a construction at leading order m is m + j,
 an exponent of its right side plus j, or r + j (r ∈ R, j ∈ ℕ₀). The right sides: in (c1), (c3), (c4), the first step
-of (1) and the first step of each class, they are smooth with exponents m + ℕ₀ (ρ⁴C^∞, ρ³C^∞, ρ³C^∞ and ρ^(μ+4)C^∞
-divided by ρ²); in (c2), m + ℕ₀ and E_(c1) − 1; at a later step at the order m, the exponents of the step before minus 1
+of (1) and the first step of each class, they are smooth with exponents m + ℕ₀ (ρ⁴C^∞, ρ³C^∞, ρ⁴C^∞, ρ³C^∞ and
+ρ^(μ+4)C^∞ divided by ρ²); in (c2), m + ℕ₀ and E_(c1) − 1; at a later step at the order m, the exponents of the step before minus 1
 (the term A₁, which raises the order by one, divided by ρ²) and of the step two before (A₂ ∈ ρ²C^∞, divided by ρ²),
 together with m + ℕ₀ (u₀ and A − N(A)). Relative to its own leading order a later step inherits the exponents of the
 earlier steps relative to theirs, shifted by 0 or by an integer, as the leading orders differ by integers. Hence every
@@ -195,9 +196,9 @@ r − m′ + j = r − 2 + (j + 2 − m′) for integer m′ ≤ 2, and the non-
 μ_(3,0) + 2 = −1 − d₂(3), μ_(3,1) + 2 = −2 − d₁(3)), π_1ℰ_ind ⊂ [[eq:is-ind]].
 
 *Equality.* (c1) contains every r ∈ R with its translates, so π_1ℰ_ind ⊃ (R − 2) + ℕ₀; the first step of the class μ,
-at m = μ + 2, contains R + ℕ₀ (u₂), so π_1ℰ_ind ⊃ (R − m) + ℕ₀ for m ∈ M* ∖ {2}; and the integers: (1, 0) + 2 lies in
-E_(c1) at the root 3 with logarithmic order 2 ([[prop:is-logs]]), so (1, 2) ∈ ℰ_ind. All of this holds at every b, as
-the roots do not depend on b.
+at m = μ + 2, contains R + ℕ₀ (u₂), so π_1ℰ_ind ⊃ (R − m) + ℕ₀ for m ∈ M* ∖ {2}; and the integers: E_(c1) contains
+(2 + j, 2j) for every j ∈ ℕ₀ ([[prop:is-logs]] (a), proof), so (j, 2j) ∈ ℰ_ind for every j ≥ 1. All of this holds at
+every b, as the roots do not depend on b.
 
 *The list.* By [[def:is-roots]], R ∩ {Re ≤ 7} consists of 2 + 𝔡₀, the l + 1 + d₂(l) (l ≤ 5), the l + 2 + d₁(l)
 (l ≤ 4) and 3, …, 7. Writing r = n_r + f_r, r − m for m = 2, 1 − 𝔡₀, 1 − 𝔡₁, −δ′₁, −δ₂, −1 − d₁(2), −1 − d₂(3),
@@ -236,13 +237,17 @@ having order 0.
 (b) *A step bound.* Let a step of [[lem:iii-d3-2-1]] at the order m have a right side of order at most K at offsets of
 real part at most t ≤ 5. By [[lem:is-count]] (b), u₁ has order at most K + ⌊t⌋ + 1 there, as a ladder of length at
 most t carries at most ⌊t⌋ + 1 roots. u₂ has exponents only at real part at least 2 + 𝔡₁, and by [[eq:is-l1]] at most
-p(K + ⌊t⌋ + 2) + p′ − 1, with p ≤ ⌊m + t⌋ − 2 the number of terms of 𝒢 ⊂ {Re ≥ 3} and p′ ≤ ⌊m + t − 2⌋ + 1 that of
-E(α) on the ladder below. For m ≤ −2 this is p ≤ 1 (only the exponent 3) and p′ ≤ 1, so the step has order at most
+p(K + ⌊t⌋ + 2) + p′ − 1, with p ≤ ⌊m + t⌋ − 2 the number of terms of 𝒢 ⊂ {Re ≥ 3} and p′ ≤ ⌊m + t − 2 − 𝔡₁⌋ + 1
+that of E(α) ⊂ {Re ≥ 2 + 𝔡₁} on the ladder below. For m ≤ −2 this is p ≤ 1 (only the exponent 3) and p′ ≤ 1, so the step has order at most
 K + ⌊t⌋ + 2 ≤ K + 7. For a first step (K = 0) it is at most 11 at m ∈ (0, 1], t ≤ 3, at most 5 at m ∈ (−1, 0], t ≤ 3,
 and at most 31 at t ≤ 5.
 
-*The chains.* (c1), (c3), (c4): 2j ≤ 10 and j + (j − 1)₊ ≤ 9. (c2): j² + 3j − 1 ≤ 39 at j ≤ 5, the value 39 at 6 = 1 + 5.
-The first steps of (5): at most 31. The s1 tower: the step k = 2 inherits from the boost at offsets t − 2 ≤ 3, of order
+*The chains.* (c1), (c3), (c4): 2j ≤ 10 and j + (j − 1)₊ ≤ 9 at the integers j ≤ 5, and at a non-integer offset t ≤ 5
+of (c1) or (c4) at most ⌊t⌋ ≤ 4, by the count in (a). (c2): j² + 3j − 1 ≤ 39 at j ≤ 5, the value 39 at 6 = 1 + 5. At a
+non-integer exponent 1 + t of (c2), t ≤ 5, the ladder carries terms of F at the at most ⌊t⌋ + 1 points 1 + t − i with
+t − i ≥ 0, each with ℓ̂_F ≤ ⌊t − i⌋ + 1 by the bound k ≤ ⌊t⌋ of (c1), and at most ⌊t⌋ terms of E(α); so the order is at
+most (⌊t⌋ + 1)(⌊t⌋ + 2)/2 + ⌊t⌋ − 1 ≤ 18. At a non-integer exponent 1 + t of (c3) only terms of E(α) enter, at most
+⌊t⌋, so the order is at most 3. The first steps of the classes, (4)–(7): at most 31. The s1 tower: the step k = 2 inherits from the boost at offsets t − 2 ≤ 3, of order
 at most 17, and from the translation at t − 4 ≤ 1, so it has order at most 24; then 31 and 38. The s0 tower: the first
 step has order at most 11 at offsets ≤ 3, which the step k = 2 inherits at t − 2, so 18, 25, 32. The v1 tower: the
 rotation correction at offsets ≤ 2 has order at most 4, inherited at t − 3, so 11, 18, 25. The class companions inherit
