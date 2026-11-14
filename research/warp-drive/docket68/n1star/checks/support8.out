@@ -1,0 +1,6 @@
+  K1: every oscillating profile of ansatz5 vanishes where E = 0: True; lead5's W_TT too: True; chi's transport
+      source (R^(0)_vv's second harmonic, chi = 0) has E-degree >= 2 in every term, so it vanishes there: True
+K1 PASS
+  K8: base + fibre = round: True; [Hol08]'s squashed sphere's dphi1 dphi2 coefficient 2 c^2 s^2 (e^(-4B) -
+      e^(2B)): True; zero only at B = 0 (round): True
+K8 PASS

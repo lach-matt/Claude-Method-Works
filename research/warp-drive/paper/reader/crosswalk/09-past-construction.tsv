@@ -1,0 +1,37 @@
+label	source	source_name	note
+ch:past-construction	docket68/n1star/N1STAR-PROOF.md:1215-1256; paper/RESPONSE-HL-5D.md:396-408	NP section 9 and Theorem P; P How Theorem 2 is proved	intro composed from P 396-408 minus 409-411
+sec:past-domain	docket68/n1star/N1STAR-PROOF.md:1258-1265	NP 9.1	kappa written kappa_P, h(tau) written h_P(tau), boundary function Phi_B (Phi is the mollifier map)
+eq:past-domain	docket68/n1star/N1STAR-PROOF.md:1262-1265	NP (9.1)	
+lem:past-domain	docket68/n1star/N1STAR-PROOF.md:1267-1284	NP Lemma 9.1	past5 P1 replaced by a derivation
+lem:seed-region	docket68/n1star/N1STAR-PROOF.md:1286-1297	NP Lemma 9.2	
+sec:past-inequalities	docket68/n1star/N1STAR-PROOF.md:1299-1308	NP 9.2 with D622 fold (lam <= d0/20)	past5 P6 (Omega v = 0, [Omega, box] = 0) derived
+eq:past-norms	docket68/n1star/N1STAR-PROOF.md:1305	NP (9.2)	
+lem:past-sobolev	docket68/n1star/N1STAR-PROOF.md:1310-1321	NP Lemma 9.3	[BH17] Thm 7.26 as black box; uniformity in d by the scaling r = r_in + d s
+lem:past-mollifier	docket68/n1star/N1STAR-PROOF.md:1323-1337	NP Lemma 9.4 with D622 fold	redshift5 R14 (Jacobian bounds) replaced by the two-line estimate
+lem:past-commutator	docket68/n1star/N1STAR-PROOF.md:1339-1366	NP Lemma 9.4b	past5 P8 replaced by a derivation of the full radial commutator (three psi_tau terms written out); shift operator written script C; d_v at fixed tau written d_r, sigma_v written sigma_r; |mu(psi) - mu(v)| <= 2 lam sup|mu'|
+eq:past-commutator	docket68/n1star/N1STAR-PROOF.md:1344	NP (9.4b)	
+lem:past-energy	docket68/n1star/N1STAR-PROOF.md:1373-1385	NP Lemma 9.5	
+eq:past-energy	docket68/n1star/N1STAR-PROOF.md:1378-1379	NP (9.3)	
+lem:past-transport	docket68/n1star/N1STAR-PROOF.md:1387-1400	NP Lemma 9.6	
+eq:past-transport	docket68/n1star/N1STAR-PROOF.md:1390-1391	NP (9.4)	
+lem:past-linear-wave	docket68/n1star/N1STAR-PROOF.md:1486-1488; docket68/n1star/proof5/PART-IX-GAUGE.md:93-99	NP Theorem A_P proof, Estimates (Lemma 5.3 on P_n); the existence route of lem:linear-wave	added: existence for the linear wave equation on P_1 = P cap {tau >= tau1} by the proof of lem:linear-wave (compact, causal containment by lem:past-domain (f), Lipschitz corners, B does not meet r = a), uniqueness by energy, vanishing on {v <= v_start} by the tilted surfaces of lem:seed-region
+sec:past-approximant	docket68/n1star/N1STAR-PROOF.md:1402-1411	NP 9.3 classes E_p, L_p, O_p	
+lem:decay-calculus	docket68/n1star/N1STAR-PROOF.md:1413-1436	NP Lemma 9.7	past5 P2, P3, P4 replaced by derivations; forcing renamed f, integrating factor I
+eq:wave-operator-vr	docket68/n1star/N1STAR-PROOF.md:1418	NP (9.5)	
+thm:past-approximant	docket68/n1star/N1STAR-PROOF.md:1438-1525	NP Theorem A_P with D622 fold	past5 P5 replaced by Ch 4's statement of F_2 (r^-3 times a polynomial) after eq:chi-transport; redshift5 R10 replaced by the integral estimate; stage forcing written script S_m; existence on P_n through lem:past-linear-wave, with vanishing for v <= v_start; (E1), (E2) cited to def:approximant; uniqueness at -oo stated with e, z, p and t^(-3/2) f; phase sum written out
+eq:past-classes	docket68/n1star/N1STAR-PROOF.md:1443-1444	NP (9.6)	
+eq:stage-estimates	docket68/n1star/N1STAR-PROOF.md:1495-1498	NP (9.7)	
+sec:far-near	docket68/n1star/N1STAR-PROOF.md:1527-1544	NP 9.4 opening and The coefficients on P	T := lam^-2 written T_lam, tau_T written tau_lam; N := K + 4 + ceil(4 beta0) stages, order K' = N - 1; residual written F_R
+prop:far-region	docket68/n1star/N1STAR-PROOF.md:1546-1566	NP Prop 9.8	E(tau_n) <= C C_R lam^(K'+1) t_n^(-3/2) (as Step 2 of Ch 6) in place of E(tau_n) = 0, absorbed; the equation for w written out in place of P(w)
+eq:far-energy	docket68/n1star/N1STAR-PROOF.md:1551	NP (9.8)	
+prop:near-region	docket68/n1star/N1STAR-PROOF.md:1568-1626	NP Prop 9.9 with D622 fold	redshift5 R9 (exponent count) replaced by the written enumeration of exponents; data, forcing and nonlinear fractions written out; the multi-index beta removed from the statement (beta is the exponent there)
+eq:near-bootstrap	docket68/n1star/N1STAR-PROOF.md:1572	NP (9.9a)	
+eq:psi-prime-transport	docket68/n1star/N1STAR-PROOF.md:1593	NP (9.9b)	
+eq:near-lines	docket68/n1star/N1STAR-PROOF.md:1597-1610	NP (9.9)	
+sec:past-proof	docket68/n1star/N1STAR-PROOF.md:1236-1256	NP Theorem P (P-i)-(P-v) with D622 fold	listed unlabelled as what the proof gives; maps to items 1-5 of thm:past-construction; (P-i) on P cup Omega, the Omega part by the tilted surfaces {v + eps(tau - tau0) = v_start}; the class of (P-v) stated on P; N stages
+thm:past-construction (proof)	docket68/n1star/N1STAR-PROOF.md:1628-1658	NP proof of Theorem P	ledger5 L1 exponent arithmetic written inline; gauge5 G3 replaced by the r^-2 L2 estimate and NP's deduction; gauge step checks the hypotheses of lem:gauge-propagation (constraints from Ric = 0 on P)
+sec:past-items	docket68/n1star/N1STAR-PROOF.md:1706-1751	NP Prop 9.10 and the paragraph after it	
+prop:past-items	docket68/n1star/N1STAR-PROOF.md:1706-1745	NP Proposition 9.10 with D622, D625, D632 folds	proofs of Props 3.3-3.4 cited, not repeated; horizon5 H2b and support5c C13 covered by lem:sphere-two-scale; stage5 S4 cross-check dropped; lam* < lam <= lam_P covered by the step for larger lam of prop:mean-mass
+sec:flux	docket68/n1star/N1STAR-PROOF.md:1659-1679; paper/RESPONSE-HL-5D.md:667-680	NP 9.5 (9.10) as corrected; P (6.1)	1680-1705 (history, open paragraph) dropped
+lem:flux-density	docket68/n1star/N1STAR-PROOF.md:1663-1679	NP 9.5 flux density, moments and integral	past5 P7 replaced by derivations (moments, density, integration by parts); (d_v P_i)^2 written with brackets
+eq:flux	docket68/n1star/N1STAR-PROOF.md:1669-1672	NP (9.10) with factor 1 - pi/2	

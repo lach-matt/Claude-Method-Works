@@ -1,0 +1,7 @@
+  X1: the rectangle v in [0, 2], u in [0, 8]: exit tau of the outgoing rays from R = a in [-0.960, -0.705] (n = 80), [-0.960, -0.702] (n = 160)
+X1 PASS
+    n = 40: |C_u| median 1.56e-06, 90% 7.15e-05, 99% 2.91e-02, max 6.19e+00 (max over R >= 1: 3.77e+00); |C_v| median 2.80e-06, 90% 3.84e-05, max 5.07e-02; exit tau in [-2.0261, -1.7817] over 96 of 101 columns; min mu - a^2 0.4136; trapped True
+    n = 80: |C_u| median 3.98e-07, 90% 1.88e-05, 99% 9.81e-03, max 8.18e+00 (max over R >= 1: 6.91e-01); |C_v| median 6.94e-07, 90% 9.68e-06, max 3.83e-02; exit tau in [-2.0261, -1.7817] over 201 of 201 columns; min mu - a^2 0.4146; trapped True
+    n = 160: |C_u| median 9.94e-08, 90% 4.82e-06, 99% 2.86e-03, max 5.35e+00 (max over R >= 1: 1.59e-01); |C_v| median 1.73e-07, 90% 2.43e-06, max 1.67e-02; exit tau in [-2.0232, -1.7788] over 401 of 401 columns; min mu - a^2 0.4148; trapped True
+  X2: V0 = -1, u in [0, 8.000] (cells with R <= 0.3 left out), v in [-1, 1.5]: median and 90 % residual ratios per halving 3.92 3.80 4.00 3.90 (C_u), 4.04 3.97 4.01 3.99 (C_v): second order True; exit tau at most -1.779 <= -1.5: True; exit range and min mu - a^2 stable to 10^-2 between n = 80 and 160: True; inner boundary trapped with mu > a^2: True
+X2 PASS

@@ -1,0 +1,13 @@
+C1 (exact) on the general metric of the class: compatibility relations {'chib': True, 'omegab': True, 'eta+etab': True};
+    metric recovery d_v c, d_v w, d_v b [True, True, True]; rows N1 (both), N2 (both) with the metric's own Ricci as
+    source [True, True, True, True] -> PASS
+   control (k1) chib without b_x: not an identity (good)
+   (7 s)
+C2 (z3) (a) 4AB < 1, y <= A + B y^2, y <= 2A  =>  y <= A + 4A^2 B < 2A: PROVED (unsat)
+   (b) 4AB < 1, y <= A + B y^2  =>  y <= 2A or y >= 1/(2B): PROVED ; the small root (1 - sqrt(1 - 4AB))/(2B) in [A, 2A]
+       and 2A < 1/(2B): PROVED
+   vacuity guard: hypotheses of (a) satisfiable: sat (model [B = 1/8, A = 1, y = 0])
+   control (k2) 4AB < 2: counterexample found (good): [B = 3/8, y = 0, A = 1]
+   control (k3) y < 3A (weaker) proved (good); y <= A + 2A^2 B (sharper than proved) refuted (good): [B = 15/64, A = 1, y
+       = 3/2]
+cont5 (7 s): all checks pass

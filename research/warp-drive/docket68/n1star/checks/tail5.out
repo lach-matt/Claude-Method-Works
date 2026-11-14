@@ -1,0 +1,73 @@
+T1  the recursion from past null infinity
+  T1a box(a r^-p) = (3-2p)a' r^(-p-1) + (p(p-2)-kappa) a r^(-p-2): pass 
+  T1b l=0: box of the sum to j=5 lives at r^(-5-7/2) only: pass 
+  T1c l=0: a_1 after the shell = -(c/2) int F, c = 3/4: pass 
+  T1b l=1: box of the sum to j=5 lives at r^(-5-7/2) only: pass 
+  T1c l=1: a_1 after the shell = -(c/2) int F, c = 15/4: pass 
+  T1b l=2: box of the sum to j=5 lives at r^(-5-7/2) only: pass 
+  T1c l=2: a_1 after the shell = -(c/2) int F, c = 35/4: pass 
+  T1b l=3: box of the sum to j=5 lives at r^(-5-7/2) only: pass 
+  T1c l=3: a_1 after the shell = -(c/2) int F, c = 63/4: pass 
+  T1d c = (l + 1/2)(l + 3/2) > 0: pass 
+T2  the self-similar transfer from N to spatial infinity
+  T2a r^(p+2) box(r^-p F(s)) = -2[(s - s^2/2)F'' + (p - 1/2)(1-s)F' - (p^2-2p-kappa)F/2]: pass 0
+  T2b 2F1(p+l, p-l-2; p-1/2; s/2) solves it (p = 5/2, 7/2, 2, 3; l <= 6): pass 6.31e-30
+  T2c F(1)/F(0) = Gauss's sqrt(pi)Gamma(p-1/2)/(Gamma((p+l+1)/2)Gamma((p-l-1)/2)): pass 7.89e-31
+T3  the transfer at half-integer degree never vanishes; at integer degree it does
+  T3a p=2.5: min_(l<=60) |T_p(l)| > 0: pass min 0.002369
+  T3a p=3.5: min_(l<=60) |T_p(l)| > 0: pass min 0.0001554
+  T3a p=4.5: min_(l<=60) |T_p(l)| > 0: pass min 1.53e-5
+     T_(5/2)(l), l = 0..6: ['1.57379', '0.431482', '-0.224827', '-0.143827', '0.102194', '0.0774455', '-0.0613164']
+  T3b control: p = 2 vanishes at the odd l: pass [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
+  T3c control: p = 3 vanishes at the even l >= 2: pass [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+     T_2(l) = cos(pi l/2)/(l+1): True
+T4  Tangherlini does not move the rho^(5/2) coefficient
+  T4a l=0: the mu-recursion solves box_T to order j=9: pass 
+  T4b l=0: the top degree of each a_j in v is mu-free, mu enters at degree <= j-2: pass 
+  T4c l=0: control: the full a_j do depend on mu: pass 
+  T4a l=1: the mu-recursion solves box_T to order j=9: pass 
+  T4b l=1: the top degree of each a_j in v is mu-free, mu enters at degree <= j-2: pass 
+  T4c l=1: control: the full a_j do depend on mu: pass 
+  T4a l=2: the mu-recursion solves box_T to order j=9: pass 
+  T4b l=2: the top degree of each a_j in v is mu-free, mu enters at degree <= j-2: pass 
+  T4c l=2: control: the full a_j do depend on mu: pass 
+T5  the curvature carries the tail too
+  T5a radiation field G'': a_1 = a_2 = 0 after the shell, a_3 = -c(c-2)(c-6)/48 int: pass -c*(c - 6)*(c - 2)/133056
+  T5a radiation field (H')'' control: a_1 = a_2 = 0 after the shell, a_3 = -c(c-2)(c-6)/48 int: pass 0
+  T5b the recursion's coefficients are -(c - j(j-1))/(2j): pass 
+  T5c c(c-2)(c-6) has no root at a nonnegative integer l: pass []
+T6  a rho^(5/2) term is outside Part VII's class
+  T6a l0=13/4: int_eps^1 |rho^-l0(rho^(5/2) - a3 rho^3)|^2 drho/rho ~ eps^(5-2l0)/(2l0-5): pass lead 2/3
+  T6b l0=13/4: with a2 != 0 it is worse, ~ a2^2 eps^(4-2l0)/(2l0-4): pass lead 2*a2r**2/5
+  T6c l0=13/4: control: with the rho^(5/2) term subtracted (E_0^(1/2)) the remainder is 0: pass 
+  T6a l0=17/5: int_eps^1 |rho^-l0(rho^(5/2) - a3 rho^3)|^2 drho/rho ~ eps^(5-2l0)/(2l0-5): pass lead 5/9
+  T6b l0=17/5: with a2 != 0 it is worse, ~ a2^2 eps^(4-2l0)/(2l0-4): pass lead 5*a2r**2/14
+  T6c l0=17/5: control: with the rho^(5/2) term subtracted (E_0^(1/2)) the remainder is 0: pass 
+  T6a l0=39/10: int_eps^1 |rho^-l0(rho^(5/2) - a3 rho^3)|^2 drho/rho ~ eps^(5-2l0)/(2l0-5): pass lead 5/14
+  T6b l0=39/10: with a2 != 0 it is worse, ~ a2^2 eps^(4-2l0)/(2l0-4): pass lead 5*a2r**2/19
+  T6c l0=39/10: control: with the rho^(5/2) term subtracted (E_0^(1/2)) the remainder is 0: pass 
+  T6d control: at l0 = 9/4 < 5/2 the term is in rho^(l0) L^2_b: pass 2
+T7  the order count: only box~ puts the wave's linear part at r^(-7/2)
+  T7a (9.5) on r^-p F Y = (3-2p) r^(-p-1) F' + (p(p-2)-kappa) r^(-p-2) F - mu p(p+1) r^(-p-4) F: pass 0
+  T7b at p = 3/2 no r^(-5/2) term; r^(-7/2) carries -(kappa + 3/4) F; mu enters at r^(-11/2): pass 
+  T7c the polarizations T_F, T_G of (2.5') are linearly independent: pass 
+  T7d -l(l+2) - 3/4 = -(l+1/2)(l+3/2) < 0: Laplacian - 3/4 is injective on S^3: pass 
+T8  the time integral of the record's waves
+  T8a the closed form agrees with quadrature: pass 8.0e-32
+     |ehat(w)| w^5 at w = 10..320: ['47.614', '60.311', '17.839', '33.63', '54.622', '35.567']
+  T8b sin^4 envelope: |ehat(w)| w^5 bounded, not -> 0 (C^3 ends: ehat ~ w^-5): pass 
+     bump: lam, |ehat(1/lam)|: [('0.5', '0.2969'), ('0.25', '0.05895'), ('0.125', '0.008629'), ('0.0625', '0.001444'), ('0.0313', '0.0001092'), ('0.0156', '6.275e-6'), ('0.00781', '3.375e-8')]
+  T8c bump: ehat(1/lam) != 0 at lam = 2^-1..2^-7: pass 
+     local log-slopes d log|ehat|/d log lam (they oscillate with ehat's zeros): ['2.579', '3.725', '4.121', '7.538']
+  T8d bump: log-slope over [2^-7, 2^-5] > 5 (faster than the C^3 envelope's lam^5): pass 5.83
+  T8e e^(-2iw) ehat_b(w) is real: pass 1.25e-43
+     real zeros of E in [1, 21]: ['3.33103', '5.92565', '8.39923', '10.8119', '13.1862', '15.5334', '17.8601', '20.1706']
+  T8f E has isolated real zeros (discrete exceptional set lam = 1/w): pass 
+  T8g control: a radiation field env' has zero time integral at w = 0: pass 0.0
+T9  the cubic part is beyond all orders: its integrand has no zeroth phase harmonic
+  T9a the theta-mean of G3 S3 vanishes identically in (lam, e, e'): pass 0
+  T9b only odd phase harmonics occur (1 and 3): pass 
+  T9c control: an even product, (d_v G3)^2, has a nonzero mean (an O(1) source, not O(lam^oo)): pass e0**2/2 + e1**2*lambda**2/2
+     bump: lam, int G3 S3: [('0.125', '3.287e-7'), ('0.0625', '4.76e-8'), ('0.0313', '4.615e-9'), ('0.0156', '5.658e-12')]
+  T9d bump: the cubic model coefficient falls faster than lam^4 over [2^-6, 2^-3]: pass 5.275
+FAILED: none

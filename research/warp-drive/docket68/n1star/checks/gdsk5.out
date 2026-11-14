@@ -1,0 +1,16 @@
+  K1: chain rule for t d_t, r d_r in (rho_+, rho_K): True; products t^-c log^k t r^-m have orders (c + m, c) (the weighted quotient -> 0 into the corner): True
+  K1 control (-eta in place of eta): chain rule for t d_t, r d_r in (rho_+, rho_K): True; products t^-c log^k t r^-m have orders (c + m, c) (the weighted quotient -> 0 into the corner): False
+K1 PASS
+  K2: (type, iota+-order, K+-order, = (lambda + 1, kappa_nu) of III.I''''''''' Lemma 2.2 (b), (d)): [('s1', lambda + 1, lambda + 4, True), ('v1', lambda + 1, lambda + 4, True), ('s0', lambda + 1, lambda + 4, True), ('s2', lambda + 1, lambda + 4, True), ('c0', lambda + 1, lambda - mu_c0 + 3, True), ('c1', lambda + 1, lambda - mu_c1 + 3, True), ('rot', lambda + 1, lambda + 4, True)]
+  K2 control (A1 without its gain): (type, iota+-order, K+-order, = (lambda + 1, kappa_nu) of III.I''''''''' Lemma 2.2 (b), (d)): [('s1', lambda, lambda + 4, False), ('v1', lambda, lambda + 4, False), ('s0', lambda, lambda + 4, False), ('s2', lambda, lambda + 4, False), ('c0', lambda, lambda - mu_c0 + 3, False), ('c1', lambda, lambda - mu_c1 + 3, False), ('rot', lambda, lambda + 4, False)]
+K2 PASS
+  K3: Box^Ups(phi(t_*) U), U of spatial order q: (q, coefficient, r^(q+1) A1 U resp. r^(q+2) A2 U finite in an orthonormal frame): [('3', 'A1', True), ('3', 'A2', True), ('7/2', 'A1', True), ('7/2', 'A2', True)]
+  K3 control (c_Ups = dt): Box^Ups(phi(t_*) U), U of spatial order q: (q, coefficient, r^(q+1) A1 U resp. r^(q+2) A2 U finite in an orthonormal frame): [('3', 'A1', False), ('3', 'A2', True), ('7/2', 'A1', False), ('7/2', 'A2', True)]
+K3 PASS
+  K4: (S_K) and Lemma R2.11 hold at 75 samples (gam, e, beta in (0, delta_#)): True
+  K4 control: (S_K) holds at beta = delta_# for some sample: False; with gam = 0 for some beta > 0: False
+K4 PASS
+  K5: G-fixed dimensions {'S_0 (dim 1)': 1, 'S_1 (dim 4)': 0, 'S_2 (dim 9)': 1, 'so(4) (dim 6)': 0} (expected {'S_0 (dim 1)': 1, 'S_1 (dim 4)': 0, 'S_2 (dim 9)': 1, 'so(4) (dim 6)': 0}); x1^2 + x2^2 - x3^2 - x4^2 is G-fixed: True; so the black-hole parameters R x so(4) have a 1-dimensional fixed space: True
+  K5 control (torus only): fixed dimensions {'S_0 (dim 1)': 1, 'S_1 (dim 4)': 0, 'S_2 (dim 9)': 1, 'so(4) (dim 6)': 2}; so(4) fixed = 0: False
+K5 PASS
+EXIT 0

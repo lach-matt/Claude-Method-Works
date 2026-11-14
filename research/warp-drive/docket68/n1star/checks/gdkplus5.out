@@ -1,0 +1,19 @@
+  Q1: dt dx = rho_+^-5 rho_K^-1 x b-density, so L^2(dt dx) = rho_+^5/2 rho_K^1/2 L^2_b; mu_b = dt dx/(t r^4) is the b-density: True; rho^A in rho^w L^2_b iff A > w: True (A = w diverges: True); K+ interior shift 1/2: True; R2.5's source 3b (a_sf + 2, 0) = b (a_sf + 9/2, 1/2), solution K-weight 3b -1 = b -1/2
+  Q1 control (n = 3): b-shifts at (iota+, K+) = (2, 1/2), the 4D values (5/2, 1/2): False
+Q1 PASS
+  Q2: indicial roots of r^2(-Delta) on r^-q Y_l are {-l, l + 2} for l = 0..8; root-free interval around the window (mu_b-weights): (0, 2); column A^3 in Y_0 iff alpha + 2 < 1, so the window gamma_+ - alpha_K in (0, 1) lies in the gap; Box_0(r^-p e^(k(t - r))) r^(p+1) -> k*(2*p - 3), root p = [3/2] (the scf cap 3/2 + S-bar, S-bar = 0)
+  Q2 control (n = 3): gap (0, 1), column window edge 3/2, radiation root [1]; the 4D values: False
+Q2 PASS
+  Q3: W* in A^2: q = 2, r^2 W*_t -> 1, r^3 W*_r -> r_h, (r d_r)^j (r^2 W*) bounded j <= 3: True; (eps, m, lim sigma^(2eps) int_sigma^1 x^(-2eps-1), remainder integrable, tf-order minus a) = [('1/4', 0, 2, True, 7/4), ('1/4', 2, 2, True, 7/4), ('1/10', 0, 5, True, 19/10), ('1/10', 2, 5, True, 19/10), ('1/3', 0, 3/2, True, 5/3), ('1/3', 2, 3/2, True, 5/3)]
+  Q3 control ((d_v)^flat): decay order q = 0, tf-order minus a = [-1/4, -1/4]; equal to 2 - eps: False
+Q3 PASS
+  Q4: (a_K, int_0^oo t^-a_K e^(-k t) dt = Gamma(1 - a_K) k^(a_K - 1), threshold of beta for t^-a_K in H^(0,beta)_b, for |sigma|^(a_K - 1) in X^(0,beta-1)) = [('1/2', True, 1/2, 1/2), ('3/5', True, 3/5, 3/5), ('3/4', True, 3/4, 3/4), ('9/10', True, 9/10, 9/10)]: zf-weight a_K - 1 <-> K+-weight a_K, pointwise |B| <~ t^-a_K
+  Q4 control (a_K = 1): Gamma(1 - a_K) = zoo, so no power law; E_1(w) = w - log(w) - EulerGamma near 0, log: True
+Q4 PASS
+  Q5: every condition a positive sum on the box a_K in (1/2, 1), gamma_+ in (a_K, 3/2), eps in (0, (3/2 - gamma_+)/5): True; ['(2.25a) w_I >= g + 2 - min(a_K, .)', '(2.26a) K-weight a_K, Taylor void (a_K - 1 < 0)', 'II.F b_+ < b_I', 'II.F b_+ > 1/2', 'II.F b_I < 3/2', 'II.F source I+ w_I >= b_I + 1', 'II.F source iota+ g + 2 >= b_+ + 2', 'II.G 2.8: a = a_K - 1 > -1', 'L3.1 a priori K-: a_K >= a_K - 1', 'L3.1 beta_K < 0', 'L3.1 beta_K = a_K - 1 <= beta_iota - beta_I', 'L3.1 beta_K > -1', 'L3.1 beta_iota > beta_I = g - eps', 'L4.1 1 - a_K', 'L4.1 beta_I^f = w_I - 1 >= 3/2', 'L4.1 beta_K = a_K in (0,1)', 'L4.1 w_I >= g + 2 - a_K', 'L4.2 r_out < -1/2', 'L4.2 source scf 5/2 - eps <= g + 2 - eps', 'L4.3 tf(chi G_1) = a_K + 1 - eps >= beta_iota', 'window < 1', 'window > 0']; the a priori iota-weight an equality: True
+  Q5 control (III.I'''s beta_iota = gamma_+ + 1 for the singular part): L4.3 tf(chi G_1) = a_K + 1 - eps >= beta_iota is a positive sum: False
+Q5 PASS
+  Q6: kappa_sup(a) = min(1/2, a - 5/2) at 41 samples: True, never above the l = 0 model exponent a - 5/2 on (5/2, 3): True; harmonic-gauge source, every kappa in (0, delta_#), explicit parameters, all positive sums: True; compactly supported data, every kappa in (0, 1/2): True; G4's class = (gamma_+ + 2, alpha_K) with beta = gamma_+ - alpha_K: True
+  Q6 control (window's lower end dropped): kappa_sup(a) <= the model exponent a - 5/2 on (5/2, 3): False
+Q6 PASS
+EXIT 0

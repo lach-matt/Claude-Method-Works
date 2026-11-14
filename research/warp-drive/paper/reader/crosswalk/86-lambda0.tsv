@@ -1,0 +1,22 @@
+label	source	source_name	note
+ch:lambda0	paper/RESPONSE-HL-5D.md:1604-1621; docket68/n1star/CONSTANTS5.md:42-148	P section 9, Physical wavelengths; C5 s.1	introduction written for the chapter; not carried (no proof uses them): the formula for lambda0 as a minimum of nine terms (C5 1.3), the constructivity audit (C5 1.2), the lambda_Omega remark (C5 1.4)
+sec:lambda0-point	paper/reader/proofs/P-C-lambda0.md:6-42	proof C, the numerical point	merged verbatim from the confirmed proof C
+def:lambda0-point	paper/reader/proofs/P-C-lambda0.md:8-10; docket68/n1star/CONSTANTS5.md:44-49	C5 1.1, the point P*	merged verbatim (smooth envelope of LAMBDA0-DATA5 Lemma 7.1 in place of sin^4); added paragraph: the point satisfies the hypotheses of thm:main
+lem:lambda0-point	paper/reader/proofs/P-C-lambda0.md:12-42; docket68/n1star/CONSTANTS5.md:102-112, 956-963	C5 1.4 certified leaves; C5 R4.2 corner value	merged verbatim (explicit rational bounds)
+sec:envelope-constant	paper/reader/proofs/P-C-lambda0.md:44-135	proof C, the envelope	merged verbatim
+eq:envelope	paper/reader/proofs/P-C-lambda0.md:46-49; docket68/n1star/LAMBDA0-DATA5.md:231-233	LAMBDA0-DATA5 Lemma 7.1; C5 R2.2 (a)	c written c_e; key also cited by proofs F and D1
+lem:envelope-constant	paper/reader/proofs/P-C-lambda0.md:53-119; docket68/n1star/LAMBDA0-DATA5.md:231-248; docket68/n1star/CONSTANTS5.md:449-452	LAMBDA0-DATA5 Lemma 7.1; C5 R2.2 (a) (the envelope interval)	merged verbatim; (b) is the written enclosure of I and c_e (strip bound, Poisson summation, trapezoidal rule); chapter 03 cites (b)
+eq:envelope-c	paper/reader/proofs/P-C-lambda0.md:59; docket68/n1star/CONSTANTS5.md:449-451	C5 R2.2 (a), c in [1.3240711, 1.3241035]	sharper interval proved; the source interval kept as 'in particular'
+eq:strip-bound	paper/reader/proofs/P-C-lambda0.md:80	proof C	written derivation with no source counterpart
+rem:envelope-dependence	paper/reader/proofs/P-C-lambda0.md:121-135; docket68/n1star/LAMBDA0-DATA5.md:227-229	proof C; LAMBDA0-DATA5 s.7 (C_app through the envelope's peak)	merged verbatim
+sec:epsilon-one	paper/reader/proofs/P-C-lambda0.md:137-142; docket68/n1star/CONSTANTS5.md:956-963	C5 R4.2 (the Lemma 2.3 term, s0); NP 0.3	merged verbatim; rests on items (i)-(iii) of chapter 02
+sec:second-harmonic	paper/reader/proofs/P-C-lambda0.md:144-161	proof C	merged verbatim
+lem:chi-closed-form	paper/reader/proofs/P-C-lambda0.md:149-161; docket68/n1star/CONSTANTS5.md:473-480	C5 R2.2 (c), closed form of chi	merged verbatim; written derivation from lem:stage-zero and eq:chi-transport
+sec:lambda0-norms	paper/reader/proofs/P-C-lambda0.md:163-240	proof C	merged verbatim; its closing paragraph now points to prop:lambda0
+prop:lambda0-norms	paper/reader/proofs/P-C-lambda0.md:175-236; docket68/n1star/CONSTANTS5.md:956-966, 1403-1449, 1613-1692, 1756-1793, 2204-2241	C5 R4.2; R6.0 (largest entry); R7.0 Major 2 and R7.3 (Frobenius); R8.2 (M_22)	merged verbatim
+eq:lambda0-norms	paper/reader/proofs/P-C-lambda0.md:189	C5 R7.3, the three bounds	merged verbatim
+rem:lambda0-norms-c	paper/reader/proofs/P-C-lambda0.md:242-249	proof C	merged verbatim
+sec:lambda0-bound	paper/RESPONSE-HL-5D.md:1604-1621	P section 9, Physical wavelengths	
+prop:lambda0	paper/RESPONSE-HL-5D.md:1604-1608; docket68/n1star/CONSTANTS5.md:75-92, 956-963, 1756-1762, 3850-3856	P section 9 (lambda0 below 0.0024433, 0.0019079, 0.0012228); C5 1.3 (lambda0 below eps1/C_app); R4.2; R7.3; R14.0	the proof's threshold made precise through C lambda0 <= eps1 in the proof of thm:main; C bounded below by prop:lambda0-norms through |g_lambda - g_app| <= C lambda^(K-3)
+eq:lambda0-bound	paper/RESPONSE-HL-5D.md:1605-1608	P section 9, the three bounds	the factor above 409 for 10 l5 (P: more than 400 times)
+rem:m22-value	paper/RESPONSE-HL-5D.md:1608-1621; docket68/n1star/LAMBDA0-DATA5.md:429-508; docket68/n1star/M22CERT5.md:12-191	P section 9 (M_22 = 2.207738); LAMBDA0-DATA5 s.12.2-12.4, 13.6; M22CERT5	class (b) numerical observation; the a posteriori estimate (factor 1.8e14, class (c)) deleted, only 'no bound on M_22 is proved' kept; figures 0.0020789, 0.0018902, 0.0010404 as LAMBDA0-DATA5 13.6

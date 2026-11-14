@@ -1,0 +1,80 @@
+d0count5: the closed-graph orders of Part II counted (Appendix R7.A), and D_0 at the record's orders
+  Q0 (READ): the closed-graph sites found by content: {'II.A Lemma 8.5': True, 'II.A2 Lemma 1.2': True, 'II.A2 Prop 2.4':
+      True}; every "closed graph" line of Part II lies in II.A or II.A2 (9 lines): True
+  Q1: Theorem A.1 with N = 11 pure derivatives each, delta = 1/100 < 2/(2 + 5n) = 2/27: adjacent-shell sums need N/2 > n:
+      True; distant-shell exponent -0.4325 < 0: True
+  Q4b (READ; computed; Round 9): II.C:767-768 at the FWD use, both branches: alpha_K = -2 (III.I Theorem 5.3's proof),
+      theta^3b_in = theta_in = 0 (II.C Lemma 2.6; thetain5 T2, T6): the second branch of s_in needs s_in > 11/2 (beta_+
+      -> 1/2), below the first branch's 17/2; s_out's branch gives -6 - beta_+ - eps (theta_out >= -2 eps, Round 10:
+      taken at -2 eps with eps = 1/4, a margin 1/4 at beta_+ -> 3/2, so every eps <= 1/4 serves); the four lines read:
+      [True, True, True, True]; s_in = 9 and s_out = -8 satisfy both branches for every beta_+: True
+  Q4: s_in = 9 > 17/2, s_out = -8 < -15/2 (eta = 5, theta_H <= 2, theta_out >= -2 eps, alpha_+ = beta_+ - 5/2): True; s
+      in [-8, 9], s0 = s - 2 in [-10, 7]; the Sobolev orders in [-16, 11] (Round 8: down to the record's input order -N -
+      m = -16, II.A2:389-391; round 7 stopped at -14), N <= 14; operator orders: round 7 took them <= 2; the commutants
+      of II.A2 sections 4-5 have order k = s - 1/2 + delta, |s| <= 10, so every symbol and composite order of the chain
+      lies in the box [-22, 22] (Round 8), the factors' orders in [-10.49, 9.51] (Round 9)
+  Q2: D_a = 53 (J = 35, M0 = 9, t0 = -17), D_b = 64 (Jb = 35, sigma = 11, M1 = 9), Lemma 8.6 d_0 = 60; the remainder
+      kernels converge: True; pinned: True
+  Q3 (round 7's operator orders, constant, <= 2; corrected weight M2 = ceil(-t0/2) = 9): M_a = 81 (P1..P5 = (79, 75, 81,
+      47, 44); J1 = 37, J2 = 33, J3 = 6); Proposition 2.4 (b)-(e): M_2.4 = 197 (C_ch = 108); (f) at its instances (q <=
+      3, three operations, composite order 3): M_f = 224; D_0 <= 230 (203 without (f)); every remainder condition, 2K > n
+      included, holds: True; pinned: True
+  Q3b (round 8-9's box, superseded by Q7 in Round 12: the box [-22, 22], every order variable within it; Round 9: the
+      factors' Peetre exponents over their orders, 2L' = 18 for (b)-(e) at depth 1 and 20 for (f) at depth q + 1 = 4):
+      M_a = 138 (J1 = 80), M_2.4 = 376 (C_ch = 218), M_f = 429; D_0 <= max(M_2.4 + 6, M_f + 6, d_0(8.6) + 2, D_a + 2, D_b
+      + 4) = 435; FWD <= 510; pinned: True
+  Q5: 89 d_0 lines classified, 0 unclassified; classes ['closed graph (Lemma A.5/A.6)', 'constant 0', 'constant 1',
+      'constant 2', 'constant 3', 'constant 5', 'increment 1', 'increment 2', 'increment 2 over d_1', 'increment 3',
+      'increment 4', 'statement or largest-of']; largest explicit increment d_0 - 4
+  Q6: d' = 8, d'' = 9; II.A Proposition 9.6 at s - 2 (Lemma 2.8, Corollary 9.7): d_1 = 20, d-tilde = 33; II.E Proposition
+      4.4 d = d-tilde + 3 = 36 (round 7 wrote ">= 35"); every tame order of D_1 has the form d-tilde + 3 with d-tilde =
+      s-bar + 2 max(s-under, s-under_0) + 6 at Sobolev orders in [-16, 11], so D_1 <= 52. FWD = D_0 + D_1 + d' + d'' + 6
+      <= 305 on round 7's operator orders and <= 510 on the box; c' = FWD + BG + the fixed MODs (checks/modcount5.py):
+      True
+  Q7 (Round 12; READ from checks/ordcensus5.py O3; computed): the chain invokes the calculus at Sobolev orders [-65/2,
+      14] with N = 14, symbol orders [-63, 31], (f)'s factors in [-63/2, 951/100]; the census agrees with Q4C, BOXC,
+      FAC_F: True. (b)-(e)'s factors taken anywhere in [-63, 31] (2L' = 70 at depth 1); (f) at depth q + 1 = 4 (2L' =
+      42): M_a = 235 (J1 = 151), M_2.4 = 693 (C_ch = 386), M_f = 760; D_0 <= 766 (= M_f + 6); D_1 <= 88 (d-tilde + 3 at
+      the Sobolev orders, d-tilde = 14 + 2 (65/2) + 6); FWD = D_0 + D_1 + d' + d'' + 6 <= 877 (round 9: 510); every
+      remainder condition holds: True; pinned: True
+  C1 (control): Lemma A.5 with J one less: the remainder kernel converges: False, so Q2 fails: True
+  C2 (control): Theorem A.1 at delta = 2/27: exponent 0.0, not negative: True
+  C3 (control): census with the row ('PART-II-A-SETUP.md', 825) removed: 1 unclassified: True
+  C4 (control): Proposition A.7 with the right expansion's 2L dropped: conditions hold: False: True
+  C5 (control, the verifier's A): round 7's weight ceil(sup t/2): D_0 = 663, not 766: True
+  C6 (control): Schur decay 2K = 2 (2K > n violated): the conditions hold: False: True
+  C7 (control): the change of chart dropped (C_ch = 0): D_0 = 380, not 766: True
+  C8 (control): delta = 1/20: D_0 = 817, not 766: True
+  C9 (control): round 7's lower Sobolev order -14: D_0 = 673, not 766: True
+  C10 (control, the round-8 verifier's MAJOR 1): (f) counted with factor order 2, as round 8 did: D_0 = 699, not 766:
+      True
+  C11 (control): (f)'s Peetre exponent at depth 1 in place of q + 1: D_0 = 754, not 766: True
+  C12 (control, Round 12): round 8-9's orders (Sobolev [-16, 11], box [-22, 22], factors [-10.49, 9.51]) in place of the
+      census's: D_0 = 435, not 766: True
+  C13 (control, Round 12; the round-11 verifier's nit): (f) at depth q = 3 in place of q + 1: 2L' = 40 against 42, D_0 =
+      760, not 766: True. On round 9's factors depths 3 and 4 both gave 2L' = 20, so its pin could not tell q from q + 1;
+      on the census's they differ. (Depth q + 2 gives 2L' = 42, as q + 1 does: the pin does not tell q + 1 from q + 2, an
+      over-count.)
+Q0 PASS
+Q1 PASS
+Q4 PASS
+Q2 PASS
+Q3 PASS
+Q3b PASS
+Q5 PASS
+Q6 PASS
+Q7 PASS
+D0 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS
+C5 PASS
+C6 PASS
+C7 PASS
+C8 PASS
+C9 PASS
+C10 PASS
+C11 PASS
+C12 PASS
+C13 PASS

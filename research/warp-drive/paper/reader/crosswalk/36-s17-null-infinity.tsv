@@ -1,0 +1,141 @@
+label	source	source_name	note
+ch:s17	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:3; docket68/n1star/proof5/PART-III-G4-RESONANT.md:3; docket68/n1star/proof5/PART-III-G5-TF.md:3	III.C, III.G3, III.G4 headers	chapter heading; intro composed from the parts' one-sentence scope statements (status paragraphs dropped); inner-radius sentence from BEYOND5-R0-PROOF.md section 4 (these parts name no r_0)
+sec:iii-c-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:28	III.C §1	
+rem:s17-dimension	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:10	III.C 'What n = 4 changes' (a)-(c)	made a remark so that S26 (III.C1 cites 'III.C (a)', '(b)') can cite it
+eq:iii-c-1-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:34	III.C (1.1)	
+eq:iii-c-1-2	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:37	III.C (1.2)	
+eq:iii-c-1-3	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:41	III.C (1.3)	
+lem:iii-c-1-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:45	III.C Lemma 1.1	ext5.py E1 citation dropped (the hand proof is complete); Tangherlini variant stated as a remark
+eq:iii-c-1-4	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:50	III.C (1.4)	
+eq:iii-c-1-5	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:51	III.C (1.5)	
+eq:iii-c-1-6	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:81	III.C (1.6)	
+eq:iii-c-1-7	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:86	III.C (1.7)	
+def:iii-c-1-2	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:89	III.C Definition 1.2	
+lem:iii-c-1-3	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:94	III.C Lemma 1.3	
+sec:iii-c-2	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:106	III.C §2	
+lem:iii-c-2-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:115	III.C Lemma 2.1	
+sec:iii-c-3	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:144	III.C §3	
+def:iii-c-3-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:149	III.C Definition 3.1	ext5.py E5 third control replaced by an explicit hand example (seed (z0,0), z0 in (3/2+2gamma,2))
+eq:iii-c-3-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:157	III.C (3.1)	
+eq:iii-c-3-2	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:170	III.C (3.2)	
+eq:iii-c-3-3	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:178	III.C (3.3)	
+lem:iii-c-3-2	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:189	III.C Lemma 3.2	ext5.py E4 parenthetical dropped
+def:iii-c-3-3	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:227	III.C Definition 3.3	the obligation (C7) replaced by the pointer to III.C1 Remark 3.2 (S26), which settles it
+def:iii-c-3-4	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:238	III.C Definition 3.4	
+eq:iii-c-3-4	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:241	III.C (3.4)	
+lem:iii-c-3-5	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:246	III.C Lemma 3.5	
+sec:iii-c-4	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:261	III.C §4	
+eq:iii-c-4-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:265	III.C (4.1)	
+lem:iii-c-4-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:268	III.C Lemma 4.1	the radial check (ext5.py E2) written out after the proof
+eq:iii-c-4-2	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:270	III.C (4.2)	
+lem:iii-c-4-2	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:293	III.C Lemma 4.2	proof by explicit derivation of S-bar's matrix in g-bar's null frame (replaces scri5.py C1, sbar5.py and ext5.py E3); Schur's-lemma argument kept as a remark
+eq:iii-c-4-3	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:297	III.C (4.3)	
+eq:s17-sbar	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:293	III.C Lemma 4.2 proof (replaces scri5.py C1, sbar5.py)	explicit formula for S-bar in the null frame of g-bar; written derivation of the matrix
+lem:iii-c-4-3	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:317	III.C Lemma 4.3	
+prop:iii-c-4-4	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:336	III.C Proposition 4.4	
+eq:iii-c-4-4	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:343	III.C (4.4)	
+rem:iii-c-4-5	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:387	III.C Remark 4.5	exterior5.py X7 cross-check now points to prop:np-10-64 (7)
+sec:iii-c-5	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:406	III.C §5	
+def:iii-c-5-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:408	III.C Definition 5.1	
+eq:iii-c-5-1	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:412	III.C (5.1)	
+prop:iii-c-5-2	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:429	III.C Proposition 5.2	ext5.py E5 paragraph dropped (bookkeeping is in the proof)
+eq:iii-c-5-2	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:433	III.C (5.2)	
+eq:iii-c-5-3	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:436	III.C (5.3)	
+cor:iii-c-5-3	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:476	III.C Corollary 5.3	(C5) folded as the paragraph after the corollary
+eq:iii-c-5-4	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:480	III.C (5.4)	
+eq:iii-c-5-5	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:486	III.C (5.5)	
+rem:s17-no-radiation	docket68/n1star/proof5/PART-III-C-EXTERIOR.md:516	III.C finding (C3), with (C6)	mined from the dropped tail; cited where the parts cite '(C3)'
+sec:iii-g3-1	docket68/n1star/proof5/PART-III-G4-RESONANT.md:22	III.G3 §1 (with the 'What n = 4 changes' paragraph)	
+eq:iii-g3-0-1	docket68/n1star/proof5/PART-III-G4-RESONANT.md:14	III.G3 (0.1)	lambda_sharp
+eq:iii-g3-1-1	docket68/n1star/proof5/PART-III-G4-RESONANT.md:28	III.G3 (1.1)	
+eq:iii-g3-1-2	docket68/n1star/proof5/PART-III-G4-RESONANT.md:37	III.G3 (1.2)	
+def:iii-g3-1-1	docket68/n1star/proof5/PART-III-G4-RESONANT.md:53	III.G3 Definition 1.1	
+lem:iii-g3-1-2	docket68/n1star/proof5/PART-III-G4-RESONANT.md:64	III.G3 Lemma 1.2	ext5.py E6 parenthetical dropped
+sec:iii-g3-2	docket68/n1star/proof5/PART-III-G4-RESONANT.md:86	III.G3 §2	
+lem:iii-g3-2-1	docket68/n1star/proof5/PART-III-G4-RESONANT.md:88	III.G3 Lemma 2.1	
+lem:iii-g3-2-2	docket68/n1star/proof5/PART-III-G4-RESONANT.md:114	III.G3 Lemma 2.2	ext5.py E7 parenthetical dropped
+eq:iii-g3-2-1	docket68/n1star/proof5/PART-III-G4-RESONANT.md:121	III.G3 (2.1)	
+lem:iii-g3-2-3	docket68/n1star/proof5/PART-III-G4-RESONANT.md:169	III.G3 Lemma 2.3	
+prop:iii-g3-2-4	docket68/n1star/proof5/PART-III-G4-RESONANT.md:194	III.G3 Proposition 2.4	
+eq:iii-g3-2-2	docket68/n1star/proof5/PART-III-G4-RESONANT.md:199	III.G3 (2.2)	
+def:iii-g3-2-5	docket68/n1star/proof5/PART-III-G4-RESONANT.md:228	III.G3 Definition 2.5	
+cor:iii-g3-2-6	docket68/n1star/proof5/PART-III-G4-RESONANT.md:233	III.G3 Corollary 2.6	
+rem:s17-exceptional	docket68/n1star/proof5/PART-III-G4-RESONANT.md:412	III.G3 findings (G'''1)-(G'''2)	mined from the dropped tail; the 'open reading' clause dropped (S23 allows (lambda_sharp,0))
+rem:iii-g3-2-7	docket68/n1star/proof5/PART-III-G4-RESONANT.md:258	III.G3 Remark 2.7	
+sec:iii-g3-3	docket68/n1star/proof5/PART-III-G4-RESONANT.md:270	III.G3 §3	
+cor:iii-g3-3-1	docket68/n1star/proof5/PART-III-G4-RESONANT.md:272	III.G3 Corollary 3.1	
+eq:iii-g3-3-1	docket68/n1star/proof5/PART-III-G4-RESONANT.md:274	III.G3 (3.1)	
+eq:iii-g3-3-2	docket68/n1star/proof5/PART-III-G4-RESONANT.md:279	III.G3 (3.2)	
+def:iii-g3-3-2	docket68/n1star/proof5/PART-III-G4-RESONANT.md:308	III.G3 Definition 3.2	
+eq:iii-g3-3-3	docket68/n1star/proof5/PART-III-G4-RESONANT.md:312	III.G3 (3.3)	
+rem:iii-g3-3-3	docket68/n1star/proof5/PART-III-G4-RESONANT.md:315	III.G3 Remark 3.3	
+lem:iii-g3-3-4	docket68/n1star/proof5/PART-III-G4-RESONANT.md:320	III.G3 Lemma 3.4	
+lem:iii-g3-3-5	docket68/n1star/proof5/PART-III-G4-RESONANT.md:334	III.G3 Lemma 3.5	
+eq:iii-g3-3-4	docket68/n1star/proof5/PART-III-G4-RESONANT.md:336	III.G3 (3.4)	
+def:iii-g3-3-6	docket68/n1star/proof5/PART-III-G4-RESONANT.md:358	III.G3 Definition 3.6	
+eq:iii-g3-3-5	docket68/n1star/proof5/PART-III-G4-RESONANT.md:366	III.G3 (3.5)	
+prop:iii-g3-3-7	docket68/n1star/proof5/PART-III-G4-RESONANT.md:372	III.G3 Proposition 3.7	
+eq:iii-g3-3-6	docket68/n1star/proof5/PART-III-G4-RESONANT.md:377	III.G3 (3.6)	
+rem:iii-g3-3-8	docket68/n1star/proof5/PART-III-G4-RESONANT.md:393	III.G3 Remark 3.8	
+rem:iii-g3-3-9	docket68/n1star/proof5/PART-III-G4-RESONANT.md:400	III.G3 Remark 3.9	
+sec:s17-radiative	docket68/n1star/N1STAR-PROOF.md:6085	N1STAR 10.38	section carrying NP 10.38
+prop:np-10-38	docket68/n1star/N1STAR-PROOF.md:6108; docket68/n1star/proof5/PART-III-C-EXTERIOR.md:293; docket68/n1star/proof5/PART-III-G4-RESONANT.md:233	N1STAR Proposition 10.35 (i)-(iii) and (a)-(e) of section 10.38, final form via III.C L4.2, P4.4, (C3) and III.G3 C2.6, R3.8; III.G1 L4.2(a)	(1) = 10.35(i) proved by hand (replaces scri5.py C1), with the general-n formula giving [Hin26] (5.28) at n = 3; (2) = 10.35(ii) (det over slots); (3) = 10.38(a),(c) as proved in III.C; (4) = 10.35(iii) and 10.38(d) replaced by the proved III.G1 Lemma 4.2(a) and III.G3 Cor 2.6 (the floating-point C3 is superseded); 10.38(e) alpha_5 = 2 for the nonlinear iteration is not stated (a deduction on readings)
+eq:s17-abar	docket68/n1star/N1STAR-PROOF.md:6110	N1STAR Proposition 10.35 (i)	entries of A-bar
+sec:iii-g4-1	docket68/n1star/proof5/PART-III-G5-TF.md:24	III.G4 §1 (with the 'What n = 4 changes' paragraph)	
+eq:iii-g4-1-1	docket68/n1star/proof5/PART-III-G5-TF.md:30	III.G4 (1.1)	
+eq:iii-g4-1-2	docket68/n1star/proof5/PART-III-G5-TF.md:55	III.G4 (1.2)	
+eq:iii-g4-1-3	docket68/n1star/proof5/PART-III-G5-TF.md:61	III.G4 (1.3)	
+lem:iii-g4-1-1	docket68/n1star/proof5/PART-III-G5-TF.md:65	III.G4 Lemma 1.1	tfgraft5.py T1(a) dropped
+lem:iii-g4-1-2	docket68/n1star/proof5/PART-III-G5-TF.md:89	III.G4 Lemma 1.2	
+eq:iii-g4-1-4	docket68/n1star/proof5/PART-III-G5-TF.md:116	III.G4 (1.4)	tfgraft5.py T3 dropped (c_mu values from the table of III.G2 §1)
+sec:iii-g4-2	docket68/n1star/proof5/PART-III-G5-TF.md:124	III.G4 §2	
+def:iii-g4-2-1	docket68/n1star/proof5/PART-III-G5-TF.md:126	III.G4 Definition 2.1	
+eq:iii-g4-2-1	docket68/n1star/proof5/PART-III-G5-TF.md:129	III.G4 (2.1)	
+lem:iii-g4-2-2	docket68/n1star/proof5/PART-III-G5-TF.md:139	III.G4 Lemma 2.2	tfgraft5.py T1(b) dropped
+eq:iii-g4-2-2	docket68/n1star/proof5/PART-III-G5-TF.md:143	III.G4 (2.2)	
+def:iii-g4-2-3	docket68/n1star/proof5/PART-III-G5-TF.md:159	III.G4 Definition 2.3	
+lem:iii-g4-2-4	docket68/n1star/proof5/PART-III-G5-TF.md:162	III.G4 Lemma 2.4	
+sec:iii-g4-3	docket68/n1star/proof5/PART-III-G5-TF.md:184	III.G4 §3	
+eq:iii-g4-3-1	docket68/n1star/proof5/PART-III-G5-TF.md:189	III.G4 (3.1)	D247/verifier parenthetical rewritten without history
+eq:iii-g4-3-2	docket68/n1star/proof5/PART-III-G5-TF.md:196	III.G4 (3.2)	
+thm:iii-g4-3-1	docket68/n1star/proof5/PART-III-G5-TF.md:208	III.G4 Theorem 3.1	
+eq:iii-g4-3-3	docket68/n1star/proof5/PART-III-G5-TF.md:215	III.G4 (3.3)	
+eq:iii-g4-3-4	docket68/n1star/proof5/PART-III-G5-TF.md:220	III.G4 (3.4)	
+eq:iii-g4-3-5	docket68/n1star/proof5/PART-III-G5-TF.md:230	III.G4 (3.5)	
+lem:iii-g4-3-2	docket68/n1star/proof5/PART-III-G5-TF.md:237	III.G4 Lemma 3.2	
+lem:iii-g4-3-3	docket68/n1star/proof5/PART-III-G5-TF.md:243	III.G4 Lemma 3.3	D247 parenthetical replaced by the reference to [Hin26]'s Case 1
+lem:iii-g4-3-4	docket68/n1star/proof5/PART-III-G5-TF.md:267	III.G4 Lemma 3.4	tfgraft5.py T2 replaced by a two-line inequality in the pairing paragraph
+eq:iii-g4-3-6	docket68/n1star/proof5/PART-III-G5-TF.md:272	III.G4 (3.6)	
+eq:iii-g4-3-7	docket68/n1star/proof5/PART-III-G5-TF.md:286	III.G4 (3.7)	
+eq:iii-g4-3-8	docket68/n1star/proof5/PART-III-G5-TF.md:292	III.G4 (3.8)	
+eq:iii-g4-3-9	docket68/n1star/proof5/PART-III-G5-TF.md:300	III.G4 (3.9)	
+eq:iii-g4-3-10	docket68/n1star/proof5/PART-III-G5-TF.md:320	III.G4 (3.10)	
+rem:iii-g4-3-5	docket68/n1star/proof5/PART-III-G5-TF.md:370	III.G4 Remark 3.5	
+rem:iii-g4-3-6	docket68/n1star/proof5/PART-III-G5-TF.md:383	III.G4 Remark 3.6	
+sec:iii-g4-4	docket68/n1star/proof5/PART-III-G5-TF.md:388	III.G4 §4	
+def:iii-g4-4-1	docket68/n1star/proof5/PART-III-G5-TF.md:390	III.G4 Definition 4.1	
+lem:iii-g4-4-2	docket68/n1star/proof5/PART-III-G5-TF.md:398	III.G4 Lemma 4.2	
+eq:iii-g4-4-1	docket68/n1star/proof5/PART-III-G5-TF.md:401	III.G4 (4.1)	
+lem:iii-g4-4-3	docket68/n1star/proof5/PART-III-G5-TF.md:411	III.G4 Lemma 4.3	cites III.D'' (3.4) [eq:iii-d2-3-4] where the part prints III.D''' (3.4)
+eq:iii-g4-4-2	docket68/n1star/proof5/PART-III-G5-TF.md:441	III.G4 (4.2)	
+prop:iii-g4-4-4	docket68/n1star/proof5/PART-III-G5-TF.md:448	III.G4 Proposition 4.4	D247 notes rewritten; (G''''6)-(G''''7) folded after Remark 4.6
+eq:iii-g4-4-3	docket68/n1star/proof5/PART-III-G5-TF.md:457	III.G4 (4.3)	
+eq:iii-g4-4-4	docket68/n1star/proof5/PART-III-G5-TF.md:469	III.G4 (4.4)	
+eq:iii-g4-4-5	docket68/n1star/proof5/PART-III-G5-TF.md:488	III.G4 (4.5)	
+rem:iii-g4-4-5	docket68/n1star/proof5/PART-III-G5-TF.md:602	III.G4 Remark 4.5	
+rem:iii-g4-4-6	docket68/n1star/proof5/PART-III-G5-TF.md:617	III.G4 Remark 4.6	
+sec:iii-g4-5	docket68/n1star/proof5/PART-III-G5-TF.md:622	III.G4 §5	
+prop:iii-g4-5-1	docket68/n1star/proof5/PART-III-G5-TF.md:624	III.G4 Proposition 5.1	tfgraft5.py T4 replaced by the one-line calculation in the remark inside Step 1
+eq:iii-g4-5-1	docket68/n1star/proof5/PART-III-G5-TF.md:632	III.G4 (5.1)	
+eq:iii-g4-5-2	docket68/n1star/proof5/PART-III-G5-TF.md:639	III.G4 (5.2)	
+eq:iii-g4-5-3	docket68/n1star/proof5/PART-III-G5-TF.md:657	III.G4 (5.3)	
+eq:iii-g4-5-4	docket68/n1star/proof5/PART-III-G5-TF.md:675	III.G4 (5.4)	
+eq:iii-g4-5-5	docket68/n1star/proof5/PART-III-G5-TF.md:704	III.G4 (5.5)	
+eq:iii-g4-5-6	docket68/n1star/proof5/PART-III-G5-TF.md:710	III.G4 (5.6)	
+sec:s17-exterior	docket68/n1star/N1STAR-PROOF.md:8018	N1STAR 10.64	section carrying NP 10.64
+eq:s17-hin23a-a	docket68/n1star/N1STAR-PROOF.md:8054	N1STAR Proposition 10.48 (X4) setting; [Hin23a] (2.10)	definition of [Hin23a]'s A made explicit (as exterior5.py builds it)
+prop:np-10-64	docket68/n1star/N1STAR-PROOF.md:8041	N1STAR Proposition 10.48 (X1)-(X8)	items (1)-(8) = X1-X8 (program labels not used); every item proved by hand (replaces exterior5.py X1-X8); deduced items (a)-(i) not carried (S26 writes [Hin23a] section 3 out from Part IV)
+eq:s17-rstar	docket68/n1star/N1STAR-PROOF.md:8043	N1STAR Proposition 10.48 (X1)	Tangherlini r* series
+eq:s17-energy-form	docket68/n1star/N1STAR-PROOF.md:8049	N1STAR Proposition 10.48 (X3)	[Hin23a] (3.25) with Lap + q_n
+eq:s17-duality	docket68/n1star/N1STAR-PROOF.md:8054	N1STAR Proposition 10.48 (X4) duality	[Hin23a] Remark 2.3 generalised
+eq:s17-hin23a-38	docket68/n1star/N1STAR-PROOF.md:8089	N1STAR Proposition 10.48 (X8)	[Hin23a] (3.8) at n = 4

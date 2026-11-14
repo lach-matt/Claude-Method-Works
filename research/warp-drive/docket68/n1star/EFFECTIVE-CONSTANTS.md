@@ -360,7 +360,13 @@ file, line, class, the statement it serves, the constant it hides, and an excerp
 - **E1. The ledger (done, D338).** Every site of N1-N4 in proof5, with the constant it hides (EFFECTIVE-LEDGER.tsv,
   section 3).
 
-- **E1'. The loss d.** Add up III.J''''s losses part by part, with k'' and d1, so that α and N become numbers.
+- **E1'. The loss d.** Add up III.J''''s losses part by part, with k'' and d1, so that α and N become numbers. Done as
+  far as the record allows (LOSS-D.md, D347): d is a finite sum whose step losses are explicit in the chosen weights
+  except five, so E1' is not bookkeeping but three tasks: E1'a (numbers for the weights from the index sets at n = 4),
+  E1'b (the five losses), E1'c (the level and round counts). k'' is now defined (LOSS-D.md LD1). At the record's
+  parameter point two counts are already known to be large (LD3, D348): the d this proof produces exceeds 1.3 × 10⁶
+  from one chain of decay levels alone, and a loop nested inside it runs about 5 × 10¹⁰ rounds. No admissible choice
+  of the damping parameters helps by more than a factor of about ten (LD5, D353).
 
 - **E1''. The inventory.** Finish section 2's inventory of δ_K and ε_dat statement by statement, and unfold each
   part (ε_ext, ε_slab and their higher orders, the data map, III.C's and III.B's thresholds) into its own proof's
@@ -394,8 +400,8 @@ file, line, class, the statement it serves, the constant it hides, and an excerp
 
 *Size.* E2-E4 rewrite, with numbers, the parts of the linear theory that the right inverses and III.J's inverse
 operators rest on (Parts I, II.F, III.D-III.H'', III.J, IV). That is comparable to the original write-out of those parts,
-plus certified computation. It is not one session's work. E1 is done; E1' is bookkeeping; E2 at one operator is the
-first real test.
+plus certified computation. It is not one session's work. E1 is done; E1' is reduced to E1'a-E1'c (LOSS-D.md); E2
+at one operator is the first real test.
 
 ## 6. Sources
 

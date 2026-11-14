@@ -1,0 +1,23 @@
+  C7a: orders of lam in L and Q at the stage-0 approximant's data (W_TT and chi): [0, 1, 2, 3, 4]; terms of order < 0: none
+C7a PASS [1802s]
+     lam = 1/8: sup ||U|| 6.413e-04, sup ||d_r U|| 1.467e-03, sup ||d_r^2 U|| 1.713e-02 [38s]
+     lam = 1/16: sup ||U|| 4.932e-05, sup ||d_r U|| 2.448e-04, sup ||d_r^2 U|| 3.396e-03 [66s]
+     lam = 1/32: sup ||U|| 3.178e-06, sup ||d_r U|| 1.555e-05, sup ||d_r^2 U|| 4.229e-04 [147s]
+     lam = 1/64: sup ||U|| 1.984e-07, sup ||d_r U|| 9.792e-07, sup ||d_r^2 U|| 5.297e-05 [347s]
+     rates (successive halvings): j = 0: 3.70 3.96 4.00; j = 1: 2.58 3.98 3.99; j = 2: 2.34 3.01 3.00
+  C7b: rates over 1/32 -> 1/64 (4.00, 3.99, 3.00) for j = 0, 1, 2: Proposition 6.5's lam^(N-2-j) = (4, 3, 2) holds: True; the first r-derivative free, rates (N-2, N-2, N-3): True; at lam = 1/32 the norms move by at most 7.2e-05 between M = 12, 16, 20 and lam/32, lam/64 steps
+    mutant lam = 1/8: sup ||U|| 7.556e-04, sup ||d_r U|| 3.757e-03, sup ||d_r^2 U|| 9.887e-02 [27s]
+    mutant lam = 1/16: sup ||U|| 1.038e-04, sup ||d_r U|| 1.266e-03, sup ||d_r^2 U|| 6.408e-02 [64s]
+    mutant lam = 1/32: sup ||U|| 6.211e-06, sup ||d_r U|| 1.487e-04, sup ||d_r^2 U|| 1.560e-02 [107s]
+    mutant lam = 1/64: sup ||U|| 3.633e-07, sup ||d_r U|| 1.659e-05, sup ||d_r^2 U|| 3.505e-03 [194s]
+    mutant rates (successive halvings): j = 0: 2.86 4.06 4.10; j = 1: 1.57 3.09 3.16; j = 2: 0.63 2.04 2.15
+C7b PASS [1762s]
+    lam = 1/8: sup ||U_0|| 6.413e-02; d_i = sup ||U_(i+1) - U_i|| 3.3e-04 2.3e-06 1.2e-08 4.9e-11 (floor about 2e-15); d_1/d_0 6.80e-03, d_2/d_1 5.13e-03
+    lam = 1/16: sup ||U_0|| 4.932e-03; d_i = sup ||U_(i+1) - U_i|| 1.9e-06 1.1e-09 5.0e-13 5.5e-16 (floor about 1e-16); d_1/d_0 5.80e-04, d_2/d_1 4.53e-04
+    lam = 1/32: sup ||U_0|| 3.178e-04; d_i = sup ||U_(i+1) - U_i|| 7.8e-09 2.8e-13 3.7e-17 9.1e-18 (floor about 1e-17); d_1/d_0 3.54e-05, d_2/d_1 1.35e-04
+  C7c: (i) contraction ratio d_1/d_0 6.8e-03 5.8e-04 3.5e-05, rates 3.55 4.03 (the proof's bound N - 3 = 3: True), every step below 0.1: True; (ii) first correction relative to U_0 5.2e-03 3.8e-04 2.5e-05, rates 3.76 3.97 (N - 2 = 4: True); sup ||U_0|| rates 3.70 3.96
+    control lam = 1/8: sup ||U_0|| 6.413e-02; d_i = sup ||U_(i+1) - U_i|| 4.4e-04 1.2e-05 2.6e-07 4.3e-09 (floor about 2e-15); d_1/d_0 2.62e-02, d_2/d_1 2.28e-02
+    control lam = 1/16: sup ||U_0|| 4.932e-03; d_i = sup ||U_(i+1) - U_i|| 4.3e-06 2.3e-08 9.9e-11 3.1e-13 (floor about 1e-16); d_1/d_0 5.33e-03, d_2/d_1 4.29e-03
+    control lam = 1/32: sup ||U_0|| 3.178e-04; d_i = sup ||U_(i+1) - U_i|| 3.1e-08 2.4e-11 1.4e-14 3.0e-17 (floor about 1e-17); d_1/d_0 7.57e-04, d_2/d_1 5.66e-04
+  C7c (control): (i) contraction ratio d_1/d_0 2.6e-02 5.3e-03 7.6e-04, rates 2.30 2.81 (the proof's bound N - 3 = 3: True), every step below 0.1: True; (ii) first correction relative to U_0 6.8e-03 8.8e-04 9.9e-05, rates 2.96 3.15 (N - 2 = 4: False); sup ||U_0|| rates 3.70 3.96
+C7c PASS [3106s]

@@ -1,0 +1,12 @@
+# python3 checks/rich5.py --runs <scratch>/runs   (round 5; computed; the runs' md5s are checked by the program)
+R1 (computed) F_400: fit error <= 2.6e-11; worst residual/sqrt(K_0) at the 400-row cell midpoints 9.637e-03 (ll); ll
+    9.64e-03, ln 5.92e-04, nn 2.93e-04, lx 1.66e-03, nx 8.67e-05, xx 7.79e-04, 11 2.41e-04, 22 8.27e-04 (142 s)
+R1 (computed) F_800: fit error <= 6.7e-11; worst residual/sqrt(K_0) at the 800-row cell midpoints 2.456e-03 (ll); ll
+    2.46e-03, ln 1.53e-04, nn 7.46e-05, lx 4.25e-04, nx 2.47e-05, xx 2.02e-04, 11 6.24e-05, 22 2.14e-04 (422 s)
+R1 (computed) F_R: fit error <= 8.4e-11; worst residual/sqrt(K_0) at the 400-row cell midpoints 2.645e-05 (ll); ll
+    2.65e-05, ln 8.40e-07, nn 2.98e-06, lx 3.47e-06, nx 3.58e-06, xx 1.58e-06, 11 2.06e-06, 22 1.43e-06 (562 s)
+R1 (computed) F_2 (control): fit error <= 1.3e-10; worst residual/sqrt(K_0) at the 400-row cell midpoints 4.780e-03 (ll);
+    ll 4.78e-03, ln 2.96e-04, nn 1.46e-04, lx 8.33e-04, nx 4.47e-05, xx 3.90e-04, 11 1.24e-04, 22 4.15e-04 (712 s)
+R1 (computed) F_R at 30 x 36: fit error <= 4.7e-09; worst residual/sqrt(K_0) at the 400-row cell midpoints 2.105e-03
+    (ll); ll 2.10e-03, ln 1.10e-04, nn 3.73e-05, lx 1.02e-04, nx 1.14e-05, xx 7.86e-05, 11 7.81e-05, 22 8.16e-05 (900 s)
+R1 F_R improves on F_800 by 92.9-fold; the control F_2 does not improve (good) (4.78e-03 against 2.46e-03) -> PASS

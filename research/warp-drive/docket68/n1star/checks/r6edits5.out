@@ -1,0 +1,70 @@
+E1s R6-D is seated (D630): each new block occurs once in the live file and no old block; R6-D is undone in memory with
+        its two marks, and E1-E3 run on that copy
+E1  R6-D's replacement text for Lemma 11.0, applied to a copy of the live N1STAR-PROOF.md
+  E1a each old block occurs exactly once in the live file: pass 1, 1
+  E1b the edited file keeps every line within 121 characters: pass []
+  E1c the edit changes nothing outside Lemma 11.0: pass 31 lines added
+  E1d the edited Lemma 11.0 satisfies (a)-(f) of r5edits5 and (g) gamma' <= gamma at both sums, (h) the family index
+        delta, (i) f_gamma^n, b^n, c^n, R_gamma^n defined, (j) ||R_gamma^n|| uniform in n with its reason, and [R7] (k)
+        R_gamma of order <= j + 1 only, (l) Lemma 9.3(b)'s hypothesis, (m) Gronwall summed over the family, (n) b . d U
+        not known, (o) b^n, c^n with the same constants, [R8] (p) c U one order lower, (q) Lemma 11.1 applies to u_1^n,
+        and on Edit 2 (r) the forcing is f_gamma^n, whose definition contains b . d U, (s) Gronwall on sums over the
+        family, (t) one family index throughout (text: the induction's structure is a read proof): pass {'a': True, 'b':
+        True, 'c': True, 'd': True, 'e': True, 'f': True, 'g': True, 'h': True, 'i': True, 'j': True, 'k': True, 'l':
+        True, 'm': True, 'n': True, 'o': True, 'p': True, 'q': True, 'r': True, 's': True, 't': True}
+  E1e control (the same predicates on the live, unedited Lemma 11.0): every one fails: pass {'a': False, 'b': False, 'c':
+        False, 'd': False, 'e': False, 'f': False, 'g': False, 'h': False, 'i': False, 'j': False, 'k': False, 'l':
+        False, 'm': False, 'n': False, 'o': False, 'p': False, 'q': False, 'r': False, 's': False, 't': False}
+  E1s re-applying R6-D to the undone copy gives the live file but for its two D630 marks (2 found): pass
+E2  the mathematics the edited Lemma 11.0 states, read from its text
+  E2a Leibniz's rule with the sign, 1/2 and C(gamma, gamma') read from both sums (orders 1..3, exact): pass read [(1,
+        '1/2', "gamma' <= gamma, |gamma'| = 1", True), (1, '1/2', "gamma' <= gamma, |gamma'| >= 2", True)]; C(gamma,
+        gamma') := gamma!/(gamma'! (gamma - gamma')!)
+  E2b the bounds read for b . d U and c U have the lam- and t-powers of b and c as the text defines them (c's on the
+        model, exact): pass b: lam^0 t^(-3/2) against E_(3/2), lam-order 0; c: lam^-1 t^(-3/2) against the model's lam^-1
+        r^(-3/2)
+  E2c the Gronwall kernel and ||f_gamma||'s bound read are the sum of the two bounds read: pass kernel C(1 + lam^-1)
+        t^(-3/2); f's C(1 + lam^-1) t^(-3/2)
+  E2d the factor read equals exp of the kernel's integral over t >= lam^-2 (computed), lam-free: pass read e^(2C(1 +
+        lam)), Edit 2 e^(2C(1 + lam)); computed exp(2*C*(lam + 1))
+  E2e Gronwall's lemma in integral form: the solution of y' = kappa y is y0 exp(int kappa) (exact) and 20 sampled
+        subsolutions stay below it: pass
+  E2f Edit 2's closing bound read: int t'^(-3/2) = 2(t^(-1/2) - t_n^(-1/2)) <= 2 t^(-1/2) (exact): pass int =
+        -2/sqrt(t_n) + 2/sqrt(t) (t_n >= t), read <= 2 t^(-1/2)
+  E2g the L^2 powers on Sigma_tau cap P+ computed from the classes read match the bounds read: pass E_3 -> t^(-3/2), E_2
+        -> t^(-1/2), products <= t^(-2) (read: t^(-2)); read ||R_gamma|| t^(-3/2); volume t^3 (read: t^3)
+  E2h the bookkeeping inequality read holds for N = 1..2000: pass floor((N + 2)/2) <= max(4, N - 3) for every N >= 1
+  E2i [R8, n3] the rotation case: for pure-rotation gamma the |gamma'| = |gamma| product is t^(-3/2), not <= t^(-2), and
+        ||R_gamma|| <= C t^(-3/2) stands (or the family, kernel t^-2); c U as a source needs Cartesian gamma (exact):
+        pass Omega: E_5/2 -> r^(-5/2), d: -> r^(-7/2); Lagrange True; product t^(-3/2) (rotation), t^(-5/2) (Cartesian),
+        source t^(-3/2); kernel t^-2 -> C*lam**2; c U as a source: lam**2 (Cartesian), oo (rotation)
+E3  controls: the text under test mutated, each mutation must fail E1 or E2
+  E3 E-m5: c U's bound lam^-1 -> lam^-3: caught: pass failing: ['E2b', 'E2c']
+  E3 E-m6: the factor -> e^(2C/lam): caught: pass failing: ['E2d']
+  E3 the 1/2 of the |gamma'| = 1 sum dropped: caught: pass failing: ['E2a', 'b', 'g', 'r']
+  E3 C(gamma, gamma') dropped at the |gamma'| >= 2 sum: caught: pass failing: ['E2a', 'b']
+  E3 R_gamma's source E_3 -> E_(5/2): caught: pass failing: ['E2g']
+  E3 max(4, N - 3) -> max(4, N - 4) (in the unchanged text, as read): caught: pass failing: ['E2h']
+  E3 M10: Edit 2's factor e^(2C(1 + lam)) -> e^(2C/lam): caught: pass failing: ['E2d']
+  E3 M14: Edit 2's f = f_gamma^n -> R_gamma^n (b . d U taken as known): caught: pass failing: ['r']
+  E3 M19: Edit 2's sums removed (Gronwall per gamma): caught: pass failing: ['s', 't']
+  E3 M12: the family index |delta| = j + 1 -> j: caught: pass failing: ['t']
+E4  R10-E's paper blocks (final, outcome B: round 9 read and confirmed) against RESPONSE-HL-5D.md (not edited)
+  E4a seated: each new text occurs exactly once in the paper and no old text: pass [1, 1, 1, 0, 0, 0]
+  E4b the seated paper keeps every line within 121 characters: pass []
+  E4c the new blocks state outcome B: proved, 'It is proved', '(proved, with the conditions above)', 'is proved in
+        section 9', no 'not yet read'; Parts III, IV, VII, VIII and Theorem P proved, section 11.1 proved (D632, D633)
+        with R6-D read (D632), rounds 1-9, eps, Proposition 3.1 deduced with its exceptional set, the r^(-4) term for one
+        example, the window's list, no stale status; and [R10] what Lemma R9.1 (iii) (a) gives, all of the domain of
+        dependence but a strip along its inner boundary, not that boundary's displacement: pass []
+  E4c' controls: R9-E's outcome-B blocks fail exactly the predicate round 10 adds (the boundary's displacement); R9-E's
+        outcome-A blocks fail exactly that and outcome B's six status predicates; R8-E's blocks fail exactly the nine
+        outcome-A predicates round 9 added: pass R9-E B: ['b2: Lemma R9.1 (iii) (a), no displacement of the boundary',
+        'b2: rounds 1-10', 'fp b1: proved, from proved inputs, section 11.1 among them', 'fp b2: from Parts III, IV, VII
+        and VIII, Theorem P and section 11.1, each proved, R6-D read', 'fp b2: lambda1, delta and lambda2 under the limit
+        stated under Settling', 'fp b3: proved, from proved inputs, section 11.1 among them', 'fp no log labels']; R9-E
+        A: ['b1: proved, conditional on section 11.1, proved', 'b2: rounds 1-10', 'b3: proved, on section 11.1 proved',
+        'fp b1: proved, from proved inputs, section 11.1 among them', 'fp b2: from Parts III, IV, VII and VIII, Theorem P
+        and section 11.1, each proved, R6-D read', 'fp b2: lambda1, delta and lambda2 under the limit stated under
+        Settling', 'fp b3: proved, from proved inputs, section 11.1 among them', 'fp no log labels']; R8-E: []
+FAILED: none

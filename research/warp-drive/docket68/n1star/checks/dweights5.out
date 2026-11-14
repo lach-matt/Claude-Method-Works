@@ -1,0 +1,61 @@
+  W0: d1 in [3.333330462965e-07, 3.333330462965e-07] (width 2.7e-57); READ 3.3333305e-7: True
+      z^2 + 4z + 16 = 1000001000001/62500000000 is not a rational square: True, so d1 is irrational and chains from
+      rational generators never meet
+  W2: (G), increments d1 and 1: named generators {lambda_sharp, 2, 3}: least value above 2 or 3 is 3 + 5.0191e-08 (from
+      1.5099 + 0 + 4470304 d1); LD9 G7 printed 5.02e-8
+      with the least E^C_I's 26 points below 3 (every admissible E^C_I contains them): 3 + 5.0191e-08, from g =
+      15099/10000 + 0 + 4470304 d1
+      E^C_I's chains lower nothing: their least residues sit near d1/2 and 3 d1/4 (1/d1 = 3000002.5...); (G) does not
+      bind on these generators (5.0191e-08 > delta_50): True
+  W1: eps_ind = 1.9e-08, eps_+ = 1.89e-08, eps_K = 1.88e-08, eps = eps' = 1e-12, l_I = a_I = 13/4, l_0 = 7/2, eta_1 =
+      1.88485e-08, eta_2 = 1.8897e-08, alpha = 4 + eps_K, alpha_1 = 2 + eps_K/2, beta-step s = 0.999 eps_K
+      17 inequalities decided by computed data, all hold: True; not decidable from the record (4): (G) over the
+      generators the record does not list: pi_1 E_++, pi_1 G, 2 + pi_1 E_col (I11:66-68); eta_1, eta_2 off Re Lambda at
+      W's ends (I12:58-60): needs Lambda; the levels admissible: off the finite exclusion sets of I11:156-160 (needs
+      Lambda below 2); eps, eps' off the finite sets of I9:290-291 and I14:124-126 (roots -mu of L_b(0) hat)
+  W3: beta-levels K = 106489469 (53244734 below 3, 53244736 above); tf rounds below 3 R2 = 1401250931461121; level-3
+      rounds above 3 R3 = 1401251031977897
+      floor: d >= 3 (R2 + R3) = 8407505890317054 >= 8.407505e15; N = 21 d + 6 >= 1.765576e17 (rounded down); against
+      LOSS-D's 7.959e15 at eps_ind -> delta_50 without (G): x 1.06
+      control: exact floor-sum = level-by-level sum on a scaled instance (eps_K = 0.017): R2 1527 = 1527, R3 1639 = 1639,
+      K 119 = 119
+  W4: iota+ rounds per level below 3 <= ceil((2 - eps - lambda_sharp)/d1) = 1470302 (LD14: 1,470,302); N_* = ceil(5/d1) +
+      2 = 15000015
+      level-2 container per level above 3, |Lambda' cap W|, W = [2 + eta_1, 3 + eta_2): named generators 7470307 (LD15:
+      7,470,307); E^C_I's 23 further chains add 44555454: 52025761, 1.98 x a level's mean level-3 rounds 2.6317e+07
+      deduplicated union of the chain starts: 27 starts, 52025761 points = named 7470307 + E^C_I 44555454 (control on the
+      union); round 1 listed 24 E^C_I chains, counting [2.5099] (lambda_sharp + 1) twice: 53496063 points per level
+  N5 (control): round 1's list (E^C_I minus the named generators only) does not match the union: True
+  W5: control, E_0 empty: (J, log steps, applications) = (2, 0, 3), loss 6 (prop31loss5 Q2)
+      E_0 = {(j, 0): j >= 2}, one corner union (R0): 14 exponents below l_I carry logs, max log order 2 at [3.0]; (J, L,
+      applications) = (2, 3, 6), loss 12
+      as written, M = 4 rounds of III.C' (3.1) (R1; M = 4 at eta = 9/20, 7 the bound 4(l_I - l_flat_I) + 1): (J, L,
+      applications) = (2, 12, 15), loss 30
+      as written, M = 7 rounds of III.C' (3.1) (R1; M = 4 at eta = 9/20, 7 the bound 4(l_I - l_flat_I) + 1): (J, L,
+      applications) = (2, 21, 24), loss 48
+  W6: III.I' Proposition 2.1 at I6:216, l_I = 13/4: 5 steps, loss 10 (floor 4 steps, 8: LD16 D582)
+  W7: d_G = 11 on the iota+ window; III.G''' Lemma 2.2 l = 18, Proposition 2.4 l' = l + sup d = 30; an iota+ round 4 +
+      d_G = 15 (l_I < 3.5); Corollary 3.4's l = 1, a tf round 3 (READ, thetain5 T4)
+  W8 (conditional on H1-H4): d <= 17892090290788934 + (K + 1) c = 1.7892e+16 + 106489470 c, c the per-level loss of the
+      steps not counted (FWD, BG, FIN, INT, III.I'''''''''''s windows (<= N_* = 15000015 per call), the pairs of
+      III.I'''''''''''', Lambda_* of III.J'); terms: rounds 8.408e+15, level-2 container 8.310e+15, iota+ 1.174e+15,
+      Proposition 2.1 and the one-off application 3.088e+09
+  N1 (control): eps_+ = eps_ind rejected by: ['eps_+ < eps_ind']
+  N2 (control): the level-3 sum without its +1 per level and without the top level: 1526 != 1639
+  N3 (control): the extended union without its +1 gives no log below l_I (L = 0), with it L = 3
+  N4 (control): l_I = 3.6 gives 6 steps and d_G = 13
+W0 PASS
+W2 PASS
+W1 PASS
+W3 PASS
+W3c PASS
+W4 PASS
+N5 PASS
+W5 PASS
+W6 PASS
+W7 PASS
+W8 PASS
+N1 PASS
+N2 PASS
+N3 PASS
+N4 PASS

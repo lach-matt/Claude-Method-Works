@@ -1,0 +1,7 @@
+X1 PASS
+    X2 (a) leaf True, (b) tangent point True, (c) reparametrisation True
+X2 PASS
+    X3 formula: max |theta_formula - theta_embedding| = 7.28e-08
+    X3 control: max |theta_formula - theta_embedding| = 8.03e-01
+X3 PASS
+sectexp5: all checks pass

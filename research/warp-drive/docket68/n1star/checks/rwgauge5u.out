@@ -1,0 +1,96 @@
+  U1: (10.1) in the outgoing chart = kirecon5's ingoing (10.1) carried by dv = du + 2 dr/f: True
+  U1 control: (10.1) in the outgoing chart = kirecon5's ingoing (10.1) carried by dv = du + 1 dr/f: False
+U1 PASS
+  U2: frame orthonormal True; T^2 P coefficients (h00, h01, h11, 2F) = (r**(5/2)/(-mu + r**2), -r**(5/2)/(-mu + r**2),
+      r**(5/2)/(-mu + r**2), 0); T P in 2F: -1/sqrt(r); the identities: True
+  U2 control (weight 1): frame orthonormal True; T^2 P coefficients (h00, h01, h11, 2F) = (r**2/(-mu + r**2), -r**2/(-mu
+      + r**2), r**2/(-mu + r**2), 0); T P in 2F: -1/r; the identities: False
+U2 PASS
+  U3 (a): box_2 = -2 d_u d_r + d_r(f d_r) (outgoing), 2 d_v d_r + d_r(f d_r) (ingoing), f^-1(-d_t^2 + d_r*^2) (static):
+      True
+  U3 (a): P_rr = 2 P_ur/f - (f'/f) P_r + V P/f^2 satisfies (2.1) identically: True; potential_general equals settle5.py's
+      scalar potential at l = 2, 4, 6, 8: True
+  U3 (b) l = 2: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
+      eliminated): True
+  U3 (b) l = 4: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
+      eliminated): True
+  U3 (b) l = 6: DRic(h) = 0 modulo the master equation, 49 jet coefficients over the 15 components (mixed derivatives
+      eliminated): True
+  U3 (a) control (cross term's sign flipped): box_2 = -2 d_u d_r + d_r(f d_r) (outgoing), 2 d_v d_r + d_r(f d_r)
+      (ingoing), f^-1(-d_t^2 + d_r*^2) (static): False
+  U3 (b) control (tensor potential) l = 2: DRic(h) = 0 modulo the master equation, 8 jet coefficients over the 15
+      components (mixed derivatives eliminated): False
+  U3 (b) control (tensor potential) l = 4: DRic(h) = 0 modulo the master equation, 8 jet coefficients over the 15
+      components (mixed derivatives eliminated): False
+  U3 (b) control (tensor potential) l = 6: DRic(h) = 0 modulo the master equation, 8 jet coefficients over the 15
+      components (mixed derivatives eliminated): False
+U3 PASS
+  U4: r^(-1/2) h(e_a, e_b) and r^(1/2) 2F in the jets (P_rr eliminated by U3 (a)), monomials H^a r^b:
+      h00  P     f^-0 x H^a r^b, max a = 1, max r-power -2 (allowed 1, -2): True
+      h00  P_u   f^-1 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      h00  P_uu  f^-1 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      h00  P_r   f^-0 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      h01  P_u   f^-1 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      h01  P_uu  f^-1 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      h01  P_ur  f^-0 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      h11  P     f^-0 x H^a r^b, max a = 1, max r-power -2 (allowed 1, -2): True
+      h11  P_u   f^-1 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      h11  P_uu  f^-1 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      h11  P_r   f^-0 x H^a r^b, max a = 0, max r-power -1 (allowed 0, -1): True
+      2F   P     f^-0 x H^a r^b, max a = 1, max r-power -1 (allowed 1, -1): True
+      2F   P_u   f^-0 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+      2F   P_r   f^-0 x H^a r^b, max a = 0, max r-power 0 (allowed 0, 0): True
+  U4: the powers 0 attained (T^2 P in h00, T P in 2F): True; Theorem 2's weights from the measured powers: (a) True, (b)
+      True, (c) True
+  U4 control (unweighted h00, h01, h11, 2F, same reader and bounds): passes: False
+U4 PASS
+  U5: on C (P = 0 along C) the equation forces d_r T P = 0, d_r T^2 P = -A V/(2f): True; with A = 0, h00 = B r^(1/2)/f,
+      h01 = -h00, h11 = h00, 2F = 0: True; 2F = -A r^(-1/2): True; h00 = r^(1/2) B/f + (-(-3*m*mu*r**2 + 2*m*r**4 -
+      6*mu**2)/(sqrt(r)*(-mu + r**2)*(m*r**2 + 6*mu))) A
+  U5: c_A = -(2 m r^4 - 3 m mu r^2 - 6 mu^2)/(r^(1/2)(r^2 - mu)(m r^2 + 6 mu)): True
+  U5: dr*/dr = 1/f True; -UV = e^(2r/r_h)(r - r_h)/(r + r_h) True; d(-UV)/dr = e^2/(2 r_h) at r_h True; f/(-UV) = (r +
+      r_h)^2 e^(-2r/r_h)/r^2 True; d_u d_v = -(UV/r_h^2) d_U d_V True; d_u^2 = (U^2 d_U^2 + U d_U)/r_h^2 True; d_t^2 -
+      d_r*^2 = 4 d_u d_v True; d(-UV)/dr = 2 r^2 e^(2r/r_h)/(r_h (r + r_h)^2) > 0 on r > 0: True
+  U5: int_{r_h}^oo V/f dr at l = 2, r_h = 1: 11/2 = 5.50000000000, finite: True
+  U5 control (V/f + 1/r): int_{r_h}^oo V/f dr at l = 2, r_h = 1: oo = oo, finite: False
+U5 PASS
+  U6: d_r T^j P on C for j = 2, 3, 4 starts at rho^[2, 2, 2] (rho = 1/r), coefficients [-A*(4*m + 15)/8, -B*(4*m + 15)/8,
+      -C3*(4*m + 15)/8] (= -(m + 15/4)/2 times A, B, C3; the recursion re-checked by r-differentiation); r^p energies (p
+      <= 2) finite: True
+  U6 control (V/f + 1/r): d_r T^j P on C for j = 2, 3, 4 starts at rho^[1] (rho = 1/r), coefficients - (= -(m + 15/4)/2
+      times A, B, C3; the recursion re-checked by r-differentiation); r^p energies (p <= 2) finite: False
+U6 PASS
+  U7 (ii)-(iii): T(L, T) = (1/2)(L psi)^2 + (1/2) f r^-2 |D psi|^2 on the cone: True; int |D Y|^2 = (k^2 - 6) int |Y|^2
+      at l = 2, 4: True; C_1 = 9/(2 f_1) + 8 from k^2 <= 4 (k^2 - 6) (k^2 >= 8): True
+  U7: d_s(w^2/s) and the lemma on w = 1, s^(1/4), s^(1/3), 1 + 1/s at R = 1, 2, 10, 1000: True; L = f d_r|_u: True; k^2
+      >= 8 (l = 2..198): True; H <= (11/8)k^2 at x <= 1: True; k^4 - (1 + m)^2 = 4k^2 - 4: True; Hoelder s^p = s^(2-p)
+      (s^2)^(p-1): True; int_R^oo s^-p = R^(1-p)/(p-1): True; the interpolation E^p <= (E^1)^(2-p) (E^2)^(p-1) on three
+      test functions at p = 6/5, 3/2, 9/5: True; -(2 - p)/2 = delta - 1/2 at p = 1 + 2 delta: True
+  U7 control (the lemma without int w^2/s^2; Hoelder without the E^2 factor): hold on the tests: False, False
+U7 PASS
+  U8: the old text occurs 0 time(s) in the paper, the new text 0, its text after the first sentence 1; new keeps the old
+      opening: True; widest line 121 (<= 121: True); all: True
+  U8 control (r <= R): the old text occurs 0 time(s) in the paper, the new text 0, its text after the first sentence 0;
+      new keeps the old opening: True; widest line 121 (<= 121: True); all: False
+U8 PASS
+  U9: dim of degree-l harmonics on S^3 = (l + 1)^2 (l <= 20) True; vol = 2*pi**2; 1 + l(l + 2) = (l + 1)^2 True; sum (l +
+      1)^-2 = pi**2/6, so sup|w|^2 <= 1/12 ||(1 - Lap) w||^2; the kernel ((l + 1)/(2 pi^2)) U_l: norm^2 = value = (l +
+      1)^2/vol, eigenvalue -l(l + 2), l <= 6: True; sum over the six rotations of Om^2 = Lap on four test functions:
+      True; ||Lap w||^2 = sum ||Om_i Om_j w||^2 (test function): True; rotation generators of norm 1: True; L_Om P = 0:
+      True; (a + b + c + d)^2 <= 4 (a^2 + ... + d^2): True; Lemma A's constants derived (1/12, 1/6; 1/6 (2305, 192, 4))
+      and equal to RWGAUGE5.md's: True
+  U9 control (the Casimir over ordered pairs; the series with (1 - Lap)^(3/4)): False, finite False
+U9 PASS
+  U10: hcheck^t_t + hcheck^r_r = -2 Hcheck (the trace of (10.1); (164) at n = 3): True; X + Y = -6 Hcheck: True
+  U10: [HKW18] (169)'s Phi of the (10.1) perturbation, reduced by the master equation, at general l: jets [(0, 0)],
+      coefficient of P 1: Phi = P exactly: True
+  U10 control (V (1 + mu/r^2)): [HKW18] (169)'s Phi of the (10.1) perturbation, reduced by the master equation, at
+      general l: jets [(0, 0)], coefficient of P not 1: Phi = P exactly: False
+U10 PASS
+  U11: Tangherlini is Ricci-flat (static chart): True; K = d g/d mu is [HKW18] (77) at n = 3, r^-2 dt^2 + r^2/(r^2 -
+      mu)^2 dr^2: True; K(e0, e0) = K(e1, e1) = 1/(r^2 - mu), K(e0, e1) = 0 = K(e_i, e_j), t-independent: True; int
+      P_j(cos 2 th) d sigma = 0 for j = 1..4: True; so for c != 0, ||h(e_a, e_a)|| >= (2 pi^2)^(1/2) |c|/(r^2 - mu) at
+      every tau: the decay statements are for (h - c K)(e_a, e_b)
+  U11 control (the orthogonality to the constants claimed at j = 0): holds: False
+U11 PASS
+EXIT 0

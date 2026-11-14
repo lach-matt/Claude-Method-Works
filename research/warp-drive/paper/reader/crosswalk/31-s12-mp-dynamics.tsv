@@ -1,0 +1,71 @@
+label	source	source_name	note
+ch:s12	docket68/n1star/proof5/PART-VI-DYN.md:19-309; docket68/n1star/proof5/PART-VI2-HORIZON.md:14-137; docket68/n1star/proof5/PART-VI3-TRAPPING.md:16-475	VI.A, VI.B, VI.B1 (bodies)	intro from the status paragraphs' mathematical content (VI.A 3-17, VI.B 3-12, VI.B1 3-14); inner radius as a parameter from R0P section 8
+sec:s12-radii	docket68/n1star/proof5/PART-VI-DYN.md:95-99; docket68/n1star/proof5/PART-VI-DYN.md:339-354; docket68/n1star/BEYOND5-R0-PROOF.md:17-44	VI.A section 2 radii, tail (VI.A7), R0P section 0	new section: the radii written once as a definition
+def:s12-radii	docket68/n1star/BEYOND5-R0-PROOF.md:21-36; docket68/n1star/proof5/PART-VI-DYN.md:95-99; docket68/n1star/BEYOND5-R0-PROOF.md:368-372	R0P section 0 choices (r_flat, delta_0, r_2, r_e, B_flat); VI.A section 2 radii	at r_flat = R_1/2 these are VI.A's radii; parameter set B_flat and epsilon_flat from R0P; t_* with lower limit r_flat (R0P section 3 on (3.6))
+eq:s12-radii	docket68/n1star/BEYOND5-R0-PROOF.md:31-34	R0P section 0 radii	
+sec:vi-a-0	docket68/n1star/proof5/PART-VI-DYN.md:19-69	VI.A section 0	(0.1) stated on r > 0 (R0P 376); time shift phi renamed F
+eq:vi-a-0-1	docket68/n1star/proof5/PART-VI-DYN.md:25	VI.A (0.1)	domain r > 0 (R0P 376)
+eq:vi-a-0-2	docket68/n1star/proof5/PART-VI-DYN.md:36-37	VI.A (0.2)	phi renamed F
+eq:s12-static-symbol	docket68/n1star/proof5/PART-VI-DYN.md:38-39	VI.A static form G^s	private label
+lem:vi-a-0-1	docket68/n1star/proof5/PART-VI-DYN.md:41-59	VI.A Lemma 0.1	
+sec:s12-static	docket68/n1star/N1STAR-PROOF.md:3838-3912; docket68/n1star/N1STAR-PROOF.md:3979-4104	NP 10.17, 10.19	new subsection carrying the main-proof items assigned to S12
+prop:np-10-19-iv	docket68/n1star/N1STAR-PROOF.md:4015-4019	NP Proposition 10.16 (iv) (section 10.19)	hand proof replaces hienergy5.py V4; the time-orientation clause made precise (-d_r future null on r > 0, d_v future for r > r_h)
+prop:np-10-17-ii	docket68/n1star/N1STAR-PROOF.md:3856-3859	NP Proposition 10.14 (ii) (section 10.17)	hand proof replaces trap5.py T1; 'normal expansion rate' stated as the eigenvalues of the (r, xi) linearisation of H_G/(H_G t)
+eq:s12-hxi	docket68/n1star/N1STAR-PROOF.md:3857	NP 10.14 (ii) H_G xi	private label
+prop:np-10-19-ii	docket68/n1star/N1STAR-PROOF.md:4006-4010	NP Proposition 10.16 (ii) (section 10.19)	hand proof replaces hienergy5.py V2; 'left eigenvectors' stated as d(H phi) = +-nu d phi at the point
+sec:vi-a-1	docket68/n1star/proof5/PART-VI-DYN.md:71-91	VI.A section 1	
+lem:vi-a-1-1	docket68/n1star/proof5/PART-VI-DYN.md:73-91; docket68/n1star/BEYOND5-R0-PROOF.md:374-379	VI.A Lemma 1.1 at r_flat (R0P section 8)	holds for ||A|| < r_flat/4 (incl. B_flat); beta in (-1, 1] written out (III.B Lemma 3.7 (a)); the (K1) difference written with psi' - 1 = -8 m_0 |x|^-2
+sec:vi-a-2	docket68/n1star/proof5/PART-VI-DYN.md:93-127	VI.A section 2	radii moved to def:s12-radii
+prop:vi-a-2-1	docket68/n1star/proof5/PART-VI-DYN.md:101-127; docket68/n1star/BEYOND5-R0-PROOF.md:381-384	VI.A Proposition 2.1 at r_flat	
+eq:vi-a-2-1	docket68/n1star/proof5/PART-VI-DYN.md:106	VI.A (2.1)	
+sec:vi-a-3	docket68/n1star/proof5/PART-VI-DYN.md:129-173	VI.A section 3	
+eq:vi-a-3-1	docket68/n1star/proof5/PART-VI-DYN.md:133-134	VI.A (3.1)	
+prop:vi-a-3-1	docket68/n1star/proof5/PART-VI-DYN.md:136-173	VI.A Proposition 3.1	hand derivation of (3.2) replaces dyn5.py; NP 10.16 (ii), (iv) citations re-keyed
+eq:vi-a-3-2	docket68/n1star/proof5/PART-VI-DYN.md:143-144	VI.A (3.2)	
+sec:vi-a-4	docket68/n1star/proof5/PART-VI-DYN.md:175-203	VI.A section 4	
+prop:vi-a-4-1	docket68/n1star/proof5/PART-VI-DYN.md:177-203	VI.A Proposition 4.1	
+sec:vi-a-5	docket68/n1star/proof5/PART-VI-DYN.md:205-299	VI.A section 5	
+eq:s12-shift	docket68/n1star/proof5/PART-VI-DYN.md:235-236	VI.A section 5, F' = 1 + O(r^-2)	explicit F' on r >= 3R_1 from III.B (3.3), (3.6)
+prop:vi-a-5-1	docket68/n1star/proof5/PART-VI-DYN.md:214-287; docket68/n1star/BEYOND5-R0-PROOF.md:386-388	VI.A Proposition 5.1 at r_flat	absorbing sets renamed A_out, A_in, U_H; crossing of the horizon justified by g^-1(dr) = d_v at r_h
+lem:vi-a-5-2	docket68/n1star/proof5/PART-VI-DYN.md:289-299	VI.A Lemma 5.2 and the paragraph after	hand derivation replaces dyn5.py
+eq:vi-a-5-1	docket68/n1star/proof5/PART-VI-DYN.md:290	VI.A (5.1)	
+sec:vi-a-6	docket68/n1star/proof5/PART-VI-DYN.md:301-308	VI.A section 6	
+thm:vi-a-6-1	docket68/n1star/proof5/PART-VI-DYN.md:303-308	VI.A Theorem 6.1	(H6), (K1) for every b in B_flat
+rem:s12-two-beta	docket68/n1star/proof5/PART-VI-DYN.md:316-318	VI.A tail (VI.A2)	kept as a neutral remark
+sec:vi-b-1	docket68/n1star/proof5/PART-VI2-HORIZON.md:14-76	VI.B section 1	intro from the VI.B status paragraph's mathematics; r_- <= ||A|| < r_flat/4, strictly for A != 0; b-clash: "(m, A) in B" for the parameter
+eq:vi-b-1-1	docket68/n1star/proof5/PART-VI2-HORIZON.md:19	VI.B (1.1)	
+lem:s12-spheroidal	docket68/n1star/proof5/PART-VI2-HORIZON.md:24-37; docket68/n1star/proof5/PART-VI3-TRAPPING.md:28-34	VI.B Lemma 1.1 proof; VI.B1 (0.1) and varrho	new lemma: frame-free hand proof of the identities horizon5.py and trap5.py S1 check
+eq:s12-varrho	docket68/n1star/proof5/PART-VI3-TRAPPING.md:33-34	VI.B1 varrho^2	
+lem:vi-b-1-1	docket68/n1star/proof5/PART-VI2-HORIZON.md:24-40	VI.B Lemma 1.1	hand proof replaces horizon5.py; the Boyer-Lindquist sentence kept as a remark
+eq:vi-b-1-2	docket68/n1star/proof5/PART-VI2-HORIZON.md:25-26	VI.B (1.2)	
+lem:vi-b-1-2	docket68/n1star/proof5/PART-VI2-HORIZON.md:42-58; docket68/n1star/BEYOND5-R0-PROOF.md:389-391	VI.B Lemma 1.2 at r_flat	scaling lambda renamed kappa; cut-off chi_H; remark on Psi_b^* r_A drawn from the proof
+sec:vi-b-2	docket68/n1star/proof5/PART-VI2-HORIZON.md:78-136	VI.B section 2	
+lem:vi-b-2-1	docket68/n1star/proof5/PART-VI2-HORIZON.md:80-87	VI.B Lemma 2.1	
+prop:vi-b-2-2	docket68/n1star/proof5/PART-VI2-HORIZON.md:89-136; docket68/n1star/BEYOND5-R0-PROOF.md:392-397	VI.B Proposition 2.2 at r_flat	kappa renamed d_1; time bound 2(r_h - r_0 + 2 delta_0)/c'
+sec:vi-b1-0	docket68/n1star/proof5/PART-VI3-TRAPPING.md:22-96	VI.B1 section 0	notation paragraph from VI.B1 16-20
+eq:vi-b1-0-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:28	VI.B1 (0.1)	
+eq:vi-b1-0-2	docket68/n1star/proof5/PART-VI3-TRAPPING.md:40-41	VI.B1 (0.2)	
+eq:vi-b1-0-3	docket68/n1star/proof5/PART-VI3-TRAPPING.md:47-49	VI.B1 (0.3)	theta renamed vartheta
+lem:vi-b1-0-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:53-96; docket68/n1star/BEYOND5-R0-PROOF.md:398-399	VI.B1 Lemma 0.1	hand proofs of (a), (0.3) and (d) replace trap5.py S1 and S3
+sec:vi-b1-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:98-142	VI.B1 section 1	the S6 illustration (125-127) dropped; normalised set N renamed fraktur N (script N is an energy); uP corrected to u Pi
+eq:vi-b1-1-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:102-103	VI.B1 (1.1)	derivation written out (replaces trap5.py S2)
+eq:vi-b1-1-2	docket68/n1star/proof5/PART-VI3-TRAPPING.md:106	VI.B1 (1.2)	
+lem:vi-b1-1-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:114-123	VI.B1 Lemma 1.1	
+rem:s12-convexity-sample	docket68/n1star/proof5/PART-VI3-TRAPPING.md:125-127	VI.B1 illustration after Lemma 1.1	kept as a numerical observation that no proof uses; sampled at m = m0
+cor:vi-b1-1-2	docket68/n1star/proof5/PART-VI3-TRAPPING.md:129-142	VI.B1 Corollary 1.2	
+sec:vi-b1-2	docket68/n1star/proof5/PART-VI3-TRAPPING.md:144-235	VI.B1 section 2	I renamed I_Gamma, W renamed calW
+lem:vi-b1-2-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:150-164	VI.B1 Lemma 2.1	m renamed R_c and S renamed calS (the mass is m)
+eq:vi-b1-2-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:167-168	VI.B1 (2.1)	
+prop:vi-b1-2-2	docket68/n1star/proof5/PART-VI3-TRAPPING.md:170-235	VI.B1 Proposition 2.2	identity (2.2) derived by hand (replaces trap5.py S4, S5)
+eq:vi-b1-2-2	docket68/n1star/proof5/PART-VI3-TRAPPING.md:177-178	VI.B1 (2.2)	
+sec:vi-b1-3	docket68/n1star/proof5/PART-VI3-TRAPPING.md:237-364	VI.B1 section 3	
+lem:vi-b1-3-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:243-256	VI.B1 Lemma 3.1	h renamed frak h
+lem:vi-b1-3-2	docket68/n1star/proof5/PART-VI3-TRAPPING.md:262-316	VI.B1 Lemma 3.2	(3.1) derived by hand (replaces trap5.py S6); (3.2) from the round metric in the (y, psi) chart; Y renamed calY, F renamed Pi, Gamma_ij renamed frak G
+eq:vi-b1-3-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:268	VI.B1 (3.1)	
+eq:vi-b1-3-2	docket68/n1star/proof5/PART-VI3-TRAPPING.md:280	VI.B1 (3.2)	
+lem:vi-b1-3-3	docket68/n1star/proof5/PART-VI3-TRAPPING.md:318-325	VI.B1 Lemma 3.3	lambda renamed a
+prop:vi-b1-3-4	docket68/n1star/proof5/PART-VI3-TRAPPING.md:327-364	VI.B1 Proposition 3.4	Lambda_s renamed Theta_s; contraction T_t renamed C_t; scaling lambda_b renamed kappa_b; eps_K in (0, eps_Gamma), open, as lem:vi-b1-2-1 and prop:vi-b1-2-2 hold for |b - b0| < eps_Gamma
+sec:vi-b1-4	docket68/n1star/proof5/PART-VI3-TRAPPING.md:366-460	VI.B1 section 4	
+prop:vi-b1-4-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:368-460; docket68/n1star/BEYOND5-R0-PROOF.md:398-405	VI.B1 Proposition 4.1 at r_flat	N renamed U_L; critical value m renamed R_c
+sec:vi-b1-5	docket68/n1star/proof5/PART-VI3-TRAPPING.md:462-474	VI.B1 section 5	
+thm:vi-b1-5-1	docket68/n1star/proof5/PART-VI3-TRAPPING.md:464-474	VI.B1 Theorem 5.1	closing sentence on B_VI inside B_flat added

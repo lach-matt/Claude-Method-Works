@@ -1,0 +1,49 @@
+# python3 checks/cplate5.py CPDIR FREEDIR  (cpsolve5 runs; the record's runs of D432, D445)
+r_A >= 1.2:
+   v in [0.50, 1.00): E1 cp null step |dP| 4.65e-05; Ric_xx monitor 2.69e+00 -> 1.48e-01 (ratio 18.12); E2 |P_cp -
+       P_free| 5.61e-06, free null step 1.76e-06; control (amplitude 7/8) 1.42e-03
+   v in [1.00, 1.50): E1 cp null step |dP| 7.42e-04; Ric_xx monitor 3.98e+00 -> 2.00e-01 (ratio 19.97); E2 |P_cp -
+       P_free| 3.55e-05, free null step 1.34e-05; control (amplitude 7/8) 9.43e-03
+   v in [1.50, 1.65): E1 cp null step |dP| 1.24e-03; Ric_xx monitor 4.39e+00 -> 2.09e-01 (ratio 21.04); E2 |P_cp -
+       P_free| 6.82e-05, free null step 2.10e-05; control (amplitude 7/8) 1.33e-02
+   v in [1.65, 1.80): E1 cp null step |dP| 1.39e-03; Ric_xx monitor 7.09e+01 -> 6.91e-01 (ratio 102.57); E2 |P_cp -
+       P_free| 8.69e-05, free null step 3.05e-05; control (amplitude 7/8) 1.96e-02
+   v in [1.80, 1.90): E1 cp null step |dP| 1.65e-03; Ric_xx monitor 3.44e+02 -> 2.51e+00 (ratio 137.27); E2 |P_cp -
+       P_free| 8.72e-05, free null step 3.96e-05; control (amplitude 7/8) 2.37e-02
+   v in [1.90, 2.00): E1 cp null step |dP| 3.23e-03; Ric_xx monitor 1.47e+03 -> 9.13e+00 (ratio 161.04); E2 |P_cp -
+       P_free| 1.66e-04, free null step 5.29e-05; control (amplitude 7/8) 2.67e-02
+   v in [2.00, 2.25): E1 cp null step |dP| 5.42e-02; Ric_xx monitor 3.00e+04 -> 2.12e+02 (ratio 141.61); E2 |P_cp -
+       P_free| 1.16e-03, free null step 2.01e-04; control (amplitude 7/8) 3.30e-02
+1.0 <= r_A < 1.2:
+   v in [0.50, 1.00): E1 cp null step |dP| 6.22e-05; Ric_xx monitor 1.07e+00 -> 4.09e-02 (ratio 26.04); E2 |P_cp -
+       P_free| 5.88e-06, free null step 2.14e-06; control (amplitude 7/8) 1.69e-03
+   v in [1.00, 1.50): E1 cp null step |dP| 1.06e-03; Ric_xx monitor 3.84e+00 -> 1.56e-01 (ratio 24.61); E2 |P_cp -
+       P_free| 6.87e-05, free null step 1.81e-05; control (amplitude 7/8) 1.06e-02
+   v in [1.50, 1.65): E1 cp null step |dP| 1.54e-03; Ric_xx monitor 3.38e+01 -> 4.95e-01 (ratio 68.26); E2 |P_cp -
+       P_free| 1.17e-04, free null step 2.56e-05; control (amplitude 7/8) 1.62e-02
+   v in [1.65, 1.80): E1 cp null step |dP| 1.73e-03; Ric_xx monitor 6.13e+02 -> 6.36e+00 (ratio 96.39); E2 |P_cp -
+       P_free| 1.55e-04, free null step 3.81e-05; control (amplitude 7/8) 2.37e-02
+   v in [1.80, 1.90): E1 cp null step |dP| 4.89e-03; Ric_xx monitor 4.66e+03 -> 4.45e+01 (ratio 104.88); E2 |P_cp -
+       P_free| 3.68e-04, free null step 1.12e-04; control (amplitude 7/8) 2.81e-02
+   v in [1.90, 2.00): E1 cp null step |dP| 2.02e-02; Ric_xx monitor 3.41e+04 -> 3.45e+02 (ratio 98.90); E2 |P_cp -
+       P_free| 1.50e-03, free null step 3.82e-04; control (amplitude 7/8) 3.14e-02
+   v in [2.00, 2.25): E1 cp null step |dP| 1.90e-01; Ric_xx monitor 4.10e+05 -> 8.80e+02 (ratio 466.51); E2 |P_cp -
+       P_free| 1.75e-02, free null step 1.98e-03; control (amplitude 7/8) 4.53e-02
+0.9 <= r_A < 1.0:
+   v in [0.50, 1.00): E1 cp null step |dP| 6.71e-05; Ric_xx monitor 8.20e-01 -> 4.51e-02 (ratio 18.17); E2 |P_cp -
+       P_free| 5.35e-06, free null step 2.21e-06; control (amplitude 7/8) 1.79e-03
+   v in [1.00, 1.50): E1 cp null step |dP| 1.19e-03; Ric_xx monitor 4.47e+00 -> 2.60e-01 (ratio 17.18); E2 |P_cp -
+       P_free| 8.82e-05, free null step 1.94e-05; control (amplitude 7/8) 1.11e-02
+   v in [1.50, 1.65): E1 cp null step |dP| 1.64e-03; Ric_xx monitor 6.19e+01 -> 9.85e-01 (ratio 62.82); E2 |P_cp -
+       P_free| 1.41e-04, free null step 3.10e-05; control (amplitude 7/8) 1.73e-02
+   v in [1.65, 1.80): E1 cp null step |dP| 2.45e-03; Ric_xx monitor 1.29e+03 -> 1.61e+01 (ratio 80.49); E2 |P_cp -
+       P_free| 2.29e-04, free null step 7.07e-05; control (amplitude 7/8) 2.50e-02
+   v in [1.80, 1.90): E1 cp null step |dP| 8.18e-03; Ric_xx monitor 1.10e+04 -> 1.29e+02 (ratio 85.85); E2 |P_cp -
+       P_free| 7.26e-04, free null step 2.52e-04; control (amplitude 7/8) 2.93e-02
+   v in [1.90, 2.00): E1 cp null step |dP| 9.35e-02; Ric_xx monitor 9.29e+04 -> 7.97e+02 (ratio 116.58); E2 |P_cp -
+       P_free| 4.54e-03, free null step 6.37e-04; control (amplitude 7/8) 3.26e-02
+   v in [2.00, 2.25): E1 cp null step |dP| 3.64e-01; Ric_xx monitor 1.05e+06 -> 1.12e+03 (ratio 939.17); E2 |P_cp -
+       P_free| 1.51e-02, free null step 2.63e-03; control (amplitude 7/8) 3.52e-02
+claim (one solution, two formulations, v < 1.8, r_A >= 1.0): PASS
+control (amplitude 7/8 exceeds the bound somewhere): fails (good)
+cplate5: all checks pass

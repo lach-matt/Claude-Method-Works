@@ -1,0 +1,11 @@
+T1  the rounds 1-7 region against the round-7 file, word by word
+  T1 git 54c8634's file (md5 8235b0a9) and the current one, [R8]/[R9] notes removed and the two moved R7 notes compared
+        as notes: the same words in the same order: pass md5 8235b0a9; 46111 and 46111 words; 11 notes removed
+  T1' control: round 8's misplacement re-created in memory fails T1: pass
+T2  no line opens a block inside a paragraph
+  T2 every line that begins with a block marker is an intended list item: pass []
+  T2' control: the round-7 state of that note (a continuation line beginning '- g_b0^-1|_op') is flagged: pass [(2332, "-
+        g_b0^-1|_op < 7/25, with R7-A's cut; Step 6's openness at ")]
+T3  line lengths
+  T3 every line within 121 characters: pass []
+FAILED: none

@@ -1,0 +1,25 @@
+  B1: Box W* = 0 in the outgoing chart: True; L0 W* = 0: True; r^3 L1 W* -> [-1, -1]; r^4 L2 W* -> [16*s**2, 16*s**2]; r^3 L0(r W*) -> [1, 1]; r^2 g^{TT} -> -16*s**2
+  B1 control (static time T = t): r^4 (L2 W*)_T -> oo (finite: False); r^2 (L2 W*)_T -> 1
+B1 PASS
+  B2: [Box, chi(r/T)] W* on the cone T = r/q, chi = z^2, exp(z): r^4 x components -> [-6*q**3, -6*q**3, 0, q*(-2*q**2 - 2*q + 1)*exp(q), q*(-2*q**2 - 2*q + 1)*exp(q), 0] (finite), r^3 x -> 0: True
+  B2 control ((d_T)^flat, Killing, weight 0): r^3 [Box, chi] state -> [oo, oo, 0, oo, oo, 0]: O(r^-3): False
+B2 PASS
+  B3: ell(Box u) = 0 for stationary l = 0 u: True (not at r = 2 r_h: True); ell([Box, v + F(r)] W*) = 4*pi**2; ell(L1 W* + L0(-kappa W*)) = 4*pi**2
+  B3 control: ell of the stationary column L0(kappa W*) = 0; nonzero: False
+B3 PASS
+  B4: r^3 (delta + d_vr)(beta W*) = 2 beta - 2 r d_r beta at r_h, so Q[beta W*] = 4 pi^2 (beta - r_h d_r beta): True
+  B4 control: r^3 (delta + d_vr)(beta W*) = 2 beta at r_h, so Q[beta W*] = 4 pi^2 (beta): False
+B4 PASS
+  B5: (Box Y)_v = d_v phi + r^-3 (d_v q + f d_r q), (Box Y)_r = d_r phi - r^-3 d_r q: True; integrability of q is -r^3 Box_0 phi: True; stationary (Box = 0, phi, q): [('W*', True, 0, 2), ('(d_v)^flat', True, 0, 2*s**2), ('d psi', True, 0, 0)]; d psi = mu W* - (d_v)^flat, Box_0 psi = 0: True
+  B5 control (q = r^2 (dY)_vr): the reduction holds: False
+B5 PASS
+  B6: phi_4 coefficients solved: [{a0: 1/6, a1: -1}]; (name, Box_0 phi = 0, Box d phi = 0, L_{d phi} g != 0, theta-dependent, stationary, Q = 0, lim d_r phi/r at th = 0): [('phi_2', True, True, True, True, True, True, 2), ('phi_4', True, True, True, True, True, True, oo)]
+  B6 control: r^2 P_1(cos 2th) solves Box_0 phi = 0: False
+B6 PASS
+  B7: weighted norms of r^-a (r/T)^b on the cone: [5*sqrt(2)] (finite: True); the r-exponent after the T-integral is -2*a + 2*beta + 4, integrable iff a > beta + 5/2
+  B7 control (a = beta + 5/2): weighted norms of r^-a (r/T)^b on the cone: [oo] (finite: False); the r-exponent after the T-integral is -2*a + 2*beta + 4, integrable iff a > beta + 5/2
+B7 PASS
+  B8: d/d eps Upsilon^0(g + eps k, g)|_0 = -Theta(k) for a general class tensor: True
+  B8 control (dGamma without -g^-1 k Gamma): d/d eps Upsilon^0(g + eps k, g)|_0 = -Theta(k) for a general class tensor: False
+B8 PASS
+EXIT 0

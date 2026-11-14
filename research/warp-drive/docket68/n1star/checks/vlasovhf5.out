@@ -1,0 +1,41 @@
+H1 (exact, two-scale jets) the torus polarisation: Ric's lam^-1 part and the amplitudes' transport
+   seed 11: (a) lam^-1 Ric_orbit = A cos(s) du du (A = 7/3): True, mixed components 0: True; (b) True; (c) True; with a2 = -a1 (A = 0): (a)-(c) True
+   seed 12: (a) lam^-1 Ric_orbit = A cos(s) du du (A = 4/3): True, mixed components 0: True; (b) True; (c) True; with a2 = -a1 (A = 0): (a)-(c) True
+   seed 13: (a) lam^-1 Ric_orbit = A cos(s) du du (A = 7/3): True, mixed components 0: True; (b) True; (c) True; with a2 = -a1 (A = 0): (a)-(c) True
+   control (fast derivative dropped along y1) rejected by (c): True
+H1 PASS
+H2 (exact, two-scale jets) the constraints on a non-round slice, non-radial phase: the lam^-1 coefficient
+   seed 21 (p = [11/10, 43/60]): formula, general h, torus wave (rho, J_R, J_th): [True, True, True]; a generic wave (neither transverse nor traceless): [True, True, True]; torus wave, h = a dR^2: lam^-1 coefficients vanish: [True, True, True]; second polarisation, h = a dR^2: formula [True, True, True], rho's lam^-1 vanishes: False (control); flipped formula rejected: True
+   seed 22 (p = [9/5, 8/15]): formula, general h, torus wave (rho, J_R, J_th): [True, True, True]; a generic wave (neither transverse nor traceless): [True, True, True]; torus wave, h = a dR^2: lam^-1 coefficients vanish: [True, True, True]; second polarisation, h = a dR^2: formula [True, True, True], rho's lam^-1 vanishes: False (control); flipped formula rejected: True
+   seed 23 (p = [7/5, 9/10]): formula, general h, torus wave (rho, J_R, J_th): [True, True, True]; a generic wave (neither transverse nor traceless): [True, True, True]; torus wave, h = a dR^2: lam^-1 coefficients vanish: [True, True, True]; second polarisation, h = a dR^2: formula [True, True, True], rho's lam^-1 vanishes: False (control); flipped formula rejected: True
+H2 PASS
+H3 (exact) the orbit space has no shear: <Hess u, S> = (box u) tr S for S(ell, .) = 0
+   seed 31: 2+1: True (Hess u (ell, .) = 0: True); control 3+1 rejected: True; control Hess without Christoffels rejected: True
+   seed 32: 2+1: True (Hess u (ell, .) = 0: True); control 3+1 rejected: True; control Hess without Christoffels rejected: True
+   seed 33: 2+1: True (Hess u (ell, .) = 0: True); control 3+1 rejected: True; control Hess without Christoffels rejected: True
+H3 PASS
+H4 (exact) coherence of every combination after hierarchical rescaling; the resonance without it
+   N = 3, m = 4: c = 49/1325, M^2 = 8, Lam = 3463; 104 combinations, least |Q|/(a_T a_S) = 0.07312 >= 2(c - ...) = 3.792e-05: True
+   N = 4, m = 5: c = 27/81832, M^2 = 8, Lam = 545548; 640 combinations, least |Q|/(a_T a_S) = 0.0006597 >= 2(c - ...) = 1.613e-09: True
+   N = 3, m = 4: c = 136107/1631092, M^2 = 9/8, Lam = 217; 104 combinations, least |Q|/(a_T a_S) = 0.1669 >= 2(c - ...) = 0.000992: True
+   N = 4, m = 5: c = 256/582233, M^2 = 8, Lam = 409384; 640 combinations, least |Q|/(a_T a_S) = 0.0008794 >= 2(c - ...) = 3.054e-09: True
+   [R6] resonant (antipodal pair + third): N = 3, m = 4: c = 121/145, M^2 = 2, Lam = 40; 104 combinations, least |Q|/(a_T a_S) = 1.547 >= 2(c - ...) = 0.06897: True
+   control (Lam = 1): k_a + k_antipode - k_c has g(K, K) = 0 (exact resonance), so coherence fails without the rescaling: True
+H4 PASS
+H5 (numpy RK4, Newton) separation is kept by the flow: d alpha/d w = det DPhi/det(dy/dx0) > 0
+   12 (y, w) pairs: max relative |Schur - shooting| = 1.06e-09; least d alpha/d w = 0.7983 > 0; control (d alpha/d w at fixed x0) differs: True
+   least symbol/(Delta w)^2 over adjacent labels and four points: N = 8: 0.2923, N = 16: 0.2926, N = 32: 0.2927, N = 64: 0.2927; converged to 5 %: True
+H5 PASS
+H6 (mpmath; numpy) the label quadrature, and an N-uniform mean-field model
+   smooth density, T_11 error at N = 4, 8, 16, 32: 3.01e-01, 4.10e-03, 3.61e-13, 1.65e-38; faster than N^-6: True
+   control (a kink, |sin w|): 1.78e+00, 2.36e-01, 5.31e-02, 1.30e-02, about N^-2: rejected by the test: True
+   model: N = 4: |w_N - w_ref| = 9.34e-02, quadrature residual 5.53e+00, ratio 0.017; N = 8: |w_N - w_ref| = 3.24e-03, quadrature residual 1.28e+00, ratio 0.003; N = 16: |w_N - w_ref| = 2.28e-04, quadrature residual 4.83e-02, ratio 0.005
+   errors fall at least like N^-2 at each doubling: True; ratio to the residual bounded independently of N (within a factor 10, and below 10): True
+   control (weights 2 pi/(N + 1)): errors 5.28e-01, 3.07e-01, 1.63e-01, rejected: True
+   [R6] stability constant sup|w_N(q0 + d q1) - w_N(q0)|/d at N = 4, 8, 16: 0.6031, 0.6670, 0.6673 (within a factor 2: True); control (coupling growing with N): 0.6031, 0.8725, 1.6541 (rejected): True
+H6 PASS
+H7 (exact) restricted particles focus at an axis
+   (a) sqrt|g5| = sqrt|h| e^(psi1 + psi2): True; the 5D divergence of a restricted current is e^-(psi1 + psi2) times the orbit divergence of e^(psi1 + psi2) J: True
+   (b) inward restricted flow solves the planar continuity equation: True; r n(r, t) -> v t n0(v t) as r -> 0 (so T5 ~ n v^2 is unbounded once the beam reaches the axis): True; control (axial momenta) bounded: True
+H7 PASS
+exit 0

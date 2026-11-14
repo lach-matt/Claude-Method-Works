@@ -1,0 +1,94 @@
+label	source	source_name	note
+ch:s06	docket68/n1star/proof5/PART-II-D-REGULARITY.md:17-35; docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:17-30	II.D and II.D1 method paragraphs	chapter heading, introduction and Method paragraph; status paragraphs dropped
+sec:ii-d-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:37	II.D section 1	heading
+sec:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:39-68; docket68/n1star/BEYOND5-R0-PROOF.md:96-133	II.D section 1.1; R0P section 2	radii stated as parameters per R0P section 2; II.C Def 3.3 (3) stated as not assumed (proofs use only (1)-(2), cf. II.F1 L2.1 (b), docket68/n1star/proof5/PART-II-F2-TAME.md:174-183)
+sec:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:70-77	II.D section 1.2	
+lem:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:79-101	II.D Lemma 1.1	
+eq:ii-d-1-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:86	II.D (1.1)	
+sec:ii-d-1-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:107-127	II.D section 1.3	
+eq:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:120-121	II.D (1.2)	
+eq:ii-d-1-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:123	II.D (1.3)	
+thm:ii-d-1-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:129-140	II.D Theorem 1.2 = [Hin26c] Proposition 7.1 at n = 4	perturbations stated under II.C Def 3.3 (1)-(2) only
+eq:ii-d-1-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:130-132	II.D (1.4)	
+rem:ii-d-1-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:142-146	II.D Remark 1.3 = [Hin26c] Remark 7.2	
+sec:ii-d-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:148-156	II.D section 2	II.A1 constant delta_0 written delta_c; F3-S04: auxiliary operators and error cut-offs taken by (R1)-(R3) of sec:ii-a-8-3; localised form of eq:ii-d-2-1 (replaces the pairing-identity paragraph)
+lem:ii-d-2-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:158-177	II.D Lemma 2.1	F3-S04: Lemma 4.1 localisers adopted, J_eps := Op(j_eps)Phi_0; "carried by chi" dropped for w; global error term C_0|w|^2 (R2-S04 section 5, R3-S04 section 6 item 1)
+eq:ii-d-2-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:162-164	II.D (2.1)	
+lem:ii-d-2-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:179-180	II.D Lemma 2.2	source says "with the same proof"; one-sentence proof written; F3-S04: localiser hypotheses of Lemma 4.2 (phi_E in K_E(U), missing Gamma) stated
+lem:ii-d-2-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:182-205	II.D Lemma 2.3	F3-S04: B_eps, E_eps, J_eps with localisers Phi_0, Phi_E; remainders bounded by the global norm |w|_(s-1/2)
+eq:ii-d-2-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:185-187	II.D (2.2)	
+lem:ii-d-2-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:207-218	II.D Lemma 2.4	F3-S04: for all w in L^2 with error C_eta|w|_(-1/2) (lem:ii-a1-2-6 at constant order)
+eq:ii-d-2-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:210	II.D (2.3)	
+lem:ii-d-2-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:225-256	II.D Lemma 2.5 and the two remarks after it	F3-S04: smooth right localisers allowed; for all w in H^(K'), error C_eta|w|_(t-1/2); extension to H^(t-1/2); applied at localised w; F4-S06: the paragraph after the lemma also names chi_*L = chi_*L chi and the boundedness of L (R4-S04 observation)
+eq:ii-d-2-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:231-233	II.D (2.4)	
+sec:ii-d-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:258-298	II.D section 3, the pattern	F3-S04: pattern (6) supplies the localisers phi_0, phi_E (phi_E missing R, keeping property (4))
+eq:ii-d-3-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:269-271	II.D (3.1)	
+prop:ii-d-3-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:300-345	II.D Proposition 3.1 = [Hin26c] Proposition 7.4 at n = 4	tag at 332-333 dropped; constant K of II.B Lemma 4.2 not displayed; F3-S04: phi_E supported in {rho_K >= (4M)^-1}
+eq:ii-d-3-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:306-307	II.D (3.2)	
+prop:ii-d-3-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:347-381	II.D Proposition 3.2 = [Hin26c] Proposition 7.6 at n = 4	F3-S04: phi_E supported in {rho_K >= (4M)^-1}
+eq:ii-d-3-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:352	II.D (3.3)	
+eq:ii-d-3-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:354-355	II.D (3.4)	
+prop:ii-d-3-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:383-406	II.D Proposition 3.3 = [Hin26c] Proposition 7.7 at n = 4	F3-S04: phi_E supported in {q >= (4M_R)^-1} u {rho_+ >= (4M)^-1}, missing dW_out
+eq:ii-d-3-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:388	II.D (3.5)	
+lem:ii-d-3-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:408-448	II.D Lemma 3.4 = [Hin26c] (7.22) at n = 4, with the n = 3 comparison	
+eq:ii-d-3-6	docket68/n1star/proof5/PART-II-D-REGULARITY.md:412-413	II.D (3.6)	
+prop:ii-d-3-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:450-486	II.D Proposition 3.5 = [Hin26c] Proposition 7.8 at n = 4	F3-S04: phi_E supported in {rho_+ >= (4M)^-1}
+eq:ii-d-3-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:455	II.D (3.7)	
+eq:ii-d-3-8	docket68/n1star/proof5/PART-II-D-REGULARITY.md:457-458	II.D (3.8)	
+prop:ii-d-3-6	docket68/n1star/proof5/PART-II-D-REGULARITY.md:488-539	II.D Proposition 3.6 = [Hin26c] Proposition 7.9 at n = 4, and the paragraph after it	parentheticals 519-520, 528 and 539 moved to sec:s06-remarks or kept as mathematics; F3-S04: Gamma := closure of R n {t >= t_(*,-) - 3/8}; psi_- scaled by lambda <= 1/8 to fit each U; phi_E in the e-sets; (1)-(2) stated for t_(*,-) - 1/2, as (1) with t_(*,-) was incompatible with (4); (4) kept
+eq:ii-d-3-9	docket68/n1star/proof5/PART-II-D-REGULARITY.md:495	II.D (3.9)	
+rem:ii-d-3-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:541-546	II.D Remark 3.7 = [Hin26c] Remark 7.5	
+sec:ii-d-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:548-571	II.D section 4, setting and (T1)-(T3)	D-tag at 551 dropped
+lem:ii-d-4-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:573-633	II.D Lemma 4.1	projection w renamed pi_Y, field N renamed N_Y; D-tag at 579 dropped
+eq:ii-d-4-1	docket68/n1star/proof5/PART-II-D-REGULARITY.md:588	II.D (4.1)	
+prop:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:635-932	II.D Proposition 4.2 = [Hin26c] Proposition 7.10 at n = 4, Steps 0-4	tags at 887-888, 892 dropped; delta_2 range narrowed to (0, 2^(-J_0-6) delta_1] and added to the choice of delta_2^(1), as G' and E' of (★) need it (fix round R-S06 item 2); half-step count J renamed 𝔫; beta_0 of (T1) written beta_Γ; F3-S04: Step 1a/1b localisers (phi_E in {|phi^u| >= eps'/3} u {rho_K >= eps'/3}, Gamma := U(2 delta_2)); Step 1b and Step 3 use the localised form; B_3, E_3, M with Phi_0; F4-S06: proof of (star) applied to w := Phi^#u (auxiliary localiser, phi^# = 1 near U(2^(J_0+3)delta_2), WF in Ell(G')), with (L1) for [P, Phi^#] and (L2) for E'; every one-sided disjoint-support claim of Steps 1, 2, 4 replaced by two-sided prop:ii-a1-2-4 (e) with smooth flanks; R_2^flat written out (r^flat = i rho^-1 phi^u (chi_1(1-chi_1)w_u - H chi_1)) and bounded with the one order of (F1), its cost being X_eps := |Op(rho^-s' phi_eps g_0)w|, which Step 4 bounds (the source's "G''R_2^flat has every order" dropped); Step 2: A_eps := Lambda Phi_a* A~ Phi_a Lambda; Step 3 at w with G'''; Step 4 elliptic bounds for smooth e', e'' at w; statement unchanged
+eq:ii-d-4-2	docket68/n1star/proof5/PART-II-D-REGULARITY.md:641-642	II.D (4.2)	
+eq:ii-d-4-3	docket68/n1star/proof5/PART-II-D-REGULARITY.md:675-676	II.D (4.3)	
+eq:ii-d-4-4	docket68/n1star/proof5/PART-II-D-REGULARITY.md:724	II.D (4.4)	F4-S06: r^flat defined explicitly and its second form by eq:ii-d-4-1; facts (F1)-(F2) added
+eq:ii-d-4-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:727	II.D (4.5)	F4-S06: at w = Phi^# u, with Pw in place of f
+eq:ii-d-4-6	docket68/n1star/proof5/PART-II-D-REGULARITY.md:760	II.D (4.6)	F4-S06: at w
+eq:ii-d-4-7	docket68/n1star/proof5/PART-II-D-REGULARITY.md:785	II.D (4.7)	F4-S06: at w; X_eps with smooth g_0 at w
+eq:ii-d-4-8	docket68/n1star/proof5/PART-II-D-REGULARITY.md:803	II.D (4.8)	
+eq:ii-d-4-9	docket68/n1star/proof5/PART-II-D-REGULARITY.md:811-814	II.D (4.9)	
+eq:ii-d-4-10	docket68/n1star/proof5/PART-II-D-REGULARITY.md:826-828	II.D (4.10)	F4-S06: at w; remainders bounded by C_delta|w|^2_(s'-1/2)
+eq:ii-d-4-11	docket68/n1star/proof5/PART-II-D-REGULARITY.md:844-845	II.D (4.11)	cross term C_δ𝒦X_ε added (the source omits it) and carried through Step 4 by Young's inequality (fix round R-S06 item 1); F4-S06: at w
+eq:ii-d-4-12	docket68/n1star/proof5/PART-II-D-REGULARITY.md:882	II.D (4.12)	F4-S06: at w, localised form with G'''
+eq:ii-d-4-13	docket68/n1star/proof5/PART-II-D-REGULARITY.md:912	II.D (4.13)	F4-S06: at w, with smooth e', e'' and the localiser Phi_0 for M^eps
+sec:ii-d-5	docket68/n1star/proof5/PART-II-D-REGULARITY.md:934-1041	II.D section 5, proof of Theorem 1.2	
+sec:ii-d1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:18-50	II.D1 method paragraph and section 1	
+thm:ii-d1-1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:52-65	II.D1 Theorem 1.1 = [Hin26c] Proposition 7.11 at n = 4	weights of (1.2) as corrected in II.D1 (D'2), stated in sec:s06-remarks
+eq:ii-d1-1-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:54-56	II.D1 (1.1)	
+eq:ii-d1-1-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:60-61	II.D1 (1.2)	
+sec:ii-d1-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:67-103	II.D1 section 2 setting, (C), (C2), (M)	loss index lambda renamed 𝔩; tag at 90 dropped; Q_(Jj) := 0, R_J := 0 and the J-cases of (C2) set to 0 (fix round R-S06 item 9); F3-S04: Q of class Q^m_q: pointer to sec:ii-a-8-2 kept for the form, "carried" now applies to the A_l (sec:ii-a-8-3)
+lem:ii-d1-2-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:105-122	II.D1 Lemma 2.1	
+eq:ii-d1-2-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:107	II.D1 (2.1)	
+eq:ii-d1-2-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:109-110	II.D1 (2.2)	
+eq:ii-d1-2-2-prime	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:124-132	II.D1 (2.2') (commuting letters)	displayed here; the source defines (2.2') in prose; tag at 132 dropped; alpha<i,j> restricted to j < J as in the source prose; key renamed from eq:ii-d1-2-2p (fix round R-S06 items 3-4)
+lem:ii-d1-2-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:137-166	II.D1 Lemma 2.2	
+eq:ii-d1-2-3	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:141-142	II.D1 (2.3)	
+eq:ii-d1-2-4	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:143-144	II.D1 (2.4)	
+eq:ii-d1-2-5	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:178-179	II.D1 (2.5), property (E_lambda)	
+lem:ii-d1-2-3	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:184-238	II.D1 Lemma 2.3	F3-S04: G^#_1, G^#_2, G^#_3 auxiliary (R1); "slightly larger" cut-offs defined (1 near supp; L differential, so no margin)
+eq:ii-d1-2-6	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:189-190	II.D1 (2.6)	
+lem:ii-d1-2-4	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:240-273	II.D1 Lemma 2.4	
+eq:ii-d1-2-7	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:243-244	II.D1 (2.7)	
+lem:ii-d1-2-5	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:275-300	II.D1 Lemma 2.5	
+eq:ii-d1-2-8	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:279	II.D1 (2.8)	
+sec:ii-d1-3	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:302-310	II.D1 section 3	
+lem:ii-d1-3-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:312-346	II.D1 Lemma 3.1 = [Hin26c] Lemma 7.12 at n = 4	the n = 4 changes of (D'4) stated after the lemma
+prop:ii-d1-3-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:348-359	II.D1 Proposition 3.2	
+eq:ii-d1-3-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:350-351	II.D1 (3.1)	
+sec:ii-d1-4	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:361-367	II.D1 section 4	
+lem:ii-d1-4-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:369-417	II.D1 Lemma 4.1 = [Hin26c] Lemmas 7.15-7.16 at n = 4	tag at 410 dropped
+eq:ii-d1-4-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:374-375	II.D1 (4.1)	
+prop:ii-d1-4-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:419-428	II.D1 Proposition 4.2 = [Hin26c] Proposition 7.17 at n = 4	
+eq:ii-d1-4-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:422-423	II.D1 (4.2)	
+sec:ii-d1-5	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:430-434	II.D1 section 5	
+lem:ii-d1-5-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:436-452	II.D1 Lemma 5.1 = [Hin26c] Lemmas 7.19-7.20 at n = 4	
+prop:ii-d1-5-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:454-460	II.D1 Proposition 5.2	
+sec:ii-d1-6	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:462-466	II.D1 section 6	
+lem:ii-d1-6-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:468-488	II.D1 Lemma 6.1 = [Hin26c] Lemma 7.21 at n = 4	
+prop:ii-d1-6-2	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:490-499	II.D1 Proposition 6.2 = [Hin26c] Proposition 7.22 at n = 4	
+eq:ii-d1-6-1	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:492-493	II.D1 (6.1)	
+sec:ii-d1-7	docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:501-610	II.D1 section 7, proof of Theorem 1.1	tag at 605 dropped
+sec:s06-remarks	docket68/n1star/proof5/PART-II-D-REGULARITY.md:1052-1072; docket68/n1star/proof5/PART-II-D2-BREGULARITY.md:614-659	II.D (D2), (D3), (D7); II.D1 (D'1)-(D'3), (D'5)-(D'6)	condensed remarks on [Hin26c] in neutral words, without labels

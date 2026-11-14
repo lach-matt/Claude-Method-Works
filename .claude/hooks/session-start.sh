@@ -12,7 +12,9 @@ fi
 SCI="$CLAUDE_PROJECT_DIR/.claude/skills/science-tools/sci"
 "$SCI" install lean lean4skills >&2
 if [ -n "${CLAUDE_ENV_FILE:-}" ]; then
+  # The env file persists for the whole session and the hook fires on every startup, resume, clear and compact,
+  # so append a group's block only if it is not there yet (209 duplicate blocks once overflowed bash's argument limit).
   for g in lean lean4skills; do
-    cat "${SCI_ROOT:-/root/sci}/env/$g.sh" >> "$CLAUDE_ENV_FILE"
+    grep -qF "group '$g'" "$CLAUDE_ENV_FILE" 2>/dev/null || cat "${SCI_ROOT:-/root/sci}/env/$g.sh" >> "$CLAUDE_ENV_FILE"
   done
 fi

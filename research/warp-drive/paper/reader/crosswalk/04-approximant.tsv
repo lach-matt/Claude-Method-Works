@@ -1,0 +1,36 @@
+label	source	source_name	note
+part:approximant	paper/RESPONSE-HL-5D.md:468	P section 4 (part heading)	edition part heading
+ch:approximant	paper/RESPONSE-HL-5D.md:468-503; docket68/n1star/N1STAR-PROOF.md:540-627	P s.4 "The approximant"; NP s.5	chapter heading and opening paragraph
+sec:two-scale	docket68/n1star/N1STAR-PROOF.md:311-320; paper/RESPONSE-HL-5D.md:470-477	NP 3.1 Two-scale form	section heading
+eq:two-scale-derivative	docket68/n1star/N1STAR-PROOF.md:132-133; docket68/n1star/N1STAR-PROOF.md:563-564	NP 0.3 chain rule; NP 5.2 R_u	chain rule written for a general phase u
+def:two-scale	docket68/n1star/N1STAR-PROOF.md:311-313; docket68/n1star/N1STAR-PROOF.md:563-564	NP 3.1 R[G]; NP 5.2 R_u	definition made explicit as F(X, G, D G, D D G)
+lem:phase-shift-symmetry	docket68/n1star/N1STAR-PROOF.md:313-316; docket68/n1star/N1STAR-PROOF.md:622-623	NP (3.1) = P (4.1); NP 5.4 fixed-phase identity	(a) replaces support9 S6 by a hand proof (6 lines); (b) is the identity NP 5.4 uses, proof written out
+eq:phase-equivariance	docket68/n1star/N1STAR-PROOF.md:316; paper/RESPONSE-HL-5D.md:477	NP (3.1) = P (4.1)
+eq:two-scale-expansion	docket68/n1star/N1STAR-PROOF.md:318-320	NP 3.1 expansion, R^(-1) = 0	argument copied from NP
+sec:approximants	docket68/n1star/N1STAR-PROOF.md:143-160	NP 0.4 (0.4), (E1)-(E3)	section heading
+def:approximant	docket68/n1star/N1STAR-PROOF.md:147-160; paper/RESPONSE-HL-5D.md:493-497	NP Theorem E hypotheses (0.4), (E1)-(E3)	(E4) left to the uniform-existence chapter; (E3) at a general regularity k (NP 10.51 (c), lines 7246-7248)
+eq:approximant	docket68/n1star/N1STAR-PROOF.md:149	NP (0.4)
+sec:leading-coefficient	(derivation)	replaces lead5 L1-L4 and ansatz5 A2-A3	section heading
+lem:leading-coefficient	docket68/n1star/N1STAR-PROOF.md:540-554; docket68/n1star/lead5.py:12-25	NP 5.1 Stage 0 (lead5 L1-L4)	covariant formula for R^(0) of a transverse traceless wave; hand derivation, about 70 lines
+eq:leading-coefficient	(derivation)	new display
+sec:stage-zero	docket68/n1star/N1STAR-PROOF.md:540-554; paper/RESPONSE-HL-5D.md:479-483	NP 5.1 Stage 0; P s.4 Stage 0	section heading
+eq:eddington	docket68/n1star/lead5.py:6-8	Eddington-Finkelstein form of g0	transformation tau = v - r written out
+eq:transport-angular	(derivation)	Christoffel symbols of g0 in EF coordinates	replaces the transport claim of ansatz5 A3
+eq:waves (recalled, unlabelled here)	paper/RESPONSE-HL-5D.md:221-227	P (2.5') as a profile	recall of the chapter-2 display [[eq:waves]] with y_i := r^(-3/2) p_i/lam; label removed (reader nit 26c)
+lem:stage-zero	docket68/n1star/N1STAR-PROOF.md:543-554; paper/RESPONSE-HL-5D.md:479-483; paper/RESPONSE-HL-5D.md:232-241	NP 5.1 (lead5 L1-L5, ansatz5 A2-A3); P Prop 2.3	(a)-(e) = L5, L1 with the explicit vv coefficient, L2, L3, L4; all proved by hand (about 45 lines)
+eq:stage-zero	paper/RESPONSE-HL-5D.md:239	P s.2.4: R_vv quadratic part -2(P1_v^2 + P1_v P2_v + P2_v^2)
+eq:chi-transport	docket68/n1star/N1STAR-PROOF.md:548-554	NP 5.1 transport for chi	smoothness argument copied; explicit form of the right-hand side added
+sec:ansatz	docket68/n1star/N1STAR-PROOF.md:555-571	NP 5.2 The ansatz	section heading
+eq:ansatz	docket68/n1star/N1STAR-PROOF.md:560	NP (5.1)
+eq:eikonal-coefficients	docket68/n1star/N1STAR-PROOF.md:567-571	NP (5.2)	derivation of e_1 and q_2 added (two lines)
+def:first-stage-operator	docket68/n1star/N1STAR-PROOF.md:575-576; docket68/n1star/N1STAR-PROOF.md:338-346	NP Lemma 5.1's Th (T of NP 3.2 at lam = 0)	defined intrinsically as the first-stage linearisation, avoiding a forward reference to the uniform-existence chapter
+lem:first-entry	docket68/n1star/N1STAR-PROOF.md:572-590	NP Lemma 5.1	weight count written out case by case
+eq:stage-m	docket68/n1star/N1STAR-PROOF.md:575	NP (5.3)
+lem:first-stage-operator	docket68/n1star/N1STAR-PROOF.md:591-595	NP Lemma 5.2	proof written out from the principal term
+lem:linear-wave	docket68/n1star/N1STAR-PROOF.md:612-615; docket68/n1star/proof5/PART-IX-GAUGE.md:93-99	NP Lemma 5.3 proof ("Picard iteration"); [BGP] Thm 3.2.11, Lemma A.5.9 as read in proof5 Part IX	added for reader Major 1: existence for the linear wave equation on Omega from [BGP] on the Cauchy development of Sigma_tau0, with Stein extension; uniqueness from the energy lemma
+eq:linear-wave	(derivation)	new display	
+lem:stage-system	docket68/n1star/N1STAR-PROOF.md:596-615	NP Lemma 5.3	S_m, Bbar, Cbar, W_phi named explicitly; stage5 S1 (order lam^1 in eight components) not needed: the hand proof covers every m
+eq:stage-system	docket68/n1star/N1STAR-PROOF.md:600-604	NP Lemma 5.3 (a)-(c)
+sec:approximant	docket68/n1star/N1STAR-PROOF.md:616-627	NP 5.4	section heading
+thm:approximant	paper/RESPONSE-HL-5D.md:499-503; docket68/n1star/N1STAR-PROOF.md:168-173; docket68/n1star/N1STAR-PROOF.md:616-627	NP Theorem A (0.5) = P Theorem A; proof NP 5.4	every k from NP 10.51 (c); one sentence added: the Taylor remainder O(lam^(N+1)) changes Ric^H by O(lam^(N-1)) in the scaled norm
+rem:stage-data	docket68/n1star/N1STAR-PROOF.md:172-173	NP 0.5 last sentence (Lemma 6.2)	points to the data chapter

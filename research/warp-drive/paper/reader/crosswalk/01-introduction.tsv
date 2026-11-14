@@ -1,0 +1,10 @@
+label	source	source_name	note
+part:statements	-	-	part heading
+ch:introduction	paper/RESPONSE-HL-5D.md:55-148	P section 1	P 109-121 (write-out history, censuses) reduced to one sentence without process words
+sec:burnett	paper/RESPONSE-HL-5D.md:57-67	P 1.1	quotations of [HL18] p.1 and [LR20] p.3 kept, typography restored; [Bur89] added
+sec:huneau-luk	paper/RESPONSE-HL-5D.md:68-97	P 1.2	[HL18] Theorem 4.2 quoted with page 10; [HL24] p.28 quoted
+sec:what-is-proved	paper/RESPONSE-HL-5D.md:98-132	P 1.3	results cited by edition keys; "supplement (proof5/)" replaced by the stability parts; the development of the continued data (not the data) settles; "at n = 4" written as spacetime dimension n + 1 = 5
+sec:why-five	paper/RESPONSE-HL-5D.md:134-148	P 1.4	"(section 6)" replaced by prop:boundary-spacelike
+sec:relation	paper/RESPONSE-HL-5D.md:705-751	P section 7	"READ" dropped; Theorem A and Lemma 5.1 replaced by keys/chapters
+sec:introduction-scope	paper/RESPONSE-HL-5D.md:1748-1787; paper/RESPONSE-HL-5D.md:1604-1627; paper/RESPONSE-HL-5D.md:1599-1603	P 9 Beyond the boundary, Physical wavelengths, Settling (first and closing sentences)	r_q -> 0 as l5 -> 0 written out in place of the cited check (innerr5); the scope sentence names the past domain beside D_T and Ω (Theorems 2-3 live there, P 371-441)
+sec:organisation	-	-	new; part and chapter keys of OUTLINE.md

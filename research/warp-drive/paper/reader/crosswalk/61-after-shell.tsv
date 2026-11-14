@@ -1,0 +1,50 @@
+label	source	source_name	note
+ch:after-shell	paper/RESPONSE-HL-5D.md:753-776; paper/RESPONSE-HL-5D.md:1180-1236; docket68/n1star/N1STAR-PROOF.md:7183-7258; docket68/n1star/GLUEDECAY5.md:22-576	P 8.1, 8.7; NP 10.50-10.51; GLUEDECAY5 s.0-6	GLUEDECAY5's ten notes (35, 65, 75, 85, 256, 278, 329, 514, 559, 570) applied; R2.0-R5.0 (1765-2106) checked: no further change to s.1-6
+sec:after-shell-question	paper/RESPONSE-HL-5D.md:755-776	P 8.1	
+eq:after-shell-biaxial	paper/RESPONSE-HL-5D.md:759-765	[Hol08] (22) p.14	checked at source, arXiv:0808.3246v1
+prop:after-shell-classes	paper/RESPONSE-HL-5D.md:763-766	P 8.1 squashing sentence (support8 K8)	derivation written out (Hopf form, dphi1 dphi2 coefficient)
+eq:after-shell-hopf	paper/RESPONSE-HL-5D.md:763-766	support8 K8 identity (base + fibre = round)	
+eq:after-shell-squash	paper/RESPONSE-HL-5D.md:765	2c^2s^2(e^(-4B)-e^(2B))	
+sec:after-shell-profiles	docket68/n1star/N1STAR-PROOF.md:7185-7207; paper/RESPONSE-HL-5D.md:766-770, 1182-1197	NP 10.50 (a), (b), (d); P 8.7	
+prop:after-shell-profiles	docket68/n1star/N1STAR-PROOF.md:7187-7207; docket68/n1star/N1STAR-PROOF.md:7231-7258; paper/RESPONSE-HL-5D.md:768-770	NP 10.50 (a)-(b), (d), 10.51 (d)	(a) cited to ch 60 lem:np-10-50-a (coordinator); (c) = NP 10.50 (b) with support8b M2's inequalities written out
+eq:after-shell-gapp	docket68/n1star/N1STAR-PROOF.md:7192-7194	NP 10.50 (a)	
+sec:after-shell-gluing	paper/RESPONSE-HL-5D.md:1189-1203	P 8.7 first half	flux5 F1-F4 content cited to ch 47 (prop:vii-2-2 step 6, lem:vii-2-1 (c)); NP 10.50 (c), (e), (f) not reproduced
+sec:after-shell-reach	docket68/n1star/GLUEDECAY5.md:91-129	GLUEDECAY5 s.1 Setting	
+eq:after-shell-f	docket68/n1star/GLUEDECAY5.md:96-102	GLUEDECAY5 s.1 (f, f')	
+sec:after-shell-class	docket68/n1star/GLUEDECAY5.md:126-161	GLUEDECAY5 Definition 1.1, Lemma 1.2	
+def:after-shell-norm	docket68/n1star/GLUEDECAY5.md:126-147	GLUEDECAY5 Definition 1.1	READ of [Hin26] pp. 2, 47, 48, 318 replaced by the edition's def:s11-b-analysis
+eq:after-shell-expansion	docket68/n1star/GLUEDECAY5.md:133-134	GLUEDECAY5 Definition 1.1 display	
+lem:after-shell-expansion	docket68/n1star/GLUEDECAY5.md:149-158	GLUEDECAY5 Lemma 1.2	E1 citation removed (integral written)
+def:after-shell-order	docket68/n1star/GLUEDECAY5.md:160-169	GLUEDECAY5 Definition 1.3	epsilon renamed Xi, as P
+eq:after-shell-order	docket68/n1star/GLUEDECAY5.md:164-166	GLUEDECAY5 (1.1)	
+def:after-shell-statement	docket68/n1star/GLUEDECAY5.md:171-181; docket68/n1star/GLUEDECAY5.md:73	GLUEDECAY5 Definition 1.4	R2.0 note (infimum) applied
+sec:after-shell-above	docket68/n1star/GLUEDECAY5.md:183-231	GLUEDECAY5 s.2	
+prop:after-shell-above	docket68/n1star/GLUEDECAY5.md:185-208	GLUEDECAY5 Proposition 1	E1 integral written
+eq:after-shell-above	docket68/n1star/GLUEDECAY5.md:188-189	GLUEDECAY5 (2.1)	
+cor:after-shell-every-rate	docket68/n1star/GLUEDECAY5.md:210-218; docket68/n1star/GLUEDECAY5.md:65-72	GLUEDECAY5 Corollary 1.1 with R2.0 Minor 2	
+sec:after-shell-membership	docket68/n1star/GLUEDECAY5.md:220-251	GLUEDECAY5 s.3	
+prop:after-shell-membership	docket68/n1star/GLUEDECAY5.md:222-243	GLUEDECAY5 Proposition 2	
+cor:after-shell-membership	docket68/n1star/GLUEDECAY5.md:245-249	GLUEDECAY5 Corollary 2.1	
+sec:after-shell-obstruction	docket68/n1star/GLUEDECAY5.md:253-345	GLUEDECAY5 s.4	
+lem:after-shell-distance	docket68/n1star/GLUEDECAY5.md:255-273	GLUEDECAY5 Lemma 3.1	Wronskian argument as source; E2 citation removed; theta renamed psi, kappa written as varkappa
+rem:after-shell-distance-values	docket68/n1star/GLUEDECAY5.md:275-282	GLUEDECAY5 Lemma 3.1 values (E2)	numerical observation remark; values re-evaluated privately (7.6546e-4, 1.7369e-3)
+prop:after-shell-outside	docket68/n1star/GLUEDECAY5.md:260-334; docket68/n1star/GLUEDECAY5.md:278	GLUEDECAY5 Proposition 3 with R2.0 note (R_P >= 4r_2)	(4.2) and the trace expansion derived by hand (E3); E3 instance quadrature dropped
+eq:after-shell-lower	docket68/n1star/GLUEDECAY5.md:271-273	GLUEDECAY5 (4.1)	
+eq:after-shell-radial	docket68/n1star/GLUEDECAY5.md:291-293	GLUEDECAY5 (4.2)	derived from A dr^2 + B r^2 g_S3
+rem:after-shell-pure-gauge	docket68/n1star/GLUEDECAY5.md:336-341; docket68/n1star/GLUEDECAY5.md:1797-1801	GLUEDECAY5 Remark 3.2 with R2.0 Minor 3	
+sec:after-shell-upper	docket68/n1star/GLUEDECAY5.md:343-546	GLUEDECAY5 s.5	
+eq:after-shell-gain	docket68/n1star/GLUEDECAY5.md:390	derivative gain (mpdata5 B3)	written as d_i = rho(omega_i r d_r + sum_j omega_j Omega_ji)
+lem:after-shell-mp-data	docket68/n1star/GLUEDECAY5.md:345-420; docket68/n1star/GLUEDECAY5.md:85-89	GLUEDECAY5 Lemma 4.1 with R2.0 note on GD3	key requested by the coordinator for ch 47 rem:v-3-4 (item (d)); mpdata5 B1-B4 and E5 (a)-(d) written out
+eq:after-shell-hessian	docket68/n1star/GLUEDECAY5.md:368-371; docket68/n1star/GLUEDECAY5.md:400-402	GLUEDECAY5 Lemma 4.1 (d)	
+lem:after-shell-charges	docket68/n1star/GLUEDECAY5.md:422-442	GLUEDECAY5 Lemma 4.2	(a) stated under m(z_i) <= 1 (issue-1 of the report); E4 integral written
+eq:after-shell-bilinear	docket68/n1star/GLUEDECAY5.md:425-426	GLUEDECAY5 (5.1)	
+prop:after-shell-gluing	docket68/n1star/GLUEDECAY5.md:444-504	GLUEDECAY5 Proposition 4	E4 vertex check replaced by the exponent inequalities written out
+eq:after-shell-params	docket68/n1star/GLUEDECAY5.md:449-450	GLUEDECAY5 (5.2)	
+eq:after-shell-annulus	docket68/n1star/GLUEDECAY5.md:452-453	GLUEDECAY5 (5.3)	
+eq:after-shell-theta	docket68/n1star/GLUEDECAY5.md:468-469	GLUEDECAY5 (5.4)	theta_R renamed fraktur e_R
+rem:after-shell-box	docket68/n1star/GLUEDECAY5.md:1840-1858; docket68/n1star/GLUEDECAY5.md:1985-1990	GLUEDECAY5 R2.0 last paragraph with R3.0 nit 8, R5.0 nit 2	translation pull-back example
+cor:after-shell-glued-norm	docket68/n1star/GLUEDECAY5.md:506-542; docket68/n1star/GLUEDECAY5.md:514-517	GLUEDECAY5 Corollary 4.3 with R2.0 Minor 1	
+eq:after-shell-glued	docket68/n1star/GLUEDECAY5.md:508-510	GLUEDECAY5 (5.5)	
+rem:after-shell-bump	docket68/n1star/GLUEDECAY5.md:544-546; paper/RESPONSE-HL-5D.md:1225-1227	support8b M3; Part VII (VII6)	scaling derivation written out
+sec:after-shell-theorem	docket68/n1star/GLUEDECAY5.md:548-576	GLUEDECAY5 s.6	
+thm:after-shell-reach	docket68/n1star/GLUEDECAY5.md:550-576; docket68/n1star/GLUEDECAY5.md:559-562; docket68/n1star/GLUEDECAY5.md:570-572	GLUEDECAY5 Theorem 5 with R3.0 A and R2.0 Minor 3	

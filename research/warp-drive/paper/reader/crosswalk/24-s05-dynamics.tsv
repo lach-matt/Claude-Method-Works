@@ -1,0 +1,144 @@
+label	source	source_name	note
+ch:s05	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:14	II.B, II.C, II.C′ intros (Method paragraphs)	chapter introduction; radii as parameter per BEYOND5-R0-PROOF section 2
+sec:ii-b-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:30	II.B section 1	
+sec:ii-b-1-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:32	II.B section 1.1	
+eq:ii-b-1-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:53	II.B (1.1)	
+rem:s05-hypotheses-k	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:63	II.B Remarks (a)-(c) after (K1)-(K4)	Tangherlini mass written m
+sec:ii-b-1-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:72	II.B section 1.2	
+lem:ii-b-1-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:74	II.B Lemma 1.1	
+eq:ii-b-1-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:84	II.B (1.2)	
+sec:ii-b-1-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:116	II.B section 1.3	
+eq:ii-b-1-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:119	II.B (1.3)	
+eq:ii-b-1-4	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:124	II.B (1.4)	
+lem:ii-b-1-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:130	II.B Lemma 1.2	
+sec:ii-b-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:147	II.B section 2	
+sec:ii-b-2-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:149	II.B section 2.1	
+lem:ii-b-2-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:157	II.B Lemma 2.1	
+sec:ii-b-2-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:168	II.B section 2.2	
+def:ii-b-2-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:178	II.B Definition 2.2	
+lem:ii-b-2-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:182	II.B Lemma 2.3	
+sec:ii-b-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:230	II.B section 3	
+sec:ii-b-3-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:232	II.B section 3.1	
+eq:ii-b-3-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:238	II.B (3.1)	
+eq:ii-b-3-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:242	II.B (3.2)	
+eq:ii-b-3-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:258	II.B (3.3)	
+eq:ii-b-3-4	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:264	II.B (3.4)	
+def:ii-b-3-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:272	II.B Definition 3.1	
+sec:ii-b-3-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:288	II.B section 3.2	
+lem:ii-b-3-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:290	II.B Lemma 3.2	
+eq:ii-b-3-5	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:299	II.B (3.5)	
+eq:ii-b-3-6	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:306	II.B (3.6)	
+sec:ii-b-3-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:331	II.B section 3.3	
+lem:ii-b-3-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:333	II.B Lemma 3.3	
+sec:ii-b-4	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:401	II.B section 4	
+def:ii-b-4-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:403	II.B Definition 4.1	
+lem:ii-b-4-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:413	II.B Lemma 4.2	constant K renamed C_F; lower bound b_0 renamed c_β
+eq:ii-b-4-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:418	II.B (4.1)	
+eq:ii-b-4-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:426	II.B (4.2)	
+sec:ii-b-5	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:451	II.B section 5	
+def:ii-b-5-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:453	II.B Definition 5.1	
+lem:ii-b-5-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:458	II.B Lemma 5.2	
+sec:ii-b-6	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:482	II.B section 6	
+prop:ii-b-6-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:484	II.B Proposition 6.1	
+sec:ii-b-7	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:533	II.B section 7	
+eq:ii-b-7-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:541	II.B (7.1)	
+eq:ii-b-7-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:548	II.B (7.2)	
+eq:ii-b-7-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:559	II.B (7.3)	
+eq:ii-b-7-4	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:564	II.B (7.4)	
+def:ii-b-7-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:567	II.B Definition 7.1	
+lem:ii-b-7-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:577	II.B Lemma 7.2	
+eq:ii-b-7-5	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:579	II.B (7.5)	
+lem:ii-b-7-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:607	II.B Lemma 7.3	
+eq:ii-b-7-6	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:610	II.B (7.6)	
+sec:ii-b-8	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:628	II.B section 8	
+prop:ii-b-8-1	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:630	II.B Proposition 8.1	
+prop:ii-b-8-2	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:662	II.B Proposition 8.2	
+rem:ii-b-8-3	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:690	II.B Remark 8.3	
+sec:ii-c-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:30	II.C section 1	
+sec:ii-c-1-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:32	II.C section 1.1	
+def:ii-c-1-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:42	II.C Definition 1.1	
+eq:ii-c-1-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:46	II.C (1.1)	
+rem:s05-p0-representation	docket68/n1star/proof5/PART-II-C-OPERATORS.md:51	II.C Remarks (a)-(b) after Definition 1.1	
+lem:ii-c-1-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:58	II.C Lemma 1.2	
+sec:ii-c-1-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:85	II.C section 1.2	
+lem:ii-c-1-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:87	II.C Lemma 1.3	
+eq:ii-c-1-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:92	II.C (1.2)	
+eq:ii-c-1-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:95	II.C (1.3)	
+sec:ii-c-1-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:145	II.C section 1.3	
+lem:ii-c-1-4	docket68/n1star/proof5/PART-II-C-OPERATORS.md:147	II.C Lemma 1.4	
+eq:ii-c-1-4	docket68/n1star/proof5/PART-II-C-OPERATORS.md:152	II.C (1.4)	
+sec:ii-c-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:187	II.C section 2	
+sec:ii-c-2-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:189	II.C section 2.1	
+def:ii-c-2-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:191	II.C Definition 2.1	
+lem:ii-c-2-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:196	II.C Lemma 2.2	
+sec:ii-c-2-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:218	II.C section 2.2	
+def:ii-c-2-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:220	II.C Definition 2.3	
+sec:ii-c-2-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:226	II.C section 2.3	
+eq:ii-c-2-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:235	II.C (2.1)	
+def:ii-c-2-4	docket68/n1star/proof5/PART-II-C-OPERATORS.md:243	II.C Definition 2.4	
+lem:ii-c-2-5	docket68/n1star/proof5/PART-II-C-OPERATORS.md:267	II.C Lemma 2.5	
+lem:ii-c-2-6	docket68/n1star/proof5/PART-II-C-OPERATORS.md:286	II.C Lemma 2.6	
+sec:ii-c-2-4	docket68/n1star/proof5/PART-II-C-OPERATORS.md:328	II.C section 2.4	
+def:ii-c-2-7	docket68/n1star/proof5/PART-II-C-OPERATORS.md:337	II.C Definition 2.7	weight remark: I.C Lemma 2.2 citation replaced by the density identity
+eq:ii-c-2-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:344	II.C (2.2)	
+sec:ii-c-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:354	II.C section 3	
+def:ii-c-3-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:361	II.C Definition 3.1	norm on the first space written ‖x_I²ρ₊²h‖ in C^(2ℓ_I,ℓ₊,ℓ_K), i.e. C^(2ℓ_I−2,ℓ₊−2,ℓ_K); source and [Hin26c] Def 5.15 print +2 (F-S05 finding 2; misprint listed in sec:s05-literature)
+rem:s05-metric-class	docket68/n1star/proof5/PART-II-C-OPERATORS.md:370	II.C Remarks (a)-(b) after Definition 3.1	
+lem:ii-c-3-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:380	II.C Lemma 3.2	gluing: F := exp M(log F₁, log F₂) only on (0, 2/C] and F := F₂ on [ρ⁺, ∞), as F₁ = 1 − ρ^ℓ vanishes at ρ = 1 (source defines F on all ρ > 0); monotonicity of F₁/F₂ on (0, 2/C] stated; |h(V,V)| bound split into x_I < c_V and x_I ≥ c_V (F-S05 findings 1, 3)
+def:ii-c-3-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:466	II.C Definition 3.3	
+eq:ii-c-3-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:475	II.C (3.1)	
+eq:ii-c-3-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:478	II.C (3.2)	
+lem:ii-c-3-4	docket68/n1star/proof5/PART-II-C-OPERATORS.md:488	II.C Lemma 3.4	
+eq:ii-c-3-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:490	II.C (3.3)	
+def:ii-c-3-5	docket68/n1star/proof5/PART-II-C-OPERATORS.md:503	II.C Definition 3.5	
+def:ii-c-3-6	docket68/n1star/proof5/PART-II-C-OPERATORS.md:510	II.C Definition 3.6	
+lem:ii-c-3-7	docket68/n1star/proof5/PART-II-C-OPERATORS.md:514	II.C Lemma 3.7	
+sec:ii-c-4	docket68/n1star/proof5/PART-II-C-OPERATORS.md:522	II.C section 4	
+eq:ii-c-4-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:526	II.C (4.1)	
+eq:ii-c-4-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:529	II.C (4.2)	
+lem:ii-c-4-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:536	II.C Lemma 4.1	
+prop:ii-c-4-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:549	II.C Proposition 4.2	
+sec:ii-c-5	docket68/n1star/proof5/PART-II-C-OPERATORS.md:579	II.C section 5	
+prop:ii-c-5-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:581	II.C Proposition 5.1	dilation parameter λ renamed a
+def:ii-c-5-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:601	II.C Definition 5.2	
+sec:ii-c-5-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:607	II.C section 5.1	
+eq:ii-c-5-1	docket68/n1star/proof5/PART-II-C-OPERATORS.md:616	II.C (5.1)	
+eq:ii-c-5-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:624	II.C (5.2)	
+lem:ii-c-5-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:628	II.C Lemma 5.3	
+lem:ii-c-5-4	docket68/n1star/proof5/PART-II-C-OPERATORS.md:655	II.C Lemma 5.4	
+lem:ii-c-5-5	docket68/n1star/proof5/PART-II-C-OPERATORS.md:670	II.C Lemma 5.5	
+sec:ii-c-5-2	docket68/n1star/proof5/PART-II-C-OPERATORS.md:692	II.C section 5.2	
+eq:ii-c-5-3	docket68/n1star/proof5/PART-II-C-OPERATORS.md:706	II.C (5.3)	
+rem:s05-construction	docket68/n1star/proof5/PART-II-C-OPERATORS.md:789	II.C Remark (the construction of [Hin23c])	
+sec:ii-c1-1	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:32	II.C′ section 1	
+thm:ii-c1-1-1	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:34	II.C′ Theorem 1.1	
+eq:ii-c1-1-1	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:49	II.C′ (1.1)	
+eq:ii-c1-1-2	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:51	II.C′ (1.2)	
+rem:s05-persistence	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:61	II.C′ Remarks (a)-(b) after Theorem 1.1	
+sec:ii-c1-2	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:67	II.C′ section 2	
+sec:ii-c1-2-1	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:69	II.C′ section 2.1	Lebesgue number λ renamed d_L; K_i renamed 𝒦_i
+eq:ii-c1-2-1	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:84	II.C′ (2.1)	
+sec:ii-c1-2-2	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:93	II.C′ section 2.2	
+eq:ii-c1-2-2	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:99	II.C′ (2.2)	
+eq:ii-c1-2-3	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:140	II.C′ (2.3)	
+sec:ii-c1-2-3	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:144	II.C′ section 2.3	
+eq:ii-c1-2-4	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:150	II.C′ (2.4)	
+lem:ii-c1-2-1	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:153	II.C′ Lemma 2.1	(S1)-(S3) renamed (G1)-(G3); compact sets K_i renamed 𝒬_i, K_a, K_b renamed B_a, B_b; Lebesgue number λ renamed d_L and taken for the cover of Γ by the interiors of the 𝒬_i (F-S05 finding 4)
+eq:ii-c1-2-5	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:162	II.C′ (2.5)	
+sec:ii-c1-2-4	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:202	II.C′ section 2.4	sequence operator 𝒯 renamed ℱ
+sec:ii-c1-2-5	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:243	II.C′ section 2.5	
+sec:ii-c1-2-6	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:259	II.C′ section 2.6	
+sec:ii-c1-3	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:267	II.C′ section 3	
+sec:ii-c1-3-1	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:269	II.C′ section 3.1	
+lem:ii-c1-3-1	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:279	II.C′ Lemma 3.1	
+sec:ii-c1-3-2	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:294	II.C′ section 3.2	T_flat := 2/C′ folded (D327-D328 in place)
+eq:ii-c1-3-1	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:309	II.C′ (3.1)	
+lem:ii-c1-3-2	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:313	II.C′ Lemma 3.2	
+eq:ii-c1-3-2	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:316	II.C′ (3.2)	
+sec:ii-c1-3-3	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:332	II.C′ section 3.3	
+lem:ii-c1-3-3	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:339	II.C′ Lemma 3.3	
+eq:ii-c1-3-3	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:363	II.C′ (3.3)	
+sec:ii-c1-3-4	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:365	II.C′ section 3.4	
+prop:ii-c1-3-4	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:367	II.C′ Proposition 3.4	T_0 := T_flat; stable one in C^{d0-2} (C′2 in body)
+rem:s05-trapped-hypersurfaces	docket68/n1star/proof5/PART-II-C2-TRAPPING.md:394	II.C′ Remarks (a)-(c) after Proposition 3.4	(b): undefined symbol ∂Γ^{u/s}_{K+} read as Γ^{u/s}_{K+} of II.B Def 5.1, which within U equals ∂Γ̄^{u/s}_{K+} ∩ U by II.B Lemma 5.2 (b)
+sec:s05-literature	docket68/n1star/proof5/PART-II-B-DYNAMICS.md:695	II.B §9 (B1)-(B7), II.C §6 (C0)-(C8), II.C′ §4 (C′1)-(C′3), condensed	tails mined as one remarks section

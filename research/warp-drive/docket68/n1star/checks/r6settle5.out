@@ -1,0 +1,56 @@
+X  the exterior energy identity on a bounded region, and the continuity of the energy (m1)
+  X1 E(t2) + F_in + F_out = E(t1) - int int phi_t box phi r^3 on the bounded exterior region (exact); flux forms: inner
+        eigenvalues 1/2, 3/2, outer (c - 1)/2 = 1/(2(r^2 - 1)) > 0 and (c + 1)/2: pass E(t2) + fluxes = 477.293290930144;
+        inner [3/2, 1/2]
+  X1' control (inner boundary at speed 1/2, timelike): the identity holds with it, but its flux form has the eigenvalue
+        -1/4: pass [3/4, -1/4]
+  X2 alpha = d(r - 2 t~): g_b0^-1(alpha, alpha) <= -7/4 for |f'| <= 1/4, decreasing in mu (exact), < 0 with |delta|_op <=
+        r^-2/2 at 2000 points; alpha(d_t) = -2: a future boundary: pass max -1.7572
+  X2' control (f' in [1/2, 1]): alpha null or spacelike somewhere: pass max 4.9912
+  X3 [arithmetic: one explicit power law] the energy cut at Phi <= V_* increases with V_* (positive integrand) to the
+        full slice energy as V_* -> oo (exact, a = 11/4): pass 1024*sqrt(5)/5
+  X4 [arithmetic: q entered from the degree count] the weighted tail sum_j (2^(j+1) rho)^(2a) (2^(j-1) rho)^-q = 2^(2a+q)
+        rho^(2a-q)/(1 - 2^(2a-q)) (exact at a = 11/4), finite at a = q/2 - 1/10, infinite at q/2: for q = 9 the tail -> 0
+        uniformly in sigma, so the energy is continuous: pass [True, True, False, True]
+  X4' control (q = 8, F_4 with no source): finite exactly for a < 4, still above the window: pass [True, True, False,
+        True]
+Y  the a priori decay behind Hardy; Proposition R5.2's uniformity in sigma (m2)
+  Y1 d/dr along a ray of d_c psi = r^-1 d_c(Z psi) - r^-1 (t - v1) d_c d_t psi + f' d_c d_t psi + first derivatives of
+        psi with coefficients O(1/r): S1 for d h' uses first derivatives of Gamma h' only, no Hardy (c = t, x1, x3;
+        generic psi): pass
+  Y1' control (r^-1 d_c(Z psi) dropped): second derivatives of psi remain: pass
+  Y2 for phi -> 0 with finite derivative energy: R'^(2a+2) phi(R')^2 <= (2a+2)^-1 int_R'^oo s^(2a+3) phi'^2 (so the Hardy
+        boundary term vanishes at every R' -> oo) and Hardy on [R, oo) (24 random non-power-law fields): pass max
+        boundary/tail 0.9742, max Hardy lhs/rhs 0.9705
+  Y2' control (phi = c + r^-(a+2), c = 1/60: finite derivative energy, limit c): int r^(2a+1) phi^2 = oo, the boundary
+        term -> oo: Hardy fails without the decay: pass
+  Y3 model family (a0 = 1/4): c(sigma) = lim h'(sigma, r) is the same at sigma = 0, -3, -100 and equals lim h'|_N = 0;
+        |d_t h'| r^(3/2 + a0) bounded; |h'| <= C r^(-1/2-a0) with C independent of sigma: pass [0, 0, 0]
+  Y3' controls: h' + 1/60 has c = 1/60 != 0 and violates h'|_N -> 0; h' + t/(60(1 + t^2)) has a sigma-dependent limit and
+        |d_t h'| r^(3/2+a0) unbounded: pass [1/60, 1/60, 1/60]; [0, -1/200, -5/30003]
+M  Lemma R4.5 at every a in (0, 7/2): monotone in the weight (m3)
+  M1 [arithmetic] w_a/w_(a') = (u* - u)^(-2(a' - a)) <= 1 for a <= a' since u* - u >= 1: R4.5's fluxes are monotone in a:
+        pass
+  M1' control (u* - u = 1/2 allowed): the ratio exceeds 1: pass
+L  the '+2 for Lemma 9.3' of Proposition R5.4
+  L ||d_r^3 f||^2/||d_r f||^2 ~ lam^-4 on f = (1 + r) sin(v/lam) (lam^4 times it is 1 + O(lam): the exact integrals at
+        lam = 1e-2, 1e-3, 1e-4): Lemma 9.3(a)'s sup bound costs lam^-2 beyond ||d f||; with that cost the recursion is
+        B_J = 3J - 9 (= r5settle5 A2): pass [1.0002166, 1.0000024, 1.0000000]; B_J [Fraction(3, 1), Fraction(6, 1),
+        Fraction(9, 1), Fraction(12, 1), Fraction(15, 1), Fraction(18, 1), Fraction(21, 1), Fraction(24, 1), Fraction(27,
+        1)]
+  L' control (Sobolev to order 4, cost 3): lam^6 ||d_r^4 f||^2/||d_r f||^2 -> 1 and B_J changes: pass [Fraction(4, 1),
+        Fraction(8, 1), Fraction(12, 1), Fraction(16, 1), Fraction(20, 1), Fraction(24, 1), Fraction(28, 1), Fraction(32,
+        1), Fraction(36, 1)]
+A0  the coefficient list of r5settle5 A, from g_b0
+  A0 decay degrees along a ray (R = 1e6, 1e7, 40 digits, f1lemma5's jets of g_b0): g^-1 - eta 2, d g 3, Gamma 3, d d g 4,
+        d Gamma 4, Gamma Gamma 6; with (0.2)'s derivative counts this is r5settle5.COEFS: pass {'g^-1 - eta': 2, 'd g':
+        3, 'Gamma': 3, 'd d g': 4, 'd Gamma': 4, 'Gamma Gamma': 6}; COEFS = [(0, 2), (2, 2), (3, 1), (4, 0), (6, 0)]
+  A0' control (the flat metric): no coefficient beyond eta: pass {'g^-1 - eta': None, 'd g': None, 'Gamma': None, 'd d
+        g': None, 'd Gamma': None, 'Gamma Gamma': None}
+T  Theorem P's use of Lemmas 1.1(e) and 2.3 after D623 (m5)
+  T [arithmetic: the inverse margin's consequences, entered] g0^-1(dtau, dtau) = -1 - m and the least |eigenvalue| of
+        g0^-1 is sqrt(1 + m^2) - m (exact); for |delta|_op <= eps_P < min(s(m), mu0/a^2 - 1): (g0^-1 + delta)(dtau, dtau)
+        <= -1 + eps_P, |g| <= (s - eps_P)^-1 (Weyl) and {r = a} spacelike (2000 samples at 0.99 of the threshold): pass
+        max excess -6.68e-02, max |g| (s - eps_P) 0.9905, max g^-1(dr, dr) at r = a -0.0188
+  T' control: |delta|_op = s(m) (m = 1/3) makes g^-1 singular (exact): pass
+FAILED: none

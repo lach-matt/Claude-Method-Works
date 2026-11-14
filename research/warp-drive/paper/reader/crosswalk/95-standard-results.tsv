@@ -1,0 +1,26 @@
+label	source	source_name	note
+app:standard-results	docket68/n1star/N1STAR-PROOF.md:1044-1095	NP s.7 standard results quoted	appendix heading
+sec:std-linear-wave	docket68/n1star/proof5/PART-IX-GAUGE.md:88-110	[BGP] as read in proof5 Part IX section 0	section heading
+def:std-normally-hyperbolic	docket68/n1star/proof5/PART-IX-GAUGE.md:89-92	[BGP] Section 1.5 p. 33	verbatim from the source
+thm:std-bgp-cauchy	docket68/n1star/proof5/PART-IX-GAUGE.md:95-97	[BGP] Theorem 3.2.11 p. 85	verbatim from the source
+thm:std-bgp-development	docket68/n1star/proof5/PART-IX-GAUGE.md:103-104	[BGP] Lemma A.5.9 p. 176	verbatim from the source
+sec:std-hyperbolic	docket68/n1star/N1STAR-PROOF.md:1044-1055; docket68/n1star/N1STAR-PROOF.md:1079-1082	NP s.7 [DS23], [AO14], [AG22]	section heading
+thm:std-ds-existence	docket68/n1star/N1STAR-PROOF.md:1044-1047; paper/RESPONSE-HL-5D.md:2089	[DS23] Theorem 2.4 with (A1)-(A4)	page from the source (reader report)
+thm:std-ds-continuation	docket68/n1star/N1STAR-PROOF.md:1047-1048	[DS23] Theorem 2.6	page from the source (reader report)
+rem:std-ds-moser	docket68/n1star/N1STAR-PROOF.md:1069-1070	[DS23] Remark 2.3(i) p. 4, F_I and C_I p. 3	relabelled as a remark (the source asserts it "following a standard argument")
+thm:std-ao-existence	docket68/n1star/N1STAR-PROOF.md:1049-1055; paper/RESPONSE-HL-5D.md:589-590	[AO14] Theorem 1.1 p. 2, (1.3), Remark 1.2	F(0,0) = 0 restriction kept as the source states it
+rem:std-iteration	docket68/n1star/N1STAR-PROOF.md:1079-1082; paper/RESPONSE-HL-5D.md:628	[AO14] s.4.1; [AG22] abstract p.1, (9.6)-(9.7) p.24
+sec:std-gauge	docket68/n1star/N1STAR-PROOF.md:1056-1065; docket68/n1star/N1STAR-PROOF.md:1083-1093	NP s.7 [CBCL06], [CBCM10], [LR05], [CD03], [Rac16]	section heading
+thm:std-cbcm-reduced	docket68/n1star/N1STAR-PROOF.md:1060-1065; paper/RESPONSE-HL-5D.md:252-256	[CBCM10] (2.7)-(2.9) p. 8	page from P s.2.5; the P bibliography calls the source unpaginated HTML
+thm:std-cbcl-harmonicity	docket68/n1star/N1STAR-PROOF.md:1056-1059	[CBCL06] (3.1), s.3, s.5.1	pages from the source (reader report)
+thm:std-lr-propagation	docket68/n1star/N1STAR-PROOF.md:1083-1089; paper/RESPONSE-HL-5D.md:1937	[LR05] p.1, (1.3) p.2, s.2.2 p.8
+thm:std-cd-constraints	docket68/n1star/N1STAR-PROOF.md:1090-1092; paper/RESPONSE-HL-5D.md:614-615	[CD03] (2.1)-(2.2) p. 4
+rem:std-racz	paper/RESPONSE-HL-5D.md:609-611; paper/RESPONSE-HL-5D.md:2087	[Rac16] (3.3) p. 6	the description of the system is from P 5.5
+sec:std-function-spaces	docket68/n1star/N1STAR-PROOF.md:1066-1078	NP s.7 [BH17], [GO13], [LY22], [SY21]	section heading
+thm:std-bh-extension	docket68/n1star/N1STAR-PROOF.md:1066-1069	[BH17] Theorem 7.21	title discrepancy and page (issues 1, 2)
+thm:std-bh-embedding	docket68/n1star/N1STAR-PROOF.md:1069-1070	[BH17] Theorem 7.26	hypotheses on Omega and page from the source (reader report)
+thm:std-bh-manifold	docket68/n1star/N1STAR-PROOF.md:1070	[BH17] Theorem 9.14	paraphrased as NP does
+thm:std-kato-ponce	docket68/n1star/N1STAR-PROOF.md:1071-1072	[GO13] p. 1
+cor:std-kato-ponce	(derivation)	density extension of [GO13] at p = 2	added so that the use in chapter 7 (H^s functions, not Schwartz) rests on a stated result; 8-line proof
+thm:std-ly-extension	docket68/n1star/N1STAR-PROOF.md:1076-1081	[LY22] Theorems 1, 26, Lemma 27	pages from the source (reader report)
+thm:std-sy-extension	docket68/n1star/N1STAR-PROOF.md:1081-1086	[SY21] s.1, s.2.1	pages from the source (reader report)

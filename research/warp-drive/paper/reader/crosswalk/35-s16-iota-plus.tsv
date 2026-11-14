@@ -1,0 +1,132 @@
+label	source	source_name	note
+ch:s16	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:15-41; docket68/n1star/proof5/PART-III-G2-IOTA.md:3-13; docket68/n1star/proof5/PART-III-G3-GRAFT.md:12-26	III.G intro (What n = 4 changes, Method); III.G1 and III.G2 status sentences; III.G2 window paragraph	intro composed; status paragraphs and history dropped; window stated as a condition on the grafted order
+sec:iii-g-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:42	III.G section 1	
+sec:iii-g-1-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:44-135	III.G section 1.1	
+eq:iii-g-1-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:48-50	III.G (1.1)	
+eq:iii-g-1-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:55-56	III.G (1.2)	
+def:iii-g-1-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:67-73	III.G Definition 1.1	the relation with 2 rho^-2 Lbar derived in text
+eq:iii-g-1-3	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:68-69	III.G (1.3)	
+rem:iii-g-1-scalar	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:71-73	III.G section 1.1 computed remark (sf5 S1)	program check replaced by a two-line derivation
+lem:iii-g-1-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:77-129	III.G Lemma 1.2	(e) and (g) derived by hand (sf5 S5, S2); (f) given in explicit form
+eq:iii-g-1-4	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:83-84	III.G (1.4)	
+eq:iii-g-1-5	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:88-89	III.G (1.5)	
+eq:iii-g-1-6	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:92-94	III.G (1.6)	
+sec:iii-g-1-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:136-178	III.G section 1.2	
+def:iii-g-1-3	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:143-157	III.G Definition 1.3	
+eq:iii-g-1-7	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:146-147	III.G (1.7)	
+lem:iii-g-1-4	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:172-178	III.G Lemma 1.4	
+sec:iii-g-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:180	III.G section 2	
+sec:iii-g-2-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:182-271	III.G section 2.1	
+lem:iii-g-2-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:189-210	III.G Lemma 2.1	(b) derived by hand (sf5 S3)
+lem:iii-g-2-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:212-271	III.G Lemma 2.2	(2.3) derived by hand (sf5 S4); N renamed N_M; iotasol5 J2 remark kept as a mathematical remark
+eq:iii-g-2-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:221-222	III.G (2.1)	
+eq:iii-g-2-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:225-226	III.G (2.2)	
+eq:iii-g-2-3	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:248-251	III.G (2.3)	
+sec:iii-g-2-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:273-297	III.G section 2.2	
+lem:iii-g-2-3	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:275-297	III.G Lemma 2.3	
+eq:iii-g-2-4	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:280-281	III.G (2.4)	
+eq:iii-g-2-5	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:282-283	III.G (2.5)	
+sec:iii-g-2-3	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:299-393	III.G section 2.3	
+eq:iii-g-2-6	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:301-302	III.G (2.6)	
+eq:iii-g-2-7	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:304-307	III.G (2.7)	
+prop:iii-g-2-4	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:311-393	III.G Proposition 2.4	
+eq:iii-g-2-8	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:315-316	III.G (2.8)	
+eq:iii-g-2-9	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:317-318	III.G (2.9)	
+eq:iii-g-2-10	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:346-347	III.G (2.10)	
+sec:iii-g-2-4	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:395-473	III.G section 2.4	
+lem:iii-g-2-5	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:408-423	III.G Lemma 2.5	
+eq:iii-g-2-11	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:410-411	III.G (2.11)	
+prop:iii-g-2-6	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:425-445	III.G Proposition 2.6	generating set renamed G (the letter W is the window of III.G2)
+eq:iii-g-2-12	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:427-428	III.G (2.12)	
+prop:iii-g-2-7	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:447-473	III.G Proposition 2.7	
+sec:iii-g-3	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:475-561	III.G section 3	
+lem:iii-g-3-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:477-502	III.G Lemma 3.1	Hoelder exponent theta renamed a_1; pointer to III.G1 Lemma 2.1 kept as a cross-reference
+prop:iii-g-3-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:504-561	III.G Proposition 3.2	Step 2 transform derived by hand (sf5 S8); closing comparison with n = 3 from finding (G2)
+eq:iii-g-3-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:538-539	III.G (3.1)	
+sec:iii-g-4	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:563	III.G section 4	
+sec:iii-g-4-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:565-598	III.G section 4.1	
+eq:iii-g-4-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:572-573	III.G (4.1)	
+sec:iii-g-4-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:600-731	III.G section 4.2	
+lem:iii-g-4-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:602-673	III.G Lemma 4.1	(a), (b), (e) and the turning point in (d) derived by hand (sf5 S6, S7, S11)
+lem:iii-g-4-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:675-731	III.G Lemma 4.2	compact set K renamed C (script); history sentence on the factor g dropped
+eq:iii-g-4-2	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:687-689	III.G (4.2)	
+sec:iii-g-4-3	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:733-888	III.G section 4.3	
+lem:iii-g-4-3	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:735-764	III.G Lemma 4.3	the lambda of I.B written ell, as in the I.B chapter
+eq:iii-g-4-3	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:740-741	III.G (4.3)	
+eq:iii-g-4-4	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:742-743	III.G (4.4)	
+lem:iii-g-4-4	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:766-788	III.G Lemma 4.4	
+eq:iii-g-4-5	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:768-771	III.G (4.5)	
+lem:iii-g-4-5	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:790-804	III.G Lemma 4.5	
+prop:iii-g-4-6	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:806-888	III.G Proposition 4.6	
+eq:iii-g-4-6	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:809-810	III.G (4.6)	
+sec:iii-g-5	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:890	III.G section 5	
+thm:iii-g-5-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:892-931	III.G Theorem 5.1 = [Hin26] Proposition 9.2	meromorphy: reduction of the index-0 holomorphic Fredholm family to (K5) written out
+sec:iii-g1-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:15	III.G1 section 1	opening sentences from the III.G1 status sentence
+sec:iii-g1-1-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:17-43	III.G1 section 1.1	
+eq:iii-g1-1-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:27-29	III.G1 (1.1)	conjugation derived by hand (sf5 S9)
+eq:iii-g1-1-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:32-34	III.G1 (1.2)	
+eq:iii-g1-1-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:35-37	III.G1 (1.3)	
+sec:iii-g1-1-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:45-76	III.G1 section 1.2	
+lem:iii-g1-1-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:47-66	III.G1 Lemma 1.1	written proof kept, sbar5 S4 remark dropped; spectrum named sigma_S
+eq:iii-g1-1-4	docket68/n1star/proof5/PART-III-G2-IOTA.md:70-72	III.G1 (1.4)	
+sec:iii-g1-1-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:78-123	III.G1 section 1.3	
+def:iii-g1-1-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:83-102	III.G1 Definition 1.2	
+eq:iii-g1-1-5	docket68/n1star/proof5/PART-III-G2-IOTA.md:84-86	III.G1 (1.5)	
+eq:iii-g1-1-6	docket68/n1star/proof5/PART-III-G2-IOTA.md:100	III.G1 (1.6)	
+lem:iii-g1-1-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:104-123	III.G1 Lemma 1.3	
+sec:iii-g1-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:125-203	III.G1 section 2	
+lem:iii-g1-2-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:130-180	III.G1 Lemma 2.1	history aside dropped
+eq:iii-g1-2-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:133-135	III.G1 (2.1)	
+lem:iii-g1-2-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:184-203	III.G1 Lemma 2.2	
+sec:iii-g1-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:205-419	III.G1 section 3	
+thm:iii-g1-3-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:207-419	III.G1 Theorem 3.1 = [Hin26] Proposition 9.4	(2) at the final order ell_I; Step 5 (ii) with d_1 = 0 folded; Steps 3-4 variable mu renamed nu, Omega renamed O; [AN00, Theorem 3.1] stated at its use
+eq:iii-g1-3-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:210-212	III.G1 (3.1)	
+eq:iii-g1-3-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:216-218	III.G1 (3.2)	
+eq:iii-g1-3-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:224-227	III.G1 (3.3)	
+eq:iii-g1-3-4	docket68/n1star/proof5/PART-III-G2-IOTA.md:249	III.G1 (3.4)	
+eq:iii-g1-3-5	docket68/n1star/proof5/PART-III-G2-IOTA.md:259-261	III.G1 (3.5)	
+eq:iii-g1-3-6	docket68/n1star/proof5/PART-III-G2-IOTA.md:313-315	III.G1 (3.6)	
+eq:iii-g1-3-7	docket68/n1star/proof5/PART-III-G2-IOTA.md:332	III.G1 (3.7)	
+eq:iii-g1-3-8	docket68/n1star/proof5/PART-III-G2-IOTA.md:350-352	III.G1 (3.8)	
+sec:iii-g1-4	docket68/n1star/proof5/PART-III-G2-IOTA.md:421-471	III.G1 section 4	
+def:iii-g1-4-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:423-426	III.G1 Definition 4.1	
+lem:iii-g1-4-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:428-454	III.G1 Lemma 4.2	
+lem:iii-g1-4-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:456-467	III.G1 Lemma 4.3	(4.1) derived by hand (sf5 S10)
+eq:iii-g1-4-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:461-463	III.G1 (4.1)	
+sec:iii-g2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:27-94	III.G2 section 1	window paragraph from the intro, 14-26
+eq:iii-g2-1-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:33	III.G2 (1.1)	(C5) with its verification by VI.C Theorem 2.1
+def:iii-g2-table-1-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:44-71	III.G2 Table 1.1	table as an enumerated definition; column K renamed m_0; factor (lambda + l) named by its root -l
+lem:iii-g2-1-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:73-94	III.G2 Lemma 1.2	
+sec:iii-g2-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:96	III.G2 section 2	
+sec:iii-g2-2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:98-127	III.G2 section 2.1	
+lem:iii-g2-2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:103-113	III.G2 Lemma 2.1	tower length K renamed m_0
+eq:iii-g2-2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:104-105	III.G2 (2.1)	
+eq:iii-g2-2-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:106-108	III.G2 (2.2)	
+eq:iii-g2-2-3	docket68/n1star/proof5/PART-III-G3-GRAFT.md:116-118	III.G2 (2.3)	derived from III.F (2.3) in text
+sec:iii-g2-2-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:129-176	III.G2 section 2.2	
+lem:iii-g2-2-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:141-151	III.G2 Lemma 2.2	
+eq:iii-g2-2-4	docket68/n1star/proof5/PART-III-G3-GRAFT.md:142	III.G2 (2.4)	
+def:iii-g2-2-3	docket68/n1star/proof5/PART-III-G3-GRAFT.md:153-157	III.G2 Definition 2.3	
+eq:iii-g2-2-5	docket68/n1star/proof5/PART-III-G3-GRAFT.md:154-157	III.G2 (2.5)	
+lem:iii-g2-2-4	docket68/n1star/proof5/PART-III-G3-GRAFT.md:159-176	III.G2 Lemma 2.4	
+eq:iii-g2-2-6	docket68/n1star/proof5/PART-III-G3-GRAFT.md:165-167	III.G2 (2.6)	
+sec:iii-g2-2-3	docket68/n1star/proof5/PART-III-G3-GRAFT.md:178-198	III.G2 section 2.3	
+def:iii-g2-2-5	docket68/n1star/proof5/PART-III-G3-GRAFT.md:180-183	III.G2 Definition 2.5	
+eq:iii-g2-2-7	docket68/n1star/proof5/PART-III-G3-GRAFT.md:181-183	III.G2 (2.7)	
+lem:iii-g2-2-6	docket68/n1star/proof5/PART-III-G3-GRAFT.md:185-198	III.G2 Lemma 2.6	
+sec:iii-g2-3	docket68/n1star/proof5/PART-III-G3-GRAFT.md:200-255	III.G2 section 3	
+thm:iii-g2-3-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:202-246	III.G2 Theorem 3.1 = [Hin26] Proposition 9.9	
+eq:iii-g2-3-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:205-207	III.G2 (3.1)	
+eq:iii-g2-3-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:217	III.G2 (3.2)	
+cor:iii-g2-3-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:248-255	III.G2 Corollary 3.2	
+sec:iii-g2-4	docket68/n1star/proof5/PART-III-G3-GRAFT.md:257-387	III.G2 section 4	
+lem:iii-g2-4-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:266-278	III.G2 Lemma 4.1	
+eq:iii-g2-4-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:268	III.G2 (4.1)	
+thm:iii-g2-4-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:280-347	III.G2 Theorem 4.2 = [Hin26] Proposition 9.11	the paragraph after the proof also carries finding (G2-7) as mathematics
+eq:iii-g2-4-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:287-289	III.G2 (4.2)	
+eq:iii-g2-4-3	docket68/n1star/proof5/PART-III-G3-GRAFT.md:292-294	III.G2 (4.3)	
+eq:iii-g2-4-4	docket68/n1star/proof5/PART-III-G3-GRAFT.md:296-297	III.G2 (4.4)	
+rem:iii-g2-4-maps	docket68/n1star/proof5/PART-III-G3-GRAFT.md:349-361	III.G2 unnumbered paragraph on Phi and F ([Hin26] (9.42a)-(9.42b))	labelled for citation
+cor:iii-g2-4-3	docket68/n1star/proof5/PART-III-G3-GRAFT.md:363-386	III.G2 Corollary 4.3 = [Hin26] Corollary 9.12	parenthetical on the hypothesis of [Hin26] moved to the closing remarks
+eq:iii-g2-4-5	docket68/n1star/proof5/PART-III-G3-GRAFT.md:373-375	III.G2 (4.5)	
+sec:s16-remarks	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:932-969; docket68/n1star/proof5/PART-III-G2-IOTA.md:473-511; docket68/n1star/proof5/PART-III-G3-GRAFT.md:388-423	findings of the three parts, condensed	neutral remarks on [Hin26]; history and review sections dropped

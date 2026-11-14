@@ -1,0 +1,32 @@
+N0 frame null/orthonormal, and the Ricci coefficients: PASS {'chi': True, 'chib': True, 'omega': True, 'omegab': True,
+    'zeta': True, 'eta': True, 'etab': True}
+   chi = e^-w c_v, chib = e^-w (c_u + b c_x + b_x), omega = -e^-w w_v/2, omegab = -e^-w (w_u + b w_x)/2,
+   zeta = -e^{c-2w} b_v/4, eta = zeta + e^-c w_x, etab = -zeta + e^-c w_x.  b_x appears in chib only.
+   (3 s) Ricci ...
+N1 Raychaudhuri e4 chi + chi^2 + 2 omega chi = -Ric_44 and the e3 one: PASS ; control (k1) omega chi: fails (good)
+N2 e4 eta = -chi (eta - etab) - Ric_x4, e3 etab = -chib (etab - eta) - Ric_x3: PASS ; control (k2) eta for eta - etab:
+    fails (good)
+N3 e4 omegab = (1/2) eta*eta + (-1) eta*etab + (2) omega*omegab + (1/4) Ric_34 + (1/4) Ric_xx -> PASS (free coefficients:
+    0)
+N3 e3 omega = (-1) eta*etab + (1/2) etab*etab + (2) omega*omegab + (1/4) Ric_34 + (1/4) Ric_xx -> PASS (free
+    coefficients: 0)
+N4 [e4, ex] f = (-1) chi exf + (1/2) eta e4f + (1/2) etab e4f -> PASS
+N4 [e3, ex] f = (-1) chib exf + (1/2) eta e3f + (1/2) etab e3f -> PASS
+N4 [e3, e4] f = (2) eta exf + (-2) etab exf + (-2) omega e3f + (2) omegab e4f -> PASS
+N5 -Box f = e3 e4 f - ex ex f + (1/2) chi e3f + (1/2) chib e4f + (-2) eta exf + (-2) omegab e4f -> PASS
+N6 div e4 = chi - 2 omega, div e3 = chib - 2 omegab, div ex = eta + etab: PASS
+N7 e4 chib: ansatz without ex(etab) solvable: False (k3: must be False); with it: True, coefficient 2 -> PASS
+N7 e3 chi: ansatz without ex(eta) solvable: False (k3: must be False); with it: True, coefficient 2 -> PASS
+N9 pair 1 (a, c): Div J + 2 a Box f = (-1) chi ad + (-1) chi cc + (3) eta ac + (-1) etab ac + (-2) omega cc + (2) omegab
+    aa -> PASS
+N9 pair 2 (c, d): Div J + 2 d Box f = (-1) chib ad + (-1) chib cc + (-1) eta cd + (3) etab cd + (2) omega dd + (-2)
+    omegab cc -> PASS
+N8 (deduced) the transport equations N1-N3 used by the hierarchy have no frame derivative of a Ricci coefficient on the
+    right (by the solved forms above); b_x lives in chib only (N0).
+   (45 s) N10 ...
+N10 pair 1a  d[e3 e4 F - ex ex F] - e3(A1) + ex(C1): derivatives of the differences present: none -> PASS
+N10 pair 1b  d[e4 ex F - ex e4 F] - e4(C1) + ex(A1): derivatives of the differences present: none -> PASS
+N10 pair 2   d[e3 ex F - ex e3 F] - e3(C1) + ex(D1): derivatives of the differences present: none -> PASS
+N10 transport d[e4 chi] - e4(d chi): derivatives of the differences present: none -> PASS
+   control (k4) coordinate difference e^-c0 F1_x in place of C1: derivatives of dc present: ['c1_x'] -> fails (good)
+null3 (48 s): all checks pass

@@ -1,0 +1,71 @@
+label	source	source_name	note
+ch:s18	docket68/n1star/proof5/PART-III-H-AUGMENT.md:13; docket68/n1star/proof5/PART-III-H2-ADMISS.md:14; docket68/n1star/BEYOND5-R0-PROOF.md:242-258	III.H and III.H1 (kept ranges 13-554, 14-463)	intro from the parts' statement sentences (H 5-11, H1 5-12) and 'What n = 4 changes' (H 13-23, H1 14-25); inner radius as parameter per R0P section 4; notation: m for the mass, h for states, M for decay exponents
+sec:iii-h-1	docket68/n1star/proof5/PART-III-H-AUGMENT.md:25	III.H section 1	(C1) of III.F1 distinguished from (C1)-(C3) of III.H1 Def 1.1
+eq:iii-h-1-1	docket68/n1star/proof5/PART-III-H-AUGMENT.md:38	III.H (1.1)	
+eq:iii-h-1-2	docket68/n1star/proof5/PART-III-H-AUGMENT.md:69	III.H (1.2)	
+sec:iii-h-2	docket68/n1star/proof5/PART-III-H-AUGMENT.md:75	III.H section 2	
+def:iii-h-2-1	docket68/n1star/proof5/PART-III-H-AUGMENT.md:77	III.H Definition 2.1	
+lem:iii-h-2-2	docket68/n1star/proof5/PART-III-H-AUGMENT.md:83	III.H Lemma 2.2	'source terms' written 'forcing terms'
+eq:iii-h-2-1	docket68/n1star/proof5/PART-III-H-AUGMENT.md:90	III.H (2.1)	
+lem:iii-h-2-3	docket68/n1star/proof5/PART-III-H-AUGMENT.md:115	III.H Lemma 2.3	kappa_1 written with its variable of integration
+eq:iii-h-2-2	docket68/n1star/proof5/PART-III-H-AUGMENT.md:118	III.H (2.2)	
+lem:iii-h-2-4	docket68/n1star/proof5/PART-III-H-AUGMENT.md:143	III.H Lemma 2.4	decay exponent N renamed M (M renamed M' in the proof of (b)); regularity index m renamed p
+eq:iii-h-2-3	docket68/n1star/proof5/PART-III-H-AUGMENT.md:147-149	III.H (2.3)	
+eq:iii-h-2-4	docket68/n1star/proof5/PART-III-H-AUGMENT.md:158-160	III.H (2.4)	
+eq:iii-h-2-5	docket68/n1star/proof5/PART-III-H-AUGMENT.md:164-165	III.H (2.5)	
+lem:iii-h-2-5	docket68/n1star/proof5/PART-III-H-AUGMENT.md:219	III.H Lemma 2.5	unspecified exponent p in the proof of (b) written q
+eq:iii-h-2-6	docket68/n1star/proof5/PART-III-H-AUGMENT.md:221-223	III.H (2.6)	
+rem:iii-h-2-6	docket68/n1star/proof5/PART-III-H-AUGMENT.md:264	III.H Remark 2.6	the 1-forms named as in III.D2 Proposition 3.1
+sec:iii-h-3	docket68/n1star/proof5/PART-III-H-AUGMENT.md:281	III.H section 3	
+eq:iii-h-3-1	docket68/n1star/proof5/PART-III-H-AUGMENT.md:284-286	III.H (3.1)	
+def:iii-h-3-1	docket68/n1star/proof5/PART-III-H-AUGMENT.md:297	III.H Definition 3.1	
+eq:iii-h-3-2	docket68/n1star/proof5/PART-III-H-AUGMENT.md:299-300	III.H (3.2)	
+prop:iii-h-3-2	docket68/n1star/proof5/PART-III-H-AUGMENT.md:304	III.H Proposition 3.2	determinant written with the mass m; paragraphs after the proof from 331-338; uniform bound: the contradiction argument of III.F3 C4.2 (1) (F4-ZERO 435-441) written out, with columns depending on b
+rem:s18-rows	docket68/n1star/proof5/PART-III-H-AUGMENT.md:290-295; docket68/n1star/proof5/PART-III-H-AUGMENT.md:576-587	III.H body 290-295 with finding (H2) of the dropped tail	counterexample mined from the tail as a remark; isometry e renamed tau
+sec:iii-h-4	docket68/n1star/proof5/PART-III-H-AUGMENT.md:340; docket68/n1star/proof5/PART-III-H-AUGMENT.md:557-563	III.H section 4 with finding (H1)	section intro from (H1)
+thm:iii-h-4-1	docket68/n1star/proof5/PART-III-H-AUGMENT.md:342	III.H Theorem 4.1	number of columns m renamed J; row index renamed i'; Schur matrix M(sigma) renamed Xi(sigma); D, Z of the I.C proof of Theorem 6.4 (4) written out
+eq:iii-h-4-1	docket68/n1star/proof5/PART-III-H-AUGMENT.md:368-369	III.H (4.1)	
+eq:iii-h-4-2	docket68/n1star/proof5/PART-III-H-AUGMENT.md:376-377	III.H (4.2)	
+eq:iii-h-4-3	docket68/n1star/proof5/PART-III-H-AUGMENT.md:383	III.H (4.3)	
+eq:iii-h-4-4	docket68/n1star/proof5/PART-III-H-AUGMENT.md:386-387	III.H (4.4)	
+cor:iii-h-4-2	docket68/n1star/proof5/PART-III-H-AUGMENT.md:443	III.H Corollary 4.2	J = 11
+eq:iii-h-4-5	docket68/n1star/proof5/PART-III-H-AUGMENT.md:448-449	III.H (4.5)	
+cor:iii-h-4-3	docket68/n1star/proof5/PART-III-H-AUGMENT.md:466	III.H Corollary 4.3	pairing matrix M(sigma) renamed B-hat(sigma)
+eq:iii-h-4-6	docket68/n1star/proof5/PART-III-H-AUGMENT.md:470	III.H (4.6)	
+cor:iii-h-4-4	docket68/n1star/proof5/PART-III-H-AUGMENT.md:488	III.H Corollary 4.4	
+rem:s18-modes	docket68/n1star/proof5/PART-III-H-AUGMENT.md:495-498; docket68/n1star/proof5/PART-III-H-AUGMENT.md:589-592; docket68/n1star/proof5/PART-III-F3-MODES.md:261-265	III.H closing paragraph of section 4 with finding (H3); III.F2 section 5	states that Corollaries 4.3-4.4 close III.F2 section 5 (0 < |sigma| < c0, b != b0)
+sec:iii-h-5	docket68/n1star/proof5/PART-III-H-AUGMENT.md:500	III.H section 5	
+def:iii-h-5-1	docket68/n1star/proof5/PART-III-H-AUGMENT.md:505	III.H Definition 5.1	
+lem:iii-h-5-2	docket68/n1star/proof5/PART-III-H-AUGMENT.md:512	III.H Lemma 5.2	
+rem:iii-h-5-3	docket68/n1star/proof5/PART-III-H-AUGMENT.md:546	III.H Remark 5.3	
+sec:iii-h1-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:26	III.H1 section 1	
+eq:iii-h1-1-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:46	III.H1 (1.1)	
+def:iii-h1-1-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:54	III.H1 Definition 1.1	(C2) justified with II.C Def 2.4 (3) as written in ch:s05 (r_Gamma > r_h > r_2); obligation (H'7) stated with III.I Lemma 5.1
+lem:iii-h1-1-2	docket68/n1star/proof5/PART-III-H2-ADMISS.md:77	III.H1 Lemma 1.2	tag at 92 removed; r_h(x,xi) = r(x,h xi) written at h = 1/|sigma|
+thm:iii-h1-1-3	docket68/n1star/proof5/PART-III-H2-ADMISS.md:121; docket68/n1star/proof5/PART-III-H2-ADMISS.md:115-119; docket68/n1star/proof5/PART-III-H3-UNIFORM.md:153-170; docket68/n1star/proof5/PART-III-H3-UNIFORM.md:222	III.H1 Theorem 1.3 without the restriction k <= K (III.H2:222)	stated for every k at every b of the set B_k where delta_Gamma(0) < 1/(2(k+1)); the neighbourhood B_k^hi of 115-119 replaced by that set, which is all the proof uses; uniform version in rem:s18-every-k
+eq:iii-h1-1-2	docket68/n1star/proof5/PART-III-H2-ADMISS.md:124-126	III.H1 (1.2)	
+rem:s18-every-k	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:153-170; docket68/n1star/proof5/PART-III-H3-UNIFORM.md:172-176; docket68/n1star/proof5/PART-III-H3-UNIFORM.md:222	III.H2 Corollary 1.2 and Theorem 2.1, cited forward	fixed neighbourhood B-bar_1 for every k; constant uniform in b only for the order of (B4), as III.H2 T2.1 (H3-UNIFORM 172-176) proves; proofs in ch:s19
+sec:iii-h1-2	docket68/n1star/proof5/PART-III-H2-ADMISS.md:136	III.H1 section 2	contours gamma_-, gamma_0, gamma_+ renamed C_-, C_0, C_+ (gamma_+- are the thresholds of I.B); dense class: restrictions to r >= r_0 of smooth sections compactly supported in t_* > 1 (source 138 has C_c^infty(Omega interior), not dense in spaces extendible at r = r_0)
+lem:iii-h1-2-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:147	III.H1 Lemma 2.1	
+eq:iii-h1-2-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:148-150	III.H1 (2.1)	
+sec:iii-h1-3	docket68/n1star/proof5/PART-III-H2-ADMISS.md:174	III.H1 section 3	
+lem:iii-h1-3-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:176	III.H1 Lemma 3.1	tagged parenthesis at 222-223 dropped; (3.1) kept with its 2 epsilon; the loss parameter of I.B T1.3 (5) written epsilon-prime (source reuses epsilon); proof bounds the weight beta, then beta - 2 epsilon
+eq:iii-h1-3-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:178-179	III.H1 (3.1)	
+sec:iii-h1-4	docket68/n1star/proof5/PART-III-H2-ADMISS.md:232	III.H1 section 4	
+eq:iii-h1-4-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:235-236	III.H1 (4.1)	
+eq:iii-h1-4-2	docket68/n1star/proof5/PART-III-H2-ADMISS.md:238-239	III.H1 (4.2)	
+lem:iii-h1-4-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:251	III.H1 Lemma 4.1	the index j_2 of the final bound explained (derivatives on f-hat)
+eq:iii-h1-4-3	docket68/n1star/proof5/PART-III-H2-ADMISS.md:253-254	III.H1 (4.3)	
+lem:iii-h1-4-2	docket68/n1star/proof5/PART-III-H2-ADMISS.md:277	III.H1 Lemma 4.2	
+sec:iii-h1-5	docket68/n1star/proof5/PART-III-H2-ADMISS.md:283	III.H1 section 5	
+eq:iii-h1-5-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:285-288	III.H1 (5.1)	g-dot and h_s1 renamed v_gdot and v_h (g-dot denotes the states)
+eq:iii-h1-5-2	docket68/n1star/proof5/PART-III-H2-ADMISS.md:290	III.H1 (5.2)	
+lem:iii-h1-5-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:295	III.H1 Lemma 5.1	regularity index m renamed p
+eq:iii-h1-5-3	docket68/n1star/proof5/PART-III-H2-ADMISS.md:296-297	III.H1 (5.3)	
+eq:iii-h1-5-4	docket68/n1star/proof5/PART-III-H2-ADMISS.md:306-307	III.H1 (5.4)	
+sec:iii-h1-6	docket68/n1star/proof5/PART-III-H2-ADMISS.md:343	III.H1 section 6	
+lem:iii-h1-6-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:345	III.H1 Lemma 6.1	J renamed d; [SBG] (3.26) cited as [Hin26d, (3.26)]; theta_0, theta_1 renamed nu_0, nu_1 and B_0, B, B-prime renamed Q_0, Q, Q-prime (theta is the phase in the edition)
+eq:iii-h1-6-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:348	III.H1 (6.1)	
+lem:iii-h1-6-2	docket68/n1star/proof5/PART-III-H2-ADMISS.md:379	III.H1 Lemma 6.2	Cauchy-Schwarz exponent alpha renamed a; theta renamed nu; remark after the proof from 427-430; the step near r = r_0 (source 409-418, Seeley reflection at order s_0) replaced: f = d_t u is extended through the quotient norm, cut off, and integrated in t_*, so no extension operator and no [See64]; the case s = 0 stated for supports in r >= r_1 with t = t_* + r + c
+sec:iii-h1-7	docket68/n1star/proof5/PART-III-H2-ADMISS.md:432	III.H1 section 7 (proof of Theorem 1.3)	closing paragraph 460-462 kept
+sec:s18-remarks	docket68/n1star/proof5/PART-III-H-AUGMENT.md:557-594; docket68/n1star/proof5/PART-III-H2-ADMISS.md:466-515	findings (H1)-(H5) of III.H and (H'1)-(H'7) of III.H1, condensed	neutral remarks on [Hin26] section 10; the sentence of (H'5) on frozen orders not carried (the body does not freeze orders); (b) states the weight of u_hi as alpha_sf + 1 - 2 epsilon; (c) writes the loss parameter epsilon-prime

@@ -1,0 +1,7 @@
+  E1: sigma = 3, l = 6, u on [6/5, 4], K = 40: ||chi R chi|| >= 0.450304 (floating 0.457598; measured norm 1.13200) U/L = 24.6 against the floating U/norm 9.79
+  E1: sigma = 6, l = 11, u on [6/5, 4], K = 60: ||chi R chi|| >= 0.250493 (floating 0.256548; measured norm 0.61801) U/L = 23.4 against the floating U/norm 9.50
+  E1: sigma = 12, l = 23, u on [6/5, 4], K = 160: ||chi R chi|| >= 0.146645 (floating 0.150356; measured norm 0.33551) U/L = 25.7 against the floating U/norm 11.24
+  E1: sigma = 24, l = 47, u on [6/5, 4], K = 120: ||chi R chi|| >= 0.082682 (floating 0.084925; measured norm 0.18101) U/L = 28.7 against the floating U/norm 13.11
+  E1: sigma = 48, l = 95, u on [6/5, 4], K = 120: ||chi R chi|| >= 0.044816 (floating 0.046036; measured norm 0.09720) U/L = 34.0 against the floating U/norm 15.66
+  E1: sigma = 96, l = 191, u on [6/5, 4], K = 160: ||chi R chi|| >= 0.024068 (floating 0.024737; measured norm 0.05194) U/L = 41.4 against the floating U/norm 19.20
+E1 PASS

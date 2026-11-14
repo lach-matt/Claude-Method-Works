@@ -1,0 +1,59 @@
+  H1: eigenvalues of g0 on the hyperplanes (sympy, generic mu, r): {'dtau': ['(mu + r**2)/r**2', '1', '1', '1'], 'dr':
+      ['-(-mu + r**2)/r**2', '1', '1', '1'], 'd(v+tau)': ['(mu + 3*r**2)/(5*r**2)', '1', '1', '1']}; equal to the closed
+      forms: True; on r = a at P*: mu/a^2 - 1 >= 12.7318 > 0, so lambda_min = 1, min(1, mu0/a^2 - 1) = 1.0000 and >= 3/5
+  H2: g0 - eps I on the kernels (exact, m = mu/r^2): {'dtau': ['-eps + m + 1', '1 - eps'], 'dr': ['-eps + m - 1', '1 -
+      eps'], 'd(v+tau)': ['-eps + m/5 + 3/5', '1 - eps']}; at eps = 3/5: least 0.4000 on ker dtau (m >= 0), 0.4000 on ker
+      dr at r = a, ['m/5', '2/5'] on ker d(v + tau); one negative eigenvalue of g0 - eps I at m = 0, 1/100, 1, 13, 1000
+      (exact signs; every m >= 0 from the closed form, deduced): True; so every eps1 <= 3/5 with eps1 < mu0/a^2 - 1 =
+      12.7318 serves (direct cone argument)
+  H3: lambda_min on the outer boundary: at tau0 (3 + mu_end/b(tau0)^2)/5 in [0.60130959, 0.60130959]; at the corner r =
+      b_lo it is 0.60130959, and -lambda n n^T there makes g|ker d(v + tau) degenerate (det = 0), with det g = -0.6463 <
+      0 (Lorentzian): eps1* in [3/5, 0.6013096] (round 2's r = 67/5: 2591339/4309440 = 0.6013169, also null); round 1's
+      eps1 = 5.2617e-04 is 1140 times smaller than 3/5
+  H4 (D623): Lemma 1.1 (e) at m0 = mu0/a^2: at the largest admissible eps (min(3/5, ~(m0 - 1))) the cone argument passes,
+      and g0 - (m0 - 1) e_tau e_tau^T (Lorentzian, det -m0^2) makes {r = a} null at (tau0, a), where v = -1.7301 <
+      v_start (mu = mu0) (exact): m0 = P* 13.7318: eps 3/5, least on ker dr 0.4000, cone True, null at m0 - 1 True; m0 =
+      101/100: eps 0.009990, least on ker dr 1/100000, cone True, null at m0 - 1 True; m0 = 13/10: eps 0.299700, least on
+      ker dr 3/10000, cone True, null at m0 - 1 True; m0 = 4/3: eps 0.333000, least on ker dr 1/3000, cone True, null at
+      m0 - 1 True; m0 = 8/5: eps 0.599400, least on ker dr 3/5000, cone True, null at m0 - 1 True; m0 = 2: eps 3/5, least
+      on ker dr 2/5, cone True, null at m0 - 1 True; m0 = 5: eps 3/5, least on ker dr 2/5, cone True, null at m0 - 1 True
+  H5 (D623): g0 = eta + m U U^T has eigenvalues 1 (x3), m +- (m^2 + 1)^(1/2) (exact): True; s(m) = (m^2 + 1)^(1/2) - m
+      decreases (exact): True; grid of 26404 points over Omega (mu(v) from the envelope, mu_end = 1.182291666667 against
+      227/192): least |eigenvalue| = s(mu/r^2) at every point to 8.6e-15; grid minimum 0.030768559586 on r = a with mu =
+      mu_end to 1e-12 (the corner's value): True; s(m*) = 0.030768559586; in T7's enclosure [0.030768559, 0.03076856]:
+      True; s0 < 2^(1/2) - 1 < 3/5 (m* > 1, exact): True
+  H6 (D623): 31 points (the corner and 30 random), eps1 = s0/2, 9 s0/10, 99 s0/100, 300 random symmetric perturbations of
+      norm eps1 each and the two aligned ones +- eps1 e e^T (D625): one negative eigenvalue always: True; max |gt^-1| (s0
+      - eps1) = 1.000000000000 <= 1 (Weyl); along the eigenvector of -s0 at the corner, eps1 = 9 s0/10: |gt^-1| (s0 -
+      eps1) = 0.999999999995 (sharp) (floating point)
+  C1 (control): H3's test with the size lowered to 59/100: restricted determinant 1.1310e-02 != 0, the boundary stays
+      spacelike: the test fails, as it must
+  C4 (control): H2's test at eps = 0.61 on ker d(v + tau) at the corner: least eigenvalue -8.6904e-03 <= 0: the cone
+      argument does not pass eps = 0.61
+  C2 (control): g^-1(d(v + tau), d(v + tau)) after a perturbation of norm 0.59: -8.660e-02 (timelike), 0.62: 1.471e-01
+      (spacelike covector: the boundary is timelike) (floating point)
+  C3 (control): ker dr at r = 3/2, mu = mu_end: eigenvalues ['-205/432', '1', '1', '1']: a negative one, the test detects
+      a timelike hypersurface
+  C5 (control, D623): H4's test on the old form (eps1 = 3/5 whatever mu0/a^2) at m0 = 13/10: least eigenvalue on ker dr
+      -3/10, cone False: the old form fails, as it must; H4's eps 0.299700 < 3/10 passes: True
+  C6 (control, D623): H5's grid test on Omega cut to r >= a + 1/10: minimum 0.057659516 against s(m*) = 0.030768560:
+      rejected: True
+  C7 (control, D623): at the corner, (s0 - 1e-12) e e^T (norm 0.0307685595847 < s0 = 0.0307685595857; 50 digits):
+      Lorentzian (1 negative eigenvalue), |gt^-1| = 1.0000e+12 > (s0 - 99 s0/100)^-1 = 3250.1: H6's test rejects it:
+      True; for eps1 >= s0 no bound holds
+  C8 (control, D623): H6's test with the bound (1 - eps1)^-1 (g0's next eigenvalue for s0): max |gt^-1| (1 - eps1) =
+      3151.071 > 1: rejected: True
+H1 PASS
+H2 PASS
+H3 PASS
+H4 PASS
+H5 PASS
+H6 PASS
+C1 PASS
+C4 PASS
+C2 PASS
+C3 PASS
+C5 PASS
+C6 PASS
+C7 PASS
+C8 PASS

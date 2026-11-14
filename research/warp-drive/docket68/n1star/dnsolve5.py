@@ -19,9 +19,25 @@ never differentiated numerically.
   S3 (computed, control) W on u = -R0 shifted by 0.01 v (a lapse off the Tangherlini normalisation along that cone):
      the error against Tangherlini's R(u, v) does not fall with resolution.  (A constant shift of W along the cone,
      corner included, cancels exactly in the diamond update, so it is no control.)
+  S4 (computed) The axis nodes: a spherical state (m = n = s = 0) has m_uv = n_uv = 0 exactly; at M = 16 the double
+     solve at the three nodes next to each axis returns more than 1e-9 there (the control: cancellation of about
+     (1 - |x|)^(-4.5) eps), the long-double solve (uv_ld) at least 100 times less (D354).
 
-  --run lam rcut M Nu Nv out.npz   the record's data at wavelength lam (A = 1, envelope [1/2, 7/2], R0 = 10, v to 4.5,
-                                   a = 0.002), cut at R < rcut; the solution and the cut mask are written to out.npz.
+  --run lam rcut M Nu Nv out.npz [p]   the record's data at wavelength lam (A = 1, or the value after a further argument
+                                   amp, D445; envelope [1/2, 7/2], R0 = 10, v to
+                                   4.5, a = 0.002), cut at R < rcut; the solution and the cut mask are written to
+                                   out.npz.  With p, an exponential filter of order p on the Chebyshev coefficients in x
+                                   is applied to every new diamond (the axis filter); p = 0 for none.  With a
+                                   further argument reg, the axis regularisation: near x = -1 the equations fix only
+                                   (1 + x) m_uv and near x = +1 only (1 - x) n_uv (m drops out of the metric at x = -1,
+                                   n at x = +1), so m_uv, n_uv are recovered by exact division in Chebyshev space
+                                   (D352).  It does not cure the axis loss and stops on a singular solve at M = 16,
+                                   24 (D354); kept as an option.  With further arguments ld k, the k nodes next to
+                                   each axis are solved in 80-bit long double (D354: the double solve there loses
+                                   about (1 - |x|)^(-4.5) eps; k = 3 cuts the spurious axis signal 165-1250 fold).
+                                   With map a, the angular nodes are xgrid's, concentrated at x = -1 by 1 - a in
+                                   angle (D458); a = 0 is the plain grid, byte for byte.
+  S5 (computed) xgrid at a = 0.3, M = 24: D1 and D2 of exp(x)/(1.3 + x) to 1e-7 (a = 0 is cheb_gauss itself).
 """
 import sys, importlib.util, numpy as np, sympy as sp, warnings
 warnings.filterwarnings('ignore')
@@ -78,6 +94,7 @@ class Eqs:
         self.sargs = sorted(self.svv_expr.free_symbols, key=str); self.snames = [str(a) for a in self.sargs]
         self.fs = sp.lambdify(self.sargs, self.svv_expr, 'numpy', cse=True)
         self.fm = sp.lambdify(self.args, rhs + sum(Mm, []), 'numpy', cse=True)
+        self._uvexpr, self._fld = rhs + sum(Mm, []), None
 
     def svv(self, env):
         r = self.fs(*[env[k] for k in self.snames])
@@ -89,6 +106,30 @@ class Eqs:
         rhs = np.stack(vals[:4], -1)
         M = np.stack(vals[4:], -1).reshape(shape + (4, 4))
         return np.linalg.solve(M, rhs[..., None])[..., 0]
+
+    def uv_ld(self, env, idx):
+        """the same solve at the x-nodes idx in 80-bit long double, the expressions' rational constants exact: at the
+        nodes next to an axis the double evaluation loses about (1 - |x|)^(-4.5) eps to cancellation (D354)"""
+        if self._fld is None:
+            from sympy.printing.numpy import NumPyPrinter
+            class LD(NumPyPrinter):
+                def _print_Rational(self, e):
+                    return 'numpy.longdouble(%d)/numpy.longdouble(%d)' % (e.p, e.q)
+            self._fld = sp.lambdify(self.args, self._uvexpr, modules='numpy', printer=LD, cse=True)
+        sub = {k: np.asarray(env[k], np.longdouble)[..., idx] for k in self.names}
+        shape = np.broadcast_shapes(*[np.shape(q) for q in sub.values()])
+        vals = [np.broadcast_to(np.asarray(v_, np.longdouble), shape) for v_ in self._fld(*[sub[k] for k in self.names])]
+        b = np.stack(vals[:4], -1).reshape(-1, 4).copy(); A = np.stack(vals[4:], -1).reshape(-1, 4, 4).copy()
+        r = np.arange(len(b))
+        for k in range(4):              # Gaussian elimination with partial pivoting, vectorised (LAPACK has no long double)
+            p = k + np.argmax(np.abs(A[:, k:, k]), axis=1)
+            A[r, k], A[r, p] = A[r, p].copy(), A[r, k].copy(); b[r, k], b[r, p] = b[r, p].copy(), b[r, k].copy()
+            for i in range(k + 1, 4):
+                f = A[:, i, k] / A[:, k, k]; A[:, i, k:] -= f[:, None] * A[:, k, k:]; b[:, i] -= f * b[:, k]
+        y = np.zeros_like(b)
+        for i in range(3, -1, -1):
+            y[:, i] = (b[:, i] - (A[:, i, i + 1:] * y[:, i + 1:]).sum(-1)) / A[:, i, i]
+        return y.astype(float).reshape(shape + (4,))
 
 
 def cheb_gauss(M):
@@ -105,6 +146,50 @@ def cheb_gauss(M):
             Dc[0, k] = k
     D1 = T.T @ Dc @ Tinv
     return x, D1, D1 @ D1
+
+
+def xgrid(M, a=0.0):
+    """collocation at the Chebyshev-Gauss nodes of xi = cos(phi), with x = cos(phi + a sin(phi)) (a = 0: x = xi).  For
+    0 < a < 1 the nodes concentrate at x = -1, where 1 + x = (1 - a)^2 (1 + xi) + O((1 + xi)^2): the angular spacing
+    there is 1 - a times the unmapped one.  x is an entire function of xi (cos(a sin phi) and sin(phi) sin(a sin phi)
+    are series in sin^2 phi = 1 - xi^2), and D1, D2 differentiate the interpolant in xi with respect to x"""
+    xi, D1, _ = cheb_gauss(M)
+    if a == 0:
+        return xi, D1, D1 @ D1
+    ph = np.arccos(xi); ps = ph + a * np.sin(ph)
+    D1x = D1 / (np.sin(ps) * (1 + a * np.cos(ph)) / np.sin(ph))[:, None]
+    return np.cos(ps), D1x, D1x @ D1x
+
+
+def xi_of(x, a):
+    """the inverse of xgrid's map: xi with cos(phi + a sin(phi)) = x, xi = cos(phi) (Newton in phi)"""
+    ps = np.arccos(np.clip(x, -1, 1)); ph = ps.copy()
+    for _ in range(60):
+        ph = ph - (ph + a * np.sin(ph) - ps) / (1 + a * np.cos(ph))
+    return np.cos(ph)
+
+
+def axis_quotients(M):
+    """values -> values maps Q_-, Q_+: a polynomial f of degree < M to (f - f(-1))/(1 + x), resp. (f - f(1))/(1 - x),
+    by division in Chebyshev space (1 + x = T_0 + T_1, 1 - x = T_0 - T_1)"""
+    from numpy.polynomial import chebyshev as Ch
+    x = np.cos((np.arange(M) + 0.5) * np.pi / M)
+    T = np.cos(np.outer(np.arange(M), np.arccos(x)))
+    Tinv = np.linalg.inv(T.T)
+    Qm, Qp = np.zeros((M, M)), np.zeros((M, M))
+    for k in range(M):
+        c = Tinv @ np.eye(M)[k]
+        qm, _ = Ch.chebdiv(c, [1.0, 1.0]); qp, _ = Ch.chebdiv(c, [1.0, -1.0])
+        Qm[:, k] = Ch.chebval(x, qm); Qp[:, k] = Ch.chebval(x, qp)
+    return Qm, Qp
+
+
+def cheb_filter(M, p):
+    """exponential filter exp(-36 (k/(M-1))^p) on the Chebyshev coefficients, as a map of values to values"""
+    x = np.cos((np.arange(M) + 0.5) * np.pi / M)
+    T = np.cos(np.outer(np.arange(M), np.arccos(x)))
+    sig = np.exp(-36.0 * (np.arange(M) / (M - 1))**p)
+    return T.T @ np.diag(sig) @ np.linalg.inv(T.T)
 
 
 
@@ -148,9 +233,13 @@ class Data:
 
 
 class Grid:
-    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None):
-        self.x, self.D1, self.D2 = cheb_gauss(M)
-        self.M = M
+    def __init__(self, M, u0, u1, Nu, v0, v1, Nv, a=None, filt=None, reg=False, ld=0, xmap=0.0):
+        assert not (xmap and (filt or reg)), 'the filter and the axis quotients are built on the unmapped nodes'
+        self.x, self.D1, self.D2 = xgrid(M, xmap)
+        self.M, self.xmap = M, xmap
+        self.ld = np.r_[np.arange(ld), np.arange(M - ld, M)] if ld else None    # nodes solved in long double, or none
+        self.Fm = None if filt is None else cheb_filter(M, filt)      # axis filter of order filt, or none
+        self.Q = axis_quotients(M) if reg else None                     # axis regularisation of m_uv, n_uv, or none
         if a is None:
             self.u = np.linspace(u0, u1, Nu + 1)
         else:                       # logarithmic in |1 + u| about the horizon generator u = -1 of the first cone
@@ -253,9 +342,17 @@ def run(E, G, data, r_cut, iters=3, log=None):
             c = {f: 0.25 * (s_[f] + e_[f] + w_[f] + nn[f]) for f in ALL}
             fu = {f: (w_[f] - s_[f] + nn[f] - e_[f]) / (2 * du) for f in FIELDS}
             fv = {f: (e_[f] - s_[f] + nn[f] - w_[f]) / (2 * G.dv) for f in FIELDS}
-            fuv = E.uv(env_from(G, c, fu, fv, c['sv']))
+            env = env_from(G, c, fu, fv, c['sv'])
+            fuv = E.uv(env)
+            if G.ld is not None:
+                fuv[..., G.ld, :] = E.uv_ld(env, G.ld)
+            if G.Q is not None:       # only (1 + x) m_uv and (1 - x) n_uv are determined near x = -1, +1: divide exactly
+                fuv[..., 1] = ((1 + G.x) * fuv[..., 1]) @ G.Q[0].T
+                fuv[..., 2] = ((1 - G.x) * fuv[..., 2]) @ G.Q[1].T
             for k, f in enumerate(FIELDS):
                 nn[f] = e_[f] + w_[f] - s_[f] + du * G.dv * fuv[..., k]
+        if G.Fm is not None:
+            nn = {f: nn[f] @ G.Fm.T for f in ALL}
         for f in ALL:
             A[f][Nc] = nn[f]
         bad = ~np.isfinite(nn['R']).all(-1) | (nn['R'] < r_cut).any(-1)
@@ -291,12 +388,21 @@ def _setup_curvature():
     fgi = sp.lambdify(syms, [tosym(gi[i, j]) for i in range(5) for j in range(5)], 'numpy', cse=True)
 
 
-def kretschmann(Z, rows=None):
+def _vdiff(a, dv, order):
+    """d/dv along axis 0: numpy's second-order gradient, or (order 4) the five-point central difference inside and
+    numpy's second-order values at the two nodes nearest each end (verifier 236's comparison, D547)"""
+    g = np.gradient(a, dv, axis=0)
+    if order == 4 and a.shape[0] >= 5:
+        g[2:-2] = (a[:-4] - 8 * a[1:-3] + 8 * a[3:-1] - a[4:]) / (12 * dv)
+    return g
+
+
+def kretschmann(Z, rows=None, vorder=2):
     if 'fG' not in globals():
         _setup_curvature()
     uu, vv, xx = Z['u'], Z['v'], Z['x']
     du, dv = uu[1] - uu[0], vv[1] - vv[0]
-    _, D1, _ = cheb_gauss(len(xx))
+    _, D1, _ = xgrid(len(xx), float(Z['xmap']) if 'xmap' in Z else 0.0)
     Nu, Nv, M = Z['R'].shape
     out = np.full((Nu, Nv, M), np.nan)
 
@@ -308,12 +414,12 @@ def kretschmann(Z, rows=None):
             e[k] = a
             e[k + '_x'] = a @ D1.T
             e[k + '_xx'] = a @ D1.T @ D1.T
-            e[k + '_v'] = np.gradient(a, dv, axis=0)
-            e[k + '_vv'] = np.gradient(e[k + '_v'], dv, axis=0)
+            e[k + '_v'] = _vdiff(a, dv, vorder)
+            e[k + '_vv'] = _vdiff(e[k + '_v'], dv, vorder)
             e[k + '_vx'] = e[k + '_v'] @ D1.T
             e[k + '_u'] = -h2 / (h1 * (h1 + h2)) * aq + (h2 - h1) / (h1 * h2) * a + h1 / (h2 * (h1 + h2)) * ap
             e[k + '_uu'] = 2 * (aq / (h1 * (h1 + h2)) - a / (h1 * h2) + ap / (h2 * (h1 + h2)))
-            e[k + '_uv'] = np.gradient(e[k + '_u'], dv, axis=0)
+            e[k + '_uv'] = _vdiff(e[k + '_u'], dv, vorder)
             e[k + '_ux'] = e[k + '_u'] @ D1.T
         return e
 
@@ -401,6 +507,26 @@ def selftest():
     print('S3 control, W + 0.01 v on u = -R0: error ratio %.2f (no convergence expected) ->' % ratio3,
           'PASS' if r3 else 'FAIL')
     ok &= r3
+    # S4: the axis nodes, double against long double on a spherical state
+    G4 = Grid(16, -10, -0.54, 10, 0, 1, 10, ld=3); one = np.ones(16)
+    c4 = {'R': 3.2241 * one, 'm': 0 * one, 'n': 0 * one, 'W': -0.3383 * one, 's': 0 * one}
+    fu4 = {'R': -1.0168 * one, 'm': 0 * one, 'n': 0 * one, 'W': 0.0081 * one}
+    fv4 = {'R': 0.4519 * one, 'm': 0 * one, 'n': 0 * one, 'W': 0.0149 * one}
+    env4 = env_from(G4, c4, fu4, fv4, 0 * one)
+    ed = np.abs(E.uv(env4)[G4.ld][:, 1:3]).max(); el = np.abs(E.uv_ld(env4, G4.ld)[:, 1:3]).max()
+    r4 = ed > 1e-9 and el < ed / 100
+    print('S4 axis nodes, spherical state at M = 16: |m_uv|, |n_uv| double %.1e, long double %.1e ->' % (ed, el),
+          'PASS' if r4 else 'FAIL')
+    ok &= r4
+    # S5: the mapped angular grid
+    x5, D15, D25 = xgrid(24, 0.3)
+    f5 = np.exp(x5) / (1.3 + x5); f1 = f5 - np.exp(x5) / (1.3 + x5)**2
+    f2 = f5 - 2 * np.exp(x5) / (1.3 + x5)**2 + 2 * np.exp(x5) / (1.3 + x5)**3
+    e5 = max(np.abs(D15 @ f5 - f1).max(), np.abs(D25 @ f5 - f2).max() / 100)
+    r5 = e5 < 1e-7 and x5.min() < cheb_gauss(24)[0].min() and np.allclose(xi_of(x5, 0.3), cheb_gauss(24)[0])
+    print('S5 mapped angular grid, a = 0.3, M = 24: derivative error %.1e (D2 over 100); first node 1 + x = %.1e '
+          'against %.1e unmapped ->' % (e5, 1 + x5.min(), 1 + cheb_gauss(24)[0].min()), 'PASS' if r5 else 'FAIL')
+    ok &= r5
     print('dnsolve5:', 'all checks pass' if ok else 'FAILURES')
     return 0 if ok else 1
 
@@ -409,10 +535,22 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == '--run':
         lam, rcut = float(sys.argv[2]), float(sys.argv[3])
         M, Nu, Nv = int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6])
+        filt = int(sys.argv[8]) if len(sys.argv) > 8 and sys.argv[8] != '0' else None
+        opts = sys.argv[9:]
+        reg = 'reg' in opts
+        ld = int(opts[opts.index('ld') + 1]) if 'ld' in opts else 0
+        amp = float(opts[opts.index('amp') + 1]) if 'amp' in opts else 1.0
+        xmap = float(opts[opts.index('map') + 1]) if 'map' in opts else 0.0
         E = Eqs()
-        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002)
-        A, mask = run(E, G, Data(lam, 1.0), rcut)
-        np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, **{f: A[f] for f in ALL})
+        G = Grid(M, -10.0, -rcut, Nu, 0.0, 4.5, Nv, a=0.002, filt=filt, reg=reg, ld=ld, xmap=xmap)
+        keep = [int(k) for k in opts[opts.index('keep') + 1].split(',')] if 'keep' in opts else None
+        A, mask = run(E, G, Data(lam, amp), rcut)
+        if keep is None:
+            np.savez_compressed(sys.argv[7], mask=mask, u=G.u, v=G.v, x=G.x, xmap=xmap, **{f: A[f] for f in ALL})
+        else:               # only the u-rows r - 1, r, r + 1 of each kept r, all kretschmann needs (D572)
+            idx = np.array([r + d for r in keep for d in (-1, 0, 1)])
+            np.savez_compressed(sys.argv[7], mask=mask[idx], u=G.u[idx], v=G.v, x=G.x, xmap=xmap, keep=np.array(keep),
+                                **{f: A[f][idx] for f in ALL})
         print('written', sys.argv[7], 'cells', int((~mask).sum()), 'of', mask.size)
         return 0
     return selftest()

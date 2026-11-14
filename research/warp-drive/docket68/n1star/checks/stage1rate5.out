@@ -1,0 +1,17 @@
+stage1rate5: Lemma 2.3 at gt = g0 on Omega at P*, its energy constant written out and certified
+  K1: r pi at xhat = e1 = [-k + 2*m**2, -k + 2*m**2 + 2*m, -k + 2*m**2 + 4*m, -2*m] (exact; matches the closed forms:
+      True); r Gamma = [m, -m, 0, 0, 0]; Y = [m + 1, -m, 0, 0, 0]
+  K2: Q (tau, x1) block trace m**2 + m + 1, det m**2/4 + m/2 + 1/4; Y^T Q^-1 Y = 2 (exact); Q positive definite on Omega:
+      True
+  K3 (certified): kappa <= 13.2197 (attained near r = 0.2699); e^(kappa Dtau/2) <= exp(39.2439) = 1.105e+17; q =
+      q_hi/q_lo <= 1426.38 (q_lo >= 0.196683, q_hi <= 280.545); c_Y^2 <= 2.00000. So for stage 1's principal part
+      ||du(tau)|| <= 4.174e+18 ||du(tau0)|| + 7.048e+17 int ||f|| (Dtau <= 5.937209)
+  C1 (control): bulk without the Gamma term: kappa [10.9936 +/- 1.73e-6] against [12.2260 +/- 4.50e-5] on the coarse
+      cover: differs: True
+  C2 (control): Y = d_tau: Q at m = 2 has eigenvalues [0.0858, 2.9142, -0.5], not positive definite: K3's coercivity
+      fails: True
+K1 PASS
+K2 PASS
+K3 PASS
+C1 PASS
+C2 PASS

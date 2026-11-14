@@ -1,0 +1,71 @@
+  E1: int_r1^oo r^(2(l0-a)) dr/r = r1^(2(l0-a))/(2(a-l0)) at a > l0 (9 instances, l0 = 13/4, 7/2, 15/4), log(R/r1) at
+      a = l0 and (R^2 - r1^2)/2 at (a, l0) = (5/2, 7/2): True; d_t^j [e^(-at) psi] = e^(-at) sum_k C(j,k) (-a)^(j-k)
+      psi^(k), j <= 3: True; rho^2, rho^3 terms never remainders (2 l0 - 4, 2 l0 - 6 > 0): True
+E1 PASS (mutants failing as they must: lebesgue)
+  E2: Wronskian of e^(z_j u) = e^(sum z u) prod (z_k - z_j), symbolic: True; all ten Gram closed forms = sympy exact =
+      quadrature (1e-35): True; kappa(5/2, 7/2) = 0.00076545965 from the closed forms, 0.00076545965 from a direct
+      quadrature in s (agree to 1e-25, and with 7.6546e-4 to 1e-8): True; kappa^2 = lambda_min(Schur), certified > 0
+      at every grid point: True
+      l0 = 13/4  a = 8/5: kappa = 0.0009158  a = 2: kappa = 0.0007982  a = 5/2: kappa = 0.0008349
+                 a = 3: kappa = 0.00112  a = 25/8: kappa = 0.001255  a = 13/4: kappa = 0.001425
+      l0 = 7/2   a = 8/5: kappa = 0.0008415  a = 2: kappa = 0.0007328  a = 5/2: kappa = 0.0007655
+                 a = 3: kappa = 0.001026  a = 13/4: kappa = 0.001304  a = 7/2: kappa = 0.001737
+      l0 = 15/4  a = 8/5: kappa = 0.0007733  a = 2: kappa = 0.0006727  a = 5/2: kappa = 0.0007018
+                 a = 3: kappa = 0.0009395  a = 27/8: kappa = 0.001371  a = 15/4: kappa = 0.002165
+E2 PASS (mutants failing as they must: no_osc, ss_sign, lam_max)
+  E3: tr(Psi^* delta - delta) identity: True; r^(2+a) d_eps E|_0 = -2 mu (a c + s): True; r^(2+2a) d_eps^2 E|_0 = mu
+      (2 w^2 - 8 c w + 6 c^2), w = (1-a) c - s: True; both free of r once log r -> t: True; pointwise Tangherlini term
+      (r = 10^2, 10^3): True; Psi^* of a radial tensor (generic phi, A, B, three points): True; quadrature instance of
+      Proposition 3 (within 1e-2 of the prediction, above the kappa bound): True
+      (a, l0) = (2.5, 3.5), R = 100.0: D_R/(eps R^(l0-a)) = 0.00768786, 2 A_a dist = 0.00773506, 2 A_a kappa 0.0027599
+      (a, l0) = (2.5, 3.5), R = 1.0e+3: D_R/(eps R^(l0-a)) = 0.0297314, 2 A_a dist = 0.0297312, 2 A_a kappa 0.0027599
+      (a, l0) = (2.5, 3.5), R = 1.0e+4: D_R/(eps R^(l0-a)) = 0.0468685, 2 A_a dist = 0.0468685, 2 A_a kappa 0.0027599
+      (a, l0) = (3.5, 3.5), R = 100.0: D_R/(eps R^(l0-a)) = 0.0565149, 2 A_a dist = 0.0567286, 2 A_a kappa 0.00388379
+      (a, l0) = (3.5, 3.5), R = 1.0e+3: D_R/(eps R^(l0-a)) = 0.0625504, 2 A_a dist = 0.062552, 2 A_a kappa 0.00388379
+      (a, l0) = (3.5, 3.5), R = 1.0e+4: D_R/(eps R^(l0-a)) = 0.0271175, 2 A_a dist = 0.0271175, 2 A_a kappa 0.00388379
+E3 PASS (mutants failing as they must: coef3, second_r3, mu0)
+  E4: exact fluxes over S_rho of order-a profiles are c_d rho^(2+d-a), with c_d = 6 pi^2, 3 pi^2, (3/2) pi^2, (3/2) (a
+      + 1) pi^2 and 2 pi^2 asserted: True; they tend to 0 iff a > 2 + d (a = 8/5, 2, 5/2, 3, 13/4, 7/2): True
+        energy (d = 0)                     c(a) = 6*pi**2
+        momentum (d = 0)                   c(a) = 3*pi**2
+        centre of mass (d = 1)             c(a) = 3*pi**2/2
+        centre of mass, x1 delta (d = 1)   c(a) = 3*pi**2*(a + 1)/2
+        angular momentum (d = 1)           c(a) = 2*pi**2
+      the exponent inequalities:
+        T: d-a<0 (d=0)                                   True
+        T: d+2-2a<0 (d=0)                                True
+        box d-2+p2 < box exponent (d=0)                  True
+        box d-3+p3 < box exponent (d=0)                  True
+        box d-a < box exponent (d=0)                     True
+        box d+2-2a < box exponent (d=0)                  True
+        box radius constant where a <= 2+d (d=0, def.)   True
+        T: d-a<0 (d=1)                                   True
+        T: d+2-2a<0 (d=1)                                True
+        box d-2+p2 < box exponent (d=1)                  True
+        box d-3+p3 < box exponent (d=1)                  True
+        box d-a < box exponent (d=1)                     True
+        box d+2-2a < box exponent (d=1)                  True
+        box radius constant where a <= 2+d (d=1, def.)   True
+        (5.2): p2exp = box(d=0) at every vertex          True
+        (5.2): p3exp = max_d box(d) at every vertex      True
+        theta: p2 - 2 <= -a                              True
+        theta: p3 - 3 <= -a                              True
+        norm: p2 + l0 - 2 <= l0 - a                      True
+        norm: p3 + l0 - 3 <= l0 - a                      True
+        norm: p3 + l0 - 4 <= l0 - a (outer)              True
+        norm: 0 <= l0 - a (coefficients, compact part)   True
+        norm: l0 - a > 0 off a = l0                      True
+E4 PASS (mutants failing as they must: no_decouple, box_strong, energy_trsign, mom_drop_x, p3_strong, box_weak,
+      drop_lapse)
+  E5: (a) spin enters the Kerr-Schild metric at rho^3 (15 components, one point, spins (1/3, 1/5)): True; (b)
+      translation at rho^3: True; (c) radial Hessian: (Hess f - Lap f delta) x = -3 (f'/r) x and (W x) . Hess f . x =
+      0: True, True; (d) tr Hess f = 2 mu r^-3 + ... for f' = 2 mu/(r^2 - mu): True
+E5 PASS (mutants failing as they must: mass, dim3)
+  E6: GLUEDECAY5.md lines over 121 characters: none; new block lines over 121: 0; section 8.5's blocks; state of the
+      paper found: seated, the blocks at lines a 1201, b 1205, c 1875, d 2527, e 3424, f 3674, g 3538, h 3974. Before
+      seating (rebuilt from the seated paper): each old block once, no new block, disjoint, (a) immediately followed
+      by (b), and with all blocks applied: 8.7 cites support8b.py M3 and GLUEDECAY5.md True; section 9 lists
+      gluedecay5.py True; Appendix A has its entry True; Appendix C maps it and the note True; Appendix D runs it and
+      records its import True; Appendix D's md5 rows True; lines <= 121 True. Seated (the paper): each new block once,
+      disjoint, (a) then (b), old (a)-(e), (g) gone, the same places in place: True
+E6 PASS (mutants failing as they must: char_a, char_b, drop_c, drop_m3, seated_keep_old_a)

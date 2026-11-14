@@ -1,0 +1,28 @@
+  H0 the recursion for Q_k equals x^k Y_k(A_1/x, ...) exactly, k <= 12: True
+H0 PASS (control detected)
+  H1 exp(-1/x) on [0, 1/200] (400 closed intervals, x = 0 included), on every interval: env^(k) > 0 for k <= 17;
+      kappa_k/kappa in [0.81866, 1.00301] (within [1/2, 2]), env^(k) log-concave and |kappa_k'| <= c_R kappa_k^(3/2) with
+      c_R = 2.58122, for k <= 16; |kappa'| >= c_t kappa^(3/2) with c_t = 2.0; |env^(j)| <= c_j kappa^j env with
+      max_(j<=16) c_j = 1.00001; kappa x^2 in [c_*, M] = [1.0, 1.0].  So (H_N) to N = 16, (H_N+2) to N = 14, (H_t), L.16
+      (c) to j = 16 and (H_rho*)'s first half hold on (v_s, v_s + 1/200]
+  H1 exp(-1/x) [control] on [0, 1/40]: not certified: log-concavity of env^(16) fails on interval 130
+H1 PASS (control detected)
+  H2 the record's C_c^inf envelope on [0, 1/200] (400 closed intervals, x = 0 included), on every interval: env^(k) > 0
+      for k <= 17; kappa_k/kappa in [0.74998, 1.00745] (within [1/2, 2]), env^(k) log-concave and |kappa_k'| <= c_R
+      kappa_k^(3/2) with c_R = 3.35875, for k <= 16; |kappa'| >= c_t kappa^(3/2) with c_t = 2.13951; |env^(j)| <= c_j
+      kappa^j env with max_(j<=16) c_j = 1.00321; kappa x^2 in [c_*, M] = [0.74999, 0.81].  So (H_N) to N = 16, (H_N+2)
+      to N = 14, (H_t), L.16 (c) to j = 16 and (H_rho*)'s first half hold on (v_s, v_s + 1/200]
+  H2 the solver's sin^4 envelope [control] on [0, 1/200]: not certified: A_1 > 0 fails on interval 0
+H2 PASS (control detected)
+  H3 at x = 0, exact: exp(-1/x): A_1(0) = 1; Q_k(0) = A_1(0)^k, R_k(0) = A_1(0), R_k'(0) finite (R_40'(0) = -80) for k <=
+      40; so P_k(0) = 2, the c_R and c_t ratios -> 2; record: A_1(0) = 3/4; Q_k(0) = A_1(0)^k, R_k(0) = A_1(0), R_k'(0)
+      finite (R_40'(0) = -68) for k <= 40; so P_k(0) = 3/2, the c_R and c_t ratios -> 4*sqrt(3)/3.  Every check is strict
+      at x = 0, hence on some (0, x0(K)] for every K: True
+H3 PASS (control detected)
+  H4 (H_D): kappa(y/2) kappa(4y)^c env(4y) -> 0: exp(-1/x): limit 0 for c > 0 symbolic, 0 at c = 30; the record's
+      envelope (bound, M = 81/100): limit 0 for c > 0 symbolic, 0 at c = 30: True
+H4 PASS (control detected)
+  H5 the solver's sin^4 envelope: env^(4)(v_s+) = 8*pi**4/27 != 0 (C^3, not C^4), kappa_3/kappa -> 1/4 < 1/2, env^(5)/x
+      -> -160*pi**6/243 < 0: (H_N) fails for every N >= 3: True
+H5 PASS (control detected)
+hyp5: all checks pass, every control fails

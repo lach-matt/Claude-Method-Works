@@ -1,0 +1,30 @@
+iotamut5: iotapoles5.py read adversarially -- singleton orders computed, an independent order check at 5, four mutations
+      of the computed path
+  U1: iotapoles5.type_analysis rerun: s0 order at 5 (1, 2), t2 {(5.0, 5.0): (1, 1)} (790 s)
+  U2: singleton candidates (root interval, i, j: simple root, no second singular factor, every L1 invertible), exact
+      resultants: [('[2.0000000000, 2.0000000000]', 1, 2, True, True, True), ('[2.0000000000, 2.0000000000]', 2, 3, True,
+      True, True), ('[3.0000013333, 3.0000013333]', 1, 3, True, True, True), ('[1.0000747438, 1.0000747438]', 1, 1, True,
+      True, True), ('[1.0000747438, 1.0000747438]', 2, 2, True, True, True), ('[1.0000747438, 1.0000747438]', 3, 3, True,
+      True, True), ('[4.0000000000, 4.0000000000]', 1, 4, True, True, True)]
+  U3: Pi_4(5 + eps)^-1 at eps = 1e-10, 1e-20, 1e-30 (mpmath, 60 digits): slope of log |.|_F against log eps -1.000000;
+      singular values of eps Pi^-1 at 1e-30: ['4.798e+01', '1.674e-01', '6.596e-26', '2.275e-27']: order 1, residue rank
+      2
+  X1 (mutation): the shift N(lam0 + eps - i + 1) in the s0 product at 5: (order, rank) = (2, 1), not (1, 2): True
+      (beside it, not a control: the product with the L1 factors dropped gives (2, 1))
+  X2 (mutation): last row of N times (x - 4): roots in (0, 4] with multiplicities [('2.000000', 1), ('4.000000', 2),
+      ('3.000001', 1), ('1.000075', 1)]; M3's simplicity test fails: True
+  X3: laurent_order on known matrices: diag(eps^-2, 1) (2, 1), eps^-1 I (1, 2), [[eps^-1, eps^-2], [0, 1]] (2, 1); the
+      mutated routine (stops at a finite (0, 0) entry) returns (1, 1) on the last: wrong, as it must be
+  X4 (mutation): Lemma 1.4 at k = 2 with F U-bar (E_j + 1) a plain union: log order at E_ind's 5 is 5 (iotapoles5.lemma14
+      on the same roots: 10): M5 fails on it: True
+  C4 (deduced, checked): det N(2 + eps) vanishes to order 1 at eps = 0, and the adjugate product gives (0, 2) = (order -
+      1, rank) of the main one: C4 is a function of M3's answer and cannot fail on its own: True
+  (2233 s)
+U1 PASS
+U2 PASS
+U3 PASS
+X1 PASS
+X2 PASS
+X3 PASS
+X4 PASS
+C4dep PASS

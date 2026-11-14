@@ -372,8 +372,9 @@ $|u|\le Cv^{\ell_I-1-\mathrm{Re}\,\lambda}$, by b-Sobolev embedding in $v$.
 (ii) *Near $R = 0$:* $F\in R^{\ell_K+\mathrm{Re}\,\lambda}H^{k+d}_{\mathrm b}$. Choose $\delta>0$ and
 $s := \min(\frac12,2-\mathrm{Re}\,\lambda)-\delta$ with $s-\frac12\notin\mathbb Z$, and
 $\mu\in(\mathrm{Re}\,\lambda-1,\min(\mathrm{Re}\,\lambda,\ell_K+\mathrm{Re}\,\lambda))$, which is non-empty as
-$\ell_K>-1$. Then $(s,\mu)$ is admissible, $F\in\dot H^{(s-1;k+d-d_1),\mu}_{\mathrm b;\mathrm b}$ with $d_1$ depending
-on $s$, and $\tilde h := N_{\mathrm{sf}}(\lambda)^{-1}F\in\dot H^{(s;k+d-d_1),\mu}_{\mathrm b;\mathrm b}$, vanishing on
+$\ell_K>-1$. Then $(s,\mu)$ is admissible, $F\in\dot H^{(s-1;k+d-d_1),\mu}_{\mathrm b;\mathrm b}$ with $d_1 = 0$
+(as $s-1\le-\frac12-\delta$; carried in LOSS-D.md section 2b, item 6, D357-D358; the earlier text had "$d_1$ depending
+on $s$"), and $\tilde h := N_{\mathrm{sf}}(\lambda)^{-1}F\in\dot H^{(s;k+d-d_1),\mu}_{\mathrm b;\mathrm b}$, vanishing on
 $\{v<0\}$ as in Step 0.
 
 (iii) *The expansion at $v = 0$:* Lemma 2.1 gives $|W^\alpha h|\le C\|f\|\,v^{\mathrm{Re}\,\lambda+s-\frac12}$ for

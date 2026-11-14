@@ -1,0 +1,21 @@
+(run one check per process: python3 checks/gdrepair5.py Vk, k = 1..5; each block ends with its exit code)
+  V1: Theta(K*_supp) = 0: True; at mu = 1: (r-1) K*_vr -> -3/8, (r-1)^2 K*_rr -> 3/8; K*_reg (vv, vr, rr) at r_h, v = 7/3: [-5/6 - log(2), -17/4 - 3*log(2)/2, 3*log(2)/4 + 17/8]; K*_supp - K*_reg - (v/2) L_{W*} g stationary: True, (r-1)^2 x its rr component -> 3/8
+  V1 control: (r - 1) x K*_reg (vr, rr) -> [0, 0] at mu = 1; nonzero: False
+V1 PASS
+EXIT 0
+  V2: (a) K*_reg - (v/2) L_{W*} g stationary True, Theta(K*_reg) = 0 True, dmu[K*_reg] = 1 True; (b) F' as stated True, Box_0 Psi = 0 True, d Psi at r_h (mu = 1, v = 0) [-2 + 2*log(2), 6 - 3*log(2)]; S stationary True, Theta(S) = 0 True, dmu[S] = 1 True, S (vv, vr, rr, thth/r^2) at r_h [-1/2, -9/4, 3/8, 3/2], S_vv -> -1/s**2 at infinity
+  V2 control ((2 mu)^-1): S stationary: False
+V2 PASS
+EXIT 0
+  V3: Box W** = dv/r^3 exactly in every component (expand_log(force=True)): True
+  V3 control (coefficient 1): Box W** = dv/r^3 exactly in every component (expand_log(force=True)): False
+V3 PASS
+EXIT 0
+  V4 claims re-checked where a value is stated (R3c, H3): {'R3c': True, 'R3d': True, 'R3e': True, 'R3f': True, 'H2': True, 'H3': True, 'R5': True}; H3 values: Q[W* + (d_v)^flat] = 4*pi**2*(s**2 + 1), ell([Box, v](d_v)^flat) = 4*pi**2*s**2
+  V4 controls (each must be False): {'R3c': False, 'R3d': False, 'R3e': False, 'R3f': False, 'H2': False, 'H3': False, 'R5': False}
+V4 PASS
+EXIT 0
+  V5: K_static - dv^2/r^2 = L_{zeta d_v} g with zeta' = 1/(r**2*(1 - s**2/r**2)**2): True; (r - 1)^2 zeta' -> 1/4 at mu = 1
+  V5 control: K_static - dv^2/r^2 = L_{zeta d_v} g with zeta' = 1/(r**2*(1 - s**2/r**2)): False; (r - 1)^2 zeta' -> 0 at mu = 1
+V5 PASS
+EXIT 0

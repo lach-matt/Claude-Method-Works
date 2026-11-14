@@ -1,0 +1,27 @@
+X1 (a) |K2|^2 = a s: True ; g(d_rho2, d_rho2) = a + b s (-> a = |K2|^2/s at the axis): True
+   control: conical c = 3/2, g_xx -> 1 along the x-axis, 9/4 along the y-axis: discontinuous: True
+X1 (b) kappa2 on the axis: d/dU_s = 2/a0(tau, rho1) ; du on the axis free of U_s: True -> True
+   (U_s = (1/2) d_3^2 u on the axis: True )
+   control: kappa1 on the axis free of U_s (stays first order): True
+X1 (c) off the axis, coefficient of d_3 u in kappa2 ~ 1/(a rho2): lim rho2 * coef = 1/a0(tau, rho1) -> True
+X1 (d) chi(e4, e4) = kappa2 exactly: True ; chi(d3,d3)/g33 - kappa2 -> 0 on the axis: True ; its rho2^2 coefficient has d/dU_ss = 4/a0(tau, rho1) -> True
+X1 (e) |chi|^2 = k1^2 + (th - k1)^2/2 + s^2/2 exactly: True ; control (dropping s^2/2) rejected: True
+X2 (mpmath) ||kappa2|| / ||grad u|| for families concentrating at the axis and on a ring
+   axis eps = 0.2: L2 ratio 7.0710678 (sqrt(2)/eps = 7.0710678), H1 ratio 5.0246915
+   axis eps = 0.1: L2 ratio 14.142136 (sqrt(2)/eps = 14.142136), H1 ratio 10.012461
+   axis eps = 0.05: L2 ratio 28.284271 (sqrt(2)/eps = 28.284271), H1 ratio 20.006245
+   axis eps = 0.025: L2 ratio 56.568542 (sqrt(2)/eps = 56.568542), H1 ratio 40.003124
+   H1 ratio roughly doubles as eps halves: True
+   ring rho0 = 1/2, eps = 0.05: L2 ratio 2.0075811, H1 ratio 1.9991182
+   ring rho0 = 1/2, eps = 0.025: L2 ratio 2.00188, H1 ratio 1.9997887
+   ring rho0 = 1/2, eps = 0.0125: L2 ratio 2.0004691, H1 ratio 1.9999477
+   control: ring ratios bounded (near 1/rho0 = 2), do not grow: True
+X3 (exact) int_0^rho r f = rho U': True ; s_pl = f - 2 A f: True
+   (mpmath) ||A f||/||f|| and ||s_pl||/||f|| in L^2(R^2): uniformly bounded up to the axis
+   axis eps = 0.1: ||A f||/||f|| = 0.70710678, ||s_pl||/||f|| = 1.0
+   axis eps = 0.025: ||A f||/||f|| = 0.70710678, ||s_pl||/||f|| = 1.0
+   ring eps = 0.05: ||A f||/||f|| = 0.057856794, ||s_pl||/||f|| = 1.0
+   ring eps = 0.0125: ||A f||/||f|| = 0.014435638, ||s_pl||/||f|| = 1.0
+   bounded: True ; scale-invariant at the axis (same ratio at both eps): True
+   asserted: ||s_pl|| = ||f|| (all four) and ||A f|| = ||f||/sqrt(2) at the axis, to 1e-12: True ; control f - A f in place of f - 2 A f: ratio 0.70710678 rejected: True
+PASS

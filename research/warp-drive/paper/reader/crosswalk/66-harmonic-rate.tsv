@@ -1,0 +1,54 @@
+label	source	source_name	note
+ch:harmonic-rate	paper/RESPONSE-HL-5D.md:842-872, 1488-1503; docket68/n1star/GAUGEDECAY5.md:2358-2392, 3077-3108, 3846-3875	P s.8.2 and s.9 Settling item (harmonic gauge); GD R6, R7, R8 result paragraphs	opening rewritten without status words; Hung's route (P 872-910) not carried
+sec:hr-setting	docket68/n1star/GAUGEDECAY5.md:2395-2400, 3220-3224	GD R6.a setting; R7.a setting (total and running charge)	Theta(k) of the source written -Upsilon-dot^0(k); d psi kept as in Ch 15 (P's varpi_K = r_h^2 W* - (d_v)^flat)
+lem:hr-charges	docket68/n1star/GAUGEDECAY5.md:3368-3369; GD R2.7 proof step (2)	GD B4 and T5 (Lemma R7.2 (c) proof)	T5 written out by hand from lem:gd-r2-9 (eight lines)
+eq:hr-charges	docket68/n1star/GAUGEDECAY5.md:3368-3369	GD B4, T5	-
+sec:hr-window	docket68/n1star/GAUGEDECAY5.md:2393-2405	GD R6.a	R6.1 (III.I''' Lemma 1.1 at box) is lem:iii-i3-1-1 as stated (no operator enters); not repeated
+lem:gd-r6-2	docket68/n1star/GAUGEDECAY5.md:2407-2423	GD Lemma R6.2	D1, D5 not needed: lem:gd-r2-2 (c) gives the form r^-3 G(sigma r) used by lem:iii-i3-1-2's proof
+lem:gd-r6-3	docket68/n1star/GAUGEDECAY5.md:2425-2436	GD Lemma R6.3 with (A67) (|S^3| factor, citation lines)	D1 (c) replaced by the Fubini count of lem:iii-i3-1-2's proof
+thm:gd-r6-4	docket68/n1star/GAUGEDECAY5.md:2438-2525	GD Theorem R6.4 with (A62) (eps_PP, 3165-3171) and (A52) (k-dependence, 2822)	D2's bookkeeping written as inequalities in the proof
+eq:gd-r6-1	docket68/n1star/GAUGEDECAY5.md:2441-2442	GD (R6.1)	-
+eq:hr-fhat	docket68/n1star/GAUGEDECAY5.md:2470-2473	GD R6.4 proof, (2.25a) with (A62)	-
+thm:gd-r6-5	docket68/n1star/GAUGEDECAY5.md:2541-2554	GD Theorem R6.5	B4 = lem:hr-charges first formula
+eq:gd-r6-2	docket68/n1star/GAUGEDECAY5.md:2545-2546	GD (R6.2)	-
+sec:hr-compact	docket68/n1star/GAUGEDECAY5.md:2554-2590	GD R6.c	-
+cor:gd-r6-6	docket68/n1star/GAUGEDECAY5.md:2556-2580	GD Corollary R6.6 with (A60) (3135-3146: translation by T-hat - T_a, [BGP] Thm 3.2.11)	R2.13 (b) clause moved to cor:hr-compact-rates; D4 dropped (records only)
+eq:gd-r6-3	docket68/n1star/GAUGEDECAY5.md:2560-2561	GD (R6.3)	-
+sec:hr-past	docket68/n1star/GAUGEDECAY5.md:3218-3224	GD R7.a	-
+thm:gd-r7-1	docket68/n1star/GAUGEDECAY5.md:3225-3315	GD Theorem R7.1 with (A83) (eps_0 = eps_1/3, min(3, alpha_K + 1) = 3)	T7 bookkeeping written as inequalities; Remark R7.1' not carried (no proof uses it)
+eq:gd-r7-1	docket68/n1star/GAUGEDECAY5.md:3229-3230	GD (R7.1)	-
+lem:gd-r7-2	docket68/n1star/GAUGEDECAY5.md:3322-3374	GD Lemma R7.2 with (A76) (H(t-r), 3936), (A77) (charge formula, 3942), (A78) (corners, 3947)	T1, T3-T6, T12 written out: flat equation by d_t a_0 and the limit t -> infinity, flat reduction eq:hr-far, corner orders from the profile of the kernel; kernel K renamed frak-k, chi_1 renamed chi_on, T_1 renamed T_2, lambda renamed varrho
+eq:hr-kernel	docket68/n1star/GAUGEDECAY5.md:3324-3328	GD Lemma R7.2 display, as corrected by (A76)	-
+eq:hr-flat	docket68/n1star/GAUGEDECAY5.md:3345-3352	GD Lemma R7.2 proof (b), T3 (flat reduction)	the distributional step written as an integration by parts with the boundary term O(w^(1/2))
+eq:hr-far	docket68/n1star/GAUGEDECAY5.md:3345-3360; 3947-3960	GD Lemma R7.2 proof (b), T3, T12 ((A78))	identity E = (Pa) d psi + R derived and checked privately; coefficients printed
+thm:gd-r7-3	docket68/n1star/GAUGEDECAY5.md:3379-3391	GD Theorem R7.3	-
+eq:gd-r7-2	docket68/n1star/GAUGEDECAY5.md:3384-3385	GD (R7.2)	-
+cor:gd-r7-4	docket68/n1star/GAUGEDECAY5.md:3393-3411	GD Corollary R7.4	D7's value (L_W* g)_vr = -7/24 r_h^-3 derived by hand; extended to data vanishing only outside a ball (domain of influence inside the horizon), as cor:gd-r7-7 (b) needs
+eq:gd-r7-3	docket68/n1star/GAUGEDECAY5.md:3397-3399	GD (R7.3)	-
+cor:hr-compact-rates	docket68/n1star/GAUGEDECAY5.md:2207-2223, 2805-2832, 3412-3416	GD (A33), (A34), (A49), (A54) and the paragraph after Corollary R7.4	the faster rates of Ch 15's cor:gd-r4-6, prop:gd-r2-13 (b) and cor:gd-r4-4's Y_h-clause
+sec:hr-l0	docket68/n1star/GAUGEDECAY5.md:3417-3530	GD R7.b	-
+lem:gd-r6-8	docket68/n1star/GAUGEDECAY5.md:2636-2649	GD Lemma R6.8 with (A59) (3122-3134) and (A112) (X_RW,0 rate)	-
+prop:gd-r7-5	docket68/n1star/GAUGEDECAY5.md:3417-3437	GD Proposition R7.5	-
+eq:gd-r7-4	docket68/n1star/GAUGEDECAY5.md:3422-3423	GD (R7.4)	-
+def:hr-order	docket68/n1star/GAUGEDECAY5.md:3439-3442	GD R7.b, data of order p	Killing multiple named
+cor:gd-r7-6	docket68/n1star/GAUGEDECAY5.md:3444-3474	GD Corollary R7.6 with (A73) (3999-4006), (A72), (A105), (A113)	T9's chain made explicit (delta := (p - alpha_K)/5); Upsilon of the source renamed Y_d
+cor:gd-r7-7	docket68/n1star/GAUGEDECAY5.md:3475-3529	GD Corollary R7.7 with (A79) (3960) and (A73)	T8 written out (W**_H at infinity); 'p_0 >= q - 1' stated as 'every order below q - 1' (logarithms in E_0); Y_V (the source's K-gauge vector) obtained from thm:ix-2-2 (Step 1) in place of the KID argument, with DRic(k) = 0 from prop:viii-1-2 (1) and DRic(K_V) = 0; p_0 = infinity when mdot = 0 added and proved (data of Z'_0 - zeta_inf (d_t)^flat vanish near infinity); the source's 'p_0 = 1' for such data not carried
+sec:hr-subspace	docket68/n1star/GAUGEDECAY5.md:4007-4027	GD R8.a setting	-
+def:gd-r8-1	docket68/n1star/GAUGEDECAY5.md:4028-4047	GD Definition R8.1	Pi_cl defined as Pi_G(1 - Pi_0) (the source's equality Pi_G Pi_>=2 = Pi_G(1 - Pi_0) not used); representations named concretely
+lem:gd-r8-2	docket68/n1star/GAUGEDECAY5.md:4049-4085, 4913-4948, 5560-5585, 5620-5630	GD Lemma R8.2 with R9.b (F1), (A102), (A106)	(e) added: the inclusion of ran Pi in the types of degree >= 2 (the converse is not used); N1 not needed
+lem:gd-r8-3	docket68/n1star/GAUGEDECAY5.md:4089-4121	GD Lemma R8.3 with (A93)	L1 written out (radial systems derived); L2 replaced by lem:iii-d-4-1 at z = 0
+eq:gd-r8-1	docket68/n1star/GAUGEDECAY5.md:4092-4095	GD (R8.1)	mu_0 -> m0; lambda -> Lambda_l
+lem:gd-r8-4	docket68/n1star/GAUGEDECAY5.md:4123-4170	GD Lemma R8.4 with (A100) item 2	proved along lem:iii-d1-2-1 (2) with prop:np-10-16 (iii)-(v); L3-L6 not needed
+lem:hr-split	docket68/n1star/GAUGEDECAY5.md:4950-4970	GD R9.b (F2) lemma	-
+prop:gd-r8-5	docket68/n1star/GAUGEDECAY5.md:4172-4196, 4950-4974	GD Proposition R8.5 with (F2)	-
+prop:gd-r8-6	docket68/n1star/GAUGEDECAY5.md:4199-4233	GD Proposition R8.6 with (A91)	L8 not needed: the exclusions are the integrals of prop:i-c-5-3's proof
+lem:gd-r8-8	docket68/n1star/GAUGEDECAY5.md:4264-4283, 4884-4911	GD Lemma R8.8 with R9.a ((A94))	index argument as repaired in R9.a
+thm:gd-r8-7	docket68/n1star/GAUGEDECAY5.md:4235-4292, 4975-4985	GD Theorem R8.7 with (F3)	-
+cor:gd-r8-9	docket68/n1star/GAUGEDECAY5.md:4294-4307, 4986-4989	GD Corollary R8.9 with (F4)	-
+sec:hr-rate	docket68/n1star/GAUGEDECAY5.md:2128-2175, 4309-4393	GD R5.b, R8.f	-
+cor:gd-r5-3	docket68/n1star/GAUGEDECAY5.md:2130-2175	GD Corollary R5.3 with (A33) (2213), (A48) (2802), (A65) (3196), (A125) (6687)	carried for thm:gd-r3-4's and cor:gd-r4-4's representatives (proved there); its construction is used by cor:gd-r8-11; Q6 inequalities written out; Y_h-clauses via cor:hr-compact-rates
+eq:gd-r5-3	docket68/n1star/GAUGEDECAY5.md:2134-2135	GD (R5.3)	-
+thm:gd-r8-10	docket68/n1star/GAUGEDECAY5.md:4309-4356	GD Theorem R8.10 with (A96)	L9's conditions written out in the proof
+eq:gd-r8-2	docket68/n1star/GAUGEDECAY5.md:4314-4315	GD (R8.2)	-
+cor:gd-r8-11	docket68/n1star/GAUGEDECAY5.md:4358-4376	GD Corollary R8.11 with (A97), (A100) item 7	N7 ((L_Z g)_>=2 = L_(Z_>=2) g) by commutation with the SO(4)-average
+thm:harmonic-rate	docket68/n1star/GAUGEDECAY5.md:4377-4393; paper/RESPONSE-HL-5D.md:842-872, 1488-1503	GD Corollary R8.12 with (A73), (A79); P s.8.2 statement	exported; p_0 the supremum of the orders of Z'_0's data; c = (Q[Z'_0] - 4 pi^2 m0 c')/4 pi^2, proved equal to cor:gd-r4-4's c_inf (subtract the two settling bounds; (L_W* g)_vr = -7/24 r_h^-3 at 2 r_h); rate stated in t_* (bounded difference from v and t on compact r-sets)

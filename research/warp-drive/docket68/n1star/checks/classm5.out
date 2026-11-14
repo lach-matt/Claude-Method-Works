@@ -1,0 +1,30 @@
+classm5: the stage-1 mean at X* reduced to M_22 by the class; W_TT on Sigma_tau0
+  K1 (exact): at phi1 = 0 the x2 column of a class tensor is ['0', '0', 'm_p1p1/(r**2*cos(theta)**2)', '0', '0']: True
+  K2 (exact): at X*, g(s) e2 = (M_22 + (4/3) K cos s) e2 for every class M, every s, every chi: True; so sup_s |g(s)|_op
+      >= (4/3) K + |M_22| (deduced)
+  K3 (exact; certified): H^2 (4 C^4 + S^4) = 5/2 + 3 q/(1 + q^2): True, 4 - it = 3*(q - 1)**2/(2*(q**2 + 1)) >= 0, = 4 at
+      q = 1; H^2 (C^4 + S^4) is 4 - (3) <= 4; so sup_{th, s} |W_TT|_op = (4/3) E r^(-3/2); on Sigma_tau0, sup |W_TT|_op
+      <= [0.221882 +/- 3.34e-7] (certified; R7.3 printed < 0.64 with a factor 2^(1/2)); pinned in ['[0.220 +/- 1e-8]',
+      '[0.230 +/- 1e-8]']: True
+      K4: an enclosure with min |M_22| = 1/10 would multiply the operator-norm bound 0.0024433 by 0.992122 (< 0.0024241)
+      K4: an enclosure with min |M_22| = 1 would multiply the operator-norm bound 0.0024433 by 0.926434 (< 0.0022636)
+      K4: an enclosure with min |M_22| = 5 would multiply the operator-norm bound 0.0024433 by 0.715801 (< 0.0017489)
+  K4: (4/3) K at X* >= [12.5934637 +/- 2.51e-8] > 12.593309: True
+  K5: Dtau* = 4 - a = [3.7301412 +/- 1.15e-8]; e^(kappa Dtau*/2) <= [5.103e+10 +/- 2.89e+5] (kappa <= 13.2197, READ
+      stage1rate5.out K3): an enclosure of M_22 through Lemma 2.3 needs the residual of an approximate stage-1 solution
+      below |M_22| times about 2e-11 in the energy norm, before the lower-order coefficients and the Sobolev constant of
+      the evaluation at X*: True
+  C1 (control): a v phi1 component added: the x2 column is ['m_vp1/(r*cos(theta))', 'm_vp1/r',
+      'm_p1p1/(r**2*cos(theta)**2)', 'm_vp1*cos(phi2)*tan(theta)/r', 'm_vp1*sin(phi2)*tan(theta)/r']: K1 fails: True
+  C2 (control): an off-class entry M_23 = w: e2 is no longer an eigenvector: True
+  C3 (control): the angular claim <= 2: 2 - H^2 (4 C^4 + S^4) at q = 1 is -2 < 0: True
+  C4 (control): K3 on the slice tau = -1 instead of tau0 = -2: bound [0.343012 +/- 4.53e-7], outside the pin: True
+K1 PASS
+K2 PASS
+K3 PASS
+K4 PASS
+K5 PASS
+C1 PASS
+C2 PASS
+C3 PASS
+C4 PASS

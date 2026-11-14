@@ -1,0 +1,19 @@
+E0 (exact at jets) the Gauss formula (G) and the planar trace th - kappa1, in the class
+   seed 11: (G) True; planar trace = box u - kappa1: True; controls: without K True, coordinate plane True
+   seed 23: (G) True; planar trace = box u - kappa1: True; controls: without K True, coordinate plane True
+   seed 37: (G) True; planar trace = box u - kappa1: True; controls: without K True, coordinate plane True
+E1 (exact) the leaf's equation at the axis: a regular Volterra equation with first-order coefficients
+   H2 linear in h'': True; E and k_ph free of h'': True; highest metric derivative in E: 1, in k_ph: 1
+   control: the reader finds second derivatives in a Ricci component of gamma3: True
+   instance 0: E/r -> 0.2524271845, k_ph -> -0.561525372 (settled to 1e-12 at r = 1e-8: True); control (cross term C dz dr): k_ph = -2.67e+7 at r = 1e-8, growing like 1/r: True
+   instance 1: E/r -> 0.3688311688, k_ph -> 0.7115984221 (settled to 1e-12 at r = 1e-8: True); control (cross term C dz dr): k_ph = -1.633e+7 at r = 1e-8, growing like 1/r: True
+   instance 2: E/r -> 0.2540021345, k_ph -> 0.0541178795 (settled to 1e-12 at r = 1e-8: True); control (cross term C dz dr): k_ph = -8.893e+6 at r = 1e-8, growing like 1/r: True
+E2 (scipy) the estimate on a curved metric, for the perturbation of the background leaf; reconstruction
+   eps = 0.2: ||d sigma||/||d H2|| = 0.497131, ||d_r d sigma||/||d_r d H2|| = 0.286151; control ||d k_ph||/||h'|| = 7.0674
+   eps = 0.1: ||d sigma||/||d H2|| = 0.499278, ||d_r d sigma||/||d_r d H2|| = 0.288133; control ||d k_ph||/||h'|| = 14.1404
+   eps = 0.05: ||d sigma||/||d H2|| = 0.499819, ||d_r d sigma||/||d_r d H2|| = 0.288539; control ||d k_ph||/||h'|| = 28.2834
+   eps = 0.025: ||d sigma||/||d H2|| = 0.499955, ||d_r d sigma||/||d_r d H2|| = 0.288641; control ||d k_ph||/||h'|| = 56.5681
+   bounded, the derivative ratio converged to 3 %: True; the ratio tends to the flat value 1/2: True; control grows like 1/eps: True
+   reconstruction from the axis with H2 given: max error in h' 4.06e-11, in sigma 8.01e-10; flat equation (control): 1.46e-01, 2.91e+00
+PASS
+exit 0

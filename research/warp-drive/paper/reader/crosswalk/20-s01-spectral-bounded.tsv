@@ -1,0 +1,106 @@
+label	source	source_name	note
+part:stability	docket68/n1star/proof5/PART-I-SPECTRAL.md:1	I.A title (part heading)	edition part heading
+ch:s01	docket68/n1star/proof5/PART-I-SPECTRAL.md:17-1889	Part I.A	chapter; intro from 17-28 (status 3-15 and section 9 and Sources 1890-1939 dropped); n = 4 changes kept
+sec:i-a-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:30	I.A section 1	
+sec:i-a-1-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:32-47	I.A section 1.1	radii stated as parameters (BEYOND5-R0-PROOF.md section 2: Parts I-II hold for abstract radii); ordering adds r_0 + delta_0 < r_2 (missing in source 37, needed by Cor. 6.5 at 1446), with the paragraph that decreasing delta_0 costs nothing
+sec:i-a-1-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:49-58	I.A section 1.2	Re_h and Im_h defined here (source defines them at 118 and 334); bundle rank N written N_E; Sobolev error orders N written M (OUTLINE notation); T*M, S^2T*M written in words
+sec:i-a-1-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:60-138	I.A section 1.3	
+eq:i-a-1-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:64	I.A (1.1)	
+eq:i-a-1-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:76-78	I.A (1.2)	
+eq:i-a-1-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:94-95	I.A (1.3)	
+rem:i-a-hypotheses	docket68/n1star/proof5/PART-I-SPECTRAL.md:117-138	I.A Remarks on the hypotheses (a)-(d)	private key; (c): main-proof pointers 10.19, 10.36, 10.60, 10.79 replaced by ch:s12, ch:s13, ch:s14
+eq:i-a-1-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:124-126	I.A (1.4)	
+sec:i-a-1-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:140-182	I.A section 1.4	lambda_max and lambda_min written max spec and min spec
+def:i-a-admissible	docket68/n1star/proof5/PART-I-SPECTRAL.md:149-173	I.A order pairs, (O1)-(O3)	private key; unnumbered in source
+eq:i-a-1-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:163-165	I.A (1.5)	
+rem:i-a-1-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:184-190	I.A Remark 1.1	Part I.B (in preparation) replaced by ch:s02; D186 tag and READ dropped; conditional of source 188-189 kept: would supply ..., not needed in this chapter
+sec:i-a-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:192	I.A section 2	
+sec:i-a-2-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:194-245	I.A section 2.1, (C1)-(C8)	[HJS] black boxes stated with pages; access date and the aside at 244-245 dropped
+sec:i-a-2-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:247-252	I.A section 2.2	rank N written N_E; M_N(...) written in words
+lem:i-a-2-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:254-277	I.A Lemma 2.1	D186 tag dropped (263)
+lem:i-a-2-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:279-292	I.A Lemma 2.2	weight lambda renamed Lambda
+lem:i-a-2-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:294-306	I.A Lemma 2.3	
+sec:i-a-2-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:308-325	I.A section 2.3	
+lem:i-a-2-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:310-321	I.A Lemma 2.4 = [Hin26c] Lemma 5.12	nilpotent N renamed J
+sec:i-a-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:327-555	I.A section 3	bold N written bold M; scalar N written M throughout the chapter
+lem:i-a-3-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:336-486	I.A Lemma 3.1	D186 and D187 tags dropped (355, 405, 412, 457)
+eq:i-a-3-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:347-348	I.A (3.1)	
+eq:i-a-3-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:364-365	I.A (3.2)	
+eq:i-a-3-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:384-385	I.A (3.3)	
+eq:i-a-3-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:399	I.A (3.4)	
+lem:i-a-3-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:488-518	I.A Lemma 3.2	G_j renamed calligraphic G_j (G_0 is the symbol of (H1)); D186 dropped (507)
+eq:i-a-3-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:498-499	I.A (3.5)	
+rem:i-a-3-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:520-533	I.A Remark 3.3	D187 dropped (532)
+def:i-a-cutoff	docket68/n1star/proof5/PART-I-SPECTRAL.md:535-540	I.A The cut-off	private key; unnumbered in source; example rescaled to supp psi = [-3/4, 3/4] so that psi is compactly supported in (-1, 1) as the class requires (source 537-540 has supp psi = [-1, 1])
+def:i-a-regulariser	docket68/n1star/proof5/PART-I-SPECTRAL.md:542-555	I.A The regulariser	private key; unnumbered in source
+eq:i-a-3-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:546-547	I.A (3.6)	
+sec:i-a-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:557	I.A section 4	
+sec:i-a-4-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:559-708	I.A section 4.1 = [Hin26c] Prop 9.9	local threshold vartheta written vartheta_pm
+eq:i-a-4-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:569-570	I.A (4.1)	
+lem:i-a-4-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:572-595	I.A Lemma 4.1	D186 and D187 dropped (577, 594); constant M renamed C_y (M reserved for orders)
+prop:i-a-4-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:597-701	I.A Proposition 4.2	residual term written r_eps in place of rho_infty r_eps (668-669, 688-689), see report; D186 dropped (655); r_eps written with Id in both identities
+eq:i-a-4-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:604	I.A (4.2)	
+eq:i-a-4-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:609	I.A (4.3)	
+rem:i-a-4-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:703-708	I.A Remark 4.3	computed in 10.79 (hthresh5.py) replaced by pointer to ch:s13, ch:s14
+sec:i-a-4-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:710-770	I.A section 4.2	
+lem:i-a-4-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:712-753	I.A Lemma 4.4	READ dropped (745)
+eq:i-a-4-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:724-725	I.A (4.4)	
+eq:i-a-4-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:758-760	I.A (4.5)	
+eq:i-a-4-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:764-766	I.A (4.6)	
+eq:i-a-4-7	docket68/n1star/proof5/PART-I-SPECTRAL.md:768	I.A (4.7)	
+lem:i-a-4-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:772-787	I.A Lemma 4.5	
+sec:i-a-4-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:789-932	I.A section 4.3 = [Hin26c] Prop 9.10	
+prop:i-a-4-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:796-932	I.A Proposition 4.6	shift x renamed y in the cut-off term; double commutators spaced; D186 and D187 dropped (816, 879, 916); z_eps multiplied by a finite-frequency cut-off (source 915 omits it), inclusion S^(-inf,1/2) in S^(-1/2(m-1)) written as inclusion
+eq:i-a-4-8	docket68/n1star/proof5/PART-I-SPECTRAL.md:804-805	I.A (4.8)	
+eq:i-a-4-9	docket68/n1star/proof5/PART-I-SPECTRAL.md:810-811	I.A (4.9)	
+sec:i-a-4-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:934-1012	I.A section 4.4	
+lem:i-a-4-7	docket68/n1star/proof5/PART-I-SPECTRAL.md:943-965	I.A Lemma 4.7 = [Hin26c] (9.49)	
+lem:i-a-4-8	docket68/n1star/proof5/PART-I-SPECTRAL.md:967-1005	I.A Lemma 4.8 = [Hin26c] Lemma 9.13 with the sign of (9.45) changed	operator script R renamed script P
+eq:i-a-4-10	docket68/n1star/proof5/PART-I-SPECTRAL.md:971-972	I.A (4.10)	
+rem:i-a-4-8-sign	docket68/n1star/proof5/PART-I-SPECTRAL.md:1007-1012	I.A Remark (what the correction changes)	private key
+sec:i-a-4-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:1014-1126	I.A section 4.5 = [Hin26c] Prop 9.11	
+eq:i-a-4-11	docket68/n1star/proof5/PART-I-SPECTRAL.md:1022-1025	I.A (4.11)	
+eq:i-a-4-12	docket68/n1star/proof5/PART-I-SPECTRAL.md:1030-1031	I.A (4.12)	
+prop:i-a-4-9	docket68/n1star/proof5/PART-I-SPECTRAL.md:1037-1126	I.A Proposition 4.9	gamma defined explicitly; D186, D187, D196 dropped (1062, 1068, 1085); remaining hypotheses of Lemma 3.1 stated as in 4.6, with the same z_eps
+eq:i-a-4-13	docket68/n1star/proof5/PART-I-SPECTRAL.md:1044-1045	I.A (4.13)	
+eq:i-a-4-14	docket68/n1star/proof5/PART-I-SPECTRAL.md:1050-1051	I.A (4.14)	
+eq:i-a-4-15	docket68/n1star/proof5/PART-I-SPECTRAL.md:1056-1057	I.A (4.15)	
+sec:i-a-4-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:1128-1135	I.A section 4.6	
+lem:i-a-4-10	docket68/n1star/proof5/PART-I-SPECTRAL.md:1137-1144	I.A Lemma 4.10 = [Hin26c] Remark 9.14, (9.53)	
+sec:i-a-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:1146	I.A section 5	
+prop:i-a-5-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1148-1159	I.A Proposition 5.1	
+prop:i-a-5-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:1161-1265	I.A Proposition 5.2	sign epsilon renamed eps_f, curve length T renamed t_1, scalar lambda renamed Lambda_rho; D186, D187, D195 dropped (1198, 1208, 1235, 1255); large constant M renamed C_z (M reserved for orders)
+eq:i-a-5-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1183-1184	I.A (5.1)	
+rem:i-a-5-2-uses	docket68/n1star/proof5/PART-I-SPECTRAL.md:1267-1278	I.A The two uses	private key
+sec:i-a-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:1280	I.A section 6	
+sec:i-a-6-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1282-1322	I.A section 6.1	
+lem:i-a-6-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1295-1322	I.A Lemma 6.1	dilation D_lambda renamed D_mu; (d) states the orders (m, l) of L
+sec:i-a-6-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:1324-1391	I.A section 6.2	1390-1391 kept only as the closing sentence on the weights and the Poincare inequality
+lem:i-a-6-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:1336-1349	I.A Lemma 6.2	
+prop:i-a-6-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:1351-1388	I.A Proposition 6.3	exponent lambda renamed gamma
+prop:i-a-6-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:1393-1444	I.A Proposition 6.4	D186 dropped (1417); L is defined on {r_0 - 2 delta_0 < r < r_2}: identities LD = 0, LW = F stated there
+cor:i-a-6-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:1446-1461	I.A Corollary 6.5	r_0 < b' < b'' < r_2 - delta_0 is satisfiable by the ordering of sec:i-a-1-1 (r_0 + delta_0 < r_2)
+eq:i-a-6-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1450-1452	I.A (6.1)	
+eq:i-a-6-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:1454-1455	I.A (6.2)	
+sec:i-a-7	docket68/n1star/proof5/PART-I-SPECTRAL.md:1463-1866	I.A section 7	heading "The Fredholm theorem" (source heading repeats the chapter title)
+lem:i-a-7-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1465-1489	I.A Lemma 7.1	
+thm:i-a-7-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:1500-1556	I.A Theorem 7.2 = [Hin26c] Theorem 9.5 at n = 4	(3): the source's parenthetical on index 0 (1520) moved to rem:i-a-index-zero, scoped to the hypotheses of thm:i-b-1-3
+eq:i-a-7-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1508-1509	I.A (7.1)	
+eq:i-a-7-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:1511-1512	I.A (7.2)	
+eq:i-a-7-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:1525-1526	I.A (7.3)	
+eq:i-a-7-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:1531-1533	I.A (7.4)	
+eq:i-a-7-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:1539-1541	I.A (7.5)	
+eq:i-a-7-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:1555-1556	I.A (7.6)	
+rem:i-a-7-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:1558-1562	I.A Remark 7.3 = [Hin26c] Remark 9.6	
+rem:i-a-index-zero	docket68/n1star/proof5/PART-I-SPECTRAL.md:1520	I.A Theorem 7.2 (3), parenthetical on the index = [Hin26c] Theorem 9.16 (3)	private key; index 0 under the hypotheses of thm:i-b-1-3, from the constancy in thm:i-a-7-2 (3)
+sec:i-a-7-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1564-1636	I.A section 7.1 (proof of (1))	margin eta named delta_in; a priori order r_0' at R_out made explicit; D187 dropped (1607); end-of-proof sign added; piece (C): a priori decay order at R_in is r + alpha_+ - delta_in/2 (source 1603 prints r - eta/2)
+sec:i-a-7-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:1638-1645	I.A section 7.2 (proof of (2))	
+sec:i-a-7-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:1647-1704	I.A section 7.3 (proof of (3))	complement script R renamed script W; bordered operator P-tilde renamed P-sharp
+lem:i-a-7-green	docket68/n1star/proof5/PART-I-SPECTRAL.md:1653-1664	I.A Green's formula inside section 7.3	private key; D186 dropped (1655)
+sec:i-a-7-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:1706-1713	I.A section 7.4 (proof of (4))	
+sec:i-a-7-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:1715-1792	I.A section 7.5 (proof of (5))	eigenvalues lambda renamed e; nilpotent N_lambda written J_e; rank N written N_E
+lem:i-a-7-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:1717-1741	I.A Lemma 7.4	
+sec:i-a-7-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:1794-1865	I.A section 7.6 (proof of (6))	spaces script A and script B renamed fraktur A and B; D186 dropped (1836, 1844, 1865); operator M(sigma) renamed T-tilde(sigma) (M reserved for orders)
+sec:i-a-8	docket68/n1star/proof5/PART-I-SPECTRAL.md:1867-1888	I.A section 8	
+thm:i-a-8-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1869-1888	I.A Theorem 8.1	the closing pointer to the main proof's Lemma 10.59 dropped (1887-1888); D186 dropped (1882); constant M of Prop. 5.2 written C_z
+rem:i-a-comparison	docket68/n1star/proof5/PART-I-SPECTRAL.md:1905-1924	I.A section 9 (F4)-(F6), mined	private key; neutral comparison with [Hin26c]; (F1) is rem:i-a-4-8-sign; (F2)-(F3) concern the main proof and are dropped

@@ -1,0 +1,140 @@
+label	source	source_name	note
+part:stability-linear			part heading; title from OUTLINE
+ch:s11	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:1-21; docket68/n1star/proof5/PART-III-B-FAMILY.md:1-25; docket68/n1star/proof5/PART-III-A-PREREQ.md:1-22	III.A1, III.B, III.A intros	introduction composed from the three intros; statuses dropped; inner radius a parameter (R0P section 0)
+sec:iii-a1-1	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:22-234	III.A1 section 1	sphere dimension N renamed nu (N reserved for the approximant)
+eq:iii-a1-1-1	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:28	III.A1 (1.1)	
+lem:iii-a1-1-1	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:42-78	III.A1 Lemma 1.1	index notation omega_(a;) written with nabla
+lem:iii-a1-1-2	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:80-104	III.A1 Lemma 1.2	
+eq:iii-a1-1-2a	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:82	III.A1 (1.2a)	
+eq:iii-a1-1-2b	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:83	III.A1 (1.2b)	
+eq:iii-a1-1-2c	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:85	III.A1 (1.2c)	
+eq:iii-a1-1-2d	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:87	III.A1 (1.2d)	
+eq:iii-a1-1-2e	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:88	III.A1 (1.2e)	
+def:iii-a1-1-3	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:106-130	III.A1 Definition 1.3 with the tensor-type example	harm5 K5 parenthetical dropped; last step of the example written out via (1.2e)
+lem:iii-a1-1-4	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:132-176	III.A1 Lemma 1.4	classical facts named in the proof (as section 3.3 of the file states)
+lem:iii-a1-1-5	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:178-208	III.A1 Lemma 1.5	
+eq:iii-a1-1-2	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:189	III.A1 (1.2) (in Lemma 1.5)	
+eq:iii-a1-1-3	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:191	III.A1 (1.3)	
+lem:iii-a1-1-6	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:210-225	III.A1 Lemma 1.6	
+def:iii-a1-1-7	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:227-233	III.A1 Definition 1.7	
+sec:iii-a1-2	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:235-481	III.A1 section 2	
+sec:iii-a1-2-1	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:237-286	III.A1 section 2.1	lin5 mention dropped
+eq:iii-a1-2-1	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:241	III.A1 (2.1)	
+eq:iii-a1-2-2	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:248	III.A1 (2.2)	
+eq:iii-a1-2-3	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:258	III.A1 (2.3)	
+eq:iii-a1-2-4	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:267	III.A1 (2.4)	matrix drawn as rows
+eq:iii-a1-2-5	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:274	III.A1 (2.5)	
+eq:iii-a1-2-6	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:281	III.A1 (2.6)	
+sec:iii-a1-2-2	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:288-388	III.A1 section 2.2	
+lem:iii-a1-2-1	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:290-388	III.A1 Lemma 2.1	1-form matrices named B1, E1; harm5 K5 sentence dropped (proof by hand already)
+eq:iii-a1-2-7	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:309	III.A1 (2.7)	matrix named B2
+eq:iii-a1-2-8	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:314	III.A1 (2.8)	matrix of d_t* named E2
+eq:s11-box-tensors	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:343-349	III.A1 proof of Lemma 2.1, unnumbered display (box of a symmetric 2-tensor, Cartesian splitting)	label added so that later chapters can cite the display; text unchanged
+sec:iii-a1-2-3	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:390-443	III.A1 section 2.3	
+eq:iii-a1-2-9	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:396	III.A1 (2.9)	
+eq:iii-a1-2-10	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:403	III.A1 (2.10)	
+eq:iii-a1-2-11	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:412	III.A1 (2.11)	
+def:iii-a1-2-2	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:415-417	III.A1 Definition 2.2	indicial variable lambda written iota
+lem:iii-a1-2-3	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:425-443	III.A1 Lemma 2.3	proof by harm5 K1-K3, K5, K6 replaced by a hand proof (Cartesian reduction, bases of restricted harmonic polynomials); the Remark at 437-441 became the proof; checked privately at nu = 2, 3, 4
+sec:iii-a1-2-4	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:445-481	III.A1 section 2.4	
+eq:iii-a1-2-12	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:455	III.A1 (2.12)	row labels stated
+lem:iii-a1-2-4	docket68/n1star/proof5/PART-III-A2-HARMONICS.md:458-476	III.A1 Lemma 2.4	harm5 K4 parenthetical (478-480) dropped
+sec:iii-b-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:26-45	III.B section 1	mu renamed m (OUTLINE notation); D := n + 1 written as 5
+sec:iii-b-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:47-90; docket68/n1star/BEYOND5-R0-PROOF.md:17-45, 146-160	III.B section 2 at r_flat (R0P sections 0 and 3)	r_0 = R_1/2 replaced by the parameter r_flat in (0, R_1/2]
+def:iii-b-2-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:51-77; docket68/n1star/BEYOND5-R0-PROOF.md:21-22	III.B Definition 2.1 at r_flat	
+eq:iii-b-2-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:55	III.B (2.1)	r_0 -> r_flat
+eq:iii-b-2-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:64	III.B (2.2)	
+lem:iii-b-2-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:79-90; docket68/n1star/BEYOND5-R0-PROOF.md:153	III.B Lemma 2.2 at r_flat	
+sec:iii-b-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:92-289	III.B section 3	
+sec:iii-b-3-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:94-161; docket68/n1star/BEYOND5-R0-PROOF.md:48-56, 154-158; docket68/n1star/proof5/PART-IV6-SOLV.md:24-30	III.B section 3.1 with R0P F1 and IV(5) section 0	normal form of so(4) (rotated frame) stated once
+eq:iii-b-3-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:98	III.B (3.1)	P(r) renamed Pi(r), as in [ER08] (44) (P is also the gauge-fixed operator); M written sans-serif
+lem:iii-b-3-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:100-119	III.B Lemma 3.1	(a): chk3b check replaced by the Cayley-Hamilton theorem for antisymmetric 4x4 matrices
+def:iii-b-3-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:121-125	III.B Definition 3.2	supplement 10.36 attribution dropped
+eq:iii-b-3-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:125	III.B (3.2)	
+lem:iii-b-3-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:127-143	III.B Lemma 3.3	(a),(b): chk3b check replaced by a hand derivation with sans-serif N := (r^2 - A^2)^-1 (script N is an energy); covector theta renamed Theta
+prop:iii-b-3-4	docket68/n1star/proof5/PART-III-B-FAMILY.md:145-154; docket68/n1star/N1STAR-PROOF.md:5837-5850	III.B Proposition 3.4 (READ) with NP Proposition 10.33 (i)	Ricci-flatness: [ER08] (42), (44), (45) p. 16 as black box; identification of (3.2) at A = aJ12 + bJ34 with ER08 (42) (computed at points in NP 10.33 (i)) written out by hand; all A by O(4) covariance; A = 0 check (chkric) written out; checked privately
+eq:s11-er08	[ER08] (42), (44), p. 16	the black box	
+lem:s11-ks-domain	docket68/n1star/proof5/PART-IV6-SOLV.md:24-30; docket68/n1star/BEYOND5-R0-PROOF.md:48-56; docket68/n1star/proof5/PART-VI-DYN.md:79-87	IV(5) section 0 extension of III.B section 3.1 estimate; R0P F1	added by the entry; stated at r_flat (at r_flat = R_1/2 the domain is |x| >= R_1/4); parameter set: eps_param in (0, 1/10) with eps_param <= r_flat/(4R_1), containing III.B set at r_flat = R_1/2 and R0P set B_flat
+def:s11-parameters	docket68/n1star/BEYOND5-R0-PROOF.md:19-20	R0P section 0 choices (eps_flat, B_flat)	the one parameter set of the stability theory; mass written m
+sec:iii-b-3-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:163-219	III.B section 3.2	T_mu argument rho renamed varrho (rho = 1/|x|)
+eq:iii-b-3-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:168	III.B (3.3)	
+lem:iii-b-3-5	docket68/n1star/proof5/PART-III-B-FAMILY.md:172-196; docket68/n1star/BEYOND5-R0-PROOF.md:159-160	III.B Lemma 3.5 at r_flat	(b): chk3b symbolic check replaced by the substitution written out, including g_|x||x|
+eq:iii-b-3-4	docket68/n1star/proof5/PART-III-B-FAMILY.md:176	III.B (3.4)	
+prop:iii-b-3-6	docket68/n1star/proof5/PART-III-B-FAMILY.md:198-219	III.B Proposition 3.6	
+eq:iii-b-3-5	docket68/n1star/proof5/PART-III-B-FAMILY.md:200	III.B (3.5)	
+sec:iii-b-3-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:221-254; docket68/n1star/BEYOND5-R0-PROOF.md:161-170	III.B section 3.3 at r_flat	
+eq:iii-b-3-6	docket68/n1star/proof5/PART-III-B-FAMILY.md:224; docket68/n1star/BEYOND5-R0-PROOF.md:161	III.B (3.6) with psi from r_flat	
+lem:iii-b-3-7	docket68/n1star/proof5/PART-III-B-FAMILY.md:228-251; docket68/n1star/BEYOND5-R0-PROOF.md:162-170; docket68/n1star/proof5/PART-VI-DYN.md:80-87	III.B Lemma 3.7 at r_flat; collar sentence from VI.A Lemma 1.1 and R0P section 8	sentence after the proof: dt_* timelike on {r_flat/2 <= |x| <= r_flat}; t_* <= t not claimed there
+sec:iii-b-3-4	docket68/n1star/proof5/PART-III-B-FAMILY.md:256-289	III.B section 3.4	route wording dropped; data class pointed to ch:s27
+def:iii-b-3-8	docket68/n1star/proof5/PART-III-B-FAMILY.md:258-259	III.B Definition 3.8	
+eq:iii-b-3-7	docket68/n1star/proof5/PART-III-B-FAMILY.md:262	III.B (3.7)	
+lem:iii-b-3-9	docket68/n1star/proof5/PART-III-B-FAMILY.md:267-286	III.B Lemma 3.9	
+eq:iii-b-3-8	docket68/n1star/proof5/PART-III-B-FAMILY.md:271	III.B (3.8)	
+eq:iii-b-3-9	docket68/n1star/proof5/PART-III-B-FAMILY.md:272	III.B (3.9)	
+sec:iii-b-4	docket68/n1star/proof5/PART-III-B-FAMILY.md:291-332	III.B section 4	
+eq:iii-b-4-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:295	III.B (4.1)	
+lem:iii-b-4-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:297-322	III.B Lemma 4.1	v renamed v' in the proof (v = t_0/|x| elsewhere)
+eq:iii-b-4-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:298	III.B (4.2)	
+eq:iii-b-4-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:302	III.B (4.3)	
+eq:iii-b-4-4	docket68/n1star/proof5/PART-III-B-FAMILY.md:326	III.B (4.4)	
+sec:iii-b-5	docket68/n1star/proof5/PART-III-B-FAMILY.md:334-427; docket68/n1star/proof5/PART-III-B-FAMILY.md:519-527	III.B section 5; cut-off consistency from finding (K1)	mass of the Kerr base point of [Hin26] written fraktur m
+lem:iii-b-5-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:356-377	III.B Lemma 5.1	
+eq:iii-b-5-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:367	III.B (5.1)	
+lem:iii-b-5-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:379-427	III.B Lemma 5.2	L2 norm of S_w (chkboost) written out; boost identity at v = 0 verified in the text; K renamed K_Lambda, theta (covector) renamed Xi, angle written vartheta
+eq:iii-b-5-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:388	III.B (5.2)	
+eq:iii-b-5-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:392	III.B (5.3)	
+sec:iii-b-6	docket68/n1star/proof5/PART-III-B-FAMILY.md:429-509; docket68/n1star/proof5/PART-III-B-FAMILY.md:511-518	III.B section 6; remarks from section 7.1	section 7.1 condensed into the closing remarks paragraph
+def:iii-b-6-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:430-450; docket68/n1star/BEYOND5-R0-PROOF.md:173-182	III.B Definition 6.1 with R0P section 3	forms required smooth on {|x| >= r_flat/2}, where the operators of later chapters are built (R0P section 3; VI.A finding (VI.A7))
+eq:iii-b-6-1	docket68/n1star/proof5/PART-III-B-FAMILY.md:437	III.B (6.1)	
+eq:iii-b-6-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:441	III.B (6.2)	
+eq:iii-b-6-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:444	III.B (6.3)	
+eq:iii-b-6-4	docket68/n1star/proof5/PART-III-B-FAMILY.md:446	III.B (6.4)	
+lem:iii-b-6-2	docket68/n1star/proof5/PART-III-B-FAMILY.md:454-474	III.B Lemma 6.2	proof sentence on E_H made explicit; sentence on the choice of the record (10.12, 10.15) dropped
+eq:iii-b-6-5	docket68/n1star/proof5/PART-III-B-FAMILY.md:459	III.B (6.5)	
+lem:iii-b-6-3	docket68/n1star/proof5/PART-III-B-FAMILY.md:476-508	III.B Lemma 6.3	tensor index nu renamed sigma or kappa
+eq:iii-b-6-6	docket68/n1star/proof5/PART-III-B-FAMILY.md:481	III.B (6.6)	
+eq:iii-b-6-7	docket68/n1star/proof5/PART-III-B-FAMILY.md:483	III.B (6.7)	
+eq:iii-b-6-8	docket68/n1star/proof5/PART-III-B-FAMILY.md:489	III.B (6.8)	
+sec:iii-a-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:23-138	III.A section 1	the definitions used without change are stated (def:s11-b-analysis)
+def:s11-b-analysis	[Hin26] pp. 44-48, Definitions 2.4-2.8, Notation 2.9	definitions used by III.A without change	stated in full for self-containedness
+eq:s11-index-set	[Hin26] (2.2)		
+eq:s11-partial	[Hin26] (2.3)		
+lem:iii-a-1-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:56-71	III.A Lemma 1.1	
+lem:iii-a-1-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:73-107	III.A Lemma 1.2	Hilbert space renamed calligraphic K
+eq:iii-a-1-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:82	III.A (1.1)	
+eq:iii-a-1-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:106	III.A (1.2)	
+lem:iii-a-1-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:109-138	III.A Lemma 1.3 as amended (D226, D229)	counting letter N renamed p; tags dropped
+eq:iii-a-1-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:113	III.A (1.3)	
+sec:iii-a-1-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:140-256	III.A section 1.1	Mellin variable lambda written iota; Sobolev index N renamed J; operators on C^(N_E)-valued functions (componentwise norms, matrix symbols, ellipticity = invertible principal symbol; bundles through the frame of sec:i-a-1-2); (EE) from [Shu92, Appendix 1, Lemma 1.4, pp. 69-70] in place of [Hin26d, Prop. 3.55 (3)]; (E2) widened: every Laurent coefficient gains m derivatives, uniform H^s -> H^(s+m) bounds off the poles; Theorem 3.21 on p. 38; function w renamed v; (E3) added and proved in full (meromorphic continuation with the projection Π, the pole set closed, finitely many poles in each strip)
+lem:iii-a-1-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:176-229	III.A Lemma 1.4	case of exponents on Re = beta kept as mathematics; stated for A in Diff^m_b(M; C^(N_E)); residues in C^infty by the widened (E2); cites (E3) at the three places it needs it; the step w := A(χ̃u) − χAu written out
+lem:iii-a-1-5	docket68/n1star/proof5/PART-III-A-PREREQ.md:231-256	III.A Lemma 1.5	Cauchy constant l!/(2 pi i); stated for A in Diff^m_b(M; C^(N_E)); u_j written as Laurent coefficients, (E2) for all
+eq:iii-a-1-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:244	III.A (1.4)	
+sec:iii-a-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:258-368	III.A section 2	
+def:iii-a-2-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:260-269	III.A Definition 2.1	
+def:iii-a-2-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:271-299	III.A Definition 2.2	
+eq:iii-a-2-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:292	III.A (2.1)	
+eq:iii-a-2-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:297	III.A (2.2)	
+def:iii-a-2-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:301-320	III.A Definition 2.3	
+lem:iii-a-2-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:322-341	III.A Lemma 2.4	
+eq:iii-a-2-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:327	III.A (2.3)	
+eq:iii-a-2-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:350	III.A (2.4)	dilation parameter written lambda_0
+eq:iii-a-2-5	docket68/n1star/proof5/PART-III-A-PREREQ.md:361	III.A (2.5)	Mellin variable iota
+sec:iii-a-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:370-488	III.A section 3	
+lem:iii-a-3-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:376-385	III.A Lemma 3.1	
+lem:iii-a-3-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:387-438	III.A Lemma 3.2 with (L5)	hypothesis alpha + Re z > beta; its necessity in the closing remarks
+eq:iii-a-3-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:399	III.A (3.1)	
+eq:iii-a-3-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:410	III.A (3.2)	
+eq:iii-a-3-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:419	III.A (3.3)	
+lem:iii-a-3-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:440-488	III.A Lemma 3.3 (D226, D229)	counting letter N renamed p
+eq:iii-a-3-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:445	III.A (3.4)	
+sec:iii-a-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:490-723	III.A section 4; section 5 (uses); tail (L1)-(L7)	inputs (2.25a)-(2.26b) named (T1)-(T4) and cited to prop:ii-g1-3-3, prop:ii-g1-3-5; section 5 as a paragraph; findings (L1)-(L7) of the tail (728-768) condensed into one remarks paragraph
+eq:iii-a-4-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:529	III.A (4.1)	
+lem:iii-a-4-1	docket68/n1star/proof5/PART-III-A-PREREQ.md:537-561	III.A Lemma 4.1	
+prop:iii-a-4-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:563-723	III.A Proposition 4.2 with (L1)-(L2)	index pairs (z, m) written (z, m')
+eq:iii-a-4-2	docket68/n1star/proof5/PART-III-A-PREREQ.md:569	III.A (4.2)	
+eq:iii-a-4-3	docket68/n1star/proof5/PART-III-A-PREREQ.md:574	III.A (4.3)	
+eq:iii-a-4-4	docket68/n1star/proof5/PART-III-A-PREREQ.md:582	III.A (4.4)	l_j = k(E_K, j + 1)
+eq:iii-a-4-5	docket68/n1star/proof5/PART-III-A-PREREQ.md:585	III.A (4.5)	
+eq:iii-a-4-6	docket68/n1star/proof5/PART-III-A-PREREQ.md:606	III.A (4.6)	
+eq:iii-a-4-7	docket68/n1star/proof5/PART-III-A-PREREQ.md:617	III.A (4.7)	
+eq:iii-a-4-8	docket68/n1star/proof5/PART-III-A-PREREQ.md:676	III.A (4.8)	

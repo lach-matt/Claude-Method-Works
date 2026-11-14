@@ -1,0 +1,20 @@
+  H1: one outgoing null covector dR + alpha dvhat, alpha = [(-R**2 + mu(vhat))*exp(psi(vhat))/(2*R**2)];
+      theta+ = c 3 f/(2R) with c = 2*R**2*exp(psi(vhat))/(2*R**2 - (R**2 - mu(vhat))*exp(psi(vhat)));
+      zero at R^2 = mu: True; there d_R theta+ = 3*exp(psi(vhat))/R**2 = 3 c/mu with c = exp(psi(vhat));
+      ingoing (k = dvhat, n(tau) = -exp(-psi(vhat))): theta- = -3/R: True
+  H1 control (the ingoing normal): its expansion vanishes at R^2 = mu: False (it must not)
+  H2: g0's expansion along g0^-1 du is -3 e^(-2 sig) R_v/R: True; both families: no lam^-1 term in either
+      expansion: True; lam^0 term equal to g0's: out True, in True  [15 s]
+  H2 control (the outgoing wave with a trace on the spheres): lam^0 equal to g0's: out True, in False (the in
+      expansion must fail)  [15 s]
+  H3 point 1: lam^-1 term 0.0e+00; lam^0 oscillation 8.3e-33; lam^1 harmonics depending on s2: mixed 1.1e-32,
+      pure (0, n2) 9.9e-33; (those in s1 alone, for comparison: 9.132e-01)  [1003 s]
+  H3 point 2: lam^-1 term 0.0e+00; lam^0 oscillation 2.8e-32; lam^1 harmonics depending on s2: mixed 3.1e-32,
+      pure (0, n2) 4.3e-32; (those in s1 alone, for comparison: 4.912e-01)  [1003 s]
+  H3 point 3: lam^-1 term 0.0e+00; lam^0 oscillation 3.4e-33; lam^1 harmonics depending on s2: mixed 1.7e-33,
+      pure (0, n2) 7.7e-34; (those in s1 alone, for comparison: 3.661e-01)  [1003 s]
+  H3 control (ghat_2 dropped): lam^1 mixed harmonics 1.007e-02 1.151e-01 4.031e-03 (must be nonzero)  [1029 s]
+H1 PASS
+H2 PASS
+H3 PASS
+exit 0

@@ -401,6 +401,16 @@ metric with parameters near $b_0$. Part VII relates this transform to the boosts
 of III.J, and checks that the data of the route have charges in $V$. Proposition 1.3 (a) reduces this to closeness to
 Tangherlini's data in $|||\cdot|||_{\alpha,2}$.
 
+[Amended 2026-11-06 (GLUEDECAY5.md R2.0, on a verifier's reading); the remark above is kept as written. Its last two
+sentences are stale. Part VII does not relate the transform to the boosts of III.B or the translations of III.J, and
+does not check charges in $V$ (Part VII finding (VII1)). Part VII uses only the proof of Theorem 3.1, in class form,
+with Tangherlini members on $\Sigma_{\mathrm{IVP}}$ (Part VII Proposition 2.2). The members here lie on Kerr-Schild
+slices, whose $K$ differs from the data on $\Sigma_{\mathrm{IVP}}$ by $\nabla^2f+\rho^4C^\infty$, $f$ the height
+function of the graph $\Sigma_{\mathrm{IVP}} = \{t_{\mathrm{KS}} = f(|x|)\}$ far out, not a time function (GLUEDECAY5
+Lemma 4.1 (d); wording corrected in GLUEDECAY5 R3.0). So Theorem 3.1's glued data are not small in III.K's class at any
+$R$. Gluing a decaying perturbation with smallness in that class takes the members on $\Sigma_{\mathrm{IVP}}$
+(GLUEDECAY5 Lemma 4.1 and Proposition 4). Theorem 3.1 itself, about abstract data, is unchanged.]
+
 ## 4. Findings, labels and sources
 
 (V1) *No parity condition at n = 4.* [CD03] (8.1) asks the parity condition (E.9) so that the angular momentum and

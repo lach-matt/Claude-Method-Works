@@ -1,0 +1,36 @@
+ordcensus5: the orders at which the forward-solution chain invokes the closed-graph calculus, site by site
+  O0 (READ): 7 files at their pinned md5: True; the scope II.A2:358-785, II.D, II.D', II.E, II.F', II.C, II.F; 7 order
+      statements found by content (II.A2:727 tau >= sup s + N; II.A2:403 J'/2 >= sup s + N; II.A2:394 -N - m; II.A2:522
+      s_j; II.D:1035 |chi u|_(-N) <= |u|_(s_0); II.D:287 tau := s - s_0; II.D:691 tau = 1): True
+  O1 (census): 156 hits, 0 unclassified, 0 stale rows; by class {'call': 24, 'other': 48, 'reg': 1, 'site': 51, 'stmt':
+      32}
+  O2 (deduced): the order ranges, from the callers: Lemma 4.1 / Proposition 5.3 / the parametrix at s' in [-31, 10] (tau
+      >= sup s + N); Theorem 3.1's r' in [-61/2, 10] (J'/2 >= sup s + N); II.D-II.F' sites in [-10, 10] (s, s_0, s + 1):
+      True
+  O3 (computed): over the sites, the Sobolev orders lie in [-65/2, 14], the symbol orders in [-63, 31], the factor orders
+      of (f) in [-63/2, 951/100]; inside round 8's box ([-16, 11] x [-22, 22], factors [-10.49, 9.51]): Sobolev False,
+      symbol False, factors False. The extremes: Sobolev -65/2 at A2:385 (Theorem 3.1's iteration at r' = -61/2, its
+      input r' - m), symbol -63 at A2:687 (Proposition 5.3 at s' = -31, 2k), 31 at A2:531 (Lemma 4.2's parametrix q of
+      order r - s_j at s_j = -31). Pinned: True
+  O4 (READ): every K' of the chain (6 lines) is the membership w in H^(K') or its definition K' >= sup|s| + m + 2
+      (II.A2:439), none an order of an O3 site: True
+  O5 (READ; deduced): the a priori term |chi u|_(-N) <= |u|_(s_0) asks N >= -inf s_0 = 10 (II.D:1035); N = 14 <= 14
+      serves, and -N, -N - m = -14, -16 lie in O3's Sobolev range: True
+  C1 (control): the row II.A2:690 dropped: 1 unclassified: True
+  C2 (control): tau and J'/2 without N and the oscillation (tau = 1): Sobolev [-16, 14], symbol [-26, 1001/50]: the lower
+      ends -65/2 and -63 rest on tau and J', the Sobolev top 14 does not: True
+  C5 (control, Round 13): II.D:170 with kappa = 1 in place of 2: Sobolev top 13, not 14: the top rests on II.D's kappa :=
+      2: True
+  C3 (control): II.A2:727 altered in a copy (tau = 1): the md5 and the read both fail, so O0 fails: True
+  C4 (control): N = 10: Sobolev [-57/2, 14], symbol [-55, 27], not O3's: True
+O0 PASS
+O1 PASS
+O2 PASS
+O3 PASS
+O4 PASS
+O5 PASS
+C1 PASS
+C2 PASS
+C5 PASS
+C3 PASS
+C4 PASS

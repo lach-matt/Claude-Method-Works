@@ -53,8 +53,9 @@ What each part rests on.
      (2a + b)^2 + 3 b^2, machine-checked in Lean 4.33 core over the integers and by Z3 over the reals), so the null
      dust's energy is nonnegative for every polarization and zero only with no wave.
   F4 (computed) The sequence meets the theorem's rates (hf_core5's rows): the C^0 departure P halves with lam (ratios
-     2.48, 2.32, 1.94 at mu0/l5^2 = 100; 2.43, 2.33 at 1000), the mean-mass offset quarters (5.17, 4.01, 4.02; 4.65,
-     3.84), the horizon's departure halves (2.47, 2.26, 2.14; 2.46, 2.26); one zero per column in every run (iii).
+     2.48, 2.32, 1.94 at mu0/l5^2 = 100; 2.33, 1.93 at 1000), the mean-mass offset quarters (5.17, 4.01, 4.02; 4.00,
+     4.02), the horizon's departure halves (2.47, 2.26, 2.14; 2.26, 2.14) (D597: the 1000 figures re-read from this
+     file's own output; the earlier ones were a superseded sequence's); one zero per column in every run (iii).
   F5 (computed, exact; M's 513) The light cone settles what the nonlinear coupling is.  M, 513: "Refer back to the
      light cone work we did proving that gravity is governed by relativity, which is governed by observation, which is a
      first principle".  Observation (GW170817's one speed, MICROSCOPE, Cassini; READ in relativity.py U2-U3) gives
@@ -400,7 +401,8 @@ STATUS = [("(iv) the boundary spacelike, outflow; the core beyond", "PROVED (exa
           ("(iii) one horizon, no inner one", "PROVED in the limit; computed at every lam run"),
           ("the nonlinear coupling: O(1) only through the dust", "PROVED (exact; the light cone, F5)"),
           ("the estimate's coefficients (1st, 2nd order), anchored", "PROVED (exact; runs agree; hf_anchor5, 514)"),
-          ("(i) existence on D for every lam; rates of (ii), (iii)", "OPEN: L-UNIF', the estimate in rough-along-v norms")]
+          ("(i) existence on D for every lam; rates of (ii), (iii)",
+           "PROVED since (N1STAR-PROOF.md section 4, Theorem E); F7's L-UNIF' as it stood")]
 
 
 def report(o=None):

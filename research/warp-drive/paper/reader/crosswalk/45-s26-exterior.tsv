@@ -1,0 +1,113 @@
+label	source	source_name	note
+part:stability-nonlinear	OUTLINE.md part titles	part:stability-nonlinear	Part heading exactly as assigned (125 characters, over the 121 limit)
+ch:s26	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:3; docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:3; docket68/n1star/proof5/PART-IV-EB.md:3; docket68/n1star/proof5/PART-IV2-TAME.md:4; docket68/n1star/proof5/PART-IV3-NM.md:4; docket68/n1star/BEYOND5-R0-PROOF.md:310	III.C1, III.C2, IV, IV(1), IV(2) status sentences and "What n = 4 changes"; R0P sections 4 and 6	intro from the status sentences and n = 4 paragraphs (statuses dropped); inner radius restated per R0P (no step reaches the inner boundary)
+sec:iii-c1-0	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:3	III.C1 opening (notation, inner radius)	heading added so that S27 citations resolve; inner-radius sentence qualified for prop:iii-c2-4-1 (pointwise on all of Sigma_IVP)
+sec:iii-c1-1	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:28	III.C1 section 1	
+eq:iii-c1-1-1	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:30	III.C1 (1.1)	
+lem:iii-c1-1-1	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:40	III.C1 Lemma 1.1 (= [Hin26] Lemma 5.16)	R0 > max(3R1, R3) made explicit (the proof uses t_IVP = t - C" for r large); R0 fixed once in the paragraph after the lemma (also >= 4|C"|+4, F0 increasing, every "r0 large" of the chapter); S27 citation of "R0 of lem:iii-c1-1-1" now means this R0
+lem:s26-development	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:59; docket68/n1star/proof5/PART-IV-EB.md:313	III.C1 Lemma 1.1 proof (causal facts); IV Remark 4.2 (domain of dependence)	private key; written out for the uniqueness in rem:iii-c1-2-2 (1) (NP 10.57 (d)); compact set K now includes |x| >= r0 (F0 not monotone below r0)
+sec:iv-0	docket68/n1star/proof5/PART-IV-EB.md:13	IV section 0	eb-classes and spaces defined in words ([Hin23a] Defs 3.1-3.4); vector fields on S^3 renamed Theta
+eq:iv-0-1	docket68/n1star/proof5/PART-IV-EB.md:36	IV (0.1)	NP 10.64 X6 cited as prop:np-10-64 (6)
+sec:iv-1	docket68/n1star/proof5/PART-IV-EB.md:45	IV section 1	
+lem:iv-1-1	docket68/n1star/proof5/PART-IV-EB.md:47	IV Lemma 1.1 (= [Hin23a] L3.13)	
+cor:iv-1-2	docket68/n1star/proof5/PART-IV-EB.md:66	IV Corollary 1.2 (= [Hin23a] L3.12, C3.14)	dual remainder x_I^2 X_I (x) X_I named
+rem:iv-1-3	docket68/n1star/proof5/PART-IV-EB.md:87	IV Remark 1.3 (= [Hin23a] R3.15)	
+eq:iv-1-1	docket68/n1star/proof5/PART-IV-EB.md:90	IV (1.1)	
+sec:iv-2	docket68/n1star/proof5/PART-IV-EB.md:93	IV section 2	
+lem:iv-2-1	docket68/n1star/proof5/PART-IV-EB.md:98	IV Lemma 2.1	10.64 X2 -> prop:np-10-64 (2)
+eq:iv-2-1	docket68/n1star/proof5/PART-IV-EB.md:100	IV (2.1)	
+lem:iv-2-2	docket68/n1star/proof5/PART-IV-EB.md:114	IV Lemma 2.2 (= [Hin23a] L3.16)	10.64 X1 -> prop:np-10-64 (1)
+eq:iv-2-2	docket68/n1star/proof5/PART-IV-EB.md:116	IV (2.2)	
+eq:iv-2-3	docket68/n1star/proof5/PART-IV-EB.md:120	IV (2.3)	Diff^{1,1}_{e,b;b} written Diff^(1;1)_(e,b;b)
+sec:iv-3	docket68/n1star/proof5/PART-IV-EB.md:163	IV section 3	
+eq:iv-3-1	docket68/n1star/proof5/PART-IV-EB.md:175	IV (3.1)	10.64 X8 -> prop:np-10-64 (8)
+prop:iv-3-1	docket68/n1star/proof5/PART-IV-EB.md:196	IV Proposition 3.1 (= [Hin23a] P3.17)	10.64 X3 -> prop:np-10-64 (3); D := -i d made explicit; identity read as divergence identity with bulk q(u); error estimate stated for q - qbar
+eq:iv-3-2	docket68/n1star/proof5/PART-IV-EB.md:201	IV (3.2)	
+eq:iv-3-3	docket68/n1star/proof5/PART-IV-EB.md:237	IV (3.3)	written as the exact symmetric form 4|aI|Y*w^2Y + 4k(a0-aI)XI*w^2XI + cA xI w(Lap+3/4)w xI; the form with w^2 in front (source, [Hin23a] (3.25)) omits -8aI(a0-aI)w^2V; checked with sympy and by hand; bulk density identified pointwise
+rem:iv-3-2	docket68/n1star/proof5/PART-IV-EB.md:269	IV Remark 3.2 (= [Hin23a] R3.18)	
+sec:iv-4	docket68/n1star/proof5/PART-IV-EB.md:272	IV section 4	
+prop:iv-4-1	docket68/n1star/proof5/PART-IV-EB.md:277	IV Proposition 4.1 (in place of [HV20] P4.3)	approximation by f_j supported in {rho >= 1/j} added (no boundary term at I0)
+rem:iv-4-2	docket68/n1star/proof5/PART-IV-EB.md:313	IV Remark 4.2	attribution at 325 dropped; backward problem points to lem:iv2-2-2
+sec:iv1-0	docket68/n1star/proof5/PART-IV2-TAME.md:13	IV(1) section 0	(0.1) stated as a parameter condition (ell_I > 3/2), not as a dependence on III.C1 T3.1 (outline-S fold, risk R5); C-m1 parenthetical kept as mathematics
+eq:iv1-0-1	docket68/n1star/proof5/PART-IV2-TAME.md:24	IV(1) (0.1)	
+eq:iv1-0-2	docket68/n1star/proof5/PART-IV2-TAME.md:27	IV(1) (0.2)	
+sec:iv1-1	docket68/n1star/proof5/PART-IV2-TAME.md:32	IV(1) section 1	
+lem:iv1-1-1	docket68/n1star/proof5/PART-IV2-TAME.md:34	IV(1) Lemma 1.1	
+prop:iv1-1-2	docket68/n1star/proof5/PART-IV2-TAME.md:46	IV(1) Proposition 1.2 (= [Hin23a] P3.29 for [Hin26] (5.26b))	NP 10.64 (e) cited as prop:iii-c-4-4, rem:iii-c-4-5
+eq:iv1-1-1	docket68/n1star/proof5/PART-IV2-TAME.md:47	IV(1) (1.1)	
+rem:iv1-1-3	docket68/n1star/proof5/PART-IV2-TAME.md:107	IV(1) Remark 1.3	10.64 X7 -> prop:np-10-64 (7); 10.64 (g) -> prop:iii-c-4-4, rem:iii-c-4-5
+sec:iv1-2	docket68/n1star/proof5/PART-IV2-TAME.md:115	IV(1) section 2	
+lem:iv1-2-1	docket68/n1star/proof5/PART-IV2-TAME.md:117	IV(1) Lemma 2.1	scaling written eps^(2j); the source prints eps^(-2j), inconsistent with its own entry norm eps^(j-i) (report issue 1)
+prop:iv1-2-2	docket68/n1star/proof5/PART-IV2-TAME.md:128	IV(1) Proposition 2.2 (= [Hin23a] P3.32)	product-of-derivatives bound now from thm:std-gn-moser (2) with f := V_q a~ (the field applied first), g := W'u, s := m; [Hin23a] (3.56)-(3.58) citation dropped; chart reduction to thm:std-gn-moser (2) written out (partition of unity, fields as combinations of the fields of V, Leibniz); last term cited as eq:iv1-2-1 at m = 3 (was eq:iv1-2-2) (R2-S26 n1, n3); chart reduction: f := V_q a~ and V_1...V_(q-1) on f, as V_1...V_q a~ applies V_q first (R3-S26 n1)
+eq:iv1-2-1	docket68/n1star/proof5/PART-IV2-TAME.md:134	IV(1) (2.1)	
+eq:iv1-2-2	docket68/n1star/proof5/PART-IV2-TAME.md:160	IV(1) (2.2)	
+eq:iv1-2-3	docket68/n1star/proof5/PART-IV2-TAME.md:169	IV(1) (2.3)	sum written over 1 <= q <= l <= m with explicit ad-products
+lem:iv1-2-3	docket68/n1star/proof5/PART-IV2-TAME.md:187	IV(1) Lemma 2.3	integer orders s >= 0 (all orders in the chapter are integers); proof by charts and cor:std-moser-product (2), extension from subdomains by thm:std-ly-extension; [Tay11]/thm:std-moser-taylor no longer cited
+lem:iv1-2-4	docket68/n1star/proof5/PART-IV2-TAME.md:199	IV(1) Lemma 2.4 (= [Hin23a] L3.34)	induction step written out
+rem:iv1-2-5	docket68/n1star/proof5/PART-IV2-TAME.md:207	IV(1) Remark 2.5 (= [Hin23a] L3.33)	10.64 X6 -> prop:np-10-64 (6)
+sec:iv2-0	docket68/n1star/proof5/PART-IV3-NM.md:17	IV(2) section 0	
+eq:iv2-0-1	docket68/n1star/proof5/PART-IV3-NM.md:24	IV(2) (0.1)	
+eq:iv2-0-2	docket68/n1star/proof5/PART-IV3-NM.md:36	IV(2) (0.2)	
+eq:iv2-0-3	docket68/n1star/proof5/PART-IV3-NM.md:50	IV(2) (0.3)	class renamed Y^k_(a0): the source letter G clashes with the background class G; chi^ = 1 on [0, c/4]; radiation field normed on I+_c, the projection of Omega_c (larger than I+ cap closure of Omega_c); the splitting u6 = chi_I u^(0) + u~6 is determined by u only over I+ cap closure(Omega_c); the norm of Y^k is the infimum over decompositions, lem:s26-decompositions (R3-S26 n2); equivalent at each order to the norm of def:iii-c-3-1 (R4-S26 n5)
+eq:iv2-0-4	docket68/n1star/proof5/PART-IV3-NM.md:66	IV(2) (0.4)	F written as the union of the index sets (3j/2, 0), j >= 1
+eq:iv2-0-5	docket68/n1star/proof5/PART-IV3-NM.md:75	IV(2) (0.5)	
+sec:iv2-1	docket68/n1star/proof5/PART-IV3-NM.md:81	IV(2) section 1	
+lem:iv2-1-1	docket68/n1star/proof5/PART-IV3-NM.md:83	IV(2) Lemma 1.1	
+lem:iv2-1-2	docket68/n1star/proof5/PART-IV3-NM.md:110	IV(2) Lemma 1.2	(b) normed on I+_c; (b) proved by extending w to the points over I+_c with rho_I < c (extension operator of lem:iv1-2-3) before integrating to rho_I = 0; with w extended by zero, as in the source, the lower limit is the exit point through Sigma_fut, which depends on (rho0, omega) with derivative unbounded near I+ cap closure(Sigma_fut), so the m >= 1 bounds for v^(0) and v~ were not proved off I+ cap closure(Omega_c) (the source norms v^(0) on I+ cap closure(Omega_c) but bounds v~ on all of Omega_c); constants of (b) now C(m); v^(0) is the limit of v on almost every full curve; decomposition one linear map of w, the same for every m (F3-S26, found while fixing R3-S26 n2; R4-S26 n1, n2)
+lem:s26-decompositions	docket68/n1star/proof5/PART-IV3-NM.md:50	none (added beside IV(2) (0.3))	private key; decompositions (u^(0), u~) of an element of Y^k_(a0) and their norms; I+ cap closure(Omega_c) = {x1 <= y*}; u^(0) unique a.e. there, not elsewhere on I+_c; norm of Y^k := infimum over decompositions; (c) every u in all Y^k has one decomposition finite at every order, by lem:iv2-1-2 (b) applied to X_I(chi' u6) (R3-S26 n2); Omega = Omega+ or Omega_(ext,r0), so that Omega cap {rho_I < c} = Omega_c (R4-S26 n4)
+sec:iv2-2	docket68/n1star/proof5/PART-IV3-NM.md:151	IV(2) section 2	
+lem:iv2-2-1	docket68/n1star/proof5/PART-IV3-NM.md:153	IV(2) Lemma 2.1	proof separated from the statement
+lem:iv2-2-2	docket68/n1star/proof5/PART-IV3-NM.md:160	IV(2) Lemma 2.2	s0 named as the regularity of h; attributions dropped; added: for s <= 3 and h bounded in H^8 the estimate holds without its tame term (Leibniz in place of Moser), proof paragraph 'Low orders'
+eq:iv2-2-1	docket68/n1star/proof5/PART-IV3-NM.md:166	IV(2) (2.1)	
+lem:iv2-2-3	docket68/n1star/proof5/PART-IV3-NM.md:202	IV(2) Lemma 2.3	added: for m = 3 the estimate holds without its tame term (from the low-order clause of lem:iv2-2-2 and eq:iv1-2-1 at m = 3); commutator [L_g, chi_c]u1 bound now carries its tame term (eq:s26-commutator) and the composition with prop:iv1-2-2 is written out (no product of two norms of h)
+eq:s26-commutator	docket68/n1star/proof5/PART-IV3-NM.md:202	none (added in IV(2) Lemma 2.3's proof)	private key; tame bound for the cut-off commutator, coefficients split into their value at h = 0 and a part vanishing at h = 0
+lem:s26-interpolation	docket68/n1star/proof5/PART-II-G-NASHMOSER.md	none (added; standard consequence of the smoothing operators (i) of IV(2) T3.1)	private key; interpolation |v|_s <= C|v|_s0^(1-l)|v|_s1^l in the class B^j and |v|_a|v|_b <= C|v|_s0|v|_(a+b-s0), proved from eq:ii-g-2-1; stated for any monotone scale with linear smoothing operators satisfying eq:ii-g-2-1 (R3-S26 n3) and applied to the spaces of decompositions B^j of the proof of thm:iv2-3-1 (R3-S26 n2); integers of the product renamed p >= q (R3-S26 n5)
+eq:s26-interpolation	none	none	private key; see lem:s26-interpolation
+eq:s26-interpolation-product	none	none	private key; used in thm:iv2-2-4 'The estimate' at k >= 7 with s0 = 8, q = 9, p = k + 2 (integers renamed from b, a: R3-S26 n5)
+eq:iv2-2-2	docket68/n1star/proof5/PART-IV3-NM.md:207	IV(2) (2.2)	
+thm:iv2-2-4	docket68/n1star/proof5/PART-IV3-NM.md:229	IV(2) Theorem 2.4 (= [Hin23a] T3.35 with data; III.C1 (2.2); [Hin26] (5.52))	"Round 1/2" written "first/second integration"; statement unchanged; Step 4 gain split into j >= 5 (Moser, eq:iv2-2-5) and 2 <= j <= 4 (Leibniz, eq:iv2-2-5-low), likewise m >= 4 / m <= 3 in H^(1;m): the source's gain needs P_i u_2 in L^infinity, i.e. j >= 5, m >= 4, so k <= 2 with h != 0 was not covered (R2-S26 N1); paragraph 'The estimate with C depending on h' proves eq:iii-c1-2-2 at every k (k = 0 through the low-order clauses of lem:iv2-2-2, lem:iv2-2-3); Step 2 commutator bound with its tame term; 'The estimate' written out step by step: the lower norm ||u2||_(H^5) carries ||h||_(H^9), and the product ||h||_(k+2)||h||_9 is reduced by eq:s26-interpolation-product for k >= 7; norms of h in eq:iv2-2-3 and in the H^8 bound are those of one decomposition (lem:s26-decompositions; one finite at every order exists by its (c)), smallness of h in the class norm; the bound holds for the constructed decomposition of g-dot, linear in the data (R3-S26 n2); The estimate states which norm ||.||_j is for each quantity (R3-S26 n5)
+eq:iv2-2-3	docket68/n1star/proof5/PART-IV3-NM.md:239	IV(2) (2.3)	
+eq:iv2-2-4	docket68/n1star/proof5/PART-IV3-NM.md:264	IV(2) (2.4)	
+eq:iv2-2-5	docket68/n1star/proof5/PART-IV3-NM.md:271	IV(2) (2.5)	now case (1), j >= 5 (resp. m >= 4)
+eq:iv2-2-5-low	docket68/n1star/proof5/PART-IV3-NM.md:271	none (added beside IV(2) (2.5))	private key; the gain for 2 <= j <= 4 (resp. m <= 3) by Leibniz's rule, coefficient derivatives of order <= 2 bounded in L^infinity by ||h||_(H^7); no tame term (R2-S26 N1)
+eq:iv2-2-6	docket68/n1star/proof5/PART-IV3-NM.md:280	IV(2) (2.6)	
+eq:iv2-2-7	docket68/n1star/proof5/PART-IV3-NM.md:282	IV(2) (2.7)	
+sec:iv2-3	docket68/n1star/proof5/PART-IV3-NM.md:319	IV(2) section 3	
+thm:iv2-3-1	docket68/n1star/proof5/PART-IV3-NM.md:321	IV(2) Theorem 3.1 (= [Hin23a] C3.36; III.C1 T2.1 nonlinear part)	smoothing: S~_theta of II.G section 3 Step 4 cited directly (outline-S fold of IV(2) 345); smallness in H^(N_NM), N_NM = 21d+6 = 153 (threshold of thm:ii-g-2-1 depends on C_k, k <= N_NM, which contain the data norms; [Hin23a] C3.36 likewise asks a higher norm); higher norms N_NM + k; parenthetical on H^(2d) reworded (R2-S26 n2); the Nash-Moser unknown is the decomposition x = (v, h~), B^k := H^(k,a0)_b(I+_c) x H^(k,l0b,lIb)_b(Omega_ext), h = h_x; smoothing componentwise and linear; right inverse the decomposition constructed in thm:iv2-2-4; smallness and higher norms through ||h_x|| <= C|x| (R3-S26 n2)
+eq:iv2-3-1	docket68/n1star/proof5/PART-IV3-NM.md:325	IV(2) (3.1)	
+rem:iv2-3-2	docket68/n1star/proof5/PART-IV3-NM.md:377	IV(2) Remark 3.2	
+sec:iii-c1-2	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:87	III.C1 section 2	
+thm:iii-c1-2-1	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:89	III.C1 Theorem 2.1 (= [Hin26] T5.17), uniqueness clause as at 96 (IV(2) T3.1)	proved by thm:iv2-3-1 and thm:iv2-2-4 with k0 := N_NM = 153, k1 := N_NM + k; "fixed H^d" written H^8 as T2.4 asks; R0 as fixed after lem:iii-c1-1-1
+eq:iii-c1-2-1	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:93	III.C1 (2.1)	
+eq:iii-c1-2-2	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:105	III.C1 (2.2)	
+lem:s26-uniqueness	docket68/n1star/N1STAR-PROOF.md:7568	NP 10.57 (d) (the uniqueness step)	private key; from lem:ii-f-1-3 and thm:std-bgp-causal
+prop:np-10-57-d	docket68/n1star/N1STAR-PROOF.md:7568; docket68/n1star/proof5/PART-III-C2-POLYHOM.md:120	NP 10.57 (d): gauge and Ricci flatness by the second Bianchi identity	carried here (S26 is the only chapter listing 10.57); written proof. NP 10.57 (a): lem:iv-2-1, lem:iv-2-2, rem:iv1-2-5; (b): prop:iv1-1-2, rem:iv1-1-3; (c) is superseded by thm:iv2-2-4 (the 4+1 analogue of [Hin23a] T3.35, needed for the class (-, l_I) with the slot-6 radiation field); (d): thm:iv2-3-1 and this proposition
+eq:s26-gauge-eq	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:123	III.C1 Remark 2.2 (1) (Ric = delta* Upsilon)	private key
+rem:iii-c1-2-2	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:120	III.C1 Remark 2.2 (= [Hin26] R5.18, R5.20)	10.57 (d) -> prop:np-10-57-d; misprint of [Hin26] R5.18 noted
+sec:iii-c2-2	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:50	III.C2 section 2	
+eq:iii-c2-2-1	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:59	III.C2 (2.1) (= [Hin26] (5.76))	
+eq:iii-c2-2-2	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:62	III.C2 (2.2) (= [Hin26] (5.75))	
+lem:iii-c2-2-1	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:67	III.C2 Lemma 2.1	
+sec:iv2-4	docket68/n1star/proof5/PART-IV3-NM.md:380	IV(2) section 4	placed after sec:iii-c2-2, which it uses
+cor:iv2-4-1	docket68/n1star/proof5/PART-IV3-NM.md:382	IV(2) Corollary 4.1	
+sec:iii-c1-3	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:131	III.C1 section 3	
+thm:iii-c1-3-1	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:133	III.C1 Theorem 3.1 (= [Hin26] T5.21)	N -> p, eta -> nu, beta -> alpha-prime, M rounds -> J repetitions; proof Step 1: X0 tangent to Sigma_IVP iff C'' = 2 (X0 tau' = (2 - C'')rho), 'in general' (R2-S26 n4)
+eq:iii-c1-3-1	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:141	III.C1 (3.1)	
+eq:iii-c1-3-2	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:144	III.C1 (3.2)	
+eq:iii-c1-3-3	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:153	III.C1 (3.3)	
+eq:iii-c1-3-4	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:165	III.C1 (3.4)	
+eq:iii-c1-3-5	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:204	III.C1 (3.5)	
+eq:iii-c1-3-6	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:217	III.C1 (3.6)	
+rem:iii-c1-3-2	docket68/n1star/proof5/PART-III-C2-POLYHOM.md:268	III.C1 Remark 3.2	the obligation (C7) wording dropped
+sec:iii-c2-1	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:27	III.C2 section 1	
+lem:iii-c2-1-1	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:29	III.C2 Lemma 1.1	eps_1 renamed eps_phi
+sec:iii-c2-3	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:79	III.C2 section 3	
+eq:iii-c2-3-1	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:82	III.C2 (3.1)	finding (C"6) folded as a parenthetical on [Hin26]
+thm:iii-c2-3-1	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:91	III.C2 Theorem 3.1 (= [Hin26] T5.23)	finding (C"5) folded into the proof of (1); (1) now: h_S = phi_S*h on a neighbourhood of the interior of Sigma_(IVP,r1), proved by the averaged operator and lem:s26-uniqueness on the Cauchy development; (3) uses only equality of Cauchy data; statement now asserts existence and uniqueness of h_S under ||h_j||_(H^(k2)) < eps2, k2 = 2 N_NM + 2 = 308 (R2-S26 m1); proof paragraph 'The solution h_S': threshold uniform in S, data bound via pullback and trace, higher-norm clause of thm:iii-c1-2-1 with k = N_NM + 2; S = 0 identification by uniqueness; statement: h is the solution of thm:iii-c1-2-1 in the cut-off gauge (cor:iv2-4-1), small in H^(3d), of the polyhomogeneous class by thm:iii-c1-3-1; proof: k2 >= k0 and eps2 <= eps0, so h exists and the higher-norm clause applies to it (R3-S26 m1)
+eq:iii-c2-3-2	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:93	III.C2 (3.2)	
+eq:iii-c2-3-3	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:98	III.C2 (3.3)	
+rem:iii-c2-3-2	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:156	III.C2 Remark 3.2 (= [Hin26] R5.24)	
+sec:iii-c2-4	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:160	III.C2 section 4	
+prop:iii-c2-4-1	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:162	III.C2 Proposition 4.1 (= [Hin26] P5.25)	second fundamental form written kappa (k is the regularity order); paragraph after it states the H^(k0) smallness needed for thm:iii-c1-3-1; second fundamental form renamed kappa -> k and taken in the convention of lem:iii-b-3-9, k(X,Y) = g(nabla_X nu, Y); the display's k~ term changes sign accordingly, with its derivation written out (the previous display used -g(nabla_X nu, Y)); with the extension h0(nu_(b0), .) := 0 the unit normal of g0 is nu_(b0) (nu~ = 0); the terms h0(nabla X Y, nu_(b0)) and g0(nabla X Y, nu~) dropped from the derivation and the display; e0 t_IVP = nu_(b0) t_IVP smooth (R3-S26 n4)
+prop:iii-c2-4-2	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:203	III.C2 Proposition 4.2 (= [Hin26] 5.7.1, R5.26)	mu -> m; hypothesis of [Hin26] (5.82) stated (gamma~BL, kappa~BL classes, constraints, gauged data small in H^(N_NM)); solution by lem:iv2-2-2 with tau_BL and thm:ii-g-2-1 on the domain of dependence; t - t_BL = m/r + O(r^-3); kappa^BL -> k^BL, convention of prop:iii-c2-4-1
+rem:iii-c2-4-3	docket68/n1star/proof5/PART-III-C3-BOOSTDATA.md:227	III.C2 Remark 4.3 (= [Hin26] Ex 5.27)	(1) restricted to data equal to those of g_b0 outside a compact set

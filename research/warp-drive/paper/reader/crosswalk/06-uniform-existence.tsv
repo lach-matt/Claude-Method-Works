@@ -1,0 +1,17 @@
+label	source	source_name	note
+ch:uniform-existence	docket68/n1star/N1STAR-PROOF.md:321-532	NP sections 3-4	chapter opening from NP header 64-68 and P 505-510; P 505-602 used for exposition only
+thm:uniform-existence	docket68/n1star/N1STAR-PROOF.md:143-166	NP Theorem E (0.4)	hypotheses (0.4), (E1)-(E3) cited from Ch 4 def:approximant/eq:approximant; uniqueness class "C² solutions with |g − g0| ≤ ε1" taken from P Theorem 1 item 5 (paper/RESPONSE-HL-5D.md:280) and Step 8 (NP 520-528, D625 fold)
+eq:ue-remainder	docket68/n1star/N1STAR-PROOF.md:163	NP (0.5)	N(τ) renamed 𝒩(τ) (N is the stage count)
+eq:ue-linearisation	docket68/n1star/N1STAR-PROOF.md:325	NP (3.2) = P (5.1)	derivation text NP 327-332
+lem:phase-shift	docket68/n1star/N1STAR-PROOF.md:341	NP Lemma 3.1 = P Lemma 5.1	
+lem:ue-decomposition	docket68/n1star/N1STAR-PROOF.md:358	NP Lemma 3.2	N_phi renamed 𝒬_φ; one clarifying clause on how ∂²φ enters
+eq:ue-phi-g1	docket68/n1star/N1STAR-PROOF.md:360-362	NP (3.3)	
+eq:ue-transport	docket68/n1star/N1STAR-PROOF.md:374	NP (3.4) = P (5.2)	mollifier written 𝒫 as in P
+eq:ue-h	docket68/n1star/N1STAR-PROOF.md:381-382	NP (3.5)	N(w) renamed 𝒬(w); derivation of the λ⁻¹ terms written out (one paragraph)
+lem:ell-ell	docket68/n1star/N1STAR-PROOF.md:388	NP Lemma 3.3 as amended D623/D625/D627	index pair (a,i) renamed (b,i) (lint); D-brackets folded; the sum written c^(bi) (∂_b ∂_i h)(ℓ, ℓ) with the contraction defined (review R-06-07 nit 3)
+lem:commutator-transport	docket68/n1star/N1STAR-PROOF.md:402	NP Lemma 3.4	ks5 K3 citation replaced by the derivation from (0.1)
+eq:ue-psi	docket68/n1star/N1STAR-PROOF.md:404	NP (3.6) = P (5.3)	
+eq:ue-energy	docket68/n1star/N1STAR-PROOF.md:418-419	NP (4.1) = P (5.4)	
+sec:ue-bootstrap	docket68/n1star/N1STAR-PROOF.md:416-481	NP section 4 Steps 1-7	D623 folds in Steps 2, 3; Step 1 written out (replaces support5c C11)
+sec:ue-existence	docket68/n1star/N1STAR-PROOF.md:483-532	NP Step 8 as amended D623/D625	support5 C6 and support5c C12 replaced by derivations (zero shift in Z-coordinates; first-order symmetric system and its eigenvalues); λ_± renamed ζ_±, lapse N_ext renamed ν, clamp θ(τ) renamed τ̄(τ); Step 8 bullets restate [DS23] Thms 2.4 and 2.6 with (2.2) and Thm 2.6 first clause and cite the appendix entries; (i) adds the small-λ spacelike-slice step (λ_ext) the interpolation needs; (iv) writes the uniform extension E_τ := E_*(f∘ψ_τ)∘ψ_τ⁻¹ by radial maps of a neighbourhood (no extension of the radial maps to ℝ⁴ needed), [LY22] Lemma 27 used for the flow Φ_Z only, and smoothness from Thm 2.6 first clause; state cut-off renamed ϒ, AO14 constants renamed c_A, c_A′ (review R-06-07 minors 3, 4, nits 5, 6; W2 open item)
+rem:ue-every-order	docket68/n1star/N1STAR-PROOF.md:7231-7256	NP 10.51 (Theorem E at every order)	folded as a remark per outline-M 2.1; ledger5 L2 not needed (argument is by hand); (a) adds a proof of the scaled product bound at every k ≥ 3 via [BH17] Thm 7.27 p. 56 (H¹ ⊂ L⁴ in dimension 4); (c) residual of the fixed-phase approximant corrected to O(λ^(N−1)) per Ch 4 sec:approximant (NP 7248-7249 has λ^N) (review R-06-07 minors 1, 2)

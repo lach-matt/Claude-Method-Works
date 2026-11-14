@@ -1,0 +1,111 @@
+label	source	source_name	note
+part:stability-forward	-	-	part heading assigned by OUTLINE.md
+ch:s19	-	-	chapter heading; intro composed from the status sentences and "What n = 4 changes" paragraphs of III.I (13-19), III.H2 (4-26), III.I(1) (8-18), III.I(2) (8-20); F-S19: sigma_Y and sigma_C cited from sec:iii-c-3 and eq:iii-g1-1-4 (no redefinition), slot eigenvalues written s (lambda freed)
+sec:iii-i-1	docket68/n1star/proof5/PART-III-I-CONE.md:22	III.I section 1	F3-S19 (R3-S19 Major 1): the time function is built with l = l_I for a fixed l_I in (0, 1/2), not l_I = 1/2 as at the source line 31 (eq:iii-i-3-7 fails at 1/2 in the L2-based class; Hin26 takes l_I < 1/2); a sentence giving the reason added; F4-S19 (R4-S19 Major 1, repair (a)): the time function is again built with l = 1/2, as at the source line 31 and as ch:s27 and ch:s29 build Omega_*; the class parameter l_I in (0, 1/2) is fixed separately (paragraph "The class parameter"), and the forward theory is applied through rem:ii-f1-7-4 (time-function exponent 1/2 >= l_I)
+eq:iii-i-1-1	docket68/n1star/proof5/PART-III-I-CONE.md:25	III.I (1.1)	
+eq:iii-i-1-2	docket68/n1star/proof5/PART-III-I-CONE.md:28	III.I (1.2)	
+def:iii-i-1-1	docket68/n1star/proof5/PART-III-I-CONE.md:37	III.I Definition 1.1	
+eq:iii-i-1-3	docket68/n1star/proof5/PART-III-I-CONE.md:40	III.I (1.3)	
+eq:iii-i-1-4	docket68/n1star/proof5/PART-III-I-CONE.md:67	III.I (1.4)	finding (I5) folded into a sentence after the display
+sec:iii-i-2	docket68/n1star/proof5/PART-III-I-CONE.md:72	III.I section 2	F-S19: "asymptotically Kerr" sentence cites def:ii-c-3-1 (cf. Hin26c Def 5.15)
+eq:iii-i-2-1	docket68/n1star/proof5/PART-III-I-CONE.md:77	III.I (2.1)	
+lem:iii-i-2-1	docket68/n1star/proof5/PART-III-I-CONE.md:81	III.I Lemma 2.1	
+lem:iii-i-2-2	docket68/n1star/proof5/PART-III-I-CONE.md:91	III.I Lemma 2.2	F3-S19: closed range (0, 1/2] kept (sup-based, correct at 1/2); the note on the two meanings of l_I lists every e3b use and says the forward solutions use the number of sec:iii-i-1; "Consequences" uses that l_I; F4-S19: the note on the two meanings of l_I says where l_I ranges and that the exponent 1/2 of t-flat is neither; "Consequences" uses the lemma at l_I = 1/2 for the smallness of g - g_b0 in G~^(0,(1,0,0)), the hypothesis of lem:ii-c-3-2 at l = 1/2
+eq:iii-i-2-2	docket68/n1star/proof5/PART-III-I-CONE.md:93	III.I (2.2)	
+sec:iii-i-3	docket68/n1star/proof5/PART-III-I-CONE.md:125	III.I section 3	
+eq:iii-i-3-1	docket68/n1star/proof5/PART-III-I-CONE.md:129	III.I (3.1)	
+lem:iii-i-3-1	docket68/n1star/proof5/PART-III-I-CONE.md:134	III.I Lemma 3.1	
+eq:iii-i-3-2	docket68/n1star/proof5/PART-III-I-CONE.md:135	III.I (3.2)	
+lem:iii-i-3-2	docket68/n1star/proof5/PART-III-I-CONE.md:148	III.I Lemma 3.2	
+eq:iii-i-3-3	docket68/n1star/proof5/PART-III-I-CONE.md:150	III.I (3.3)	
+prop:iii-i-3-3	docket68/n1star/proof5/PART-III-I-CONE.md:168	III.I Proposition 3.3	F4-S19 (R4-S19 nit 2): the definition of G+ before the proposition now asks the component matrix in dt_*, dx^i to be non-degenerate of Lorentzian signature on all of Omega_*, boundary included (so components and inverse are C^inf_b), and checks g_b, g_b0 against it
+eq:iii-i-3-4	docket68/n1star/proof5/PART-III-I-CONE.md:173	III.I (3.4)	
+prop:iii-i-3-4	docket68/n1star/proof5/PART-III-I-CONE.md:191	III.I Proposition 3.4	
+eq:iii-i-3-5	docket68/n1star/proof5/PART-III-I-CONE.md:194	III.I (3.5)	
+eq:iii-i-3-6	docket68/n1star/proof5/PART-III-I-CONE.md:199	III.I (3.6)	
+eq:iii-i-3-7	docket68/n1star/proof5/PART-III-I-CONE.md:201	III.I (3.7)	F3-S19 (R3-S19 Major 1): stated for l_I in (0, 1/2) explicitly (source :201-224 and the earlier text had "as in eq:iii-i-2-2", i.e. (0, 1/2]); proof writes x_I = x_I^(2l_I) x_I^(1-2l_I), shows x_I^(1-2l_I)c-prime in H_b from the expansion terms (real part of the exponent >= 1/2 - l_I > 0), and says why 1/2 fails (the radiation coefficient of the slot pi-slash-0 of h need not vanish on scri+; mu_b is a b-density there); C depends on l_I
+lem:s19-products	docket68/n1star/proof5/PART-III-I-CONE.md:228-236; docket68/n1star/proof5/PART-III-I-CONE.md:425-426	III.I "The inverse metric (D254)" paragraph and Theorem 5.3 proof ("Moser's composition estimate", "II.A's tame product estimates")	new private label (F2-S19, for R2-S19 minor 1): Moser's product estimate on Omega_*, carried from cor:std-moser-product (1) on R^5 by the charts and norm equivalence of prop:ii-g-3-1 (Steps 2-4, Estimates; rem:ii-g-3-2) with {t-flat = 1} as one more face of extension, Seeley's operator bounded on H^k and on L^inf; replaces the citation of sec:ii-a-9; (b) characterises H^k_b by derivatives along a spanning set; (c) C^inf_b multipliers and Sobolev embedding (lem:ii-a-8-8); F3-S19: chart cover and coordinate order, and the description of Seeley's cut-off, made exact (R3-S19 nits 2-3)
+lem:s19-inverse	docket68/n1star/proof5/PART-III-I-CONE.md:228-236	III.I "The inverse metric (D254)" paragraph	new private label (F2-S19, for R2-S19 minor 1): ||(g1 + d)^-1 - g1^-1||_(H^k_b) <= C_k ||d||_(H^k_b), C_k depending only on k, the C1_b-bound of d and g1, by induction on k from V G-hat = -G (V d) G - G-hat (V g1) g1^-1 - g1^-1 (V g1) G-hat - G-hat (V g1) G-hat; the source asserts the tame bound by Moser's composition estimate; applied with g1 = g_b, d = g - g_b in prop:iii-i-3-4 and with the g1 of prop:iii-i-3-3, d = h there; F3-S19: hypothesis g1^-1 in C^inf_b justified (Lorentzian up to the boundary of Omega_*, R3-S19 nit 4); F4-S19: its application to the g_1 of prop:iii-i-3-3 cites the definition of G+ (R4-S19 nit 2)
+rem:iii-i-3-5	docket68/n1star/proof5/PART-III-I-CONE.md:238	III.I Remark 3.5	
+lem:iii-i-3-6	docket68/n1star/proof5/PART-III-I-CONE.md:243	III.I Lemma 3.6	F4-S19: proof adds the non-degeneracy of g_(b0,b,-S) on Omega_* (now part of G+), by the path g_b + tau(g_(b0,b,-S) - g_b)
+sec:iii-i-4	docket68/n1star/proof5/PART-III-I-CONE.md:261	III.I section 4	
+prop:iii-i-4-1	docket68/n1star/proof5/PART-III-I-CONE.md:263	III.I Proposition 4.1	finding (I6) folded into a sentence after the statement
+eq:iii-i-4-1	docket68/n1star/proof5/PART-III-I-CONE.md:267	III.I (4.1)	
+eq:iii-i-4-2	docket68/n1star/proof5/PART-III-I-CONE.md:271	III.I (4.2)	
+lem:iii-i-4-3	docket68/n1star/proof5/PART-III-I-CONE.md:297	III.I Lemma 4.3	
+cor:iii-i-4-2	docket68/n1star/proof5/PART-III-I-CONE.md:318	III.I Corollary 4.2	
+eq:iii-i-4-3	docket68/n1star/proof5/PART-III-I-CONE.md:321	III.I (4.3)	
+sec:iii-i-5	docket68/n1star/proof5/PART-III-I-CONE.md:329	III.I section 5	
+sec:iii-i-5-1	docket68/n1star/proof5/PART-III-I-CONE.md:331	III.I section 5.1	
+lem:iii-i-5-1	docket68/n1star/proof5/PART-III-I-CONE.md:338	III.I Lemma 5.1	obligation (H'7) of III.H1 replaced by a statement of what the lemma supplies; D252 dropped
+sec:iii-i-5-2	docket68/n1star/proof5/PART-III-I-CONE.md:373	III.I section 5.2	
+cor:iii-i-5-2	docket68/n1star/proof5/PART-III-I-CONE.md:375	III.I Corollary 5.2	hypothesis cites thm:iii-h1-1-3 (every k, S18) and thm:iii-h2-2-1; F3-S19: l_I in (0, 1/2) (was (0, 1/2]); proof (2) cites eq:iii-i-3-7 with l_I < 1/2 and lem:s19-products (c) for the embedding; note after the proof: of Hin26 l_I < min(2 gamma_Y, 1/2) only l_I < 1/2 remains; F4-S19: new last statement and proof item (4): ||g - g_b0|| in G~^(0,(1,0,0)) <= ||g_b - g_b0|| + C(|S| + ||h||_X3) (eq:s19-time-hyp), the time-function hypothesis of rem:ii-f1-7-4 and thm:iii-h2-4-1 at exponent 1/2
+eq:s19-time-hyp	-	-	new private label (F4-S19, for R4-S19 Major 1): bound on the metric of P in G~^(0,(1,0,0)), proved in cor:iii-i-5-2 (4) from eq:iii-i-1-1, lem:iii-i-3-6 at b0 and lem:iii-i-2-2 at l_I = 1/2
+sec:iii-i-5-3	docket68/n1star/proof5/PART-III-I-CONE.md:392	III.I section 5.3	
+thm:iii-i-5-3	docket68/n1star/proof5/PART-III-I-CONE.md:394	III.I Theorem 5.3	stated at b0; Remark 5.4 and finding (I3) removed (fold: III.H2 C5.1 at 337), pointer to cor:iii-h2-5-1 added; F3-S19: (iii) uses the l_I of sec:iii-i-1 (the l of the time function of thm:ii-f1-1-1); the tame form says why the weighted norms are finite (l_I < 1/2); continuity in (S, h) proved, with the identity (g1+d)^-1 - (g1+d')^-1 = -(g1+d)^-1 (d - d') (g1+d')^-1 bounded by lem:s19-products and lem:s19-inverse (R3-S19 nit 5); F4-S19: (iii) uses the class parameter l_I of sec:iii-i-1, the time function being built with the exponent 1/2; thm:ii-f1-1-1 applied in the form of rem:ii-f1-7-4 (l_flat = 1/2), its hypothesis eq:ii-f1-7-1 from eq:s19-time-hyp; continuity on the set of such P; F5-S19: eps_flat renamed eta_flat; (iii) notes that P is given on Omega_*, where h is, which is all thm:ii-f1-1-1 asks
+eq:iii-i-5-1	docket68/n1star/proof5/PART-III-I-CONE.md:397	III.I (5.1)	
+eq:iii-i-5-2	docket68/n1star/proof5/PART-III-I-CONE.md:402	III.I (5.2)	
+rem:iii-i-5-5	docket68/n1star/proof5/PART-III-I-CONE.md:441	III.I Remark 5.5	(I6) pointer replaced by the range of prop:iii-i-4-1
+sec:iii-h2-0	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:27	III.H2 section 0	(B2) adds dr future timelike on {r_flat/2 <= r <= 15R1/16} for b in B1 (BEYOND5-R0-PROOF.md 0-1 F2-F3 and 4, III.H3 entry), with a written derivation at b0; the slab-clause history and attributions dropped; F-S19: (B2) restated with dt (not dt_*) on the annulus as in R0P F3, c = 31/450, time orientation extended from (H6) by the path dt - beta dr, purpose sentence added; F3-S19: lem:s12-ks-domain (deleted in S12) re-keyed to lem:s11-ks-domain at both uses (time orientation in (B2), and continuity of the inverse components on {|x| >= r_flat/2}); the neighbourhood B of cor:iii-h-4-4 taken inside the parameter set def:s11-parameters, which lem:s11-ks-domain needs; F4-S19: (B2) states ||g_b - g_b0|| < eps_flat/2 in G~^(0,(1,0,0)) (the hypothesis of lem:ii-c-3-2 at l = 1/2 for t-flat built from g_b0, which ch:s27 cites), eps_flat fixed by g_b0 alone before B_1; order of choices updated; (B5) unchanged; F5-S19: (B2) uses eta_flat and K_flat (were eps_flat, C_flat; clashes with def:s11-parameters and the C_flat = C' of ch 46/48), takes the norm of g_b - g_b0 over {t_* >= 1/2, r >= r_0 - delta_0} (the extension region), eps_G is the threshold of rem:ii-f1-7-4 (covering the region of lem:ii-e-1-2 (iv)); sign of the mass term (m - m0) (R5-S19 nit 2); the order of choices names eta_flat
+sec:iii-h2-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:76	III.H2 section 1	F-S19: [Hin17, Proposition 4.1, p. 20 of arXiv:1502.03183v2] stated exactly, with the restriction to the nabla-invariant subbundle S2T* derived from [Hin17, Definition 3.8]
+prop:iii-h2-1-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:78	III.H2 Proposition 1.1	Step 3 replaces the program lgrade5.py G1 by a hand derivation of the W-preserving part (Phi on every monomial); attributions dropped; F-S19: def:ii-c-2-1 cited for strong trapping admissibility; scalar c renamed a-prime, map iota renamed J (S15 writes iota), kappa R -> varkappa R as in S15
+eq:iii-h2-1-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:81	III.H2 (1.1)	
+eq:iii-h2-1-2	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:107	III.H2 (1.2)	
+eq:iii-h2-1-3	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:116	III.H2 (1.3)	
+cor:iii-h2-1-2	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:153	III.H2 Corollary 1.2	last sentence phrased as B1-bar inside B_k of S18 (rem:s18-every-k); F-S19: B_k paraphrase carries z_0 = +-1
+sec:iii-h2-2	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:170	III.H2 section 2	
+thm:iii-h2-2-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:172	III.H2 Theorem 2.1	III.H2:222 fold: III.H1 Theorem 1.3 holds for every k on B1-bar; the k <= K restriction is not stated anywhere; F-S19: last clause attributed to cor:iii-h2-1-2
+sec:iii-h2-3	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:224	III.H2 section 3	
+lem:iii-h2-3-2	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:226	III.H2 Lemma 3.2	
+thm:iii-h2-3-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:242	III.H2 Theorem 3.1	F-S19: P_lambda renamed P_Lambda as in S9 sec:ii-f-6-3
+sec:iii-h2-4	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:284	III.H2 section 4	
+thm:iii-h2-4-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:286	III.H2 Theorem 4.1	(H''3) folded as a closing sentence; F-S19: continuity proof repaired as S9 sec:ii-f1-6 (R-S19 Major 1): weak limit in X(s;k+d'), identification by lem:ii-f1-2-2 at s_u under ||P - 2L_b||_(0;d) < eps_0 with d_0 uniform on B1-bar; source III.H2:316-321 called the uniqueness qualitative; F3-S19: l_I is the number of sec:iii-i-1, in (0, 1/2), from which t-flat and Omega_* of (B2) are built; F4-S19: l_I is the class parameter, t-flat built for g_b0 with exponent 1/2; new hypothesis eq:s19-time-hyp-b on the metric of P and of the P_j; proof (ii) uses the last statement of rem:ii-f1-7-4 with base metric g_b0 (distances (3C+1)eps/2 and eps_G/2 + eps/2 below eps_G); the identification uses eq:s19-time-hyp-b; F5-S19: eta_flat, K_flat; eq:s19-time-hyp-b over Omega_*; proof (ii) applies (A) of rem:ii-f1-7-4 for t-flat and g_b0 (lem:ii-c-3-2 on Omega and lem:ii-e-1-2 (iv) below Omega), all sets inside {t_* >= 1/2, r >= r_0 - delta_0} (R5-S19 minor 1)
+eq:s19-time-hyp-b	-	-	new private label (F4-S19): the time-function hypothesis of thm:iii-h2-4-1, ||g - g_b0|| < eps_flat in G~^(0,(1,0,0)); F5-S19: threshold renamed eta_flat, norm over Omega_*
+sec:iii-h2-5	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:322	III.H2 section 5	
+cor:iii-h2-5-1	docket68/n1star/proof5/PART-III-H3-UNIFORM.md:324	III.H2 Corollary 5.1	(H''4) folded as a closing sentence; "removes (I3)" sentence dropped; F-S19: continuity proof checks every hypothesis of thm:iii-h2-4-1 continuity, incl. ||P - 2L_b||_(0;d) < eps_0 at the limit by (B5); F3-S19 (R3-S19 nit 5): continuity in h of the inverse metric by the difference identity, as at the end of the proof of thm:iii-i-5-3, with g1 = g_b; F4-S19: the metric of P satisfies eq:s19-time-hyp-b by eq:s19-time-hyp and (B2), with no condition on b beyond B1-bar; likewise P_j in the continuity proof; F5-S19: eta_flat; the bound is over Omega_*
+sec:iii-i1-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:20	III.I(1) section 1	
+eq:iii-i1-1-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:31	III.I(1) (1.1)	finding (I'2) folded into the paragraph after the display
+lem:iii-i1-1-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:33	III.I(1) Lemma 1.1	
+eq:iii-i1-1-2	docket68/n1star/proof5/PART-III-I2-SCRI.md:36	III.I(1) (1.2)	
+eq:iii-i1-1-3	docket68/n1star/proof5/PART-III-I2-SCRI.md:54	III.I(1) (1.3)	
+sec:iii-i1-2	docket68/n1star/proof5/PART-III-I2-SCRI.md:57	III.I(1) section 2	
+prop:iii-i1-2-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:59	III.I(1) Proposition 2.1	finding (I'2) folded as a comparison sentence
+eq:iii-i1-2-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:64	III.I(1) (2.1)	
+lem:iii-i1-2-2	docket68/n1star/proof5/PART-III-I2-SCRI.md:72	III.I(1) Lemma 2.2	F-S19: slot eigenvalue written s, s in sigma_C for slots 1-3
+eq:iii-i1-2-2	docket68/n1star/proof5/PART-III-I2-SCRI.md:77	III.I(1) (2.2)	
+eq:iii-i1-2-3	docket68/n1star/proof5/PART-III-I2-SCRI.md:93	III.I(1) (2.3)	
+eq:iii-i1-2-4	docket68/n1star/proof5/PART-III-I2-SCRI.md:106	III.I(1) (2.4)	
+sec:iii-i1-3	docket68/n1star/proof5/PART-III-I2-SCRI.md:163	III.I(1) section 3	
+prop:iii-i1-3-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:165	III.I(1) Proposition 3.1	findings (I'3), (I'4) folded as comparison sentences; closing sentence from (I'1) restated as a consequence of (3.2)
+eq:iii-i1-3-1	docket68/n1star/proof5/PART-III-I2-SCRI.md:173	III.I(1) (3.1)	
+eq:iii-i1-3-2	docket68/n1star/proof5/PART-III-I2-SCRI.md:177	III.I(1) (3.2)	
+eq:iii-i1-3-3	docket68/n1star/proof5/PART-III-I2-SCRI.md:214	III.I(1) (3.3)	
+sec:iii-i2-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:22	III.I(2) section 1	base points b near b0 for this part are carried by S25 (III.I(15) Theorem 3.1, first item)
+sec:iii-i2-2	docket68/n1star/proof5/PART-III-I3-ALMOST.md:62	III.I(2) section 2	
+lem:iii-i2-2-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:64	III.I(2) Lemma 2.1	
+eq:iii-i2-2-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:71	III.I(2) (2.1)	
+eq:iii-i2-2-2	docket68/n1star/proof5/PART-III-I3-ALMOST.md:76	III.I(2) (2.2)	
+sec:iii-i2-3	docket68/n1star/proof5/PART-III-I3-ALMOST.md:113	III.I(2) section 3	
+lem:iii-i2-3-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:115	III.I(2) Lemma 3.1	findings (I''3), (I''5) folded into the comparison paragraph
+eq:iii-i2-3-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:120	III.I(2) (3.1)	
+eq:iii-i2-3-2	docket68/n1star/proof5/PART-III-I3-ALMOST.md:136	III.I(2) (3.2)	
+eq:iii-i2-3-3	docket68/n1star/proof5/PART-III-I3-ALMOST.md:142	III.I(2) (3.3)	
+eq:iii-i2-3-4	docket68/n1star/proof5/PART-III-I3-ALMOST.md:169	III.I(2) (3.4)	
+sec:iii-i2-4	docket68/n1star/proof5/PART-III-I3-ALMOST.md:191	III.I(2) section 4	density paragraph: {r = r0} spacelike justified by lem:ii-c-3-2 (1) (BEYOND5-R0-PROOF.md section 4, III.I3 entry); u_sing renamed v_gdot + v_h to match S18
+eq:iii-i2-4-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:206	III.I(2) (4.1)	
+lem:iii-i2-4-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:216	III.I(2) Lemma 4.1	
+lem:iii-i2-4-2	docket68/n1star/proof5/PART-III-I3-ALMOST.md:244	III.I(2) Lemma 4.2	
+eq:iii-i2-4-2	docket68/n1star/proof5/PART-III-I3-ALMOST.md:251	III.I(2) (4.2)	
+lem:iii-i2-4-3	docket68/n1star/proof5/PART-III-I3-ALMOST.md:271	III.I(2) Lemma 4.3	
+eq:iii-i2-4-3	docket68/n1star/proof5/PART-III-I3-ALMOST.md:276	III.I(2) (4.3)	
+sec:iii-i2-5	docket68/n1star/proof5/PART-III-I3-ALMOST.md:307	III.I(2) section 5	
+prop:iii-i2-5-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:309	III.I(2) Proposition 5.1	findings (I''1), (I''2), (I''4) folded into the comparison paragraph and a closing paragraph; F-S19: "the one just checked" replaced by the explicit inequality
+eq:iii-i2-5-1	docket68/n1star/proof5/PART-III-I3-ALMOST.md:312	III.I(2) (5.1)	
+eq:iii-i2-5-2	docket68/n1star/proof5/PART-III-I3-ALMOST.md:317	III.I(2) (5.2)	
+eq:iii-i2-5-3	docket68/n1star/proof5/PART-III-I3-ALMOST.md:336	III.I(2) (5.3)	
+eq:iii-i2-5-4	docket68/n1star/proof5/PART-III-I3-ALMOST.md:342	III.I(2) (5.4)	
+eq:iii-i2-5-5	docket68/n1star/proof5/PART-III-I3-ALMOST.md:380	III.I(2) (5.5)	
+eq:iii-i2-5-6	docket68/n1star/proof5/PART-III-I3-ALMOST.md:383	III.I(2) (5.6)	
+eq:iii-i2-5-7	docket68/n1star/proof5/PART-III-I3-ALMOST.md:388	III.I(2) (5.7)	
+eq:iii-i2-5-8	docket68/n1star/proof5/PART-III-I3-ALMOST.md:396	III.I(2) (5.8)	
+eq:iii-i2-5-9	docket68/n1star/proof5/PART-III-I3-ALMOST.md:412	III.I(2) (5.9)	

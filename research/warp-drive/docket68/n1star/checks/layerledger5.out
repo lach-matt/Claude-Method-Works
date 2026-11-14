@@ -1,0 +1,10 @@
+  L1 N = 9 (K = 6), M = 26, the double root: e1 True, e2 True, e3 True, e4 True, e5 True, e6 True, e7 True, e8 True; all
+      N in [9, 40], M, both cases: True
+L1 PASS
+  L2 Theorem 2's solution, K in [6, 29], beta0 in {2, 5/2, 7, 40}: (e1)-(e8) hold: True
+L2 PASS
+  L3 closed forms and every used cost <= 2N + 8 for N in [3, 40]: True (at N = 9: largest cost 23 <= 26)
+L3 PASS
+  L4 least N with (e1)-(e8): round 1's exponent N - 6: 10 (K >= 7); round 2's N - 5: 9 (K >= 6)
+L4 PASS
+layerledger5: all checks pass, every control fails

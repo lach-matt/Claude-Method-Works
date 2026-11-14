@@ -6177,3 +6177,2267 @@ grid fixes; and the wave raises the curvature above the bound near the inner edg
 so the true domain is smaller than the seed suggests. At the second seed the run reaches about three quarters of the
 domain before an axis growth whose onset moves later with resolution. Nothing here is a bound; it is the measurement
 the study said to make first.
+
+**D345 (2026-10-30): the gauge comparison of the linear result, written.** Part VIII had proved linear stability in the
+gauge of the nonlinear problem and left out the comparison with other gauges (its Remark 2.4). Part IX
+(proof5/PART-IX-GAUGE.md) proves it: a linearised vacuum solution whose data are those of a Lie derivative is itself a
+Lie derivative, the generating vector field unique up to Killing fields, on a domain shown to be globally hyperbolic;
+existence for data without compact support is reduced to the compactly supported case. The pointwise identities are
+checked in checks/ix5.py (six checks, six controls). An earlier version of the script spent eighteen minutes in
+symbolic simplification; the identities are now decided by evaluation at random rational points to sixty digits,
+in under a minute. Verifier 162 is reading it.
+
+**D346 (2026-10-30): the equality case, and a stale figure corrected.** At μ0 = √72 l5² (EQUALITY5.md, checks/eq5.py):
+the solution equals the seed exactly before the shell starts, by the record's energy inequality run on a region with
+a null face; so the curvature boundary there is the seed's horizon. After the shell starts the boundary is spacelike
+outside a layer whose width tends to zero with λ; inside the layer the record's bounds do not decide it, and the note
+says why. In its place, a domain within O(λ) of the record's, inside the same curvature bound, that nothing enters from
+inside; and the horizon statement at equality. Verifier 163 is reading it. Separately, D344 had compared the
+double-null run's second zero (1.425) with the record's break at the first seed as 1.45; the record's persistent break
+there is 1.500, the 1.4516 having been a single-step excursion (D43-D44), and 1.583 at the second seed. Corrected in
+CERTIFY-10L5.md and ROUTES 4.267; the conclusion (the run passes the break) stands. dnsolve5.py gains an optional
+exponential filter in x for the axis-resolution runs of G1.
+
+**D347 (2026-10-30): two verifiers seated; the loss d added up as far as it goes.** Verifier 162 read Part IX and found
+it sound: four minor findings (a case split in the extension of the existence theorem, a check that tested two of the
+three directions it claimed, the settling clause stated beyond its domain, a symmetry hypothesis left implicit) and
+five nits, all seated, with a seventh computed check. Verifier 163 read the equality case and found it sound: four
+minor findings, mostly about citing the right step (the solution's data agree with the seed's as a metric, which the
+proof of Theorem D gives, and not only as Cauchy data) and two overstatements in the summary, and nine nits, all
+seated. The loss d: adding up the last tame-estimate part's losses step by step ends in an explicit function of
+weights that the proof fixes only by inequalities, of step counts it chooses freely, and of five losses whose proofs
+give no closed form (LOSS-D.md). So that item was not bookkeeping; it is three tasks, now named. On the way, k'' turned
+out to be used in the nonlinear step and in Part VIII but never defined; it is now the largest, over the orders used, of
+the loss the initial-data proposition gives.
+
+**D348 (2026-10-30): one count in the loss is very large.** Fixing the weights needs the index sets' numbers, and the
+record's own numbers decide one step count already. The smallest gap in the indicial roots at the record's parameter
+point is 2.93 millionths, and every later small constant is chosen below it. One chain of decay levels in the last
+augmentation part must step by less than that constant and climb by about 2, so it has more than 660,000 levels. The
+tame-estimate part composes the levels, so if each costs a derivative the loss d is above 660,000 and the regularity
+the nonlinear step needs is above 13 million derivatives. This is no gap in a proof; it is the size of the number the
+proof produces at the chosen parameters. Whether another admissible parameter point opens the gap is the first
+question for fixing the weights.
+
+**D349 (2026-10-30): the count, read again.** A verifier read the loss note and found its structure wrong in one
+respect and its main count incomplete. The loss is not a sum over the table's rows but a recursion over calls: an
+inner part's loss is paid every time an outer loop calls it. And inside each of the 680,000 levels of the chain found
+in D348 there is a second loop that climbs by the same tiny gap, about 300,000 rounds near the top: some 5 × 10¹⁰
+rounds in all. Within the tame-estimate part's own accounting each level already costs two derivatives, so the loss
+that accounting produces exceeds 1.3 million without further reading; whether each inner round costs one more is to
+be read. These are sizes of the number this proof produces, not of the best possible loss, and the note now says so.
+It also found that the definition of k'' made the day before was scoped too narrowly at one bound needed at every
+order; that bound now carries the order-dependent loss.
+
+**D350 (2026-10-30): the first constant of the linear theory made explicit.** For the scalar wave operator on the
+seed, one angular harmonic at a time, the step that the record proves only by contradiction (no outgoing solution at a
+real nonzero frequency) now has a constant: the Wronskian is at least twice the frequency, by conservation of flux;
+the solutions grow at most like exp(∫V/|σ|) through the potential barrier; so the outgoing resolvent, cut off to an
+interval, is bounded by an explicit number for every harmonic and every real frequency (E2-PILOT.md). Off the real
+axis the bound is uniform in the harmonic. On it, the bound grows like exp(l²/|σ|), and making it uniform needs an
+estimate of the decay under the barrier, the next step; low and high frequencies and the record's norms remain.
+
+**D351 (2026-10-30): the angular resolution of the double-null runs.** A filter in angle keeps the shears bounded
+but does not make them converge. With more angular modes and with finer steps in v, the solution on the curvature-
+bounded region converges only up to v ≈ 1.5, not 2.0 as D344 read from its (u, v) refinement alone. Beyond it the
+disagreement starts at one axis, near the seed's horizon, where the angular spectrum stops decaying: the solution
+steepens there faster than 24 modes resolve. Finer v-steps change nothing, so it is not a stability limit of the
+step. Whether the steepening is the solution's or the axis treatment's is now G1's question.
+
+**D352 (2026-10-31): what a uniform bound must reach, and a sign.** The actual per-harmonic cut-off norms of the
+scalar wave operator fall like about 12/(l(l+2)) once the barrier covers the interval, far below the explicit bound,
+which grows like exp(l²/σ); the missing ingredient for uniformity is a lower bound on how fast the solutions grow
+through the barrier. A review caught a missing minus sign in the kernel's formula (the bound used only its modulus,
+and stands). The paper's equality sentence now states both conditions under which the horizon has exactly one zero.
+
+**D353 (2026-10-31): the small gap cannot be opened by the parameters.** The tiny indicial gap behind the long loops
+of D348-D349 is set by one of the constraint-damping parameters, and the admissible range of all three, which the
+record fixes by positivity at an interior saddle, allows a gap of at most about 3 × 10⁻⁵: ten times the record's, no
+more. So the loss of this proof stays above about 130,000 whatever the parameters; a gap of order one would need a
+different constraint damping.
+
+**D355 (2026-10-31): the resolvent bound uniform in the harmonic.** The per-harmonic bound of D350 grew like
+exp(l²/σ) because it ignored that the solutions decay through the potential barrier. An energy identity on the
+interval now bounds the cut-off resolvent by one over the barrier's height above σ², asymptotically 17/(l(l + 2)),
+for every harmonic past an explicit l_0(σ): 14, 19 and 50 at σ = 0.3, 1 and 3 in closed form, and 3, 7 and 18 when its
+two conditions are evaluated by quadrature. The bound is within a factor 2 of the measured norms (0.059 against 0.040
+at σ = 0.3, l = 16). The two conditions are the signs of |u|²'s derivative at the interval's ends. Both come from the
+flux and from the WKB energy |u'|² + (σ² − V)|u|², which is monotone on each side of the barrier. The harmonics below
+l_0 keep the old constant.
+
+**D356 (2026-10-31): the uniform bound read by an independent verifier.** Verifier 165 found the proofs of E2.5 sound
+and the check's closed form identical to the text. It found seven minor points and six nits, all seated. Two constants
+were rounded the wrong way for lower bounds; one step of the monotonicity argument was false as stated but holds after
+a different normalisation; and the open-items note overstated what is proved. The harmonics below the proved threshold
+are split in two. Where the barrier covers the interval, only the end signs are missing. Where it does not, another
+argument is needed. Their constant at σ = 3 is now quoted from the proved threshold (e^417), not the computed one.
+
+**D357 (2026-10-31): the six losses without a formula, given formulas.** The loss d of the nonlinear proof was a
+recursion over explicit losses and six that the record proves finite without computing them. Re-reading the six
+proofs with every loss carried turns each into a closed form. The forms are in the chosen weights, the threshold
+constants of the operators at the horizon and the incoming radial set, and the sizes of finitely many index sets.
+- Two of the six already had their formula in the proof, past the lines the first extraction read.
+- Two reduce to a third, the inverse at the light cone.
+- That one's unexplained part, "depending on s", is zero on a careful reading. What remains is a count of derivative
+  steps: 7 + 2⌈ℓ_I − Re λ⌉ below Re λ = 2, at most 12 above.
+So d is now an explicit function of numbers the record computes or chooses. Making it a number still needs those
+numbers chosen and the loops counted.
+
+**D358 (2026-10-31): the six losses read by a verifier.** Verifier 166 checked the closed forms against the cited lines
+of the proofs; they hold, and so does the reading that the term the record left as depending on s is zero. One rule
+was wrong. The light-cone loss does not grow steadily as the exponent falls, so its maximum over a strip is not at the
+strip's ends; at ℓ_I = 3.2 it is 11 at both ends of [1.4, 2.5] and 12 inside. The right statement is a bound by the
+larger of 7 + 2⌈ℓ_I − λ_−⌉ and 12. With the strip's lower end just below 3/2, which the record requires anyway, the
+loss of the resonance maps is 30. Three smaller corrections and six nits are seated:
+- a regularity order is now chosen non-negative;
+- one corollary's +2 was a double count;
+- the free choices still in the formulas are named.
+
+**D359 (2026-10-31): above the barrier the resolvent is tame.** For each harmonic the potential has a single hump. At
+frequencies above its top, the same monotone energy bounds both outgoing solutions everywhere by 2σ²/(σ² − max V).
+The cut-off resolvent is then at most Λσ/(σ² − max V), polynomial in place of the old exponential: at σ = 3 the
+first five harmonics are now bounded by 1.3 to 4.4 against measured norms of 0.41 to 0.67. The old exponential
+constant remains only for the harmonics whose barrier top lies above σ² without covering the interval.
+
+**D360 (2026-10-31): the black-hole interior after the shell, first step.** Theorems 1-3 stop a time T after the shell,
+and only the exterior is stated beyond. The late-time development of Theorem 4 already reaches inside the event
+horizon, down to half the horizon radius. So whenever the final mass is at most about 136 l5², it covers the whole
+interior up to the curvature boundary for all later times; that includes the first seed at 10 l5 unless the wave adds
+more than 36 l5². Two limits come with this. It is a continuation fixed by the gluing at large radius, and it is the
+record's own only where the record's data determine it. Larger masses need the inner radius lowered, which the
+construction makes as a choice. BEYOND5.md says what each of these needs.
+
+**D361 (2026-10-31): more matter families, scoped.** The proof uses a single family of waves in four places: the exact
+null phase, the one null dust it averages to, the single large coupling in the linearization, and the transport that
+regains a derivative. With several families the new difficulty is the cross coupling, each family's large term felt
+by the other's component. The closest published work is Touati's multiphase construction for any number of null dusts
+(3 + 1 dimensions, no symmetry, regular background). For Vlasov matter it is Huneau and Luk's limit through ever more
+dust families (small, localized data under U(1) symmetry). FAMILIES5.md proposes as a first computable step the
+two-family Stage 0 in the class: the ingoing shell crossed by an outgoing packet, whose mixed harmonics are
+non-resonant and solved by division.
+
+**D362 (2026-10-31): the three new notes read.** Verifier 167 found the resolvent bound above the barrier correct, its
+check reproduced, and the interior note's main claim and mass condition right. For the paper's first seed it computed
+the gain in the λ → 0 limit, about 0.18 μ0 with the record's envelope (if the amplitude is in seed units, still to
+confirm). That gives a final mass of about 118 l5², inside the condition. Its other findings are seated:
+- the two developments are one spacetime only on the domain of dependence of the shared data, not on all of the
+  record's domain;
+- the curvature boundary is a coordinate radius, so the statement needs strict inequality and small parameters;
+- the class run, not the asymmetric theorem, is the tool for the record's own data;
+- Touati's theorem assumes a background near Minkowski;
+- two expectations in the families note are now labelled as such.
+
+**D363 (2026-10-31): the inner radius need not be half the horizon radius.** The development of Theorem 4 was built
+on the region outside r_0 = ½√μ_end, which reaches the curvature boundary only for masses up to about 136 l5². A census
+of every line of Parts III-VII naming the inner radius (308 lines, 25 files; `checks/r0census5.py`) finds that 108
+lines name another r_0, and of the remaining 200 all but five use only that the boundary is spacelike inside the
+horizon, or a constant chosen from it. The five put ½R_1 into an inequality, and each still holds at every smaller
+radius once the spin bound is tied to the radius. So with the inner radius at half the smaller of R_1 and r_q, the
+development covers the interior down to the curvature boundary for every mass (BEYOND5.md Proposition 6.2, deduced
+from the census, which is a reading and not a re-proof). The families note now locates the cross coupling of two
+families: only the second-harmonic gauge terms carry it.
+
+**D364 (2026-10-31): the cross coupling of two families is a gauge artefact at leading order.** The record's
+second-harmonic term χ dv² is pure gauge to first order: it is the Lie derivative of the background along a small,
+rapidly oscillating multiple of the null generator. The record needs it only because its wave-map gauge cannot meet
+the vv second harmonic of the λ⁰ equation in any other way. A generalised wave gauge, with a fixed oscillating gauge
+source of order λ, meets that harmonic algebraically and sets χ and its outgoing twin to zero. Both first-order waves
+are then purely angular, and the cross couplings vanish at leading order (FAMILIES5.md section 1, deduced). What it
+costs (propagating the gauge condition with a source, comparing the two gauges, and the absence of further large
+coefficients) is left to the two-family computation of step 4.
+
+**D365 (2026-10-31): the longest loop in the loss is set by a choice.** The chain of levels that dominates the loss d
+climbs in steps smaller than α − 4, because each level gains what the decay of the background's correction allows.
+The top order α is capped at 4 + ε_K, and the record states the cap as the order that four zero-energy solves reach.
+No obstruction is named. So a fifth solve, if the next term of the zero-energy expansion exists in five dimensions,
+would make the step about 1, cutting the chain from more than 65,000 levels to about three (LOSS-D.md LD6). Whether
+that term exists is the open question: logarithms enter the free resolvent's expansion in even spatial dimension. The
+nested loop set by the constraint damping's gap is not touched.
+
+**D366 (2026-10-31): verifier 168 on the inner-radius census.** The census tool and three of its repairs held. One
+use had been misread: the damping 1-form's positivity condition near the inner boundary had been checked only down to
+half the horizon radius, so it depended on the value. It holds all the way in. Inside the horizon the record's inner
+piece of the 1-form points into the hole and stays past timelike, and the lapse function is negative, so the
+condition's quadratic form is positive (BEYOND5.md Proposition 6.2, repaired). The minor findings are seated: a
+smaller spin bound, a sharper form of the Kerr-Schild condition, a free margin where two Parts left one undefined, the
+exact horizon radius in Part VI, and Part IX named as outside the census.
+
+**D367 (2026-10-31): the two developments written as one spacetime.** Part VII left unwritten the identification of
+the record's spacetime with the development of the glued data where both are determined by the same data. It is now
+Lemma 6.3 of BEYOND5.md. Before the slice the record's metric, near the hole, and after it the development: the two
+glue smoothly, because the vacuum equations fix every normal derivative at the slice from the data. To the future
+the two developments are identified on their largest common development, by Sbierski's construction of the maximal
+development without Zorn's lemma (read at source). How far that common region reaches is not decided.
+
+**D371 (2026-10-31): the band of harmonics between the two resolvent bounds, computed.** At σ = 3 the cut-off resolvent
+of the scalar wave on 5D Tangherlini was computed for every harmonic up to 25 (`checks/e2band5.py`). It peaks at 1.13 at
+l = 5, the harmonic whose barrier top is nearest σ², and is at most that for every l. In the band the two proved bounds
+leave open (5 ≤ l ≤ 11 has the barrier below σ² on part of the interval), the solutions grow by tunnelling up to 10¹⁴,
+but the Wronskian grows in step, so the kernel stays of order one. A bound for the band must use that growth of the
+Wronskian, which the earlier per-harmonic constant threw away; E2-PILOT section 3d proposes how.
+
+**D354 (2026-10-31, recorded late): the axis nodes, and the curvature cut that did not help.** Part of the angular
+disagreement at 10 l5, and the singular solves at the finest angular resolutions, came from rounding: at the nodes next
+to an axis the solver's small linear solve loses precision like a high power of the distance to the axis. Solving
+there in extended precision cures it. The curvature domain was then rebuilt from the absolute value of the Kretschmann
+scalar, since that scalar turns negative where the runs disagree. On it the runs agree to a part in a million up to
+v = 1.5. Beyond, they still disagree, starting at the axis inside the horizon at v ≈ 1.65, where the curvature is
+0.81 of the boundary value: inside the domain. So the failure is the scheme's at the axis, not a sign that the domain
+is too large. At the second seed the run converges to v ≈ 3-3.5 and then steepens at the other axis.
+
+**D368-D372 (2026-10-31): each Part re-proved at the lowered inner radius, and a mismatch in the record found.** At
+the author's request the census behind Proposition 6.2 is being backed by a re-proof, Part by Part
+(BEYOND5-R0-PROOF.md). Batches 1-3 cover the common facts, Parts I and II, III.B to III.K, and Part IV, each read by
+its own verifier. Two of the three verifiers, working separately, found the same thing. The record's Part VI places the
+artificial boundary of the spectral and spacetime estimates at five eighths of the horizon radius. III.K and Part VII
+place the inner boundary of the development at one half. So, as written, the record controls its development only
+outside five eighths. The repair puts the estimates' boundary at the development's own inner radius, with a thin
+collar inside where the background metric is still defined; nothing near the horizon moves. With it, the earlier
+bound μ_end ≤ 135.76 l5² for reaching the curvature boundary stands. Without it the bound is 55.61 l5², and the first
+seed (about 118 l5²) would need the lowered radius of Proposition 6.2. Batch 4 (Parts V-IX, including Part VI's checks
+at the new radii) is next.
+
+**D373 (2026-10-31): the repair carried into the record.** At the author's word, Part VI itself now puts the
+artificial boundary of the estimates at the development's inner radius, one half of the horizon radius, with a collar
+reaching down to three eighths, where the background metric and its time function are still given by the same
+formulas. The horizon-side radii are unchanged. Part VI's two companion files are read on the larger region, and the
+places where a fraction of the radius entered a bound are updated (in VI3 nine sixteenths, now seven sixteenths; in
+VI2 a supremum and a time bound, from one half to three eighths; verifier 172's n4). The census
+of lines naming the inner radius grows from 308 to 320, all twelve new lines in Part VI, and BEYOND5.md and the re-proof
+note now describe the record as repaired. One verifier reads the amendment.
+
+**D374 (2026-10-31): batch 4 of the re-proof, Parts V, VII, VIII and IX.** Part V never reaches the inner
+region: the gluing works a hundred horizon radii out. Part VII needs one choice redone, the record's collar below
+the seed's curvature radius, which must now sit below half the lowered radius; the record's domain allows any such
+collar. Parts VIII and IX inherit III.K's sets. Part IX cites the same lemma that Part VII and III.K did from the
+development's inner radius, while the lemma covered only five eighths: a third site of the mismatch, closed by D373,
+and harmless at Tangherlini, where the radial direction is timelike all the way in. Part VI's section waits for the
+verifier of D373.
+
+**D375 (2026-10-31): verifier 172 seated; Part VI re-proved at the lowered radius.** The verifier found the radii,
+the census and the alignment with III.K and Part VII sound, and one gap: the amendment carried the metric and its time
+function into the new collar, but not the auxiliary gauge forms from which Parts III and IV build their operators.
+Those forms are given by formulas that make sense at every radius, so one cited sentence closes it (finding (VI.A7)).
+A citation that implied a smaller parameter set was narrowed, the collar line of the census is reclassed as resting
+on a value (three eighths at least one quarter), and six nits are seated. The re-proof's section on Part VI, held
+back for this verifier, is written: every inner-region step uses only that the radial direction is timelike inside
+the horizon, on compact sets. Batch 4 is complete and goes to one verifier.
+
+**D376 (2026-10-31): two crossing families at leading order.** The first computable step proposed for more matter
+families is done: an ingoing and an outgoing high-frequency wave on a general round background with two null
+directions, expanded exactly. At leading order the averaged equation is Einstein with two null dusts, each carrying
+its own energy along its own direction, and the two do not interact in the mean. Each family's oscillating terms are
+those of the single-family construction. The new terms, where the two phases mix, are solved algebraically, because
+the sum of two different null directions is not null. What remains is the background itself, a solution with two
+dusts, and the energy estimate with two large couplings.
+
+**D377 (2026-10-31): the loss lever examined, and closed as stated.** The suggestion of D365 was that one more
+zero-energy solve might lift the decay order that sets the step of the long chain in the loss count. Reading the record
+again: four solves already serve every order up to five, so the count of solves is not what caps it. The cap is a gap
+condition. A set of exponents that the construction must avoid near 3 contains a point only 2.93 millionths above 3,
+coming from the same constraint-damping root that LD5 found cannot be moved far at any admissible damping. So the
+chain's step is bounded by the same gap as the nested loop, and both levers come down to one: a constraint damping with
+a gap of order one, or a construction that handles that exponent rather than excluding it.
+
+**D378 (2026-10-31): verifier 173 seated on batch 4.** No major finding: Parts V-IX hold at the lowered radius.
+One step was missed, in the record as well as in the note. The propagation of the gauge condition (Part VIII, and
+III.K before it) needs past causal curves to stay off the inner boundary, which is the radial direction being timelike
+there; the record cited a model problem at infinity instead. Both record sites now name the right lemma. The
+dependence of Part VII's constants on the lowered radius was stated too narrowly, and five nits are repaired. The
+re-proof of every Part at the lowered radius is complete and read.
+
+**D379 (2026-10-31): a bound for every harmonic at every real frequency.** The band of harmonics whose potential
+barrier straddles the frequency had only an astronomically large constant (e^54). A one-dimensional Morawetz identity,
+with a multiplier that changes sign at the top of the barrier, gives an explicit bound instead, about 20 at the
+reference frequency, for every harmonic from l = 1 and every real frequency, staying finite as the frequency goes to
+zero. It is coarser than the computed norms but finite and explicit; the positivity it needs is checked on a grid, not
+yet certified. The lowest harmonic, l = 0, is not covered by this multiplier.
+
+**D380 (2026-10-31): verifier 174 seated; the loss lever's account corrected.** The two-phase computation stands:
+the verifier rebuilt it by a slower route and found every component equal. Its tests now also assert how the second
+harmonics enter, and three more deliberate errors are each caught. The write-up says plainly which statements are
+automatic and which inputs were chosen. The account of the loss lever (D377) reached the right number by a wrong
+route: it placed a damping root in a set of exponents where the record does not put it. Corrected from the record's
+text, the cap on the chain's step is a parameter of the construction that the record itself ties to the same
+constraint-damping gap, and the cascade's third level is tied to it as well. The conclusion is unchanged: both long
+loops come down to the damping gap. The wrong step is withdrawn and recorded as such.
+
+**D381 (2026-10-31): why the first seed's run stops converging at an axis.** The double-null code carries the angle
+in a gauge where it is dragged along the ingoing light rays. Integrating that drag on the saved runs shows that, inside
+the horizon, rays at a fixed geometric angle are pressed into the axis by a factor e⁻⁵ just where the two angular
+resolutions first disagree, and by e⁻¹³ shortly after: the structure the wave carries is squeezed inside the first grid
+node. So that failure is at least largely the coordinate's, and the remedy is a different shift condition, not more
+resolution. The second seed's failure, at the other axis, shows no such drag and remains open.
+
+**D382 (2026-10-31): verifier 175 seated on the Morawetz bound and the loss lever.** The bound's proof is right, and
+its positivity holds with wide margins. The verifier's one major point was a claim stated wider than its check: the
+instrument covers harmonics up to l = 30, not every l, though the verifier's own scans at l = 60, 100 and 200 also
+pass, so a proof for large l with a finite check below would close it. The rest are corrections of size: a dropped
+term in the zero-frequency value, the horizon condition s ≤ 1 rather than s < 1, the tail now checked to fall, the
+comparison carried to two more frequencies (every bound above the computed norm), and the bound's growth in frequency
+attributed to the flux step, not to trapping. The repaired loss-lever account stands; which reading of a small
+constant the record uses, and that a further gap condition is not shown to bind, are now stated.
+
+**D383 (2026-10-31): the two-phase gauge condition at the next order.** With the mixed terms of the correction fixed
+by the leading equation, the gauge condition at the next order holds on them too, as the Bianchi identity says it must
+where the mixed symbol does not vanish: tested on concrete functions at random points, the residual is at rounding
+level, while the same test with the correction's sign flipped fails. The pure terms at that order, which need the
+correction's own transport, are not checked.
+
+**D384 (2026-10-31): the Morawetz bound for every harmonic, certified.** Centring the multiplier at the photon sphere
+instead of at each harmonic's own barrier top makes the positivity condition grow with the harmonic index, so a single
+check at the lowest harmonic proves it for all of them. That check, and the constants, are now certified by interval
+arithmetic, with explicit bounds for the two tails beyond the computed range. Every harmonic from l = 1 has an explicit
+certified bound for the cut-off resolvent at every real frequency: about 21 across the band at the reference frequency,
+and at most 19.2 for every harmonic from l = 6, uniformly. The lowest harmonic, l = 0, is still not covered.
+
+
+**D385 (2026-10-31): verifier 176 seated on the certificate.** The lemma, the interval arithmetic and both tail
+bounds are right. The verifier's one major point was in the printing, not the proof: D384 rounded its certified
+decimals to nearest, so a few printed bounds sat just inside the certified ones and were false as written, among
+them "at most 19.2" above, where the certified bound is 19.22. Every printed bound is now rounded outward from the
+interval's end by exact arithmetic, and the table, the notes and the routes carry the corrected figures (about 21
+across the band becomes at most 20.99). The subdivision endpoints are now carried at the intervals' own precision,
+so the pieces cover the range exactly rather than by a rounding accident; the controls now run the bisection itself
+where it must fail, at the lowest harmonic and at a too-wide multiplier, each with a certified negative value; and
+the lowest harmonic's failure is stated as what it is, a negative region near r = 3.2, rather than only the
+inequality the tail proof needs.
+
+**D386 (2026-10-31): the swapped gauge removes the drag.** With the angle's shift moved from the ingoing to the
+outgoing direction, the angle is carried along the curves that carry the ingoing wave, so its angular profile is no
+longer pressed into an axis; the remaining drag is under a factor of three, against e^13 before. The field equations
+in the new gauge are the old ones with the two null directions exchanged, exactly, so the solver is the old one
+mirrored; its one new piece is a transverse derivative of the shift on the wave's initial cone, obtained by carrying
+the fields' transverse derivatives along that cone. The two gauges agree on a quantity they must share, the volume of
+each symmetry sphere, to within each one's own discretisation error, and that agreement improves with resolution.
+At the reference wavelength the solution now converges in angle to about v = 2.1 of 4.5, where it stopped at 1.65. It
+then fails at the other limit already seen: the axis where one of the angular fields drops out of the metric, outside
+the horizon and at low curvature. That axis condition, not the gauge, is now the obstruction.
+
+**D387 (2026-10-31): the lowest harmonic, certified.** The positivity condition of the Morawetz bound cannot be met
+at the lowest harmonic by any multiplier of the form used so far. Adding a lower-order term to the multiplier, with
+the right sign, changes the condition to one that is linear in the new term, so whether a term exists is a linear
+program; one was found, built from 43 smooth bumps, rounded, and the rounded one certified directly by interval
+arithmetic with explicit tail bounds. The cut-off resolvent at the lowest harmonic is now bounded at every real
+frequency, by about 275 at the reference frequency, so every harmonic has a certified bound there.
+
+**D388 (2026-10-31): the last unread step of the gluing, read.** The argument that joins the record's spacetime to
+the development used, without a source, the fact that the region determined by the gluing surface is a well-behaved
+spacetime in which that surface is a complete slice. Its first half is now read at source, in a set of lecture notes
+that state it for exactly this kind of surface, one without boundary and not closed; a standard review states it only
+for closed surfaces, which this one is not. The second half is now proved here in a few lines from two statements read
+in the same notes. One elementary fact about how timelike curves combine, and the fact that the region contains the
+surface, are used as the notes use and remark them, not read as proved statements.
+
+**D389 (2026-10-31): the background of the two-family scheme.** The two-wave averaged equations need a background
+spacetime carrying two streams of null dust, one ingoing and one outgoing, and that background had not been built.
+In the round class its equations reduce to two wave-type equations in the two null coordinates, in which the dust does
+not appear at all, plus one constraint on each initial cone, which is where the dust enters. The constraints are
+preserved by the evolution exactly because each stream's energy is carried along its own direction, which is the
+averaged law found earlier; with any other dependence they would not be. The mass changes only through the two
+fluxes, gained from the ingoing stream and lost to the outgoing one. A computed instance with two crossing pulses
+behaves accordingly: the constraints stay satisfied to second order in the step, and the final mass agrees with the
+fluxes. The background on the record's own domain, which would need the outgoing stream's data from the far past, is
+not built.
+
+**D390 (2026-10-31): one parameter row brought into line with the theorem it serves.** The table that fixes the
+proof's free parameters in a consistent order defined the indicial-gap constant as the smallest real part of one
+index set, a quantity from which no number follows. The proof's own statement uses a different constant, the gap of
+the indicial roots from the integers, which is the small number already measured at the record's parameter point.
+The row now reads it as the proof does.
+
+**D391 (2026-10-31): verifier 177 seated; one conclusion of D386 withdrawn.** The lowest-harmonic certificate stands
+as written. The swapped gauge's mirror equations, its initial-cone construction and the invariant comparison stand
+too, and the gain in convergence (to about v = 2.1 from 1.65) is unchanged. But D386's account of where and why it
+then fails was wrong. The radius quoted there was read at the grid point next to the opposite axis; at the failing
+point the radius is at the run's own cut-off. The new gauge, while no longer pressing the angle into that axis, draws
+it away from it, by a factor up to about ten, and that drives the coordinate-dependent radius at the axis node down to
+the cut. So the failure is not shown to be the axis condition rather than the gauge, and the claim that it was is
+withdrawn. The next step is a cut-off on a quantity both gauges share, and the curvature domain recomputed from this
+run, before either cause is named.
+
+**D392 (2026-10-31): a cut-off on a shared quantity does not move the limit.** The swapped-gauge runs were repeated
+with the cut-off placed on the radius defined by each symmetry sphere's volume, which both gauges agree on, instead of
+the coordinate-dependent radius at a grid point. The runs then keep a few thousand more cells. Those are exactly where
+the radius at the grid point next to one axis falls well below the old cut-off, and none of them converge. So under
+either cut-off the converged region ends where that radius drops to about half the horizon value, at the same axis
+where the original gauge also failed. Whether that is the solver's treatment of the axis at small radius or the
+geometry itself is still undecided; the next comparison uses the size of the circle that stays finite on that axis,
+which does not depend on the gauge.
+
+**D393 (2026-10-31): measured in what the geometry contains, the swapped gauge goes further.** The field whose
+non-convergence marked the swapped gauge's limit is one that drops out of the metric on the axis where it failed, so
+its error there says little about the spacetime. Measured instead in the fields the metric is built from, and in the
+size of the circle that survives on that axis, which both gauges must agree on, the swapped-gauge solution converges
+with the angular resolution to about v = 3 of 4.5 away from the cut-off, by factors of 6 to 50 per refinement, and
+stays resolved to better than one part in a thousand beyond that. The original gauge, measured the same way, fails
+just after 1.65. The cells right at the cut-off are resolved less well, and the curvature domain is not imposed in
+these figures.
+
+**D394 (2026-10-31): the frequency bounds hold just off the real axis too.** The Morawetz bounds were proved at real
+frequencies, where the outgoing solution radiates and a flux term enters. With the frequency moved into the upper half
+plane the solution decays at both ends, the flux term disappears, and a new term appears in its place, proportional
+to the frequency's imaginary part squared; the energy identity bounds it by the same quantity the flux term was
+bounded by, at twice the constant. So every bound proved for real frequencies extends, with that factor, to the
+whole upper half plane for every harmonic from the first, and for the lowest harmonic in the sector where the real
+part dominates. A direct computation at four distances from the axis gives norms well below the bound and below the
+general bound for a self-adjoint operator, which checks the computation itself.
+
+**D395 (2026-10-31): verifier 178 seated; D393 cut back.** Three of D393's statements went further than the
+measurements. The field said to have dropped out of the metric on the axis does enter it there, through the metric's
+rate of change across the axis and so through the curvature on the axis; and on the axis it stops converging at
+about v = 2.25, so the curvature there is not converged beyond that. The claim that the metric converges to about
+v = 3 away from the cut-off depended on how many rows next to the cut-off were left out: with three rows left out it
+reaches about 2.25, with forty the whole domain, the error rising steadily toward the cut-off. And the late
+differences grow with the resolution, so they give no error estimate. What stands: the metric's values converge in
+angle on a strip below the cut-off, much further than in the original gauge; the axis geometry does so only to about
+v = 2.25. The gluing argument, the two-dust background and the parameter-row repair were confirmed, with small
+corrections to their wording.
+
+**D396 (2026-10-31): the two-wave gauge condition at the next order, on what remained.** At the next order the gauge
+condition had been checked only on the terms that mix the two waves. On the averaged part it now holds outright: the
+waves' own contribution vanishes, and nothing else can reach it. On the terms that belong to one wave alone, the
+waves' contribution does not vanish, but the second-order correction has exactly the freedom to cancel it, in
+components that do not enter the leading equations, so the earlier stage is untouched. Whether the components so
+fixed agree with the correction's own transport at the following order is the next check, and is not made.
+
+**D397 (2026-10-31): the last unmeasured constraint on the chain's step, narrowed.** The step of the long chain in
+the loss is capped by a small gap constant, and one further condition might cap it further: no exponent in a certain
+set may fall just above two or three. That condition holds exactly when the constant is below the set's smallest
+distance above those integers. The parts of the set that the record computes cannot bring that distance below the
+gap constant, so if the condition binds harder it must be through one of four ingredients the record has not computed
+as numbers in five dimensions. A small root sitting just above two belongs to a different operator and is not in the
+set.
+
+**D398 (2026-10-31): the lowest harmonic off the axis, everywhere.** The off-axis extension had left one sector of
+the upper half plane uncovered at the lowest harmonic, where the frequency's imaginary part dominates and the
+lower-order term in the multiplier has the wrong sign. In that sector the energy identity itself bounds the solution's
+size, which bounds the wrong-signed term by the size of the correction term, a fixed number below two thirds. So the
+lowest harmonic, like every other, now has an explicit bound throughout the upper half plane; a direct computation at
+three points, on both sides of the sector's edge, sits well below it.
+
+**D399 (2026-10-31): the double-null runs refined in the null directions, and the two gauges on the same cells.** The
+runs had been refined only in angle. Refined twice in the two null directions, the swapped gauge converges at about
+second order everywhere away from the cut-off, but its error there is much larger than its angular one, so the null
+grid, not the angular resolution, limits its accuracy. Because the two gauges share their null hypersurfaces, they can
+also be compared cell by cell, and on the cells both keep the original gauge does better: it converges cleanly at
+second order with errors 14 to 57 times smaller early on, and in angle further than the swapped gauge, the axis
+included. Its earlier failures all lie on cells the swapped gauge's cut-off drops. So the earlier comparison of the two
+gauges was mostly a comparison of which cells each keeps. In both, the failing cells border the cut-off near one axis
+at small radius; what causes that is still open. Whether the swapped gauge's convergence is truly second order is not
+settled by three grids, and a fourth, finer one is running.
+
+**D400 (2026-10-31): where the record's own data stop, and what continuing them asks.** To run the late-time theorem
+on the record's own solution rather than on glued data, the solution must be known on the whole initial surface out
+to spatial infinity. It is not: the record and its supplement build it only up to a fixed advanced time, and the
+surface leaves that region on its way out, so its whole outer end lies beyond what the record constructs. Neither
+construction reaches further at a fixed wavelength, since their constants grow with the region. What remains is the
+region to the past of the surface's outer part, bounded by an incoming light cone on which the solution is known and by
+past null infinity, where after the shell nothing comes in. So the missing step is a scattering problem near spatial
+infinity with no incoming radiation, followed by an expansion of its solution there, fine enough to place the data in
+the late-time theorem's class. What the record provides on the cone, a leading inverse-square term and a bound on
+the rest, is not yet such an expansion.
+
+**D401 (2026-10-31): the gauge-fixed pieces of the second-order correction, one stage on.** At the previous stage the
+gauge condition fixed five components of the second-order correction on each harmonic that belongs to one wave alone.
+The question left was whether those values agree with what the field equations demand of the same components at the
+next stage. They do, and without computation: the field equations differ from Einstein's by a term built from the
+gauge condition, so the Bianchi identity ties the divergence of the next stage's equations to the gauge condition,
+and on these harmonics the relevant symbol vanishes. The five equations that would constrain the fixed components
+therefore hold identically, and the remaining ten are transport equations for the ten components left free. Checking
+this on the assembled next-stage equations would need a background that actually solves its field equations, which
+is available only numerically, and is not done.
+
+**D402 (2026-10-31): verifier 179 on the last six entries.** One serious finding, about the loss's gap condition: the
+earlier reduction ruled out each candidate one step at a time, but the record's set of exponents is closed under
+repeated additions, so a sum of several steps can land just above the next integer, and the column offsets can bind
+from exponents below two as well. The open question is now stated as those two kinds of coincidence, still not
+computable from the record. The resolvent bounds off the real axis and the gauge result at the next order were
+confirmed. The comparison of the two gauges was confirmed in substance, with corrections to its numbers: measured in
+the one field both gauges share, the original gauge's error in the null directions is 2 to 29 times smaller, not 14
+to 57; the swapped gauge is better in angle on one stretch; and one comparison had used different cells on its two
+sides, which, done like for like, only strengthens it. A control in the gauge check could not have failed; it is
+replaced by checks that can, and they pass.
+
+**D403 (2026-10-31): the null-direction convergence settled, and where the original gauge stops.** A fourth, finer
+grid shows the swapped gauge converging at second order in the null directions; the coarser three had not yet
+reached that regime. On the finest grid its error is a few tenths of a percent. The original gauge, examined on its own
+cells, keeps failing on a stretch even well inside its own cut-off, and exactly on cells beyond the swapped gauge's
+cut-off: both gauges stop converging at about the same events, which points away from either gauge as the cause.
+
+**D404 (2026-10-31): the first resolvent bound with a derivative.** The bound on each angular mode of the wave equation
+controlled only the size of the solution. The same identity also controls its radial derivative, and, through the
+split that made the bound uniform in the mode number, its angular derivative too, uniformly in the mode number, with
+a weight that vanishes at the photon sphere, where light can orbit and no such estimate can be uniform without loss.
+The constants are explicit and certified at one frequency, and a direct computation sits well inside them. It is a
+first step from these simple norms toward the record's.
+
+**D405 (2026-10-31): verifier 180 on the last five entries.** One serious finding, again about the loss's gap
+condition: two of the cases the previous repair named as possible are ruled out by bounds the record itself proves on
+the offsets, so what remains is narrower, an exponent lying within about a millionth below two at the record's point.
+The record's own printout also shows the smallest distance from an integer to be about forty times smaller than the
+figure used so far; the earlier bounds stay true, only loose. The other arguments held and the numbers reproduced.
+The field used to compare the two gauges' accuracy is not gauge-free point by point, since the angle labels differ;
+measured instead on the invariant section volume, the original gauge is up to fourteen times more accurate, and
+equally accurate early on. The original gauge's error falls steadily toward the swapped gauge's cut-off rather than
+stopping at an edge. The derivative check gained an independent derivative and pinned constants.
+
+**D406 (2026-10-31): the slowest-decaying part of the record's correction, followed out to spatial infinity.** After
+the shell, the record's correction terms fall off like the inverse square of the distance, with an angular pattern
+fixed on the incoming light cone. Following one such pattern to spatial infinity, in flat space and with nothing
+coming in from past null infinity, gives an exact answer: a finite polynomial in the inverse distance, built from a
+Chebyshev polynomial, because in four space dimensions the relevant recursion stops after finitely many steps. So this
+part of the data reaches spatial infinity with a clean expansion, of the kind the late-time theorem requires, with
+odd angular patterns dropping out at leading order. The curved-space corrections, the remainders, and a term-by-term
+check that the coefficient really stays constant after the shell are not done.
+
+**D407 (2026-10-31): the structure behind the previous deduction, computed.** The deduction that the next stage's
+equations leave the gauge-fixed pieces alone rested on an identity. Its linear part can be computed exactly without
+knowing the background's own field equations, and it comes out as claimed: the ten free pieces do not appear in the
+five equations that hold automatically, and each of the other ten equations moves its own piece along the incoming
+direction. The full next stage, with the waves' own contributions, still needs a background that solves its
+equations, and is not done.
+
+**D408 (2026-10-31): the gap condition probably binds, and hard.** Two of the exponents that the record's own
+operator produces sit just above the integer 2, by amounts that are almost exactly in the ratio four to one. If both
+enter the set of exponents the condition ranges over, as they generically would, then sums of them land within half a
+millionth of a millionth above the next integer, about a hundred and sixty thousand times closer than the scale used
+so far. The step of the long chain must then be smaller than that, and the number of its levels rises to trillions.
+Whether those two exponents really appear with nonzero coefficients is not something the record settles; that is the
+remaining question. [Corrected in D413: only one of the two can enter in the way assumed, and without the pair the
+sums come no closer than about five hundredths of a millionth, so "probably binds, and hard" is withdrawn.]
+
+**D409 (2026-10-31): the derivative bound for every mode at one frequency.** The bound with a derivative now has an
+explicit, certified constant for every angular mode at the test frequency, and so for the full wave equation on the
+cut-off region, summed over the modes. The lowest non-trivial mode sets the constant, as it already did for the size
+of the solution.
+
+**D410 (2026-10-31): moving the cut-off.** Running the original gauge with the cut-off at three different radii
+separates two things. Where the numerical solution first goes wrong always sits right next to the cut-off, and the
+error there shrinks as the cut-off is raised: that part belongs to the cut-off. But at one place on the axis, at an
+areal radius of about one and well away from every cut-off, the solution fails to converge in angle by the same amount
+whichever cut-off is used. That part belongs to the axis or to the geometry itself, and a run with the axis treated
+differently is under way to tell which. [Corrected in D413: the cut-off cannot affect the cells that are kept, so there
+is only one failure, and the cut-off only decides how much of it is shown.]
+
+**D411 (2026-10-31): the same around the black hole.** Repeating the previous calculation with the black hole's
+curvature included, for a scalar wave, the clean structure survives: no logarithms can appear at any order, the
+leading pattern is unchanged, and the curvature only adds corrections falling off two powers faster. The expansion
+no longer stops after finitely many terms, but it converges numerically out to spatial infinity. A proof of
+convergence for every angular pattern, and the tensor version, are not done.
+
+**D412 (2026-10-31): the open coefficient is a global one.** Whether one of the two nearly-commensurate exponents
+really appears was tested against the simplest local mechanism: a forcing from the black hole's curvature at exactly
+the resonant order would have made the coefficient large and certainly nonzero. The forcing is present but points in
+a direction the resonance does not see, so it produces nothing special. The coefficient is therefore set globally, by
+regularity at the horizon, and has to be computed from the full radial problem, most easily at a larger damping
+parameter where the two exponents separate, then followed down. [Qualified in D420: the forcing is harmless only when
+one particular damping parameter is switched off; switched off the other way it is not, which is why its response is
+large at the record's point. The conclusion stands.]
+
+**D413 (2026-10-31): the 181st verifier's findings seated, and the second axis treatment tried.** The verifier found
+two real errors. First, in D408 one of the two nearly-commensurate exponents enters the record's sets shifted by a
+whole unit, and a shifted exponent can be used only once in the windows that matter. So the near-cancellation between
+the two never comes into play. With the one exponent that can be repeated, the sums come within about five hundredths
+of a millionth above an integer, not half a millionth of a millionth. That is close to the scale the record's
+construction already allows, but not shown to be below it, so the claim that the gap condition binds hard is withdrawn.
+Second, in D410 the cut-off cannot influence any cell the solver keeps, because the solver drops every cell whose past
+touches the cut. So there is one failure, at fixed events near the axis, and the cut-off only decides how much of it is
+kept. The run with the axis treated differently is back: it fails at the same event by about the same amount, and the
+two treatments differ there by amounts of the same order as the two resolutions do. A run at higher angular
+resolution is under way to tell
+whether the failure is a matter of resolution. The minor findings (a missing condition on sources at large distance, a
+sum over modes that left out the lowest one, table entries rounded the wrong way, a wording about which terms were
+computed, a missing control) are repaired as well. [Corrected in D420: the scale the record allows is about two hundred
+and fifty times smaller than said here, so the sums stay well above it; and the two axis treatments agree only at the
+one point quoted, while on the axis itself they settle to different values.]
+
+**D414 (2026-10-31): two families of waves, the large terms of the linearised equation computed.** With one family of
+waves, the equation for a small correction has exactly one large coefficient, and one particular component of the
+correction feels it. With two families crossing, the computation gives exactly one such coefficient per family and no
+new ones. Each family's own large term disappears from the component that family singles out, but the other family's
+does not. It survives only through a gauge term that the record's choice of gauge carries along, and with the gauge
+choice proposed earlier it disappears too. So the cross-coupling between the two families is, at this level, an
+artefact of the gauge. The energy estimate in either gauge is not done.
+
+**D415 (2026-10-31): the open coefficient depends on a free choice.** The coefficient that decides whether the
+repeatable exponent of D413 appears belongs to a state defined on the whole spacetime, so it depends on how the
+record's gauge is set up in the interior. The record fixes that only far out and leaves the interior to a cut-off of
+its choosing. Changing the cut-off changes the coefficient, generically, so the question has no answer from the record
+alone. One condition on the cut-off would make that term vanish. Until such a choice is made, the bound of D413 is the
+one to carry.
+[D429: asserted, not shown; it holds unless a certain integral vanishes identically, which is not computed.]
+
+**D416 (2026-10-31): the derivative bound for the lowest mode.** The bound on the derivative of the solution now
+covers the spherically symmetric mode too: the identity used for that mode already contains the derivative term, so
+the same short argument applies. Its constant, about 809, is the largest of all the modes at the test frequency, so it
+sets the constant for the full wave equation on the cut-off region, at the test frequency. An earlier note that this mode
+needed a different
+argument is withdrawn.
+
+**D417 (2026-10-31): the slowest part of the correction at spatial infinity, with the record's full equation.** D406
+followed the slowest-decaying part of the correction to spatial infinity with the plain wave equation. The record's
+equation also carries its gauge-damping terms. In flat space those terms respect the scaling symmetry, so the solution
+is a fixed profile in one variable, and spatial infinity sits at an ordinary point of that profile's equation. So the
+clean expansion survives whatever the damping, although the leading number changes. With the damping switched off the
+calculation reproduces D406 exactly. The curved-space version, with the black hole's mass included, is not done.
+[D429: one angular pattern at a time, and assuming the solution is unique; for all patterns at once a bound uniform
+in the pattern is still missing.]
+
+**D418 (2026-10-31): more angular resolution alone does not help.** At five angular resolutions on the same grid in
+time and radius, the failure on the axis does not settle down. Where the solution was already accurate, the
+differences between successive resolutions grow as the angular resolution rises. So at this grid, adding angular
+modes makes things worse rather than better, and the step in the two null directions is what limits the accuracy. The
+earlier reading that the event "barely converges" in angle is withdrawn. Runs refining both together are under way.
+[D429: more than the data show. What they show is an error that grows with the number of angular modes; whether a
+finer step in the null directions cures it is the test now running.]
+
+**D419 (2026-10-31): the better gauge works at the first stage.** D414 showed that with the gauge proposed for two
+families, the cross-coupling between them disappears. This step checks that the gauge can actually be imposed at the
+first stage of the construction. The second harmonics that the record's gauge handled with an extra wave term are
+absorbed algebraically by the gauge source instead, with an explicit formula, and nothing else at that stage changes.
+The next-order gauge condition and its propagation are not done.
+
+**D420 (2026-10-31): the 182nd verifier's findings seated.** Two real errors, both mine.
+- *The record's smallest scale.* The number used for it was really a cutoff value in one of the record's own
+  computations, not a minimum. Followed through, the record's definition, taken literally, admits no positive scale at
+  all. Taken the sensible way, the scale is about two hundred and fifty times smaller than D413 said. The gap condition
+  is
+  still not shown to bind, but the length of the record's long chain is now at least about ten thousand million steps
+  under one reading of the record, and about twenty million under the other.
+- *The axis.* The quantity compared on the axis is not the geometry itself but its slope there, and the two axis
+  treatments settle to different slopes. In the geometry's own values they agree to a thousandth at the event. There
+  the solution converges slowly, and the real failure starts a little later and worsens with resolution.
+[D429: the first reading is excluded by the record itself; the second, corrected in D422, gives about a hundred
+million steps. The geometry's values differ by a quarter of a hundredth at the coarsest setting, the improvement
+before that point has stalled, and the axis value has not settled at the finest setting.]
+
+Smaller corrections: one condition holds only along one way of switching the damping off, a missed third window that
+changes nothing, a constant that tends to 2.0 rather than 1.86, and an earlier verifier's harmless warning,
+recorded.
+
+**D421 (2026-10-31): the next angular pattern checked.** D417's argument that the slowest part of the correction
+stays clean at spatial infinity, with the record's full equation, was computed for the simplest angular pattern and
+claimed for all. The next pattern, with six components instead of four, has exactly the same structure, so the claim
+is now checked on two patterns.
+
+**D422 (2026-10-31): the record's smallest scale, settled from its own text.** The record uses two different small
+numbers under one name. One belongs to the gauge, and D420's reading of it is the record's own. The other is the one
+that limits the long chain, and its definition covers far more of the record's exponents than the record actually
+computed. Including them, the number is about four times smaller than the record printed. So the long chain has at
+least about a hundred million steps, and the loss it produces is at least about two hundred million derivatives.
+
+**D423 (2026-10-31): the better gauge, one stage further.** The gauge condition of the alternative gauge also holds at
+the next order: the extra term the gauge source brings lands in exactly the equation that a free piece of the
+next-stage correction controls, and solving for that piece removes it at every harmonic checked. Why the condition then
+stays true for all time is the standard argument, deduced and not checked here.
+
+**D424 (2026-10-31): the derivative bound on a whole range of frequencies.** The weights used in the bounds do not
+depend on the frequency, so every constant grows with the frequency in an explicit way. The bound found at the test
+frequency therefore holds for every frequency below it, down to zero, with the constant falling to about 530 near
+zero. This is still for the region between the horizon and the outer cut-off, not the record's full norms.
+[D427: the 530 is an upper bound near zero, not the exact constant.]
+
+**D425 (2026-10-31): the record's loss, as numbers.** With the scale settled in D422, the record's own accounting gives
+a loss of at least about two hundred million derivatives from the long chain alone, and its inner loop runs more than a
+million billion rounds in all. These are lower bounds on what the record's proof delivers, not on what the best proof
+could do.
+
+**D426 (2026-10-31): the clean expansion survives the black hole's mass, at first order.** The record's full
+equation was carried to spatial infinity in flat space in D417. With the black hole's mass included to first order, the
+correction it brings obeys an equation of the same kind, with no new problem point at spatial infinity, so the
+expansion there stays free of logarithms. Higher orders in the mass, and the other angular patterns, are not done.
+
+**D427 (2026-10-31): verifier 184 on the last six.** An independent reader re-ran D421 to D426 and broke none of them.
+Three needed their wording tightened. One angular pattern's check covered three of the seven pieces that should vanish;
+all seven are now checked, and they do. The bound near zero frequency is an upper bound, not the exact constant. And the
+absence of logarithms at spatial infinity comes from that point being an ordinary point of the equation, not from the
+signs of the exponents, which matter at the other end.
+
+**D428 (2026-10-31): the better gauge, kept for all time.** D423 left one step argued but not checked: why the gauge
+condition of the alternative gauge, once true at the start, stays true. That is now computed. The quantity that measures
+the failure of the gauge obeys a wave equation of its own, the starting data can be chosen to make it zero, and the
+constraint equations then make its rate of change zero too, so it stays zero. The last step, that a wave starting from
+nothing stays nothing, is the standard argument, not recomputed here. The case of data given on a light cone rather than
+at an instant is not done.
+
+**D429 (2026-10-31): verifier 183 on D415 to D420.** The reader found three real errors. First, D420 offered two
+readings of a small number in the record's proof; the record's own text excludes one of them, and the right one had
+already been fixed in D422. Second, at the axis of the run the claims that the two treatments each settle and that the
+geometry agrees to a thousandth were not borne out: at the finest setting the axis value moved again, and at the
+coarsest the two treatments differ by a quarter of a hundredth. Third, the clean expansion at spatial infinity with the
+record's full equation holds one angular pattern at a time and assuming uniqueness; for all patterns together a bound
+uniform in the pattern is missing, so that condition is open again. Nine smaller points were corrected with them.
+
+**D430 (2026-10-31): the record's gap condition does not bind, as far as the computed numbers go.** The record's
+proof needs a small number to stay below the gaps of a certain set of exponents. With every exponent computed so far
+put in at once, the smallest gap is still about fifty billionths, while the other condition on the same small number
+already forces it below about twenty billionths. So the gap condition adds nothing from these exponents, and the long
+chain's length stays at about a hundred million steps. Exponents the record does not list could still change this.
+
+**D431 (2026-10-31): the derivative bound without the blind spot.** D404's bound on how fast the waves can vary
+around the sphere switched itself off at the radius where light can orbit the black hole. On the range of frequencies
+D424 covers, that blind spot costs only a larger constant: about 990 instead of about 810, set by the last angular
+pattern before a closed formula takes over. It is still for the region between the horizon and the outer cut-off.
+
+**D432 (2026-10-31): the finer runs are in.** The two runs with the step in both null directions halved finished,
+and comparing all four settles what limits the accuracy where. Up to the time 1.8 it is the null step: halving it
+changes the geometry by about a hundred-thousandth, while adding angular modes changes it by about a billionth. Between
+1.8 and 2 it is the angular resolution instead, and only in a thin shell of small radius, between 1.0 and 1.2;
+halving the null step leaves that difference unchanged there. After 2, near that shell, nothing converges yet; further
+out the runs stay
+close to each other until about 3.
+
+**D433 (2026-10-31): verifier 185 on the last five.** Nothing was broken; the derivative bound without the blind spot
+was confirmed as written. Four statements were tightened: the gauge argument needs the starting data to satisfy the
+constraint equations and to be smooth enough for the energy estimate; the gap computation's comparison run cannot fail
+by construction and is now called a consistency check (a stronger probe, admitting more exponents, still leaves the gap
+condition slack); the error between the times 1.8 and 2 is described by what it depends on, not by what causes it; and
+one test added earlier follows from another by linearity and is labelled so.
+
+**D434 (2026-10-31): the clean expansion's leading number at the record's own setting.** D417 found the leading
+number at spatial infinity for one test value of the record's damping; the record's own value is a million times
+larger, which makes the equation very stiff. The stiffness turns out to sit only in solutions the data exclude, so the
+number is well defined and computable, and it settles as the damping grows. It differs substantially from the
+undamped one: one component the undamped equation sends to zero comes out of order one. Computed, not certified.
+
+**D435 (2026-10-31): verifier 186 on D434.** The numbers held up, and running the damping on to a million million
+puts the record's setting within about a millionth of the limit. One sentence claimed more than was computed: the
+number found is for the simplest angular pattern only, and each other pattern has its own.
+
+**D436 (2026-10-31): every angular pattern at the record's setting.** D434 found the clean expansion's leading
+number for the simplest pattern only. Now every pattern up to twelve is done, of all three kinds. One kind never feels
+the damping at all. For the other two, every pattern behaves as the simplest one did, with no trouble where the data
+are given, and the numbers grow only like a power of the pattern's complexity, at most its square for the first three
+rates of change. That is what summing all the patterns needs, but twelve patterns are evidence, not a proof for all.
+
+**D437 (2026-10-31): the condition at spatial infinity, proved for all patterns.** D436 showed the first twelve
+angular patterns behaving well; now a proof covers every pattern at once. The equation for each pattern has the same
+shape whatever the pattern, with the pattern's complexity entering only in controlled places, and the friction it
+carries at the light cone is the same for every pattern and points the right way. An energy argument then bounds every
+pattern's leading number by one constant, and its rates of change by powers of the complexity. So the sum over all
+patterns behaves, and the condition at spatial infinity for the record's full equation holds, at the record's setting,
+given that the solution is unique. The constant is astronomically large, but it does not grow with the pattern.
+
+**D438-D439 (2026-10-31): verifiers 187 and 188 on the last two.** Neither broke anything. The first checked the
+reduction for every pattern against an explicit second pattern built independently, found that the behaviour at the
+light cone is exactly the same for every pattern (so nothing goes wrong there at any pattern, not just the first
+twelve), and fixed two bookkeeping factors. The second re-derived the proof for all patterns and confirmed it, with one
+figure corrected (a growth ratio that had only been checked on special data) and the closing statement given back its
+qualifiers: at the record's setting, for smooth data, assuming the solution is unique.
+
+**D440 (2026-10-31): the gauge holds when the data sit on light cones.** D428 showed that the coordinate condition the
+reduced equations rely on stays true once it holds at the start, but only for data given at one instant of time. The
+record's own problem gives its data on light-like surfaces instead, where that argument does not apply. Now an exact
+check shows the same thing there. On such a surface the condition's failure can only travel along the light rays, one
+piece after another, and each piece stays zero if the data obey the surface's own constraint equations and the
+condition holds where the two surfaces meet. Still assumed rather than computed: that such data exist (solving those
+constraints, with the condition where the surfaces meet), the matter terms, and the standard uniqueness theorem for
+data of this kind.
+
+**D441 (2026-10-31): verifier 189 on D440.** Nothing broke. An independent computation, built a different way,
+reproduces the three transport equations and their coefficients, and one of them was also derived by hand in every
+dimension. The corrections are wording. The first equation is linear only once the solution is known (in terms of the
+data alone it is quadratic in the unknown, though zero still solves it), and the summary entry had claimed more reach
+than the main text.
+
+**D442 (2026-10-31): a number the record left to chance.** The record's treatment of one slowly decaying term depends on
+whether a certain coefficient is zero. Earlier work showed the answer cannot be read off locally and argued that it
+depends on two smoothing functions the record never fixes. Now the coefficient has been computed outright, by solving the
+equations from the black hole's horizon outwards, for 22 different choices of those functions and three settings of the
+damping. It is never zero, and it changes with every choice, so the dependence is now measured rather than asserted. No
+choice tried made it vanish, so for every choice computed, at the two damping strengths tried, the record does carry this
+term; the record's own, much weaker damping was not computed.
+
+**D443 (2026-10-31): verifier 190 on D442.** The number stands: the verifier rebuilt the equations independently and
+recomputed the coefficient by a different numerical method, agreeing to nine digits. The corrections are about reach:
+the result covers two damping settings, not the record's own; three of the 22 choices were the same baseline; and
+whether those damping settings meet the record's smallness conditions was not checked.
+
+**D445 (2026-11-01): where the large-domain simulation breaks.** The numerical evolution at the record's setting stops
+converging near one axis, a little beyond where it was known to converge, and it was not known whether the method's
+treatment of that axis was at fault or the solution itself. Rerunning with the incoming waves weakened answers it. At
+half the record's strength or less the evolution converges to the end of the domain, axis included, to about one part in
+a hundred million. The failure appears only between half and three quarters of the record's strength, grows very fast
+with it, and tracks the solution's angular detail outgrowing the resolution. So the axis treatment is sound where the
+waves are weaker, and the failure comes with sharpening detail. Whether at full strength that is a genuine singularity, a
+steep but smooth feature, or the method failing only for large fields is the next question.
+
+**D446 (2026-11-01): verifier 191 on D445.** The numbers stand: the full-strength runs are identical to the earlier
+ones and every quoted figure checks. The reading was too confident in two places. The scan shows the method sound only
+where the waves are weaker; at full strength it cannot yet tell a true singularity from a steep feature or from the
+method failing only for large fields. And the weaker runs are not nearly linear, as claimed: they already respond
+nonlinearly by about a fifth, and still converge, which makes the point stronger.
+
+**D447 (2026-11-01): a condition that was assumed, now checked.** Carrying the solution's slow fall-off out to spatial
+infinity needs the self-interaction terms beyond a certain shell to fall off faster than a stated rate. The record
+expected them to, because the leading parts there no longer change in time, but had not checked it. A short exact
+scaling check confirms it: products of such time-independent terms fall off two powers faster than required. What is
+still unchecked are the terms that involve the smaller, less well described remainder.
+
+**D448 (2026-11-01): the light-surface constraints can be solved.** D440 showed that the coordinate condition holds
+for data on light-like surfaces if those data satisfy the surfaces' own constraint equations, but did not check that
+such data exist. An exact computation now shows the constraints form a chain of ordinary differential equations along
+the light rays: one for the overall size of the cross-sections, then one for the shift-like components, then one for
+the remaining component, each with a nonzero leading coefficient. So they can be solved in turn from free data and
+values where the two surfaces meet. What is left is matching the conditions at that meeting place.
+
+**D449 (2026-11-01): verifier 192 on D447 and D448.** Both stand. The scaling check was redone with the record's exact
+damping direction and still holds, and its numerical extraction was confirmed exact. For the light-surface constraints
+the verifier re-derived the three leading coefficients independently, and asked for, and got, a further check that each
+equation really leaves out what the chain needs it to leave out. The statements of what is solvable, and of what data
+the meeting place supplies, are now stated precisely.
+
+**D444 (2026-11-01): how much the trapped light costs at high frequency.** The proved bound on the time-independent
+problem grows in proportion to the frequency, but the actual size of the solution operator had been measured only up
+to a modest frequency. A faster method now measures it up to thirty-two times higher. The worst case is always the
+angular pattern that sits exactly at the top of its potential barrier, the light trapped at the photon sphere, and the
+size falls like the logarithm of the frequency divided by the frequency. So trapping costs only a logarithm, as the
+general theory leads one to expect, and the proved bound is far from sharp there. This is a measurement and a fitted
+law, not a proof.
+
+**D450 (2026-11-01): the coefficient at the record's own setting.** D442 computed the coefficient at stronger damping
+than the record's, because at the record's setting two of the solution's rates of fall-off differ by only three parts
+in ten million and are hard to separate. They separate cleanly after all: the coefficient there is about 141, the same
+to ten digits however the calculation is arranged. Its size comes from the near-coincidence, which forces it to almost
+cancel a nearby term the equations require anyway. So at the record's own setting
+too the term is present, and how the record's free smoothing functions are chosen changes it only slightly.
+
+**D451 (2026-11-01): verifier 194 on D450.** The number stands: an independent method gives the same coefficient to
+nine decimal places. The reading was corrected: the near-coincidence explains why the coefficient is large, but the
+small remainder seen along one direction is not forced by it, and the full leftover term is larger in another
+direction. The horizon smoothing function, not the weak damping, is what moves that remainder.
+
+**D452 (2026-11-01): where the proved bound loses.** Set beside the measurements of D444, the proved bound is weakest
+not at the trapped light but at the lowest angular patterns, where it grows in proportion to the frequency while the
+true size there is small. At the highest frequency computed it is a hundred thousand times too large. A summary line
+that had quoted the proved bound's better values for every pattern was corrected to the section's own table.
+
+**D453 (2026-11-01): verifier 193 on D444.** The method and the numbers hold up: the norms agree with a dense
+computation and with the independent solver to ten digits, and the finer and wider checks stay inside the stated
+accuracy. The law fitted to them was stated too strongly. The largest size oscillates as the frequency changes, with a
+period of about a half, the spacing of the trapped patterns, and the six frequencies computed all fall at the same
+point of that cycle; a fine scan near frequency 12 runs about 9 % from peak to trough, the peaks about 2 % above the
+fit. So the law holds at the frequencies sampled, its upper envelope appears to share its slope, and the loss is still
+only logarithmic. The worst frequencies per pattern lie on that envelope, not on the fit, and the lowest pattern at low
+frequency is covered by its own lemma, which the text now names.
+
+**D454 (2026-11-01): the cross terms of the sources.** The condition between the two cones needs the nonlinear sources
+to fall faster than the inverse fourth power of the radius. D447 showed that the leading parts' own products do. The
+record's remainder class bounds every derivative by the same power, with no gain from differentiating, so its products
+with the leading part were left open. Counting powers settles it: the worst term, the leading part times two
+derivatives of the remainder, falls like the radius to the power minus four and a half, which is enough. A remainder
+built to oscillate shows the bound is reached, and one whose derivatives do gain falls two powers faster, as the
+earlier estimate assumed.
+
+**D455 (2026-11-01): the conditions where the two cones meet.** The characteristic problem takes data on two null
+cones, and where they cross the gauge condition must hold. Computed exactly there, it is one relation per component,
+and each relation ties one number of the first cone to one of the second: how fast the first cone's cross-sections grow
+to how one of the second cone's metric components starts, and the same with the cones exchanged, and the mixed
+components in pairs. So the growth rates of both cones can be chosen freely, which corrects the earlier reading that
+the gauge fixes the first cone's growth rate.
+
+**D456 (2026-11-01): verifier 195 on D452 and D454.** Both hold, with corrections. For the proved bound: its widths
+come from a fixed grid, and at the lowest pattern the best sits at the grid's edge; widths just beyond it are allowed
+and lower the bound by about a third. The trapped patterns at the highest frequencies lie beyond the range the lemma's
+constants were computed for, and the comparisons hold at the sampled frequencies. For the sources: the record's
+remainder class does gain from derivatives along the spheres, only not along the radius, so the test function used was
+outside the class. One that oscillates in the radius is inside it, and still reaches the bound. The bound stands, with
+a margin of only half a power, which bears on the open question about half-integer powers.
+
+**D457 (2026-11-01): no cut-off found that removes the term.** At the record's own setting the coefficient is about
+141, and almost all of it is forced by a near-coincidence far out, which the record's free smoothing functions cannot
+touch. Measured over every placement of a small change in those functions between the two ends of the computation, any
+change of size up to one moves the coefficient by less than a tenth, and even enormous changes move it by at most about
+seventeen. So within these choices the term stays, and the smaller gap bound is the one to carry. One family, a large
+negative change in the horizon function, makes the calculation itself unreliable and is left undecided.
+
+**D458 (2026-11-01): the axis failure looks like the method's.** At the record's full strength the computation breaks
+down at the axis, and it was not known whether the solution itself turns singular there, develops a very sharp but
+smooth feature, or the method fails. The breakdown begins at the grid point next to the axis, in the one field the
+geometry there hardly depends on, and turns into a zigzag from point to point. Raising the rounding error by a factor
+of 800 does not move it at the coarser setting. Packing more grid points near the axis, which would resolve a sharp
+feature better, makes it come sooner and stronger, and makes a weaker wave that otherwise converges fail too. That
+points to how the method treats the axis rather than to the solution, though not cleanly, since the packed grid has
+costs of its own. The size of the circle at the axis, which does not depend on the coordinates, converges better than
+the other quantities. The next step is an axis treatment that does not lose digits there.
+
+**D459 (2026-11-01): verifier 196 on D455 and D457.** Both stand, with corrections. The conditions where the two cones
+meet were re-derived by hand and symbolically; two of their remainders are now known exactly. The earlier reading was
+right once the second cone's numbers are given, and wrong only in fixing both cones at once, so the correction had
+overstated it. For the cut-off scan, the first-order figure is an estimate rather than a bound, since a cut-off near
+the end of the range moves the coefficient slightly more, and the large-change ranges hold at the sampled sizes; the
+conclusion that the term stays is unchanged.
+
+**D460 (2026-11-01): a better multiplier lowers the one-derivative constant fourfold.** The certified constant for one
+derivative, about 809, came from the lowest angular pattern, because the weight used in the proof is nearly flat at the
+outer end of the region. A weight that is narrow toward the horizon, as the proof needs, but wider outside brings the
+lowest pattern down to about 117, the next one from about 675 to 184, and every higher pattern below about 62, so the
+whole constant would be about 184. This is computed in ordinary floating point and is not yet certified; the earlier
+constants are reproduced as a control, and the certification is the next step.
+
+**D461 (2026-11-01): the record's remainder bound is too weak for the last source term.** Between the two surfaces the
+nonlinear terms must fall faster than the inverse fourth power of the radius. For the part of the solution that differs
+from the record's approximation, the record bounds its size and its first derivatives by the inverse square of the
+distance, with no improvement from differentiating, and says nothing about second derivatives. With only that, the
+products of this remainder with itself and with the leading part fall exactly like the inverse fourth power, as an
+example within the bound shows, and the terms with second derivatives are not controlled at all. The small powers of
+the wavelength in front do not help, since the condition is about the power of the radius. So the record needs a
+stronger remainder bound here.
+
+**D462 (2026-11-01): verifier 197 on D458 and D460.** The packed-grid result does not say what D458 said. Only one of
+its two runs fails, and that run carries forty times the rounding error at the axis and goes wrong mostly on the far
+side, where the packed grid is coarser; the other run behaves like the plain grid. So the experiment cannot tell the
+possibilities apart, and the reading that it points to the method's treatment of the axis is withdrawn, though nothing
+found points to the solution itself. For the better multiplier, the numbers and the argument hold; the reason given for
+one failed choice was wrong, and the higher patterns' bound is in a slightly weaker weight, which does not change the
+constant of about 184.
+
+**D463 (2026-11-01): the dusts do not disturb the order of the constraints.** The family carries two streams of null
+dust. Their stress enters the constraint equations on a null surface algebraically, with no derivatives of the metric,
+so the gauge still propagates, and the three constraints can still be solved one after another: the first gains a
+source fixed by the data, the second stays linear in its unknown, and the third does not see the unknown the third step
+solves for. A stream moving along the surface drops out there altogether.
+
+**D464 (2026-11-01): verifier 198 on D461 and D463; D461's conclusion withdrawn.** The remainder's sources are as large
+as D461 said where they act, but they act only in a band of bounded advanced time next to the first surface, since that
+is the only region where the record bounds the remainder, and spatial infinity lies at infinite advanced time. A source
+confined to such a band reaches the far region one power weaker: in a simple model a full source shifts the coefficient
+that matters by one half, while the same source cut to the band only contributes at the next order. So the record does
+not need a stronger bound there, and the second derivatives are bounded elsewhere in the record after all. The dust
+result stands, with two clarifications.
+
+**D465 (2026-11-01): the cut-off scan, carried to the edge of the record's freedom.** D457 varied the smoothing
+functions only near the horizon. Farther out the damping function's influence on the coefficient stops falling: it
+settles at about seven hundredths per unit of radius. But the record confines that function to within five horizon
+radii, so over everything it allows a change of size one moves the coefficient by about a fifth, against the 141 that
+is forced. The other function's influence keeps falling and is negligible. So the term stays for every such choice the
+record permits.
+
+**D466 (2026-11-01): the better multiplier, certified for every pattern but the lowest.** The improvement found in D460
+is now proved, not just computed, for every angular pattern from the first up: interval arithmetic checks the
+positivity everywhere it is needed, with explicit bounds for the two ends, and the resulting constant over those
+patterns is at most about 185, against 675 before. The lowest pattern needs an extra correction term, which is computed
+but not yet certified.
+
+**D467 (2026-11-01): half powers are allowed.** BEYOND5 had left open whether the record's solution class allows terms
+falling like half-integer powers of the distance. Read at source, it does: near null infinity the class is built on a
+coordinate that is the square root of the natural one, so half steps appear automatically, and the data are allowed any
+exponents above a threshold, not only whole numbers. The integer-power condition used earlier is a convenient
+sufficient test, not a description of the class. Whether a half-power term coming from the sources keeps the record's
+data norm finite depends on that norm's weights, which are not read here.
+
+**D468 (2026-11-01): two checks confirmed, three statements tightened.** The independent check of the strip computation
+and of the cut-off sensitivities confirmed both, with separate code. Three statements said more than was shown. That a
+source confined near the incoming null surface enters one power lower is shown in the spherically symmetric model, not
+yet in general, and beyond the region where the approximation is defined nothing bounds the remainder. One of the two
+dust streams was named for the other. And the 0.21 left out two short intervals; computed now, they make it 0.22. No
+conclusion changes.
+
+**D469 (2026-11-01): the certificate and the reading stand.** The independent check found no error in the certified
+multiplier bound or in the reading of the solution class. It asked for tests showing that the certificate's tail
+estimates and its constants step can fail; they are now included and fail where they should. It also asked for one
+monotonicity step to be stated, which now is. On the reading: half powers are admitted at the boundary that matters
+because nothing in the data's conditions asks for whole numbers, and the evidence from the other boundary, which had been
+quoted first, bears on that boundary only.
+
+**D470 (2026-11-01): what the dusts need on a null surface.** The earlier check took the two dust streams' densities on a
+null surface as given. Computed exactly in four and five dimensions: the stream that moves along the surface is not free
+there; its density is carried along the surface's light rays from where they start, by an equation whose one coefficient
+the gauge condition fixes. The stream that crosses the surface can be prescribed freely on it, and its equations then fix
+how it leaves. So of the record's two streams, one is chosen on each surface and the other is carried in from the corner.
+
+**D471 (2026-11-01): the dust result stands, and is simpler than stated.** The independent check reproduced it by hand
+and found that, once the gauge condition is used, the surface's own focusing drops out: the stream along the surface
+simply grows or decays at the rate the gauge source sets. It also made the scope exact: a crossing stream in general
+carries several free functions on the surface, the record's carries one, and the other surface follows by symmetry rather
+than by computation.
+
+**D472 (2026-11-01): no cut-off found makes the coefficient vanish, now to second order.** The earlier scans beyond the
+matching radius were only first-order, and very large negative choices of one cut-off had been left undecided because the
+numerics broke down there. With the horizon solutions kept orthonormal along the way, which does not change the quantity
+computed, every case is now decided: the coefficient stays above 107 in every scan, against 141.4 at the record's choice,
+and never changes sign; the apparent sign change the old numerics showed was their failure.
+
+**D473 (2026-11-01): the better multiplier now covers the spherically symmetric mode too.** The improved estimate
+certified for every harmonic but the lowest needed, for the lowest, one extra correction term, as the old estimate had.
+That term is now found and checked by rigorous interval arithmetic, including both infinite ends. So a single choice of
+multiplier certifies every harmonic, and the overall constant at the sampled frequency falls from 808.6 to 184.8, about a
+factor of four and a half.
+
+**D474 (2026-11-01): the near-surface sources stay one power down in the higher modes too.** The model showing that
+sources confined near the incoming null surface arrive one power lower than a source everywhere had only been run for the
+spherically symmetric mode. Run now for the next four angular modes, it shows the same or better: one power lower for two
+of them, and lower still, below what the numerics resolve, for the other two.
+
+**D476 (2026-11-01): what the literature already guarantees for the null-surface problem.** Read at source, a standard
+review states the theorem that data on two intersecting null surfaces determine a solution near their intersection,
+uniquely, for vacuum and for matter whose energy flux through the surface involves no derivatives, provided the matter's
+own equations are well posed. The record's two dust streams meet both conditions, by the earlier checks. The guarantee is
+only near the intersection; further out it is open.
+
+**D477 (2026-11-01): the improved constant holds in the original norm too.** The better multiplier measures the angular
+part of the solution with a slightly different weight from the one the estimate was first stated in. The two weights are
+now compared rigorously: one is everywhere at least 0.71 times the other on the region concerned. That is enough for the
+improved overall constant, 184.8 against 808.6, to hold in the original weight as well.
+
+**D478 (2026-11-01): the certificate for the lowest mode stands; its printed digits are now rounded the safe way.** The
+independent check re-derived every bound and sampled the functions at high precision, finding no error. It found that a
+few printed constants had been rounded to the nearest digit rather than in the direction that keeps them true bounds, by
+a unit in the last place. They are corrected, and the checks now always round outward.
+
+**D479 (2026-11-01): the coefficient also survives changes close to the horizon.** The last untested stretch of the
+cut-off functions lay just outside the black hole, where the computation started from a series. Starting the series
+closer in opened most of that stretch; there too no change, however large, brings the coefficient near zero: it stays
+between 140.3 and 142.0.
+
+**D480 (2026-11-01): the weight comparison and the rounding fix stand; the literature reading is narrowed.** The
+independent check confirmed the certified weight ratio and the safer rounding. It could not reach the paper quoted for
+the null-surface theorem, so the quotations were checked here against the paper's text instead. It also pointed out that
+the theorem needs one more assumption than was spelled out, now stated; and that the no-condition-at-the-corner claim
+holds for the record's own dust streams, not for every possible one.
+
+**D481 (2026-11-01): both results stand, and one has an exact formula.** The independent check reproduced the coefficient
+scans with three different integrators, and noted that the ranges quoted were over the sampled amplitudes only. For the
+near-surface sources it solved the model exactly: the coefficient that decides whether they arrive one power lower is
+minus pi over four for the symmetric mode, and exactly zero for every even mode from the second on, where they arrive two
+powers lower.
+
+**D482 (2026-11-01): the coefficient can vanish after all.** The near-horizon scan had sampled only twelve amplitudes.
+The independent check scanned between them and found that the coefficient swings through infinity and through zero at
+particular large amplitudes, about 1,600 and 15,000 times the natural size of the cut-off. The record's definition does
+not forbid such cut-offs. So the earlier claim that no choice makes the coefficient vanish is withdrawn: it is safely
+nonzero at the record's own choice and near it, but not for every allowed one.
+
+**D484 (2026-11-01): the record's gauge fits the theorem's.** The null-surface theorem is stated with its own choice of
+gauge. Read closely, that choice's reference metric plays no real role, and its source term is fixed on the surfaces by
+the data and free off them. The record's gauge differs only by terms without derivatives of the metric, which do not
+change the kind of equation the theorem treats.
+
+**D475 (2026-11-01): the curvature where the numerics fail.** Followed through the earlier runs at five wave strengths,
+the curvature, which no choice of coordinates can disguise, stays within a few times its background value wherever the
+two resolutions agree, and shows no sign of running away before the numerics fail. Where they fail, the curvature itself
+is unresolved at every angle, not only near the axis. So the failure is real in the geometry as computed, but nothing
+resolved points to a singularity.
+
+**D485 (2026-11-01): the curvature check holds; the gauge argument needed a better reason.** An independent check
+reproduced every curvature number. It found the growth with wave strength more varied than stated, the unresolved values
+starting lower, and, at the two strongest waves, convergence lost first away from the axis; these are corrected. On the
+gauge, the reason given was wrong: the record's choice does add terms with derivatives of the metric, but only first
+derivatives, so the equations stay of the kind the theorem treats and the conclusion holds.
+
+**D486 (2026-11-01): at high frequency the bound now falls instead of growing.** The explicit bound for each angular mode
+grew in proportion to the frequency, while the true size of the resolvent falls. Two changes reverse that. The modes that
+pass over the potential barrier already have a simple bound that falls; and for the modes near the photon sphere the
+weight used in the estimate is made sharper at the peak and gentler away from it. Taken over every mode, the bound now
+falls from about 11 to about 1 as the frequency goes from 3 to 96, within a factor of 10 to 20 of the true size, where it
+used to be off by up to a hundred thousand. Computed, not yet certified.
+
+**D487 (2026-11-01): the strip, for the full equations.** Sources confined to a band along the incoming null surface were
+known, in a model equation, to reach the far region one order lower than sources spread everywhere. Seen from far away
+the band is a thin layer, so its whole effect is a jump across it, and the rest is a solution of the equations with no
+source. That reproduces the model's exact answer, and for the record's own equations, in every angular mode computed, it
+gives the same order with no logarithm. So these sources do not touch the coefficient the far-field statement needs.
+
+**D488 (2026-11-01): further than the corner, for empty space.** The theorem used so far gives a solution only near the
+place where the two initial null surfaces meet. Two later papers push that to a whole band along both surfaces: the first
+in four dimensions, the second in every higher dimension, five included, but only for empty space. The record's surfaces
+carry streams of null dust, which neither paper treats, so for the record the corner is still as far as the reading goes;
+the likely route to the band is clear but not carried out.
+
+**D490 (2026-11-01): the route for the dust is not the easy one.** The check confirmed every quotation and reading. But
+the route called clear for the dust streams loses a derivative: the dust's own equation feeds an angular derivative of
+the geometry back into the system, which then asks for one more, without end. The known way round is a different, partly
+elliptic system, worked out in four dimensions; nothing comparable is known here for five. The band the earlier papers
+give may also thin out far along the surfaces.
+
+**D483 (2026-11-01): where the coefficient vanishes.** Sampling the coefficient had missed its zeros, because each comes
+paired with a blow-up just beside it, where the coefficient returns to its sign. Scanning instead for the blow-ups, which
+a smooth quantity marks by changing sign, finds them only for very large changes of the record's choices close to the
+horizon: one in one family, four in another, each with its zero beside it, and none at all for changes further out, up to
+amplitudes a hundred thousand times the record's own.
+
+**D491 (2026-11-01): the strip's corrections come in whole powers.** The independent check confirmed the strip's main
+result, but not what was said of its next terms: they come in whole powers of the distance, not the fractional ones
+claimed, because the equations do not change under a shift in time, so the band's thickness only adds a Taylor series.
+The record's own model computation had shown the first of them already. The fractional powers were an artefact, and the
+question they raised falls away.
+
+**D489 (2026-11-01): the curvature check, with the time grid refined too.** The earlier check had only refined the
+angles. Doubling the grid in the two null directions as well changes the curvature by a fraction of a per cent where it
+had settled, so the moderate curvature before the failure stands. Where the failure begins, the angular grid is what
+limits the computation, not the time step.
+
+**D492 (2026-11-01): the strip's coefficient, for every angular mode at once.** The strip result had been checked mode by
+mode up to twelve. The argument that bounded the full problem uniformly in the angular mode carries over to the strip's
+order with one shift, so the strip's coefficient is bounded for every mode at once. The bound is enormous, as the earlier
+one was, but it does not grow with the mode.
+
+**D493 (2026-11-01): the high-frequency bound, checked from scratch.** An independent reimplementation reproduced every
+number of the new high-frequency bound and confirmed it lies above the true size wherever it was compared. It corrected
+where the worst angular mode sits (a few modes below the one trapped at the photon sphere, not just below the barrier), a
+small grid omission that had printed the bounds a hair too low, and several loose figures. The bound is 9.5 to 19 times
+the true size, as stated after the corrections.
+
+**D494 (2026-11-01): the dust theorem, read.** The one theorem that handles streams of null dust like the record's, along
+the two null directions and even as thin shells, was read at source. It gives a solution in a band along a whole initial
+surface, as the record would need, but it is proved in four dimensions, on two-spheres, and part of its proof leans on
+other four-dimensional results. A five-dimensional version is not known here.
+
+**D495 (2026-11-01): the dust theorem, read again.** The check confirmed every quotation and corrected the details: which
+of the two initial surfaces the band runs along, where the paper defines its dusts, that its two-spheres could be any
+closed surfaces (so the restriction is to four dimensions, not to spheres), and that its solutions are weak ones. It also
+noted that the record's dusts match the paper's only if they run along null surfaces built from the metric, which the
+record's coordinates do not guarantee away from the initial surfaces.
+
+**D496 (2026-11-01): the strip, out to mode forty.** Computed out to angular mode forty, the strip's coefficients level
+off for one family of modes and fall for the other, as the bound proved for every mode says they must not exceed. They
+are computed at the record's own damping strength, which matters at high modes.
+
+**D497 (2026-11-01): the new bound, certified at one frequency.** At the frequency where the earlier certified bounds
+were worked out, the new high-frequency bound is now certified too, by arithmetic that keeps track of every rounding: for
+every angular mode the size of the resolvent there is at most about 11, where the best certified figure had been about
+359. The same route can be repeated at higher frequencies.
+
+**D498 (2026-11-01): where the coefficient vanishes, checked.** An independent check found every blow-up and every zero
+of the coefficient at the same place to all printed digits, and a scan five to ten times finer found no others. It
+corrected how close to breaking the computation is near them, which had been overstated a hundred-thousand-fold, and
+listed the kinds of pairs a sign scan of this sort cannot see.
+
+**D499 (2026-11-01): the curvature check, checked.** Every number reproduced, but the curvature had first been computed
+on runs made without the extra-precision step at the axis, not on the runs the record named; the two agree where the
+curvature settles, not after. And the small angular differences quoted where it settles came from the way values were
+interpolated between grid points: done properly they are a thousand times smaller, so there the time step, not the
+angular grid, sets the error. The moderate curvature before the failure stands.
+
+**D500 (2026-11-01): the strip's uniform bound, checked.** An independent check re-derived the argument and found that it
+does not depend on the degree it was first written for, so it applies at the strip's degree; every constant and every
+computed coefficient reproduced. It noted that two of the program's steps printed numbers without judging them (now
+judged), that one check could not fail at a bound so large, and that the bound covers the first two strip coefficients
+but not the later ones.
+
+**D501 (2026-11-01): the certified bound, certified again.** An independent check redid the certificate with a different
+interval library and derivatives taken automatically rather than by formula, and got the same bound, about 11. It
+corrected the comparison: the best earlier certified figure was about 275, not 359.
+
+**D502 (2026-11-01): the strip, for the last kind of mode.** The one family of angular modes not yet treated, the purely
+angular ripples, turns out to behave exactly like the simplest model: the record's full equations reduce to it there,
+checked exactly on every such mode of the three lowest orders. So the strip's coefficient is known in closed form for
+every one of these modes: it vanishes for every even mode, is small for the odd ones, and shrinks as the mode grows.
+
+**D503 (2026-11-01): the bound, certified at five more frequencies.** The certificate that fixed the bound at one
+frequency now runs at any, with the multiplier chosen for each: at frequencies two to thirty-two times higher the
+certified bounds are about 5.9, 3.8, 2.4, 1.5 and 1.0, within one per cent of the computed ones and falling as the
+frequency rises. Between the sampled frequencies the bound is still only computed, though the same pieces would certify
+whole intervals.
+
+**D504 (2026-11-01): the last kind of mode, checked.** An independent check proved the reduction a second way and
+confirmed every number. It corrected the summary: the check was exact on one random mixture of the modes at each order,
+not on every mode; and at even modes it is the leading coefficient that vanishes, the strip still entering one order
+later, with a small coefficient that also shrinks as the mode grows.
+
+**D505 (2026-11-01): the five new certificates, checked.** An independent check certified the same bounds again with a
+different interval library, slightly tighter. It found that one of the sanity checks meant to show the certificate could
+fail was, at the three highest frequencies, testing a formula outside the range where it holds; that check is now
+restricted to its valid range, and a different check that does fail is added. The bounds themselves are unaffected.
+
+**D506 (2026-11-01): the bound, certified across the whole band.** The parts of the certificate that do not depend on the
+frequency were certified once for each angular mode up to 190, and the rest is an explicit formula in the frequency, so
+every frequency from 3 to 96 is now certified, not just six of them: the resolvent is at most about 11.5 there, for every
+angular mode, close to the computed worst case of 11.35. Together with the earlier certified bounds below 3, every
+frequency up to 96 is covered.
+
+**D507 (2026-11-01): how many derivatives the proof spends.** An open condition in the count of derivatives the record's
+proof uses up was settled from the proof's own bookkeeping: a step repeated more than a million billion times costs at
+least one derivative each time, so the proof as written spends at least about 10¹⁵ derivatives, not 10⁸. This is what the
+written argument costs, not what the result needs; the number is set by one very small spectral gap.
+
+**D508 (2026-11-01): the strip's term fits the data class.** The condition the record uses to put data in its class asks
+only for smooth expansions in inverse powers of the radius. The strip's contribution is such an expansion, mode by mode,
+and its derivatives grow only polynomially with the mode, so for a smooth source the contribution fits the class. What is
+still missing is that the record's actual sources have such an expansion: the record bounds them, but does not expand
+them.
+
+**D509 (2026-11-01): the derivative count, checked.** An independent reading confirmed that each repetition of the step
+costs derivatives, but for a different reason than the one given: the record's summary of that step named an operation
+the step does not perform, while the step does apply second-order operators, which cost two derivatives each time. So the
+count is at least twice what was stated, and two of the printed figures were rounded slightly too high.
+
+**D510 (2026-11-01): the data-class argument, checked.** An independent check confirmed the argument and closed small
+gaps in it: the purely angular modes and the two lowest modes needed their own sentence, the record poses its data on a
+slightly tilted surface rather than a flat one (the argument carries over), and the computed check was worded more
+strongly than a check over the first forty modes can bear.
+
+**D511 (2026-11-01): the whole-band certificate, checked.** An independent check, with its own code and a different
+arithmetic library, certified the bound again for every frequency from 3 to 96 and every angular mode, and found it
+slightly smaller (11.46 against 11.48). It corrected figures printed beside the result: the number of steps in the
+largest single certificate, the value of one auxiliary quantity, how densely the bound was compared with the
+floating-point one, and the constant that applies below frequency 3, which is much larger (about 275) than the band's.
+The earlier log entry's 'computed worst case of 11.35' is the floating-point value of the same bound; the computed
+resolvent itself is about ten times smaller.
+
+**D512 (2026-11-01): two crossing wave families, the step that regains a derivative.** With one family of waves, the
+record's proof removes its one dangerous large term by splitting off a piece carried along the wave. With two families
+crossing, the same split along each family's own direction removes every large term at once, in the gauge the record
+uses. What remains of the interaction is of ordinary size, and the two split-off pieces then feed each other through
+bounded terms, which a standard growth argument should control; that argument is not yet written out. In the alternative
+gauge proposed earlier for two families, which had looked better, the split brings a large interaction back.
+
+**D513 (2026-11-01): the two-family split, checked.** An independent check found a sign error in how the split-off
+pieces are carried along the waves: the convention of the record's transport, which runs against the wave's direction,
+was copied onto one that runs with it. As written the large terms would have doubled instead of cancelling. With the
+sign corrected the argument stands, and the check confirmed the rest of it, including that the alternative gauge does
+bring a large interaction back.
+
+**D514 (2026-11-01): a second long loop in the derivative count.** The step repeated more than a million billion times
+(D507) has a twin. The levels below a certain order run a loop of the same length, which restarts at every level and
+does not depend on any fine structure. So the record's proof spends at least twice as many derivatives as counted
+before, more than 5 × 10¹⁵. An upper figure still needs two more loops counted, whose lengths do depend on that fine
+structure.
+
+**D515 (2026-11-01): the second wave profile's failure, read by curvature.** For the record's second, shorter wave
+profile, the curvature invariant was computed at three angular resolutions. It is resolved, and close to the black
+hole's own, everywhere until a certain time. After that it first stops agreeing between resolutions away from the axis,
+and only later at the axis where the solver had seemed to fail; the very large values near that axis come from the
+finest resolution alone. This points to a defect of the numerical scheme there rather than of the solution, though it
+does not prove it.
+
+**D516 (2026-11-01): the second long loop, checked.** An independent reading confirmed the doubled derivative count and
+its figures. It corrected which of the record's steps is the second of the two loops whose length depends on fine
+structure, and how the first of them should be bounded.
+
+**D517 (2026-11-01): half powers at spatial infinity.** The record measures its initial data in a norm built around a
+chosen list of allowed powers of the inverse radius. For the list the record uses, whole powers only, a half power such
+as one over the radius to the five halves makes that norm infinite. But the record's own rules allow a list with half
+powers too, and with it such data are admitted, by the same argument. The price is that the choice feeds into a gap
+condition later in the proof, whose margin, and with it the derivative count, would then need recomputing.
+
+**D518 (2026-11-01): the second wave profile's curvature, checked.** An independent check reproduced the curvature
+computation exactly and found the conclusion stronger than stated: where the finest resolution shows the huge values, it
+even has the wrong sign, while the two coarser ones agree with each other and stay close to the black hole's own
+curvature.
+
+**D519 (2026-11-01): half powers, checked.** An independent reading confirmed that half powers are admitted, but showed
+that admitting them costs nothing further: the record's construction already carries half powers in the list that the
+later gap condition sees, whatever list the data use. So the gap condition and the derivative count are unchanged; at
+most some logarithmic orders rise.
+
+**D520 (2026-11-01): the far-region sources are smoother than their bound.** The record's estimate in the far region
+also controls derivatives along the spheres, at no cost, so the sources that feed the strip have a fixed number of
+smooth angular derivatives, uniformly out to infinity. That is enough for the data class if the far-region estimate is
+taken to a high enough order. The record does this for the near region but not for the far one; that step, and one
+limit, remain.
+
+**D521 (2026-11-01): the far-region step was already in the record.** An independent check found that the record already
+takes its far-region estimate to every order for a fixed wavelength, and passes it to the actual solution, which is all
+that was needed: the sources feeding the strip are smooth along the spheres to every order. What is left is their
+dependence along the radius, which no argument so far controls; that is now the open item.
+
+**D522 (2026-11-01): the record's core estimate with two wave families.** The section of the record that removes the
+dangerous large term was carried over to two crossing families, step by step. Two things change. The pieces split off
+along each family must be defined together, as a small coupled system, because each family's wave leaves an oscillating
+trace in the other's direction. And each family's key equation picks up a bounded coupling to the other's. With those,
+every term is of the kind the record's estimate already handles. Still missing: the two-family approximate solution
+beyond its first stage, and the estimate written out in full.
+
+**D523 (2026-11-01): the two-family core estimate, checked.** An independent check recomputed the key identities by
+computer algebra, confirmed the bookkeeping by two routes, and found one omitted small term, of a kind the estimate
+already controls, and some wording to tighten.
+
+**D524 (2026-11-01): a finer grid makes it worse.** At the second wave profile, the angular resolution was raised once
+more without refining the time grid. The finer run is less accurate from the start and blows up earlier, everywhere
+around the circle, while the two coarser runs still agree with each other. A real feature of the solution would sharpen
+under refinement, not appear earlier. This points to the numerical scheme, as the same experiment did for the first
+profile. Both grids refined together are now running.
+
+**D525 (2026-11-01): the finer grid's failure, checked.** An independent check confirmed the finding and every figure,
+and showed that the largest values quoted came from cells next to the solver's own cut; away from it the failure is ten
+times smaller but still huge and still early. It also recalled that for the first profile the simplest explanation, time
+steps too coarse for the angular grid, did not survive a test, so the runs now going will decide it here.
+
+**D526 (2026-11-01): the two-family approximate solution to every order.** The record builds its approximate solution
+stage by stage, each stage a linear system along the wave. With two crossing families the same works. Each family's pure
+oscillations are carried along its own direction, and the mixed ones, which oscillate in both phases at once, are fixed
+by a simple division. That division never gets close to zero, so nothing is lost. What remains is the domain and the
+initial data for two families.
+
+**D527 (2026-11-01): the two-family approximate solution, checked.** An independent check recomputed the key division by
+computer algebra and confirmed the construction. It found that each stage's mixed oscillations come out one derivative
+less smooth than the previous stage's, which costs nothing for smooth data, and it named one coefficient the write-up
+had left implicit.
+
+**D528 (2026-11-01): the trapping bound certified up to twice the frequency.** The rigorous bound on the black hole's
+resolvent near its trapped orbits, which held for every frequency from 3 to 96, was run on to 192 and holds there too,
+with the same largest value, 11.48, and a bound that keeps falling as the frequency rises (0.66 at 192). The run took an
+hour and a half.
+
+**D529 (2026-11-01): one of the two uncounted loops, counted.** Of the two repeated steps whose length was still
+unknown, one advances by the smallest exponent the proof's expansions contain. Read off the record's own list of
+exponents, that step is about seventeen times the smallest admissible gap, so this loop is shorter than the two already
+counted, unless the record admits one further exponent that none of its cited states carries; if it does, this loop
+becomes by far the longest. Which is the case is not settled by the record's text.
+
+**D530 (2026-11-01): the far strip's data inherit the sources' radial shape, nothing worse.** The narrow strip of
+sources along the incoming light cone was shown, exactly in the model and by deduction for the full equations, to pass
+on whatever power-law expansion its sources have along the cone, shifted by three powers, with no logarithms. So what is
+open is only whether the remainder has such an expansion out toward past infinity. A model computation shows why it
+matters: a remainder that oscillated along the cone would leave the initial data rough at infinity, outside the class
+the final assembly needs. The record's waves are incoming and do not oscillate that way, but the record does not prove
+the remainder doesn't.
+
+**D531 (2026-11-01): the uncounted loop, checked.** An independent reading confirmed every number but corrected the
+headline. Each chain of that loop is shorter than one level's worth of the loop already counted, but there is one chain
+per exponent of a function the record does not list, so the whole loop is shorter only if there are fewer than about
+nine of them. It also stated two things the note had assumed: why reflected roots are left out, and why the record's
+other classes add nothing small.
+
+**D532 (2026-11-01): the bound up to frequency 192, checked.** An independent check re-certified the last intervals with
+its own interval arithmetic and found no error of substance. It corrected the wording: the bound does rise a little
+between frequencies 3 and 3.25 before falling, one lower bound had been rounded the wrong way, and three places still
+gave the old range.
+
+**D533 (2026-11-01): the region of the proof, for two kinds of dust.** The proof's first lemma, which fixes the region
+where everything happens and checks its boundaries are the right kind, was carried over to two crossing streams of dust.
+The background then looks like the record's with one extra function, which the outgoing dust can only push in the
+harmless direction, so every inequality holds with at least the record's margin, except one: the inner boundary must
+still lie inside the black hole, which fails if the outgoing dust carries off too much mass. A computed example shows
+both the normal case and that failure.
+
+**D534 (2026-11-01): the last uncounted loop, bounded in form.** The second repeated step whose length was unknown turns
+out to be governed by a different small number from the one assumed: the smallest exponent of the corrections a black
+hole makes to flat-space solutions near future timelike infinity, which the record never computes. And each of its
+rounds clears a whole window at once, so its length per level is that window divided by this number. If the number is as
+large as the record's smallest root, the loop is about one twentieth of the counted ones; computing it from the
+five-dimensional black hole is the next step.
+
+**D535 (2026-11-01): the far strip, checked.** An independent check found no error of substance and turned one deduction
+into a computation: the full equations' profile reduction behaves exactly as claimed at four non-integer powers. It also
+found the consequence stronger than stated: a remainder oscillating along the cone would push the data out of the
+required class already at the first derivative, not the second.
+
+**D536 (2026-11-01): what the far-strip question needs, mapped.** The record already controls one derivative along the
+strip for the parts of its approximate solution built by integrating along light rays, but not for the rest, nor for the
+remainder. The natural tool is the scaling symmetry of flat space. But even full control of that kind is not enough: the
+data need an actual expansion in inverse powers of the radius, which the equations' transport structure should give step
+by step, provided one logarithmic term is kept out.
+
+**D537 (2026-11-01): the two-dust region, checked.** An independent check confirmed the algebra but found the
+computation covered too little: the inner boundary had been tested only at the last moment of the run. On a larger
+computed region it holds all along, with room to spare. It also found that one conclusion, that the light rays reach the
+initial surface, needs the background on the whole region, which is still to be built.
+
+**D538 (2026-11-01): the last loop, checked and tightened.** An independent reading found that the record's own
+bookkeeping already fixes the unknown step from below by its smallest root, so no new computation is needed for the
+bound: that loop is at most about one seventeenth of the counted ones. Whether it is even shorter, a single round per
+level, depends on one term the record does not settle.
+
+**D539 (2026-11-01): the last loop's length, settled at the record's point.** The term that decides whether the last
+loop takes one round or about a million and a half per level was already computed in this note's own earlier work, and
+it is present, so the loop takes the longer count, still about one seventeenth of the loops already counted.
+
+**D540 (2026-11-01): the far-strip expansion was already in the record.** An independent reading found that the record's
+eleventh section already proves what the last two notes called open: the actual solution has an expansion in inverse
+half-powers of the radius toward past infinity, with no logarithms, at each fixed wavelength. So for the solution itself
+the question is settled; what is left is the same expansion for the parts of the approximate solution built by energy
+rather than by integration along light rays.
+
+**D541 (2026-11-01): the last loop, unsettled again.** An independent check found that the bound of the last two entries
+rests on reading the record's lists of exponents as built from the black hole's actual roots. The record writes them
+more loosely, as any list above a tiny threshold. Read that way, the two loops could be far longer than the ones already
+counted, by up to about a hundred times. So which reading the record's construction supports now decides the order of
+the loss; "settled" in the previous entry was premature.
+
+**D542 (2026-11-01): the reading, settled by the record's construction.** The record's loose notation for exponent lists
+turns out to stand for lists its construction builds from the black hole's actual roots, each state's exponents being
+its leading one plus whole numbers or a root plus whole numbers. Tracing which states can produce a small exponent
+leaves only one, the boost state, with the record's smallest root. So both remaining loops are bounded as the earlier
+entries said, the last one at about one seventeenth of the counted ones.
+
+**D543 (2026-11-01): the second wave profile's blow-up was the grid's.** Refining the time steps along with the angular
+resolution made the huge curvature values at the finest angular grid disappear: the curvature stays within a small
+multiple of the black hole's own, and the two finest angular grids agree closely until late times. So the earlier
+blow-up was the angular grid outrunning the time step, not the solution. Late times near the axis still need finer
+grids.
+
+**D544 (2026-11-01): the reading, checked.** An independent check confirmed the conclusion, that the smallest exponent
+any state contributes is the record's smallest root, by going through every family of states, but found the argument
+given for it wrong in two places, including one family it had claimed without reading. The argument is now the right
+one: a smaller exponent would need a state starting just above two, and none does.
+
+**D545 (2026-11-01): the approximate solution's parts, by the same induction.** The parts of the approximate solution
+built by energy have explicit leading terms and remainders that solve equations of the same two kinds the record's
+eleventh section already handles: a wave equation and transports along light rays. Running that section's step-by-step
+argument on them should give each part the same expansion toward past infinity, with no logarithms. With that, the far
+strip's contribution to the data would be in the class the final assembly accepts. The induction is described, not yet
+written out.
+
+**D546 (2026-11-01): the high-curvature boundary for two dusts.** The curvature that defines where the proof stops was
+computed exactly for two crossing dusts: it is the black hole's own term plus a never-negative term from the crossing.
+So the region keeps the record's shape, and both remaining conditions of the region's lemma follow from one: the mass
+inside must stay above the record's minimum, which limits how much mass the outgoing dust may carry away.
+
+**D547 (2026-11-01): the second wave profile, checked.** An independent check reproduced every number and confirmed that
+the blow-up is gone on the finer grid, but corrected where the remaining disagreement lies (off the axis, not at it) and
+showed that the late-time figures depend on how the curvature's time derivatives are differenced; with a more accurate
+stencil they are smaller still.
+
+**D548 (2026-11-01): the approximant's expansion, checked.** An independent check found that one of the three equations
+had been matched to the wrong lemma: the phase correction's transport is a plain integration along the incoming rays,
+not the damped transport the lemma covers, and it expands on its own with no logarithm. More seriously, the lemma used
+for the third equation gives only a first term and a remainder, so the approximant's full expansion, and with it the
+claim about the far strip, is conditional on expanding that equation's coefficient, which the record does not do.
+
+**D549 (2026-11-01): the two-dust curvature region, checked.** An independent check reproduced the curvature formula by
+a different computation, but found that the inner boundary's condition had been taken from the wrong place: the mass
+must be bounded below on the whole region, the inner boundary included, where the outgoing dust can have carried mass
+away, not only on the high-curvature region. With that bound, as in the record, the condition holds; and the second
+property needs no mass condition at all. The region is no longer a simple radius, so "keeps the record's shape" was too
+strong.
+
+**D550 (2026-11-01): the inner loop's length, from the record's own bookkeeping.** The count of the second-level rounds
+had two open factors, the number of starting exponents and their logarithm orders. The record bounds both through one
+set it defines, in which every exponent of that level lies and where overlapping chains are counted once. Counting only
+the part of the set the record names already gives about 7.5 million exponents per level, under a third of the counted
+inner rounds, so whether the loop is shorter depends on generators the record does not list. The record's ceiling on the
+logarithm orders, though, is about 2 × 10¹³ per exponent, so its own bookkeeping does not bound this loop below the
+counted ones; only the orders actually produced could, and they are not computed.
+
+**D551 (2026-11-01): the missing coefficient expands.** The check of the approximant's expansion had left one condition:
+the coefficient in the third equation had to have an expansion of its own. Reading how the record builds that operator
+shows it depends only on the background and on the leading wave, the later corrections cancelling out, and both are
+given by exact formulas with finitely many powers of the radius. So the lemma can be applied again and again, each step
+half a power further, and never meets the one power where a logarithm would appear. What is left is to write the
+induction out with its derivative bounds.
+
+**D552 (2026-11-01): the two-dust background exists as far as the proof needs.** A published continuation criterion for
+crossing null dusts in four dimensions (Moschidis 2017) carries over to five with one change, the cube of the radius in
+place of its square. It shows the two-dust background can be continued as long as the radius stays away from zero, each
+bound following from the data and the ones before it. Since the inner boundary is trapped, the region the proof uses
+never reaches the centre, so the background exists there given its data. What remains for this family is the outgoing
+dust's data at past null infinity.
+
+**D553 (2026-11-01): what each round of the two uncounted loops costs.** The record's own accounting charges a round of
+the second-level loop exactly what it charges an inner round, since both invert the same model operator and apply the
+full operator to the result; one application also handles all the logarithm powers of an exponent at once. A round of
+the other loop costs at least four plus the loss of a resonance inverse the record never computes, so that loop stays
+below the counted ones only if that unknown loss is under about thirty.
+
+**D554 (2026-11-01): the inner loop's bound, checked.** An independent check reproduced every number. It corrected one
+comparison, which had set a count of rounds against a loss, and narrowed two statements: the thresholds hold at the
+largest admissible step and loosen as it shrinks, and the merging of chains rests on the construction's reading of the
+increments, since the record says only that the set is finite. With one round per exponent, as the record's own
+proposition allows, the question stays open rather than settled against the record.
+
+**D555 (2026-11-01): the coefficient's expansion, checked.** An independent check confirmed each step of the argument,
+including a numerical check of the background term, and found no error. It narrowed the claim: what is established is
+the coefficient's expansion and one step of the lemma; the later steps need the source expanded order by order, which is
+the part still to be written.
+
+**D556 (2026-11-01): the two-dust extension, checked.** An independent check confirmed the identities by a separate
+computation and the bounds on the computed background, but the claim went too far. The criterion only says that a
+solution already given on a rectangle, with the radius away from zero, continues to its edge; it does not produce the
+solution. That needs a local existence statement in five dimensions and the continuation argument of the published
+paper, neither written yet. The change from four to five dimensions is also more than one power: the mass and its
+equations take different exponents and constants.
+
+**D557 (2026-11-01): the per-round losses, checked.** An independent check found that the resonance inverse's loss is
+not unknown: an earlier section of this note had already given it in closed form, about eleven at the record's weights.
+It also found that a lower bound had been used as an upper bound, so the claimed comparison with the counted loops is
+withdrawn; what stands is a condition on the ratio of the two rounds' costs, neither of which the record caps. The
+second-level round's cost equals the inner round's only up to a term not yet shown equal.
+
+**D558 (2026-11-01): the two-dust background exists.** The missing existence step was closed directly. Writing the
+equations as integral equations and capping their nonlinearity above the bounds already proved, an iteration converges
+on the whole rectangle at once; the bounds then show the cap is never reached while the radius stays away from zero, so
+the capped solution is the true one. Numerically the same iteration converges on the computed example and agrees with
+the earlier scheme. The background therefore exists on the region the proof uses, given data on its two light cones;
+what remains for this family is the outgoing dust's data.
+
+**D559 (2026-11-01): the approximant's expansion, closed at the level of the count.** The last open step for the far
+strip was the derivative bookkeeping of the induction. It runs as the record's own expansion of the solution does: the
+equations' coefficients are exact, two of the three equations hand their derivative gains down directly, and in the
+third the one extra derivative is paid for by the decay of its coefficient. With the approximant expanded as the
+solution already is, their difference is too, and the strip's contribution to the data falls in the class the final
+assembly accepts. Written as a deduction, not yet line by line.
+
+**D560 (2026-11-01): the two inner rounds cost the same.** The one term left unequal between a second-level and an inner
+round, the loss of the model inverse both apply, depends only on a weight that both kinds of round set to the same
+value, so in the record's accounting the two rounds cost exactly the same and the earlier comparisons of round counts
+are comparisons of loss.
+
+**D561 (2026-11-01): the two-dust existence, checked.** An independent check found no break in the argument and
+reproduced the computation, but the statement had dropped two hypotheses (the data on the two light cones must satisfy
+the constraints, and both dusts carry positive energy), and the far corner of the computed example is not resolved by
+either numerical scheme, so the computation supports smoothness away from that corner only. The result is a deduction
+with one sketched step, not a finished proof.
+
+**D562 (2026-11-01): one weight given a number.** The weight that sets the resonance inverse's loss can be chosen in a
+range every admissible choice of the record's free parameter allows, and with that choice the loss is exactly eleven
+across the whole window where that loop runs; at the source's own values it is at most thirteen. So a round of that loop
+costs at least fifteen derivatives in the record's accounting.
+
+**D563 (2026-11-01): equal cost, checked.** An independent check found the claim that the two inner rounds cost the same
+holds only conditionally: the inverse's loss depends on two further choices that the record leaves free at each use, and
+equality needs both uses to make the same ones, which is natural but not written. Several citations were also corrected.
+
+**D564 (2026-11-01): the approximant's expansion, checked.** An independent check found no break in the derivative
+bookkeeping. It replaced an infinite Taylor series by a finite one with remainder, named the property that closes the
+induction's self-referential term, and narrowed the status: the expansion is deduced at the level of the count, still to
+be written line by line.
+
+**D565 (2026-11-01): the weight's choice, checked.** An independent check confirmed the loss of eleven but found that
+the record itself states two different upper bounds for the weight in different places, so the range chosen is
+admissible for every parameter value only on one of them; on the other a smaller range still gives eleven. "Costs at
+least fifteen" is what the record's accounting charges, not a proven minimum, and the claim at the source's values
+rested on a bound the record does not state.
+
+**D566 (2026-11-01): the data for two families, scoped.** The record builds its data in three steps; each was read for a
+second, outgoing family of waves. The gauge part and the wave profiles go through family by family, and the one
+computation the nonlinear step rests on, that the linearised constraints have no term of size 1/λ, still holds with both
+families: it depends only on the waves being traceless on the spheres, not on the direction they travel. The outgoing
+waves cannot arrive from past null infinity, so their data sit on the initial slice. Left: the radial solvability checks
+on the two-dust background.
+
+**D567 (2026-11-01): the trapping bound certified up to 384.** The rigorous bound on the black hole's resolvent near its
+trapped orbits, run on from 192 to 384, holds there with the same largest value, 11.48, and keeps falling as the
+frequency rises (0.44 at 384). The measured value is still about twenty times smaller than the bound, and the gap is
+widening slowly. The run took a little over three hours.
+
+**D568 (2026-11-01): a premise named, and the two-family check widened.** The independent check of D566 found one step
+cited as settled that is not: that both families' rays reach the initial slice, which rests on the two-dust background
+existing on the whole region, still a sketch. It is now listed as a premise. The cancellation was rechecked with both
+families off flat space, on a dynamic background and on a static one with both phases exactly null, and holds in both; a
+wave with a trace still breaks it. D566's "depends only on the waves being traceless" said more than was tested, and its
+outgoing data sit on the initial slice because the iteration needs nothing else, not because they cannot come from past
+null infinity.
+
+**D569 (2026-11-01): two coefficients the expansion needed, computed.** The argument that the construction has an
+expansion at past null infinity used two coefficients of the equation for the mean metric that had been asserted, not
+shown. They are now computed exactly: one is built from the background alone, and the waves add to the other only a term
+that falls off like the inverse cube of the radius. Both fall off fast enough for the argument.
+
+**D570 (2026-11-01): an apparent conflict in the record, resolved.** The proof states two different upper limits for one
+of its weights, and D565 had recorded them as two readings. Read at source, they belong to two different steps: the
+stricter one is added by a later step, for a stated reason, and every step after that uses it. So both hold, the
+stricter one is the operative limit, and the loss computed for those rounds stays attainable.
+
+**D571 (2026-11-01): the finer angular run goes unstable.** Refining the angular resolution again, at the finer time
+grid, does not help: the new run agrees with the others early on and then blows up at every angle at the same point in
+time, just as the previous refinement did on the coarser grid. All four runs so far fit a simple rule linking the
+angular and time resolutions, so the test that would decide convergence is to run all three angular resolutions on a
+finer time grid. That needs more disk than this machine has free.
+
+**D573 (2026-11-01): one step's cost, counted.** One of the proof's repeated steps had been charged the cost of a single
+operation. Read through, that step performs the operation three times in sequence for the weights in use, so it costs
+three times as much, and each round of the loop it belongs to costs at least 19 rather than 15. Separately, D572 set up
+the finer-grid runs that the convergence question of D571 needs; they are running.
+
+**D574 (2026-11-01): the band check's labels corrected.** The independent check of D567 reproduced every certified
+number. It corrected three labels: one row of ratios had been described as the certified bound when it was a
+floating-point estimate, the certified ratios being slightly larger; the window of candidates matters at the top
+frequency only; and D567's "0.44 at 384" uses the wider window, the certificate's own value there being 0.48. The
+measurement at frequency 160 has also come in: the bound is about 22 times the measured value there.
+
+**D575 (2026-11-01): two claims of the last hour narrowed.** The independent check found that the agreement between the
+two coarser angular resolutions, which the step rule of D571 rested on, holds only on the cells the finest run kept.
+Compared on their own cells, they agree closely everywhere except next to the excised region, where they differ hugely;
+the finest run's blow-up is in the interior. So there are two different failures, and the simple rule linking the
+resolutions is now only a hypothesis. On D570: the stricter weight limit is not used by every later step, as that entry
+said, and the reason given for it was this note's reading, not the record's statement.
+
+**D576 (2026-11-01): D573 corrected.** D573 counted the cost of a step for the most general input, but inside each round
+of the loop the step only ever sees a much simpler input, for which it costs what the note had charged before. So a
+round still costs 15, or 17 for a slightly larger weight; D573's higher count applies only to one separate use of the
+step, outside the loop.
+
+**D577 (2026-11-01): D569 confirmed, its wording narrowed.** The independent check reproduced the computation of the two
+coefficients and found no error in it. D569's summary said more than was computed: the waves' contribution is computed
+exactly, but the background's part, and so the statement that both coefficients fall off fast enough, rests on a short
+argument rather than a computation.
+
+**D578 (2026-11-01): the expansion at past null infinity, written out.** The argument that every stage of the
+approximate solution has an expansion in powers of the radius near past null infinity had been given in outline. It is
+now written as a proposition with a proof at the same level of detail as the record's own corresponding proposition for
+the exact solution, using the coefficients computed in D569.
+
+**D580 (2026-11-01): D578's proof repaired.** The independent check found that the written-out proof started its
+induction from a stronger property than the record supplies, and misdescribed how one kind of coefficient is obtained.
+Both are fixed: the induction now starts from what the record gives and builds the rest step by step. Three supporting
+facts are used without being proved here, and the entry now says so instead of calling the question closed.
+
+**D581 (2026-11-01): the derivative bounds on the whole band.** The certified bound on the black hole's resolvent up to
+frequency 384 also bounds the solution's derivative there, through a corollary the record already had; the constants are
+now computed exactly, growing only slowly with the frequency (from about 420 to about 510 at the points where the bound
+is known, and at most about 1500 anywhere on the band).
+
+**D582 (2026-11-01): another step's cost, bounded below.** A second step of the proof, which a verifier noted had not
+been counted, improves the solution's decay in small increments, each costing two derivatives. At the weights in use it
+needs at least four increments, so at least eight derivatives, once per round of the outer loop; it is not inside the
+inner loop, whose per-round cost of 15 is unchanged.
+
+**D583 (2026-11-01): the two failures are one.** Looking at which cells were excluded, the two coarser angular
+resolutions exclude exactly the same cells, and they disagree only next to the extra cells the finest one excluded when
+it blew up; there the solutions themselves differ, by several per cent, not just the curvature computed from them. So
+there is a single troubled region at late times, where the finest run fails first and the other two are not yet
+resolved. The finer-grid runs now in progress test exactly that region.
+
+**D584 (2026-11-01): the two kinds of round cost the same.** Whether the two kinds of round in the proof's longest loops
+cost the same depended on two numbers chosen inside one of the record's lemmas. Read at source, those numbers are chosen
+once, in the lemma's own proof, from the operator alone, so every use of the lemma gets the same cost, and the two kinds
+of round, which use it with the same weight, cost the same.
+
+**D585 (2026-11-01): the paper's list of what is not proved, brought up to date.** Its section 9 still described the
+state of things before the work of the last two hundred and fifty entries. It now says, with each claim's label, how far
+the evaluation of the constants has gone (the loss d bounded below but not a number, the first linear constant certified
+up to frequency 384), what the double-null runs at the physical wavelength show and that they certify nothing, how far
+the solution is carried inside the black hole and what stands between it and the record's own data, and what two
+crossing dusts have and have not been given. The verifier record is extended to match. No new mathematics; the new text
+is to be read by a verifier.
+
+**D586 (2026-11-02): two small corrections from the latest check.** The independent check of the last four entries found
+nothing major. One row of the table of derivative bounds was labelled with the wrong frequency interval; on the right
+one its numbers rise slightly (205.8 for 205.4), and the bounds over the whole band are unchanged. And the claim that
+two kinds of round in the loss count cost the same holds only if one weight takes the value the record allows but does
+not fix at one of the levels; that condition is restored, in the paper too. The rest were labels and wording.
+
+**D587 (2026-11-02): the expansion at past null infinity, with nothing left asserted.** The written-out proof that the
+approximate solution's parts expand in powers of r^(−1/2) toward past null infinity rested on three properties it stated
+without showing. All three now have short proofs: one derivative is just a coordinate derivative in disguise; the
+coefficients that couple the unknowns are built from the background and the first wave alone, because averaging over the
+phase kills every other term, which a count of orders shows term by term; and the Taylor remainder keeps its decay
+because the phase is constant along the direction that matters. An exact check backs each one.
+
+**D588 (2026-11-02): one of the loss's unknowns becomes a number.** How many derivatives the proof loses each time it
+inverts the model operator at the transition between low frequencies and spatial infinity depends on a threshold the
+record never worked out. It is computed here, exactly: it is zero, as for the scalar wave. So that inversion costs one
+derivative, every round of the long loops costs three, and the two kinds of round cost the same without any extra
+condition. The record's own lower bound on the total loss rises accordingly, to more than 7.9 × 10¹⁵.
+
+**D589 (2026-11-02): the paper's new list of what is not proved, checked.** The independent check of the refreshed
+section found nothing major. It found several statements a little broader than the record: one derivative bound that
+holds for every harmonic but the lowest, a ratio quoted as 21 that is 22, a claim that all the finest runs agree to a
+late time when the finest departs earlier, and a list of what the loss still needs that left out the weights and counts
+themselves. All are repaired, with a wrong citation and several unexplained terms.
+
+**D590 (2026-11-02): the threshold result checked.** The independent check re-derived the threshold from the record's
+definitions by its own computation, with a harder test operator, and agreed: it is zero, and the inversion at the
+transition face costs one derivative, whatever regularity the proof chooses there. The repairs are small: the paper's
+label for the result now says it is deduced from an exact computation, one operator's thresholds are justified by the
+right reason, a range of entry numbers is corrected, and the printed lower bound on the loss is rounded so that its two
+figures agree.
+
+**D591 (2026-11-02): the paper's appendices brought up to date, and its reproduction table made to check itself.**
+Appendix D's table of file fingerprints had six stale rows and none for the files section 9 now rests on; it is
+regenerated, nineteen files are added, and the paper's check script now verifies every row (R9) and can rewrite the
+column on request, so the table cannot drift again unnoticed. The script also re-derives two of section 9's figures
+independently: the lower bound on the loss (R10) and the derivative constants on the certified band (R11). Appendix A
+lists the programs behind section 9 and the script's checks R8-R11 (it still said seven checks); Appendix C maps section
+9's claims to their sources.
+
+**D592 (2026-11-02): the two-family check, with the second harmonics, by its parts.** The direct computation for both
+wave families with their second harmonics on the growing black hole has been running for hours. Because the dangerous
+large coefficients are linear in the waves, it splits into one-wave pieces; three were already checked, and the fourth,
+the outgoing family's second harmonic alone, is checked now and gives no large coefficient, while a deliberately broken
+version does. So the whole case has none. The direct run, and the companion check on the principal coefficients, are
+still going.
+
+**D593 (2026-11-02): the paper's first audit batch read and repaired.** An independent reader went through the abstract
+and the first four sections looking for anything a referee would reject. The one serious finding: Theorem 3 rested on
+the explicit form of the leading wave and on how its two profiles combine, and the paper never wrote either down; it now
+does, as a displayed equation in section 2.4 that the theorem cites. The lesser findings were one symbol used for two
+different constants (now two symbols), a uniqueness claim missing its rate, a statement about Theorem 2 that promised
+more than was written out (narrowed, and the rest said to follow by the same argument), and three phrases that leaned on
+the board's internal record, which the paper must not do. Ten small corrections to wording, labels and citations went in
+with them. Sections 5-10 and the appendices are next, one batch at a time.
+
+**D594 (2026-11-02): three stale phrases in the paper's settling section.** Written before the later sub-sections
+settled the points, they still called open a five-dimensional counterpart of one known method, a class of kernel
+elements, and a reading of one cited section. The first now says that method is not used here because the class is
+settled another way; the other two point to the sub-section that settles them.
+
+**D595 (2026-11-02): two derived steps given computations.** The author's rule is that everything derived must be proved
+with computational support. The wave formula the paper printed at D593 had been transcribed from the supplement, not
+checked; the paper's check script now verifies it against the supplement's own program and derives the mass law from it,
+with a deliberately wrong formula as the control. And the two-family case of D592 had been settled by an argument (the
+dangerous coefficients are linear in the waves); it is now being computed directly, by an exact method that keeps only
+the terms able to reach those coefficients, the method itself checked against the full computation on cases where that
+is affordable, including cases where the coefficient is nonzero. The first comparison agrees; the rest is running.
+
+**D596 (2026-11-02): the two-family check finished, and the first four sections' deductions given computations.** The
+direct computation that had run for five and a half hours finished and confirms what D592 had argued: with both wave
+families and their second harmonics on the growing black hole, the dangerous large coefficients are absent, and the
+leading coefficients of the constraint system are those of the background. Separately, every step the paper's first four
+sections call deduced was checked for a computation behind it; three had none, and each now has one in the paper's check
+script: that the approximation's building blocks carry no hidden wavelength, the exact margin by which the boundary of
+the domain is spacelike, and the identity that makes the constructed metric a vacuum solution, verified exactly on
+random five-dimensional metrics. Each comes with a deliberately broken control that fails.
+
+**D597 (2026-11-02): the paper's second audit batch (sections 5-7) read and repaired.** The reader found no serious
+error: the proof outline matches the supplement step for step. The fixable findings were two sets of numbers copied from
+an outdated run of a check program (now the program's current output), a clause calling a result 'an assessment, not
+computed' that the next paragraph computes and proves (removed), leftover internal labels, two constants used before
+being defined, several symbols each used for two different things (renamed), a quotation supporting the wrong half of
+its sentence, and an omitted finer run of the numerical solver (now stated, with why it is grid-limited). Under the new
+rule the reader also listed nine steps of the proof's outline that rest on argument without a computation behind them;
+they are queued, each to be computed with a control.
+
+**D598 (2026-11-02): three of the nine steps given computations.** That the smoothing operator never reaches outside the
+domain is now certified by a solver over the real numbers, and the certification exposed a condition the proof used
+without stating it (the smoothing profile must stay between -1 and 1), now stated, with a check that the claim fails
+without it. The geometry that lets the local existence theorems apply inside the horizon is verified as exact
+identities, and the first-order correction to the boundary condition is computed, showing that the wave itself drops out
+of it. Six of the nine remain.
+
+**D599 (2026-11-02): three more of the nine steps computed, after two bugs of my own were caught.** The structure of the
+gauge-fixed field equations that makes only one coefficient large is now verified exactly; so are the phase-shift
+identity behind the proof's key lemma and the cancellation that removes the large coefficient from the decisive
+component, both on the actual leading-order wave. The first runs of the last two had silently dropped the very terms
+being tested: a deliberately broken control that should have failed passed, which is how the fault was found. With the
+helper fixed and a control that genuinely breaks the structure, the checks pass and the controls fail.
+
+**D600 (2026-11-02): the paper's third audit batch (the settling section) read and repaired.** The reader found one
+serious overstatement: a sentence claimed more for a gluing construction than the supporting text proves, and it now
+says what is and is not shown. The settling theorem's statement was brought into exact agreement with the supplement's
+(a missing quantifier, the full condition on a decay parameter), stale 'not computed' and 'open' phrases were updated, a
+decay rate of a linear tail was no longer presented as the nonlinear rate, a mode frequency was converted to the paper's
+sign convention, and several sentences that rested on the review record rather than on the proofs themselves were
+rewritten. Eight steps lacking computational support were listed and queued.
+
+**D601 (2026-11-02): the second test wave at the finest grid.** The three angular resolutions were run on a null grid
+one and a half times finer. The two coarser ones agree well away from one late region; the finest departs there exactly
+as before, so refining the grid did not change it, and the earlier explanation (a time-step limit growing with the
+angular resolution) is ruled out by the numbers. What the finest run meets is not decided; the late region stays
+unresolved.
+
+**D602 (2026-11-02): two of the settling section's steps computed.** That the class of an earlier stability result and
+this paper's symmetry class meet only in spherical symmetry is now an exact computation, and so is the first step of the
+induction showing that the waves' oscillating parts vanish once the shell has passed.
+
+**D603 (2026-11-02): the bootstrap's bookkeeping computed.** The counting of powers of the wavelength that makes the
+core estimate close is now a program: each term's power is derived from the stated rules, every condition holds at the
+order the proof uses, and the program shows the counting fails one order lower, as it should.
+
+**D604 (2026-11-02): the mass statement's symmetry computed.** The first-order correction to the mean geometry must
+change sign under a reflection of the sphere for the mass to be unaffected at that order; its source is now computed to
+do so, with a deliberately symmetric control that fails. Of the nine steps the second reader listed, eight are now
+computed; the ninth needs a numerical run.
+
+**D605 (2026-11-02): audit batch 4 seated.** Verifier 259 on the paper's sections 8-10 and Appendices A-D. M1 (the Review
+bullet: no D-numbers or ordinals, the log provenance only, the readers called verifiers) and M2 (a program named after
+every computed clause) repaired, with minors m1-m8 and the nits; references completed; Appendix D refreshed (22 md5
+rows); a Computational support bullet in section 9. response5.py R1-R14 pass. Queued: verifier 259's
+computational-support items 1-7 and C7 (ROUTES-OPEN.md D605).
+
+**D606 (2026-11-02): computational support completed.** C7 (`checks/csolve5.py`), section 8's c2-c7 (flux5, mpdata5,
+eindcert5, kirecon5, vii5census, hclass5) and verifier 259's items 1-4, 6, 7 (eqlayer5, charge5, support9, e2lower5,
+twodomainx5) computed, each with a negative control; the paper cites each at its claim; response5.py R1-R14 pass. New:
+the constraint map's quadratic part has no 1/lam coefficient at the stage-0 data; eps_ind's scan certified; Proposition
+10.1's normalisation named; the E2 bound certified at most 23-41 times the norm. Item 5 running (ROUTES-OPEN.md D606).
+
+**D607 (2026-11-02): the program verifiers seated; the census of deduced claims computed.** Two verifiers on D606's
+checks, nine programs repaired (controls that can fail, scopes stated). Corrections: (8.13) holds off a countable set of
+h, not at every h (re813.py; N1STAR-PROOF.md 10.54(d) corrected); Proposition 10.1's uniform bound is for r^(3/2) Phi,
+not the fields [HKW18] bound (kirecon5.py P2; Prop 10.1 (iii)-(iv) and the paper's 8.2 now on r <= R); C7c's contraction
+measured (rates 3.55, 4.03 against N - 3); the charges per round grow by 4 per unit of l_I, not 2. New checks for the
+census's open rows: support5b, support5c, support3, ledger5, stage5, gauge5, support8b, support8c, census9, excise5;
+level2loop5, lambdacount5, twodomain5, r0census5 cited. Deeper excisions on a second grid: deeper is earlier on both.
+ROUTES-OPEN.md D607.
+
+**D608 (2026-11-02): the second program-verifier round seated; (VII5) read.** Four verifiers on D607's checks, one per
+batch: majors in excise5 (a control that could not fail; the breakdown criterion), census9 C23 (78 sites, not 17) and
+vii5census (three Table 1.1 symbols), repaired; no majors in the other twenty, minors repaired; stage5 S4 (the whole
+R^(1) odd under the combined map, one quadrature failing in all seven components), support5c's C11 controls, gauge5's
+labels. (VII5), the one check the paper listed as awaiting a reader: the 577 listed uses read by three readers
+(checks/VII5-READING.tsv, vii5read.py): none uses more than its site's conditions; five undecided for one reason -- the
+proofs use the 1-form towers of every type, which Lemma 3.1 (C3) named for s1 only -- so Lemma 3.1 amended, with
+delta*'s commuting with rotations and reflections computed (vii5read Q3). ROUTES-OPEN.md D608.
+
+**D609 (2026-11-02): Theorem 1's last two items written out for the constructed solutions.** The decay and symmetry
+statements the main theorem makes are now proved for the solutions built from past null infinity (N1STAR-PROOF.md
+Proposition 9.10), from four inputs each computed: the remainder bounds, the first stage, the support, and the symmetry
+(stage5.py S4). A verifier found it correct; its minor points are seated. Also: the 577 listed uses of the averaged
+choices read and Lemma 3.1 amended (vii5read.py); the flux check's bilinear bound computed (flux5.py F4); the inner
+boundary restated at every curvature scale (innerr5.py); the approximant's computed reach extended to all fifteen
+components at order lam^1 and to order lam^2 (stage5b.py B1-B3).
+
+**D610 (2026-11-02): the gauge comparison's domain repaired; four workstreams' first results seated.** A reader of Part
+IX found that the region where the linear solution lives ends at the initial hypersurface near the inner boundary, so
+the comparison could not be posed on a region around it. The comparison is now made on the future half of a larger
+region where only the background is used, with the gauge source extended across the hypersurface and the difference
+extended by zero (PART-IX-GAUGE.md, finding (IX5); ix5.py X8 computes that the initial hypersurface is
+noncharacteristic for the gauge-fixed operator, with the ungauged operator as a control that fails). Workstream A: the
+gauge-fixed mass change stated in the supplement was singular at the horizon; the regular one carries half the
+coefficient of the ingoing time, which regularity forces (gdrepair5.py); in harmonic gauge the spherical part settles
+at t^(-1/2) for compactly supported gauge data (GAUGEDECAY5 R2.13, admbox5.py); seated in the supplement's 10.2(iv),
+10.8 and the paper's 8.2. Workstream F: the earlier scheme's second zero belongs to that chart's tilted spheres, not to
+a second marginally trapped surface (sectexp5.py, secondzero5.py); the paper's sentence replaced. Workstream B: Theorem
+4 holds in the half-integer class at the same rate (SETTLE-GLAM5 round 2). Workstream C: the two-family theorem read
+with no major gap. Readers and next rounds running for A, B, C, D and F.
+
+**D611 (2026-11-02): the gauge comparison's repair read; workstream A round 3.** A reader of D610's repair of Part IX
+found no major gap and recomputed the noncharacteristic coefficient independently with m = 3 (its own computation;
+ix5.py X8 covers every m >= 2 in (a) and computes m = 2 in (b); corrected at D617).
+Seated: section 0 now states why only the compact part of the linear solution's domain meets the initial hypersurface
+where nu = 0; the zero extension's smoothness is shown in Step 3 rather than taken from the reference's device, which
+there applies to a section smooth on the whole manifold; the reference re-read at source; III.K's 'two-sided
+neighbourhood' qualified; BEYOND5-R0-PROOF section 11 marked as the pre-D610 text. Workstream A round 3 (GAUGEDECAY5):
+(S_K) holds for every beta below the constraint damping's margin (gdsk5.py); the gauge-decay note restated on the
+repaired domain, with the source extended across the hypersurface and the solution shown independent of the extension
+(gdix5.py); in harmonic gauge every perturbation in the class has a representative equal to the linear solution near
+the initial surface and harmonic on the late region out to null infinity, settling on compact sets at t^(-1/2)
+(gdscri5.py); harmonic gauge down to the initial surface needs one weighted estimate for the 1-form wave operator near
+spatial infinity, (Ext box). A reader of round 3 and a round 4 on (Ext box) and the rate are running.
+
+**D612 (2026-11-02): workstream D round 3 (CONSTANTS5).** The threshold lambda0 this proof delivers is traced factor by
+factor to the supplement; at the numerical point it is at most 0.026986 (certified), with the pointwise norm on arrays
+read as the operator norm, which N1STAR-PROOF.md now states after (0.3) (lzerotrace5.py T6); the wavelength 10 l5 lies
+more than 37 times beyond it. The loss d has the floor 8.41e15 and, from the write-out's own bounds, no ceiling below
+1.49e31 (dceiling5.py); lambda1 and delta are bounded above only, and the seven inverse bounds a lower bound needs are
+named at their sites (nkind5.py). The reader's findings on rounds 1-2 are seated (gronwall5.py rewritten; controls that
+could not fail now mutate the code they test). A reader of round 3 and a round 4 (the pole orders for d's ceiling,
+certified stage solves for lambda0's value, one inverse bound) are running.
+
+**D613 (2026-11-02): workstream A's round-2 reader seated at the supplement and the paper.** The change of mass mu-dot is
+defined where it is first used; (Dyn) is cited to Part VI.A Theorem 6.1, which proves it at b_0; the l = 0 statement is
+phrased with the gauge vector Z (GAUGEDECAY5 R2.13 (b)). The reader's other findings went to round 3.
+
+**D614 (2026-11-02): the norm on arrays stated.** N1STAR-PROOF.md now states after (0.3) that the pointwise norm of an
+array is the operator norm, the reading under which workstream D certified lambda0 <= 0.026986 (lzerotrace5.py T6); any
+other norm on arrays changes only constants. Every line of the supplement above line 86 moved by +7; lzerotrace5.py
+and lzeroaudit5.py re-pinned.
+
+**D615 (2026-11-02): Lemma 6.2's proof fixes stage N's data.** Workstream E (EQUALITY5-LAYER round 3, stagen5.py S1)
+and its round-3 reader (m1) found that Lemma 6.2's proof fixed the stage data for m = 1, ..., N - 1 only, leaving stage
+N's data free; Theorems A,
+D and E hold for every smooth choice (stagen5.py S2-S3), but round 4 computed that the choice decides the very edge of
+the layer for Theorem 1's g_lam (stagefree5.py G1-G3: adding the Cauchy data of +-2 A grad grad f to stage N's mean
+changes g_lam's A-linear part by exactly +-2 lam^N A grad grad f, which makes the boundary spacelike or timelike there).
+The proof now runs the same rule at m = N, with step (iii) inside Theorem A of order N (after stage N the order-N
+residual is -(1/2) e_{N+1} d_th^2 W with e_{N+1} independent of th, whose th-mean vanishes). A reader of round 4
+re-derived the amendment and found it correct. stagen5.py S1 and stagefree5.py G4 re-pinned to the amended text; each
+control now requires the old wording to be absent.
+
+**D616 (2026-11-06): which stage data Lemma 6.2 means.** The reader of round 4 noted that Lemma 6.2's statement was
+still existential, so modified stage-N data would still satisfy it. The statement now says the stage data constructed
+in the proof are fixed by the seed and N, and that "the stage data of Lemma 6.2" in Proposition 6.5 and section 6.4
+means these. stagen5.py and stagefree5.py rerun (all pass, every control fails). The reader's three major findings on
+round 4 (Theorem L_E rests on two sketches; Proposition L.12 (iii) is shown only for delta < (1 - gamma)/4; the paper
+text overstates what decides Theorem 1's very edge) and seven minor ones went to round 5. Workstream B round 4 and
+workstreams A and D round 6 reported; readers of each, and rounds A7 and D7, are running.
+
+**D617 (2026-11-06): Part IX proved.** A full line-by-line re-read of PART-IX-GAUGE.md, for the promotion from
+verified, found no major gap: it checked every step by hand, opened every citation into Parts II, III, VII and VIII and
+the paper's section 8.2, re-read [BGP] at source, reran `ix5.py` to the byte-identical `checks/ix5.out` (X1-X8 pass,
+every control false), mutated the code each check tests (each fails under at least one mutation) and recomputed the
+noncharacteristic coefficient with its own code at m = 2 and m = 3. Seated: section 0's slab clause, which said
+rho'_I > 1 on the initial surface (true only if T'' > C'', which nothing bounds), now uses R_9 > R_nu and t_IVP >= r/4
+on the slab (m1); [BGP] p. 81's device is a section vanishing to infinite order along S (m2, completing D611's n2);
+eight nits (Lemma 2.1 (f) cites X7; the status line records D611; the introduction states Corollary 2.3's hypotheses;
+the tensor is smooth on the interior of N and up to the initial surface; T' >= 0 in Corollary 2.3; R_nu's source; Remark
+2.4 (c) needs only k's invariance; checks/ix5.out.tmp removed and D611's entry corrected). Finding (IX6). Part IX is
+proved; the paper's section 8.2 says so. GAUGEDECAY5's citations of Part IX's lines go to workstream A's round 7.
+
+**D618-D620 (2026-11-06): four readers report; three repairs started; two censuses re-keyed.** Each reader is
+independent, and none edited a file.
+- The reader of N1STAR-PROOF.md section 11 (Theorem M) found two majors.
+  - Lemma 11.0 counts the top-order term b.dU as known. R4-B closes this once its notes 1-7 are repaired; they went
+    to workstream B's round 5, which owns that replacement text.
+  - (9.10) lacks a factor (1 - pi/2) on its oscillating terms, and so does Theorem M(c)'s (11.3). The angular means on
+    S^3 are <H^2 c^2 s^2> = pi/4 - 1/2, and `past5.py` P7 passed only because sympy's whole-sum integral drops a pi
+    term. The repair agent (D618) is re-deriving it and repairs (9.10), section 9.5, (11.3), P7 and section 11's
+    minors m1, m2, m4-m6.
+- The reader of section 6 found no major gap: 3 minor findings (the tame clause's D26 form, the status lines,
+  D616 unpinned) and 13 notes. They are being seated as D619.
+- The reader of workstream C's round 5 found Theorem V not yet a theorem (D2 with overlapping families, and N odd), with
+  three further majors (dust/label separation, Theorem K's Cauchy stability, the dust clause inside the horizon). This
+  went to round 6.
+- The reader of proof5's post-proof amendments found every amendment holds, and found that D611's two inserted lines
+  in III.K had left two line-keyed checks failing. D620 repairs this:
+  - `checks/vii5census.py`: chi_- moves to K:215-217 and chi_9 to K:338-339. V1 passes again, and the .out is
+    regenerated; vii5read still passes Q1-Q3.
+  - `checks/r0census5.py`: the K keys move to 135, 136 and 561. The selftest is ok, and BEYOND5-R0.tsv is regenerated.
+  - The rest of that reader's findings (m1-m6; m6 is far-region compactness near I+ in III.K) are being seated as D621.
+- Workstream D round 7 (D_0 <= 177; lambda0 < 0.0019079 in the Frobenius reading; L_b0(0)'s tensor blocks inverted
+  with constant 3.939), workstream E round 5 (Theorem L_1E), workstream F round 3 (Theorem 7.L off the axes) and
+  GLUEDECAY5 (gluing never extends Theorem 4 (ii) beyond Hintz's class) all reported. A reader of each is running,
+  and so are rounds D8 and F4.
+
+**D619, D623, D624 (2026-11-06): sections 6 and 0-4 seated; section 6 proved.**
+- D619: the section 6 reader's findings are seated in N1STAR-PROOF.md.
+  - m1: the D26 form of Lemma 6.4's tame clause was false. The inequality lacked + C m^2 omega_inf^2; the corrected
+    form is computed in `checks/tame5.py`.
+  - m2: the status lines are corrected.
+  - m3: D616 is pinned by `checks/stagen5.py` S5.
+  - The thirteen notes are seated, including the symmetrizer on all fields (`checks/indepcons5.py`,
+    `checks/symmshift5.py`).
+- D624: an independent verifier read the D619 seating. Every finding is seated correctly and there is no new major or
+  minor finding. Its four nits are applied:
+  - W's added part is C lam^(N-3), not C lam^(N-2);
+  - "section 5.4";
+  - "the proof's energy estimate at index 0";
+  - "section 6.1".
+  It also found that the large-gamma_rA failure of the coordinate reading comes from Pi, not from q_r = 0. The seated
+  text, which pairs Pi with q_r in each reading, is accurate as written. Section 6 is proved.
+- D623: the sections 0-4 reader's findings are seated.
+  - Major: 0.3's eps1 sentences. Lemma 1.1 (e) needs eps1 < mu0/a^2 - 1, and Lemma 2.3 needs eps1 < s0, which gives
+    |gt^-1| <= (s0 - eps1)^-1 by Weyl's inequality (`checks/eps1hyp5.py` H4-H6).
+  - Minors: Lemma 2.2's mollifier Jacobian needs a slope bound |sigma0'| <= 7 (`checks/support5.py` C14, by Z3); the
+    [BH17] title; lzerotrace5 T7's enclosure, now two-sided; and Step 6's w-part.
+  - The six nits are applied.
+  - A confirming reader of the D623 seating is running.
+
+**D618, D621, D625 (2026-11-06): (9.10) corrected; III.K's far region; the confirming reads of D623 and D622, seated.**
+- D618: the section 11 reader's Major 2 is confirmed and repaired.
+  - (9.10)'s oscillating terms carry the factor 1 - pi/2. The moments <H^2 c^4> = <H^2 s^4> = 1/2 and <H^2 c^2 s^2> =
+    pi/4 - 1/2 were re-derived four ways: partial fractions in z, in u = sin^2 th, by hand, and 50-digit quadrature.
+  - The integrated flux oscillates with amplitude (pi/2 - 1)(lam/18) A^2 env^2, in antiphase to the old one. The
+    post-shell (2/9) lam^2 A^2 int env'^2 is unaffected.
+  - `past5.py` P7 had passed the old form because sympy 1.14.0's whole-sum integral drops the pi term. P7 now
+    integrates term by term, checks against quadrature, and keeps the whole-sum route as a control (selftest 8/8,
+    mutants 12/12).
+  - Seated in section 9.5, in Theorem M (c)'s (11.3) and its proof, and in section 11.4 (the solver's mean is a node
+    mean, the sphere mean only after the shell), with that reader's minors m1, m2, m4-m6 and nits n1-n5.
+  - `bondi5.py` B2 now asserts the coefficients of e^(2 P2) and e^(-2 b_B) (selftest 4/4, mutants 7/7).
+  - Lemma 11.0 is untouched; its replacement is workstream B's (R5-D). The paper's blocks P1-P3 are prepared, not
+    seated. D32's entry above quotes the old (9.10) and stays as written.
+- D621: the proof5 amendments reader's m1-m6 and nits are seated.
+  - m6 is proved by III.K Lemma 6.1, in a new section 6. For every h small in II.C's class, alpha = dt-flat_* + r^-1
+    dr is past timelike near I+, with r g^-1(alpha, alpha) <= -1/2. This gives II.F Lemma 1.3's compact sets.
+  - The lemma is cited at Proposition 4.2, Lemma 2.3 and (K9). Part VIII Step 4 now writes out II.F Lemma 1.4 (a).
+  - m1: Part VII names the v1 tower as a map of V_1 and restricts the delta* sentence to the types of T.
+  - m2: vii5census C3 gains seven spellings, giving 632 use lines, 55 of them new. All 55 were read: 343 / 205 / 79 /
+    0 MORE / 5 UNDECIDED, resolved.
+  - m3: vii5read Q2 checks content anchors, Q3 checks pointwise, and there is a new Q4.
+  - m4: the conditions are affine. m5: PART-VI4 row w1 has eps_ind <= delta_50 = 1.94137e-8.
+  - New `checks/scrirad5.py`, R1-R3: 11 of 12 external mutants are caught; the survivor has margin.
+  - Left open: III.K Proposition 1.2 applies II.F Lemma 1.3 on the slab near I+, where R2 shows dt can be spacelike for
+    h merely small in the class. This needs a reader.
+  - The paper's two blocks are prepared, not seated.
+- The confirming read of D623 (sections 0-4): **proved.**
+  - Every finding is seated correctly, and there is no new major or mathematical minor finding.
+  - The eps1 Major was checked independently: the least eigenvalue on ker d(v + tau) is min(1, (3 + m)/5); eps1 <
+    mu0/a^2 - 1 is sharp; and s0 = 0.0307685596.
+  - Two replacement texts were specified:
+    - Step 8's uniqueness, stated in the class |g - g0| <= eps1 that Lemma 2.3 needs. The solution and its image under
+      an isometry of g0 both lie in that class, which covers 0.7's symmetry argument. "eps2 <= eps1" would be neither
+      needed nor sufficient.
+    - The Weyl bound, deduced for the case used.
+  - Lemma 9.4's lam <= d0/20 is right and was already seated.
+  - Eight notes, two of them instrument gaps. lzerotrace5 T6's "eps1 = 3/5" holds at P* only. eps1hyp5 H6's random
+    sampling misses a 5 % inflation of the perturbation norm (mutant E8).
+- The confirming read of D622 (sections 8-9, Proposition 10.1, Lemmas 10.1a-10.1b).
+  - Proved: section 8, sections 9.1-9.4, Propositions 9.9-9.10, Proposition 10.1 (i)-(iii) and (iv-b), Lemma 10.1a and
+    Lemma 10.1b (a).
+  - (iv-a) is correctly deduced from GAUGEDECAY5 Theorem 1.5, which is verified, not proved.
+  - Lemma 10.1b (b) is true, with one wrong step. The first reader's Major is closed.
+  - Five minor findings:
+    - m1: Q_0 is necessary only for its scalar-type part, since the tensor-type components carry no derivative.
+    - m2: Lemma 10.1b (b)'s domain-of-dependence step is false for tau > s(rho_0) - s(r_h).
+    - m3: stale labels.
+    - m4: (iv-a)'s setting. h must reach inside the horizon; beyond 2 R_1, h = g-dot_RW - mu-dot L_V g; and R_1 names
+      two radii.
+    - m5: the paper block's R^5 names no measure.
+  - A check gap: redshift5 R8 never tested q(q - 1) != 0, so the mutant sigma/kappa = 1 survived.
+  - Nits.
+- D625: both readings are seated in N1STAR-PROOF.md, with D618's status lines (its m3). Status after D625:
+  - Sections 0-4 are proved (D625). Section 6 is proved (D624).
+  - Section 8, sections 9.1-9.4 and Propositions 9.9-9.10 are proved.
+  - Proposition 10.1 (i)-(iii), (iv-b) and Lemmas 10.1a-10.1b are proved. Lemma 10.1b (b)'s proof was repaired at
+    D625 by the reader's argument.
+  - (iv-a) is deduced from Theorem 1.5 (verified); workstream A's round 9 settles its status.
+- D625, sections 0-4:
+  - (a) and (b) are seated as specified, with 0.7's addition and the eight notes.
+  - lzerotrace5 T6 now says "at P*".
+  - eps1hyp5 H6 adds the aligned perturbations +-eps1 e e^T to every batch. The 5 % mutant now fails H6; it passed
+    before.
+- D625, sections 8-10.3:
+  - m1-m4 are seated. m2 uses the reader's argument: (a)'s backward Gronwall between the outgoing rays from (Sigma_0,
+    r_h + eps) and (Sigma_0, rho_1), letting eps -> 0.
+  - The nits are seated:
+    - the per-mode bounds over ||Y||^2;
+    - Q_0's harmonic named;
+    - the tensor type's rotation sum k^2 + 4;
+    - Lemma 10.1b for smooth h, by approximation;
+    - Lemma 9.4's min(lam1, d0/20);
+    - Proposition 9.10's last sentence cites C13.
+  - redshift5 R8 now tests q(q - 1). The mutant sigma/kappa = 1 now fails R8; it passed before.
+  - redshift5 R13's pending paper blocks carry m5, m1's paper part and the Proposition 3.3 proof nit.
+- D625, the rest:
+  - The header is rewritten to match.
+  - Sections 9.5 and 11 as edited at D618 await one confirming read. Lemma 11.0 awaits its replacement (workstream B,
+    R5-D).
+  - lzerotrace5 and lzeroaudit5 are re-pinned (T0, A0) to the D625 file and re-keyed by content. lzeroaudit5's
+    section 6 rows had been 1-4 lines behind since D624, so A1 was failing with 24 hits unclassified. They are
+    re-keyed, and the ten new hits are classified.
+  - Not yet read: the D625 seating itself.
+  - Left to the paper pass: the blocks of D618, D621 and D622, and the vocabulary of 8.2's block. That block calls
+    GAUGEDECAY5 Theorem 1.5 "independently verified" but RWGAUGE5 Theorems 1-2 "proved", though each has had one
+    reading.
+  - GAUGEDECAY5's own status line ("Not verified by a second reader") is stale against R2.V; that line is workstream
+    A's.
+
+**D626, D628 (2026-11-06): III.K Lemma 6.2 and the census's spellings; the D621 seating read twice.**
+- D626 (no entry was written at the time): an independent verifier read the D621 seating.
+  - Lemma 6.1 holds, and so do its uses in Proposition 4.2 and Part VIII.
+  - Item 0: Proposition 1.2 applies II.F Lemma 1.3 with tau := t_IVP near infinity, for the perturbed metric, unchecked.
+    New III.K Lemma 6.2: for r >= R the Cartesian components of g_S - eta are at most 1/20 (III.C's class), so
+    g_S^-1(dt, dt) <= -1/2 and |V^x| <= 2|V^t| (`checks/scrirad5.py` R4, control N6).
+  - N1: Lemma 2.3's use of Lemma 6.1 repaired (its level lies below the support of h~').
+  - N2: vii5census widened to every spelling of the 1-form towers (twenty-four symbols beyond (C3)'s two) and to symbols
+    across a line break: 713 use lines, the 81 new ones read (375 / 246 / 87 / 0 MORE / 5 UNDECIDED). New V2: every
+    other spelling of omega is excluded with a reason (137 = 80 + 57 + 0).
+  - Nits 1-10 seated. Paper blocks 1-2 prepared, not seated.
+- D628: a confirming reader of D626.
+  - Minor: Lemma 6.2's compact-set clause claimed more than it proved. For tau = -t_IVP, r decreases along every future
+    causal curve inside the horizon, and the support hypothesis puts the level below Sigma_IVP. The clause now gives the
+    bound near infinity, r <= max(R, r(p)) + 2(tau(p) - c), which is what Proposition 1.2's uses need; away from
+    infinity the sets are as in Proposition 1.2's proof (future curves: N's inflow boundary and the slab). The proof's
+    lower bound on r is for past curves only, and its last sentence is withdrawn.
+  - New `checks/scrirad5.py` R5, on g_b0 in Kerr-Schild form. The future radial null slopes are -1 and -9/41 at mu = 1,
+    r = 4/5. Inside the horizon r decreases along future causal curves and increases along past ones. |dr/dt| <= 1, and
+    dt + a dr is past timelike for a in [0, 1/32]. z3 refutes controls N7 (r kept along future curves) and N8 (a up to
+    1). Mutants 8/8 caught.
+  - V2 keeps primes (150 = 83 + 67 + 0). A primed spelling is excluded only by its location, and none of the 13 hides a
+    C3, C3' or C4 object. The reader's planted primed spelling now fails V2, and a fourth control plants it as text. V2
+    mutants 6/6 caught.
+  - Also seated: Lemma 6.2's time orientation, (VII5)'s "twenty-four further" and K's trailing newline.
+  - The paper blocks: Block 1's completeness clause is reworded, and Blocks 3-5 (the Appendix entries and the claims
+    table) are new; all are prepared, not seated.
+  - SETTLE-GLAM5's re-keys (471, 513-521) have landed (workstream B). Its md5 pins of K and VII are f29e2aa8 and
+    500c085b, the D628 files (:630, :936, :1576, :2068, :2628) [amended D629: this line first named 14b79c32 and
+    81a9effd, the D626 files, which SETTLE-GLAM5 no longer pins]; D628 leaves the pinned lines unchanged.
+
+**D622 (2026-11-06; recorded at D627, as it had no entry of its own): the reader of sections 8, 9 and Proposition 10.1
+seated.** That reader found section 8, Theorem P with its proof, and Proposition 9.10 to hold once its findings were
+seated. It also confirmed the (9.10) error in 9.5 and found one major gap.
+- The Major: Proposition 10.1 (iv) misread [HKW18]'s E~^N as "N-th order" energies. They are the first-order energies of
+  the red-shift multiplier N = T + Y ((114)-(115), p. 39). At r = r_h the master equation does not give the transversal
+  d_r^2, so (iv) did not reach the horizon; it also used (i)'s static K, which is singular there.
+- Closed by two routes:
+  - (iv-a): Part VIII's data class, by GAUGEDECAY5 Theorem 1.5 (b), (d). It holds pointwise at t*^(-w+eps') with
+    w > 2, the horizon included, with a loss of two derivatives. Theorem 1.5 is verified, not proved.
+  - (iv-b): [HKW18]'s data with one red-shift datum Q_0, rate C R^5 (D + Q_0)(1 + tau)^-2 uniformly in l. It rests on two
+    new lemmas.
+    - Lemma 10.1a: the red-shift commutation is exact in 1+1. Its damping (j + 1) f'/2 does not involve the potential
+      and is (j + 1) kappa > 0 at the horizon, kappa = 1/r_h ([DR08] Theorem 7.2, p. 87; [Sch13] Lemma 3.2).
+    - Lemma 10.1b: Q_0 cannot be dropped. The modes e^(-sigma v)(r - r_h)^(sigma/kappa), 1/2 < sigma/kappa <= 3/2,
+      sigma/kappa != 1, have every I finite and Q_0 = oo.
+  - K is now Proposition 10.2 (iv)'s horizon-regular r^-2 dv^2. "N-th order" survives only inside the quoted
+    superseded text.
+- Minors M1-M5 and the nits, all seated with [amended D622] notes:
+  - M1: the status lines of section 9 and Proposition 9.10;
+  - M2: (vth, p1, p2) as the angles of S^3;
+  - M3: "orthonormal frame";
+  - M4: Proposition 9.9's bootstrap factors C/beta and C/(beta - 1), with beta0 = max(2, 4C + 1);
+  - M5: Proposition 9.10 (1) through Theorem E on g_lam's own trace, the lower semicontinuity of Data, and uniqueness
+    on Omega;
+  - the nits: Proposition 8.1's mu0 >= sqrt(72) l5^2 with delta2 and C = 2 C'; eight invariant components; Lemma 8.2's
+    wording; Proposition 8.2 citing `checks/support5c.py` C13; eps_U; gh~ in E_(5/2); and Proposition 10.1 (ii)'s
+    gauge vector with its angular part.
+- Lemma 9.4 gains lam <= d0/20, since without it the radial eigenvalue reaches 1 - 1.4 at lam = 1/10, Delta = 1.
+- New `checks/redshift5.py`: R1-R14 pass and every control fails; 16 of 16 mutants are caught. Eight paper blocks
+  are carried in its R13, not seated in the paper.
+- The confirming read is the one recorded at D625. The rest of D622's report is in the scratchpad's report-r622.md.
+
+**D627 (2026-11-06): the D625 seating read; its minor and eight notes seated.** An independent reader confirmed the D625
+seating, with one exception and eight notes. It also re-derived the tensor factor k^2 + 4 with sympy.
+- The exception, a minor: Lemma 10.1b's case of smooth h assumed smooth data converging to the singular modes in every
+  I_(X Psi)(Sigma_0). The natural R(r + eps) does not do this: its I_(T^2 Psi) error grows like eps^(-1/2) at
+  sigma/kappa = 5/4. The same gap reached (iv-b)'s "not bounded by any sum of I's".
+- That minor is seated in the reader's form, re-derived:
+  - average Phi_n over the flow of T with a smooth rho supported in (0, t_0), 0 < t_0 < s(rho_0) - s(r_h);
+  - T^a of the average is (-1)^a int rho^(a)(t) Phi_n o phi_t dt, so the energy bound on [0, t_0] gives convergence
+    in every I_(X Psi)(Sigma_0);
+  - near the horizon on Sigma_0 the averaged limit is (int rho e^(-sigma t) dt) e^(-sigma v) R, because phi_t of such a
+    point lies in the domain of dependence of Sigma_0 cap {r < rho_0};
+  - lower semicontinuity then gives Q(0) -> oo.
+- (iv-b)'s sentence now says "for smooth h either".
+- New `checks/redshift5.py` R16 (the reader's model, with the exact solution of the naive data). The averaged errors in
+  I_(T^a Psi), a = 0, 1, 2, fall as about eps^(3/2) (I_(T^2 Psi) 8.9e-6, 1.6e-9, 9.0e-13 at eps = 1e-3, 1e-5, 1e-7,
+  sigma/kappa = 5/4), and Q(0) of the averages grows (3.9, 42, 426). The averages' jets obey the model's relations.
+  Control: the naive data, 0.70, 6.9, 69.
+- The nits:
+  - the header's "found section 8, Theorem P and Proposition 9.10 to hold";
+  - [amended D625, noted D627] marks on the ten D625 edits that carried none;
+  - "for each type";
+  - Y_ab defined at (35) and carried in (173);
+  - "would meet that span";
+  - Step 6's clause on c0-c3 moved to the end of its parenthesis;
+  - "Step 8," back in the 0.4 heading, which now reads "re-read D623, D625" to fit 121 characters;
+  - new `checks/redshift5.py` R15 for k^2 + 4.
+- R15 checks -sum L_Omega^2 h = nabla^* nabla h + 6 h - 2 tr(h) g on generic symmetric h, and 12 = k^2 + 4 on two TT
+  harmonics at l = 2, where nabla^* nabla = 6 matches (42). k^2 + 3 = 11 is rejected. Control: 5 h in place of 6 h.
+- Section 11's "Proved means proved" is marked as pending the section 11 read (F1 on Lemma 11.0). Nothing else in
+  section 11 is changed; WS-B round 6's R6-D blocks are for a separate pass.
+- lzerotrace5 and lzeroaudit5 are re-pinned to the D627 file and re-keyed by content. Two of 0.3's audit rows now share
+  line 118.
+- redshift5 R13's 8.2 block is re-keyed to the paper as it stands since RWGAUGE5's block was seated in 8.2 (8a1f050).
+  It now replaces only 8.2's first sentence, which keeps "as a power of R"; the seated RWGAUGE5 text after it stays.
+- External mutants of R15 and R16: 4 of 4 caught (five Killing fields; a Lie-derivative term dropped; T^a not on rho; the
+  v-part of the exact solution dropped).
+- Runs, every .out saved:
+  - redshift5: R1-R16 pass, every control fails.
+  - Pass: eps1hyp5, support5, stagen5, r5edits5, census9, stagefree5, support8b, zerohardy5, lzerotrace5 (T0-T7,
+    C1-C6) and lzeroaudit5 (A0-A3, C1-C3).
+  - `response5.py --update-md5` refreshed six rows of Appendix D. Its selftest passes but for R9, on
+    PART-III-K-NONLINEAR.md and BEYOND5-R0.tsv, which another workstream was rewriting during the runs.
+- Not yet read: the D627 seating itself, and the D618 edits to sections 9.5 and 11.
+
+**D629 (2026-11-06): the confirming read of D626/D628; one paper-block finding and five nits seated.**
+- The reader confirmed the supplement side: III.K, Part VII and the checks hold, every finding is seated, and no major
+  or minor finding is open there.
+  - Minor (paper Block 1): its OLD ran through the caveat "The verdicts are readings, not computations, ..." and its NEW
+    dropped it. The caveat is restored with V2's reach ("V2 sorts the spellings of omega only"). Applied to a scratch
+    copy, the sentence occurs once before and once after, and no line exceeds 121.
+  - Nit 1, K's slab: "r >= R_nu - C|c|" holds for curves entering the slab from N cap {t_IVP < 0}, not for a point of
+    the slab over {r < R_nu}. The backward problem's domain is now named, X := (N cap {t_IVP < 0}) cup ({0 <= t_IVP <=
+    |c|} cap {r + 2C t_IVP >= R_nu}). Future causal curves do not leave X while t_IVP <= |c|, since d(r + 2C t_IVP) >= C
+    dt_IVP > 0 along them; so r >= R_nu - 2C|c| on X. Re-derived first.
+  - Nit 2, R5 (iv): it now covers m > 0 and -1 <= a < 1. The clause's a = nu' - beta, with beta from III.B Lemma 3.7's
+    proof; z3 proves beta > -5/7 from its formula, so a lies in [-1, 3/4). This is wider than the reader's [-1, 1/32],
+    as beta can be negative on [2R_1, 3R_1]. New controls N9 (m = 0 allowed) and N10 (beta > -2/3).
+  - Nit 3, V2: the narrow rules are pinned to the files their reasons name (the dual states, the gauge potential, the
+    source's state, omega^sharp, and the Cauchy data omega^(0), omega^(1)). The count stays 150 = 83 + 67 + 0. The
+    reader's W7 (omega^(0) in III.G3) and W8 (dot omega_b in III.K) now fail V2 and are controls.
+  - Nit 4: the D626/D628 entry's SETTLE-GLAM5 pins corrected to f29e2aa8 and 500c085b. D629 changes K again, so
+    SETTLE-GLAM5's K pin is stale once more; K's pinned lines are unchanged. VII is unchanged at D629.
+  - Nit 5, K:690: "stays in the past cone of eta" now reads "stays in the component that continues eta's past cone".
+  - A first wording of nit 1 named r_0 and so added a line to the r_0 census (SPC 122, selftest FAIL); it was reworded,
+    and the census is back at 323 lines, BEYOND5-R0.tsv unchanged.
+  - Mutants: R5 9 of 9 caught by text mutation, plus a deleted check that survives as it must; V2 6 of 6; the D628 sets
+    again 8/8 and 6/6; the reader's R5 M1-M5 and V2 W1-W8 all caught (W9, a bare omega in K, passes by design).
+  - Paper Blocks 1-5 prepared, not seated; Block 3 now names V2's pinned rules.
+
+**D629 follow-up (2026-11-06).** The D629 confirming read confirmed D626, D628 and D629 with no finding open (no major,
+no minor) and two optional wording nits, both now seated in proof5/PART-III-K-NONLINEAR.md: the D629 record (:617) writes
+the Kerr-Schild $dt_{\mathrm{KS}}$, and the X-bracket (:725-727) adds that $X$ is closed, II.F Lemma 1.3 being applied on
+$X^\circ$ with the slab taken to $|c|+\delta$. K gains two lines after :725; `checks/vii5census.out` re-saved (its one C1
+use line K:733 is now K:735); r0census5 --selftest ok (323 lines) and vii5read unchanged.
+
+**D630 (2026-11-06): Lemma 11.0's replacement R6-D seated; the D627 reader's notes.**
+- WS-B's R6-D (SETTLE-GLAM5.md, final, superseding R5-D) is seated in N1STAR-PROOF.md's Lemma 11.0.
+  - Its four blocks were applied as printed. Each old text occurred once, and the result is byte-identical to WS-B's
+    round-6 verifier's applied copy (md5 172af376): 31 lines added, all inside Lemma 11.0.
+  - That verifier had found the mathematics correct and non-circular. R6-D answers SETTLE-GLAM5's F1, the section 11
+    reader's Major 1: the induction now counts the top-order term b . d U as unknown, through f_gamma in (9.3) before
+    Gronwall's lemma, at a lam-free factor e^(2C(1 + lam)).
+  - Two "[amended D630: WS-B round 6, R6-D ...]" marks close the two blocks. Each sits at the end of its block's last
+    line, and the rest of that line follows on its own line, so no text of R6-D is rewrapped. The old texts are R6-D's
+    "Edit 1, old" and "Edit 2, old" in SETTLE-GLAM5.md.
+- Section 11's status: "Proved means proved" is now pending only the section 9.5/11 confirming read. F1 is answered by
+  R6-D, seated here.
+- The D627 confirming reader confirmed D627, with four optional notes, all seated:
+  - (iv-b): "smooth approximants of its solutions";
+  - Lemma 10.1b's parenthesis: "smooth data of that mode", "Phi_n their solutions", rho "not identically 0";
+  - its label cites R16;
+  - its (b)'s note reads "was "a neighbourhood of the horizon"".
+- `checks/r6edits5.py` and `checks/r5edits5.py` now recognise the seated state. When R6-D's new blocks occur once in the
+  live file and its old ones not at all, they undo R6-D and its two marks in memory and run every check as before.
+  The undone copy restores the pre-seating Lemma 11.0 exactly. r6edits5's new E1s checks that re-applying the blocks
+  gives the live file but for the two marks.
+- Lines 1-958 are unchanged, so lzerotrace5's and lzeroaudit5's PIN and rows stand; their FILE_PIN is re-pinned.
+- Runs, every .out saved: redshift5 (R1-R16), eps1hyp5, support5, stagen5, r5edits5, r6edits5, census9, stagefree5,
+  support8b, zerohardy5, lzerotrace5 and lzeroaudit5 all pass. `response5.py --update-md5` refreshed three rows (the
+  proof, support5.out, census9.out), and its selftest passes, R1-R14.
+- Not yet read: D618's sections 9.5 and 11 (with R6-D now in place), and the D630 seating.
+- The header's Theorem M paragraph still says R5-D's replacement "is pending". It is left for the next pass of lines
+  1-958 (WS-A's D631).
+
+**D631 (2026-11-06): WS-A's final texts for the supplement; the header on R6-D.**
+- WS-A's R12.h (GAUGEDECAY5.md, confirmed by an independent reader with no major or minor finding) has twelve
+  replacement texts. Texts (1), (2), (9), (10), (11) and (12) have their old text in N1STAR-PROOF.md, once each, and
+  not in the paper, so they are seated here exactly as printed. Texts (3)-(8) are the paper's and wait for the final
+  paper pass.
+  - (1), 10.2 (iv): the l = 0 settling in harmonic gauge, with its exact t_*^-2 leading term for compactly supported
+    data, the rate t_*^(-min(p,3/2)+eps) for data of order p, the representative of Corollary R4.4 and its l >= 2 part.
+  - (2), 10.8: the same for W'.
+  - (9), Proposition 10.1 (iv-a): its domain, N^+.
+  - (10): the proof's status of GAUGEDECAY5 Theorem 1.5, now proved (R10.p, R11.p, R12.p).
+  - (11), the header, and (12), Proposition 10.1's label: (iv-a) is deduced from Theorem 1.5, which is proved.
+  - Each new text is followed by "[amended D631: WS-A R12.h text (n)]", placed so that the text still occurs verbatim.
+    Where the line would pass 121 characters, the rest of the line moves to the next.
+- The header's Theorem M paragraph: F1 is "answered by workstream B's R6-D, read by its round-6 verifier, seated in
+  Lemma 11.0 (D630) and re-read line by line and found correct by its round-7 reader". Section 11's status keeps
+  "[pending the section 9.5/11 confirming read]", as that reader is still running.
+- The header grows by two lines, so lines 59-960 of sections 0-6 move by +2. lzerotrace5's and lzeroaudit5's rows are
+  re-keyed, and PIN (lines 1-960) and FILE_PIN are re-pinned.
+- Text (1) as printed has a line beginning "+ O(t_*^(-3+eps))", which a Markdown renderer reads as a list item. It is
+  seated exactly, and noted here.
+- Runs, every .out saved: lzerotrace5 (T0-T7, C1-C6), lzeroaudit5 (A0-A3, C1-C3; 95 hits, 0 unclassified), redshift5
+  (R1-R16), stagen5, r5edits5, r6edits5, census9, stagefree5, support8b and zerohardy5 all pass.
+  `response5.py --update-md5` refreshed two rows (the proof, census9.out), and its selftest passes, R1-R14. The paper's
+  R12.h old texts (3)-(8) each still occur once there.
+
+**D632 (2026-11-06): the confirming read of sections 9.5, 9.10 and 11, seated.** An independent reader confirmed:
+- section 9.5 with its D618 edits, with one minor finding;
+- Proposition 9.10 as amended at D622 and D625;
+- section 11 with D618 and D630, where R6-D is seated byte-exact and its induction holds line by line;
+- the D630 notes in 10.3.
+
+It found one minor finding and eight nits; all are seated, each with an [amended D632] note.
+- m1: D618's note in 9.5 stated "1 - pi/2 = 1 - 2 <H^2 cos^2 th sin^2 th>", which is false (1 - 2 (pi/4 - 1/2) =
+  2 - pi/2). The coefficient is -2 <H^2 cos^2 th sin^2 th>, and the first coefficient 1 was -2 times sympy's -1/2.
+  - In `past5.py` P7 now computes the coefficient, kap = -2 mom[2], where it had hard-coded float(1 - pi/2). Its comment
+    and printed message state the true identity.
+  - The reader's mutant, P7 with the false identity, now fails P7: c, d (deviation 3.65) and e.
+- The reader's gap, that no program read the printed formulas, is closed by a new `past5.py` P9. It reads (9.10) and
+  (11.3) from N1STAR-PROOF.md, parses them, and compares them with the computed sphere mean and its v-integral's
+  coefficients. Two controls fail as they must: the displays with (1 - pi/2) read as 1, and the coefficient by the
+  false identity. On scratch copies, (11.3) alone without its factor and (9.10) alone with coefficient 1 each fail P9.
+- n1: Lemma 11.0's bookkeeping: "(9.8) with Lemma 9.3, for u_1^n, at the lowest orders".
+- n2: Lemma 11.2's energy step: a known E_(q+1/2) source by the hypothesis on u~~.
+- n3: the rotation case of R6-D's bookkeeping. For pure rotations the |gamma'| = |gamma| term has the L^2 factor
+  ||Omega^gamma u_1^n|| <= C t^(1/2), so ||R_gamma|| <= C t^(-3/2) still holds (or the term goes through Lemma 9.3(b));
+  the aside on c U as a source is for Cartesian gamma.
+- n4: Theorem M (b)'s h is 9.5's H.
+- n5: 9.5's "phase mean is mu' at leading order".
+- n6: 11.1's "with the Cartesian derivatives Theorem P controls".
+- n7: 11.4's "converging to 0.4569", without "as O(lam)".
+- n8: Proposition 9.10's "to order k + 1".
+- The status lines in the header, section 9 and section 11 now record the confirming read and D632. Section 11's
+  "Proved means proved [... pending the section 9.5/11 confirming read]" now reads "read by an independent confirming
+  reader of sections 9.5, 9.10 and 11, its findings seated at D632".
+- None of R6-D's text is touched. Its precondition holds (each new block once, each old block absent), and its two
+  D630 marks are unchanged. The reader's r6edits5 test gaps on Edit 2 are workstream B's.
+- The header grows by two lines, so lzerotrace5's and lzeroaudit5's rows below line 59 move by +2. PIN (lines 1-962)
+  and FILE_PIN are re-pinned.
+- Runs, every .out saved: past5 (`--selftest` P1-P9 9/9, `--mutants` 14/14, past5.out regenerated, 485 s), lzerotrace5
+  (T0-T7, C1-C6), lzeroaudit5 (A0-A3, C1-C3; 95 hits in lines 1-962, 0 unclassified), redshift5 (R1-R16), stagen5,
+  r5edits5, r6edits5, census9, stagefree5, support8b and zerohardy5 all pass. bondi5 is not run: it reads only its
+  RUNS json, not N1STAR-PROOF.md. `response5.py --update-md5` refreshed three rows (the proof, past5.py, census9.out),
+  and its selftest passes, R1-R14.
+- A first r5edits5 run during D632 failed E1f. It ran against workstream B's working copy of r6edits5.py, whose
+  bounds_ok then read Edit 2's factor, which R5-D's text lacks. With r6edits5.py as committed at 480bc8b, r5edits5
+  passes on the D632 file and its output is unchanged.
+
+**D633 (2026-11-06): the status words after D632.** Editorial; no mathematics is changed. D632 seated the confirming
+reader's findings on D618's edits to section 9.5, Proposition 9.10 and section 11, and on R6-D in Lemma 11.0, and that
+reader found section 9.5, Proposition 9.10 and section 11 correct line by line. So Theorem M and section 9.5 are written
+out and verified with every finding seated: proved, in the sense of N1STAR-PROOF.md's lines 1-8.
+- Theorem M is proved (D632).
+  - The header's Theorem M paragraph: "It is proved (D632) [amended D633: was "It is deduced"]". The verifier history
+    after it is unchanged.
+  - Section 11's status: "Theorem M is proved here (D632) [amended D633: was "is deduced here"]".
+- Section 9.5 is proved (D632).
+  - The header: "sections 9.1-9.5 [amended D633: was "9.1-9.4"; 9.5 proved at D632] and Propositions 9.9-9.10 are
+    proved".
+  - Section 9's status: "**and section 9.5 is proved (D632)** [amended D633: this clause added]", after the D632 note.
+- No other line gives Theorem M, section 11, section 9.5 or (9.10) as deduced or pending, and section 0 has no entry for
+  Theorem M or section 11. The method labels of headings and statements ("(deduced)", as in 9.1-9.4 and Proposition
+  11.2) are not status words and stand. Section 9's "P1-P8; D35" names Theorem P's inputs at D35 and stands.
+- The header's two edits are refilled within their paragraphs (lines 42-44 and 51-61), so lines 1-962 keep their
+  numbers and lzerotrace5's and lzeroaudit5's rows stand. Line 44 still ends "which is proved", so WS-A's R12.h text
+  (11) occurs as printed. Sections 9 and 11 each gain one line, split at the amendment as at D631.
+- README.md: the `past5.py` entry is P1-P9, with P9's clause, `--selftest` (9/9, about 6 minutes) and `--mutants`
+  (14/14). The selftest took 357 s at a load average near 18 on four cores; its output is the D632 run's.
+- Runs (the new outputs are not saved over the D632 .out files): past5 `--selftest` 9/9; stagen5, r5edits5, census9,
+  support8b, zerohardy5, stagefree5, lamL5b, redshift5 (R1-R16) and rwgauge5u (U1-U11) pass, redshift5's and
+  rwgauge5u's outputs the saved ones exactly. r6edits5 passes: as committed its output is the saved one exactly; the
+  working copy (another workstream's) catches one E3 control by one more predicate.
+- lzerotrace5's T0 and lzeroaudit5's A0 first failed, only on PIN and FILE_PIN, which are hand-set to the D632 file
+  with no update flag. T1-T7 and C1-C6 passed, every trace fragment on its line; A1-A3 and C1-C3 passed, 95 hits, 0
+  unclassified. Both were then re-pinned by the main session (lines 1-962 111719cdec3f0fabeb4ef66b4eb1d7e7, the file
+  5c1a186aa2528e503e24c336f9a6dcef, 11402 lines as the checks count them; each pin's history comment carries D633) and
+  rerun: lzerotrace5 T0-T7, C1-C6 and lzeroaudit5 A0-A3, C1-C3 all pass, exit 0; both .out files regenerated, differing
+  from the D632 ones only in the pinned md5s and the line count.
+- `response5.py --update-md5` refreshed two rows (the proof, README.md), and its selftest passes, R1-R14.

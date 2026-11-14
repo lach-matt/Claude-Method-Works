@@ -1,0 +1,603 @@
+#!/usr/bin/env python3
+"""rcert5.py -- CERTIFY-10L5-RESULT.md round 2 (R): the Einstein residual of a smoothed three-dimensional approximant,
+the one resid5.py computed in floating point, in ball arithmetic: certified values on a dense grid (K1) and a certified
+but loose sup over boxes (K2).  Labels: certified (Arb ball arithmetic, python-flint) for K1 and K2; computed (floating
+point) for the fit that defines the approximant.
+
+The approximant g_app (resid5.py's, exactly): on the box u in [-4, -1.1], v in [0.55, 1.6] (outside the seed's horizon
+generator, converged, CERTIFY-10L5.md D399-D432), every field F of (R, m, n, W, s) is the polynomial
+    F(t, sig, x) = sum_{i <= 24, j <= 30, k < 16} C_ijk T_i(t) T_j(sig) T_k(x),
+t = (2 xi - xi_a - xi_b)/(xi_b - xi_a), xi = arcsinh((u + 1)/a) (a = 0.002, the run's own coordinate), sig affine in v,
+C_ijk the floating-point least-squares fit in (t, sig) of resid5.py at each angular node, converted in x to Chebyshev
+coefficients of the run's 16-node interpolant.  The C_ijk are floats, hence exact rationals: g_app is an explicit
+metric of the class, and its Ricci tensor is enclosed rigorously.
+
+The certified quantity: the eight null-orthonormal frame components of Ric[g_app] (resid5.py's frame: l = d_v,
+nhat = e^{-2W}(d_u + beta d_x)/2, e_x, e_phi1, e_phi2), each divided by the curvature scale sqrt(K_0) = sqrt(72)/R^4,
+over t, sig in [-1, 1] and x in [-x_1, x_1], x_1 = cos(pi/32) the outermost angular node: the two axis caps
+|x| > x_1, where the frame's 1/(1 - x^2) factors cancel only analytically, are not covered.
+
+The method: Taylor models of order Q = 3 in (t, sig, x).  On each box B of a tensor grid, with centre c and half-widths
+h: every field's Taylor coefficients F_beta = D^beta F/beta! up to order Q + 3 at c (points: Chebyshev derivatives
+by the exact differentiation matrix, D^T T(c), in ball arithmetic), and over B up to order Q + 2 by the second-order
+enclosure  F_beta(B) in F_beta(c) + sum_d (beta_d + 1) F_{beta+e_d}(c) [-h_d, h_d]
++ (1/2) sum_{d, d'} k_{d d'} L_{beta+e_d+e_d'} h_d h_d' [-1, 1],  with L_gamma = sum_ijk |C^(gamma)_ijk|/gamma! >= sup of
+|F_gamma| on the domain (|T_i| <= 1; C^(gamma) the exact derivative tensor) and k the multinomial factors; the
+u-derivatives by the chain rule through dt/du and d2t/du2 (themselves Taylor jets); the frame components, generated
+from dnsolve5's exact symbolic Ricci tensor and printed as code on truncated Taylor jets (exp, sqrt and reciprocals by
+their series), give the coefficients f_alpha (|alpha| <= Q) at c and over B; and by Taylor's theorem with the
+Lagrange remainder
+    sup_B |f| <= sum_{|alpha| < Q} |f_alpha(c)| h^alpha + sum_{|alpha| = Q} sup_B |f_alpha| h^alpha.
+
+  K1 (certified) the eight scaled frame components enclosed in ball arithmetic at the centres of a tensor grid (24 x 24
+     in (t, sig), and the graded x-boxes' centres: 16,128 points); the largest of each, against resid5.py's computed
+     maxima at the run's cell midpoints (the largest 2.46e-3, the ll component).  Pass: within a factor 2 of
+     resid5.py's figures wherever those exceed 1e-4 (the same function at other points).
+  Control (K1): the same for the approximant with W replaced by W + 0.01 v (a lapse off the solution, resid5.py's
+     control): its certified values must exceed the approximant's tenfold.
+  K2 (certified, reported) the sup over boxes by the Taylor models above, on 4 x 4 x 26 boxes (416), with the box
+     where each component's bound is largest.  It is a valid bound and a useless one: the interval remainder of the
+     2,500-operation Ricci expression, whose terms cancel to 1e-3 of their size, is of order C h^Q with C huge, and
+     the boxes that would bring it to the residual's size cost more than this round can run (CERTIFY-10L5-RESULT.md
+     section 6.3).  So the certified statement is K1's, at points; the sup over the box is computed (resid5.py).
+
+  python3 checks/rcert5.py RUNDIR run [Nt Nsig Nmid]      (run: l1_M16_800, the run resid5.py fits)
+"""
+import os, sys, time, math, importlib.util, itertools
+import numpy as np
+import sympy as sp
+from flint import arb, arb_mat, ctx
+
+
+def print(*a, **k):
+    """print, every line wrapped at 121 characters (the record's line limit)"""
+    import builtins, textwrap
+    s = (k.pop('sep', ' ')).join(str(q) for q in a)
+    lines = []
+    for ln in s.split('\n'):
+        if len(ln) <= 121:
+            lines.append(ln)
+        else:
+            ind = len(ln) - len(ln.lstrip()) + 4
+            lines.extend(textwrap.wrap(ln, 121, subsequent_indent=' ' * ind, break_on_hyphens=False))
+    builtins.print('\n'.join(lines), **k)
+
+ctx.prec = 128
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import resid5 as RS                                                              # noqa: E402
+import bondisph5 as B                                                            # noqa: E402
+
+Q = 3
+MONO = [m for d in range(Q + 1) for m in itertools.product(range(d + 1), repeat=3) if sum(m) == d]
+IDX = {m: i for i, m in enumerate(MONO)}
+NM = len(MONO)
+PAIRS = [(i, j, IDX[tuple(a + b for a, b in zip(mi, mj))]) for i, mi in enumerate(MONO) for j, mj in enumerate(MONO)
+         if sum(mi) + sum(mj) <= Q]
+ZERO = arb(0)
+
+
+class TJ:
+    """a truncated Taylor jet of order Q in three variables, coefficients arb (f_alpha = D^alpha f / alpha!)"""
+    __slots__ = ('c',)
+
+    def __init__(self, c):
+        self.c = c
+
+    @staticmethod
+    def const(a):
+        return TJ([a if isinstance(a, arb) else arb(a)] + [ZERO] * (NM - 1))
+
+    def __add__(s, o):
+        if isinstance(o, TJ):
+            return TJ([p + q for p, q in zip(s.c, o.c)])
+        c = list(s.c); c[0] = c[0] + o; return TJ(c)
+    __radd__ = __add__
+
+    def __sub__(s, o):
+        if isinstance(o, TJ):
+            return TJ([p - q for p, q in zip(s.c, o.c)])
+        c = list(s.c); c[0] = c[0] - o; return TJ(c)
+
+    def __rsub__(s, o):
+        c = [-p for p in s.c]; c[0] = c[0] + o; return TJ(c)
+
+    def __neg__(s):
+        return TJ([-p for p in s.c])
+
+    def __mul__(s, o):
+        if not isinstance(o, TJ):
+            return TJ([p * o for p in s.c])
+        a, b = s.c, o.c
+        out = [ZERO] * NM
+        for i, j, k in PAIRS:
+            out[k] = out[k] + a[i] * b[j]
+        return TJ(out)
+    __rmul__ = __mul__
+
+    def __truediv__(s, o):
+        if not isinstance(o, TJ):
+            return TJ([p / o for p in s.c])
+        return s * trecip(o)
+
+    def __rtruediv__(s, o):
+        return trecip(s) * o
+
+    def __pow__(s, n):
+        assert isinstance(n, int)
+        if n < 0:
+            return trecip(s ** (-n))
+        r = TJ.const(1)
+        b = s
+        while n:
+            if n & 1:
+                r = r * b
+            n >>= 1
+            if n:
+                b = b * b
+        return r
+
+
+def _series(s, coefs):
+    """sum_k coefs[k] N^k, N the nilpotent part of s (k <= Q)"""
+    N = TJ([ZERO] + list(s.c[1:]))
+    out = TJ.const(coefs[0]); Nk = TJ.const(1)
+    for k in range(1, Q + 1):
+        Nk = Nk * N
+        out = out + Nk * coefs[k]
+    return out
+
+
+def trecip(s):
+    if not isinstance(s, TJ):
+        return 1 / (s if isinstance(s, arb) else arb(s))
+    a0 = s.c[0]; r = 1 / a0
+    return _series(s, [r * (-r) ** k for k in range(Q + 1)])
+
+
+def texp(s):
+    if not isinstance(s, TJ):
+        return (s if isinstance(s, arb) else arb(s)).exp()
+    e = s.c[0].exp()
+    return _series(s, [e / math.factorial(k) for k in range(Q + 1)])
+
+
+def tsqrt(s):
+    if not isinstance(s, TJ):
+        return (s if isinstance(s, arb) else arb(s)).sqrt()
+    a0 = s.c[0]; r = a0.sqrt()
+    co = []
+    for k in range(Q + 1):
+        b = arb(1)
+        for j in range(k):
+            b = b * (arb(1) / 2 - j) / (j + 1)
+        co.append(r * b / a0 ** k)
+    return _series(s, co)
+
+
+# ------------------------------------------------------------------ the frame components as code on jets
+class JetPrinter(sp.printing.str.StrPrinter):
+    def _print_Integer(self, e):
+        return 'arb(%d)' % int(e)
+
+    def _print_Rational(self, e):
+        return '(arb(%d)/arb(%d))' % (e.p, e.q)
+
+    def _print_Float(self, e):
+        raise ValueError('float in expression')
+
+    def _print_Pow(self, e, rational=False):
+        b, ex = e.as_base_exp()
+        if ex == sp.Rational(1, 2):
+            return 'tsqrt(%s)' % self._print(b)
+        if ex == -sp.Rational(1, 2):
+            return 'trecip(tsqrt(%s))' % self._print(b)
+        if ex.is_Integer:
+            return '(%s)**%d' % (self._print(b), int(ex))
+        raise ValueError('power %s' % e)
+
+    def _print_exp(self, e):
+        return 'texp(%s)' % self._print(e.args[0])
+
+    def _print_Function(self, e):
+        raise ValueError('function %s' % e)
+
+
+def frame_code():
+    d5 = RS.d5
+    Ric = d5.dn.ricci(d5.g, d5.C)
+    R8 = [d5.tosym(Ric[i, j]) for (i, j), _ in RS.COMPS]
+    x = d5.x
+    R, W, m, n, s = [sp.Symbol(k) for k in ('R', 'W', 'm', 'n', 's')]
+    P = (2 * (1 + x) * m - (1 - x) * n) / 3; Qq = (2 * (1 - x) * n - (1 + x) * m) / 3
+    Gx = R ** 2 * sp.exp(-2 * (P + Qq)) / (4 * (1 - x ** 2)); be = (1 - x ** 2) * s
+    isG = 2 * sp.sqrt(1 - x ** 2) * sp.exp(P + Qq) / R                     # 1/sqrt(Gx)
+    g11 = R ** 2 * (1 + x) / 2 * sp.exp(2 * P); g22 = R ** 2 * (1 - x) / 2 * sp.exp(2 * Qq)
+    Ruu, Ruv, Rux, Rvv, Rvx, Rxx, R11, R22 = R8
+    e2 = sp.exp(-2 * W) / 2
+    fr = [Rvv, e2 * (Ruv + be * Rvx), e2 ** 2 * (Ruu + 2 * be * Rux + be ** 2 * Rxx), Rvx * isG,
+          e2 * (Rux + be * Rxx) * isG, Rxx / Gx, R11 / g11, R22 / g22]
+    sc = R ** 4 / sp.sqrt(72)
+    exprs = [f * sc for f in fr]
+    syms = sorted(set().union(*[e.free_symbols for e in exprs]), key=str)
+    rep, red = sp.cse(exprs, optimizations='basic')
+    pr = JetPrinter()
+    lines = ['def _frame(%s):' % ', '.join(str(a) for a in syms)]
+    for v_, e in rep:
+        lines.append('    %s = %s' % (v_, pr.doprint(e)))
+    lines.append('    return [%s]' % ', '.join(pr.doprint(e) for e in red))
+    ns = {'arb': arb, 'tsqrt': tsqrt, 'trecip': trecip, 'texp': texp}
+    exec('\n'.join(lines), ns)
+    return ns['_frame'], [str(a) for a in syms]
+
+
+# ------------------------------------------------------------------ the approximant and its Taylor coefficients
+def cheb_dmat(n):
+    """exact Chebyshev differentiation in coefficient space (as dnsolve5.cheb_gauss's Dc), an arb_mat"""
+    D = [[0] * n for _ in range(n)]
+    for k in range(n):
+        for l in range(k - 1, -1, -2):
+            D[l][k] = 2 * k
+        if k % 2 == 1:
+            D[0][k] = k
+    return arb_mat(D)
+
+
+def markov(nmax, a):
+    """T_n^(a)(1) = prod_{j < a} (n^2 - j^2)/(2j + 1), the sup of |T_n^(a)| on [-1, 1]"""
+    out = []
+    for nn in range(nmax):
+        v = arb(1)
+        for j in range(a):
+            v = v * arb(nn * nn - j * j) / (2 * j + 1)
+        out.append(v)
+    return out
+
+
+def basis_jets(centres, half, n, order):
+    """for each centre: enclosures over [c - half, c + half] of T_i^(a)(.)/a!, a <= order, as lists [a][i]; and the
+    point values at c (half = 0 gives points)"""
+    D = cheb_dmat(n)
+    DT = D.transpose()
+    out = []
+    mk = [markov(n, a + 1) for a in range(order + 1)]
+    for c in centres:
+        th = arb(c).acos()
+        T = arb_mat([[(th * k).cos()] for k in range(n)])
+        vecs = [T]
+        for a in range(order + 1):
+            vecs.append(DT * vecs[-1])
+        per = []
+        for a in range(order + 1):
+            f = arb(math.factorial(a))
+            row = []
+            for i in range(n):
+                val = vecs[a][i, 0]
+                if half:
+                    val = val + arb(0, 1) * mk[a][i] * arb(half)
+                row.append(val / f)
+            per.append(row)
+        out.append(per)
+    return out
+
+
+def contract(C, Tt, Ss, Xx, order):
+    """F_abc over the tensor grid: C (n_t, n_s, n_x) floats; Tt[p][a][i] etc.  Returns dict (a,b,c) -> array of arb
+    shaped (Nt, Ns, Nx)"""
+    nt, ns_, nx = C.shape
+    Cm = arb_mat([[float(C[i, j, k]) for j in range(ns_) for k in range(nx)] for i in range(nt)])
+    out = {}
+    Nt, Ns, Nx = len(Tt), len(Ss), len(Xx)
+    S_mats = {b: arb_mat([[Ss[q][b][j] for j in range(ns_)] for q in range(Ns)]) for b in range(order + 1)}
+    X_mats = {c: arb_mat([[Xx[r][c][k] for r in range(Nx)] for k in range(nx)]) for c in range(order + 1)}
+    for a in range(order + 1):
+        Ta = arb_mat([[Tt[p][a][i] for i in range(nt)] for p in range(Nt)])
+        TC = Ta * Cm                                          # (Nt, ns*nx)
+        for p in range(Nt):
+            Mp = arb_mat([[TC[p, j * nx + k] for k in range(nx)] for j in range(ns_)])
+            for b in range(order + 1 - a):
+                SM = S_mats[b] * Mp                           # (Ns, nx)
+                for c in range(order + 1 - a - b):
+                    V = SM * X_mats[c]                        # (Ns, Nx)
+                    arr = out.setdefault((a, b, c), np.empty((Nt, Ns, Nx), dtype=object))
+                    for q in range(Ns):
+                        for r in range(Nx):
+                            arr[p, q, r] = V[q, r]
+    return out
+
+
+def field_jet(Fc, p, q, r):
+    """the order-(Q + 2) Taylor jet of a field at one box (or point): dict alpha -> arb"""
+    return {al: Fc[al][p, q, r] for al in Fc}
+
+
+def dshift(J, axis):
+    """derivative along axis of a jet given as dict alpha -> coefficient (f_alpha = D^alpha f/alpha!)"""
+    out = {}
+    for al, v in J.items():
+        if al[axis] == 0:
+            continue
+        b = list(al); b[axis] -= 1
+        out[tuple(b)] = v * al[axis]
+    return out
+
+
+def to_tj(J):
+    return TJ([J.get(m, ZERO) for m in MONO])
+
+
+def inputs(jets, geo, tc, sc, xc, box):
+    """the named inputs of the frame code (fields and their u, v, x derivatives up to second order) as TJ jets"""
+    hxi, a, psi = geo['hxi'], geo['a'], geo['psi']
+    xi0 = geo['xa'] + (tc + 1) * hxi
+    lin = lambda c0, ax: TJ([c0] + [arb(1) if MONO[i] == tuple(int(k == ax) for k in range(3)) else ZERO
+                                    for i in range(1, NM)])
+    xiJ = lin(xi0, 0) * 1
+    xiJ = TJ([xiJ.c[0]] + [cc * hxi for cc in xiJ.c[1:]])
+    eP, eM = texp(xiJ), texp(-xiJ)
+    ch = (eP + eM) * (arb(1) / 2); shh = (eP - eM) * (arb(1) / 2)
+    phi1 = trecip(ch * (hxi * a))
+    phi2 = -(phi1 * phi1) * (shh * trecip(ch)) * hxi
+    out = {'x': lin(xc, 2)}
+    for f, J in jets.items():
+        Dt, Ds, Dx = dshift(J, 0), dshift(J, 1), dshift(J, 2)
+        out[f] = to_tj(J)
+        out[f + '_u'] = phi1 * to_tj(Dt)
+        out[f + '_v'] = to_tj(Ds) * psi
+        out[f + '_x'] = to_tj(Dx)
+        out[f + '_uu'] = phi1 * phi1 * to_tj(dshift(Dt, 0)) + phi2 * to_tj(Dt)
+        out[f + '_uv'] = phi1 * to_tj(dshift(Dt, 1)) * psi
+        out[f + '_ux'] = phi1 * to_tj(dshift(Dt, 2))
+        out[f + '_vv'] = to_tj(dshift(Ds, 1)) * (psi * psi)
+        out[f + '_vx'] = to_tj(dshift(Ds, 2)) * psi
+        out[f + '_xx'] = to_tj(dshift(Dx, 2))
+    return out
+
+
+def deriv_tensors(C, order):
+    """the exact Chebyshev derivative tensors C^(a,b,c) (a + b + c <= order) of a float tensor C, divided by a! b! c!,
+    as nested lists of arb, and their l1 norms"""
+    nt, ns_, nx = C.shape
+    Dt, Ds, Dx = cheb_dmat(nt), cheb_dmat(ns_), cheb_dmat(nx)
+    base = arb_mat([[float(C[i, j, k]) for j in range(ns_) for k in range(nx)] for i in range(nt)])
+    tens, l1 = {}, {}
+    At = base
+    for a in range(order + 1):
+        blocks = [arb_mat([[At[i, j * nx + k] for k in range(nx)] for j in range(ns_)]) for i in range(nt)]
+        Bs = blocks
+        for b in range(order + 1 - a):
+            Bx = Bs
+            for c in range(order + 1 - a - b):
+                f = arb(math.factorial(a) * math.factorial(b) * math.factorial(c))
+                tot = arb(0)
+                for blk in Bx:
+                    for j in range(ns_):
+                        for k in range(nx):
+                            tot = tot + abs(blk[j, k])
+                l1[(a, b, c)] = tot / f
+                tens[(a, b, c)] = (Bx, f)
+                Bx = [blk * Dx.transpose() for blk in Bx]
+            Bs = [Ds * blk for blk in Bs]
+        At = Dt * At
+    return tens, l1
+
+
+def point_coeffs(tens, tcs, scs, xcs, order):
+    """F_beta(c)/beta! at every centre of the tensor grid, |beta| <= order: dict beta -> array (Nt, Ns, Nx)"""
+    nt = len(tens[(0, 0, 0)][0]); ns_ = tens[(0, 0, 0)][0][0].nrows(); nx = tens[(0, 0, 0)][0][0].ncols()
+    Tt = arb_mat([[(arb(c).acos() * i).cos() for i in range(nt)] for c in tcs])          # (Nt, nt)
+    Ss = arb_mat([[(arb(c).acos() * j).cos() for j in range(ns_)] for c in scs])        # (Ns, ns)
+    Xx = arb_mat([[(arb(c).acos() * k).cos() for c in xcs] for k in range(nx)])         # (nx, Nx)
+    out = {}
+    for beta, (blocks, f) in tens.items():
+        if sum(beta) > order:
+            continue
+        Ns, Nx = len(scs), len(xcs)
+        sx = [Ss * blk * Xx for blk in blocks]                                     # nt of (Ns, Nx)
+        stack = arb_mat([[sx[i][q, r] for q in range(Ns) for r in range(Nx)] for i in range(nt)])
+        res = Tt * stack                                                            # (Nt, Ns Nx)
+        arr = np.empty((len(tcs), Ns, Nx), dtype=object)
+        for p in range(len(tcs)):
+            for q in range(Ns):
+                for r in range(Nx):
+                    arr[p, q, r] = res[p, q * Nx + r] / f
+        out[beta] = arr
+    return out
+
+
+def box_coeffs(pt, l1, h, order):
+    """enclosures of F_beta over each box, |beta| <= order, from the centre values to order + 1 and the l1 bounds;
+    h = (h_t, h_sig, [h_x per x-box])"""
+    E = [tuple(int(i == d) for i in range(3)) for d in range(3)]
+    add = lambda a, b: tuple(x + y for x, y in zip(a, b))
+    out = {}
+    unit = arb(0, 1)
+    hxs = h[2]
+    for beta in pt:
+        if sum(beta) > order:
+            continue
+        quads = []
+        for hx in hxs:
+            hh = (h[0], h[1], hx)
+            quad = arb(0)
+            for d in range(3):
+                g = add(beta, E[d])
+                for d2 in range(3):
+                    gg = add(g, E[d2])
+                    k = (beta[d] + 1) * (g[d2] + 1)
+                    quad = quad + arb(k) * l1[gg] * arb(hh[d]) * arb(hh[d2])
+            quads.append(quad / 2)
+        arr = np.empty(pt[beta].shape, dtype=object)
+        for idx in np.ndindex(arr.shape):
+            v = pt[beta][idx]
+            hh = (h[0], h[1], hxs[idx[2]])
+            for d in range(3):
+                v = v + unit * arb(hh[d]) * (beta[d] + 1) * abs(pt[add(beta, E[d])][idx])
+            arr[idx] = v + unit * quads[idx[2]]
+        out[beta] = arr
+    return out
+
+
+def x_boxes(x1, ratio=1.5, d_mid=0.25, n_mid=6):
+    """centres and half-widths of x-boxes covering [-x1, x1], graded geometrically toward each axis (each box's
+    distance to the axis grows by `ratio`, so half-width/distance stays below (ratio - 1)/(ratio + 1)) and uniform on
+    [-(1 - d_mid), 1 - d_mid]"""
+    d0 = 1 - x1
+    edges = [d0]
+    while edges[-1] * ratio < d_mid:
+        edges.append(edges[-1] * ratio)
+    edges.append(d_mid)
+    side = [(1 - (a + b) / 2, (b - a) / 2) for a, b in zip(edges[:-1], edges[1:])]   # (centre, half) near x = 1
+    lo, hi = -(1 - d_mid), 1 - d_mid
+    hm = (hi - lo) / (2 * n_mid)
+    mid = [(lo + (2 * r + 1) * hm, hm) for r in range(n_mid)]
+    boxes = [(-c, w) for c, w in reversed(side)][::-1]
+    boxes = sorted([(-c, w) for c, w in side]) + mid + sorted(side)
+    return [c for c, _ in boxes], [w for _, w in boxes]
+
+
+ARGS = [-4.0, -1.1, 0.55, 1.6, 24, 30]
+
+
+def prepare(Z, wshift=0.0):
+    """the approximant's coefficient tensors C_ijk (floats, hence exact) and the coordinate data"""
+    coef, err, geo = RS.fit(Z, *ARGS)
+    M = len(Z['x'])
+    Tm = np.cos(np.outer(np.arange(M), np.arccos(Z['x'])))
+    Tinv = np.linalg.inv(Tm.T)
+    C3 = {f: np.einsum('km,ijm->ijk', Tinv, coef[f]) for f in RS.NAMES}
+    hv = (ARGS[3] - ARGS[2]) / 2
+    g = dict(hxi=(geo['xb'] - geo['xa']) / 2, a=RS.A_GRID, psi=1 / hv, xa=geo['xa'], M=M, hv=hv)
+    return C3, g, err
+
+
+def shifted(C3, g, wshift):
+    """W + wshift v, v = v_a + (sig + 1) h_v: exact in the Chebyshev basis"""
+    C = dict(C3); C['W'] = C3['W'].copy()
+    C['W'][0, 0, 0] += wshift * (ARGS[2] + g['hv']); C['W'][0, 1, 0] += wshift * g['hv']
+    return C
+
+
+def certify_points(C3, g, Nt, Ns, Nx):
+    """certified values of the eight scaled frame components at the centres of the tensor grid (Nt x Ns x graded x)"""
+    M = g['M']
+    x1 = float(np.cos(np.pi / (2 * M)))
+    tcs = [-1 + (2 * p + 1) / Nt for p in range(Nt)]
+    scs = [-1 + (2 * q + 1) / Ns for q in range(Ns)]
+    xcs, _ = x_boxes(x1, n_mid=Nx)
+    pts = {}
+    for f in RS.NAMES:
+        tens, _ = deriv_tensors(C3[f], 2)
+        pts[f] = point_coeffs(tens, tcs, scs, xcs, 2)
+    hxi, a, psi = arb(g['hxi']), arb(g['a']), arb(g['psi'])
+    best = [arb(0)] * 8
+    for p, q, r in itertools.product(range(Nt), range(Ns), range(len(xcs))):
+        xi = arb(g['xa']) + (arb(tcs[p]) + 1) * hxi
+        ch, th = xi.cosh(), xi.tanh()
+        phi1 = 1 / (hxi * a * ch); phi2 = -phi1 * phi1 * hxi * th
+        e = {'x': arb(xcs[r])}
+        for f in RS.NAMES:
+            c = lambda al: pts[f][al][p, q, r]
+            e[f] = c((0, 0, 0)); Ft = c((1, 0, 0))
+            e[f + '_u'] = phi1 * Ft; e[f + '_v'] = psi * c((0, 1, 0)); e[f + '_x'] = c((0, 0, 1))
+            e[f + '_uu'] = phi1 * phi1 * 2 * c((2, 0, 0)) + phi2 * Ft
+            e[f + '_uv'] = phi1 * psi * c((1, 1, 0)); e[f + '_ux'] = phi1 * c((1, 0, 1))
+            e[f + '_vv'] = psi * psi * 2 * c((0, 2, 0)); e[f + '_vx'] = psi * c((0, 1, 1))
+            e[f + '_xx'] = 2 * c((0, 0, 2))
+        vals = certify_points.frame(*[e[k] for k in certify_points.names])
+        for k8 in range(8):
+            av = abs(vals[k8]); up = arb(av.mid() + av.rad())
+            if up > best[k8]:
+                best[k8] = up
+    return best, Nt * Ns * len(xcs)
+
+
+def certify(Z, frame, names, Nt, Ns, Nx, wshift=0.0, log=None, prep=None):
+    C3, g, err = prep if prep is not None else prepare(Z)
+    if wshift:
+        C3 = shifted(C3, g, wshift)
+    M = g['M']
+    x1 = float(np.cos(np.pi / (2 * M)))
+    ht, hs = 1.0 / Nt, 1.0 / Ns
+    tcs = [-1 + (2 * p + 1) * ht for p in range(Nt)]
+    scs = [-1 + (2 * q + 1) * hs for q in range(Ns)]
+    xcs, hxs = x_boxes(x1, n_mid=Nx)
+    t0 = time.time()
+    fld_box, fld_pt = {}, {}
+    for f in RS.NAMES:
+        tens, l1 = deriv_tensors(C3[f], Q + 4)
+        pt = point_coeffs(tens, tcs, scs, xcs, Q + 3)
+        fld_pt[f] = {b: a for b, a in pt.items() if sum(b) <= Q + 2}
+        fld_box[f] = box_coeffs(pt, l1, (ht, hs, hxs), Q + 2)
+    if log:
+        log('  enclosures of the fields\' Taylor coefficients on %d boxes: %.0f s' % (
+            Nt * Ns * len(xcs), time.time() - t0))
+    hpows = [{m: arb(ht) ** m[0] * arb(hs) ** m[1] * arb(hx) ** m[2] for m in MONO} for hx in hxs]
+    sup = [arb(0)] * 8; cen = [arb(0)] * 8; where = [None] * 8
+    t1 = time.time()
+    for p, q, r in itertools.product(range(Nt), range(Ns), range(len(xcs))):
+        jb = {f: field_jet(fld_box[f], p, q, r) for f in RS.NAMES}
+        jp = {f: field_jet(fld_pt[f], p, q, r) for f in RS.NAMES}
+        ib = inputs(jb, g, arb(tcs[p], ht), scs[q], arb(xcs[r], hxs[r]), True)
+        ip = inputs(jp, g, arb(tcs[p]), scs[q], arb(xcs[r]), False)
+        fb = frame(*[ib[k] for k in names])
+        fp = frame(*[ip[k] for k in names])
+        for k8 in range(8):
+            bnd = arb(0)
+            for i, m in enumerate(MONO):
+                cc = fp[k8].c[i] if sum(m) < Q else fb[k8].c[i]
+                bnd = bnd + abs(cc) * hpows[r][m]
+            up = arb(bnd.mid() + bnd.rad())
+            if not up.is_finite():
+                sup[k8] = arb('inf'); where[k8] = (tcs[p], scs[q], xcs[r])
+            elif up > sup[k8]:
+                sup[k8] = up; where[k8] = (tcs[p], scs[q], xcs[r])
+            cv = abs(fp[k8].c[0]); cu = arb(cv.mid() + cv.rad())
+            if cu > cen[k8]:
+                cen[k8] = cu
+    if log:
+        log('  Taylor models on the boxes: %.0f s' % (time.time() - t1))
+    certify.where = where
+    return sup, cen, err
+
+
+def main():
+    rundir, run = sys.argv[1], sys.argv[2]
+    Nt, Ns, Nx = (int(a) for a in sys.argv[3:6]) if len(sys.argv) > 5 else (24, 24, 8)
+    t0 = time.time()
+    log = lambda s_: print(s_, flush=True)
+    frame, names = frame_code()
+    certify_points.frame, certify_points.names = frame, names
+    Z = B.load(os.path.join(rundir, run + '.npz'))
+    prep = prepare(Z)
+    log('frame code generated and approximant fitted (%.0f s); fit error per field (computed): %s' % (
+        time.time() - t0, ', '.join('%s %.1e' % (k, e) for k, e in prep[2].items())))
+    frl = ['ll', 'ln', 'nn', 'lx', 'nx', 'xx', '11', '22']
+    resid_comp = {'ll': 2.46e-3, 'ln': 1.53e-4, 'nn': 7.46e-5, 'lx': 4.25e-4, 'nx': 2.47e-5, 'xx': 2.02e-4,
+                  '11': 6.24e-5, '22': 2.14e-4}
+    best, npts = certify_points(prep[0], prep[1], Nt, Ns, Nx)
+    log('K1 certified |Ric(e_a, e_b)|/sqrt(K_0) at %d points (a %d x %d tensor grid in (t, sig), %d graded x), the '
+        'largest, against resid5.py\'s computed maxima at the run\'s cell midpoints:' % (
+            npts, Nt, Ns, npts // (Nt * Ns)))
+    for k, b in zip(frl, best):
+        log('     %s: <= %s   (resid5: %.2e)' % (k, b.str(3), resid_comp[k]))
+    good = all(arb(resid_comp[k]) / 2 < b < arb(resid_comp[k]) * 2 for k, b in zip(frl, best)
+               if resid_comp[k] > 1e-4)
+    log('K1 %s (the certified values within a factor 2 of the computed maxima where those exceed 1e-4)' % (
+        'PASS' if good else 'FAIL'))
+    bc, _ = certify_points(shifted(prep[0], prep[1], 0.01), prep[1], Nt // 2, Ns // 2, max(Nx // 2, 2))
+    ctl = max(bc) > 10 * max(best)
+    log('  control (W + 0.01 v): certified values up to %s against %s -> %s' % (
+        max(bc).str(3), max(best).str(3), 'fails (good)' if ctl else 'passed (bad)'))
+    log('K2 (reported) the certified sup over boxes, Taylor models of order %d with Lagrange remainder, at %d x %d x '
+        'graded x boxes:' % (Q, 4, 4))
+    sup, cen, _ = certify(Z, frame, names, 4, 4, 6, log=log, prep=prep)
+    for k, a_, w in zip(frl, sup, certify.where):
+        log('     %s: sup <= %s (worst box at (t, sig, x) = %s)' % (k, a_.str(3), tuple(round(z, 3) for z in w)))
+    ok = good and ctl
+    log('rcert5: %s (%.0f s)' % ('all checks pass' if ok else 'FAILURES', time.time() - t0))
+    return 0 if ok else 1
+
+
+if __name__ == '__main__':
+    sys.exit(main())

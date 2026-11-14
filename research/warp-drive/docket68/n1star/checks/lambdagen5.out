@@ -1,0 +1,34 @@
+  L1: the least E^C_I has 0 points below 2 (least point 2): E^sharp_+ cap {Re < 2} = {lambda_sharp}, and E_++ below 2
+      lambda_sharp = 3.0198 is lambda_sharp + N_0 Inc, a chain Lambda has already: no base added
+  L2: G = (2, 0) u (2 + E_ind) lies in the chain of 2: no base added
+  L3: candidate bases from E_col with the record's computed roots (certified intervals), widest reading (the tower's
+      exponents unshifted): 1 + d0 -> 2.0000013333; l + delta'_1 -> 2.0000006000; (l-1) + delta_2 -> 2.0000002667; l +
+      delta'_2 -> 2.0000003810; (l-1) + delta_3 -> 2.0000002143; l + delta'_3 -> 2.0000002778; (l-1) + delta_4 ->
+      2.0000001778; l + delta'_4 -> 2.0000002182; (l-1) + delta_5 -> 2.0000001515; l + delta'_5 -> 2.0000001795; (l-1) +
+      delta_6 -> 2.0000001319
+      reading the tower as 2 + E_ind (shifted like the other w_m): 7 bases in W's range, ['(l-1) + delta_2', '(l-1) +
+      delta_3', '(l-1) + delta_4', '1 + d0', "l + delta'_1", "l + delta'_2", "l + delta'_3"]
+  L4: (G) over L3's bases: least value above 3 is 1.9841e-08 (from (l-1) + delta_3, + 0 + 3000002 d1); round 1's
+      generators give 5.0191e-08; eps_ind <= delta_50 = 1.9414e-8: (G) does not bind on these bases
+  L5: container per level above 3: round 1 (corrected) 52025761; L3's 11 bases add 33000022 (2999999, 3000001, 3000002,
+      3000002, 3000002, 3000002, 3000003, 3000002, 3000003, 3000003, 3000003): 85025783; over the 53244736 levels above 3
+      at 3 per point the conditional bound grows by 5271232378152576 = 5.2712e+15
+      the 11 bases certified pairwise on distinct chains and off the 27 existing starts' chains: True
+  L6: windows of III.I'''''''''' Proposition 3.1 (b) per call <= 1470302; at the 53244736 levels above 3, 15 per window:
+      1174287627454080 = 1.1743e+15, not in round 1's W8
+  L8: the conditional bound (H1-H4 with H1 widened to admit L3's bases and H2 to the windows above 3): d <=
+      24337610296395590 + 106489470 c = 2.4338e+16 + 1.0649e+08 c
+  N1 (control; Round 3: L4's search itself is run on the bases with one planted base 3 - 2,900,000 d1 + 1e-8): the search
+      returns planted at 3 + 1.000e-08 < delta_50: L4's test fails for it
+  N2 (control): shift bound -4 in place of -5 drops [('(l-1) + delta_6', 2), ('(l-1) + delta_7', 3), ("l + delta'_5", 2),
+      ("l + delta'_6", 3)]
+  N3 (control; Round 3: L5's deduplication of L3's bases is run with one planted base on an existing chain, start 2.0100
+      + 7 d1): flagged [('duplicate', 2.01)]: L5's test fails for it
+L1 PASS
+L4 PASS
+L5 PASS
+L6 PASS
+L8 PASS
+N1 PASS
+N2 PASS
+N3 PASS

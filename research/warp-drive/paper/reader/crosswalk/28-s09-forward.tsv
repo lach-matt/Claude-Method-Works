@@ -1,0 +1,132 @@
+label	source	source_name	note
+ch:s09	docket68/n1star/proof5/PART-II-F-IOTA.md:1776; docket68/n1star/proof5/PART-II-F2-TAME.md:14	II.F §§6-8 and II.F1 §§1-7	chapter heading; intro composed from the parts' headers (status paragraphs dropped); one sentence added on the three forms of x_I, which agree up to smooth positive factors
+sec:ii-f-6	docket68/n1star/proof5/PART-II-F-IOTA.md:1776	II.F §6	
+sec:ii-f-6-1	docket68/n1star/proof5/PART-II-F-IOTA.md:1781	II.F §6.1	
+eq:ii-f-6-1	docket68/n1star/proof5/PART-II-F-IOTA.md:1791	II.F (6.1)	rotation fields Z_ij written out with a hand proof that they span the tangent space (in place of a program count)
+eq:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1796	II.F (6.2)	
+eq:ii-f-6-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1800	II.F (6.3)	
+lem:ii-f-6-1	docket68/n1star/proof5/PART-II-F-IOTA.md:1817	II.F Lemma 6.1	
+eq:ii-f-6-4	docket68/n1star/proof5/PART-II-F-IOTA.md:1821	II.F (6.4)	
+sec:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1834	II.F §6.2	
+prop:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1836	II.F Proposition 6.2	
+eq:ii-f-6-5	docket68/n1star/proof5/PART-II-F-IOTA.md:1843	II.F (6.5)	
+sec:ii-f-6-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1857	II.F §6.3	threshold weight shift x_I^(2α) L²(|dg|) = x_I^(2(α+2)) L²(b) written out
+lem:ii-f-6-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1869	II.F Lemma 6.3	dilation parameter written Λ; the Cauchy problem used in the case ℝ^(1+4), Minkowski principal part times Id, citing the appendix entry thm:std-hormander-cauchy (no page claimed)
+sec:ii-f-6-4	docket68/n1star/proof5/PART-II-F-IOTA.md:1939	II.F §6.4	heading in the edition: Proof of the existence statement
+eq:ii-f-6-6	docket68/n1star/proof5/PART-II-F-IOTA.md:1945	II.F (6.6)	
+sec:ii-f-6-5	docket68/n1star/proof5/PART-II-F-IOTA.md:2003	II.F §6.5	final comparison with [Hin26c] kept as a neutral remark
+eq:ii-f-6-7	docket68/n1star/proof5/PART-II-F-IOTA.md:2009	II.F (6.7)	
+lem:ii-f-6-4	docket68/n1star/proof5/PART-II-F-IOTA.md:2027	II.F Lemma 6.4	Paley-Wiener-Schwartz theorem stated in text in dimension one, citing the appendix entry thm:std-paley-wiener (no page claimed); exponent written ν; compact set written 𝒞 (𝒦 reserved)
+sec:ii-f-7	docket68/n1star/proof5/PART-II-F-IOTA.md:2110	II.F §7	
+sec:ii-f-7-1	docket68/n1star/proof5/PART-II-F-IOTA.md:2112	II.F §7.1	
+def:ii-f-7-1	docket68/n1star/proof5/PART-II-F-IOTA.md:2114	II.F Definition 7.1	T_+ = max(2, 2r_0): the inner radius is a parameter
+lem:ii-f-7-2	docket68/n1star/proof5/PART-II-F-IOTA.md:2122	II.F Lemma 7.2	
+sec:ii-f-7-2	docket68/n1star/proof5/PART-II-F-IOTA.md:2145	II.F §7.2	
+eq:ii-f-7-1	docket68/n1star/proof5/PART-II-F-IOTA.md:2152	II.F (7.1)	
+lem:ii-f-7-3	docket68/n1star/proof5/PART-II-F-IOTA.md:2159	II.F Lemma 7.3	
+sec:ii-f-7-3	docket68/n1star/proof5/PART-II-F-IOTA.md:2209	II.F §7.3	
+prop:ii-f-7-4	docket68/n1star/proof5/PART-II-F-IOTA.md:2214	II.F Proposition 7.4	
+sec:ii-f-7-4	docket68/n1star/proof5/PART-II-F-IOTA.md:2231	II.F §7.4	
+sec:ii-f-7-5	docket68/n1star/proof5/PART-II-F-IOTA.md:2272	II.F §7.5	
+lem:ii-f-7-5	docket68/n1star/proof5/PART-II-F-IOTA.md:2274	II.F Lemma 7.5	interpolating function of Lemma 1.4 written a; the function h(r) written Φ(r) (h is the semiclassical parameter, q the symbol of S6), its cut-off ψ_Φ; threshold a written a_Θ
+sec:ii-f-7-6	docket68/n1star/proof5/PART-II-F-IOTA.md:2355	II.F §7.6	absorption parameter written δ_1 (sf-loss δ elsewhere)
+lem:ii-f-7-6	docket68/n1star/proof5/PART-II-F-IOTA.md:2367	II.F Lemma 7.6	
+lem:ii-f-7-7	docket68/n1star/proof5/PART-II-F-IOTA.md:2395	II.F Lemma 7.7	
+eq:ii-f-7-2	docket68/n1star/proof5/PART-II-F-IOTA.md:2402	II.F (7.2)	
+eq:ii-f-7-6	docket68/n1star/proof5/PART-II-F-IOTA.md:2409	II.F (7.6)	the source numbers (7.1)-(7.4) and (7.6); there is no (7.5)
+eq:ii-f-7-3	docket68/n1star/proof5/PART-II-F-IOTA.md:2448	II.F (7.3)	
+eq:ii-f-7-4	docket68/n1star/proof5/PART-II-F-IOTA.md:2460	II.F (7.4)	
+sec:ii-f-8	docket68/n1star/proof5/PART-II-F-IOTA.md:2484	II.F §8	
+thm:ii-f-8-1	docket68/n1star/proof5/PART-II-F-IOTA.md:2486	II.F Theorem 8.1	n = 4 numerals of the thresholds (γ_I < 3/2 + S̄, γ_+ < γ_I) and the density |dt dx| = R⁴τ⁻⁵|dτ/τ dR/R dω| written out by hand (in place of a program citation)
+eq:ii-f-8-1	docket68/n1star/proof5/PART-II-F-IOTA.md:2489	II.F (8.1)	
+eq:ii-f-8-2	docket68/n1star/proof5/PART-II-F-IOTA.md:2500	II.F (8.2)	
+sec:ii-f-8-1	docket68/n1star/proof5/PART-II-F-IOTA.md:2509	II.F §8.1	
+eq:ii-f-8-3	docket68/n1star/proof5/PART-II-F-IOTA.md:2517	II.F (8.3)	
+sec:ii-f-8-2	docket68/n1star/proof5/PART-II-F-IOTA.md:2526	II.F §8.2	sign of u′ in [Hin26c] last display kept as a neutral remark
+eq:ii-f-8-4	docket68/n1star/proof5/PART-II-F-IOTA.md:2556	II.F (8.4)	
+eq:ii-f-8-5	docket68/n1star/proof5/PART-II-F-IOTA.md:2564	II.F (8.5)	
+eq:ii-f-8-6	docket68/n1star/proof5/PART-II-F-IOTA.md:2571	II.F (8.6)	
+eq:ii-f-8-7	docket68/n1star/proof5/PART-II-F-IOTA.md:2599	II.F (8.7)	
+rem:ii-f-8-2	docket68/n1star/proof5/PART-II-F-IOTA.md:2613	II.F Remark 8.2	
+sec:ii-f1-1	docket68/n1star/proof5/PART-II-F2-TAME.md:33	II.F1 §1	
+sec:ii-f1-1-1	docket68/n1star/proof5/PART-II-F2-TAME.md:35	II.F1 §1.1	
+eq:ii-f1-1-1	docket68/n1star/proof5/PART-II-F2-TAME.md:45	II.F1 (1.1)	
+eq:ii-f1-1-2	docket68/n1star/proof5/PART-II-F2-TAME.md:53	II.F1 (1.2)	
+sec:ii-f1-1-2	docket68/n1star/proof5/PART-II-F2-TAME.md:63	II.F1 §1.2	
+thm:ii-f1-1-1	docket68/n1star/proof5/PART-II-F2-TAME.md:65	II.F1 Theorem 1.1	uniqueness class s′ ≥ s_u as corrected in the source text; s_u points to lem:ii-f1-2-3 (where 𝗌 is fixed); sentence added after the statement that the proof uses only (1)-(2) of def:ii-c-3-3 (source convention at II.F1:185-186); process tags removed; F4-S19: closing sentence after the statement points to rem:ii-f1-7-4 (exponent of t-flat in [l_I, 1/2]); F5-S19: paragraph after the statement: only the restriction of P to Omega_* enters (the norms of the theorem are over Omega_*, S7 extends from Omega); the proof applies S7 to P-flat of lem:s09-off-star, so P may be given on Omega_* only (older ungraded point of R5-S19)
+eq:ii-f1-1-3	docket68/n1star/proof5/PART-II-F2-TAME.md:67	II.F1 (1.3)	
+eq:ii-f1-1-4	docket68/n1star/proof5/PART-II-F2-TAME.md:72	II.F1 (1.4)	
+eq:ii-f1-1-5	docket68/n1star/proof5/PART-II-F2-TAME.md:79	II.F1 (1.5)	
+cor:ii-f1-1-2	docket68/n1star/proof5/PART-II-F2-TAME.md:89	II.F1 Corollary 1.2	proof: density identity x_I⁻⁸ρ_+⁻⁵ρ_K⁻¹ = t_* r⁴ derived by hand; (1.8) from the μ_b statement of lem:ii-a-8-8 (no support condition), as the extension reaches r < r_0
+eq:ii-f1-1-6	docket68/n1star/proof5/PART-II-F2-TAME.md:91	II.F1 (1.6)	
+eq:ii-f1-1-7	docket68/n1star/proof5/PART-II-F2-TAME.md:96	II.F1 (1.7)	
+eq:ii-f1-1-8	docket68/n1star/proof5/PART-II-F2-TAME.md:103	II.F1 (1.8)	
+sec:ii-f1-1-3	docket68/n1star/proof5/PART-II-F2-TAME.md:108	II.F1 §1.3	heading "What is not proved in this chapter"; item (b): forward reference to thm:iii-h2-3-1 and thm:iii-h2-4-1 for the uniform version
+sec:ii-f1-2	docket68/n1star/proof5/PART-II-F2-TAME.md:122	II.F1 §2	
+eq:ii-f1-2-1	docket68/n1star/proof5/PART-II-F2-TAME.md:125	II.F1 (2.1)	
+eq:ii-f1-2-2	docket68/n1star/proof5/PART-II-F2-TAME.md:131	II.F1 (2.2)	
+sec:ii-f1-2-1	docket68/n1star/proof5/PART-II-F2-TAME.md:137	II.F1 §2.1	
+lem:ii-f1-2-1	docket68/n1star/proof5/PART-II-F2-TAME.md:139	II.F1 Lemma 2.1	(b) stated with the explicit hypothesis that condition (3) of def:ii-c-3-3 is not assumed; p_1 := S|_(∂X) + p̃_1 defined in the statement; the proof of (b) cites the standing hypotheses of S6 (sec:ii-d-1-1, sec:ii-d1-1) and S7 (sec:ii-e-1-1, sec:ii-e-1-3) in place of the enumeration of document lines; the use of (3) in [Hin26c] ((8.4)) kept as a sentence after the proof; F5-S19: the convention after the lemma adds that from there on P stands for P-flat of lem:s09-off-star, with its norms over Omega bounded by those of P over Omega_* and P-flat u = P u on the spaces of the theorem (orders s' >= s_u >= 2 - d)
+eq:ii-f1-2-3	docket68/n1star/proof5/PART-II-F2-TAME.md:165	II.F1 (2.3)	
+sec:s09-off-star	-	-	new label (F5-S19, for the older ungraded point of R5-S19): the operator off Omega_*; coordinates (t-flat, x) on Omega (t-flat increasing in t_*), Seeley extension E-flat in t-flat with x as parameter
+eq:s09-seeley	-	-	new label (F5-S19): Seeley extension across {t-flat = 1} with a cut-off
+eq:s09-seeley-bound	-	-	new label (F5-S19): bounds of E-flat on weighted b-regularity spaces and in sup
+lem:s09-off-star	-	-	new label (F5-S19): P-flat := P on Omega_*, P_0 + chi_I-term + E-flat P~ below; (a) admissible on Omega with norms over Omega bounded by those over Omega_* (one representation, every j), metric by E-flat of g^-1 - g_0^-1 and the Neumann series; (b) sup bound for the inverse matrices (constant c-flat); (c) P-flat v = P v on distributions supported in {t-flat >= 1} of order s' >= 2 - k
+eq:s09-off-star	-	-	new label (F5-S19): definition of P-flat on Omega minus Omega_*
+eq:s09-off-star-bound	-	-	new label (F5-S19): norms of P-flat - P_0 over Omega by those of P - P_0 over Omega_*
+sec:ii-f1-2-2	docket68/n1star/proof5/PART-II-F2-TAME.md:188	II.F1 §2.2	
+lem:ii-f1-2-2	docket68/n1star/proof5/PART-II-F2-TAME.md:190	II.F1 Lemma 2.2	
+sec:ii-f1-2-3	docket68/n1star/proof5/PART-II-F2-TAME.md:206	II.F1 §2.3	
+eq:ii-f1-2-4	docket68/n1star/proof5/PART-II-F2-TAME.md:214	II.F1 (2.4)	
+lem:ii-f1-2-3	docket68/n1star/proof5/PART-II-F2-TAME.md:218	II.F1 Lemma 2.3	Ω_♮ and the constants ε_I, ε_ι chosen from r_0 (inner radius a parameter); the sentence after it states the orders over Ω_♮ as the positive integers s_in − 2, s_in, s_in + 1 (the hypothesis of the tame estimates of S7)
+eq:ii-f1-2-5	docket68/n1star/proof5/PART-II-F2-TAME.md:221	II.F1 (2.5)	
+sec:ii-f1-2-4	docket68/n1star/proof5/PART-II-F2-TAME.md:263	II.F1 §2.4	
+lem:ii-f1-2-4	docket68/n1star/proof5/PART-II-F2-TAME.md:265	II.F1 Lemma 2.4	large order written ν (N reserved); closed set written 𝒞 (𝒦 reserved)
+sec:ii-f1-2-5	docket68/n1star/proof5/PART-II-F2-TAME.md:286	II.F1 §2.5	
+eq:ii-f1-2-6	docket68/n1star/proof5/PART-II-F2-TAME.md:309	II.F1 (2.6)	
+lem:ii-f1-2-5	docket68/n1star/proof5/PART-II-F2-TAME.md:312	II.F1 Lemma 2.5	extension operator written ℰ, ℰ_r (E is the bundle); cut-off θ(r) written ψ_−; compact set 𝒞_κ; Seeley constants cited from the proof of lem:ii-e-1-3 (b)
+eq:ii-f1-2-7	docket68/n1star/proof5/PART-II-F2-TAME.md:316	II.F1 (2.7)	
+sec:ii-f1-2-6	docket68/n1star/proof5/PART-II-F2-TAME.md:355	II.F1 §2.6	
+eq:ii-f1-2-8	docket68/n1star/proof5/PART-II-F2-TAME.md:359	II.F1 (2.8)	cut-off θ_ε written χ̃_ε (θ reserved for the phase)
+lem:ii-f1-2-6	docket68/n1star/proof5/PART-II-F2-TAME.md:362	II.F1 Lemma 2.6	integration variable written υ; collar width written ε_π
+eq:ii-f1-2-9	docket68/n1star/proof5/PART-II-F2-TAME.md:370	II.F1 (2.9)	
+eq:ii-f1-2-10	docket68/n1star/proof5/PART-II-F2-TAME.md:401	II.F1 (2.10)	
+sec:ii-f1-2-7	docket68/n1star/proof5/PART-II-F2-TAME.md:424	II.F1 §2.7	
+lem:ii-f1-2-7	docket68/n1star/proof5/PART-II-F2-TAME.md:426	II.F1 Lemma 2.7	multiplier m written m_Z
+eq:ii-f1-2-11	docket68/n1star/proof5/PART-II-F2-TAME.md:438	II.F1 (2.11)	
+sec:ii-f1-2-8	docket68/n1star/proof5/PART-II-F2-TAME.md:457	II.F1 §2.8	
+eq:ii-f1-2-12	docket68/n1star/proof5/PART-II-F2-TAME.md:464	II.F1 (2.12)	
+lem:ii-f1-2-8	docket68/n1star/proof5/PART-II-F2-TAME.md:468	II.F1 Lemma 2.8	
+eq:ii-f1-2-13	docket68/n1star/proof5/PART-II-F2-TAME.md:471	II.F1 (2.13)	
+sec:ii-f1-2-9	docket68/n1star/proof5/PART-II-F2-TAME.md:490	II.F1 §2.9	
+lem:ii-f1-2-9	docket68/n1star/proof5/PART-II-F2-TAME.md:492	II.F1 Lemma 2.9	prop:ii-e-4-4 applied with the right-hand side on the larger slab Ω_(1,T+1) (the form of the tame slab estimate in S7)
+sec:ii-f1-3	docket68/n1star/proof5/PART-II-F2-TAME.md:519	II.F1 §3	
+sec:ii-f1-3-1	docket68/n1star/proof5/PART-II-F2-TAME.md:521	II.F1 §3.1	F5-S19: eps_0 chosen for the norm of P over Omega_*, which bounds e_j of P-flat over Omega (eq:s09-off-star-bound)
+eq:ii-f1-3-1	docket68/n1star/proof5/PART-II-F2-TAME.md:527	II.F1 (3.1)	
+eq:ii-f1-3-2	docket68/n1star/proof5/PART-II-F2-TAME.md:533	II.F1 (3.2)	
+eq:ii-f1-3-3	docket68/n1star/proof5/PART-II-F2-TAME.md:535	II.F1 (3.3)	
+sec:ii-f1-3-2	docket68/n1star/proof5/PART-II-F2-TAME.md:542	II.F1 §3.2	
+prop:ii-f1-3-1	docket68/n1star/proof5/PART-II-F2-TAME.md:544	II.F1 Proposition 3.1	
+eq:ii-f1-3-4	docket68/n1star/proof5/PART-II-F2-TAME.md:546	II.F1 (3.4)	
+eq:ii-f1-3-5	docket68/n1star/proof5/PART-II-F2-TAME.md:552	II.F1 (3.5)	
+eq:ii-f1-3-6	docket68/n1star/proof5/PART-II-F2-TAME.md:560	II.F1 (3.6)	
+eq:ii-f1-3-7	docket68/n1star/proof5/PART-II-F2-TAME.md:565	II.F1 (3.7)	
+eq:ii-f1-3-8	docket68/n1star/proof5/PART-II-F2-TAME.md:575	II.F1 (3.8)	
+sec:ii-f1-3-3	docket68/n1star/proof5/PART-II-F2-TAME.md:583	II.F1 §3.3	
+prop:ii-f1-3-2	docket68/n1star/proof5/PART-II-F2-TAME.md:585	II.F1 Proposition 3.2	
+sec:ii-f1-4	docket68/n1star/proof5/PART-II-F2-TAME.md:602	II.F1 §4	
+prop:ii-f1-4-1	docket68/n1star/proof5/PART-II-F2-TAME.md:604	II.F1 Proposition 4.1	step (iii): prop:ii-e-4-4 applied with the right-hand side P_ε u = Pu on the larger slab Ω_(1,T_η+1)
+eq:ii-f1-4-1	docket68/n1star/proof5/PART-II-F2-TAME.md:608	II.F1 (4.1)	
+eq:ii-f1-4-2	docket68/n1star/proof5/PART-II-F2-TAME.md:618	II.F1 (4.2)	
+prop:ii-f1-4-2	docket68/n1star/proof5/PART-II-F2-TAME.md:641	II.F1 Proposition 4.2	
+eq:ii-f1-4-3	docket68/n1star/proof5/PART-II-F2-TAME.md:643	II.F1 (4.3)	
+sec:ii-f1-5	docket68/n1star/proof5/PART-II-F2-TAME.md:649	II.F1 §5	proof of Corollary: density identity derived by hand; F5-S19: the final estimate cites eq:s09-off-star-bound (norm of P-flat over Omega by that of P over Omega_*)
+eq:ii-f1-5-1	docket68/n1star/proof5/PART-II-F2-TAME.md:657	II.F1 (5.1)	
+sec:ii-f1-6	docket68/n1star/proof5/PART-II-F2-TAME.md:684	II.F1 §6	continuity proof: the weak limit is taken in X(𝗌;k+d′), where the u^(j) are bounded by prop:ii-f1-4-2, so that the limit lies in the uniqueness class s′ ≥ s_u (the source takes it in H^k_b and applies Lemma 2.2 at s′ = 0, outside the smallness fixed by ε_0)
+lem:ii-f1-6-1	docket68/n1star/proof5/PART-II-F2-TAME.md:686	II.F1 Lemma 6.1	
+sec:ii-f1-7	docket68/n1star/proof5/PART-II-F2-TAME.md:714	II.F1 §7	F4-S19: heading "Four remarks" (rem:ii-f1-7-4 added)
+rem:ii-f1-7-1	docket68/n1star/proof5/PART-II-F2-TAME.md:716	II.F1 Remark 7.1	orders shifted by d̄_ℵ := ⌈d_ℵ⌉ (margin m_0 + 2d̄_ℵ, 𝗌_0 := 𝗌 − 2 − d̄_ℵ, s_in ≥ 4 + d̄_ℵ), so that every order the tame estimates use is an integer near r ≤ r_0; d^S_0, d^S for the slab orders 𝗌 and 𝗌 + d̄_ℵ + 1; identical to the source for d_ℵ ∈ ℕ₀
+rem:ii-f1-7-2	docket68/n1star/proof5/PART-II-F2-TAME.md:731	II.F1 Remark 7.2	
+rem:ii-f1-7-3	docket68/n1star/proof5/PART-II-F2-TAME.md:737	II.F1 Remark 7.3	note on [Hin26c, (12.7)] kept as a neutral remark
+rem:ii-f1-7-4	-	-	new label (F4-S19, for R4-S19 Major 1, repair (a); cited by ch:s19): thm:ii-f1-1-1 with t-flat built with an exponent l_flat in [l_I, 1/2] under the extra smallness eq:ii-f1-7-1; the proof lists the two ways the time function enters S5-S10 ((A) the hypothesis of lem:ii-c-3-2, (B) the form of t-flat and C'), the metrics to which (A) is applied (g; g_eps by convexity of the inverses; P^ext by lem:ii-e-1-2 (ii) at weight 2 l_flat; the auxiliary metrics of thm:ii-f-8-1, small at weight 1), and the one comparison l_flat >= l_I, in lem:ii-f1-2-6 (b); F5-S19 (R5-S19 minor 1, nits 3-4, and the older ungraded point): eps_G is the threshold of lem:ii-c-3-2 taken so small that metrics within eps_G of g_0 on {r >= r-sharp, t_* >= 1/2} also have the properties lem:ii-e-1-2 (iv) asks below Omega, with r-sharp, delta-natural, eta_0 depending only on g_0 and l_flat; proved in the paragraph "The threshold in (A)" by (A1) bounded radii (stationarity, sup closeness), (A2) near scri (the estimate of lem:ii-c-3-2 with rho_+ bounded, orientation by connectedness), (A3) below t_* = 1 (F < 1, t-flat increasing in t_*, eta_0 < kappa_1); (A) restated for the extension region; metrics list adds the metric of P-flat (lem:s09-off-star (b)); the covariant matrix written sans-serif g (was G, which clashed with the dual metric function); constants renamed C_flat -> K_flat and eps_flat -> eta_flat (clashes with C_flat = C' of ch 46/48 and eps_flat of def:s11-parameters); (B) list adds ch:s06 (cut-off chi, factor psi_-), lem:ii-e-4-1 (a), sec:ii-f1-2-5 (form (c)) and lem:s09-off-star
+eq:ii-f1-7-1	-	-	new label (F4-S19): the extra smallness of rem:ii-f1-7-4, ||g - g_0|| < eps_flat in G~^(0,(2 l_flat,0,0)); F5-S19: threshold renamed eta_flat

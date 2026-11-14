@@ -1,0 +1,16 @@
+S1 (exact) kappa' and K'^l_l on every round slice vhat = V(R); B2 at V' = 1; d kappa'/d V'' > 0
+   reduces to B2's kappa and Kt at V' = 1, V'' = 0: True; kappa' is affine in V'' with d kappa'/d V'' = 1/(E V' sqrt(V'(2 - E V' f)/E)(2 - E V' f)): True, True; control: Christoffel term dropped, no reduction (rejected): True
+S1 PASS
+S2 (computed) a deformed slice through the band on which Racz's split is hyperbolic everywhere
+   n = 80, A = +0.010: 434 slice points, R in [0.683, 5.882]; max kappa' K'^l_l = -3.1139e-04; positive on no point; min V' = 0.9979 > 0, max E V' f = 0.9033 < 2; max |tau' - tau0| = 0.001
+   n = 80, A = +0.000: 434 slice points, R in [0.683, 5.882]; max kappa' K'^l_l = 1.0797e-04; positive on R in [4.3017, 4.5204]; min V' = 1.0000 > 0, max E V' f = 0.9052 < 2; max |tau' - tau0| = 0.000
+   n = 80, A = -0.010: 434 slice points, R in [0.683, 5.882]; max kappa' K'^l_l = 7.1125e-04; positive on R in [4.2039, 4.6170]; min V' = 0.9985 > 0, max E V' f = 0.9071 < 2; max |tau' - tau0| = 0.001
+   n = 160, A = +0.010: 867 slice points, R in [0.683, 5.882]; max kappa' K'^l_l = -3.1133e-04; positive on no point; min V' = 0.9979 > 0, max E V' f = 0.9033 < 2; max |tau' - tau0| = 0.001
+   n = 160, A = +0.000: 867 slice points, R in [0.683, 5.882]; max kappa' K'^l_l = 1.0822e-04; positive on R in [4.2956, 4.5264]; min V' = 1.0000 > 0, max E V' f = 0.9052 < 2; max |tau' - tau0| = 0.000
+   n = 160, A = -0.010: 867 slice points, R in [0.683, 5.882]; max kappa' K'^l_l = 7.1191e-04; positive on R in [4.2039, 4.6170]; min V' = 0.9985 > 0, max E V' f = 0.9071 < 2; max |tau' - tau0| = 0.001
+   hyperbolic on all of Sigma' (A = 0.01): True; spacelike: True; converged: True; controls: A = 0 has the band (rejected): True; A -> -A widens it (rejected): True
+S2 PASS
+S3 (computed) the lens between Sigma' and Sigma_tau0, and the angular widening it causes
+   the lens: R in [3.519, 5.723] (inside [3.50, 5.75]), thickness 0.00116 in tau; angular widening <= max |phi|/R_min = 0.00033 rad: True
+S3 PASS
+exit 0

@@ -1,0 +1,123 @@
+label	source	source_name	note
+ch:s14	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:1	III.E, III.E1, IV(4)-IV(6) (chapter)	
+sec:iii-e-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:18	III.E section 1	
+eq:iii-e-1-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:25	III.E (1.1)	
+eq:iii-e-1-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:30	III.E (1.2)	
+thm:iii-e-1-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:37	III.E Theorem 1.1 as proved by IV(4) Theorem 2.1 and IV(6) Theorem 4.1	constants of IV(4) (0.1), gamma_C = 1/h with h in H (IV(4) findings 1-2 folded); C_0 in [3/2,100] from IV(6) T4.1
+sec:iv4-0	docket68/n1star/proof5/PART-IV5-CDMODES.md:17	IV(4) section 0	damping constants fixed once (replaces VI.C section 3)
+eq:iv4-0-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:31	IV(4) (0.1)	Z also contains the countable set of NP 10.54 (d) / 10.52
+eq:iv4-0-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:21	IV(4) section 0, display of h^2 box^C	
+sec:s14-model	docket68/n1star/N1STAR-PROOF.md:3414	NP 10.12-10.14, 10.21-10.22, 10.54, 10.79	program steps written as derivations
+lem:s14-box-c	docket68/n1star/N1STAR-PROOF.md:3438	NP 10.12 (U2), (10.46)	box^C = Box_g + h^-1 L_c; derivation added
+eq:s14-lc	docket68/n1star/N1STAR-PROOF.md:3438	NP 10.12 (U2)	formula derived
+prop:np-10-12	docket68/n1star/N1STAR-PROOF.md:3464	NP 10.12 (U1)-(U3), (U5)	indicial matrices written out; root location in prop:np-10-54
+eq:s14-nl	docket68/n1star/N1STAR-PROOF.md:3432	NP 10.12 (U1)	matrix derived
+eq:s14-c0	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (U3), scalar type 0	
+eq:s14-q5	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (10.47)	
+lem:s14-q5	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (10.47): properties of Q_5	new lemma
+lem:s14-small-h	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (U3) h = 0 limits; NP 10.54 (d)	new lemma; replaces values at h = 10^-6
+eq:s14-ttau	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (U3), the very negative roots	
+prop:np-10-54	docket68/n1star/N1STAR-PROOF.md:7381	NP 10.54 Proposition 10.44 and (a)	vector type and scalar type 0 by hand; scalar type l >= 1 from prop:s14-scalar-every-h (proof A3); (iii) finiteness in strips by rescaling and Hurwitz
+prop:np-10-13	docket68/n1star/N1STAR-PROOF.md:3529	NP 10.13 Proposition 10.10 (i)-(v)	by hand; the numerical estimate e_0 ~ 0.000069 v^2 is not stated
+eq:s14-ell	docket68/n1star/N1STAR-PROOF.md:3529	NP 10.13 (i); [Hin26a] (3.3)	
+eq:s14-s	docket68/n1star/N1STAR-PROOF.md:3557	NP 10.13 proof: S = (L - L*)/(2ih)	
+prop:np-10-14	docket68/n1star/N1STAR-PROOF.md:3593	NP 10.14 Proposition 10.11 (i)-(iv) and (a)-(c)	(i),(ii),(iv) and (5.8) by hand; (iii) written proof, trace and determinant numerators in app:tables; (b) smoothing written out; measurement (v) kept as rem:s14-r0
+eq:s14-tang	docket68/n1star/N1STAR-PROOF.md:3586	NP (10.48)	
+eq:s14-cform	docket68/n1star/N1STAR-PROOF.md:3593	NP (10.49)	
+eq:s14-q	docket68/n1star/N1STAR-PROOF.md:3611	NP 10.14 (iv), polynomial q	
+prop:np-10-21	docket68/n1star/N1STAR-PROOF.md:4216	NP 10.21 Proposition 10.18 (i)-(iii)	(ii) stated through the isometry t -> -t
+prop:np-10-22	docket68/n1star/N1STAR-PROOF.md:4336	NP 10.22 Proposition 10.19 (i)-(iv)	
+prop:np-10-79	docket68/n1star/N1STAR-PROOF.md:10042	NP 10.79 (i)-(v)	threshold quadratic chi derived in closed form
+eq:s14-chi	docket68/n1star/N1STAR-PROOF.md:10075	NP 10.79 (v)	
+sec:iv4-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:42	IV(4) section 1	
+lem:iv4-1-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:44	IV(4) Lemma 1.1	
+lem:iv4-1-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:55	IV(4) Lemma 1.2	
+eq:iv4-1-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:58	IV(4) (1.1)	
+lem:iv4-1-3	docket68/n1star/proof5/PART-IV5-CDMODES.md:70	IV(4) Lemma 1.3	(b) proved by the h -> 0 limits
+lem:iv4-1-4	docket68/n1star/proof5/PART-IV5-CDMODES.md:95	IV(4) Lemma 1.4 with its C_0 - 1 clause	
+eq:iv4-2-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:96	IV(4) (2.1)	
+lem:iv4-1-5	docket68/n1star/proof5/PART-IV5-CDMODES.md:121	IV(4) Lemma 1.5	
+lem:iv4-1-6	docket68/n1star/proof5/PART-IV5-CDMODES.md:135	IV(4) Lemma 1.6	
+sec:iv5	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5)	
+sec:iv5-0	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5) section 0	
+def:iv5-0-1	docket68/n1star/proof5/PART-IV6-SOLV.md:36	IV(5) Definition 0.1	
+prop:np-10-65-a	docket68/n1star/N1STAR-PROOF.md:8189	NP 10.65 (a)	statement of [Hin23d] and [Hin26d]
+lem:iv5-0-2	docket68/n1star/proof5/PART-IV6-SOLV.md:89	IV(5) Lemma 0.2	
+lem:iv5-0-3	docket68/n1star/proof5/PART-IV6-SOLV.md:137	IV(5) Lemma 0.3	
+lem:iv5-0-4	docket68/n1star/proof5/PART-IV6-SOLV.md:171	IV(5) Lemma 0.4	
+lem:iv5-0-5	docket68/n1star/proof5/PART-IV6-SOLV.md:188	IV(5) Lemma 0.5	
+sec:iv5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:211	IV(5) section 1	
+lem:iv5-1-1	docket68/n1star/proof5/PART-IV6-SOLV.md:213	IV(5) Lemma 1.1	
+prop:iv5-1-2	docket68/n1star/proof5/PART-IV6-SOLV.md:235	IV(5) Proposition 1.2	
+prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	
+sec:iv5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:298	IV(5) section 2	
+eq:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:303	IV(5) (2.1)	
+prop:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:313	IV(5) Proposition 2.1	
+sec:iv5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:358	IV(5) section 3	
+prop:iv5-3-1	docket68/n1star/proof5/PART-IV6-SOLV.md:362	IV(5) Proposition 3.1	
+sec:iv5-4	docket68/n1star/proof5/PART-IV6-SOLV.md:391	IV(5) section 4	
+prop:iv5-4-1	docket68/n1star/proof5/PART-IV6-SOLV.md:393	IV(5) Proposition 4.1	
+sec:iv5-5	docket68/n1star/proof5/PART-IV6-SOLV.md:417	IV(5) section 5	
+prop:iv5-5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:419	IV(5) Proposition 5.1	
+prop:iv5-5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:445	IV(5) Proposition 5.2	
+prop:iv5-5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:510	IV(5) Proposition 5.3	
+sec:iv5-6	docket68/n1star/proof5/PART-IV6-SOLV.md:566	IV(5) section 6	
+prop:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:576	IV(5) Proposition 6.1	
+eq:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:582	IV(5) (6.1)	
+sec:iv5-7	docket68/n1star/proof5/PART-IV6-SOLV.md:620	IV(5) section 7	
+prop:iv5-7-1	docket68/n1star/proof5/PART-IV6-SOLV.md:624	IV(5) Proposition 7.1 with its extension argument	
+eq:iv5-5-79	docket68/n1star/proof5/PART-IV6-SOLV.md:627	IV(5) (5.79)	
+prop:iv5-7-2	docket68/n1star/proof5/PART-IV6-SOLV.md:691	IV(5) Proposition 7.2 with its parameter ordering	
+eq:iv5-5-81	docket68/n1star/proof5/PART-IV6-SOLV.md:694	IV(5) (5.81)	
+thm:iv5-7-3	docket68/n1star/proof5/PART-IV6-SOLV.md:742	IV(5) Theorem 7.3	
+eq:iv5-5-16	docket68/n1star/proof5/PART-IV6-SOLV.md:755	IV(5) (5.16)	
+rem:iv5-7-4	docket68/n1star/proof5/PART-IV6-SOLV.md:813	IV(5) Remark 7.4	
+sec:iv5-8	docket68/n1star/proof5/PART-IV6-SOLV.md:821	IV(5) section 8	
+lem:iv5-8-1	docket68/n1star/proof5/PART-IV6-SOLV.md:823	IV(5) Lemma 8.1	
+sec:iv6	docket68/n1star/proof5/PART-IV7-TFACE.md:11	IV(6)	
+sec:iv6-0	docket68/n1star/proof5/PART-IV7-TFACE.md:24	IV(6) section 0	
+eq:iv6-0-1	docket68/n1star/proof5/PART-IV7-TFACE.md:37	IV(6) (0.1)	
+lem:s14-tf-inputs	docket68/n1star/N1STAR-PROOF.md:4441	NP 10.23 Proposition 10.20 (i)-(v)	used by IV(6); not in the entry list; written out
+lem:iv6-0-1	docket68/n1star/proof5/PART-IV7-TFACE.md:39	IV(6) Lemma 0.1	S-bar lower triangular in the basis dr, dt_*, r domega
+eq:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:48	IV(6) (0.2)	
+def:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:88	IV(6) Definition 0.2	
+sec:iv6-1	docket68/n1star/proof5/PART-IV7-TFACE.md:93	IV(6) section 1	
+prop:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:95	IV(6) Proposition 1.1	
+eq:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:97	IV(6) (1.1)	
+eq:iv6-1-2	docket68/n1star/proof5/PART-IV7-TFACE.md:102	IV(6) (1.2)	
+sec:iv6-2	docket68/n1star/proof5/PART-IV7-TFACE.md:201	IV(6) section 2	
+thm:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:211	IV(6) Theorem 2.1	
+eq:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:225	IV(6) (2.1)	
+sec:iv6-3	docket68/n1star/proof5/PART-IV7-TFACE.md:346	IV(6) section 3	
+thm:iv6-3-1	docket68/n1star/proof5/PART-IV7-TFACE.md:348	IV(6) Theorem 3.1	
+sec:iv4-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:152	IV(4) section 2	
+thm:iv4-2-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:154	IV(4) Theorem 2.1 (data at t_KS = 0; adjoint at C_0 - 1)	
+sec:iv6-4	docket68/n1star/proof5/PART-IV7-TFACE.md:385	IV(6) section 4	
+thm:iv6-4-1	docket68/n1star/proof5/PART-IV7-TFACE.md:387	IV(6) Theorem 4.1	
+sec:iii-e-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:74	III.E section 2	
+lem:iii-e-2-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:76	III.E Lemma 2.1 with consequences (a), (b)	
+prop:np-10-31	docket68/n1star/N1STAR-PROOF.md:5288	NP 10.31 Proposition 10.28 (i)-(ii)	(iii) superseded by III.E1 exact lemmas; nonvanishing of the leading terms not claimed (rem:s14-counting)
+sec:iii-e-3	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:125	III.E section 3	
+prop:iii-e-3-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:129	III.E Proposition 3.1 and Remarks	
+eq:iii-e-3-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:132	III.E (3.1)	
+eq:iii-e-3-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:146	III.E (3.2)	
+sec:iii-e1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:1	III.E1	
+sec:iii-e1-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:18	III.E1 section 1	
+eq:iii-e1-1-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:24	III.E1 (1.1)	
+sec:iii-e1-2	docket68/n1star/proof5/PART-III-E2-V1STATES.md:32	III.E1 section 2	
+lem:iii-e1-2-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:34	III.E1 Lemma 2.1	
+lem:iii-e1-2-2	docket68/n1star/proof5/PART-III-E2-V1STATES.md:47	III.E1 Lemma 2.2	
+eq:iii-e1-2-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:50	III.E1 (2.1)	
+eq:iii-e1-2-2	docket68/n1star/proof5/PART-III-E2-V1STATES.md:52	III.E1 (2.2)	
+lem:iii-e1-2-3	docket68/n1star/proof5/PART-III-E2-V1STATES.md:84	III.E1 Lemma 2.3	
+sec:iii-e1-3	docket68/n1star/proof5/PART-III-E2-V1STATES.md:102	III.E1 section 3	
+eq:iii-e1-3-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:106	III.E1 (3.1)	
+prop:iii-e1-3-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:108	III.E1 Proposition 3.1	
+eq:iii-e1-3-2	docket68/n1star/proof5/PART-III-E2-V1STATES.md:111	III.E1 (3.2)	
+eq:iii-e1-3-3	docket68/n1star/proof5/PART-III-E2-V1STATES.md:116	III.E1 (3.3)	
+eq:iii-e1-3-4	docket68/n1star/proof5/PART-III-E2-V1STATES.md:119	III.E1 (3.4)	
+eq:iii-e1-3-5	docket68/n1star/proof5/PART-III-E2-V1STATES.md:128	III.E1 (3.5)	
+eq:iii-e1-3-6	docket68/n1star/proof5/PART-III-E2-V1STATES.md:151	III.E1 (3.6)	
+eq:iii-e1-3-7	docket68/n1star/proof5/PART-III-E2-V1STATES.md:165	III.E1 (3.7)	
+sec:s14-simple	docket68/n1star/N1STAR-PROOF.md:7259	NP 10.52 setting	
+prop:np-10-52	docket68/n1star/N1STAR-PROOF.md:7269	NP 10.52 Proposition 10.43 with 10.54 (d) and VI.C row w1	stated off a countable set of h; eq:s14-theta proved; the value of δ_50 in lem:s14-delta50 and ε_ind(10^-6) = δ_50 in cor:s14-eps-ind-point (proof A)

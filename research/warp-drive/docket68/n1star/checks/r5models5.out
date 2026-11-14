@@ -1,0 +1,16 @@
+M1 (model) Proposition L': the charge, its dichotomy, and the intermediate-value construction
+   (a) Q(delta) = 45.646808; m(eps) int zeta/eps^2 = 44.741619, 45.400091, 45.576572 -> Q (differences halving): True; |c|/eps^2 = 8.2122, 6.2373, 5.2003 (converging: c = O(eps^2)); residuals 2.4e-13, 8.3e-14, 8.3e-14
+   (b) w > 0, kappa < 1: Q > 0 and m(eps) > 0 at every eps: no exactly localised solution: True
+   (c) w = tanh(8 (x - 1/2)): Q(s = 0) = -15.85225, Q(s = 2) = 47.55675; at eps = 0.02 the bisection gives s* = 0.996779 with m = 3.7e-14, max |Phi| = 1.7e-13, c supported in U: True; exactly localised: True
+   control (DPhi(delta) != 0): |c|/eps = 1.3935, 1.1145, 1.0102 (c = O(eps)); |c|/eps^2 = 34.84, 55.72, 101.02 grows (rejected: the expansion m = eps^2 Q + O(eps^3) needs DPhi(delta) = 0): True; m int zeta/eps^2 = 49.849, 50.905, 51.242 against Q(delta) = 54.787
+M1 PASS
+M2 (model) Theorem V's diagonal: weak convergence and an L^2 bound uniform in N
+   N = 5: lam_N = 0.125, |dg_N|^2 = 10.856565, int eta dg_N (eta outside the list) = 5.58e-07; N = 9: lam_N = 0.125, |dg_N|^2 = 10.856565, int eta dg_N (eta outside the list) = 4.16e-07; N = 15: lam_N = 0.125, |dg_N|^2 = 10.856565, int eta dg_N (eta outside the list) = 3.22e-07; N = 25: lam_N = 0.125, |dg_N|^2 = 10.856565, int eta dg_N (eta outside the list) = 2.50e-07
+   (a) weak convergence on an outside test field: True; (b) |dg_N|^2 equals the label quadrature (1/2) sum (2 pi/N) int F_A^2 (cross terms vanish) and tends to the Vlasov energy 10.856565: True
+   control (N = 6, a_A = 1): |dg|^2 = 20.133993 vs the quadrature 10.856565: the antipodal cross terms survive (rejected): True
+M2 PASS
+M3 (model) Lemma A' (b): the leaf map is L^2-Lipschitz on a small H^2 ball when its coefficients are U's
+   coefficients A(U): ratio |dw'|_L2/|dU|_L2 by frequency 2, 8, 32, 64: 0.1907, 0.1394, 0.1361, 0.1330 (bounded: True)
+   control (A(U'), U' not a component): 0.7553, 3.2581, 13.1234, 25.9162 (grows with the frequency; rejected): True
+M3 PASS
+exit 0

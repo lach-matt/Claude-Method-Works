@@ -1,0 +1,60 @@
+label	source	source_name	note
+ch:harmonic-structure	paper/RESPONSE-HL-5D.md:842-872; docket68/n1star/GAUGEDECAY5.md:19-43; docket68/n1star/N1STAR-PROOF.md:2189-2200	P s.8.2 (harmonic-gauge part); GD one-paragraph result; NP 10.4 preamble	opening rewritten without status words; rates past t^(-1/2) (A33, A34, A49, A54) and Hung's route (NP 10.2 (v)-(vi), P 872-910) left to Ch 16 / dropped
+sec:hg-setting	docket68/n1star/GAUGEDECAY5.md:44-79, 235-247	GD s.0 (Operators) and s.2.1 setup	GD's K -> K_V, r^-2 dv^2 -> K-bar, mu-dot -> m-dot, mu_0 -> m0, r_0 -> r_flat as in Ch 14; e := g_RW - m-dot K_V; III.H cut-off chi_K written chi^H_K (as S20) to separate it from Part VIII's chi_K (A8); GD's Theta(k) = delta G k written -Upsilon-dot^0(k) as in Ch 29 (sec:ix-0); Ch 14's orbit box not carried (only D is used)
+eq:hg-box	docket68/n1star/GAUGEDECAY5.md:74-79	GD s.0 Operators	box := 2 delta G delta*, Upsilon-dot^0(L_X g) = -box X; harmonic gauge Upsilon-dot^0 = 0 (GD's Theta = -Upsilon-dot^0; NP's Gamma = -Theta = Upsilon-dot^0)
+eq:hg-ell	docket68/n1star/GAUGEDECAY5.md:279-283	GD s.2.2, l(J)	time-dependent form of eq:iii-d1-1-1
+eq:hg-charge	docket68/n1star/GAUGEDECAY5.md:279-283	GD s.2.2, Q[X]
+sec:hg-structure	docket68/n1star/N1STAR-PROOF.md:2200-2283	NP Prop 10.2 (i)-(iv)
+lem:gd-r2-9	docket68/n1star/GAUGEDECAY5.md:683-701	GD Lemma R2.9, with (A121) 6668	B5 written out by hand; the list of bounded horizon-regular stationary solutions derived from prop:np-10-15 (iii) (two-dimensional span{W*, (d_v)^flat})
+eq:gd-r2-9	docket68/n1star/GAUGEDECAY5.md:683-688	GD Lemma R2.9 display	formula for phi added
+prop:np-10-2	docket68/n1star/N1STAR-PROOF.md:2200-2283; docket68/n1star/GAUGEDECAY5.md:235-276, 327-334; paper/RESPONSE-HL-5D.md:853-861	NP Prop 10.2 (i)-(iv) with GD Prop 2.1 (d) and Remark 2.4	W1-W5 and H1, H3, H4, V3 written out by hand (Lichnerowicz form from lem:ix-2-1; tensor part by warped-product divergence; scalar modes by the rotation Casimir for every l, not l = 2, 4; W** by the (phi, q) reduction); (iv) uses the horizon-regular W** of GD 2.1 (NP's static-time W** with coefficient 1 dropped: history); NP (v)-(vi) dropped (they serve only Hung's route, which no proved result uses; checked only at l = 2, 4); sign convention of box is GD's (NP's box = -GD's)
+eq:np-10-2	docket68/n1star/GAUGEDECAY5.md:239-247	GD s.2.1 W*, W**, A, B (= NP (10.2) corrected)	numerator of B named fraktur-N(r) (N is reserved for the stages of the approximant)
+eq:np-10-2-k	docket68/n1star/GAUGEDECAY5.md:259-262	GD Prop 2.1 (d)	explicit stationary part written
+sec:hg-charge	docket68/n1star/GAUGEDECAY5.md:277-302	GD s.2.2
+lem:gd-2-2	docket68/n1star/GAUGEDECAY5.md:284-302	GD Lemma 2.2, (A5) 1096	H2, H3 written out; stated for every 1-form (GD's own deduction), class form as a special case
+eq:gd-2-1	docket68/n1star/GAUGEDECAY5.md:291-293	GD (2.1)
+sec:hg-solutions	docket68/n1star/GAUGEDECAY5.md:235-326	GD s.2.1, 2.3
+lem:gd-r3-1	docket68/n1star/GAUGEDECAY5.md:1076-1095	GD Lemma R3.1, with (A30) 1863	stated in the stronger form (uniqueness of a solution with zero data on N+) that (A4)/(A30) use; P1 replaced by the noncharacteristic argument of thm:ix-2-2 Step 3
+prop:gd-2-1	docket68/n1star/GAUGEDECAY5.md:248-276	GD Prop 2.1, with (A3) 1066, (A4) 1069-1075, (A9) 1726, (A13) 1754, (A124) 6687	read on N+ (A4), invariant U (A9); GD (d) moved into prop:np-10-2 (iv); GD (e) is (d) here, with (A13)'s restriction phrased as "concerns a chosen Z'"
+eq:gd-2-gh	docket68/n1star/GAUGEDECAY5.md:252-254	GD Prop 2.1 (a) display
+thm:gd-2-3	docket68/n1star/GAUGEDECAY5.md:304-326	GD Thm 2.3, (A5) 1096	Q[zeta (d_v)^flat] = 4 pi^2 m0 zeta derived; Q[V^flat] constant near the horizon made explicit
+sec:hg-augmented	docket68/n1star/GAUGEDECAY5.md:478-523	GD R2.1 setting, with (A17) 1783	s > 5/2 (A17); S-bar = 0 from lem:iii-d-3-1
+def:gd-r2-1	docket68/n1star/GAUGEDECAY5.md:524-527	GD Definition R2.1	row functional written phi_* (phi is delta Y in lem:gd-r2-9)
+lem:gd-r2-2	docket68/n1star/GAUGEDECAY5.md:528-543	GD Lemma R2.2	B1-B2 (illustrative limits) not used; proof by the structure of lem:iii-d-2-1 and the weight of W*
+prop:gd-r2-3	docket68/n1star/GAUGEDECAY5.md:544-562	GD Prop R2.3	B3 replaced by lem:iii-d1-2-1 (1) and lem:iii-d1-3-1 (1)
+thm:gd-r2-4	docket68/n1star/GAUGEDECAY5.md:563-580	GD Thm R2.4
+eq:gd-r2-1	docket68/n1star/GAUGEDECAY5.md:567-570	GD (R2.1)
+sec:hg-admissible	docket68/n1star/GAUGEDECAY5.md:586-631	GD R2.2 (section R2.b)
+thm:gd-r2-5	docket68/n1star/GAUGEDECAY5.md:581-631	GD Thm R2.5, with (A16) 1773, (A18) 1787	items (1)-(2) of admissibility cited (A18); (Dyn) cited as thm:vi-a-6-1 (A16); lem:iii-h1-6-2's parameters (beta, l) and lem:iii-h1-5-1's beta' written out as values; the cut-off difference named chi_(r,r')
+rem:gd-orders	docket68/n1star/GAUGEDECAY5.md:1580-1586	GD Cor R4.4 "Hypotheses" paragraph, (A16) 1773	(H'7) phrased as: the orders lie in O_c(box), by the proof of lem:iii-i-5-1
+sec:hg-modulo	docket68/n1star/GAUGEDECAY5.md:632-682	GD R2.3 (section R2.c)	Cor R2.8 not carried (replaced by cor:gd-r4-6, (A10), (A23))
+lem:gd-r2-6	docket68/n1star/GAUGEDECAY5.md:632-636	GD Lemma R2.6 (standard)	proof written
+thm:gd-r2-7	docket68/n1star/GAUGEDECAY5.md:637-664	GD Thm R2.7, with (A12) 1746, (A20) 1799	k - 1 derivatives d_t* (A12); window argument (A20) in step (5); B4 (Q[beta W*] = 4 pi^2 (beta - r_h d_r beta)) derived by hand
+eq:gd-r2-2	docket68/n1star/GAUGEDECAY5.md:645-648	GD (R2.2)
+sec:hg-source	docket68/n1star/GAUGEDECAY5.md:702-744, 1109-1126, 1128-1182	GD R2.4 (section R2.d), (A8), R3.2 readings	"Orders" paragraph is K1; cone cut-off chi' is (A8) with T1 >= max(T'_flat, 2) (sec:iii-k-0's raised threshold)
+lem:gd-r2-10	docket68/n1star/GAUGEDECAY5.md:702-718	GD Lemma R2.10	B8 replaced by the general first-variation computation; GD's g-dot_0 written g-dot_(p') and computed from the translated background g_(p) of sec:viii-0 with S' = S0' = 0 (cor:viii-2-3): g-dot_(p') = chi_K m-dot K_V on Omega_*
+eq:gd-r2-3	docket68/n1star/GAUGEDECAY5.md:713-716	GD (R2.3)
+lem:gd-r2-11	docket68/n1star/GAUGEDECAY5.md:719-731	GD Lemma R2.11	B7 integral written; support t* >= 4r used
+prop:gd-r3-2	docket68/n1star/GAUGEDECAY5.md:1161-1170	GD Prop R3.2 ((S_K) holds), with (A26) 1842, (A27) 1849, (A30) 1863	K2-K3 derived from lem:iii-i9-2-2 (a) and lem:iii-d-2-1 for all rows, so K5 (class restriction of the rows) is not needed; K4 inequalities proved directly; (A27) heuristics at gamma_Upsilon = 0 dropped; Theorem R2.12 / Cor R3.3 not carried (their two used steps are in thm:gd-r3-4, (A119)); the row exponent written varkappa (Ch 40 prints lambda); K+-orders written with w = alpha - 2
+sec:hg-late	docket68/n1star/GAUGEDECAY5.md:1183-1316	GD R3.3 (section R3.c)
+eq:gd-r3-1	docket68/n1star/GAUGEDECAY5.md:1185-1188	GD (R3.1)
+eq:gd-r3-2	docket68/n1star/GAUGEDECAY5.md:1189-1193	GD (R3.2), with (A28) 1854	citation for F_Y on {chi_K = 0} added (A28)
+lem:gd-r3-5	docket68/n1star/GAUGEDECAY5.md:1204-1235	GD Lemma R3.5	S1-S4, S6, S8 derived (slot structure of E^Upsilon; d chi_K in rho_+ C^infty from sec:iii-i4-1)
+thm:gd-r3-4	docket68/n1star/GAUGEDECAY5.md:1239-1290	GD Thm R3.4, with (A16) 1773, (A119) 6649	(iv) moved into cor:gd-r4-4's last clause (it needs cor:gd-r4-6, (A23)); rate t^(-1/2) kept, improvement (A33) in Ch 16; Y's I+-weight written b_I - 2 (eq:ii-f1-1-6); S' = S0' = 0 used for Upsilon-dot^natural(g-dot) = 0 on D'
+prop:gd-r3-6	docket68/n1star/GAUGEDECAY5.md:1296-1316	GD (Ext box) and Prop R3.6, with (A25) 1834, (A29) 1858	(Ext box) stated as the hypothesis; S5/T1 (one order gained at I+) derived from g^-1 = g-bar^-1 + O(r^-2) and t^flat_* = t*(1 - (t*/r)^(1/2))
+sec:hg-exterior	docket68/n1star/GAUGEDECAY5.md:1436-1448	GD R4.a setting	metric written eta + m0|x|^-2 (dt - d|x|)^2 to avoid the null coordinate x^1
+eq:gd-r4-1	docket68/n1star/GAUGEDECAY5.md:1444-1446	GD (R4.1)
+lem:gd-r4-1	docket68/n1star/GAUGEDECAY5.md:1449-1487	GD Lemma R4.1, with (A118) 6640	E1-E5 derived by hand: Kerr-Schild Christoffel expansion with explicit C_1 component; (c) from (b) and eq:iv-2-2 (so (c) now proved for the 1-form operator, not only at one point); (d) exact Minkowski computation; (e) from eq:iv-3-3; upper limit of the m0-sums left as "finite sums"; Kerr-Schild form written fraktur-l; (c) exponent written iota (a, iota complex), covector xi
+prop:gd-r4-2	docket68/n1star/GAUGEDECAY5.md:1494-1544	GD Prop R4.2, with (A44) 2788, (A117) 6156	cited by edition keys; IV''' Thm 2.1 is the single thm:iv3-2-1; F4: c_1 in (0, c_flat] small for item 2, regions with c_1 in place of c_flat; K+ in place of K (F and Z on D+ only); compact part = the set Q of thm:iv3-2-1 (R4-S27, F3-S27 texts)
+eq:gd-r4-2	docket68/n1star/GAUGEDECAY5.md:1501-1505	GD (R4.2)	F4: norm of F on K+ (R4-S27)
+thm:gd-r4-3	docket68/n1star/GAUGEDECAY5.md:1549-1594	GD Thm R4.3, with (A43) 2766, (A45) 2791	E6 arithmetic written; the 'why min(3/2, q-1)' paragraph is now the labelled heuristic rem:gd-r4-bounds; F', Z' of step (1) written F_3, Z_3; S27's F written F_s
+rem:gd-r4-bounds	docket68/n1star/GAUGEDECAY5.md:1593-1597, 2791	GD Thm R4.3 closing paragraph, with (A45) 2791	labelled heuristic per (A45); 'would be empty' made exact: without |x|^-1 the method gives p < q - 2, which leaves no p > 1/2 + beta when q <= 5/2 + beta; p < 3/2 tied to the multiplier and the indicial root, Z_1 not claimed to attain it
+cor:gd-r4-6	docket68/n1star/GAUGEDECAY5.md:1613-1640	GD Cor R4.6 (replaces Cor R2.8), with (A23) 1816	rate t^(-1/2) kept; (A34)/(A54) improvements in Ch 16; the (A23) explanation kept as a remark; step (2) names the space of eq:ii-f1-1-4 directly (beta in (0, 1), not (0, delta_sharp))
+cor:gd-r4-4	docket68/n1star/GAUGEDECAY5.md:1599-1612	GD Cor R4.4, with (A42) 2772, (A57) 3113	g_H = g-dot near Sigma (A42) added; Part IX cited as proved (A57); Y_h clause also for thm:gd-r3-4 (its (iv)); Y_h clause states the three changes: c_infty shift, data near Sigma, G-invariance only for G-invariant Y_h
+sec:hg-l0	docket68/n1star/GAUGEDECAY5.md:852-887	GD Prop R2.13
+prop:gd-r2-13	docket68/n1star/GAUGEDECAY5.md:852-887	GD Prop R2.13, with (A10) 1732, (A23) 1816, (A121) 6668	(b) read with data compactly supported on Sigma (A10, A23) via cor:gd-r4-6; V2 written out (box_0 Psi = 0 by hand; S_vv = -1/m0 + O(r^-2) by hand; the exact form -1/m0 + 9/(4r^2) - 7m0^2/(4r^6) checked privately, not printed); rate t^(-1/2) kept, improvement in Ch 16; Psi of V2 written Xi, K_Psi written K_Xi (Psi is lem:iii-h-2-5's transform)
+sec:hg-positive	docket68/n1star/GAUGEDECAY5.md:1979-2003	GD R5.a setting, dictionary, window	Q1-Q2 written as the change of density and the indicial roots of the flat Laplacian
+thm:gd-r5-1	docket68/n1star/GAUGEDECAY5.md:2009-2108	GD Thm R5.1, with (A50) 2813, (A52) 2822, (A56) 2841	k-dependence through c stated (A52); Q3-Q5 replaced by lem:iii-i2-4-3 at q = 2 and the weight checks; step 9 uses the edition's lem:iii-i2-3-1 (moment lemma) once; step 5: the condition of prop:ii-g1-3-3 (1) checked in the text (Q5/D2, (A50))
+eq:gd-r5-1	docket68/n1star/GAUGEDECAY5.md:2012-2014	GD (R5.1)
+thm:gd-r5-2	docket68/n1star/GAUGEDECAY5.md:2110-2127	GD Thm R5.2, with (A20) 1799	Corollaries R5.3-R5.4 not carried (superseded by R6.6, R7.4: Ch 16)
+eq:gd-r5-2	docket68/n1star/GAUGEDECAY5.md:2114-2116	GD (R5.2)
