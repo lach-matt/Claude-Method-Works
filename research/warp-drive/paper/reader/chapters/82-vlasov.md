@@ -1586,13 +1586,14 @@ constant along the common rays from S′_α with the values of u_D. As both q^i_
 
 The explicit family is built on the orbit space of Tangherlini, where the eikonal equation separates. Let μ = 1, f :=
 1 − 1/r², 𝔪 := 1/r², and let t := τ − κ(r) with κ′ = 𝔪/f be the static time on r > 1, so that g3 = −f dt² + f⁻¹dr² +
-r² dϑ² there. For |α| ≤ 0.6 put k(α) := 3 sin α and
+r² dϑ² there. For |α| < 0.7 put k(α) := 3 sin α and
 
     u_α := −t + k(α)(ϑ − π/4) + ∫_3^r f(s)⁻¹ (1 − f(s) k(α)²/s²)^(1/2) ds,      r > 1.              {#eq:vlasov-witness}
 
-Since f/r² = (r² − 1)/r⁴ ≤ 1/4 and k² < 2.89, the square root is smooth and positive on r > 1. We extend u to a smooth
-invariant function on Ω × S¹ that agrees with [[eq:vlasov-witness]] on {r ≥ 2} × [−0.6, 0.6]; only its values on a
-neighbourhood of the tubes of the set S below, in r ≥ 2.64 and |α| ≤ 0.6, enter.
+Since f/r² = (r² − 1)/r⁴ ≤ 1/4, with equality at r² = 2 only, and k² < 9 sin² 0.7 < 3.74 < 4, the square root is smooth
+and positive on r > 1. We extend u to a smooth invariant function on Ω × S¹ that agrees with [[eq:vlasov-witness]] on
+{r ≥ 2} × [−0.65, 0.65]; only its values on a neighbourhood in Ω × S¹ of the (x, α) with x in the tubes of the set S
+below, in r ≥ 2.64 and |α| ≤ 0.6, enter.
 
 **Proposition {#prop:vlasov-nonempty}** (The theorem is not vacuous.) Let g0 be Tangherlini of mass 1 in the chart of
 [[sec:background]] with μ ≡ 1, and Ω the domain with τ0 = 0, τ_end = 3, a = 4/5 and V = 5. Let F0 ≥ 0 be a smooth
@@ -1612,7 +1613,8 @@ data of g0 are γ = (1 + 1/r²) dr² + r² dΩ², and by [[lem:constraints-evolu
 definition.
 
 *The rays.* Put w := (1 − f k²/r²)^(1/2). Then −u_t²/f + f u_r² + u_ϑ²/r² = −1/f + (1 − f k²/r²)/f + k²/r² = 0, so u_α is
-an eikonal, and ℓ_α = g3⁻¹du_α has the components (1/f, w, k/r²) in (t, r, ϑ), future directed on r > 1. Its rays solve
+an eikonal for |α| < 0.7, and ℓ_α = g3⁻¹du_α has the components (1/f, w, k/r²) in (t, r, ϑ), future directed on r > 1.
+Its rays solve
 dt/ds = 1/f, dr/ds = w, dϑ/ds = k/r², and with dτ/dt = 1 + κ′ dr/dt = 1 + 𝔪 w,
 
     dr/dτ = ṙ(r) := f w/(1 + 𝔪 w),      dϑ/dτ = ϑ̇(r) := f k/(r² (1 + 𝔪 w)),
