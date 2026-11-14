@@ -7,7 +7,8 @@ This section carries out, at the computational point of [[def:ec-point]], the co
 the indicial roots of L̂_b(0): every multiplicity is at most 7, and every root of real part in [−101, 5] is simple
 ([[prop:is-mult]]). This is the statement (IS) of [[rem:uc-missing]] (which asks the multiplicities on the half-plane
 Re ≤ 5), except the exponents of the least ℰ_++ above 2λ_♯: these depend on ℰ_+, and nothing below uses them
-([[rem:is-summary]]). From these it determines Λ ∩ {Re ≤ 3 + ε_+} ([[prop:is-lambda]]); it shows that (G) holds exactly for ε_K < μ_G, where
+([[rem:is-summary]]). From these it determines Λ ∩ {Re ≤ 3 + ε_+} ([[prop:is-lambda]]); it shows that (G) holds
+exactly for ε_K < μ_G, where
 
     1.64160217197·10⁻¹⁴ < μ_G < 1.64160217198·10⁻¹⁴                                                   {#eq:is-mu}
 

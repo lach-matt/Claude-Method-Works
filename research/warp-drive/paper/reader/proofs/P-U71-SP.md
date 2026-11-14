@@ -195,12 +195,12 @@ numbers p(𝔐_τ, ϰ_0), each of which is at most c_τ(ϰ_0).
 
 (d) If c_τ(ϰ_0) ≤ 1 for every type, then ϰ_0 is at most a simple pole of N_sf(·)⁻¹.
 
-*Proof.* Write (s, c) for the pair; c ∈ (Re ϰ_0 − 1, Re ϰ_0) by [[eq:iii-g-2-6]], and the poles of N_sf(·)⁻¹ and
-their orders do not depend on the pair ([[thm:iii-g-5-1]] (2)). Then c > K + 1, as K + 1 ≤ Re ϰ_0 − 1. By [[lem:sp-primitive]] (a) the elements of a tuple
-of 𝒦_𝔫(N_sf, ϰ_0) lie in Ḣ^(s,c)_b, so their moments of order at most K are defined, and by [[lem:sp-moments]] (with
-its derivatives) they form a tuple of 𝒦_𝔫(𝔐, ϰ_0). The components on the W_π are tuples of
-𝒦_𝔫(𝔐_τ(π) ⊗ Id_π, ϰ_0), which vanish unless det 𝔐_τ(π)(ϰ_0) = 0, that is unless π has a root among ϰ_0 − 1, …,
-ϰ_0 − K − 1; by [[lem:iii-f1-2-4]] with X := Re ϰ_0 this holds for a finite set F of representations only.
+*Proof.* Write (s, c) for the pair; c ∈ (Re ϰ_0 − 1, Re ϰ_0) by [[eq:iii-g-2-6]], and the poles of N_sf(·)⁻¹ and their
+orders do not depend on the pair ([[thm:iii-g-5-1]] (2)). Then c > K + 1, as K + 1 ≤ Re ϰ_0 − 1. By [[lem:sp-primitive]]
+(a) the elements of a tuple of 𝒦_𝔫(N_sf, ϰ_0) lie in Ḣ^(s,c)_b, so their moments of order at most K are defined, and by
+[[lem:sp-moments]] (with its derivatives) they form a tuple of 𝒦_𝔫(𝔐, ϰ_0). The components on the W_π are tuples of
+𝒦_𝔫(𝔐_τ(π) ⊗ Id_π, ϰ_0), which vanish unless det 𝔐_τ(π)(ϰ_0) = 0, that is unless π has a root among ϰ_0 − 1, …, ϰ_0 − K −
+1; by [[lem:iii-f1-2-4]] with X := Re ϰ_0 this holds for a finite set F of representations only.
 
 *Injectivity.* Let (u_j) ∈ 𝒦_𝔫(N_sf, ϰ_0) have all moments of order at most K equal to 0. Choose η > 0 with
 (K + 1)η < c − Re ϰ_0 + 1 and put c_i := c − i(1 + η). We show by induction on i ≤ K + 1 that (I^iu_j) ∈
@@ -383,24 +383,22 @@ from the disc of ι_B, and have real parts in (2.06, 2.98) while ι_B ∈ (2.017
 non-real and conjugate, ι_P and ι̅_P, in disjoint discs ([[lem:s14-sextic-large]] and the proof of
 [[prop:s14-damping-distance]]).
 
-For 0.018 ≤ x ≤ 0.03, that is 134 ≤ l ≤ 172 (x = 0.018224 at l = 134 and x = 0.029928 at l = 172), the two roots in
-|ι − a| < 0.45 are distinct. By [[lem:s14-majorant]], the bound |hW| ≤ h(M̄_a(0.45, 0.03) + hN̄(2.98, 0.03)) < 9.4·10⁻⁵
-of the proof of [[lem:s14-sextic-large]] (b) holds on the whole closed disc |ι − a| ≤ 0.45, as there
-|ι| ≤ a + 0.45 ≤ 2.9725 < 2.98. For real ι in that disc, 2 + x − ι ≤ 2 + x − a + 0.45 = x/4 − 0.05 ≤ −0.0425. As
-3x + 10 = 4a and Δ_𝒬 is the discriminant of 𝒬(·, x) ([[lem:s14-sextic-split]] (iii)), completing the square gives
-𝒬(ι, x) = 2(ι − a)² − Δ_𝒬(x)/8. Further Δ_𝒬 decreases on [0, 107], its derivative being 2x − 1715/8, and its
-smaller root x₋ lies in (0.01866, 0.01867) (loc. cit.).
-If l = 134 or 135, then x = 0.018224 or 0.018495 lies below x₋, and Δ_𝒬(x) = 0.093562114176 or 0.035476440025. As
-2 + x − a = −(2 − x)/4, U(a, x) = (2 − x)Δ_𝒬(x)/32, which is 0.0057943… or 0.0021967…, so U(a, x) > 2·10⁻³; while
-𝒬(a ± 0.45, x) = 0.405 − Δ_𝒬(x)/8 > 0.39, so U(a ± 0.45, x) < −0.0425·0.39 < −0.016. Hence P_l = U + hW is negative
-at a − 0.45, positive at a and negative at a + 0.45, and it has a real root in each of (a − 0.45, a) and
-(a, a + 0.45): these are the two roots in the disc, and they are distinct. If 136 ≤ l ≤ 172, then
-x ≥ 0.018768 > x₋, so Δ_𝒬(x) ≤ Δ_𝒬(0.018768) = −0.023037762176, and for real ι
-𝒬(ι, x) ≥ −Δ_𝒬(0.018768)/8 = 0.002879720272 > 2.87·10⁻³. On the real diameter of the disc, then,
-|U| > 0.0425·2.87·10⁻³ > 1.2·10⁻⁴ > |hW|, and P_l has no real root in the disc. As P_l has real coefficients and the
-disc is symmetric about ℝ, conjugation permutes the roots in the disc with their multiplicities, and a non-real root of
-multiplicity 2 would bring its conjugate with the same multiplicity, four roots in the disc in all. So the two roots
-are a non-real conjugate pair, and they are distinct.
+For 0.018 ≤ x ≤ 0.03, that is 134 ≤ l ≤ 172 (x = 0.018224 at l = 134 and x = 0.029928 at l = 172), the two roots in |ι −
+a| < 0.45 are distinct. By [[lem:s14-majorant]], the bound |hW| ≤ h(M̄_a(0.45, 0.03) + hN̄(2.98, 0.03)) < 9.4·10⁻⁵ of the
+proof of [[lem:s14-sextic-large]] (b) holds on the whole closed disc |ι − a| ≤ 0.45, as there |ι| ≤ a + 0.45 ≤ 2.9725 <
+2.98. For real ι in that disc, 2 + x − ι ≤ 2 + x − a + 0.45 = x/4 − 0.05 ≤ −0.0425. As 3x + 10 = 4a and Δ_𝒬 is the
+discriminant of 𝒬(·, x) ([[lem:s14-sextic-split]] (iii)), completing the square gives 𝒬(ι, x) = 2(ι − a)² − Δ_𝒬(x)/8.
+Further Δ_𝒬 decreases on [0, 107], its derivative being 2x − 1715/8, and its smaller root x₋ lies in (0.01866, 0.01867)
+(loc. cit.). If l = 134 or 135, then x = 0.018224 or 0.018495 lies below x₋, and Δ_𝒬(x) = 0.093562114176 or
+0.035476440025. As 2 + x − a = −(2 − x)/4, U(a, x) = (2 − x)Δ_𝒬(x)/32, which is 0.0057943… or 0.0021967…, so U(a, x) >
+2·10⁻³; while 𝒬(a ± 0.45, x) = 0.405 − Δ_𝒬(x)/8 > 0.39, so U(a ± 0.45, x) < −0.0425·0.39 < −0.016. Hence P_l = U + hW is
+negative at a − 0.45, positive at a and negative at a + 0.45, and it has a real root in each of (a − 0.45, a) and (a, a +
+0.45): these are the two roots in the disc, and they are distinct. If 136 ≤ l ≤ 172, then x ≥ 0.018768 > x₋, so Δ_𝒬(x) ≤
+Δ_𝒬(0.018768) = −0.023037762176, and for real ι 𝒬(ι, x) ≥ −Δ_𝒬(0.018768)/8 = 0.002879720272 > 2.87·10⁻³. On the real
+diameter of the disc, then, |U| > 0.0425·2.87·10⁻³ > 1.2·10⁻⁴ > |hW|, and P_l has no real root in the disc. As P_l has
+real coefficients and the disc is symmetric about ℝ, conjugation permutes the roots in the disc with their
+multiplicities, and a non-real root of multiplicity 2 would bring its conjugate with the same multiplicity, four roots in
+the disc in all. So the two roots are a non-real conjugate pair, and they are distinct.
 
 In each case, therefore, the three roots of real part at least 2 are distinct, so each is a simple root of P_l, and no
 two differ by a non-zero integer: for any two, either their real parts differ by less than 1 or their difference is
@@ -544,10 +542,11 @@ has K_ι(λ_♯) = 1; whether the value 2 is taken is not decided here.
 most m_ι(ϰ₀): by at most 1 at the points of [[thm:sp-spectrum]] (a), and not at all at every other ϰ₀ with
 Re ϰ₀ ≤ 5. Likewise each raise "by a pole order of N_ι⁺(L̄, ·)⁻¹" in [[lem:iii-i10-1-2]] (c) is at most 1.
 
-(d) On {2 ≤ Re ϰ ≤ 3 + ε_+}, ε_+ < 1/4, the poles are 3; ι₁; and the roots ι of P_l (l ≥ 1) with
-2 < Re ι ≤ 3 + ε_+, together with ι + 1 for those with Re ι ≤ 2 + ε_+. All are simple. Of these poles, 3 lies in Λ
-([[def:iii-i10-1-1]]); whether any other lies in Λ, which [[prop:is-lambda]] describes on {Re ≤ 3 + ε_+}, is not
-decided here, and no bound depends on it, each raise being at most 1 by (c). The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1, 2, 3) are not poles.
+(d) On {2 ≤ Re ϰ ≤ 3 + ε_+}, ε_+ < 1/4, the poles are 3; ι₁; and the roots ι of P_l (l ≥ 1) with 2 < Re ι ≤ 3 + ε_+,
+together with ι + 1 for those with Re ι ≤ 2 + ε_+. All are simple. Of these poles, 3 lies in Λ ([[def:iii-i10-1-1]]);
+whether any other lies in Λ, which [[prop:is-lambda]] describes on {Re ≤ 3 + ε_+}, is not decided here, and no bound
+depends on it, each raise being at most 1 by (c). The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1, 2, 3) are
+not poles.
 
 *Proof.* (a) The orders are [[thm:sp-spectrum]] (b) and the multiplicities [[lem:sp-roots]] (b); the set of poles at
 real part at most 5 is not empty, so the pole orders require l_* ≥ 1. That M ≤ 7 is stated in [[prop:is-mult]];
