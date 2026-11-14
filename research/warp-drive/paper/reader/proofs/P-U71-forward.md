@@ -375,11 +375,11 @@ segment from x_t to x_(t′) lies in W, so that |τ_(βα)(x_t) − τ_(βα)(x_
 converges, as t ↑ t_*, to a point y whose coordinates have modulus at most ℓ + (2 − ℓ)/2 = (2 + ℓ)/2 < 2, that is,
 y ∈ (−2, 2)ⁿ. The points φ_α⁻¹(x_t) = φ_β⁻¹(τ_(βα)(x_t)) then converge on the manifold both to φ_α⁻¹(x_(t_*)) and
 to φ_β⁻¹(y) ∈ U_β. As the manifold is Hausdorff, φ_α⁻¹(x_(t_*)) lies in U_α ∩ U_β, that is, x_(t_*) ∈ W, a
-contradiction. So the segment stays in W, and the ball of radius r about x lies in W. Cover [−ℓ, ℓ]ⁿ by N_1 balls of radius r/2, N_1 depending only on
-n, ℓ and C_1. If A_α had more than m_ℬN_1 elements, then, choosing p and x as above for each β ∈ A_α, the points x of
-m_ℬ + 1 of these β would lie in one of the balls. Its centre c lies within r/2 of each of these points x, hence in
-φ_α(U_α ∩ U_β) for each of these m_ℬ + 1 values of β, and the point φ_α⁻¹(c) lies in m_ℬ + 1 of the sets U_β, against
-the choice of m_ℬ. So N_ℬ := m_ℬN_1 serves.
+contradiction. So the segment stays in W, and the ball of radius r about x lies in W. Cover [−ℓ, ℓ]ⁿ by N_1 balls
+of radius r/2, N_1 depending only on n, ℓ and C_1. If A_α had more than m_ℬN_1 elements, then, choosing p and x as
+above for each β ∈ A_α, the points x of m_ℬ + 1 of these β would lie in one of the balls. Its centre c lies within r/2
+of each of these points x, hence in φ_α(U_α ∩ U_β) for each of these m_ℬ + 1 values of β, and the point φ_α⁻¹(c)
+lies in m_ℬ + 1 of the sets U_β, against the choice of m_ℬ. So N_ℬ := m_ℬN_1 serves.
 
 *Integer orders.* Let k ∈ ℤ, K ⊂ [−ℓ, ℓ]ⁿ compact, ϑ ∈ C_c^∞((−2, 2)ⁿ) with supp ϑ ⊂ [−ℓ, ℓ]ⁿ, and
 ϑ_α := φ_α^*ϑ. We show

@@ -539,9 +539,12 @@ everywhere: by [[rem:iii-f3-2-3]], ω̇_b(0, [A, A_V]) = 2ω^(−1)_(b,v1)(V) �
 2 + 𝔡₀ has no scalar type 0 part ([[lem:is-rot-s0]]; V_b has integer exponents), and ker ad_A + im ad_A = 𝔰𝔬(4), ad_A
 being skew-symmetric for −tr. Then ω̇_b(0, Ȧ) has no term at 2 + 𝔡₀ + j for any j ∈ ℕ₀: comparing the coefficients of
 ρ^(2+𝔡₀+j) in Aω̇ = −ρ⁻²η_b, whose right side has integer exponents, gives N(A, 2 + 𝔡₀ + j)ω̇_(2+𝔡₀+j) = 0 by induction
-on j, and 2 + 𝔡₀ + j is no root for j ≥ 1. With (b), the index set ℰ′_ind built by [[lem:is-typed]] with ½(1 ± φ), with
-the exponents 2 + 𝔡₀ + ℕ₀ removed for the rotation corrections and for ω̇_b(0, ·), serves at every b and does not
-contain 𝔡₀; the offset 𝔡₀ + j with j ≥ 1 of the even constructions at m ≤ 1 is not 𝔡₀. The equivariance is that of
+on j, and 2 + 𝔡₀ + j is no root for j ≥ 1. The same comparison at j = 0 puts the coefficient of a rotation correction
+at 2 + 𝔡₀ in the kernel of N(A, 2 + 𝔡₀), which is of type s0 ([[lem:is-roots]] (b)); having no scalar type 0 part
+([[lem:is-rot-s0]]), it vanishes, and so do those at 2 + 𝔡₀ + j. With (b), the index set ℰ′_ind built by
+[[lem:is-typed]] with ½(1 ± φ), with the exponents 2 + 𝔡₀ + ℕ₀ removed for the rotation corrections and for
+ω̇_b(0, ·), serves at every b and does not contain 𝔡₀; the offset 𝔡₀ + j with j ≥ 1 of the even constructions at
+m ≤ 1 is not 𝔡₀. The equivariance is that of
 [[lem:is-rot-s0]], with φ_O*ġ_((m,OAOᵀ))(0, OȦOᵀ) = ġ_((m,A))(0, Ȧ) by differentiating [[lem:iii-e1-2-1]]; at A = 0 it is
 (b). At a rotating b, c_b(Ȧ) for Ȧ ∈ ker ad_A is the pairing of η_b(0, Ȧ) with the element of the cokernel of P_b at a
 weight in (2 + 𝔡₀, 3) that the scalar type 0 root carries, a global quantity that no statement of this paper evaluates;

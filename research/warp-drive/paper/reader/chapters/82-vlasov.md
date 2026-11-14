@@ -24,9 +24,10 @@ three or more phases up to the order the scheme uses ([[lem:vlasov-hierarchy]]);
 no term of order λ⁻¹, in the field equations or in the constraints ([[lem:vlasov-torus-ricci]],
 [[lem:vlasov-constraint-coefficient]]); the orbit space has no shear ([[lem:vlasov-no-shear]]); and the constraints,
 whose coefficients oscillate in every direction of the initial slice, are solved with bounds uniform in λ in norms in
-which each angular derivative carries the factor λ that the oscillation costs ([[prop:vlasov-scaled-correction]]). The
-last section shows that the hypotheses are open and that an explicit family on Tangherlini meets them
-([[lem:vlasov-open]], [[prop:vlasov-nonempty]]).
+which each angular derivative carries the factor λ that the oscillation costs, except the first two of the metric
+unknown ([[prop:vlasov-scaled-correction]]). Each label is an eikonal only near its tube, and every transport of a
+family is cut off away from its tube ([[lem:vlasov-local-stability]]). The last section shows that the hypotheses are
+open and that an explicit family on Tangherlini meets them ([[lem:vlasov-open]], [[prop:vlasov-nonempty]]).
 
 *Notation.* g5 is a metric of the T²-mirror class of [[sec:class]]. We write ψ1 := A and ψ2 := B for the functions of
 [[eq:class-metric]], so that
@@ -147,10 +148,12 @@ the dust, ∇^μ(q ∂_μ u ∂_ν u) = div_(g5)(q ℓ) ∂_ν u + q ℓ^μ ∇_
 q □3 u, and div_(g3)(e^ψ q ℓ) = ℓ(e^ψ q) + e^ψ q □3 u. ∎
 
 **Definition {#def:vlasov-label}** (Fields in label form.) Let Ω be a domain of the type [[eq:omega]] for a metric g of
-the class (its constants (τ0, τ_end, a, V) fixed and its sets defined by the coordinate functions τ, r, v). A *restricted
-field in label form* on Ω is a pair (F, u) of smooth invariant functions on Ω × S¹, F ≥ 0, with density q := F², such
-that each u_α := u(·, α) is an eikonal of g on a neighbourhood of the *tube* D_α of supp q(·, α), with g⁻¹du_α future
-directed there, and with stress
+the class (its constants (τ0, τ_end, a, V) fixed and its sets defined by the coordinate functions τ, r, v). For a smooth
+invariant function u on Ω the *rays* of u are the integral curves of g⁻¹du, and the *tube* of a compact set K ⊂ Σ_τ0 ∩ Ω
+for u is the set of points of Ω on the rays of u from K, each followed forward while it stays in Ω. A *restricted field
+in label form* on Ω is a pair (F, u) of smooth invariant functions on Ω × S¹, F ≥ 0, with density q := F², such that
+each u_α := u(·, α) is an eikonal of g on a neighbourhood of the tube D_α of supp q(·, α) ∩ Σ_τ0 for u_α, with g⁻¹du_α
+future directed there, with stress
 
     T_V := ∫_(S¹) q(·, α) du_α ⊗ du_α dα,                                                          {#eq:vlasov-stress}
 
@@ -158,16 +161,17 @@ and with every amplitude F(·, α) transported by
 
     2 ℓ_α(F) + (□5 u_α) F = 0,      ℓ_α := g⁻¹du_α,                                              {#eq:vlasov-amplitude}
 
-which is [[eq:vlasov-dust]] for q(·, α) = F(·, α)², as in [HL25, (1.2)]. Here the *rays* of u_α are the integral curves
-of ℓ_α, and D_α is the set of points of Ω on the future rays from supp q(·, α) ∩ Σ_τ0 that stay in Ω. Let β0(x, α) be the
+and vanishing off D_α. The transport is [[eq:vlasov-dust]] for q(·, α) = F(·, α)², as in [HL25, (1.2)]. Off a
+neighbourhood of D_α the function u_α enters neither T_V nor [[eq:vlasov-amplitude]], and nothing is assumed of it there:
+a label is an eikonal only near its tube. Let β0(x, α) be the
 angle, in a frame of the orbit slice of Σ_τ0 orthonormal for its induced metric, of the covector d(u_α|Σ_τ0)(x). The
 field is *labelled by initial direction* if for every x the map α ↦ β0(x, α) is injective on the labels α with (x, α) ∈
 supp q. T_V is the stress of the restricted field μ_x := ∫ q(x, α) δ_(du_α(x)) dα, and each label is a null dust.
 Replacing u_α by −u_α changes neither T_V nor [[eq:vlasov-amplitude]], so the time orientation of ℓ_α only fixes a sign.
 It fixes the *branch* of the eikonal equation used below: given the restriction of u_α to Σ_τ0, of nonzero differential,
-the τ-derivative of u_α there is the root of g⁻¹(du_α, du_α) = 0 for which g⁻¹du_α is future directed. (With n the
-future unit normal of Σ_τ0, the two roots are du_α(n) = ±|d(u_α|Σ_τ0)|, and g⁻¹du_α is future directed exactly when
-du_α(n) < 0.)
+the τ-derivative of u_α there is the root of g⁻¹(du_α, du_α) = 0 for which g⁻¹du_α is future directed. (With 𝔫 the
+future unit normal of Σ_τ0, the two roots are du_α(𝔫) = ±|d(u_α|Σ_τ0)|, and g⁻¹du_α is future directed exactly when
+du_α(𝔫) < 0.)
 
 In [HL25, (1.2), p. 2] the labels are the initial directions themselves: u_α↾Σ0 = x¹ cos α + x² sin α, so β0 = α.
 
@@ -246,23 +250,25 @@ a density ϱ(ρ, t) solving ∂_t ϱ − v ρ⁻¹ ∂_ρ(ρ ϱ) = 0, so ρ ϱ(�
 Let Ω be a domain of the type [[eq:omega]], Ω = {τ0 ≤ τ ≤ τ_end, r ≥ a, v + (τ − τ_end) ≤ V + 1}, with Σ_τ := Ω ∩ {τ}
 and its outer radius b(τ) := V + 1 − τ + (τ_end − τ). Let (g, F, u) be a smooth class solution on Ω of the
 Einstein–restricted massless Vlasov system in label form, Ric(g) = T_V. For a compact set S ⊂ (Σ_τ0 ∩ Ω) × S¹ (points
-and labels) put S_x := {α : (x, α) ∈ S}, S_α := {x : (x, α) ∈ S}, and let D_α(S) be the set of points of Ω on the
-future rays of u_α from S_α that stay in Ω, the *tube* of S_α. We assume:
+and labels) put S_x := {α : (x, α) ∈ S}, S_α := {x : (x, α) ∈ S}, let D_α(S) be the tube of S_α for u_α
+([[def:vlasov-label]]), and let 𝒟(S) be the set of the (x, α) with x ∈ D_α(S). We assume:
 
 - (Ω) For g: each Σ_τ is spacelike; {r = a} is spacelike and r decreases along future causal curves near it;
   {v + τ = const} is spacelike and v + τ increases along future causal curves; every ray of u_α through a point of
   D_α(S), S the set of (V1), followed to the past, stays in Ω and meets Σ_τ0. These are (a)–(d) of [[lem:domain]], for
   g.
 - (V1) F and u are smooth in (x, α), and there is a compact set S ⊂ (Σ_τ0 ∩ Ω) × S¹ whose interior int S, relative to
-  (Σ_τ0 ∩ Ω) × S¹, contains supp q ∩ (Σ_τ0 × S¹), such that: each u_α is an eikonal of g, with ℓ_α future directed, on
-  a neighbourhood of D_α(S); for every x, α ↦ β0(x, α) is injective on S_x (the field is labelled by initial
-  direction); ∂_α β0 ≥ b_* > 0 on S; and for (x0, α) ∈ S the point y_τ(x0) where the ray of u_α from x0 meets Σ_τ
-  depends on x0 with Jacobian determinant ≥ J0 > 0 in the coordinates (r, ϑ) of the orbit slices, for every τ with
-  y_τ(x0) in a neighbourhood of Ω̄ (no caustic).
+  (Σ_τ0 ∩ Ω) × S¹, contains supp q ∩ (Σ_τ0 × S¹), such that: u is an eikonal in each label, with ℓ_α future
+  directed, on a neighbourhood 𝒲 of 𝒟(S) in Ω × S¹, that is g⁻¹(du_α, du_α)(x) = 0 for (x, α) ∈ 𝒲; for every x,
+  α ↦ β0(x, α) is injective on S_x (the field is labelled by initial direction); ∂_α β0 ≥ b_* > 0 on S; and for
+  (x0, α) ∈ S the point y_τ(x0) where the ray of u_α from x0 meets Σ_τ depends on x0 with Jacobian determinant ≥ J0 > 0
+  in the coordinates (r, ϑ) of the orbit slices, for every τ with y_τ(x0) in a neighbourhood of Ω̄ (no caustic).
 - (V2) dist(D_α(S), axes) ≥ 2δ > 0 for every α.
 - (V3) On Σ_τ0 ∩ Ω the spheres {r = const} have positive mean curvature.
 
-The tube D_α of supp q(·, α) lies in D_α(S). (V3) is the first of the two signs of [[lem:constraints-evolution]] (a);
+The tube D_α of supp q(·, α) ∩ Σ_τ0 lies in D_α(S), and 𝒟(S) is compact, as in [[rem:vlasov-v2]]. A neighbourhood of
+each D_α(S) alone would not do: the cut-offs of [[sec:vlasov-uniform]] are smooth in (x, α), and they need the
+neighbourhood 𝒲 of (V1). (V3) is the first of the two signs of [[lem:constraints-evolution]] (a);
 the second, 𝒮 A0 > 0 for the symmetrizer 𝒮 of [[eq:data-symmetrizer]], holds on every slice ([[lem:vlasov-symmetrizer]]).
 
 **Theorem {#thm:vlasov}** (Restricted massless Vlasov limits.) Let (g, F, u) satisfy (Ω), (V1), (V2) and (V3). Then
