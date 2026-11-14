@@ -1280,3 +1280,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   told chapter 81 is stable. R4-81 and R2-83 are reading.
 - R-P-U71-IS NOT CONFIRMED 2M 11m 11n (reviews/R-P-U71-IS.md); no number moves. The multiplicities below Re −101 are
   settled: bounded by 7 (prop:iii-f1-2-3 (b)), so the (IS) part of l_* stays 50. F-P-U71-IS running.
+- P-U71-SP written (proofs/P-U71-SP.md, reports/P-U71-SP.md): the pole orders contribute exactly 1 to l_*; l_* =
+  max(1, L, M) with L and M from (IS); K_ι ≤ l_* + 2. R-P-U71-SP reads it and checks consistency with P-U71-IS and
+  R-P-U71-IS. After F-P-U71-IS and R-P-U71-SP: one combined confirming reading of the d-bound texts (forward, close,
+  assembly, IS, SP), then integration into chapters 71, 3 and the others listed.
