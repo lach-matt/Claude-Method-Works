@@ -411,19 +411,19 @@ the table below. The values of c_0 are
 
 with numerators odd in the first nine and prime to 5 in the last three. So:
 
-    q                          p    v_p(q)    v_p(c_0(q))    v_p(c_1(q)) ≥    v_p(c_2(q)) ≥    v_p(c_3)
-    5/2, 7/2, 9/2              2    −1        −29            −26              −25              −18
-    25099/10000, 35099/…, …    2    −4        −44            −35              −28              −18
-    251/100, 351/100, 451/100  2    −2        −34            −29              −26              −18
-    63/25, 88/25, 113/25       5    −2        −30            −26              −22              −18
+    q                                 p    v_p(q)    v_p(c_0(q))    v_p(c_1(q)) ≥    v_p(c_2(q)) ≥    v_p(c_3)
+    q ∈ {5/2, 7/2, 9/2}               2    −1        −29            −26              −25              −18
+    q ∈ {5/2, 7/2, 9/2} + 99/10000    2    −4        −44            −35              −28              −18
+    q ∈ {5/2, 7/2, 9/2} + 1/100       2    −2        −34            −29              −26              −18
+    q ∈ {5/2, 7/2, 9/2} + 1/50        5    −2        −30            −26              −22              −18
 
 and in every row v_p(c_0(q)) is the least. So P_l(q) ≠ 0 for every l ≥ 1.
 
 *The consequences.* By [[lem:sp-roots]] (a) the singular roots of real part at most 4 are: integers; 3 + 𝔡₀ and
 3 + 𝔡₁, whose distance from ℤ is below 1.34·10⁻⁶; ι₁ − 1 ∈ (1, 3/2); ι − 1 for roots ι of P_l with real part in
 (2, 5]; and ι_v(l) − 1 ≤ 4. A number of 3/2 + σ_Υ + ℤ has distance from ℤ at least 12/25 and real part in (1, 4] only
-in 3/2 + σ_Υ + {0, 1, 2}; ι₁ − 1 < 3/2; and ι − 1 ∈ 3/2 + σ_Υ + ℤ with Re ι ∈ (2, 5] means ι ∈ Q, which is excluded,
-for non-real ι trivially. Finally spec S̄ = σ_Υ ∪ σ_C with σ_C ⊂ [s_C, ∞), s_C > 100 ([[eq:iii-g1-1-4]],
+in 3/2 + σ_Υ + {0, 1, 2}; ι₁ − 1 < 3/2; and ι − 1 ∈ 3/2 + σ_Υ + ℤ with Re ι ∈ (2, 5] means ι ∈ Q, which is excluded
+for the roots of P_l (for non-real ι trivially) and for ι_v(l). Finally spec S̄ = σ_Υ ∪ σ_C with σ_C ⊂ [s_C, ∞), s_C > 100 ([[eq:iii-g1-1-4]],
 [[sec:iii-f-1]]), so a point of 5/2 + spec S̄ + ℕ_0 of real part at most 5 lies in 5/2 + σ_Υ + {0, 1, 2}; a point
 μ + j of 𝒫 there ([[thm:sp-reduction]] (c), with Re μ ≤ 4) would have μ ∈ 3/2 + σ_Υ + ℤ. ∎
 
@@ -480,7 +480,7 @@ and otherwise l_* is attained by L or M.
 
 (b) For λ ∈ Σ ([[def:iii-j-1-1]]), K_ι(λ) ≤ m_ι(λ) + m_♯(λ) ([[prop:iii-g3-2-4]]) with m_ι(λ) ∈ {0, 1}, equal to 1
 exactly when λ is a point of [[thm:sp-spectrum]] (a); so K_ι(λ) ≤ 2 + k(ℰ^C_(I,♯), λ) ≤ l_* + 2, which is at most
-2l_* + 1, and K_ι(λ) ≤ 3 when l_* = 1.
+2l_* + 1 as l_* ≥ 1, and K_ι(λ) ≤ 3 when l_* = 1.
 
 (c) In the step at λ₀ ([[sec:s23-step]]), 𝒮_(λ₀) raises the logarithmic order by m_ι(λ₀) ([[cor:iii-g2-4-3]], l_0 =
 m_ι(λ₀)): by 1 at the points of [[thm:sp-spectrum]] (a) and by 0 at every other λ₀ with Re λ₀ ≤ 5. Likewise each raise
@@ -492,7 +492,7 @@ are simple. The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1,
 
 *Proof.* (a) is [[thm:sp-spectrum]] (b) and [[lem:sp-roots]] (b); the set of poles at real part at most 5 is not
 empty, so the pole orders require l_* ≥ 1. (b) is the bound of [[prop:iii-g3-2-4]] with (a), and k(ℰ^C_(I,♯), λ) ≤ l_*
-([[lem:iii-j-1-2]]). (c): by [[cor:iii-g2-4-3]], the logarithmic powers produced are at most k + l_0, l_0 the order of
+as in the proof of [[lem:iii-j-1-2]]. (c): by [[cor:iii-g2-4-3]], the logarithmic powers produced are at most k + l_0, l_0 the order of
 the pole of N_ι⁺(L̄, ·)⁻¹ at the exponent. (d) is [[thm:sp-spectrum]] (a) restricted to the strip (4 + 𝔡₀, 4 + 𝔡₁ and
 the integers 4, 5 lie beyond it), with [[lem:sp-exceptional]] for the last statement: these numbers lie in
 3/2 + σ_Υ + {1, 2, 3} ⊂ Q, are not integers, are not 4 + 𝔡₀, 4 + 𝔡₁ or ι₁ + j (ι₁ + j ∈ (j + 2, j + 5/2)), and are not
