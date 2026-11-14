@@ -240,20 +240,20 @@ background, R2 and r0, such that the eigenvalues of B(ξ) are at most c_*|ξ| in
 W_ab = ∂_K (the remark after [[cor:class-kato-sphere]]), a covector ν = c dt + ξ gives ν(∂_t)A^0 + Σ_(a<b)
 ν(W_ab)A^(ab) = H(c − B(ξ)), and for c ≥ c_*|ξ| this matrix is positive semidefinite at these points: it is congruent,
 by H^(−1/2), to the symmetric matrix H^(1/2)(c − B(ξ))H^(−1/2), whose eigenvalues are c − λ ≥ 0 for the eigenvalues λ of
-B(ξ). Let R_𝒫 < R2 be the largest value of R on 𝒫, and take R′ ∈ (R_𝒫, R2), a ∈ (0, ϑ1) and R_b ∈ [0.70, R′) with
-a > c_*(R′ − R_b). The set
+B(ξ). Let R_𝒫 < R2 be the largest value of R on 𝒫, and take R′ ∈ (R_𝒫, R2), ϑ_c ∈ (0, ϑ1) and R_b ∈ [0.70, R′) with
+ϑ_c > c_*(R′ − R_b). The set
 
-    Ω_a := {R′ ≤ R ≤ R2} ∪ {R_b ≤ R ≤ R′, ϑ ≤ a − c_*(R′ − R)}
+    Ω_* := {R′ ≤ R ≤ R2} ∪ {R_b ≤ R ≤ R′, ϑ ≤ ϑ_c − c_*(R′ − R)}
 
-does not meet 𝒫, so P = P̄ on it. Its part with R ≥ R3, for R_b ≤ R3 ≤ R2, is {R ≥ max(R3, R′ − max(0, a − ϑ)/c_*)}, the
-region beyond the graph of a Lipschitz function of ω (ϑ being the distance in S³ from the circle {ϑ = 0}), so a
-Lipschitz domain. Its lateral part consists of pieces of {R = R′, ϑ ≥ a}, with outward conormal dt, and of
-{ϑ = a − c_*(R′ − R)}, a smooth hypersurface off the axes, as 0 < a − c_*(R′ − R) < π/4 there, with outward conormal
+does not meet 𝒫, so P = P̄ on it. Its part with R ≥ R3, for R_b ≤ R3 ≤ R2, is {R ≥ max(R3, R′ − max(0, ϑ_c − ϑ)/c_*)},
+the region beyond the graph of a Lipschitz function of ω (ϑ being the distance in S³ from the circle {ϑ = 0}), so a
+Lipschitz domain. Its lateral part consists of pieces of {R = R′, ϑ ≥ ϑ_c}, with outward conormal dt, and of
+{ϑ = ϑ_c − c_*(R′ − R)}, a smooth hypersurface off the axes, as 0 < ϑ_c − c_*(R′ − R) < π/4 there, with outward conormal
 dϑ + c_* dt and |dϑ| = 1. Both satisfy the condition of [[cor:class-kato-sphere]] (c), by the above with (c, ξ) = (1, 0)
-and (c, ξ) = (c_*, dϑ); so u = ū on Ω_a. Every point with R > R_𝒫, and every point with R ≤ R_𝒫 and
-ϑ < ϑ1 − c_*(R_𝒫 − R), lies in such a set, with R′ close to R_𝒫, a close to ϑ1 and R_b = R. With π/2 − ϑ, the distance
-from the circle {ϑ = π/2}, in place of ϑ, the same holds where ϑ > π/2 − ϑ1 + c_*(R_𝒫 − R). This is the bound on the
-domain of influence stated in (b).
+and (c, ξ) = (c_*, dϑ); so u = ū on Ω_*. Every point with R > R_𝒫 lies in such a set, with R′ < R, and so does every
+point with R ≤ R_𝒫 and ϑ < ϑ1 − c_*(R_𝒫 − R), with R′ close to R_𝒫, ϑ_c close to ϑ1 and R_b = R. With π/2 − ϑ, the
+distance from the circle {ϑ = π/2}, in place of ϑ, the same holds where ϑ > π/2 − ϑ1 + c_*(R_𝒫 − R). This is the bound
+on the domain of influence stated in (b).
 
 (c) *A domain containing the lens.* The lens is the set between Σ′ and Σ_τ0, {τ0 + φ(R) ≤ τ ≤ τ0, 3.5 ≤ R ≤ 5.75}, in
 region I ([[lem:margins-region-one]] (c)). Fix δ1 ∈ (0, 0.01] and put t := (τ − τ0 − φ(R))/(δ1 − φ(R)), smooth since
@@ -380,7 +380,7 @@ nonzero future causal vectors of g. A covector positive on these is timelike: ot
 nonzero causal vector. As in the proof of [[thm:loc-bent-slice]] (c), dt = η/(δ1 − φ) with η := dτ − κ_L dR,
 κ_L := (1 − t)φ′, |κ_L| ≤ 0.0021370 ([[prop:margins-bend]] (c)), δ1 − φ ≤ δ1 + τ_L ≤ 0.0111596, and
 
-    −g0⁻¹(η, η) = (2 − f) + 2κ_L(1 − f) − κ_L²f ≥ 1.0216²:
+    −g0⁻¹(η, η) = (2 − f) + 2κ_L(1 − f) − κ_L² f ≥ 1.0216²:
 
 where φ′ ≠ 0, so 3.5 < R < 5.75, the left side is at least 1 + 1.5/5.75² − 2 × 0.002137 × 3.6059/3.5² − 0.002137² ≥
 1.04410; elsewhere it is 2 − f = 1 + μ/R² ≥ 1 + 1.5/5.86² ≥ 1.04368; and 1.0216² ≤ 1.04367. A nonzero future causal
@@ -461,17 +461,17 @@ r = 0, so |h′(r)| = |∂_r v_in/∂_z v_in| ≤ r sup |∂_r² v_in|/0.97 ≤ 
 {(h(r), r) : 0 ≤ r ≤ ρ2(y)}, with its images under G, lies in 𝒟_s.
 
 *An extension.* The map Φ_s(x) := (v_in(s, x), x/|x|) is a G-equivariant diffeomorphism of a neighbourhood of 𝒟_s onto
-its image in R × S³, under which 𝒟_s is [c_a + c_vs, c_b − c_vs] × {ϑ ≤ α′ − Ws}; at s = 0, v_in = v̂. Let A_s be the
-affine map of [c_a, c_b] onto [c_a + c_vs, c_b − c_vs], and m_s the flow on S³, for the time Ws, of a G-invariant vector
-field equal to −∂_ϑ on {α′ − W t1 ≤ ϑ ≤ α′} and to 0 near the axes. Then ψ_s := Φ_s⁻¹ ∘ (A_s × m_s) ∘ Φ_0 is a
-G-equivariant diffeomorphism near 𝒟_0, C¹-close to the identity, with ψ_s(𝒟_0) = 𝒟_s, whose derivatives of order at
-most k − 1, and those of its inverse, are bounded independently of s and of ε by the bound on v_in − v̂; we extend it
-to a diffeomorphism of R⁴ equal to the identity outside a compact set. 𝒟_0 = Σ′ ∩ {3.44 ≤ R ≤ 5.85, ϑ ≤ α′} is a
-bounded Lipschitz domain of the x-space. Let E be its extension operator of [[thm:std-sy-extension]] and 𝔼_s f the
-average over G of (E(f ∘ ψ_s)) ∘ ψ_s⁻¹. By [[thm:std-sy-extension]] and [[thm:std-ly-extension]] (Lemma 27 there),
-𝔼_s is bounded on L² and on H^(k−1), the norms of the compositions depending only on bounds for the derivatives of
-ψ_s and ψ_s⁻¹ (chain rule and change of variables, as in the proof of [[thm:class-kato]] (b) (ii)); so its bound C_E
-depends on α but not on s or ε. And 𝔼_s f = f on 𝒟_s for invariant f, 𝒟_s being invariant.
+its image in R × S³, under which 𝒟_s is [c_a + c_v s, c_b − c_v s] × {ϑ ≤ α′ − Ws}; at s = 0, v_in = v̂. Let A_s be the
+affine map of [c_a, c_b] onto [c_a + c_v s, c_b − c_v s], and m_s the flow on S³, for the time Ws, of a G-invariant
+vector field equal to −∂_ϑ on {α′ − W t1 ≤ ϑ ≤ α′} and to 0 near the axes. Then ψ_s := Φ_s⁻¹ ∘ (A_s × m_s) ∘ Φ_0 is a
+G-equivariant diffeomorphism near 𝒟_0, C¹-close to the identity, with ψ_s(𝒟_0) = 𝒟_s, whose derivatives of order at most
+k − 1, and those of its inverse, are bounded independently of s and of ε by the bound on v_in − v̂; we extend it to a
+diffeomorphism of R⁴ equal to the identity outside a compact set. 𝒟_0 = Σ′ ∩ {3.44 ≤ R ≤ 5.85, ϑ ≤ α′} is a bounded
+Lipschitz domain of the x-space. Let E be its extension operator of [[thm:std-sy-extension]] and 𝔼_s f the average over
+G of (E(f ∘ ψ_s)) ∘ ψ_s⁻¹. By [[thm:std-sy-extension]] and [[thm:std-ly-extension]] (Lemma 27 there), 𝔼_s is bounded on
+L² and on H^(k−1), the norms of the compositions depending only on bounds for the derivatives of ψ_s and ψ_s⁻¹ (chain
+rule and change of variables, as in the proof of [[thm:class-kato]] (b) (ii)); so its bound C_E depends on α but not on
+s or ε. And 𝔼_s f = f on 𝒟_s for invariant f, 𝒟_s being invariant.
 
 *The bound.* Let U be the development's state (g, ∂g, p, Θ, q_in) on 𝒟_s, with Θ = □_g u_in, ů the background's state on
 the slice, which the background defines on the sets 𝒰_2δ(p_i) as well, and Ŭ := ů + 𝔼_s 𝔡(s). Then Ŭ = U on 𝒟_s, and
