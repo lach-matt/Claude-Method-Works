@@ -1364,9 +1364,9 @@ within 4.1 × 10⁻¹¹ and σ_L within 8.0 × 10⁻¹⁰, while the flat equati
 
 **Definition {#def:class-adapted}** (Adapted boundaries and the adapted domain.) Let Ω be admissible for g̊ and B a
 lateral boundary component of Ω that meets an axis. B is *adapted* to the family A near the points where it meets an axis
-if there are a G-invariant neighbourhood 𝒱_B of those points and a smooth function c_B with B ∩ Σ_τ ∩ 𝒱_B = {ů_A =
-c_B(τ)} ∩ Σ_τ ∩ 𝒱_B for every τ. Take 𝒱_B so small that, near each point of B on axis 2, it lies over the disc {|y| < δ}
-on which the leaves of [[lem:class-leaf-differences]] are graphs z = h(y) in the coordinates (z, y) of
+if there are a G-invariant neighbourhood 𝒱_B of those points and a smooth function c_B with B ∩ Σ_τ
+∩ 𝒱_B = {ů_A = c_B(τ)} ∩ Σ_τ ∩ 𝒱_B for every τ. Take 𝒱_B so small that, near each point of B on axis 2, it lies over the
+disc {|y| < δ} on which the leaves of [[lem:class-leaf-differences]] are graphs z = h(y) in the coordinates (z, y) of
 [[lem:class-leaf]], and likewise near axis 1 with the two planes exchanged; then B ∩ Σ_τ ∩ 𝒱_B is a part of the leaf of
 ů_A at the value c_B(τ). Let C_L be a constant of the bound |h′(r)| ≤ C r of [[lem:class-volterra]] valid for the leaves
 of ů and of the states near ů used below, so that |h(y) − h(0)| ≤ C_L |y|² on each of them. Fix δ_B ∈ (0, δ/4] with 8 C_L
@@ -1400,9 +1400,9 @@ the y-plane of Stein's extension ([[thm:std-sy-extension]]) to R² of the restri
 
 the sum over the adapted components, with e := (x1, x2, 0, 0)/ρ1 and y := (x3, x4) near axis 2, e := (0, 0, x3, x4)/ρ2
 and y := (x1, x2) near axis 1, so that T_(τ,U) adds χ_B d_B(y) to z and leaves y fixed. d_B is invariant and equal to h_B
-− h̊_B on D_B: for y ∈ D_B and every rotation or reflection R of the y-plane, Ry ∈ D_B, where the extension is h_B −
-h̊_B, a function of |y|, and the Haar measure of O(2) is invariant. The *adapted domain* of U is Ω_U := ⋃_τ {τ} ×
-T_(τ,U)(Σ_τ ∩ Ω), whose lateral boundary components are the *adapted boundaries* B_U := ⋃_τ T_(τ,U)(B ∩ Σ_τ) and the
+− h̊_B on D_B: for y ∈ D_B and every rotation or reflection R of the y-plane, Ry ∈ D_B, where the extension is h_B
+− h̊_B, a function of |y|, and the Haar measure of O(2) is invariant. The *adapted domain* of U is Ω_U := ⋃_τ {τ}
+× T_(τ,U)(Σ_τ ∩ Ω), whose lateral boundary components are the *adapted boundaries* B_U := ⋃_τ T_(τ,U)(B ∩ Σ_τ) and the
 components of Ω that are not adapted. For U = ů, T_(τ,U) is the identity and B_U = B. In the set 𝒰_(2δ_B) about z̊_B(τ),
 where χ_B = 1 and d_B = h_B − h̊_B, B_U ∩ Σ_τ is the graph of h_B over D_B, the leaf of U through z_B(τ), and Ω_U lies on
 one side of it: B ∩ Σ_τ ∩ 𝒰_(4δ_B) is the graph of h̊_B, with Ω on one side, and T_(τ,U) maps (h̊_B(y), y) to (h_B(y), y)
@@ -1517,9 +1517,9 @@ and (F3) by (F2) and its smoothness in τ. [[thm:class-kato]] (a) gives a soluti
 
 *The adapted domain is a domain of dependence.* Fix θ0 ∈ (0, ¼]. Let Ũ be a solution on [τa, τb] × R⁴ with states in 𝒟_ρ,
 and U a solution of the augmented system on its own adapted domain Ω_U up to the time τb ([[def:class-adapted]]), whose
-lateral boundary is C¹-close to that of Ω, with 𝒩_(k−1) ≤ ρ on Σ_τ ∩ Ω_U and ‖T_(τ,U) − id‖_(W^(k−1,∞)) ≤ θ0 for τa ≤ τ ≤
-τb, and with U = Ũ on Σ_(τa) ∩ Ω_U; by the bound of [[def:class-adapted]], for ρ and ε small, U may for instance be equal
-on Ω_U ∩ {τa ≤ τ ≤ τb} to a second solution on [τa, τb] × R⁴ with states in 𝒟_ρ. Then U = Ũ on Ω_U ∩ {τa ≤ τ ≤ τb}.
+lateral boundary is C¹-close to that of Ω, with 𝒩_(k−1) ≤ ρ on Σ_τ ∩ Ω_U and ‖T_(τ,U) − id‖_(W^(k−1,∞)) ≤ θ0 for τa ≤ τ
+≤ τb, and with U = Ũ on Σ_(τa) ∩ Ω_U; by the bound of [[def:class-adapted]], for ρ and ε small, U may for instance be
+equal on Ω_U ∩ {τa ≤ τ ≤ τb} to a second solution on [τa, τb] × R⁴ with states in 𝒟_ρ. Then U = Ũ on Ω_U ∩ {τa ≤ τ ≤ τb}.
 Indeed z := U − Ũ satisfies the energy identity of the proof of [[thm:class-kato]] (b) (i), at the order s = k − 1 > 3,
 on Ω_U, whose lateral boundary is spacelike for the system at the states of U and Ũ, which lie within C ρ of those of ů
 pointwise, for ρ small, as in Step 9 of [[thm:class-stability-off-axes]], B_U being C¹-close to B; and the local parts of
@@ -1535,8 +1535,8 @@ uniformly in τ and U; those of Φ⁻¹ are polynomials in the derivatives of Φ
 and the Jacobian determinants of Φ and Φ⁻¹ are bounded. So, by the chain-rule bound of Step 8 (iv) of
 [[sec:ue-existence]], composition with Φ and with Φ⁻¹ is bounded on H^σ, 0 ≤ σ ≤ m, uniformly in τ and U, and as G acts
 by isometries of R⁴, 𝔼 is bounded from H^σ(Σ_τ ∩ Ω_U) to H^σ(R⁴), 0 ≤ σ ≤ m, uniformly in τ and U. Here m = k − 1. Then
-Ŭ = U on Σ_τ ∩ Ω_U, and Ŭ ∈ 𝔅′ for ρ small, since ‖𝔼 z‖_(H^(k−1)) ≤ C ‖z‖_(H^(k−1)(Σ_τ∩Ω_U)) ≤ C ρ. At a point x ∈ Σ_τ ∩
-Ω_U where σ_A is used the leaf of U through x comes from an axis point of Ω_U and lies in the closure of Ω_U, the
+Ŭ = U on Σ_τ ∩ Ω_U, and Ŭ ∈ 𝔅′ for ρ small, since ‖𝔼 z‖_(H^(k−1)) ≤ C ‖z‖_(H^(k−1)(Σ_τ∩Ω_U)) ≤ C ρ. At a point x ∈ Σ_τ
+∩ Ω_U where σ_A is used the leaf of U through x comes from an axis point of Ω_U and lies in the closure of Ω_U, the
 boundary of Ω_U over the discs D_B being a leaf of U and the leaves of U foliating (Step 6); by the uniqueness in
 [[lem:class-volterra]] it is also the leaf of Ŭ through x. So σ_A[Ŭ] = σ_A[U] on Σ_τ ∩ Ω_U, and by
 [[lem:class-leaf-differences]] (b)
@@ -1577,12 +1577,13 @@ point for both, and by the uniqueness in [[lem:class-volterra]] so is the leaf h
 adapted boundary. Suppose τ* < τ1. U′ is smooth up to the boundary of Ω′, so its points z_B(τ) and its leaves h_B over
 D_B are smooth in τ and y, and, Stein's operator being linear and bounded on every W^(m,∞), τ ↦ T_(τ,U′) is continuous
 into W^(k−1,∞), with its τ-derivative. At τ*, T_(τ*,U′) = T_(τ*,U) is within C (ρ + ε) of the identity in W^(k,∞) by
-[[def:class-adapted]], and the lateral boundary of Ω′ is that of Ω_U, C¹-close to that of Ω. So for τ* ≤ τ ≤ τ* + θ, θ >
-0 small, ‖T_(τ,U′) − id‖_(W^(k−1,∞)) ≤ 2C (ρ + ε) ≤ θ0, and the lateral boundary of Ω′ stays C¹-close to that of Ω. The
-domain of dependence on [τ*, τ* + θ], with U′ in place of U and Ũ the solution on R⁴ of an interval of the restarts that
-contains [τ*, τ* + θ], equal to U′ on Σ_τ* ∩ Ω′, gives U′ = Ũ on Ω′ ∩ {τ* ≤ τ ≤ τ* + θ}; by [[def:class-adapted]] the
-adapted domains of U′ and of the solution constructed then agree up to τ* + θ, and the solution constructed is Ũ on that
-interval; so U′ = U on Ω′ ∩ {τ ≤ τ* + θ}, against the choice of τ*. So τ* = τ1. Invariance under G follows as before.
+[[def:class-adapted]], and the lateral boundary of Ω′ is that of Ω_U, C¹-close to that of Ω. So for τ* ≤ τ ≤ τ* + θ,
+θ > 0 small, ‖T_(τ,U′) − id‖_(W^(k−1,∞)) ≤ 2C (ρ + ε) ≤ θ0, and the lateral boundary of Ω′ stays C¹-close to that of Ω.
+The domain of dependence on [τ*, τ* + θ], with U′ in place of U and Ũ the solution on R⁴ of an interval of the restarts
+that contains [τ*, τ* + θ], equal to U′ on Σ_τ* ∩ Ω′, gives U′ = Ũ on Ω′ ∩ {τ* ≤ τ ≤ τ* + θ}; by [[def:class-adapted]]
+the adapted domains of U′ and of the solution constructed then agree up to τ* + θ, and the solution constructed is Ũ on
+that interval; so U′ = U on Ω′ ∩ {τ ≤ τ* + θ}, against the choice of τ*. So τ* = τ1. Invariance under G follows as
+before.
 
 *Step 10.* [[eq:class-leaf-volterra]] is uniquely solvable ([[lem:class-volterra]]), so on a solution with Θ_A = □_g
 u_A it returns the true leaves of u_A, hence the true σ_A. So near an axis Δ_A = Θ_A − □_g u_A obeys
@@ -1614,10 +1615,10 @@ and S_out := {u1 − η ≤ u ≤ u2 + η} ∩ Σ_τ0 with 0 < η < 1 so small t
 and let ů_A, A = 3, …, N_f, be further phases in the class, eikonals of ů without caustics on Ω₂, with q̊_A = 0 and sets
 S_A whose tubes avoid neighbourhoods of the points where the lateral boundaries meet the axes. Then every datum on the
 set W_0 of [[def:class-adapted]] that satisfies the constraints and the gauge condition, lies within ε of ů's and has
-supp q_A ∩ Σ_τ0 ⊂ S_A for every A has its Einstein–null-dust development on the whole adapted domain, in the gauge D(g) =
-0 relative to the metric of ů and unique there as in [[thm:class-stability]], within C ε of ů. The datum may be
-non-round, and it carries the further families with small densities. If near the axes its ingoing phase is τ0 + a on {R =
-a} and its outgoing phase is U_b(τ0) on {R = b(τ0)}, a datum on Σ_τ0 ∩ Ω₂ suffices ([[def:class-adapted]]).
+supp q_A ∩ Σ_τ0 ⊂ S_A for every A has its Einstein–null-dust development on the whole adapted domain, in the gauge
+D(g) = 0 relative to the metric of ů and unique there as in [[thm:class-stability]], within C ε of ů. The datum may be
+non-round, and it carries the further families with small densities. If near the axes its ingoing phase is τ0 + a on
+{R = a} and its outgoing phase is U_b(τ0) on {R = b(τ0)}, a datum on Σ_τ0 ∩ Ω₂ suffices ([[def:class-adapted]]).
 
 *Proof.* v and u are double-null coordinates of ů, smooth on Ω₂ with dv, du ≠ 0 ([[prop:two-dust-background]]), so (H1)
 holds. On Σ_τ, v = τ + R, so {R = a} = {v − τ = a}; and u is constant on the spheres and strictly decreasing in R along
