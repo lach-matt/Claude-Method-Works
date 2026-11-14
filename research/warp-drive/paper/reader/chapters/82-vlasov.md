@@ -1513,30 +1513,76 @@ supp q(·, α) ∩ Σ_τ0, for every α. No smallness of the reference is assume
 for every j, uniformly in n, and by the Arzelà–Ascoli theorem and a diagonal argument a subsequence converges in C^j(Ω̄)
 for every j to a smooth metric g, invariant under T² and both reflections, with ‖g − g̊‖_(H^(m+1)) ≤ C d(D) on every
 Σ_τ. For α ∈ S¹ let u^(n)_α be the eikonal of g^(n) with the data u_D(·, α) (the future root), which exists on a
-neighbourhood of its tube D^(n)_α(S) by the proof of [[lem:vlasov-open]], g^(n) being C²-close to g̊ and u_D C¹-close to
-ů on Σ_τ0, and F^(n)_α the solution of [[eq:vlasov-amplitude]] for g^(n) with the data F_D(·, α); they are smooth in (x,
-α), with derivatives bounded uniformly in n, the rays depending smoothly on g^(n) and on the data. For α = α_A they are
-the family A of g^(n): its eikonal has the same data and solves the same equation, and its density solves div(q_A ℓ_A) =
-0, which is [[eq:vlasov-amplitude]] for (q_A/(2π/n))^(1/2) by [[eq:vlasov-dust]]. So, with h^(n)(x, α) := F^(n)_α(x)²
-du^(n)_α ⊗ du^(n)_α (zero off the tubes), Ric(g^(n)) = (2π/n) Σ_A h^(n)(·, α_A). Along the subsequence the null geodesic
-flows of g^(n) converge with their derivatives to that of g, so u^(n)_α → u_α and F^(n)_α → F_α in C¹, uniformly in α,
-where (F, u) is the field of g with the data of D; and h^(n) → h := F_α² du_α ⊗ du_α uniformly. The Riemann sum error
+neighbourhood in Ω × S¹ of the (x, α) with x in its tube D^(n)_α(S) by the proof of [[lem:vlasov-open]], g^(n) being
+C²-close to g̊ and u_D C¹-close to ů on Σ_τ0, and F^(n)_α the solution of [[eq:vlasov-amplitude]] for g^(n) with the
+data F_D(·, α), along the rays of u^(n)_α, vanishing off the tube of supp F_D(·, α); they are smooth in (x, α), with
+derivatives bounded uniformly in n, the rays depending smoothly on g^(n) and on the data. For α = α_A, u^(n)_α agrees
+on the tube 𝒯_A of int S_(α_A) with the eikonal u_A of the family A of g^(n), by the argument of the proof of
+[[lem:vlasov-open]]: both are eikonals of g^(n) there with the same data and the future branch, so they have the same
+rays from int S_(α_A), along which both are constant. The density q_A, supported in 𝒯_A, solves div(q_A g^(n)⁻¹du_A) =
+0, which is [[eq:vlasov-amplitude]] for (q_A/(2π/n))^(1/2) by [[eq:vlasov-dust]], so q_A = (2π/n) (F^(n)_(α_A))². So,
+with h^(n)(x, α) := F^(n)_α(x)² du^(n)_α ⊗ du^(n)_α (zero off the tubes), Ric(g^(n)) = (2π/n) Σ_A h^(n)(·, α_A). Along
+the subsequence the null geodesic flows of g^(n) converge with their derivatives to that of g, so u^(n)_α → u_α and
+F^(n)_α → F_α in C¹, uniformly in α, where u_α is the eikonal of g with the data u_D(·, α) on a neighbourhood of the
+(x, α) with x ∈ D_α(S), extended smoothly to Ω × S¹ by a cut-off as in [[lem:vlasov-open]], and F_α solves
+[[eq:vlasov-amplitude]] along its rays with the data F_D(·, α); and h^(n) → h := F_α² du_α ⊗ du_α uniformly. The
+Riemann sum error
 is |(2π/n) Σ_A h^(n)(x, α_A) − ∫ h^(n)(x, α) dα| ≤ Σ_A ∫_(arc A) |h^(n)(x, α_A) − h^(n)(x, α)| dα ≤ 2π (2π/n) sup |∂_α
 h^(n)| → 0, the arc A being the set of α with α_A − 2π/n ≤ α ≤ α_A. Hence Ric(g) = lim Ric(g^(n)) = ∫_(S¹) h dα = T_V:
-(g, F, u) solves the Einstein–restricted massless Vlasov system in label form. The g^(n) solve Ric^H(g^(n)) = T^(n) in
-the gauge relative to g̊ ([[thm:class-stability-off-axes]]), so g does in the limit, and its data are those of D, since
-the metric data of D_n differ from those of D by at most C n⁻² ([[prop:vlasov-scaled-correction]]).
+(g, F, u) solves the Einstein–restricted massless Vlasov system in label form, F_α vanishing off the tube of
+supp F_D(·, α), on which u_α is an eikonal. The g^(n) solve Ric^H(g^(n)) = T^(n) in the gauge relative to g̊
+([[lem:vlasov-local-stability]]), so g does in the limit, and its data are those of D, since the metric data of D_n
+differ from those of D by at most C n⁻² ([[prop:vlasov-scaled-correction]]).
 
-*Uniqueness.* Let (g_1, F_1, u_1) and (g_2, F_2, u_2) be two such solutions. For each α put p^i_α := du^i_α, Θ^i_α :=
-□5 u^i_α and q^i_α := (F^i_α)²; they solve (Aug2)–(Aug4) of [[sec:class-augmented]] with the family index replaced by α,
-and Ric(P_α, P_α) = ∫ q_β g⁻¹(p_α, p_β)² dβ in (Aug3). Steps 4–8 of the proof of [[thm:class-stability-off-axes]] at the
-order zero, applied to the difference of the two solutions, with Σ_A replaced by the integral over α and the family norms
-by (∫_(S¹) ‖·‖² dα)^(1/2), give for 𝒩̃(τ) := ‖∂(g_1 − g_2)‖ + ‖g_1 − g_2‖ + (∫ (‖δp_α‖² + ‖δΘ_α‖² + ‖δq_α‖²) dα)^(1/2)
-the inequality 𝒩̃(τ) ≤ C (𝒩̃(τ0) + ∫_(τ0)^τ 𝒩̃): the stress difference ∫ (δq_α p¹_α ⊗ p¹_α + q²_α (δp_α ⊗ p¹_α + p²_α ⊗
-δp_α)) dα, and likewise the difference of the terms Ric(P_α, P_α), is bounded in L² by C times the family part of 𝒩̃,
-by the Cauchy–Schwarz inequality on S¹; the transport estimates of Steps 5–7 hold for each α with constants uniform in α,
-the fields being smooth in α; the supports stay at distance at least δ from the axes by (V2) and [[lem:vlasov-open]],
-where ζ_α = 1. As 𝒩̃(τ0) = 0, Gronwall's lemma gives 𝒩̃ ≡ 0. ∎
+*Uniqueness.* Let (g_i, F_i, u_i), i = 1, 2, be two such solutions, q^i := F_i², and η := ε2 + ε0. By
+[[lem:vlasov-open]], for η small, the eikonal û^i_α of g_i with the data u_D(·, α) and the future branch exists, smooth
+in (x, α), on a neighbourhood of the (x, α) with x in its tube D^i_α(S), whose distance to the axes is at least δ, and
+it agrees with u^i_α, with all derivatives, where q^i(·, α) > 0; q^i(·, α) is transported along its rays and vanishes
+off the tube of supp F_D(·, α). So T^i_V = ∫ q^i(·, α) dû^i_α ⊗ dû^i_α dα, and we use û^i in place of u^i.
+
+Fix a compact S′ with supp F_D ⊂ int S′ and S′ ⊂ int S, and put 𝒱_α := D^1_α(S′_α), the tube of S′_α for û^1_α. For η
+small, 𝒱_α ⊂ D^2_α(S), and supp q^1(·, α) ∪ supp q^2(·, α) ⊂ 𝒱_α, for every α. Indeed, extend g_1, g_2 to a
+neighbourhood of Ω, C²-close to an extension of g̊, and let y^i_τ and ẙ_τ map a point x0 near S_α to the point where the
+null geodesic of g_i, respectively g̊, with the future covector over d(u_D(·, α)|Σ_τ0)(x0), respectively over
+d(ů_α|Σ_τ0)(x0), meets Σ_τ, in the coordinates (r, ϑ) of the orbit slices. By the continuous dependence of the proof of
+[[lem:vlasov-open]], ‖y^i_τ − ẙ_τ‖_(C¹) ≤ C η, uniformly in (α, τ), and by (V1) Dẙ_τ is invertible with |Dẙ_τ⁻¹| ≤ L
+and is uniformly continuous. Let y ∈ 𝒱_α ∩ Σ_τ, y = y^1_τ(x0), x0 ∈ S′_α. Fix d > 0 such that the closed d-neighbourhood
+of S′_α in the orbit slice lies in S_α and |Dẙ_τ(x) − Dẙ_τ(x0)| ≤ 1/(4L) for |x − x0| ≤ d. For η small, |Dy^2_τ(x) −
+Dẙ_τ(x0)| ≤ 1/(2L) there, so the inverse function theorem gives y^2_τ(B(x0, d)) ⊃ B(y^2_τ(x0), d/(2L)), which contains
+y once 2Cη < d/(2L). So y lies on the ray of û^2_α from a point of S_α, and that ray stays in Ω up to y, since a future
+causal curve that leaves Ω through its lateral boundary does not return ([[def:class-admissible]] (b)): y ∈ D^2_α(S).
+The same argument with the solutions exchanged, and supp F_D(·, α) ⊂ int S′_α in place of S′_α ⊂ int S_α, gives
+supp q^2(·, α) ⊂ D^2_α(supp F_D(·, α)) ⊂ 𝒱_α; and supp q^1(·, α) ⊂ D^1_α(supp F_D(·, α)) ⊂ 𝒱_α.
+
+So both û^i_α are eikonals near 𝒱_α. On 𝒱_α put p^i := dû^i_α, P^i := g_i⁻¹p^i, Θ^i := □_(g_i) û^i_α and q^i_α :=
+q^i(·, α), with differences δp_α, δΘ_α, δq_α, and let w := g_1 − g_2. On 𝒱_α, ∇_(P^i) p^i = 0 for g_i, the Raychaudhuri
+equation [[eq:class-raychaudhuri]] holds with Ric(g_i)(P^i, P^i) = ∫ q^i_β g_i⁻¹(p^i, dû^i_β)² dβ, in which dû^i_β
+enters only on supp q^i_β ⊂ 𝒱_β, and P^i(q^i_α) = −Θ^i q^i_α. Subtracting, along P^1 on 𝒱_α,
+
+    P^1(δp_(α,a)) = P^(1,b) (Γ[g_1] − Γ[g_2])^c_(ba) p^1_c + Γ[g_2]^c_(ba) (P^(1,b) p^1_c − P^(2,b) p^2_c)
+                    − (P^1 − P^2)^b ∂_b p^2_a,
+    P^1(δΘ_α) = S^1 − S^2 − (P^1 − P^2)(Θ^2),      P^1(δq_α) = −δΘ_α q^1_α − Θ^2 δq_α − (P^1 − P^2)(q^2_α),
+
+S^i the right side of [[eq:class-raychaudhuri]] for g_i. Pointwise, |P^1 − P^2| ≤ C (|w| + |δp_α|); the terms of
+S^1 − S^2 other than the Ricci terms are at most C (|w| + |∂w| + |δp_α| + |δΘ_α|), 𝒱_α lying at distance at least δ
+from the axes; and the Ricci terms differ by at most C (|w| + |δp_α|) + C ∫ (|δq_β| + 𝟙_(𝒱_β) |δp_β|) dβ. The
+constants are uniform in α, the fields being smooth in (x, α). The metrics solve Ric^H(g_i) = T^i_V, so, as in Step 4 of
+the proof of [[thm:class-stability-off-axes]], −½ g_1^(ab) ∂_a∂_b w is the sum of terms at most C (|w| + |∂w|) and of
+T^1_V − T^2_V = ∫ (δq_α p^1 ⊗ p^1 + q^2_α (δp_α ⊗ p^1 + p^2 ⊗ δp_α)) dα, whose integrand vanishes off 𝒱_α, so that its
+L² norm on Σ_τ is at most C (∫ (‖δp_α‖² + ‖δq_α‖²)_(L²(𝒱_α ∩ Σ_τ)) dα)^(1/2) by the Cauchy–Schwarz inequality on S¹.
+Put
+
+    𝒩̃(τ) := ‖∂w‖ + ‖w‖ + (∫_(S¹) (‖δp_α‖² + ‖δΘ_α‖² + ‖δq_α‖²)_(L²(𝒱_α ∩ Σ_τ)) dα)^(1/2).
+
+The energy inequality [[lem:energy]] for w, with g̊ in place of g0, and for each α the argument of
+[[lem:class-transport]] on 𝒱_α, along the future null P^1 — no flux through the part of the boundary of 𝒱_α ruled by its
+integral curves, and a nonnegative flux through the lateral boundary of Ω — with the Minkowski inequality in α, give
+𝒩̃(τ) ≤ C (𝒩̃(τ0) + ∫_(τ0)^τ 𝒩̃). The two solutions have the same Cauchy data, completed by the gauge condition as in
+the definition of D, so w = ∂w = 0 on Σ_τ0; and δp_α = δΘ_α = δq_α = 0 there, the p^i being the same roots over the
+same spatial covectors, their τ-derivatives fixed by the geodesic equation, and q^i_α = F_D(·, α)². So 𝒩̃(τ0) = 0 and,
+by Gronwall's lemma, 𝒩̃ ≡ 0: g_1 = g_2, and on 𝒱_α, q^1_α = q^2_α and dû^1_α = dû^2_α, so û^1_α = û^2_α, both being
+constant along the common rays from S′_α with the values of u_D. As both q^i_α vanish off 𝒱_α, F_1 = F_2; and u^i_α =
+û^i_α on the tube of supp F_D(·, α), the closure of the set where q^i(·, α) > 0. ∎
 
 The explicit family is built on the orbit space of Tangherlini, where the eikonal equation separates. Let μ = 1, f :=
 1 − 1/r², 𝔪 := 1/r², and let t := τ − κ(r) with κ′ = 𝔪/f be the static time on r > 1, so that g3 = −f dt² + f⁻¹dr² +
