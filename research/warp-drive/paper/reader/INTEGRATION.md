@@ -1294,3 +1294,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   enumerations in 95.
 - R3-82 NOT CONFIRMED 1M 1m 3n (reviews/R3-82.md): prop:vlasov-uniform-n weighted-norm bootstrap. F4-82 applies the fix.
   F-P-K82 told to check its uniform-in-n approximants against the repaired proposition.
+- F2-85 done (reports/F2-85.md); chapter 3 m12 text applied. Coordinator re-broke 03:296 (the last forbidden line start
+  outside excluded constructs). R3-85 reads chapter 85.

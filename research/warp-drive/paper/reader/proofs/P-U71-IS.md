@@ -2,22 +2,31 @@
 
 This section carries out, at the computational point of [[def:ec-point]], the constructions that fix the index sets of
 [[sec:uc-index-sets]], keeping the exponents. It lists the exponents of real part at most 5 of ℰ_ind
-([[prop:is-ind]]), of ℰ^ι_ind ([[prop:is-iota]]), of the least ℰ^C_I and of the least ℰ_++ ([[prop:is-ci-pp]]), with
-bounds for their logarithmic orders ([[prop:is-logs]]), and the multiplicities of the indicial roots of L̂_b(0)
-([[prop:is-mult]]): this is the statement (IS) of [[rem:uc-missing]]. From these it determines Λ ∩ {Re ≤ 3 + ε_+}
+([[prop:is-ind]]), of ℰ^ι_ind ([[prop:is-iota]]) and of the least ℰ^C_I, and those of the least ℰ_++ below 2λ_♯
+([[prop:is-ci-pp]]), with bounds for their logarithmic orders ([[prop:is-logs]]), and bounds for the multiplicities of
+the indicial roots of L̂_b(0), which are simple on the strip −101 ≤ Re ≤ 5 except possibly at non-real roots of
+modulus greater than 50 that come from the polynomials P_l of large l ([[prop:is-mult]]). This is the statement (IS) of
+[[rem:uc-missing]], which asks the multiplicities on the half-plane Re ≤ 5, save the exponents of the least ℰ_++ above
+2λ_♯; these depend on ℰ_+, and nothing below uses them ([[rem:is-summary]]). From these it determines Λ ∩ {Re ≤ 3 + ε_+}
 ([[prop:is-lambda]]); it shows that (G) holds exactly for ε_K < μ_G, where
 
     1.64160217197·10⁻¹⁴ < μ_G < 1.64160217198·10⁻¹⁴                                                   {#eq:is-mu}
 
 ([[thm:is-gap]]); and it gives 1.6206·10¹³ < N_Λ < 1.6748·10¹³, k̄_0 = 3 and J_* = 15,000,015 ([[prop:is-count]]).
-Finally it decides how far ℰ_ind can be made smaller ([[thm:is-d0]]): an admissible ℰ_ind that omits 𝔡₀ exists if and
+Finally it decides when ℰ_ind can omit 𝔡₀ ([[thm:is-d0]]): an admissible ℰ_ind that omits 𝔡₀ exists if and
 only if one explicit family of coefficients c_b vanishes at every b near b₀; c_b vanishes at b₀, at every
 non-rotating b and on the image of ad_(A(b)), and this paper does not determine it elsewhere. If c_b vanishes, (G)
-holds for every ε_K < 5.0190·10⁻⁸, so for every ε_K that [[eq:iii-i9-1-1]] allows ([[cor:is-flat]]).
+holds for every ε_K < 5.0190·10⁻⁸, so for every ε_K that [[eq:iii-i9-1-1]] allows ([[cor:is-flat]]). Whether an
+admissible ℰ_ind can omit 𝔡₁ is not decided either. Neither question enters an upper bound for the loss d: the index
+sets as constructed serve with every ε_K < μ_G, and the two questions decide only whether smaller index sets, with a
+larger ε_K, are available.
 
-Throughout, z = 4·10⁻⁶ = 1/250000, h = 10⁻⁶, λ_♯ = 15099/10000, and ε_+ < δ̄ = 1.94137057·10⁻⁸ ([[def:ec-point]],
-[[eq:iii-i9-1-1]]). An index set *as constructed* is the one that the lemma cited in the construction returns when its
-rule is applied as stated; for [[lem:iii-a-1-4]] this is the set E = ⋃_k E_k there, and for [[lem:iii-a-1-5]] the set E
+Throughout, z = 4·10⁻⁶ = 1/250000, h = 10⁻⁶, λ_♯ = 15099/10000 (an exponent at ι⁺, not the wavelength), and
+ε_+ < δ̄ = 1.94137057·10⁻⁸ ([[def:ec-point]], [[eq:iii-i9-1-1]]). An index set *as constructed* is the one that the
+lemma cited in the construction returns when its rule is applied as stated, with F the index set of the terms of the
+right side, computed from the constructions that those terms come from (the proofs of [[prop:iii-d2-3-1]] and
+[[prop:iii-d3-3-1]] record the right sides through ℰ_ind itself, for the boosts as (1, 0) ∪ (1 + ℰ_ind), which names the
+set being built); for [[lem:iii-a-1-4]] this is the set E = ⋃_k E_k there, and for [[lem:iii-a-1-5]] the set E
 there. An index set containing it serves in every membership that the construction asserts. For an index set X and
 w ∈ ℂ we write k(X, w) for the logarithmic order of X at w, and ℓ̂_X(w) := k(X, w) + 1 if w ∈ π_1X, ℓ̂_X(w) := 0
 otherwise.
@@ -54,7 +63,8 @@ meromorphic ((E2) of [[sec:iii-a-1-1]]), commute with the projections onto the t
 the only roots are 2 + 𝔡₀ and 2 + 𝔡₁, and 𝔡₁ < 𝔡₀ ([[eq:iii-d-4-2]]). By [[eq:s14-theta]],
 d₂(l) = z(u − 1)(1 + θ₂)/(2u(2u − 1)) and d₁(l) = z(u + 1)(1 + θ₁)/(2u(2u + 1)) with |θ₁|, |θ₂| ≤ z, and
 (u + 1)/(2u(2u + 1)) ≤ 3/20 at u ≥ 2, so d₁(l) ≤ (3z/20)(1 + z) < 6.1·10⁻⁷ < 𝔡₀ by [[lem:is-offsets]], d₁(1) = δ′₁
-being the largest, as (u + 1)/(u(2u + 1)) decreases; d₂ < d₁ is [[prop:np-10-52]] (i).
+being the largest, as (u + 1)/(u(2u + 1)) ≤ 4/21 < (3/10)(1 − z)/(1 + z) for u ≥ 3 and |θ₁| ≤ z; d₂ < d₁ is
+[[prop:np-10-52]] (i).
 
 (c) A scalar harmonic of degree l is the restriction of a homogeneous harmonic polynomial of degree l, so S(−ω) =
 (−1)^l S(ω); in the splitting (a S dx̄⁰ + b S dx̄¹ + c r d_𝕊S), dx̄⁰ and dx̄¹ are invariant, as t̄ and r are, and

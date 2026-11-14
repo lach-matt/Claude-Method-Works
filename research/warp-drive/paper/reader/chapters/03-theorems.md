@@ -292,8 +292,8 @@ that for λ ≤ λ1:
 
 (i) (in the class) the data of g_λ on Hintz's initial surface Σ^IVP within {r ≤ R}, continued G-equivariantly to
 exact Tangherlini data on {r ≥ 4R} ([[prop:vii-2-2]], [[cor:vii-2-3]]), have a G-invariant vacuum development, with
-the same data as g_λ on Σ^IVP ∩ {r ≤ R}, which settles to five-dimensional Tangherlini of a mass m′ with
-|m′ − μ_end| < ε_m: its difference from that metric is O(t*^(−2−ε)) in spatially compact subsets of the exterior;
+the same data as g_λ on Σ^IVP ∩ {r ≤ R}, which settles to five-dimensional Tangherlini of a mass m′
+with |m′ − μ_end| < ε_m: its difference from that metric is O(t*^(−2−ε)) in spatially compact subsets of the exterior;
 
 (ii) (without symmetry) every smooth vacuum data set on Σ^IVP whose difference from the data of (i) lies in Hintz's
 data class — polyhomogeneous at spatial infinity, with terms of orders r^(−2) and r^(−3) in the metric and r^(−3) and
