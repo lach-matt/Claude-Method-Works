@@ -271,24 +271,27 @@ ladder, since ι is non-real or a real number more than 2.93·10⁻⁶ from ℤ,
 1.34·10⁻⁶ of ℤ ([[lem:is-roots]] (b): the exponents of the s1 and v1 towers and of h_(b,(0)) are integers plus at most
 one of 𝔡₀, d₂(l), d₁(l)). As every root of L̂_b(0) of positive real part has real part greater than 1
 ([[prop:iii-f1-2-3]] (a)), the terms of E(α) on their ladder lie at w and w − 1 only, with ℓ̂_(E(α)) at most the
-largest order of a pole of N(L̂_b(0), ·)⁻¹ at w or w − 1, resp. at w − 1. These poles are simple when w is real or
-|w| ≤ 50, since |w − 1| < |w| for Re w > 1, and of order at most 3 otherwise ([[prop:is-mult]]). So the order at
-ι + 1 + j is at most 1 when ι is real or |ι + j − 1| ≤ 50, and at most 2·3 − 1 = 5 in every case. ∎
+largest order of a pole of N(L̂_b(0), ·)⁻¹ at w or w − 1, resp. at w − 1. These poles are simple when w is real
+or when |w| ≤ 50, since |w − 1| < |w| for Re w > 1, and of order at most 3 otherwise ([[prop:is-mult]]). So the order
+at ι + 1 + j is at most 1 when ι is real or |ι + j − 1| ≤ 50, and at most 2·3 − 1 = 5 in every case. ∎
 
 #### The other index sets {#sec:is-others}
 
 **Proposition {#prop:is-iota}** (The exponents of ℰ^ι_ind.) Let Z be the set of the roots ι of C (with ι > 2), of
 P_l (l ≥ 1, Re ι > 19/10, ι ≠ 2) and of p_(v) (l ≥ 2, the larger root) of [[prop:np-10-12]] at (v, e, h) =
-(1/2, 1/102400, 10⁻⁶). The exponents of ℰ^ι_ind of real part at most 5, as constructed, are those of ℰ_ind except
-𝔡₀ + d₁(3) + 4 and 𝔡₁ + d₁(3) + 4 (from the class μ_(3,1), which no row of [[def:iii-g2-table-1-1]] uses), together
+(1/2, 1/102400, 10⁻⁶). The exponents of ℰ^ι_ind of real part at most 5, as constructed, are those of ℰ_ind, together
 with the integers 1, …, 5 and the numbers ι + 1 + j of real part at most 5 (ι ∈ Z, j ∈ ℕ₀). Every ι ∈ Z has real
-part greater than 2; no ι ∈ Z of real part at most 6 is an integer, and every real one has distance from ℤ greater
-than 2.93·10⁻⁶. At b₀ the physical states have types s2, v2 and t2 only, and the numbers ι + 1
+part greater than 2; no ι ∈ Z of real part at most 6 is an integer, and every real one of real part at most 6 has
+distance from ℤ greater than 2.93·10⁻⁶. At b₀ the physical states have types s2, v2 and t2 only, and the numbers ι + 1
 that they meet are those of the three roots of P₂ in (2 + 2.93h, 2 + 2.94h), (2 + 8h, a(8h)) and (a(8h), 3 − δ_C) of
-[[lem:s14-sextic-small]] (b), and of the root (250002000009)^(1/2) − 499999 = 3.0000090… of p_(v) at l = 2.
+[[lem:s14-sextic-small]] (b), and of the root (250002000009)^(1/2) − 499999 = 3.00000499998… of p_(v) at l = 2.
 
 *Proof.* The states entering [[thm:iii-g2-4-2]] are those of [[def:iii-g2-table-1-1]] and the s1 and v1 terms; their
-index sets are those of [[sec:is-ind]], except the rows outside the window (μ_(3,1) − 1 + … below −3). The physical
+index sets are those of [[sec:is-ind]] except the classes μ_(3,1), 1 − l at l = 5 and −l at l = 4, which no row uses.
+These add no exponent of real part at most 5. By the proof of [[prop:is-ind]] their offsets are positive integers and
+the elements of (R − m) + ℕ₀, with m = −2 − d₁(3) for μ_(3,1) and m = −2 for the two integer classes. For
+m = −2 − d₁(3) those of real part at most 5 are 5 + d₁(3) and 4 + 𝔡_i + d₁(3) (i = 0, 1), which the first steps at
+m = 2, 1 − 𝔡₀ and 1 − 𝔡₁ give with r = 5 + d₁(3) ∈ R; for m = −2 the set is R + 2 + ℕ₀ ⊂ (R − 2) + ℕ₀. The physical
 states add, relative to −2, the integer offsets and the numbers r + 2 for the roots r of L̂_b(0) of positive real part
 at most 3 ([[prop:iii-f4-5-1]], Step 3), with their translates; by [[prop:iii-f1-2-3]] these are 2, 3 and the
 ι^C_(·,+) − 1 = ι − 1, ι ∈ Z, each of real part greater than 1 ([[prop:iii-f1-2-3]] (b)). By [[prop:np-10-54]] (ii)
