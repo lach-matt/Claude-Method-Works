@@ -1108,23 +1108,30 @@ H^s(S³) and take norms in r on (a, b1). The norm of 𝒴_(2m) bounds α in L^�
 Solving 𝔉(U) = 0 for ∂_r α = G_α(x, 𝔍) and ∂_r w = G_w(x, 𝔍), 𝔍 := (α, ∇α, ∇²α, w, ∇w), as in the proof of
 [[thm:vlasov-n-data]], and differentiating in r, we show by induction on i ≥ 1 that ∂_r^i α is bounded in
 L^∞X^(2m+1−2i) ∩ L²X^(2m+2−2i) and ∂_r^i w in L^∞X^(2m+1−2i) ∩ L²X^(2m+1−2i), for i ≤ m + 1 (the L^∞ bounds for
-i ≤ m). ∂_r^i α = ∂_r^(i−1) G_α and ∂_r^i w = ∂_r^(i−1) G_w are sums of products of a smooth function of (x, α, ∇α, w)
-with factors ∂_r^(i_s) ∇^(m_s) Y_s, Y_s ∈ {α, w}, m_s ≤ 2 for α and m_s ≤ 1 for w, with Σ_s i_s ≤ i − 1. At most one
-factor has i_s > (i − 1)/2; by the induction it lies in L^∞X^(2m+1−2i) and, for the L² bounds, in L²X^(2m+2−2i) for α
-with m_s = 2 and in L²X^(2m+1−2i) otherwise. The others have i_s ≤ (i − 1)/2 and lie in L^∞X^(2m−i), with
-2m − i ≥ 2m + 1 − 2i and 2m − i ≥ m − 1 ≥ 2; and X^s · X^t ⊂ X^t for s ≥ t ≥ 0, s ≥ 2. Since 2m + 2 − 2i ≥ m + 1 − i
+i ≤ m); we use that X^s · X^t ⊂ X^t for s ≥ t ≥ 0, s ≥ 2. For i = 1 this holds since ∇²α lies in L^∞X^(2m−1) ∩
+L²X^(2m), ∇w in L^∞X^(2m−1), and α, ∇α, w, with the coefficients, in L^∞X^(2m). For i ≥ 2, ∂_r^i α = ∂_r^(i−1) G_α
+and ∂_r^i w = ∂_r^(i−1) G_w are sums of products of a smooth function of (x, α, ∇α, w) with factors ∂_r^(i_s) ∇^(m_s)
+Y_s, Y_s ∈ {α, w}, m_s ≤ 2 for α and m_s ≤ 1 for w, with Σ_s i_s ≤ i − 1. At most one factor has i_s > (i − 1)/2; by
+the induction it lies in L^∞X^(2m+1−2i) and in L²X^(2m+2−2i). The others have i_s ≤ (i − 1)/2 and lie in
+L^∞X^(2m−i), and 2m − i ≥ 2m + 2 − 2i, 2m − i ≥ m − 1 ≥ 2; the function lies in L^∞X^(2m). Since 2m + 2 − 2i ≥ m + 1 − i
 and 2m + 1 − 2i ≥ m − i for i ≤ m + 1, and α ∈ L²X^(2m+2), w ∈ L^∞X^(2m), every derivative ∂_r^i ∂_ω^l of order at
 most m + 1 of α, and m of w, is square integrable on the slice. So the metric data of D_n differ from those of g by at
 most C d(D) + C_k n^(−k) in H^(m+1) × H^m, and the families' data from the sampled continuum's by C d(D), with the
 weight 2π/n, on 𝒱̊_A ∩ Σ_τ0 for the sets 𝒱̊_A below.
 
 *Evolution.* Take as reference the sampled continuum ů: the metric g, in the gauge relative to g itself, with the
-families (ů_A, q̊_A) := (u_(α_A), (2π/n) q(·, α_A)), the sets S_A := S_(α_A), whose tubes lie at distance at least 2δ
-from the axes by (V2), and Ω, admissible for g by (Ω). It solves (Aug2) and (Aug4) exactly, since each involves only g
-and its own family, and (Aug1) and (Aug3) up to the residual E_n, which enters the first as a matter term and the second
-through E_n(P̊_A, P̊_A), the Ricci term of the Raychaudhuri equation being Ric(P_A, P_A). Steps 1–8 of the proof of
-[[thm:class-stability-off-axes]] apply to the difference between the solution of the augmented system with the datum D_n
-and ů, with these changes. (1) The family norms of [[eq:class-energy]] are weighted: Σ_A is replaced by the ℓ² sum
+families (ů_A, q̊_A) := (u_(α_A), (2π/n) q(·, α_A)), the sets S_A := S_(α_A), whose tubes 𝒯̊_A = D_(α_A)(S) lie at
+distance at least 2δ from the axes by (V2), and Ω, admissible for g by (Ω). The neighbourhood 𝒲 of (V1) contains the
+compact 𝒟(S) and is open in Ω × S¹, so it contains the set of the (x, α) at distance less than some ρ1 > 0 from 𝒟(S);
+fix a G-invariant ζ′ smooth on Ω × S¹, 0 ≤ ζ′ ≤ 1, equal to 1 on a neighbourhood of 𝒟(S) and to 0 at distance at least
+ρ1/2 from it, with ρ1 ≤ δ, and put 𝒱̊_A := {x : (x, α_A) is at distance less than ρ1 from 𝒟(S)} and ζ′_A := ζ′(·, α_A).
+Then ů satisfies (H1′) and (H2′) of [[lem:vlasov-local-stability]], q(·, α) vanishing off D_α ⊂ D_α(S) and being
+conserved ([[def:vlasov-label]]), except that Ric(g) = T_V = Σ_A q̊_A dů_A ⊗ dů_A + E_n; and ζ′_A is a cut-off for that
+lemma. So ů solves [[eq:vlasov-localised]] up to the residual ζ′_A E_n(P̊_A, P̊_A) in its second equation, the Ricci
+term of the Raychaudhuri equation being Ric(P̊_A, P̊_A) = T_V(P̊_A, P̊_A), and (Aug1) up to the matter term E_n. Parts
+(ii) and (iii) of the proof of [[lem:vlasov-local-stability]] apply to the difference between the solution of (Aug1)
+and [[eq:vlasov-localised]] with the datum D_n, its family data cut off as in (i) there, and ů, with these changes.
+(1) The family norms of [[eq:class-energy]] are weighted: Σ_A is replaced by the ℓ² sum
 ((2π/n) Σ_A ‖·‖²)^(1/2) of the norms of (δp_A, δΘ_A, ς_A), ς_A := q_A/(2π/n) − q̄_A, q̄_A := q(·, α_A). (2) The matter
 term of the metric equation for the difference, T := Σ_A q_A p_A ⊗ p_A minus Ric(g) = T_V, is exactly
 
