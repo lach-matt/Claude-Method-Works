@@ -247,27 +247,33 @@ of (c1) or (c4) at most ⌊t⌋ ≤ 4, by the count in (a). (c2): j² + 3j − 1
 non-integer exponent 1 + t of (c2), t ≤ 5, the ladder carries terms of F at the at most ⌊t⌋ + 1 points 1 + t − i with
 t − i ≥ 0, each with ℓ̂_F ≤ ⌊t − i⌋ + 1 by the bound k ≤ ⌊t⌋ of (c1), and at most ⌊t⌋ terms of E(α); so the order is at
 most (⌊t⌋ + 1)(⌊t⌋ + 2)/2 + ⌊t⌋ − 1 ≤ 18. At a non-integer exponent 1 + t of (c3) only terms of E(α) enter, at most
-⌊t⌋, so the order is at most 3. The first steps of the classes, (4)–(7): at most 31. The s1 tower: the step k = 2 inherits from the boost at offsets t − 2 ≤ 3, of order
-at most 17, and from the translation at t − 4 ≤ 1, so it has order at most 24; then 31 and 38. The s0 tower: the first
-step has order at most 11 at offsets ≤ 3, which the step k = 2 inherits at t − 2, so 18, 25, 32. The v1 tower: the
-rotation correction at offsets ≤ 2 has order at most 4, inherited at t − 3, so 11, 18, 25. The class companions inherit
-the first step at offsets ≤ 3 (at most 11), so at most 18, 25, 32. All are at most 39.
+⌊t⌋, so the order is at most 3. The first steps of the classes, (4)–(7): at most 31. The s1 tower: the step k = 2
+inherits from the boost at offsets t − 2 ≤ 3, of order at most 17, and from the translation at t − 4 ≤ 1, so it has
+order at most 24; then 31 and 38. The s0 tower: the first step has order at most 11 at offsets ≤ 3, which the step
+k = 2 inherits at t − 2, so 18, 25, 32. The v1 tower: the rotation correction at offsets ≤ 2 has order at most 4,
+inherited at t − 3, so 11, 18, 25. The class companions inherit the first step at offsets ≤ 3 (at most 11), so at most
+18, 25, 32. All are at most 39.
 
 (c) ℰ^ι_ind collects the index sets of the states of [[ch:s13]] and [[ch:s15]], 2 + ℕ₀ and (2, 1) ([[thm:iii-g2-4-2]]).
 The states of [[ch:s13]] and ġ^Υ_b are the constructions above. The physical states of [[prop:iii-f4-5-1]], relative to
 −2: h^(−2)_b − χh̄ has the offsets 1 (from (−1, 0), order 0) and 1 + (offsets of h̆²_(b,s1), h̆¹_(b,v1)), each at least
-2; h′_(b,1) from (0, 0) by [[lem:iii-a-1-5]] (order at most 3 at offsets ≤ 5, the roots of L̂_b(0) on [0, 3] being 0,
-2, 3); h_(b,(0)) from the exponent 0 of order k₀ ≤ 2 (the order of h̆²_(b,s1) and h̆¹_(b,v1) at the exponent 0, which
+2; h′_(b,1) from (0, 0) by [[lem:iii-a-1-5]] (order at most 3 at offsets ≤ 5, the integer roots of L̂_b(0) in [0, 3]
+being 0, 2, 3, each simple ([[prop:is-mult]]), and a ladder from 0 meeting no other root); h_(b,(0)) from the exponent 0 of order k₀ ≤ 2 (the order of h̆²_(b,s1) and h̆¹_(b,v1) at the exponent 0, which
 comes from the first step of the s1 and v1 towers at offset 1, at most 2), so of order at most 5; and u_b, by
 [[lem:iii-a-1-4]] with E(α) the roots of L̂_b(0) of positive real part and F the exponents of positive real part of the
-other terms. At an exponent w of real part at most 3 at most three terms w, w − 1, w − 2 of positive real part enter
-[[eq:is-l1]], each of F of order at most 15 (h̆²_(b,s1) at offsets ≤ 4: the boost at offsets ≤ 2, order 9, and the
-step k = 2 of the s1 tower at offsets ≤ 4, order at most 9 + 6) and of E(α) of order 0; so u_b has order at most
-3·16 + 3 − 1 = 50. At real part at most 3/2 (relative to −2: offsets ≤ 3/2) only the offset 1, of order 0, occurs. The
-exponents ι + 1 of [[prop:is-iota]] carry no term of F on their ladder, since ι is non-real or a real number more than
-2.93·10⁻⁶ from ℤ, while every exponent of F is real and within 1.34·10⁻⁶ of ℤ ([[lem:is-roots]] (b): the exponents of
-the s1 and v1 towers and of h_(b,(0)) are integers plus at most one of 𝔡₀, d₂(l), d₁(l)); and at most two terms of E(α)
-of real part greater than 1 lie on their ladder below real part 3, so their order is at most 1. ∎
+other terms. At an exponent w of u_b of real part at most 3 at most three terms w, w − 1, w − 2 of positive real part
+enter [[eq:is-l1]]. At a real w each term of F has order at most 15 (h̆²_(b,s1) at offsets ≤ 4: the boost at offsets
+≤ 2, order 9, and the step k = 2 of the s1 tower at offsets ≤ 4, order at most 9 + 6), and each term of E(α) order 0,
+as the real roots of L̂_b(0) of real part at most 3 are simple ([[prop:is-mult]]); so u_b has order at most
+3·16 + 3 − 1 = 50 there. At real part at most 3/2 (relative to −2: offsets ≤ 3/2) only the offset 1, of order 0,
+occurs. The exponents ι + 1 + j of [[prop:is-iota]], that is w = ι − 1 + j for u_b, carry no term of F on their
+ladder, since ι is non-real or a real number more than 2.93·10⁻⁶ from ℤ, while every exponent of F is real and within
+1.34·10⁻⁶ of ℤ ([[lem:is-roots]] (b): the exponents of the s1 and v1 towers and of h_(b,(0)) are integers plus at most
+one of 𝔡₀, d₂(l), d₁(l)). As every root of L̂_b(0) of positive real part has real part greater than 1
+([[prop:iii-f1-2-3]] (a)), the terms of E(α) on their ladder lie at w and w − 1 only, with ℓ̂_(E(α)) at most the
+largest order of a pole of N(L̂_b(0), ·)⁻¹ at w or w − 1, resp. at w − 1. These poles are simple when w is real or
+|w| ≤ 50, since |w − 1| < |w| for Re w > 1, and of order at most 3 otherwise ([[prop:is-mult]]). So the order at
+ι + 1 + j is at most 1 when ι is real or |ι + j − 1| ≤ 50, and at most 2·3 − 1 = 5 in every case. ∎
 
 #### The other index sets {#sec:is-others}
 
