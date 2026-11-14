@@ -1535,11 +1535,11 @@ F^(n)_α → F_α in C¹, uniformly in α, where u_α is the eikonal of g with t
 (x, α) with x ∈ D_α(S), extended smoothly to Ω × S¹ by a cut-off as in [[lem:vlasov-open]], and F_α solves
 [[eq:vlasov-amplitude]] along its rays with the data F_D(·, α); and h^(n) → h := F_α² du_α ⊗ du_α uniformly. The
 Riemann sum error is |(2π/n) Σ_A h^(n)(x, α_A) − ∫ h^(n)(x, α) dα| ≤ Σ_A ∫_(arc A) |h^(n)(x, α_A) − h^(n)(x, α)| dα ≤
-2π (2π/n) sup |∂_α h^(n)| → 0, the arc A being the set of α with α_A − 2π/n ≤ α ≤ α_A. Hence Ric(g) = lim Ric(g^(n))
-= ∫_(S¹) h dα = T_V: (g, F, u) solves the Einstein–restricted massless Vlasov system in label form, F_α vanishing off
-the tube of supp F_D(·, α), on which u_α is an eikonal. The g^(n) solve Ric^H(g^(n)) = T^(n) in the gauge relative to g̊
-([[lem:vlasov-local-stability]]), so g does in the limit, and its data are those of D, since the metric data of D_n
-differ from those of D by at most C n⁻² ([[prop:vlasov-scaled-correction]]).
+2π (2π/n) sup |∂_α h^(n)| → 0, the arc A being the set of α with α_A − 2π/n ≤ α ≤ α_A. Hence Ric(g), the limit of
+Ric(g^(n)), is ∫_(S¹) h dα = T_V: (g, F, u) solves the Einstein–restricted massless Vlasov system in label form, F_α
+vanishing off the tube of supp F_D(·, α), on which u_α is an eikonal. The g^(n) solve Ric^H(g^(n)) = T^(n) in the gauge
+relative to g̊ ([[lem:vlasov-local-stability]]), so g does in the limit, and its data are those of D, since the metric
+data of D_n differ from those of D by at most C n⁻² ([[prop:vlasov-scaled-correction]]).
 
 *Uniqueness.* Let (g_i, F_i, u_i), i = 1, 2, be two such solutions, q^i := F_i², and η := ε2 + ε0. By
 [[lem:vlasov-open]], for η small, the eikonal û^i_α of g_i with the data u_D(·, α) and the future branch exists, smooth
