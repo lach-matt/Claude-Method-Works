@@ -425,9 +425,9 @@ vanishes for x ∉ (−5/4, 5/4)ⁿ, c contains the factor θ̃(x)g_β(κ(x), ·
 φ_α⁻¹(supp θ̃) ∩ φ_β⁻¹([−5/4, 5/4]ⁿ); so c vanishes identically, and with it the σ and ρ below, unless β ∈ A_α. (In
 other words, θ̃_α is supported in φ_α⁻¹(supp θ̃), and O^ε_β(g)f in φ_β⁻¹([−5/4, 5/4]ⁿ) by left quantization.) Then
 [[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α as its terms of index γ have the pointwise
-order 𝗆_α − |γ|, and ρ := ρ_J, of order at most N_0 − J + ½ < −2N_0. So,
-for every order 𝗍 with values in [−N_0, N_0], Op(σ) maps H^(𝗍_α) to H^(𝗍_α−𝗆_α) by [[lem:fwd-local]], as σ vanishes
-for x ∉ [−7/4, 7/4]ⁿ, and Op(ρ) maps H^(−N_0) to H^(N_0) by [[lem:fwd-crude]]; both uniformly in (α, β).
+order 𝗆_α − |γ|, and ρ := ρ_J, of order at most N_0 − J + ½ < −2N_0. So, for every order 𝗍 with values in
+[−N_0, N_0], Op(σ) maps H^(𝗍_α) to H^(𝗍_α−𝗆_α) by [[lem:fwd-local]], as σ vanishes for x ∉ [−7/4, 7/4]ⁿ, and Op(ρ)
+maps H^(−N_0) to H^(N_0) by [[lem:fwd-crude]]; both uniformly in (α, β).
 
 *The first bound.* Let u := Σ_α φ_α^*v_α, first with finitely many v_α ≠ 0, and λ_0 := ρ_∞^(−𝗋), so that
 Λ = Op(λ_0). By the integer bound at −N_0, ‖u‖²_(−N_0) ≤ C Σ_α ‖v_α‖²_(H^(−N_0)) ≤ C Σ_α ‖v_α‖²_(H^(𝗋_α)), and by

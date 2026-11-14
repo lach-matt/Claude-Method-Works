@@ -689,7 +689,7 @@ of |I′|, |I″| is at most ⌊j/2⌋,
 
     (P1) ‖f · g‖_(j) ≤ C ‖f‖_(j),∞ ‖g‖_(j);      (P2) ‖f · g‖_(j) ≤ C (‖f‖_(⌊j/2⌋),∞ ‖g‖_(j) + ‖f‖_(j) ‖g‖_(⌊j/2⌋),∞).
 
-*Classes of coefficients.* Fix smooth functions φ_1, …, φ_(n_φ) on Σ with nonzero differentials (the phases;
+*Classes of coefficients.* Fix smooth functions φ_1, …, φ_(n_φ) on Σ (the phases;
 n_φ = 0 is allowed) and a closed ball 𝔅 ⊂ ℝ^d centred at 0. A *profile function* is a smooth function
 h(x, θ_1, …, θ_(n_φ), λ, y) on Σ × T^(n_φ) × [0, 1] × 𝔅, and [h](x, y) := h(x, φ_1(x)/λ, …, φ_(n_φ)(x)/λ, λ, y). By
 the chain rule 𝓛_i [h] = [X_i h] + λ⁻¹ Σ_B X_i(φ_B) [∂_(θ_B) h] and ∂_r [h] = [∂_r h] + λ⁻¹ Σ_B ∂_r φ_B [∂_(θ_B) h], so
@@ -767,10 +767,10 @@ the solution exists, is unique and smooth, and
 
     ‖U‖_(𝒴_k(a,r)) ≤ C (∫_a^r ‖F‖²_(k) dr′)^(1/2),      a ≤ r ≤ b1.                     {#eq:vlasov-scaled-bound}
 
-Moreover, for every k′ > k there is K′, depending on k′, λ, the class bounds and upper bounds for ‖V‖_(𝒴_(k′−1)),
+Moreover, for every k′ > k there is C_t′, depending on k′, λ, the class bounds and upper bounds for ‖V‖_(𝒴_(k′−1)),
 ∫_a^(b1) ‖F‖²_(k) dr and sup_([a,b1]) ‖F‖_(4), such that
 
-    ‖U‖²_(𝒴_(k′)(a,r)) ≤ K′ (∫_a^r ‖F‖²_(k′) dr′ + ∫_a^r ‖V‖²_(𝒴_(k′)(a,r′)) dr′).   {#eq:vlasov-scaled-tame}
+    ‖U‖²_(𝒴_(k′)(a,r)) ≤ C_t′ (∫_a^r ‖F‖²_(k′) dr′ + ∫_a^r ‖V‖²_(𝒴_(k′)(a,r′)) dr′).   {#eq:vlasov-scaled-tame}
 
 *Proof.* *Existence.* Put S0 := 𝒮(α_V) A0(α_V) and S^C := S0 B^C = 𝒮(α_V) A^C(α_V). With A0 replaced by the identity,
 A^B by B^B and the symmetrizer 𝒮 by S0, [[eq:vlasov-scaled-linear]] is a system of the form [[eq:data-linear]] (the
@@ -780,7 +780,7 @@ since |α_V| ≤ C λ⁻¹ ‖α_V‖_(k;1) ≤ C η1 λ² ≤ η0 by (N2) for �
 angles; the equations, solved for ∂_r α and ∂_r w, give its r-derivatives. So the identities below hold, every pairing
 being absolutely continuous in r.
 
-*Step 1: the coefficients.* Let c be one of Q := P(α_V)/p(α_V), 1/p(α_V), B^C, S0, S^C (the principal ones; of class 𝔓
+*Step 1: the coefficients.* Let c be one of P̂ := P(α_V)/p(α_V), 1/p(α_V), B^C, S0, S^C (the principal ones; of class 𝔓
 in (x, α), evaluated at α_V) or f̂(α_V, w_V), b/p(α_V), c/p(α_V), e/p(α_V), f′, c″, c′ (the others). By the chain rule,
 𝓛^I [c̃(x, Y)] for Y = α_V or Y = (α_V, w_V) is the sum, over the partitions of the letters of I into a word I_0 and
 nonempty words J_1, …, J_l (l ≥ 0), each keeping the order of I, of (𝓛^(I_0) ∂_y^l c̃)(x, Y)[𝓛^(J_1) Y, …, 𝓛^(J_l) Y]:
@@ -792,7 +792,7 @@ and I ≠ ∅ (a term with I_0 ≠ ∅ carries λ^|I_0| |𝓛^(I_0) c̃| ≤ C �
 0 for |I| ≤ k − 2; and ‖c_I^♯‖ ≤ C_0 η1 λ³, since a term of c_I^♯ has exactly one factor of order at least k − 1 (two
 such would have total order 2k − 2 > k), taken in L², the others being bounded. Also |∇c| ≤ C_0 for c principal, as
 ∇[c̃(x, α_V)] = (∇_x c̃) + (∂_y c̃) ∇α_V with |∇_x c̃| ≤ C by (C0) and (K2) and |∇α_V| ≤ C η1 λ; and |∂_r S0| ≤ C_0 (1 +
-μ), μ := C_S λ⁻² ‖∂_r α_V‖_(2), with ∫_a^(b1) μ² ≤ C η1² λ² ≤ 1, as ∂_r c̃ is of class 𝔏.
+μ_V), μ_V := C_S λ⁻² ‖∂_r α_V‖_(2), with ∫_a^(b1) μ_V² ≤ C η1² λ² ≤ 1, as ∂_r c̃ is of class 𝔏.
 
 *Step 2: products and commutators.* For c as in Step 1 and Z a function or section, by (K4):
 
@@ -804,22 +804,22 @@ of ‖Z‖_(j); a term with c^♯ has |I″| ≤ 1 and is at most ‖c^♯‖ su
 (N1). For (R2), the terms with c^♭ and I′ ≠ ∅ are at most C_0 λ ‖λ^|I″| 𝓛^(I″) Z‖ with |I″| ≤ |I| − 1, and the terms
 with c^♯ occur only for |I| ≥ k − 1 ≥ 5 and are at most C η1 λ ‖Z‖_(3) ≤ C λ ‖Z‖_(|I|−1).
 
-*Step 3: the parabolic energy.* Dividing the first equation by p(α_V), ∂_r α = Q^(AB) ∇_A ∇_B α + R_ρ with R_ρ :=
+*Step 3: the parabolic energy.* Dividing the first equation by p(α_V), ∂_r α = P̂^(AB) ∇_A ∇_B α + R_ρ with R_ρ :=
 p(α_V)⁻¹ (F_ρ − b·∇α − c α − e·w). For |I| ≤ k, by (K1),
 
-    ∂_r 𝓛^I α = Q^(AB) ∇_A ∇_B 𝓛^I α + 𝒦_I + 𝓛^I R_ρ,      𝒦_I := Σ_(I′≠∅) (𝓛^(I′) Q)^(AB) ∇_A ∇_B 𝓛^(I″) α.
+    ∂_r 𝓛^I α = P̂^(AB) ∇_A ∇_B 𝓛^I α + 𝒦_I + 𝓛^I R_ρ,      𝒦_I := Σ_(I′≠∅) (𝓛^(I′) P̂)^(AB) ∇_A ∇_B 𝓛^(I″) α.
 
 Put e_I := λ^(2|I|) (‖𝓛^I α‖² + ‖∇𝓛^I α‖²) and g_I := λ^(2|I|) ‖∇²𝓛^I α‖². Integrating by parts on S³, d/dr ½
-(‖f‖² + ‖∇f‖²) = ⟨f − Δf, ∂_r f⟩. For a symmetric (2,0)-tensor Q with Q(ζ, ζ) ≥ δ |ζ|² and |Q| + |∇Q| ≤ M,
+(‖f‖² + ‖∇f‖²) = ⟨f − Δf, ∂_r f⟩. For a symmetric (2,0)-tensor P̂ with P̂(ζ, ζ) ≥ δ_P |ζ|² and |P̂| + |∇P̂| ≤ M,
 
-    ⟨Δf, Q^(AB) ∇_A ∇_B f⟩ ≥ δ ‖∇²f‖² − C_M (‖∇f‖ ‖∇²f‖ + ‖∇f‖²):                                   {#eq:vlasov-elliptic}
+    ⟨Δf, P̂^(AB) ∇_A ∇_B f⟩ ≥ δ_P ‖∇²f‖² − C_M (‖∇f‖ ‖∇²f‖ + ‖∇f‖²):                                   {#eq:vlasov-elliptic}
 
-integrating by parts twice, ⟨Δf, Q^(AB) ∇_A ∇_B f⟩ = −∫ ∇^C f (∇_C Q^(AB)) ∇_A ∇_B f − ∫ ∇^C f Q^(AB) ∇_C ∇_A ∇_B f, and
-∇_C ∇_A ∇_B f = ∇_A ∇_B ∇_C f + (curvature of the round S³) · ∇f, while −∫ ∇^C f Q^(AB) ∇_A ∇_B ∇_C f = ∫ Q^(AB) ∇_A ∇^C
-f ∇_B ∇_C f + ∫ (∇_A Q^(AB)) ∇^C f ∇_B ∇_C f ≥ δ ‖∇²f‖² − M ‖∇f‖ ‖∇²f‖. Here Q ≥ δ := δ_e/sup p and |Q| + |∇Q| ≤ C_0 by
-Step 1. With f := 𝓛^I α, using |⟨f, Q·∇²f⟩| ≤ C_0 ‖f‖ ‖∇²f‖ and ‖f − Δf‖ ≤ ‖f‖ + √3 ‖∇²f‖,
+integrating by parts twice, ⟨Δf, P̂^(AB) ∇_A ∇_B f⟩ = −∫ ∇^C f (∇_C P̂^(AB)) ∇_A ∇_B f − ∫ ∇^C f P̂^(AB) ∇_C ∇_A ∇_B f, and
+∇_C ∇_A ∇_B f = ∇_A ∇_B ∇_C f + (curvature of the round S³) · ∇f, while −∫ ∇^C f P̂^(AB) ∇_A ∇_B ∇_C f = ∫ P̂^(AB) ∇_A ∇^C
+f ∇_B ∇_C f + ∫ (∇_A P̂^(AB)) ∇^C f ∇_B ∇_C f ≥ δ_P ‖∇²f‖² − M ‖∇f‖ ‖∇²f‖. Here P̂ ≥ δ_P := δ_e/sup p and |P̂| + |∇P̂| ≤ C_0 by
+Step 1. With f := 𝓛^I α, using |⟨f, P̂·∇²f⟩| ≤ C_0 ‖f‖ ‖∇²f‖ and ‖f − Δf‖ ≤ ‖f‖ + √3 ‖∇²f‖,
 
-    λ^(2|I|) d/dr ½ (‖f‖² + ‖∇f‖²) ≤ −δ g_I + C (e_I^(1/2) g_I^(1/2) + e_I)
+    λ^(2|I|) d/dr ½ (‖f‖² + ‖∇f‖²) ≤ −δ_P g_I + C (e_I^(1/2) g_I^(1/2) + e_I)
                                          + (e_I^(1/2) + √3 g_I^(1/2)) λ^|I| (‖𝒦_I‖ + ‖𝓛^I R_ρ‖).
 
 By (R2) with Z := ∇²α and (N4), λ^|I| ‖𝒦_I‖ ≤ C λ ‖∇²α‖_(|I|−1) ≤ C (Σ_(|J|<|I|) g_J)^(1/2); by (R1) and (N4),
@@ -837,22 +837,22 @@ and since S^C is symmetric, ∇_C (S^C(w̃, w̃)) = (∇_C S^C)(w̃, w̃) + 2 S^
 C λ ‖∇w‖_(|I|−1) ≤ C ‖w‖_(k); by (R1), λ^|I| ‖𝓛^I R_J‖ ≤ C (‖F_J‖_(k) + ‖∂_r α‖_(k) + ‖α‖_(k;1) + ‖w‖_(k)); and by the
 first equation, (R1) and (N4),
 
-    ‖∂_r α‖_(k) ≤ ‖Q·∇²α‖_(k) + ‖R_ρ‖_(k) ≤ C (‖α‖_(k;2) + ‖F_ρ‖_(k) + ‖α‖_(k;1) + ‖w‖_(k)).  {#eq:vlasov-scaled-dr}
+    ‖∂_r α‖_(k) ≤ ‖P̂·∇²α‖_(k) + ‖R_ρ‖_(k) ≤ C (‖α‖_(k;2) + ‖F_ρ‖_(k) + ‖α‖_(k;1) + ‖w‖_(k)).  {#eq:vlasov-scaled-dr}
 
-So ½ d/dr h_I ≤ C (1 + μ) λ^(2|I|) ‖𝓛^I w‖² + C λ^|I| ‖𝓛^I w‖ (‖w‖_(k) + ‖α‖_(k;1) + ‖α‖_(k;2) + ‖F‖_(k)).
+So ½ d/dr h_I ≤ C (1 + μ_V) λ^(2|I|) ‖𝓛^I w‖² + C λ^|I| ‖𝓛^I w‖ (‖w‖_(k) + ‖α‖_(k;1) + ‖α‖_(k;2) + ‖F‖_(k)).
 
 *Step 5: closing.* For ϵ ∈ (0, 1/12] put 𝓔 := Σ_(|I|≤k) ϵ^|I| ½ (e_I + h_I) and 𝓖 := Σ_(|I|≤k) ϵ^|I| g_I. Then
 𝓔 ≥ c_ϵ (‖α‖²_(k;1) + ‖w‖²_(k)) with c_ϵ := ½ ϵ^k min(1, A00), 𝓔 ≤ C (‖α‖²_(k;1) + ‖w‖²_(k)), and ‖α‖²_(k;2) ≤
 ϵ^(−k) (𝓖 + 2𝓔). In the sum of Step 3 over I with the weights ϵ^|I|, the commutator terms are at most
-Σ_I ϵ^|I| C (e_I + g_I)^(1/2) (Σ_(|J|<|I|) g_J)^(1/2) ≤ (δ/8) 𝓖 + C𝓔 + C′ Σ_J g_J Σ_(|I|>|J|) ϵ^|I|; there are 6^i words
-of length i, so Σ_(|I|>|J|) ϵ^|I| ≤ 2 (6ϵ)^(|J|+1) ≤ 12 · 6^k ϵ · ϵ^|J|, and with ϵ := min(1/12, δ/(96 · 6^k C′)) these
-terms are at most (δ/4) 𝓖 + C𝓔. The other terms of Step 3 are at most (δ/8) 𝓖 + C_ϵ (𝓔 + ‖F‖²_(k)), by Young's
-inequality. In the sum of Step 4, C ‖w‖_(k) ‖α‖_(k;2) ≤ C ‖w‖_(k) ϵ^(−k/2) (𝓖 + 2𝓔)^(1/2) ≤ (δ/8) 𝓖 + C_ϵ 𝓔. Hence
+Σ_I ϵ^|I| C (e_I + g_I)^(1/2) (Σ_(|J|<|I|) g_J)^(1/2) ≤ (δ_P/8) 𝓖 + C𝓔 + C′ Σ_J g_J Σ_(|I|>|J|) ϵ^|I|; there are 6^i words
+of length i, so Σ_(|I|>|J|) ϵ^|I| ≤ 2 (6ϵ)^(|J|+1) ≤ 12 · 6^k ϵ · ϵ^|J|, and with ϵ := min(1/12, δ_P/(96 · 6^k C′)) these
+terms are at most (δ_P/4) 𝓖 + C𝓔. The other terms of Step 3 are at most (δ_P/8) 𝓖 + C_ϵ (𝓔 + ‖F‖²_(k)), by Young's
+inequality. In the sum of Step 4, C ‖w‖_(k) ‖α‖_(k;2) ≤ C ‖w‖_(k) ϵ^(−k/2) (𝓖 + 2𝓔)^(1/2) ≤ (δ_P/8) 𝓖 + C_ϵ 𝓔. Hence
 
-    d𝓔/dr ≤ −(δ/4) 𝓖 + C_ϵ (1 + μ) 𝓔 + C_ϵ ‖F‖²_(k),      𝓔(a) = 0,
+    d𝓔/dr ≤ −(δ_P/4) 𝓖 + C_ϵ (1 + μ_V) 𝓔 + C_ϵ ‖F‖²_(k),      𝓔(a) = 0,
 
-(the terms in 𝓖 add up to at most (−δ + δ/4 + δ/8 + δ/8 + δ/8) 𝓖), and Gronwall's lemma, with ∫_a^(b1) (1 + μ) ≤
-b1 − a + (b1 − a)^(1/2), gives 𝓔(r) + (δ/4) ∫_a^r 𝓖 ≤ C ∫_a^r ‖F‖²_(k).
+(the terms in 𝓖 add up to at most (−δ_P + δ_P/4 + δ_P/8 + δ_P/8) 𝓖), and Gronwall's lemma, with ∫_a^(b1) (1 + μ_V) ≤
+b1 − a + (b1 − a)^(1/2), gives 𝓔(r) + (δ_P/4) ∫_a^r 𝓖 ≤ C ∫_a^r ‖F‖²_(k).
 With [[eq:vlasov-scaled-dr]] this is [[eq:vlasov-scaled-bound]].
 
 *Step 6: the tame bound.* Repeat Steps 1–5 at the index k′ > k. Step 1 changes: a factor 𝓛^J Y with |J| ≤ k′ − 2 for
@@ -863,7 +863,7 @@ terms with such a factor are at most C ‖V‖_(𝒴_(k′)(a,r)) sup |λ^|I″|
 C λ⁻² ‖V‖_(𝒴_(k′)(a,r)) ‖Z‖_(4); for the Z that occur (∇²α, ∇w, ∂_r α, α, ∇α, w and F), ‖Z‖_(4) is bounded by
 C λ⁻¹ (‖α‖_(5;1) + ‖w‖_(5) + ‖F‖_(4)), by (N2), (N3) and [[eq:vlasov-scaled-dr]], hence by a constant, by
 [[eq:vlasov-scaled-bound]] and the assumed bound on sup ‖F‖_(4). In the energy inequality of Step 5 at the index k′
-these terms are at most K′ ‖V‖_(𝒴_(k′)(a,r)) (𝓔′^(1/2) + 𝓖′^(1/2)) ≤ (δ/8) 𝓖′ + K′ (𝓔′ + ‖V‖²_(𝒴_(k′)(a,r))), and
+these terms are at most C_t′ ‖V‖_(𝒴_(k′)(a,r)) (𝓔′^(1/2) + 𝓖′^(1/2)) ≤ (δ_P/8) 𝓖′ + C_t′ (𝓔′ + ‖V‖²_(𝒴_(k′)(a,r))), and
 Gronwall's lemma gives [[eq:vlasov-scaled-tame]]. ∎
 
 **Proposition {#prop:vlasov-scaled-correction}** (The constraints solved in scaled norms.) Let 𝔉 have the structure
@@ -873,7 +873,7 @@ on λ, such that if ε ≤ η λ⁴, there is a smooth U on Σ with zero data at
 
     𝔉(U) = 0 on Σ,      ‖U‖_(𝒴_k) ≤ C ε;                                              {#eq:vlasov-scaled-solution}
 
-it is the only solution with zero data at r = a and ‖U‖_(𝒴_k) ≤ C ε. If 𝔉 commutes with a group of isometries of the
+it is the only smooth solution with zero data at r = a and ‖U‖_(𝒴_k) ≤ C ε. If 𝔉 commutes with a group of isometries of the
 round S³ acting on U by pull-back, U is invariant under that group.
 
 *Proof.* *The scheme.* For V = (α_V, w_V) let L_V U be the left side of [[eq:vlasov-scaled-linear]] with the coefficients
@@ -881,13 +881,13 @@ of [[eq:vlasov-structure]]: p(α_V), P(α_V), B^C(α_V), f̂(α_V, w_V), and the
 b·∇α + c α + e·w := Dg̃_ρ(0)[α, ∇α, w] and f′·∇α + c″ α + c′ w := A0(0)⁻¹ Dg̃_J(0)[α, ∇α, w], which are of class 𝔏.
 Put
 
-    N(V) := (𝔉_ρ(V), A0(α_V)⁻¹ 𝔉_J(V)) − L_V V
+    𝔈(V) := (𝔉_ρ(V), A0(α_V)⁻¹ 𝔉_J(V)) − L_V V
           = (𝔉_ρ(0) + g̃_ρ(V) − Dg̃_ρ(0)[V], A0(α_V)⁻¹ (𝔉_J(0) + g̃_J(V)) − A0(0)⁻¹ Dg̃_J(0)[V]),
 
-with g̃(V) := g̃(α_V, ∇α_V, w_V). Since A0 is invertible, 𝔉(U) = 0 if and only if L_U U + N(U) = 0. Let U_0 := 0 and let
-U_(i+1) solve L_(U_i) U_(i+1) = −N(U_i) with zero data at r = a.
+with g̃(V) := g̃(α_V, ∇α_V, w_V). Since A0 is invertible, 𝔉(U) = 0 if and only if L_U U + 𝔈(U) = 0. Let U_0 := 0 and let
+U_(i+1) solve L_(U_i) U_(i+1) = −𝔈(U_i) with zero data at r = a.
 
-*The forcing.* N(V) is (𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0)) plus G(x, Y), Y := (α_V, ∇α_V, w_V), with G of class 𝔏 vanishing
+*The forcing.* 𝔈(V) is (𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0)) plus G(x, Y), Y := (α_V, ∇α_V, w_V), with G of class 𝔏 vanishing
 with its first derivatives in Y at Y = 0; so G = Σ_(s,t) Y_s Y_t G_(st)(x, Y) with G_(st) := ∫_0^1 (1 − σ) ∂_s ∂_t
 G(x, σ Y) dσ of class 𝔏. By (K4) and the chain rule of Step 1 of the proof of [[lem:vlasov-scaled-evolution]], every term
 of λ^|I| 𝓛^I G(·, Y), |I| ≤ k, is a product with at least two factors 𝓛^J Y, at most one with |J| > k/2; putting it in L²
@@ -896,7 +896,7 @@ and the others in sup norm, with ‖Y‖_(⌊k/2⌋+1),∞ ≤ C λ⁻² ‖V‖
 
     ‖G(·, Y)‖_(k) ≤ C_2 λ⁻² ‖V‖²_(𝒴_k).
 
-By (R1) of the proof of [[lem:vlasov-scaled-evolution]], ‖(𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0))‖_(k) ≤ C_3 ε. So sup_r ‖N(V)‖_(k) ≤
+By (R1) of the proof of [[lem:vlasov-scaled-evolution]], ‖(𝔉_ρ(0), A0(α_V)⁻¹ 𝔉_J(0))‖_(k) ≤ C_3 ε. So sup_r ‖𝔈(V)‖_(k) ≤
 C_3 ε + C_2 λ⁻² ‖V‖²_(𝒴_k).
 
 *Boundedness.* Let C be the constant of [[eq:vlasov-scaled-bound]] at the index k and C_1 := C (b1 − a)^(1/2) C_3. If
@@ -905,33 +905,33 @@ C (b1 − a)^(1/2) (C_3 ε + C_2 λ⁻² 4 C_1² ε²) ≤ 2 C_1 ε for ε ≤ �
 ε ≤ η λ⁴ with η small. By induction every U_i is smooth and ‖U_i‖_(𝒴_k) ≤ 2 C_1 ε.
 
 *Contraction.* Let j := k − 2 ≥ 6 and δ_(i+1) := U_(i+1) − U_i. Then L_(U_i) δ_(i+1) = −(L_(U_i) − L_(U_(i−1))) U_i −
-(N(U_i) − N(U_(i−1))). The first term is a sum of products (Δc) Z, with Δc := c(U_i) − c(U_(i−1)) for c one of p, P,
-B^C, f̂, and Z := ∂_r α_i, ∇²α_i, ∇w_i, ∂_r α_i respectively. Writing Δc as ∫_0^1 ∂_y c dσ applied to the difference of
+(𝔈(U_i) − 𝔈(U_(i−1))). The first term is a sum of products (Δc) Z, with Δc := c(U_i) − c(U_(i−1)) for c one of p, P,
+B^C, f̂, and Z := ∂_r α_i, ∇²α_i, ∇w_i, ∂_r α_i respectively. Writing Δc as ∫_0^1 ∂_y c ds applied to the difference of
 the arguments, ‖Δc‖_(j) ≤ C ‖δ_i‖_(𝒴_j) and ‖Δc‖_(⌊j/2⌋),∞ ≤ C λ⁻² ‖δ_i‖_(𝒴_j) (as above, ⌊j/2⌋ + 3 ≤ j). By (P2),
 ‖(Δc) Z‖_(j) ≤ C ‖δ_i‖_(𝒴_j) (λ⁻² ‖Z‖_(j) + ‖Z‖_(⌊j/2⌋),∞) at each r; for Z = ∇w_i the bracket is at most
 C λ⁻³ ‖w_i‖_(k), by (N1) and (N3), and for Z = ∂_r α_i, ∇²α_i it is at most C λ⁻² (‖∂_r α_i‖_(k) + ‖α_i‖_(k;2)),
 square integrable in r. So the L² norm in r of ‖(L_(U_i) − L_(U_(i−1))) U_i‖_(j) is at most C λ⁻³ ‖U_i‖_(𝒴_k)
-‖δ_i‖_(𝒴_j) ≤ C λ⁻³ ε ‖δ_i‖_(𝒴_j). In the same way ‖N(U_i) − N(U_(i−1))‖_(j) ≤ C λ⁻² (ε + ‖U_i‖_(𝒴_k) +
+‖δ_i‖_(𝒴_j) ≤ C λ⁻³ ε ‖δ_i‖_(𝒴_j). In the same way ‖𝔈(U_i) − 𝔈(U_(i−1))‖_(j) ≤ C λ⁻² (ε + ‖U_i‖_(𝒴_k) +
 ‖U_(i−1)‖_(𝒴_k)) ‖δ_i‖_(𝒴_j), writing the difference of the terms A0(α)⁻¹ 𝔉_J(0) and of G as integrals of
 derivatives. So, by [[eq:vlasov-scaled-bound]] at the index j with V := U_i, ‖δ_(i+1)‖_(𝒴_j) ≤ C λ⁻³ ε ‖δ_i‖_(𝒴_j) ≤
 ½ ‖δ_i‖_(𝒴_j) for η small.
 
 *The limit.* So U_i converges in 𝒴_j to some U, and, being bounded in 𝒴_k, U satisfies ‖U‖_(𝒴_k) ≤ 2 C_1 ε (at each r the
 norms of 𝒴_k are lower semicontinuous under convergence in 𝒴_j). The coefficients of L_(U_i) converge uniformly with
-their first derivatives, so L_(U_i) U_(i+1) + N(U_i) → L_U U + N(U) in L²((a, b1); L²(S³)), and 𝔉(U) = 0. Uniqueness in
-the ball: the difference of two solutions U, U′ there satisfies L_U (U − U′) = −(L_U − L_(U′)) U′ − (N(U) − N(U′)), and
+their first derivatives, so L_(U_i) U_(i+1) + 𝔈(U_i) → L_U U + 𝔈(U) in L²((a, b1); L²(S³)), and 𝔉(U) = 0. Uniqueness in
+the ball: the difference of two solutions U, U′ there satisfies L_U (U − U′) = −(L_U − L_(U′)) U′ − (𝔈(U) − 𝔈(U′)), and
 the estimate of the contraction gives ‖U − U′‖_(𝒴_j) ≤ ½ ‖U − U′‖_(𝒴_j). We take C := 2 C_1 in
 [[eq:vlasov-scaled-solution]].
 
 *Smoothness.* Fix λ. Let k′ > k and suppose sup_i ‖U_i‖_(𝒴_(k′−1)) < ∞, as holds for k′ = k + 1. As above, every term of
-λ^|I| 𝓛^I N(U_i), |I| ≤ k′, has at most one factor of order greater than k′/2, so ‖N(U_i)‖_(k′) ≤ K (1 + ‖U_i‖_(𝒴_(k′)
-(a,r))) at r, and sup_r ‖N(U_i)‖_(4) ≤ K, with K independent of i. By [[eq:vlasov-scaled-tame]], ℰ_i(r) :=
-‖U_i‖_(𝒴_(k′)(a,r)) satisfies ℰ_(i+1)(r)² ≤ K′ (1 + ∫_a^r ℰ_i²) with K′ independent of i. By induction ℰ_i(r)² ≤
-K′ e^(K′(r−a)): this holds for ℰ_0 = 0, and if it holds for ℰ_i then ℰ_(i+1)(r)² ≤ K′ (1 + ∫_a^r K′ e^(K′(r′−a)) dr′) =
-K′ e^(K′(r−a)). So the U_i are bounded in 𝒴_(k′), and U ∈ 𝒴_(k′), for every k′: U is smooth in the angles, and the
+λ^|I| 𝓛^I 𝔈(U_i), |I| ≤ k′, has at most one factor of order greater than k′/2, so ‖𝔈(U_i)‖_(k′) ≤ C_t (1 + ‖U_i‖_(𝒴_(k′)
+(a,r))) at r, and sup_r ‖𝔈(U_i)‖_(4) ≤ C_t, with C_t independent of i. By [[eq:vlasov-scaled-tame]], ℰ_i(r) :=
+‖U_i‖_(𝒴_(k′)(a,r)) satisfies ℰ_(i+1)(r)² ≤ C_t′ (1 + ∫_a^r ℰ_i²) with C_t′ independent of i. By induction ℰ_i(r)² ≤
+C_t′ e^(C_t′(r−a)): this holds for ℰ_0 = 0, and if it holds for ℰ_i then ℰ_(i+1)(r)² ≤ C_t′ (1 + ∫_a^r C_t′ e^(C_t′(r′−a)) dr′) =
+C_t′ e^(C_t′(r−a)). So the U_i are bounded in 𝒴_(k′), and U ∈ 𝒴_(k′), for every k′: U is smooth in the angles, and the
 equations 𝔉(U) = 0, solved for ∂_r α and ∂_r w, give its r-derivatives, so U is smooth.
 
-*Invariance.* If 𝔉 commutes with an isometry ι of the round S³, then L_(V∘ι) U∘ι = (L_V U)∘ι and N(V∘ι) = N(V)∘ι,
+*Invariance.* If 𝔉 commutes with an isometry ι of the round S³, then L_(V∘ι) U∘ι = (L_V U)∘ι and 𝔈(V∘ι) = 𝔈(V)∘ι,
 so by the uniqueness in [[lem:vlasov-scaled-evolution]] each U_i is ι-invariant, and so is U. ∎
 
 ### The n-dust approximants are uniform in n {#sec:vlasov-uniform}
@@ -1176,7 +1176,7 @@ Solving 𝔉(U) = 0 for ∂_r α and ∂_r w, and substituting the first into th
 
     ∂_r α = G_α(x, 𝔍),      ∂_r w = G_w(x, 𝔍),      𝔍 := (α, ∇α, ∇²α, w, ∇w),
 
-with G_α = Q ∇²α − p⁻¹ g_ρ and G_w = −B^C ∇_C w − A0⁻¹ (f G_α + g_J), Q := P/p and B^C := A0⁻¹A^C taken at α; here g =
+with G_α = P̂ ∇²α − p⁻¹ g_ρ and G_w = −B^C ∇_C w − A0⁻¹ (f G_α + g_J), P̂ := P/p and B^C := A0⁻¹A^C taken at α; here g =
 𝔉(0) + g̃, with 𝔉(0) = λ^(N−2)[h]. Give the factor ∇^m α the weight (m − 2)₊ := max(m − 2, 0) and ∇^m w the weight m. By
 induction on i, ∂_r^i U is a finite sum of terms λ^(−β) c(x, α, ∇α, w) Π_(s=1)^l ∇^(m_s) Y_s, Y_s ∈ {α, w}, with c of
 class 𝔏 or a derivative of 𝔉(0), β plus the sum of the weights at most 2i, and l ≥ 1 unless c is a derivative of 𝔉(0) (a
