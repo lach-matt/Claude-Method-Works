@@ -1302,3 +1302,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   gap: whether a non-real root of modulus > 50 from P_l with hκ > 70 exists; nothing depends on it.
 - F4-81 done (reports/F4-81.md). Its P-K82 wording (support condition with normalised phases, normalisation point
   outside the 𝒱_B) forwarded to F-P-K82. R5-81 reads the changed hunks.
+- R-P-U71-SP NOT CONFIRMED 1M 5m 10n (reviews/R-P-U71-SP.md). F1's gap (134 ≤ l ≤ 172) and F3 (hκ > 70 simple)
+  forwarded to R2-P-U71-IS, since prop:is-mult has the same gap. Integration: once SP and IS are confirmed, the
+  statements that (SP) is missing (P-U71-close 313-316, 339-340, 352; P-U71-assembly 632, 636, 648-649) must change.
+  Values for the paper: l_* = L ∈ [39, 50], take 50; K_ι ≤ 2 on Σ (the texts' bounds 52 and 101 also hold).
