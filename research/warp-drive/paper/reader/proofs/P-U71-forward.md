@@ -395,12 +395,13 @@ vanishes outside φ_α(F), with F ⊂ U_α ∩ U_β compact, put T^ϕ_(βα)w :=
 extended by 0. If the derivatives of ϕ of order at most |k| are bounded, then ‖T^ϕ_(βα)w‖_(H^k) ≤ C‖w‖_(H^k). For
 k ≥ 0 this is Leibniz's rule, the chain rule and the change of variables, the transition maps and their inverses
 having bounded derivatives ((S1)). For k < 0 it follows by duality, the L²-adjoint of T^ϕ_(βα) being T^(ϕ′)_(αβ)
-with ϕ′ := (ϕ̄ |det D(φ_β ∘ φ_α⁻¹)|) ∘ φ_α ∘ φ_β⁻¹, a function of the same kind. Now (φ_β)_*(χ°_βφ_α^*w_α) = T^ϕ_(βα)w_α with ϕ := χ̌ · (χ° ∘ φ_β ∘ φ_α⁻¹), where
-χ̌ ∈ C_c^∞((−2, 2)ⁿ) equals 1 on K and χ° ∘ φ_β ∘ φ_α⁻¹, extended by 0, is smooth, as φ_β⁻¹(supp χ°) is compact;
-and it vanishes unless α ∈ A_β. So the left side of the first bound is at most Σ_β N_ℬ Σ_(α∈A_β) C‖w_α‖², which is
-at most CN_ℬ² Σ_α ‖w_α‖². For the second, ϑ_αu = Σ_(β∈A_α) ϑ_αζχ°_βu with ζ := (Σ_γ χ°_γ)⁻¹, whose derivatives in
-the charts are bounded, and (φ_α)_*(ϑ_αζχ°_βu) = T^ϕ_(αβ)(φ_β)_*(χ°_βu) with ϕ := χ̌′ · ((ϑ_αζ) ∘ φ_β⁻¹), where
-χ̌′ ∈ C_c^∞((−2, 2)ⁿ) equals 1 on supp χ°; summing as before gives the second bound.
+with ϕ′ := (ϕ̄ |det D(φ_β ∘ φ_α⁻¹)|) ∘ φ_α ∘ φ_β⁻¹, a function of the same kind. Now
+(φ_β)_*(χ°_βφ_α^*w_α) = T^ϕ_(βα)w_α with ϕ := χ̌ · (χ° ∘ φ_β ∘ φ_α⁻¹), where χ̌ ∈ C_c^∞((−2, 2)ⁿ) equals 1 on K and
+χ° ∘ φ_β ∘ φ_α⁻¹, extended by 0, is smooth, as φ_β⁻¹(supp χ°) is compact; and it vanishes unless α ∈ A_β. So the
+left side of the first bound is at most Σ_β N_ℬ Σ_(α∈A_β) C‖w_α‖², which is at most CN_ℬ² Σ_α ‖w_α‖². For the
+second, ϑ_αu = Σ_(β∈A_α) ϑ_αζχ°_βu with ζ := (Σ_γ χ°_γ)⁻¹, whose derivatives in the charts are bounded, and
+(φ_α)_*(ϑ_αζχ°_βu) = T^ϕ_(αβ)(φ_β)_*(χ°_βu) with ϕ := χ̌′ · ((ϑ_αζ) ∘ φ_β⁻¹), where χ̌′ ∈ C_c^∞((−2, 2)ⁿ) equals 1
+on supp χ°; summing as before gives the second bound.
 
 *Two facts.* Put Λ := Op(ρ_∞^(−𝗋)) ∈ Ψ̃^𝗋 and Λ′_0 := Op(ρ_∞^𝗋). By (S5) and (S8), Λ′_0Λ = I − R_1 with R_1 of
 order −½, as the principal symbols multiply to 1 and Op(1) = I ([[eq:ii-a1-1-1]]). So Λ′ := Σ_(j<4N_0) R_1^jΛ′_0
