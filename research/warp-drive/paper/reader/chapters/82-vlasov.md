@@ -1212,26 +1212,27 @@ that 𝔠 commutes with the action of G, which preserves |·|. The transport of 
     P̃_A^♮ := ζ′_A g_ϒ⁻¹(p̊_A + 𝔠(π_A)) + (1 − ζ′_A) T_(g_ϒ),
 
 with ů and ζ′ extended off Ω as in Step 9, ζ′ vanishing off a neighbourhood of its support in Ω × S¹ on which
-P̊_A(τ) ≥ 3c/4 for every A, and c at most the infimum of T_g(τ) for the extended reference, so that P̊̃_A(τ) ≥ 3c/4
-everywhere. At every point and every state |𝔠(π_A)| ≤ r_p and |g_ϒ − g| ≤ r_w, so |P̃_A^♮ − P̊̃_A| ≤ C (r_w + r_p) with
-C independent of A and n; for r_w and r_p small, P̃_A^♮(τ) ≥ c/2, |P̃_A^♮| ≤ C, and dF(P̃_A^♮) ≥ c′/2 on the lateral
-boundary: at every state each transport is transverse to the slices, future directed, and points out of Ω. It need not
-be causal off the tubes, where p_A need not be null; no step uses that, and on the tubes it is the null field P_A, by
-(iii). In the bootstrap, by (5), |w| ≤ C 𝒩 < r_w/2 and |π_A| ≤ C 𝒩^A < r_p/2 for ε small, so ϒ(w) = w and 𝔠(π_A) = π_A
-along the solution: there the cut-offs are inactive, P̃_A^♮ = P̃_A, and the solution solves (Aug1) and
-[[eq:vlasov-localised]] on Ω, to which Steps 3–8 apply as above. The quantities on which the threshold η_ρ ρ/C_E of
-[[thm:class-kato]] (b) (ii) depends are independent of n. The coefficient of ∂_τ is A^0 = diag(1, −g_ϒ^(00), g_ϒ^(ab))
-on the wave block and P̃_A^♮(τ) on the transports, so A^0 is bounded below by a positive constant and above by C_A, both
-independent of n, the norm of a block-diagonal matrix being the largest of the norms of its blocks; and η_ρ, which
-depends on these two bounds only, is independent of n. (F5) holds at every state whose metric part is within r_b of 0,
-r_b that of Step 9 for the wave block, since the boundary matrix ν(P̃_A^♮) of a transport at the outward conormal ν is
-positive at every state. The constant C_S does not depend on the number of components, the Cauchy–Schwarz inequality in
-ξ that gives it holding for the Euclidean norm of the values, so ρ, with C_S ρ ≤ r_b, is independent of n; and C_E, the
-bound of an extension acting component by component, depends on Ω and m only. The forcing term, which satisfies
-(F1)–(F4) at a fixed n as in Step 9, and the derivatives of the coefficients in U depend on n through the factor
-(n/2π)^(1/2), which enters only the time T* of that theorem, at a fixed n. At τ0, and by the bootstrap wherever the
-solution exists, ‖U‖_(H^m) ≤ C_U 𝒩 ≤ C_U C_* ε (C_* ≥ 1), which is below η_ρ ρ/C_E for d(D) ≤ ε0 and n ≥ n0. So the
-solution starts and continues to the whole of Ω, and it is smooth and invariant, as in Step 9 there.
+P̊_A(τ) ≥ 3c/4 for every A, c being taken at most the infima of T_g(τ) for the extended reference and of P̊_A(τ) on the
+support of ζ′ in Ω × S¹ (positive, P̊_A being future null there), so that P̊̃_A(τ) ≥ 3c/4 everywhere. At every point and
+every state |𝔠(π_A)| ≤ r_p and |g_ϒ − g| ≤ r_w, so |P̃_A^♮ − P̊̃_A| ≤ C (r_w + r_p) with C independent of A and n; for
+r_w and r_p small, P̃_A^♮(τ) ≥ c/2, |P̃_A^♮| ≤ C, and dF(P̃_A^♮) ≥ c′/2 on the lateral boundary: at every state each
+transport is transverse to the slices, future directed, and points out of Ω. It need not be causal off the tubes, where
+p_A need not be null; no step uses that, and on the tubes it is the null field P_A, by (iii). In the bootstrap, by
+(5), |w| ≤ C 𝒩 < r_w/2 and |π_A| ≤ C 𝒩^A < r_p/2 for ε small, so ϒ(w) = w and 𝔠(π_A) = π_A along the solution: there the
+cut-offs are inactive, P̃_A^♮ = P̃_A, and the solution solves (Aug1) and [[eq:vlasov-localised]] on Ω, to which Steps
+3–8 apply as above. The quantities on which the threshold η_ρ ρ/C_E of [[thm:class-kato]] (b) (ii) depends are
+independent of n. The coefficient of ∂_τ is A^0 = diag(1, −g_ϒ^(00), g_ϒ^(ab)) on the wave block and P̃_A^♮(τ) on the
+transports, so A^0 is bounded below by a positive constant and above by C_A, both independent of n, the norm of a
+block-diagonal matrix being the largest of the norms of its blocks; and η_ρ, which depends on these two bounds only, is
+independent of n. (F5) holds at every state whose metric part is within r_b of 0, r_b that of Step 9 for the wave block,
+since the boundary matrix ν(P̃_A^♮) of a transport at the outward conormal ν is positive at every state. The constant
+C_S does not depend on the number of components, the Cauchy–Schwarz inequality in ξ that gives it holding for the
+Euclidean norm of the values, so ρ, with C_S ρ ≤ r_b, is independent of n; and C_E, the bound of an extension acting
+component by component, depends on Ω and m only. The forcing term, which satisfies (F1)–(F4) at a fixed n as in Step 9,
+and the derivatives of the coefficients in U depend on n through the factor (n/2π)^(1/2), which enters only the time T*
+of that theorem, at a fixed n. At τ0, and by the bootstrap wherever the solution exists, ‖U‖_(H^m) ≤ C_U 𝒩 ≤ C_U C_* ε
+(C_* ≥ 1), which is below η_ρ ρ/C_E for d(D) ≤ ε0 and n ≥ n0. So the solution starts and continues to the whole of Ω,
+and it is smooth and invariant, as in Step 9 there.
 
 And (iii) there, D_n satisfying the constraints and the gauge condition, gives the eikonals u_A on the tubes 𝒯_A and the
 equations stated. By (5), the integral curves of the P̃_A from the S_A stay within C (d(D) + C_k n^(−k)) of the tubes of
