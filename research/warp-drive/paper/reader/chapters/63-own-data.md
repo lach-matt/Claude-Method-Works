@@ -1053,7 +1053,7 @@ beyond σ′. g_T is G-invariant.
 C_f), which is at most V′_P once h_P(T + C_f) − h_P(T − C_f) ≤ 2C_f sup h_P′ ≤ δ_0/4, true for T ≤ T_0. Spacelike: for
 g0, g0⁻¹(dτ − F̂′ dr, dτ − F̂′ dr) = −1 + F̂′² − (μ/r²)(1 + F̂′)² < 0 as in [[lem:interior-far-part]] (i); for g_λ,
 since this is at most −15/16, |dτ − F̂′ dr|_E² ≤ 17/16 and |g_λ⁻¹ − g0⁻¹| ≤ ε_P t_P^(−5/4) on P′ (the margin of
-[[lem:past-domain]] (f)), with t_P ≥ 1 + τ0 − T − C_f on 𝒮_T, the same contraction for g_λ is at most
+[[lem:past-domain]] (f)), with t_P ≥ 1 + τ0 − T − C_f on 𝒮_T, the same contraction is at most
 −15/16 + (17/16) ε_P (1 + τ0 − T − C_f)^(−5/4) < 0 for T ≤ T_0.
 Finally r_T ≥ c_W (1 + |T|) ([[lem:own-wedge]] (b)), which is at least r_3 for T ≤ T_0.
 (ii) On Ω′, Φ_Ω := v + ε_Ω(τ − τ0), with ε_Ω(τ′_end − τ0) < δ_0/2, is a time function for g0

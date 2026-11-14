@@ -1260,3 +1260,4 @@ Items found while chapters were written in parallel; each is settled once, editi
   rule for chapter 95 is one row per label, and complete it in the crosswalk sweep if so.
 - P-K82 done: the two-dust corollary proved with one narrowing (vacuum weak limit on Ω₂′ inside the adapted domain).
   FOR THE FINAL REPORT once confirmed. Merge into chapter 82 after F3-82 and R-P-K82; block 5 for chapter 03.
+- R3-63 CONFIRMED: chapter 63 CONFIRMED (the doubled 'for g_λ' removed at line 1056).

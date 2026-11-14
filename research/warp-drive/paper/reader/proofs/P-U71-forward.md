@@ -359,16 +359,39 @@ to 1 on [−3/2, 3/2]ⁿ, and θ̃_α := φ_α^*θ̃. There is C such that, for 
 
 *Proof.* Only smooth symbols occur. The lemmas above apply to them with N_0 in place of T, every seminorm
 [[eq:fwd-seminorm]] being finite, and no derivative is counted; the constants depend on 𝗋, on the cut-offs and on
-(S1), (S15), never on the charts. Here N_0 is a fixed integer with N_0 ≥ sup |𝗋|. By finite multiplicity ((S1)) there
-is N_ℬ such that each U_α meets at most N_ℬ of the U_β; let A_α be the set of these β.
+(S1), (S15), never on the charts. Here N_0 is a fixed integer with N_0 ≥ sup |𝗋|. By (S1) ([Hin26d, Definition
+1.1 (1), p. 2]) there is m_ℬ ∈ ℕ such that no point lies in more than m_ℬ of the sets U_α. Fix ℓ ∈ (7/4, 2) such
+that the supports of the cut-offs χ° and θ̌ below lie in [−ℓ, ℓ]ⁿ, and let A_α be the set of the β with
+φ_α⁻¹([−ℓ, ℓ]ⁿ) ∩ φ_β⁻¹([−ℓ, ℓ]ⁿ) ≠ ∅; so β ∈ A_α exactly when α ∈ A_β.
 
-*Integer orders.* Let k ∈ ℤ, K ⊂ (−2, 2)ⁿ compact, ϑ ∈ C_c^∞((−2, 2)ⁿ) and ϑ_α := φ_α^*ϑ. We show
+*The count.* There is N_ℬ ≥ m_ℬ with |A_α| ≤ N_ℬ for every α. Indeed, let C_1 ≥ 1 bound the norms of the first
+derivatives of the transition maps τ_(βα) = φ_β ∘ φ_α⁻¹, uniformly in (α, β) ((S1)), and put r := (2 − ℓ)/(2C_1).
+Let β ∈ A_α, p a point of φ_α⁻¹([−ℓ, ℓ]ⁿ) ∩ φ_β⁻¹([−ℓ, ℓ]ⁿ), x := φ_α(p), and W := φ_α(U_α ∩ U_β), an open set
+that contains x, on which τ_(βα) is defined. Let x_t := x + tv for 0 ≤ t ≤ t_1, with |v| = 1 and t_1 < r. Each
+coordinate of x_t differs from that of x by less than r < 2 − ℓ, so x_t ∈ (−2, 2)ⁿ. Suppose that some x_t lies
+outside W, and let t_* be the least such t (it exists as W is open, and t_* > 0 as x ∈ W). For t, t′ < t_*, the
+segment from x_t to x_(t′) lies in W, so that |τ_(βα)(x_t) − τ_(βα)(x_(t′))| ≤ C_1|t − t′|; with t′ = 0, as
+τ_(βα)(x_0) = φ_β(p), the distance of τ_(βα)(x_t) from φ_β(p) is at most C_1t_* < C_1r = (2 − ℓ)/2. So τ_(βα)(x_t)
+converges, as t ↑ t_*, to a point y whose coordinates have modulus at most ℓ + (2 − ℓ)/2 = (2 + ℓ)/2 < 2, that is,
+y ∈ (−2, 2)ⁿ. The points φ_α⁻¹(x_t) = φ_β⁻¹(τ_(βα)(x_t)) then converge on the manifold both to φ_α⁻¹(x_(t_*)) and
+to φ_β⁻¹(y) ∈ U_β. As the manifold is Hausdorff, φ_α⁻¹(x_(t_*)) lies in U_α ∩ U_β, that is, x_(t_*) ∈ W, a
+contradiction. So the segment stays in W, and the ball of radius r about x lies in W. Cover [−ℓ, ℓ]ⁿ by N_1 balls of radius r/2, N_1 depending only on
+n, ℓ and C_1. If A_α had more than m_ℬN_1 elements, then, choosing p and x as above for each β ∈ A_α, the points x of
+m_ℬ + 1 of these β would lie in one of the balls. Its centre c lies within r/2 of each of these points x, hence in
+φ_α(U_α ∩ U_β) for each of these m_ℬ + 1 values of β, and the point φ_α⁻¹(c) lies in m_ℬ + 1 of the sets U_β, against
+the choice of m_ℬ. So N_ℬ := m_ℬN_1 serves.
+
+*Integer orders.* Let k ∈ ℤ, K ⊂ [−ℓ, ℓ]ⁿ compact, ϑ ∈ C_c^∞((−2, 2)ⁿ) with supp ϑ ⊂ [−ℓ, ℓ]ⁿ, and
+ϑ_α := φ_α^*ϑ. We show
 
     ‖Σ_α φ_α^* w_α‖²_k ≤ C Σ_α ‖w_α‖²_(H^k(ℝⁿ))  (supp w_α ⊂ K),      Σ_α ‖(φ_α)_*(ϑ_α u)‖²_(H^k(ℝⁿ)) ≤ C ‖u‖²_k.
 
-By (S3), ‖u‖²_k = Σ_β ‖(φ_β)_*(χ°_βu)‖²_(H^k(ℝⁿ)) with χ°_β := φ_β^*χ°, the cut-off χ° of (S3) being nonnegative,
-in C_c^∞((−2, 2)ⁿ) and equal to 1 on [−1, 1]ⁿ; as the sets φ_β⁻¹((−1, 1)ⁿ) cover ((S1)), 1 ≤ Σ_β χ°_β ≤ N_ℬ. For charts
-α, β and a function ϕ on (−2, 2)ⁿ that vanishes outside φ_α(F), with F ⊂ U_α ∩ U_β compact, put
+They are used below with K = [−5/4, 5/4]ⁿ or K = supp θ̃, and with ϑ = θ̃ or ϑ = θ̌; these lie in [−ℓ, ℓ]ⁿ, as
+13/8 < ℓ. By (S3), ‖u‖²_k = Σ_β ‖(φ_β)_*(χ°_βu)‖²_(H^k(ℝⁿ)) with χ°_β := φ_β^*χ°, where χ° ∈ C_c^∞((−2, 2)ⁿ)
+equals 1 on [−1, 1]ⁿ ([Hin26d, Definition 3.14, p. 34]) and is taken with 0 ≤ χ° ≤ 1, which changes the norm only up
+to equivalence ([Hin26d, p. 36]); as the sets φ_β⁻¹((−1, 1)ⁿ) cover ((S1)) and no point lies in more than
+m_ℬ ≤ N_ℬ of the U_β, 1 ≤ Σ_β χ°_β ≤ N_ℬ. For charts α, β and a function ϕ on (−2, 2)ⁿ that vanishes outside
+φ_α(F), with F ⊂ U_α ∩ U_β compact, put
 T^ϕ_(βα)w := (ϕw) ∘ φ_α ∘ φ_β⁻¹ on φ_β(U_α ∩ U_β), extended by 0. If the derivatives of ϕ of order at most |k| are
 bounded, then ‖T^ϕ_(βα)w‖_(H^k) ≤ C‖w‖_(H^k). For k ≥ 0 this is Leibniz's rule, the chain rule and the change of
 variables, the transition maps and their inverses having bounded derivatives ((S1)). For k < 0 it follows by
@@ -397,9 +420,12 @@ the orders N_0 and −N_0, ‖Σ_β O^far_β(g)u‖²_(N_0) ≤ C Σ_β ‖(φ_�
 (P2) For charts α, β, (φ_α)_*(θ̃_αO^ε_β(g)f) = (Op(σ) + Op(ρ))(φ_α)_*(θ̌_αf), where σ and ρ vanish for x ∉ supp θ̃
 and unless β ∈ A_α, σ has order 𝗆_α, and every x-derivative of ρ is bounded by C⟨ξ⟩^(−2N_0). Indeed, by
 [[lem:fwd-transport]] with θ := θ̃, the left side is R_c applied to (φ_α)_*f, whose amplitude c contains the factor
-θ̃(x) and vanishes unless y ∈ (−7/4, 7/4)ⁿ (the choice of ε in that proof), so that θ̌_α may be inserted; θ̃_α and
-O^ε_β(g)f are supported in U_α and U_β. Then [[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α
-as its terms of index γ have the pointwise order 𝗆_α − |γ|, and ρ := ρ_J, of order at most N_0 − J + ½ < −2N_0. So,
+θ̃(x) and vanishes unless y ∈ (−7/4, 7/4)ⁿ (the choice of ε in that proof), so that θ̌_α may be inserted. As g_β
+vanishes for x ∉ (−5/4, 5/4)ⁿ, c contains the factor θ̃(x)g_β(κ(x), ·), which vanishes unless φ_α⁻¹(x) lies in
+φ_α⁻¹(supp θ̃) ∩ φ_β⁻¹([−5/4, 5/4]ⁿ); so c vanishes identically, and with it the σ and ρ below, unless β ∈ A_α. (In
+other words, θ̃_α is supported in φ_α⁻¹(supp θ̃), and O^ε_β(g)f in φ_β⁻¹([−5/4, 5/4]ⁿ) by left quantization.) Then
+[[lem:fwd-reduction]] with J := 3N_0 + 1 gives σ := σ_J, of order 𝗆_α as its terms of index γ have the pointwise
+order 𝗆_α − |γ|, and ρ := ρ_J, of order at most N_0 − J + ½ < −2N_0. So,
 for every order 𝗍 with values in [−N_0, N_0], Op(σ) maps H^(𝗍_α) to H^(𝗍_α−𝗆_α) by [[lem:fwd-local]], as σ vanishes
 for x ∉ [−7/4, 7/4]ⁿ, and Op(ρ) maps H^(−N_0) to H^(N_0) by [[lem:fwd-crude]]; both uniformly in (α, β).
 
@@ -448,14 +474,18 @@ the pointwise order Σ_j 𝗆_j by exactly that number.
 Σ_α χ_α F^ε_1 ⋯ F^ε_r, and the kernel of χ_α F^ε_1 ⋯ F^ε_r joins points within rCε ≤ 1/8 in d_ℬ of supp χ_α, inside
 φ_α⁻¹([−3/2, 3/2]ⁿ) for ε small; so inserting θ̂ in front of F^ε_j, j ≥ 2, and θ̃_α on the right changes nothing. In the
 chart α, by [[lem:fwd-reduction]] and [[lem:fwd-transport]] with J := J_R, each θ^(j)F^ε_j is Op(s_j) + Op(ρ_j), ρ_j of
-order at most T − J_R + ½ = −R − ½. Expanding, the product is Op(s_1)⋯Op(s_r) plus terms with a factor Op(ρ_j). By
-[[lem:fwd-composition]] (q vanishing off Q_4) with J := J_C applied r − 1 times from the left,
+order at most T − J_R + ½ = −R − ½. Only the β ∈ A_α of the proof of [[lem:fwd-norms]], at most N_ℬ of them,
+contribute to s_j and ρ_j: the amplitude contains θ^(j)(x) and g_β at κ(x), resp. at κ(y) with y ∈ (−7/4, 7/4)ⁿ
+([[eq:fwd-transport]] and the choice of ε there), and g_β vanishes for x ∉ (−5/4, 5/4)ⁿ. Expanding, the product is
+Op(s_1)⋯Op(s_r) plus terms with a factor Op(ρ_j). By [[lem:fwd-composition]] (q vanishing off Q_4) with J := J_C
+applied r − 1 times from the left,
 Op(s_1)⋯Op(s_r) = Op(t_α) + Σ_(j≥2) Op(r_j) Op(s_(j+1)) ⋯ Op(s_r), r_j of order at most jT − J_C + ¾ ≤ −R − ¼. The far
 terms are products with at least one factor F^far_j, of order at most T − 2K + ½ ≤ −R − ½ ([[lem:fwd-far]]).
 
 So every term of E is a product of at most r operators, one of order at most −R (the gaining factor) and the others of
 order at most T, which we bound between Sobolev spaces of constant order by [[lem:fwd-crude]], chart by chart, and on
-the manifold by (S3); adjoints by duality. Start from H^𝗍 ⊂ H^(−T). The factors to the right of the gaining factor lower
+the manifold by [[lem:fwd-norms]] at constant orders (not integers in general); adjoints by duality. Start from
+H^𝗍 ⊂ H^(−T). The factors to the right of the gaining factor lower
 the order by at most T each, the gaining factor raises it by R, the others lower it by at most T: the result lies in
 H^(−T−(r−1)T+R) = H^S. The input orders s of the factors of order at most T lie in [−rT, R − T], so |s − T| ≤
 max((r + 1)T, R − 2T); that of the gaining factor lies in [−rT, −T], so |s + R| ≤ R − T = S + (r − 1)T. So B
@@ -785,7 +815,8 @@ add (Θ in place of T, as T(a_1, …, a_r) denotes an expression there):
 Text 8. In the notation paragraph at the start of ch:s06, replace
   N′ is a fixed large integer;
 by
-  N′ is a fixed integer with N′ ≥ −inf 𝗌_0 (N′ = 13 for the operator of [[thm:iii-i-5-3]]);
+  N′ is a fixed integer with N′ ≥ −inf 𝗌_0 for every order 𝗌_0 (or s_0) of an a priori term below (N′ = 13 for the
+  operator of [[thm:iii-i-5-3]]);
 
 Texts 9 to 11. ch:s07 already reads as follows, which is what lem:fwd-box uses; nothing is to be placed.
   In the proof of prop:ii-e-4-3: "so a priori u″^(j) ∈ H^(𝗌−1,2α−1)(Ω″)^(•,−). The threshold holds also for the weight
@@ -793,10 +824,11 @@ Texts 9 to 11. ch:s07 already reads as follows, which is what lem:fwd-box uses; 
   In the proof of prop:ii-e-5-6 (a): "a priori v″^(j) ∈ H^(𝗌−1,α_K−1)(Ω″)^(•,−). By [[prop:ii-e-5-4]] (i) for P^(j)
   at the weight α_K − 1, with inf 𝗌 − 1 for its s′, …".
   In prop:ii-e-5-4: "There are d_0, depending only on 𝗌 (and, in (i) and (iii), on s′), and C, …".
-  In prop:ii-e-5-6 (a): "(a) Let s′ ∈ ℝ. There is d_0, depending only on 𝗌 and s′, such that … every
-  u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^• with f := Pu satisfies …".
+  In prop:ii-e-5-6: "… 𝗌 a slab order and s′ ∈ ℝ. (a) There is d_0, depending only on 𝗌 and s′, such that …
+  every u ∈ H^((s′;k),α_K)(Ω^K_([a,b]))^• with f := Pu satisfies …".
 
-Text 12. In lem:ii-a-8-5 (ch:s04), after (b), add:
-  For T ∈ ℕ, d_0 = 200T + 100 serves in (a) when 𝗌 has values in [−T, T], and in (b) when 𝗌_0 has values in [−T, T]
-  and sup 𝗌 − inf 𝗌_0 ≤ T ([[prop:fwd-calculus]], which proves (b) without the commutator expansion).
+Text 12. In lem:ii-a-8-5 (ch:s04), after (b), add (Θ in place of T, as T denotes a map in the proof there):
+  For Θ ∈ ℕ, d_0 = 200Θ + 100 serves in (a) when 𝗌 has values in [−Θ, Θ], and in (b) when 𝗌_0 has values in
+  [−Θ, Θ] and sup 𝗌 − inf 𝗌_0 ≤ Θ ([[prop:fwd-calculus]] with T := Θ, which proves (b) without the commutator
+  expansion).
 -->
