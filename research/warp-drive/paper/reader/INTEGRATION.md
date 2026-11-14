@@ -1319,3 +1319,12 @@ Items found while chapters were written in parallel; each is settled once, editi
 - New session after the restart (2026-11-14), branch restarted from main after PR #139: relaunched F3-83,
   F2-P-U71-IS, F-P-U71-SP, R2-P-K82 and XW-1 from the committed files. Reviews and reports of this session are kept
   in the session scratchpad and copied into notes/ when a later step needs them.
+- F2-P-U71-IS done (notes/reports/F2-P-U71-IS.md): root distinctness for 134 ≤ l ≤ 172 completed with exact constants;
+  no number moves (l_* = 50, K_ι ≤ 52). F-P-U71-SP done (notes/reports/F-P-U71-SP.md): SP cites IS only for simplicity
+  on [−101, 5], L ∈ [39, 50] and M ≤ 7; the least ℰ^C_I facts from chapter 36; finite-rank operator renamed 𝔉.
+  R3-IS-SP (combined confirming reading of both) and W-DB (the integer upper bound on d from IS and SP, in P-U71-close
+  and P-U71-assembly) running in parallel.
+- XW-1 done (notes/reports/XW-1.md): every crosswalk matches its chapter's label sequence (one row per {#kind:key}),
+  except 03, missing rem:envelope-regularity (to add with the P-K82 merge). P-C-lambda0 retired (all 16 labels in 86).
+  Unmerged proof files: P-A-indicial, P-A3-every-h, T-A (M-33 merging them into 33 and opening Appendix B), P-K82, the
+  five P-U71 texts. Sources not located: thm:std-bgp-riesz, thm:std-bh17-embedding (crosswalk notes say so).

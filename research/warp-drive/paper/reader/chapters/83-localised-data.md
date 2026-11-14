@@ -300,15 +300,15 @@ constant (u is constant on the spheres of each slice {v̂ − R = const}, proof 
 component has the property of [[def:class-adapted]] for both background families. Whichever components are treated as
 adapted there, and to whichever family, the datum's phase of every family is on Σ′ the background's phase of that
 family, by (b), the background's phase ů_A of a further family being the eikonal that (b) gives it. So the constants of
-the normalisation in [[def:class-adapted]] vanish, and at the points of B ∩ Σ′ in 𝒱_B, for a component B adapted to a
-family A, the datum's phase of A is ů_A, which equals c_B(0) there. By the last paragraph of [[def:class-adapted]],
-T_(0,U) is the identity and a datum on Σ′_L suffices; the constraints and the gauge condition are required on Σ′_L, and
-the condition on the supports in [[thm:class-stability]] is supp q_A ∩ Σ′_L ⊂ S_A for every A. It holds: outside 𝒫_G the
-densities of the background's families are the background's, and those of the further families vanish. The sets 𝒱_B may
-be taken in {R < 0.8} for the inner component and in {R > 5.9} for the outer one, whose spheres have R ≥ 6 − 2δ1 ≥ 5.98.
-Each T_(s,U) is a diffeomorphism equal to the identity outside them, so it maps their union onto itself, and the adapted
-domain Ω_U of the development agrees with Ω_L on {0.8 ≤ R ≤ 5.9}; so it contains the lens and Σ_τ0 ∩ {3.5 ≤ R ≤ 5.75},
-which lie in Ω_L there.
+the normalisation in [[def:class-adapted]] vanish, and at the points of B ∩ Σ′ in 𝒱_B, which contains the sets 𝒰_(2δ_B)
+about the points of B on the axes, for a component B adapted to a family A, the datum's phase of A is ů_A, which equals
+c_B(0) there. By the last paragraph of [[def:class-adapted]], T_(0,U) is the identity and a datum on Σ′_L suffices; the
+constraints and the gauge condition are required on Σ′_L, and the condition on the supports in [[thm:class-stability]]
+is supp q_A ∩ Σ′_L ⊂ S_A for every A. It holds: outside 𝒫_G the densities of the background's families are the
+background's, and those of the further families vanish. The sets 𝒱_B may be taken in {R < 0.8} for the inner component
+and in {R > 5.9} for the outer one, whose spheres have R ≥ 6 − 2δ1 ≥ 5.98. Each T_(s,U) is a diffeomorphism equal to the
+identity outside them, so it maps their union onto itself, and the adapted domain Ω_U of the development agrees with Ω_L
+on {0.8 ≤ R ≤ 5.9}; so it contains the lens and Σ_τ0 ∩ {3.5 ≤ R ≤ 5.75}, which lie in Ω_L there.
 
 *The development.* Complete the constraint data of (b) on Σ′_L, with their dust phases and densities, to a datum of
 [[thm:class-stability]] on Σ′_L: the metric on Σ′ with the background's lapse and shift, and the gauge condition
@@ -317,14 +317,14 @@ so for ε small [[thm:class-stability]] gives the development on its adapted dom
 {3.5 ≤ R ≤ 5.75} lies in Ω_U, and Σ_τ0 = Σ′ elsewhere, it induces constraint data on the whole of Σ_τ0; for R ∉
 (3.5, 5.75) these are the data of (b), which the development attains on Σ′.
 
-*Localisation across the lens.* At a point of Σ_τ0 the induced metric and second fundamental form, and the matter
-part ℋ/2 and ℳ of [[eq:loc-constraints]], are computed from g and its first derivatives and from the differentials of
-the phases and the densities at that point. Let α and β be as in (c). By the last statement of (b), the data of (b)
-equal the background's at the points of Σ′ with 3.44 ≤ R ≤ 5.85 and ϑ < α, and at those with 3.44 ≤ R ≤ 5.85 and
-ϑ > β. If α > 3.3 × 10⁻⁴, [[lem:loc-lens-dependence]] below gives, for ε small, depending also on α, that g with its
-first derivatives, the differential of the ingoing phase and every density equal the background's at the points of
-the lens with ϑ < α − 3.3 × 10⁻⁴; if α ≤ 3.3 × 10⁻⁴ there are no such points. The same holds for ϑ > β + 3.3 × 10⁻⁴.
-At these points of Σ_τ0 the induced data are therefore the background's. ∎
+*Localisation across the lens.* At a point of Σ_τ0 the induced metric and second fundamental form, and the matter part
+ℋ/2 and ℳ of [[eq:loc-constraints]], are computed from g and its first derivatives and from the differentials of the
+phases and the densities at that point. Let α and β be as in (c). By (b), the data of (b) equal the background's outside
+the domain of influence of 𝒫, so they equal the background's at the points of Σ′ with 3.44 ≤ R ≤ 5.85 and ϑ < α, and at
+those with 3.44 ≤ R ≤ 5.85 and ϑ > β. If α > 3.3 × 10⁻⁴, [[lem:loc-lens-dependence]] below gives, for ε small, depending
+also on α, that g with its first derivatives, the differential of the ingoing phase and every density equal the
+background's at the points of the lens with ϑ < α − 3.3 × 10⁻⁴; if α ≤ 3.3 × 10⁻⁴ there are no such points. The same
+holds for ϑ > β + 3.3 × 10⁻⁴. At these points of Σ_τ0 the induced data are therefore the background's. ∎
 
 **Lemma {#lem:loc-lens-dependence}** (Dependence across the lens.) Let Ω_L, t and δ1 be as in the proof of
 [[thm:loc-bent-slice]] (c), and let (g, u_A, q_A) be the development constructed there. Let 3.3 × 10⁻⁴ < α < π/2, and
@@ -731,11 +731,11 @@ with ‖c_ε‖_(C²) ≤ Cε², by Taylor's formula. So [[prop:loc-projection]]
 
 **Lemma {#lem:loc-continuity}** (Corrections depending continuously on a parameter.) Let U be a band as in
 [[lem:loc-kid]] (b), Ω_c ⊂ U compact, [s_a, s_b] a compact interval, and δ_s, s ∈ [s_a, s_b], seeds on U supported in
-Ω_c, with s ↦ δ_s continuous into C^l(U) for every l. Let ρ_1 be a smooth invariant function supported in Ω_c, possibly
-zero, and J_1 := −ρ_1 dR/|dR|_γ. Fix an integer k ≥ 3. There are a smooth invariant function 𝔴 ≥ 0 with compact
-support in U, positive on a band containing Ω_c, and ε_0 > 0 and C, such that for ε ∈ (0, ε_0] and s ∈ [s_a, s_b]
-there are invariant pairs c_(ε,s) on Σ_τ0 with the following properties. Write D_(ε,s) := bg + εδ_s + c_(ε,s), γ_D for
-its metric and g_(ε,s) for the metric of bg + εδ_s.
+Ω_c, with s ↦ δ_s continuous into C^l(U) for every l. Let ρ_1 ≥ 0 be a smooth invariant function supported in Ω_c,
+possibly zero, and J_1 := −ρ_1 dR/|dR|_γ. Fix an integer k ≥ 3. There are a smooth invariant function 𝔴 ≥ 0 with compact
+support in U, positive on a band containing Ω_c, and ε_0 > 0 and C, such that for ε ∈ (0, ε_0] and s ∈ [s_a, s_b] there
+are invariant pairs c_(ε,s) on Σ_τ0 with the following properties. Write D_(ε,s) := bg + εδ_s + c_(ε,s), γ_D for its
+metric and g_(ε,s) for the metric of bg + εδ_s.
 
 (i) c_(ε,s) is of class C^(k−1), vanishes outside a compact subset of U independent of ε and s, satisfies
 ‖c_(ε,s)‖_(C²) ≤ Cε², and is continuous in s in C². If ρ_1 = 0, c_(ε,s) is smooth.
@@ -923,10 +923,10 @@ So m(ε, s) has the sign of ε²Q(δ_s) + O(ε³). Hence, if Q(δ_(s_a)) < 0 < Q
 s(ε) ∈ (s_a, s_b) such that bg + εδ_(s(ε)) + c_(ε,s(ε)) satisfies the vacuum constraints exactly on U and equals the
 background's data outside a compact subset of U.
 
-*Proof.* (a) By Taylor's formula, Φ(D_ε) = Φ(bg) + DΦ[εδ + c_ε] + ½ε² D²Φ[δ, δ] + O(ε³), with Φ(bg) = 0 and DΦ[δ] =
-0. Pairing with (N_s, 2Y_s), the term DΦ[c_ε] drops out by [[lem:loc-kid]] (b), which holds for c_ε of class C²
-vanishing outside a compact subset of U by [[lem:loc-kid-space]] (b) and integration by parts, and the quadratic term
-gives ε²Q(δ). Vacuum data have Φ(D_ε) = 0.
+*Proof.* (a) By Taylor's formula, Φ(D_ε) = Φ(bg) + DΦ[εδ + c_ε] + ½ε² D²Φ[δ, δ] + O(ε³), with Φ(bg) = 0 and DΦ[δ] = 0.
+Pairing with (N_s, 2Y_s), the term DΦ[c_ε] drops out by [[lem:loc-kid]] (b), which holds for c_ε of class C² vanishing
+outside a compact subset of U by [[lem:loc-kid-space]] (b) and integration by parts, and the quadratic term gives
+ε²Q(δ). Vacuum data have Φ(D_ε) = 0.
 
 (b) This is [[lem:loc-continuity]] with ρ_1 = 0 and k = 3: by its item (i) the corrections are smooth, and its items
 (ii) and (iii) are the displayed identities. If Q(δ_(s_a)) < 0 < Q(δ_(s_b)), the O(ε³) being uniform in s,
@@ -1334,9 +1334,10 @@ DRic(h) = 0 by [[lem:ix-2-1]] (b), so 2L⁰h = 0, L⁰ := DRic − δ*_gΥ̇⁰ 
 with h|_S = 0 and ∇_n h|_S = 0; [[thm:std-bgp-cauchy]] (3) gives h = 0. ∎
 
 **Lemma {#lem:loc-transfer}** (From the slice to a static slice.) Let U ⊂ {f > 0} be a band of Σ_τ0 on which the
-background is vacuum, of mass μ, with the radial extent of supp δ equal to [R1′, R2′], and let δ be a seed on U.
-Extend the slice to a Cauchy surface of the maximally extended Tangherlini spacetime M_μ, and let h be the linearised
-vacuum solution with data δ in a harmonic gauge with compactly supported gauge data, so that supp h ⊂ J(supp δ). Then:
+background is vacuum, of mass μ, with the radial extent of supp δ equal to [R1′, R2′], and let δ be a seed on U. Extend
+the slice to a Cauchy surface of the maximally extended Tangherlini spacetime M_μ, and let h be the linearised vacuum
+solution with data δ in a harmonic gauge with invariant compactly supported gauge data, so that h is invariant and supp
+h ⊂ J(supp δ). Then:
 
 (1) Q(δ) = 2∫_Σ Ein²[h](ξ, n) dvol, Ein²[h] the ε² coefficient of Ein(g + εh);
 
@@ -1704,8 +1705,8 @@ the identity for ψ_u in (v). ∎
 
 **Lemma {#lem:bg-reduction}** (Reduction to rays.) Let ℛ := {v < 3}.
 
-(a) *The data on 𝒞_in.* R(u) := R(u, 0) solves R″ = −ℬ/(3R²) with R(u1) = 2.321, R′(u1) = −0.47, and S(u) := R²R_v(u,
-0) solves S′ = −R/2 with S(u1) = 2.067575. The functions μ(u) := μ(u, 0) and ℓ_v(u) := 2R_v(u, 0) are
+(a) *The data on 𝒞_in.* R(u) := R(u, 0) solves R″ = −ℬ/(3R²) with R(u1) = 2.321, R′(u1) = −0.47, and S(u) := R²R_v(u, 0)
+solves S′ = −R/2 with S(u1) = 2.067575. The functions μ(u) := μ(u, 0) and ℓ_v(u) := 2R_v(u, 0) are
 
     μ = R² + 4R′S,     ℓ_v = 2S/R²,     μ′ = −(2/3) ℬ ℓ_v,     ℓ_v′ = −μ/R³.                              {#eq:bg-nprime}
 
@@ -3236,7 +3237,7 @@ Thirty-two cells [R_a, R_b] cover [0.70, 1.861]. For each, the columns give the 
 the ends of the ranges of ψ_s, ψ_s′ and ψ_s″ on the cell. Each pair of columns lists the smaller value first. Column (a)
 is a lower bound for Γ/E² on the cell for the reference profile, column (b) a lower bound over the tube of
 [[prop:margins-seed]] (b). Both are rounded down to three decimals. They come from [[eq:margins-gamma-form]] evaluated
-by the enclosure rule of [[lem:margins-enclosure]] (a), in the form written there, with q = e^ψ, u = 1 − q and m =
+by the enclosure rule of [[lem:margins-enclosure]] (a), in the form written there, with q = e^ψ, 𝔲 = 1 − q and m =
 μ/R², and with each printed end value moved outward by 5 × 10⁻⁸ to cover its rounding.
 
 | R_a | R_b | ψ_s(a) | ψ_s(b) | ψ_s′(b) | ψ_s′(a) | ψ_s″(a) | ψ_s″(b) | (a) | (b) |
