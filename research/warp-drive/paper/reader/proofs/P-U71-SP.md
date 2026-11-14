@@ -135,7 +135,8 @@ and have the same v-derivative) and the ℒ_Ω commute with I. Put g := W̃^αu_
 length of the word, and |g| ≤ C′_αv^(−c) on {v ≥ 4}. Moreover 𝔮_0(g) = 0. Indeed 𝔮_0 commutes with the ℒ_Ω,
 𝔮_0(u_j) = 0, and 𝔮_0((v∂_v + 1)w) = 0 for every w ∈ Ḣ^(s′,c)_b, s′ ∈ ℝ: for w ∈ C_c^∞((−1, ∞) × 𝕊³) it is
 ∫ ∂_v(vw) dv = 0, such w are dense ([[lem:i-a-6-1]] (a), [[lem:i-c-2-2]] (d), as in the proof of [[lem:sp-moments]]),
-and both sides are continuous in w. Moving the ℒ_Ω at the left end of W̃^α through 𝔮_0, one reaches either a factor
+and w ↦ 𝔮_0((v∂_v + 1)w) is continuous, v∂_v + 1 mapping Ḣ^(s′,c)_b into Ḣ^(s′−1,c)_b ([[def:sp-moments]], c > 1).
+Moving the ℒ_Ω at the left end of W̃^α through 𝔮_0, one reaches either a factor
 v∂_v + 1, which gives 0, or, if W̃^α has none, 𝔮_0(u_j) = 0. Take χ ∈ C^∞(ℝ) equal to 1 on (−∞, 3] and to 0 on
 [4, ∞). Then I(χg) is constant on {v ≥ 4}, equal to ⟨χg, 1⟩, and so, on {v ≥ 4},
 
@@ -172,8 +173,8 @@ of size (K + 1)n_τ, block lower bidiagonal with blocks of size n_τ, whose bloc
 
 all other blocks being 0. So det 𝔐^K_τ(ϰ) = ∏_(k=0)^K det N_τ(ϰ − k − 1). For Re ϰ_0 ≥ 2 write 𝔐_τ := 𝔐^(K(ϰ_0))_τ,
 and let c_τ(ϰ_0) be the order of the zero of det 𝔐_τ at ϰ_0: the number of roots μ of type τ, with multiplicity,
-with ϰ_0 − μ ∈ {1, …, K(ϰ_0) + 1}. Each such root has Re μ ≥ Re ϰ_0 − K(ϰ_0) − 1 = Re ϰ_0 − ⌊Re ϰ_0⌋ + 1 ≥ 1, and is
-therefore singular.
+with ϰ_0 − μ ∈ {1, …, K(ϰ_0) + 1}. Each such root has Re μ ≥ Re ϰ_0 − K(ϰ_0) − 1 = Re ϰ_0 − ⌊Re ϰ_0⌋ + 1 ≥ 1,
+hence Re μ > 1, as no root has real part in (0, 1], and is therefore singular.
 
 By [[eq:sp-moments]], the moments (𝔮_k(u))_(k≤K) of N_sf(ϰ)u are obtained from those of u by the operator 𝔐(ϰ) on
 𝒟′(𝕊³; ℂ^15)^(K+1) defined by the right side of [[eq:sp-moments]]; on W_π^(K+1) it acts as 𝔐^K_τ(ϰ) ⊗ Id_π.
@@ -182,7 +183,9 @@ By [[eq:sp-moments]], the moments (𝔮_k(u))_(k≤K) of N_sf(ϰ)u are obtained 
 let 𝒳, 𝒴 be the spaces of a pair admissible for every ϰ in a disc about ϰ_0.
 
 (a) For every 𝔫 ≥ 1 the map (u_j)_(j<𝔫) ↦ ((𝔮_k(u_j))_(k≤K))_(j<𝔫) is a bijection from 𝒦_𝔫(N_sf, ϰ_0) onto
-𝒦_𝔫(𝔐, ϰ_0) = ⊕_π 𝒦_𝔫(𝔐_τ(π) ⊗ Id_π, ϰ_0), τ(π) the type of π; only finitely many summands are non-zero.
+𝒦_𝔫(𝔐, ϰ_0) := ⊕_π 𝒦_𝔫(𝔐_τ(π) ⊗ Id_π, ϰ_0), τ(π) the type of π, the space of the chains of 𝔐 in
+𝒟′(𝕊³; ℂ^15)^(K+1): the tuples there that satisfy [[eq:sp-chain]] for 𝔐, which commutes with the projections onto the
+W_π^(K+1). Only finitely many summands are non-zero.
 
 (b) dim ker N_sf(ϰ_0) = Σ_τ d_τ dim ker 𝔐_τ(ϰ_0), and the order of the pole of N_sf(·)⁻¹ at ϰ_0 is the largest of the
 numbers p(𝔐_τ, ϰ_0), each of which is at most c_τ(ϰ_0).
@@ -192,8 +195,8 @@ numbers p(𝔐_τ, ϰ_0), each of which is at most c_τ(ϰ_0).
 
 (d) If c_τ(ϰ_0) ≤ 1 for every type, then ϰ_0 is at most a simple pole of N_sf(·)⁻¹.
 
-*Proof.* Choose the pair (s, c) with c ∈ (Re ϰ_0 − 1, Re ϰ_0); the poles and their orders do not depend on the pair
-([[thm:iii-g-5-1]] (2)). Then c > K + 1, as K + 1 ≤ Re ϰ_0 − 1. By [[lem:sp-primitive]] (a) the elements of a tuple
+*Proof.* Write (s, c) for the pair; c ∈ (Re ϰ_0 − 1, Re ϰ_0) by [[eq:iii-g-2-6]], and the poles of N_sf(·)⁻¹ and
+their orders do not depend on the pair ([[thm:iii-g-5-1]] (2)). Then c > K + 1, as K + 1 ≤ Re ϰ_0 − 1. By [[lem:sp-primitive]] (a) the elements of a tuple
 of 𝒦_𝔫(N_sf, ϰ_0) lie in Ḣ^(s,c)_b, so their moments of order at most K are defined, and by [[lem:sp-moments]] (with
 its derivatives) they form a tuple of 𝒦_𝔫(𝔐, ϰ_0). The components on the W_π are tuples of
 𝒦_𝔫(𝔐_τ(π) ⊗ Id_π, ϰ_0), which vanish unless det 𝔐_τ(π)(ϰ_0) = 0, that is unless π has a root among ϰ_0 − 1, …,
