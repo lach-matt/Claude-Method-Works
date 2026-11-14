@@ -1269,3 +1269,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   confirming reading of the d-bound texts (with IS and SP).
 - R2-85 NOT CONFIRMED (A1 in lem:edge-degree-two, B1, C1-C5). F2-85 applies them and the chapter 3 m12 text of F-85
   (lines 369-371), which R2-85 checked true.
+- F3-82 done (reports/F3-82.md): lem:vlasov-local-stability added; (V1) uniform neighbourhood; uniqueness in
+  prop:vlasov-cauchy narrowed to ε2. R3-82 reads the chapter and says whether P-K82 is affected. P-K82 merges after
+  R-P-K82 and R3-82.
