@@ -324,21 +324,21 @@ the classes E_(3/2), E_2. For w, run [[lem:layer-remainder]] (case Ω), [[lem:la
 bounded, while the forcing term and the data cost λ⁻¹ per coordinate derivative and nothing per rotation, as for g_app
 ([[lem:layer-flat]] (d), (e), [[lem:layer-flat-past]] (d)). Hence
 
-    𝓔_j(τ) := Σ_(i≤j, i+|β|≤4) (‖∂ ∂^i Ω^β w(τ)‖ + ‖∂^i Ω^β w(τ)‖) ≤ C λ^(N−3−j) ε_M(v1),      2 ≤ j ≤ 4,
+    ℰ_j(τ) := Σ_(i≤j, i+|β|≤4) (‖∂ ∂^i Ω^β w(τ)‖ + ‖∂^i Ω^β w(τ)‖) ≤ C λ^(N−3−j) ε_M(v1),      2 ≤ j ≤ 4,
 
-the norms on the slices of the region; 𝓔_4 bounds the higher orders in L² on the slices. At a point of Ω with r ≥ q0, the
+the norms on the slices of the region; ℰ_4 bounds the higher orders in L² on the slices. At a point of Ω with r ≥ q0, the
 slice of the region through it contains [a, r], of width at least δ0 (q0 = a + δ0), and Sobolev's inequality on the
-slices (step 7 of [[lem:layer-remainder]]) gives |∂^k Ω^β w| ≤ C 𝓔_(k+2) ≤ C λ^(N−5−k) ε_M(v1) = C λ^(1−k) η(v1) for
+slices (step 7 of [[lem:layer-remainder]]) gives |∂^k Ω^β w| ≤ C ℰ_(k+2) ≤ C λ^(N−5−k) ε_M(v1) = C λ^(1−k) η(v1) for
 k + |β| ≤ 2. In case P, w = 0 where v ≤ v_s ([[prop:layer-seed-past]]); let X be a point of P with v(X) ≥ v_s, and
 τ := τ(X). The derivatives of w vanish where v = v_s, and the points (τ, r, x̂(X)) with v_s − τ ≤ r ≤ r(X) have v ∈ [v_s,
 v(X)], so they lie in the region. Step (2) (ii) of the proof of [[lem:edge-localisation]], applied to ∂^k Ω^β w, gives
-t^(3/2) |∂^k Ω^β w(X)| ≤ C Σ_(|β′|≤2) ‖∂ Ω^(β′) ∂^k Ω^β w(τ)‖ ≤ C 𝓔_(max(k,2))(τ), as [Ω_ab, ∂_c] is a coordinate
+t^(3/2) |∂^k Ω^β w(X)| ≤ C Σ_(|β′|≤2) ‖∂ Ω^(β′) ∂^k Ω^β w(τ)‖ ≤ C ℰ_(max(k,2))(τ), as [Ω_ab, ∂_c] is a coordinate
 derivative; so t^(3/2) |∂^k Ω^β w| ≤ C λ^(1−k) η(v1) at the points of P, for k + |β| ≤ 2.
 
 (3) *The forcing term.* By (2), at the points of S(v) with v = v′ ≤ v and r ≥ q0, |u| ≤ C(λε_c + λη), |∂u| ≤ C(ε_c + η)
 and |∂²u| ≤ C λ⁻¹(ε_c + η), so |𝒩(u)| ≤ C(ε_c + η)², and |f_2| ≤ C(ε_c(v′)² + ε_c(v′) η(v1) + η(v1)²) there. For Ω^β
 f_2, |β| ≤ 2, Leibniz's rule writes each term as a product in which at most one factor carries more than two derivatives
-and rotations; that factor is bounded in L² on the slices, by 𝓔_4, and the others pointwise. On P every factor of u
+and rotations; that factor is bounded in L² on the slices, by ℰ_4, and the others pointwise. On P every factor of u
 decays at least like t^(−3/2), w by the weighted bound of (2) and g_app − g0° by the classes E_(3/2), E_2, and |Ω^β 𝒜| ≤
 C ε_1(v′)² t^(−3) by (1); so each product carries the decay of two factors, at least t^(−3), and ‖Ω^β f_2(τ)‖_(L²(Σ̂_τ ∩
 S(v))) ≤ C (…) t^(−3/2), integrable in τ.
