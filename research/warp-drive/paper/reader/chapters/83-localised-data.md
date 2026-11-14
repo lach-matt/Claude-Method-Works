@@ -351,74 +351,74 @@ order at most k − 1 are at most Cε on Ω_U. For the background write ů_in :=
 
 Then W t1 = 1.015 τ_L/3.5756 ≤ 3.2918 × 10⁻⁴, and on 𝒟, ϑ ≤ α′ < π/2 and on its angular face ϑ ≥ α − 3.2958 × 10⁻⁴ > 0.
 
-(1) *Where 𝒟 lies.* On Ω_L, τ = τ0 + (1 − t)φ(R) + tδ1 and −M ≤ φ ≤ 0 ([[prop:margins-bend]] (b)); so on 𝒟,
-−M ≤ τ − τ0 ≤ tδ1 ≤ t1δ1 < M, and as |v_in − v̂| ≤ Cε, R = v̂ − τ satisfies
+(1) *Where 𝒟 lies.* By the definition of t, τ = τ0 + (1 − t)φ(R) + tδ1 and −τ_L ≤ φ ≤ 0 ([[prop:margins-bend]] (b)); so on 𝒟,
+−τ_L ≤ τ − τ0 ≤ tδ1 ≤ t1δ1 < τ_L, and as |v_in − v̂| ≤ Cε, R = v̂ − τ satisfies
 
-    3.44 + t(λ − δ1) − Cε ≤ R ≤ 5.85 + M + Cε < 5.86.
+    3.44 + t(c_v − δ1) − Cε ≤ R ≤ 5.85 + τ_L + Cε < 5.86.
 
 Every point of 𝒟 lies in region I. Where τ ≤ τ0 this is [[lem:margins-region-one]] (c), as R ≥ 3.4399 > R_*. Where
 τ > τ0, the ray u = 5.7 is {τ = τ_ray(R)} with dτ_ray/dR = 2/f − 1 ≥ 1 ([[lem:margins-region-one]] (b), (c), its time
-v̂ ≤ τ0 + M + 3.4384 < v̂(v = 3) there), so it meets the slice {τ = const} at a radius at most R_* + (τ − τ0), which is
-at most 3.43719 + tδ1 < 3.44 + t(λ − δ1) − Cε, since λ ≥ 2δ1; and u decreases strictly in R along that slice (proof of
+v̂ ≤ τ0 + τ_L + 3.4384 < v̂(v = 3) there), so it meets the slice {τ = const} at a radius at most R_* + (τ − τ0), which is
+at most 3.43719 + tδ1 < 3.44 + t(c_v − δ1) − Cε, since c_v ≥ 2δ1; and u decreases strictly in R along that slice (proof of
 [[cor:class-two-dust]]), so u < 5.7 at the points of 𝒟. Hence on 𝒟, by [[lem:margins-region-one]] (a),
 
     g0 = −f dτ² + 2(1 − f) dτ dR + (2 − f) dR² + R² dΩ₃²,      f = 1 − μ/R²,      3/2 ≤ μ ≤ 3.6059,
 
 so 0.69 < f ≤ 1 − 1.5/5.86² ≤ 0.95632; the inverse has g0^(ττ) = −(2 − f), g0^(τR) = 1 − f, g0^(RR) = f,
 g0^(ϑϑ) = R⁻² and no other entry pairing dϑ with dτ or dR. The background's outgoing density vanishes on 𝒟, as ℬ = 0
-in region I. 𝒟 lies in the interior of Ω_L, since R > 0.70, v̂ + τ = 2τ + R < 2τ0 + 6 and t1 < 1. On 𝒟 the coordinate
+in region I. 𝒟 lies in the interior of Ω_L, since R > 0.70, v̂ + τ = 2τ + R < 2τ0 + 6 and t1 < 1, and so in the interior of Ω_U, as 0.8 < R < 5.9 on 𝒟. On 𝒟 the coordinate
 field ∂_t of the chart (t, x) is (δ1 − φ)∂_τ, with g0(∂_τ, ∂_τ) = −f < 0 and dτ(∂_τ) = 1: it is future timelike, for g
 as well when ε is small.
 
 A point y of the lens with ϑ(y) < α − 3.3 × 10⁻⁴ lies in 𝒟. Indeed τ(y) ≤ τ0 gives t(y) ≤ |φ|/(δ1 + |φ|) ≤ t1, so
-ϑ(y) < α′ − 3.2958 × 10⁻⁴ ≤ α′ − W t(y); and v̂(y) = τ + R lies in [τ0 + 3.5 − M, τ0 + 5.75], so c_a + λ t(y) ≤ τ0 +
-3.49 < v_in(y) < τ0 + 5.8 ≤ c_b − λ t(y) for ε small.
+ϑ(y) < α′ − 3.2958 × 10⁻⁴ ≤ α′ − W t(y); and v̂(y) = τ + R lies in [τ0 + 3.5 − τ_L, τ0 + 5.75], so c_a + c_v t(y) ≤ τ0 +
+3.49 < v_in(y) < τ0 + 5.8 ≤ c_b − c_v t(y) for ε small.
 
-(2) *The lateral faces.* 𝒟 = {y ∈ Ω_L : t ≤ t1, F_1 ≤ 0, F_2 ≤ 0, F_3 ≤ 0} with F_1 := ϑ + W t − α′, F_2 := c_a + λ t −
-v_in and F_3 := v_in + λ t − c_b. We show that at the points of 𝒟 each dF_i is timelike for g and positive on the
+(2) *The lateral faces.* 𝒟 = {y ∈ Ω_U : t ≤ t1, F_1 ≤ 0, F_2 ≤ 0, F_3 ≤ 0} with F_1 := ϑ + W t − α′, F_2 := c_a + c_v t −
+v_in and F_3 := v_in + c_v t − c_b. We show that at the points of 𝒟 each dF_i is timelike for g and positive on the
 nonzero future causal vectors of g. A covector positive on these is timelike: otherwise its kernel would contain a
-nonzero causal vector. As in the proof of [[thm:loc-bent-slice]] (c), dt = η/(δ1 − φ) with η := dτ − κ dR,
-κ := (1 − t)φ′, |κ| ≤ 0.0021370 ([[prop:margins-bend]] (c)), δ1 − φ ≤ δ1 + M ≤ 0.0111596, and
+nonzero causal vector. As in the proof of [[thm:loc-bent-slice]] (c), dt = η/(δ1 − φ) with η := dτ − κ_L dR,
+κ_L := (1 − t)φ′, |κ_L| ≤ 0.0021370 ([[prop:margins-bend]] (c)), δ1 − φ ≤ δ1 + τ_L ≤ 0.0111596, and
 
-    −g0⁻¹(η, η) = (2 − f) + 2κ(1 − f) − κ²f ≥ 1.0216²:
+    −g0⁻¹(η, η) = (2 − f) + 2κ_L(1 − f) − κ_L²f ≥ 1.0216²:
 
 where φ′ ≠ 0, so 3.5 < R < 5.75, the left side is at least 1 + 1.5/5.75² − 2 × 0.002137 × 3.6059/3.5² − 0.002137² ≥
 1.04410; elsewhere it is 2 − f = 1 + μ/R² ≥ 1 + 1.5/5.86² ≥ 1.04368; and 1.0216² ≤ 1.04367. A nonzero future causal
 vector Y of g0 has τ̇ := dτ(Y) > 0 and x := dR(Y)/τ̇ between the roots −1 and f/(2 − f) of (2 − f)x² + 2(1 − f)x − f,
-so that η(Y) = τ̇(1 − κx) ≥ (1 − |κ|)τ̇ and dv̂(Y) = (1 + x)τ̇ ≤ 2τ̇/(2 − f).
+so that η(Y) = τ̇(1 − κ_Lx) ≥ (1 − |κ_L|)τ̇ and dv̂(Y) = (1 + x)τ̇ ≤ 2τ̇/(2 − f).
 
 For F_1: since g0⁻¹(dϑ, dϑ) = R⁻² and g0⁻¹(dϑ, η) = 0,
 
     g0⁻¹(dF_1, dF_1) = R⁻² + (W/(δ1 − φ))² g0⁻¹(η, η) ≤ R⁻² − (1.0216 W/(δ1 − φ))².
 
-Where R ≥ 3.5, 1.0216 W/(δ1 − φ) ≥ 1.015/3.5 ≥ 1.015/R; where R < 3.5, φ = 0 and 1.0216 W/δ1 = 1.015 (1 + M/δ1)/3.5 ≥
+Where R ≥ 3.5, 1.0216 W/(δ1 − φ) ≥ 1.015/3.5 ≥ 1.015/R; where R < 3.5, φ = 0 and 1.0216 W/δ1 = 1.015 (1 + τ_L/δ1)/3.5 ≥
 0.3236 ≥ 1.1/R, as δ1 ≤ 0.01 and R ≥ 3.43. So g0⁻¹(dF_1, dF_1) ≤ −0.03 R⁻², and dF_1(∂_t) = W > 0. For F_2: dv̂(Y) ≤
-1.9164 τ̇ ≤ 1.9205 η(Y), while λ dt(Y) = λ η(Y)/(δ1 − φ) ≥ 4.48 η(Y); so (λ dt − dv̂)(Y) ≥ 2.5 η(Y) > 0. These bounds
+1.9163 τ̇ ≤ 1.9205 η(Y), while c_v dt(Y) = c_v η(Y)/(δ1 − φ) ≥ 4.48 η(Y); so (c_v dt − dv̂)(Y) ≥ 2.5 η(Y) > 0. These bounds
 for F_1 and F_2 are strict, uniformly on the compact 𝒟, and g − g0 and dv_in − dv̂ are at most Cε there; so for ε small
-they hold for g and v_in. For F_3: dF_3 = dv_in + λ dt, where dv_in is null for g and dv_in(Y) = −g(P, Y) ≥ 0 for future
+they hold for g and v_in. For F_3: dF_3 = dv_in + c_v dt, where dv_in is null for g and dv_in(Y) = −g(P, Y) ≥ 0 for future
 causal Y; so dF_3 is positive on the nonzero future causal vectors, dt being so.
 
 Consequently a past directed causal curve γ of g that starts in 𝒟 stays in 𝒟 while t > 0. Let y = γ(s*) be its last
 point with γ([0, s*]) ⊂ 𝒟, and suppose t(y) > 0. Along γ, t decreases, so t ≤ t1 continues to hold; the F_i negative
 at y stay negative near s*; and each F_i with F_i(y) = 0 has derivative dF_i(γ̇) < 0 there, γ̇ being past directed.
-So γ(s) ∈ 𝒟 for s a little beyond s* (𝒟 lying in the interior of Ω_L), against the choice of s*.
+So γ(s) ∈ 𝒟 for s a little beyond s* (𝒟 lying in the interior of Ω_U), against the choice of s*.
 
 (3) *Only the ingoing family carries dust in 𝒟.* The background has no further families, and its outgoing density
 vanishes on 𝒟 by (1). For the development, let A be the outgoing family or a further one and y ∈ 𝒟. The integral curve
 of P_A through y, followed to the past, is a past directed causal curve of g along which t decreases at a rate bounded
-below on the compact Ω_L; by (2) it stays in 𝒟 until it reaches a point y0 of 𝒟 ∩ Σ′. On Σ′, v̂ = τ0 + R + φ(R)
+below on the compact 𝒟; by (2) it stays in 𝒟 until it reaches a point y0 of 𝒟 ∩ Σ′. On Σ′, v̂ = τ0 + R + φ(R)
 increases with R and equals c_a at R = 3.44 and c_b at R = 5.85, where φ = 0; so y0 has 3.44 ≤ R ≤ 5.85 and ϑ ≤ α′ < α,
 and q_A(y0) is the background's, 0. The conservation law of [[eq:class-system]] reads P_A(q_A) = −(□_g u_A) q_A, a
 linear ordinary differential equation along the curve; so q_A(y) = 0. On 𝒟 the stress of either solution is therefore
 that of its ingoing family alone.
 
-(4) *The equations compared.* On 𝒟 both (g, u_in, q) and (g0, ů_in, q̊) satisfy, by [[eq:class-system]], the gauge
+(4) *The equations compared.* On 𝒟 both (g, u_in, q_in) and (g0, ů_in, q̊_in) satisfy, by [[eq:class-system]], the gauge
 condition and (3):
 
-(i) Ric^H(g) = q p ⊗ p, Ric^H the reduced Ricci tensor relative to g0 ([[eq:gauge]]);
+(i) Ric^H(g) = q_in p ⊗ p, Ric^H the reduced Ricci tensor relative to g0 ([[eq:gauge]]);
 (ii) P^b ∂_b p_a = P^b Γ[g]^c_ba p_c, as ∇_P p = ½ d g⁻¹(p, p) = 0;
-(iii) P(Θ) = −|∇²u_in|²_g, which is [[eq:class-raychaudhuri]] with Ric(P, P) = q g⁻¹(p, p)² = 0;
-(iv) P(q) = −Θ q.
+(iii) P(Θ) = −|∇²u_in|²_g, which is [[eq:class-raychaudhuri]] with Ric(P, P) = q_in g⁻¹(p, p)² = 0;
+(iv) P(q_in) = −Θ q_in.
 
 In (iii), by [[eq:class-identity]], |∇²u_in|² = S_loc := (Θ − κ1 − κ2)² + κ1² + κ2² off the axes, and by
 [[eq:class-x]] and continuity ([[prop:class-axis]] (d)), |∇²u_in|² = S_ax := κ1² + ½(Θ − κ1)² + ½σ² near axis 2,
@@ -430,7 +430,7 @@ the square |∇²u_in|² is χ_Z S_ax + (1 − χ_Z) S_loc. Where χ_Z ≠ 1, S_
 since there g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of [[prop:class-augmented]] (a));
 where χ_Z ≠ 0, S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near axis 2.
 
-Put w := g − g0 and 𝔡 := (w, ∂_t w, ∂_x w, p − p̊, Θ − Θ̊, q − q̊). Write (i) in the first-order form of Step 9 of the
+Put w := g − g0 and 𝔡 := (w, ∂_t w, ∂_x w, p − p̊, Θ − Θ̊, q_in − q̊_in). Write (i) in the first-order form of Step 9 of the
 proof of [[thm:class-stability-off-axes]], in the chart (t, x), with the difference of the principal parts taken as
 in Step 4 there, ½(g^(ab) − g0^(ab)) ∂_a ∂_b g0, and (ii)–(iv) as transports along P. Subtracting the background's
 equations from the development's gives on 𝒟 a linear system 𝐀^0 ∂_t 𝔡 + 𝐀^j ∂_j 𝔡 = F_𝔡, with 𝐀^0 = diag(1, −g^(tt),
@@ -461,8 +461,8 @@ r = 0, so |h′(r)| = |∂_r v_in/∂_z v_in| ≤ r sup |∂_r² v_in|/0.97 ≤ 
 {(h(r), r) : 0 ≤ r ≤ ρ2(y)}, with its images under G, lies in 𝒟_s.
 
 *An extension.* The map Φ_s(x) := (v_in(s, x), x/|x|) is a G-equivariant diffeomorphism of a neighbourhood of 𝒟_s onto
-its image in R × S³, under which 𝒟_s is [c_a + λs, c_b − λs] × {ϑ ≤ α′ − Ws}; at s = 0, v_in = v̂. Let A_s be the
-affine map of [c_a, c_b] onto [c_a + λs, c_b − λs], and m_s the flow on S³, for the time Ws, of a G-invariant vector
+its image in R × S³, under which 𝒟_s is [c_a + c_vs, c_b − c_vs] × {ϑ ≤ α′ − Ws}; at s = 0, v_in = v̂. Let A_s be the
+affine map of [c_a, c_b] onto [c_a + c_vs, c_b − c_vs], and m_s the flow on S³, for the time Ws, of a G-invariant vector
 field equal to −∂_ϑ on {α′ − W t1 ≤ ϑ ≤ α′} and to 0 near the axes. Then ψ_s := Φ_s⁻¹ ∘ (A_s × m_s) ∘ Φ_0 is a
 G-equivariant diffeomorphism near 𝒟_0, C¹-close to the identity, with ψ_s(𝒟_0) = 𝒟_s, whose derivatives of order at
 most k − 1, and those of its inverse, are bounded independently of s and of ε by the bound on v_in − v̂; we extend it
@@ -473,7 +473,7 @@ average over G of (E(f ∘ ψ_s)) ∘ ψ_s⁻¹. By [[thm:std-sy-extension]] and
 ψ_s and ψ_s⁻¹ (chain rule and change of variables, as in the proof of [[thm:class-kato]] (b) (ii)); so its bound C_E
 depends on α but not on s or ε. And 𝔼_s f = f on 𝒟_s for invariant f, 𝒟_s being invariant.
 
-*The bound.* Let U be the development's state (g, ∂g, p, Θ, q) on 𝒟_s, with Θ = □_g u_in, ů the background's state on
+*The bound.* Let U be the development's state (g, ∂g, p, Θ, q_in) on 𝒟_s, with Θ = □_g u_in, ů the background's state on
 the slice, which the background defines on the sets 𝒰_2δ(p_i) as well, and Ŭ := ů + 𝔼_s 𝔡(s). Then Ŭ = U on 𝒟_s, and
 the distance of Ŭ from ů in the norm 𝒩_(k−1) is at most C_E ‖𝔡(s)‖_(H^(k−1)(𝒟_s)) ≤ C_E C ε; so Ŭ lies in the ball 𝔅′
 of [[lem:class-leaf-differences]] for ε small, depending also on α. Let y ∈ 𝒟_s with ρ2(y) ≤ 1/4 and let h be the
@@ -506,7 +506,7 @@ integral. e(0) = 0 by (5). By the bound on F_𝔡 in (4) and by [[eq:loc-lens-sh
 C ∫_0^s ‖𝔡(s′)‖²_(L²(𝒟_s′)) ds′ ≤ (C/c0) ∫_0^s e. By Gronwall's inequality e = 0, so 𝔡 = 0 on 𝒟. With (1) and (3) this
 is the first statement.
 
-For the second, use 𝒟 := {y ∈ Ω_L : t ≤ t1, ϑ ≥ β + 4 × 10⁻⁷ + W t, c_a + λ t ≤ v_in ≤ c_b − λ t}, the face function
+For the second, use 𝒟 := {y ∈ Ω_U : t ≤ t1, ϑ ≥ β + 4 × 10⁻⁷ + W t, c_a + c_v t ≤ v_in ≤ c_b − c_v t}, the face function
 β + 4 × 10⁻⁷ + W t − ϑ, whose differential has the norm and the sign of dF_1, axis 1 in place of axis 2, the
 coordinates (ρ2, x1, x2) of M3 := {t = s, φ2 = 0}, and the results of [[sec:class-planar-shear]] at axis 1, where they
 hold with the two planes exchanged and the same proofs. ∎
