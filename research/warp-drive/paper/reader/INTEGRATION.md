@@ -1278,3 +1278,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   fit, also proved). For the final report: the theorem as stated in the source did not say where the datum lives.
   Chapter 83's r0 text applied (lines 200-201, 207-209). The five P-K82 changes were forwarded to F-P-K82, and R3-82 was
   told chapter 81 is stable. R4-81 and R2-83 are reading.
+- R-P-U71-IS NOT CONFIRMED 2M 11m 11n (reviews/R-P-U71-IS.md); no number moves. The multiplicities below Re −101 are
+  settled: bounded by 7 (prop:iii-f1-2-3 (b)), so the (IS) part of l_* stays 50. F-P-U71-IS running.

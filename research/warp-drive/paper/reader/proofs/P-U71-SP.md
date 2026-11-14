@@ -483,10 +483,10 @@ at s0, s1, s2, 6 and 16 at v1, v2, and 10 at t2. ∎
 
 (a) The orders of the poles of N_ι⁺(L̄, ·)⁻¹ at real part at most 5 are all equal to 1. Of the quantities that the
 number l_* of [[def:iii-i10-1-1]] bounds at real part at most 5, these orders contribute exactly 1, and the
-multiplicities of the indicial roots of L̂_b(0) with real part in (1, 4] are all 1 ([[lem:sp-roots]] (b)). So
-l_* = max(1, L, M), where L is the largest logarithmic order of ℰ_ind ∪ ℰ^ι_ind ∪ ℰ^C_I at real part at most 5 and M
-the largest multiplicity of an indicial root of L̂_b(0) of real part at most 5; l_* = 1 exactly when L ≤ 1 and M = 1,
-and otherwise l_* is attained by L or M.
+multiplicities of the indicial roots of L̂_b(0) with real part in (1, 4] are all 1 ([[lem:sp-roots]] (b)). So the
+least admissible l_* is max(1, L, M), where L is the largest logarithmic order of ℰ_ind ∪ ℰ^ι_ind ∪ ℰ^C_I at real part
+at most 5 and M the largest multiplicity of an indicial root of L̂_b(0) of real part at most 5. It equals 1 exactly
+when L ≤ 1 and M = 1, and is otherwise attained by L or by M.
 
 (b) For λ ∈ Σ ([[def:iii-j-1-1]]), K_ι(λ) ≤ m_ι(λ) + m_♯(λ) ([[prop:iii-g3-2-4]]) with m_ι(λ) ∈ {0, 1}, equal to 1
 exactly when λ is a point of [[thm:sp-spectrum]] (a); so K_ι(λ) ≤ 2 + k(ℰ^C_(I,♯), λ) ≤ l_* + 2, which is at most
