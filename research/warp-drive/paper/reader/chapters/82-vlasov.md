@@ -25,9 +25,10 @@ no term of order λ⁻¹, in the field equations or in the constraints ([[lem:vl
 [[lem:vlasov-constraint-coefficient]]); the orbit space has no shear ([[lem:vlasov-no-shear]]); and the constraints,
 whose coefficients oscillate in every direction of the initial slice, are solved with bounds uniform in λ in norms in
 which each angular derivative carries the factor λ that the oscillation costs, except the first two of the metric
-unknown ([[prop:vlasov-scaled-correction]]). Each label is an eikonal only near its tube, and every transport of a
-family is cut off away from its tube ([[lem:vlasov-local-stability]]). The last section shows that the hypotheses are
-open and that an explicit family on Tangherlini meets them ([[lem:vlasov-open]], [[prop:vlasov-nonempty]]).
+unknown ([[prop:vlasov-scaled-correction]]). Each label is an eikonal only near its tube, so every transport of a family
+is cut off, or posed, near its tube ([[lem:vlasov-local-stability]], [[sec:vlasov-n]]). The last section shows that the
+hypotheses are open and that an explicit family on Tangherlini meets them ([[lem:vlasov-open]],
+[[prop:vlasov-nonempty]]).
 
 *Notation.* g5 is a metric of the T²-mirror class of [[sec:class]]. We write ψ1 := A and ψ2 := B for the functions of
 [[eq:class-metric]], so that
