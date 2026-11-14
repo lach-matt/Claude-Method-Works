@@ -134,10 +134,10 @@ on [4, ∞). Then I(χu_j) is constant on {v ≥ 4}, equal to ⟨χu_j, 1⟩, an
 
 As v∂_vI = I(v∂_v + 1) (both sides vanish on {v < −1} and have the same v-derivative) and the ℒ_Ω commute with I, the
 bound |W^αIu_j| ≤ C_αv^(1−c) holds on {v ≥ 4}; so Iu_j ∈ 𝒜^(c−1) ⊂ H^∞_(b,c′) near R = 0 ([[lem:i-c-2-2]] (f)).
-On {v < 5},
-W^αIu_j = I(W̃^αu_j), with every v∂_v of W^α replaced by v∂_v + 1 in W̃^α; by (i) of the proof of [[lem:iii-g1-2-1]]
-each W̃^αu_j lies in H^s(ℝ; H^m(𝕊³)) for every m, the primitive maps this space into H^(s+1)(ℝ; H^m(𝕊³)) locally
-((iii) (α) there), and the latter lies in H^(s+1) for m large, as in (i) there. So Iu_j ∈ Ḣ^((s+1;∞),c′)_(b;b).
+On {v < 5}, W^αIu_j = I(W̃^αu_j), with every v∂_v of W^α replaced by v∂_v + 1 in W̃^α. By (i) of the proof of
+[[lem:iii-g1-2-1]] each W̃^αu_j lies in H^s(ℝ; H^m(𝕊³)) for every m; the primitive maps this space into
+H^(s+1)(ℝ; H^m(𝕊³)) locally ((iii) (α) there); and the latter lies in H^(s+1) for m large, as in (i) there. So
+Iu_j ∈ Ḣ^((s+1;∞),c′)_(b;b).
 
 (b) By [[lem:iii-g-1-2]] (e), N_sf(ϰ + 1)∂_v = ∂_vN_sf(ϰ) for every ϰ; differentiating in ϰ,
 N_sf^(i)(ϰ_0)∂_v = ∂_vN_sf^(i)(ϰ_0 − 1). So F_j := Σ_(i≤j)(i!)⁻¹N_sf^(i)(ϰ_0 − 1)Iu_(j−i) has
