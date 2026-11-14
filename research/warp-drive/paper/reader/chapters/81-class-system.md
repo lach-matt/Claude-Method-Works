@@ -1437,31 +1437,34 @@ perturbation of B, so it stays spacelike with Ω_U to its past, these being open
 
 So T_(τ,U), and with it Ω_U ∩ {τ0 ≤ τ′ ≤ τ}, is determined by U on the closure of Ω_U ∩ {τ0 ≤ τ′ ≤ τ}: by its values
 along the integral curves of P_A in the axes from Σ_τ0 to the points z_B(τ), and on the part of B_U over D_B, along which
-[[eq:class-leaf-volterra]] determines h_B. Indeed, let U′ be a second such solution, equal to U on that closure. By the
-argument of (c) of [[def:class-admissible]] for Ω_U and the metric of U, and by continuity in the initial point, the
-integral curve of P_A from z_B(τ) runs backwards in the closure of Ω_U until it meets Σ_τ0; P_A is that of U′ there, so
-it is also the integral curve of U′, the axis phase of U′ at z_B(τ) is c_B(τ), and z_B(τ) is the point of U′, the only
-one near z̊_B(τ). The graph of h_B over D_B lies in B_U ∩ Σ_τ, where U′ and U agree with their first derivatives; so h_B
-solves on [0, 2δ_B) the equation [[eq:class-leaf-volterra]] of U′ with h(0) = z_B(τ), and by the uniqueness in
+[[eq:class-leaf-volterra]] determines h_B. Indeed, let U′ be a second solution near ů for which T_(τ,U′) is defined,
+given on a set that contains that closure and equal to U there. By the argument of (c) of [[def:class-admissible]] for
+Ω_U and the metric of U, and by continuity in the initial point, the integral curve of P_A from z_B(τ) runs backwards in
+the closure of Ω_U until it meets Σ_τ0; P_A is that of U′ there, so it is also the integral curve of U′, the axis phase
+of U′ at z_B(τ) is c_B(τ), and z_B(τ) is the point of U′, as the axis phase of U′ is monotone along the axis near
+z̊_B(τ). The graph of h_B over D_B lies in B_U ∩ Σ_τ, where U′ and U agree with their first derivatives; so h_B solves on
+[0, 2δ_B) the equation [[eq:class-leaf-volterra]] of U′ with h(0) = z_B(τ), and by the uniqueness in
 [[lem:class-volterra]] it is the leaf of U′ through z_B(τ) there. Hence U′ has the same d_B, and T_(τ,U′) = T_(τ,U). This
 defines Ω_U also for U given only on the closure of Ω_U, z_B(τ) being then the point of the axis near z̊_B(τ) in the
 closure of Ω_U ∩ Σ_τ at which the axis phase is c_B(τ), the only one by the monotonicity above; a solution on a domain is
-*on its own adapted domain* if the domain is the Ω_U that it defines, and the argument above applies when U or U′ is such
-a solution. The bound above holds for such a U, with 𝒩_k(τ′), τ′ < τ, computed on Σ_τ′ ∩ Ω_U as in [[eq:class-energy]],
-and 𝒩_k(τ) the norm of any state on Σ_τ in 𝔅 equal to U on Σ_τ ∩ Ω_U: the bound on |z_B(τ) − z̊_B(τ)| uses the times
-before τ only through |P_A − P̊_A| along the integral curve from z_B(τ), at most C sup_(τ′≤τ) 𝒩_k(τ′) by Step 1 of the
-proof of [[thm:class-stability-off-axes]], and h_B is the leaf of the state over D_B, by the uniqueness just used.
+*on its own adapted domain* if the domain is the Ω_U that it defines, and the argument above applies to such a U when the
+lateral boundary of Ω_U is C¹-close to that of Ω. The bound above holds for such a U, with 𝒩_k(τ′), τ′ < τ, computed on
+Σ_τ′ ∩ Ω_U as in [[eq:class-energy]], and 𝒩_k(τ) the norm of any state on Σ_τ in 𝔅 equal to U on Σ_τ ∩ Ω_U: the bound
+on |z_B(τ) − z̊_B(τ)| uses the times before τ only through |P_A − P̊_A| along the integral curve from z_B(τ), at most C
+sup_(τ′≤τ) 𝒩_k(τ′) by Step 1 of the proof of [[thm:class-stability-off-axes]], and h_B is the leaf of the state over D_B,
+by the uniqueness just used.
 
 Σ_τ0 ∩ Ω_U = T_(τ0,U)(Σ_τ0 ∩ Ω) lies in W_0 for ε small, by the bound at τ0 with the datum extended from W_0 by Stein's
 operator of the annulus {1 − η0 ≤ |x| ≤ 2 + η0} transported by ψ_τ0 as the state there, and by the above only the datum's
-values on it enter. If for every adapted B the datum's u_A equals c_B(τ0) on B ∩ Σ_τ0 ∩ 𝒰_(2δ_B) about each point of B on
-the axes, then T_(τ0,U) is the identity. Indeed the axis phase on Σ_τ0 is u_A, so z_B(τ0) = z̊_B(τ0). On Σ_τ0 the datum
-has Θ_A = □_g u_A, and dp_A = 0 and dν_A = 0 by Step 10 of the proof of [[thm:class-stability-off-axes]], so its leaves
-are the level sets of u_A, by the last statement of [[lem:class-leaf-differences]], which concerns one slice; the level
-set {u_A = c_B(τ0)} meets 𝒰_(2δ_B) in a graph over D_B, as ∂_z u_A ≠ 0 there, and that graph contains the graph of h̊_B;
-so h_B = h̊_B on D_B, and d_B = 0. In that case a datum given on Σ_τ0 ∩ Ω only, within ε of ů's there, may be used,
-extended to W_0 by the operator E_τ0 of the proof of [[thm:class-kato]] (b) (ii) applied to its difference from ů's; by
-the above, the extension changes neither the adapted domain nor the development.
+values on it enter. If for every adapted B the datum's phase u_A of the family to which B is adapted equals c_B(τ0) on B
+∩ Σ_τ0 ∩ 𝒰_(2δ_B) about each point of B on the axes, then T_(τ0,U) is the identity. Indeed the axis phase on Σ_τ0 is u_A,
+so z_B(τ0) = z̊_B(τ0). On Σ_τ0 the datum has Θ_A = □_g u_A, and dp_A = 0 and dν_A = 0 by Step 10 of the proof of
+[[thm:class-stability-off-axes]], so its leaves are the level sets of u_A, by the last statement of
+[[lem:class-leaf-differences]], which concerns one slice; the level set {u_A = c_B(τ0)} meets 𝒰_(2δ_B) in a graph over
+D_B, as ∂_z u_A ≠ 0 there, and that graph contains the graph of h̊_B; so h_B = h̊_B on D_B, and d_B = 0. In that case a
+datum given on Σ_τ0 ∩ Ω only, within ε of ů's there, may be used, extended to W_0 by the operator E_τ0 of the proof of
+[[thm:class-kato]] (b) (ii) applied to its difference from ů's; by the above, the extension changes neither the adapted
+domain nor the development.
 
 **Theorem {#thm:class-stability}** (Cauchy stability of the class Einstein–null-dust system.) The conclusion of
 [[thm:class-stability-off-axes]] holds, on the adapted domain, with (H2) replaced by
@@ -1492,16 +1495,16 @@ the points where B meets an axis, for A′ ≠ A(B), which is allowed because (H
 vanishes likewise near the points where a component that is not adapted meets an axis, and in Step 10 the energy of
 Δ_(A′) is taken on a set inside {ζ_(A′) = 1} that is a union of leaves of u_(A′). By (H2′) the leaves used at points of
 the domain lie in its closure. Take the partition of unity so that, where ζ_A ≠ 0, S_A^ax is used only within distance
-δ_* of the axes, δ_* ≤ min_B δ_B fixed below, with δ_B and the sets 𝒰_(δ_B) of [[def:class-adapted]]. At a point x where
-S_A^ax is used, σ_A needs the leaf through x over the disc {|y| ≤ |y(x)|} ([[eq:class-leaf-volterra]]), which lies within
-2 C_L |y(x)|² ≤ δ_B/4 of x in z ([[def:class-adapted]]). If x lies in the set 𝒰_(δ_B) about a point p where an adapted
-boundary B meets an axis, that part of the leaf runs in 𝒰_(2δ_B), where B_U is the graph of h_B over D_B and Ω_U lies on
-one side of it; the leaves of U foliate a neighbourhood of the axis, B_U being one of them there, so the leaf, which
-contains x, does not cross B_U and lies in the closure of Ω_U. Otherwise x lies at distance at least δ_B in z from the
-points where the adapted boundaries meet the axes and, as ζ_A(x) ≠ 0, at a fixed distance from those where the other
-components meet them; the lateral boundaries meet {|y| < δ_*} only near the points where they meet the axes, within δ_B/2
-in z of them for the adapted boundaries, so for δ_* and ε small that part of the leaf, within δ_B/4 of x in z, meets no
-lateral boundary and lies in Ω_U.
+δ_* of the axes, with δ_* ≤ min_B δ_B (δ_B of [[def:class-adapted]]) fixed below. At a point x where S_A^ax is used, σ_A
+needs the leaf through x over the disc {|y| ≤ |y(x)|} ([[eq:class-leaf-volterra]]), which lies within 2 C_L |y(x)|²
+≤ δ_B/4 of x in z ([[def:class-adapted]]). If x lies in the set 𝒰_(δ_B) about a point p where an adapted boundary B meets
+an axis, that part of the leaf runs in 𝒰_(2δ_B), where B_U is the graph of h_B over D_B and Ω_U lies on one side of it;
+the leaves of U foliate a neighbourhood of the axis, B_U being one of them there, so the leaf, which contains x, does not
+cross B_U and lies in the closure of Ω_U. Otherwise x lies at distance at least δ_B in z from the points where the
+adapted boundaries meet the axes and, as ζ_A(x) ≠ 0, at a fixed distance from those where the other components meet them;
+the lateral boundaries meet {|y| < δ_*} only near the points where they meet the axes, within δ_B/2 in z of them for the
+adapted boundaries, so for δ_* and ε small that part of the leaf, within δ_B/4 of x in z, meets no lateral boundary and
+lies in Ω_U.
 
 *Step 9.* Near the axes the right side of the augmented system is non-local in the planar directions, an integral from
 the axis along each leaf. Extend the system as in Step 9 of [[thm:class-stability-off-axes]], with the right side
@@ -1569,21 +1572,22 @@ equation, and by differentiating [[eq:class-leaf-volterra]] in τ as in step (4)
 *Uniqueness.* A smooth G-invariant development in the gauge D(g) = 0 on its own adapted domain Ω′, with the same datum
 and 𝒩_(k−1) ≤ ε2 ≤ ρ, gives a solution U′ of the augmented system there as in that Step 9, its Θ_A on the tubes being □_g
 u_A and its σ_A that of its own leaves by Step 10 below. Let U be the solution constructed, and τ* the largest τ′ ∈ [τ0,
-τ1] with U′ = U on Ω′ ∩ {τ ≤ τ′}. The set of these τ′ is closed, and it contains τ0: U′ and U have the datum's values on
-Σ_τ0, so T_(τ0,U′) = T_(τ0,U) by [[def:class-adapted]], and U′ = U on the common slice. The two adapted domains coincide
-up to τ*: by [[def:class-adapted]], T_(τ,U′) is determined by U′ on the closure of Ω′ ∩ {τ′ ≤ τ}, where the development
-and the solution constructed agree for τ ≤ τ*; so the transported phases on the axes agree there, z_B(τ) is the same
-point for both, and by the uniqueness in [[lem:class-volterra]] so is the leaf h_B over D_B, a part of the development's
-adapted boundary. Suppose τ* < τ1. U′ is smooth up to the boundary of Ω′, so its points z_B(τ) and its leaves h_B over
-D_B are smooth in τ and y, and, Stein's operator being linear and bounded on every W^(m,∞), τ ↦ T_(τ,U′) is continuous
-into W^(k−1,∞), with its τ-derivative. At τ*, T_(τ*,U′) = T_(τ*,U) is within C (ρ + ε) of the identity in W^(k,∞) by
-[[def:class-adapted]], and the lateral boundary of Ω′ is that of Ω_U, C¹-close to that of Ω. So for τ* ≤ τ ≤ τ* + θ,
-θ > 0 small, ‖T_(τ,U′) − id‖_(W^(k−1,∞)) ≤ 2C (ρ + ε) ≤ θ0, and the lateral boundary of Ω′ stays C¹-close to that of Ω.
-The domain of dependence on [τ*, τ* + θ], with U′ in place of U and Ũ the solution on R⁴ of an interval of the restarts
-that contains [τ*, τ* + θ], equal to U′ on Σ_τ* ∩ Ω′, gives U′ = Ũ on Ω′ ∩ {τ* ≤ τ ≤ τ* + θ}; by [[def:class-adapted]]
-the adapted domains of U′ and of the solution constructed then agree up to τ* + θ, and the solution constructed is Ũ on
-that interval; so U′ = U on Ω′ ∩ {τ ≤ τ* + θ}, against the choice of τ*. So τ* = τ1. Invariance under G follows as
-before.
+τ1] such that Ω′ and Ω_U coincide in {τ ≤ τ′} and U′ = U there. The set of these τ′ is closed, T_(τ,U′) and T_(τ,U) being
+continuous in τ, and it contains τ0: U′ and U have the datum's values on Σ_τ0, so T_(τ0,U′) = T_(τ0,U) by
+[[def:class-adapted]]. Suppose τ* < τ1. U′ is smooth up to the boundary of Ω′, so its points z_B(τ) and its leaves h_B
+over D_B are smooth in τ and y, and, Stein's operator being linear and bounded on every W^(m,∞), τ ↦ T_(τ,U′) is
+continuous into W^(k−1,∞), with its τ-derivative. For τ ≤ τ*, T_(τ,U′) = T_(τ,U) by [[def:class-adapted]], as U′ and U
+agree on the closure of Ω′ ∩ {τ′ ≤ τ}; this map is within C (ρ + ε) of the identity in W^(k,∞) by [[def:class-adapted]],
+and the lateral boundary of Ω′ is that of Ω_U up to τ*, C¹-close to that of Ω. So for τ* ≤ τ ≤ τ* + θ, θ > 0 small,
+‖T_(τ,U′) − id‖_(W^(k−1,∞)) ≤ 2C (ρ + ε) ≤ θ0, and the lateral boundary of Ω′ stays C¹-close to that of Ω. The domain of
+dependence on [τ*, τ* + θ], with U′ in place of U and Ũ the solution on R⁴ of an interval of the restarts that contains
+[τ*, τ* + θ], equal to U′ on Σ_τ* ∩ Ω′, gives U′ = Ũ on Ω′ ∩ {τ* ≤ τ ≤ τ* + θ}. So U′ agrees on the closure of Ω′ ∩ {τ
+≤ τ* + θ} with the solution constructed, which is U on Ω_U ∩ {τ ≤ τ*} and Ũ on [τ*, τ* + θ] × R⁴. The two adapted domains
+coincide up to τ* + θ: by [[def:class-adapted]], applied to the development, T_(τ,U′) is determined by U′ on the closure
+of Ω′ ∩ {τ′ ≤ τ}, where the development and the solution constructed agree; so the transported phases on the axes agree
+there, z_B(τ) is the same point for both, and by the uniqueness in [[lem:class-volterra]] so is the leaf h_B over D_B, a
+part of the development's adapted boundary. Hence U′ = U on Ω′ ∩ {τ ≤ τ* + θ} = Ω_U ∩ {τ ≤ τ* + θ}, against the choice of
+τ*; so τ* = τ1. Invariance under G follows as before.
 
 *Step 10.* [[eq:class-leaf-volterra]] is uniquely solvable ([[lem:class-volterra]]), so on a solution with Θ_A = □_g
 u_A it returns the true leaves of u_A, hence the true σ_A. So near an axis Δ_A = Θ_A − □_g u_A obeys

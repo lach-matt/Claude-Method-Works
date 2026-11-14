@@ -92,8 +92,8 @@ verbatim to k = 3), the three hypersurfaces are spacelike for g_(b₀) + h.
 x¹ = t − r = −r₀ + 2r^(1−ℓ^♭_I) − 2r₀^(1−ℓ^♭_I) + O(1), and x¹ is smaller below it, so ρ₀ = (2 − x¹)⁻¹ ≤ C/r₀. By
 Sobolev embedding (3 > 5/2) every slot of h is bounded by Cρ₀^(ℓ^♭₀)ρ_I^(ℓ^♭_I), except π̸₀h, which is bounded by
 Cρ₀^(ℓ^♭₀)ρ_I^(3/2); and g_(b₀) − η ∈ ρ₀²ρ_I²C^∞ with its π_C, π₀₁, π_(1/), π̸₀ parts in ρ₀²ρ_I³C^∞
-([[lem:iii-c-3-5]] (1), [[def:iii-c-3-4]]). Write δ := g_(b₀) + h − η, so that
-|δ| ≤ C(ρ₀²ρ_I² + ρ₀^(ℓ^♭₀)ρ_I^(3/2)) in the frame of [[eq:iii-c-1-6]], which is small for r₀ large.
+([[lem:iii-c-3-5]] (1), [[def:iii-c-3-4]]). Write δ := g_(b₀) + h − η, so
+that |δ| ≤ C(ρ₀²ρ_I² + ρ₀^(ℓ^♭₀)ρ_I^(3/2)) in the frame of [[eq:iii-c-1-6]], which is small for r₀ large.
 
 *Σ_(IVP,r₀) and Σ_(past,r₀).* dt is timelike for η, and so for η + δ when |δ| is small. In the coordinates (u, r) of
 Minkowski space, u := t − r, η⁻¹ = −2∂_u∂_r + ∂_r² on du, dr, so ζ := d(t_IVP + (r − r₀)/12) = du + (13/12)dr has
@@ -144,8 +144,8 @@ such c; in particular t_IVP = t − C″ is, and |V|x|| < 2Vt for every future c
 strictly increasing along causal curves, Σ° is acausal in Ω°; it is spacelike by [[lem:iii-c1-1-1]].
 
 Let p ∈ Ω° with t_IVP(p) > 0 and γ a past inextendible causal curve in Ω° from p. If γ did not meet Σ°, then
-t_IVP > 0 along γ (t_IVP is continuous along γ, and Ω° ∩ {t_IVP = 0} = Σ°); φ₊ ≤ φ₊(p) < 0 along γ; and
-|x| ≤ |x(p)| + 2t_IVP(p) along γ; and |x| ≥ r₀ on Ω°. So γ would lie in the compact set
+t_IVP > 0 along γ (t_IVP is continuous along γ, and Ω° ∩ {t_IVP = 0} = Σ°); φ₊ ≤ φ₊(p) < 0 along γ;
+and |x| ≤ |x(p)| + 2t_IVP(p) along γ; and |x| ≥ r₀ on Ω°. So γ would lie in the compact set
 K := {0 ≤ t_IVP ≤ t_IVP(p), φ₊ ≤ φ₊(p), r₀ ≤ |x| ≤ |x(p)| + 2t_IVP(p)}, which lies in Ω°: at its points
 F₀(|x|) > t_IVP ≥ 0, and F₀(r₀) = 0 with F₀ increasing on [r₀, ∞) (the choice of R₀), so |x| > r₀ and
 −(|x| − r₀)/12 < 0 ≤ t_IVP < F₀(|x|). As in the proof of [[lem:ii-f-1-3]], t_IVP is strictly monotone
@@ -258,9 +258,9 @@ exactly |(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|. The operator
 is formally self-adjoint on L²(M_♯; μ_b). ([Hin23a] has ρ₀⁴ρ_I³ and ρ_Iρ⁻³□ρ in dimension 3 + 1; [[prop:np-10-64]]
 (2).)
 
-*Proof.* |dη| = |x|³|dt d|x| dg̸| with t = x¹ + |x|, and |dx¹ ∧ d|x|| = ρ₀⁻²|x||dρ₀ ∧ dρ_I/ρ_I|
-= ρ₀⁻¹|x||(dρ₀/ρ₀) ∧ (dρ_I/ρ_I)|. So |dη| = |x|⁴ρ₀⁻¹|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| = ρ₀⁻⁵ρ_I⁻⁴|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|.
-|dg_(b₀)| = |dη|(1 + O(ρ²)) with a smooth factor, by [[sec:iv-0]]. For the self-adjointness,
+*Proof.* |dη| = |x|³|dt d|x| dg̸| with t = x¹ + |x|, and |dx¹ ∧ d|x|| = ρ₀⁻²|x||dρ₀ ∧ dρ_I/ρ_I|, which is
+ρ₀⁻¹|x||(dρ₀/ρ₀) ∧ (dρ_I/ρ_I)|. So |dη| = |x|⁴ρ₀⁻¹|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| = ρ₀⁻⁵ρ_I⁻⁴|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|, and
+by [[sec:iv-0]] |dg_(b₀)| = |dη|(1 + O(ρ²)) with a smooth factor. For the self-adjointness,
 
     ⟨Lu, v⟩_(L²(μ_b)) = ∫(□ρ^(3/2)u) v ρ_Iρ^(−7/2)ρ₀⁵ρ_I⁴|dg| = ∫(□ρ^(3/2)u)(ρ^(3/2)v)|dg|,
 
@@ -275,8 +275,8 @@ with Δ̸ = −tr̸∇̸² ≥ 0 the Laplacian of 𝕊³. For every vector field
 
     [L, X₀],  [L, X_I],  [L, Θ] ∈ x_IDiff^(1;1)_(e,b;b)(M_♯).                                         {#eq:iv-2-3}
 
-*Proof.* *Minkowski space.* With □ = −tr∇², □_η = 4∂₀∂₁ − (3/|x|)∂_(|x|) + |x|⁻²Δ̸ on functions, and conjugation by
-|x|^(−3/2) removes the first-order term:
+*Proof.* *Minkowski space.* With □ = −tr∇², □_η = 4∂₀∂₁ − (3/|x|)∂_(|x|) + |x|⁻²Δ̸ on functions, and conjugation
+by |x|^(−3/2) removes the first-order term:
 
     |x|^(3/2)□_η|x|^(−3/2) = 4∂₀∂₁ + |x|⁻²(Δ̸ + ¾),
 
@@ -481,15 +481,15 @@ Use the multiplier W₀ := w₀²V₀, with w₀ := ρ^(−α₀)e^(−Λτ) and
 the identity 2 Re⟨w₀Lu, w₀V₀u⟩ = ⟨Q₀u, u⟩ + ℬ_fin, the boundary term at Σ_fin is ≥ 0, as in the proof of
 [[prop:iv-3-1]], and Q₀ = [L, W₀] − (div W₀)L. There is no boundary term at I₀ in the following approximation.
 Approximate f in ρ^(α₀)H^k_b by f_j supported in {ρ ≥ 1/j}. As g_(b₀) − η is O(ρ²) relative, d|x| ≤ (1 + δ/4)dt along
-future causal curves in Ω₀ for ρ₁ small; with t ≤ (1 − δ)|x| on Ω₀ and (1 + δ/4)(1 − δ) < 1, the bound
-|x| ≤ |x₀| + (1 + δ/4)(t − t₀) along such a curve from (t₀, x₀) ∈ supp f_j keeps |x| bounded. So the forward solution
-u_j of Lu_j = f_j vanishes near I₀, the identity holds for it, and the estimate passes to the limit j → ∞ as in the
-proof of [[prop:iv-3-1]].
+future causal curves in Ω₀ for ρ₁ small; with t ≤ (1 − δ)|x| on Ω₀ and (1 + δ/4)(1 − δ) < 1,
+the bound |x| ≤ |x₀| + (1 + δ/4)(t − t₀) along such a curve from (t₀, x₀) ∈ supp f_j keeps |x| bounded. So the forward
+solution u_j of Lu_j = f_j vanishes near I₀, the identity holds for it, and the estimate passes to the limit j → ∞ as in
+the proof of [[prop:iv-3-1]].
 
 The term of Q₀ from differentiating e^(−2Λτ) is 2Λw₀² times the energy-momentum quadratic form of V₀ and dτ in ρ_IG_b.
 It is positive definite in the b-gradient, as V₀ and −∇τ are future timelike (the dominant energy condition for the
-scalar wave equation). The other terms are bounded by C(1 + |α₀|)w₀²|ᵇ∇u|² + Cw₀²|u|² with C independent of Λ. The
-|u|² term is controlled by integrating ∂_τ from {τ = τ₀}, where u = 0, over the compact τ-interval. For Λ large this
+scalar wave equation). The other terms are bounded by C(1 + |α₀|)w₀²|ᵇ∇u|² + Cw₀²|u|² with C independent of Λ.
+The |u|² term is controlled by integrating ∂_τ from {τ = τ₀}, where u = 0, over the compact τ-interval. For Λ large this
 gives the estimate for k = 0, with e^(±Λτ) bounded on [τ₀, 1 − δ].
 
 Higher b-regularity follows by commuting ρ∂_ρ and the rotation fields: their commutators with L lie in Diff²_b and are
@@ -547,8 +547,8 @@ This section is [Hin23a, Proposition 3.29] for the operator of [[sec:iii-c-4]] i
 **Lemma {#lem:iv1-1-1}** (Cartesian derivatives are ρ₀ times eb-vector fields.) On U, ∂_t, ∂_(x^i), ∂₀, ∂₁ lie in
 ρ₀𝒱_(e,b)(M_♯), and |x|⁻¹∂_ω ∈ ρ₀x_I𝒱_(e,b)(M_♯).
 
-*Proof.* By [[eq:iii-c-1-5]], ∂₀ = −½ρ₀ρ_IX_I and ∂₁ = ρ₀(X₀ − X_I + ½ρ_IX_I), with X₀, X_I ∈ 𝒱_(e,b). And
-|x|⁻¹∂_ω = ρ₀x_I · x_I∂_ω, with x_I∂_ω ∈ 𝒱_(e,b). Finally ∂_t = ∂₀ + ∂₁ and
+*Proof.* By [[eq:iii-c-1-5]], ∂₀ = −½ρ₀ρ_IX_I and ∂₁ = ρ₀(X₀ − X_I + ½ρ_IX_I), with X₀, X_I ∈ 𝒱_(e,b).
+And |x|⁻¹∂_ω = ρ₀x_I · x_I∂_ω, with x_I∂_ω ∈ 𝒱_(e,b). Finally ∂_t = ∂₀ + ∂₁ and
 ∂_(x^i) = ω^i(∂₀ − ∂₁) + |x|⁻¹(…)∂_ω, the dots smooth functions of ω. ∎
 
 This refines [[lem:iii-c-1-1]], which places the same fields in ρ₀𝒱_b. The refinement is what the edge-b form needs:
@@ -824,8 +824,10 @@ only over Ω_c := Ω⁺ ∩ {ρ_I < c}, Ω⁺ as below; another such χ̂ gives 
 (ρ₀, ω) extended to be constant in ρ_I. Here ℐ⁺_c is the image of Ω_c under (ρ₀, ρ_I, ω) ↦ (ρ₀, ω), a domain in ℐ⁺
 containing ℐ⁺ ∩ Ω̄_c and in general larger: an integral curve of X_I near Σ_(fut,r₀) leaves Ω⁺ through Σ_(fut,r₀) before
 it reaches ℐ⁺. So the splitting u₆ = χ_Iu^((0)) + ũ₆ is determined by u over ℐ⁺ ∩ Ω̄_c, where ρ₀^(3/2)u^((0)) is the
-radiation field of π̸₀ġ (the coefficient of ρ_I^(3/2)), and not elsewhere; the norm of 𝒴^k_(a₀) is therefore the
-infimum over the splittings ([[lem:s26-decompositions]]). Away from U the classes impose only H^k.
+radiation field of π̸₀ġ (the coefficient of ρ_I^(3/2)), and not elsewhere; the norm of 𝒴^k_(a₀) is therefore the infimum
+over the splittings ([[lem:s26-decompositions]]). It is equivalent at each order to the norm of [[def:iii-c-3-1]]: a
+decomposition of an extension restricts to one of u, and conversely u^((0)) and ũ extend across the boundary of ℐ⁺_c and
+across Σ_(fut,r₀) by the operator of the proof of [[lem:iv1-2-3]]. Away from U the classes impose only H^k.
 
 *The operator.* Let g₀ ∈ 𝒢 ([[def:iii-c-3-4]]) with Ric(g₀) = 0 and g₀ − g_(b₀) small in the sense of the pointwise
 bounds of the proof of [[lem:iii-c1-1-1]], or g₀ = g_(b₀); let h ∈ H^(∞,ℓ^♭₀,(−,ℓ^♭_I))_b(Ω_(ext,r₀); S²T*) and
@@ -868,8 +870,8 @@ x¹) and that of X₀ − X_I (at fixed |x| and ω), followed in the direction o
 change the sign for |x| large. Along ∂_t, ρ_I decreases. On Ω⁻, t ≤ C″, so ρ_I ≥ (2 − C″ + |x|)/|x| ≥ ½ for |x| ≥ r₀.
 
 (b) *The X_I-curve.* Along it x¹ = x¹_p is fixed and |x| decreases from |x|_p to r_c := (2 − x¹_p)/c, where ρ_I = c.
-The upper condition of [[eq:iv2-0-5]] is x¹ ≤ C″ − r₀ − 2r₀^(1−ℓ^♭_I) + 2|x|^(1−ℓ^♭_I), whose right side decreases in
-|x| (ℓ^♭_I > 1); it holds at p, so at every smaller |x|. It gives x¹_p ≤ C″ − r₀ < 0. The lower condition is
+The upper condition of [[eq:iv2-0-5]] is x¹ ≤ C″ − r₀ − 2r₀^(1−ℓ^♭_I) + 2|x|^(1−ℓ^♭_I), whose right side decreases
+in |x| (ℓ^♭_I > 1); it holds at p, so at every smaller |x|. It gives x¹_p ≤ C″ − r₀ < 0. The lower condition is
 x¹_p + |x| ≥ C″, and x¹_p + |x| decreases along the curve; at r_c, x¹_p + r_c = x¹_p(1 − c⁻¹) + 2c⁻¹ ≥ |x¹_p|
 ≥ r₀ − C″ > C″, as c⁻¹ − 1 ≥ 1. And r_c ≥ (2 + r₀ − C″)/c ≥ r₀. *The (X₀ − X_I)-curve.* Along it |x| = |x|_p and t
 decreases to t_c := (1 − c)|x|_p + 2. The upper condition is monotone in t; the lower one holds at t_c, as
@@ -884,13 +886,14 @@ and let w ∈ H^(m,(a₀,2γ))_b(Ω_c) vanish on {ρ_I > c/2}. Let v on Ω_c van
 (a) If (X_I − d)v = w with d > γ, then ‖v‖_(H^(m,(a₀,2γ))_b) ≤ (d − γ)⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
 
 (b) If X_Iv = w and γ > 0, then v = v^((0)) + ṽ on Ω_c, with v^((0)) a function of (ρ₀, ω) on ℐ⁺_c, the image of Ω_c
-under (ρ₀, ρ_I, ω) ↦ (ρ₀, ω) (as after [[eq:iv2-0-3]]), v^((0)) and ṽ depending linearly on w, and
+under (ρ₀, ρ_I, ω) ↦ (ρ₀, ω) (as after [[eq:iv2-0-3]]), v^((0)) and ṽ given by one linear map of w, the same for
+every m, and
 
     ‖v^((0))‖_(H^(m,a₀)_b(ℐ⁺_c)) ≤ C(2γ)^(−1/2)c^γ‖w‖_(H^(m,(a₀,2γ))_b),
     ‖ṽ‖_(H^(m,(a₀,2γ))_b) ≤ Cγ⁻¹‖w‖_(H^(m,(a₀,2γ))_b),
 
-with C depending only on m and Ω_c. Over a point of ℐ⁺_c whose X_I-curve lies in Ω_c for all ρ_I < c, v^((0)) is the
-limit of v along that curve as ρ_I → 0.
+with C depending only on m and Ω_c. Over almost every point of ℐ⁺_c whose X_I-curve lies in Ω_c for all ρ_I < c, v^((0))
+is the limit of v along that curve as ρ_I → 0.
 
 (c) If (X₀ − X_I)v = w and a₀ > γ, then ‖v‖_(H^(m,(a₀,2γ))_b) ≤ (a₀ − γ)⁻¹‖w‖_(H^(m,(a₀,2γ))_b).
 
@@ -939,16 +942,17 @@ where v does; so in (a) and (c) Vv solves the same equation with Vw, and the bou
 differentiating the integral in y produces the boundary term w(z_c(y), y)∂_yz_c, which vanishes as w = 0 near
 {ρ_I = c}.) Induction on m gives (a) and (c) for m ≥ 1, with the same constants. In (b) the limits of the integrals
 defining v^((0)) and ṽ do not depend on (ρ₀, ω), so X₀ and the rotations, which act at fixed s, commute with them:
-Vv^((0)) = −∫_(−∞)^(s_c) Vw_♯ ds′ and Vṽ(s) = ∫_(−∞)^s Vw_♯ ds′; and X_Iv^((0)) = 0, X_Iṽ = w_♯. The fields tangent to
-ℐ⁺ are X₀ and the rotations, so the bounds for m = 0, applied to the derivatives of w_♯, give (b) for every m, with the
-bound for w_♯ above. Without the extension, the lower limit would be the value of s at which the curve leaves Ω_c,
-which depends on (ρ₀, ω), and its derivatives would enter those of v^((0)) and ṽ. ∎
+Vv^((0)) = −∫_(−∞)^(s_c) Vw_♯ ds′ and Vṽ(s) = ∫_(−∞)^s Vw_♯ ds′; and X_Iv^((0)) = 0, X_Iṽ = w_♯. Also X_I^jṽ(s) =
+∫_(−∞)^s X_I^jw_♯ ds′ for j ≥ 1, as e^(−γs)w_♯ is bounded along almost every curve when m ≥ 1, so w_♯ → 0 as s → −∞. The
+fields tangent to ℐ⁺ are X₀ and the rotations, so the bounds for m = 0, applied to every b-derivative of w_♯, give (b)
+for every m, with the bound for w_♯ above. Without the extension, the lower limit would be the value of s at which the
+curve leaves Ω_c, which depends on (ρ₀, ω), and its derivatives would enter those of v^((0)) and ṽ. ∎
 
-**Lemma {#lem:s26-decompositions}** (Decompositions.) For u ∈ 𝒴^k_(a₀)(Ω), Ω ⊃ Ω_c, call a pair (u^((0)), ũ) with
-u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c), ũ_j ∈ H^(k,(a₀,2β))_b in every slot j, ũ₆ = u₆ − χ_Iu^((0)) and ũ_j = u_j for j ≠ 6, a
-*decomposition of order k* of u, and ‖u^((0))‖_(H^(k,a₀)_b(ℐ⁺_c)) + Σ_j‖ũ_j‖_(H^(k,(a₀,2β))_b) its norm of order k; the
-norm of u in 𝒴^k_(a₀)(Ω) is the infimum of the norms of its decompositions of order k. Let
-y_* := C″ − r₀ − 2r₀^(1−ℓ^♭_I). Then ℐ⁺ ∩ Ω̄_c is the part of ℐ⁺ where x¹ ≤ y_*, and:
+**Lemma {#lem:s26-decompositions}** (Decompositions.) For u ∈ 𝒴^k_(a₀)(Ω), Ω = Ω⁺ or Ω_(ext,r₀), so that Ω ∩ {ρ_I < c} =
+Ω_c ([[lem:iv2-1-1]] (a)), call a pair (u^((0)), ũ) with u^((0)) ∈ H^(k,a₀)_b(ℐ⁺_c), ũ_j ∈ H^(k,(a₀,2β))_b in every slot
+j, ũ₆ = u₆ − χ_Iu^((0)) and ũ_j = u_j for j ≠ 6, a *decomposition of order k* of u, and ‖u^((0))‖_(H^(k,a₀)_b(ℐ⁺_c)) +
+Σ_j‖ũ_j‖_(H^(k,(a₀,2β))_b) its norm of order k; the norm of u in 𝒴^k_(a₀)(Ω) is the infimum of the norms of its
+decompositions of order k. Let y_* := C″ − r₀ − 2r₀^(1−ℓ^♭_I). Then ℐ⁺ ∩ Ω̄_c is the part of ℐ⁺ where x¹ ≤ y_*, and:
 
 (a) two decompositions of u have the same u^((0)) almost everywhere on ℐ⁺ ∩ Ω̄_c;
 
@@ -982,9 +986,10 @@ a point with x¹ ≤ y_* the inner integral runs over (−∞, log c), on which 
 where the first two terms are supported in {c/8 ≤ ρ_I ≤ c/2}, on which the weights at ℐ⁺ are bounded and u₆ and
 u^((0)) lie in H^k_b; so w′ ∈ H^(k−1,(a₀,2β))_b(Ω_c) for every k, and it vanishes on {ρ_I > c/2}. [[lem:iv2-1-2]] (b)
 with γ := β, applied to u′ and w′, gives u′ = v^((0)) + ṽ, with v^((0)) and ṽ not depending on k, v^((0)) ∈
-H^(k−1,a₀)_b(ℐ⁺_c) and ṽ ∈ H^(k−1,(a₀,2β))_b for every k. Then u₆ = χ_Iv^((0)) + ũ″₆ on Ω_c, with
-ũ″₆ := ṽ + (1 − χ_I)v^((0)) + (1 − χ′)u₆, whose last two terms are supported in {ρ_I ≥ c/8}; so (v^((0)), ũ″), with
-ũ″_j := u_j for j ≠ 6, is a decomposition with every norm finite. ∎
+H^(k−1,a₀)_b(ℐ⁺_c) and ṽ ∈ H^(k−1,(a₀,2β))_b for every k. Put ũ″₆ := u₆ − χ_Iv^((0)) on Ω, which is u₆ off Ω_c (χ_I = 0
+there); on Ω_c it equals ṽ + (1 − χ_I)v^((0)) + (1 − χ′)u₆, whose last two terms are supported in {ρ_I ≥ c/8}, and ṽ +
+(1 − χ_I)v^((0)) = u′ − χ_Iv^((0)) vanishes on {ρ_I > c/2}; so (v^((0)), ũ″), with ũ″_j := u_j for j ≠ 6, is a
+decomposition with every norm finite. ∎
 
 The estimates below bound the norm of a decomposition that they construct, linearly in the data, and so bound the norm
 of u. Where a choice linear in u is needed, in the smoothing of the proof of [[thm:iv2-3-1]], the decomposition is
@@ -1266,7 +1271,7 @@ norm is bounded by the same steps at a low order, where the tame factors are |h|
 - The second integration, by [[eq:iv2-2-5]] at j = k + 2 (for k ≤ 2, [[eq:iv2-2-5-low]]) and [[lem:iv2-1-2]]: the
   norms of u_(2,j) (j ≠ 6), u^((0)) and ũ₆ in 𝒴^k_(a₀) are at most C(‖f₃‖_k + ‖u₂‖_(H^(k+2,(a₀,2γ₁))_b) + T), with
   T := 0 for k ≤ 2 and T := |h|_(k+2)‖u₂‖_(H^(5,(a₀,2γ₁))_b) ≤ C|h|_(k+2)(N_7 + |h|_9N_5) for k ≥ 3. For 3 ≤ k ≤ 6,
-  |h|_(k+2) ≤ C, so T ≤ C(N_7 + |h|_9N_5) ≤ C(N_(k+4) + |h|_(k+7)N_5). For k ≥ 7, |h|_(k+2)N_7 ≤ |h|_(k+7)N_8, and
+  as |h|_(k+2) ≤ C, T ≤ C(N_7 + |h|_9N_5) ≤ C(N_(k+4) + |h|_(k+7)N_5). For k ≥ 7, |h|_(k+2)N_7 ≤ |h|_(k+7)N_8, and
   [[eq:s26-interpolation-product]] ([[lem:s26-interpolation]] for the decompositions) with s₀ := 8, q := 9 and
   p := k + 2 ≥ 9 gives |h|_(k+2)|h|_9 ≤ C|h|_8|h|_(k+3) ≤ C|h|_(k+3); so T ≤ C(N_(k+4) + |h|_(k+7)N_8).
 
