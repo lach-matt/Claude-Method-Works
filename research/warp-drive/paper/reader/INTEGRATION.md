@@ -1316,3 +1316,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R5-81 CONFIRMED: chapter 81 CONFIRMED; its three optional nits applied (Step 6 smallness, connectedness, 𝒰_(2δ_B)).
 - R4-82 CONFIRMED (reviews/R4-82.md): chapter 82 CONFIRMED. Its five wording nits go in with the P-K82 merge (after
   R2-P-K82), followed by one confirming reading of the merged chapter 82 and the chapter 03 block.
+- New session after the restart (2026-11-14), branch restarted from main after PR #139: relaunched F3-83,
+  F2-P-U71-IS, F-P-U71-SP, R2-P-K82 and XW-1 from the committed files. Reviews and reports of this session are kept
+  in the session scratchpad and copied into notes/ when a later step needs them.
