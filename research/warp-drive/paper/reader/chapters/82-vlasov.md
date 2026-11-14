@@ -1389,16 +1389,25 @@ takes n odd at no cost.
 
 *Proof of [[thm:vlasov]].* By [[prop:vlasov-uniform-n]], for n ≥ n0 the n-dust approximant g^(n) exists on Ω, with labels
 α_A = 2πA/n and |g^(n) − g|_(C¹(Ω)) ≤ C_k n^(−k) for every k; its families' covectors are within C_k n^(−k) of the
-continuum's du_(α_A) on the tubes. Fix compact sets S′ and S″ with supp q ∩ (Σ_τ0 × S¹) ⊂ int S″, S″ ⊂ int S′ and
-S′ ⊂ int S. Fix an odd n ≥ n0, enlarged if necessary, and check (i)–(iv) for g^(n), whose families have densities
-supported in the tubes of the S″_(α_A) for g^(n), within C_k n^(−k) of those for g.
+continuum's du_(α_A) on their tubes 𝒯_A of int S_(α_A). Fix compact sets S′ and S″ with supp q ∩ (Σ_τ0 × S¹) ⊂ int S″,
+S″ ⊂ int S′ and S′ ⊂ int S. Fix an odd n ≥ n0, enlarged if necessary, and check the setting of [[sec:vlasov-n]] for
+g^(n), with S_A := S″_(α_A) and F_A := q_A^(1/2), and (i)–(iv). The tube 𝒱_A of S″_(α_A) for u_A is a compact subset of
+𝒯_A, which is relatively open in Ω, so u_A is an eikonal near 𝒱_A; it is extended to a smooth invariant function on Ω
+by a cut-off equal to 1 near 𝒱_A and vanishing off 𝒯_A. F_A is transported, and vanishes off the tube of
+supp F_A ∩ Σ_τ0 ⊂ int S″_(α_A), by [[prop:vlasov-uniform-n]] and (iii) below. Rays are compared as follows: the ray of
+u_A for g^(n) and that of u_(α_A) for g from a point of S_(α_A) are null geodesics whose metrics differ by C_k n^(−k)
+in C¹ and whose initial covectors, the future roots over the same spatial covector, differ by C_k n^(−k); so they stay
+within C n^(−k) of each other while both are in Ω, and as both leave Ω transversally through its lateral boundary, every
+point of one in Ω is within C n^(−k) of a point of the other in Ω. In particular 𝒱_A lies within C n^(−k) of
+D_(α_A)(S″) ⊂ D_(α_A)(S).
 
 (i) (Ω) is a finite set of strict inequalities on the compact Ω̄, continuous in g in C¹, so it holds for g^(n) for n
-large, the generators of its families being C⁰-close to those of g.
+large.
 
-(ii′) Let y be a point where the supports of the families A and B of g^(n) overlap. The ray of u_(α_A) for g through y,
-followed to the past, meets Σ_τ0 within C_k n^(−k) of S″_(α_A), by continuous dependence of the rays, so for n large y ∈
-D_(α_A)(S′), and likewise y ∈ D_(α_B)(S′). By [[lem:vlasov-separation]] with S′, |g⁻¹(du_(α_A), du_(α_B))(y)| ≥
+(ii′) Let y be a point where the supports of the families A and B of g^(n) overlap. By the comparison of rays, y is
+within C n^(−k) of a point of D_(α_A)(S″), where u_(α_A) is an eikonal of g on a neighbourhood of uniform size by (V1);
+so the ray of u_(α_A) for g through y, followed to the past, stays in Ω and meets Σ_τ0 within C n^(−k) of S″_(α_A), and
+for n large y ∈ D_(α_A)(S′); likewise y ∈ D_(α_B)(S′). By [[lem:vlasov-separation]] with S′, |g⁻¹(du_(α_A), du_(α_B))(y)| ≥
 c0 (2π/n)², so |g^(n)⁻¹(du_A, du_B)(y)| ≥ c0 (2π/n)² − C_k n^(−k) ≥ ½ c0 (2π/n)² for n large (k = 3). So c :=
 ½ c0 (2π/n)², and Λ = Λ(n) is chosen as in (ii′).
 
@@ -1406,8 +1415,8 @@ c0 (2π/n)², so |g^(n)⁻¹(du_A, du_B)(y)| ≥ c0 (2π/n)² − C_k n^(−k) �
 F_A² = q_A the density (F_A smooth, being transported by [[eq:vlasov-amplitude]] from the smooth data (2π/n)^(1/2)
 F(·, α_A)).
 
-(iv) The supports lie within C_k n^(−k) of the tubes D_(α_A)(S), at distance at least 2δ from the axes by (V2), hence at
-distance at least δ for n large.
+(iv) Every 𝒱_A lies within C n^(−k) of D_(α_A)(S), at distance at least 2δ from the axes by (V2), hence at distance at
+least δ for n large.
 
 (V3) holds for g^(n), being an open condition on the slice data ([[lem:vlasov-open]]), which are within C_k n^(−k) of
 those of g. So [[thm:vlasov-n-approximant]], [[thm:vlasov-n-uniform]] and [[thm:vlasov-n-data]] give vacuum metrics
