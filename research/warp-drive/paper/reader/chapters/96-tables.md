@@ -1,4 +1,16 @@
+## Appendix. Tables {#app:tables}
+
+This appendix prints the coefficients of the explicit polynomials, approximants and enclosures that the written proofs
+use. Each table is headed by the definition of the object and the result that uses it.
+
 ### Tables for the indicial roots at the damping point {#sec:tab-a}
+
+The tables of this section carry the explicit objects of the proofs in [[ch:s14]] on the indicial roots of the
+constraint propagation operator at γ_C = 10⁶: the coefficients of the sextic P_l and of its parts, its expansions near
+2 and near 3, the constants of the fixed-point argument that locates its roots, the values K_n and K′_n of κ near which
+a root crosses an integer, and the nine numbers that the congruences of the vector type leave. They are used in
+[[lem:s14-vector-distance]], [[lem:s14-sextic-split]], [[lem:s14-sextic-count]], [[lem:s14-sextic-small]],
+[[lem:s14-sextic-large]], [[lem:s14-crossings]] and [[prop:s14-damping-distance]].
 
 These tables serve [[sec:s14-pa]]. Throughout, (v, e, h) = (1/2, 1/102400, 10⁻⁶), so that γ_C = 10⁶; ε₀ := e/h =
 625/64; κ = l(l + 2); x := hκ; and P_l is the polynomial det(hN_l(ι)) of [[prop:np-10-12]] (iii) at this point.
@@ -244,3 +256,60 @@ the consecutive squares between which they lie (X_k := k² + 10⁶(k − 2)).
 | 49 | −1 | 47002400 | 6855² = 46991025 | 6856² = 47004736 |
 
 *Used in* [[lem:s14-vector-distance]].
+
+### The trace and determinant numerators on Tangherlini space {#sec:tab-s14-numerators}
+
+*Object.* Let m = 1, r_0 = 100 and (v, e) = (1/2, 1/102400); let g be the Tangherlini metric [[eq:s14-tang]], with the
+(t, r) block g⁻¹ = (−1 − r⁻², r⁻²; r⁻², 1 − r⁻²) of its inverse, and on r_0/2 ≤ r ≤ 2r_0 let c = c_t dt + c_r dr be the
+middle piece of [[eq:s14-cform]]. With the Christoffel symbols listed in the proof of [[prop:np-10-14]] (iii), the
+quantities of that proof are
+
+    c_t = 1/200,     c_r = −(r − 100)/40000,
+    K_tt = (r³ − 100r² − r − 100)/(40000r⁵),     K_tr = K_rt = −(200r² + r + 100)/(40000r⁵),
+    K_rr = −(r⁵ + r³ + 300r² + r + 100)/(40000r⁵),
+    c^t = −(200r² + r + 100)/(40000r²),     c^r = −(r³ − 100r² − r − 100)/(40000r²),
+    tr K = −(2r³ − 150r² − r − 50)/(20000r³),     G = G(c) = (r + 100)(r³ − 300r² − r − 100)/(1600000000r²),
+
+where (c^t, c^r)ᵀ = c♯ = g⁻¹(c_t, c_r)ᵀ, and K(c♯, c♯) = c♯ᵀKc♯. On span{dt, dr}, in the basis (dt, dr),
+
+    s = −2g⁻¹Kg⁻¹ − (tr K)g⁻¹ + ((1 + e)²G⁻¹ tr K + 2(1 − e²)G⁻²K(c♯, c♯)) c♯c♯ᵀ,     B = g⁻¹ − (1 + e)G⁻¹c♯c♯ᵀ,
+
+and S = B⁻¹s is the (dt, dr) block of the bundle map S of [[eq:s14-s]]. Put r = 100 + 5x/8, so that r = 5(x + 160)/8,
+r + 100 = 5(x + 320)/8 and G = (x + 320)(25x³ − 1920064x − 204820480)/(102400000000(x + 160)²). The functions
+
+    n_T(x) := 51200000000(x + 160)³(x + 320)(25x³ − 1920064x − 204820480) tr S,
+    n_D(x) := 2560000000000000(x + 160)⁶(x + 320)²(25x³ − 1920064x − 204820480)² det S,
+
+where det S = det s/det B, are polynomials in x with integer coefficients, of degrees 7 and 14:
+n_T = Σ_(k=0)^7 t_kx^k and n_D = Σ_(k=0)^(14) d_kx^k, with the coefficients below.
+
+*Used in* [[prop:np-10-14]] (iii), whose proof bounds n_T and n_D on |x| ≤ 6/5.
+
+| k | t_k |
+|---|---|
+| 0 | −1718058975468810403840000 |
+| 1 | −73018691827719051673600 |
+| 2 | −1144272129284370268160 |
+| 3 | −8221270229136175104 |
+| 4 | −23332106345472000 |
+| 5 | 22936225276800 |
+| 6 | 261120350000 |
+| 7 | 384000625 |
+
+| k | d_k |
+|---|---|
+| 0 | 691283997693777039477894644527792128000000 |
+| 1 | 31003448547550721811482399641771704320000 |
+| 2 | −460291250745815174622431267350323920896000 |
+| 3 | −28803457351687623824496336970154455859200 |
+| 4 | −810342385919601704061086309289075671040 |
+| 5 | −13507764074283873631686844328997552128 |
+| 6 | −147756818727644797455049722691584000 |
+| 7 | −1108267502227834917423973767577600 |
+| 8 | −5772599670499424139106452766720 |
+| 9 | −20617372291059693810769920000 |
+| 10 | −48322770602554550168064000 |
+| 11 | −67110961509632992000000 |
+| 12 | −41924966581050600000 |
+| 13 | 43520096875000 |
+| 14 | 32000078125 |

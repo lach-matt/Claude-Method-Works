@@ -1,0 +1,10 @@
+label	source	source_name	note
+app:tables	paper/reader/STYLE.md:75-77	Appendix B as STYLE section 5 defines it (the ruling of 2026-11-13)	appendix heading; opening paragraph new
+sec:tab-a	paper/reader/proofs/T-A.md:1-246	tables of proof A (T-A)	merged verbatim from the confirmed tables of proof A; an opening paragraph naming the objects and the results of chapter 33 that use them added before T-A's own
+sec:tab-a-sextic	paper/reader/proofs/T-A.md:6-16	T-A, the sextic	merged verbatim from the confirmed tables of proof A
+sec:tab-a-split	paper/reader/proofs/T-A.md:18-61	T-A, the parts of the sextic	merged verbatim from the confirmed tables of proof A
+sec:tab-a-expansions	paper/reader/proofs/T-A.md:63-102	T-A, the expansions near 2 and near 3	merged verbatim from the confirmed tables of proof A
+sec:tab-a-pieces	paper/reader/proofs/T-A.md:104-158	T-A, the location constants	merged verbatim from the confirmed tables of proof A
+sec:tab-a-crossings	paper/reader/proofs/T-A.md:160-227	T-A, the crossings	merged verbatim from the confirmed tables of proof A
+sec:tab-a-vector	paper/reader/proofs/T-A.md:229-246	T-A, the vector type	merged verbatim from the confirmed tables of proof A
+sec:tab-s14-numerators	paper/reader/chapters/33-s14-constraint-damping.md:580-627	computed from chapter 33's definitions in the proof of prop:np-10-14 (iii)	computed exactly from chapter 33's definitions (eq:s14-tang, the middle piece of eq:s14-cform, eq:s14-s; m = 1, r_0 = 100, (v, e) = (1/2, 1/102400), r = 100 + 5x/8) over the denominators printed at 33:611-612; t_0 and d_0-d_3 agree with 33:617-619, and every bound at 33:621-626 holds with the full table; no source table

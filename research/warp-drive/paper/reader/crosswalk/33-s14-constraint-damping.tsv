@@ -25,7 +25,7 @@ eq:s14-s	docket68/n1star/N1STAR-PROOF.md:3557	NP 10.13 proof: S = (L - L*)/(2ih)
 eq:s14-s-ang	docket68/n1star/N1STAR-PROOF.md:3540-3541; docket68/n1star/N1STAR-PROOF.md:3549-3550	NP 10.13 Proposition 10.10 (iii) and its proof (S from its definition; semiclass5 W2)	S on r dω written out by hand in the proof of prop:np-10-13; no record display
 eq:s14-s-rad	docket68/n1star/N1STAR-PROOF.md:3540-3541; docket68/n1star/N1STAR-PROOF.md:3549-3550	NP 10.13 Proposition 10.10 (iii) and its proof (S from its definition; semiclass5 W2)	the matrices of s and B on span{dt, dr} written out by hand; no record display
 rem:s14-e0	docket68/n1star/N1STAR-PROOF.md:3542-3543	NP 10.13 Proposition 10.10 (iii), the largest admissible e (W4)	numerical observation remark (class (b)); no proof uses it
-prop:np-10-14	docket68/n1star/N1STAR-PROOF.md:3593	NP 10.14 Proposition 10.11 (i)-(iv) and (a)-(c)	(i),(ii),(iv) and (5.8) by hand; (iii) written proof, trace and determinant numerators in app:tables; (b) smoothing written out; measurement (v) kept as rem:s14-r0
+prop:np-10-14	docket68/n1star/N1STAR-PROOF.md:3593	NP 10.14 Proposition 10.11 (i)-(iv) and (a)-(c)	(i),(ii),(iv) and (5.8) by hand; (iii) written proof, trace and determinant numerators in sec:tab-s14-numerators (Appendix B); (b) smoothing written out; measurement (v) kept as rem:s14-r0
 eq:s14-tang	docket68/n1star/N1STAR-PROOF.md:3586	NP (10.48)	
 eq:s14-cform	docket68/n1star/N1STAR-PROOF.md:3593	NP (10.49)	
 eq:s14-q	docket68/n1star/N1STAR-PROOF.md:3611	NP 10.14 (iv), polynomial q	
@@ -35,6 +35,20 @@ eq:s14-theta-in	docket68/n1star/N1STAR-PROOF.md:4223-4225; docket68/n1star/N1STA
 prop:np-10-22	docket68/n1star/N1STAR-PROOF.md:4336	NP 10.22 Proposition 10.19 (i)-(iv)	
 prop:np-10-79	docket68/n1star/N1STAR-PROOF.md:10042	NP 10.79 (i)-(v)	threshold quadratic chi derived in closed form
 eq:s14-chi	docket68/n1star/N1STAR-PROOF.md:10075	NP 10.79 (v)	
+sec:s14-every-h	paper/reader/proofs/P-A3-every-h.md:3-198	proof A3, the scalar type l >= 1 for every h in (0, 10^-6]	merged verbatim from the confirmed proof A3, as a section at the end of sec:s14-model before sec:iv4-1; the placement comment (line 1) dropped; the opening's sentence on cor:s14-remote-point dropped, that corollary being moved into sec:s14-pa
+lem:s14-half-plane-count	paper/reader/proofs/P-A3-every-h.md:19-30	proof A3 Lemma, counting roots in a half-plane	merged verbatim from the confirmed proof A3
+sec:s14-every-h-two	paper/reader/proofs/P-A3-every-h.md:32-91	proof A3, the line Re iota = 2	merged verbatim from the confirmed proof A3
+eq:s14-hn-two	paper/reader/proofs/P-A3-every-h.md:36-38	proof A3, the matrix at iota = 2 + w	merged verbatim from the confirmed proof A3
+eq:s14-ph-two	paper/reader/proofs/P-A3-every-h.md:45-49	proof A3, P^(0)-P^(3)	merged verbatim from the confirmed proof A3
+eq:s14-f-two	paper/reader/proofs/P-A3-every-h.md:55-61	proof A3, the coefficients f_0-f_6	merged verbatim from the confirmed proof A3
+lem:s14-line-two	paper/reader/proofs/P-A3-every-h.md:63-91	proof A3 Lemma, the line Re iota = 2	merged verbatim from the confirmed proof A3
+eq:s14-d-two	paper/reader/proofs/P-A3-every-h.md:81-85	proof A3, the coefficients d_0-d_3	merged verbatim from the confirmed proof A3
+sec:s14-every-h-far	paper/reader/proofs/P-A3-every-h.md:93-132	proof A3, the line Re iota = -1/(2h)	merged verbatim from the confirmed proof A3
+lem:s14-line-far	paper/reader/proofs/P-A3-every-h.md:95-132	proof A3 Lemma, the line Re iota = -1/(2h)	merged verbatim from the confirmed proof A3
+eq:s14-y	paper/reader/proofs/P-A3-every-h.md:102-104	proof A3, the matrix Y	merged verbatim from the confirmed proof A3
+sec:s14-every-h-count	paper/reader/proofs/P-A3-every-h.md:134-198	proof A3, the count	merged verbatim from the confirmed proof A3 (without the corollary at 200-206)
+lem:s14-limit-sides	paper/reader/proofs/P-A3-every-h.md:136-153	proof A3 Lemma, the limits as h -> 0+	merged verbatim from the confirmed proof A3
+prop:s14-scalar-every-h	paper/reader/proofs/P-A3-every-h.md:155-198	proof A3 Proposition, the scalar type l >= 1 for every h	merged verbatim from the confirmed proof A3 with the paragraph after it; cited by prop:np-10-54
 sec:iv4-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:42	IV(4) section 1	
 lem:iv4-1-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:44	IV(4) Lemma 1.1	
 lem:iv4-1-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:55	IV(4) Lemma 1.2	
@@ -134,5 +148,29 @@ rem:s14-dim3	docket68/n1star/proof5/PART-III-E2-V1STATES.md:210-215	III.E1, the 
 sec:s14-simple	docket68/n1star/N1STAR-PROOF.md:7259	NP 10.52 setting	
 prop:np-10-52	docket68/n1star/N1STAR-PROOF.md:7269	NP 10.52 Proposition 10.43 with 10.54 (d) and VI.C row w1	stated off a countable set of h; eq:s14-theta proved; the value of δ_50 in lem:s14-delta50 and ε_ind(10^-6) = δ_50 in cor:s14-eps-ind-point (proof A)
 eq:s14-theta	docket68/n1star/N1STAR-PROOF.md:7272-7274; docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:192-194	NP 10.52 Proposition 10.43 (i) (Q's roots in s); III.D Lemma 4.1 (the z -> 0 expansions)	closed forms of d₁, d₂ and the bounds on θ₁, θ₂ derived by hand in prop:np-10-52 (i); no record display
-rem:s14-delta50	docket68/n1star/N1STAR-PROOF.md:7291-7296; docket68/n1star/N1STAR-PROOF.md:7427-7428; paper/reader/proofs/P-A-indicial.md:24	NP 10.52 Deduced (the bound attained at box^Ups's root near 1 - l, l = 50); NP 10.54 (d); proof A Lemma lem:s14-delta50	distinguishes ε_ind(h), ch:s15's ε_ind and δ_50; δ_50's value is proof A's lem:s14-delta50 (proof A not yet merged)
-rem:s14-eps-point	paper/reader/proofs/P-A-indicial.md:383-388; paper/reader/proofs/P-A-indicial.md:400-407; docket68/n1star/N1STAR-PROOF.md:7280-7286	proof A Corollary cor:s14-eps-ind-point and Remark rem:s14-eps-ind-scope; NP 10.52 Proposition 10.43 (ii)	summary of proof A at h = 10⁻⁶ (proof A not yet merged); the record scans 1.94137 x 10^-8 at l = 50
+rem:s14-delta50	docket68/n1star/N1STAR-PROOF.md:7291-7296; docket68/n1star/N1STAR-PROOF.md:7427-7428; paper/reader/proofs/P-A-indicial.md:24	NP 10.52 Deduced (the bound attained at box^Ups's root near 1 - l, l = 50); NP 10.54 (d); proof A Lemma lem:s14-delta50	distinguishes ε_ind(h), ch:s15's ε_ind and δ_50; δ_50's value is proof A's lem:s14-delta50 (merged in sec:s14-pa)
+rem:s14-eps-point	paper/reader/proofs/P-A-indicial.md:383-388; paper/reader/proofs/P-A-indicial.md:400-407; docket68/n1star/N1STAR-PROOF.md:7280-7286	proof A Corollary cor:s14-eps-ind-point and Remark rem:s14-eps-ind-scope; NP 10.52 Proposition 10.43 (ii)	summary of proof A at h = 10⁻⁶ (merged in sec:s14-pa; overlaps cor:s14-eps-ind-point and rem:s14-eps-ind-scope, kept); the record scans 1.94137 x 10^-8 at l = 50
+sec:s14-pa	paper/reader/proofs/P-A-indicial.md:1-407	proof A, the indicial roots at the damping point gamma_C = 10^6	merged verbatim from the confirmed proof A, as a section after sec:s14-simple; its section on the sums of the gauge potential offsets (P-A-indicial.md:409-482, sec:pa-gap-sums, prop:gap-sums, rem:gap-sums) not merged, chapter 71 carries prop:gap-sums and rem:gap-sums; cor:s14-remote-point moved in from proof A3
+eq:s14-pa-sqrt	paper/reader/proofs/P-A-indicial.md:18	proof A, the elementary square-root bounds	merged verbatim from the confirmed proof A
+sec:s14-pa-delta	paper/reader/proofs/P-A-indicial.md:22-45	proof A, the number delta_50	merged verbatim from the confirmed proof A
+lem:s14-delta50	paper/reader/proofs/P-A-indicial.md:24-45	proof A Lemma, the value of delta_50	merged verbatim from the confirmed proof A; cited by rem:s14-delta50 and by chapters 34 and 71
+sec:s14-pa-vector	paper/reader/proofs/P-A-indicial.md:47-84	proof A, the vector type and the scalar type 0	merged verbatim from the confirmed proof A
+lem:s14-vector-distance	paper/reader/proofs/P-A-indicial.md:49-75	proof A Lemma, the vector type at gamma_C = 10^6	merged verbatim from the confirmed proof A; its nine exceptional numbers in sec:tab-a-vector
+lem:s14-scalar-zero	paper/reader/proofs/P-A-indicial.md:77-84	proof A Lemma, the scalar type 0 at gamma_C = 10^6	merged verbatim from the confirmed proof A
+sec:s14-pa-sextic	paper/reader/proofs/P-A-indicial.md:86-240	proof A, the sextic: decomposition, majorants and counting	merged verbatim from the confirmed proof A; cor:s14-remote-point (proof A3) added at its end
+lem:s14-sextic-split	paper/reader/proofs/P-A-indicial.md:88-191	proof A Lemma, the sextic at gamma_C = 10^6	merged verbatim from the confirmed proof A; tables in sec:tab-a-sextic and sec:tab-a-split
+eq:s14-pa-split	paper/reader/proofs/P-A-indicial.md:92-93	proof A, the splitting P_l = U + hW	merged verbatim from the confirmed proof A
+eq:s14-pa-re	paper/reader/proofs/P-A-indicial.md:125	proof A, Re(W/d_iota U) at zeta	merged verbatim from the confirmed proof A
+lem:s14-majorant	paper/reader/proofs/P-A-indicial.md:193-197	proof A Lemma, majorants	merged verbatim from the confirmed proof A with the paragraph after it (199-208), which names the majorants
+lem:s14-fixed-point	paper/reader/proofs/P-A-indicial.md:210-221	proof A Lemma, a perturbed simple root	merged verbatim from the confirmed proof A
+lem:s14-sextic-count	paper/reader/proofs/P-A-indicial.md:223-240	proof A Lemma, counting the roots	merged verbatim from the confirmed proof A
+cor:s14-remote-point	paper/reader/proofs/P-A3-every-h.md:200-206	proof A3 Corollary, the remote roots at gamma_C = 10^6	merged verbatim from the confirmed proof A3, moved into sec:s14-pa after lem:s14-sextic-count (the suggestion of the proof A3 reading); its dependence on lem:s14-sextic-count (a) is visible in its proof
+sec:s14-pa-small	paper/reader/proofs/P-A-indicial.md:242-273	proof A, degrees with kappa <= 18000	merged verbatim from the confirmed proof A
+lem:s14-sextic-small	paper/reader/proofs/P-A-indicial.md:244-273	proof A Lemma, the roots near 2 and 3	merged verbatim from the confirmed proof A; expansions in sec:tab-a-expansions
+sec:s14-pa-large	paper/reader/proofs/P-A-indicial.md:275-345	proof A, degrees with kappa >= 18000	merged verbatim from the confirmed proof A
+lem:s14-sextic-large	paper/reader/proofs/P-A-indicial.md:277-311	proof A Lemma, location of the roots	merged verbatim from the confirmed proof A; constants in sec:tab-a-pieces
+lem:s14-crossings	paper/reader/proofs/P-A-indicial.md:313-345	proof A Lemma, the crossings of the integers	merged verbatim from the confirmed proof A; K_n, K'_n in sec:tab-a-crossings
+sec:s14-pa-distance	paper/reader/proofs/P-A-indicial.md:347-407	proof A, the distance from the integers and eps_ind at gamma_C = 10^6	merged verbatim from the confirmed proof A
+prop:s14-damping-distance	paper/reader/proofs/P-A-indicial.md:349-381	proof A Proposition, the roots of the constraint damping polynomials at gamma_C = 10^6	merged verbatim from the confirmed proof A
+cor:s14-eps-ind-point	paper/reader/proofs/P-A-indicial.md:383-398	proof A Corollary, eps_ind at gamma_C = 10^6	merged verbatim from the confirmed proof A; cited by rem:s14-delta50, rem:s14-eps-point and by chapters 34 and 71
+rem:s14-eps-ind-scope	paper/reader/proofs/P-A-indicial.md:400-407	proof A Remark, the point h = 10^-6 and the set H	merged verbatim from the confirmed proof A except the last sentence, which names cor:s14-eps-ind-point ("The corollary shows") as the section now holds two corollaries; prop:gap-sums resolves to chapter 71; cited by chapter 71
