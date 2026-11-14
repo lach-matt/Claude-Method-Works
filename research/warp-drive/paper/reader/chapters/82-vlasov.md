@@ -1462,22 +1462,33 @@ needs. No smallness threshold enters: the theorem is a large-data statement, its
 ### Openness, stability and an explicit family {#sec:vlasov-open}
 
 **Lemma {#lem:vlasov-open}** (The hypotheses are open.) Let (g, F, u) satisfy (Ω) and (V3), and let S ⊂ (Σ_τ0 ∩ Ω) × S¹
-be compact (points and labels) with supp q ∩ (Σ_τ0 × S¹) ⊂ int S. Suppose that on S and its tubes: each u_α is an
-eikonal of g with ℓ_α future directed near D_α(S); the Jacobian of (V1) is at least J0 on the tubes D_α(S); ∂_α β0 ≥ b_*
-on S, and β0(x, ·) is injective on S_x; and dist(D_α(S), axes) ≥ 2δ. Then there is a neighbourhood 𝒰 of (g, u|Σ_τ0,
-∂u|Σ_τ0) in C² × C¹ such that every solution (g′, F′, u′) whose metric on Ω and data lie in 𝒰, with supp q′ ∩ (Σ_τ0 ×
-S¹) ⊂ int S, satisfies (V1) on S with the margins J0/2 and b_*/2, and (V2) with δ/2 in place of δ, that is
-dist(D′_α(S), axes) ≥ δ for its tubes D′_α(S). (Ω) and (V3) are open in C² × C¹.
+be compact (points and labels) with supp q ∩ (Σ_τ0 × S¹) ⊂ int S. Suppose that on S and its tubes: u is an eikonal in
+each label, with ℓ_α future directed, on a neighbourhood in Ω × S¹ of 𝒟(S); the Jacobian of (V1) is at least J0 on the
+tubes D_α(S); ∂_α β0 ≥ b_* on S, and β0(x, ·) is injective on S_x; and dist(D_α(S), axes) ≥ 2δ. Then there is a
+neighbourhood 𝒰 of (g, u|Σ_τ0, ∂u|Σ_τ0) in C² × C¹ with the following property. Let (g′, F′, u′) be a solution whose
+metric on Ω and data lie in 𝒰, with supp q′ ∩ (Σ_τ0 × S¹) ⊂ int S, and let u″_α be the eikonal of g′ with the data
+u′_α|Σ_τ0 and the future branch, on the points of Ω on its rays from a neighbourhood of S_α. It is defined and smooth
+in (x, α) on a neighbourhood in Ω × S¹ of the set 𝒟′(S) of the (x, α) with x in the tube D′_α(S) of S_α for u″_α, and
+it agrees with u′_α, with all derivatives, where q′(·, α) > 0. So replacing u′ by χ u″ + (1 − χ) u′, χ a smooth
+invariant cut-off on Ω × S¹ equal to 1 near 𝒟′(S) and vanishing off the domain of u″, changes neither T_V nor
+[[eq:vlasov-amplitude]] (which holds where q′ > 0, hence on its closure, and trivially elsewhere), and after this
+replacement (g′, F′, u′) satisfies (V1) on S with the margins J0/2 and b_*/2, and (V2) with δ/2 in place of δ, that is
+dist(D′_α(S), axes) ≥ δ. (Ω) and (V3) are open in C² × C¹.
 
-*Proof.* The tubes are the images of S under the flows of the rays of (g′, u′), which are null geodesics of g′ with
-initial directions given by ∂u′|Σ_τ0, the τ-component being the future root. The rays and their first variation (whose
+*Proof.* The tubes are the images of S under the flows of the rays of u″, which are null geodesics of g′ with initial
+covectors given by ∂u′|Σ_τ0, the τ-component being the future root. The rays and their first variation (whose
 determinant is the Jacobian) solve ordinary differential equations whose coefficients are the Christoffel symbols of g′
 and their first derivatives, so by continuous dependence on coefficients and data they depend continuously on (g′, u′) in
 C² × C¹, uniformly on the compact S × [τ0, τ_end]; β0 and ∂_α β0 depend continuously on u′|Σ_τ0 in C¹. The Jacobian, the
 margin b_* and the distance to the axes are infima over compact sets of continuous positive functions, so on a
-neighbourhood they hold halved. Where the Jacobian is positive the rays from S_α foliate a neighbourhood of D′_α(S), so
-the eikonal of g′ with the data u′_α|Σ_τ0 exists there (the method of characteristics); this is why the margins are
-asked on S and not only on supp q, the tube of supp q′ lying inside that of S. Injectivity is kept: if α_k ≠ α′_k in
+neighbourhood they hold halved, also on a fixed neighbourhood of S. Where the Jacobian is positive the rays from a
+neighbourhood of S_α foliate a neighbourhood of D′_α(S), uniformly in α, so the eikonal u″_α of g′ with the data
+u′_α|Σ_τ0 exists there (the method of characteristics), and it is smooth in (x, α), the rays depending smoothly on their
+initial points and on α; this is why the margins are asked on S and not only on supp q, the tube of supp q′ lying inside
+that of S. The label form's u′_α is an eikonal of g′ near the tube of supp q′(·, α) ∩ Σ_τ0 with the same data and branch.
+So the ray of u′_α from a point x0 of that set is the null geodesic of g′ from x0 with the covector du′_α(x0) = du″_α(x0),
+also the ray of u″_α from x0; along it both functions are constant, with the value u′_α(x0). Hence u′_α = u″_α on that
+tube, which contains the open set where q′(·, α) > 0, and there all derivatives agree. Injectivity is kept: if α_k ≠ α′_k in
 S_(x_k) had β0′_k(x_k, α_k) = β0′_k(x_k, α′_k) for perturbations tending to zero, a limit point would give, by
 injectivity of β0(x, ·), α = α′, and then for k large α_k and α′_k lie in an interval on which ∂_α β0′_k ≥ b_*/2 > 0, a
 contradiction. (Ω) consists of strict inequalities between contractions of g⁻¹, continuous in C⁰, and of the statement
@@ -1486,12 +1497,14 @@ the slice data and their first derivatives. ∎
 
 **Proposition {#prop:vlasov-cauchy}** (Cauchy stability of the restricted system off the axes.) Let (g̊, F̊, ů) be a
 smooth class Einstein–restricted massless Vlasov solution on Ω in label form satisfying (Ω), (V1), (V2) and (V3), with
-the compact set S of (V1); F̊ may vanish identically. Fix m ≥ 6. There are ε0 > 0 and C such that every smooth datum D in
-label form near (g̊, F̊, ů), as defined before [[prop:vlasov-uniform-n]], with d(D) ≤ ε0, has a smooth class
-development (g, F, u) on Ω, invariant under T² and both reflections: a solution of the Einstein–restricted massless
-Vlasov system in label form with Ric^H(g) = T_V, the gauge of [[sec:class-augmented]] relative to g̊, and with ‖g −
-g̊‖_(H^(m+1)) ≤ C d(D) on every Σ_τ. It is the only such solution whose metric is within ε1 of g̊ in C² and whose
-eikonals are those of its metric with the data of D. No smallness of the reference is assumed.
+the compact set S of (V1); F̊ may vanish identically. Fix m ≥ 6. There are ε0 > 0, ε2 ∈ (0, ε1] and C such that every
+smooth datum D in label form near (g̊, F̊, ů), as defined before [[prop:vlasov-uniform-n]], with d(D) ≤ ε0, has a smooth
+class development (g, F, u) on Ω, invariant under T² and both reflections: a solution of the Einstein–restricted
+massless Vlasov system in label form with Ric^H(g) = T_V, the gauge of [[sec:class-augmented]] relative to g̊, with
+‖g − g̊‖_(H^(m+1)) ≤ C d(D) on every Σ_τ, and with each u_α the eikonal of g with the data u_D(·, α) on a neighbourhood
+in Ω × S¹ of the (x, α) with x in its tube D_α(S). Its metric and field are unique: every such solution (g′, F′, u′)
+whose metric is within ε2 of g̊ in C² and whose data are those of D has g′ = g and F′ = F, and u′_α = u_α on the tube of
+supp q(·, α) ∩ Σ_τ0, for every α. No smallness of the reference is assumed.
 
 *Proof.* *Existence.* For n ≥ n0 let g^(n) be the development of the n-dust datum D_n of D given by
 [[prop:vlasov-uniform-n]], with (g̊, F̊, ů) as reference and k = 2: it exists on Ω and ‖g^(n) − g̊‖_(H^(m′+1)) ≤ C_(m′)
