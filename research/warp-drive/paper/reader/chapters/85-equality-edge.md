@@ -318,11 +318,13 @@ and [[cor:layer-expansion]], |∂^k Ω^β (g_app − g0°)| ≤ C λ^(1−k) ε_
 a profile [g_j] costing λ⁻¹ only through ∂_θ and the rotations costing nothing, since Ω_ab v = 0; on P with the decay of
 the classes E_(3/2), E_2. For w, run [[lem:layer-remainder]] (case Ω), [[lem:layer-remainder-past]] (case P) with ∂^i
 Ω^β, i + |β| ≤ 4, in place of ∂^α, |α| ≤ 2, the rotations commuted as E^Ω is in step (1) of the proof of
-[[lem:edge-localisation]] below. The coefficients ∂^j g_app, j ≤ 6, are bounded on the region, since ε_M(v1) ≤ λ⁵ gives
-λ^(1−j) ε_j ≤ 1 there; ∂^j w, j ≤ 3, are bounded by step 1 of the proof of [[thm:uniform-existence]], resp. item 3 of
-[[thm:past-construction]]; so every coefficient of the energy inequality for the derivatives of order at most four is
-bounded, while the forcing term and the data cost λ⁻¹ per coordinate derivative and nothing per rotation, as for g_app
-([[lem:layer-flat]] (d), (e), [[lem:layer-flat-past]] (d)). Hence
+[[lem:edge-localisation]] below; a commutator with a rotation either differentiates g_λ⁻¹ − g0⁻¹ or, through [Ω_ab, ∂_c],
+trades the rotation for a coordinate derivative with the factor g_λ⁻¹ − g0⁻¹, of size λ. The coefficients ∂^j g_app,
+j ≤ 6, are bounded on the region, since ε_M(v1) ≤ λ⁵ gives λ^(1−j) ε_j ≤ 1 there; ∂^j w, j ≤ 3, are bounded by step 1 of
+the proof of [[thm:uniform-existence]], resp. item 3 of [[thm:past-construction]]; so every coefficient of the energy
+inequality for the derivatives of order at most four is bounded, while the forcing term and the data cost λ⁻¹ per
+coordinate derivative and nothing per rotation, as for g_app ([[lem:layer-flat]] (d), (e), [[lem:layer-flat-past]] (d)).
+Hence
 
     ℰ_j(τ) := Σ_(i≤j, i+|β|≤4) (‖∂ ∂^i Ω^β w(τ)‖ + ‖∂^i Ω^β w(τ)‖) ≤ C λ^(N−3−j) ε_M(v1),      2 ≤ j ≤ 4,
 
