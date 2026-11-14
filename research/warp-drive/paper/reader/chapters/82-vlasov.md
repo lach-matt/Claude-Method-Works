@@ -960,7 +960,108 @@ used.
 The class Einstein–n-null-dust system and its augmented form, in the unknowns (g, p_A, Θ_A, q_A) with the expansions
 Θ_A := □5 u_A transported by the Raychaudhuri equation, are those of [[sec:class-augmented]] ([[eq:class-aug1]]–
 [[eq:class-aug4]], [[prop:class-augmented]]) with N_f = n families, and their Cauchy stability on Ω without smallness,
-the families off the axes, is [[thm:class-stability-off-axes]].
+the families off the axes, is [[thm:class-stability-off-axes]]. That theorem takes the reference's families as eikonals
+on the whole of Ω ((H1) there), and its transports run along every family's generators through every point of Ω, while
+a field in label form gives each u_α as an eikonal only near its tube. The next lemma removes (H1): away from its tube,
+every transport of a family is replaced by a transport along a timelike field, and the family's equations are kept only
+where they hold.
+
+**Lemma {#lem:vlasov-local-stability}** (Families eikonal only near their tubes.) Let Ω be admissible for g̊, fix an
+integer k ≥ 6, δ > 0 and N_f ≥ 1, and let g̊ and, for A = 1, …, N_f, ů_A and q̊_A ≥ 0 be smooth and G-invariant on a
+neighbourhood of Ω, with Ric(g̊) = Σ_A q̊_A dů_A ⊗ dů_A on Ω. Let S_A ⊂ Σ_τ0 be compact and G-invariant, put
+P̊_A := g̊⁻¹dů_A, and let the *tube* 𝒯̊_A of S_A be the set of points of Ω on the integral curves of P̊_A from S_A, each
+followed forward while it stays in Ω. Assume:
+
+(H1′) ů_A is an eikonal of g̊, with P̊_A future directed, on a G-invariant neighbourhood 𝒱̊_A of 𝒯̊_A in Ω, and q̊_A
+vanishes off 𝒯̊_A and satisfies div_g̊(q̊_A P̊_A) = 0 on 𝒱̊_A;
+
+(H2′) 𝒯̊_A lies at distance at least 2δ from the axes.
+
+A datum on Σ_τ0, as in [[sec:class-off-axes]], lies within ε of ů's if [[eq:class-energy]] at τ0, with spatial
+derivatives only, ∂_τ w among the first derivatives and the family norms taken on 𝒱̊_A ∩ Σ_τ0, is at most ε; its covector
+p_A is the one defined there, on 𝒱̊_A ∩ Σ_τ0, with spatial part ∂_x u_A and the root of g⁻¹(p_A, p_A) = 0 near that of
+dů_A. Then there are ε, C > 0 such that every datum that satisfies the constraints and the gauge condition, lies within ε
+of ů's, and has supp q_A ∩ Σ_τ0 ⊂ int S_A (interior relative to Σ_τ0) for every A, has a smooth G-invariant development
+(g, u_A, q_A) on Ω in the gauge D(g) = 0 relative to g̊, with these properties. Each u_A is a smooth G-invariant eikonal
+of g, with g⁻¹du_A future directed, on the tube 𝒯_A of int S_A for u_A (the points of Ω on the integral curves of
+g⁻¹du_A from int S_A, each followed forward while it stays in Ω), which is relatively open in Ω and lies within C ε of
+𝒯̊_A; q_A vanishes off the tube of supp q_A ∩ Σ_τ0, a compact subset of 𝒯_A; Ric(g) = Σ_A q_A du_A ⊗ du_A and
+div_g(q_A g⁻¹du_A) = 0 on Ω, each term extended by zero off 𝒯_A; and 𝒩_k ≤ C ε on [τ0, τ1], with the family norms of
+[[eq:class-energy]] taken on 𝒯_A ∩ Σ_τ, p_A := du_A and Θ_A := □_g u_A.
+
+*Proof.* 𝒯̊_A is compact: on 𝒱̊_A the field P̊_A is future null, so τ increases along its integral curves, and 𝒯̊_A is
+the image of the compact set of the (x0, τ) with x0 ∈ S_A whose curve reaches Σ_τ inside Ω under the continuous map to
+the point reached. Shrinking 𝒱̊_A, we may assume that it lies at distance at least δ from the axes and that its closure
+lies in the set of (H1′). Fix a G-invariant smooth ζ′_A on a neighbourhood of Ω with 0 ≤ ζ′_A ≤ 1, equal to 1 on a
+neighbourhood of 𝒯̊_A and to 0 off 𝒱̊_A (a cut-off averaged over the compact group G). Put p̊_A := dů_A,
+Θ̊_A := □_g̊ ů_A, T_g := −g⁻¹dτ, which is future timelike for |g − g̊| ≤ ε1 by [[def:class-admissible]] (a) and (c), and
+
+    P̃_A := ζ′_A P_A + (1 − ζ′_A) T_g,      P_A := g⁻¹p_A.
+
+(i) *The localised system.* In place of (Aug2)–(Aug4) take, for each A, componentwise in the chart,
+
+    P̃_A(p_(A,a) − p̊_(A,a)) = ζ′_A (P_A^b Γ[g]^c_(ba) p_(A,c) − P_A(p̊_(A,a))),
+    P̃_A(Θ_A − Θ̊_A) = ζ′_A (S_A − P_A(Θ̊_A)),                                                    {#eq:vlasov-localised}
+    P̃_A(q_A) = −ζ′_A Θ_A q_A,
+
+with S_A as in [[eq:class-aug3]]. Where ζ′_A = 1 these are (Aug2), (Aug3) with ζ_A = 1, and (Aug4); and ζ′_A S_A is
+smooth, ζ′_A vanishing within δ of the axes. ů solves them. Indeed, on 𝒱̊_A, ∇_(P̊_A) dů_A = ½ d(g̊⁻¹(dů_A, dů_A)) = 0,
+so the first right side vanishes at ů; P̊_A(Θ̊_A) = S_A(ů) by [[eq:class-raychaudhuri]], since Ric(g̊)(P̊_A, P̊_A) =
+Σ_B q̊_B g̊⁻¹(dů_A, dů_B)²; and P̊_A(q̊_A) = −Θ̊_A q̊_A, the conservation law. Off 𝒱̊_A, ζ′_A = 0 and q̊_A = 0. And
+P̃_A(q̊_A) = ζ′_A P_A(q̊_A) for every g and p_A, as q̊_A vanishes on the relatively open set Ω ∖ 𝒯̊_A, which contains
+{ζ′_A < 1}. On Σ_τ0 the family data are cut off: p_A := p̊_A + ζ′_A (p_A^D − p̊_A), Θ_A := Θ̊_A + ζ′_A (Θ_A^D − Θ̊_A),
+and q_A the datum's density, where p_A^D is the datum's covector and Θ_A^D := □_g u_A is computed as in
+[[sec:class-off-axes]], both on 𝒱̊_A ∩ Σ_τ0. They are the datum's on {ζ′_A = 1} ∩ Σ_τ0, and [[eq:class-energy]] at τ0
+is at most C ε.
+
+(ii) *Steps 1–9.* These steps of the proof of [[thm:class-stability-off-axes]] hold for (Aug1) and
+[[eq:vlasov-localised]], with the transport fields P̃_A, and give a smooth G-invariant solution on Ω with 𝒩_k ≤ C ε.
+The changes are these. At ů, P̊̃_A := ζ′_A P̊_A + (1 − ζ′_A) T_g̊ is a convex combination of future causal vectors, P̊_A
+being future null where ζ′_A > 0; so P̊̃_A is future causal with P̊̃_A(τ) ≥ c > 0 on the compact Ω, and on each lateral
+boundary component {F = 0} of Ω, dF(P̊̃_A) ≥ c′ > 0, dF being positive on the compact set of the future causal vectors Y
+at its points with dτ(Y) ≥ c and |Y| ≤ c⁻¹. By Step 1, |P̃_A − P̊̃_A| ≤ C 𝒩_k on Ω, so in the bootstrap of Step 3,
+P̃_A(τ) ≥ c/2 and dF(P̃_A) ≥ c′/2 for ε small. The proof of [[lem:class-transport]] uses of its field P only P(τ) ≥ c_P,
+|P| + |∂P| ≤ c_P⁻¹ and dF(P) ≥ 0 on the lateral boundary, so it applies to P̃_A. In Step 3, by the third equation, q_A
+vanishes along every integral curve of P̃_A on which it vanishes initially; every point of Ω lies on such a curve from
+Σ_τ0, followed backward inside Ω, P̃_A pointing out of Ω at its lateral boundary; so supp q_A lies in the tube for P̃_A
+of the compact set supp q_A ∩ Σ_τ0, inside that of S_A. The integral curves of P̃_A from S_A stay within C ε of those
+of P̊̃_A from S_A, as in Step 3, and these trace 𝒯̊_A, on which P̊̃_A = P̊_A; so for ε small the tube of S_A for P̃_A
+lies in the interior of {ζ′_A = 1}, where P̃_A = P_A. In Steps 5–7, since ů solves [[eq:vlasov-localised]], the
+equations for the differences are those of Steps 5–7 there multiplied by ζ′_A, with P̃_A on the left:
+
+    P̃_A(δp_(A,a)) = ζ′_A (P_A^b (Γ[g] − Γ[g̊])^c_(ba) p_(A,c) + Γ[g̊]^c_(ba) (P_A^b p_(A,c) − P̊_A^b p̊_(A,c))
+                     − (P_A − P̊_A)^b ∂_b p̊_(A,a)),
+    P̃_A(δΘ_A) = ζ′_A (S_A(U) − S_A(ů) − (P_A − P̊_A)(Θ̊_A)),
+    P̃_A(δq_A) = −ζ′_A (Θ_A q_A − Θ̊_A q̊_A + (P_A − P̊_A)(q̊_A)),
+
+and the commutator [∂^α, P̃_A·∂] has the top term (∂^α P̃_A)·∂, P̃_A being a smooth function of (g, p_A); so the bounds
+of those steps hold, with constants depending also on ζ′_A. In Step 9 the transports have the coefficient
+P̃_A^τ ≥ c/2 of ∂_τ (the cut-off on p_A there keeping it so), the boundary matrix of a transport at a conormal ν is
+ν(P̃_A), positive at ů on the lateral boundary, and ζ′_A and T_g are G-invariant, G fixing τ.
+
+(iii) *Step 10 on the tubes.* Let 𝒯_A be the set of points of Ω on the integral curves of P̃_A from int S_A, each
+followed forward while it stays in Ω. It is relatively open in Ω: P̃_A is transverse to the slices and points out of Ω
+at its lateral boundary, so the curve through a point of Ω near one of 𝒯_A, followed backward, meets Σ_τ0 near a point
+of int S_A. By (ii) it lies in the interior of {ζ′_A = 1}, where P̃_A = P_A and [[eq:vlasov-localised]] is
+(Aug2)–(Aug4). On Σ_τ0 ∩ 𝒯_A the data are the datum's, so ν_A := g⁻¹(p_A, p_A) vanishes there; ν_A is constant along
+the integral curves of P_A in 𝒯_A ([[prop:class-augmented]] (b)), so ν_A = 0 on 𝒯_A, and dν_A = 0 there. As in Step
+10, dp_A = 0 on Σ_τ0 ∩ 𝒯_A; by [[prop:class-augmented]] (b), i_(P_A) dp_A = 0 and ℒ_(P_A) dp_A = 0 on 𝒯_A, so dp_A
+= 0 on 𝒯_A. Let Φ(x0, t) be the point reached at the parameter t by the integral curve of P_A from x0 ∈ int S_A: Φ is
+a smooth bijection onto 𝒯_A with invertible differential, integral curves not meeting and τ increasing along them.
+Define u_A on 𝒯_A by u_A(Φ(x0, t)) := u_A^D(x0), u_A^D the datum's function. The pull-back Φ*p_A is closed, and its
+dt-component is p_A(P_A) = ν_A ∘ Φ = 0, so its dx0-components do not depend on t; at t = 0 they are the spatial
+derivatives of u_A^D. Hence Φ*p_A = d(u_A ∘ Φ), and p_A = du_A on 𝒯_A: u_A is a smooth G-invariant eikonal of g there,
+with g⁻¹du_A = P_A future directed, and 𝒯_A is the tube of int S_A for u_A. Let S′_A be compact with supp q_A ∩ Σ_τ0 ⊂
+int S′_A and S′_A ⊂ int S_A, and 𝒯′_A ⊂ 𝒯_A its tube; it contains supp q_A, by (ii). The rest of Step 10 holds with
+𝒯′_A in place of 𝒯_A there. Indeed (Aug2) and (Aug4) hold on the relatively open 𝒯_A, which contains supp q_A, q_A
+vanishes on the relatively open Ω ∖ supp q_A, and ν_A = 0 on 𝒯_A; so, by [[prop:class-augmented]] (c),
+div_g T = −Σ_A Δ_A q_A p_A and tr_g T = 0 on Ω, and B_g T = Σ_A Δ_A q_A p_A. [[eq:class-defect]] holds on 𝒯′_A, where
+p_A = du_A with u_A an eikonal ([[prop:class-augmented]] (d)). And the linear Gronwall inequality for ‖∂D‖ + ‖D‖ +
+Σ_A ‖Δ_A‖_(L²(𝒯′_A ∩ Σ_τ)), the transport of Δ_A having no flux through the part of the boundary of 𝒯′_A ruled by
+integral curves of P_A, with value 0 at τ0, gives D = 0 and Δ_A = 0 on 𝒯′_A. Every point of 𝒯_A lies in such a
+𝒯′_A. So Ric(g) = Σ_A q_A p_A ⊗ p_A = Σ_A q_A du_A ⊗ du_A, Θ_A = □_g u_A on 𝒯_A, and (Aug4) is div_g(q_A g⁻¹du_A) = 0
+there. The bound 𝒩_k ≤ C ε of (ii) is the one stated, p_A and Θ_A being du_A and □_g u_A on 𝒯_A; and 𝒯_A lies within
+C ε of 𝒯̊_A by (ii). ∎
 
 Let (g, F, u) satisfy (Ω), (V1), (V2) and (V3), with the compact set S of (V1). A *datum in label form* near it is
 D = (γ_D, κ_D, F_D, u_D): metric data (γ_D, κ_D) on Σ_τ0 ∩ Ω, completed to Cauchy data with the lapse and shift of g and
