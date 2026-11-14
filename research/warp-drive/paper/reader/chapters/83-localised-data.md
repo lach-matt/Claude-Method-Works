@@ -206,7 +206,7 @@ B^(K)∂_K becomes the matrix of vector fields 𝔉⁻¹B^(K)𝔉 ∂_K, terms o
 becomes 𝔉ᵀH𝔉, positive definite where H is, with 𝔉ᵀH𝔉 𝔉⁻¹B^(K)𝔉 = 𝔉ᵀHB^(K)𝔉 symmetric. The equations and H being
 tensorial on the leaves, these frame forms are the same in every chart of leaf coordinates, so they are smooth on all of
 S³. An isometry of S³ carries the frame to an orthonormal frame, so it acts on the frame components by an orthogonal
-matrix at each point. From now on u, B^(K), C and H denote the frame forms.
+matrix at each point. Below, u, B^(K), C and H denote the frame forms.
 
 Where K^E_E ≠ 0, B^(K) and C are smooth functions of (ρ, ω, u) and of P, κ being given algebraically by [Rac16, (4.17)].
 The background's data give a smooth solution ū, for the background's free data P̄, and κK^l_l < 0 along it by (a). The
