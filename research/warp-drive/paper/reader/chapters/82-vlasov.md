@@ -1066,9 +1066,10 @@ C ε of 𝒯̊_A by (ii). ∎
 Let (g, F, u) satisfy (Ω), (V1), (V2) and (V3), with the compact set S of (V1). A *datum in label form* near it is
 D = (γ_D, κ_D, F_D, u_D): metric data (γ_D, κ_D) on Σ_τ0 ∩ Ω, completed to Cauchy data with the lapse and shift of g and
 with ∂_τ of these fixed by the gauge condition D = 0 as in [[sec:data-identities]], and smooth invariant functions
-F_D ≥ 0 and u_D on (Σ_τ0 ∩ Ω) × S¹ with supp F_D ⊂ int S and d(u_D(·, α)) ≠ 0, such that the constraints hold with the
-stress of the field, the τ-derivatives of the u_D(·, α) being the roots of the eikonal equation fixed by the branch of
-[[def:vlasov-label]]. Its distance to the data of (g, F, u) is d(D), the C^(m+3) norm of (γ_D − γ, κ_D − κ) on Σ_τ0 ∩ Ω
+F_D ≥ 0 and u_D on (Σ_τ0 ∩ Ω) × S¹ with supp F_D ⊂ int S and d(u_D(·, α))(x) ≠ 0 for (x, α) in a neighbourhood of S,
+such that the constraints hold with the stress of the field, the τ-derivatives of the u_D(·, α) being the roots of the
+eikonal equation fixed by the branch of [[def:vlasov-label]]. The data of (g, F, u) form such a datum: on 𝒲 ∩ (Σ_τ0 × S¹),
+du_α is null, nonzero and future directed, so its restriction to the spacelike slice is not zero. Its distance to the data of (g, F, u) is d(D), the C^(m+3) norm of (γ_D − γ, κ_D − κ) on Σ_τ0 ∩ Ω
 plus that of (F_D − F, u_D − u) on (Σ_τ0 ∩ Ω) × S¹. For n ≥ 1 put α_A := 2πA/n. The *n-dust datum* D_n of D has the
 densities q_A := (2π/n) F_D(·, α_A)², the eikonal data u_D(·, α_A), and the metric data (γ_D, κ_D) corrected by
 [[prop:vlasov-scaled-correction]], with λ = 1 and no phases, to satisfy the constraints with the stress T^(n) :=
@@ -1077,18 +1078,21 @@ g^(n) of the field is the development of the n-dust datum of the data of (g, F, 
 
 **Proposition {#prop:vlasov-uniform-n}** (The n-dust approximants are uniform in n.) Fix m ≥ 6. There are ε0 > 0 and
 C, and for every k ≥ 2 constants n0 and C_k, depending also on bounds for the derivatives of D of order at most
-k + m + 4, such that for every datum D in label form with d(D) ≤ ε0 and every n ≥ n0 the n-dust datum D_n has a smooth
-invariant development g^(n) on Ω, a class Einstein–n-null-dust solution with families (u_A, q_A), and on every Σ_τ
+k + 2m + 4, such that for every datum D in label form with d(D) ≤ ε0 and every n ≥ n0 the n-dust datum D_n has a smooth
+invariant development g^(n) on Ω, with densities q_A and, for each A, an eikonal u_A of g^(n), with g^(n)⁻¹du_A future
+directed, on the tube 𝒯_A of int S_(α_A) for u_A, such that Ric(g^(n)) = Σ_A q_A du_A ⊗ du_A and div(q_A g^(n)⁻¹du_A) =
+0, q_A vanishing off a compact subset of 𝒯_A (the conclusions of [[lem:vlasov-local-stability]]), and on every Σ_τ
 
     ‖g^(n) − g‖_(H^(m+1)) + ((2π/n) Σ_A ‖(du_A, Θ_A, q_A/(2π/n)) − (du_(α_A), Θ(·, α_A), q(·, α_A))‖²_(H^m))^(1/2)
         ≤ C d(D) + C_k n^(−k),                                                                     {#eq:vlasov-uniform-n}
 
-with Θ(·, α) := □5 u_α, the family norms taken on the tubes. The same holds with any m′ ≥ m in place of m, with ε0
-unchanged and C, n0, C_k depending on m′. For the data of (g, F, u), d = 0 and |g^(n) − g|_(C¹(Ω)) ≤ C_k n^(−k).
+with Θ_A := □5 u_A, Θ(·, α) := □5 u_α, the family norms taken on 𝒯_A ∩ Σ_τ. The same holds with any m′ ≥ m in place
+of m, with ε0 unchanged and C, n0, C_k depending on m′ and on derivatives of D of order at most k + 2m′ + 4. For the
+data of (g, F, u), d = 0 and |g^(n) − g|_(C¹(Ω)) ≤ C_k n^(−k).
 
 *Proof.* Let E_n := T_V − Σ_A (2π/n) q(·, α_A) du_(α_A) ⊗ du_(α_A), evaluated with g. It is the error of
-[[lem:vlasov-trapezoid]] for the integrand q(x, α) du_α ⊗ du_α, smooth on a neighbourhood of the tubes times S¹ by
-(V1), so |∂^j E_n| ≤ C_(j,k) n^(−k) for all j, k.
+[[lem:vlasov-trapezoid]] for the integrand q(x, α) du_α ⊗ du_α, smooth on Ω × S¹, so |∂^j E_n| ≤ C_(j,k) n^(−k) for all
+j, k.
 
 *Data.* The constraints of D_n are 𝔉(U) := 𝒞(γ_U, κ_U) − 𝒯_n(·, α) = 0, with (γ_U, κ_U) built on (γ_D, κ_D) and 𝒯_n the
 constraint stress of T^(n), algebraic in α through γ_U⁻¹ (the unit normal and the roots of the eikonal equation involve
@@ -1096,11 +1100,23 @@ constraint stress of T^(n), algebraic in α through γ_U⁻¹ (the unit normal a
 independent of n, 𝒯_n being a quadrature of a smooth integrand. The signs hold: p > 0 by (V3) for γ and so for γ_D
 and |α| ≤ η0, for ε0 and η0 small; P = γ_U^(rr) Π^(AB) is positive definite; and 𝒮 has the properties of
 [[lem:vlasov-symmetrizer]]. 𝔉(0) is the difference of the constraint stresses of the field of D and of T^(n), a
-quadrature error of [[lem:vlasov-trapezoid]] for the integrand F_D² du_D ⊗ du_D, so sup_r ‖𝔉(0)‖_(k) ≤ C_k n^(−k) at
-λ = 1. [[prop:vlasov-scaled-correction]] applies for n ≥ n0 and gives a smooth invariant correction U with ‖U‖_(𝒴_k) ≤
-C_k n^(−k); at λ = 1 the 𝒴_k norm bounds the H^(k+1) × H^k norm of (α, w) on the slice, and the equations bound their
-r-derivatives. So the metric data of D_n differ from those of g by at most C d(D) + C_k n^(−k) in H^(m+1) × H^m, and the
-families' data from the sampled continuum's by C d(D), with the weight 2π/n.
+quadrature error of [[lem:vlasov-trapezoid]] for the integrand F_D² du_D ⊗ du_D, whose derivatives of order 2m in x
+and k in α hold derivatives of D of order at most k + 2m + 1, so sup_r ‖𝔉(0)‖_(2m) ≤ C_k n^(−k) at λ = 1.
+[[prop:vlasov-scaled-correction]] at the index 2m (≥ 12) applies for n ≥ n0 and gives a smooth invariant correction U
+with ‖U‖_(𝒴_(2m)) ≤ C_k n^(−k). At λ = 1 this bounds (α, w) in H^(m+1) × H^m on the slice. Indeed, write X^s :=
+H^s(S³) and take norms in r on (a, b1). The norm of 𝒴_(2m) bounds α in L^∞X^(2m+1) ∩ L²X^(2m+2) and w in L^∞X^(2m).
+Solving 𝔉(U) = 0 for ∂_r α = G_α(x, 𝔍) and ∂_r w = G_w(x, 𝔍), 𝔍 := (α, ∇α, ∇²α, w, ∇w), as in the proof of
+[[thm:vlasov-n-data]], and differentiating in r, we show by induction on i ≥ 1 that ∂_r^i α is bounded in
+L^∞X^(2m+1−2i) ∩ L²X^(2m+2−2i) and ∂_r^i w in L^∞X^(2m+1−2i) ∩ L²X^(2m+1−2i), for i ≤ m + 1 (the L^∞ bounds for
+i ≤ m). ∂_r^i α = ∂_r^(i−1) G_α and ∂_r^i w = ∂_r^(i−1) G_w are sums of products of a smooth function of (x, α, ∇α, w)
+with factors ∂_r^(i_s) ∇^(m_s) Y_s, Y_s ∈ {α, w}, m_s ≤ 2 for α and m_s ≤ 1 for w, with Σ_s i_s ≤ i − 1. At most one
+factor has i_s > (i − 1)/2; by the induction it lies in L^∞X^(2m+1−2i) and, for the L² bounds, in L²X^(2m+2−2i) for α
+with m_s = 2 and in L²X^(2m+1−2i) otherwise. The others have i_s ≤ (i − 1)/2 and lie in L^∞X^(2m−i), with
+2m − i ≥ 2m + 1 − 2i and 2m − i ≥ m − 1 ≥ 2; and X^s · X^t ⊂ X^t for s ≥ t ≥ 0, s ≥ 2. Since 2m + 2 − 2i ≥ m + 1 − i
+and 2m + 1 − 2i ≥ m − i for i ≤ m + 1, and α ∈ L²X^(2m+2), w ∈ L^∞X^(2m), every derivative ∂_r^i ∂_ω^l of order at
+most m + 1 of α, and m of w, is square integrable on the slice. So the metric data of D_n differ from those of g by at
+most C d(D) + C_k n^(−k) in H^(m+1) × H^m, and the families' data from the sampled continuum's by C d(D), with the
+weight 2π/n, on 𝒱̊_A ∩ Σ_τ0 for the sets 𝒱̊_A below.
 
 *Evolution.* Take as reference the sampled continuum ů: the metric g, in the gauge relative to g itself, with the
 families (ů_A, q̊_A) := (u_(α_A), (2π/n) q(·, α_A)), the sets S_A := S_(α_A), whose tubes lie at distance at least 2δ
