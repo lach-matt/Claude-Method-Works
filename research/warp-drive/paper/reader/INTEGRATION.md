@@ -1296,3 +1296,5 @@ Items found while chapters were written in parallel; each is settled once, editi
   F-P-K82 told to check its uniform-in-n approximants against the repaired proposition.
 - F2-85 done (reports/F2-85.md); chapter 3 m12 text applied. Coordinator re-broke 03:296 (the last forbidden line start
   outside excluded constructs). R3-85 reads chapter 85.
+- R4-81: 0M 2m 4n (reviews/R4-81.md). F4-81 applies them and runs the lint the reader could not run; then a short
+  confirming read of the changed hunks.

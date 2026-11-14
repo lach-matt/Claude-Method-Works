@@ -185,14 +185,14 @@ the step u₂ of [[lem:iii-d3-2-1]] the weights lie there (in (k − ε_Υ, k), 
 those of (𝒢 + ℕ₀) ∪ (R + ℕ₀) with 𝒢 ⊂ π_1ℱ₁ + ℕ₀ (u₂). So every exponent of a construction at leading order m is m + j,
 an exponent of its right side plus j, or r + j (r ∈ R, j ∈ ℕ₀). The right sides: in (c1), (c3), (c4), the first step
 of (1) and the first step of each class, they are smooth with exponents m + ℕ₀ (ρ⁴C^∞, ρ³C^∞, ρ⁴C^∞, ρ³C^∞ and
-ρ^(μ+4)C^∞ divided by ρ²); in (c2), m + ℕ₀ and E_(c1) − 1; at a later step at the order m, the exponents of the step before minus 1
-(the term A₁, which raises the order by one, divided by ρ²) and of the step two before (A₂ ∈ ρ²C^∞, divided by ρ²),
-together with m + ℕ₀ (u₀ and A − N(A)). Relative to its own leading order a later step inherits the exponents of the
-earlier steps relative to theirs, shifted by 0 or by an integer, as the leading orders differ by integers. Hence every
-offset z − m is a non-negative integer or r − m′ + j with r ∈ R, j ∈ ℕ₀ and m′ the leading order of a first step: 2,
-1 or μ + 2 with μ a class root, or the integer leading orders of the first steps of the integer classes. As
-r − m′ + j = r − 2 + (j + 2 − m′) for integer m′ ≤ 2, and the non-integer μ + 2 are the elements of M* ∖ {2}
-(μ_s0 + 2 = 1 − 𝔡₀, μ_(1,0) + 2 = 1 − 𝔡₁, μ_(1,1) + 2 = −δ′₁, μ_(2,0) + 2 = −δ₂, μ_(2,1) + 2 = −1 − d₁(2),
+ρ^(μ+4)C^∞ divided by ρ²); in (c2), m + ℕ₀ and E_(c1) − 1; at a later step at the order m, the exponents of the step
+before minus 1 (the term A₁, which raises the order by one, divided by ρ²) and of the step two before (A₂ ∈ ρ²C^∞,
+divided by ρ²), together with m + ℕ₀ (u₀ and A − N(A)). Relative to its own leading order a later step inherits the
+exponents of the earlier steps relative to theirs, shifted by 0 or by an integer, as the leading orders differ by
+integers. Hence every offset z − m is a non-negative integer or r − m′ + j with r ∈ R, j ∈ ℕ₀ and m′ the leading
+order of a first step: 2, 1 or μ + 2 with μ a class root, or the integer leading orders of the first steps of the
+integer classes. As r − m′ + j = r − 2 + (j + 2 − m′) for integer m′ ≤ 2, and the non-integer μ + 2 are the elements
+of M* ∖ {2} (μ_s0 + 2 = 1 − 𝔡₀, μ_(1,0) + 2 = 1 − 𝔡₁, μ_(1,1) + 2 = −δ′₁, μ_(2,0) + 2 = −δ₂, μ_(2,1) + 2 = −1 − d₁(2),
 μ_(3,0) + 2 = −1 − d₂(3), μ_(3,1) + 2 = −2 − d₁(3)), π_1ℰ_ind ⊂ [[eq:is-ind]].
 
 *Equality.* (c1) contains every r ∈ R with its translates, so π_1ℰ_ind ⊃ (R − 2) + ℕ₀; the first step of the class μ,
@@ -238,9 +238,9 @@ having order 0.
 real part at most t ≤ 5. By [[lem:is-count]] (b), u₁ has order at most K + ⌊t⌋ + 1 there, as a ladder of length at
 most t carries at most ⌊t⌋ + 1 roots. u₂ has exponents only at real part at least 2 + 𝔡₁, and by [[eq:is-l1]] at most
 p(K + ⌊t⌋ + 2) + p′ − 1, with p ≤ ⌊m + t⌋ − 2 the number of terms of 𝒢 ⊂ {Re ≥ 3} and p′ ≤ ⌊m + t − 2 − 𝔡₁⌋ + 1
-that of E(α) ⊂ {Re ≥ 2 + 𝔡₁} on the ladder below. For m ≤ −2 this is p ≤ 1 (only the exponent 3) and p′ ≤ 1, so the step has order at most
-K + ⌊t⌋ + 2 ≤ K + 7. For a first step (K = 0) it is at most 11 at m ∈ (0, 1], t ≤ 3, at most 5 at m ∈ (−1, 0], t ≤ 3,
-and at most 31 at t ≤ 5.
+that of E(α) ⊂ {Re ≥ 2 + 𝔡₁} on the ladder below. For m ≤ −2 this is p ≤ 1 (only the exponent 3) and p′ ≤ 1, so
+the step has order at most K + ⌊t⌋ + 2 ≤ K + 7. For a first step (K = 0) it is at most 11 at m ∈ (0, 1], t ≤ 3, at
+most 5 at m ∈ (−1, 0], t ≤ 3, and at most 31 at t ≤ 5.
 
 *The chains.* (c1), (c3), (c4): 2j ≤ 10 and j + (j − 1)₊ ≤ 9 at the integers j ≤ 5, and at a non-integer offset t ≤ 5
 of (c1) or (c4) at most ⌊t⌋ ≤ 4, by the count in (a). (c2): j² + 3j − 1 ≤ 39 at j ≤ 5, the value 39 at 6 = 1 + 5. At a
@@ -258,22 +258,23 @@ inherited at t − 3, so 11, 18, 25. The class companions inherit the first step
 The states of [[ch:s13]] and ġ^Υ_b are the constructions above. The physical states of [[prop:iii-f4-5-1]], relative to
 −2: h^(−2)_b − χh̄ has the offsets 1 (from (−1, 0), order 0) and 1 + (offsets of h̆²_(b,s1), h̆¹_(b,v1)), each at least
 2; h′_(b,1) from (0, 0) by [[lem:iii-a-1-5]] (order at most 3 at offsets ≤ 5, the integer roots of L̂_b(0) in [0, 3]
-being 0, 2, 3, each simple ([[prop:is-mult]]), and a ladder from 0 meeting no other root); h_(b,(0)) from the exponent 0 of order k₀ ≤ 2 (the order of h̆²_(b,s1) and h̆¹_(b,v1) at the exponent 0, which
-comes from the first step of the s1 and v1 towers at offset 1, at most 2), so of order at most 5; and u_b, by
-[[lem:iii-a-1-4]] with E(α) the roots of L̂_b(0) of positive real part and F the exponents of positive real part of the
-other terms. At an exponent w of u_b of real part at most 3 at most three terms w, w − 1, w − 2 of positive real part
-enter [[eq:is-l1]]. At a real w each term of F has order at most 15 (h̆²_(b,s1) at offsets ≤ 4: the boost at offsets
-≤ 2, order 9, and the step k = 2 of the s1 tower at offsets ≤ 4, order at most 9 + 6), and each term of E(α) order 0,
-as the real roots of L̂_b(0) of real part at most 3 are simple ([[prop:is-mult]]); so u_b has order at most
-3·16 + 3 − 1 = 50 there. At real part at most 3/2 (relative to −2: offsets ≤ 3/2) only the offset 1, of order 0,
-occurs. The exponents ι + 1 + j of [[prop:is-iota]], that is w = ι − 1 + j for u_b, carry no term of F on their
-ladder, since ι is non-real or a real number more than 2.93·10⁻⁶ from ℤ, while every exponent of F is real and within
-1.34·10⁻⁶ of ℤ ([[lem:is-roots]] (b): the exponents of the s1 and v1 towers and of h_(b,(0)) are integers plus at most
-one of 𝔡₀, d₂(l), d₁(l)). As every root of L̂_b(0) of positive real part has real part greater than 1
-([[prop:iii-f1-2-3]] (a)), the terms of E(α) on their ladder lie at w and w − 1 only, with ℓ̂_(E(α)) at most the
-largest order of a pole of N(L̂_b(0), ·)⁻¹ at w or w − 1, resp. at w − 1. These poles are simple when w is real
-or when |w| ≤ 50, since |w − 1| < |w| for Re w > 1, and of order at most 3 otherwise ([[prop:is-mult]]). So the order
-at ι + 1 + j is at most 1 when ι is real or |ι + j − 1| ≤ 50, and at most 2·3 − 1 = 5 in every case. ∎
+being 0, 2, 3, each simple ([[prop:is-mult]]), and a ladder from 0 meeting no other root); h_(b,(0)) from the
+exponent 0 of order k₀ ≤ 2 (the order of h̆²_(b,s1) and h̆¹_(b,v1) at the exponent 0, which comes from the first step
+of the s1 and v1 towers at offset 1, at most 2), so of order at most 5; and u_b, by [[lem:iii-a-1-4]] with E(α) the
+roots of L̂_b(0) of positive real part and F the exponents of positive real part of the other terms. At an exponent w
+of u_b of real part at most 3 at most three terms w, w − 1, w − 2 of positive real part enter [[eq:is-l1]]. At a
+real w each term of F has order at most 15 (h̆²_(b,s1) at offsets ≤ 4: the boost at offsets ≤ 2, order 9, and the
+step k = 2 of the s1 tower at offsets ≤ 4, order at most 9 + 6), and each term of E(α) order 0, as the real roots of
+L̂_b(0) of real part at most 3 are simple ([[prop:is-mult]]); so u_b has order at most 3·16 + 3 − 1 = 50 there. At
+real part at most 3/2 (relative to −2: offsets ≤ 3/2) only the offset 1, of order 0, occurs. The exponents ι + 1 + j
+of [[prop:is-iota]], that is w = ι − 1 + j for u_b, carry no term of F on their ladder, since ι is non-real or a real
+number more than 2.93·10⁻⁶ from ℤ, while every exponent of F is real and within 1.34·10⁻⁶ of ℤ ([[lem:is-roots]] (b):
+the exponents of the s1 and v1 towers and of h_(b,(0)) are integers plus at most one of 𝔡₀, d₂(l), d₁(l)). As every
+root of L̂_b(0) of positive real part has real part greater than 1 ([[prop:iii-f1-2-3]] (a)), the terms of E(α) on
+their ladder lie at w and w − 1 only, with ℓ̂_(E(α)) at most the largest order of a pole of N(L̂_b(0), ·)⁻¹ at w or
+w − 1, resp. at w − 1. These poles are simple when w is real or when |w| ≤ 50, since |w − 1| < |w| for Re w > 1,
+and of order at most 3 otherwise ([[prop:is-mult]]). So the order at ι + 1 + j is at most 1 when ι is real or
+when |ι + j − 1| ≤ 50, and at most 2·3 − 1 = 5 in every case. ∎
 
 #### The other index sets {#sec:is-others}
 
@@ -321,8 +322,9 @@ real part in (0, 1], and n_L ≤ 7 roots, counted with multiplicity, have real p
 
 *The poles.* The indicial family of ρ⁻²L̂_b(0) is that of the model ([[lem:iii-f-2-1]] (3)) and commutes with the
 rotations; on each isotypic component it acts as the type's indicial matrix tensored with the identity
-([[sec:iii-f1-1]], [[sec:iii-f1-2]]), and the inverse of that matrix is its adjugate divided by its determinant. So, as in the proof of [[lem:is-roots]] (b),
-the pole of N(L̂_b(0), ·)⁻¹ at a root has order at most the largest multiplicity of the root at a type and degree.
+([[sec:iii-f1-1]], [[sec:iii-f1-2]]), and the inverse of that matrix is its adjugate divided by its determinant. So, as
+in the proof of [[lem:is-roots]] (b), the pole of N(L̂_b(0), ·)⁻¹ at a root has order at most the largest multiplicity of
+the root at a type and degree.
 
 *The strip.* By [[prop:iii-f1-2-3]] (list and proof) the roots of each type are, with multiplicity, −l, l + 2, the
 roots of (□^Υ_b)^(0) plus 1 and the roots of □^C_b minus 1, less those of D. Those from □^Υ_b and the integers are
@@ -333,13 +335,13 @@ root of P_l with hκ > 70: of C, as the other two roots have real part below −
 and of opposite signs; of P_l with hκ ≤ 70, as the three roots in |ι| < 1000 lie in disjoint sets, have real part at
 least 2 and are all of them, counted with multiplicity ([[lem:s14-sextic-small]], [[lem:s14-sextic-large]],
 [[lem:s14-sextic-count]] (a)), so that they are the three roots of real part above 19/10. If hκ > 70, P_l has no root
-with |ι − 1| ≤ 50 ([[lem:s14-sextic-count]] (b)); so a root ι with Re ι ≤ 6 is non-real, a real one having
-|ι − 1| ≤ 5, and has |ι − 1| > 50, and its multiplicity is at most 3, as P_l has three roots of real part above 19/10,
-counted with multiplicity ([[prop:np-10-54]] (i)). So ι − 1 has at its type the multiplicity of ι in its polynomial,
-unless it equals an entry from □^Υ_b or an integer entry of that type. A non-real ι − 1 equals neither, these being
-real. The integer entries are excluded as ι ∉ ℤ ([[prop:is-iota]]). An entry from □^Υ_b is real and either an
-integer or within 1.34·10⁻⁶ of ℤ ([[lem:is-roots]] (b)), while a real ι − 1 is more than 2.93·10⁻⁶ from ℤ
-([[prop:is-iota]]). With the poles, this gives the orders stated. ∎
+with |ι − 1| ≤ 50 ([[lem:s14-sextic-count]] (b)); so a root ι with Re ι ≤ 6 is non-real, a real one having |ι − 1| ≤ 5,
+and has |ι − 1| > 50, and its multiplicity is at most 3, as P_l has three roots of real part above 19/10, counted with
+multiplicity ([[prop:np-10-54]] (i)). So ι − 1 has at its type the multiplicity of ι in its polynomial, unless it equals
+an entry from □^Υ_b or an integer entry of that type. A non-real ι − 1 equals neither, these being real. The integer
+entries are excluded as ι ∉ ℤ ([[prop:is-iota]]). An entry from □^Υ_b is real and either an integer or within 1.34·10⁻⁶
+of ℤ ([[lem:is-roots]] (b)), while a real ι − 1 is more than 2.93·10⁻⁶ from ℤ ([[prop:is-iota]]). With the poles, this
+gives the orders stated. ∎
 
 **Proposition {#prop:is-ci-pp}** (The least ℰ^C_I and the least ℰ_++.) Put a := (1 − e_Υ)γ_Υ = 99/10000 and
 γ := γ_Υ = 1/100, so σ_Υ = {0, a, γ, 2γ}, and let σ^(n) be the set of the sums of n elements of σ_Υ, with repetition.
@@ -578,11 +580,11 @@ m = 2 − j with j ∈ ℕ₀; the even constructions with m = 2 are the rotatio
 m ≤ 1 give offsets 2 + 𝔡₀ − m ≥ 1 + 𝔡₀. The rotation corrections have no term at 2 + 𝔡₀: they carry no logarithm
 there (the count of (c1) in the proof of [[prop:is-logs]] (a)), and their coefficient there lies in the kernel of
 N(A, 2 + 𝔡₀), which is of type s0, as the right side has integer exponents and no lower exponent differs from 2 + 𝔡₀
-by an integer; and it has no scalar type 0 part ([[lem:is-rot-s0]]). At b = (m, 0) the projections onto the types apply: ω̇_b(0, Ȧ) is of vector type 1
-([[prop:iii-f3-2-2]] (4) at b₀, and at (m, 0) the same argument), and so is every correction of a construction of one
-type; the exponents below 3/2 then come from the translations (s1: 𝔡₁, 1 + δ′₁), ω̇_b(0, ·) (v1: 1), the boosts
-(s1: 1 + 𝔡₁), ω̇_b(1, 0) and the time translation tower (s0: 1 + 𝔡₀), and the class roots μ_s0 and μ_(1,0) (1 + 2𝔡₀,
-1 + 2𝔡₁); at b = (m, 0) the rotations are Killing and have no correction.
+by an integer; and it has no scalar type 0 part ([[lem:is-rot-s0]]). At b = (m, 0) the projections onto the types apply:
+ω̇_b(0, Ȧ) is of vector type 1 ([[prop:iii-f3-2-2]] (4) at b₀, and at (m, 0) the same argument), and so is every
+correction of a construction of one type; the exponents below 3/2 then come from the translations (s1: 𝔡₁, 1 + δ′₁),
+ω̇_b(0, ·) (v1: 1), the boosts (s1: 1 + 𝔡₁), ω̇_b(1, 0) and the time translation tower (s0: 1 + 𝔡₀), and the class roots
+μ_s0 and μ_(1,0) (1 + 2𝔡₀, 1 + 2𝔡₁); at b = (m, 0) the rotations are Killing and have no correction.
 
 (c) If c_b(Ȧ) ≠ 0 for some b and Ȧ, the term c_b(Ȧ)ρ^(2+𝔡₀) of ω̇_b(0, Ȧ), whose membership is
 𝒜^((2,0)∪(2+ℰ_ind)) ([[prop:iii-f3-2-2]] (1)), needs (𝔡₀, 0) ∈ ℰ_ind. Conversely, if c_b = 0 on ker ad_A it vanishes
@@ -636,6 +638,6 @@ N_ι⁺(L̄, ·)⁻¹, statement (SP) of [[rem:uc-missing]]; l_* depends on them
 rotating b; for index sets that keep 𝔡₁ it decides whether ε_K may be taken up to μ♭ ([[cor:is-flat]]) or only below
 μ_G ([[thm:is-gap]]); whether an admissible ℰ_ind can omit 𝔡₁ is not decided either. Neither question in (2) enters an
 upper bound for d: the index sets as constructed serve with every ε_K < μ_G, and the two questions decide only whether
-smaller index sets, with a larger ε_K, are available. The individual roots ι ∈ Z of [[prop:is-iota]] are fixed by the polynomials of
-[[prop:np-10-12]] and located by [[sec:s14-pa]]; they lie above 3 as exponents of ℰ^ι_ind and do not enter Λ below
-3 + ε_+.
+smaller index sets, with a larger ε_K, are available. The individual roots ι ∈ Z of [[prop:is-iota]] are fixed by the
+polynomials of [[prop:np-10-12]] and located by [[sec:s14-pa]]; they lie above 3 as exponents of ℰ^ι_ind and do not enter
+Λ below 3 + ε_+.
