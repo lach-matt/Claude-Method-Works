@@ -1442,8 +1442,9 @@ along the integral curves of P_A in the axes from Σ_τ0 to the points z_B(τ), 
 given on a set that contains that closure and equal to U there. By the argument of (c) of [[def:class-admissible]] for
 Ω_U and the metric of U, and by continuity in the initial point, the integral curve of P_A from z_B(τ) runs backwards in
 the closure of Ω_U until it meets Σ_τ0; P_A is that of U′ there, so it is also the integral curve of U′. The datum's
-phase on Σ_τ0 ∩ Ω_U is the same for both, being fixed by the spatial part of p_A there up to a constant, as Σ_τ0 ∩ Ω_U is
-connected, and by its value at the point of the normalisation, which lies in Σ_τ0 ∩ Ω_U. So the axis phase
+phase on Σ_τ0 ∩ Ω_U is the same for both, being fixed by the spatial part of p_A there up to a constant, as Σ_τ0 ∩ Ω_U,
+the image under the diffeomorphism T_(τ0,U) of the connected slice Σ_τ0 ∩ Ω ([[def:class-admissible]]), is connected, and
+by its value at the point of the normalisation, which lies in Σ_τ0 ∩ Ω_U. So the axis phase
 of U′ at z_B(τ) is c_B(τ), and z_B(τ) is the point of U′, as the axis phase of U′ is monotone along the axis near
 z̊_B(τ). The graph of h_B over D_B lies in B_U ∩ Σ_τ, where U′ and U agree with their first derivatives; so h_B solves on
 [0, 2δ_B) the equation [[eq:class-leaf-volterra]] of U′ with h(0) = z_B(τ), and by the uniqueness in
@@ -1518,9 +1519,9 @@ point p where an adapted boundary B meets an axis: if x is not in the set 𝒰_(
 it is, then A ≠ A(B), and ζ_A(x) ≠ 0 puts x outside the set 𝒰_(r_B) about p while |y(x)| < r_B. As ζ_A(x) ≠ 0, x lies
 also at a fixed distance from the points where the other components meet the axes. The lateral boundaries meet the set
 {|y| < δ_*} only near the points where they meet the axes, and an adapted boundary B_U meets it, near such a point p, in
-the graph of h_B over {|y| < δ_*}, which lies within C_L δ_*² + C ε of p in z ([[def:class-adapted]]). So, for δ_* and ε
-so small that 3 C_L δ_*² + C ε < r_B for every B, that part of the leaf, within 2 C_L δ_*² of x in z, meets no lateral
-boundary, and it lies in Ω_U.
+the graph of h_B over {|y| < δ_*}, which lies within C_L δ_*² + C ε of p in z ([[def:class-adapted]]). So, for δ_* small
+and then ε small, in particular with 3 C_L δ_*² + C ε < r_B for every B, that part of the leaf, within 2 C_L δ_*² of x in
+z, meets no lateral boundary, and it lies in Ω_U.
 
 *Step 9.* Near the axes the right side of the augmented system is non-local in the planar directions, an integral from
 the axis along each leaf. Extend the system as in Step 9 of [[thm:class-stability-off-axes]], with the right side
@@ -1556,8 +1557,8 @@ and the Jacobian determinants of Φ and Φ⁻¹ are bounded. So, by the chain-ru
 by isometries of R⁴, 𝔼 is bounded from H^σ(Σ_τ ∩ Ω_U) to H^σ(R⁴), 0 ≤ σ ≤ m, uniformly in τ and U. Here m = k − 1. Then
 Ŭ = U on Σ_τ ∩ Ω_U, and Ŭ ∈ 𝔅′ for ρ small, since ‖𝔼 z‖_(H^(k−1)) ≤ C ‖z‖_(H^(k−1)(Σ_τ∩Ω_U)) ≤ C ρ. At a point x ∈ Σ_τ
 ∩ Ω_U where σ_A is used the leaf of U through x comes from an axis point of Ω_U and lies in the closure of Ω_U, as Step 6
-shows; by the uniqueness in [[lem:class-volterra]] it is also the leaf of Ŭ through x. So σ_A[Ŭ] = σ_A[U] on Σ_τ ∩ Ω_U,
-and by [[lem:class-leaf-differences]] (b)
+shows with ρ + ε in place of ε; by the uniqueness in [[lem:class-volterra]] it is also the leaf of Ŭ through x. So
+σ_A[Ŭ] = σ_A[U] on Σ_τ ∩ Ω_U, and by [[lem:class-leaf-differences]] (b)
 
     ‖σ_A[U] − σ_A[Ũ]‖_(L²(Σ_τ∩Ω_U∩𝒰_δ)) ≤ ‖σ_A[Ŭ] − σ_A[Ũ]‖_(L²(𝒰_δ)) ≤ C ‖𝔼 z‖_(L²(𝒰_(2δ))) ≤ C ‖z‖_(L²(Σ_τ∩Ω_U)).
 
@@ -1637,9 +1638,9 @@ set W_0 of [[def:class-adapted]] that satisfies the constraints and the gauge co
 supp q_A ∩ Σ_τ0 ∩ Ω_U ⊂ T_(τ0,U)(S_A) for every A (Ω_U and T_(τ0,U) as in [[def:class-adapted]]) has its
 Einstein–null-dust development on the whole adapted domain, in the gauge D(g) = 0 relative to the metric of ů and unique
 there as in [[thm:class-stability]], within C ε of ů. The datum may be non-round, and it carries the further families
-with small densities. If near the axes its normalised ingoing phase is τ0 + a on {R = a} and its normalised outgoing
-phase is U_b(τ0) on {R = b(τ0)}, then T_(τ0,U) is the identity, a datum on Σ_τ0 ∩ Ω₂ suffices, and the condition on the
-supports reads supp q_A ∩ Σ_τ0 ∩ Ω₂ ⊂ S_A ([[def:class-adapted]]).
+with small densities. If in the sets 𝒰_(2δ_B) of [[def:class-adapted]] its normalised ingoing phase is τ0 + a on {R = a}
+and its normalised outgoing phase is U_b(τ0) on {R = b(τ0)}, then T_(τ0,U) is the identity, a datum on Σ_τ0 ∩ Ω₂
+suffices, and the condition on the supports reads supp q_A ∩ Σ_τ0 ∩ Ω₂ ⊂ S_A ([[def:class-adapted]]).
 
 *Proof.* v and u are double-null coordinates of ů, smooth on Ω₂ with dv, du ≠ 0 ([[prop:two-dust-background]]), so (H1)
 holds. On Σ_τ, v = τ + R, so {R = a} = {v − τ = a}; and u is constant on the spheres and strictly decreasing in R along

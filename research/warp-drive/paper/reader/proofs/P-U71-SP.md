@@ -3,8 +3,8 @@
 This section determines the poles of ϰ ↦ N_sf(ϰ)⁻¹ ([[thm:iii-g-5-1]]) and of ϰ ↦ N_ι⁺(L̄, ϰ)⁻¹ ([[def:iii-g1-4-1]])
 in the half plane {Re ϰ ≥ 2}, with their orders. Of these poles [[lem:iii-g1-4-2]] (a) states that they lie in
 {Re ≥ 2}, finitely many below each bound. Their orders at real part at most 5 enter the number l_* of
-[[def:iii-i10-1-1]], the bound K_ι(λ) ≤ 2l_* + 1 of [[lem:iii-j-1-2]] and the logarithmic orders that the maps 𝒮_(λ₀)
-of [[sec:s23-step]] raise.
+[[def:iii-i10-1-1]], the bound K_ι ≤ 2l_* + 1 of [[lem:iii-j-1-2]] and the logarithmic orders that the solution maps
+of the steps of [[sec:s23-step]] raise.
 
 There are two results. The first holds wherever the hypotheses of [[ch:s16]] hold. Integrating the equation
 N_sf(ϰ)u = f against the powers v^k reduces the poles at a point ϰ_0 with Re ϰ_0 ≥ 2, on the isotypic components of
@@ -13,8 +13,10 @@ alone ([[thm:sp-reduction]]). In particular the poles in {Re ϰ ≥ 2} are exact
 of L̂_b(0) with Re μ > 1 and j ≥ 1 an integer, and the order of each is at most the number of such roots of one type,
 with multiplicity, among ϰ_0 − 1, ϰ_0 − 2, …. The second is the evaluation at the computational point of
 [[def:ec-point]]: every pole of real part at most 5 is simple and lies in spec_ι⁺(L̄), and the poles are listed
-([[thm:sp-spectrum]]). The orders of these poles therefore contribute exactly 1 to l_* ([[cor:sp-lstar]]). Nothing
-depends on the black hole parameter, as N_ι⁺(2L_b) = N_ι⁺(2L̄) for every b ([[lem:iii-h2-3-2]]).
+([[thm:sp-spectrum]]). The orders of these poles therefore contribute exactly 1 to l_*; with the logarithmic orders and
+the multiplicities that the index sets carry, l_* = 50 is admissible, and, with the least ℰ^C_I, K_ι ≤ 2 on the set Σ
+of [[def:iii-j-1-1]] ([[cor:sp-lstar]]). Nothing depends on the black hole parameter, as N_ι⁺(2L_b) = N_ι⁺(2L̄) for
+every b ([[lem:iii-h2-3-2]]).
 
 *Setting.* The hypotheses of [[thm:iii-g-5-1]] and of [[thm:iii-g1-3-1]] are assumed throughout, as in [[ch:s16]]; at
 the computational point they are the hypotheses under which its formulas are evaluated ([[rem:ec-point-outside]]).
@@ -38,13 +40,13 @@ at vector type l and 2(l − 1)(l + 3) at tensor type l. For Re ϰ_0 ≥ 2 put
 #### Jordan chains {#sec:sp-chains}
 
 **Definition {#def:sp-chains}** (Jordan chains.) Let X, Y be Banach spaces, A(ϰ) = A_0 + ϰA_1 + ϰ²A_2 with
-A_i ∈ ℒ(X, Y), and A^(i) := ∂_ϰ^iA. For ϰ_0 ∈ ℂ and N ≥ 1 let 𝒦_N(A, ϰ_0) be the space of the tuples
-(u_0, …, u_(N−1)) ∈ X^N with
+A_i ∈ ℒ(X, Y), and A^(i) := ∂_ϰ^iA. For ϰ_0 ∈ ℂ and 𝔫 ≥ 1 let 𝒦_𝔫(A, ϰ_0) be the space of the tuples
+(u_0, …, u_(𝔫−1)) ∈ X^𝔫 with
 
-    Σ_(i=0)^j (i!)⁻¹ A^(i)(ϰ_0) u_(j−i) = 0,     0 ≤ j < N,                                             {#eq:sp-chain}
+    Σ_(i=0)^j (i!)⁻¹ A^(i)(ϰ_0) u_(j−i) = 0,     0 ≤ j < 𝔫,                                             {#eq:sp-chain}
 
-that is, A(ϰ)Σ_(j<N)(ϰ − ϰ_0)^ju_j = O((ϰ − ϰ_0)^N). A tuple of 𝒦_N(A, ϰ_0) with u_0 ≠ 0 is a *Jordan chain of
-length N*, and p(A, ϰ_0) is the largest length of a Jordan chain (0 if A(ϰ_0) is injective). The same definitions
+that is, A(ϰ)Σ_(j<𝔫)(ϰ − ϰ_0)^ju_j = O((ϰ − ϰ_0)^𝔫). A tuple of 𝒦_𝔫(A, ϰ_0) with u_0 ≠ 0 is a *Jordan chain of
+length 𝔫*, and p(A, ϰ_0) is the largest length of a Jordan chain (0 if A(ϰ_0) is injective). The same definitions
 apply to square matrix polynomials, with X = Y a finite-dimensional space.
 
 **Lemma {#lem:sp-pole-order}** (Pole order and chains.) Let A be as in [[def:sp-chains]], invertible for
@@ -55,24 +57,24 @@ there). Then p(A, ϰ_0) = p_0.
 choose f ∈ Y with A_(−p_0)f ≠ 0. Then U(ϰ) := (ϰ − ϰ_0)^(p_0)A(ϰ)⁻¹f is holomorphic near ϰ_0, U(ϰ_0) = A_(−p_0)f ≠ 0
 and A(ϰ)U(ϰ) = (ϰ − ϰ_0)^(p_0)f. As A is a polynomial, the coefficient of (ϰ − ϰ_0)^j in A(ϰ)U(ϰ) is the left side
 of [[eq:sp-chain]] for the Taylor coefficients u_j of U, and it vanishes for j < p_0; so (u_0, …, u_(p_0−1)) is a
-Jordan chain and p(A, ϰ_0) ≥ p_0. Conversely, let (u_0, …, u_(N−1)) be a Jordan chain and
-U(ϰ) := Σ_(j<N)(ϰ − ϰ_0)^ju_j. By [[eq:sp-chain]], g(ϰ) := (ϰ − ϰ_0)^(−N)A(ϰ)U(ϰ) is a polynomial, and
-U(ϰ) = (ϰ − ϰ_0)^NA(ϰ)⁻¹g(ϰ) for 0 < |ϰ − ϰ_0| < r. The right side is O(|ϰ − ϰ_0|^(N−p_0)) and U(ϰ_0) = u_0 ≠ 0;
-so N ≤ p_0. ∎
+Jordan chain and p(A, ϰ_0) ≥ p_0. Conversely, let (u_0, …, u_(𝔫−1)) be a Jordan chain and
+U(ϰ) := Σ_(j<𝔫)(ϰ − ϰ_0)^ju_j. By [[eq:sp-chain]], g(ϰ) := (ϰ − ϰ_0)^(−𝔫)A(ϰ)U(ϰ) is a polynomial, and
+U(ϰ) = (ϰ − ϰ_0)^𝔫A(ϰ)⁻¹g(ϰ) for 0 < |ϰ − ϰ_0| < r. The right side is O(|ϰ − ϰ_0|^(𝔫−p_0)) and U(ϰ_0) = u_0 ≠ 0;
+so 𝔫 ≤ p_0. ∎
 
 **Lemma {#lem:sp-block}** (Block triangular matrices.) Let 𝔐(ϰ) be a square matrix polynomial, block lower
-triangular with square diagonal blocks D_0(ϰ), …, D_K(ϰ), and let each det D_k be a non-zero polynomial with at most
-a simple zero at ϰ_0. Then dim 𝒦_N(𝔐, ϰ_0) ≤ Σ_k dim ker D_k(ϰ_0) for every N ≥ 1. If
+triangular with square diagonal blocks D_0(ϰ), …, D_q(ϰ), and let each det D_k be a non-zero polynomial with at most
+a simple zero at ϰ_0. Then dim 𝒦_𝔫(𝔐, ϰ_0) ≤ Σ_k dim ker D_k(ϰ_0) for every 𝔫 ≥ 1. If
 dim ker 𝔐(ϰ_0) = Σ_k dim ker D_k(ϰ_0), then p(𝔐, ϰ_0) ≤ 1.
 
-*Proof.* First let K = 0 and D := D_0. As D(ϰ)⁻¹ = adj D(ϰ)/det D(ϰ) has at most a simple pole at ϰ_0,
-[[lem:sp-pole-order]] gives p(D, ϰ_0) ≤ 1. Let (m_0, …, m_(N−1)) ∈ 𝒦_N(D, ϰ_0) with N ≥ 2. Then m_0 = 0, since
+*Proof.* First let q = 0 and D := D_0. As D(ϰ)⁻¹ = adj D(ϰ)/det D(ϰ) has at most a simple pole at ϰ_0,
+[[lem:sp-pole-order]] gives p(D, ϰ_0) ≤ 1. Let (m_0, …, m_(𝔫−1)) ∈ 𝒦_𝔫(D, ϰ_0) with 𝔫 ≥ 2. Then m_0 = 0, since
 otherwise (m_0, m_1) would be a Jordan chain of length 2; and then [[eq:sp-chain]] for (m_j) is [[eq:sp-chain]] for
-(m_1, …, m_(N−1)) ∈ 𝒦_(N−1)(D, ϰ_0). By induction on N, 𝒦_N(D, ϰ_0) consists of the tuples (0, …, 0, w) with
+(m_1, …, m_(𝔫−1)) ∈ 𝒦_(𝔫−1)(D, ϰ_0). By induction on 𝔫, 𝒦_𝔫(D, ϰ_0) consists of the tuples (0, …, 0, w) with
 w ∈ ker D(ϰ_0), and has dimension dim ker D(ϰ_0). In general write each vector as (x, y), x its first block. The
 block rows of [[eq:sp-chain]] belonging to the first block involve only the first blocks, 𝔐 being block lower
-triangular; so (x_j) ∈ 𝒦_N(D_0, ϰ_0), and if every x_j vanishes, (y_j) ∈ 𝒦_N(𝔐′, ϰ_0), 𝔐′ the matrix formed by the
-blocks 1, …, K. Hence dim 𝒦_N(𝔐, ϰ_0) ≤ dim 𝒦_N(D_0, ϰ_0) + dim 𝒦_N(𝔐′, ϰ_0), and induction on K gives the bound.
+triangular; so (x_j) ∈ 𝒦_𝔫(D_0, ϰ_0), and if every x_j vanishes, (y_j) ∈ 𝒦_𝔫(𝔐′, ϰ_0), 𝔐′ the matrix formed by the
+blocks 1, …, q. Hence dim 𝒦_𝔫(𝔐, ϰ_0) ≤ dim 𝒦_𝔫(D_0, ϰ_0) + dim 𝒦_𝔫(𝔐′, ϰ_0), and induction on q gives the bound.
 If p(𝔐, ϰ_0) ≥ 2, a Jordan chain (m_0, m_1) and the tuples (0, w), w ∈ ker 𝔐(ϰ_0), span a subspace of 𝒦_2(𝔐, ϰ_0)
 of dimension dim ker 𝔐(ϰ_0) + 1, since its elements with first entry 0 are the (0, w). When
 dim ker 𝔐(ϰ_0) = Σ_k dim ker D_k(ϰ_0) this exceeds the bound. ∎
@@ -80,26 +82,26 @@ dim ker 𝔐(ϰ_0) = Σ_k dim ker D_k(ϰ_0) this exceeds the bound. ∎
 #### Moments {#sec:sp-moments}
 
 **Definition {#def:sp-moments}** (Moments.) Let k ∈ ℕ_0, c > k + 1 and s′ ∈ ℝ. For u ∈ Ḣ^(s′,c)_b(sf_(≥−1)) the
-*k-th moment* 𝔪_k(u) is the distribution on 𝕊³, with values in ℂ^15 in the frame of [[sec:iii-g-1-1]], given by
+*k-th moment* 𝔮_k(u) is the distribution on 𝕊³, with values in ℂ^15 in the frame of [[sec:iii-g-1-1]], given by
 
-    ⟨𝔪_k(u), ψ⟩ := ⟨u, v^k ψ⟩,     ψ ∈ C^∞(𝕊³; ℂ^15),                                                   {#eq:sp-moment}
+    ⟨𝔮_k(u), ψ⟩ := ⟨u, v^k ψ⟩,     ψ ∈ C^∞(𝕊³; ℂ^15),                                                   {#eq:sp-moment}
 
 the pairing of distributions on ℝ_v × 𝕊³ with the measure |dv| dg̸ (componentwise, bilinear). It is well defined and
 continuous on Ḣ^(s′,c)_b: (1 − χ_∂)u is supported in [−1, 4] × 𝕊³, where v^kψ is smooth; and near R = 0, where
 v^k|dv| dg̸ = R^(−k−1)μ_b with μ_b = |dR/R| dg̸, χ_∂u lies in H^(s′)_(b,c), while R^(−k−1)ψ ∈ 𝒜^(−k−1) lies in
 H^∞_(b,−k−1−ϵ) ⊂ H^(−s′)_(b,−c) for 0 < ϵ ≤ c − k − 1 ([[lem:i-c-2-2]] (f)), so [[lem:i-c-2-2]] (d) applies. For u
-in C_c^∞((−1, ∞) × 𝕊³), 𝔪_k(u) = ∫ v^k u dv. Operators acting on 𝕊³ alone (multiplication by smooth endomorphisms
-of ω, derivatives in ω) commute with 𝔪_k.
+in C_c^∞((−1, ∞) × 𝕊³), 𝔮_k(u) = ∫ v^k u dv. Operators acting on 𝕊³ alone (multiplication by smooth endomorphisms
+of ω, derivatives in ω) commute with 𝔮_k.
 
 **Lemma {#lem:sp-moments}** (Moments of the spectral family.) Let k ∈ ℕ_0, c > k + 1, s′ ∈ ℝ and
 u ∈ Ḣ^(s′,c)_b. Then for every ϰ ∈ ℂ
 
-    𝔪_k(N_sf(ϰ)u) = L̃(0)(ω, ϰ − k − 1, ∂_ω)𝔪_k(u) + 2k(ϰ − k − 3/2 − S̄)𝔪_(k−1)(u),                    {#eq:sp-moments}
+    𝔮_k(N_sf(ϰ)u) = L̃(0)(ω, ϰ − k − 1, ∂_ω)𝔮_k(u) + 2k(ϰ − k − 3/2 − S̄)𝔮_(k−1)(u),                    {#eq:sp-moments}
 
 the last term being absent for k = 0. The identity obtained by applying ∂_ϰ^i to both sides holds, with N_sf^(i)(ϰ)
 on the left.
 
-*Proof.* N_sf(ϰ) maps Ḣ^(s′,c)_b to Ḣ^(s′−2,c)_b boundedly ([[sec:iii-g-1-2]]), and 𝔪_k and 𝔪_(k−1) are continuous
+*Proof.* N_sf(ϰ) maps Ḣ^(s′,c)_b to Ḣ^(s′−2,c)_b boundedly ([[sec:iii-g-1-2]]), and 𝔮_k and 𝔮_(k−1) are continuous
 on these spaces; so both sides of [[eq:sp-moments]] are continuous in u. C_c^∞((−1, ∞) × 𝕊³) is dense in
 Ḣ^(s′,c)_b, near v = −1 by [[lem:i-a-6-1]] (a) and near R = 0 by [[lem:i-c-2-2]] (d), glued with χ_∂. For such u,
 integration by parts in v at fixed ω gives, for every g smooth with compact support in v,
@@ -108,33 +110,39 @@ integration by parts in v at fixed ω gives, for every g smooth with compact sup
 
 and the second gives ∫ v^k F(v∂_v)g dv = F(−k − 1)∫ v^k g dv for every polynomial F whose coefficients act on 𝕊³
 alone. In [[eq:iii-g-1-3]] put g := (v∂_v + ϰ − 3/2 − S̄)u. The first term −2∂_vg contributes
-2k∫ v^(k−1)g dv = 2k(ϰ − 3/2 − S̄ − k)𝔪_(k−1)(u), and the second, L̃(0)(ω, v∂_v + ϰ, ∂_ω)u, contributes
-L̃(0)(ω, ϰ − k − 1, ∂_ω)𝔪_k(u). For fixed u both sides are polynomials in ϰ, which gives the last statement. ∎
+2k∫ v^(k−1)g dv = 2k(ϰ − 3/2 − S̄ − k)𝔮_(k−1)(u), and the second, L̃(0)(ω, v∂_v + ϰ, ∂_ω)u, contributes
+L̃(0)(ω, ϰ − k − 1, ∂_ω)𝔮_k(u). For fixed u both sides are polynomials in ϰ, which gives the last statement. ∎
 
 **Lemma {#lem:sp-primitive}** (Integration in v.) Let Re ϰ_0 ≥ 2, let (s, c) be admissible for every ϰ in a disc about
-ϰ_0, with c > 1, and let (u_0, …, u_(N−1)) ∈ 𝒦_N(N_sf, ϰ_0) in the space 𝒳 of (s, c), with 𝔪_0(u_j) = 0 for every j.
+ϰ_0, with c > 1, and let (u_0, …, u_(𝔫−1)) ∈ 𝒦_𝔫(N_sf, ϰ_0) in the space 𝒳 of (s, c), with 𝔮_0(u_j) = 0 for every j.
 Let Iu_j be the distribution on ℝ_v × 𝕊³ with ∂_v Iu_j = u_j that vanishes on {v < −1}. Then for every c′ < c − 1:
 
 (a) u_j ∈ Ḣ^((s;∞),c)_(b;b) and Iu_j ∈ Ḣ^((s+1;∞),c′)_(b;b);
 
-(b) (Iu_0, …, Iu_(N−1)) ∈ 𝒦_N(N_sf, ϰ_0 − 1) in the space 𝒳 of the pair (s + 1, c′), which is admissible for ϰ_0 − 1
+(b) (Iu_0, …, Iu_(𝔫−1)) ∈ 𝒦_𝔫(N_sf, ϰ_0 − 1) in the space 𝒳 of the pair (s + 1, c′), which is admissible for ϰ_0 − 1
 when c′ > Re ϰ_0 − 2;
 
-(c) 𝔪_k(Iu_j) = −(k + 1)⁻¹𝔪_(k+1)(u_j) for every integer k with 0 ≤ k < c − 2.
+(c) 𝔮_k(Iu_j) = −(k + 1)⁻¹𝔮_(k+1)(u_j) for every integer k with 0 ≤ k < c − 2.
 
 *Proof.* (a) By [[eq:sp-chain]], N_sf(ϰ_0)u_j = −N_sf′(ϰ_0)u_(j−1) − ½N_sf″(ϰ_0)u_(j−2), where by [[eq:iii-g-1-2]] and
 [[eq:iii-g-1-3]] N_sf′(ϰ) = −2∂_v − 2(v∂_v + ϰ) + a(ω) and N_sf″ = −2. These operators map Ḣ^((s;k),c)_(b;b) into
 Ḣ^((s−1;k),c)_(b;b) for every k: near v = 0 because ∂_v(v∂_v) = (v∂_v + 1)∂_v and ∂_v commutes with the ℒ_Ω, so
 that words pass through ∂_v, and near R = 0 because ∂_v = −R(R∂_R). By induction on j, [[thm:iii-g-5-1]] (3) gives
 u_j ∈ Ḣ^((s;∞),c)_(b;b). Near R = 0 this space is H^∞_(b,c) ([[sec:iii-g-1-2]]), so |W^αu_j| ≤ C_αv^(−c) on
-{v ≥ 4} for every word W^α in v∂_v and the ℒ_Ω ([[lem:i-c-2-2]] (f)). Take χ ∈ C^∞(ℝ) equal to 1 on (−∞, 3] and to 0
-on [4, ∞). Then I(χu_j) is constant on {v ≥ 4}, equal to ⟨χu_j, 1⟩, and so, on {v ≥ 4},
+{v ≥ 4} for every word W^α in v∂_v and the ℒ_Ω ([[lem:i-c-2-2]] (f)). Let W̃^α be W^α with every v∂_v replaced by
+v∂_v + 1 (W̃^α = Id for the empty word). Then W^αI = IW̃^α, as v∂_vI = I(v∂_v + 1) (both sides vanish on {v < −1}
+and have the same v-derivative) and the ℒ_Ω commute with I. Put g := W̃^αu_j. It lies in Ḣ^(s−|α|,c)_b, |α| the
+length of the word, and |g| ≤ C′_αv^(−c) on {v ≥ 4}. Moreover 𝔮_0(g) = 0. Indeed 𝔮_0 commutes with the ℒ_Ω,
+𝔮_0(u_j) = 0, and 𝔮_0((v∂_v + 1)w) = 0 for every w ∈ Ḣ^(s′,c)_b, s′ ∈ ℝ: for w ∈ C_c^∞((−1, ∞) × 𝕊³) it is
+∫ ∂_v(vw) dv = 0, such w are dense ([[lem:i-a-6-1]] (a), [[lem:i-c-2-2]] (d), as in the proof of [[lem:sp-moments]]),
+and both sides are continuous in w. Moving the ℒ_Ω at the left end of W̃^α through 𝔮_0, one reaches either a factor
+v∂_v + 1, which gives 0, or, if W̃^α has none, 𝔮_0(u_j) = 0. Take χ ∈ C^∞(ℝ) equal to 1 on (−∞, 3] and to 0 on
+[4, ∞). Then I(χg) is constant on {v ≥ 4}, equal to ⟨χg, 1⟩, and so, on {v ≥ 4},
 
-    Iu_j(v) = ⟨χu_j, 1⟩ + ∫_3^v (1 − χ)u_j dv′ = 𝔪_0(u_j) − ∫_v^∞ u_j dv′ = −∫_v^∞ u_j dv′.
+    W^αIu_j(v) = Ig(v) = ⟨χg, 1⟩ + ∫_3^v (1 − χ)g dv′ = 𝔮_0(g) − ∫_v^∞ g dv′ = −∫_v^∞ g dv′.
 
-As v∂_vI = I(v∂_v + 1) (both sides vanish on {v < −1} and have the same v-derivative) and the ℒ_Ω commute with I, the
-bound |W^αIu_j| ≤ C_αv^(1−c) holds on {v ≥ 4}; so Iu_j ∈ 𝒜^(c−1) ⊂ H^∞_(b,c′) near R = 0 ([[lem:i-c-2-2]] (f)).
-On {v < 5}, W^αIu_j = I(W̃^αu_j), with every v∂_v of W^α replaced by v∂_v + 1 in W̃^α. By (i) of the proof of
+So |W^αIu_j| ≤ C′_αv^(1−c)/(c − 1) on {v ≥ 4}, for every word W^α; hence Iu_j ∈ 𝒜^(c−1) ⊂ H^∞_(b,c′) near R = 0
+([[lem:i-c-2-2]] (f)). On {v < 5} we use W^αIu_j = I(W̃^αu_j) again. By (i) of the proof of
 [[lem:iii-g1-2-1]] each W̃^αu_j lies in H^s(ℝ; H^m(𝕊³)) for every m; the primitive maps this space into
 H^(s+1)(ℝ; H^m(𝕊³)) locally ((iii) (α) there); and the latter lies in H^(s+1) for m large, as in (i) there. So
 Iu_j ∈ Ḣ^((s+1;∞),c′)_(b;b).
@@ -151,7 +159,7 @@ for T > 4, and let ψ ∈ C^∞(𝕊³; ℂ^15). As ∂_vIu_j = u_j,
 
     ⟨Iu_j, (k + 1)φ_Tv^kψ⟩ + ⟨Iu_j, φ_T′v^(k+1)ψ⟩ = −⟨u_j, φ_Tv^(k+1)ψ⟩.
 
-As T → ∞ the first and last terms tend to (k + 1)⟨𝔪_k(Iu_j), ψ⟩ and −⟨𝔪_(k+1)(u_j), ψ⟩ (dominated convergence on
+As T → ∞ the first and last terms tend to (k + 1)⟨𝔮_k(Iu_j), ψ⟩ and −⟨𝔮_(k+1)(u_j), ψ⟩ (dominated convergence on
 {v ≥ 4}, with the bounds of (a)), and the middle one is O(T^(−1)·T^(k+1)·T^(1−c)·T) = O(T^(k+2−c)), which tends to 0. ∎
 
 #### The moment matrix {#sec:sp-matrix}
@@ -167,14 +175,14 @@ and let c_τ(ϰ_0) be the order of the zero of det 𝔐_τ at ϰ_0: the number o
 with ϰ_0 − μ ∈ {1, …, K(ϰ_0) + 1}. Each such root has Re μ ≥ Re ϰ_0 − K(ϰ_0) − 1 = Re ϰ_0 − ⌊Re ϰ_0⌋ + 1 ≥ 1, and is
 therefore singular.
 
-By [[eq:sp-moments]], the moments (𝔪_k(u))_(k≤K) of N_sf(ϰ)u are obtained from those of u by the operator 𝔐(ϰ) on
+By [[eq:sp-moments]], the moments (𝔮_k(u))_(k≤K) of N_sf(ϰ)u are obtained from those of u by the operator 𝔐(ϰ) on
 𝒟′(𝕊³; ℂ^15)^(K+1) defined by the right side of [[eq:sp-moments]]; on W_π^(K+1) it acts as 𝔐^K_τ(ϰ) ⊗ Id_π.
 
 **Theorem {#thm:sp-reduction}** (The poles of the spectral family in {Re ≥ 2}.) Let Re ϰ_0 ≥ 2 and K := K(ϰ_0), and
 let 𝒳, 𝒴 be the spaces of a pair admissible for every ϰ in a disc about ϰ_0.
 
-(a) For every N ≥ 1 the map (u_j)_(j<N) ↦ ((𝔪_k(u_j))_(k≤K))_(j<N) is a bijection from 𝒦_N(N_sf, ϰ_0) onto
-𝒦_N(𝔐, ϰ_0) = ⊕_π 𝒦_N(𝔐_τ(π) ⊗ Id_π, ϰ_0), τ(π) the type of π; only finitely many summands are non-zero.
+(a) For every 𝔫 ≥ 1 the map (u_j)_(j<𝔫) ↦ ((𝔮_k(u_j))_(k≤K))_(j<𝔫) is a bijection from 𝒦_𝔫(N_sf, ϰ_0) onto
+𝒦_𝔫(𝔐, ϰ_0) = ⊕_π 𝒦_𝔫(𝔐_τ(π) ⊗ Id_π, ϰ_0), τ(π) the type of π; only finitely many summands are non-zero.
 
 (b) dim ker N_sf(ϰ_0) = Σ_τ d_τ dim ker 𝔐_τ(ϰ_0), and the order of the pole of N_sf(·)⁻¹ at ϰ_0 is the largest of the
 numbers p(𝔐_τ, ϰ_0), each of which is at most c_τ(ϰ_0).
@@ -186,40 +194,40 @@ numbers p(𝔐_τ, ϰ_0), each of which is at most c_τ(ϰ_0).
 
 *Proof.* Choose the pair (s, c) with c ∈ (Re ϰ_0 − 1, Re ϰ_0); the poles and their orders do not depend on the pair
 ([[thm:iii-g-5-1]] (2)). Then c > K + 1, as K + 1 ≤ Re ϰ_0 − 1. By [[lem:sp-primitive]] (a) the elements of a tuple
-of 𝒦_N(N_sf, ϰ_0) lie in Ḣ^(s,c)_b, so their moments of order at most K are defined, and by [[lem:sp-moments]] (with
-its derivatives) they form a tuple of 𝒦_N(𝔐, ϰ_0). The components on the W_π are tuples of
-𝒦_N(𝔐_τ(π) ⊗ Id_π, ϰ_0), which vanish unless det 𝔐_τ(π)(ϰ_0) = 0, that is unless π has a root among ϰ_0 − 1, …,
+of 𝒦_𝔫(N_sf, ϰ_0) lie in Ḣ^(s,c)_b, so their moments of order at most K are defined, and by [[lem:sp-moments]] (with
+its derivatives) they form a tuple of 𝒦_𝔫(𝔐, ϰ_0). The components on the W_π are tuples of
+𝒦_𝔫(𝔐_τ(π) ⊗ Id_π, ϰ_0), which vanish unless det 𝔐_τ(π)(ϰ_0) = 0, that is unless π has a root among ϰ_0 − 1, …,
 ϰ_0 − K − 1; by [[lem:iii-f1-2-4]] with X := Re ϰ_0 this holds for a finite set F of representations only.
 
-*Injectivity.* Let (u_j) ∈ 𝒦_N(N_sf, ϰ_0) have all moments of order at most K equal to 0. Choose η > 0 with
+*Injectivity.* Let (u_j) ∈ 𝒦_𝔫(N_sf, ϰ_0) have all moments of order at most K equal to 0. Choose η > 0 with
 (K + 1)η < c − Re ϰ_0 + 1 and put c_i := c − i(1 + η). We show by induction on i ≤ K + 1 that (I^iu_j) ∈
-𝒦_N(N_sf, ϰ_0 − i) in the space 𝒳 of the pair (s + i, c_i), admissible for ϰ_0 − i, with 𝔪_k(I^iu_j) = 0 for
-k ≤ K − i. For i = 0 this is the hypothesis. If it holds for i ≤ K, then 𝔪_0(I^iu_j) = 0, c_i > Re ϰ_0 − 1 − i ≥
+𝒦_𝔫(N_sf, ϰ_0 − i) in the space 𝒳 of the pair (s + i, c_i), admissible for ϰ_0 − i, with 𝔮_k(I^iu_j) = 0 for
+k ≤ K − i. For i = 0 this is the hypothesis. If it holds for i ≤ K, then 𝔮_0(I^iu_j) = 0, c_i > Re ϰ_0 − 1 − i ≥
 K + 1 − i ≥ 1, and [[lem:sp-primitive]] with c′ := c_(i+1) ∈ (Re ϰ_0 − i − 2, c_i − 1) gives the statement for i + 1,
 the moments by its part (c) (k ≤ K − i − 1 < c_i − 2). At i = K + 1, Re(ϰ_0 − K − 1) = Re ϰ_0 − ⌊Re ϰ_0⌋ + 1 < 2, so
 N_sf(ϰ_0 − K − 1) is injective ([[prop:iii-g-3-2]]); by [[eq:sp-chain]] and induction on j, I^(K+1)u_j = 0 for every
 j. As ∂_v^(K+1)I^(K+1)u_j = u_j, every u_j vanishes.
 
-*Surjectivity.* Let T_N: 𝒳^N → 𝒴^N, (u_j) ↦ (Σ_(i≤j)(i!)⁻¹N_sf^(i)(ϰ_0)u_(j−i))_j, so that 𝒦_N(N_sf, ϰ_0) = ker T_N.
-N_sf(ϰ_0) is Fredholm of index 0 ([[thm:iii-g-5-1]] (1)); choose a finite-rank K_1: 𝒳 → 𝒴 with N_sf(ϰ_0) + K_1
-invertible, as in the proof of [[thm:iii-g-5-1]]. T_N + diag(K_1, …, K_1) is block lower triangular with invertible
-diagonal blocks, hence invertible (solve row by row); so T_N = B(Id − G) with B invertible and G of finite rank. For
-such an operator dim ker T_N = codim ran T_N. Indeed, let E ⊃ ran G be finite-dimensional; A := Id − G maps E into
-E, every x with Ax = 0 lies in E, A induces the identity on 𝒳^N/E, and if Ax ∈ E then x ∈ E. So ran A + E = 𝒳^N
+*Surjectivity.* Let T_𝔫: 𝒳^𝔫 → 𝒴^𝔫, (u_j) ↦ (Σ_(i≤j)(i!)⁻¹N_sf^(i)(ϰ_0)u_(j−i))_j, so that 𝒦_𝔫(N_sf, ϰ_0) = ker T_𝔫.
+N_sf(ϰ_0) is Fredholm of index 0 ([[thm:iii-g-5-1]] (1)); choose Φ: 𝒳 → 𝒴 of finite rank with N_sf(ϰ_0) + Φ
+invertible, as in the proof of [[thm:iii-g-5-1]]. T_𝔫 + diag(Φ, …, Φ) is block lower triangular with invertible
+diagonal blocks, hence invertible (solve row by row); so T_𝔫 = B(Id − G) with B invertible and G of finite rank. For
+such an operator dim ker T_𝔫 = codim ran T_𝔫. Indeed, let E ⊃ ran G be finite-dimensional; A := Id − G maps E into
+E, every x with Ax = 0 lies in E, A induces the identity on 𝒳^𝔫/E, and if Ax ∈ E then x ∈ E. So ran A + E = 𝒳^𝔫
 and ran A ∩ E = A(E), whence codim ran A = dim E − dim A(E) = dim ker(A|_E) = dim ker A. Now let V := ⊕_(π∈F) W_π^(K+1)
-and Ψ: 𝒴^N → V^N the map taking (f_j) to the components in V of the moments (𝔪_k(f_j))_(k≤K). It is onto: for
+and Ψ: 𝒴^𝔫 → V^𝔫 the map taking (f_j) to the components in V of the moments (𝔮_k(f_j))_(k≤K). It is onto: for
 χ_0, …, χ_K ∈ C_c^∞((1, 2)) with ∫ v^iχ_k dv = δ_(ik) (they exist, the powers being linearly independent on (1, 2)),
 the sources Σ_k χ_k(v)w_k, w_k ∈ V, lie in 𝒴 and have moments w_k. By [[lem:sp-moments]],
-Ψ(T_Nu) = T^𝔐_N(moments of u), T^𝔐_N the operator of [[eq:sp-chain]] for 𝔐 on V^N, a square matrix. So Ψ maps
-ran T_N into ran T^𝔐_N, and
+Ψ(T_𝔫u) = T^𝔐_𝔫(moments of u), T^𝔐_𝔫 the operator of [[eq:sp-chain]] for 𝔐 on V^𝔫, a square matrix. So Ψ maps
+ran T_𝔫 into ran T^𝔐_𝔫, and
 
-    dim ker T_N = codim ran T_N ≥ dim V^N − rank T^𝔐_N = dim ker T^𝔐_N = dim 𝒦_N(𝔐, ϰ_0).
+    dim ker T_𝔫 = codim ran T_𝔫 ≥ dim V^𝔫 − rank T^𝔐_𝔫 = dim ker T^𝔐_𝔫 = dim 𝒦_𝔫(𝔐, ϰ_0).
 
 With the injectivity, the map is a bijection. This proves (a).
 
-(b) The case N = 1 of (a) gives the dimension, as dim(ker 𝔐_τ(ϰ_0) ⊗ π) summed over the π of type τ is
-d_τ dim ker 𝔐_τ(ϰ_0). A tuple of 𝒦_N(N_sf, ϰ_0) has u_0 ≠ 0 exactly when the moments of u_0 do not all vanish (the
-case N = 1 of (a)), so the bijection maps Jordan chains onto Jordan chains, and p(N_sf, ϰ_0) is the largest of the
+(b) The case 𝔫 = 1 of (a) gives the dimension, as dim(ker 𝔐_τ(ϰ_0) ⊗ π) summed over the π of type τ is
+d_τ dim ker 𝔐_τ(ϰ_0). A tuple of 𝒦_𝔫(N_sf, ϰ_0) has u_0 ≠ 0 exactly when the moments of u_0 do not all vanish (the
+case 𝔫 = 1 of (a)), so the bijection maps Jordan chains onto Jordan chains, and p(N_sf, ϰ_0) is the largest of the
 p(𝔐_τ ⊗ Id_π, ϰ_0) = p(𝔐_τ, ϰ_0). By [[lem:sp-pole-order]], applied on a disc about ϰ_0 on which 𝒫 has no other point,
 p(N_sf, ϰ_0) is the order of the pole of N_sf(·)⁻¹. And 𝔐_τ(ϰ)⁻¹ = adj 𝔐_τ(ϰ)/det 𝔐_τ(ϰ) has a pole of order at most
 c_τ(ϰ_0), so p(𝔐_τ, ϰ_0) ≤ c_τ(ϰ_0) by [[lem:sp-pole-order]].
@@ -230,7 +238,7 @@ has Re ϰ_0 > j + 1, so K(ϰ_0) ≥ j − 1, and det 𝔐_τ(ϰ_0) = 0. (d) foll
 
 On spacetime the moments have a direct meaning. For u ∈ ker N_sf(ϰ_0), U := ρ^(ϰ_0)u is a solution of 2L̄U = 0,
 homogeneous of degree −ϰ_0 and supported in {t̄ ≥ |x|} ([[sec:iii-g-1-1]], Step 1 of the proof of [[prop:iii-g-3-2]]);
-as dt̄ = r dv at fixed x, its integral in t̄ along each line {x = const} is r^(1−ϰ_0)𝔪_0(u), and by [[eq:sp-moments]]
+as dt̄ = r dv at fixed x, its integral in t̄ along each line {x = const} is r^(1−ϰ_0)𝔮_0(u), and by [[eq:sp-moments]]
 at k = 0 this is a stationary solution of (2L̄)^(0), which vanishes unless ϰ_0 − 1 is a root. The poles thus come from
 the stationary solutions r^(−μ)m, m ∈ ker L̃(0)(ω, μ, ∂_ω), that are singular at x = 0, and from their images under
 ∂_v, which maps ker N_sf(ϰ) into ker N_sf(ϰ + 1) ([[lem:iii-g-1-2]] (e)).

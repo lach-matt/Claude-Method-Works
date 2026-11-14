@@ -212,16 +212,16 @@ Re[S e^(i·/λ)] + ε.
 (A) If S ≠ 0 on J, a continuous determination of arg S varies by at most 3π/2 on J and |ε(t)| ≤ |S(t)|/4 for every t ∈ J,
 then f takes both signs on J.
 
-(B) If |S′| ≥ L0 > 0 and |S″| ≤ L0/(80πλ) on J, and |ε| ≤ πλL0/5 on J, then f takes both signs on J.
+(B) If |S′| ≥ 𝔩 > 0 and |S″| ≤ 𝔩/(80πλ) on J, and |ε| ≤ πλ𝔩/5 on J, then f takes both signs on J.
 
 *Proof.* (A) With that determination, t/λ + arg S(t) increases by at least 4π − 3π/2 > 2π over J, so, being continuous,
 it meets 0 and π modulo 2π at points t₁, t₂ ∈ J; f(t₁) ≥ |S(t₁)| − |S(t₁)|/4 > 0 and f(t₂) ≤ −|S(t₂)| + |S(t₂)|/4 < 0.
 
-(B) By Taylor's formula, S(t) = S(v) + S′(v)(t − v) + R(t) with |R(t)| ≤ (4πλ)² L0/(2 · 80πλ) = πλL0/10. Put t0 := v −
+(B) By Taylor's formula, S(t) = S(v) + S′(v)(t − v) + R(t) with |R(t)| ≤ (4πλ)² 𝔩/(2 · 80πλ) = πλ𝔩/10. Put t0 := v −
 S(v)/S′(v) = α0 + iβ0 (S′(v) ≠ 0), so S(t) = S′(v)(t − t0) + R(t). At the points t_k ∈ J where e^(i(t/λ + arg S′(v))) =
 ±1, which are πλ apart with alternating signs, S′(v) e^(it_k/λ) = ±|S′(v)| is real, so Re[S′(v)(t_k − t0) e^(it_k/λ)] =
-±|S′(v)| (t_k − α0), the β0-part vanishing; hence |f(t_k) ∓ |S′(v)|(t_k − α0)| ≤ πλL0/10 + πλL0/5 = 3πλL0/10. Where |t_k
-− α0| ≥ πλ/2, |S′(v)| |t_k − α0| ≥ πλL0/2 > 3πλL0/10, so f(t_k) has the sign ±sign(t_k − α0). Remove from J the gap (α0 −
+±|S′(v)| (t_k − α0), the β0-part vanishing; hence |f(t_k) ∓ |S′(v)|(t_k − α0)| ≤ πλ𝔩/10 + πλ𝔩/5 = 3πλ𝔩/10. Where |t_k
+− α0| ≥ πλ/2, |S′(v)| |t_k − α0| ≥ πλ𝔩/2 > 3πλ𝔩/10, so f(t_k) has the sign ±sign(t_k − α0). Remove from J the gap (α0 −
 πλ/2, α0 + πλ/2), of length πλ. If one of the two remaining sides has length at least 2πλ, it contains two consecutive
 t_k, of opposite types and with t_k − α0 of one sign: f takes both signs. Otherwise both sides have length in (πλ, 2πλ),
 since their lengths add up to at least 3πλ, and each contains a t_k. If the gap contains no t_k, its end points are
@@ -323,7 +323,8 @@ trades the rotation for a coordinate derivative with the factor g_λ⁻¹ − g0
 j ≤ 6, are bounded on the region, since ε_M(v1) ≤ λ⁵ gives λ^(1−j) ε_j ≤ 1 there; ∂^j w, j ≤ 3, are bounded by step 1 of
 the proof of [[thm:uniform-existence]], resp. item 3 of [[thm:past-construction]]; so every coefficient of the energy
 inequality for the derivatives of order at most four is bounded, while the forcing term and the data cost λ⁻¹ per
-coordinate derivative and nothing per rotation, as for g_app ([[lem:layer-flat]] (d), (e), [[lem:layer-flat-past]] (d)).
+coordinate derivative and nothing per rotation, as for g_app ([[lem:layer-flat]] (d) and (e), the bound of (e) on
+∂_r^j U holding for j ≤ 5 by its proof, at the cost j + 2N + 3 ≤ M*; [[lem:layer-flat-past]] (d)).
 Hence
 
     ℰ_j(τ) := Σ_(i≤j, i+|β|≤4) (‖∂ ∂^i Ω^β w(τ)‖ + ‖∂^i Ω^β w(τ)‖) ≤ C λ^(N−3−j) ε_M(v1),      2 ≤ j ≤ 4,
@@ -408,11 +409,12 @@ hypothesis ε_M(v1) ≤ λ³ only at points with v ≤ v1; so they run on R(V, e
 constants, and so does their form with four derivatives. For E^Ω in case P, apply ∂^i Ω^β, i + |β| ≤ 2, to
 [[eq:layer-w-equation]] and write its principal part as −(1/2) □̃ − (1/2)(g_λ^(ab) − g0^(ab)) ∂_a ∂_b, □̃ := g0^(ab)
 ∂_a ∂_b. The rotations commute with □̃ ([[sec:past-inequalities]]), and [Ω_ab, ∂_c] is a coordinate derivative, so the
-commutators are sums of products of ∂^j Ω^γ (g_λ⁻¹ − g0⁻¹), j + |γ| ≥ 1, with second derivatives of ∂^(i′) Ω^(β′) w of
-a lower total order, as in step (iii) of the proof of [[prop:far-region]]. On P, g_app⁻¹ − g0⁻¹ is λ times a profile of
+commutators are sums of products of ∂^j Ω^γ (g_λ⁻¹ − g0⁻¹) with second derivatives of ∂^(i′) Ω^(β′) w of a lower total
+order, where j + |γ| ≥ 1 or, for the terms (g_λ⁻¹ − g0⁻¹)[∂^i Ω^β, ∂_a ∂_b] w, j = |γ| = 0, as in step (iii) of the
+proof of [[prop:far-region]]. On P, g_app⁻¹ − g0⁻¹ is λ times a profile of
 class E_(3/2) ([[thm:past-approximant]]), and w with its coordinate derivatives and rotations to the total order three
-is at most C t^(−2) by [[eq:far-energy]], [[eq:near-bootstrap]] and [[lem:past-sobolev]] (a), as in the proof of
-(P-iii) in [[sec:past-proof]]; so these commutators are at most C t^(−3/2) times energies of lower order, and the
+is at most C t^(−2) by [[eq:far-energy]], [[eq:near-bootstrap]] and [[lem:past-sobolev]] (a), as in the proof of (P-iii)
+in [[sec:past-proof]]; so these commutators are at most C t^(−3/2) times energies of order at most i + |β|, and the
 Gronwall kernel stays integrable on P. The forcing term ∂^i Ω^β Ric^H(g_app) obeys the bound of [[lem:layer-flat-past]]
 (d), since that proof bounds each monomial through the classes E_p(ε^d), which are defined with the rotations; the
 nonlinear terms are bounded as in step (3) of the proof of [[lem:layer-remainder-past]], every factor with at most one
@@ -627,7 +629,9 @@ is at least (3/4) cos 0.253 > 0.72, resp. at most −0.72: the main term is at l
 resp. at most minus that.
 
 The remaining terms are of degree two: m0, r2(Φ0♯, Φ0♯), (g0 − g0°)(Φ0♯, Φ0♯) and q. By [[lem:edge-localisation]], whose
-hypothesis ε_(M_P)(v′ + 1/κ(v′)) ≤ λ⁵ holds since env(v′ + 1/κ(v′)) ≤ e env(v′) ≤ e λ^(P0) and (B_J) holds, |r2| ≤ C
+hypothesis ε_(M_P)(v′ + 1/κ(v′)) ≤ λ⁵ holds by (B_J) as in step (3) of its proof and env(v′ + 1/κ(v′)) ≤ e env(v′):
+ε_(M_P)(v′ + 1/κ(v′)) ≤ e C_B κ(v′)^J env(v′), which is at most e C_B λ^(P0−J) ≤ λ⁵ where λκ(v′) ≤ 1, as P0 − J = J + 6,
+and at most e C_B κ(v′)^(J+5) env(v′) λ⁵ ≤ λ⁵ where λκ(v′) > 1, for x0′ small ([[lem:edge-kappa]] (e)), |r2| ≤ C
 κ^(2c′) env² with c′ = J; by [[eq:edge-degree-two]], |g0 − g0°| ≤ C ε_0² ≤ C κ^(2c′) env²; m0 ≤ C (env² + ∫_(v_s)^(v′)
 env²) ≤ C env² by [[cor:layer-expansion]] and [[lem:edge-kappa]] (d); and |q| is smaller. Their ratio to λ env min(λ,
 1/κ)² is at most C λ^(−2c′−3) env on {λκ ≤ 1}, which is at most C λ³ once env ≤ λ^(P0), P0 := 2c′ + 6, and at most C
@@ -961,10 +965,10 @@ O(𝔱) = |ν|(1 + O(1/8 + 𝔱/|ν|)) lies near the positive real axis, ν bein
 and |ν′| ≤ C ≪ |ν|κ^α off ρ*. With |ê′| ≤ C(1 + T0)M|ν|, Re σ′ ≤ −|ν| c_t κ^α/3. As S = λ³ A d env σ, S′ = λ³ A d env
 (κσ + σ′) and |κσ| ≤ 2κ𝔱 = c_t |ν| κ^α/8, so
 
-    |S′| ≥ λ³ A |d| env |ν| c_t κ^α/5 =: L0      on J
+    |S′| ≥ λ³ A |d| env |ν| c_t κ^α/5 =: 𝔩      on J
 
 (env changes by a factor at most e^(8πT0) ≤ 2 across J), while |S″| = λ³ A |d| env |κ²σ + κ′σ + 2κσ′ + σ″| ≤ C λ³ A |d|
-env |ν| κ^(1+α) ≤ L0/(80πλ) once λκ ≤ c_t/(400πC), which holds as T0 → 0; and |ε| ≤ πλL0/5 once env ≤ λ^(P1), since |ν| ≥
+env |ν| κ^(1+α) ≤ 𝔩/(80πλ) once λκ ≤ c_t/(400πC), which holds as T0 → 0; and |ε| ≤ πλ𝔩/5 once env ≤ λ^(P1), since |ν| ≥
 ν_* off ρ* and |ν| ≥ c_ν Mλ/2 at ρ*. [[lem:edge-two-signs]] (B) applies. ∎
 
 Nothing in (4) depends on c_N(ρ0) or on N modulo 4: the transversality is Λ′/Λ = κ_(N−1) − κ with (H_t), and the sign
@@ -1213,9 +1217,9 @@ A_s(κ − κ_(N−1))| ≥ (κ − κ_(N−1)) dist(A_s, [0, ∞)) ≥ c_t δ_*
 λ^(1/2) T0 + M′λ T0 κ^α + λ(1 + T0κ^α) + (1 + T0)Mλ), which is much smaller than λκ^α (for instance λ^(1/2) T0/(λκ^α) =
 λ^(1/2) κ^(1−α) ≤ λ^(α−1/2) → 0, as κ ≤ 1/λ). So |σ′| ≥ c_t δ_* λ κ^α/3, while |σ″| ≤ C(1 + λκ^(1+α)) ≤ 2Cλκ^(1+α) by
 step (2) of [[prop:l-26]] with |ν″| ≤ 3c_ν, and |σ′| ≤ C(λ^(1/2) + λκ^α). [[lem:edge-two-signs]] (B) applies as in step
-(4) of [[prop:l-26]], with L0 := λ³ A |d| env c_t δ_* λ κ^α/5: |κσ| ≤ 2κ𝔱 = c_t δ_* λκ^α/8; |S″| ≤ L0/(80πλ) once T0 ≤
+(4) of [[prop:l-26]], with 𝔩 := λ³ A |d| env c_t δ_* λ κ^α/5: |κσ| ≤ 2κ𝔱 = c_t δ_* λκ^α/8; |S″| ≤ 𝔩/(80πλ) once T0 ≤
 c(δ_*, c_t), the terms of S″ (2κ|σ′| ≤ Cκ(λ^(1/2) + λκ^α), κ²|σ| ≤ 2κ²𝔱, |σ″|) being small against κ^α times λ³A|d|env
-δ_*; and |ε| ≤ πλL0/5 once env ≤ λ^(P1). ∎
+δ_*; and |ε| ≤ πλ𝔩/5 once env ≤ λ^(P1). ∎
 
 The phase of b̂4 decides this case: nothing in step (2) uses N modulo 4 or c_N, the transversality being (H_t), and the
 direction of A_s is held away from [0, ∞) by b̂4. b̂5 is not used. If b̂4 were a positive real number of small modulus,
@@ -1245,8 +1249,9 @@ moreover
 Then there are λ_1E > 0, x0′ ∈ (0, x0] and P1 such that for λ ≤ λ_1E, every v ∈ (v_s, v_s + x0′] with env(v + 4πλ) ≤
 λ^(P1) and every x̂ ∈ S³, the boundary {x_K = 1} has, on [v, v + 4πλ] and at x̂, points where it is timelike for g_λ
 and points where it is spacelike. This holds in particular for every v ∈ (v_s, v_s + x0′] with λκ(v + 4πλ) ≥ 1, down
-to v_s. If env is increasing on (v_s, v_s + x0], then, with [[prop:layer-regions]] (ii) at P := P1 + 1, for λ ≤
-min(λ_U(P1 + 1), λ_1E) the same holds on every interval [v, v + 4πλ] with v_s < v ≤ v_s + x0′ and env(v) ≤ λ^(3+δ).
+to v_s. If env is increasing on (v_s, v_s + x0], then for every δ ∈ (0, 1/2], with [[prop:layer-regions]] (ii) at this δ
+and P := P1 + 1, for λ ≤ min(λ_U(δ, P1 + 1), λ_1E) the same holds on every interval [v, v + 4πλ] with
+v_s < v ≤ v_s + x0′ and env(v) ≤ λ^(3+δ).
 
 When ρ0 = ρ* and (H_*) fails, the proof uses [[lem:edge-rho-star]], and with it the value of b̂4 of
 [[lem:edge-next-family]].
@@ -1254,10 +1259,10 @@ When ρ0 = ρ* and (H_*) fails, the proof uses [[lem:edge-rho-star]], and with i
 *Proof.* Take x0′ so small that [[prop:edge-horizon-value]], [[lem:edge-localisation]], [[lem:edge-kappa]] (c) for j ≤ c′
 and the conclusions of [[lem:edge-kappa]] (a), (b), (e) used below hold on (v_s, v_s + 2x0′], with 2x0′ ≤ x_D and λ_1E ≤
 λ_D for [[lem:edge-localisation]], and 4πλ_1E ≤ x0′, so that every window [v, v + 4πλ] with v ≤ v_s + x0′ lies in (v_s,
-v_s + 2x0′]. Take also 2x0′ at most the x0′, and λ_1E at most the thresholds, of [[prop:l-26]] and
-[[lem:edge-rho-star]], and P1 at least their P1, for the M fixed below; and, once P1 is fixed, λ_1E ≤ e^(−4π) and
-λ_1E ≤ 2^(−(P1+1)/α), which the levels use. Fix x̂ and let J := [v, v + 4πλ]. At a boundary point X = (v′, r_q(v′), x̂),
-v′ ∈ J, [[lem:layer-inverse]] with k = h^(1) + r2 − (g0 − g0°) gives
+v_s + 2x0′]. Take also 2x0′ at most the x0′, and λ_1E at most the thresholds, of [[prop:l-26]] for C_0 M and of
+[[lem:edge-rho-star]] for M, and P1 at least their P1, with M and C_0 fixed below; and, once P1 is fixed, λ_1E ≤ e^(−4π)
+and λ_1E ≤ 2^(−(P1+1)/α), which the levels use. Fix x̂ and let J := [v, v + 4πλ]. At a boundary point X = (v′, r_q(v′),
+x̂), v′ ∈ J, [[lem:layer-inverse]] with k = h^(1) + r2 − (g0 − g0°) gives
 
     g_λ⁻¹(dΦ0, dΦ0) = −Re[S(v′) e^(iv′/λ)] + ε(v′),
 
@@ -1266,18 +1271,22 @@ where S is that of [[prop:edge-horizon-value]] and ε(v′) := −m0 − r2(Φ0�
 at most C ε_0² |h^(1)|, with β_Φ and r_q − √μ0 at most C ε_0² ([[cor:layer-expansion]]) and |h^(1)| + |∂h^(1)| ≤ C ε_c.
 So |ε| ≤ C κ^(2c′) env², by [[lem:edge-localisation]], [[eq:edge-degree-two]], m0 ≤ C(env² + ∫_(v_s)^(v′) env²) ≤ C env²
 ([[cor:layer-expansion]], [[lem:edge-kappa]] (d)) and κ^p env → 0 ([[lem:edge-kappa]] (e)). The hypothesis of
-[[lem:edge-localisation]] holds since env(v′ + 1/κ(v′)) ≤ e env(v′) ≤ e λ^(P1).
+[[lem:edge-localisation]] holds: by (B_(c′)) as in step (3) of its proof and env(v′ + 1/κ(v′)) ≤ e env(v′), ε_(M*)(v′ +
+1/κ(v′)) ≤ e C_B κ(v′)^(c′) env(v′). This is at most e C_B λ^(P1−c′) ≤ λ⁵ where λκ(v′) ≤ 1, once P1 ≥ c′ + 6 and λ is
+small. It is at most e C_B κ(v′)^(c′+5) env(v′) λ⁵ ≤ λ⁵ where λκ(v′) > 1, once x0′ is small ([[lem:edge-kappa]] (e)).
 
 Use σ, Λ, ê of [[eq:edge-sigma]], so that f := g_λ⁻¹(dΦ0, dΦ0) = Re[−S e^(i·/λ)] + ε, to which [[lem:edge-two-signs]]
 applies as to S. Fix M ≥ max(8, M_26), large against the constants, and split by the values at v: Case 1 is Γ_R|Ξ|Λ ≥
 M|ν||1 + 2iT0| or T0 > 1, Case 2 is Γ_R|Ξ|Λ ≤ |ν|/M, and Case 3 is the rest. These conditions persist on J with M
-replaced by M/C_0, for a constant C_0, which we absorb into M. Indeed, if λκ(v)^α > 1, then for t ∈ J, κ(t)^(−α) ≤
-κ(v)^(−α) + α c_R 4πλ ≤ (1 + 4πα c_R)λ, so λκ(t) ≥ c λ^(1−1/α) > 1 for λ small: Case 1 on all of J. Otherwise 4πλ ≤
-4πκ(v)^(−α); κ is nonincreasing and κ(t)^(−α) ≤ (1 + 4πα c_R) κ(v)^(−α) on J, so κ, T0 and T change over J by factors
-at most a constant C_κ, and so does |1 + 2iT0|. Where T0(v) ≤ C_κ, T ≤ 2T0 ≤ 2C_κ² on J, so |Ξ| lies between c_N (1 +
-4C_κ⁴)^(−1/2) and C there ([[eq:edge-xi]]) and changes by a bounded factor. Where T0(v) > C_κ, T0 > 1 on all of J, which
-is Case 1. In either case log Λ changes by at most 4πλ C κ(v)^α ≤ C, as Λ′/Λ = κ_(N−1) − κ; and x changes by a factor
-at most 1 + 4πα c_R (κ^(−α) ≤ α c_R x), so ν by a bounded factor.
+replaced by M/C_0 in Cases 1 and 2 and by C_0 M in Case 3, for a constant C_0 ≥ 1, which we absorb into M; Case 3 (iii)
+uses [[prop:l-26]] with C_0 M ≥ M_26. Indeed, if λκ(v)^α > 1, then for t ∈ J, κ(t)^(−α) ≤ κ(v)^(−α) + α c_R 4πλ ≤ (1 +
+4πα c_R)λ, so λκ(t) ≥ c λ^(1−1/α) > 1 for λ small: Case 1 on all of J. Otherwise 4πλ ≤ 4πκ(v)^(−α); κ is nonincreasing
+and κ(t)^(−α) ≤ (1 + 4πα c_R) κ(v)^(−α) on J, so κ, T0 and T change over J by factors at most a constant C_κ, and so
+does |1 + 2iT0|. Where T0(v) ≤ C_κ, T ≤ 2T0 ≤ 2C_κ² on J, so |Ξ| lies between c_N (1 + 4C_κ⁴)^(−1/2) and C there
+([[eq:edge-xi]]) and changes by a bounded factor. Where T0(v) > C_κ, T0 > 1 on all of J, which is Case 1. In either
+case log Λ changes by at most 4πλ C κ(v)^α ≤ C, as Λ′/Λ = κ_(N−1) − κ; and x changes by a factor at most 1 + 4πα c_R
+(κ^(−α) ≤ α c_R x), so ν by a bounded factor. Where 1 < T0(v) ≤ C_κ, Λ(v) ≥ 2^(−(N−1)) κ(v) and |Ξ(v)| ≥ c_N (1 +
+4C_κ⁴)^(−1/2), so Γ_R|Ξ|Λ ≥ M|ν||1 + 2iT0| at v once x0′ is small, and this persists as above.
 
 *Case 1.* |σ| ≥ (1 − 1/M) Γ_R|Ξ|Λ − |ê| ≥ Γ_R|Ξ|Λ/2 for λ and x0′ small. Indeed ϵ′ + 1/κ + λ → 0, as ϵ′ ≤ κ^(α−1) for
 every λ. Where T0 ≤ 1, |ν| T0² ≤ |ν| ≤ Γ_R|Ξ|Λ/M, and λ ≪ Λ: off ρ*, Λ ≥ M ν_*/(Γ_R|Ξ|); at ρ*, if x² < Mλ then κ ≥
