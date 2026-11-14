@@ -291,7 +291,7 @@ g^(τ3) and (x1 g^(13) + x2 g^(23))/r at x, and those along ∂_4 are g^(τ4) an
 under x3 ↦ −x3 (a rotation by π composed with x4 ↦ −x4) and under x4 ↦ −x4, so these components are odd in x3,
 respectively x4, and vanish on the axis. So ℓ_α(x) is tangent to the axis, the axis is invariant under the flow of
 ℓ_α, and by uniqueness of integral curves a ray that meets the axis lies in it at every parameter, its starting point
-included. The rays start on S_α, off the axes, so the set {(x, α) : x ∈ D_α(S)}, the image of the compact set of
+included. The rays start on S_α, off the axes, so the set 𝒟(S) = {(x, α) : x ∈ D_α(S)}, the image of the compact set of
 (x0, α, τ) with (x0, α) ∈ S whose ray reaches Σ_τ inside Ω̄ under the continuous map (x0, α, τ) ↦ (y_τ(x0), α), is
 compact and disjoint from the closed set axes × S¹, hence at positive distance from it.
 
@@ -300,9 +300,9 @@ theorem is built so that none applies. (O1) At an axis point every invariant nul
 orientation have vanishing mixed symbol ([[lem:vlasov-axis-phases]]): the labels are kept off the axes. (O2) Under a C²
 metric a continuous orbit density carries no particle to an axis transversally: it would focus there
 ([[prop:vlasov-axis-focus]]). (O3) Without a hierarchy of frequencies, an antipodal pair and any third phase resonate
-exactly ([[lem:vlasov-resonance]]): the frequencies are 1, Λ, …, Λ^(n−1). (O4) A non-radial wave with a component on
-the orbit block leaves a term of order λ⁻¹ in the constraints ([[lem:vlasov-constraint-coefficient]] (c)): the waves are
-torus-polarised.
+exactly ([[lem:vlasov-resonance]]): the frequencies are 1, Λ, …, Λ^(n−1). (O4) A non-radial wave whose orbit part is a
+nonzero multiple of q̂ ⊗ q̂, q̂ the unit covector of the orbit slice orthogonal to the phase's gradient, leaves a term of
+order λ⁻¹ in the constraints ([[lem:vlasov-constraint-coefficient]] (c)): the waves are torus-polarised.
 
 ### Separation and coherence of the labels {#sec:vlasov-coherence}
 
@@ -314,8 +314,8 @@ point y ∈ D_α(S′) ∩ D_α′(S′)
 
 *Proof.* Let ℬ be the bundle of null directions of g3 over the orbit slices of the Σ_τ, a circle bundle. On the orbit
 slices off the axes fix a smooth frame (e1, e2) orthonormal for the slice metric (by the Gram–Schmidt process from
-(∂_r, ∂_ϑ)), let n be the future unit normal of the orbit slice in (Q, g3), and describe a null direction at y by the
-angle β with which a covector k on it, with g3⁻¹k future directed, is written k(n) = −E, k(e1) = E cos β, k(e2) =
+(∂_r, ∂_ϑ)), let 𝔫 be the future unit normal of the orbit slice in (Q, g3), and describe a null direction at y by the
+angle β with which a covector k on it, with g3⁻¹k future directed, is written k(𝔫) = −E, k(e1) = E cos β, k(e2) =
 E sin β, E > 0. For two such covectors at y,
 
     g⁻¹(k, k′) = −E E′ + E E′ cos(β − β′) = −2 E E′ sin²((β − β′)/2).                    {#eq:vlasov-mixed-angle}
@@ -344,11 +344,12 @@ Fix τ and y ∈ Σ_τ ∩ Ω̄. On the open set B_y := {β : Ψ_τ(y, β) ∈ �
 a smooth function; if y ∈ D_α(S′), then β(y; α) ∈ B_y and Λ_y(β(y; α)) = α. At β ∈ B_y, with (x0, α″) :=
 𝔰⁻¹(Ψ_τ(y, β)) ∈ int S, whose ray reaches y, so that (x0, α″, τ) ∈ 𝔇, Λ_y is the inverse of α ↦ β(y; α) near α″, and
 0 < Λ_y′(β) = 1/∂_α β(y; α″) ≤ 1/c1. Since 𝔰(S′) is a compact subset of the open set 𝔰(int S) and Ψ is uniformly
-continuous on the compact set of the (τ, y, β), there is ρ0 > 0 such that for every τ, y ∈ Σ_τ ∩ Ω̄ and β with Ψ_τ(y, β)
+continuous on a compact neighbourhood, inside its domain, of the compact set of the (τ, y, β) with Ψ_τ(y, β) ∈ 𝔰(S′)
+(the rays from S′ stay 2δ from the axes), there is ρ0 > 0 such that for every τ, y ∈ Σ_τ ∩ Ω̄ and β with Ψ_τ(y, β)
 ∈ 𝔰(S′), the arc of the β″ with |β″ − β| ≤ ρ0 lies in B_y.
 
 Let y ∈ D_α(S′) ∩ D_α′(S′), β := β(y; α), β′ := β(y; α′), and δβ ∈ [0, π] their distance on the circle. Let E_* > 0 be
-the minimum of E = −du_α(n) over the compact set of the (y, α) with y in the closure of D_α(S); it is positive since
+the minimum of E = −du_α(𝔫) over the compact set of the (y, α) with y in the closure of D_α(S); it is positive since
 du_α ≠ 0 is null with g⁻¹du_α future directed. By [[eq:vlasov-mixed-angle]] and sin(t/2) ≥ t/π on [0, π], |g⁻¹(du_α,
 du_α′)(y)| ≥ 2 E_*² sin²(δβ/2) ≥ 2 E_*² δβ²/π². If δβ ≥ ρ0, this is at least 2 E_*² ρ0²/π² ≥ (2 E_*² ρ0²/π⁴) d(α, α′)²,
 as d(α, α′) ≤ π. If δβ < ρ0, the arc of length δβ from β to β′ lies in B_y, Λ_y maps its ends to α and α′, and Λ_y′ ≤
@@ -522,13 +523,15 @@ for (W_A, κ1_A, p_A), and the second and mixed harmonics of order λ² in γ, o
 dφ1² − e^(2ψ20) dφ2²), the part of order λ⁻¹ of Φ(γ + h, κ + k) vanishes for every slow h without torus components and
 every slow k. In particular the corrections of [[lem:constraints-evolution]], which change γ by multiples of dr ⊗ dr,
 meet no coefficient of order λ⁻¹. More precisely, the terms of Φ(γ + h, κ + k) that carry a second derivative of a
-λ W_A or a first derivative of a κ1_A, which are those of order λ⁻¹, have coefficients that vanish identically at every
-point for every h without torus components and every k, slow or not.
+λ W_A or a first derivative of a κ1_A, which are those of order λ⁻¹, are, at every point and for every h without torus
+components and every k, slow or not, −λ⁻¹ Σ_A |p_A|² tr W_A″ in ρ and 2 λ⁻¹ Σ_A p_A tr κ1_A′ in J, |p_A|² taken with
+the inverse of γ + h and the traces in the torus block of γ, which h does not change; these traces are O(λ), so the
+terms are of order one.
 
 (c) For a wave with an orbit part, W = cos θ (ζ q̂ ⊗ q̂ + W_T) with q̂ the γ0-unit covector of the orbit slice orthogonal
 to p, ζ ≠ 0, W_T with torus components only and tr W = 0 (for instance W_T = −½ ζ (e^(2ψ10) dφ1² + e^(2ψ20) dφ2²)),
 and h = c dr ⊗ dr, dρ⁽⁻¹⁾ = −c ζ |p|² cos θ ⟨dr, q̂⟩², which is not zero where c ≠ 0 and the phase is not radial (p not
-parallel to dr). So every non-radial wave with a nonzero orbit part leaves a term of order λ⁻¹.
+parallel to dr). So every non-radial wave whose orbit part is a nonzero multiple of q̂ ⊗ q̂ leaves a term of order λ⁻¹.
 
 *Proof.* (a) Terms of order λ⁻¹ arise only where two derivatives fall on λ W, or one on κ1. In R(γ) = γ^(ij)(∂_k
 Γ^k_ij − ∂_j Γ^k_ik) + ΓΓ the second derivatives of γ enter as γ^(ij) γ^(kl)(∂_i∂_k γ_jl − ∂_i∂_j γ_kl), and ∂_i∂_k(λ
@@ -541,13 +544,17 @@ of order one. The terms −|κ|² + (tr κ)² have no term of order λ⁻¹, and
 phases the fast derivatives of λ W_A(x, θ_A) give λ⁻¹ p_A p_A W_A″ and the cross terms vanish, each W_A depending on one
 phase; ∂²(λ² M(x, θ_A ± θ_B)) is of order one, and ∂(λ(…)) is of order one.
 
-(b) The parts of order λ⁻¹ of R(γ + h) and J(γ + h, κ + k) are, by the proof of (a), W″(p^♯, p^♯) − |p|² tr W″ and
-2(−γ_h^(jl) p_l κ1′_(ji) + p_i γ_h^(jl) κ1′_(jl)) with the inverse γ_h⁻¹ of γ + h. Since γ0 and h have no mixed
+(b) The terms of R(γ + h) and J(γ + h, κ + k) that carry a second derivative of λ W or a first derivative of κ1 are,
+by the proof of (a) and up to terms of order one, λ⁻¹ (W″(p^♯, p^♯) − |p|² tr W″) and 2 λ⁻¹ (−γ_h^(jl) p_l κ1′_(ji) +
+p_i γ_h^(jl) κ1′_(jl)), with the inverse γ_h⁻¹ of γ + h. Since γ0 and h have no mixed
 orbit–torus components, γ_h⁻¹ is block-diagonal and p^♯ is an orbit vector, while W″ and κ1′ have torus components only.
-So W″(p^♯, ·) = 0, γ_h^(jl) p_l κ1′_(ji) = 0, and the torus traces vanish: tr W″ = −2ξ cos θ (e^(−2ψ10) e^(2ψ10) −
-e^(−2ψ20) e^(2ψ20)) + O(λ) = O(λ) and likewise tr κ1′ = O(λ). The corrections of [[lem:constraints-evolution]] change γ
-by a multiple of dr ⊗ dr only. The argument is pointwise and algebraic in h and k: the terms of order λ⁻¹ are those
-displayed, with the inverse of γ + h, and they vanish wherever γ + h is block-diagonal, whatever the derivatives of h.
+So W″(p^♯, ·) = 0 and γ_h^(jl) p_l κ1′_(ji) = 0, and what remains is −λ⁻¹ |p|² tr W″ and 2 λ⁻¹ p tr κ1′, with the
+traces in the torus block of γ + h, which is that of γ. That block is γ0's, diag(e^(2ψ10), e^(2ψ20)), plus λ Σ_B W_B and
+terms of order λ², so tr W″ = −2ξ cos θ (e^(−2ψ10) e^(2ψ10) − e^(−2ψ20) e^(2ψ20)) + O(λ) = O(λ), and likewise tr κ1′ =
+O(λ): these terms are λ⁻¹ O(λ), of order one, and the coefficient of λ⁻¹ vanishes. The corrections of
+[[lem:constraints-evolution]] change γ by a multiple of dr ⊗ dr only. The argument is pointwise and algebraic in h and
+k: the terms that carry a second derivative of λ W_A or a first derivative of κ1_A are those displayed, with the inverse
+of γ + h, and they are of order one wherever γ + h is block-diagonal, whatever the derivatives of h.
 
 (c) Here W″ = −W, W″p = 0 because q̂ ⊥ p and the torus block annihilates p, and tr W″ = −tr W = 0. So dρ⁽⁻¹⁾ = |p|² ⟨h,
 W″⟩ = −c |p|² W(γ0⁻¹dr, γ0⁻¹dr) = −c ζ |p|² cos θ ⟨dr, q̂⟩², since γ0⁻¹dr is an orbit vector, on which W_T vanishes. In

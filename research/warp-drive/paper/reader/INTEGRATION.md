@@ -1261,3 +1261,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - P-K82 done: the two-dust corollary proved with one narrowing (vacuum weak limit on Ω₂′ inside the adapted domain).
   FOR THE FINAL REPORT once confirmed. Merge into chapter 82 after F3-82 and R-P-K82; block 5 for chapter 03.
 - R3-63 CONFIRMED: chapter 63 CONFIRMED (the doubled 'for g_λ' removed at line 1056).
+- P-U71-IS written. With the index sets as constructed: (G) exactly when ε_K < μ_G ≈ 1.6416·10⁻¹⁴, N_Λ ≈ 1.6·10¹³,
+  k̄_0 = 3, J_* = 15,000,015. Open: (SP) (running); multiplicities of roots of L̂_b(0) below Re −101 (the reader
+  decides whether l_* needs them); c_b at rotating b and 𝔡₁ in every admissible set concern only a smaller admissible
+  set, not the existence of the bound.

@@ -387,13 +387,12 @@ lies in m_ℬ + 1 of the sets U_β, against the choice of m_ℬ. So N_ℬ := m_�
     ‖Σ_α φ_α^* w_α‖²_k ≤ C Σ_α ‖w_α‖²_(H^k(ℝⁿ))  (supp w_α ⊂ K),      Σ_α ‖(φ_α)_*(ϑ_α u)‖²_(H^k(ℝⁿ)) ≤ C ‖u‖²_k.
 
 They are used below with K = [−5/4, 5/4]ⁿ or K = supp θ̃, and with ϑ = θ̃ or ϑ = θ̌; these lie in [−ℓ, ℓ]ⁿ, as
-13/8 < ℓ. By (S3), ‖u‖²_k = Σ_β ‖(φ_β)_*(χ°_βu)‖²_(H^k(ℝⁿ)) with χ°_β := φ_β^*χ°, where χ° ∈ C_c^∞((−2, 2)ⁿ)
-equals 1 on [−1, 1]ⁿ ([Hin26d, Definition 3.14, p. 34]) and is taken with 0 ≤ χ° ≤ 1, which changes the norm only up
-to equivalence ([Hin26d, p. 36]); as the sets φ_β⁻¹((−1, 1)ⁿ) cover ((S1)) and no point lies in more than
-m_ℬ ≤ N_ℬ of the U_β, 1 ≤ Σ_β χ°_β ≤ N_ℬ. For charts α, β and a function ϕ on (−2, 2)ⁿ that vanishes outside
-φ_α(F), with F ⊂ U_α ∩ U_β compact, put
-T^ϕ_(βα)w := (ϕw) ∘ φ_α ∘ φ_β⁻¹ on φ_β(U_α ∩ U_β), extended by 0. If the derivatives of ϕ of order at most |k| are
-bounded, then ‖T^ϕ_(βα)w‖_(H^k) ≤ C‖w‖_(H^k). For k ≥ 0 this is Leibniz's rule, the chain rule and the change of
+13/8 < ℓ and by the choice of ℓ. By (S3), ‖u‖²_k = Σ_β ‖(φ_β)_*(χ°_βu)‖²_(H^k(ℝⁿ)) with χ°_β := φ_β^*χ°,
+where χ° ∈ C_c^∞((−2, 2)ⁿ) equals 1 on [−1, 1]ⁿ ([Hin26d, Definition 3.14, p. 34]) and is taken with 0 ≤ χ° ≤ 1,
+which changes the norm only up to equivalence ([Hin26d, p. 36]); as the sets φ_β⁻¹((−1, 1)ⁿ) cover ((S1)) and no
+point lies in more than m_ℬ ≤ N_ℬ of the U_β, 1 ≤ Σ_β χ°_β ≤ N_ℬ. For charts α, β and a function ϕ on (−2, 2)ⁿ that
+vanishes outside φ_α(F), with F ⊂ U_α ∩ U_β compact, put T^ϕ_(βα)w := (ϕw) ∘ φ_α ∘ φ_β⁻¹ on φ_β(U_α ∩ U_β),
+extended by 0. If the derivatives of ϕ of order at most |k| are bounded, then ‖T^ϕ_(βα)w‖_(H^k) ≤ C‖w‖_(H^k). For k ≥ 0 this is Leibniz's rule, the chain rule and the change of
 variables, the transition maps and their inverses having bounded derivatives ((S1)). For k < 0 it follows by
 duality, the L²-adjoint of T^ϕ_(βα) being T^(ϕ′)_(αβ) with ϕ′ := (ϕ̄ |det D(φ_β ∘ φ_α⁻¹)|) ∘ φ_α ∘ φ_β⁻¹, a
 function of the same kind. Now (φ_β)_*(χ°_βφ_α^*w_α) = T^ϕ_(βα)w_α with ϕ := χ̌ · (χ° ∘ φ_β ∘ φ_α⁻¹), where
