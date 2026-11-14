@@ -465,9 +465,10 @@ P_l with real part greater than 2 are those of real part at least 2 other than �
 
 (b) Let ϰ_0 be a point of (a) and τ a type. The roots counted by c_τ(ϰ_0) lie in 𝒮_τ and are simple
 ([[lem:sp-roots]] (b)), and any two of them differ by an integer, both lying in ϰ_0 − {1, …, K(ϰ_0) + 1}; so by
-[[lem:sp-roots]] (c), c_τ(ϰ_0) ≤ 1, except c_s0(5) = 2 (the roots 4 and 2) and c_v1(5) = 2 (the roots 4 and 3). By [[thm:sp-reduction]] (b) and
-[[lem:sp-two-roots]] (c), N_sf(·)⁻¹ has a simple pole at ϰ_0, and by [[prop:sp-visible]] so has N_ι⁺(L̄, ·)⁻¹. The
-order of the pole of [[eq:iii-g1-3-3]] is that of N_ι⁺(L̄, ·)⁻¹ on Ċ^∞(ι⁺) ([[lem:iii-g1-4-2]] (b)).
+[[lem:sp-roots]] (c), c_τ(ϰ_0) ≤ 1, except c_s0(5) = 2 (the roots 4 and 2) and c_v1(5) = 2 (the roots 4 and 3).
+By [[thm:sp-reduction]] (b) and [[lem:sp-two-roots]] (c), N_sf(·)⁻¹ has a simple pole at ϰ_0, and by
+[[prop:sp-visible]] so has N_ι⁺(L̄, ·)⁻¹. The order of the pole of [[eq:iii-g1-3-3]] is that of N_ι⁺(L̄, ·)⁻¹ on
+Ċ^∞(ι⁺) ([[lem:iii-g1-4-2]] (b)).
 
 (c) [[thm:sp-reduction]] (b), with dim ker 𝔐_τ(ϰ_0) = c_τ(ϰ_0): when c_τ(ϰ_0) = 1, det 𝔐_τ has a simple zero, so the
 kernel is non-zero, and [[lem:sp-block]] bounds its dimension by 1; when c_τ(ϰ_0) = 2 it is [[lem:sp-two-roots]] (c).
@@ -497,8 +498,8 @@ are simple. The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1,
 
 *Proof.* (a) is [[thm:sp-spectrum]] (b) and [[lem:sp-roots]] (b); the set of poles at real part at most 5 is not
 empty, so the pole orders require l_* ≥ 1. (b) is the bound of [[prop:iii-g3-2-4]] with (a), and k(ℰ^C_(I,♯), λ) ≤ l_*
-as in the proof of [[lem:iii-j-1-2]]. (c): by [[cor:iii-g2-4-3]], the logarithmic powers produced are at most k + l_0, l_0 the order of
-the pole of N_ι⁺(L̄, ·)⁻¹ at the exponent. (d) is [[thm:sp-spectrum]] (a) restricted to the strip (4 + 𝔡₀, 4 + 𝔡₁ and
+as in the proof of [[lem:iii-j-1-2]]. (c): by [[cor:iii-g2-4-3]], the logarithmic powers produced are at most k + l_0,
+l_0 the order of the pole of N_ι⁺(L̄, ·)⁻¹ at the exponent. (d) is [[thm:sp-spectrum]] (a) restricted to the strip (4 + 𝔡₀, 4 + 𝔡₁ and
 the integers 4, 5 lie beyond it), with [[lem:sp-exceptional]] for the last statement: these numbers lie in
 3/2 + σ_Υ + {1, 2, 3} ⊂ Q, are not integers, are not 4 + 𝔡₀, 4 + 𝔡₁ or ι₁ + j (ι₁ + j ∈ (j + 2, j + 5/2)), and are not
 of the form ι + j or ι_v(l) + j with ι, ι_v(l) of real part greater than 2, as these would lie in Q. ∎
