@@ -381,22 +381,23 @@ from the disc of ι_B, and have real parts in (2.06, 2.98) while ι_B ∈ (2.017
 non-real and conjugate, ι_P and ι̅_P, in disjoint discs ([[lem:s14-sextic-large]] and the proof of
 [[prop:s14-damping-distance]]).
 
-For 0.018 ≤ x ≤ 0.03, that is 134 ≤ l ≤ 172 (x = 0.018224 at l = 134 and x = 0.029928 at l = 172), the two roots in |ι −
-a| < 0.45 are distinct. By [[lem:s14-majorant]], the bound |hW| ≤ h(M̄_a(0.45, 0.03) + hN̄(2.98, 0.03)) < 9.4·10⁻⁵ of the
-proof of [[lem:s14-sextic-large]] (b) holds on the whole closed disc |ι − a| ≤ 0.45, as there |ι| ≤ a + 0.45 ≤ 2.9725 <
-2.98. For real ι in that disc, 2 + x − ι ≤ 2 + x − a + 0.45 = x/4 − 0.05 ≤ −0.0425. As 3x + 10 = 4a and Δ_𝒬 is the
-discriminant of 𝒬(·, x) ([[lem:s14-sextic-split]] (iii)), completing the square gives 𝒬(ι, x) = 2(ι − a)² − Δ_𝒬(x)/8.
-Further Δ_𝒬 decreases on [0, 107], its derivative being 2x − 1715/8, and its smaller root x₋ lies in (0.01866, 0.01867)
-(loc. cit.). If l = 134 or 135, then x = 0.018224 or 0.018495 lies below x₋, and Δ_𝒬(x) = 0.093562114176 or
-0.035476440025. As 2 + x − a = −(2 − x)/4, U(a, x) = (2 − x)Δ_𝒬(x)/32, which is 0.0057943… or 0.0021967…, so U(a, x) >
-2·10⁻³; while 𝒬(a ± 0.45, x) = 0.405 − Δ_𝒬(x)/8 > 0.39, so U(a ± 0.45, x) < −0.0425·0.39 < −0.016. Hence P_l = U + hW is
-negative at a − 0.45, positive at a and negative at a + 0.45, and it has a real root in each of (a − 0.45, a) and (a, a +
-0.45): these are the two roots in the disc, and they are distinct. If 136 ≤ l ≤ 172, then x ≥ 0.018768 > x₋, so Δ_𝒬(x) ≤
-Δ_𝒬(0.018768) = −0.023037762176, and for real ι 𝒬(ι, x) ≥ −Δ_𝒬(0.018768)/8 = 0.002879720272 > 2.87·10⁻³. On the real
-diameter of the disc, then, |U| > 0.0425·2.87·10⁻³ > 1.2·10⁻⁴ > |hW|, and P_l has no real root in the disc. As P_l has
-real coefficients and the disc is symmetric about ℝ, conjugation permutes the roots in the disc with their
-multiplicities, and a non-real root of multiplicity 2 would bring its conjugate with the same multiplicity, four roots in
-the disc in all. So the two roots are a non-real conjugate pair, and they are distinct.
+For 0.018 ≤ x ≤ 0.03, that is 134 ≤ l ≤ 172 (x = 0.018224 at l = 134 and x = 0.029928 at l = 172), the two roots
+in |ι − a| < 0.45 are distinct. By [[lem:s14-majorant]], the bound h(M̄_a(0.45, 0.03) + hN̄(2.98, 0.03)) < 9.4·10⁻⁵
+on |hW| of the proof of [[lem:s14-sextic-large]] (b) holds on the whole closed disc |ι − a| ≤ 0.45, since
+a + 0.45 ≤ 2.9725 < 2.98 bounds |ι| there. For real ι in that disc, 2 + x − ι ≤ 2 + x − a + 0.45 = x/4 − 0.05 and
+so 2 + x − ι ≤ −0.0425. As 3x + 10 = 4a and Δ_𝒬 is the discriminant of 𝒬(·, x) ([[lem:s14-sextic-split]] (iii)),
+completing the square gives 𝒬(ι, x) = 2(ι − a)² − Δ_𝒬(x)/8. Further Δ_𝒬 decreases on [0, 107], its derivative
+being 2x − 1715/8, and its smaller root x₋ lies in (0.01866, 0.01867) (loc. cit.). If l = 134 or 135, then
+x = 0.018224 or 0.018495 lies below x₋, and Δ_𝒬(x) = 0.093562114176 or 0.035476440025. As 2 + x − a = −(2 − x)/4,
+the value U(a, x) = (2 − x)Δ_𝒬(x)/32 is 0.0057943… or 0.0021967…, so U(a, x) > 2·10⁻³; while
+𝒬(a ± 0.45, x) = 0.405 − Δ_𝒬(x)/8 > 0.39, so U(a ± 0.45, x) < −0.0425·0.39 < −0.016. Hence P_l = U + hW is negative
+at a − 0.45, positive at a and negative at a + 0.45, and it has a real root in each of (a − 0.45, a) and
+(a, a + 0.45): these are the two roots in the disc, and they are distinct. If 136 ≤ l ≤ 172, then x ≥ 0.018768 > x₋,
+so Δ_𝒬(x) ≤ Δ_𝒬(0.018768) = −0.023037762176, and 𝒬(ι, x) ≥ −Δ_𝒬(0.018768)/8 = 0.002879720272 > 2.87·10⁻³ for
+real ι. On the real diameter of the disc, then, |U| > 0.0425·2.87·10⁻³ > 1.2·10⁻⁴ > |hW|, and P_l has no real root
+in the disc. As P_l has real coefficients and the disc is symmetric about ℝ, conjugation permutes the roots in the
+disc with their multiplicities, and a non-real root of multiplicity 2 would bring its conjugate with the same
+multiplicity, four roots in the disc in all. So the two roots are a non-real conjugate pair, and they are distinct.
 
 In each case, therefore, the three roots of real part at least 2 are distinct, so each is a simple root of P_l, and no
 two differ by a non-zero integer: for any two, either their real parts differ by less than 1 or their difference is
