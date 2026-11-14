@@ -1272,3 +1272,5 @@ Items found while chapters were written in parallel; each is settled once, editi
 - F3-82 done (reports/F3-82.md): lem:vlasov-local-stability added; (V1) uniform neighbourhood; uniqueness in
   prop:vlasov-cauchy narrowed to ε2. R3-82 reads the chapter and says whether P-K82 is affected. P-K82 merges after
   R-P-K82 and R3-82.
+- R-P-K82 NOT CONFIRMED 1M 11m 9n (reviews/R-P-K82.md). F-P-K82 aligns P-K82 to the chapter 82 of F3-82 and closes
+  the Major and the gaps. R3-82 told to skip the P-K82 impact (covered by R-P-K82).
