@@ -5,8 +5,8 @@ eq:iii-e-1-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:25	III.E (1.1)
 eq:iii-e-1-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:30	III.E (1.2)	
 thm:iii-e-1-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:37	III.E Theorem 1.1 as proved by IV(4) Theorem 2.1 and IV(6) Theorem 4.1	constants of IV(4) (0.1), gamma_C = 1/h with h in H (IV(4) findings 1-2 folded); C_0 in [3/2,100] from IV(6) T4.1
 sec:iv4-0	docket68/n1star/proof5/PART-IV5-CDMODES.md:17	IV(4) section 0	damping constants fixed once (replaces VI.C section 3)
+eq:s14-lh	docket68/n1star/proof5/PART-IV5-CDMODES.md:23-24	IV(4) section 0, display of h^2 box^C ([Hin26a] (3.2) with L_(g,c,e,h))	the display formerly keyed eq:iv4-0-2 (row removed), now under this key
 eq:iv4-0-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:31	IV(4) (0.1)	Z also contains the countable set of NP 10.54 (d) / 10.52
-eq:iv4-0-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:21	IV(4) section 0, display of h^2 box^C	
 sec:s14-model	docket68/n1star/N1STAR-PROOF.md:3414	NP 10.12-10.14, 10.21-10.22, 10.54, 10.79	program steps written as derivations
 lem:s14-box-c	docket68/n1star/N1STAR-PROOF.md:3438	NP 10.12 (U2), (10.46)	box^C = Box_g + h^-1 L_c; derivation added
 eq:s14-lc	docket68/n1star/N1STAR-PROOF.md:3438	NP 10.12 (U2)	formula derived
@@ -18,14 +18,20 @@ lem:s14-q5	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (10.47): properties of 
 lem:s14-small-h	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (U3) h = 0 limits; NP 10.54 (d)	new lemma; replaces values at h = 10^-6
 eq:s14-ttau	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (U3), the very negative roots	
 prop:np-10-54	docket68/n1star/N1STAR-PROOF.md:7381	NP 10.54 Proposition 10.44 and (a)	vector type and scalar type 0 by hand; scalar type l >= 1 from prop:s14-scalar-every-h (proof A3); (iii) finiteness in strips by rescaling and Hurwitz
+rem:s14-u6	docket68/n1star/N1STAR-PROOF.md:3459-3462	NP 10.12 (U6) (numerical, a measurement)	numerical observation remark (class (b)); no proof uses it
 prop:np-10-13	docket68/n1star/N1STAR-PROOF.md:3529	NP 10.13 Proposition 10.10 (i)-(v)	by hand; the numerical estimate e_0 ~ 0.000069 v^2 is not stated
 eq:s14-ell	docket68/n1star/N1STAR-PROOF.md:3529	NP 10.13 (i); [Hin26a] (3.3)	
 eq:s14-s	docket68/n1star/N1STAR-PROOF.md:3557	NP 10.13 proof: S = (L - L*)/(2ih)	
+eq:s14-s-ang	docket68/n1star/N1STAR-PROOF.md:3540-3541; docket68/n1star/N1STAR-PROOF.md:3549-3550	NP 10.13 Proposition 10.10 (iii) and its proof (S from its definition; semiclass5 W2)	S on r dω written out by hand in the proof of prop:np-10-13; no record display
+eq:s14-s-rad	docket68/n1star/N1STAR-PROOF.md:3540-3541; docket68/n1star/N1STAR-PROOF.md:3549-3550	NP 10.13 Proposition 10.10 (iii) and its proof (S from its definition; semiclass5 W2)	the matrices of s and B on span{dt, dr} written out by hand; no record display
+rem:s14-e0	docket68/n1star/N1STAR-PROOF.md:3542-3543	NP 10.13 Proposition 10.10 (iii), the largest admissible e (W4)	numerical observation remark (class (b)); no proof uses it
 prop:np-10-14	docket68/n1star/N1STAR-PROOF.md:3593	NP 10.14 Proposition 10.11 (i)-(iv) and (a)-(c)	(i),(ii),(iv) and (5.8) by hand; (iii) written proof, trace and determinant numerators in app:tables; (b) smoothing written out; measurement (v) kept as rem:s14-r0
 eq:s14-tang	docket68/n1star/N1STAR-PROOF.md:3586	NP (10.48)	
 eq:s14-cform	docket68/n1star/N1STAR-PROOF.md:3593	NP (10.49)	
 eq:s14-q	docket68/n1star/N1STAR-PROOF.md:3611	NP 10.14 (iv), polynomial q	
+rem:s14-r0	docket68/n1star/N1STAR-PROOF.md:3616-3618	NP 10.14 Proposition 10.11 (v) (a measurement, C6)	numerical observation remark (class (b)); no proof uses it
 prop:np-10-21	docket68/n1star/N1STAR-PROOF.md:4216	NP 10.21 Proposition 10.18 (i)-(iii)	(ii) stated through the isometry t -> -t
+eq:s14-theta-in	docket68/n1star/N1STAR-PROOF.md:4223-4225; docket68/n1star/N1STAR-PROOF.md:4035-4038	NP 10.21 Proposition 10.18 (ii) (K2); NP 10.19 (a), vartheta_in = -2 S-bar	ϑ_in at the bottom h⁻¹(1 − e)(1 + v) of the spectrum written out
 prop:np-10-22	docket68/n1star/N1STAR-PROOF.md:4336	NP 10.22 Proposition 10.19 (i)-(iv)	
 prop:np-10-79	docket68/n1star/N1STAR-PROOF.md:10042	NP 10.79 (i)-(v)	threshold quadratic chi derived in closed form
 eq:s14-chi	docket68/n1star/N1STAR-PROOF.md:10075	NP 10.79 (v)	
@@ -50,6 +56,8 @@ sec:iv5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:211	IV(5) section 1
 lem:iv5-1-1	docket68/n1star/proof5/PART-IV6-SOLV.md:213	IV(5) Lemma 1.1	
 prop:iv5-1-2	docket68/n1star/proof5/PART-IV6-SOLV.md:235	IV(5) Proposition 1.2	
 prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	
+eq:iv5-fib	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.21)	estimate written out in dimension 4 + 1
+eq:iv5-fib-adj	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.22)	adjoint estimate written out in dimension 4 + 1
 sec:iv5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:298	IV(5) section 2	
 eq:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:303	IV(5) (2.1)	
 prop:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:313	IV(5) Proposition 2.1	
@@ -92,6 +100,7 @@ sec:iv6-3	docket68/n1star/proof5/PART-IV7-TFACE.md:346	IV(6) section 3
 thm:iv6-3-1	docket68/n1star/proof5/PART-IV7-TFACE.md:348	IV(6) Theorem 3.1	
 sec:iv4-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:152	IV(4) section 2	
 thm:iv4-2-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:154	IV(4) Theorem 2.1 (data at t_KS = 0; adjoint at C_0 - 1)	
+rem:s14-other-routes	docket68/n1star/proof5/PART-IV5-CDMODES.md:228-231	IV(4) section 2, the paragraph after Theorem 2.1's proof	the source's other two routes to surjectivity, not used
 sec:iv6-4	docket68/n1star/proof5/PART-IV7-TFACE.md:385	IV(6) section 4	
 thm:iv6-4-1	docket68/n1star/proof5/PART-IV7-TFACE.md:387	IV(6) Theorem 4.1	
 sec:iii-e-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:74	III.E section 2	
@@ -101,6 +110,8 @@ sec:iii-e-3	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:125	III.E section 3
 prop:iii-e-3-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:129	III.E Proposition 3.1 and Remarks	
 eq:iii-e-3-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:132	III.E (3.1)	
 eq:iii-e-3-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:146	III.E (3.2)	
+rem:s14-counting	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:206-208	III.E Proposition 3.1, Remark (a) Counting	
+rem:s14-polyhom	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:208-210	III.E Proposition 3.1, Remark (b)	
 sec:iii-e1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:1	III.E1	
 sec:iii-e1-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:18	III.E1 section 1	
 eq:iii-e1-1-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:24	III.E1 (1.1)	
@@ -119,5 +130,9 @@ eq:iii-e1-3-4	docket68/n1star/proof5/PART-III-E2-V1STATES.md:119	III.E1 (3.4)
 eq:iii-e1-3-5	docket68/n1star/proof5/PART-III-E2-V1STATES.md:128	III.E1 (3.5)	
 eq:iii-e1-3-6	docket68/n1star/proof5/PART-III-E2-V1STATES.md:151	III.E1 (3.6)	
 eq:iii-e1-3-7	docket68/n1star/proof5/PART-III-E2-V1STATES.md:165	III.E1 (3.7)	
+rem:s14-dim3	docket68/n1star/proof5/PART-III-E2-V1STATES.md:210-215	III.E1, the Remark after Proposition 3.1	the mass μ written m, Kerr's m written m_K
 sec:s14-simple	docket68/n1star/N1STAR-PROOF.md:7259	NP 10.52 setting	
 prop:np-10-52	docket68/n1star/N1STAR-PROOF.md:7269	NP 10.52 Proposition 10.43 with 10.54 (d) and VI.C row w1	stated off a countable set of h; eq:s14-theta proved; the value of δ_50 in lem:s14-delta50 and ε_ind(10^-6) = δ_50 in cor:s14-eps-ind-point (proof A)
+eq:s14-theta	docket68/n1star/N1STAR-PROOF.md:7272-7274; docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:192-194	NP 10.52 Proposition 10.43 (i) (Q's roots in s); III.D Lemma 4.1 (the z -> 0 expansions)	closed forms of d₁, d₂ and the bounds on θ₁, θ₂ derived by hand in prop:np-10-52 (i); no record display
+rem:s14-delta50	docket68/n1star/N1STAR-PROOF.md:7291-7296; docket68/n1star/N1STAR-PROOF.md:7427-7428; paper/reader/proofs/P-A-indicial.md:24	NP 10.52 Deduced (the bound attained at box^Ups's root near 1 - l, l = 50); NP 10.54 (d); proof A Lemma lem:s14-delta50	distinguishes ε_ind(h), ch:s15's ε_ind and δ_50; δ_50's value is proof A's lem:s14-delta50 (proof A not yet merged)
+rem:s14-eps-point	paper/reader/proofs/P-A-indicial.md:383-388; paper/reader/proofs/P-A-indicial.md:400-407; docket68/n1star/N1STAR-PROOF.md:7280-7286	proof A Corollary cor:s14-eps-ind-point and Remark rem:s14-eps-ind-scope; NP 10.52 Proposition 10.43 (ii)	summary of proof A at h = 10⁻⁶ (proof A not yet merged); the record scans 1.94137 x 10^-8 at l = 50

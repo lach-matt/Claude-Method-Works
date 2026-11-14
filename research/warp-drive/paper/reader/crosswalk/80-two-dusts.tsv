@@ -8,64 +8,64 @@ def:two-dust-data	docket68/n1star/FAMILIES5-FULL.md:46-64	FULL Data (stated)	u o
 eq:two-dust-fluxes	docket68/n1star/FAMILIES5-FULL.md:50-55; docket68/n1star/FAMILIES5.md:138-142	FULL data; FAMILIES5 4b T2 (K_in R^3 = alpha^2/3)	A, B as (1/3) A^2 env^2, (1/3) A2^2 env2^2
 thm:two-dusts	docket68/n1star/FAMILIES5-FULL.md:66-79, 666-742	FULL Theorem 1_2 items 1-5; Proposition 8.1_2, Proposition 8.2_2 (items 6-7)	key carries Theorem 1_2 with the background and its data fixed (R3-00-03 note: thm:two-dusts must fix the background for ch 3 and ch 83); Theorem E_2 itself is thm:two-dust-uniform; item 6 stated in the form of NP Prop 8.1 (a)-(c) with R_H for sqrt(mu) as FULL 671 says
 eq:two-dust-limit	docket68/n1star/FAMILIES5-FULL.md:72-75	FULL Theorem 1_2 item 4	written with 𝒜/R³ and ℬ/R³ directly (K_in, K_out dropped: K is the order)
-rem:two-dust-scope	docket68/n1star/FAMILIES5-FULL.md:186-190	FULL 2 "Not settled"
+rem:two-dust-scope	docket68/n1star/FAMILIES5-FULL.md:186-190	FULL 2 "Not settled"	
 sec:two-dust-background	docket68/n1star/FAMILIES5-FULL.md:87-190; docket68/n1star/FAMILIES5.md:634-790	FULL section 2; FAMILIES5 4c, 4i	key requested by proofs/P-E-background.md and P-E-margins.md as pending:sec-two-dust-background
 lem:two-dust-equations	docket68/n1star/FAMILIES5.md:639-649	FAMILIES5 4c B1-B2	twodust5 B1-B2 written out: warped-product Ricci, propagation identity derived by hand (checked privately)
-eq:two-dust-evolution	docket68/n1star/FAMILIES5.md:641-643	FAMILIES5 4c B1 evolution
-eq:two-dust-constraints	docket68/n1star/FAMILIES5.md:644-645	FAMILIES5 4c B1 constraints C_u, C_v
+eq:two-dust-evolution	docket68/n1star/FAMILIES5.md:641-643	FAMILIES5 4c B1 evolution	
+eq:two-dust-constraints	docket68/n1star/FAMILIES5.md:644-645	FAMILIES5 4c B1 constraints C_u, C_v	
 lem:two-dust-identities	docket68/n1star/FAMILIES5.md:650-652, 674-686, 713-716, 731-740; docket68/n1star/FAMILIES5-FULL.md:93-97	FAMILIES5 B3, D1, T1 (twodt5), X1-X2 (twoext5); FULL Prop B(a) identities	key requested by proofs/P-E-margins.md as pending:two-dust-identities ((S1)-(S4) there are (i), (ii), (iv), (v) here); Kretschmann derived from the warped-product Riemann tensor
-eq:two-dust-mass	docket68/n1star/FAMILIES5.md:650-652	FAMILIES5 4c B3 Misner-Sharp mass
+eq:two-dust-mass	docket68/n1star/FAMILIES5.md:650-652	FAMILIES5 4c B3 Misner-Sharp mass	
 eq:two-dust-chart	docket68/n1star/FAMILIES5.md:674-680	FAMILIES5 4i D1 (v-hat, R) form	mirror outgoing form (psi-tilde) from FULL 96-97
-eq:two-dust-kretschmann	docket68/n1star/FAMILIES5.md:713-716	FAMILIES5 4i twodt5 T1
+eq:two-dust-kretschmann	docket68/n1star/FAMILIES5.md:713-716	FAMILIES5 4i twodt5 T1	
 prop:two-dust-background	docket68/n1star/FAMILIES5-FULL.md:93-174	FULL Proposition B (a)-(d)	(a) with the Sigma_tau0 data clause (FULL 57-61 "Equivalently"); (d) with the D552 a priori chain (FAMILIES5 731-758) simplified by (b) as FULL 124-127 says; FULL 11 (1)-(5) corrections already in place; (a) states the outgoing Vaidya form where R_v > 0 (lem (v)), with the sign argument on {u ≤ u2, v ≤ v_start}; Σ_τ0 clause: shell on Tangherlini of mass μ0 + E₂; existence bounds named C_U, 2C_U and the truncations 𝔉♯, ℌ♯ (K, F clashes)
 eq:two-dust-volterra	docket68/n1star/FAMILIES5.md:759-768; docket68/n1star/FAMILIES5-FULL.md:122-127	FAMILIES5 4i D558 integral system	Q written Q-bar (Q is the rectangle); nonlinearities written 𝔉, ℌ (F is the phase derivative)
 lem:two-dust-reparametrisation	docket68/n1star/FAMILIES5-FULL.md:87-91, 135; docket68/n1star/FAMILIES5.md:127-129	FULL 2 notation and the gauge s = const on N′; FAMILIES5 4b round double-null g0	new lemma (R-80 minor 5): increasing reparametrisations of the cones change σ by −½ ln(ũ′ṽ′) and the fluxes by 1/ṽ′², 1/ũ′², leave R, μ, f, e^(−4σ)𝒜ℬ, ψ unchanged; the advanced time is fixed by ψ = 0 on C_out; so proofs E's data in the gauge e^(2s) = 1/2 give the background of prop:two-dust-background; checked privately
 lem:two-dust-domain	docket68/n1star/FAMILIES5-FULL.md:151-166; docket68/n1star/FAMILIES5.md:681-730	FULL Proposition B(e); FAMILIES5 Lemma 1.1' (D2), D_T and (f) (D546-D549)	v-hat = v by the normalisation of def:two-dust-data; cone choice argued from Vaidya outgoing rays (FULL 154-158); interval structure of slices written out; slices: R_v = f/2 on all of C_out (ψ = 0); R_out(τ) also covers a slice leaving Q through v = V1
-eq:two-dust-omega	docket68/n1star/FAMILIES5-FULL.md:153-155; docket68/n1star/FAMILIES5.md:718-728	FULL B(e) Omega_2; FAMILIES5 D_T, r_q-flat, tau_end
+eq:two-dust-omega	docket68/n1star/FAMILIES5-FULL.md:153-155; docket68/n1star/FAMILIES5.md:718-728	FULL B(e) Omega_2; FAMILIES5 D_T, r_q-flat, tau_end	
 rem:two-dust-example	docket68/n1star/FAMILIES5-FULL.md:101-104, 110-120, 158-166, 168-175, 708-711; paper/RESPONSE-HL-5D.md:1901-1905	FULL Prop B (a)-(c), (e), (f) example; section 9 G5; P twodomainx5 sentence	class (b) items C161 twobg5 and C180 twodomainx5 (maps/proof-projects.md 1.2), as a Numerical observation remark; G3 margin 0.9951 per R6 note; T = 1, δ0 = 0.05 added (FULL 156-157); the second rectangle: residuals converge at second order away from the inner boundary (FAMILIES5-R6.md:494-496)
-sec:two-dust-phases	docket68/n1star/FAMILIES5-FULL.md:184-192, 267-272	FULL section 3; Lemma 2.4_2
-eq:two-dust-generators	docket68/n1star/FAMILIES5-FULL.md:188-190	FULL section 3 ell_in = -e^(-psi) L0
+sec:two-dust-phases	docket68/n1star/FAMILIES5-FULL.md:184-192, 267-272	FULL section 3; Lemma 2.4_2	
+eq:two-dust-generators	docket68/n1star/FAMILIES5-FULL.md:188-190	FULL section 3 ell_in = -e^(-psi) L0	
 eq:two-dust-speed	docket68/n1star/FAMILIES5-FULL.md:190-192	FULL section 3 c_out = y/(1-y)	twotransport5 T2 derived from the (v,R) form
 lem:two-dust-transport	docket68/n1star/FAMILIES5-FULL.md:267-272, 551-554	FULL Lemma 2.4_2; (F7)	twotransport5 T1-T3 replaced by the divergence-theorem derivation
-eq:two-dust-transport	docket68/n1star/FAMILIES5-FULL.md:267-269	FULL Lemma 2.4_2 identity
+eq:two-dust-transport	docket68/n1star/FAMILIES5-FULL.md:267-269	FULL Lemma 2.4_2 identity	
 lem:two-dust-commutator	docket68/n1star/FAMILIES5.md:495-504; docket68/n1star/FAMILIES5-FULL.md:545-549	FAMILIES5 4f transports (Q1); FULL (F6)	twophase5 Q1 written out (second-derivative coefficients -4e^(-4s) s_v, -4e^(-4s) R_u/R; checked privately)
-eq:two-dust-commutator	docket68/n1star/FAMILIES5.md:497-502	FAMILIES5 4f Q1
+eq:two-dust-commutator	docket68/n1star/FAMILIES5.md:497-502	FAMILIES5 4f Q1	
 eq:two-dust-psi	docket68/n1star/FAMILIES5-FULL.md:261-265, 545-549	FULL Lemma 3.4_2; (F6)	source written ξ; the normalised generators Z = L0, Z_out and the exact Hessian transport (FULL 627 form, with 1/ℓ(τ))
-sec:two-dust-approximant	docket68/n1star/FAMILIES5-FULL.md:194-236	FULL section 4
-eq:two-dust-shift	docket68/n1star/FAMILIES5.md:530-531	FAMILIES5 4g (3.1')
-eq:two-dust-waves	docket68/n1star/FAMILIES5.md:131-136; docket68/n1star/FAMILIES5-FULL.md:61-62	FAMILIES5 4b ansatz; FULL outgoing waves = W_TT with phase u/lambda, env2
-def:two-dust-approximant	docket68/n1star/FAMILIES5-FULL.md:196-199, 239-241; docket68/n1star/FAMILIES5.md:530-536	FULL Theorem A_2 (E1) per family, (E2), (E3); FAMILIES5 4g (E1')
+sec:two-dust-approximant	docket68/n1star/FAMILIES5-FULL.md:194-236	FULL section 4	
+eq:two-dust-shift	docket68/n1star/FAMILIES5.md:530-531	FAMILIES5 4g (3.1')	
+eq:two-dust-waves	docket68/n1star/FAMILIES5.md:131-136; docket68/n1star/FAMILIES5-FULL.md:61-62	FAMILIES5 4b ansatz; FULL outgoing waves = W_TT with phase u/lambda, env2	
+def:two-dust-approximant	docket68/n1star/FAMILIES5-FULL.md:196-199, 239-241; docket68/n1star/FAMILIES5.md:530-536	FULL Theorem A_2 (E1) per family, (E2), (E3); FAMILIES5 4g (E1')	
 lem:two-dust-stage-zero	docket68/n1star/FAMILIES5.md:121-161; docket68/n1star/FAMILIES5-FULL.md:201-203	FAMILIES5 4b T1-T6 (stage0two5); FULL section 4 Stage 0	stage0two5 T1-T6 derived from lem:leading-coefficient, lem:mean-leading and the two-phase principal part; (d) stated for every zero-mean χ_in (no restriction to n = ±2)
 eq:two-dust-chi	docket68/n1star/FAMILIES5.md:149-155	FAMILIES5 4b T3, T5 (chi transports)	written in the transport form of ch 4 eq:chi-transport; chi_in, chi_out zero on Sigma_tau0 (lem:stage-data)
 lem:two-dust-nonresonance	docket68/n1star/FAMILIES5-FULL.md:204-212	FULL section 4 every order (nonres5 N1-N2)	nonres5 written out; Touati [Tou24, (1.18), p. 9] as a comparison only
-eq:two-dust-symbol	docket68/n1star/FAMILIES5-FULL.md:205-210	FULL nonres5 symbol -e^(-2s) f' h' n1 n2
-rem:two-dust-symbol	docket68/n1star/FAMILIES5-FULL.md:222-226	FULL the constant on Omega_2 (analytic rate)
+eq:two-dust-symbol	docket68/n1star/FAMILIES5-FULL.md:205-210	FULL nonres5 symbol -e^(-2s) f' h' n1 n2	
+rem:two-dust-symbol	docket68/n1star/FAMILIES5-FULL.md:222-226	FULL the constant on Omega_2 (analytic rate)	
 rem:two-dust-symbol-values	docket68/n1star/FAMILIES5-FULL.md:213-224	FULL the constant on Omega_2 (twobg5 G2 (vii), G4)	class (b) item C161, Numerical observation remark
 lem:two-dust-stages	docket68/n1star/FAMILIES5.md:583-621; docket68/n1star/FAMILIES5-FULL.md:231-236	FAMILIES5 4h (5.1'), (5.2'), Lemma 5.1', Lemma 5.3'; FULL section 4 stage system	cross-contraction terms c_j sorted into T-hat (j = 1), W (j = m), K_m (others); verifier-227 corrections of 4h in place; T̂ acts on the pure harmonics of ĝ_(m+1) only; the mixed harmonics of ĝ_(m+1) and −c_j F1F2 ĝ_(m+2−j), j < m, in 𝒦_m; j = m in 𝒲 (FAMILIES5.md:596-608); profile unknowns Ξ_𝔨; lem:linear-wave transferred with the open region 𝒪 ⊂ Q_(a′)
-eq:two-dust-ansatz	docket68/n1star/FAMILIES5.md:588-593	FAMILIES5 4h (5.1')
-eq:two-dust-stage-m	docket68/n1star/FAMILIES5.md:598-605	FAMILIES5 4h Lemma 5.1'
-eq:two-dust-stage-system	docket68/n1star/FAMILIES5.md:606-618	FAMILIES5 4h Lemma 5.3' (a)-(d)
-thm:two-dust-approximant	docket68/n1star/FAMILIES5-FULL.md:196-199; docket68/n1star/FAMILIES5.md:622-627	FULL Theorem A_2; FAMILIES5 Theorem A'
-sec:two-dust-uniform	docket68/n1star/FAMILIES5-FULL.md:237-278, 513-665	FULL section 5 and section 8
+eq:two-dust-ansatz	docket68/n1star/FAMILIES5.md:588-593	FAMILIES5 4h (5.1')	
+eq:two-dust-stage-m	docket68/n1star/FAMILIES5.md:598-605	FAMILIES5 4h Lemma 5.1'	
+eq:two-dust-stage-system	docket68/n1star/FAMILIES5.md:606-618	FAMILIES5 4h Lemma 5.3' (a)-(d)	
+thm:two-dust-approximant	docket68/n1star/FAMILIES5-FULL.md:196-199; docket68/n1star/FAMILIES5.md:622-627	FULL Theorem A_2; FAMILIES5 Theorem A'	
+sec:two-dust-uniform	docket68/n1star/FAMILIES5-FULL.md:237-278, 513-665	FULL section 5 and section 8	
 eq:two-dust-decomposition	docket68/n1star/FAMILIES5-FULL.md:240-242	FULL Theorem E_2 decomposition	Y_K := F_K g1 + lambda F_K g2 in the fixed-phase form (FULL 517-519 writes g-hat_2)
 eq:two-dust-energy	docket68/n1star/FAMILIES5-FULL.md:242-244, 597-598	FULL N_2, (8.1)	written N-script_2 (OUTLINE: N is the number of stages)
 thm:two-dust-uniform	docket68/n1star/FAMILIES5-FULL.md:237-244, 653-665	FULL Theorem E_2	stated as ch 6 thm:uniform-existence on Omega_2 for any two-phase approximant
-eq:two-dust-remainder	docket68/n1star/FAMILIES5-FULL.md:274-278, 653-658	FULL Step 7 bound
+eq:two-dust-remainder	docket68/n1star/FAMILIES5-FULL.md:274-278, 653-658	FULL Step 7 bound	
 lem:two-dust-facts	docket68/n1star/FAMILIES5-FULL.md:521-554	FULL section 8 facts (F1)-(F7)	twodecomp5 J0-J9, twolin5 L1-L2, twophase5 Q1-Q2 replaced by derivations from the principal part and the phase-shift equivariance; labels (L1)-(L7) (ch 7 has (F1)-(F2)); (L4) now states g_app⁻¹(dv, dv) = −λ(m1(ℓ_in, ℓ_in) + e^(−4σ)[χ_out]) + O(λ²) (FULL 541-542) and g_app⁻¹(dϕ, dϕ) = O(λ); (L3) also puts the O(λ) part of g_app⁻¹(dv, du) in T; (L6) for the normalised operators L0, Z_out; coupling profiles written ω_in, ω_out (c_out is the speed); residual written ℰ
-lem:two-dust-phases	docket68/n1star/FAMILIES5-FULL.md:555-560	FULL (3.4_2)
-eq:two-dust-phases	docket68/n1star/FAMILIES5-FULL.md:555-556	FULL (3.4_2)
+lem:two-dust-phases	docket68/n1star/FAMILIES5-FULL.md:555-560	FULL (3.4_2)	
+eq:two-dust-phases	docket68/n1star/FAMILIES5-FULL.md:555-556	FULL (3.4_2)	
 lem:two-dust-h	docket68/n1star/FAMILIES5-FULL.md:562-572	FULL (3.5_2) and its proof	J7 replaced by the derivation from (F1)-(F2)
-eq:two-dust-h	docket68/n1star/FAMILIES5-FULL.md:564-568	FULL (3.5_2)
+eq:two-dust-h	docket68/n1star/FAMILIES5-FULL.md:564-568	FULL (3.5_2)	
 lem:two-dust-ell-ell	docket68/n1star/FAMILIES5-FULL.md:574-595	FULL Lemma 3.3_2	J6, J7 replaced by the contraction argument from (F2), (F4); index pair (a,i) written (b,i) as ch 6
-eq:two-dust-ell-ell	docket68/n1star/FAMILIES5-FULL.md:576-579	FULL Lemma 3.3_2 display
-sec:two-dust-data	docket68/n1star/FAMILIES5-FULL.md:280-318	FULL section 6
+eq:two-dust-ell-ell	docket68/n1star/FAMILIES5-FULL.md:576-579	FULL Lemma 3.3_2 display	
+sec:two-dust-data	docket68/n1star/FAMILIES5-FULL.md:280-318	FULL section 6	
 thm:two-dust-data	docket68/n1star/FAMILIES5-FULL.md:282-286	FULL Theorem D_2	proof: NP section 6 (ch 7) with lem:two-dust-slice, lem:two-dust-stage-data; S2-S4 replaced by the argument of ch 7 lem:constraints-evolution (b)-(c) checked to use only radial phases, traceless angular waves, round g0
 lem:two-dust-slice	docket68/n1star/FAMILIES5-FULL.md:287-295	FULL Lemma 6.3 on the two-dust slice (twoslice5 S1)	twoslice5 S1 derived from the general formulas of ch 7 lem:constraints-evolution (a); G = e^psi (2 - e^psi f) on Sigma_tau0
 lem:two-dust-stage-data	docket68/n1star/FAMILIES5-FULL.md:310-318; docket68/n1star/FAMILIES5.md:790-800	FULL Lemma 6.1_2, 6.2_2; FAMILIES5 4i D566 (i)-(ii)	gauge-hierarchy induction written for two phases; mixed symbol of B_g given as +e^(-2s) n1 n2 (FULL 311 writes -e^(-2s) n1 n2, the symbol of the reduced operator); support induction written out; (a) rewritten: G⁻¹(du_in, du_in) = −λ e^(−4σ) χ_out + O(λ²) (FAMILIES5.md:535-536, FULL 541-542), its terms −½ e^(−4σ) χ_out F1² Y join the mixed equation; induction (H_m) with Ξ_𝔨
-sec:two-dust-items	docket68/n1star/FAMILIES5-FULL.md:666-742	FULL sections 9-10
+sec:two-dust-items	docket68/n1star/FAMILIES5-FULL.md:666-742	FULL sections 9-10	
 prop:two-dust-one-zero	docket68/n1star/FAMILIES5-FULL.md:668-706	FULL Proposition 8.1_2 and proof (i)-(iv)	twohorizon5 H1-H3 and h3proof5 written out: theta+(g0) = 3 e^psi f/(R(2 - e^psi f)) in general; structural proof of H3 via eq:two-dust-theta and the block-diagonal trace identity; margin of the zero from the curvature boundary written for R_H
-eq:two-dust-theta	docket68/n1star/FAMILIES5-FULL.md:694-697	FULL section 9 (T) of h3proof5
-eq:two-dust-trace-mixed	docket68/n1star/FAMILIES5-FULL.md:697-700	FULL section 9 (S1)
+eq:two-dust-theta	docket68/n1star/FAMILIES5-FULL.md:694-697	FULL section 9 (T) of h3proof5	
+eq:two-dust-trace-mixed	docket68/n1star/FAMILIES5-FULL.md:697-700	FULL section 9 (S1)	
 eq:two-dust-cpw	docket68/n1star/FAMILIES5-FULL.md:697-699	FULL section 9 colliding-plane-wave identity	derived for y-independent block-diagonal metrics (checked privately)
 lem:two-dust-quarter-turn	docket68/n1star/FAMILIES5-FULL.md:714-727	FULL Lemma 8.2_2	twoparity5 P1-P4 derived from ch 8 lem:quarter-turn (a) with two phases; P4 (mixed harmonics of g-hat_2 S-even) from (a) at order 0 and the invariance of the division
 prop:two-dust-mean-mass	docket68/n1star/FAMILIES5-FULL.md:728-738	FULL Proposition 8.2_2	P3 (Hawking mass of round double-null spheres) derived

@@ -7,15 +7,16 @@ slice Σ_τ0, τ0 = −0.68, or on a slice bent from it.
 
 Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
 and data localised in an angular band exist exactly ([[prop:loc-cones]]). On Σ_τ0 the constraints split, after Rácz
-[Rac16], into a hyperbolic system with the radius as time wherever κK^l_l < 0; this holds on all of Σ_τ0 except one
-band inside the shell, where no foliation of Σ_τ0 is hyperbolic, and on a slice bent from Σ_τ0 by at most 0.0012 it
-holds everywhere, so that data localised in an angle exist on the whole slice ([[thm:loc-bent-slice]]). Localisation
-in angle and radius at once is decided, near the background's data and at second order in the amplitude, by the sign
-of a charge Q: the pairing of the constraints with the static Killing field. On every band of Σ_τ0 on which the
-background is vacuum the mass term of the charge identity is positive, and Q is negative for every perturbation of the
-extrinsic curvature alone. For perturbations of the metric, on every such band, Q takes both signs where the round
-spheres are trapped, f < 0, and where they are not, f > 0, it is negative for every perturbation that is not a gauge
-perturbation ([[thm:charge-sign]]).
+[Rac16], into a hyperbolic system with the radius as time wherever κK^l_l < 0; this holds on all of Σ_τ0 except one band
+inside the shell, where no foliation of Σ_τ0 is hyperbolic, and on a slice bent from Σ_τ0 by at most 0.0012 it holds
+everywhere, so that data equal to the background's outside the domain of influence of a compact set away from the axes
+exist on the whole slice, that domain spreading in angle at most linearly as the radius decreases
+([[thm:loc-bent-slice]]). Localisation in angle and radius at once is decided, near the background's data and at second
+order in the amplitude, by the sign of a charge Q: the pairing of the constraints with the static Killing field. On
+every band of Σ_τ0 on which the background is vacuum the mass term of the charge identity is positive, and Q is negative
+for every perturbation of the extrinsic curvature alone. For perturbations of the metric, on every such band, Q takes
+both signs where the round spheres are trapped, f < 0, and where they are not, f > 0, it is negative for every
+perturbation that is not a gauge perturbation ([[thm:charge-sign]]).
 
 The inequalities on the background that these results use are proved at the end of the chapter, in
 [[sec:bg-below]] and [[sec:margins]], from the tables of [[sec:tab-bg]] and [[sec:table-margins]].
@@ -159,9 +160,10 @@ background's outside 𝒫 and ε-close to them in C^∞, whose matter part e, p_
 two families, with their phases and with densities ≥ 0, and of any number of further families, each with an invariant
 phase that is an eikonal of the background, smooth with nonzero differential on a neighbourhood of the part of
 Σ′ ∪ Σ_τ0 with R ≤ 6, and with a density ≥ 0 supported in 𝒫. Take (k_i, K^l_l) at R = R2 equal to the background's.
-For ε small the system (4.16), (3.2) of [Rac16] has a unique solution on 0.70 ≤ R ≤ R2. The data it determines,
-extended by the background's data for R ≥ R2, satisfy the constraints on Σ′, and equal the background's outside the
-domain of influence, for that system, of 𝒫.
+For ε small the system (4.16), (3.2) of [Rac16] has a unique solution on 0.70 ≤ R ≤ R2. The data it determines, extended
+by the background's data for R ≥ R2, satisfy the constraints on Σ′, and equal the background's outside the domain of
+influence, for that system, of 𝒫. There is c_* > 0, depending only on R2, such that this domain lies in the set of
+points with R ≤ R_𝒫 and ϑ1 − c_*(R_𝒫 − R) ≤ ϑ ≤ π/2 − ϑ1 + c_*(R_𝒫 − R), R_𝒫 the largest value of R on 𝒫.
 
 (c) The development of these data across the lens between Σ′ and Σ_τ0 exists, and the constraint data it induces on
 Σ_τ0 are those of (b) for R ∉ (3.5, 5.75), where Σ_τ0 = Σ′. Let 0 ≤ α ≤ β ≤ π/2, with α < π/2 and β > 0, be such
@@ -170,45 +172,88 @@ depending also on α and β, the data induced on Σ_τ0 equal the background's a
 ϑ < α − 3.3 × 10⁻⁴ or ϑ > β + 3.3 × 10⁻⁴: across the lens the angular support widens by at most 3.3 × 10⁻⁴ rad on
 each side.
 
-So data localised in an angle exist near the background's data on all of Σ_τ0, the band of [[prop:loc-band]]
-included. For perturbations whose radial support avoids [4.2882, 4.5310] the construction of (b) works on Σ_τ0 itself.
-If R2 < 4.2882, integrate from R2 inward as in (b): the split is hyperbolic on Σ_τ0 ∩ {R ≤ 4.2882}
-([[prop:loc-band]]). If R1 > 4.5310, take (k_i, K^l_l) equal to the background's at a radius R_0 ∈ (4.5310, R1) and
-integrate outward, on R_0 ≤ R ≤ b(τ0), where the split is hyperbolic; with the parameter −R in place of R the system
-keeps the form (4.19) of [Rac16] ([[rem:std-racz-characteristic]]), with −B^(K) and −C in place of B^(K) and C and the
-same symmetrizer, and the leaves are again closed, so the proof of (b) applies, the constraints holding in the domain of
-dependence of the sphere R = R_0, which is all of {R_0 ≤ R ≤ b(τ0)}; the data are extended by the background's for
-R ≤ R_0.
+So data equal to the background's outside the domain of influence of a compact set 𝒫 away from the axes exist near the
+background's data on all of Σ_τ0, the band of [[prop:loc-band]] included; by (b) that domain lies in R ≤ R_𝒫, with ϑ
+within c_*(R_𝒫 − R) of [ϑ1, π/2 − ϑ1] at radius R. With d := c_* max(0, R_𝒫 − 3.44), (c) applies with
+α := max(0, ϑ1 − d) and β := min(π/2, π/2 − ϑ1 + d). For perturbations whose radial support avoids [4.2882, 4.5310] the
+construction of (b) works on Σ_τ0 itself. If R2 < 4.2882, integrate from R2 inward as in (b): the split is hyperbolic on
+Σ_τ0 ∩ {R < 4.2882} ([[prop:loc-band]]). If R1 > 4.5310, take (k_i, K^l_l) equal to the background's at a radius
+R_0 ∈ (4.5310, R1) and integrate outward, on R_0 ≤ R ≤ b(τ0), where the split is hyperbolic; with the parameter −R in
+place of R the system keeps the form (4.19) of [Rac16] ([[rem:std-racz-characteristic]]), with −B^(K) and −C in place of
+B^(K) and C and the same symmetrizer, and the leaves are again closed, so the proof of (b) applies, the constraints
+holding in the domain of dependence of the sphere R = R_0, which is all of {R_0 ≤ R ≤ b(τ0)}; the data are extended by
+the background's for R ≤ R_0. A support on both sides is treated by both constructions at once, inward from an
+R2 < 4.2882 and outward from an R_0 > 4.5310, the data between 4.2882 and 4.5310 being the background's; the
+constraints, being local, hold for the data so combined.
 
 *Proof.* (a) The first two statements are [[cor:margins-lens]]. Σ′ is spacelike: below R = 3.5 it is Σ_τ0, spacelike
 by [[lem:two-dust-domain]] (a); for R ≥ R_* it lies in region I ([[lem:margins-region-one]] (c)), where d(τ − φ) is
 timelike (proof of [[cor:margins-lens]]). The margin for R_* ≤ R is [[thm:margins-hyperbolic]] (a), and for R ≤ R_*,
 where Σ′ = Σ_τ0, it is [[thm:bg-margins]] (c).
 
-(b) Write (4.16), (3.2) of [Rac16] as (4.19) there ([[rem:std-racz-characteristic]]): ∂_ρu + B^(K)∂_Ku + C = 0,
-with u = (k_B, K^E_E), ρ := R, on [0.70, R2] × S³. Where K^E_E ≠ 0, B^(K) and C are smooth functions of (ρ, ω, u)
-and of P, the free data and their derivatives of the orders that enter, κ being given algebraically by [Rac16,
-(4.17)]. The background's data give a smooth solution ū, for the background's free data P̄, and κK^l_l < 0 along
-it by (a). The common symmetrizer H that Rácz exhibits for [Rac16, Lemma 4.1] ([[thm:std-racz-hyperbolic]]),
-[Rac16, (4.21), p. 12], is a rational function of k, K^E_E, κ and γ̂ with only κ in its denominators; so near the
-graph of (ū, P̄) it is a smooth function of (ρ, ω, u, P), symmetric, positive definite at ū, where κK^E_E < 0
-([[thm:std-racz-hyperbolic]]), and HB^(K) is symmetric. With t := R2 − ρ the system reads ∂_tu − B^(K)∂_Ku − C = 0,
-which is [[eq:class-kato-sphere]] with n =
-3, A^0 := H, A^(ab) := −HB^(K)⟨∂_K, W_ab⟩ and F := HC (the remark after [[cor:class-kato-sphere]]), on [0, R2 −
-0.70]; we multiply these coefficients by a smooth cut-off equal to 1 on a neighbourhood 𝒩 of the graph of (ū, P̄)
-and add I times one minus the cut-off to A^0, which makes them smooth and symmetric everywhere and leaves them
-unchanged on 𝒩. Fix r0 ∈ (0, r̄] in [[cor:class-kato-sphere]] so small that the points (t, ω, u, π) with |u − ū(t, ω)|
-≤ r0 and |π − P̄(t, ω)| ≤ r0 lie in 𝒩, and take ε0 ≤ r0. For ε small, ‖P − P̄‖_(C^s) ≤ ε0, and
-[[cor:class-kato-sphere]] (a), (b), with the datum ū(0) at t = 0, gives a smooth solution on the whole interval with
-sup_t ‖u − ū‖_(L²(S³)) ≤ C ‖P − P̄‖_(C⁰), sup_t ‖u‖_(H^s(S³)) ≤ C, s > 3, and sup |u − ū| ≤ C ‖P − P̄‖_(C⁰)^(1/(4s)); so
-sup |u − ū| → 0 as ε → 0, the solution stays in 𝒩 and solves (4.19). The isometries T² × Z2 × Z2 carry solutions of the
-class of [[cor:class-kato-sphere]] (a) with the invariant datum ū(0) to such solutions, so by the uniqueness there the
-solution is invariant. The leaves are three-spheres, so the axes are interior points of the leaves and need no condition.
-By [[cor:class-kato-sphere]] (c), u = ū on every set Ω as there on which P = P̄; outside 𝒫 the free data are the
-background's, and the complement of the union of these sets is the domain of influence of 𝒫 for the system (4.19),
-the condition of [[cor:class-kato-sphere]] (c) being imposed at states in 𝒩, where the coefficients are unchanged. By
-[[thm:std-racz-hyperbolic]] the fields built from the solution and the free data satisfy the constraints in the domain of
-dependence of the initial sphere, which here is all of {0.70 ≤ R ≤ R2}.
+(b) Write (4.16), (3.2) of [Rac16] as (4.19) there ([[rem:std-racz-characteristic]]): ∂_ρu + B^(K)∂_Ku + C = 0, with
+u = (k_B, K^E_E), ρ := R, on [0.70, R2] × S³, each leaf {R = const} identified with the unit sphere S³ by the angles.
+*A global frame.* On the unit sphere S³ of the quaternions ℍ, X_1(x) := xi, X_2(x) := xj and X_3(x) := xk (quaternion
+products) form an orthonormal frame of the round metric ⟨·, ·⟩. We take the mixed part k by its components k(X_1),
+k(X_2), k(X_3), and each tensor among the free data by its components in this frame, so that u is ℝ⁴-valued and the free
+data with their frame derivatives of the orders that enter form an ℝ^q-valued function P. With
+𝔉(ω) := diag((⟨∂_K, X_a⟩)_(K,a), 1), so that k(∂_K) = Σ_a ⟨∂_K, X_a⟩ k(X_a), the frame components ũ have u = 𝔉ũ, and the
+system becomes
+
+    ∂_ρũ + 𝔉⁻¹B^(K)𝔉 ∂_Kũ + 𝔉⁻¹(B^(K)(∂_K𝔉)ũ + C) = 0:
+
+B^(K)∂_K becomes the matrix of vector fields 𝔉⁻¹B^(K)𝔉 ∂_K, terms of order zero in ũ are added to C, and a symmetrizer H
+becomes 𝔉ᵀH𝔉, positive definite where H is, with 𝔉ᵀH𝔉 𝔉⁻¹B^(K)𝔉 = 𝔉ᵀHB^(K)𝔉 symmetric. The equations and H being
+tensorial on the leaves, these frame forms are the same in every chart of leaf coordinates, so they are smooth on all of
+S³. An isometry of S³ carries the frame to an orthonormal frame, so it acts on the frame components by an orthogonal
+matrix at each point. From now on u, B^(K), C and H denote the frame forms.
+
+Where K^E_E ≠ 0, B^(K) and C are smooth functions of (ρ, ω, u) and of P, κ being given algebraically by [Rac16, (4.17)].
+The background's data give a smooth solution ū, for the background's free data P̄, and κK^l_l < 0 along it by (a). The
+common symmetrizer H that Rácz exhibits for [Rac16, Lemma 4.1] ([[thm:std-racz-hyperbolic]]), [Rac16, (4.21), p. 12], is
+a rational function of k, K^E_E, κ and γ̂ with only κ in its denominators; so near the graph of (ū, P̄) it is a smooth
+function of (ρ, ω, u, P), symmetric, positive definite at ū, where κK^E_E < 0 ([[thm:std-racz-hyperbolic]]), and HB^(K)
+is symmetric. With t := R2 − ρ the system reads ∂_tu − B^(K)∂_Ku − C = 0, which is [[eq:class-kato-sphere]] with n = 3,
+A^0 := H, A^(ab) := −HB^(K)⟨∂_K, W_ab⟩ and F := HC (the remark after [[cor:class-kato-sphere]]), on [0, R2 − 0.70]. We
+multiply these coefficients by a smooth cut-off supported in a neighbourhood of the graph of (ū, P̄) on which H, B^(K)
+and C are smooth and HB^(K) is symmetric, and equal to 1 on a smaller neighbourhood 𝒪 of the graph, and we add I times
+one minus the cut-off to A^0; this makes them smooth and symmetric everywhere and leaves them unchanged on 𝒪. Fix
+r0 ∈ (0, r̄] in [[cor:class-kato-sphere]] so small that the points (t, ω, u, π) with |u − ū(t, ω)| ≤ r0
+and |π − P̄(t, ω)| ≤ r0 lie in 𝒪 and H is positive definite at them, take ε0 ≤ r0, and fix an integer s ≥ 4, so that
+s > (n + 1)/2 + 1 = 3. For ε small, ‖P − P̄‖_(C^s) ≤ ε0, and [[cor:class-kato-sphere]] (a), (b), with the datum ū(0) at
+t = 0, gives a smooth solution on the whole interval with sup_t ‖u − ū‖_(L²(S³)) ≤ C ‖P − P̄‖_(C⁰), sup_t
+‖u‖_(H^s(S³)) ≤ C and sup |u − ū| ≤ C ‖P − P̄‖_(C⁰)^(1/(4s)); so sup |u − ū| → 0 as ε → 0, the solution stays in 𝒪 and
+solves (4.19). A solution of the class of [[cor:class-kato-sphere]] (a) has its states in 𝒪, where the system is (4.19);
+the isometries T² × Z2 × Z2 preserve (4.19), P, P̄, ū and the pointwise norm of u − ū, so they carry such solutions with
+the invariant datum ū(0) to such solutions, and by the uniqueness there the solution is invariant. The leaves are
+three-spheres, so the axes are interior points of the leaves and need no condition. By [[cor:class-kato-sphere]] (c),
+u = ū on every set Ω as there on which P = P̄; outside 𝒫 the free data are the background's, and the complement of the
+union of these sets is the domain of influence of 𝒫 for the system (4.19), the condition of
+[[cor:class-kato-sphere]] (c) being imposed at states in 𝒪, where the coefficients are unchanged. By
+[[thm:std-racz-hyperbolic]] the fields built from the solution and the free data satisfy the constraints in the domain
+of dependence of the initial sphere, which here is all of {0.70 ≤ R ≤ R2}.
+
+*The domain of influence in angle.* For ξ ∈ T*_ωS³ put B(ξ) := B^(K)ξ(∂_K). At the points (t, ω, u, P̄(t, ω))
+with |u − ū(t, ω)| ≤ r0, H is positive definite and HB(ξ) is symmetric, so the eigenvalues of B(ξ) are real. These
+points, with ξ of length 1 for the round metric, form a compact set; so there is c_* > 0, depending only on the
+background, R2 and r0, such that the eigenvalues of B(ξ) are at most c_*|ξ| in modulus there. Since Σ_(a<b) ⟨∂_K, W_ab⟩
+W_ab = ∂_K (the remark after [[cor:class-kato-sphere]]), a covector ν = c dt + ξ gives ν(∂_t)A^0 + Σ_(a<b)
+ν(W_ab)A^(ab) = H(c − B(ξ)), and for c ≥ c_*|ξ| this matrix is positive semidefinite at these points: it is congruent,
+by H^(−1/2), to the symmetric matrix H^(1/2)(c − B(ξ))H^(−1/2), whose eigenvalues are c − λ ≥ 0 for the eigenvalues λ of
+B(ξ). Let R_𝒫 < R2 be the largest value of R on 𝒫, and take R′ ∈ (R_𝒫, R2), a ∈ (0, ϑ1) and R_b ∈ [0.70, R′) with
+a > c_*(R′ − R_b). The set
+
+    Ω_a := {R′ ≤ R ≤ R2} ∪ {R_b ≤ R ≤ R′, ϑ ≤ a − c_*(R′ − R)}
+
+does not meet 𝒫, so P = P̄ on it. Its part with R ≥ R3, for R_b ≤ R3 ≤ R2, is {R ≥ max(R3, R′ − max(0, a − ϑ)/c_*)}, the
+region beyond the graph of a Lipschitz function of ω (ϑ being the distance in S³ from the circle {ϑ = 0}), so a
+Lipschitz domain. Its lateral part consists of pieces of {R = R′, ϑ ≥ a}, with outward conormal dt, and of
+{ϑ = a − c_*(R′ − R)}, a smooth hypersurface off the axes, as 0 < a − c_*(R′ − R) < π/4 there, with outward conormal
+dϑ + c_* dt and |dϑ| = 1. Both satisfy the condition of [[cor:class-kato-sphere]] (c), by the above with (c, ξ) = (1, 0)
+and (c, ξ) = (c_*, dϑ); so u = ū on Ω_a. Every point with R > R_𝒫, and every point with R ≤ R_𝒫 and
+ϑ < ϑ1 − c_*(R_𝒫 − R), lies in such a set, with R′ close to R_𝒫, a close to ϑ1 and R_b = R. With π/2 − ϑ, the distance
+from the circle {ϑ = π/2}, in place of ϑ, the same holds where ϑ > π/2 − ϑ1 + c_*(R_𝒫 − R). This is the bound on the
+domain of influence stated in (b).
 
 (c) *A domain containing the lens.* The lens is the set between Σ′ and Σ_τ0, {τ0 + φ(R) ≤ τ ≤ τ0, 3.5 ≤ R ≤ 5.75}, in
 region I ([[lem:margins-region-one]] (c)). Fix δ1 ∈ (0, 0.01] and put t := (τ − τ0 − φ(R))/(δ1 − φ(R)), smooth since
@@ -230,28 +275,47 @@ are pieces of {R = 0.70} and of {v̂ + τ = 2τ0 + 6}, spacelike with Ω_L to th
 strict on the compact Ω_L, so they hold for every Lorentzian metric C⁰-close to g0, and Ω_L is admissible for g0
 ([[def:class-admissible]]) in the chart (t, x).
 
-*The hypotheses of [[thm:class-stability]].* (H1) holds for the background's phases v̂ and u, double-null coordinates
-of g0, smooth with nonzero differentials (proof of [[cor:class-two-dust]]), and for the further phases by (b), once δ1
-is small. For a small η > 0, let S_in be the set of points of Σ′ with v̂(v = 3) − η ≤ v̂ ≤ v̂(v = 4.5) + η, S_out the set
-with u1 − η ≤ u ≤ u2 + η, and take S_in ∪ 𝒫, S_out ∪ 𝒫 for the background's families and 𝒫 for the further ones. On
-Σ′, v̂ − R ∈ [τ0 − 0.0012, τ0], so S_in lies in 3.7 < R < 5.5 ([[sec:table-shell]]: v̂(v = 3) + 0.68 = 3.8253… and
-v̂(v = 4.5) + 0.68 = 5.3724…), and S_out, which is the part of Σ_τ0 with R_u2 ≤ R ≤ R_* when η = 0 ([[prop:bg-seed]] (a),
-[[lem:bg-rstar]]), lies in 1.8 < R < 3.5 for η small. In the chart, g0 = −q²f(dτ + dR)² + 2q(dτ + dR) dR + R²dΩ₃²,
-and qf < 1 on Ω_L for δ1 small (on Σ_τ0 by [[sec:loc-setting]], on the lens as f < 1 in region I); so a future causal
-vector has Ṙ/τ̇ between the roots −1 and qf/(2 − qf) < 1 of (2 − qf)x² + 2(1 − qf)x − qf, that is |Ṙ| ≤ τ̇, and
-R²|Ω̇|² ≤ Cτ̇². Along a dust curve in Ω_L, R therefore changes by at most the τ-thickness of Ω_L, which is δ1 where φ = 0
-and at most 0.0012 + δ1 ≤ 0.0122 elsewhere. Hence the tubes of S_in and S_out stay in 1.7 < R < 5.6, away from the
-lateral boundaries. The background's families are radial, so their tubes over 𝒫 keep its angles, in [ϑ1, π/2 − ϑ1].
-A tube of a further family near a lateral boundary runs where φ = 0, so its angular displacement there is at most Cδ1,
-and for δ1 small it stays away from the axes. So no tube meets a neighbourhood of a point where a lateral boundary
-meets an axis, and (H2′) puts no condition.
+*The hypotheses of [[thm:class-stability]].* (H1) holds for the background's phases v̂ and u, double-null coordinates of
+g0, smooth with nonzero differentials (proof of [[cor:class-two-dust]]), and for the further phases by (b), once δ1 is
+small. Let 𝒫_G be the union of the images of 𝒫 under T² × Z2 × Z2, a compact invariant subset of {R1 < R < R2,
+ϑ1 < ϑ < π/2 − ϑ1}; the invariant data of (b) equal the background's outside 𝒫_G. For a small η > 0, let S_in be the set
+of points of Σ′ with v̂(v = 3) − η ≤ v̂ ≤ v̂(v = 4.5) + η, S_out the set with u1 − η ≤ u ≤ u2 + η, and take S_in ∪ 𝒫_G,
+S_out ∪ 𝒫_G for the background's families and 𝒫_G for the further ones. These are closed and invariant, and they contain
+the supports on Σ′ of the background's densities, which lie where v̂(v = 3) ≤ v̂ ≤ v̂(v = 4.5) and where u1 ≤ u ≤ u2, 𝒜
+and ℬ being supported in [3, 4.5] and [u1, u2]. On Σ′, v̂ − R ∈ [τ0 − 0.0012, τ0], so S_in lies in 3.7 < R < 5.5
+([[sec:table-shell]]: v̂(v = 3) + 0.68 = 3.8253… and v̂(v = 4.5) + 0.68 = 5.3724…), and S_out, which is the part of Σ_τ0
+with R_u2 ≤ R ≤ R_* when η = 0 ([[prop:bg-seed]] (a), [[lem:bg-rstar]]), lies in 1.8 < R < 3.5 for η small. In the
+chart, g0 = −q²f(dτ + dR)² + 2q(dτ + dR) dR + R²dΩ₃², and qf < 1 on Ω_L for δ1 small (on Σ_τ0 by [[sec:loc-setting]], on
+the lens as f < 1 in region I); so a future causal vector has Ṙ/τ̇ between the roots −1 and qf/(2 − qf) < 1 of
+(2 − qf)x² + 2(1 − qf)x − qf, that is |Ṙ| ≤ τ̇, and R²|Ω̇|² ≤ Cτ̇². Along a dust curve in Ω_L, R therefore changes by at
+most the τ-thickness of Ω_L, which is δ1 where φ = 0 and at most 0.0012 + δ1 ≤ 0.0122 elsewhere. Hence the tubes of S_in
+and S_out stay in 1.7 < R < 5.6, away from the lateral boundaries. The background's families are radial, so their tubes
+over 𝒫_G keep its angles, in [ϑ1, π/2 − ϑ1]. A tube of a further family near a lateral boundary runs where φ = 0, so its
+angular displacement there is at most Cδ1, and for δ1 small it stays away from the axes. So no tube meets a
+neighbourhood of a point where a lateral boundary meets an axis, and (H2′) puts no condition.
 
-*The development.* Complete the constraint data of (b) on Σ′, with their dust phases and densities, to a datum of
-[[thm:class-stability]]: the metric on Σ′ with the background's lapse and shift, and the gauge condition D(g) = 0
-imposed through the transversal derivatives, as in [[thm:data]]. This datum is within Cε of the background's, so for ε
-small [[thm:class-stability]] gives the development on Ω_L, within Cε of g0. Since Σ_τ0 ∩ {3.5 ≤ R ≤ 5.75} lies in Ω_L,
-and Σ_τ0 = Σ′ elsewhere, it induces constraint data on the whole of Σ_τ0; for R ∉ (3.5, 5.75) these are the data of
-(b), which the development attains on Σ′.
+*The datum on the first slice.* The slice {t = 0} of Ω_L is Σ′_L := Σ′ ∩ {R ≤ 6}. Near the axes, where φ = 0, the
+lateral components of Ω_L meet each slice {t = s} in the spheres R = 0.70 and R = 6 − 2sδ1, on which v̂ and u are
+constant (u is constant on the spheres of each slice {v̂ − R = const}, proof of [[cor:class-two-dust]]); so each
+component has the property of [[def:class-adapted]] for both background families. Whichever components are treated as
+adapted there, and to whichever family, the datum's phase of every family is on Σ′ the background's phase of that
+family, by (b), the background's phase ů_A of a further family being the eikonal that (b) gives it. So the constants of
+the normalisation in [[def:class-adapted]] vanish, and at the points of B ∩ Σ′ in 𝒱_B, for a component B adapted to a
+family A, the datum's phase of A is ů_A, which equals c_B(0) there. By the last paragraph of [[def:class-adapted]],
+T_(0,U) is the identity and a datum on Σ′_L suffices; the constraints and the gauge condition are required on Σ′_L, and
+the condition on the supports in [[thm:class-stability]] is supp q_A ∩ Σ′_L ⊂ S_A for every A. It holds: outside 𝒫_G the
+densities of the background's families are the background's, and those of the further families vanish. The sets 𝒱_B may
+be taken in {R < 0.8} for the inner component and in {R > 5.9} for the outer one, whose spheres have R ≥ 6 − 2δ1 ≥ 5.98.
+Each T_(s,U) is a diffeomorphism equal to the identity outside them, so it maps their union onto itself, and the adapted
+domain Ω_U of the development agrees with Ω_L on {0.8 ≤ R ≤ 5.9}; so it contains the lens and Σ_τ0 ∩ {3.5 ≤ R ≤ 5.75},
+which lie in Ω_L there.
+
+*The development.* Complete the constraint data of (b) on Σ′_L, with their dust phases and densities, to a datum of
+[[thm:class-stability]] on Σ′_L: the metric on Σ′ with the background's lapse and shift, and the gauge condition
+D(g) = 0 imposed through the transversal derivatives, as in [[thm:data]]. This datum is within Cε of the background's,
+so for ε small [[thm:class-stability]] gives the development on its adapted domain Ω_U, within Cε of g0. Since Σ_τ0 ∩
+{3.5 ≤ R ≤ 5.75} lies in Ω_U, and Σ_τ0 = Σ′ elsewhere, it induces constraint data on the whole of Σ_τ0; for R ∉
+(3.5, 5.75) these are the data of (b), which the development attains on Σ′.
 
 *Localisation across the lens.* At a point of Σ_τ0 the induced metric and second fundamental form, and the matter
 part ℋ/2 and ℳ of [[eq:loc-constraints]], are computed from g and its first derivatives and from the differentials of
@@ -273,18 +337,19 @@ same holds, for 0 < β < π/2 − 3.3 × 10⁻⁴, with ϑ > β and ϑ > β + 3.
 
 *Proof.* We prove the first statement; the second is proved in the same way, with axis 1 in place of axis 2.
 
-*Notation.* By [[thm:class-stability]] the development solves [[eq:class-system]] on Ω_L in the gauge D(g) = 0 relative
-to g0, and its norm 𝒩_k of [[eq:class-energy]] is at most Cε. Fix k ≥ 6 and apply that theorem with k + 2 in place of
-k: the data are ε-close in C^∞, and by its uniqueness the development is the same. Let u_in be the development's phase
-of the ingoing family, with the sign of [[sec:class-augmented]], so that P := g⁻¹p, p := du_in, is future directed;
-put v_in := −u_in, Θ := □_g u_in and let q be the ingoing density. Then v_in = v̂ on Σ′, by (b), and the derivatives of
-v_in − v̂ of order at most k − 1 are at most Cε on Ω_L. For the background write ů_in := −v̂, p̊, P̊, Θ̊ and q̊. Put
-M := 0.0011596, t1 := M/(δ1 + M), W := 1.015 (δ1 + M)/3.5756 (3.5756 = 3.5 × 1.0216), α′ := α − 4 × 10⁻⁷,
-c_a := τ0 + 3.44, c_b := τ0 + 5.85, λ := 0.05, and
+*Notation.* By [[thm:class-stability]] the development solves [[eq:class-system]] on its adapted domain Ω_U, which
+agrees with Ω_L on {0.8 ≤ R ≤ 5.9} (proof of [[thm:loc-bent-slice]] (c)), in the gauge D(g) = 0 relative to g0, and its
+norm 𝒩_k of [[eq:class-energy]] is at most Cε. Fix k ≥ 6 and apply that theorem with k + 2 in place of k: the data are
+ε-close in C^∞, and by its uniqueness the development is the same. Let u_in be the development's phase of the ingoing
+family, with the sign of [[sec:class-augmented]], so that P := g⁻¹p, p := du_in, is future directed; put v_in := −u_in,
+Θ := □_g u_in and let q_in be the ingoing density. Then v_in = v̂ on Σ′, by (b), and the derivatives of v_in − v̂ of
+order at most k − 1 are at most Cε on Ω_U. For the background write ů_in := −v̂, p̊, P̊, Θ̊ and q̊_in. Put
+τ_L := 0.0011596, the bound on the τ-depth of the lens in [[thm:loc-bent-slice]] (a), t1 := τ_L/(δ1 + τ_L), W := 1.015
+(δ1 + τ_L)/3.5756 (3.5756 = 3.5 × 1.0216), α′ := α − 4 × 10⁻⁷, c_a := τ0 + 3.44, c_b := τ0 + 5.85, c_v := 0.05, and
 
-    𝒟 := {y ∈ Ω_L : t ≤ t1, ϑ ≤ α′ − W t, c_a + λ t ≤ v_in ≤ c_b − λ t}.                       {#eq:loc-lens-region}
+    𝒟 := {y ∈ Ω_U : t ≤ t1, ϑ ≤ α′ − W t, c_a + c_v t ≤ v_in ≤ c_b − c_v t}.                   {#eq:loc-lens-region}
 
-Then W t1 = 1.015 M/3.5756 ≤ 3.2918 × 10⁻⁴, and on 𝒟, ϑ ≤ α′ < π/2 and on its angular face ϑ ≥ α − 3.2958 × 10⁻⁴ > 0.
+Then W t1 = 1.015 τ_L/3.5756 ≤ 3.2918 × 10⁻⁴, and on 𝒟, ϑ ≤ α′ < π/2 and on its angular face ϑ ≥ α − 3.2958 × 10⁻⁴ > 0.
 
 (1) *Where 𝒟 lies.* On Ω_L, τ = τ0 + (1 − t)φ(R) + tδ1 and −M ≤ φ ≤ 0 ([[prop:margins-bend]] (b)); so on 𝒟,
 −M ≤ τ − τ0 ≤ tδ1 ≤ t1δ1 < M, and as |v_in − v̂| ≤ Cε, R = v̂ − τ satisfies

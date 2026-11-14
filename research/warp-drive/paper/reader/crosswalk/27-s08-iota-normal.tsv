@@ -29,6 +29,7 @@ sec:ii-f-1-4	docket68/n1star/proof5/PART-II-F-IOTA.md:225	II.F section 1.4
 lem:ii-f-1-3	docket68/n1star/proof5/PART-II-F-IOTA.md:234	II.F Lemma 1.3	
 lem:ii-f-1-4	docket68/n1star/proof5/PART-II-F-IOTA.md:278	II.F Lemma 1.4	(a) states the compact sets L_p (eq:ii-f-lp) that II.F 6.3, 8.2 and Part VIII Step 4 build from it; t^flat written t^flat_* as in II.C Lemma 3.2; (a) also states the set L′_p without t_* ≤ t_*(p), valid when C′t_* ≤ τ′ (τ′ = t^flat_*, or τ′ = t_* with c ≥ 0), the form Part VIII Step 4 uses
 eq:ii-f-lp	docket68/n1star/proof5/PART-II-F-IOTA.md:1929-1933; docket68/n1star/proof5/PART-II-F-IOTA.md:2575; docket68/n1star/proof5/PART-VIII-LINEAR.md:286-290	compact sets of II.F Lemma 1.4 (a) as used in II.F 6.3, 8.2 and Part VIII Step 4	risk R4: stated inside Lemma 1.4 (a); L′_p (unlabelled, in the statement) is the Part VIII form
+eq:ii-f-lp-prime	docket68/n1star/proof5/PART-VIII-LINEAR.md:286-290; docket68/n1star/proof5/PART-II-F-IOTA.md:278	the set L_p of Part VIII Step 4 as amended D621 (no t_* <= t_*(p) condition); II.F Lemma 1.4 (a)	the t_*-free form of eq:ii-f-lp, stated inside lem:ii-f-1-4 (a) for C′t_* ≤ τ′; label added with S9's integer-order narrowing (INTEGRATION)
 sec:ii-f-2	docket68/n1star/proof5/PART-II-F-IOTA.md:316	II.F section 2	
 sec:ii-f-2-1	docket68/n1star/proof5/PART-II-F-IOTA.md:326	II.F section 2.1	
 eq:ii-f-2-1	docket68/n1star/proof5/PART-II-F-IOTA.md:333	II.F (2.1)	
