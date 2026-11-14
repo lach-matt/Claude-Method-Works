@@ -342,12 +342,12 @@ closed disc |ι − ξ_x| ≤ 0.45, |P_l − U| < 9.4·10⁻⁵ (the majorant bo
 which holds there, as |ι| ≤ ξ_x + 0.45 ≤ 2.9725 < 2.98), and on its real diameter 2 + x − ι ≤ x/4 − 0.05 ≤ −0.0425. If
 x < x₋, that is l = 134 or 135, then Δ(x) is 0.093562114176, resp. 0.035476440025, so 0.035 < Δ(x) < 0.1,
 U(ξ_x) = (2 − x)Δ(x)/32 > 1.97·0.035/32 > 2·10⁻³, and
-U(ξ_x ± 0.45) = (2 + x − ξ_x ∓ 0.45)(0.405 − Δ(x)/8) < −0.0425·0.39 < −0.016: P_l is negative, positive and negative at
-ξ_x − 0.45, ξ_x and ξ_x + 0.45, and the two roots are real and separated by ξ_x. If x > x₋, that is l ≥ 136 and
-x ≥ 0.018768, then Δ(x) ≤ Δ(0.018768) < −0.023, Δ being decreasing on [0, 107], so 2(ι − ξ_x)² − Δ(x)/8 > 0.0028 and
-U < −0.0425·0.0028 < −1.1·10⁻⁴ on the real diameter: P_l has no real root in the disc, and the two roots there are a
-non-real conjugate pair, P_l having real coefficients, so they are distinct. If hκ > 70, P_l has no root
-with |ι − 1| ≤ 50 ([[lem:s14-sextic-count]] (b)); so a root ι ∈ Z of P_l with Re ι ≤ 6 is non-real, a real one having
+U(ξ_x ± 0.45) = (2 + x − ξ_x ∓ 0.45)(0.405 − Δ(x)/8) < −0.0425·0.39 < −0.016; as |P_l − U| < 9.4·10⁻⁵, P_l is
+negative, positive and negative at ξ_x − 0.45, ξ_x and ξ_x + 0.45, and the two roots are real and separated by ξ_x. If
+x > x₋, that is l ≥ 136 and x ≥ 0.018768, then Δ(x) ≤ Δ(0.018768) < −0.023, Δ being decreasing on [0, 107], so
+2(ι − ξ_x)² − Δ(x)/8 > 0.0028 and U < −0.0425·0.0028 < −1.1·10⁻⁴ < −9.4·10⁻⁵ on the real diameter: P_l has no real
+root in the disc, and the two roots there are a non-real conjugate pair, P_l having real coefficients, so they are
+distinct. If hκ > 70, P_l has no root with |ι − 1| ≤ 50 ([[lem:s14-sextic-count]] (b)); so a root ι ∈ Z of P_l with Re ι ≤ 6 is non-real, a real one having
 19/10 < ι ≤ 6 and so |ι − 1| ≤ 5. It is simple: P_l has real coefficients, so ῑ ≠ ι is a root of the same multiplicity m
 and the same real part, and P_l has three roots of real part above 19/10, counted with multiplicity
 ([[prop:np-10-54]] (i)); so 2m ≤ 3, and m = 1. So ι − 1 has at its type the multiplicity of ι in its polynomial, unless
