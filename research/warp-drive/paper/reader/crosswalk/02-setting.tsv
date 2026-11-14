@@ -35,5 +35,5 @@ eq:bondi-type	paper/RESPONSE-HL-5D.md:238-241; paper/RESPONSE-HL-5D.md:417-419	P
 lem:bondi-rates	paper/RESPONSE-HL-5D.md:238-241	P Proposition 2.3, R_vv quadratic part (hf_theorem5 F3)	exact derivation replaces hf_theorem5 F3; former pending computational-2
 eq:bondi-rates	-	new	
 eq:bondi-inverse	-	new	inverse metric of the Bondi-type form
-eq:bondi-calS	-	new	
+eq:bondi-cals	-	new	
 eq:bondi-sigma	-	new	rate-linear part of the Christoffel symbols

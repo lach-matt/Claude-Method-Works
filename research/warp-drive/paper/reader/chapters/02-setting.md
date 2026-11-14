@@ -565,7 +565,7 @@ Step 2 (where the rates enter). The functions P_i enter g only through γ_P, and
 g_ab that contains them. Since γ_P is diagonal, ∂_v γ_P = 2 γ_P S, and det γ_P = c² s² does not depend on v, so tr S = 0.
 Hence the rates enter the first derivatives of g only through ∂_v g_ab, whose part containing them is
 
-    2 r² 𝒮_ab,      𝒮_ab := (γ_P S)_kl ξ^k_a ξ^l_b,                                          {#eq:bondi-calS}
+    2 r² 𝒮_ab,      𝒮_ab := (γ_P S)_kl ξ^k_a ξ^l_b,                                          {#eq:bondi-cals}
 
 and the derivatives ∂_r g, ∂_y g do not contain them. A second derivative of g contains a rate only through ∂_v∂_v γ_P =
 2(∂_v γ_P) S + 2γ_P ∂_v S = 4γ_P S² + 2γ_P ∂_v S and ∂_c∂_v γ_P = 2(∂_c γ_P) S + 2γ_P ∂_c S for c ≠ v, where ∂_v S and

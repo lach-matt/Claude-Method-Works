@@ -983,8 +983,8 @@ spacelike, both generators transverse to Σ_τ), and |∂g| ≤ Λ with Λ indep
   ‖∂^j ∂s_𝔨‖ by (M4), (M6) (no Bernstein inequality is needed here);
 - (h) ½ λ (□̃_app φ_𝔨) [F_𝔨 g2] = λ (Ψ_𝔨 + O(λ) ∂² φ_𝔨) times a profile: at most C λ 𝒩₂;
 - (i) 𝒬_φ^𝔨: at most C M λ^(K−5) 𝒩₂ ≤ C M λ 𝒩₂, as K ≥ 6, its part |w| |∂² φ_𝔨| at most C M λ^(K−4) 𝒩₂;
-- (j) 𝒬(w): at most C λ⁻⁵ 𝒩₂² ≤ C M² λ^(2K−5) ≤ C M² λ^(K+1), as K ≥ 6, the worst term being quadratic in ∂w,
-  |∂w ∂w|_k ≤ C λ⁻³ |∂w|_k², by the product bound of [[lem:sobolev]] at the top derivatives of w.
+- (j) 𝒬(w): at most C λ⁻⁵ 𝒩₂² ≤ C M² λ^(2K−5) ≤ C M² λ^(K+1), as K ≥ 6, the worst term being quadratic in
+  ∂w, |∂w ∂w|_k ≤ C λ⁻³ |∂w|_k², by the product bound of [[lem:sobolev]] at the top derivatives of w.
 
 The g0 part of [∂^α, g^(ab)] and the commutator [∂_x², L_𝔨] of Step 5 have smooth λ-independent coefficients and are at
 most C 𝒩₂. So

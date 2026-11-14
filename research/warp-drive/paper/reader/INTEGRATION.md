@@ -1284,3 +1284,11 @@ Items found while chapters were written in parallel; each is settled once, editi
   max(1, L, M) with L and M from (IS); K_ι ≤ l_* + 2. R-P-U71-SP reads it and checks consistency with P-U71-IS and
   R-P-U71-IS. After F-P-U71-IS and R-P-U71-SP: one combined confirming reading of the d-bound texts (forward, close,
   assembly, IS, SP), then integration into chapters 71, 3 and the others listed.
+- INTEG-1 done. Chapter 48 needed nothing (F4-S27 had already deleted both "κ̃ there"; INTEGRATION.md's "still open" was
+  stale). Chapter 45: R4-S26's six nits applied, crosswalk notes updated. Line starts: 281 wrapped lines re-broken in
+  33 chapters. Coordinator's independent word-sequence check against 8638ef9: all re-wrapped chapters token-identical,
+  chapter 45 changed only by the reviewed nits. The agent's diffs and backups are in scratch integ1/. Coordinator then
+  renamed the one uppercase label key eq:bondi-calS → eq:bondi-cals (chapter 02 and its crosswalk; no citations) and
+  re-broke 80:987. Left for the chapter 03 pass: 03:296 (wrapped line starting with a forbidden prefix).
+  Not wrapped lines, kept: the block quote at 01:25-36, headings after ∎ in 27, nested list items in 48, quoted
+  enumerations in 95.
