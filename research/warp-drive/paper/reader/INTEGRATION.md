@@ -1312,3 +1312,4 @@ Items found while chapters were written in parallel; each is settled once, editi
   range possibly extended to j ≤ 5 in chapter 84). R4-82 reads chapter 82 after F4-82.
 - R2-83 0M 5m 6n (reviews/R2-83.md); F3-83 applies them against chapter 81 as it now stands.
 - F-P-K82 done (reports/F-P-K82.md); R2-P-K82 reading. Merge into chapters 82 and 03 after R2-P-K82, R4-82, R5-81.
+- R2-P-U71-IS 1M 1m 5n (reviews/R2-P-U71-IS.md); F2-P-U71-IS applies the exact texts. l_* = 50, K_ι ≤ 52 stand.
