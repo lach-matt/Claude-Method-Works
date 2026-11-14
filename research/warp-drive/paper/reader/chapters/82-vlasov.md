@@ -1272,15 +1272,16 @@ on 𝒯_A, ℓ_A is null and G1^A(ℓ_A, ·) = G2^A(ℓ_A, ·) = 0. Every B ≠ 
 the contribution of the gauge part, ν_B² [∂²_(θ_B) χ_B] (ℓ_A·du_B)², a bounded profile in θ_B alone, as for two
 families ([[lem:two-dust-facts]] (L4)).
 
-(4) *The transport of Ψ_A.* Ψ_A := □̃φ_A satisfies L_A Ψ_A + a_A Ψ_A = □̃f_A − 𝔐_A(f_A) − 𝔑_A φ_A by
-[[cor:vlasov-commutator]], with f_A := ½ 𝒫 s_A(h); its coefficients are bounded on the support of the family, which
+(4) *The transport of Ψ_A.* On 𝒱_A, where u_A is an eikonal, Ψ_A := □̃φ_A satisfies L_A Ψ_A + a_A Ψ_A = □̃f_A −
+𝔐_A(f_A) − 𝔑_A φ_A by [[cor:vlasov-commutator]], with f_A := ½ 𝒫 s_A(h); its coefficients are bounded on 𝒱_A, which
 lies at distance at least δ from the axes by (iv).
 
-(5) *The transport estimates.* Each family's transport field Z_A, with ℓ_A = ℓ_A(τ) Z_A and ℓ_A(τ) ≠ 0 since a null
-vector is never tangent to a spacelike slice, satisfies the identity of [[lem:two-dust-transport]] with c x̂ replaced
-by the spatial part of Z_A. Its boundary terms are nonpositive by (Ω): at {r = a}, r decreases along future causal
-curves, and at the outer boundary v + τ increases, which is b′(τ) − dr(Z_A) < 0 there. So the estimate holds for every
-family, whatever its direction.
+(5) *The transport estimates.* Each family's transport field Z_A, with ℓ_A = ℓ_A(τ) Z_A and ℓ_A(τ) ≠ 0 on 𝒱_A since a
+null vector is never tangent to a spacelike slice, satisfies on 𝒱_A the estimate of [[lem:two-dust-transport]] with
+c x̂ replaced by the spatial part of Z_A, by (v) (a). Its boundary terms vanish on the part of the boundary of 𝒱_A ruled
+by integral curves of ℓ_A, and are nonpositive on the lateral boundary of Ω by (Ω): at {r = a}, r decreases along future
+causal curves, and at the outer boundary v + τ increases, which is b′(τ) − dr(Z_A) < 0 there. So the estimate holds for
+every family, whatever its direction.
 
 (6) *Closing.* Every term of the n-family linearisation is a term of one of the types of the two-family estimate, with
 its family labels replaced; and the bound of each type in the bootstrap (its power of λ, its number of derivatives, the
@@ -1307,13 +1308,15 @@ w := g − g_app satisfies (E4) of [[thm:uniform-existence]], Data(w) ≤ C λ^K
 Σ_τ0.
 
 *Proof.* *The approximant's data.* The gauge hierarchy is that of [[lem:gauge-hierarchy]] with n phases: the oscillating
-part at each order is a transport along each generator for the pure harmonics, and algebraic, with the divisor Q_j ≠ 0,
-for the mixed ones, which therefore take no data. The stage data are those of [[lem:stage-data]] for each family's
-covector, its proof applied with the polarisation map Pol_A(Z) := ν_A (Z(ℓ_A, ·) − ½ du_A tr Z) of each family, onto at
-every point by the argument given there (with a null vector k_A, du_A(k_A) = 1, and a covector ζ_A with ζ_A(ℓ_A) = 0 and
-g0⁻¹(ζ_A, ζ_A) = 1); the linear solves of its step (iii) have coefficients independent of λ (θ-means of profile
-functions), so [[lem:linear-evolution]] applies to them as stated; the mixed harmonics take no data and need not vanish
-on Σ_τ0, which no step uses. So, as in [[lem:gauge-hierarchy]], the constraint map of the data (γ, κ) of g_app on Σ :=
+part at each order is a transport along each generator for the pure harmonics, posed on 𝒱_A for family A by (v) (a),
+and algebraic, with the divisor Q_j ≠ 0, for the mixed ones, which therefore take no data. The stage data are those of
+[[lem:stage-data]] for each family's covector, its proof applied with the polarisation map Pol_A(Z) := ν_A (Z(ℓ_A, ·) −
+½ du_A tr Z) of each family, onto at every point of 𝒱_A ∩ Σ_τ0 by the argument given there (with a null vector k_A,
+du_A(k_A) = 1, and a covector ζ_A with ζ_A(ℓ_A) = 0 and g0⁻¹(ζ_A, ζ_A) = 1); Pol_A⁺ acts pointwise on terms that carry
+harmonics of θ_A, which vanish off supp F_A ∩ Σ_τ0 by (v) (b), by induction on the stage, so the stage data of the pure
+harmonics of family A vanish there, as [[thm:vlasov-n-approximant]] asks. The linear solves of its step (iii) have
+coefficients independent of λ (θ-means of profile functions), so [[lem:linear-evolution]] applies to them as stated;
+the mixed harmonics take no data and need not vanish on Σ_τ0, which no step uses. So, as in [[lem:gauge-hierarchy]], the constraint map of the data (γ, κ) of g_app on Σ :=
 Σ_τ0 ∩ Ω is λ^(N−2) times a function of the form [h] of [[sec:vlasov-scaled]], with the phases φ_A := ν_A u_A|Σ (the
 phase corrections vanish on Σ_τ0). The data (γ, κ) are polynomials in λ whose coefficients are of the form [h]; they
 carry every family's wave, whose gauge part vanishes on Σ_τ0 with its θ-derivatives ([[def:vlasov-wave]]), so that W_A
@@ -1322,9 +1325,9 @@ and κ1_A on Σ_τ0 are torus-polarised, and the second and mixed harmonics at o
 *The structure.* Let 𝔉(U) := 𝒞(γ_U, κ_U). By [[lem:vlasov-structure]] (with 𝒯 = 0) it has the structure
 [[eq:vlasov-structure]]. Its coefficients are smooth functions of the values of γ, ∂γ, ∂²γ, κ and ∂κ, so they are of the
 form [h] except for the terms carrying a factor λ⁻¹, which come from ∂²(λ W_A) in ∂²γ and from ∂κ1_A in ∂κ, enter
-linearly, and by [[lem:vlasov-constraint-coefficient]] (b) have coefficients that vanish identically for every U (α dr
-⊗ dr has no torus components); the second and mixed harmonics enter at order λ⁰ by [[lem:vlasov-constraint-coefficient]]
-(a). So f and g̃ are of class 𝔏 and 𝔉(0) = 𝒞(γ, κ). By [[lem:vlasov-leaf-curvature]], p, P, A0, A^B and 𝒮 are of
+linearly, and by [[lem:vlasov-constraint-coefficient]] (b) are, for every U, λ⁻¹ times traces of order λ (α dr ⊗ dr
+has no torus components), hence of the form [h]; the second and mixed harmonics enter at order λ⁰ by
+[[lem:vlasov-constraint-coefficient]] (a). So f and g̃ are of class 𝔏 and 𝔉(0) = 𝒞(γ, κ). By [[lem:vlasov-leaf-curvature]], p, P, A0, A^B and 𝒮 are of
 class 𝔓, with parts of order λ⁰ those of the data (γ0, κ0) of g0. The signs: at (γ0, κ0) and α = 0, p > 0 by (V3), P =
 γ0^(rr) Π0^(AB) is positive definite, and 𝒮A0 > 0 with 𝒮A^C symmetric by [[lem:vlasov-symmetrizer]]; by continuity in α
 these hold with constants p0, δ_e, A00 for |α| ≤ η0, and for λ ≤ λ1 the terms λ[h] change them by at most half.
