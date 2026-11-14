@@ -1024,13 +1024,13 @@ boundary component {F = 0} of Ω, dF(P̊̃_A) ≥ c′ > 0, dF being positive on
 at its points with dτ(Y) ≥ c and |Y| ≤ c⁻¹. By Step 1, |P̃_A − P̊̃_A| ≤ C 𝒩_k on Ω, so in the bootstrap of Step 3,
 P̃_A(τ) ≥ c/2 and dF(P̃_A) ≥ c′/2 for ε small. The proof of [[lem:class-transport]] uses of its field P only the bounds
 P(τ) ≥ c_P and |P| + |∂P| ≤ c_P⁻¹ and dF(P) ≥ 0 on the lateral boundary, so it applies to P̃_A. In Step 3, by the third
-equation, q_A
-vanishes along every integral curve of P̃_A on which it vanishes initially; every point of Ω lies on such a curve from
-Σ_τ0, followed backward inside Ω, P̃_A pointing out of Ω at its lateral boundary; so supp q_A lies in the tube for P̃_A
-of the compact set supp q_A ∩ Σ_τ0, inside that of S_A. The integral curves of P̃_A from S_A stay within C ε of those
-of P̊̃_A from S_A, as in Step 3, and these trace 𝒯̊_A, on which P̊̃_A = P̊_A; so for ε small the tube of S_A for P̃_A
-lies in the interior of {ζ′_A = 1}, where P̃_A = P_A. In Steps 5–7, since ů solves [[eq:vlasov-localised]], the
-equations for the differences are those of Steps 5–7 there multiplied by ζ′_A, with P̃_A on the left:
+equation, q_A vanishes along every integral curve of P̃_A on which it vanishes initially; every point of Ω lies on such
+a curve from Σ_τ0, followed backward inside Ω, P̃_A pointing out of Ω at its lateral boundary; so supp q_A lies in the
+tube for P̃_A of the compact set supp q_A ∩ Σ_τ0, inside that of S_A. The integral curves of P̃_A from S_A stay
+within C ε of those of P̊̃_A from S_A, as in Step 3, and these trace 𝒯̊_A, on which P̊̃_A = P̊_A; so for ε small the
+tube of S_A for P̃_A lies in the interior of {ζ′_A = 1}, where P̃_A = P_A. In Steps 5–7, since ů solves
+[[eq:vlasov-localised]], the equations for the differences are those of Steps 5–7 there multiplied by ζ′_A, with P̃_A
+on the left:
 
     P̃_A(δp_(A,a)) = ζ′_A (P_A^b (Γ[g] − Γ[g̊])^c_(ba) p_(A,c) + Γ[g̊]^c_(ba) (P_A^b p_(A,c) − P̊_A^b p̊_(A,c))
                      − (P_A − P̊_A)^b ∂_b p̊_(A,a)),
@@ -1049,8 +1049,8 @@ of int S_A. By (ii) it lies in the interior of {ζ′_A = 1}, where P̃_A = P_A 
 (Aug2)–(Aug4). On Σ_τ0 ∩ 𝒯_A the data are the datum's, so ν_A := g⁻¹(p_A, p_A) vanishes there; ν_A is constant along
 the integral curves of P_A in 𝒯_A ([[prop:class-augmented]] (b)), so ν_A = 0 on 𝒯_A, and dν_A = 0 there. As in Step
 10, dp_A = 0 on Σ_τ0 ∩ 𝒯_A; by [[prop:class-augmented]] (b), i_(P_A) dp_A = 0 and ℒ_(P_A) dp_A = 0 on 𝒯_A, so
-dp_A = 0 on 𝒯_A. Let Φ(x0, t) be the point reached at the parameter t by the integral curve of P_A from x0 ∈ int S_A: Φ is
-a smooth bijection onto 𝒯_A with invertible differential, integral curves not meeting and τ increasing along them.
+dp_A = 0 on 𝒯_A. Let Φ(x0, t) be the point reached at the parameter t by the integral curve of P_A from x0 ∈ int S_A:
+Φ is a smooth bijection onto 𝒯_A with invertible differential, integral curves not meeting and τ increasing along them.
 Define u_A on 𝒯_A by u_A(Φ(x0, t)) := u_A^D(x0), u_A^D the datum's function. The pull-back Φ*p_A is closed, and its
 dt-component is p_A(P_A) = ν_A ∘ Φ = 0, so its dx0-components do not depend on t; at t = 0 they are the spatial
 derivatives of u_A^D. Hence Φ*p_A = d(u_A ∘ Φ), and p_A = du_A on 𝒯_A: u_A is a smooth G-invariant eikonal of g there,
@@ -1071,10 +1071,11 @@ D = (γ_D, κ_D, F_D, u_D): metric data (γ_D, κ_D) on Σ_τ0 ∩ Ω, completed
 with ∂_τ of these fixed by the gauge condition D = 0 as in [[sec:data-identities]], and smooth invariant functions
 F_D ≥ 0 and u_D on (Σ_τ0 ∩ Ω) × S¹ with supp F_D ⊂ int S and d(u_D(·, α))(x) ≠ 0 for (x, α) in a neighbourhood of S,
 such that the constraints hold with the stress of the field, the τ-derivatives of the u_D(·, α) being the roots of the
-eikonal equation fixed by the branch of [[def:vlasov-label]]. The data of (g, F, u) form such a datum: on 𝒲 ∩ (Σ_τ0 × S¹),
-du_α is null, nonzero and future directed, so its restriction to the spacelike slice is not zero. Its distance to the data of (g, F, u) is d(D), the C^(m+3) norm of (γ_D − γ, κ_D − κ) on Σ_τ0 ∩ Ω
-plus that of (F_D − F, u_D − u) on (Σ_τ0 ∩ Ω) × S¹. For n ≥ 1 put α_A := 2πA/n. The *n-dust datum* D_n of D has the
-densities q_A := (2π/n) F_D(·, α_A)², the eikonal data u_D(·, α_A), and the metric data (γ_D, κ_D) corrected by
+eikonal equation fixed by the branch of [[def:vlasov-label]]. Its distance to the data of (g, F, u) is d(D), the C^(m+3)
+norm of (γ_D − γ, κ_D − κ) on Σ_τ0 ∩ Ω plus that of (F_D − F, u_D − u) on (Σ_τ0 ∩ Ω) × S¹. The data of (g, F, u) form
+such a datum: on 𝒲 ∩ (Σ_τ0 × S¹), du_α is null, nonzero and future directed, so its restriction to the spacelike slice
+is not zero. For n ≥ 1 put α_A := 2πA/n. The *n-dust datum* D_n of D has the densities q_A := (2π/n) F_D(·, α_A)²,
+the eikonal data u_D(·, α_A), and the metric data (γ_D, κ_D) corrected by
 [[prop:vlasov-scaled-correction]], with λ = 1 and no phases, to satisfy the constraints with the stress T^(n) :=
 Σ_A q_A du_A ⊗ du_A (the τ-components of the du_A being the roots for the corrected metric). The *n-dust approximant*
 g^(n) of the field is the development of the n-dust datum of the data of (g, F, u) itself.
@@ -1132,15 +1133,16 @@ Then ů satisfies (H1′) and (H2′) of [[lem:vlasov-local-stability]], q(·, �
 conserved ([[def:vlasov-label]]), except that Ric(g) = T_V = Σ_A q̊_A dů_A ⊗ dů_A + E_n; and ζ′_A is a cut-off for that
 lemma. So ů solves [[eq:vlasov-localised]] up to the residual ζ′_A E_n(P̊_A, P̊_A) in its second equation, the Ricci
 term of the Raychaudhuri equation being Ric(P̊_A, P̊_A) = T_V(P̊_A, P̊_A), and (Aug1) up to the matter term E_n. Parts
-(ii) and (iii) of the proof of [[lem:vlasov-local-stability]] apply to the difference between the solution of (Aug1)
-and [[eq:vlasov-localised]] with the datum D_n, its family data cut off as in (i) there, and ů, with these changes.
+(ii) and (iii) of the proof of [[lem:vlasov-local-stability]], with its index k := m, apply to the difference between
+the solution of (Aug1) and [[eq:vlasov-localised]] with the datum D_n, its family data cut off as in (i) there, and ů,
+with these changes.
 (1) The family norms of [[eq:class-energy]] are weighted: Σ_A is replaced by the ℓ² sum
 ((2π/n) Σ_A ‖·‖²)^(1/2) of the norms of (δp_A, δΘ_A, ς_A), ς_A := q_A/(2π/n) − q̄_A, q̄_A := q(·, α_A). (2) The matter
 term of the metric equation for the difference, T := Σ_A q_A p_A ⊗ p_A minus Ric(g) = T_V, is exactly
 
     T − T_V = Σ_A (2π/n) (ς_A p_A ⊗ p_A + q̄_A (π_A ⊗ p_A + p̊_A ⊗ π_A)) − E_n,      π_A := p_A − p̊_A, p̊_A := du_(α_A),
 
-and by the Cauchy–Schwarz inequality and Σ_A 2π/n = 2π its first part is bounded in H^k by C times the weighted family
+and by the Cauchy–Schwarz inequality and Σ_A 2π/n = 2π its first part is bounded in H^m by C times the weighted family
 norm; so is the difference of the terms Ric(P_A, P_A) = Σ_B (2π/n) (q_B/(2π/n)) g⁻¹(p_A, p_B)² of Step 6, uniformly in
 A. (3) Every other term is estimated family by family, with constants uniform in A because the sampled families, the
 sets 𝒱̊_A and the cut-offs ζ′_A come from functions smooth in α, uniformly. (4) The residuals add C_k n^(−k) to the right
@@ -1188,16 +1190,17 @@ boundary ruled by integral curves of ℓ_A vanishes, and that through the latera
 ℓ_A being future directed and null; this is the estimate of [[lem:two-dust-transport]] for Z_A := ℓ_A/ℓ_A(τ), with the
 norms on 𝒱_A ∩ Σ_τ. (b) If the data of the pure harmonics of family A vanish off supp F_A ∩ Σ_τ0, every profile that
 carries a harmonic e^(i j·θ) with j_A ≠ 0 vanishes off 𝒯_A. Indeed F_A vanishes off 𝒯_A, and so does the gauge part of
-W_A, whose transport has zero data and the source F_A²/ν_A² ([[def:vlasov-wave]]): the integral curves of ℓ_A through
-points of 𝒱_A ∖ 𝒯_A start outside supp F_A, integral curves not meeting. At each stage, a term of the residual that
-carries such a harmonic is a product with a factor that carries a harmonic of θ_A, the means and the phase corrections
-carrying none; by induction on the stage it vanishes off 𝒯_A. The pure harmonics of family A are transported along ℓ_A
-with such sources and with data vanishing off supp F_A ∩ Σ_τ0, so they vanish on the integral curves from points of
-Σ_τ0 ∖ supp F_A, that is off 𝒯_A; and the mixed harmonics are quotients of such terms by Q_j, pointwise. (c) Hence the
-phase corrections of family A, φ_A and Ψ_A enter every other equation only multiplied by profiles that vanish off 𝒯_A,
-a compact subset of the tube of int S_A, which is relatively open in Ω and lies in 𝒱_A. These products, extended by
-zero, are smooth on Ω, and the norms of φ_A and Ψ_A are taken on 𝒱_A ∩ Σ_τ. The contraction s_A(h) := h(ℓ_A, ℓ_A),
-and the ℓ_A ⊗ ℓ_A component of the equation for h, use ℓ_A = g0⁻¹du_A on the whole of Ω.
+W_A, whose transport has zero data and a right side proportional to F_A² ([[def:vlasov-wave]]): the integral curves of
+ℓ_A through points of 𝒱_A ∖ 𝒯_A start outside supp F_A, integral curves not meeting. At each stage, a term of the
+residual that carries such a harmonic is a product with a factor that carries a harmonic of θ_A, the means and the phase
+corrections carrying none; by induction on the stage it vanishes off 𝒯_A. The pure harmonics of family A are
+transported along ℓ_A with such right sides and with data vanishing off supp F_A ∩ Σ_τ0, so they vanish on the integral
+curves from points of Σ_τ0 ∖ supp F_A, that is off 𝒯_A; and the mixed harmonics are quotients of such terms by Q_j,
+pointwise. (c) Hence the phase corrections of family A, φ_A and Ψ_A enter every other equation only multiplied by
+profiles that vanish off 𝒯_A, a compact subset of the tube of int S_A, which is relatively open in Ω and lies in 𝒱_A.
+These products, extended by zero, are smooth on Ω, and the norms of φ_A and Ψ_A are taken on 𝒱_A ∩ Σ_τ. The
+contraction s_A(h) := h(ℓ_A, ℓ_A), and the ℓ_A ⊗ ℓ_A component of the equation for h, use ℓ_A = g0⁻¹du_A on the whole
+of Ω.
 
 By [[lem:vlasov-hierarchy]] with m = m*, every symbol [[eq:vlasov-symbol]] with at least two nonzero entries and |j|₁ ≤
 m* satisfies |Q_j| ≥ 2 ν_B1 ν_B2 c* on the overlaps, c* := c − m* Ē²/Λ − m*² Ē²/(2Λ) > 0. These conditions are those of
@@ -1206,10 +1209,10 @@ used; we list what changes from two families to n.
 
 **Theorem {#thm:vlasov-n-approximant}** (The approximant with n phases.) Under (i)–(iv), for every N ≥ 1 and every
 smooth choice of stage data, those of the pure harmonics of family A vanishing off supp F_A ∩ Σ_τ0 for every A, there
-are profiles g_1, …, g_N in (X, θ_1, …, θ_n), independent of λ, such that g_app = g0 +
-λ [g_1] + Σ_(l=2)^N λ^l [g_l], with the phases θ_A = ν_A u_A/λ, is an n-phase approximant with N stages of order K =
-N − 1 at every regularity k, in the sense of [[def:two-dust-approximant]] with one phase per family, and with g_1 =
-m_1 + Σ_A W_A(X, θ_A + φ_1^A(X)), W_A the waves of (iii).
+are profiles g_1, …, g_N in (X, θ_1, …, θ_n), independent of λ, such that g_app = g0 + λ [g_1] + Σ_(l=2)^N λ^l [g_l],
+with the phases θ_A = ν_A u_A/λ, is an n-phase approximant with N stages of order K = N − 1 at every regularity k, in
+the sense of [[def:two-dust-approximant]] with one phase per family, and with g_1 = m_1 + Σ_A W_A(X, θ_A + φ_1^A(X)),
+W_A the waves of (iii).
 
 *Proof.* The stage system is that of [[lem:two-dust-stages]] with n phases: (a) the mean, a linear wave equation; (b)
 n phase corrections, each transported along its own generator; (c) the pure harmonics of each family, transported along
@@ -1230,9 +1233,9 @@ Stage 0: with g_1 := Σ_A W_A and ĝ_2 := q, R[g0 + λ Σ_A W_A + λ² q] has R^
 phases: a term with two phase derivatives on one wave W_A is that of R[g0 + λ W_A], a product of two different waves has
 only mixed harmonics, and the cross terms of order λ⁻¹ vanish since each W_A depends on one phase. By
 [[lem:vlasov-wave]] on 𝒱_A, where u_A is an eikonal, and since W_A and F_A vanish off 𝒯_A, R^(0)_A = Ric(g0) −
-F_A² du_A ⊗ du_A on Ω, with no oscillating part, the gauge part χ_A k_A ⊗ k_A
-removing the second harmonic of the quadratic term; so the first three terms add up to Ric(g0) − Σ_A F_A² du_A ⊗ du_A +
-R^(0)_× = R^(0)_×, g0 being the Einstein–n-null-dust solution. The mixed harmonics R^(0)_× are removed by the mixed
+F_A² du_A ⊗ du_A on Ω, with no oscillating part, the gauge part χ_A k_A ⊗ k_A removing the second harmonic of the
+quadratic term; so the first three terms add up to Ric(g0) − Σ_A F_A² du_A ⊗ du_A + R^(0)_× = R^(0)_×, as
+Ric(g0) = Σ_A F_A² du_A ⊗ du_A. The mixed harmonics R^(0)_× are removed by the mixed
 harmonics of q, divided by the symbols Q_j of [[eq:vlasov-symbol]] with |j|₁ ≤ 4, bounded below by (ii′), since q enters
 R^(0) only through −½ g0^(ab) ∂_a ∂_b, as multiplication of the harmonic e^(i j·θ) by ½ Q_j. The assembly is that of
 [[thm:two-dust-approximant]]: the stages m = 1, …, N by (a)–(d) above, and the passage to the fixed phases ν_A u_A/λ by
@@ -1269,11 +1272,11 @@ as in (L1) of [[lem:two-dust-facts]].
 
 (3) *The ℓ_A ⊗ ℓ_A component.* Contracting the equation for h with ℓ_A ⊗ ℓ_A, ℓ_A = g0⁻¹du_A on the whole of Ω, kills
 family A's term of order λ⁻¹ and its □̃φ_A term, as for one family: they carry G2^A and G1^A, which vanish off 𝒯_A, and
-on 𝒯_A, ℓ_A is null and G1^A(ℓ_A, ·) = G2^A(ℓ_A, ·) = 0. Every B ≠ A remains exactly as the other family remains in [[lem:two-dust-ell-ell]]:
-½ λ⁻¹((1 − 𝒫) s_B(h)) G2^B(ℓ_A, ℓ_A) = O(∂ s_B(h)) and λ⁻¹((ℓ_app^B − ℓ_B)·dφ_B) G2^B(ℓ_A, ℓ_A) = O(|dφ_B|), with Ψ_B :=
-□̃φ_B carrying a bounded coefficient. The torus part of W_B vanishes on vectors of the orbit space, so G2^B(ℓ_A, ℓ_A) is
-the contribution of the gauge part, ν_B² [∂²_(θ_B) χ_B] (ℓ_A·du_B)², a bounded profile in θ_B alone, as for two
-families ([[lem:two-dust-facts]] (L4)).
+on 𝒯_A, ℓ_A is null and G1^A(ℓ_A, ·) = G2^A(ℓ_A, ·) = 0. Every B ≠ A remains exactly as the other family remains in
+[[lem:two-dust-ell-ell]]: ½ λ⁻¹((1 − 𝒫) s_B(h)) G2^B(ℓ_A, ℓ_A) = O(∂ s_B(h)) and λ⁻¹((ℓ_app^B − ℓ_B)·dφ_B)
+G2^B(ℓ_A, ℓ_A) = O(|dφ_B|), with Ψ_B := □̃φ_B carrying a bounded coefficient. The torus part of W_B vanishes on vectors
+of the orbit space, so G2^B(ℓ_A, ℓ_A) is the contribution of the gauge part, ν_B² [∂²_(θ_B) χ_B] (ℓ_A·du_B)², a
+bounded profile in θ_B alone, as for two families ([[lem:two-dust-facts]] (L4)).
 
 (4) *The transport of Ψ_A.* On 𝒱_A, where u_A is an eikonal, Ψ_A := □̃φ_A satisfies L_A Ψ_A + a_A Ψ_A = □̃f_A −
 𝔐_A(f_A) − 𝔑_A φ_A by [[cor:vlasov-commutator]], with f_A := ½ 𝒫 s_A(h); its coefficients are bounded on 𝒱_A, which
@@ -1319,21 +1322,23 @@ du_A(k_A) = 1, and a covector ζ_A with ζ_A(ℓ_A) = 0 and g0⁻¹(ζ_A, ζ_A) 
 harmonics of θ_A, which vanish off supp F_A ∩ Σ_τ0 by (v) (b), by induction on the stage, so the stage data of the pure
 harmonics of family A vanish there, as [[thm:vlasov-n-approximant]] asks. The linear solves of its step (iii) have
 coefficients independent of λ (θ-means of profile functions), so [[lem:linear-evolution]] applies to them as stated;
-the mixed harmonics take no data and need not vanish on Σ_τ0, which no step uses. So, as in [[lem:gauge-hierarchy]], the constraint map of the data (γ, κ) of g_app on Σ :=
-Σ_τ0 ∩ Ω is λ^(N−2) times a function of the form [h] of [[sec:vlasov-scaled]], with the phases φ_A := ν_A u_A|Σ (the
-phase corrections vanish on Σ_τ0). The data (γ, κ) are polynomials in λ whose coefficients are of the form [h]; they
-carry every family's wave, whose gauge part vanishes on Σ_τ0 with its θ-derivatives ([[def:vlasov-wave]]), so that W_A
-and κ1_A on Σ_τ0 are torus-polarised, and the second and mixed harmonics at order λ².
+the mixed harmonics take no data and need not vanish on Σ_τ0, which no step uses. So, as in [[lem:gauge-hierarchy]],
+the constraint map of the data (γ, κ) of g_app on Σ := Σ_τ0 ∩ Ω is λ^(N−2) times a function of the form [h] of
+[[sec:vlasov-scaled]], with the phases φ_A := ν_A u_A|Σ (the phase corrections vanish on Σ_τ0). The data (γ, κ) are
+polynomials in λ whose coefficients are of the form [h]; they carry every family's wave, whose gauge part vanishes on
+Σ_τ0 with its θ-derivatives ([[def:vlasov-wave]]), so that W_A and κ1_A on Σ_τ0 are torus-polarised, and the second
+and mixed harmonics at order λ².
 
 *The structure.* Let 𝔉(U) := 𝒞(γ_U, κ_U). By [[lem:vlasov-structure]] (with 𝒯 = 0) it has the structure
 [[eq:vlasov-structure]]. Its coefficients are smooth functions of the values of γ, ∂γ, ∂²γ, κ and ∂κ, so they are of the
 form [h] except for the terms carrying a factor λ⁻¹, which come from ∂²(λ W_A) in ∂²γ and from ∂κ1_A in ∂κ, enter
 linearly, and by [[lem:vlasov-constraint-coefficient]] (b) are, for every U, λ⁻¹ times traces of order λ (α dr ⊗ dr
 has no torus components), hence of the form [h]; the second and mixed harmonics enter at order λ⁰ by
-[[lem:vlasov-constraint-coefficient]] (a). So f and g̃ are of class 𝔏 and 𝔉(0) = 𝒞(γ, κ). By [[lem:vlasov-leaf-curvature]], p, P, A0, A^B and 𝒮 are of
-class 𝔓, with parts of order λ⁰ those of the data (γ0, κ0) of g0. The signs: at (γ0, κ0) and α = 0, p > 0 by (V3), P =
-γ0^(rr) Π0^(AB) is positive definite, and 𝒮A0 > 0 with 𝒮A^C symmetric by [[lem:vlasov-symmetrizer]]; by continuity in α
-these hold with constants p0, δ_e, A00 for |α| ≤ η0, and for λ ≤ λ1 the terms λ[h] change them by at most half.
+[[lem:vlasov-constraint-coefficient]] (a). So f and g̃ are of class 𝔏 and 𝔉(0) = 𝒞(γ, κ). By
+[[lem:vlasov-leaf-curvature]], p, P, A0, A^B and 𝒮 are of class 𝔓, with parts of order λ⁰ those of the data (γ0, κ0)
+of g0. The signs: at (γ0, κ0) and α = 0, p > 0 by (V3), P = γ0^(rr) Π0^(AB) is positive definite, and 𝒮A0 > 0 with
+𝒮A^C symmetric by [[lem:vlasov-symmetrizer]]; by continuity in α these hold with constants p0, δ_e, A00 for |α| ≤ η0,
+and for λ ≤ λ1 the terms λ[h] change them by at most half.
 
 *The correction.* Take k := 18 in [[prop:vlasov-scaled-correction]]. Since 𝒞(γ, κ) = λ^(N−2)[h], ε := sup_r
 ‖𝒞(γ, κ)‖_(18) ≤ C λ^(N−2) by (C0), and ε ≤ η λ⁴ for λ ≤ λ0, as N − 2 > 4. So there is a smooth U with zero data at
@@ -1410,9 +1415,9 @@ large.
 (ii′) Let y be a point where the supports of the families A and B of g^(n) overlap. By the comparison of rays, y is
 within C n^(−k) of a point of D_(α_A)(S″), where u_(α_A) is an eikonal of g on a neighbourhood of uniform size by (V1);
 so the ray of u_(α_A) for g through y, followed to the past, stays in Ω and meets Σ_τ0 within C n^(−k) of S″_(α_A), and
-for n large y ∈ D_(α_A)(S′); likewise y ∈ D_(α_B)(S′). By [[lem:vlasov-separation]] with S′, |g⁻¹(du_(α_A), du_(α_B))(y)| ≥
-c0 (2π/n)², so |g^(n)⁻¹(du_A, du_B)(y)| ≥ c0 (2π/n)² − C_k n^(−k) ≥ ½ c0 (2π/n)² for n large (k = 3). So c :=
-½ c0 (2π/n)², and Λ = Λ(n) is chosen as in (ii′).
+for n large y ∈ D_(α_A)(S′); likewise y ∈ D_(α_B)(S′). By [[lem:vlasov-separation]] with S′, the modulus of the mixed
+symbol g⁻¹(du_(α_A), du_(α_B))(y) is at least c0 (2π/n)², so |g^(n)⁻¹(du_A, du_B)(y)| ≥ c0 (2π/n)² − C_k n^(−k) ≥
+½ c0 (2π/n)² for n large (k = 3). So c := ½ c0 (2π/n)², and Λ = Λ(n) is chosen as in (ii′).
 
 (iii) The wave of each label is the wave W_A of [[def:vlasov-wave]] of the dust (u_A, F_A) of g^(n) at frequency ν_A,
 F_A² = q_A the density (F_A smooth, being transported by [[eq:vlasov-amplitude]] from the smooth data (2π/n)^(1/2)
@@ -1488,15 +1493,15 @@ neighbourhood they hold halved, also on a fixed neighbourhood of S. Where the Ja
 neighbourhood of S_α foliate a neighbourhood of D′_α(S), uniformly in α, so the eikonal u″_α of g′ with the data
 u′_α|Σ_τ0 exists there (the method of characteristics), and it is smooth in (x, α), the rays depending smoothly on their
 initial points and on α; this is why the margins are asked on S and not only on supp q, the tube of supp q′ lying inside
-that of S. The label form's u′_α is an eikonal of g′ near the tube of supp q′(·, α) ∩ Σ_τ0 with the same data and branch.
-So the ray of u′_α from a point x0 of that set is the null geodesic of g′ from x0 with the covector du′_α(x0) = du″_α(x0),
-also the ray of u″_α from x0; along it both functions are constant, with the value u′_α(x0). Hence u′_α = u″_α on that
-tube, which contains the open set where q′(·, α) > 0, and there all derivatives agree. Injectivity is kept: if α_k ≠ α′_k in
-S_(x_k) had β0′_k(x_k, α_k) = β0′_k(x_k, α′_k) for perturbations tending to zero, a limit point would give, by
-injectivity of β0(x, ·), α = α′, and then for k large α_k and α′_k lie in an interval on which ∂_α β0′_k ≥ b_*/2 > 0, a
-contradiction. (Ω) consists of strict inequalities between contractions of g⁻¹, continuous in C⁰, and of the statement
-on generators, which holds for the tubes by their definition; (V3) consists of strict inequalities between functions of
-the slice data and their first derivatives. ∎
+that of S. The label form's u′_α is an eikonal of g′ near the tube of supp q′(·, α) ∩ Σ_τ0 with the same data and
+branch. So the ray of u′_α from a point x0 of that set is the null geodesic of g′ from x0 with the covector du′_α(x0) =
+du″_α(x0), also the ray of u″_α from x0; along it both functions are constant, with the value u′_α(x0). Hence u′_α =
+u″_α on that tube, which contains the open set where q′(·, α) > 0, and there all derivatives agree. Injectivity is
+kept: if α_k ≠ α′_k in S_(x_k) had β0′_k(x_k, α_k) = β0′_k(x_k, α′_k) for perturbations tending to zero, a limit point
+would give, by injectivity of β0(x, ·), α = α′, and then for k large α_k and α′_k lie in an interval on which
+∂_α β0′_k ≥ b_*/2 > 0, a contradiction. (Ω) consists of strict inequalities between contractions of g⁻¹, continuous
+in C⁰, and of the statement on generators, which holds for the tubes by their definition; (V3) consists of strict
+inequalities between functions of the slice data and their first derivatives. ∎
 
 **Proposition {#prop:vlasov-cauchy}** (Cauchy stability of the restricted system off the axes.) Let (g̊, F̊, ů) be a
 smooth class Einstein–restricted massless Vlasov solution on Ω in label form satisfying (Ω), (V1), (V2) and (V3), with
@@ -1529,11 +1534,10 @@ the subsequence the null geodesic flows of g^(n) converge with their derivatives
 F^(n)_α → F_α in C¹, uniformly in α, where u_α is the eikonal of g with the data u_D(·, α) on a neighbourhood of the
 (x, α) with x ∈ D_α(S), extended smoothly to Ω × S¹ by a cut-off as in [[lem:vlasov-open]], and F_α solves
 [[eq:vlasov-amplitude]] along its rays with the data F_D(·, α); and h^(n) → h := F_α² du_α ⊗ du_α uniformly. The
-Riemann sum error
-is |(2π/n) Σ_A h^(n)(x, α_A) − ∫ h^(n)(x, α) dα| ≤ Σ_A ∫_(arc A) |h^(n)(x, α_A) − h^(n)(x, α)| dα ≤ 2π (2π/n) sup |∂_α
-h^(n)| → 0, the arc A being the set of α with α_A − 2π/n ≤ α ≤ α_A. Hence Ric(g) = lim Ric(g^(n)) = ∫_(S¹) h dα = T_V:
-(g, F, u) solves the Einstein–restricted massless Vlasov system in label form, F_α vanishing off the tube of
-supp F_D(·, α), on which u_α is an eikonal. The g^(n) solve Ric^H(g^(n)) = T^(n) in the gauge relative to g̊
+Riemann sum error is |(2π/n) Σ_A h^(n)(x, α_A) − ∫ h^(n)(x, α) dα| ≤ Σ_A ∫_(arc A) |h^(n)(x, α_A) − h^(n)(x, α)| dα ≤
+2π (2π/n) sup |∂_α h^(n)| → 0, the arc A being the set of α with α_A − 2π/n ≤ α ≤ α_A. Hence Ric(g) = lim Ric(g^(n))
+= ∫_(S¹) h dα = T_V: (g, F, u) solves the Einstein–restricted massless Vlasov system in label form, F_α vanishing off
+the tube of supp F_D(·, α), on which u_α is an eikonal. The g^(n) solve Ric^H(g^(n)) = T^(n) in the gauge relative to g̊
 ([[lem:vlasov-local-stability]]), so g does in the limit, and its data are those of D, since the metric data of D_n
 differ from those of D by at most C n⁻² ([[prop:vlasov-scaled-correction]]).
 
@@ -1543,7 +1547,7 @@ in (x, α), on a neighbourhood of the (x, α) with x in its tube D^i_α(S), whos
 it agrees with u^i_α, with all derivatives, where q^i(·, α) > 0; q^i(·, α) is transported along its rays and vanishes
 off the tube of supp F_D(·, α). So T^i_V = ∫ q^i(·, α) dû^i_α ⊗ dû^i_α dα, and we use û^i in place of u^i.
 
-Fix a compact S′ with supp F_D ⊂ int S′ and S′ ⊂ int S, and put 𝒱_α := D^1_α(S′_α), the tube of S′_α for û^1_α. For η
+Fix a compact S′ with supp F_D ⊂ int S′ and S′ ⊂ int S, and put 𝒱_α := D^1_α(S′), the tube of S′_α for û^1_α. For η
 small, 𝒱_α ⊂ D^2_α(S), and supp q^1(·, α) ∪ supp q^2(·, α) ⊂ 𝒱_α, for every α. Indeed, extend g_1, g_2 to a
 neighbourhood of Ω, C²-close to an extension of g̊, and let y^i_τ and ẙ_τ map a point x0 near S_α to the point where the
 null geodesic of g_i, respectively g̊, with the future covector over d(u_D(·, α)|Σ_τ0)(x0), respectively over
@@ -1555,7 +1559,8 @@ Dẙ_τ(x0)| ≤ 1/(2L) there, so the inverse function theorem gives y^2_τ(B(x0
 y once 2Cη < d/(2L). So y lies on the ray of û^2_α from a point of S_α, and that ray stays in Ω up to y, since a future
 causal curve that leaves Ω through its lateral boundary does not return ([[def:class-admissible]] (b)): y ∈ D^2_α(S).
 The same argument with the solutions exchanged, and supp F_D(·, α) ⊂ int S′_α in place of S′_α ⊂ int S_α, gives
-supp q^2(·, α) ⊂ D^2_α(supp F_D(·, α)) ⊂ 𝒱_α; and supp q^1(·, α) ⊂ D^1_α(supp F_D(·, α)) ⊂ 𝒱_α.
+supp q^2(·, α) lies in the tube of supp F_D(·, α) for û^2_α, inside 𝒱_α; and supp q^1(·, α) lies in that for û^1_α,
+inside 𝒱_α.
 
 So both û^i_α are eikonals near 𝒱_α. On 𝒱_α put p^i := dû^i_α, P^i := g_i⁻¹p^i, Θ^i := □_(g_i) û^i_α and q^i_α :=
 q^i(·, α), with differences δp_α, δΘ_α, δq_α, and let w := g_1 − g_2. On 𝒱_α, ∇_(P^i) p^i = 0 for g_i, the Raychaudhuri

@@ -1265,3 +1265,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   k̄_0 = 3, J_* = 15,000,015. Open: (SP) (running); multiplicities of roots of L̂_b(0) below Re −101 (the reader
   decides whether l_* needs them); c_b at rotating b and 𝔡₁ in every admissible set concern only a smaller admissible
   set, not the existence of the bound.
+- R3-P-U71-forward CONFIRMED: the forward loss d_FWD = D_0 + 76 ≤ 20,180 is proved. Its texts wait for the combined
+  confirming reading of the d-bound texts (with IS and SP).
+- R2-85 NOT CONFIRMED (A1 in lem:edge-degree-two, B1, C1-C5). F2-85 applies them and the chapter 3 m12 text of F-85
+  (lines 369-371), which R2-85 checked true.
