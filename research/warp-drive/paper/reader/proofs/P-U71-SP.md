@@ -132,8 +132,9 @@ on [4, ∞). Then I(χu_j) is constant on {v ≥ 4}, equal to ⟨χu_j, 1⟩, an
 
     Iu_j(v) = ⟨χu_j, 1⟩ + ∫_3^v (1 − χ)u_j dv′ = 𝔪_0(u_j) − ∫_v^∞ u_j dv′ = −∫_v^∞ u_j dv′.
 
-As v∂_vI = I(v∂_v + 1) (both sides vanish on {v < −1} and have the same v-derivative) and the ℒ_Ω commute with I,
-|W^αIu_j| ≤ C_αv^(1−c) on {v ≥ 4}; so Iu_j ∈ 𝒜^(c−1) ⊂ H^∞_(b,c′) near R = 0 ([[lem:i-c-2-2]] (f)). On {v < 5},
+As v∂_vI = I(v∂_v + 1) (both sides vanish on {v < −1} and have the same v-derivative) and the ℒ_Ω commute with I, the
+bound |W^αIu_j| ≤ C_αv^(1−c) holds on {v ≥ 4}; so Iu_j ∈ 𝒜^(c−1) ⊂ H^∞_(b,c′) near R = 0 ([[lem:i-c-2-2]] (f)).
+On {v < 5},
 W^αIu_j = I(W̃^αu_j), with every v∂_v of W^α replaced by v∂_v + 1 in W̃^α; by (i) of the proof of [[lem:iii-g1-2-1]]
 each W̃^αu_j lies in H^s(ℝ; H^m(𝕊³)) for every m, the primitive maps this space into H^(s+1)(ℝ; H^m(𝕊³)) locally
 ((iii) (α) there), and the latter lies in H^(s+1) for m large, as in (i) there. So Iu_j ∈ Ḣ^((s+1;∞),c′)_(b;b).
@@ -333,7 +334,8 @@ on stationary sections □̄ acts in the Cartesian frame as −Δ on each compon
 
     Δr^a = a(a + 2)r^(a−2),     Δ(r^an_in_j) = r^(a−2)((a − 2)(a + 4)n_in_j + 2δ_(ij)),
     ∂_j(r^aδ_(ij)) = a r^(a−1)n_i,     ∂_j(r^an_in_j) = (a + 3)r^(a−1)n_i,
-    ∂_j(r^ax_iW_j) = r^aW_i,     ∂_j(r^ax_jW_i) = (a + 5)r^aW_i,     Δ(r^a(x_iW_j + x_jW_i)) = a(a + 6)r^(a−2)(x_iW_j + x_jW_i).
+    ∂_j(r^ax_iW_j) = r^aW_i,     ∂_j(r^ax_jW_i) = (a + 5)r^aW_i,
+    Δ(r^a(x_iW_j + x_jW_i)) = a(a + 6)r^(a−2)(x_iW_j + x_jW_i).
 
 The second and the last follow from Δ(fg) = (Δf)g + 2∇f·∇g + fΔg with x·∇(x_ix_j) = 2x_ix_j, Δ(x_ix_j) = 2δ_(ij),
 x·∇(x_iW_j) = 2x_iW_j and Δ(x_iW_j) = 2∂_iW_j, the Killing equation removing the last term after symmetrising; the
