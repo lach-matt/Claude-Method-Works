@@ -150,11 +150,12 @@ with R the number of rounds of [[prop:ec-rounds]], the sum over those rounds, an
 losses of their single steps, and in finitely many further losses, each assigned to a finite composition.
 
 The bounds (ii) are lower bounds for the loss that this proof's choices produce, not for the least loss with which
-the tame estimates hold. The bound (iii) is explicit in numbers that this theorem does not evaluate: the numbers of
-steps, which [[lem:ec-counts]] bounds through the spacing of the levels, below ε_K, and so through a lower bound for
-the admissible ε_K, which the exponents of the index sets of the construction fix; and the further losses, which
-contain counts that these exponents and the orders of the poles of N_ι⁺(L̄, ·)⁻¹ fix. So this theorem gives no
-integer upper bound for d_acc or d_NM ([[thm:uc-reduction]]); [[rem:uc-missing]] states what one needs.
+the tame estimates hold; for the index sets as the proofs construct them, (G) asks ε_K < μ_G ([[thm:is-gap]]), and the
+lower bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). The bound (iii) is explicit in the numbers of steps,
+which [[lem:ec-counts]] bounds through the spacing of the levels, below ε_K, and in the further losses, which contain
+counts of the index sets. At the computational point [[thm:uc-integer]] evaluates every number of steps and every such
+count: d_acc and d_NM are at most 1.2587 × 10²⁴ plus 2.44153 × 10¹⁴ times the largest single-step loss c_*, which
+[[rem:uc-missing]] describes.
 
 *Proof.* [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d_acc by [[lem:iii-j2-1-2]], which gives the tame
 estimates with any loss at least the accounted one; N_NM = 21d_NM + 6 is the regularity of [[thm:ii-g-2-1]] at the
