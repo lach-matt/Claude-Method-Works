@@ -266,6 +266,73 @@ N_ι⁺(ϰ)⁻¹f_ϰ − Σ_(j<p)(ϰ − ϰ_0)^jN_ι⁺(ϰ)⁻¹f_j = (ϰ − ϰ
 some N_ι⁺(ϰ)⁻¹f_j has a pole of order at least p. No f gives a larger order, as N_ι⁺(ϰ)⁻¹f = R^(−ϰ)N_sf(ϰ)⁻¹(R^(2+ϰ)f)
 and R^(2+ϰ)f is holomorphic in 𝒴. ∎
 
+**Lemma {#lem:sp-two-roots}** (The chains at ϰ_0 = 5.) Let W = Σ_i W_i dx^i with W_i linear, Σ_i x_iW_i = 0 and
+∂_iW_j + ∂_jW_i = 0 (a rotation 1-form, of vector type 1), and V̂ := r⁻¹W. Put
+
+    K_s0 := Σ_i (dx^i)² − 4 dr²,     K_v1 := dr ⊗_s V̂,     Z := −6e_Υ dt̄² + (4 − e_Υ)Σ_i (dx^i)² − (4 + 2e_Υ) dr².
+
+(a) For K = K_s0 and K = K_v1, and every ι ∈ ℂ,
+
+    L̃(0)(ω, ι, ∂_ω)K = (ι − 4)(2S̄ − ι − 2)K.                                                            {#eq:sp-gauge}
+
+(b) L̃(0)(ω, 2, ∂_ω)Z = 4(e_Υ + 2)K_s0.
+
+(c) For every value of the parameters with 1, 3 not roots of type s0 and 1, 2 not roots of type v1, and the roots 2,
+4 of type s0 and 3, 4 of type v1 simple, dim ker 𝔐_τ(5) = 2 and p(𝔐_τ, 5) = 1 for τ = s0 and τ = v1.
+
+*Proof.* L̃(0)(ω, ι, ∂_ω)K is defined by (2L̄)^(0)(r^(−ι)K) = r^(−ι−2)L̃(0)(ω, ι, ∂_ω)K, and (2L̄)^(0) is 2L̄ on
+stationary sections ([[lem:iii-f-2-1]] (2)): by [[eq:iii-f-2-1]], (2L̄)^(0)u = □̄u + 2Ē^Cδ̄Ḡu + 2(δ̄* + Ē^C)Ē^ΥḠu, where
+on stationary sections □̄ acts in the Cartesian frame as −Δ on each component and (δ̄k)_μ = −Σ_j ∂_jk_(μj). We use, on
+ℝ⁴ and for real or complex a,
+
+    Δr^a = a(a + 2)r^(a−2),     Δ(r^an_in_j) = r^(a−2)((a − 2)(a + 4)n_in_j + 2δ_(ij)),
+    ∂_j(r^aδ_(ij)) = a r^(a−1)n_i,     ∂_j(r^an_in_j) = (a + 3)r^(a−1)n_i,
+    ∂_j(r^ax_iW_j) = r^aW_i,     ∂_j(r^ax_jW_i) = (a + 5)r^aW_i,
+    Δ(r^a(x_iW_j + x_jW_i)) = a(a + 6)r^(a−2)(x_iW_j + x_jW_i).
+
+The second and the last follow from Δ(fg) = (Δf)g + 2∇f·∇g + fΔg with x·∇(x_ix_j) = 2x_ix_j, Δ(x_ix_j) = 2δ_(ij),
+x·∇(x_iW_j) = 2x_iW_j and Δ(x_iW_j) = 2∂_iW_j, the Killing equation removing the last term after symmetrising; the
+third and fourth are direct, as ∂_j(x_ix_j) = 5x_i; the fifth and sixth follow from x·W = 0, ∂_jW_j = 0 (a consequence
+of the Killing equation) and x·∇W_i = W_i.
+
+(a) Let u := r^(−ι)K. Then tr u = 0 (tr Σ(dx^i)² = 4, tr dr² = 1, ⟨dr, V̂⟩ = 0) and ι_(∂_t̄)u = 0, so Ḡu = u and,
+as c̄_Υ^♯ = −r⁻¹∂_t̄, Ē^ΥḠu = −γ_Υ(2ι_(c̄_Υ^♯)u − e_Υc̄_Υ tr u) = 0 ([[sec:iii-f1-1]]). For K_s0, u_(ij) =
+r^(−ι)(δ_(ij) − 4n_in_j), and the identities give Δu = (ι + 2)(ι − 4)r^(−2)u and δ̄u = −3(ι − 4)r^(−ι−1)dr. For K_v1,
+u_(ij) = ½r^(−ι−2)(x_iW_j + x_jW_i), and they give Δu = (ι + 2)(ι − 4)r^(−2)u and δ̄u = ½(ι − 4)r^(−ι−1)V̂. In both cases
+δ̄u = −(ι − 4)r⁻¹ι_Xu with X := ḡ⁻¹dt_* = −∂_t̄ − ∂_r, since ι_Xu = −ι_(∂_r)u equals 3r^(−ι)dr for K_s0 and −½r^(−ι)V̂
+for K_v1. By [[eq:iii-f-2-2]], ρS̄u = −Ē^Cι_XḠu + (dt_* ⊗_s ·)Ē^ΥḠu = −Ē^C(ι_Xu). Hence
+
+    (2L̄)^(0)u = −(ι + 2)(ι − 4)r^(−2)u − 2(ι − 4)r⁻¹Ē^C(ι_Xu) = (ι − 4)r^(−2)(2S̄ − ι − 2)u,
+
+which is [[eq:sp-gauge]].
+
+(b) Let u := r^(−2)Z. Then tr Z = 6e_Υ + 4(4 − e_Υ) − (4 + 2e_Υ) = 12 and ι_(∂_t̄)Z = −6e_Υ dt̄, so
+Ē^ΥḠu = −γ_Υ(2·6e_Υ − 12e_Υ)r^(−3)dt̄ = 0. Next Ḡu = r^(−2)((6 − 6e_Υ)dt̄² − (2 + e_Υ)Σ(dx^i)² − (4 + 2e_Υ)dr²) has
+no mixed time–space components, and by the identities
+Σ_j∂_j(r^(−2)((2 + e_Υ)δ_(ij) + (4 + 2e_Υ)n_in_j)) = (−2(2 + e_Υ) + (4 + 2e_Υ))r^(−3)n_i = 0; so δ̄Ḡu = 0.
+Finally Δ(r^(−2)) = 0, so Δ(r^(−2)dt̄²) = 0 and Δ(r^(−2)δ_(ij)) = 0, while Δ(r^(−2)n_in_j) = r^(−4)(2δ_(ij) −
+8n_in_j). The terms of (2L̄)^(0)u other than □̄u vanish, so
+(2L̄)^(0)u = □̄u = (4 + 2e_Υ)r^(−4)(2δ_(ij) − 8n_in_j)dx^idx^j = 4(e_Υ + 2)r^(−4)K_s0.
+
+(c) K_s0 and Z are invariant under SO(4), of type s0. The rotation 1-forms are the sum of the two irreducible
+representations π of vector type 1; for W in one of them, K_v1 lies in W_π = ℂ² ⊗ π. Let k_τ ∈ ℂ^(n_τ) be the vector
+with K_s0 = k_s0, resp. K_v1 = k_v1 ⊗ W, and z the one of Z. By (a), N_τ(ι)k_τ = (ι − 4)(2S_τ − ι − 2)k_τ, so k_τ
+spans ker N_τ(4), the root 4 being simple. K(5) = 3, and by [[eq:sp-matrix]] a vector (μ_0, μ_1, μ_2, μ_3)
+lies in ker 𝔐_τ(5) exactly when
+
+    N_τ(4)μ_0 = 0,  N_τ(3)μ_1 = −2(5/2 − S_τ)μ_0,  N_τ(2)μ_2 = −4(3/2 − S_τ)μ_1,  N_τ(1)μ_3 = −6(1/2 − S_τ)μ_2.
+
+*Type s0.* N_s0(3) and N_s0(1) are invertible. By (a) at ι = 3, N_s0(3)k_s0 = 2(5/2 − S_s0)k_s0, so μ_0 := k_s0
+gives μ_1 = −k_s0. By (a) at ι = 2, N_s0(2)k_s0 = 4(2 − S_s0)k_s0, so −4(3/2 − S_s0)μ_1 = N_s0(2)k_s0 − 2k_s0, which
+by (b) equals N_s0(2)(k_s0 − z/(2(e_Υ + 2))). So μ_2 := k_s0 − z/(2(e_Υ + 2)) and
+μ_3 := −6N_s0(1)⁻¹(1/2 − S_s0)μ_2 complete a kernel vector with μ_0 ≠ 0. A second one is (0, 0, w, μ_3), w spanning
+ker N_s0(2) and μ_3 := −6N_s0(1)⁻¹(1/2 − S_s0)w. *Type v1.* N_v1(2) and N_v1(1) are invertible. For μ_0 := a k_v1
+and w ∈ ker N_v1(3), μ_1 := −a k_v1 + w solves the second equation, by (a) at ι = 3, and μ_2, μ_3 are then determined;
+this gives kernel vectors for every (a, w). In both cases dim ker 𝔐_τ(5) ≥ 2 = Σ_k dim ker N_τ(4 − k). The
+diagonal blocks of 𝔐_τ(ϰ) are N_τ(ϰ − k − 1), k ≤ 3, whose determinants are non-zero polynomials with at most a
+simple zero at ϰ = 5, as 4 − k is a simple root of type τ or not a root, by the hypotheses. So [[lem:sp-block]]
+gives equality and p(𝔐_τ, 5) ≤ 1, and p(𝔐_τ, 5) = 1 as the kernel is non-zero. ∎
+
 #### The computational point {#sec:sp-point}
 
 At the computational point let h := 10⁻⁶ (so γ_C = h⁻¹), κ := l(l + 2), x := hκ, a(x) := (3x + 10)/4 and
@@ -307,89 +374,51 @@ without integers. At s1, ι − 1 and ι′ − 1 are distinct points of (1 + 3h
 (3 + 𝔡₁) − 3 = 𝔡₁. At s2, the three numbers in (1, 2) are distinct, the intervals of [[lem:s14-sextic-small]] (b)
 being disjoint, and 4 − (ι − 1) ∈ (2, 3). At v2, 4 − (ι_v(2) − 1) ∈ (1, 2).
 
-At sl with l ≥ 3 the elements of 𝒮_sl are ι − 1 for the roots ι of P_l with real part in (2, 5]. If x ≤ 70, these are
-among the three roots of real part at least 2, which by [[cor:s14-remote-point]] are the roots of
+At sl with l ≥ 3 the elements of 𝒮_sl are ι − 1 for the roots ι of P_l with real part in (2, 5], and the list
+carries such an entry as often as the multiplicity of ι as a root of P_l. If x ≤ 70, these roots are among the three
+roots of real part at least 2, counted with multiplicity, which by [[cor:s14-remote-point]] are the roots of
 [[lem:s14-sextic-count]] (a): for 3 ≤ l ≤ 133, three distinct real roots in (2, 3) ([[lem:s14-sextic-small]] (c));
-for l ≥ 134 (x ≥ 0.018), a real root ι_B and two more, which for x ≤ 0.03 have real parts in (2.06, 2.98) while
-ι_B ∈ (2.0179, 2.03], and which for x ≥ 0.03 are non-real and conjugate, ι_P and ι̅_P, in disjoint discs
-([[lem:s14-sextic-large]] and the proof of [[prop:s14-damping-distance]]). In each case the three roots are distinct
-and no two differ by a non-zero integer: their real parts differ by less than 1, or the difference is not real, or it
-is the non-zero imaginary number ι_P − ι̅_P. If x > 70, no root of P_l satisfies |ι − 1| ≤ 50
-([[lem:s14-sextic-count]] (b)), so no real root lies in (2, 5]; the three roots of real part at least 2
-([[prop:s14-scalar-every-h]]) form a set closed under conjugation, so its non-real elements form at most one
-conjugate pair, and two of its elements of real part at most 5 neither coincide nor differ by a real number.
+for l ≥ 134 (x ≥ 0.018), a real root ι_B and two more, which for x ≤ 0.03 lie in |ι − a| < 0.45, a disc disjoint
+from the disc of ι_B, and have real parts in (2.06, 2.98) while ι_B ∈ (2.0179, 2.03], and which for x ≥ 0.03 are
+non-real and conjugate, ι_P and ι̅_P, in disjoint discs ([[lem:s14-sextic-large]] and the proof of
+[[prop:s14-damping-distance]]).
+
+For 0.018 ≤ x ≤ 0.03, that is 134 ≤ l ≤ 172 (x = 0.018224 at l = 134 and x = 0.029928 at l = 172), the two roots in
+|ι − a| < 0.45 are distinct. By [[lem:s14-majorant]], the bound |hW| ≤ h(M̄_a(0.45, 0.03) + hN̄(2.98, 0.03)) < 9.4·10⁻⁵
+of the proof of [[lem:s14-sextic-large]] (b) holds on the whole closed disc |ι − a| ≤ 0.45, as there
+|ι| ≤ a + 0.45 ≤ 2.9725 < 2.98. For real ι in that disc, 2 + x − ι ≤ 2 + x − a + 0.45 = x/4 − 0.05 ≤ −0.0425. As
+3x + 10 = 4a and Δ_𝒬 is the discriminant of 𝒬(·, x) ([[lem:s14-sextic-split]] (iii)), completing the square gives
+𝒬(ι, x) = 2(ι − a)² − Δ_𝒬(x)/8. Further Δ_𝒬 decreases on [0, 107], its derivative being 2x − 1715/8, and its
+smaller root x₋ lies in (0.01866, 0.01867) (loc. cit.).
+If l = 134 or 135, then x = 0.018224 or 0.018495 lies below x₋, and Δ_𝒬(x) = 0.093562114176 or 0.035476440025. As
+2 + x − a = −(2 − x)/4, U(a, x) = (2 − x)Δ_𝒬(x)/32, which is 0.0057943… or 0.0021967…, so U(a, x) > 2·10⁻³; while
+𝒬(a ± 0.45, x) = 0.405 − Δ_𝒬(x)/8 > 0.39, so U(a ± 0.45, x) < −0.0425·0.39 < −0.016. Hence P_l = U + hW is negative
+at a − 0.45, positive at a and negative at a + 0.45, and it has a real root in each of (a − 0.45, a) and
+(a, a + 0.45): these are the two roots in the disc, and they are distinct. If 136 ≤ l ≤ 172, then
+x ≥ 0.018768 > x₋, so Δ_𝒬(x) ≤ Δ_𝒬(0.018768) = −0.023037762176, and for real ι
+𝒬(ι, x) ≥ −Δ_𝒬(0.018768)/8 = 0.002879720272 > 2.87·10⁻³. On the real diameter of the disc, then,
+|U| > 0.0425·2.87·10⁻³ > 1.2·10⁻⁴ > |hW|, and P_l has no real root in the disc. As P_l has real coefficients and the
+disc is symmetric about ℝ, conjugation permutes the roots in the disc with their multiplicities, and a non-real root of
+multiplicity 2 would bring its conjugate with the same multiplicity, four roots in the disc in all. So the two roots
+are a non-real conjugate pair, and they are distinct.
+
+In each case, therefore, the three roots of real part at least 2 are distinct, so each is a simple root of P_l, and no
+two differ by a non-zero integer: for any two, either their real parts differ by less than 1 or their difference is
+not real. If x > 70, no root of P_l satisfies |ι − 1| ≤ 50 ([[lem:s14-sextic-count]] (b)), so a real root of real
+part at least 2 exceeds 51. The three roots of real part at least 2, counted with multiplicity
+([[prop:s14-scalar-every-h]]), are permuted by conjugation with their multiplicities, P_l having real coefficients; a
+non-real one of multiplicity at least 2 would bring its conjugate with the same multiplicity, four roots in all. So the
+non-real ones are simple, and, three being odd, they form at most one conjugate pair. Those of real part at most 5 are
+therefore non-real simple roots, at most two; if there are two, they are ι and ι̅ with Im ι ≠ 0, which neither
+coincide nor differ by a real number, ι − ι̅ = 2i Im ι.
 
 (b) An element μ of 𝒮_τ is an entry of the list of type τ, and the list gives the roots with multiplicity. μ differs
-from the entries of real part at most 0 or greater than 4 by its real part, and from the other elements of 𝒮_τ by (c)
-and the distinctness shown there. So μ is a simple root. ∎
-
-**Lemma {#lem:sp-two-roots}** (The chains at ϰ_0 = 5.) Let W = Σ_i W_i dx^i with W_i linear, Σ_i x_iW_i = 0 and
-∂_iW_j + ∂_jW_i = 0 (a rotation 1-form, of vector type 1), and V̂ := r⁻¹W. Put
-
-    K_s0 := Σ_i (dx^i)² − 4 dr²,     K_v1 := dr ⊗_s V̂,     Z := −6e_Υ dt̄² + (4 − e_Υ)Σ_i (dx^i)² − (4 + 2e_Υ) dr².
-
-(a) For K = K_s0 and K = K_v1, and every ι ∈ ℂ,
-
-    L̃(0)(ω, ι, ∂_ω)K = (ι − 4)(2S̄ − ι − 2)K.                                                            {#eq:sp-gauge}
-
-(b) L̃(0)(ω, 2, ∂_ω)Z = 4(e_Υ + 2)K_s0.
-
-(c) For every value of the parameters with 1, 3 not roots of type s0 and 1, 2 not roots of type v1, and the roots 2,
-4 of type s0 and 3, 4 of type v1 simple, dim ker 𝔐_τ(5) = 2 and p(𝔐_τ, 5) = 1 for τ = s0 and τ = v1. At the
-computational point these conditions hold.
-
-*Proof.* L̃(0)(ω, ι, ∂_ω)K is defined by (2L̄)^(0)(r^(−ι)K) = r^(−ι−2)L̃(0)(ω, ι, ∂_ω)K, and (2L̄)^(0) is 2L̄ on
-stationary sections ([[lem:iii-f-2-1]] (2)): by [[eq:iii-f-2-1]], (2L̄)^(0)h = □̄h + 2Ē^Cδ̄Ḡh + 2(δ̄* + Ē^C)Ē^ΥḠh, where
-on stationary sections □̄ acts in the Cartesian frame as −Δ on each component and (δ̄k)_μ = −Σ_j ∂_jk_(μj). We use, on
-ℝ⁴ and for real or complex a,
-
-    Δr^a = a(a + 2)r^(a−2),     Δ(r^an_in_j) = r^(a−2)((a − 2)(a + 4)n_in_j + 2δ_(ij)),
-    ∂_j(r^aδ_(ij)) = a r^(a−1)n_i,     ∂_j(r^an_in_j) = (a + 3)r^(a−1)n_i,
-    ∂_j(r^ax_iW_j) = r^aW_i,     ∂_j(r^ax_jW_i) = (a + 5)r^aW_i,
-    Δ(r^a(x_iW_j + x_jW_i)) = a(a + 6)r^(a−2)(x_iW_j + x_jW_i).
-
-The second and the last follow from Δ(fg) = (Δf)g + 2∇f·∇g + fΔg with x·∇(x_ix_j) = 2x_ix_j, Δ(x_ix_j) = 2δ_(ij),
-x·∇(x_iW_j) = 2x_iW_j and Δ(x_iW_j) = 2∂_iW_j, the Killing equation removing the last term after symmetrising; the
-third and fourth are direct, as ∂_j(x_ix_j) = 5x_i; the fifth and sixth follow from x·W = 0, ∂_jW_j = 0 (a consequence
-of the Killing equation) and x·∇W_i = W_i.
-
-(a) Let h := r^(−ι)K. Then tr h = 0 (tr Σ(dx^i)² = 4, tr dr² = 1, ⟨dr, V̂⟩ = 0) and ι_(∂_t̄)h = 0, so Ḡh = h and,
-as c̄_Υ^♯ = −r⁻¹∂_t̄, Ē^ΥḠh = −γ_Υ(2ι_(c̄_Υ^♯)h − e_Υc̄_Υ tr h) = 0 ([[sec:iii-f1-1]]). For K_s0, h_(ij) =
-r^(−ι)(δ_(ij) − 4n_in_j), and the identities give Δh = (ι + 2)(ι − 4)r^(−2)h and δ̄h = −3(ι − 4)r^(−ι−1)dr. For K_v1,
-h_(ij) = ½r^(−ι−2)(x_iW_j + x_jW_i), and they give Δh = (ι + 2)(ι − 4)r^(−2)h and δ̄h = ½(ι − 4)r^(−ι−1)V̂. In both cases
-δ̄h = −(ι − 4)r⁻¹ι_Xh with X := ḡ⁻¹dt_* = −∂_t̄ − ∂_r, since ι_Xh = −ι_(∂_r)h equals 3r^(−ι)dr for K_s0 and −½r^(−ι)V̂
-for K_v1. By [[eq:iii-f-2-2]], ρS̄h = −Ē^Cι_XḠh + (dt_* ⊗_s ·)Ē^ΥḠh = −Ē^C(ι_Xh). Hence
-
-    (2L̄)^(0)h = −(ι + 2)(ι − 4)r^(−2)h − 2(ι − 4)r⁻¹Ē^C(ι_Xh) = (ι − 4)r^(−2)(2S̄ − ι − 2)h,
-
-which is [[eq:sp-gauge]].
-
-(b) Let h := r^(−2)Z. Then tr Z = 6e_Υ + 4(4 − e_Υ) − (4 + 2e_Υ) = 12 and ι_(∂_t̄)Z = −6e_Υ dt̄, so
-Ē^ΥḠh = −γ_Υ(2·6e_Υ − 12e_Υ)r^(−3)dt̄ = 0. Next Ḡh = r^(−2)((6 − 6e_Υ)dt̄² − (2 + e_Υ)Σ(dx^i)² − (4 + 2e_Υ)dr²) has
-no mixed time–space components, and by the identities
-Σ_j∂_j(r^(−2)((2 + e_Υ)δ_(ij) + (4 + 2e_Υ)n_in_j)) = (−2(2 + e_Υ) + (4 + 2e_Υ))r^(−3)n_i = 0; so δ̄Ḡh = 0.
-Finally Δ(r^(−2)) = 0, so Δ(r^(−2)dt̄²) = 0 and Δ(r^(−2)δ_(ij)) = 0, while Δ(r^(−2)n_in_j) = r^(−4)(2δ_(ij) −
-8n_in_j). The terms of (2L̄)^(0)h other than □̄h vanish, so
-(2L̄)^(0)h = □̄h = (4 + 2e_Υ)r^(−4)(2δ_(ij) − 8n_in_j)dx^idx^j = 4(e_Υ + 2)r^(−4)K_s0.
-
-(c) K_s0 and Z are invariant under SO(4), of type s0. The rotation 1-forms are the sum of the two irreducible
-representations π of vector type 1; for W in one of them, K_v1 lies in W_π = ℂ² ⊗ π. Let k_τ ∈ ℂ^(n_τ) be the vector
-with K_s0 = k_s0, resp. K_v1 = k_v1 ⊗ W, and z the one of Z. By (a), N_τ(ι)k_τ = (ι − 4)(2S_τ − ι − 2)k_τ, so k_τ
-spans ker N_τ(4), the root 4 being simple. K(5) = 3, and by [[eq:sp-matrix]] a vector (μ_0, μ_1, μ_2, μ_3)
-lies in ker 𝔐_τ(5) exactly when
-
-    N_τ(4)μ_0 = 0,  N_τ(3)μ_1 = −2(5/2 − S_τ)μ_0,  N_τ(2)μ_2 = −4(3/2 − S_τ)μ_1,  N_τ(1)μ_3 = −6(1/2 − S_τ)μ_2.
-
-*Type s0.* N_s0(3) and N_s0(1) are invertible. By (a) at ι = 3, N_s0(3)k_s0 = 2(5/2 − S_s0)k_s0, so μ_0 := k_s0
-gives μ_1 = −k_s0. By (a) at ι = 2, N_s0(2)k_s0 = 4(2 − S_s0)k_s0, so −4(3/2 − S_s0)μ_1 = N_s0(2)k_s0 − 2k_s0, which
-by (b) equals N_s0(2)(k_s0 − z/(2(e_Υ + 2))). So μ_2 := k_s0 − z/(2(e_Υ + 2)) and
-μ_3 := −6N_s0(1)⁻¹(1/2 − S_s0)μ_2 complete a kernel vector with μ_0 ≠ 0. A second one is (0, 0, w, μ_3), w spanning
-ker N_s0(2) and μ_3 := −6N_s0(1)⁻¹(1/2 − S_s0)w. *Type v1.* N_v1(2) and N_v1(1) are invertible. For μ_0 := a k_v1
-and w ∈ ker N_v1(3), μ_1 := −a k_v1 + w solves the second equation, by (a) at ι = 3, and μ_2, μ_3 are then determined;
-this gives kernel vectors for every (a, w). In both cases dim ker 𝔐_τ(5) ≥ 2 = Σ_k dim ker N_τ(4 − k), and
-[[lem:sp-block]] gives equality and p(𝔐_τ, 5) ≤ 1. The conditions hold at the computational point by
-[[lem:sp-roots]] (a), (b): the roots of type s0 of real part in [1, 4] are 2, 3 + 𝔡₀, ι₁ − 1 and 4, and those of type
-v1 are 3 and 4. ∎
+from the entries of real part at most 0 or greater than 4 by its real part, and from the entries for the other
+elements of 𝒮_τ by (c). An entry ι − 1 from □^C occurs as often as the multiplicity of ι as a root of C, P_l or p_(v),
+and that multiplicity is 1: ι₁ is a simple root of C, whose other two roots have real part below −100; ι_v(l) is one of
+the two distinct real roots of the quadratic p_(v) ([[lem:s14-vector-distance]]); the roots of P_1 and P_2 concerned
+lie one in each of three disjoint intervals, of three roots counted with multiplicity ([[lem:s14-sextic-small]] (a),
+(b)); and those of P_l, l ≥ 3, are simple by the proof of (c). So μ is a simple root. ∎
 
 **Lemma {#lem:sp-exceptional}** (No pole at the exceptional points.) Let Q := {5/2, 7/2, 9/2} + σ_Υ, twelve numbers. At
 the computational point, P_l(q) ≠ 0 and ι_v(l) ≠ q for every q ∈ Q and l ≥ 1. Hence no singular root of real part at
@@ -459,8 +488,9 @@ near b₀:
 It is finite and lies in {Re ϰ > 2}.
 
 (b) Every point of (a) is a simple pole of N_sf(·)⁻¹ and of N_ι⁺(L̄, ·)⁻¹: Spec_ι⁺(L̄) ∩ {Re ϰ ≤ 5} consists of the
-pairs (ϰ, 0), ϰ in (a). The order m_ι of [[prop:iii-g3-2-4]] equals 1 at these points and 0 at every other point of
-{Re ϰ ≤ 5}.
+pairs (ϰ, 0), ϰ in (a). The order m_ι of [[prop:iii-g3-2-4]], that of the pole of [[eq:iii-g1-3-3]], equals 1 at
+these points and 0 at every other point of {Re ϰ ≤ 5}, for every ℓ_I > 5 allowed in [[thm:iii-g1-3-1]] (2) (the
+principal parts do not depend on ℓ_I, so for a smaller ℓ_I the same holds on {Re ϰ < ℓ_I}).
 
 (c) dim ker N_sf(ϰ_0) = Σ_τ d_τ c_τ(ϰ_0) at every point of (a): 1 at ϰ_0 = 3 (type s0), 11 at ϰ_0 = 4 (s0, s1, v1:
 1 + 4 + 6) and 53 at ϰ_0 = 5 (s0, s1, s2, v1, v2, t2: 2 + 4 + 9 + 12 + 16 + 10).
@@ -481,9 +511,13 @@ P_l with real part greater than 2 are those of real part at least 2 other than �
 (b) Let ϰ_0 be a point of (a) and τ a type. The roots counted by c_τ(ϰ_0) lie in 𝒮_τ and are simple
 ([[lem:sp-roots]] (b)), and any two of them differ by an integer, both lying in ϰ_0 − {1, …, K(ϰ_0) + 1}; so by
 [[lem:sp-roots]] (c), c_τ(ϰ_0) ≤ 1, except c_s0(5) = 2 (the roots 4 and 2) and c_v1(5) = 2 (the roots 4 and 3).
-By [[thm:sp-reduction]] (b) and [[lem:sp-two-roots]] (c), N_sf(·)⁻¹ has a simple pole at ϰ_0, and by
-[[prop:sp-visible]] so has N_ι⁺(L̄, ·)⁻¹. The order of the pole of [[eq:iii-g1-3-3]] is that of N_ι⁺(L̄, ·)⁻¹ on
-Ċ^∞(ι⁺) ([[lem:iii-g1-4-2]] (b)).
+The conditions of [[lem:sp-two-roots]] (c) hold at the computational point: by [[lem:sp-roots]] (a) the roots of
+type s0 of real part in (1, 4] are 2, 3 + 𝔡₀, ι₁ − 1 ∈ (1, 3/2) and 4, and those of type v1 are 3 and 4, no root has
+real part in (0, 1] ([[prop:iii-f1-2-3]] (a)), and these roots are simple ([[lem:sp-roots]] (b)). By
+[[thm:sp-reduction]] (b) and [[lem:sp-two-roots]] (c), N_sf(·)⁻¹ has a simple pole at ϰ_0, and by [[prop:sp-visible]]
+so has N_ι⁺(L̄, ·)⁻¹. The order of the pole of [[eq:iii-g1-3-3]], for every ℓ_I allowed in [[thm:iii-g1-3-1]] (2) with
+Re ϰ_0 < ℓ_I, is that of N_ι⁺(L̄, ·)⁻¹ on Ċ^∞(ι⁺) ([[lem:iii-g1-4-2]] (b)); this gives m_ι, which vanishes at the
+other points of {Re ϰ ≤ 5}, these lying outside spec_ι⁺(L̄) by (a).
 
 (c) [[thm:sp-reduction]] (b), with dim ker 𝔐_τ(ϰ_0) = c_τ(ϰ_0): when c_τ(ϰ_0) = 1, det 𝔐_τ has a simple zero, so the
 kernel is non-zero, and [[lem:sp-block]] bounds its dimension by 1; when c_τ(ϰ_0) = 2 it is [[lem:sp-two-roots]] (c).
@@ -496,34 +530,63 @@ at s0, s1, s2, 6 and 16 at v1, v2, and 10 at t2. ∎
 number l_* of [[def:iii-i10-1-1]] bounds at real part at most 5, these orders contribute exactly 1, and the
 multiplicities of the indicial roots of L̂_b(0) with real part in (1, 4] are all 1 ([[lem:sp-roots]] (b)). So the
 least admissible l_* is max(1, L, M), where L is the largest logarithmic order of ℰ_ind ∪ ℰ^ι_ind ∪ ℰ^C_I at real part
-at most 5 and M the largest multiplicity of an indicial root of L̂_b(0) of real part at most 5. It equals 1 exactly
-when L ≤ 1 and M = 1, and is otherwise attained by L or by M.
+at most 5 and M the largest multiplicity of an indicial root of L̂_b(0) of real part at most 5. Here M ≤ 7; and for
+the index sets as constructed, with the least ℰ^C_I, 39 ≤ L ≤ 50. Hence max(1, L, M) = L: the least admissible l_* is
+L ∈ [39, 50], and l_* = 50 is admissible.
 
-(b) For λ ∈ Σ ([[def:iii-j-1-1]]), K_ι(λ) ≤ m_ι(λ) + m_♯(λ) ([[prop:iii-g3-2-4]]) with m_ι(λ) ∈ {0, 1}, equal to 1
-exactly when λ is a point of [[thm:sp-spectrum]] (a); so K_ι(λ) ≤ 2 + k(ℰ^C_(I,♯), λ) ≤ l_* + 2, which is at most
-2l_* + 1 as l_* ≥ 1, and K_ι(λ) ≤ 3 when l_* = 1.
+(b) For ϰ ∈ Σ ([[def:iii-j-1-1]]), K_ι(ϰ) ≤ m_ι(ϰ) + m_♯(ϰ) ([[prop:iii-g3-2-4]]) with m_ι(ϰ) ∈ {0, 1}, equal to 1
+exactly when ϰ is a point of [[thm:sp-spectrum]] (a); so K_ι(ϰ) ≤ 2 + k(ℰ^C_(I,♯), ϰ) ≤ l_* + 2, which is at most
+2l_* + 1 as l_* ≥ 1 (52 and 101 at l_* = 50). With the least ℰ^C_I, whose logarithmic orders are all 0, m_♯(ϰ) ≤ 1;
+so K_ι(ϰ) ≤ 2 for every ϰ ∈ Σ, and K_ι(ϰ) ≤ 1 unless ϰ ∈ spec_ι⁺(L̄) ∩ π_1ℰ^C_I, a set that contains 3. The pole at λ_♯
+has K_ι(λ_♯) = 1; whether the value 2 is taken is not decided here.
 
-(c) In the step at λ₀ ([[sec:s23-step]]), 𝒮_(λ₀) raises the logarithmic order by m_ι(λ₀) ([[cor:iii-g2-4-3]], l_0 =
-m_ι(λ₀)): by 1 at the points of [[thm:sp-spectrum]] (a) and by 0 at every other λ₀ with Re λ₀ ≤ 5. Likewise each raise
-"by a pole order of N_ι⁺(L̄, ·)⁻¹" in [[lem:iii-i10-1-2]] (c) is at most 1.
+(c) In the step of [[sec:s23-step]] at an exponent ϰ₀, the solution map 𝒮_(ϰ₀) raises the logarithmic order by at
+most m_ι(ϰ₀): by at most 1 at the points of [[thm:sp-spectrum]] (a), and not at all at every other ϰ₀ with
+Re ϰ₀ ≤ 5. Likewise each raise "by a pole order of N_ι⁺(L̄, ·)⁻¹" in [[lem:iii-i10-1-2]] (c) is at most 1.
 
-(d) On {2 ≤ Re ϰ ≤ 3 + ε_+}, ε_+ < 1/4, the poles are 3; ι₁, and ι₁ + 1 if ι₁ ≤ 2 + ε_+; the roots ι of P_l (l ≥ 1)
-with 2 < Re ι ≤ 3 + ε_+, and ι + 1 for those with Re ι ≤ 2 + ε_+; and the ι_v(l), l ≥ 2, with ι_v(l) ≤ 3 + ε_+. All
-are simple. The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1, 2, 3) are not poles.
+(d) On {2 ≤ Re ϰ ≤ 3 + ε_+}, ε_+ < 1/4, the poles are 3; ι₁; and the roots ι of P_l (l ≥ 1) with
+2 < Re ι ≤ 3 + ε_+, together with ι + 1 for those with Re ι ≤ 2 + ε_+. All are simple. Of these poles, 3 lies in Λ
+([[def:iii-i10-1-1]]); whether any other lies in Λ, which [[prop:is-lambda]] describes on {Re ≤ 3 + ε_+}, is not
+decided here, and no bound depends on it, each raise being at most 1 by (c). The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1, 2, 3) are not poles.
 
-*Proof.* (a) is [[thm:sp-spectrum]] (b) and [[lem:sp-roots]] (b); the set of poles at real part at most 5 is not
-empty, so the pole orders require l_* ≥ 1. (b) is the bound of [[prop:iii-g3-2-4]] with (a), and k(ℰ^C_(I,♯), λ) ≤ l_*
-as in the proof of [[lem:iii-j-1-2]]. (c): by [[cor:iii-g2-4-3]], the logarithmic powers produced are at most k + l_0,
-l_0 the order of the pole of N_ι⁺(L̄, ·)⁻¹ at the exponent. (d) is [[thm:sp-spectrum]] (a) restricted to the strip
-(4 + 𝔡₀, 4 + 𝔡₁ and the integers 4, 5 lie beyond it), with [[lem:sp-exceptional]] for the last statement: these
-numbers lie in 3/2 + σ_Υ + {1, 2, 3} ⊂ Q; they are not integers, not 4 + 𝔡₀ or 4 + 𝔡₁, and not ι₁ + j, as
+*Proof.* (a) The orders are [[thm:sp-spectrum]] (b) and the multiplicities [[lem:sp-roots]] (b); the set of poles at
+real part at most 5 is not empty, so the pole orders require l_* ≥ 1. That M ≤ 7 is stated in [[prop:is-mult]];
+directly, (C1) holds at the computational point ([[prop:np-10-54]] (i), (ii)), so by [[prop:iii-f1-2-3]] (a), (b), at
+each type and degree n_τ ≤ 7 roots, counted with multiplicity, have real part at most 0, and n_τ have real part above
+1, and no root has multiplicity above 7. For L: every exponent of ℰ_ind of real part at most 5 has logarithmic order
+at most 39, and (5, 39) ∈ ℰ_ind; those of ℰ^ι_ind have orders at most 50 there ([[prop:is-logs]] (b), (c)); and the
+least ℰ^C_I has all orders 0 ([[prop:is-ci-pp]] (a)). So 39 ≤ L ≤ 50, and L ≥ 39 > 7 ≥ M.
+
+(b) The first bound is that of [[prop:iii-g3-2-4]] with (a), as Σ ⊂ {Re < 3 + ε_+}: m_♯(ϰ) = k(ℰ^C_(I,♯), ϰ) + 1 if
+ϰ ∈ π_1ℰ^C_(I,♯) and m_♯(ϰ) = 0 otherwise, and k(ℰ^C_(I,♯), ϰ) ≤ l_* as in the proof of [[lem:iii-j-1-2]]. With the
+least ℰ^C_I, ℰ^C_(I,♯) = (λ_♯, 0) ∪ ℰ^C_I ([[eq:iii-g3-2-1]]) has all logarithmic orders 0, so m_♯(ϰ) ∈ {0, 1}, equal
+to 1 exactly on {λ_♯} ∪ π_1ℰ^C_I. So K_ι(ϰ) ≤ 2, with K_ι(ϰ) = 2 possible only where m_ι(ϰ) = m_♯(ϰ) = 1, that is on
+spec_ι⁺(L̄) ∩ ({λ_♯} ∪ π_1ℰ^C_I) = spec_ι⁺(L̄) ∩ π_1ℰ^C_I, as λ_♯ < 2 and spec_ι⁺(L̄) ⊂ {Re ≥ 2}
+([[lem:iii-g1-4-2]] (a)). The point 3 is in
+[[thm:sp-spectrum]] (a) and 3 = 1 + 4/2 ∈ π_1ℰ^C_I ([[prop:is-ci-pp]] (a), with n = 4 and c = 0). (λ_♯, 0) ∈
+Spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I) by [[cor:iii-g3-2-6]], so the pole at λ_♯ is simple.
+
+(c) 𝒮_(ϰ₀)(f) is the solution that [[cor:iii-g3-3-1]] (1) gives, whose logarithmic powers are at most J + K, J the
+largest power of log t_* in f and K the order at ϰ₀ of the pole of [[eq:iii-g3-2-2]]; its proof uses K only as the
+order of the pole of ϰ ↦ N_ι⁺(ϰ)⁻¹ on the coefficients of f. As f has no ℐ⁺-expansion, [[eq:iii-g3-2-2]] acts on
+these as the inverse of [[thm:iii-g1-3-1]] (2), as [[sec:s23-step]] notes, so that order is at most m_ι(ϰ₀), and
+m_ι(ϰ₀) is given by [[thm:sp-spectrum]] (b). The raises of [[lem:iii-i10-1-2]] (c) are those of [[cor:iii-g2-4-3]],
+whose logarithmic powers are at most k + l_0, l_0 the order of the pole of N_ι⁺(L̄, ·)⁻¹ at the exponent, at most 1
+by [[thm:sp-spectrum]] (b).
+
+(d) This is [[thm:sp-spectrum]] (a) restricted to the strip. Beyond it lie 4 + 𝔡₀, 4 + 𝔡₁ and the integers 4, 5, and
+also ι₁ + 1 > 3 + δ_C and every ι_v(l) ≥ ι_v(2) > 3 + 4·10⁻⁶, since ε_+ < ε_ind = δ_50 < δ̄ < 2·10⁻⁸
+([[eq:iii-i9-1-1]], [[def:ec-point]]) and (500002 + 4·10⁻⁶)² < 250002000009; ι_v increases with l. The number 3 is
+one of the generators of Λ in [[def:iii-i10-1-1]]. For the last statement, by [[lem:sp-exceptional]]: these numbers
+lie in 3/2 + σ_Υ + {1, 2, 3} ⊂ Q; they are not integers, not 4 + 𝔡₀ or 4 + 𝔡₁, and not ι₁ + j, as
 ι₁ + j ∈ (j + 2, j + 5/2); and a number q ∈ Q equal to ι + j or ι_v(l) + j, with Re ι > 2 or ι_v(l) > 2, would give
 ι = q − j ∈ Q or ι_v(l) = q − j ∈ Q, which [[lem:sp-exceptional]] excludes. ∎
 
 **Remark {#rem:sp-scope}** (What the evaluation leaves open.) [[thm:sp-spectrum]] describes the poles exactly, by the
 roots of the explicit polynomials P_l and p_(v). The vector type is in closed form, and for the scalar types with
 x ≤ 70 the roots are enclosed by [[lem:s14-sextic-small]] and [[lem:s14-sextic-large]]; for x > 70 this paper locates
-the roots of P_l only in {Re ι > 2} with no real root in (2, 5], which suffices for every statement above but leaves
-the largest l contributing a pole below real part 5 unevaluated. The multiplicities of the indicial roots of real part
-at most 0 or in (4, 5], and the logarithmic orders L of [[cor:sp-lstar]] (a), belong to the index sets and are not
-determined here.
+the roots of P_l only in {Re ι > 2} with no real root in (2, 5], and shows those of real part at most 5 simple, which
+suffices for every statement above but leaves the largest l contributing a pole below real part 5 unevaluated. This
+section does not determine the multiplicities of the indicial roots of real part at most 0 or in (4, 5]: they are 1
+at real part in [−101, 5] ([[prop:is-mult]]) and at most 7 everywhere ([[prop:iii-f1-2-3]] (b)). Nor does it
+determine L of [[cor:sp-lstar]] (a), which lies in [39, 50] ([[prop:is-logs]]); l_* = 50 serves in either case.

@@ -1314,3 +1314,5 @@ Items found while chapters were written in parallel; each is settled once, editi
 - F-P-K82 done (reports/F-P-K82.md); R2-P-K82 reading. Merge into chapters 82 and 03 after R2-P-K82, R4-82, R5-81.
 - R2-P-U71-IS 1M 1m 5n (reviews/R2-P-U71-IS.md); F2-P-U71-IS applies the exact texts. l_* = 50, K_ι ≤ 52 stand.
 - R5-81 CONFIRMED: chapter 81 CONFIRMED; its three optional nits applied (Step 6 smallness, connectedness, 𝒰_(2δ_B)).
+- R4-82 CONFIRMED (reviews/R4-82.md): chapter 82 CONFIRMED. Its five wording nits go in with the P-K82 merge (after
+  R2-P-K82), followed by one confirming reading of the merged chapter 82 and the chapter 03 block.

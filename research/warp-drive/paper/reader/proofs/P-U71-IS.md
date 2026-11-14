@@ -4,16 +4,14 @@ This section carries out, at the computational point of [[def:ec-point]], the co
 [[sec:uc-index-sets]], keeping the exponents. It lists the exponents of real part at most 5 of ℰ_ind
 ([[prop:is-ind]]), of ℰ^ι_ind ([[prop:is-iota]]) and of the least ℰ^C_I, and those of the least ℰ_++ below 2λ_♯
 ([[prop:is-ci-pp]]), with bounds for their logarithmic orders ([[prop:is-logs]]), and bounds for the multiplicities of
-the indicial roots of L̂_b(0), which are simple on the strip −101 ≤ Re ≤ 5 except possibly at non-real roots of
-modulus greater than 50 that come from the polynomials P_l of large l ([[prop:is-mult]]). This is the statement (IS) of
-[[rem:uc-missing]] (which asks the multiplicities on the half-plane Re ≤ 5), except the exponents of the least ℰ_++
-above 2λ_♯: these depend on ℰ_+, and nothing below uses them ([[rem:is-summary]]). From these it determines
-Λ ∩ {Re ≤ 3 + ε_+}
-([[prop:is-lambda]]); it shows that (G) holds exactly for ε_K < μ_G, where
+the indicial roots of L̂_b(0): every multiplicity is at most 7, and every root of real part in [−101, 5] is simple
+([[prop:is-mult]]). This is the statement (IS) of [[rem:uc-missing]] (which asks the multiplicities on the half-plane
+Re ≤ 5), except the exponents of the least ℰ_++ above 2λ_♯: these depend on ℰ_+, and nothing below uses them
+([[rem:is-summary]]). From these it determines Λ ∩ {Re ≤ 3 + ε_+} ([[prop:is-lambda]]); it shows that (G) holds exactly for ε_K < μ_G, where
 
     1.64160217197·10⁻¹⁴ < μ_G < 1.64160217198·10⁻¹⁴                                                   {#eq:is-mu}
 
-([[thm:is-gap]]); and it gives 1.6206·10¹³ < N_Λ < 1.6748·10¹³, k̄_0 = 3 and J_* = 15,000,015 ([[prop:is-count]]).
+([[thm:is-gap]]); and it gives 1.62066·10¹³ < N_Λ < 1.67472·10¹³, k̄_0 = 3 and J_* = 15,000,015 ([[prop:is-count]]).
 Finally it decides when ℰ_ind can omit 𝔡₀ ([[thm:is-d0]]): an admissible ℰ_ind that omits 𝔡₀ exists if and
 only if one explicit family of coefficients c_b vanishes at every b near b₀; c_b vanishes at b₀, at every
 non-rotating b and on the image of ad_(A(b)), and this paper does not determine it elsewhere. If c_b vanishes, (G)
@@ -30,7 +28,7 @@ right side, computed from the constructions that those terms come from (the proo
 set being built); for [[lem:iii-a-1-4]] this is the set E = ⋃_k E_k there, and for [[lem:iii-a-1-5]] the set E
 there. An index set containing it serves in every membership that the construction asserts. For an index set X and
 w ∈ ℂ we write k(X, w) for the logarithmic order of X at w, and ℓ̂_X(w) := k(X, w) + 1 if w ∈ π_1X, ℓ̂_X(w) := 0
-otherwise.
+otherwise. We write N(L̂_b(0), ·) for the indicial family of ρ⁻²L̂_b(0).
 
 #### The roots and the offsets {#sec:is-roots}
 
@@ -235,13 +233,13 @@ ord(m + 1) ≤ 1, which along a chain of at most three later steps starting from
 order at real part at most 3/2 is 3, at 1, 1 + 𝔡₁ and 1 + 𝔡₀, and (a) follows, the other exponents of [[eq:is-low]]
 having order 0.
 
-(b) *A step bound.* Let a step of [[lem:iii-d3-2-1]] at the order m have a right side of order at most K at offsets of
-real part at most t ≤ 5. By [[lem:is-count]] (b), u₁ has order at most K + ⌊t⌋ + 1 there, as a ladder of length at
-most t carries at most ⌊t⌋ + 1 roots. u₂ has exponents only at real part at least 2 + 𝔡₁, and by [[eq:is-l1]] at most
-p(K + ⌊t⌋ + 2) + p′ − 1, with p ≤ ⌊m + t⌋ − 2 the number of terms of 𝒢 ⊂ {Re ≥ 3} and p′ ≤ ⌊m + t − 2 − 𝔡₁⌋ + 1
-that of E(α) ⊂ {Re ≥ 2 + 𝔡₁} on the ladder below. For m ≤ −2 this is p ≤ 1 (only the exponent 3) and p′ ≤ 1, so
-the step has order at most K + ⌊t⌋ + 2 ≤ K + 7. For a first step (K = 0) it is at most 11 at m ∈ (0, 1], t ≤ 3, at
-most 5 at m ∈ (−1, 0], t ≤ 3, and at most 31 at t ≤ 5.
+(b) *A step bound.* Let a step of [[lem:iii-d3-2-1]] at the order m have a right side of order at most k_R at offsets
+of real part at most t ≤ 5. By [[lem:is-count]] (b), u₁ has order at most k_R + ⌊t⌋ + 1 there, as a ladder of length
+at most t carries at most ⌊t⌋ + 1 roots. u₂ has exponents only at real part at least 2 + 𝔡₁, and by [[eq:is-l1]] at
+most p(k_R + ⌊t⌋ + 2) + p′ − 1, with p ≤ ⌊m + t⌋ − 2 the number of terms of 𝒢 ⊂ {Re ≥ 3} and
+p′ ≤ ⌊m + t − 2 − 𝔡₁⌋ + 1 that of E(α) ⊂ {Re ≥ 2 + 𝔡₁} on the ladder below. For m ≤ −2 this is p ≤ 1 (only the
+exponent 3) and p′ ≤ 1, so the step has order at most k_R + ⌊t⌋ + 2 ≤ k_R + 7. For a first step (k_R = 0) it is at
+most 11 at m ∈ (0, 1], t ≤ 3, at most 5 at m ∈ (−1, 0], t ≤ 3, and at most 31 at t ≤ 5.
 
 *The chains.* (c1), (c3), (c4): 2j ≤ 10 and j + (j − 1)₊ ≤ 9 at the integers j ≤ 5, and at a non-integer offset t ≤ 5
 of (c1) or (c4) at most ⌊t⌋ ≤ 4, by the count in (a). (c2): j² + 3j − 1 ≤ 39 at j ≤ 5, the value 39 at 6 = 1 + 5. At a
@@ -273,9 +271,8 @@ number more than 2.93·10⁻⁶ from ℤ, while every exponent of F is real and 
 the exponents of the s1 and v1 towers and of h_(b,(0)) are integers plus at most one of 𝔡₀, d₂(l), d₁(l)). As every
 root of L̂_b(0) of positive real part has real part greater than 1 ([[prop:iii-f1-2-3]] (a)), the terms of E(α) on
 their ladder lie at w and w − 1 only, with ℓ̂_(E(α)) at most the largest order of a pole of N(L̂_b(0), ·)⁻¹ at w or
-w − 1, resp. at w − 1. These poles are simple when w is real or when |w| ≤ 50, since |w − 1| < |w| for Re w > 1,
-and of order at most 3 otherwise ([[prop:is-mult]]). So the order at ι + 1 + j is at most 1 when ι is real or
-when |ι + j − 1| ≤ 50, and at most 2·3 − 1 = 5 in every case. ∎
+w − 1, resp. at w − 1. These poles are simple, w and w − 1 lying in the strip −101 ≤ Re ≤ 5 ([[prop:is-mult]]), as
+1 < Re w ≤ 3; so [[eq:is-l1]] gives ℓ̂ ≤ 1 + 1 at w, and the order at ι + 1 + j is at most 1. ∎
 
 #### The other index sets {#sec:is-others}
 
@@ -307,42 +304,56 @@ k = n − 1 ([[lem:s14-vector-distance]], proof), which for k = 2 gives l = 1, e
 
 **Proposition {#prop:is-mult}** (The multiplicities of the roots of L̂_b(0).) Every indicial root of L̂_b(0) has
 multiplicity at most 7 at each type and degree at which it occurs. Every one of real part in [−101, 5] is a simple root
-of each type and degree at which it occurs, except possibly a non-real root ι − 1 with |ι − 1| > 50 and ι a root of
-P_l with hκ > 70 (κ = l(l + 2)), which has multiplicity at most 3 there; this paper does not decide whether such a
-root exists. So N(L̂_b(0), ·)⁻¹ has poles of order at most 7, of order at most 3 on the strip −101 ≤ Re ≤ 5, and
-simple ones at the real points of that strip and at its points of modulus at most 50. Whether the roots of real part
-below −101 (the ι^C_(·,≪) − 1 and the gauge roots −l, 1 − l, 2 − l, 2 − ι^Υ of large degree) are simple at h = 10⁻⁶
-is not decided here ((C2)–(C3) of [[sec:iii-f1-1]] are proved for h ∈ 𝖧, which does not contain 10⁻⁶).
+of each type and degree at which it occurs. So N(L̂_b(0), ·)⁻¹ has poles of order at most 7, and simple poles on the
+strip −101 ≤ Re ≤ 5. (Whether P_l has a root of real part at most 6 for some l with hκ > 70, κ = l(l + 2), is not
+decided here; such a root would be non-real and simple.) Whether the roots of real part below −101 (the
+ι^C_(·,≪) − 1 and the gauge roots −l, 1 − l, 2 − l, 2 − ι^Υ of large degree) are simple at h = 10⁻⁶ is not decided
+here ((C2)–(C3) of [[sec:iii-f1-1]] are proved for h ∈ 𝖧, which does not contain 10⁻⁶).
 
 *Proof.* *The bound 7.* [[prop:iii-f1-2-3]] assumes z ∈ (0, ½], true for z = 4·10⁻⁶, and (C1), which holds at
-h = 10⁻⁶: by [[prop:np-10-54]] (i), (ii), every root of C, P_0, P_l and p_(v) has real part at least 2 or below
-−100 = −C_0, the only one of real part 2 is the root 2 at l = 0 and at l = 1, simple there, and the numbers of roots on
-the two sides are those that (C1) states. By (a) and (b) of [[prop:iii-f1-2-3]], at each type and degree no root has
-real part in (0, 1], and n_L ≤ 7 roots, counted with multiplicity, have real part at most 0 and n_L real part above
-1; so every root has multiplicity at most 7 there.
+h = 10⁻⁶: the indicial roots of □^C_b at scalar type l ≥ 1, scalar type 0 and vector type l are the roots of P_l, P_0
+and p_(v) ([[prop:np-10-12]] (ii), (iii), with h = 1/γ_C), and by [[prop:np-10-54]] (i), (ii), every root of C, P_0,
+P_l and p_(v) has real part at least 2 or below −100 = −C_0, the only one of real part 2 is the root 2 at l = 0 and
+at l = 1, simple there, and the numbers of roots on the two sides are those that (C1) states. By (a) and (b) of
+[[prop:iii-f1-2-3]], at each type and degree no root has real part in (0, 1], and n_L ≤ 7 roots, counted with
+multiplicity, have real part at most 0 and n_L real part above 1; so every root has multiplicity at most 7 there.
 
-*The poles.* The indicial family of ρ⁻²L̂_b(0) is that of the model ([[lem:iii-f-2-1]] (3)) and commutes with the
-rotations; on each isotypic component it acts as the type's indicial matrix tensored with the identity
+*The poles.* The indicial family N(L̂_b(0), ·) of ρ⁻²L̂_b(0) is that of the model ([[lem:iii-f-2-1]] (3)) and commutes
+with the rotations; on each isotypic component it acts as the type's indicial matrix tensored with the identity
 ([[sec:iii-f1-1]], [[sec:iii-f1-2]]), and the inverse of that matrix is its adjugate divided by its determinant. So, as
-in the proof of [[lem:is-roots]] (b), the pole of N(L̂_b(0), ·)⁻¹ at a root has order at most the largest multiplicity of
-the root at a type and degree.
+in the proof of [[lem:is-roots]] (b), the pole of N(L̂_b(0), ·)⁻¹ at a root has order at most the largest multiplicity
+of the root at a type and degree.
 
-*The strip.* By [[prop:iii-f1-2-3]] (list and proof) the roots of each type are, with multiplicity, −l, l + 2, the
-roots of (□^Υ_b)^(0) plus 1 and the roots of □^C_b minus 1, less those of D. Those from □^Υ_b and the integers are
-distinct within each type (the disjoint intervals of the proof of (e) there). The roots ι^C − 1 of real part in
-[−101, 5] that come from □^C_b are the ι − 1 with ι ∈ Z and Re ι ≤ 6, as by [[prop:np-10-54]] (i) the other roots of
-C, P_l and p_(v) have real part below −100. Such an ι is a simple root of its polynomial, except possibly when it is a
-root of P_l with hκ > 70: of C, as the other two roots have real part below −100; of p_(v), as its two roots are real
-and of opposite signs; of P_l with hκ ≤ 70, as the three roots in |ι| < 1000 lie in disjoint sets, have real part at
-least 2 and are all of them, counted with multiplicity ([[lem:s14-sextic-small]], [[lem:s14-sextic-large]],
-[[lem:s14-sextic-count]] (a)), so that they are the three roots of real part above 19/10. If hκ > 70, P_l has no root
-with |ι − 1| ≤ 50 ([[lem:s14-sextic-count]] (b)); so a root ι ∈ Z of P_l with Re ι ≤ 6 is non-real, a real one
-having 19/10 < ι ≤ 6 and so |ι − 1| ≤ 5, and has |ι − 1| > 50; its multiplicity is at most 3, as P_l has three roots
-of real part above 19/10, counted with multiplicity ([[prop:np-10-54]] (i)). So ι − 1 has at its type the
-multiplicity of ι in its polynomial, unless it equals an entry from □^Υ_b or an integer entry of that type. A non-real
-ι − 1 equals neither, these being real. The integer entries are excluded as ι ∉ ℤ ([[prop:is-iota]]). An entry from
-□^Υ_b is real and either an integer or within 1.34·10⁻⁶ of ℤ ([[lem:is-roots]] (b)), while a real ι − 1 is more than
-2.93·10⁻⁶ from ℤ ([[prop:is-iota]]). With the poles, this gives the orders stated. ∎
+*The strip.* By [[prop:iii-f1-2-3]] (list and proof) the roots of each type are, with multiplicity, −l, l + 2, the roots
+of (□^Υ_b)^(0) plus 1 and the roots of □^C_b minus 1, less those of D. Those from □^Υ_b and the integers are distinct
+within each type (the disjoint intervals of the proof of (e) there). The roots ι^C − 1 of real part in [−101, 5] that
+come from □^C_b are the ι − 1 with ι ∈ Z and Re ι ≤ 6, as by [[prop:np-10-54]] (i) the other roots of C, P_l and p_(v)
+have real part below −100. Such an ι is a simple root of its polynomial: of C, as the other two roots have real part
+below −100; of p_(v), as its two roots are real and of opposite signs; of P_l with hκ ≤ 70, as the three roots
+in |ι| < 1000 have real part at least 2, are all of them, counted with multiplicity ([[lem:s14-sextic-small]],
+[[lem:s14-sextic-large]], [[lem:s14-sextic-count]] (a)), and are distinct, so that they are the three roots of real part
+above 19/10, each simple. Those lemmas place the three in disjoint sets, except for 0.018 ≤ x ≤ 0.03, x := hκ
+(134 ≤ l ≤ 172), where two of them lie in one disc |ι − ξ_x| < 0.45, ξ_x := (3x + 10)/4 ([[lem:s14-sextic-large]] (b));
+these two are distinct. Indeed P_l = U + (P_l − U) with U(ι) := (2 + x − ι)(2(ι − ξ_x)² − Δ(x)/8) and
+Δ(x) := x² − 1715x/8 + 4, whose smaller root x₋ lies in (0.01866, 0.01867) ([[lem:s14-sextic-split]] (i), (iii): U is
+the cubic there, its quadratic factor written with the square completed, and Δ the discriminant of that factor). On the
+closed disc |ι − ξ_x| ≤ 0.45, |P_l − U| < 9.4·10⁻⁵ (the majorant bound in the proof of [[lem:s14-sextic-large]] (b),
+which holds there, as |ι| ≤ ξ_x + 0.45 ≤ 2.9725 < 2.98), and on its real diameter 2 + x − ι ≤ x/4 − 0.05 ≤ −0.0425. If
+x < x₋, that is l = 134 or 135, then Δ(x) is 0.093562114176, resp. 0.035476440025, so 0.035 < Δ(x) < 0.1,
+U(ξ_x) = (2 − x)Δ(x)/32 > 1.97·0.035/32 > 2·10⁻³, and
+U(ξ_x ± 0.45) = (2 + x − ξ_x ∓ 0.45)(0.405 − Δ(x)/8) < −0.0425·0.39 < −0.016: P_l is negative, positive and negative at
+ξ_x − 0.45, ξ_x and ξ_x + 0.45, and the two roots are real and separated by ξ_x. If x > x₋, that is l ≥ 136 and
+x ≥ 0.018768, then Δ(x) ≤ Δ(0.018768) < −0.023, Δ being decreasing on [0, 107], so 2(ι − ξ_x)² − Δ(x)/8 > 0.0028 and
+U < −0.0425·0.0028 < −1.1·10⁻⁴ on the real diameter: P_l has no real root in the disc, and the two roots there are a
+non-real conjugate pair, P_l having real coefficients, so they are distinct. If hκ > 70, P_l has no root
+with |ι − 1| ≤ 50 ([[lem:s14-sextic-count]] (b)); so a root ι ∈ Z of P_l with Re ι ≤ 6 is non-real, a real one having
+19/10 < ι ≤ 6 and so |ι − 1| ≤ 5. It is simple: P_l has real coefficients, so ῑ ≠ ι is a root of the same multiplicity m
+and the same real part, and P_l has three roots of real part above 19/10, counted with multiplicity
+([[prop:np-10-54]] (i)); so 2m ≤ 3, and m = 1. So ι − 1 has at its type the multiplicity of ι in its polynomial, unless
+it equals an entry from □^Υ_b or an integer entry of that type. A non-real ι − 1 equals neither, these being real. The
+integer entries are excluded as ι ∉ ℤ ([[prop:is-iota]]). An entry from □^Υ_b is real and either an integer or within
+1.34·10⁻⁶ of ℤ ([[lem:is-roots]] (b)), while a real ι − 1 is more than 2.93·10⁻⁶ from ℤ ([[prop:is-iota]]). With the
+poles, this gives the orders stated. ∎
 
 **Proposition {#prop:is-ci-pp}** (The least ℰ^C_I and the least ℰ_++.) Put a := (1 − e_Υ)γ_Υ = 99/10000 and
 γ := γ_Υ = 1/100, so σ_Υ = {0, a, γ, 2γ}, and let σ^(n) be the set of the sums of n elements of σ_Υ, with repetition.
@@ -414,9 +425,9 @@ of [[def:iii-i10-1-3]] holds if and only if ε_K < μ_G, where
 
 satisfies [[eq:is-mu]]. The next smallest excesses are 2.3181480·10⁻¹⁴ (above 3, from λ_♯ + 1 + δ′₁) and
 8.0959353·10⁻¹⁴ (from λ_♯ + 1 + δ₂); every other element of Λ ∪ (Λ + 𝔡₀) ∪ (Λ + 𝔡₁) lies outside (2, 2 + 4.2·10⁻¹³]
-∪ (3, 3 + 4.2·10⁻¹³]. As μ_G < δ_50 = ε_ind and μ_G < ε_Υ = 1.4619·10⁻¹⁰ ([[lem:ec-gauge-gap]]), the other
-conditions of [[def:iii-i10-1-3]] on ε_K leave every ε_K ∈ (0, μ_G) available for a suitable ε_+, and
-ε_K = 1.6416·10⁻¹⁴ is admissible.
+∪ (3, 3 + 4.2·10⁻¹³]. As μ_G < δ_50 = ε_ind and μ_G < ε_Υ for the admissible choice ε_Υ = 1.4619·10⁻¹⁰ of
+[[lem:ec-gauge-gap]], the other conditions of [[def:iii-i10-1-3]] on ε_K leave every ε_K ∈ (0, μ_G) available for a
+suitable ε_+, and ε_K = 1.6416·10⁻¹⁴ is admissible.
 
 *Proof.* *The windows.* By [[prop:is-lambda]] every element of Λ below 3 + 10⁻⁸ is β + p𝔡₀ + q𝔡₁ with β ∈ ℬ. As 𝔡₀ and
 𝔡₁ are increments, Λ + 𝔡₀ and Λ + 𝔡₁ lie in Λ, so the third window of (G) is contained in the first. An element in
@@ -480,9 +491,9 @@ so 1.6416021719700·10⁻¹⁴ < μ_G < 1.6416021719734·10⁻¹⁴, which is [[
 0.37287316761199915967171561347, 0.11722656572154787371494866063 < 351680𝔡₁ < 0.11722656572154787371494901233, and
 y ∈ (0.49009973333346607403357761515, 0.49009973333346607403357761516), so the excess lies in
 (8.0959353086·10⁻¹⁴, 8.0959353088·10⁻¹⁴). So the least excess over all windows is μ_G, and (G) holds exactly for
-ε_K < μ_G. Finally μ_G < 10⁻¹³ < 1.94·10⁻⁸ < δ_50 by [[lem:s14-delta50]], and μ_G < ε_Υ = 1.4619·10⁻¹⁰
-([[lem:ec-gauge-gap]]), so that every ε_K < μ_G meets the condition ε_K < ε_Υ of [[def:iii-i10-1-3]], and ε_+ may be
-taken in (ε_K, δ_50), as [[eq:iii-i9-1-1]] asks. ∎
+ε_K < μ_G. Finally μ_G < 10⁻¹³ < 1.94·10⁻⁸ < δ_50 by [[lem:s14-delta50]], and μ_G < ε_Υ = 1.4619·10⁻¹⁰, the choice of
+[[lem:ec-gauge-gap]], so that every ε_K < μ_G meets the condition ε_K < ε_Υ of [[def:iii-i10-1-3]], and ε_+ may be taken
+in (ε_K, δ_50), as [[eq:iii-i9-1-1]] asks. ∎
 
 **Proposition {#prop:is-count}** (N_Λ, k̄_0 and J_*.) For ℰ_ind and ℰ^ι_ind as constructed and every ε_+ ∈ (0, δ̄):
 
@@ -503,9 +514,9 @@ By [[prop:is-lambda]], N_Λ = #(Λ ∩ {Re < 3 + ε_+}) ≤ Σ_(β∈ℬ) T(3 + 
 differ by no non-zero p𝔡₀ + q𝔡₁, and the points of one are distinct; so N_Λ ≥ Σ_(rational β<3) T(3 − β). The 26
 numbers 3 − β are 1.4901, 1 − c (c ∈ σ^(2)) and 1/2 − c (c ∈ σ^(3)), with
 Σ (3 − β)² = 14.40589434 and Σ (3 − β) = 17.832; by [[lem:is-offsets]] (b), 1/(2𝔡₀𝔡₁) = 1125001468750.4…. So
-N_Λ ≥ 14.40589434·1125001468750.4 > 1.62066·10¹³. For the upper bound, ε_+ + 𝔡₀ + 𝔡₁ < 1.69·10⁻⁶ =: κ₀, the two
-irrational β contribute at most 2(0.4901 + κ₀)²/(2𝔡₀𝔡₁), and β = 3 contributes T(ε_+) = 1, as ε_+ < 𝔡₁; so
-N_Λ ≤ (14.40589434 + 2κ₀·17.832 + 26κ₀² + 2(0.4901 + κ₀)²)·1125001468750.5 + 1 < 1.67472·10¹³.
+N_Λ ≥ 14.40589434·1125001468750.4 > 1.62066·10¹³. For the upper bound, ε_+ + 𝔡₀ + 𝔡₁ < 1.69·10⁻⁶ =: ν₀, the two
+irrational β contribute at most 2(0.4901 + ν₀)²/(2𝔡₀𝔡₁), and β = 3 contributes T(ε_+) = 1, as ε_+ < 𝔡₁; so
+N_Λ ≤ (14.40589434 + 2ν₀·17.832 + 26ν₀² + 2(0.4901 + ν₀)²)·1125001468750.5 + 1 < 1.67472·10¹³.
 
 (b) By [[def:iii-i10-1-1]], k̄_0 bounds the orders of ℰ⁰_src ∪ ℰ_++ ∪ 𝒢 ∪ (2 + ℰ_col) below 2λ_♯ = 3.0198. There,
 ℰ⁰_src is 𝒢 together with ℰ_rows ∩ {Re < 2} ⊂ ℰ_++ (the parts involving ℰ_+ lie above 2λ_♯, (H1)); 𝒢 = (2, 0) ∪
@@ -630,14 +641,18 @@ and without λ_♯ + 1 + δ′₁ and λ_♯ + 1 + δ₂ give the bounds. ∎
 constructed: the exponents of real part at most 5 are [[eq:is-ind]], [[prop:is-iota]] and [[prop:is-ci-pp]] (a), with
 logarithmic orders at most 39 for ℰ_ind (attained), 50 for ℰ^ι_ind and 0 for the least ℰ^C_I; those of the least ℰ_++
 below 2λ_♯ are [[prop:is-ci-pp]] (b); above 2λ_♯ they depend on ℰ_+, and none of Λ ∩ {Re ≤ 3 + ε_+}, l_* and k̄_0
-uses them. Every indicial root of L̂_b(0) has multiplicity at most 7, and at most 3 on [−101, 5] ([[prop:is-mult]]);
-[[def:iii-i10-1-1]] asks l_* to bound them at real part at most 5, a half-plane that contains the roots below −101;
-for these the bound 7 serves, and their exact multiplicities, which this paper does not decide, are not needed. So the
-part of l_* that (IS) fixes is at most 50, and (G), N_Λ, k̄_0 and J_* are [[thm:is-gap]] and [[prop:is-count]]. Two
-further things are not determined by this paper. (1) The orders of the poles of N_ι⁺(L̄, ·)⁻¹, statement (SP) of
-[[rem:uc-missing]]; l_* depends on them. (2) The coefficient c_b of [[def:is-cb]] at a rotating b; for index sets that
-keep 𝔡₁ it decides whether ε_K may be taken up to μ♭ ([[cor:is-flat]]) or only below μ_G ([[thm:is-gap]]); whether an
-admissible ℰ_ind can omit 𝔡₁ is not decided either. Neither question in (2) enters an upper bound for d: the index sets
-as constructed serve with every ε_K < μ_G, and the two questions decide only whether smaller index sets, with a larger
-ε_K, are available. The individual roots ι ∈ Z of [[prop:is-iota]] are fixed by the polynomials of [[prop:np-10-12]]
-and located by [[sec:s14-pa]]; they lie above 3 as exponents of ℰ^ι_ind and do not enter Λ below 3 + ε_+.
+uses them. Every indicial root of L̂_b(0) has multiplicity at most 7, and is simple on [−101, 5] ([[prop:is-mult]]);
+[[def:iii-i10-1-1]] asks l_* to bound them at real part at most 5, a half-plane that contains the roots below −101; for
+these the bound 7 serves, and their exact multiplicities, which this paper does not decide, are not needed. So the
+largest multiplicity M of an indicial root of L̂_b(0) of real part at most 5 satisfies M ≤ 7 ([[prop:iii-f1-2-3]] (b)),
+the largest logarithmic order L of ℰ_ind ∪ ℰ^ι_ind ∪ ℰ^C_I at real part at most 5 satisfies 39 ≤ L ≤ 50, the order 39
+being attained at (5, 39) ∈ ℰ_ind ([[prop:is-logs]], [[prop:is-ci-pp]] (a)), and the part of l_* that (IS) fixes,
+max(L, M) = L, is at most 50: l_* = 50 is admissible for it. (G), N_Λ, k̄_0 and J_* are [[thm:is-gap]] and
+[[prop:is-count]]. Two further things are not determined by this paper. (1) The orders of the poles of N_ι⁺(L̄, ·)⁻¹,
+statement (SP) of [[rem:uc-missing]]; l_* depends on them. (2) The coefficient c_b of [[def:is-cb]] at a rotating b; for
+index sets that keep 𝔡₁ it decides whether ε_K may be taken up to μ♭ ([[cor:is-flat]]) or only below μ_G
+([[thm:is-gap]]); whether an admissible ℰ_ind can omit 𝔡₁ is not decided either. Neither question in (2) enters an upper
+bound for d: the index sets as constructed serve with every ε_K < μ_G, and the two questions decide only whether smaller
+index sets, with a larger ε_K, are available. The individual roots ι ∈ Z of [[prop:is-iota]] are fixed by the
+polynomials of [[prop:np-10-12]] and located by [[sec:s14-pa]]; they lie above 3 as exponents of ℰ^ι_ind and do not
+enter Λ below 3 + ε_+.
