@@ -335,9 +335,9 @@ root of P_l with hκ > 70: of C, as the other two roots have real part below −
 and of opposite signs; of P_l with hκ ≤ 70, as the three roots in |ι| < 1000 lie in disjoint sets, have real part at
 least 2 and are all of them, counted with multiplicity ([[lem:s14-sextic-small]], [[lem:s14-sextic-large]],
 [[lem:s14-sextic-count]] (a)), so that they are the three roots of real part above 19/10. If hκ > 70, P_l has no root
-with |ι − 1| ≤ 50 ([[lem:s14-sextic-count]] (b)); so a root ι with Re ι ≤ 6 is non-real, a real one having |ι − 1| ≤ 5,
-and has |ι − 1| > 50, and its multiplicity is at most 3, as P_l has three roots of real part above 19/10, counted with
-multiplicity ([[prop:np-10-54]] (i)). So ι − 1 has at its type the multiplicity of ι in its polynomial, unless it equals
+with |ι − 1| ≤ 50 ([[lem:s14-sextic-count]] (b)); so a root ι ∈ Z of P_l with Re ι ≤ 6 is non-real, a real one
+having 19/10 < ι ≤ 6 and so |ι − 1| ≤ 5, and has |ι − 1| > 50; its multiplicity is at most 3, as P_l has three roots
+of real part above 19/10, counted with multiplicity ([[prop:np-10-54]] (i)). So ι − 1 has at its type the multiplicity of ι in its polynomial, unless it equals
 an entry from □^Υ_b or an integer entry of that type. A non-real ι − 1 equals neither, these being real. The integer
 entries are excluded as ι ∉ ℤ ([[prop:is-iota]]). An entry from □^Υ_b is real and either an integer or within 1.34·10⁻⁶
 of ℤ ([[lem:is-roots]] (b)), while a real ι − 1 is more than 2.93·10⁻⁶ from ℤ ([[prop:is-iota]]). With the poles, this
