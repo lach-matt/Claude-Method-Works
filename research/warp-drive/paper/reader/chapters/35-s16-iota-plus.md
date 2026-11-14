@@ -188,8 +188,8 @@ Let sf_(≥−1) := [−1, ∞]_v × 𝕊³, compactified at v = ∞ by R = v⁻
 
     μ_sf := |dv/(2 + v) dg̸|
 
-of [Hin26, Proposition 9.2], smooth and positive on {v > −2} and a b-density at R = 0, as |dv|/(2 + v) =
-|dR|/(R(1 + 2R)). Fix χ_∂ ∈ C^∞(ℝ_v) with χ_∂ = 0 on {v ≤ 2} and χ_∂ = 1 on {v ≥ 4}.
+of [Hin26, Proposition 9.2], smooth and positive on {v > −2} and a b-density at R = 0,
+as |dv|/(2 + v) = |dR|/(R(1 + 2R)). Fix χ_∂ ∈ C^∞(ℝ_v) with χ_∂ = 0 on {v ≤ 2} and χ_∂ = 1 on {v ≥ 4}.
 
 **Definition {#def:iii-g-1-3}** ([Hin26, Definition 9.1] in dimension 4 + 1.) For s, μ ∈ ℝ, Ḣ^(s,μ)_b(sf_(≥−1)) is the
 space of distributions u on ℝ_v × 𝕊³ supported in {v ≥ −1} with
@@ -290,8 +290,8 @@ order is immaterial. Here G_0 = p_2 ([[lem:iii-g-1-2]] (a); 𝔐 is of first ord
 a v∂_v, −2ϰ v∂_v and V of [[eq:iii-g-1-2]]–[[eq:iii-g-1-3]]; 𝔐; and the first-order part of Im_𝔥 of the second-order
 part D := −2∂_v v∂_v − (v∂_v)² + Δ_(𝕊³). The symbols of v∂_v, of V and of 𝔐 vanish on ℛ_± (where v = 0, resp. η = 0).
 For D: the density μ_sf = m|dv dg̸|, m := (2 + v)⁻¹, and 𝔥 do not depend on v except through m. For an operator
-Q = q_2(v)∂_v² + q_1(v)∂_v with real coefficients, its formal adjoint for m|dv| is m⁻¹Q^t m, Q^t the transpose for
-|dv|, with second-order coefficient q_2 and first-order coefficient 2q_2′ + 2q_2m′/m − q_1. The (v, ∂_v)-part of D is
+Q = q_2(v)∂_v² + q_1(v)∂_v with real coefficients, its formal adjoint for m|dv| is m⁻¹Q^t m, Q^t the transpose
+for |dv|, with second-order coefficient q_2 and first-order coefficient 2q_2′ + 2q_2m′/m − q_1. The (v, ∂_v)-part of D is
 Q = −v(v + 2)∂_v² − (v + 2)∂_v, with 2q_2′ + 2q_2m′/m − q_1 = −4(v + 1) + 2v + (v + 2) = −(v + 2) = q_1; so the first-
 order coefficient of D − D^(*𝔥) in ∂_v vanishes identically. And Δ_(𝕊³) − Δ_(𝕊³)^(*𝔥) = H⁻¹[H, Δ_(𝕊³)], 𝔥 = ⟨H·, ·⟩,
 has symbol linear in η, which vanishes on ℛ_±. Finally, with A := ϰ − 3/2 − S̄, the principal symbols of −2A∂_v and of
@@ -440,8 +440,8 @@ Let 𝒟^m be the operators Σ_(j+|α|≤m) c_(jα)(v, ω)(v∂_v)^j ℒ_Ω^α o
 Since v∂_v commutes with each ℒ_Ω, [ℒ_(Ω_a), ℒ_(Ω_b)] is a combination of the ℒ_(Ω_c), and derivatives of the
 coefficients are smooth, [𝒟^p, 𝒟^q] ⊂ 𝒟^(p+q−1) and 𝒟^p𝒟^q ⊂ 𝒟^(p+q). A *word* W^α is a product of |α| factors from
 𝒢 := {v∂_v, ℒ_(Ω_1), …, ℒ_(Ω_6)}; every element of 𝒟^m is a combination of words of length at most m with smooth
-coefficients on the left. For u supported in (−½, 2) × 𝕊³, u ∈ Ḣ^((s;k),μ)_(b;b) if and only if W^αu ∈ H^s for
-|α| ≤ k; and then Du ∈ H^s for D ∈ 𝒟^k and Du ∈ H^(s−1) for D ∈ 𝒟^(k+1) (one factor being a first-order differential
+coefficients on the left. For u supported in (−½, 2) × 𝕊³, u ∈ Ḣ^((s;k),μ)_(b;b) if and only if W^αu ∈ H^s
+for |α| ≤ k; and then Du ∈ H^s for D ∈ 𝒟^k and Du ∈ H^(s−1) for D ∈ 𝒟^(k+1) (one factor being a first-order differential
 operator).
 
 **Lemma {#lem:iii-g-2-5}** (Commuting with the dilation and the rotations.) N_sf(ϰ)ℒ_Ω = ℒ_ΩN_sf(ϰ), and
@@ -511,8 +511,8 @@ The estimates in the strong sense, as in [[prop:iii-g-2-4]] (1), give U ∈ H^s.
 This section is the first half of [Hin26, Proposition 9.2 (2)] in dimension 4 + 1.
 
 **Lemma {#lem:iii-g-3-1}** (Conormality at the light cone.) Let s ∈ ℝ with s − ½ ∉ ℤ, and let u ∈ H^s(ℝ × 𝕊³) be
-supported in {v ≥ 0} near {v = 0}, with W^αu ∈ H^s near {v = 0} for every word W^α. Then for every α there is C with
-|W^αu(v, ω)| ≤ C v^(s−½) on (0, 1) × 𝕊³.
+supported in {v ≥ 0} near {v = 0}, with W^αu ∈ H^s near {v = 0} for every word W^α. Then for every α there is C
+with |W^αu(v, ω)| ≤ C v^(s−½) on (0, 1) × 𝕊³.
 
 *Proof.* Localise with a cut-off in v, which commutes with the rotations, and with v∂_v up to a smooth compactly
 supported function. With the Fourier transform in v and the expansion in spherical harmonics (eigenvalues κ_k of
@@ -528,8 +528,8 @@ instead, at the cost of ⌈−s⌉ more rotations.
 
 *The case s < ½.* Let j ∈ ℕ with s + j > ½, and let I be the primitive in v vanishing on {v < 0}, cut off beyond the
 support. It maps H^σ(ℝ; ℋ) to H^(σ+1)(ℝ; ℋ) for compactly supported elements, satisfies v∂_vI = I(v∂_v + 1), and
-commutes with the rotations. So U := I^ju satisfies the hypotheses at order s + j, and the case s > ½ gives
-|W^αU| ≤ Cv^(s+j−½). On (0, 1), u = ∂_v^jU = v^(−j) ∏_(i=0)^(j−1)(v∂_v − i)U, and W^αv^(−j) = v^(−j)W^α_((−j)), where
+commutes with the rotations. So U := I^ju satisfies the hypotheses at order s + j, and the case s > ½ gives |W^αU|
+≤ Cv^(s+j−½). On (0, 1), u = ∂_v^jU = v^(−j) ∏_(i=0)^(j−1)(v∂_v − i)U, and W^αv^(−j) = v^(−j)W^α_((−j)), where
 W^α_((−j)) is W^α with every v∂_v replaced by v∂_v − j; so |W^αu| ≤ Cv^(s−½). The number of words this uses is counted
 in [[lem:iii-g1-2-1]]. ∎
 
@@ -543,8 +543,8 @@ a_0 := s − ½ > −1, so that a_0 + Re ϰ > 0.
 *Step 1: support and regularity.* By [[prop:iii-g-2-7]], u ∈ Ḣ^((s;∞),μ)_(b;b). On {−1 < v < 0}, u solves
 N_sf(ϰ)u = 0, is supported in {v ≥ −1}, and v is a time function there; by the uniqueness step of [[prop:i-a-6-4]] on
 the slabs {−1 − ε′ < v < −ε} ([[lem:iii-g-2-3]]), u = 0 on {v < −ε} for every ε > 0. So u is supported in {v ≥ 0}. It
-is smooth on {v > 0} (by ellipticity), satisfies |W^αu| ≤ Cv^(a_0) on (0, 1) by [[lem:iii-g-3-1]], and
-|W^αu| ≤ Cv^(−(Re ϰ−ε)) on {v ≥ ½} for every ε > 0 by [[prop:iii-g-2-4]] (3) (u ∈ 𝒜^(Re ϰ−ε) near R = 0, R = v⁻¹,
+is smooth on {v > 0} (by ellipticity), satisfies |W^αu| ≤ Cv^(a_0) on (0, 1) by [[lem:iii-g-3-1]],
+and |W^αu| ≤ Cv^(−(Re ϰ−ε)) on {v ≥ ½} for every ε > 0 by [[prop:iii-g-2-4]] (3) (u ∈ 𝒜^(Re ϰ−ε) near R = 0, R = v⁻¹,
 the b-fields being v∂_v = −R∂_R and the rotations).
 
 *Step 2: the Fourier transform.* u is the extension by zero of u|_(v>0). Indeed, let φ be smooth with compact support
@@ -765,9 +765,9 @@ restriction of its order to F_K.
 
 *Proof.* *Compactness of 𝒞.* In the cone region Σ is compact over sf ([[sec:ii-f-1-3]]: |ξ_cħ| and |η_cħ| are bounded
 on {G_(ι,1) = 0}). Over {v ≤ 0}, f_1 ≠ 0 excludes Σ_+ (there a ≤ 0, so ξ̃ ≥ 0), and on Σ_− with L ≤ 2L_0,
-[[lem:iii-g-4-1]] (c) bounds t. Over {0 < v ≤ 1}, on Σ_− write c := vt ∈ [0, 1], so a = 1 − c and
-|η|² = t² − (1 − t − c)² = (1 − c)(2t − 1 + c); f_1(ξ̃) ≠ 0 gives (v + 2)(1 − c) ≥ δ′, so 1 − c ≥ δ′/3 and
-|η|² ≥ (δ′/3)(2t − 1), and f_2 ≠ 0 bounds t. Over {1 ≤ v < 4}, t ≤ 1/v ≤ 1.
+[[lem:iii-g-4-1]] (c) bounds t. Over {0 < v ≤ 1}, on Σ_− write c := vt ∈ [0, 1], so a = 1 − c
+and |η|² = t² − (1 − t − c)² = (1 − c)(2t − 1 + c); f_1(ξ̃) ≠ 0 gives (v + 2)(1 − c) ≥ δ′, so 1 − c ≥ δ′/3
+and |η|² ≥ (δ′/3)(2t − 1), and f_2 ≠ 0 bounds t. Over {1 ≤ v < 4}, t ≤ 1/v ≤ 1.
 
 *Values.* Near fibre infinity ψ = 0. Near R_(cf,out), ξ̃ = (1 + 2R)ξ_cħ is near 0, so f_1 = 0. Near R_(cf,1,in), ξ̃ is
 near −2 and |η|² = R²|η_cħ|² is near 0, and ψ = 1, so 𝖻 = b_in.
@@ -1209,8 +1209,8 @@ for ϰ, and the inverses agree. For 0 < a < 1, N_sf(ϰ)h̃ = 0 on {−1 < v < �
 
 *Step 1: a priori bounds.* Fix ε ∈ (0, ¼) with 3/2 − Re ϰ − ε ∉ ℤ, and put s := 2 − Re ϰ − ε; then (s, μ) is
 admissible for μ ∈ (Re ϰ − 1, Re ϰ). *At v = 0:* take χ ∈ C_c^∞((−1, 2)) equal to 1 on [−½, 3/2]. On supp χ the norm of
-Ḣ^(s,μ)_b is that of H^s, so χh̃ satisfies the hypotheses of [[lem:iii-g1-2-1]] for every k. Hence
-|W^αh̃| ≤ C_αv^(3/2−Re ϰ−ε) on (0, 1). Since W^αv^ϰ = v^ϰW^α_((ϰ)) (with v∂_v shifted by ϰ),
+Ḣ^(s,μ)_b is that of H^s, so χh̃ satisfies the hypotheses of [[lem:iii-g1-2-1]] for every k.
+Hence |W^αh̃| ≤ C_αv^(3/2−Re ϰ−ε) on (0, 1). Since W^αv^ϰ = v^ϰW^α_((ϰ)) (with v∂_v shifted by ϰ),
 
     |W^αh| ≤ C_αv^(3/2−ε)   on (0, 1) × 𝕊³.                                                              {#eq:iii-g1-3-4}
 

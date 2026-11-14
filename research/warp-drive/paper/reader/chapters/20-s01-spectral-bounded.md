@@ -401,8 +401,8 @@ commutator [E, Φ] is not residual, and is not used).
 WF′(Φ_J) ∩ WF′(Id − Φ) = ∅; this is possible as K_J is closed, lies in the open set Ell(P) and misses WF′(Id − Φ).
 Then ⟨J_εPv, v⟩ = ⟨J_εPv, Φ_Jv⟩ plus a term bounded by C‖u‖²_(−𝐌), since (Id − Φ_J)^(∗h)J_ε is residual. The same
 splitting at w_t gives the convergence used above, as Φ_JT_tv → Φ_Jv in H^(𝐬+κ𝟏) (the bound below puts Φ_Jv in
-H^(𝐬+𝟏), and [Φ_J, T_t] is bounded in Ψ^(−1,−1) and tends to 0 strongly). Then
-|⟨J_εPv, Φ_Jv⟩| ≤ ‖J_εPv‖_(−𝐬)‖Φ_Jv‖_𝐬, and the microlocal parametrix of P on WF′(Φ_J) gives
+H^(𝐬+𝟏), and [Φ_J, T_t] is bounded in Ψ^(−1,−1) and tends to 0 strongly).
+Then |⟨J_εPv, Φ_Jv⟩| ≤ ‖J_εPv‖_(−𝐬)‖Φ_Jv‖_𝐬, and the microlocal parametrix of P on WF′(Φ_J) gives
 ‖Φ_Jv‖_𝐬 ≤ C(‖ΦPu‖_(𝐬−𝐦) + ‖u‖_(−𝐌)).
 
 (e) |⟨R_εv, v⟩| ≤ C‖v‖²_(𝐬−½𝟏), and ‖v‖_(𝐬−½𝟏) ≤ C(‖Gu‖_(𝐬−½𝟏) + ‖u‖_(−𝐌)).
@@ -724,8 +724,8 @@ for 𝗋′_ε ≥ 𝗋₀. In [[lem:i-a-3-2]] the orders are 𝗋_j ∈ [𝗋�
 uniformly in σ₀ ∈ I and σ₁ ∈ [0, ν] (Q^(0) does not involve σ₁), there are a neighbourhood W ⊂ U and c_Q > 0 with
 Q_ε ≥ c_Q and with the symbol of K at least 2|σ₀| on W.
 
-*The cut-off term.* On supp ψ_Σψ_R′ at ρ = 0, write ξ = −2σ₀ + y. Then q = y² + |η|² ∈ [(2ς_R)⁻¹, ς_R⁻¹], and
-|g_(σ₀)| ≤ γ := ς_Σ^(−1/2), with g_(σ₀) = y(y − 2σ₀) + |η|². So 2|σ₀||y| ≤ γ + q. Take ς_Σ with γ ≤ (2ς_R)⁻¹ ≤ q.
+*The cut-off term.* On supp ψ_Σψ_R′ at ρ = 0, write ξ = −2σ₀ + y. Then q = y² + |η|² ∈ [(2ς_R)⁻¹, ς_R⁻¹],
+and |g_(σ₀)| ≤ γ := ς_Σ^(−1/2), with g_(σ₀) = y(y − 2σ₀) + |η|². So 2|σ₀||y| ≤ γ + q. Take ς_Σ with γ ≤ (2ς_R)⁻¹ ≤ q.
 Then y² ≤ q²/σ₀² ≤ q/2 once ς_R ≥ 2/min_I σ₀², and |η|² ≥ q/2. Hence
 
     b_(R,ε) := ρ^(−𝗋′) φ_ε ψ_∂ ψ_Σ (8|σ₀||η|²/q)^(1/2) √(−xψ(x)ψ′(x)) |_(x = ς_Rq)
@@ -808,9 +808,9 @@ V^α = V^(α′)V₁ (the V₁ commute with the V_jk),
 
 Next, V^(α′)𝒫u = 𝒫V^(α′)u + [V^(α′), 𝒫]u, and [V^α, 𝒫], 𝒫V^(α′) and [V^(α′), 𝒫] are sorted by class as follows.
 Terms from the ρC^∞ parts of 𝒫 give ρDiff^(k−1)_b. Terms from P̂(0) ∈ ρ²Diff²_b give ρ²Diff¹_b ∘ V^β with |β| ≤ k
-(reorder products of V's modulo Diff^(k−1)_b). Terms from Q ∈ ρ³Diff¹_b and g₀₀ ∈ ρ²C^∞ give ρ²Diff¹_b ∘ V^β with
-|β| ≤ k. Terms with |β| ≤ k − 1 are of the form R_αβV^β with R_αβ ∈ ρ²Diff¹_b + ρDiff⁰_b ⊂ ρDiff²_sc; those with
-|β| = k form P̃_αβ. Collecting gives [[eq:i-a-4-10]]. That ρ⁻¹P̃_αβ ∈ ρDiff¹_b ⊂ Diff¹_sc has symbol 0 at the zero
+(reorder products of V's modulo Diff^(k−1)_b). Terms from Q ∈ ρ³Diff¹_b and g₀₀ ∈ ρ²C^∞ give ρ²Diff¹_b ∘ V^β
+with |β| ≤ k. Terms with |β| ≤ k − 1 are of the form R_αβV^β with R_αβ ∈ ρ²Diff¹_b + ρDiff⁰_b ⊂ ρDiff²_sc; those
+with |β| = k form P̃_αβ. Collecting gives [[eq:i-a-4-10]]. That ρ⁻¹P̃_αβ ∈ ρDiff¹_b ⊂ Diff¹_sc has symbol 0 at the zero
 section follows as in [[lem:i-a-4-4]] (b). ∎
 
 **Remark {#rem:i-a-4-8-sign}** (The sign of the diagonal term.) With the sign of [Hin26c, (9.45)], the diagonal term

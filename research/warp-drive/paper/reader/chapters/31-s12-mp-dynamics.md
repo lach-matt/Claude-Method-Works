@@ -242,8 +242,8 @@ coordinates (t_KS, x) = Φ_m(t, x), t_* = t − ψ(|x|) has differential dt_KS �
 2R₁], β = 1. On supp χ_∞ ⊂ [2R₁, ∞), ρ² ≥ 4m₀ and m < 3m₀/2, so (8m₀ − 2m)ρ² − 8m₀m > 20m₀² − 12m₀² > 0, the bracket is
 positive and β < 1; and β ≥ 1 − 8m₀ρ⁻² ≥ −1, with equality only at ρ = 2R₁, where χ_∞ = 0. So β ∈ (−1, 1] on [r₀ − 2δ₀,
 ∞), as in the proof of [[lem:iii-b-3-7]] (a), and [[lem:iii-b-3-3]] (e), valid there by [[lem:s11-ks-domain]], makes
-dt_* timelike: g₀₀ < 0. The components of g_b in the frame dt_*, dx^i do not depend on t_*, as t_* − t is a function of
-|x|. The inequality t_* ≤ t of [[lem:iii-b-3-7]] (a) is not claimed on the collar, where ψ < 0.
+dt_* timelike: g₀₀ < 0. The components of g_b in the frame dt_*, dx^i do not depend on t_*, as t_* − t is a function
+of |x|. The inequality t_* ≤ t of [[lem:iii-b-3-7]] (a) is not claimed on the collar, where ψ < 0.
 
 *Decay.* Here ḡ is the Minkowski metric of [[sec:ii-b-1-1]] in t̄ := t_* + r, ḡ = −(dt_* + dr)² + dx², not
 η = −dt² + dx². With t = t_* + ψ(|x|) ([[eq:iii-b-3-6]]),
@@ -411,8 +411,8 @@ In the first two cases the curve meets neither Γ̄_u nor Γ̄_s, and r tends, a
 the branches with φ_u = 0 are backward asymptotic to Γ and those with φ_s = 0 are forward asymptotic, by
 [[eq:vi-a-3-2]]. This identifies Γ̄_(u/s) outside the horizon. Inside the horizon no curve tends to Γ, as shown below.
 
-*At infinity.* If r → ∞ forward, then (fξ_s)² → 1 and ṙ > 0 give ξ_s → z₀. By [[eq:s12-shift]], ξ_* → 0; and
-|η|/r = C^(1/2) r⁻¹ → 0, as C is conserved. So the curve converges in the scattering phase space ([[sec:i-a-4]]) to
+*At infinity.* If r → ∞ forward, then (fξ_s)² → 1 and ṙ > 0 give ξ_s → z₀. By [[eq:s12-shift]], ξ_* → 0;
+and |η|/r = C^(1/2) r⁻¹ → 0, as C is conserved. So the curve converges in the scattering phase space ([[sec:i-a-4]]) to
 {ξ_* = 0, η = 0} over ∂X, which is R_out ([[eq:i-a-4-6]]). Backward with r → ∞, ξ_s → −z₀, so ξ_* → −2z₀ and
 η/r → 0: the curve converges to R_(z₀,in) = {ξ_* = −2z₀, η = 0} over ∂X ([[eq:i-a-4-6]]).
 
@@ -435,8 +435,8 @@ reaches {r < r₀ − δ₀} in finite time.
 
 *Uniformity on compact sets.* Let 𝖪 ⊂ Σ_(z₀) ∩ T*{r > r₀ − 2δ₀} be compact and disjoint from Γ̄_s. C is conserved,
 and C ≤ C_𝖪 on 𝖪. For ϵ ∈ (0, ¼) and R large given C_𝖪, put 𝒜_out := {r > R, |ξ_*| < ϵ}. While z₀ξ_s > 0 and r > R:
-𝖧^♭r = 2z₀fξ_s = 2(1 − Cf r⁻²)^(1/2) ≥ 1, and (fξ_s)² = 1 − Cf r⁻² gives z₀ξ_* = |ξ_s| − F′, hence
-|ξ_*| ≤ c₁(C + 1) r⁻² and |η|/r = C^(1/2) r⁻¹, with c₁ depending only on m. Take R with c₁(C_𝖪 + 1) R⁻² < ϵ/2 and
+𝖧^♭r = 2z₀fξ_s = 2(1 − Cf r⁻²)^(1/2) ≥ 1, and (fξ_s)² = 1 − Cf r⁻² gives z₀ξ_* = |ξ_s| − F′,
+hence |ξ_*| ≤ c₁(C + 1) r⁻² and |η|/r = C^(1/2) r⁻¹, with c₁ depending only on m. Take R with c₁(C_𝖪 + 1) R⁻² < ϵ/2 and
 F′ > ½ on {r > R}. A curve from 𝖪 that enters 𝒜_out has z₀ξ_s = z₀ξ_* + F′ > 0 there, and on the maximal parameter
 interval after entry on which z₀ξ_s > 0, r increases (𝖧^♭r ≥ 1), so r > R persists and |ξ_*| < ϵ/2, hence
 z₀ξ_s > ¼; that interval is therefore closed as well as open, and contains every later parameter. So the curve stays
@@ -447,13 +447,13 @@ pointwise statement, since a curve tending to R_out has r → ∞ and ξ_* → 0
 convergence is uniform on 𝖪.
 
 Backward, for 𝖪 disjoint from Γ̄_u, the same argument applies with 𝒜_in := {r > R, |ξ_* + 2z₀| < ϵ} for R_(z₀,in),
-with R also so large that F′ < 3/2 on {r > R}: on 𝒜_in, z₀ξ_s = z₀(ξ_* + 2z₀) − 2 + F′ < −¼, and
-|ξ_* + 2z₀| = ||ξ_s| − (2 − F′)| ≤ c₁(C + 1) r⁻²; and with 𝒰_H := {|r − r_h| < δ, ρ_∞ < δ′, C < C_𝖪 + 1} near the
-horizon, where δ, δ′ are so small, given C_𝖪, that 𝒰_H meets only the singular root. 𝒰_H is backward invariant, as
-|r − r_h| decreases backward on both of its branches and ρ_∞ with it, and on 𝒰_H, ρ_∞ ≤ c|f| and
-|η/ξ| ≤ c C_𝖪^(1/2)|f|. In the rescaled parameter, |dr/ds| = ρ_∞|ṙ| = |f|(1 + O(C_𝖪 f)) on 𝒰_H, and
-|f| = β₀|r − r_h|(1 + O(r − r_h)), so |r − r_h| decays backward exponentially at a rate close to β₀, uniformly on 𝒰_H.
-With the cover argument this makes the backward convergence to ∂ℛ_± and to R_(z₀,in) uniform on 𝖪.
+with R also so large that F′ < 3/2 on {r > R}: on 𝒜_in, z₀ξ_s = z₀(ξ_* + 2z₀) − 2 + F′ < −¼,
+and |ξ_* + 2z₀| = ||ξ_s| − (2 − F′)| ≤ c₁(C + 1) r⁻²; and with 𝒰_H := {|r − r_h| < δ, ρ_∞ < δ′, C < C_𝖪 + 1} near the
+horizon, where δ, δ′ are so small, given C_𝖪, that 𝒰_H meets only the singular root. 𝒰_H is backward invariant,
+as |r − r_h| decreases backward on both of its branches and ρ_∞ with it, and on 𝒰_H, ρ_∞ ≤ c|f|
+and |η/ξ| ≤ c C_𝖪^(1/2)|f|. In the rescaled parameter, |dr/ds| = ρ_∞|ṙ| = |f|(1 + O(C_𝖪 f)) on 𝒰_H,
+and |f| = β₀|r − r_h|(1 + O(r − r_h)), so |r − r_h| decays backward exponentially at a rate close to β₀, uniformly on
+𝒰_H. With the cover argument this makes the backward convergence to ∂ℛ_± and to R_(z₀,in) uniform on 𝖪.
 
 (b) Γ̄_u is the union of Γ and the two branches of {φ_u = 0}, on each of which r is monotone. So
 Γ̄_u ∩ O = {φ_u = 0} ∩ Σ^s ∩ O = Γ_u for every O ⊂ {r > r_h}, and likewise for Γ̄_s. ∎
@@ -540,8 +540,8 @@ the following hold.
 (d) In a frame in which A = aJ₁₂ + bJ₃₄, and with ω = (sin ϑ e^(iφ), cos ϑ e^(iψ)) in ℂ² ≅ ℝ⁴,
 x = ((r² + a²)^(1/2) sin ϑ e^(iφ), (r² + b²)^(1/2) cos ϑ e^(iψ)) and ϱ² = r² + a² cos²ϑ + b² sin²ϑ.
 
-*Proof.* By [[lem:iii-b-3-1]] (a), (r²I − A²)𝖬(r) = Π(r)I, so 𝒟⁻² = 𝖬(r)/Π(r). Then
-|ω|² = xᵀ𝒟⁻²x = xᵀ𝖬(r)x/Π(r) = 1, as Q(r, x) = Π(r) − xᵀ𝖬(r)x = 0 at r = r_A(x).
+*Proof.* By [[lem:iii-b-3-1]] (a), (r²I − A²)𝖬(r) = Π(r)I, so 𝒟⁻² = 𝖬(r)/Π(r).
+Then |ω|² = xᵀ𝒟⁻²x = xᵀ𝖬(r)x/Π(r) = 1, as Q(r, x) = Π(r) − xᵀ𝖬(r)x = 0 at r = r_A(x).
 (a) xᵀ𝒟⁻⁴x = ωᵀ𝒟⁻²ω = ωᵀ𝖬(r)ω/Π(r), and ωᵀ𝖬(r)ω = (r² + s)|ω|² + ωᵀA²ω = ϱ². In a frame,
 sI + A² = diag(b², b², a², a²) ≥ 0, so ϱ² ≥ r².
 (b) By [[def:iii-b-3-2]], F_A = 1 + xᵀA²𝖬²x/Π² = 1 + xᵀA²𝒟⁻⁴x = 1 + ωᵀA²𝒟⁻²ω, as 𝒟 commutes with A. So
@@ -580,8 +580,8 @@ depend on t. The signs of Δ_b on (r₊, ∞) and on (r₋, r₊) are those foun
 written in the Kerr–Schild coordinates of [[ch:s11]]; the radius r_A of the Kerr–Schild form is the Boyer–Lindquist
 radius. Nothing below uses the Boyer–Lindquist form.
 
-**Lemma {#lem:vi-b-1-2}** (Fixing the horizon.) There are ε_H > 0 and diffeomorphisms Ψ_b of {|x| ≥ r₀ − 2δ₀}, for
-|b − b₀| < ε_H, smooth in (b, x), with Ψ_(b₀) = Id, Ψ_b = Id on {|x| ≤ 5R₁/8} and on {|x| ≥ 7R₁/4}, and
+**Lemma {#lem:vi-b-1-2}** (Fixing the horizon.) There are ε_H > 0 and diffeomorphisms Ψ_b of {|x| ≥ r₀ − 2δ₀},
+for |b − b₀| < ε_H, smooth in (b, x), with Ψ_(b₀) = Id, Ψ_b = Id on {|x| ≤ 5R₁/8} and on {|x| ≥ 7R₁/4}, and
 Ψ_b({|x| = r_h}) = ℋ_b. Its spacetime lift is (t, x) ↦ (t, Ψ_b(x)).
 
 *Proof.* Let χ_H ∈ C_c^∞((5R₁/8, 7R₁/4)) equal 1 near [3R₁/4, 3R₁/2], an interval that contains r_h = R₁. Put
@@ -594,8 +594,8 @@ solving r̃_b(κx̂) = |x|. As ∂_κ r̃_b(κx̂) = 1 + O(|b − b₀|), the ma
 [r₀ − 2δ₀, ∞) and equal to κ off supp χ_H (in particular for κ ≤ 5R₁/8, which contains r₀ − 2δ₀, and for large κ),
 so it is a bijection of [r₀ − 2δ₀, ∞); κ_b is defined globally and is smooth by the implicit function theorem, and
 Ψ_b is a diffeomorphism. It is the identity where χ_H(|x|) = 0, and it maps {|x| = r_h} onto {r̃_b = r_h}, which is
-ℋ_b: on {χ_H = 1}, {r̃_b = r_h} = {r_A = r₊}, and on the transition region, where
-|x| ∈ (5R₁/8, 3R₁/4) ∪ (3R₁/2, 7R₁/4), r̃_b is C^∞-close to |x| and so differs from r_h = R₁. For b near b₀,
+ℋ_b: on {χ_H = 1}, {r̃_b = r_h} = {r_A = r₊}, and on the transition region,
+where |x| ∈ (5R₁/8, 3R₁/4) ∪ (3R₁/2, 7R₁/4), r̃_b is C^∞-close to |x| and so differs from r_h = R₁. For b near b₀,
 {r_A = r₊} lies in {χ_H = 1}, since r_A is close to |x| and r₊ to R₁. ∎
 
 Where χ_H(|Ψ_b(x)|) = 1, in particular near {|x| = r_h}, the definition of Ψ_b gives Ψ_b^* r_A = (r₊(b)/r_h)|x|, so
@@ -623,9 +623,9 @@ the radii of [[def:s12-radii]], ρ_∞ = |ξ|⁻¹ and ℛ_± = {r = r_h, η = 0
 **Lemma {#lem:vi-b-2-1}** For |b − b₀| < ε_H, N*{r = r_h} ∖ o ⊂ {G̃_(0,b) = 0}, and H_(G̃_(0,b)) is tangent to it.
 
 *Proof.* The change of time Φ_m of [[eq:iii-b-3-3]] fixes x, so g_b⁻¹(dr_A, dr_A) = (g^KS_b)⁻¹(dr_A, dr_A), which
-vanishes on ℋ_b by [[lem:vi-b-1-1]]. By the remark after [[lem:vi-b-1-2]], for c ∈ ℝ, G̃_(0,b)(c dr) = c² g̃_b⁻¹(dr, dr)
-= c²(r_h/r₊(b))² g_b⁻¹(dr_A, dr_A) ∘ Ψ_b = 0 on {r = r_h}. So the Lagrangian submanifold N*{r = r_h} lies in the level
-set {G̃_(0,b) = 0}. For v tangent to it and Ω the symplectic form, Ω(H_(G̃_(0,b)), v) = dG̃_(0,b)(v) = 0, so
+vanishes on ℋ_b by [[lem:vi-b-1-1]]. By the remark after [[lem:vi-b-1-2]], for c ∈ ℝ, G̃_(0,b)(c dr) = c²
+g̃_b⁻¹(dr, dr) = c²(r_h/r₊(b))² g_b⁻¹(dr_A, dr_A) ∘ Ψ_b = 0 on {r = r_h}. So the Lagrangian submanifold N*{r = r_h} lies
+in the level set {G̃_(0,b) = 0}. For v tangent to it and Ω the symplectic form, Ω(H_(G̃_(0,b)), v) = dG̃_(0,b)(v) = 0, so
 H_(G̃_(0,b)) lies in the symplectic orthogonal of the tangent space, which is the tangent space itself. ∎
 
 **Proposition {#prop:vi-b-2-2}** ((H3) and (H4) near b₀.) There is ε₁ ∈ (0, ε_H] such that for |b − b₀| < ε₁, and so
@@ -684,17 +684,17 @@ Let b = (m, A) ∈ ℬ with |b − b₀| small, and use the notation of [[ch:s11
 
     x = (r²I − A²)^(1/2) ω,     r > 0,     ω ∈ 𝕊³ ⊂ ℝ⁴.                                                   {#eq:vi-b1-0-1}
 
-By [[lem:s12-spheroidal]], r = r_A(x) and ω = (r_A²I − A²)^(−1/2)x; conversely, for x given by [[eq:vi-b1-0-1]] with
-|x|² > s, xᵀ(r²I − A²)⁻¹x = |ω|² = 1, so r is the unique positive zero of Q(·, x) ([[lem:iii-b-3-1]]), r = r_A(x). So
-[[eq:vi-b1-0-1]] is a diffeomorphism (r, ω) ↦ x onto {|x|² > s}, smooth in A, with no frame chosen. Write
+By [[lem:s12-spheroidal]], r = r_A(x) and ω = (r_A²I − A²)^(−1/2)x; conversely, for x given by [[eq:vi-b1-0-1]]
+with |x|² > s, xᵀ(r²I − A²)⁻¹x = |ω|² = 1, so r is the unique positive zero of Q(·, x) ([[lem:iii-b-3-1]]), r = r_A(x).
+So [[eq:vi-b1-0-1]] is a diffeomorphism (r, ω) ↦ x onto {|x|² > s}, smooth in A, with no frame chosen. Write
 𝒟 := (r²I − A²)^(1/2). Differentiating 𝒟² = r²I − A², with 𝒟 and ∂_r𝒟 commuting (both are functions of A²),
 ∂_r𝒟 = r𝒟⁻¹; so dx = r𝒟⁻¹ω dr + 𝒟 dω, with ⟨r𝒟⁻¹ω, 𝒟 dω⟩ = r⟨ω, dω⟩ = 0 and |r𝒟⁻¹ω|² = r² xᵀ𝒟⁻⁴x = r²ϱ²/Π by
 [[lem:s12-spheroidal]] (a). Hence
 
     |dx|² = (r²ϱ²/Π) dr² + ⟨(r²I − A²) dω, dω⟩,     ϱ² = r² + s + ωᵀA²ω,
 
-with ϱ² of [[eq:s12-varrho]]. Write a covector as ν = −E dt + p_r dr + η, η ∈ T*_ω𝕊³, with t the Kerr–Schild time,
-|η|²_(𝕊³) its round norm and |η|²_(e,r) its norm for the second term of |dx|². Put Y_r := (r²I − A²)⁻¹A, which is
+with ϱ² of [[eq:s12-varrho]]. Write a covector as ν = −E dt + p_r dr + η, η ∈ T*_ω𝕊³, with t the Kerr–Schild
+time, |η|²_(𝕊³) its round norm and |η|²_(e,r) its norm for the second term of |dx|². Put Y_r := (r²I − A²)⁻¹A, which is
 antisymmetric, so that Y_rω ∈ T_ω𝕊³; Ẽ := E + η(Y_rω); 𝒯 := |η|²_(𝕊³) − ϱ²|η|²_(e,r); and
 
     𝔄 := (Π/r²) p_r² − r²E² − 𝒯 − m(Ẽ + p_r)²,     𝔎 := |η|²_(𝕊³) − (s + ωᵀA²ω) E².                       {#eq:vi-b1-0-2}
@@ -809,15 +809,15 @@ face (|Φ| + |Ψ|)² = Λ of 𝔑, the two bounds of [[lem:vi-b1-1-1]] were obse
 where Λ ≥ m₀/6) and 0.788 (for 𝒬, where Λ < m₀/6). No proof uses this; [[lem:vi-b1-1-1]] rests on the perturbation
 argument above.
 
-**Corollary {#cor:vi-b1-1-2}** (The radial structure.) Let ε_R also be so small that r₊(b)⁻² < 2/m₀, and let
-|b − b₀| ≤ ε_R and E ≠ 0. Then on (r₊, ∞):
+**Corollary {#cor:vi-b1-1-2}** (The radial structure.) Let ε_R also be so small that r₊(b)⁻² < 2/m₀, and
+let |b − b₀| ≤ ε_R and E ≠ 0. Then on (r₊, ∞):
 
 (a) ℛ > 0 near ∞, and {r > r₊ : ℛ(r) < 0} is an interval, possibly empty.
 
 (b) A double zero r_c of ℛ in (r₊, ∞) has ∂_r²ℛ(r_c) > 0, and then ℛ > 0 on (r₊, ∞) ∖ {r_c}.
 
-(c) For every δ > 0 there is ε(δ) ≤ ε_R such that for |b − b₀| ≤ ε(δ) every double zero has |r_c − (2m)^(1/2)| < δ and
-|Λ − 4mE²| < δE².
+(c) For every δ > 0 there is ε(δ) ≤ ε_R such that for |b − b₀| ≤ ε(δ) every double zero has |r_c − (2m)^(1/2)| < δ
+and |Λ − 4mE²| < δE².
 
 *Proof.* In w = r⁻² ∈ (0, w₊), w₊ := r₊⁻², 𝒬(0) = E² > 0, and 𝒬 is either positive on [0, w₊] or strictly convex
 there ([[lem:vi-b1-1-1]], after normalising). A strictly convex function is negative on an interval and has a double
@@ -943,8 +943,8 @@ p_r = p_r^c there is a function of the conserved (Φ, Ψ, 𝔎) and Γ_b is inva
 Let 𝒴 := {(ω, η) : 3m₀ ≤ 𝔎 ≤ 5m₀} ⊂ T*𝕊³ (with E² = 1), compact and invariant under H_𝔎, H_Φ and H_Ψ; for b near b₀
 it contains Γ^𝕊_b. Fix any Riemannian metric on T*𝕊³ for the norms.
 
-**Lemma {#lem:vi-b1-3-2}** (The flow of 𝔎.) Let ‖A‖² ≤ m₀/100. For every p ∈ 𝒴 there is C_p with
-|D_p e^(sH_𝔎) v| ≤ C_p(1 + |s|)|v| for all v and all s ∈ ℝ.
+**Lemma {#lem:vi-b1-3-2}** (The flow of 𝔎.) Let ‖A‖² ≤ m₀/100. For every p ∈ 𝒴 there is C_p
+with |D_p e^(sH_𝔎) v| ≤ C_p(1 + |s|)|v| for all v and all s ∈ ℝ.
 
 *Proof.* Work in a frame, with Ξ := (Ξ₀, Ξ₁, Ξ₂) := (𝔎, Φ, Ψ) and X₀ := H_𝔎, X₁ := H_Φ, X₂ := H_Ψ, which commute.
 With Φ, Ψ fixed, write U(ϑ) := Φ²/sin²ϑ + Ψ²/cos²ϑ − a² + (a² − b²) sin²ϑ, so that 𝔎 = p_ϑ² + U (with E² = 1). Then
@@ -960,8 +960,8 @@ are canonical coordinates, dΦ and dΨ are independent, and d𝔎 = 2p_ϑ dp_ϑ 
 if and only if p_ϑ = 0 = U′(ϑ). If Φ = 0, then U′ = 2 sin ϑ cos ϑ (Ψ²/cos⁴ϑ + a² − b²) > 0, since
 Ψ²/cos⁴ϑ ≥ Ψ²/cos²ϑ ≥ 3m₀ − 2‖A‖² > |a² − b²| there; likewise for Ψ = 0. So these points of Z have ΦΨ ≠ 0 and lie on
 Z₁ := {p_ϑ = 0, ϑ = ϑ₀(Φ, Ψ)}, ϑ₀ a critical point of U: a family of invariant 2-tori, one for each (Φ, Ψ) and ϑ₀.
-Near ω₁ = 0 use y := ω₁ ∈ ℂ ≅ ℝ², ω = (y, (1 − |y|²)^(1/2) e^(iψ)), with momenta (η_y, η_ψ). The round metric is
-|dy|² + (y·dy)²/(1 − |y|²) + (1 − |y|²) dψ², whose inverse on the y-block is I − yyᵀ, and |y| = sin ϑ; so
+Near ω₁ = 0 use y := ω₁ ∈ ℂ ≅ ℝ², ω = (y, (1 − |y|²)^(1/2) e^(iψ)), with momenta (η_y, η_ψ). The round metric
+is |dy|² + (y·dy)²/(1 − |y|²) + (1 − |y|²) dψ², whose inverse on the y-block is I − yyᵀ, and |y| = sin ϑ; so
 
     𝔎 = |η_y|² − (y·η_y)² + η_ψ²/(1 − |y|²) − a² + (a² − b²)|y|²,                                         {#eq:vi-b1-3-2}
 
@@ -1002,13 +1002,13 @@ The singular orbits are the 2-tori of Z₁ and the circles of Z₂ and Z₂′, 
 elliptic near b₀.
 
 **Lemma {#lem:vi-b1-3-3}** (Reparametrisation; compare [Hin26c, Lemma 4.20].) Let V₁ be a smooth vector field, a > 0
-smooth, V₂ := aV₁, and let the V₂-orbit of p lie in a compact set on which a, 1/a, |da| ≤ c_a. If
-|D_p e^(sV₁)| ≤ c(1 + |s|)^k for s ∈ ℝ, then |D_p e^(sV₂)| ≤ c′(1 + |s|)^(k+1).
+smooth, V₂ := aV₁, and let the V₂-orbit of p lie in a compact set on which a, 1/a, |da| ≤ c_a.
+If |D_p e^(sV₁)| ≤ c(1 + |s|)^k for s ∈ ℝ, then |D_p e^(sV₂)| ≤ c′(1 + |s|)^(k+1).
 
 *Proof.* e^(sV₂)p = e^(τ(s)V₁)p with τ′ = a(e^(sV₂)p), τ(0) = 0, so |τ| ≤ c_a|s|. Then
 D_p e^(sV₂) = D_p e^(τV₁) + V₁ ⊗ D_pτ, and ∂_s D_pτ = da(D_p e^(τV₁)) + (V₁a) D_pτ. Along the orbit,
-V₁a = ∂_s log a(e^(sV₂)p), so ∂_s(D_pτ/a) = da(D_p e^(τV₁))/a and
-|D_pτ(s)| ≤ c_a³ ∫₀^(|s|) c(1 + c_as′)^k ds′. As V₁ is bounded on the compact set, the bound follows. ∎
+V₁a = ∂_s log a(e^(sV₂)p), so ∂_s(D_pτ/a) = da(D_p e^(τV₁))/a
+and |D_pτ(s)| ≤ c_a³ ∫₀^(|s|) c(1 + c_as′)^k ds′. As V₁ is bounded on the compact set, the bound follows. ∎
 
 **Proposition {#prop:vi-b1-3-4}** ((K3) and (K4) near b₀.) There is ε_K ∈ (0, ε_Γ) such that for |b − b₀| ≤ ε_K, (K3)
 holds for g̃_b with Ψ_b^* t_*, and the splitting [[eq:ii-b-1-1]] and the constants μ, C, C_ϵ can be chosen continuous in
@@ -1021,12 +1021,12 @@ e^(sc₁X₁) e^(sc₂X₂), the c_i being constant along the orbit. Differentia
 De^(sc₂X₂) + s Σ_i X_i ⊗ dc_i. Here e^(tX₁) and e^(tX₂) are cotangent lifts of rotations of 𝕊³ (by the frame's J₁₂ and
 J₃₄), with derivatives bounded uniformly in t on 𝒴. Every b with |b − b₀| ≤ ε_K lies in ℬ ([[def:s12-radii]]), so
 ‖A‖² < m₀/400 and [[lem:vi-b1-3-2]] applies; it enters at the rotated point e^(sc₁X₁) e^(sc₂X₂) πp; the rotations
-commute with X₀ and have derivatives bounded on 𝒴, so its constant there is at most C·C_(πp). Hence
-|D_p e^(sH_𝒢)|_(TΓ_b)| ≤ C_p(1 + |s|)², and by [[lem:vi-b1-3-3]], |D_p e^(s𝖵)|_(TΓ_b)| ≤ C′_p(1 + |s|)³. Now let ϵ > 0.
-Identify Γ_b with Γ_(b₀) smoothly in b by ι_b(ω, η) := (ω, κ_b(ω, η)η) on Γ^𝕊_(b₀), where κ_b, near 1, solves ℛ_c(ω,
-κ_bη) = 0 with ℛ_c taken at b ([[lem:vi-b1-2-1]]: the radial derivative η·∂_ηℛ_c is −8m₀² ≠ 0 at b₀, from ℛ_c = C(m₀ −
-C/4) at C = 4m₀), followed by π⁻¹. The set 𝒮_K := {(b, p) : |b − b₀| ≤ ε_K, p ∈ Γ_b} ≅ {|b − b₀| ≤ ε_K} × Γ_(b₀) is
-compact. For each (b, p) ∈ 𝒮_K the polynomial bound gives T ≥ 1 with |D_p e^(±T𝖵_b)|_(TΓ_b)| ≤ e^(ϵT/2). By continuity
+commute with X₀ and have derivatives bounded on 𝒴, so its constant there is at most C·C_(πp).
+Hence |D_p e^(sH_𝒢)|_(TΓ_b)| ≤ C_p(1 + |s|)², and by [[lem:vi-b1-3-3]], |D_p e^(s𝖵)|_(TΓ_b)| ≤ C′_p(1 + |s|)³. Now let
+ϵ > 0. Identify Γ_b with Γ_(b₀) smoothly in b by ι_b(ω, η) := (ω, κ_b(ω, η)η) on Γ^𝕊_(b₀), where κ_b, near 1, solves
+ℛ_c(ω, κ_bη) = 0 with ℛ_c taken at b ([[lem:vi-b1-2-1]]: the radial derivative η·∂_ηℛ_c is −8m₀² ≠ 0 at b₀, from ℛ_c =
+C(m₀ − C/4) at C = 4m₀), followed by π⁻¹. The set 𝒮_K := {(b, p) : |b − b₀| ≤ ε_K, p ∈ Γ_b} ≅ {|b − b₀| ≤ ε_K} × Γ_(b₀)
+is compact. For each (b, p) ∈ 𝒮_K the polynomial bound gives T ≥ 1 with |D_p e^(±T𝖵_b)|_(TΓ_b)| ≤ e^(ϵT/2). By continuity
 in (b, p), read through ι_b, the same T gives e^(ϵT) on a neighbourhood. Finitely many such neighbourhoods cover 𝒮_K,
 with times T_j ≤ T_max. Composing the flow over successive times T_j chosen at the current point gives |D_p
 e^(s𝖵_b)|_(TΓ_b)| ≤ C_ϵ e^(ϵ|s|) for all (b, p) ∈ 𝒮_K and s ∈ ℝ, with C_ϵ := sup{|De^(t𝖵_b)| : |t| ≤ T_max, (b, p) ∈

@@ -85,8 +85,8 @@ there. If γ(τ2) ∈ D_T for some τ2 > τ1, let τ3 be the infimum of the τ >
 
 *The margin.* If μ0 > √72 l5², then 1 − √(μ/(√72 l5²)) ≤ 1 − √(μ0/(√72 l5²)) = −δ_b, with δ_b the number of
 [[prop:boundary-spacelike]], and the third term is at most 0, so g0⁻¹(dΦ, dΦ) ≤ −δ_b on the whole boundary. By item 4 of
-[[thm:main]], |g_λ − g0| ≤ C λ on Ω; since g0⁻¹ is bounded on the compact Ω and inversion is smooth,
-|g_λ⁻¹ − g0⁻¹| ≤ C1 λ. The covector dΦ = dr − r_q′ dv is bounded on Ω, so
+[[thm:main]], |g_λ − g0| ≤ C λ on Ω; since g0⁻¹ is bounded on the compact Ω and inversion is
+smooth, |g_λ⁻¹ − g0⁻¹| ≤ C1 λ. The covector dΦ = dr − r_q′ dv is bounded on Ω, so
 
     g_λ⁻¹(dΦ, dΦ) ≤ g0⁻¹(dΦ, dΦ) + C λ ≤ −δ_b + C λ ≤ −δ_b/2      once C λ ≤ δ_b/2.
 
@@ -138,8 +138,8 @@ are future directed.
 
 Since g0 is block diagonal with sphere part r² times the round metric, the second fundamental form of S_(v,r) along a
 normal n is r n(r) times the round metric, and the expansion is θ_n = (r²)⁻¹ · 3 · r n(r) = 3 n(r)/r. So θ⁺ =
-3(1 − m)/((1 + m) r) = 3(r² − μ)/(r(r² + μ)) and θ⁻ = 3 L0(r)/r = −3/r. Next, g0(n⁺, L0) = g_ττ + (β − 1) g_τr − β g_rr
-= −1 − β = −2/(1 + m) = −2r²/(r² + μ). The numerator of θ⁺ vanishes on (0, ∞) only at r² = μ; there the derivative
+3(1 − m)/((1 + m) r) = 3(r² − μ)/(r(r² + μ)) and θ⁻ = 3 L0(r)/r = −3/r. Next, g0(n⁺, L0) = g_ττ + (β − 1) g_τr − β
+g_rr = −1 − β = −2/(1 + m) = −2r²/(r² + μ). The numerator of θ⁺ vanishes on (0, ∞) only at r² = μ; there the derivative
 falls on the numerator alone, ∂_r θ⁺ = 6r/(r · 2μ) = 3/μ.
 
 The area is r³ times the volume 2π² of S³, so R = r. Then Θ = 2 θ⁺ θ⁻/(−g0(n⁺, n⁻)) = 2 · 3(1 − m)/((1 + m) r) ·
@@ -242,8 +242,8 @@ along every column
 
     |θ⁺(g_app) − θ⁺(g0)| + |(d/dr)(θ⁺(g_app) − θ⁺(g0))| ≤ C λ.
 
-(iv) The remainder. Since θ⁺ is smooth in g and affine in ∂g, and ∂g_app and ∂g_λ are bounded,
-|θ⁺(g_λ) − θ⁺(g_app)| ≤ C (|w| + |∂w|). Its derivative along a column is at most C (|w| + |∂w| + |∂²w|): the derivative
+(iv) The remainder. Since θ⁺ is smooth in g and affine in ∂g, and ∂g_app and ∂g_λ are bounded, |θ⁺(g_λ) − θ⁺(g_app)|
+≤ C (|w| + |∂w|). Its derivative along a column is at most C (|w| + |∂w| + |∂²w|): the derivative
 falls on w, on ∂w, or on coefficients that are smooth functions of (X, g) at g_app or g_λ, times ∂g_app; these have
 bounded derivatives along a column, since ℓ g_app and ℓ ∂g_app = dv ⊗ [ℓ ∂_θ g1] + O(1) are bounded, because
 ℓ(v) = 0. By [[eq:remainder-pointwise]] both are at most C M λ^(K−5) ≤ C λ, as K ≥ 6. With (iii), along every column
@@ -393,8 +393,8 @@ vanishes by [[eq:wave-traceless]]. So M[S_(v,r)](g_app) − μ(v) = O(λ), and t
 C λ^(K−4).
 
 *Larger λ.* The two steps above hold for λ ≤ λ*, with λ* that of [[lem:sphere-two-scale]], taken so small that the
-Taylor expansion about g0 applies. For λ* < λ ≤ λ0 the bounds hold with a larger C. Indeed |g_λ − g0| ≤ C λ ≤ ε1 and
-|∂g_λ| ≤ C on Ω ([[thm:uniform-existence]], λ0 being so small that C λ0 ≤ ε1), and ε1 < 3/5. Each S_(v,r) lies in a
+Taylor expansion about g0 applies. For λ* < λ ≤ λ0 the bounds hold with a larger C. Indeed |g_λ − g0| ≤ C λ ≤ ε1
+and |∂g_λ| ≤ C on Ω ([[thm:uniform-existence]], λ0 being so small that C λ0 ≤ ε1), and ε1 < 3/5. Each S_(v,r) lies in a
 slice Σ_τ, on whose tangent space ker dτ the form g0 has least eigenvalue 1 relative to the Euclidean inner product
 ([[lem:eigen]]); so g_λ restricted to ker dτ has least eigenvalue at least 2/5, and the spheres are spacelike for g_λ.
 The area element of the spheres and Θ = 2 θ⁺ θ⁻/(−g(n⁺, n⁻)), which M integrates, are continuous functions of
@@ -429,8 +429,8 @@ Christoffel symbols of g0 give ∇̂_v ℓ^r = −μ/r³, ∇̂_A ℓ^B = r⁻¹
 
 *The expansion.* As in the proof of [[lem:mean-leading]], with C := Γ[g] − Γ[g0], Ric(g) = Ric(g0) + ∇̂_ρ C^ρ_ab − ∇̂_b
 C^ρ_aρ + C^ρ_ρσ C^σ_ab − C^ρ_bσ C^σ_aρ, C^ρ_ab = ½ g^(ρσ)(∇̂_a δg_bσ + ∇̂_b δg_aσ − ∇̂_σ δg_ab) and D^ρ = g^(ab) C^ρ_ab.
-With ∇̂_a [u] = λ⁻¹ v_a [∂_θ u] + [∇̂_a u] and g⁻¹ = g0⁻¹ − λ W^♯ + O(λ²), C = [C⁽⁰⁾] + λ [C⁽¹⁾] + O(λ²), where C⁽⁰⁾ρ_ab
-= ½(v_a Ẇ_b^ρ + v_b Ẇ_a^ρ − ℓ^ρ Ẇ_ab) and
+With ∇̂_a [u] = λ⁻¹ v_a [∂_θ u] + [∇̂_a u] and g⁻¹ = g0⁻¹ − λ W^♯ + O(λ²), C = [C⁽⁰⁾] + λ [C⁽¹⁾] + O(λ²), where
+C⁽⁰⁾ρ_ab = ½(v_a Ẇ_b^ρ + v_b Ẇ_a^ρ − ℓ^ρ Ẇ_ab) and
 
     C⁽¹⁾ρ_ab = G^ρ_ab − ½ (v_a (WẆ)^ρ_b + v_b (WẆ)^ρ_a),      G^ρ_ab := ½ (∇̂_a W_b^ρ + ∇̂_b W_a^ρ − ∇̂^ρ W_ab);
 
@@ -467,8 +467,8 @@ with (div W)^ρ := g0^(ab) ∇̂_a W_b^ρ, by tr W = 0 and W^(ab) v_a = 0. The c
 ∇̂_a D^ρ) is −½ times the symmetrization of g0_aρ (v_b ∂_θ D⁽²⁾ρ + ∇̂_b D⁽¹⁾ρ) + W_aρ v_b ∂_θ D⁽¹⁾ρ. The first two terms
 have mean zero, as ⟨D⁽¹⁾⟩ = 0 by (W2) and (W3). In the third, W_aρ ℓ^ρ = 0 removes the ℓ-part of D⁽¹⁾. For W = χ v ⊗ v,
 v_ρ (div Ẇ)^ρ = −Ẇ^(ab) ∇̂_a v_b = −r Ẇ_TT^(AB) γ_AB = −r⁻¹ tr_S Ẇ_TT = 0 by (W4), the χ̇-part dropping since (∇̂ v)(ℓ,
-ℓ) = 0; and the χ̇-part of div Ẇ is (ℓχ̇ + χ̇ □_(g0) v) ℓ, which W_TT annihilates. So the gauge part has mean −½ (v_a V_b
-+ v_b V_a), with V_a := ⟨(W_TT)_aρ (div Ẇ_TT)^ρ⟩. Altogether
+ℓ) = 0; and the χ̇-part of div Ẇ is (ℓχ̇ + χ̇ □_(g0) v) ℓ, which W_TT annihilates. So the gauge part has mean −½
+(v_a V_b + v_b V_a), with V_a := ⟨(W_TT)_aρ (div Ẇ_TT)^ρ⟩. Altogether
 
     ⟨R^(1)⟩_ab = −¼ (v_a X_b + v_b X_a) − ½ (v_a V_b + v_b V_a).
 

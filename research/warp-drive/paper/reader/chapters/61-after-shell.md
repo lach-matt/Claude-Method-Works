@@ -417,13 +417,13 @@ and as ω_j ∈ C^∞ and r∂_r, Ω_ji preserve ρ^p C^∞ of the radial compac
 and (g̃_(p_λ), K̃_(p_λ)) = (γ^(m_λ), k^(m_λ)).
 
 (b) The ρ² coefficient of g̃_p and the ρ³ coefficient of K̃_p depend on p only through p₂. Hence
-g̃_p − γ^(m_λ) = ρ² a2(p) + ρ³ a3(p) + ρ⁴ ℛ0(p), with |a2|_(C^m(𝕊³)) ≤ C_m |Δp₂| and
-|a3|_(C^m(𝕊³)) + ‖ℛ0‖_(C^m) ≤ C_m |Δp|; the same holds for K̃_p − k^(m_λ) with ρ³, ρ⁴, ρ⁵.
+g̃_p − γ^(m_λ) = ρ² a2(p) + ρ³ a3(p) + ρ⁴ ℛ0(p), with |a2|_(C^m(𝕊³)) ≤ C_m |Δp₂|
+and |a3|_(C^m(𝕊³)) + ‖ℛ0‖_(C^m) ≤ C_m |Δp|; the same holds for K̃_p − k^(m_λ) with ρ³, ρ⁴, ρ⁵.
 
 (c) The charge map 𝔮̃(p) := (𝔔_X(g̃_p, K̃_p))_X is C¹ and D𝔮̃(p_λ) is invertible. Its degree-0 part
 𝔮̃_0 := (𝔔_(e₀), 𝔔_(e_l)), the energy and momentum, depends only on p₂, and p₂ ↦ 𝔮̃_0 has invertible derivative at
-(m_λ, 0). So there are r_U, r_V and L with |Δp| ≤ L |𝔮̃(p) − 𝔮̃(p_λ)| and |Δp₂| ≤ L |𝔮̃_0(p) − 𝔮̃_0(p_λ)| for
-|Δp| < r_U; and 𝔮̃ maps {|Δp| < r_U} homeomorphically onto a set containing the ball of radius r_V about 𝔮̃(p_λ). We
+(m_λ, 0). So there are r_U, r_V and L with |Δp| ≤ L |𝔮̃(p) − 𝔮̃(p_λ)| and |Δp₂| ≤ L |𝔮̃_0(p) − 𝔮̃_0(p_λ)|
+for |Δp| < r_U; and 𝔮̃ maps {|Δp| < r_U} homeomorphically onto a set containing the ball of radius r_V about 𝔮̃(p_λ). We
 write p(Q) for the inverse.
 
 (d) The members of [[def:v-2-1]] on the slices {y⁰ = 0} satisfy g̃_p − g_p ∈ ρ³C^∞ and
@@ -504,20 +504,20 @@ makes the coefficient of ρ² of the glued data decay with R when a > 2 ([[eq:af
 
     |q_X(z_1) − q_X(z_2)| ≤ C (1 + r)^(d(X)) r⁻² (𝔪(z_1) + 𝔪(z_2)) 𝔪(z_1 − z_2).               {#eq:after-shell-bilinear}
 
-(b) For a perturbation of order a and size Ξ, with Δ𝔔_X := 𝔔_X(γ, k) − 𝔮̃_X(p_λ): Δ𝔔_X = 0 if a > 2 + d(X), and
-|Δ𝔔_X| ≤ C_1′ Ξ in every case.
+(b) For a perturbation of order a and size Ξ, with Δ𝔔_X := 𝔔_X(γ, k) − 𝔮̃_X(p_λ): Δ𝔔_X = 0 if a > 2 + d(X),
+and |Δ𝔔_X| ≤ C_1′ Ξ in every case.
 
 *Proof.* (a) By the proof of [[lem:v-1-2]], q_X is linear in (N, Y), with |N| + |Y| ≤ C(1 + r)^(d(X)). The scalar
 curvature is g⁻¹g⁻¹∂²h + g⁻¹g⁻¹g⁻¹ ∂h ∂h, the K-terms of ρ are quadratic in K with coefficients smooth in h, J is
 g⁻¹∂K + g⁻¹g⁻¹ ∂h K, and (det g)^(1/2) is smooth in h, where g⁻¹ is a smooth function of h on {|h| ≤ 1/2}.
 Subtracting the linear part, q_X is a sum of terms c(h)·P, the factor N or Y included in c, with c smooth on
 {|h| ≤ 1/2} and of size at most C(1 + r)^(d(X)) with its h-derivative, where either P is quadratic, one of ∂h ∂h,
-∂h K, K K, or P is linear, ∂²h or ∂K, and then c(0) = 0. By the definition of 𝔪, |∂h|, |K| ≤ r⁻¹𝔪 and
-|∂²h|, |∂K| ≤ r⁻²𝔪. So a quadratic P has |P(z_1)| ≤ r⁻² 𝔪(z_1)² and, being bilinear,
-|P(z_1) − P(z_2)| ≤ r⁻² (𝔪(z_1) + 𝔪(z_2)) 𝔪(z_1 − z_2); a linear P has |P(z_1)| ≤ r⁻² 𝔪(z_1) and
-|P(z_1) − P(z_2)| ≤ r⁻² 𝔪(z_1 − z_2). The mean value theorem on the convex set {|h| ≤ 1/2} gives
-|c(h_1) − c(h_2)| ≤ C(1 + r)^(d(X)) |h_1 − h_2| ≤ C(1 + r)^(d(X)) 𝔪(z_1 − z_2), and |c(h_2)| ≤ C(1 + r)^(d(X)), or
-|c(h_2)| ≤ C(1 + r)^(d(X)) |h_2| ≤ C(1 + r)^(d(X)) 𝔪(z_2) when c(0) = 0. Now
+∂h K, K K, or P is linear, ∂²h or ∂K, and then c(0) = 0. By the definition of 𝔪, |∂h|, |K| ≤ r⁻¹𝔪
+and |∂²h|, |∂K| ≤ r⁻²𝔪. So a quadratic P has |P(z_1)| ≤ r⁻² 𝔪(z_1)² and, being
+bilinear, |P(z_1) − P(z_2)| ≤ r⁻² (𝔪(z_1) + 𝔪(z_2)) 𝔪(z_1 − z_2); a linear P has |P(z_1)| ≤ r⁻² 𝔪(z_1)
+and |P(z_1) − P(z_2)| ≤ r⁻² 𝔪(z_1 − z_2). The mean value theorem on the convex set {|h| ≤ 1/2}
+gives |c(h_1) − c(h_2)| ≤ C(1 + r)^(d(X)) |h_1 − h_2| ≤ C(1 + r)^(d(X)) 𝔪(z_1 − z_2), and |c(h_2)| ≤ C(1 + r)^(d(X)),
+or |c(h_2)| ≤ C(1 + r)^(d(X)) |h_2| ≤ C(1 + r)^(d(X)) 𝔪(z_2) when c(0) = 0. Now
 c(h_1)P(z_1) − c(h_2)P(z_2) = (c(h_1) − c(h_2)) P(z_1) + c(h_2)(P(z_1) − P(z_2)). For a quadratic P the first term is
 at most C(1 + r)^(d(X)) r⁻² 𝔪(z_1 − z_2) 𝔪(z_1)², which is at most C(1 + r)^(d(X)) r⁻² 𝔪(z_1 − z_2) 𝔪(z_1) as
 𝔪(z_1) ≤ 1, and the second at most C(1 + r)^(d(X)) r⁻² (𝔪(z_1) + 𝔪(z_2)) 𝔪(z_1 − z_2). For a linear P the two terms
@@ -526,9 +526,9 @@ finitely many terms gives [[eq:after-shell-bilinear]].
 
 (b) 𝔔_X(γ, k) exists by [[prop:v-1-3]] with α = min(a, 2) > 3/2: (γ_λ, k_λ) = (γ^(m_λ), k^(m_λ)) far out
 ([[lem:vii-2-1]] (a)), and (h, κ) satisfies [[eq:after-shell-order]]. Also 𝔮̃_X(p_λ) = 𝔔_X(γ_λ, k_λ), the two data sets
-agreeing for r ≥ 4R_i. Write d_X := d(X). As 𝔟_X is linear, Δ𝔔_X = lim_ϱ ∮_(S_ϱ) 𝔟_X(h, κ), and
-|∮_(S_ϱ) 𝔟_X(h, κ)| ≤ C Ξ ϱ^(2+d_X−a), which tends to 0 if a > 2 + d_X. In general, 𝔪(γ_λ − δ, k_λ) ≤ C r⁻² and
-|γ_λ − δ| ≤ C r⁻² on {r ≥ r_χ}, as (γ_λ, k_λ) = (γ^(m_λ), k^(m_λ)) there, and 𝔪(h, κ) ≤ C Ξ r^(−a) and |h| ≤ Ξ r^(−a)
+agreeing for r ≥ 4R_i. Write d_X := d(X). As 𝔟_X is linear, Δ𝔔_X = lim_ϱ ∮_(S_ϱ) 𝔟_X(h, κ),
+and |∮_(S_ϱ) 𝔟_X(h, κ)| ≤ C Ξ ϱ^(2+d_X−a), which tends to 0 if a > 2 + d_X. In general, 𝔪(γ_λ − δ, k_λ) ≤ C r⁻²
+and |γ_λ − δ| ≤ C r⁻² on {r ≥ r_χ}, as (γ_λ, k_λ) = (γ^(m_λ), k^(m_λ)) there, and 𝔪(h, κ) ≤ C Ξ r^(−a) and |h| ≤ Ξ r^(−a)
 by [[eq:after-shell-order]]. Take R_λ ≥ max(r_χ, R_F, 1) so large that, on {r ≥ R_λ}, |γ − δ|, |γ_λ − δ| ≤ ½ and
 𝔪(γ − δ, k), 𝔪(γ_λ − δ, k_λ) ≤ 1; this is possible as 𝔪 is subadditive and Ξ ≤ 1, and R_λ does not depend on the
 perturbation. Subtract the flux identity [[eq:v-1-1]] for (γ_λ, k_λ) on Γ(R_λ, ϱ) from that for (γ, k); both are
@@ -556,8 +556,8 @@ perturbation (γ, k) of order a and size Ξ ≤ Ξ0, and every R ≥ R_G, there 
 its (a) gives the bounds of [[lem:v-2-2]] and its (c) the inverse p(Q) of [[cor:v-2-4]]. In Step 2 let Q range over the
 box 𝔅_R := {Q : |Q_X − 𝔮̃_X(p_λ)| ≤ r_X for every X}, with r_X := C_0 Ξ R^(min(0, 2+d(X)−a)) and C_0 := C_1′ + 1. Then
 𝔅_R lies in the ball of radius r_V once √15 C_0 Ξ0 < r_V. The five degree-0 radii are C_0 Ξ R^(min(0,2−a)), and the ten
-others C_0 Ξ R^(min(0,3−a)), the larger. So for Q ∈ 𝔅_R, [[lem:after-shell-mp-data]] (c) gives
-|Δp₂| ≤ √5 L C_0 Ξ R^(min(0,2−a)) and |Δp| ≤ √15 L C_0 Ξ R^(min(0,3−a)), where Δp := p(Q) − p_λ.
+others C_0 Ξ R^(min(0,3−a)), the larger. So for Q ∈ 𝔅_R, [[lem:after-shell-mp-data]] (c)
+gives |Δp₂| ≤ √5 L C_0 Ξ R^(min(0,2−a)) and |Δp| ≤ √15 L C_0 Ξ R^(min(0,3−a)), where Δp := p(Q) − p_λ.
 
 (2) *The constraint defect in relative form.* On 𝒜 = Γ̄(1, 4) write a_R := 𝒮_R(γ, k) and
 b_Q := 𝒮_R(g̃_(p(Q)), K̃_(p(Q))), with 𝒮_R of [[lem:v-1-4]]. Both are vacuum, and the approximate data of Step 2 are
@@ -584,8 +584,8 @@ for (γ_λ, k_λ),
     G_R(Q)_X = Q_X − 𝔮̃_X(p_λ) − Δ𝔔_X + T_X(Q),
 
 where T_X(Q) is the sum of ∫_(r>4R)[q_X(member) − q_X(γ_λ, k_λ)], −∫_(r>R)[q_X(γ, k) − q_X(γ_λ, k_λ)] and
-∫_(Γ(R,4R))[q_X(𝔵̂_Q) − q_X(γ_λ, k_λ)]. The reference (γ_λ, k_λ) has 𝔪(γ_λ − δ, k_λ) ≤ C r⁻² and
-|γ_λ − δ| ≤ C r⁻² on {r ≥ R}; the member differs from it by 𝔪(member − reference) ≤ C(|Δp₂| r⁻² + |Δp| r⁻³) on
+∫_(Γ(R,4R))[q_X(𝔵̂_Q) − q_X(γ_λ, k_λ)]. The reference (γ_λ, k_λ) has 𝔪(γ_λ − δ, k_λ) ≤ C r⁻²
+and |γ_λ − δ| ≤ C r⁻² on {r ≥ R}; the member differs from it by 𝔪(member − reference) ≤ C(|Δp₂| r⁻² + |Δp| r⁻³) on
 {r ≥ 4R} ([[lem:after-shell-mp-data]] (b)), the perturbation by 𝔪(h, κ) ≤ C Ξ r^(−a) on {r ≥ R}, and 𝔵̂_Q by C 𝔢_R on
 the annulus, by (2). As |Δp| < r_U and Ξ ≤ 1, we take R_G so large that, on {r ≥ R}, the four data sets (the
 reference, the member, (γ, k) and 𝔵̂_Q) satisfy the hypotheses of [[eq:after-shell-bilinear]] and of [[lem:v-1-2]]

@@ -61,8 +61,8 @@ Hence g5 is vacuum if and only if
 
     Ric[h] = (3/2) dψ² + 2 dω²,      □_h ψ = 0,      □_h ω = 0.                                     {#eq:reduced}
 
-*Proof.* By [[lem:warped-ricci]], e^(−2A) R11 + e^(−2B) R22 = −(□ψ + |dψ|²), since |dA|² + |dB|² + 2⟨dA, dB⟩ =
-|dψ|²; and e^(−2A) R11 − e^(−2B) R22 = □(B − A) + ⟨d(B − A), dψ⟩ = 2(□ω + ⟨dψ, dω⟩). Since A = (ψ − 2ω)/2 and
+*Proof.* By [[lem:warped-ricci]], e^(−2A) R11 + e^(−2B) R22 = −(□ψ + |dψ|²), since |dA|² + |dB|² +
+2⟨dA, dB⟩ = |dψ|²; and e^(−2A) R11 − e^(−2B) R22 = □(B − A) + ⟨d(B − A), dψ⟩ = 2(□ω + ⟨dψ, dω⟩). Since A = (ψ − 2ω)/2 and
 B = (ψ + 2ω)/2, dA ⊗ dA + dB ⊗ dB = (1/2) dψ ⊗ dψ + 2 dω ⊗ dω, so [[lem:warped-ricci]] reads
 Ric[g3] = Ric[g5] + ∇∇ψ + (1/2) dψ² + 2 dω². By [[lem:conformal]],
 
@@ -329,8 +329,8 @@ ker d(v + τ), the form g0 has least eigenvalues, relative to the Euclidean inne
     1,      min(1, μ/a² − 1),      min(1, (3 + μ/r²)/5).
 
 Hence [[lem:domain]] (e) holds for every ε1 ≤ 3/5 with ε1 < μ0/a² − 1, and every Lorentzian g with |g − g0| ≤ ε1 on Ω
-is time-oriented by dτ. Where μ = μ0 on {r = a}, the Lorentzian metric g := g0 − (μ0/a² − 1) dτ ⊗ dτ has
-|g − g0| = μ0/a² − 1 and makes {r = a} null.
+is time-oriented by dτ. Where μ = μ0 on {r = a}, the Lorentzian metric g := g0 − (μ0/a² − 1) dτ ⊗ dτ
+has |g − g0| = μ0/a² − 1 and makes {r = a} null.
 
 *Proof.* On ker dτ, vectors (0, Y′), g0 = |Y′|² + (μ/r²)(x̂·Y′)², with eigenvalues 1 (three times) and 1 + μ/r². On
 ker dr at r = a, vectors (Y⁰, Y′) with x̂·Y′ = 0, g0 = −(Y⁰)² + |Y′|² + (μ/a²)(Y⁰)² = (μ/a² − 1)(Y⁰)² + |Y′|². On
@@ -368,8 +368,8 @@ since, by the eigenvalues of g0 found above, its least absolute eigenvalue at a 
 decreases in m.
 
 **Lemma {#lem:lorentz-margin}** (Lorentzian metrics near g0). Every symmetric g̃ with |g̃ − g0| ≤ ε1 < s0 on Ω is
-Lorentzian with |g̃⁻¹| ≤ (s0 − ε1)⁻¹. For ε1 ≥ s0, at a point of Ω where μ/r² = m*, there are Lorentzian forms g̃ with
-|g̃ − g0| ≤ ε1 and |g̃⁻¹| arbitrarily large.
+Lorentzian with |g̃⁻¹| ≤ (s0 − ε1)⁻¹. For ε1 ≥ s0, at a point of Ω where μ/r² = m*, there are Lorentzian forms g̃
+with |g̃ − g0| ≤ ε1 and |g̃⁻¹| arbitrarily large.
 
 *Proof.* Every eigenvalue of g0 has absolute value at least s0, so |g̃ x| ≥ |g0 x| − |(g̃ − g0) x| ≥ (s0 − ε1)|x|,
 which bounds |g̃⁻¹|. Moreover x·g̃ x ≥ (s0 − ε1)|x|² on the four-dimensional span of g0's eigenvectors with positive

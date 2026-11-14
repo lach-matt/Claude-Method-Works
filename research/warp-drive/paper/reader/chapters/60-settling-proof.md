@@ -102,8 +102,8 @@ the rates [[eq:vii-0-2]].
 
 Here 𝒟_0 := 𝒟_(0,0) ⊂ 𝒟 is the region 𝒟_(S,S⁰) of [[prop:iii-k-1-2]] at S = S⁰ = 0, and |b − b₀| = |m − μ_end| + |A|
 for b = (m, A), the norm of step (5) of [[thm:vi-c-2-1]]. On the finite-dimensional space 𝔟 it is equivalent to the
-norm ‖·‖_𝔟 of 𝔟 as a component of 𝒟_ex, in which [[cor:s27-rate]] (a) bounds b − b₀; we fix C_𝔟 ≥ 1 with
-|b − b₀| ≤ C_𝔟‖b − b₀‖_𝔟, so that [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m, gives |b − b₀| < ε_m.
+norm ‖·‖_𝔟 of 𝔟 as a component of 𝒟_ex, in which [[cor:s27-rate]] (a) bounds b − b₀; we fix C_𝔟 ≥ 1
+with |b − b₀| ≤ C_𝔟‖b − b₀‖_𝔟, so that [[cor:s27-rate]], applied with ε_m/C_𝔟 in place of ε_m, gives |b − b₀| < ε_m.
 C depends on R and on the data of [[thm:main]], not on λ.
 
 ### The solution after the shell {#sec:vii-1}
@@ -156,8 +156,8 @@ the equation (c) of [[lem:stage-system]] is, for Z := ∂_θĝ_(m+1), the transp
 along ℓ, with ℳ′ = Π_osc ℳ ∂_θ⁻¹ a bounded operator on the zero-mean functions of θ, bounded uniformly on Ω. By
 [[lem:first-entry]], 𝒲 is linear in (m_m, φ_m) and 𝒦_m depends only on m_i, φ_i (i < m) and ĝ_i (i ≤ m); neither
 contains ĝ_(m+1). By the observation each term of F contains W, one of ĝ_2, …, ĝ_m, or a derivative of one of these,
-so F = 0 on Ω_>. On a generator in Ω_>, parametrised by s, Z solves ℓ·∂_X Z = ℳ′Z, so
-|(d/ds)‖Z‖²_(L²(S¹))| ≤ 2‖ℳ′‖ ‖Z‖²_(L²(S¹)); Z vanishes at the generator's point on Σ_τ0 by (a), and so, by Gronwall's
+so F = 0 on Ω_>. On a generator in Ω_>, parametrised by s, Z solves ℓ·∂_X Z = ℳ′Z,
+so |(d/ds)‖Z‖²_(L²(S¹))| ≤ 2‖ℳ′‖ ‖Z‖²_(L²(S¹)); Z vanishes at the generator's point on Σ_τ0 by (a), and so, by Gronwall's
 inequality, along the whole generator. Hence ∂_θĝ_(m+1) = 0 on Ω_>, and ĝ_(m+1) = 0 there. This completes the
 induction.
 
@@ -190,8 +190,8 @@ Since 𝒩_K contains ‖h‖ and λ^i‖∂^i∂h‖ for i ≤ K, the L²(Σ_τ
 
     g_λ − g^KS_(μ_end,0) = Σ_(j=1)^N λ^j m_j + h.
 
-*Bounds.* By the Sobolev inequality [[eq:sobolev]] on the slices A(τ) of Ω′, with a constant independent of τ,
-|∂^jh| ≤ C Σ_(i≤3) ‖∂_x^i ∂^jh‖ on A(τ). Let j ≤ K − 3. For j ≥ 1 the terms are bounded by
+*Bounds.* By the Sobolev inequality [[eq:sobolev]] on the slices A(τ) of Ω′, with a constant independent of
+τ, |∂^jh| ≤ C Σ_(i≤3) ‖∂_x^i ∂^jh‖ on A(τ). Let j ≤ K − 3. For j ≥ 1 the terms are bounded by
 ‖∂^(i+j−1)∂h‖ ≤ Mλ^(K−i−j+1) ≤ Mλ^(K−j−2), as i + j − 1 ≤ K; for j = 0 they are ‖h‖ ≤ Mλ^K and
 ‖∂^(i−1)∂h‖ ≤ Mλ^(K−i+1) ≤ Mλ^(K−2) (1 ≤ i ≤ 3). As λ ≤ 1, |∂^jh| ≤ C_Kλ^(K−j−3) on Ω′ for j ≤ K − 3. With K = J + 4
 this is at most C_Kλ for j ≤ J. The derivatives of order at most J of Σ_j λ^j m_j are at most Cλ on the compact set
@@ -227,8 +227,8 @@ V′ = v_end + T′ ≥ τ_top + 2R + q_end + 1. Then τ′_end = max_(v≤V′)
     v + (τ − τ′_end) = 2τ + r − τ′_end ≤ 2τ_top + 4R + q_end − V′ < V′ + 1.
 
 With τ0 < τ ≤ τ_top < τ′_end and r ≥ r_♭ > a′, every defining inequality of Ω′ holds strictly there, and
-v ≥ v_end + 2 > v_end + 1. So these points lie in the interior of Ω′_+. Finally, T_(μ_end) and ψ_IVP are functions of
-|x|, and G fixes τ, t and |x|. ∎
+v ≥ v_end + 2 > v_end + 1. So these points lie in the interior of Ω′_+. Finally, T_(μ_end) and ψ_IVP are functions
+of |x|, and G fixes τ, t and |x|. ∎
 
 ### Proof of the theorem {#sec:vii-4}
 

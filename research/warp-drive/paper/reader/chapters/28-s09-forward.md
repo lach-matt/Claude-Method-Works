@@ -164,8 +164,8 @@ x_I∂_ω ([[sec:ii-a-2-4]]) with coefficients bounded with all their b-derivati
 (t_* + r)⁻¹ for the e3b defining functions x_I² = t_*/(t_* + r), ρ_+ = (t_* + r)/(t_* r) of [[sec:ii-a-1]], x_I² ρ_+²
 being the normalisation of P_0 ([[lem:ii-c-1-4]] (b)). Let ℓ_I := 1/2, ℓ_+ ∈ [1/2, 1) ∩ (δ, 1) and ℓ_K := ℵ + 1, a
 class of [[def:ii-c-3-3]] (which presupposes δ < 1). On the support, (t_* + r)⁻¹ ≤ x_I ρ_+^(ℓ_+) (t_* + r)^(−(1−ℓ_+)),
-as ℓ_+ ≥ 1/2, and ρ_K is bounded below. So P_Λ is weakly admissible relative to P_0 ([[def:ii-c-3-3]], with p_0 = p̃_1
-= 0, p_1 = S|_(∂X) as for P_0) of class ((d_0;0),(2ℓ_I,ℓ_+,ℓ_K)) for every d_0, with ‖P_Λ − P_0‖ ≤ C_(d_0)
+as ℓ_+ ≥ 1/2, and ρ_K is bounded below. So P_Λ is weakly admissible relative to P_0 ([[def:ii-c-3-3]], with p_0 =
+p̃_1 = 0, p_1 = S|_(∂X) as for P_0) of class ((d_0;0),(2ℓ_I,ℓ_+,ℓ_K)) for every d_0, with ‖P_Λ − P_0‖ ≤ C_(d_0)
 Λ^(−(1−ℓ_+)), and its metric g_Λ is in 𝒢 with ‖g_Λ − g_0‖ ≤ C Λ^(−(1−ℓ_+)). Fix Λ so large that Λ/2 ≥ r′_0 + 1 and
 P_Λ satisfies the smallness hypotheses of [[sec:ii-e-1-1]]. Then t^♭ is a time function for g_Λ ([[lem:ii-c-3-2]] (2)),
 and [[lem:ii-f-1-4]] (a) applies to g_Λ, whose dual metric is G_0 + ψ(r/Λ) ψ̃(t_*/Λ)(Ḡ − G_0), the interpolating
@@ -1178,8 +1178,8 @@ with weights (a′_+, a′_K) and the margins
     m_0 − j + (a′_+ − α_+ + δ) − (a′_K + ℵ) at R_in.
 
 For (a′_+, a′_K) = (α_+ − δ, −ℵ) these are m_0 − j, m_0 + j, m_0 − j, all ≥ 0 for j ∈ {0, 2}: this is (a). For
-(α_+, −ℵ) they are m_0 − j, m_0 + j − δ = 3 + ℵ + j, m_0 − j + δ, all ≥ 0 for j ∈ {0, 2}. For (α_+, 0) they are m_0 − j
-= 3 + δ + ℵ − j, m_0 + j − δ + ℵ = 3 + 2ℵ + j and m_0 − j + δ − ℵ = 3 + 2δ − j, all ≥ 1 for j ∈ {0, 2}: this is (b).
+(α_+, −ℵ) they are m_0 − j, m_0 + j − δ = 3 + ℵ + j, m_0 − j + δ, all ≥ 0 for j ∈ {0, 2}. For (α_+, 0) they are m_0 −
+j = 3 + δ + ℵ − j, m_0 + j − δ + ℵ = 3 + 2ℵ + j and m_0 − j + δ − ℵ = 3 + 2δ − j, all ≥ 1 for j ∈ {0, 2}: this is (b).
 
 (c) Admissible order functions are slab orders, and 𝗌 + 1 has the same monotonicity and constancy ([[sec:ii-e-3-2]]). ∎
 
@@ -1435,8 +1435,8 @@ first-order e3b-operator whose coefficients are e3b-derivatives of χ′, in C^�
 
 By [[thm:ii-f-8-1]] at the order 𝗌 ([[lem:ii-f1-2-3]] (b)), the forward solution v of P_0 v = g on Ω_* lies in X(𝗌;k).
 On the slab Ω_(1,2/ε), P_0 v = g = 0, so v = 0 on {t^♭ < 2/ε} by [[lem:ii-f1-2-2]]. As P_ε − P_0 = χ̃_ε(P − P_0) has
-coefficients vanishing on the open set {t^♭ > 2/(3ε)}, which contains supp v, P_ε v = P_0 v = g. On {t^♭ < T}, P_ε u_ini
-= f, and [P_ε, χ′] = [P_0, χ′] as supp dχ′ ⊂ {t^♭ > 2/(3ε)}; so
+coefficients vanishing on the open set {t^♭ > 2/(3ε)}, which contains supp v, P_ε v = P_0 v = g. On {t^♭ < T}, P_ε
+u_ini = f, and [P_ε, χ′] = [P_0, χ′] as supp dχ′ ⊂ {t^♭ > 2/(3ε)}; so
 
     P_ε((1 − χ′)u_ini) = (1 − χ′)f − [P_0, χ′] u_ini,
 

@@ -630,8 +630,8 @@ Every A ∈ 𝔰𝔬(4) is O(aJ₁₂ + bJ₃₄)Oᵀ for some O ∈ SO(4) and a
 with (J_ij)_ij = 1 = −(J_ij)_ji (the normal form of real antisymmetric matrices). In this *rotated frame*
 A² = −diag(a², a², b², b²), s = a² + b², p² = a²b² and ‖A‖ = max(|a|, |b|); in particular s ≤ 2‖A‖².
 
-**Lemma {#lem:iii-b-3-1}** (The radial function.) (a) A⁴ + sA² + p²I = 0 and (r²I − A²)𝖬(r) = Π(r)I. (b) For
-|x|² > s (note s ≥ ‖A‖²), Q(·, x) has exactly one zero r = r_A(x) in (0, ∞), and it is simple; r_A is smooth in
+**Lemma {#lem:iii-b-3-1}** (The radial function.) (a) A⁴ + sA² + p²I = 0 and (r²I − A²)𝖬(r) = Π(r)I. (b)
+For |x|² > s (note s ≥ ‖A‖²), Q(·, x) has exactly one zero r = r_A(x) in (0, ∞), and it is simple; r_A is smooth in
 (x, A), r₀(x) = |x|, r_A(x)² ≤ |x|² ≤ r_A(x)² + ‖A‖², and r_A ∈ |x|(1 + |x|⁻²C^∞(X̄)) near infinity, smoothly in A.
 
 *Proof.* (a) For real antisymmetric 4 × 4 matrices, det(ζI − A) = ζ⁴ + (Σ_(i<j) A_ij²)ζ² + Pf(A)², and
@@ -665,11 +665,11 @@ condition holds, (g^KS_(m,A))⁻¹(dt − β d|x|, dt − β d|x|) < 0.
 
 *Proof.* Put 𝖭 := (r²I − A²)⁻¹, which is 𝖬/Π by [[lem:iii-b-3-1]] (a); 𝖭 is symmetric and commutes with A, so 𝖭A is
 antisymmetric. The coefficient vector of ℓ_A is 𝖭(r + A)x, and Q = Π(1 − xᵀ𝖭x). (a), (b): xᵀ𝖭Ax = 0, so
-ℓ_A(x · ∂_x) = xᵀ𝖭(r + A)x = r xᵀ𝖭x = r(1 − Q/Π); and, as (r − A)𝖭²(r + A) = 𝖭²(r² − A²) = 𝖭,
-|𝖭(r + A)x|² = xᵀ(r − A)𝖭²(r + A)x = xᵀ𝖭x = 1 − Q/Π. Both identities hold for every r > 0, and at r = r_A(x), where
+ℓ_A(x · ∂_x) = xᵀ𝖭(r + A)x = r xᵀ𝖭x = r(1 − Q/Π); and, as (r − A)𝖭²(r + A) = 𝖭²(r² − A²) =
+𝖭, |𝖭(r + A)x|² = xᵀ(r − A)𝖭²(r + A)x = xᵀ𝖭x = 1 − Q/Π. Both identities hold for every r > 0, and at r = r_A(x), where
 Q = 0, they give (a) and (b); r_A/|x| ∈ (0, 1] by [[lem:iii-b-3-1]] (b). (c) 𝖬 commutes with A, so A𝖬 is antisymmetric
-and xᵀA²𝖬²x = −|A𝖬x|²; so F_A ≤ 1. By [[lem:iii-b-3-1]] (a), 𝖬/Π = (r²I − A²)⁻¹ has norm at most r⁻², so
-|A𝖬x|/Π ≤ ‖A‖|x|r⁻² ≤ ‖A‖(r² + ‖A‖²)^(1/2)r⁻² < 1 under (c)'s condition ([[lem:iii-b-3-1]] (b)); so F_A > 0, and
+and xᵀA²𝖬²x = −|A𝖬x|²; so F_A ≤ 1. By [[lem:iii-b-3-1]] (a), 𝖬/Π = (r²I − A²)⁻¹ has norm at most r⁻²,
+so |A𝖬x|/Π ≤ ‖A‖|x|r⁻² ≤ ‖A‖(r² + ‖A‖²)^(1/2)r⁻² < 1 under (c)'s condition ([[lem:iii-b-3-1]] (b)); so F_A > 0, and
 H_(m,A) > 0 as Π > 0 for r > 0. (d) η⁻¹(k_A, k_A) = 0 by (a), and then
 (η + Hk ⊗ k)(η⁻¹ − Hk^♯ ⊗ k^♯) = I + Hk ⊗ k^♯ − Hk ⊗ k^♯ − H²η⁻¹(k, k)k ⊗ k^♯ = I. (e) With Θ := dt − β d|x|,
 η⁻¹(Θ, Θ) = −1 + β² and k_A^♯(Θ) = η⁻¹(k_A, Θ) = −1 − βℓ_A(x̂ · ∂_x) = −1 − βr_A/|x|. So the quantity is
@@ -752,8 +752,8 @@ For b = (m, A) write g^KS_b := g^KS_(m,A). On ℬ, ‖A‖ < r_♭/4 and ‖A‖
 serves the whole stability theory: every neighbourhood of b₀ used in [[ch:s12]] lies in ℬ. Only b near b₀ is used
 below.
 
-**Lemma {#lem:s11-ks-domain}** (The Kerr–Schild domain.) Let b = (m, A) ∈ ℬ and |x| ≥ ½r_♭. Then
-|x|² > 2‖A‖² ≥ s, r_A(x)² > 3‖A‖², and the condition of [[lem:iii-b-3-3]] (c) holds, so that F_A ∈ (0, 1]. Hence
+**Lemma {#lem:s11-ks-domain}** (The Kerr–Schild domain.) Let b = (m, A) ∈ ℬ and |x| ≥ ½r_♭.
+Then |x|² > 2‖A‖² ≥ s, r_A(x)² > 3‖A‖², and the condition of [[lem:iii-b-3-3]] (c) holds, so that F_A ∈ (0, 1]. Hence
 g^KS_b is defined and smooth on ℝ_t × {|x| ≥ ½r_♭}, smoothly in b, with H_(m,A) > 0; det g^KS_b = −1 in the
 coordinates (t, x); g^KS_b is Lorentzian of signature (1, 4), with inverse η⁻¹ − H_(m,A) k_A^♯ ⊗ k_A^♯; and g^KS_b is
 Ricci-flat there. The horizon {|x| = m^(1/2)} of g^KS_(m,0) lies in {|x| > r_♭}. At r_♭ = ½R₁ the domain is
@@ -780,8 +780,8 @@ Fix χ_∞ ∈ C^∞(ℝ), non-decreasing, equal to 0 on (−∞, 2R₁] and to 
 [[eq:iii-b-3-3]] defines g_b on ℝ_t × {|x| ≥ ½r_♭}, and there g_b is g^KS_b translated in time on {|x| ≤ 2R₁}.
 
 **Lemma {#lem:iii-b-3-5}** (No logarithm.) (a) T_m ∈ |x|⁻¹C^∞(X̄) near infinity, with
-T_m(ϱ) = m^(1/2) log((ϱ + m^(1/2))/(ϱ − m^(1/2))) = 2m/ϱ + 2m²/(3ϱ³) + O(ϱ⁻⁵) for ϱ ≥ 3R₁, smooth in m. (b) For
-|x| ≥ 3R₁,
+T_m(ϱ) = m^(1/2) log((ϱ + m^(1/2))/(ϱ − m^(1/2))) = 2m/ϱ + 2m²/(3ϱ³) + O(ϱ⁻⁵) for ϱ ≥ 3R₁, smooth in m. (b)
+For |x| ≥ 3R₁,
 
     g_m = η + (m/|x|²)(dt − d|x|)² = −f dt² − (2m/|x|²) dt d|x| + (2 − f) d|x|² + |x|²g̸,     f := 1 − m/|x|²,
                                                                                                           {#eq:iii-b-3-4}
@@ -1001,14 +1001,14 @@ By [[lem:iii-b-5-1]], φ_(S_w)*, which equals Λ* there, maps |x|⁻³C^∞(M; S
 in |x|⁻³C^∞ ⊂ ρ₀³ρ_I³ρ_+³C^∞. For the last two, g_m − ḡ = m|x|⁻²(dt₀)² on {|x| ≥ 3R₁} ([[prop:iii-b-3-6]]),
 t₀ = x¹. Write t = |x|(1 + v), x = |x|ω. By homogeneity, t′ := t ∘ Λ = |x|L(v, ω) and |x′| := |x ∘ Λ| = |x|G(v, ω),
 with L, G smooth for bounded v, G > 0 on the region, and L(0, ω) = G(0, ω) = a(ω)⁻¹: at v = 0, with cos ϑ := ω · ŵ =
-S_w/c, t′ = |x|(cosh β + cos ϑ sinh β), and
-|x′|² = |x|²((cos ϑ cosh β + sinh β)² + sin²ϑ) = |x|²(cosh β + cos ϑ sinh β)², the difference of the two right sides
+S_w/c, t′ = |x|(cosh β + cos ϑ sinh β),
+and |x′|² = |x|²((cos ϑ cosh β + sinh β)² + sin²ϑ) = |x|²(cosh β + cos ϑ sinh β)², the difference of the two right sides
 being |x|²(cos²ϑ(cosh²β − sinh²β) + sin²ϑ − 1) = 0. As Λ preserves t² − |x|²,
 
     t₀′ := t′ − |x′| = (t² − |x|²)/(t′ + |x′|) = |x|K_Λ(v, ω),     K_Λ := v(2 + v)/(L + G) = a(ω)v(1 + O(v)),
 
-with L + G > 0 on the region (no point of it is mapped to the past light cone of the origin by a small boost). Using
-|x| dv = dt₀ − v d|x|,
+with L + G > 0 on the region (no point of it is mapped to the past light cone of the origin by a small boost).
+Using |x| dv = dt₀ − v d|x|,
 
     dt₀′ = K_Λ d|x| + |x|(∂_v K_Λ dv + ∂_ω K_Λ dω) = ∂_v K_Λ dt₀ + (K_Λ − v∂_v K_Λ) d|x| + ∂_ω K_Λ · |x|dω,
 

@@ -11,8 +11,8 @@ operator and the right inverse built from them ([[sec:iii-f3-1]]–[[sec:iii-f3-
 the physical large zero energy states ([[sec:iii-f4-1]]–[[sec:iii-f4-5]]). These are [Hin26, Lemmas 8.1, 8.2, 8.4, 8.5,
 8.12, 8.15, Propositions 8.3, 8.6, 8.8, 8.9, 8.11, 8.14 (1), Corollaries 8.7, 8.13 and Remark 8.10] in dimension 4 + 1.
 
-The dimensional changes are these. The radial weight ρ∂_ρ − 1 becomes ρ∂_ρ − 3/2, and the mass enters g_b − ḡ at
-|x|⁻², so every deviation from Minkowski space gains a power of ρ. The spectrum of S̄ is the union of those of the
+The dimensional changes are these. The radial weight ρ∂_ρ − 1 becomes ρ∂_ρ − 3/2, and the mass enters g_b − ḡ
+at |x|⁻², so every deviation from Minkowski space gains a power of ρ. The spectrum of S̄ is the union of those of the
 gauge potential and constraint propagation operators with five zeros (two in dimension 3 + 1); this follows from a
 factorisation of S̄ through 1-forms and needs no explicit matrix. At the trapped set the angular complement of the
 null frame is a plane, rotated along the flow; a grading of the symmetric 2-tensors that the rotation preserves gives
@@ -388,8 +388,8 @@ with n_d ≠ 0 (each then equal to 1, per summand):
 
 These sizes are those of [[eq:iii-a1-2-9]]–[[eq:iii-a1-2-10]]. Write a_j := ι + j and b_j := ι − j − 2, so that
 (ι + d)(ι − d − 2) = a_d b_d, while the same expression at ι + 1 is a_(d+1) b_(d−1) and at ι − 1 is a_(d−1) b_(d+1).
-At the flat point det N_L = (−1)^(n_L) Π a_d b_d over the 2-tensor degrees, and det N_Υ(ι − 1) det N_C(ι + 1)
-= Π a_(d−1) b_(d+1) a_(d+1) b_(d−1) over the 1-form degrees (the signs (−1)^(n_C) of the two factors cancel). At sl the
+At the flat point det N_L = (−1)^(n_L) Π a_d b_d over the 2-tensor degrees, and det N_Υ(ι − 1) det N_C(ι + 1) =
+Π a_(d−1) b_(d+1) a_(d+1) b_(d−1) over the 1-form degrees (the signs (−1)^(n_C) of the two factors cancel). At sl the
 numerator is −a_(l−2) a_(l−1) a_l³ a_(l+1) a_(l+2) b_(l−2) b_(l−1) b_l³ b_(l+1) b_(l+2) and the denominator is
 a_(l−2) a_(l−1) a_l² a_(l+1) a_(l+2) b_(l−2) b_(l−1) b_l² b_(l+1) b_(l+2); the quotient is −a_l b_l. At s1 the
 numerator is a_0 a_1³ a_2 a_3 b_0 b_1³ b_2 b_3 and the denominator a_(−1) a_0 a_1² a_2 a_3 b_(−1) b_0 b_1² b_2 b_3,
@@ -416,8 +416,8 @@ tangential and divergence free, with V(∂_r) = 0. For f = r^(−ι−1), ⟨c̄
 k ∈ span(dt̄, dr), so δ̄*_(Ē_C)(fV) = (df + 2γ_C f c̄_C) ⊗_s V = (F_r dr + F_t dt̄) ⊗_s V, with
 F_r = f′ − 2γ_C v_C f/r = −(ι + 1 + 2γ_C v_C) r^(−ι−2), and Ḡ is the identity on it. For a function F(r) one computes
 in Cartesian coordinates δ̄(F dt̄ ⊗_s V) = 0 and δ̄(F dr ⊗_s V) = −½(F′ + 5F/r)V, from ∂_i(F x_i/r) = F′ + 3F/r,
-(x_i/r)∂_i V_j = V_j/r, x · V = 0 and div V = tr W = 0. So □̄^C(fV) = −(F_r′ + 5F_r/r)V
-= −(ι + 1 + 2γ_C v_C)(ι − 3) r^(−2) f V. ∎
+(x_i/r)∂_i V_j = V_j/r, x · V = 0 and div V = tr W = 0. So
+□̄^C(fV) = −(F_r′ + 5F_r/r)V = −(ι + 1 + 2γ_C v_C)(ι − 3) r^(−2) f V. ∎
 
 **Proposition {#prop:iii-f1-2-3}** (The indicial roots; [Hin26, Lemma 8.4] in dimension 4 + 1.) Assume z ∈ (0, ½] and
 (C1). The indicial roots of L_b^(0), in the notation of [[lem:iii-d-4-1]] and (C1), are:
@@ -489,8 +489,8 @@ two roots, so that ∂_z s_(l,j) = (s_(l,j) − κ)/∂_s Q_l(s_(l,j)) > 0 for b
 sign). The roots of □^C_b do not depend on z (its parameters are fixed first), and there are countably many of them, by
 type and degree; so each coincidence happens at at most one z, and Z_exc, the set of those z, is countable.
 
-*(f)* By [[lem:iii-f1-2-4]] below, with the strip |Re ι| ≤ R, only finitely many isotypic components carry roots with
-|ι| ≤ R, each finitely many. The non-integer roots with |ι| ≤ 50 are those from □^Υ, which are real and lie in the
+*(f)* By [[lem:iii-f1-2-4]] below, with the strip |Re ι| ≤ R, only finitely many isotypic components carry roots
+with |ι| ≤ R, each finitely many. The non-integer roots with |ι| ≤ 50 are those from □^Υ, which are real and lie in the
 open intervals of the bounds above, so their real parts are not integers, and those ι^C_(·,+) − 1 that are not
 integers (by (d) the roots ι^C_(·,≪) − 1 have |ι| > 101); a non-integer one with integer real part n, 2 ≤ n ≤ 50,
 would make ι^C_(·,+) non-real with real part n + 1 ∈ [3, 51], against (C4). The minimum of d(Re ι, ℤ) over this finite
@@ -881,8 +881,8 @@ combinations of Φ and Φ′ ([KI03, (3.12a)–(3.12b)] with ∂_tΦ = 0).
 In (T), (V), (S) a function Φ = e^(−iσt)Φ_0(r) satisfies □_2Φ − (V/f)Φ = 0 exactly when −Φ_0,** + VΦ_0 = σ²Φ_0, as
 □_2 = −f⁻¹∂_t² + ∂_r f ∂_r.
 
-*Positivity of the potentials.* For l ≥ 2 and r > r_h (so 0 < ς < 1 and f > 0): V_T > 0; V_V ≥ (f/r²)(k_V² − 5)
-= (f/r²)(κ − 6) > 0, as κ ≥ 8; and Q > 0, so V_S > 0. Indeed p = κ − 3 ≥ 5, and with a := 624p − 144 > 0,
+*Positivity of the potentials.* For l ≥ 2 and r > r_h (so 0 < ς < 1 and f > 0): V_T > 0; V_V ≥ (f/r²)(k_V² − 5) =
+(f/r²)(κ − 6) > 0, as κ ≥ 8; and Q > 0, so V_S > 0. Indeed p = κ − 3 ≥ 5, and with a := 624p − 144 > 0,
 b := 36p(p − 12) and c := 16p³ + 60p² > 0,
 
     4ac − b² = 16p²((624p − 144)(4p + 15) − 81(p − 12)²) = 48p²(23p − 24)(35p + 192) > 0,
@@ -1056,13 +1056,13 @@ there is w̃ of that type and degree, smooth on {r > r_0 − δ_0} (so up to {r 
 the type and degree is −fU″ + AU′ + BU = 0 with A, B smooth on (r_0 − δ_0, ∞), and with Y := (U, (r − r_h)U′) it is
 (r − r_h)Y′ = MY, M smooth. Y is smooth on [r_h, ∞) and solves the equation on (r_h, ∞), so its Taylor series at r_h
 solves it formally. Let Y_B be smooth on (r_h − ϵ, r_h] with that Taylor series (Borel), so R := (r − r_h)Y_B′ − MY_B
-vanishes to infinite order at r_h. Let Ψ be a fundamental matrix of (r − r_h)Ψ′ = MΨ on (r_h − ϵ, r_h); Gronwall gives
-|Ψ(r)| + |Ψ(r)⁻¹| ≤ C|r − r_h|^(−m_1), m_1 := max ‖M‖. Then Z(r) := −Ψ(r)∫_(r_h)^r Ψ(s)⁻¹R(s)(s − r_h)⁻¹ ds converges,
-vanishes to infinite order at r_h (the integrand does, and the equation Z′ = (MZ − R)/(r − r_h) carries this to every
-derivative), and solves (r − r_h)Z′ = MZ − R. So Y_B + Z solves the equation on (r_h − ϵ, r_h) with the Taylor series of
-Y at r_h; glued to Y it is smooth on (r_h − ϵ, ∞), and on (r_0 − δ_0, r_h − ϵ], where f < 0, the equation is a regular
-second-order system and the solution continues. Its first entry, times the harmonic and e^(−iσt_*), is w̃ (the first
-row of M being (0, 1), the second entry stays (r − r_h)U′). ∎
+vanishes to infinite order at r_h. Let Ψ be a fundamental matrix of (r − r_h)Ψ′ = MΨ on (r_h − ϵ, r_h); Gronwall
+gives |Ψ(r)| + |Ψ(r)⁻¹| ≤ C|r − r_h|^(−m_1), m_1 := max ‖M‖. Then Z(r) := −Ψ(r)∫_(r_h)^r Ψ(s)⁻¹R(s)(s − r_h)⁻¹ ds
+converges, vanishes to infinite order at r_h (the integrand does, and the equation Z′ = (MZ − R)/(r − r_h) carries this
+to every derivative), and solves (r − r_h)Z′ = MZ − R. So Y_B + Z solves the equation on (r_h − ϵ, r_h) with the Taylor
+series of Y at r_h; glued to Y it is smooth on (r_h − ϵ, ∞), and on (r_0 − δ_0, r_h − ϵ], where f < 0, the equation is a
+regular second-order system and the solution continues. Its first entry, times the harmonic and e^(−iσt_*), is w̃ (the
+first row of M being (0, 1), the second entry stays (r − r_h)U′). ∎
 
 ### Mode stability at the Tangherlini parameter {#sec:iii-f2-3}
 
@@ -1137,8 +1137,8 @@ with min Re ℰ_ind ≥ ε_Υ, independent of b, which may change from line to l
 
 *Densities and adjoints.* In the Kerr–Schild coordinates (t, x) of [[def:iii-b-3-2]], g_b = η + Hk ⊗ k with k null for
 η ([[lem:iii-b-3-3]] (a)), so det g_b = det η = −1; and t_* − t = −ψ(|x|) is a function on X ([[eq:iii-b-3-6]]), so the
-change (t, x) ↦ (t_*, x) has Jacobian 1 and |dg_b| = |dt_*| |dx| for every b. Adjoints on X are taken with respect to
-|dx| and the fibre inner product induced by g_b (indefinite); for a stationary operator P on M with formal adjoint P*
+change (t, x) ↦ (t_*, x) has Jacobian 1 and |dg_b| = |dt_*| |dx| for every b. Adjoints on X are taken with respect
+to |dx| and the fibre inner product induced by g_b (indefinite); for a stationary operator P on M with formal adjoint P*
 with respect to |dg_b| and g_b, P^(0)* = (P*)^(0) (pair φ(t_*)u with φ(t_*)v, φ ∈ C_c^∞(ℝ), u, v ∈ C_c^∞(X°)
 stationary, and integrate in t_*). The spatial density |dg_b|_X| of [Hin26] is |dx| here.
 
@@ -1229,8 +1229,8 @@ V := V(A_V), V_b := g_b(R_(A_V), ·) and W := [A(b), A_V]. Then
 D := 2V_b + ω̇_b(0, W) − 2ω^(−1)_(b,v1)(V), a stationary 1-form smooth on X̄. Near ∂X, V_b − V = (g_b − ḡ)(R_(A_V), ·)
 ∈ ρC^∞ (g_b − ḡ ∈ ρ²C^∞, [[eq:iii-d2-2-3]], and R_(A_V) has Cartesian components in ρ⁻¹C^∞),
 ω̇_b(0, W) ∈ 𝒜^((2,0)∪(2+ℰ_ind)) and ω^(−1)_(b,v1)(V) − V ∈ 𝒜^((2,0)∪(2+ℰ_ind)) ([[eq:iii-d2-3-2]]); so D ∈ 𝒜^ϵ for
-every ϵ < 1. And (□^Υ_b)^(0)D = 2δ_(g_b,E_Υ)G_(g_b)(ġ_b(0, W) + δ*_(g_b)ω̇_b(0, W)) = 2δ_(g_b,E_Υ)G_(g_b)ġ^Υ_b(0, W)
-= 0 by [[prop:iii-f3-2-2]] (2) and [[eq:iii-d2-3-3]]. By [[prop:iii-d1-4-1]], D = 0, and
+every ϵ < 1. And (□^Υ_b)^(0)D = 2δ_(g_b,E_Υ)G_(g_b)(ġ_b(0, W) + δ*_(g_b)ω̇_b(0, W)) =
+2δ_(g_b,E_Υ)G_(g_b)ġ^Υ_b(0, W) = 0 by [[prop:iii-f3-2-2]] (2) and [[eq:iii-d2-3-3]]. By [[prop:iii-d1-4-1]], D = 0, and
 ġ^Υ_b(0, W) = δ*_(g_b)(2V_b + ω̇_b(0, W)) = 2h_(b,v1)(V). ∎
 
 So the spin changes in the image of ad_(A(b)), of dimension 6 − dim ker ad_(A(b)) ∈ {0, 2, 4} ([[lem:iii-e1-2-3]]), are
@@ -1420,8 +1420,8 @@ the range.
 a h*_(b,s0) + h*_(b,s1)(S) + h*_(b,v1)(V) = 0, and ω := aω*^(0)_(b,s0) + ω*^(0)_(b,s1)(S) + ω*^(−1)_(b,v1)(V). Then
 δ*_(g_b)ω = 0: ω is a Killing 1-form of g_b on X°, which vanishes on {r_0 < |x| < r_h} ([[prop:iii-e-3-1]] (2)),
 hence everywhere (∇∇ω is a linear expression in ω through the curvature, so ω is determined by (ω, ∇ω) at one point of
-the connected X°). By [[eq:iii-e-3-1]] and [[eq:iii-d2-3-2]], near ∂X, ω = χ(−a dt̄ + ξ_S · dx + V) + ω_2 with
-|x|S = ξ_S · x and ω_2 partially polyhomogeneous with index set (2, 0); V has Cartesian components homogeneous of degree
+the connected X°). By [[eq:iii-e-3-1]] and [[eq:iii-d2-3-2]], near ∂X, ω = χ(−a dt̄ + ξ_S · dx + V) + ω_2 with |x|S =
+ξ_S · x and ω_2 partially polyhomogeneous with index set (2, 0); V has Cartesian components homogeneous of degree
 1, and dt̄ = dt_* + d|x| and the dx^i are independent on ∂X. So ω = 0 forces V = 0, then a = 0 and ξ_S = 0.
 
 *Step 3: the kernel at b_0.* Let u be in the nullspace of [[eq:iii-f3-4-1]] at b_0, and fix β ∈ (0, 1), so that
@@ -1443,8 +1443,8 @@ u_π = ġ^Υ_(b_0)(ḃ_π) + δ*ω′_π on {r > r_h}, and applying 2δ_(E_Υ)G,
 
 (iv) *The expansion at infinity.* Near ∂X, (□^Υ_(b_0))^(0) = ρ²A with A elliptic, and ω̃_π ∈ H_b^(∞,a) for every
 a < β − 1; take a ∈ (−1, β − 1). [[lem:iii-a-1-4]], applied as in the proof of [[lem:iii-d1-5-1]] (2), with F = ∅ (as
-Aω̃_π = 0 there) and a weight ϵ ∈ (0, ι^Υ_(s1,2)), gives ω̃_π ∈ H_b^(∞,(E,ϵ)) with E built from the roots of real part
-> a. By [[lem:iii-d-4-1]] the only root with real part in (a, ϵ) ⊂ (−1, ι^Υ_(s1,2)) is 0, at scalar types 0 and 1 only,
+Aω̃_π = 0 there) and a weight ϵ ∈ (0, ι^Υ_(s1,2)), gives ω̃_π ∈ H_b^(∞,(E,ϵ)) with E built from the roots of real part >
+a. By [[lem:iii-d-4-1]] the only root with real part in (a, ϵ) ⊂ (−1, ι^Υ_(s1,2)) is 0, at scalar types 0 and 1 only,
 and it is simple; so ω̃_π = χw_0 + w_ϵ with w_ϵ ∈ H_b^(∞,ϵ) ⊂ 𝒜^ϵ and w_0 an indicial solution for the root 0 of
 type π: by [[lem:iii-d-4-1]], w_0 = c dt̄ at scalar type 0, w_0 = d(|x|S′) (S′ ∈ 𝒮_1) at scalar type 1, and w_0 = 0
 otherwise.
@@ -1626,8 +1626,8 @@ dilations, so at e_i = 0 the leading integral does not depend on R. *Gauge.* P_1
 and ⟨P_0k(ζ), h*⟩ = lim_R ⟨k(ζ), [P_0ᵀ, χ_R]h*⟩ = O(R^(3−a−c*)) → 0. For the pair,
 P_2δ*ζ + P_1(δ*ζ̆ + k(ζ)) = −P_1k(ζ) − P_0k(ζ̆) + P_1k(ζ) = −P_0k(ζ̆), which pairs to O(R^(3−ă−c*)) → 0. *Time
 function.* |dg_b| = |d(t_* + φ)| |dx| and [[lem:iii-f4-2-1]] holds for t_* + φ. With t̃ := t_* + φ, t̃u = t_*u + φu, so
-the first-order coefficient changes by [P_0, φ]u = P_0(φu), and ⟨P_0(φu), h*⟩ = lim_R ⟨φu, [P_0ᵀ, χ_R]h*⟩
-= O(R^(3−a−c*)) → 0. And ½t̃²h + t̃(h̆ − φh) = ½t_*²h + t_*h̆ + (φh̆ − ½φ²h), so the second-order quantity changes by
+the first-order coefficient changes by [P_0, φ]u = P_0(φu), and ⟨P_0(φu), h*⟩ = lim_R ⟨φu, [P_0ᵀ, χ_R]h*⟩ =
+O(R^(3−a−c*)) → 0. And ½t̃²h + t̃(h̆ − φh) = ½t_*²h + t_*h̆ + (φh̆ − ½φ²h), so the second-order quantity changes by
 P_0(φh̆ − ½φ²h), of weight ≥ min(ă − 1, a − 2) ≥ 1 before P_0, which pairs to O(R^(1−c*)) → 0. ∎
 
 *The leading-term integrals as fluxes.* At excess 0 we compute R_1 and R_2 with the time function t̄ = t_* + |x| of
@@ -1693,16 +1693,16 @@ which may be computed with any representatives with P_0u = 0 (resp. P_0h = 0 = P
 gauge terms, and with the time t̄; we use the fluxes (a)–(c) of [[sec:iii-f4-2]].
 
 *The representatives.* ġ^Υ_b(ṁ, 0) is ṁ|x|⁻²(dt̄ + d|x|)² + δ*ω̇_b with ω̇_b ∈ 𝒜^((1,0)∪(1+ℰ_ind))
-([[lem:iii-f3-1-1]], [[prop:iii-f3-2-2]]), and on Minkowski space |x|⁻²(dt̄ + d|x|)² − |x|⁻²(dt̄² + d|x|²)
-= δ̄*(−2|x|⁻¹dt̄), with −2|x|⁻¹dt̄ ∈ ρC^∞; so u := ṁ r⁻²(dt̄² + dr²) represents it. ġ^Υ_b(0, Ȧ) is
+([[lem:iii-f3-1-1]], [[prop:iii-f3-2-2]]), and on Minkowski space |x|⁻²(dt̄ + d|x|)² − |x|⁻²(dt̄² + d|x|²) =
+δ̄*(−2|x|⁻¹dt̄), with −2|x|⁻¹dt̄ ∈ ρC^∞; so u := ṁ r⁻²(dt̄² + dr²) represents it. ġ^Υ_b(0, Ȧ) is
 2m|x|⁻⁴(dt̄ + d|x|) ⊗_s V(Ȧ) plus gauge ([[eq:iii-e1-2-2]]: this leading term does not depend on A), whose
 t̄i-components are u_t̄i = m r⁻⁴(Ȧx)_i. For the centres of mass, h_(b,s1)(S) and the stationary part of the boost
 differ from the pair below by δ* of 1-forms in 𝒜², resp. 𝒜¹ ([[eq:iii-d2-3-2]]) up to a multiple of h_(b,s1)(S) (the
 choice of the time origin), which changes (3) by a first-order pairing of h_(b,s1), of excess ≥ 1 against s0 and s1.
 The pair: with g_b − ḡ = m|x|⁻²(dt̄² + d|x|²) + (gauge) + O(|x|⁻³) at first order in m and the boost field
 X := t̄ c · ∂_x + (c · x)∂_(t̄), c := ξ_S, a Killing field of ḡ, ½ℒ_X(g_b − ḡ) = t̄h + h̆ with h = ½c · ∇(m r⁻²(dt̄² +
-dr²)) and h̆ its t̄-independent part, h̆_t̄i = ½(m_jic_j + m_t̄t̄c_i), h̆_ij = ½(m_t̄jc_i + m_t̄ic_j) = 0, where m_t̄t̄
-= m r⁻², m_t̄i = 0, m_ij = m x_ix_j r⁻⁴ are the components of m r⁻²(dt̄² + dr²). ℒ_X commutes with D Ric of ḡ, so the
+dr²)) and h̆ its t̄-independent part, h̆_t̄i = ½(m_jic_j + m_t̄t̄c_i), h̆_ij = ½(m_t̄jc_i + m_t̄ic_j) = 0, where m_t̄t̄ =
+m r⁻², m_t̄i = 0, m_ij = m x_ix_j r⁻⁴ are the components of m r⁻²(dt̄² + dr²). ℒ_X commutes with D Ric of ḡ, so the
 pair solves the Minkowski equations, and the Kerr–Schild and static forms differ by δ̄*ζ with ζ = −2m|x|⁻¹dt̄, whose
 image ℒ_Xδ̄*ζ = δ̄*ℒ_Xζ is a pair of the form (δ̄*ζ_1, δ̄*ζ_2 + k(ζ_1)) on which R_2 vanishes. The dual states' leading
 terms are −dt̄, ξ_(S′) · dx and V(A′), with the remainders of higher weight.
@@ -1766,8 +1766,8 @@ im ad_(E_12) = span{E_13, E_14, E_23, E_24}, while im ad_(E_13) contains E_12 an
 φ_s*w_A = (e^(sB)x) · A e^(sB)dx = x · (e^(−sB)Ae^(sB))dx = w_(e^(−sB)Ae^(sB)); differentiating at s = 0,
 ℒ_R w_A = w_(AB−BA) = w_([A,B]), and ℒ_R h_A = h_([A,B]). (b) For antisymmetric X, Y, Z, [X, Y] is antisymmetric, so
 ⟨[X, Y], Z⟩_F = −½tr([X, Y]Z) = −½tr(XYZ − YXZ), and ⟨Y, [X, Z]⟩_F = −½tr(Y(XZ − ZX)) = −½tr(YXZ − XYZ), using
-tr(YZX) = tr(XYZ). The two sum to 0. (c) By (b), 𝔅(V′, V) = −⟨[A_b, A_(V′)], A_V⟩_F = ⟨A_(V′), [A_b, A_V]⟩_F
-= −𝔅(V, V′). As ⟨·, ·⟩_F is nondegenerate, V lies in the kernel exactly when [A_V, A_b] = 0. With
+tr(YZX) = tr(XYZ). The two sum to 0. (c) By (b), 𝔅(V′, V) = −⟨[A_b, A_(V′)], A_V⟩_F =
+⟨A_(V′), [A_b, A_V]⟩_F = −𝔅(V, V′). As ⟨·, ·⟩_F is nondegenerate, V lies in the kernel exactly when [A_V, A_b] = 0. With
 [E_ij, E_jk] = E_ik for distinct i, j, k and [E_ij, E_kl] = 0 for disjoint pairs, ad_(E_12) maps E_13, E_14, E_23, E_24
 to −E_23, −E_24, E_13, E_14 and annihilates E_12 and E_34; so its kernel is span{E_12, E_34} and its image
 span{E_13, E_14, E_23, E_24}, of dimension 4. Likewise ad_(E_13)E_23 = −E_12 and ad_(E_13)E_14 = −E_34, so im ad_(E_13)

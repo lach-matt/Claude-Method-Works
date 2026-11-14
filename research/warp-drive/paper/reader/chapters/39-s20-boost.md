@@ -36,8 +36,8 @@ tangent space 𝔟 := ℝ ⊕ 𝔰𝔬(4), and b₀ = (m₀, 0); R₁ = m₀^(1/
 write ℬ_1 and ℬ_* for the open neighbourhoods B_1 and B_* of b₀ fixed in [[sec:iii-h2-0]], B̄_* ⊂ B_1. Shrinking ℬ_*,
 we take it to be an open ball about b₀. It is shrunk finitely many times below ([[lem:s20-rows]],
 [[prop:iii-i15-2-8]]), each time to a smaller ball about b₀, and every statement holds on the final ℬ_*; in particular
-the segment from b₀ to each b ∈ ℬ̄_* lies in ℬ̄_*. 𝒮_1 is the space of the s1 parameters: S = S_w ∈ 𝒮_1 has
-|x|S = w · x with w ∈ ℝ⁴, so 𝒮_1 ≅ ℝ⁴.
+the segment from b₀ to each b ∈ ℬ̄_* lies in ℬ̄_*. 𝒮_1 is the space of the s1 parameters: S = S_w ∈ 𝒮_1
+has |x|S = w · x with w ∈ ℝ⁴, so 𝒮_1 ≅ ℝ⁴.
 
 *Spaces.* M, Ω_* = cl_M{t^♭_* ≥ 1}, the faces 𝓘⁺, ι⁺, K⁺ with their defining functions ρ_I, ρ_+, ρ_K, and the
 unweighted b-density μ_b are those of [[sec:iii-i-1]]. Weights and index sets are listed at (𝓘⁺, ι⁺, K⁺); a single
@@ -155,8 +155,8 @@ and c := (2C_f)⁻¹. Then
 for all b ∈ ℬ̄_*, ḃ ∈ 𝔟_ℂ and S ∈ 𝒮_(1,ℂ). So (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) and S ↦ h_b(S) are injective, uniformly in
 b, and h_b(Ṡ) determines Ṡ, with |Ṡ| ≤ c⁻¹ sup_(𝒦_0)|h_b(Ṡ)|.
 
-*Proof.* By [[eq:s20-rows]], (ḃ, S) = B(b)⁻¹r(ġ_b(ḃ) + h_b(S)), so by [[lem:s20-rows]]
-|(ḃ, S)| ≤ 2|r(ġ_b(ḃ) + h_b(S))| ≤ 2C_f sup_(𝒦_0)|ġ_b(ḃ) + h_b(S)|. The second bound is the case ḃ = 0. ∎
+*Proof.* By [[eq:s20-rows]], (ḃ, S) = B(b)⁻¹r(ġ_b(ḃ) + h_b(S)), so by [[lem:s20-rows]] |(ḃ, S)|
+≤ 2|r(ġ_b(ḃ) + h_b(S))| ≤ 2C_f sup_(𝒦_0)|ġ_b(ḃ) + h_b(S)|. The second bound is the case ḃ = 0. ∎
 
 ### Profiles at zero energy {#sec:iii-i3-1}
 
@@ -208,8 +208,8 @@ coefficients on compact sets ([[sec:iii-h-1]]). Write L_1χ_zf = χ_zf L_1 + [L_
 (b) By [[lem:iii-h-2-4]] (a), f̂ = f̂_c + f̂_∞ with f̂_c entire in σ and supported in {r ≤ 2}, and f̂_∞ = r⁻³G(σr, x)
 on {r ≥ 1}, with G entire and |(ζ∂_ζ)^j (r∂_r)^i ∂^β_ω G| ≤ C⟨ζ⟩^(−N) for Im ζ ≥ 0. For |σ| ≤ c, χ_zf = 1 on
 {r ≤ 2}, so f̂_c(σ) − χ_zf f̂_c(0) = f̂_c(σ) − f̂_c(0) = O(|σ|) in C^∞, supported in {r ≤ 2}, where ρ_zf ∼ |σ|: this
-gives the zf-weight 1 − ε and no condition at tf or scf. On {r ≥ 1}, H := G(σr, x) − χ_1(|σ|⟨x⟩)G(0, x) satisfies
-|VH| ≤ C min(|σ|r, 1)⟨σr⟩^(−N) for products V of σ∂_σ, r∂_r, ∂_ω: G(ζ) − G(0) = O(|ζ|) where χ_1 = 1, G decays
+gives the zf-weight 1 − ε and no condition at tf or scf. On {r ≥ 1}, H := G(σr, x) − χ_1(|σ|⟨x⟩)G(0, x)
+satisfies |VH| ≤ C min(|σ|r, 1)⟨σr⟩^(−N) for products V of σ∂_σ, r∂_r, ∂_ω: G(ζ) − G(0) = O(|ζ|) where χ_1 = 1, G decays
 rapidly where χ_1 = 0, and |σ|⟨x⟩ ∼ |σ|r in between. On {r̂ ≤ 1}, where w_γ ∼ ρ^(γ_tf−γ_zf) |σ|^(γ_zf), Fubini bounds
 that part of the squared norm of r⁻³H by
 
@@ -1195,8 +1195,8 @@ N and ε > 0, with f̂′(0) := ∂_σ f̂(0) = i∫ t_* f dt_* ∈ H^(∞,2−�
 (P = L_1, p = 1), σ[L_1, χ_zf]u_0 ∈ H^(∞,(∞,a+2,∞))_b, the factor σ adding 1 at tf and at zf; by
 [[lem:iii-i3-1-1]] (a) (P = L_2, p = 0, j = 2), σ²χ_zf L_2u_0 ∈ H^(∞,(∞,a+2,γ))_b for γ < 2.
 
-(b) By [[lem:iii-h-2-4]] (a), f̂ = f̂_c + f̂_∞, with f̂_c entire in σ and supported in {r ≤ 2}, where χ_zf = 1 for
-|σ| ≤ c ([[sec:iii-i3-1]]); so its Taylor remainder is O(σ²) in C^∞, which gives the zf-weight 2 − ε and no condition
+(b) By [[lem:iii-h-2-4]] (a), f̂ = f̂_c + f̂_∞, with f̂_c entire in σ and supported in {r ≤ 2}, where χ_zf = 1
+for |σ| ≤ c ([[sec:iii-i3-1]]); so its Taylor remainder is O(σ²) in C^∞, which gives the zf-weight 2 − ε and no condition
 at tf or scf. And f̂_∞ = r⁻³G(σr, x) on {r ≥ 1}, with G entire and |(ζ∂_ζ)^j(r∂_r)^i∂^β_ω G| ≤ C⟨ζ⟩^(−N). With
 ζ := σr, so that |ζ| ∼ r̂ on {r ≥ 1}, the function r⁻³(G(ζ, x) − χ_1(r̂)(G(0, x) + ζ∂_ζG(0, x))) is r⁻³ times a
 function that is O(r̂²) for r̂ ≤ 1/8 and O(⟨r̂⟩^(−N) + r̂ 1_(r̂≤1/4)) beyond, with the same derivative bounds. In the
@@ -1230,8 +1230,8 @@ and for 0 < |σ| ≤ c
 
     L̃_b(σ)⁻¹(0, e) = (w_e, 0, 0) − L̃_b(σ)⁻¹(L̂_b(σ)w_e, 0, 0),
 
-whose 𝔟- and 𝒮_1-components are O(|σ|^(1−ε)) and whose first component lies in H^(∞,(3/2−ε,1−ε,0))_b, uniformly for
-|e| ≤ 1 and b ∈ ℬ̄_*, for every ε > 0.
+whose 𝔟- and 𝒮_1-components are O(|σ|^(1−ε)) and whose first component lies in H^(∞,(3/2−ε,1−ε,0))_b, uniformly
+for |e| ≤ 1 and b ∈ ℬ̄_*, for every ε > 0.
 
 *Proof.* χ_zf = 1 on supp f*_j for |σ| ≤ c ([[sec:iii-i3-1]]), so r(w_e) = r(ġ_b(e′_1) + h_b(e′_2)) = B(b)e′ = e by
 [[eq:s20-rows]]. w_e has compact support for σ ≠ 0, so it lies in 𝒳_σ, and L̃_b(σ)(w_e, 0, 0) = (L̂_b(σ)w_e, e), which
@@ -1255,13 +1255,13 @@ h_b(S) − iσh̆^(≤3)_(b,s1)(σ, S) be the state of [[prop:iii-g4-5-1]]. Then
 and near zf the difference has the zf-weight α − 2. ĥ^aug(σ)(Σ(σ)) has the tf-weight α − ε for every ε > 0 (b-Sobolev
 embedding, and [[lem:iii-i2-4-3]] with a = α − 3) and decays rapidly at scf.
 
-*Proof.* By [[eq:iii-i6-1-1]], ĥ^aug(σ)(Σ) = |σ|^(α−3)(Ψh_b(S′) − σ∂_σΨ h_b(S′) − iσΨh̆_b(S′)). The difference is
-|σ|^(α−3)(1 − Ψ)h_b(S′) plus σ|σ|^(α−3) times bounded terms. Near zf ∩ tf the term
+*Proof.* By [[eq:iii-i6-1-1]], ĥ^aug(σ)(Σ) = |σ|^(α−3)(Ψh_b(S′) − σ∂_σΨ h_b(S′) − iσΨh̆_b(S′)). The difference
+is |σ|^(α−3)(1 − Ψ)h_b(S′) plus σ|σ|^(α−3) times bounded terms. Near zf ∩ tf the term
 σ|σ|^(α−3)χ_zf h̆^(≤3)_(b,s1)(σ, S′) is controlled by [[lem:iii-g4-4-3]] (h̆^(≤3)_(b,s1) is polyhomogeneous at tf with
-the index set (0, 0) ∪ ℰ_ind), which gives it the zf- and tf-weight α − 2. On {r ≤ R}, |Ψ − 1| ≤ C|σ| and
-|∂_σΨ| ≤ C ([[lem:iii-h-2-5]] (d)), with derivatives. For r ≥ 1, 1 − Ψ = 1 − Φ(σr) = O(|σ|r) and h_b(S′) ∈ 𝒜³, so
-|σ|^(α−3)(1 − Ψ)h_b(S′) is |σ|^(α−2) times O(r⁻²) near zf. At tf (σr ∼ 1),
-|σ|^(α−3)Φ(σr)r⁻³ ∼ |σ|^α, the tf-weight α − ε in H_b; at scf, Φ decays rapidly. ∎
+the index set (0, 0) ∪ ℰ_ind), which gives it the zf- and tf-weight α − 2. On {r ≤ R}, |Ψ − 1| ≤ C|σ|
+and |∂_σΨ| ≤ C ([[lem:iii-h-2-5]] (d)), with derivatives. For r ≥ 1, 1 − Ψ = 1 − Φ(σr) = O(|σ|r) and h_b(S′) ∈ 𝒜³,
+so |σ|^(α−3)(1 − Ψ)h_b(S′) is |σ|^(α−2) times O(r⁻²) near zf. At tf
+(σr ∼ 1), |σ|^(α−3)Φ(σr)r⁻³ ∼ |σ|^α, the tf-weight α − ε in H_b; at scf, Φ decays rapidly. ∎
 
 ### Extraction of the parameters {#sec:iii-i6-2}
 

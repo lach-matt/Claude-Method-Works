@@ -154,8 +154,8 @@ and in the chart g^KS_(μ_end,0) is Φ_(μ_end)*g^KS_(μ_end,0), which [[eq:iii-
 which is g^KS_(μ_end,0) at every r > 0.
 
 (b) By [[lem:vii-1-1]] with j = 0, the components of g_λ − g^KS_(μ_end,0) in the coordinates (τ, x) are at most C_Jλ
-on Ω′_+ for 0 < λ ≤ λ_J. In the chart, dτ = dt − T′_(μ_end)(|x|) x̂ · dx and the dxⁱ are unchanged, and
-|T′_(μ_end)(ϱ)| = 2χ_∞(ϱ)μ_end/(ϱ² − μ_end) ≤ 2/3, as ϱ² ≥ 4μ_end on the support of χ_∞; so every entry of this change of
+on Ω′_+ for 0 < λ ≤ λ_J. In the chart, dτ = dt − T′_(μ_end)(|x|) x̂ · dx and the dxⁱ are unchanged, and |T′_(μ_end)(ϱ)| =
+2χ_∞(ϱ)μ_end/(ϱ² − μ_end) ≤ 2/3, as ϱ² ≥ 4μ_end on the support of χ_∞; so every entry of this change of
 basis has absolute value at most 1, and a component in the chart is a sum of at most 25 components in (τ, x), each
 multiplied by two such entries. With (a) this gives the first bound. On Q, g_(b₀)⁻¹ is continuous, so the operator norm
 of its matrix is at most some B_Q. Let E be the matrix of g_λ − g_(b₀); its operator norm is at most 125C_Jλ, five
@@ -368,8 +368,8 @@ gives its solution on P′ ∪ Ω′; both domains lie in {v ≤ V′_P}: on Ω�
 data; [[thm:settling]] (i) replaces the data there, beyond 4R, by those of g^KS_(m_λ,0).
 
 *Proof.* (i) Ω′ = {τ0 ≤ τ ≤ τ′_end, |x| ≥ a′, v + (τ − τ′_end) ≤ V′ + 1}, and V′_P − κ_P = V′ + 1 + τ′_end − τ0. P′
-is {v + h_P(τ) ≤ V′_P} intersected with {τ ≤ τ0, |x| ≥ a′}. (ii) In the chart of [[lem:vii-1-2]], t = τ + T_(μ_end)(r)
-+ c₀, and Σ^IVP = {t = C″} on r ≥ R₃ ([[lem:iii-b-3-7]] (b)). T_(μ_end)(r) → 0 as r → ∞ ([[lem:iii-b-3-5]] (a)). ∎
+is {v + h_P(τ) ≤ V′_P} intersected with {τ ≤ τ0, |x| ≥ a′}. (ii) In the chart of [[lem:vii-1-2]], t = τ + T_(μ_end)(r) +
+c₀, and Σ^IVP = {t = C″} on r ≥ R₃ ([[lem:iii-b-3-7]] (b)). T_(μ_end)(r) → 0 as r → ∞ ([[lem:iii-b-3-5]] (a)). ∎
 
 **Remark {#rem:interior-reach}** (Neither construction reaches further at a fixed λ.) The threshold of [[thm:main]] on
 Ω′ depends on T′. The constants of [[thm:past-construction]] depend on the past domain, through V′_P: the annuli
@@ -402,8 +402,8 @@ and the last is at most R₁ log(21/19) < R₁/9. Put
     W := {v ≥ v1, t̃ ≤ 0, r ≥ 4R},     H₁ := W ∩ {v = v1} = {v = v1, τ ≤ τ_S},     Z := {v ≤ v1, r ≥ 4R}.
 
 v1 is the value of v on the edge ∂Σ_far, and τ_max − τ_S < R₁/9, so v1 − τ_max > 4R − R₁/9 > 0. By
-[[eq:interior-placing]] at r = 4R, τ0 + 1 ≤ τ_S ≤ τ_top and v1 ≥ v_end + 2. For a metric g on a set containing W ∪ Z,
-|g − g0|_op denotes the Euclidean operator norm of the matrix of Cartesian components of g − g0 at a point.
+[[eq:interior-placing]] at r = 4R, τ0 + 1 ≤ τ_S ≤ τ_top and v1 ≥ v_end + 2. For a metric g on a set containing W ∪
+Z, |g − g0|_op denotes the Euclidean operator norm of the matrix of Cartesian components of g − g0 at a point.
 
 **Lemma {#lem:interior-far-part}** (The far part's past domain of dependence.)
 
@@ -424,8 +424,8 @@ I(τ) := 2 ∫_τ^(τ_max) ε_g finite. Then ∂_τ is timelike for g on W ∪ Z
 
 all of W but the strip {v1 ≤ v < v1 + I(τ)} along H₁ lies in the domain of dependence of Σ_far for g.
 
-(iv) *The width of the strip.* (a) Let g_λ be the solution of [[thm:past-construction]] on P′ ∪ Ω′. On Z,
-|g_λ − g0|_op and |g_λ⁻¹ − g0⁻¹|_op are at most ε_λ(τ) := C_1 λ min(1, t^(−3/2)) for λ small, min(1, t^(−3/2)) being
+(iv) *The width of the strip.* (a) Let g_λ be the solution of [[thm:past-construction]] on P′ ∪ Ω′. On
+Z, |g_λ − g0|_op and |g_λ⁻¹ − g0⁻¹|_op are at most ε_λ(τ) := C_1 λ min(1, t^(−3/2)) for λ small, min(1, t^(−3/2)) being
 read as 1 where t ≤ 1, and 2∫_(−∞)^(τ_S) ε_λ dτ = 2C_1λ(τ_S − τ0 + 2). (b) Let g be a smooth Lorentzian metric on an
 open set containing W ∪ Z, equal to g_λ on Z, with |g − g0|_op, |g⁻¹ − g0⁻¹|_op ≤ C_W ν (v1 − τ)⁻² on W for numbers
 C_W and ν ≥ 0. Then ε_g := ε_λ + C_W ν (v1 − τ)⁻² satisfies the hypotheses of (iii) for λ and ν small, and
@@ -458,8 +458,8 @@ r(p) ≥ r_* ≥ 4R, and t̃(p) ≤ 0, as t̃ increases along the ray to 0 at r_
 
 *W lies in D⁻(Σ_far; g0).* Let p ∈ W and c a future inextendible causal curve from p; v ≥ v1 along c. If c reaches
 {r = 4R}, at a first point q, then t̃(q) = τ(q) − τ_S = v(q) − v1 ≥ 0, so c meets {t̃ = 0} at or before q, at a point
-with r ≥ 4R and v ≥ v1, a point of Σ_far = {t̃ = 0, r ≥ 4R}. Otherwise c stays in {r ≥ 4R}, where t̃ increases and
-|dr| < 2 dt̃. While t̃ ≤ 0 it lies in the compact set {t̃(p) ≤ t̃ ≤ 0, 4R ≤ r ≤ r(p) + 2|t̃(p)|}, on which dt̃ is
+with r ≥ 4R and v ≥ v1, a point of Σ_far = {t̃ = 0, r ≥ 4R}. Otherwise c stays in {r ≥ 4R}, where t̃ increases
+and |dr| < 2 dt̃. While t̃ ≤ 0 it lies in the compact set {t̃(p) ≤ t̃ ≤ 0, 4R ≤ r ≤ r(p) + 2|t̃(p)|}, on which dt̃ is
 uniformly timelike, so its coordinate velocity, parametrised by t̃, is bounded; if t̃ stayed below 0, c would have an
 end point and be extendible. So c reaches t̃ = 0 at a point with r ≥ 4R and v ≥ v1, a point of Σ_far. In the chart,
 {t̃ = 0} ∩ W = Σ_far and {v = v1} ∩ W = H₁, the rest of the boundary is the end τ → −∞ at fixed v and x̂, and
@@ -482,8 +482,8 @@ as τ_S − τ0 ≥ 1, and r ≥ 4R > a′: the point lies in P′.
 
     g(∂_τ, ∂_τ) ≤ −1 + m + ε_g < 0,     g⁻¹(dτ, dτ) ≤ −1 − m + ε_g < 0,
 
-so dτ(Y) > 0 for every future causal Y of g. *The cone of dv.* ζ := dv + 2ε_g dτ = (1 + 2ε_g) dτ + x̂·dx has
-|ζ|_E² = 2 + 4ε_g + 4ε_g² and g0⁻¹(ζ, ζ) = −4ε_g − 4ε_g²(1 + m), so
+so dτ(Y) > 0 for every future causal Y of g. *The cone of dv.* ζ := dv + 2ε_g dτ = (1 + 2ε_g) dτ + x̂·dx
+has |ζ|_E² = 2 + 4ε_g + 4ε_g² and g0⁻¹(ζ, ζ) = −4ε_g − 4ε_g²(1 + m), so
 
     g⁻¹(ζ, ζ) ≤ g0⁻¹(ζ, ζ) + ε_g |ζ|_E² = −2ε_g − 4mε_g² + 4ε_g³ < 0     (0 < ε_g ≤ 1/8),
 
@@ -523,8 +523,8 @@ H₁ that may lie outside the domain of dependence of Σ_far.
 
 **Remark {#rem:interior-far-part-numerical}** (Numerical observation.) For a radial model g⁻¹ = g0⁻¹ + ε(τ) n ⊗ n with
 ε = 0.05 min(1, t^(−3/2)) and eight fixed covectors n, the past null generator through ∂Σ_far of the boundary of
-D⁻(Σ_far; g) was integrated numerically down to τ_S − 3000: along it |v − v1| stayed below I(τ), the largest ratio
-|v − v1|/I(τ) being 0.5128, attained for n proportional to dv. Sampling perturbations of each kind put the sharp
+D⁻(Σ_far; g) was integrated numerically down to τ_S − 3000: along it |v − v1| stayed below I(τ), the largest
+ratio |v − v1|/I(τ) being 0.5128, attained for n proportional to dv. Sampling perturbations of each kind put the sharp
 constant of the comparison dv(Y) ≥ −2ε_g dτ(Y) of [[lem:interior-far-part]] (iii) between ½ and 2. No proof uses these
 observations.
 

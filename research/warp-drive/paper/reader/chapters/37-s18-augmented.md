@@ -105,8 +105,8 @@ to 1 on [2, ∞), and put
     χ_K(t_*, x) := χ_+(t_*) χ_c(|x|/t_*)  (t_* > 0),          χ_K := 0  (t_* ≤ 0).                    {#eq:iii-h-1-2}
 
 Then χ_K is smooth on ℝ × X. It vanishes for t_* ≤ 1 and for |x| ≥ t_*/2, so near ℐ⁺, where |x|/t_* → ∞; and it
-equals 1 on {t_* ≥ 2, |x| ≤ t_*/4}, so near K⁺. These are the properties [Hin26, p. 203] asks of its χ_K. For
-|x| ≥ 1, χ_K(t_*, x) = χ_c(|x|/t_*) for all t_* > 0, as both sides vanish for t_* ≤ 2|x|.
+equals 1 on {t_* ≥ 2, |x| ≤ t_*/4}, so near K⁺. These are the properties [Hin26, p. 203] asks of its χ_K.
+For |x| ≥ 1, χ_K(t_*, x) = χ_c(|x|/t_*) for all t_* > 0, as both sides vanish for t_* ≤ 2|x|.
 
 ### The cut-off states and their Fourier transforms {#sec:iii-h-2}
 
@@ -137,15 +137,15 @@ dimension 3 + 1 ([Hin26, (10.12)]).
                   + L_2((∂²_(t_*)χ_K)h + 2(∂_(t_*)χ_K)∂_(t_*)h),
 
 L_2 being a multiplication. Every coefficient contains a derivative of χ_K of order at least 1. For t_* ≥ 2,
-χ_K = χ_c(|x|/t_*), whose derivatives vanish unless |x|/t_* ∈ [¼, ½]; for t_* ∈ [1, 2], χ_K vanishes unless
-|x| ≤ t_*/2 ≤ 1; and for t_* < 1 it vanishes.
+χ_K = χ_c(|x|/t_*), whose derivatives vanish unless |x|/t_* ∈ [¼, ½]; for t_* ∈ [1, 2], χ_K vanishes
+unless |x| ≤ t_*/2 ≤ 1; and for t_* < 1 it vanishes.
 
 (b) On supp f ∩ {r ≤ 2}, t_* ≤ max(2, 4r) ≤ 8. The first set of (a) meets {r ≥ 1} only where r = 1 and t_* = 2, so
 on supp f ∩ {r ≥ 1}, 2r ≤ t_* ≤ 4r. There χ_K = χ_c(r/t_*), which is homogeneous of degree 0 in (t_*, x); so
 ∂^p_(t_*)∂^q_x χ_K is homogeneous of degree −p − |q| and bounded by C r^(−p−|q|) on the cone {2r ≤ t_* ≤ 4r}, and so
 are its derivatives along t_*∂_(t_*), r∂_r and ∂_ω, which preserve homogeneity. On the cone the states satisfy, with
-these derivatives, |ġ| ≤ C r⁻² and ∂_(t_*)ġ = 0; |t_*h(S)| ≤ 4r · C r⁻³, t_*∂_(t_*)(t_*h) = t_*h and
-|∂_(t_*)(t_*h)| = |h| ≤ C r⁻³; |h̆| ≤ C r⁻² and ∂_(t_*)h̆ = 0. As L_0 ∈ ρ²Diff_b^2, [L_0, χ_K] is ρ² times a
+these derivatives, |ġ| ≤ C r⁻² and ∂_(t_*)ġ = 0; |t_*h(S)| ≤ 4r · C r⁻³, t_*∂_(t_*)(t_*h) = t_*h
+and |∂_(t_*)(t_*h)| = |h| ≤ C r⁻³; |h̆| ≤ C r⁻² and ∂_(t_*)h̆ = 0. As L_0 ∈ ρ²Diff_b^2, [L_0, χ_K] is ρ² times a
 first-order b-operator in x whose coefficients are bounded on the cone, together with their b-derivatives and their
 t_*∂_(t_*)-derivatives; so [L_0, χ_K]h = O(r⁻² · r⁻²). Likewise L_1((∂_(t_*)χ_K)h) = O(r⁻¹ · r⁻¹r⁻²),
 [L_1, χ_K]∂_(t_*)h = O(r⁻¹ · r⁻³) ([L_1, χ_K] is ρ times a bounded multiplication), and the L_2 terms are
@@ -237,10 +237,10 @@ b-derivatives ([[sec:ii-g1-4-3]]). f̂_c is bounded in C^∞, uniformly for |σ|
 ρ̂ ≥ c/ς ≥ c, so w_β⁻¹ is bounded there. Then [[eq:iii-h-2-4]] is [[eq:ii-g1-4-5a]] with l + 4 = β_tf and
 M = 𝗋′_out + 3 + ϵ.
 
-(c) On supp φ(ρ/ς) ⊂ {ρ ≥ 2ς}, |σr| ≤ ½, and by (a) and Taylor's formula
-|(r∂_r)^(a′)∂_ω^β(G(σr, x) − G(0, x))| ≤ C|σ|r there; the b-derivatives of φ(ρ/ς) are bounded uniformly in ς. So
-|f̂_∞(σ) − f̂_∞(0)| ≤ Cςρ² there, together with b-derivatives. As H̄_b^(p,a) = ρ^(a+2)H̄_b^p(μ_b), the part of the left
-side of [[eq:iii-h-2-5]] over {r ≥ 1} is at most
+(c) On supp φ(ρ/ς) ⊂ {ρ ≥ 2ς}, |σr| ≤ ½, and by (a) and Taylor's
+formula |(r∂_r)^(a′)∂_ω^β(G(σr, x) − G(0, x))| ≤ C|σ|r there; the b-derivatives of φ(ρ/ς) are bounded uniformly in ς.
+So |f̂_∞(σ) − f̂_∞(0)| ≤ Cςρ² there, together with b-derivatives. As H̄_b^(p,a) = ρ^(a+2)H̄_b^p(μ_b), the part of the
+left side of [[eq:iii-h-2-5]] over {r ≥ 1} is at most
 
     C‖ςρ^(−a)‖_(L²({2ς≤ρ≤1}, μ_b)) = Cς(∫_(2ς)^1 ρ^(−2a−1) dρ)^(1/2) ≤ Cς^(1−a),
 
@@ -248,8 +248,8 @@ as a > 0. And f̂_c(σ) − f̂_c(0) = O(|σ|) in C^∞, with support in {r ≤ 
 
 (d) f̂_c is entire. For σ ≠ 0, by (a), f̂_∞(σ) and ∂^j_σ f̂_∞(σ) = r^(j−3)(∂^j_ζG)(σr, x) are O(r^(j−3)(|σ|r)^(−M))
 for every M, locally uniformly in σ, together with their b-derivatives; this gives smoothness in every H̄_b^(p,M), and,
-G being entire, holomorphy in {Im σ > 0}. At σ = 0: on {ρ ≥ 2ς} the difference is bounded as in (c); on {ρ ≤ 2ς},
-|f̂(σ)| and |f̂(0)| are at most Cρ³, whose H̄_b^(p,a)-norm there is O(ς^(1−a)). ∎
+G being entire, holomorphy in {Im σ > 0}. At σ = 0: on {ρ ≥ 2ς} the difference is bounded as in (c); on
+{ρ ≤ 2ς}, |f̂(σ)| and |f̂(0)| are at most Cρ³, whose H̄_b^(p,a)-norm there is O(ς^(1−a)). ∎
 
 **Lemma {#lem:iii-h-2-5}** (The cut-off states on the spectral side.) For Im σ ≥ 0, σ ≠ 0, let
 Ψ(σ, x) := ∫ e^(iσt_*)∂_(t_*)χ_K(t_*, x) dt_* and
@@ -258,8 +258,8 @@ G being entire, holomorphy in {Im σ > 0}. At σ = 0: on {ρ ≥ 2ς} the differ
 
 (a) For Im σ > 0 these are the absolutely convergent Fourier transforms of ġ^aug(ḃ) and h^aug(S).
 
-(b) For r ≥ 1, Ψ(σ, x) = Φ(σr) with Φ(ζ) := ∫_2^4 e^(iζs)∂_s[χ_c(1/s)] ds, an entire function with Φ(0) = 1 and
-|∂^j_ζΦ(ζ)| ≤ C_(j,M)⟨ζ⟩^(−M) on {Im ζ ≥ 0}. Hence [[eq:iii-h-2-6]] is smooth on X and lies in H̄_b^(p,M) for every p
+(b) For r ≥ 1, Ψ(σ, x) = Φ(σr) with Φ(ζ) := ∫_2^4 e^(iζs)∂_s[χ_c(1/s)] ds, an entire function with Φ(0) = 1
+and |∂^j_ζΦ(ζ)| ≤ C_(j,M)⟨ζ⟩^(−M) on {Im ζ ≥ 0}. Hence [[eq:iii-h-2-6]] is smooth on X and lies in H̄_b^(p,M) for every p
 and M, smoothly in σ ∈ {Im σ ≥ 0} ∖ 0 and holomorphically in the interior; in particular it lies in 𝒳_σ.
 
 (c) L̂_b(σ)ĝ^aug(σ)(ḃ) = f̂_ḃ(σ) and L̂_b(σ)ĥ^aug(σ)(S) = f̂_S(σ).
@@ -544,8 +544,8 @@ section over sctf ([[sec:i-c-4-3]] and [[lem:i-a-7-1]]), as the proof of [[prop:
 
 *Uniformity in b.* The constants of the proof of [[thm:i-c-6-4]] (1) are uniform near b_0 ([[thm:i-c-7-1]] (2)); the
 tf-normal operator does not depend on b ([[lem:iii-g4-1-1]]); the inverse of L̃_b(0) is bounded uniformly
-([[prop:iii-h-3-2]]); and (A1)–(A3) hold uniformly by [[rem:iii-h-2-6]] with δ = ϵ_0, as α + 2 + ϵ_0 < 1 − δ and
-|σ|^(1−(α+2)−δ) ≤ |σ|^(ϵ_0). ∎
+([[prop:iii-h-3-2]]); and (A1)–(A3) hold uniformly by [[rem:iii-h-2-6]] with δ = ϵ_0, as α + 2 + ϵ_0 < 1 − δ
+and |σ|^(1−(α+2)−δ) ≤ |σ|^(ϵ_0). ∎
 
 **Corollary {#cor:iii-h-4-3}** (The low-energy range of [Hin26, Proposition 8.8], and [Hin26, (10.48)], in dimension
 4 + 1.) After shrinking c_0 of [[cor:iii-h-4-2]], uniformly near b_0: for b near b_0 and σ ∈ Σ_0 with |σ| ≤ c_0, the
@@ -800,8 +800,8 @@ smooth, with growth e^(γt_*). ũ − u solves L_b(ũ − u) = 0 and vanishes fo
 
 *Shifting the contour.* L̂_b(σ)⁻¹ exists for every σ ≠ 0 with Im σ ≥ 0 ([[cor:iii-h-4-4]]), is holomorphic in
 Im σ > 0 ([[thm:i-a-7-2]] (6)), and is polynomially bounded for |Re σ| ≥ C_0, uniformly in Im σ ∈ [0, γ]. With the
-decay of f̂, Cauchy's theorem moves the contour to Im σ = γ″ ∈ (0, γ), and then to 𝒞_− ∪ 𝒞_0 ∪ 𝒞_+: on
-|Re σ| ≥ c/2, L̂_b(σ)⁻¹ is continuous up to the real axis ([[thm:i-a-7-2]] (6) at each real σ_* ≠ 0, where it is
+decay of f̂, Cauchy's theorem moves the contour to Im σ = γ″ ∈ (0, γ), and then to 𝒞_− ∪ 𝒞_0 ∪ 𝒞_+:
+on |Re σ| ≥ c/2, L̂_b(σ)⁻¹ is continuous up to the real axis ([[thm:i-a-7-2]] (6) at each real σ_* ≠ 0, where it is
 invertible), with the polynomial bounds above for dominated convergence. ∎
 
 ### High frequencies {#sec:iii-h1-3}
@@ -836,8 +836,8 @@ and with a parameter ϵ′ > 0 in place of the ϵ there: with δ := δ_Γ(−ϵ�
 the left side bounding the norm above (s_c + j′ ≥ s_c, and the subscript + only adds terms). The norm with subscript +
 on the right is at most C Σ_(j_4≤k−j_1−j_2+j′) |σ|^(j_4) ‖g‖_((s_c−1;k−j_1−j_3−j_4),𝗋+β+1,𝖻), since it tests in
 addition with multiplication by |σ|; and (s_c − 1)-norms are bounded by s_c-norms. As δ_Γ is continuous and
-δ_Γ(0) < 1/(2(k + 1)) at b ∈ ℬ_k, ϵ′ > 0 can be fixed with (k + 1)δ ≤ 1. (ϵ′ is not the ϵ of the statement.) Then
-|σ|^(2(j_1−1+(j′+1)δ+j_4)) ≤ |σ|^(2(j_1+j_4)), and the integrand is bounded by
+δ_Γ(0) < 1/(2(k + 1)) at b ∈ ℬ_k, ϵ′ > 0 can be fixed with (k + 1)δ ≤ 1. (ϵ′ is not the ϵ of the statement.)
+Then |σ|^(2(j_1−1+(j′+1)δ+j_4)) ≤ |σ|^(2(j_1+j_4)), and the integrand is bounded by
 
     C Σ |σ|^(2(j_1+j_4)) ‖(σ∂_σ)^(j_3) f̂(σ)‖²_((𝗌_σ;k−j_1−j_3−j_4),𝗌_σ+β+1,𝗌_σ),     j_1 + j_4 + j_3 ≤ k.
 
@@ -965,8 +965,8 @@ Each is r^(−q)G(σr, x) with q = 2, resp. 3, and G smooth with |(ζ∂_ζ)^j(r
 sup_(0<|σ|≤1) ‖(σ∂_σ)^j(·)‖_(H^(k′,(M,β_tf,0))_(b,|σ|)) < ∞ for every k′, M and β_tf < q, since the bound
 ρ_tf^(q−β_tf) is square integrable for μ_b uniformly if and only if β_tf < q. For r ≤ 1, Ψ and its σ- and
 x-derivatives are bounded uniformly for |σ| ≤ 1 (proof of [[lem:iii-h-2-5]] (d):
-∂^j_σΨ = ∫ (it_*)^j e^(iσt_*)∂_(t_*)χ_K dt_*). By [[eq:ii-g1-4-5a]] with l + 4 = β_tf, for every constant order pair and
-|σ| ≤ ς_1 (and c ≤ ς_1, [[sec:iii-h1-2]]),
+∂^j_σΨ = ∫ (it_*)^j e^(iσt_*)∂_(t_*)χ_K dt_*). By [[eq:ii-g1-4-5a]] with l + 4 = β_tf, for every constant order pair
+and |σ| ≤ ς_1 (and c ≤ ς_1, [[sec:iii-h1-2]]),
 
     sup_(0<|σ|≤c) Σ_(j≤k) (‖(σ∂_σ)^j(Ψġ(e_i))‖_((p;k),(p+β′,β′,0),|σ|)
                             + ‖(σ∂_σ)^j(σ²ĥ^aug(σ)(e′_i))‖_((p;k),(p+β″,β″,0),|σ|)) < ∞

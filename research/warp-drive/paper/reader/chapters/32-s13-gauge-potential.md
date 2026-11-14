@@ -316,8 +316,8 @@ g_va = 0. At r_h, f = 0 and f′(r_h) = 2m_0 r_h⁻³ = 2/r_h.
 (ii) The spectrum of S̄ is γ_Υ(1 − e_Υ), 2γ_Υ, and γ_Υ on the three angular directions.
 
 (iii) On g_(b_0), let c_H = c_v dv + c_r dr near r_h, E_H h := 2ι_(g⁻¹c_H) h − (2/3)c_H tr_g h, and γ_H ∈ ℝ. At
-N*ℋ, that is at r = r_h and ζ = ξ dr, the subprincipal symbol of □_(g_(b_0)) + 2γ_H E_H G δ*, on half-densities by
-|dg| and in the coordinate frame (dv, dr, dy^a), is iξf′(r_h)K, where
+N*ℋ, that is at r = r_h and ζ = ξ dr, the subprincipal symbol of □_(g_(b_0)) + 2γ_H E_H G δ*, on half-densities
+by |dg| and in the coordinate frame (dv, dr, dy^a), is iξf′(r_h)K, where
 
         ⎛ 1 + c_vγ_H r_h    0                    0               ⎞
     K = ⎜ c_rγ_H r_h        −1 + 2c_vγ_H r_h     0               ⎟ .
@@ -565,10 +565,10 @@ SO(4)) act transitively on Γ_(b_0) and preserve the construction of the frame, 
 endomorphism p_1 is built from the subprincipal symbol of □_(g_b) and h_Γ, continuous in b uniformly near Γ_(b_0),
 and Γ_b → Γ_(b_0) by (Dyn); so sup_(Γ_b) λ_max(p_1^Γ) < ϵ for b near b_0. ν_min and β_0 are continuous in b by (Dyn)
 and positive at b_0. Two conventions enter. First, p_1^Γ is the endomorphism of [[lem:i-b-6-0]] for this h_Γ, which
-in the frame e_j/C^(1/2), where h_Γ is constant, is the h_Γ-imaginary part of the subprincipal operator. Second, (a)
-uses half-densities by |dg|, while the adjoints of [[ch:s01]] are for |dx| = r³dr dx̂ and dt_*. On Tangherlini
-|dg| = |dt_*| r³dr dx̂, so the two agree at b_0; near b_0 the change of density by f_b := |dg_b|/|dg_(b_0)| adds the
-scalar ½f_b⁻¹H_G f_b = O(|b − b_0|) to p_1 (the remark after [[lem:ii-c-2-2]]), which the continuity step absorbs. ∎
+in the frame e_j/C^(1/2), where h_Γ is constant, is the h_Γ-imaginary part of the subprincipal operator. Second, (a) uses
+half-densities by |dg|, while the adjoints of [[ch:s01]] are for |dx| = r³dr dx̂ and dt_*. On Tangherlini |dg| = |dt_*|
+r³dr dx̂, so the two agree at b_0; near b_0 the change of density by f_b := |dg_b|/|dg_(b_0)| adds the scalar ½f_b⁻¹H_G
+f_b = O(|b − b_0|) to p_1 (the remark after [[lem:ii-c-2-2]]), which the continuity step absorbs. ∎
 
 ### High energies and bounded frequencies {#sec:iii-d-6}
 
@@ -722,8 +722,8 @@ Y := (U, (r − r_h)U′). Since (r − r_h)/f = r²/(r + r_h),
                               ⎝ r²(r − r_h)(r + r_h)⁻¹B    1 + r²(r + r_h)⁻¹A    ⎠
 
 with M smooth on (0, ∞). For r_0 < r_1 < r < r_h and m_1 := max_([r_1,r_h]) ‖M‖, wherever Y ≠ 0,
-(d/dr) log|Y|² = 2Re⟨Y, MY⟩/((r − r_h)|Y|²) ≥ −2m_1/(r_h − r), so if Y(r_1) ≠ 0 then
-|Y(r)| ≥ |Y(r_1)|((r_h − r)/(r_h − r_1))^(m_1) on [r_1, r_h) (the bound holds up to the first zero of Y after r_1, if
+(d/dr) log|Y|² = 2Re⟨Y, MY⟩/((r − r_h)|Y|²) ≥ −2m_1/(r_h − r), so if Y(r_1) ≠ 0 then |Y(r)|
+≥ |Y(r_1)|((r_h − r)/(r_h − r_1))^(m_1) on [r_1, r_h) (the bound holds up to the first zero of Y after r_1, if
 there is one, and by continuity keeps |Y| positive there, so there is none), which contradicts the vanishing of Y to
 infinite order at r_h. So Y(r_1) = 0 for every r_1 ∈ (r_0, r_h), every component vanishes, and u = 0. ∎
 
@@ -762,8 +762,8 @@ the argument of [[lem:iii-d-2-1]] (1) for this t_* (near infinity, where t − r
 t − r by O(ρ), and the two choices give the same ∂_σ□̂(0)W* up to O(ρ⁵).
 
 *Proof.* (i) The Christoffel symbols of ḡ vanish in Cartesian coordinates, so □̄ = −ḡ^(μν)∂_μ∂_ν = ∂_(t̄)² + Δ_e on
-each component. On stationary functions, e^(iσt_*)□̄e^(−iσt_*) = e^(−iσr)(e^(iσt̄)□̄e^(−iσt̄))e^(iσr)
-= e^(−iσr)(Δ_e − σ²)e^(iσr). (ii) With u = w/r, −u″ − 3u′/r = −w″/r − w′/r² + w/r³; adding l(l + 2)w/r³ − w/r and
+each component. On stationary functions, e^(iσt_*)□̄e^(−iσt_*) = e^(−iσr)(e^(iσt̄)□̄e^(−iσt̄))e^(iσr) =
+e^(−iσr)(Δ_e − σ²)e^(iσr). (ii) With u = w/r, −u″ − 3u′/r = −w″/r − w′/r² + w/r³; adding l(l + 2)w/r³ − w/r and
 multiplying by −r³ gives r²w″ + rw′ − (1 + l(l + 2))w + r²w = 0, and 1 + l(l + 2) = (l + 1)². Bessel's equation of
 order l + 1 has exponents ±(l + 1) at 0, so u has exponents l and −l − 2. The limits are [DLMF, (10.7.7)], whose
 hypothesis Re ν > 0 holds as ν = l + 1, and [DLMF, (10.17.5)]; the behaviour on the imaginary axis is
@@ -915,9 +915,9 @@ chart ω′ has no dv component and its dr component ∂_rφ is smooth at r_h, s
 dφ ∈ 𝒜^β gives a constant φ_∞ with φ − φ_∞ = O(r^(1−β)), and δdφ = 0. At l = 0, r³fφ_0′ is constant and vanishes at
 r_h, so φ_0 is constant. At l ≥ 1, the equation (r³fφ_l′)′ = κrφ_l has at r = ∞ a regular singular point (in
 ρ = 1/r: ρ²fφ_ρρ + ρ(ρf_ρ − f)φ_ρ − κφ = 0, f = 1 − m_0ρ²) with indicial equation ν² − 2ν − κ = 0, roots ν = l + 2
-and ν = −l for φ ∼ ρ^ν; by Frobenius' theorem every solution is c_1ρ^(l+2)a_1(ρ) + c_2(ρ^(−l)b_1(ρ)
-+ c_3 log ρ ρ^(l+2)a_1(ρ)) with a_1, b_1 analytic and a_1(0) = b_1(0) = 1, and φ_l = O(ρ^(β−1)) forces c_2 = 0. So
-φ_l = O(r^(−l−2)), φ_l′ = O(r^(−l−3)), and the energy identity of (a) gives φ_l = 0. So ω′ = 0 on {r > r_h}.
+and ν = −l for φ ∼ ρ^ν; by Frobenius' theorem every solution is c_1ρ^(l+2)a_1(ρ) +
+c_2(ρ^(−l)b_1(ρ) + c_3 log ρ ρ^(l+2)a_1(ρ)) with a_1, b_1 analytic and a_1(0) = b_1(0) = 1, and φ_l = O(ρ^(β−1)) forces
+c_2 = 0. So φ_l = O(r^(−l−2)), φ_l′ = O(r^(−l−3)), and the energy identity of (a) gives φ_l = 0. So ω′ = 0 on {r > r_h}.
 
 *(d) Inside the horizon.* u − (q/2)W* lies in ker P̂(0), is smooth on X̄ and vanishes on {r > r_h}; part (d) of the
 proof of [[prop:iii-d-6-2]], which uses only these properties (at σ = 0), shows that it vanishes on {r_0 < r < r_h}.
@@ -940,12 +940,12 @@ v_v := v(∂_v), and W*_v = r⁻², W*_r = −(r(r + r_h))⁻¹; the Christoffel
 
 (1) t_* − v = F(r) near r_h, and ℓ([□, F]W*) = ℓ(□(FW*)) − ℓ(F□W*) = 0 by [[lem:iii-d1-2-1]] (1) and □W* = 0; so t_*
 may be replaced by v. For a function φ, □(φw) = φ□w + (□_0φ)w − 2∇_(∇φ)w, so [□, v]W* = (□_0v)W* − 2∇_(∇v)W*, with
-∇v = g^vr∂_r = ∂_r and □_0v = −r⁻³∂_r(r³g^rv) = −3/r. Further (∇_(∂_r)W*)_v = ∂_rW*_v − Γ^r_rv W*_r
-= −2r⁻³ − f′/(2r(r + r_h)), which at r_h is −5/(2r_h³). So ([□, v]W*)_v(r_h) = −3/r_h³ + 5/r_h³ = 2/r_h³, and
+∇v = g^vr∂_r = ∂_r and □_0v = −r⁻³∂_r(r³g^rv) = −3/r. Further (∇_(∂_r)W*)_v = ∂_rW*_v − Γ^r_rv
+W*_r = −2r⁻³ − f′/(2r(r + r_h)), which at r_h is −5/(2r_h³). So ([□, v]W*)_v(r_h) = −3/r_h³ + 5/r_h³ = 2/r_h³, and
 ℓ = 2|𝕊³| = 4π².
 
-(2) By [[eq:iii-d1-1-2]], 2E_H G δ*W* = 4ι_(c♯)δ*W* with c := c_(Υ,H), and at r_h, c♯ = −½∇r = −½(∂_v + f∂_r)
-= −½∂_v. So (4ι_(c♯)δ*W*)_v = −2(δ*W*)_vv, and (δ*W*)_vv = ∇_vW*_v = −Γ^v_vv W*_v − Γ^r_vv W*_r = −1/r_h³ at r_h. So
+(2) By [[eq:iii-d1-1-2]], 2E_H G δ*W* = 4ι_(c♯)δ*W* with c := c_(Υ,H), and at r_h, c♯ = −½∇r = −½(∂_v + f∂_r) = −½∂_v.
+So (4ι_(c♯)δ*W*)_v = −2(δ*W*)_vv, and (δ*W*)_vv = ∇_vW*_v = −Γ^v_vv W*_v − Γ^r_vv W*_r = −1/r_h³ at r_h. So
 ℓ = r_h³ · (2/r_h³) · 2π² = 4π². ∎
 
 The two lemmas so far carry the zero energy data that the argument below uses. We collect them, with the remaining
@@ -1003,8 +1003,8 @@ the dt part to the dt part and the spatial part to the spatial part. *The dt par
 has F_rt = A′S, F_at = A∂_aS; as in the proof of [[prop:np-10-16]] (iv), (δF)^t = r⁻³(r³A′)′S − κA(fr²)⁻¹S and the
 other components vanish, so □(AS dt) = −f(δF)^t dt = (−fr⁻³(r³A′)′ + κr⁻²A)S dt. *The scalar spatial part.*
 δω = φS with φ := −r⁻³(r³fB)′ + κr⁻²C, so dδω = φ′S dr + φ d_𝕊S; and dω = (C′ − B)dr ∧ d_𝕊S, whose divergence is,
-as in the proof of [[prop:np-10-16]] (iii)–(iv), δdω = −κr⁻²(C′ − B)S dr − r⁻¹(rf(C′ − B))′d_𝕊S. So □ω = E_B S dr
-+ E_C d_𝕊S with E_B := φ′ + κr⁻²(B − C′) and E_C := φ − r⁻¹(rf(C′ − B))′. In r³fE_B the C′ terms cancel, and
+as in the proof of [[prop:np-10-16]] (iii)–(iv), δdω = −κr⁻²(C′ − B)S dr − r⁻¹(rf(C′ − B))′d_𝕊S. So □ω = E_B S
+dr + E_C d_𝕊S with E_B := φ′ + κr⁻²(B − C′) and E_C := φ − r⁻¹(rf(C′ − B))′. In r³fE_B the C′ terms cancel, and
 r³fE_B = −r³f(r⁻³(r³fB)′)′ + κrfB − 2κfC. Expanding with r⁻³(r³fB)′ = (fB)′ + 3fB/r and f²B′ = f(fB)′ − ff′B,
 
     −r³f(r⁻³(r³fB)′)′ + (r³f²B′)′ = (r³f′² + 3rf² − (r³ff′)′)B = 3rf²B,
@@ -1108,8 +1108,8 @@ depend on γ.
 Step 1, for |σ| ≥ c_1 by [[prop:iii-d-6-3]] (γ < ϵ, b_0 ∈ ℬ″). Now vary 𝗉 = (b, e_Υ, γ_Υ, γ) near 𝗉_γ, with
 e_Υ ≥ 0. (i) *Low energies.* (Z) holds at 𝗉_γ, so by [[thm:i-c-7-1]] (with m_1 = m_2 = 0 and base point 𝗉_γ) and
 [[thm:i-c-6-4]] (3) there are c_0(γ) > 0 and a neighbourhood N_1 of 𝗉_γ on which P̂_𝗉(0) is invertible and P̂_𝗉(σ) is
-invertible for 0 < |σ| ≤ c_0(γ). (ii) *High energies.* By [[prop:iii-d-6-1]] there is C_0 with invertibility for
-|σ| ≥ C_0 and all 𝗉 in 𝒦. (iii) *The compact middle.* On {c_0(γ) ≤ |σ| ≤ C_0, Im σ ≥ 0}, a compact set, P̂_(𝗉_γ)(σ)
+invertible for 0 < |σ| ≤ c_0(γ). (ii) *High energies.* By [[prop:iii-d-6-1]] there is C_0 with invertibility
+for |σ| ≥ C_0 and all 𝗉 in 𝒦. (iii) *The compact middle.* On {c_0(γ) ≤ |σ| ≤ C_0, Im σ ≥ 0}, a compact set, P̂_(𝗉_γ)(σ)
 is invertible at each point, and invertibility is open in (σ, 𝗉) ([[thm:i-a-8-1]], as in the proof of
 [[prop:iii-d-6-3]]); finitely many neighbourhoods cover it, giving N_2. On N_1 ∩ N_2 ∩ 𝒦, which contains
 ℬ(γ) × [0, ϵ_1] × (−ϵ_1, ϵ_1) × {γ} for some neighbourhood ℬ(γ) and some ϵ_1 > 0, invertibility holds for every σ. At
@@ -1185,8 +1185,8 @@ between consecutive integers for 0 < z ≤ ½.
 *The constant ε_Υ.* Let ℳ be the set of real numbers in [−10, 10] of the form Re ι + j, with j ∈ ℤ and ι an indicial
 root of (□^Υ_b)^(0) with |Re ι| ≤ 10 (all the roots are real). The set ℳ is finite. Indeed, by [[lem:iii-d-4-1]] and
 [[eq:iii-d-4-2]] the roots of type sl are ≤ 1 − l or ≥ l + 1, and those of type vl are −l and l + 2; so every root of
-type sl or vl has |Re ι| ≥ l − 1, and only the type s0 and the types sl and vl with l ≤ 11 have roots with
-|Re ι| ≤ 10. These are finitely many types with at most six roots each, and each root gives at most 21 points of ℳ.
+type sl or vl has |Re ι| ≥ l − 1, and only the type s0 and the types sl and vl with l ≤ 11 have roots
+with |Re ι| ≤ 10. These are finitely many types with at most six roots each, and each root gives at most 21 points of ℳ.
 Fix ε_Υ > 0 less than half the least distance between distinct points of ℳ. As 0 is a root, ℳ contains every integer
 in [−10, 10]; so ε_Υ < ½, and ε_Υ < d(Re ι, ℤ) for every indicial root ι with Re ι ∉ ℤ and |Re ι| ≤ 10, as the integer
 nearest to such a Re ι lies in [−10, 10]. The restriction to |Re ι| ≤ 10 cannot be dropped. For z > 0 the root
@@ -1431,8 +1431,8 @@ stationary. At l = 1, ι = 1, [[eq:s13-dets]] gives (3)(1)Q_1(0) = 3(κ(κ + 1) 
 (iv) g_m = η + (m/r²)(dt − dr)² ([[eq:iii-b-3-4]]) and R annihilates t and r, so g(R, ·) = η(R, ·), which is the
 given form; R is Killing for every spherically symmetric metric. Independence: 𝔰𝔬(4) has dimension 6, and the
 coordinate functions are independent. (v) g_m is Ricci-flat for every m, so D Ric(∂_m g) = 0; by (vi), h_A is minus
-the derivative of a Ricci-flat family, so D Ric(h_A) = 0. The orders follow from [[eq:iii-b-3-4]] and from
-|w| = O(r) in Cartesian components. η_m is spherically symmetric because g_m, c_Υ and E_Υ are, and its order follows
+the derivative of a Ricci-flat family, so D Ric(h_A) = 0. The orders follow from [[eq:iii-b-3-4]] and
+from |w| = O(r) in Cartesian components. η_m is spherically symmetric because g_m, c_Υ and E_Υ are, and its order follows
 as in [[lem:iii-d2-2-1]]: δ_(g,E)G_g maps ρ²C^∞ into ρ³C^∞. For h_A: g^tφ = 0 and w is angular, so tr_g h_A = 0; for
 the divergence of a symmetric tensor, ∇_μh^μ_ν = |g|^(−1/2)∂_μ(|g|^(1/2)h^μ_ν) − ½(∂_ν g_αβ)h^(αβ), where the last
 term vanishes as h^(αβ) has only tφ components and g_tφ = 0 identically; h^φ_t = m/r⁴ and h^t_φ = −(m/(fr²))sin²ϑ do
@@ -1690,8 +1690,8 @@ Q_1(s) = s² − (8 + z)s + 12 + 3z, Q_1(6) = −3z, Q_1(12) = 60 − 9z and Q_1
 for z > 0, so −2 is not an s1 root for z > 0.
 
 (iii) V = ρ⁻¹(0, 0, V_𝕊) and |x|V = ρ⁻²(0, 0, V_𝕊). On v1, Ā_0(ρ^a(0, 0, V_𝕊)) = ρ^(a+2)(−a² + 2a + 3)(0, 0, V_𝕊) and
-S̄ = γ on angular components, so Ā_0(k_1|x|V) = −5k_1(0, 0, V_𝕊) and Ā_1V = −2(−1 − 3/2 − γ)(0, 0, V_𝕊)
-= (5 + 2γ)(0, 0, V_𝕊). The relation Ā_1V + Ā_0(k_1|x|V) = 0 holds exactly when k_1 = 1 + 2γ/5. By
+S̄ = γ on angular components, so Ā_0(k_1|x|V) = −5k_1(0, 0, V_𝕊) and Ā_1V = −2(−1 − 3/2 − γ)(0, 0,
+V_𝕊) = (5 + 2γ)(0, 0, V_𝕊). The relation Ā_1V + Ā_0(k_1|x|V) = 0 holds exactly when k_1 = 1 + 2γ/5. By
 [[lem:iii-a1-2-1]] (1), (δ̄*)^(0)(ρ⁻²(0, 0, V_𝕊)) has c = −¼ρ(D + 1)ρ⁻²V_𝕊 = ¼ρ⁻¹V_𝕊, f = −¼ρ⁻¹V_𝕊 and
 q = ρ⁻¹δ*_𝕊V_𝕊 = 0 (V_𝕊 is Killing on 𝕊³), and dt_* ⊗_s V has f = ½ρ⁻¹V_𝕊; with k_1 this is [[eq:iii-d3-3-3]].
 Stationarity and the kernels follow as in (ii). The v1 roots are −1 and 3.
@@ -1708,8 +1708,8 @@ N_s1(−2) = N⁰ + γN¹ with
     N⁰ = ( −3 , −1 , −2 ; −1 , −3 , 2 ; −2 , 2 , −4 ),
     N¹ = ( 2 + 4e , 2 − 4e , −2e ; 4e − 2 , −(2 + 4e) , −2e ; 2 , 2 , 0 );
 
-multiplying out, N⁰(a_2, b_2, k_2) = (10e)⁻¹(0, 40e, −40e) = (0, 4, −4) and N¹(a_2, b_2, k_2) = (10e)⁻¹(0, 40e, −20e)
-= (0, 4, −2). For instance the second entry of N¹(a_2, b_2, k_2) is
+multiplying out, N⁰(a_2, b_2, k_2) = (10e)⁻¹(0, 40e, −40e) = (0, 4, −4) and N¹(a_2, b_2, k_2) =
+(10e)⁻¹(0, 40e, −20e) = (0, 4, −2). For instance the second entry of N¹(a_2, b_2, k_2) is
 (10e)⁻¹((4e − 2)(2 − 3e) + (2 + 4e)(2 + 7e) − 2e(8e − 2)) = (10e)⁻¹ · 40e. (iii): Ā_0(ρ^a(0, 0, V_𝕊)) =
 ρ^(a+2)(−a² + a + 2)(0, 0, V_𝕊) and Ā_1V = −2(−1 − 1 − γ)(0, 0, V_𝕊), so the relation is 4 + 2γ − 4k_1 = 0. The
 components of h̄¹_v1 are those found in (iii), c = ¼k_1ρ⁻¹V_𝕊 and f = (½ − ¼k_1)ρ⁻¹V_𝕊, as δ̄* of
@@ -1861,8 +1861,8 @@ the topology of these spaces), u can be chosen to.
 *Proof.* Near ∂X, A := ρ⁻²P_b is an elliptic b-operator whose normal operator is the model's ([[lem:iii-d-2-1]] (3))
 and so commutes with the rotations; its indicial family N(A, ι) preserves the types, and on type τ it is invertible
 exactly off the type τ roots. So w := N(A, m_*)⁻¹f_(m_*) is defined, smooth on 𝕊³, of the types of f_(m_*). With
-χ_∂ the cut-off of [[ch:s03]], u_0 := χ_∂ρ^(m_*)w has P_bu_0 = χ_∂ρ^(m_*+2)f_(m_*) + ρ²(A − N(A))(χ_∂ρ^(m_*)w)
-+ (smooth, compactly supported), and A − N(A) ∈ ρ Diff_b², so f_2 := f_1 − P_bu_0 has ρ⁻²f_2 ∈ 𝒜^(ℱ_1) with
+χ_∂ the cut-off of [[ch:s03]], u_0 := χ_∂ρ^(m_*)w has P_bu_0 = χ_∂ρ^(m_*+2)f_(m_*) + ρ²(A − N(A))(χ_∂ρ^(m_*)w) +
+(smooth, compactly supported), and A − N(A) ∈ ρ Diff_b², so f_2 := f_1 − P_bu_0 has ρ⁻²f_2 ∈ 𝒜^(ℱ_1) with
 ℱ_1 ⊂ {Re ≥ m_* + ε_Υ}. [[lem:iii-a-1-5]] (formal solutions; on the bundle, by the argument given for
 [[lem:iii-a-1-4]] in the proof of [[lem:iii-d1-5-1]]) with β = 3 gives u_1 ∈ 𝒜^(ℰ_1) near ∂X,
 ℰ_1 ⊂ {Re ≥ m_* + ε_Υ} (its exponents are those of ℱ_1 plus ℕ_0, with logarithms where they meet roots), such that
@@ -1892,8 +1892,8 @@ There are ω̆^((0),1)_(b,s0) with ω̆^((0),1)_(b,s0) − χ_∂W̄ ∈ 𝒜^((
     h^(0)_(b,s0) := δ*_(g_b)ω^((0),≤1)_(b,s0) ∈ 𝒜^((0,0)∪(2,0)∪(2+ℰ_ind))                                {#eq:iii-d3-3-1}
 
 has the leading term h̄^(0)_s0 of [[prop:np-10-29]] (i), nonzero, homogeneous of degree 0 and of scalar type 0. For
-k = 0, …, 3, h^((0),≤k)_(b,s0) := (k + 1)⁻¹δ*_(g_b)ω^((0),≤k+1)_(b,s0)
-= t_*^k h^(0)_(b,s0) + Σ_(i=1)^k (k!/(k − i)!) t_*^(k−i) h̆^((0),i)_(b,s0), with
+k = 0, …, 3, h^((0),≤k)_(b,s0) :=
+(k + 1)⁻¹δ*_(g_b)ω^((0),≤k+1)_(b,s0) = t_*^k h^(0)_(b,s0) + Σ_(i=1)^k (k!/(k − i)!) t_*^(k−i) h̆^((0),i)_(b,s0), with
 
     h̆^((0),i)_(b,s0) := (δ*_(g_b))^(0)ω̆^((0),i+1)_(b,s0) + dt_* ⊗_s ω̆^((0),i)_(b,s0) ∈ 𝒜^((−i,0)∪(−i+ℰ_ind)).
                                                                                                          {#eq:iii-d3-3-2}
@@ -1932,8 +1932,8 @@ order lower than A_i − Ā_i ([[sec:iii-d3-1]]), so leading coefficients are un
 solutions.* The model leading terms named below solve the model equations exactly, by [[prop:np-10-29]] and
 [[prop:np-10-30]] (v).
 
-*(1).* ω_s0 := ω^(0)_(b,s0) is Killing, so A_0ω_s0 = 0 and A_1ω_s0 = □^Υ_b(t_*ω_s0)
-= 2δ_(g_b,E_Υ)G_(g_b)(dt_* ⊗_s ω_s0) ∈ ρC^∞. The model has Ā_0W̄ = −Ā_1ω̄_s0 ([[prop:np-10-29]] (i)). So
+*(1).* ω_s0 := ω^(0)_(b,s0) is Killing, so A_0ω_s0 = 0 and A_1ω_s0 =
+□^Υ_b(t_*ω_s0) = 2δ_(g_b,E_Υ)G_(g_b)(dt_* ⊗_s ω_s0) ∈ ρC^∞. The model has Ā_0W̄ = −Ā_1ω̄_s0 ([[prop:np-10-29]] (i)). So
 ω̆¹ := χ_∂W̄ + ω̆′ with A_0ω̆′ = −(A_1ω_s0 − Ā_1ω̄_s0) − (A_0 − Ā_0)W̄ + (compactly supported). Here
 A_1ω_s0 − Ā_1ω̄_s0 = Q_bω_s0 + Ā_1(ω_s0 − ω̄_s0) ∈ ρ³C^∞ ([[eq:iii-d2-3-2]]) and
 (A_0 − Ā_0)W̄ ∈ ρ⁴ Diff_b²(ρ⁻¹C^∞) ⊂ ρ³C^∞, so [[lem:iii-d3-2-1]] with m_* = 1 (no root) gives
@@ -1946,8 +1946,8 @@ degree 0, nonzero, and lies in the kernels of D_ḡRic and δ_(ḡ,Ē)Ḡ ([[pro
 ρ Diff_b¹ 𝒜^((−k+1,0)∪(−k+1+ℰ_ind)) + ρ²𝒜^((−k+2,0)∪…), so ρ⁻² of it has m_* = −k, its leading coefficient that of
 −Ā_1ω̆̄^(k−1), of type s0, and −k is no s0 root (R1); [[lem:iii-d3-2-1]] gives ω̆^k ∈ 𝒜^((−k,0)∪(−k+ℰ_ind)). The
 formula for h^((0),≤k): by [[eq:iii-d3-1-4]] with h̆′^j := (δ*_(g_b))^(0)ω̆^j + dt_* ⊗_s ω̆^(j−1), h̆′^0 = 0 and
-h̆′^1 = h^(0)_(b,s0), δ*_(g_b)ω^(≤k+1) = Σ_(i=0)^k ((k + 1)!/(k − i)!) t_*^(k−i) h̆′^(i+1)
-= (k + 1)Σ_(i=0)^k (k!/(k − i)!) t_*^(k−i) h̆′^(i+1), and h̆^((0),i)_(b,s0) = h̆′^(i+1); the orders follow from
+h̆′^1 = h^(0)_(b,s0), δ*_(g_b)ω^(≤k+1) = Σ_(i=0)^k ((k + 1)!/(k − i)!) t_*^(k−i)
+h̆′^(i+1) = (k + 1)Σ_(i=0)^k (k!/(k − i)!) t_*^(k−i) h̆′^(i+1), and h̆^((0),i)_(b,s0) = h̆′^(i+1); the orders follow from
 [[eq:iii-d3-1-2]].
 
 *(2).* Inductively, for k = 2, 3, 4, the right side of [[eq:iii-d3-1-3]] is −A_1ω̆^(k−1) − A_2ω̆^(k−2) with

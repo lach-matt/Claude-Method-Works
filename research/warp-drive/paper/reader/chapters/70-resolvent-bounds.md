@@ -1045,15 +1045,15 @@ we bound it. Recall dr = f dr_*.
   ‖G‖² ≤ (max_I f)‖F_k‖²_𝔏.
 - *Vector type.* ω_k = r^(−1/2)uY with Y = Y_k ∈ 𝒱_l, δω_k = 0 and □ω_k = δdω_k. By [[prop:np-10-16]] (iii) the t- and
   r-components of δdω_k vanish and its angular part is gY with −fr^(1/2)g = u″ + σ²u − V^vu, so
-  −u″ + (V^v − σ²)u = G := fr^(1/2)g. In the static frame |ω_k|² = r⁻³|u|²|Y|² and |F_k|² = r⁻²|g|²|Y|², so
-  |ω_k|²r³dr = f|u|²|Y|²dr_*, while the integral of |F_k|²r³dr over 𝕊³ is r|g|²dr and |G|²dr_* = fr|g|²dr; the two
+  −u″ + (V^v − σ²)u = G := fr^(1/2)g. In the static frame |ω_k|² = r⁻³|u|²|Y|² and |F_k|² = r⁻²|g|²|Y|²,
+  so |ω_k|²r³dr = f|u|²|Y|²dr_*, while the integral of |F_k|²r³dr over 𝕊³ is r|g|²dr and |G|²dr_* = fr|g|²dr; the two
   inequalities of the first case follow verbatim.
 - *Tensor type.* ω_k = 2r²HT with T = Y_k ∈ 𝒯_l. By [[lem:rb-tensor-ricci]], tr ω_k = 0 and δω_k = 0, and
   ι_(g⁻¹c)ω_k = 0 for every c in the span of dt and dr; so the gauge terms of L_(b_0) vanish on ω_k, and
   L_(b_0)ω_k = D Ric(ω_k) = −r²ℬ[H]T with all other components zero, by [[eq:rb-tensor-ricci]]. With u := r^(3/2)H, on
   the factor e^(−iσt), fr^(3/2)ℬ = u″ + σ²u − V_Tu with V_T = V_l, so F_k = 2L_(b_0)ω_k = −2r²ℬT and
-  −u″ + (V_T − σ²)u = G := −fr^(3/2)ℬ. In the static frame |ω_k|² = 4|H|²|T|² and |F_k|² = 4|ℬ|²|T|², so
-  |ω_k|²r³dr = 4f|u|²|T|²dr_* and |F_k|²r³dr = 4fr³|ℬ|²|T|²dr_*, while |G|² = f²r³|ℬ|²; so
+  −u″ + (V_T − σ²)u = G := −fr^(3/2)ℬ. In the static frame |ω_k|² = 4|H|²|T|² and |F_k|² = 4|ℬ|²|T|²,
+  so |ω_k|²r³dr = 4f|u|²|T|²dr_* and |F_k|²r³dr = 4fr³|ℬ|²|T|²dr_*, while |G|² = f²r³|ℬ|²; so
   ‖χ_Iω_k‖²_𝔏 ≤ 4(max_I f)‖u‖²_I and ‖G‖² ≤ (max_I f)‖F_k‖²_𝔏/4.
 
 In each case G vanishes off I, and u = R(σ)G. Indeed, by *The class* in the proof of [[prop:iii-d-6-2]], which uses of

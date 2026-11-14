@@ -627,8 +627,8 @@ and the rotation rows of [[def:iii-i14-1-3]] ([[def:iii-i9-2-3]]). The terms of 
 
 with ω̆^i_τ ∈ 𝒜^((ς_τ−i,0)+ℱ) ([[eq:iii-i9-2-1]]), a^((i)) of rate e_ν + i, e_ν = ϰ − 1 − ς_τ (the proof of
 [[lem:iii-i9-2-2]] (b); for s0 the rate is ϰ − 1 + i), and A_1, A_2 the coefficients of ∂_(t_*) and ∂²_(t_*) in
-□^Υ_(b₀). By [[lem:iii-d-2-1]] (2)–(3), with the E_Υ-term of □^Υ, A_1 = −2ρ(ρ∂_ρ − 3/2 − S̄) + Q_(b₀) ∈ ρDiff¹_b and A_2
-= −g^(00) ∈ ρ²C^∞ near ∂X: they gain one and two spatial orders. So the first product has rate c = e_ν + K_τ + 1 and
+□^Υ_(b₀). By [[lem:iii-d-2-1]] (2)–(3), with the E_Υ-term of □^Υ, A_1 = −2ρ(ρ∂_ρ − 3/2 − S̄) + Q_(b₀) ∈ ρDiff¹_b and
+A_2 = −g^(00) ∈ ρ²C^∞ near ∂X: they gain one and two spatial orders. So the first product has rate c = e_ν + K_τ + 1 and
 spatial order ς_τ − K_τ + 1, hence ι⁺-order ϰ + 1 and K⁺-order e_ν + K_τ + 1, which is κ_ν of [[lem:iii-i9-2-2]] (d);
 the other two have ι⁺-order ϰ + 3 and K⁺-orders κ_ν and κ_ν + 1. The ℱ-shifts only raise orders (min Re ℰ_ind > 0).
 Every row has Re ϰ ≥ ϰ_♯ ([[eq:iii-i9-1-2]]; the rotation rows have (ϰ, k) in ℳ_rot = ℳ ∪ (ℰ_♯ ∩ {Re = 2}) of
@@ -667,21 +667,21 @@ H^(∞,(b_I+1,b_++2,1/2))_b(Ω_*, μ_b)^(•,−), the space of [[eq:ii-f1-1-4]]
 
 *Proof.* *The conditions.* S̄ = 0 for □ ([[lem:iii-d-3-1]] at γ_Υ = 0), so they read b_I < 3/2 and b_+ < b_I. *Weights.*
 A conormal tensor whose pointwise orders at ℐ⁺, ι⁺ and K⁺ exceed b_I + 1, b_+ + 2 and ½ lies in the space, the density
-μ_b being a b-density. *ℐ⁺.* There F_Y = E^ΥGġ, with E^Υ_(g,∞)k = −γ_Υ(2ι_(g⁻¹c_Υ)k − (2/3)(1 − e_Υ)c_Υ tr_g k) and c_Υ
-= |x|⁻¹dt. The vector g⁻¹c_Υ has no angular component, and the other term is a trace; G_gġ differs from ġ by a multiple
-of g tr_gġ. So E^ΥGġ does not involve the trace-free angular part π̸₀ġ of [[sec:iii-c-3]]. Near ℐ⁺, ġ has the classes of
-[[eq:iii-c-3-3]] slot by slot (h′ ∈ 𝒳^∞_(J,ex) by [[def:iii-j3-1-1]], χ_−ḣ by [[prop:viii-1-2]] (2), the terms with χ_K
-vanishing there), with the exponents of [[eq:iii-c-3-2]]: above 3/2 + 2γ_Υ for π_C, ϰ_♯ for π₀₁, 3/2 + γ_Υ for π_(1/),
-ϰ_♯ and 3/2 + 2γ_Υ for π₁₁, and 3/2 for π̸₀, the radiation field. Without π̸₀ the least is ϰ_♯, as e_Υ ≥ 0, and |x|⁻¹
-adds one: the ℐ⁺-order is ϰ_♯ + 1 − η > 5/2 > b_I + 1. *ι⁺.* On {χ_K = 1} the order is ϰ_♯ + 1 − η ([[prop:gd-r3-2]]).
-Elsewhere near ι⁺: ġ − χ_KṁK_V = h′ + h_rem(q′) + Dh_tot(p⃗′) has ι⁺-order ϰ_♯ − η, as the terms of h_tot lie in 𝒜^𝒢,
-𝒜^(𝒢+1) ([[lem:iii-i7-2-2]], 𝒢 = (2, 0) ∪ (2 + ℰ_ind), [[eq:iii-i7-1-1]]) and 𝒜^((ϰ,k)+ℱ) ([[lem:iii-i9-2-2]] (b)), so
-E^ΥG of it has ι⁺-order ϰ_♯ + 1 − η; Dϑ_tot(p⃗′) has min(3, ϰ_♯ + 1) − η ([[eq:iii-i7-2-1]], [[lem:iii-i9-2-2]] (b));
-[Υ̇⁰, χ_K]K_V has order 3, as dχ_K ∈ ρ_+C^∞ and K_V is stationary in |x|⁻²C^∞(X̄); [□, χ_K] = (□_0χ_K) − 2∇_(∇χ_K) gains
-two orders near (ι⁺)°, as ∂χ_K ∈ ρ_+C^∞ there ([[sec:iii-i4-1]]) and Cartesian derivatives map ρ_+^aC^∞ into
-ρ_+^(a+1)C^∞, and W**_H has order 1 on (ι⁺)°, as |rA|, |rB| and |r∂_mT_m| are bounded and r(v/2)|W*| ≤ C t_*r⁻¹ is
-bounded there; so [□, χ_K]W**_H has order 3. Every one of these exceeds b_+ + 2 = β + 5/2. *K⁺.* On {χ_K = 1}, w − η > ½;
-supp dχ_K and {χ_K < 1} stay away from K⁺. *Support.* χ(t^♭_*)F_Y vanishes on {t^♭_* < 2}. ∎
+μ_b being a b-density. *ℐ⁺.* There F_Y = E^ΥGġ, with E^Υ_(g,∞)k = −γ_Υ(2ι_(g⁻¹c_Υ)k − (2/3)(1 − e_Υ)c_Υ tr_g k) and
+c_Υ = |x|⁻¹dt. The vector g⁻¹c_Υ has no angular component, and the other term is a trace; G_gġ differs from ġ by a
+multiple of g tr_gġ. So E^ΥGġ does not involve the trace-free angular part π̸₀ġ of [[sec:iii-c-3]]. Near ℐ⁺, ġ has the
+classes of [[eq:iii-c-3-3]] slot by slot (h′ ∈ 𝒳^∞_(J,ex) by [[def:iii-j3-1-1]], χ_−ḣ by [[prop:viii-1-2]] (2), the terms
+with χ_K vanishing there), with the exponents of [[eq:iii-c-3-2]]: above 3/2 + 2γ_Υ for π_C, ϰ_♯ for π₀₁, 3/2 + γ_Υ for
+π_(1/), ϰ_♯ and 3/2 + 2γ_Υ for π₁₁, and 3/2 for π̸₀, the radiation field. Without π̸₀ the least is ϰ_♯, as e_Υ ≥ 0,
+and |x|⁻¹ adds one: the ℐ⁺-order is ϰ_♯ + 1 − η > 5/2 > b_I + 1. *ι⁺.* On {χ_K = 1} the order is ϰ_♯ + 1 − η
+([[prop:gd-r3-2]]). Elsewhere near ι⁺: ġ − χ_KṁK_V = h′ + h_rem(q′) + Dh_tot(p⃗′) has ι⁺-order ϰ_♯ − η, as the terms of
+h_tot lie in 𝒜^𝒢, 𝒜^(𝒢+1) ([[lem:iii-i7-2-2]], 𝒢 = (2, 0) ∪ (2 + ℰ_ind), [[eq:iii-i7-1-1]]) and 𝒜^((ϰ,k)+ℱ)
+([[lem:iii-i9-2-2]] (b)), so E^ΥG of it has ι⁺-order ϰ_♯ + 1 − η; Dϑ_tot(p⃗′) has min(3, ϰ_♯ + 1) − η ([[eq:iii-i7-2-1]],
+[[lem:iii-i9-2-2]] (b)); [Υ̇⁰, χ_K]K_V has order 3, as dχ_K ∈ ρ_+C^∞ and K_V is stationary in |x|⁻²C^∞(X̄); [□, χ_K] =
+(□_0χ_K) − 2∇_(∇χ_K) gains two orders near (ι⁺)°, as ∂χ_K ∈ ρ_+C^∞ there ([[sec:iii-i4-1]]) and Cartesian derivatives map
+ρ_+^aC^∞ into ρ_+^(a+1)C^∞, and W**_H has order 1 on (ι⁺)°, as |rA|, |rB| and |r∂_mT_m| are bounded and r(v/2)|W*| ≤ C
+t_*r⁻¹ is bounded there; so [□, χ_K]W**_H has order 3. Every one of these exceeds b_+ + 2 = β + 5/2. *K⁺.* On {χ_K = 1},
+w − η > ½; supp dχ_K and {χ_K < 1} stay away from K⁺. *Support.* χ(t^♭_*)F_Y vanishes on {t^♭_* < 2}. ∎
 
 Without the term ṁ□(χ_KW**_H) the forcing term near K⁺ would be J_h + ṁΥ̇⁰(K_V), and Υ̇⁰(K_V) = r⁻³dv near the
 horizon is stationary and nonzero, of K⁺-order 0, below the ½ of the space. That is why the mass change is carried

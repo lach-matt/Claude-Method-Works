@@ -166,8 +166,8 @@ and, with constants independent of h and of l,
 
     sup|β_a| ≤ C|h_(a·)|_1,     sup|𝓉| ≤ C|h^TF|_0,     sup|D̂𝓉| ≤ C|h^TF|_1,
 
-the same holding with any product 𝒫_j of ℒ_(∂_v), ℒ_(∂_r) and the rotations applied to both sides. Here |h_(a·)|_k and
-|h^TF|_k are taken with the norm of the unit sphere; on {r_♭ ≤ r ≤ R′} each is at most C_(R′)|h|_k. No sum over
+the same holding with any product 𝒫_j of ℒ_(∂_v), ℒ_(∂_r) and the rotations applied to both sides. Here |h_(a·)|_k
+and |h^TF|_k are taken with the norm of the unit sphere; on {r_♭ ≤ r ≤ R′} each is at most C_(R′)|h|_k. No sum over
 harmonics is formed.
 
 *Proof.* (a) In the coordinates (ϑ, φ1, φ2), dω = cos ϑ sin ϑ dϑ dφ1 dφ2 = (1/2) sin 2ϑ dϑ dφ1 dφ2, and on
@@ -359,8 +359,8 @@ the rate of [[thm:viii-2-2]], with a loss of two derivatives, the horizon includ
 sum over harmonics is formed). The constant depends on R′; nothing is claimed uniformly in r.
 
 (c) (The gauge vector.) On the same set, |ξ[h]|_k ≤ C‖(γ̇, k̇)‖_(H^(k₁(k+1))) t_*^(−w+ε′); the radial component rH_L
-of Y[h_0] = ζ∂_v + rH_L∂_r, and every derivative of ξ[h] and of the components ζ and rH_L, are O(t_*^(−w+ε′)); and
-|ζ| ≤ Ct_*^(−w+1+ε′). As a 1-form, X_(RW,0) := −Y[h_0]^♭ = (fζ − rH_L) dv − ζ dr; its dr component, and the term f′ζ
+of Y[h_0] = ζ∂_v + rH_L∂_r, and every derivative of ξ[h] and of the components ζ and rH_L, are O(t_*^(−w+ε′));
+and |ζ| ≤ Ct_*^(−w+1+ε′). As a 1-form, X_(RW,0) := −Y[h_0]^♭ = (fζ − rH_L) dv − ζ dr; its dr component, and the term f′ζ
 in the r-derivative of its dv component, are only O(t_*^(−(w−1)+ε′)). So X_RW = O(t_*^(−(w−1)+ε′)). Among the
 G-invariant 1-forms X on N⁺ for which ġ + ℒ_Xg is in the Regge–Wheeler-type gauge with l = 0 part ṁK_V, X_RW is unique
 up to c′(∂_v)^♭, c′ a constant, and the c′∂_v are the only G-invariant Killing fields.
@@ -450,8 +450,8 @@ satisfies □Φ − (V_T/f)Φ = 0 with V_T = (f/r²)(k_T² + 2 + 3/4 + 9m₀/(4r
 
     r²W_S = k² + 3/4 − (39/4)ς − (72ς − 120ς²)/H + 288ς²f/H²,     r²W_T = k² + 3/4 + (9/4)ς.        {#eq:rw-potentials}
 
-Both are smooth on {r > 0}, and for every j there is C_j, independent of l, with
-|∂_r^j(W − (k² + 3/4)r⁻²)| ≤ C_jr^(−2−j) on {r ≥ r_h}, for W = W_S and W = W_T. In particular every r-derivative of W
+Both are smooth on {r > 0}, and for every j there is C_j, independent of l, with |∂_r^j(W − (k² + 3/4)r⁻²)|
+≤ C_jr^(−2−j) on {r ≥ r_h}, for W = W_S and W = W_T. In particular every r-derivative of W
 is bounded on {r ≥ r_h} by C_j(1 + k²), and |V| ≤ C(1 + k²)r⁻² there.
 
 *Proof.* Substitute 𝔭 = H − 6ς in [[eq:s15-ki-q]]: 16𝔭³ = 16H³ − 288ςH² + 1728ς²H − 3456ς³,
@@ -702,9 +702,9 @@ on S³; it enters only through the identity Σ_i Ě^N_(Ω_iΨ) = λĚ^N_Ψ, mode
 
 *Proof.* On C_τ, n_(Σ_τ) = L, and at fixed u_H, L = f∂_r (v_H − u_H = r_*) and dv_H = dr/f; N = T there, as Y_H = 0
 for r ≥ R_H > r_1. From (89), with g(L, T) = −f and g̃⁻¹ = f⁻¹(−∂_(t_s)² + ∂_(r_*)²) on the orbit space,
-Ť(L, T) = (1/2)|∇_LΨ|² + (f/(2r²))|∇̊Ψ|². For Ψ = r^(1/2)Φ𝒴, ∇_LΨ = r²L(r⁻²Ψ) = r²L(r^(−3/2)Φ)𝒴
-= r^(1/2)f(∂_rΦ − 3Φ/(2r))𝒴, so |∇_LΨ|² = r⁻³f²(∂_rΦ − 3Φ/(2r))²|𝒴|² and r⁻²|∇̊Ψ|² = r⁻⁵Φ²|∇̊𝒴|², with |𝒴| and
-|∇̊𝒴| taken in the metric of the unit sphere; and ∫_(S³) |∇̊𝒴|² dω = (k² − 6)‖𝒴‖² for the scalar type by (36),
+Ť(L, T) = (1/2)|∇_LΨ|² + (f/(2r²))|∇̊Ψ|². For Ψ = r^(1/2)Φ𝒴, ∇_LΨ = r²L(r⁻²Ψ) = r²L(r^(−3/2)Φ)𝒴 =
+r^(1/2)f(∂_rΦ − 3Φ/(2r))𝒴, so |∇_LΨ|² = r⁻³f²(∂_rΦ − 3Φ/(2r))²|𝒴|² and r⁻²|∇̊Ψ|² = r⁻⁵Φ²|∇̊𝒴|², with |𝒴|
+and |∇̊𝒴| taken in the metric of the unit sphere; and ∫_(S³) |∇̊𝒴|² dω = (k² − 6)‖𝒴‖² for the scalar type by (36),
 (k² − 2)‖𝒴‖² for the tensor type by [KI03, (5.2)]. Integrating Ť(L, T) against r³dv_H dω = r³f⁻¹dr dω,
 
     Ě^N_Ψ(Σ_τ ∩ {r ≥ R_H}) = (1/2)∫_(R_H)^∞ (f(∂_rΦ − 3Φ/(2r))² + (k² − 6)Φ²/r²) dr ‖𝒴‖²
@@ -728,9 +728,9 @@ acts irreducibly on trace-free symmetric 2-tensors at a point, so 𝒜 is a cons
 for Ω_jΨ = r^(1/2)ΦL_j𝒴: L_j commutes with Σ_iL_(Ω_i)² (the sum is invariant under the adjoint action of SO(4)) and
 maps the harmonics of degree l of each type to harmonics of degree l of that type, so L_j𝒴 lies in the same
 eigenspace; summing over j gives Σ_(i,j)Ě^N_(Ω_iΩ_jΨ) = λΣ_jĚ^N_(Ω_jΨ) = λ²Ě^N_Ψ. On the spacelike part, N and n_(Σ_τ)
-are timelike, uniformly on the compact set {r_h ≤ r ≤ R_H} of the leaf modulo the flow of T, so Ť(n, N) bounds c(|∇_vΨ|²
-+ |∇_rΨ|² + r⁻²|∇̊Ψ|²); there ∇_AΨ = r²∂_A(r^(−3/2)Φ)𝒴, the angular term carries (k² − 6) ≥ k²/4, and the term in Φ/r of
-∂_r(r^(−3/2)Φ) is absorbed by it. ∎
+are timelike, uniformly on the compact set {r_h ≤ r ≤ R_H} of the leaf modulo the flow of T, so Ť(n, N) bounds
+c(|∇_vΨ|² + |∇_rΨ|² + r⁻²|∇̊Ψ|²); there ∇_AΨ = r²∂_A(r^(−3/2)Φ)𝒴, the angular term carries (k² − 6) ≥ k²/4, and the term
+in Φ/r of ∂_r(r^(−3/2)Φ) is absorbed by it. ∎
 
 **Lemma {#lem:np-10-1a}** (The red-shift commutation for the class's master fields.) Let Φ be a smooth solution, up
 to and including the future horizon, of □Φ = WΦ on {r ≥ r_h}, □ = 2∂_v∂_r + ∂_r(f∂_r), W the potential of a mode of
@@ -1079,8 +1079,8 @@ H² ≤ (11/8)²k⁴, and k²∫k²Φ²/r² dr ≤ C_1k²Ě^N_Ψ/‖𝒴‖² �
 Step 3, (b). Apply [[lem:rwg-s]] with Step 1, mode by mode. For w = T^aΦ (a ≤ 2), ∫w²/ϱ² ≤ (1/8)∫k²w²/ϱ², so
 sup r^(−1/2)|T^aΦ| ≤ C(Ě^N_(T^aΨ)/‖𝒴‖²)^(1/2). For w = k²Φ, ∫w²/ϱ² ≤ C_1k²Ě^N_Ψ/‖𝒴‖² ≤ C_1Ě^N_(ΩΨ)/‖𝒴‖² and
 ∫w′² ≤ C_1k⁴Ě^N_Ψ/‖𝒴‖² ≤ C_1Ě^N_(Ω²Ψ)/‖𝒴‖², so sup r^(−1/2)k²|Φ| ≤ C((Ě^N_(ΩΨ) + Ě^N_(Ω²Ψ))/‖𝒴‖²)^(1/2).
-For w = ∂_rT^aΦ (a ≤ 1), w′ = ∂_r²T^aΦ = (2/f)∂_rT^(a+1)Φ − (f′/f)∂_rT^aΦ + (V/f²)T^aΦ by [[eq:rwg-master]], and
-|V| ≤ Ck²r⁻² ([[lem:rw-potentials]]), so sup|∂_rT^aΦ| ≤ C((Ě^N_(T^aΨ) + Ě^N_(T^(a+1)Ψ) + Ě^N_(T^aΩΨ))/‖𝒴‖²)^(1/2). Each
+For w = ∂_rT^aΦ (a ≤ 1), w′ = ∂_r²T^aΦ = (2/f)∂_rT^(a+1)Φ − (f′/f)∂_rT^aΦ + (V/f²)T^aΦ by [[eq:rwg-master]], and |V|
+≤ Ck²r⁻² ([[lem:rw-potentials]]), so sup|∂_rT^aΦ| ≤ C((Ě^N_(T^aΨ) + Ě^N_(T^(a+1)Ψ) + Ě^N_(T^aΩΨ))/‖𝒴‖²)^(1/2). Each
 is at most C𝒟^(1/2)τ⁻¹ by Step 1. [[lem:rwg-1]] (ii), with the weight r⁻¹ on the orbit block and r⁰ on the angular
 block, puts every term under one of these suprema with a bounded coefficient.
 
@@ -1111,8 +1111,8 @@ l ≥ 2 in the gauge, class or not.
 **Theorem {#thm:rwg-2-prime}** (The pointwise form.) With h as in [[thm:rwg-2]], put
 𝒟′ := 𝒟[h] + Σ_i 𝒟[L_ih] + Σ_(i,j) 𝒟[L_iL_jh], L_i the Lie derivative along Ω_i and 𝒟[·] the 𝒟 of [[thm:rwg-2]] for
 the perturbation in brackets; it is at most C Σ I_(XΨ)(Σ_0) over X = T^aΩ^b with a ≤ 2, b ≤ 4, a + b ≤ 4.
-Then for τ ≥ 1 and 0 < δ ≤ 1/2, with C depending on m₀ and R_H only, |h_(ab)| the components as functions on S³ and
-|h_(ij)| the norm of the angular block in the unit sphere's metric:
+Then for τ ≥ 1 and 0 < δ ≤ 1/2, with C depending on m₀ and R_H only, |h_(ab)| the components as functions on S³
+and |h_(ij)| the norm of the angular block in the unit sphere's metric:
 
     (b′) sup_(r≥R_H, ω) (r⁻¹|h_(ab)| + |h_(ij)|)(τ, r, ω) ≤ C 𝒟′^(1/2) τ⁻¹,
     (c′) sup_(r≥R_H, ω) (r^(−1/2)|h_(ab)| + r^(1/2)|h_(ij)|)(τ, r, ω) ≤ C δ^(−1/2) 𝒟′^(1/2) τ^(δ−1/2).

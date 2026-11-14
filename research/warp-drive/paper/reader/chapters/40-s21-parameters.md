@@ -228,8 +228,8 @@ at infinity, where everything is smooth. On the former,
 
     (ψ_(−S⁽⁰⁾_1) ∘ φ_(−S))*g_b = φ*_(−S)g_b + φ*_(−S)(τ*g_b − g_b).
 
-By [[lem:iii-i7-1-1]] (c), τ*g_b − g_b ∈ |x|⁻³C^∞(X̄) there, and on that region
-|x|⁻³C^∞(X̄) ⊂ ρ_0³ρ_I³ρ_+³C^∞ (C^∞(X̄) lifts to C^∞(M) there, [[sec:iii-b-2]], as in the proof of
+By [[lem:iii-i7-1-1]] (c), τ*g_b − g_b ∈ |x|⁻³C^∞(X̄) there, and on that
+region |x|⁻³C^∞(X̄) ⊂ ρ_0³ρ_I³ρ_+³C^∞ (C^∞(X̄) lifts to C^∞(M) there, [[sec:iii-b-2]], as in the proof of
 [[lem:iii-b-5-2]]), a class which φ*_(−S) preserves ([[lem:iii-b-5-1]]) and which lies in the remainder class
 ρ_0²ρ_I³ρ_+²C^∞ of [[eq:iii-b-5-3]]. This is [[eq:iii-b-5-3]] for the composite. The proof of [[lem:iii-i-3-6]] uses
 [[eq:iii-b-5-3]] on the first alternative, smoothness on the second and [[prop:iii-b-3-6]], so it applies verbatim; the
@@ -470,8 +470,8 @@ supported in 𝒞. *At b₀.* p⃗_(b₀) = 0, L_(0,0) = L_(b₀), and the state
 E^mot_(b₀) = 0 is [[eq:iii-i7-2-3]]. *Size.* Every term of E^mot_b is linear in the direction and a smooth function of
 b on 𝒞. Its ingredients are: G − g_(b₀) = χ_K(g_b − g_(b₀)) ∈ |b − b₀|ρ_+²C^∞ near (ι⁺)° (on 𝒞, |x| ≥ t/10, and
 g_b − g_(b₀) = O(|b − b₀||x|⁻²) with all Cartesian derivatives, [[sec:iii-b-3]]); the states h^(≤1)_(b,♮), ġ_b and
-h_b, smooth in b in 𝒜^(𝒢−δ) there ([[lem:iii-i15-1-1]] (P3), with the loss of [[rem:iii-h-2-6]], (P4); on 𝒞,
-|x| ≥ t/10, and the stationary states are O(|x|⁻²) with all Cartesian derivatives); the corrections and counterterms
+h_b, smooth in b in 𝒜^(𝒢−δ) there ([[lem:iii-i15-1-1]] (P3), with the loss of [[rem:iii-h-2-6]], (P4); on
+𝒞, |x| ≥ t/10, and the stationary states are O(|x|⁻²) with all Cartesian derivatives); the corrections and counterterms
 built at b₀; and the values at p⃗_b of g′ − g_0 and of Υ^(E_Υ)(g′, g_0) − ϑ_tot, which are O(|b − b₀|) and supported
 in 𝒞, the corrections of the second kind being linear in b − b₀. The count of the proof of [[lem:iii-i4-2-2]], that
 D_(g_0)Ric and δ*δG lie in ρ_+²Diff²_b near (ι⁺)°, takes 𝒜^(𝒢−δ) into 𝒜^(𝒢+2−δ), uniformly for b ∈ ℬ̄_*. So ∂_bE^mot_b
@@ -637,8 +637,8 @@ S′ =: p⃗′^(<0)_(h,p⃗)(f, p⃗′^(=0)) ∈ 𝒮_1 such that the forward 
     L_(h,p⃗)u = f − D_p⃗P_2(h, p⃗)(S′, p⃗′^(=0))                                                         {#eq:iii-i7-4-2}
 
 has vanishing boost parameter. It is linear in (f, p⃗′^(=0)), the forcing of [[eq:iii-i7-4-2]] lies in 𝒴, and
-p⃗′^(<0)_(h,p⃗)(f, p⃗′^(=0)) = p⃗′^(<0)_(h,p⃗)(f, 0) + A_(h,p⃗)p⃗′^(=0), with
-|A_(h,p⃗)| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) in ℒ(𝔟 ⊕ 𝒮_1, 𝒮_1); at b = b₀, A_(h,p⃗) → 0 as (h, p⃗) → 0.
+p⃗′^(<0)_(h,p⃗)(f, p⃗′^(=0)) = p⃗′^(<0)_(h,p⃗)(f, 0) + A_(h,p⃗)p⃗′^(=0),
+with |A_(h,p⃗)| ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) in ℒ(𝔟 ⊕ 𝒮_1, 𝒮_1); at b = b₀, A_(h,p⃗) → 0 as (h, p⃗) → 0.
 
 *Proof.* By [[lem:iii-i7-3-1]] and ℓ_I ≤ a_I, f^S_(h,p⃗)(S′) and f^s1_(h,p⃗)(S″) lie in 𝒴 (ℐ⁺-data
 (⟨ℰ^C_I+1⟩′, a_I + 1), ι⁺-weight a_+ + 2 + min(2, m_+) − ε > 4 − ε, zero near K⁺), and so does f^b_(h,p⃗)(b′) (zero
@@ -781,8 +781,8 @@ All seminorms are O(|S|).
 *Proof.* [[eq:iii-i8-2-1]]: □ := □^Υ_(b₀) is stationary and of second order in ∂_(t_*), so
 □(φ(t_*)v) = Σ_(m=0)^2 φ^((m))A_mv for stationary v, with stationary A_m. Hence □ω^(≤4)(aS) = Σ_(j≤6) a^((j))B_j,
 B_j := Σ_m A_mω̆^(j−m) (ω̆^i := 0 for i < 0 or i > 4). With a = t_*^k, k ≤ 4, this is □ω^(≤k) = 0, whose
-t_*⁰-coefficient is k!B_k; so B_j = 0 for j ≤ 4, and B_5 = A_1ω̆⁴ + A_2ω̆³, B_6 = A_2ω̆⁴. *Orders.* Near (ι⁺)°,
-|x| ∼ t_* ∼ ρ_+⁻¹, so ω̆^i ∈ 𝒜^((−i,0)+ℱ) there (for i = 0, 1 by [[sec:iii-i4-1]]: ω_s1 − ω̄_s1 ∈ 𝒜^𝒢 with ω̄_s1 of
+t_*⁰-coefficient is k!B_k; so B_j = 0 for j ≤ 4, and B_5 = A_1ω̆⁴ + A_2ω̆³, B_6 = A_2ω̆⁴. *Orders.* Near (ι⁺)°, |x|
+∼ t_* ∼ ρ_+⁻¹, so ω̆^i ∈ 𝒜^((−i,0)+ℱ) there (for i = 0, 1 by [[sec:iii-i4-1]]: ω_s1 − ω̄_s1 ∈ 𝒜^𝒢 with ω̄_s1 of
 constant Cartesian components, and ω̆ − ω̆̄_s1 ∈ 𝒜^((1,0)+ℰ_ind) with ω̆̄_s1 homogeneous of degree 1), and
 a^((i)) ∈ 𝒜^((λ−1+i,k)); so each term of ω^(≤4)(aS) lies in 𝒜^((λ−1,k)+ℱ). δ*_(g_(b₀)), D_(g_0)Ric and
 δ_(g_(b₀),E_Υ)G_(g_(b₀)) lie in ρ_+Diff¹_b, ρ_+²Diff²_b and ρ_+Diff¹_b there, and dχ_K ∈ ρ_+C^∞ (the proof of
@@ -1188,8 +1188,8 @@ q⃗ = p⃗′_(h,p⃗,α′)(F(S⃗″)) by uniqueness at α′, the solution i
 ‖G(0)‖_(𝒴(α″)) ≤ C‖F‖, and u(0), the solution of [[eq:iii-i8-4-1]] at α′ for the forcing F, has ‖u(0)‖_(α′) ≤ C‖F‖;
 so the bound of [[lem:iii-i8-3-2]] gives |C(0)| ≤ C‖F‖, and |S⃗| ≤ 2|C(0)| ≤ C‖F‖. Then ‖F(S⃗)‖_(𝒴(α″)) ≤ C‖F‖
 ([[lem:iii-i8-2-6]] (b)), and (i) at α′, with [[lem:iii-i8-2-6]] for G(S⃗), bounds p⃗′_(h,p⃗,α′)(F(S⃗)), G(S⃗) and
-u(S⃗), the solution of [[eq:iii-i8-4-1]] at α′ for F(S⃗), by C‖F‖ in 𝒫_(α′), 𝒴(α″) and ‖·‖_(α′). So
-|p⃗′_(h,p⃗,α″)(F)| ≤ C‖F‖, and the bound of [[lem:iii-i8-3-2]] on the remainder, which is u(S⃗) itself, gives
+u(S⃗), the solution of [[eq:iii-i8-4-1]] at α′ for F(S⃗), by C‖F‖ in 𝒫_(α′), 𝒴(α″) and ‖·‖_(α′).
+So |p⃗′_(h,p⃗,α″)(F)| ≤ C‖F‖, and the bound of [[lem:iii-i8-3-2]] on the remainder, which is u(S⃗) itself, gives
 ‖u(S⃗)‖_(α″) ≤ C‖F‖. The constants are uniform for (h, p⃗ − p⃗_b) small and b ∈ ℬ̄_*, as those of (i) at α′, of
 [[lem:iii-i8-3-2]] and the bound on T_(h,p⃗)⁻¹ are.
 

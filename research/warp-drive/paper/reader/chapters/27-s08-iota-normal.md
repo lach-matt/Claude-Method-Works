@@ -262,9 +262,9 @@ component, we may assume X connected.
 If {τ > c} is empty there is nothing to prove. Let p ∈ X with τ(p) > c, and γ a past directed causal curve from p, past
 inextendible in X, along which τ > c. Then γ ⊂ L_p. τ is strictly monotone along γ, so it is a piecewise C¹ parameter on
 γ, in which, the curve being run towards the future, the tangent lies in {V causal : dτ(V) = 1} over L_p; this set is
-compact, as a sequence in it with |V_j|_k → ∞, k a Riemannian metric, would have a normalised limit V, causal with
-|V|_k = 1 and dτ(V) = 0. So γ is Lipschitz in τ for the distance of k, and as τ decreases to inf_γ τ it converges in the
-compact set L_p: γ extends continuously to its past end point, a contradiction. Hence τ reaches c along every past
+compact, as a sequence in it with |V_j|_k → ∞, k a Riemannian metric, would have a normalised limit V, causal
+with |V|_k = 1 and dτ(V) = 0. So γ is Lipschitz in τ for the distance of k, and as τ decreases to inf_γ τ it converges in
+the compact set L_p: γ extends continuously to its past end point, a contradiction. Hence τ reaches c along every past
 inextendible causal curve from p, and every inextendible causal curve through p meets S := {τ = c}, a smooth
 hypersurface (dτ ≠ 0) which is acausal (τ is strictly increasing along causal curves). So {τ > c} ⊂ D := D(S).
 
@@ -817,12 +817,12 @@ product of [[lem:ii-c-2-5]] (used at (R2) and (R4)), and use at (R3) the inner p
 (R1) ϱ = x_I, and β_ϱ = ξ − 1 + ½x_I²ξ → 1 at Λ = {x_I = 0, ξ = 2, η = 0}: a ϱ-source. (ii): for y ∈ [−hγ_+, hν_1], with
 ν_1 := 1 + max(0, −γ_I), put −yQ_1 into 𝒫_1: it is h·(y/h)Q_1 ∈ Ψ^(𝐦−𝐞) with |y/h| ≤ max(γ_+, ν_1), and ℓ = 0. For y ∈
 [hν_1, ν] put −hν_1Q_1 into 𝒫_1 and take (A) with ℓ := y − hν_1 ∈ [0, 1] and 𝒜 := Q_1, whose principal symbol x_I²ξ ≥
-x_I² near ξ = 2 is ≥ c_0w_(𝐦−𝐞_1) there. (iii): g := ½ξ² − ξ + |η|² + ¼x_I²ξ² (|x_I⁻²G_(ι,z)| ≥ |g|) and ϕ := (ξ − 2)² +
-|η|². By [[eq:ii-f-3-10]] at x_I = 0, 𝖧ϕ = −2ξ(ξ − 2)² − 8(ξ − 2)|η|² + 2(ξ − 1)|η|²; from g = ½ξ(ξ − 2) + |η|² +
-O(x_I²), (ξ − 2)² ≤ C(g² + |η|⁴ + x_I⁴) near Λ, so 𝖧ϕ ≥ |η|² − C(g² + x_I) ≥ ½ϕ − C_1(ϱ + g²) near Λ (the x_I-dependent
-terms are O(x_I)): a ϕ-source. (iv) κ̃ = 2γ_I + 1. (v) p_1 = σ(𝒫_1(1)) − (y/h)·hx_I²ξ in the first case and σ(𝒫_1(1)) −
-ν_1hx_I²ξ in the second. At ξ = 2, [[eq:ii-f-3-7]] gives (5/2 + Re S_0)·2 − (4 + 2 Re S_0) = 1, and ϖ⁻¹·hx_I²ξ = ξ = 2,
-so ϖ⁻¹p_1 = 1 − 2y/h, resp. 1 − 2ν_1, and with β_ϱ = 1,
+x_I² near ξ = 2 is ≥ c_0w_(𝐦−𝐞_1) there. (iii): g := ½ξ² − ξ + |η|² + ¼x_I²ξ² (|x_I⁻²G_(ι,z)| ≥ |g|) and ϕ :=
+(ξ − 2)² + |η|². By [[eq:ii-f-3-10]] at x_I = 0, 𝖧ϕ = −2ξ(ξ − 2)² − 8(ξ − 2)|η|² + 2(ξ − 1)|η|²; from g =
+½ξ(ξ − 2) + |η|² + O(x_I²), (ξ − 2)² ≤ C(g² + |η|⁴ + x_I⁴) near Λ, so 𝖧ϕ ≥ |η|² − C(g² + x_I) ≥ ½ϕ − C_1(ϱ + g²) near Λ
+(the x_I-dependent terms are O(x_I)): a ϕ-source. (iv) κ̃ = 2γ_I + 1. (v) p_1 = σ(𝒫_1(1)) − (y/h)·hx_I²ξ in the first
+case and σ(𝒫_1(1)) − ν_1hx_I²ξ in the second. At ξ = 2, [[eq:ii-f-3-7]] gives (5/2 + Re S_0)·2 − (4 + 2 Re S_0) = 1, and
+ϖ⁻¹·hx_I²ξ = ξ = 2, so ϖ⁻¹p_1 = 1 − 2y/h, resp. 1 − 2ν_1, and with β_ϱ = 1,
 
     𝒯 = 2(2γ_I + 1) − 2(1 − 2y/h) = 4(γ_I + y/h) ≥ 4(γ_I − γ_+),      resp.      𝒯 = 4(γ_I + ν_1) ≥ 4,
 
@@ -882,9 +882,10 @@ orders of [[sec:ii-f-3-1]]) and u ∈ C^∞_c((ι⁺)°),
     ‖u‖_𝐨 ≤ C(‖Pu‖_(Y_𝐨) + ‖u‖_((−M; 2γ_I, γ_cf, γ_cf; 𝖻−1/4))).                                          {#eq:ii-f-3-13}
 
 *Proof.* (a) *Fibre infinity and the elliptic set.* By [[prop:ii-f-2-6]], fibre infinity of 𝒫_ι lies in Ell(P), and so
-does every point over sf where G_(ι,z) ≠ 0, uniformly for z in compact sets: for z ∈ 𝒵^+_h, |G_(ι,z)| ≥ |Re G_(ι,z)| =
-|G_(ι,1)| (G is affine in z), so the elliptic set contains the complement of Σ_1 := {G_(ι,1) = 0}; for Im z ≥ ν and on
-𝒵^i, |Im(z⁻¹G_(ι,z))| = (Im z/|z|²)σ(𝒜) shows that the characteristic set over sf is the zero section o_sf.
+does every point over sf where G_(ι,z) ≠ 0, uniformly for z in compact sets: for z ∈ 𝒵^+_h, |G_(ι,z)|
+≥ |Re G_(ι,z)| = |G_(ι,1)| (G is affine in z), so the elliptic set contains the complement of Σ_1 := {G_(ι,1) = 0}; for
+Im z ≥ ν and on 𝒵^i, |Im(z⁻¹G_(ι,z))| = (Im z/|z|²)σ(𝒜) shows that the characteristic set over sf is
+the zero section o_sf.
 
 (b) *The dynamics.* For Re z = 1 the Hamilton field of Re G_(ι,z) = G_(ι,1) is that of [[sec:ii-f-1-3]]; on Σ_1, q :=
 σ(Q_1) = −2ξ_cħ (= x_I²ξ near F_I) satisfies q ≥ 0 with equality exactly on o_sf, since G_(ι,1) = 0 gives 2ξ_cħ = −((1 +
@@ -968,15 +969,15 @@ restriction to F_K of the flow over sf) and constant near R_in, R_out with the t
 place of e^(iθ): near sctf it uses [[thm:i-a-7-2]] (1), which applies with I = {±1}, ν = 1 and the order pair (s, 𝗋),
 admissible for σ_0 = ±1, to σ = ±1 + iy; near ztf [[lem:i-c-2-5]]–[[lem:i-c-2-6]], which hold for σ̂ in compact sets; in
 the interior, ellipticity. So [[eq:i-c-4-3]]–[[eq:i-c-4-4]] hold uniformly for y ∈ [0, 1]. For σ̂ ∈ 𝒵^i, Im σ̂ = 1 and
-[[thm:i-a-7-2]] (2) applies with the constant order. *Kernel and index.* By [[eq:i-c-4-2]], N_tf(σ̂) =
-|σ̂|²S_(|σ̂|)⁻¹N_tf(e^(iθ))S_(|σ̂|), θ = arg σ̂. An element of the kernel lies in 𝒜^(3/2+S̄−ϵ,−β)(tf) for all ϵ > 0 and
-β ∈ (β_−, β_+) ([[thm:i-a-7-2]] (5) near sctf at σ = σ̂, [[lem:i-c-2-7]] near ztf, as in [[thm:i-c-4-3]] (5)); S_(|σ̂|)
-preserves that space, which lies in 𝒳_(tf,θ), so the kernel is trivial by [[cor:i-c-5-2]] (a). The index is independent
-of y ∈ [0, 1] (local constancy, as in [[thm:i-c-4-3]] (3), with the uniform estimates), and at y = 0, σ̂ = ±1 = e^(iθ)
-with θ ∈ {0, π}, where it is 0 by [[cor:i-c-5-2]] (a), the index not depending on the admissible orders. So N_tf(σ̂) is
-invertible, and [[eq:ii-f-3-15]] holds uniformly by the contradiction argument of [[cor:i-c-5-2]] (b). For 𝒵^i, θ ∈
-[π/4, 3π/4] = Σ_m and |σ̂| ∈ [1, √2]; S_(|σ̂|) is an isomorphism of the spaces with constant orders, with norms bounded
-uniformly (r̂^(q−2) and ρ̂^(𝗋+α_+) are homogeneous, and dilations preserve the b- and sc-structures), so
+[[thm:i-a-7-2]] (2) applies with the constant order. *Kernel and index.* By [[eq:i-c-4-2]],
+N_tf(σ̂) = |σ̂|²S_(|σ̂|)⁻¹N_tf(e^(iθ))S_(|σ̂|), θ = arg σ̂. An element of the kernel lies in 𝒜^(3/2+S̄−ϵ,−β)(tf) for all
+ϵ > 0 and β ∈ (β_−, β_+) ([[thm:i-a-7-2]] (5) near sctf at σ = σ̂, [[lem:i-c-2-7]] near ztf, as in [[thm:i-c-4-3]] (5));
+S_(|σ̂|) preserves that space, which lies in 𝒳_(tf,θ), so the kernel is trivial by [[cor:i-c-5-2]] (a). The index is
+independent of y ∈ [0, 1] (local constancy, as in [[thm:i-c-4-3]] (3), with the uniform estimates), and at y = 0, σ̂ =
+±1 = e^(iθ) with θ ∈ {0, π}, where it is 0 by [[cor:i-c-5-2]] (a), the index not depending on the admissible orders. So
+N_tf(σ̂) is invertible, and [[eq:ii-f-3-15]] holds uniformly by the contradiction argument of [[cor:i-c-5-2]] (b). For
+𝒵^i, θ ∈ [π/4, 3π/4] = Σ_m and |σ̂| ∈ [1, √2]; S_(|σ̂|) is an isomorphism of the spaces with constant orders, with norms
+bounded uniformly (r̂^(q−2) and ρ̂^(𝗋+α_+) are homogeneous, and dilations preserve the b- and sc-structures), so
 [[eq:ii-f-3-15]] is [[cor:i-c-5-2]] (b) on Σ_m with 𝗋_mid := 𝗋. ∎
 
 **Lemma {#lem:ii-f-3-6}** There are h_0 and C such that for h < h_0, z as in [[lem:ii-f-3-4]], and u ∈ C^∞_c((ι⁺)°),
@@ -1513,8 +1514,8 @@ Then f̂ is smooth on {r̂ ≠ 0}, and for every ϵ > 0, j and α,
 *Proof.* Let ψ ∈ C^∞_c((½, 2)) with Σ_(l∈ℤ) ψ(2^(−l)v) = 1 for v > 0, and f_l := ψ(2^(−l)v)f. Then f^♯ = Σ_l f_l in 𝒮′
 (f^♯ is locally integrable, as a > −1, and polynomially bounded; dominated convergence). On supp f_l, v ∼ 2^l, and as
 ∂_v^m = v^(−m)p_m(v∂_v) for a polynomial p_m, |∂_v^m∂^α_ωf_l| ≤ C2^(−lm)M_l with M_l := 2^(la) for l ≤ 0 and 2^(−lb) for
-l ≥ 0. Hence |∂^α_ωℱf_l(r̂)| ≤ ∫|∂^α_ωf_l| dv ≤ C2^lM_l and, integrating by parts m times, ≤ C|r̂|^(−m)2^(l(1−m))M_l; so
-|∂^α_ωℱf_l(r̂)| ≤ C2^lM_l min(1, (2^l|r̂|)^(−m)). Since ℱ(∂_v(vg)) = −r̂∂_r̂ℱg (ℱ∂_v = −ir̂ℱ, ℱv = −i∂_r̂ℱ),
+l ≥ 0. Hence |∂^α_ωℱf_l(r̂)| ≤ ∫|∂^α_ωf_l| dv ≤ C2^lM_l and, integrating by parts m times, ≤ C|r̂|^(−m)2^(l(1−m))M_l;
+so |∂^α_ωℱf_l(r̂)| ≤ C2^lM_l min(1, (2^l|r̂|)^(−m)). Since ℱ(∂_v(vg)) = −r̂∂_r̂ℱg (ℱ∂_v = −ir̂ℱ, ℱv = −i∂_r̂ℱ),
 (r̂∂_r̂)^jℱf_l = ℱ((−v∂_v − 1)^jf_l), and (v∂_v + 1)^jf_l is a sum of terms of the same dyadic form with the same
 bounds; so the bound holds for (r̂∂_r̂)^j∂^α_ωℱf_l too. Fix r̂ ≠ 0 and K ∈ ℤ with 2^(−K) ≤ |r̂| < 2^(1−K), and take m >
 max(1 + a, 1 − b). If |r̂| ≥ 1 (K ≤ 0): Σ_(l≤K) 2^(l(1+a)) ≤ C2^(K(1+a)); Σ_(K<l≤0) 2^(l(1+a))(2^l|r̂|)^(−m) ≤

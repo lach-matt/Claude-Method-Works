@@ -215,8 +215,8 @@ most two increments of Λ ((2, 0) ∈ ℰ_ind, [[sec:iii-i9-1]]).
 and smooth in b ([[prop:iii-d3-3-1]]). By the remark closing [[lem:iii-d3-2-1]] their leading terms at ∂X are the
 Minkowski model solutions, which do not depend on b and which (R4) of [[sec:iii-d3-1]] fixes uniquely, no root lying at
 μ − k. (The tower relations [[eq:iii-g2-2-1]] alone fix the leading term of a companion only modulo the indicial kernel
-at μ − j, [[lem:iii-g2-2-2]]; it is the construction of [[prop:iii-d3-3-1]] that fixes it.) The physical states at −2 (K
-= 0) are those of [[prop:iii-f4-5-1]], smooth in b with the b-independent leading term h̄_τ(Y). Composing each family
+at μ − j, [[lem:iii-g2-2-2]]; it is the construction of [[prop:iii-d3-3-1]] that fixes it.) The physical states at −2
+(K = 0) are those of [[prop:iii-f4-5-1]], smooth in b with the b-independent leading term h̄_τ(Y). Composing each family
 with the inverse of the smooth invertible map Y ↦ (its leading coefficient), normalised to be the identity at b₀, keeps
 everything at b₀, so [[def:iii-i14-1-2]] at b₀ is the tensor χ_K u_exp of [[eq:iii-i12-3-1]]. The corrections lie in
 𝒜^((μ−j)+ℰ_ind) with ℰ_ind independent of b ([[sec:iii-g2-2]], [[prop:iii-d3-3-1]], [[prop:iii-f4-5-1]]), so their
@@ -579,8 +579,8 @@ under (C5), [[sec:iii-g2-1]]). The admissible α meeting (A_J) are dense in (4 +
 
 the latter with a plain weight at ι⁺; and 𝒬^k_J is the space of tuples (S_rem, b_rem, (Y_ψ)_(ψ∈ℛ′)) with S_rem ∈
 Ḣ^(k,(α−2)−)_b, b_rem ∈ Ḣ^(k,(α−1)−)_b and Y_ψ ∈ Ḣ^(k,𝒬(ℰ^α_ψ,(3+ε_+−d_ψ)−))_b. Here ℰ_+ is as in [[sec:iii-i14-1]]; it
-contains ℰ_♯ ∩ {Re < 3 + ε_+}. Since 3 + ε_+ > 3 + η_2, 𝒬^∞_J ⊂ 𝒬; and 𝒳^∞_J is the class of [[sec:iii-i14-1]] with a_+
-= (3 + ε_+)− in place of (H5). The class used by [[thm:iii-i14-3-1]] is related to these in [[lem:iii-j1-1-1]].
+contains ℰ_♯ ∩ {Re < 3 + ε_+}. Since 3 + ε_+ > 3 + η_2, 𝒬^∞_J ⊂ 𝒬; and 𝒳^∞_J is the class of [[sec:iii-i14-1]] with
+a_+ = (3 + ε_+)− in place of (H5). The class used by [[thm:iii-i14-3-1]] is related to these in [[lem:iii-j1-1-1]].
 
 **Definition {#def:iii-j-terms}** (Terms at ι⁺.) A tensor w on Ω_* that is partially polyhomogeneous at ι⁺ has terms
 t_*^(−λ)(log t_*)^k w_(λ,k)(R, ω), quasi-homogeneous in the coordinates (t_*, R, ω) near ι⁺. We write
@@ -690,8 +690,8 @@ those of every other term lie in Λ ([[lem:iii-j-2-3]], which [[eq:iii-j-2-2]] d
 := −1, and μ_c0, μ_c1 the class roots; and let W ∈ 𝒲_(τ,ℂ). Then [m_ν(W)]_(λ₀) is χ_K times t_*^(−λ₀) times a finite sum
 Σ_(i≤j)(log t_*)^i φ_i, whose expansion as R → 0 is the formal solution of [[thm:iii-g2-3-1]] of type τ at the root μ_τ
 with coefficient c_τ(λ₀)W in the top log power j, plus formal solutions of the same type with lower log powers, plus
-terms of K⁺-order ≥ Re λ₀ + 3. Here c_s1(λ₀) = λ₀(λ₀ − 1) and c_τ = 1 otherwise. The same holds for the rotation rows ν
-= (rot, λ₀, j), (λ₀, j) ∈ ℳ_rot, W ∈ 𝒱_(1,ℂ), with the v1 formal solution and c_v1 = −λ₀.
+terms of K⁺-order ≥ Re λ₀ + 3. Here c_s1(λ₀) = λ₀(λ₀ − 1) and c_τ = 1 otherwise. The same holds for the rotation rows
+ν = (rot, λ₀, j), (λ₀, j) ∈ ℳ_rot, W ∈ 𝒱_(1,ℂ), with the v1 formal solution and c_v1 = −λ₀.
 
 (b) For ψ = (μ, τ) ∈ ℛ′ and Y ∈ 𝒴_ψ, [χ_K T_(ψ,b)(t_*^(−(λ₀−d_ψ))(log t_*)^j Y)]_(λ₀) is χ_K times the formal solution
 of type τ at μ with coefficient Y (and, for v1, coefficient −λ₀Y) in the top log power, plus lower log powers, plus
@@ -921,8 +921,8 @@ below 3 + ε_+ − d_ψ), and its conormal parts Ṡ_rem, ḃ_rem and Y^c_ψ (ψ
 
 ### Linear forward solutions {#sec:iii-j1-2}
 
-**Theorem {#thm:iii-j1-2-1}** ([Hin26, Theorem 12.8] in dimension 4 + 1, at b₀.) There is d such that for U ∈ 𝒟^∞ with b
-= b₀, small in 𝒟^d, and (h, p⃗, q) := Φ(U), the following holds. For every f ∈ ℱ^∞ there is U′ ∈ 𝒟^∞ with
+**Theorem {#thm:iii-j1-2-1}** ([Hin26, Theorem 12.8] in dimension 4 + 1, at b₀.) There is d such that for U ∈ 𝒟^∞ with
+b = b₀, small in 𝒟^d, and (h, p⃗, q) := Φ(U), the following holds. For every f ∈ ℱ^∞ there is U′ ∈ 𝒟^∞ with
 
     D_((h,p⃗,q))P_5( D_UΦ(U′) ) = f.                                                                    {#eq:iii-j1-2-1}
 

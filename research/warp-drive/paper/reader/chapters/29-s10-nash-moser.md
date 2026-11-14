@@ -173,8 +173,8 @@ The constants A_1, …, A_5 depend only on d, δ and C_d, C_(N_NM−2d), C_(N_NM
 C_(3d,N_NM−2d). Fix θ_0 as required above and put ε := θ_0^(−α); it depends only on the quantities named in the
 theorem.
 
-*Higher norms.* Let M ≥ N_NM. By [[eq:ii-g-2-4]] at k = M − 2d, [[eq:ii-g-2-3]] at k = M − d and (b_j),
-|v_j|_(M−2d) ≤ A_M (1 + |u_j|_M), so by [[eq:ii-g-2-1]], |w_j|_M ≤ A′_M θ_j^(2d) (1 + |u_j|_M), with A′_M ≥ 1, and
+*Higher norms.* Let M ≥ N_NM. By [[eq:ii-g-2-4]] at k = M − 2d, [[eq:ii-g-2-3]] at k = M − d and
+(b_j), |v_j|_(M−2d) ≤ A_M (1 + |u_j|_M), so by [[eq:ii-g-2-1]], |w_j|_M ≤ A′_M θ_j^(2d) (1 + |u_j|_M), with A′_M ≥ 1, and
 
     1 + |u_(j+1)|_M ≤ (1 + A′_M θ_j^(2d)) (1 + |u_j|_M).
 
@@ -228,8 +228,8 @@ For η ∈ ℝ let Ω_η := M ∩ {t ≥ η} and w H̄^k_b(Ω_η)^(•,−) := {
 norm of w H̄^k_b(M).
 
 **Proposition {#prop:ii-g-3-1}** (Smoothing operators with support control; [Hin26c, Proposition 12.6].) Let c_0 :=
-c_1/8, and for η ∈ [0, 1] and k ∈ ℕ₀ let B^k := w H̄^k_b(Ω_0)^(•,−), B^k_η := w H̄^k_b(Ω_(c_0 η))^(•,−), with the norms
-|·|_k of w H̄^k_b(M). There are linear maps S_θ : B^0 → ⋂_k w H̄^k_b(M), θ > 1, with S_θ(B^∞_η) ⊂ B^∞_(η−θ^(−1/2))
+c_1/8, and for η ∈ [0, 1] and k ∈ ℕ₀ let B^k := w H̄^k_b(Ω_0)^(•,−), B^k_η := w H̄^k_b(Ω_(c_0 η))^(•,−), with the
+norms |·|_k of w H̄^k_b(M). There are linear maps S_θ : B^0 → ⋂_k w H̄^k_b(M), θ > 1, with S_θ(B^∞_η) ⊂ B^∞_(η−θ^(−1/2))
 for η ∈ [θ^(−1/2), 1], and constants C_(s,t), independent of θ, such that for v ∈ B^∞_0
 
     |S_θ v|_s ≤ C_(s,t) θ^(s−t) |v|_t   (s ≥ t),        |v − S_θ v|_s ≤ C_(s,t) θ^(s−t) |v|_t   (s ≤ t).  {#eq:ii-g-3-1}
@@ -372,8 +372,8 @@ v ∈ H̄^k_b(M).
 to the space defined in the same way on [0, ∞)^m × ℝ^(n+l) with standard derivatives; relabel, l = 0. Seeley's
 extension E across the hyperplanes {x_i = 0} (Step 2 of the proof of [[prop:ii-g-3-1]]) is bounded from H̄^k to
 H^k(ℝ^D) for every k, with Ew = w on M, the space defined by distributional derivatives on the interior of an orthant
-being that of restrictions, with equivalent norms, by this boundedness. As uv = (Eu Ev)|_M and F(u) = F(Eu)|_M when
-|Eu| ≤ δ, it suffices to prove (1)–(3) on ℝ^D, with ‖u‖_k := Σ_(|γ|≤k) ‖∂^γ u‖_(L²), and to take for M the constant
+being that of restrictions, with equivalent norms, by this boundedness. As uv = (Eu Ev)|_M and F(u) = F(Eu)|_M
+when |Eu| ≤ δ, it suffices to prove (1)–(3) on ℝ^D, with ‖u‖_k := Σ_(|γ|≤k) ‖∂^γ u‖_(L²), and to take for M the constant
 C_Sob of ℝ^D times the norm of E on H̄^d, which makes ‖u‖_d ≤ δ/C_Sob imply ‖Eu‖_(L^∞) ≤ δ.
 
 *(1)* ‖u‖_(L^∞) ≤ (2π)^(−D) ‖û‖_(L¹) ≤ (2π)^(−D) ‖⟨ξ⟩^(−d)‖_(L²) ‖⟨ξ⟩^d û‖_(L²), and ⟨ξ⟩^(−d) ∈ L² as 2d > D;
@@ -538,8 +538,8 @@ and c_θ > 0. Then 1 + c_θ |ξ|^(2θ) is comparable to ⟨ξ⟩^(2θ). The scal
     E_k := ∬_(I_k×I_k) |g(x) − g(y)|² |x − y|^(−1−2θ) dx dy,
     E′_k := ∬_(I_k×I_(k+1)) |g(x) − g(y)|² |x − y|^(−1−2θ) dx dy,
 
-so Σ_k (E_k + E′_k) ≤ 2[g]_θ², the regions being disjoint. By Jensen's inequality, |g(x) − a_k|² ≤ 2^(k+1) ∫_(I_k)
-|g(x) − g(y)|² dy, and |x − y| ≤ 2^(−k−1) on I_k × I_k, so ∫_(I_k) |g − a_k|² ≤ 2^(−2θ(k+1)) E_k. Likewise |a_k −
+so Σ_k (E_k + E′_k) ≤ 2[g]_θ², the regions being disjoint. By Jensen's inequality, |g(x) − a_k|² ≤ 2^(k+1)
+∫_(I_k) |g(x) − g(y)|² dy, and |x − y| ≤ 2^(−k−1) on I_k × I_k, so ∫_(I_k) |g − a_k|² ≤ 2^(−2θ(k+1)) E_k. Likewise |a_k −
 a_(k+1)|² ≤ 2^(2k+3) ∬_(I_k×I_(k+1)) |g(x) − g(y)|², and |x − y| ≤ 2^(−k) there, so |a_k − a_(k+1)|² ≤ 8 ·
 2^(k(1−2θ)) E′_k. Hence
 
@@ -561,8 +561,8 @@ H^(−θ) is the dual of H^θ for the L² pairing. ∎
 For γ > −1/2 let n_0(γ) be the number of ℓ ∈ ℕ₀ with ℓ < γ − 1/2.
 
 **Lemma {#lem:ii-g1-2-4}** (Taylor expansion at σ = 0; the content of [Hin26c, Corollary 13.3 and Lemma 13.4] that is
-used.) Let γ ∈ (0, ∞) ∖ (1/2 + ℕ₀), n_0 := n_0(γ) and g ∈ H^γ(ℝ; ℋ). Then g ∈ C^(n_0−1) (no condition if n_0 = 0),
-|g^(ℓ)(0)| ≤ C ‖g‖_(H^γ) for ℓ < n_0, and with P_g(σ) := Σ_(ℓ<n_0) g^(ℓ)(0) σ^ℓ/ℓ!,
+used.) Let γ ∈ (0, ∞) ∖ (1/2 + ℕ₀), n_0 := n_0(γ) and g ∈ H^γ(ℝ; ℋ). Then g ∈ C^(n_0−1) (no condition if n_0 =
+0), |g^(ℓ)(0)| ≤ C ‖g‖_(H^γ) for ℓ < n_0, and with P_g(σ) := Σ_(ℓ<n_0) g^(ℓ)(0) σ^ℓ/ℓ!,
 
     ‖|σ|^(−γ) (g − P_g)‖_(L²(−1,1)) ≤ C ‖g‖_(H^γ).                                                  {#eq:ii-g1-2-1}
 
@@ -614,8 +614,8 @@ with norm ≤ C N(w) (γ − i ≥ 0 for i ≤ p, and the support is compact). I
 *The fractional part.* Let θ ∈ (0, 1) and G := ∂^p w, so G ∈ |σ|^θ L² and G′ ∈ |σ|^(θ−1) L² on each side (as m =
 p + 1). Let A := {(x, y) : |x − y| ≤ |x|/2}; on A, x and y have the same sign. With J_k := [2^(−k), 2^(−k+1)], k ∈ ℤ,
 and J_k^* := [2^(−k−1), 3 · 2^(−k)]: for x ∈ J_k and |h| ≤ x/2 (that is, (x, x + h) ∈ A) we have |h| ≤ 2^(−k) and
-x + sh ∈ [x/2, 3x/2] ⊂ J_k^* for s ∈ [0, 1], so G(x + h) − G(x) = h ∫_0^1 G′(x + sh) ds, and the integral of
-|G(x + h) − G(x)|² over {x ∈ J_k : |h| ≤ x/2} is at most h² ∫_(J_k^*) |G′|². Hence
+x + sh ∈ [x/2, 3x/2] ⊂ J_k^* for s ∈ [0, 1], so G(x + h) − G(x) = h ∫_0^1 G′(x + sh) ds, and the integral
+of |G(x + h) − G(x)|² over {x ∈ J_k : |h| ≤ x/2} is at most h² ∫_(J_k^*) |G′|². Hence
 
     ∬_(A∩{x>0}) |G(x) − G(y)|² |x − y|^(−1−2θ) ≤ Σ_k ∫_(|h|≤2^(−k)) |h|^(1−2θ) dh ∫_(J_k^*) |G′|²
                                                 ≤ C Σ_k ∫_(J_k^*) |x|^(2−2θ) |G′|² ≤ C ‖|σ|^(1−θ) G′‖²,
@@ -683,8 +683,8 @@ function on ℝ ∖ 0 with f and σ∂_σ f integrable near 0 on both sides, the
 near 0, with one-sided limits at 0 that vanish (else |f| ≥ c/|σ| near 0); so σf is continuous, its distributional
 derivative is f + σ∂_σ f, and the distributional σ∂_σ f = ∂_σ(σf) − f is the function σ∂_σ f. Applied repeatedly (each
 σ^j (σ∂_σ)^l w lies in |σ|^(a+1/2) L² ⊂ L¹_loc, a + 1/2 = γ > −1/2), W := σ^p (σ∂_σ)^q w, p + q ≤ k, is the same
-whether computed on ℝ or on each side. As σ^j (σ∂_σ)^l σ^p (σ∂_σ)^q = σ^(j+p) (σ∂_σ + p)^l (σ∂_σ)^q, σ^j (σ∂_σ)^l W ∈
-|σ|^γ L² on each side for j + l ≤ ℓ_+, with norm ≤ C ‖(v_−, v_+)‖. Let ψ ∈ C^∞_c((−2, 2)) equal 1 on [−1, 1]. Then
+whether computed on ℝ or on each side. As σ^j (σ∂_σ)^l σ^p (σ∂_σ)^q = σ^(j+p) (σ∂_σ + p)^l (σ∂_σ)^q, σ^j (σ∂_σ)^l W
+∈ |σ|^γ L² on each side for j + l ≤ ℓ_+, with norm ≤ C ‖(v_−, v_+)‖. Let ψ ∈ C^∞_c((−2, 2)) equal 1 on [−1, 1]. Then
 (σ∂_σ)^l (ψW) ∈ |σ|^γ L² for l ≤ m := ⌈γ_+⌉ = ℓ_+, so ψW ∈ H^γ by [[lem:ii-g1-2-6]]. If γ ≤ 0, (1 − ψ)W ∈ |σ|^γ L² ⊂
 L² ⊂ H^γ on |σ| ≥ 1. If γ > 0: for i ≤ m, ∂^i_σ W = σ^(−i) Σ_(i′≤i) a_(ii′) (σ∂_σ)^(i′) W, and σ^(m−i′) (σ∂_σ)^(i′) W
 ∈ |σ|^γ L² gives σ^(−i) (σ∂_σ)^(i′) W ∈ |σ|^(γ−m+i′−i) L² ⊂ L² on |σ| ≥ 1, as γ ≤ m and i′ ≤ i; so (1 − ψ)W ∈ H^m ⊂
@@ -694,8 +694,8 @@ H^γ. Hence σ^p (σ∂_σ)^q v ∈ H^γ for p + q ≤ k, and [[lem:ii-g1-2-2]] 
 spaces) and [Hin26c, Lemma 13.6] (the lossless transform) are not used later; [[lem:ii-g1-2-3]] (d) and
 [[lem:ii-g1-2-6]] contain what the proof of [[prop:ii-g1-2-8]] needs of them. [Hin26c, Lemma 13.4] is used only in the
 form of [[lem:ii-g1-2-4]], for the weight at σ = 0. With the weight at σ = ∞ as well, which [Hin26c] asks for after its
-Corollary 13.5, the identification Ḣ^s([0, ∞)) ≅ σ^(s−1/2) H^s_b([0, ∞), |dσ/σ|) of [Hin26c, Lemma 13.4] fails. For s
-= 1 let u := (1 − χ_0) σ^(2/5) with χ_0 ∈ C^∞_c([0, 2)) equal to 1 on [0, 1]. Then σ⁻¹u, ∂_σ u and σ⁻¹ σ∂_σ u lie in
+Corollary 13.5, the identification Ḣ^s([0, ∞)) ≅ σ^(s−1/2) H^s_b([0, ∞), |dσ/σ|) of [Hin26c, Lemma 13.4] fails. For
+s = 1 let u := (1 − χ_0) σ^(2/5) with χ_0 ∈ C^∞_c([0, 2)) equal to 1 on [0, 1]. Then σ⁻¹u, ∂_σ u and σ⁻¹ σ∂_σ u lie in
 L²(dσ), so u ∈ σ H^1_b([0, ∞), |dσ|) = σ^(1/2) H^1_b([0, ∞), |dσ/σ|); but u ∉ L²(dσ), so u ∉ Ḣ¹. The same u lies in
 H^(1,((0,0),1/2))_b([0, ∞)) and not in H̄¹((0, ∞)), so [Hin26c, Corollary 13.5] fails as printed as well, and the
 inverse transform of the same example, extended by 0, shows that [Hin26c, Lemma 13.6] fails at σ = ∞. The proof of
@@ -742,8 +742,8 @@ normed by Σ ‖v_ℓ‖ + ‖ũ‖; the decomposition is unique ([[lem:ii-g1-3-
 *σ-Taylor coefficients*. [Hin26c] writes ρ_zf^ℓ u_ℓ(x) with ρ_zf = r̂/(1 + r̂); Taylor expansion of (1 + r̂)^(−ℓ) at
 r̂ = 0 turns one form into the other, the remainders lying in ũ's space.
 
-At high frequencies ([Hin26c, (13.16)]): for c > 0, H^(k,β,γ)_(b+)(±[c, ∞) × X; ℋ) is the space of v with
-|σ|^γ σ^j (σ∂_σ)^l v ∈ L²(±[c, ∞), |dσ/σ|; H^(k−j−l,β)_b(X; ℋ)) for j + l ≤ k; the powers of σ stand on the same footing
+At high frequencies ([Hin26c, (13.16)]): for c > 0, H^(k,β,γ)_(b+)(±[c, ∞) × X; ℋ) is the space of v with |σ|^γ
+σ^j (σ∂_σ)^l v ∈ L²(±[c, ∞), |dσ/σ|; H^(k−j−l,β)_b(X; ℋ)) for j + l ≤ k; the powers of σ stand on the same footing
 as the b-derivatives, and H^(k+p,β,γ)_(b+) ⊂ H^(k,β,γ+p)_(b+) for p ∈ ℕ₀.
 
 **Lemma {#lem:ii-g1-3-1}** (Product structure; [Hin26c, Lemma 13.8].) For k ∈ ℕ₀ and β, γ ∈ ℝ, with equivalent norms,
@@ -815,8 +815,8 @@ the partition 1 = χ_1(2r̂) + (1 − χ_1(2r̂)), whose first term is supported
 (1), *the case β_K ∈ (0, 1).* For η ≥ 0 with β_K − η > 0 and β_I ≥ β_ι − β_K + η, u ∈
 H^(k+1,(β_ι−β_K+η,β_ι,β_K−η))_b(M), so by [[lem:ii-g1-3-1]] (a) u ∈ ⋂_(j≤k) H^(j+1,β_K−η)_b(ℝ; ℋ_j) with ℋ_j :=
 H^(k−j,β_ι−β_K+η)_b(X). As β_K − η ∈ (0, 1), ℓ_−(β_K − η) ≤ 1, and [[prop:ii-g1-2-8]] (1) (with ℋ_j-values; no Taylor
-terms, as β_K − η − 1 < 0) gives (σ∂_σ)^i ℱu ∈ |σ|^(β_K−η−1) L²(|dσ/σ|; ℋ_j) on each side, i ≤ j. Restricted to
-|σ| ≤ 1 this is, by [[lem:ii-g1-3-1]] (b),
+terms, as β_K − η − 1 < 0) gives (σ∂_σ)^i ℱu ∈ |σ|^(β_K−η−1) L²(|dσ/σ|; ℋ_j) on each side, i ≤ j. Restricted
+to |σ| ≤ 1 this is, by [[lem:ii-g1-3-1]] (b),
 
     ℱu ∈ H^(k,(β_ι−β_K+η, β_ι−1, β_K−η−1))_b(X^±_(sc-b)).
 
@@ -857,13 +857,13 @@ first claim.
 *Matching.* On {|x| < R}, ρ_K ∼ ⟨t_*⟩⁻¹ and the weights at ℐ, ι are irrelevant, so u ∈ H^(k+1,β_K)_b(ℝ; L²({|x| <
 R})), and ℱu ∈ H^(β_K−1/2)(ℝ; L²({|x| < R})) by [[lem:ii-g1-2-2]]. As β_K − 1/2 > 1/2, [[lem:ii-g1-2-4]] makes ℱu of
 class C^ℓ in σ across σ = 0 for ℓ < β_K − 1, with ℱu − P_(ℱu) ∈ |σ|^(β_K−1/2) L² near 0. On the other hand, on {|x| <
-R} the expansion gives ℱu = Σ_(ℓ<β_K−1) c^±_ℓ σ^ℓ + O_(L²)(|σ|^(β_K−1/2)) on each side, as r̂^(β_K−1) L²(|dr̂/r̂|) =
-|σ|^(β_K−1/2) L²(dσ) locally in x. A polynomial of degree < β_K − 1 in |σ|^(β_K−1/2) L² near 0 vanishes, so c^±_ℓ =
-∂^ℓ_σ ℱu(0)/ℓ! on {|x| < R} for both signs; R is arbitrary.
+R} the expansion gives ℱu = Σ_(ℓ<β_K−1) c^±_ℓ σ^ℓ + O_(L²)(|σ|^(β_K−1/2)) on each side, as r̂^(β_K−1)
+L²(|dr̂/r̂|) = |σ|^(β_K−1/2) L²(dσ) locally in x. A polynomial of degree < β_K − 1 in |σ|^(β_K−1/2) L² near 0 vanishes,
+so c^±_ℓ = ∂^ℓ_σ ℱu(0)/ℓ! on {|x| < R} for both signs; R is arbitrary.
 
 (2) Let β′_K := min(β_K, β_ι − β_I). Then u ∈ H^(k+ℓ,(β_I,β_I+β′_K,β′_K))_b(M) = ⋂_j H^(j,β′_K)_b(ℝ;
-H^(k+ℓ−j,β_I)_b(X)), so by [[lem:ii-g1-2-2]] F_(pq) := σ^p (σ∂_σ)^q ℱu ∈ H^(β′_K−1/2)(ℝ; H^(k+ℓ−p−q,β_I)_b(X)) for p
-+ q ≤ k + ℓ. Let ψ ∈ C^∞(ℝ) vanish on [−1/4, 1/4] and equal 1 outside (−1/2, 1/2). For p + q ≤ k and i ≤ ℓ,
+H^(k+ℓ−j,β_I)_b(X)), so by [[lem:ii-g1-2-2]] F_(pq) := σ^p (σ∂_σ)^q ℱu ∈ H^(β′_K−1/2)(ℝ; H^(k+ℓ−p−q,β_I)_b(X)) for
+p + q ≤ k + ℓ. Let ψ ∈ C^∞(ℝ) vanish on [−1/4, 1/4] and equal 1 outside (−1/2, 1/2). For p + q ≤ k and i ≤ ℓ,
 ∂^i_σ(ψF_(pq)) is a combination of ψ_(i′)(σ) σ^(−i′) (σ∂_σ)^(i′) F_(pq), i′ ≤ i, with ψ_(i′) smooth, supported in |σ| ≥
 1/4 and bounded with all derivatives, multiplication by which is bounded on H^(β′_K−1/2) (by Peetre's inequality, as
 in (K1) (i) of [[sec:i-c-2-1]]); σ^(−i′) is such a multiplier on |σ| ≥ 1/4. So ψF_(pq) ∈ H^(β′_K−1/2+ℓ) ⊂ L², as ℓ ≥
@@ -936,8 +936,8 @@ H^(k,(β_I,β_I+β′,β′))_b(M) ⊂ H^(k,(β_I,β_ι,β_K))_b(M), and by [[le
 σ^p (σ∂_σ)^q w ∈ H^(β′−1/2)(ℝ; H^(k−j,β_I)_b(X)) for p + q ≤ j ≤ k. Let m := ⌈(β′ − 1/2)_+⌉ and m′ := ⌈(3/2 − δ)_+⌉,
 so ℓ = m′ + m. The hypothesis says σ^a (σ∂_σ)^b v_± ∈ |σ|^(1−δ) L²(|dσ/σ|) = |σ|^(3/2−δ) L²(dσ), with values in
 H^(k+ℓ−a−b,β_I)_b(X), for a + b ≤ k + ℓ. For i ≤ m, ∂^i_σ W = σ^(−i) Σ_(i′≤i) a_(ii′) (σ∂_σ)^(i′) W on |σ| ≥ 1/2, and
-(σ∂_σ)^(i′) W is a combination of σ^p (σ∂_σ)^(q+i″) w, i″ ≤ i′; writing σ^p = σ^(−m′) σ^(p+m′), each lies in
-|σ|^(3/2−δ−m′) L² ⊂ L²(dσ) on |σ| ≥ 1/2, with values in H^(k+ℓ−p−m′−q−i″,β_I)_b(X) ⊂ H^(k−j,β_I)_b(X), as p + m′ + q +
+(σ∂_σ)^(i′) W is a combination of σ^p (σ∂_σ)^(q+i″) w, i″ ≤ i′; writing σ^p = σ^(−m′) σ^(p+m′), each lies
+in |σ|^(3/2−δ−m′) L² ⊂ L²(dσ) on |σ| ≥ 1/2, with values in H^(k+ℓ−p−m′−q−i″,β_I)_b(X) ⊂ H^(k−j,β_I)_b(X), as p + m′ + q +
 i″ ≤ j + m′ + m = j + ℓ. The derivatives of 1 − χ are smooth and compactly supported in 1/2 ≤ |σ| ≤ 1. So W ∈ H^m ⊂
 H^(β′−1/2) (if β′ ≤ 1/2, m = 0 and W ∈ L² ⊂ H^(β′−1/2)). ∎
 
@@ -945,8 +945,8 @@ H^(β′−1/2) (if β′ ≤ 1/2, m = 0 and W ∈ L² ⊂ H^(β′−1/2)). ∎
 [[prop:ii-g1-3-5]] depend only on the weights, not on k. [[prop:ii-g1-3-5]] (2) is proved directly from
 [[lem:ii-g1-2-2]], with the loss ⌈(3/2 − δ)_+⌉ + ⌈(β′ − 1/2)_+⌉, which is not sharp. It differs from the loss
 ⌈2ℓ′ + δ⌉ of [Hin26c, Proposition 13.11 (2)], whose ℓ′ is printed with an unbalanced bracket. The first step there
-trades ℓ′ orders of b+-regularity for decay, from the space with weight δ − 1, which means σ^j (σ∂_σ)^l v ∈
-|σ|^(1−δ) L²(|dσ/σ|), into the space of [Hin26c, (13.8)] with weight δ + ℓ′ − 1, which means |σ|^(δ+ℓ′−1)
+trades ℓ′ orders of b+-regularity for decay, from the space with weight δ − 1, which means σ^j (σ∂_σ)^l v
+∈ |σ|^(1−δ) L²(|dσ/σ|), into the space of [Hin26c, (13.8)] with weight δ + ℓ′ − 1, which means |σ|^(δ+ℓ′−1)
 L²(|dσ/σ|). The trade gives |σ|^(1−δ−ℓ′) L² near ∞, which is contained in |σ|^(δ+ℓ′−1) L² there only if ℓ′ ≥ 1 − δ.
 For δ = −1/2, β_ι − β_I ≤ 1/2 and β_K ≤ 1/2 the printed ℓ′ is 1, less than 1 − δ = 3/2, and the step fails. The final
 loss of [Hin26c] is not shown to be insufficient; only its intermediate step is.
@@ -1006,8 +1006,8 @@ the middle inequality as k′ ≤ s + k and 𝗋_out − ε + k′ ≤ inf 𝗋 
 bounded on H^((s;k),𝗋+α) (commute V^γ through it as above). With H̄^((0;k′),𝗋_out+α−ε) =
 H̄^(k′,𝗋_out+α+2−ε)_b(μ_b) this is [[eq:ii-g1-4-1b]].
 
-[[eq:ii-g1-4-1a]]: for f in the space on the left, f ∈ H^((0;k+ℓ),𝗋_out+α+1+ε). On WF′(Q_(γγ′)), 𝗋 + α + 1 = 𝗋_out
-+ α + 1, so ‖Q_0 f‖_((s−1;k),𝗋+α+1) ≤ C ‖f‖_((0;k),𝗋_out+α+1+ε). And
+[[eq:ii-g1-4-1a]]: for f in the space on the left, f ∈ H^((0;k+ℓ),𝗋_out+α+1+ε). On WF′(Q_(γγ′)), 𝗋 + α + 1 =
+𝗋_out + α + 1, so ‖Q_0 f‖_((s−1;k),𝗋+α+1) ≤ C ‖f‖_((0;k),𝗋_out+α+1+ε). And
 
     ‖Q_1 f‖_((s−1;k),𝗋+α+1) ≤ C (‖Q_1 f‖_(s−1+k,𝗋+α+1+k) + ‖f‖_(−L,−L))
                               ≤ C (‖Q_1 f‖_(k+ℓ,𝗋_out+α+1+ε+k+ℓ) + ‖f‖_(−L,−L)) ≤ C ‖f‖_((0;k+ℓ),𝗋_out+α+1+ε),
@@ -1144,13 +1144,13 @@ gives the differentiability), and by [[eq:ii-g1-4-3b]], [[eq:i-b-1-8]] and [[eq:
                                                           k_1 := k − l + l′ + ℓ_1 + ℓ_2,
 
 and 2ν − 1 + (l′ + 1)δ ≤ 2ν + kδ as l′ ≤ k, δ ≤ 1, |σ| ≥ 1. By [[eq:ii-g1-4-2]], as 𝗋_out + 1 + ε/2 + 2 = β_scf + 1,
-the last norm is Σ_(j≤k_1) |σ|^j ‖g‖_(H̄^(k_1−j,β_scf+1)_b). Let m_1 := 2ν + ⌈kδ⌉ + ⌈(δ_2 − δ_1)_+⌉, so |σ|^(δ_2)
-|σ|^(2ν+kδ) |σ|^j ≤ |σ|^(δ_1) |σ|^(j+m_1). The function σ^(j+m_1) (σ∂_σ)^(l−l′) f̂ with values in
+the last norm is Σ_(j≤k_1) |σ|^j ‖g‖_(H̄^(k_1−j,β_scf+1)_b). Let m_1 := 2ν + ⌈kδ⌉ + ⌈(δ_2 − δ_1)_+⌉,
+so |σ|^(δ_2) |σ|^(2ν+kδ) |σ|^j ≤ |σ|^(δ_1) |σ|^(j+m_1). The function σ^(j+m_1) (σ∂_σ)^(l−l′) f̂ with values in
 H̄^(k_1−j,β_scf+1)_b is a term of the norm of f̂ in H^(k′,β_scf+1,δ_1)_(b+) with k′ = (j + m_1) + (l − l′) + (k_1 − j) =
 k + m_1 + ℓ_1 + ℓ_2. So [[eq:ii-g1-4-4]] holds with ℓ := ℓ_1 + ℓ_2 + 2ν + ⌈(δ_2 − δ_1)_+⌉. ∎
 
-**Corollary {#cor:ii-g1-4-5}** (The high-frequency part of a forward solution; [Hin26c, Corollary 13.17] in dimension 4
-+ 1.) Assume (H1)–(H8) of [[sec:i-a-1-3]], [[sec:i-b-1-2]] and [[sec:i-b-1-5]] for the spectral family P̂ of a
+**Corollary {#cor:ii-g1-4-5}** (The high-frequency part of a forward solution; [Hin26c, Corollary 13.17] in dimension
+4 + 1.) Assume (H1)–(H8) of [[sec:i-a-1-3]], [[sec:i-b-1-2]] and [[sec:i-b-1-5]] for the spectral family P̂ of a
 stationary wave-type operator P_0 ([[lem:ii-c-1-2]]), let C_0 ≥ 1 be as in [[thm:i-b-1-3]] (3) (enlarged if necessary,
 which preserves invertibility), χ ∈ C^∞_c(ℝ) equal to 1 on [−C_0, C_0], and χ_T ∈ C^∞(ℝ) equal to 0 on (−∞, 1] and to
 1 on [2, ∞). Let β_I, β_ι, β_K, β′_ι, β′_K ∈ ℝ, β′_I < min(β_I, 3/2 + S̄), η > 0 and δ := δ_Γ(−η). There is ℓ ∈ ℕ₀
@@ -1228,9 +1228,9 @@ k ∈ ℕ₀ there is c_k > 0 such that, with X^±_(sc-b) built on ±[0, c_k], f
 [[cor:i-c-5-2]] (c)), and ℓ = ℓ_a + ℓ̃ does not depend on α, the proposition holds for every β_tf − β_zf in the gap with
 one ℓ, as [Hin26c, (13.31)] states; only c_k and the constants depend on the weight.
 
-*Proof.* As |σ|^(β_zf) = ρ_tf^(β_zf) ρ_zf^(β_zf) is scalar in σ, commutes with P̂(σ)⁻¹, and σ∂_σ |σ|^(β_zf) = β_zf
-|σ|^(β_zf), dividing by it reduces to β_zf = 0, β_tf = α + 2. Take α_+ := 0, 𝗋_out := β_scf − 2 − ε/2, 𝗋_in and s as in
-[[cor:ii-g1-4-2]], and the decay orders 𝗋_± of [[sec:i-c-4-3]] built from them ([[lem:i-a-7-1]] at σ_* = ±1), which
+*Proof.* As |σ|^(β_zf) = ρ_tf^(β_zf) ρ_zf^(β_zf) is scalar in σ, commutes with P̂(σ)⁻¹, and σ∂_σ |σ|^(β_zf) =
+β_zf |σ|^(β_zf), dividing by it reduces to β_zf = 0, β_tf = α + 2. Take α_+ := 0, 𝗋_out := β_scf − 2 − ε/2, 𝗋_in and s as
+in [[cor:ii-g1-4-2]], and the decay orders 𝗋_± of [[sec:i-c-4-3]] built from them ([[lem:i-a-7-1]] at σ_* = ±1), which
 equal 𝗋_out near the zero section over sctf; let ℓ_a, ℓ̃ be those of [[lem:ii-g1-4-1]] for them and ℓ := ℓ_a + ℓ̃. By
 [[thm:i-c-6-4]] (4) (with m_1 = m_2 = 0, which (Z) allows) and (5), for 0 < |σ| ≤ c_(j,m), Im σ ≥ 0,
 
@@ -1258,8 +1258,8 @@ We use the defining functions [[eq:ii-f1-1-1]], ρ_I = t_*/(t_* + r) and ρ_+ = 
     𝒞 := {0 ≤ ρ_I < c_𝒞, 0 ≤ ρ_+ < 4} × 𝕊³,        𝒞_a := 𝒞 ∩ {ρ_I < a}    (0 < a ≤ c_𝒞),
 
 a neighbourhood of ℐ⁺ ∩ {t_* > 1/4} (including its corner with ι⁺) in the compactified spacetime, on which r >
-1/(4c_𝒞). On 𝒞 the b-vector fields are spanned by ρ_I∂_(ρ_I), ρ_+∂_(ρ_+) and the vector fields on 𝕊³, and μ_𝒞 :=
-|(dρ_I/ρ_I)(dρ_+/ρ_+) dω| is a b-density equivalent to μ_b = |dt_* dx|/(t_* ⟨x⟩⁴): in logarithmic coordinates the
+1/(4c_𝒞). On 𝒞 the b-vector fields are spanned by ρ_I∂_(ρ_I), ρ_+∂_(ρ_+) and the vector fields on 𝕊³, and μ_𝒞
+:= |(dρ_I/ρ_I)(dρ_+/ρ_+) dω| is a b-density equivalent to μ_b = |dt_* dx|/(t_* ⟨x⟩⁴): in logarithmic coordinates the
 Jacobian of (log ρ_I, log ρ_+) ↦ (log t_*, log r) has determinant (1 − ρ_I)⁻¹ ∈ [1, 4/3]. H^(k,(b_I,b_+))_b(𝒞_a) :=
 ρ_I^(b_I) ρ_+^(b_+) H^k_b(𝒞_a, μ_𝒞); near ℐ⁺ these are the spaces of [[cor:ii-g1-4-5]] and of [[eq:ii-f1-1-2]] with
 μ_b, the weight at K⁺ being irrelevant (ρ_K ≥ 3/4 on 𝒞). Let

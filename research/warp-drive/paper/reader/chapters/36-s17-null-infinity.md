@@ -91,9 +91,9 @@ X₀ := ρ₀∂_(ρ₀), X_I := ρ_I∂_(ρ_I) (at fixed ω and the other coord
 with ∂₀, ∂₁ the coordinate fields of (x⁰, x¹, ω). In particular ∂_t, ∂_(x^i), ∂₀, ∂₁ and |x|⁻¹∂_ω lie in ρ₀𝒱_b(U), and
 ∂₀, |x|⁻¹∂_ω ∈ ρ₀ρ_I𝒱_b(U).
 
-*Proof.* (1) (x¹, |x|) ↦ (ρ₀, ρ_I) is a diffeomorphism of {x¹ < 2, |x| > 0} onto (0, ∞)², with inverse x¹ = 2 − ρ₀⁻¹,
-|x| = (ρ₀ρ_I)⁻¹. Near I₀ ∩ ℐ⁺ these are the coordinates [[eq:iii-b-2-2]]. Near the interior of I₀, [[sec:iii-b-2]] uses
-(τ, ρ) = (t/|x|, |x|⁻¹) with τ ∈ [−½, 1 − δ]; there ρ_I = 1 − τ + 2ρ and ρ₀ = ρ/ρ_I, smooth with smooth inverse
+*Proof.* (1) (x¹, |x|) ↦ (ρ₀, ρ_I) is a diffeomorphism of {x¹ < 2, |x| > 0} onto (0, ∞)², with inverse x¹ = 2 −
+ρ₀⁻¹, |x| = (ρ₀ρ_I)⁻¹. Near I₀ ∩ ℐ⁺ these are the coordinates [[eq:iii-b-2-2]]. Near the interior of I₀, [[sec:iii-b-2]]
+uses (τ, ρ) = (t/|x|, |x|⁻¹) with τ ∈ [−½, 1 − δ]; there ρ_I = 1 − τ + 2ρ and ρ₀ = ρ/ρ_I, smooth with smooth inverse
 ρ = ρ₀ρ_I, τ = 1 − ρ_I + 2ρ₀ρ_I, as ρ_I ≥ δ. Near the interior of ℐ⁺, [[sec:iii-b-2]] uses (t₀, ρ) = (x¹, |x|⁻¹); there
 ρ₀ = (2 − t₀)⁻¹ and ρ_I = (2 − t₀)ρ, smooth with smooth inverse for t₀ ≤ 1. These charts cover a neighbourhood of
 (I₀ ∪ ℐ⁺) ∩ Ω_ext, and U meets no other face at infinity (it meets Σ^past and {t_* = T₀}, where the spaces are
@@ -327,8 +327,8 @@ and the second term lies in ρ₀⁴ρ_I²Diff²_b. S̄ is homogeneous of degree
 commutes with X₀ − X_I. Halving gives [[eq:iii-c-4-2]]. ∎
 
 The leading part can be checked on radial functions on Minkowski space without [[lem:iii-f-2-1]]. With □ = −tr ∇²,
-u := x¹ and v := x⁰, a radial function f satisfies ½□f = ½(∂_t² − ∂²_(|x|) − 3|x|⁻¹∂_(|x|))f
-= 2∂_u∂_v f + (3/2)|x|⁻¹(∂_u − ∂_v)f, since ∂_t = ∂_u + ∂_v and ∂_(|x|) = ∂_v − ∂_u. By [[eq:iii-c-1-5]], with
+u := x¹ and v := x⁰, a radial function f satisfies ½□f = ½(∂_t² − ∂²_(|x|) − 3|x|⁻¹∂_(|x|))f =
+2∂_u∂_v f + (3/2)|x|⁻¹(∂_u − ∂_v)f, since ∂_t = ∂_u + ∂_v and ∂_(|x|) = ∂_v − ∂_u. By [[eq:iii-c-1-5]], with
 X_Iρ₀ = 0, X_Iρ_I = ρ_I and |x|⁻¹ = ρ₀ρ_I,
 
     2∂_v∂_u = −ρ₀²ρ_I X_I(X₀ − X_I) − ½ρ₀²ρ_I X_I ρ_I X_I,
@@ -1088,10 +1088,10 @@ functions of [[eq:ii-g1-3-2]],
 ρ = r⁻¹ near ∂X̄ = 𝕊³, X the spatial slice of [[sec:iii-b-2]]. All spaces on X^±_(sc-b) are b-Sobolev and partially
 polyhomogeneous spaces for a b-density (|dσ/σ| times a b-density on X; [[sec:iii-a-1]], [Hin26, Definitions 2.6–2.8]),
 with orders listed for scf, tf, zf. Let r̂ := |σ|r = |σ|/ρ. Then tf = [0, ∞]_r̂ × 𝕊³ with faces
-ztf = {r̂ = 0} = tf ∩ zf and sctf = {r̂ = ∞} = tf ∩ scf, ρ_sctf := (1 + r̂)⁻¹, ρ_ztf := r̂/(1 + r̂), the b-density
-|(dr̂/r̂)dg̸| and H^(k,a,c)_b(tf) := ρ_sctf^a ρ_ztf^c H^k_b(tf) ([[sec:i-c-4-1]]; [[cor:iii-f1-3-4]]). On {ρ < ρ₀} the
-functions (σ, r̂, ω) are coordinates, in which ρ_scf = ρ_sctf and ρ_zf = ρ_ztf are functions of r̂ alone,
-|σ| = ρ_tf ρ_zf, and the b-vector fields are spanned by σ∂_σ|_r̂, r̂∂_r̂|_σ and ∂_ω (from
+ztf = {r̂ = 0} = tf ∩ zf and sctf = {r̂ = ∞} = tf ∩ scf, ρ_sctf := (1 + r̂)⁻¹, ρ_ztf := r̂/(1 + r̂),
+the b-density |(dr̂/r̂)dg̸| and H^(k,a,c)_b(tf) := ρ_sctf^a ρ_ztf^c H^k_b(tf) ([[sec:i-c-4-1]]; [[cor:iii-f1-3-4]]). On
+{ρ < ρ₀} the functions (σ, r̂, ω) are coordinates, in which ρ_scf = ρ_sctf and ρ_zf = ρ_ztf are functions of r̂
+alone, |σ| = ρ_tf ρ_zf, and the b-vector fields are spanned by σ∂_σ|_r̂, r̂∂_r̂|_σ and ∂_ω (from
 σ∂_σ|_x = σ∂_σ|_r̂ + r̂∂_r̂ and ρ∂_ρ|_σ = −r̂∂_r̂). Near tf ∩ zf also (ρ, r̂, ω) are coordinates, with ρ_tf ∼ ρ and
 ρ_zf ∼ r̂. Fix χ₁ ∈ C^∞([0, ∞)) equal to 1 on [0, 1/8] and 0 on [1/4, ∞), χ_zf := χ₁(r̂) (1 near zf, 0 near scf; as in
 [[ch:s10]]), χ_ztf := χ_zf|_tf, and χ_tf := χ₂(ρ + |σ|) with χ₂ ∈ C_c^∞([0, ½ρ₀)) equal to 1 near 0.
@@ -1118,8 +1118,8 @@ N₀(λ)⁻¹ has a simple pole whose residue Π_μ has range ker 𝒩(μ). (3) 
 
 *Proof.* (1) Both sides are b-operators in (ρ∂_ρ, ∂_ω) whose coefficients depend on ω alone, so it suffices to compare
 them on ρ^aφ(ω), a ∈ ℂ. By [[eq:iii-g4-1-2]], L̄̂(σ)(ρ^aφ) = iσρ^(a+1)(a − 3/2 − S̄)φ + ρ^(a+2)𝒩(a)φ, and with
-ρ = |σ|r̂⁻¹, iσ = ±i|σ|, this is |σ|^(a+2)(±i r̂^(−a−1)(a − 3/2 − S̄) + r̂^(−a−2)𝒩(a))φ. And
-|σ|²N_tf(|σ|^a r̂^(−a)φ) is the same, as −r̂∂_r̂ r̂^(−a) = a r̂^(−a).
+ρ = |σ|r̂⁻¹, iσ = ±i|σ|, this is |σ|^(a+2)(±i r̂^(−a−1)(a − 3/2 − S̄) + r̂^(−a−2)𝒩(a))φ.
+And |σ|²N_tf(|σ|^a r̂^(−a)φ) is the same, as −r̂∂_r̂ r̂^(−a) = a r̂^(−a).
 
 (2) The first statement is the definition. The roots are simple, so on each isotypic component (type and harmonic) the
 determinant of the matrix polynomial 𝒩(λ) has a simple zero at μ, and 𝒩(λ)⁻¹ = adj 𝒩(λ)/det 𝒩(λ) has a simple pole
@@ -1431,13 +1431,13 @@ collects the index sets of the corrections of the states (min Re ℰ_ind ≥ ε_
 at tf to order 2.
 
 *Proof.* Write h̆^((μ),j)_b = χh̆̄^((μ),j) + e_j with e_j ∈ 𝒜^(μ−j+ℰ_ind) ([[sec:iii-g2-2-2]]). By [[lem:iii-g4-2-2]]
-(1), |σ|^(−μ)(−iσ)^j h̆̄^((μ),j) = (∓ir̂)^j r̂^(−μ)φ_j, a function of (r̂, ω) alone, so smooth at tf. And
-|σ|^(−μ)(−iσ)^j e_j is r̂^(j−μ) times ρ^(−μ+j)e_j, polyhomogeneous with index set ℰ_ind in ρ = ρ_scf ρ_tf, so it
+(1), |σ|^(−μ)(−iσ)^j h̆̄^((μ),j) = (∓ir̂)^j r̂^(−μ)φ_j, a function of (r̂, ω) alone, so smooth at tf.
+And |σ|^(−μ)(−iσ)^j e_j is r̂^(j−μ) times ρ^(−μ+j)e_j, polyhomogeneous with index set ℰ_ind in ρ = ρ_scf ρ_tf, so it
 vanishes at tf. For v1, h_(b,v1) ∈ 𝒜^((3,0)∪…) ([[eq:iii-d2-3-4]]) gives |σ|σ⁻¹ρ³, of tf-order 3, and the terms j ≥ 1
 give |σ|iσ⁻¹(−iσ)^j ρ^(−j)φ^((−1,v1))_(j−1) = (∓ir̂)^(j−1) r̂ φ^((−1,v1))_(j−1) (as i(−i) = 1), that is h̄^(≤2)_(v1).
-For s1, h̆¹_(b,s1) ∈ 𝒜^((2,0)∪…) gives |σ|σ⁻¹ρ², of tf-order 2, and the terms j ≥ 2 give
-|σ|iσ⁻¹(−iσ)^(j−1)ρ^(1−j)φ^((−1,s1))_(j−2) = (∓ir̂)^(j−2) r̂ φ^((−1,s1))_(j−2), that is h̄^(≤3)_(s1); and
-|σ|σ⁻²h_(b,s1) ∈ |σ|⁻¹ρ³𝒜⁰ = ρ_tf²ρ_zf⁻¹ρ_scf³𝒜⁰. ∎
+For s1, h̆¹_(b,s1) ∈ 𝒜^((2,0)∪…) gives |σ|σ⁻¹ρ², of tf-order 2, and the terms j ≥ 2
+give |σ|iσ⁻¹(−iσ)^(j−1)ρ^(1−j)φ^((−1,s1))_(j−2) = (∓ir̂)^(j−2) r̂ φ^((−1,s1))_(j−2), that is h̄^(≤3)_(s1);
+and |σ|σ⁻²h_(b,s1) ∈ |σ|⁻¹ρ³𝒜⁰ = ρ_tf²ρ_zf⁻¹ρ_scf³𝒜⁰. ∎
 
 *Hypotheses.* Let α₀ ∈ ℂ with Re α₀ ∈ (1, 2 + ε_ind), k ∈ ℕ₀, ℓ_scf < 3/2, and
 
@@ -1499,8 +1499,8 @@ H^(∞,ℓ_scf−ε,((0,0),ℓ_zf))_b(tf) (ρ_scf, ρ_zf and χ_zf = χ₁(r̂) 
 
 *Step 1.1: the restriction.* W_α is polyhomogeneous at tf with index set (0, 0) ∪ ℰ_ind, apart from the term
 χ_zf l_(2−α)(|σ|)G^exc_(s1), and W_α|_tf = u_(tf,α). As l_(2−α)(|σ|) = ((ρ_tf ρ_zf)^(2−α) − 1)/(2 − α), that term has
-the tf-exponents 2 and 4 − α (with 2 + ℰ_ind, 4 − α + ℰ_ind), merging into a logarithm at α = 2; equivalently,
-|σ|^(α−2)l_(2−α)(|σ|)G^exc_(s1) = (2 − α)⁻¹(1 − |σ|^(α−2))G^exc_(s1) has the tf-exponents 2 and α. Indeed
+the tf-exponents 2 and 4 − α (with 2 + ℰ_ind, 4 − α + ℰ_ind), merging into a logarithm at α = 2;
+equivalently, |σ|^(α−2)l_(2−α)(|σ|)G^exc_(s1) = (2 − α)⁻¹(1 − |σ|^(α−2))G^exc_(s1) has the tf-exponents 2 and α. Indeed
 χ_zf|_tf = χ_ztf, χ_tf = 1 near tf, the functions of (r̂, ω) are smooth at tf, and by [[lem:iii-g4-4-3]]
 (χ_zf u_(b,α))|_tf = χ_ztf u_(α,0): the term l_(2−α)(|σ|)G^exc_(s1) vanishes at tf, to order
 2 + min(0, 2 − Re α) − ε > 1.
@@ -1537,8 +1537,8 @@ L̂_b(σ)(|σ|^(α−2−μ)l_β(r̂)h^(≤c_μ)_b) = |σ|^(α−2−μ)(l_βL̂
 l_β(|σ|r) ∈ 𝒜^(min(0,Re β)−ε) in |σ| and [[lem:iii-g4-4-2]] gives |σ|^(c_μ+1), the first part has zf-order
 Re α − 2 − μ + min(0, Re β_μ) + c_μ + 1 − ε = min(Re α + 1 + {−μ}, 3) − ε > ℓ_zf, by [[eq:iii-g4-4-2]] and α near α₀.
 For the second, ∂_x(l_β(|σ|r)) = (|σ|r)^β∂_x log r ([Hin26, (9.82)]), so [L̂_b(σ), l_β(r̂)] = r̂^βD_β(σ) with D_β(σ) a
-first-order operator on X° with coefficients smooth in x (r is bounded below on X), polynomial in σ and β; and
-|σ|^(α−2−μ)r̂^(β_μ) = |σ|^(⌊−μ⌋)r^(β_μ), so this part is smooth in σ at σ = 0, of zf-class (0, 0). (c) The s1 terms,
+first-order operator on X° with coefficients smooth in x (r is bounded below on X), polynomial in σ and β;
+and |σ|^(α−2−μ)r̂^(β_μ) = |σ|^(⌊−μ⌋)r^(β_μ), so this part is smooth in σ at σ = 0, of zf-class (0, 0). (c) The s1 terms,
 [Hin26, (9.83)]: with β := 2 − α,
 
     |σ|^(α−2)L̂_b(σ)(−l_β(|σ|)|σ|σ⁻²h_(b,s1) + l_β(r̂)|σ|iσ⁻¹h̆^(≤3)_(b,s1))
@@ -1566,8 +1566,8 @@ differentiating [[eq:iii-g4-4-5]] term by term shows that it is polyhomogeneous 
 tf without creating zf-error terms worse than those of f. For Re α₀ ≤ 2 the restriction of f to zf (k = 0) is of class
 𝒜^(α₀)(X), and [Hin26] notes that this weight lies outside the range where the zero energy operator (or an augmentation
 of it) is inverted, which is why the tf-model is inverted instead; in dimension 4 + 1 the range is that of
-[[cor:iii-f3-4-2]]. (2) The weaker the tf-order of f, the more singular u at zf: the dominant term is
-|σ|^(α₀−2)l_(2−α₀)(|σ|)G^exc_(s1), of zf-order min(−1, Re α₀ − 3) (without the factor |σ|^(α₀−2),
+[[cor:iii-f3-4-2]]. (2) The weaker the tf-order of f, the more singular u at zf: the dominant term
+is |σ|^(α₀−2)l_(2−α₀)(|σ|)G^exc_(s1), of zf-order min(−1, Re α₀ − 3) (without the factor |σ|^(α₀−2),
 min(−1, 1 − Re α₀)). The time translation term contributes |σ|^(α₀−2)h^((0),≤2)_(b,s0) and, for α₀ ≠ 2, a smooth term
 h^((0),≤2)_(b,s0); as α₀ → 2 they combine into (log |σ|)h^((0),≤2)_(b,s0), and likewise |σ|²h^((−2))_(b,s2,ph). The
 mechanism is the indicial root 0 of the tf-model, as for the flat Laplacian, in any dimension. (3) A tf-order α₀
@@ -1576,8 +1576,8 @@ is, on the Fourier side, essentially |σ|^(α₀−2)h^((0))_(b,s0).
 
 **Remark {#rem:iii-g4-4-6}** ([Hin26, Remark 9.34] in dimension 4 + 1.) Had l_(2−α₀)(r̂) been used for the term of
 h_(b,s1), the calculation for s1 would gain
-−|σ|^(α₀−2)[L̂_b(σ), l_(2−α₀)(r̂)]|σ|σ⁻²h_(b,s1) = −|σ|⁻¹r^(2−α₀)D_(2−α₀)(σ)h_(b,s1) (Step 1.2 (b)), of class
-|σ|⁻¹C^∞, singular at σ = 0.
+−|σ|^(α₀−2)[L̂_b(σ), l_(2−α₀)(r̂)]|σ|σ⁻²h_(b,s1) = −|σ|⁻¹r^(2−α₀)D_(2−α₀)(σ)h_(b,s1) (Step 1.2 (b)), of
+class |σ|⁻¹C^∞, singular at σ = 0.
 
 The exceptional term G^exc_(s1) = −|σ|σ⁻²h_(b,s1) vanishes at tf to order 2 (order 1 in [Hin26]), as h_(b,s1) ∈ 𝒜³ in
 dimension 4 + 1 ([[eq:iii-d2-3-4]]); its zf-order, which sets min(−1, Re α₀ − 3) in [[prop:iii-g4-4-4]] (1), is
@@ -1612,8 +1612,8 @@ it is of the form [[eq:iii-g4-5-1]].
 *Step 1: the zf-expansion near the corner.* Near tf ∩ zf, in (ρ, r̂, ω), the partial expansion of f at zf reads
 χ_zf χ_tf f = χ_zf χ_tf(Σ_(k₀≤j<ℓ_zf) |σ|^j ρ^(α−j)f^((j))(ρ, ω) + f′) (cut off by χ_zf, as its terms have scf-weight
 α − j < ℓ_scf + 1 for j ≥ 1), and (1 − χ_zf)χ_tf f, which vanishes near zf, is of the form of f₁ below; here
-f^((j)) ∈ H^(∞,0)_b([0, ρ₀)_ρ × 𝕊³) and f′ is of zf-weight ℓ_zf: the coefficients are functions on zf ≅ X̄, and
-|σ|^jρ^(α−j) = ρ_tf^α ρ_zf^j ρ_scf^(α−j) carries the tf-weight of f. Each term is |σ|^j times a stationary function.
+f^((j)) ∈ H^(∞,0)_b([0, ρ₀)_ρ × 𝕊³) and f′ is of zf-weight ℓ_zf: the coefficients are functions on zf ≅ X̄,
+and |σ|^jρ^(α−j) = ρ_tf^α ρ_zf^j ρ_scf^(α−j) carries the tf-weight of f. Each term is |σ|^j times a stationary function.
 For j = k₀, k₀ + 1, …, ⌊ℓ_zf⌋ in turn, let v_j solve
 
     𝒩v_j = ρ^(α−2−j)χ₃(ρ)f^((j)) on (0, ∞)_ρ × 𝕊³,     v_j ∈ H^(∞,α−2−j)_b,                              {#eq:iii-g4-5-3}
@@ -1673,8 +1673,8 @@ preserved by L̂_b(σ); at zf°, by [[lem:iii-g4-4-2]], the generic terms give |
 α + 1 + {−μ}, and the s1 and v1 terms |σ|^(α+1); all exceed ℓ_zf, as ℓ_zf < α + 1 (w < 3). So f₁ − L̂_b(σ)u₂ is of the
 form [[eq:iii-g4-5-1]]. With u := u₀ + u₂ and ũ := |σ|^(α−2)ũ₁ + χ_zf χ_tf Σ|σ|^j v_j (so that
 u = χ_zf u_b + χ^♯_tf ũ, as χ^♯_tf = 1 on supp χ_tf), [[eq:iii-g4-5-1]]–[[eq:iii-g4-5-2]] hold, the powers of |σ| of
-[[eq:iii-g4-5-2]] absorbing the signs and factors ±i; the zf-weight α − 3 of [[eq:iii-g4-5-2]] is that of
-|σ|^(α−3)h_(b,s1). ∎
+[[eq:iii-g4-5-2]] absorbing the signs and factors ±i; the zf-weight α − 3 of [[eq:iii-g4-5-2]] is that
+of |σ|^(α−3)h_(b,s1). ∎
 
 ### The dimension in the exterior estimates of [Hin23a] {#sec:s17-exterior}
 
@@ -1755,8 +1755,8 @@ With the adjoint taken for the fibre inner products of η,
 A_(E_Υ,E_C) denoting [[eq:s17-hin23a-a]] with γ_C and γ_Υ exchanged: [Hin23a, Remark 2.3], where G⁻¹ = G, at n = 3;
 at n = 4, G⁻¹ = I − ⅓η tr_η ≠ G.
 
-(5) For g := −½(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰) + r²(g̸ + r^(−k)χ(x¹)T), T a trace-free symmetric 2-tensor on 𝕊^(n−1) with
-|T|²_g̸ = 2 (for instance dθ₁² − sin²θ₁ dθ₂²), the part of R₁₁(g) quadratic in χ′ is ½r^(−2k)χ′(x¹)²: r⁻² at n = 3,
+(5) For g := −½(dx⁰ ⊗ dx¹ + dx¹ ⊗ dx⁰) + r²(g̸ + r^(−k)χ(x¹)T), T a trace-free symmetric 2-tensor on 𝕊^(n−1)
+with |T|²_g̸ = 2 (for instance dθ₁² − sin²θ₁ dθ₂²), the part of R₁₁(g) quadratic in χ′ is ½r^(−2k)χ′(x¹)²: r⁻² at n = 3,
 r⁻³ at n = 4. The first-order terms r⁻¹A∂₁ of P′ applied to r^(−k)h, h a frame component of size 1 with ∂₁h of size
 1, are of size r^(−(1+k)); relative to these the quadratic term has the factor r^(1−k): 1 at n = 3, where
 −½|∂₁π̸₀h|² enters the leading term of h₁₁ ([Hin23a, (3.47), Remark 3.38]), and r^(−1/2) at n = 4.
@@ -1811,8 +1811,8 @@ log((r − √m)/(r + √m)) = log((1 − s)/(1 + s)) = −2Σ_(j≥0) s^(2j+1)/
 
 (2) With r = (ρ₀ρ_I)⁻¹ and t = r − ρ₀⁻¹: ∂r/∂ρ₀ = −ρ₀⁻²ρ_I⁻¹, ∂r/∂ρ_I = −ρ₀⁻¹ρ_I⁻², ∂t/∂ρ₀ = ∂r/∂ρ₀ + ρ₀⁻² and
 ∂t/∂ρ_I = ∂r/∂ρ_I. The Jacobian determinant of (t, r) in (ρ₀, ρ_I) is (∂t/∂ρ₀)(∂r/∂ρ_I) − (∂t/∂ρ_I)(∂r/∂ρ₀) =
-ρ₀⁻²∂r/∂ρ_I = −ρ₀⁻³ρ_I⁻². So |dη| = r^(n−1)|dt dr dg̸| = r^(n−1)ρ₀⁻²ρ_I⁻¹|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|
-= ρ₀^(−(n+1))ρ_I^(−n)|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|. For the symmetry: ρ_Iρ^(−(2+k))ρ₀^(n+1)ρ_I^n = ρ^(n+1−2−k) = ρ^k, as
+ρ₀⁻²∂r/∂ρ_I = −ρ₀⁻³ρ_I⁻². So |dη| = r^(n−1)|dt dr dg̸| = r^(n−1)ρ₀⁻²ρ_I⁻¹|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸| =
+ρ₀^(−(n+1))ρ_I^(−n)|(dρ₀/ρ₀)(dρ_I/ρ_I)dg̸|. For the symmetry: ρ_Iρ^(−(2+k))ρ₀^(n+1)ρ_I^n = ρ^(n+1−2−k) = ρ^k, as
 ρ₀ρ_I = ρ and n − 1 = 2k; so ⟨Lu, v⟩_(L²(μ_b)) = 2∫ P′(ρ^ku)(ρ^kv)|dg_m|, which is symmetric in u and v when P′ is.
 
 (3) Write s₀ := log ρ₀, s_I := log ρ_I, D₀ := ∂_(s₀) = ρ₀∂_(ρ₀), D_I := ∂_(s_I), Λ := Δ̸ + q_n, so

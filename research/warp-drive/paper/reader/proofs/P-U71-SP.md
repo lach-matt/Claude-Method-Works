@@ -499,10 +499,11 @@ are simple. The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1,
 *Proof.* (a) is [[thm:sp-spectrum]] (b) and [[lem:sp-roots]] (b); the set of poles at real part at most 5 is not
 empty, so the pole orders require l_* ≥ 1. (b) is the bound of [[prop:iii-g3-2-4]] with (a), and k(ℰ^C_(I,♯), λ) ≤ l_*
 as in the proof of [[lem:iii-j-1-2]]. (c): by [[cor:iii-g2-4-3]], the logarithmic powers produced are at most k + l_0,
-l_0 the order of the pole of N_ι⁺(L̄, ·)⁻¹ at the exponent. (d) is [[thm:sp-spectrum]] (a) restricted to the strip (4 + 𝔡₀, 4 + 𝔡₁ and
-the integers 4, 5 lie beyond it), with [[lem:sp-exceptional]] for the last statement: these numbers lie in
-3/2 + σ_Υ + {1, 2, 3} ⊂ Q, are not integers, are not 4 + 𝔡₀, 4 + 𝔡₁ or ι₁ + j (ι₁ + j ∈ (j + 2, j + 5/2)), and are not
-of the form ι + j or ι_v(l) + j with ι, ι_v(l) of real part greater than 2, as these would lie in Q. ∎
+l_0 the order of the pole of N_ι⁺(L̄, ·)⁻¹ at the exponent. (d) is [[thm:sp-spectrum]] (a) restricted to the strip
+(4 + 𝔡₀, 4 + 𝔡₁ and the integers 4, 5 lie beyond it), with [[lem:sp-exceptional]] for the last statement: these
+numbers lie in 3/2 + σ_Υ + {1, 2, 3} ⊂ Q; they are not integers, not 4 + 𝔡₀ or 4 + 𝔡₁, and not ι₁ + j, as
+ι₁ + j ∈ (j + 2, j + 5/2); and a number q ∈ Q equal to ι + j or ι_v(l) + j, with Re ι > 2 or ι_v(l) > 2, would give
+ι = q − j ∈ Q or ι_v(l) = q − j ∈ Q, which [[lem:sp-exceptional]] excludes. ∎
 
 **Remark {#rem:sp-scope}** (What the evaluation leaves open.) [[thm:sp-spectrum]] describes the poles exactly, by the
 roots of the explicit polynomials P_l and p_(v). The vector type is in closed form, and for the scalar types with

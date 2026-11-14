@@ -95,8 +95,8 @@ The leading coefficient R^(0) of a wave on g0 has a closed form once the wave is
 
     R^(0) = Ric(g0) − ∇_ℓ ∂_θ W − (1/2)(□_(g0) v) ∂_θ W − (1/4) |∂_θ W|² dv ⊗ dv,               {#eq:leading-coefficient}
 
-where ∇ is the Levi-Civita connection of g0 acting on W at fixed θ, □_(g0) the wave operator of g0 on functions, and
-|∂_θ W|² := g0^(ac) g0^(bd) ∂_θ W_ab ∂_θ W_cd.
+where ∇ is the Levi-Civita connection of g0 acting on W at fixed θ, □_(g0) the wave operator of g0 on functions,
+and |∂_θ W|² := g0^(ac) g0^(bd) ∂_θ W_ab ∂_θ W_cd.
 
 *Proof.* We compute with profiles. The formulas below for Ric(g), C, D and S are polynomial identities in the 2-jet of h
 := g − g0 at a point, with coefficients from the 2-jet of g0, and they hold for every symmetric array of second
@@ -134,8 +134,8 @@ is −(1/2)(2 W^(ab) v_a ∂W_b^ρ − ℓ^ρ W·∂W) = (1/2) ℓ^ρ W·∂W. S
     D_1^ρ = (div W)^ρ + (1/2) ℓ^ρ W·∂W.
 
 The order λ⁻¹. The only terms of size λ⁻¹ come from the derivatives of C_0 in phase: ∇^v_c C^c_ab − ∇^v_b C^c_ac
-contains λ⁻¹ (v_c ∂C_0^c_ab − v_b ∂C_0^c_ac). Since C_0^c_ac = 0, this is λ⁻¹ v_c ∂C_0^c_ab = λ⁻¹ (1/2) ∂(v_a v_c ∂W_b^c
-+ v_b v_c ∂W_a^c − v_c ℓ^c ∂W_ab) = 0, because v_c ∂W_b^c = ∂W_bc ℓ^c = 0. The products C C are O(1), and S = O(1)
+contains λ⁻¹ (v_c ∂C_0^c_ab − v_b ∂C_0^c_ac). Since C_0^c_ac = 0, this is λ⁻¹ v_c ∂C_0^c_ab = λ⁻¹ (1/2) ∂(v_a v_c
+∂W_b^c + v_b v_c ∂W_a^c − v_c ℓ^c ∂W_ab) = 0, because v_c ∂W_b^c = ∂W_bc ℓ^c = 0. The products C C are O(1), and S = O(1)
 because D = O(λ). So R^(−1) = 0.
 
 The order λ⁰ of Ric(g) − Ric(g0) has four parts.
@@ -269,9 +269,9 @@ along ℓ = ∂_r: first ∂_θ χ, a second harmonic, is found by integrating a
 point of Ω reach Σ_τ0 inside Ω [[lem:domain]] (d), and χ is its primitive in θ with zero mean. Then R^(0) ≡ 0
 identically in (X, θ). The function χ is smooth on Ω × S¹, at the axes of the T² action included: ℓ has no angular
 component, so the transport preserves smoothness on S³, and its right-hand side F_2 is built from g0 and W_TT, which is
-smooth at both axes ([[lem:waves]] (a)); explicitly F_2 is r⁻³ env(v)² h² times a polynomial in sin θ, cos θ, c² = (x1²
-+ x2²)/r² and s² = (x3² + x4²)/r², with h² = 2/(1 + cos² 2ϑ) and cos 2ϑ = (x1² + x2² − x3² − x4²)/r², which is smooth on
-r > 0.
+smooth at both axes ([[lem:waves]] (a)); explicitly F_2 is r⁻³ env(v)² h² times a polynomial in sin θ, cos θ, c² =
+(x1² + x2²)/r² and s² = (x3² + x4²)/r², with h² = 2/(1 + cos² 2ϑ) and cos 2ϑ = (x1² + x2² − x3² − x4²)/r², which is
+smooth on r > 0.
 
 ### The ansatz {#sec:ansatz}
 
@@ -489,8 +489,8 @@ norms, so this remainder changes Ric^H by O(λ^(N−1)) in |·|_k.
 (b) with Φ = φ1 + λΨ, the two-scale operator with the fixed phase satisfies R[G(·, · + Φ)](X, θ) = R_u[G](X, θ + Φ),
 whose coefficient of λ⁰ is ℛ^(0)(X, θ + φ1) = 0, since ℛ^(−1) = 0. The coefficient R^(0) depends on the profiles only
 through g1, because the coefficient of ∂_θ² g2 at that order is −(1/2) g0⁻¹(dv, dv) = 0, and the coefficient of λ in the
-expansion of G(·, · + Φ) is g1; so R^(0) of g_app vanishes identically. (E3) holds with K
-= N − 1. ∎
+expansion of G(·, · + Φ) is g1; so R^(0) of g_app vanishes identically. (E3) holds with
+K = N − 1. ∎
 
 So the uniform existence theorem [[thm:uniform-existence]] applies to the approximant of any order, built from any smooth
 stage data.

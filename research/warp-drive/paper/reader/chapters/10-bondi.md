@@ -35,10 +35,10 @@ norm on Σ̂_τ ∩ P⁺. The field ℓ := g0⁻¹ dv is null and tangent to the
 the polar angle ϑ ∈ [0, π/2] and the angles φ1, φ2 of the two rotation planes, the round metric being
 γ = dϑ² + cos²ϑ dφ1² + sin²ϑ dφ2².
 
-For p ≥ 0, E_p is the class of tensors f on P⁺ (Cartesian components) that vanish for v ≤ v_start and satisfy
-|∂_X^α Ω^β f| ≤ C r^(−p) for all α and β: the class E_p of [[sec:past-approximant]], for functions of X at fixed λ. An
-oscillating factor [f], the profile f taken at the phase v/λ, belongs to these classes like any other function, since
-each derivative of [f] costs a factor λ^(−1), a constant at fixed λ. A coefficient that does not vanish for
+For p ≥ 0, E_p is the class of tensors f on P⁺ (Cartesian components) that vanish for v ≤ v_start and
+satisfy |∂_X^α Ω^β f| ≤ C r^(−p) for all α and β: the class E_p of [[sec:past-approximant]], for functions of X at fixed
+λ. An oscillating factor [f], the profile f taken at the phase v/λ, belongs to these classes like any other function,
+since each derivative of [f] costs a factor λ^(−1), a constant at fixed λ. A coefficient that does not vanish for
 v ≤ v_start, such as g0 − η or Γ[g0], is said to be in E_p when it obeys the same bounds. The classes multiply,
 E_p E_q ⊂ E_(p+q), and E_p ⊂ E_q for p ≥ q, since r ≥ 1 on P⁺. On P⁺ the quantities t and r are comparable,
 t + a1 ≤ r ≤ t + a2 ([[lem:past-domain]] (d)).
@@ -156,8 +156,8 @@ through its kernel. Since U vanishes on {v = v_start}, the Poincaré inequality 
     ‖b·∂U‖ ≤ C t^(−3/2) ‖∂U‖,       ‖c U‖ ≤ C λ⁻¹ t^(−3/2) ‖U‖ ≤ C λ⁻¹ t^(−3/2) ‖∂U‖,
 
 and ‖f_γ‖ ≤ C (1 + λ⁻¹) t^(−3/2) Σ_{|δ| = j + 1} ‖∂ ∂^δ u_1‖ + ‖R_γ‖. Summed over the family, Gronwall's lemma then
-costs the factor exp(∫ C (1 + λ⁻¹) t^(−3/2) dt). Over the far region t ≥ λ^(−2) this integral is at most 2 C (1 + λ⁻¹) λ
-= 2 C (1 + λ), so the factor is at most e^(2C(1 + λ)), free of λ. (With c U taken as a forcing term, through the
+costs the factor exp(∫ C (1 + λ⁻¹) t^(−3/2) dt). Over the far region t ≥ λ^(−2) this integral is at most 2 C (1 + λ⁻¹)
+λ = 2 C (1 + λ), so the factor is at most e^(2C(1 + λ)), free of λ. (With c U taken as a forcing term, through the
 energies of the lower steps, the step also closes at fixed λ, at the cost of one factor λ⁻¹ per order.)
 
 R_γ is the sum of ∂_X^γ F_1(X, 0, 0), the forcing free of u_1, which is in E_3, and of products of a derivative of g or
@@ -242,8 +242,8 @@ g_λ^{ab} ∂_a ∂_b = □̃ + (g_λ^{ab} − g0^{ab}) ∂_a ∂_b up to (Ω(g_
 (g_λ^{ab} − g0^{ab}) [Ω, ∂_a ∂_b], where [Ω, ∂_a ∂_b] is a combination of second derivatives with constant
 coefficients; since g_λ⁻¹ − g0⁻¹ is in E_(3/2) with all its derivatives, these too are forcings in E_(q+1/2), as for
 ∂_X. So every commuted energy is at most C t^(2−q). *Pointwise.* The Sobolev inequality with rotations and the
-Poincaré inequality (ǔ = 0 on {v = v_start}), [[lem:past-sobolev]] (a) and (b), give
-|∂_X^α Ω^β ǔ| ≤ C t^(−3/2) t^(2−q) = C t^(1/2 − q). That is E_(q−1/2), since t and r are comparable on P⁺.
+Poincaré inequality (ǔ = 0 on {v = v_start}), [[lem:past-sobolev]] (a) and (b),
+give |∂_X^α Ω^β ǔ| ≤ C t^(−3/2) t^(2−q) = C t^(1/2 − q). That is E_(q−1/2), since t and r are comparable on P⁺.
 
 *The ℓ-gain.* In the coordinates (v, r, x̂) the operator □̃ is [[eq:wave-operator-vr]] ([[lem:decay-calculus]] (b)),
 with Δ̊ the Laplacian of the unit S³. With ψ := ℓǔ (ℓ acting on Cartesian components) the equation of ǔ becomes
@@ -621,10 +621,10 @@ remainders o(ς⁶), which stay o(ς⁶) under e_0 and ∂_ϑ and gain two order
 
 Proof. (a) is [[eq:bondi-form]], with the subscript B dropped, in the frame. (b) In a frame the connection coefficients
 are Γ_kij = ½ (e_i g_jk + e_j g_ik − e_k g_ij) plus structure coefficients times components of g, each a sum of terms
-with one slot, and R_ij = e_k Γ^k_ij − e_j Γ^k_ik + Γ Γ − Γ Γ − c Γ has exactly two slots in each term, since e_k (F(y))
-= F'(y) e_k y. The functions depend on (v, r, ϑ) only, so e_3 and e_4 act on them as zero. The structure coefficients
-follow from [e_1, e_2] = −r⁻¹ e_2, [e_1, e_3] = −r⁻¹ e_3, [e_1, e_4] = −r⁻¹ e_4, [e_2, e_3] = r⁻¹ tan ϑ e_3, [e_2, e_4] =
-−r⁻¹ cot ϑ e_4 and [e_0, e_i] = 0.
+with one slot, and R_ij = e_k Γ^k_ij − e_j Γ^k_ik + Γ Γ − Γ Γ − c Γ has exactly two slots in each term, since e_k
+(F(y)) = F'(y) e_k y. The functions depend on (v, r, ϑ) only, so e_3 and e_4 act on them as zero. The structure
+coefficients follow from [e_1, e_2] = −r⁻¹ e_2, [e_1, e_3] = −r⁻¹ e_3, [e_1, e_4] = −r⁻¹ e_4, [e_2, e_3] = r⁻¹ tan ϑ e_3,
+[e_2, e_4] = −r⁻¹ cot ϑ e_4 and [e_0, e_i] = 0.
 
 (c) Freeze (r, ϑ) = (r0, ϑ0) and let y(v) := y(v, r0, ϑ0). The terms with two slots e_0, evaluated at (v, r0, ϑ0), are
 exactly the Ricci components of the metric g' := g_ij(y(v)) dx^i dx^j on R⁵ with coordinates (v, ϱ, z1, z2, z3), whose

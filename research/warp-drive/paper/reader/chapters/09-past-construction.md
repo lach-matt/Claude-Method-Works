@@ -151,8 +151,8 @@ commutes with 𝒞 and with ψ_v. When ψ depends on τ, L0 𝒞 g and L0² 𝒞
     ψ_τ = 2λ σ0′((v − v_start)/Δ) (v − v_start) h_P′/Δ²,
 
 since Δ′ = −h_P′ by [[eq:past-domain]]; as |v − v_start| ≤ Δ, |σ0′| ≤ 7 and h_P″ = (5/4) h_P′/t, both ψ_τ and ψ_ττ are
-at most C λ h_P′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ sup|μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³ and
-|3ψ_v/r − 3/(ψ − τ)| ≤ C/r.
+at most C λ h_P′. Moreover |ψ − v| ≤ 2λ, so |μ(ψ) − μ(v)| ≤ 2λ sup|μ′|, |1/r² − 1/(ψ − τ)²| ≤ C λ r⁻³
+and |3ψ_v/r − 3/(ψ − τ)| ≤ C/r.
 
 *The angular part.* Δ̊ acts on x̂ at fixed (τ, v) and commutes with 𝒞, so [r⁻² Δ̊, 𝒞] = (r⁻² − (ψ − τ)⁻²) 𝒞 Δ̊, of size
 C λ r⁻³ times two rotations, that is C λ r⁻¹ times two derivatives.
@@ -572,16 +572,16 @@ These are items 1, 2, 3, 5 and the first part of item 4 of [[thm:past-constructi
 contains λ⁻¹ ‖φ‖; and K′ − 2β0 − 1 = K + 2 + ⌈4β0⌉ − 2β0 ≥ K + 2. (E1)–(E3) hold on Ω by [[thm:past-approximant]], so
 [[thm:uniform-existence]] with this K continues g_n to Ω with its bound on 𝒩: (P-iv) for g_n.
 
-*The limit.* For n′ > n, δ := g_n − g_n′ solves on P ∩ {τ ≥ τ_n} a linear system −½ g_n^(ab) ∂_a ∂_b δ = f with
-|f| ≤ C(λ) t^(−3/2) (|δ| + |∂δ|), whose coefficient involves ∂²g_n′, at most C λ⁻¹ t^(−3/2). [[lem:past-energy]] gives
+*The limit.* For n′ > n, δ := g_n − g_n′ solves on P ∩ {τ ≥ τ_n} a linear system −½ g_n^(ab) ∂_a ∂_b δ = f with |f|
+≤ C(λ) t^(−3/2) (|δ| + |∂δ|), whose coefficient involves ∂²g_n′, at most C λ⁻¹ t^(−3/2). [[lem:past-energy]] gives
 ‖∂δ(τ)‖ ≤ C(λ) ‖∂w_n′(τ_n)‖ ≤ C(λ) M_F λ^(K′) t_n^(−1/2), and [[lem:energy]] continues the bound to Ω. So g_n
 converges, with the bounds of [[prop:far-region]] and [[prop:near-region]] and of [[thm:uniform-existence]], uniformly
 with k − 5 derivatives on compact sets. The limit is smooth: for fixed λ the higher norms of g_n are bounded uniformly
 in n by the linear energy estimates for the commuted equation, with constants depending on λ and the order, whose
 kernels are C(λ) t^(−3/2) on the far region, which is integrable, and are taken over the bounded interval [τ_λ, τ0] on
 the near region, with no decomposition needed for fixed λ; the limit does not depend on the order used, by the
-uniqueness of (P-v). It solves Ric^H(g_λ) = 0 on P ∪ Ω, it satisfies the bounds of [[thm:uniform-existence]] on Ω,
-|g_λ − g0| ≤ C λ ≤ ε1 among them, and it equals g0 on P ∩ {v ≤ v_start}, since each g_n does, by [[lem:seed-region]]
+uniqueness of (P-v). It solves Ric^H(g_λ) = 0 on P ∪ Ω, it satisfies the bounds of [[thm:uniform-existence]] on
+Ω, |g_λ − g0| ≤ C λ ≤ ε1 among them, and it equals g0 on P ∩ {v ≤ v_start}, since each g_n does, by [[lem:seed-region]]
 with the margin of [[prop:far-region]] and [[prop:near-region]].
 
 *The seed region on Ω.* The proof of [[lem:seed-region]] runs on Ω from Σ_τ0, where g_λ agrees with g0 on {v ≤ v_start}
@@ -595,14 +595,14 @@ This is (P-i).
 *The bounds (P-iii).* On the far region, [[eq:far-energy]] and [[lem:past-sobolev]] (a) give |w| ≤ C M_F λ^(K′−3) t⁻²
 and |∂w| ≤ C M_F λ^(K′−4) t⁻². On the near region, [[eq:near-bootstrap]] with (T_λ/t)^β0 ≤ λ^(−2β0) gives
 H ≤ M_N λ^(K′−2β0) t^(−1/2) and D0 ≤ M_N λ^(K′−2β0) t^(1/2), so by [[lem:past-sobolev]] (a) |h| ≤ C λ^(K′−2β0−3) t⁻²
-and |φ G1| ≤ C λ^(K′−2β0−3) t⁻¹ · t^(−3/2), with one more factor λ⁻¹ for the first derivatives. Since K′ − 2β0 ≥ K + 3
-> K, this is (P-iii).
+and |φ G1| ≤ C λ^(K′−2β0−3) t⁻¹ · t^(−3/2), with one more factor λ⁻¹ for the first derivatives. Since K′ − 2β0 ≥ K +
+3 > K, this is (P-iii).
 
 *The gauge.* D(g_λ) solves the homogeneous linear system of the proof of [[lem:gauge-propagation]], whose coefficients
 are built from g_λ, ∂g_λ and ∂²g_λ, and so are at most C(λ) t^(−3/2) on P⁺. D(g_λ) = D(g_app) + O(|w| + |∂w|), and
 D(g_app) = Σ_(j≥1) λ^j [D_j] with D_j in E_2. Indeed, the λ⁰ part of D(g_app) comes from the fast derivative of λ[g1] in
-g^(ab)(Γ[g] − Γ[g0])^ρ_(ab), and equals g0^(ρσ) (∂_θ g1)(ℓ, ·)_σ − ½ ℓ^ρ tr_(g0) ∂_θ g1; it vanishes by (E1) and tr W_TT
-= 0, χ dv dv being transverse and traceless too. In the λ¹ part, the ∂_v-part of the slow divergence of W_TT is ∂_v
+g^(ab)(Γ[g] − Γ[g0])^ρ_(ab), and equals g0^(ρσ) (∂_θ g1)(ℓ, ·)_σ − ½ ℓ^ρ tr_(g0) ∂_θ g1; it vanishes by (E1) and tr
+W_TT = 0, χ dv dv being transverse and traceless too. In the λ¹ part, the ∂_v-part of the slow divergence of W_TT is ∂_v
 (W_TT(ℓ, ·)) = 0, since the Cartesian components of ℓ do not depend on v; the rest of it gains a power, as ℓ W_TT =
 −(3/(2r)) W_TT and r⁻¹ Ω W_TT are in E_(5/2); and every other term is a product, or a derivative of a stage-j profile of
 class E_2. An r⁻² amplitude on A_P(τ) has L² norm at most C (∫_(r_in)^(r_in+d1) r⁻⁴ r³ dr)^(1/2) ≤ C t^(−1/2); so the
@@ -618,12 +618,12 @@ with j ≥ 2 is in E_2 (means, oscillating profiles and the Taylor terms φ_i^p 
 Along v = const and x̂ = const, t and r grow together (r − t is bounded on P⁺), so r^(3/2) times the sum tends to zero
 as r → ∞.
 
-*Uniqueness and symmetry (P-v).* For a second solution g′ with g′ = g0 on P ∩ {v ≤ v_start},
-|g′ − g_app| + |∂(g′ − g_app)| ≤ ε_U t^(−3/2) and energy of g′ − g_app tending to zero, δ := g_λ − g′ solves a linear
-system with coefficients at most C(λ) t^(−3/2) (they involve ∂²g_λ and ∂g′, both controlled), its energy tends to zero
-at −∞, and [[lem:past-energy]] gives δ = 0 on P; the uniqueness of Step 8 of the proof of [[thm:uniform-existence]]
-continues this to Ω. The data at past null infinity, g_app and the equation are invariant under T² × Z2 × Z2, so g_λ is
-too, by this uniqueness. ∎
+*Uniqueness and symmetry (P-v).* For a second solution g′ with g′ = g0 on P ∩
+{v ≤ v_start}, |g′ − g_app| + |∂(g′ − g_app)| ≤ ε_U t^(−3/2) and energy of g′ − g_app tending to zero, δ := g_λ − g′
+solves a linear system with coefficients at most C(λ) t^(−3/2) (they involve ∂²g_λ and ∂g′, both controlled), its energy
+tends to zero at −∞, and [[lem:past-energy]] gives δ = 0 on P; the uniqueness of Step 8 of the proof of
+[[thm:uniform-existence]] continues this to Ω. The data at past null infinity, g_app and the equation are invariant under
+T² × Z2 × Z2, so g_λ is too, by this uniqueness. ∎
 
 ### The horizon and the mean mass for these solutions {#sec:past-items}
 
@@ -665,8 +665,8 @@ expansion as a function of the metric; (iii) is (2); (iv) is (1), giving C λ^(K
 only. In the proof of [[prop:mean-mass]], outside the shell g_app = g0 + λ m1 + λ² E by (3), DM[m1] = 0 by (4) and
 naturality, and the remainder is O(λ^(K−4)) by (1); inside the shell the wave enters M[S](g_app) at order λ⁰ only
 through ½ k^±(ℓ) ∂_θ tr_S g1, which vanishes by (2), θ⁻, the area and g(n⁺, n⁻) carrying none
-([[lem:sphere-two-scale]]); and for λ* < λ ≤ λ_P, λ* that of [[lem:sphere-two-scale]], its step for larger λ uses only
-|g_λ − g0| ≤ ε1 and |∂g_λ| ≤ C on Ω, which are conclusions of [[thm:uniform-existence]] and hold for g_λ by (1). ∎
+([[lem:sphere-two-scale]]); and for λ* < λ ≤ λ_P, λ* that of [[lem:sphere-two-scale]], its step for larger λ uses
+only |g_λ − g0| ≤ ε1 and |∂g_λ| ≤ C on Ω, which are conclusions of [[thm:uniform-existence]] and hold for g_λ by (1). ∎
 
 The columns of [[prop:one-zero]] are those of D_T ∩ {τ ≥ τ0}. On P the columns continue below Σ_τ0, where (P-iii)
 bounds g_λ − g_app and its first derivatives by C λ^(K−3) t⁻² and C λ^(K−4) t⁻², and the second derivatives that step

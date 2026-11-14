@@ -2,13 +2,13 @@
 
 This chapter proves [CD03, Theorem 8.1] in space dimension 4 for vacuum initial data whose Poincaré charges lie near
 those of five-dimensional Schwarzschild–Tangherlini. Smooth vacuum data on ℝ⁴ ∖ B that decay at a rate α ∈ (3/2, 2] are
-glued, on an annulus Γ(R, 4R), to the data of a translated, rotated and boosted Myers–Perry metric, which they equal for
-|x| ≥ 4R ([[thm:v-3-1]]). [CD03, Theorem 8.1, p. 35] is stated for three-dimensional data, and [CD03, Remark 8.2, p. 36]
-names what is missing in higher dimensions: "The argument below carries over to any dimension, the only element missing
-is an equivalent of Proposition F.1 for the family of translated, rotated, and boosted Myers-Perry metrics." Near
-Tangherlini, which is the case needed here, this equivalent is [[prop:v-2-3]] and [[cor:v-2-4]]. The proof follows
-[CD03, Section 8.1], with three changes in dimension 4 + 1. First, the charges are defined and estimated directly from a
-linear flux identity ([[sec:v-1]]); this replaces [CD03, Appendix E] and needs no parity condition, since
+glued, on an annulus Γ(R, 4R), to the data of a translated, rotated and boosted Myers–Perry metric, which they
+equal for |x| ≥ 4R ([[thm:v-3-1]]). [CD03, Theorem 8.1, p. 35] is stated for three-dimensional data, and [CD03, Remark
+8.2, p. 36] names what is missing in higher dimensions: "The argument below carries over to any dimension, the only
+element missing is an equivalent of Proposition F.1 for the family of translated, rotated, and boosted Myers-Perry
+metrics." Near Tangherlini, which is the case needed here, this equivalent is [[prop:v-2-3]] and [[cor:v-2-4]]. The proof
+follows [CD03, Section 8.1], with three changes in dimension 4 + 1. First, the charges are defined and estimated directly
+from a linear flux identity ([[sec:v-1]]); this replaces [CD03, Appendix E] and needs no parity condition, since
 2α > n − 1 = 3. Second, the exponentially weighted spaces of [CD03, Theorem 5.9] are used from the start, so the glued
 data are smooth. Third, the powers of R are those of space dimension 4: R⁻² for the energy and the momentum, R⁻³ for
 the angular momentum and the centre of mass. Every result of [CD03] used here holds in every space dimension n ≥ 2
@@ -140,8 +140,8 @@ with C depending only on α and R₀. Moreover:
 
 By [[eq:v-0-3]] every term of [[eq:v-1-2]] is at most |||·|||² r^(−2α−2), and |N| + |Y| ≤ C(1 + r)^d. So the right side
 is at most C|||·|||² ∫_(ϱ₁)^∞ r^(d−2α−2) r³ dr = C′|||·|||² ϱ₁^(2+d−2α), and 2 + d − 2α ≤ 3 − 2α < 0. So the flux is
-Cauchy as ϱ → ∞, and [[eq:v-1-3]] follows. (a): for two such data sets,
-|𝔔_X(1) − 𝔔_X(2)| ≤ |∮_(S_ϱ) 𝔟_X(h₁ − h₂, K₁ − K₂)| + Cϱ^(2+d−2α). Choose ϱ large, then the data close in C¹ on S_ϱ.
+Cauchy as ϱ → ∞, and [[eq:v-1-3]] follows. (a): for two such data sets, |𝔔_X(1) − 𝔔_X(2)|
+≤ |∮_(S_ϱ) 𝔟_X(h₁ − h₂, K₁ − K₂)| + Cϱ^(2+d−2α). Choose ϱ large, then the data close in C¹ on S_ϱ.
 (b): 𝔟_X is built from δ, the radial normal and X, so a change of variables gives
 ∮_(S_ϱ) 𝔟_X(O*h, O*K) = ∮_(S_ϱ) 𝔟_(O·X)(h, K), and S_ϱ is invariant. ∎
 
@@ -214,9 +214,9 @@ vanishes to second order in the jets, |∂_p[q_X]| ≤ C(1 + r)^d |jet(g_p − �
 [[lem:v-2-2]]. So ∂_pf_ϱ converges uniformly in p, at the rate ϱ^(d−2), and 𝔮 is C¹ with
 D𝔮(p) = lim_ϱ ∮_(S_ϱ) 𝔟_X(∂_p(g_p, K_p)).
 
-*Equivariance.* For O ∈ O(4) let Õ(t, x) := (t, Ox). By [[lem:iii-b-3-1]], r_A(Ox) = r_(OᵀAO)(x), since |Ox| = |x|,
-|AOx| = |OᵀAOx| and tr A², det A are invariant under conjugation. The other ingredients of [[def:iii-b-3-2]] are
-covariant in the same way, so Õ*g^KS_(m,A) = g^KS_(m,OᵀAO). Also 𝒫_p ∘ Õ = Õ ∘ 𝒫_(p·O) with
+*Equivariance.* For O ∈ O(4) let Õ(t, x) := (t, Ox). By [[lem:iii-b-3-1]], r_A(Ox) = r_(OᵀAO)(x),
+since |Ox| = |x|, |AOx| = |OᵀAOx| and tr A², det A are invariant under conjugation. The other ingredients of
+[[def:iii-b-3-2]] are covariant in the same way, so Õ*g^KS_(m,A) = g^KS_(m,OᵀAO). Also 𝒫_p ∘ Õ = Õ ∘ 𝒫_(p·O) with
 p·O := (m, OᵀAO, Oᵀw, Oᵀc), and Õ preserves {y⁰ = 0}. So (g_(p·O), K_(p·O)) = O*(g_p, K_p), and [[prop:v-1-3]] (b)
 gives 𝔔_X(g_(p·O), K_(p·O)) = 𝔔_(O·X)(g_p, K_p). Fix m with |m − m₀| < ½m₀ and put p_m := (m, 0, 0, 0). As
 p_m·O = p_m, D𝔮(p_m) intertwines the representations
@@ -618,8 +618,8 @@ B̄ ⊂ V be a closed ball about 𝔔⁰. For R ≥ max(2R₀, R_P) and Q ∈ B�
 Then:
 
 (a) ‖K_(Q,R)‖_(C^(k+3)(𝒜)) + ‖g_(Q,R) − δ‖_(C^(k+4)(𝒜)) ≤ CR^(−α), uniformly for Q ∈ B̄, and Q ↦ u_(Q,R) is continuous
-into C^(k+3) × C^(k+4)(𝒜). Indeed |∂^γ_y(𝒮_Rg − δ)(y)| = R^(|γ|)|∂^γ(g − δ)(Ry)| ≤ CR^(−α) and
-|∂^γ𝒮_RK| ≤ CR^(−α) for |γ| ≤ k + 4 = 7 (resp. 6). The member's data obey the same bounds with α replaced by 2 ≥ α,
+into C^(k+3) × C^(k+4)(𝒜). Indeed |∂^γ_y(𝒮_Rg − δ)(y)| = R^(|γ|)|∂^γ(g − δ)(Ry)| ≤ CR^(−α)
+and |∂^γ𝒮_RK| ≤ CR^(−α) for |γ| ≤ k + 4 = 7 (resp. 6). The member's data obey the same bounds with α replaced by 2 ≥ α,
 uniformly in p, and depend smoothly on p ([[lem:v-2-2]]), and p(Q) is continuous ([[cor:v-2-4]]).
 
 (b) (J, ρ)(u_(Q,R)) is supported in Γ̄(2, 3), with C^(k+2)-norm at most CR^(−α). On Γ(1, 2) and Γ(3, 4) the data are
@@ -657,8 +657,8 @@ its integrand depending continuously on û_(Q,R) in C²(𝒜).
 
 Near S_(4R), 𝔵 is the member's data with all derivatives, since χ = 0 for r ≥ 3 and δu_(Q,R) vanishes to infinite
 order at ∂𝒜. So [[eq:v-1-3]] with α = 2 and [[cor:v-2-4]] give ∮_(S_(4R)) 𝔟_(e_j) = Q_j + O(R^(d_j−2)), uniformly on B̄.
-Near S_R, 𝔵 = (g, K), so ∮_(S_R) 𝔟_(e_j) = 𝔔⁰_j + O(R^(2+d_j−2α)). On Γ(R, 4R), unscaling the bounds of Step 2 gives
-|∂^γ(ĝ − δ)| ≤ CR^(−α−|γ|) (|γ| ≤ 2) and |∂^γK̂| ≤ CR^(−α−1−|γ|) (|γ| ≤ 1). With [[eq:v-1-2]] and |e_j| ≤ CR^(d_j),
+Near S_R, 𝔵 = (g, K), so ∮_(S_R) 𝔟_(e_j) = 𝔔⁰_j + O(R^(2+d_j−2α)). On Γ(R, 4R), unscaling the bounds of Step 2
+gives |∂^γ(ĝ − δ)| ≤ CR^(−α−|γ|) (|γ| ≤ 2) and |∂^γK̂| ≤ CR^(−α−1−|γ|) (|γ| ≤ 1). With [[eq:v-1-2]] and |e_j| ≤ CR^(d_j),
 ∫|q_(e_j)| ≤ CR^(d_j)R^(−2α−2)R⁴. As α ≤ 2, d_j − 2 ≤ 2 + d_j − 2α, so
 
     F̂_R(Q) := (R^(2+d_j)F_R(Q)_j)_j = Q − 𝔔⁰ + O(R^(3−2α))     uniformly on B̄,                              {#eq:v-3-2}
@@ -782,8 +782,8 @@ place of [[lem:v-3-3]].
 
     ∮_(S_(4R)) 𝔟(γ^m, k^m) − ∮_(S_R) 𝔟(g, K) + ∫_(Γ(R,4R)) q_(e₀)(û) dx = 0.
 
-The same lemma on Γ(4R, ϱ) for (γ^m, k^m), and on Γ(R, ϱ) for (γ^(m₀), k^(m₀)), with ϱ → ∞ ([[lem:vii-2-1]] (c);
-|q| ≤ Cr⁻⁶ is integrable), gives ∮_(S_(4R)) 𝔟(γ^m, k^m) = 6π²m + ∫_(r>4R) q(γ^m) and
+The same lemma on Γ(4R, ϱ) for (γ^m, k^m), and on Γ(R, ϱ) for (γ^(m₀), k^(m₀)), with ϱ → ∞ ([[lem:vii-2-1]]
+(c); |q| ≤ Cr⁻⁶ is integrable), gives ∮_(S_(4R)) 𝔟(γ^m, k^m) = 6π²m + ∫_(r>4R) q(γ^m) and
 ∮_(S_R) 𝔟(γ^(m₀), k^(m₀)) = 6π²m₀ + ∫_(r>R) q(γ^(m₀)). By [[eq:vii-2-1]], ∮_(S_R) 𝔟(g, K) differs from the latter flux
 by at most Cζ. Hence
 
@@ -799,8 +799,8 @@ the difference û − (γ^(m₀), k^(m₀)), û := 𝒮_R⁻¹û_(m,R), has |h| 
 further factor R⁻¹. Both û and (γ^(m₀), k^(m₀)) have |h| ≤ CR⁻² with the same scaling. q_(e₀) is a smooth function
 of (h, ∂h, ∂²h, K, ∂K) vanishing to second order at 0 (the proof of [[lem:v-1-2]]), with the quadratic bound
 [[eq:v-1-2]]. So |q(û) − q(γ^(m₀))| ≤ C(ζ + |m − m₀|)R⁻⁶ on
-Γ(R, 4R), and |q(γ^m) − q(γ^(m₀))| ≤ C|m − m₀|r⁻⁶. Integrating, 6π²|m − m₀| ≤ C(ζ + |m − m₀|)R⁻² + Cζ, so
-|m − m₀| ≤ Cζ for R large.
+Γ(R, 4R), and |q(γ^m) − q(γ^(m₀))| ≤ C|m − m₀|r⁻⁶. Integrating, 6π²|m − m₀| ≤ C(ζ + |m − m₀|)R⁻² + Cζ,
+so |m − m₀| ≤ Cζ for R large.
 
 (7) *The bound [[eq:vii-2-2]] and the conclusion.* û − (γ^(m₀), k^(m₀)) is the sum of χ times the data's deviation,
 (1 − χ)(γ^m − γ^(m₀), k^m − k^(m₀)) and δu. These are bounded in the norm of [[eq:vii-2-2]] by ζ, by C|m − m₀| ≤ Cζ

@@ -249,8 +249,8 @@ are uniform in h. Put L_h(x, ζ) := 1 + log⟨x⟩ + log⟨ζ⟩ + log(1/h).
 
 #### Symbols and orders {#sec:i-b-2-1}
 
-An *order* is a real function 𝗈 on ℝ^n_x × ℝ^n_ζ, independent of h, with
-|∂_x^α ∂_ζ^β 𝗈| ≤ C_αβ ⟨x⟩^(−|α|) ⟨ζ⟩^(−|β|). Every function smooth on ℝ̄^n × ℝ̄^n (the product of the radial
+An *order* is a real function 𝗈 on ℝ^n_x × ℝ^n_ζ, independent of h,
+with |∂_x^α ∂_ζ^β 𝗈| ≤ C_αβ ⟨x⟩^(−|α|) ⟨ζ⟩^(−|β|). Every function smooth on ℝ̄^n × ℝ̄^n (the product of the radial
 compactifications) is an order, since derivatives of a smooth function of (⟨x⟩⁻¹, x/⟨x⟩) gain ⟨x⟩⁻¹, and likewise in
 ζ. For orders s, 𝗋, 𝖻 put
 
@@ -295,11 +295,11 @@ For a ∈ S^𝐨 and u ∈ 𝒮(ℝ^n; ℂ^(N_E)),
                  = (2πh)^(−n) ∫ e^(ix·ζ/h) a_h(x, ζ) ℱ_h u(ζ) dζ,
 
 with ℱ_h u(ζ) := ∫ e^(−ix′·ζ/h) u(x′) dx′, Schwartz. Ψ^𝐨 := Op_h(S^𝐨). Op_h(a) maps 𝒮 to itself:
-x^γ e^(ix·ζ/h) = (−ih∂_ζ)^γ e^(ix·ζ/h), and integrating by parts gives
-|x^γ ∂_x^(γ′) Op_h(a)u(x)| ≤ C_(γγ′) ⟨x⟩^(sup 𝗋+|γ′|) L_h(x, 0)^μ for some μ and every γ.
+x^γ e^(ix·ζ/h) = (−ih∂_ζ)^γ e^(ix·ζ/h), and integrating by parts
+gives |x^γ ∂_x^(γ′) Op_h(a)u(x)| ≤ C_(γγ′) ⟨x⟩^(sup 𝗋+|γ′|) L_h(x, 0)^μ for some μ and every γ.
 
-**Lemma {#lem:i-b-2-3}** (Oscillatory integrals.) Let F ∈ C^∞(ℝ^(2n)_(w,η); ℂ^(N_E×N_E)) satisfy
-|∂_w^γ ∂_η^(γ′) F| ≤ A_(γγ′) ⟨w⟩^(M_F) ⟨η⟩^(M_F). Fix χ ∈ C_c^∞(ℝ^n) with χ(0) = 1. Then
+**Lemma {#lem:i-b-2-3}** (Oscillatory integrals.) Let F ∈ C^∞(ℝ^(2n)_(w,η); ℂ^(N_E×N_E))
+satisfy |∂_w^γ ∂_η^(γ′) F| ≤ A_(γγ′) ⟨w⟩^(M_F) ⟨η⟩^(M_F). Fix χ ∈ C_c^∞(ℝ^n) with χ(0) = 1. Then
 
     I(F) := lim_(ϵ→0) (2π)^(−n) ∫∫ e^(−iw·η) χ(ϵw) χ(ϵη) F(w, η) dw dη
 
@@ -346,8 +346,8 @@ G_(α,t)(w, η) := (D_ζ^α a)(x, ζ + η) (∂_x^α b)(x + thw, ζ).
 
 *The remainder, with constant orders.* Let 𝐨_+, 𝐨′_+ be the componentwise suprema. Since
 ⟨x + y⟩^t ≤ 2^(|t|/2) ⟨x⟩^t ⟨y⟩^(|t|) (Peetre's inequality) and L_h(x + y, ζ + η) ≤ 2L_h(x, ζ) ⟨y⟩ ⟨η⟩ (as
-log⟨x + y⟩ ≤ log⟨x⟩ + log(1 + |y|) ≤ log⟨x⟩ + |y|, likewise in ζ, and
-|y| + |η| ≤ 2⟨y⟩⟨η⟩ − 1 ≤ (2⟨y⟩⟨η⟩ − 1)L_h(x, ζ)), and using
+log⟨x + y⟩ ≤ log⟨x⟩ + log(1 + |y|) ≤ log⟨x⟩ + |y|, likewise in ζ,
+and |y| + |η| ≤ 2⟨y⟩⟨η⟩ − 1 ≤ (2⟨y⟩⟨η⟩ − 1)L_h(x, ζ)), and using
 (th)^(|γ|) ≤ 1, ⟨x + thw⟩^(−|γ|) ≤ 1 and ⟨ζ + η⟩^(−|γ′|) ≤ 1, for |γ|, |γ′| ≤ 2k
 
     |∂_w^γ ∂_η^(γ′) G_(α,t)| ≤ C w_(𝐨_++𝐨′_+)(x, ζ) ⟨x⟩^(−M) ⟨ζ⟩^(−M) L_h(x, ζ)^μ ⟨w⟩^(M_F) ⟨η⟩^(M_F),
@@ -482,8 +482,8 @@ A = Op_h(q)* Op_h(q) + (c/2) W_𝐦* W_𝐦 + E with E ∈ Ψ^(2𝐦−(1−ϵ)�
 ⟨ABu, Bu⟩ ≥ (c/2) ‖Bu‖²_𝐦 + ⟨EBu, Bu⟩, and [[prop:i-b-2-8]] bounds the last term. ∎
 
 **Lemma {#lem:i-b-2-12}** (Square roots with logarithmic growth.) Let Q_0 ∈ S^0 be Hermitian with Q_0 ≥ c_Q Id,
-c_Q > 0, and let κ ≥ 0 be a real scalar function with κ ≤ C L_h and
-|∂_x^α ∂_ζ^β κ| ≤ C_αβ ⟨x⟩^(−|α|) ⟨ζ⟩^(−|β|) L_h^(μ_αβ) for (α, β) ≠ 0. Let Q := Q_0 + κ Id. Then Q^(1/2) ∈ S^(ϵ𝟏)
+c_Q > 0, and let κ ≥ 0 be a real scalar function with κ ≤ C L_h
+and |∂_x^α ∂_ζ^β κ| ≤ C_αβ ⟨x⟩^(−|α|) ⟨ζ⟩^(−|β|) L_h^(μ_αβ) for (α, β) ≠ 0. Let Q := Q_0 + κ Id. Then Q^(1/2) ∈ S^(ϵ𝟏)
 for every ϵ > 0 and Q^(−1/2) ∈ S^0. If b := w_𝐨 φ Q^(1/2) with φ ∈ S^0 scalar, then b ∈ S^(𝐨+ϵ𝟏) for every ϵ, and
 wherever φ ≥ c > 0 on an open set U, φ′ b⁻¹ ∈ S^(−𝐨) for φ′ ∈ S^0 supported in U; [[prop:i-b-2-10]] then holds with
 A := Op_h(b), at the order 𝐨, on U.
@@ -687,8 +687,8 @@ WF′_h(B) ⊂ K_0 and G elliptic on K_0. Then for all orders 𝐨 and all M, un
 The same holds for P^(*h).
 
 *Proof.* By compactness of K_0 × Z there are a neighbourhood U of K_0 and c > 0 with |Ĝ_z| ≥ c on U for z ∈ Z. Since
-p_(h,z) − G_z Id ∈ S^((1,−1,−1)) is bounded by C h w_𝐦, p_(h,z) is invertible on U with
-|p_(h,z)⁻¹| ≤ 2c⁻¹ w_𝐦⁻¹ for h < h_0. [[prop:i-b-2-10]] applies, with constants depending on seminorms and on c only.
+p_(h,z) − G_z Id ∈ S^((1,−1,−1)) is bounded by C h w_𝐦, p_(h,z) is invertible on U with |p_(h,z)⁻¹|
+≤ 2c⁻¹ w_𝐦⁻¹ for h < h_0. [[prop:i-b-2-10]] applies, with constants depending on seminorms and on c only.
 The second inequality is ‖f‖_(𝐨−𝐦) ≤ C ‖f‖_(𝐨−𝐦+(1,1,0)) ([[prop:i-b-2-8]]). For P^(*h) the symbol is Ḡ_z modulo
 S^((1,−1,−1)). ∎
 
@@ -701,8 +701,8 @@ smooth on 𝒫 × Π). Let ϖ_0 ∈ 𝒫, π_* ∈ Π and V_(π_*)(ϖ_0) ≠ 0. 
 τ > 0, and functions t, y_1, …, y_(2n−1) smooth on U × Π_0 such that for each π ∈ Π_0: (t, y)(·, π) is a
 diffeomorphism of U onto (−τ, τ) × Y_π with Y_π open in [0, ∞)^k × ℝ^(2n−1−k), where k ∈ {0, 1, 2} is the number of
 faces through ϖ_0 and the first k components of y are defining functions of those faces; V_π t = 1 and V_π y = 0; and
-t(ϖ_0, π) = 0, y(ϖ_0, π) = y_0 independent of π. The same coordinates serve every point ϖ ∈ U with
-|t(ϖ, π)| < τ/2, after translation in t, with τ/2 in place of τ.
+t(ϖ_0, π) = 0, y(ϖ_0, π) = y_0 independent of π. The same coordinates serve every point ϖ ∈ U
+with |t(ϖ, π)| < τ/2, after translation in t, with τ/2 in place of τ.
 
 *Proof.* Choose coordinates (ϱ_1, …, ϱ_k, w) near ϖ_0 with ϱ_i defining the faces through ϖ_0, and extend V_π smoothly
 to a neighbourhood of ϖ_0 in ℝ^(2n) (allowing ϱ_i < 0). Tangency gives V_π ϱ_i = ϱ_i f_i with f_i smooth, so
@@ -780,8 +780,8 @@ on a neighbourhood of every supp φ considered. Then on supp φ
 with β_r := 2(C_r ρ − ς(Im z)² 𝖧^(2) 𝗋) log⟨x⟩ bounded with all derivatives obeying [[eq:i-b-2-1]].
 
 *The semiclassical order.* f_b := ς𝖧_(Re z) 𝖻 ≤ 0 on U_0; put κ_b := −2χ̃ f_b log(1/h) ≥ 0. The rest is
-−2ς(Im z)² (𝖧^(2) 𝖻) log(1/h) = −ℓ c_b with c_b := 2ςh(Im z) log(1/h) 𝖧^(2) 𝖻; note
-|c_b| ≤ C h log(1/h) ρ² ρ_∞².
+−2ς(Im z)² (𝖧^(2) 𝖻) log(1/h) = −ℓ c_b with c_b := 2ςh(Im z) log(1/h) 𝖧^(2) 𝖻;
+note |c_b| ≤ C h log(1/h) ρ² ρ_∞².
 
 Let Q_0 := 2M_1 − β − β_r on U_1, and choose M_1 with Q_0 ≥ M_1 Id there for z ∈ Z_0; replace Q_0 by
 χ̃Q_0 + (1 − χ̃)M_1 Id, which is ≥ M_1 Id everywhere. κ_0 := κ_r + κ_b satisfies the hypotheses of
@@ -814,8 +814,8 @@ symbol of ZB is ǎ. So [[eq:i-b-3-3]] holds with J = 0, K_1 := supp φ and K_E :
 elliptic, in the sense of [[prop:i-b-2-10]], on {φ ≠ 0} ⊃ {t ∈ (t_− − ϵ, t_+ + ϵ), |y − y_0| < η_1 + ϵ}. All
 seminorms and C_F are uniform in z ∈ Z_0 and in the parameters t_±, ϵ, η_1 on compact sets of them.
 
-*Step 2: iteration.* Let η > 0, to be fixed by W. In the coordinates of z put Λ_z := {t ∈ [−T_0/2, 0],
-|y − y_0| ≤ η}, c_j := 2^(−j) c_0 for j = 0, …, J := 4M, with c_0 ≤ T_0/4, and
+*Step 2: iteration.* Let η > 0, to be fixed by W. In the coordinates of z put Λ_z := {t ∈
+[−T_0/2, 0], |y − y_0| ≤ η}, c_j := 2^(−j) c_0 for j = 0, …, J := 4M, with c_0 ≤ T_0/4, and
 U_j(z) := {t ∈ (−T_0/2 − 3c_j, 2c_j), |y − y_0| < η + 2c_j}, a decreasing sequence. The proof of [[lem:i-b-3-4]] uses
 its hypothesis only for the sets U_0 ⊃ ⋯ ⊃ U_J it chooses, the j-th being the set U′ for the (j − 1)-st; here Step 1
 with t_− := −T_0/2 − 2c_j, t_+ := c_j, ϵ := c_j − c_(j+1), η_1 := η + c_j gives a commutant microsupported in U_j(z)
@@ -902,8 +902,8 @@ semiclassical differential operators acting componentwise, M̃ = (M̃_jk) and �
 h^(⊕J) and 𝒜_0 ≥ 0 for h everywhere, and 𝒜_1 is a differential operator whose coefficients vanish near the base
 projection of Ū_0.
 
-(iii) There are real g, φ ∈ C^∞(𝒫), continuous in z, φ ≥ 0, with Λ = Ū_0 ∩ {ϱ = 0, φ = 0, g = 0},
-|ρ_∞² 𝐠_z| ≥ c|g| − Cϱ on U_0 where 𝐠_z is the principal symbol of 𝐏, and on U_0
+(iii) There are real g, φ ∈ C^∞(𝒫), continuous in z, φ ≥ 0, with Λ = Ū_0 ∩ {ϱ = 0, φ = 0, g = 0}, |ρ_∞² 𝐠_z|
+≥ c|g| − Cϱ on U_0 where 𝐠_z is the principal symbol of 𝐏, and on U_0
 
     ς𝖧_z^𝐏 φ ≥ c_1 φ − C_1(ϱ + g²)  (source),     ς𝖧_z^𝐏 φ ≤ −c_1 φ + C_1(ϱ + g²)  (sink).              {#eq:i-b-5-1}
 
@@ -1145,8 +1145,8 @@ h^(2+k)V^(α′) = h · h²(hV)^(α′). It remains to place h²P̃_αβ and h^(
 the dependence on σ that the proof of [[lem:i-a-4-8]] produces. There P̂(σ) = 2iσρV_1 + ℛ,
 ℛ = −2iσρ(3/2 + S) + P̂(0) − iσQ + σ²g_00, and the terms are sorted by origin. From P̂(0) = ρ²P^(0): σ-independent,
 in ρ² Diff¹_b ∘ V^β; times h² this is hρ · (hρ Diff¹_b), and hρ Diff¹_b has semiclassical symbol linear in ζ plus
-O(ρ). From σρ(3/2 + S) and from the commutators of 2iσρV_1 beyond the diagonal term: σρC^∞ times V^β with
-|β| ≤ k − 1 only; times h², hzρC^∞ ∈ Ψ^((0,−1,−1)). From σQ, Q ∈ ρ³ Diff¹_b: [V^α, Q] and QV^(α′) lie in
+O(ρ). From σρ(3/2 + S) and from the commutators of 2iσρV_1 beyond the diagonal term: σρC^∞ times V^β
+with |β| ≤ k − 1 only; times h², hzρC^∞ ∈ Ψ^((0,−1,−1)). From σQ, Q ∈ ρ³ Diff¹_b: [V^α, Q] and QV^(α′) lie in
 ρ³ Diff^k_b, whose part with |β| = k has coefficients in ρ³C^∞; so σρ³C^∞ on the diagonal level and σρ³ Diff¹_b below
 it; times h², hzρ³C^∞ = hρ · zρ²C^∞ and zρ² · hρ Diff¹_b ⊂ Ψ^((1,−2,0)). From σ²g_00, g_00 ∈ ρ²C^∞: only below the
 diagonal level, σ²ρ²C^∞; times h², z²ρ²C^∞. Collecting: h²P̃_αβ = hρ𝒟_αβ with 𝒟_αβ having symbol linear in ζ plus
@@ -1323,8 +1323,8 @@ paragraph of [[sec:i-b-6-1]], supp ǎ ⊂ Γ(√(2/M_1)) (for M_Σ ≥ M_1), and
     Vψ_u² = 4M_1 χ_0χ_0′(M_1(φ_u^♮)²) φ_u^♮ (−ν_u^♮φ_u^♮ + j_u^♮G_(z_0)),
     Vψ_s² = 4M_1 χ_0χ_0′(M_1(φ_s^♮)²) φ_s^♮ (ν_s^♮φ_s^♮ + j_s^♮G_(z_0)).
 
-On supp χ_0′(M_1(φ_u^♮)²) ∩ supp ψ_Σ we have (φ_u^♮)² ≥ M_1⁻¹ and G_(z_0)² ≤ 2M_Σ⁻¹, so
-|j_u^♮G_(z_0)| ≤ ¼ν_min|φ_u^♮| once M_Σ ≥ CM_1; then Vψ_u² = e_u² ≥ 0 with
+On supp χ_0′(M_1(φ_u^♮)²) ∩ supp ψ_Σ we have (φ_u^♮)² ≥ M_1⁻¹ and G_(z_0)² ≤ 2M_Σ⁻¹,
+so |j_u^♮G_(z_0)| ≤ ¼ν_min|φ_u^♮| once M_Σ ≥ CM_1; then Vψ_u² = e_u² ≥ 0 with
 e_u := 2M_1^(1/2) χ_u |φ_u^♮| (ν_u^♮ − j_u^♮G_(z_0)/φ_u^♮)^(1/2), χ_u := √(−χ_0χ_0′)(M_1(φ_u^♮)²), smooth, and
 likewise Vψ_s² = −f_s². The O((Im z)²) term of [[eq:i-b-6-2]] changes these by at most
 C(Im z)²M_1|φ| · |χ_0χ_0′|, which keeps the signs and smoothness for Im z ≤ ν′, ν′ small depending on M_1. The
@@ -1364,8 +1364,8 @@ tr(dμ/dν) = 1 ν-almost everywhere, and for every Hermitian continuous p, tr(p
 definition is taken scalar with principal symbol g, |g| ≥ c > 0 on Ū. As in [Hin26c, (9.87)–(9.88)], B = G*QG + R with
 Q ∈ Ψ^0 of principal symbol q := b|g|^(−2) ∈ C_c^∞(U) (the construction of [[prop:i-b-2-10]]), so that R ∈ hΨ^0 is
 microsupported in Ell_h(G) up to a term in h^∞Ψ^(−∞); then R = G*R′G + R″ with R′ ∈ hΨ^0 and R″ residual. By
-[[thm:i-b-2-7]], |⟨QGu, Gu⟩| ≤ (sup|q| + ϵ + Ch^(1/4))‖Gu‖² for every ϵ > 0, and
-|⟨Ru, u⟩| ≤ Ch sup‖Gu‖² + C_M h^M ‖u‖²_(−M_t) = o(1) by temperedness.
+[[thm:i-b-2-7]], |⟨QGu, Gu⟩| ≤ (sup|q| + ϵ + Ch^(1/4))‖Gu‖² for every ϵ > 0,
+and |⟨Ru, u⟩| ≤ Ch sup‖Gu‖² + C_M h^M ‖u‖²_(−M_t) = o(1) by temperedness.
 
 (b) The value depends only on b: two such B with the same b differ by hΨ^0 plus residual terms, whose pairings tend to
 0 by (a).
@@ -1456,13 +1456,13 @@ U_1 ∩ Ell_h(B_1), where μ lives and [[lem:i-b-6-3]] (c) applies. [[lem:i-b-6-
 where B_1 is gives, for real a ∈ C_c^∞(U_1 ∩ Ell_h(B_1)), |∫ H_(φ_u^♮) a dν| ≤ C_1 sup|a|, C_1 independent of a. Take
 a := χ_(O′) a_0(φ_u^♮) a_1(φ_s^♮) ψ(G_(z_0)) with a_0, ψ ∈ C_c^∞((−δ_1, δ_1)) equal to 1 near 0, 0 ≤ a_0, ψ ≤ 1 (so
 that a ≥ 0 in Step 3), and a_1(t) := Θ(t/δ)χ_c(t), where Θ is smooth, non-decreasing, Θ(s) = ∓1 for ±s ≤ −2,
-Θ′ ≥ ½ on [−1, 1], and χ_c ∈ C_c^∞((−δ_1, δ_1)), 0 ≤ χ_c ≤ 1, equals 1 on [−δ_1/2, δ_1/2] with |χ_c′| ≤ 4/δ_1. Then
-|a| ≤ 1, and by the cut-offs paragraph of [[sec:i-b-6-1]] a is supported in Γ(δ_1), with χ_(O′) = 1 near its support.
+Θ′ ≥ ½ on [−1, 1], and χ_c ∈ C_c^∞((−δ_1, δ_1)), 0 ≤ χ_c ≤ 1, equals 1 on [−δ_1/2, δ_1/2] with |χ_c′| ≤ 4/δ_1. Then |a|
+≤ 1, and by the cut-offs paragraph of [[sec:i-b-6-1]] a is supported in Γ(δ_1), with χ_(O′) = 1 near its support.
 On supp ν ⊂ Γ_u^♮ ∩ Σ_(z_0), H_(φ_u^♮) a = a_1′(φ_s^♮){φ_u^♮, φ_s^♮} on O′ and H_(φ_u^♮) a = 0 off O′ (the other
 terms contain H_(φ_u)φ_u = 0, or ψ′(G_(z_0)), which vanishes near Σ_(z_0)). Replace a_1 by ϵ_♭a_1, ϵ_♭ being the sign
-of {φ_u^♮, φ_s^♮} on Γ(ε_Γ); the integrand is then a_1′(φ_s^♮)|{φ_u^♮, φ_s^♮}| on O′. For δ < δ_1/4, Θ′(t/δ) = 0 for
-|t| ≥ 2δ and χ_c = 1 on [−δ_1/2, δ_1/2], so a_1′ ≥ 1/(2δ) on [−δ, δ], a_1′ ≥ 0 on [−δ_1/2, δ_1/2], and
-|a_1′| = |Θ(t/δ)χ_c′(t)| ≤ 4/δ_1 for δ_1/2 < |t| < δ_1. With c_Γ ≤ |{φ_u^♮, φ_s^♮}| ≤ C_Γ on Γ(δ_1) ⊂ Γ(ε_Γ), the
+of {φ_u^♮, φ_s^♮} on Γ(ε_Γ); the integrand is then a_1′(φ_s^♮)|{φ_u^♮, φ_s^♮}| on O′. For δ < δ_1/4, Θ′(t/δ) = 0
+for |t| ≥ 2δ and χ_c = 1 on [−δ_1/2, δ_1/2], so a_1′ ≥ 1/(2δ) on [−δ, δ], a_1′ ≥ 0 on [−δ_1/2, δ_1/2],
+and |a_1′| = |Θ(t/δ)χ_c′(t)| ≤ 4/δ_1 for δ_1/2 < |t| < δ_1. With c_Γ ≤ |{φ_u^♮, φ_s^♮}| ≤ C_Γ on Γ(δ_1) ⊂ Γ(ε_Γ), the
 integral over {|φ_s^♮| < δ} is at least (c_Γ/(2δ))𝗆(δ), that over {δ ≤ |φ_s^♮| ≤ δ_1/2} is non-negative, and that
 over {δ_1/2 < |φ_s^♮| < δ_1} is at least −(4C_Γ/δ_1)ν(Γ(δ_1)). So
 
@@ -1541,8 +1541,8 @@ h(a_♭ − a)(x; z/h, ζ/h) ∈ hS^0, and h a(x; 1/h, ζ/h) = |(1, ζ)| q̃_1(x
 a_♭(σ̄) − a_♭(σ) is of order 0; so h²Q̂ = W*W + hR_W with R_W := (h⁻¹(hQ̂_♭(z̄/h) − W))* W.
 
 (b) If (x, ζ) ∈ Γ(ε_Γ/3) and |hτ − 1| ≤ ϵ, then (x, ζ/(hτ)) ∈ Γ(ε_Γ/2) for ϵ small (uniform continuity of φ_u, φ_s,
-G_(z_0) on a compact set), so a(x; τ, ζ/h) = 0; the rest of the integral defining a_♭(x; 1/h + iη, ζ/h) is over
-|τ − 1/h| ≥ ϵ/h, where |Υ| ≤ C_M(h/ϵ)^M, and likewise for all derivatives. So the symbol of W is O(h^∞) in S^((1,0,0))
+G_(z_0) on a compact set), so a(x; τ, ζ/h) = 0; the rest of the integral defining a_♭(x; 1/h + iη, ζ/h) is over |τ − 1/h|
+≥ ϵ/h, where |Υ| ≤ C_M(h/ϵ)^M, and likewise for all derivatives. So the symbol of W is O(h^∞) in S^((1,0,0))
 near Γ(ε_Γ/3), and so is R_W (which ends in W). Near the base projection of Γ(ε_Γ), χ = 1 and 1 − χ² = 0.
 
 (c) The principal symbol of P′_(h,z) is χ²G_(z_0) − iz_0(1 + |ζ|²)(χ²q̃_0² + 1 − χ²), as χ_1 = 1 on supp χ and
@@ -1624,8 +1624,8 @@ WF′_h(I − X_u) ∩ Γ(c) reach Ell_h(E) ((D1), choosing E elliptic on Γ(ε_
 (i) By [[cor:i-b-4-6]], ‖(I − X_u)[𝐏, B^♯]u‖ ≤ Ch(h⁻¹‖G𝐏u‖ + ‖Eu‖ + h^M‖u‖_(−M)), and [[prop:i-b-6-7]] turns this
 into a bound C_ϵh^(−δ)(h⁻¹‖G𝐏u‖ + ‖Eu‖ + h^M‖u‖_(−M)) for B(P′)⁻¹(I − X_u)[𝐏, B^♯]u.
 
-(ii) f_u := X_u[𝐏, B^♯]u is microsupported in K_f := Γ(c) ∖ Γ(3c/4) ∩ {|φ_u^♮| < c/8}, where |φ_s^♮| ≥ 3c/4 or
-|G_(z_0)| ≥ 3c/4. Let W̃ := Op_h(w̃) Id with w̃ ∈ C_c^∞ real and scalar, w̃ ≠ 0 on Γ(c/4) and supp w̃ ⊂ Γ(c/2), and
+(ii) f_u := X_u[𝐏, B^♯]u is microsupported in K_f := Γ(c) ∖ Γ(3c/4) ∩ {|φ_u^♮| < c/8}, where |φ_s^♮| ≥ 3c/4
+or |G_(z_0)| ≥ 3c/4. Let W̃ := Op_h(w̃) Id with w̃ ∈ C_c^∞ real and scalar, w̃ ≠ 0 on Γ(c/4) and supp w̃ ⊂ Γ(c/2), and
 Q̃ := W̃*W̃. Then every backward bicharacteristic of the characteristic set in Γ(ε_Γ) reaches Ell_h(Q̃) (if on Γ_u^♮,
 by (D2)) or the region q̃_0 = 1, so the argument of part (a) of the proof of [[prop:i-b-6-7]] (with −iz_0Q̃ as a
 further absorbing term: [[rem:i-b-4-7]] (b) with ϵ_W := z_0 for P′, and with ϵ_W := −z_0 for the adjoint
@@ -1684,8 +1684,8 @@ W := wX with w := e^(−2(Im z)t/h) e^(ℓr). Then
 
     ^(W)K[u′] = w(^(X)K[u′] + 2h⁻¹(Im z) T[u′](−∇t, X) + ℓ T[u′](X, X)) ≥ w(ℓc_0 − C_0)|du′|²_R,
 
-using Im z ≥ 0, T(−∇t, X) ≥ 0 and |^(X)K| ≤ C_0|du′|²_R. Since du′ = e^(−izt/h)(du − ih⁻¹z u dt) and
-|α + β dt|²_R ≥ c(|α|²_R + |β|²) for α without dt-component, w|du′|²_R ≥ c e^(ℓr)(|du|² + ¼h⁻²|u|²), a function of x
+using Im z ≥ 0, T(−∇t, X) ≥ 0 and |^(X)K| ≤ C_0|du′|²_R. Since du′ = e^(−izt/h)(du − ih⁻¹z u dt)
+and |α + β dt|²_R ≥ c(|α|²_R + |β|²) for α without dt-component, w|du′|²_R ≥ c e^(ℓr)(|du|² + ¼h⁻²|u|²), a function of x
 only. Apply the divergence theorem to J := T[u′](W, ·)^♯ on D. At r = b nothing contributes. At r = a the outward
 conormal is −dr, and the flux is −∫ wT[u′](X, X) ≤ 0. At t = 1 and t = 0 the fluxes are −E(1) and E(0),
 E(t) := ∫_({t}×Ω_(a,b)) T[u′](W, −∇t); as T[u′] carries the factor |e^(−izt/h)|² = e^(2(Im z)t/h), which w cancels,
@@ -1868,8 +1868,8 @@ and in (2) the loss is h⁻¹. ∎
 
 #### Invertibility {#sec:i-b-8-4}
 
-*Proof of [[thm:i-b-1-3]] (3).* Let σ with Im σ ≥ 0 and |σ| ≥ C_0. If Im σ ≥ ν′|σ|, put h := |σ|⁻¹ and z := hσ, so
-|z| = 1 and Im z ≥ ν′ (part (2)). Otherwise |Re σ| ≥ |σ|√(1 − ν′²) and Im σ < ν′|σ| ≤ 2ν′|Re σ|; put
+*Proof of [[thm:i-b-1-3]] (3).* Let σ with Im σ ≥ 0 and |σ| ≥ C_0. If Im σ ≥ ν′|σ|, put h := |σ|⁻¹ and z := hσ,
+so |z| = 1 and Im z ≥ ν′ (part (2)). Otherwise |Re σ| ≥ |σ|√(1 − ν′²) and Im σ < ν′|σ| ≤ 2ν′|Re σ|; put
 h := |Re σ|⁻¹, z := hσ ∈ z_0 + i[0, 2ν′] with z_0 = sgn Re σ (part (1) with ν := 2ν′). In both cases h < h_0 for C_0
 large. At this fixed h, H_h^𝐨 is the space H^(s,(𝗋+α_+)_h) of [[ch:s01]] with 𝗋_h(x, ξ) := 𝗋(x, hξ), up to an
 equivalent norm ([[sec:i-b-2-3]]; h^(−𝖻(x,hξ)) is a symbol of order 0 at fixed h), and in the case of part (1) 𝗋_h is

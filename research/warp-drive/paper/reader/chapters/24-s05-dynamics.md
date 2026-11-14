@@ -57,8 +57,8 @@ in the sense of [HPS77, Definition 4]: there is a continuous splitting
 
     T_Γ Σ^♭₁ = TΓ ⊕ N̄^u ⊕ N̄^s                                                                        {#eq:ii-b-1-1}
 
-preserved by De^(s𝖵) for all s ∈ ℝ, and there are constants μ, C > 0 and, for every ϵ > 0, a constant C_ϵ, with
-|De^(s𝖵) v| ≤ C e^(−μ|s|) |v| for v ∈ N̄^u, s ≤ 0, and for v ∈ N̄^s, s ≥ 0, and |De^(s𝖵) v| ≤ C_ϵ e^(ϵ|s|) |v| for
+preserved by De^(s𝖵) for all s ∈ ℝ, and there are constants μ, C > 0 and, for every ϵ > 0, a constant C_ϵ,
+with |De^(s𝖵) v| ≤ C e^(−μ|s|) |v| for v ∈ N̄^u, s ≤ 0, and for v ∈ N̄^s, s ≥ 0, and |De^(s𝖵) v| ≤ C_ϵ e^(ϵ|s|) |v| for
 v ∈ TΓ, s ∈ ℝ. Here |·| is any fixed fibre metric.
 
 (K4) (*Parameters.*) When P̂ depends on b ∈ ℬ as in (H5), so does g, and ρ⁻²(g − ḡ) is bounded in C^∞(X̄ ∩ {r ≥ R})
@@ -399,8 +399,8 @@ G = G₀ + στ₁ + σ²g₀₀ give
 
 where H_(τ₁)f and ρ_∞⁻¹H_(g₀₀)f = −ρ_∞⁻¹(∂_x g₀₀)·∂_ζ f are homogeneous of degree 0 and smooth near ∂ℛ₊. 𝖧₀ is the
 field of (H3), extended off Σ₀ by the same formula, as in [[lem:i-a-4-1]], which gives 𝖧₀q̃ ≥ c′q̃ on a neighbourhood
-of ∂ℛ₊ in S*X̃°. As q̃ is smooth and vanishes quadratically at ∂ℛ₊, with q̃ ≥ c″dist², |dq̃| ≤ Cq̃^(1/2), so
-|H_(τ₁)q̃| ≤ Cq̃^(1/2). Hence 𝖧q̃ ≥ c′q̃ − C|σ̂|q̃^(1/2) − Cσ̂² ≥ (c′/2)q̃ − C₁σ̂². Next, 𝖧σ = 0 ([[lem:ii-b-2-1]]), so
+of ∂ℛ₊ in S*X̃°. As q̃ is smooth and vanishes quadratically at ∂ℛ₊, with q̃ ≥ c″dist², |dq̃| ≤ Cq̃^(1/2), so |H_(τ₁)q̃|
+≤ Cq̃^(1/2). Hence 𝖧q̃ ≥ c′q̃ − C|σ̂|q̃^(1/2) − Cσ̂² ≥ (c′/2)q̃ − C₁σ̂². Next, 𝖧σ = 0 ([[lem:ii-b-2-1]]), so
 𝖧σ̂ = σ̂ρ_∞⁻¹𝖧ρ_∞, and
 
     ρ_∞⁻¹𝖧ρ_∞ = H_Gρ_∞ = β₀ + σ̂ρ_∞⁻¹H_(τ₁)ρ_∞ + σ̂²ρ_∞⁻²H_(g₀₀)ρ_∞,        β₀ := ρ_∞⁻¹𝖧₀ρ_∞,
@@ -503,8 +503,8 @@ and as H_(x_I) = −x_I∂_(ξ_(eb)) by [[eq:ii-a-2-2]], H_(G_(eb)) ≡ H_(G⁰_
 ([Hin26c, p. 96], here on T*𝕊³).
 
 *The sign of σ_(eb).* σ_(eb) = ν(ρ₊∂_(ρ₊)), and at fixed x_I, ρ₊∂_(ρ₊) = −(t_*∂_(t_*) + r∂_r) = −(t∂_t + r∂_r). The
-vector field V := t∂_t + r∂_r has ḡ(V, V) = −t_*² − 2t_*r, and by (K1),
-|g(V, V) − ḡ(V, V)| ≤ Cr⁻²(t_* + r)² ≤ ½(t_*² + 2t_*r) on Ω ∩ {r ≥ R₂} for R₂ large (t_* ≥ 1). So V is timelike there,
+vector field V := t∂_t + r∂_r has ḡ(V, V) = −t_*² − 2t_*r, and by (K1), |g(V, V) − ḡ(V, V)|
+≤ Cr⁻²(t_* + r)² ≤ ½(t_*² + 2t_*r) on Ω ∩ {r ≥ R₂} for R₂ large (t_* ≥ 1). So V is timelike there,
 and future directed: g(V, −∇t_*) = −dt_*(V) = −t_* < 0. For ν ∈ Σ⁺ over M° there, ν(V) < 0, so σ_(eb) = −ν(V) > 0; on
 Σ over ℐ⁺, σ_(eb) = 0 would force ½ξ_(eb)² + |η_(eb)|² = 0, so σ_(eb) > 0 on Σ⁺ near ℐ⁺ ∩ ι⁺ ([Hin26c, p. 96]). Put
 
@@ -646,8 +646,8 @@ terms of the present class.
 Throughout, g is the stationary metric of [[sec:ii-b-1-1]], which satisfies (K1)–(K4), E_X := X̃ × ℂ^N is the trivial
 bundle of [[sec:i-a-1-2]], and E := π_X^*E_X is its pullback along π_X(t_*, x) := x. Sections of E are ℂ^N-valued
 functions, and ∂_(t_*) and ρ∂_ρ act componentwise; the connection of [Hin26c, Remark 5.3], needed for non-trivial
-bundles, is not needed here. We write G(ζ) := g⁻¹(ζ, ζ) and ρ := r⁻¹, and ρ₁ is that of [[sec:i-a-1-1]]. The density is
-|dt_* dx| = |dt dx|, the Euclidean density of [[sec:i-a-1-1]] times |dt_*|, and for a fibre inner product h
+bundles, is not needed here. We write G(ζ) := g⁻¹(ζ, ζ) and ρ := r⁻¹, and ρ₁ is that of [[sec:i-a-1-1]]. The density
+is |dt_* dx| = |dt dx|, the Euclidean density of [[sec:i-a-1-1]] times |dt_*|, and for a fibre inner product h
 ([[sec:i-a-1-2]]), A^(*h) and Im_h A := (A − A^(*h))/2i are taken with respect to it.
 
 **Definition {#def:ii-c-1-1}** (Stationary wave-type operators; [Hin26c, Definition 5.1] at n = 4.) A
@@ -964,8 +964,8 @@ symmetric products
 span x_I²ρ₊² C^∞(S² ᵉᵇT). As x_I²ρ₊²g₀ has a bounded inverse, g⁻¹ − g₀⁻¹ (by a Neumann series) lies in
 x_I²ρ₊² · x_I^(2ℓ) C⁰(S² ᵉ³ᵇT) with norm ≤ C‖h‖; and g₀⁻¹ − ḡ⁻¹ ∈ x_I⁴ρ₊⁴C^∞(S² ᵉ³ᵇT) ([[lem:ii-b-1-1]], the
 inverses). Since ρ₊ ≤ 1 on Ω, the coefficients of g⁻¹ − ḡ⁻¹ in the basis above are bounded by
-C₁(ϵ_G + ρ_I^(1−ℓ))ρ_I^ℓ. Away from ℐ⁺, where x_I is bounded below, the same membership gives
-|(g⁻¹ − g₀⁻¹)(α, α)| ≤ Cϵ_G(|α_t| + |α_r| + r⁻¹|α_ω|)² for α = α_t dt + α_r dr + α_ω: near K⁺ ∩ ι⁺ the 3b-vectors r∂_t,
+C₁(ϵ_G + ρ_I^(1−ℓ))ρ_I^ℓ. Away from ℐ⁺, where x_I is bounded below, the same membership gives |(g⁻¹ − g₀⁻¹)(α, α)|
+≤ Cϵ_G(|α_t| + |α_r| + r⁻¹|α_ω|)² for α = α_t dt + α_r dr + α_ω: near K⁺ ∩ ι⁺ the 3b-vectors r∂_t,
 r∂_x span ³ᵇT and x_I²ρ₊² ∼ r⁻² there; near K⁺ away from sf, ∂_t, ∂_x span it and x_I, ρ₊ are bounded below; near
 ι⁺ ∩ ℐ⁺ with x_I ≥ c, dt and dr evaluated on the eb-frame are O(t + r) = O(ρ₊⁻¹x_I⁻²).
 
@@ -979,16 +979,16 @@ evaluated on (A dt_* + B dr)^(⊗2) give ρA², O(|AB|), 0, ρ⁻¹B², 0, 0, al
 for ρ ≤ ρ_a and ϵ_G ≤ ϵ_a, with ρ_a, ϵ_a small depending on ℓ and C₂ (the error is of the order of the main term,
 which is why ϵ_G must be small). This is timelike. It is past directed: V := t∂_t + r∂_r is future timelike for g on
 {r ≥ R₂} ∩ Ω. For g₀ this is [[sec:ii-b-7]], with |g₀(V, V)| ≥ ½(t_*² + 2t_*r). For g, fix c_V > 0 so small that the
-description of [[lem:ii-a-2-5]] used above holds on {x_I < c_V}. There, near ℐ⁺,
-|h(V, V)| ≤ Cϵ_G x_I^(2ℓ) r t_* ≤ Cϵ_G|g₀(V, V)|. Where x_I ≥ c_V, the same membership of h, in the frames listed above,
+description of [[lem:ii-a-2-5]] used above holds on {x_I < c_V}. There, near ℐ⁺, |h(V, V)|
+≤ Cϵ_G x_I^(2ℓ) r t_* ≤ Cϵ_G|g₀(V, V)|. Where x_I ≥ c_V, the same membership of h, in the frames listed above,
 gives |h(V, V)| ≤ Cϵ_G(t_* + r)², with C depending on c_V; there r ≤ c_V⁻²t_*, so
 ½(t_*² + 2t_*r) ≥ c_V²(1 + 2c_V²)⁻¹(t_* + r)², and again |h(V, V)| ≤ Cϵ_G|g₀(V, V)|. The orientation is continuous
 along g₀ + τh, so V is future timelike for g once ϵ_G is small. Moreover d(t_*F₁)(V) = At_* + Br > 0, as Vt_* = t_* and
 Vr = r; a timelike covector that is positive on a future timelike vector is past timelike.
 
-*The function away from ℐ⁺.* dt = dt_* + dr has ḡ⁻¹(dt, dt) = −1, |(g₀⁻¹ − ḡ⁻¹)(dt, dt)| ≤ Cr⁻² by (K1), and
-|(g⁻¹ − g₀⁻¹)(dt, dt)| ≤ Cϵ_G where x_I ≥ c, by the bounds above. So g⁻¹(dt, dt) ≤ −½ on {r ≥ r′₀ − 1, x_I ≥ c} for r′₀
-large and ϵ_G small, and dt is past timelike there (dt(V) = t > 0, V being future timelike as r′₀ − 1 ≥ R₂). On
+*The function away from ℐ⁺.* dt = dt_* + dr has ḡ⁻¹(dt, dt) = −1, |(g₀⁻¹ − ḡ⁻¹)(dt, dt)| ≤ Cr⁻² by (K1),
+and |(g⁻¹ − g₀⁻¹)(dt, dt)| ≤ Cϵ_G where x_I ≥ c, by the bounds above. So g⁻¹(dt, dt) ≤ −½ on {r ≥ r′₀ − 1, x_I ≥ c} for
+r′₀ large and ϵ_G small, and dt is past timelike there (dt(V) = t > 0, V being future timelike as r′₀ − 1 ≥ R₂). On
 {r₀ ≤ r ≤ r′₀ + 1}, g₀⁻¹(dt_*, dt_*) = g₀₀ ≤ −c₀ < 0 by (H6) and compactness, so g⁻¹(dt_*, dt_*) ≤ −½c₀ for ϵ_G
 small, and dt_* is past timelike there, for g₀ by (H6) and for g by continuity.
 
@@ -1024,8 +1024,8 @@ C′(t_* + r), as ρ_I ≥ 2/C > ρ⁺ gives F = F₂. On {r ≤ Ct_*/2}, dt^♭
 combination of dt_* (past timelike for r ≤ r′₀ + 1) and dt (past timelike for r ≥ r′₀ − 1, x_I ≥ c, as ρ_I ≥ 2/C
 there). On {r ≥ r′₀ + 1}, dt^♭_* = d(t_*F(ρ_I)) is past timelike, as just shown. This proves (2), and (a), (c) hold by
 construction. (b): t_*F₁ ∈ [(1 − C^(−ℓ))t_*, t_*] for ρ ≤ 1/C, and t_*F₂ = C′t_*(1 + ρ⁻¹) ∈ [C′t_*, (1 − C^(−ℓ))t_*]
-for ρ ≥ 1/C, so C′ ≤ F ≤ 1 on (0, ρ₋] and on [ρ⁺, ∞). A smooth convex even m_κ equal to |y| for |y| ≥ κ satisfies
-|y| ≤ m_κ ≤ κ on [−κ, κ], so e^(−κ/2)min(F₁, F₂) ≤ F ≤ min(F₁, F₂) on (0, 2/C]; on the transition interval
+for ρ ≥ 1/C, so C′ ≤ F ≤ 1 on (0, ρ₋] and on [ρ⁺, ∞). A smooth convex even m_κ equal to |y| for |y| ≥ κ
+satisfies |y| ≤ m_κ ≤ κ on [−κ, κ], so e^(−κ/2)min(F₁, F₂) ≤ F ≤ min(F₁, F₂) on (0, 2/C]; on the transition interval
 min(F₁, F₂) ≥ C′(1 + C/2) (for C large, F₁ ≥ ½ there, and C′(1 + C/2) ≤ ½ as C^ℓ ≤ 2 + C for ℓ ≤ 1), and
 e^(−1/8)(1 + C/2) ≥ 1, so C′ ≤ F ≤ 1 there too. And C′(t_* + R̃) ≤ C′(t_* + r′₀ + r) ≤ t_* where r ≤ Ct_*/2 and
 r′₀ ≤ C/2. (1): g₀⁻¹(dr, dr) = G₀(dr) < 0 on {r₀ − 2δ₀ < r < r₂} by (H4), so G₀(dr) ≤ −c₁ < 0 on the compact set
@@ -1170,8 +1170,8 @@ and [[sec:ii-c-5-2]] (the construction).
 #### The characteristic set near ℐ⁺ and near ι⁺ {#sec:ii-c-5-1}
 
 *Near ℐ⁺.* Let Ω_I := Ω ∩ {x_I ≤ ϵ_I}, with the eb-coordinates of [[sec:ii-b-7]]: ρ₊ = t_*⁻¹ ∈ (0, 1],
-x_I = (t_*/r)^(1/2), covectors ν = σ_(eb) dρ₊/ρ₊ + ξ_(eb) dx_I/x_I + η_(eb) dω/x_I,
-|ν|_(eb)² := σ_(eb)² + ξ_(eb)² + |η_(eb)|² and G_(eb) := x_I⁻²ρ₊⁻²G. Let Ḡ_(eb) be [[eq:ii-b-7-1]] and
+x_I = (t_*/r)^(1/2), covectors ν = σ_(eb) dρ₊/ρ₊ + ξ_(eb) dx_I/x_I + η_(eb)
+dω/x_I, |ν|_(eb)² := σ_(eb)² + ξ_(eb)² + |η_(eb)|² and G_(eb) := x_I⁻²ρ₊⁻²G. Let Ḡ_(eb) be [[eq:ii-b-7-1]] and
 G⁰_(eb) := ½ξ_(eb)(ξ_(eb) − 2σ_(eb)) + |η_(eb)|². For g as in [[prop:ii-c-5-1]] (2), with ϵ_G ≤ 1, [[sec:ii-b-7]] and
 [[lem:ii-c-4-1]] (a) at d₀ = 1 (its first assertion holds verbatim at d₀ = 1 and over Ω, its proof being the Neumann
 series) give
@@ -1190,8 +1190,8 @@ is comparable to ϱ, and [[sec:ii-b-3]] and [[lem:ii-c-4-1]] (a) give
 with norm bounded in terms of C_ι, as ϱ² ≤ ϱ^(ℓ₊) and ρ_K^(ℓ_K)x_I^(2ℓ_I) is bounded on Ω.
 
 **Lemma {#lem:ii-c-5-3}** For ϵ_I small, ϵ_ι small (depending on C_ι), and every g as in [[prop:ii-c-5-1]] (2) with
-ϵ_G ≤ ϵ₁ small: on Σ over Ω_I, |σ_(eb)| ≥ 0.3|ν|_(eb), and σ_(eb) > 0 on Σ⁺; on Σ over Ω_ι,
-|σ_(3b)| ≥ 0.3|ν|_(3b), and σ_(3b) < 0 on Σ⁺.
+ϵ_G ≤ ϵ₁ small: on Σ over Ω_I, |σ_(eb)| ≥ 0.3|ν|_(eb), and σ_(eb) > 0 on Σ⁺; on Σ over
+Ω_ι, |σ_(3b)| ≥ 0.3|ν|_(3b), and σ_(3b) < 0 on Σ⁺.
 
 *Proof.* 2Ḡ_(eb) = (ξ_(eb) − σ_(eb))² − σ_(eb)² + 2|η_(eb)|² + ½x_I²ξ_(eb)². If |σ_(eb)| < 0.3|ν|_(eb), then
 (ξ − σ)² ≥ ½ξ² − σ² (omitting the subscripts) gives
@@ -1200,8 +1200,8 @@ with norm bounded in terms of C_ι, as ϱ² ≤ ϱ^(ℓ₊) and ρ_K^(ℓ_K)x_I^
 Ḡ_(3b) = (ξ_(3b) − σ_(3b))² + |η_(3b)|² − σ_(3b)² and [[eq:ii-c-5-2]].
 
 *Signs.* σ_(eb) = ν(ρ₊∂_(ρ₊)) = −ν(V) with V := t∂_t + r∂_r ([[sec:ii-b-7]]). On Ω_I, r = t_*x_I⁻² ≥ ϵ_I⁻² ≥ R₂, so V
-is future timelike for g₀, and also for g: V = −ρ₊∂_(ρ₊) ∈ 𝒱_eb and h ∈ x_I⁻²ρ₊⁻²ϵ_G x_I^(2ℓ_I)C⁰(S² ᵉᵇT*) give
-|h(V, V)| ≤ Cϵ_G x_I^(2ℓ_I)x_I⁻²ρ₊⁻² = Cϵ_G x_I^(2ℓ_I) r t_*, small against |g₀(V, V)| ≥ ½(t_*² + 2t_*r), and the
+is future timelike for g₀, and also for g: V = −ρ₊∂_(ρ₊) ∈ 𝒱_eb and h ∈ x_I⁻²ρ₊⁻²ϵ_G x_I^(2ℓ_I)C⁰(S² ᵉᵇT*)
+give |h(V, V)| ≤ Cϵ_G x_I^(2ℓ_I)x_I⁻²ρ₊⁻² = Cϵ_G x_I^(2ℓ_I) r t_*, small against |g₀(V, V)| ≥ ½(t_*² + 2t_*r), and the
 orientation is continuous along g₀ + τh. For ν ∈ Σ⁺ over M°, ν(V) = g(ν^♯, V) < 0, so σ_(eb) > 0, and by the first part
 and continuity also over ∂M. Likewise σ_(3b) = rν(∂_(t_*)), and ∂_(t_*) is future timelike for g₀ on {r ≥ R₁}
 ([[lem:ii-b-1-2]] (b)) and for g, as |h(∂_(t_*), ∂_(t_*))| ≤ Cϵ_G on Ω_ι (r∂_(t_*) is a 3b-vector field and
@@ -1220,8 +1220,8 @@ the 3b-coordinates over Ω_ι.
 𝖧^e := σ_(eb)⁻¹H_(G_(eb) − G⁰_(eb)). By [[eq:ii-a-2-2]], 𝖧^e applied to ξ̂ is O(x_I^(2ℓ_I)) and applied to x_I is
 (∂_(ξ_(eb))(G_(eb) − G⁰_(eb)))σ_(eb)⁻¹x_I = O(x_I^(1+2ℓ_I)), uniformly where |ξ̂| + |η̂| ≤ 7. On Σ,
 σ_(eb)⁻²G_(eb) = 0 gives |η̂|² = ½ξ̂(2 − ξ̂) + E with |E| ≤ C₃ϵ_I^(2ℓ_I). (a) For ξ̂ ∈ [−½, −1/8),
-½ξ̂(2 − ξ̂) ≤ −1/8, so |η̂|² < 0 once C₃ϵ_I^(2ℓ_I) < 1/8, which is impossible; and for |ξ̂| ≤ ½,
-|η̂|² ≤ 3/8 + C₃ϵ_I^(2ℓ_I) ≤ 3/2. (b) For ξ̂ ∈ [¼, ½], |η̂|² ≥ 7/32 − C₃ϵ_I^(2ℓ_I) ≥ 3/16, and
+½ξ̂(2 − ξ̂) ≤ −1/8, so |η̂|² < 0 once C₃ϵ_I^(2ℓ_I) < 1/8, which is impossible; and for |ξ̂| ≤
+½, |η̂|² ≤ 3/8 + C₃ϵ_I^(2ℓ_I) ≤ 3/2. (b) For ξ̂ ∈ [¼, ½], |η̂|² ≥ 7/32 − C₃ϵ_I^(2ℓ_I) ≥ 3/16, and
 𝖧⁰ξ̂ = −2|η̂|² ≤ −3/8. (c) 𝖧⁰x_I = (ξ̂ − 1)x_I ≤ −½x_I. The errors are absorbed for ϵ_I small. ∎
 
 **Lemma {#lem:ii-c-5-5}** (Near ι⁺; [Hin23c, (C.8)–(C.9)].) Put f_T := ϱ⁻¹(1 − ξ̂_(3b)) and f_W := −ξ̂_(3b). Let
@@ -1239,9 +1239,9 @@ into ϱO(w_ι) and ξ̂_(3b) into O(w_ι). We write ξ̂ for ξ̂_(3b) and η̂ 
 
 exactly; and |𝖧^e f_T| ≤ Cϱ⁻¹w_ι, so 𝖧^(3b)f_T ≥ (2 − Cϵ_ι^(ℓ₊))ϱ⁻¹ ≥ ϱ⁻¹. (b) On Σ,
 σ_(3b)⁻²G_(3b) = ξ̂² − 2ξ̂ + |η̂|² + O(w_ι) = 0, so |η̂|² = ξ̂(2 − ξ̂) + E with |E| ≤ Cϵ_ι^(ℓ₊) ≤ δ/16. For
-ξ̂ ∈ [−δ/2, −δ/8), ξ̂(2 − ξ̂) ≤ 2ξ̂ < −δ/4, which is impossible. For ξ̂ ∈ [0, δ/2], ξ̂(2 − ξ̂) ≥ ξ̂; for ξ̂ ∈ [−δ/8, 0),
-|η̂|² ≥ 0 ≥ |ξ̂| − δ/8. And ξ̂(2 − ξ̂) ≤ 3|ξ̂| for |ξ̂| ≤ ½, so |η̂|² ≤ 3|ξ̂| + δ/16 ≤ 3δ. (c) For ξ̂ ∈ [δ/4, δ/2],
-𝖧̄f_W = 2(2 − ξ̂)ξ̂ ≥ 2ξ̂ ≥ δ/2, so 𝖧^(3b)f_W ≥ δ/2 − Cϵ_ι^(ℓ₊) ≥ δ/8. ∎
+ξ̂ ∈ [−δ/2, −δ/8), ξ̂(2 − ξ̂) ≤ 2ξ̂ < −δ/4, which is impossible. For ξ̂ ∈ [0, δ/2], ξ̂(2 − ξ̂) ≥ ξ̂; for ξ̂
+∈ [−δ/8, 0), |η̂|² ≥ 0 ≥ |ξ̂| − δ/8. And ξ̂(2 − ξ̂) ≤ 3|ξ̂| for |ξ̂| ≤ ½, so |η̂|² ≤ 3|ξ̂| + δ/16 ≤ 3δ. (c) For ξ̂ ∈
+[δ/4, δ/2], 𝖧̄f_W = 2(2 − ξ̂)ξ̂ ≥ 2ξ̂ ≥ δ/2, so 𝖧^(3b)f_W ≥ δ/2 − Cϵ_ι^(ℓ₊) ≥ δ/8. ∎
 
 #### The construction {#sec:ii-c-5-2}
 
@@ -1267,8 +1267,8 @@ from ℐ⁺; on supp(1 − ψ₀(x_I)), x_I ≥ ½ϵ_I, so ρ_K = x_I⁻² ≤ 4
 neighbourhood, supp φ being a compact subset of (−½, ½). So (1 − ψ₀)χ_ι is smooth and supported in
 Ω_ι ∩ {ϱ < ϵ_ιδ}, and χ ∈ C^∞(ᵉ³ᵇS*_Ω M), 0 ≤ χ ≤ 1. Every factor is even under ν ↦ −ν.
 
-*Monotonicity.* Let g be as in (2) with ϵ_G ≤ ϵ₁, and work on ∂Σ⁺. On Σ over Ω_I ∩ supp φ(ξ̂), |η̂|² ≤ 3/2 and
-|σ_(eb)| ≥ 0.3|ν|_(eb) ([[lem:ii-c-5-3]] and [[lem:ii-c-5-4]]), so ψ(|η̂|²) = 1 and Ψ = 1 on a neighbourhood of these
+*Monotonicity.* Let g be as in (2) with ϵ_G ≤ ϵ₁, and work on ∂Σ⁺. On Σ over Ω_I ∩ supp φ(ξ̂), |η̂|² ≤ 3/2
+and |σ_(eb)| ≥ 0.3|ν|_(eb) ([[lem:ii-c-5-3]] and [[lem:ii-c-5-4]]), so ψ(|η̂|²) = 1 and Ψ = 1 on a neighbourhood of these
 points in ∂Σ⁺, and 𝖧χ_I = φ′(ξ̂)𝖧ξ̂ there. Where φ′(ξ̂) ≠ 0, |ξ̂| ∈ [¼, ½], so ξ̂ ∈ [¼, ½] by [[lem:ii-c-5-4]] (a),
 φ′ ≤ 0 and 𝖧^(eb)ξ̂ < 0 ([[lem:ii-c-5-4]] (b)): 𝖧χ_I ≥ 0. Likewise on Σ over Ω_ι the factors ψ and Ψ of χ_ι equal 1
 near supp φ(f_W/δ) ([[lem:ii-c-5-5]] (b): |η̂_(3b)|²/(2δ) ≤ 3/2), and
@@ -1418,8 +1418,8 @@ Fix T ≥ 1, to be chosen below, and then δ ∈ (0, ¼δ₁] with e^(2C_νT)δ 
 (depending on T and δ), Φ_(t,τ) is defined on B for |τ| ≤ 2T with t + τ ≥ T₀, with values in
 Γ × (−½δ₁, ½δ₁)², and:
 
-(T1) {|a| ≤ δ} is forward invariant and {|b| ≤ δ} backward invariant for V within O₂: (d/dτ)|a| ≤ −ν|a| + |Ã| < 0 at
-|a| = δ when Cϵ₀ < νδ, and likewise for b backward.
+(T1) {|a| ≤ δ} is forward invariant and {|b| ≤ δ} backward invariant for V within O₂: (d/dτ)|a| ≤ −ν|a| + |Ã| < 0
+at |a| = δ when Cϵ₀ < νδ, and likewise for b backward.
 
 (T2) ‖Φ_(t,τ) − Φ⁰_τ‖_(C^k) ≤ C_Tϵρ(t) on B, derivatives in (t, τ, y, a, b) (for ∂_τ:
 ∂_τ(Φ_(t,τ) − Φ⁰_τ) = V₀(Φ_(t,τ)) − V₀(Φ⁰_τ) + Ṽ, which is O(ϵρ)), and ‖Φ_(t,τ)‖_(C^k) ≤ C_T. This is Grönwall's
@@ -1433,9 +1433,9 @@ flow of V₀|_Γ.
 
 (T4) (*The cross terms.*) |∂_a f_τ(y, 0, 0)| ≤ C_*C_ε e^(ετ) for τ ≥ 0, and |∂_b f_τ(y, 0, 0)| ≤ C_*C_ε e^(ε|τ|) for
 τ ≤ 0, with C_* := ν⁻¹ sup|∂_(a,b)Y₀|. Indeed, linearising [[eq:ii-c1-2-1]] at (y, 0, 0) in the direction ∂_a gives
-δb ≡ 0, δa(σ) = m^u_σ(y, 0, 0) ≤ e^(−νσ) and δy′ = D_yY₀ δy + ∂_aY₀ δa, so
-δy(τ) = ∫₀^τ J(τ, σ)∂_aY₀ δa(σ) dσ with J(τ, σ) = De^((τ−σ)V₀)|_(TΓ) at f_σ(y, 0, 0), bounded by C_ε e^(ε(τ−σ)); hence
-|δy(τ)| ≤ C_ε sup|∂_aY₀| ∫₀^τ e^(ε(τ−σ)−νσ) dσ ≤ C_*C_ε e^(ετ). Backward, b contracts and the same estimate applies.
+δb ≡ 0, δa(σ) = m^u_σ(y, 0, 0) ≤ e^(−νσ) and δy′ = D_yY₀ δy + ∂_aY₀ δa, so δy(τ) = ∫₀^τ J(τ, σ)∂_aY₀ δa(σ) dσ with
+J(τ, σ) = De^((τ−σ)V₀)|_(TΓ) at f_σ(y, 0, 0), bounded by C_ε e^(ε(τ−σ)); hence |δy(τ)| ≤ C_ε sup|∂_aY₀| ∫₀^τ
+e^(ε(τ−σ)−νσ) dσ ≤ C_*C_ε e^(ετ). Backward, b contracts and the same estimate applies.
 
 (T5) On B, every first derivative of Φ⁰_τ differs from its value at (y, 0, 0) by at most C_Tδ; and ∂_y(am^u_τ),
 ∂_b(am^u_τ), ∂_y(bm^s_τ) and ∂_a(bm^s_τ) are O(C_Tδ) on B, carrying the factor a or b.
@@ -1488,8 +1488,8 @@ the term Dβ · ∂_b(Φ_y, Φ_a)D^i𝒮_Φβ being part of ∂_bH · D^i𝒮_Φ
 of derivatives of order ≤ i of β and of order ≤ i − 1 of 𝒮_Φβ, and of derivatives of order ≤ i of Φ (bounded by
 C_T). Every product in R_i contains a factor O(ϵρ(t)): either D^jβ with j ≥ 1; or D^j𝒮_Φβ with 1 ≤ j ≤ i − 1, bounded
 inductively; or a pure w-derivative of Φ_b, which is b D^j_w m^s_τ + D^j_w(Φ_b − Φ⁰_(τ,b)) at b = 𝒮_Φβ = O(ϵρ) by
-(G1) and (T2). In the leading term, |D_w(Φ_y, Φ_a)| ≤ Λ_τ + C_T(δ + ϵ₀) and
-|∂_b(Φ_y, Φ_a)D𝒮_Φβ| ≤ C_T · Cϵ₀, together at most 2Λ_τ. Dividing by ∂_bH gives [[eq:ii-c1-2-5]]. ∎
+(G1) and (T2). In the leading term, |D_w(Φ_y, Φ_a)| ≤ Λ_τ + C_T(δ + ϵ₀)
+and |∂_b(Φ_y, Φ_a)D𝒮_Φβ| ≤ C_T · Cϵ₀, together at most 2Λ_τ. Dividing by ∂_bH gives [[eq:ii-c1-2-5]]. ∎
 
 *The backward step.* For τ ∈ [0, 2T] and t ≥ T₀ + τ let Φ⁻ := Φ_(t,−τ), the map back to the slice t − τ, and
 B_b := Γ × [−δ, δ]_b. For α : B_b → ℝ with |α| ≤ ¼δ and Lip α ≤ θ₀, define 𝒰_(Φ⁻)α by
@@ -1506,8 +1506,8 @@ M_i ≥ 2C(T, M₀, …, M_(i−1)), 1 ≤ i ≤ k, and let ϵ₀ be so small th
 sequences β = (β_j)_(j≥0) of C^k functions on B_a with ‖D^iβ_j‖_∞ ≤ M_iϵρ(t_j) for 0 ≤ i ≤ k, and put
 (ℱβ)_j := 𝒮_jβ_(j+1).
 
-*ℱ maps 𝔅 into itself.* As ρ(t_(j+1)) ≤ ρ(t_j), (G1) gives
-|𝒮_jβ_(j+1)| ≤ e^(−νT)(M₀ + C_T)ϵρ(t_j) ≤ M₀ϵρ(t_j), and [[eq:ii-c1-2-5]] with [[eq:ii-c1-2-3]] gives
+*ℱ maps 𝔅 into itself.* As ρ(t_(j+1)) ≤ ρ(t_j), (G1)
+gives |𝒮_jβ_(j+1)| ≤ e^(−νT)(M₀ + C_T)ϵρ(t_j) ≤ M₀ϵρ(t_j), and [[eq:ii-c1-2-5]] with [[eq:ii-c1-2-3]] gives
 ‖D^i𝒮_jβ_(j+1)‖_∞ ≤ ½M_iϵρ(t_j) + C(T, M₀, …, M_(i−1))ϵρ(t_j) ≤ M_iϵρ(t_j).
 
 *ℱ is a contraction* for d(β, β̃) := sup_j ρ(t_j)⁻¹|β_j − β̃_j|_∞, by (G2) and ρ(t_j)⁻¹ ≤ ρ(t_(j+1))⁻¹, with factor
@@ -1630,8 +1630,8 @@ Riemannian metric, as dG₁ ≠ 0). After shrinking, Ψ̂₀(f, w) := e^(fN)(w) 
 neighbourhood of Y, and G₁(e^(fN)w) = f, as (d/df)G₁(e^(fN)w) = (NG₁)(e^(fN)w) = 1. Write w(x, z) and f(x, z) for the
 inverse.
 
-**Lemma {#lem:ii-c1-3-3}** (The graph.) For ϵ small there is F ∈ C^(d₀)((T_♭, ∞) × Y) with |∂^αF| ≤ Cϵt_*^(−ℓ_K) for
-|α| ≤ d₀ and {p₁(t_*, ·) = 0} ∩ Ψ̂₀((−c, c) × Y) = {e^(F(t_*,w)N)w : w ∈ Y}. The map
+**Lemma {#lem:ii-c1-3-3}** (The graph.) For ϵ small there is F ∈ C^(d₀)((T_♭, ∞) × Y) with |∂^αF| ≤ Cϵt_*^(−ℓ_K)
+for |α| ≤ d₀ and {p₁(t_*, ·) = 0} ∩ Ψ̂₀((−c, c) × Y) = {e^(F(t_*,w)N)w : w ∈ Y}. The map
 Ψ̂(t_*, f, w) := (t_*, e^((f+F(t_*,w))N)w) is a C^(d₀) diffeomorphism onto a neighbourhood of the perturbed
 characteristic set near Γ, with ‖Ψ̂ − Ψ̂₀‖_(C^(d₀)) ≤ Cϵt_*^(−ℓ_K) (where Ψ̂₀(t_*, f, w) := (t_*, e^(fN)w)), and it maps
 {f = 0} onto the perturbed characteristic set.

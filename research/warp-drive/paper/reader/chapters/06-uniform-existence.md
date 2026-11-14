@@ -167,8 +167,8 @@ coefficients, of L0 𝒫 s, ∂_x 𝒫 s, ∂φ and the spatial Hessian ∂_x² 
 
 where * denotes contractions with bounded coefficients.
 
-*Proof.* Apply [[eq:commutator]] to φ: L0 Ψ = □̃ L0 φ + (2/r)(Ψ + (∂_τ + ∂_r) L0 φ) − (3/r²) ∂_r φ, and substitute L0 φ
-= −(1/2) 𝒫 s. Next, g_app⁻¹ − g0⁻¹ = O(λ) gives □̃_app φ − Ψ = c^(ab) ∂_a ∂_b φ with |c| ≤ C λ. For the second
+*Proof.* Apply [[eq:commutator]] to φ: L0 Ψ = □̃ L0 φ + (2/r)(Ψ + (∂_τ + ∂_r) L0 φ) − (3/r²) ∂_r φ, and substitute L0
+φ = −(1/2) 𝒫 s. Next, g_app⁻¹ − g0⁻¹ = O(λ) gives □̃_app φ − Ψ = c^(ab) ∂_a ∂_b φ with |c| ≤ C λ. For the second
 derivatives, ∂_τ = L0 + x̂·∂_x, L0 L0 φ = −(1/2) L0 𝒫 s and L0 ∂_i φ = ∂_i L0 φ + (∂_i x̂^m) ∂_m φ; the commutator [L0,
 ∂_i] = (∂_i x̂^m) ∂_m involves spatial derivatives only, since the ∂_τ coefficient of L0 is the constant 1. Applying ∂_i
 ∂_j to L0 φ = −(1/2) 𝒫 s and commuting gives the transport of ∂_x² φ. ∎
@@ -193,9 +193,9 @@ fixed by [[eq:ue-transport]], [[eq:ue-h]] and the equation for w, whose coeffici
 rule; solving for ∂_τ² by induction gives 𝒩(τ0) ≤ C (Data(w) + C_R λ^K) ≤ C (C_D + C_R) λ^K. (On Σ_τ0, ∂_τ φ = −(1/2) 𝒫
 s, and ∂_x 𝒫 s = 𝒫 ∂_x s + O(λ) 𝒫 ∂_x s by (M4): no 1/λ enters.)
 
-**Step 3** (the bootstrap). Suppose 𝒩 ≤ 2 M λ^K on [τ0, τ*], with M to be fixed. Then by Step 1 |w| ≤ C M λ^(K−3) and
-|∂w| ≤ C M λ^(K−4) ≤ C M λ², so for λ ≤ λ0(M) the metric g = g_app + w satisfies |g − g0| ≤ ε1 (so that the domain lemma
-and the energy inequality apply to it) and |∂g| ≤ Λ with Λ independent of M.
+**Step 3** (the bootstrap). Suppose 𝒩 ≤ 2 M λ^K on [τ0, τ*], with M to be fixed. Then by Step 1 |w| ≤ C M λ^(K−3)
+and |∂w| ≤ C M λ^(K−4) ≤ C M λ², so for λ ≤ λ0(M) the metric g = g_app + w satisfies |g − g0| ≤ ε1 (so that the domain
+lemma and the energy inequality apply to it) and |∂g| ≤ Λ with Λ independent of M.
 
 **Step 4** (h). Apply ∂^α, |α| = j ≤ k, to [[eq:ue-h]], apply the energy inequality to each component, and multiply by
 λ^j. The commutator [∂^α, g^(ab)] ∂_a ∂_b h has terms ∂^i g · ∂^(j−i+1) ∂h with i ≥ 1. With ‖∂^i g_app‖_∞ ≤ C λ^(1−i),
@@ -313,8 +313,8 @@ its form, with coefficients smooth in X and equal to Minkowski's outside a compa
 
 (ii) *The coordinates.* Write g_ext = −ν² dτ² + γ_ij (dx^i + β^i dτ)(dx^j + β^j dτ), with lapse ν, shift β_ext = β^i ∂_i
 and spatial metric γ. The lapse is a convex combination of that of g_app, at least (2 L⁴)^(−1/2) by (i), and of 1, so ν
-≥ ν_min := (2 L⁴)^(−1/2) > 0, as L ≥ 2. Put Z := ∂_τ − β_ext. Then Z(τ) = 1 and, since dx^i(Z) + β^i dτ(Z) = −β^i + β^i
-= 0,
+≥ ν_min := (2 L⁴)^(−1/2) > 0, as L ≥ 2. Put Z := ∂_τ − β_ext. Then Z(τ) = 1 and, since dx^i(Z) + β^i dτ(Z) = −β^i +
+β^i = 0,
 
     g_ext(Z, Z) = −ν² ≤ −ν_min² < 0;
 
@@ -342,8 +342,8 @@ over y alone. In V := (w, u_0, u_a), with u_0 := ∂_τ w and u_a := ∂_(y^a) w
     −g^(00) ∂_τ u_0 − 2 g^(0a) ∂_a u_0 − g^(ab) ∂_a u_b = 2 F̃(τ, y, w, u),
     g^(ab) ∂_τ u_b − g^(ab) ∂_b u_0 = 0,
 
-the second line being the equation with the first derivatives of w replaced by (u_0, u_b). Its coefficient of ∂_τ is A⁰
-= diag(1, −g^(00), g^(ab)) (acting on each of the fifteen components of w), symmetric and positive definite, and its
+the second line being the equation with the first derivatives of w replaced by (u_0, u_b). Its coefficient of ∂_τ is
+A⁰ = diag(1, −g^(00), g^(ab)) (acting on each of the fifteen components of w), symmetric and positive definite, and its
 coefficient of ∂_c is
 
     A^c = [[0, 0, 0], [0, −2 g^(0c), −g^(cb)], [0, −g^(ac), 0]]
@@ -354,8 +354,8 @@ gives
 
     g^(00) ζ² − 2 g^(0c) ξ_c ζ + g^(ab) ξ_a ξ_b = 0,
 
-whose two roots ζ_− < 0 < ζ_+ are real with product g^(ab) ξ_a ξ_b/g^(00) < 0. If ζ = 0, then u_0 = 0 and g^(ab) ξ_a u_b
-= 0, with w free: a space of dimension four for each component. So (A⁰)⁻¹ A^c ξ_c is diagonalizable with the real
+whose two roots ζ_− < 0 < ζ_+ are real with product g^(ab) ξ_a ξ_b/g^(00) < 0. If ζ = 0, then u_0 = 0 and g^(ab) ξ_a
+u_b = 0, with w free: a space of dimension four for each component. So (A⁰)⁻¹ A^c ξ_c is diagonalizable with the real
 eigenvalues ζ_− < 0 < ζ_+ and 0, which never meet; ζ_± are simple roots of a quadratic with smooth coefficients and 0 is
 constant, so all three are smooth in (τ, y, V, ξ) for ξ ≠ 0, more than (A4) of [DS23] ([[thm:std-ds-existence]]) asks,
 and the system satisfies (A1)–(A4) of [DS23] with 𝒰 the whole state space, the cut-off keeping the coefficients defined
@@ -407,10 +407,10 @@ obtained from the energy inequality with no further input, and the same argument
 uniqueness stated in the theorem. With Step 7 the bootstrap continues, so the solution exists on all of Ω with
 [[eq:ue-remainder]].
 
-Finally the bounds after [[eq:ue-remainder]]. By Step 1, |w|_(k+1) ≤ C 𝒩 ≤ C M λ^K, so ‖w‖ ≤ C M λ^K and ‖∂w‖ ≤ λ⁻¹
-|w|_(k+1) ≤ C M λ^(K−1); |w| ≤ C λ⁻³ 𝒩 ≤ C M λ^(K−3) and |∂w| ≤ C λ⁻⁴ 𝒩 ≤ C M λ^(K−4) (M renamed to absorb C). Then |g −
-g0| ≤ |λ [g1] + Σ_(j≥2) λ^j [g_j]| + |w| ≤ C λ, and |∂g| ≤ |∂g_app| + |∂w| ≤ C, since ∂[λ g1] = dv ⊗ [∂_θ g1] + λ [∂_X
-g1] is bounded. ∎
+Finally the bounds after [[eq:ue-remainder]]. By Step 1, |w|_(k+1) ≤ C 𝒩 ≤ C M λ^K, so ‖w‖ ≤ C M λ^K and ‖∂w‖ ≤
+λ⁻¹ |w|_(k+1) ≤ C M λ^(K−1); |w| ≤ C λ⁻³ 𝒩 ≤ C M λ^(K−3) and |∂w| ≤ C λ⁻⁴ 𝒩 ≤ C M λ^(K−4) (M renamed to absorb C).
+Then |g − g0| ≤ |λ [g1] + Σ_(j≥2) λ^j [g_j]| + |w| ≤ C λ, and |∂g| ≤ |∂g_app| + |∂w| ≤ C, since ∂[λ g1] = dv ⊗ [∂_θ g1] +
+λ [∂_X g1] is bounded. ∎
 
 ### The theorem at every order {#sec:ue-every-order}
 
@@ -424,9 +424,9 @@ order for the approximant of [[thm:approximant]] with the data of [[thm:data]], 
 *Proof.* (a) *Where k = 6 enters.* Step 1: the scaled Sobolev bound ‖∂^i w‖_∞ ≤ C λ^(−3−i) 𝒩 needs i + 3 ≤ k + 1, so i ≤
 4 at k = 6 and i ≤ k − 2 in general. Step 4: the commutator terms ∂^i g · ∂^(j−i+1) ∂h are split with ∂^i w in L^∞ for i
 ≤ 4 and in L² for i ≥ 5, the other factor then of order j − i + 1 ≤ 2 in L^∞; at order k the split is at k − 2, the L^∞
-factor needing at most 2 + 1 + 3 ≤ k + 1 derivatives of 𝒩's quantities. The nonlinear terms use |∂w ∂w|_k ≤ C λ⁻³
-|∂w|_k², the scaled product bound |f g|_k ≤ C_k λ⁻³ |f|_k |g|_k on the slices, in four space dimensions, which holds at
-every k ≥ 3. Indeed, expand λ^j ∂^j (f g), j ≤ k, by Leibniz's rule into terms λ^i ∂^i f · λ^(j−i) ∂^(j−i) g. If i =
+factor needing at most 2 + 1 + 3 ≤ k + 1 derivatives of 𝒩's quantities. The nonlinear terms use |∂w ∂w|_k ≤ C
+λ⁻³ |∂w|_k², the scaled product bound |f g|_k ≤ C_k λ⁻³ |f|_k |g|_k on the slices, in four space dimensions, which holds
+at every k ≥ 3. Indeed, expand λ^j ∂^j (f g), j ≤ k, by Leibniz's rule into terms λ^i ∂^i f · λ^(j−i) ∂^(j−i) g. If i =
 0, then ‖f‖_(L^∞) ≤ C λ⁻³ |f|_3 ≤ C λ⁻³ |f|_k by [[eq:sobolev]] and ‖λ^j ∂^j g‖ ≤ |g|_k; if i = j, the same holds with f
 and g exchanged. If 1 ≤ i ≤ j − 1, both factors are put in L⁴. By [BH17, Theorem 7.27, p. 56], on a nonempty bounded
 open subset of R^n with Lipschitz boundary W^(s,p) embeds in W^(t,q) whenever 1 ≤ p, q < ∞, 0 ≤ t ≤ s and s − n/p ≥
@@ -443,8 +443,8 @@ at order k.
 (c) *The inputs at order k.* (E3) at order k: for the approximant of [[thm:approximant]], the residual of G(X, u/λ)
 ([[eq:ansatz]]) is λ^N times a profile bounded with all its derivatives, and the passage to the fixed-phase form
 [[eq:approximant]], which is g_app, changes Ric^H by O(λ^(N−1)) in |·|_k ([[sec:approximant]]); so |Ric^H(g_app)|_k ≤
-C_k λ^(N−1) for every k: the approximant of [[thm:approximant]] is of order N − 1 at every regularity k, and with N = K
-+ 3 this is λ^(K+2) ≤ λ^K. (E4) at order k: [[prop:exact-correction]]
+C_k λ^(N−1) for every k: the approximant of [[thm:approximant]] is of order N − 1 at every regularity k, and with N =
+K + 3 this is λ^(K+2) ≤ λ^K. (E4) at order k: [[prop:exact-correction]]
 bounds the correction at every order, sup_r ‖∂_r^j U(r)‖_(H^s(S³)) ≤ C_(j,s) λ^(N−2−j), with λ0 independent of the
 order, so Data(w) at order k is O(λ^(N−3)) = O(λ^K) with N = K + 3, as in the proof of [[thm:data]].
 

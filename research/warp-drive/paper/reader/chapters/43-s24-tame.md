@@ -762,8 +762,8 @@ E_I = ∅, β_K = α, E_K = ∅; its hypotheses hold (w_+ ∉ Re π_1E_ι by (Ex
 [[sec:iii-i10-1]]). By [[prop:iii-j3-4-1]], g_0 ∈ H^(∞,(5/2−ε,(ℰ^♭+1,w_+−1),((0,0),α−1)))_b.
 
 *Levels 0–1.* [[lem:iii-i11-2-1]] at μ′ = w_+ − 1 and 3 + ε_+ rests on [[lem:iii-a-1-4]] at β = μ′ − 2 = 2 + ε_+,
-resp. 1 + ε_+: not the real part of a root, since these numbers are not integers and the non-integer roots with
-|μ| ≤ 50 have d(Re μ, ℤ) ≥ ε_ind > ε_+ ([[eq:iii-f1-2-2]]). [[lem:iii-i11-2-2]] lowers the tf-weight by 1 and the
+resp. 1 + ε_+: not the real part of a root, since these numbers are not integers and the non-integer roots
+with |μ| ≤ 50 have d(Re μ, ℤ) ≥ ε_ind > ε_+ ([[eq:iii-f1-2-2]]). [[lem:iii-i11-2-2]] lowers the tf-weight by 1 and the
 zf-weight ((0,0), z) to ((0,0), z − 1) exactly. [[prop:iii-g4-4-4]] at level 1 with ℓ_zf = α − 2: its conditions
 [[eq:iii-g4-4-2]] hold (−ε_ind < α − Re α_0; α − 2 − min(Re α_0 − 2, 0) < 3 = ℓ^max_K under (C5) of
 [[sec:iii-i10-1]]; α − 2 ∉ ℕ₀; the root condition is (Ex4)), and its remainder keeps zf ((0,0), α − 2) exactly. So g_1,
@@ -823,8 +823,8 @@ a_0″ ∈ t^(−a−4) H^∞_b([1, ∞), |dt/t|). The remainder is
 plus the h̆-term with τa_0″. On {r ≤ t/8, t ≥ 8}, supp φ_x ⊂ [0, 4 max(r, 1)] ⊂ [0, t/2], so t − θτ ∈ [t/2, t],
 t^(a+4) ≤ C(t − θτ)^(a+4) and dt/t ≤ 2 d(t − θτ)/(t − θτ); Minkowski's inequality in (θ, τ) bounds
 ‖t^(a+4) ·‖_(L²(|dt/t|)) by C max(r, 1)² ‖a_0‖_(H^(2,a+2)_b). The field t∂_t commutes with the translation up to the
-factor t/(t − θτ) ∈ [1, 2] and its derivatives, and the x-derivatives fall on φ_x, h and h̆; with |h| ≲ r⁻³ and
-|h̆| ≲ r⁻² this is t^(−a−4) r⁻¹ in L². ∎
+factor t/(t − θτ) ∈ [1, 2] and its derivatives, and the x-derivatives fall on φ_x, h and h̆; with |h| ≲ r⁻³
+and |h̆| ≲ r⁻² this is t^(−a−4) r⁻¹ in L². ∎
 
 The same applies to the Taylor remainder of the piece (vii) of [[thm:iii-i12-3-1]] (of K⁺-order at least α): taking the
 Taylor order one higher makes its pointwise order strictly greater than α, hence its L²-order at least α.
@@ -927,8 +927,8 @@ moved onto the amplitude by parts; r∂_r|_s acting on (χc)(ζ/r) gives −((σ
 and (r∂_r)^a ∂_ω^β p_j keeps the bound.
 
 (b) Here (χc)(ζ/r) = r^(−z) |ζ|^z sgn(ζ)^δ χ(ζ/r), and the derivatives of the amplitude are O(|ζ|^(Re z+j−M)) uniformly
-in r (a derivative of χ(ζ/r) gives r⁻¹ ≤ |ζ|⁻¹ on its support). So e_(j,r)(t_*) = r^(−1−j−z) E_j(s, r) with
-|(s∂_s)^a (r∂_r|_s)^b E_j| ≤ C_(ab) s^(−M) for M > Re z + j + 1, and
+in r (a derivative of χ(ζ/r) gives r⁻¹ ≤ |ζ|⁻¹ on its support). So e_(j,r)(t_*) = r^(−1−j−z) E_j(s, r)
+with |(s∂_s)^a (r∂_r|_s)^b E_j| ≤ C_(ab) s^(−M) for M > Re z + j + 1, and
 
     ‖r^(Re z+1+d) s^κ R‖_(L²) ≤ C Σ_j (∫_8^∞ s^(2(κ−M)) ds/s)^(1/2) ‖r^(d−j) p_j‖_(L²((dr/r)dω)),
 

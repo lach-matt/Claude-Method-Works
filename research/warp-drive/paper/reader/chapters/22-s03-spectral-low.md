@@ -105,8 +105,8 @@ multiplication by φ is bounded by finitely many derivatives of φ, if φ is sup
 s > d + m/2, sup_(|β|≤d) |∂^β w| ≤ (2π)^(−m) ‖⟨ζ⟩^(d−s)‖_(L²) ‖w‖_(H^s), by Cauchy–Schwarz on ŵ.
 
 (K2) *Interior elliptic estimates, uniformly.* Let ℱ be a family of second-order operators on a neighbourhood Ω′ of a
-compact set K ⊂ ℝ⁴, with End ℂ^(N_E)-valued coefficients bounded in C^∞(Ω̄′) and principal symbols p Id with
-|p(x, ζ)| ≥ c|ζ|². For φ ∈ C_c^∞(int K), φ̃ ∈ C_c^∞(Ω′) equal to 1 near K, and all s and M, there is C with
+compact set K ⊂ ℝ⁴, with End ℂ^(N_E)-valued coefficients bounded in C^∞(Ω̄′) and principal symbols p Id
+with |p(x, ζ)| ≥ c|ζ|². For φ ∈ C_c^∞(int K), φ̃ ∈ C_c^∞(Ω′) equal to 1 near K, and all s and M, there is C with
 ‖φu‖_(H^s) ≤ C(‖φ̃Lu‖_(H^(s−2)) + ‖φ̃u‖_(H^(−M))) for all L ∈ ℱ. This is [[prop:i-a-5-1]] over a compact set, where
 the scattering calculus is the classical one (last paragraph of [[sec:i-a-2-1]]). The uniformity comes from the proof
 of [[prop:i-a-5-1]], whose construction depends continuously on the symbol: by Arzelà–Ascoli the closure of ℱ in the
@@ -186,8 +186,8 @@ compactly supported elements of H^s to H^(s−m) boundedly, by (K1) (i) and ‖�
 J: v ↦ (e^(ck) v_k)_k, an isometry of H_(b,c)^s into ℓ²(ℤ; H^s), and L: (w_k)_k ↦ Σ_k e^(−ck)(χ̃ w_k) ∘ Φ_k⁻¹. Then
 LJ = Id (as χ̃ = 1 on the support of v_k and Σ_k ψ_k = 1), and L is bounded from ℓ²(H^s) to H_(b,c)^s by (a)–(b), as
 each point lies in at most three supports. The pairing: ⟨v, w⟩_(μ_b) = Σ_k ⟨ψ_k v, w⟩_(μ_b) =
-Σ_k ∫ ⟨v_k, (χ̃w) ∘ Φ_k⟩ |y|⁻⁴ dy, and ‖(χ̃w) ∘ Φ_k‖_(H^(−s)) ≤ C Σ_(|j−k|≤2) ‖w_j‖_(H^(−s)), so Cauchy–Schwarz gives
-|⟨v, w⟩_(μ_b)| ≤ C‖v‖_(H_(b,c)^s) ‖w‖_(H_(b,−c)^(−s)). Conversely a bounded functional ℓ on H_(b,c)^s gives the
+Σ_k ∫ ⟨v_k, (χ̃w) ∘ Φ_k⟩ |y|⁻⁴ dy, and ‖(χ̃w) ∘ Φ_k‖_(H^(−s)) ≤ C Σ_(|j−k|≤2) ‖w_j‖_(H^(−s)), so Cauchy–Schwarz
+gives |⟨v, w⟩_(μ_b)| ≤ C‖v‖_(H_(b,c)^s) ‖w‖_(H_(b,−c)^(−s)). Conversely a bounded functional ℓ on H_(b,c)^s gives the
 functional ℓ ∘ L on ℓ²(H^s), represented by (g_k) ∈ ℓ²(H^(−s)); then ℓ(v) = ℓ(LJv) = ⟨v, w⟩_(μ_b) with
 w := Σ_k e^(ck)(|y|⁴ χ̃ g_k) ∘ Φ_k⁻¹, and ‖w‖_(H_(b,−c)^(−s)) ≤ C‖(g_k)‖ by the same estimate. Density: truncate the sum
 over k and mollify each piece. (e) For k_1 ∈ ℕ, the pieces with k ≤ k_1 form a compact map by (K3); for the rest,
@@ -224,8 +224,8 @@ gives ℳ((ϱ∂_ϱ)v) = ℳ(−∂_t v) = ι ℳv, and operators on 𝕊³ comm
 Ξ := sup_(c_0≤x<c_1) ∫ ‖ℳv(x + iτ)‖² dτ < ∞. Then e^(c_1 t)v ∈ L² and ‖e^(c_1 t)v‖² ≤ Ξ/2π.
 
 *Proof.* The extension is continuous on Re ι = c_0, so it agrees there with the L² limits above. Let
-φ ∈ C_c^∞(ℝ × 𝕊³) and Ψ(ι) := ∫ e^(−ιt) φ̄(t, ·) dt, which is entire, with ‖Ψ(x + iτ)‖_(L²(𝕊³)) ≤ C_X ⟨τ⟩⁻² for
-|x| ≤ X (integrate by parts twice in t). Put g(ι) := ∫_(𝕊³) ℳv(ι) · Ψ(ι) dω, with a · b := Σ_k a_k b_k the bilinear
+φ ∈ C_c^∞(ℝ × 𝕊³) and Ψ(ι) := ∫ e^(−ιt) φ̄(t, ·) dt, which is entire, with ‖Ψ(x + iτ)‖_(L²(𝕊³)) ≤ C_X ⟨τ⟩⁻²
+for |x| ≤ X (integrate by parts twice in t). Put g(ι) := ∫_(𝕊³) ℳv(ι) · Ψ(ι) dω, with a · b := Σ_k a_k b_k the bilinear
 pairing on ℂ^(N_E); g is holomorphic on {Re ι < c_1}. For x ≤ c_0, Parseval for e^(xt)v and e^(−xt)φ gives
 ⟨v, φ⟩_(μ_b) = (2π)⁻¹ ∫_ℝ g(x + iτ) dτ. Fix x_0 < c_0 and x_1 ∈ [c_0, c_1). Then
 ∫_(x_0)^(x_1) ∫_ℝ |g(s + iT)| dT ds < ∞ by Cauchy–Schwarz, [[eq:i-c-2-1]] and the definition of Ξ, so there are
@@ -265,8 +265,8 @@ H^m, with F(ι) := (1 + Δ)⁻¹(J(ι) − 1 − Δ) compact on H^m (it maps H^m
 of index 0, so it fails to be invertible exactly when it has a kernel; a kernel element of J(ι) in H^m is smooth by
 (K4), so the exceptional set is spec_J for every m. In a strip it lies in {|Im ι| ≤ μ_X} by (a), a compact set, which
 meets the discrete set in finitely many points. (c) On the part with |Im ι| ≥ μ_X, X := max(|x_0|, |x_1|), the bound is
-2. The rest is compact, J⁻¹ is continuous there, and the μ-weighted norms are equivalent to the unweighted ones for
-|μ| ≤ μ_X. ∎
+2. The rest is compact, J⁻¹ is continuous there, and the μ-weighted norms are equivalent to the unweighted ones
+for |μ| ≤ μ_X. ∎
 
 For the end at ∞ the operator is P⁽⁰⁾, with ϱ∂_ϱ = ρ∂_ρ, and ℳ turns N(P⁽⁰⁾) into multiplication by I(ι), which has
 the form of [[lem:i-c-2-4]] with spec_I = spec_b.
@@ -738,9 +738,9 @@ H_ν^(1) and H_ν^(2) are solutions of Bessel's equation z²w″ + zw′ + (z² 
 
 are the combinations of f_j(r̂) := r̂⁻¹ H_ν^(j)(σ̂r̂), j = 1, 2, which are linearly independent.
 
-(b) For θ = 0, g_1 := e^(−ir̂)f_1 and g_2 := e^(ir̂)f_2 satisfy, for r̂ ≥ 1 and every k,
-|(r̂∂_r̂)^k(g_j − c_j r̂^(−3/2))| ≤ C_k r̂^(−5/2), with c_j := (2/π)^(1/2) e^(∓i(½νπ+¼π)) ≠ 0 (the upper sign for j = 1);
-in particular g_j ∈ 𝒜^(3/2) near sctf.
+(b) For θ = 0, g_1 := e^(−ir̂)f_1 and g_2 := e^(ir̂)f_2 satisfy, for r̂ ≥ 1 and every
+k, |(r̂∂_r̂)^k(g_j − c_j r̂^(−3/2))| ≤ C_k r̂^(−5/2), with c_j := (2/π)^(1/2) e^(∓i(½νπ+¼π)) ≠ 0 (the upper sign for j =
+1); in particular g_j ∈ 𝒜^(3/2) near sctf.
 
 (c) For θ ∈ (0, π), |f_1(r̂)| ≤ Ce^(−r̂ sin θ) and |f_2(r̂)| ≥ c r̂^(−3/2) e^(r̂ sin θ) for r̂ ≥ R.
 
@@ -764,8 +764,8 @@ uniformly in closed subsectors; e^(∓iz) z^(1/2) H_ν^(j)(z) is holomorphic on 
 of radius x/2 about x lies in {|ph z| ≤ π/6}, so Cauchy's estimates give |x^k ∂_x^k(·)| ≤ C_k times the bound on the
 disc, for the remainder of the expansion as well as for each term. As (r̂∂_r̂)^k is a combination of the r̂^i∂^i, i ≤ k,
 this gives (b); the constant is that of the first term, r̂⁻¹(2/π)^(1/2) r̂^(−1/2) e^(∓i(½νπ+¼π)). (c) On the ray
-z = e^(iθ)r̂, θ ∈ (0, π) fixed, [DLMF, (10.17.5)–(10.17.6)] apply, |e^(iz)| = e^(−r̂ sin θ) and
-|e^(−iz)| = e^(r̂ sin θ). (d) [DLMF, (10.7.7)] with |z| = r̂ and Γ(ν) ≠ 0 gives |f_j(r̂)| = r̂⁻¹|H_ν^(j)(σ̂r̂)| ≥ c
+z = e^(iθ)r̂, θ ∈ (0, π) fixed, [DLMF, (10.17.5)–(10.17.6)] apply, |e^(iz)| = e^(−r̂ sin θ)
+and |e^(−iz)| = e^(r̂ sin θ). (d) [DLMF, (10.7.7)] with |z| = r̂ and Γ(ν) ≠ 0 gives |f_j(r̂)| = r̂⁻¹|H_ν^(j)(σ̂r̂)| ≥ c
 r̂^(−1−ν) = c r̂^(−2−ℓ). ∎
 
 **Lemma {#lem:i-c-5-5}** (Spherical waves.) Let κ ∈ ℝ, g ∈ C^∞([1, ∞)) with |∂^k g| ≤ C_k r̂^(−γ−k),
@@ -1020,8 +1020,8 @@ factor ρ̂ raises the decay order by one. So this part is bounded by Cς.
 coefficients bounded by C(ρ_c + ς) in C_b^∞, which maps H_(b,q−2)^(s+k) to H_(b,q−2)^(s+k−2) with that norm
 ([[lem:i-c-2-2]] (c)), and ρ̂² maps the ztf order q to q − 2 ([[lem:i-c-2-2]] (b)).
 
-*The adjoint.* E_σ^* = E_σ^(*h) + (P̂_mod(σ)^(*h) − P̂_mod(σ)^(*h_0)). The adjoint of each term of [[eq:i-c-6-2]] for
-|dx| = ρ⁻⁵dρ dω and H is of the same form (ρ^a Diff_b^m is preserved, and σ becomes σ̄; Remark (a) of
+*The adjoint.* E_σ^* = E_σ^(*h) + (P̂_mod(σ)^(*h) − P̂_mod(σ)^(*h_0)). The adjoint of each term of [[eq:i-c-6-2]]
+for |dx| = ρ⁻⁵dρ dω and H is of the same form (ρ^a Diff_b^m is preserved, and σ becomes σ̄; Remark (a) of
 [[sec:i-a-1-3]]). Writing H = H_0(I + ρK) with K smooth, and A := P̂_mod(σ),
 
     A^(*h) − A^(*h_0) = (I + ρK)⁻¹ A^(*h_0) (I + ρK) − A^(*h_0) = (I + ρK)⁻¹ [A^(*h_0), ρK],
@@ -1383,8 +1383,8 @@ unchanged, and [Hin26c, (3.47)] holds as stated. [[lem:i-c-2-3]] and [[lem:i-c-2
 t = −log ϱ, for which the line of the b-weight c is Re ι = c.
 
 (2) In [Hin26c, (3.46), p. 60] the second equivalence carries the factor |σ|^(3/2−l), from the relation
-r²|dr dω| = (|σ|^(3/2))² r̂²|dr̂ dω|. With r̂ = r|σ|, r² dr = |σ|⁻³ r̂² dr̂, so the factor is |σ|^(−3/2) and the power
-|σ|^(−3/2−l); in dimension 4 + 1, where r³ dr = ς⁻⁴ r̂³ dr̂, it is ς^(−2−l), as in [[eq:i-c-6-1]]. The power enters
+r²|dr dω| = (|σ|^(3/2))² r̂²|dr̂ dω|. With r̂ = r|σ|, r² dr = |σ|⁻³ r̂² dr̂, so the factor is |σ|^(−3/2) and the
+power |σ|^(−3/2−l); in dimension 4 + 1, where r³ dr = ς⁻⁴ r̂³ dr̂, it is ς^(−2−l), as in [[eq:i-c-6-1]]. The power enters
 both sides of the tf step of the proof of [Hin26c, Theorem 9.41] and cancels there.
 
 (3) [Hin26c, (9.107), p. 194] bounds ‖u^*‖ in Ḣ_b^(−s_0+1,−α−2) by the norm of the adjoint applied to u^* in
