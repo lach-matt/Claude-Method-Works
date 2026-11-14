@@ -1310,3 +1310,4 @@ Items found while chapters were written in parallel; each is settled once, editi
   R4-82 reads chapter 82.
 - R3-85 CONFIRMED (reviews/R3-85.md): chapter 85 CONFIRMED; seven exact nits applied by N3-85 (lem:layer-flat (e)
   range possibly extended to j ≤ 5 in chapter 84). R4-82 reads chapter 82 after F4-82.
+- R2-83 0M 5m 6n (reviews/R2-83.md); F3-83 applies them against chapter 81 as it now stands.
