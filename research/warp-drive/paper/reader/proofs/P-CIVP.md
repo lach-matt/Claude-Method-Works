@@ -518,3 +518,139 @@ generators, with ∂_v^k a = 0 at u = 0, so ∂_v^k a = 0. Finally ∂_v^k of th
 
 So a, β and c, with all their derivatives, vanish on N, and E vanishes to infinite order on N. ∎
 
+#### The reduced problem {#sec:loc-cone-reduced}
+
+The cone data, of size at most Λ, now equal the background's at the points with ϑ ∉ [2η, π/2 − 2η], for a number
+η ∈ (0, π/8]; for [[thm:loc-cone-development]], η is the number there, and [ϑ_a′, ϑ_b′] ⊂ (ϑ_a, ϑ_b) ⊂ [4η, π/2 − 4η].
+Two cases are treated together: (I) small data, the size at most ε ≤ ε_0, and (II) data of any size Λ on a small
+rectangle at the corner. In case (II) we truncate the edges, l_u = l_v := 2δ_1: by [[lem:loc-cone-jets]] the derivatives
+across N near the corner do not depend on the data farther out.
+
+*Constants, coordinates and regions.* Put C_* := max(1, sup_𝒮 e^(σ_e)/R_e), c_+ := (min(δ_1, η/C_*)/4)²,
+κ := δ_1/(4(l_u + l_v + 1)), and fix δ_c ∈ (0, √c_+/8]. On {u > −δ_c, v > −δ_c} put
+
+    τ := ln((u + δ_c)(v + δ_c)),      y := ((v + δ_c)/(u + δ_c)) ω(ϑ, φ1, φ2),                     {#eq:loc-cone-time}
+
+ω ∈ S³ ⊂ ℝ⁴ the point with angles (ϑ, φ1, φ2). (τ, y) is a G-equivariant chart onto ℝ × (ℝ⁴ ∖ {0}), in which class
+metrics equal to the background's near the axes are smooth; dτ = du/(u + δ_c) + dv/(v + δ_c), and the coordinate
+field ∂_τ = ½((u + δ_c)∂_u + (v + δ_c)∂_v) is future timelike for g_e and for the metrics C⁰-close to it. Let
+τ_init := ln(δ_c²/4), τ_+ := ln c_+, Σ_init := {τ = τ_init} and
+
+    𝒰 := {(u, v) : u, v > −δ_c, τ_init ≤ τ ≤ τ_+, u + κv ≤ l_u + δ_1/2, v + κu ≤ l_v + δ_1/2}.             {#eq:loc-cone-region}
+
+On 𝒰, min(u + δ_c, v + δ_c) ≤ √c_+ ≤ δ_1/4 and u + δ_c ≥ δ_c²/(4(l_v + 2δ_1)), so 𝒰 is a compact subset of the interior
+of 𝒮 inside the chart. Its boundary consists of Σ_init ∩ 𝒰, of a piece of {τ = τ_+} and of pieces of the two far cuts,
+with conormals dτ, du + κdv and dv + κdu; g_e⁻¹ of each with itself is negative (g_e^(uv) = −e^(−2σ_e) is the only
+entry of g_e⁻¹ pairing du, dv), uniformly on 𝒰, so these pieces are spacelike, with 𝒰 to their past, for g_e and for every
+Lorentzian metric close enough to g_e in C⁰. On 𝒰, 2C_* e^(τ/2) ≤ 2C_*√c_+ ≤ η/2, and the corner sphere S_c, where
+τ = 2 ln δ_c, lies in 𝒰, with F ∩ 𝒰 ⊂ {τ ≥ 2 ln δ_c}.
+
+In case (I) put δ_* := √c_+/2 and take δ_c so small also that δ_c(l_u + l_v + 1) ≤ c_+/2; then the set G_* of
+[[eq:loc-cone-domain]] lies in F ∩ 𝒰, since there (u + δ_c)(v + δ_c) ≤ δ_*² + c_+/2 < c_+ and u + κv ≤ l_u + δ_1/4.
+In case (II), for 0 < σ ≤ σ_1 := δ_c/8, put 𝒰_σ := 𝒰 ∩ {τ ≤ ln((δ_c + 2σ)²)}; then [0, σ]² ⊂ F ∩ 𝒰_σ ⊂ [0, 6σ]², and
+(−2σ, 10σ)² ⊂ 𝒰. In case (I) put 𝒰_σ := 𝒰.
+
+*Cut-offs.* Let χ_ϑ be smooth on [0, π/2], equal to 1 on [η, π/2 − η] and to 0 on [0, η/2] ∪ [π/2 − η/2, π/2]; χ_𝒰 a
+smooth function of (u, v), equal to 1 on a neighbourhood 𝒰_1 of 𝒰 and supported in the chart and in the interior of 𝒮;
+χ := χ_ϑ χ_𝒰. In case (I), θ is a smooth function of (u, v) equal to 1 on a neighbourhood of 𝒰 and supported in 𝒰_1; in
+case (II), θ := θ_1(u/σ) θ_1(v/σ), with θ_1 smooth, 0 ≤ θ_1 ≤ 1, θ_1 = 1 on [−1, 9] and supp θ_1 ⊂ (−2, 10), so that
+supp θ ⊂ 𝒰 and θ = 1 on F ∩ 𝒰_σ.
+
+*The reference states.* Take Δ of [[prop:loc-cone-formal]] with δ_e := δ_c/8, so that Δ vanishes where (u + δ_c)(v + δ_c)
+≤ (3δ_c/4)², in particular near Σ_init. Let Ů := (g_e, p̊_in, p̊_out, Θ̊_in, Θ̊_out, q̊_in, q̊_out) with p̊_in := −dv,
+p̊_out := −du, P̊_A := g_e⁻¹p̊_A, Θ̊_A := div_(g_e) P̊_A and q̊_A of [[sec:loc-cone-setting]]; and Û := (Ĝ, −dv, −du,
+Θ̂_A, q̂_A) with Ĝ of the form [[eq:loc-double-null]] with the functions X̊ + χ_𝒰Δ, Θ̂_A := div_Ĝ P̂_A, P̂_A := Ĝ⁻¹p̂_A,
+and q̂_A := (ρ̊_A + χ_𝒰Δ_(ρ_A))/𝒱̂. The fields P̊_A, P̂_A are future directed: P̂_out = (2Ω̂²)⁻¹ ∂_v and P̂_in = (2Ω̂²)⁻¹ L̲.
+On {χ_𝒰 = 1}, Û is the formal solution of [[prop:loc-cone-formal]]. Put K := supp(χ_𝒰 Δ); it lies in {ϑ_a′ ≤ ϑ ≤ ϑ_b′},
+outside {u < u_K, v < v_K}, and in {(u + δ_c)(v + δ_c) ≥ (3δ_c/4)²}, and Ĝ = g_e and Û = Ů outside K.
+
+*The modified system.* Let 𝒜(U) = 0 denote the augmented system (Aug1)–(Aug4) of [[sec:class-augmented]] for the
+unknowns U = (g, p_A, Θ_A, q_A), A ∈ {in, out}, with ζ_A := 1 and with the reduced Ricci tensor and the gauge vector
+relative to Ĝ, D(g) := g^(ab)(Γ[g] − Γ[Ĝ])_(ab), in place of g̊; it is defined where g(K_i, K_i) > 0, in particular on
+supp χ. In the first-order form of Step 9 of the proof of [[thm:class-stability-off-axes]], in the chart (τ, y), with the
+variables 𝐔 := (g, g_τ, g_a, p_A, Θ_A, q_A) for (g, ∂_τ g, ∂_(y^a) g, …), it reads A^μ(x, 𝐔) ∂_μ𝐔 = F_0(x, 𝐔): the wave
+block is ∂_τ g − g_τ = 0, a row with −g^(ττ) ∂_τ g_τ − 2g^(τa) ∂_a g_τ − g^(ab) ∂_a g_b, and g^(ab)(∂_τ g_b − ∂_b g_τ) =
+0, so that A^0 = diag(1, −g^(ττ), g^(ab)) there and P_A^τ on the transports. The coefficients are smooth functions of x
+and 𝐔 on the states with g Lorentzian, dτ and ∂_τ timelike and P_A^τ > 0, x entering through Ĝ and its derivatives
+of order at most two ([[eq:gauge]] with Ĝ in place of g0).
+
+In case (I) let 𝐔_c := 𝐔̊, in case (II) 𝐔_c := 𝐔̂ (the centre). Let c_0, r_0 > 0 be such that A^0(x, 𝐔_c + w) ≥ 2c_0 I
+for x ∈ supp χ and |w| ≤ 2r_0, and ϒ smooth with ϒ(w) = w for |w| ≤ r_0 and |ϒ| ≤ 2r_0. Let A^μ_♭ be the first-order
+form, in the same variables, of the linear operator −½ h^(ab) ∂_a∂_b on the wave block and of the transports P̄_A·∂,
+where h⁻¹ := χ_♭ g_e⁻¹ + (1 − χ_♭)(−∂_τ ⊗ ∂_τ + Σ_a ∂_(y^a) ⊗ ∂_(y^a)) and P̄_A := χ_♭ P̊_A + (1 − χ_♭) ∂_τ, χ_♭ a smooth
+function of (u, v) equal to 1 on supp χ_𝒰 and supported in the chart and in 𝒮; on supp χ_𝒰, A^μ_♭ = A^μ(x, 𝐔̊). For
+Z := 𝐔 − 𝐔̊ put
+
+    𝔄_χ(𝐔) := χ (A^μ(x, 𝐔_c + ϒ(𝐔 − 𝐔_c)) ∂_μ𝐔 − F_0(x, 𝐔_c + ϒ(𝐔 − 𝐔_c))) + (1 − χ) A^μ_♭ ∂_μ Z,
+    F̃ := (1 − θ 1_F) 𝔄_χ(Û),                                                                    {#eq:loc-cone-modified}
+
+1_F the indicator function of F. 𝔄_χ(𝐔) involves 𝐔̊ only where χ ≠ 0, so 𝔄_χ(𝐔) = F̃ is a system for Z on
+[τ_init, τ_+] × ℝ⁴.
+
+**Lemma {#lem:loc-cone-system}** (The modified system.) In case (I) let ε be small, in case (II) σ ≤ σ_1.
+
+(a) 𝔄_χ(𝐔) = F̃ has the form A^μ_χ(x, Z) ∂_μ Z = Φ(x, Z) of [[eq:class-kato-system]] on [τ_init, τ_+] × ℝ⁴, with
+A^μ_χ := χ A^μ(x, 𝐔_c + ϒ(𝐔 − 𝐔_c)) + (1 − χ) A^μ_♭ symmetric, A^0_χ ≥ c_1 I with c_1 > 0, and Φ a local forcing term in
+the sense of [[rem:class-kato-local]]. The bounds of every order of the A^μ_χ and of Φ, and c_1, depend only on Λ, η, k,
+δ_c and the background.
+
+(b) Where χ = 1 and |𝐔 − 𝐔_c| ≤ r_0, 𝔄_χ(𝐔) = 𝒜(𝐔); at the points of 𝒰 where χ = 0, 𝔄_χ(𝐔) = A^μ(x, 𝐔̊) ∂_μ(𝐔 − 𝐔̊).
+
+(c) The first and the third row of the wave block of 𝔄_χ(𝐔) = F̃ are ∂_τ g − g_τ = 0 and h_χ^(ab)(∂_τ g_b − ∂_b g_τ) = 0,
+with h_χ^(ab) positive definite; so g_τ = ∂_τ g and g_a = ∂_a g hold on [τ_init, τ_+] × ℝ⁴ if they hold at τ_init.
+
+(d) 𝔄_χ(Û) = F̃ on P; F̃ is smooth and supported in supp χ_𝒰.
+
+(e) R_I := 𝔄_χ(Ů) − F̃ and R_II := 𝔄_χ(Û) − F̃ are smooth, supported in supp χ_𝒰, and sup_τ ‖R_I(τ)‖_(H^k) ≤ C ε in case
+(I), sup_τ ‖R_II(τ)‖_(H^k) ≤ C σ in case (II), with C depending on Λ in case (II). On 𝒰, F̃ − 𝔄_χ(Ů) vanishes outside K.
+
+*Proof.* (a) A^μ_χ is a convex combination of the matrices of two systems of the form of Step 9, both symmetric; A^0 of
+the first is at least 2c_0 I on supp χ for all Z, by the choice of ϒ, and A^0_♭ = diag(1, −h^(ττ), h^(ab), P̄_A^τ) is
+positive definite, with a lower bound c_♭ > 0 on bounded sets of x and equal to the identity far out; so c_1 :=
+min(2c_0, c_♭) serves. Φ(x, Z) := χ (F_0(x, 𝐔_c + ϒ(𝐔 − 𝐔_c)) − A^μ(x, 𝐔_c + ϒ(𝐔 − 𝐔_c)) ∂_μ𝐔̊) + F̃(x) is smooth in
+(x, Z), with every derivative bounded on bounded sets of Z, and Φ(x, 0) vanishes for x outside the compact set
+supp χ_𝒰, by (d); so [[rem:class-kato-local]] applies. Its bounds involve Ĝ in C^(k+3), and ‖Δ‖_(C^(k+3)) ≤ C(Λ) by
+[[prop:loc-cone-formal]] (a). (b) is read off, as A^μ_♭ = A^μ(x, 𝐔̊) on supp χ_𝒰. (c) Both systems have these two rows,
+with the matrices g^(ab) of 𝐔_c + ϒ(𝐔 − 𝐔_c) and h^(ab), and F̃ has no component in them, since those of 𝔄_χ(Û) vanish
+(𝐔̂ has ĝ_τ = ∂_τ ĝ, ĝ_a = ∂_a ĝ); so ∂_τ(g_a − ∂_a g) = ∂_a(g_τ − ∂_τ g) = 0.
+
+(d) On P, θ 1_F = 0. F̃ = 𝔄_χ(Û) − θ 1_F 𝔄_χ(Û), and 𝔄_χ(Û) is smooth. On supp θ ⊂ {χ_𝒰 = 1}, 𝐔̂ − 𝐔̊ vanishes where
+χ_ϑ ≠ 1 (Δ vanishes for ϑ ∉ [2η, π/2 − 2η]), so the frozen part of 𝔄_χ(Û) vanishes there, and |𝐔̂ − 𝐔_c| ≤ r_0 (in case
+(I) since ‖Δ‖_(C^(k+3)) ≤ Cε); so 𝔄_χ(Û) = χ 𝒜(Û) on supp θ. 𝒜(Û) vanishes to infinite order on N ∩ {χ_𝒰 = 1}: in
+(Aug1), Ric^H_Ĝ(Ĝ) = Ric(Ĝ) since D(Ĝ) = 0, so its residual is E of [[prop:loc-cone-formal]] (c); (Aug2) holds exactly,
+∇_(P̂_A) p̂_A = ½ d Ĝ⁻¹(p̂_A, p̂_A) = 0 as u and v are null for Ĝ; in (Aug3), off the axes, [[eq:class-raychaudhuri]] for
+the eikonals −v and −u of Ĝ gives P̂_A(Θ̂_A) − S_A(Û) = −E(P̂_A, P̂_A); and (Aug4) is the conservation law,
+P̂_A(q̂_A) + Θ̂_A q̂_A = div_Ĝ(q̂_A P̂_A), which [[lem:loc-cone-ricci]] (b) expresses through the conservation expressions of
+[[prop:loc-cone-formal]] (c). A smooth function that vanishes to infinite order on N, times 1_F, is smooth; so θ 1_F
+𝔄_χ(Û) is smooth.
+
+(e) R_I = 𝔄_χ(Ů) − 𝔄_χ(Û) + θ 1_F 𝔄_χ(Û). 𝔄_χ is a smooth function of (x, 𝐔, ∂𝐔), so the first difference is bounded
+in C^k by C‖𝐔̂ − 𝐔̊‖_(C^(k+1)) ≤ C‖Δ‖_(C^(k+2)) ≤ Cε. On F ∩ supp θ, 𝔄_χ(Û) = χ(𝒜(Û) − 𝒜(Ů)) + χ𝒜(Ů); there 𝒜(Ů) has
+only the residual of (Aug1), Ric^H_Ĝ(g_e) − Ric^H_(g_e)(g_e), Ů solving the background's system on F ∩ 𝒮 (with
+[[eq:class-raychaudhuri]] for (Aug3)); so it is bounded in C^k by C‖Ĝ − g_e‖_(C^(k+2)) ≤ Cε, and as θ 1_F 𝔄_χ(Û) is
+smooth its C^k norm is at most Cε. In case (II), R_II = θ 1_F χ 𝒜(Û). Let x ∈ F ∩ supp θ, with u ≤ v say, so that
+u ≤ 10σ; all derivatives of 𝒜(Û) vanish at (0, v, ϑ) ∈ N_o, so by Taylor's formula in u each derivative of 𝒜(Û) of order
+at most k − p is at most C(Λ) u^(p+1) ≤ C(Λ)(10σ)^(p+1) at x, C(Λ) bounding the derivatives of order k + 1 of 𝒜(Û),
+hence those of order k + 3 of Ĝ. The derivatives of order p of θ are at most Cσ^(−p). By Leibniz's rule each derivative
+of order at most k of R_II is at most C(Λ)σ, and R_II is supported in the bounded set (−2σ, 10σ)² × S³; the chart
+(τ, y) has bounded derivatives there. Finally, on 𝒰 ∖ K: on P, F̃ − 𝔄_χ(Ů) = 𝔄_χ(Û) − 𝔄_χ(Ů) = 0; on F, it is
+−θ 𝔄_χ(Ů), and 𝔄_χ(Ů) = 0 on a neighbourhood of each point of F ∩ 𝒰 ∖ K, where Ĝ = g_e and Ů solves its own system. ∎
+
+**Lemma {#lem:loc-cone-energy}** (Energy on a region.) Let 𝒟 be a compact subset of the slab [τ_init, τ_+] × ℝ⁴ such that
+every 𝒟_s := 𝒟 ∩ {τ ≤ s} is empty or a Lipschitz domain whose boundary is the union of 𝒟 ∩ {τ = s}, of a closed set
+B_0 and of a set B_1 that is a finite union of smooth hypersurfaces, meeting one another and the slices transversally.
+Let 𝐀^μ be C¹ symmetric matrices on 𝒟 with 𝐀^0 ≥ cI, c > 0, M a bounded matrix function and z ∈ C¹(𝒟) with
+𝐀^μ ∂_μ z = Mz on 𝒟, z = 0 on B_0 and ν_μ 𝐀^μ ≥ 0 at the points of B_1, ν the outward conormal. Then z = 0 on 𝒟.
+
+*Proof.* The field V^μ := ⟨𝐀^μ z, z⟩ is C¹ in the slab coordinates, with ∂_μ V^μ = ⟨(∂_μ 𝐀^μ) z, z⟩ + 2⟨Mz, z⟩ ≤ C|z|²,
+by the symmetry of the 𝐀^μ. Let e(s) := ∫_(𝒟∩{τ=s}) ⟨𝐀^0 z, z⟩ dy. The divergence theorem on the Lipschitz domain 𝒟_s,
+as in the proof of [[thm:class-kato]] (b) (i), gives e(s) + ∫_(B_1∩{τ≤s}) ⟨ν_μ 𝐀^μ z, z⟩ |ν|⁻¹ dS = ∫_(𝒟_s) ∂_μ V^μ, the
+integral over B_0 vanishing with z. The boundary integral over B_1 is nonnegative, so e(s) ≤ C ∫_(𝒟_s) |z|² ≤ (C/c)
+∫_(τ_init)^s e, and e = 0 by Gronwall's inequality. ∎
+
+For a system of the form of Step 9 with inverse metric h on its wave block and transport fields P, the matrix ν_μ 𝐀^μ is
+nonnegative exactly when ν(∂_τ) ≥ 0, h⁻¹(ν, ν) ≤ 0 and ν(P) ≥ 0 for each transport field P (Step 9 of the proof of
+[[thm:class-stability-off-axes]]); for a convex combination of two such systems it is nonnegative where it is for both.
+In particular it is nonnegative on every piece of boundary whose conormal is future causal for both inverse metrics and
+nonnegative on the transport fields.
+
