@@ -521,13 +521,14 @@ the roots of P_l with l ≤ 142 lie in |ι − 1| < 2 ([[lem:tr-c-v]] (a), [[lem
 ([[prop:s14-scalar-every-h]]) and (R_h) gives Re ι ≥ 3 + ε_Υ. If hκ ≤ 70, then ι is ι_B(l, h), which is real and so
 above 51, or ι_P(l, h) or its conjugate, and Re ι_P ∈ [3, 3 + ε_Υ) would put h in 𝖩 (the case n = 3 of
 [[def:tr-exceptional]] (c)). For the lower bound: ι₁ > 2 + 7·10⁻⁵; the roots of P_1 other than 2 exceed 2 + 3e;
-ι₂(h) − 2 > (40/13)h(1 − 5·10⁴h); the roots of P_l, 3 ≤ l ≤ 122, exceed 2 + 3.1h; for l ≥ 123, ι_B > min(2 + x/2,
-2 + x − 1/100) ≥ 2 + 7687h, and the other two roots of real part greater than 19/10 have real part above 2.1;
-ι_v(l, h) > 3; and the roots with hκ > 70 have real part at least 3 + ε_Υ ([[lem:tr-c-v]], [[lem:tr-small]],
-[[lem:tr-large]], (R_h)). The least of these bounds is that of ι₂(h), and (40/13)h(1 − 5·10⁴h) increases on (0, 10⁻⁶] and exceeds
-1.4646·10⁻¹⁰ at h_m. The non-real roots: those of C, of p_(v) and of the P_l with l ≤ 122 concerned are real; for
-123 ≤ l ≤ 142 the non-real ones lie in |ι − a| < 2/5 with a ≥ 5/2 ([[lem:tr-large]] (b)); for l ≥ 143 and hκ ≤ 70,
-Re ι_P > a − ϱ ≥ 2.45 ([[lem:tr-large]] (c), as h ≥ h_m); and for hκ > 70 there is none of real part below 3 + ε_Υ.
+ι₂(h) − 2 > (40/13)h(1 − 5·10⁴h); the roots of P_l, 3 ≤ l ≤ 122, exceed 2 + 3.1h; for l ≥ 123,
+ι_B > min(2 + x/2, 2 + x − 1/100) ≥ 2 + 7687h, and the other two roots of real part greater than 19/10 have real part
+above 2.1; ι_v(l, h) > 3; and the roots with hκ > 70 have real part at least 3 + ε_Υ ([[lem:tr-c-v]], [[lem:tr-small]],
+[[lem:tr-large]], (R_h)). The least of these bounds is that of ι₂(h), and (40/13)h(1 − 5·10⁴h) increases on (0, 10⁻⁶]
+and exceeds 1.4646·10⁻¹⁰ at h_m. The non-real roots: those of C, of p_(v) and of the P_l with l ≤ 122 concerned are
+real; for 123 ≤ l ≤ 142 the non-real ones lie in |ι − a| < 2/5 with a ≥ 5/2 ([[lem:tr-large]] (b)); for l ≥ 143 and
+hκ ≤ 70, Re ι_P > a − ϱ ≥ 2.45 ([[lem:tr-large]] (c), as h ≥ h_m); and for hκ > 70 there is none of real part below
+3 + ε_Υ.
 
 (b) By (a), every element of Z₃(h) is ι₁, a root of P_l with l ≤ 142, or, for l ≥ 143 and hκ ≤ 70, one of ι_B(l, h),
 ι_P(l, h) and ῑ_P(l, h); ι_v(l, h) > 3 ([[lem:tr-c-v]] (b)). For l ≥ 143, ι_B > 2 + x − 1/100 ([[lem:tr-large]] (a)),
@@ -701,7 +702,7 @@ source, with the chapter's indentation, each preceded by a line ending "Old:" or
 1–4 and 8) are given against that chapter as the proof files P-UB1 and P-UB2 leave it: those files replace its texts at
 items 2 and 4 and the statements this section cites ([[prop:uc-dependence]], [[lem:is-z3]], [[lem:is-gap-z]],
 [[cor:is-lower]], the new [[prop:is-lambda]], [[thm:is-gap]] and [[prop:is-count]]), and this section is to be merged
-after them. Items 5–7 are given against the chapters at 7ec3756a, which those files do not change at these places. Each
+after them. Items 5–7 are given against the chapters at 8d583306, which those files do not change at these places. Each
 old text occurs exactly once in its chapter in the form stated, and line numbers, which serve only to find the place,
 are those of that form.
 
@@ -733,7 +734,7 @@ like h^(−1/2), for h ≥ 4.76 × 10⁻¹¹ outside a set of total length below
 the degrees with hκ > 70 that is decided only at h = 10⁻⁶ ([[thm:tr-transfer]], [[prop:tr-mu-small]]). The
 
 *3. [[rem:ec-point-outside]], the end of its last sentence (lines 85–86 of chapter 71 after P-UB1 and P-UB2).* P-UB1 and
-P-UB2 leave these lines as they are at 7ec3756a. Old:
+P-UB2 leave these lines as they are at 8d583306. Old:
 
 z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
 ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
@@ -761,7 +762,7 @@ only. At the admissible points with (e_Υ, γ_Υ) = (1/100, 1/100) and other h �
 d_NM > 2.0517·10¹⁰/μ(h), μ(h) the least excess above 3 of the elements of Λ at h ([[thm:tr-transfer]]), which is
 unbounded at the admissible points near a point h_μ ∈ (5·10⁻⁷, 10⁻⁶) ([[prop:tr-mu-small]]).
 
-*5. [[ch:theorems]], the list of further results, the item on the constants (line 364 of the chapter at 7ec3756a).* Old:
+*5. [[ch:theorems]], the list of further results, the item on the constants (line 364 of the chapter at 8d583306).* Old:
 
   weights, orders and inner products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the
 
@@ -773,7 +774,7 @@ New:
   bounds for δ and for the
 
 *6. [[ch:scope]], [[sec:scope-constants]], the sentence on the computational point (line 81 of the chapter at
-7ec3756a).* Old:
+8d583306).* Old:
 
 set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in
 
@@ -787,7 +788,7 @@ that is decided only at h = 10⁻⁶, and whether such points are admissible is 
 [[prop:tr-mu-small]], [[rem:tr-scope]]). No result of [[ch:explicit-constants]] is used in
 
 *7. [[ch:s14]], [[rem:s14-eps-ind-scope]], the sentence on what changes for h ∈ 𝖧 (lines 4535–4537 of the chapter at
-7ec3756a).* Old:
+8d583306).* Old:
 
 What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
 every constant, and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50 and the bound
@@ -804,7 +805,7 @@ p_(v) with |ι − 1| ≤ 50, near each of which ε_ind(h) is arbitrarily small 
 [[cor:s14-eps-ind-point]] shows that
 
 *8. [[rem:uc-data-order-limits]], the clause on d (line 5488 of chapter 71 after P-UB1 and P-UB2).* P-UB1 and P-UB2
-leave these lines as they are at 7ec3756a. Old:
+leave these lines as they are at 8d583306. Old:
 
 and at whose points with h ≤ 10⁻⁶ it is bounded only from below ([[thm:ec-lb-proved]]); the numbers of its part (d) are
 
@@ -897,23 +898,23 @@ Row 22. lem:tr-z3; paper/reader/proofs/P-TR.md@PENDING:508; transfer proof P-TR,
 form of lem:is-z3 (a), (c) at h ∉ 𝖩 under (R_h); Z₃(h) finite, fewer than 426 + 2.7177h^(−1/2) elements, Σ y² < 426 +
 0.90257h^(−1/2).
 
-Row 23. prop:tr-lambda; paper/reader/proofs/P-TR.md@PENDING:547; transfer proof P-TR, Proposition (The set Λ at h.);
+Row 23. prop:tr-lambda; paper/reader/proofs/P-TR.md@PENDING:548; transfer proof P-TR, Proposition (The set Λ at h.);
 new: prop:is-lambda, thm:is-gap and prop:is-count (a) at h; (G) iff ε_K < μ(h); N_Λ ≤ N̄(h) < 4.961·10¹⁴ +
 1.0155·10¹²h^(−1/2).
 
-Row 24. sec:tr-proof; paper/reader/proofs/P-TR.md@PENDING:580; transfer proof P-TR, subsection heading; new; the proof
+Row 24. sec:tr-proof; paper/reader/proofs/P-TR.md@PENDING:581; transfer proof P-TR, subsection heading; new; the proof
 of thm:tr-transfer.
 
-Row 25. sec:tr-exceptional; paper/reader/proofs/P-TR.md@PENDING:621; transfer proof P-TR, subsection heading; new.
+Row 25. sec:tr-exceptional; paper/reader/proofs/P-TR.md@PENDING:622; transfer proof P-TR, subsection heading; new.
 
-Row 26. prop:tr-measure; paper/reader/proofs/P-TR.md@PENDING:623; transfer proof P-TR, Proposition (The size of 𝖩.);
+Row 26. prop:tr-measure; paper/reader/proofs/P-TR.md@PENDING:624; transfer proof P-TR, Proposition (The size of 𝖩.);
 finitely many intervals and points, total length below 1.698·10⁻¹¹; the multiple roots by prop:t49-simple.
 
-Row 27. prop:tr-fail; paper/reader/proofs/P-TR.md@PENDING:659; transfer proof P-TR, Proposition (The bound fails near
+Row 27. prop:tr-fail; paper/reader/proofs/P-TR.md@PENDING:660; transfer proof P-TR, Proposition (The bound fails near
 a crossing.); d_acc > 3(1 − 2.1·10⁻⁸)/ε_ind(h)², above 7.57245·10⁵⁵ when ε_ind(h) < 1.99·10⁻²⁸, by lem:ec-lb-rounds;
 h_c = 1/1001992 ∈ 𝖩.
 
-Row 28. prop:tr-mu-small; paper/reader/proofs/P-TR.md@PENDING:674; transfer proof P-TR, Proposition (The least excess
+Row 28. prop:tr-mu-small; paper/reader/proofs/P-TR.md@PENDING:675; transfer proof P-TR, Proposition (The least excess
 has no positive lower bound.); new: μ(h) → 0 as h decreases to some h_μ ∈ (5·10⁻⁷, 10⁻⁶), through ι_B(390, h) +
 356327𝔡₀ + 1116082𝔡₁; d_NM unbounded there.
 
