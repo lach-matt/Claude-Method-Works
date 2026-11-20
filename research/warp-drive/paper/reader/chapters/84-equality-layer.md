@@ -1294,8 +1294,8 @@ c_(j,j−2)(r0) = 0, so κ_(j+1,j−1) = 0 and c_(j+1,j−1) = i c_(j,j−2); fo
 family, c_(j+1,j−2) = κ_(j+1,j−2) + i ∂_(r0) c_(j,j−2) + i c_(j,j−3). By the induction hypothesis c_(j,j−2) = i^(j−2)
 c_(2,0) and c_(j,j−3) = (j − 2) i^(j−3) c_(3,0); and c_(3,0) = κ_(3,0) + i ∂_(r0) c_(2,0). Then κ_(j+1,j−2) − i^(j−2)
 κ_(3,0) solves 𝒯(·) = 0 with data at r0 equal to −(j − 2) i^(j−2) (1 − Π) c_(3,0)(r0) = 0, so κ_(j+1,j−2) = i^(j−2)
-κ_(3,0), and c_(j+1,j−2) = i^(j−2)(c_(3,0) − i ∂_(r0) c_(2,0)) + i^(j−1) ∂_(r0) c_(2,0) + (j − 2) i^(j−2) c_(3,0) = (j −
-1) i^(j−2) c_(3,0). The motion of r0 cancels.
+κ_(3,0), and c_(j+1,j−2) = i^(j−2)(c_(3,0) − i ∂_(r0) c_(2,0)) + i^(j−1) ∂_(r0) c_(2,0) + (j − 2)
+i^(j−2) c_(3,0) = (j − 1) i^(j−2) c_(3,0). The motion of r0 cancels.
 
 (c) c_(2,0) has no vv component (H_2 ∈ 𝔖), and c_(3,0),vv(√μ0) = A d ν by [[prop:layer-linear]] (c), (d), where
 H_3,vv = env c_(3,0),vv, c_(3,1) = i c_(2,0) having no vv component. With (b) this is the formula, and

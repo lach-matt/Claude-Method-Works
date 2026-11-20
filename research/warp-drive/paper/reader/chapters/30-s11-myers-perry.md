@@ -1890,12 +1890,12 @@ k(E_I, z) + 1 times and Z is E_(I,≤) completed by [[eq:s11-index-set]], contai
 which has no logarithms, and (F, β) = (E_ι − 1, β_ι − 1). Its hypotheses hold: β_K − 1 + Re z > β_ι − 1 by the choice of
 β_K; Re(w + z) ≠ β_ι − 1 for w ∈ ℕ₀, as β_ι − 1 ∉ Re π₁E_I and index sets are closed under adding ℕ₀; and on ρ ≥ ¼,
 where 1 − χ(2ρ) ≠ 0, the a priori condition is ℱu = ℱ(χ̃u), of order k + l ≥ k + l′ + |E_(I,≤)|. As (0, 0) + Z = Z,
-[[lem:iii-a-3-3]] gives the index sets ((0, 0), β_K − 1) at zf and (Z ∪̄ (E_ι − 1), β_ι − 1) ⊂ (E_I ∪̄ (E_ι − 1), β_ι −
-1) at tf. Near scf, in ρ_scf = ρ/|σ|, ρ_tf = |σ|, ρ∂_ρ − z = ρ_scf∂_(ρ_scf) − z, and [[lem:iii-a-1-2]] at scf, one factor
-at a time in decreasing order of Re z as in [[lem:iii-a-1-3]] (with min(β_I, β̃_ι) − ε ≠ Re z by the choice of ε; the a
-priori condition on ρ_scf ≥ ½ holds in the zf chart, and the tf index set found there is carried as the data at the
-other face), gives the index set (E_I, min(β_I, β̃_ι) − ε) there, the derivatives lost one factor at a time absorbed
-in l. This is [[eq:iii-a-4-3]].
+[[lem:iii-a-3-3]] gives the index sets ((0, 0), β_K − 1) at zf and (Z ∪̄ (E_ι − 1), β_ι − 1) ⊂
+(E_I ∪̄ (E_ι − 1), β_ι − 1) at tf. Near scf, in ρ_scf = ρ/|σ|, ρ_tf = |σ|, ρ∂_ρ − z = ρ_scf∂_(ρ_scf) − z, and
+[[lem:iii-a-1-2]] at scf, one factor at a time in decreasing order of Re z as in [[lem:iii-a-1-3]] (with min(β_I, β̃_ι) −
+ε ≠ Re z by the choice of ε; the a priori condition on ρ_scf ≥ ½ holds in the zf chart, and the tf index set found there
+is carried as the data at the other face), gives the index set (E_I, min(β_I, β̃_ι) − ε) there, the derivatives lost one
+factor at a time absorbed in l. This is [[eq:iii-a-4-3]].
 
 *Part (2), E_K = ∅.* Then [[eq:iii-a-4-4]] is the equality of the σ-Taylor coefficients of v^± of orders
 ≤ ⌊β_K − 1⌋ (as ℓ_j = −1), and v^± ∈ H^(k+l,(β_scf,β̃_ι−1,((0,0),β_K−1))), so (T3) gives

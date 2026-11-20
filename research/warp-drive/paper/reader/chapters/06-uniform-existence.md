@@ -293,17 +293,17 @@ defined on Ω × S¹. Extend them to R⁵ × S¹ by one universal extension oper
 on Ω. Put R2 := b(τ0) + 1. On {a/4 ≤ r ≤ R2 + 1}, at every τ, the extended g_app still has spacelike slices for λ small.
 Indeed the extended profiles are bounded, so |g_app − g0| ≤ C λ there. The slices of g0 have the induced metric δ +
 (μ/r²) dr² ≥ δ, g0 = η + (μ/r²) dv ⊗ dv has |g0| ≤ 1 + 2μ_end/r² ≤ 1 + 32 μ_end/a² (|dv|² = 2 in the Euclidean norm),
-and det g0 = −1 ([[eq:background]]). Put L := 2 + 32 μ_end/a² and λ_ext := 1/(10 C L⁴), which depends only on C, a and
-μ_end, and let λ ≤ λ_ext, so that C λ ≤ 1/(10 L⁴) ≤ 1/160. On that region the extended g_app then has induced metric at
-least (1 − C λ) δ ≥ δ/2 on every Σ_τ, |g_app| ≤ |g0| + C λ ≤ L, and determinant at most −1/2. For the determinant: det
+and det g0 = −1 ([[eq:background]]). Put Θ := 2 + 32 μ_end/a² and λ_ext := 1/(10 C Θ⁴), which depends only on C, a and
+μ_end, and let λ ≤ λ_ext, so that C λ ≤ 1/(10 Θ⁴) ≤ 1/160. On that region the extended g_app then has induced metric at
+least (1 − C λ) δ ≥ δ/2 on every Σ_τ, |g_app| ≤ |g0| + C λ ≤ Θ, and determinant at most −1/2. For the determinant: det
 g_app − det g0 is the sum over i = 1, …, 5 of the determinants of the matrices whose first i − 1 columns are those of
 g0, whose i-th column is that of g_app − g0 and whose other columns are those of g_app, since the determinant is linear
 in each column; a column has Euclidean length at most the operator norm, so by Hadamard's inequality each of these five
-determinants is at most L⁴ |g_app − g0| ≤ L⁴ C λ in absolute value, and |det g_app + 1| ≤ 5 L⁴ C λ ≤ 1/2. A symmetric
+determinants is at most Θ⁴ |g_app − g0| ≤ Θ⁴ C λ in absolute value, and |det g_app + 1| ≤ 5 Θ⁴ C λ ≤ 1/2. A symmetric
 form that is positive definite on a hyperplane has at least four positive eigenvalues, and with negative determinant the
 fifth is negative: g_app is Lorentzian with every Σ_τ spacelike there, and its lapse ν, shift and spatial metric γ
-relative to τ are defined. They are bounded uniformly in τ: δ/2 ≤ γ ≤ L, so 1/16 ≤ det γ ≤ L⁴; and det g_app = −ν² det
-γ, so ν² = −det g_app/det γ lies between 1/(2 L⁴) and 16 L⁵, Hadamard's inequality giving |det g_app| ≤ L⁵. We take λ0 ≤
+relative to τ are defined. They are bounded uniformly in τ: δ/2 ≤ γ ≤ Θ, so 1/16 ≤ det γ ≤ Θ⁴; and det g_app = −ν² det
+γ, so ν² = −det g_app/det γ lies between 1/(2 Θ⁴) and 16 Θ⁵, Hadamard's inequality giving |det g_app| ≤ Θ⁵. We take λ0 ≤
 λ_ext. Outside a neighbourhood U of Ω in {a/2 < r < R2}, replace g_app and g0 by g_ext and g0_ext, obtained by
 interpolating lapse, shift and spatial metric (relative to τ) convexly to (1, 0, δ) on {r ≤ a/4} and on {r ≥ R2 + 1}.
 Every such combination is a Lorentzian metric with each Σ_τ spacelike: a convex combination of positive lapses is
@@ -312,8 +312,8 @@ positive and a convex combination of positive definite spatial metrics is positi
 its form, with coefficients smooth in X and equal to Minkowski's outside a compact set in x; on U nothing changes.
 
 (ii) *The coordinates.* Write g_ext = −ν² dτ² + γ_ij (dx^i + β^i dτ)(dx^j + β^j dτ), with lapse ν, shift β_ext = β^i ∂_i
-and spatial metric γ. The lapse is a convex combination of that of g_app, at least (2 L⁴)^(−1/2) by (i), and of 1, so ν
-≥ ν_min := (2 L⁴)^(−1/2) > 0, as L ≥ 2. Put Z := ∂_τ − β_ext. Then Z(τ) = 1 and, since dx^i(Z) + β^i dτ(Z) = −β^i +
+and spatial metric γ. The lapse is a convex combination of that of g_app, at least (2 Θ⁴)^(−1/2) by (i), and of 1, so ν
+≥ ν_min := (2 Θ⁴)^(−1/2) > 0, as Θ ≥ 2. Put Z := ∂_τ − β_ext. Then Z(τ) = 1 and, since dx^i(Z) + β^i dτ(Z) = −β^i +
 β^i = 0,
 
     g_ext(Z, Z) = −ν² ≤ −ν_min² < 0;
@@ -329,11 +329,12 @@ transformed as a tensor, and the system stays quasilinear with coefficients smoo
 (iii) *The cut-off.* Let ϒ be a smooth map of the components, the identity on |w| ≤ ε2/2 and with values in |w| ≤ ε2,
 with ε2 so small that every metric within ε2 of g_ext keeps the conditions g^(00) ≤ −c_0 and g^(ab) ξ_a ξ_b ≥ c_0 |ξ|²
 with a fixed constant c_0 > 0 in (τ, y). Put ϒ(w) for w in the coefficients and lower-order terms. The modified system
-agrees with the original where |w| ≤ ε2/2, which holds on Ω (|w| ≤ C M λ^(K−3), Step 3). The coefficients and the
-forcing term are taken at time τ̄(τ), τ̄ smooth, equal to τ on [τ0 − 1, τ_end + 1] and constant outside [τ0 − 2, τ_end +
-2]: the coordinates of (ii) degenerate as |τ| grows (the flow lines of Z pile up where β_ext vanishes), and [DS23, (A1)]
-asks for bounds uniform in t; on [τ0, τ_end] nothing changes. The coefficients and the forcing term equal Minkowski's
-outside a compact set in y, so the system is posed on a torus T⁴_L of large period L.
+agrees with the original where |w| ≤ ε2/2, which holds on Ω once C M λ0^(K−3) ≤ ε2/2 (|w| ≤ C M λ^(K−3), Step 3; ε2 does
+not depend on λ). The coefficients and the forcing term are taken at time τ̄(τ), τ̄ smooth, equal to τ on [τ0 − 1,
+τ_end + 1] and constant outside [τ0 − 2, τ_end + 2]: the coordinates of (ii) degenerate as |τ| grows (the flow lines of Z
+pile up where β_ext vanishes), and [DS23, (A1)] asks for bounds uniform in t; on [τ0, τ_end] nothing changes. The
+coefficients and the forcing term equal Minkowski's outside a compact set in y, so the system is posed on a torus
+T⁴_L of large period L.
 
 Write the modified system as −(1/2) g^(μν) ∂_μ ∂_ν w = F̃(τ, y, w, ∂w), with μ, ν running over (τ, y) and a, b, c below
 over y alone. In V := (w, u_0, u_a), with u_0 := ∂_τ w and u_a := ∂_(y^a) w, it is the first-order system
@@ -428,12 +429,12 @@ factor needing at most 2 + 1 + 3 ≤ k + 1 derivatives of 𝒩's quantities. The
 λ⁻³ |∂w|_k², the scaled product bound |f g|_k ≤ C_k λ⁻³ |f|_k |g|_k on the slices, in four space dimensions, which holds
 at every k ≥ 3. Indeed, expand λ^j ∂^j (f g), j ≤ k, by Leibniz's rule into terms λ^i ∂^i f · λ^(j−i) ∂^(j−i) g. If i =
 0, then ‖f‖_(L^∞) ≤ C λ⁻³ |f|_3 ≤ C λ⁻³ |f|_k by [[eq:sobolev]] and ‖λ^j ∂^j g‖ ≤ |g|_k; if i = j, the same holds with f
-and g exchanged. If 1 ≤ i ≤ j − 1, both factors are put in L⁴. By [BH17, Theorem 7.27, p. 56], on a nonempty bounded
-open subset of R^n with Lipschitz boundary W^(s,p) embeds in W^(t,q) whenever 1 ≤ p, q < ∞, 0 ≤ t ≤ s and s − n/p ≥
-t − n/q; with s = 1, p = 2, t = 0, q = 4 and n = 4 this gives ‖u‖_(L⁴) ≤ C (‖u‖ + ‖∂_x u‖) on the fixed annulus, and
-on every A(τ) with the same C by the radial maps of the proof of [[lem:sobolev]]. Hence ‖λ^i ∂^i f‖_(L⁴) ≤ C (λ^i
-‖∂^i f‖ + λ^i ‖∂^(i+1) f‖) ≤ C λ⁻¹ |f|_(i+1) ≤ C λ⁻¹ |f|_k, since i + 1 ≤ j ≤ k, and likewise ‖λ^(j−i) ∂^(j−i)
-g‖_(L⁴) ≤ C λ⁻¹ |g|_k. By Hölder's inequality the term is at most C λ⁻² |f|_k |g|_k ≤ C λ⁻³ |f|_k |g|_k. Step 8:
+and g exchanged. If 1 ≤ i ≤ j − 1, both factors are put in L⁴. By [[thm:std-bh17-embedding]] ([BH17, Theorem 7.27,
+p. 56]), on a nonempty bounded open subset of R^n with Lipschitz boundary W^(s,p) embeds in W^(t,q) whenever 1 ≤ p, q <
+∞, 0 ≤ t ≤ s and s − n/p ≥ t − n/q; with s = 1, p = 2, t = 0, q = 4 and n = 4 this gives ‖u‖_(L⁴) ≤ C (‖u‖ + ‖∂_x u‖) on
+the fixed annulus, and on every A(τ) with the same C by the radial maps of the proof of [[lem:sobolev]]. Hence ‖λ^i ∂^i
+f‖_(L⁴) ≤ C (λ^i ‖∂^i f‖ + λ^i ‖∂^(i+1) f‖) ≤ C λ⁻¹ |f|_(i+1) ≤ C λ⁻¹ |f|_k, since i + 1 ≤ j ≤ k, and likewise ‖λ^(j−i)
+∂^(j−i) g‖_(L⁴) ≤ C λ⁻¹ |g|_k. By Hölder's inequality the term is at most C λ⁻² |f|_k |g|_k ≤ C λ⁻³ |f|_k |g|_k. Step 8:
 [DS23, Theorem 2.4] with r = k > 4/2 + 1. Steps 2, 5, 6 and 7 do not use k = 6.
 
 (b) *The closing.* The bootstrap closes when 2K − 5 ≥ K + 1 (Step 4's C M² λ^(2K−5) ≤ C M² λ^(K+1)), that is when K ≥ 6,

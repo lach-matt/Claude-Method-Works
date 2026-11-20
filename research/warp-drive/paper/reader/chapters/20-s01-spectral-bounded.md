@@ -372,8 +372,8 @@ tends to Ǎ_εΦPu in H^(½(𝟏−𝐦)+κ𝟏), since T_t → Id strongly on H
 second is bounded in Ψ^(−∞,−∞) uniformly in t, as Ǎ_ε and [P, Φ] have disjoint microsupports and T_t is bounded in
 Ψ^(0,0), and it tends to Ǎ_ε[P, Φ]u. In the third, [P, T_t] is bounded in Ψ^(𝐦−𝟏) and tends to 0 in Ψ^(𝐦−𝟏+δ𝟏)
 ([[lem:i-a-2-1]] (c); P has constant orders), so the term is bounded in H^(½(𝟏−𝐦)), since v ∈ H^(𝐬−κ𝟏), and tends to
-0 as distributions, hence weakly in H^(½(𝟏−𝐦)). A weakly null sequence paired with a strongly convergent one tends to
-0. So ⟨Ǎ_εPw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εPv, Ǎ_εv⟩.
+0 as distributions, hence weakly in H^(½(𝟏−𝐦)). A weakly null sequence paired with a strongly convergent one
+tends to 0. So ⟨Ǎ_εPw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εPv, Ǎ_εv⟩.
 
 *Step 2: the estimate.* By [[eq:i-a-3-1]] and [[eq:i-a-3-4]], for Schwartz w,
 

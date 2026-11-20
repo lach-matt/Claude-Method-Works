@@ -1616,8 +1616,9 @@ that it is fixed after rows d1–d2; the gap (G) of [[def:iii-i10-1-3]] for ε_K
 of [[eq:iii-f1-2-2]], fixed by the indicial roots of L̂_b(0), with which the hypotheses of [[prop:iii-g4-5-1]] are
 stated; and ε_Υ is the constant of [[sec:iii-d2-1]], fixed by the indicial roots of (□^Υ_b)^(0), with which the gain in
 the conclusion of [[prop:iii-g4-5-1]] is stated. At the gauge parameters of [[prop:np-10-52]], ε_ind ≤ δ_50 = 1.94137… ×
-10⁻⁸ ([[prop:np-10-52]] (iii), [[prop:iii-f1-2-3]] (f)), and δ_50 is the least distance from ℤ among the non-integer
-entries of modulus at most 50 that do not depend on h; no proof uses its value. Threshold: u1–u5, d1–d2.
+10⁻⁸ ([[prop:np-10-52]] (iii), [[prop:iii-f1-2-3]] (f); the value by [[lem:s14-delta50]]), and δ_50 is the least distance
+from ℤ among the non-integer entries of modulus at most 50 that do not depend on h; no proof uses its value.
+Threshold: u1–u5, d1–d2.
 
 **w2.** α: admissible ([[def:iii-i10-1-3]]), with (A_J) ([[def:iii-j-a-j]]) and the exactness conditions (Ex3)–(Ex4) of
 [[def:iii-j3-1-3]], in (4 + ε_K − ε′_0, 4 + ε_K], where such α are dense ([[def:iii-j-a-j]], [[lem:iii-j3-1-4]]).

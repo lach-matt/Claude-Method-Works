@@ -980,11 +980,11 @@ development on Ω in the gauge D(g) = 0, with the same datum and 𝒩_(k−1) �
 u_A. With p_A := du_A, (Aug1) and (Aug2) hold, since Ric^H(g) = Ric(g) = T and ∇_(P_A) du_A = ½ d g⁻¹(du_A, du_A) = 0.
 Let Θ_A solve (Aug3) with the data □_g u_A on Σ_τ0. On the tube of supp q_A ∩ Σ_τ0, which contains supp q_A and lies in
 {ζ_A = 1} for ε2 small (as in Step 3), Θ_A and □_g u_A solve the same ordinary differential equation along P_A
-([[prop:class-structure]] (c)) with the same data, so they agree, and (Aug4) is the conservation law there; off it q_A =
-0. So the development gives a solution of the augmented system on Ω, within C ε2 of ů in 𝒩_(k−1) by the estimate of Step
-6 at the order k − 1. For ε2 small both it and the solution constructed lie within r_b of ů pointwise, and the argument
-of [[thm:class-kato]] (b) (i), which uses the solutions on Ω only, at the order s = k − 1 > 3, shows that they agree on
-Ω.
+([[prop:class-structure]] (c)) with the same data, so they agree, and (Aug4) is the conservation law there; off it
+q_A = 0. So the development gives a solution of the augmented system on Ω, within C ε2 of ů in 𝒩_(k−1) by the estimate of
+Step 6 at the order k − 1. For ε2 small both it and the solution constructed lie within r_b of ů pointwise, and the
+argument of [[thm:class-kato]] (b) (i), which uses the solutions on Ω only, at the order s = k − 1 > 3, shows that they
+agree on Ω.
 
 *Step 10 (constraints).* On Σ_τ0, ν_A = 0 by the choice of p_A, and P_A(ν_A) = 0 with P_A^τ ≠ 0 gives ∂_τ ν_A = 0
 there, so dν_A = 0 on Σ_τ0. Then i_(P_A) dp_A = ∇_(P_A) p_A − ½ dν_A = 0 on Σ_τ0 ([[prop:class-augmented]] (b)); the

@@ -1633,9 +1633,9 @@ on (dt, dr) the ρ¹ term (2eγ − 4γ − 2, 2γ) and the ρ² term (2M, 2M(2�
 *Proof.* For a stationary u, □̄^Υ(t_*u) = t_*□̄^Υu + Ā_1u, and Ā_1 = −2ρ(ρ∂_ρ − 3/2 − S̄). In the splitting we use the
 coefficients (a, b, c) of a type s1 1-form (aS, bS, c d_𝕊S) and the matrices [[eq:s13-nsl]]; write D := ρ∂_ρ.
 
-(i) ω̄ := ω̄^(0)_s0 = −dt̄ = (−½, −½, 0) is Killing, so □̄^Υ(t_*ω̄ + W̄) = Ā_1ω̄ + Ā_0W̄. Here S̄ω̄ = −½γ(1 − e, 3 − e,
-0) and (D − 3/2)ω̄ = (¾, ¾, 0), so Ā_1ω̄ = −ρ(3/2 + γ(1 − e), 3/2 + γ(3 − e), 0). Since dt̄ = ½(dx̄⁰ + dx̄¹) and d|x| =
-½(dx̄⁰ − dx̄¹), W̄ = ρ⁻¹w with w = ½(β_e − 1, −β_e − 1), and Ā_0W̄ = ρN_s0(−1)w with
+(i) ω̄ := ω̄^(0)_s0 = −dt̄ = (−½, −½, 0) is Killing, so □̄^Υ(t_*ω̄ + W̄) = Ā_1ω̄ + Ā_0W̄. Here
+S̄ω̄ = −½γ(1 − e, 3 − e, 0) and (D − 3/2)ω̄ = (¾, ¾, 0), so Ā_1ω̄ = −ρ(3/2 + γ(1 − e), 3/2 + γ(3 − e), 0). Since dt̄ =
+½(dx̄⁰ + dx̄¹) and d|x| = ½(dx̄⁰ − dx̄¹), W̄ = ρ⁻¹w with w = ½(β_e − 1, −β_e − 1), and Ā_0W̄ = ρN_s0(−1)w with
 
     N_s0(−1) = ( −3/2 + γ(1 + 4e) , −3/2 + γ(1 − 4e) ; −3/2 + γ(4e − 1) , −3/2 − γ(1 + 4e) ).
 

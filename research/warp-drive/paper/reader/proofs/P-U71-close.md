@@ -498,43 +498,46 @@ a composition of finitely many elementary families, so it is finite. By [[lem:uc
 d_NM = max(d_R, d_FM, d_Ψ) with d_FM, d_Ψ ≤ 62N_Λ + 10. ∎
 
 **Theorem {#thm:uc-integer}** (The loss d at the computational point.) At the computational point, with the index sets
-as constructed and the choice of [[def:uc-choice]], let c_* be the largest of the numbers c(β_k) (1 ≤ k ≤ K), c_b, c′_b
-and c_0 defined before [[prop:ec-upper]] and c^Ψ(β_k), c^Ψ_b, c′^Ψ_b and c^Ψ_0 of [[lem:uc-dr]]: the largest loss that
-[[def:ec-accounted-loss]] assigns to a single step outside the long iterations. Then c_* is finite, and
+as constructed and the choices of [[def:uc-choice]] and [[def:cs-choices]], let c_* be the largest of the numbers
+c(β_k) (1 ≤ k ≤ K), c_b, c′_b and c_0 defined before [[prop:ec-upper]] and c^Ψ(β_k), c^Ψ_b, c′^Ψ_b and c^Ψ_0 of
+[[lem:uc-dr]]: the largest loss that [[def:ec-accounted-loss]] assigns to a single step outside the long iterations.
+Then c_* < C_* := 643,680,000,000,000,000,000,000,000,000,000,000 = 6.4368·10³⁵ ([[prop:cs-cstar]]), and
 
-    d_acc ≤ D_e + M_c c_*,   d_NM = d_R ≤ D_e + M_c c_*,   N_NM = 21d_NM + 6 ≤ 21D_e + 21M_c c_* + 6,  {#eq:uc-integer}
+    d_acc ≤ D_acc,     d_NM = d_R ≤ D_NM := D_acc,     N_NM = 21d_NM + 6 ≤ 21D_NM + 6,                  {#eq:uc-integer}
 
-with D_e = 1.2587·10²⁴ = 1,258,700,000,000,000,000,000,000 and M_c = 2.44153·10¹⁴ = 244,153,000,000,000, so that
-21D_e + 6 = 26,432,700,000,000,000,000,000,006 and 21M_c = 5,127,213,000,000,000. The two other components of d_NM
-satisfy d_FM, d_Ψ ≤ 1,038,326,399,999,948. At a level β ∈ (3, α], c(β) ≥ 1 + n_ι, and the Fourier step of Step 0 of the
-proof of [[prop:iii-i11-3-1]] loses at most 9 + N_ι, with N_ι of [[eq:uc-n-iota]]. Against these, for every admissible
-choice of the weights,
+where, with D_e = 1.2587·10²⁴ = 1,258,700,000,000,000,000,000,000 and M_c = 2.44153·10¹⁴ = 244,153,000,000,000,
+
+    D_acc := D_e + M_c C_* = 157,156,403,040,000,000,000,000,001,258,700,000,000,000,000,000,000 < 1.57157·10⁵⁰,
+    21D_NM + 6 = 3,300,284,463,840,000,000,000,000,026,432,700,000,000,000,000,000,006 < 3.30029·10⁵¹.
+
+The two other components of d_NM satisfy d_FM, d_Ψ ≤ 1,038,326,399,999,948. At a level β ∈ (3, α],
+1 + n_ι ≤ c(β) ≤ 2N_ι + N_Λ + 529, with N_ι of [[eq:uc-n-iota]] ([[lem:cs-levels]]). Against these, for every
+admissible choice of the weights,
 
     d_NM ≥ d_acc ≥ 3R > 1.2497·10²⁴,     N_NM > 2.624·10²⁵,                                                {#eq:uc-lower}
 
-and at the choice of [[def:uc-choice]], 3R > 1.2498·10²⁴, so that D_e < 1.0072 · 3R. The value of c_*, assigned to
-finite compositions of losses in closed form ([[rem:uc-missing]]), is not determined in this paper
-[[pending:issue-db-1]].
+and at the choice of [[def:uc-choice]], 3R > 1.2498·10²⁴, so that D_e < 1.0072 · 3R.
 
-*Proof.* Each of the numbers whose largest is c_* is finite (the paragraph before [[prop:ec-upper]], and
-[[lem:uc-dr]]), and there are finitely many of them, so c_* is finite. By [[lem:uc-admissible]] the hypotheses of
-[[prop:ec-upper]] hold, and by [[lem:uc-gaps]] it holds with the T_2 and W of [[eq:uc-t2-w]]. Its first line is less
-than D_e by [[prop:uc-explicit]], and its second line is at most Σ_k c(β_k) + N_b c_b + (N_b + 1)c′_b + c_0 ≤
-(K + 2N_b + 2)c_* ≤ M_c c_*, again by [[prop:uc-explicit]]. This gives the bound for d_acc, and [[lem:uc-dr]] gives the
-same bound for d_R, its first line being the same. As d_R ≥ d_acc ≥ 3R > 1.2497·10²⁴ ([[lem:uc-phi-loss]],
-[[thm:loss-d]], [[cor:uc-two-offsets]]), which exceeds 1,038,326,399,999,948 ≥ 62N_Λ + 10 ([[lem:uc-lambda]] (d)),
-[[lem:uc-dr]] gives d_NM = d_R, and the bounds for d_FM and d_Ψ are [[lem:uc-lambda]] (d). N_NM = 21d_NM + 6 by
-[[thm:loss-d]]. The statements at the levels above 3 are [[lem:uc-fourier-count]] and [[lem:uc-n-iota]].
-[[eq:uc-lower]] is [[cor:uc-two-offsets]] (a), whose hypothesis holds by (b) there. At the choice of [[def:uc-choice]],
-[[prop:ec-rounds]] gives R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂), where 3ε_K + 2δ̂ + δ̄ < 1.98·10⁻⁸ and
-ε_Kδ̂ = 2.400249024·10⁻²⁴ < 2.40025·10⁻²⁴; so 3R > 3(1 − 1.98·10⁻⁸)/(2.40025·10⁻²⁴) > 1.2498·10²⁴, and
-1.0072 · 1.2498 > 1.2587. ∎
+*Proof.* By [[prop:cs-cstar]], c_* < C_*. By [[lem:uc-admissible]] the hypotheses of [[prop:ec-upper]] hold, and by
+[[lem:uc-gaps]] it holds with the T_2 and W of [[eq:uc-t2-w]]. Its first line is less than D_e by [[prop:uc-explicit]],
+and its second line is at most Σ_k c(β_k) + N_b c_b + (N_b + 1)c′_b + c_0 ≤ (K + 2N_b + 2)c_* ≤ M_c C_*, again by
+[[prop:uc-explicit]]. So d_acc ≤ D_e + M_c C_* = D_acc, where M_c C_* = 244,153 · 64,368 · 10⁴⁰ = 15,715,640,304 · 10⁴⁰
+= 157,156,403,040 · 10³⁹; adding D_e = 1,258,700 · 10¹⁸ gives the integer printed, and 21D_acc + 6 is
+21 · 157,156,403,040 · 10³⁹ + 21 · 1,258,700 · 10¹⁸ + 6 = 3,300,284,463,840 · 10³⁹ + 26,432,700 · 10¹⁸ + 6.
+[[lem:uc-dr]] gives the same bound for d_R, its first line being the same and its single-step losses being at most
+c_* < C_*. As d_R ≥ d_acc ≥ 3R > 1.2497·10²⁴ ([[lem:uc-phi-loss]], [[thm:loss-d]], [[cor:uc-two-offsets]]), which
+exceeds 1,038,326,399,999,948 ≥ 62N_Λ + 10 ([[lem:uc-lambda]] (d)), [[lem:uc-dr]] gives d_NM = d_R, and the bounds for
+d_FM and d_Ψ are [[lem:uc-lambda]] (d). N_NM = 21d_NM + 6 by [[thm:loss-d]]. The statements at the levels above 3 are
+[[lem:uc-fourier-count]] and [[lem:cs-levels]] (b), with N̄_Λ ≥ N_Λ. [[eq:uc-lower]] is [[cor:uc-two-offsets]] (a),
+whose hypothesis holds by (b) there. At the choice of [[def:uc-choice]], [[prop:ec-rounds]] gives
+R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂), where 3ε_K + 2δ̂ + δ̄ < 1.98·10⁻⁸ and ε_Kδ̂ = 2.400249024·10⁻²⁴ < 2.40025·10⁻²⁴; so
+3R > 3(1 − 1.98·10⁻⁸)/(2.40025·10⁻²⁴) > 1.2498·10²⁴, and 1.0072 · 1.2498 > 1.2587. ∎
 
-**Remark {#rem:uc-missing}** (What separates [[thm:uc-integer]] from an integer bound.) The counts of [[prop:ec-upper]]
-need two statements at the computational point, and both are established. (IS): the exponents of real part at most 5
-of ℰ_ind (with its enlargements in [[sec:iii-i8-1]] and [[sec:iii-i9-1]]), ℰ^ι_ind and the least ℰ^C_I, and those of the
-least ℰ_++ below 2λ_♯, as the constructions of [[sec:uc-index-sets]] give them, with bounds for their logarithmic
-orders, and the multiplicities of the indicial roots of L̂_b(0) ([[prop:is-ind]], [[prop:is-logs]], [[prop:is-iota]],
+**Remark {#rem:uc-missing}** (What the integer bound rests on.) The counts of [[prop:ec-upper]] need two statements at
+the computational point, and both are established. (IS): the exponents of real part at most 5 of ℰ_ind (with its
+enlargements in [[sec:iii-i8-1]] and [[sec:iii-i9-1]]), ℰ^ι_ind and the least ℰ^C_I, and those of the least ℰ_++ below
+2λ_♯, as the constructions of [[sec:uc-index-sets]] give them, with bounds for their logarithmic orders, and the
+multiplicities of the indicial roots of L̂_b(0) ([[prop:is-ind]], [[prop:is-logs]], [[prop:is-iota]],
 [[prop:is-ci-pp]], [[prop:is-mult]]). (SP): the orders of the poles of N_ι⁺(L̄, ·)⁻¹ at real part at most 5, all equal
 to 1 ([[thm:sp-spectrum]], [[cor:sp-lstar]]). With them (G), N_Λ, k̄_0, l_*, J_* and every number of steps of the long
 iterations are explicit ([[thm:is-gap]], [[prop:is-count]], [[lem:uc-lambda]], [[prop:uc-explicit]]), and so is a bound
@@ -542,18 +545,14 @@ for the count n(E, w) of every index set whose exponents below 3 + ε_+ lie in �
 ([[lem:uc-n-iota]]), which [[lem:iii-i10-1-2]] (c) and [[lem:iii-i13-1-3]] (b) assert of every exponent that the level
 steps produce.
 
-What is left is c_*. Each number whose largest it is is assigned by [[def:ec-accounted-loss]] to a composition of
-finitely many elementary families, each charged a loss in closed form ([[lem:ec-closed-forms]], [[rem:ec-other-losses]],
-[[lem:ec-round-charges]], [[prop:uc-dbg]], [[prop:uc-ltf]], [[thm:fwd-loss]], [[lem:uc-phi-loss]]) or a count bounded by
-[[lem:uc-n-iota]]. This paper does not list the factors of these compositions at the weights of [[def:uc-choice]]: for
-the level steps, those of [[lem:iii-i8-3-2]] and [[lem:iii-i13-2-2]], with the steps of [[prop:iii-i10-3-1]],
-[[prop:iii-i11-3-1]] and [[prop:iii-i13-2-1]] outside the long iterations, and the background terms of Step 2 of the
-proof of [[thm:iii-i14-3-1]]; for the base, those of one round of [[prop:iii-i5-2-1]] and of one step of
-[[prop:iii-i2-5-1]]; and for c_0, those of Steps 0, 1, 3, 4′ and 4 of that proof, of U ↦ Φ(U) and of Steps 1–3 of the
-proof of [[thm:iii-j1-2-1]], with their counterparts for ℛ(U) [[pending:issue-db-1]]. The closed forms then need, besides
-the weights of [[def:uc-choice]], the regularity order s_c > ½ + ϑ_ℋ of [[cor:ii-g1-4-2]], [[prop:ii-g1-4-7]] and
-[[cor:ii-g1-4-5]], with the thresholds of L̂_b(σ) in the inner products those statements use, and, in the application of
-[[prop:iii-a-4-2]] (2) in Step 7 of the proof of [[prop:iii-i11-3-1]], the count of the K⁺-exponents of its Step 5.
-With N_ι of [[lem:uc-n-iota]] in place of each count, M_c c_* is bounded only by a number of the order of 10⁴⁹, far above
-D_e; a bound for c_* of the order of D_e/M_c needs the logarithmic orders that the level steps produce, which this paper
-bounds only by k̄(λ).
+The single-step losses are bounded in [[sec:cs]], which lists the factors of each composition: for the level steps
+those of [[lem:iii-i8-3-2]] and [[lem:iii-i13-2-2]], with the steps of [[prop:iii-i10-3-1]], [[prop:iii-i11-3-1]] and
+[[prop:iii-i13-2-1]] outside the long iterations, and the background terms of Step 2 of the proof of
+[[thm:iii-i14-3-1]] ([[lem:cs-levels]]); one round of [[prop:iii-i5-2-1]] and one step of [[prop:iii-i2-5-1]]
+([[lem:cs-base]]); and Steps 0, 1, 3, 4′ and 4 of that proof, U ↦ Φ(U) and Steps 1–3 of the proof of
+[[thm:iii-j1-2-1]], with their counterparts for ℛ(U) ([[lem:cs-rest]]). The closed forms are evaluated at the free
+choices of [[def:cs-choices]]: the regularity order s_c = 3 > ½ + ϑ_ℋ and the inner products in which ϑ_in = 0 and
+ϑ_ℋ < 9/4 ([[lem:cs-transforms]]). The count of the K⁺-exponents in the application of [[prop:iii-a-4-2]] (2) in Step 7
+of the proof of [[prop:iii-i11-3-1]] is at most N_ι + N_Λ ([[lem:cs-fourier]]). So M_c C_* is of the order of 10⁵⁰, far
+above D_e: the bound counts every logarithmic term that k̄(λ) allows, and a bound for c_* of the order of D_e/M_c needs
+the logarithmic orders that the level steps produce, which this paper bounds only by k̄(λ) ([[rem:cs-sharpness]]).

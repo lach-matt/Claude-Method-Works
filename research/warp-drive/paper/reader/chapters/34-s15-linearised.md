@@ -450,7 +450,7 @@ which is [Hin26, (8.13)], and (0, ε_ind] ⊂ (0, 1] lies in the indicial gap. T
 parameters (e_Υ, γ_Υ) = (1/100, 1/100) the roots 2 − ι^Υ_(sl,l+1), which approach the integers 1 − l as l grows,
 force ε_ind ≤ δ_50, where 2 − ι^Υ_(s50,51) = −49 − δ_50 is a root of modulus below 50 at distance δ_50 from ℤ
 ([[prop:np-10-52]] (i), (iii)). The number δ_50 is a constant of [[ch:s14]], fixed by the gauge parameters alone
-([[rem:s14-delta50]]), and its value is given by [[cor:s14-eps-ind-point]]. The gap (0, 1] of (a) is exact, and
+([[rem:s14-delta50]]), and its value is given by [[lem:s14-delta50]]. The gap (0, 1] of (a) is exact, and
 ε_ind enters only through [[eq:iii-f1-2-2]], never as a number of order one.
 
 *Proof.* *The list.* By [[lem:iii-f1-2-1]] the roots of each type are, with multiplicity, −l and l + 2, the roots of
