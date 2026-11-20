@@ -114,6 +114,57 @@ rem:tl5-cip-axes	paper/reader/proofs/P-F123.md@f4542afa:691	P-F123, Remark	the a
 sec:tl5-cip-staged	paper/reader/proofs/P-F123.md@f4542afa:700	P-F123, subsection	new; 10 l5 in two stages
 cor:tl5-cip-staged	paper/reader/proofs/P-F123.md@f4542afa:710	P-F123, Corollary	two smooth stages; C3 gluing
 rem:tl5-cip-regularity	paper/reader/proofs/P-F123.md@f4542afa:776	P-F123, Remark	stages; obstruction (H1)-(H3)
+sec:tl5-wg	paper/reader/proofs/P-H29.md@7ec3756a:1	P-H29, section	new; after rem:tl5-cip-regularity, before sec:tl5-beyond; L2 of the plan
+sec:tl5-wg-equations	paper/reader/proofs/P-H29.md@7ec3756a:21	P-H29, section	new
+def:tl5-wg-background	paper/reader/proofs/P-H29.md@7ec3756a:23	P-H29, Definition	approximant as a G-invariant double-null metric; frame e0 (c = 1) and norm khat
+eq:tl5-wg-khat	paper/reader/proofs/P-H29.md@7ec3756a:37	P-H29, display	khat inverse in the null frame
+def:tl5-wg-gauge	paper/reader/proofs/P-H29.md@7ec3756a:42	P-H29, Definition	Upsilon(g, ghat) and the reduced Ricci tensor = R^(H) of CBCM10 (2.8)
+eq:tl5-wg-def	paper/reader/proofs/P-H29.md@7ec3756a:45	P-H29, display	gauge vector and reduced Ricci
+eq:tl5-wg-reduced	paper/reader/proofs/P-H29.md@7ec3756a:49	P-H29, display	the reduced equation
+eq:tl5-wg-form	paper/reader/proofs/P-H29.md@7ec3756a:60	P-H29, display	quasilinear form, principal part -1/2 g^ab d_a d_b
+lem:tl5-wg-linear	paper/reader/proofs/P-H29.md@7ec3756a:66	P-H29, Lemma	linearisation -1/2 (box + 2 curvature operator), derived in writing (G0 2.1 states it)
+eq:tl5-wg-lin	paper/reader/proofs/P-H29.md@7ec3756a:71	P-H29, display	linearised reduced operator
+sec:tl5-wg-tilted	paper/reader/proofs/P-H29.md@7ec3756a:108	P-H29, section	new; G0 9.2 (F*)
+def:tl5-wg-domains	paper/reader/proofs/P-H29.md@7ec3756a:110	P-H29, Definition	D^kappa_s with tau1, tau2; tilted = |g^-1 - ghat^-1| <= kappa_m; two conditions on kappa added
+eq:tl5-wg-tilted	paper/reader/proofs/P-H29.md@7ec3756a:114	P-H29, display	tau1, tau2, D^kappa, D^kappa_s
+lem:tl5-wg-norms	paper/reader/proofs/P-H29.md@7ec3756a:123	P-H29, Lemma	|g^-1 - ghat^-1| <= 2|h|; convex combinations Lorentzian
+lem:tl5-wg-domains	paper/reader/proofs/P-H29.md@7ec3756a:137	P-H29, Lemma	explicit c0: tilted gives g^-1(dtau,dtau) <= -15 kappa/(32 Omega^2); causal signs on N; inclusions
+sec:tl5-wg-data-solutions	paper/reader/proofs/P-H29.md@7ec3756a:177	P-H29, section	new
+def:tl5-wg-data	paper/reader/proofs/P-H29.md@7ec3756a:187	P-H29, Definition	wave-gauge data as G^sharp with (W1)-(W4) on N+ (N0 extended past u*); existence: thm:tl5-wg-data
+def:tl5-wg-solution	paper/reader/proofs/P-H29.md@7ec3756a:211	P-H29, Definition	solution on D^kappa_s: smooth, tilted, Ric^W = 0, = G^sharp on N
+lem:tl5-wg-jets	paper/reader/proofs/P-H29.md@7ec3756a:215	P-H29, Lemma	transverse jets on N determined (linear transport, k = 1 by integral mean value); metrics on D^kappa_s near N
+lem:tl5-wg-zero	paper/reader/proofs/P-H29.md@7ec3756a:241	P-H29, Lemma	vanishing for linear wave systems with flat data on N; first point of disagreement; zero extension by lem:tl5-cip-extend (d)
+prop:tl5-wg-unique	paper/reader/proofs/P-H29.md@7ec3756a:267	P-H29, Proposition	(F2_W)
+prop:tl5-wg-vacuum	paper/reader/proofs/P-H29.md@7ec3756a:280	P-H29, Proposition	(F4_W): Bianchi gives a wave equation for Upsilon; symmetry from (F2_W)
+sec:tl5-wg-existence	paper/reader/proofs/P-H29.md@7ec3756a:312	P-H29, section	new; method of Ren90 (Rendall)
+lem:tl5-wg-cauchy	paper/reader/proofs/P-H29.md@7ec3756a:319	P-H29, Lemma	local Cauchy problem via DS23 Thms 2.4-2.6 and the first-order reduction of ch. 06 Step 8 (iii); components in (u, v, y)
+lem:tl5-wg-nullfn	paper/reader/proofs/P-H29.md@7ec3756a:374	P-H29, Lemma	local null function with N1 (or N0+) as a level set away from S; coordinate box, signs of u~ + 10 and v~ - 1/2 at S; past sets
+prop:tl5-wg-local	paper/reader/proofs/P-H29.md@7ec3756a:410	P-H29, Proposition	(F1_W) and (F3_W): spacelike-null corner proved, not cited; G0 9.4 said it must be cited or proved; zero extension by lem:tl5-cip-extend (d); corner S via the quadrant in the third past set; agreement only on {tau1 <= u*}
+thm:tl5-wg	paper/reader/proofs/P-H29.md@7ec3756a:521	P-H29, Theorem	(F1_W)-(F4_W) collected
+rem:tl5-wg-continuation	paper/reader/proofs/P-H29.md@7ec3756a:538	P-H29, Remark	what the restated continuation lemma takes from thm:tl5-wg
+sec:tl5-wg-first-stage	paper/reader/proofs/P-H29.md@7ec3756a:548	P-H29, section	new; existence of data in the wave gauge (L1 part of the plan)
+lem:tl5-wg-lchart	paper/reader/proofs/P-H29.md@7ec3756a:556	P-H29, Lemma	double-null development on the L-shaped set D0 u D1 (delta <= u+ + 10), proved: data extended, development, null coordinates, lem:tl5-cip-dn-form on each box; G-invariance
+lem:tl5-wg-tension	paper/reader/proofs/P-H29.md@7ec3756a:642	P-H29, Lemma	tension field; Upsilon(Psi_* g) = -tau(Psi); first-order transport on N0+ and N1 in closed form
+eq:tl5-wg-tension	paper/reader/proofs/P-H29.md@7ec3756a:647	P-H29, display	tension field in coordinates
+eq:tl5-wg-transport	paper/reader/proofs/P-H29.md@7ec3756a:655	P-H29, display	transport of the first transverse derivative of the map
+lem:tl5-wg-wavemap	paper/reader/proofs/P-H29.md@7ec3756a:680	P-H29, Lemma	formal wave map: linear transport at every order, corner compatibility, Borel sums via S3 in R4
+thm:tl5-wg-data	paper/reader/proofs/P-H29.md@7ec3756a:741	P-H29, Theorem	G^sharp = Psi_* g-prime with (W1)-(W3); explicit conditions (X), (T) for invertibility and (W4); gluing by an explicit cut-off; Y0, K0, Y1, K1 depend only on g_N and ghat
+cor:tl5-wg-data-first-stage	paper/reader/proofs/P-H29.md@7ec3756a:803	P-H29, Corollary	first stage of the problem at 10 l5; closes the former open item wave-gauge-data
+sec:tl5-dn	paper/reader/proofs/P-H29.md@7ec3756a:813	P-H29, section	new; L9 of the plan (G0 9.3)
+def:tl5-dn-slice	paper/reader/proofs/P-H29.md@7ec3756a:820	P-H29, Definition	the real great circle slice M_sigma
+lem:tl5-dn-geodesic	paper/reader/proofs/P-H29.md@7ec3756a:824	P-H29, Lemma	slice totally geodesic (fixed set of the reflections)
+sec:tl5-dn-one	paper/reader/proofs/P-H29.md@7ec3756a:840	P-H29, section	new
+eq:tl5-dn-eps	paper/reader/proofs/P-H29.md@7ec3756a:857	P-H29, display	epsilon = C^2 distance on the slice
+eq:tl5-dn-field	paper/reader/proofs/P-H29.md@7ec3756a:862	P-H29, display	projected null geodesic field
+eq:tl5-dn-normal	paper/reader/proofs/P-H29.md@7ec3756a:871	P-H29, display	initial null normal in closed form
+def:tl5-dn-constants	paper/reader/proofs/P-H29.md@7ec3756a:882	P-H29, Definition	constants as maxima of explicit functions of the jets of ghat; L bounds the null expansions
+eq:tl5-dn-eta	paper/reader/proofs/P-H29.md@7ec3756a:899	P-H29, display	eta0, eta1, eta2 linear in epsilon
+lem:tl5-dn-gronwall	paper/reader/proofs/P-H29.md@7ec3756a:907	P-H29, Lemma	comparison lemma with written Gronwall step
+lem:tl5-dn-family	paper/reader/proofs/P-H29.md@7ec3756a:919	P-H29, Lemma	one family: no caustics, coverage, conormal estimate
+sec:tl5-dn-chart	paper/reader/proofs/P-H29.md@7ec3756a:986	P-H29, section	new
+thm:tl5-dn	paper/reader/proofs/P-H29.md@7ec3756a:988	P-H29, Theorem	L9: double-null chart on D-prime, explicit eta (eta < min(u*+10, v*-1/2) assumed); form and data by lem:tl5-cip-dn-form
+eq:tl5-dn-region	paper/reader/proofs/P-H29.md@7ec3756a:1004	P-H29, display	eta and D-prime
+rem:tl5-dn-use	paper/reader/proofs/P-H29.md@7ec3756a:1095	P-H29, Remark	size of the loss; no double-null uniqueness used
 sec:tl5-beyond	docket68/n1star/CERTIFY-10L5-RESULT.md:2535-2597; paper/RESPONSE-HL-5D.md:1739-1747	CR 9.3	the lead sentence names the assumption (F1)-(F3); the lead sentence names thm:tl5-cip for (F1)-(F3) (P-F123 text 7)
 lem:tl5-continuation	docket68/n1star/CERTIFY-10L5-RESULT.md:2550-2581	CR Lemma 9.C (deduced; cont5 C1-C2)	abstract y; (H2) made precise as C^k bounds in a fixed atlas; the algebraic step (cont5 C2) proved in writing; (F1)-(F3) made hypotheses of the lemma: the uniqueness of the development they need is not in the cited literature (CP12 Section 4.3, CCTW16 proof of Theorem 5.3, quoted); sigma = 1/2 of the openness step from (H3); (F1)-(F3) no longer hypotheses: proved for smooth data in thm:tl5-cip; statement refers to def:tl5-cip-data and eq:tl5-cip-constraints; applies stage by stage at 10 l5 (P-F123 texts 8-10)
 rem:tl5-beyond	docket68/n1star/CERTIFY-10L5-RESULT.md:3097-3100, 5444-5453; paper/RESPONSE-HL-5D.md:1673-1676, 1743-1747	CR 10.0 ((H1) on no region of Lemma 9.C form) and 14.0 M9-A; P section 9	new: Lemma 9.C needs smooth data, and env is C^3 not C^4; names (F1)-(F3); the sentence asserting Theorems 7.L, 8.W, 8.L1 replaced by one that asserts no estimate (no statement depended on it); retitled; regularity no obstruction (cor:tl5-cip-staged); the obstacle is (H1)-(H3) (P-F123 text 11)
