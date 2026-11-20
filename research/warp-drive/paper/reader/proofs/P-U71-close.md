@@ -123,12 +123,12 @@ this a.) ∎
 
 **Corollary {#cor:uc-two-offsets}** (The gap condition when both offsets are increments.) (a) Suppose that 𝔡₀ and 𝔡₁
 lie in π_1(ℰ_ind ∪ ℰ^ι_ind), as they do for ℰ_ind as constructed ((b) and [[rem:uc-offset-d0]]). Then every ε_K with
-which (G) holds satisfies ε_K < 1.6417·10⁻¹⁴; in particular (G) does not hold at ε_K = 1.46·10⁻¹⁰. For every
-admissible choice of the weights, the number R of [[prop:ec-rounds]] then satisfies
-R > 4.1659·10²³, so that d_NM ≥ d_acc > 1.2497·10²⁴ and N_NM = 21d_NM + 6 > 2.624·10²⁵.
+which (G) holds satisfies ε_K < 1.6417·10⁻¹⁴. For every admissible choice of the weights, the number R of
+[[prop:ec-rounds]] then satisfies R > 4.1659·10²³, so that d_NM ≥ d_acc > 1.2497·10²⁴ and
+N_NM = 21d_NM + 6 > 2.624·10²⁵.
 
 (b) For ℰ_ind as the proof of [[prop:iii-d2-3-1]] constructs it, 𝔡₀ and 𝔡₁ lie in π_1ℰ_ind. So the hypothesis of (a)
-holds for the index sets as constructed, and for them (G) does not hold at ε_K = 1.46·10⁻¹⁰.
+holds for the index sets as constructed, and for them every ε_K with which (G) holds is below 1.6417·10⁻¹⁴.
 
 *Proof.* (a) λ := λ_♯ + a𝔡₀ + b𝔡₁, with a and b of [[lem:uc-two-offsets]], is obtained from the generator λ_♯ by
 a + b additions of increments, so λ ∈ Λ, and Re λ − 3 < 1.6417·10⁻¹⁴ by [[eq:uc-two-offsets]]. If
@@ -148,8 +148,8 @@ so (𝔡₀, 0) and (𝔡₁, 0) lie in that ℰ_ind, which is part of the union
 1 + 𝔡₀ only, and [[prop:gap-sums]] shows that the windows of (G) are then not met by the sums it considers for
 ε_K < 5.019·10⁻⁸. For ℰ_ind as the proof of [[prop:iii-d2-3-1]] constructs it, 𝔡₀ and 𝔡₁ are exponents: (F1) there,
 with k = 2, takes the boundary spectrum above a weight in (2 − ε_Υ, 2), at every type ([[cor:uc-two-offsets]] (b)). So
-with ℰ_ind as constructed, (G) fails at 1.46·10⁻¹⁰ ([[cor:uc-two-offsets]]). Whether a smaller admissible ℰ_ind omits
-𝔡₀ is not decided by this paper; [[thm:is-d0]] reduces it to the vanishing of one family of coefficients. The root
+with ℰ_ind as constructed, (G) fails at every ε_K ≥ 1.6417·10⁻¹⁴ ([[cor:uc-two-offsets]]). Whether a smaller
+admissible ℰ_ind omits 𝔡₀ is not decided by this paper; [[thm:is-d0]] reduces it to the vanishing of one family of coefficients. The root
 ι^Υ_(s0,2) = 2 + 𝔡₀ of (□^Υ_b)^(0) lies above the weights in (0, ι^Υ_(s1,2)) at which [[prop:iii-d2-3-1]] solves for
 the corrections of the states, and these corrections start at the order (2, 0), so a smaller admissible ℰ_ind keeps the
 exponent 𝔡₀ wherever a term at that root has a nonzero coefficient. At b₀ the operator commutes with the rotations, and
@@ -334,7 +334,7 @@ of the results cited. The last assertion is [[cor:uc-two-offsets]] (a), whose hy
 With the exponents of [[sec:is]] and the poles of [[sec:sp]], every number of [[thm:uc-reduction]] (iii) is fixed. This
 section makes an admissible choice of the weights, evaluates the counts of [[eq:ec-upper]] at it, and assembles the
 bound. Each decimal bound below is rounded upward when it bounds from above and downward when it bounds from below, and
-each is checked by multiplying out the numbers printed.
+each follows by multiplying out the numbers printed.
 
 **Definition {#def:uc-choice}** (An admissible choice.) At the computational point take ℰ_ind and ℰ^ι_ind as
 constructed ([[sec:is]]), ℰ^C_I the least index set satisfying (2)–(3) of [[def:iii-c-3-1]], ℰ_++ the least choice in
@@ -471,7 +471,7 @@ K + 2N_b + 2 < M_c := 2.44153·10¹⁴.
     1/Δβ_0 < 6.1038195·10¹³,     1/Δτ_0 < 6.847261·10⁹,     1/(2Δβ_0Δτ_0) < 2.0897221·10²³,
     1/𝔡₁ < 3.0000026·10⁶,     0.4901/𝔡₁ < 1,470,301.27,
 
-each checked by multiplying out (for instance 1.6383184416 · 6.1038195 > 10, and
+each by multiplying out (for instance 1.6383184416 · 6.1038195 > 10, and
 3.333330462964850822194855 · 1.47030127 > 4.901). By [[eq:ec-upper-counts]], N_< ≤ 1/Δβ_0, and N_>, N_b ≤
 (1 + ε_K)/Δβ_0 + 1 < 1/Δβ_0 + 3, as ε_K/Δβ_0 = 1/0.998001 < 2; so all three are less than
 6.1038195·10¹³ + 3 < 6.10382·10¹³. As (1 + Δβ_0/2)² < 1 + 2·10⁻¹⁴, (1 + ε_K + Δβ_0/2)² < 1 + 6·10⁻¹⁴ and
@@ -480,11 +480,12 @@ each checked by multiplying out (for instance 1.6383184416 · 6.1038195 > 10, an
     T_< < 2.0897221·10²³ · (1 + 2·10⁻¹⁴) + 6.2·10¹³ < 2.089723·10²³,
     T_> < 2.0897221·10²³ · (1 + 6·10⁻¹⁴) + 1.3·10¹⁴ < 2.089723·10²³.
 
-As η_2 − η_1 < ε_+ = 1.9·10⁻⁸, (1 + η_2 − η_1)/𝔡₁ + 2 < (1 + 1.9·10⁻⁸) · 3.0000026·10⁶ + 2 < 3.000005·10⁶, and so
+As η_2 − η_1 < ε_+ < 10⁻¹³, (1 + η_2 − η_1)/𝔡₁ + 2 < (1 + 10⁻¹³) · 3.0000026·10⁶ + 2 < 3.000005·10⁶, and so
 T_2 < 6.10382·10¹³ · 3.000005·10⁶ < 1.83115·10²⁰. W = 0.4901/𝔡₁ + 1 < 1,470,302.27, and the number of windows of a
 loop, an integer at most W ([[lem:uc-gaps]]), is at most 1,470,302. In the first line of [[eq:ec-upper]],
 1/Δτ ≤ 1/Δτ_0, so 4(1/Δτ + 2) < 4(6.847261·10⁹ + 2) < 2.74·10¹⁰; N_< + N_> + N_b + 3 < 3 · 6.10382·10¹³ + 3 <
-1.831147·10¹⁴, so the window loops contribute at most 16 · 1,470,302 · 1.831147·10¹⁴ < 4.30775·10²¹. Hence the first
+1.831147·10¹⁴, so the window loops contribute at most 16 · 1,470,302.27 · 1.831147·10¹⁴ < 4.30775·10²¹, and so does
+the integer count of the windows. Hence the first
 line is less than
 
     3 · (2 · 2.089723·10²³ + 1.83115·10²⁰) + 2.74·10¹⁰ + 4.30775·10²¹
