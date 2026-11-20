@@ -127,8 +127,9 @@ most 9, and the map g ↦ g^(+1) of [[lem:iii-i11-2-2]] at most 2;
 (h) 30: the right inverse of [[prop:iii-g3-3-7]] and [[cor:iii-g3-3-1]] (1).
 
 *Proof.* (a) These are the losses 0 of [[rem:ec-other-losses]] (the finite-dimensional maps of [[lem:iii-j2-2-1]] (c),
-the integrations of its (d), [[cor:iii-h-4-2]] of its (e) and [[lem:iii-i2-4-3]] of its (g)). Multiplications by smooth functions with bounded
-b-derivatives, and by |σ|^z, σ^j, sgn σ (which shift weights only), keep the order k. The Mellin inversion of
+the integrations of its (d), [[cor:iii-h-4-2]] of its (e) and [[lem:iii-i2-4-3]] of its (g)). Multiplications by
+smooth functions with bounded b-derivatives, and by |σ|^z, σ^j, sgn σ (which shift weights only), keep the order k.
+The Mellin inversion of
 [[eq:iii-g4-5-3]] and of [[lem:iii-a-1-4]] gains, by (E1)–(E2) of [[sec:iii-a-1-1]], as many orders as the operator
 has, jointly in the Mellin variable and on the boundary. A Cauchy integral over a fixed circle on which a family is
 holomorphic and bounded at each order keeps the order. The expansions of [[thm:iii-g4-3-1]] and of Step 2 of the proof
@@ -143,10 +144,14 @@ explicit kernels e_(j,r) times the profiles, with the b-derivatives of the profi
 max(2, d_BG) = 11 of [[rem:ec-other-losses]]. The sources e_S and e_(S⁰) are differences of the sources f^S, f^s1 at
 the two base points Φ(U) and Ψ(U), and D_hP_5(Ψ(U)) applied to the fixed sections χ_−∂_S H(S′), χ_−∂_(S⁰) H(S⁰′);
 each is a coefficient polynomial in the metric, its inverse and their derivatives of order at most two applied to a
-fixed section, and the proof of [[prop:uc-dbg]] applies to it. The errors E^ν are bounded by C|b − b₀||W| in a fixed
-seminorm ([[lem:s25-p6]]), so they are charged at most 11 as well.
+fixed section, and the proof of [[prop:uc-dbg]] applies to it. The errors
+E^ν(W) = L_(h,p⃗)(h^(b₀)_ν − h^b_ν)(W) + δ*_(g_0,E_C)(ϑ^(b₀)_(ν,♯) − ϑ^b_(ν,♯))(W) of [[lem:s25-p6]] are differential
+operators of order at most two with coefficients polynomial in the background, applied to fixed sections and linear
+in the finite-dimensional W; the proof of [[prop:uc-dbg]] applies to them, and they are charged at most 11.
 
-(e) By [[thm:fwd-loss]], [[eq:iii-i-5-2]] holds with d = 20,180 for g = g₀ + h. By [[lem:iii-j2-2-1]] (a), for the
+(e) By [[thm:fwd-loss]], [[eq:iii-i-5-2]] holds with d = 20,180 for g = g_0 + h, g_0 = g_(b₀,b₀,−S). At a base point
+with parameter b ∈ ℬ̄_* these operators are those of [[cor:iii-h2-5-1]] ([[lem:iii-j2-2-1]] (a)), for which
+[[eq:iii-i-5-2]] holds with the same d = 20,180 by [[cor:fwd-near-b0]]. By [[lem:iii-j2-2-1]] (a), for the
 backgrounds h̃ = h + h^(−1)(S), h + h_tot(p⃗) and h + h_rem(q) + h_tot(p⃗) it holds with ‖h̃‖_(𝒳^(k+d)) in place of
 ‖h‖_(𝒳^(k+d)), the backgrounds g₀ and h_tot(p⃗) adding coefficients smooth in p⃗. By [[lem:iii-i4-2-5]],
 [[lem:iii-i9-2-5]] and the first paragraph of the proof of [[prop:uc-dbg]], ‖h̃‖_(𝒳^m) ≤ C_m(‖h‖_(𝒳^m) + |S| + |p⃗| +
@@ -163,8 +168,11 @@ operators of order at most 2, the parts of L̂_b(σ) − L̄̂(σ), ρ(ρ∂_ρ 
 2(⌊ℓ_zf⌋ − k₀ + 1)_+ + 1 + 2. [[thm:iii-g4-3-1]] composes [[cor:iii-f1-3-4]] with its expansion.
 
 (g) In [[lem:iii-i11-2-1]], [[prop:iii-h-3-2]] costs 1. The expansion from the conormal order q − 2 > 0 to q′ − 2 ≤ 3
-is obtained by the iteration of the proof of [[lem:iii-a-1-4]] with A = ρ⁻²L̂_b(0) near ∂X, each step of which raises
-the weight by at least ¾ when its small number is taken at most ¼; so at most 4 steps occur, and each applies
+is obtained by the iteration of the proof of [[lem:iii-a-1-4]] with A = ρ⁻²L̂_b(0) near ∂X. A step from a weight w
+reaches the weight γ = min(q′ − 2, w + 1), decreased slightly unless it is the target q′ − 2, and the next step starts
+at γ − δ′; so each step that does not reach the target raises the weight by at least ¾ when its two small numbers, the
+decrease of γ and δ′, are taken with sum at most ¼ ([[def:cs-choices]] (g)). As the first weight is above 0 and the
+target at most 3, a fourth step starts above 9/4 and reaches the target; so at most 4 steps occur, and each applies
 A − N(A), of order 2 (charge 2), followed by N(A, ·)⁻¹ and a contour shift (charge 0 by (a)). This gives 8, and
 1 + 8 = 9. In [[lem:iii-i11-2-2]], g^(+1) is the explicit sum of that lemma: L_0, L_1, L_2 and commutators applied to
 û (charge 2), and divisions by σ and the column terms, of charge 0.
