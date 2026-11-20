@@ -1078,3 +1078,70 @@ changed: it concerns the high-frequency construction.
 *9. Appendix A and the references.* No new entry. The proofs use [LY22, Theorem 1 (i)] ([[thm:std-ly-extension]]) in
 [[lem:civp-axes-extension]] (a), Stein's operator ([[thm:std-sy-extension]]) in [[prop:civp-axes-corner]] and
 [[prop:civp-axes-unique]], and the results of chapters 81 and 83; [[thm:std-cctw-strips]] is cited in a remark only.
+
+### Crosswalk rows
+
+New rows, one per label, each given as its four fields (label; source; source_name; note), to be written with tab
+separators. The second field is "P-CIVP4" with the line of the label in this file.
+
+For crosswalk/81-class-system.tsv, after the row of rem:class-leaf-numerics:
+
+Row A1. lem:class-leaf-reference; P-CIVP4:6; P-CIVP4 Block A, Lemma (The planar shear about a reference that is not a
+solution); new: K-ax of the Tier 4 scoping, parts (o), (a), (b) and the leaf-wise part (b′), no ball and no extension.
+Row A2. eq:class-leaf-lipschitz; P-CIVP4:20; P-CIVP4 Block A, display; the leaves of V foliate, difference quotients in
+[1/2, 3/2].
+Row A3. eq:class-leaf-wise; P-CIVP4:35; P-CIVP4 Block A, display; the leaf-wise estimate, constant independent of D.
+
+Note for the existing row lem:class-leaf-differences: H_L[Θ_A] now names TΣ_L (Placement item 2).
+
+For crosswalk/83-localised-data.tsv, after the rows of the Tier 3 section:
+
+Row B1. sec:civp-axes; P-CIVP4:156; P-CIVP4 Block B, section heading; Tier 4, large data reaching the axes.
+Row B2. sec:civp-axes-data; P-CIVP4:177; P-CIVP4 Block B, subsection; data as tensor fields on S³.
+Row B3. eq:civp-axes-form; P-CIVP4:183; P-CIVP4 Block B, display; the natural double-null form.
+Row B4. def:civp-axes-data; P-CIVP4:202; P-CIVP4 Block B, Definition (Cone data through the axes); any Ω, any b on N_i,
+size in C^m, κ-nondegeneracy γ ≥ κγ̊.
+Row B5. eq:civp-axes-raychaudhuri; P-CIVP4:219; P-CIVP4 Block B, display; the first cone constraint for ỹ =
+(μ_γ/μ_γ̊)^(1/3), regular at the axes.
+Row B6. sec:civp-axes-jets; P-CIVP4:234; P-CIVP4 Block B, subsection; the derivatives across the edges.
+Row B7. lem:civp-axes-principal; P-CIVP4:236; P-CIVP4 Block B, Lemma (The equations across an outgoing edge); T4-3 in
+natural form: no ∂_u², block-triangular invertible ∂_v-part, affine at order one in the class.
+Row B8. eq:civp-axes-principal; P-CIVP4:248; P-CIVP4 Block B, display; the ∂_v-principal part of the hierarchy.
+Row B9. lem:civp-axes-jets; P-CIVP4:312; P-CIVP4 Block B, Lemma (The derivatives across the edges through the axes);
+linear triangular hierarchy at all orders, corner compatibility, bounds, solutions have these jets.
+Row B10. lem:civp-axes-extension; P-CIVP4:381; P-CIVP4 Block B, Lemma (Extending and normalising cone data); (a) the
+extension of [LY22, Theorem 1 (i)], (b) short pieces by a Taylor polynomial and a rescaled extension of the remainder,
+(c) the constraints past an end, (d) the change of angle making b = 0 on N_i.
+Row B11. prop:civp-axes-formal; P-CIVP4:440; P-CIVP4 Block B, Proposition (The formal solution through the axes); Borel
+about X_0, C_b independent of δ_e.
+Row B12. sec:civp-axes-corner; P-CIVP4:474; P-CIVP4 Block B, subsection; the corner theorem.
+Row B13. prop:civp-axes-corner; P-CIVP4:476; P-CIVP4 Block B, Proposition (Developments near a corner sphere through the
+axes, without smallness); T4-2: thm:class-kato (a) about Û, initial slice T*/2 before the corner, σ depending only on
+k, Λ, κ, l.
+Row B14. eq:civp-axes-modified; P-CIVP4:544; P-CIVP4 Block B, display; the modified system with the axis closure and
+F̃ = 1_P ξ 𝒜(Û).
+Row B15. sec:civp-axes-unique; P-CIVP4:666; P-CIVP4 Block B, subsection; uniqueness and the maximal development.
+Row B16. prop:civp-axes-unique; P-CIVP4:668; P-CIVP4 Block B, Proposition (Uniqueness in the gauge, without smallness);
+T4-4: wave maps from the first disagreement, leaf-wise estimate near the corner, extension about the first solution
+elsewhere.
+Row B17. cor:civp-axes-maximal; P-CIVP4:756; P-CIVP4 Block B, Corollary (The maximal development); D_max.
+Row B18. sec:civp-axes-faces; P-CIVP4:769; P-CIVP4 Block B, subsection; continuation along the generators.
+Row B19. prop:civp-axes-faces; P-CIVP4:771; P-CIVP4 Block B, Proposition (Continuation along the generators); T4-5 with
+(C), (E), (J), (U); no a priori estimate.
+Row B20. rem:civp-axes-riccati; P-CIVP4:846; P-CIVP4 Block B, Remark; the Riccati model where bounded jets fail.
+Row B21. sec:civp-axes-criterion; P-CIVP4:854; P-CIVP4 Block B, subsection; the continuation criterion.
+Row B22. prop:civp-axes-criterion; P-CIVP4:856; P-CIVP4 Block B, Proposition (Continuation criterion); T4-6.
+Row B23. sec:civp-axes-theorem; P-CIVP4:877; P-CIVP4 Block B, subsection; the theorem.
+Row B24. lem:civp-axes-free-data; P-CIVP4:879; P-CIVP4 Block B, Lemma (Cone data from free data through the axes); the
+data of prop:loc-cones and lem:loc-cone-in through the axes.
+Row B25. thm:civp-axes; P-CIVP4:904; P-CIVP4 Block B, Theorem (Developments of cone data of any size through the axes);
+T4 (a)–(e).
+Row B26. cor:civp-axes-cones; P-CIVP4:941; P-CIVP4 Block B, Corollary (The cones of the two-dust background); the
+chapter's data of any size reaching the axes, when the cones do not focus.
+Row B27. cor:civp-axes-perturbations; P-CIVP4:957; P-CIVP4 Block B, Corollary (Small perturbations of a background that
+is round); Corollary P, conditional on the Tier 3 theorem about a general round background.
+Row B28. rem:civp-axes-scope; P-CIVP4:970; P-CIVP4 Block B, Remark (What thm:civp-axes does not give); width,
+rectangle, further families, regularity, symmetry.
+
+Notes for existing rows: the paragraph after prop:loc-cones (Placement item 4), the chapter opening (item 5); in
+[[ch:scope]] the paragraph on localised data (item 6); in [[ch:theorems]] the item More families (item 7).
