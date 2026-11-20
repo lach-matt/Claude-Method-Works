@@ -1328,3 +1328,14 @@ Items found while chapters were written in parallel; each is settled once, editi
   except 03, missing rem:envelope-regularity (to add with the P-K82 merge). P-C-lambda0 retired (all 16 labels in 86).
   Unmerged proof files: P-A-indicial, P-A3-every-h, T-A (M-33 merging them into 33 and opening Appendix B), P-K82, the
   five P-U71 texts. Sources not located: thm:std-bgp-riesz, thm:std-bh17-embedding (crosswalk notes say so).
+- M-33 done (notes/reports/M-33.md): proofs A and A3 merged into chapter 33 (A3 at the end of sec:s14-model, A after
+  sec:s14-simple, cor:s14-remote-point moved into A, gap-sums left to chapter 71); Appendix B (chapters/96-tables.md)
+  opened with T-A (B.1) and the computed numerator table B.2, every coefficient and bound of chapter 33 holding.
+  lint --chapters 2 hits (pending markers in 35, 82). R-M33 reading.
+- W-96 done (notes/reports/W-96.md): the table sections of chapters 70 (sec:tb-morawetz, sec:tb2) and 87 (sec:cone-tables,
+  sec:tab-d-tables) moved byte for byte to Appendix B as B.3-B.6 (only six ### → #### heading changes); no sentence
+  needed changing. Chapter 83's tables move after R4-83. A reader of the whole of Appendix B (R-96) follows.
+- R2-P-K82 0M 3m 9n (notes/reviews/R2-P-K82.md); M-82 applies them and merges P-K82 into 82 and 03 with R4-82's nits.
+- R3-83 0M 2m 4n (notes/reviews/R3-83.md); F4-83 applies them.
+- 2026-11-14 to 2026-11-20: every running agent stopped at the weekly usage limit; resumed from their transcripts on
+  2026-11-20 (W-DB, M-82, F4-83, R3-IS-SP, R-M33).
