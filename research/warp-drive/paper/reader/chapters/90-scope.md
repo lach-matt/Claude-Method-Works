@@ -198,8 +198,9 @@ adapted domain and is a weak limit of class vacuum metrics only on narrower doma
 high-frequency step not being carried out on the adapted domain itself, and no uniqueness of that solution is stated
 ([[cor:vlasov-two-dust]], [[rem:vlasov-radial-scope]]).
 
-The results on localised data concern the explicit two-dust background of [[sec:bg-data]], on its slice Σ_τ0 or on a
-slice bent from it, and invariant data near the background's data ([[ch:localised-data]]). Data localised in angle away
+The results on localised data concern the explicit two-dust background of [[sec:bg-data]]: invariant data near the
+background's data on its slice Σ_τ0 or on a slice bent from it, and data of any size on the two null cones through its
+corner sphere ([[ch:localised-data]]). Data localised in angle away
 from the axes exist on the whole of a slice bent from Σ_τ0 by at most 0.0012, on which Rácz's split is hyperbolic
 everywhere; on Σ_τ0 itself the split is hyperbolic off the band 4.2882 ≤ R ≤ 4.5310 inside the shell, and on
 4.2955 ≤ R ≤ 4.5258 it is hyperbolic for no foliation ([[thm:loc-bent-slice]], [[prop:loc-band]]). Localisation in angle
@@ -207,7 +208,14 @@ and radius at once is decided at second order in the amplitude by the sign of th
 the sign of f, nothing using the event horizon: on a vacuum band that meets {f < 0} such vacuum data whose first-order
 part is not a gauge perturbation exist for every small amplitude, on a vacuum band where f > 0 they are excluded for
 small amplitude when the first-order part is not a gauge perturbation, and on every vacuum band they are excluded for
-small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
+small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]). On the two null
+cones through the corner sphere, data localised in an angular band exist exactly, with or without dust
+([[prop:loc-cones]], [[lem:loc-cone-in]]); when the band avoids the axes they have a development in the double-null
+gauge on a neighbourhood {min(u, v) ≤ δ} of the cones, without smallness, equal to the background outside a slightly
+wider band and unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]); δ
+depends on the data, and for data near the background's the neighbourhood is explicit and the solution carries an
+estimate ([[thm:loc-cone-development]]). Developments of cone data that differ from the background's near an axis are
+not established ([[rem:loc-cone-scope]]).
 
 ### At the prescribed wavelength 10 l5 {#sec:scope-ten-l5}
 

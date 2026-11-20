@@ -24,7 +24,7 @@
   Einstein equations in arbitrary dimensions*, Ann. Henri Poincaré 12 (2011), 419–482. doi:10.1007/s00023-011-0076-5
   arXiv:1006.4467v1
 - [CCTW16] A. Cabet, P. T. Chruściel, R. Tagne Wafo, *On the characteristic initial value problem for nonlinear
-  symmetric hyperbolic systems, including Einstein equations*, Dissertationes Math. (2016), 1–72.
+  symmetric hyperbolic systems, including Einstein equations*, Dissertationes Math. 515 (2016), 1–67.
   doi:10.4064/dm732-7-2015 arXiv:1406.3009v2
 - [CD03] P. T. Chruściel, E. Delay, *On mapping properties of the general relativistic constraints operator in weighted
   function spaces, with applications*, Mém. Soc. Math. Fr. (N.S.) 94 (2003), vi+103 pp. doi:10.24033/msmf.407
@@ -156,6 +156,9 @@
   doi:10.1016/0003-4916(86)90186-7
 - [Rac16] I. Rácz, *Constraints as evolutionary systems*, Class. Quantum Grav. 33 (2016), 015014.
   doi:10.1088/0264-9381/33/1/015014 arXiv:1508.01810v3
+- [Ren90] A. D. Rendall, *Reduction of the characteristic initial value problem to the Cauchy problem and its
+  applications to the Einstein equations*, Proc. Roy. Soc. London Ser. A 427 (1990), no. 1872, 221–239.
+  doi:10.1098/rspa.1990.0009
 - [RS1] M. Reed, B. Simon, *Methods of modern mathematical physics I: Functional analysis*, revised and enlarged
   edition, Academic Press, New York (1980).
 - [Sbi15] J. Sbierski, *On the existence of a maximal Cauchy development for the Einstein equations: a dezornification*,

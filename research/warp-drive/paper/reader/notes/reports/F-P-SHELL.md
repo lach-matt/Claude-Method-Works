@@ -176,3 +176,132 @@ When the final texts arrive:
   - thm:loc-shells (d) takes u_1 and v_1 "as in [[thm:loc-cone-development]]", which is Tier 1's pair and is not
     renamed.
   - Which occurrences follow depends on the new names.
+
+---------------------------------------------------------------------------------------------------------------------
+
+# Re-base on the final Tier 1/2 texts (df9a4c35)
+
+Base texts:
+- P-CIVP.md: md5 f8a1e948a7f9c53831719f5d526cc3a8, 1319 lines.
+- P-CIVP2.md: md5 e80ea7a4542d128253dccbb16a7dd408, 841 lines.
+- Chapters at HEAD.
+
+File: proofs/P-SHELL.md, md5 20b99739d608bbfe1f5c4ff963e331a1, 833 lines.
+- Section: lines 1-682.
+- Placement: lines 684-807.
+- Crosswalk: lines 809-833.
+
+Snapshot commit af953435 captured an intermediate state; the md5 above is final. Not committed by me. In the real
+directory, nothing other than this file was touched; PAPER.md is clean.
+
+## New finding: the section needs the old, broader sense of "class solution in the gauge"
+
+Tier 1's definition (sec:loc-cone-setting, which Tier 2 now refers to) requires the functions to equal the background's
+near the axes. Five sites in this section use the term for solutions that need not equal g0 near the axes:
+1. The paragraph after def:loc-shell-solution: every solution with null shells is a class solution on each cell; and
+   p = q = 0 gives a class solution.
+2. The hypothesis of prop:loc-shell-junction. prop:loc-shell-crossing applies it to solutions that need not equal g0
+   near the axes:
+   - in (a), to general solutions and to round g;
+   - in (b), to the round extension;
+   - in (d), to every solution of def:loc-shell-solution.
+3. The proof of prop:loc-shell-crossing (b), in two places: "a round class solution with the phases v and u …", and
+   "each closed cell carries a class solution …" for the round extension.
+
+Read in Tier 1's sense, these sites would be wrong. prop:loc-shell-crossing (b), and the general and round claims of (a)
+and (d), would lose their footing.
+
+**Resolution in the file, open to your decision.**
+- In "Leaves and cells", nit 7's sentence now points to Tier 1: "A class solution in the gauge is one in the sense of
+  [[sec:loc-cone-setting]], with the corner at S and g0 as the background, as in [[sec:civp-large]]; its functions equal
+  g0's near the axes."
+- It defines a *class solution in double-null form*: Tier 1's definition without the condition near the axes (the old
+  Tier 2 sense), smooth on D × S³ with the axes included.
+- The new term replaces the old one at exactly those five sites.
+- Every other use keeps Tier 1's sense, and at each of them the solution equals g0 near the axes:
+  - (T1) and (T2);
+  - Steps 1–4 and (c) of thm:loc-shells;
+  - prop:loc-shell-crossing (c).
+- The alternative, if you prefer no new term: restrict def:loc-shell-solution to solutions equal to g0 near the axes.
+  Then prop:loc-shell-crossing (b) and the round part of (a) must be dropped or restated, and rem:loc-shell-scope (iii)
+  changes.
+
+## The other Tier 2 changes, followed
+
+- **𝒪 and Q1.** "Leaves and cells" now takes g0, Q1, the open set 𝒪 ⊃ Q1 and the band from sec:civp-large. g0 is
+  given on 𝒪 × S³ and solves eq:two-dust-limit where u, v ≥ 0. The same 𝒪 is used in:
+  - the choice of δ_e in (d);
+  - prop:loc-shell-crossing (c), "the open set 𝒪 of [[sec:civp-large]]". prop:loc-cone-local's final hypothesis, a
+    solution on 𝒪 ∩ {u ≥ u_Q, v ≥ v_Q}, holds there.
+- **(T2)'s closing sentence.** It now reads: "uses of g0 only that it is round, with b = 0, given on 𝒪 × S³ and a
+  solution of [[eq:two-dust-limit]] at the points of 𝒪 with u, v ≥ 0, and its corner step, [[prop:civp-large-corner]],
+  already works at every corner of Q1". The pending marker and the statement are unchanged.
+- **"Cone data on Q1".** The new term is used in (T2), Step 1 ("cone data on 𝒫_0 in the sense of [[def:civp-large-data]]")
+  and the last sentence of def:loc-shell-data.
+- **Renames from earlier rounds.** u1/v1 → u_1/v_1 and R → 𝒬: this section already used those forms. η → κ: the η here
+  are Tier 1's, in (T1), the proof of (d) and prop:loc-cone-local in (c), so nothing changes. k → w: Tier 2's w(u, v)
+  does not appear here. This section's w and w_i are widths, and the overlap is in name only.
+- **No other Tier 2 change touches this section:** m := 114, the replaced markers, lem:civp-large-free and
+  lem:civp-large-rectangle.
+- **nit 8.** There is no prefix change, so nothing to do.
+
+## Placement re-based
+
+- **Intro.** Items 2, 3, 5 and 8 are now said to be written against the final Tier 1 and Tier 2 texts.
+- **Item 1.** The section goes immediately before sec:loc-kid. It depends only on Tiers 1 and 2, so it follows any further
+  section placed after Tier 2; Tiers 3–5 also place sections there.
+- **Item 2.** The Old is now the single second line of rem:loc-cone-scope (iii): "that are only bounded, or measures
+  (shells), are not covered. For the 3 + 1 problem …". Tier 3's item 4 rewrites the end of (ii) and its own Old includes
+  the line "the background there. (iii) …". This item therefore no longer touches that line and composes in either order.
+- **Item 3.** Re-based, because Tier 2 reflowed rem:civp-large-domain. The Old now begins "are defined. The data must
+  equal …"; the New is the same words, reflowed.
+- **Item 5.** The Old is unchanged and occurs once in Tier 1's final item 7 New, chapter 90 line 210. The heading now
+  says that Tier 2's item 4 second pair defers to Tier 1's item 7.
+- **Item 8.** Re-based on Tier 1's final item 4 New, its last two lines: "asserted for cone data that differ … no other
+  result of this paper uses these developments." The fallback for Tier 2's item 3 is removed, since that item now defers.
+- **nit 2.** "lines 21–22" and "line 210" are confirmed at HEAD; chapter 83 593–600 and 602, and chapter 98 157, are
+  unchanged.
+
+## The clause "no other result of this paper uses these developments"
+
+Read literally, the clause is false once this section is placed:
+- thm:loc-shells Step 1 applies thm:civp-large to restrictions of exactly these cone data;
+- the proof of (d) applies thm:loc-cone-development at S to extended data.
+
+Item 8's New therefore reads: "…, except finitely many null shells along leaves of the two cones and data that are smooth
+except across such leaves, which [[thm:loc-shells]] develops slab by slab with [[thm:civp-large]] and
+[[thm:loc-cone-development]]; no result of the other chapters uses these developments."
+
+I checked that the narrowed clause holds for the texts placed so far:
+- No chapter at HEAD outside ch:localised-data cites thm:civp-large, thm:loc-cone-development, prop:loc-cone-local or
+  thm:loc-shells.
+- The blocks of Tiers 4 and 5 for chapter 81 cite none of them either.
+- The other placements touch descriptive text only (ch:scope, ch:theorems, ch:introduction).
+- Tier 5's own placement uses the same wording, "No result of the other chapters uses these developments".
+
+**For the merge.** The placements of Tiers 3, 4 and 5 also rewrite this sentence:
+- Tier 3: item 3's merged paragraph.
+- Tier 4: its item 4, against Tier 2's old item-3 text, which no longer exists.
+- Tier 5: its item 4, whose New says "Densities that are only bounded, or are measures, are not covered".
+
+The last is no longer true once null shells are covered; the merged sentence should carry item 8's exception. Item 8's
+text says so.
+
+## Scratch build with both final tiers
+
+The build (…/scratchpad/reader/scratch/fshell/build, script build2.py) applied:
+- Tier 1: Blocks A and B, items 3–7;
+- Tier 2: the section, items 4, 7 (Appendix A) and 8;
+- this file: the section and items 2–6 and 8.
+
+Results:
+- Every Old occurs exactly once.
+- `assemble.py`, scratch copy only: 0 problems. The section is 53.6, and thm:loc-shells is Theorem 53.48.
+- No line of the section or of the placed texts is longer than 121 characters after label resolution.
+- `lint.py --chapters`: 2 hits in all chapters, the two pending markers (T2) and (T1) of this section.
+- In the file itself: every line is at most 121 characters (Unicode count), apart from the tab-separated crosswalk rows.
+  The only line starting with "- " is the reference-list item of item 6.
+- All 19 crosswalk rows point at their labels.
+
+Aside, outside my file: final Tier 1 prop:loc-cone-local has a short line "Λ, d and" (P-CIVP.md, statement of
+prop:loc-cone-local). It is harmless in rendering, but it is a stray wrap.

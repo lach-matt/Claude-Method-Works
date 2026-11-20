@@ -464,6 +464,37 @@ Proposition 5.10.
 
 ### The characteristic initial value problem {#sec:std-characteristic}
 
+**Theorem {#thm:std-cctw-existence}** ([CCTW16, (2.1)–(2.2), p. 6; (2.7)–(2.9), p. 7; (3.2), p. 11; Theorem 3.9, pp.
+32–33].) The authors consider "quasi-linear first order symmetric hyperbolic systems of the form Lf = G, (2.1) on
+subsets of M̃ := {u ∈ [0, ∞), v ∈ [0, ∞), y ∈ Y}. (2.2) In (2.1), f is assumed to be a section of a real vector bundle
+over M̃, equipped with a scalar product, similarly for G. … Both the scalar product and the connection coefficients are
+allowed to depend upon f, and we assume that ∇ is compatible with ⟨·, ·⟩. … L is a first order operator of the form L =
+A^μ∇_μ, where the A^μ's are self-adjoint, and are smooth functions of f and of the space-time coordinates" (p. 6), with
+G = G(f, ·) (p. 11); here Y is "a (n − 1)-dimensional compact manifold without boundary" and ∇̊ "a fixed, arbitrarily
+chosen, smooth connection which is f, u, and v–independent" (p. 6). They "specialise to f's which are of the form f =
+(ϕ, ψ), (2.7) with A^v and A^u satisfying A^u = (A^u_ϕϕ, 0; 0, 0), A^v = (0, 0; 0, A^v_ψψ), and A^v_ψψ > 0, A^u_ϕϕ > 0.
+(2.8) It is further assumed that the connections ∇ and ∇̊ preserve the splitting (2.7). We will write G = (G_ϕ, G_ψ).
+(2.9)" (p. 7). With N₋ = {0} × [0, b0] × Y and N₊ = [0, a0] × {0} × Y (p. 32), a bar denoting restriction to N₋ ∪ N₊
+(p. 11), Theorem 3.9 reads: "Let Y be a (n − 1)−dimensional compact manifold without boundary, let a0 and b0 two
+positive real numbers and set Ω0 = [0, a0] × [0, b0] × Y Consider the symmetric hyperbolic system (2.1) on Ω0 with the
+splitting (2.7) and assume that (2.8) holds. Let ϕ̄ and ψ̄ be defined respectively on N₋ and N₊, providing Cauchy data
+for (2.1): ϕ = ϕ̄ on N₋, ψ = ψ̄ on N₊. (3.98) Let ℓ ∈ ℕ, ℓ > (n + 9)/2 and suppose that ϕ̄ ∈ ∩_(0≤j≤ℓ) C^j([0, b0];
+H^(ℓ−j)(Y)) and ψ̄ ∈ ∩_(0≤j≤ℓ) C^j([0, a0]; H^(ℓ−j)(Y)). (3.99) Assume that the transport equations A^μ_ϕϕ|_(v=0)
+∂_μϕ|_(v=0) = (−A^μ_ϕψ ∂_μψ + G_ϕ)|_(v=0), (3.100) A^μ_ψψ|_(u=0) ∂_μψ|_(u=0) = (−A^μ_ψϕ ∂_μϕ + G_ψ)|_(u=0), (3.101)
+with initial data ϕ|_(u=v=0) = ϕ̄|_(v=0) and ψ|_(u=v=0) = ψ̄|_(u=0), have a global solution on ([0, a0] × Y) ∪ ([0, b0]
+× Y). Then there exists an ℓ-independent constant a* ∈ (0, a0] such that the Cauchy problem (2.1), (3.98) has a
+solution f defined on [0, a*] × [0, b0] × Y satisfying (3.88)-(3.90) with k = ℓ − 1. … The solution f is unique within
+the class of C¹ solutions, and is smooth if ϕ̄ and ψ̄ are." The omitted sentence states further regularity for ℓ > (n +
+12)/2.
+
+**Theorem {#thm:std-cctw-strips}** ([CCTW16, Corollary 3.11, p. 35].) "Under the hypotheses of Theorem 3.9, there
+exists two constants 0 < a* ≤ a0 and 0 < b* ≤ b0 and a unique solution f of the Cauchy problem (2.1), (3.98) defined on
+the neighborhood ([0, a*] × [0, b0] × Y) ∪ ([0, a0] × [0, b*] × Y) of N = N₊ ∪ N₋ such that f ∈ L^∞([0, a*] × [0, b0];
+H^(ℓ−2)(Y)) ∩ ⋂_(0<3i≤ℓ−(n+9)/2) W^(i,∞)([0, a*] × [0, b0]; H^(ℓ−1−3i)(Y)) similarly on [0, a0] × [0, b*]." The
+corollary follows from Theorem 3.9 by "the symmetry of the problem under the interchange of u and v" (p. 35). Theorem
+3.9 applied to the system with u and v exchanged therefore also gives that f is smooth on [0, a0] × [0, b*] × Y when ϕ̄
+and ψ̄ are smooth; on the overlap of the two strips the two solutions agree, by the uniqueness in Theorem 3.9.
+
 **Theorem {#thm:std-ctg-neighbourhood}** ([CTG23, Theorem 1.1, pp. 2–3].) "The maximal globally hyperbolic development
 of smooth initial data for vacuum Einstein equations with a (possibly zero) cosmological constant Λ ∈ ℝ, on two
 characteristic hypersurfaces intersecting transversally, contains a future neighborhood of the initial data

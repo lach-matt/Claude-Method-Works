@@ -189,8 +189,9 @@ gauge ([[ch:harmonic-structure]], [[ch:harmonic-rate]]).
 the proof of [[thm:settling]] makes explicit ([[ch:explicit-constants]]).
 
 [[part:further]] treats two crossing dusts ([[ch:two-dusts]]), the class Einstein–null-dust system
-([[ch:class-system]]), restricted massless Vlasov limits ([[ch:vlasov]]), localised data and the sign of the charge
-([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]], [[ch:equality-edge]]), the threshold λ0 at a
+([[ch:class-system]]), restricted massless Vlasov limits ([[ch:vlasov]]), localised data, their development from two
+null cones and the sign of the charge ([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]],
+[[ch:equality-edge]]), the threshold λ0 at a
 numerical point ([[ch:lambda0]]), the prescribed wavelength 10 l5 ([[ch:ten-l5]]) and the scope ([[ch:scope]]).
 
 [[app:standard-results]] states the results of the literature that the proofs use, each cited with its number and
