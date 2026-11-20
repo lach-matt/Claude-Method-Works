@@ -67,8 +67,8 @@ radius.
 their corner, ρ_+ = 1/r and ρ_K = R = r/t_*, so t_*⁻¹ = ρ_+ρ_K there ([[sec:iii-i2-1]]); μ runs over the indicial roots
 of L̂_(b_0)(0) ([[prop:iii-f1-2-3]]), which do not depend on b ([[lem:iii-i15-1-1]] (P2)), and −μ is read as −Re μ; the
 non-real roots have real part below −101 or above 1, outside every interval used. The neighbourhoods ℬ_1 ⊃ ℬ_* of b_0
-and their closures are the B_1 ⊃ B_* of [[sec:iii-h2-0]]. The rows of the towers are indexed by ρ ∈ ℛ′, as in
-[[ch:s23]] (Y_ρ, d_ρ, w_ρ, T_ρ); [[ch:s22]] writes ψ for this index.
+and their closures are the B_1 ⊃ B_* of [[sec:iii-h2-0]]. The rows of the towers are indexed by ψ ∈ ℛ′, as in
+[[ch:s22]] and [[ch:s23]] (Y_ψ, d_ψ, w_ψ, T_ψ).
 
 ### Tame families {#sec:iii-j2-1}
 
@@ -198,10 +198,10 @@ the dual functionals of Step 4′ of the proof of [[thm:iii-i14-3-1]], the t_*-c
 the assigned rotation coordinates A_b of [[def:iii-i15-2-3]], which read the ι⁺-data and the tf-data of the right side
 ([[prop:iii-i15-2-2]]): bounded by a fixed low norm of the solution or right side they are applied to, by the cited
 statements and [[lem:iii-i12-2-3]] (a). The finite-dimensional states, the rows m_ν (the rotation rows among them), the
-towers T_(ρ,b) and the states of [[lem:iii-i14-2-1]] they are paired with are fixed smooth sections, smooth in b
+towers T_(ψ,b) and the states of [[lem:iii-i14-2-1]] they are paired with are fixed smooth sections, smooth in b
 ([[lem:iii-i15-1-1]] (P3)). So, composed with tame families, they give tame families by [[lem:iii-j2-1-2]] (b)–(c).
-The conormal components Ṡ_rem, ḃ_rem, Ẏ_ρ of q′ are not finite-dimensional: they are functions of t_* that Step 4 of
-the proof of [[thm:iii-i12-3-1]] assembles (Ṡ_rem := A + A_5 + a_s, ḃ_rem := B + a_b, Ẏ_ρ := a_ρ + Y^c_ρ) from the
+The conormal components Ṡ_rem, ḃ_rem, Ẏ_ψ of q′ are not finite-dimensional: they are functions of t_* that Step 4 of
+the proof of [[thm:iii-i12-3-1]] assembles (Ṡ_rem := A + A_5 + a_s, ḃ_rem := B + a_b, Ẏ_ψ := a_ψ + Y^c_ψ) from the
 outputs of its Steps 1–3, so they are outputs of a composition of the families of its entry in [[sec:iii-j2-3]], tame
 with a fixed loss by [[lem:iii-j2-1-2]] (e).
 
@@ -352,7 +352,7 @@ is used in its form at b, named in the entry where it differs from the form at b
   ϑ_ν: fixed sections times W), BG (f^ν, r^ν, and at b the errors E^ν), FWD of L_b; no loop.
 - [[lem:iii-i10-2-1]], [[cor:iii-i10-2-3]], [[prop:iii-i10-3-1]]: MOD ([[prop:iii-i1-3-1]], the formal solutions for
   L_b; [[cor:iii-g2-4-3]]), FIN (at a rotating b, the rotation rows with the coefficients of [[prop:iii-i15-2-2]] (a));
-  windows, at most N_*.
+  finitely many windows.
 - [[lem:iii-i11-2-1]]–[[lem:iii-i11-2-5]], [[prop:iii-i11-3-1]], [[lem:iii-i11-3-2]], [[lem:iii-i11-3-3]],
   [[thm:iii-i11-4-1]] (at a rotating b, [[thm:iii-i11-4-1]] only inside [[lem:iii-i15-2-4]] and [[prop:iii-i15-2-5]],
   the latter with q = 0 being its form there): MOD (L̃_b(0)⁻¹; [[prop:iii-g4-4-4]], [[prop:iii-g4-5-1]];
@@ -481,9 +481,9 @@ replaced by w and every index set unchanged:
 - 𝒴^0_ex(β) and 𝒴^♮_ex(β): the classes 𝒴^0(β) of [[sec:iii-i10-1]] and 𝒴^♮(β) of [[def:iii-i13-1-2]] with the
   ι⁺-weight w_+ − ε replaced by w_+ (their K⁺-weight β is exact already);
 - 𝒬_ex: the class 𝒬 of [[eq:iii-i14-1-1]] with S_rem ∈ Ḣ^(∞,α−2)_b, b_rem ∈ Ḣ^(∞,α−1)_b and
-  Y_ρ ∈ Ḣ^(∞,𝒬(ℰ^α_ρ,3+ε_+−d_ρ))_b;
+  Y_ψ ∈ Ḣ^(∞,𝒬(ℰ^α_ψ,3+ε_+−d_ψ))_b;
 - 𝒟^k_ex: the class of [[def:iii-j-1-1]] with S_rem ∈ Ḣ^(k,α−2)_b, b_rem ∈ Ḣ^(k,α−1)_b,
-  Y_(ρ,rem) ∈ Ḣ^(k,3+ε_+−d_ρ)_b and h̃ ∈ H^(k,(⟨ℰ^C_I⟩,ℓ_I),3+ε_+,α)_b, normed by the norms of its components at these
+  Y_(ψ,rem) ∈ Ḣ^(k,3+ε_+−d_ψ)_b and h̃ ∈ H^(k,(⟨ℰ^C_I⟩,ℓ_I),3+ε_+,α)_b, normed by the norms of its components at these
   fixed weights.
 
 These are the classes of [Hin26, (11.226), p. 292; (11.227b), p. 293; (11.233), p. 294; (12.12c)–(12.12d), p. 301;
@@ -639,9 +639,9 @@ support in R > 0 (the last); all uniformly on ∂D, bounded by C‖a‖. The str
     C_J := sup_(Re ζ∈J) Σ_(i≤2) |ζ|^(2−i) ‖N(A_0, ζ)⁻¹‖_(H^s→H^(s+i)) < ∞,
 
 by the elliptic estimate with parameter of [[sec:iii-a-1-1]] for |Im ζ| large and by continuity on the compact rest of
-the strip. Then the Mellin transform of χũ is N(A_0, ·)⁻¹ applied to that of g; it continues holomorphically from
-Re ζ < ℓ_K^− to Re ζ ≤ ℓ_K(λ) with no pole in the strip; moving the line as in the proof of [[lem:iii-a-1-4]] and using
-Plancherel on Re ζ = ℓ_K(λ) gives
+the strip, where N(A_0, ζ) is invertible by (E3) of [[sec:iii-a-1-1]]. Then the Mellin transform of χũ is N(A_0, ·)⁻¹
+applied to that of g; it continues holomorphically from Re ζ < ℓ_K^− to Re ζ ≤ ℓ_K(λ) with no pole in the strip; moving
+the line as in the proof of [[lem:iii-a-1-4]] and using Plancherel on Re ζ = ℓ_K(λ) gives
 
     ‖χũ(λ)‖_(R^(ℓ_K(λ)) H^(k′)_b) ≤ C′_J ‖g(λ)‖_(R^(ℓ_K(λ)) H^(k′−2)_b) + C ‖ũ(λ)‖_(R^(ℓ_K^−) H^(k′)_b),
 
@@ -654,8 +654,8 @@ its Mellin proof gives. As φ^λ is b-smooth with |R^λ| = R^(Re λ), ‖U(λ)�
 
 The explicit part has K⁺-exponents ≥ λ − μ + k_μ + 1 ≥ λ + 3 and ι⁺-exponents in λ + 2 + ℰ_ind, with coefficients
 polynomial in λ times Y(λ); since Re λ + 3 − α ≥ 3 − ℓ_K − δ > 0 it lies at K⁺-weight α with uniform bounds, its
-log ρ_K powers sitting strictly above α. In the last term t_*^(−λ−4) v² = ρ_+^(λ+4) φ^(λ+2) ψ², ψ := φ/R; Taylor
-expansion of the coefficients of B in 1/r = ρ_+ψ gives terms ρ_+^(λ+4+m) ψ^(m+2) φ² B^λ_m U(λ) with
+log ρ_K powers sitting strictly above α. In the last term t_*^(−λ−4) v² = ρ_+^(λ+4) φ^(λ+2) ϖ², ϖ := φ/R; Taylor
+expansion of the coefficients of B in 1/r = ρ_+ϖ gives terms ρ_+^(λ+4+m) ϖ^(m+2) φ² B^λ_m U(λ) with
 B^λ_m := φ^λ B_m φ^(−λ) polynomial in λ and coefficients in H^(α+2) ⊂ H^α at R = 0. Near K⁺ with r bounded,
 r(λ) = χ_ι ρ_+^(λ+2) a − L_b(ρ_+^λ U(λ)) − L_b u_(b,0) with ρ_+ = 1/r smooth, and L_b ∈ Diff_b there
 ([[sec:iii-i2-1]]), so every term is at weight α uniformly. Away from K⁺, the proof of [[thm:iii-g2-4-2]] applies
@@ -838,8 +838,8 @@ Taylor order one higher makes its pointwise order strictly greater than α, henc
 
 **Proposition {#prop:iii-j3-4-6}** ([[thm:iii-i12-3-1]] at exact weights.) Let α satisfy [[def:iii-j3-1-3]] and let the
 right sides be as in [[prop:iii-j3-3-4]] and [[prop:iii-j3-4-3]]. Then [[thm:iii-i12-3-1]] holds with
-Ṡ_rem ∈ Ḣ^(∞,α−2)_b, ḃ_rem ∈ Ḣ^(∞,α−1)_b, w_ρ := 3 + ε_+ − d_ρ with
-Ẏ_ρ ∈ Ḣ^(∞,𝒬(ℰ_♯−d_ρ,3+ε_+−d_ρ))_b, and ũ ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_♯,3+ε_+),α)_b.
+Ṡ_rem ∈ Ḣ^(∞,α−2)_b, ḃ_rem ∈ Ḣ^(∞,α−1)_b, w_ψ := 3 + ε_+ − d_ψ with
+Ẏ_ψ ∈ Ḣ^(∞,𝒬(ℰ_♯−d_ψ,3+ε_+−d_ψ))_b, and ũ ∈ H^(∞,(⟨ℰ^C_I⟩,ℓ_I),(ℰ_♯,3+ε_+),α)_b.
 
 *Proof.* *Step 0.* f′ has K⁺-weight α: G(W⃗) ∈ 𝒴^0_ex(α); (L − L_b)u_0 has K⁺-weight w_0 − ε + a_K > α for small ε (the
 weight α − ε there is a free weakening); the graft by [[prop:iii-j3-3-4]]; and L_b m_ν is of order > 9/2 > α.
@@ -859,15 +859,15 @@ part > α − 2, resp. > α − 1.
 *Step 4.* Ṡ_rem = A + A_5 + a_s ∈ Ḣ^(∞,α−2) (A_5 at 2 + ε_+ > α − 2, exactly by [[lem:iii-j3-4-5]] as
 2 + ε_+ ∉ ℕ); ḃ_rem = B + a_b ∈ Ḣ^(∞,α−1); ũ = w″ + w′ of K⁺-order α.
 
-*The ι⁺-side.* The conormal tower coefficients Y^c_ρ (μ_ρ ∈ (−1, 0]) come from σ³|σ|^(α_τ−2−μ) Y(σ),
+*The ι⁺-side.* The conormal tower coefficients Y^c_ψ (μ_ψ ∈ (−1, 0]) come from σ³|σ|^(α_τ−2−μ) Y(σ),
 Y ∈ H^(∞,0)_b, of zf-weight 2 + ε_+ − μ; [[lem:iii-j3-4-5]] gives Ḣ^(∞,3+ε_+−μ) exactly, as 3 + ε_+ − μ ∈ ℕ would need
-μ = ε_+ − 1, excluded as at level 3 in the proof of [[prop:iii-j3-4-3]]. No polyhomogeneous coefficient sits at w_ρ.
-Let z be an exponent of a_ρ. If d_ρ lies below the degree of the conormal part of every profile whose coefficient at z
-is nonzero, z falls under the clause of [[lem:iii-i12-2-4]] on exponents, so z + d_ρ is Λ-valued and ≠ 3 + ε_+ by
-(Ex1). Otherwise some such profile has a conormal part of degree d′ ≤ d_ρ. That profile is a conormal profile at the
+μ = ε_+ − 1, excluded as at level 3 in the proof of [[prop:iii-j3-4-3]]. No polyhomogeneous coefficient sits at w_ψ.
+Let z be an exponent of a_ψ. If d_ψ lies below the degree of the conormal part of every profile whose coefficient at z
+is nonzero, z falls under the clause of [[lem:iii-i12-2-4]] on exponents, so z + d_ψ is Λ-valued and ≠ 3 + ε_+ by
+(Ex1). Otherwise some such profile has a conormal part of degree d′ ≤ d_ψ. That profile is a conormal profile at the
 edge: û_j, j ≤ 2, of degree d′ = μ′_j − 2 ∈ {2 + ε_+, 1 + ε_+, ε_+}, or v_0, of degree d′ = ε_+ − 1; and
-z + d′ = 3 + ε_+. As d_ρ ∈ {μ, 0, 1} differs from each of these degrees (μ = ε_+ − 1 being excluded as above), d′ < d_ρ,
-so z + d_ρ > 3 + ε_+.
+z + d′ = 3 + ε_+. As d_ψ ∈ {μ, 0, 1} differs from each of these degrees (μ = ε_+ − 1 being excluded as above), d′ < d_ψ,
+so z + d_ψ > 3 + ε_+.
 
 *The corner.* Near ℐ⁺ and on {r ≥ t_*/2}, χ_K = 0 and ũ = u, exact at ι⁺ by [[prop:iii-j3-4-3]] (with u_I of
 [[prop:iii-j3-3-4]]). On the transition region {t_*/8 < r < t_*/2}, away from the corner, ũ = u − χ_K u_exp with both
@@ -877,8 +877,8 @@ of the proof of [[thm:iii-i12-3-1]] of each piece minus its part in χ_K u_exp. 
 exactly 3 + ε_+. The first is the conormal parts of (v), and of the pieces of type (v) inside (vi) and (viii). These
 come from [[lem:iii-i12-2-1]] (b) with c = σ^j |σ|^k sgn(σ)^δ (m = 0) and a single profile, whose conormal part lies in
 the exact space of its degree ([[prop:iii-j3-4-3]]). The second is the level-3 towers of (viii). These come from
-[[lem:iii-i12-2-1]] (a) with w = α_τ + 1 − μ and the profiles of the tower, homogeneous of degree d_ρ − j
-([[sec:iii-i12-1]]), so w + 1 + d_ρ = α_τ + 2 = 3 + ε_+. For each, the part in χ_K u_exp is the main term
+[[lem:iii-i12-2-1]] (a) with w = α_τ + 1 − μ and the profiles of the tower, homogeneous of degree d_ψ − j
+([[sec:iii-i12-1]]), so w + 1 + d_ψ = α_τ + 2 = 3 + ε_+. For each, the part in χ_K u_exp is the main term
 χ_K Σ_j (χ_+ y)^(j) p_j of [[eq:iii-i12-2-1]], and what is left in ũ is its R. This is literal for the conormal towers.
 For the pieces of type (v) the main terms are reorganised by [[lem:iii-i12-2-4]] (Step 3), and the coefficient sections
 at exponents below α are exactly sums of states ([[lem:iii-i12-2-3]] (a)), so again what is left is R and terms of the
@@ -963,8 +963,8 @@ exactly α − 2; (b) L_b h_(b,rem)(q) has K⁺-order exactly α, smoothly in b;
 [[thm:iii-i14-3-1]], R_q u ∈ 𝒴^0_(ex,2)(α) and Δ_q(b′) ∈ 𝒴^♮_(ex,2)(α).
 
 *Proof.* (a) h^(≤1)(S_rem) and ġ(b_rem) are linear in S_rem, b_rem and their t_*-derivatives with stationary tensors,
-and ∂_(t_*) = t_*⁻¹(t_*∂_(t_*)) shifts an exact weight by exactly 1; the polyhomogeneous Y_ρ-terms have
-rates > 2 + ε_K ≥ α − 2 and Y^c_ρ the rate 3 + ε_+ − d_ρ > α − 2 (room). (b) L_b h^(≤1)(S) = S″(L_2h + L_1h̆¹) + S‴L_2h̆¹
+and ∂_(t_*) = t_*⁻¹(t_*∂_(t_*)) shifts an exact weight by exactly 1; the polyhomogeneous Y_ψ-terms have
+rates > 2 + ε_K ≥ α − 2 and Y^c_ψ the rate 3 + ε_+ − d_ψ > α − 2 (room). (b) L_b h^(≤1)(S) = S″(L_2h + L_1h̆¹) + S‴L_2h̆¹
 and L_b ġ(b) = b′L_1ġ + b″L_2ġ (the proof of [[lem:iii-i14-2-2]]), with S″, b′ exact at α; the ι⁺-weights of the
 profiles have room ([[lem:iii-j3-2-1]]) and the towers give rates ≥ λ_♯ + 3 > α. (c) R_q u: the "every β < w + α − 2"
 of [[lem:iii-i14-2-3]] is used at the top level with w > 2, so β = α is admitted strictly; its ι⁺-weight
@@ -1015,15 +1015,15 @@ map gains nothing in the weights.
 3 + ε_+; no exponent sits at 3 + ε_+ (Ex1). At K⁺, each χ_ι[h]_(λ_0) has order α by [[lem:iii-j3-5-1]], and h̃ by
 hypothesis.
 
-*q.* Its components are S_rem, b_rem, Y_(ρ,rem), exact, plus polyhomogeneous coefficients with real parts below
-3 + ε_+ − d_ρ ([[lem:iii-j-2-3]]).
+*q.* Its components are S_rem, b_rem, Y_(ψ,rem), exact, plus polyhomogeneous coefficients with real parts below
+3 + ε_+ − d_ψ ([[lem:iii-j-2-3]]).
 
 *[[eq:iii-j-2-5]] at ℐ⁺:* [[cor:iii-i-4-2]] as before; [[eq:iii-i-4-1]] is exact.
 
 *At ι⁺:* the terms of u-exponent below 3 + ε_+ vanish by the identity [[eq:iii-j-2-3]]; the quadratic part is at
 (5 + 2δ_♯)− > w_+; L_(0,p⃗_≤0) h̃ is exact at w_+ by [[eq:iii-i-4-1]]; the terms of the rows of u-exponent ≥ 3 + ε_+ are
-in Λ, so above 3 + ε_+ by (Ex1), with defects at a_+ + Re λ + 2 − ε ≥ 2λ_♯ + 2 − ε > w_+; the conormal parts T_ρ(Y^c_ρ)
-of the towers are diagonal terms of [[lem:iii-j3-2-1]] (c = 3 + ε_+ − d_ρ, m = d_ρ), exact at ι⁺ with K⁺-weight
+in Λ, so above 3 + ε_+ by (Ex1), with defects at a_+ + Re λ + 2 − ε ≥ 2λ_♯ + 2 − ε > w_+; the conormal parts T_ψ(Y^c_ψ)
+of the towers are diagonal terms of [[lem:iii-j3-2-1]] (c = 3 + ε_+ − d_ψ, m = d_ψ), exact at ι⁺ with K⁺-weight
 c − η > α − 2, and vanish near ℐ⁺; S_rem, b_rem give ι⁺-orders above 3 + ε_+ ([[lem:iii-j3-2-1]] with their profiles);
 P_4(0, p⃗_≤0) is compactly supported in (ι⁺)°. So the result has the plain weight w_+.
 

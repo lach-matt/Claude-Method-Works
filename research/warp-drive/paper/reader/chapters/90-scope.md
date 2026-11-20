@@ -174,7 +174,8 @@ focus there ([[rem:vlasov-obstructions]]). The two radial dusts of [[thm:two-dus
 to a small restricted field when the outgoing packet does not reach the inner sphere; the solution then exists on its
 adapted domain and is a weak limit of class vacuum metrics only on narrower domains of the type of Ω inside it, the
 high-frequency step not being carried out on the adapted domain itself, and no uniqueness of that solution is stated
-[[pending:scope-two-dust-radial]].
+([[cor:vlasov-two-dust]],
+[[rem:vlasov-radial-scope]]).
 
 The results on localised data concern the explicit two-dust background of [[sec:bg-data]], on its slice Σ_τ0 or on a
 slice bent from it, and invariant data near the background's data ([[ch:localised-data]]). Data localised in angle away

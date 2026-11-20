@@ -1304,7 +1304,7 @@ with Y_(μ,τ)(α) holomorphic, U ∈ 𝔉_D, and R̃ holomorphic in H^(∞,b̃)
 r̂^(α−2)R̃ holomorphic in H^(∞,ℓ_zf)_b.
 
 *Proof.* We use the Mellin transform ℳ and the contour shift exactly as in the proof of [[lem:iii-a-1-4]], with the
-facts (M1)–(M2) on the Mellin transforms of b-Sobolev and polyhomogeneous functions and (E1)–(E2) on the inverse of an
+facts (M1)–(M2) on the Mellin transforms of b-Sobolev and polyhomogeneous functions and (E1)–(E3) on the inverse of an
 elliptic indicial family of [[sec:iii-a-1-1]] (P is elliptic, [[sec:i-c-4-1]]); all bounds there are locally uniform in
 the holomorphic parameter α. Fix χ ∈ C_c^∞([0, 1)) equal to 1 near 0; then (1 − χ)R vanishes near 0 and is smooth, and
 P(χR) = χPR + [P, χ]R ∈ 𝔉_D, so we may replace R by χR, supported in [0, 1), and put (1 − χ)R into R̃ at the end. Write
@@ -1619,9 +1619,9 @@ For j = k₀, k₀ + 1, …, ⌊ℓ_zf⌋ in turn, let v_j solve
     𝒩v_j = ρ^(α−2−j)χ₃(ρ)f^((j)) on (0, ∞)_ρ × 𝕊³,     v_j ∈ H^(∞,α−2−j)_b,                              {#eq:iii-g4-5-3}
 
 (χ₃ ∈ C_c^∞([0, ρ₀)) equal to 1 near supp χ_tf): 𝒩 is elliptic and dilation invariant, and α − 2 − j is not the real
-part of a root (2 − α + j ≠ −μ, the roots being real), so its Mellin family is invertible on that line, with the bounds
-(E1) of [[sec:iii-a-1-1]], and [[eq:iii-g4-5-3]] is solved by Mellin inversion on {Re λ = α − 2 − j} (Plancherel).
-Then U_j := χ_zf χ_tf|σ|^j v_j satisfies, by [[eq:iii-g4-1-2]] and [[lem:iii-g4-1-2]],
+part of a root (2 − α + j ≠ −μ, the roots being real), so its Mellin family is invertible on that line ((E3) of
+[[sec:iii-a-1-1]]), with the bounds (E1) of [[sec:iii-a-1-1]], and [[eq:iii-g4-5-3]] is solved by Mellin inversion on {Re
+λ = α − 2 − j} (Plancherel). Then U_j := χ_zf χ_tf|σ|^j v_j satisfies, by [[eq:iii-g4-1-2]] and [[lem:iii-g4-1-2]],
 L̂_b(σ)U_j = χ_zf χ_tf|σ|^jρ^(α−j)f^((j)) + e_j on supp χ_tf (where χ₃ = 1), where e_j consists of three kinds of
 terms. First, χ_zf χ_tf|σ|^(j+1)ρ^(α−j−1)g_(j+1) with g_(j+1) := ±iρ^(j+1−α)ρ(ρ∂_ρ − 3/2 − S̄)v_j ∈ H^(∞,0)_b, from
 the term iσρ(·) of [[eq:iii-g4-1-2]]: a term of the same form at j + 1. Second, terms of tf-order α + 2, from

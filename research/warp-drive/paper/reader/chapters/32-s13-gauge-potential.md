@@ -1860,13 +1860,13 @@ the topology of these spaces), u can be chosen to.
 
 *Proof.* Near ∂X, A := ρ⁻²P_b is an elliptic b-operator whose normal operator is the model's ([[lem:iii-d-2-1]] (3))
 and so commutes with the rotations; its indicial family N(A, ι) preserves the types, and on type τ it is invertible
-exactly off the type τ roots. So w := N(A, m_*)⁻¹f_(m_*) is defined, smooth on 𝕊³, of the types of f_(m_*). With
-χ_∂ the cut-off of [[ch:s03]], u_0 := χ_∂ρ^(m_*)w has P_bu_0 = χ_∂ρ^(m_*+2)f_(m_*) + ρ²(A − N(A))(χ_∂ρ^(m_*)w) +
-(smooth, compactly supported), and A − N(A) ∈ ρ Diff_b², so f_2 := f_1 − P_bu_0 has ρ⁻²f_2 ∈ 𝒜^(ℱ_1) with
-ℱ_1 ⊂ {Re ≥ m_* + ε_Υ}. [[lem:iii-a-1-5]] (formal solutions; on the bundle, by the argument given for
-[[lem:iii-a-1-4]] in the proof of [[lem:iii-d1-5-1]]) with β = 3 gives u_1 ∈ 𝒜^(ℰ_1) near ∂X,
-ℰ_1 ⊂ {Re ≥ m_* + ε_Υ} (its exponents are those of ℱ_1 plus ℕ_0, with logarithms where they meet roots), such that
-f_3 := f_2 − P_b(χ_∂u_1) is smooth on X̄ with ρ⁻²f_3 ∈ 𝒜^𝒢, 𝒢 ⊂ {Re ≥ 3}. Finally u_2 := P_b⁻¹f_3
+exactly off the type τ roots ((E3) of [[sec:iii-a-1-1]], with Π the projection onto the types of f_(m_*)). So w := N(A,
+m_*)⁻¹f_(m_*) is defined, smooth on 𝕊³, of the types of f_(m_*). With χ_∂ the cut-off of [[ch:s03]], u_0 := χ_∂ρ^(m_*)w
+has P_bu_0 = χ_∂ρ^(m_*+2)f_(m_*) + ρ²(A − N(A))(χ_∂ρ^(m_*)w) + (smooth, compactly supported), and A − N(A) ∈ ρ Diff_b²,
+so f_2 := f_1 − P_bu_0 has ρ⁻²f_2 ∈ 𝒜^(ℱ_1) with ℱ_1 ⊂ {Re ≥ m_* + ε_Υ}. [[lem:iii-a-1-5]] (formal solutions; on the
+bundle, by the argument given for [[lem:iii-a-1-4]] in the proof of [[lem:iii-d1-5-1]]) with β = 3 gives u_1 ∈ 𝒜^(ℰ_1)
+near ∂X, ℰ_1 ⊂ {Re ≥ m_* + ε_Υ} (its exponents are those of ℱ_1 plus ℕ_0, with logarithms where they meet roots), such
+that f_3 := f_2 − P_b(χ_∂u_1) is smooth on X̄ with ρ⁻²f_3 ∈ 𝒜^𝒢, 𝒢 ⊂ {Re ≥ 3}. Finally u_2 := P_b⁻¹f_3
 ([[lem:iii-d1-5-1]]): u_2 ∈ ⋂_s H̄_b^(s,α) for every α < ι^Υ_(s1,2), and [[lem:iii-a-1-4]] with α just below
 ι^Υ_(s1,2) (no root in between) gives u_2 ∈ 𝒜^(ℰ_2) with ℰ_2 ⊂ {Re ≥ ι^Υ_(s1,2)} ⊂ {Re ≥ m_* + ε_Υ}, as m_* ≤ 2 and
 ι^Υ_(s1,2) − 2 > 2ε_Υ. Then u := u_0 + χ_∂u_1 + u_2. Smoothness in b: w depends smoothly on b (the normal operator
