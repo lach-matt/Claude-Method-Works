@@ -486,3 +486,190 @@ assemble.py --check does not test line length after labels are resolved, so I ch
 assemble.py's own numbering in memory on chapters 40, 41 and 44, every resolved line is at most 121 characters, and no
 wrapped line starts with "+ ", "* ", "> ", "#", "=" or "|". No label was added, so the crosswalks are unchanged and
 the label count stays 4570.
+
+## prop:iii-i15-2-12
+
+This edit was made on top of 14817ece. Only chapters/40-s21-parameters.md changed, and no crosswalk changed because no
+label was added. Nothing is committed. Line numbers are those of the edited file.
+
+### The chain
+
+‖·‖_𝒴 is "the norm of one such space, fixed once and for all" (sec:iii-i7-4, 40:494–495). It is a finite-regularity
+space of the 𝒴 kind on which the bounds of lem:iii-i7-2-5 (c) hold. 𝒴^S_(α,α_+) is "normed in the same way" (40:497).
+Let k be the regularity of these norms. The old (2) (40:586–606) has three bounds of one shape:
+
+- ‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, for the boost parameters;
+- ‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_𝒴 ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, for the parameters Q;
+- |Ṡ_(h,p⃗)(F) − Ṡ_(0,p⃗_b)(F)| ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖_𝒴, and the second term of the bound on Q, which follow from
+  the first two.
+
+In each, u_1 is the forward solution of L_(h,p⃗)u_1 = F_1, bounded by F_1 "through prop:iii-i4-4-1 (1), resp.
+prop:iii-i6-2-1 … (lem:iii-i7-2-5 (c))".
+
+- **(R1′)** L_(h,p⃗) − L_(0,p⃗_b) is a b-differential operator of order 2. So bounding it at regularity k needs u_1 at
+  regularity k + 2. The boost term χ_K h^(≤1)_(b,♮)(Ṡ_1) is smooth and costs only |Ṡ_1|, so the issue is ũ_1.
+- **(R2′)** A forward solution gains at most one derivative. The wave-packet argument of section 1 (R2) applies
+  unchanged. So bounding ũ_1 at regularity k + 2 needs F_1 at regularity at least k + 1. In the paper it needs more:
+  k + 2 plus the loss of lem:iii-i7-2-5 (c).
+- **(R3′)** The bound is stated with ‖F_1‖_𝒴, of regularity k.
+
+So k ≥ k + 1, a contradiction. No finite regularity serves, because a single norm appears on both sides. It is the
+same cycle as in (i) of prop:iii-i8-4-1, collapsed to one level. The statement of prop:iii-i15-2-12 (the
+finite-dimensional bounds, eq:iii-i15-2-8) was never in question: (2) is applied only to the sources f^S_(0,p⃗_b)(S′),
+f^(=0)_(0,p⃗_b) and F_(h,p⃗)(p⃗′^(=0)), which are bounded at every finite regularity.
+
+### The edit (least change, as for (i) of prop:iii-i8-4-1)
+
+- **40:586–594, (2).**
+  - (2) opens by defining ‖·‖^+_𝒴: "the norm of the same kind as ‖·‖_𝒴 at a larger regularity and a smaller ε, in
+    which the bounds of lem:iii-i7-2-5 (c) bound the forward solutions u_1 below at the regularity of ‖·‖_𝒴 plus 2, d
+    being large enough for lem:iii-i7-3-1 (c) in it as well".
+  - In both displayed bounds, the norm multiplying (‖h‖ + |p⃗ − p⃗_b|) becomes ‖·‖^+_𝒴. The term C‖F_1 − F_2‖_𝒴 keeps
+    the fixed norm.
+  - A sentence after "made quantitative" gives the reason: the count reads u_1 two orders above ‖·‖_𝒴, and bounds it
+    by F_1 through a forward solution.
+- **40:601, 604, 607.** The three counts carry ‖F_1‖^+_𝒴 or ‖F‖^+_𝒴. "Its size is at most C‖R‖_𝒴" (40:609) is
+  unchanged, and it is consistent: C‖R‖_𝒴 ≤ C‖F_1 − F_2‖_𝒴 + C(…)‖F_1‖^+_𝒴.
+- **40:618–619, the boost map.** The second term uses ‖f^S_(0,p⃗_b)(S′)‖^+_𝒴 ≤ C|S′| (lem:iii-i7-3-1 (c), at h = 0).
+- **40:630–634, the reduced map.**
+  - F_(h,p⃗) and f^(=0)_(0,p⃗_b) are bounded per unit p⃗′^(=0) in ‖·‖^+_𝒴. This uses lem:iii-i7-3-1 (c) with d large,
+    and the inverse of the boost map, of norm at most 2, which bounds p⃗′^(<0)_(h,p⃗)(0, ·) inside F_(h,p⃗).
+  - The term C(‖h‖ + |p⃗ − p⃗_b|) per unit p⃗′^(=0) of the M-comparison and the A-comparison then hold as written.
+  - The last lines of the proof are reflowed.
+
+The statement of prop:iii-i15-2-12 is unchanged, and so are (1), the boost-map identity and the reduced-map identity.
+I added no sentence to the setting of sec:iii-i7-4, because ‖·‖^+_𝒴 is used nowhere else.
+
+```diff
+diff --git a/research/warp-drive/paper/reader/chapters/40-s21-parameters.md b/research/warp-drive/paper/reader/chapters/40-s21-parameters.md
+index 47f1df67..fbc3bc85 100644
+--- a/research/warp-drive/paper/reader/chapters/40-s21-parameters.md
++++ b/research/warp-drive/paper/reader/chapters/40-s21-parameters.md
+@@ -583,25 +583,28 @@ h-derivative by [[eq:iii-i4-3-1]], the p⃗-derivative by the count of [[eq:iii-
+ in the differences of the metrics, with coefficients smooth in their inverses. The mean value theorem along the segment
+ from (0, p⃗_b) gives the bound.
+ 
+-(2) For F ∈ 𝒴, |Ṡ_(h,p⃗)(F) − Ṡ_(0,p⃗_b)(F)| ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖_𝒴. And for F_1, F_2 ∈ 𝒴 with
+-Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), where alone Q_(h,p⃗) and Q_(0,p⃗_b) are defined,
++(2) Let ‖·‖^+_𝒴 be the norm of the same kind as ‖·‖_𝒴 at a larger regularity and a smaller ε, in which the bounds
++of [[lem:iii-i7-2-5]] (c) bound the forward solutions u_1 below at the regularity of ‖·‖_𝒴 plus 2, d being large
++enough for [[lem:iii-i7-3-1]] (c) in it as well. For F ∈ 𝒴, |Ṡ_(h,p⃗)(F) − Ṡ_(0,p⃗_b)(F)| ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖^+_𝒴.
++And for F_1, F_2 ∈ 𝒴 with Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), where alone Q_(h,p⃗) and Q_(0,p⃗_b) are defined,
+ 
+-    |Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2)| ≤ C‖F_1 − F_2‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴.
++    |Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2)| ≤ C‖F_1 − F_2‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴.
+ 
+-This is the comparison of [[lem:iii-i7-4-1]] made quantitative. Let u_1, u_2 be the forward solutions of
++This is the comparison of [[lem:iii-i7-4-1]] made quantitative. The second norm is not ‖·‖_𝒴: the count below reads
++u_1 two orders above ‖·‖_𝒴, and bounds it by F_1 through a forward solution. Let u_1, u_2 be the forward solutions of
+ L_(h,p⃗)u_1 = F_1 and L_(0,p⃗_b)u_2 = F_2. Then L_(0,p⃗_b)(u_1 − u_2) = R := F_1 − F_2 − (L_(h,p⃗) − L_(0,p⃗_b))u_1. Both
+ backgrounds equal g_b near K⁺ ([[lem:iii-i-3-6]]), so L_(h,p⃗) − L_(0,p⃗_b) has coefficients of K⁺-weight a_K there; at
+ ι⁺ it gains as in the proof of [[lem:iii-i7-4-1]]; and its coefficients have size O(‖h‖ + |p⃗ − p⃗_b|).
+ *The boost parameters.* Fix α ∈ (1, min(a_K − 1, 3/2)) and α_+ ∈ (α, 2). For a general F_1 ∈ 𝒴, u_1 carries a boost
+ term of K⁺-weight −1 − ε, so (L_(h,p⃗) − L_(0,p⃗_b))u_1 has K⁺-weight only a_K − 1 − ε, which may lie below α_K: R need
+ not lie in 𝒴. It lies in 𝒴^S_(α,α_+) of [[sec:iii-i7-4]], by the count of the proof of [[lem:iii-i7-4-1]] (a), with
+-‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, u_1 being bounded by F_1 through
++‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴, u_1 being bounded by F_1 through
+ [[prop:iii-i4-4-1]] (1) for L_(h,p⃗), uniformly ([[lem:iii-i7-2-5]] (c)). With F_1 = F_2 = F, the boost terms of u_1
+ and u_2 are built from the same state at b, so the difference of the boost parameters is Ṡ_(0,p⃗_b)(R), of size at
+-most C‖R‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖_𝒴. *The parameters Q.* Under the condition
++most C‖R‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖^+_𝒴. *The parameters Q.* Under the condition
+ Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), u_1 has no boost term, so it has K⁺-weight −ε and is bounded by F_1 in the space of
+ [[prop:iii-i6-2-1]] for L_(h,p⃗), uniformly; as in the proof of [[lem:iii-i7-4-1]] (b), the K⁺-weight a_K − ε ≥ α_K
+-then gives ‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_𝒴 ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, and R ∈ 𝒴. Also u_1 − u_2 has no boost term,
++then gives ‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_𝒴 ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴, and R ∈ 𝒴. Also u_1 − u_2 has no boost term,
+ so Ṡ_(0,p⃗_b)(R) = 0, and Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2) = Q_(0,p⃗_b)(R), by the uniqueness in the proof of
+ [[lem:iii-i7-4-1]] (b), which uses the injectivity of (ḃ, Ṡ) ↦ ġ_b(ḃ) + h_b(Ṡ). Its size is at most C‖R‖_𝒴.
+ 
+@@ -612,7 +615,8 @@ Hence
+     S^(−1)_(h,p⃗)(S′) − S′ = Ṡ_(h,p⃗)(f^S_(h,p⃗)(S′) − f^S_(0,p⃗_b)(S′)) + (Ṡ_(h,p⃗) − Ṡ_(0,p⃗_b))(f^S_(0,p⃗_b)(S′))
+                             + Ṡ_(0,p⃗_b)(E^mot_b(S′, 0, 0)),
+ 
+-and by (1), (2) and [[lem:iii-i15-2-11]] the three terms are at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S′|.
++and by (1), (2) and [[lem:iii-i15-2-11]] the three terms are at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S′|, as
++‖f^S_(0,p⃗_b)(S′)‖^+_𝒴 ≤ C|S′| ([[lem:iii-i7-3-1]] (c)).
+ 
+ *The reduced map.* At (0, p⃗_b), [[eq:s21-boost-choice]] gives
+ S′_0 := A_(0,p⃗_b)p⃗′^(=0) = −(S^(−1)_(0,p⃗_b))⁻¹Ṡ_(0,p⃗_b)(f^(=0)_(0,p⃗_b)(b′, S″)). By [[eq:iii-i15-2-7]],
+@@ -624,11 +628,13 @@ K⁺-weight −ε > −1, so no boost term, and Q_(0,p⃗_b) of that forcing is
+ 
+ whence |M_(0,p⃗_b) + id| ≤ C|b − b₀|. For (h, p⃗) near (0, p⃗_b), M_(h,p⃗)(p⃗′^(=0)) = Q_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) with
+ Ṡ_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) = 0, and likewise at (0, p⃗_b). So (2), for the pair (F_(h,p⃗), F_(0,p⃗_b)), bounds
+-M_(h,p⃗) − M_(0,p⃗_b) by C‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|) per unit p⃗′^(=0); and (1) bounds
+-‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴, with A_(h,p⃗) − A_(0,p⃗_b) bounded the same way through [[eq:s21-boost-choice]], (1), (2)
+-and the bound on the boost map. This proves the bound on A_(h,p⃗) and [[eq:iii-i15-2-8]], and the Neumann series gives
+-the inverses. The proofs of [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and [[cor:iii-i7-4-6]] below, and the base step of
+-[[prop:iii-i8-4-1]], use, beyond [[lem:iii-i7-2-5]] (c), only these inverses and their bounds. ∎
++M_(h,p⃗) − M_(0,p⃗_b) by C‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|) per unit p⃗′^(=0), F_(h,p⃗) and
++f^(=0)_(0,p⃗_b) being bounded per unit p⃗′^(=0) in ‖·‖^+_𝒴 ([[lem:iii-i7-3-1]] (c), with the inverse of the boost map,
++of norm at most 2); and (1) bounds ‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴, with A_(h,p⃗) − A_(0,p⃗_b) bounded the same way through
++[[eq:s21-boost-choice]], (1), (2) and the bound on the boost map. This proves the bound on A_(h,p⃗) and
++[[eq:iii-i15-2-8]], and the Neumann series gives the inverses. The proofs of [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and
++[[cor:iii-i7-4-6]] below, and the base step of [[prop:iii-i8-4-1]], use, beyond [[lem:iii-i7-2-5]] (c), only these
++inverses and their bounds. ∎
+ 
+ **Lemma {#lem:iii-i7-4-3}** ([Hin26, Lemma 11.43] in dimension 4 + 1.) For (h, p⃗) small as in
+ [[prop:iii-i15-2-12]], with parameter b ∈ ℬ̄_*, f ∈ 𝒴 and p⃗′^(=0) ∈ 𝔟 ⊕ 𝒮_1 there is a unique
+```
+
+### Uses checked
+
+I grepped chapters 39–44, 46 and 71 for prop:iii-i15-2-12 and for ‖·‖_𝒴, and also checked lem:iii-i7-4-1.
+
+**Uses of ‖·‖_𝒴 (all in chapter 40).**
+
+- **40:495 and 497.** These are the definition and 𝒴^S. Unchanged; ‖·‖^+_𝒴 is "of the same kind".
+- **40:580, (1).** This bounds a difference of smooth sources in the fixed norm, with d large, and is correct as it
+  stands. Unchanged.
+- **40:601–609.** Edited, as above.
+- **40:630–634.** Edited, as above.
+
+**Uses of prop:iii-i15-2-12 that use only its statement, so the change does not touch them.**
+
+- **Chapter 40:** 40:65, 77, 447, 540, 634–692 (lem:iii-i7-4-3 for invertibility and the bound on A,
+  lem:iii-i7-4-5, cor:iii-i7-4-6) and 1143 (the base of prop:iii-i8-4-1).
+- **Chapters 41 and 42:** 41:66 and 42:1019, where it shrinks the ball.
+- **Chapter 43:** 43:213 and 43:377, the inventory.
+- **Chapter 44:** 44:32, 51, 115, 437, 507, 509, 539, 602, 643, 646 and 667, which cite the direct bounds and the
+  constants uniform in b.
+
+**40:948 and 40:974–977, lem:iii-i8-3-1.** This says that the proof of prop:iii-i15-2-12, with its bound of the
+difference of operators applied to the solution, holds with 𝒴(α_0) in place of 𝒴, "unchanged". Read with ‖·‖_𝒴 and
+‖·‖^+_𝒴 as norms of 𝒴(α_0), it stays true. No edit.
+
+**lem:iii-i7-4-1 (40:500–538).** The change does not touch it. Its proof uses neither ‖·‖_𝒴 nor (2). It is correct
+when "F_j → F in 𝒴" is read in the Fréchet topology, which is what its only use provides (the base of
+prop:iii-i8-4-1 (ii), where F_j → F in 𝒴(α_0)). It would have the same shape only if the sentence "Forcings converge
+in the finite-regularity spaces …" (40:493–494) were taken to mean convergence in ‖·‖_𝒴 alone. I report this and did
+not edit it.
+
+**prop:iii-i15-2-8 (39:873–923).** This is the matching boost bound in chapter 39. It already does what the repair
+does. It reads the solution "at the regularity k_1 + 2 that Π_b needs, as d ≥ k_1 + d_T + 7", bounds Π_b on that
+space, and measures the smooth source f_(0,0;b)(S′) in an unnamed norm. No edit.
+
+**Chapter 46.** There is no citation of prop:iii-i15-2-12 or of ‖·‖_𝒴, so there is nothing to change.
+
+**Chapter 71.**
+
+- There is no citation of prop:iii-i15-2-12 or of ‖·‖_𝒴, so no loss moves.
+- The proof file proofs/P-U71-small.md (lem:uc-small-orders (c)) already reads "the counts … of (2) of the proof of
+  prop:iii-i15-2-12, with u bounded", with the norms of sec:iii-i7-4 at regularities ≤ 2R_base + 2.
+- reg ‖·‖^+_𝒴 ≤ reg ‖·‖_𝒴 + 2 + (the loss of the forward solution of a base, ≤ R_base), and reg ‖·‖_𝒴 ≤ R_base by
+  that file's own count. So reg ‖·‖^+_𝒴 ≤ 2R_base + 2.
+- Hence 2R_base + 16, D_*, D′_* and the bounds on d_NM stand. The new norm enters only as a bound on data, not as a
+  smallness condition.
+
+No statement changes in substance.
+
+### Check outputs
+
+After this edit, run from research/warp-drive/paper/reader:
+
+    $ python3 lint.py --chapters
+    chapters: 62 file(s), 4570 label(s) defined, 0 hit(s)
+
+    $ python3 assemble.py --check
+    labels 4570, computations cited 0, problems 0
+
+Using assemble.py's numbering in memory on chapter 40, every line resolves to at most 121 characters, and no wrapped
+line starts with a forbidden marker.

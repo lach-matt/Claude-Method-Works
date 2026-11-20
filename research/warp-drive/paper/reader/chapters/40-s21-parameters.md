@@ -583,25 +583,28 @@ h-derivative by [[eq:iii-i4-3-1]], the p⃗-derivative by the count of [[eq:iii-
 in the differences of the metrics, with coefficients smooth in their inverses. The mean value theorem along the segment
 from (0, p⃗_b) gives the bound.
 
-(2) For F ∈ 𝒴, |Ṡ_(h,p⃗)(F) − Ṡ_(0,p⃗_b)(F)| ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖_𝒴. And for F_1, F_2 ∈ 𝒴 with
-Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), where alone Q_(h,p⃗) and Q_(0,p⃗_b) are defined,
+(2) Let ‖·‖^+_𝒴 be the norm of the same kind as ‖·‖_𝒴 at a larger regularity and a smaller ε, in which the bounds
+of [[lem:iii-i7-2-5]] (c) bound the forward solutions u_1 below at the regularity of ‖·‖_𝒴 plus 2, d being large
+enough for [[lem:iii-i7-3-1]] (c) in it as well. For F ∈ 𝒴, |Ṡ_(h,p⃗)(F) − Ṡ_(0,p⃗_b)(F)| ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖^+_𝒴.
+And for F_1, F_2 ∈ 𝒴 with Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), where alone Q_(h,p⃗) and Q_(0,p⃗_b) are defined,
 
-    |Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2)| ≤ C‖F_1 − F_2‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴.
+    |Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2)| ≤ C‖F_1 − F_2‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴.
 
-This is the comparison of [[lem:iii-i7-4-1]] made quantitative. Let u_1, u_2 be the forward solutions of
+This is the comparison of [[lem:iii-i7-4-1]] made quantitative. The second norm is not ‖·‖_𝒴: the count below reads
+u_1 two orders above ‖·‖_𝒴, and bounds it by F_1 through a forward solution. Let u_1, u_2 be the forward solutions of
 L_(h,p⃗)u_1 = F_1 and L_(0,p⃗_b)u_2 = F_2. Then L_(0,p⃗_b)(u_1 − u_2) = R := F_1 − F_2 − (L_(h,p⃗) − L_(0,p⃗_b))u_1. Both
 backgrounds equal g_b near K⁺ ([[lem:iii-i-3-6]]), so L_(h,p⃗) − L_(0,p⃗_b) has coefficients of K⁺-weight a_K there; at
 ι⁺ it gains as in the proof of [[lem:iii-i7-4-1]]; and its coefficients have size O(‖h‖ + |p⃗ − p⃗_b|).
 *The boost parameters.* Fix α ∈ (1, min(a_K − 1, 3/2)) and α_+ ∈ (α, 2). For a general F_1 ∈ 𝒴, u_1 carries a boost
 term of K⁺-weight −1 − ε, so (L_(h,p⃗) − L_(0,p⃗_b))u_1 has K⁺-weight only a_K − 1 − ε, which may lie below α_K: R need
 not lie in 𝒴. It lies in 𝒴^S_(α,α_+) of [[sec:iii-i7-4]], by the count of the proof of [[lem:iii-i7-4-1]] (a), with
-‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, u_1 being bounded by F_1 through
+‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴, u_1 being bounded by F_1 through
 [[prop:iii-i4-4-1]] (1) for L_(h,p⃗), uniformly ([[lem:iii-i7-2-5]] (c)). With F_1 = F_2 = F, the boost terms of u_1
 and u_2 are built from the same state at b, so the difference of the boost parameters is Ṡ_(0,p⃗_b)(R), of size at
-most C‖R‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖_𝒴. *The parameters Q.* Under the condition
+most C‖R‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖^+_𝒴. *The parameters Q.* Under the condition
 Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), u_1 has no boost term, so it has K⁺-weight −ε and is bounded by F_1 in the space of
 [[prop:iii-i6-2-1]] for L_(h,p⃗), uniformly; as in the proof of [[lem:iii-i7-4-1]] (b), the K⁺-weight a_K − ε ≥ α_K
-then gives ‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_𝒴 ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, and R ∈ 𝒴. Also u_1 − u_2 has no boost term,
+then gives ‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_𝒴 ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴, and R ∈ 𝒴. Also u_1 − u_2 has no boost term,
 so Ṡ_(0,p⃗_b)(R) = 0, and Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2) = Q_(0,p⃗_b)(R), by the uniqueness in the proof of
 [[lem:iii-i7-4-1]] (b), which uses the injectivity of (ḃ, Ṡ) ↦ ġ_b(ḃ) + h_b(Ṡ). Its size is at most C‖R‖_𝒴.
 
@@ -612,7 +615,8 @@ Hence
     S^(−1)_(h,p⃗)(S′) − S′ = Ṡ_(h,p⃗)(f^S_(h,p⃗)(S′) − f^S_(0,p⃗_b)(S′)) + (Ṡ_(h,p⃗) − Ṡ_(0,p⃗_b))(f^S_(0,p⃗_b)(S′))
                             + Ṡ_(0,p⃗_b)(E^mot_b(S′, 0, 0)),
 
-and by (1), (2) and [[lem:iii-i15-2-11]] the three terms are at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S′|.
+and by (1), (2) and [[lem:iii-i15-2-11]] the three terms are at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S′|, as
+‖f^S_(0,p⃗_b)(S′)‖^+_𝒴 ≤ C|S′| ([[lem:iii-i7-3-1]] (c)).
 
 *The reduced map.* At (0, p⃗_b), [[eq:s21-boost-choice]] gives
 S′_0 := A_(0,p⃗_b)p⃗′^(=0) = −(S^(−1)_(0,p⃗_b))⁻¹Ṡ_(0,p⃗_b)(f^(=0)_(0,p⃗_b)(b′, S″)). By [[eq:iii-i15-2-7]],
@@ -624,11 +628,13 @@ K⁺-weight −ε > −1, so no boost term, and Q_(0,p⃗_b) of that forcing is 
 
 whence |M_(0,p⃗_b) + id| ≤ C|b − b₀|. For (h, p⃗) near (0, p⃗_b), M_(h,p⃗)(p⃗′^(=0)) = Q_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) with
 Ṡ_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) = 0, and likewise at (0, p⃗_b). So (2), for the pair (F_(h,p⃗), F_(0,p⃗_b)), bounds
-M_(h,p⃗) − M_(0,p⃗_b) by C‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|) per unit p⃗′^(=0); and (1) bounds
-‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴, with A_(h,p⃗) − A_(0,p⃗_b) bounded the same way through [[eq:s21-boost-choice]], (1), (2)
-and the bound on the boost map. This proves the bound on A_(h,p⃗) and [[eq:iii-i15-2-8]], and the Neumann series gives
-the inverses. The proofs of [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and [[cor:iii-i7-4-6]] below, and the base step of
-[[prop:iii-i8-4-1]], use, beyond [[lem:iii-i7-2-5]] (c), only these inverses and their bounds. ∎
+M_(h,p⃗) − M_(0,p⃗_b) by C‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|) per unit p⃗′^(=0), F_(h,p⃗) and
+f^(=0)_(0,p⃗_b) being bounded per unit p⃗′^(=0) in ‖·‖^+_𝒴 ([[lem:iii-i7-3-1]] (c), with the inverse of the boost map,
+of norm at most 2); and (1) bounds ‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴, with A_(h,p⃗) − A_(0,p⃗_b) bounded the same way through
+[[eq:s21-boost-choice]], (1), (2) and the bound on the boost map. This proves the bound on A_(h,p⃗) and
+[[eq:iii-i15-2-8]], and the Neumann series gives the inverses. The proofs of [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and
+[[cor:iii-i7-4-6]] below, and the base step of [[prop:iii-i8-4-1]], use, beyond [[lem:iii-i7-2-5]] (c), only these
+inverses and their bounds. ∎
 
 **Lemma {#lem:iii-i7-4-3}** ([Hin26, Lemma 11.43] in dimension 4 + 1.) For (h, p⃗) small as in
 [[prop:iii-i15-2-12]], with parameter b ∈ ℬ̄_*, f ∈ 𝒴 and p⃗′^(=0) ∈ 𝔟 ⊕ 𝒮_1 there is a unique
