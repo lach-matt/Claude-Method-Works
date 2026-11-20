@@ -275,3 +275,135 @@ the square of its space-time norm is the integral, over the second foliation, of
 hypersurfaces, which the slice estimates of [[lem:class-leaf-differences]] and [[lem:class-leaf-arc]] control. This is
 (M1) and (M2); the fixed-time hypotheses (F1) and (F2) would ask for bounds on each slice {t = t̄} itself, which the slice
 estimates do not give. [[thm:class-kato-memory]] uses only (M0)–(M2).
+
+### Block B. Further dust families at the axes (chapter 83)
+
+The text of this block is a new section of [[ch:localised-data]], placed after the section on perturbations that reach
+the axes; the Placement section gives the position.
+
+### Further dust families at the axes {#sec:loc-t5}
+
+The developments of the preceding sections carry two dust families adapted to the cones, with the phases v and u, and
+further families only where their densities vanish near the points at which a cone meets an axis. This section admits
+further families whose densities are nonzero at such points. At an axis the gradient of every phase of the class is a
+multiple of dv or of du ([[lem:class-phase-axis]]), so a further family meets the axis generator of each cone in one of
+two ways: it *crosses* the cone there, transversally, or it is *tangent* to it, its rays running in the cone. A family
+crosses one cone along its axis generator and is tangent to the other ([[lem:loc-t5-dichotomy]]). We prove the
+development for any number of families that carry density only where they cross a cone and not at the corner circles
+of the axes ([[thm:loc-t5]]), and, for families that carry density where they are tangent to a cone, a development on a
+region that avoids the axis near the points concerned ([[prop:loc-t5-cut]]). The closure of the expansion at an axis
+needs, for each family, the leaves of its own null hypersurfaces; we compute them, for each family, on the slices of a
+time function of its own, whose sections of the cones are that family's sections, and we bend the evolution time so
+that every arc used lies in the past of its end point. The forcing term then has a memory, and the Cauchy problem is
+solved by [[thm:class-kato-memory]].
+
+*The construction of the preceding section.* We use the following objects of the development of data that reach the
+axes [[pending:t3-setting]]: a rectangle Q1 = [0, u1] × [0, v1] of the double-null coordinates (u, v) of the background,
+with Q1^η := [0, u1 + η] × [0, v1 + η] in the set where the background is defined; a chart time τ0 = Φ(u, v) with
+Φ_u, Φ_v > 0 on Q1^η and a number s* with max_(Q1) τ0 < s* and F ∩ {τ0 ≤ s*} ⊂ Q1^η, F := {u ≥ 0, v ≥ 0} and P its
+complement; a G-equivariant chart x of the slices of τ0, in which class metrics near the background are smooth; the data
+extended past u1 and v1 to the faces of Q1^η, with the constraints solved along the extension; the formal solution Û,
+a smooth G-invariant state equal to the background state Ů on {τ0 ≤ τ_init}, τ_init < Φ(0, 0), carrying the formal jets
+on ∂F := (𝒞_out ∪ 𝒞_in) ∩ Q1^η, with ‖Û − Ů‖_(C^(k+3)) ≤ C ε; its metric Ĝ as the reference of the wave gauge; and a
+space-time cut-off ξ with ξ = 1 on a neighbourhood of F ∩ {τ0 ≤ s*}, of the strip of P along ∂F ∩ {τ0 ≤ s*} and of
+∂F ∩ supp(Û − Ů) ∩ {τ0 ≤ s*}. Here k ≥ 6 and m ≥ m0(k) are the orders of that construction, ε is the size of the data
+in C^m, and constants C depend on the background, Q1, η, s* and k.
+
+#### Further families and their type at an axis {#sec:loc-t5-families}
+
+**Definition {#def:loc-t5-family}** (Further families.) A *further family* A ∈ {3, …, N_f} is given by a smooth
+G-invariant eikonal ů_A of the background g0 without caustics on a neighbourhood 𝒩 of Q1^η × S³, with g0⁻¹dů_A future
+directed, and by data on ∂F: a phase U_A and a density q_A ≥ 0, smooth and G-invariant on each face, with U_A − ů_A and
+q_A of size at most ε in C^m. The family *crosses* 𝒞_out at a point where g0⁻¹(du, dů_A) ≠ 0, and 𝒞_in where
+g0⁻¹(dv, dů_A) ≠ 0; the open sets of the faces where it crosses are its *crossing sets*. Let 𝒦_A := supp q_A ⊂ ∂F. The
+data satisfy:
+
+(F-a) 𝒦_A does not meet a neighbourhood, in ∂F, of the circles S ∩ (axis 1 ∪ axis 2) in which the corner sphere S
+meets the axes;
+(F-b) every point of 𝒦_A ∩ 𝒞_out lies in the crossing set of 𝒞_out, and every point of 𝒦_A ∩ 𝒞_in in that of 𝒞_in;
+(F-c) at the points of 𝒦_A ∩ S the transverse derivatives of the phase and the density computed on the two faces agree
+([[lem:loc-t5-jets]]).
+
+The family is of *ingoing type* at axis i if dů_A is a multiple of dv at the points of axis i in 𝒩, and of *outgoing type*
+if it is a multiple of du there. Its *tangency set* at axis i is the closed axis generator 𝒞_in ∩ axis i ∩ Q1^η in the
+first case and 𝒞_out ∩ axis i ∩ Q1^η in the second; it contains the corner circle S ∩ axis i.
+
+**Lemma {#lem:loc-t5-dichotomy}** (Crossing and tangency at the axes.) Let 𝒩 ∩ axis i be connected. A further family is
+of ingoing type or of outgoing type at axis i. If it is of ingoing type, it crosses 𝒞_out at every point of its axis-i
+generator, and at the points of its tangency set g0⁻¹(dv, dů_A) = 0, the rays of ů_A through them being the generators
+of 𝒞_in on the axis; likewise for outgoing type with the faces exchanged. So by (F-b) a further family carries density at
+a point where a cone meets an axis only if it crosses that cone there, and its density vanishes on a neighbourhood of its
+tangency sets in ∂F.
+
+*Proof.* At a point of axis i, dů_A lies in span(du, dv) by [[lem:class-phase-axis]] and is null and nonzero, so it is a
+multiple of du or of dv, g0⁻¹(du, du) = g0⁻¹(dv, dv) = 0 and g0⁻¹(du, dv) ≠ 0 being the only possibilities on that span.
+The two lines meet only at 0, and dů_A is continuous and nonzero on the connected set 𝒩 ∩ axis i, so it stays on one
+line. For ingoing type, g0⁻¹(du, dů_A) = λ g0⁻¹(du, dv) ≠ 0 at the axis points of 𝒞_out, and g0⁻¹(dv, dů_A) = λ
+g0⁻¹(dv, dv) = 0 at those of 𝒞_in; there g0⁻¹dů_A is a multiple of g0⁻¹dv, which is tangent to the axis and to 𝒞_in, and
+its integral curves are the generators of 𝒞_in in the axis. The last claim: 𝒦_A is closed, contains no point of the
+compact tangency set by (F-b), and so has positive distance from it. ∎
+
+So the tangency sets are exactly where a family meets a cone with the cone's own orientation, the case in which two
+families are not angularly separated at the axis ([[prop:class-separation]] (c)).
+
+**Lemma {#lem:loc-t5-tubes}** (The tubes avoid the tangency sets.) Let A be a further family and 𝒦′ ⊂ ∂F a compact
+G-invariant set that satisfies (F-a) and (F-b). There are a neighbourhood 𝒲 of the tangency sets of A in Q1^η × S³ and
+ε_t > 0 such that, for every smooth future causal vector field P within ε_t of g0⁻¹dů_A in C⁰ on Q1^η × S³, no integral
+curve of P from a point of 𝒦′ into F meets 𝒲 ∩ F.
+
+*Proof.* Let p lie in the tangency set at axis i, of ingoing type say; then p = (u_p, 0) on the axis, u_p ∈ [0, u1 + η].
+By [[lem:loc-t5-dichotomy]] the integral curve of P̊ := g0⁻¹dů_A through p, followed backwards, is the axis generator of
+𝒞_in; it reaches the corner circle and then, past it, points with u < 0 in the neighbourhood of Q1^η where the background
+is defined, after a parameter length bounded uniformly in u_p. On future causal vectors du and dv are nonnegative, so
+along a future causal curve u and v do not decrease, a curve that starts in F stays in F, and a point x of F lies on a
+curve from a point of 𝒦′ exactly when the backward curve through x leaves F through a point of 𝒦′. By continuous
+dependence on the initial point and on the field on a compact parameter interval, for x near p and P near P̊ in C⁰ the
+backward curve through x stays within any given distance of the backward curve through p until it reaches u < 0, so it
+leaves F at a point of ∂F near the closed segment of the axis generator of 𝒞_in from p to the corner circle: a point of
+𝒞_in near its axis generator, or a point of 𝒞_out near the corner circle. Neither is in 𝒦′, by (F-b) and
+[[lem:loc-t5-dichotomy]] on 𝒞_in and by (F-a) on 𝒞_out. Compactness of the tangency set gives 𝒲 and ε_t. ∎
+
+The hypothesis (F-a) cannot be weakened to the vanishing of the density on the corner circles alone: a family of ingoing
+type at axis i whose density is nonzero at points of 𝒞_out arbitrarily close to the corner circle has, by the proof
+above, integral curves that come arbitrarily close to its tangency set on 𝒞_in.
+
+*Carrying a family near its tube.* For a further family A let 𝒦_A′ ⊂ ∂F be a compact G-invariant neighbourhood of 𝒦_A in
+∂F satisfying (F-a) and (F-b), let 𝒯̊_A be the union of the integral curves of P̊_A := g0⁻¹dů_A in F ∩ Q1^η from 𝒦_A′,
+and let ξ_A be a smooth G-invariant function on space-time, equal to 1 on a neighbourhood of 𝒯̊_A and of 𝒦_A′ in ∂F,
+whose support meets ∂F only in the crossing sets and does not meet the set 𝒲 of [[lem:loc-t5-tubes]] for 𝒦′ := 𝒦_A′;
+this is possible since 𝒯̊_A ∩ ∂F = 𝒦_A′ (a curve from a point of 𝒞_out into F does not meet 𝒞_in again, and conversely)
+and by [[lem:loc-t5-tubes]]. In the system below the transports (Aug2)–(Aug4) of family A are multiplied by ξ_A and
+completed by (1 − ξ_A) A^0(Ů) ∂_τ of the difference from the background's family A, (dů_A, □_(g0) ů_A, 0), as 𝔄_ξ does
+for the whole system. Family A enters the other equations only through q_A, which vanishes off its tube as long as the
+tube lies in {ξ_A = 1}. The phase data of family A near its tangency sets, where the face is characteristic for it and
+the jets of its phase on the face are not determined without further conditions, are then never used.
+
+**Lemma {#lem:loc-t5-jets}** (Cone data and jets with further families.) (a) The constraints of [[prop:loc-cones]] on
+𝒞_out and of [[lem:loc-cone-in]] on 𝒞_in, with the stress T := q_in dv ⊗ dv + q_out du ⊗ du + Σ_A q_A du_A ⊗ du_A, are
+linear ordinary differential equations along the generators, axis generators included, whose further sources on 𝒞_out
+are T(∂_v, ∂_v) − q_in = Σ_A q_A (∂_v U_A)² and T(∂_v, ∂_ϑ) = Σ_A q_A ∂_v U_A ∂_ϑ U_A, and on 𝒞_in T(∂_u, ∂_u) − q_out =
+Σ_A q_A (∂_u U_A)²; the solutions equal the background's on every generator on which the free data, q_in, q_out and all
+q_A equal the background's.
+
+(b) Near every point of the crossing set of 𝒞_out the transverse derivatives ∂_u^j u_A, ∂_u^j Θ_A and ∂_u^j q_A on 𝒞_out of
+a solution with the data are determined recursively, as smooth functions on the face, by the eikonal equation, the
+Raychaudhuri equation and the transport (Aug4), from the derivatives of the metric functions of order at most j and the
+tangential derivatives of the data; at order j the derivatives of order j of the further families enter the jets of the
+metric of order j + 1 only. The same holds on 𝒞_in with u and v exchanged.
+
+*Proof.* (a) On 𝒞_out, ∂_v u_A = ∂_v U_A and ∂_ϑ u_A = ∂_ϑ U_A are tangential, and dv(∂_v) = du(∂_v) = du(∂_ϑ) = dv(∂_ϑ) = 0,
+which gives the sources. They are smooth invariant functions on the face, and T(∂_v, ·) restricted to the sections is a
+smooth invariant 1-form, ∂_ϑ U_A being odd at the axis generators. With these sources the proof of [[prop:loc-cones]] and
+of [[lem:loc-cone-in]], through the axis generators [[pending:t3-cone-data]], applies unchanged: the sources are known on
+the face and enter the two equations as inhomogeneous terms. (b) In the double-null form [[eq:loc-double-null]],
+g^(uu) = g^(uϑ) = g^(vv) = 0, so on 𝒞_out the eikonal equation reads 2g^(uv) ∂_u u_A ∂_v U_A + 2g^(vϑ) ∂_v U_A ∂_ϑ U_A +
+g^(ϑϑ) (∂_ϑ U_A)² = 0, linear in ∂_u u_A with the coefficient 2g^(uv) ∂_v U_A = 2g⁻¹(du, du_A), nonzero on the crossing
+set; applying ∂_u^(j−1) gives ∂_u^j u_A linearly with the same coefficient. Likewise P_A(q_A) = −Θ_A q_A and
+P_A(Θ_A) = −|∇²u_A|² − Ric(P_A, P_A) are linear in ∂_u q_A and ∂_u Θ_A with the coefficient P_A^u = g^(uv) ∂_v U_A. The
+Ricci tensor of order j in u-derivatives of the metric is a source T of order j − 1 in those of q_A and of order j in
+those of u_A, which order j − 1 of the metric and order j of u_A determine. So the recursion of [[lem:loc-cone-jets]],
+through the axis generators [[pending:t3-jets]], with these equations added, determines all jets. ∎
+
+On the crossing sets near 𝒦_A the jets of family A are therefore smooth, also at the axis generators of the cone it
+crosses; with (F-c) at S, [[lem:loc-cone-borel]] extends them, and the formal solution Û carries family A on a
+neighbourhood of 𝒦_A′, with q̂_A supported near 𝒦_A and ξ_A = 1 there. We take Û so, with ‖Û − Ů‖_(C^(k+3)) ≤ C ε.
