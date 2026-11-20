@@ -145,18 +145,18 @@ roots, and their real parts exceed 2 > α. (F1) writes ℰ as (2, 0) ∪ (2 + �
 so (𝔡₀, 0) and (𝔡₁, 0) lie in that ℰ_ind, which is part of the union ℰ_ind of [[sec:uc-index-sets]]. ∎
 
 **Remark {#rem:uc-offset-d0}** (The offset 𝔡₀ as an increment.) [[rem:gap-sums]] lets 𝔡₀ enter Λ through the increment
-1 + 𝔡₀ only, and [[prop:gap-sums]] shows that the windows of (G) are then not met by the sums it considers for ε_K <
-5.019·10⁻⁸. For ℰ_ind as the proof of [[prop:iii-d2-3-1]] constructs it, 𝔡₀ and 𝔡₁ are exponents: (F1) there, with k = 2,
-takes the boundary spectrum above a weight in (2 − ε_Υ, 2), at every type ([[cor:uc-two-offsets]] (b)). So with ℰ_ind as
-constructed, (G) fails at every ε_K ≥ 1.6417·10⁻¹⁴ ([[cor:uc-two-offsets]]). Whether a smaller admissible ℰ_ind omits 𝔡₀
-is not decided by this paper; [[thm:is-d0]] reduces it to the vanishing of one family of coefficients. The root
-ι^Υ_(s0,2) = 2 + 𝔡₀ of (□^Υ_b)^(0) lies above the weights in (0, ι^Υ_(s1,2)) at which [[prop:iii-d2-3-1]] solves for the
-corrections of the states, and these corrections start at the order (2, 0), so a smaller admissible ℰ_ind keeps the
-exponent 𝔡₀ wherever a term at that root has a nonzero coefficient. At b₀ the operator commutes with the rotations, and
-the corrections of the states of types s1 and v1 do not meet the roots of type s0. At a rotating b the metric couples the
-angular types at the order |x|⁻³ ([[eq:iii-d2-2-2]]), and ℰ_ind is one index set serving at every b near b₀. So (G) at an
-ε_K ≥ 1.6417·10⁻¹⁴ needs a smaller admissible ℰ_ind ∪ ℰ^ι_ind that omits 𝔡₀ or 𝔡₁; omitting 𝔡₀ means the vanishing of
-these coefficients at every b near b₀.
+1 + 𝔡₀ only, and [[prop:gap-sums]] shows that the windows of (G) are then not met by the sums it considers for
+ε_K < 5.019·10⁻⁸. For ℰ_ind as the proof of [[prop:iii-d2-3-1]] constructs it, 𝔡₀ and 𝔡₁ are exponents: (F1) there,
+with k = 2, takes the boundary spectrum above a weight in (2 − ε_Υ, 2), at every type ([[cor:uc-two-offsets]] (b)). So
+with ℰ_ind as constructed, (G) fails at every ε_K ≥ 1.6417·10⁻¹⁴ ([[cor:uc-two-offsets]]). Whether a smaller
+admissible ℰ_ind omits 𝔡₀ is not decided by this paper; [[thm:is-d0]] reduces it to the vanishing of one family of
+coefficients. The root ι^Υ_(s0,2) = 2 + 𝔡₀ of (□^Υ_b)^(0) lies above the weights in (0, ι^Υ_(s1,2)) at which
+[[prop:iii-d2-3-1]] solves for the corrections of the states, and these corrections start at the order (2, 0), so a
+smaller admissible ℰ_ind keeps the exponent 𝔡₀ wherever a term at that root has a nonzero coefficient. At b₀ the
+operator commutes with the rotations, and the corrections of the states of types s1 and v1 do not meet the roots of
+type s0. At a rotating b the metric couples the angular types at the order |x|⁻³ ([[eq:iii-d2-2-2]]), and ℰ_ind is one
+index set serving at every b near b₀. So (G) at an ε_K ≥ 1.6417·10⁻¹⁴ needs a smaller admissible ℰ_ind ∪ ℰ^ι_ind that
+omits 𝔡₀ or 𝔡₁; omitting 𝔡₀ means the vanishing of these coefficients at every b near b₀.
 
 #### The loss of the inverse of the transition face model {#sec:uc-ltf}
 
