@@ -71,10 +71,11 @@ part at most 5 is simple ([[lem:ec-lb-ind]], [[prop:tr-eps]], [[prop:tr-inputs]]
 (ii) (*the lower bounds*) every ε_K with which (G) holds satisfies ε_K ≤ μ(h) ≤ μ_G, and every admissible choice of the
 weights gives d_NM ≥ d_acc > 2.0517·10¹⁰/μ(h) and N_NM > 4.3085·10¹¹/μ(h), which exceed 1.2498·10²⁴ and 2.6245·10²⁵;
 
-(iii) (*the upper bounds*) if (R_h) holds, then 0 < μ(h) ≤ μ_G, N_Λ ≤ N̄(h) < 4.961·10¹⁴ + 1.0155·10¹²h^(−1/2), and,
-for any ε_K, ε_+ with 0 < ε_K < ε_+ < min(μ(h), 10⁻¹³), the choices of [[def:uc-choice]] with these ε_K and ε_+ and of
-[[def:cs-choices]] are admissible and give d_acc ≤ d_R ≤ D_acc, d_NM ≤ D_NM and N_NM ≤ 21D_NM + 6, where D_acc and D_NM
-are those of [[prop:uc-dependence]] at N̄_Λ := N̄(h), k̄_0 := 3, J_* := 15,000,015 and l_* := 50.
+(iii) (*the upper bounds*) if (R_h) holds, then 0 < μ(h) ≤ μ_G and N_Λ ≤ N̄(h) < 4.961·10¹⁴ + 1.0155·10¹²h^(−1/2); and
+for any ε_K, ε_+ with 0 < ε_K < ε_+ < min(μ(h), 10⁻¹³), the choice of [[def:uc-choice]] with these ε_K and ε_+, and that
+of [[def:cs-choices]], is admissible, and d_acc ≤ d_R ≤ D_acc, d_NM ≤ D_NM and N_NM ≤ 21D_NM + 6, with D_acc and D_NM of
+[[prop:uc-dependence]] at k̄_0 := 3, J_* := 15,000,015, l_* := 50 and N̄_Λ := max(N̄(h), N₁), N₁ the least integer with
+3,060,003,264N₁ > I_base + 22,083.
 
 The lower bounds of (ii) hold at every h ∈ (0, 10⁻⁶] at which the parameter point (h, 1/100, 1/100) is admissible,
 whether or not h ∈ 𝖩 and whether or not h ≥ h_m; at h = 10⁻⁶, μ(h) = μ_Z and they are those of [[cor:is-lower]].
@@ -595,11 +596,14 @@ the real part 2.514 of [[prop:is-lambda]] replaced by 2.1. [[prop:is-count]] (b)
 with k̄_0 = 3, η_0 = 𝔡₁, J_* = 15,000,015 and l_* = 50: they read the exponents of ℰ_ind ∪ ℰ^ι_ind below 3/2 and the
 orders and multiplicities of (i) ([[prop:tr-inputs]] (a), (d)), and the rows of type s1 that the generator 1 + 𝒵 adds
 have real part equal to that of a root ι ≠ 2 of P_1, which exceeds 2 + 3e ([[lem:tr-small]] (a)), so that the part of
-real part below 2 is unchanged. In [[lem:uc-admissible]], (G) and (G⁺) hold, as ε_K < ε_+ < μ(h) ([[prop:tr-lambda]]
-(b)); ε_ind(h) ≥ ε_Υ ([[prop:tr-eps]] (a)) allows ε_ind := min(1, ε_ind(h)) ≥ ε_Υ, so ε_g = ε_Υ and Δτ_0 = 0.999ε_Υ
-as at the computational point, and 0 < ε_K < ε_+ < 10⁻¹³ < ε_Υ ≤ ε_ind meets the constants of [[eq:iii-i9-1-1]]; η_1 and
-η_2 can be chosen, as Λ ∩ {Re ≤ 3 + ε_+} is finite; and every other step of that proof uses the index sets and choices
-that do not involve h. Of the other statements of [[sec:ec-gap-sums]]–[[sec:cs-small]] that the proofs of
+real part below 2 is unchanged. The proof of [[lem:uc-admissible]] applies at h with these ε_K and ε_+: (G) and (G⁺)
+hold, as ε_K < ε_+ < μ(h) ([[prop:tr-lambda]] (b)); ε_ind(h) ≥ ε_Υ ([[prop:tr-eps]] (a)) allows ε_ind := min(1,
+ε_ind(h)) ≥ ε_Υ, so ε_g = ε_Υ, and 0 < ε_K < ε_+ < 10⁻¹³ < ε_Υ ≤ ε_ind meets the constants of [[eq:iii-i9-1-1]]; η_1 and
+η_2 exist, as Λ ∩ {Re ≤ 4} is finite; α can be taken with 0.999ε_K ≤ α − 4 ≤ ε_K, off finitely many values; and every
+other step uses the index sets and choices that do not involve h. So the hypotheses of [[prop:ec-upper]] and of
+[[eq:ec-upper-counts]] hold with Δβ_0 = 0.999²ε_K and Δτ_0 = 0.999ε_Υ, and [[lem:uc-lambda]] (c) holds with N̄_Λ, k̄_0 =
+3, J_* and l_* as stated; for N̄_Λ ≥ N₁, 4k̄_max + 24 = 4·765,000,816N̄_Λ + 36 > I_base + 22,119, the inequality that
+[[prop:uc-dependence]] supposes. Of the other statements of [[sec:ec-gap-sums]]–[[sec:cs-small]] that the proofs of
 [[thm:uc-integer]] and [[prop:uc-dependence]] use, [[prop:gap-sums]], [[lem:ec-gauge-gap]], [[prop:is-ind]],
 [[thm:is-d0]], [[cor:is-flat]] and [[lem:uc-two-offsets]] concern numbers fixed by (γ_Υ, e_Υ); [[prop:is-ci-pp]] uses
 ℰ^ι_ind below the real part 1.5099, which by [[prop:tr-inputs]] (a) is that of ℰ_ind with the exponent 1;
@@ -608,8 +612,9 @@ charges are closed forms in the weights and the counts, the forward loss, which 
 ([[lem:fwd-orders]]), ℓ_tf = 1 ([[prop:uc-ltf]]), d_BG = 11 ([[prop:uc-dbg]]) and the free choices of
 [[def:cs-choices]], of which (a) uses ϑ_ℋ < ϑ_L + δ with ϑ_L = max(0, 2 − 2a_vγ_Cr_h) < 2 at every γ_C, and (f) the
 interval (2, 2 + ε_g − 2ε) with ε_g = ε_Υ; and the proof of [[lem:cs-fourier]] (b) uses ε_ind > ε_K and the reality of
-the elements of Λ of real part at most 2 + ε_K, which [[prop:tr-lambda]] (a) gives. So [[prop:uc-dependence]] applies at
-h with N̄_Λ := N̄(h), k̄_0 = 3, J_* = 15,000,015 and l_* = 50, and gives the bounds. ∎
+the elements of Λ of real part at most 2 + ε_K, which [[prop:tr-lambda]] (a) gives. So the proof of
+[[prop:uc-dependence]] applies at h with N̄_Λ := max(N̄(h), N₁), k̄_0 = 3, J_* = 15,000,015 and l_* = 50, and gives the
+bounds. ∎
 
 #### The exceptional set {#sec:tr-exceptional}
 

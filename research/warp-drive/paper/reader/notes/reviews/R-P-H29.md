@@ -633,3 +633,48 @@ Discharging them needs the following.
    - For v* = 7/2 the factor is 3e^(3K₁). With κ_m of the size G0 §9.2 proposes (κ = κ′ = 10⁻⁴), ĝ must reproduce the
      cone data on N₁, and the development's transverse 1-jet there, to about κ_m e^(−3K₁)/3 in the k̂ norm.
    - This is the data item L1 of the plan (G0 §10 risk 6; S-H123 L1).
+
+## Final confirmation (m9 round)
+
+File read: proofs/P-H29.md, md5 8c2f45f9852879c6911dc6b890109bb3, 1190 lines. The chapter text is lines 1-1101, the
+Placement starts at 1103 and the 51 crosswalk rows are 1140-1190. Diffed against 7b8bfd5e3e6c5220cac62e840fb42da3.
+HEAD is 0c913792 and chapter 87 is unchanged (md5 fb065781…).
+
+### Verdict
+
+**CONFIRMED.** No Major, minor or nit is open. (X) and (T) are unchanged word for word, and they remain hypotheses of
+thm:tl5-wg-data and cor:tl5-wg-data-first-stage. According to the coordinator, a separate writer is discharging them.
+
+### The delta (line numbers of 7b8bfd5e → new)
+
+- **557-559 → 557-562, lem:tl5-wg-lchart statement.** n11 is applied: "δ ∈ (0, v* − 1/2] with δ ≤ u⁺ + 10". The display
+  now names the two boxes D′₀ and D′₁, with 𝒩_δ := D′₀ ∪ D′₁; the sets are unchanged.
+- **617-623 → 618-625, step (3).** "δ ≤ min(κ₀λ₀, u⁺ + 10)" makes explicit what 𝒦₂ ⊂ ℬ forces, and agrees with the
+  statement. The rest of the paragraph is the same text re-wrapped.
+- **629-634 → 631-635, step (4).** It now cites D′₀ and D′₁ by name, with the same values of u₁ and v₁ as before.
+- **712 → 713.** n10 is applied ("where |u + 10| ≥ 2"), which is correct since every ε_k ≤ 1.
+- **742-745 → 743-749.** This is m9's replacement 1 word for word, with the cut-off renamed ϖ. That avoids a clash
+  with the slice angle ϑ; ϖ is used nowhere else. The case check (D′₀ ∖ D′₁ ⊂ {ϖ = 0} and D′₁ ∖ D′₀ ⊂ {ϖ = 1} where
+  min(u + 10, v − 1/2) < δ/3) holds as computed in the Confirmation section.
+- **751 → 755-757.** n12 is applied: lem:tl5-cip-jets (c) on D′₀ (u⁺, s = 1/2 + δ) and on D′₁ (−10 + δ, s = v*). That
+  statement covers smooth vacuum metrics in double-null form that agree at the points of N ∩ D_s, so it applies
+  here. The two boxes cover N⁺.
+  - Listing K₀ and K₁ beside Y₀ and Y₁ is right: they are built from W, χ and χ̲ of g′ at N⁺ and from ĝ.
+  - The derivatives of the extended g′ at N⁺ are those of g′ on 𝒩_δ, because the two agree on 𝒩_δ ∩ 𝒰 (m9), which
+    near N⁺ is the closure of its interior.
+- **780-781 → 786-787.** This is m9's replacement 2 word for word.
+- **Crosswalk.** All 51 rows were re-taken. Every line number matches its label, the order is the chapter order, and
+  each row has 4 columns. The notes of lem:tl5-wg-lchart and thm:tl5-wg-data now describe the changes.
+- **Nothing else moved.** The diff has no other hunk, so (X), (T), the Placement and the rest of the text are
+  unchanged.
+
+### Scratch merge
+
+From `git archive` of HEAD 0c913792, in scratch/rph29r4/: the 1101 lines of chapter text were inserted before 87:1947
+"### Continuation beyond the seed {#sec:tl5-beyond}", the single whole-line anchor, with one blank line on each side.
+The 51 rows were inserted before the sec:tl5-beyond crosswalk row.
+- `lint.py --chapters`: 4884 labels (4833 at HEAD + 51), 0 hits.
+- `assemble.py --check` and `assemble.py`: "labels 4884, computations cited 0, problems 0".
+- `lint.py --paper`: PAPER.md 0 hits.
+- No line of the file is over 121 characters, and the longest assembled line is 121.
+- There is no backslash. The only line starting with a marker is the deliberate list item at 998.
