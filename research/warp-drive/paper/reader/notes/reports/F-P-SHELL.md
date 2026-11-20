@@ -305,3 +305,140 @@ Results:
 
 Aside, outside my file: final Tier 1 prop:loc-cone-local has a short line "Λ, d and" (P-CIVP.md, statement of
 prop:loc-cone-local). It is harmless in rendering, but it is a stray wrap.
+
+---------------------------------------------------------------------------------------------------------------------
+
+# Round 3: the two pending markers proved as lemmas; placement re-based on the merged chapters (f7b0cab8)
+
+File: proofs/P-SHELL.md, md5 93003d07312398b58c9557abb5354dc8, 969 lines.
+- Section: lines 1-819.
+- Placement: lines 821-941.
+- Crosswalk: lines 943-969.
+
+Snapshot acb77d4d already holds this state. I committed nothing. In the real directory only this file was touched;
+PAPER.md is clean.
+
+## (T2) → lem:loc-shell-corner-large
+
+The lemma is "Developments without smallness at a corner sphere in Q1"; it is Lemma 53.48 in the scratch build.
+
+**Statement.**
+- It takes any 𝒬 = [u_c, u′] × [v_c, v′] ⊂ Q1 and any band (ϑ_a′, ϑ_b′), with η0′ := (1/3) min(…).
+- It defines *cone data on 𝒬*: (i)–(iii) of def:civp-large-data on N_o and N_i, with Ω arbitrary on both edges, b
+  arbitrary on N_o and b = 0 on N_i. It also defines *past sets of 𝒬*.
+- (a) gives a class solution in the gauge on 𝒬_δ × S³ that induces the data.
+- (b) gives localisation off [ϑ_a′ − η0′, ϑ_b′ + η0′].
+- (c) gives uniqueness among class solutions on past sets of 𝒬 that equal g0 near the axes.
+
+**Proof.** It translates the proof of thm:civp-large and names every corner-, edge-, u_1/v_1-, band- or Ω-dependent
+place, with its replacement:
+- **The results that proof uses.** The frame, reduction and system results are pointwise identities. lem:civp-large-energy
+  and prop:civp-large-corner are stated for arbitrary rectangles in Q1, the latter with 𝒪 ⊃ Q1. lem:civp-large-data (a)
+  is already general. For (b), the replacements are N_o, N_i, S_𝒬, {u = u_c}, {v = v_c} and 𝒬; its proof is ODEs along
+  the edges from the corner, uses b = 0 on N_i, and needs only local agreement with the background outside the band.
+- **Ω.** No step uses Ω as the background's, since def:civp-large-data leaves it free.
+- **Step 1.** 𝒬 × Y, f̊ restricted, f̊_e on 𝒬 × Y, the band, η0′ and J0′, and data and transport equations on
+  {u = u_c} and {v = v_c}.
+- **Step 2.** Translated coordinates, with a0 = u′ − u_c and b0 = v′ − v_c.
+- **Step 3.** In eq:civp-large-delta, v′ − v_c and u′ − u_c replace v_1 and u_1. The vanishing of b at v = v_c comes from
+  b = 0 on N_i. The new set 𝒮 contains 𝒬_δ. In the paragraph on the signs of the densities: 𝒬_δ is a past set of 𝒬, the
+  segments start at u_c and v_c, and the integral curves are followed back to u = u_c.
+- **Step 4.** 𝒯₁ and 𝒯₂ at the corner. In the corner step, "u = 0 / v = 0" becomes "u = u_c / v = v_c". In the
+  continuation, D_t and Γ are taken in (u − u_c) + (v − v_c), the first rectangle has its corner at S_𝒬, and the
+  rectangles about p ∈ Γ have corners max(u_p − L/2, u_c) and max(v_p − L/2, v_c).
+- **Steps 5 and 6.** The edges, and z₃ = 0 at u = u_c and z₄ = 0 at v = v_c.
+
+The step headings read "Its Step n" to avoid a clash with this section's own steps. Tier 2's small rectangle in Step 4
+is named by its corner coordinates, because u_c, v_c here denote 𝒬's corner.
+
+## (T1) → lem:loc-shell-corner-small
+
+The lemma is "Developments near the background's data at a corner sphere in Q1"; it is Lemma 53.49 in the scratch build.
+
+**Tier 1's statements do not give it.**
+- thm:loc-cone-development is stated at S only.
+- prop:loc-cone-local holds at every corner, with a σ that depends on the data only through a bound for their C^(m_1)
+  norms. But it gives only the square [σ]², not a neighbourhood {(u − u_c)(v − v_c) ≤ δ_*²} of the whole edges. It also
+  gives no estimate, and the proof of thm:loc-shells (d) needs both.
+
+So the lemma is proved from Tier 1's proof, as case (I) of sec:loc-cone-reduced at the corner (u_c, v_c).
+
+**Statement.**
+- Any corner (u_c, v_c) ∈ Q1 with any l_u, l_v; this covers (0, c) and (d, 0).
+- δ_1 := min(l_u, l_v)/2.
+- Hypothesis: the collar 𝒮_c (eq:loc-cone-collar at that corner) lies in 𝒪.
+- An explicit, data-independent width:
+  - C_* := sup over 𝒮_c of √2 Ω/R;
+  - c_+ := (min(δ_1, η/C_*)/4)²;
+  - δ_* := √c_+/2.
+- ε_0 and C depend only on k, η, l_u, l_v and g0 on 𝒮_c.
+- Conclusions: existence on G_c, induction of the data, equality with g0 where ϑ ≤ ϑ_a′ − η or ϑ ≥ ϑ_b′ + η, and the
+  Cε estimate to order k − 4.
+
+**Proof.**
+- *The background.* g0 restricted to 𝒮_c, with e^(2σ_e) := 2Ω² and R_e := R, is a background on 𝒮 in Tier 1's sense,
+  because 𝒮_c ∩ F lies where u, v ≥ 0 inside 𝒪. This replaces lem:loc-cone-strips. Tier 1's own paragraph after that
+  lemma states that the later proofs use of the background only these properties and C_*.
+- *The data.* The given data are case (I) data with this η. This replaces the free-data construction at the start of the
+  proof of thm:loc-cone-development.
+- *Steps reused, named.*
+  - the choice of δ_c (sec:loc-cone-reduced case (I), and the proof's extra condition), plus δ_c ≤ 1, added because l_u
+    and l_v are arbitrary;
+  - lem:loc-cone-cauchy (I), lem:loc-cone-past, lem:loc-cone-support, lem:loc-cone-constraints and lem:loc-cone-gauge,
+    which give the solution and the estimate;
+  - the localisation argument of the proof of (b), written out with C_* in place of C_0.
+- *Steps not used.* The data construction, the u_K/v_K clause, and (d) with lem:loc-cone-unique.
+- *The constants.* Their dependences are listed, through lem:loc-cone-system (a) and the region 𝒰.
+
+**Change of hypothesis from the old (T1).** "R > a on the edges (a = 0.70) and g0 defined near the rectangle" becomes
+"the collar lies in 𝒪". R > a served only to guarantee that the background exists near the edges. With Tier 2's 𝒪,
+the collar's lying in 𝒪 is exactly what case (I) needs.
+
+## Uses rewired
+
+- **thm:loc-shells.** "Assume (T2)." and "Assume (T1) besides (T2)," are removed.
+  - Steps 2 and 3 cite lem:loc-shell-corner-large (a) and (b) for 𝒫_k^out and 𝒫_j^in with the band of their depth.
+    Step 2 now says the transformed functions "are cone data on 𝒫_k^out in the sense of" the lemma.
+  - (c) cites the lemma's (c).
+  - The proof of (d) cites lem:loc-shell-corner-small. δ_e is now chosen so that 𝒪 contains
+    [−δ_e, 3δ_e] × [−δ_e, v_1 + δ_e] and [−δ_e, u_1 + δ_e] × [−δ_e, 3δ_e]. The depth-k paragraph applies the lemma with
+    the band (ϑ_a^(k), ϑ_b^(k)), index k_k, l_u = (2/3) λ_k^out and l_v = v_1 − c_k. It checks that the collar lies in
+    that set (l_u + δ_1 ≤ λ_k^out ≤ 3δ_e) and says that δ_*,k depends only on λ_k^out, v_1 − c_k, the band and g0. The
+    𝒞_in sentence has the analogue at (d_j, 0).
+- **prop:loc-shell-crossing (c).** It is unconditional: "Under (T2)" is removed, and the transformed functions are shown
+  to be cone data on 𝒬 for the band (3η/2, π/2 − 3η/2).
+- **rem:loc-shell-scope (ii).** It now reads "on a small square and on a neighbourhood of the two leaves beyond it".
+
+## Placement re-based on the merged chapters at HEAD
+
+All Old texts are checked by script to occur exactly once in the chapter, as whole lines. Their wording was unchanged
+by the merge.
+
+| Item | Site | Lines |
+|---|---|---|
+| 2 | rem:loc-cone-scope (iii), its second line | 83:681 |
+| 3 | rem:civp-large-domain, its last sentence | 83:2369–2371 |
+| 4 | the opening | 83:26–27 |
+| 5 | the last two lines of the paragraph on localised data | 90:217–218 |
+| 6 | [Rac16] | 98:157–158 |
+| 8 | the paragraph on the developments (83:689–705), its last two lines | 83:704–705 |
+
+- **Item 1.** The section goes directly before sec:loc-kid at 83:2391. The label list has the two lemmas added (21
+  labels). The sentence on what to do when (T1) and (T2) are established is removed.
+- **The intro** now says that the Old texts are quoted from the chapters at HEAD, into which Tiers 1 and 2 are merged.
+
+## Labels
+
+- Added: lem:loc-shell-corner-large and lem:loc-shell-corner-small. None renamed or removed.
+- Both pending markers are removed, as instructed, by proving them.
+- Crosswalk: 21 rows, all pointing at their labels; the two new rows are added.
+
+## Checks
+
+- Every line is at most 121 characters, apart from the crosswalk rows.
+- The new lists follow the chapters' house style (a blank line before and after).
+- **Scratch build at HEAD** (HEAD chapters, this section inserted before sec:loc-kid, items 2–6 and 8 applied):
+  - assemble: 0 problems;
+  - `lint --chapters`: 0 hits in all 62 chapters;
+  - the section is 53.6, 820 lines; the lemmas are 53.48 and 53.49, and thm:loc-shells is Theorem 53.50;
+  - no overlong line after label resolution, in the section or in the placed texts.
