@@ -373,14 +373,14 @@ polynomial parts are entire, and so are e^S and Ω²/Ω_s². Since |Q^R| ≤ q_R
 result: a ± b by |a| + |b|, ab by |a||b|, and a/b, for b ∈ {R, Ω², e^S, μ̂} and integers, by |a| divided by a lower
 bound of |b|. The inputs are: the weighted coefficient sums of Q^F and of its derivatives, multiplied by the bounds of
 the chart factors dt/du and d²t/du² on a covering of E_ρ₁ ([[eq:tl5-chain]], with the element's h_i) and by 1/t_h,
-1/(h′_jσ_h); the bounds of [[eq:appc-seed-jets]] obtained from r_s ≤ |R_s| ≤ |H|/2 + 1 and from the bounds of |u| on
+1/(h′_jσ_h); the bounds of [[eq:appc-seed-jets]] obtained from r_s ≤ |R_s| ≤ (|H| + 2.35)/2 and from the bounds of |u| on
 the covering of (i); (ρ₃ + ρ₃⁻¹)/2 for |x|; e^(±s_S) for e^(±S), with s_S the bound of |S|; and
 Ω_s² e^(±2q_W) for Ω². The result, times the bound of ρ = R⁴/√72, is a number M ≥ max_ab sup_(ℰ_ρ) |g_ab|.
 
 *Proof.* Each replacement is the triangle inequality or multiplicativity of the modulus, and every input bounds the
-modulus of the quantity it replaces, on all of ℰ_ρ. For |R_s|: when Re R > 3/2, |(R − 1)/(R + 1)| < 1 and its real
-part is positive, so |log((R − 1)/(R + 1))| ≤ −log|(R − 1)/(R + 1)| + π/2, and with |(R − 1)/(R + 1)| ≥ 1/5 this is
-at most 2; hence |R_s| ≤ (|H| + 2)/2. ∎
+modulus of the quantity it replaces, on all of ℰ_ρ. For |R_s|: the map R ↦ (R − 1)/(R + 1) sends {Re R > 3/2} into
+the disc with diameter [1/5, 1], so |log((R − 1)/(R + 1))| ≤ log 5 + arcsin(2/3) < 2.35 there, and
+2R_s = H − log((R_s − 1)/(R_s + 1)) gives |R_s| ≤ (|H| + 2.35)/2. ∎
 
 **Lemma {#lem:appc-coefficients}** (Coefficients and interpolation.) Let g be holomorphic on a neighbourhood of ℰ_ρ with
 |g| ≤ M there, and let g = Σ a_ijk T_i(τ₁)T_j(τ₂)T_k(τ₃) be its Chebyshev expansion on [−1, 1]³. Then
@@ -501,8 +501,15 @@ For each element the tables also print the parameters of its certificate: the bo
 The first lines of one block, in the format of [[sec:appc-format]]; the numbers are a specimen of the format and not
 entries of the tables [[pending:computational-appc-specimen]].
 
-    element (2,2): xi in [-813/100, -3421/500], v in [18769/10000, 7171/2000]; field m; p = 13; rows 610; entries 8760;
-    S1 = SPECIMEN-S1,  S2 = SPECIMEN-S2,  S0 = SPECIMEN-S0
+    element (2,2): ξ in [−813/100, −3421/500], v in [18769/10000, 7171/2000]; field m; p = 13; rows 305; entries 4181;
+    S1 = −966855768,  S2 = 35253466018,  S0 = −5112442949
+    (0,0)    14633957741 −1314838470 50373968 5579401 −84957653 4844995 1048812 279577 −33967 −8255 −16537 2612 3135 |00
+    +        −1104 −888 27 |14
+    (0,1)    −28947799952 2821862661 320568279 −54824254 148686095 −7663444 −3560595 −135643 −42406 27333 14863 −959 |93
+    +        −6441 2862 528 −69 |09
+    (0,2)    21639759297 −1437057815 −1655421165 155526380 −127505282 10081040 3551495 37705 −191745 20855 −31231 |20
+    +        2213 3487 −1326 74 −81 |56
+    (0,3)    −9756542251 −135736511 1901753838 −149586896 15155271 −5838885 −4572416 −87815 269110 −65077 −3761 8592 |62
 
 ### Placement
 
@@ -529,50 +536,50 @@ will cite [[app:approximant]] when the continuation theorem is stated; that chan
 Rows for the crosswalk of the new appendix, in its four columns, separated by tabs, in order:
 
     app:approximant	paper/reader/proofs/P-APPC.md:1	P-APPC, appendix	new Appendix C (author's decision 2026-11-20); S-APP 4.1, 5
-    eq:appc-regions	paper/reader/proofs/P-APPC.md:12	P-APPC, display	D_A and D*
-    sec:appc-definition	paper/reader/proofs/P-APPC.md:18	P-APPC, section	new
-    def:appc-layout	paper/reader/proofs/P-APPC.md:24	P-APPC, Definition	elements, use intervals, inner nine tenths (S-APP 3b)
+    eq:appc-regions	paper/reader/proofs/P-APPC.md:11	P-APPC, display	D_A and D*
+    sec:appc-definition	paper/reader/proofs/P-APPC.md:16	P-APPC, section	new
+    def:appc-layout	paper/reader/proofs/P-APPC.md:22	P-APPC, Definition	elements, use intervals, inner nine tenths (S-APP 3b)
     eq:appc-element	paper/reader/proofs/P-APPC.md:28	P-APPC, display	element variables
-    tab:appc-layouts	paper/reader/proofs/P-APPC.md:43	P-APPC, Table	the four layouts (rational)
-    def:appc-pou	paper/reader/proofs/P-APPC.md:60	P-APPC, Definition	partition of unity from Phi
-    eq:appc-pou	paper/reader/proofs/P-APPC.md:66	P-APPC, display	chi_i, psi_j
-    lem:appc-pou	paper/reader/proofs/P-APPC.md:71	P-APPC, Lemma	Phi smooth, symmetric, derivative bounds phi_k (ball covering + Cauchy)
-    def:appc-approximant	paper/reader/proofs/P-APPC.md:88	P-APPC, Definition	seed form F = F_seed + (v-1/2)^4 sum chi psi G (S-APP 3e)
-    eq:appc-fields	paper/reader/proofs/P-APPC.md:92	P-APPC, display	printed polynomials
-    eq:appc-seedform	paper/reader/proofs/P-APPC.md:98	P-APPC, display	the five fields
-    lem:appc-approximant	paper/reader/proofs/P-APPC.md:107	P-APPC, Lemma	smooth, class, invariances, 3-jet of the seed on N0 exact (G0b L1.1)
-    sec:appc-format	paper/reader/proofs/P-APPC.md:127	P-APPC, section	new; S-APP 4.2-4.3
-    eq:appc-sums	paper/reader/proofs/P-APPC.md:136	P-APPC, display	block checks S1, S2, S0
-    eq:appc-linecheck	paper/reader/proofs/P-APPC.md:148	P-APPC, display	line check mod 97
-    lem:appc-checks	paper/reader/proofs/P-APPC.md:152	P-APPC, Lemma	detection properties
-    sec:appc-regular	paper/reader/proofs/P-APPC.md:167	P-APPC, section	new; S-APP 5 item 3 prerequisite
-    eq:appc-checked	paper/reader/proofs/P-APPC.md:181	P-APPC, display	w psi_x, w^2 psi_xx regular
-    eq:appc-hat	paper/reader/proofs/P-APPC.md:186	P-APPC, display	muhat, tauhat, etahat, lambda, alpha1, beta1
-    eq:appc-sigma	paper/reader/proofs/P-APPC.md:196	P-APPC, display	Sigma_EE, Sigma_11, Sigma_22, Theta_A, Theta_B
-    lem:appc-regular	paper/reader/proofs/P-APPC.md:198	P-APPC, Lemma	axis-regular residual; verified identical to the chapter's formula
-    eq:appc-regular	paper/reader/proofs/P-APPC.md:206	P-APPC, display	the eight components
-    eq:appc-sing	paper/reader/proofs/P-APPC.md:243	P-APPC, display	singular identities
-    sec:appc-certification	paper/reader/proofs/P-APPC.md:285	P-APPC, section	new; S-APP 5 method B, overlaps
-    sec:appc-exact	paper/reader/proofs/P-APPC.md:294	P-APPC, section	new
-    lem:appc-reexpand	paper/reader/proofs/P-APPC.md:299	P-APPC, Lemma	exact affine re-expansion
-    sec:appc-seed	paper/reader/proofs/P-APPC.md:309	P-APPC, section	new
-    eq:appc-seed-eq	paper/reader/proofs/P-APPC.md:313	P-APPC, display	G(R) = H(u, v)
-    eq:appc-seed-jets	paper/reader/proofs/P-APPC.md:321	P-APPC, display	seed jets, Omega_s^2 without a logarithm
-    lem:appc-seed-holo	paper/reader/proofs/P-APPC.md:327	P-APPC, Lemma	G injective on Re R > 3/2
-    lem:appc-newton	paper/reader/proofs/P-APPC.md:335	P-APPC, Lemma	interval Newton (Brouwer)
-    sec:appc-box	paper/reader/proofs/P-APPC.md:347	P-APPC, section	new
-    lem:appc-analytic	paper/reader/proofs/P-APPC.md:359	P-APPC, Lemma	holomorphy on the polyellipse; pluriharmonic minimum of Re R
-    lem:appc-coefficients	paper/reader/proofs/P-APPC.md:377	P-APPC, Lemma	coefficient bound, Lobatto aliasing, E_alpha
-    eq:appc-ealpha	paper/reader/proofs/P-APPC.md:385	P-APPC, display	interpolation error of derivatives
-    prop:appc-element-bound	paper/reader/proofs/P-APPC.md:405	P-APPC, Proposition	element's own residual and derivatives on its box
-    eq:appc-element-bound	paper/reader/proofs/P-APPC.md:411	P-APPC, display	the bound
-    sec:appc-overlaps	paper/reader/proofs/P-APPC.md:432	P-APPC, section	new; S-APP risk 5
-    eq:appc-delta	paper/reader/proofs/P-APPC.md:436	P-APPC, display	blend minus element
-    lem:appc-lipschitz	paper/reader/proofs/P-APPC.md:441	P-APPC, Lemma	mean value bound in the jets
-    prop:appc-overlap	paper/reader/proofs/P-APPC.md:454	P-APPC, Proposition	blended residual on the use interval
-    sec:appc-norm	paper/reader/proofs/P-APPC.md:471	P-APPC, section	interface to the level-3 estimate (pending its statement)
-    eq:appc-certificate	paper/reader/proofs/P-APPC.md:475	P-APPC, display	certificate numbers B per element, |alpha| <= 3
-    eq:appc-target	paper/reader/proofs/P-APPC.md:485	P-APPC, display	allocation f e^(phi_min/2) (S-APP 3g)
-    sec:appc-outcomes	paper/reader/proofs/P-APPC.md:491	P-APPC, section	new; all rows pending
-    tab:appc-outcomes	paper/reader/proofs/P-APPC.md:493	P-APPC, Table	targets G0b 6 / 10
-    sec:appc-specimen	paper/reader/proofs/P-APPC.md:508	P-APPC, section	format specimen, to be replaced
+    def:appc-layouts	paper/reader/proofs/P-APPC.md:40	P-APPC, Definition	the four layouts (rational)
+    def:appc-pou	paper/reader/proofs/P-APPC.md:57	P-APPC, Definition	partition of unity from Phi
+    eq:appc-pou	paper/reader/proofs/P-APPC.md:63	P-APPC, display	chi_i, psi_j
+    lem:appc-pou	paper/reader/proofs/P-APPC.md:67	P-APPC, Lemma	Phi smooth, symmetric, derivative bounds phi_k (ball covering + Cauchy)
+    def:appc-approximant	paper/reader/proofs/P-APPC.md:85	P-APPC, Definition	seed form F = F_seed + (v-1/2)^4 sum chi psi G (S-APP 3e)
+    eq:appc-fields	paper/reader/proofs/P-APPC.md:89	P-APPC, display	printed polynomials
+    eq:appc-seedform	paper/reader/proofs/P-APPC.md:94	P-APPC, display	the five fields
+    lem:appc-approximant	paper/reader/proofs/P-APPC.md:102	P-APPC, Lemma	smooth, class, invariances, 3-jet of the seed on N0 exact (G0b L1.1)
+    sec:appc-format	paper/reader/proofs/P-APPC.md:123	P-APPC, section	new; S-APP 4.2-4.3
+    eq:appc-sums	paper/reader/proofs/P-APPC.md:134	P-APPC, display	block checks S1, S2, S0
+    eq:appc-linecheck	paper/reader/proofs/P-APPC.md:144	P-APPC, display	line check mod 97
+    lem:appc-checks	paper/reader/proofs/P-APPC.md:148	P-APPC, Lemma	detection properties
+    sec:appc-regular	paper/reader/proofs/P-APPC.md:164	P-APPC, section	new; S-APP 5 item 3 prerequisite
+    eq:appc-checked	paper/reader/proofs/P-APPC.md:178	P-APPC, display	w psi_x, w^2 psi_xx regular
+    eq:appc-hat	paper/reader/proofs/P-APPC.md:183	P-APPC, display	muhat, tauhat, etahat, lambda, alpha1, beta1
+    eq:appc-sigma	paper/reader/proofs/P-APPC.md:191	P-APPC, display	Sigma_EE, Sigma_11, Sigma_22, Theta_A, Theta_B
+    lem:appc-regular	paper/reader/proofs/P-APPC.md:193	P-APPC, Lemma	axis-regular residual; verified identical to the chapter's formula
+    eq:appc-regular	paper/reader/proofs/P-APPC.md:199	P-APPC, display	the eight components
+    eq:appc-sing	paper/reader/proofs/P-APPC.md:237	P-APPC, display	singular identities
+    sec:appc-certification	paper/reader/proofs/P-APPC.md:275	P-APPC, section	new; S-APP 5 method B, overlaps
+    sec:appc-exact	paper/reader/proofs/P-APPC.md:285	P-APPC, section	new
+    lem:appc-reexpand	paper/reader/proofs/P-APPC.md:290	P-APPC, Lemma	exact affine re-expansion
+    sec:appc-seed	paper/reader/proofs/P-APPC.md:300	P-APPC, section	new
+    eq:appc-seed-eq	paper/reader/proofs/P-APPC.md:304	P-APPC, display	G(R) = H(u, v)
+    eq:appc-seed-jets	paper/reader/proofs/P-APPC.md:311	P-APPC, display	seed jets, Omega_s^2 without a logarithm
+    lem:appc-seed-holo	paper/reader/proofs/P-APPC.md:317	P-APPC, Lemma	G injective on Re R > 3/2
+    lem:appc-newton	paper/reader/proofs/P-APPC.md:325	P-APPC, Lemma	interval Newton (Brouwer)
+    sec:appc-box	paper/reader/proofs/P-APPC.md:338	P-APPC, section	new
+    lem:appc-analytic	paper/reader/proofs/P-APPC.md:356	P-APPC, Lemma	holomorphy on the polyellipse; pluriharmonic minimum of Re R
+    lem:appc-majorant	paper/reader/proofs/P-APPC.md:371	P-APPC, Lemma	new
+    lem:appc-coefficients	paper/reader/proofs/P-APPC.md:385	P-APPC, Lemma	coefficient bound, Lobatto aliasing, E_alpha
+    eq:appc-ealpha	paper/reader/proofs/P-APPC.md:391	P-APPC, display	interpolation error of derivatives
+    prop:appc-element-bound	paper/reader/proofs/P-APPC.md:411	P-APPC, Proposition	element's own residual and derivatives on its box
+    eq:appc-element-bound	paper/reader/proofs/P-APPC.md:416	P-APPC, display	the bound
+    sec:appc-overlaps	paper/reader/proofs/P-APPC.md:431	P-APPC, section	new; S-APP risk 5
+    eq:appc-delta	paper/reader/proofs/P-APPC.md:435	P-APPC, display	blend minus element
+    lem:appc-lipschitz	paper/reader/proofs/P-APPC.md:440	P-APPC, Lemma	mean value bound in the jets
+    prop:appc-overlap	paper/reader/proofs/P-APPC.md:452	P-APPC, Proposition	blended residual on the use interval
+    sec:appc-norm	paper/reader/proofs/P-APPC.md:467	P-APPC, section	interface to the level-3 estimate (pending its statement)
+    eq:appc-certificate	paper/reader/proofs/P-APPC.md:471	P-APPC, display	certificate numbers B per element, |alpha| <= 3
+    eq:appc-target	paper/reader/proofs/P-APPC.md:480	P-APPC, display	allocation f e^(phi_min/2) (S-APP 3g)
+    sec:appc-outcomes	paper/reader/proofs/P-APPC.md:485	P-APPC, section	new; all rows pending
+    sec:appc-specimen	paper/reader/proofs/P-APPC.md:499	P-APPC, section	format specimen, to be replaced

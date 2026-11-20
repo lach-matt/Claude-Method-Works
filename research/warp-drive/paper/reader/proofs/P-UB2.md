@@ -1,7 +1,7 @@
 # P-UB2: the upper bound of chapter 71 as a function of the admissible choice
 
 Proof file for the coordinator. Nothing in chapters/, crosswalk/ or elsewhere in the repository was edited; this is the
-only file written there. Every old text below is copied from the chapter files at HEAD 099e8d51 (equal to the
+only file written there. Every old text below is copied from the chapter files at HEAD 481f86a1 (equal to the
 working tree for these files): 71-explicit-constants.md md5 427412e02c74261f1f87da24b60ddbca,
 00-front.md fcb33a08a5d5df2ae599389726a59dba, 01-introduction.md 9cfc5f6bcd496e6d6100c3bf7ed88ffa,
 03-theorems.md 111b543af3582ab25a102e8e74340889, 63-own-data.md 2bd560af0194b8699f05a6fc017404a6,
@@ -10,7 +10,7 @@ line numbers are of those files. The texts were merged with P-UB1's texts T1–T
 archive of HEAD and checked there, through the assembled paper (section 7).
 
 The numbers in the drafted texts are evaluated at **the proved inputs of P-UB1** (proofs/P-UB1.md, md5
-a4e10a41efcf0b396490ffad095af7dd):
+58b580faf8acbc14503d7c5e33c0b087):
 ε_K = 1.6747·10⁻¹⁷, ε_+ = 1.67478·10⁻¹⁷, N̄_Λ = 909,507,124,095,312, k̄_0 = 3, J_* = 15,000,015, l_* = 50.
 Every number that depends on them is recomputed by the one evaluation step of section 3. Section 8 lists what changed
 since md5 69990efadbb064fb43ca5679c0b9d705 (the version read in R-P-UB2) and, briefly, before it.
@@ -106,8 +106,9 @@ Each is non-decreasing in N̄_Λ, k̄_0, J′ and non-increasing in ε_K ([[prop
   (eq:is-mu-z). Blocks M5–M8 and L2 cite it.
 - R5. The repaired def:iii-i10-1-1 of chapter 41 names the generators 1 + 𝒵 (blocks M6, M7, M13), as P-UB1's T1, T2,
   T7, T13 do; if that chapter's text names the set otherwise, all these take its name.
-- R6. cor:is-lower (P-UB1's T9): blocks M1, M7, M12, M26a, M26b, O1, O2 and L2–L5 cite it.
-- P-UB1's texts and these do not overlap; thm:uc-reduction (iii) is block M8 only. V-I11 §5.1–5.5 are not applied.
+- R6. cor:is-lower (P-UB1's T9): blocks M1, M7, M12, M25b, M26a, M26b, O1, O2, L2–L5 and L4b cite it.
+- P-UB1's texts and these do not overlap; thm:uc-reduction is blocks M8 ((iii)), L4 (closing paragraph) and L4b (end
+  of the proof) only. V-I11 §5.1–5.5 are not applied.
 
 ## 2. The chain, step by step (where each statement is proved)
 
@@ -185,7 +186,7 @@ integer of the old chain exactly (section 7).
 | 71:1810 (rem:ec-lb-unbounded; h ≤ 4.48·10⁻²⁶ becomes h ≤ 6.46·10⁻²⁹) | M4 |
 | 71:2206–2215 rem:ec-upper-point; 2217–2242 rem:ec-upper-open | M5, M6 |
 | 71:2246–2263 sec:uc-close, opening paragraph | M7 (also the lower bound) |
-| 71:2559–2564 thm:uc-reduction (iii) | M8 |
+| 71:2559–2564 thm:uc-reduction (iii); 2566–2568 and 2573–2574 its closing and proof | M8, L4, L4b |
 | 71:2662–2680 lem:uc-lambda; 2682–2700 lem:uc-n-iota; 2702–2738 prop:uc-explicit | M9, M10, M11 |
 | 71:2759–2796 thm:uc-integer (eq:uc-lower too), and the new prop:uc-dependence after it | M12 |
 | 71:2798–2823 rem:uc-missing; 4094–4112 sec:cs, opening | M13, M14 |
@@ -220,6 +221,8 @@ hypotheses takes the new bound (3R > 1.2250·10²⁷, N_NM > 2.5725·10²⁸, K 
 | 71:1814–1816 (rem:ec-lb-unbounded) | "The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on …" | L3 |
 | 71:2263 area (sec:uc-close) | "against the lower bound 1.2497·10²⁴" | M7 |
 | 71:2566–2568 (thm:uc-reduction, closing) | raised to 3R > 1.2497·10²⁴ ([[cor:uc-two-offsets]]) | L4 |
+| 71:2573–2574 (thm:uc-reduction, end of the proof) | "The last assertion is [[cor:uc-two-offsets]] (a) …" | L4b |
+| 71:4919–4920 (prop:uc-d-small (d), proof) | the list of lower bounds carried to d_NM | M25b |
 | 71:2797 eq:uc-lower and its proof (thm:uc-integer) | 3R > 1.2497·10²⁴, N_NM > 2.624·10²⁵ | M12 |
 | 71:5122–5130, 5209–5230 (prop:uc-data-order (d)) | K > 22d > 2.7493·10²⁵, 1.0078·10⁵¹ < K* | M26a, M26b |
 | 90-scope.md:73–74 | d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ | L5 |
@@ -1377,9 +1380,9 @@ d̄_Φ gives the integer printed, with leading digits 7.572444; 21 times it plus
 digits 1.590213.
 
 (d) D′_* ≥ D_*, as T_12 + 18 > T_12 + 14, so the integer of (c) is at least that of (b), and d_NM ≤ D_NM in either case;
-then N_NM = 21d_NM + 6 ≤ 21D_NM + 6. The lower bounds of [[thm:loss-d]] (ii), [[cor:uc-two-offsets]] and
-[[thm:uc-integer]] are bounds for d_acc, carried to d_NM and N_NM by d_NM ≥ d_acc and N_NM = 21d_NM + 6; by (a) they hold
-for the d_NM of [[eq:uc-d-small]]. ∎
+then N_NM = 21d_NM + 6 ≤ 21D_NM + 6. The lower bounds of [[thm:loss-d]] (ii), [[cor:uc-two-offsets]], [[cor:is-lower]]
+and [[thm:uc-integer]] are bounds for d_acc, carried to d_NM and N_NM by d_NM ≥ d_acc and N_NM = 21d_NM + 6; by (a) they
+hold for the d_NM of [[eq:uc-d-small]]. ∎
 ```
 
 ### M25c. after prop:uc-d-small, 71-explicit-constants.md lines 4922–4924
@@ -1645,6 +1648,21 @@ New (2 lines):
 of the weights, for the index sets as the proofs construct them ([[cor:is-lower]]). These are lower bounds for the
 ```
 
+### L4b. thm:uc-reduction, end of the proof (lower bound), 71-explicit-constants.md lines 2573–2574
+
+Old (2 lines):
+
+```old
+of the results cited. The last assertion is [[cor:uc-two-offsets]] (a), whose hypothesis holds by (b) there, and
+[[thm:uc-integer]]. ∎
+```
+
+New (1 lines):
+
+```new
+of the results cited. The last assertion is [[cor:is-lower]] and [[thm:uc-integer]]. ∎
+```
+
 
 ## 6. The fallback set: retired
 
@@ -1681,17 +1699,28 @@ and earlier).
   the merged assembly plus one character per label; no wrapped line starts with "+ ", "- ", "* ", "> ", "#", "=", "|"
   or "− "; a number "a × 10ⁿ" is never split across lines; labels lowercase; no unfilled placeholder; each old text
   occurs exactly once as whole lines.
-- **Scratch merge from a git archive of HEAD 099e8d51** (nothing run in the repository): P-UB1's 14 texts T1–T14
-  (located by their old texts) and the 42 main blocks applied together, disjoint. Results:
-  lint --chapters: "chapters: 62 file(s), 4815 label(s) defined, 0 hit(s)";
-  assemble --check: "labels 4815, computations cited 0, problems 0";
-  assemble: "labels 4815, computations cited 0, problems 0";
+- **Scratch merge from a git archive of HEAD 481f86a1** (nothing run in the repository): P-UB1's 14 texts T1–T14
+  (located by their old texts) and the 43 main blocks applied together, disjoint. Results:
+  lint --chapters: "chapters: 62 file(s), 4845 label(s) defined, 0 hit(s)";
+  assemble --check: "labels 4845, computations cited 0, problems 0";
+  assemble: "labels 4845, computations cited 0, problems 0";
   lint --paper on the scratch PAPER.md: "PAPER.md: 0 hit(s)".
 - **Not checked here:** P-UB1's texts (sec:is, def:uc-choice, lem:uc-admissible, cor:is-lower) and their numbers; the
   crosswalk rows (crosswalk/71-explicit-constants.tsv needs rows for prop:uc-dependence and eq:uc-levels and notes for
   the blocks); the real PAPER.md (regenerate after the merge).
 
 ## 8. What changed
+
+### 8.0 Since md5 75319d6e5051df9521c0a23f6fb6c3ff (the confirmation round of R-P-UB2)
+
+1. **C1 (new block L4b):** the end of the proof of thm:uc-reduction (71:2573–2574), "The last assertion is
+   [[cor:uc-two-offsets]] (a), whose hypothesis holds by (b) there, and [[thm:uc-integer]]. ∎", becomes "The last
+   assertion is [[cor:is-lower]] and [[thm:uc-integer]]. ∎", so that the proof proves the closing assertion that L4
+   raised to 3R > 1.2250·10²⁷. It occurs once and overlaps no other block (merge, section 7).
+2. **C-n1 (M25b):** prop:uc-d-small (d)'s proof lists [[cor:is-lower]] among the lower bounds carried to d_NM and N_NM.
+3. **C-n2:** the header gives P-UB1's md5 as read at this build. **C-n3:** §1.4's last bullet names M8, L4 and L4b for
+   thm:uc-reduction; §1.4 R6 and the table of §4.2 list L4b and M25b.
+4. No number changed.
 
 ### 8.1 Since md5 69990efadbb064fb43ca5679c0b9d705 (the version read in R-P-UB2)
 
@@ -1711,7 +1740,7 @@ and earlier).
    most one below" / "1.59022 × 10⁵⁷."). M25a: "with D_NM := …" → "with D_NM = …". k̄_0 of lem:uc-small-orders (b),
    (c) renamed k̂_0 (M23a, and the new rename blocks M23d, M23e for its proof lines at HEAD 4769–4772 and 4795). The
    generator derives the exponents of M26b (k̄ > 10⁵⁷, 10⁻⁵⁵) and the factor 1.0072 of M5, M12 instead of
-   printing fixed ones. Header md5s are those of HEAD 099e8d51. The FO-nits are moot (fallback retired); no kept block
+   printing fixed ones. Header md5s are those of HEAD 481f86a1. The FO-nits are moot (fallback retired); no kept block
    has the same defects.
 5. **Option L applied** (cor:is-lower confirmed and kept): M12's eq:uc-lower "3R > 1.2250·10²⁷, N_NM > 2.5725·10²⁸",
    its proof "[[eq:uc-lower]] is [[cor:is-lower]]."; M7 "against the lower bound 1.2250·10²⁷ ([[cor:is-lower]])";
