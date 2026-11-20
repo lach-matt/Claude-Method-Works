@@ -215,3 +215,79 @@ n-e, n-f and n-g applied: lint 0 hits, 0 problems, PAPER.md 0 hits, longest line
   consistent except for the forward range (r1). The backward range (2.75/10)T matches the preprint's use of χ_2.
 - (5.67): the preprint states it "For ω ∈ ρ_sf^(−α_sf−2)H²_(3b,h)(M) without support restrictions", as §3.3 says
   ("the same gap").
+
+## Confirmation (second fix round)
+
+File read: proofs/P-G24b.md, md5 01ed4e5b9a768c1b93bfa12a2695b075, 1,673 lines (committed at 4add0685, unchanged at
+HEAD 51844d44). Diffed line by line against a44f9f97…; the writer's report F2-P-G24b.md read. Base: chapter 33 at HEAD,
+md5 d2184d75289047ef76ee866214fda5d0 (P-G1 merged at dff79ca7). No repository file was edited.
+
+**Verdict: CONFIRMED.** Every finding of this review is resolved; M1 stays an open item, correctly marked, and nothing
+depends on it.
+
+### The findings of R2
+
+| item | status |
+|---|---|
+| r1 | resolved: T35 (line 1405) and the thm:iv6-2-1 crosswalk note read {τ ≥ (0.75/10)T}; χ_(τ,0) = 1 there (chapter line 1975) |
+| n-a | resolved, as written (lines 47–50) |
+| n-b | resolved: header names the chapter at HEAD (md5 checked); no line of the file over 121 characters except the tab-separated crosswalk rows (checked by script); the §2.2 table is now a list |
+| n-c | resolved, as written; "New (12 lines)" |
+| n-d | resolved: the review's wording, rewrapped, with the line's tail " [[prop:iv5-1-3]] needs only" carried |
+| n-e | resolved, as written; "New (37 lines)" |
+| n-f | resolved at both sites (T34, T37) |
+| n-g | resolved, as written |
+| n-h | resolved, with HEAD line numbers: index-0 part 3017–3049 (from "*Index 0.*" to "… is 0. ∎"), steps (i) and (iii) 3029–3045 — both checked in the chapter |
+| n-i | resolved: @PENDING:515 is the {#eq:iv5-2-iter} line of variant A in the new file; note as written |
+
+### Whole-line old texts (T7, T15, T16, T29, T45)
+
+- All 45 old texts (T41 as variant A) occur exactly once in the chapter at HEAD, as whole lines, at the ranges in their
+  headers; no two overlap (script, comparing line blocks). The first variant of T41 occurs 0 times, as stated; it is
+  marked "kept for comparison only".
+- The mathematics and wording are unchanged. Applying the 45 new-file texts to the HEAD chapter gives md5
+  f27c5f5e55aeb178d977b79de96741ee (the writer's figure). That chapter is identical, up to line breaks, to the chapter
+  I built in round 2 from the a44f9f97 texts with my replacement texts applied (r2pg24b-nits, md5 4c496d0d…). The only
+  differences are two rewraps, T45 (n-d) and the end of T29 ("this kind. Near r = 0 … O(r) there." joined on one
+  114-character line). So the tails carried by T7 (C33-12's line), T15, T16, T29 and T45 are character for character
+  the chapter's own.
+- The new T29 ends at line 3009, and P-RI-2 starts at line 3017. Applying P-G24b and then P-RI-1/P-RI-2 gives the same
+  chapter as the reverse order (md5 3c990383…), and every old text is found exactly once in both orders.
+
+### Other changes
+
+- §2 census at HEAD, recounted by script: 277 citations = [Hin26a] 203 + [Hin26d] 40 + [Hin26] 29 + [Hin26c] 4 +
+  [Mel93] 1. All 40 [Hin26d] lie in sec:iv5-calc (heading at line 1390, sec:iv5-1 at 1966), and it holds no other
+  citation. Every item number cited (1.6, 1.9, 3.14, 3.19–3.25, 3.34, 3.43, 3.44, 3.51, 3.55, 3.58) occurs in Appendix
+  A's thm:std-sbg-calculus. All 66 entries were checked by script: every citation line lies in an entry, and every single
+  line listed carries a citation. Spot-checked: line 1285 cites lem:iv5-calc-dual; prop:np-10-65-a is at line 1757;
+  (5.26) uses prop:np-10-65-a (f) (lines 2033–2034); the Q-term names are at lines 2111–2133.
+- §8: lines 2137–2138 (variant A's old text), 2143 (C33-12's line), 3110–3112 (C33-20's paragraph) and 3114 (T34's old
+  text), and the adjacent pairs T42/C33-9 (2045, 2046–2047) and T5/C33-10 (2088, 2089–2090), all checked. The 14 P-G1
+  crosswalk rows are pinned @3b715dd5.
+- §5 intro, §6.2, §7 and the T34 and T41 notes describe P-G1 as merged; correct.
+
+### M1
+
+- Unchanged in substance. §6.1 now says the claim "is expected to follow" and that the whole index-0 part, step (ii)
+  included, is left open for proofs/P-RI.md.
+- No placement text asserts the step.
+- (Information for the coordinator: P-RI is reviewed CONFIRMED at 51844d44. Its §4 asks that P-G24b's §6.1 be dropped,
+  or marked closed, when P-RI merges. §6.1 is a note for the coordinator, not chapter text.)
+
+### Scratch merge at HEAD
+
+The scratch copy is scratchpad/reader/scratch/r3pg24b/, the `git archive` of HEAD 51844d44. T1–T45 (variant A) were
+applied as whole-line replacements, then the 16 rows of §9 after their anchors.
+
+| check | before | after |
+|---|---|---|
+| `lint.py --chapters` | 4665 labels, 0 hits | 4681 labels, 0 hits |
+| `assemble.py --check` | 0 problems | 4681 labels, 0 problems |
+| `assemble.py`, then `lint.py --paper` | — | PAPER.md: 0 hits |
+| longest line (characters): PAPER.md / chapter 33 / its part of PAPER.md | — | 121 / 121 / 121 |
+| conservative test (new labels as "Proposition 49.999" / "(49.999)") | — | 121 |
+| backslashes in chapter 33 | — | 0 |
+| wrapped lines starting with "+ ", "- ", "* ", "> ", "#", "=" or "\|" | — | 0 in chapter 33 and its part of PAPER.md |
+| crosswalk 33 | 213 rows | 229 rows for 229 labels, one per label, in chapter order |
+| @PENDING:N lines | — | all 16 carry their label |
