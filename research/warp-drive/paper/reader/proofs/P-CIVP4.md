@@ -661,3 +661,103 @@ these places: the C^(6k+18) norm of the data with b = 0 on N_i, which bounds Û 
 the nondegeneracy, through d and the reference metric; the constants of [[lem:class-leaf-reference]] for Û, which also
 fix δ; and the time T* of [[thm:class-kato]] (a), which depends on Û only through bounds of order k of the coefficients and
 the bounds C_F, L of the forcing, the reference path being 0 in the variable Z.
+
+#### Uniqueness and the maximal development {#sec:civp-axes-unique}
+
+**Proposition {#prop:civp-axes-unique}** (Uniqueness in the gauge, without smallness.) Let cone data be given on edges
+N_o = {u_c} × [v_c, v_c + λ_v] and N_i = [u_c, u_c + λ_u] × {v_c}, put Q := [u_c, u_c + λ_u] × [v_c, v_c + λ_v], and let
+(g, q_in, q_out) on D × S³ and (g′, q′_in, q′_out) on D′ × S³ be class solutions in the gauge that induce the data on N ∩
+D and N ∩ D′, where D, D′ ⊂ Q are past sets relative to (u_c, v_c), relatively open in Q. Then they are equal on
+(D ∩ D′) × S³. No smallness of either solution is assumed.
+
+*Proof.* *Step 1 (Reductions).* Translate so that the corner is (0, 0), and apply the change of angle of
+[[lem:civp-axes-extension]] (d) to both solutions, which keeps them class solutions in the gauge, with the same new data,
+b = 0 on N_i; it suffices to prove the claim for the new solutions. D″ := D ∩ D′ is a relatively open past set. A point
+(u, v) ∈ D″ with u < λ_u and v < λ_v lies in R := [0, a] × [0, b] ⊂ D″ for a := u, b := v, and as R is compact and D″
+relatively open there is ε > 0 with R_ε := [0, a + 2ε] × [0, b + 2ε] ⊂ D″. The points of D″ with u < λ_u and v < λ_v are
+dense in D″: with (u, v) every (u − s, v − s), s small, lies in D″ when u, v > 0, and a point with u = 0 or v = 0 is a
+limit of such points or lies on N. The solutions are continuous, so it suffices to show that they agree on each such R.
+By [[lem:civp-axes-jets]] (iv) both have the derivatives a_j, b_k across N ∩ R_ε, so their difference vanishes to
+infinite order on N ∩ R_ε.
+
+*Step 2 (The first disagreement).* Put t := u + v, Σ_t := {u + v = t} and D_t := R_ε ∩ Σ_t. Let t* be the supremum of the
+s ∈ [0, a + b + 4ε] such that the two solutions agree on R_ε ∩ {t ≤ s}; the set of these s contains 0 and is closed.
+Suppose t* < a + b. The solutions agree on R_ε ∩ {t ≤ t*}, so their difference vanishes to infinite order on D_(t*),
+all its derivatives being limits from the side t < t* or, for t* = 0, vanishing on N. We show that they agree on
+R_ε ∩ {t ≤ t* + θ} for some θ > 0, against the choice of t*.
+
+*Step 3 (A wave map near D_(t*)).* Use the coordinates (t, y), y := e^(v−u) ω, ω ∈ S³ ⊂ ℝ⁴, a G-equivariant chart on
+which metrics in natural double-null form are smooth through the axes, with dt timelike for every such metric, as
+g⁻¹(dt, dt) = 2 g^(uv) < 0. Extend g by [[lem:civp-axes-extension]] (a), applied in u and then in v to Ω, b and γ, to a
+smooth G-invariant metric g_e in natural double-null form on [−ε_1, a + 2ε] × [−ε_1, b + 2ε] × S³ for some ε_1 > 0, and
+put g′_e := g′ on R_ε and g′_e := g_e elsewhere there; g′_e is smooth, g′ − g vanishing to infinite order on N ∩ R_ε. Seek
+Φ = id + φ with id : (g′_e) → (g_e) a wave map,
+
+    g′_e^(μν) (∂_μ∂_ν Φ^λ − Γ[g′_e]^ρ_(μν) ∂_ρ Φ^λ + Γ[g_e]^λ_(αβ)(Φ) ∂_μ Φ^α ∂_ν Φ^β) = 0,
+
+a semilinear wave system for φ with principal part g′_e^(μν) ∂_μ∂_ν, for which φ = 0 is a solution wherever g′_e = g_e.
+Cut it off in (u, v) outside a neighbourhood of R_ε ∪ ([−ε_1/2, 0] × [0, b + ε]) ∪ ([0, a + ε] × [−ε_1/2, 0]), with frozen
+flat coefficients there as for A^μ_♭ in case (II) of [[sec:loc-cone-reduced]], and write it in first-order form in the
+chart; its forcing term is local, so [[thm:class-kato]] (a) with [[rem:class-kato-local]] gives a smooth solution φ on
+[t*, t* + θ] × ℝ⁴ with φ = 0 and ∂φ = 0 at t = t*, for some θ > 0; it is G-equivariant, by uniqueness. As in
+[[lem:loc-cone-past]], the energy of [[lem:loc-cone-energy]] on the part of {t* ≤ t ≤ t* + θ} where u ≤ 0 or v ≤ 0 and
+u, v ≥ −ε_1/2 + 2(t − t*), whose faces {u = 0} and {v = 0} are null with outward conormals du and dv future directed and
+whose faces {u = −ε_1/2 + 2(t − t*)} and {v = −ε_1/2 + 2(t − t*)} have the outward conormals 2dv + du and 2du + dv, timelike
+and future directed for every metric in natural double-null form, gives φ = 0 there for 4θ ≤ ε_1, where g′_e = g_e. So
+Φ = id to infinite order on N ∩ R_ε ∩ {t ≤ t* + θ}, and Φ − id vanishes to infinite order on D_(t*), the residual
+g′_e^(μν) (Γ[g_e] − Γ[g′_e])^λ_(μν) of φ = 0 doing so; put Φ := id on {t ≤ t*}. For θ small Φ is a diffeomorphism near
+the identity, and Φ(R_ε ∩ {t ≤ t* + θ}) ⊃ R_(ε/2) ∩ {t ≤ t* + θ}.
+
+*Step 4 (Comparison in the wave gauge of g).* Put G̃ := (Φ⁻¹)^* g′, ũ := u ∘ Φ⁻¹, ṽ := v ∘ Φ⁻¹ and q̃_A := q′_A ∘ Φ⁻¹ on
+R_(ε/2) ∩ {t ≤ t* + θ}. The wave map condition says D(G̃) = 0 for the gauge vector relative to g, and D(g) = 0 relative to
+g. So U := (g, −dv, −du, □_g(−v), □_g(−u), q_in, q_out) and Ũ := (G̃, −dṽ, −dũ, □_G̃(−ṽ), □_G̃(−ũ), q̃_in, q̃_out) solve
+the augmented system relative to g with ζ_A := 1 and chapter 81's closure at the axes, in the slicing by t: the closure
+holds for both in every slicing, their leaves being the level sets of their phases in the slices (the last statement of
+[[lem:class-leaf-differences]]) and the right side of [[eq:class-raychaudhuri]] being, by [[eq:class-identity]] and
+[[eq:class-x]], the closure. Ũ − U vanishes to infinite order on D_(t*) and on N ∩ R_(ε/2). For t* ≤ s ≤ t* + θ let
+R′_s := R_(ε/2) ∩ {t* ≤ t ≤ s} and z := 𝐔̃ − 𝐔 its first-order variables, so that, with the coefficients at U,
+
+    A^μ(x, 𝐔) ∂_μ z = M z − ½ ϖ (σ_A[Ũ]² − σ_A[U]²)  (in the Θ-rows),      M bounded,
+
+ϖ as in Step 2 of the proof of [[prop:civp-axes-corner]]. The boundary of R′_s consists of D_(t*), of pieces of N, where
+z = 0, of D_s, and of the future faces {u = a + ε/2} and {v = b + ε/2}, null for g with R′_s to their past, on which the
+boundary form at U is nonnegative, du(P_out) = dv(P_in) = 0 and the other pairings positive.
+
+*The non-local term.* D_t is bounded by at most two double-null spheres of g, each on N or on a future face; each is a
+level set of u or of v within Σ_t, hence a leaf of U of both families, and the leaves of U foliate a neighbourhood of
+each axis point, so D_t is closed under the leaves of U. (i) If t* < min(a, b) + ε, then for t near t* both boundary
+spheres of D_t lie on N, where Ũ = U to infinite order; they are therefore leaves of Ũ too, by the uniqueness in
+[[lem:class-volterra]], the leaf equations of Ũ and U agreeing along them, and D_t is closed under the leaves of Ũ.
+[[lem:class-leaf-reference]] (b′) with (U, U′) := (Ũ, U), whose bounds 𝔐 hold on R′_(t*+θ), gives ‖σ_A[Ũ] −
+σ_A[U]‖_(L²(D_t∩𝒰_δ)) ≤ C ‖z‖_(L²(D_t)), C not depending on the width of D_t. (ii) Otherwise the width of D_t, in the
+variable v − u, is bounded below near t = t*, since t* < a + b. Let 𝔼_t be Stein's operator for an annulus transported to
+D_t by a radial map of y and averaged over G, as in Step 5 of the proof of [[prop:civp-axes-corner]], bounded on H^σ,
+σ ≤ k − 1, uniformly for t near t*. Put Ŭ := Ũ − 𝔼_t(Ũ − U). Then Ŭ = U on D_t, and since the leaves of U through
+points of D_t lie in D_t, σ_A[Ŭ] = σ_A[U] there, by the uniqueness in [[lem:class-volterra]]. As Ũ − U vanishes to
+infinite order on D_(t*), ‖Ũ − U‖_(H^(k−1)(D_t)) → 0 as t ↓ t*; so for t near t* both Ũ and Ŭ lie in the ball 𝔅′ of
+[[lem:class-leaf-differences]] (b) about the smooth class solution ů := U, in the slicing by t, and
+
+    ‖σ_A[Ũ] − σ_A[U]‖_(L²(D_t∩𝒰_δ)) = ‖σ_A[Ũ] − σ_A[Ŭ]‖_(L²(D_t∩𝒰_δ)) ≤ C ‖𝔼_t z‖_(L²(𝒰_(2δ))) ≤ C ‖z‖_(L²(D_t)).
+
+In both cases e(s) := ∫_(D_s) ⟨A^0(x, 𝐔) z, z⟩ satisfies e(s) ≤ C ∫_(t*)^s e for t* ≤ s ≤ t* + θ′, some θ′ ∈ (0, θ], by the
+divergence theorem on R′_s as in [[lem:loc-cone-energy]]; e(t*) = 0, so z = 0 on R′_(t*+θ′).
+
+*Step 5 (The coordinates).* So G̃ = g, ũ = u, ṽ = v and q̃_A = q_A on R_(ε/2) ∩ {t ≤ t* + θ′}: Φ is an isometry from g′ to
+g with u ∘ Φ = u and v ∘ Φ = v. In natural double-null form g⁻¹du = g^(uv) ∂_v, as g^(uu) = g^(uA) = 0, so the angle θ of
+the coordinates is constant along the integral curves of g⁻¹du, and likewise for g′. Φ carries g′⁻¹du to g⁻¹du, so θ ∘
+Φ⁻¹ is constant along the integral curves of g⁻¹du; each of these in R_(ε/2) ∩ {t* ≤ t ≤ t* + θ′}, followed to the past,
+meets {t ≤ t*} or N_i, where Φ = id. So θ ∘ Φ⁻¹ = θ, Φ = id, and g′ = g and q′_A = q_A on R_(ε/2) ∩ {t ≤ t* + θ′}. This
+contradicts the choice of t*; so t* ≥ a + b, and the solutions agree on R. ∎
+
+**Corollary {#cor:civp-axes-maximal}** (The maximal development.) Let cone data be given on N_o and N_i, with Q as in
+[[prop:civp-axes-unique]]. Let D_max be the union of the sets D, past sets relative to the corner and relatively open in
+Q, that carry a class solution in the gauge inducing the data on N ∩ D. Then D_max is a past set, relatively open in Q,
+and there is exactly one class solution in the gauge on D_max × S³ that induces the data; it restricts to each of those
+solutions. If the data are of size at most Λ in C^(6k+19) and κ-nondegenerate on the parts of the edges within distance
+1 of the corner sphere, D_max contains [u_c, u_c + σ) × [v_c, v_c + σ), σ the number of [[prop:civp-axes-corner]] for
+Λ, κ and l := min(1, λ_u, λ_v).
+
+*Proof.* By [[prop:civp-axes-unique]] any two of the solutions agree on the intersection of their domains, so they define
+one function on the union, which is smooth, smoothness being local, and solves the equations there; a union of past sets
+relatively open in Q is one. The last statement is [[prop:civp-axes-corner]], a solution on [u_c, u_c + σ] × [v_c, v_c +
+σ] restricting to one on the relatively open past set [u_c, u_c + σ) × [v_c, v_c + σ). ∎
