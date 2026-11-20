@@ -14,13 +14,13 @@ of [[prop:np-10-52]] (iii), through ε_g = min(ε_Υ, ε_ind) and the constants 
 
 We locate the roots of the polynomials P_l, C and p_(v) of [[prop:np-10-12]] uniformly for 0 < h ≤ 10⁻⁶, as functions
 of two parameters: h and y := e_Cκ, which fixes the degree ([[sec:tr-roots]]). This gives the four inputs at every
-h ∈ 𝖧 ∩ [h₁, 10⁻⁶) outside a set 𝖩 ([[def:tr-exceptional]]), and [[thm:uc-integer]] holds there with the same numbers
-([[thm:tr-transfer]]). The set 𝖩 is the price of moving h: as h varies, the roots of real part at least 5/2 cross the
-integers, at finitely many values of h for each degree, and near such a value ε_ind(h) tends to 0. 𝖩 is a finite union
-of intervals of total length below 1.7·10⁻¹¹ ([[prop:tr-measure]]), and it cannot be dropped: near a crossing every
-admissible choice of the weights gives d_acc > D_acc ([[prop:tr-fail]]). The lower end h₁ is fixed by the root of P_2
-near 2, which lies less than 153600h² below 2 + 40h/13: below 13ε_Υ/40 = 4.7512…·10⁻¹¹ no h satisfies the
-hypothesis.
+h ∈ 𝖧 ∩ [h₁, 10⁻⁶) outside a set 𝖩 ([[def:tr-exceptional]]), and [[thm:uc-integer]] holds there with the same
+numbers ([[thm:tr-transfer]]). The set 𝖩 is the price of moving h: as h varies, the roots of real part at least 5/2
+cross the integers, at finitely many values of h for each degree, and near such a value ε_ind(h) tends to 0. 𝖩 is a
+finite union of intervals of total length below 1.7·10⁻¹¹ ([[prop:tr-measure]]), and it cannot be dropped: near a
+crossing every admissible choice of the weights gives d_acc > D_acc ([[prop:tr-fail]]). The lower end h₁ is fixed by
+the root ι₂(h) of P_2 near 2, with (40/13)h(1 − 5·10⁴h) < ι₂(h) − 2 < 40h/13 ([[lem:ec-lb-ind]]): below
+13ε_Υ/40 = 4.7512…·10⁻¹¹ no h satisfies the hypothesis.
 
 *Setting.* Throughout this section e := e_C = 1/102400 and v := v_C = 1/2; h ∈ (0, 10⁻⁶] and ϖ := h/e = 102400h, so
 0 < ϖ ≤ 0.1024; for l ≥ 1, κ := l(l + 2), x := hκ and y := eκ, so that x = ϖy and y depends on l alone; P_l,
@@ -47,11 +47,11 @@ h₁ ≤ h < 10⁻⁶ and h ∉ 𝖩, and suppose that, with this h, the gauge p
 [[thm:vi-c-2-1]] places on them, for some γ_(Υ,H). Take (v_C, e_C) of [[eq:iv4-0-1]], the index sets as constructed,
 and the choices of [[def:uc-choice]] and [[def:cs-choices]]. Then:
 
-(i) (*the inputs*) ε_Υ ≤ ε_ind(h) ≤ min(δ_50, ι₂ − 2), where ι₂ is the root of P_2 with
-(40/13 − 153600h)h < ι₂ − 2 < 40h/13; the exponents of ℰ^ι_ind of real part at most 5 are those of ℰ_ind, the
+(i) (*the inputs*) ε_Υ ≤ ε_ind(h) ≤ min(δ_50, ι₂(h) − 2), with ι₂(h) the root of P_2 of [[lem:ec-lb-ind]],
+(40/13)h(1 − 5·10⁴h) < ι₂(h) − 2 < 40h/13; the exponents of ℰ^ι_ind of real part at most 5 are those of ℰ_ind, the
 integers 1, …, 5 and the numbers ι + 1 + j of [[prop:tr-inputs]] (a), of real part greater than 3, none of them an
 integer; every indicial root of L̂_b(0) of real part in [−101, 5] is simple; and every pole of N_ι⁺(L̄, ·)⁻¹ of real
-part at most 5 is simple ([[prop:tr-eps]], [[prop:tr-inputs]]);
+part at most 5 is simple ([[lem:ec-lb-ind]], [[prop:tr-eps]], [[prop:tr-inputs]]);
 
 (ii) (*the bounds*) every statement of [[thm:uc-integer]] holds at (h, 1/100, 1/100) with the same numbers:
 c_* < C_* = 6.4368·10³⁵; d_acc ≤ d_R ≤ D_acc and d_NM ≤ D_acc < 1.57157·10⁵⁰; N_NM ≤ 21D_acc + 6 < 3.30029·10⁵¹;
@@ -59,19 +59,19 @@ d_Ψ, d_FM ≤ 1,038,326,399,999,948; d_acc, d_R < 2.6193·10⁴⁹ and d_NM < 5
 1 + n_ι ≤ c(β) ≤ C_lev; and d_NM ≥ d_acc > 1.2497·10²⁴, N_NM > 2.624·10²⁵ for every admissible choice of the
 weights, with 3R > 1.2498·10²⁴ at the choice of [[def:uc-choice]].
 
-The lower bounds of (ii) hold at every h ∈ 𝖧 at which (1/100, 1/100) meets those conditions, whether or not h ∉ 𝖩 and
-h ≥ h₁ ([[prop:ec-rounds]], [[cor:uc-two-offsets]]).
+The lower bounds d_NM ≥ d_acc > 1.2497·10²⁴ and N_NM > 2.624·10²⁵ hold at every h ∈ 𝖧 at which (1/100, 1/100) meets
+those conditions, whether or not h ∉ 𝖩 and h ≥ h₁ ([[prop:ec-rounds]], [[cor:uc-two-offsets]]).
 
 **Remark {#rem:tr-scope}** (What the theorem assumes.) [[thm:tr-transfer]] is conditional, and its hypothesis may be
 empty. It needs an h ∈ 𝖧 with h ≥ h₁, and the supremum h_* = min(10⁻⁶, h_0, h_tf) of 𝖧 is not determined, h_0 and h_tf
 being thresholds whose existence is proved and whose values are not ([[rem:ec-point-outside]]); if h_* ≤ h₁, no h
 qualifies. It needs also that (1/100, 1/100) lie below the gauge thresholds of [[thm:vi-c-2-1]] at that h, which this
 paper does not decide. The two other restrictions, h ≥ h₁ and h ∉ 𝖩, are those under which the proof at h = 10⁻⁶ carries
-over unchanged. Below 13ε_Υ/40 = 4.7512…·10⁻¹¹ the root ι₂ gives ε_ind(h) < ε_Υ, so ε_g < ε_Υ and the counts of
-[[prop:uc-explicit]] and [[sec:cs]] that use ε_g change; they are not evaluated here, and h₁ lies within 0.19 % of
-that value. On 𝖩 the condition (H_ε) can fail, and where ε_ind(h) < 1.38·10⁻²⁵ the bound itself fails for every
-admissible choice ([[prop:tr-fail]]); so 𝖩 cannot be dropped. What the theorem gives is therefore: if the parameter
-point (h, 1/100, 1/100) is admissible, h ≥ h₁ and h ∉ 𝖩, the bounds computed at h = 10⁻⁶ are bounds at h.
+over unchanged. Below 13ε_Υ/40 = 4.7512…·10⁻¹¹ the root ι₂(h) gives ε_ind(h) < ε_Υ ([[lem:ec-lb-ind]]), so ε_g < ε_Υ and
+the counts of [[prop:uc-explicit]] and [[sec:cs]] that use ε_g change; they are not evaluated here, and h₁ lies
+within 0.19 % of that value. On 𝖩 the condition (H_ε) can fail, and where ε_ind(h) < 1.38·10⁻²⁵ the bound itself fails
+for every admissible choice ([[prop:tr-fail]]); so 𝖩 cannot be dropped. What the theorem gives is therefore: if the
+parameter point (h, 1/100, 1/100) is admissible, h ≥ h₁ and h ∉ 𝖩, the bounds computed at h = 10⁻⁶ are bounds at h.
 
 #### The sextic in two parameters {#sec:tr-split}
 
@@ -157,11 +157,10 @@ x ≤ 0.01536. The three roots of P_l of real part greater than 19/10 are real, 
 
 (a) for l = 1 they are 2 and one root in each of (2 + y, a) and (a, 3 − y/2);
 
-(b) for l = 2 they lie one in each of (2 + (40/13 − 3ϖ/2)h, 2 + 40h/13), (2 + y, a) and (a, 3 − y/2);
+(b) for l = 2 they are the root ι₂(h) of [[lem:ec-lb-ind]], in (2 + (40/13)h(1 − 5·10⁴h), 2 + 40h/13), and one root
+in each of (2 + y, a) and (a, 3 − y/2);
 
 (c) for 3 ≤ l ≤ 122 they lie one in each of (2 + 3.1h, 2 + y), (2 + y, a) and (a, 3 − y/2).
-
-In particular the root of P_2 nearest 2, ι₂, satisfies (40/13 − 153600h)h < ι₂ − 2 < 40h/13.
 
 *Proof.* By [[prop:np-10-54]] (i), P_l has exactly three roots of real part greater than 19/10, counted with
 multiplicity. As P_l has real coefficients, three sign changes on (2, 3) at points of three disjoint intervals give
@@ -192,18 +191,9 @@ e|F(3 − y/2)| ≤ 8h + 1.357·10⁻⁴y + 1.6·10⁻⁸, which is below 1.4466
 (1.4466 − 1.357·10⁻⁴)y > 4.23·10⁻⁵ > 8·10⁻⁶ + 1.6·10⁻⁸. So P_l(3 − y/2) < 0.
 
 *Near 2.* (a) P_1(2) = 0 ([[prop:np-10-12]] (iii)); with the signs −, +, − at 2 + y, a, 3 − y/2 this gives the three
-roots. (b) At l = 2, κ = 8, put ι = 2 + τh. Substituting into [[eq:tr-split]] with x = 8h and dividing by he = ϖe²,
-
-    P_2(2 + τh) = he(120 − 39τ + ϖ(2τ² − 11τ − 40) + hQ(τ, ϖ, h)),
-    Q := 40 − 159τ + 10τ² + ϖ(360 − 251τ + 47τ² − 2τ³) + h(5τ³ − 36τ² − 2τ + ϖ(−7τ³ + 135τ² − 378τ))
-         + h²(29τ³ − 47τ² + ϖ(−5τ⁴ + 55τ³ − 85τ²)) + h³(6τ⁴ + τ³ + ϖ(−15τ⁴ + 96τ³))
-         + h⁴(7τ⁴ + ϖ(−4τ⁵ + 14τ⁴)) + h⁵(τ⁵ − 6ϖτ⁵) − ϖh⁶τ⁶,                                            {#eq:tr-p2}
-
-and for 0 ≤ τ ≤ 3.1, |Q| ≤ 798, so e|Q| < 0.008. With f(τ) := 2τ² − 11τ − 40, f(40/13) = −9280/169 < −54.91. At
-τ = 40/13, 120 − 39τ = 0 and P_2(2 + τh) ≤ ϖhe(−54.91 + 0.008) < 0. At τ₀ := 40/13 − 3ϖ/2, 120 − 39τ₀ = 117ϖ/2 and
-f(τ₀) = −9280/169 − (3ϖ/2)(17/13) + 9ϖ²/2 > −54.912 − 1.9616ϖ, so P_2(2 + τ₀h) ≥ ϖhe(58.5 − 54.912 − 0.2009 −
-0.008) > 0. With the signs −, +, − at 2 + y, a, 3 − y/2 this gives the three roots, and the last claim, as
-(3ϖ/2)h = 153600h². (c) For 3 ≤ l ≤ 122, κ ≥ 15. Put t := 3.1h. As x − 2t = h(κ − 6.2) > 0,
+roots. (b) The proof of [[lem:ec-lb-ind]] gives P_2(2 + hξ₋) > 0 > P_2(2 + (40/13)h) with
+ξ₋ := (40/13)(1 − 5·10⁴h), and 2 + (40/13)h < 2 + 3.1·10⁻⁶ < 2 + y; with the signs −, +, − at 2 + y, a, 3 − y/2 this
+gives the three roots, the first being ι₂(h). (c) For 3 ≤ l ≤ 122, κ ≥ 15. Put t := 3.1h. As x − 2t = h(κ − 6.2) > 0,
 𝒬(2 + t) = (x − 2t)(1 + x − t) + (3 − 2ϖ)y ≥ 2.7952y, and U(2 + t) = (x − t)𝒬(2 + t) ≥ 2.7952heκ(κ − 3.1). By
 [[eq:tr-split]], F(2) = −x(9 − x − 3ϖ + 2ϖx + 3h + 3ϖh), so |F(2)| ≤ 9.326x, and |∂_ιF| ≤ 15.64 on [2, 2 + t], by the
 majorant of ∂_ιF(2 + t′, x, ϖ, h) in t′ ≤ 3.1·10⁻⁶ and x ≤ 0.01536. So e|F(2 + t)| ≤ he(9.326κ + 48.49), and
@@ -356,34 +346,30 @@ right side is at most the last column there, at most 0.2923; so ∂_h Re ι_P �
 
 #### The four inputs {#sec:tr-inputs}
 
-**Proposition {#prop:tr-eps}** (The number ε_ind(h).) (a) For every h ∈ (0, 10⁻⁶], ε_ind(h) ≤ min(δ_50, ι₂ − 2) with
-ι₂ of [[lem:tr-small]], and ι₂ − 2 < 40h/13.
+**Proposition {#prop:tr-eps}** (The number ε_ind(h).) (a) Every h ∈ [h₁, 10⁻⁶] ∖ 𝖩 satisfies (H_ε), and then
+ε_Υ ≤ ε_ind(h) ≤ min(δ_50, ι₂(h) − 2), with ι₂(h) of [[lem:ec-lb-ind]].
 
-(b) Every h ∈ [h₁, 10⁻⁶] ∖ 𝖩 satisfies (H_ε), and then ε_ind(h) ≥ ε_Υ.
+(b) No h ≤ 13ε_Υ/40 satisfies (H_ε), and at every such h, ε_ind(h) < ε_Υ.
 
-(c) No h ≤ 13ε_Υ/40 satisfies (H_ε), and at every such h, ε_ind(h) < ε_Υ.
+*Proof.* (a) Let h ∈ [h₁, 10⁻⁶] ∖ 𝖩 and let ι be a root as in [[def:tr-exceptional]] (a). If ι is a root of C, then
+ι = ι₁, as the other roots have |ι − 1| > 101, and 2 + 7·10⁻⁵ < ι₁ < 5/2 ([[lem:tr-c-v]] (a)). If ι is a root of
+p_(v), then ι = ι_v(l, h) with l ≥ 2, the smaller root being below −100; ι_v(l, h) − 3 ≥ ι_v(2, h) − 3 ≥ 5h/(1 + 6h) >
+4.99h₁ > ε_Υ, and as h ∉ 𝖩, ι_v is not within ε_Υ of an integer n with 4 ≤ n ≤ 51, while |ι − 1| ≤ 50 gives ι ≤ 51.
+Let ι be a root of P_l; then Re ι > 19/10 ([[prop:np-10-54]] (i)). For l ≤ 122, [[lem:tr-small]] places ι in (2, 3) at
+distance more than min((40/13)h(1 − 5·10⁴h), 3.1h, 3e, 3e/2) from 2 and 3, apart from ι = 2 at l = 1; as
+h ↦ (40/13)h(1 − 5·10⁴h) increases on (0, 10⁻⁶] and exceeds 1.4646·10⁻¹⁰ at h₁, and 3.1h₁ = 1.4756·10⁻¹⁰, this is at
+least ε_Υ. For 123 ≤ l ≤ 142 (3/20 ≤ y ≤ 1/5), [[lem:tr-large]] (a), (b) give ι = ι_B ∈ (2 + x/2, 2.031), with
+x/2 = hκ/2 ≥ 7687h > ε_Υ, or Re ι ∈ (2.1, 2.92). For l ≥ 143 and x ≤ 70: if ι = ι_B and x ≤ 1/2, then
+ι ∈ (2 + x/2, 2.75) with x/2 ≥ 10240h > ε_Υ; if ι = ι_B and x > 1/2, ι is real and within ε_Υ of an integer only if
+that integer n lies in [3, 51] (as |ι − 1| ≤ 50), which h ∉ 𝖩 excludes; if ι = ι_P or its conjugate, then b ≤ 50.2 by
+[[lem:tr-large]] (c), Re ι ∈ (a − 1/5, a + 1/5) ⊂ (2.3, 51.2), and Re ι lies within ε_Υ of an integer only if that
+integer lies in [3, 51], which h ∉ 𝖩 excludes. For x > 70 no such root exists ([[lem:tr-large]] (d)). So (H_ε) holds.
+Then every non-integer entry of modulus at most 50 that depends on h has distance at least ε_Υ from ℤ, the
+h-independent ones have distance at least δ_50 > ε_Υ ([[prop:np-10-52]] (iii)), and the only h-dependent integer
+entries are the excepted ones; so ε_ind(h) ≥ ε_Υ. The upper bounds are [[prop:np-10-52]] (iii) and [[lem:ec-lb-ind]].
 
-*Proof.* (a) ε_ind(h) ≤ δ_50 is [[prop:np-10-52]] (iii). The entry ι₂ − 1 of ℛ^sc_2 has modulus below 50 and distance
-ι₂ − 2 ∈ (0, 40h/13) from ℤ ([[lem:tr-small]] (b)), which bounds the infimum.
-
-(b) Let h ∈ [h₁, 10⁻⁶] ∖ 𝖩 and let ι be a root as in [[def:tr-exceptional]] (a). If ι is a root of C, then ι = ι₁, as
-the other roots have |ι − 1| > 101, and 2 + 7·10⁻⁵ < ι₁ < 5/2 ([[lem:tr-c-v]] (a)). If ι is a root of p_(v), then
-ι = ι_v(l, h) with l ≥ 2, the smaller root being below −100; ι_v(l, h) − 3 ≥ ι_v(2, h) − 3 ≥ 5h/(1 + 6h) > 4.99h₁ >
-ε_Υ, and as h ∉ 𝖩, ι_v is not within ε_Υ of an integer n with 4 ≤ n ≤ 51, while |ι − 1| ≤ 50 gives ι ≤ 51. Let ι be
-a root of P_l; then Re ι > 19/10 ([[prop:np-10-54]] (i)). For l ≤ 122, [[lem:tr-small]] places ι in (2, 3) at
-distance more than min((40/13 − 153600h)h, 3.1h, 3e, 3e/2) from 2 and 3, apart from ι = 2 at l = 1; as h ↦ (40/13 −
-153600h)h increases on (0, 10⁻⁶] and is 1.46461…·10⁻¹⁰ at h₁, and 3.1h₁ = 1.4756·10⁻¹⁰, this is at least ε_Υ. For
-123 ≤ l ≤ 142 (3/20 ≤ y ≤ 1/5), [[lem:tr-large]] (a), (b) give ι = ι_B ∈ (2 + x/2, 2.031), with
-x/2 = hκ/2 ≥ 7687h > ε_Υ, or Re ι ∈ (2.1, 2.92). For l ≥ 143 and x ≤ 70: if ι = ι_B and x ≤ 1/2, ι ∈ (2 + x/2, 2.75)
-with x/2 ≥ 10240h > ε_Υ; if ι = ι_B and x > 1/2, ι is real and within ε_Υ of an integer only if that integer n lies in
-[3, 51] (as |ι − 1| ≤ 50), which h ∉ 𝖩 excludes; if ι = ι_P or its conjugate, then b ≤ 50.2 by [[lem:tr-large]] (c),
-Re ι ∈ (a − 1/5, a + 1/5) ⊂ (2.3, 51.2), and Re ι lies within ε_Υ of an integer only if that integer lies in [3, 51],
-which h ∉ 𝖩 excludes. For x > 70 no such root exists ([[lem:tr-large]] (d)). So (H_ε) holds. Then every non-integer
-entry of modulus at most 50 that depends on h has distance at least ε_Υ from ℤ, the h-independent ones have distance at
-least δ_50 > ε_Υ ([[prop:np-10-52]] (iii)), and the only h-dependent integer entries are the excepted ones; so
-ε_ind(h) ≥ ε_Υ.
-
-(c) For h ≤ 13ε_Υ/40, ι₂ − 2 < 40h/13 ≤ ε_Υ, so ι₂ violates (H_ε) and ε_ind(h) < ε_Υ by (a). ∎
+(b) For h ≤ 13ε_Υ/40, ι₂(h) − 2 < 40h/13 ≤ ε_Υ by [[lem:ec-lb-ind]], so ι₂(h) violates (H_ε) and
+ε_ind(h) ≤ ι₂(h) − 2 < ε_Υ. ∎
 
 **Proposition {#prop:tr-inputs}** (The other three inputs.) Let h ∈ 𝖧 with h₁ ≤ h < 10⁻⁶ satisfy (H_ε). Then:
 
@@ -458,7 +444,7 @@ no bound uses it, as (c) gives the orders from above at every h.
 
 #### Proof of the transfer {#sec:tr-proof}
 
-*Proof of [[thm:tr-transfer]].* (i) is [[prop:tr-eps]] (a), (b) and [[prop:tr-inputs]].
+*Proof of [[thm:tr-transfer]].* (i) is [[prop:tr-eps]] (a) and [[prop:tr-inputs]].
 
 (ii) We go through the statements of [[sec:ec-gap-sums]]–[[sec:cs-small]] that the proof of [[thm:uc-integer]] and of
 [[prop:uc-d-small]] uses, and show that each holds at (h, 1/100, 1/100) with the same numbers. [[prop:gap-sums]],
@@ -521,9 +507,9 @@ then h_c ∈ 𝖩, ι_v(1000, h_c) = 4, and ε_ind(h) < 1.38·10⁻²⁵ for 0 <
 points of 𝖧 arbitrarily close to h_c with ε_ind(h) < 1.38·10⁻²⁵, and [[thm:tr-transfer]] (ii) fails at each of them
 at which the gauge point is admissible.
 
-*Proof.* The proof of [[prop:ec-rounds]] uses of its number δ̂ only that ε_g ≤ δ̂, ε_K < δ̂ and 5δ̂ + δ̄ < 2.1·10⁻⁸.
-As ε_K < ε_+ < ε_ind ≤ ε_ind(h) and ε_g ≤ ε_ind, it applies with δ̂ := ε_ind(h), and gives
-R > (1 − 5δ̂ − δ̄)/δ̂²; so by [[thm:loss-d]] (ii), d_NM ≥ d_acc ≥ 3R > 3(1 − 2.1·10⁻⁸)/(1.38·10⁻²⁵)² > 1.5752·10⁵⁰ >
+*Proof.* [[lem:ec-lb-rounds]] applies with Θ_g := ε_ind(h) and Θ_η := δ̄: ε_g ≤ ε_ind ≤ ε_ind(h), ε_K < ε_+ < ε_ind,
+η_2 < ε_+ < ε_ind ≤ δ_50 < δ̄, and 5Θ_g + Θ_η < 2.1·10⁻⁸. It gives R > (1 − 2.1·10⁻⁸)/ε_ind(h)²; so by
+[[thm:loss-d]] (ii), d_NM ≥ d_acc ≥ 3R > 3(1 − 2.1·10⁻⁸)/(1.38·10⁻²⁵)² > 1.5752·10⁵⁰ >
 D_acc. At l = 1000, κ = 1002000 and (n − 3)/((l + 1)² − (n − 1)²) = 1/1001992 at n = 4, so ι_v(1000, h_c) = 4
 ([[lem:tr-c-v]] (b)) and h_c ∈ 𝖩_v(1000, 4). By [[eq:tr-vslope]], 0 < ∂_hι_v ≤ (l + 1)² = 1002001, so for
 0 < |h − h_c| < 1.377·10⁻³¹, 0 < |ι_v(1000, h) − 4| < 1.38·10⁻²⁵, and the entry ι_v − 1 of ℛ^v_1000, of modulus below
@@ -531,10 +517,9 @@ D_acc. At l = 1000, κ = 1002000 and (n − 3)/((l + 1)² − (n − 1)²) = 1/1
 (h_c − 1.377·10⁻³¹, h_c + 1.377·10⁻³¹) ∩ (0, h_*). ∎
 
 The same argument applies near every point of 𝖩 at which some ι_B, Re ι_P or ι_v equals an integer n ∈ [3, 51].
-For h < 13ε_Υ/40 the condition (H_ε) fails at every h, through ι₂, and ε_g ≤ ε_ind(h) < 40h/13; the quantities of
-[[prop:uc-explicit]] that use ε_g then change, and the argument of the proof above with δ̂ := 40h/13 gives, at every such
-h ∈ 𝖧 at which the gauge point is admissible, d_acc > 3(13/40)²(1 − 2.1·10⁻⁸)/h², which exceeds D_acc for
-h < 4.5·10⁻²⁶.
+For h ≤ 13ε_Υ/40 the condition (H_ε) fails at every h, through ι₂(h), and ε_g ≤ ε_ind(h) < 40h/13 < ε_Υ; the
+quantities of [[prop:uc-explicit]] that use ε_g then change, and [[thm:ec-lb-proved]] gives d_NM > 0.3168h⁻², which
+exceeds D_acc for h ≤ 4.48·10⁻²⁶ ([[rem:ec-lb-unbounded]]).
 
 ### Placement
 
@@ -544,57 +529,73 @@ sources and serve only to find the place.
 
 *1. Where the section goes.* The section above, from its heading through the paragraph after [[prop:tr-fail]], is
 inserted in [[ch:explicit-constants]] immediately before the heading of [[sec:ec-linear]], "The first constants of the
-linear theory" (after the section sec:uc-data-order, if that section has been inserted before it), with one blank
-line before and one after. It defines sec:tr, def:tr-exceptional, thm:tr-transfer, rem:tr-scope, sec:tr-split,
+linear theory" (after the section sec:uc-data-order, if that section has been inserted before it), with one blank line
+before and one after. It defines sec:tr, def:tr-exceptional, thm:tr-transfer, rem:tr-scope, sec:tr-split,
 lem:tr-split, eq:tr-split, eq:tr-dh, eq:tr-gb, eq:tr-aj, sec:tr-roots, lem:tr-c-v, eq:tr-vslope, lem:tr-small,
-eq:tr-p2, lem:tr-large, lem:tr-slopes, sec:tr-inputs, prop:tr-eps, prop:tr-inputs, sec:tr-proof, sec:tr-exceptional,
+lem:tr-large, lem:tr-slopes, sec:tr-inputs, prop:tr-eps, prop:tr-inputs, sec:tr-proof, sec:tr-exceptional,
 prop:tr-measure and prop:tr-fail, none of which is defined elsewhere. Its two tables are of the size of those of
-[[lem:ec-gauge-gap]] and [[prop:gap-sums]] and stay in the text. No number already printed in any chapter changes.
+[[lem:ec-gauge-gap]] and [[prop:gap-sums]] and stay in the text. It uses [[lem:ec-lb-ind]], [[lem:ec-lb-rounds]] and
+[[thm:ec-lb-proved]], which stand earlier in the chapter. No number already printed in any chapter changes.
 
-*2. [[ch:explicit-constants]], its opening paragraph (lines 22–25).* Old:
+*2. [[ch:explicit-constants]], its opening paragraph (lines 26–28).* Old:
 
-products ([[def:uc-choice]], [[def:cs-choices]]), d_acc and d_NM, the latter the d of [[thm:iii-k-3-2]], at least the
-orders at which its lemmas ask U small ([[prop:uc-d-small]]), are at most an integer below 1.57157 × 10⁵⁰, and N_NM at
-most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter point lies outside the set on which [[thm:settling]]
-is proved ([[rem:ec-point-outside]]), and the bounds bound what this proof's choices produce, not the optimal loss. The
-
-New:
-
-products ([[def:uc-choice]], [[def:cs-choices]]), d_acc and d_NM, the latter the d of [[thm:iii-k-3-2]], at least the
-orders at which its lemmas ask U small ([[prop:uc-d-small]]), are at most an integer below 1.57157 × 10⁵⁰, and N_NM at
-most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter point lies outside the set on which [[thm:settling]]
-is proved ([[rem:ec-point-outside]]), and the bounds bound what this proof's choices produce, not the optimal loss. The
-same bounds hold at every h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside an explicit set of total length below 1.7·10⁻¹¹, if
-(γ_Υ, e_Υ) = (1/100, 1/100) is admissible at that h, and they fail near the excluded values of h ([[thm:tr-transfer]],
-[[prop:tr-fail]]); whether such an h exists is not decided ([[rem:tr-scope]]). The
-
-*3. [[rem:ec-point-outside]], its last sentence (lines 55–57).* Old:
-
-at it. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-10-52]] (iii)), and the lower bound of
-[[thm:loss-d]] uses besides only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed by (γ_Υ, e_Υ)
-([[lem:ec-gauge-gap]], [[prop:ec-rounds]]).
+most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter
+point lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at it bound
+what this proof's choices produce, not the optimal loss. The
 
 New:
 
-at it. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-10-52]] (iii)), and the lower bound of
-[[thm:loss-d]] uses besides only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed by (γ_Υ, e_Υ)
-([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). [[thm:tr-transfer]] moves the upper bounds to h ∈ 𝖧 ∩ [h₁, 10⁻⁶),
-h₁ = 4.76·10⁻¹¹, outside a set 𝖩 of total length below 1.7·10⁻¹¹, under the same condition on (γ_Υ, e_Υ); for every
-h ∈ (0, 10⁻⁶], ε_ind(h) < 40h/13 ([[prop:tr-eps]]).
+most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter
+point lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at it bound
+what this proof's choices produce, not the optimal loss. The same upper bounds hold at the gauge values 1/100 for every
+h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside an explicit set of total length below 1.7·10⁻¹¹, if those gauge values are
+admissible at that h, and they fail near the excluded values of h ([[thm:tr-transfer]], [[prop:tr-fail]]); whether such
+an h exists is not decided ([[rem:tr-scope]]). The
 
-*4. [[ch:theorems]], the list of further results (lines 353–354).* Old:
+*3. [[rem:ec-point-outside]], its last sentence (lines 66–68).* Old:
 
-  parameter point that lies outside the proved set ([[thm:loss-d]]) and, there, explicit upper bounds for d and N_NM
-  at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]); through the lower bounds,
+every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a
+lower bound for d holds as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for
+ε_Υ and ε_ind(h) that hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
 
 New:
 
-  parameter point that lies outside the proved set ([[thm:loss-d]]) and, there, explicit upper bounds for d and N_NM
-  at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]), which hold at the same
-  gauge parameters for h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside a set of length below 1.7·10⁻¹¹ if those gauge parameters
-  are admissible there, a condition not decided ([[thm:tr-transfer]]); through the lower bounds,
+every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a
+lower bound for d holds as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for
+ε_Υ and ε_ind(h) that hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]). The
+upper bounds of [[thm:uc-integer]] hold, with the same numbers, at (h, 1/100, 1/100) for h ∈ 𝖧 ∩ [h₁, 10⁻⁶),
+h₁ = 4.76·10⁻¹¹, outside a set 𝖩 of total length below 1.7·10⁻¹¹, under the same undecided condition on (γ_Υ, e_Υ)
+([[thm:tr-transfer]]).
 
-*5. [[ch:scope]], [[sec:scope-constants]] (line 74; the item that inserts the order of the approximant after line 72
+*4. [[rem:ec-lb-unbounded]], its last sentence (lines 1795–1797).* Old:
+
+bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
+condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶ ([[lem:uc-two-offsets]], [[thm:is-gap]]), and
+is stated at that point only.
+
+New:
+
+bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
+condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶ ([[lem:uc-two-offsets]], [[thm:is-gap]]), and
+is stated at that point only. Points of the proved set at which an upper bound holds are given, under the same
+condition on (γ_Υ, e_Υ), by [[thm:tr-transfer]]: there d_NM < 1.57157·10⁵⁰ for h ∈ [4.76·10⁻¹¹, 10⁻⁶) outside a set
+𝖩 of total length below 1.7·10⁻¹¹, and near the points of 𝖩 the bound fails ([[prop:tr-fail]]).
+
+*5. [[ch:theorems]], the list of further results (lines 354–356).* Old:
+
+  and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that lies outside the proved set, explicit lower bounds
+  ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the weights, orders and inner
+  products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the modulus of the initial family
+
+New:
+
+  and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that lies outside the proved set, explicit lower bounds
+  ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the weights, orders and inner
+  products ([[thm:uc-integer]]), which hold at the same gauge parameters for h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside a set
+  of length below 1.7·10⁻¹¹ if those gauge parameters are admissible there, a condition not decided
+  ([[thm:tr-transfer]]); through the lower bounds, upper bounds for δ and for the modulus of the initial family
+
+*6. [[ch:scope]], [[sec:scope-constants]] (line 78; an item that inserts the order of the approximant after line 76
 leaves this line as it is).* Old:
 
 [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the proof of any
@@ -607,9 +608,28 @@ gauge values 1/100 are admissible at h; this conditional statement may be empty,
 determined, and near the points of 𝖩 the bounds fail ([[thm:tr-transfer]], [[rem:tr-scope]], [[prop:tr-fail]]). No
 result of [[ch:explicit-constants]] is used in the proof of any
 
-*6. Unchanged.* [[def:ec-point]], [[thm:uc-integer]] and every statement at the computational point keep their texts
-and numbers; [[cor:s14-eps-ind-point]] and [[rem:s14-eps-ind-scope]] stand, h = 10⁻⁶ being the point at which the
-enclosures of [[ch:s14]] are made. No result of the new section is used outside [[ch:explicit-constants]].
+*7. [[ch:s14]], [[rem:s14-eps-ind-scope]] (lines 3536–3540; that chapter is being edited, so the old text is to be
+checked against its current form).* Old:
+
+What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
+every constant, and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50 and the bound
+ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]], which is the smaller for h ≤ 6.309·10⁻⁹. [[cor:s14-eps-ind-point]] shows that
+the upper bound δ_50 is attained at the end h = 10⁻⁶ of the interval on which ε_ind is
+defined.
+
+New:
+
+What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
+every constant. For h ∈ 𝖧 this paper gives 0 < ε_ind(h) ≤ δ_50, the bound ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]],
+which is the smaller for h ≤ 6.309·10⁻⁹, and ε_ind(h) ≥ ε_Υ = 1.4619·10⁻¹⁰ for h ∈ [4.76·10⁻¹¹, 10⁻⁶) outside a set of
+total length below 1.7·10⁻¹¹, near whose points ε_ind(h) is arbitrarily small ([[prop:tr-eps]], [[prop:tr-measure]],
+[[prop:tr-fail]]). [[cor:s14-eps-ind-point]] shows that the upper bound δ_50 is attained at the end h = 10⁻⁶ of the
+interval on which ε_ind is defined.
+
+*8. Unchanged.* [[def:ec-point]], [[thm:uc-integer]] and every statement at the computational point keep their texts
+and numbers; [[cor:s14-eps-ind-point]] stands, h = 10⁻⁶ being the point at which the enclosures of [[ch:s14]] are made;
+[[lem:ec-lb-ind]], [[thm:ec-lb-proved]] and their consequences stand, and [[prop:tr-eps]] and [[prop:tr-fail]] use
+them. No result of the new section is used outside [[ch:explicit-constants]].
 
 ### Crosswalk rows
 
@@ -619,68 +639,68 @@ location in this file; name; note), to be written with tab separators:
 Row 1. sec:tr; paper/reader/proofs/P-TR.md:1; transfer proof P-TR, section heading; new section, inserted before
 sec:ec-linear.
 
-Row 2. def:tr-exceptional; paper/reader/proofs/P-TR.md:LDEF; transfer proof P-TR, Definition (The condition (H_ε) and
-the set 𝖩.); new: (H_ε) is dist ≥ ε_Υ for all h-dependent roots with |ι − 1| ≤ 50; 𝖩 the crossings of ι_B, Re ι_P,
-ι_v with n ∈ [3, 51] within ε_Υ.
+Row 2. def:tr-exceptional; paper/reader/proofs/P-TR.md:31; transfer proof P-TR, Definition (The condition (H_ε) and the
+set 𝖩.); new: (H_ε) asks dist ≥ ε_Υ for every h-dependent root with |ι − 1| ≤ 50; 𝖩 collects the h at which ι_B, Re ι_P
+or ι_v is within ε_Υ of an integer n ∈ [3, 51].
 
-Row 3. thm:tr-transfer; paper/reader/proofs/P-TR.md:LTHM; transfer proof P-TR, Theorem (The bounds of thm:uc-integer
-at other values of h.); new conditional transfer: h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) ∖ 𝖩, gauge point admissible, all
-numbers of thm:uc-integer unchanged.
+Row 3. thm:tr-transfer; paper/reader/proofs/P-TR.md:45; transfer proof P-TR, Theorem (The bounds of thm:uc-integer at
+other values of h.); new conditional transfer: h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) ∖ 𝖩 and the gauge point admissible at h give
+every number of thm:uc-integer unchanged.
 
-Row 4. rem:tr-scope; paper/reader/proofs/P-TR.md:LREM; transfer proof P-TR, Remark (What the theorem assumes.); the
-hypothesis may be empty (h_* unknown, gauge thresholds undecided); 13ε_Υ/40 the least h for (H_ε).
+Row 4. rem:tr-scope; paper/reader/proofs/P-TR.md:65; transfer proof P-TR, Remark (What the theorem assumes.); the
+hypothesis may be empty (h_* not determined, gauge thresholds not decided); no h ≤ 13ε_Υ/40 satisfies (H_ε); 𝖩 cannot be
+dropped.
 
-Row 5. sec:tr-split; paper/reader/proofs/P-TR.md:LSPLIT; transfer proof P-TR, subsection heading; new.
+Row 5. sec:tr-split; paper/reader/proofs/P-TR.md:76; transfer proof P-TR, subsection heading; new.
 
-Row 6. lem:tr-split; paper/reader/proofs/P-TR.md:LLSPLIT; transfer proof P-TR, Lemma (The sextic and its derivative
-in h.); P_l = U + eF from lem:s14-sextic-split at ε₀ = e/h, F_k = ϖR_k; ∂_hP_l at fixed l; F(2 + x) and F₁(a + s).
+Row 6. lem:tr-split; paper/reader/proofs/P-TR.md:78; transfer proof P-TR, Lemma (The sextic and its derivative in h.);
+P_l = U + eF from lem:s14-sextic-split at ε₀ = e/h, with F_k = ϖR_k; ∂_hP_l at fixed l; 𝒬 and F at 2 + x; F₁ expanded
+about a.
 
-Row 7. eq:tr-split; paper/reader/proofs/P-TR.md:LEQ1; transfer proof P-TR, display; P_l = U + eF.
+Row 7. eq:tr-split; paper/reader/proofs/P-TR.md:81; transfer proof P-TR, display; P_l = U + eF and F₁, F₂, F₃.
 
-Row 8. eq:tr-dh; paper/reader/proofs/P-TR.md:LEQ2; transfer proof P-TR, display; the h-derivative of P_l.
+Row 8. eq:tr-dh; paper/reader/proofs/P-TR.md:92; transfer proof P-TR, display; the h-derivative of P_l at fixed l.
 
-Row 9. eq:tr-gb; paper/reader/proofs/P-TR.md:LEQ3; transfer proof P-TR, display; 𝒬 and F at 2 + x.
+Row 9. eq:tr-gb; paper/reader/proofs/P-TR.md:98; transfer proof P-TR, display; 𝒬(ι), 𝒬(2 + x + s) and F(2 + x) = −x g_B.
 
-Row 10. eq:tr-aj; paper/reader/proofs/P-TR.md:LEQ4; transfer proof P-TR, display; F₁ expanded about a.
+Row 10. eq:tr-aj; paper/reader/proofs/P-TR.md:104; transfer proof P-TR, display; the coefficients A₀, …, A₄ of F₁(a +
+s).
 
-Row 11. sec:tr-roots; paper/reader/proofs/P-TR.md:LROOTS; transfer proof P-TR, subsection heading; new.
+Row 11. sec:tr-roots; paper/reader/proofs/P-TR.md:129; transfer proof P-TR, subsection heading; new.
 
-Row 12. lem:tr-c-v; paper/reader/proofs/P-TR.md:LCV; transfer proof P-TR, Lemma (The scalar type 0 and the vector
-type.); ι₁ ∈ (2 + 7·10⁻⁵, 5/2) and ι_v at every h ∈ (0, 10⁻⁶], with its crossings and slope.
+Row 12. lem:tr-c-v; paper/reader/proofs/P-TR.md:131; transfer proof P-TR, Lemma (The scalar type 0 and the vector
+type.); ι₁ ∈ (2 + 7·10⁻⁵, 5/2) and ι_v(l, h) at every h ∈ (0, 10⁻⁶], with its integer values and its h-derivative.
 
-Row 13. eq:tr-vslope; paper/reader/proofs/P-TR.md:LEQ5; transfer proof P-TR, display; ∂_hι_v.
+Row 13. eq:tr-vslope; paper/reader/proofs/P-TR.md:139; transfer proof P-TR, display; ∂_hι_v.
 
-Row 14. lem:tr-small; paper/reader/proofs/P-TR.md:LSMALL; transfer proof P-TR, Lemma (The degrees with y ≤ 3/20.);
-two-parameter form of lem:s14-sextic-small for l ≤ 122 and every h ∈ (0, 10⁻⁶]; ι₂ − 2 ∈ ((40/13 − 153600h)h,
-40h/13).
+Row 14. lem:tr-small; paper/reader/proofs/P-TR.md:155; transfer proof P-TR, Lemma (The degrees with y ≤ 3/20.); form of
+lem:s14-sextic-small for l ≤ 122 at every h ∈ (0, 10⁻⁶], uniform in h; uses lem:ec-lb-ind at l = 2.
 
-Row 15. eq:tr-p2; paper/reader/proofs/P-TR.md:LEQ6; transfer proof P-TR, display; P_2(2 + τh).
+Row 15. lem:tr-large; paper/reader/proofs/P-TR.md:203; transfer proof P-TR, Lemma (The degrees with y ≥ 3/20.); form of
+lem:s14-sextic-large and lem:s14-sextic-count (b) uniform in h: Rouché discs about 2 + x, a and ζ, with two tables.
 
-Row 16. lem:tr-large; paper/reader/proofs/P-TR.md:LLARGE; transfer proof P-TR, Lemma (The degrees with y ≥ 3/20.);
-two-parameter form of lem:s14-sextic-large and lem:s14-sextic-count (b): Rouché discs about 2 + x, a and ζ, with two
-tables.
+Row 16. lem:tr-slopes; paper/reader/proofs/P-TR.md:306; transfer proof P-TR, Lemma (The roots move fast at the
+integers.); ∂_hι_B ≥ 0.98κ, ∂_h Re ι_P ≥ 2κ/5, ∂_hι_v ≥ 0.99κ near the integers.
 
-Row 17. lem:tr-slopes; paper/reader/proofs/P-TR.md:LSLOPES; transfer proof P-TR, Lemma (The roots move fast at the
-integers.); ∂_hι_B ≥ 0.98κ, ∂_h Re ι_P ≥ 2κ/5, ∂_hι_v ≥ 0.99κ.
+Row 17. sec:tr-inputs; paper/reader/proofs/P-TR.md:347; transfer proof P-TR, subsection heading; new.
 
-Row 18. sec:tr-inputs; paper/reader/proofs/P-TR.md:LINPUTS; transfer proof P-TR, subsection heading; new.
+Row 18. prop:tr-eps; paper/reader/proofs/P-TR.md:349; transfer proof P-TR, Proposition (The number ε_ind(h).); (H_ε) and
+ε_ind(h) ≥ ε_Υ off 𝖩 on [h₁, 10⁻⁶]; no h ≤ 13ε_Υ/40 satisfies (H_ε).
 
-Row 19. prop:tr-eps; paper/reader/proofs/P-TR.md:LEPS; transfer proof P-TR, Proposition (The number ε_ind(h).);
-ε_ind(h) < min(δ_50, 40h/13) for every h; (H_ε) off 𝖩 on [h₁, 10⁻⁶]; none below 13ε_Υ/40.
+Row 19. prop:tr-inputs; paper/reader/proofs/P-TR.md:374; transfer proof P-TR, Proposition (The other three inputs.);
+prop:is-iota, prop:is-logs (c), prop:is-mult, lem:sp-roots, thm:sp-spectrum (b) and cor:sp-lstar (a)–(c) at h.
 
-Row 20. prop:tr-inputs; paper/reader/proofs/P-TR.md:LINP; transfer proof P-TR, Proposition (The other three inputs.);
-prop:is-iota, prop:is-logs (c), prop:is-mult, lem:sp-roots, thm:sp-spectrum (b) and cor:sp-lstar at h.
+Row 20. sec:tr-proof; paper/reader/proofs/P-TR.md:445; transfer proof P-TR, subsection heading; new; the proof of
+thm:tr-transfer.
 
-Row 21. sec:tr-proof; paper/reader/proofs/P-TR.md:LPROOF; transfer proof P-TR, subsection heading; new.
+Row 21. sec:tr-exceptional; paper/reader/proofs/P-TR.md:470; transfer proof P-TR, subsection heading; new.
 
-Row 22. sec:tr-exceptional; paper/reader/proofs/P-TR.md:LEXC; transfer proof P-TR, subsection heading; new.
+Row 22. prop:tr-measure; paper/reader/proofs/P-TR.md:472; transfer proof P-TR, Proposition (The size of 𝖩.); finitely
+many intervals, total length below 1.698·10⁻¹¹.
 
-Row 23. prop:tr-measure; paper/reader/proofs/P-TR.md:LMEAS; transfer proof P-TR, Proposition (The size of 𝖩.);
-total length below 1.7·10⁻¹¹.
+Row 23. prop:tr-fail; paper/reader/proofs/P-TR.md:503; transfer proof P-TR, Proposition (The bound fails near a
+crossing.); d_acc > D_acc when ε_ind(h) < 1.38·10⁻²⁵, by lem:ec-lb-rounds; h_c = 1/1001992 ∈ 𝖩.
 
-Row 24. prop:tr-fail; paper/reader/proofs/P-TR.md:LFAIL; transfer proof P-TR, Proposition (The bound fails near a
-crossing.); d_acc > D_acc when ε_ind(h) < 1.38·10⁻²⁵; h_c = 1/1001992.
-
-Notes for existing rows: ch:explicit-constants (opening states the transfer, text 2); rem:ec-point-outside (text 3); in
-the crosswalk table of [[ch:theorems]], the list of further results (text 4); in that of [[ch:scope]],
-sec:scope-constants (text 5).
+Notes for existing rows: ch:explicit-constants (opening states the transfer, text 2); rem:ec-point-outside (text 3);
+rem:ec-lb-unbounded (text 4); in the crosswalk table of [[ch:theorems]], the list of further results (text 5); in that
+of [[ch:scope]], sec:scope-constants (text 6); in that of [[ch:s14]], rem:s14-eps-ind-scope (text 7).
