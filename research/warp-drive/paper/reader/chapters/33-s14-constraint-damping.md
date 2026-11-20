@@ -1356,13 +1356,13 @@ they persist on a neighbourhood U of b₀. A future timelike V has dr(V) < 0, so
 (d) is direct. ∎
 
 **Lemma {#lem:iv5-0-4}** (The fibre algebra and the subprincipal symbol; [Hin26a, Lemmas 3.3–3.9, Corollary 3.6] in
-dimension 4 + 1.) At every point of Ω ⊂ M^♭, [[lem:iv4-1-1]] and [[lem:iv4-1-causal]] hold for (g, c, e), with
+dimension 4 + 1.) At every point of M^♭, [[lem:iv4-1-1]] and [[lem:iv4-1-causal]] hold for (g, c, e), with
 B := g⁻¹ − (1 + e)G(c)⁻¹c♯ ⊗ c♯. The skew-adjoint part S := (2ih)⁻¹(L_h − L_h*), adjoint for |dg| and B, is the bundle
 map of [[eq:s14-s]], which is [Hin26a, Lemma 3.9] in dimension 4 + 1. There is C > 0, uniform for b ∈ U, such that
 C(ρ_sf⁻²ℓ(ζ))² + ρ_sf⁻²G(ζ) is B-positive definite for 0 ≠ ζ ∈ ³ᵇT*_Ω M^♭.
 
 *Proof.* c is past timelike on {r ≥ ½r_♯} ([[sec:iv5-0]]), so [[lem:iv4-1-1]] and [[lem:iv4-1-causal]] apply on each
-fibre over Ω°. As (2ih)⁻¹(L_h − L_h*) = A + A* with
+fibre over the interior of M^♭, and at K⁺ ∪ 𝗌𝖿 to the rescaled data below. As (2ih)⁻¹(L_h − L_h*) = A + A* with
 A = (2ih)⁻¹L_h, the formula for S is [[prop:np-10-13]] (ii), proved there on a Lorentzian manifold of any dimension
 with the adjoint taken for |dg| and B.
 For the uniform C, write ζ ∈ ³ᵇT*M^♭ as Σ_μ ζ_μ dz^μ/r, put ζ̂ := Σ_μ ζ_μ dz^μ ∈ 𝒯* and ĉ := rc. As ℓ_(g,c,e)(ζ) is
@@ -1370,8 +1370,7 @@ bilinear in (c, ζ), and B does not change under c ↦ rc, ρ_sf⁻²G(ζ) = G(�
 components of g and ĉ in the frame dz^μ are continuous on Ω, K⁺ and 𝗌𝖿 included, and in b ([[lem:iv5-0-2]] (a), (d));
 g is Lorentzian and ĉ past timelike there ([[lem:iv5-0-5]] (1); at 𝗌𝖿, g = η and ĉ = dt − v dr). So for b in a
 compact neighbourhood of b₀, shrinking U, these pairs (g, ĉ) form a compact set, and [[lem:iv4-1-causal]] (d) gives
-one C, which also gives the statements of [[lem:iv4-1-causal]] at the points of Ω on K⁺ ∪ 𝗌𝖿, for the rescaled
-symbols. ∎
+one C. ∎
 
 **Lemma {#lem:iv5-0-5}** (The 1-form; [Hin26a, Proposition 5.1] in dimension 4 + 1.) Let (α_sf, α_K) = (−C_0 − 5/2, 1)
 with C_0 ∈ [0, 100], the weights [[eq:iv4-2-1]]. Put w := ρ_sf^(α_sf+1)ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1). Shrinking U,
