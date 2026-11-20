@@ -34,6 +34,6 @@ proof applies the Nash–Moser theorem, a lower bound at every point of the set 
 damping parameter is at least 10⁶, which grows like the inverse square of the gauge parameter and like the square of the
 damping parameter, so that d is unbounded on that set, and, at a parameter point not shown to lie in it, for one
 admissible choice of the weights, orders and inner products and the index sets as the proofs construct them,
-1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰; at equality, μ0 = √72 l5², timelike
+1.2250 × 10²⁷ < d < 7.57245 × 10⁵⁵; at equality, μ0 = √72 l5², timelike
 curves of g_λ cross the boundary in a layer whose width tends to zero with λ; and at the physical wavelength 10 l5
 there is no separation of scales, existence holding where the solution is the seed and on a strip beyond it.

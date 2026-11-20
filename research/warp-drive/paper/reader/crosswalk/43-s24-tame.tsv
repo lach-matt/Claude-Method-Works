@@ -36,7 +36,7 @@ prop:iii-j3-3-4	docket68/n1star/proof5/PART-III-J4-EXACT.md:273; docket68/n1star
 sec:iii-j3-4	docket68/n1star/proof5/PART-III-J4-EXACT.md:300	III.J3 section 4	
 prop:iii-j3-4-1	docket68/n1star/proof5/PART-III-J4-EXACT.md:302	III.J3 Proposition 4.1	the constant |alpha|^-1 of III.A (1.2) described in words
 lem:iii-j3-4-2	docket68/n1star/proof5/PART-III-J4-EXACT.md:321	III.J3 Lemma 4.2	N renamed m
-prop:iii-j3-4-3	docket68/n1star/proof5/PART-III-J4-EXACT.md:332; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:767-768	III.J3 Proposition 4.3	rotation rows at a rotating b; the bound w < 1 justified by l_3 <= eps_K < eps_+
+prop:iii-j3-4-3	docket68/n1star/proof5/PART-III-J4-EXACT.md:332; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:767-768	III.J3 Proposition 4.3	rotation rows at a rotating b; the bound w < 1 justified by l_3 <= eps_K < eps_+; levels 0-1: no root at real part 2 + eps_+ or 1 + eps_+, by (Ex1) and 1 + Z in Lambda; orders written q, q' (P-I11 texts 12, 13)
 lem:iii-j3-4-4	docket68/n1star/proof5/PART-III-J4-EXACT.md:403	III.J3 Lemma 4.4	
 lem:iii-j3-4-5	docket68/n1star/proof5/PART-III-J4-EXACT.md:423	III.J3 Lemma 4.5	
 prop:iii-j3-4-6	docket68/n1star/proof5/PART-III-J4-EXACT.md:430	III.J3 Proposition 4.6	'(D295)', '(D296)' dropped; '((J'''6))' replaced by lem:iii-j3-2-1; the dichotomy at w_rho (J3:446-452) made explicit: outside the clause of III.I(12) L2.4, d_rho is not below the profile's degree

@@ -895,7 +895,7 @@ and q′ ∈ 𝒬^∞_J.
 
 *Proof.* In [[prop:iii-i11-3-1]], η_2 enters as the threshold of level 2 (Step 3 of its proof: the tf-exponents α_0 of
 g_2 with Re α_0 < 2 + η_2 are treated), as the order μ_2 = 2 + η_2 of the zero-energy solve there ([[lem:iii-i11-2-1]]
-with μ′ = 2 + ε_+ − ε), and through the resulting tf-weight τ_3 = 1 + η_2 − 2ε of g_3, a lower bound; with the
+with q′ = 2 + ε_+ − ε), and through the resulting tf-weight τ_3 = 1 + η_2 − 2ε of g_3, a lower bound; with the
 conditions η_2 ∈ (ε_K, ε_+), η_2 > η_1, no λ ∈ Λ of real part 3 + η_2, and 2ε < ε_+ − η_2. The tf-exponents of the
 sources at level 2 (of g_2 and of the remainders α_0 + ℰ_ind of the rounds of the loop) are u-exponents minus 1, so they
 lie in Λ − 1: at level 2 the tf-exponent α_0 is the u-exponent α_0 + 1 ([[sec:iii-i11-3]]; [[lem:iii-i10-1-2]] (c)). By

@@ -70,13 +70,13 @@ log₁₀ δ < −2.163 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and log₁₀ δ < �
 bounds tend to infinity as z or γ_C⁻¹ tends to 0, so that no upper bound for d holds on all of that set
 ([[rem:ec-lb-unbounded]]). At the
 computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 × 10²¹, so that log₁₀ δ < −1.351 × 10²¹
-([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ at every admissible choice of
-the weights, for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). These are lower bounds for the
+([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2250 × 10²⁷ and N_NM > 2.5725 × 10²⁸ at every admissible choice
+of the weights, for the index sets as the proofs construct them ([[cor:is-lower]]). These are lower bounds for the
 loss that this proof's choices produce, not for the least loss with which the tame estimates hold ([[thm:loss-d]]). At
 that point, for those index sets and at one admissible choice of the weights and of the free orders and inner products,
-d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The order
-of the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of
-derivatives, so that at that point K is at most an integer below 3.45745 × 10⁵¹ ([[prop:uc-data-order]]). The
+d is at most an integer below 7.57245 × 10⁵⁵ and N_NM at most one below 1.59022 × 10⁵⁷ ([[thm:uc-integer]]). The order of
+the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of derivatives,
+so that at that point K is at most an integer below 1.66594 × 10⁵⁷ ([[prop:uc-data-order]]). The
 computational point is a point at which the formulas of the proof can be evaluated, and it is not shown to lie in the
 set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in
 the proof of any theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which

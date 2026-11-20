@@ -791,9 +791,10 @@ all tensors are those of the construction of [[prop:iii-i11-3-1]].
 E_I = ∅, β_K = α, E_K = ∅; its hypotheses hold (w_+ ∉ Re π_1E_ι by (Ex1); ℓ_I + 1 > w_+ − 1 by (H4) of
 [[sec:iii-i10-1]]). By [[prop:iii-j3-4-1]], g_0 ∈ H^(∞,(5/2−ε,(ℰ^♭+1,w_+−1),((0,0),α−1)))_b.
 
-*Levels 0–1.* [[lem:iii-i11-2-1]] at μ′ = w_+ − 1 and 3 + ε_+ rests on [[lem:iii-a-1-4]] at β = μ′ − 2 = 2 + ε_+,
-resp. 1 + ε_+: not the real part of a root, since these numbers are not integers and the non-integer roots
-with |μ| ≤ 50 have d(Re μ, ℤ) ≥ ε_ind > ε_+ ([[eq:iii-f1-2-2]]). [[lem:iii-i11-2-2]] lowers the tf-weight by 1 and the
+*Levels 0–1.* [[lem:iii-i11-2-1]] at q′ = w_+ − 1 and 3 + ε_+ rests on [[lem:iii-a-1-4]] at β = q′ − 2 = 2 + ε_+, resp.
+1 + ε_+: not the real part of a root, since a root μ of real part 2 + ε_+, resp. 1 + ε_+, would lie in the set 𝒵 of
+[[def:iii-i10-1-1]], and then 1 + μ, resp. 2 + μ, would be an element of Λ of real part 3 + ε_+, against (Ex1).
+[[lem:iii-i11-2-2]] lowers the tf-weight by 1 and the
 zf-weight ((0,0), z) to ((0,0), z − 1) exactly. [[prop:iii-g4-4-4]] at level 1 with ℓ_zf = α − 2: its conditions
 [[eq:iii-g4-4-2]] hold (−ε_ind < α − Re α_0; α − 2 − min(Re α_0 − 2, 0) < 3 = ℓ^max_K under (C5) of
 [[sec:iii-i10-1]]; α − 2 ∉ ℕ₀; the root condition is (Ex4)), and its remainder keeps zf ((0,0), α − 2) exactly. So g_1,
@@ -802,9 +803,9 @@ g_2 have tf-weights 3 + ε_+, 2 + ε_+ and zf-weights α − 2, α − 3.
 *Level 2.* The tf-exponents of the level-2 right sides are u-exponents minus 1, (Λ − 1)-valued; by (Ex1) none has real
 part in (2, 2 + ε_+], so the threshold 2 + ε_+ treats the same (α_0, k) as 2 + η^0_2, and the conditions of
 [[prop:iii-g4-4-4]] are those already met (with (Ex4) at ℓ_zf = α − 3). After the rounds the zf-coefficient F of the
-level-2 right side lies in H^(∞,(E,2+ε_+))_b(X̄) with min Re E > 2 + ε_+. [[lem:iii-i11-2-1]] with μ = μ_2 and
-μ′ = 2 + ε_+: μ_2 ∈ (2, 3), μ′ ∈ (μ_2, 5], min Re E > μ; [[prop:iii-h-3-2]] at the interior weight
-μ_2 − 2 = η^0_2 ∈ (0, 1); [[lem:iii-a-1-4]] up to μ′ − 2 = ε_+, not a root, as no root has real part in (0, 1]
+level-2 right side lies in H^(∞,(E,2+ε_+))_b(X̄) with min Re E > 2 + ε_+. [[lem:iii-i11-2-1]] with q = μ_2 and
+q′ = 2 + ε_+: μ_2 ∈ (2, 3), q′ ∈ (μ_2, 5], min Re E > μ_2; [[prop:iii-h-3-2]] at the interior weight
+μ_2 − 2 = η^0_2 ∈ (0, 1); [[lem:iii-a-1-4]] up to q′ − 2 = ε_+, not a root, as no root has real part in (0, 1]
 ([[prop:iii-f1-2-3]] (a)). So û_2 ∈ H^(∞,ε_+)_b, and [[lem:iii-i11-2-2]] gives g_3 of tf-weight exactly 1 + ε_+, with no
 tf-exponent of real part ≤ 1 + ε_+ (the exponents of E − 1 exceed 1 + ε_+; those of 2 + ℰ_col are ≥ 2), and zf
 ((0,0), ℓ_3).

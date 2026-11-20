@@ -315,8 +315,8 @@ explicit number of derivatives. d is not evaluated on the set where [[thm:settli
 γ_C ≥ 10⁶ it is bounded below by explicit functions of the gauge and damping parameters ([[thm:ec-lb-proved]]). At the
 computational point of [[def:ec-point]], which is not shown to lie in that set ([[rem:ec-point-outside]]), and at one
 admissible choice of the
-weights, orders and inner products, d is at most an integer below 1.57157 × 10⁵⁰ ([[thm:uc-integer]]), and K at most
-one below 3.45745 × 10⁵¹.
+weights, orders and inner products, d is at most an integer below 7.57245 × 10⁵⁵ ([[thm:uc-integer]]), and K at most one
+below 1.66594 × 10⁵⁷.
 
 The linear statement is proved with it, as the nonlinear theorem's linearisation at the Tangherlini data
 ([[thm:viii-2-2]], [[cor:viii-2-3]]). Every solution of the linearised constraint equations in Hintz's data class has

@@ -7,6 +7,9 @@ sec:tab-a-expansions	paper/reader/proofs/T-A.md@0a8a4fa:63-102	T-A, the expansio
 sec:tab-a-pieces	paper/reader/proofs/T-A.md@0a8a4fa:104-158	T-A, the location constants	merged verbatim from the confirmed tables of proof A
 sec:tab-a-crossings	paper/reader/proofs/T-A.md@0a8a4fa:160-227	T-A, the crossings	merged verbatim from the confirmed tables of proof A
 sec:tab-a-vector	paper/reader/proofs/T-A.md@0a8a4fa:229-246	T-A, the vector type	merged verbatim from the confirmed tables of proof A
+sec:tab-is	paper/reader/proofs/P-UB1.md@cfe8d049:795	P-UB1, tables section: the roots of the damping polynomials of real part below 3	new; checks stated per row
+sec:tab-is-real	paper/reader/proofs/P-UB1.md@cfe8d049:820	P-UB1, table: the 1269 real roots	new; sign changes at r, r + 10⁻²¹; least excess (p, q, m)
+sec:tab-is-complex	paper/reader/proofs/P-UB1.md@cfe8d049:2100	P-UB1, table: the 680 non-real roots of positive imaginary part	new; lem:is-disc at a + ib, radius 10⁻²¹; least excess (p, q, m)
 sec:tab-t49	paper/reader/proofs/P-T49.md@6ab0a0d0:334	P-T49, tables section	new; after sec:tab-a-vector
 sec:tab-t49-disc	paper/reader/proofs/P-T49.md@6ab0a0d0:341	P-T49, table (𝔇)	coefficients and four brackets
 sec:tab-t49-res	paper/reader/proofs/P-T49.md@6ab0a0d0:380	P-T49, table (𝔖)	coefficients and 49 cubics
