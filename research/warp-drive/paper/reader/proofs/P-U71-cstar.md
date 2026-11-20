@@ -59,13 +59,19 @@ besides:
 (b) in [[prop:ii-g1-4-4]], as [[cor:ii-g1-4-5]] applies it, the incoming order 𝗋_in := −¼ and the semiclassical order
 𝖻 ≡ 0, and in [[cor:ii-g1-4-5]] the weight β′_I := 3/2 − 2ε where it is applied with an ℐ⁺-weight below 3/2;
 
-(c) in [[lem:iii-i2-4-1]] the weights N := 5 of u_hi at ι⁺ and K⁺;
+(c) in [[lem:iii-i2-4-1]] the weights N := 21/4 of u_hi at ι⁺ and K⁺;
 
 (d) in the proofs of [[lem:iii-i1-2-2]] and [[prop:iii-i1-2-1]], at each step other than Step 2 of the proof of
 [[lem:iii-i1-2-2]], an increment η ∈ [2/5, ½) off the finitely many excluded values, or the remaining distance to the
 target weight when that is smaller;
 
-(e) in every application of [[cor:iii-f1-3-4]], the choices of [[prop:uc-ltf]].
+(e) in every application of [[cor:iii-f1-3-4]], the choices of [[prop:uc-ltf]];
+
+(f) in the proof of [[thm:iii-i11-4-1]], an admissible level α′ ∈ (2, 2 + ε_g − 2ε), and in the proof of
+[[prop:iii-i8-4-1]] at α′ the levels α_0 < α′, with α_0 ∈ (2, α′) admissible;
+
+(g) in each application of [[lem:iii-a-1-4]] in [[lem:iii-i11-2-1]], at each step of its proof, the decrease of γ and the
+number δ′ with sum at most ¼.
 
 These choices are allowed. (a): [[lem:ec-theta-in-zero]] gives the inner product at the incoming radial sets,
 which (O3) of [[def:i-a-admissible]] chooses separately for each radial set; [[lem:iii-f2-1-1]] gives ϑ_ℋ < ϑ_L + δ on a
@@ -73,9 +79,18 @@ neighbourhood of b₀ with ϑ_L = max(0, 2 − 2x) < 2; and the proofs of [[cor:
 [[lem:iii-i2-4-2]] and [[cor:ii-g1-4-5]] ask only s_c > ½ + ϑ_ℋ ([[lem:ec-closed-forms]] (b)). (b): the admissible orders
 before [[lem:ii-g1-4-3]] ask 𝗋_out < −½ + S̄ = −½ and 𝗋_in ≥ 𝗋_out with 𝗋_in > ½(−1 + ϑ_in) = −½, and 𝗋_out =
 β_scf − 2 − ε/2 < −½ for β_scf < 3/2; [[cor:ii-g1-4-5]] allows every β′_I below min(β_I, 3/2). (c): [[lem:iii-i2-4-1]]
-holds for every N, and every use of u_hi below needs at ι⁺ and at K⁺ weights below 5 (the targets are at most
-3 + η_2 at ι⁺ and α − ε at K⁺). (d): each step there asks only η < ½, α_I + η below the target, and finitely many
-exclusions. (e) is [[prop:uc-ltf]].
+holds for every N; its proof reaches the weights (·, N, N) through [[prop:ii-g1-3-5]] (1) and (2) at the K⁺-weight N,
+which asks N ∉ ℕ, as 21/4 is; and every use of u_hi below needs at ι⁺ and at K⁺ weights below 21/4 (the targets are at
+most 3 + η_2 at ι⁺ and α − ε < 5 at K⁺). (d): each step there asks only η < ½, α_I + η below the target, and finitely
+many exclusions. (e) is [[prop:uc-ltf]]. (f): that proof takes any admissible α′ ∈ (2, 3), and the admissible levels
+are the points of (2, 3) off finitely many ([[sec:iii-i8-1]]), so they are dense; α_0 lies in
+(2, min(a_K, 2 + ε_g, 5/2)), and α′ − α_0 < 1 < a_K − 2 for the background of [[thm:iii-i11-4-1]], whose K⁺-order
+a_K is at least 4 + ε_K, so α_0 < α′ are levels as the proof of [[prop:iii-i8-4-1]] asks, with one level step. The
+statements built on [[thm:iii-i11-4-1]] use α′ only as an admissible level in (2, 3), through
+w_(α′) = min(α′ − 2, λ_♯ − 1) > 0 (Step 6 of the proof of [[thm:iii-i12-3-1]]); at a rotating b the elimination of
+[[thm:iii-i11-4-1]] is [[prop:iii-i15-2-5]] with q = 0, whose base is at the level α_1 of [[def:uc-choice]]. (g): in
+the proof of [[lem:iii-a-1-4]] the decrease of γ need only make γ avoid the real parts of spec_b(A) ∪ π₁F, which has
+finitely many points in every strip, and δ′ > 0 is any small number; so both may be taken with sum at most ¼.
 
 #### The elementary charges {#sec:cs-elem}
 
@@ -85,7 +100,7 @@ exclusions. (e) is [[prop:uc-ltf]].
 
 (a) 0: finite-dimensional maps, coefficient functionals and finite-rank maps with fixed sections, among them the
 inverses and functionals of [[lem:iii-j2-2-1]] (c), the assigned rotation coordinates A_b and the states, rows and
-towers; the integrations of [[lem:iii-a-1-2]], [[lem:iii-a-3-2]], [[lem:iii-a-3-3]] and [[lem:iii-i2-2-1]];
+towers; the integrations of [[lem:iii-a-1-2]], [[lem:iii-a-3-2]] and [[lem:iii-i2-2-1]];
 [[cor:iii-h-4-2]] and [[lem:iii-i2-4-3]]; multiplication by smooth functions, by cut-offs and by powers of σ, |σ| and
 sgn σ; the Mellin inversion of an elliptic dilation-invariant operator on a line free of indicial roots; Cauchy
 integrals and residues over fixed circles; the expansions of [[thm:iii-g4-3-1]] and of Step 2 of the proof of
@@ -112,8 +127,7 @@ most 9, and the map g ↦ g^(+1) of [[lem:iii-i11-2-2]] at most 2;
 (h) 30: the right inverse of [[prop:iii-g3-3-7]] and [[cor:iii-g3-3-1]] (1).
 
 *Proof.* (a) These are the losses 0 of [[rem:ec-other-losses]] (the finite-dimensional maps of [[lem:iii-j2-2-1]] (c),
-the integrations of its (d), [[cor:iii-h-4-2]] of its (e) and [[lem:iii-i2-4-3]] of its (g)); [[lem:iii-a-3-3]] is an
-integration of the kind of [[lem:iii-a-1-2]], one factor at a time. Multiplications by smooth functions with bounded
+the integrations of its (d), [[cor:iii-h-4-2]] of its (e) and [[lem:iii-i2-4-3]] of its (g)). Multiplications by smooth functions with bounded
 b-derivatives, and by |σ|^z, σ^j, sgn σ (which shift weights only), keep the order k. The Mellin inversion of
 [[eq:iii-g4-5-3]] and of [[lem:iii-a-1-4]] gains, by (E1)–(E2) of [[sec:iii-a-1-1]], as many orders as the operator
 has, jointly in the Mellin variable and on the boundary. A Cauchy integral over a fixed circle on which a family is
