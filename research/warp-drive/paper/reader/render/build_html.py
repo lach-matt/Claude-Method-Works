@@ -148,6 +148,8 @@ CSS = """
 @page { size: A4; margin: 18mm 16mm 20mm 16mm; }
 body { font: 10.5pt/1.55 Georgia,'Times New Roman',FreeSerif,serif; color:#111; margin:0; }
 h1 { font-size:20pt; margin:0 0 2pt; letter-spacing:-.3pt; }
+h1[id^="part-"], h2[id^="appendix-"], h2#references { page-break-before:always; }
+h1[id^="part-"] { margin-top:0; }
 h2 { font-size:13pt; margin:20pt 0 6pt; padding-bottom:3pt;
      border-bottom:1.5px solid #111; page-break-after:avoid; }
 h3 { font-size:11pt; margin:14pt 0 4pt; page-break-after:avoid; }
