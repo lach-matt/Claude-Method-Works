@@ -17,7 +17,7 @@ We use the notation of [[sec:tl5-wg]]: the background ĝ of [[def:tl5-wg-backgro
 the region D̄ = [−10, u*] × [1/2, v*] × S³, N₀, N₁ and N = N₀ ∪ N₁, the tilted domains D^κ_s of
 [[eq:tl5-wg-tilted]] with τ₁ = u + κ′(v − 1/2), τ₂ = v + κ(u + 10) and κ_m = min(κ, κ′), the norm |·|_k̂ of k̂
 ([[eq:tl5-wg-khat]]), and the operators of [[lem:tl5-wg-linear]]. Throughout, u* < −1. The background is G-invariant
-and in double-null form, so by [[pending:lem-tl5-cip-form]] (b) it is a metric of the class in the gauge,
+and in double-null form, so by [[lem:tl5-cip-form]] (b) it is a metric of the class in the gauge,
 
     ĝ = −4Ω̂² du dv + e^(2ζ) (dx − b̂ du)² + e^(2A) dφ1² + e^(2B) dφ2²,      Ω̂² = e^(2W),
 
@@ -971,3 +971,10 @@ stated in this paper: for a given background they are suprema and integrals of e
 establishing the inequalities (b) and (c) for a background at 10 l5 requires enclosures of those functions, of the
 residual Ric(ĝ) and of the data on N₁, which this paper does not provide. The condition (a), the hypotheses (X) and (T)
 of [[thm:tl5-wg-data]] that give G^♯, and those of [[thm:tl5-dn]], are conditions on the background of the same kind.
+
+**Remark {#rem:tl5-hf-level}** (The level N.) Each monomial of ℒ^I N(h) has at least two solution factors and needs
+all but one of them bounded at the point; the bounds at a point of [[lem:tl5-hf-linfty]] reach Ψ_B for
+|B| ≤ N − 2, D̂Ψ_B for |B| ≤ N − 3 and D̂²Ψ_B for |B| ≤ N − 4, by the Sobolev inequality on S³ and the trace along the
+faces, each using two rotations or one face derivative. A product D̂Ψ_B D̂Ψ_(B′) with |B| + |B′| = N then has a
+bounded factor exactly when N ≥ 5, which is the condition of [[lem:tl5-hf-quadratic]]; at the next level the same
+count, with the bounds of level N − 1 only, needs N ≥ 6, which is the condition of [[lem:tl5-hf-persistence]].
