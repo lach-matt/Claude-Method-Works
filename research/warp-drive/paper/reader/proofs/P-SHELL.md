@@ -484,22 +484,38 @@ u_1] × [0, λ_1], λ_1 := min(δ_*,0²/max(u_1, v_1), min(c_1, d_1)/2, 3δ_e), 
 and 𝒴_0.
 
 *Depth k ≥ 1 along 𝒞_out.* Let λ_k^out be the width found at depth k − 1, so that the solution of depth k − 1 contains
-[0, λ_k^out] × 𝒵_(k−1). Apply (T1) at (0, c_k) with l_u := (2/3) λ_k^out and l_v := v_1 − c_k: then
-δ_1 ≤ λ_k^out/3 ≤ δ_e, so N_i ⊂ [0, λ_k^out] × {c_k}, and N_o = {0} × [c_k, v_1 + δ_1] carries the extended cone data of
-depth k; R > a on N_i once λ_1 is small, R being continuous and > a on the cones. On N_i take the functions of the
-solution of depth k − 1; they are within Cε of the background's with their derivatives of order at most k_(k−1) − 4. Then
-Φ_k − id is at most Cε with its derivatives of the same order, the flow of a vector field within Cε of 0 in C^r being
-within Cε of the identity in C^r, and the transformed functions are within Cε with their derivatives of order at most
-k_(k−1) − 5 = 6k_k + 18, the order m_0 of [[def:loc-cone-data]] for the index k_k. On N_o the change of angle subtracts
-b(0, c_k, ·). So the data have size at most Cε, and for ε small (T1) gives a solution on {0 ≤ u ≤ l_u, c_k ≤ v ≤ v_1,
-u(v − c_k) ≤ δ_*,k²}, which contains [0, λ_(k+1)^out] × [c_k, v_1] with λ_(k+1)^out := min(l_u, δ_*,k²/(v_1 − c_k)); it
-is within Cε of the background's with its derivatives of order at most k_k − 4 in the transformed angle, and k_k − 5 ≥ 1
-after the angle is changed back. Along 𝒞_in the same holds with l_v := (2/3) λ_j^in, l_u := u_1 − d_j and no change of
-angle.
+[0, λ_k^out] × 𝒵_(k−1) and is within Cε of the background's there with its derivatives of order at most k_(k−1) − 4: at
+depth 0 by [[thm:loc-cone-development]] (b) and (c), at depth k − 1 ≥ 1 by the end of this paragraph. Apply (T1) at
+(0, c_k) with l_u := (2/3) λ_k^out and l_v := v_1 − c_k: then δ_1 ≤ λ_k^out/3 ≤ δ_e, so N_i ⊂ [0, λ_k^out] × {c_k},
+N_o = {0} × [c_k, v_1 + δ_1] carries the extended cone data of depth k, and the rectangle they span lies in
+[0, 3δ_e] × [0, v_1 + δ_e], so that R > a on N_o and N_i and g0 is defined in the gauge near the rectangle. On N_i take
+the functions of the solution of depth k − 1. The map Φ_k(u, ·) is the inverse of the flow from 0 to u of the
+u-dependent vector field b(u, c_k, ·) ∂_ϑ, which is within Cε of 0 in C^(k_(k−1) − 4); so Φ_k − id and the inverse
+map (u, ϑ) ↦ (u, Φ_k(u, ·)⁻¹(ϑ)) minus the identity are at most Cε with their derivatives of order at most
+k_(k−1) − 4. The transformed functions, built from these functions and ∂_uΦ_k and ∂_ϑΦ_k and composed with that inverse
+map, are therefore within Cε of the background's with their derivatives of order at most k_(k−1) − 5 = 6k_k + 18, the
+order m_0 of [[def:loc-cone-data]] for the index k_k. On N_o the change of angle subtracts b(0, c_k, ·). So the data
+have size at most Cε, and for ε small (T1) gives a solution on {0 ≤ u ≤ l_u, c_k ≤ v ≤ v_1, u(v − c_k) ≤ δ_*,k²}, which
+contains [0, λ_(k+1)^out] × [c_k, v_1] with λ_(k+1)^out := min(l_u, δ_*,k²/(v_1 − c_k)), and which is within Cε of the
+background's with its derivatives of order at most k_k − 4 in the transformed angle.
+
+Changing the angle back loses no derivative. It composes each function with Φ_k, that is, replaces F(u, v, ϑ) by
+F(u, v, Φ_k(u, ϑ)), and then multiplies γ_ϑ by (∂_ϑΦ_k)² and replaces b by (b − ∂_uΦ_k)/∂_ϑΦ_k. Let F be one of the
+functions, within Cε of the background's F̊ in C^(k_k − 4) in the transformed angle. Then
+F ∘ Φ_k − F̊ = (F − F̊) ∘ Φ_k + (F̊ ∘ Φ_k − F̊). The first term is within Cε in C^(k_k − 4) by the chain rule, the
+derivatives of Φ_k of order at most k_k − 4 being bounded. The second is (Φ_k − ϑ) ∫_0^1 ∂_ϑF̊(u, v, ϑ + t(Φ_k − ϑ)) dt,
+and Φ_k − ϑ vanishes, with all its derivatives, off a compact subset K of the band, and maps K into K; so on the interval
+between the least and the largest angle of K, where F̊ is smooth, the integral is bounded in C^(k_k − 4), and the second
+term is within Cε in C^(k_k − 4). The factors (∂_ϑΦ_k)², ∂_uΦ_k and 1/∂_ϑΦ_k, and ln ∂_ϑΦ_k, which is what the change
+adds to ½ ln γ_ϑ, are within Cε of 1, 0, 1 and 0 in C^(k_(k−1) − 5), and k_(k−1) − 5 = 6k_k + 18 ≥ k_k − 4. So the
+solution of depth k is within Cε of the background's with its derivatives of order at most k_k − 4 in the original angle
+too; the background's b is 0 and its γ_ϑ is R², which do not depend on the angle. Along 𝒞_in the same holds with
+l_v := (2/3) λ_j^in, l_u := u_1 − d_j and no change of angle, the functions on N_o being those of the solution of depth
+j − 1, within Cε with their derivatives of order at most k_(j−1) − 4 ≥ 6k_j + 18.
 
 All these widths depend only on g0, u_1, v_1, the leaves, the band and the k_i, and not on the data; let w be the least
 of them. Steps 4 and 5 and the proof of (b) apply with w in place of δ, and give a solution with null shells on 𝒮_w × S³
-with the properties of (a) and (b) and the stated estimate, the rectangle of depth N − 1 giving k_(N−1) − 5 = 1. It
+with the properties of (a) and (b) and the stated estimate, as k_i − 4 ≥ k_(N−1) − 4 = 2 at every depth i. It
 induces the cone data and equals g0 near the axes, and 𝒮_w is a past set; by (c) it equals the solution of (a) on
 𝒮_w ∩ 𝒮_δ = 𝒮_(min(δ, w)). ∎
 
