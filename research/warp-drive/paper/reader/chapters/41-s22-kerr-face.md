@@ -1427,10 +1427,11 @@ have the order at least 3 + η_2 − 2ε at ι⁺ (α_κ + 2 for (viii); at leas
 
 *Step 6 (the rest).* Every map used is linear and bounded, uniformly for (h, p⃗) small ([[lem:iii-i11-3-2]],
 [[thm:iii-i11-4-1]], [[lem:iii-i12-2-1]]–[[lem:iii-i12-2-4]]), and is applied to the forcing f′ of Step 0, whose size
-is at most C‖F‖_(𝒴⁰(α)). Put w_(α′) := min(α′ − 2, λ_♯ − 1), with α′ ∈ (2, 3) the admissible level fixed in the proof of
-[[thm:iii-i11-4-1]]: ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0‖_(w_(α′)) are at most C‖F‖_(𝒴⁰(α)) by the bounds in that proof, and
-‖(L_(h,p⃗) − L_(b_0))u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w_(α′)) by the count of Step 0 of the proof of
-[[lem:iii-i11-3-2]]. Reality: u is real and the towers are real (the conjugate of T_ψ(Y) is T_ψ(Ȳ)), so replacing
+is at most C‖F‖, ‖F‖ being the seminorm of 𝒴⁰(α) of large enough regularity at the end of the proof of
+[[thm:iii-i11-4-1]]. Put w_(α′) := min(α′ − 2, λ_♯ − 1), with α′ ∈ (2, 3) the admissible level fixed in that proof:
+‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0‖_(w_(α′)) are at most C‖F‖ by the bounds there, and ‖(L_(h,p⃗) − L_(b_0))u_0‖_(𝒴⁰(α)) ≤
+C(‖h‖ + |p⃗|)‖u_0‖_(w_(α′)) by the count of Step 0 of the proof of [[lem:iii-i11-3-2]]. Reality: u is real and the
+towers are real (the conjugate of T_ψ(Y) is T_ψ(Ȳ)), so replacing
 every coefficient and ũ by their real parts keeps [[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]], ℰ_♯ being closed under
 conjugation. L_(b_0)(χ_K u_exp) has K⁺-order α − ε by the tower relations, as in Step 3. ∎
 
@@ -1457,8 +1458,8 @@ depends on w and these seminorms and is uniform for (h, p⃗) small. This is not
 this section, 𝒩″ = 𝒩, G is the G(W⃗) of Step 0, and the coefficients W_ν are the S_ν of Step 0, which are the row
 components of p⃗′ (the C_ν vanish). Take for w the number w_(α′) = min(α′ − 2, λ_♯ − 1) of Step 6, which lies in
 (0, w_0]. The bounds at the end of the proof of [[thm:iii-i11-4-1]], which hold for every choice of the seminorms of
-large enough regularity, give |p⃗′_(h,p⃗)(F)|, ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0(W⃗)‖_(w) at most C‖F‖_(𝒴⁰(α)); so the three
-terms are at most C‖F‖_(𝒴⁰(α)), which is the bound of Step 6.
+large enough regularity, give |p⃗′_(h,p⃗)(F)|, ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0(W⃗)‖_(w) at most C‖F‖, with ‖F‖ a seminorm of
+𝒴⁰(α) of larger regularity, as there; so the three terms are at most C‖F‖, which is the bound of Step 6.
 
 ### Admissible levels and enlarged sources {#sec:iii-i13-1}
 

@@ -490,9 +490,12 @@ the boost parameter of [[prop:iii-i4-4-1]] (1) for L_(h,p⃗), read at b with th
 Ṡ is determined by the forward solution, as the coefficient of t_* at K⁺ (S ↦ h_b(S) being injective,
 [[lem:s20-injective]]). If Ṡ_(h,p⃗)(f) = 0, write Q_(h,p⃗)(f) := (ḃ, Ṡ⁽⁰⁾_1) ∈ 𝔟 ⊕ 𝒮_1 for its parameters in
 [[eq:iii-i6-2-1]] at b, which are determined by the forward solution: a stationary tensor of positive K⁺-weight
-vanishes, and (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective ([[sec:iii-i7-1]]). Forcings converge in the finite-regularity
-spaces on which the bounds of [[lem:iii-i7-2-5]] (c) hold, which, d being large, is what [[lem:iii-i7-3-1]] (c) gives
-for h → 0 in 𝒳^d; ‖·‖_𝒴 is the norm of one such space, fixed once and for all. For α and α_+ as above let
+vanishes, and (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective ([[sec:iii-i7-1]]). F_j → F in 𝒴 means convergence in each of
+the finite-regularity spaces on which the bounds of [[lem:iii-i7-2-5]] (c) hold, up to a regularity that d, being
+large, allows; this is what [[lem:iii-i7-3-1]] (c) gives for h → 0 in 𝒳^d. It is not convergence in ‖·‖_𝒴 alone,
+which is the norm of one such space, fixed once and for all: the proof of [[lem:iii-i7-4-1]] reads u_j two orders
+above the norm in which it reads the parameters, and bounds u_j by F_j through a forward solution. For α and α_+ as
+above let
 𝒴^S_(α,α_+) := H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),α_++2,α)_b(Ω_*; S²T*)^(•,−) be the space of forcings of [[prop:iii-i4-4-1]] (1)
 at the K⁺-weight α, normed in the same way; it contains 𝒴 with ‖·‖_(𝒴^S_(α,α_+)) ≤ C‖·‖_𝒴, and Ṡ_(h,p⃗) is bounded on
 it uniformly for (h, p⃗) small and b ∈ ℬ̄_* ([[lem:iii-i7-2-5]] (c)).
@@ -583,9 +586,10 @@ h-derivative by [[eq:iii-i4-3-1]], the p⃗-derivative by the count of [[eq:iii-
 in the differences of the metrics, with coefficients smooth in their inverses. The mean value theorem along the segment
 from (0, p⃗_b) gives the bound.
 
-(2) Let ‖·‖^+_𝒴 be the norm of the same kind as ‖·‖_𝒴 at a larger regularity and a smaller ε, in which the bounds
-of [[lem:iii-i7-2-5]] (c) bound the forward solutions u_1 below at the regularity of ‖·‖_𝒴 plus 2, d being large
-enough for [[lem:iii-i7-3-1]] (c) in it as well. For F ∈ 𝒴, |Ṡ_(h,p⃗)(F) − Ṡ_(0,p⃗_b)(F)| ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖^+_𝒴.
+(2) Let ‖·‖^+_𝒴 be a norm of the same kind as ‖·‖_𝒴 at a larger regularity and a smaller ε, in which the bounds of
+[[lem:iii-i7-2-5]] (c) bound the forward solutions u_1 of the count below at the regularity of ‖·‖_𝒴 plus 2, d being
+large enough for [[lem:iii-i7-3-1]] (c) in it as well. For F ∈ 𝒴, Ṡ_(h,p⃗)(F) − Ṡ_(0,p⃗_b)(F) has norm at most
+C(‖h‖ + |p⃗ − p⃗_b|)‖F‖^+_𝒴.
 And for F_1, F_2 ∈ 𝒴 with Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), where alone Q_(h,p⃗) and Q_(0,p⃗_b) are defined,
 
     |Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2)| ≤ C‖F_1 − F_2‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴.
@@ -746,10 +750,12 @@ Step 0 to the coefficients and to the remainder), are bounded in this seminorm. 
 seminorm of the space of the hypothesis of [[lem:iii-i8-3-2]] at the level α′, of regularity at least that of
 ‖·‖_(𝒴(α)) plus 2, α the level above α′ there, as Step 0 of the proof of that lemma bounds (L − L_b)u in ‖·‖_(𝒴(α))
 by ‖u‖_(α′). The bounds of [[prop:iii-i8-4-1]] (i) are taken in a second seminorm ‖·‖^+_(𝒴(α)), the same quotient
-norm at a larger regularity and a smaller ε, fixed in its proof: its step bounds the solution at a lower level α′ in
-‖·‖_(α′) by (i) at α′, so its seminorm of the forcing must bound the seminorm of (i) at α′ as well as ‖·‖_(𝒴(α)). d
-is taken so large that the bounds by ‖h‖ used below hold in these seminorms: those of [[lem:iii-i8-2-6]] (b) and
-[[lem:s21-motions-at-b]], and the count of Step 0 of the proof of [[lem:iii-i8-3-2]].
+norm at a larger regularity and a smaller ε, which depends on the seminorm of the solution bounded and is fixed in the
+proof: its step bounds the solution at a lower level α′ in ‖·‖_(α′) by (i) at α′, so its seminorm of the forcing must
+bound the seminorm of (i) at α′ as well as ‖·‖_(𝒴(α)). For each seminorm that (i) bounds these choices are finitely
+many and are made first; d is then taken so large that the bounds used below hold in them, uniformly for h small:
+those of [[lem:iii-i8-2-6]] (b)–(c) and [[lem:s21-motions-at-b]], and the count of Step 0 of the proof of
+[[lem:iii-i8-3-2]].
 
 ### Corrections of the third kind and the operator {#sec:iii-i8-2}
 
@@ -1136,8 +1142,9 @@ satisfies
 
 Moreover (i) p⃗′_(h,p⃗) and F ↦ u are linear, with bounds uniform for (h, p⃗ − p⃗_b) small and b ∈ ℬ̄_*: for each fixed
 seminorm ‖·‖_(α) of the space of [[eq:iii-i8-4-2]] there are a seminorm ‖·‖^+_(𝒴(α)) of 𝒴(α), as in [[sec:iii-i8-1]],
-and C with |p⃗′_(h,p⃗)(F)| + ‖u‖_(α) ≤ C‖F‖^+_(𝒴(α)); (ii) at fixed b, if (h_j, p⃗_j) → (0, p⃗_b) and F_j → F in 𝒴(α),
-then p⃗′_(h_j,p⃗_j)(F_j) → p⃗′_(0,p⃗_b)(F). In compact spatial sets u = O(t_*^(−α+2+ε)), almost O(t_*⁻¹) as α → 3.
+and C with |p⃗′_(h,p⃗)(F)| + ‖u‖_(α) ≤ C‖F‖^+_(𝒴(α)), d being large for ‖·‖_(α) ([[sec:iii-i8-1]]); (ii) at fixed b,
+if (h_j, p⃗_j) → (0, p⃗_b) and F_j → F in 𝒴(α), then p⃗′_(h_j,p⃗_j)(F_j) → p⃗′_(0,p⃗_b)(F). In compact spatial sets
+u = O(t_*^(−α+2+ε)), almost O(t_*⁻¹) as α → 3.
 
 *Proof.* Choose admissible α_0 < α_1 < ⋯ < α_n = α with α_0 ∈ (2, min(a_K, 2 + ε_g, 5/2)) and
 α_(i+1) − α_i < a_K − 2 (the excluded set is finite). By induction on i we prove the statement, with (i)–(ii), at α_i.
