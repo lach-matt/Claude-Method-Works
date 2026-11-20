@@ -12,9 +12,10 @@ model inverses, transforms and differential operators that the proofs of [[ch:s1
 ([[def:ec-accounted-loss]]), and d ≥ d_acc. Its elementary losses have closed forms in the weights, the threshold
 quantities of the operators, the index sets and the order of the bounds of the background terms ([[lem:ec-closed-forms]],
 [[rem:ec-other-losses]]), and the loss of the forward solution operators is at most 20,180 ([[thm:fwd-loss]],
-[[cor:fwd-near-b0]]); the iterations of the construction contribute their numbers of steps, among them three nested ones;
-and at one parameter point of the gauge and damping parameters two of these iterations alone make d_acc, and so d, larger
-than 1.403 × 10²⁰ and N_NM larger than 2.946 × 10²¹, each of their steps being charged at least one derivative for the
+[[cor:fwd-near-b0]]), and 20,183 at the backgrounds h + h_rem(q) + h_tot(p⃗) ([[lem:cs-elem]] (e)); the iterations of the
+construction contribute their numbers of steps, among them three nested ones; and at one parameter point of the gauge and
+damping parameters two of these iterations alone make d_acc, and so d, larger than 1.403 × 10²⁰ and N_NM larger than
+2.946 × 10²¹, each of their steps being charged at least one derivative for the
 inverse of the model at the transition face, whose incoming threshold is non-negative ([[lem:ec-theta-in]],
 [[thm:loss-d]]), and larger than 1.2497 × 10²⁴ and 2.624 × 10²⁵ for the index sets as the proofs construct them
 ([[cor:uc-two-offsets]]). At that point, at one admissible choice of the weights and of the free orders and inner
@@ -380,9 +381,11 @@ of |ℱf_1(σ)|, which ⌈γ + ½⌉ ≥ 1 gives. Every other step, the integrat
 
 [[lem:ec-closed-forms]] (h) gives the loss of [[lem:iii-i2-3-1]]. The forward solution operators of [[lem:iii-j2-2-1]]
 (a) lose the d of [[thm:iii-i-5-3]], which [[sec:fwd]] evaluates: [[thm:fwd-loss]] shows that d = 20,180 may be taken,
-and [[cor:fwd-near-b0]] gives the same value at every base point with black hole parameter in ℬ̄_*. The order of choices
-behind ℓ + 1 is: d_acc and d_NM first, then N_NM, then the trapping data at the orders k ≤ N_NM ([[cor:iii-h2-1-2]]); the
-constants of the smallness conditions are used at those orders only, the tame estimates themselves at every order. An
+and [[cor:fwd-near-b0]] gives the same value at every base point with black hole parameter in ℬ̄_*. At the backgrounds
+h + h_rem(q) + h_tot(p⃗) the forward solution operators are charged 3 more, 20,183, the order of q that h_rem(q) reads
+([[lem:iii-j2-2-1]] (a), [[lem:cs-elem]] (e)). The order of choices behind ℓ + 1 is: d_acc and d_NM first, then N_NM,
+then the trapping data at the orders k ≤ N_NM ([[cor:iii-h2-1-2]]); the constants of the smallness conditions are used at
+those orders only, the tame estimates themselves at every order. An
 explicit value of d_acc needs, besides these closed forms, the order d_BG, numbers for the weights at the parameters in
 question, the counts n(E, β) of the index sets and the numbers of steps of the iterations of the inventory of
 [[sec:iii-j2-3]]; two of these iterations bound d_acc from below ([[lem:ec-round-loss]], [[prop:ec-rounds]],
@@ -1435,7 +1438,8 @@ of the iteration at ι⁺ of [[prop:iii-i5-2-1]] being charged at least the loss
 losses are closed forms in the weights, the small numbers that the proofs choose, the thresholds ϑ_in, ϑ_ℋ, the
 regularity orders s_c, the counts n(E, β) of the index sets and the order d_BG of the bounds of the background terms
 ([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), except the loss of the forward solution operators, which is at most
-20,180 at every base point ([[thm:fwd-loss]] at b₀, [[cor:fwd-near-b0]] at b ∈ ℬ̄_*);
+20,180 at every base point ([[thm:fwd-loss]] at b₀, [[cor:fwd-near-b0]] at b ∈ ℬ̄_*), and at most 20,183 at the
+backgrounds h + h_rem(q) + h_tot(p⃗) ([[lem:iii-j2-2-1]] (a));
 
 (ii) at the computational point, for every admissible choice of the weights there,
 
@@ -1922,9 +1926,10 @@ increments, and (G) holds exactly for ε_K < μ_G, 1.64160217197·10⁻¹⁴ < �
 at an admissible choice. (2) ℓ⁺_tf = 1 at the choices of [[lem:ec-tf-loss]] with s = 1 ([[prop:uc-ltf]]). (3) The
 single-step losses c(β), c_b, c′_b and c_0: each is a finite composition of the elementary losses of
 [[lem:ec-closed-forms]] and [[rem:ec-other-losses]] and of the forward loss, at most 20,180 ([[thm:fwd-loss]],
-[[cor:fwd-near-b0]]), charged at each forward solution they apply; they contain the counts n(E, β) of the index sets
-entering [[eq:ec-fourier-loss]], which [[lem:uc-n-iota]] bounds through N_Λ, k̄_0, l_* and J_*; c_0 contains, besides,
-the iterations of Steps 4′ and 4 at the top level, each bounded as in [[lem:ec-counts]], and the loss of
+[[cor:fwd-near-b0]]) and 20,183 at the backgrounds h + h_rem(q) + h_tot(p⃗) ([[lem:cs-elem]] (e)), charged at each
+forward solution they apply; they contain the counts n(E, β) of the index sets entering [[eq:ec-fourier-loss]], which
+[[lem:uc-n-iota]] bounds through N_Λ, k̄_0, l_* and J_*; c_0 contains, besides, the iterations of Steps 4′ and 4 at the
+top level, each bounded as in [[lem:ec-counts]], and the loss of
 [[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its steps over the exponents of Λ ∩ {Re < 3 + ε_+}
 ([[lem:uc-phi-loss]]). Their largest value c_* enters [[thm:uc-integer]] with the coefficient 2.44153·10¹⁴;
 [[prop:cs-cstar]] bounds it by 6.4368·10³⁵. (4) d_BG = 11 serves ([[prop:uc-dbg]]); it enters c(β), c_b, c′_b and c_0

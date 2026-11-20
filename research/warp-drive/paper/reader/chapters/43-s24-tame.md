@@ -168,12 +168,32 @@ in b ∈ ℬ̄_*.
 h̃ = h + h^(−1)(S) and h + h_tot(p⃗) (the operators L_(h,S) of [[ch:s20]] and L_(h,p⃗) of [[ch:s21]]; the gauge
 modifications δ*_(g_0,E_C) ϑ_tot(p⃗) do not enter them, D_h removing them, [[lem:iii-i4-2-5]] and [[lem:iii-i7-2-5]]
 (a)); and h̃ = h + h_rem(q) + h_tot(p⃗) (Step 0 of the proof of [[thm:iii-i14-3-1]], and of [[prop:iii-i15-2-5]]),
-between the spaces of [[eq:iii-i-5-1]] and its target. For h̃ = h this is [[eq:iii-i-5-2]]. In general h̃ lies in the
-class of [[thm:iii-i-5-3]] (h_rem(q) has K⁺-order (α − 2)− > 2, [[rem:iii-i14-3-2]] (1)), with ‖h̃‖_(𝒳^k) ≤
-C_k ‖β‖_(k+d) ([[lem:iii-i4-2-5]], [[lem:iii-i7-2-5]], [[lem:iii-i8-2-5]], [[lem:iii-i9-2-5]], and [[def:iii-i14-1-2]]
-with the towers fixed), and the background g_0 (g_S, or g_p⃗, smooth in p⃗) and h_tot(p⃗) add to P − P_0 coefficients
-smooth in p⃗; so the proof of [[thm:iii-i-5-3]] gives ‖P − P_0‖_((0;k+d)) ≤ C_k ‖β‖_(k+d+5), and [[eq:iii-i-5-2]] with
-‖β‖ in place of ‖h‖.
+between the spaces of [[eq:iii-i-5-1]] and its target. For h̃ = h this is [[eq:iii-i-5-2]], with the loss d of
+[[thm:iii-i-5-3]], the same at b ([[cor:iii-h2-5-1]]). In general h̃ lies in the class of [[thm:iii-i-5-3]]
+(h_rem(q) has K⁺-order (α − 2)− > 2, [[rem:iii-i14-3-2]] (1)), the operator is L^(g_0+h̃,g_0) with g_0 = g_S or g_p⃗
+([[lem:iii-i4-2-5]], [[lem:iii-i7-2-5]] (a), [[lem:iii-i8-2-5]], and [[lem:iii-i9-2-5]] with h + h_rem(q) in place of
+h), and [[thm:iii-i-5-3]] holds for it with h̃ in place of h, the parameters of g_0 being components of p⃗
+([[lem:iii-i4-2-5]], [[lem:iii-i7-1-3]] (b), [[lem:iii-i7-2-5]] (b)). So [[eq:iii-i-5-2]] holds with ‖h̃‖_(𝒳^(k+d))
+in place of ‖h‖_(𝒳^(k+d)), for ‖h̃‖_(𝒳^d) and |p⃗| small. The proof of [[thm:iii-i-5-3]] applies [[thm:ii-f1-1-1]]
+(with [[rem:ii-f1-7-1]]; at b, [[thm:iii-h2-4-1]]) with the loss d − 5, and bounds ‖P − P_0‖_((0;k+d−5)) by
+C_k(|p⃗| + ‖h̃‖_(𝒳^(k+d))), the 5 being the derivatives that [[cor:iii-i-5-2]] costs (h ∈ 𝒳^k gives the class
+(0;k−5)). In terms of β: at h, h + h^(−1)(S) and h + h_tot(p⃗), ‖h̃‖_(𝒳^m) ≤ C_m ‖β‖_m, as ‖h^(−1)(S)‖_(𝒳^m) ≤ C_m|S|
+and ‖h_tot(p⃗)‖_(𝒳^m) ≤ C_m|p⃗| ([[lem:iii-i4-2-5]], [[lem:iii-i7-2-5]] (a), [[lem:iii-i8-2-5]], [[lem:iii-i9-2-5]]).
+At h + h_rem(q) + h_tot(p⃗), ‖h̃‖_(𝒳^m) ≤ C_m ‖β‖_(m+3): by [[eq:iii-i14-1-2]] and [[eq:iii-g2-2-7]], h_(b,rem)(q) is
+a finite sum of fixed tensors, smooth in b ([[lem:iii-i15-1-1]] (P3)), times the components of q and their
+t_*-derivatives of order at most 3 (S_rem with one, through h^(≤1)_(b,s1), b_rem with none, and Y_ψ with at most
+k_μ ≤ 3, [[def:iii-g2-table-1-1]]); on functions of t_*, ∂_(t_*) = t_*⁻¹(t_*∂_(t_*)), where t_*∂_(t_*) is the
+b-vector field of the spaces of [[eq:iii-i14-1-1]] and t_*⁻¹ only adds decay; so
+‖h_(b,rem)(q)‖_(𝒳^m) ≤ C_m ‖q‖_(𝒬^(m+3)). Hence, with E^j the space of [[eq:iii-i-5-1]] and G^j that of the solution
+at the order j, the forward solution operator T_β satisfies
+
+    ‖T_β f‖_(G^k) ≤ C_k (‖f‖_(E^(k+d)) + ‖β‖_(k+d) ‖f‖_(E^d))        at h, h + h^(−1)(S) and h + h_tot(p⃗),
+    ‖T_β f‖_(G^k) ≤ C_k (‖f‖_(E^(k+d)) + ‖β‖_(k+d+3) ‖f‖_(E^d))      at h + h_rem(q) + h_tot(p⃗),
+
+and ‖P − P_0‖_((0;k+d−5)) ≤ C_k ‖β‖_(k+d), respectively C_k ‖β‖_(k+d+3), for d_0 ≥ d + 3 and δ_𝔹 small, which make
+‖h̃‖_(𝒳^d) ≤ C‖β‖_(d+3) and |p⃗| as small as [[thm:iii-i-5-3]] asks. The norms being non-decreasing in the order,
+T_β is tame with loss d at the first three backgrounds and with loss d + 3 at the fourth: the 3 enters the order of
+‖β‖ only, and the orders k + d and d of f are those of [[eq:iii-i-5-2]].
 
 (b) (*Background coefficients.*) u ↦ (L^(g,g_0) − L_b)u, u ↦ R_q u, Δ_q, the sources f^S_(h,p⃗), f^b_(h,p⃗),
 f^s1_(h,p⃗), f^ν_(h,p⃗), r^ν_(h,p⃗), L_b h_rem(q) and the remainder L̃ of [[lem:iii-i1-1-1]], between the weighted spaces
@@ -275,8 +295,9 @@ finite-dimensional map is close to ±id, or that a family is continuous at the b
 this norm. Hence [[lem:iii-j2-2-1]] and [[sec:iii-j2-3]] hold with d_0 := d_* + D, D the total loss of the compositions
 of [[sec:iii-j2-3]] (the d of [[thm:iii-j2-4-1]]), and one d_0 serves every order k.
 
-*Proof.* [[thm:iii-i-5-3]] asks ‖h‖_(𝒳^(d_T)) < ε_0, d_T fixed, and [[thm:ii-f1-1-1]] asks
-‖P − P_0‖_((0;d),(2ℓ_I,ℓ_+,ℓ_K)) < ε_0, which [[lem:iii-j2-2-1]] (a) bounds by C‖β‖_(d+d′+5). The proof of
+*Proof.* [[thm:iii-i-5-3]] asks ‖h‖_(𝒳^(d_T)) < ε_0, d_T being its loss d, and [[thm:ii-f1-1-1]], which its proof
+applies with the loss d_T − 5, asks ‖P − P_0‖_((0;d_T−5),(2ℓ_I,ℓ_+,ℓ_K)) < ε_0; at the backgrounds h̃ of
+[[lem:iii-j2-2-1]] (a), that lemma bounds ‖h̃‖_(𝒳^(d_T)) and ‖P − P_0‖_((0;d_T−5)) by C‖β‖_(d_T+3). The proof of
 [[lem:iii-i4-4-2]] (b) gives the continuity of (h, S) ↦ Ṡ_(h,S) with h in the 𝒳^d-topology, d ≥ k_1 + d_T + 7, whence
 S^(−1)_(h,S) is close to the identity. [[ch:s21]] fixes "h small" as small in 𝒳^d, d fixed, for [[lem:iii-i7-2-5]],
 [[lem:iii-i7-3-1]] (c), [[lem:iii-i7-4-1]], [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and [[cor:iii-i7-4-6]], and takes the
