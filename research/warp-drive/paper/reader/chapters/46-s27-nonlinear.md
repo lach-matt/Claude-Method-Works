@@ -1249,11 +1249,23 @@ C_kω_(k+3)(‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3)))) when ‖(γ̃, k̃)‖_(H^(k
 of [[prop:iii-k-1-2]] (3).
 
 Below, d is the d of [[thm:iii-k-3-2]], fixed in its proof (not the d = 7 of [[ch:s26]], whose N_NM is the N_ex of
-[[thm:iv3-2-2]] here), N_NM := 21d + 6 is the regularity of [[thm:ii-g-2-1]] for it, k″ := k′_(N_NM+3) + 3,
-s_♭ := min(min_(k≤N_NM+3) s_k, s_P) and ω_♭ := max_(k≤N_NM+3) ω_k on [0, s_♭]. The smallness constants use orders
-k ≤ N_NM only, and so, since a product or a composition bounded by [[lem:ii-g-4-1]] (2)–(3) takes one factor at the
-order k + 3, the initial family at the orders k ≤ N_NM + 3, as in (d); a bound needed at every order k (the bound on e_S
-and e_(S⁰) in the proof of [[lem:iii-k-2-3]], which feeds [[eq:ii-g-2-4]]) carries k′_(k+3) and ω_(k+3).
+[[thm:iv3-2-2]] here), N_NM := 21d + 6 is the regularity of [[thm:ii-g-2-1]] for it, k″ := d + 3 + k′_(N_NM+d+3),
+s_♭ := min(min_(k≤N_NM+d+3) s_k, s_P) and ω_♭ := max_(k≤N_NM+d+3) ω_k on [0, s_♭]. Let σ_0 > 0 be such that
+[[prop:iii-k-1-2]] (3) holds for |S| + |S⁰| ≤ σ_0, and for j ∈ ℕ₀ let
+
+    Θ_j := sup_(|S|+|S⁰|≤σ_0) Σ_(l≤2) ‖∂^l_(S,S⁰) h_(S,S⁰)‖_(H^(j+5)),                               {#eq:s27-theta}
+
+the left side of [[prop:iii-k-1-2]] (3) at the order j + 3, in the norms of its class. Θ_j is finite, h_(S,S⁰) being
+C² in (S, S⁰) with values in H^(j+5) by (3), the data lying in every H^k; it is non-decreasing in j; and by (3) at the
+order j + 3,
+
+    Θ_j ≤ ω_(j+3)(‖(γ̃, k̃)‖_(H^(j+3+k′_(j+3))))     when ‖(γ̃, k̃)‖_(H^(j+3+k′_(j+3))) ≤ s_(j+3).
+
+The smallness constants use orders k ≤ N_NM only. Those of the map read the initial family through Θ_k, since a
+product or a composition bounded by [[lem:ii-g-4-1]] (2)–(3) takes one factor at the order k + 3, as in (d); those of
+the right inverses read it through Θ_(k+d) ([[lem:iii-k-2-3]]), the loss d applying to the base point as to U. So the
+data enter them at the orders up to N_NM + d + 3 + k′_(N_NM+d+3) = N_NM + k″. A bound needed at every order k (the
+bound on e_S and e_(S⁰) in the proof of [[lem:iii-k-2-3]]) carries k′_(k+3) and ω_(k+3).
 
 *Proof.* Write ĝ := ĝ_(S,S⁰) and G := G_(S,S⁰), with S⁰ := S^(0)_1. On {t^♭_* < T̂ + 2}, χ_K = 0 (as T_K > T̂ + 2), so
 g_(p⃗) = ĝ ([[sec:iii-k-0]]). Also h_tot(p⃗) and ϑ_tot(p⃗) vanish there, being supported in 𝒞 ⊂ supp χ_K
@@ -1296,18 +1308,30 @@ of h_0 and its derivatives of order at most 2, vanishing at h_0 = 0, on the comp
 ‖h_0‖_(H^(k+5)) by ω_(k+3)(‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3)))). ∎
 
 **Lemma {#lem:iii-k-2-3}** (Right inverses for Ψ; [[thm:iii-j1-2-1]] for Ψ, [Hin26, Theorem 12.8, last paragraph].)
-There are d and ε_0 such that for U ∈ 𝒟^∞_ex with ‖U‖_(𝒟^d_ex) < ε_0 there is a linear map
-ℛ(U) : ℱ^∞_ex → 𝒟^∞_ex with D_U(P_5 ∘ Ψ)(ℛ(U)f) = f. It satisfies the tame estimate [[eq:iii-j2-4-2]] on the exact
-scales ([[cor:iii-j3-6-6]]). If the tail h̃ of U and f vanish on {t^♭_* < c}, c ∈ [T̂, T̂ + 7/4], then so does the tail
-h̃′ of ℛ(U)f.
+There are d and ε_0 ∈ (0, 1] such that for data with Θ_d < ε_0 ([[eq:s27-theta]]) and U ∈ 𝒟^∞_ex with
+‖U‖_(𝒟^d_ex) < ε_0 there is a linear map ℛ(U) : ℱ^∞_ex → 𝒟^∞_ex with D_U(P_5 ∘ Ψ)(ℛ(U)f) = f. It satisfies the tame
+estimate [[eq:iii-j2-4-2]] on the exact scales ([[cor:iii-j3-6-6]]) in the form
+
+    ‖ℛ(U)f‖_(𝒟^k_ex) ≤ C_k (‖f‖_(ℱ^(k+d)_ex) + (‖U‖_(𝒟^(k+d)_ex) + Θ_(k+d)) ‖f‖_(ℱ^d_ex)),     k ∈ ℕ₀,    {#eq:s27-rinv}
+
+with C_k independent of U and of the data. If the tail h̃ of U and f vanish on {t^♭_* < c}, c ∈ [T̂, T̂ + 7/4], then so
+does the tail h̃′ of ℛ(U)f.
 
 *Proof.* Write S⁰ := S^(0)_1 for the translation component of U, and S′, S⁰′ for the boost and translation components
 of U′. *The base point.* Ψ(U) = (h + χ_−h_(−S,−S⁰), p⃗, q) with (h, p⃗, q) = Φ(U). Its black hole parameter b lies in
 ℬ_*, as |b − b₀| ≤ ‖U‖_(𝒟^d). Its metric component h + χ_−h_(−S,−S⁰) lies in the background class 𝒳^∞ of
-[[eq:iii-i-1-4]], which has no support condition, and is small there ([[prop:iii-k-1-2]] (3)). [[thm:iii-i14-3-1]] (at
-a rotating b, through [[prop:iii-i15-2-5]]) and [[thm:iii-j2-4-1]] take the base point only through such a class and its
-smallness. The proof of [[thm:iii-j1-2-1]] takes it only through these and through D_UΦ at U, which depends on U only
-through U_0 = (b − b₀, S, S⁰), as Φ is affine in U_1 ([[thm:iii-j-2-4]]).
+[[eq:iii-i-1-4]], which has no support condition, and is small there ([[prop:iii-k-1-2]] (3)): for l ≤ 2, for
+j ∈ ℕ₀ and for |S| + |S⁰| ≤ σ_0,
+
+    ‖χ_−(t^♭_*) ∂^l_(S,S⁰)h_(−S,−S⁰)‖_(𝒳^(j+2)) ≤ C_j Θ_j,                                              {#eq:s27-base}
+
+with C_j depending only on χ_− and j, as multiplication by χ_−(t^♭_*) is bounded at every order on the class of
+[[prop:iii-k-1-2]] (3) (the half-integer powers of ρ_I it adds at ℐ⁺ stay in the class, as in the proof of
+[[lem:iii-k-3-1]]), that class cut off by χ_−(t^♭_*) lies in 𝒳 with a bounded inclusion at every order, and the norms
+are non-decreasing in the order. [[thm:iii-i14-3-1]] (at a rotating b, through [[prop:iii-i15-2-5]]) and
+[[thm:iii-j2-4-1]] take the base point only through such a class and its smallness. The proof of [[thm:iii-j1-2-1]]
+takes it only through these and through D_UΦ at U, which depends on U only through U_0 = (b − b₀, S, S⁰), as Φ is
+affine in U_1 ([[thm:iii-j-2-4]]).
 
 *The boost and translation directions.* With H(S, S⁰) := h_(−S,−S⁰),
 D_UΨ(U′) = D_UΦ(U′) + (χ_−(∂_S H(S′) + ∂_(S⁰) H(S⁰′)), 0, 0), so
@@ -1338,10 +1362,10 @@ vanishes on {t^♭_* < T̂}, e_S and e_(S⁰) vanish there, and they lie in ℱ^
 
 by [[prop:iii-k-1-2]] (3) at the order k + 3 and the tame bounds of [[sec:iii-j2-1]], with [[lem:ii-g-4-1]] (2)–(3)
 for the products of the coefficients, which carry h_(−S,−S⁰), with ∂_S H, ∂_(S⁰) H and h̃, when
-‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3))) ≤ min(s_(k+3), s_P) and ‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_♭. At an order k > N_NM at which the
-first condition fails, ω_(k+3)(‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3)))) is replaced by a finite constant depending on the data,
-h_(S,S⁰) and its derivatives in (S, S⁰) lying in every H^(k+2) ([[prop:iii-k-1-2]] (3)); such a constant does not enter
-the threshold of [[thm:ii-g-2-1]].
+‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3))) ≤ min(s_(k+3), s_P) and ‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_♭. At an order k at which the first
+condition fails, ω_(k+3)(‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3)))) is replaced by Θ_k ([[eq:s27-theta]]), finite as h_(S,S⁰) and
+its derivatives in (S, S⁰) lie in every H^(k+5) ([[prop:iii-k-1-2]] (3)); when ‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_♭ this
+happens only at orders k > N_NM + d, as k + 3 + k′_(k+3) ≤ N_NM + k″ and s_♭ ≤ min(s_(k+3), s_P) for k ≤ N_NM + d.
 
 So [[thm:iii-i14-3-1]] at the base point Ψ(U), with the defects f^S_Ψ and f^s1_Ψ, is [[thm:iii-i14-3-1]] with two
 more terms e_S(S′) + e_(S⁰)(S⁰′) in the forcing G′ of Step 2 of its proof. They are small with the data and linear in
@@ -1350,6 +1374,40 @@ Step 1 (the base level, where the parameters of low rate, among them S′ and S�
 kind, small with the data. So the elimination runs unchanged for data small, and the construction of U′ in the proof of
 [[thm:iii-j1-2-1]], [[thm:iii-j2-4-2]] and [[cor:iii-j3-6-6]] follow as for Φ. At a rotating b,
 [[cor:iii-i15-3-2]] provides them.
+
+*The constants.* The proof of [[lem:iii-j2-1-2]] uses of a background only that its norms are non-decreasing in the
+order and below δ_𝔹 ≤ 1 at the order d_0. We apply it to β^Ψ := (U, (γ̃, k̃)), with ‖β^Ψ‖_j := ‖U‖_(𝒟^j_ex) + Θ_j,
+non-decreasing in j, for ε_0 ≤ σ_0/2, so that the components S, S⁰ of U satisfy |S| + |S⁰| ≤ σ_0. Every family of the
+construction above is tame in β^Ψ, with the loss in U that it has in the construction for Φ and with constants
+independent of U and of the data:
+
+(i) The families of [[sec:iii-j2-3]] at the base point Ψ(U) are tame in Ψ(U), with constants that do not depend on the
+base point in the ball of [[thm:iii-j2-4-1]]. With d_Φ the loss of U ↦ Φ(U) ([[thm:iii-j-2-4]], as in the proof of
+[[thm:iii-j2-4-2]]) and [[eq:s27-base]] at l = 0,
+
+    ‖Ψ(U)‖_j ≤ ‖Φ(U)‖_j + ‖χ_−h_(−S,−S⁰)‖_(𝒳^j) ≤ C_j (‖U‖_(𝒟^(j+d_Φ)_ex) + Θ_j) ≤ C_j ‖β^Ψ‖_(j+d_Φ).
+
+(ii) The first terms of e_S(S′) and e_(S⁰)(S⁰′) are D_(p⃗)P_5 at the base points Ψ(U) and Φ(U) in the directions of S′
+and S⁰′, which [[lem:iii-j2-2-1]] (b) bounds as it bounds the defects, by
+C_j(1 + ‖Ψ(U)‖_(j+d_BG) + ‖Φ(U)‖_(j+d_BG))(|S′| + |S⁰′|) in ℱ^j_ex, d_BG ≤ d being the loss of its bound. Their second
+terms are D_hP_5(Ψ(U)) = L_b + (D_hP_5(Ψ(U)) − L_b) applied to u := χ_−∂_S H(S′) or u := χ_−∂_(S⁰) H(S⁰′), which
+L_b, of loss 2 ([[lem:iii-j2-1-2]] (d)), and [[lem:iii-j2-2-1]] (b) bound by
+C_j(‖u‖_(𝒳^(j+2)) + ‖Ψ(U)‖_(j+d_BG)‖u‖_(𝒳^(d_BG))). By [[eq:s27-base]] at l = 1, ‖u‖_(𝒳^(j+2)) ≤ C_jΘ_j(|S′| + |S⁰′|)
+and ‖u‖_(𝒳^(d_BG)) ≤ CΘ_(d_BG)(|S′| + |S⁰′|), with Θ_(d_BG) ≤ Θ_d < 1. With (i) and Θ_j ≤ ‖β^Ψ‖_j,
+
+    ‖e_S(S′)‖_(ℱ^j_ex) + ‖e_(S⁰)(S⁰′)‖_(ℱ^j_ex) ≤ C_j (1 + ‖β^Ψ‖_(j+d_BG+d_Φ)) (|S′| + |S⁰′|),
+
+the form that [[lem:iii-j2-1-2]] (c) asks of the finite-rank terms they add, with the loss d_BG + d_Φ in U that the
+defects f^S_(h,p⃗), f^s1_(h,p⃗) have in the construction for Φ.
+
+(iii) D_UΦ at U, which Steps 1–3 of the proof of [[thm:iii-j2-4-2]] subtract, is tame in U ([[rem:iii-j-2-5]]), and
+so in β^Ψ.
+
+So the proofs of [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]], run at the base point Ψ(U) with these families, give
+[[eq:iii-j2-4-2]] with ‖β^Ψ‖_(k+d) in place of ‖U‖_(𝒟^(k+d)_ex), which is [[eq:s27-rinv]], with the loss of the
+construction and with constants independent of U and of the data. The smallness that these proofs ask of the background
+is that of ‖β^Ψ‖ at the order at which they ask U small, at most d by the hypothesis on U; as ‖β^Ψ‖_j is
+non-decreasing in j, it holds when ‖U‖_(𝒟^d_ex) < ε_0 and Θ_d < ε_0, for ε_0 small.
 
 *Supports.* Let h̃ and f vanish on {t^♭_* < c}, c ∈ [T̂, T̂ + 7/4]. There χ_ι, χ_K and the corrections vanish, as in
 [[lem:iii-k-2-2]], and χ_− = 1; so P_5 ∘ Ψ = Q(S, S⁰, h̃) := P(G_(S,S⁰) + h̃, ĝ_(S,S⁰)) there, Q being a differential
@@ -1466,14 +1524,40 @@ domain and f ∈ F_η, the tails of U and f vanish on {t^♭_* < T̂ + c_0η}, s
 [[thm:ii-g-2-1]] (iii), which asks the support property for u ∈ U ∩ B^∞_η only ([[rem:s10-right-inverses]]); the form
 at every u in the domain does not hold here (the proof of [[lem:iii-k-2-3]]).
 
-*Smallness.* The constants C_k (k ≤ N_NM), C_1, C_2 and δ depend on the data only through ‖(γ̃, k̃)‖_(H^(N_NM+k″))
-([[lem:iii-k-2-2]] (c), [[lem:iii-k-2-3]]); they are bounded independently of the data once that norm is at most s_♭,
-the threshold of [[prop:iii-k-1-2]] (3) at the orders k ≤ N_NM + 3 and of [[lem:iii-k-2-2]] (d); in particular
-C_k ≥ ‖P_5(Ψ(0))‖_(ℱ^k_ex), which (d) bounds for k ≤ N_NM through the norm of order k + 3 + k′_(k+3) ≤ N_NM + k″. So
-the threshold of [[thm:ii-g-2-1]], ε_NM, is uniform. Let d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]].
-By [[lem:iii-k-2-2]] (d), ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ C_(2d)ω_(2d+3)(‖(γ̃, k̃)‖_(H^(2d+3+k′_(2d+3)))) for data of that norm
-at most min(s_(2d+3), s_P), and 2d + 3 + k′_(2d+3) ≤ N_NM + k″ ≤ d_1, as 2d + 3 ≤ N_NM and k′_k is non-decreasing; as
-ω_(2d+3)(s) tends to 0 with s, ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1). [[thm:ii-g-2-1]] gives
+*Smallness.* By [[thm:ii-g-2-1]], ε_NM depends only on d, δ, η_0 = 1, C_1, C_2, the C_k with d ≤ k ≤ N_NM and the
+C_(s,t) with s, t ≤ N_NM. The d's are fixed by the proofs, and the C_(s,t) of [[lem:iii-k-3-1]] do not depend on the
+data. Let θ_♭ ∈ (0, 1) be less than the ε_0 of [[lem:iii-k-2-3]] and than the smallness of h_(−S,−S⁰) in H^5 that
+[[lem:ii-g-4-1]] (3) asks in (1) below. We show that the other constants depend on the data only through Θ_j,
+j ≤ N_NM + d ([[eq:s27-theta]]), and are bounded independently of the data once Θ_(N_NM+d) ≤ θ_♭.
+
+(1) The C_k of [[eq:ii-g-2-3]] for d ≤ k ≤ N_NM, and C_1 and C_2, are the constants of [[lem:iii-k-2-2]] (c). Its
+proof adds to [[prop:iii-j2-4-3]] the terms χ_−h_(−S,−S⁰) and their products with h̃ in P, a smooth function of the
+metric and of its derivatives of order at most 2, and bounds them as (d) is bounded, by [[lem:ii-g-4-1]] (2)–(3) with
+d = 3, one factor at the order k + 3. So h_(−S,−S⁰) and its derivatives in (S, S⁰) of order at most 2 enter at the
+order k in H^(k+5), through Θ_k ≤ Θ_(N_NM), and in H^5, through Θ_0, for the smallness that (3) asks; C_1 and C_2, with
+the norms of 𝒟^(3d)_ex and ℱ^(2d)_ex, read them through Θ_(2d) ≤ Θ_(N_NM). In particular C_k ≥ ‖P_5(Ψ(0))‖_(ℱ^k_ex).
+
+(2) The C_k of [[eq:ii-g-2-4]] for d ≤ k ≤ N_NM. By [[eq:s27-rinv]], with ‖f‖_(ℱ^d_ex) ≤ ‖f‖_(ℱ^(2d)_ex) ≤
+‖f‖_(ℱ^(k+d)_ex) for k ≥ d and with the norm C_(Z,k) of Z on 𝒟^k_ex, which does not depend on the data,
+
+    |Ψ_NM(U)f|_k ≤ C_(Z,k) C_k (1 + Θ_(k+d)) (‖f‖_(ℱ^(k+d)_ex) + |U|_(k+d) ‖f‖_(ℱ^(2d)_ex)),
+
+and 1 + Θ_(k+d) ≤ 1 + Θ_(N_NM+d) ≤ 2.
+
+(3) δ is at most the ε_0 of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]], which the proofs fix; the
+condition Θ_d < ε_0 of [[lem:iii-k-2-3]] holds, as Θ_d ≤ Θ_(N_NM+d) ≤ θ_♭.
+
+So, once Θ_(N_NM+d) ≤ θ_♭, the hypotheses of [[thm:ii-g-2-1]] hold with constants independent of the data, and its
+threshold ε_NM > 0 does not depend on the data. By the display after [[eq:s27-theta]] at j = N_NM + d,
+Θ_(N_NM+d) ≤ ω_(N_NM+d+3)(‖(γ̃, k̃)‖_(H^(N_NM+k″))) ≤ ω_♭(‖(γ̃, k̃)‖_(H^(N_NM+k″))) when ‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_♭,
+as N_NM + k″ = N_NM + d + 3 + k′_(N_NM+d+3) and s_♭ ≤ s_(N_NM+d+3). Fix s_1 ∈ (0, s_♭] with ω_♭(s_1) ≤ θ_♭, which
+exists as ω_♭(s) tends to 0 with s; then ε_NM is uniform for ‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_1. Let
+d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]]. By [[lem:iii-k-2-2]] (d),
+‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ C_(2d)ω_(2d+3)(‖(γ̃, k̃)‖_(H^(2d+3+k′_(2d+3)))) for data of that norm at most
+min(s_(2d+3), s_P), and 2d + 3 + k′_(2d+3) ≤ N_NM + k″ ≤ d_1, as 2d + 3 ≤ N_NM and k′_k is non-decreasing. Take
+ε ∈ (0, s_1] with C_(2d)ω_(2d+3)(ε) < ε_NM, possible as ω_(2d+3)(s) tends to 0 with s, and so small that data with
+‖(γ̃, k̃)‖_(H^(d_1)) < ε are small in H^(d_0) as [[prop:iii-k-1-2]] asks. For such data ‖(γ̃, k̃)‖_(H^(N_NM+k″)) < s_1
+and, as s_1 ≤ s_♭ ≤ min(s_(2d+3), s_P), ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM. So [[thm:ii-g-2-1]] gives
 U ∈ B^∞_(1/2) with |U|_(3d) < δ and P_5(Ψ(U)) = 0. ∎
 
 ### Constraint propagation and the theorem {#sec:iii-k-4}
