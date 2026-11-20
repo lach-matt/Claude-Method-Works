@@ -39,7 +39,8 @@ l ≥ 143), ι_P(l, h) is the root of P_l with Re ι > 19/10 and Im ι > 0, and 
 [[lem:tr-c-v]]).
 
 (c) 𝖩 is the set of h ∈ [h₁, 10⁻⁶] for which there are l and an integer n with 3 ≤ n ≤ 51 such that
-the distance |ι_B(l, h) − n| is below ε_Υ, or b(l, h) ≤ 50.2 and |Re ι_P(l, h) − n| < ε_Υ, or n ≥ 4 and |ι_v(l, h) − n| < ε_Υ.
+the distance |ι_B(l, h) − n| is below ε_Υ, or b(l, h) ≤ 50.2 and |Re ι_P(l, h) − n| < ε_Υ, or n ≥ 4 and
+the distance |ι_v(l, h) − n| is below ε_Υ.
 
 **Theorem {#thm:tr-transfer}** (The bounds of [[thm:uc-integer]] at other values of h.) Let h ∈ 𝖧 with
 h₁ ≤ h < 10⁻⁶ and h ∉ 𝖩, and suppose that, with this h, the gauge parameters e_Υ = γ_Υ = 1/100 meet the conditions that
@@ -119,10 +120,10 @@ and κ∂_x(eF) + e⁻¹∂_ϖ(eF) = κe∂_xF + F^ϖ, the term eF₂ + 2ehF₃ 
 
 *Majorants.* For a polynomial g in ι, x, ϖ and h (and e) we write ḡ(R, X) for the polynomial obtained by replacing every
 coefficient by its absolute value, ϖ by 0.1024, h by 10⁻⁶ and e by 1/102400, |ι| by R and x by X. Then
-the bound |g(ι, x, ϖ, h)| ≤ ḡ(R, X) holds whenever |ι| ≤ R, 0 ≤ x ≤ X, 0 < ϖ ≤ 0.1024 and 0 < h ≤ 10⁻⁶, and ḡ increases in R and X
-([[lem:s14-majorant]]). We use F̄₂, F̄₃, F̄_ι := (∂_ιF)‾, F̄_x := (∂_xF)‾, F̄^ϖ := (F^ϖ)‾ and ḡ_B(X); and Ā_j(X, ϖ̄)
-for A_j with its coefficients replaced by their absolute values, x by X and ϖ by ϖ̄. Where a smaller bound ϖ̄ for ϖ
-is known, it replaces 0.1024.
+the bound |g(ι, x, ϖ, h)| ≤ ḡ(R, X) holds whenever |ι| ≤ R, 0 ≤ x ≤ X, 0 < ϖ ≤ 0.1024 and 0 < h ≤ 10⁻⁶, and
+ḡ increases in R and X ([[lem:s14-majorant]]). We use F̄₂, F̄₃, F̄_ι := (∂_ιF)‾, F̄_x := (∂_xF)‾,
+F̄^ϖ := (F^ϖ)‾ and ḡ_B(X); and Ā_j(X, ϖ̄) for A_j with its coefficients replaced by their absolute values, x by X
+and ϖ by ϖ̄. Where a smaller bound ϖ̄ for ϖ is known, it replaces 0.1024.
 
 #### The roots, uniformly in h {#sec:tr-roots}
 
