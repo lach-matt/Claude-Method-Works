@@ -17,14 +17,17 @@ and at one parameter point of the gauge and damping parameters two of these iter
 than 1.403 × 10²⁰ and N_NM larger than 2.946 × 10²¹, each of their steps being charged at least one derivative for the
 inverse of the model at the transition face, whose incoming threshold is non-negative ([[lem:ec-theta-in]],
 [[thm:loss-d]]), and larger than 1.2497 × 10²⁴ and 2.624 × 10²⁵ for the index sets as the proofs construct them
-([[cor:uc-two-offsets]]). At that point, at one admissible choice of the weights, d_acc and d_NM are at most an integer
-below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter point lies outside
-the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds bound what this proof's choices
-produce, not the optimal loss. The same formulas bound λ1 by δ, δ by a power of 2 that decreases with d, and the modulus
-of the initial family ([[prop:iii-k-1-2]]) at 2δ by a power of 2 that decreases with d ([[prop:ec-delta-cap]]). The
-chapter ends with the parts of the first constants of the linear theory that are in hand, and with the places where
-explicit evaluation stops ([[rem:ec-not-evaluated]]).
-No result of this chapter is used in the proof of any theorem of this paper.
+([[cor:uc-two-offsets]]). At that point, at one admissible choice of the weights and of the free orders and inner
+products ([[def:uc-choice]], [[def:cs-choices]]), d_acc and d_NM are at most an integer below 1.57157 × 10⁵⁰, and N_NM at
+most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter point lies outside the set on which [[thm:settling]]
+is proved ([[rem:ec-point-outside]]), and the bounds bound what this proof's choices produce, not the optimal loss. The
+same formulas bound λ1 by δ, δ by a power of 2 that decreases with d, and the modulus of the initial family
+([[prop:iii-k-1-2]]) at 2δ by a power of 2 that decreases with d ([[prop:ec-delta-cap]]). The chapter ends with the parts
+of the first constants of the linear theory that are in hand, and with the places where explicit evaluation stops
+([[rem:ec-not-evaluated]]).
+No result of this chapter is used in the proof of any theorem of this paper outside it. Other chapters state explicit
+values that rest on it, the indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which [[prop:fwd-calculus]] proves, and
+the value N′ = 13 of [[ch:s06]], which rests on [[lem:fwd-orders]]; these values are used only in this chapter.
 
 ### The computational point {#sec:ec-point}
 
@@ -375,15 +378,14 @@ of |ℱf_1(σ)|, which ⌈γ + ½⌉ ≥ 1 gives. Every other step, the integrat
 - d_ι + 2 for [[cor:iii-g2-4-3]].
 
 [[lem:ec-closed-forms]] (h) gives the loss of [[lem:iii-i2-3-1]]. The forward solution operators of [[lem:iii-j2-2-1]]
-(a) lose the d of [[thm:iii-i-5-3]], which its proof takes from [[thm:ii-f1-1-1]] in the relaxed form of
-[[rem:ii-f1-7-1]] with d_ℵ = 1 and raises by 5; there d = D_0 + D_1 + d′ + d″ + 1 + 5 ([[eq:fwd-split]]),
-[[thm:fwd-loss]] shows that d = 20,180 may be taken, and [[cor:fwd-near-b0]] gives the same value at every base point
-with black hole parameter in ℬ̄_*. The order of choices behind ℓ + 1 is: d_acc and d_NM first, then N_NM, then the
-trapping data at the orders k ≤ N_NM ([[cor:iii-h2-1-2]]); the constants of the smallness conditions are used at those
-orders only, the tame estimates themselves at every order. An explicit value of d_acc needs, besides these closed forms,
-the order d_BG, numbers for the weights at the parameters in question, the counts n(E, β) of the index sets and the
-numbers of steps of the iterations of the inventory of [[sec:iii-j2-3]]; [[sec:ec-floor]] bounds two of these iterations
-from below, and at the computational point [[thm:uc-integer]] bounds d_acc, d_NM and N_NM from above.
+(a) lose the d of [[thm:iii-i-5-3]], which [[sec:fwd]] evaluates: [[thm:fwd-loss]] shows that d = 20,180 may be taken,
+and [[cor:fwd-near-b0]] gives the same value at every base point with black hole parameter in ℬ̄_*. The order of choices
+behind ℓ + 1 is: d_acc and d_NM first, then N_NM, then the trapping data at the orders k ≤ N_NM ([[cor:iii-h2-1-2]]); the
+constants of the smallness conditions are used at those orders only, the tame estimates themselves at every order. An
+explicit value of d_acc needs, besides these closed forms, the order d_BG, numbers for the weights at the parameters in
+question, the counts n(E, β) of the index sets and the numbers of steps of the iterations of the inventory of
+[[sec:iii-j2-3]]; two of these iterations bound d_acc from below ([[lem:ec-round-loss]], [[prop:ec-rounds]],
+[[thm:loss-d]] (ii)), and at the computational point [[thm:uc-integer]] bounds d_acc, d_NM and N_NM from above.
 
 ### The loss of the forward solution operators, evaluated {#sec:fwd}
 
@@ -505,12 +507,12 @@ Hence D_1 = max(49, 41, 39) = 49. ∎
 
 #### A quantitative calculus of finite regularity {#sec:fwd-calculus}
 
-The indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]] come from the closed graph theorem and carry no value. We prove
-them again, every derivative counted. Throughout, n = 5, T ∈ ℕ and 𝔐(T) := 200T + 100; Op denotes the left
-quantization on ℝⁿ, Op(p)u(x) = (2π)^(−n) ∫ e^(ix·ξ) p(x, ξ) û(ξ) dξ; Q_4 := [−2, 2]ⁿ; and for an integer x, 𝔢(x)
-denotes the least even integer above x (so 𝔢(x) = x + 1 for odd x and x + 2 for even x). For an order function 𝗆
-(smooth in (x, ξ), with |∂_x^β ∂_ξ^γ 𝗆| ≤ C_(βγ)⟨ξ⟩^(−|γ|), as the variable orders of [[sec:ii-a1-1-1]] are in the
-charts of ρℬ) and K ∈ ℕ_0 put
+The proofs of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]] take their indices from the closed graph theorem, which gives no
+value; the values stated there are proved here. We prove them again, every derivative counted. Throughout, n = 5, T ∈ ℕ
+and 𝔐(T) := 200T + 100; Op denotes the left quantization on ℝⁿ, Op(p)u(x) = (2π)^(−n) ∫ e^(ix·ξ) p(x, ξ) û(ξ) dξ;
+Q_4 := [−2, 2]ⁿ; and for an integer x, 𝔢(x) denotes the least even integer above x (so 𝔢(x) = x + 1 for odd x and x + 2
+for even x). For an order function 𝗆 (smooth in (x, ξ), with |∂_x^β ∂_ξ^γ 𝗆| ≤ C_(βγ)⟨ξ⟩^(−|γ|), as the variable orders
+of [[sec:ii-a1-1-1]] are in the charts of ρℬ) and K ∈ ℕ_0 put
 
     |p|^𝗆_K := max_(|β|+|γ|≤K) sup ⟨ξ⟩^(−𝗆(x,ξ)−ϰ(|β|+|γ|)+|γ|) |∂_x^β ∂_ξ^γ p(x, ξ)|,          {#eq:fwd-seminorm}
 
@@ -1247,7 +1249,7 @@ Sobolev orders in [−51, 38], at most five quantizations, by [[lem:fwd-box]]) w
 and D_1 are the exact values that the proofs of [[sec:ii-f1-3-1]], [[thm:ii-e-6-1]] and [[prop:ii-e-4-4]] fix for
 these orders.
 
-### Two long iterations, and a lower bound for d {#sec:ec-floor}
+### Two long iterations and the loss of a round {#sec:ec-floor}
 
 Among the iterations of the inventory of [[sec:iii-j2-3]], three constructions of [[ch:s21]]–[[ch:s23]] repeat one
 step many times.
@@ -1293,7 +1295,7 @@ x ≤ y, let c > 0, and let x_1 < x_2 < ⋯ < x_m with x_(j+1) − x_j < c for e
 ∫_(x_j)^(x_(j+1)) g ≤ h_j g(x_j) + h_j²/2 ≤ c g(x_j) + c h_j/2. Summing over j < m, and adding c g(x_m) ≥ 0, gives
 [[eq:ec-level-sum]], as Σ_(j<m) h_j = x_m − x_1. ∎
 
-### The constant ε_Υ at the computational point {#sec:ec-gauge-gap}
+### The constant ε_Υ, and a lower bound for d {#sec:ec-gauge-gap}
 
 The transition face rounds and the level-3 rounds of [[sec:ec-floor]] raise their weights by ε_g − ε, and ε_g =
 min(ε_Υ, ε_ind) ([[def:s21-eps-g]]). The constant ε_Υ of [[sec:iii-d2-1]] is fixed below half the least distance
@@ -1472,9 +1474,8 @@ the level's solution being assembled from the outputs of all its rounds and from
 forcing. So all the rounds of all the levels lie on one chain of compositions, and by [[def:ec-accounted-loss]] and
 [[lem:ec-round-loss]] (a), d_acc ≥ Σ_rounds(2 + ℓ_tf). By [[lem:ec-closed-forms]] (d), whose proof uses
 [[lem:ec-theta-in]], ℓ_tf ≥ 1 at every round; so by [[prop:ec-rounds]], d_acc ≥ 3R > 3 · 4.6775 × 10¹⁹ = 1.40325 ×
-10²⁰ > 1.403 × 10²⁰, and N_NM = 21d_NM + 6 ≥ 21d_acc + 6 > 21 · 1.403 × 10²⁰ = 2.9463 × 10²¹ > 2.946 × 10²¹. Every
-lower bound of this chapter is a lower bound for d_acc, and holds for d_NM and N_NM because d_NM ≥ d_acc and N_NM
-increases with d_NM.
+10²⁰ > 1.403 × 10²⁰, and N_NM = 21d_NM + 6 ≥ 21d_acc + 6 > 21 · 1.403 × 10²⁰ = 2.9463 × 10²¹ > 2.946 × 10²¹. Every lower
+bound for d_acc in this chapter holds for d_NM and N_NM as well, because d_NM ≥ d_acc and N_NM increases with d_NM.
 
 (iii) is [[prop:ec-upper]]. ∎
 
@@ -1483,11 +1484,11 @@ increases with d_NM.
 **Proposition {#prop:ec-delta-cap}** (The thresholds δ and λ1.) In the proof of [[thm:settling]], let d be the loss
 d_NM with which [[thm:iii-k-3-2]] applies [[thm:ii-g-2-1]] (d ≥ d_acc, [[thm:loss-d]]), and let the Nash–Moser
 threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]]. Let ε be the data threshold
-of [[cor:s27-rate]], chosen, as in the proof of [[thm:iii-k-3-2]], with ε ≤ s̃ and C_(2d)ω̃(ε) ≤ ε_NM, where C_(2d) is
+of [[cor:s27-rate]], chosen, as in the proof of [[thm:iii-k-3-2]], with ε ≤ s̃ and C_(2d)ω̃(ε) < ε_NM, where C_(2d) is
 the constant of [[lem:iii-k-2-2]] (d) at the order 2d, and ω̃ := ω_(2d+3) and s̃ := min(s_(2d+3), s_P) are the modulus
-and the threshold with which (d) holds there (those of [[prop:iii-k-1-2]] (3) at the order 2d + 3), enlarged if
-necessary so that C_(2d) ≥ 1 and ω̃(t) ≥ t on [0, s̃]; and let C_R ≥ 1 be the constant of [[cor:vii-2-3]]. Then
-δ = ½ε and λ1 satisfy
+and the threshold with which (d) holds there (ω_(2d+3) and s_(2d+3) those of [[prop:iii-k-1-2]] (3) at the order 2d + 3,
+and s_P that of [[lem:iii-k-2-2]] (d)), enlarged if necessary so that C_(2d) ≥ 1 and ω̃(t) ≥ t on [0, s̃]; and let
+C_R ≥ 1 be the constant of [[cor:vii-2-3]]. Then δ = ½ε and λ1 satisfy
 
     λ1 < δ,     ω̃(2δ) ≤ 2^(−(32d+8)),     δ ≤ 2^(−(32d+9)),     log₁₀ δ < −(59/196)(32d + 9).
 
@@ -1496,7 +1497,7 @@ As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives, at the computational poi
 *Proof.* Replacing C_(2d) by max(C_(2d), 1) and ω̃(t) by max(ω̃(t), t) keeps [[lem:iii-k-2-2]] (d) true,
 and the modulus still tends to 0 with t, which is all that the proof of [[thm:iii-k-3-2]] uses of it; so these are
 choices that proof allows. The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and
-ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So ω̃(2δ) = ω̃(ε) ≤ ε_NM/C_(2d) ≤ 2^(−(32d+8)), and as ε ≤ s̃,
+ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So ω̃(2δ) = ω̃(ε) < ε_NM/C_(2d) ≤ 2^(−(32d+8)), and as ε ≤ s̃,
 ε ≤ ω̃(ε) ≤ 2^(−(32d+8)), that is, δ = ½ε ≤ 2^(−(32d+9)). The proof of [[thm:settling]] ([[sec:vii-4]]) takes λ1
 with C_Rλ1 < ½ε = δ, so λ1 < δ/C_R ≤ δ. Next, 2^10 = 1.024·10³, so 2^196 = 2^190·2^6 = 1.024^19·10^57·64, and by the
 binomial expansion, all of whose terms are positive, 1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with
@@ -1554,18 +1555,20 @@ at most A_1 + A_2 + X. At the top, (a) gives the loss max(A, c, b) ≤ A + X. �
 The families of [[lem:iii-j2-2-1]] fall into this frame. A linear map independent of β bounded E^(k+m) → G^k has split
 loss (m; 0, 0) ([[lem:iii-j2-1-2]] (d)). The forward solution operators have split loss (d_F; d_F, d_F), d_F the loss d
 of [[thm:iii-i-5-3]] and of [[cor:iii-h2-5-1]] ([[eq:iii-i-5-2]]), at most 20,180 ([[thm:fwd-loss]],
-[[cor:fwd-near-b0]]). The background terms of [[lem:iii-j2-2-1]] (b), and the operator L̃ of [[lem:iii-j2-2-1]] (g) where
-its coefficients depend on h, have split loss (2; d_BG, d_BG), d_BG the order in the background of their bound ‖Au‖_k ≤
-C_k(‖u‖_(k+2) + ‖β‖_(k+d_BG)‖u‖_(d_BG)); in the sense of [[def:iii-j2-1-1]] they are tame with loss max(2, d_BG), the
-charge of [[rem:ec-other-losses]]. A finite-rank map e ↦ Σ_i (ℓ_βe)_i v^i with |ℓ_βe| ≤ C‖e‖_(d_ℓ) and fixed sections
-v^i, as the rows and the coefficient maps of the construction are ([[lem:iii-j2-2-1]] (c)), has split loss (d_ℓ; 0, d_ℓ).
-So every family other than the background terms has c, b ≤ a, and the background terms have c, b ≤ 2 + (d_BG − 2)_+. By
-(d) with X := (d_BG − 2)_+, the excess over 2 need only be paid once: an expression built by compositions and sums from
-these families, in which every background term is charged 2 and every other family its loss, is tame with the number so
-assigned plus (d_BG − 2)_+, whatever the number of background terms in it, once d_0 is at least that number plus 2(d_BG −
-2)_+, which [[lem:iii-j2-2-1]], taking d_0 large, allows. The fixed operators L_b, L̂_b(σ) and L̃_b at the background 0,
-which alone enter the rounds and windows of the long iterations, have split loss (2; 0, 0), so the excess does not enter
-those iterations either way.
+[[cor:fwd-near-b0]]), at the backgrounds h, h + h^(−1)(S) and h + h_tot(p⃗). At h̃ = h + h_rem(q) + h_tot(p⃗), where
+‖h̃‖_(𝒳^m) is bounded through ‖q‖_(𝒬^(m+3)), they have split loss (d_F; d_F + 3, d_F), and so (d_F + 3; d_F + 3,
+d_F + 3), the charge of [[lem:cs-elem]] (e). The background terms of [[lem:iii-j2-2-1]] (b), and the operator L̃ of
+[[lem:iii-j2-2-1]] (g) where its coefficients depend on h, have split loss (2; d_BG, d_BG), d_BG the order in the
+background of their bound ‖Au‖_k ≤ C_k(‖u‖_(k+2) + ‖β‖_(k+d_BG)‖u‖_(d_BG)); in the sense of [[def:iii-j2-1-1]] they are
+tame with loss max(2, d_BG), the charge of [[rem:ec-other-losses]]. A finite-rank map e ↦ Σ_i (ℓ_βe)_i v^i
+with |ℓ_βe| ≤ C‖e‖_(d_ℓ) and fixed sections v^i, as the rows and the coefficient maps of the construction are
+([[lem:iii-j2-2-1]] (c)), has split loss (d_ℓ; 0, d_ℓ). So every family other than the background terms has c, b ≤ a, and
+the background terms have c, b ≤ 2 + (d_BG − 2)_+. By (d) with X := (d_BG − 2)_+, the excess over 2 need only be paid
+once: an expression built by compositions and sums from these families, in which every background term is charged 2 and
+every other family its loss, is tame with the number so assigned plus (d_BG − 2)_+, whatever the number of background
+terms in it, once d_0 is at least that number plus 2(d_BG − 2)_+, which [[lem:iii-j2-2-1]], taking d_0 large, allows. The
+fixed operators L_b, L̂_b(σ) and L̃_b at the background 0, which alone enter the rounds and windows of the long
+iterations, have split loss (2; 0, 0), so the excess does not enter those iterations either way.
 
 **Lemma {#lem:ec-iota-gap}** (The gaps of the index sets at ι⁺.) The index set ℰ^ι_ind of [[thm:iii-g2-4-2]]
 ([[eq:iii-g2-4-4]]) satisfies ε^ι_ind := min Re ℰ^ι_ind ≥ ε_Υ, and the number η_0 of [[def:iii-i10-1-1]] satisfies η_0
@@ -2444,11 +2447,12 @@ them. The proof of [[prop:ec-upper]], read for this construction, therefore spli
 a composition of finitely many elementary families, so it is finite. By [[lem:uc-phi-loss]],
 d_NM = max(d_R, d_FM, d_Ψ) with d_FM, d_Ψ ≤ 62N_Λ + 10. ∎
 
-**Theorem {#thm:uc-integer}** (The loss d at the computational point.) At the computational point, with the index sets
-as constructed and the choices of [[def:uc-choice]] and [[def:cs-choices]], let c_* be the largest of the numbers
-c(β_k) (1 ≤ k ≤ K), c_b, c′_b and c_0 defined before [[prop:ec-upper]] and c^Ψ(β_k), c^Ψ_b, c′^Ψ_b and c^Ψ_0 of
-[[lem:uc-dr]]: the largest loss that [[def:ec-accounted-loss]] assigns to a single step outside the long iterations.
-Then c_* < C_* := 643,680,000,000,000,000,000,000,000,000,000,000 = 6.4368·10³⁵ ([[prop:cs-cstar]]), and
+**Theorem {#thm:uc-integer}** (The loss d at the computational point.) At the computational point, with the index sets as
+constructed, the admissible choice of the weights of [[def:uc-choice]] and the free orders and inner products of
+[[def:cs-choices]], let c_* be the largest of the numbers c(β_k) (1 ≤ k ≤ K), c_b, c′_b and c_0 defined before
+[[prop:ec-upper]] and c^Ψ(β_k), c^Ψ_b, c′^Ψ_b and c^Ψ_0 of [[lem:uc-dr]]: the largest loss that [[def:ec-accounted-loss]]
+assigns to a single step outside the long iterations. Then
+c_* < C_* := 643,680,000,000,000,000,000,000,000,000,000,000 = 6.4368·10³⁵ ([[prop:cs-cstar]]), and
 
     d_acc ≤ D_acc,     d_NM = d_R ≤ D_NM := D_acc,     N_NM = 21d_NM + 6 ≤ 21D_NM + 6,                  {#eq:uc-integer}
 
@@ -3161,8 +3165,8 @@ being attained at (5, 39) ∈ ℰ_ind ([[prop:is-logs]], [[prop:is-ci-pp]] (a)),
 max(L, M) = L, is at most 50: l_* = 50 is admissible for it. (G), N_Λ, k̄_0 and J_* are [[thm:is-gap]] and
 [[prop:is-count]]. The orders of the poles of N_ι⁺(L̄, ·)⁻¹ at real part at most 5, statement (SP) of [[rem:uc-missing]],
 are all 1 ([[cor:sp-lstar]] (a)), so they do not raise l_* above L. Two further things are not determined by this paper:
-the coefficient c_b of [[def:is-cb]] at a rotating b, which for index sets that keep 𝔡₁ decides whether ε_K may be taken
-up to μ♭ ([[cor:is-flat]]) or only below μ_G ([[thm:is-gap]]), and whether an admissible ℰ_ind can omit 𝔡₁. Neither
+the coefficient c_b of [[def:is-cb]] at a rotating b, which for index sets that keep 𝔡₁ decides whether ε_K may be
+taken up to μ♭ ([[cor:is-flat]]) or only below μ_G ([[thm:is-gap]]), and whether an admissible ℰ_ind can omit 𝔡₁. Neither
 enters an upper bound for d: the index sets as constructed serve with every ε_K < μ_G, and the two decide only whether
 smaller index sets, with a larger ε_K, are available. The individual roots ι ∈ Z of [[prop:is-iota]] are fixed by the
 polynomials of [[prop:np-10-12]] and located by [[sec:s14-pa]]; they lie above 3 as exponents of ℰ^ι_ind and do not enter
@@ -3846,7 +3850,10 @@ target weight when that is smaller;
 [[prop:iii-i8-4-1]] at α′ the levels α_0 < α′, with α_0 ∈ (2, α′) admissible;
 
 (g) in each application of [[lem:iii-a-1-4]] in [[lem:iii-i11-2-1]], at each step of its proof, the decrease of γ and the
-number δ′ with sum at most ¼.
+number δ′ with sum at most ¼;
+
+(h) as the order 𝗌 of the proof of [[thm:iii-i-5-3]] and of (B4) of [[sec:iii-h2-0]], the order of [[lem:fwd-orders]]
+(s_in = 11, s_out = −10).
 
 These choices are allowed. (a): [[lem:ec-theta-in-zero]] gives the inner product at the incoming radial sets,
 which (O3) of [[def:i-a-admissible]] chooses separately for each radial set; [[lem:iii-f2-1-1]] gives ϑ_ℋ < ϑ_L + δ on a
@@ -3865,7 +3872,9 @@ statements built on [[thm:iii-i11-4-1]] use α′ only as an admissible level in
 w_(α′) = min(α′ − 2, λ_♯ − 1) > 0 (Step 6 of the proof of [[thm:iii-i12-3-1]]); at a rotating b the elimination of
 [[thm:iii-i11-4-1]] is [[prop:iii-i15-2-5]] with q = 0, whose base is at the level α_1 of [[def:uc-choice]]. (g): in
 the proof of [[lem:iii-a-1-4]] the decrease of γ need only make γ avoid the real parts of spec_b(A) ∪ π₁F, which has
-finitely many points in every strip, and δ′ > 0 is any small number; so both may be taken with sum at most ¼.
+finitely many points in every strip, and δ′ > 0 is any small number; so both may be taken with sum at most ¼. (h):
+[[lem:fwd-orders]] carries out the construction of [[sec:ii-c-5-2]] with these values, and B_1 is chosen after the order
+([[sec:iii-h2-0]]), so (B4) holds for it on B̄_1.
 
 #### The elementary charges {#sec:cs-elem}
 
@@ -3926,11 +3935,11 @@ in the finite-dimensional W; the proof of [[prop:uc-dbg]] applies to them, and t
 (e) By [[thm:fwd-loss]], [[eq:iii-i-5-2]] holds with d = 20,180 for g = g_0 + h, g_0 = g_(b₀,b₀,−S). At a base point with
 parameter b ∈ ℬ̄_* these operators are those of [[cor:iii-h2-5-1]] ([[lem:iii-j2-2-1]] (a)), for which [[eq:iii-i-5-2]]
 holds with the same d = 20,180 by [[cor:fwd-near-b0]], the order of (B4) of [[sec:iii-h2-0]] being that of
-[[lem:fwd-orders]], as in [[thm:fwd-loss]]. By [[lem:iii-j2-2-1]] (a), for the backgrounds h̃ = h + h^(−1)(S),
-h + h_tot(p⃗) and h + h_rem(q) + h_tot(p⃗) it holds with ‖h̃‖_(𝒳^(k+d)) in place of ‖h‖_(𝒳^(k+d)), the backgrounds g₀
-and h_tot(p⃗) adding coefficients smooth in p⃗. By [[lem:iii-i4-2-5]], [[lem:iii-i9-2-5]] and the first paragraph of the
-proof of [[prop:uc-dbg]], ‖h̃‖_(𝒳^m) ≤ C_m(‖h‖_(𝒳^m) + |S| + |p⃗| + ‖q‖_(𝒬^(m+3))). So these families satisfy
-[[eq:iii-j2-1-1]] with the loss 20,180 + 3 = 20,183.
+[[lem:fwd-orders]] ([[def:cs-choices]] (h)), as in [[thm:fwd-loss]]. By [[lem:iii-j2-2-1]] (a), for the backgrounds
+h̃ = h + h^(−1)(S), h + h_tot(p⃗) and h + h_rem(q) + h_tot(p⃗) it holds with ‖h̃‖_(𝒳^(k+d)) in place of ‖h‖_(𝒳^(k+d)),
+the backgrounds g₀ and h_tot(p⃗) adding coefficients smooth in p⃗. By [[lem:iii-i4-2-5]], [[lem:iii-i9-2-5]] and the
+first paragraph of the proof of [[prop:uc-dbg]], ‖h̃‖_(𝒳^m) ≤ C_m(‖h‖_(𝒳^m) + |S| + |p⃗| + ‖q‖_(𝒬^(m+3))). So these
+families satisfy [[eq:iii-j2-1-1]] with the loss 20,180 + 3 = 20,183.
 
 (f) For [[prop:iii-g4-4-4]] this is the proof of [[lem:ec-round-charges]] (b), which uses nothing particular to the
 levels 1 and 2: the solution costs at most ℓ_tf = 1 and the remainder ℓ_tf + 2 = 3, and the derivatives in α₀ of
@@ -4356,16 +4365,17 @@ paper; [[prop:ec-delta-cap]] bounds λ1 by δ, δ by a power of 2 that decreases
 positive by the proof of [[thm:settling]]. Explicit values stop first upstream of every constant: the proof fixes the
 gauge and damping parameters only below thresholds whose existence it proves ([[thm:vi-c-2-1]]), and the cut-offs and
 orders of its function spaces only up to admissibility, so explicit constants need those choices made with numbers, which
-[[def:ec-point]] does only at a point outside the proved set. Among the inputs that depend on those choices are the gauge
-reconstruction, the inverse of the absorbed problem in the norms of [[ch:s01]] (invertible by a Fredholm argument,
-[[lem:rb-absorbed]], which gives no bound), and a lower bound, uniform in the harmonic, for the least singular value of
-the scalar-type blocks at zero energy ([[lem:rb-quasimode]] bounds it from above). Four kinds of argument give a constant
-without a value: a compact error removed by injectivity, by contradiction (the low-energy and Fredholm estimates of
-[[ch:s01]]–[[ch:s03]] and their analogues later); uniformity in the spectral parameter and in the black hole parameters
-near the final one, by sequences and compactness; the trapping estimate, by a defect-measure argument by contradiction
-([[ch:s02]]), with the a priori constants built on it; and finite covers of compact parameter sets. Bounds obtained from
-the closed graph, open mapping and uniform boundedness theorems, among them the tame constants C_k of the membership
-statements ([[lem:iii-j2-1-2]] (f)), also give no value until each is read off from the explicit estimates behind the
-statement. The parametrix norms at ι⁺ are not given by the construction of the parametrix, and the tame constants to the
-order N_NM, the Nash–Moser thresholds of the exterior and slab problems and the constants of the gluing are not
-evaluated. This is a limit of the explicit evaluation, not of [[thm:settling]].
+this chapter does only at a point outside the proved set: [[def:ec-point]] for the gauge and damping parameters, and
+[[def:uc-choice]] and [[def:cs-choices]] for the weights, orders and inner products on which d depends. Among the inputs
+that depend on those choices are the gauge reconstruction, the inverse of the absorbed problem in the norms of [[ch:s01]]
+(invertible by a Fredholm argument, [[lem:rb-absorbed]], which gives no bound), and a lower bound, uniform in the
+harmonic, for the least singular value of the scalar-type blocks at zero energy ([[lem:rb-quasimode]] bounds it from
+above). Four kinds of argument give a constant without a value: a compact error removed by injectivity, by contradiction
+(the low-energy and Fredholm estimates of [[ch:s01]]–[[ch:s03]] and their analogues later); uniformity in the spectral
+parameter and in the black hole parameters near the final one, by sequences and compactness; the trapping estimate, by a
+defect-measure argument by contradiction ([[ch:s02]]), with the a priori constants built on it; and finite covers of
+compact parameter sets. Bounds obtained from the closed graph, open mapping and uniform boundedness theorems, among them
+the tame constants C_k of the membership statements ([[lem:iii-j2-1-2]] (f)), also give no value until each is read off
+from the explicit estimates behind the statement. The parametrix norms at ι⁺ are not given by the construction of the
+parametrix, and the tame constants to the order N_NM, the Nash–Moser thresholds of the exterior and slab problems and the
+constants of the gluing are not evaluated. This is a limit of the explicit evaluation, not of [[thm:settling]].
