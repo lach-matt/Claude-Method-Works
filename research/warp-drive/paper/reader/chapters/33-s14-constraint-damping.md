@@ -1190,8 +1190,9 @@ the same 3sc model; so it persists for b near b₀. ∎
 *Proof.* ϑ_ℋ is the maximum over the compact ∂ℛ_± of the top eigenvalue of β_0⁻¹p_(1,±)(0), self-adjoint for the fibre
 inner product B of [[lem:iv4-1-1]]. By its definition p_(1,±)(0) = A_± − h⁻¹ℓ(±ρ_∞·), where A_± comes from 2δGδ* and is
 free of h, and the h⁻¹-part is h⁻¹ρ_∞ times the damping symbol of L at the conormal covectors of the horizon. These are
-future null, and c_C is past timelike there ([[prop:np-10-14]] (i)), so [[lem:iv4-1-causal]] (a) makes ℓ of them
-B-positive definite, so that −h⁻¹ℓ is negative definite, the sign that damps.
+future null, and c_C is past timelike there ([[prop:np-10-14]] (i) at b₀, and by continuity for b near b₀), so
+[[lem:iv4-1-causal]] (a) makes ℓ of them B-positive definite, so that −h⁻¹ℓ is negative definite, the sign that
+damps.
 So, by Weyl's inequality, ϑ_ℋ ≤ ϑ_0(b) − c(b)h⁻¹ with ϑ_0 and c > 0 continuous in b. At b₀,
 ϑ_0 = 102401/640 and c = 102399/20480000, and ϑ_ℋ itself is −4995.83… at h = 10⁻⁶ ([[prop:np-10-79]]); the bound
 ϑ_0 − ch⁻¹ is −4839.95… at h = 10⁻⁶. So ½ + ϑ_0(b) − c(b)h⁻¹ < −100 for b near b₀ and h ≤ 10⁻⁶, the margin at b₀ being

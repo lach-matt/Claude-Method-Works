@@ -154,15 +154,14 @@ h(e4, e1) = h(e4, e4) = 0. Here ∇_4∇_3e4 = R(e4, e3)e4 + ∇_3∇_4e4 + ∇_
 
 (F3) 4e3ϖ = e3 h(e3, ∇_4e4) = h(∇_3e3, ∇_4e4) + h(e3, ∇_3∇_4e4), and h(∇_3e3, ∇_4e4) = 4ϖϖ̲ h(e3, e4) = −8ϖϖ̲. Write
 ∇_3∇_4e4 = R(e3, e4)e4 + ∇_4∇_3e4 + ∇_[e3,e4] e4. Then h(e3, R(e3, e4)e4) = K; h(e3, ∇_4∇_3e4) = e4 h(e3, ∇_3e4) −
-h(∇_4e3, ∇_3e4) = −4e4ϖ̲ + 8ϖϖ̲ − 4ηη̲, since h(e3, ∇_3e4) = −h(∇_3e3, e4) = −4ϖ̲; and with [e3, e4] = −2ϖ e3 + 2ϖ̲ e4
-+ 4ζ e1, the e4-coefficient of ∇_[e3,e4] e4 = −2ϖ∇_3e4 + 2ϖ̲∇_4e4 + 4ζ∇_1e4 is −8ϖϖ̲ − 4ζ², so that
-h(e3, ∇_[e3,e4] e4) = 16ϖϖ̲ + 8ζ². Hence
+h(∇_4e3, ∇_3e4) = −4e4ϖ̲ + 8ϖϖ̲ − 4ηη̲, since h(e3, ∇_3e4) = −h(∇_3e3, e4) = −4ϖ̲; and with [e3, e4] = −2ϖ e3 + 2ϖ̲
+e4 + 4ζ e1, the e4-coefficient of ∇_[e3,e4] e4 = −2ϖ∇_3e4 + 2ϖ̲∇_4e4 + 4ζ∇_1e4 is −8ϖϖ̲ − 4ζ², so that h(e3, ∇_[e3,e4]
+e4) = 16ϖϖ̲ + 8ζ². Hence
 
     e3ϖ + e4ϖ̲ = (1/4) K + 4ϖϖ̲ + 2ζ² − ηη̲.
 
-On the other hand ϖ = −(1/2)e4α and ϖ̲ = −(1/2)e3α give e3ϖ − e4ϖ̲ = −(1/2)[e3, e4]α = −(1/2)(4ϖϖ̲ − 4ϖ̲ϖ + 4ζ e1α)
-= −2ζ e1α = −(1/2)(η² − η̲²). Half the sum of the two relations, with ζ = (η − η̲)/2 and K = 2(Ric_34 + Ric_11), is
-(F3).
+On the other hand ϖ = −(1/2)e4α and ϖ̲ = −(1/2)e3α give e3ϖ − e4ϖ̲ = −(1/2)[e3, e4]α = −(1/2)(4ϖϖ̲ − 4ϖ̲ϖ + 4ζ e1α) =
+−2ζ e1α = −(1/2)(η² − η̲²). Half the sum of the two relations, with ζ = (η − η̲)/2 and K = 2(Ric_34 + Ric_11), is (F3).
 
 (F4) e3χ = h(∇_3∇_1e4, e1) + h(∇_1e4, ∇_3e1) = h(∇_3∇_1e4, e1) + 2ζη, since h(χ e1 − ζ e4, η e3) = 2ζη. Here
 ∇_3∇_1e4 = R(e3, e1)e4 + ∇_1∇_3e4 + ∇_[e3,e1] e4. The e1-component of ∇_1∇_3e4 = ∇_1(2ϖ̲ e4 + 2η e1) is 2ϖ̲χ + 2e1η,
@@ -171,7 +170,7 @@ and that of ∇_[e3,e1] e4 = (η − ζ)∇_3e4 − χ̲∇_1e4 is 2η(η − ζ
 (F5) By (a), e3η + e3η̲ = 2e3e1α = 2e1e3α + 2[e3, e1]α = −4e1ϖ̲ + 2(e1α)(e3α) − 2χ̲ e1α = −4e1ϖ̲ − (2ϖ̲ + χ̲)(η + η̲).
 Subtracting (F2′), e3η̲ = −Ric_31 − χ̲(η̲ − η), gives (F5).
 
-The images under the exchange hold by the same computations with the roles of e3 and e4 exchanged, since the table and
+The images under the exchange hold by the same derivations with the roles of e3 and e4 exchanged, since the table and
 the formula for Ric are invariant; for (F3′) and (F5′) one uses ϖ = −(1/2)e4α, ϖ̲ = −(1/2)e3α and e1α = (η + η̲)/2,
 which are also invariant.
 
@@ -541,19 +540,19 @@ system A^μ(F)∂_μz = G(f_c) − G(F) − (A^ϑ(f_c) − A^ϑ(F))∂_ϑf_c, of
 π/2 − η0/2], and z = 0 at the points with ϑ ≤ η0 or ϑ ≥ π/2 − η0, where f_c = f̊ = F. By [[lem:civp-large-energy]]
 (b), z = 0 on R × (0, π/2). So F is the reduced fields of g_c on R × (0, π/2) and is geometric there.
 
-*Continuation in u + v.* For t > 0 let D_t := {(u, v) ∈ 𝒯 : u + v < t}, and let t* be the supremum of the t ∈ (0,
-l1 + l2] such that F is geometric on D_t × (0, π/2), with t* := 0 if there is none. The corner step with R =
-[0, min(L, l1)] × [0, min(L, l2)] applies: its corner is S, where F = f̄ is geometric, because the values of f̄ at S are
-those of [[eq:civp-large-coefficients]] in the cone data, and its edges lie in 𝒞_out and 𝒞_in. So t* ≥ min(L, l1, l2)
-> 0. Suppose t* < l1 + l2. F is geometric on the closure of D_t* × (0, π/2). Let Γ := {(u, v) ∈ 𝒯 : u + v = t*}, and for
-p = (u_p, v_p) ∈ Γ let u_c := max(u_p − L/2, 0), v_c := max(v_p − L/2, 0) and R_p := [u_c, min(u_p + L/2, l1)] ×
-[v_c, min(v_p + L/2, l2)], whose sides are at most L < σ. Its corner satisfies u_c + v_c ≤ t*. If v_c > 0, the edge
-N_i = [u_c, min(u_p + L/2, l1)] × {v_c} satisfies u + v ≤ u_p + L/2 + v_p − L/2 = t*, so it lies in the closure of
-D_t*; likewise N_o if u_c > 0. So the corner step applies, and F is geometric on R_p × (0, π/2). Every (u, v) ∈ 𝒯
-with t* ≤ u + v < t* + L/4 lies in some R_p: with s := (u + v − t*)/2 < L/8, take p := (u − s, v − s) if this point
-lies in 𝒯, and otherwise the end point of Γ on the side of 𝒯 that it leaves; in both cases u_p − L/4 ≤ u ≤ u_p + L/4
-and v_p − L/4 ≤ v ≤ v_p + L/4. Hence F is geometric on D_(t*+L/4) × (0, π/2), contrary to the choice of t*. So
-t* = l1 + l2, and F is geometric on 𝒯 × (0, π/2).
+*Continuation in u + v.* For t > 0 let D_t := {(u, v) ∈ 𝒯 : u + v < t}, and let t* be the supremum of the t ∈ (0, l1 +
+l2] such that F is geometric on D_t × (0, π/2), with t* := 0 if there is none. The corner step with R = [0, min(L, l1)]
+× [0, min(L, l2)] applies: its corner is S, where F = f̄ is geometric, because the values of f̄ at S are those of
+[[eq:civp-large-coefficients]] in the cone data, and its edges lie in 𝒞_out and 𝒞_in. So t* ≥ min(L, l1, l2) > 0.
+Suppose t* < l1 + l2. F is geometric on the closure of D_t* × (0, π/2). Let Γ := {(u, v) ∈ 𝒯 : u + v = t*}, and for p =
+(u_p, v_p) ∈ Γ let u_c := max(u_p − L/2, 0), v_c := max(v_p − L/2, 0) and R_p := [u_c, min(u_p + L/2, l1)] × [v_c,
+min(v_p + L/2, l2)], whose sides are at most L < σ. Its corner satisfies u_c + v_c ≤ t*. If v_c > 0, the edge N_i =
+[u_c, min(u_p + L/2, l1)] × {v_c} satisfies u + v ≤ u_p + L/2 + v_p − L/2 = t*, so it lies in the closure of D_t*;
+likewise N_o if u_c > 0. So the corner step applies, and F is geometric on R_p × (0, π/2). Every (u, v) ∈ 𝒯 with t* ≤
+u + v < t* + L/4 lies in some R_p: with s := (u + v − t*)/2 < L/8, take p := (u − s, v − s) if this point lies in 𝒯, and
+otherwise the end point of Γ on the side of 𝒯 that it leaves; in both cases u_p − L/4 ≤ u ≤ u_p + L/4 and v_p − L/4 ≤ v
+≤ v_p + L/4. Hence F is geometric on D_(t*+L/4) × (0, π/2), contrary to the choice of t*. So t* = l1 + l2, and F is
+geometric on 𝒯 × (0, π/2).
 
 *Step 5: the solution.* By Step 4 and [[prop:civp-large-system]] (b), g_F with v, u, q_in, q_out is a class solution in
 the gauge on 𝒮_δ × (0, π/2) × T². At the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0] it equals (g0, q̊_in, q̊_out), since
