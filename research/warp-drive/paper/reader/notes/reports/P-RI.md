@@ -75,3 +75,5 @@ Further checks:
   even with every label replaced by "Proposition 33.123".
 - **Typography.** There is no backslash, and no new line starts with a forbidden marker.
 - **The proof file.** Applying its two old/new pairs to the HEAD chapter reproduces copy A exactly.
+
+**Superseded (2026-11-20):** the sentence at line 51 that chapter 34 uses chapter 33 "only in prop:iii-f1-3-3" is too strong; proofs/P-RI.md (md5 a5756b0f) names both routes. See notes/reviews/R-P-RI.md, Confirmation.

@@ -397,3 +397,93 @@ notes the point in section 3.1. A one-word repair in chapter 34 would be "s ∈ 
 9. **P-RI-1.** The attribution "for b-elliptic operators on compact manifolds with boundary this is Melrose's
    [[thm:std-relative-index]]" matches Appendix A's statement ([Mel93, Theorem 6.5, p. 214], compact X, P b-elliptic).
    "With the indicial roots counted by type and degree on 𝕊³" describes the new count.
+
+## Confirmation (fix round)
+
+File re-read: proofs/P-RI.md, md5 a5756b0fec1a33885fcd3987fae1b51c, 586 lines, as committed at HEAD d96dc214. Also
+read: the writer's fix report (scratchpad reader/reports/F-P-RI.md). The bases were chapter 33 md5 d2184d75…,
+chapter 34 md5 5dbbf887…, crosswalk/33 md5 5b4e25fe… and crosswalk/34 md5 6995e64a…; the working tree equals HEAD for
+all four. P-G24b was taken at HEAD, md5 a44f9f97…, 45 texts. No repository file was edited.
+
+**Verdict: CONFIRMED.** Every finding is resolved, and I found nothing new of Major or minor weight.
+
+### The findings, one by one
+
+- **m1, n1–n4.** The P-RI-2 new text, and the identical block in section 2, is my consolidated replacement byte for
+  byte: md5 without the final newline 3ff2456e…, 64 lines. P-RI-1's old and new texts and P-RI-2's old text are
+  unchanged from the version I read first. The notes in sections 3.1 and 3.3 now explain the R_in clause, the (H3)
+  point, γ_* and the weight 1. They are correct.
+- **n5. Resolved.** Section 6 now gives both crosswalk changes as appends to the fourth field.
+  - The prop:iv6-1-1 note is the old appended string plus ", and its R_in clause restricted to theta in {0, pi}".
+  - In scratch copies B and C below, the row of prop:iv6-1-1 keeps 4 fields, with each of "; P-RI:" and "; P-G24b:"
+    present once. Only the order of the two notes differs.
+  - The new crosswalk/34 note for lem:iii-f1-3-1 goes into an empty fourth field: row 29, 4 fields, fourth empty at
+    HEAD. Its text is accurate.
+- **n6. Resolved, and the change is right.** My replacement said that the chapter-33 results resting on prop:iv6-1-1
+  enter chapter 34 only at Step 4 of prop:iii-f1-3-3 (ii). As a statement about routes that was incomplete, and the
+  writer is right to name the second route:
+  - eq:iv4-0-1 (chapter 33, line 112) puts h_tf, the threshold of thm:iv6-3-1, into h_* := min(10⁻⁶, h_0, h_tf).
+  - Chapter 34 fixes its damping data "in [[sec:iv4-0]]" (its lines 75–77).
+
+  The bullet's conclusion holds on both counts:
+  - The four pieces the new text uses (lem:iii-f1-2-4, lem:iii-f1-3-1, *Types and representations*, and the *Weights*
+    paragraph) are stated for a general P̂ satisfying (H1)–(H2), or for a general equivariant indicial family. They cite
+    no chapter-33 result and use none of chapter 34's fixed data.
+  - prop:iv6-1-1 holds for every h ∈ (0, 10⁻⁶] (sec:iv6-0). Its proof, as now written, uses lem:iv4-1-3, lem:iv4-1-6
+    and prop:np-10-54, all stated for every h ∈ (0, 10⁻⁶], so it never needs h < h_*.
+
+  The listed citations of thm:iii-e-1-1 in chapter 34 match the file:
+  - its setting: lines 77, 212, 275, 281 and 1935;
+  - its clauses (1)–(3): lines 285, 1148, 1500 and 1937;
+  - its clause (4): line 739.
+
+  One precision, which needs no change: h_tf itself is defined (chapter 33, line 3173) as the h_0 of thm:iv6-2-1. So
+  this route rests on prop:iv6-1-1 only through the statement of thm:iv6-3-1. Listing it is the conservative choice.
+- **n7. Resolved.** I re-checked the pins and positions:
+  - P-RI-1 is at chapter 33 lines 2791–2792, P-RI-2 at 3017–3049 and P-RI-3 at chapter 34 lines 595–596. Each occurs
+    once, as whole lines. The crosswalk row is at line 127.
+  - P-G24b's T21 is at 2752–2754, T23 at 2937–2939, T29 at 3005–3008 (ending inside line 3008, before " Near r = 0
+    the normal operator") and T30 at 3080–3082 at HEAD.
+  - T39 removes "sector" at line 3169. lem:s14-tf-inputs (v) is at 2823–2824 and is cited only at 3043.
+  - The paragraph "So [[eq:iv6-1-1]] is Fredholm" is at 3011–3015.
+  - P-G24b's §6.1 is at its lines 1475–1499, its table row at line 127 (chapter lines 2412–2413 of md5 147ca162…,
+    3033–3034 at HEAD), and its summary item (c) at lines 16–17.
+  - The proof file now says 45 texts throughout.
+- **n8. Resolved.** Section 3.2 has the replacement as given.
+
+### The new item P-RI-3 (lem:iii-f1-3-1: "and s ∈ ℤ." becomes "and s ∈ ℤ, s ≥ 2.")
+
+- The text is correct. Steps 1 and 2 of the lemma's proof take Mellin transforms of elements of H^(s−2)_b with the
+  bounds eq:i-c-2-1. sec:i-c-2-3 provides these only for weighted L² functions, so the proof needs s ≥ 2.
+- Uses. A search of all chapter sources and all proof files finds one use at HEAD, chapter 34 line 760, in
+  prop:iii-f1-3-3 (iii). It takes the s fixed at line 716, "Fix α_+, s ∈ ℤ large", which meets s ≥ 2. After P-RI there
+  is one more use, P-RI-2, at s := 2. P-RI-1 only names the formula. No other proof file cites the lemma.
+- Form. The old text is the two lines 595–596, found once. The new second line is 120 characters in the source, and in
+  PAPER.md the two lines are 101 and 120. It adds no label, starts no line with a forbidden marker, and has no
+  backslash.
+
+### Scratch merges
+
+The base was a git archive of HEAD (chapters/, crosswalk/, assemble.py, lint.py, OUTLINE.md), in scratchpad rri2/.
+P-G24b was used at HEAD, with T41 in variant A and its §9 note on prop:iv6-1-1.
+
+| copy | content | lint --chapters | assemble --check | assemble, then lint --paper |
+|---|---|---|---|---|
+| base | HEAD | 4665 labels, 0 hits | 0 problems | (not run) |
+| A | P-RI alone (P-RI-1 to P-RI-3, both crosswalk notes) | 4665 labels, 0 hits | 0 problems | PAPER.md 0 hits |
+| B | P-G24b, then P-RI | 4681 labels, 0 hits | 0 problems | PAPER.md 0 hits |
+| C | P-RI, then P-G24b | 4681 labels, 0 hits | 0 problems | PAPER.md 0 hits |
+
+- Every old text of both files was found exactly once at its turn. P-RI's texts were found as whole lines.
+- B and C have byte-identical chapters 33 and 34 and an identical crosswalk/34. Their crosswalk/33 differs only in the
+  order of the two notes on the prop:iv6-1-1 row.
+- The longest line is 121 characters in chapter 33, chapter 34 and PAPER.md, in A, B and C.
+
+### For the coordinator
+
+These need no action on P-RI.md:
+- The superseded first report, notes/reports/P-RI.md line 51, still says "Chapter 34 uses chapter 33 only in
+  prop:iii-f1-3-3". The proof file now has the correct statement.
+- The proof file's only lines over 121 characters are the two one-line crosswalk notes inside fences, lines 518 and 529.
+- The short source line "(H1)–(H2) part does not use the value of γ_C. Its transition" was kept, as I proposed. It
+  does not show in the rendering.
