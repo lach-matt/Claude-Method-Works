@@ -493,9 +493,9 @@ no bound uses it, as (c) gives the orders from above at every h.
 #### The exponent set at h {#sec:tr-lambda}
 
 **Definition {#def:tr-excess}** (The roots below 3 and the least excess.) Let 0 < h ≤ 10⁻⁶. Z(h) is the set Z of
-[[prop:is-iota]] at (v, e, h): the root of C greater than 2, the roots ι ≠ 2 of real part greater than 19/10 of P_l, l
-≥ 1, and the larger roots ι_v(l, h) of p_(v), l ≥ 2. Put Z₃(h) := {ι ∈ Z(h) : Re ι < 3} and y_ι := 3 − Re ι for ι ∈
-Z₃(h). With the function m of [[lem:is-reduction]] and μ_G of [[thm:is-gap]],
+[[prop:is-iota]] at (v, e, h): the root of C greater than 2, the roots ι ≠ 2 of real part greater than 19/10 of P_l,
+l ≥ 1, and the larger roots ι_v(l, h) of p_(v), l ≥ 2. Put Z₃(h) := {ι ∈ Z(h) : Re ι < 3} and y_ι := 3 − Re ι for
+ι ∈ Z₃(h). With the function m of [[lem:is-reduction]] and μ_G of [[thm:is-gap]],
 
     μ(h) := inf({μ_G} ∪ {m(y_ι) : ι ∈ Z₃(h)}),
     N̄(h) := ⌊16,747,200,000,000 + 1,125,001,468,750.5 · Σ_(ι∈Z₃(h)) (y_ι + 1.69·10⁻⁶)²⌋     (Z₃(h) finite).
@@ -632,8 +632,8 @@ forces h into the set I of the h with |x − x_n| < (4/3)(ϱ(x) + ε_Υ), x_n :=
 as ϱ = 1/20 for x ≤ 20 and 1/5 beyond, and on which 1/2 < x ≤ 70 and κ ≥ (4n/3 − 3.6001)·10⁶; for n = 3, x < 0.734
 on I. On I ∩ {b ≤ 50.2}, and for n = 3 on I, ∂_h Re ι_P ≥ (2/5)κ ([[lem:tr-slopes]] (b)), so 𝖩_P(l, n) is an interval
 of length below 5ε_Υ/κ, and the least l is at least 1000(4n/3 − 3.6001)^(1/2) − 1 ≥ 631. As
-Σ_(n=3)^(51)(4n/3 − 3.6001)^(−1/2) is at most 0.3999^(−1/2) + (3/2)(64.3999^(1/2) − 0.3999^(1/2)) < 12.671, the total length of 𝖩_P is below
-5ε_Υ·1.0016·10⁻³·12.671 < 0.06346ε_Υ.
+Σ_(n=3)^(51)(4n/3 − 3.6001)^(−1/2) is at most 0.3999^(−1/2) + (3/2)(64.3999^(1/2) − 0.3999^(1/2)) < 12.671, the total
+length of 𝖩_P is below 5ε_Υ·1.0016·10⁻³·12.671 < 0.06346ε_Υ.
 
 *𝖩_v.* ι_v(l, ·) increases in h, and |ι_v(l, h) − n| < ε_Υ for some h ≤ 10⁻⁶ forces ι_v(l, 10⁻⁶) > n − ε_Υ, that is
 (l + 1)² > (n − 1)² + 10⁶(n − 3) − 2·10⁻⁴ by the closed form of [[lem:s14-vector-distance]], so l ≥ 1000(n − 3)^(1/2) − 1
