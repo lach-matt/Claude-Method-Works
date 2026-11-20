@@ -48,10 +48,10 @@ h₁ ≤ h < 10⁻⁶ and h ∉ 𝖩, and suppose that, with this h, the gauge p
 and the choices of [[def:uc-choice]] and [[def:cs-choices]]. Then:
 
 (i) (*the inputs*) ε_Υ ≤ ε_ind(h) ≤ min(δ_50, ι₂ − 2), where ι₂ is the root of P_2 with
-(40/13 − 153600h)h < ι₂ − 2 < 40h/13; the exponents of ℰ^ι_ind of real part at most 5 are those of ℰ_ind, the integers
-1, …, 5 and the numbers ι + 1 + j of [[prop:tr-inputs]] (a), of real part greater than 3, none of them an integer; every indicial root of L̂_b(0) of real part in
-[−101, 5] is simple; and every pole of N_ι⁺(L̄, ·)⁻¹ of real part at most 5 is simple ([[prop:tr-eps]],
-[[prop:tr-inputs]]);
+(40/13 − 153600h)h < ι₂ − 2 < 40h/13; the exponents of ℰ^ι_ind of real part at most 5 are those of ℰ_ind, the
+integers 1, …, 5 and the numbers ι + 1 + j of [[prop:tr-inputs]] (a), of real part greater than 3, none of them an
+integer; every indicial root of L̂_b(0) of real part in [−101, 5] is simple; and every pole of N_ι⁺(L̄, ·)⁻¹ of real
+part at most 5 is simple ([[prop:tr-eps]], [[prop:tr-inputs]]);
 
 (ii) (*the bounds*) every statement of [[thm:uc-integer]] holds at (h, 1/100, 1/100) with the same numbers:
 c_* < C_* = 6.4368·10³⁵; d_acc ≤ d_R ≤ D_acc and d_NM ≤ D_acc < 1.57157·10⁵⁰; N_NM ≤ 21D_acc + 6 < 3.30029·10⁵¹;
@@ -66,12 +66,12 @@ h ≥ h₁ ([[prop:ec-rounds]], [[cor:uc-two-offsets]]).
 empty. It needs an h ∈ 𝖧 with h ≥ h₁, and the supremum h_* = min(10⁻⁶, h_0, h_tf) of 𝖧 is not determined, h_0 and h_tf
 being thresholds whose existence is proved and whose values are not ([[rem:ec-point-outside]]); if h_* ≤ h₁, no h
 qualifies. It needs also that (1/100, 1/100) lie below the gauge thresholds of [[thm:vi-c-2-1]] at that h, which this
-paper does not decide. The two other restrictions, h ≥ h₁ and h ∉ 𝖩, are those under which the proof at h = 10⁻⁶
-carries over unchanged. Below 13ε_Υ/40 = 4.7512…·10⁻¹¹ the root ι₂ gives ε_ind(h) < ε_Υ, so ε_g < ε_Υ and the counts
-of [[prop:uc-explicit]] and [[sec:cs]] that use ε_g change; they are not evaluated here, and h₁ lies within 0.19 % of
+paper does not decide. The two other restrictions, h ≥ h₁ and h ∉ 𝖩, are those under which the proof at h = 10⁻⁶ carries
+over unchanged. Below 13ε_Υ/40 = 4.7512…·10⁻¹¹ the root ι₂ gives ε_ind(h) < ε_Υ, so ε_g < ε_Υ and the counts of
+[[prop:uc-explicit]] and [[sec:cs]] that use ε_g change; they are not evaluated here, and h₁ lies within 0.19 % of
 that value. On 𝖩 the condition (H_ε) can fail, and where ε_ind(h) < 1.38·10⁻²⁵ the bound itself fails for every
-admissible choice ([[prop:tr-fail]]); so 𝖩 cannot be dropped. What the theorem gives is therefore: if the parameter point
-(h, 1/100, 1/100) is admissible, h ≥ h₁ and h ∉ 𝖩, the bounds computed at h = 10⁻⁶ are bounds at h.
+admissible choice ([[prop:tr-fail]]); so 𝖩 cannot be dropped. What the theorem gives is therefore: if the parameter
+point (h, 1/100, 1/100) is admissible, h ≥ h₁ and h ∉ 𝖩, the bounds computed at h = 10⁻⁶ are bounds at h.
 
 #### The sextic in two parameters {#sec:tr-split}
 
@@ -257,16 +257,15 @@ has as many roots in |ι − a| < 2/5 as U, namely the two roots of 𝒬. The di
 this one, so these are three roots of real part greater than 2, all of them ([[prop:np-10-54]] (i)), and
 a ± 2/5 ⊂ (2.1, 2.92) as 2.5 ≤ a ≤ 2.5154.
 
-(c) As y = x/ϖ ≥ max(1/5, x/0.1024), 16b² = 24y − (2 + x)² − 16x ≥ max(4.8 − (2 + x)² − 16x, 214.375x − 4 − x²);
-the first bound decreases and the second increases in x, and they agree at x = 0.02048, where both exceed 0.3899; so
-b ≥ 0.1561, and b ≥ 2.536, 8.073, 15.579, 21.82 for x ≥ 1/2, 5, 20, 45. By [[eq:tr-split]] U = (ι − ζ)V with
-V := 2(2 + x − ι)(ι − ζ̄), and d := |2 + x − ζ| = (b² + (x − 2)²/16)^(1/2) ≥ b. On |ι − ζ| = r < b we
-have |U| ≥ 2r(d − r)(2b − r) ≥ 2r(b − r)(2b − r), and U has the single root ζ inside. On that circle |ι − a| ≤ b + r,
-so by [[eq:tr-aj]], |F| ≤ Σ_j Ā_j(x, ϖ̄)(b + r)^j + 10⁻⁶F̄₂(a + b + r, x) + 10⁻¹²F̄₃(a + b + r), where ϖ̄ bounds ϖ: ϖ ≤ 0.1024,
-ϖ = x/y ≤ 5x, and ϖ ≤ 3x/(2b²), as b² ≤ 3y/2. For b ≤ 56 the following table covers the possible (x, b) by boxes
-[x_a, x_b] × [b_a, b_b], each with r = ϱ; in each, N bounds e|F| (from the values at x_b and b_b, with
-ϖ̄ := min(0.1024, 5x_b, 3x_b/(2b_a²))) and D := 2ϱ(b_a − ϱ)(2b_a − ϱ) bounds |U| from below; the last column is used in
-[[lem:tr-slopes]]:
+(c) As y = x/ϖ ≥ max(1/5, x/0.1024), 16b² = 24y − (2 + x)² − 16x ≥ max(4.8 − (2 + x)² − 16x, 214.375x − 4 − x²); the
+first bound decreases and the second increases in x, and they agree at x = 0.02048, where both exceed 0.3899; so b ≥
+0.1561, and b ≥ 2.536, 8.073, 15.579, 21.82 for x ≥ 1/2, 5, 20, 45. By [[eq:tr-split]] U = (ι − ζ)V with V := 2(2 + x −
+ι)(ι − ζ̄), and d := |2 + x − ζ| = (b² + (x − 2)²/16)^(1/2) ≥ b. On |ι − ζ| = r < b we have |U| ≥ 2r(d − r)(2b − r) ≥
+2r(b − r)(2b − r), and U has the single root ζ inside. On that circle |ι − a| ≤ b + r, so by [[eq:tr-aj]], |F| ≤ Σ_j
+Ā_j(x, ϖ̄)(b + r)^j + 10⁻⁶F̄₂(a + b + r, x) + 10⁻¹²F̄₃(a + b + r), where ϖ̄ bounds ϖ: ϖ ≤ 0.1024, ϖ = x/y ≤ 5x, and ϖ ≤
+3x/(2b²), as b² ≤ 3y/2. For b ≤ 56 the following table covers the possible (x, b) by boxes [x_a, x_b] × [b_a, b_b], each
+with r = ϱ; in each, N bounds e|F| (from the values at x_b and b_b, with ϖ̄ := min(0.1024, 5x_b, 3x_b/(2b_a²))) and D :=
+2ϱ(b_a − ϱ)(2b_a − ϱ) bounds |U| from below; the last column is used in [[lem:tr-slopes]]:
 
 | [x_a, x_b] | [b_a, b_b] | ϱ | ϖ̄ | N ≤ | D ≥ | dev ≤ |
 |---|---|---|---|---|---|---|
@@ -418,14 +417,15 @@ non-real exponent no term of F, all of whose exponents are real, enters, and the
 
 (b) The bound 7 is the first part of the proof of [[prop:is-mult]], which uses (C1) only. On the strip the entries of
 each type are −l, l + 2, the roots of (□^Υ_b)^(0) plus 1 and the roots of □^C minus 1, less those of D, and those from
-□^Υ_b and the integers are distinct within each type ([[prop:iii-f1-2-3]]). The entries from □^C on the strip are the
-ι − 1 with Re ι ≤ 6, the other roots of C, P_l and p_(v) having real part below −100. Each such ι is simple in its
+□^Υ_b and the integers are distinct within each type ([[prop:iii-f1-2-3]]). The entries from □^C on the strip are the ι
+− 1 with Re ι ≤ 6, the other roots of C, P_l and p_(v) having real part below −100. Each such ι is simple in its
 polynomial, as h ∉ 𝖹₁ ([[lem:iv4-1-3]] (b)). Such an ι − 1 is not an integer entry: a non-real one is not real, and a
 real one has |ι − 1| ≤ 5 and is not an integer by (H_ε). It is not a non-integer entry from □^Υ_b of its type and
-degree: those are real, at vector type there are none, and in (1, 5] they are, at scalar type l, l + 2 + d₂(l) for
-l ≤ 2 and l + 3 + d₁(l) for l = 1 ([[lem:is-roots]] (a)); the entries from □^C of real part in (1, 5]
-are, at scalar type l ≤ 2, the ι − 1 with ι in (2, 3) ([[lem:tr-small]]), which lie in (1, 2) while those exceed 3. At scalar type 0 the entry ι₁ − 1 lies
-in (1, 3/2), where that type has no other entry. With the poles, as in the proof of [[prop:is-mult]], this gives (b).
+degree: those are real, at vector type there are none, and in (1, 5] they are, at scalar type l, l + 2 + d₂(l) for l ≤ 2
+and l + 3 + d₁(l) for l = 1 ([[lem:is-roots]] (a)); the entries from □^C of real part in (1, 5] are, at scalar type l ≤
+2, the ι − 1 with ι in (2, 3) ([[lem:tr-small]]), which lie in (1, 2) while those exceed 3. At scalar type 0 the entry
+ι₁ − 1 lies in (1, 3/2), where that type has no other entry. With the poles, as in the proof of [[prop:is-mult]], this
+gives (b).
 
 (c) The lists are those of the proof of [[lem:sp-roots]] (a), which does not use h, with the roots located by
 [[lem:tr-c-v]] and [[lem:tr-small]]; at l ≥ 3 the condition Re ι ≤ 5 selects the roots. Simplicity is (b). For the
@@ -492,11 +492,12 @@ below 2ε_Υ/(0.98κ). The least l with l(l + 2) > (n − 2.0101)·10⁶ is L_n 
 Σ_(l≥L) 1/(l(l + 2)) < 1/L. So the total length of 𝖩_B is below (2ε_Υ/0.98)·1.0011·10⁻³·Σ_(n=3)^(51) (n − 2.0101)^(−1/2),
 and the sum is at most 0.9899^(−1/2) + 2(48.9899^(1/2) − 0.9899^(1/2)) < 13.014; so it is below 0.02659ε_Υ.
 
-*𝖩_P.* The set {b ≤ 50.2} is an interval of h, as b² = (24y − (2 + x)² − 16x)/16 decreases in h at fixed l, and on it
-Re ι_P lies within ϱ = ϱ(x) of a ([[lem:tr-large]] (c)). So |Re ι_P − n| < ε_Υ forces h into the set I of h with
-|x − x_n| < (4/3)(ϱ(x) + ε_Υ), x_n := (4n − 10)/3 ≥ 2/3, which is an interval, as ϱ = 1/20 for x ≤ 20 and 1/5
+*𝖩_P.* The set {b ≤ 50.2} is an interval of h, as b² = (24y − (2 + x)² − 16x)/16 decreases in h at fixed l, and on
+it Re ι_P lies within ϱ = ϱ(x) of a ([[lem:tr-large]] (c)). So |Re ι_P − n| < ε_Υ forces h into the set I of the h
+with |x − x_n| < (4/3)(ϱ(x) + ε_Υ), x_n := (4n − 10)/3 ≥ 2/3, which is an interval, as ϱ = 1/20 for x ≤ 20 and 1/5
 beyond, and on which 1/2 < x ≤ 70 and κ ≥ (4n/3 − 3.6001)·10⁶. On I ∩ {b ≤ 50.2}, ∂_h Re ι_P ≥ (2/5)κ
-([[lem:tr-slopes]] (b)), so 𝖩_P(l, n) is an interval of length below 5ε_Υ/κ, and the least l is at least 1000(4n/3 − 3.6001)^(1/2) − 1 ≥ 631. As Σ_(n=3)^(51)(4n/3 − 3.6001)^(−1/2) is at most
+([[lem:tr-slopes]] (b)), so 𝖩_P(l, n) is an interval of length below 5ε_Υ/κ, and the least l is at least
+1000(4n/3 − 3.6001)^(1/2) − 1 ≥ 631. As Σ_(n=3)^(51)(4n/3 − 3.6001)^(−1/2) is at most
 0.3999^(−1/2) + (3/2)(64.3999^(1/2) − 0.3999^(1/2)) < 12.671, the total length of 𝖩_P is below
 5ε_Υ·1.0016·10⁻³·12.671 < 0.06346ε_Υ.
 
