@@ -378,9 +378,11 @@ The remaining chapters prove the following; each is stated in full where it is p
   localised in an angular band away from the axes, with or without dust and without smallness, on a neighbourhood of
   the two cones that depends on the data, localised and unique in the gauge among solutions equal to the background
   near the axes ([[thm:civp-large]]), and, for such data near the background's, on an explicit neighbourhood with an
-  estimate ([[thm:loc-cone-development]]), and of data near the background's, localised in angle or not, on the whole
-  rectangle of the two cones in which the two dusts cross, [0, 7.2] × [0, 4.5], with an estimate and unique in the
-  gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]); and exactly localised vacuum data
+  estimate ([[thm:loc-cone-development]]), of data near the background's, localised in angle or not, on the whole
+  rectangle of the two cones in which the two dusts cross, [0, 7.2] × [0, 4.5], with an estimate and unique in the gauge
+  among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]), and of data of any size reaching the axes, on a
+  neighbourhood of the two cones, unique in the gauge, with a maximal development and a continuation criterion
+  ([[thm:civp-axes]]); and exactly localised vacuum data
   near the initial data of an explicit two-dust background of [[thm:two-dusts]] ([[sec:bg-data]]): on a vacuum band
   of the initial slice (a shell {R1 < r < R2} whose closure lies where the background is vacuum), data equal to the
   background's outside a compact subset of the band and vacuum in the band, whose first-order part in a small
