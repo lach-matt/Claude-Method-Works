@@ -1106,12 +1106,12 @@ taken at its right end σ_+. Constants are rounded as in [[sec:tb2-algebraic-row
 ### Tables for the approximant on the data cone at 10 l5 {#sec:cone-tables}
 
 These tables carry the numbers used in [[sec:cone-approximant]]. The tables of [[sec:cone-table-c1]] and
-[[sec:cone-table-c2]] define the approximant R_app of [[def:cone-approximant]]: their entries are the coefficients C_(ij) of the polynomial S, and
-they are exact decimal numbers. An entry written d.ddde±kk, with any number of digits and with a leading minus sign
-for a negative number, denotes d.ddd × 10^(±kk); in the coefficient tables every entry has ten significant digits and
-is exact. The other tables list numbers derived from these coefficients, as used in [[lem:cone-ellipse]],
-[[lem:cone-nodes]] and [[prop:cone-residual]]. Throughout, r_s and r_e are the solutions of v(r) = 1/2 and
-v(r) = 7/2 in [[eq:cone-v]], c = (r_s + r_e)/2, ℓ = (r_e − r_s)/2 and t = (r − c)/ℓ; rounded to twenty decimals,
+[[sec:cone-table-c2]] define the approximant R_app of [[def:cone-approximant]]: their entries are the coefficients C_(ij)
+of the polynomial S, and they are exact decimal numbers. An entry written d.ddde±kk, with any number of digits and with a
+leading minus sign for a negative number, denotes d.ddd × 10^(±kk); in the coefficient tables every entry has ten
+significant digits and is exact. The other tables list numbers derived from these coefficients, as used in
+[[lem:cone-ellipse]], [[lem:cone-nodes]] and [[prop:cone-residual]]. Throughout, r_s and r_e are the solutions of v(r) =
+1/2 and v(r) = 7/2 in [[eq:cone-v]], c = (r_s + r_e)/2, ℓ = (r_e − r_s)/2 and t = (r − c)/ℓ; rounded to twenty decimals,
 
     r_s = 10.24756039016491688191,    r_e = 11.73508635912921112668,
     c = 10.99132337464706400429,      ℓ = 0.74376298448214712239.
