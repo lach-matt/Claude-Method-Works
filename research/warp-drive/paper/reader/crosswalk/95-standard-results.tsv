@@ -16,7 +16,6 @@ thm:std-ao-existence	docket68/n1star/N1STAR-PROOF.md:1049-1055; paper/RESPONSE-H
 rem:std-iteration	docket68/n1star/N1STAR-PROOF.md:1079-1082; paper/RESPONSE-HL-5D.md:628	[AO14] s.4.1; [AG22] abstract p.1, (9.6)-(9.7) p.24	
 sec:std-gauge	docket68/n1star/N1STAR-PROOF.md:1056-1065; docket68/n1star/N1STAR-PROOF.md:1083-1093	NP s.7 [CBCL06], [CBCM10], [LR05], [CD03], [Rac16]	section heading
 thm:std-cbcm-reduced	docket68/n1star/N1STAR-PROOF.md:1060-1065; paper/RESPONSE-HL-5D.md:252-256	[CBCM10] (2.7)-(2.9) p. 8	page from P s.2.5; the P bibliography calls the source unpaginated HTML
-thm:std-hin26a-cform	paper/RESPONSE-HL-5D.md:2006-2010; docket68/n1star/N1STAR-PROOF.md:3577-3584	[Hin26a] Proposition 5.1 p. 38, READ 2026-10-21 (pp. 38-41); NP 10.14 setting	
 thm:std-sbierski	docket68/n1star/BEYOND5.md:158-160; docket68/n1star/BEYOND5.md:113; docket68/n1star/BEYOND5.md:138	[Sbi15] Definitions 2.1-2.4, Theorems 2.6-2.8 pp. 11-12, READ in BEYOND5	extended in fix F-62 (p. 10 assumptions, footnote 19, arXiv:1309.7591v3)
 sec:std-constraints	docket68/n1star/N1STAR-PROOF.md:1095-1097; docket68/n1star/proof5/PART-V-GLUING.md:470-474	NP s.7 [CD03] (2.1), [Rac16]; Part V's sources ([CD03] read at source)	section heading
 thm:std-cd-constraints	docket68/n1star/N1STAR-PROOF.md:1090-1092; paper/RESPONSE-HL-5D.md:614-615	[CD03] (2.1)-(2.2) p. 4	
@@ -47,7 +46,8 @@ thm:std-seeley	docket68/n1star/proof5/PART-IX-GAUGE.md:41-42; docket68/n1star/pr
 thm:std-ly-extension	docket68/n1star/N1STAR-PROOF.md:1076-1081	[LY22] Theorems 1, 26, Lemma 27	pages from the source (reader report)
 thm:std-sy-extension	docket68/n1star/N1STAR-PROOF.md:1081-1086	[SY21] s.1, s.2.1	pages from the source (reader report)
 sec:std-microlocal	docket68/n1star/proof5/PART-I-SPECTRAL.md:198; docket68/n1star/proof5/PART-II-F-IOTA.md:2724-2737	Part I.A READ [HJS]; II.F's literature ([0C], [MM87])	section heading
-thm:std-hjs-calculus	docket68/n1star/proof5/PART-I-SPECTRAL.md:196-206; docket68/n1star/proof5/PART-I-SPECTRAL.md:1932	[HJS] (2.1), Propositions 7.4-7.5 and the calculus, READ in Part I.A ((C1) onward)	
+thm:std-melrose-sc	[Mel94] author's corrected online edition (1997), https://math.mit.edu/~rbm/papers/sslaes/sslaes1.pdf, pp. 4, 12-23	[Mel94] (1.1), Definitions 1-2, (5.1), Propositions 3-5, Lemmas 5-6, (5.12)-(5.34), (7.1), (7.2), (7.6), read 2026-11-20	replaces thm:std-hjs-calculus ([HJS] lecture notes, unpublished) (G-SWEEP G5); quoted from the source
+thm:std-hin17-subprincipal	arXiv:1502.03183v2 pp. 16, 20, 26	[Hin17] Definition 3.8, Proposition 4.1, Theorem 4.8, read 2026-11-20	cited at 32 (prop:np-10-17-i), 34 and 38 (G-SWEEP minor item); quoted from the source
 thm:std-sbg-calculus	docket68/n1star/N1STAR-PROOF.md:8178-8193; paper/RESPONSE-HL-5D.md:2058-2060	[Hin26d] READ in NP 10.65 (the 3b-calculus in bounded geometry)	
 rem:std-sbg-sobolev	arXiv:2408.06651v1 pp. 29, 34-36	[Hin26d] (3.4), Definition 3.14, Remark 3.15 and p. 36 (uniform Sobolev spaces, norm equivalence)	not in the record; read from the source for the norm equivalence of chapter 30 (sec:iii-a-1-1, (E1)-(E3), (EE)), cited there with [Hin26d, Definition 3.14 and Remark 3.15]
 thm:std-zero-calculus	docket68/n1star/proof5/PART-II-F-IOTA.md:2724-2727; paper/RESPONSE-HL-5D.md:2000-2002	[0C] = [Hin23e] Definition 1.2, Proposition 2.7, Corollary 3.3, Theorem 3.4, Corollary 3.6, READ in II.F	
@@ -55,6 +55,7 @@ thm:std-mazzeo-melrose	docket68/n1star/proof5/PART-II-F-IOTA.md:1522-1524; docke
 cor:std-zero-sobolev	docket68/n1star/proof5/PART-II-F-IOTA.md:1522-1524	II.F: the parts of the 0-calculus map x^α H^(m−2)_0 to x^α H^m_0 for every integer m	all integer orders derived in the appendix from thm:std-mazzeo-melrose
 thm:std-relative-index	docket68/n1star/proof5/PART-IV7-TFACE.md:176-177; docket68/n1star/proof5/PART-IV7-TFACE.md:485	[Mel93] Theorem 6.5 (Melrose's relative index theorem), cited, not read, in IV(6) section 1	
 thm:std-analytic-fredholm	docket68/n1star/proof5/PART-I-C-LOWENERGY.md:122-125; docket68/n1star/proof5/PART-I-C-LOWENERGY.md:1508-1509	I.C (K5): [RS1] Theorem VI.14 (analytic Fredholm theorem)	
+thm:std-abk-holomorphy	arXiv:1904.03088v1 pp. 1-2	[ABK20] definitions p. 1-2 and Theorem 1.1 p. 2, read 2026-11-20	replaces [AN00, Theorem 3.1] at 35 (thm:iii-g1-3-1), whose text was not accessible (G-SWEEP minor item); quoted from the source; locally bounded implies locally L1-bounded drawn in the entry
 sec:std-special	docket68/n1star/proof5/PART-I-C-LOWENERGY.md:755; docket68/n1star/proof5/PART-II-F-IOTA.md:2739-2742	I.C 5.2 READ [DLMF]; II.F's literature ([DLMF], [Hö83])	section heading
 thm:std-dlmf-hankel	docket68/n1star/proof5/PART-I-C-LOWENERGY.md:755-763	I.C 5.2 Hankel functions, READ in [DLMF] release 1.2.8	
 thm:std-dlmf-modified	docket68/n1star/proof5/PART-II-F-IOTA.md:2739-2740	[DLMF] (10.25.1), (10.28.2), (10.30.1)-(10.30.2), (10.40.1)-(10.40.2), READ in II.F	

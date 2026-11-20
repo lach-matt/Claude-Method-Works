@@ -6,7 +6,7 @@ normally hyperbolic trapped set, their b-regular versions, invertibility of P̂(
 the inverse in σ. The main result, [[thm:i-b-1-3]], is [Hin26c, Theorem 9.16] in dimension 4 + 1, for operators on a
 trivial bundle of any rank, with constants uniform in the operator ([[sec:i-b-9]]). As in [[ch:s01]] the regularity
 order is constant ([[rem:i-a-1-1]]); the decay and semiclassical orders may vary. Every input is proved here or in
-[[ch:s01]], except the facts of Fourier analysis used in [[sec:i-b-2]] and the results of [HJS] used in [[ch:s01]]. In
+[[ch:s01]], except the facts of Fourier analysis used in [[sec:i-b-2]] and the results of [Mel94] used in [[ch:s01]]. In
 particular the semiclassical scattering calculus with matrix-valued symbols and variable orders is proved in
 [[sec:i-b-2]].
 
@@ -240,7 +240,7 @@ which is part of (H7) here.
 ### The semiclassical scattering calculus {#sec:i-b-2}
 
 The high-frequency estimates need the semiclassical scattering calculus of Vasy and Zworski. [Hin26c, (3.33)–(3.36)]
-defines it and refers to [VZ00] and [Hin25a, Section 6.6]; [HJS] treats only the non-semiclassical calculus. We prove
+defines it and refers to [VZ00] and [Hin25a, Section 6.6]; [Mel94] treats only the non-semiclassical calculus. We prove
 what we use in this section, on ℝ^n for every n ≥ 1, with matrix-valued symbols and variable orders, from Fourier
 analysis, integration by parts and Schur's test. The proofs are the standard ones.
 

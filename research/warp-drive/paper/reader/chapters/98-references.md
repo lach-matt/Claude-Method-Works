@@ -2,12 +2,12 @@
 
 - [AB26] L. Alpöge, T. Buckmaster, *Blowup for the Boussinesq equations with smooth forcing*, preprint (2026),
   https://cims.nyu.edu/~tristanb/boussinesq.pdf.
+- [ABK20] W. Arendt, M. Bernhard, M. Kreuter, *Elliptic problems and holomorphic functions in Banach spaces*,
+  Illinois J. Math. 64 (2020), 331–347. doi:10.1215/00192082-8591584 arXiv:1904.03088v1
 - [AG22] F. Angeles, *The Cauchy problem for a quasilinear system of equations with coupling in the linearization*,
   Commun. Pure Appl. Anal. 22 (2023), 2960–2999. doi:10.3934/cpaa.2023095 arXiv:2204.01179v3
 - [AHW24] L. Andersson, D. Häfner, B. F. Whiting, *Mode analysis for the linearized Einstein equations on the Kerr
   metric: the large 𝔞 case*, J. Eur. Math. Soc. 28 (2026), 3919–3981. doi:10.4171/jems/1544 arXiv:2207.12952v1
-- [AN00] W. Arendt, N. Nikolski, *Vector-valued holomorphic functions revisited*, Math. Z. 234 (2000), 777–805.
-  doi:10.1007/s002090050008
 - [AO14] L. Andersson, T. A. Oliynyk, *A transmission problem for quasi-linear wave equations*, J. Differential
   Equations 256 (2014), 2023–2078. doi:10.1016/j.jde.2013.12.014 arXiv:1401.0277v1
 - [BGP] C. Bär, N. Ginoux, F. Pfäffle, *Wave equations on Lorentzian manifolds and quantization*, ESI Lect. Math. Phys.,
@@ -65,7 +65,7 @@
 - [Hig87] A. Higuchi, *Symmetric tensor spherical harmonics on the N-sphere and their application to the de Sitter group
   SO(N,1)*, J. Math. Phys. 28 (1987), 1553–1566. doi:10.1063/1.527513
 - [Hin17] P. Hintz, *Resonance expansions for tensor-valued waves on asymptotically Kerr–de Sitter spaces*, J. Spectr.
-  Theory 7 (2017), 519–557. doi:10.4171/JST/171
+  Theory 7 (2017), 519–557. doi:10.4171/JST/171 arXiv:1502.03183v2
 - [Hin21] P. Hintz, *Normally hyperbolic trapping on asymptotically stationary spacetimes*, Probab. Math. Phys. 2
   (2021), 71–126. doi:10.2140/pmp.2021.2.71 arXiv:1811.07843
 - [Hin23a] P. Hintz, *Exterior stability of Minkowski space in generalized harmonic gauge*, Arch. Ration. Mech. Anal.
@@ -89,8 +89,6 @@
   applications*, preprint (2026). arXiv:2606.28008v1
 - [Hin26d] P. Hintz, *Pseudodifferential operators on manifolds with scaled bounded geometry*, Commun. Amer. Math. Soc.
   6 (2026), 153–243. doi:10.1090/cams/58 arXiv:2408.06651v1
-- [HJS] A. Hassell, Q. Jia, E. Sussman, *Lecture notes on non-elliptic Fredholm theory*, lecture notes (2026).
-  arXiv:2604.18956v1
 - [HKW18] P.-K. Hung, J. Keller, M.-T. Wang, *Linear stability of higher dimensional Schwarzschild spacetimes: decay of
   master quantities*, Ann. PDE 6 (2020), 7. doi:10.1007/s40818-020-00083-x arXiv:1809.05144v1
 - [HL18] C. Huneau, J. Luk, *High-frequency backreaction for the Einstein equations under polarized U(1)-symmetry*, Duke
@@ -146,6 +144,10 @@
   (1991), 1615–1664. doi:10.1080/03605309108820815
 - [Mel93] R. B. Melrose, *The Atiyah–Patodi–Singer index theorem*, Res. Notes Math. 4, A K Peters, Wellesley, MA (1993).
   doi:10.1201/9781439864609
+- [Mel94] R. B. Melrose, *Spectral and scattering theory for the Laplacian on asymptotically Euclidian spaces*, in:
+  Spectral and Scattering Theory (Sanda, 1992), Lecture Notes in Pure and Appl. Math. 161, Dekker, New York (1994),
+  85–130. doi:10.1201/9781003072096-5; author's corrected online edition (1997),
+  https://math.mit.edu/~rbm/papers/sslaes/sslaes1.pdf.
 - [Mel96] R. B. Melrose, *Differential analysis on manifolds with corners*, book in preparation (1996),
   https://math.mit.edu/~rbm/daomwcf.ps.
 - [MM87] R. R. Mazzeo, R. B. Melrose, *Meromorphic extension of the resolvent on complete spaces with asymptotically

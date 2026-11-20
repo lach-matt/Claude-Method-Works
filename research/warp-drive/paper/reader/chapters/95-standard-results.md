@@ -6,10 +6,10 @@ results and are proved here: [[thm:std-hormander-cauchy]], [[cor:std-moser-produ
 other items draw short consequences of the quoted statements, each with its reason. Each published result is cited by
 its source, with its number and its page where given. Pages are those of the arXiv versions listed in the references;
 the arXiv text of [BGP] carries the book's page numbers, [See64], [MM87] and [DS41] are cited by their journal pages,
-[Mel93] by the page of the author's online edition (version 5.0E, 1993), [Hö90], [RS1] and [Tre19] by the pages of
-the printed books, and [DLMF] by equation number. Quotation marks enclose the source's own wording, transcribed into
-this edition's typography; an ellipsis marks words of the statement left out because no proof here depends on them.
-Inside each item the letters are the source's.
+[Mel93] and [Mel94] by the pages of the author's online editions (for [Mel93] version 5.0E, 1993, for [Mel94] the
+corrected edition of 1997), [Hö90], [RS1] and [Tre19] by the pages of the printed books, and [DLMF] by equation number.
+Quotation marks enclose the source's own wording, transcribed into this edition's typography; an ellipsis marks words of
+the statement left out because no proof here depends on them. Inside each item the letters are the source's.
 
 ### Linear wave equations on Lorentzian manifolds {#sec:std-linear-wave}
 
@@ -282,27 +282,6 @@ with connection D̂ and Christoffel symbols Γ̂, and for a metric g put W^λ :=
     "R^(H)_(αβ) = −1/2 g^(λμ) D̂_λ D̂_μ g_(αβ) + f̂[g, D̂g]_(αβ)"       (2.9),
 
 with f̂ "independent of the second derivatives of g".
-
-**Theorem {#thm:std-hin26a-cform}** ([Hin26a, Proposition 5.1, p. 38].) "Fix any v ∈ (0, 1) and C0 > 0. Fix moreover
-α_sf, α_K ∈ ℝ subject to the conditions α_sf < −1/2 and α_K > α_sf + 1/2. Set ρ_sf = r⁻¹ and ρ_K = r/t; put
-w := ρ_sf^(α_sf+1) ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1). Then for all sufficiently small e > 0, there exists a 1-form
-c ∈ ρ_sf C^∞(M; T*) satisfying the following properties for some r0 > 100m, 0 < δ_r < (4r0)⁻¹, and δ_sf > 0:
-- (1) (Basic properties.) c is stationary, i.e., ℒ_(∂_t) c = 0 … Moreover, rc ∈ C^∞(M; T*) is past timelike and
-  nowhere vanishing.
-- (2) (Explicit regions.) We have c = (1/2) r0^(−2) (r0 dt − v(r − r0) dr) for r0/2 ≤ r ≤ 2r0 (5.1), and
-  c = r⁻¹ (dt − v dr) for r ≥ 3r0 (5.2).
-- (3) (Interior saddle point …) The endomorphism S_(g,c,e) from Lemma 3.9 is positive definite (with respect to the
-  inner product B_(g,c,e) on T* from Lemma 3.3) at all points with |r − r0| ≤ (5/6) r0 √(e/v).
-- (4) (Saddle point at ∂𝒦⁺ …) For ρ_sf ≤ 2δ_r and ρ_K ≤ 2δ_r, the endomorphism r²(−ℓ_(g,c,e)(dw/w) + S_(g,c,e)) is
-  positive definite.
-- (5) (Sink in sf° …) At points where r/t/v ∈ [1 − 2δ_sf, 1 + 2δ_sf] and r⁻¹ ≤ 2δ_r, the endomorphism
-  r²(−ℓ_(g,c,e)(dw′/w′) + S_(g,c,e)) is positive definite.
-- (6) (Positivity along escape functions …) For m ≤ r ≤ r0 − r0√(e/v), −ℓ_(g,c,e)(−dr) is positive definite. For
-  r0 + r0√(e/v) ≤ r < ∞, −ℓ_(g,c,e)(dr) is positive definite. On sf ∩ {r/t ∈ [δ_r, v(1 − δ_sf)]},
-  −r² ℓ_(g,c,e)(d(r/t)) is positive definite, and on sf ∩ {r/t ∈ [v(1 + δ_sf), 10]}, −r² ℓ_(g,c,e)(−d(r/t)) is
-  positive definite."
-
-The objects S_(g,c,e), B_(g,c,e) and ℓ_(g,c,e) are those of [Hin26a, Lemmas 3.3 and 3.9], and r/t/v in (5) is (r/t)/v.
 
 **Theorem {#thm:std-sbierski}** (Globally hyperbolic developments; [Sbi15, Definitions 2.1, 2.2 and 2.4, p. 11;
 Theorems 2.6, 2.7 and 2.8, p. 12; Theorem 3.4, p. 14; Definition 3.5, p. 15; Theorem 3.13, p. 20; proof of
@@ -786,58 +765,85 @@ E^S : W^(k,p)(Ω) → W^(k,p)(ℝⁿ) is bounded for all k ∈ ℕ and 1 ≤ p �
 
 ### Microlocal analysis and Fredholm theory {#sec:std-microlocal}
 
-**Theorem {#thm:std-hjs-calculus}** ([HJS, (2.1), Propositions 2.3, 3.7, 3.11, 3.13, 4.9, 4.10, 7.4, 7.5 and 10.1,
-Definitions 7.2 and 10.2, Sections 7.5 and 10.1–10.3, Lemma 12.5, pp. 9–95].) The scattering calculus Ψ^(m,l)_sc on
-ℝⁿ, n arbitrary, and on scattering manifolds M has the following properties.
+**Theorem {#thm:std-melrose-sc}** ([Mel94, (1.1), p. 4; (4.1)–(4.3) and Definition 1, pp. 12–13; Definition 2, p. 14;
+(5.1), p. 15; Proposition 3, (5.12)–(5.14), p. 17; Proposition 4, Lemma 5, (5.19)–(5.20), p. 18; (5.22) and (5.27), p.
+19; Proposition 5 and Lemma 6, p. 20; (5.34), p. 21; (7.1), (7.2) and (7.6), p. 23].) Let X be a compact manifold with
+boundary and x a boundary defining function.
 
-(1) Composition [HJS, (2.1), p. 9]: Ψ^(m,l)_sc ∘ Ψ^(m′,l′)_sc ⊂ Ψ^(m+m′,l+l′)_sc.
+(1) (1.1), p. 4: SP : ℝⁿ ∋ z ↦ ((1 + |z|²)^(−1/2), z(1 + |z|²)^(−1/2)) ∈ S^n_+, the closed upper half of the unit sphere
+of ℝ^(n+1). "This is clearly an isomorphism onto the interior of S^n_+, so it compactifies ℝⁿ. We call this the radial
+compactification. Indeed the function t_0 = (1 + |z|²)^(−1/2) is a defining function for the boundary of S^n_+, hence so
+is x = 1/|z|, which is defined in t_0 < 1."
 
-(2) Ellipticity [HJS, Proposition 2.3, p. 12]: "Every elliptic element of the scattering calculus has a parametrix",
-that is, a B ∈ Ψ^(−m,−l)_sc with AB − Id ∈ Ψ^(−∞,−∞)_sc ∋ BA − Id ((2.9)).
+(2) Definition 1, p. 13: "The space Ψ^(m,l)_scc(S^n_+) consists of those operators A : Ċ^∞(S^n_+) → Ċ^∞(S^n_+) such that
+if A′ is defined by SP^∗(Aϕ) = A′(SP^∗ϕ) ∀ ϕ ∈ Ċ^∞(S^n_+) (4.4) then A′ is of the form (4.1), (4.2)". These are the
+kernels A′(z, z′) = (2π)^(−n) ∫ e^(i(z−z′)·ζ) a_L(z, ζ) dζ (4.1), "where the amplitude satisfies the estimates |D_z^α
+D_ζ^β a_L(z, ζ)| ≤ C_αβ (1 + |z|)^(−l−|α|) (1 + |ζ|)^(m−|β|)" (4.2); SP^∗ : Ċ^∞(S^n_+) → 𝒮(ℝⁿ) "is a isomorphism, with
+Ċ^∞(X) = ⋂_k x^k C^∞(X)" (4.3). By Definition 2 (p. 14) the classical subspace Ψ^(m,l)_sc(S^n_+) consists of the
+operators with a_L ∈ SP^∗(ρ_N^l ρ_σ^(−m) C^∞(S^n_+ × S^n_+)), where "SP^∗ρ_N = (1 + |z|²)^(−1/2) and SP^∗ρ_σ =
+(1 + |ζ|²)^(−1/2)" (p. 13); and "we shall let 'sk' stand for either 'sc' or 'scc' but fixed throughout a particular
+discussion" (p. 14).
 
-(3) Duality [HJS, Proposition 3.7, p. 19]: the L² pairing "extends boundedly to a (conjugate linear) isomorphism
-H^(−s,−r)_sc ≅ (H^(s,r)_sc)*".
+(3) (5.1), p. 15: "Ψ^(m1,l1)_sk(X) ∘ Ψ^(m2,l2)_sk(X) ⊂ Ψ^(m1+m2,l1+l2)_sk(X)."
 
-(4) Boundedness [HJS, Proposition 3.11 and Remark 3.12, p. 20]: "If A ∈ Ψ^(m,l)_sc, then, for all s, r ∈ ℝ, A maps
-A : H^(s,r)_sc → H^(s−m,r−l)_sc, and does so boundedly". Moreover "Op(a), viewed as an element of
-L(H^(s,r)_sc, H^(s−m,r−l)_sc), depends continuously on a in the sense that if a_1, a_2, ⋯ ∈ S^(m,l)_sc is some
-sequence such that a_n → a in S^(m,l)_sc, then Op(a_n) → Op(a) in L(H^(s,r)_sc, H^(s−m,r−l)_sc)".
+(4) p. 17: with A^({m,l})(C_scX) = A^(m,l)(^(sc)T̄^∗X)/A^(m−1,l+1)(^(sc)T̄^∗X) (5.12), "Proposition 3 is replaced for
+the scattering-conormal calculus by a short exact sequence 0 → Ψ^(m−1,l+1)_scc(X) → Ψ^(m,l)_scc(X) → A^({m,l})(C_scX) →
+0 (5.13)", the third map being the symbol map j_(sc,m,l), "and similarly for operators on sections of vector bundles. In
+both cases the symbol maps are multiplicative: j_(sc,m1+m2,l1+l2)(A · B) = j_(sc,m1,l1)(A) · j_(sc,m2,l2)(B) A ∈
+Ψ^(m1,l1)_sk(X), B ∈ Ψ^(m2,l2)_sk(X), with values in commutative algebras" (5.14). Proposition 3 states the sequence for
+the classical calculus "for any compact manifold with boundary, X, and any vector bundles E and F over X", with kernel
+Ψ^(m−1,l+1)_sc(X; E, F) (5.10).
 
-(5) Compactness [HJS, Proposition 3.13, p. 20]: "For any s, s′, r, r′, with s < s′ and r < r′, the embedding
-H^(s′,r′)_sc ↪ H^(s,r)_sc is compact."
+(5) Proposition 4, p. 18: "The Poisson bracket on T^∗X extends by continuity from the interior of ^(sc)T̄^∗X to define …
+and for any m1, m2, l1, l2 ∈ ℝ j_(sc,m1+m2,l1+l2)([A, B]) = (1/i){j_(sc,m1,l1)(A), j_(sc,m2,l2)(B)} ∀ A ∈
+Ψ^(m1,l1)_sk(X), B ∈ Ψ^(m2,l2)_sk(X)" (5.16). Lemma 5, p. 18: "If a ∈ C^∞(^(sc)T̄^∗X; S^(m,l)) the Hamilton vector field
+extends from the interior to be of the form H_a = ρ_σ^(−m+1) ρ_N^(l+1) ^(sc)H^(m,l)_a, ^(sc)H^(m,l)_a ∈ 𝒱_b(^(sc)T̄^∗X)
+(5.17) and for any b ∈ A^({m′,l′})(^(sc)T̄^∗X) {a, b} = ρ_σ^(−m+1) ρ_N^(l+1) ^(sc)H^(m,l)_a b ∈
+A^({m+m′−1,l+l′+1})(^(sc)T̄^∗X) (5.18) …", with ρ_σ = (1 + |ζ|²)^(−1/2) and ρ_N = x (5.19). In coordinates (x, y) with
+dual coordinates (ξ, η), "τ = x²ξ, μ = xη" (5.20), and the bracket is {a, b} = ∂_ξa ∂_xb − ∂_xa ∂_ξb + Σ_j (∂_(η_j)a
+∂_(y_j)b − ∂_(y_j)a ∂_(η_j)b) (5.22), p. 19.
 
-(6) Microlocality [HJS, Proposition 4.9, p. 27]: "If A ∈ Ψ^(m,l)_sc and u ∈ 𝒮′, then
-WF^(s,r)_sc(Au) ⊆ WF^(s+m,r+l)_sc(u) ∩ WF′_sc(A)."
+(6) (5.27), p. 19: "H^(m,l)_sc(X) = {u ∈ C^(−∞)(X); Ψ^(m,−l)_sc(X)u ⊂ L²_sc(X)}"; "For the case of S^n_+,
+H^(m,0)_sc(S^n_+) is the image under SP^∗ of the standard Sobolev space H^m(ℝⁿ)."
 
-(7) Microlocal parametrix [HJS, Proposition 4.10, p. 29]: "Suppose that A ∈ Ψ^(m,l)_sc is elliptic at
-p ∈ ∂(ℝⁿ × ℝⁿ). Then, there exists a B ∈ Ψ^(−m,−l)_sc such that AB − 1, BA − 1 have WF′_sc disjoint from p. This also
-applies with p replaced by any closed subset."
+(7) Proposition 5, p. 20: "For any m, l, M, L ∈ ℝ each A ∈ Ψ^(m,l)_scc(X) defines a continuous linear operator A :
+H^(M,L)_sc(X) → H^(M−m,L+l)_sc(X); (5.28) if A ∈ Ψ^(m,l)_sc(X) this map is compact if and only if j_(sc,m,l)(A) ≡ 0."
 
-(8) Adjoints and principal symbols [HJS, Definition 7.2, p. 48; Proposition 7.4, pp. 49–50]. The principal symbol of
-A ∈ Ψ^(m,l)_sc(M) is a class σ_(m,l)(A) ∈ S^(m,l)_sc(M)/S^(m−1,l−1)_sc(M). Further,
-"A ∈ Ψ^(m,l)_sc(M) ⇒ A* ∈ Ψ^(m,l)_sc(M)", and "σ_(m1+m2,l1+l2)(AB) = σ_(m1,l1)(A) σ_(m2,l2)(B)" (7.29).
+(8) Lemma 6, p. 20: "If A_j ∈ Ψ^(m−j,l)_sk(X), B_j ∈ Ψ^(m,l+j)_sk(X), and C_j ∈ Ψ^(m−j,l+j)_sk(X), for j ∈ ℕ₀, there
+exist asymptotic sums A, B, C ∈ Ψ^(m,l)_sk(X) in the sense that A − Σ_(j=0)^(N−1) A_j ∈ Ψ^(m−N,l)_sk(X), B −
+Σ_(j=0)^(N−1) B_j ∈ Ψ^(m,l+N)_sk(X), C − Σ_(j=0)^(N−1) C_j ∈ Ψ^(m−N,l+N)_sk(X) (5.29) and the sums are determined
+uniquely modulo Ψ^(−∞,l)_sk(X), Ψ^(m,∞)_sk(X) and Ψ^(−∞,∞)_sc(X) respectively."
 
-(9) Commutators [HJS, Proposition 7.5, p. 50]: for A ∈ Ψ^(m1,l1)_sc(M) and B ∈ Ψ^(m2,l2)_sc(M),
-"[A, B] ∈ Ψ^(m1+m2−1,l1+l2−1)_sc(M) and σ_(m1+m2−1,l1+l2−1)(i[A, B]) = {σ_(m1,l1)(A), σ_(m2,l2)(B)}" (7.30). Here
-{p, a} = H_p a (7.31), with the scattering Hamilton vector field H_p of (7.34).
+(9) (5.34), p. 21: "Ψ^(−∞,∞)_sc(X) ∋ A : C^(−∞)(X) → Ċ^∞(X)".
 
-(10) Bundles [HJS, Section 7.5, pp. 52–53]: "Ψ^(m,l)_sc(M; E, F) := C^∞(X; Hom(E, F)) ⊗ Ψ^(m,l)_sc(M)" (7.43), the
-tensor product being over C^∞(M).
+(10) p. 23: "WF′_sc(A) ⊂ C_scX ∀ A ∈ Ψ^(m,l)_sk(X)" (7.1), C_scX = ∂(^(sc)T̄^∗X) being the boundary of the
+fibre-compactified scattering cotangent bundle ((5.4), p. 16); "The scattering pseudodifferential operators are
+microlocal in the sense that WF′_sc(A ∘ B) ⊂ WF′_sc(A) ∩ WF′_sc(B)" (7.2); and "WF′_sc(A) = ∅ ⟺ A ∈ Ψ^(−∞,∞)_sc(X)"
+(7.6).
 
-(11) Variable spatial orders [HJS, Sections 10.1–10.3, pp. 77–80]. "We will take the differential order to be
-constant, and the spatial order to be variable" (p. 77). A variable order is a classical symbol of order (0, 0).
-Proposition 10.1 (p. 79): "Let A ∈ Ψ^(m,l)_sc be elliptic. Then there exists a parametrix B ∈ Ψ^(−m,−l)_sc such that
-AB − Id ∈ Ψ^(−∞,−∞)_sc ∋ BA − Id." Definition 10.2 (p. 80): for s ∈ ℝ and a variable spatial order r, a constant
-order L ≤ r, an elliptic A ∈ Ψ^(s,r)_sc and Λ = ⟨ξ⟩^s ⟨x⟩^L, "the Sobolev space H^(s,r) is defined to be the set of
-u ∈ 𝒮′(ℝⁿ) such that Au ∈ L² and Λu ∈ L²", with ‖u‖²_(H^(s,r)) = ‖Au‖²_(L²) + ‖Λu‖²_(L²) (10.8). By the text that
-follows, this space is independent of the choices and is a Hilbert space, and B ∈ Ψ^(m,l)_sc maps H^(s,r) to
-H^(s−m,r−l) boundedly.
+By (5.18) the bracket in (5.16) has the orders (m1 + m2 − 1, l1 + l2 + 1), and by (5.13)–(5.14), the symbols commuting,
+[A, B] ∈ Ψ^(m1+m2−1,l1+l2+1)_sk(X). The decay order l of [Mel94] has the sign opposite to that of [[sec:i-a-2-1]], where
+Ψ^(m,ℓ)_sc is Ψ^(m,−ℓ)_scc(S^n_+) and H^(s,r)_sc is the space of (6).
 
-(12) A regularising family [HJS, Lemma 12.5, p. 95]: "There exists a family of T_r ∈ Ψ^(−∞,−∞)_sc for r ∈ (0, r0]
-with some r0 > 0 such that T_r → Id (12.7) as r → 0 with respect to the strong operator topology". The family is
-T_r = χ(r⟨z⟩) Op(χ(⟨rζ⟩)), with χ ∈ C_c^∞(ℝⁿ) even, equal to 1 near the origin and decreasing on [0, ∞). Its proof
-records that one "can require T_r being uniformly bounded in Ψ^(0,0)_sc and T_r → Id in the operator topology of
-Ψ^(δ,δ)_sc".
+**Theorem {#thm:std-hin17-subprincipal}** ([Hin17, Definition 3.8, p. 16; Proposition 4.1, p. 20; Theorem 4.8, p. 26].)
+Definition 3.8: "For P ∈ Ψ^m(X, E ⊗ Ω^(1/2)) with scalar principal symbol p, there is a well-defined subprincipal
+operator S_sub(P) ∈ Diff¹(T^∗X ∖ 0, π^∗E), homogeneous of degree m − 1 with respect to dilations in the fibers of T^∗X ∖
+0, defined as follows: If {e_1(x), …, e_N(x)} is a local frame of E, define the operators P_jk ∈ Ψ^m(X, Ω^(1/2)) by
+P(Σ_k u_k(x)e_k(x)) = Σ_jk P_jk(u_k)e_j(x), u_k ∈ C^∞(X, Ω^(1/2)). Then S_sub(P)(Σ_k q_k(x, ξ)e_k(x)) := Σ_jk
+(σ_sub(P_jk)q_k)e_j − i Σ_k (H_p q_k)e_k. In shorthand notation, S_sub(P) = σ_sub(P) − iH_p, understood in a local frame
+as a matrix of first order differential operators." Here σ_sub is the subprincipal symbol of a scalar operator, [Hin17,
+(3.3)].
+
+Proposition 4.1, in the setting of [Hin17, Section 4, p. 20]: "Let (M, g) be a smooth manifold equipped with a metric
+tensor g of arbitrary signature. Denote by T^kM = ⊗^k T^∗M, k ≥ 1, the bundle of (covariant) tensors of rank k on M. The
+metric g induces a metric (which we also call g) on T^kM. We study the symbolic properties of Δ_k = − tr ∇² ∈ Diff²(M,
+T^kM), the Laplace-Beltrami operator on M acting on the bundle T^kM. Denote by G ∈ C^∞(T^∗M) the metric function, i.e.
+G(x, ξ) = |ξ|²_(G(x)), where G is the dual metric of g." Then: "The subprincipal operator of Δ_k is S_sub(Δ_k)(x, ξ) =
+−i∇^(π^∗T^kM)_(H_G) ∈ Diff¹(T^∗M ∖ 0, π^∗T^kM), (4.1) where ∇^(π^∗T^kM) is the pullback connection, with π : T^∗M ∖ 0 →
+M being the projection."
+
+After Theorem 4.8 (p. 26): "By restriction, the analogous statements are true for □ acting on subbundles of the tensor
+bundle on M, for instance differential forms of all degrees and symmetric 2-tensors."
 
 **Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemmas 3.24 and 3.42, Propositions 2.3–4.22,
 Remarks 3.13–3.48, Theorems 3.21–3.52, (1.6), (2.3), (2.5), (3.2), (3.26), (3.28), (4.24a–b), (4.27), (4.28),
@@ -1171,6 +1177,17 @@ equation f(z)ψ = ψ has a nonzero solution in ℋ.
 
 Applied to f = −F: if F : D → 𝓛(ℋ) is analytic with compact values and Id + F(z0) is invertible for one z0 ∈ D, then
 (Id + F(z))⁻¹ exists for z off a discrete set S ⊂ D, and it is meromorphic on D with finite-rank residues.
+
+**Theorem {#thm:std-abk-holomorphy}** ([ABK20, pp. 1–2; Theorem 1.1, p. 2].) Let Ω ⊂ ℂ be open and X a complex Banach
+space. "We say that f is very weakly holomorphic … if there exists a separating subset W ⊂ X′ such that x′ ∘ f is
+holomorphic … for all x′ ∈ W." "We say that a set F of functions from Ω to X is locally L¹-bounded if there exists a
+function g ∈ L¹_loc(Ω, ℝ) such that ‖f(ξ)‖_X ≤ g(ξ) holds for almost all ξ ∈ Ω and for all f ∈ F. A single function f :
+Ω → X is called locally L¹-bounded if {f} is locally L¹-bounded." Theorem 1.1: "Let X be a Banach space and Ω ⊂ ℂ (Ω ⊂
+ℝ^d) be open. A function f : Ω → X is holomorphic (harmonic) if and only if it is locally L¹-bounded and very weakly
+holomorphic (very weakly harmonic)."
+
+A locally bounded f is locally L¹-bounded: if K_1 ⊂ K_2 ⊂ … are compact sets whose interiors exhaust Ω and K_0 := ∅,
+then g := Σ_j (sup_(K_j) ‖f‖) 1_(K_j ∖ K_(j−1)) is measurable and bounded on compact sets, so g ∈ L¹_loc(Ω, ℝ).
 
 ### Special functions and the Fourier–Laplace transform {#sec:std-special}
 

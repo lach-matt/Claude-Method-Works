@@ -2173,7 +2173,7 @@ The two estimates without b-regularity are [Hin26c, Propositions 3.23 and 3.24] 
 commutator arguments. For variable orders it cites [Vas18, Theorem 5.3], with the sharp Gårding inequality on each unit
 cell and a commutant as in [dHUV15], and it takes the coefficient regularity d_0 finite because the arguments use the
 boundedness of finitely many operators on a fixed range of spaces. [Hin26d] does not treat propagation (its Section 3.6
-says so), and [HJS] has constant differential orders. In this edition the two estimates are [[thm:ii-a1-3-1]] and
+says so), and [Mel94] has constant orders. In this edition the two estimates are [[thm:ii-a1-3-1]] and
 [[thm:ii-a1-5-4]], proved in [[sec:ii-a1-1]] to [[sec:ii-a1-5]] without the sharp Gårding inequality. We refer to them
 as (L3) and (L4) and recall their content.
 
