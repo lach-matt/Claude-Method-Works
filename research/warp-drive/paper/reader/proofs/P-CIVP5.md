@@ -190,11 +190,13 @@ bounds and (L), gives [[eq:class-leaf-tame]]. ∎
 
 ### Block A2. Additions to the section on Kato's iteration (chapter 81)
 
-The text of this block goes into [[sec:class-kato]] after [[rem:class-kato-model]]. It solves [[eq:class-kato-system]]
-when the forcing term at a time depends on the solution over an interval of earlier times and is controlled only in
-space-time norms. Such forcing terms arise when a non-local term is computed on the leaves of hypersurfaces that are not
-the slices of the time: the fixed-time hypotheses (F1)–(F2) then fail, while their integrated forms hold
-([[rem:class-kato-memory]]).
+The text of this block goes into [[sec:class-kato]] after [[rem:class-kato-model]]; the Placement section gives the
+position.
+
+Kato's iteration also solves [[eq:class-kato-system]] when the forcing term at a time depends on the solution over an
+interval of earlier times and is controlled only in space-time norms. Such forcing terms arise when a non-local term is
+computed on the leaves of hypersurfaces that are not the slices of the time: the fixed-time hypotheses (F1)–(F2) then
+fail, while their integrated forms hold ([[rem:class-kato-memory]]).
 
 *Space-time norms.* Keep the setting of this section, and let J = [a, b] be an interval. H^σ(J) is the space of
 functions on J × R^d with all derivatives ∂_t^j ∂_x^β, j + |β| ≤ σ, in L²(J × R^d), with the norm of the sum of their
@@ -529,7 +531,8 @@ near its tangency sets, where the edge is characteristic for it and the jets of 
 **Lemma {#lem:loc-t5-jets}** (Cone data and jets with further families.) (a) [[lem:loc-axis-constraints]] holds with E
 := Ric(g) − q_in dv ⊗ dv − q_out du ⊗ du − Σ_A q_A du_A ⊗ du_A, u_A = U_A on the edges, and with q_in + Σ_A q_A
 (∂_vU_A)² in place of q_in in the equation for Y on N_o, q_out + Σ_A q_A (∂_uU_A)² in place of q_out on N_i, and the
-inhomogeneous term −4Ω² γ⁻¹(Σ_A q_A ∂_vU_A dU_A|_(S³)) added in the equation for W, the sums over the further families.
+term 4Ω² γ⁻¹(Σ_A q_A ∂_vU_A dU_A|_(S³)) added to the right side of the equation for ∂_vW in its proof, 𝔯 being that of
+its part (a), the sums over the further families.
 The extension of its part (c) applies to U_A − ů_A and to q_A, the Borel sums of q_A beyond v_1 and u_1 being multiplied
 by β_A(v − v_1), respectively β_A(u − u_1), with β_A smooth, equal to 1 near 0 and to 0 beyond a length ℓ_A ≤ δ_1 so
 small that (F-a) and (F-b) hold for the extended data with the extended supports; their sizes are then at most Cε in
@@ -1102,12 +1105,12 @@ stability with the dusts at the axes {#sec:class-axes-stability}" (line 1369), w
 defines lem:class-leaf-arc, eq:class-leaf-arc, lem:class-leaf-tame and eq:class-leaf-tame. The proof of
 [[lem:class-leaf-tame]] is complete in itself and does not use the proof of [[lem:class-leaf-differences]].
 
-*2. Block A2, [[ch:class-system]].* The text of Block A2 from its paragraph beginning "It solves
-[[eq:class-kato-system]] when the forcing term" (without the sentence before those words and without the heading "Block
-A2") through the end of [[rem:class-kato-memory]] is inserted in [[sec:class-kato]] after [[rem:class-kato-model]],
-whose last line is "proof uses these observations." (line 875), and before the heading "### Cauchy stability off the
-axes {#sec:class-off-axes}" (line 877), with one blank line before and after. It defines eq:class-trace,
-lem:class-mixed-product, lem:class-kato-history, thm:class-kato-memory and rem:class-kato-memory.
+*2. Block A2, [[ch:class-system]].* The text of Block A2 from its paragraph beginning "Kato's iteration also solves"
+(without the heading "Block A2" and its first paragraph) through the end of [[rem:class-kato-memory]] is inserted in
+[[sec:class-kato]] after [[rem:class-kato-model]], whose last line is "proof uses these observations." (line 875), and
+before the heading "### Cauchy stability off the axes {#sec:class-off-axes}" (line 877), with one blank line before and
+after. It defines eq:class-trace, lem:class-mixed-product, lem:class-kato-history, thm:class-kato-memory and
+rem:class-kato-memory.
 
 *3. Block B, [[ch:localised-data]].* The section of Block B, from its heading "### Further dust families at the axes
 {#sec:loc-t5}" through the end of [[rem:loc-t5-scope]] (without the line "### Block B. …" and its paragraph), is
@@ -1183,11 +1186,11 @@ source_name, note).
 
 For crosswalk/81-class-system.tsv, after the row of rem:class-kato-model:
 
-eq:class-trace	paper/reader/proofs/P-CIVP5.md:208	proof P-CIVP5, display	trace of a space-time Sobolev function on the slices; the extension E_b beyond b
-lem:class-mixed-product	paper/reader/proofs/P-CIVP5.md:220	proof P-CIVP5, Lemma (Products at one time)	products at one time; time derivatives of compositions
-lem:class-kato-history	paper/reader/proofs/P-CIVP5.md:244	proof P-CIVP5, Lemma (The linear problem with forcing in a space-time space and a history)	linear step with forcing in a space-time space and a history matched at t1
-thm:class-kato-memory	paper/reader/proofs/P-CIVP5.md:294	proof P-CIVP5, Theorem (Kato's iteration with memory)	Kato iteration with memory: integrated hypotheses (M0)-(M2), stability with (M1′), regularity (c) with the tame hypotheses (M1_σ) by a global iteration
-rem:class-kato-memory	paper/reader/proofs/P-CIVP5.md:404	proof P-CIVP5, Remark (Why the hypotheses are integrated)	why the hypotheses are integrated; no proof uses it
+eq:class-trace	paper/reader/proofs/P-CIVP5.md:210	proof P-CIVP5, display	trace of a space-time Sobolev function on the slices; the extension E_b beyond b
+lem:class-mixed-product	paper/reader/proofs/P-CIVP5.md:222	proof P-CIVP5, Lemma (Products at one time)	products at one time; time derivatives of compositions
+lem:class-kato-history	paper/reader/proofs/P-CIVP5.md:246	proof P-CIVP5, Lemma (The linear problem with forcing in a space-time space and a history)	linear step with forcing in a space-time space and a history matched at t1
+thm:class-kato-memory	paper/reader/proofs/P-CIVP5.md:296	proof P-CIVP5, Theorem (Kato's iteration with memory)	Kato iteration with memory: integrated hypotheses (M0)-(M2), stability with (M1′), regularity (c) with the tame hypotheses (M1_σ) by a global iteration
+rem:class-kato-memory	paper/reader/proofs/P-CIVP5.md:406	proof P-CIVP5, Remark (Why the hypotheses are integrated)	why the hypotheses are integrated; no proof uses it
 
 For crosswalk/81-class-system.tsv, after the row of rem:class-leaf-numerics (and after the rows of Tier 4 placed there):
 
@@ -1198,27 +1201,27 @@ eq:class-leaf-tame	paper/reader/proofs/P-CIVP5.md:95	proof P-CIVP5, display	the 
 
 For crosswalk/83-localised-data.tsv, after the row of rem:loc-axis-scope:
 
-sec:loc-t5	paper/reader/proofs/P-CIVP5.md:419	proof P-CIVP5, section heading	Tier 5: further dust families at the axes, closure times per family and a bent evolution time
-sec:loc-t5-families	paper/reader/proofs/P-CIVP5.md:454	proof P-CIVP5, section heading	families and their type at an axis
-def:loc-t5-family	paper/reader/proofs/P-CIVP5.md:456	proof P-CIVP5, Definition (Further families)	further families; (F-a) corner circles, (F-b) density only where crossing, (F-c) corner compatibility
-lem:loc-t5-dichotomy	paper/reader/proofs/P-CIVP5.md:473	proof P-CIVP5, Lemma (Crossing and tangency at the axes)	at an axis a further family crosses one edge and is tangent to the other
-lem:loc-t5-tubes	paper/reader/proofs/P-CIVP5.md:493	proof P-CIVP5, Lemma (The tubes avoid the tangency sets)	tubes from crossing sets avoid the tangency sets, by continuous dependence
-lem:loc-t5-jets	paper/reader/proofs/P-CIVP5.md:529	proof P-CIVP5, Lemma (Cone data and jets with further families)	constraints with further sources through lem:loc-axis-constraints; extension of the further data; transverse jets on the crossing sets
-sec:loc-t5-times	paper/reader/proofs/P-CIVP5.md:575	proof P-CIVP5, section heading	closure times
-eq:loc-t5-times	paper/reader/proofs/P-CIVP5.md:592	proof P-CIVP5, display	t_A := τ0 − χ_* ψ_A Ĝ_A ρ², τ := τ0 + K χ_* ρ²
-lem:loc-t5-times	paper/reader/proofs/P-CIVP5.md:596	proof P-CIVP5, Lemma (The closure times and the evolution time)	time functions, edge sections constant, τ increasing along arcs, memory m_*
-lem:loc-t5-faces	paper/reader/proofs/P-CIVP5.md:626	proof P-CIVP5, Lemma (The edge sections are leaves of each family)	edge sections are leaves of each family, by lem:loc-axis-leaf (ii), (iii)
-sec:loc-t5-system	paper/reader/proofs/P-CIVP5.md:645	proof P-CIVP5, section heading	closure radius, region 𝒰^♭ and the system with memory
-lem:loc-t5-forcing	paper/reader/proofs/P-CIVP5.md:685	proof P-CIVP5, Lemma (The forcing term)	hypotheses (M0)-(M2), (M1′), (M1_σ) of thm:class-kato-memory via lem:class-leaf-tame and lem:class-leaf-arc in the charts (t_A, y)
-lem:loc-t5-residual	paper/reader/proofs/P-CIVP5.md:713	proof P-CIVP5, Lemma (The residual)	F̃ smooth across N; residual small in H^k and zero near τ_init
-lem:loc-t5-existence	paper/reader/proofs/P-CIVP5.md:744	proof P-CIVP5, Lemma (Existence and smoothness)	existence and smoothness by thm:class-kato-memory (b), (c)
-sec:loc-t5-dependence	paper/reader/proofs/P-CIVP5.md:762	proof P-CIVP5, section heading	dependence on the past and the constraints
-lem:loc-t5-energy	paper/reader/proofs/P-CIVP5.md:764	proof P-CIVP5, Lemma (Energy with an integrated non-local term)	energy with an integrated non-local term
-lem:loc-t5-past	paper/reader/proofs/P-CIVP5.md:773	proof P-CIVP5, Lemma (The past of the edges)	U = Û on P by arc-closed slices of P
-lem:loc-t5-constraints	paper/reader/proofs/P-CIVP5.md:794	proof P-CIVP5, Lemma (The constraints)	constraint propagation on F ∩ {τ ≤ s*} and on the tubes from 𝒦_A″
-sec:loc-t5-theorem	paper/reader/proofs/P-CIVP5.md:846	proof P-CIVP5, section heading	grazing obstruction, uniqueness, theorem, statement W
-prop:loc-t5-grazing	paper/reader/proofs/P-CIVP5.md:848	proof P-CIVP5, Proposition (Families tangent to an edge at an axis)	why the construction cannot treat families with density where tangent to an edge at an axis: characteristic edge, sections not leaves, arcs crossing the edge
-lem:loc-t5-uniqueness	paper/reader/proofs/P-CIVP5.md:908	proof P-CIVP5, Lemma (Dependence on the past faces with further families)	dependence on the past faces with further families, by triangles T_N and continuity in τ^N; no smallness
-thm:loc-t5	paper/reader/proofs/P-CIVP5.md:972	proof P-CIVP5, Theorem (Development with further families at the axes)	development with any number of crossing families: smooth, C^(k−4) estimate, uniqueness, localisation; grazing families excluded with the reason
-prop:loc-t5-cut	paper/reader/proofs/P-CIVP5.md:1040	proof P-CIVP5, Proposition (Families tangent to an edge: developments away from the axes concerned)	statement W: development on F ∩ {λ ≤ 0} away from the axes concerned, independent of the cut
-rem:loc-t5-scope	paper/reader/proofs/P-CIVP5.md:1076	proof P-CIVP5, Remark (What thm:loc-t5 and prop:loc-t5-cut do not give)	what is not given: grazing families on the axis, (F-a), size; regularity as Tier 3
+sec:loc-t5	paper/reader/proofs/P-CIVP5.md:421	proof P-CIVP5, section heading	Tier 5: further dust families at the axes, closure times per family and a bent evolution time
+sec:loc-t5-families	paper/reader/proofs/P-CIVP5.md:456	proof P-CIVP5, section heading	families and their type at an axis
+def:loc-t5-family	paper/reader/proofs/P-CIVP5.md:458	proof P-CIVP5, Definition (Further families)	further families; (F-a) corner circles, (F-b) density only where crossing, (F-c) corner compatibility
+lem:loc-t5-dichotomy	paper/reader/proofs/P-CIVP5.md:475	proof P-CIVP5, Lemma (Crossing and tangency at the axes)	at an axis a further family crosses one edge and is tangent to the other
+lem:loc-t5-tubes	paper/reader/proofs/P-CIVP5.md:495	proof P-CIVP5, Lemma (The tubes avoid the tangency sets)	tubes from crossing sets avoid the tangency sets, by continuous dependence
+lem:loc-t5-jets	paper/reader/proofs/P-CIVP5.md:531	proof P-CIVP5, Lemma (Cone data and jets with further families)	constraints with further sources through lem:loc-axis-constraints; extension of the further data; transverse jets on the crossing sets
+sec:loc-t5-times	paper/reader/proofs/P-CIVP5.md:577	proof P-CIVP5, section heading	closure times
+eq:loc-t5-times	paper/reader/proofs/P-CIVP5.md:594	proof P-CIVP5, display	t_A := τ0 − χ_* ψ_A Ĝ_A ρ², τ := τ0 + K χ_* ρ²
+lem:loc-t5-times	paper/reader/proofs/P-CIVP5.md:598	proof P-CIVP5, Lemma (The closure times and the evolution time)	time functions, edge sections constant, τ increasing along arcs, memory m_*
+lem:loc-t5-faces	paper/reader/proofs/P-CIVP5.md:628	proof P-CIVP5, Lemma (The edge sections are leaves of each family)	edge sections are leaves of each family, by lem:loc-axis-leaf (ii), (iii)
+sec:loc-t5-system	paper/reader/proofs/P-CIVP5.md:647	proof P-CIVP5, section heading	closure radius, region 𝒰^♭ and the system with memory
+lem:loc-t5-forcing	paper/reader/proofs/P-CIVP5.md:687	proof P-CIVP5, Lemma (The forcing term)	hypotheses (M0)-(M2), (M1′), (M1_σ) of thm:class-kato-memory via lem:class-leaf-tame and lem:class-leaf-arc in the charts (t_A, y)
+lem:loc-t5-residual	paper/reader/proofs/P-CIVP5.md:715	proof P-CIVP5, Lemma (The residual)	F̃ smooth across N; residual small in H^k and zero near τ_init
+lem:loc-t5-existence	paper/reader/proofs/P-CIVP5.md:746	proof P-CIVP5, Lemma (Existence and smoothness)	existence and smoothness by thm:class-kato-memory (b), (c)
+sec:loc-t5-dependence	paper/reader/proofs/P-CIVP5.md:764	proof P-CIVP5, section heading	dependence on the past and the constraints
+lem:loc-t5-energy	paper/reader/proofs/P-CIVP5.md:766	proof P-CIVP5, Lemma (Energy with an integrated non-local term)	energy with an integrated non-local term
+lem:loc-t5-past	paper/reader/proofs/P-CIVP5.md:775	proof P-CIVP5, Lemma (The past of the edges)	U = Û on P by arc-closed slices of P
+lem:loc-t5-constraints	paper/reader/proofs/P-CIVP5.md:796	proof P-CIVP5, Lemma (The constraints)	constraint propagation on F ∩ {τ ≤ s*} and on the tubes from 𝒦_A″
+sec:loc-t5-theorem	paper/reader/proofs/P-CIVP5.md:848	proof P-CIVP5, section heading	grazing obstruction, uniqueness, theorem, statement W
+prop:loc-t5-grazing	paper/reader/proofs/P-CIVP5.md:850	proof P-CIVP5, Proposition (Families tangent to an edge at an axis)	why the construction cannot treat families with density where tangent to an edge at an axis: characteristic edge, sections not leaves, arcs crossing the edge
+lem:loc-t5-uniqueness	paper/reader/proofs/P-CIVP5.md:910	proof P-CIVP5, Lemma (Dependence on the past faces with further families)	dependence on the past faces with further families, by triangles T_N and continuity in τ^N; no smallness
+thm:loc-t5	paper/reader/proofs/P-CIVP5.md:974	proof P-CIVP5, Theorem (Development with further families at the axes)	development with any number of crossing families: smooth, C^(k−4) estimate, uniqueness, localisation; grazing families excluded with the reason
+prop:loc-t5-cut	paper/reader/proofs/P-CIVP5.md:1042	proof P-CIVP5, Proposition (Families tangent to an edge: developments away from the axes concerned)	statement W: development on F ∩ {λ ≤ 0} away from the axes concerned, independent of the cut
+rem:loc-t5-scope	paper/reader/proofs/P-CIVP5.md:1078	proof P-CIVP5, Remark (What thm:loc-t5 and prop:loc-t5-cut do not give)	what is not given: grazing families on the axis, (F-a), size; regularity as Tier 3
