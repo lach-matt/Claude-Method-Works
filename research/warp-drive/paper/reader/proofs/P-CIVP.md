@@ -1041,12 +1041,12 @@ of (a). ∎
 
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
 source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:". Line numbers
-are those of the chapter sources at the current head and serve only to find the place; every old text below occurs
-there exactly once, as whole lines. The new texts of items 3 to 7 are the merged texts of the independent reading of
-this file: each replaces, at its site, both this file's item and the corresponding item of the Tier 2 section on large
-data (its items 2, 3, 5 and 6 and the second pair of its item 4), which uses the same texts, so that every site is
-changed once. They cite [[thm:civp-large]] and [[def:civp-large-data]] of that section, which follows
-[[sec:loc-cone-proof]] in [[ch:localised-data]]; item 11 says what changes if it is not merged.
+are those of the chapter sources at the current head and serve only to find the place; every old text below occurs there
+exactly once, as whole lines. The new texts of items 3 to 7 are the merged texts of the independent reading of this
+file: each replaces, at its site, both this file's item and the corresponding item of the Tier 2 section on large data
+(its items 2, 3, 5 and 6 and the second pair of its item 4, which defer to these), so that every site is changed once.
+They cite [[thm:civp-large]], [[def:civp-large-data]], [[lem:civp-large-free]] and [[lem:civp-large-rectangle]] of that
+section, which follows [[sec:loc-cone-proof]] in [[ch:localised-data]]; item 11 says what changes if it is not merged.
 
 *1. Block A.* The text of Block A, from the statement of [[lem:loc-cone-in]] through the end of [[rem:loc-cone-scope]]
 (without the heading "Block A" and its first paragraph), is inserted in [[sec:loc-cones]] immediately after the proof of
@@ -1099,18 +1099,18 @@ background's and their band avoids the axes, with or without dust: on the explic
 there is a class solution in the gauge [[eq:loc-double-null]] that induces them, with an estimate, equal to the
 background outside a slightly wider band and unique in the gauge near the background off the axes. Every small
 perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, and every small density
-added in the band, supported away from the axes, is of this kind, with v_1 = 4.5 and u_1 = 7.2
-([[lem:loc-cone-strips]] (c)). Without smallness, these cone data, completed on 𝒞_in in the gauge b = 0
-([[def:civp-large-data]]), have a development in the gauge [[eq:loc-double-null]] on a neighbourhood {min(u, v) ≤ δ} of
-the two cones whenever their band avoids the axes; among them, when the background is defined on [0, u_1] × [0, v_1] for
-some v_1 > 4.5 and u_1 > 7.2, are every perturbation of the shell or of the packet of any amplitude for which e^ϕ stays
-positive and every density added in the band. That development equals the background outside a slightly wider band
-and is unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]); the number δ
-depends on the data. For vacuum data of any size, before the shell (v_1 < 3) and on 𝒞_in before the packet (u_1 < 5.7),
-a development near the two cones exists also by [CTG23, Theorem 1.1] ([[thm:std-ctg-neighbourhood]]), which gives
-neither uniqueness in the gauge nor localisation. No development is asserted for cone data that differ from the
-background's near an axis, for data of finite regularity or for densities that are not smooth, and no other result of
-this paper uses these developments.
+added in the band, supported away from the axes, is of this kind, with v_1 = 4.5 and u_1 = 7.2 ([[lem:loc-cone-strips]]
+(c)). Without smallness, these cone data, completed on 𝒞_in in the gauge b = 0 ([[def:civp-large-data]]), have a
+development in the gauge [[eq:loc-double-null]] on a neighbourhood {min(u, v) ≤ δ} of the two cones whenever their band
+avoids the axes; among them, with v_1 = 4.5 and u_1 = 7.2, are every perturbation of the shell or of the packet, or of
+both, and every density added in the band, of any amplitude for which e^ϕ stays positive, and such perturbations exist
+of every amplitude ([[lem:civp-large-free]], [[lem:civp-large-rectangle]]). That development equals the background
+outside a slightly wider band and is unique in the gauge among solutions that equal the background near the axes
+([[thm:civp-large]]); the number δ depends on the data. For vacuum data of any size, before the shell (v_1 < 3) and on
+𝒞_in before the packet (u_1 < 5.7), a development near the two cones exists also by [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]), which gives neither uniqueness in the gauge nor localisation. No development is
+asserted for cone data that differ from the background's near an axis, for data of finite regularity or for densities
+that are not smooth, and no other result of this paper uses these developments.
 
 *5. [[ch:introduction]], the paragraph on [[part:further]] (lines 191–193; Tier 2's item 5, on lines 192–193, is dropped,
 as it says the same).* Old:
@@ -1126,7 +1126,7 @@ New:
 null cones and the sign of the charge ([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]],
 [[ch:equality-edge]]), the threshold λ0 at a
 
-*6. [[ch:theorems]], the bullet "More families" (line 375, the site of Tier 2's item 6).* This text replaces Tier 2's
+*6. [[ch:theorems]], the bullet "More families" (line 376, the site of Tier 2's item 6).* This text replaces Tier 2's
 item 6; the item of the previous version of this file on the last lines of the bullet is dropped, so that the bullet
 describes the developments once. Old:
 
@@ -1141,7 +1141,7 @@ New:
   near the axes ([[thm:civp-large]]), and, for data near the background's, on an explicit neighbourhood with an
   estimate ([[thm:loc-cone-development]]); and exactly localised vacuum data
 
-*7. [[ch:scope]], the paragraph on localised data, its last line (line 208; also the second pair of Tier 2's item 4,
+*7. [[ch:scope]], the paragraph on localised data, its last line (line 210; also the second pair of Tier 2's item 4,
 whose first pair, on the opening sentence of the paragraph, stands).* Old:
 
 small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
@@ -1174,11 +1174,50 @@ extension operator of [[lem:loc-cone-unique]] is that of [[thm:std-sy-extension]
   doi:10.1098/rspa.1990.0009
 
 *11. Without the Tier 2 section.* If the Tier 2 section is not merged, the second sentence of [[rem:loc-cone-scope]] (i)
-reads "For cone data that carry dust and are not small nothing is asserted."; in the new texts of items 3, 4, 6 and 7 the
-clauses that cite [[thm:civp-large]] or [[def:civp-large-data]] are dropped, the texts then saying, for data near the
-background's, that the development is equal to the background outside a slightly wider band and unique in the gauge near
-the background off the axes ([[thm:loc-cone-development]]), and that developments of dust-carrying cone data that are not
-small, or that differ from the background's near an axis, are not established.
+reads "For cone data that carry dust and are not small nothing is asserted.", and the new texts of items 3, 4, 6 and 7,
+at the same sites and with the same old texts, are the following, which drop the clauses that cite that section; they say,
+for data near the background's, that the development is equal to the background outside a slightly wider band and unique
+in the gauge near the background off the axes ([[thm:loc-cone-development]]), and that developments of dust-carrying cone
+data that are not small, or whose perturbation reaches an axis, are not established. The new text of item 5 needs no
+change.
+
+Item 3 without the Tier 2 section. New:
+
+Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
+and data localised in an angular band exist exactly ([[prop:loc-cones]], [[lem:loc-cone-in]]); near the background's
+data, with the band away from the axes, they have a development on a neighbourhood of the two cones, with or without
+dust, equal to the background outside a slightly wider band and unique in the gauge near the background off the axes
+([[thm:loc-cone-development]]). On Σ_τ0 the constraints split, after Rácz
+
+Item 4 without the Tier 2 section. New:
+
+[[thm:loc-cone-development]] develops these cone data when they are near the background's and their band avoids the
+axes, with or without dust: on the neighbourhood G_* of the two cones there is a class solution in the gauge
+[[eq:loc-double-null]] that induces them, equal to the background outside a slightly wider band and unique in the gauge
+near the background off the axes. Every small perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on
+𝒞_in ∩ {5.7 < u < 7.2}, and every small density added in the band, supported away from the axes, is of this kind, with
+v_1 = 4.5 and u_1 = 7.2 ([[lem:loc-cone-strips]] (c)). For vacuum data of any size, before the shell (v_1 < 3) and on
+𝒞_in before the packet (u_1 < 5.7), a development near the two cones exists by [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]); that theorem gives neither uniqueness in the gauge nor localisation. For cone data that
+carry dust and are not small, and for data whose perturbation reaches an axis, no development is asserted
+([[rem:loc-cone-scope]]). No result of the other chapters uses these developments.
+
+Item 6 without the Tier 2 section. New:
+
+  construction of that background does not decide ([[cor:vlasov-two-dust]]); developments in the double-null gauge
+  of data near the background's on the two null cones through the corner sphere of the explicit two-dust background
+  of [[sec:bg-data]], localised in an angular band away from the axes, with or without dust, on an explicit
+  neighbourhood of the two cones, with an estimate, localised and unique in the gauge near the background off the axes
+  ([[thm:loc-cone-development]]); and exactly localised vacuum data
+
+Item 7 without the Tier 2 section. New:
+
+small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]). Data localised
+in angle on the two null cones exist exactly, and near the background's data, with the band away from the axes, they
+develop, dust included, on a neighbourhood of the cones, equal to the background outside a slightly wider band and
+unique in the gauge near the background off the axes; developments of dust-carrying cone data that are not small, or
+whose perturbation reaches an axis, are not established ([[prop:loc-cones]], [[thm:loc-cone-development]],
+[[rem:loc-cone-scope]]).
 
 ### Crosswalk rows
 
@@ -1255,19 +1294,19 @@ derivatives.
 Row 35. prop:loc-cone-local; paper/reader/proofs/P-CIVP.md@PENDING:945; proof P-CIVP, Block B, Proposition (Developments
 near a corner sphere, without smallness); the statement T1 cited by the Tier 2 section for its corner developments, any
 corner of Q, σ uniform, regularity index m_1 = 12k + 42.
-Row 36. rem:loc-cone-local-scope; paper/reader/proofs/P-CIVP.md@PENDING:1005; proof P-CIVP, Block B, Remark (What the
+Row 36. rem:loc-cone-local-scope; paper/reader/proofs/P-CIVP.md@PENDING:1006; proof P-CIVP, Block B, Remark (What the
 size of the rectangle depends on); the background enters at three places; a shift on N_i removed by a change of angle.
 
 New cells for existing rows (label; the field; its new text), the other fields unchanged:
 
 Existing 1. ch:localised-data (table of [[ch:localised-data]]); source; the current cell followed by ";
-paper/reader/proofs/P-CIVP.md@PENDING:1068"; note; the current note followed by "; the sentence on the developments from
+paper/reader/proofs/P-CIVP.md@PENDING:1069"; note; the current note followed by "; the sentence on the developments from
 the two null cones (thm:loc-cone-development, thm:civp-large), merged text of proofs P-CIVP and P-CIVP2".
 Existing 2. sec:loc-cones (same table); source; the current cell followed by "; paper/reader/proofs/P-CIVP.md@PENDING:1";
 note; "Block A of proof P-CIVP added after prop:loc-cones: lem:loc-cone-in, thm:loc-cone-development,
 rem:loc-cone-scope".
 Existing 3. prop:loc-cones (same table); source; the current cell followed by ";
-paper/reader/proofs/P-CIVP.md@PENDING:1083"; note; "proof by the two ODEs; the closing paragraph, the merged text of
+paper/reader/proofs/P-CIVP.md@PENDING:1084"; note; "proof by the two ODEs; the closing paragraph, the merged text of
 proofs P-CIVP and P-CIVP2, states the developments (thm:loc-cone-development near the background's, thm:civp-large
 without smallness) and what is not covered (data that differ from the background's near an axis, finite regularity)".
 Existing 4. sec:organisation (table of [[ch:introduction]]); note; the current cell followed by "; the entry for
