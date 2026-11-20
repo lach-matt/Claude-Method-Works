@@ -680,11 +680,11 @@ limit of such points or lies on N. The solutions are continuous, so it suffices 
 By [[lem:civp-axes-jets]] (iv) both have the derivatives a_j, b_k across N ∩ R_ε, so their difference vanishes to
 infinite order on N ∩ R_ε.
 
-*Step 2 (The first disagreement).* Put t := u + v, Σ_t := {u + v = t} and D_t := R_ε ∩ Σ_t. Let t* be the supremum of the
-s ∈ [0, a + b + 4ε] such that the two solutions agree on R_ε ∩ {t ≤ s}; the set of these s contains 0 and is closed.
-Suppose t* < a + b. The solutions agree on R_ε ∩ {t ≤ t*}, so their difference vanishes to infinite order on D_(t*),
-all its derivatives being limits from the side t < t* or, for t* = 0, vanishing on N. We show that they agree on
-R_ε ∩ {t ≤ t* + θ} for some θ > 0, against the choice of t*.
+*Step 2 (The first disagreement).* Put R′ := [0, a + ε] × [0, b + ε], t := u + v, Σ_t := {u + v = t} and D_t := R′ ∩
+Σ_t. Let t* be the supremum of the s ∈ [0, a + b + 2ε] such that the two solutions agree on R′ ∩ {t ≤ s}; the set of these
+s contains 0 and is closed. Suppose t* < a + b + 2ε. The solutions agree on R′ ∩ {t ≤ t*}, so their difference vanishes
+to infinite order on D_(t*), all its derivatives being limits from the side t < t* or, for t* = 0, vanishing on N. We
+show that they agree on R′ ∩ {t ≤ t* + θ′} for some θ′ > 0, against the choice of t*.
 
 *Step 3 (A wave map near D_(t*)).* Use the coordinates (t, y), y := e^(v−u) ω, ω ∈ S³ ⊂ ℝ⁴, a G-equivariant chart on
 which metrics in natural double-null form are smooth through the axes, with dt timelike for every such metric, as
@@ -696,31 +696,34 @@ put g′_e := g′ on R_ε and g′_e := g_e elsewhere there; g′_e is smooth, 
     g′_e^(μν) (∂_μ∂_ν Φ^λ − Γ[g′_e]^ρ_(μν) ∂_ρ Φ^λ + Γ[g_e]^λ_(αβ)(Φ) ∂_μ Φ^α ∂_ν Φ^β) = 0,
 
 a semilinear wave system for φ with principal part g′_e^(μν) ∂_μ∂_ν, for which φ = 0 is a solution wherever g′_e = g_e.
-Cut it off in (u, v) outside a neighbourhood of R_ε ∪ ([−ε_1/2, 0] × [0, b + ε]) ∪ ([0, a + ε] × [−ε_1/2, 0]), with frozen
+Cut it off in (u, v) outside a compact neighbourhood, inside the domain of g′_e, of R′ ∪ ([−ε_1/2, 0] × [0, b + ε]) ∪
+([0, a + ε] × [−ε_1/2, 0]), with frozen
 flat coefficients there as for A^μ_♭ in case (II) of [[sec:loc-cone-reduced]], and write it in first-order form in the
 chart; its forcing term is local, so [[thm:class-kato]] (a) with [[rem:class-kato-local]] gives a smooth solution φ on
 [t*, t* + θ] × ℝ⁴ with φ = 0 and ∂φ = 0 at t = t*, for some θ > 0; it is G-equivariant, by uniqueness. As in
 [[lem:loc-cone-past]], the energy of [[lem:loc-cone-energy]] on the part of {t* ≤ t ≤ t* + θ} where u ≤ 0 or v ≤ 0 and
-u, v ≥ −ε_1/2 + 2(t − t*), whose faces {u = 0} and {v = 0} are null with outward conormals du and dv future directed and
+u, v ≥ −ε_1/2 + 2(t − t*), u ≤ a + ε and v ≤ b + ε, whose faces {u = 0} and {v = 0} are null with outward conormals du and dv future directed and
 whose faces {u = −ε_1/2 + 2(t − t*)} and {v = −ε_1/2 + 2(t − t*)} have the outward conormals 2dv + du and 2du + dv, timelike
-and future directed for every metric in natural double-null form, gives φ = 0 there for 4θ ≤ ε_1, where g′_e = g_e. So
-Φ = id to infinite order on N ∩ R_ε ∩ {t ≤ t* + θ}, and Φ − id vanishes to infinite order on D_(t*), the residual
-g′_e^(μν) (Γ[g_e] − Γ[g′_e])^λ_(μν) of φ = 0 doing so; put Φ := id on {t ≤ t*}. For θ small Φ is a diffeomorphism near
-the identity, and Φ(R_ε ∩ {t ≤ t* + θ}) ⊃ R_(ε/2) ∩ {t ≤ t* + θ}.
+and future directed for every metric in natural double-null form, and whose faces {u = a + ε}, {v = b + ε} are null
+with the region to their past, gives φ = 0 there for 4θ ≤ ε_1, where g′_e = g_e. So Φ = id to infinite order on N ∩ R′ ∩
+{t ≤ t* + θ}. And Φ − id vanishes to infinite order on D_(t*): the t-derivatives of φ at t = t* are determined, through
+the equation, by the residual g′_e^(μν) (Γ[g_e] − Γ[g′_e])^λ_(μν) of φ = 0 and its derivatives, which vanish on D_(t*),
+and by derivatives along the slice of lower t-derivatives. Put Φ := id on {t ≤ t*}. For θ small Φ is a diffeomorphism
+near the identity, and Φ(R_ε ∩ {t ≤ t* + θ}) ⊃ R′ ∩ {t ≤ t* + θ}.
 
 *Step 4 (Comparison in the wave gauge of g).* Put G̃ := (Φ⁻¹)^* g′, ũ := u ∘ Φ⁻¹, ṽ := v ∘ Φ⁻¹ and q̃_A := q′_A ∘ Φ⁻¹ on
-R_(ε/2) ∩ {t ≤ t* + θ}. The wave map condition says D(G̃) = 0 for the gauge vector relative to g, and D(g) = 0 relative to
+R′ ∩ {t ≤ t* + θ}. The wave map condition says D(G̃) = 0 for the gauge vector relative to g, and D(g) = 0 relative to
 g. So U := (g, −dv, −du, □_g(−v), □_g(−u), q_in, q_out) and Ũ := (G̃, −dṽ, −dũ, □_G̃(−ṽ), □_G̃(−ũ), q̃_in, q̃_out) solve
 the augmented system relative to g with ζ_A := 1 and chapter 81's closure at the axes, in the slicing by t: the closure
 holds for both in every slicing, their leaves being the level sets of their phases in the slices (the last statement of
 [[lem:class-leaf-differences]]) and the right side of [[eq:class-raychaudhuri]] being, by [[eq:class-identity]] and
-[[eq:class-x]], the closure. Ũ − U vanishes to infinite order on D_(t*) and on N ∩ R_(ε/2). For t* ≤ s ≤ t* + θ let
-R′_s := R_(ε/2) ∩ {t* ≤ t ≤ s} and z := 𝐔̃ − 𝐔 its first-order variables, so that, with the coefficients at U,
+[[eq:class-x]], the closure. Ũ − U vanishes to infinite order on D_(t*) and on N ∩ R′. For t* ≤ s ≤ t* + θ let
+R′_s := R′ ∩ {t* ≤ t ≤ s} and z := 𝐔̃ − 𝐔 its first-order variables, so that, with the coefficients at U,
 
     A^μ(x, 𝐔) ∂_μ z = M z − ½ ϖ (σ_A[Ũ]² − σ_A[U]²)  (in the Θ-rows),      M bounded,
 
 ϖ as in Step 2 of the proof of [[prop:civp-axes-corner]]. The boundary of R′_s consists of D_(t*), of pieces of N, where
-z = 0, of D_s, and of the future faces {u = a + ε/2} and {v = b + ε/2}, null for g with R′_s to their past, on which the
+z = 0, of D_s, and of the future faces {u = a + ε} and {v = b + ε}, null for g with R′_s to their past, on which the
 boundary form at U is nonnegative, du(P_out) = dv(P_in) = 0 and the other pairings positive.
 
 *The non-local term.* D_t is bounded by at most two double-null spheres of g, each on N or on a future face; each is a
@@ -742,12 +745,12 @@ infinite order on D_(t*), ‖Ũ − U‖_(H^(k−1)(D_t)) → 0 as t ↓ t*; so 
 In both cases e(s) := ∫_(D_s) ⟨A^0(x, 𝐔) z, z⟩ satisfies e(s) ≤ C ∫_(t*)^s e for t* ≤ s ≤ t* + θ′, some θ′ ∈ (0, θ], by the
 divergence theorem on R′_s as in [[lem:loc-cone-energy]]; e(t*) = 0, so z = 0 on R′_(t*+θ′).
 
-*Step 5 (The coordinates).* So G̃ = g, ũ = u, ṽ = v and q̃_A = q_A on R_(ε/2) ∩ {t ≤ t* + θ′}: Φ is an isometry from g′ to
+*Step 5 (The coordinates).* So G̃ = g, ũ = u, ṽ = v and q̃_A = q_A on R′ ∩ {t ≤ t* + θ′}: Φ is an isometry from g′ to
 g with u ∘ Φ = u and v ∘ Φ = v. In natural double-null form g⁻¹du = g^(uv) ∂_v, as g^(uu) = g^(uA) = 0, so the angle θ of
 the coordinates is constant along the integral curves of g⁻¹du, and likewise for g′. Φ carries g′⁻¹du to g⁻¹du, so θ ∘
-Φ⁻¹ is constant along the integral curves of g⁻¹du; each of these in R_(ε/2) ∩ {t* ≤ t ≤ t* + θ′}, followed to the past,
-meets {t ≤ t*} or N_i, where Φ = id. So θ ∘ Φ⁻¹ = θ, Φ = id, and g′ = g and q′_A = q_A on R_(ε/2) ∩ {t ≤ t* + θ′}. This
-contradicts the choice of t*; so t* ≥ a + b, and the solutions agree on R. ∎
+Φ⁻¹ is constant along the integral curves of g⁻¹du; each of these in R′ ∩ {t* ≤ t ≤ t* + θ′}, followed to the past,
+meets {t ≤ t*} or N_i, where Φ = id. So θ ∘ Φ⁻¹ = θ, Φ = id, and g′ = g and q′_A = q_A on R′ ∩ {t ≤ t* + θ′}. This
+contradicts the choice of t*; so t* = a + b + 2ε, and the solutions agree on R′ ⊃ R. ∎
 
 **Corollary {#cor:civp-axes-maximal}** (The maximal development.) Let cone data be given on N_o and N_i, with Q as in
 [[prop:civp-axes-unique]]. Let D_max be the union of the sets D, past sets relative to the corner and relatively open in
