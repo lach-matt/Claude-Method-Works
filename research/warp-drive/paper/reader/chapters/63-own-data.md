@@ -12,14 +12,14 @@ class with the same index sets.
 
 The argument has five parts. (1) The far part S := Σ^IVP ∩ {r ≥ 4R} of the initial surface has a past domain of
 dependence W for Tangherlini, bounded by S, by an ingoing null cone ℋ on which g_λ is known, and by past null infinity,
-where nothing comes in after the shell (Section [[sec:own-far-part]]). (2) The tail at r^(−5/2) is computed (Section
-[[sec:own-tail]]). (3) The stability theory holds in the half-integer class with the same index sets (Section
-[[sec:own-half-class]]). (4) The constants of the construction from past null infinity are polynomial in λ^(−1) at every
-order, which makes the data of g_λ on ℋ small at every weight that the estimate below uses (Sections [[sec:own-orders]]
-and [[sec:own-sigma]]). (5) After its self-similar terms through r^(−4) are subtracted, g_λ continues to W by one
-weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, whose exponents follow from
-homogeneity under a dilation; the continuation is vacuum, unique in a class of weight below ½, and its data on S lie in
-the half-integer class with small norm (Sections [[sec:far-homogeneity]], [[sec:cutoff-expansion]],
+where nothing comes in after the shell (Section [[sec:own-far-part]]). (2) The tail at r^(−5/2) is computed
+(Section [[sec:own-tail]]). (3) The stability theory holds in the half-integer class with the same index sets
+(Section [[sec:own-half-class]]). (4) The constants of the construction from past null infinity are polynomial in λ^(−1)
+at every order, which makes the data of g_λ on ℋ small at every weight that the estimate below uses
+(Sections [[sec:own-orders]] and [[sec:own-sigma]]). (5) After its self-similar terms through r^(−4) are subtracted, g_λ
+continues to W by one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, whose
+exponents follow from homogeneity under a dilation; the continuation is vacuum, unique in a class of weight below ½, and
+its data on S lie in the half-integer class with small norm (Sections [[sec:far-homogeneity]], [[sec:cutoff-expansion]],
 [[sec:own-continuation]] and [[sec:own-vacuum]]). The theorem is assembled in Section [[sec:own-proof]], where the
 development is placed in the maximal globally hyperbolic development of the data ([[lem:own-maximal]]).
 
@@ -57,12 +57,12 @@ whose energies of some weight a_0 ∈ (0, ½) of the fields Γ^α (g − g_b0), 
 ‖(γ − γ_b0, k − k_b0)‖_(d_1) < ε in the norm of [[sec:s27-class]] taken with ℰ_0 = ℰ_0^½;
 
 (3) (γ, k) have a G-invariant vacuum development ǧ on {t_IVP ≥ 0}, t_IVP being the function of [[lem:iii-b-3-7]] (b),
-with Σ^IVP = t_IVP⁻¹(0), which settles to a Tangherlini metric g_(m′,0) with |m′ − μ_end| < ε_m: on {r_♭ ≤ r ≤ R′, t_* ≥
-t_1}, |(t_*∂_(t_*))^i ∂_x^β (ǧ − g_(m′,0))| ≤ C t_*^(−2−ε_t) for every R′, i and β, with C and t_1 ≥ 1 depending on
-them. The maximal globally hyperbolic vacuum development (M̂, ĝ, ι̂) of the data (γ, k) on the surface without boundary
-Σ̊ := Σ^IVP ∩ {r > r_♭} contains it: there is a time-orientation-preserving isometric embedding Ψ of ({r > r_♭, t_IVP >
-0}, ǧ) into (M̂, ĝ) that extends continuously to Σ̊ by ι̂ ([[lem:own-maximal]]). So ĝ settles in the same
-sense: |(t_*∂_(t_*))^i ∂_x^β (Ψ^*ĝ − g_(m′,0))| ≤ C t_*^(−2−ε_t) on {r_♭ < r ≤ R′, t_* ≥ t_1}.
+with Σ^IVP = t_IVP⁻¹(0), which settles to a Tangherlini metric g_(m′,0) with |m′ − μ_end| < ε_m: on
+{r_♭ ≤ r ≤ R′, t_* ≥ t_1}, |(t_*∂_(t_*))^i ∂_x^β (ǧ − g_(m′,0))| ≤ C t_*^(−2−ε_t) for every R′, i and β, with C and
+t_1 ≥ 1 depending on them. The maximal globally hyperbolic vacuum development (M̂, ĝ, ι̂) of the data (γ, k) on the
+surface without boundary Σ̊ := Σ^IVP ∩ {r > r_♭} contains it: there is a time-orientation-preserving isometric embedding
+Ψ of ({r > r_♭, t_IVP > 0}, ǧ) into (M̂, ĝ) that extends continuously to Σ̊ by ι̂ ([[lem:own-maximal]]). So ĝ settles in
+the same sense: |(t_*∂_(t_*))^i ∂_x^β (Ψ^*ĝ − g_(m′,0))| ≤ C t_*^(−2−ε_t) on {r_♭ < r ≤ R′, t_* ≥ t_1}.
 
 The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The order k_P is what the subtracted
 expansion of Section [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
@@ -1871,40 +1871,40 @@ case ∫_0 |ρ^(−q)(ρ² c + ρ^(5/2) a_(5/2))|² dρ/ρ = ∞, as q > 5/2. �
 
 **Lemma {#lem:own-maximal}** (the development lies in the maximal one). Let (γ, k) be G-invariant vacuum data on Σ^IVP
 as in [[thm:own-half-settling]], below its threshold, and let ǧ be the G-invariant vacuum development given there: the
-metric of [[thm:iii-k-4-3]] on Ω_* ∪ 𝒟_(0,0), with S = S⁰ = 0 ([[prop:vii-3-2]]). Put Σ̊ := Σ^IVP ∩ {r > r_♭} and M₊ :=
-{r > r_♭, t_IVP ≥ 0}. Then ǧ is defined on M₊; (Σ̊, γ, k) is initial data in the sense of [Sbi15, p. 11], with d = 4;
-its maximal globally hyperbolic development (M̂, ĝ, ι̂), a globally hyperbolic development that is an extension of every
-other one, exists and is unique up to isometry [Sbi15, Theorem 2.8, p. 12]; and there is a time-orientation-preserving
-isometric embedding Ψ : (M₊ ∖ Σ̊, ǧ) → (M̂, ĝ) that extends continuously to M₊ by ι̂ on Σ̊.
+metric of [[thm:iii-k-4-3]] on Ω_* ∪ 𝒟_(0,0), with S = S⁰ = 0 ([[prop:vii-3-2]]). Put Σ̊ := Σ^IVP ∩ {r > r_♭} and
+M₊ := {r > r_♭, t_IVP ≥ 0}. Then ǧ is defined on M₊; (Σ̊, γ, k) is initial data in the sense of [Sbi15, p. 11], with
+d = 4; its maximal globally hyperbolic development (M̂, ĝ, ι̂), a globally hyperbolic development that is an extension
+of every other one, exists and is unique up to isometry [Sbi15, Theorem 2.8, p. 12]; and there is a
+time-orientation-preserving isometric embedding Ψ : (M₊ ∖ Σ̊, ǧ) → (M̂, ĝ) that extends continuously to M₊ by ι̂ on Σ̊.
 
 [Sbi15] takes its initial data on a manifold without boundary. Σ^IVP, which ends at {r = r_♭}, is not one; Σ̊ is.
 
 *Proof.* *The development.* By [[thm:own-half-settling]] the results of [[ch:s27]] hold in the class ℰ_0^½, and by
-[[prop:vii-3-2]] the map φ_(0,0) is the identity, so ǧ induces (γ, k) on Σ^IVP ([[thm:iii-k-4-3]] (2)). On Ω_*, t_IVP ≥
-t_* ≥ t^♭_* ≥ 1 (ψ_IVP ≤ ψ by the proof of [[lem:iii-b-3-7]] (b), and [[lem:ii-c-3-2]] (b)); and 𝒟_(0,0) = {t_IVP ≥ 0} ∩
-{t^♭_* ≤ T̂ + 2} ([[prop:iii-k-1-2]]), while {t^♭_* > T̂ + 2} ⊂ Ω_*. So Ω_* ∪ 𝒟_(0,0) is the set {t_IVP ≥ 0} of M, which
-contains M₊. Where t^♭_* ≤ T̂ + ¼c_0, a set containing {t^♭_* ≤ 3/2} as T̂ ≥ 2, ǧ = g_(b₀) + h_0 ([[prop:iii-k-4-2]]
-with S = S⁰ = 0), the metric g_(0,0) of [[lem:iii-k-6-2]] on the region 𝒟 of [[prop:iii-k-1-2]]; it is smooth on 𝒟 up to
-its boundary (the proof of [[prop:iii-k-1-2]]), and dt_IVP is past timelike for it on 𝒟 ([[lem:iii-k-6-2]] (a)). So near
-each point of Σ̊, ǧ is the restriction of a smooth Lorentzian metric, the future unit normal of Σ̊ points into M₊, and ǧ
-induces (γ, k) on Σ̊ with respect to it. On Ω°_*, ǧ − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b) and t^♭_* is a time
-function of ǧ, as in the proof of [[prop:iii-k-4-2]] ([[lem:s27-below]] (iii)).
+[[prop:vii-3-2]] the map φ_(0,0) is the identity, so ǧ induces (γ, k) on Σ^IVP ([[thm:iii-k-4-3]] (2)). On Ω_*,
+t_IVP ≥ t_* ≥ t^♭_* ≥ 1 (ψ_IVP ≤ ψ by the proof of [[lem:iii-b-3-7]] (b), and [[lem:ii-c-3-2]] (b)); and
+𝒟_(0,0) = {t_IVP ≥ 0} ∩ {t^♭_* ≤ T̂ + 2} ([[prop:iii-k-1-2]]), while {t^♭_* > T̂ + 2} ⊂ Ω_*. So Ω_* ∪ 𝒟_(0,0) is the set
+{t_IVP ≥ 0} of M, which contains M₊. Where t^♭_* ≤ T̂ + ¼c_0, a set containing {t^♭_* ≤ 3/2} as T̂ ≥ 2, ǧ = g_(b₀) + h_0
+([[prop:iii-k-4-2]] with S = S⁰ = 0), the metric g_(0,0) of [[lem:iii-k-6-2]] on the region 𝒟 of [[prop:iii-k-1-2]]; it
+is smooth on 𝒟 up to its boundary (the proof of [[prop:iii-k-1-2]]), and dt_IVP is past timelike for it on 𝒟
+([[lem:iii-k-6-2]] (a)). So near each point of Σ̊, ǧ is the restriction of a smooth Lorentzian metric, the future unit
+normal of Σ̊ points into M₊, and ǧ induces (γ, k) on Σ̊ with respect to it. On Ω°_*, ǧ − g_(b₀) is small in
+𝒢̃^(0,(1,0,0))_(e3b) and t^♭_* is a time function of ǧ, as in the proof of [[prop:iii-k-4-2]] ([[lem:s27-below]] (iii)).
 
 *The data, and a development of them.* Σ̊ is the graph t = ψ_IVP(|x|) over the connected set {|x| > r_♭} ⊂ ℝ⁴, an open
 subset of Σ^IVP and a manifold without boundary; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the
 Gauss and Codazzi equations for the vacuum metric ǧ. So (Σ̊, γ, k) is initial data in the sense of [Sbi15, p. 11]
 ([[thm:std-sbierski]]), with d = 4, and [Sbi15, Theorem 2.8, p. 12] gives (M̂, ĝ, ι̂). By [Sbi15, Theorem 2.6]
 ([[thm:std-sbierski]] (3)) the same data have a globally hyperbolic development (N, g_N, ι_N). Σ_N := ι_N(Σ̊) is a
-smooth spacelike Cauchy hypersurface of N, γ being Riemannian, so there is a Cauchy time-function h_N on N with Σ_N =
-h_N⁻¹(0) ([[thm:std-bgp-causal]] (3)); its gradient is past directed timelike ([[thm:std-bgp-causal]] (2)), so dh_N is
-past timelike. We glue the past half of N to M₊, show that the result contains a globally hyperbolic development of (Σ̊,
-γ, k) that contains M₊, and obtain Ψ from the maximality of (M̂, ĝ, ι̂).
+smooth spacelike Cauchy hypersurface of N, γ being Riemannian, so there is a Cauchy time-function h_N on N with
+Σ_N = h_N⁻¹(0) ([[thm:std-bgp-causal]] (3)); its gradient is past directed timelike ([[thm:std-bgp-causal]] (2)), so
+dh_N is past timelike. We glue the past half of N to M₊, show that the result contains a globally hyperbolic development
+of (Σ̊, γ, k) that contains M₊, and obtain Ψ from the maximality of (M̂, ĝ, ι̂).
 
 *The glued space.* N₋ := {h_N ≤ 0} and M₊ are manifolds with boundary Σ_N and Σ̊, as dh_N and dt_IVP do not vanish. Let
 M_gl := (N₋ ⊔ M₊)/∼, where ι_N(y) ∼ y for y ∈ Σ̊, with the quotient topology and the projection π. π maps N₋ and M₊
-homeomorphically onto closed subsets of M_gl: for a closed F ⊂ N₋, the preimage of π(F) is F together with ι_N⁻¹(F ∩
-Σ_N) ⊂ Σ̊, which is closed, and likewise for M₊. So π(N₋ ∖ Σ_N) and π(M₊ ∖ Σ̊) are disjoint open subsets of M_gl,
-covering the complement of the closed set π(Σ̊), which we write Σ̊.
+homeomorphically onto closed subsets of M_gl: for a closed F ⊂ N₋, the preimage of π(F) is F together with
+ι_N⁻¹(F ∩ Σ_N) ⊂ Σ̊, which is closed, and likewise for M₊. So π(N₋ ∖ Σ_N) and π(M₊ ∖ Σ̊) are disjoint open subsets of
+M_gl, covering the complement of the closed set π(Σ̊), which we write Σ̊.
 
 *Charts, smooth structure, metric, time orientation.* The paragraphs of the proof of [[lem:interior-one-spacetime]] from
 *(i), the charts at Σ* to *(i), time orientation and connectedness* apply with Σ̊, M₊ and ǧ in place of Σ, B and g, and
@@ -1923,12 +1923,12 @@ of ǧ on π(M₊ ∖ Σ̊); and the connectedness of M_gl. Part *(ii)* of that p
 
 *Hausdorff and second countable.* Two points of π(N₋ ∖ Σ_N), or two of π(M₊ ∖ Σ̊), are separated in that open set, and a
 point of each by these two disjoint open sets. Let y ∈ Σ̊ and z ≠ y. If z = π(a), a ∈ N₋ ∖ Σ_N, take disjoint open sets
-U_a ∋ a and U_y ∋ ι_N(y) of N with U_a ⊂ N₋ ∖ Σ_N, and Π and s_0 so small that E_N((−s_0, 0] × Π) ⊂ U_y, as E_N(0, y) =
-ι_N(y); then π(U_a) and W_Π are disjoint open sets. If z lies in π(M₊ ∖ Σ̊), the same holds with M₊ and the map E of
-that proof in place of N and E_N. If z ∈ Σ̊, take disjoint neighbourhoods of ι_N(y) and ι_N(z) in N and of y and z in
-M₊, and charts W_Π ∋ y and W_Π′ ∋ z whose halves lie in them; then W_Π ∩ W_Π′ = ∅. So M_gl is Hausdorff. Σ̊, being
-second countable, is covered by countably many W_Π, and M_gl is the union of these and of the two open halves, each
-second countable; so M_gl is second countable.
+U_a ∋ a and U_y ∋ ι_N(y) of N with U_a ⊂ N₋ ∖ Σ_N, and Π and s_0 so small that E_N((−s_0, 0] × Π) ⊂ U_y, as
+E_N(0, y) = ι_N(y); then π(U_a) and W_Π are disjoint open sets. If z lies in π(M₊ ∖ Σ̊), the same holds with M₊ and the
+map E of that proof in place of N and E_N. If z ∈ Σ̊, take disjoint neighbourhoods of ι_N(y) and ι_N(z) in N and of y
+and z in M₊, and charts W_Π ∋ y and W_Π′ ∋ z whose halves lie in them; then W_Π ∩ W_Π′ = ∅. So M_gl is Hausdorff. Σ̊,
+being second countable, is covered by countably many W_Π, and M_gl is the union of these and of the two open halves,
+each second countable; so M_gl is second countable.
 
 *The development D.* Σ̊ is an acausal smooth spacelike hypersurface of the connected time-oriented Lorentzian manifold
 M_gl. So D := D_(M_gl)(Σ̊) is open and globally hyperbolic, with Σ̊ as a Cauchy hypersurface
@@ -1942,23 +1942,25 @@ Suppose that κ does not meet Σ̊. Then it stays in the open set π(M₊ ∖ Σ
 inextendible. First, if t^♭_*(p) > 3/2, κ does not stay in {t^♭_* > 3/2}. This set lies in X := Ω°_*, and the argument
 of the proof of [[lem:ii-f-1-3]], with τ := t^♭_*, the level 3/2 and the compact sets L_p ⊂ X of [[lem:iii-k-6-1]] (c),
 applied as in the proof of [[prop:iii-k-4-2]], shows that t^♭_* reaches 3/2 along every past directed causal curve from
-p that is past inextendible in X. Second, from the first point p_1 of κ at which t^♭_* ≤ 3/2 (p_1 := p if t^♭_*(p) ≤
-3/2) on, t^♭_* stays at most 3/2: to exceed it, κ would run in {t^♭_* > 3/2}, where t^♭_* is a time function, along an
-interval starting at a point where t^♭_* = 3/2, and t^♭_* decreases to the past along such an interval. Third, beyond
-p_1, κ therefore lies in {t_IVP > 0, t^♭_* ≤ 3/2} ⊂ 𝒟, where ǧ = g_(0,0): dt_IVP is past timelike there, and r ≤ R_1 :=
-max(R, r(p_1)) + 2t_IVP(p_1) along κ beyond p_1 ([[lem:iii-k-6-2]] (a) and (c), the latter at the level 0, with the
-radius R there). So κ lies in the compact set K := {0 ≤ t_IVP ≤ t_IVP(p_1), r_♭ ≤ r ≤ R_1, t^♭_* ≤ 3/2}, on which ǧ is
-continuous and dt_IVP is past timelike; parametrised by t_IVP, it converges in K to a point q, as in the proof of
-[[lem:ii-f-1-3]]. q is not in {r > r_♭, t_IVP > 0}, in which κ is past inextendible, nor in Σ̊, where κ would have an
-end point in M_gl; so r(q) = r_♭. But g_(b₀)⁻¹(dr, dr) ≤ −c_r < 0 on {r_♭ ≤ r ≤ r^♮}, with dr future timelike for g_(b₀)
-there (the proof of [[lem:s27-below]] (iv)), and h_0 is small in C⁰ on the compact set 𝒟 ∩ {r ≤ R} (the proof of
-[[lem:iii-k-6-2]] (a)), which contains 𝒟 ∩ {r ≤ r^♮} as r^♮ < R₁ < R; so dr is future timelike for ǧ on 𝒟 ∩ {r ≤ r^♮}.
-Hence r increases strictly along κ towards q near q, and r(q) > r_♭, a contradiction. So κ meets Σ̊, and π(M₊) ⊂ D.
+p that is past inextendible in X. Second, from the first point p_1 of κ at which t^♭_* ≤ 3/2
+(p_1 := p if t^♭_*(p) ≤ 3/2) on, t^♭_* stays at most 3/2: to exceed it, κ would run in {t^♭_* > 3/2}, where t^♭_* is a
+time function, along an interval starting at a point where t^♭_* = 3/2, and t^♭_* decreases to the past along such an
+interval. Third, beyond p_1, κ therefore lies in {t_IVP > 0, t^♭_* ≤ 3/2} ⊂ 𝒟, where ǧ = g_(0,0): dt_IVP is past
+timelike there, and r ≤ R_1 := max(R, r(p_1)) + 2t_IVP(p_1) along κ beyond p_1
+([[lem:iii-k-6-2]] (a) and (c), the latter at the level 0, with the radius R there). So κ lies in the compact set
+K := {0 ≤ t_IVP ≤ t_IVP(p_1), r_♭ ≤ r ≤ R_1, t^♭_* ≤ 3/2}, on which ǧ is continuous and dt_IVP is past timelike;
+parametrised by t_IVP, it converges in K to a point q, as in the proof of [[lem:ii-f-1-3]]. q is not in
+{r > r_♭, t_IVP > 0}, in which κ is past inextendible, nor in Σ̊, where κ would have an end point in M_gl; so
+r(q) = r_♭. But g_(b₀)⁻¹(dr, dr) ≤ −c_r < 0 on {r_♭ ≤ r ≤ r^♮}, with dr future timelike for g_(b₀) there
+(the proof of [[lem:s27-below]] (iv)), and h_0 is small in C⁰ on the compact set 𝒟 ∩ {r ≤ R}
+(the proof of [[lem:iii-k-6-2]] (a)), which contains 𝒟 ∩ {r ≤ r^♮} as r^♮ < R₁ < R; so dr is future timelike for ǧ on
+𝒟 ∩ {r ≤ r^♮}. Hence r increases strictly along κ towards q near q, and r(q) > r_♭, a contradiction. So κ meets Σ̊, and
+π(M₊) ⊂ D.
 
 *The embedding.* By [Sbi15, Theorem 2.8], (M̂, ĝ, ι̂) is an extension of (D, g_gl, ι): there is a
-time-orientation-preserving isometric embedding ψ : D → M̂ with ψ ∘ ι = ι̂ [Sbi15, Definition 2.2] ([[thm:std-sbierski]]
-(2)). Ψ := ψ ∘ π on M₊ is continuous and equal to ι̂ on Σ̊, and on M₊ ∖ Σ̊, where π is an isometry of ǧ onto g_gl that
-preserves the time orientations, it is a time-orientation-preserving isometric embedding. ∎
+time-orientation-preserving isometric embedding ψ : D → M̂ with ψ ∘ ι = ι̂ [Sbi15, Definition 2.2]
+([[thm:std-sbierski]] (2)). Ψ := ψ ∘ π on M₊ is continuous and equal to ι̂ on Σ̊, and on M₊ ∖ Σ̊, where π is an isometry
+of ǧ onto g_gl that preserves the time orientations, it is a time-orientation-preserving isometric embedding. ∎
 
 *Proof of [[thm:own-data]].* *The order k_P.* By [[cor:own-p-order]] the solution g_λ is the same at every order, and
 the proof uses its bounds at the order k_P = 2k1 + 14 at four places, each of which needs at most k_P. (a)
