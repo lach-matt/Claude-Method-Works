@@ -439,18 +439,17 @@ Ricci tensor of the same metric along the same generators: ∂_v at fixed θ′ 
 at most m. ∎
 
 **Proposition {#prop:civp-axes-formal}** (The formal solution through the axes.) Let the data of [[lem:civp-axes-jets]]
-have size at most Λ in C^m, m ≥ 6k + 18, on edges of length at most 1, be κ-nondegenerate, and let 0 < δ_e ≤ 1/8.
-Extend a_0 to v ∈ [−2δ_e, 0] and b_0 to u ∈ [−2δ_e, 0] by [[lem:civp-axes-extension]] (a), and put X_0(u, v) := a_0(v)
-+ b_0(u) − a_0(0). There are G-invariant smooth families X̂ = (Ω̂, b̂, γ̂) and ρ̂_in, ρ̂_out on the set 𝒮_e := {−2δ_e ≤ u ≤
-λ_u, −2δ_e ≤ v ≤ λ_v, min(u, v) ≤ 2δ_e} with ∂_u^j X̂ = a_j on N_o and ∂_v^k X̂ = b_k on N_i for all j, k, likewise for the
-densities, such that:
+have size at most Λ in C^m, m ≥ 6k + 18, on edges of length λ_u, λ_v ∈ [λ_0, 1], be κ-nondegenerate, and let 0 < δ_e ≤
+1/8. Extend a_0 to v ∈ [−1, 0] and b_0 to u ∈ [−1, 0] by [[lem:civp-axes-extension]] (a), and put X_0(u, v) := a_0(v) +
+b_0(u) − a_0(0). There are G-invariant smooth families X̂ = (Ω̂, b̂, γ̂) and ρ̂_in, ρ̂_out on 𝒮_e := [−1, λ_u] × [−1, λ_v]
+with ∂_u^j X̂ = a_j on N_o and ∂_v^k X̂ = b_k on N_i for all j, k, likewise for the densities, such that, with constants
+depending only on k, Λ, κ and λ_0 unless stated otherwise:
 
-(a) ‖X̂‖_(C^(k+3)(𝒮_e)) ≤ C, with C depending only on k, Λ, κ and δ_e;
+(a) ‖X̂‖_(C^(k+3)(𝒮_e)) ≤ C, C depending also on δ_e;
 
-(b) |X̂ − X_0| ≤ C_b (|u| + |v|) on 𝒮_e, and |b̂| ≤ C_b |v| where u ≥ 2δ_e, with C_b depending only on k, Λ and κ, and
-not on δ_e;
+(b) |X̂ − X_0| ≤ C_b (|u| + |v|) on 𝒮_e, and |b̂| ≤ C_b |v| where u ≥ 2δ_e, with C_b not depending on δ_e;
 
-(c) on the points of 𝒮_e with |u|, |v| ≤ d, and on those within distance d of N, where d > 0 depends only on Λ and κ,
+(c) at the points of 𝒮_e with |u|, |v| ≤ d, and at those within distance d of N, for a number d > 0,
 Ω̂ ≥ e^(−Λ)/2 and γ̂ ≥ (κ/2) γ̊; there the metric Ĝ of [[eq:civp-axes-form]] with the functions X̂ is a smooth
 G-invariant Lorentzian metric for which u and v are null, and Ĝ, q̂_in := ρ̂_in/μ_γ̂ and q̂_out := ρ̂_out/μ_γ̂ induce the
 data on N;
@@ -467,7 +466,8 @@ coefficients are, and the bound of its part (b) holds with ∇̊-derivatives, wh
 order 0 of X − X_0 vanish, every other term vanishes at u = 0 (respectively v = 0) and is at most |u| (respectively |v|)
 times a bound of the jets of order at most k + 3 or 2^(−j); and b vanishes on N_i and on N_o at v = 0, so b_0 = 0 and
 |a_0^b(v)| ≤ Λ |v|. (c) X_0 equals the data on N, so |X_0 − X| ≤ Λ (|u| + |v|) with X the data at the nearest point of
-N, and Ω ≥ e^(−Λ), γ ≥ κ γ̊ there; with (b) this gives (c) for d := min(1, κ, e^(−Λ))/(8(Λ + C_b)). (d) The evolution
+N, Λ being replaced by the bound of the extended a_0 and b_0 in C^1, and Ω ≥ e^(−Λ), γ ≥ κ γ̊ there; with (b) this
+gives (c) for d a small multiple, depending only on these bounds, of min(1, κ, e^(−Λ)). (d) The evolution
 components and the conservation laws vanish to infinite order on N by [[lem:civp-axes-jets]]. The other components of E
 vanish to infinite order on N by the proof of [[prop:loc-cone-formal]] (c), which uses the contracted Bianchi identity in
 the form [[eq:loc-cone-bianchi]] and the constraints of the data and is local in ϑ: it applies off the axes, and at the
