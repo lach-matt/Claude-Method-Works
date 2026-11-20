@@ -20,6 +20,7 @@ FORBIDDEN = [
     (r"(?i)\bn1star\b|N1\*|\bN1STAR\b", "working name"),
     (r"(?i)\bwarp\b", "research tree name"),
     (r"`", "backtick span"),
+    (r"\\", "backslash (TeX markup; the renderer refuses it)"),
     (r"\b[0-9a-f]{32}\b", "md5"),
     (r"(?i)\bverifiers?\b|\bverified by an independent\b|\bindependent readers?\b", "process word: verifier/reader"),
     (r"(?i)\bseat(ed|ing|s)?\b", "process word: seat"),
@@ -150,7 +151,7 @@ def selftest():
         "D612 records", "the record's text", "the supplement's Lemma", "the brief", "a census of", "mutant 3",
         "READ at source", "(computed, exactly)", "Claude", "an earlier version", "crucially", "N1* says", "`x`",
         "warp field", "5c1a186aa2528e503e24c336f9a6dcef", "x" * 130, "Proof. trivial", "see [[C:ix5]]", "Computation C12 verifies",
-        "checked numerically", "by interval arithmetic", "the program", "sympy",
+        "checked numerically", "by interval arithmetic", "the program", "sympy", "the conjugate \\overline{p}",
     ]
     ok = True
     for p in planted:

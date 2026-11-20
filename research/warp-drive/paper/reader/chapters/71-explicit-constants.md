@@ -1,11 +1,11 @@
 ## The loss of the tame estimates and the constants of the settling theorem {#ch:explicit-constants}
 
-The proof of [[thm:settling]] applies the Nash–Moser theorem [[thm:ii-g-2-1]] to the gauge-fixed Einstein equation
-with the tame estimates of [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]]. It applies it with one loss d of b-regularity
-that does not depend on the order, at least the loss with which those estimates are proved ([[thm:iii-k-3-2]],
-[[thm:loss-d]]), and [[thm:ii-g-2-1]] then asks smallness in the regularity N_NM = 21d + 6. The threshold λ1 on the
-wavelength and the threshold δ on the data in [[thm:settling]] are produced by the proof, and are positive. This
-chapter states what the proof makes explicit about d, N_NM, δ and λ1.
+The proof of [[thm:settling]] applies the Nash–Moser theorem [[thm:ii-g-2-1]] to the gauge-fixed Einstein equation with
+the tame estimates of [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]]. It applies it with one loss d of b-regularity that does
+not depend on the order, at least the loss with which those estimates are proved ([[thm:iii-k-3-2]], [[thm:loss-d]]), and
+[[thm:ii-g-2-1]] is then applied at the regularity N_NM = 21d + 6, the order up to which its smallness threshold reads
+the constants of its hypotheses. The threshold λ1 on the wavelength and the threshold δ on the data in [[thm:settling]]
+are produced by the proof, and are positive. This chapter states what the proof makes explicit about d, N_NM, δ and λ1.
 
 The loss of the tame estimates is a number d_acc assigned by the rules of [[lem:iii-j2-1-2]] to the composition of
 model inverses, transforms and differential operators that the proofs of [[ch:s19]]–[[ch:s23]] perform
@@ -25,9 +25,10 @@ same formulas bound λ1 by δ, δ by a power of 2 that decreases with d, and the
 ([[prop:iii-k-1-2]]) at 2δ by a power of 2 that decreases with d ([[prop:ec-delta-cap]]). The chapter ends with the parts
 of the first constants of the linear theory that are in hand, and with the places where explicit evaluation stops
 ([[rem:ec-not-evaluated]]).
-No result of this chapter is used in the proof of any theorem of this paper outside it. Other chapters state explicit
-values that rest on it, the indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which [[prop:fwd-calculus]] proves, and
-the value N′ = 13 of [[ch:s06]], which rests on [[lem:fwd-orders]]; these values are used only in this chapter.
+No result of this chapter is used in the proof of any theorem of this paper outside it. Apart from the chapters that
+restate its bounds, two chapters state explicit values that rest on it: the indices of [[prop:ii-a1-2-4]] and
+[[lem:ii-a-8-5]], which [[prop:fwd-calculus]] proves, and the value N′ = 13 of [[ch:s06]], which rests on
+[[lem:fwd-orders]]; these values are used only in this chapter.
 
 ### The computational point {#sec:ec-point}
 
@@ -508,7 +509,7 @@ Hence D_1 = max(49, 41, 39) = 49. ∎
 #### A quantitative calculus of finite regularity {#sec:fwd-calculus}
 
 The proofs of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]] take their indices from the closed graph theorem, which gives no
-value; the values stated there are proved here. We prove them again, every derivative counted. Throughout, n = 5, T ∈ ℕ
+value; the values stated there are proved here. We prove both again, every derivative counted. Throughout, n = 5, T ∈ ℕ
 and 𝔐(T) := 200T + 100; Op denotes the left quantization on ℝⁿ, Op(p)u(x) = (2π)^(−n) ∫ e^(ix·ξ) p(x, ξ) û(ξ) dξ;
 Q_4 := [−2, 2]ⁿ; and for an integer x, 𝔢(x) denotes the least even integer above x (so 𝔢(x) = x + 1 for odd x and x + 2
 for even x). For an order function 𝗆 (smooth in (x, ξ), with |∂_x^β ∂_ξ^γ 𝗆| ≤ C_(βγ)⟨ξ⟩^(−|γ|), as the variable orders
@@ -564,15 +565,16 @@ the bounds CAa_j^(−k) for ∂_(x_l)^k p_I and CAb_j^(−k) for ∂_(ξ_l)^k p_
 converging pointwise, so by the lemma of Cotlar and Stein it suffices to show
 sup_I Σ_(I′) ‖T_I^*T_(I′)‖^(1/2) ≤ CA and sup_I Σ_(I′) ‖T_I T_(I′)^*‖^(1/2) ≤ CA.
 
-*T_I T_(I′)^*.* The Fourier transform of T_(I′)^*v is supported in the ξ-support of p_(I′), and T_I w depends only on
-ŵ there; so T_I T_(I′)^* = 0 unless the ξ-supports meet, which forces |j − j′| ≤ 1, comparable boxes and boundedly many
-i′ for given I. Its kernel is K(x, y) = (2π)^(−n) ∫ e^(i(x−y)·ξ) p_I(x, ξ) \overline{p_(I′)(y, ξ)} dξ. Integrating by
-parts twelve times in ξ_l, (x_l − y_l)^12 K is bounded by CA²b^(n−12), b := b_j; with 1 + Σ_l (b|x_l − y_l|)^12 ≥
-c(1 + b|x − y|)^12 this gives |K| ≤ CA²bⁿ(1 + b|x − y|)^(−12), K vanishing unless x and y lie in the x-boxes of I and
-I′ (side 2a, a := a_j). Schur's test gives ‖T_I T_(I′)^*‖ ≤ CA² when the boxes are within distance 3a, and
-≤ CA²(ab)^(n−12)⟨m − m′⟩^(−12) ≤ CA²⟨m − m′⟩^(−12) otherwise. Since 12/2 > n, the sum over I′ is at most CA.
+*T_I T_(I′)^*.* The Fourier transform of T_(I′)^*v is supported in the ξ-support of p_(I′), and T_I w depends only on ŵ
+there; so T_I T_(I′)^* = 0 unless the ξ-supports meet, which forces |j − j′| ≤ 1, comparable boxes and boundedly many i′
+for given I. Its kernel is K(x, y) = (2π)^(−n) ∫ e^(i(x−y)·ξ) p_I(x, ξ) p_(I′)(y, ξ)^* dξ, the star denoting the
+conjugate transpose. Integrating by parts twelve times in ξ_l, (x_l − y_l)^12 K is bounded by CA²b^(n−12), b := b_j; with
+1 + Σ_l (b|x_l − y_l|)^12 ≥ c(1 + b|x − y|)^12 this gives |K| ≤ CA²bⁿ(1 + b|x − y|)^(−12), K vanishing unless x and y lie
+in the x-boxes of I and I′ (side 2a, a := a_j). Schur's test gives ‖T_I T_(I′)^*‖ ≤ CA² when the boxes are within
+distance 3a, and ≤ CA²(ab)^(n−12)⟨m − m′⟩^(−12) ≤ CA²⟨m − m′⟩^(−12) otherwise. Since 12/2 > n, the sum over I′ is at most
+CA.
 
-*T_I^*T_(I′).* On the Fourier side its kernel is L(ξ, η) = ∫ e^(ix·(η−ξ)) \overline{p_I(x, ξ)} p_(I′)(x, η) dx, which
+*T_I^*T_(I′).* On the Fourier side its kernel is L(ξ, η) = ∫ e^(ix·(η−ξ)) p_I(x, ξ)^* p_(I′)(x, η) dx, which
 vanishes unless the x-boxes meet. Integrating by parts twelve times in x_l, with a̲ := min(a_j, a_(j′)), we obtain the
 bound CA²a̲ⁿ(1 + a̲|ξ − η|)^(−12) for |L|. If |j − j′| ≤ 2 the scales are comparable and Schur's test over the
 ξ-boxes gives, as before, a bound CA²⟨i − i′⟩^(−12), summable to CA. If |j − j′| ≥ 3, |ξ − η| ≥
@@ -668,7 +670,7 @@ both are), θ ∈ C_c^∞((−13/8, 13/8)ⁿ), and g a symbol of order 𝗆 with
                    × |det Dκ(x)|,                                                                     {#eq:fwd-transport}
 
 where Φ(x, y) := ∫_0^1 Dκ(y + t(x − y)) dt, so that κ(x) − κ(y) = Φ(x, y)(x − y), the star on g is the conjugate
-transpose, and η̃(x, y) := (ψη_0)(Φ(x, y)(x − y)), η̃^*(x, y) := \overline{(ψη_0)(Φ(x, y)(y − x))}. Each derivative of
+transpose, and η̃(x, y) := (ψη_0)(Φ(x, y)(x − y)), η̃^*(x, y) := (ψη_0)(Φ(x, y)(y − x))^*. Each derivative of
 c or c^* in (x, y, η) costs at most one derivative of g, and the bounds of [[lem:fwd-reduction]] hold with μ := sup 𝗆
 and A := C|g|^𝗆_(K_c). The transition map κ is differentiated at most K_c + 1 times. The term of σ_J of index 0 is
 θ (χ_β g)_α, resp. θ ((χ_β g)^*)_α, the same function on phase space read in the chart α; the term of index γ has the
@@ -680,7 +682,7 @@ segment from y to x inside the domain of κ and inside (−7/4, 7/4)ⁿ, and tha
 these pairs; this is possible uniformly in (α, β), as supp χ_β ⊂ φ_β⁻¹([−5/4, 5/4]ⁿ) and by (S1), (S15). (For c^*
 the symbol is evaluated at κ(y), with y in φ_α(supp χ_β).) The kernel of θO^ε_β(g) in the chart α is
 θ(x)K(κ(x), κ(y))|det Dκ(y)| with K that of Op_(ψη_0)(g_β); substituting ξ = Φ(x, y)^(−T)η, as
-(κ(x) − κ(y))·ξ = (x − y)·Φ^Tξ, gives c. For the adjoint of O^ε_β(g), the kernel is μ_α(x)⁻¹ \overline{K^#(y, x)}
+(κ(x) − κ(y))·ξ = (x − y)·Φ^Tξ, gives c. For the adjoint of O^ε_β(g), the kernel is μ_α(x)⁻¹ K^#(y, x)^*
 μ_α(y) with K^#(y, x) = K(κ(y), κ(x))|det Dκ(x)|; as κ(y) − κ(x) = −Φ(x, y)(x − y), the same substitution gives c^*
 after multiplication by θ(x). The variable η enters c and c^* only through the second argument of g. So a derivative
 in η is a ξ-derivative of g times an entry of Φ^(−T) (one order lower); a derivative in x or y falls on θ, η̃, the
