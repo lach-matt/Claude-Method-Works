@@ -131,3 +131,48 @@ The section was inserted, and items 2–10 (the texts without the null-shell sec
 - The resolved-length and line-start check over the 876 changed chapter lines found no line over 121 characters before
   or after label resolution, no bad wrapped start, no backslash and no unresolved reference.
 - In P-CIVP3.md itself, no non-TSV line is over 121 characters and no wrapped prose line starts badly.
+
+## Final round (after the null-shells merge, 878e20e2)
+
+**P-CIVP3.md: md5 dfa0b5519b02565e8586e46db00d12a4, 1,109 lines.** The section is lines 1–823, byte-identical to
+d4c83116. The Placement starts at 825 and the crosswalk rows at 1064, and the 30 rows themselves are unchanged. The full
+diff from d4c83116 is at
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/P-CIVP3.d4c831-to-dfa0b5.diff
+(167 lines; every hunk is at line 826 or later).
+
+What changed, all in the Placement:
+- **Intro paragraph.** Old texts are now quoted from HEAD with Tiers 1–2 and the null-shells section merged. The
+  "New, with the null-shell section" variants are gone, and so is the composition note on item 4.
+- **Item 1.** The section goes immediately after the last line of rem:civp-large-beyond, "not explicit and no estimate
+  of the solution is given." (83:2407), and immediately before "### Null shells along the leaves {#sec:loc-shells}"
+  (83:2409), with one blank line before and one after.
+- **Item 3 (first part).** Only its line numbers moved: paragraph 83:702–721, lines 707–708.
+- **Item 3 (continued).** Old is 83:717–721 as at HEAD. New inserts only "and are not near the background's
+  ([[rem:loc-axis-scope]])" after "near an axis"; the null-shell wording follows verbatim.
+- **Item 4.** Old 83:684–688, content unchanged. "(iii), which begins on the next line, is unchanged" replaces the note
+  on the null-shell placement.
+- **Items 5 and 6.** Only line numbers moved: 83:698–700 and 83:1644–1646.
+- **Item 7.** Old is 83:2385–2389 as at HEAD, with the null-shell wording. New is that text verbatim with one sentence
+  appended.
+- **Item 10.** Old is 90:217–223 as at HEAD. New inserts the thm:loc-axis sentence before "Developments of cone data …"
+  and narrows that sentence to "… near an axis and are not near the background's … ([[rem:loc-cone-scope]],
+  [[rem:loc-axis-scope]])"; the null-shell sentence follows verbatim.
+- **Items 2, 8 and 9.** Unchanged; their old texts were checked at HEAD.
+- **Item 13, new.** It rewraps 83:4707–4711 (prop:bg-slice, paragraph *The packet*) without changing a word. With the
+  section inserted, [[prop:bg-rays]] becomes Proposition 53.102 and that line reaches 122 characters after assembly, the
+  one hit `lint.py --paper` found. The new lines are at most 121 characters also with every chapter-83 label padded to
+  three digits after the point, so later sections cannot push them over.
+- **Crosswalk.** The rows go before the row of sec:loc-shells. The ch81 row's source lines are now 975–997 → 965–987
+  (item 8's lines in this file).
+
+Checks, on a `git archive` of HEAD b5284962 in
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/m4/research/warp-drive/paper/reader/,
+with the section inserted and items 2–10 and 13 applied (`tools/merge4.py`, which asserts each old text exactly once as
+whole lines):
+- `lint.py --chapters`: "chapters: 62 file(s), 4833 label(s) defined, 0 hit(s)".
+- `assemble.py --check`: "labels 4833, computations cited 0, problems 0".
+- `assemble.py`, scratch only: "labels 4833, computations cited 0, problems 0".
+- `lint.py --paper`: "PAPER.md: 0 hit(s)".
+- The changed-lines check over 887 lines found no flags.
+
+Labels: none renamed or removed in this round. lem:loc-axis-rectangle, removed in the previous round, stays removed.

@@ -150,12 +150,8 @@ stand as written, and N_Λ is the only count that moves.
 - **Order and overlaps.** T1–T13 are in chapter 71, T14 in chapter 96; they are pairwise disjoint and may be applied in
   any order. They overlap none of P-UB2's blocks (its M1–M26, O1–O4, F1–F9, FO1–FO7): P-UB2's M8 covers thm:uc-reduction
   (iii), so this file has no text there.
-- **Merged together with P-UB2's main set** (M1–M26, O1–O4) on a scratch copy, lint.py --chapters and assemble.py report
-  0 problems, and lint.py --paper finds four lines over 121 characters after the labels resolve, all in P-UB2's texts
-  and the same four with P-UB2's texts alone: in M6 (rem:ec-upper-open, the line "[[prop:cs-cstar]] bounds it by
-  C_* < …"), M7 (sec:uc-close, the line "exponents of the index sets as constructed, and [[sec:sp]] …") and M13
-  (rem:uc-missing, the lines "through the generators 1 + 𝒵 ([[prop:is-ind]], …" and "The single-step losses are
-  bounded in [[sec:cs]], …"). They need rewrapping at merge (for P-UB2); nothing in this file's texts does.
+- **Merged together with P-UB2's main set** (M1–M26, O1–O4; P-UB2 at md5 69990efadbb064fb43ca5679c0b9d705) on a
+  scratch copy: no overlap, lint.py --chapters 0 hits, assemble.py 0 problems, lint.py --paper 0 hits.
 - **V-I11 §5.1–5.4 must not be applied** together with these texts: they are the interim versions of T1 (rem:gap-sums),
   T7 (prop:is-lambda) and T8–T9 (thm:is-gap, its lem:is-gap-z and rem:is-gap-z); this file replaces them. The label
   lem:is-gap-z is reused here for the proved lemma; V-I11's rem:is-gap-z (a numerical observation) is not needed and
@@ -189,9 +185,9 @@ New (4 lines):
 
 ```new
 [[lem:sp-roots]] use the bounds on the offsets that its proof gives. For the index sets as the proofs construct them, Λ
-contains further sums and the elements that the generator 1 + 𝒵 of [[def:iii-i10-1-1]] produces, and (G) holds
-exactly for ε_K < μ_Z ≈ 1.6748·10⁻¹⁷ ([[thm:is-gap]]); on the part of Λ built from the other generators the least
-excess above 3 is μ_G ≈ 1.6416·10⁻¹⁴.
+contains further sums and the elements that the generator 1 + 𝒵 of [[def:iii-i10-1-1]] produces; at the computational
+point (G) then holds exactly for ε_K < μ_Z ≈ 1.6748·10⁻¹⁷ ([[thm:is-gap]]), and on the part of Λ built from the other
+generators the least excess above 3 is μ_G ≈ 1.6416·10⁻¹⁴.
 ```
 
 ### T3. def:uc-choice, the display eq:uc-choice, 71-explicit-constants.md lines 2587–2587
@@ -301,7 +297,7 @@ lower bound for d_acc at every admissible choice of the weights to 1.2250·10²�
 when ℰ_ind can omit 𝔡₀ ([[thm:is-d0]]): an admissible ℰ_ind that omits 𝔡₀ exists if and only if one explicit family of
 coefficients c_b vanishes at every b near b₀; c_b vanishes at b₀, at every non-rotating b and on the image of ad_(A(b)),
 and this paper does not determine it elsewhere. If c_b vanishes, (G) holds exactly for ε_K < μ♭_Z, where
-3.548125563·10⁻¹⁰ < μ♭_Z < 3.548125564·10⁻¹⁰, so for every ε_K that [[def:iii-i10-1-3]] allows, and N_Λ ≤ 3,683,190,611
+3.548125563·10⁻¹⁰ < μ♭_Z < 3.548125564·10⁻¹⁰, so for every ε_K < ε_Υ ([[def:iii-i10-1-3]]), and N_Λ ≤ 3,683,190,611
 ([[cor:is-flat]]). Whether an admissible ℰ_ind can omit 𝔡₁ is not decided either. Neither question enters an upper bound
 for the loss d: the index sets as constructed serve with every ε_K < μ_Z, and the two questions decide only whether
 smaller index sets, with a larger ε_K and a smaller N_Λ, are available.
@@ -333,7 +329,7 @@ increments give at least λ_♯ + 2. So every element below 3 + ε_+ is β + p�
 in Λ. ∎
 ```
 
-New (128 lines):
+New (130 lines):
 
 ```new
 #### The elements of Z of real part below 3 {#sec:is-z}
@@ -390,19 +386,21 @@ For a row of the second table put c := a + ib. In every row a < 3 and b < 3, so 
     |𝒫_l″(ι)| ≤ 2|π₂(κ)| + 36|π₃(κ)| + 432|π₄(κ)| + 4320|π₅| + 38880|π₆|
               < 2.2183·10²¹ + 4.6079·10²¹ + 1.4·10¹⁷ + 1.2·10¹² + 3·10⁶ < 7·10²¹.
 
-With M = 7·10²¹ and r = 10⁻²¹, so that Mr²/2 = 3.5·10⁻²¹, every row satisfies the last condition of [[lem:is-disc]]
-for 𝒫_l: 10¹³²𝒫_l(c) and 10¹¹⁰𝒫_l′(c) are Gaussian integers, and in every row
+In [[lem:is-disc]] take the centre c, the radius 10⁻²¹ and M = 7·10²¹, so that Mr²/2 = 3.5·10⁻²¹ there; every row
+satisfies its last condition for 𝒫_l: 10¹³²𝒫_l(c) and 10¹¹⁰𝒫_l′(c) are Gaussian integers, and in every row
 
     |Re 𝒫_l(c)| + |Im 𝒫_l(c)| + 3.5·10⁻²¹ < 10⁻²¹ max(|Re 𝒫_l′(c)|, |Im 𝒫_l′(c)|).
 
 So the disc holds exactly one root of P_l. As b > 10⁻²¹ the disc lies in {Im ι > 0}, and the root is not real; its
 conjugate is a root in the conjugate disc, P_l having real coefficients.
 
-*Counting.* For each l the intervals and discs of its rows, with the conjugate discs, are pairwise disjoint (their
-printed numbers differ by more than 2·10⁻²¹), lie in {2 < Re ι < 3}, and do not contain 2. So they hold distinct roots
-of real part greater than 19/10, other than 2: one for l = 0; two for l = 1; three for 2 ≤ l ≤ 815 (for
-136 ≤ l ≤ 815 a real root and a conjugate pair); one for 816 ≤ l ≤ 999. By the counts above, for l ≤ 815 every root of
-C and of P_l of real part greater than 19/10, other than 2, lies in exactly one of these intervals and discs.
+*Counting.* The intervals and discs of all the rows, with the conjugate discs, are pairwise disjoint: any two numbers
+r of the first table differ by more than 2·10⁻²¹, the numbers b of the second table increase with l by more than
+2·10⁻²¹, and every b exceeds 10⁻²¹. They lie in {2 < Re ι < 3} and do not contain 2. So the roots of different rows are
+distinct, and they are roots of real part greater than 19/10, other than 2: one for l = 0; two for l = 1; three for
+2 ≤ l ≤ 815 (for 136 ≤ l ≤ 815 a real root and a conjugate pair); one for 816 ≤ l ≤ 999. By the counts above, for
+l ≤ 815 every root of C and of P_l of real part greater than 19/10, other than 2, lies in exactly one of these
+intervals and discs.
 
 *The other roots of P_l.* Let l ≥ 816, so that x = hκ ≥ 0.667488. For l ≤ 8365, x ≤ 70, and [[lem:s14-sextic-large]]
 gives the three roots of P_l of real part greater than 19/10 as ι_B, real, and ι_P, ῑ_P, not real ((c) there, as
@@ -714,7 +712,7 @@ y = 1.4901, 0.4901, 0.4901 − δ′₁, 0.4901 − δ₂, 0.4901 − 𝔡₀, 0
 3), 1 − c and 1/2 − c, and the least excess is ⌈y/𝔡₁⌉𝔡₁ − y. By the column "frac" of the table of [[thm:is-gap]] and
 the values 1470297.2661 and 1470293.2661 of y/𝔡₁ at 0.4901 − 𝔡₀ and 0.4901 − 2𝔡₀, (1 − frac)𝔡₁ is least at y = 1.4901,
 where it is μ♭, and every other is above 1.3888·10⁻⁷. *The elements of Z₃.* The proof of [[prop:is-lambda]] uses of the
-increments only those of real part below 1, which are now 𝔡₁ alone; so every element of Λ ∖ Λ_ℬ has real part greater
+increments only those of real part below 1, for ℰ′_ind 𝔡₁ alone; so every element of Λ ∖ Λ_ℬ has real part greater
 than 2 + 2.932·10⁻⁶, and one of real part at most 3 + 10⁻⁸ is ι + q𝔡₁ or its conjugate with ι ∈ Z₃ and q ∈ ℕ₀, of real
 part 3 + q𝔡₁ − y_ι. So the first window is missed, the third adds nothing, and the least positive excess in the second
 for ι is (n⁺ + 1)𝔡₁ − y_ι, with n⁺ = ⌊y_ι/𝔡₁⌋ from the rows of [[sec:tab-is]] (proof of [[lem:is-gap-z]]). Bounding it
@@ -791,10 +789,10 @@ Old (1 lines):
 ### Tables for the exceptional sets {#sec:tab-t49}
 ```
 
-New (1996 lines):
+New (1997 lines):
 
 ```new
-### Tables for the roots of the damping polynomials below the real part 3 {#sec:tab-is}
+### Tables for the roots of the damping polynomials of real part below 3 {#sec:tab-is}
 
 The two tables of this section locate the 2629 elements of real part below 3 of the set Z of [[prop:is-iota]], each to
 within 10⁻²¹, and give the least excess of each above the lattice p𝔡₀ + q𝔡₁. They are used in [[lem:is-z3]],
@@ -803,7 +801,7 @@ within 10⁻²¹, and give the least excess of each above the lattice p𝔡₀ +
 Throughout, (v, e, h) = (1/2, 1/102400, 10⁻⁶), κ = l(l + 2), 𝒫_l = 64·10¹⁸P_l = Σ_(k=0)^6 π_k(κ)ι^k for l ≥ 1, with
 the integer coefficients π_k of [[sec:tab-a-sextic]], and 𝒫_0 = 102400·10¹²C, the cubic [[eq:is-c-int]]. For a root ι
 of the row, y := 3 − Re ι, n⁺ := ⌊y/𝔡₁⌋, n⁻ := ⌊4y/𝔡₀⌋, and m(y) is the least positive number p𝔡₀ + q𝔡₁ − y with
-p, q ∈ ℕ₀ ([[lem:is-reduction]]). The column (p, q) gives the pair at which m(y) is attained, p = 0 meaning
+p, q ∈ ℕ₀ ([[lem:is-reduction]]). The columns p and q give the pair at which m(y) is attained, p = 0 meaning
 m(y) = (n⁺ + 1)𝔡₁ − y with q = n⁺ + 1, and the column m a lower bound for m(y), rounded down to five significant
 figures.
 
@@ -822,7 +820,8 @@ n⁺ − n⁻ ≤ 2; for each integer n with n⁻ < n ≤ n⁺, dividing the end
 #### The real roots {#sec:tab-is-real}
 
 *Object.* For each row, the j-th real root, in increasing order, of real part in (2, 3) of P_l (of C for l = 0); it
-lies in (r, r + 10⁻²¹). The rows are those of [[lem:is-z3]] (c).
+lies in (r, r + 10⁻²¹). The rows are those of [[lem:is-z3]] (c). Any two entries of the column r differ by more than
+2·10⁻²¹.
 
 | l | j | r | p | q | m |
 |---|---|---|---|---|---|
@@ -2832,16 +2831,16 @@ chapter order.
 | sec:tab-is-complex | crosswalk/96-tables.tsv | sec:tab-is-real |
 
 ```text
-sec:is-z	paper/reader/proofs/P-UB1.md@PENDING:339	P-UB1, subsection: The elements of Z of real part below 3	new; the roots 1 + 𝒵 of the repaired def:iii-i10-1-1 at the computational point
-eq:is-c-int	paper/reader/proofs/P-UB1.md@PENDING:349	P-UB1, display: the cubic C with integer coefficients	new; 102400·10¹²C at (v, e, h) = (1/2, 1/102400, 10⁻⁶)
-lem:is-disc	paper/reader/proofs/P-UB1.md@PENDING:351	P-UB1, Lemma (A simple root in a disc.)	new; Rouché against the linear Taylor polynomial, with a sufficient condition by real and imaginary parts
-lem:is-z3	paper/reader/proofs/P-UB1.md@PENDING:361	P-UB1, Lemma (The elements of Z of real part below 3.)	new; 2629 elements, enclosed to 10⁻²¹ by the tables of sec:tab-is; count from prop:np-10-54, lem:s14-sextic-large, cor:t49-right, lem:s14-vector-distance
-lem:is-gap-z	paper/reader/proofs/P-UB1.md@PENDING:492	P-UB1, Lemma (The least excesses of Z₃.)	new; replaces V-I11 §5.4 (same label); ι_* enclosed to 10⁻²⁴; μ_Z ∈ (1.6747856, 1.6747859)·10⁻¹⁷; every other excess ≥ 1.1076·10⁻¹⁵
-eq:is-mu-z	paper/reader/proofs/P-UB1.md@PENDING:496	P-UB1, display: μ_Z and its bounds	new
-cor:is-lower	paper/reader/proofs/P-UB1.md@PENDING:584	P-UB1, Corollary (The loss for the index sets as constructed.)	new, optional; prop:ec-rounds at ε_K < μ_Z: 3R > 1.2250·10²⁷
-sec:tab-is	paper/reader/proofs/P-UB1.md@PENDING:797	P-UB1, tables section: the roots of the damping polynomials below the real part 3	new; checks stated per row
-sec:tab-is-real	paper/reader/proofs/P-UB1.md@PENDING:822	P-UB1, table: the 1269 real roots	new; sign changes at r, r + 10⁻²¹; least excess (p, q, m)
-sec:tab-is-complex	paper/reader/proofs/P-UB1.md@PENDING:2101	P-UB1, table: the 680 non-real roots of positive imaginary part	new; lem:is-disc at a + ib, radius 10⁻²¹; least excess (p, q, m)
+sec:is-z	paper/reader/proofs/P-UB1.md@PENDING:335	P-UB1, subsection: The elements of Z of real part below 3	new; the roots 1 + 𝒵 of the repaired def:iii-i10-1-1 at the computational point
+eq:is-c-int	paper/reader/proofs/P-UB1.md@PENDING:345	P-UB1, display: the cubic C with integer coefficients	new; 102400·10¹²C at (v, e, h) = (1/2, 1/102400, 10⁻⁶)
+lem:is-disc	paper/reader/proofs/P-UB1.md@PENDING:347	P-UB1, Lemma (A simple root in a disc.)	new; Rouché against the linear Taylor polynomial, with a sufficient condition by real and imaginary parts
+lem:is-z3	paper/reader/proofs/P-UB1.md@PENDING:357	P-UB1, Lemma (The elements of Z of real part below 3.)	new; 2629 elements, enclosed to 10⁻²¹ by the tables of sec:tab-is; count from prop:np-10-54, lem:s14-sextic-large, cor:t49-right, lem:s14-vector-distance
+lem:is-gap-z	paper/reader/proofs/P-UB1.md@PENDING:490	P-UB1, Lemma (The least excesses of Z₃.)	new; replaces V-I11 §5.4 (same label); ι_* enclosed to 10⁻²⁴; μ_Z ∈ (1.6747856, 1.6747859)·10⁻¹⁷; every other excess ≥ 1.1076·10⁻¹⁵
+eq:is-mu-z	paper/reader/proofs/P-UB1.md@PENDING:494	P-UB1, display: μ_Z and its bounds	new
+cor:is-lower	paper/reader/proofs/P-UB1.md@PENDING:582	P-UB1, Corollary (The loss for the index sets as constructed.)	new, optional; prop:ec-rounds at ε_K < μ_Z: 3R > 1.2250·10²⁷
+sec:tab-is	paper/reader/proofs/P-UB1.md@PENDING:795	P-UB1, tables section: the roots of the damping polynomials of real part below 3	new; checks stated per row
+sec:tab-is-real	paper/reader/proofs/P-UB1.md@PENDING:820	P-UB1, table: the 1269 real roots	new; sign changes at r, r + 10⁻²¹; least excess (p, q, m)
+sec:tab-is-complex	paper/reader/proofs/P-UB1.md@PENDING:2100	P-UB1, table: the 680 non-real roots of positive imaginary part	new; lem:is-disc at a + ib, radius 10⁻²¹; least excess (p, q, m)
 ```
 
 Notes to append to the existing rows of crosswalk/71-explicit-constants.tsv (fourth column, after a "; "):
@@ -2882,10 +2881,10 @@ All scratch work is in the session scratchpad, directory pub1 (scripts and outpu
   (l = 417); 56 elements lie in (3, 3 + 1.6416·10⁻¹⁴] and 1144 in (3, 3 + 4.2·10⁻¹³], R-V-I11's figures.
 - **An independent re-check from the printed tables.** A second routine parsed the two tables as they stand in the
   merged chapter 96 and redid every per-row check from the printed numbers only (sign changes, disc inequality, the
-  reduction with the printed (p, q) and m), the row pattern of lem:is-z3 (c), the column b increasing by more than
-  2·10⁻²¹, the sums S₁ < 1207.93630800, S₂ < 793.55925810 and Σ_(non-real) y² > 150.70791670, the least r, the largest
-  r + 10⁻²¹ and a + 10⁻²¹, the least a, the one-offset excesses of cor:is-flat and the sums 3,623,813,354 and
-  1,227,124,256 of n⁺ + 1. All pass.
+  reduction with the printed (p, q) and m), the row pattern of lem:is-z3 (c), any two entries r more than 5.09·10⁻⁷
+  apart, the column b increasing by more than 2·10⁻²¹, the sums S₁ < 1207.93630800, S₂ < 793.55925810 and
+  Σ_(non-real) y² > 150.70791670, the least r, the largest r + 10⁻²¹ and a + 10⁻²¹, the least a, the one-offset
+  excesses of cor:is-flat and the sums 3,623,813,354 and 1,227,124,256 of n⁺ + 1. All pass.
 - **Every other number in the texts** (the majorant bounds for π₂, π₃, π₄ and 𝒫_l″, the vector root, a(x) − 3 at
   l = 816, the bounds for ι_B and ι_P beyond, μ_Z from the printed bounds, N_Λ < 909,507,124,095,312.22, N_Λ >
   1.85753·10¹⁴, the numbers of cor:is-lower, Δβ_0 = 1.6713522747·10⁻¹⁷ exactly, ε′_0 = 4·10⁻²², μ♭_Z) was rechecked in
