@@ -61,28 +61,41 @@ lem:iv4-1-5	docket68/n1star/proof5/PART-IV5-CDMODES.md:121	IV(4) Lemma 1.5	F-G24
 lem:iv4-1-6	docket68/n1star/proof5/PART-IV5-CDMODES.md:135	IV(4) Lemma 1.6	
 sec:iv5	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5)	
 sec:iv5-0	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5) section 0	
-def:iv5-0-1	docket68/n1star/proof5/PART-IV6-SOLV.md:36	IV(5) Definition 0.1	
-prop:np-10-65-a	docket68/n1star/N1STAR-PROOF.md:8189	NP 10.65 (a)	statement of [Hin23d] and [Hin26d]
+def:iv5-0-1	docket68/n1star/proof5/PART-IV6-SOLV.md:36	IV(5) Definition 0.1	G1: the calculus is that of sec:iv5-calc; the spaces on Omega defined in lem:iv5-calc-dual (P-G1 texts C33-1, C33-2)
 lem:iv5-0-2	docket68/n1star/proof5/PART-IV6-SOLV.md:89	IV(5) Lemma 0.2	
 lem:iv5-0-3	docket68/n1star/proof5/PART-IV6-SOLV.md:137	IV(5) Lemma 0.3	
 lem:iv5-0-4	docket68/n1star/proof5/PART-IV6-SOLV.md:171	IV(5) Lemma 0.4	F-G24: statement cites lem:iv4-1-1 and lem:iv4-1-causal in place of [Hin26a, Lemmas 3.3-3.8, Corollary 3.6]; uniform C proved by the rescaling (g, rc) and lem:iv4-1-causal (d); F2-G24: statement for (g, rc, e), as c vanishes at sf
 lem:iv5-0-5	docket68/n1star/proof5/PART-IV6-SOLV.md:188	IV(5) Lemma 0.5	
+sec:iv5-calc	paper/reader/proofs/P-G1.md@3b715dd5:1-575	proof G1, the calculi	new section; replaces preprint citations
+def:iv5-calc-cells	paper/reader/proofs/P-G1.md@3b715dd5:14-48	proof G1, cells	4 + 1 cells; classes via P' x M
+lem:iv5-calc-structure	paper/reader/proofs/P-G1.md@3b715dd5:50-143	proof G1, structures	structures, weights, symbols
+def:iv5-calc-micro	paper/reader/proofs/P-G1.md@3b715dd5:145-158	proof G1, microsupport	two-sided microsupport, Ell, WF'
+lem:iv5-calc-disjoint	paper/reader/proofs/P-G1.md@3b715dd5:160-233	proof G1, disjoint supports	[Hin26d] Prop. 3.55, Def. 3.34
+lem:iv5-calc-d	paper/reader/proofs/P-G1.md@3b715dd5:235-279	proof G1, property (D)	at X_0 and Sigma^#
+lem:iv5-calc-dual	paper/reader/proofs/P-G1.md@3b715dd5:281-333	proof G1, duality	supported/extendible spaces
+lem:iv5-calc-reg	paper/reader/proofs/P-G1.md@3b715dd5:335-366	proof G1, regulariser	J_eps = Op(<eps zeta>^(-K))
+prop:np-10-65-a	paper/reader/proofs/P-G1.md@3b715dd5:368-512	proof G1, the calculi	replaces NP 10.65 (a); (a)-(j) proved
+eq:iv5-calc-ell	paper/reader/proofs/P-G1.md@3b715dd5:400	proof G1, elliptic estimate	new display
+lem:iv5-calc-garding	paper/reader/proofs/P-G1.md@3b715dd5:514-541	proof G1, margin bound	replaces the sharp Gårding step
+eq:iv5-calc-garding	paper/reader/proofs/P-G1.md@3b715dd5:518	proof G1, margin bound	new display
+lem:iv5-calc-q0	paper/reader/proofs/P-G1.md@3b715dd5:546-571	proof G1, bound for Q_0	replaces Q_0 = Theta*Theta + R
+eq:iv5-calc-q0	paper/reader/proofs/P-G1.md@3b715dd5:551	proof G1, bound for Q_0	new display
 sec:iv5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:211	IV(5) section 1	
 lem:iv5-1-1	docket68/n1star/proof5/PART-IV6-SOLV.md:213	IV(5) Lemma 1.1	F-G24: [Hin26a, Lemma 3.7] replaced by lem:iv4-1-causal (b)
-prop:iv5-1-2	docket68/n1star/proof5/PART-IV6-SOLV.md:235	IV(5) Proposition 1.2	
-prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d)
+prop:iv5-1-2	docket68/n1star/proof5/PART-IV6-SOLV.md:235	IV(5) Proposition 1.2	G1: proof by prop:np-10-65-a (e) with the cut-offs (P-G1 text C33-5)
+prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d); G1: regulariser lem:iv5-calc-reg; commutant, (5.26), absorption by prop:np-10-65-a (P-G1 texts C33-6 to C33-9)
 eq:iv5-fib	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.21)	estimate written out in dimension 4 + 1
 eq:iv5-fib-adj	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.22)	adjoint estimate written out in dimension 4 + 1
 sec:iv5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:298	IV(5) section 2	
 eq:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:303	IV(5) (2.1)	
-prop:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:313	IV(5) Proposition 2.1	
+prop:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:313	IV(5) Proposition 2.1	G1: (5.44) by lem:iv5-calc-q0, (5.45) by lem:iv5-calc-garding, 9C_2 + 2 for 2C (P-G1 texts C33-10 to C33-12)
 sec:iv5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:358	IV(5) section 3	
-prop:iv5-3-1	docket68/n1star/proof5/PART-IV6-SOLV.md:362	IV(5) Proposition 3.1	
+prop:iv5-3-1	docket68/n1star/proof5/PART-IV6-SOLV.md:362	IV(5) Proposition 3.1	G1: Q-terms with the weight rho_sf (P-G1 text C33-13)
 sec:iv5-4	docket68/n1star/proof5/PART-IV6-SOLV.md:391	IV(5) section 4	
-prop:iv5-4-1	docket68/n1star/proof5/PART-IV6-SOLV.md:393	IV(5) Proposition 4.1	
+prop:iv5-4-1	docket68/n1star/proof5/PART-IV6-SOLV.md:393	IV(5) Proposition 4.1	G1: weighted Q-terms of prop:iv5-3-1 (P-G1 text C33-14)
 sec:iv5-5	docket68/n1star/proof5/PART-IV6-SOLV.md:417	IV(5) section 5	
 prop:iv5-5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:419	IV(5) Proposition 5.1	
-prop:iv5-5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:445	IV(5) Proposition 5.2	
+prop:iv5-5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:445	IV(5) Proposition 5.2	G1: Q-terms by lem:iv5-calc-q0 and lem:iv5-calc-garding (P-G1 text C33-15)
 prop:iv5-5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:510	IV(5) Proposition 5.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (a)
 sec:iv5-6	docket68/n1star/proof5/PART-IV6-SOLV.md:566	IV(5) section 6	F-G24: the paragraph using [Hin26a, Lemma 5.14, Corollary 5.15] replaced by lem:iv5-6-tform and cor:iv5-6-energy: the slice-wise use of [Hin26a, Corollary 5.15] replaced by a pointwise route, which needs e < 2/D, which holds (e = 1/102400 < 2/5); the old text described the preprint's hypothesis correctly (F2-G24)
 lem:iv5-6-tform	G-SWEEP fix F-G24	[Hin26a] (5.61); in place of [Hin26a] Lemma 5.14 (which gives positivity only on eta x e + eta' x f with eta' orthogonal to eta, enough for its slice-integrated Corollary 5.15): pointwise positivity of Q for l_(g,c,e), 0 < e < 2/D (every D >= 3)	T_(G,eta,l) and its quadratic form Q on T* x E defined; (a) rank-one positivity for any l positive on future causal covectors; (b) Q positive semidefinite at past null eta with nullspace eta x T*, positive definite at past timelike eta, for l = l_(g,c,e) with 0 < e < 2/D, by a sum of squares; the counterexample shows only that pointwise positivity on all of T* x E needs the form of l (it does not bear on [Hin26a] Lemma 5.14); (c) uniform bound on compact sets; F2-G24: header reads in place of, not as a transcription
@@ -92,15 +105,15 @@ eq:iv5-6-energy	G-SWEEP fix F-G24	[Hin26a] (5.71)/(5.74), main part	the integrat
 prop:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:576	IV(5) Proposition 6.1	F-G24: proof uses T of eq:iv5-6-t, cor:iv5-6-energy (region, f_1, f_2, w, the three covectors, remainder) and lem:iv4-1-causal (a); adjoint and Sigma-sharp estimates pointed to the corollary; F2-G24: delta-weights of -a da = -(1/2)d(a^2) carry the factor 1/2
 eq:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:582	IV(5) (6.1)	
 sec:iv5-7	docket68/n1star/proof5/PART-IV6-SOLV.md:620	IV(5) section 7	
-prop:iv5-7-1	docket68/n1star/proof5/PART-IV6-SOLV.md:624	IV(5) Proposition 7.1 with its extension argument	
+prop:iv5-7-1	docket68/n1star/proof5/PART-IV6-SOLV.md:624	IV(5) Proposition 7.1 with its extension argument	G1: strong sense at fibre infinity by the regularisation in prop:iv5-1-3 (P-G1 text C33-16)
 eq:iv5-5-79	docket68/n1star/proof5/PART-IV6-SOLV.md:627	IV(5) (5.79)	
 prop:iv5-7-2	docket68/n1star/proof5/PART-IV6-SOLV.md:691	IV(5) Proposition 7.2 with its parameter ordering	
 eq:iv5-5-81	docket68/n1star/proof5/PART-IV6-SOLV.md:694	IV(5) (5.81)	
-thm:iv5-7-3	docket68/n1star/proof5/PART-IV6-SOLV.md:742	IV(5) Theorem 7.3	
+thm:iv5-7-3	docket68/n1star/proof5/PART-IV6-SOLV.md:742	IV(5) Theorem 7.3	G1: duality of the supported and extendible spaces, uniform in h, by lem:iv5-calc-dual (P-G1 text C33-17)
 eq:iv5-5-16	docket68/n1star/proof5/PART-IV6-SOLV.md:755	IV(5) (5.16)	
 rem:iv5-7-4	docket68/n1star/proof5/PART-IV6-SOLV.md:813	IV(5) Remark 7.4	
 sec:iv5-8	docket68/n1star/proof5/PART-IV6-SOLV.md:821	IV(5) section 8	
-lem:iv5-8-1	docket68/n1star/proof5/PART-IV6-SOLV.md:823	IV(5) Lemma 8.1	F-G24: margin of [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d)
+lem:iv5-8-1	docket68/n1star/proof5/PART-IV6-SOLV.md:823	IV(5) Lemma 8.1	F-G24: margin of [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d); G1: uniformity in b by prop:np-10-65-a (j) (P-G1 text C33-18)
 sec:iv6	docket68/n1star/proof5/PART-IV7-TFACE.md:11	IV(6)	
 sec:iv6-0	docket68/n1star/proof5/PART-IV7-TFACE.md:24	IV(6) section 0	
 eq:iv6-0-1	docket68/n1star/proof5/PART-IV7-TFACE.md:37	IV(6) (0.1)	
@@ -114,8 +127,8 @@ sec:iv6-1	docket68/n1star/proof5/PART-IV7-TFACE.md:93	IV(6) section 1
 prop:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:95	IV(6) Proposition 1.1	F-G24: sink symbol from lem:iv6-0-flow (c); conjugation identity after [Hin26a, (B.27)] derived; flow from R_in to R_out by lem:iv6-0-flow (b) with prop:i-a-5-2; uniformity near +-1 proved (sink by lem:iv6-0-flow (c), R_in and propagation by prop:i-a-4-6, prop:i-a-5-2 of ch:s01 at the scattering end); F2-G24: uniformity at R_out with an explicit choice of supp chi_2; uniformity of the propagation constants by the argument of thm:i-a-7-2 (1)
 eq:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:97	IV(6) (1.1)	
 eq:iv6-1-2	docket68/n1star/proof5/PART-IV7-TFACE.md:102	IV(6) (1.2)	
-sec:iv6-2	docket68/n1star/proof5/PART-IV7-TFACE.md:201	IV(6) section 2	
-thm:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:211	IV(6) Theorem 2.1	F-G24: energy near X_0 cites lem:iv5-6-tform and cor:iv5-6-energy on M with their hypotheses checked
+sec:iv6-2	docket68/n1star/proof5/PART-IV7-TFACE.md:201	IV(6) section 2	G1: eb-structure of def:iv5-calc-cells, calculus by prop:np-10-65-a (i) (P-G1 text C33-19)
+thm:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:211	IV(6) Theorem 2.1	F-G24: energy near X_0 cites lem:iv5-6-tform and cor:iv5-6-energy on M with their hypotheses checked; G1: Q-terms at the cone face by lem:iv5-calc-q0 and lem:iv5-calc-garding (P-G1 text C33-20)
 eq:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:225	IV(6) (2.1)	
 sec:iv6-3	docket68/n1star/proof5/PART-IV7-TFACE.md:346	IV(6) section 3	
 thm:iv6-3-1	docket68/n1star/proof5/PART-IV7-TFACE.md:348	IV(6) Theorem 3.1	

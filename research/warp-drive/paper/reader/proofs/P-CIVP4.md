@@ -982,3 +982,99 @@ further families reaching the axes are not treated. (iv) *Regularity.* The data 
 norms in C^(6k+19) near the corner sphere. Data of finite regularity, densities that are only bounded, and shells, are
 not covered; for the 3 + 1 problem with measure-valued null dusts see [[rem:loc-cone-scope]] (iii). (v) *Symmetry.* The
 T²-symmetry and the two reflections are used throughout; the problem without symmetry is not treated.
+
+### Placement
+
+Each item names the place, the old text and the new text. Old and new texts are given as lines of the chapter sources,
+unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:". Line numbers are those
+of the current chapter sources and of proofs/P-CIVP.md and proofs/P-CIVP2.md, and serve only to find the place. The
+section of Block B follows the Tier 3 section ([[pending:tier3-section]]), which is being written; where that section,
+Tier 1 or Tier 2 changes a text listed below, the coordinator merges the new texts.
+
+*1. Block A, [[ch:class-system]].* The text of Block A from the statement of [[lem:class-leaf-reference]] through the end
+of its proof (without the heading "Block A" and its first paragraph) is inserted in [[sec:class-planar-shear]]
+immediately after [[rem:class-leaf-numerics]], whose last line ends "0.146 and 2.91. No proof uses these observations."
+(line 1363), and before the heading "### Cauchy stability with the dusts at the axes {#sec:class-axes-stability}" (line
+1365), with one blank line before and one after. It defines lem:class-leaf-reference, eq:class-leaf-lipschitz and
+eq:class-leaf-wise.
+
+*2. [[ch:class-system]], [[lem:class-leaf-differences]], the definition of H_L (lines 1326–1328).* The subspace TΣ_L in
+H_L[Θ_A] must be fixed by the state, as [[lem:class-volterra]] takes H as a function of position. The Tier 3 section may
+ask for the same clause; one copy is kept. Old:
+
+be the graphs z = h(r) through the points of the axis near that point, each solving [[eq:class-leaf-volterra]] with
+H_L := H_L[Θ_A], the formula of step (1) of [[lem:class-planar-shear]] with Θ_A in place of Θ and the spatial part of
+p_A in place of ∇_Σ u; they exist and are unique by [[lem:class-volterra]], and for U near ů they are C¹-close to the
+
+New:
+
+be the graphs z = h(r) through the points of the axis near that point, each solving [[eq:class-leaf-volterra]] with
+H_L := H_L[Θ_A], the formula of step (1) of [[lem:class-planar-shear]] with Θ_A in place of Θ, the spatial part of p_A
+in place of ∇_Σ u and, for TΣ_L there, the γ3-orthogonal complement in TM3 of the spatial part of p_A, so that
+H_L[Θ_A] is a function of position; they exist and are unique by [[lem:class-volterra]], and for U near ů they are
+C¹-close to the
+
+*3. Block B, [[ch:localised-data]].* The section of Block B, from its heading through the end of
+[[rem:civp-axes-scope]], is inserted as a new section after the Tier 3 section, which follows [[sec:civp-large]], and
+before the heading "### The static Killing field and the charge {#sec:loc-kid}" (line 602 of the current chapter), with
+one blank line before and one after. Its heading line is "### Developments of data of any size through the axes
+{#sec:civp-axes}". It defines sec:civp-axes, sec:civp-axes-data, eq:civp-axes-form, def:civp-axes-data,
+eq:civp-axes-raychaudhuri, sec:civp-axes-jets, lem:civp-axes-principal, eq:civp-axes-principal, lem:civp-axes-jets,
+lem:civp-axes-extension, prop:civp-axes-formal, sec:civp-axes-corner, prop:civp-axes-corner, eq:civp-axes-modified,
+sec:civp-axes-unique, prop:civp-axes-unique, cor:civp-axes-maximal, sec:civp-axes-faces, prop:civp-axes-faces,
+rem:civp-axes-riccati, sec:civp-axes-criterion, prop:civp-axes-criterion, sec:civp-axes-theorem,
+lem:civp-axes-free-data, thm:civp-axes, cor:civp-axes-cones, cor:civp-axes-perturbations and rem:civp-axes-scope, none
+of which is defined elsewhere. The prefix may be changed to loc- without other changes.
+
+*4. [[ch:localised-data]], the paragraph after [[prop:loc-cones]], its last sentence, as Tier 2's item 3 writes it
+(proofs/P-CIVP2.md, lines 694–695).* Old:
+
+the solution. No development is asserted for cone data that differ from the background's near an axis, for data of
+finite regularity or for densities that are not smooth, and no other result of this paper uses these developments.
+
+New:
+
+the solution. For cone data of any size that reach the axes, with or without dust, a development in the gauge on a
+neighbourhood of the two cones, unique in the gauge, and a maximal development with a continuation criterion are given
+by [[thm:civp-axes]], provided the cones do not focus ([[cor:civp-axes-cones]]); the neighbourhood is not explicit, and a
+development of the whole rectangle is not asserted ([[rem:civp-axes-scope]]). No development is asserted for data of
+finite regularity or for densities that are not smooth, and no other result of this paper uses these developments.
+
+*5. [[ch:localised-data]], its opening paragraph, as Tier 2's item 2 writes it.* After the parenthesis that closes with
+the citation of the small-data theorem and before "On Σ_τ0 the constraints split, after Rácz", insert the sentence:
+
+Data of any size that reach the axes have a development on a neighbourhood of the two cones, unique in the gauge, and a
+maximal development, provided the cones do not focus ([[thm:civp-axes]]).
+
+*6. [[ch:scope]], the paragraph on localised data, as Tier 2's item 4 writes its last sentence (proofs/P-CIVP2.md,
+lines 720–721).* Old:
+
+near the background's ([[thm:civp-large]], [[pending:civp-tier1-theorem]]). Developments of cone data that differ from
+the background's near an axis are not established.
+
+New:
+
+near the background's ([[thm:civp-large]], [[pending:civp-tier1-theorem]]). For data of any size that reach the axes,
+a development on a neighbourhood of the two cones, unique in the gauge, and a maximal development with a continuation
+criterion exist when the cones do not focus; that neighbourhood is not explicit, and a development of the whole
+rectangle is not asserted ([[thm:civp-axes]], [[rem:civp-axes-scope]]).
+
+The citation [[pending:civp-tier1-theorem]] in the old and new texts is the one that Tier 2's wiring replaces.
+
+*7. [[ch:theorems]], the item *More families*, as Tier 2's item 6 writes it (proofs/P-CIVP2.md, line 744).* Old:
+
+  near the axes ([[thm:civp-large]]); and exactly localised vacuum data
+
+New:
+
+  near the axes ([[thm:civp-large]]); for such data of any size and reaching the axes, a development near the two
+  cones, unique in the gauge, with a maximal development and a continuation criterion ([[thm:civp-axes]]); and exactly
+  localised vacuum data
+
+*8. Unchanged.* [[ch:introduction]] (its text on [[part:further]] already names the development from two null cones, as
+Tier 1's item 5 writes it), [[ch:two-dusts]], [[ch:vlasov]] and [[ch:ten-l5]] need no change. [[rem:class-scope]] is not
+changed: it concerns the high-frequency construction.
+
+*9. Appendix A and the references.* No new entry. The proofs use [LY22, Theorem 1 (i)] ([[thm:std-ly-extension]]) in
+[[lem:civp-axes-extension]] (a), Stein's operator ([[thm:std-sy-extension]]) in [[prop:civp-axes-corner]] and
+[[prop:civp-axes-unique]], and the results of chapters 81 and 83; [[thm:std-cctw-strips]] is cited in a remark only.
