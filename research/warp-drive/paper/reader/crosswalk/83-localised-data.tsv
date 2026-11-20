@@ -158,21 +158,3 @@ lem:margins-gamma-form	paper/reader/proofs/P-E-margins.md:530	proof E margins (c
 eq:margins-gamma-form	paper/reader/proofs/P-E-margins.md:532	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 lem:margins-profile-monotone	paper/reader/proofs/P-E-margins.md:550	proof E margins (confirmed)	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 prop:margins-seed	paper/reader/proofs/P-E-margins.md:557; paper/reader/proofs/P-K83b.md:444-446	proof E margins (confirmed); proof P-K83b, Block 3.6	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part; the paragraph after it extended to all of region III on Σ_τ0 by prop:bg-region-three-end
-sec:tab-bg	paper/reader/proofs/T-E-background.md:1	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-nprime	paper/reader/proofs/T-E-background.md:12	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-nprime-defects	paper/reader/proofs/T-E-background.md:75	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-nprime-chain	paper/reader/proofs/T-E-background.md:97	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-ray	paper/reader/proofs/T-E-background.md:120	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-ray-defects	paper/reader/proofs/T-E-background.md:161	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-ray-chain	paper/reader/proofs/T-E-background.md:199	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-seed	paper/reader/proofs/T-E-background.md:239	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-slice-iii	paper/reader/proofs/T-E-background.md:269	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-slice-packet	paper/reader/proofs/T-E-background.md:301	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:tab-bg-region-three-end	paper/reader/proofs/P-K83b.md:381-396	proof P-K83b, Block 3.1 (table of (b))	merged; the two column pairs printed as one, in reading order; u, w written 𝔲, W
-sec:table-margins	paper/reader/proofs/T-E-margins.md:1	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:table-bump	paper/reader/proofs/T-E-margins.md:7	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:table-seed-profile	paper/reader/proofs/T-E-margins.md:65	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:table-seed-cells	paper/reader/proofs/T-E-margins.md:78	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:table-shell	paper/reader/proofs/T-E-margins.md:123	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:table-sigma0	paper/reader/proofs/T-E-margins.md:257	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
-sec:table-sigma-bent	paper/reader/proofs/T-E-margins.md:397	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part

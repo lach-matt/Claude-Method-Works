@@ -20,6 +20,24 @@ sec:tb2-polynomial-multipliers	paper/reader/proofs/T-B2.md:9-35	tables of proof 
 sec:tb2-bernstein	paper/reader/proofs/T-B2.md:37-133	tables of proof B2	
 sec:tb2-algebraic-rows	paper/reader/proofs/T-B2.md:135-152	tables of proof B2	range labels (d)-(f) kept
 sec:tb2-points	paper/reader/proofs/T-B2.md:154-171	tables of proof B2	
+sec:tab-bg	paper/reader/proofs/T-E-background.md:1	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-nprime	paper/reader/proofs/T-E-background.md:12	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-nprime-defects	paper/reader/proofs/T-E-background.md:75	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-nprime-chain	paper/reader/proofs/T-E-background.md:97	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-ray	paper/reader/proofs/T-E-background.md:120	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-ray-defects	paper/reader/proofs/T-E-background.md:161	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-ray-chain	paper/reader/proofs/T-E-background.md:199	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-seed	paper/reader/proofs/T-E-background.md:239	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-slice-iii	paper/reader/proofs/T-E-background.md:269	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-slice-packet	paper/reader/proofs/T-E-background.md:301	tables of proof E background	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:tab-bg-region-three-end	paper/reader/proofs/P-K83b.md:381-396	proof P-K83b, Block 3.1 (table of (b))	merged; the two column pairs printed as one, in reading order; u, w written 𝔲, W
+sec:table-margins	paper/reader/proofs/T-E-margins.md:1	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-bump	paper/reader/proofs/T-E-margins.md:7	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-seed-profile	paper/reader/proofs/T-E-margins.md:65	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-seed-cells	paper/reader/proofs/T-E-margins.md:78	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-shell	paper/reader/proofs/T-E-margins.md:123	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-sigma0	paper/reader/proofs/T-E-margins.md:257	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
+sec:table-sigma-bent	paper/reader/proofs/T-E-margins.md:397	tables of proof E margins	merged; notation of chapter 80 (σ, 𝒜, ℬ, 𝒞_in, 𝒞_out); e^ψ written q in the background part
 sec:cone-tables	paper/reader/proofs/T-D1.md:1; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
 sec:cone-table-c1	paper/reader/proofs/T-D1.md:14; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
 sec:cone-table-c2	paper/reader/proofs/T-D1.md:226; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
