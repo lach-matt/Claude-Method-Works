@@ -94,8 +94,8 @@ a weight next to an indicial root ([[lem:rb-quasimode]]).
 
 The threshold λ_2 of [[thm:own-data]], the threshold λ_L of [[thm:layer]] and the thresholds of [[thm:very-edge]] and
 [[thm:l-24]] are not evaluated ([[thm:own-data]], [[rem:layer-threshold-size]], [[rem:edge-thresholds]]). λ_L is the
-threshold that the proof delivers, not the largest λ for which [[thm:layer]] holds, and for the envelope env_C it is at
-most 10^(−430) ([[rem:layer-threshold-size]]).
+threshold that the proof delivers, not the largest λ for which [[thm:layer]] holds, and for the envelope env_C it is
+below 2.71·10⁻¹² ([[rem:layer-threshold-size]]).
 
 ### After the shell {#sec:scope-after}
 

@@ -5,11 +5,11 @@ results and are proved here: [[thm:std-hormander-cauchy]], [[cor:std-moser-produ
 [[cor:std-kato-ponce]] and [[cor:std-zero-sobolev]]; [[thm:std-mazzeo-melrose]] (5) and the closing sentences of a few
 other items draw short consequences of the quoted statements, each with its reason. Each published result is cited by
 its source, with its number and its page where given. Pages are those of the arXiv versions listed in the references;
-the arXiv text of [BGP] carries the book's page numbers, [See64] and [MM87] are cited by their journal pages, [Mel93] by
-the page of the author's online edition (version 5.0E, 1993), [Hö90], [RS1] and [Tre19] by the pages of the printed
-books, and [DLMF] by equation number. Quotation marks enclose the source's own wording, transcribed into this edition's
-typography; an ellipsis marks words of the statement left out because no proof here depends on them. Inside each item
-the letters are the source's.
+the arXiv text of [BGP] carries the book's page numbers, [See64], [MM87] and [DS41] are cited by their journal pages,
+[Mel93] by the page of the author's online edition (version 5.0E, 1993), [Hö90], [RS1] and [Tre19] by the pages of
+the printed books, and [DLMF] by equation number. Quotation marks enclose the source's own wording, transcribed into
+this edition's typography; an ellipsis marks words of the statement left out because no proof here depends on them.
+Inside each item the letters are the source's.
 
 ### Linear wave equations on Lorentzian manifolds {#sec:std-linear-wave}
 
@@ -1251,3 +1251,15 @@ distinct points in [−1,1] satisfy Λ_n ≥ (2/π) log(n + 1) + 0.52125…; (15
     Λ_n ≤ (2/π) log(n + 1) + 1 and Λ_n ∼ (2/π) log n, n → ∞. (15.8a,b)
 
 …". Here log is the natural logarithm.
+
+**Theorem {#thm:std-duffin-schaeffer}** (Derivatives of a polynomial bounded at the Chebyshev points; [DS41, p. 517;
+Theorem III and its proof, p. 525].) In [DS41], T_n(x) = cos(n cos⁻¹ x) is "the Tchebychef polynomial" (p. 517).
+Theorem III: "Let f(z) be a polynomial of degree n satisfying |f(cos(νπ/n))| ≤ 1; ν = 0, 1, 2, ⋯, n. Then for
+p = 1, 2, 3, ⋯, n,
+
+    |f^(p)(x)| ≤ n²(n² − 1)(n² − 2²) ⋯ (n² − (p − 1)²)/(1 · 3 · 5 ⋯ (2p − 1)).      (19)
+
+The equality occurs only if f(z) ≡ γT_n(z), |γ| = 1." The variable x of (19) ranges over −1 ≤ x ≤ 1: the proof
+obtains (19) from "|cf^(p)(x)| ≤ |T_n^(p)(1)|, −1 ≤ x ≤ 1", c > 1 a constant, and ends: "Now T_n(1) = 1 so, using
+induction, we find that T_n^(p)(1) is equal to the right-hand side of (19)." The points cos(νπ/n) are the Chebyshev
+points x_j of [[thm:std-chebyshev]].

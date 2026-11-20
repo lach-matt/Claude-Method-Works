@@ -50,7 +50,8 @@ is below 2.71·10⁻¹² whatever those constants are, for every l5, A, τ0, T a
     λ_L ≤ Λ_4 < 2.709·10⁻¹² (1 + C1 Δτ/(2π))^(−1456/1442)   for K = 6,      λ_L ≤ Λ_4 < 2.3·10⁻¹²   for K ≥ 7.
 
 Indeed λ_L ≤ Λ_4 by [[eq:layer-threshold]]. Here p = 14 and m = 56 M = 112 K + 784, as M = 2N + 8 and N = K + 3; so
-m = 1456 for K = 6 and m ≥ 1568 for K ≥ 7. Since 4π + 2 C1 Δτ = 4π (1 + C1 Δτ/(2π)) and C1 Δτ ≥ 0,
+m = 1456 for K = 6 and m ≥ 1568 for K ≥ 7. Since 4π + 2 C1 Δτ = 4π (1 + C1 Δτ/(2π)), and C1 Δτ ≥ 0, as C1 ≥ 0 and
+τ_end ≥ v_start − q0 > τ0,
 
     Λ_4 = (1 + C1 Δτ/(2π))^(−m/(m−p)) B_m^(−m/(m−p)) ≤ B_m^(−m/(m−p)),      B_m := 32π 2^(−1/m) C_(1,m) M_m^(1/m).
                                                                                                  {#eq:layer-size-base}
@@ -111,13 +112,15 @@ are below 2.71·10⁻¹².
 The lemma uses one published theorem. It belongs in the appendix, in [[sec:std-chebyshev]] after
 [[thm:std-chebyshev]]:
 
-**Theorem {#thm:std-duffin-schaeffer}** (Derivatives of a polynomial bounded at the Chebyshev points; [DS41, Theorem
-III and its proof, p. 525].) In [DS41], T_n(x) = cos(n cos⁻¹ x) is "the Tchebychef polynomial" (p. 517). Theorem III:
-"Let f(z) be a polynomial of degree n satisfying |f(cos(νπ/n))| ≤ 1; ν = 0, 1, 2, ⋯, n. Then for p = 1, 2, 3, ⋯, n,
+**Theorem {#thm:std-duffin-schaeffer}** (Derivatives of a polynomial bounded at the Chebyshev points; [DS41, p. 517;
+Theorem III and its proof, p. 525].) In [DS41], T_n(x) = cos(n cos⁻¹ x) is "the Tchebychef polynomial" (p. 517).
+Theorem III: "Let f(z) be a polynomial of degree n satisfying |f(cos(νπ/n))| ≤ 1; ν = 0, 1, 2, ⋯, n. Then for
+p = 1, 2, 3, ⋯, n,
 
-    |f^(p)(x)| ≤ n²(n² − 1)(n² − 2²) ⋯ (n² − (p − 1)²)/(1 · 3 · 5 ⋯ (2p − 1)),   −1 ≤ x ≤ 1.      (19)
+    |f^(p)(x)| ≤ n²(n² − 1)(n² − 2²) ⋯ (n² − (p − 1)²)/(1 · 3 · 5 ⋯ (2p − 1)).      (19)
 
-The equality occurs only if f(z) ≡ γT_n(z), |γ| = 1." The proof of the theorem ends: "Now T_n(1) = 1 so, using
+The equality occurs only if f(z) ≡ γT_n(z), |γ| = 1." The variable x of (19) ranges over −1 ≤ x ≤ 1: the proof
+obtains (19) from "|cf^(p)(x)| ≤ |T_n^(p)(1)|, −1 ≤ x ≤ 1", c > 1 a constant, and ends: "Now T_n(1) = 1 so, using
 induction, we find that T_n^(p)(1) is equal to the right-hand side of (19)." The points cos(νπ/n) are the Chebyshev
 points x_j of [[thm:std-chebyshev]].
 
@@ -200,7 +203,8 @@ sentence "The points cos(νπ/n) are the Chebyshev points x_j of [[thm:std-cheby
       Soc. 50 (1941), 517–528. doi:10.1090/S0002-9947-1941-0005942-4
 
 *7. Unchanged.* [[eq:layer-threshold]] and the rest of [[sec:layer-threshold]]: every form stays, Λ_4, Λ_5′, C_ε and
-Λ_8b–Λ_8d taking the new values of C_(i,m). [[cor:layer-interpolation-band]], [[lem:layer-levels]] and the statement and
-proof of [[thm:layer]], which use the lemma only through its inequality. The sentence of [[ch:lambda0]] saying that the
-lower end c_e > 1 is also what [[rem:layer-threshold-size]] uses stays true, as the new remark uses only c_e > 1. The
-sentence of [[rem:edge-thresholds]] citing [[rem:layer-threshold-size]] states no size and stays.
+Λ_8b–Λ_8d taking the new values of C_(i,m). [[cor:layer-interpolation-band]], [[lem:layer-levels]], the statement and
+proof of [[thm:layer]], [[thm:layer-past]] and [[prop:layer-regions]], which use the lemma only through its inequality.
+The sentence of [[ch:lambda0]] saying that the lower end c_e > 1 is also what [[rem:layer-threshold-size]] uses stays
+true, as the new remark uses only c_e > 1. The sentence of [[rem:edge-thresholds]] citing [[rem:layer-threshold-size]]
+states no size and stays.

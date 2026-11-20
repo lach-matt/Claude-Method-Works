@@ -49,6 +49,8 @@
   Proc. 17, Amer. Math. Soc., Providence, RI (2013), 97–205. arXiv:0811.0354v1
 - [DS23] M. M. Disconzi, Y. Shao, *Strongly hyperbolic quasilinear systems revisited, with applications to relativistic
   fluid dynamics*, Asymptot. Anal. 140 (2024), 281–302. doi:10.3233/ASY-241919 arXiv:2308.09851v1
+- [DS41] R. J. Duffin, A. C. Schaeffer, *A refinement of an inequality of the brothers Markoff*, Trans. Amer. Math.
+  Soc. 50 (1941), 517–528. doi:10.1090/S0002-9947-1941-0005942-4
 - [Dya16] S. Dyatlov, *Spectral gaps for normally hyperbolic trapping*, Ann. Inst. Fourier (Grenoble) 66 (2016), 55–82.
   doi:10.5802/aif.3005
 - [DZ19] S. Dyatlov, M. Zworski, *Mathematical theory of scattering resonances*, Grad. Stud. Math. 200, Amer. Math.
