@@ -132,7 +132,7 @@ v-derivatives on N₀ of the orders between 4 and κ − 1.
 The tables of a case consist of one block for each element (i, j), taken in the order of i and then j, and each field
 in the order R, m, n, W, s. A block begins with two header lines:
 
-    element (i, j): ξ in [m_i − h_i, m_i + h_i], v in [m′_j − h′_j, m′_j + h′_j]; field F; p = p; rows r; entries e;
+    element (i,j): ξ in [m_i − h_i, m_i + h_i], v in [m′_j − h′_j, m′_j + h′_j]; field F; p = p; rows r; entries e;
     S1 = S₁,  S2 = S₂,  S0 = S₀
 
 where r is the number of rows, e the number of printed integers, and S₁, S₂, S₀ are the integers
@@ -321,7 +321,7 @@ and g(u) := f(−u) = 1 − u⁻²,
 
 and the second derivatives of W_s by differentiating the last two once more; here f = f(R_s), f′ = 2R_s⁻³,
 g′ = 2u⁻³. In [[eq:appc-seedform]] W enters the residual only through its derivatives and through
-Ω² = Ω_s² e^(2(v−1/2)⁴ Σχψ G^W).
+Ω² = Ω_s² e^(2(v−1/2)^κ Σχψ G^W).
 
 **Lemma {#lem:appc-seed-holo}** (The inverse of G.) On the half plane {Re R > 3/2}, G is holomorphic and injective, and
 G′ = 2 + 2/(R² − 1) does not vanish; so G has a holomorphic inverse on G({Re R > 3/2}).
@@ -350,8 +350,8 @@ Fix an element (i, j) and a sub-box 𝔅 = [t_c − t_h, t_c + t_h] × [σ_c −
 (t, σ, x), with rational centre and half-widths; in this appendix 𝔅 is the element's use interval U_ij, rounded
 outward to multiples of 1/1000, in (t, σ). Let F_ij be the fields [[eq:appc-seedform]] with χ_iψ_j replaced by 1 and
 all other terms by 0, and let g_ab(τ) := f̃_ab(F_ij) at (t, σ, x) = (t_c + t_hτ₁, σ_c + σ_hτ₂, τ₃), for τ ∈ [−1, 1]³.
-The polynomial parts of F_ij are Q^F := (v − 1/2)⁴G^F_ij; since v − 1/2 = α + βτ₂ with rational α, β, they are
-polynomials in τ whose Chebyshev coefficients are exact rationals, by [[lem:appc-reexpand]] and four multiplications by
+The polynomial parts of F_ij are Q^F := (v − 1/2)^κ G^F_ij; since v − 1/2 = α + βτ₂ with rational α, β, they are
+polynomials in τ whose Chebyshev coefficients are exact rationals, by [[lem:appc-reexpand]] and κ multiplications by
 α + βτ₂ (with τ₂T_k = (T_(k+1) + T_(|k−1|))/2).
 
 For ρ > 1 let E_ρ be the closed region bounded by the ellipse {(ω + ω⁻¹)/2 : |ω| = ρ}, as in [[lem:cone-ellipse]],
@@ -442,7 +442,7 @@ element's h_i in place of h_ξ; then [[eq:appc-regular]] is evaluated by the rul
 
 On U_ij the fields [[eq:appc-seedform]] differ from those of F_ij by
 
-    δF := (v − 1/2)⁴ Σ_((i′,j′) ≠ (i,j)) χ_(i′)ψ_(j′) (G^F_(i′j′) − G^F_ij),                             {#eq:appc-delta}
+    δF := (v − 1/2)^κ Σ_((i′,j′) ≠ (i,j)) χ_(i′)ψ_(j′) (G^F_(i′j′) − G^F_ij),                            {#eq:appc-delta}
 
 because Σχ_(i′)ψ_(j′) = 1 ([[lem:appc-pou]] (b)), and by [[lem:appc-pou]] (b) the sum has at most three nonzero terms,
 all on the transition strips of width 2d in ξ or 2d′ in v.
@@ -463,7 +463,7 @@ The same holds with 2-jets replaced by (K + 2)-jets and E by any derivative of o
 where Λ_ab := Σ_q L_q D_q, D_q is an upper bound on U_ij of the q-th component of the 2-jet of δF, and the L_q are
 taken over the convex hull of the 2-jets of F_ij + θδF, 0 ≤ θ ≤ 1, on U_ij. The D_q are bounded by Leibniz's rule from
 the bounds φ_k of [[lem:appc-pou]] (a) for the derivatives of χ_(i′) and ψ_(j′) (with the factors (1/(2d))^k and
-(1/(2d′))^k of the chain rule), the derivatives of (v − 1/2)⁴, and the sums of the absolute values of the Chebyshev
+(1/(2d′))^k of the chain rule), the derivatives of (v − 1/2)^κ, and the sums of the absolute values of the Chebyshev
 coefficients of the derivatives of G^F_(i′j′) − G^F_ij on the strips, which are exact by [[lem:appc-reexpand]] (both
 polynomials re-expanded in the variables of the strip). The same holds for the derivatives of order at most K, with
 (K + 2)-jets.
