@@ -315,3 +315,123 @@ only on passing to unweighted energies. The rates need not be functions of τ₁
 only that dφ(J) dominates the bulk, and any C¹ function φ ≥ 0 with ∂_(τ₁)φ ≥ 0, ∂_(τ₂)φ ≥ 0 and
 [[eq:tl5-hf-admissible]] at every point with (a_o, a_i) := (∂_(τ₁)φ, ∂_(τ₂)φ) gives [[eq:tl5-hf-linear]], with
 F² = 2 e^(φ(a, b)).
+
+#### Commutation {#sec:tl5-hf-commutation}
+
+**Definition {#def:tl5-hf-fields}** (The commutation fields.) Write S³ ⊂ ℂ² = ℝ⁴ with z₁ = X₁ + iX₂ and
+z₂ = X₃ + iX₄, so that x = |z₁|² − |z₂|² and φ_i = arg z_i, and for 1 ≤ a < b ≤ 4 let K_ab := X_a ∂_(X_b) − X_b ∂_(X_a),
+the rotation fields of S³, extended to D̄ independently of (u, v). Put
+
+    Γ := {T, K₁₂, K₃₄, K₁₃, K₁₄, K₂₃, K₂₄},      π^Z := ℒ_Z ĝ   (Z ∈ Γ).
+
+For a word I = (Z₁, …, Z_j) in Γ put |I| := j and ℒ^I := ℒ_(Z₁) ⋯ ℒ_(Z_j), ℒ^∅ := 1; for a symmetric 2-tensor field
+h, Ψ_I := ℒ^I h.
+
+**Lemma {#lem:tl5-hf-fields}** (The commutation fields.) (a) Each Z ∈ Γ is smooth on D̄; K₁₂ = ∂_φ1, K₃₄ = ∂_φ2, and
+Σ_(a<b) K_ab ⊗ K_ab = γ₀⁻¹. Hence the symmetric 3 × 3 matrix M_jl := Σ_(a<b) ĝ(K_ab, f_j) ĝ(K_ab, f_l) is positive
+definite, with smallest eigenvalue
+
+    λ_M = R² min(e^(−2(P + Q)), e^(2P), e^(2Q)),                                                          {#eq:tl5-hf-lambda}
+
+and the coefficients c^ab_j := Σ_l (M⁻¹)_jl ĝ(K_ab, f_l) satisfy Σ_(a<b) c^ab_j K_ab = f_j and
+Σ_j |Σ_(a<b) c^ab_j v_ab|² ≤ λ_M⁻¹ Σ_(a<b) |v_ab|² for vectors v_ab of any Euclidean space.
+
+(b) π^(K₁₂) = π^(K₃₄) = 0 for every background, and for the first seed π^Z = 0 for every Z ∈ Γ.
+
+(c) For every background and every Z ∈ Γ, π^Z(ê₄, ê₄) = π^Z(ê₃, ê₃) = 0; and π^(K_ab)(ê₄, Y) = 0 for Y tangent to the
+leaves.
+
+*Proof.* (a) K_ab is the restriction to S³ of a linear vector field of ℝ⁴ tangent to S³, so it is smooth; with
+z₁ = √((1 + x)/2) e^(iφ1) and z₂ = √((1 − x)/2) e^(iφ2), K₁₂ and K₃₄ generate the rotations of φ1 and φ2. For
+ω ∈ S³ and a covector ζ of ℝ⁴, Σ_(a<b) (X_a ζ_b − X_b ζ_a)² = |X|²|ζ|² − (X·ζ)² = |ζ − (X·ζ)X|², which is γ₀⁻¹ applied
+to the restriction of ζ to TS³; so Σ K_ab ⊗ K_ab = γ₀⁻¹. With γ̂ the metric of the leaf, M is the matrix of γ₀⁻¹ in the
+frame γ̂(f_j, ·), so its eigenvalues are those of γ̂ relative to γ₀. In the chart (x, φ1, φ2), γ̂ and γ₀ are diagonal
+with ratios e^(2ζ) · 4(1 − x²) = R² e^(−2(P + Q)), e^(2A) · 2/(1 + x) = R² e^(2P) and e^(2B) · 2/(1 − x) = R² e^(2Q),
+by [[eq:tl5-radii]]; at the axes by continuity. Next Σ_ab c^ab_j K_ab = Σ_(l,m) (M⁻¹)_jl M_lm f_m = f_j, since K_ab is
+tangent to the leaves. The matrix C := (c^ab_j) is M⁻¹G with G_(l,ab) := ĝ(K_ab, f_l) and GGᵀ = M, so CCᵀ = M⁻¹ and
+the operator norm of C is λ_M^(−1/2).
+
+(b) The components of ĝ in (u, v, x, φ1, φ2) do not depend on φ1 and φ2. The first seed is of the class with
+b̂ = 0, P = Q = 0, so its leaves are round of radius R and the K_ab are Killing for it, and T is its static Killing
+field ([[lem:tl5-seed]] and the remark after [[def:tl5-hf-frame]]).
+
+(c) For a vector field Z and a vector field V, π^Z(V, V) = 2ĝ(D̂_V Z, V) = 2V(ĝ(Z, V)) − 2ĝ(Z, D̂_V V). The background is
+a warped product over its orbit space, which is totally geodesic ([[lem:warped-ricci]], proof: no Christoffel symbol
+with one index φ_i and two orbit indices), so D̂_(ê₄) ê₄ = 2ω ê₄ and D̂_(ê₃) ê₃ = 2ω̲ ê₃ with ω := ê₄(W),
+ω̲ := ê₃(W), by [[lem:tl5-connection]]. For K = K_ab, ĝ(K, ê₄) = ĝ(K, ê₃) = 0, as K is tangent to the leaves and
+ĝ(∂_x, ê₃) = −e^(2ζ) b̂ + b̂ e^(2ζ) = 0; so π^K(ê₄, ê₄) = −4ω ĝ(K, ê₄) = 0 and π^K(ê₃, ê₃) = 0. For T = ê₄ + c ê₃,
+with ê₄(c) = 0, π^T(ê₄, ê₄) = 2c ĝ(D̂_(ê₄) ê₃, ê₄) = 2c (ê₄(ĝ(ê₃, ê₄)) − ĝ(ê₃, 2ω ê₄)) = 2c(−4ω Ω̂² + 4ω Ω̂²) = 0,
+and π^T(ê₃, ê₃) = 2ĝ(D̂_(ê₃) ê₄, ê₃) + 2ê₃(c) ĝ(ê₃, ê₃) + 2c ĝ(D̂_(ê₃) ê₃, ê₃) = 2(−4ω̲ Ω̂² + 4ω̲ Ω̂²) = 0. Finally
+[ê₄, K] = 0, so for Y tangent to the leaves π^K(ê₄, Y) = ĝ(D̂_K ê₄, Y) + ĝ(D̂_Y K, ê₄) = ĝ(D̂_K ê₄, Y) − ĝ(K, D̂_Y ê₄),
+which vanishes because (X, Y) ↦ ĝ(D̂_X ê₄, Y) is symmetric on vectors tangent to the leaves: its antisymmetric part is
+−ĝ(ê₄, [X, Y]) for leaf-tangent extensions, and [X, Y] is tangent to the leaves. ∎
+
+By (c), in π^(αβ) D̂_αD̂_βΨ the components D̂²Ψ(ê₃, ê₃) and D̂²Ψ(ê₄, ê₄) never occur, and for the rotations
+D̂²Ψ(ê₃, f_j) does not occur either: the coefficient of D̂²Ψ(ê₃, f_j) is a multiple of π(ê₄, f_j).
+
+**Lemma {#lem:tl5-hf-commutator}** (The commutator.) For a symmetric 2-tensor field δ let
+
+    Γ′[δ]^ρ_αβ := (1/2) ĝ^(ρσ) (D̂_α δ_σβ + D̂_β δ_σα − D̂_σ δ_αβ),
+
+and let 𝒦[δ] be the second-order operator
+
+    (𝒦[δ]Ψ)_μν := −δ^(αβ) D̂_αD̂_βΨ_μν − ĝ^(αβ) Γ′^ρ_αβ D̂_ρΨ_μν − 2ĝ^(αβ) (Γ′^ρ_αμ D̂_βΨ_ρν + Γ′^ρ_αν D̂_βΨ_μρ)
+                 − ĝ^(αβ) ((D̂_αΓ′)^ρ_βμ Ψ_ρν + (D̂_αΓ′)^ρ_βν Ψ_μρ) + 2 (D𝓡̂[δ]Ψ)_μν,                             {#eq:tl5-hf-k}
+
+indices of δ raised with ĝ, Γ′ = Γ′[δ], and D𝓡̂[δ] := (d/dt) 𝓡̂_(ĝ + tδ)|_(t=0), the derivative of the operator 𝓡̂
+of [[lem:tl5-wg-linear]] for the metric ĝ + tδ: with δR̂^ρ_σμν = D̂_μ Γ′^ρ_νσ − D̂_ν Γ′^ρ_μσ and δR̂ic_σν = δR̂^ρ_σρν, it
+is (D𝓡̂[δ]Ψ)_αβ = δ(R_αμβν g^(μa) g^(νb)) Ψ_ab − (1/2) δ(Ric_αρ g^(ρa)) Ψ_aβ − (1/2) Ψ_αa δ(g^(aρ) Ric_ρβ), each δ the
+derivative at t = 0 along ĝ + tδ, with δg^(μa) = −δ^(μa) and δR_αμβν = ĝ_αλ δR̂^λ_μβν + δ_αλ R̂^λ_μβν. Then for every
+vector field Z on D̄ and every C³ symmetric 2-tensor field Ψ,
+
+    L̂ ℒ_Z Ψ = ℒ_Z L̂Ψ − 𝒦[π^Z] Ψ.                                                                          {#eq:tl5-hf-comm}
+
+*Proof.* For a metric g let L_g := □_g + 2𝓡_g. For a diffeomorphism σ, σ*(L_g Ψ) = L_(σ*g)(σ*Ψ), as L_g is built from
+g alone. Let σ_t be the local flow of Z near an interior point. Differentiating σ_t*(L̂Ψ) = L_(σ_t*ĝ)(σ_t*Ψ) at t = 0,
+with (d/dt) σ_t*ĝ|_(t=0) = π^Z, gives ℒ_Z L̂Ψ = (d/dt) L_(ĝ + tπ^Z)Ψ|_(t=0) + L̂ ℒ_ZΨ, at interior points and by
+continuity on D̄. It remains to compute the derivative of L_(ĝ+tδ)Ψ at t = 0. Along g_t := ĝ + tδ the connection
+changes by the tensor Γ′ := (d/dt) Γ(g_t)|_(t=0) = Γ′[δ]. So (d/dt) (D_tΨ)_βμν = −Γ′^ρ_βμ Ψ_ρν − Γ′^ρ_βν Ψ_μρ,
+and differentiating D_t(D_tΨ) gives
+
+    (d/dt) (D_tD_tΨ)_αβμν = −D̂_α(Γ′^ρ_βμ Ψ_ρν + Γ′^ρ_βν Ψ_μρ) − Γ′^ρ_αβ D̂_ρΨ_μν − Γ′^ρ_αμ D̂_βΨ_ρν − Γ′^ρ_αν D̂_βΨ_μρ.
+
+Contracting with ĝ^(αβ), using the symmetry of Γ′ in its lower indices and (d/dt) g_t^(αβ) = −δ^(αβ), gives the first
+four terms of [[eq:tl5-hf-k]]; the last is the derivative of 2𝓡. The formula for δR̂ is the variation of the curvature
+under a change Γ′ of the connection, and δRic is its contraction. ∎
+
+Two more identities are used. For a tensor field A of type (0, r) and a vector field Z,
+
+    ℒ_Z(D̂A) − D̂(ℒ_Z A) = −Γ′[π^Z] ⋆ A,      (Γ′ ⋆ A)_(αμ₁⋯μ_r) := Σ_i Γ′^ρ_(αμ_i) A_(μ₁⋯ρ⋯μ_r),        {#eq:tl5-hf-lie-d}
+
+the index ρ in the i-th place; this is the derivative at t = 0 of σ_t*D̂ = D_(σ_t*ĝ), as in the proof above. And
+
+    ℒ_ZΨ = D̂_ZΨ + Ψ(D̂Z ·, ·) + Ψ(·, D̂Z ·),      (Ψ(D̂Z ·, ·))(X, Y) := Ψ(D̂_X Z, Y),                     {#eq:tl5-hf-lie}
+
+since D̂ is torsion free.
+
+**Definition {#def:tl5-hf-triples}** (Second-order operators.) A second-order operator is a triple 𝔭 = (𝔭², 𝔭¹, 𝔭⁰)
+of smooth tensor fields, acting by 𝔭Ψ := 𝔭² · D̂²Ψ + 𝔭¹ · D̂Ψ + 𝔭⁰ · Ψ, where · denotes a fixed contraction of all
+indices of the derivative. By [[eq:tl5-hf-k]], 𝒦[π^Z] is such a triple, with 𝒦[π^Z]² the contraction with −(π^Z)^(αβ).
+For a vector field W, define 𝔏_W 𝔭 by ℒ_W(𝔭Ψ) = 𝔭(ℒ_WΨ) + (𝔏_W 𝔭)Ψ; by [[eq:tl5-hf-lie-d]] applied to Ψ and to D̂Ψ,
+
+    𝔏_W 𝔭 = (ℒ_W 𝔭², ℒ_W 𝔭¹ − 𝔭² · (Γ′ ⋆ ·) − 𝔭² · (Γ′ ⋆ ·)′, ℒ_W 𝔭⁰ − 𝔭² · (D̂Γ′ ⋆ ·) − 𝔭¹ · (Γ′ ⋆ ·)),
+    Γ′ := Γ′[π^W],
+
+where 𝔭² · (Γ′ ⋆ ·) is the first-order coefficient of Ψ ↦ 𝔭² · (Γ′ ⋆ D̂Ψ), and 𝔭² · (Γ′ ⋆ ·)′ and 𝔭² · (D̂Γ′ ⋆ ·)
+are the first- and zeroth-order coefficients of Ψ ↦ 𝔭² · D̂(Γ′ ⋆ Ψ); so 𝔏_W 𝔭 is again a second-order operator, and
+its coefficients are explicit in the jets of 𝔭, of W and of ĝ.
+
+**Lemma {#lem:tl5-hf-system}** (The commuted equation.) Let h be a C^(N+2) symmetric 2-tensor field and
+I = (Z₁, …, Z_j) a word, j ≤ N. Then
+
+    L̂Ψ_I = ℒ^I L̂h − Σ_(k=1)^j Σ_(S ⊂ {1, …, k−1}) (𝔏_(Z_S) 𝒦[π^(Z_k)]) Ψ_(J(k,S)),                            {#eq:tl5-hf-system}
+
+where, for S = {s₁ < ⋯ < s_m}, 𝔏_(Z_S) := 𝔏_(Z_(s₁)) ⋯ 𝔏_(Z_(s_m)), and J(k, S) is the word obtained from
+(Z₁, …, Z_(k−1)) by deleting the letters with indices in S, followed by (Z_(k+1), …, Z_j); |J(k, S)| = j − 1 − |S|.
+
+*Proof.* By [[eq:tl5-hf-comm]] and induction on j, L̂Ψ_I = ℒ^I L̂h − Σ_k ℒ_(Z₁) ⋯ ℒ_(Z_(k−1)) (𝒦[π^(Z_k)]Ψ_(Z_(k+1)⋯Z_j)).
+By the definition of 𝔏 and induction on m, ℒ_(W₁) ⋯ ℒ_(W_m)(𝔭Ψ) = Σ_(S ⊂ {1,…,m}) (𝔏_(W_S) 𝔭)(ℒ_(W_(S^c)) Ψ), the
+complement taken in its order: for m = 1 this is the definition, and applying ℒ_(W₁) to the identity for (W₂, …, W_m)
+splits each term into the term with 1 ∉ S and the term with 1 ∈ S. ∎
+
+For the first seed every operator in the sum vanishes, since π^Z = 0 for all Z ∈ Γ.

@@ -697,3 +697,149 @@ lens step number (nit 20).
   - ϑ_a′ ≤ π/4;
   - the two families only;
   - the traced constants (with minor 5).
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Confirmation (fix round)
+
+File read: proofs/P-CIVP3.md, md5 d4c83116408265dc0c64406172842077, 1,102 lines. The section is lines 1–823, the
+Placement starts at line 825 and the crosswalk rows at line 1057. Branch head was 4cce58ac, with Tiers 1–2 merged into
+chapter 83 at f7b0cab8. Also read:
+- the writer's fix report, notes/reports/P-CIVP3.md;
+- chapter 83 as merged: lem:civp-large-free, lem:civp-large-rectangle, lem:loc-cone-energy and the paragraph after it,
+  (Ψ1)–(Ψ3) of lem:loc-cone-jets, rem:loc-cone-scope, the paragraph after it, rem:loc-cone-local-scope and
+  rem:civp-large-domain;
+- chapter 01, line 192, and chapter 90, lines 210–218.
+
+The section text was compared line by line with the reviewed version (1d196fae…) by diff, and every changed passage was
+re-read in full.
+
+**Verdict: CONFIRMED.** No Major, minor or nit is open.
+
+### The first-round findings
+
+- **Major 1 (Lemma R).** Resolved. Lines 649–674 carry the replacement.
+  - 𝒦 := R′ ∩ {t ≤ t*} is convex in (ũ, ṽ), and Taylor's formula along segments to it bounds the derivatives of order at
+    most k of U_2 − U_1 on 𝒩_θ by Cθ^(k+1).
+  - So W − U_1 is at most Cθ in C^k, and W ∈ 𝔅′ for θ small.
+  - The leaf of W and the level set of U_2's phase stay within Cθ² < θ/4, so both stay in 𝒩_(θ/2).
+  - ϵ′ no longer occurs, the order of the quantifiers is right, and the energy step still uses no smallness.
+  - The parenthesis of nit 3 is in place.
+- **minor 1.** Resolved: ±2|p_A^Σ| σ_L, the sign that of p_A(∂_z), with σ_L taken for the normal ν of lem:class-leaf (b).
+- **minor 2.** Resolved: "extends to a smooth field of Lorentzian forms on D × S³".
+  - This is right for an edge D too. The forms act on the five-dimensional tangent spaces along D × S³.
+  - Non-degeneracy is what the stated equivalence needs: a kernel vector of γ at an axis point would be a kernel vector
+    of g.
+- **minor 3.** Resolved in the statement of (c) and in its proof.
+  - At such points every v-derivative of f − f̊ at v_1 vanishes, so every Borel term vanishes and f̃ = f̊.
+  - γ̃ = dΩ₃² there, so the renormalisation factor is 1.
+  - The equations of (b) have the background's coefficients and initial values on the open set, so their solutions are
+    the background's.
+  - lem:loc-axis-angle can now be applied to the extended data, as the proof of (d) needs.
+- **minor 4.** Resolved. (Ψ1) and (Ψ3) of the merged lem:loc-cone-jets (83:1027–1032) say what the new text attributes
+  to them.
+- **minor 5.** Resolved: four places in the existence proof, plus the uniqueness wave map.
+- **minors 6 and 7.** Resolved by the re-base.
+  - Item 9 lists the two kinds of data separately.
+  - Item 3 now only inserts a sentence and renames the next sentence's subject. The merged Tier 1/2 clause
+    ("with v_1 = 4.5 and u_1 = 7.2 …, ([[lem:civp-large-free]], [[lem:civp-large-rectangle]])") stands untouched in the
+    merged chapter.
+- **Nits 1–20.** All resolved, and the writer's variants are correct:
+  - nit 1 adds 2δ_e < δ_1, which is why the extension by 0 is smooth;
+  - nit 2 states the evaluation of F_0 explicitly;
+  - nits 3 and 5–20 apply as given, with the letter ξ in nits 11 and 19;
+  - nits 16–18 are in the re-based items 4, 2 and 6.
+- **Nit 4, the writer's extension.** The writer also drops the transversality of the faces from lem:loc-axis-energy, and
+  this is correct. The proof of lem:loc-cone-energy uses of the boundary only:
+  - the divergence theorem on the Lipschitz domains 𝒟_s;
+  - the nonnegative boundary matrix on the smooth pieces of B_1;
+  - z = 0 on B_0.
+
+  lem:loc-axis-angle now cites lem:loc-axis-energy for its Lipschitz domains. These lie below the graph of the minimum of
+  two decreasing smooth functions of u, times the angular condition.
+
+### lem:loc-axis-rectangle removed: Tier 2's lem:civp-large-rectangle (a) gives everything the corollary uses
+
+The removed lemma supplied one thing to the theorem: a background on Q1 with margin δ_1. That means σ_e and R_e > 0
+smooth on Q^♯ = [−δ_1, u_1 + 2δ_1] × [−δ_1, v_1 + 2δ_1], solving eq:two-dust-limit on Q^♯ ∩ F, with
+δ_1 ≤ min(u_1, v_1)/2. Its other conclusions, R ≥ 1.5 and R_v > 0, are used by no step of the section.
+
+lem:civp-large-rectangle (a) gives, for every v_1 > 0 and δ ∈ (0, 1/2):
+- [0, 7.2] × [0, v_1] ⊂ G;
+- the background smooth on [0, 7.2 + 2δ] × [0, v_1 + 2δ], solving eq:two-dust-limit there, with R > a;
+- σ and R extended by Borel sums to smooth functions, with R > 0 and Ω = e^σ/√2 > 0 on [−δ, 7.2 + δ] × [−δ, v_1 + δ].
+
+The corollary's proof takes δ_1 := min(δ, v_1)/2, σ_e := ln(√2 Ω) = σ and R_e := R. Then:
+- δ_1 ≤ v_1/2, and δ_1 < 1/4 < 7.2/2, so δ_1 ≤ min(u_1, v_1)/2;
+- −δ_1 ≥ −δ and 7.2 + 2δ_1 ≤ 7.2 + δ, so Q^♯ ⊂ [−δ, 7.2 + δ] × [−δ, v_1 + δ], where σ_e and R_e > 0 are smooth;
+- Q^♯ ∩ F ⊂ [0, 7.2 + δ] × [0, v_1 + δ], where the background solves the equations;
+- the extended σ and R equal the background's on F.
+
+So the hypothesis of thm:loc-axis holds for Q1 = [0, 7.2] × [0, v_1] and every v_1 > 0. C_* = sup over Q^♯ of
+e^(σ_e)/R_e is finite.
+
+The rest of the corollary's proof is unchanged and correct:
+- Y is in C^(m_1+2), the W-coefficients in C^(m_1+1), 𝔯 in C^(m_1) and b in C^(m_1).
+- The data have size Cε in C^(m_1) and nonnegative densities.
+- The statement with v_1 = 4.5 gives the shell and the packet perturbed at once.
+
+No file cites the removed label. The label sec:loc-axis-example keeps its heading, and the crosswalk row is rewritten to
+match.
+
+### The placement against HEAD
+
+The scratch copy is
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/rpcivp3-r2/,
+a git archive of HEAD 4cce58ac. The script that parses and applies the placement is
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/rpcivp3-cas/merge_r2.py.
+It took the first new texts, the ones without the null-shell section. It inserted the section before sec:loc-kid and
+applied items 2–10 in order. Every old text was found exactly once, as whole lines:
+
+| item | chapter | line at HEAD |
+|---|---|---|
+| 2 | 83 | 13 |
+| 3, first pair | 83 | 694 |
+| 3, second pair | 83 | 704 |
+| 4 | 83 | 676 |
+| 5 | 83 | 685 |
+| 6 | 83 | 1628 |
+| 7 | 83 | 2369 |
+| 8 | 81 | 1326 |
+| 9 | 03 | 376 |
+| 10 | 90 | 217 |
+
+Item 7 is now an old/new pair, as asked. The line numbers in the table are those of HEAD; the script found the later
+items shifted by the earlier ones.
+
+Results:
+- Before the merge, lint.py --chapters gave 0 hits on 4782 labels, and assemble.py --check gave 0 problems.
+- After the merge, lint.py --chapters gave "chapters: 62 file(s), 4812 label(s) defined, 0 hit(s)".
+- assemble.py --check gave "labels 4812, computations cited 0, problems 0".
+- assemble.py, in the scratch copy only, gave 0 problems.
+- lint.py --paper gave "PAPER.md: 0 hit(s)".
+- In P-CIVP3.md no non-TSV line is over 121 characters, and no wrapped line starts with a Markdown marker. This includes
+  the three null-shell variants.
+- The crosswalk has 30 tab-separated rows of 4 fields each, one per label, in chapter order, with every PENDING:N
+  equal to its label's line. The scratchpad copy pcivp3-crosswalk.tsv is identical to the file's rows.
+- The changed row of lem:class-leaf-differences cites lines 975–997, which are the lines of item 8.
+
+The merged texts read correctly in place (chapter 83, lines 8–16 and 660–718 of the scratch copy; chapter 90, lines
+210–222):
+- Item 2's sentence cites thm:loc-axis and cor:loc-axis-cones.
+- Item 3 inserts the whole-rectangle sentence, for every [0, 7.2] × [0, v_1], and keeps the merged Tier 2 clause.
+- Item 3's last sentence now excludes only data that are not near the background's at an axis, citing
+  rem:loc-axis-scope.
+- Item 4 qualifies the whole rectangle by the margin and ends on the line before the null-shell item 2's line.
+- Item 5 cites lem:civp-large-rectangle (a) for every v_1.
+- Items 6, 9 and 10 read as intended.
+- Item 11 is right. Chapter 01, line 192, carries "localised data, their development from two null cones".
+
+The null-shell variants of items 3, 7 and 10 were checked only for what Tier 3 adds:
+- item 3: "and are not near the background's ([[rem:loc-axis-scope]])";
+- item 7: the appended sentence on thm:loc-axis;
+- item 10: the whole-rectangle sentence and the narrowed last sentence.
+
+Each is present, unchanged from the first new text, and consistent with it.
+
+Item 13 is dropped. The writer also notes that items 3 and 6 must be merged by hand if Tier 4's thm:civp-axes is
+placed. Both need nothing now.
