@@ -428,9 +428,10 @@ satisfies, on U, in the splitting [[eq:iii-c-1-6]],
     L^(g,g₀) ≡ −ρ₀²ρ_I(X_I − 3/2 − Ā)(X₀ − X_I)
                mod (ρ₀²ρ_I²C^∞ + H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b) Diff²_b(U; S²T*),                       {#eq:iii-c-4-4}
 
-with L^(g,g₀) − L^(g₁,g₀) in the second class, its coefficients depending smoothly on h in
-H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b ∩ H^(k,a₀,a_I)_b and vanishing at h = 0. In particular this holds with ℱ = ℰ_I^tot for
-h ∈ H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b ([[lem:iii-c-3-2]] (b)–(c)), and with ℱ = (2, 0) for h ∈ H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b.
+with L^(g,g₀) − L^(g₁,g₀) in the second class, its coefficients depending smoothly on h, as maps from
+{h ∈ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b ∩ H^(k,a₀,a_I)_b : ‖h‖_(H^(3,a₀,a_I)_b) < ε₀} to H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b, and
+vanishing at h = 0. In particular this holds with ℱ = ℰ_I^tot for h ∈ H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b
+([[lem:iii-c-3-2]] (b)–(c)), and with ℱ = (2, 0) for h ∈ H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b.
 
 *Proof.* *The background.* By [[lem:iii-c-4-1]] and [[lem:iii-c-1-3]], conjugate by the frame change
 F = F₀(ω)(I + E), E ∈ ρ₀²ρ_I²C^∞. F₀ commutes with X₀ and X_I, so F₀⁻¹L_bF₀ has a leading part with F₀⁻¹S̄F₀ = Ā
