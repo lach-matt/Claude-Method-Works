@@ -39,7 +39,8 @@ depending only on M, c and ρ1(p), such that for all states U and U′ with boun
 (a) (Foliation.) For |z0 − z(p)| ≤ r_1 the leaf h(·; z0) of U is defined on [0, r_1], with |h′(r; z0)| ≤ C r, and for
 two such axis points z0 ≠ z0′ and 0 ≤ r ≤ r_1
 
-    1/2 ≤ (h(r; z0) − h(r; z0′))/(z0 − z0′) ≤ 3/2,      |h′(r; z0) − h′(r; z0′)| ≤ C r |z0 − z0′|.       {#eq:class-leaf-quotient}
+    1/2 ≤ (h(r; z0) − h(r; z0′))/(z0 − z0′) ≤ 3/2,
+    |h′(r; z0) − h′(r; z0′)| ≤ C r |z0 − z0′|.                                                          {#eq:class-leaf-quotient}
 
 Every point x of 𝒰_(r_1/2) lies on exactly one of these leaves; we write z0[U](x) for its axis point. The arc of U
 through a point of 𝒰_δ, δ ≤ r_1/2, lies in 𝒰_(2δ), and |σ[U]| ≤ C on 𝒰_(r_1/2). If U is smooth, the map (z0, y) ↦
@@ -48,7 +49,7 @@ h(|y|; z0) and the function z0[U] are smooth, and they depend smoothly on parame
 (b) (Along one arc.) For x ∈ 𝒰_(r_1/2), with r_x := |y(x)| and f(t) := |U − U′| at the point of the arc of U through x
 at radius t,
 
-    |σ[U](x) − σ[U′](x)| ≤ C (f(r_x) + r_x⁻² ∫_0^(r_x) t f(t) dt + (∫_0^(r_x) t f(t)² dt)^(1/2)).       {#eq:class-leaf-pointwise}
+    |σ[U](x) − σ[U′](x)| ≤ C (f(r_x) + r_x⁻² ∫_0^(r_x) t f(t) dt + (∫_0^(r_x) t f(t)² dt)^(1/2)).  {#eq:class-leaf-pointwise}
 
 (c) (On sets closed under arcs.) Let 0 < δ ≤ r_1/2, and let D ⊂ Σ be a measurable G-invariant set such that the arc of
 U through every point of D ∩ 𝒰_δ lies in D. Then
@@ -183,7 +184,8 @@ y with (h_U(|y|; z0), y) ∈ D ∩ 𝒰_δ, R(z0) the supremum of |y| over Y(z0)
 by (a); by G-invariance, every point (h_U(|y′|; z0), y′) with |y′| < R(z0) lies in D ∩ 𝒰_(2δ). The arc of U through
 (h_U(|y|; z0), y) is that leaf over [0, |y|], so [[eq:class-leaf-pointwise]] gives
 
-    ∫_(Y(z0)) |σ[U] − σ[U′]|²(h_U(|y|; z0), y) dy ≤ C ∫_(𝔻_(R(z0))) (f_(z0)² + (𝒜f_(z0))² + ∫_0^(|y|) t f_(z0)(t)² dt) dy,
+    ∫_(Y(z0)) |σ[U] − σ[U′]|²(h_U(|y|; z0), y) dy
+        ≤ C ∫_(𝔻_(R(z0))) (f_(z0)² + (𝒜f_(z0))² + ∫_0^(|y|) t f_(z0)(t)² dt) dy,
 
 with f_(z0) and 𝒜f(r) := r⁻² ∫_0^r t f dt = ∫_0^1 s f(s r) ds read at |y|. As ‖f(s ·)‖_(L²(𝔻_R)) ≤ s⁻¹ ‖f‖_(L²(𝔻_R))
 for radial f, Minkowski's inequality gives ‖𝒜f‖_(L²(𝔻_R)) ≤ ‖f‖_(L²(𝔻_R)), as in [[prop:class-flat-model]] (b), and the
@@ -273,7 +275,8 @@ z − h(y), let ν be the unit normal γ3⁻¹dF/|dF| of the graphs z = h(y) + c
 points is (√γ)⁻¹ ∂_a(√γ ν^a), and along the graph ∂_(y_i)[𝔙^i(y, h, ∂h)] = (∂_i(√γ ν^i) + ∂_z(√γ ν^i) ∂_i h)|_(z=h(y)),
 ∂_z at fixed ∂h. So the graph has mean curvature H_L[X] at its points exactly when
 
-    div_y 𝔙(y, h, ∂h) = Φ_X(y, h, ∂h),      Φ_X := (√γ H_L[X] − ∂_z(√γ ν^z) + ∂_z(√γ ν^i) ∂_i h)|_(z=h(y)),      {#eq:class-leaf-divergence}
+    div_y 𝔙(y, h, ∂h) = Φ_X(y, h, ∂h),
+    Φ_X := (√γ H_L[X] − ∂_z(√γ ν^z) + ∂_z(√γ ν^i) ∂_i h)|_(z=h(y)),                                 {#eq:class-leaf-divergence}
 
 Φ_X a smooth function of (y, h, ∂h) and of W_X at (h(y), y). The leaf h_X(·; z0) satisfies [[eq:class-leaf-divergence]]
 off the axis (Step 6 of the proof of [[lem:class-leaf-states]]), and 𝔙(y, h_X, ∂h_X) is an invariant vector field,
@@ -352,7 +355,8 @@ derivatives of η of order below j. With ∂_y η = δs y and Ω_j ≤ C 𝒩_j(
 for functions on Q̂_n let ‖f‖_(j,n) be the L² norm in z0 of the H^(n+2−j) norm in y on 𝔻_(ρ_n). We show, by induction
 on n, for n ≤ k, and for n ≤ m in the second part of (a),
 
-    Σ_(j≤n) ‖T^j η‖_(j,n) ≤ C 𝒩_k(U)      (n ≤ k),      Σ_(j≤n) ‖T^j η‖_(j,n) ≤ C_m 𝒩_m(U)      (k < n ≤ m),   {#eq:class-leaf-elliptic}
+    Σ_(j≤n) ‖T^j η‖_(j,n) ≤ C 𝒩_k(U) for n ≤ k,      Σ_(j≤n) ‖T^j η‖_(j,n) ≤ C_m 𝒩_m(U) for k < n ≤ m,
+                                                                                                  {#eq:class-leaf-elliptic}
 
 T^j any product of j transverse derivatives; for n − 1 it holds by induction (it is empty for n = 0), and with Step 5
 it bounds all norms of order below n + 2 of η, ∂_y η, δs, δ𝔰 and of order below n + 1 of ω ∘ Λ_U that (P) uses. We
