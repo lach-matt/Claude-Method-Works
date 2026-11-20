@@ -346,9 +346,4 @@ and their derivatives at ϑ, and so are the initial values at S; the equations a
 along the lines {ϑ = const}, since b = 0 on 𝒞_in and the f₄-equations contain no ∂_ϑ of an f₄-unknown. At ϑ ∉ (ϑ_a,
 ϑ_b) the data are the background's on a neighbourhood of ϑ, the background's reduced fields solve all the equations
 used ([[prop:civp-large-system]] (a)), and by uniqueness for these equations f̄ and the solutions of (i) are the
-background's there.
-
-(a) also gives the form in which it is used below: the f₃-components on N_o are the formulas above in the functions on
-N_o together with the solution of (F4′) along N_o, and the f₄-components on N_i are the formulas in the functions on
-N_i together with the solutions of (F5) and (F4) along N_i; the only further input is the value at the corner sphere
-of all reduced fields, which [[eq:civp-large-coefficients]] gives from the functions on N_o and N_i near the corner. ∎
+background's there. ∎

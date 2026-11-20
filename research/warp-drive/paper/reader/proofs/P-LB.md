@@ -2,9 +2,9 @@
 
 The lower bound of [[thm:loss-d]] (ii) is stated at the computational point, and that point lies outside the set on
 which [[thm:settling]] is proved ([[rem:ec-point-outside]]). This section proves a lower bound for d_acc, and so for
-d_NM, N_NM and δ, at every point of that set, as an explicit function of the gauge parameter z = 4e_Υγ_Υ² and of the
-damping parameter h = γ_C⁻¹. The proof of [[prop:ec-rounds]] uses the point only through upper bounds for ε_g, ε_K and
-η_2. Here ε_Υ is bounded at every z ∈ (0, ½] ([[lem:ec-lb-gauge]]) and ε_ind at every h ∈ (0, 10⁻⁶]
+d_NM, N_NM and δ, at every point of that set, as an explicit function of the gauge parameter z = 4e_Υγ_Υ² and of
+h = γ_C⁻¹, γ_C being the damping parameter. The proof of [[prop:ec-rounds]] uses the point only through upper bounds
+for ε_g, ε_K and η_2. Here ε_Υ is bounded at every z ∈ (0, ½] ([[lem:ec-lb-gauge]]) and ε_ind at every h ∈ (0, 10⁻⁶]
 ([[lem:ec-lb-ind]]), and the count of [[prop:ec-rounds]] is run with general bounds ([[lem:ec-lb-rounds]]);
 [[thm:ec-lb-proved]] assembles them, and [[rem:ec-lb-conditions]] lists the conditions of [[thm:settling]] that the
 proof uses. Throughout, (v_C, e_C) = (1/2, 1/102400) as in [[eq:iv4-0-1]], and e := e_C.
@@ -232,8 +232,9 @@ conditions of [[thm:settling]], each of which holds at every point of the proved
   point: the levels, η_2 ∈ (ε_K, ε_+) ([[sec:iii-i11-1]]), and the losses 0 < ε < ½ε_g and ε′ ≤ ε.
 
 It uses none of the thresholds that define the proved set: not h < h_0, h < h_tf or h ∉ 𝖹; not γ_(Υ,H) ≤ ε_0, nor the
-bounds ε_1, ε_L and γ_1 on e_Υ and γ_Υ; not z ∉ 𝖹_exc; not (C2)–(C5); not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4)
-or (A_J); and not the data classes, the parameter set ℬ_* or the smallness of rows d1–d2, b1–b4 and n1. So the bound
+bounds ε_1, ε_L and γ_1 on e_Υ and γ_Υ; not z ∉ 𝖹_exc; not (C2)–(C5), beyond the existence of the constant ε_ind,
+which (C4) gives ([[prop:iii-f1-2-3]] (f)); not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data
+classes, the parameter set ℬ_* or the smallness of rows d1–d2, b1–b4 and n1. So the bound
 holds on the proved set without any of those thresholds being evaluated. It holds as well at every
 (h, z) ∈ (0, 10⁻⁶] × (0, ½] at which the constructions of [[sec:ec-floor]] are run with constants satisfying the
 conditions listed. At the computational point it gives d_acc > 3(1 − 2·10⁻⁵)g(4·10⁻⁶)⁻² > 1.4032·10²⁰, which is the
@@ -383,11 +384,11 @@ New, the seven lines:
 
 far as they are explicit, among them an upper bound for λ0 at a numerical point; for the loss d with which the settling
 proof applies the Nash–Moser theorem, a lower bound at every point of the set on which settling is proved, which grows
-like the inverse square of the gauge and damping parameters, so that d is unbounded on that set, and, at a parameter
-point outside it, for one admissible choice of the weights, orders and inner products and the index sets as the proofs
-construct them, 1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰; at equality, μ0 = √72 l5², timelike curves of g_λ cross the
-boundary in a layer whose width tends to zero with λ; and at the physical wavelength 10 l5 there is no separation of
-scales, existence holding where the solution is the seed.
+like the inverse square of the gauge parameter and like the square of the damping parameter, so that d is unbounded on
+that set, and, at a parameter point outside it, for one admissible choice of the weights, orders and inner products and
+the index sets as the proofs construct them, 1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰; at equality, μ0 = √72 l5², timelike
+curves of g_λ cross the boundary in a layer whose width tends to zero with λ; and at the physical wavelength 10 l5
+there is no separation of scales, existence holding where the solution is the seed.
 
 *8. [[ch:introduction]], [[sec:introduction-scope]] (lines 150–154).* Old, the five lines:
 
@@ -470,7 +471,7 @@ those of this file, at the line that carries the label:
     eq:ec-lb-numbers	paper/reader/proofs/P-LB.md:180	P-LB, display	2.2456e9/z², 0.3168γ_C²
     cor:ec-lb-delta	paper/reader/proofs/P-LB.md:209	P-LB, Corollary (δ, proved set)	from prop:ec-delta-cap
     rem:ec-lb-conditions	paper/reader/proofs/P-LB.md:221	P-LB, Remark (what is used)	conditions used and unused
-    rem:ec-lb-unbounded	paper/reader/proofs/P-LB.md:242	P-LB, Remark (unbounded)	d unbounded on the proved set
+    rem:ec-lb-unbounded	paper/reader/proofs/P-LB.md:243	P-LB, Remark (unbounded)	d unbounded on the proved set
 
 Notes to add to existing rows. Crosswalk of [[ch:explicit-constants]]: ch:explicit-constants, "opening states the
 lower bound on the proved set (P-LB text 2)"; rem:ec-point-outside, "rewritten: outside through h, gauge half

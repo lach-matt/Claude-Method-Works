@@ -50,13 +50,14 @@ sec:s14-every-h-count	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:134-198	proof 
 lem:s14-limit-sides	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:136-153	proof A3 Lemma, the limits as h -> 0+	merged verbatim from the confirmed proof A3
 prop:s14-scalar-every-h	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:155-198	proof A3 Proposition, the scalar type l >= 1 for every h	merged verbatim from the confirmed proof A3 with the paragraph after it; cited by prop:np-10-54
 sec:iv4-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:42	IV(4) section 1	
-lem:iv4-1-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:44	IV(4) Lemma 1.1	
-lem:iv4-1-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:55	IV(4) Lemma 1.2	
+lem:iv4-1-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:44	IV(4) Lemma 1.1	F-G24: the quadratic of [Hin26a, (3.8)] written out; the sentence "[Hin26a, Lemmas 3.3-3.8] hold verbatim" replaced by a pointer to lem:iv4-1-causal; proof reduced to prop:np-10-13 (i)
+lem:iv4-1-causal	G-SWEEP fix F-G24	[Hin26a] Lemma 3.5, Corollary 3.6, Lemma 3.7 as used in the chapter, stated and proved from prop:np-10-13 (i)	positivity of l on future causal covectors with the bound 2(1-e)<c,zeta>; invertibility of G - il; the constant C of C l^2 + G; uniform version on compact sets of (g, c), with a conic neighbourhood
+lem:iv4-1-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:55	IV(4) Lemma 1.2	F-G24: the counting "as in the proof of [Hin26a, (6.4)]" written out (polynomials in d/dt_* with stationary coefficients, one difference per term, as in lem:iii-d2-2-1); S-tilde = 0 suffices
 eq:iv4-1-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:58	IV(4) (1.1)	
 lem:iv4-1-3	docket68/n1star/proof5/PART-IV5-CDMODES.md:70	IV(4) Lemma 1.3	(b) proved by the h -> 0 limits
 lem:iv4-1-4	docket68/n1star/proof5/PART-IV5-CDMODES.md:95	IV(4) Lemma 1.4 with its C_0 - 1 clause	
 eq:iv4-2-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:96	IV(4) (2.1)	
-lem:iv4-1-5	docket68/n1star/proof5/PART-IV5-CDMODES.md:121	IV(4) Lemma 1.5	
+lem:iv4-1-5	docket68/n1star/proof5/PART-IV5-CDMODES.md:121	IV(4) Lemma 1.5	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (a)
 lem:iv4-1-6	docket68/n1star/proof5/PART-IV5-CDMODES.md:135	IV(4) Lemma 1.6	
 sec:iv5	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5)	
 sec:iv5-0	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5) section 0	
@@ -64,12 +65,12 @@ def:iv5-0-1	docket68/n1star/proof5/PART-IV6-SOLV.md:36	IV(5) Definition 0.1
 prop:np-10-65-a	docket68/n1star/N1STAR-PROOF.md:8189	NP 10.65 (a)	statement of [Hin23d] and [Hin26d]
 lem:iv5-0-2	docket68/n1star/proof5/PART-IV6-SOLV.md:89	IV(5) Lemma 0.2	
 lem:iv5-0-3	docket68/n1star/proof5/PART-IV6-SOLV.md:137	IV(5) Lemma 0.3	
-lem:iv5-0-4	docket68/n1star/proof5/PART-IV6-SOLV.md:171	IV(5) Lemma 0.4	
+lem:iv5-0-4	docket68/n1star/proof5/PART-IV6-SOLV.md:171	IV(5) Lemma 0.4	F-G24: statement cites lem:iv4-1-1 and lem:iv4-1-causal in place of [Hin26a, Lemmas 3.3-3.8, Corollary 3.6]; uniform C proved by the rescaling (g, rc) and lem:iv4-1-causal (d)
 lem:iv5-0-5	docket68/n1star/proof5/PART-IV6-SOLV.md:188	IV(5) Lemma 0.5	
 sec:iv5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:211	IV(5) section 1	
-lem:iv5-1-1	docket68/n1star/proof5/PART-IV6-SOLV.md:213	IV(5) Lemma 1.1	
+lem:iv5-1-1	docket68/n1star/proof5/PART-IV6-SOLV.md:213	IV(5) Lemma 1.1	F-G24: [Hin26a, Lemma 3.7] replaced by lem:iv4-1-causal (b)
 prop:iv5-1-2	docket68/n1star/proof5/PART-IV6-SOLV.md:235	IV(5) Proposition 1.2	
-prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	
+prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d)
 eq:iv5-fib	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.21)	estimate written out in dimension 4 + 1
 eq:iv5-fib-adj	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.22)	adjoint estimate written out in dimension 4 + 1
 sec:iv5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:298	IV(5) section 2	
@@ -82,9 +83,13 @@ prop:iv5-4-1	docket68/n1star/proof5/PART-IV6-SOLV.md:393	IV(5) Proposition 4.1
 sec:iv5-5	docket68/n1star/proof5/PART-IV6-SOLV.md:417	IV(5) section 5	
 prop:iv5-5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:419	IV(5) Proposition 5.1	
 prop:iv5-5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:445	IV(5) Proposition 5.2	
-prop:iv5-5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:510	IV(5) Proposition 5.3	
-sec:iv5-6	docket68/n1star/proof5/PART-IV6-SOLV.md:566	IV(5) section 6	
-prop:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:576	IV(5) Proposition 6.1	
+prop:iv5-5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:510	IV(5) Proposition 5.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (a)
+sec:iv5-6	docket68/n1star/proof5/PART-IV6-SOLV.md:566	IV(5) section 6	F-G24: the paragraph using [Hin26a, Lemma 5.14, Corollary 5.15] "as stated" replaced by lem:iv5-6-tform and cor:iv5-6-energy
+lem:iv5-6-tform	G-SWEEP fix F-G24	[Hin26a] (5.61) and Lemma 5.14, stated and proved in 4 + 1 (every D >= 3)	T_(G,eta,l) and its quadratic form Q on T* x E defined; (a) rank-one positivity for any l positive on future causal covectors; (b) Q positive semidefinite at past null eta with nullspace eta x T*, positive definite at past timelike eta, for l = l_(g,c,e) with 0 < e < 2/D, by a sum of squares; a counterexample shows (a)'s hypothesis does not give (b); (c) uniform bound on compact sets
+eq:iv5-6-t	G-SWEEP fix F-G24	[Hin26a] (5.61)	definition of T_(G,eta,l) and its polarisation
+cor:iv5-6-energy	G-SWEEP fix F-G24	[Hin26a] Corollary 5.15, stated and proved in 4 + 1	divergence identity for B(box omega, w^2 l<nabla omega>) integrated over a domain with one or two boundary pieces, remainder written out; pointwise lower bound c_0 r^-4 |r eta| |r xi|^2 hence the bulk and the two delta-weighted boundary terms; remainder bound r^-4; the case -l
+eq:iv5-6-energy	G-SWEEP fix F-G24	[Hin26a] (5.71)/(5.74), main part	the integrated identity
+prop:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:576	IV(5) Proposition 6.1	F-G24: proof uses T of eq:iv5-6-t, cor:iv5-6-energy (region, f_1, f_2, w, the three covectors, remainder) and lem:iv4-1-causal (a); adjoint and Sigma-sharp estimates pointed to the corollary
 eq:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:582	IV(5) (6.1)	
 sec:iv5-7	docket68/n1star/proof5/PART-IV6-SOLV.md:620	IV(5) section 7	
 prop:iv5-7-1	docket68/n1star/proof5/PART-IV6-SOLV.md:624	IV(5) Proposition 7.1 with its extension argument	
@@ -95,20 +100,22 @@ thm:iv5-7-3	docket68/n1star/proof5/PART-IV6-SOLV.md:742	IV(5) Theorem 7.3
 eq:iv5-5-16	docket68/n1star/proof5/PART-IV6-SOLV.md:755	IV(5) (5.16)	
 rem:iv5-7-4	docket68/n1star/proof5/PART-IV6-SOLV.md:813	IV(5) Remark 7.4	
 sec:iv5-8	docket68/n1star/proof5/PART-IV6-SOLV.md:821	IV(5) section 8	
-lem:iv5-8-1	docket68/n1star/proof5/PART-IV6-SOLV.md:823	IV(5) Lemma 8.1	
+lem:iv5-8-1	docket68/n1star/proof5/PART-IV6-SOLV.md:823	IV(5) Lemma 8.1	F-G24: margin of [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d)
 sec:iv6	docket68/n1star/proof5/PART-IV7-TFACE.md:11	IV(6)	
 sec:iv6-0	docket68/n1star/proof5/PART-IV7-TFACE.md:24	IV(6) section 0	
 eq:iv6-0-1	docket68/n1star/proof5/PART-IV7-TFACE.md:37	IV(6) (0.1)	
 lem:s14-tf-inputs	docket68/n1star/N1STAR-PROOF.md:4441	NP 10.23 Proposition 10.20 (i)-(v)	used by IV(6); not in the entry list; written out
 lem:iv6-0-1	docket68/n1star/proof5/PART-IV7-TFACE.md:39	IV(6) Lemma 0.1	S-bar lower triangular in the basis dr, dt_*, r domega
 eq:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:48	IV(6) (0.2)	
+lem:iv6-0-flow	G-SWEEP fix F-G24	[Hin26a] (B.15)-(B.18), (B.16) and (B.23), written out in 4 + 1	scattering Hamilton field H_p = rho Hsf_p in the covector xi drho/rho^2 + r eta; characteristic set for Im sigma > 0; flow of the model on Char_sigma from R_in to R_out (logistic equation); the commutator symbol at the sink for every |sigma| = 1, with sigma-independent signs; the Spaces paragraph before it now cites it
+eq:iv6-0-flow	G-SWEEP fix F-G24	[Hin26a] (B.16)	the rescaled Hamilton vector field
 def:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:88	IV(6) Definition 0.2	
 sec:iv6-1	docket68/n1star/proof5/PART-IV7-TFACE.md:93	IV(6) section 1	
-prop:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:95	IV(6) Proposition 1.1	
+prop:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:95	IV(6) Proposition 1.1	F-G24: sink symbol from lem:iv6-0-flow (c); conjugation identity after [Hin26a, (B.27)] derived; flow from R_in to R_out by lem:iv6-0-flow (b) with prop:i-a-5-2; uniformity near +-1 proved (sink by lem:iv6-0-flow (c), R_in and propagation by prop:i-a-4-6, prop:i-a-5-2 of ch:s01 at the scattering end)
 eq:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:97	IV(6) (1.1)	
 eq:iv6-1-2	docket68/n1star/proof5/PART-IV7-TFACE.md:102	IV(6) (1.2)	
 sec:iv6-2	docket68/n1star/proof5/PART-IV7-TFACE.md:201	IV(6) section 2	
-thm:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:211	IV(6) Theorem 2.1	
+thm:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:211	IV(6) Theorem 2.1	F-G24: energy near X_0 cites lem:iv5-6-tform and cor:iv5-6-energy on M with their hypotheses checked
 eq:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:225	IV(6) (2.1)	
 sec:iv6-3	docket68/n1star/proof5/PART-IV7-TFACE.md:346	IV(6) section 3	
 thm:iv6-3-1	docket68/n1star/proof5/PART-IV7-TFACE.md:348	IV(6) Theorem 3.1	
