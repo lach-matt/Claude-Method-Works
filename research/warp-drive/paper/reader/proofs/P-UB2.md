@@ -1,19 +1,19 @@
 # P-UB2: the upper bound of chapter 71 as a function of the admissible choice
 
 Proof file for the coordinator. Nothing in chapters/, crosswalk/ or elsewhere in the repository was edited; this is the
-only file written there. Every old text below is copied from the chapter files at HEAD a9ebbff6 (equal to the
+only file written there. Every old text below is copied from the chapter files at HEAD db20bc79 (equal to the
 working tree for these files): 71-explicit-constants.md md5 427412e02c74261f1f87da24b60ddbca,
 00-front.md fcb33a08a5d5df2ae599389726a59dba, 01-introduction.md 9cfc5f6bcd496e6d6100c3bf7ed88ffa,
 03-theorems.md 4c4bc00c635267eef3f73f747efee2d0, 63-own-data.md 2bd560af0194b8699f05a6fc017404a6,
-90-scope.md 8c96f1f3d84ffcc63831372a70b0a09a. Each old text occurs exactly once in its file as whole lines;
-line numbers are of those files. Both sets of texts were merged with P-UB1's texts T1–T14 on a scratch copy made from
-a git archive of HEAD and checked there, through the assembled paper (section 7).
+90-scope.md f8bb7fcc4374ce0cf27c627813c78507. Each old text occurs exactly once in its file as whole lines;
+line numbers are of those files. The texts were merged with P-UB1's texts T1–T14 on a scratch copy made from a git
+archive of HEAD and checked there, through the assembled paper (section 7).
 
 The numbers in the drafted texts are evaluated at **the proved inputs of P-UB1** (proofs/P-UB1.md, md5
 a4e10a41efcf0b396490ffad095af7dd):
 ε_K = 1.6747·10⁻¹⁷, ε_+ = 1.67478·10⁻¹⁷, N̄_Λ = 909,507,124,095,312, k̄_0 = 3, J_* = 15,000,015, l_* = 50.
 Every number that depends on them is recomputed by the one evaluation step of section 3. Section 8 lists what changed
-since the provisional version (md5 eb5f55fcc614dcad6625c8778ac03c70).
+since md5 69990efadbb064fb43ca5679c0b9d705 (the version read in R-P-UB2) and, briefly, before it.
 
 ## 1. Summary
 
@@ -67,29 +67,31 @@ Each is non-decreasing in N̄_Λ, k̄_0, J′ and non-increasing in ε_K ([[prop
    proof of lem:cs-fourier (b) used reality to decide which zf-terms lie below 1 + ε_K. With the generators 1 + 𝒵 of the
    repaired Λ that set has non-real elements (R-V-I11 §2). Both are repaired (blocks M9, M15a, M15b): the list is taken
    in an order of non-decreasing real part, so n(λ_i) ≤ i − 1 and k̄(λ_i) ≤ k̄_0 + J′i, which is all lem:uc-n-iota and
-   lem:cs-fourier use; and lem:cs-fourier needs only that the elements of real part at most 2 are real (lem:iii-i10-1-2
-   (a), and prop:is-iota: every ι ∈ Z has real part above 2) with (G). The counts N_ι and n_K ≤ N_Λ + N_ι keep their
-   form.
-2. **Nothing else in the chain uses a numerical value of an input except through the formulas of 1.2.** In particular
-   I_lev, W, the level-2 and level-3 counts, R_b's role, the per-step charges, d_BG, ℓ⁺_tf and the rules of sec:cs
-   do not involve ε_K or N_Λ; R_b becomes ⌊1/Δβ_0⌋ + 2 (exact) instead of a rounded constant.
+   lem:cs-fourier use; and lem:cs-fourier needs only (G) and that the elements of Λ of real part 2 are real, which
+   P-UB1's prop:is-lambda gives (every element of real part at most 2.514 is real). The counts N_ι and
+   n_K ≤ N_Λ + N_ι keep their form.
+2. **Nothing else in the chain uses a numerical value of an input except through the formulas of 1.2**, and one
+   inequality between them: T_11 < T_12, that is 4k̄_max + 24 > I_base + 22,119, which lem:uc-small-orders (d) and
+   rem:uc-small-reading use (Steps 4′ and 4 read at an order below T_12). At the choice it holds with a factor
+   1.97 (X_12 = 2,783,094,768,362,907,767,098,404 against I_base + 22,119 = 1,407,588,774,438,516,741,176,921); at N̄_Λ = 909,507,124,095,312 it fails for ε_K below
+   about 8.48·10⁻¹⁸. prop:uc-dependence assumes it (block M12); block M23c prints it at the choice. I_lev, W, the
+   level-2 and level-3 counts, the per-step charges, d_BG and ℓ⁺_tf do not involve ε_K or N_Λ; R_b is ⌊1/Δβ_0⌋ + 2
+   (exact) instead of a rounded constant.
 3. **Slack, proved (new): the levels split.** lem:cs-sharp charged every one of the K ≤ K̄ levels C_lev, but at most
    L_< ≈ 1/Δβ_0 levels lie in (2, 3), where lem:cs-levels (a) gives 497; only the at most L_> levels in (3, α] cost
    C_lev (lem:ec-counts (a)). The same split applies to the recursion ρ_k ≤ ρ_(k+1) + 2 + (charge of step k) of
    rem:uc-small-reading, a step below 3 costing at most 20,565,308,335 with its iterations (the count in the proof of
    lem:uc-small-orders (d)). This halves D_♭ and D′_*. The crude form D_e + M_c C_* of the old thm:uc-integer is
-   dropped: thm:uc-integer now states the sharp D_acc := D_♭ and D_NM := D_♭ + D′_* + d̄_Φ, which covers both readings of
+   dropped: thm:uc-integer states the sharp D_acc := D_♭ and D_NM := D_♭ + D′_* + d̄_Φ, which covers both readings of
    the fixed seminorms, and prop:uc-data-order (d) uses D_NM.
 4. No other proved improvement was found that changes the order: C_lev ≈ 2N_ι comes from two counts (n_ι ≤ N_ι in Step 0
    and n_K ≤ N_ι + N_Λ in Step 7) taken at the bound k̄(λ) for every logarithmic order, which this paper proves no
    better; the first line D_e is within the factor 1.0072 of the lower bound 3R.
-5. Unchanged and not drafted: thm:loss-d's "(G) asks ε_K < μ_G" (still true, Λ ⊃ Λ_ℬ); cor:uc-two-offsets and
-   rem:uc-offset-d0 (upper bounds on admissible ε_K, still true); the lower bounds. A remark for the coordinator:
-   [[prop:ec-rounds]] with ε_K < 1.67488·10⁻¹⁷ would raise the lower bound for the index sets as constructed from
-   3R > 1.2497·10²⁴ to 3R > 1.2250·10²⁷ ((1 − 1.98·10⁻⁸)·3/(1.67488·10⁻¹⁷ · 1.46214·10⁻¹⁰) = 1.22502…·10²⁷); not
-   drafted here. P-UB1 proves it as the optional cor:is-lower (3R > 1.2250·10²⁷, N_NM > 2.5725·10²⁸); these texts
-   keep 1.2497·10²⁴ through cor:uc-two-offsets, and section 8 (Option L) gives the exact substitutions if cor:is-lower
-   is kept.
+5. **The lower bounds for the index sets as constructed** are raised to P-UB1's cor:is-lower (3R > 1.2250·10²⁷,
+   N_NM > 2.5725·10²⁸ at every admissible choice; confirmed by P-UB1's reader): blocks M1, M7, M12, M26a, M26b, O1,
+   O2, L2–L5 (section 4.2). Bounds that hold at every point of the proved set, and the bounds at the computational
+   point that do not assume the index sets as constructed, stay (section 4.2). Unchanged and true: cor:uc-two-offsets
+   and rem:uc-offset-d0 (upper bounds on admissible ε_K).
 
 ### 1.4 What these texts take from P-UB1 (all met by proofs/P-UB1.md)
 
@@ -100,9 +102,10 @@ Each is non-decreasing in N̄_Λ, k̄_0, J′ and non-increasing in ε_K ([[prop
   J_* = 15,000,015, and l_* = 50 stands (cor:sp-lstar): so lem:uc-lambda (b), block M6 and block M8 keep their values.
 - R3. prop:is-lambda: every element of Λ of real part at most 2.514 is real (block M15a cites exactly this).
 - R4. thm:is-gap (label kept): (G) holds if and only if ε_K < μ_Z, 1.6747856·10⁻¹⁷ < μ_Z < 1.6747859·10⁻¹⁷
-  (eq:is-mu-z). Blocks M5–M8 and F1, F5, F6, FO3, FO5 cite it, with the sharpened 1.6747859·10⁻¹⁷.
+  (eq:is-mu-z). Blocks M5–M8 and L2 cite it.
 - R5. The repaired def:iii-i10-1-1 of chapter 41 names the generators 1 + 𝒵 (blocks M6, M7, M13), as P-UB1's T1, T2,
   T7, T13 do; if that chapter's text names the set otherwise, all these take its name.
+- R6. cor:is-lower (P-UB1's T9): blocks M1, M7, M12, M26a, M26b, O1, O2 and L2–L5 cite it.
 - P-UB1's texts and these do not overlap; thm:uc-reduction (iii) is block M8 only. V-I11 §5.1–5.5 are not applied.
 
 ## 2. The chain, step by step (where each statement is proved)
@@ -117,11 +120,11 @@ Each is non-decreasing in N̄_Λ, k̄_0, J′ and non-increasing in ε_K ([[prop
 | 6 | I_lev, I_base (lem:cs-iterations, M17) | R_b | unchanged proof |
 | 7 | c_0 bound, C_* (lem:cs-rest, prop:cs-cstar, M18–M20) | steps 2, 5, 6 | eq:cs-c0 written out |
 | 8 | d_acc, d_R ≤ D_♭ (lem:cs-sharp, M22) | steps 1, 5, 7 | split of the levels (new) |
-| 9 | k_0, D_* (lem:uc-small-orders, M23) | steps 5–7 | unchanged proof, checks 2R_base + 16 < T_12, X_12 > R_base |
+| 9 | k̂_0, D_* (lem:uc-small-orders, M23) | steps 5–7 | checks 2R_base + 16 < T_12, X_12 > R_base + 22 |
 | 10 | D′_* (rem:uc-small-reading, M24) | steps 1, 5, 6, 9 | recursion, split of the levels (new) |
 | 11 | d_NM ≤ D_b, D_NM; N_NM (prop:uc-d-small, M25) | steps 8–10 | eq:uc-d-small |
-| 12 | D_acc, D_NM, 3R, D_e < 1.0072·3R (thm:uc-integer, M12) | steps 8–11 | prop:ec-rounds |
-| 13 | monotonicity and the formulas (prop:uc-dependence, M12) | all | the proofs above use only the inputs of 1.1 |
+| 12 | D_acc, D_NM, 3R, D_e < 1.0072·3R, eq:uc-lower (thm:uc-integer, M12) | steps 8–11 | cor:is-lower |
+| 13 | the formulas, monotonicity (prop:uc-dependence, M12) | all | inputs of 1.1 and T_11 < T_12 |
 | 14 | K, d_1, N, k1, K* (prop:uc-data-order (d), M26) | step 11 | eq:uc-data-order, eq:uc-kstar-own |
 | 15 | h-threshold of rem:ec-lb-unbounded (M4) | step 12 | 0.3168h⁻² > D_NM |
 
@@ -168,59 +171,86 @@ integer of the old chain exactly (section 7).
 
 ## 4. Every site that quotes the upper bound or a changed number
 
-Drafted here (main set, section 5; fallback, section 6):
+### 4.1 The upper bound and the chain (drafted in section 5)
 
-| site | block (main / fallback) |
+| site | block |
 |---|---|
-| chapters/00-front.md:37 (35–37) | O1 / FO1 |
-| chapters/01-introduction.md:156 (155–156) | O2 / FO2 |
-| chapters/03-theorems.md:318–319 (316–319) | O3 / FO3 |
-| chapters/03-theorems.md:363–366 (qualitative; true in the main set) | — / FO4 |
-| chapters/63-own-data.md:70–71, 298–299 ("bounded above only at the computational point") | — / FO6, FO7 |
-| chapters/90-scope.md:77–79 (75–79) | O4 / FO5 |
-| 71:24–28 and 33 (chapter summary) | M1, M2 / F1, F2 |
-| 71:425 (rem:ec-other-losses, last sentence; true in the main set) | — / F9 |
-| 71:1497–1499 (thm:loss-d, last sentence of the statement) | M3 / F3 |
-| 71:1810 (rem:ec-lb-unbounded; h ≤ 4.48·10⁻²⁶ becomes h ≤ 6.46·10⁻²⁹) | M4 / F4 (1809–1810) |
-| 71:2206–2215 rem:ec-upper-point | M5 / F5 |
-| 71:2217–2242 rem:ec-upper-open | M6 / rule |
-| 71:2246–2263 sec:uc-close, opening paragraph | M7 / rule |
-| 71:2559–2564 thm:uc-reduction (iii) | M8 / rule |
-| 71:2662–2680 lem:uc-lambda; 2682–2700 lem:uc-n-iota; 2702–2738 prop:uc-explicit | M9, M10, M11 / rule |
-| 71:2759–2796 thm:uc-integer, and the new prop:uc-dependence after it | M12 / F6 |
-| 71:2798–2823 rem:uc-missing | M13 / rule |
-| 71:4094–4112 sec:cs, opening | M14 / rule |
-| 71:4396–4398 and 4402–4406 lem:cs-fourier (b), proof (reality of Λ) | M15a, M15b / same |
-| 71:4417 lem:cs-levels (b), C_lev | M16 / rule |
-| 71:4488–4492 lem:cs-iterations; 4524 and 4573 lem:cs-rest | M17, M18, M19 / rule |
-| 71:4592–4622 prop:cs-cstar, rem:cs-sharpness | M20 / rule |
-| 71:4635–4640 sec:cs-small notation (K̄ removed) | M21 / rule |
-| 71:4652–4683 lem:cs-sharp | M22 / rule |
-| 71:4698–4700, 4715, 4830–4842 lem:uc-small-orders (b), (e) | M23a–c / rule |
-| 71:4844–4862 rem:uc-small-reading | M24 / rule |
-| 71:4876–4884, 4906–4920, 4922–4924 prop:uc-d-small and after | M25a–c / rule |
-| 71:5122–5130 and 5209–5230 prop:uc-data-order (d) | M26a, M26b / F7, F8 |
+| chapters/00-front.md:37 | O1 (also the lower bound) |
+| chapters/01-introduction.md:155–156 | O2 (also the lower bound) |
+| chapters/03-theorems.md:318–319 | O3 |
+| chapters/90-scope.md:77–79 | O4 |
+| 71:23–28 and 33 (chapter summary) | M1 (also the lower bound), M2 |
+| 71:1497–1499 (thm:loss-d, last sentence of the statement) | M3 |
+| 71:1810 (rem:ec-lb-unbounded; h ≤ 4.48·10⁻²⁶ becomes h ≤ 6.46·10⁻²⁹) | M4 |
+| 71:2206–2215 rem:ec-upper-point; 2217–2242 rem:ec-upper-open | M5, M6 |
+| 71:2246–2263 sec:uc-close, opening paragraph | M7 (also the lower bound) |
+| 71:2559–2564 thm:uc-reduction (iii) | M8 |
+| 71:2662–2680 lem:uc-lambda; 2682–2700 lem:uc-n-iota; 2702–2738 prop:uc-explicit | M9, M10, M11 |
+| 71:2759–2796 thm:uc-integer (eq:uc-lower too), and the new prop:uc-dependence after it | M12 |
+| 71:2798–2823 rem:uc-missing; 4094–4112 sec:cs, opening | M13, M14 |
+| 71:4396–4398 and 4402–4406 lem:cs-fourier (b), proof (reality of Λ) | M15a, M15b |
+| 71:4417 lem:cs-levels (b); 4488–4492 lem:cs-iterations; 4524 and 4573 lem:cs-rest | M16, M17, M18, M19 |
+| 71:4592–4622 prop:cs-cstar, rem:cs-sharpness; 4635–4640 sec:cs-small notation (K̄ removed) | M20, M21 |
+| 71:4652–4683 lem:cs-sharp | M22 |
+| 71:4698–4700, 4715, 4769–4772, 4795, 4830–4842 lem:uc-small-orders (b), (e), proofs | M23a–e |
+| 71:4844–4862 rem:uc-small-reading | M24 |
+| 71:4876–4884, 4906–4920, 4922–4924 prop:uc-d-small and after | M25a–c |
+| 71:5122–5130 and 5209–5230 prop:uc-data-order (d) | M26a, M26b (also the lower bounds) |
 
-P-UB1's (not drafted here; they quote changed numbers): rem:gap-sums last sentence (71:169–170), the opening of sec:is
-(71:2827–2858: (G) "exactly for ε_K < μ_G", N_Λ bounds), prop:is-lambda (3216–3232), thm:is-gap (3250–3325),
-prop:is-count (3327–3359), rem:is-summary (3469–3487), def:uc-choice (2583–2597), lem:uc-admissible (2599–2644); and
-lem:uc-gaps (2646–2660) if η_0 changes.
-
+P-UB1's (not drafted here; they quote changed numbers): rem:gap-sums last sentence (71:169–170), the opening of sec:is,
+prop:is-lambda, thm:is-gap (with cor:is-lower), prop:is-count, rem:is-summary, def:uc-choice, lem:uc-admissible.
 Outside chapters/ (not part of the edition's text): PAPER.md (assembled; regenerate), STATUS.md and INTEGRATION.md
 (records of the old bound), proofs/P-TR.md (thm:tr-transfer (ii) quotes C_* = 6.4368·10³⁵, D_acc < 1.57157·10⁵⁰ and
-N_NM < 3.30029·10⁵¹ at lines 61–62; prop:tr-fail and lines 3–23, 471–490, 535–551, 636–686 use D_acc; its claim that
-N_Λ, k̄_0, J_*, η_0 do not move with h (line 478) fails for the repaired Λ, whose generators 1 + 𝒵 move with h).
+N_NM < 3.30029·10⁵¹; prop:tr-fail uses D_acc; its claim that N_Λ, k̄_0, J_*, η_0 do not move with h fails for the
+repaired Λ, whose generators 1 + 𝒵 move with h).
+
+### 4.2 The lower bounds: which change and which stay
+
+cor:is-lower holds at the computational point, for the index sets as constructed, at every admissible choice of the
+weights. Every site that quotes 1.2497·10²⁴, 2.624·10²⁵ (N_NM), 2.7493·10²⁵ (K) or 1.0078·10⁵¹ (K*) under those
+hypotheses takes the new bound (3R > 1.2250·10²⁷, N_NM > 2.5725·10²⁸, K > 22d > 2.695·10²⁸, K* > 9.684·10⁵⁶):
+
+| site (HEAD) | old | block |
+|---|---|---|
+| 00-front.md:37 | 1.2497 × 10²⁴ < d | O1 |
+| 01-introduction.md:155 | d > 1.2497 × 10²⁴ at every admissible choice, index sets as constructed | O2 |
+| 71:23–24 (summary) | larger than 1.2497 × 10²⁴ and 2.624 × 10²⁵ ([[cor:uc-two-offsets]]) | M1 |
+| 71:1491–1492 (thm:loss-d, closing paragraph) | the lower bound rises to 3R > 1.2497 × 10²⁴; (G) asks ε_K < μ_G | L2 |
+| 71:1814–1816 (rem:ec-lb-unbounded) | "The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on …" | L3 |
+| 71:2263 area (sec:uc-close) | "against the lower bound 1.2497·10²⁴" | M7 |
+| 71:2566–2568 (thm:uc-reduction, closing) | raised to 3R > 1.2497·10²⁴ ([[cor:uc-two-offsets]]) | L4 |
+| 71:2797 eq:uc-lower and its proof (thm:uc-integer) | 3R > 1.2497·10²⁴, N_NM > 2.624·10²⁵ | M12 |
+| 71:5122–5130, 5209–5230 (prop:uc-data-order (d)) | K > 22d > 2.7493·10²⁵, 1.0078·10⁵¹ < K* | M26a, M26b |
+| 90-scope.md:73–74 | d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ | L5 |
+
+These stay, and why:
+
+- **cor:uc-two-offsets** (71:2368–2391: R > 4.1659·10²³, 1.2497·10²⁴, 2.624·10²⁵) and **rem:uc-offset-d0**: their
+  hypothesis is weaker (both offsets increments, at every admissible choice); the statements are true, and L3 now
+  names both bounds.
+- **thm:loss-d (ii)** (1.403·10²⁰, 2.946·10²¹), **prop:ec-delta-cap** (log₁₀ δ < −1.351·10²¹), **rem:ec-lb-conditions**
+  (1.4032·10²⁰), the summaries that quote them (71:21–23, 90:72–73), and **rem:ec-lb-unbounded**'s 1.4032·10²⁰:
+  at the computational point but for every admissible choice and any index sets (only ε_K < ε_Υ), so cor:is-lower,
+  which assumes the index sets as constructed, does not apply.
+- **thm:ec-lb-proved, cor:ec-lb-delta, lem:ec-lb-gauge, lem:ec-lb-ind, lem:ec-lb-rounds** and every quote of them
+  (d > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²), d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻², d > 0.3168 γ_C², N_NM >
+  4.7158 × 10¹⁰ z⁻²(1 + 25.15z)⁻², N_NM > 6.654 γ_C², the log₁₀ δ bounds; 00-front:31–35, 01:152–154, 03:313–316,
+  90:66–71, 71:13–21, rem:ec-lb-unbounded's 0.3168h⁻²): they hold at every point of the proved set with h ≤ 10⁻⁶,
+  not only at the computational point, so they stay as they are.
+- The lower bound 3R > 1.2251·10²⁷ at the choice itself (thm:uc-integer, rem:ec-upper-point) is unchanged.
 
 ## 5. The main set of texts
 
 The rule of the numbers: every number below that depends on ε_K, ε_+ or N̄_Λ was produced by the evaluation step of
-section 3 at the inputs stated at the top of this file.
+section 3 at the inputs stated at the top of this file. Blocks M23d and M23e only rename k̄_0 to k̂_0 in two lines of
+lem:uc-small-orders that no other block touches.
 
-### M1. chapter summary, 71-explicit-constants.md lines 24–28
+### M1. chapter summary, 71-explicit-constants.md lines 23–28
 
-Old (5 lines):
+Old (6 lines):
 
 ```old
+than 1.403 × 10²⁰ and N_NM larger than 2.946 × 10²¹ ([[thm:loss-d]]), and larger than 1.2497 × 10²⁴ and 2.624 × 10²⁵
 for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). At that point, at one admissible choice of
 the weights and of the free orders and inner products ([[def:uc-choice]], [[def:cs-choices]]), d_acc and d_NM, the
 latter the d of [[thm:iii-k-3-2]], at least the orders at which its lemmas ask U small ([[prop:uc-d-small]]), are at
@@ -228,12 +258,13 @@ most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 ×
 point is not shown to lie in the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at
 ```
 
-New (6 lines):
+New (7 lines):
 
 ```new
-for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). At that point, at one admissible choice of the
-weights and of the free orders and inner products ([[def:uc-choice]], [[def:cs-choices]]), d_acc is at most an integer
-below 3.78623 × 10⁵⁵, and d_NM, the d of [[thm:iii-k-3-2]], at least d_acc and the orders at which its lemmas ask U small
+than 1.403 × 10²⁰ and N_NM larger than 2.946 × 10²¹ ([[thm:loss-d]]), and larger than 1.2250 × 10²⁷ and 2.5725 × 10²⁸ for
+the index sets as the proofs construct them ([[cor:is-lower]]). At that point, at one admissible choice of the weights
+and of the free orders and inner products ([[def:uc-choice]], [[def:cs-choices]]), d_acc is at most an integer below
+3.78623 × 10⁵⁵, and d_NM, the d of [[thm:iii-k-3-2]], at least d_acc and the orders at which its lemmas ask U small
 ([[prop:uc-d-small]]), is at most an integer below 7.57245 × 10⁵⁵, and N_NM at most one below 1.59022 × 10⁵⁷
 ([[thm:uc-integer]]). That parameter point is not shown to lie in the set on which [[thm:settling]] is proved
 ([[rem:ec-point-outside]]), and the bounds at
@@ -268,8 +299,8 @@ New (4 lines):
 ```new
 the index sets. At the computational point [[thm:uc-integer]] evaluates every number of steps and every such count, and
 [[lem:uc-small-orders]] and [[prop:uc-d-small]] the orders at which the proof of [[thm:iii-k-3-2]] asks U small: d_acc is
-at most an integer below 3.78623 × 10⁵⁵, d_NM at most one below 7.57245 × 10⁵⁵, and N_NM at most one below 1.59022 ×
-10⁵⁷.
+at most an integer below 3.78623 × 10⁵⁵, d_NM at most one below 7.57245 × 10⁵⁵, and N_NM at most one below
+1.59022 × 10⁵⁷.
 ```
 
 ### M4. rem:ec-lb-unbounded, 71-explicit-constants.md lines 1810–1810
@@ -429,10 +460,10 @@ simple. With them (G) holds exactly for ε_K < μ_Z ([[thm:is-gap]]), and N_Λ, 
 count of [[eq:ec-upper]] at it, and proves [[thm:uc-integer]]: d_acc and d_R are at most an integer D_acc < 3.78623·10⁵⁵,
 and d_NM at most an integer D_NM < 7.57245·10⁵⁵, the single-step losses being at most C_lev < 6.32812·10³⁸ at the levels
 above 3 ([[lem:cs-levels]]) and at most C_* < 1.89844·10³⁹ in all ([[prop:cs-cstar]]), and the orders of smallness being
-bounded in [[sec:cs-small]], against the lower bound 1.2497·10²⁴; [[prop:uc-dependence]] gives D_acc and D_NM as
-functions of the inputs of the choice, and [[rem:uc-missing]] states what the bound rests on. Throughout we work at the
-computational point of [[def:ec-point]], so z = 4·10⁻⁶ = 1/250000 and λ_♯ = 15099/10000, and 𝔡₀ = d_c0, 𝔡₁ = d_c1 are the
-offsets of [[sec:ec-gap-sums]].
+bounded in [[sec:cs-small]], against the lower bound 1.2250·10²⁷ ([[cor:is-lower]]); [[prop:uc-dependence]] gives D_acc
+and D_NM as functions of the inputs of the choice, and [[rem:uc-missing]] states what the bound rests on. Throughout we
+work at the computational point of [[def:ec-point]], so z = 4·10⁻⁶ = 1/250000 and λ_♯ = 15099/10000, and 𝔡₀ = d_c0, 𝔡₁ =
+d_c1 are the offsets of [[sec:ec-gap-sums]].
 ```
 
 ### M8. thm:uc-reduction (iii), 71-explicit-constants.md lines 2559–2564
@@ -547,10 +578,10 @@ and N_ι = 316,405,564,857,307,442,898,487,679,625,881,224,896 < 3.16406·10³�
 
 *Proof.* A pair (z, m) ∈ E with Re z ≤ w has z ∈ Λ ∩ {Re < 3 + ε_+}, so z = λ_i for some i ≤ N_Λ, and m ≤ k̄(λ_i) ≤
 k̄_0 + J′i ([[lem:uc-lambda]] (c)); at z = λ_i there are at most k̄_0 + 1 + J′i such pairs. Summing over i, n(E, w) ≤
-(k̄_0 + 1)N_Λ + J′N_Λ(N_Λ + 1)/2, which increases with N_Λ; at N_Λ = N̄_Λ = 909,507,124,095,312, where (N̄_Λ + 1)/2 =
+(k̄_0 + 1)N_Λ + J′N_Λ(N_Λ + 1)/2, which increases with N_Λ; at N_Λ = N̄_Λ = 909,507,124,095,312, where N̄_Λ/2 =
 454,753,562,047,656, it equals
 
-    4 · 909,507,124,095,312 + 765,000,816 · 909,507,124,095,312 · 454,753,562,047,656 = N_ι.
+    4 · 909,507,124,095,312 + 765,000,816 · 454,753,562,047,656 · 909,507,124,095,313 = N_ι.
 
 By [[lem:uc-fourier-count]], n_ι counts the pairs (λ, k) ∈ ℰ^♭ with Re λ ≤ 3 + ε_+ − ε, so n_ι = n(ℰ^♭, 3 + ε_+ − ε) ≤
 N_ι, and the loss [[eq:uc-fourier-count]] is 1 + n_ι + 2⌊β − ε⌋ ≤ 1 + N_ι + 8, as β − ε < α ≤ 4 + ε_K < 5. ∎
@@ -698,7 +729,7 @@ R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂), where 3ε_K + 2δ̂ + δ̄ < 1.
 3R > 3(1 − 1.98·10⁻⁸)/(2.40025·10⁻²⁴) > 1.2498·10²⁴, and 1.0072 · 1.2498 > 1.2587. ∎
 ```
 
-New (69 lines):
+New (74 lines):
 
 ```new
 **Theorem {#thm:uc-integer}** (The loss d at the computational point.) At the computational point, with the index sets as
@@ -722,7 +753,7 @@ For the fixed seminorms of [[lem:uc-small-orders]] (d) also d_NM ≤ D_acc + D_*
 (b)). The losses of [[lem:iii-k-2-2]] and [[prop:iii-j2-4-3]] satisfy d_Ψ, d_FM ≤ 62N̄_Λ + 10 = 56,389,441,693,909,354.
 Against these, for every admissible choice of the weights,
 
-    d_NM ≥ d_acc ≥ 3R > 1.2497·10²⁴,     N_NM > 2.624·10²⁵,                                {#eq:uc-lower}
+    d_NM ≥ d_acc ≥ 3R > 1.2250·10²⁷,     N_NM > 2.5725·10²⁸,                               {#eq:uc-lower}
 
 and at the choice of [[def:uc-choice]], 3R > 1.2251·10²⁷, so that D_e < 1.0072 · 3R.
 
@@ -731,17 +762,18 @@ and at the choice of [[def:uc-choice]], 3R > 1.2251·10²⁷, so that D_e < 1.00
 [[prop:uc-d-small]] (c) and (d), d_NM ≤ D_♭ + D′_* + d̄_Φ = D_NM for the fixed seminorms of [[lem:uc-small-orders]] (d)
 and for those of [[rem:uc-small-reading]], and (b) there gives the bound with D_*; the integers are those of
 [[eq:cs-sharp]] and [[prop:uc-d-small]] (c). N_NM = 21d_NM + 6 by [[thm:loss-d]], so N_NM ≤ 21D_NM + 6. The bounds for
-d_FM and d_Ψ are [[lem:uc-lambda]] (d). [[eq:uc-lower]] is [[cor:uc-two-offsets]] (a), whose hypothesis holds by (b)
-there. At the choice of [[def:uc-choice]], [[prop:ec-rounds]] gives R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂), where 3ε_K + 2δ̂ +
-δ̄ < 1.98·10⁻⁸ and ε_Kδ̂ = 2.448645858·10⁻²⁷ < 2.44865·10⁻²⁷; so 3R > 3(1 − 1.98·10⁻⁸)/(2.44865·10⁻²⁷) > 1.2251·10²⁷, and
-1.0072 · 1.2251·10²⁷ > 1.23382·10²⁷ = D_e. ∎
+d_FM and d_Ψ are [[lem:uc-lambda]] (d). [[eq:uc-lower]] is [[cor:is-lower]]. At the choice of [[def:uc-choice]],
+[[prop:ec-rounds]] gives R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂), where 3ε_K + 2δ̂ + δ̄ < 1.98·10⁻⁸ and ε_Kδ̂ =
+2.448645858·10⁻²⁷ < 2.44865·10⁻²⁷; so 3R > 3(1 − 1.98·10⁻⁸)/(2.44865·10⁻²⁷) > 1.2251·10²⁷, and 1.0072 · 1.2251·10²⁷ >
+1.23382·10²⁷ = D_e. ∎
 
 **Proposition {#prop:uc-dependence}** (The bound as a function of the choice.) Let a choice be made as in
-[[def:uc-choice]], except that ε_K and ε_+ are any numbers with 0 < ε_K < ε_+ < 10⁻¹³ for which it is admissible, and let
-N̄_Λ ≥ N_Λ, k̄_0, J_* and l_* be integers for which [[lem:uc-lambda]] (b) and (c) hold, with J′ := (J_* + 1)(l_* + 1).
-Put Δβ_0 := 0.999²ε_K and Δτ_0 := 0.999ε_Υ, L_<, L_> and R_b as in [[eq:uc-levels]], N_ι as in [[eq:uc-n-iota]], k̄_max
-:= k̄_0 + J′N̄_Λ, d̄_Φ := 62N̄_Λ + 2, C_lev := 2N_ι + N̄_Λ + 529, I_lev := 34,268,829,852, I_base := 935R_b + 466 +
-23,524,832(R_b + 3), T_12 := C_lev + I_lev + 4k̄_max + 24, R_base := 22,097 + I_base,
+[[def:uc-choice]], except that ε_K and ε_+ are any numbers with 0 < ε_K < ε_+ < 10⁻¹³ for which it is admissible and the
+hypotheses of [[prop:ec-upper]] and of [[eq:ec-upper-counts]] hold with Δβ_0 := 0.999²ε_K and Δτ_0 := 0.999ε_Υ, as
+[[lem:uc-admissible]] shows at the choice of [[def:uc-choice]], and let N̄_Λ ≥ N_Λ, k̄_0, J_* and l_* be integers with
+which [[lem:uc-lambda]] (c) holds, with J′ := (J_* + 1)(l_* + 1). Put L_<, L_> and R_b as in [[eq:uc-levels]], N_ι as in
+[[eq:uc-n-iota]], k̄_max := k̄_0 + J′N̄_Λ, d̄_Φ := 62N̄_Λ + 2, C_lev := 2N_ι + N̄_Λ + 529, I_lev := 34,268,829,852,
+I_base := 935R_b + 466 + 23,524,832(R_b + 3), T_12 := C_lev + I_lev + 4k̄_max + 24, R_base := 22,097 + I_base,
 
     F_1 := 3((1 + Δβ_0/2)² + (1 + ε_K + Δβ_0/2)²)/(2Δβ_0Δτ_0) + 3(3 + 2ε_K)/Δβ_0 + 6 + 4/Δτ_0 + 8
            + 3((1 + ε_K)/Δβ_0 + 1)((1 + ε_+)/𝔡₁ + 2) + 16(0.4901/𝔡₁ + 1)((3 + ε_K)/Δβ_0 + 5),
@@ -749,27 +781,31 @@ Put Δβ_0 := 0.999²ε_K and Δτ_0 := 0.999ε_Υ, L_<, L_> and R_b as in [[eq:
     D′_* := T_12 + 18 + 20,565,308,337L_< + (C_lev + I_lev − 9)L_> + 2R_base,
     D_acc := D_e + 497L_< + L_>C_lev + 935R_b + 466 + C_*,     D_NM := D_acc + D′_* + d̄_Φ,
 
-with D_e any number at least F_1. Then d_acc ≤ d_R ≤ D_acc, d_NM ≤ D_NM and N_NM ≤ 21D_NM + 6. Each of N_ι, k̄_max, d̄_Φ,
-C_lev, I_base, T_12, R_base, C_*, D′_* and D_acc − D_e is a polynomial with non-negative coefficients in N̄_Λ, k̄_0, J′,
-L_<, L_> and R_b; L_<, L_> and R_b are non-increasing in ε_K, and F_1 is non-increasing in ε_K and non-decreasing in ε_+.
-So, with D_e := F_1, D_acc and D_NM are non-decreasing in N̄_Λ, k̄_0, J′ and ε_+ and non-increasing in ε_K. Moreover
-D_acc = L_>C_lev + D_e + 497L_< + 935R_b + 466 + C_*, and L_>C_lev > J′N̄_Λ(N̄_Λ + 1)(1 + ε_K)/Δβ_0: the bound is at
-least quadratic in N̄_Λ and of the order 1/ε_K.
+with D_e any number at least F_1, and suppose that 4k̄_max + 24 > I_base + 22,119. Then d_acc ≤ d_R ≤ D_acc, d_NM ≤ D_NM
+and N_NM ≤ 21D_NM + 6. Each of N_ι, k̄_max, d̄_Φ, C_lev, I_base, T_12, R_base, C_*, D′_* and D_acc − D_e is a polynomial
+with non-negative coefficients in N̄_Λ, k̄_0, J′, L_<, L_> and R_b; L_<, L_> and R_b are non-increasing in ε_K, and F_1
+is non-increasing in ε_K and non-decreasing in ε_+. So, with D_e := F_1, D_acc and D_NM are non-decreasing in N̄_Λ, k̄_0,
+J′ and ε_+ and non-increasing in ε_K. Moreover D_acc = L_>C_lev + D_e + 497L_< + 935R_b + 466 + C_*, and L_>C_lev >
+J′N̄_Λ(N̄_Λ + 1)(1 + ε_K)/Δβ_0: the bound is at least quadratic in N̄_Λ and of the order 1/ε_K.
 
 *Proof.* The proofs of [[prop:uc-explicit]], [[lem:cs-levels]], [[lem:cs-base]], [[lem:cs-iterations]], [[lem:cs-rest]],
 [[prop:cs-cstar]], [[lem:cs-sharp]], [[lem:uc-small-orders]], [[rem:uc-small-reading]] and [[prop:uc-d-small]] use, of
 the numbers of [[def:uc-choice]] and [[lem:uc-lambda]], only N_Λ ≤ N̄_Λ, k̄(λ_i) ≤ k̄_0 + J′i, Δβ ≥ Δβ_0, a♭_K − 2 ≥
-Δβ_0, Δτ ≥ Δτ_0, ε_K < ε_+ < 10⁻¹³ and the bounds of [[lem:is-offsets]] (b); and they give d_acc, d_R ≤ D_acc and d_NM ≤
-D_NM with the expressions above. F_1 is the bound for the first line of [[eq:ec-upper]] that [[eq:ec-upper-counts]],
-[[eq:uc-t2-w]], ℓ⁺_tf = 1, r_ι ≤ 16 and η_2 − η_1 < ε_+ give, with N_< ≤ 1/Δβ_0, N_> ≤ (1 + ε_K)/Δβ_0 + 1 and N_b ≤
-1/Δβ_0 + 1 ([[eq:ec-upper-counts]]): 3(T_< + T_> + T_2) + 4(1/Δτ + 2) + 16W(N_< + N_> + N_b + 3), 1/Δτ ≤ 1/Δτ_0, written
-out; 1/𝔡₁ may be replaced by any upper bound. C_* is the right side of [[eq:cs-c0]] written out (1,587 + 44,227 + 48 =
-45,862 and 2X_12 = 8k̄_max + 48), I_base is that of [[eq:cs-iterations]] (469R_b + 466(R_b + 1) = 935R_b + 466 and 16 ·
-1,470,302 = 23,524,832), and 22,097 = 20,183 + 1,914. These are sums of products of N̄_Λ, k̄_0, J′, L_<, L_>, R_b and
-positive constants, so they do not decrease when one of these integers increases. As ε_K increases, Δβ_0 increases, and
-1/Δβ_0 and (1 + ε_K)/Δβ_0 = 1/Δβ_0 + 1/0.998001 decrease, and so do their integer parts; each term of F_1 is
-non-increasing in ε_K, as x ↦ (1 + cx)²/x decreases on (0, 1/c) and (1 + ε_K)/Δβ_0 and (3 + ε_K)/Δβ_0 decrease, and ε_+
-enters F_1 only through the factor 1 + ε_+. Finally C_lev > 2N_ι ≥ J′N̄_Λ(N̄_Λ + 1) and L_> > (1 + ε_K)/Δβ_0. ∎
+Δβ_0, Δτ ≥ Δτ_0, ε_K < ε_+ < 10⁻¹³ and the bounds of [[lem:is-offsets]] (b), and, in Steps 4′ and 4 of
+[[lem:uc-small-orders]] (d) and in [[rem:uc-small-reading]], T_11 < T_12 ([[lem:cs-rest]]), which is the inequality
+supposed. With it every order of the smallness conditions is at most max(2R_base + 16, T_12 + 14, C_lev + I_lev +
+R_base + 5) ≤ D′_* for the fixed seminorms of [[lem:uc-small-orders]] (d) (the proof of its (e)), and at most D′_* for
+those of [[rem:uc-small-reading]]; so they give d_acc, d_R ≤ D_acc and d_NM ≤ D_NM with the expressions above. F_1 is the
+bound for the first line of [[eq:ec-upper]] that [[eq:ec-upper-counts]], [[eq:uc-t2-w]], ℓ⁺_tf = 1, r_ι ≤ 16 and η_2 −
+η_1 < ε_+ give, with N_< ≤ 1/Δβ_0, N_> ≤ (1 + ε_K)/Δβ_0 + 1 and N_b ≤ 1/Δβ_0 + 1 ([[eq:ec-upper-counts]]): 3(T_< + T_> +
+T_2) + 4(1/Δτ + 2) + 16W(N_< + N_> + N_b + 3), 1/Δτ ≤ 1/Δτ_0, written out; 1/𝔡₁ may be replaced by any upper bound. C_*
+is the right side of [[eq:cs-c0]] written out (1,587 + 44,227 + 48 = 45,862 and 2X_12 = 8k̄_max + 48), I_base is that of
+[[eq:cs-iterations]] (469R_b + 466(R_b + 1) = 935R_b + 466 and 16 · 1,470,302 = 23,524,832), and 22,097 = 20,183 + 1,914.
+These are sums of products of N̄_Λ, k̄_0, J′, L_<, L_>, R_b and positive constants, so they do not decrease when one of
+these integers increases. As ε_K increases, Δβ_0 increases, and 1/Δβ_0 and (1 + ε_K)/Δβ_0 = 1/Δβ_0 + 1/0.998001 decrease,
+and so do their integer parts; each term of F_1 is non-increasing in ε_K, as x ↦ (1 + cx)²/x decreases on (0, 1/c) and
+(1 + ε_K)/Δβ_0 and (3 + ε_K)/Δβ_0 decrease, and ε_+ enters F_1 only through the factor 1 + ε_+. Finally C_lev > 2N_ι ≥
+J′N̄_Λ(N̄_Λ + 1) and L_> > (1 + ε_K)/Δβ_0. ∎
 ```
 
 ### M13. rem:uc-missing, 71-explicit-constants.md lines 2798–2823
@@ -1165,8 +1201,8 @@ h + h_rem(q) + h_tot(p⃗);
 New (3 lines):
 
 ```new
-(b) in [[eq:s20-d]] one may take k_1 = 10 and k_0 = k̄_0 := 20,602 + 466R_b = 27,881,614,609,561,900,922, and so the d of
-[[eq:s20-d]] equal to k̄_0 + 2; the conditions of [[ch:s20]] then have order k̄_0 + 2, and k̄_0 + 5 at the backgrounds
+(b) in [[eq:s20-d]] one may take k_1 = 10 and k_0 = k̂_0 := 20,602 + 466R_b = 27,881,614,609,561,900,922, and so the d of
+[[eq:s20-d]] equal to k̂_0 + 2; the conditions of [[ch:s20]] then have order k̂_0 + 2, and k̂_0 + 5 at the backgrounds
 h + h_rem(q) + h_tot(p⃗);
 ```
 
@@ -1212,14 +1248,14 @@ of (d) are at most ρ + 14 < T_12 + 14, or ρ + R_base + 16. Of the conditions o
 p⃗_b) with b ≠ b₀ occurs only at a level, where ρ ≤ C_lev − 11 + I_lev: Step 4′ is a step of [[thm:iii-i14-3-1]], at b₀,
 and at a rotating b [[prop:iii-i15-2-5]] has no Step 4′ ([[sec:s23-base-points]]), its rotation coordinates being the A_b
 read at the levels. So ρ + R_base + 16 ≤ C_lev + I_lev + R_base + 5 < T_12 + 14, as X_12 =
-2,783,094,768,362,907,767,098,404 exceeds R_base. The convention "h small" of [[sec:iii-i7-1]], kept in [[sec:iii-i8-1]],
-in [[sec:iii-i9-1]] and so at the base points of [[ch:s22]], and the convention "q small" of [[sec:iii-i14-1]] each fix
-one order for all their uses: the largest of the orders that those uses ask. The uses lie in the bases, at the levels and
-in Steps 4′ and 4, and each asks an order that (a)–(d) bound, by (F1) at the regularity of its seminorm. So every order
-is at most D_*, and so is their largest, d_*. The order m of the proof of [[lem:iii-k-2-3]] is the largest regularity ρ
-of the seminorms in which the proof of [[lem:iii-j2-2-3]] asks R_j → 0, and the condition asked in that seminorm has an
-order at least m + 14 by (c) and (d); so m + 14 ≤ d_*. The integer: T_12 = C_lev + I_lev + X_12 =
-632,811,129,714,617,668,891,744,631,700,922,473,889, and D_* = T_12 + 14. ∎
+2,783,094,768,362,907,767,098,404 exceeds R_base + 22, so that also T_11 < T_12 in (d). The convention "h small" of
+[[sec:iii-i7-1]], kept in [[sec:iii-i8-1]], in [[sec:iii-i9-1]] and so at the base points of [[ch:s22]], and the
+convention "q small" of [[sec:iii-i14-1]] each fix one order for all their uses: the largest of the orders that those
+uses ask. The uses lie in the bases, at the levels and in Steps 4′ and 4, and each asks an order that (a)–(d) bound, by
+(F1) at the regularity of its seminorm. So every order is at most D_*, and so is their largest, d_*. The order m of the
+proof of [[lem:iii-k-2-3]] is the largest regularity ρ of the seminorms in which the proof of [[lem:iii-j2-2-3]] asks R_j
+→ 0, and the condition asked in that seminorm has an order at least m + 14 by (c) and (d); so m + 14 ≤ d_*. The integer:
+T_12 = C_lev + I_lev + X_12 = 632,811,129,714,617,668,891,744,631,700,922,473,889, and D_* = T_12 + 14. ∎
 ```
 
 ### M24. rem:uc-small-reading, 71-explicit-constants.md lines 4844–4862
@@ -1301,7 +1337,7 @@ New (10 lines):
 75,724,446,520,791,266,568,624,181,582,042,570,869,522,603,615,666,426,111 < 7.57245·10⁵⁵, and N_NM ≤
 1,590,213,376,936,616,597,941,107,813,222,893,988,259,974,675,928,994,948,337 < 1.59022·10⁵⁷;
 
-(d) in either case d_NM ≤ D_NM and N_NM ≤ 21D_NM + 6, with D_NM := D_♭ + D′_* + d̄_Φ of [[thm:uc-integer]]; and every
+(d) in either case d_NM ≤ D_NM and N_NM ≤ 21D_NM + 6, with D_NM = D_♭ + D′_* + d̄_Φ of [[thm:uc-integer]]; and every
 lower bound for d_acc and N_NM in this chapter holds for d_NM and N_NM.
 ```
 
@@ -1389,8 +1425,8 @@ New (10 lines):
       = 1,665,937,823,457,407,864,509,731,994,804,936,559,129,497,279,544,661,374,787 < 1.66594·10⁵⁷,
 
 d_1 ≤ 22D_NM + 331 and N ≤ 22D_NM + 348. For the fixed seminorms of [[lem:uc-small-orders]] (d), K < 8.3297·10⁵⁶; and K >
-22d > 2.7493·10²⁵. In the class ℰ_0^½, k1 ≤ 22D_NM + 340 and 1.0078·10⁵¹ < K*(a, M, k1) < 1.11014·10¹¹⁵ for every a ∈
-(ℓ0 − 1, 3).
+22d > 2.695·10²⁸. In the class ℰ_0^½, k1 ≤ 22D_NM + 340 and 9.684·10⁵⁶ < K*(a, M, k1) < 1.11014·10¹¹⁵ for every a ∈ (ℓ0 −
+1, 3).
 ```
 
 ### M26b. prop:uc-data-order, proof of (d), 71-explicit-constants.md lines 5209–5230
@@ -1434,10 +1470,10 @@ printed, with leading digits 1.6659378. d_1 = K − 14 and N = K + 3 give the ne
 for the fixed seminorms of [[lem:uc-small-orders]] (d), d_NM is at most D_b :=
 37,862,223,260,395,634,549,934,375,862,530,497,755,494,177,219,176,347,223, and 22D_b + 345 =
 832,968,911,728,703,960,098,556,268,975,670,950,620,871,898,821,879,639,251 < 8.3297·10⁵⁶. By [[eq:uc-lower]], d ≥
-d_acc > 1.2497·10²⁴, so K > 22d > 2.74934·10²⁵. In the class ℰ_0^½, d_1 ≤ 22d + 336 and k1 = d_1 + 4 ≤ 22D_NM + 340 =:
-k̄, and by (c) K*(a, M, k1) < k̄ + 4 + (4k̄ + 35)(k̄ + 3) = 4k̄² + 48k̄ + 109. As k̄ > 10⁵⁷, 48k̄ + 109 < 10⁻⁵⁵k̄², and
-as k̄ < 1.6659378235·10⁵⁷, k̄² < 2.775348832·10¹¹⁴; so K*(a, M, k1) < (4 + 10⁻⁵⁵) · 2.775348832·10¹¹⁴ < 1.11014·10¹¹⁵.
-And K*(a, M, k1) > (4/3)k1², with k1 > 22d > 2.74934·10²⁵, so K*(a, M, k1) > (4/3) · 7.5588·10⁵⁰ > 1.0078·10⁵¹. ∎
+d_acc > 1.2250·10²⁷, so K > 22d > 2.695·10²⁸. In the class ℰ_0^½, d_1 ≤ 22d + 336 and k1 = d_1 + 4 ≤ 22D_NM + 340 =: k̄,
+and by (c) K*(a, M, k1) < k̄ + 4 + (4k̄ + 35)(k̄ + 3) = 4k̄² + 48k̄ + 109. As k̄ > 10⁵⁷, 48k̄ + 109 < 10⁻⁵⁵k̄², and as k̄
+< 1.6659378235·10⁵⁷, k̄² < 2.775348832·10¹¹⁴; so K*(a, M, k1) < (4 + 10⁻⁵⁵) · 2.775348832·10¹¹⁴ < 1.11014·10¹¹⁵. And
+K*(a, M, k1) > (4/3)k1², with k1 > 22d > 2.695·10²⁸, so K*(a, M, k1) > (4/3) · 7.263025·10⁵⁶ > 9.684·10⁵⁶. ∎
 ```
 
 ### O1. front matter, 00-front.md lines 37–37
@@ -1451,21 +1487,24 @@ Old (1 lines):
 New (1 lines):
 
 ```new
-1.2497 × 10²⁴ < d < 7.57245 × 10⁵⁵; at equality, μ0 = √72 l5², timelike
+1.2250 × 10²⁷ < d < 7.57245 × 10⁵⁵; at equality, μ0 = √72 l5², timelike
 ```
 
-### O2. introduction, 01-introduction.md lines 156–156
+### O2. introduction, 01-introduction.md lines 155–156
 
-Old (1 lines):
+Old (2 lines):
 
 ```old
+lie in it, d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them,
 and d < 1.57157 × 10⁵⁰ at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]). A
 ```
 
-New (1 lines):
+New (3 lines):
 
 ```new
-and d < 7.57245 × 10⁵⁵ at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]). A
+lie in it, d > 1.2250 × 10²⁷ at every admissible choice of the weights, for the index sets as the proofs construct them
+([[cor:is-lower]]), and d < 7.57245 × 10⁵⁵ at one admissible choice of the weights, orders and inner products
+([[thm:uc-integer]]). A
 ```
 
 ### O3. theorems chapter, 03-theorems.md lines 318–319
@@ -1502,428 +1541,118 @@ the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P 
 so that at that point K is at most an integer below 1.66594 × 10⁵⁷ ([[prop:uc-data-order]]). The
 ```
 
+### M23d. lem:uc-small-orders, proof of (b): the local k̄_0 renamed k̂_0, 71-explicit-constants.md lines 4769–4772
 
-## 6. The fallback set: the upper bound withdrawn
-
-If no admissible choice is proved, these texts state only what is proved: the lower bounds, and that the upper bound is
-an explicit function (prop:uc-dependence) of inputs that are not evaluated. They replace the main blocks M1–M5, M12,
-M26a, M26b, O1–O4. **Rule for the other main blocks (M6–M11, M13–M25):** apply them with every evaluated number
-deleted together with the words that state it (for instance "N_Λ ≤ N̄_Λ := 910,000,000,000,000" becomes "N_Λ ≤ N̄_Λ",
-"C_lev := 2N_ι + N̄_Λ + 529 = …" becomes "C_lev := 2N_ι + N̄_Λ + 529", "L_< = …, L_> = … and R_b = …" and the *The
-integer.* paragraphs of lem:cs-sharp and prop:uc-d-small are deleted, the evaluated displays of prop:uc-explicit and its
-*The counts.* paragraph are deleted), and with "at the choice of [[def:uc-choice]]" read as "at a choice as in
-[[def:uc-choice]] at which the weights are admissible"; M15a and M15b are applied unchanged. Their formulas and proofs
-are the proofs of prop:uc-dependence, so they stay true. def:uc-choice and lem:uc-admissible are P-UB1's. Since
-P-UB1 proved an admissible choice, this set is not needed; it is kept as asked. Checked merged with P-UB1's texts and
-the main blocks other than those replaced (section 7).
-
-### F1. chapter summary, 71-explicit-constants.md lines 24–28
-
-Old (5 lines):
+Old (4 lines):
 
 ```old
-for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). At that point, at one admissible choice of
-the weights and of the free orders and inner products ([[def:uc-choice]], [[def:cs-choices]]), d_acc and d_NM, the
-latter the d of [[thm:iii-k-3-2]], at least the orders at which its lemmas ask U small ([[prop:uc-d-small]]), are at
-most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter
-point is not shown to lie in the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at
-```
-
-New (6 lines):
-
-```new
-for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). At that point d_acc, d_R and d_NM are bounded
-above by explicit functions of the admissible ε_K of the gap condition and of the counts of the index sets
-([[prop:ec-upper]], [[prop:uc-dependence]]); every admissible ε_K there is below 1.6747859·10⁻¹⁷ ([[thm:is-gap]]), and
-the admissible ε_K and the number of points of Λ below 3 + ε_+ are not evaluated here, so these bounds are not evaluated.
-That parameter point is not shown to lie in the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and
-the bounds at
-```
-
-### F2. chapter summary, 71-explicit-constants.md lines 33–33
-
-Old (1 lines):
-
-```old
-being an explicit number of derivatives; at the computational point K is at most an integer below 3.45745 × 10⁵¹
-```
-
-New (1 lines):
-
-```new
-being an explicit number of derivatives; at the computational point K exceeds 2.7493 × 10²⁵
-```
-
-### F3. thm:loss-d, last sentence, 71-explicit-constants.md lines 1497–1499
-
-Old (3 lines):
-
-```old
-the index sets. At the computational point [[thm:uc-integer]] evaluates every number of steps and every such count, and
-[[lem:uc-small-orders]] and [[prop:uc-d-small]] the orders at which the proof of [[thm:iii-k-3-2]] asks U small: d_acc
-and d_NM are at most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹.
-```
-
-New (2 lines):
-
-```new
-the index sets. At the computational point [[prop:uc-dependence]] gives d_acc, d_R and d_NM upper bounds that are
-explicit functions of the admissible ε_K and of the counts of the index sets, which are not evaluated.
-```
-
-### F4. rem:ec-lb-unbounded, 71-explicit-constants.md lines 1809–1810
-
-Old (2 lines):
-
-```old
-proved set, and an explicit upper bound for it can hold at points of that set but not on all of it; in particular d_NM
-exceeds 1.57157·10⁵⁰, the bound of [[thm:uc-integer]], at every point of the proved set with h ≤ 4.48·10⁻²⁶. Likewise, at
-```
-
-New (1 lines):
-
-```new
-proved set, and an explicit upper bound for it can hold at points of that set but not on all of it. Likewise, at
-```
-
-### F5. rem:ec-upper-point, 71-explicit-constants.md lines 2206–2215
-
-Old (10 lines):
-
-```old
-**Remark {#rem:ec-upper-point}** (The upper bound at the computational point.) At the computational point ε_g ≤ ε_Υ <
-1.46214·10⁻¹⁰ ([[lem:ec-gauge-gap]], [[rem:ec-gauge-gap]]), and for the index sets as the proofs construct them 𝔡₀ and 𝔡₁
-are increments of Λ ([[cor:uc-two-offsets]], [[rem:uc-offset-d0]]) and (G) holds exactly for ε_K < μ_G, where μ_G <
-1.64160217198·10⁻¹⁴ ([[thm:is-gap]]). The levels are then less than μ_G apart, and the first line of [[eq:ec-upper]] is
-of the order 3/(ε_Kε_g), the order of the lower bound 3R of [[prop:ec-rounds]]. [[prop:uc-explicit]] evaluates it at the
-admissible choice of [[def:uc-choice]], with ε_K = 1.6416·10⁻¹⁴ and ε_g = ε_Υ = 1.4619·10⁻¹⁰: it is less than
-1.2587·10²⁴, of which less than 4.30775·10²¹ comes from the window loops at ι⁺ (bounded there through ε^ι_ind = 𝔡₁,
-[[lem:uc-gaps]]), and less than 1.0072 times the lower bound 3R > 1.2498·10²⁴ at the same choice ([[thm:uc-integer]]).
-The losses c(β_k), c_b and c′_b of single steps enter the second line with the multiplicities K < 1.22077·10¹⁴ and N_b,
-N_b + 1 < 6.10383·10¹³, and c_0 once; [[prop:cs-cstar]] bounds their largest value c_* by 6.4368·10³⁵.
-```
-
-New (7 lines):
-
-```new
-**Remark {#rem:ec-upper-point}** (The upper bound at the computational point.) At the computational point ε_g ≤ ε_Υ <
-1.46214·10⁻¹⁰ ([[lem:ec-gauge-gap]], [[rem:ec-gauge-gap]]), and for the index sets as the proofs construct them every ε_K
-with which (G) holds lies below 1.6747859·10⁻¹⁷ ([[thm:is-gap]]). The levels are then less than 1.6747859·10⁻¹⁷ apart,
-and the first line of [[eq:ec-upper]] is of the order 3/(ε_Kε_g), the order of the lower bound 3R of [[prop:ec-rounds]].
-In the second line the levels above 3, about 1/ε_K of them, are each charged at most C_lev = 2N_ι + N̄_Λ + 529, which is
-quadratic in a bound N̄_Λ for the number N_Λ of points of Λ below 3 + ε_+ ([[lem:cs-levels]], [[prop:uc-dependence]]).
-The admissible ε_K and N_Λ are not evaluated in this paper, and so neither is the bound.
-```
-
-### F6. thm:uc-integer, then prop:uc-dependence as in M12, 71-explicit-constants.md lines 2759–2796
-
-Old (38 lines):
-
-```old
-**Theorem {#thm:uc-integer}** (The loss d at the computational point.) At the computational point, with the index sets as
-constructed, the admissible choice of the weights of [[def:uc-choice]] and the free orders and inner products of
-[[def:cs-choices]], let c_* be the largest of the numbers c(β_k) (1 ≤ k ≤ K), c_b, c′_b and c_0 defined before
-[[prop:ec-upper]] and c^Ψ(β_k), c^Ψ_b, c′^Ψ_b and c^Ψ_0 of [[lem:uc-dr]]: the largest loss that [[def:ec-accounted-loss]]
-assigns to a single step outside the long iterations. Then
-c_* < C_* := 643,680,000,000,000,000,000,000,000,000,000,000 = 6.4368·10³⁵ ([[prop:cs-cstar]]), and
-
-    d_acc ≤ d_R ≤ D_acc,     d_NM ≤ D_NM := D_acc,     N_NM = 21d_NM + 6 ≤ 21D_NM + 6,                 {#eq:uc-integer}
-
-where, with D_e = 1.2587·10²⁴ = 1,258,700,000,000,000,000,000,000 and M_c = 2.44153·10¹⁴ = 244,153,000,000,000,
-
-    D_acc := D_e + M_c C_* = 157,156,403,040,000,000,000,000,001,258,700,000,000,000,000,000,000 < 1.57157·10⁵⁰,
-    21D_NM + 6 = 3,300,284,463,840,000,000,000,000,026,432,700,000,000,000,000,000,006 < 3.30029·10⁵¹.
-
-The losses of [[lem:iii-k-2-2]] and [[prop:iii-j2-4-3]] satisfy d_Ψ, d_FM ≤ 1,038,326,399,999,948, and the finer bounds
-d_acc, d_R < 2.6193·10⁴⁹ and d_NM < 5.2386·10⁴⁹ hold ([[lem:cs-sharp]], [[prop:uc-d-small]]). At a level β ∈ (3, α],
-1 + n_ι ≤ c(β) ≤ 2N_ι + N̄_Λ + 529 = C_lev, with N_ι of [[eq:uc-n-iota]], N̄_Λ = 16,747,199,999,999 and C_lev of
-[[eq:cs-clev]] ([[lem:cs-levels]]). Against these, for every admissible choice of the weights,
-
-    d_NM ≥ d_acc ≥ 3R > 1.2497·10²⁴,     N_NM > 2.624·10²⁵,                                                {#eq:uc-lower}
-
-and at the choice of [[def:uc-choice]], 3R > 1.2498·10²⁴, so that D_e < 1.0072 · 3R.
-
-*Proof.* By [[prop:cs-cstar]], c_* < C_*. By [[lem:uc-admissible]] the hypotheses of [[prop:ec-upper]] hold, and by
-[[lem:uc-gaps]] it holds with the T_2 and W of [[eq:uc-t2-w]]. Its first line is less than D_e by [[prop:uc-explicit]],
-and its second line is at most Σ_k c(β_k) + N_b c_b + (N_b + 1)c′_b + c_0 ≤ (K + 2N_b + 2)c_* ≤ M_c C_*, again by
-[[prop:uc-explicit]]. So d_acc ≤ D_e + M_c C_* = D_acc. Here M_c C_* = 244,153 · 64,368 · 10⁴⁰, which is
-15,715,640,304 · 10⁴⁰ = 157,156,403,040 · 10³⁹; adding D_e = 1,258,700 · 10¹⁸ gives the integer printed, and
-21D_acc + 6 is 21 · 157,156,403,040 · 10³⁹ + 21 · 1,258,700 · 10¹⁸ + 6, that is
-3,300,284,463,840 · 10³⁹ + 26,432,700 · 10¹⁸ + 6.
-[[lem:uc-dr]] gives the same bound for d_R, its first line being the same and its single-step losses being at most
-c_* < C_*; and d_R ≥ d_acc ([[thm:loss-d]]). By [[prop:uc-d-small]] (d), d_NM < D_acc, so d_NM ≤ D_NM, and the finer
-bounds are [[lem:cs-sharp]] and (b), (c) there; the bounds for d_FM and d_Ψ are [[lem:uc-lambda]] (d).
-N_NM = 21d_NM + 6 by [[thm:loss-d]], so N_NM ≤ 21D_NM + 6. The statements at the levels above 3 are
-[[lem:uc-fourier-count]] and [[lem:cs-levels]] (b). [[eq:uc-lower]] is [[cor:uc-two-offsets]] (a),
-whose hypothesis holds by (b) there. At the choice of [[def:uc-choice]], [[prop:ec-rounds]] gives
-R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂), where 3ε_K + 2δ̂ + δ̄ < 1.98·10⁻⁸ and ε_Kδ̂ = 2.400249024·10⁻²⁴ < 2.40025·10⁻²⁴; so
-3R > 3(1 − 1.98·10⁻⁸)/(2.40025·10⁻²⁴) > 1.2498·10²⁴, and 1.0072 · 1.2498 > 1.2587. ∎
-```
-
-New (53 lines):
-
-```new
-**Theorem {#thm:uc-integer}** (The loss d at the computational point.) At the computational point, with the index sets as
-constructed, let the weights be chosen as in [[def:uc-choice]], with ε_K and ε_+ for which the choice is admissible, and
-the free orders and inner products as in [[def:cs-choices]], and let c_* be the largest of the numbers c(β_k) (1 ≤ k ≤
-K), c_b, c′_b and c_0 defined before [[prop:ec-upper]] and c^Ψ(β_k), c^Ψ_b, c′^Ψ_b and c^Ψ_0 of [[lem:uc-dr]]: the
-largest loss that [[def:ec-accounted-loss]] assigns to a single step outside the long iterations. Then c_* ≤ C_*, at a
-level β ∈ (3, α] 1 + n_ι ≤ c(β) ≤ C_lev, and
-
-    d_acc ≤ d_R ≤ D_acc,     d_NM ≤ D_NM,     N_NM = 21d_NM + 6 ≤ 21D_NM + 6,            {#eq:uc-integer}
-
-with C_*, C_lev, D_acc and D_NM the explicit functions of ε_K, ε_+, N̄_Λ, k̄_0, J_* and l_* of [[prop:uc-dependence]].
-Every admissible ε_K is below 1.6747859·10⁻¹⁷ ([[thm:is-gap]]); this paper evaluates neither the admissible ε_K nor N_Λ,
-and so gives no number for D_acc or D_NM. Against these, for every admissible choice of the weights,
-
-    d_NM ≥ d_acc ≥ 3R > 1.2497·10²⁴,     N_NM > 2.624·10²⁵.                                {#eq:uc-lower}
-
-*Proof.* The bounds for c_* and at the levels above 3 are [[prop:cs-cstar]], [[lem:uc-fourier-count]] and
-[[lem:cs-levels]] (b), and the others are [[prop:uc-dependence]]; N_NM = 21d_NM + 6 by [[thm:loss-d]]. [[eq:uc-lower]] is
-[[cor:uc-two-offsets]] (a), whose hypothesis holds by (b) there. ∎
-
-**Proposition {#prop:uc-dependence}** (The bound as a function of the choice.) Let a choice be made as in
-[[def:uc-choice]], except that ε_K and ε_+ are any numbers with 0 < ε_K < ε_+ < 10⁻¹³ for which it is admissible, and let
-N̄_Λ ≥ N_Λ, k̄_0, J_* and l_* be integers for which [[lem:uc-lambda]] (b) and (c) hold, with J′ := (J_* + 1)(l_* + 1).
-Put Δβ_0 := 0.999²ε_K and Δτ_0 := 0.999ε_Υ, L_<, L_> and R_b as in [[eq:uc-levels]], N_ι as in [[eq:uc-n-iota]], k̄_max
-:= k̄_0 + J′N̄_Λ, d̄_Φ := 62N̄_Λ + 2, C_lev := 2N_ι + N̄_Λ + 529, I_lev := 34,268,829,852, I_base := 935R_b + 466 +
-23,524,832(R_b + 3), T_12 := C_lev + I_lev + 4k̄_max + 24, R_base := 22,097 + I_base,
-
-    F_1 := 3((1 + Δβ_0/2)² + (1 + ε_K + Δβ_0/2)²)/(2Δβ_0Δτ_0) + 3(3 + 2ε_K)/Δβ_0 + 6 + 4/Δτ_0 + 8
-           + 3((1 + ε_K)/Δβ_0 + 1)((1 + ε_+)/𝔡₁ + 2) + 16(0.4901/𝔡₁ + 1)((3 + ε_K)/Δβ_0 + 5),
-    C_* := 6N_ι + 3N̄_Λ + 3I_lev + 8k̄_max + I_base + d̄_Φ + (N̄_Λ + 2)(d̄_Φ + 30) + 45,862,
-    D′_* := T_12 + 18 + 20,565,308,337L_< + (C_lev + I_lev − 9)L_> + 2R_base,
-    D_acc := D_e + 497L_< + L_>C_lev + 935R_b + 466 + C_*,     D_NM := D_acc + D′_* + d̄_Φ,
-
-with D_e any number at least F_1. Then d_acc ≤ d_R ≤ D_acc, d_NM ≤ D_NM and N_NM ≤ 21D_NM + 6. Each of N_ι, k̄_max, d̄_Φ,
-C_lev, I_base, T_12, R_base, C_*, D′_* and D_acc − D_e is a polynomial with non-negative coefficients in N̄_Λ, k̄_0, J′,
-L_<, L_> and R_b; L_<, L_> and R_b are non-increasing in ε_K, and F_1 is non-increasing in ε_K and non-decreasing in ε_+.
-So, with D_e := F_1, D_acc and D_NM are non-decreasing in N̄_Λ, k̄_0, J′ and ε_+ and non-increasing in ε_K. Moreover
-D_acc = L_>C_lev + D_e + 497L_< + 935R_b + 466 + C_*, and L_>C_lev > J′N̄_Λ(N̄_Λ + 1)(1 + ε_K)/Δβ_0: the bound is at
-least quadratic in N̄_Λ and of the order 1/ε_K.
-
-*Proof.* The proofs of [[prop:uc-explicit]], [[lem:cs-levels]], [[lem:cs-base]], [[lem:cs-iterations]], [[lem:cs-rest]],
-[[prop:cs-cstar]], [[lem:cs-sharp]], [[lem:uc-small-orders]], [[rem:uc-small-reading]] and [[prop:uc-d-small]] use, of
-the numbers of [[def:uc-choice]] and [[lem:uc-lambda]], only N_Λ ≤ N̄_Λ, k̄(λ_i) ≤ k̄_0 + J′i, Δβ ≥ Δβ_0, a♭_K − 2 ≥
-Δβ_0, Δτ ≥ Δτ_0, ε_K < ε_+ < 10⁻¹³ and the bounds of [[lem:is-offsets]] (b); and they give d_acc, d_R ≤ D_acc and d_NM ≤
-D_NM with the expressions above. F_1 is the bound for the first line of [[eq:ec-upper]] that [[eq:ec-upper-counts]],
-[[eq:uc-t2-w]], ℓ⁺_tf = 1, r_ι ≤ 16 and η_2 − η_1 < ε_+ give, with N_< ≤ 1/Δβ_0, N_> ≤ (1 + ε_K)/Δβ_0 + 1 and N_b ≤
-1/Δβ_0 + 1 ([[eq:ec-upper-counts]]): 3(T_< + T_> + T_2) + 4(1/Δτ + 2) + 16W(N_< + N_> + N_b + 3), 1/Δτ ≤ 1/Δτ_0, written
-out; 1/𝔡₁ may be replaced by any upper bound. C_* is the right side of [[eq:cs-c0]] written out (1,587 + 44,227 + 48 =
-45,862 and 2X_12 = 8k̄_max + 48), I_base is that of [[eq:cs-iterations]] (469R_b + 466(R_b + 1) = 935R_b + 466 and 16 ·
-1,470,302 = 23,524,832), and 22,097 = 20,183 + 1,914. These are sums of products of N̄_Λ, k̄_0, J′, L_<, L_>, R_b and
-positive constants, so they do not decrease when one of these integers increases. As ε_K increases, Δβ_0 increases, and
-1/Δβ_0 and (1 + ε_K)/Δβ_0 = 1/Δβ_0 + 1/0.998001 decrease, and so do their integer parts; each term of F_1 is
-non-increasing in ε_K, as x ↦ (1 + cx)²/x decreases on (0, 1/c) and (1 + ε_K)/Δβ_0 and (3 + ε_K)/Δβ_0 decrease, and ε_+
-enters F_1 only through the factor 1 + ε_+. Finally C_lev > 2N_ι ≥ J′N̄_Λ(N̄_Λ + 1) and L_> > (1 + ε_K)/Δβ_0. ∎
-```
-
-### F7. prop:uc-data-order (d), 71-explicit-constants.md lines 5122–5130
-
-Old (9 lines):
-
-```old
-(d) At the computational point, with the index sets as constructed and the choices of [[def:uc-choice]] and
-[[def:cs-choices]], J ≤ 8; so L_P ≤ 39 in the class of [[eq:vii-0-1]] and L_P ≤ 44 in the class ℰ_0^½. With D_acc of
-[[thm:uc-integer]],
-
-    K ≤ 22D_acc + 345 = 3,457,440,866,880,000,000,000,000,027,691,400,000,000,000,000,000,345 < 3.45745·10⁵¹,
-
-d_1 ≤ 22D_acc + 331 and N ≤ 22D_acc + 348. For the fixed seminorms of [[lem:uc-small-orders]] (d), K < 5.7624·10⁵⁰,
-and for those of [[rem:uc-small-reading]], K < 1.15248·10⁵¹; and K > 22d > 2.7493·10²⁵. In the class ℰ_0^½,
-k1 ≤ 22D_acc + 340 and 1.0078·10⁵¹ < K*(a, M, k1) < 4.78156·10¹⁰³ for every a ∈ (ℓ0 − 1, 3).
+1/(2Δβ_0) + 1 < R_b. Hence L_u ≤ 20,183 + 407 + 466R_b and k_0 ≤ 12 + 20,590 + 466R_b = k̄_0. Then [[eq:s20-d]] asks
+d ≥ max(20,180, k̄_0 + 2, 10 + 20,180 + 7) = k̄_0 + 2. The conditions of [[ch:s20]] are smallness of |S| and of
+h + h^(−1)(S), or h + h_tot(p⃗) ([[lem:iii-i7-2-5]] (b)), in 𝒳^d, which is smallness of ‖β‖_(k̄_0+2), and of
+‖β‖_(k̄_0+5) at h + h_rem(q) + h_tot(p⃗) ([[lem:iii-j2-2-1]] (a)).
 ```
 
 New (4 lines):
 
 ```new
-(d) At the computational point, with the index sets as constructed and the weights, orders and inner products chosen as
-in [[def:uc-choice]] and [[def:cs-choices]] with an admissible ε_K, J ≤ 8; so L_P ≤ 39 in the class of [[eq:vii-0-1]] and
-L_P ≤ 44 in the class ℰ_0^½, K ≤ 22d + 345, and K > 22d > 2.7493·10²⁵. In the class ℰ_0^½, k1 > 22d > 2.7493·10²⁵ and
-K*(a, M, k1) > 1.0078·10⁵¹ for every a ∈ (ℓ0 − 1, 3).
+1/(2Δβ_0) + 1 < R_b. Hence L_u ≤ 20,183 + 407 + 466R_b and k_0 ≤ 12 + 20,590 + 466R_b = k̂_0. Then [[eq:s20-d]] asks
+d ≥ max(20,180, k̂_0 + 2, 10 + 20,180 + 7) = k̂_0 + 2. The conditions of [[ch:s20]] are smallness of |S| and of
+h + h^(−1)(S), or h + h_tot(p⃗) ([[lem:iii-i7-2-5]] (b)), in 𝒳^d, which is smallness of ‖β‖_(k̂_0+2), and of
+‖β‖_(k̂_0+5) at h + h_rem(q) + h_tot(p⃗) ([[lem:iii-j2-2-1]] (a)).
 ```
 
-### F8. prop:uc-data-order, proof of (d), 71-explicit-constants.md lines 5209–5230
-
-Old (22 lines):
-
-```old
-(d) At the choice of [[def:uc-choice]], ℓ_I < 3.5 and γ_Υ = e_Υ = 1/100 ([[def:ec-point]]), so
-ℓ^♭_I = 3/2 + ¼ · (99/100) · (1/100) = 60,099/40,000 and 4(ℓ_I − ℓ^♭_I) + 1 < 4(7/2 − 60,099/40,000) + 1 = 89,901/10,000
-< 9; so J ≤ 8, the weights being the same for the two classes ([[thm:own-half-settling]]). With L_0 ≤ 23, resp. 28,
-L_P ≤ 39, resp. 44, and K = 22d + 306 + L_P ≤ 22d + 345. Here d is the d_NM of [[prop:uc-d-small]], and d_NM ≤ D_acc
-([[thm:uc-integer]]). D_acc = 157,156,403,040 · 10³⁹ + 1,258,700 · 10¹⁸, and 22 · 157,156,403,040 = 3,457,440,866,880 and
-22 · 1,258,700 = 27,691,400; so 22D_acc = 3,457,440,866,880 · 10³⁹ + 27,691,400 · 10¹⁸, which with 345 added is the
-integer printed, with leading digits 3.4574408. d_1 = K − 14 and N = K + 3 give the next two bounds. By
-[[prop:uc-d-small]] (b) and (c), d_NM is at most D_b, resp. D_c, where
-
-    D_b := 26,192,562,436,216,086,593,489,752,012,524,648,819,225,884,778,644,
-    D_c := 52,385,124,872,431,314,948,189,146,848,603,890,726,471,509,831,693,
-
-and
-
-    22D_b + 345 = 576,236,373,596,753,905,056,774,544,275,542,274,022,969,465,130,513 < 5.7624·10⁵⁰,
-    22D_c + 345 = 1,152,472,747,193,488,928,860,161,230,669,285,595,982,373,216,297,591 < 1.15248·10⁵¹.
-
-By [[eq:uc-lower]], d ≥ d_acc > 1.2497·10²⁴, so K > 22d > 2.74934·10²⁵. In the class ℰ_0^½, d_1 ≤ 22d + 336 and
-k1 = d_1 + 4 ≤ 22D_acc + 340 =: k̄, and by (c) K*(a, M, k1) < k̄ + 4 + (4k̄ + 35)(k̄ + 3) = 4k̄² + 48k̄ + 109. As
-k̄ > 10⁵¹, 48k̄ + 109 < 10⁻⁴⁹k̄², and as k̄ < 3.4574408669·10⁵¹, k̄² < 11.95389735·10¹⁰²; so
-K*(a, M, k1) < (4 + 10⁻⁴⁹) · 11.95389735·10¹⁰² < 4.78156·10¹⁰³. And K*(a, M, k1) > (4/3)k1², with
-k1 > 22d > 2.74934·10²⁵, so K*(a, M, k1) > (4/3) · 7.5588·10⁵⁰ > 1.0078·10⁵¹. ∎
-```
-
-New (6 lines):
-
-```new
-(d) At such a choice, ℓ_I < 3.5 and γ_Υ = e_Υ = 1/100 ([[def:ec-point]]), so ℓ^♭_I = 3/2 + ¼ · (99/100) · (1/100) =
-60,099/40,000 and 4(ℓ_I − ℓ^♭_I) + 1 < 4(7/2 − 60,099/40,000) + 1 = 89,901/10,000 < 9; so J ≤ 8, the weights being the
-same for the two classes ([[thm:own-half-settling]]). With L_0 ≤ 23, resp. 28, L_P ≤ 39, resp. 44, and K = 22d + 306 +
-L_P ≤ 22d + 345. By [[eq:uc-lower]], d ≥ d_acc > 1.2497·10²⁴, so K > 22d > 2.74934·10²⁵. In the class ℰ_0^½, k1 = d_1 +
-4 > 22d > 2.74934·10²⁵, and by (c) K*(a, M, k1) > k1 + 4 + (4k1 + 35)(k1 + 2)/3 > (4/3)k1² > (4/3) · 7.5588·10⁵⁰ >
-1.0078·10⁵¹. ∎
-```
-
-### FO1. front matter, 00-front.md lines 35–37
-
-Old (3 lines):
-
-```old
-damping parameter, so that d is unbounded on that set, and, at a parameter point not shown to lie in it, for one
-admissible choice of the weights, orders and inner products and the index sets as the proofs construct them,
-1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰; at equality, μ0 = √72 l5², timelike
-```
-
-New (3 lines):
-
-```new
-damping parameter, so that d is unbounded on that set, and, at a parameter point not shown to lie in it, for every
-admissible choice of the weights and the index sets as the proofs construct them, d > 1.2497 × 10²⁴; at equality, μ0 =
-√72 l5², timelike
-```
-
-### FO2. introduction, 01-introduction.md lines 155–156
-
-Old (2 lines):
-
-```old
-lie in it, d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them,
-and d < 1.57157 × 10⁵⁰ at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]). A
-```
-
-New (2 lines):
-
-```new
-lie in it, d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them.
-A
-```
-
-### FO3. theorems chapter, 03-theorems.md lines 316–319
-
-Old (4 lines):
-
-```old
-computational point of [[def:ec-point]], which is not shown to lie in that set ([[rem:ec-point-outside]]), and at one
-admissible choice of the
-weights, orders and inner products, d is at most an integer below 1.57157 × 10⁵⁰ ([[thm:uc-integer]]), and K at most
-one below 3.45745 × 10⁵¹.
-```
-
-New (3 lines):
-
-```new
-computational point of [[def:ec-point]], which is not shown to lie in that set ([[rem:ec-point-outside]]), d > 1.2497 ×
-10²⁴ at every admissible choice of the weights ([[cor:uc-two-offsets]]); an upper bound there is an explicit function of
-the admissible ε_K of the set Λ, which lies below 1.6747859·10⁻¹⁷ ([[thm:is-gap]]) and is not evaluated here.
-```
-
-### FO4. theorems chapter, list item, 03-theorems.md lines 363–366
-
-Old (4 lines):
-
-```old
-  explicit lower bounds ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the
-  weights, orders and inner products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the
-  modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
-  ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
-```
-
-New (3 lines):
-
-```new
-  explicit lower bounds ([[thm:loss-d]], [[cor:uc-two-offsets]]); through the lower bounds, upper bounds for δ and for
-  the modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
-  ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
-```
-
-### FO5. scope chapter, 90-scope.md lines 75–79
-
-Old (5 lines):
-
-```old
-loss that this proof's choices produce, not for the least loss with which the tame estimates hold ([[thm:loss-d]]). At
-that point, for those index sets and at one admissible choice of the weights and of the free orders and inner products,
-d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The order
-of the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of
-derivatives, so that at that point K is at most an integer below 3.45745 × 10⁵¹ ([[prop:uc-data-order]]). The
-```
-
-New (5 lines):
-
-```new
-loss that this proof's choices produce, not for the least loss with which the tame estimates hold ([[thm:loss-d]]). An
-upper bound at that point is an explicit function of the admissible ε_K of the set Λ, below 1.6747859·10⁻¹⁷
-([[thm:is-gap]]), and of the counts of the index sets, which are not evaluated here ([[thm:uc-integer]]). The order of
-the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of derivatives
-([[prop:uc-data-order]]). The
-```
-
-### FO6. own-data chapter, 63-own-data.md lines 70–71
-
-Old (2 lines):
-
-```old
-quadratic in d_1 ([[prop:uc-data-order]]); d is bounded above only at the computational point of [[def:ec-point]], which
-is not shown to lie in the set where the theorem is proved. The order k_P is what the subtracted
-```
-
-New (2 lines):
-
-```new
-quadratic in d_1 ([[prop:uc-data-order]]); d is bounded below, and no upper bound for it is evaluated in this paper. The
-order k_P is what the subtracted
-```
-
-### FO7. own-data chapter, 63-own-data.md lines 298–299
-
-Old (2 lines):
-
-```old
-([[prop:uc-data-order]]). None of ε, λ1, δ is evaluated, in either class, and d is bounded above only at the
-computational point. (c) The weights α_1, α′ avoid finitely many more points in each bounded interval.
-```
-
-New (2 lines):
-
-```new
-([[prop:uc-data-order]]). None of ε, λ1, δ is evaluated, in either class, and no upper bound for d is evaluated. (c) The
-weights α_1, α′ avoid finitely many more points in each bounded interval.
-```
-
-### F9. rem:ec-other-losses, last sentence, 71-explicit-constants.md lines 425–425
+### M23e. lem:uc-small-orders, proof of (c): the same, 71-explicit-constants.md lines 4795–4795
 
 Old (1 lines):
 
 ```old
-[[thm:loss-d]] (ii)), and at the computational point [[thm:uc-integer]] bounds d_acc, d_NM and N_NM from above.
+((F2)). So they have order at most 2R_base + 16, as have those of (a) and (b), since 20,183 and k̄_0 + 5 are less than
+```
+
+New (1 lines):
+
+```new
+((F2)). So they have order at most 2R_base + 16, as have those of (a) and (b), since 20,183 and k̂_0 + 5 are less than
+```
+
+### L2. thm:loss-d, closing paragraph of the statement (lower bound), 71-explicit-constants.md lines 1491–1492
+
+Old (2 lines):
+
+```old
+tame estimates hold; for the index sets as the proofs construct them, (G) asks ε_K < μ_G ([[thm:is-gap]]), and the lower
+bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). At every point of the set on which [[thm:settling]] is proved
 ```
 
 New (2 lines):
 
 ```new
-[[thm:loss-d]] (ii)), and at the computational point [[thm:uc-integer]] bounds d_acc, d_NM and N_NM from above by
-explicit functions of the admissible ε_K and of the counts of the index sets, which are not evaluated.
+tame estimates hold; for the index sets as the proofs construct them, (G) asks ε_K < μ_Z ([[thm:is-gap]]), and the lower
+bound rises to 3R > 1.2250 × 10²⁷ ([[cor:is-lower]]). At every point of the set on which [[thm:settling]] is proved
 ```
 
+### L3. rem:ec-lb-unbounded, last sentence (lower bound), 71-explicit-constants.md lines 1814–1816
+
+Old (3 lines):
+
+```old
+the larger bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
+condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶ ([[lem:uc-two-offsets]], [[thm:is-gap]]), and
+is stated at that point only.
+```
+
+New (4 lines):
+
+```new
+the larger bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bounds 1.2497·10²⁴ of [[cor:uc-two-offsets]] and 1.2250·10²⁷
+of [[cor:is-lower]] rest on the gap condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶
+([[lem:uc-two-offsets]]), and the second also at h = 10⁻⁶ ([[thm:is-gap]]); they are stated at the computational point
+only.
+```
+
+### L4. thm:uc-reduction, closing paragraph (lower bound), 71-explicit-constants.md lines 2566–2568
+
+Old (3 lines):
+
+```old
+So this paper gives the lower bound of [[thm:loss-d]] (ii), raised to 3R > 1.2497·10²⁴ for the index sets as constructed
+([[cor:uc-two-offsets]]), and, at levels more than ½(α − 4) apart, the upper bound of [[thm:uc-integer]], in which every
+number of steps of the long iterations and every count of an index set is explicit.
+```
+
+New (3 lines):
+
+```new
+So this paper gives the lower bound of [[thm:loss-d]] (ii), raised to 3R > 1.2250·10²⁷ for the index sets as constructed
+([[cor:is-lower]]), and, at levels more than ½(α − 4) apart, the upper bound of [[thm:uc-integer]], in which every number
+of steps of the long iterations and every count of an index set is explicit.
+```
+
+### L5. scope chapter (lower bound), 90-scope.md lines 73–74
+
+Old (2 lines):
+
+```old
+([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ at every admissible choice of
+the weights, for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). These are lower bounds for the
+```
+
+New (2 lines):
+
+```new
+([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2250 × 10²⁷ and N_NM > 2.5725 × 10²⁸ at every admissible choice
+of the weights, for the index sets as the proofs construct them ([[cor:is-lower]]). These are lower bounds for the
+```
+
+
+## 6. The fallback set: retired
+
+The fallback set of the earlier versions (blocks F1–F9 and FO1–FO7, and a rule for the other blocks), which withdrew
+the upper bound in case no admissible choice were proved, is **retired** by the coordinator's decision: P-UB1 proves an
+admissible choice (proofs/P-UB1.md, its reader confirming it), and R-P-UB2 Major 2 found the set not usable as drafted
+(its rule left about twenty blocks citing P-UB1's results, some sentences false and some definitions dangling). Its
+texts are no longer part of this file; they remain in the history of this file (md5 69990efadbb064fb43ca5679c0b9d705
+and earlier).
 
 ## 7. Checks (on scratch copies; nothing run in the repository)
 
@@ -1935,67 +1664,63 @@ explicit functions of the admissible ε_K and of the counts of the index sets, w
 - **Exact arithmetic.** Every value of section 3 and every number in the texts was computed with exact rationals; each
   decimal is checked to bound its quantity in the stated direction (upper bounds strictly above, lower strictly below),
   the floors L_<, ⌊(1 + ε_K)/Δβ_0⌋ by the printed integer products, the inequalities 2R_base + 16 < T_12,
-  X_12 > R_base, k_0 + 5 < R_base, k̄ > 10⁵⁷ with 48k̄ + 109 < 10⁻⁵⁵k̄², 1.0072·3R > D_e and 0.3168h⁻² > D_NM at the
-  printed h, and the identities C_* = 6N_ι + 3N̄_Λ + (seven numbers) and c_0-bound = 20,183 + 1,914 + T_11 + 2T_12 + 11
-  + d_Φ + (N̄_Λ + 2)(d_Φ + 30).
-- **Form.** Every new block: lines at most 121 characters, no wrapped line starting with "+ ", "- ", "* ", "> ", "#", "="
-  or "|", labels lowercase, no unfilled placeholder. Applied to a scratch copy of chapters/ (main set; and fallback set
-  with the main blocks it does not replace), the edition's own lint in its --chapters mode reports 0 hits, with 4,667
-  labels defined (two new: prop:uc-dependence, eq:uc-levels) and every reference resolved. The old texts each occur
-  exactly once.
-- **Scratch merge from a git archive of HEAD a9ebbff6** (nothing run in the repository): P-UB1's 14 texts T1–T14
-  (located by their old texts) and the 36 main blocks applied together, disjoint. Results:
-  lint --chapters: "chapters: 62 file(s), 4794 label(s) defined, 0 hit(s)";
-  assemble --check: "labels 4794, computations cited 0, problems 0";
-  assemble: "labels 4794, computations cited 0, problems 0";
+  X_12 > R_base + 22 (T_11 < T_12), k̂_0 + 5 < R_base, k̄ > 10⁵⁷ with 48k̄ + 109 < 10⁻⁵⁵k̄² (the exponents
+  derived from k̄), 1.0072·3R > D_e (the factor derived) and 0.3168h⁻² > D_NM at the printed h, the identity of
+  lem:uc-n-iota (branching on the parity of N̄_Λ; N̄_Λ is even, so the display uses N̄_Λ/2 times N̄_Λ + 1), the
+  identities C_* = 6N_ι + 3N̄_Λ + (seven numbers) and c_0-bound = 20,183 + 1,914 + T_11 + 2T_12 + 11 + d_Φ +
+  (N̄_Λ + 2)(d_Φ + 30), and Option L's 22 · 1.2250·10²⁷ = 2.695·10²⁸, (2.695·10²⁸)² = 7.263025·10⁵⁶,
+  (4/3) · 7.263025·10⁵⁶ > 9.684·10⁵⁶ and 21 · 1.2250·10²⁷ + 6 > 2.5725·10²⁸.
+- **prop:uc-dependence** is R-P-UB2's replacement text, checked: its new hypothesis 4k̄_max + 24 > I_base + 22,119 is
+  T_11 < T_12 (T_11 − T_12 = 20,183 + 1,914 + 22 + I_base − X_12 = I_base + 22,119 − 4k̄_max − 24); with it every order
+  of the smallness conditions under the reading of lem:uc-small-orders (d) is at most max(2R_base + 16, T_12 + 14,
+  C_lev + I_lev + R_base + 5), each term of which is at most D′_* = T_12 + 18 + 20,565,308,337L_< + (C_lev + I_lev −
+  9)L_> + 2R_base (L_> ≥ 1), so D_NM covers both readings without 2R_base + 16 < T_12; and "the hypotheses of
+  prop:ec-upper and of eq:ec-upper-counts hold with Δβ_0 := 0.999²ε_K" supplies the spacings the proof uses.
+- **Form.** Every new line is at most 121 characters both as written and with every label resolved to its number in
+  the merged assembly plus one character per label; no wrapped line starts with "+ ", "- ", "* ", "> ", "#", "=", "|"
+  or "− "; a number "a × 10ⁿ" is never split across lines; labels lowercase; no unfilled placeholder; each old text
+  occurs exactly once as whole lines.
+- **Scratch merge from a git archive of HEAD db20bc79** (nothing run in the repository): P-UB1's 14 texts T1–T14
+  (located by their old texts) and the 42 main blocks applied together, disjoint. Results:
+  lint --chapters: "chapters: 62 file(s), 4815 label(s) defined, 0 hit(s)";
+  assemble --check: "labels 4815, computations cited 0, problems 0";
+  assemble: "labels 4815, computations cited 0, problems 0";
   lint --paper on the scratch PAPER.md: "PAPER.md: 0 hit(s)".
-  The same with the fallback set and the main blocks it does not replace:
-  "chapters: 62 file(s), 4794 label(s) defined, 0 hit(s)";
-  "labels 4794, computations cited 0, problems 0"; "PAPER.md: 0 hit(s)".
-  The line widths of the new texts are measured with every label resolved to its number in that merged assembly, plus
-  one character per label, so a shift of the numbering by a digit stays within 121 characters.
-- **Not checked here:** P-UB1's texts (sec:is, def:uc-choice, lem:uc-admissible) and their numbers; the crosswalk rows
-  (crosswalk/71-explicit-constants.tsv needs rows for prop:uc-dependence and eq:uc-levels and notes for the blocks);
-  the real PAPER.md (regenerate after the merge).
+- **Not checked here:** P-UB1's texts (sec:is, def:uc-choice, lem:uc-admissible, cor:is-lower) and their numbers; the
+  crosswalk rows (crosswalk/71-explicit-constants.tsv needs rows for prop:uc-dependence and eq:uc-levels and notes for
+  the blocks); the real PAPER.md (regenerate after the merge).
 
-## 8. What changed since md5 eb5f55fcc614dcad6625c8778ac03c70
+## 8. What changed
 
-For the reader checking the delta. The structure (formulas, repairs, split levels, prop:uc-dependence, eq:uc-levels,
-fallback rule) is unchanged.
+### 8.1 Since md5 69990efadbb064fb43ca5679c0b9d705 (the version read in R-P-UB2)
 
-1. **Inputs.** Final, from P-UB1: ε_+ 1.67475·10⁻¹⁷ → 1.67478·10⁻¹⁷; N̄_Λ 910,000,000,000,000 → 909,507,124,095,312;
-   ε_K = 1.6747·10⁻¹⁷, k̄_0, J_*, l_*, ε_Υ and the 0.999 factors unchanged. Every generated number is recomputed (the
-   table of section 3); L_<, L_>, R_b, D_e, the decimals of prop:uc-explicit's proof and 3R depend on ε_K only and are
-   unchanged, as are I_lev, W and the per-step constants.
-2. **The gap bound sharpened** from 1.67488·10⁻¹⁷ (V-I11) to 1.6747859·10⁻¹⁷ (P-UB1's eq:is-mu-z) in M5 (twice), M7
-   and in F1, F5 (twice), F6, FO3, FO5.
-3. **M6** (rem:ec-upper-open (1)): "and the generators 1 + 𝒵 of Λ ask ε_K < 1.67488·10⁻¹⁷; [[thm:is-gap]] gives the
-   admissible ε_K," → "and with the generators 1 + 𝒵 of Λ (G) holds exactly for ε_K < μ_Z, where μ_Z < 1.6747859·10⁻¹⁷
-   ([[thm:is-gap]], [[eq:is-mu-z]]);".
-4. **M7** (sec:uc-close): "With them [[thm:is-gap]] gives the admissible ε_K," → "With them (G) holds exactly for
-   ε_K < μ_Z ([[thm:is-gap]]),".
-5. **M8** (thm:uc-reduction (iii)): "every ε_K with which (G) holds is below 1.67488·10⁻¹⁷, and [[thm:is-gap]] gives the
-   admissible ε_K;" → "(G) holds exactly for ε_K < μ_Z, where 1.6747856·10⁻¹⁷ < μ_Z < 1.6747859·10⁻¹⁷ ([[thm:is-gap]],
-   [[eq:is-mu-z]]);" — the form of the old (iii) with μ_Z for μ_G.
-6. **M15a** (lem:cs-fourier (b)): "As the elements of Λ of real part at most 2 are real ([[lem:iii-i10-1-2]] (a),
-   [[prop:is-lambda]]: those of Λ ∩ {Re ≤ 3 + ε_+} that are not real have real part above 2)," → "As the elements of
-   Λ of real part at most 2.514 are real ([[prop:is-lambda]])," — P-UB1's statement, which contains what the proof
-   uses (real part at most 2).
-7. **Rewrapping.** Lines are now measured with the labels resolved (section 7). This rewraps, among others, the four
-   lines P-UB1 found over 121 characters in the assembled paper (M6, M7, M13 twice); the words are unchanged. Two
-   defects of the wrapping in eb5f55fc are fixed: FO4 (a list item of 03-theorems) keeps its two-space indentation on
-   every line, and no wrapped line starts with "− " (it did once, in M26a).
-8. **This file:** header (final inputs, HEAD a9ebbff6, md5s of 01, 03, 90, which changed at HEAD elsewhere, the quoted
-   lines being unchanged and found once), §1.3 item 5 (cor:is-lower), §1.4 (requirements met), §6 (fallback not needed),
-   §7 (the merge), §8.
+1. **Major 1 (prop:uc-dependence, M12):** the statement and proof are R-P-UB2's replacement: the hypotheses now say that
+   the hypotheses of prop:ec-upper and eq:ec-upper-counts hold with Δβ_0 := 0.999²ε_K, Δτ_0 := 0.999ε_Υ; that
+   lem:uc-lambda (c) holds (not "(b) and (c)"); and that 4k̄_max + 24 > I_base + 22,119 (T_11 < T_12). The proof says
+   where the inequality is used and why D_NM covers both readings without 2R_base + 16 < T_12. M23c (lem:uc-small-orders
+   (e)) now ends "exceeds R_base + 22, so that also T_11 < T_12 in (d)" (the reader's optional change).
+2. **Major 2:** the fallback set is retired (section 6); every reference to it is removed from §§1.4, 4, 7.
+3. **minor 1 (M10):** N̄_Λ = 909,507,124,095,312 is even, so the display of lem:uc-n-iota now reads "where N̄_Λ/2 =
+   454,753,562,047,656" and "4 · 909,507,124,095,312 + 765,000,816 · 454,753,562,047,656 · 909,507,124,095,313 = N_ι"; the generator
+   branches on the parity. N_ι itself is unchanged.
+4. **Nits.** M3: no number "a × 10ⁿ" is split across lines (the wrapper keeps " × 10" together; M3 now ends "and N_NM at
+   most one below" / "1.59022 × 10⁵⁷."). M25a: "with D_NM := …" → "with D_NM = …". k̄_0 of lem:uc-small-orders (b),
+   (c) renamed k̂_0 (M23a, and the new rename blocks M23d, M23e for its proof lines at HEAD 4769–4772 and 4795). The
+   generator derives the exponents of M26b (k̄ > 10⁵⁷, 10⁻⁵⁵) and the factor 1.0072 of M5, M12 instead of
+   printing fixed ones. Header md5s are those of HEAD db20bc79. The FO-nits are moot (fallback retired); no kept block
+   has the same defects.
+5. **Option L applied** (cor:is-lower confirmed and kept): M12's eq:uc-lower "3R > 1.2250·10²⁷, N_NM > 2.5725·10²⁸",
+   its proof "[[eq:uc-lower]] is [[cor:is-lower]]."; M7 "against the lower bound 1.2250·10²⁷ ([[cor:is-lower]])";
+   M26a/M26b "K > 22d > 2.695·10²⁸", "9.684·10⁵⁶ < K*(a, M, k1)", proof "(4/3) · 7.263025·10⁵⁶ > 9.684·10⁵⁶". New or
+   extended blocks for the other lower-bound sites (section 4.2): M1 now starts at 71:23 ("larger than 1.2250 × 10²⁷ and
+   2.5725 × 10²⁸ … ([[cor:is-lower]])"), O1 ("1.2250 × 10²⁷ < d"), O2 now 01:155–156 ("d > 1.2250 × 10²⁷ …
+   ([[cor:is-lower]])"), L2 (thm:loss-d: "(G) asks ε_K < μ_Z", "3R > 1.2250 × 10²⁷ ([[cor:is-lower]])"), L3
+   (rem:ec-lb-unbounded: both bounds named, the second also at h = 10⁻⁶), L4 (thm:uc-reduction, closing), L5 (90-scope:
+   "d > 1.2250 × 10²⁷ and N_NM > 2.5725 × 10²⁸ … ([[cor:is-lower]])").
+6. **Numbers:** unchanged except those Option L sets; the upper bounds are the same integers as in 69990efa.
 
-**Option L (if cor:is-lower is kept).** Exact substitutions in these texts, all lower bounds that cor:is-lower implies:
-in M12, the display "d_NM ≥ d_acc ≥ 3R > 1.2497·10²⁴,     N_NM > 2.624·10²⁵," becomes
-"d_NM ≥ d_acc ≥ 3R > 1.2250·10²⁷,     N_NM > 2.5725·10²⁸," and "[[eq:uc-lower]] is [[cor:uc-two-offsets]] (a), whose
-hypothesis holds by (b) there." becomes "[[eq:uc-lower]] is [[cor:is-lower]]."; in M7, "against the lower bound
-1.2497·10²⁴" becomes "against the lower bound 1.2250·10²⁷"; in M26a and M26b, "K > 22d > 2.7493·10²⁵" becomes
-"K > 22d > 2.695·10²⁸" (22 · 1.2250·10²⁷ = 2.695·10²⁸), "k1 > 22d > 2.74934·10²⁵" stays true, and
-"1.0078·10⁵¹ < K*(a, M, k1)" may become "9.684·10⁵⁶ < K*(a, M, k1)" ((4/3)(2.695·10²⁸)² = 9.6840…·10⁵⁶), with the
-proof's "(4/3) · 7.5588·10⁵⁰ > 1.0078·10⁵¹" → "(4/3) · 7.263025·10⁵⁶ > 9.684·10⁵⁶". The chapter summary (71:23),
-00-front, 01, 03 and 90 quote 1.2497·10²⁴ in lines no block here touches; with Option L they may stay (true) or take
-1.2250·10²⁷ — the coordinator's choice. Default: not applied.
+### 8.2 Before (eb5f55fc → 69990efa), in brief
+
+Final inputs of P-UB1 instead of R-V-I11's placeholders; the gap bound sharpened to 1.6747859·10⁻¹⁷; M6, M7, M8 state
+"(G) holds exactly for ε_K < μ_Z" ([[thm:is-gap]], [[eq:is-mu-z]]); M15a cites prop:is-lambda's "real part at most
+2.514 are real"; lines measured with labels resolved; FO4's indentation and a line starting with "− " fixed.
