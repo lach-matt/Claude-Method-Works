@@ -73,9 +73,9 @@ Then for 2-tensor fields A, B and every vector V,
 
     V⟨A, B⟩ = ⟨D̂_V A, B⟩ + ⟨A, D̂_V B⟩ + 𝔇_V(A, B).                                                 {#eq:tl5-hf-dk}
 
-The class subspace V_p at a point p is the eight-dimensional space of symmetric 2-tensors h with h(X, ∂_φi) = 0 for X
-in span(∂_u, ∂_v, ∂_x) and h(∂_φ1, ∂_φ2) = 0, at points off the axes, and its closure at the axes; by
-[[thm:tl5-wg]] (F4_W), g − ĝ lies in it for every solution g.
+For a solution g of the reduced problem, h := g − ĝ lies in the eight-dimensional class subspace of
+[[prop:tl5-wg-vacuum]] (b); the estimates below do not use this, and hold for symmetric 2-tensor fields without
+symmetry.
 
 *Proof of [[eq:tl5-hf-dk]].* In components, ⟨A, B⟩ = A_μν B_ρσ k^μρ k^νσ with k^μρ = ĝ^μρ + 2E₀^μ E₀^ρ, and
 D̂_V k^μρ = 2((D̂_V E₀)^μ E₀^ρ + E₀^μ (D̂_V E₀)^ρ) = 2 Σ_i ω_i(V) (F_i^μ E₀^ρ + E₀^μ F_i^ρ). The derivative of k in the
