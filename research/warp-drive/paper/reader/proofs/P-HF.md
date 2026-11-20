@@ -169,3 +169,92 @@ Take V := e^(−φ) J. Since ĝ(ê₄, ·) = −2Ω̂² du and ĝ(ê₃, ·) = �
 div(e^(−φ) J) = e^(−φ)(div J − dφ(J)), and 2Ω̂² dφ(J) = a_o (e_o + κ′ e_i) + a_i (e_i + κ e_o). ∎
 
 If Ψ = 0 on N₀, then e_i[Ψ] = 0 on N₀, since ê₃ and the leaves are tangent to N₀.
+
+#### The pointwise bound and the rates {#sec:tl5-hf-rates}
+
+At a point p of D̄ let 𝒮_p be the space of symmetric 2-tensors at p, a fifteen-dimensional Euclidean space with
+⟨·, ·⟩. The expression ℬ[Ψ](p) of [[eq:tl5-hf-bulk]] depends only on the jet
+
+    ξ := (ξ₊, ξ₋, ξ_∥, ξ₀) := (w₊, w₋, (D̂_(f₁)Ψ, D̂_(f₂)Ψ, D̂_(f₃)Ψ), Ψ) ∈ 𝒮_p ⊕ 𝒮_p ⊕ 𝒮_p³ ⊕ 𝒮_p
+
+at p, and is a quadratic form ℬ_p(ξ) in it, whose coefficients are built from the 2-jet of ĝ at p, the values of c
+and c′ and the 1-jets of z and z̲. Write it in blocks, ℬ_p(ξ) = Σ_ϰ ℬ_ϰϰ(ξ_ϰ, ξ_ϰ) + 2 Σ_(ϰ<λ) ℬ_ϰλ(ξ_ϰ, ξ_λ), the
+indices ranging over (+, −, ∥, 0) in this order, with ℬ_ϰϰ symmetric.
+
+**Definition {#def:tl5-hf-blocks}** (The bulk matrix.) At p let 𝔟_ϰϰ be the largest eigenvalue of the symmetric form
+ℬ_ϰϰ on its space (a real number of either sign), 𝔟_ϰλ := sup {ℬ_ϰλ(ξ, ξ′) : |ξ| = |ξ′| = 1} ≥ 0 for ϰ ≠ λ, and
+𝔅(p) := 2Ω̂² (𝔟_ϰλ), a symmetric 4 × 4 matrix with nonnegative off-diagonal entries. Put
+
+    E_o := diag(c Ω̂², 0, c Ω̂², 2Ω̂² z̲),      E_i := diag(0, Ω̂², Ω̂², 2Ω̂² z),
+
+so that e_o = nᵀ E_o n and e_i = nᵀ E_i n for n := (|ξ₊|, |ξ₋|, |ξ_∥|, |ξ₀|), by [[lem:tl5-hf-densities]].
+
+**Lemma {#lem:tl5-hf-pointwise}** (The pointwise bound.) For every C² symmetric 2-tensor field Ψ, at every point,
+
+    2Ω̂² ℬ[Ψ] ≤ nᵀ 𝔅 n,      2Ω̂² |⟨L̂Ψ, D̂_TΨ⟩| ≤ 2Ω̂² |L̂Ψ| (√e_o + √c √e_i),
+
+with n as in [[def:tl5-hf-blocks]].
+
+*Proof.* By the definition of the largest eigenvalue, ℬ_ϰϰ(ξ_ϰ, ξ_ϰ) ≤ 𝔟_ϰϰ |ξ_ϰ|², and by that of 𝔟_ϰλ,
+ℬ_ϰλ(ξ_ϰ, ξ_λ) ≤ 𝔟_ϰλ |ξ_ϰ| |ξ_λ|; summing gives the first inequality. For the second, D̂_TΨ = |T| D̂_(E₀)Ψ =
+|T| (w₊ + w₋)/2, and |T|/2 = √c Ω̂; so |⟨L̂Ψ, D̂_TΨ⟩| ≤ |L̂Ψ| √c Ω̂ (|w₊| + |w₋|), and √c Ω̂ |w₊| ≤ √e_o and
+Ω̂ |w₋| ≤ √e_i by [[lem:tl5-hf-densities]]. ∎
+
+**Remark {#rem:tl5-hf-blocks}** (The blocks.) In the frame F, with π^MN the components of π raised with
+η := diag(−1, 1, 1, 1, 1), S^MN := −(1/2)(π^MN − (1/2)(tr_η π) η^MN), D̂_M := D̂_(F_M) and 𝔇_M := 𝔇_(F_M), the terms
+of [[eq:tl5-hf-bulk]] are
+
+    −(1/2) π^(αβ) 𝕋_αβ = Σ_(M,N) S^MN ⟨D̂_MΨ, D̂_NΨ⟩,
+    2⟨𝓡̂Ψ, D̂_TΨ⟩ − T^β⟨D̂^αΨ, 𝒞_αβΨ⟩
+        = |T| (⟨w₊, (𝓡̂ − (1/2) 𝒞_10) Ψ⟩ + ⟨w₋, (𝓡̂ + (1/2) 𝒞_10) Ψ⟩ − Σ_j ⟨D̂_(f_j)Ψ, 𝒞_(j0) Ψ⟩),
+    −ĝ^(αβ) 𝔇_(∂_α)(D̂_βΨ, D̂_TΨ) + (1/2) ĝ^(γδ) 𝔇_T(D̂_γΨ, D̂_δΨ)
+        = |T| (−Σ_M η^MM 𝔇_M(D̂_MΨ, D̂_0Ψ) + (1/2) Σ_M η^MM 𝔇_0(D̂_MΨ, D̂_MΨ)),
+    2⟨Ψ, D̂_𝒵Ψ⟩ = 2z √c Ω̂ ⟨Ψ, w₊⟩ + 2z̲ (Ω̂/√c) ⟨Ψ, w₋⟩,
+
+with D̂_0 = (w₊ + w₋)/2 and D̂_1 = (w₊ − w₋)/2 substituted, and the remaining terms 𝔇_𝒵(Ψ, Ψ) + |Ψ|² div 𝒵 form ℬ₀₀,
+where div 𝒵 = z ∂_v log(Ω̂²R³) + z̲ (∂_u log(Ω̂²R³) + ∂_x b̂ + b̂ ∂_x log(Ω̂²R³)) + ∂_v z + ∂_u z̲. The second line uses
+𝒞_00 = 0 and T = |T| E₀; the third uses ĝ^(αβ) ∂_α ⊗ ∂_β = Σ_M η^MM F_M ⊗ F_M. So the first-order blocks (ϰ, λ ≠ 0)
+come from the deformation π of T and from 𝔇, that is from the acceleration and the deformation of the congruence of
+E₀; the blocks (±, 0) are the operators |T|(𝓡̂ ∓ 𝒞_10/2)/2 + z √c Ω̂ (resp. z̲ Ω̂/√c) times the identity, the block
+(∥, 0) is −|T|(𝒞_(j0))_j/2, and ℬ₀₀ is zeroth order. In particular, if T is a Killing field of ĝ, as for the first
+seed, the principal term vanishes. The divergence of 𝒵 follows from the volume form Ω̂²R³ dω du dv/... of the proof
+of [[lem:tl5-hf-identity]]: div ∂_v = ∂_v log(Ω̂²R³) and div(∂_u + b̂ ∂_x) = ∂_u log(Ω̂²R³) + ∂_x b̂ + b̂ ∂_x log(Ω̂²R³),
+since the coordinate density of the volume form is Ω̂²R³/2.
+
+**Definition {#def:tl5-hf-rates}** (Admissible rates.) Let 𝔐 be a function on D^κ with values in the symmetric
+m × m matrices with nonnegative off-diagonal entries, and ℰ_o, ℰ_i functions with values in the nonnegative diagonal
+m × m matrices. Continuous functions a_o ≥ 0 on [−10, u*] and a_i ≥ 0 on [1/2, v*] are admissible rates for
+(𝔐, ℰ_o, ℰ_i) if at every p ∈ D^κ and for every n ∈ ℝ^m with nonnegative entries
+
+    nᵀ ((a_o + κ a_i) ℰ_o + (a_i + κ′ a_o) ℰ_i − 𝔐) n ≥ 0,      a_o = a_o(τ₁(p)), a_i = a_i(τ₂(p)).       {#eq:tl5-hf-admissible}
+
+For level zero, m = 4 and (𝔐, ℰ_o, ℰ_i) = (𝔅, E_o, E_i).
+
+Since the off-diagonal entries of the matrix in [[eq:tl5-hf-admissible]] are nonpositive, the condition for all n ≥ 0
+is equivalent to positive semidefiniteness: for any n, nᵀMn ≥ |n|ᵀ M |n| when M has nonpositive off-diagonal entries,
+|n| denoting the vector of absolute values. The condition is weakest for κ = κ′ = 0 replaced by the given κ, κ′:
+rates admissible with κ = κ′ = 0 are admissible for every tilt.
+
+**Lemma {#lem:tl5-hf-allocation}** (Explicit admissible rates.) In the setting of [[def:tl5-hf-rates]] suppose that
+for each index ϰ at least one of the diagonal entries (ℰ_o)_ϰϰ, (ℰ_i)_ϰϰ is positive everywhere. Let θ_ϰ be
+measurable functions on D^κ with values in [0, 1], equal to 1 where (ℰ_i)_ϰϰ = 0 and to 0 where (ℰ_o)_ϰϰ = 0, and
+t_ϰλ > 0 measurable functions for ϰ < λ, with t_λϰ := 1/t_ϰλ. Put
+
+    d_ϰ := max(0, 𝔐_ϰϰ + Σ_(λ≠ϰ) 𝔐_ϰλ t_ϰλ),
+    α_o := max over ϰ with θ_ϰ > 0 of θ_ϰ d_ϰ/(ℰ_o)_ϰϰ,   α_i := max over ϰ with θ_ϰ < 1 of (1 − θ_ϰ) d_ϰ/(ℰ_i)_ϰϰ.  {#eq:tl5-hf-alpha}
+
+If a_o(τ₁(p)) ≥ α_o(p) and a_i(τ₂(p)) ≥ α_i(p) at every p ∈ D^κ, then a_o and a_i are admissible. In particular, for
+the bulk matrix of level zero, with the indices (+, −, ∥, 0),
+
+    α_o = max(d₊/(cΩ̂²), θ_∥ d_∥/(cΩ̂²), θ₀ d₀/(2Ω̂² z̲)),      α_i = max(d₋/Ω̂², (1 − θ_∥) d_∥/Ω̂², (1 − θ₀) d₀/(2Ω̂² z)),
+
+and continuous functions a_o ≥ sup {α_o(p) : τ₁(p) = ·} and a_i ≥ sup {α_i(p) : τ₂(p) = ·} are admissible.
+
+*Proof.* For n ≥ 0 and ϰ ≠ λ, 2 𝔐_ϰλ n_ϰ n_λ ≤ 𝔐_ϰλ (t_ϰλ n_ϰ² + t_λϰ n_λ²), so nᵀ𝔐n ≤ Σ_ϰ d_ϰ n_ϰ². On the other
+hand, as κ, κ′ ≥ 0 and the diagonal matrices are nonnegative, nᵀ((a_o + κa_i)ℰ_o + (a_i + κ′a_o)ℰ_i)n ≥
+Σ_ϰ (a_o (ℰ_o)_ϰϰ + a_i (ℰ_i)_ϰϰ) n_ϰ² ≥ Σ_ϰ (θ_ϰ + (1 − θ_ϰ)) d_ϰ n_ϰ², by the choice of α_o and α_i. ∎
+
+The functions θ_ϰ allocate the shared diagonal entries between the two families, point by point; they and the t_ϰλ are
+free. Any choice gives admissible rates, and the rates enter the constants only through the integrals of
+[[prop:tl5-hf-linear]]. The best rates for a given ĝ can be sought by optimising these choices over a partition of
+D^κ; that search is not part of any proof.

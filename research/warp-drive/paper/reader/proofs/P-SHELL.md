@@ -805,7 +805,7 @@ metric functions are continuous, and no atoms, are covered by [[thm:loc-shells]]
 the derivatives of the free data across a leaf gives no singular part of Ric ([[lem:loc-shell-ricci]] (b)).
 (ii) *Domains.* The development of [[thm:loc-shells]] lies
 in a neighbourhood of the cones on which no two shells cross. [[prop:loc-shell-crossing]] continues a solution through
-one crossing sphere: a round one on a small square, and one that equals the background near the axes also on a
+one crossing sphere: a round solution on a small square, and one that equals the background near the axes also on a
 neighbourhood of the two leaves beyond it; a development on the whole rectangle Q1, where the shells cross away from the
 cones, is not asserted, as for smooth data
 ([[rem:loc-cone-scope]] (iv)). (iii) *Backgrounds with shells.* [[thm:loc-shells]] perturbs the smooth background g0. A
