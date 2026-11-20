@@ -147,10 +147,13 @@ boundary after the shell, its development also reaches inside the black hole aft
 which is arbitrary, and a smaller l5 puts every point with r > 0 and v ≤ v_end + T inside D_T, since r_q(v) = (√72 μ(v)
 l5²)^(1/4) tends to 0 with l5, the constants then depending on l5; at r = 0 the limit itself is singular, its
 Kretschmann scalar being 72 μ²/r⁸ ([[prop:vaidya]]). The thresholds λ0, λ1 and δ exist by the proofs and are not
-evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point, and [[ch:explicit-constants]] states where the
-explicit evaluation of λ1 and δ stops. A high-frequency theorem, whose expansion parameter is the wavelength over the
-curvature length, does not apply at a prescribed wavelength of 10 l5; there existence holds where the solution is the
-seed ([[thm:ten-l5]]). [[ch:scope]] collects these statements.
+evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point, and [[ch:explicit-constants]] states where the explicit
+evaluation of λ1 and δ stops and bounds the loss d with which the proof of [[thm:settling]] applies the Nash–Moser
+theorem at a point of the gauge and damping parameters outside the set on which that theorem is proved: there
+d > 1.2497 × 10²⁴ at every admissible choice of the weights, and d < 1.57157 × 10⁵⁰ at one ([[thm:uc-integer]]). A
+high-frequency theorem, whose expansion parameter is the wavelength over the curvature length, does not apply at a
+prescribed wavelength of 10 l5; there existence holds where the solution is the seed ([[thm:ten-l5]]). [[ch:scope]]
+collects these statements.
 
 ### Organisation of the paper {#sec:organisation}
 
