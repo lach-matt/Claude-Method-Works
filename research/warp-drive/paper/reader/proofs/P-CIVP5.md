@@ -651,15 +651,17 @@ order on the past faces ∂F ∩ R′. Then U1 = U2 on R′ × S³.
 bend, with δ_* depending on N. Since τ^N ≥ Φ_N, T′_N := F ∩ {τ^N ≤ 1} ⊂ T_N ⊂ R′; and every point (u, v) with u < u′ and
 v < v′ lies in T′_N for N large, as Φ_N(u, v) → 0 and the bend is at most K δ_*². For genuine solutions the planar shear
 is that of the level sets of u_A in every slicing ([[lem:class-leaf-differences]], last statement), so both satisfy the
-closures of [[sec:loc-t5-system]] computed on the slices of t_A^N. Let z := U2 − U1 (for a further family, on 𝒯_A^(1)
-only) and write the difference of the systems with the coefficients at U1. Apply [[lem:loc-t5-energy]] on 𝒟 := T′_N,
-with B_0 := ∂F ∩ T′_N, where z vanishes to infinite order, and B_1 := {τ^N = 1} ∩ F, spacelike for both metrics with
-T′_N to its past by [[lem:loc-t5-times]] (a), together with the lateral boundaries of the 𝒯_A^(1), ruled by integral
-curves of U1's P_A, through which the transports have no flux. Exactly as in the proof of [[lem:loc-t5-constraints]],
-with V := U1, the sets T′_N ∩ {t_A^N = t} ∩ {τ^N ≤ s} (intersected with 𝒯_A^(1) for further families) contain the arc of
-U1 through each of their points near the axes, the face sections being level sets of u_A^(1); [[lem:class-leaf-arc]] (c)
-with V := U1 and U := U2 bounds the non-local terms. So z = 0 on T′_N for every N, hence on R′ minus its future faces,
-and on R′ by continuity. ∎
+closures of [[sec:loc-t5-system]] computed on the slices of t_A^N. Extend U2 beyond R′ to a smooth state with the same
+bounds; by [[lem:class-leaf-arc]] only its bounds enter outside R′, and the arcs of U2 through points of T′_N, used by
+U2's own closures, lie in F ∩ {τ^N ≤ 1} ⊂ R′, the face sections being leaves of U2 and the arcs running into the past.
+Let z := U2 − U1 (for a further family, on 𝒯_A^(1) only) and write the difference of the systems with the coefficients
+at U1. Apply [[lem:loc-t5-energy]] on 𝒟 := T′_N, with B_0 := ∂F ∩ T′_N, where z vanishes to infinite order, and B_1 :=
+{τ^N = 1} ∩ F, spacelike for both metrics with T′_N to its past by [[lem:loc-t5-times]] (a), together with the lateral
+boundaries of the 𝒯_A^(1), ruled by integral curves of U1's P_A, through which the transports have no flux. Exactly as
+in the proof of [[lem:loc-t5-constraints]], with V := U1, the sets T′_N ∩ {t_A^N = t} ∩ {τ^N ≤ s} (intersected with
+𝒯_A^(1) for further families) contain the arc of U1 through each of their points near the axes, the face sections being
+level sets of u_A^(1); [[lem:class-leaf-arc]] (c) with V := U1 and U := U2 bounds the non-local terms. So z = 0 on T′_N
+for every N, hence on R′ minus its future faces, and on R′ by continuity. ∎
 
 The past faces of R′ lie in 𝒞_out ∪ 𝒞_in. A rectangle with a past face {u = u0}, u0 > 0, inside F is not covered: a
 further family of outgoing type at an axis is tangent to every hypersurface {u = const} along its axis generator, its
@@ -880,32 +882,32 @@ Row 13. lem:loc-t5-tubes; P-CIVP5:353; P-CIVP5 Block B, Lemma (The tubes avoid t
 proved by continuous dependence.
 Row 14. lem:loc-t5-jets; P-CIVP5:385; P-CIVP5 Block B, Lemma (Cone data and jets with further families); S-T5 M0 with
 GN-T5 C4; sources of the cone constraints; transverse jets on the crossing sets.
-Row 15. sec:loc-t5-times; P-CIVP5:416; P-CIVP5 Block B, subsection; closure times.
-Row 16. eq:loc-t5-times; P-CIVP5:431; P-CIVP5 Block B, display; t_A := τ0 − χ g_A, τ := τ0 + K ρ² χ (GN-T5 §1.1).
-Row 17. lem:loc-t5-times; P-CIVP5:435; P-CIVP5 Block B, Lemma (The closure times and the evolution time); S-T5 M1 as
+Row 15. sec:loc-t5-times; P-CIVP5:417; P-CIVP5 Block B, subsection; closure times.
+Row 16. eq:loc-t5-times; P-CIVP5:432; P-CIVP5 Block B, display; t_A := τ0 − χ g_A, τ := τ0 + K ρ² χ (GN-T5 §1.1).
+Row 17. lem:loc-t5-times; P-CIVP5:436; P-CIVP5 Block B, Lemma (The closure times and the evolution time); S-T5 M1 as
 built in GN-T5 §1.1, (a)–(d) proved.
-Row 18. lem:loc-t5-faces; P-CIVP5:465; P-CIVP5 Block B, Lemma (The face sections are leaves of each family); S-T5 M2 by
+Row 18. lem:loc-t5-faces; P-CIVP5:466; P-CIVP5 Block B, Lemma (The face sections are leaves of each family); S-T5 M2 by
 the leaf criterion of Tier 3 (GN-T3 §1.2).
-Row 19. sec:loc-t5-system; P-CIVP5:481; P-CIVP5 Block B, subsection; the system with memory; closures per family on the
+Row 19. sec:loc-t5-system; P-CIVP5:482; P-CIVP5 Block B, subsection; the system with memory; closures per family on the
 slices of t_A; ξ_A.
-Row 20. lem:loc-t5-forcing; P-CIVP5:500; P-CIVP5 Block B, Lemma (The forcing term); S-T5 M4 hypotheses verified:
+Row 20. lem:loc-t5-forcing; P-CIVP5:501; P-CIVP5 Block B, Lemma (The forcing term); S-T5 M4 hypotheses verified:
 (M0)–(M2), (M1′) by coarea (Fubini) over the t_A-foliation.
-Row 21. lem:loc-t5-residual; P-CIVP5:529; P-CIVP5 Block B, Lemma (The forcing term is smooth across the faces); S-T5 M6
+Row 21. lem:loc-t5-residual; P-CIVP5:530; P-CIVP5 Block B, Lemma (The forcing term is smooth across the faces); S-T5 M6
 / GN-T5 §3 (GN-M3), written in full in the t_A-slicing.
-Row 22. lem:loc-t5-existence; P-CIVP5:563; P-CIVP5 Block B, Lemma (Existence on space-time); thm:class-kato-memory (b).
-Row 23. sec:loc-t5-dependence; P-CIVP5:573; P-CIVP5 Block B, subsection; dependence on the past and constraints.
-Row 24. lem:loc-t5-energy; P-CIVP5:575; P-CIVP5 Block B, Lemma (Energy on a region with memory); integrated Gronwall
+Row 22. lem:loc-t5-existence; P-CIVP5:564; P-CIVP5 Block B, Lemma (Existence on space-time); thm:class-kato-memory (b).
+Row 23. sec:loc-t5-dependence; P-CIVP5:574; P-CIVP5 Block B, subsection; dependence on the past and constraints.
+Row 24. lem:loc-t5-energy; P-CIVP5:576; P-CIVP5 Block B, Lemma (Energy on a region with memory); integrated Gronwall
 (GN-T5 §2.6, where M5 enters).
-Row 25. lem:loc-t5-past; P-CIVP5:584; P-CIVP5 Block B, Lemma (The past of the faces); S-T5 M5 (P) with GN-T5 C7:
+Row 25. lem:loc-t5-past; P-CIVP5:585; P-CIVP5 Block B, Lemma (The past of the faces); S-T5 M5 (P) with GN-T5 C7:
 one-sided bound, closure under the arcs of Û only.
-Row 26. lem:loc-t5-constraints; P-CIVP5:602; P-CIVP5 Block B, Lemma (The constraints); S-T5 M5 (F) on the slice-triangle
+Row 26. lem:loc-t5-constraints; P-CIVP5:603; P-CIVP5 Block B, Lemma (The constraints); S-T5 M5 (F) on the slice-triangle
 of the bent time (GN-T3 §4.2), tubes from 𝒦_A″.
-Row 27. sec:loc-t5-theorem; P-CIVP5:639; P-CIVP5 Block B, subsection; uniqueness, theorem, statement W.
-Row 28. lem:loc-t5-uniqueness; P-CIVP5:641; P-CIVP5 Block B, Lemma (Dependence on the past faces); S-T5 M7 / GN-T5 §4
+Row 27. sec:loc-t5-theorem; P-CIVP5:640; P-CIVP5 Block B, subsection; uniqueness, theorem, statement W.
+Row 28. lem:loc-t5-uniqueness; P-CIVP5:642; P-CIVP5 Block B, Lemma (Dependence on the past faces); S-T5 M7 / GN-T5 §4
 (C5): rectangles with past faces in the cones, by exhaustion with triangles.
-Row 29. thm:loc-t5; P-CIVP5:669; P-CIVP5 Block B, Theorem (Development with further families at the axes); S-T5 M8;
+Row 29. thm:loc-t5; P-CIVP5:672; P-CIVP5 Block B, Theorem (Development with further families at the axes); S-T5 M8;
 class C^(k−3), smoothness not proved.
-Row 30. prop:loc-t5-cut; P-CIVP5:709; P-CIVP5 Block B, Proposition (Families tangent to a cone: a development off the
+Row 30. prop:loc-t5-cut; P-CIVP5:712; P-CIVP5 Block B, Proposition (Families tangent to a cone: a development off the
 axes concerned); statement W of S-T5 §4.4 with GN-T5 W1–W4; N closed under the generators.
-Row 31. rem:loc-t5-scope; P-CIVP5:742; P-CIVP5 Block B, Remark (What the theorem does not give); grazing families open
+Row 31. rem:loc-t5-scope; P-CIVP5:745; P-CIVP5 Block B, Remark (What the theorem does not give); grazing families open
 (S-T5 §5.1); Tier 3 family clause (C4); Route S; regularity.
