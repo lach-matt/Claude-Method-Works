@@ -81,11 +81,11 @@ rem:iii-g3-3-9	docket68/n1star/proof5/PART-III-G4-RESONANT.md:400	III.G3 Remark 
 sec:s17-radiative	docket68/n1star/N1STAR-PROOF.md:6085	N1STAR 10.38	section carrying NP 10.38
 prop:np-10-38	docket68/n1star/N1STAR-PROOF.md:6108; docket68/n1star/proof5/PART-III-C-EXTERIOR.md:293; docket68/n1star/proof5/PART-III-G4-RESONANT.md:233	N1STAR Proposition 10.35 (i)-(iii) and (a)-(e) of section 10.38, final form via III.C L4.2, P4.4, (C3) and III.G3 C2.6, R3.8; III.G1 L4.2(a)	(1) = 10.35(i) proved by hand (replaces scri5.py C1), with the general-n formula giving [Hin26] (5.28) at n = 3; (2) = 10.35(ii) (det over slots); (3) = 10.38(a),(c) as proved in III.C; (4) = 10.35(iii) and 10.38(d) replaced by the proved III.G1 Lemma 4.2(a) and III.G3 Cor 2.6 (the floating-point C3 is superseded); 10.38(e) alpha_5 = 2 for the nonlinear iteration is not stated (a deduction on readings)
 eq:s17-abar	docket68/n1star/N1STAR-PROOF.md:6110	N1STAR Proposition 10.35 (i)	entries of A-bar
-sec:iii-g4-1	docket68/n1star/proof5/PART-III-G5-TF.md:24	III.G4 §1 (with the 'What n = 4 changes' paragraph)	
+sec:iii-g4-1	docket68/n1star/proof5/PART-III-G5-TF.md:24	III.G4 §1 (with the 'What n = 4 changes' paragraph)	simplicity only on [−101, 0], from (g) (P-ADM text 11)
 eq:iii-g4-1-1	docket68/n1star/proof5/PART-III-G5-TF.md:30	III.G4 (1.1)	
 eq:iii-g4-1-2	docket68/n1star/proof5/PART-III-G5-TF.md:55	III.G4 (1.2)	
 eq:iii-g4-1-3	docket68/n1star/proof5/PART-III-G5-TF.md:61	III.G4 (1.3)	
-lem:iii-g4-1-1	docket68/n1star/proof5/PART-III-G5-TF.md:65	III.G4 Lemma 1.1	tfgraft5.py T1(a) dropped
+lem:iii-g4-1-1	docket68/n1star/proof5/PART-III-G5-TF.md:65	III.G4 Lemma 1.1	tfgraft5.py T1(a) dropped; simplicity only on [−101, 0], from (g) (P-ADM texts 12, 13)
 lem:iii-g4-1-2	docket68/n1star/proof5/PART-III-G5-TF.md:89	III.G4 Lemma 1.2	
 eq:iii-g4-1-4	docket68/n1star/proof5/PART-III-G5-TF.md:116	III.G4 (1.4)	tfgraft5.py T3 dropped (c_mu values from the table of III.G2 §1)
 sec:iii-g4-2	docket68/n1star/proof5/PART-III-G5-TF.md:124	III.G4 §2	
@@ -98,13 +98,13 @@ lem:iii-g4-2-4	docket68/n1star/proof5/PART-III-G5-TF.md:162	III.G4 Lemma 2.4
 sec:iii-g4-3	docket68/n1star/proof5/PART-III-G5-TF.md:184	III.G4 §3	
 eq:iii-g4-3-1	docket68/n1star/proof5/PART-III-G5-TF.md:189	III.G4 (3.1)	D247/verifier parenthetical rewritten without history
 eq:iii-g4-3-2	docket68/n1star/proof5/PART-III-G5-TF.md:196	III.G4 (3.2)	
-thm:iii-g4-3-1	docket68/n1star/proof5/PART-III-G5-TF.md:208	III.G4 Theorem 3.1	
+thm:iii-g4-3-1	docket68/n1star/proof5/PART-III-G5-TF.md:208	III.G4 Theorem 3.1	simplicity only on [−101, 0], from (g) (P-ADM text 15)
 eq:iii-g4-3-3	docket68/n1star/proof5/PART-III-G5-TF.md:215	III.G4 (3.3)	
 eq:iii-g4-3-4	docket68/n1star/proof5/PART-III-G5-TF.md:220	III.G4 (3.4)	
 eq:iii-g4-3-5	docket68/n1star/proof5/PART-III-G5-TF.md:230	III.G4 (3.5)	
 lem:iii-g4-3-2	docket68/n1star/proof5/PART-III-G5-TF.md:237	III.G4 Lemma 3.2	
 lem:iii-g4-3-3	docket68/n1star/proof5/PART-III-G5-TF.md:243	III.G4 Lemma 3.3	D247 parenthetical replaced by the reference to [Hin26]'s Case 1
-lem:iii-g4-3-4	docket68/n1star/proof5/PART-III-G5-TF.md:267	III.G4 Lemma 3.4	tfgraft5.py T2 replaced by a two-line inequality in the pairing paragraph
+lem:iii-g4-3-4	docket68/n1star/proof5/PART-III-G5-TF.md:267	III.G4 Lemma 3.4	tfgraft5.py T2 replaced by a two-line inequality in the pairing paragraph; simplicity only on [−101, 0], from (g) (P-ADM text 14)
 eq:iii-g4-3-6	docket68/n1star/proof5/PART-III-G5-TF.md:272	III.G4 (3.6)	
 eq:iii-g4-3-7	docket68/n1star/proof5/PART-III-G5-TF.md:286	III.G4 (3.7)	
 eq:iii-g4-3-8	docket68/n1star/proof5/PART-III-G5-TF.md:292	III.G4 (3.8)	

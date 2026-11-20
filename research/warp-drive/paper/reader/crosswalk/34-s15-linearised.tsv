@@ -1,6 +1,6 @@
 label	source	source_name	note
 ch:s15	docket68/n1star/proof5/PART-III-F-LINEARISED.md:10-215; docket68/n1star/proof5/PART-III-F2-INDICIAL.md:14-492; docket68/n1star/proof5/PART-III-F3-MODES.md:17-270; docket68/n1star/proof5/PART-III-F4-ZERO.md:17-457; docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:16-330	III.F, III.F1-III.F4 (kept ranges)	intro composed from the status sentences and intros; inner radius per docket68/n1star/BEYOND5-R0-PROOF.md:186-240
-sec:iii-f-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:17-32	III.F section 1	
+sec:iii-f-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:17-32	III.F section 1	results hold at admissible points (P-ADM text 1)
 eq:iii-f-1-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:26	III.F (1.1)	
 eq:iii-f-1-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:28	III.F (1.2)	
 sec:iii-f-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:34-89	III.F section 2	
@@ -15,12 +15,12 @@ sec:iii-f-4	docket68/n1star/proof5/PART-III-F-LINEARISED.md:133-214	III.F sectio
 prop:iii-f-4-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:141-214	III.F Proposition 4.1	grading computations written out monomial by monomial (lgrade5 G1, strap5 P2-P3 parenthetical dropped)
 eq:iii-f-4-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:150-152	III.F (4.1)	
 eq:iii-f-4-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:168	III.F (4.2)	rotation function renamed varkappa (kappa is l(l+2) in this chapter)
-sec:iii-f1-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:14-58	III.F1 section 1	(C1)-(C4) read from thm:iii-e-1-1 (3); parameter-point paragraph replaced; types-and-representations paragraph moved here from 245-251
+sec:iii-f1-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:14-58	III.F1 section 1	(C1)-(C4) read from thm:iii-e-1-1 (3); parameter-point paragraph replaced; types-and-representations paragraph moved here from 245-251; (C4′) added (P-ADM text 2)
 sec:iii-f1-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:60-263	III.F1 section 2	
 lem:iii-f1-2-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:68-76	III.F1 Lemma 2.1	new written proof (block determinant identity + flat case by Clebsch-Gordan) replacing lin5.py E2; c = (-1)^k determined
 eq:iii-f1-2-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:69-72	III.F1 (2.1)	
 lem:iii-f1-2-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:89-102	III.F1 Lemma 2.2	linroots5 R1 parenthetical dropped
-prop:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:104-188	III.F1 Proposition 2.3	(f): numeral eps_ind<3e-6 replaced by eps_ind<=delta_50 (VI.C row w1, PART-VI4-PARAMS.md:38), citing prop:np-10-52; proof of (e): Z_exc empty at the constants (P-T49 text 5)
+prop:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:104-188	III.F1 Proposition 2.3	(f): numeral eps_ind<3e-6 replaced by eps_ind<=delta_50 (VI.C row w1, PART-VI4-PARAMS.md:38), citing prop:np-10-52; proof of (e): Z_exc empty at the constants (P-T49 text 5); (f) under (C4′); (g) simplicity on [−101, 0] for every z ∈ (0, ½] (P-ADM texts 3–5)
 eq:iii-f1-2-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:130-132	III.F1 (2.2)	
 lem:iii-f1-2-4	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:190-243	III.F1 Lemma 2.4	
 lem:iii-f1-2-5	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:226-263	III.F1 Lemma 2.5	linroots5 R2-R3 parenthetical dropped

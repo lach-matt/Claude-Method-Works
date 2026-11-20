@@ -1,7 +1,7 @@
 label	source	source_name	note
 ch:s22	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:15; docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:14; docket68/n1star/proof5/PART-III-I13-EXPANSION.md:13; docket68/n1star/proof5/PART-III-I14-LEVELS.md:16	III.I(10)-(13) intros	heading and introduction composed from the four parts' kept intros (what n = 4 changes)
 sec:s22-setting	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:23; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:37; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:158; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:645	III.I(15) intro, L1.1 (P1)-(P6), T3.1 items (i), (iii), (vi)	private key: the base point b, statements at b, v1 terms at a rotating b; inner radius per BEYOND5-R0-PROOF section 5
-sec:iii-i10-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:28	III.I(10) section 1	
+sec:iii-i10-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:28	III.I(10) section 1	s_C > 100 cited to sec:iii-f-1, not to (C1) (P-ADM text 16)
 eq:iii-i10-1-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:54	III.I(10) (1.1)	
 def:iii-i10-1-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:66	III.I(10) Def 1.1	K(lambda), L_0, N_* written kbar(lambda), kbar_0, J_*; E_col independent of b by III.I(15) T3.1 (iii)
 eq:iii-i10-1-2	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:81	III.I(10) (1.2)	
@@ -47,7 +47,7 @@ lem:iii-i12-2-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:90	III.I(12) Le
 eq:iii-i12-2-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:96	III.I(12) (2.1)	
 lem:iii-i12-2-2	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:129	III.I(12) Lemma 2.2	Taylor variable theta written s
 eq:iii-i12-2-2	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:136	III.I(12) (2.2)	
-lem:iii-i12-2-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:171	III.I(12) Lemma 2.3 at b_0	space G written G_*; b-form lem:iii-i15-2-9 (a)-(b)
+lem:iii-i12-2-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:171	III.I(12) Lemma 2.3 at b_0	space G written G_*; b-form lem:iii-i15-2-9 (a)-(b); simplicity from (g) (P-ADM text 17)
 lem:iii-i12-2-4	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:216	III.I(12) Lemma 2.4 at b_0	exponent set I written I_*; b-form lem:iii-i15-2-9 (c)
 eq:iii-i12-2-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:217	III.I(12) (2.3)	
 eq:iii-i12-2-4	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:224	III.I(12) (2.4)	

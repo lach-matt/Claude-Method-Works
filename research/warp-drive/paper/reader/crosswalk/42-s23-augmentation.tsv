@@ -22,7 +22,7 @@ eq:iii-i14-3-3	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:327	III.I(14) (3.
 eq:iii-i14-3-4	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:343	III.I(14) (3.4)	
 eq:iii-i14-3-5	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:377	III.I(14) (3.5)	
 rem:iii-i14-3-2	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:446	III.I(14) Remark 3.2	
-sec:iii-j-1	docket68/n1star/proof5/PART-III-J-PARAM.md:31	III.J section 1	heading: The data space
+sec:iii-j-1	docket68/n1star/proof5/PART-III-J-PARAM.md:31	III.J section 1	heading: The data space; s_C > 100 cited to sec:iii-f-1 (P-ADM text 18)
 def:iii-j-g-plus	docket68/n1star/proof5/PART-III-J-PARAM.md:48	III.J (G+)	cited by VI.C row w1 and the paper's Theorem 4 (chapter 3 cites "(G+) of ch:s23"); the paragraph after (G+) (J:48-51) placed inside the definition
 def:iii-j-a-j	docket68/n1star/proof5/PART-III-J-PARAM.md:53	III.J (A_J)	with the density statement (57), cited by VI.C row w2; eps_+ < delta_sharp < 1/4 by eq:iii-i9-1-1 (J:56 says eps_+ < 1/4); eps'_0 cited to def:iii-i10-1-3
 def:iii-j-classes	docket68/n1star/proof5/PART-III-J-PARAM.md:59	III.J "Classes" paragraph	X_J, F, Q_J; private key

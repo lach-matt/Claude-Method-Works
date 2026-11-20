@@ -658,37 +658,59 @@ definition of t*. So t* = a + b. ∎
 
 **Lemma {#lem:loc-axis-unique}** (Uniqueness in the double-null gauge.) Let k ≥ 9, let Q1′ := [0, u_1′] × [0, v_1′] ⊂
 Q1 with u_1′, v_1′ > 0, and let (g′, q′_in, q′_out) be a class solution in the gauge through the axes on Q1′ × S³ that
-induces the cone data on the edges of Q1′, with fields within ε_2 of the background's in C^(k−4). For ε and ε_2 small
-it equals the solution of [[lem:loc-axis-gauge]] on Q1′ × S³.
+induces the cone data on the edges of Q1′, with fields within ε_2 of the background's in C^(k−4). For ε and ε_2 small,
+depending only on k, u_1, v_1, δ_1, the background and the numbers fixed in [[sec:loc-axis-reduced]], it equals the
+solution of [[lem:loc-axis-gauge]] on Q1′ × S³.
 
-*Proof.* (1) By [[lem:loc-axis-jets]] (b), (iv) of [[lem:loc-cone-jets]], the fields and densities of g′ have across N
-∩ Q1′ the derivatives a_j and b_k, those of Ĝ; so g″ := g′ on Q1′ and Ĝ on P ∩ 𝒰_1 is smooth on Q1′ ∪ (P ∩ 𝒰_1).
+*Proof.* (1) *An extension of g′.* By [[lem:loc-axis-jets]] (b) and (iv) of [[lem:loc-cone-jets]], Q1′ being a past
+set in F, the fields and densities of g′, like those of Ĝ, have the derivatives a_j and b_k across N ∩ Q1′, so their
+differences f from those of Ĝ vanish to infinite order on N ∩ Q1′; f is a family over Q1′ of G-invariant functions,
+symmetric 2-tensors and vector fields on S³, and we put f := 0 on P. Fix δ_2 ∈ (0, δ_c/4] so small that Q1^+ := [−δ_2,
+u_1 + δ_2] × [−δ_2, v_1 + δ_2] lies in the interior of 𝒰^♯ and Q1^+ ∩ F in 𝔗(s*), which is possible as Q1 ⊂ 𝔗(s* − 1)
+and τ is continuous, and put Q1′^+ := [−δ_2, u_1′ + δ_2] × [−δ_2, v_1′ + δ_2]. The operator E of
+[[thm:std-ly-extension]] (i) acts at each fixed x′, so it is an operator on functions of one variable on [0, ∞),
+bounded on C^r for every r. Fix ψ ∈ C^∞(ℝ) equal to 1 on (−∞, δ_2/2] and to 0 on [3δ_2/4, ∞). For c ∈ ℝ and h smooth
+on [c − δ_2, c] put X_c h := h on [c − δ_2, c] and (X_c h)(w) := E[ψ h(c − ·)](c − w) for w ∈ (c, c + δ_2], ψ h(c − ·)
+being read as a function on [0, ∞) that vanishes beyond 3δ_2/4. X_c is linear, X_c h is smooth, E[ψ h(c − ·)] being
+smooth on ℝ and equal to h(c − ·) on [0, δ_2/2], and its C^r norm is at most C_r times that of h, C_r depending only on
+r and δ_2. Apply X_(u_1′) in u, at each fixed (v, ω) and in the space of tensors at ω, to f on [−δ_2, u_1′] × [−δ_2,
+v_1′], and then X_(v_1′) in v, at each fixed (u, ω), to the result on [−δ_2, u_1′ + δ_2] × [−δ_2, v_1′]. These
+operators act in (u, v) only and linearly, so they commute with derivatives along S³ and with G; the result f″ is
+smooth on Q1′^+ × S³, G-invariant and smooth through the axes, equals f on Q1′, and its fields are at most C(ε + ε_2)
+in C^(k−4), with C independent of u_1′ and v_1′. As f vanishes where u < 0 and where v < 0, so does f″. Let g″ be the
+metric [[eq:loc-double-null]] whose fields are those of Ĝ plus those of f″ on Q1′^+ and those of Ĝ on P ∩ Q^♯, and q″_A
+the densities of Ĝ plus those of f″, and those of Ĝ on P ∩ Q^♯. For ε and ε_2 small g″ is Lorentzian, and it is smooth
+on Q1′^+ ∪ (P ∩ Q^♯); it equals g′ on Q1′ and Ĝ on P, and g″ − Ĝ vanishes to infinite order on N ∩ Q1′^+, being smooth
+and zero on P there.
 
-(2) Fix u″ ∈ (0, u_1′), v″ ∈ (0, v_1′) and put Q1″ := [0, u″] × [0, v″]. As in step (2) of the proof of
-[[lem:loc-cone-unique]], seek Φ = id + φ with id: (Φ(Q1″), (Φ⁻¹)^*g″) → Ĝ a wave map, now in the chart
-[[eq:loc-axis-time]] with the initial slice Σ_init, with no cut-off in ϑ, with a cut-off χ′ in (u, v) equal to 1 on a
-neighbourhood of Q1″ and supported in ((0, u_1′) × (0, v_1′) ∪ P) ∩ 𝒰_1, hence where g″ is defined, and with the frozen
-part taken with the wave operator of g_e. The wave map system is semilinear and local, with coefficients smooth in the
-chart through the axes. φ := 0 satisfies the cut-off system on P exactly, as g″ = Ĝ there, and on F up to the residual
-χ′ 1_F g″^μν (Γ[Ĝ] − Γ[g″])^λ_μν, which is smooth, as it vanishes to infinite order on N ∩ Q1′ by (1), and at most
-C(ε + ε_2) in C^(k−5). [[thm:class-kato-stability]] (a), with s := k − 5 > 3, gives a smooth G-equivariant solution φ
-on [τ_init, s*] × ℝ⁴, at most C(ε + ε_2)^(1/(4s)) in W^(1,∞); φ = 0 on P ∩ 𝒰^♯, by the argument of the proof of
-[[lem:loc-cone-past]]; and φ solves the wave map system on Q1″, χ′ being 1 there.
+(2) *A wave map.* As in step (2) of the proof of [[lem:loc-cone-unique]], seek Φ = id + φ with id: (Φ(Q1′),
+(Φ⁻¹)^*g″) → Ĝ a wave map, now in the chart [[eq:loc-axis-time]] with the initial slice Σ_init, with no cut-off in ϑ,
+with the cut-off χ′ := β′(u − u_1′) β′(v − v_1′) χ in (u, v), χ that of [[sec:loc-axis-reduced]] and β′ ∈ C^∞(ℝ) equal
+to 1 on (−∞, δ_2/4] and to 0 on [δ_2/2, ∞), and with the frozen part taken with the wave operator of g_e. χ′ equals 1
+on a neighbourhood of Q1′ and is supported in (Q1′^+ ∪ P) ∩ supp χ, where g″ is defined. The wave map system is
+semilinear and local, with coefficients smooth in the chart through the axes. φ := 0 satisfies the cut-off system on P
+exactly, as g″ = Ĝ there, and on F up to the residual χ′ 1_F g″^(μν) (Γ[Ĝ] − Γ[g″])^λ_(μν), which is smooth, as g″ −
+Ĝ vanishes to infinite order on N ∩ Q1′^+, and at most C(ε + ε_2) in C^(k−5), C independent of u_1′ and v_1′.
+[[thm:class-kato-stability]] (a), with s := k − 5 > 3, gives a smooth G-equivariant solution φ on [τ_init, s*] × ℝ⁴,
+at most C(ε + ε_2)^(1/(4s)) in W^(1,∞); φ = 0 on P ∩ 𝒰^♯, by the argument of the proof of [[lem:loc-cone-past]]; and
+φ solves the wave map system near Q1′, χ′ being 1 there.
 
-(3) For ε and ε_2 small, Φ is a G-equivariant diffeomorphism near the identity, equal to it on P ∩ 𝒰^♯ and so, with all
-derivatives, on N, with Φ(F) ⊂ F near Q1 and Φ(Q1″) ⊂ 𝔗(s*). Put g̃ := (Φ⁻¹)^*g″, ũ := u ∘ Φ⁻¹, ṽ := v ∘ Φ⁻¹, ω̃ := ω ∘
-Φ⁻¹ and q̃_A := q′_A ∘ Φ⁻¹. Then g̃ is in the gauge D(g̃) = 0 relative to Ĝ, has the form [[eq:loc-double-null]] with
-fields smooth through the axes in the coordinates (ũ, ṽ, ω̃) near Φ(Q1″), where Φ(Q1″) = [0, u″] × [0, v″], and (g̃, ṽ,
-ũ, q̃_in, q̃_out) solves [[eq:class-system]] on Φ(Q1″); and the state of g̃ agrees with Û, hence with U, with all
-derivatives on N ∩ Φ(Q1″) = N ∩ Q1″. U is, on 𝒰′, of the form required in [[lem:loc-axis-dependence]], and solves
-[[eq:class-system]] on 𝔗(s*) in the same gauge ([[lem:loc-axis-propagation]]). [[lem:loc-axis-dependence]], with U_1
-the state of g̃, R′ := Φ(Q1″) and U_2 := U, gives U = g̃ on Φ(Q1″).
+(3) *Comparison.* For ε and ε_2 small, Φ is a G-equivariant diffeomorphism near the identity, equal to it on P ∩ 𝒰^♯
+and so, with all derivatives, on N, with Φ(F) ⊂ F near Q1, and Φ(Q1′) and a neighbourhood of it lie in 𝒰′ = (P ∩ 𝒰^♯)
+∪ 𝔗(s*), by the choice of δ_2. Put g̃ := (Φ⁻¹)^*g″, ũ := u ∘ Φ⁻¹, ṽ := v ∘ Φ⁻¹, ω̃ := ω ∘ Φ⁻¹ and q̃_A := q″_A ∘ Φ⁻¹
+near Φ(Q1′). Then g̃ is in the gauge D(g̃) = 0 relative to Ĝ near Φ(Q1′); it has the form [[eq:loc-double-null]] with
+fields smooth through the axes in the coordinates (ũ, ṽ, ω̃), in which Φ(Q1′) = [0, u_1′] × [0, v_1′] × S³ and ũ, ṽ
+are null for g̃; (g̃, ṽ, ũ, q̃_in, q̃_out) solves [[eq:class-system]] on Φ(Q1′); and the state of g̃ agrees with Û,
+hence with U, with all derivatives on N ∩ Φ(Q1′) = N ∩ Q1′. U is, on 𝒰′, of the form required in
+[[lem:loc-axis-dependence]], its phases u_in and u_out being null for g there, and solves [[eq:class-system]] on 𝔗(s*)
+in the same gauge ([[lem:loc-axis-propagation]]). [[lem:loc-axis-dependence]], with Ĝ′ := Ĝ, U_1 the state of g̃, R′
+:= Φ(Q1′) and U_2 := U, gives that U is the state of g̃ on Φ(Q1′).
 
-(4) As in step (4) of the proof of [[lem:loc-cone-unique]], with the point ω of S³ in place of ϑ: Φ is an isometry from
-(g′, u, v) to (g, u_out, u_in) on Q1″, with u = u_out ∘ Φ and v = u_in ∘ Φ; it carries g′⁻¹du to g⁻¹du_out, so ω′ ∘ Φ
-is constant along the integral curves of g′⁻¹du, which are the curves of constant u and ω, and equals ω on N_i, where Φ
-is the identity. So Ψ ∘ Φ is the identity on Q1″, and g′ has there the fields of the solution of
-[[lem:loc-axis-gauge]]. Letting u″ → u_1′ and v″ → v_1′ gives the claim by continuity. ∎
+(4) *Conclusion.* As in step (4) of the proof of [[lem:loc-cone-unique]], with the point ω of S³ in place of ϑ: Φ is
+an isometry from (g′, u, v) to (g, u_out, u_in) on Q1′, with u = u_out ∘ Φ and v = u_in ∘ Φ; it carries g′⁻¹du to
+g⁻¹du_out, so ω′ ∘ Φ is constant along the integral curves of g′⁻¹du, which are the curves of constant u and ω, and
+equals ω on N_i, where Φ is the identity. So Ψ ∘ Φ is the identity on Q1′, and g′ has there the fields of the solution
+of [[lem:loc-axis-gauge]]. ∎
 
 **Lemma {#lem:loc-axis-angle}** (Localisation near an axis.) Let ϑ_a′ ∈ (0, π/4], and let the cone data equal the
 background's at the points with ϑ < ϑ_a′. Then U = Ů at the points of 𝔗(s*) with ϑ < ϑ_a′ − 2C_* ((u + δ_c)(v +
