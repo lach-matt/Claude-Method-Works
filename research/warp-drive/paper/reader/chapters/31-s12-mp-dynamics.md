@@ -203,7 +203,7 @@ point, with C = r²(f⁻¹ − fξ²), whose differential in (r, ξ) vanishes th
 (c) {φ_u, φ_s} = ν/f = 2ν > 0 at (r_ph, 0), and ∂_C G₁ = r⁻² ≠ 0.
 
 (d) With q₁ := 2g⁻¹(−dt_s + ζ, dt_s), ½q₁ = f⁻¹, which is 1/f(r_ph) = 2 at the point; for a time function t_s − F(r)
-the value at the point is the same. So the constant β₀ = ½ min_Γ |q₁| of (Γ.4) is 2, and ν/(4β₀) = (8m)^(−1/2), half the
+the value at the point is the same. So the constant β_Γ = ½ min_Γ |q₁| of (Γ.4) is 2, and ν/(4β_Γ) = (8m)^(−1/2), half the
 rate (2m)^(−1/2) of [[prop:np-10-17-ii]] (d).
 
 *Proof.* (a) H_(G₁) r = 2fξ vanishes for r > r_h only at ξ = 0; there G₁ = 0 gives C = r²f⁻¹, and
@@ -486,14 +486,14 @@ while 𝖧^♭(z₀ℱ) = H_(G^s)ℱ ≥ 0.
 (H6) and (K1) hold ([[lem:vi-a-1-1]], for every b ∈ ℬ); the dynamical parts of (H3) and all of (H4) hold
 ([[prop:vi-a-2-1]]); (Γ.1)–(Γ.3) hold with ν_min = 4(2m₀)^(−1/2) ([[prop:vi-a-3-1]]); on Γ, q_(z₀) is the same in t_*
 as in t_s ([[lem:vi-a-0-1]] (c)), where it is 2z₀f(r_ph)⁻¹ = 4z₀, so q^Γ := z₀q_(z₀) = 4 on Γ and
-β₀ = ½ min_Γ |q_(z₀)| = 2; (K3) holds ([[prop:vi-a-4-1]]); and (H8) holds ([[prop:vi-a-5-1]]). These hold for every
+β_Γ = ½ min_Γ |q_(z₀)| = 2; (K3) holds ([[prop:vi-a-4-1]]); and (H8) holds ([[prop:vi-a-5-1]]). These hold for every
 operator with principal symbol G Id.
 
 *Proof.* Each item is the result cited for it. ∎
 
-**Remark {#rem:s12-two-beta}** (Two constants named β₀.) The β₀ of (H3), f′(r_h) = 2m₀^(−1/2), is twice the surface
-gravity; the β₀ of (Γ.4), ½ min_Γ |q_(z₀)| = 1/f(r_ph) = 2, belongs to the trapped set. They are different quantities,
-named by the same letter in [[sec:i-a-1-3]] and [[sec:i-b-1-5]].
+**Remark {#rem:s12-two-beta}** (Two constants β₀ and β_Γ.) The β₀ of (H3), f′(r_h) = 2m₀^(−1/2), is twice the surface
+gravity; the β_Γ of (Γ.4), ½ min_Γ |q_(z₀)| = 1/f(r_ph) = 2, belongs to the trapped set. They are different quantities,
+defined in [[sec:i-a-1-3]] and [[sec:i-b-1-5]].
 
 ### The horizon near b₀ {#sec:vi-b-1}
 
@@ -870,7 +870,7 @@ with T_Γ = √𝒮 > 0 on Γ_b.
 
 (d) The same holds for g̃_b with the time function Ψ_b^* t_*, after the fibre translation of [[lem:vi-a-0-1]] from t
 to t_* and the cotangent lift of the diffeomorphism Ψ_b of [[lem:vi-b-1-2]]. All the data are smooth in b with values in
-C^∞, Γ̃_b ⊂ T*{r₂ < r < ρ₁⁻¹}, and ν_min(b), β₀(b) := ½ min_(Γ̃_b) |q_(z₀)| and max_(Γ̃_b) |q^Γ − 4| tend to
+C^∞, Γ̃_b ⊂ T*{r₂ < r < ρ₁⁻¹}, and ν_min(b), β_Γ(b) := ½ min_(Γ̃_b) |q_(z₀)| and max_(Γ̃_b) |q^Γ − 4| tend to
 4(2m₀)^(−1/2), 2 and 0 as b → b₀.
 
 *Proof.* (a) φ₊ = φ₋ = 0 means p̃ = 0 and (r − r_c)√𝒮 = 0, so r = r_c; on Σ, [[lem:vi-b1-0-1]] (c) then gives
@@ -911,7 +911,7 @@ connected, and near infinity it is close to η_M⁻¹(dt, dt − d|x|) = −1. T
 field to t_*, and the cotangent lift of Ψ_b, a symplectomorphism intertwining the Hamilton vector fields, carries them
 to g̃_b. Everything in [[eq:vi-b1-2-1]] is built from frame-free functions smooth in (b, ·), and so are the two maps.
 At b₀, Γ ⊂ {r = r_ph} and r₂ < r_ph < 3R₁ = ρ₁⁻¹; by continuity Γ̃_b stays in T*{r₂ < r < ρ₁⁻¹}. q_(z₀) is continuous
-in b and the point, and on Γ_(b₀) it is 4z₀ in t_* ([[thm:vi-a-6-1]]); so β₀(b) → 2 and q^Γ → 4 uniformly. In
+in b and the point, and on Γ_(b₀) it is 4z₀ in t_* ([[thm:vi-a-6-1]]); so β_Γ(b) → 2 and q^Γ → 4 uniformly. In
 particular, after shrinking O uniformly in b, z₀q_(z₀) > 0 on Σ_(z₀) ∩ O, so there Σ_(z₀) agrees with the set
 Σ^♭_(z₀) = Σ^(z₀)_(z₀) = Σ_(z₀) ∩ {z₀q_(z₀) > 0} of (H7), and the Γ_(u/s) of [[eq:vi-b1-2-1]] are those of (H7). For
 the continuity in b that (H5) asks, φ_(u/s) are taken on a fixed neighbourhood of Γ̃_(b₀) contained in the transported
@@ -1137,7 +1137,7 @@ This is [Hin26c, Proposition 4.24] for Myers–Perry near Tangherlini.
 **Theorem {#thm:vi-b1-5-1}** ((Dyn) near b₀.) There is ε_VI > 0 such that on the compact parameter set
 ℬ_VI := {|b − b₀| ≤ ε_VI}, the metrics g̃_b = Ψ_b^* g_b with the time function Ψ_b^* t_* and the radii of
 [[def:s12-radii]] satisfy: the dynamical conditions of (H3), and (H4) ([[prop:vi-b-2-2]]); (H6) and (K1)
-([[lem:vi-a-1-1]]); (Γ.1)–(Γ.3), with ν_min → 4(2m₀)^(−1/2), β₀ → 2 and q^Γ → 4 as b → b₀ ([[prop:vi-b1-2-2]]); (K3)
+([[lem:vi-a-1-1]]); (Γ.1)–(Γ.3), with ν_min → 4(2m₀)^(−1/2), β_Γ → 2 and q^Γ → 4 as b → b₀ ([[prop:vi-b1-2-2]]); (K3)
 and (K4) ([[prop:vi-b1-3-4]]); and (H8) ([[prop:vi-b1-4-1]]). All the data depend continuously on b into C^∞, with the
 constants uniform, as (H5), its extension in [[sec:i-b-1-5]], and (K4) ask. These hold for every operator with
 principal symbol g̃_b⁻¹ ⊗ Id. The operator hypotheses, the threshold in (H3) and condition (Γ.4), are verified in

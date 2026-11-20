@@ -524,7 +524,7 @@ Either norm tends to 0 with ϵ, which is all that [[lem:iii-d-5-2]] uses.
 [[prop:np-10-19-ii]], where σ = 1 and C = 4m_0, ∇_(H_G) maps e_0 ↦ 0, e_1 ↦ −2e_0 and e_2 ↦ −2e_1. It preserves
 𝒫 := span{e_0, e_1, e_2} and the g-orthogonal complement V_⊥ of 𝒫. With the inner product diag(1, ϵ⁻¹, ϵ⁻²) on 𝒫 in
 the basis e_j/C^(1/2), and M the matrix of ∇_(H_G) on 𝒫 there, p_1 := −½(M + M*) has spectrum 0, ±(2ϵ)^(1/2). So
-sup p_1/(2β_0) = (2ϵ)^(1/2)/4 and 2 sup p_1/ν = (m_0ϵ)^(1/2) there, with β_0 = 2 and ν = 4(2m_0)^(−1/2) of
+sup p_1/(2β_Γ) = (2ϵ)^(1/2)/4 and 2 sup p_1/ν = (m_0ϵ)^(1/2) there, with β_Γ = 2 and ν = 4(2m_0)^(−1/2) of
 [[prop:np-10-19-ii]].
 
 *Proof.* On Γ, G = 0, σ = 1 and C = 4m_0 > 0, so the frame is defined. By [[prop:np-10-17-iv]], 𝒫 is invariant. Since
@@ -536,7 +536,7 @@ Finally, (2ϵ)^(1/2)/(2 · 2) = (2ϵ)^(1/2)/4, and 2(2ϵ)^(1/2)(2m_0)^(1/2)/4 = 
 
 (b) The trapped set in the future characteristic set is {r² = 2m_0, ξ = 0}. At the value 1 of the semiclassical
 parameter it is {r² = 2m_0, ξ = 0, C = 4m_0}. Its expansion rates are ±ν with ν = 4(2m_0)^(−1/2), and
-{φ_u, φ_s} = ν/f > 0, dG_1 ≠ 0 and β_0 = 1/f(r_ph) = 2 ([[prop:np-10-17-ii]], [[prop:np-10-19-ii]]).
+{φ_u, φ_s} = ν/f > 0, dG_1 ≠ 0 and β_Γ = 1/f(r_ph) = 2 ([[prop:np-10-17-ii]], [[prop:np-10-19-ii]]).
 
 (c) On the characteristic set, the frame e_0, e_1, e_2 of [[prop:np-10-17-iii]] has Gram matrix CJ, and
 ∇_(H_G)e_0 = 0, ∇_(H_G)e_1 = −2σe_0 and ∇_(H_G)e_2 = −2σe_1 ([[prop:np-10-17-iv]]). An angular covector is orthogonal
@@ -563,7 +563,7 @@ largest eigenvalue (2ϵ_1)^(1/2) by (d) at the point considered. The isometries 
 SO(4)) act transitively on Γ_(b_0) and preserve the construction of the frame, so this holds at every point. Choose
 ϵ_1 with (2ϵ_1)^(1/2) < ϵ/2. *Near b_0.* Extend h_Γ to a stationary inner product on a neighbourhood of Γ_(b_0). The
 endomorphism p_1 is built from the subprincipal symbol of □_(g_b) and h_Γ, continuous in b uniformly near Γ_(b_0),
-and Γ_b → Γ_(b_0) by (Dyn); so sup_(Γ_b) λ_max(p_1^Γ) < ϵ for b near b_0. ν_min and β_0 are continuous in b by (Dyn)
+and Γ_b → Γ_(b_0) by (Dyn); so sup_(Γ_b) λ_max(p_1^Γ) < ϵ for b near b_0. ν_min and β_Γ are continuous in b by (Dyn)
 and positive at b_0. Two conventions enter. First, p_1^Γ is the endomorphism of [[lem:i-b-6-0]] for this h_Γ, which
 in the frame e_j/C^(1/2), where h_Γ is constant, is the h_Γ-imaginary part of the subprincipal operator. Second, (a) uses
 half-densities by |dg|, while the adjoints of [[ch:s01]] are for |dx| = r³dr dx̂ and dt_*. On Tangherlini |dg| = |dt_*|

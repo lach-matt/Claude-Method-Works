@@ -474,8 +474,8 @@ a positive factor ([[lem:ii-b-2-3]]). By (H4) it tends backward to ∂ℛ₊ ∪
 disjoint, compact and invariant; and it reaches {r < r₀ − δ₀} forward at a finite parameter.
 
 *σ < 0.* γ = Φ₋₁ ∘ γ̃ with γ̃ a maximal integral curve of the future field in Σ⁺₋₁, which lies over {r < R₁}
-([[lem:ii-b-2-3]] (d)), so its limit points are not over ∂X. Γ₋₁ ⊂ Σ^♭₋₁ = Σ⁻₋₁, and q₋₁ ≤ −2β₀ on Γ₋₁, with β₀ the
-constant of (Γ.4) (q^Γ = −q₋₁ ≥ 2β₀ there), hence q₋₁ < 0 near Γ₋₁, while q₋₁ > 0 on γ̃; so γ̃ lies in neither Γ̄_u nor
+([[lem:ii-b-2-3]] (d)), so its limit points are not over ∂X. Γ₋₁ ⊂ Σ^♭₋₁ = Σ⁻₋₁, and q₋₁ ≤ −2β_Γ on Γ₋₁, with β_Γ the
+constant of (Γ.4) (q^Γ = −q₋₁ ≥ 2β_Γ there), hence q₋₁ < 0 near Γ₋₁, while q₋₁ > 0 on γ̃; so γ̃ lies in neither Γ̄_u nor
 Γ̄_s. By (H8) (a), γ̃ tends backward to ∂ℛ₊ (not to ∂ℛ₋, as before, nor to R_(−1,in), which lies over ∂X), and reaches
 {r < r₀ − δ₀} forward (not R_out, over ∂X). ∎
 
@@ -1574,7 +1574,7 @@ over the stationary one, the flow is pulled back to it, and the theorem gives th
 Let Γ := Γ₁ ⊂ Σ^♭₁ ⊂ T*X̃° be the trapped set of (H7) at z₀ = 1, with O, φ_u, φ_s, ν_u, ν_s as there, let
 q₁ = 2g₀⁻¹(−dt_* + ζ, dt_*) ([[lem:i-b-1-1]] and (K3)), and let 𝖵 := q₁⁻¹H_(G₁) on Σ^♭₁ near Γ, where
 G₁(x, ζ) := G₀(−dt_* + ζ) and G₀(ν) = g₀⁻¹(ν, ν). By (Γ.3), dG₁ ≠ 0 near Γ, so Y := Σ^♭₁ ∩ O₀, for a small
-neighbourhood O₀ of Γ, is a smooth hypersurface of T*X̃°; q₁ ≥ 2β₀ > 0 on Γ by (Γ.4), hence q₁ ≥ β₀ on O₀. Wherever
+neighbourhood O₀ of Γ, is a smooth hypersurface of T*X̃°; q₁ ≥ 2β_Γ > 0 on Γ by (Γ.4), hence q₁ ≥ β_Γ on O₀. Wherever
 injectivity on (−c, c) × Y is used below, Y is replaced by a relatively compact open neighbourhood of Γ in it.
 
 **Lemma {#lem:ii-c1-3-1}** Y, V₀ := 𝖵, Γ and the restrictions to Y of φ_u, φ_s and of ν_u/q₁, ν_s/q₁ satisfy
@@ -1587,7 +1587,7 @@ p ∈ Γ, a dφ_u + b dφ_s vanishes on T_pY for some (a, b) ≠ 0; as T_pY = ke
 Poisson bracket with φ_s gives a{φ_u, φ_s} = c{G₁, φ_s} = c H_(G₁)φ_s = c ν_sφ_s = 0 at p, so a = 0 by (Γ.3); with φ_u,
 likewise b = 0. (iii): Γ is invariant, 𝖵 being tangent to Γ_u and Γ_s (Γ.1); the bound is the tangential part of (K3)
 for 𝖵. Uniformity: (H5), extended to (H6)–(H8) in [[sec:i-b-1-5]], and (K4) give continuity in b of Γ, φ_(u/s),
-ν_(u/s) and q₁ into C^∞, and uniform ν_min, β₀ and C_ε; the choices of [[sec:ii-c1-2-1]] can then be made uniformly for
+ν_(u/s) and q₁ into C^∞, and uniform ν_min, β_Γ and C_ε; the choices of [[sec:ii-c1-2-1]] can then be made uniformly for
 b near any b₀, and ℬ is compact. ∎
 
 #### The slice and the projected flow {#sec:ii-c1-3-2}
@@ -1642,7 +1642,7 @@ Lipschitz constant sup|Ng̃| ≤ Cϵ < 1, so it has a unique fixed point F(t_*, 
 of the identity F + g̃(t_*, e^(FN)w) = 0 expresses ∂^αF through derivatives of g̃, each O(ϵt_*^(−ℓ_K)), and lower
 derivatives of F. Ψ̂ is then C^(d₀)-close to Ψ̂₀, hence a diffeomorphism near f = 0. ∎
 
-Near Γ, Ŵt_* = z·∂_zp₁ − 2p₁, which is ≥ ½β₀ near Γ for ϵ small: at ϵ = 0 it is exactly q₁, as
+Near Γ, Ŵt_* = z·∂_zp₁ − 2p₁, which is ≥ ½β_Γ near Γ for ϵ small: at ϵ = 0 it is exactly q₁, as
 z·∂_zG₁ = 2g₀⁻¹(−dt_* + z, z) = 2G₁ + q₁. Put V^h := Ŵ/(Ŵt_*), a C^(d₀−1) vector field near (T_♭, ∞) × Γ with
 V^ht_* = 1, tangent to {p₁ = 0} ([[lem:ii-c1-3-2]]), and V⁰ := Ŵ₀/(Ŵ₀t_*) = ∂_(t_*) + H_(G₁)/q₁ for g₀ (where
 ∂_(t_*)G₁ = 0). By [[eq:ii-c1-3-1]] and [[eq:ii-c1-3-2]], V^h − V⁰ has coefficients with derivatives of order ≤ d₀ − 1
