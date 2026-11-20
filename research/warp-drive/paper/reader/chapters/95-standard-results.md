@@ -1042,6 +1042,33 @@ of the form A = Op_𝒱(a) + R where a ∈ ρ^(−l) S^m(𝒱T*M) and R ∈ ρ^�
 conclusion in Proposition 3.39 can be strengthened to membership in wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) (which then implies an
 analogous strengthening of Lemma 3.42)."
 
+**Remark {#rem:std-sbg-sobolev}** (Uniform Sobolev spaces; [Hin26d, (3.4), p. 29; Definition 3.14, p. 34; Remark 3.15,
+p. 35; p. 36].) The setting is that of [[thm:std-sbg-calculus]], with the charts φ_α : U_α → (−2, 2)ⁿ, α ∈ 𝒜, of 𝓑
+and the scalings ρ_α; H^s(ℝⁿ) is normed by ‖u‖_(H^s(ℝⁿ)) := ‖⟨ξ⟩^s û‖_(L²(ℝⁿ_ξ)) (p. 34). Definition 3.14: "Let s ∈ ℝ,
+and let w ∈ C^∞(M) be a weight on (M, 𝓑) equivalent to a weight family {w_α : α ∈ 𝒜}. Fix χ ∈ C_c^∞((−2, 2)ⁿ) with
+χ = 1 on [−1, 1]ⁿ; let χ_α = φ_α^*χ and define the map
+
+    S_α : (−2, 2)ⁿ ∋ x_α ↦ x̃_α := (x¹_α/ρ_(α,1), …, xⁿ_α/ρ_(α,n)).      (3.13)
+
+Then the space w H^s_𝒱(M) consists of all distributions u ∈ 𝒟′(M) so that (φ_α)_*(χ_α u) ∈ H^s(ℝⁿ) for all α ∈ 𝒜 and
+
+    ‖u‖²_(w H^s_𝒱(M)) := Σ_α ‖w_α⁻¹(S_α)_*(φ_α)_*(χ_α u)‖²_(H^s(ℝⁿ))."      (3.14)
+
+Remark 3.15 ("Uniform Sobolev spaces") states: "In the case that ρ_(α,i) = 1 for all α, i, the maps S_α are the
+identity maps, and if further w_α = 1 for all α, then the space H^s_𝒱(M) thus defined" is "the usual uniform Sobolev
+space for the b.g. structure 𝓑 (denoted W^s_2(M) in [Shu92, Appendix 1])"; and further: "… consider the special case
+s ∈ ℕ and set u_α := (φ_α)_*(χ_α u); then, using the notation (3.4), ‖(S_α)_*u_α‖²_(H^s(ℝⁿ)) is equivalent to (i.e.
+bounded above and below by an α-independent constant by)
+
+    Σ_(|β|≤s) ∫ |(ρ_α∂_x)^β u_α(x)|² dx¹/ρ_(α,1) ⋯ dxⁿ/ρ_(α,n) = Σ_(|β|≤s) ∫ |∂^β_x̃ ũ_α(x̃)|² dx̃,      (3.15)
+
+where we write ũ_α(x̃) = u_α(x) (i.e. ũ_α = (S_α)_*u_α)." Here (3.4) is (ρ_α∂_x)^γ = Π_(i=1)^n (ρ_(α,i)∂_(x^i))^(γ_i).
+On p. 36, H^s_𝒱(M) and w H^s_𝒱(M) are unchanged "(up to equivalence of norms)" when defined with respect to a
+compatible structure, and: "Similarly, these spaces are unchanged when different cutoffs χ are used, or indeed when a
+family χ_α ∈ C_c^∞(U_α), α ∈ 𝒜, of cutoffs is used subject only to the conditions that (φ_α)_*χ_α ∈ C_c^∞((−2, 2)ⁿ) is
+uniformly bounded, all χ_α are nonnegative, and inf_M Σ_α χ_α > 0. One can then easily show that every V ∈ 𝒱 defines
+a bounded linear map V : w H^s_𝒱(M) → w H^(s−1)_𝒱(M)."
+
 In [[thm:std-zero-calculus]], [[thm:std-mazzeo-melrose]] and [[cor:std-zero-sobolev]], n denotes the dimension of X,
 as in [Hin23e]. [Usu26] writes n + 1 for the dimension of X; accordingly its exponent −n − 1 is written −n here, also
 in the quotation of [Usu26, Definition 2.1].
