@@ -1,19 +1,19 @@
 ## Appendix. Tables {#app:tables}
 
-This appendix prints the coefficients of the explicit polynomials, approximants and enclosures that the written proofs
+This appendix prints the coefficients of the explicit polynomials, approximants and enclosures that the proofs
 use. Each table is headed by the definition of the object and the result that uses it.
 
 ### Tables for the indicial roots at the damping point {#sec:tab-a}
 
-The tables of this section carry the explicit objects of the proofs in [[ch:s14]] on the indicial roots of the
+The tables of this section carry the explicit objects of the proofs of [[sec:s14-pa]] on the indicial roots of the
 constraint propagation operator at γ_C = 10⁶: the coefficients of the sextic P_l and of its parts, its expansions near
 2 and near 3, the constants of the fixed-point argument that locates its roots, the values K_n and K′_n of κ near which
 a root crosses an integer, and the nine numbers that the congruences of the vector type leave. They are used in
 [[lem:s14-vector-distance]], [[lem:s14-sextic-split]], [[lem:s14-sextic-count]], [[lem:s14-sextic-small]],
 [[lem:s14-sextic-large]], [[lem:s14-crossings]] and [[prop:s14-damping-distance]].
 
-These tables serve [[sec:s14-pa]]. Throughout, (v, e, h) = (1/2, 1/102400, 10⁻⁶), so that γ_C = 10⁶; ε₀ := e/h =
-625/64; κ = l(l + 2); x := hκ; and P_l is the polynomial det(hN_l(ι)) of [[prop:np-10-12]] (iii) at this point.
+Throughout, (v, e, h) = (1/2, 1/102400, 10⁻⁶), so that γ_C = 10⁶; ε₀ := e/h = 625/64; κ = l(l + 2); x := hκ; and P_l is
+the polynomial det(hN_l(ι)) of [[prop:np-10-12]] (iii) at this point.
 
 #### The sextic {#sec:tab-a-sextic}
 
@@ -1105,8 +1105,8 @@ taken at its right end σ_+. Constants are rounded as in [[sec:tb2-algebraic-row
 
 ### Tables for the approximant on the data cone at 10 l5 {#sec:cone-tables}
 
-These tables belong to [[sec:cone-approximant]]. Tables [[sec:cone-table-c1]] and [[sec:cone-table-c2]] define the
-approximant R_app of [[def:cone-approximant]]: their entries are the coefficients C_(ij) of the polynomial S, and
+These tables carry the numbers used in [[sec:cone-approximant]]. The tables of [[sec:cone-table-c1]] and
+[[sec:cone-table-c2]] define the approximant R_app of [[def:cone-approximant]]: their entries are the coefficients C_(ij) of the polynomial S, and
 they are exact decimal numbers. An entry written d.ddde±kk, with any number of digits and with a leading minus sign
 for a negative number, denotes d.ddd × 10^(±kk); in the coefficient tables every entry has ten significant digits and
 is exact. The other tables list numbers derived from these coefficients, as used in [[lem:cone-ellipse]],

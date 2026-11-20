@@ -1339,3 +1339,7 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R3-83 0M 2m 4n (notes/reviews/R3-83.md); F4-83 applies them.
 - 2026-11-14 to 2026-11-20: every running agent stopped at the weekly usage limit; resumed from their transcripts on
   2026-11-20 (W-DB, M-82, F4-83, R3-IS-SP, R-M33).
+- R-96 CONFIRMED 0M 0m 4n (notes/reviews/R-96.md): the move of the tables of chapters 70 and 87 into Appendix B is
+  byte for byte with six heading levels changed. Nits 1-2 (96:1108) applied by the coordinator in the reviewer's words;
+  nit 3 (87:351-353, "with the tables of [[sec:cone-table-n1]] and [[sec:cone-table-n2]]") after I-1; nit 4 (crosswalk/96
+  notes "; moved to Appendix B") after F-M33.
