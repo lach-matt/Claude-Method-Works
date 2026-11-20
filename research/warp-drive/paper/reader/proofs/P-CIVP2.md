@@ -24,7 +24,7 @@ in the gauge [[eq:loc-double-null]], on a neighbourhood of Q1 × S³, Q1 := [0, 
 A_c = ln(R cos ϑ) and A_s = ln(R sin ϑ), Ω is a function of (u, v), and Ric(g0) = q̊_in dv ⊗ dv + q̊_out du ⊗ du
 ([[eq:two-dust-limit]]). We fix a band 0 < ϑ_a < ϑ_b < π/2 and put
 
-    η0 := (1/3) min(ϑ_a, π/2 − ϑ_b),      J0 := [ϑ_a − 2η0, ϑ_b + 2η0] ⊂ [η0, π/2 − η0].              {#eq:civp-large-band}
+    η0 := (1/3) min(ϑ_a, π/2 − ϑ_b),      J0 := [ϑ_a − 2η0, ϑ_b + 2η0] ⊂ [η0, π/2 − η0].  {#eq:civp-large-band}
 
 A set D ⊂ Q1 is a *past set* if [0, u] × [0, v] ⊂ D for every (u, v) ∈ D. A *class solution in the gauge* on D × S³ is a
 smooth class solution (g, v, u, q_in, q_out) of [[eq:class-system]] with N_f = 2, phases u_1 = v and u_2 = u and
@@ -76,7 +76,7 @@ another one.
 **Lemma {#lem:civp-large-frame}** (The double-null frame of h.) (a) The coefficients are
 
     χ = e4β,   χ̲ = e3β + e^(−α) ∂_ϑb,   ϖ = −(1/2) e4α,   ϖ̲ = −(1/2) e3α,
-    ζ = −(1/4) e^(β−2α) ∂_vb,   η = ζ + e1α,   η̲ = −ζ + e1α.                                       {#eq:civp-large-coefficients}
+    ζ = −(1/4) e^(β−2α) ∂_vb,   η = ζ + e1α,   η̲ = −ζ + e1α.  {#eq:civp-large-coefficients}
 
 (b) The following hold for every metric of the form [[eq:civp-large-h]], together with their images (F1′)–(F5′) under
 the exchange:
@@ -85,7 +85,7 @@ the exchange:
     (F2)  e4η = −Ric_41 − χ(η − η̲),
     (F3)  e3ϖ = 2ϖϖ̲ + (1/2)η̲² − ηη̲ + (1/4)(Ric_34 + Ric_11),
     (F4)  e3χ = 2 e1η + 2η² + 2ϖ̲χ − χχ̲ + Ric_11,
-    (F5)  e3η = Ric_31 − 2χ̲η − 4 e1ϖ̲ − 2ϖ̲(η + η̲).                                                {#eq:civp-large-null}
+    (F5)  e3η = Ric_31 − 2χ̲η − 4 e1ϖ̲ − 2ϖ̲(η + η̲).  {#eq:civp-large-null}
 
 (c) For every function F,
 
@@ -93,7 +93,7 @@ the exchange:
 
 and the image of the right side under the exchange is also □_h F. For every function q,
 
-    div_h(q h⁻¹dv) = −(1/2) e^(−α) (e3q + χ̲ q),      div_h(q h⁻¹du) = −(1/2) e^(−α) (e4q + χ q).     {#eq:civp-large-dust}
+    div_h(q h⁻¹dv) = −(1/2) e^(−α) (e3q + χ̲ q),      div_h(q h⁻¹du) = −(1/2) e^(−α) (e4q + χ q).  {#eq:civp-large-dust}
 
 (d) Let g be a metric of the form [[eq:loc-double-null]] off the axes and q a function of (u, v, ϑ). Then
 div_g(q g⁻¹du) = e^(2ψ) div_h(q h⁻¹du) and div_g(q g⁻¹dv) = e^(2ψ) div_h(q h⁻¹dv).
@@ -102,14 +102,15 @@ In (F1)–(F5) only (F4), (F5) and their images contain an e1-derivative of a co
 (F1′)–(F3′) contain none, and the only curvature in them is the Ricci tensor of h.
 
 *Proof.* *The connection table.* Since u is a null coordinate, h⁻¹du = −(1/2) e^(−α) e4 is the gradient of a solution
-of h⁻¹(du, du) = 0, so ∇_(h⁻¹du) h⁻¹du = (1/2) ∇(h⁻¹(du, du)) = 0, and ∇_4 e4 is a multiple of e4; likewise
-h⁻¹dv = −(1/2) e^(−α) e3, and ∇_3 e3 is a multiple of e3. (The formulas for h⁻¹du and h⁻¹dv follow from
-du(e3) = dv(e4) = e^(−α), du(e4) = dv(e3) = du(e1) = dv(e1) = 0 and h(e3, e4) = −2.) A vector V is −(1/2)h(V, e4) e3 − (1/2)h(V, e3) e4 + h(V, e1) e1. With the
-definitions, h(∇_X e_i, e_j) = −h(e_i, ∇_X e_j), h(∇_X e3, e3) = h(∇_X e4, e4) = h(∇_X e1, e1) = 0, and the two
-geodesic facts, this gives
+of h⁻¹(du, du) = 0, so ∇_(h⁻¹du) h⁻¹du = (1/2) ∇(h⁻¹(du, du)) = 0, and ∇_4 e4 is a multiple of e4; likewise h⁻¹dv =
+−(1/2) e^(−α) e3, and ∇_3 e3 is a multiple of e3. (The formulas for h⁻¹du and h⁻¹dv follow from du(e3) = dv(e4) =
+e^(−α), du(e4) = dv(e3) = du(e1) = dv(e1) = 0 and h(e3, e4) = −2.) A vector V is −(1/2)h(V, e4) e3 − (1/2)h(V, e3) e4 +
+h(V, e1) e1. With the definitions, h(∇_X e_i, e_j) = −h(e_i, ∇_X e_j), h(∇_X e3, e3) = h(∇_X e4, e4) = h(∇_X e1, e1) =
+0, and the two geodesic facts, this gives
 
     ∇_4e4 = −2ϖ e4,   ∇_4e3 = 2ϖ e3 + 2η̲ e1,   ∇_4e1 = η̲ e4,   ∇_3e3 = −2ϖ̲ e3,   ∇_3e4 = 2ϖ̲ e4 + 2η e1,
-    ∇_3e1 = η e3,   ∇_1e4 = χ e1 − ζ e4,   ∇_1e3 = χ̲ e1 + ζ e3,   ∇_1e1 = (1/2)χ e3 + (1/2)χ̲ e4.   {#eq:civp-large-table}
+    ∇_3e1 = η e3,   ∇_1e4 = χ e1 − ζ e4,   ∇_1e3 = χ̲ e1 + ζ e3,   ∇_1e1 = (1/2)χ e3 + (1/2)χ̲ e4.
+                                                                                                   {#eq:civp-large-table}
 
 For instance h(∇_4e3, e4) = −h(e3, ∇_4e4) = −4ϖ, h(∇_4e3, e3) = 0 and h(∇_4e3, e1) = 2η̲, so ∇_4e3 = 2ϖ e3 + 2η̲ e1;
 and h(∇_1e1, e4) = −χ, h(∇_1e1, e3) = −χ̲, h(∇_1e1, e1) = 0, so ∇_1e1 = (1/2)χ e3 + (1/2)χ̲ e4. The table is invariant
@@ -192,7 +193,7 @@ div_h(q h⁻¹du), and the same for dv. ∎
 h, ψ, ω be as in [[eq:civp-large-h]]. Then (g, v, u, q_in, q_out) solves [[eq:class-system]] if and only if
 
     Ric[h] = q_in dv ⊗ dv + q_out du ⊗ du + (3/2) dψ ⊗ dψ + 2 dω ⊗ dω,      □_hψ = □_hω = 0,
-    e3q_in = −χ̲ q_in,      e4q_out = −χ q_out.                                                    {#eq:civp-large-reduced}
+    e3q_in = −χ̲ q_in,      e4q_out = −χ q_out.  {#eq:civp-large-reduced}
 
 *Proof.* g⁻¹(du, du) = g⁻¹(dv, dv) = 0 holds for every metric of the form [[eq:loc-double-null]]. T := q_in dv ⊗ dv +
 q_out du ⊗ du has no φ-components, so in the notation of [[prop:reduction]] the equations Ric(g) = T are R11 = R22 = 0,
@@ -237,7 +238,7 @@ The first ten lines have ∂_v and govern f₄, the last seven have D_3 and gove
 A^ϑ∂_ϑf = G(f) on R² × Y, Y an interval or a circle, with the Euclidean scalar product on ℝ²³ and the flat connection
 ∂. Then A^u, A^v, A^ϑ are symmetric and smooth functions of f, G is a smooth function of f, and
 
-    A^u = diag(I₁₀, 0),      A^v = diag(0, I₁₃),      A^ϑ = (b I₁₀, Q; Qᵀ, 0),                           {#eq:civp-large-form}
+    A^u = diag(I₁₀, 0),      A^v = diag(0, I₁₃),      A^ϑ = (b I₁₀, Q; Qᵀ, 0),  {#eq:civp-large-form}
 
 in the splitting f = (f₃, f₄), where the 10 × 13 matrix Q has exactly four nonzero entries, each equal to −k = −e^(α−β),
 at the pairs (ψ_4, ψ′_1), (ψ_1, ψ_3), (ω_4, ω′_1), (ω_1, ω_3), so that |Q| = e^(α−β) in the operator norm. In
@@ -297,8 +298,8 @@ in N_i with M_31, M_11 in place of Ric_31, Ric_11.
 
     ϖ := −(1/2) e4α,   η̲ := (1/4) e^(β−2α) ∂_vb + e1α,   Ψ° := Ψ,   Ψ_4 := e4Ψ,   Ψ_1 := e1Ψ,
 
-q_in as given, and χ̲ the solution of the linear equation (F4′), e4χ̲ = 2e1η̲ + 2η̲² + 2ϖχ̲ − χχ̲ + M_11 with χ := e4β and
-M_11 := (3/2)(e1ψ)² + 2(e1ω)², whose value at v = 0 is e^(−α)∂_uβ computed on 𝒞_in. Define on 𝒞_in, where b = 0 and
+q_in as given, and χ̲ the solution of the linear equation (F4′), e4χ̲ = 2e1η̲ + 2η̲² + 2ϖχ̲ − χχ̲ + M_11 with χ := e4β
+and M_11 := (3/2)(e1ψ)² + 2(e1ω)², whose value at v = 0 is e^(−α)∂_uβ computed on 𝒞_in. Define on 𝒞_in, where b = 0 and
 e3 = e^(−α)∂_u,
 
     ϖ̲ := −(1/2) e3α,   Ψ := Ψ,   Ψ_3 := e3Ψ,   Ψ′_1 := e1Ψ,
@@ -329,23 +330,24 @@ determined.
 
 (b) (iii) is (a) for g and the data, together with [[prop:civp-large-system]] (a); the values at u = 0 or v = 0 used in
 (b) are those of the reduced fields at S. For (i) on 𝒞_out, take for (α, β, b, χ, η, Ψ, Ψ′_1) the functions given by
-the data, with χ := e4β, η := ζ + e1α, ζ := −(1/4)e^(β−2α)∂_vb and Ψ′_1 := e1Ψ. They solve the corresponding equations of [[eq:civp-large-system]]: those for α, β, b, Ψ by [[eq:civp-large-coefficients]];
-that for χ by (F1) and the constraint Ric(∂_v, ∂_v) = q_in, which by [[prop:reduction]] (the term with R11, R22 being
-multiplied by g3(∂_v, ∂_v) = 0) reads Ric[h](∂_v, ∂_v) = q_in + (3/2)(∂_vψ)² + 2(∂_vω)², that is Ric_44 = M_44; that
-for η by (F2) and the constraint Ric(∂_v, ∂_ϑ) = 0, which reads Ric_41 = M_41 (g3(∂_v, ∂_ϑ) = 0); and that for Ψ′_1 by
-the commutator [e4, e1]. The remaining equations, for Ψ_3, then ϖ̲, then q_out, are linear in these unknowns with
-coefficients defined on all of 𝒞_out, so they have solutions there. On 𝒞_in, take χ̲ := e3β, η̲ := 2e1α − η, Ψ° := Ψ and
-Ψ_1 := e1Ψ. The equation for χ̲ holds by (F1′) and the constraint Ric(∂_u, ∂_u) = q_out (g3(∂_u, ∂_u) = γ_ϑ b² = 0 on
-𝒞_in), that for Ψ°, Ψ_1 by the definitions and [e3, e1]; that for η̲ holds because, by the equation defining η and
-2e3e1α = −4e1ϖ̲ − (2ϖ̲ + χ̲)(η + η̲) (proof of (F5)), D_3η̲ = e^α(2e3e1α − e3η) = −e^α(M_31 + χ̲(η̲ − η)). The equations
-for Ψ_4, then ϖ, then q_in are linear and have solutions on all of 𝒞_in. In each case the initial values at S are those
-of f̄, so these are the solutions of (i).
+the data, with χ := e4β, η := ζ + e1α, ζ := −(1/4)e^(β−2α)∂_vb and Ψ′_1 := e1Ψ. They solve the corresponding equations
+of [[eq:civp-large-system]]: those for α, β, b, Ψ by [[eq:civp-large-coefficients]]; that for χ by (F1) and the
+constraint Ric(∂_v, ∂_v) = q_in, which by [[prop:reduction]] (the term with R11, R22 being multiplied by g3(∂_v, ∂_v) =
+0) reads Ric[h](∂_v, ∂_v) = q_in + (3/2)(∂_vψ)² + 2(∂_vω)², that is Ric_44 = M_44; that for η by (F2) and the
+constraint Ric(∂_v, ∂_ϑ) = 0, which reads Ric_41 = M_41 (g3(∂_v, ∂_ϑ) = 0); and that for Ψ′_1 by the commutator [e4,
+e1]. The remaining equations, for Ψ_3, then ϖ̲, then q_out, are linear in these unknowns with coefficients defined on
+all of 𝒞_out, so they have solutions there. On 𝒞_in, take χ̲ := e3β, η̲ := 2e1α − η, Ψ° := Ψ and Ψ_1 := e1Ψ. The
+equation for χ̲ holds by (F1′) and the constraint Ric(∂_u, ∂_u) = q_out (g3(∂_u, ∂_u) = γ_ϑ b² = 0 on 𝒞_in), that for
+Ψ°, Ψ_1 by the definitions and [e3, e1]; that for η̲ holds because, by the equation defining η and 2e3e1α = −4e1ϖ̲ −
+(2ϖ̲ + χ̲)(η + η̲) (proof of (F5)), D_3η̲ = e^α(2e3e1α − e3η) = −e^α(M_31 + χ̲(η̲ − η)). The equations for Ψ_4, then ϖ,
+then q_in are linear and have solutions on all of 𝒞_in. In each case the initial values at S are those of f̄, so these
+are the solutions of (i).
 
 (ii) Every formula and every coefficient of the equations above at an angle ϑ is built from the functions of the data
-and their derivatives at ϑ, and so are the initial values at S; the equations are ordinary differential equations
-along the lines {ϑ = const}, since b = 0 on 𝒞_in and the f₄-equations contain no ∂_ϑ of an f₄-unknown. At ϑ ∉ (ϑ_a,
-ϑ_b) the data are the background's on a neighbourhood of ϑ, the background's reduced fields solve all the equations
-used ([[prop:civp-large-system]] (a)), and by uniqueness for these equations f̄ and the solutions of (i) are the
+and their derivatives at ϑ, and so are the initial values at S; the equations are ordinary differential equations along
+the lines {ϑ = const}, since b = 0 on 𝒞_in and the f₄-equations contain no ∂_ϑ of an f₄-unknown. At ϑ ∉ (ϑ_a, ϑ_b) the
+data are the background's on a neighbourhood of ϑ, the background's reduced fields solve all the equations used
+([[prop:civp-large-system]] (a)), and by uniqueness for these equations f̄ and the solutions of (i) are the
 background's there. ∎
 
 #### An energy identity {#sec:civp-large-energy}
@@ -354,7 +356,7 @@ background's there. ∎
 l_v], let J = [ϑ₋, ϑ₊] be an interval, or an arc of a circle with a coordinate ϑ on it, and let z = (z₃, z₄), of class
 C¹ on R × J with values in ℝ^(N₃) × ℝ^(N₄), solve
 
-    ∂_u z₃ + P ∂_ϑ z₃ + Q ∂_ϑ z₄ = B₃ z,      ∂_v z₄ + Qᵀ ∂_ϑ z₃ = B₄ z,                              {#eq:civp-large-linear}
+    ∂_u z₃ + P ∂_ϑ z₃ + Q ∂_ϑ z₄ = B₃ z,      ∂_v z₄ + Qᵀ ∂_ϑ z₃ = B₄ z,  {#eq:civp-large-linear}
 
 with P symmetric, P and Q of class C¹ and B₃, B₄ continuous on R × J. Assume z₃ = 0 on {u_c} × [v_c, v_c + l_v] × J
 and z₄ = 0 on [u_c, u_c + l_u] × {v_c} × J.
@@ -447,7 +449,8 @@ The proof of (a) uses [[prop:civp-large-corner]]; (b), (c) and (d) do not.
 Q1 × (0, π/2), and f̊_e ∈ C^∞(Q1 × Y; ℝ²³) a function that equals f̊ on Q1 × J0 and whose b-component vanishes (b̊ = 0).
 With A^u, A^v, A^ϑ and G of [[prop:civp-large-system]], the *localised system* is
 
-    A^u∂_uf + A^v∂_vf + ϱ A^ϑ(f) ∂_ϑf = ϱ G(f) + (1 − ϱ)(A^u∂_u + A^v∂_v) f̊_e      on Q1 × Y.          {#eq:civp-large-localised}
+    A^u∂_uf + A^v∂_vf + ϱ A^ϑ(f) ∂_ϑf = ϱ G(f) + (1 − ϱ)(A^u∂_u + A^v∂_v) f̊_e      on Q1 × Y.
+                                                                                               {#eq:civp-large-localised}
 
 It has the form (2.7)–(2.8) of [CCTW16]: A^u = diag(I₁₀, 0) and A^v = diag(0, I₁₃) are unchanged, ϱA^ϑ(f) is symmetric,
 and the coefficients and the right side are smooth functions of f and of (u, v, ϑ). It coincides with
@@ -476,8 +479,9 @@ solutions and smooth, the data being smooth.
 whose right side is B z with B := ϱ∫_0^1 (dG − (dA^ϑ)∂_ϑf̊_e)(f̊_e + s z) ds continuous. This is [[eq:civp-large-linear]]
 with P := ϱb I₁₀ and Q := ϱQ(f), b and Q(f) evaluated on f. Its data vanish on the arc I := Y ∖ (ϑ_a, ϑ_b). Let
 
-    p1 := sup |b| over [0, a*] × [0, v1] × Y,      q1 := sup e^(α−β) over 𝒰,      β1 := sup |∂_vb| over [0, u1] × [0, b*] × Y,
-    s1 := min(a*, η0²/(2p1η0 + 4q1²v1)),      s2 := min(b*, η0/(4u1β1), η0²/(8q1²u1)),      δ := min(s1, s2),
+    p1 := sup |b| over [0, a*] × [0, v1] × Y,      β1 := sup |∂_vb| over [0, u1] × [0, b*] × Y,
+    q1 := sup e^(α−β) over 𝒰,      s1 := min(a*, η0²/(2p1η0 + 4q1²v1)),
+    s2 := min(b*, η0/(4u1β1), η0²/(8q1²u1)),      δ := min(s1, s2),
                                                                                              {#eq:civp-large-delta}
 
 with the middle term of s2 omitted if β1 = 0, the components b, α, β being those of f. On [0, s1] × [0, v1] apply
