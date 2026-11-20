@@ -587,6 +587,14 @@ so that |B|² + |ℒ_(∂_γ)B|² ≤ (1 + 8|D̂∂_γ|²)|B|² + 2|D̂_(∂_γ)
 |B|² ≤ (e_o[B] + κ′ e_i[B])/(2Ω̂² z̲), by [[lem:tl5-hf-densities]]. Finally dω dv = R⁻³ dμ dτ₂/(1 − κκ′) on the face,
 and (e_o + κ′e_i)/(1 − κκ′) = ε₁. ∎
 
+The same proof, with r slots in place of two, gives for a tensor field A of rank r on Q(a, b) vanishing on
+N₀ ∩ Q(a, b), with 𝔭_r := 1 + 12r² + 144r⁴,
+
+    |A(p)|² ≤ 6 C_(S³)² 𝔭_r 𝔴(p)^(2r) Σ_(|J|≤2) ∫_(Σ₁(a,b)) 𝔳^(2r) R⁻³ ((1 + 2r²|D̂∂_γ|²) |ℒ^J A|²
+              + 2|∂_γ|² |D̂ ℒ^J A|²) dμ dτ₂/(1 − κκ′),                                                {#eq:tl5-hf-cs-r}
+
+using |D̂_(∂_γ)B| ≤ |∂_γ| |D̂B| in place of the densities.
+
 #### The reduced operator and its quadratic part {#sec:tl5-hf-quadratic}
 
 **Lemma {#lem:tl5-hf-reduced}** (The reduced operator about ĝ.) Let g be a C² Lorentzian metric near a point,

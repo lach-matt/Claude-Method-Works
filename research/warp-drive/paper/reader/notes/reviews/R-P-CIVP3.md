@@ -843,3 +843,90 @@ Each is present, unchanged from the first new text, and consistent with it.
 
 Item 13 is dropped. The writer also notes that items 3 and 6 must be merged by hand if Tier 4's thm:civp-axes is
 placed. Both need nothing now.
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Final confirmation
+
+File read: proofs/P-CIVP3.md, md5 dfa0b5519b02565e8586e46db00d12a4, 1,109 lines. Branch head was 0c8952c0, with the
+null-shell section merged at 878e20e2.
+
+**Verdict: CONFIRMED.** No finding is open.
+
+### The section did not change
+
+Lines 1–823 are byte-identical to the confirmed d4c83116 (checked by diff). The full diff, d4c83116 → dfa0b5, is 167
+lines and identical to the coordinator's P-CIVP3.d4c831-to-dfa0b5.diff. Every change lies in the Placement and in the
+crosswalk prose.
+
+### Each changed item
+
+- **Header.**
+  - The variants "with the null-shell section" are gone, since that section is merged.
+  - The header says that at items 3, 7 and 10 the null-shell wording is kept verbatim and only Tier 3's additions are
+    made. This is true; see the word diff below.
+- **Item 1.**
+  - rem:civp-large-beyond ends at 83:2407 with "not explicit and no estimate of the solution is given.", and
+    "### Null shells along the leaves {#sec:loc-shells}" is at 83:2409. Both were checked at HEAD.
+  - In the assembled scratch paper the order is §53.5 (without smallness), §53.6 (through the axes), §53.7 (null shells).
+- **Items 3 (first part), 4, 5 and 6.** Only the line numbers (707–708, 684–688, 698–700, 1644–1646) and item 4's note
+  changed.
+  - The note says (iii) begins on the next line and is unchanged, which is right.
+  - The old texts are unchanged and found once.
+- **Items 3 (continued), 7 and 10.** Word-level diffs of old against new give the following.
+  - **Item 3, continued:** only "axis," → "axis and are not near the background's ([[rem:loc-axis-scope]]),". The
+    null-shell wording, "with densities smooth in angle … where the metric functions are continuous …", is otherwise
+    verbatim.
+  - **Item 7:** only the appended sentence "Cone data near the background's that differ from it at the axes are developed
+    on the whole rectangle by [[thm:loc-axis]].".
+  - **Item 10:** only three changes, and the null-shell sentence is verbatim:
+    - the inserted whole-rectangle sentence (thm:loc-axis, cor:loc-axis-cones);
+    - "and are not near the background's";
+    - "([[rem:loc-cone-scope]])" → "([[rem:loc-cone-scope]], [[rem:loc-axis-scope]])".
+- **Item 13.** It is a rewrap only: the word sequences of old and new are identical.
+  - It is needed. Merged without it, lint.py --paper reports one line of 122 characters ("in u (∂_uΨ = G < 0 since
+    f > 0, Proposition 53.102) …"). With it there are 0 hits.
+- **Crosswalk.**
+  - The prose "before the row of sec:loc-shells" matches crosswalk/83-localised-data.tsv, where rem:civp-large-beyond is
+    row 89 and sec:loc-shells row 90.
+  - The changed row of lem:class-leaf-differences cites lines 965–987, which are the lines of item 8.
+  - The 30 rows are unchanged: 4 fields each, with correct line numbers, identical to scratchpad/pcivp3-crosswalk.tsv.
+
+### Only what is proved
+
+Each new text claims only what the theorems prove.
+- The additions say that data near the background's are developed on the whole rectangle when the background has a
+  margin. That is thm:loc-axis, and cor:loc-axis-cones for [0, 7.2] × [0, v_1].
+- The narrowed exclusions concern data that differ from the background's near an axis without being near them. That is
+  rem:loc-axis-scope.
+- Nothing about null shells is restated or widened.
+
+### Scratch merge
+
+The scratch copy is
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/rpcivp3-r3/,
+a git archive of HEAD 0c8952c0. The script is rpcivp3-cas/merge_r3.py. It inserted the section before sec:loc-shells and
+applied items 2–10 and 13. Every old text was found exactly once, as whole lines:
+
+| item | chapter | line at HEAD |
+|---|---|---|
+| 2 | 83 | 13 |
+| 3, first part | 83 | 707 |
+| 3, continued | 83 | 717 |
+| 4 | 83 | 684 |
+| 5 | 83 | 698 |
+| 6 | 83 | 1644 |
+| 7 | 83 | 2385 |
+| 8 | 81 | 1326 |
+| 9 | 03 | 376 |
+| 10 | 90 | 217 |
+| 13 | 83 | 4707 |
+
+Results:
+- Before the merge, lint.py --chapters gave "4803 label(s) defined, 0 hit(s)".
+- After the merge, lint.py --chapters gave "chapters: 62 file(s), 4833 label(s) defined, 0 hit(s)".
+- assemble.py --check gave "labels 4833, computations cited 0, problems 0".
+- assemble.py, in the scratch copy only, gave 0 problems.
+- lint.py --paper gave "PAPER.md: 0 hit(s)".
+- In P-CIVP3.md no line outside the crosswalk rows is over 121 characters, and no wrapped line starts with a Markdown
+  marker.
