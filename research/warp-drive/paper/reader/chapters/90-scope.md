@@ -73,7 +73,9 @@ computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 �
 the weights, for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). These are lower bounds for the
 loss that this proof's choices produce, not for the least loss with which the tame estimates hold ([[thm:loss-d]]). At
 that point, for those index sets and at one admissible choice of the weights and of the free orders and inner products,
-d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The
+d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The order
+of the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of
+derivatives, so that at that point K is at most an integer below 3.45745 × 10⁵¹ ([[prop:uc-data-order]]). The
 computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on which
 [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the proof of any
 theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
@@ -132,7 +134,8 @@ a data class wider than that of [[thm:settling]] (ii) by half-integer orders ([[
 not contain these data: for every amplitude but at most one, the coefficient of r^(−5/2) that g_λ − g0 carries at past
 null infinity after the shell is nonzero for every λ ∈ (0, λ_P] off a set with no accumulation point in (0, λ_P], and it
 reaches the data at spatial infinity ([[ch:own-data]], [[prop:own-tail]]). The constants ε, d_1 and λ_2 depend on the
-class ([[thm:own-data]]). The continuation of g_λ to the past domain of dependence of the far
+class ([[thm:own-data]]); d_1 is explicit in the loss d, and the orders of the approximant that [[thm:own-data]] admits
+exceed a quadratic in d_1 ([[prop:uc-data-order]]). The continuation of g_λ to the past domain of dependence of the far
 part of the initial surface is unique in the wave-map gauge among the continuations within 1/50 of Tangherlini whose
 commuted energies of some weight a_0 ∈ (0, 1/2) stay bounded and whose energy tends to 0 toward past null infinity
 ([[prop:own-uniqueness]]); existence is not attempted at a weight a_0 ≤ 1/2 ([[rem:own-low-weight]]).

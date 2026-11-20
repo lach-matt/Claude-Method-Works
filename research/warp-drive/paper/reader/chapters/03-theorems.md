@@ -309,6 +309,13 @@ dimension n + 1 = 5 and written out in full. Gluing a perturbation far out to a 
 Myers–Perry metric replaces its data near infinity, on which the solution near the hole at late times depends; so (ii)
 is stated for perturbations in Hintz's own data class, where his theorem applies without gluing, and [[ch:after-shell]]
 determines which decaying perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
+The order K is explicit in the loss d with which the proof applies the Nash–Moser theorem ([[thm:iii-k-3-2]]): with
+the orders that [[prop:uc-data-order]] counts, d_1 = 22d + 292 + L_P and K = 22d + 306 + L_P, where L_P ≤ 43 is an
+explicit number of derivatives. d is not evaluated on the set where [[thm:settling]] is proved; there it is bounded
+below by explicit functions of the gauge and damping parameters ([[thm:ec-lb-proved]]). At the computational
+point of [[def:ec-point]], which lies outside that set ([[rem:ec-point-outside]]), and at one admissible choice of the
+weights, orders and inner products, d is at most an integer below 1.57157 × 10⁵⁰ ([[thm:uc-integer]]), and K at most
+one below 3.45745 × 10⁵¹.
 
 The linear statement is proved with it, as the nonlinear theorem's linearisation at the Tangherlini data
 ([[thm:viii-2-2]], [[cor:viii-2-3]]). Every solution of the linearised constraint equations in Hintz's data class has

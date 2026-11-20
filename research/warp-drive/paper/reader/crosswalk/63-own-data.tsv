@@ -1,6 +1,6 @@
 label	source	source_name	note
 ch:own-data	paper/RESPONSE-HL-5D.md:1757-1778; docket68/n1star/SETTLE-GLAM5.md:9-36	P Beyond the boundary (own data); SG section 0	intro composed from P's final wording
-thm:own-data	docket68/n1star/SETTLE-GLAM5.md:1942-1971	SG Theorem R5.1 (R6-E..R10-E status: proved)	k_P = 2k1+14 in place of k1+5 (issue-1, proved in the first step of the proof); rate region r_flat as cor:s27-rate; strip from R9.1(iii)(a); 4R >= 8 added to the notation; item (3) restated: the development on {t_IVP >= 0} settles and embeds in the maximal globally hyperbolic development of the data on the open surface (G-SWEEP fix F-G3, via lem:own-maximal)
+thm:own-data	docket68/n1star/SETTLE-GLAM5.md:1942-1971	SG Theorem R5.1 (R6-E..R10-E status: proved)	k_P = 2k1+14 in place of k1+5 (issue-1, proved in the first step of the proof); rate region r_flat as cor:s27-rate; strip from R9.1(iii)(a); 4R >= 8 added to the notation; item (3) restated: the development on {t_IVP >= 0} settles and embeds in the maximal globally hyperbolic development of the data on the open surface (G-SWEEP fix F-G3, via lem:own-maximal); d_1, k1 and K* explicit in d (P-K texts 6–7)
 sec:own-far-part	docket68/n1star/SETTLE-GLAM5.md:3358-3483	SG R9-B setting	cites lem:interior-far-part (ch 62) for R9.1 (i)-(v)
 eq:own-wedge	docket68/n1star/SETTLE-GLAM5.md:1222-1236	SG R4-D setting	
 lem:own-wedge	docket68/n1star/SETTLE-GLAM5.md:1222-1236, 2779-2790	SG R4-D setting (B4e) and R7-A conormals	the wedge paragraph of proof project G is this lemma's (b)
@@ -18,7 +18,7 @@ lem:own-words	-	new	written proof replacing the enumeration of halfclass5 H2
 eq:own-word	-	new	
 prop:own-same-index-sets	docket68/n1star/SETTLE-GLAM5.md:357-372	SG Proposition R2.2 (+ verifier's induction recorded there)	proved for every m and every exponent; Lemma R2.3 and the H4-H5 counts dropped
 thm:own-half-settling	docket68/n1star/SETTLE-GLAM5.md:399-420	SG Theorem R2.4 with R3-A	
-rem:own-half-changes	docket68/n1star/SETTLE-GLAM5.md:387-397	SG R2.1 what the half class changes	
+rem:own-half-changes	docket68/n1star/SETTLE-GLAM5.md:387-397	SG R2.1 what the half class changes	d_1, k1 and K* explicit in d (P-K texts 6–7)
 sec:own-orders	docket68/n1star/SETTLE-GLAM5.md:981-1048	SG R4-A	
 prop:own-far-order	docket68/n1star/SETTLE-GLAM5.md:986-1013	SG Proposition R4.1	O1-O2 replaced by the inequality floor((k+2)/2)+3 <= k+1
 prop:own-near-order	docket68/n1star/SETTLE-GLAM5.md:1015-1031	SG Proposition R4.2	

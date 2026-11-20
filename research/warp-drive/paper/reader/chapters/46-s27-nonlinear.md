@@ -245,7 +245,8 @@ if ‖(γ̃, k̃)‖_(H^(k+k′_k)) ≤ s_k,
     ‖h_(S,S⁰)‖_(H^(k+2)) + ‖∂_(S,S⁰)h_(S,S⁰)‖_(H^(k+2)) + ‖∂²_(S,S⁰)h_(S,S⁰)‖_(H^(k+2)) ≤ ω_k(‖(γ̃, k̃)‖_(H^(k+k′_k))),
 
 in the norms of this class, uniformly for |S| + |S⁰| small (the shift by 2 is the order of P_5, as [[lem:iii-k-2-2]]
-uses it). We take k′_k non-decreasing in k.
+uses it). We take k′_k non-decreasing in k; in the classes of [[eq:vii-0-1]] and [[eq:half-class]] a constant serves
+([[prop:uc-data-order]]).
 
 *The hypersurface {t_IVP = −ν} and the inclusions.* In the Kerr–Schild coordinates of [[lem:iii-b-3-7]],
 t_IVP + ν = t − (ψ_IVP − ν)(|x|) has differential dt_KS − β′ d|x| with β′ = β_IVP − ν′, where β_IVP :=
@@ -1600,7 +1601,9 @@ and its threshold ε_NM > 0 does not depend on the data. By the display after [[
 Θ_(N_NM+d) ≤ ω_(N_NM+d+3)(‖(γ̃, k̃)‖_(H^(N_NM+k″))) ≤ ω_♭(‖(γ̃, k̃)‖_(H^(N_NM+k″))) when ‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_♭,
 as N_NM + k″ = N_NM + d + 3 + k′_(N_NM+d+3) and s_♭ ≤ s_(N_NM+d+3). Fix s_1 ∈ (0, s_♭] with ω_♭(s_1) ≤ θ_♭, which
 exists as ω_♭(s) tends to 0 with s; then ε_NM is uniform for ‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_1. Let
-d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]]. By [[lem:iii-k-2-2]] (d),
+d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]] ([[prop:uc-data-order]] evaluates d_0 and k′_k in the classes
+of [[eq:vii-0-1]] and [[eq:half-class]], which gives there d_1 = 22d + 292 + L_P, L_P ≤ 48 an explicit number of
+derivatives). By [[lem:iii-k-2-2]] (d),
 ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ C_(2d)ω_(2d+3)(‖(γ̃, k̃)‖_(H^(2d+3+k′_(2d+3)))) for data of that norm at most
 min(s_(2d+3), s_P), and 2d + 3 + k′_(2d+3) ≤ N_NM + k″ ≤ d_1, as 2d + 3 ≤ N_NM and k′_k is non-decreasing. Take
 ε ∈ (0, s_1] with C_(2d)ω_(2d+3)(ε) < ε_NM, possible as ω_(2d+3)(s) tends to 0 with s, and so small that data with

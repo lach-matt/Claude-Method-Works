@@ -64,7 +64,11 @@ The maximal globally hyperbolic vacuum development (M̂, ĝ, ι̂) of the data (
 Ψ of ({r > r_♭, t_IVP > 0}, ǧ) into (M̂, ĝ) that extends continuously to Σ̊ by ι̂ ([[lem:own-maximal]]). So ĝ settles in
 the same sense: |(t_*∂_(t_*))^i ∂_x^β (Ψ^*ĝ − g_(m′,0))| ≤ C t_*^(−2−ε_t) on {r_♭ < r ≤ R′, t_* ≥ t_1}.
 
-The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The order k_P is what the subtracted
+The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. d_1, k1 and K* are explicit in the loss d of
+[[thm:iii-k-3-2]]: d_1 = 22d + 292 + L_P, L_P ≤ 48 an explicit number of derivatives, k1 = d_1 + 4, and
+K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a), which exceeds d_1 + 14, so that the least admissible K is
+quadratic in d_1 ([[prop:uc-data-order]]); d is bounded above only at the computational point of [[def:ec-point]],
+which lies outside the set where the theorem is proved. The order k_P is what the subtracted
 expansion of [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
 derivatives of their data on ℋ ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in
 [[sec:own-proof]]; its first step checks every use of k_P.
@@ -289,8 +293,10 @@ H^(∞,(ℰ_0^½,ℓ0))_b (the new coefficients are 0), so the bound of [[lem:vi
 the proof of [[thm:iii-c1-3-1]] applies R = Π_((z,k)∈ℰ_(0,≤))(X_0 − z), with one factor for each exponent of ℰ_0 up to
 the weight reached: at the last step R has 3 factors for ℓ0 ∈ (3, 7/2) and 4 for ℓ0 ∈ (7/2, 4), against 2 for ℰ_0^ℤ,
 and each factor costs one derivative (the converse part of [[lem:iii-a-1-3]]). So d_1 changes by a finite amount, and ε
-with it; the thresholds λ1 and δ of [[thm:settling]] change accordingly. None of ε, d_1, λ1, δ is evaluated, in either
-class. (c) The weights α_1, α′ avoid finitely many more points in each bounded interval.
+with it; the thresholds λ1 and δ of [[thm:settling]] change accordingly. In either class d_1 = 22d + 292 + L_P, d the
+loss of [[thm:iii-k-3-2]], which is the same for the two classes, with L_P ≤ 43 for ℰ_0^ℤ and L_P ≤ 48 for ℰ_0^½
+([[prop:uc-data-order]]). None of ε, λ1, δ is evaluated, in either class, and d is bounded above only at the
+computational point. (c) The weights α_1, α′ avoid finitely many more points in each bounded interval.
 
 ### The construction from past null infinity at every order {#sec:own-orders}
 
