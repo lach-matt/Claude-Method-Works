@@ -526,8 +526,8 @@ where, with D_e = 1.2587·10²⁴ = 1,258,700,000,000,000,000,000,000 and M_c = 
     21D_NM + 6 = 3,300,284,463,840,000,000,000,000,026,432,700,000,000,000,000,000,006 < 3.30029·10⁵¹.
 
 The two other components of d_NM satisfy d_FM, d_Ψ ≤ 1,038,326,399,999,948. At a level β ∈ (3, α],
-1 + n_ι ≤ c(β) ≤ 2N_ι + N_Λ + 529, with N_ι of [[eq:uc-n-iota]] ([[lem:cs-levels]]). Against these, for every
-admissible choice of the weights,
+1 + n_ι ≤ c(β) ≤ 2N_ι + N̄_Λ + 529 = C_lev, with N_ι of [[eq:uc-n-iota]], N̄_Λ = 16,747,199,999,999 and C_lev of
+[[eq:cs-clev]] ([[lem:cs-levels]]). Against these, for every admissible choice of the weights,
 
     d_NM ≥ d_acc ≥ 3R > 1.2497·10²⁴,     N_NM > 2.624·10²⁵,                                                {#eq:uc-lower}
 
@@ -544,7 +544,7 @@ and its second line is at most Σ_k c(β_k) + N_b c_b + (N_b + 1)c′_b + c_0 �
 c_* < C_*. As d_R ≥ d_acc ≥ 3R > 1.2497·10²⁴ ([[lem:uc-phi-loss]], [[thm:loss-d]], [[cor:uc-two-offsets]]), which
 exceeds 1,038,326,399,999,948 ≥ 62N_Λ + 10 ([[lem:uc-lambda]] (d)), [[lem:uc-dr]] gives d_NM = d_R, and the bounds for
 d_FM and d_Ψ are [[lem:uc-lambda]] (d). N_NM = 21d_NM + 6 by [[thm:loss-d]]. The statements at the levels above 3 are
-[[lem:uc-fourier-count]] and [[lem:cs-levels]] (b), with N̄_Λ ≥ N_Λ. [[eq:uc-lower]] is [[cor:uc-two-offsets]] (a),
+[[lem:uc-fourier-count]] and [[lem:cs-levels]] (b). [[eq:uc-lower]] is [[cor:uc-two-offsets]] (a),
 whose hypothesis holds by (b) there. At the choice of [[def:uc-choice]], [[prop:ec-rounds]] gives
 R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂), where 3ε_K + 2δ̂ + δ̄ < 1.98·10⁻⁸ and ε_Kδ̂ = 2.400249024·10⁻²⁴ < 2.40025·10⁻²⁴; so
 3R > 3(1 − 1.98·10⁻⁸)/(2.40025·10⁻²⁴) > 1.2498·10²⁴, and 1.0072 · 1.2498 > 1.2587. ∎

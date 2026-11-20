@@ -448,7 +448,8 @@ with ε the loss of [[lem:iii-i8-3-2]] and [[prop:iii-i13-2-1]] (so ε < ½ε_g 
 β_K = α the levels of Step 2 of the proof of [[thm:iii-i14-3-1]]. Let a♭_K ∈ (α_1, α − 2) be the K⁺-order of the
 background h + h_rem(q) with which Step 1 of that proof applies [[prop:iii-i8-4-1]], [[lem:iii-i8-3-1]] and
 [[lem:iii-i8-3-2]] (their number a_K at that background, whose K⁺-order is (α − 2)−; it is not the K⁺-order
-a_K ≥ 4 + ε_K of h in Step 2). Then:
+a_K ≥ 4 + ε_K of h in Step 2). Let α_0 be the admissible level from which the proof of [[prop:iii-i8-4-1]] at α_1
+starts, taken, as that proof allows, with α_1 − α_0 < a♭_K − 2, so that it has the single level step α_0 → α_1. Then:
 
 (a) at most N_< := (3 − α_1)/Δβ of the levels β_1, …, β_K lie in (2, 3), at most N_> := (α − 3)/Δβ + 1 lie in
 (3, α], and, if Δβ > ½(α − 4), at most two lie in (4, α];
@@ -587,7 +588,7 @@ T_2(ℓ⁺_tf + 2) over the levels in (3, α]. By [[lem:ec-counts]] (b), (c) and
 give at most (ℓ⁺_tf + 2)(T_< + T_>), plus 2 for each level-3 round at the at most two levels in (4, α], at most
 2 · 2(1/Δτ + 2) in all. The window loops counted are one per level step, one per round of [[prop:iii-i5-2-1]] in the
 base, and those of Steps 0 and 2 of the proof of [[lem:iii-i8-3-1]] and of the level step α_0 → α_1 of
-[[prop:iii-i8-4-1]] in the base (the choice α_1 − α_0 < a♭_K − 2 makes that level step one): at most
+[[prop:iii-i8-4-1]] in the base (the choice of α_0 in [[lem:ec-counts]] makes that level step one): at most
 N_< + N_> + N_b + 3 of them, each of at most W windows charged at most r_ι ([[lem:ec-counts]] (e),
 [[lem:ec-round-charges]] (c)). This is the first line of [[eq:ec-upper]].
 
@@ -607,9 +608,10 @@ admissible choice of [[def:uc-choice]], with ε_K = 1.6416·10⁻¹⁴ and ε_g 
 The losses c(β_k), c_b and c′_b of single steps enter the second line with the multiplicities K < 1.22077·10¹⁴ and N_b,
 N_b + 1 < 6.10383·10¹³, and c_0 once; [[prop:cs-cstar]] bounds their largest value c_* by 6.4368·10³⁵.
 
-**Remark {#rem:ec-upper-open}** (What the upper bound leaves open.) Four inputs separate [[prop:ec-upper]] from an
-integer; at the computational point (1), (2) and (4) are evaluated, and (3) is reduced to one number. (1) ε_K, N_Λ, k̄_0
-and l_*: (G) asks that no element of the set Λ of [[def:iii-i10-1-1]] have real part in (2, 2 + ε_K] or in (3, 3 + ε_K],
+**Remark {#rem:ec-upper-open}** (The inputs of the upper bound.) Four inputs separate [[prop:ec-upper]] from an
+integer; at the computational point all four are bounded: (1), (2) and (4) are evaluated, and (3) through one number,
+c_*, which [[prop:cs-cstar]] bounds. (1) ε_K, N_Λ, k̄_0 and l_*: (G) asks that no element of the set Λ of
+[[def:iii-i10-1-1]] have real part in (2, 2 + ε_K] or in (3, 3 + ε_K],
 and that no λ + d_c0 or λ + d_c1, λ ∈ Λ, have real part in (2, 2 + ε_K]. [[prop:gap-sums]] and [[rem:gap-sums]] settle
 the three windows for ε_K < 5.019·10⁻⁸ on the part of Λ built from 2, 3, λ_♯ and the offsets 𝔡₁, 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁.
 With ℰ_ind as the proofs construct it, 𝔡₀ and 𝔡₁ are themselves increments, and (G) holds exactly for ε_K < μ_G,
