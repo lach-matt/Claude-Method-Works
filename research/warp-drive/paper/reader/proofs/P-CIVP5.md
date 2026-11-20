@@ -794,12 +794,11 @@ lem:loc-t5-uniqueness, thm:loc-t5, prop:loc-t5-cut and rem:loc-t5-scope. Whereve
 section", the coordinator replaces the words by [[sec:…]] of that section once its key is fixed, and each
 [[pending:t3-…]] marker by the label of the result named in the report.
 
-*4. Chapter 83, the paragraph after [[prop:loc-cones]].* The last two sentences of the paragraph as it stands after the
-earlier sections are merged (in the text of the cones development, item 4 of its Placement, they read "For cone data
-that carry dust and are not small, and for data whose perturbation reaches an axis, no development is asserted by
-[[thm:loc-cone-development]] ([[rem:loc-cone-scope]]). No result of the other chapters uses these developments."), as
-the section on perturbations that reach the axes leaves them, keep the following cases and no others. New text of those
-sentences (replacing whatever list of excluded cases they then carry):
+*4. Chapter 83, the paragraph after [[prop:loc-cones]] (the loss sentence).* The cones development (item 4 of its
+Placement) ends this paragraph with the sentences "For cone data that carry dust and are not small, and for data whose
+perturbation reaches an axis, no development is asserted by [[thm:loc-cone-development]] ([[rem:loc-cone-scope]]). No
+result of the other chapters uses these developments.", and the section on perturbations that reach the axes shortens
+that list of excluded cases. Old: those closing sentences, in the form in which the earlier sections leave them. New:
 
 For cone data that carry dust and are not small, no development on the whole rectangle is asserted. Further dust
 families are admitted at the points where a cone meets an axis when they cross that cone there and carry no density near
@@ -807,6 +806,10 @@ the corner circles of the axes ([[thm:loc-t5]]); for a family that carries densi
 along an axis generator, a development is asserted only on regions that avoid that axis near the points concerned
 ([[prop:loc-t5-cut]], [[rem:loc-t5-scope]]). Densities that are only bounded, or are measures, are not covered. No
 result of the other chapters uses these developments.
+
+If the earlier sections keep further cases in that list (large data on a neighbourhood of the cones, say), they stay;
+only the case of non-adapted families at the points where a face meets an axis is replaced by the sentence on further
+families above.
 
 *5. Chapter 81, [[rem:class-scope]], its last two lines (lines 1670–1671).* Old:
 
@@ -837,32 +840,71 @@ and [[cor:std-moser-product]], already there, and no other published result.
 
 ### Crosswalk rows
 
-New rows, one per label, in chapter order, each as its four tab-separated fields (label; source; source_name; note). The
-source is "P-CIVP5" with the line of the label in this file; the scoping and check reports are named in the note.
+New rows, one per label, in chapter order, each given as its four fields (label; source; source_name; note), to be
+written with tab separators. The source is "P-CIVP5" with the line of the label in this file.
 
 For crosswalk/81-class-system.tsv, after the row of rem:class-kato-model:
 
-Row A1. eq:class-trace; P-CIVP5:L; P-CIVP5 Block A2, display; trace of a space-time Sobolev function on the slices.
-Row A2. lem:class-mixed-product; P-CIVP5:L; P-CIVP5 Block A2, Lemma (Products at one time); H^σ1·H^σ2 ⊂ H^σ on unit
-cubes; time derivatives of compositions.
-Row A3. lem:class-kato-history; P-CIVP5:L; P-CIVP5 Block A2, Lemma (The linear problem with a history); GN-T5 §2.6
-linear step, written in full.
-Row A4. thm:class-kato-memory; P-CIVP5:L; P-CIVP5 Block A2, Theorem (Kato's iteration with memory); GN-T5 condition C1
-(integrated hypotheses (M1), (M2) in place of (F1), (F2)); S-T5 M4 step 3 not used.
-Row A5. rem:class-kato-memory; P-CIVP5:L; P-CIVP5 Block A2, Remark; why fixed-time hypotheses are not asked.
+Row 1. eq:class-trace; P-CIVP5:125; P-CIVP5 Block A2, display; trace of a space-time Sobolev function on the slices; the
+extension E_b beyond b.
+Row 2. lem:class-mixed-product; P-CIVP5:137; P-CIVP5 Block A2, Lemma (Products at one time); new: H^σ1 · H^σ2 ⊂ H^σ on
+unit cubes; time derivatives of compositions.
+Row 3. lem:class-kato-history; P-CIVP5:161; P-CIVP5 Block A2, Lemma (The linear problem with forcing in a space-time
+space and a history); new: the linear step of GN-T5 §2.6 written in full; history matched at t1.
+Row 4. thm:class-kato-memory; P-CIVP5:211; P-CIVP5 Block A2, Theorem (Kato's iteration with memory); new: GN-T5
+condition C1, integrated hypotheses (M0)–(M2), (M1′) in place of (F1)–(F2); S-T5 §4.3 M4 step 3 (contraction on each
+slice) not used.
+Row 5. rem:class-kato-memory; P-CIVP5:274; P-CIVP5 Block A2, Remark (Why the hypotheses are integrated); GN-T5 §2.4
+mechanism stated without the model; no proof uses it.
 
 For crosswalk/81-class-system.tsv, after the row of rem:class-leaf-numerics:
 
-Row A6. lem:class-leaf-arc; P-CIVP5:L; P-CIVP5 Block A1, Lemma (Two states compared along one arc); GN-T5 §6.2
-(condition C7) and C2, one-sided, arc-closed, by the Volterra form and Hardy's average.
-Row A7. eq:class-leaf-arc; P-CIVP5:L; P-CIVP5 Block A1, display; the pointwise one-sided bound.
-Row A8. lem:class-leaf-tame; P-CIVP5:L; P-CIVP5 Block A1, Lemma (The planar shear on the ball 𝔅′); GN-T5 §2.2 "lighter
-form" of lem:class-leaf-differences (a).
+Row 6. lem:class-leaf-arc; P-CIVP5:18; P-CIVP5 Block A1, Lemma (Two states compared along one arc); new: GN-T5
+conditions C2 and C7 (§6.2), one-sided, on arc-closed sets, by the Volterra form and the Hardy average; implies GN-T3
+T3-2(b) at order 0.
+Row 7. eq:class-leaf-arc; P-CIVP5:27; P-CIVP5 Block A1, display; pointwise one-sided bound.
+Row 8. lem:class-leaf-tame; P-CIVP5:82; P-CIVP5 Block A1, Lemma (The planar shear on the ball 𝔅′); new: GN-T5 §2.2
+lighter form of lem:class-leaf-differences (a), bound linear in 𝒩_k on the ball 𝔅′.
 
 For crosswalk/83-localised-data.tsv, after the rows of the section on perturbations that reach the axes:
 
-Rows B1–B23, for sec:loc-t5, sec:loc-t5-families, def:loc-t5-family, lem:loc-t5-dichotomy, lem:loc-t5-tubes,
-lem:loc-t5-jets, sec:loc-t5-times, eq:loc-t5-times, lem:loc-t5-times, lem:loc-t5-faces, sec:loc-t5-system,
-lem:loc-t5-forcing, lem:loc-t5-residual, lem:loc-t5-existence, sec:loc-t5-dependence, lem:loc-t5-energy,
-lem:loc-t5-past, lem:loc-t5-constraints, sec:loc-t5-theorem, lem:loc-t5-uniqueness, thm:loc-t5, prop:loc-t5-cut and
-rem:loc-t5-scope, are given in tab-separated form in the file named in the report.
+Row 9. sec:loc-t5; P-CIVP5:288; P-CIVP5 Block B, section heading; Tier 5 (S-T5, GN-T5): Route M for crossing families;
+statement W for tangent families.
+Row 10. sec:loc-t5-families; P-CIVP5:316; P-CIVP5 Block B, subsection; families and their type at an axis.
+Row 11. def:loc-t5-family; P-CIVP5:318; P-CIVP5 Block B, Definition (Further families); S-T5 §1.2; GN-T5 C3 as (F-a);
+(H×) follows from (F-b); corner condition (F-c).
+Row 12. lem:loc-t5-dichotomy; P-CIVP5:335; P-CIVP5 Block B, Lemma (Crossing and tangency at the axes); S-T5 §1.2
+dichotomy (crossing/grazing).
+Row 13. lem:loc-t5-tubes; P-CIVP5:353; P-CIVP5 Block B, Lemma (The tubes avoid the tangency sets); GN-T5 §1.3 (C3),
+proved by continuous dependence.
+Row 14. lem:loc-t5-jets; P-CIVP5:385; P-CIVP5 Block B, Lemma (Cone data and jets with further families); S-T5 M0 with
+GN-T5 C4; sources of the cone constraints; transverse jets on the crossing sets.
+Row 15. sec:loc-t5-times; P-CIVP5:416; P-CIVP5 Block B, subsection; closure times.
+Row 16. eq:loc-t5-times; P-CIVP5:431; P-CIVP5 Block B, display; t_A := τ0 − χ g_A, τ := τ0 + K ρ² χ (GN-T5 §1.1).
+Row 17. lem:loc-t5-times; P-CIVP5:435; P-CIVP5 Block B, Lemma (The closure times and the evolution time); S-T5 M1 as
+built in GN-T5 §1.1, (a)–(d) proved.
+Row 18. lem:loc-t5-faces; P-CIVP5:465; P-CIVP5 Block B, Lemma (The face sections are leaves of each family); S-T5 M2 by
+the leaf criterion of Tier 3 (GN-T3 §1.2).
+Row 19. sec:loc-t5-system; P-CIVP5:481; P-CIVP5 Block B, subsection; the system with memory; closures per family on the
+slices of t_A; ξ_A.
+Row 20. lem:loc-t5-forcing; P-CIVP5:500; P-CIVP5 Block B, Lemma (The forcing term); S-T5 M4 hypotheses verified:
+(M0)–(M2), (M1′) by coarea (Fubini) over the t_A-foliation.
+Row 21. lem:loc-t5-residual; P-CIVP5:529; P-CIVP5 Block B, Lemma (The forcing term is smooth across the faces); S-T5 M6
+/ GN-T5 §3 (GN-M3), written in full in the t_A-slicing.
+Row 22. lem:loc-t5-existence; P-CIVP5:563; P-CIVP5 Block B, Lemma (Existence on space-time); thm:class-kato-memory (b).
+Row 23. sec:loc-t5-dependence; P-CIVP5:573; P-CIVP5 Block B, subsection; dependence on the past and constraints.
+Row 24. lem:loc-t5-energy; P-CIVP5:575; P-CIVP5 Block B, Lemma (Energy on a region with memory); integrated Gronwall
+(GN-T5 §2.6, where M5 enters).
+Row 25. lem:loc-t5-past; P-CIVP5:584; P-CIVP5 Block B, Lemma (The past of the faces); S-T5 M5 (P) with GN-T5 C7:
+one-sided bound, closure under the arcs of Û only.
+Row 26. lem:loc-t5-constraints; P-CIVP5:602; P-CIVP5 Block B, Lemma (The constraints); S-T5 M5 (F) on the slice-triangle
+of the bent time (GN-T3 §4.2), tubes from 𝒦_A″.
+Row 27. sec:loc-t5-theorem; P-CIVP5:639; P-CIVP5 Block B, subsection; uniqueness, theorem, statement W.
+Row 28. lem:loc-t5-uniqueness; P-CIVP5:641; P-CIVP5 Block B, Lemma (Dependence on the past faces); S-T5 M7 / GN-T5 §4
+(C5): rectangles with past faces in the cones, by exhaustion with triangles.
+Row 29. thm:loc-t5; P-CIVP5:669; P-CIVP5 Block B, Theorem (Development with further families at the axes); S-T5 M8;
+class C^(k−3), smoothness not proved.
+Row 30. prop:loc-t5-cut; P-CIVP5:709; P-CIVP5 Block B, Proposition (Families tangent to a cone: a development off the
+axes concerned); statement W of S-T5 §4.4 with GN-T5 W1–W4; N closed under the generators.
+Row 31. rem:loc-t5-scope; P-CIVP5:742; P-CIVP5 Block B, Remark (What the theorem does not give); grazing families open
+(S-T5 §5.1); Tier 3 family clause (C4); Route S; regularity.
