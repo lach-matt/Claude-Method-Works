@@ -384,13 +384,15 @@ admissible α ≥ 3 is a number in (4 + ε_K − ε′_0, 4 + ε_K], ε′_0 = �
 1.085·10⁻²⁰, off a finite set ([[def:iii-i10-1-3]]), and (A_J), (Ex3) and (Ex4) exclude finitely many more
 ([[def:iii-j-a-j]], [[lem:iii-j3-1-4]]: (A_J) excludes the α with α − Re λ₀ one of the finitely many numbers −Re μ and
 Re π_1ℰ_K in (0, 3), for the finitely many λ₀ ∈ Λ with Re λ₀ < 3 + ε_+); so such an α exists, and as
-ε′_0 < 0.001ε_K, 0.999ε_K ≤ α − 4 ≤ ε_K.
-*The levels.* The excluded values near each level are finitely many ([[sec:iii-i8-1]],
-[[def:iii-i13-1-1]]). Choose the levels downward from β_K := α, each spacing in [0.999(α − 4), α − 4) and each level
-admissible and different from 3, until the first level below α − 2 is reached; as every spacing is less than α − 4, that
-level lies in (2, α − 2), and it is α_1. *a♭_K.* The background h + h_rem(q) has the K⁺-order (α − 2)−
-([[lem:ec-counts]]), so Step 1 of the proof of [[thm:iii-i14-3-1]] may apply its statements with any a♭_K in
-(α_1, α − 2); the stated range meets that interval, as α_1 < α − 2 and 2 + 0.999(α − 4) < α − 2.
+ε′_0 < 0.001ε_K, 0.999ε_K ≤ α − 4 ≤ ε_K. *The levels.* The excluded values near each level are finitely many
+([[sec:iii-i8-1]], [[def:iii-i13-1-1]]). Choose the levels downward from β_K := α, each spacing in
+[0.999(α − 4), α − 4) and each level admissible and different from 3, until the first level below α − 2 is reached; as
+every spacing is less than α − 4, that level lies in (2, α − 2), and it is α_1. *a♭_K.* The background h + h_rem(q)
+has the K⁺-order (α − 2)− ([[lem:ec-counts]]), so Step 1 of the proof of [[thm:iii-i14-3-1]] may apply its statements
+with any a♭_K in (α_1, α − 2); the stated range meets that interval, as α_1 < α − 2 and 2 + 0.999(α − 4) < α − 2.
+*α_0.* The proof of [[prop:iii-i8-4-1]] at the level α_1, at the background of K⁺-order a♭_K, starts from an
+admissible α_0 ∈ (2, min(a♭_K, 2 + ε_g, 5/2)) below α_1; as α_1 < a♭_K, α_1 < 2 + ε_K < 2 + ε_g and the excluded
+values are finitely many, an admissible α_0 ∈ (max(2, α_1 − (a♭_K − 2)), α_1) exists.
 
 *The hypotheses of [[prop:ec-upper]].* Δβ ≥ 0.999(α − 4) ≥ 0.999²ε_K = Δβ_0 and Δβ ≥ 0.999(α − 4) > ½(α − 4);
 a♭_K − 2 ≥ 0.999(α − 4) ≥ Δβ_0; Δτ = ε_g − ε ≥ (1 − 10⁻³)ε_Υ = Δτ_0; and Δβ_0 ∈ (0, 1]. ℓ⁺_tf = 1 by [[prop:uc-ltf]]
