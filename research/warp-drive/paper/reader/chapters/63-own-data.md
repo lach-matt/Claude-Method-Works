@@ -12,17 +12,16 @@ stability theory runs in the wider class with the same index sets.
 
 The argument has five parts. (1) The far part S := Σ^IVP ∩ {r ≥ 4R} of the initial surface has a past domain of
 dependence W for Tangherlini, bounded by S, by an ingoing null cone ℋ on which g_λ is known, and by past null infinity,
-where nothing comes in after the shell (Section [[sec:own-far-part]]). (2) The tail at r^(−5/2) is computed (Section
-[[sec:own-tail]]). (3) The stability theory holds in the half-integer class with the same index sets (Section
-[[sec:own-half-class]]). (4) The constants of the construction from past null infinity are polynomial in λ^(−1) at every
-order, which makes the data of g_λ on ℋ small at every weight that the estimate below uses (Sections [[sec:own-orders]]
-and [[sec:own-sigma]]). (5) After its self-similar terms through r^(−4) are subtracted, g_λ continues to W by one
-weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, whose exponents follow from
-homogeneity under a dilation; the continuation is vacuum, unique in a class of weight below ½, and its data on S lie in
-the half-integer class with small norm (Sections [[sec:far-homogeneity]], [[sec:cutoff-expansion]],
-[[sec:own-continuation]] and [[sec:own-vacuum]]). The theorem is assembled in Section [[sec:own-proof]], where the
-development is placed, off its inner boundary, in the maximal globally hyperbolic development of the data
-([[lem:own-maximal]]).
+where nothing comes in after the shell ([[sec:own-far-part]]). (2) The tail at r^(−5/2) is computed ([[sec:own-tail]]).
+(3) The stability theory holds in the half-integer class with the same index sets ([[sec:own-half-class]]). (4) The
+constants of the construction from past null infinity are polynomial in λ^(−1) at every order, which makes the data of
+g_λ on ℋ small at every weight that the estimate below uses (Sections [[sec:own-orders]] and [[sec:own-sigma]]). (5)
+After its self-similar terms through r^(−4) are subtracted, g_λ continues to W by one weighted energy estimate at a
+weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, whose exponents follow from homogeneity under a dilation;
+the continuation is vacuum, unique in a class of weight below ½, and its data on S lie in the half-integer class with
+small norm (Sections [[sec:far-homogeneity]], [[sec:cutoff-expansion]], [[sec:own-continuation]] and [[sec:own-vacuum]]).
+The theorem is assembled in [[sec:own-proof]], where the development is placed, off its inner boundary, in the maximal
+globally hyperbolic development of the data ([[lem:own-maximal]]).
 
 *Notation.* We use the chart (τ, x) of [[sec:background]], v = τ + r, the background g0 of [[eq:background]] and the
 gauge of [[sec:gauge]]. Ω′ is the domain of the form [[eq:omega]], with constants (T′, δ′0) and inner radius a′ = q0 −
@@ -50,8 +49,8 @@ such that for every 0 < λ ≤ λ_2, with no exceptional set:
 (1) g_λ continues to the past domain of dependence W of S := Σ^IVP ∩ {r ≥ 4R} for g_b0 as a smooth G-invariant vacuum
 metric g in the wave-map gauge relative to g_b0, and all of W but a strip along its null boundary, of v-width tending to
 0 with λ, lies in the domain of dependence of S for g. It is the only continuation in that gauge with |g − g_b0| ≤ 1/50
-whose energies of some weight a_0 ∈ (0, ½) of the fields Γ^α (g − g_b0), |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab, Z} (Section
-[[sec:far-homogeneity]]), are bounded uniformly in the slices and whose energy tends to 0 toward past null infinity
+whose energies of some weight a_0 ∈ (0, ½) of the fields Γ^α (g − g_b0), |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab, Z}
+([[sec:far-homogeneity]]), are bounded uniformly in the slices and whose energy tends to 0 toward past null infinity
 ([[prop:own-uniqueness]]);
 
 (2) its data (γ, k) on Σ^IVP satisfy γ − γ_b0 ∈ H^(∞,(ℰ_0^½,ℓ0))_b, k − k_b0 ∈ H^(∞,(ℰ_0^½+1,ℓ0+1))_b, with
@@ -66,8 +65,8 @@ The maximal globally hyperbolic vacuum development (M̂, ĝ, ι̂) of the data (
 the same sense: |(t_*∂_(t_*))^i ∂_x^β (Ψ^*ĝ − g_(m′,0))| ≤ C t_*^(−2−ε_t) on {r_♭ < r ≤ R′, t_* ≥ t_1}.
 
 The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The order k_P is what the subtracted
-expansion of Section [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
-derivatives of their data on ℋ ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in Section
+expansion of [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
+derivatives of their data on ℋ ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in
 [[sec:own-proof]]; its first step checks every use of k_P.
 
 ### The far part of the initial surface and its past domain of dependence {#sec:own-far-part}
@@ -538,7 +537,7 @@ k_P − 4 gives |Ω^β e_(2p)(v1)| ≤ C λ^(1+). G_5(v1) = G_5^∞ ([[prop:own-
 coefficients, of ∂_s^i Ω^β F_p with i + |β| ≤ j; by [[lem:own-self-similar]] these are at most C ‖G_(2p)(v1)‖_(C^(2j+2)),
 which is O(λ) for j ≤ k1 + 4 by (a); at fixed λ, G_(2p)(v1) is smooth ([[prop:bondi-hierarchy]]), so every such
 derivative is bounded. The bounds on W ∩ {r ≥ 1} follow by the homogeneity of Σ_p of degree −p under the dilation of
-Section [[sec:far-homogeneity]], which maps {r = 1, 0 ≤ s ≤ 3/2} onto {r = ς, 0 ≤ s ≤ 3/2}, together with
+[[sec:far-homogeneity]], which maps {r = 1, 0 ≤ s ≤ 3/2} onto {r = ς, 0 ≤ s ≤ 3/2}, together with
 [[lem:own-wedge]] (b). (c) g_λ is invariant under T² and the two reflections (item 5 of [[thm:past-construction]]),
 which generate G, so it is G-invariant; so are the coefficients of its expansion, and the equation of
 [[lem:own-self-similar]] commutes with G. ∎
@@ -581,7 +580,7 @@ integrand of [[eq:own-flux-n]] for Γ^α h_R is O(r^(2a−11+3)), and its integr
 
 ### The far region by homogeneity {#sec:far-homogeneity}
 
-This section proves the exponents on which the weighted energy estimate of Section [[sec:own-continuation]] rests: the
+This section proves the exponents on which the weighted energy estimate of [[sec:own-continuation]] rests: the
 decay of the coefficients of the linearised operator, the degree of the residual of the subtracted expansion, and the
 naturality of the operator under G. Every exponent is obtained by counting powers of r under one dilation.
 
@@ -594,7 +593,7 @@ For Lorentzian metrics g and g′, Ric^H(g; g′) denotes the expression [[eq:ga
 field D and the connection ∇̂ are formed with g′. By [[eq:background]], g_b0 = g0 on {v ≥ v_end}, which contains W, so
 there P(h) is Ric^H(g0 + h) of [[eq:gauge]]. Pointwise norms |·| are those of [[sec:profiles]]: the Euclidean operator
 norm on symmetric 2-tensors and the Frobenius norm on arrays of higher rank. W, ℋ, the slices Σ̃_σ, s = (v − v1)/r and
-r_σ are those of Section [[sec:own-far-part]]: on W, 0 ≤ s ≤ 5/4 and |t − v1| ≤ r, and r_σ ≥ c_W (1 + |σ|)
+r_σ are those of [[sec:own-far-part]]: on W, 0 ≤ s ≤ 5/4 and |t − v1| ≤ r, and r_σ ≥ c_W (1 + |σ|)
 ([[lem:own-wedge]] (b)). The commutators are Γ ∈ {∂_t, L_Ω_ab, Z}, with Ω_ab := x_a ∂_b − x_b ∂_a and
 Z := (t − v1) ∂_t + x·∂_x, acting on Cartesian components; Γ^α is a product of |α| of them. The subtracted expansion
 Σ = Σ_(p∈Π) Σ_p, Σ_p = r^(−p) F_p(s, x̂), is that of [[def:own-sigma]]: □_η Σ_p = 0 for every p ∈ Π; each F_p is smooth
@@ -754,7 +753,7 @@ components of Õ^* h are Ōᵀ h(Ō ·) Ō. ∎
 
 ### The expansion after the shell to every order {#sec:cutoff-expansion}
 
-The truncated problems of Section [[sec:own-continuation]] interpolate, on a band of bounded width in v, between the
+The truncated problems of [[sec:own-continuation]] interpolate, on a band of bounded width in v, between the
 data of g_λ and data that continue them to spatial infinity. The commuted energies of the remainder at the initial
 slice are bounded uniformly in the truncation only if the two data agree on the band to high order in r⁻¹: the
 commutator Z is transverse to the initial slice at the band with a coefficient of size |T|, and each Z turns a time
@@ -763,7 +762,7 @@ agree with those of g_λ to every prescribed order and are homogeneous, so that 
 expansion of [[prop:bondi-hierarchy]] at fixed λ; no smallness in λ is needed of the new terms, because they enter only
 the data of the truncated problems, whose effect disappears as T → −∞ at fixed λ.
 
-*Setting.* We use the notation of Section [[sec:far-homogeneity]]: P(h) = Ric^H(g_b0 + h; g_b0), g_b0 = η + μ m with
+*Setting.* We use the notation of [[sec:far-homogeneity]]: P(h) = Ric^H(g_b0 + h; g_b0), g_b0 = η + μ m with
 m := r⁻² dv ⊗ dv, μ = μ_end, the coordinates (v, r, x̂) with ℓ = ∂_r at fixed (v, x̂) and ∂_v the derivative at fixed
 (r, x̂), which is ∂_t at fixed x, and the commutators Γ ∈ {∂_t, L_Ω_ab, Z}, Z = (t − v1) ∂_t + x·∂_x. The Cartesian
 derivatives are
@@ -784,7 +783,7 @@ W ∩ {r ≥ r′}, for some r′ ≥ 1, is *tame of order q* if |∂^j Γ^α F|
 depending on j and α but not on the member. By [[eq:bondi-expansion]], u_J is of strip order (J + 1)/2, and H_J of strip
 order 2, the G_k being bounded with all their derivatives. A *monomial* is r^(−k/2) (v − v1)^n a(x̂) with integers
 k, n ≥ 0 and a smooth; its *weight* is n − k/2. Since r^(−k/2) (v − v1)^n = r^(n−k/2) s^n with s = (v − v1)/r, a
-monomial is homogeneous, of degree equal to its weight, under the dilation D_ς of Section [[sec:far-homogeneity]].
+monomial is homogeneous, of degree equal to its weight, under the dilation D_ς of [[sec:far-homogeneity]].
 
 **Lemma {#lem:cutoff-expansion}** (the operator at fixed v). Let K_0 ≥ 4, let c_4, …, c_(K_0) be smooth symmetric
 tensors on I_1 × S³ (Cartesian components), bounded with all derivatives, and put H := Σ_(k=4)^(K_0) r^(−k/2) c_k and
@@ -890,7 +889,7 @@ constants depending on λ and J.
 
 *Proof.* (a) Each term is r^(−p) s^n a(x̂) with p = k/2 − n ≥ 4, a polynomial in s with smooth coefficients, so smooth
 and homogeneous of degree −p on 𝒞_1 = {r ≥ 1, 0 ≤ s ≤ 3/2} ⊃ W. The bounds follow as [[eq:far-sigma-bounds]], from the
-dilation (Section [[sec:far-homogeneity]]). G-invariance: G_(k,n) is a Taylor coefficient at v = v1 of the G-invariant
+dilation ([[sec:far-homogeneity]]). G-invariance: G_(k,n) is a Taylor coefficient at v = v1 of the G-invariant
 G_k ([[lem:cutoff-polynomial]]); G_(2p)(v1) is G-invariant and the equation of [[lem:own-self-similar]] commutes with G,
 so each F_p, and each of its Taylor coefficients F_(p,n), is G-invariant.
 
@@ -930,7 +929,7 @@ g_λ − g_b0, truncated as polynomials in s. Their sizes in λ are not controll
 
 *Setting.* Fix ℓ0 ∈ (3, 4) ∖ {7/2}, a ∈ (ℓ0 − 1, 3) and k1 := max(8, d_1 + 4). On W we use the Kerr–Schild Cartesian
 coordinates (t, x), t = τ, the operator P of [[eq:far-operator]], which is the operator [[eq:gauge]] relative to g0 there
-(g0 = g_b0 on v ≥ v_end), and the commutators Γ ∈ {∂_t, L_Ω_ab, Z} of Section [[sec:far-homogeneity]], acting on
+(g0 = g_b0 on v ≥ v_end), and the commutators Γ ∈ {∂_t, L_Ω_ab, Z} of [[sec:far-homogeneity]], acting on
 Cartesian components, Γ^α being the product for a multi-index α. Put u := t − r, u* := τ_max + 1 and w := (u* − u)^(2a);
 on W, t ≤ f(r) ≤ τ_max and t − v1 ≥ −r, so r + 1 ≤ u* − u ≤ 2r + |u* − v1|. For a metric g = g_b0 + H on W, |·| denotes
 the Euclidean operator norm of a component matrix, and for a function φ and σ ≤ 0,
@@ -1666,7 +1665,7 @@ h_R^(J) := g^(J) − g_b0 − Σ, has 𝔈_(k1) ≤ ε_B² and 𝔈_k ≤ C_k(λ
 k1 − 2 ≤ k_J − 3), and has E_σ[Γ^α h_R^(J)] ≤ C ϑ(σ) → 0 as σ → −∞ for |α| ≤ k1. G-invariance passes to the limit.
 
 *The limit does not depend on J.* For J′ ≥ J ≥ 2k1 + 7, g^(J′) = g^(J) by [[lem:cutoff-independence]], which is in
-Section [[sec:own-vacuum]]; its proof uses only the properties of g^(J) and g^(J′) just listed and
+[[sec:own-vacuum]]; its proof uses only the properties of g^(J) and g^(J′) just listed and
 [[lem:own-two-continuations]], not the conclusions of this theorem. Write g for the common limit. As g = g^(J) is of
 class C^(k_J−3) for every J, g is smooth, and as it equals g_λ on ℋ with all its derivatives (each g_T equals g_λ on its
 side v ≤ v1, [[lem:own-truncation]] (ii)), g and g_λ join smoothly across ℋ. Taking J := max(2k1 + 7, 2k + 7) gives
