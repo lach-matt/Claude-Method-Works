@@ -1877,28 +1877,30 @@ d = 4; its maximal globally hyperbolic development (M̂, ĝ, ι̂), a globally h
 of every other one, exists and is unique up to isometry [Sbi15, Theorem 2.8, p. 12]; and there is a
 time-orientation-preserving isometric embedding Ψ : (M₊ ∖ Σ̊, ǧ) → (M̂, ĝ) that extends continuously to M₊ by ι̂ on Σ̊.
 
-[Sbi15] takes its initial data on a manifold without boundary. Σ^IVP, which ends at {r = r_♭}, is not one; Σ̊ is.
-
-*Proof.* *The development.* By [[thm:own-half-settling]] the results of [[ch:s27]] hold in the class ℰ_0^½, and by
-[[prop:vii-3-2]] the map φ_(0,0) is the identity, so ǧ induces (γ, k) on Σ^IVP ([[thm:iii-k-4-3]] (2)). On Ω_*,
-t_IVP ≥ t_* ≥ t^♭_* ≥ 1 (ψ_IVP ≤ ψ by the proof of [[lem:iii-b-3-7]] (b), and [[lem:ii-c-3-2]] (b)); and
-𝒟_(0,0) = {t_IVP ≥ 0} ∩ {t^♭_* ≤ T̂ + 2} ([[prop:iii-k-1-2]]), while {t^♭_* > T̂ + 2} ⊂ Ω_*. So Ω_* ∪ 𝒟_(0,0) is the set
-{t_IVP ≥ 0} of M, which contains M₊. Where t^♭_* ≤ T̂ + ¼c_0, a set containing {t^♭_* ≤ 3/2} as T̂ ≥ 2, ǧ = g_(b₀) + h_0
-([[prop:iii-k-4-2]] with S = S⁰ = 0), the metric g_(0,0) of [[lem:iii-k-6-2]] on the region 𝒟 of [[prop:iii-k-1-2]]; it
-is smooth on 𝒟 up to its boundary (the proof of [[prop:iii-k-1-2]]), and dt_IVP is past timelike for it on 𝒟
-([[lem:iii-k-6-2]] (a)). So near each point of Σ̊, ǧ is the restriction of a smooth Lorentzian metric, the future unit
-normal of Σ̊ points into M₊, and ǧ induces (γ, k) on Σ̊ with respect to it. On Ω°_*, ǧ − g_(b₀) is small in
-𝒢̃^(0,(1,0,0))_(e3b) and t^♭_* is a time function of ǧ, as in the proof of [[prop:iii-k-4-2]] ([[lem:s27-below]] (iii)).
+*Proof.* In this proof t is the time of the chart of [[lem:vii-1-2]], as in [[ch:s27]], and not the Kerr–Schild time of
+the far region. *The development.* By [[thm:own-half-settling]] the results of [[ch:s27]] hold in the class ℰ_0^½, and
+by [[prop:vii-3-2]] the map φ_(0,0) is the identity, so ǧ induces (γ, k) on Σ^IVP ([[thm:iii-k-4-3]] (2)); here
+b₀ = (μ_end, 0), and g_(b₀) is g_b0 written in the chart of [[lem:vii-1-2]] ([[lem:interior-chart]] (a)). On Ω_*,
+t_IVP ≥ t_* ≥ t^♭_* ≥ 1 (ψ_IVP ≤ ψ, with ψ of [[eq:iii-b-3-6]], by the proof of [[lem:iii-b-3-7]] (b), and
+[[lem:ii-c-3-2]] (b)); and 𝒟_(0,0) = {t_IVP ≥ 0} ∩ {t^♭_* ≤ T̂ + 2} ([[prop:iii-k-1-2]]), while {t^♭_* > T̂ + 2} ⊂ Ω_*.
+So Ω_* ∪ 𝒟_(0,0) is the part {t_IVP ≥ 0} of the spacetime of [[ch:s27]], which contains M₊. Where t^♭_* ≤ T̂ + ¼c_0, a
+set containing {t^♭_* ≤ 3/2} as T̂ ≥ 2, ǧ = g_(b₀) + h_0 ([[prop:iii-k-4-2]] with S = S⁰ = 0; h_0 := h_(0,0)), the
+metric g_(0,0) of [[lem:iii-k-6-2]] on the region 𝒟 of [[prop:iii-k-1-2]]; it is smooth on 𝒟 up to its boundary
+(the proof of [[prop:iii-k-1-2]]), and dt_IVP is past timelike for it on 𝒟 ([[lem:iii-k-6-2]] (a)). So near each point
+of Σ̊, ǧ is the restriction of a smooth Lorentzian metric, the future unit normal of Σ̊ points into M₊, and ǧ induces
+(γ, k) on Σ̊ with respect to it. On Ω°_*, ǧ − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b) and t^♭_* is a time function of ǧ,
+as in the proof of [[prop:iii-k-4-2]] ([[lem:s27-below]] (iii)).
 
 *The data, and a development of them.* Σ̊ is the graph t = ψ_IVP(|x|) over the connected set {|x| > r_♭} ⊂ ℝ⁴, an open
-subset of Σ^IVP and a manifold without boundary; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the
-Gauss and Codazzi equations for the vacuum metric ǧ. So (Σ̊, γ, k) is initial data in the sense of [Sbi15, p. 11]
-([[thm:std-sbierski]]), with d = 4, and [Sbi15, Theorem 2.8, p. 12] gives (M̂, ĝ, ι̂). By [Sbi15, Theorem 2.6]
-([[thm:std-sbierski]] (3)) the same data have a globally hyperbolic development (N, g_N, ι_N). Σ_N := ι_N(Σ̊) is a
-smooth spacelike Cauchy hypersurface of N, γ being Riemannian, so there is a Cauchy time-function h_N on N with
-Σ_N = h_N⁻¹(0) ([[thm:std-bgp-causal]] (3)); its gradient is past directed timelike ([[thm:std-bgp-causal]] (2)), so
-dh_N is past timelike. We glue the past half of N to M₊, show that the result contains a globally hyperbolic development
-of (Σ̊, γ, k) that contains M₊, and obtain Ψ from the maximality of (M̂, ĝ, ι̂).
+subset of Σ^IVP and, unlike Σ^IVP, which ends at {r = r_♭}, a manifold without boundary, as [Sbi15, p. 11] asks of
+initial data; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the Gauss and Codazzi equations for the
+vacuum metric ǧ. So (Σ̊, γ, k) is initial data in the sense of [Sbi15, p. 11] ([[thm:std-sbierski]]), with d = 4, and
+[Sbi15, Theorem 2.8, p. 12] gives (M̂, ĝ, ι̂). By [Sbi15, Theorem 2.6] ([[thm:std-sbierski]] (3)) the same data have a
+globally hyperbolic development (N, g_N, ι_N). Σ_N := ι_N(Σ̊) is a smooth spacelike Cauchy hypersurface of N, γ being
+Riemannian, so there is a Cauchy time-function h_N on N with Σ_N = h_N⁻¹(0) ([[thm:std-bgp-causal]] (3)); its gradient
+is past directed timelike ([[thm:std-bgp-causal]] (2)), so dh_N is past timelike. We glue the past half of N to M₊, show
+that the result contains a globally hyperbolic development of (Σ̊, γ, k) that contains M₊, and obtain Ψ from the
+maximality of (M̂, ĝ, ι̂).
 
 *The glued space.* N₋ := {h_N ≤ 0} and M₊ are manifolds with boundary Σ_N and Σ̊, as dh_N and dt_IVP do not vanish. Let
 M_gl := (N₋ ⊔ M₊)/∼, where ι_N(y) ∼ y for y ∈ Σ̊, with the quotient topology and the projection π. π maps N₋ and M₊
@@ -1909,57 +1911,63 @@ M_gl, covering the complement of the closed set π(Σ̊), which we write Σ̊.
 *Charts, smooth structure, metric, time orientation.* The paragraphs of the proof of [[lem:interior-one-spacetime]] from
 *(i), the charts at Σ* to *(i), time orientation and connectedness* apply with Σ̊, M₊ and ǧ in place of Σ, B and g, and
 with N₋, g_N, N, h_N, n_N and E_N(s, y) := exp^(g_N)_(ι_N(y))(s n_N), n_N the future unit normal of Σ_N, in place of A,
-g_λ, V and D_V(Σ), t_IVP on the side of A, n_λ and E_λ. Of the common chart of that lemma they use only the following,
-which hold here: dh_N(n_N) > 0, dh_N being past timelike, and dt_IVP(n) > 0, n pointing into M₊; the coordinates x of
-the graph Σ̊, carried to Σ_N by ι_N, as the coordinates on Σ̊ in every chart; that ǧ is near each point of Σ̊ the
-restriction of a smooth Lorentzian metric; that the two halves are closed in M_gl and carried homeomorphically by π; and
-that a set W_Π is open when it meets the two halves in open sets, which here is the definition of the quotient topology.
-For the connectedness of N₋: through a point a ∈ N₋ ∖ Σ_N passes an inextendible timelike curve of N, which meets the
-Cauchy hypersurface Σ_N after a, h_N increasing along it, and between the two it lies in N₋. This gives charts Φ_Π :
-(−s_0, s_0) × Π → W_Π at the points of Σ̊, homeomorphisms onto open sets which, with charts of the two open halves, form
-a smooth atlas; a smooth Ricci-flat Lorentzian metric g_gl on M_gl, equal to g_N and to ǧ off Σ̊, which induces (γ, k)
-on the smooth spacelike hypersurface Σ̊; a time orientation in which the unit normal of Σ̊ is future and which is that
-of ǧ on π(M₊ ∖ Σ̊); and the connectedness of M_gl. Part *(ii)* of that proof then shows that Σ̊ is acausal in M_gl.
+g_λ, V and D_V(Σ), t_IVP on the side of A, n_λ and E_λ, and with {|x| > r_♭} in place of the shell {r_♭ < |x| < R}. Of
+the common chart of that lemma they use only the following, which hold here: dh_N(n_N) > 0, dh_N being past timelike,
+and dt_IVP(n) > 0, n pointing into M₊; the coordinates x of the graph Σ̊, carried to Σ_N by ι_N, as the coordinates on
+Σ̊ in every chart; that ǧ is near each point of Σ̊ the restriction of a smooth Lorentzian metric; that the two halves
+are closed in M_gl and carried homeomorphically by π; and that a set W_Π is open when it meets the two halves in open
+sets, which here is the definition of the quotient topology. For the connectedness of N₋: through a point p′ ∈ N₋ ∖ Σ_N
+passes an inextendible timelike curve of N, which meets the Cauchy hypersurface Σ_N after p′, h_N increasing along it,
+and between the two it lies in N₋. This gives charts Φ_Π : (−s_0, s_0) × Π → W_Π at the points of Σ̊, homeomorphisms
+onto open sets which, with charts of the two open halves, form a smooth atlas
+(M_gl is Hausdorff and second countable by the next paragraph, which uses only these charts); a smooth Ricci-flat
+Lorentzian metric g_gl on M_gl, equal to g_N and to ǧ off Σ̊, which induces (γ, k) on the smooth spacelike hypersurface
+Σ̊; a time orientation in which the unit normal of Σ̊ is future and which is that of ǧ on π(M₊ ∖ Σ̊); and the
+connectedness of M_gl. Part *(ii)* of that proof then shows that Σ̊ is acausal in M_gl.
 
 *Hausdorff and second countable.* Two points of π(N₋ ∖ Σ_N), or two of π(M₊ ∖ Σ̊), are separated in that open set, and a
-point of each by these two disjoint open sets. Let y ∈ Σ̊ and z ≠ y. If z = π(a), a ∈ N₋ ∖ Σ_N, take disjoint open sets
-U_a ∋ a and U_y ∋ ι_N(y) of N with U_a ⊂ N₋ ∖ Σ_N, and Π and s_0 so small that E_N((−s_0, 0] × Π) ⊂ U_y, as
-E_N(0, y) = ι_N(y); then π(U_a) and W_Π are disjoint open sets. If z lies in π(M₊ ∖ Σ̊), the same holds with M₊ and the
+point of each by these two disjoint open sets. Let y ∈ Σ̊ and z ≠ y. If z = π(p′), p′ ∈ N₋ ∖ Σ_N, take disjoint open
+sets U′ ∋ p′ and U_y ∋ ι_N(y) of N with U′ ⊂ N₋ ∖ Σ_N, and Π and s_0 so small that E_N((−s_0, 0] × Π) ⊂ U_y, as
+E_N(0, y) = ι_N(y); then π(U′) and W_Π are disjoint open sets. If z lies in π(M₊ ∖ Σ̊), the same holds with M₊ and the
 map E of that proof in place of N and E_N. If z ∈ Σ̊, take disjoint neighbourhoods of ι_N(y) and ι_N(z) in N and of y
 and z in M₊, and charts W_Π ∋ y and W_Π′ ∋ z whose halves lie in them; then W_Π ∩ W_Π′ = ∅. So M_gl is Hausdorff. Σ̊,
 being second countable, is covered by countably many W_Π, and M_gl is the union of these and of the two open halves,
 each second countable; so M_gl is second countable.
 
-*The development D.* Σ̊ is an acausal smooth spacelike hypersurface of the connected time-oriented Lorentzian manifold
-M_gl. So D := D_(M_gl)(Σ̊) is open and globally hyperbolic, with Σ̊ as a Cauchy hypersurface
+*The development D_gl.* Σ̊ is an acausal smooth spacelike hypersurface of the connected time-oriented Lorentzian
+manifold M_gl. So D_gl := D_(M_gl)(Σ̊) is open and globally hyperbolic, with Σ̊ as a Cauchy hypersurface
 ([[thm:std-bgp-development]]); it is connected, every point of it being joined to Σ̊ within it as at the end of the
 connectedness paragraph cited; and with the inclusion ι of Σ̊ it is a globally hyperbolic development of (Σ̊, γ, k)
 [Sbi15, Definition 2.1] ([[thm:std-sbierski]] (1)): connected, time oriented, vacuum, with ι^*g_gl = γ and with second
 fundamental form k with respect to the future normal.
 
-*M₊ lies in D.* Let p ∈ π(M₊ ∖ Σ̊) and let κ be an inextendible causal curve of M_gl through p, run from p to the past.
-Suppose that κ does not meet Σ̊. Then it stays in the open set π(M₊ ∖ Σ̊) = {r > r_♭, t_IVP > 0}, in which it is past
-inextendible. First, if t^♭_*(p) > 3/2, κ does not stay in {t^♭_* > 3/2}. This set lies in X := Ω°_*, and the argument
-of the proof of [[lem:ii-f-1-3]], with τ := t^♭_*, the level 3/2 and the compact sets L_p ⊂ X of [[lem:iii-k-6-1]] (c),
-applied as in the proof of [[prop:iii-k-4-2]], shows that t^♭_* reaches 3/2 along every past directed causal curve from
-p that is past inextendible in X. Second, from the first point p_1 of κ at which t^♭_* ≤ 3/2
-(p_1 := p if t^♭_*(p) ≤ 3/2) on, t^♭_* stays at most 3/2: to exceed it, κ would run in {t^♭_* > 3/2}, where t^♭_* is a
-time function, along an interval starting at a point where t^♭_* = 3/2, and t^♭_* decreases to the past along such an
-interval. Third, beyond p_1, κ therefore lies in {t_IVP > 0, t^♭_* ≤ 3/2} ⊂ 𝒟, where ǧ = g_(0,0): dt_IVP is past
-timelike there, and r ≤ R_1 := max(R, r(p_1)) + 2t_IVP(p_1) along κ beyond p_1
-([[lem:iii-k-6-2]] (a) and (c), the latter at the level 0, with the radius R there). So κ lies in the compact set
-K := {0 ≤ t_IVP ≤ t_IVP(p_1), r_♭ ≤ r ≤ R_1, t^♭_* ≤ 3/2}, on which ǧ is continuous and dt_IVP is past timelike;
-parametrised by t_IVP, it converges in K to a point q, as in the proof of [[lem:ii-f-1-3]]. q is not in
-{r > r_♭, t_IVP > 0}, in which κ is past inextendible, nor in Σ̊, where κ would have an end point in M_gl; so
+*M₊ lies in D_gl.* Let p ∈ π(M₊ ∖ Σ̊) and let 𝔠 be an inextendible causal curve of M_gl through p, run from p to the
+past. Suppose that 𝔠 does not meet Σ̊. Then it stays in the open set π(M₊ ∖ Σ̊) = {r > r_♭, t_IVP > 0}, in which it is
+past inextendible. First, if t^♭_*(p) > 3/2, 𝔠 does not stay in {t^♭_* > 3/2}. The part of this set in {r > r_♭} lies in
+Ω°_*, and the argument of the proof of [[lem:ii-f-1-3]] on Ω°_*, with τ := t^♭_*, the level 3/2 and the compact sets
+L_p ⊂ Ω°_* of [[lem:iii-k-6-1]] (c), applied as in the proof of [[prop:iii-k-4-2]], shows that t^♭_* reaches 3/2 along
+every past directed causal curve from p that is past inextendible in Ω°_*; 𝔠 would be one if it stayed in {t^♭_* > 3/2}.
+Second, from the first point p_1 of 𝔠 at which t^♭_* ≤ 3/2 (p_1 := p if t^♭_*(p) ≤ 3/2) on, t^♭_* stays at most 3/2: to
+exceed it, 𝔠 would run in {t^♭_* > 3/2}, where t^♭_* is a time function, along an interval starting at a point where
+t^♭_* = 3/2, and t^♭_* decreases to the past along such an interval. Third, beyond p_1, 𝔠 therefore lies in
+{t_IVP > 0, t^♭_* ≤ 3/2} ⊂ 𝒟, where ǧ = g_(0,0): dt_IVP is past timelike there, and
+r ≤ R_𝔠 := max(R_s, r(p_1)) + 2t_IVP(p_1) along 𝔠 beyond p_1 ([[lem:iii-k-6-2]] (a) and (c), the latter at the level 0;
+R_s is the radius R of that lemma). So 𝔠 lies in L_𝔠 := {0 ≤ t_IVP ≤ t_IVP(p_1), r_♭ ≤ r ≤ R_𝔠, t^♭_* ≤ 3/2}, a closed
+set, bounded in the coordinates (t, x) as t = t_IVP + ψ_IVP(r), hence compact, on which ǧ = g_(0,0) is continuous and
+dt_IVP is past timelike; parametrised by t_IVP, it converges in L_𝔠 to a point q, as in the proof of [[lem:ii-f-1-3]]. q
+is not in {r > r_♭, t_IVP > 0}, in which 𝔠 is past inextendible, nor in Σ̊, where 𝔠 would have an end point in M_gl; so
 r(q) = r_♭. But g_(b₀)⁻¹(dr, dr) ≤ −c_r < 0 on {r_♭ ≤ r ≤ r^♮}, with dr future timelike for g_(b₀) there
-(the proof of [[lem:s27-below]] (iv)), and h_0 is small in C⁰ on the compact set 𝒟 ∩ {r ≤ R}
-(the proof of [[lem:iii-k-6-2]] (a)), which contains 𝒟 ∩ {r ≤ r^♮} as r^♮ < R₁ < R; so dr is future timelike for ǧ on
-𝒟 ∩ {r ≤ r^♮}. Hence r increases strictly along κ towards q near q, and r(q) > r_♭, a contradiction. So κ meets Σ̊, and
-π(M₊) ⊂ D.
+(the proof of [[lem:s27-below]] (iv)), and h_0 is small in C⁰ on the compact set 𝒟 ∩ {r ≤ R_s}
+(the proof of [[lem:iii-k-6-2]] (a)), which contains 𝒟 ∩ {r ≤ r^♮}, as r^♮ = ½(r_♭ + 7R₁/8) < R₁ ([[def:s12-radii]])
+while R_s ≥ 5R₁, t_IVP = t − C″ holding on {r ≥ R_s} and ψ_IVP = ψ increasing strictly on [3R₁, 5R₁]
+([[lem:iii-b-3-7]] and its proof). So, as in the proof of [[lem:s27-below]] (iv), dr stays timelike for g_(b₀) + s h_0,
+s ∈ [0, 1], on 𝒟 ∩ {r ≤ r^♮}, and it is future timelike for ǧ there, the time orientation of ǧ on 𝒟 being the one that
+continues that of g_(b₀) ([[lem:iii-k-6-2]] (a)). Hence r increases strictly along 𝔠 towards q near q, and r(q) > r_♭, a
+contradiction. So 𝔠 meets Σ̊, and π(M₊) ⊂ D_gl.
 
-*The embedding.* By [Sbi15, Theorem 2.8], (M̂, ĝ, ι̂) is an extension of (D, g_gl, ι): there is a
-time-orientation-preserving isometric embedding ψ : D → M̂ with ψ ∘ ι = ι̂ [Sbi15, Definition 2.2]
-([[thm:std-sbierski]] (2)). Ψ := ψ ∘ π on M₊ is continuous and equal to ι̂ on Σ̊, and on M₊ ∖ Σ̊, where π is an isometry
+*The embedding.* By [Sbi15, Theorem 2.8], (M̂, ĝ, ι̂) is an extension of (D_gl, g_gl, ι): there is a
+time-orientation-preserving isometric embedding j : D_gl → M̂ with j ∘ ι = ι̂ [Sbi15, Definition 2.2]
+([[thm:std-sbierski]] (2)). Ψ := j ∘ π on M₊ is continuous and equal to ι̂ on Σ̊, and on M₊ ∖ Σ̊, where π is an isometry
 of ǧ onto g_gl that preserves the time orientations, it is a time-orientation-preserving isometric embedding. ∎
 
 *Proof of [[thm:own-data]].* *The order k_P.* By [[cor:own-p-order]] the solution g_λ is the same at every order, and
