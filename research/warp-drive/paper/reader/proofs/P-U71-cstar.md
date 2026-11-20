@@ -206,9 +206,9 @@ are charged 2;
 (b) is the loss printed in [[rem:ec-other-losses]] and [[lem:ec-closed-forms]] (g); under the two conditions its
 argument is at most 5 + ε − ½ < 5.
 
-(c) In [[lem:iii-i2-4-1]], (1 − χ′)w has every σ-weight, so δ may be taken 3/2, and β′ = max(N, N − (3/2 − 2ε)) = 5;
-the loss ⌈(3/2 − δ)_+⌉ + ⌈(β′ − ½)_+⌉ is 0 + 5. In [[cor:ii-g1-4-5]], δ = 1 and the output weights are
-(β′_I, N, N), so ℓ_3 = 1 + ⌈(5 − ½)_+⌉ = 6.
+(c) In [[lem:iii-i2-4-1]], (1 − χ′)w has every σ-weight, so δ may be taken 3/2, and
+β′ = max(N, N − (3/2 − 2ε)) = 21/4; the loss ⌈(3/2 − δ)_+⌉ + ⌈(β′ − ½)_+⌉ is 0 + ⌈19/4⌉ = 5. In [[cor:ii-g1-4-5]],
+δ = 1 and the output weights are (β′_I, N, N), so ℓ_3 = 1 + ⌈19/4⌉ = 6.
 
 (d) By [[lem:ec-closed-forms]] (b), (c) with ϑ_in = 0 and s_c = 3, the losses are max(⌈(3 − β_scf)_+⌉, 2) and
 max(⌈(5/2 + ε/2 − β_scf)_+⌉, 2). At the stated β_scf the first ceilings are ⌈3/2 + ε⌉ = 2 and at most
@@ -222,9 +222,10 @@ at most 3 by (a): [[lem:iii-i2-4-1]] states β_ι > ½ at its applications, and 
 ¼ + 3ε/2 at β_scf = β′_I + ε = 3/2 − ε, so ℓ_1 = 2; ℓ_2 = max(⌈(−s_c)_+⌉, ⌈𝗋_out − inf 𝗋⌉) = 0; and with 𝖻 ≡ 0 the
 numbers ν_0 = ⌈(−min(𝖻_out, inf 𝖻))_+ + 1⌉, ν_1 = ⌈(−inf 𝖻)_+⌉ and their counterparts ⌈(max(𝖻_out, sup 𝖻))_+ + 1⌉,
 ⌈(sup 𝖻)_+⌉ for [[eq:ii-g1-4-3a]] are 1, 0, 1, 0, so ν = 1. Hence ℓ_4 = 4, ℓ ≤ 12 + 4 + 3 = 19 and the loss is at
-most 20. In [[lem:iii-i2-4-1]] the rest w is obtained by [[prop:ii-g1-3-3]] (1) and (2) (charges 1 and 3), then
-[[cor:ii-g1-4-2]] (2) (charge 2 by (d)), then [[prop:ii-g1-3-5]] (1) at the weights (3/2 − 2ε, N, N) (charge
-⌈N − ½ + ε⌉ = 5) or (2) (charge 5 by (c)); so at most 3 + 2 + 5 = 10, and 20 + 10 = 30.
+most 20. In [[lem:iii-i2-4-1]] the rest w is obtained by [[prop:ii-g1-3-3]] (1) and (2) (charges 1 and 3, on the two
+frequency ranges of one sum, so at most 3), then [[cor:ii-g1-4-2]] (2) (charge 2 by (d)), then [[prop:ii-g1-3-5]] (1)
+at the weights (3/2 − 2ε, N, N) (charge ⌈19/4 + ε⌉ = 5) or (2) (charge 5 by (c)); so at most 3 + 2 + 5 = 10, and
+20 + 10 = 30.
 
 (f) By [[eq:ec-moment-loss]] the loss is max(⌈(β_K + ½ + ε)_+⌉, ⌈γ + ½⌉) with γ ≤ β_ι − β_I. The three applications
 have (β_I, β_ι, β_K) = (3/2, γ_+ + 1, α̃_K − 1) with γ_+ < 3/2 and α̃_K < 1; (3/2, α^♯_+ + 1, α_K − 1) with
@@ -282,8 +283,10 @@ constant coefficients.
 *tf.* The pieces at zero energy are σ^jχ_zf û_j. By [[lem:iii-i11-2-1]], û_0 has at ∂X the exponents of
 (ℰ^♭ − 1) ∪ (1 + ℰ_col) ∪ (2, ·) and their ℕ₀-shifts, of real part at least 1, as ℰ^♭ ⊂ {Re ≥ 2} and
 ℰ_col ⊂ {Re ≥ 0} ([[lem:iii-i11-1-1]]); for j ≥ 1, û_j has exponents of real part at least η_1 > 0 (Step 2), and the
-factor σ^j adds j at tf. The pieces σ^ju_((α_0,k)) of [[prop:iii-g4-4-4]] have tf-exponents α_0 − 2 + j plus ℕ₀, of
-real part at least 1 (level 1: Re α_0 ≥ 2; level 2: Re α_0 ≥ 1 + η_1). The pieces of level 3 and of the last level
+factor σ^j adds j at tf. The pieces σ^ju_((α_0,k)) of [[prop:iii-g4-4-4]] have tf-exponents in
+α_0 − 2 + j + ((0, 0) ∪ ℰ_ind) and, from the term with G^exc_(s1), in 2 + j and α_0 + j with ℰ_ind added (Step 1.1 of
+the proof of [[prop:iii-g4-4-4]]), all of real part at least 1 (level 1: Re α_0 ≥ 2; level 2: Re α_0 ≥ 1 + η_1;
+min Re ℰ_ind > 0). The pieces of level 3 and of the last level
 are conormal at tf, of tf-weight above 2, and so are the column pieces with non-constant coefficients
 ([[lem:iii-i2-4-3]]: tf-weight at least ℓ_3 + 2 − ε plus the powers of σ they carry). So E_tf ⊂ {Re ≥ 1} and n_ι = 0.
 
@@ -296,8 +299,8 @@ an application of [[prop:iii-g4-4-4]] at a tf-exponent (α_0, k) at the level j 
 α_0 ∈ Λ is the u-exponent; at level 2, Re α_0 ∈ [1 + η_1, 2 + η_2) and α_0 + 1 ∈ Λ is the u-exponent; and the
 logarithmic order k at the tf-exponent is at most k̄ of the u-exponent ([[lem:iii-i10-1-2]] (c),
 [[lem:iii-i13-1-3]] (b)). As Λ ∩ {Re ≤ 3 + ε_+} is real ([[prop:is-lambda]]) and meets (2, 2 + ε_K] in no point ((G)),
-and as the roots of the table are real, and those with −1 < μ < 0 are class roots with −μ ≥ ε_ind > ε_K
-([[sec:iii-g4-1]], [[eq:iii-f1-2-2]], [[eq:iii-i9-1-1]]), a term of real part below
+and as the roots of the table are real, and those with −1 < μ < 0 have −μ ≥ ε_ind > ε_K by [[eq:iii-f1-2-2]]
+([[sec:iii-g4-1]], [[eq:iii-i9-1-1]]), a term of real part below
 1 + ε_K is one of: at level 1, the s1 term with i = 0, of degree α_0 − 2; at level 1 with α_0 = 2, the s1 term with
 i = 1, the v1 term with i = 0 and the terms of the rows with μ = 0 and i = 0, all of degree 1 = 3 − 2; at level 2, the
 s1 term with i = 0, of degree α_0 − 1 = (α_0 + 1) − 2; and the integer degrees 0 = 2 − 2 and 1 = 3 − 2. So every pair
@@ -337,7 +340,8 @@ sources e_S(S′) + e_(S⁰)(S⁰′) (charge 11) to it. In every case this sum 
 columns (2), the division by σ (0), [[prop:iii-g4-5-1]] (9, [[lem:cs-elem]] (f)), [[lem:iii-i6-1-4]] (0), f̂_4 (2),
 L̃_b(0)⁻¹ (1) and f̂_5 (2). Step 3.4′ runs its rounds (charged 0) and applies [[lem:iii-i2-4-2]] at β_scf = 3/2 − 2ε (2,
 [[lem:cs-transforms]] (d)); the row terms U^((i)), B^((i)), Σ^((i))_r of [[lem:iii-i6-1-3]] are fixed sections
-L̃_b(σ)⁻¹(0, E_k) times the coefficients of the row functional (0), and [[eq:iii-i8-3-3]] is a sum. Steps 4–5 of the
+L̃_b(σ)⁻¹(0, E_k) times the coefficients of the row functional (0), and [[eq:iii-i8-3-3]] is a sum; so is
+[[eq:iii-i6-2-8]] of Step 3.5′, whose row term (U_r, B_r, Σ_r) of Step 3.5 is of the same kind (0). Steps 4–5 of the
 proof of [[prop:iii-i6-2-1]] apply [[prop:ii-g1-3-5]] (1) twice, at the output weights (3/2 − 4ε, 2 − 2ε, α_K − 1) and
 (3 − 2ε, 3 − ε, α_K − 1) (5 each, [[lem:cs-transforms]] (b)), [[lem:iii-i3-1-3]], [[lem:iii-i2-4-3]] and
 [[lem:iii-i2-2-1]] (0). Steps 6–7 read coefficients (0). Step 8 applies [[prop:iii-i1-2-1]] (407, [[lem:cs-null]]
