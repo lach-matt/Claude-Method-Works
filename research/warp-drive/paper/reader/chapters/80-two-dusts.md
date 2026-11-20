@@ -676,7 +676,7 @@ contraction does not vanish for λ small, since g0^(uv) = −e^(−2σ).
 (a) ℛ^(−1) = 0, and ℛ^(0) is the coefficient of λ⁰ of R[g0 + λ W + λ² ĝ_2] minus ½ Σ_𝔨 e_1^𝔨 F_𝔨² W_𝔨.
 (b) For m ≥ 1,
 
-    ℛ^(m) = T̂ ĝ_(m+1) + e^(−2σ) F1F2 ĝ_(m+2) − ½ Σ_𝔨 e_(m+1)^𝔨 F_𝔨² W_𝔨 + 𝒲(m_m, φ_m^in, φ_m^out) + 𝒦_m,
+    ℛ^(m) = T̂ ĝ_(m+1) + e^(−2σ) F1F2 ĝ_(m+2) − ½ Σ_𝔨 e_(m+1)^𝔨 F_𝔨² W_𝔨 + 𝒲(m_m, φ_m^in, φ_m^out) + 𝒴_m,
                                                                                                    {#eq:two-dust-stage-m}
 
 where T̂ is linear and is applied to the pure harmonics of ĝ_(m+1) only (here and in (c), T̂ ĝ_(m+1) means T̂ applied
@@ -684,16 +684,16 @@ to the pure part of ĝ_(m+1)), and on profiles Y of the harmonics of θ_𝔨 alo
 the projection onto those harmonics and ℳ algebraic in X and of first order in (θ1, θ2), with smooth bounded coefficients
 built from g0, ϕ_in, ϕ_out and W; 𝒲 is as in [[lem:first-entry]], linear in m_m to second order, with mean part −½ □̃ m_m
 plus terms of first order, and linear in φ_m^𝔨 through dφ_m^𝔨 and □̃φ_m^𝔨, the latter only as −½ (□̃φ_m^𝔨) F_𝔨 W_𝔨; and
-𝒦_m depends only on the earlier stages, among them the mixed harmonics of ĝ_(m+1), fixed at stage m − 1. Only the mixed
+𝒴_m depends only on the earlier stages, among them the mixed harmonics of ĝ_(m+1), fixed at stage m − 1. Only the mixed
 harmonics of ĝ_(m+2) enter ℛ^(m).
 (c) Each stage m ≥ 1 is the system
 
     (a′) −½ □̃ m_m + B̄·∂m_m + C̄ m_m = 𝒮_m − ⟨𝒲_φ⟩ − ⟨T̂ ĝ_(m+1)⟩,
     (b′) ℓ_𝔨·dφ_m^𝔨 = ½ m_m(ℓ_𝔨, ℓ_𝔨) + ½ q_m^𝔨,      𝔨 ∈ {in, out},
-    (c′) Π_𝔨 T̂ ĝ_(m+1) = −Π_𝔨 (𝒲 + 𝒦_m),      𝔨 ∈ {in, out},
-    (d′) e^(−2σ) F1F2 ĝ_(m+2) = −Π_mix (𝒲 + 𝒦_m + T̂ ĝ_(m+1)),                                {#eq:two-dust-stage-system}
+    (c′) Π_𝔨 T̂ ĝ_(m+1) = −Π_𝔨 (𝒲 + 𝒴_m),      𝔨 ∈ {in, out},
+    (d′) e^(−2σ) F1F2 ĝ_(m+2) = −Π_mix (𝒲 + 𝒴_m + T̂ ĝ_(m+1)),                                {#eq:two-dust-stage-system}
 
-with 𝒮_m := −⟨𝒦_m⟩, 𝒲_φ := 𝒲(0, φ_m^in, φ_m^out) and Π_mix the projection onto the mixed harmonics: a wave equation
+with 𝒮_m := −⟨𝒴_m⟩, 𝒲_φ := 𝒲(0, φ_m^in, φ_m^out) and Π_mix the projection onto the mixed harmonics: a wave equation
 for the mean, a transport along its own generator for each phase, a transport along its own generator for the pure
 harmonics of each family, and a division for the mixed harmonics. Given everything of the earlier stages, smooth, it has
 a unique smooth solution on Ω₂ with data (m_m, ∂_τ m_m), φ_m^in, φ_m^out and the pure harmonics of ĝ_(m+1) on Σ_τ0;
@@ -711,10 +711,10 @@ derivatives reaches order m, through the principal part only, as −½ Σ_(𝔧,
 e^(−2σ) F1F2 ĝ_(m+2) ([[lem:two-dust-nonresonance]]); this vanishes on the pure harmonics. The mixed harmonics of
 ĝ_(m+1) reach order m too, hit by one phase derivative, or by two through the cross contraction below; they were fixed
 at stage m − 1 (by (d′), and at m = 1 by [[lem:two-dust-stage-zero]]), and these terms, with their X-derivatives,
-belong to 𝒦_m. The cross contraction ḡ⁻¹(du_in, du_out) = g0^(uv) + Σ_(j≥1) λ^j c_j contributes at order m the terms
+belong to 𝒴_m. The cross contraction ḡ⁻¹(du_in, du_out) = g0^(uv) + Σ_(j≥1) λ^j c_j contributes at order m the terms
 −c_j F1F2 ĝ_(m+2−j), 1 ≤ j ≤ m, which have mixed harmonics only. For j < m they contain only the earlier stages and,
-at j = 1, the mixed harmonics of ĝ_(m+1), and are part of 𝒦_m. For j = m, c_m is a linear function of (m_m, dφ_m^𝔨)
-plus a polynomial in the earlier stages; the first part of −c_m F1F2 ĝ_2 belongs to 𝒲 and the second to 𝒦_m. At m = 1,
+at j = 1, the mixed harmonics of ĝ_(m+1), and are part of 𝒴_m. For j = m, c_m is a linear function of (m_m, dφ_m^𝔨)
+plus a polynomial in the earlier stages; the first part of −c_m F1F2 ĝ_2 belongs to 𝒲 and the second to 𝒴_m. At m = 1,
 c_1 is linear in (m1, dφ_1^𝔨), and −c_1 F1F2 ĝ_2 belongs to 𝒲. T̂ is defined at G1 = g0 + λ (m1 + W) with the phases v +
 λ φ_1^in and u + λ φ_1^out as in [[def:first-stage-operator]], and its form on pure harmonics of θ_𝔨 is that of
 [[lem:first-stage-operator]], with ℓ_𝔨 and ϕ_𝔨: the principal term gives −(ℓ_𝔨·∂_X) F_𝔨 Y − ½ (□̃ϕ_𝔨) F_𝔨 Y − ½ e_1^𝔨
@@ -731,7 +731,7 @@ smooth coefficients and closes without loss, m_m and φ_m^𝔨 in H^(s+1), Ψ_m^
 the proof of [[lem:stage-system]]: the mean by [[lem:linear-wave]] on Ω₂, the transports along ℓ_in by [[lem:transport]]
 (ℓ_in = −e^(−ψ) L0) and along ℓ_out by [[lem:two-dust-transport]], both generators reaching Σ_τ0 inside Ω₂
 ([[lem:two-dust-domain]] (d)). Then (d′) gives the mixed harmonics of ĝ_(m+2), which involve one X-derivative of the
-mixed harmonics of ĝ_(m+1) through 𝒦_m: one derivative per stage, harmless for smooth data and finitely many stages.
+mixed harmonics of ĝ_(m+1) through 𝒴_m: one derivative per stage, harmless for smooth data and finitely many stages.
 
 [[lem:linear-wave]] holds on Ω₂ with the same proof. Besides the shape of Ω and [[lem:domain]] (e), that proof uses g0
 on an open region containing Ω on which τ is a time function, {r > a/2} there. Here fix a′ ∈ (0, a), and let 𝒪 be the

@@ -540,7 +540,7 @@ most C (|k(Φ0♯, ·)| + |k|²) since |k| ≤ 1. ∎
 
 ### Flat-edge bounds {#sec:layer-flat}
 
-*Two structural facts.* (F1) Every monomial of the forcing term −Π_osc(𝒲(m_m, φ_m) + 𝒦_m) of [[eq:stage-system]] (c),
+*Two structural facts.* (F1) Every monomial of the forcing term −Π_osc(𝒲(m_m, φ_m) + 𝒴_m) of [[eq:stage-system]] (c),
 and of the known part of the data of ĝ_(m+1) in [[lem:stage-data]] (i), contains an oscillating factor among W, χ and
 ĝ_l (l ≤ m), carrying at most two derivatives in the first case and at most one in the second; its other factors are
 profiles of [[thm:approximant]], bounded globally, or coefficients built from g0. Indeed a monomial without an
@@ -657,7 +657,7 @@ equations, each costing one radial derivative of the forcing terms, that is one 
 algebraic in these and in known quantities ([[lem:stage-data]] (ii)).
 
 *(a).* Z_(m+1) := ∂_θ ĝ_(m+1) solves the transport of [[lem:layer-transport]] (b) with the 𝓜 above and F :=
-−Π_osc(𝒲(m_m, φ_m) + 𝒦_m). By (F1) each monomial of F has an oscillating factor among W, χ, ĝ_l (l ≤ m), with at most
+−Π_osc(𝒲(m_m, φ_m) + 𝒴_m). By (F1) each monomial of F has an oscillating factor among W, χ, ĝ_l (l ≤ m), with at most
 two derivatives, the other factors bounded globally: F has cost i + 2m at order i. Its data, −Pol⁺(Λ_m(γ_m) + known),
 are bilinear in γ_m (bounded globally) and ∂_θ W, and the known part has an oscillating factor with at most one
 derivative (F1); Pol⁺ is smooth and pointwise: cost i + 2m − 1. [[lem:layer-transport]] (b), commuted to order i, gives
@@ -682,9 +682,9 @@ harmonic are exactly λ⁻¹ k 𝒯 + R_X and λ⁻¹ i k Pol + D_X, so [[eq:lay
 oscillating profiles; Pol Pol⁺ = 1. Hence ∂_θ δ_(m+1) solves the transport of [[lem:layer-transport]] (b) with the
 seed's 𝓜_0 and the forcing term
 
-    −[Π_osc(𝒲 + 𝒦_m) − R_X(Re[H_m e^(iθ)])] − (𝓜 − 𝓜_0) Z_(m+1),
+    −[Π_osc(𝒲 + 𝒴_m) − R_X(Re[H_m e^(iθ)])] − (𝓜 − 𝓜_0) Z_(m+1),
 
-whose bracket is R_X(δ_m) + (R_X^(g0) − R_X)(ĝ_m) + (the monomials of Π_osc 𝒦_m with two or more oscillating
+whose bracket is R_X(δ_m) + (R_X^(g0) − R_X)(ĝ_m) + (the monomials of Π_osc 𝒴_m with two or more oscillating
 factors) + Π_osc 𝒲(m_m, φ_m), R_X^(g0) the operator with g0's coefficients. By (c), (a) at the earlier stages, by (b)
 at stage m and |μ − μ0| ≤ C ε², each part is at most C ε_(i+2m+3)(v)²; 𝓜 − 𝓜_0 has coefficients W, χ, m_1, φ_1,
 μ − μ0, so (𝓜 − 𝓜_0) Z_(m+1) is at most C ε². The data differ by (Pol⁺_(g0) − Pol⁺_seed)(·) + Pol⁺(Λ_m(γ_m)) +
@@ -732,7 +732,7 @@ sense of [[eq:layer-identification]].
 linearised Ric^H on H e^(ikθ) is exactly λ⁻¹ k 𝒯H + R_X H, with no λ⁻² part and R_X independent of k, and its linearised
 D is λ⁻¹ i k Pol(H) + D_X H. So the order-m coefficient of the two-scale expansion, restricted to the terms linear in the
 oscillating profiles and with the seed's coefficients, is Re[(𝒯H_(m+1) + R_X H_m) e^(iθ)] (the term T̂ ĝ_(m+1) of
-[[eq:stage-m]] and the part of 𝒦_m linear in ĝ_m), and the order-m oscillating part of D is Re[(i Pol H_(m+1) + D_X H_m)
+[[eq:stage-m]] and the part of 𝒴_m linear in ĝ_m), and the order-m oscillating part of D is Re[(i Pol H_(m+1) + D_X H_m)
 e^(iθ)]; [[lem:stage-data]] (i) solves the latter on Σ_τ0 by i Pol⁺(D_X H_m). (ii) *The means and phases have no part of
 first degree:* this is [[lem:layer-flat]] (b), which rests on (F2). (iii) *The fixed-phase rewriting.* By the proof of
 [[thm:approximant]], g_j is the λ^j coefficient of the means and of the sum Σ_l λ^l ĝ_l(X, θ + φ1 + λΨ), Ψ := Σ_(i≥2)

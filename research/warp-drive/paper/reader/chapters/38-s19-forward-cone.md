@@ -4,7 +4,7 @@
 
 This chapter solves the linearised gauge-fixed Einstein equation forward in time around the backgrounds of the
 nonlinear iteration: a patched Myers–Perry metric g_(b₀,b,−S), equal to g_b near K⁺ and to a boosted g_(b₀) near
-null infinity, plus a perturbation h that decays at 𝓘⁺, ι⁺ and K⁺. It writes out [Hin26, Section 11 (opening) and
+null infinity, plus a perturbation h that decays at ℐ⁺, ι⁺ and K⁺. It writes out [Hin26, Section 11 (opening) and
 Sections 11.1–11.3] in dimension 4 + 1, together with the uniformity in the black hole parameter that [Hin26] uses
 there.
 
@@ -16,25 +16,25 @@ needs, on one fixed neighbourhood of b₀ and with constants uniform in b: stron
 b, which gives 2-admissibility for every order k of b-regularity ([[prop:iii-h2-1-1]], [[thm:iii-h2-2-1]]), and the
 forward solution theory of [[ch:s09]] uniformly over the stationary models 2L_b ([[thm:iii-h2-3-1]],
 [[thm:iii-h2-4-1]]). Forward solutions near b₀, continuous in b, follow ([[cor:iii-h2-5-1]]). [[sec:iii-i1-1]]–
-[[sec:iii-i1-3]] give the partial polyhomogeneity of solutions at 𝓘⁺ and formal solutions there, and
+[[sec:iii-i1-3]] give the partial polyhomogeneity of solutions at ℐ⁺ and formal solutions there, and
 [[sec:iii-i2-1]]–[[sec:iii-i2-5]] improve the forward solutions at ι⁺ and K⁺ for sources with more decay
 ([[prop:iii-i2-5-1]]).
 
 *What changes in dimension 4 + 1.* (1) The contributions of the perturbation h to the operator at null infinity are
 half an order lower than the constant matrix Ā of [[lem:iii-c-4-2]] ([[prop:iii-c-4-4]], [[rem:iii-c-4-5]]). So the
-leading part of L^(g,g_0) at 𝓘⁺ is that of L_b, 2L^(g,g_0) is admissible relative to 2L_b with p_0 = p̃_1 = 0, and the
+leading part of L^(g,g_0) at ℐ⁺ is that of L_b, 2L^(g,g_0) is admissible relative to 2L_b with p_0 = p̃_1 = 0, and the
 restriction ℓ_I < 2γ_Υ of [Hin26, Lemma 11.5] disappears ([[lem:iii-i-2-2]]). (2) At ι⁺ the differences of the
 backgrounds (mass, rotation, cut-off boost) are of order 2, where [Hin26] has 1, and the curvature of the patched
 background is of order 4, where [Hin26] has 3 ([[lem:iii-i-3-6]], [[lem:iii-i-4-3]]). (3) The forward solutions have
-sf-loss 0 and their weights at 𝓘⁺ reach 3/2, the order of a radiation field ([[thm:iii-i-5-3]]). (4) The trapping
+sf-loss 0 and their weights at ℐ⁺ reach 3/2, the order of a radiation field ([[thm:iii-i-5-3]]). (4) The trapping
 bound holds at every b near b₀ with a frame built from the null geometry alone, and the ι⁺-normal operator of 2L_b
-does not depend on b ([[prop:iii-h2-1-1]], [[lem:iii-h2-3-2]]). (5) At 𝓘⁺ the first exponent of a solution is 3/2, in
+does not depend on b ([[prop:iii-h2-1-1]], [[lem:iii-h2-3-2]]). (5) At ℐ⁺ the first exponent of a solution is 3/2, in
 the slot π̸₀ only; π₁₁ u has no term at 3/2; and formal solutions remove one exceptional term,
 5/2 + (1 − e_Υ)γ_Υ in the 11-component, where [Hin26] removes two ([[lem:iii-i1-2-2]], [[prop:iii-i1-3-1]]). (6) The
 Fourier transforms of the cut-off zero energy states decay rapidly at scf and lie one order deeper at tf
 ([[lem:iii-i2-4-3]]). So the singular part of the low-frequency resolvent does not limit the decay at ι⁺: forward
 solutions keep the ι⁺-weight min(α_+, 3/2, min Re ℰ_+) − ε at every K⁺-weight α_K − 2, α_K ∈ [1/2, 1), where [Hin26]
-has α_K − ε ([[prop:iii-i2-5-1]]). The cap 3/2 is the transport of the radiation field's order from 𝓘⁺; in dimension
+has α_K − ε ([[prop:iii-i2-5-1]]). The cap 3/2 is the transport of the radiation field's order from ℐ⁺; in dimension
 3 + 1 it is 1.
 
 *Notation and the inner radius.* The notation is that of [[ch:s04]]–[[ch:s10]] and of [[ch:s11]], [[ch:s13]]–
@@ -45,7 +45,7 @@ linearisation [[eq:iii-c-4-1]] of the gauge-fixed Einstein operator P(g, g_0) of
 L^(g_b,g_b) = L_b. The radii r_0 − 2δ_0 < r_0 < r_2 of the artificial boundary are those of [[def:s12-radii]], with
 r_0 = r_♭ ∈ (0, ½R₁], the inner radius of the spacetime of [[ch:s11]]; then the artificial boundary of the spaces of
 [[ch:s04]]–[[ch:s10]] is the inner boundary of that spacetime. Every result of the chapter holds for each such r_♭, with
-constants and neighbourhoods of b₀ that may depend on it. The slots of a symmetric 2-tensor near 𝓘⁺ are those of
+constants and neighbourhoods of b₀ that may depend on it. The slots of a symmetric 2-tensor near ℐ⁺ are those of
 [[def:iii-c-1-2]], in the splitting [[eq:iii-c-1-6]]: slots 1–3 form π_C, and slots 4, 5, 6, 7 are π₀₁, π_(1/), π̸₀
 and π₁₁. The eigenvalues of Ā ([[eq:iii-c-4-3]]) on the slots 6, 4, 5, 7 are the elements 0, (1 − e_Υ)γ_Υ, γ_Υ,
 2γ_Υ of the set σ_Υ of [[sec:iii-c-3]], and those on the slots 1–3 are the elements 2(1 − v_C)γ_C, (1 − v_C)γ_C,
@@ -70,18 +70,18 @@ a further condition of the same kind as those of [[sec:iii-b-5]] (supports in {t
 with them.
 
 *Time function and domain.* t^♭_* is the function of [[lem:ii-c-3-2]] with ℓ = ½, built for g_(b₀) ([Hin26, (11.3)]),
-and Ω_* := cl_M{t^♭_* ≥ 1} ⊂ Ω = cl_M{t_* ≥ 1} ([Hin26, (11.4)]). Near 𝓘⁺, (t_*/r)^(1/2) is a smooth positive
+and Ω_* := cl_M{t^♭_* ≥ 1} ⊂ Ω = cl_M{t_* ≥ 1} ([Hin26, (11.4)]). Near ℐ⁺, (t_*/r)^(1/2) is a smooth positive
 multiple of the x_I of [[sec:iii-i-2]], so t^♭_*/t_* = 1 − (t_*/r)^(1/2) is smooth on M_(1/2) there ([[lem:ii-c-3-2]]
 (a)); [[ch:s27]] uses the exponent ½ for this reason.
 
-*The class parameter.* A number ℓ_I ∈ (0, ½) is fixed once and for all. It is the e3b-weight at 𝓘⁺ of the classes of
+*The class parameter.* A number ℓ_I ∈ (0, ½) is fixed once and for all. It is the e3b-weight at ℐ⁺ of the classes of
 admissible operators of [[thm:iii-i-5-3]] and [[thm:iii-h2-4-1]]. The value ½ is excluded for it because
 [[eq:iii-i-3-7]] fails there (see its proof); [Hin26] likewise takes ℓ_I < ½. In [[thm:ii-f1-1-1]] the exponent of the
 time function and the weight of the class are one number; here the exponent ½ exceeds ℓ_I, and the forward solution
 theory of [[ch:s09]] is applied in the form of [[rem:ii-f1-7-4]], which allows this.
 
 L²-based spaces on Ω_* use the unweighted b-density μ_b = |dt_* dx|/(t_*⟨x⟩⁴) of [[cor:ii-f1-1-2]] ([Hin26] has
-t_*⁻¹⟨x⟩⁻³|dt_* dx|), and weights are listed at (𝓘⁺, ι⁺, K⁺), with the defining functions ρ_I, ρ_+, ρ_K of
+t_*⁻¹⟨x⟩⁻³|dt_* dx|), and weights are listed at (ℐ⁺, ι⁺, K⁺), with the defining functions ρ_I, ρ_+, ρ_K of
 [[eq:iii-b-2-2]].
 
 **Definition {#def:iii-i-1-1}** (Metric perturbations and their sources; [Hin26, Definition 11.3] in dimension 4 + 1.)
@@ -93,19 +93,19 @@ and let ℰ_I^C satisfy [[def:iii-c-3-1]] (2)–(3), with ℰ_I^tot, ℰ_(I,01),
 as there ([[eq:iii-c-3-1]]–[[eq:iii-c-3-2]], [[eq:iii-c-5-1]]). Let ℓ_I, ℓ_+, ℓ_K ∈ ℝ.
 
 (1) For k ≥ 5, H^(k,(⟨ℰ_I^C⟩,ℓ_I),(ℰ_+,ℓ_+),ℓ_K)_b(Ω_*) is the space of real symmetric 2-tensors h whose slot
-components near 𝓘⁺ lie in H^(k,(ℰ,ℓ_I),(ℰ_+,ℓ_+),ℓ_K)_b with ℰ = ℰ_I^C for π_C, ℰ_(I,01) for π₀₁, ℰ_(I,1/) for π_(1/),
+components near ℐ⁺ lie in H^(k,(ℰ,ℓ_I),(ℰ_+,ℓ_+),ℓ_K)_b with ℰ = ℰ_I^C for π_C, ℰ_(I,01) for π₀₁, ℰ_(I,1/) for π_(1/),
 ℰ̸_(I,0) for π̸₀ and ℰ_(I,11) for π₁₁ ([[eq:iii-c-3-3]] with ι⁺ in place of I⁰).
 
 (2) For k ≥ 3, H^(k,(⟨ℰ_I^C+1⟩′,ℓ_I+1),(ℰ_++2,ℓ_++2),ℓ_K)_b(Ω_*) is the space of f with π_C f, π₀₁ f, π_(1/) f,
-π̸₀ f in (ℰ_I^C + 1, ℓ_I + 1) and π₁₁ f in (ℱ_(I,11), ℓ_I + 1) at 𝓘⁺, all in (ℰ_+ + 2, ℓ_+ + 2) at ι⁺, and of
+π̸₀ f in (ℰ_I^C + 1, ℓ_I + 1) and π₁₁ f in (ℱ_(I,11), ℓ_I + 1) at ℐ⁺, all in (ℰ_+ + 2, ℓ_+ + 2) at ι⁺, and of
 weight ℓ_K at K⁺ ([[def:iii-c-5-1]]).
 
-(3) H^(k,(⟨(3,0)⟩₀,ℓ_I),(ℰ_+,ℓ_+),ℰ_K)_b(Ω_*) is the class of [[def:iii-c-3-3]] at 𝓘⁺ ((3, 0) for every slot but
+(3) H^(k,(⟨(3,0)⟩₀,ℓ_I),(ℰ_+,ℓ_+),ℰ_K)_b(Ω_*) is the class of [[def:iii-c-3-3]] at ℐ⁺ ((3, 0) for every slot but
 π₁₁, (2, 0) for π₁₁), with (ℰ_+, ℓ_+) at ι⁺ and the index set ℰ_K at K⁺.
 
 [Hin26] has (1, 0) ∈ ℰ_+ and min Re ℰ_+ ≥ 1: (1, 0) is the ι⁺-order of its background differences, which in dimension
 4 + 1 is 2 ([[lem:iii-i-3-6]]). The condition min Re ℰ_+ > 1 is what [[lem:iii-i-2-2]] and [[prop:iii-i-4-1]] use.
-Later chapters may raise min Re ℰ_+; the exponent 3/2 + (1 − e_Υ)γ_Υ that formal solutions at 𝓘⁺ produce
+Later chapters may raise min Re ℰ_+; the exponent 3/2 + (1 − e_Υ)γ_Υ that formal solutions at ℐ⁺ produce
 ([[prop:iii-i1-3-1]]) lies above it.
 
 *The class of perturbations.* With parameters a_I > 3/2, a_+ > 1, a_K > 2, put
@@ -120,20 +120,20 @@ and a_+; the values are chosen where the iteration needs them, from [[ch:s20]] o
 ### The edge-3b class {#sec:iii-i-2}
 
 This section is [Hin26, Lemma 11.5 and (11.12)–(11.14)] in dimension 4 + 1. On M_(1/2) ([[def:iii-b-2-1]]) put
-x_I := ρ_I^(1/2). Near 𝓘⁺, with the null coordinates x⁰ = t + |x|, x¹ = t − |x| and r dω the rescaled angular
+x_I := ρ_I^(1/2). Near ℐ⁺, with the null coordinates x⁰ = t + |x|, x¹ = t − |x| and r dω the rescaled angular
 coframe, the tensors
 
     x_I²(dx⁰)²,  dx⁰ ⊗_s dx¹,  x_I dx⁰ ⊗_s r dω,  x_I⁻²(dx¹)²,  x_I⁻¹ dx¹ ⊗_s r dω,  r dω ⊗_s r dω       {#eq:iii-i-2-1}
 
 span x_I⁻²ρ_+⁻² C^∞(Ω_(*,1/2); S² ᵉ³ᵇT*M_(1/2)), and [[eq:iii-i-2-1]] with the factors of x_I dropped is a global
-frame away from 𝓘⁺ ([Hin26, (11.13)]).
+frame away from ℐ⁺ ([Hin26, (11.13)]).
 
 **Lemma {#lem:iii-i-2-1}** (The frame.) [[eq:iii-i-2-1]] is a frame of x_I⁻²ρ_+⁻² C^∞(S² ᵉ³ᵇT*) over Ω_(*,1/2).
 
-*Proof.* By [[lem:ii-a-2-5]], as used in the proof of [[lem:ii-c-3-2]], near 𝓘⁺ the covectors e_1 := x_I⁻¹ dt_*,
+*Proof.* By [[lem:ii-a-2-5]], as used in the proof of [[lem:ii-c-3-2]], near ℐ⁺ the covectors e_1 := x_I⁻¹ dt_*,
 e_2 := x_I dr and r dω span ρ_+⁻¹x_I⁻¹ C^∞(ᵉ³ᵇT*). With dt_* = dx¹ + O(|x|⁻²) d|x| ([[lem:iii-c-1-3]] and its proof)
 and dr = d|x|, we have x_I⁻¹dx¹ = e_1 + O(ρ²x_I⁻²)e_2 and x_I dx⁰ = x_I²e_1 + 2e_2 + O(ρ²)e_2, an invertible smooth
-change of frame (ρ = |x|⁻¹, and ρ²x_I⁻² = ρ_+²ρ_I ≤ 1). Symmetric products give [[eq:iii-i-2-1]]. Away from 𝓘⁺, x_I is
+change of frame (ρ = |x|⁻¹, and ρ²x_I⁻² = ρ_+²ρ_I ≤ 1). Symmetric products give [[eq:iii-i-2-1]]. Away from ℐ⁺, x_I is
 bounded below and the same products of dt, dx^i span; near K⁺ they span x_I⁻²ρ_+⁻² S² ᵉ³ᵇT* themselves, with no
 rescaling by ⟨x⟩ ([[sec:ii-c-5-1]]). ∎
 
@@ -145,21 +145,21 @@ k ≥ 3. Then h ∈ 𝒢̃^(k−3,(2ℓ_I,ℓ_+,ℓ_K))_b ([[def:ii-c-3-1]]) for
 with ‖h‖_(𝒢̃^(k−3,(2ℓ_I,ℓ_+,ℓ_K))_b) ≤ C‖h‖_(𝒳^k). [Hin26] needs ℓ_I < min(2γ_Υ, ½) and ℓ_+ < 1.
 
 *Proof.* b-Sobolev embedding for μ_b (dim M = 5, three derivatives) gives, slot by slot, sup bounds with k − 3
-b-derivatives: at 𝓘⁺ by the least real part of the slot's index set (the expansion terms) or by a_I, whichever is
+b-derivatives: at ℐ⁺ by the least real part of the slot's index set (the expansion terms) or by a_I, whichever is
 smaller; at ι⁺ by min(a_+, min Re ℰ_+) − ε > 1 ≥ ℓ_+ for ε small; at K⁺ by a_K ≥ ℓ_K. In powers of x_I the slot
 components are: h_00, h_0ā, tr̸ h of order > 3 + 4γ_Υ; h_01 and h_11 of order ≥ 3 + 2(1 − e_Υ)γ_Υ; h_1ā of order
 ≥ 3 + 2γ_Υ; π̸₀ h of order 3 ([[def:iii-i-1-1]] (1), [[eq:iii-c-3-2]]). The coefficients of h in the frame
 [[eq:iii-i-2-1]] are x_I⁻²h_00, h_01, x_I⁻¹h_0ā, x_I²h_11, x_I h_1ā and h_āb̄, of x_I-orders at least 1 + 4γ_Υ, 3,
 2 + 4γ_Υ, 5, 4 and 3, all ≥ 1 ≥ 2ℓ_I. These are the orders of the index sets; where a_I is smaller, a slot has
 x_I-order 2a_I (less ε for logarithms), and the least coefficient order is then 2a_I − 2 − ε > 1, so the conclusion
-stands. Away from 𝓘⁺ the coefficients are the Cartesian components times bounded factors. So the coefficients lie in
+stands. Away from ℐ⁺ the coefficients are the Cartesian components times bounded factors. So the coefficients lie in
 C^(k−3,(2ℓ_I,ℓ_+,ℓ_K))_b, which is the claim. ∎
 
 In dimension 3 + 1 the coefficient x_I⁻²h_00 has order 4γ_Υ, which is the restriction ℓ_I < 2γ_Υ of [Hin26]; in
 dimension 4 + 1 the extra power of x_I in the radiation order 3/2 removes it. As in [Hin26, footnote 103], ℓ_I denotes
 two weights, which are not compared. It is an e3b-weight in [[lem:iii-i-2-2]], where it ranges over (0, ½], in
 [[eq:iii-i-3-7]] and [[cor:iii-i-5-2]], where it ranges over (0, ½), and in [[thm:iii-i-5-3]] and [[thm:iii-h2-4-1]],
-where it is the class parameter fixed in [[sec:iii-i-1]]; it is a b-weight at 𝓘⁺ in [[def:iii-i-1-1]],
+where it is the class parameter fixed in [[sec:iii-i-1]]; it is a b-weight at ℐ⁺ in [[def:iii-i-1-1]],
 [[prop:iii-i-4-1]] and from [[sec:iii-i1-1]] on. The exponent ½ of the time function t^♭_* is neither.
 
 *Consequences.* Let g = g_(b₀,b,−S) + h. By [[lem:iii-i-2-2]] with ℓ_I = ½ and k = 3, ‖h‖_(𝒢̃^(0,(1,0,0))_(e3b)) ≤
@@ -170,7 +170,7 @@ are small, and then dt^♭_* is past timelike for g by [[lem:ii-c-3-2]] (2), wit
 bound). By [[lem:iii-i-2-2]] and [[lem:iii-i-3-6]], such g lie in the class 𝒢^((0;k−3),(2ℓ_I,ℓ_+,ℓ_K))_(e3b;b) of
 asymptotically stationary metrics of [[def:ii-c-3-1]], with g_b in place of g₀ (cf. [Hin26c, Definition 5.15]), for
 ℓ_I, ℓ_+, ℓ_K as in [[eq:iii-i-2-2]]. Smallness of h in H^(3,(1,0,0))_b makes x_I²ρ_+²g non-degenerate and Lorentzian
-([[rem:s05-metric-class]] (b)): by the coefficients in the proof of [[lem:iii-i-2-2]], the weight 1 at 𝓘⁺ suffices
+([[rem:s05-metric-class]] (b)): by the coefficients in the proof of [[lem:iii-i-2-2]], the weight 1 at ℐ⁺ suffices
 ([Hin26, footnote 104]).
 
 ### The structure in the forward cone {#sec:iii-i-3}
@@ -182,7 +182,7 @@ This section is [Hin26, Proposition 11.6 and Remark 11.7] in dimension 4 + 1.
     ρ_+ := 1/(t_* + 1),   ρ_I := (t_* + 1)/|x|,   ρ := |x|⁻¹ = ρ_+ρ_I,   X_+ := ρ_+∂_(ρ_+),   X_I := ρ_I∂_(ρ_I).
                                                                                                   {#eq:iii-i-3-1}
 
-With ω these are smooth coordinates near 𝓘⁺ ∩ ι⁺, and there they are smooth positive multiples of the functions ρ_+,
+With ω these are smooth coordinates near ℐ⁺ ∩ ι⁺, and there they are smooth positive multiples of the functions ρ_+,
 ρ_I of [[eq:iii-b-2-2]] (by [[eq:iii-b-2-2]] and t_* = t − |x| + C′ − 8m₀|x|⁻¹ on {|x| ≥ 3R₁}); so they define the
 same faces and the same b-structure.
 
@@ -192,7 +192,7 @@ same faces and the same b-structure.
 
 The Cartesian derivatives ∂_t, ∂_(x^i) lie in ρ_+𝒱_b(U⁺_C), and |x|⁻¹∂_ω ∈ ρ_+ρ_I𝒱_b(U⁺_C). Near K⁺ (ρ_I → ∞) the
 functions [[eq:iii-i-3-1]] are not coordinates, and the weights there are those of [[eq:iii-b-2-2]]; [[lem:iii-i-3-2]]
-and [[prop:iii-i-3-3]]–[[prop:iii-i-3-4]] use this lemma near 𝓘⁺ ∪ (ι⁺)° only, and the proof of [[prop:iii-i-3-4]]
+and [[prop:iii-i-3-3]]–[[prop:iii-i-3-4]] use this lemma near ℐ⁺ ∪ (ι⁺)° only, and the proof of [[prop:iii-i-3-4]]
 treats K⁺ separately.
 
 *Proof.* At fixed ρ, ∂_(t_*)ρ_+ = −ρ_+² and ∂_(t_*)ρ_I = ρ = ρ_+ρ_I; at fixed t_*, ρ_+ is constant and ρ_I is a constant
@@ -226,11 +226,11 @@ frame dt_*, dx^i is non-degenerate of Lorentzian signature at every point of the
 with, on U⁺ ∩ {ρ_I ≤ 1}, g_0 − η ∈ ρ_+²ρ_I²C^∞ and π(g_0 − η) ∈ ρ_+²ρ_I³C^∞ for π ≠ π₁₁ ([[def:iii-c-3-4]] with ρ_+
 for ρ_0). The components of g_0 ∈ 𝒢⁺, and by Cramer's rule those of g_0⁻¹, are smooth on a neighbourhood of Ω_* in M,
 so they lie in C^∞_b. g_b lies in 𝒢⁺ for b near b₀: its components and inverse lie in C^∞(M) ([[prop:iii-b-3-6]]),
-and near 𝓘⁺ ∩ ι⁺, g_b − η = (g_b − g_(b₀)) + (g_(b₀) − η) = m|x|⁻²(dx¹)² + |x|⁻³C^∞ (the proof of [[lem:iii-i-3-6]]),
+and near ℐ⁺ ∩ ι⁺, g_b − η = (g_b − g_(b₀)) + (g_(b₀) − η) = m|x|⁻²(dx¹)² + |x|⁻³C^∞ (the proof of [[lem:iii-i-3-6]]),
 whose slot π₁₁ has order ρ_+²ρ_I² and whose other slots have order ρ_+³ρ_I³. g_(b₀,b,−S) lies in 𝒢⁺ by
 [[lem:iii-i-3-6]].
 
-**Proposition {#prop:iii-i-3-3}** (The leading part at 𝓘⁺; [Hin26, Proposition 11.6 (1)] in dimension 4 + 1.) Let
+**Proposition {#prop:iii-i-3-3}** (The leading part at ℐ⁺; [Hin26, Proposition 11.6 (1)] in dimension 4 + 1.) Let
 g_1, g_0 ∈ 𝒢⁺, k ≥ 5, and h ∈ 𝒳^k with small H^(3,(1,0,0))_b-norm. Then g := g_1 + h satisfies, on U⁺ ∩ {ρ_I ≤ 1}, in
 the splitting [[eq:iii-c-1-6]],
 
@@ -245,11 +245,11 @@ series used there (whose convergence needs smallness in H^k). The change of fram
 ρ² = ρ_+²ρ_I²) turns S̄ into Ā ([[lem:iii-c-4-2]]). The backgrounds (g_1, g_0) differ from (g_b, g_b) by
 ρ_+²ρ_I²C^∞, which with the two factors ρ_+ from the derivatives gives ρ_+⁴ρ_I²C^∞ Diff²_b. The perturbation, counted
 as in [[lem:iii-c-4-3]] with Cartesian derivatives in ρ_+𝒱_b ([[lem:iii-i-3-1]]) and c_C, c_Υ ∈ ρ_+ρ_I C^∞, gives
-ρ_+² times H^(k−2)-functions of the index sets of h: ℰ_I^tot at 𝓘⁺ ([[lem:iii-c-3-2]] (b)–(c)), and ℰ_+ at ι⁺
+ρ_+² times H^(k−2)-functions of the index sets of h: ℰ_I^tot at ℐ⁺ ([[lem:iii-c-3-2]] (b)–(c)), and ℰ_+ at ι⁺
 (jℰ_+ ⊂ ℰ_+ for the Taylor terms of g⁻¹, [[lem:iii-c-2-1]] with the weights (a_I, a_+)). ∎
 
-So, as at I⁰ ∩ 𝓘⁺, the leading part has the constant lower-triangular Ā and no h-dependent term. The terms A^h − A_0
-and B^h of [Hin26] are part of the error, of 𝓘⁺-order 3/2 against the leading order 1 ([[prop:iii-c-4-4]],
+So, as at I⁰ ∩ ℐ⁺, the leading part has the constant lower-triangular Ā and no h-dependent term. The terms A^h − A_0
+and B^h of [Hin26] are part of the error, of ℐ⁺-order 3/2 against the leading order 1 ([[prop:iii-c-4-4]],
 [[rem:iii-c-4-5]]). The edge-b form [Hin26, (11.17b)] is not needed: [[cor:iii-i-5-2]] uses [[eq:iii-i-3-7]] instead.
 
 **Proposition {#prop:iii-i-3-4}** (The difference from L_b; [Hin26, Proposition 11.6 (2)] in dimension 4 + 1.) Let
@@ -267,32 +267,32 @@ for ℓ_I ∈ (0, ½), ℓ_+ ∈ (0, 1] and ℓ_K ∈ (0, a_K], the latter with 
 C depending on k, on ℓ_I and on an upper bound for ‖h‖_(𝒳^k).
 
 [Hin26, (11.18a)–(11.18b)] carry in addition the term χ_Iρ_Iρ_+²((A^h − A_0)(ρ_I∂_(ρ_I) − ρ_+∂_(ρ_+)) + ρ_+⁻¹B^h),
-which contains a term of leading order at 𝓘⁺; in dimension 4 + 1 it is part of the error.
+which contains a term of leading order at ℐ⁺; in dimension 4 + 1 it is part of the error.
 
 *Proof.* Write g − g_b = (g_(b₀,b,−S) − g_b) + h, and g_0 − g_b. By [[lem:iii-i-3-6]] below, g_(b₀,b,−S) − g_b is
 supported where χ_K < 1, so away from K⁺, and lies in H^(∞,(⟨(3,0)⟩₀,∞),((2,0),∞),∞)_b ⊂ 𝒳^∞ ([[def:iii-c-3-3]] and
 [[lem:iii-c-3-2]] (a); (2, 0) ∈ ℰ_+); the same holds for g_0 − g_b under [[eq:iii-i-3-5]]. So both differences are of
 the class of h, and [[lem:iii-c-4-3]] applies to L^(g,g_0) − L^(g_b,g_b) with δ in 𝒳^k. Cartesian derivatives lie in
-ρ_+𝒱_b near 𝓘⁺ ∪ ι⁺ ([[lem:iii-i-3-1]], and in the interior of ι⁺ by homogeneity) and in ρ_+𝒱_(3b) ⊂ ρ_+𝒱_b near K⁺
+ρ_+𝒱_b near ℐ⁺ ∪ ι⁺ ([[lem:iii-i-3-1]], and in the interior of ι⁺ by homogeneity) and in ρ_+𝒱_(3b) ⊂ ρ_+𝒱_b near K⁺
 (as in [Hin26]); the counting gives ρ_+² times H^(k−2)-functions of the class of 𝒳^k, which is [[eq:iii-i-3-6]]
 (ρ_+² shifts the data at ι⁺ by 2; at K⁺, ρ_+² is bounded and the weight is a_K).
 
-For [[eq:iii-i-3-7]]: near 𝓘⁺, ∂_0 ∈ x_I²ρ_+𝒱_(e3b), ∂_1 ∈ ρ_+𝒱_(e3b) and |x|⁻¹∂_ω ∈ x_Iρ_+𝒱_(e3b) ([Hin26, (11.12)],
+For [[eq:iii-i-3-7]]: near ℐ⁺, ∂_0 ∈ x_I²ρ_+𝒱_(e3b), ∂_1 ∈ ρ_+𝒱_(e3b) and |x|⁻¹∂_ω ∈ x_Iρ_+𝒱_(e3b) ([Hin26, (11.12)],
 which does not depend on the dimension), so all Cartesian derivatives lie in ρ_+𝒱_(e3b). A coefficient c of the
 counting carries a factor δ, or a b-derivative of order at most two of δ, whose slot components have x_I-order at
 least 3 (the least slot order, 3/2 in ρ_I, that of the radiation term of π̸₀h, (3/2, 0) ∈ ℰ̸_(I,0)). So
-c ∂∂ ∈ x_I²ρ_+² · x_I c′ Diff²_(e3b) with c′ := x_I⁻³c, and x_I c′ = x_I^(2ℓ_I) · x_I^(1−2ℓ_I)c′. Near 𝓘⁺ the factor
+c ∂∂ ∈ x_I²ρ_+² · x_I c′ Diff²_(e3b) with c′ := x_I⁻³c, and x_I c′ = x_I^(2ℓ_I) · x_I^(1−2ℓ_I)c′. Near ℐ⁺ the factor
 x_I⁻³δ is a sum of expansion terms ρ_I^(z−3/2)(log ρ_I)^j a_(z,j), with Re z ≥ 3/2, and of a remainder in
 ρ_I^(a_I−3/2)H^k_b ⊂ H^k_b (a_I > 3/2); b-derivatives keep this form. Multiplied by x_I^(1−2ℓ_I) = ρ_I^(½−ℓ_I), an
 expansion term becomes ρ_I^(z−1−ℓ_I)(log ρ_I)^j a_(z,j), with σ := Re(z − 1 − ℓ_I) ≥ ½ − ℓ_I > 0; such a term and its
-b-derivatives, which are of the same form, lie in L²(μ_b) near 𝓘⁺, as ∫_0^1 ρ_I^(2σ)|log ρ_I|^(2j) dρ_I/ρ_I < ∞
-(μ_b is a b-density at 𝓘⁺). The other factors of c lie in C^∞_b or in H^(k−2)_b ∩ L^∞ (further factors of δ and
+b-derivatives, which are of the same form, lie in L²(μ_b) near ℐ⁺, as ∫_0^1 ρ_I^(2σ)|log ρ_I|^(2j) dρ_I/ρ_I < ∞
+(μ_b is a b-density at ℐ⁺). The other factors of c lie in C^∞_b or in H^(k−2)_b ∩ L^∞ (further factors of δ and
 their b-derivatives, and components of g⁻¹ − g_b⁻¹, by [[lem:s19-inverse]] as applied after it), so by
-[[lem:s19-products]] (a) and (c), x_I^(1−2ℓ_I)c′ ∈ H^(k−2)_b near 𝓘⁺, with norm at most C, depending on ℓ_I, times
+[[lem:s19-products]] (a) and (c), x_I^(1−2ℓ_I)c′ ∈ H^(k−2)_b near ℐ⁺, with norm at most C, depending on ℓ_I, times
 the norms of the factors. Here ℓ_I < ½ is needed: the coefficient a_(3/2,0) of the radiation term of π̸₀h need not
-vanish on 𝓘⁺, and it enters c without further decay (for instance through the second derivatives of π̸₀h along ∂_1
+vanish on ℐ⁺, and it enters c without further decay (for instance through the second derivatives of π̸₀h along ∂_1
 in the curvature term); at ℓ_I = ½ the corresponding term of x_I^(1−2ℓ_I)c′ is a function of (t_*, ω) that is not
-zero in general, and such a function is not in L²(μ_b) near 𝓘⁺. At ι⁺ the factor has order > 1 ≥ ℓ_+, and at K⁺
+zero in general, and such a function is not in L²(μ_b) near ℐ⁺. At ι⁺ the factor has order > 1 ≥ ℓ_+, and at K⁺
 order a_K ≥ ℓ_K. The b-regularity of the coefficients is k − 2, and the e3b-vector fields are b-vector fields on
 M_(1/2). The norm bound is linear in the factors δ, whose norms add up to at most C(|b − b₀| + |S|) + ‖h‖; the other
 factors are bounded in terms of an upper bound for ‖h‖_(𝒳^k). ∎
@@ -302,7 +302,7 @@ for the density μ_b, with the quotient norm, and wH^k_b(Ω_*) := {u : w⁻¹u �
 w = ρ_I^(w_I)ρ_+^(w_+)ρ_K^(w_K), w_I, w_+, w_K ∈ ℝ; likewise wL^∞. 𝒱_0 is a finite set of b-vector fields spanning the
 b-vector fields over C^∞_b on Ω_* (t_*∂_(t_*) and the r∂_(x^i), [[sec:ii-f1-1-1]]). [[cor:std-moser-product]] is stated
 on ℝⁿ and on products ℝ^k × N with N closed; the next lemma carries its part (1) to these spaces, which have the faces
-𝓘⁺, ι⁺, K⁺ at infinity in logarithmic coordinates and the boundary hypersurfaces {r = r_0} and {t^♭ = 1} across which
+ℐ⁺, ι⁺, K⁺ at infinity in logarithmic coordinates and the boundary hypersurfaces {r = r_0} and {t^♭ = 1} across which
 their elements are extended.
 
 **Lemma {#lem:s19-products}** (Moser's product estimate on Ω_*.) Let k ∈ ℕ₀.
@@ -324,10 +324,10 @@ equivalent norm.
 *Proof.* *Charts.* Near {t^♭ = 1} take the charts of Step 3 of the proof of [[prop:ii-g-3-1]] (for Ω_*,
 [[rem:ii-g-3-2]], with c_1 = 1/8 and, in (T2), ε = ½, the exponent of t^♭), which cover {|t^♭ − 1| ≤ c_1} and in
 which t^♭ − 1 is the last coordinate and, at {r = r_0}, a defining function of {r = r_0} the first. Away from
-{t^♭ = 1} take those of its Step 4 (b-cells in logarithmic coordinates near 𝓘⁺, ι⁺ and K⁺, and charts onto orthants
+{t^♭ = 1} take those of its Step 4 (b-cells in logarithmic coordinates near ℐ⁺, ι⁺ and K⁺, and charts onto orthants
 at {r = r_0}) that are contained in
 {t^♭ ≥ 1 + c_1/2}, refining its cells if necessary, which keeps the uniform bounds; as t^♭ has bounded b-derivatives
-near 𝓘⁺ at bounded t_* and {t^♭ ≥ 1 + c_1} contains a neighbourhood of ι⁺ ∪ K⁺ ((T3) of [[rem:ii-g-3-2]]), these
+near ℐ⁺ at bounded t_* and {t^♭ ≥ 1 + c_1} contains a neighbourhood of ι⁺ ∪ K⁺ ((T3) of [[rem:ii-g-3-2]]), these
 cover {t^♭ ≥ 1 + c_1}, and with the Step 3 charts they cover Ω_*. Restricted to Ω_*, each chart φ_α maps onto a
 relatively open subset of an orthant ℝ⁵_q := [0, ∞)^q × ℝ^(5−q), q ≤ 2 (up to the order of the coordinates), whose
 faces are the images of {r = r_0} and {t^♭ = 1}. As there, the family has finite multiplicity, in each chart the
@@ -429,10 +429,10 @@ with supp χ^♭_K ⊂ χ_K⁻¹(1); on its second alternative, {|x| < 6R₁}, t
 compact set away from the faces at infinity, as that alternative of [[lem:iii-b-5-2]] states, hence in the class. So
 by [[eq:iii-b-5-3]], φ_(−S)^* g_(b₀) − g_(b₀) = |x|⁻²h_(−S)(ω)(dx¹)² + ρ_0²ρ_I³ρ_+² C^∞ with h_(−S) = O(|S|); and by
 [[prop:iii-b-3-6]], g_(b₀) − g_b = (m₀ − m)|x|⁻²(dx¹)² + O(|b − b₀|)|x|⁻³C^∞ on {|x| ≥ 3R₁}. Near
-𝓘⁺, |x|⁻²(dx¹)² is the slot π₁₁ at ρ_I-order 2 and ι⁺-order 2, and |x|⁻³ is of orders 3; in the interior of
+ℐ⁺, |x|⁻²(dx¹)² is the slot π₁₁ at ρ_I-order 2 and ι⁺-order 2, and |x|⁻³ is of orders 3; in the interior of
 ι⁺, |x|⁻² ∈ ρ_+²C^∞. This is the class stated, as 1 − χ_K is smooth on M. For [[eq:iii-i-3-5]]: g_(b₀,b,−S) − g_(b₀) =
 (g_(b₀,b,−S) − g_b) + (g_b − g_(b₀)), the last term being independent of χ_K, smooth at K⁺ and of the same classes; and
-g_(b₀,b,−S) = g_b on χ_K⁻¹(1), a neighbourhood of K⁺. 𝒢⁺: near 𝓘⁺ ∩ ι⁺, g_(b₀,b,−S) = φ_(−S)^* g_(b₀), and
+g_(b₀,b,−S) = g_b on χ_K⁻¹(1), a neighbourhood of K⁺. 𝒢⁺: near ℐ⁺ ∩ ι⁺, g_(b₀,b,−S) = φ_(−S)^* g_(b₀), and
 g_(b₀) − η = m₀|x|⁻²(dx¹)² has the slot π₁₁ only. Non-degeneracy: the components of g_(b₀,b,−S) − g_b in the frame
 dt_*, dx^i are bounded on Ω_* by O(|b − b₀| + |S|), by the class above and [[lem:s19-products]] (c), and those of
 g_b⁻¹ are bounded there ([[prop:iii-b-3-6]]); so for |b − b₀| and |S| small every g_b + τ(g_(b₀,b,−S) − g_b),
@@ -457,25 +457,25 @@ and, if moreover ℓ_+ ≤ max(a_+, min Re ℰ_+), then for every ε > 0
     m_+ := min(a_+, min Re ℰ_+).                                                                   {#eq:iii-i-4-2}
 
 [Hin26, (11.19)] has ℓ_+ + 3 − ε (m_+ = 1) and ℓ_K + 2 + ε_K (a_K = 2 + ε_K). The upper bounds on ℓ_I and ℓ_+ are
-those of the products ([[lem:iii-c-2-1]]): a coefficient of the error with no expansion beyond its 𝓘⁺-weight a_I,
+those of the products ([[lem:iii-c-2-1]]): a coefficient of the error with no expansion beyond its ℐ⁺-weight a_I,
 acting on the radiation term ρ_I^(3/2) of π̸₀ u, gives ρ_I^(a_I+3/2) times a function with no expansion, and likewise
 at ι⁺. [Hin26, Proposition 11.8] is stated for all weights, but its products need the same restrictions (in dimension
 3 + 1, ℓ_I < a_I and ℓ_+ < a_+ + min Re ℰ_+, and ℓ_+ ≤ max(a_+, min Re ℰ_+) for [Hin26, (11.19)]).
 [[cor:iii-i-4-2]] (ℓ = a) lies inside this range, and the later chapters keep their weights in it.
 
-*Proof.* [[eq:iii-i-4-1]]. Near 𝓘⁺ (on U⁺ ∩ {ρ_I ≤ 1}) this is the proof of [[prop:iii-c-5-2]], with
+*Proof.* [[eq:iii-i-4-1]]. Near ℐ⁺ (on U⁺ ∩ {ρ_I ≤ 1}) this is the proof of [[prop:iii-c-5-2]], with
 [[prop:iii-i-3-3]] in place of [[prop:iii-c-4-4]], ι⁺ in place of I⁰ and ℰ_+ in place of ℰ_0. The leading part
 ρ_+²ρ_I(X_+ − X_I)(X_I − 3/2 − Ā) has the slot-by-slot effect established there: X_+ − X_I preserves index sets,
 X_I − 3/2 − Ā_jj annihilates the exceptional terms, and the couplings of Ā act as there; the factor ρ_+²ρ_I shifts the
-data by 2 at ι⁺ and by 1 at 𝓘⁺. The C^∞ error gives ℰ_I^tot + 2 ⊂ ℰ_I^C + 1 and ℰ_+ + 2. The perturbation error gives,
+data by 2 at ι⁺ and by 1 at ℐ⁺. The C^∞ error gives ℰ_I^tot + 2 ⊂ ℰ_I^C + 1 and ℰ_+ + 2. The perturbation error gives,
 by [[lem:iii-c-2-1]], 2ℰ_I^tot ⊂ ℰ_I^C + 1 at the weight ℓ_I + 1 and 2ℰ_+ + 2 ⊂ ℰ_+ + 2 at the weight ℓ_+ + 2. The
 inequalities [[lem:iii-c-2-1]] asks are ℓ_I + 1 < ℓ_I + 3/2, ℓ_I + 1 < a_I + 3/2 (by the hypothesis ℓ_I < a_I + ½) and
 ℓ_I + 1 ≤ a_I + ℓ_I; and ℓ_+ + 2 < ℓ_+ + 2 + min Re ℰ_+, ℓ_+ + 2 < a_+ + 2 + min Re ℰ_+ (by the hypothesis on ℓ_+) and
-ℓ_+ + 2 ≤ a_+ + 2 + ℓ_+. Away from 𝓘⁺, near ι⁺ ∪ K⁺: L_b ∈ ρ_+²Diff²_b near (ι⁺)° (Cartesian derivatives lie in
+ℓ_+ + 2 ≤ a_+ + 2 + ℓ_+. Away from ℐ⁺, near ι⁺ ∪ K⁺: L_b ∈ ρ_+²Diff²_b near (ι⁺)° (Cartesian derivatives lie in
 ρ_+𝒱_b) and L_b ∈ Diff²_b near K⁺, which gives [[eq:iii-i-4-1]] there, and L^(g,g_0) − L_b is handled by
 [[eq:iii-i-3-6]] and [[lem:iii-c-2-1]].
 
-[[eq:iii-i-4-2]]. Only ι⁺ and K⁺ need an argument, as at 𝓘⁺ [[eq:iii-i-4-2]] is [[eq:iii-i-4-1]]. By
+[[eq:iii-i-4-2]]. Only ι⁺ and K⁺ need an argument, as at ℐ⁺ [[eq:iii-i-4-2]] is [[eq:iii-i-4-1]]. By
 [[eq:iii-i-3-6]], the coefficients of L^(g,g_0) − L_b have the data (ℰ_+ + 2, a_+ + 2) at ι⁺ and the weight a_K at K⁺.
 [[lem:iii-c-2-1]] gives the product index set 2ℰ_+ + 2 at the weight ℓ_+ + 2 + m_+ − ε, which is below each of
 ℓ_+ + 2 + min Re ℰ_+, ℓ_+ + 2 + a_+ and a_+ + 2 + min Re ℰ_+ (the last because ℓ_+ + m_+ ≤ a_+ + min Re ℰ_+ when
@@ -486,7 +486,7 @@ supported in supp χ_K ∩ supp(1 − χ_K) and lies in ρ_+⁴C^∞ near (ι⁺
 
 *Proof.* g_1 := φ_(−S)^* g_(b₀) and g_2 := g_b are Ricci flat, so Ric(g_(b₀,b,−S)) vanishes on the interior of
 χ_K⁻¹({0, 1}). So it is supported in supp χ_K ∩ supp(1 − χ_K), whose closure meets ∂M only in a compact subset of
-(ι⁺)°: χ_K = 1 near K⁺ and χ_K = 0 near 𝓘⁺, since χ^♭_K = 1 on {|x| < t/10, t > 60R₁} and supp χ^♯_K ⊂ {|x| < t/2}
+(ι⁺)°: χ_K = 1 near K⁺ and χ_K = 0 near ℐ⁺, since χ^♭_K = 1 on {|x| < t/10, t > 60R₁} and supp χ^♯_K ⊂ {|x| < t/2}
 ([[sec:iii-b-5]]). Near (ι⁺)°, g_i − ḡ = k_i ∈ ρ_+²C^∞ ([[lem:iii-i-3-6]], and [[lem:iii-b-5-1]] for the pullback),
 and Cartesian derivatives lie in ρ_+𝒱_b. With k := (1 − χ_K)k_1 + χ_K k_2, Ric(ḡ + k) = DRic(k) + Q(k), Q at least
 quadratic, and Q(k) ∈ ρ_+⁶C^∞ (two factors k, two derivatives). Further DRic(k) = (1 − χ_K)DRic(k_1) +
@@ -583,10 +583,10 @@ C|S|, ρ_+ and ρ_K being bounded on Ω_*. Multiplication by χ_K, which takes v
 of the second term, as the norm is a weighted supremum of the coefficients in a fixed frame. The third term has norm at
 most C‖h‖_(𝒳³), by [[lem:iii-i-2-2]] in the same way. For g_0 with [[eq:iii-i-3-5]], write
 g − g_(b₀) = (g_0 − g_(b₀)) + h; the argument of [[lem:iii-i-2-2]] (b-Sobolev embedding, and the x_I-orders of the
-coefficients in the frame [[eq:iii-i-2-1]], at least 1 for the index sets of [[eq:iii-i-3-5]] at 𝓘⁺; at ι⁺ and K⁺ the
+coefficients in the frame [[eq:iii-i-2-1]], at least 1 for the index sets of [[eq:iii-i-3-5]] at ℐ⁺; at ι⁺ and K⁺ the
 weight is 0) bounds the first term by a seminorm of g_0 − g_(b₀). ∎
 
-[Hin26] has p̃_1 = (A^h − A_0)|_(𝓘⁺) and p_0 = 4ρ_+⁻¹B^h|_(𝓘⁺), of class ρ_+^(ℓ_+)C^(k−4)_b, and needs ℓ_+ ∈ (δ, 1)
+[Hin26] has p̃_1 = (A^h − A_0)|_(ℐ⁺) and p_0 = 4ρ_+⁻¹B^h|_(ℐ⁺), of class ρ_+^(ℓ_+)C^(k−4)_b, and needs ℓ_+ ∈ (δ, 1)
 and ℓ_I < min(2γ_Υ, ½). Here only ℓ_I < ½ remains, from [[eq:iii-i-3-7]].
 
 #### Forward solutions at b₀ {#sec:iii-i-5-3}
@@ -644,7 +644,7 @@ H^(k+d+3)_b-norm of one factor times the L^∞-norms of the others. [[lem:s19-in
 g⁻¹ − g_(b₀)⁻¹ and g_0⁻¹ − g_(b₀)⁻¹ pointwise, and in H^(k+d+3)_b by C‖δ‖_(H^(k+d+3)_b) and C‖δ_0‖_(H^(k+d+3)_b). The
 L^∞-norms of the derivatives of δ and δ_0, with the weight on the factor that carries it, are at most
 C(|S| + ‖h‖_(𝒳^(d+5))) by [[lem:s19-products]] (c), and their weighted H^(k+d+3)_b-norms at most
-C(|S| + ‖h‖_(𝒳^(k+d+5))) ([[lem:iii-i-3-6]]). These weighted norms are finite because ℓ_I < ½: at 𝓘⁺ the factor
+C(|S| + ‖h‖_(𝒳^(k+d+5))) ([[lem:iii-i-3-6]]). These weighted norms are finite because ℓ_I < ½: at ℐ⁺ the factor
 carrying the weight has x_I-order at least 3 and must carry x_I^(2+2ℓ_I), the factor x_I² of [[eq:iii-i-3-7]] times
 x_I^(2ℓ_I), and the bound is that of the proof of [[eq:iii-i-3-7]], with C depending on ℓ_I. With [[eq:ii-f1-1-5]] and
 C_k|S| ‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), this is [[eq:iii-i-5-2]]. The weights: [[cor:ii-f1-1-2]] with
@@ -1031,7 +1031,7 @@ admissible for P_0. So [[sec:ii-f-6]] is run with P_0 := 2L_(b₀) for every b, 
 ([[lem:iii-f-2-1]] (3): the coefficients are smooth in b). The τ_1 of [[lem:ii-f-7-2]] (c) is uniform, the normalised
 difference there being O(ρ_+²) with constants continuous in b. By the remark after [[prop:ii-f-7-4]], τ_0 and the
 constants depend on P_0 only through [[sec:ii-f-7-6]]. Its estimates are the radial estimates at cf ([[lem:ii-f-7-6]],
-whose quantities at the radial sets are those of N_(ι⁺)(P_0), independent of b by (a)), the radial estimates at 𝓘⁺
+whose quantities at the radial sets are those of N_(ι⁺)(P_0), independent of b by (a)), the radial estimates at ℐ⁺
 ([[prop:ii-d-3-5]]–[[prop:ii-d-3-6]]), propagation estimates and the slab estimates of [[ch:s07]]; and
 τ_0 < ½C′τ_1 involves the C′ of [[lem:ii-c-3-2]]. Their constants depend on finitely many seminorms of
 P_+ − N_(ι⁺)(P_0) and of the orders, and on margins, all continuous in b. The one limit argument there (u^ε ⇀ u)
@@ -1185,15 +1185,15 @@ H^(k−1,(β_I−ς,β_+−ς,−3/2−ς))_b ([[cor:ii-f1-1-2]]). ∎
 
 ### Null infinity: the setting and the structure {#sec:iii-i1-1}
 
-This section and the next two are [Hin26, Section 11.2] in dimension 4 + 1: the partial polyhomogeneity at 𝓘⁺ of
+This section and the next two are [Hin26, Section 11.2] in dimension 4 + 1: the partial polyhomogeneity at ℐ⁺ of
 solutions of L^(g,g_0)u = f without loss at ι⁺ ([Hin26, Proposition 11.14 and Lemma 11.15]), and formal solutions of
-L_b u = f at 𝓘⁺ ([Hin26, Proposition 11.16]). The leading part of the operator at 𝓘⁺ is (X_+ − X_I)(X_I − 3/2 − Ā),
+L_b u = f at ℐ⁺ ([Hin26, Proposition 11.16]). The leading part of the operator at ℐ⁺ is (X_+ − X_I)(X_I − 3/2 − Ā),
 with the constant lower-triangular Ā, for the dynamical operator as for L_b ([[prop:iii-i-3-3]]); the terms A^h, B^h
 of [Hin26] and its h-dependent coupling (A^h)_(7,6) of the radiation field into the 11-component are half an order
 lower and enter only through the error.
 
 On the region U_I := [0, c_I]_(ρ_I) × [0, 1]_(ρ_+) × 𝕊³, with the coordinates [[eq:iii-i-3-1]] (so that
-{ρ_+ = 1} = {t_* = 0}) and c_I ∈ (0, 1] small, weights are listed at (𝓘⁺, ι⁺) and none at K⁺, as in [Hin26].
+{ρ_+ = 1} = {t_* = 0}) and c_I ∈ (0, 1] small, weights are listed at (ℐ⁺, ι⁺) and none at K⁺, as in [Hin26].
 L := L^(g,g_0) with g_0 := g_(b₀,b,−S), g := g_0 + h and h ∈ 𝒳^∞ small ([[eq:iii-i-1-4]], [[prop:iii-i-3-4]]). All
 functions below vanish for t_* ≤ 1, so the region {0 ≤ t_* ≤ 1}, where h is extended arbitrarily, plays no role.
 Components are taken in the splitting [[eq:iii-c-1-6]], slots 1, …, 7. [[sec:iii-f-1]] takes
@@ -1201,7 +1201,7 @@ Components are taken in the splitting [[eq:iii-c-1-6]], slots 1, …, 7. [[sec:i
 
     ℓ_I^max := 3/2 + (1 − e_C)(1 − v_C)γ_C   (> 100),                                                 {#eq:iii-i1-1-1}
 
-the least indicial root of the π_C-slots. The weights at 𝓘⁺ below reach min(a_I + ½, ℓ_I^max): a_I + ½ is the bound of
+the least indicial root of the π_C-slots. The weights at ℐ⁺ below reach min(a_I + ½, ℓ_I^max): a_I + ½ is the bound of
 the products with the coefficients of the error, whose remainder has the weight a_I − 1, against the least exponent 3/2
 of u ([Hin26] has ℓ_I ≤ 3 + ε_I, the same bound in dimension 3 + 1 with the least exponent 1); and ℓ_I^max keeps ℓ_I
 below the roots of the π_C-slots, which [Hin26] states as 3 + ε_I < 1 + (1 − e_C)(1 − v_C)γ_C.
@@ -1234,7 +1234,7 @@ the couplings being at (3, 1), (4, 1), (4, 3), (5, 2), (7, 3) and (7, 4) ([[lem:
 
 This section is [Hin26, Proposition 11.14 and Lemma 11.15] in dimension 4 + 1.
 
-**Proposition {#prop:iii-i1-2-1}** (Partial polyhomogeneity at 𝓘⁺; [Hin26, Proposition 11.14] in dimension 4 + 1.)
+**Proposition {#prop:iii-i1-2-1}** (Partial polyhomogeneity at ℐ⁺; [Hin26, Proposition 11.14] in dimension 4 + 1.)
 Let ℰ_I^C and ℰ_+ be as in [[def:iii-i-1-1]]. Let 3/2 < ℓ_I < min(a_I + ½, ℓ_I^max),
 ℓ_+ < min(ℓ_I, a_+ + min Re ℰ_+), ℓ_+ ∉ Re π_1ℰ_+ ∪ Re π_1ℰ_I^tot and ℓ_I ∉ 3/2 + σ_Υ. Suppose that u and f vanish for
 t_* ≤ 1, and
@@ -1248,7 +1248,7 @@ for some α_I ∈ ℝ. Then u ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),(ℰ_+,ℓ_+))_b.
 π_C-slots lie far above. The exclusions ℓ_I ∉ 3/2 + σ_Υ and ℓ_+ ∉ Re π_1ℰ_I^tot come from the conditions α ≠ Re z of
 [[lem:iii-a-1-2]] and of [[lem:iii-a-3-2]].
 
-**Lemma {#lem:iii-i1-2-2}** (The expansion at 𝓘⁺ away from ι⁺; [Hin26, Lemma 11.15] in dimension 4 + 1.) Under the
+**Lemma {#lem:iii-i1-2-2}** (The expansion at ℐ⁺ away from ι⁺; [Hin26, Lemma 11.15] in dimension 4 + 1.) Under the
 assumptions of [[prop:iii-i1-2-1]], u ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),α_+)_b for every
 α_+ < min(α_I, 3/2, ℓ_+, min Re ℰ_+).
 
@@ -1257,11 +1257,11 @@ assumptions of [[prop:iii-i1-2-1]], u ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),α_+)_b f
     u ∈ H^(∞,α_I,α_+)_b.                                                                             {#eq:iii-i1-2-2}
 
 *Step 1: the weight below 3/2.* Fix η ∈ (0, ½) with α_I + η < 3/2. By [[eq:iii-i1-1-2]] and [[lem:iii-c-2-1]] (the
-𝓘⁺-index set of the coefficient has min Re = ½ > η; at ι⁺, min Re ℰ_+ > 0), L̃u ∈ H^(∞,α_I+η,α_+)_b; and
-ρ_I⁻¹ρ_+⁻²f ∈ H^(∞,α_I+η,α_+)_b, as its 𝓘⁺-index sets ℰ_I^C and ℱ_(I,11) − 1 have min Re > 3/2 and its data at ι⁺
+ℐ⁺-index set of the coefficient has min Re = ½ > η; at ι⁺, min Re ℰ_+ > 0), L̃u ∈ H^(∞,α_I+η,α_+)_b; and
+ρ_I⁻¹ρ_+⁻²f ∈ H^(∞,α_I+η,α_+)_b, as its ℐ⁺-index sets ℰ_I^C and ℱ_(I,11) − 1 have min Re > 3/2 and its data at ι⁺
 are (ℰ_+, ℓ_+) with α_+ < min(ℓ_+, min Re ℰ_+). So L_0u ∈ H^(∞,α_I+η,α_+)_b. In slot 1, by [[eq:iii-i1-1-3]],
 (X_I − 3/2 − s)w = (L_0u)_1 for w := (X_+ − X_I)u_1 and the eigenvalue s of the slot. [[lem:iii-a-1-2]] in ρ_I (with
-3/2 + s > α_I + η, so that no term is added; the a priori hypothesis, on ρ_I near c_I, away from 𝓘⁺, holds by
+3/2 + s > α_I + η, so that no term is added; the a priori hypothesis, on ρ_I near c_I, away from ℐ⁺, holds by
 [[eq:iii-i1-2-2]]) gives w ∈ H^(∞,α_I+η,α_+)_b. Then (X_I − X_+)u_1 = −w with u_1 = 0 near {ρ_+ = 1}, and
 [[lem:iii-a-3-2]] with (x, y) = (ρ_I, ρ_+), z = 0, E = F = ∅ and α = α_I + η > β = α_+ gives
 u_1 ∈ H^(∞,α_I+η,α_+)_b. In slot j > 1 the couplings (X_+ − X_I)Ā_ji u_i, i < j, already improved, go to the right,
@@ -1282,15 +1282,15 @@ lying above the weight α_+ < 3/2. So
 
 with π̸₀u carrying (3/2, 0) and no other slot carrying an expansion term below the weight. In dimension 3 + 1, u_11
 acquires (1, 0) here, from (A^h)_(7,6) acting on π̸₀u ([Hin26, (11.29)]); in dimension 4 + 1 that coupling is part of
-L̃, and acting on (3/2, 0) it gives 𝓘⁺-order ≥ 2 > 3/2 + η.
+L̃, and acting on (3/2, 0) it gives ℐ⁺-order ≥ 2 > 3/2 + η.
 
 *Step 3: the full expansion.* Suppose [[eq:iii-i1-2-4]] holds for some α_I, and let 0 < η < ½. Every slot of u has its
-𝓘⁺-index set in ℰ_I^tot ([[lem:iii-c-3-2]] (c)), so by [[eq:iii-i1-1-2]] and [[lem:iii-c-2-1]], with
+ℐ⁺-index set in ℰ_I^tot ([[lem:iii-c-3-2]] (c)), so by [[eq:iii-i1-1-2]] and [[lem:iii-c-2-1]], with
 (ℰ_I^tot − 1) + ℰ_I^tot ⊂ ℰ_I^C ([[def:iii-c-3-1]] (3)) and ℰ_I^tot + 1 ⊂ ℰ_I^C ([[lem:iii-c-3-2]] (a)),
 L̃u ∈ H^(∞,(ℰ_I^C,α′),α_+)_b with α′ := min(ℓ_I, α_I + η). The three inequalities of [[lem:iii-c-2-1]] hold:
 α′ < α_I + ½; α′ ≤ α_I + a_I − 1, as a_I > 3/2; and α′ < (a_I − 1) + 3/2 = a_I + ½, the remainder of the coefficient at
 the weight a_I − 1, which has no expansion, against the least exponent 3/2 of u. This last is where the hypothesis
-ℓ_I < a_I + ½ enters. The term ρ_I⁻¹ρ_+⁻²f has the 𝓘⁺-index sets ℰ_I^C (slots 1–6) and
+ℓ_I < a_I + ½ enters. The term ρ_I⁻¹ρ_+⁻²f has the ℐ⁺-index sets ℰ_I^C (slots 1–6) and
 ℰ_I^C ∪ (3/2 + (1 − e_Υ)γ_Υ, 0) (slot 7) at the weight ℓ_I. Here α′ is chosen off 3/2 + σ_Υ, by decreasing η (ℓ_I is
 off it by hypothesis).
 
@@ -1309,31 +1309,31 @@ f, and, through L̃, the h-dependent couplings, which land in ℰ_I^C (above); w
 So [[eq:iii-i1-2-4]] holds with α′ in place of α_I, in the class of [[def:iii-i-1-1]] (1), and finitely many steps
 reach ℓ_I. ∎
 
-*Proof of [[prop:iii-i1-2-1]].* *Step 1: the data at ι⁺, at a weaker 𝓘⁺-weight.* Suppose that
+*Proof of [[prop:iii-i1-2-1]].* *Step 1: the data at ι⁺, at a weaker ℐ⁺-weight.* Suppose that
 u ∈ H^(∞,(⟨ℰ_I^C⟩,α_I),(ℰ_+,ℓ_+))_b for some α_I < ℓ_+ (or u ∈ H^(∞,α_I,(ℰ_+,ℓ_+))_b when α_I < 3/2; this holds for
-the given α_I). By [[eq:iii-i1-1-2]], L̃u has the 𝓘⁺-weight α_I + η for η < ½, with some index set, and the data
+the given α_I). By [[eq:iii-i1-1-2]], L̃u has the ℐ⁺-weight α_I + η for η < ½, with some index set, and the data
 (ℰ_+, ℓ_+) at ι⁺ (ℰ_+ + ℰ_+ ⊂ ℰ_+; the remainder of the product needs ℓ_+ < a_+ + min Re ℰ_+, the remainder of the
 coefficient at the weight a_+ against the least exponent of u). Integrate L_0u = ρ_I⁻¹ρ_+⁻²f − L̃u slot by slot as in
 [[lem:iii-i1-2-2]], except that the hyperbolic field is integrated backward from {ρ_I = c_I}: [[lem:iii-a-3-2]] with
 (x, y) = (ρ_+, ρ_I), the a priori bound near {ρ_I = c_I} being the hypothesis u ∈ H^(∞,·,(ℰ_+,ℓ_+)) there (away from
-𝓘⁺), needs ℓ_+ > α_I + η (α + Re z > β) and α_I + η ∉ Re π_1ℰ_+; and in the slot-by-slot step [[lem:iii-a-1-2]] in
-ρ_I needs α_I + η off 3/2 + spec Ā. Decrease η to ensure all three. This gives the data (ℰ_+, ℓ_+) at ι⁺, and 𝓘⁺-index
-sets that are extended unions with ℰ_+; but by [[lem:iii-i1-2-2]] the 𝓘⁺-expansion of u, which is determined by u away
+ℐ⁺), needs ℓ_+ > α_I + η (α + Re z > β) and α_I + η ∉ Re π_1ℰ_+; and in the slot-by-slot step [[lem:iii-a-1-2]] in
+ρ_I needs α_I + η off 3/2 + spec Ā. Decrease η to ensure all three. This gives the data (ℰ_+, ℓ_+) at ι⁺, and ℐ⁺-index
+sets that are extended unions with ℰ_+; but by [[lem:iii-i1-2-2]] the ℐ⁺-expansion of u, which is determined by u away
 from ι⁺, has exponents only in ⟨ℰ_I^C⟩ up to the weight ℓ_I, so the coefficients of all other terms vanish. Hence the
 hypothesis holds with α_I + η, and finitely many steps give it for every α_I < ℓ_+.
 
 *Step 2: both.* Integrate forward as in [[lem:iii-i1-2-2]], from α_I < ℓ_+ close to ℓ_+ up to ℓ_I, keeping the data
-(ℰ_+, ℓ_+) at ι⁺. In [[lem:iii-a-3-2]] with (x, y) = (ρ_I, ρ_+), the 𝓘⁺-weight α_I + η of the right side exceeds ℓ_+
-(α + Re z > β with β = ℓ_+), and ℓ_+ ∉ Re π_1 of the 𝓘⁺-index sets, which lie in ℰ_I^tot (a hypothesis; these sets do
+(ℰ_+, ℓ_+) at ι⁺. In [[lem:iii-a-3-2]] with (x, y) = (ρ_I, ρ_+), the ℐ⁺-weight α_I + η of the right side exceeds ℓ_+
+(α + Re z > β with β = ℓ_+), and ℓ_+ ∉ Re π_1 of the ℐ⁺-index sets, which lie in ℰ_I^tot (a hypothesis; these sets do
 not depend on the weight); also ℓ_+ < ℓ_I and ℓ_+ ∉ Re π_1ℰ_+. The index sets at ι⁺ that it produces are extended
-unions of ℰ_+ with 𝓘⁺-index sets of components of u, but u has the index set ℰ_+ at ι⁺ by Step 1, so no other
+unions of ℰ_+ with ℐ⁺-index sets of components of u, but u has the index set ℰ_+ at ι⁺ by Step 1, so no other
 exponent occurs. After finitely many steps, u ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),(ℰ_+,ℓ_+))_b. ∎
 
 ### Formal solutions at null infinity {#sec:iii-i1-3}
 
 This section is [Hin26, Proposition 11.16] in dimension 4 + 1.
 
-**Proposition {#prop:iii-i1-3-1}** (Formal solutions at 𝓘⁺; [Hin26, Proposition 11.16] in dimension 4 + 1.) Let ℰ_I^C
+**Proposition {#prop:iii-i1-3-1}** (Formal solutions at ℐ⁺; [Hin26, Proposition 11.16] in dimension 4 + 1.) Let ℰ_I^C
 be as in [[def:iii-i-1-1]] and Ĕ_+ ⊂ ℂ × ℕ₀ an index set. Let ℓ̆_+ < ℓ_I < ℓ_I^max with ℓ_I > 3/2,
 ℓ̆_+, ℓ_I ∉ Re π_1ℰ_I^C and ℓ̆_+, ℓ_I ≠ 3/2 + (1 − e_Υ)γ_Υ. Let
 f ∈ H^(∞,(⟨ℰ_I^C+1⟩′,ℓ_I+1),(Ĕ_++2,ℓ̆_++2))_b vanish for t_* < 1. Then there are an index set ℰ^♯_+, depending only
@@ -1351,7 +1351,7 @@ m_j := min Re ℰ_I^C + j − 1 (only Re z ≤ ℓ_I matters), where k(ℰ_I^C, 
 at z, and E ∪̄^m {(z, 0)} is the extended union of [[lem:iii-a-1-2]] taken m times: E ∪ {(z, m − 1)} if z ∉ π_1E, and
 E with its logarithmic order at z raised by m otherwise. (The rounds of the proof take the windows [μ_j, μ_j + 1), with
 μ_j ≥ m_j the least real part left; the union ℰ^♯_+ is the same.) If all the terms ρ_I^(z+1)(log ρ_I)^k of the
-𝓘⁺-expansion of f vanish for Re z ≤ C_0, these z may be omitted from [[eq:iii-i1-3-2]].
+ℐ⁺-expansion of f vanish for Re z ≤ C_0, these z may be omitted from [[eq:iii-i1-3-2]].
 
 [Hin26, (11.33a)] has ℰ^(♯,(1))_+ = Ĕ_+ ∪ {(1, 0)} ∪ {(1 + (1 − e_Υ)γ_Υ, 0)} and windows j < Re z ≤ j + 1. The (1, 0)
 comes from the radiation coupling of its Step 1, which dimension 4 + 1 does not have. Its windows rely on
@@ -1363,7 +1363,7 @@ and the existence of ℰ^♯_+ is not affected.
 *Proof.* By [[lem:iii-i1-1-1]], ρ_I⁻¹ρ_+⁻²L_b = L_0 + L̃ with L̃ ∈ ρ_I Diff²_b. Let χ = χ(ρ_I) ∈ C^∞_c([0, ½c_I))
 equal 1 near 0. By [[def:iii-i-1-1]] (2) ([[eq:iii-c-5-1]]), write
 
-    f = χρ_I^(5/2+(1−e_Υ)γ_Υ) f^♭_11 (dx¹)² + f̃,      f^♭_11 ∈ H^(∞,(Ĕ_++2,ℓ̆_++2))_b(Ω_* ∩ 𝓘⁺),
+    f = χρ_I^(5/2+(1−e_Υ)γ_Υ) f^♭_11 (dx¹)² + f̃,      f^♭_11 ∈ H^(∞,(Ĕ_++2,ℓ̆_++2))_b(Ω_* ∩ ℐ⁺),
                                                      f̃ ∈ H^(∞,(ℰ_I^C+1,ℓ_I+1),(Ĕ_++2,ℓ̆_++2))_b,
 
 the exceptional term of the 11-component: ℱ_(I,11) = 1 + (ℰ_I^C ∪ (3/2 + (1 − e_Υ)γ_Υ, 0)), and
@@ -1373,40 +1373,40 @@ z_1 := 3/2 + (1 − e_Υ)γ_Υ < 3/2 + 2γ_Υ < min Re ℰ_I^C by [[def:iii-c-3-
 X_I − 3/2 − Ā acts by z_1 − 3/2 − 2γ_Υ = −(1 + e_Υ)γ_Υ ≠ 0 (there is no slot below it), and
 (X_+ − X_I)ρ_I^(z_1) = ρ_I^(z_1)(X_+ − z_1). So, where χ = 1,
 L_0v = −(1 + e_Υ)γ_Υ ρ_I^(z_1)((X_+ − z_1)u^♭)(dx¹)², and the corresponding term of ρ_I⁻¹ρ_+⁻²f is
-ρ_I^(z_1)ρ_+⁻²f^♭_11(dx¹)². Solve, on 𝓘⁺,
+ρ_I^(z_1)ρ_+⁻²f^♭_11(dx¹)². Solve, on ℐ⁺,
 
     (X_+ − z_1)u^♭ = −((1 + e_Υ)γ_Υ)⁻¹ρ_+⁻²f^♭_11,        u^♭ = 0 near {ρ_+ = 1}.
 
 [[lem:iii-a-1-2]] in ρ_+ (ℓ̆_+ ≠ z_1; the right side vanishes for t_* < 1, so the solution vanishing at ρ_+ = 1 does
-too) gives u^♭ ∈ H^(∞,(Ĕ_+∪̄{(z_1,0)},ℓ̆_+))_b(Ω_* ∩ 𝓘⁺). Then f − L_b v has no term ρ_I^(z_1+1) in slot 7: the
+too) gives u^♭ ∈ H^(∞,(Ĕ_+∪̄{(z_1,0)},ℓ̆_+))_b(Ω_* ∩ ℐ⁺). Then f − L_b v has no term ρ_I^(z_1+1) in slot 7: the
 remainder from L̃ is ρ_I^(z_1+2) times H^∞-functions with the index set ℰ^(♯,(1))_+ + 2 at ι⁺, and
-z_1 + 2 ∈ ℰ_I^tot + 2 ⊂ ℰ_I^C + 1 ([[lem:iii-c-3-2]] (c)); the derivatives of χ are supported away from 𝓘⁺. So f is
+z_1 + 2 ∈ ℰ_I^tot + 2 ⊂ ℰ_I^C + 1 ([[lem:iii-c-3-2]] (c)); the derivatives of χ are supported away from ℐ⁺. So f is
 reduced to
 
     f ∈ H^(∞,(F_I+1,ℓ_I+1),(F_++2,ℓ̆_++2))_b,      F_I = ℰ_I^C,      F_+ = ℰ^(♯,(1))_+.        {#eq:iii-i1-3-3}
 
 *Step 2: the remaining terms.* Given [[eq:iii-i1-3-3]], let z ∈ π_1F_I with Re z < min Re F_I + 1 and Re z ≤ ℓ_I, let
 k := k(F_I, z), and let χρ_I^(z+1)(log ρ_I)^k f^((z+1,k)) be the corresponding term of f, with
-f^((z+1,k)) ∈ H^(∞,(F_++2,ℓ̆_++2))_b(Ω_* ∩ 𝓘⁺; S²T*). As Re z > 3/2 + 2γ_Υ ([[def:iii-c-3-1]] (2)) and
+f^((z+1,k)) ∈ H^(∞,(F_++2,ℓ̆_++2))_b(Ω_* ∩ ℐ⁺; S²T*). As Re z > 3/2 + 2γ_Υ ([[def:iii-c-3-1]] (2)) and
 Re z ≤ ℓ_I < ℓ_I^max, z ∉ 3/2 + spec Ā, so z − 3/2 − Ā is invertible. Let u^((z,k)) solve
 
     (z − 3/2 − Ā)(X_+ − z)u^((z,k)) = ρ_+⁻²f^((z+1,k)),        u^((z,k)) = 0 for t_* ≤ 1;
 
-by [[lem:iii-a-1-2]] (ℓ̆_+ ≠ Re z), u^((z,k)) ∈ H^(∞,(F_+∪̄{(z,0)},ℓ̆_+))_b(Ω_* ∩ 𝓘⁺). By [[eq:iii-a-1-1]] in ρ_I,
+by [[lem:iii-a-1-2]] (ℓ̆_+ ≠ Re z), u^((z,k)) ∈ H^(∞,(F_+∪̄{(z,0)},ℓ̆_+))_b(Ω_* ∩ ℐ⁺). By [[eq:iii-a-1-1]] in ρ_I,
 
     L_0(ρ_I^z(log ρ_I)^k u^((z,k)))
         = ρ_I^z(log ρ_I)^k ρ_+⁻²f^((z+1,k)) + ρ_I^z Σ_(k′<k) (log ρ_I)^(k′) ρ_+⁻²f′^((z+1,k′)),
 
 with explicit f′^((z+1,k′)) ∈ H^(∞,((F_+∪̄{(z,0)})+2,ℓ̆_++2))_b; and L̃ applied to it gives terms
-ρ_I^(z+1+j)(log ρ_I)^(k″), j ≥ 1, k″ ≤ k, which lie in F_I + 1 at 𝓘⁺ beyond the current window (z + j ∈ ℰ_I^C, as
+ρ_I^(z+1+j)(log ρ_I)^(k″), j ≥ 1, k″ ≤ k, which lie in F_I + 1 at ℐ⁺ beyond the current window (z + j ∈ ℰ_I^C, as
 ℰ_I^C + 1 ⊂ ℰ_I^C by [[lem:iii-c-3-2]] (a); L̃ has smooth coefficients, so the shifts are integers). Replacing f by
 f − L_b(χρ_I^z(log ρ_I)^k u^((z,k))) replaces (F_I, F_+) by (F_I ∖ {(z, k)}, F_+ ∪̄ {(z, 0)}); repeating for
 (z, k − 1), …, (z, 0) gives (F_I ∖ {(z, j)}_(j≤k), F_+ ∪̄^(k+1) {(z, 0)}), the logarithmic order at z rising by one at
 each repetition through the extended union. Doing this for every such z (finitely many, by the construction of
 [[lem:iii-c-3-2]] (e)) replaces F_I by {(z, k) ∈ F_I : Re z ≥ min Re F_I + 1} and F_+ by the next set of
-[[eq:iii-i1-3-2]]. Finitely many rounds exhaust the terms with Re z ≤ ℓ_I, and the remainder has the 𝓘⁺-weight ℓ_I + 1
+[[eq:iii-i1-3-2]]. Finitely many rounds exhaust the terms with Re z ≤ ℓ_I, and the remainder has the ℐ⁺-weight ℓ_I + 1
 with no expansion, which is [[eq:iii-i1-3-1]]. The terms of u vanish on {ρ_I > ½c_I} by the cut-off and on {t_* < 1}
-by construction, and lie in the class of [[def:iii-i-1-1]] (1): their 𝓘⁺-exponents are those of ℰ_I^C, and z_1 in
+by construction, and lie in the class of [[def:iii-i-1-1]] (1): their ℐ⁺-exponents are those of ℰ_I^C, and z_1 in
 slot 7, with (z_1, 0) ∈ ℰ_(I,11). If the terms of f vanish for Re z ≤ C_0, the corresponding u^((z,k)) are 0. ∎
 
 By [[eq:iii-i1-3-2]], min Re ℰ^♯_+ = min(min Re Ĕ_+, 3/2 + (1 − e_Υ)γ_Υ), since min Re ℰ_I^C > 3/2 + 2γ_Υ: when Ĕ_+
@@ -1426,7 +1426,7 @@ these sections is at b = b₀; base points b near b₀ are treated in [[prop:iii
 
 *The manifold.* X = {r ≥ r_0} as in [[sec:iii-h-1]], and M′ := [ℝ̄_(t_*) × X̄; {±∞} × ∂X̄], the manifold M of
 [[sec:ii-g1-3-1]] over X̄ ([[rem:ii-g1-3-7]]; [[sec:iii-a-4]] in dimension 4 + 1). Its faces are I (the lift of
-ℝ̄ × ∂X̄; its part in t_* > 0 is 𝓘⁺), ι = ι⁺ ∪ ι⁻ (the front faces) and K = K⁺ ∪ K⁻ (the lifts of {±∞} × X̄), and it
+ℝ̄ × ∂X̄; its part in t_* > 0 is ℐ⁺), ι = ι⁺ ∪ ι⁻ (the front faces) and K = K⁺ ∪ K⁻ (the lifts of {±∞} × X̄), and it
 has the artificial boundary {r = r_0}, at which all spaces are extendible. H^(k,β_I,β_ι,β_K)_b(M′), with index sets
 where written, are the spaces of [[sec:iii-a-4]] for the b-density |dt_*/⟨t_*⟩| μ_b, μ_b = |dx|/⟨x⟩⁴; on Ω_* they are
 the spaces of [[sec:iii-i-1]] (the last paragraph of [[cor:ii-g1-4-5]]). Put Ω_− := cl_(M′){t_* ≤ 1} and, for C > 0,
@@ -1690,20 +1690,20 @@ f ∈ H^(∞,(⟨ℰ_I^C+1⟩′,ℓ_I+1),α_++2,α_K)_b(Ω_*; S²T*)^(•,−),
 Moreover u depends continuously on (S, h) in the space [[eq:iii-i2-5-2]] with every weight lowered by ς, for every
 ς > 0.
 
-[Hin26] has the ι⁺-weight α_K − ε and the 𝓘⁺-weight 3 + ε_I. Its proof notes that the decay would be α_+ but for the
+[Hin26] has the ι⁺-weight α_K − ε and the ℐ⁺-weight 3 + ε_I. Its proof notes that the decay would be α_+ but for the
 singular terms at σ = 0. In dimension 4 + 1 they do not limit it, and the cap is 3/2: the scf-weight of
-[[lem:iii-i2-4-1]] and [[lem:iii-i2-4-2]], that is, the transport of the order of the radiation field from 𝓘⁺; the
+[[lem:iii-i2-4-1]] and [[lem:iii-i2-4-2]], that is, the transport of the order of the radiation field from ℐ⁺; the
 corresponding cap in [Hin26, pp. 232 and 238] is 1. The condition ℓ_I ≥ 2 serves [[prop:ii-g1-3-3]] (1) in
 [[lem:iii-i2-4-1]] and in Step 2b, which needs ℓ_I + 1 ≥ γ_+ + 2 − α̃_K, that is ℓ_I ≥ 2 for ι⁺-weights up to 3/2;
 the 3 + ε_I of [Hin26] meets it. The bound ℓ_I < a_I + ½ is the range of [[prop:iii-i-4-1]].
 
-*Proof.* *Step 0: the start.* By [[def:iii-c-3-1]] (2), min Re ℰ_I^C > 3/2 + 2γ_Υ, so the 𝓘⁺-exponents of f
+*Proof.* *Step 0: the start.* By [[def:iii-c-3-1]] (2), min Re ℰ_I^C > 3/2 + 2γ_Υ, so the ℐ⁺-exponents of f
 (ℰ_I^C + 1, and ℱ_(I,11) ⊂ 1 + (ℰ_I^C ∪ (3/2 + (1 − e_Υ)γ_Υ, 0)) for π₁₁) have real parts > 5/2, and
 f ∈ H^(∞,(5/2−ε,α_++2,α_K))_b. Fix β^(0)_+ ∈ (½, min(α_+, 3/2, min Re ℰ_+)) and β^(0)_I ∈ (β^(0)_+, 3/2).
 [[thm:iii-i-5-3]] (α_K ≥ ½) gives u ∈ H^(∞,(β^(0)_I,β^(0)_+,−3/2))_b. [[prop:iii-i1-2-1]] with ℓ_+ := β^(0)_+ (which
 is below min Re ℰ_+, so that (ℰ_+, ℓ_+) is the weight ℓ_+, and ℓ_+ < a_+ + min Re ℰ_+, a_+ > 0; ℓ_+ lies neither in
 Re π_1ℰ_+ nor in Re π_1ℰ_I^tot, whose least real part is 3/2; and ℓ_+ < 3/2 < ℓ_I), f having the ι⁺-weight
-α_+ + 2 ≥ ℓ_+ + 2, gives the expansion at 𝓘⁺ near 𝓘⁺; away from 𝓘⁺ nothing changes. So
+α_+ + 2 ≥ ℓ_+ + 2, gives the expansion at ℐ⁺ near ℐ⁺; away from ℐ⁺ nothing changes. So
 
     u ∈ H^(∞,(⟨ℰ_I^C⟩,ℓ_I),β′_+,α′_K−2)_b                                                             {#eq:iii-i2-5-3}
 
@@ -1717,7 +1717,7 @@ holds with (α′_K, β′_+) = (½, β^(0)_+).
 Then γ_+ − α̃_K ∈ (0, 1) (as α̃_K ≤ α_K < γ_+ < 3/2 ≤ α̃_K + 1) and γ_+ < α̃_K + 1 − ε.
 
 *Step 1: the rewriting ([Hin26, (11.41)]).* By [[eq:iii-i-4-2]] of [[prop:iii-i-4-1]], whose hypotheses hold
-(3/2 < ℓ_I < a_I + ½; 0 < β′_+ < min Re ℰ_+ ≤ max(a_+, min Re ℰ_+)), (L − L_b)u has the 𝓘⁺-data
+(3/2 < ℓ_I < a_I + ½; 0 < β′_+ < min Re ℰ_+ ≤ max(a_+, min Re ℰ_+)), (L − L_b)u has the ℐ⁺-data
 (⟨ℰ_I^C+1⟩′, ℓ_I + 1), the ι⁺-weight β′_+ + 2 + m_+ − ε (with no expansion term, as β′_+ + m_+ < 2 min Re ℰ_+) and the
 K⁺-weight α′_K − 2 + a_K. As β′_+ + m_+ − ε > ½ + 1 − ε > γ_+,
 
@@ -1725,9 +1725,9 @@ K⁺-weight α′_K − 2 + a_K. As β′_+ + m_+ − ε > ½ + 1 − ε > γ_+,
 
 *Step 2a: null infinity ([Hin26, (11.42)]).* [[prop:iii-i1-3-1]] with Ĕ_+ := ∅ and ℓ̆_+ := γ_+ (γ_+ < 3/2 <
 min Re ℰ_I^C and γ_+ ≠ 3/2 + (1 − e_Υ)γ_Υ; ℓ_I by [[eq:iii-i2-5-1]]) gives u_I, vanishing on
-{t_* < 1} ∪ {ρ_I > ½c_I}, with the 𝓘⁺-data (⟨ℰ_I^C⟩, ℓ_I) and the ι⁺-data (ℰ^♯_+, γ_+), which is the weight γ_+ as
+{t_* < 1} ∪ {ρ_I > ½c_I}, with the ℐ⁺-data (⟨ℰ_I^C⟩, ℓ_I) and the ι⁺-data (ℰ^♯_+, γ_+), which is the weight γ_+ as
 min Re ℰ^♯_+ ≥ min(3/2 + (1 − e_Υ)γ_Υ, min Re ℰ_I^C) > 3/2 ([[eq:iii-i1-3-2]]); and
-f^♭ := f′ − L_b u_I ∈ H^(∞,ℓ_I+1,γ_++2,α̃_K)_b(Ω_*)^(•,−), the K⁺-weight being unchanged as u_I is supported near 𝓘⁺.
+f^♭ := f′ − L_b u_I ∈ H^(∞,ℓ_I+1,γ_++2,α̃_K)_b(Ω_*)^(•,−), the K⁺-weight being unchanged as u_I is supported near ℐ⁺.
 u^♭ := u − u_I vanishes for t_* < 1 and solves L_b u^♭ = f^♭, so it is the forward solution ([[prop:ii-e-3-4]]).
 
 *Step 2b: the Fourier transform ([Hin26, (11.43)–(11.52)]).* Decompose u^♭ = u_hi + u_reg + u_sing as in
@@ -1784,8 +1784,8 @@ a compact subset of (−c, c), c ≤ ½, as [[lem:iii-i2-3-1]] asks; and ℱ(∂
 the term (0, 0) at K lying above the weight α̃_K − 2 < 0. With [[eq:iii-i2-5-6]] and the bound for u_hi,
 u^♭ ∈ H^(∞,γ_+−ε,γ_+−2ε,α̃_K−2)_b(Ω_*)^(•,−), and u = u^♭ + u_I has the same ι⁺- and K⁺-weights.
 
-*Step 3: the expansion at 𝓘⁺.* [[prop:iii-i1-2-1]] with ℓ_+ := γ_+ − 2ε (below min Re ℰ_+ and a_+ + min Re ℰ_+, below
-ℓ_I, and below min Re ℰ_I^tot = 3/2; f has the ι⁺-weight α_+ + 2 > ℓ_+ + 2; the a priori 𝓘⁺-weight is γ_+ − ε) gives
+*Step 3: the expansion at ℐ⁺.* [[prop:iii-i1-2-1]] with ℓ_+ := γ_+ − 2ε (below min Re ℰ_+ and a_+ + min Re ℰ_+, below
+ℓ_I, and below min Re ℰ_I^tot = 3/2; f has the ι⁺-weight α_+ + 2 > ℓ_+ + 2; the a priori ℐ⁺-weight is γ_+ − ε) gives
 [[eq:iii-i2-5-3]] with (α̃_K, γ_+ − 2ε) in place of (α′_K, β′_+), again in the range of the iteration by
 [[eq:iii-i2-5-4]].
 

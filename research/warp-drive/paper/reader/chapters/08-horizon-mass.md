@@ -404,11 +404,11 @@ two null directions are distinct and −g(n⁺, n⁻) > 0. The radii r are bound
 C λ, as λ ≤ 1. ∎
 
 The first mean m1 is driven by the following forcing. By [[lem:first-entry]], the coefficient of λ is ℛ^(1) =
-T̂ ĝ2 − ½ e_2 ∂_θ² W + 𝒲(m1, φ1) + 𝒦_1. The term 𝒦_1 contains none of the unknowns of the stages, so it is the value of
+T̂ ĝ2 − ½ e_2 ∂_θ² W + 𝒲(m1, φ1) + 𝒴_1. The term 𝒴_1 contains none of the unknowns of the stages, so it is the value of
 ℛ^(1) with all of them set to zero, which is the coefficient R^(1) of λ in R[g0 + λ W]. The term −½ e_2 ∂_θ² W, which
-contains m2 and φ2, is not part of 𝒦_1, but its θ-mean is zero: e_2 does not depend on θ ([[eq:eikonal-coefficients]]),
+contains m2 and φ2, is not part of 𝒴_1, but its θ-mean is zero: e_2 does not depend on θ ([[eq:eikonal-coefficients]]),
 and ∂_θ² W has θ-mean zero. So the forcing of the mean equation of stage 1 ([[lem:stage-system]] (a)) is
-𝒮_1 = −⟨𝒦_1⟩ = −⟨R^(1)⟩.
+𝒮_1 = −⟨𝒴_1⟩ = −⟨R^(1)⟩.
 
 **Lemma {#lem:first-mean-forcing}** (The forcing of the first mean.) Let W = W_TT + χ dv ⊗ dv with χ a profile of zero
 θ-mean, and let R^(1) be the coefficient of λ in the two-scale expansion of R[g0 + λ W] ([[def:two-scale]]). In the

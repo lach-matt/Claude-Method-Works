@@ -151,10 +151,10 @@ on Σ_τ0 ∩ Ω_>, and ĝ_(m+1), of zero θ-mean, vanishes there.
 (b) The transport. Stage 1 imposes e_1 = 0, so [[lem:first-stage-operator]] gives T̂Y = −(ℓ·∂_X)∂_θY + ℳY, and
 the equation (c) of [[lem:stage-system]] is, for Z := ∂_θĝ_(m+1), the transport
 
-    −(ℓ·∂_X)Z + ℳ′Z = F,     F := −Π_osc(𝒲(m_m, φ_m) + 𝒦_m),
+    −(ℓ·∂_X)Z + ℳ′Z = F,     F := −Π_osc(𝒲(m_m, φ_m) + 𝒴_m),
 
 along ℓ, with ℳ′ = Π_osc ℳ ∂_θ⁻¹ a bounded operator on the zero-mean functions of θ, bounded uniformly on Ω. By
-[[lem:first-entry]], 𝒲 is linear in (m_m, φ_m) and 𝒦_m depends only on m_i, φ_i (i < m) and ĝ_i (i ≤ m); neither
+[[lem:first-entry]], 𝒲 is linear in (m_m, φ_m) and 𝒴_m depends only on m_i, φ_i (i < m) and ĝ_i (i ≤ m); neither
 contains ĝ_(m+1). By the observation each term of F contains W, one of ĝ_2, …, ĝ_m, or a derivative of one of these,
 so F = 0 on Ω_>. On a generator in Ω_>, parametrised by s, Z solves ℓ·∂_X Z = ℳ′Z,
 so |(d/ds)‖Z‖²_(L²(S¹))| ≤ 2‖ℳ′‖ ‖Z‖²_(L²(S¹)); Z vanishes at the generator's point on Σ_τ0 by (a), and so, by Gronwall's

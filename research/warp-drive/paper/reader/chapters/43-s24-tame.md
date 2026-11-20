@@ -14,7 +14,7 @@ of [[ch:s19]]–[[ch:s23]] as a composition of these ([[sec:iii-j2-3]]); and the
 
 The second, in [[sec:iii-j3-1]]–[[sec:iii-j3-6]], is that the solution map of [[thm:iii-i14-3-1]] and the right inverse
 of [[thm:iii-j1-2-1]] lose nothing in the weights. A right side at the fixed weights (ℓ_I + 1, 5 + ε_+, α) at
-(𝓘⁺, ι⁺, K⁺) gives a solution at (ℓ_I, 3 + ε_+, α), with one fixed admissible α ([[thm:iii-j3-5-3]],
+(ℐ⁺, ι⁺, K⁺) gives a solution at (ℓ_I, 3 + ε_+, α), with one fixed admissible α ([[thm:iii-j3-5-3]],
 [[thm:iii-j3-5-5]]). This is how [Hin26] states its Corollary 11.66 (pp. 294–295) and Theorem 12.8 (p. 312), at the
 weights (4 + ε_I, 5 + ε_+, 4 + ε_K) and (3 + ε_I, 3 + ε_+, 4 + ε_K). The Nash–Moser theorem asks for one pair of Banach
 scales, and the forward map gains nothing in the weights ([[prop:iii-j2-4-3]]); with the exact weights the tame
@@ -39,7 +39,7 @@ corner of ι⁺ and K⁺, which gives only the L²-weight w−; at the final wei
 [[lem:iii-j3-4-5]] and [[lem:iii-j3-4-7]]). The Fourier characterisation [[prop:iii-a-4-2]] is itself exact and only
 transmits the loss of (a) ([[prop:iii-j3-4-1]]). (c) At ι⁺, the level-2 margin η_2 < ε_+ of [[prop:iii-i11-3-1]] and
 the 5ε of [[lem:iii-j1-1-1]] are choices, not losses of an estimate: at the closed endpoint of (G⁺) every map is exact
-([[prop:iii-j3-4-3]]), as in Part 4 of the proof of [Hin26, Theorem 11.59, pp. 289–291]. At 𝓘⁺ every class and every
+([[prop:iii-j3-4-3]]), as in Part 4 of the proof of [Hin26, Theorem 11.59, pp. 289–291]. At ℐ⁺ every class and every
 main statement is already exact. (5) The K⁺-weight is one fixed admissible α, not the number 4 + ε_K; α = 4 + ε_K itself
 is admissible off a finite set of ε_K ([[def:iii-j3-1-3]], (A_K)). (6) The conditions (Ex2)–(Ex4) of [[def:iii-j3-1-3]],
 each excluding finitely many values, are of the kind of (G⁺) and of admissibility, and are not in [Hin26]; (Ex1) is (G⁺)
@@ -551,7 +551,7 @@ some I′; the injection is weakly continuous, so the subsequence converges weak
 ### The graft at the exact K⁺-weight {#sec:iii-j3-3}
 
 Fix φ ∈ C^∞((0, ∞)), positive, with φ(R) = R for R ≤ 1/2 and φ = 1 for R ≥ 2, and put ρ_+ := (t_* φ(R))⁻¹ near ι⁺.
-Near ι⁺ ∩ K⁺ it is 1/r, near ι⁺ ∩ 𝓘⁺ it is 1/t_* ([[sec:iii-i2-1]]); so it is a boundary defining function of ι⁺. The
+Near ι⁺ ∩ K⁺ it is 1/r, near ι⁺ ∩ ℐ⁺ it is 1/t_* ([[sec:iii-i2-1]]); so it is a boundary defining function of ι⁺. The
 expansions of [Hin26, Definition 2.8, p. 48], in which the classes of [[ch:s19]]–[[ch:s23]] are defined ([[ch:s11]]),
 are in powers of ρ_+ and log ρ_+, with coefficients on ι⁺ that carry the weights of the adjacent faces. Near the corner
 log ρ_+ = −log t_* − log ρ_K, so
@@ -586,10 +586,10 @@ pole of N_ι⁺(L̄, ·)⁻¹ at λ_0 (0 if none), let ℓ_I be as in [[thm:iii-
 
 the weight α of a_j being at ι⁺ ∩ K⁺, as [Hin26, Definition 2.8] prescribes for a right side of K⁺-weight α. Then
 there are u^(j)_(b,0) of the form [[eq:iii-g2-4-3]], with λ_0 for λ and a factor (log t_*)^j, and
-v_m ∈ H^(∞,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),α)_b(ι⁺), m ≤ k + l_0, all linear in (a_j, f′), such that
+v_m ∈ H^(∞,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),α)_b(ι⁺), m ≤ k + l_0, all linear in (a_j, f′), such that
 u := Σ_j χ_K u^(j)_(b,0) + Σ_m χ_ι ρ_+^(λ_0) (log ρ_+)^m v_m satisfies
 
-    f − L_b u ∈ H^(∞,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1), λ_0+2+ℰ_ind+(0,k+l_0), α)_b(Ω_*; S²T*)^(•,−),      {#eq:iii-j3-3-3}
+    f − L_b u ∈ H^(∞,(ℰ^tot_(ι⁺,ℐ)+2,ℓ_I+1), λ_0+2+ℰ_ind+(0,k+l_0), α)_b(Ω_*; S²T*)^(•,−),      {#eq:iii-j3-3-3}
 
 the ι⁺-index set taken with respect to ρ_+. For each k′ there are d and C bounding every order-k′ seminorm of u and of
 f − L_b u by C(Σ_j ‖a_j‖_(k′+d) + ‖f′‖_(k′+d)). By [[eq:iii-j3-3-1]], [[eq:iii-j3-3-2]] implies the hypotheses of
@@ -605,7 +605,7 @@ no point of Re π_1ℰ_K. This is possible, as the spectrum has finitely many po
 ([[lem:iii-g1-4-2]] (a)) and the roots and ℰ_K are discrete. On ∂D, ℓ_K(λ) := α − Re λ ∈ J, λ ≠ 1,
 1 < Re λ < ℓ_I, and the window 𝒲(ℓ) of [[thm:iii-g1-3-1]] is the same for every ℓ ∈ J. For a ∈ H^(∞,ℓ_I+1,α)_b(ι⁺)
 put f_+(λ) := φ^(−λ−2) a. Near R = 0, |R^(−λ−2)| = R^(−Re λ−2) and (R∂_R)^i R^(−λ−2) = (−λ − 2)^i R^(−λ−2), and φ = 1
-near 𝓘⁺; so ‖f_+(λ)‖_(H^(k′,ℓ_I+1,ℓ_K(λ)−2)) ≤ C ‖a‖_(H^(k′,ℓ_I+1,α)) uniformly on D̄. [[thm:iii-g2-4-2]] at λ ∈ ∂D,
+near ℐ⁺; so ‖f_+(λ)‖_(H^(k′,ℓ_I+1,ℓ_K(λ)−2)) ≤ C ‖a‖_(H^(k′,ℓ_I+1,α)) uniformly on D̄. [[thm:iii-g2-4-2]] at λ ∈ ∂D,
 with ℓ_K(λ) and the right side f_+(λ), gives u(λ) = χ_K u_(b,0)(λ) + χ_ι t_*^(−λ) ũ(λ) and the remainder
 r(λ) := χ_ι t_*^(−λ−2) f_+(λ) − L_b u(λ), whose K⁺-weight in [[eq:iii-g2-4-4]] is Re λ + ℓ_K(λ) = α for every λ. By
 the choice of ρ_+, χ_ι t_*^(−λ−2) f_+(λ) = χ_ι ρ_+^(λ+2) a and t_*^(−λ) ũ(λ) = ρ_+^λ U(λ) with U(λ) := φ^λ ũ(λ). Since
@@ -616,10 +616,10 @@ Z_− of K⁺-weight α − 4δ.
 
 **Lemma {#lem:iii-j3-3-3}** (Exact bounds on the circle.) There are d and C such that for every λ ∈ ∂D
 
-    ‖U(λ)‖_(H^(k′,(⟨ℰ^C_(ι⁺,𝓘)⟩,ℓ_I),α)_b(ι⁺)) + Σ |Y^(μ)_τ(λ)| ≤ C ‖a‖_(k′+d),
+    ‖U(λ)‖_(H^(k′,(⟨ℰ^C_(ι⁺,ℐ)⟩,ℓ_I),α)_b(ι⁺)) + Σ |Y^(μ)_τ(λ)| ≤ C ‖a‖_(k′+d),
 
 and r(λ) = Σ_((e,p)) χ ρ_+^(λ+2+e) (log ρ_+)^p c_(e,p)(λ) + r_M(λ), a finite sum over (e, p) ∈ ℰ_ind with Re e < M,
-with each c_(e,p)(λ) bounded by C‖a‖_(k′+d) in H^(k′,(ℰ^tot_(ι⁺,𝓘)+2,ℓ_I+1),α)_b(ι⁺) and r_M(λ) in the space of plain
+with each c_(e,p)(λ) bounded by C‖a‖_(k′+d) in H^(k′,(ℰ^tot_(ι⁺,ℐ)+2,ℓ_I+1),α)_b(ι⁺) and r_M(λ) in the space of plain
 ι⁺-weight Re λ_0 + 2 + M − δ and K⁺-weight α.
 
 *Proof.* (i) *At the lower weight.* [[thm:iii-g1-3-1]] (2) bounds N_ι⁺(λ)⁻¹ at the fixed weight ℓ_K^− := ℓ_K − 3δ,
@@ -695,7 +695,7 @@ exactly α.
 *Proof.* (a) Step 1 of the proof of [[prop:iii-i10-3-1]] takes ℓ̆_+ := w_+ − 2 − ε off its exclusions, for all but
 finitely many ε; the exclusions are those of [[prop:iii-i1-3-1]] (Re π_1ℰ^C_I and λ_♯) and of [[prop:iii-i1-2-1]]
 (Re π_1ℰ^tot_I), and by (Ex2) ℓ̆_+ := w_+ − 2 = 3 + ε_+ is allowed. [[prop:iii-i1-2-1]] and [[prop:iii-i1-3-1]] are
-exact at an allowed weight; (Ex2) is used again in the removals at 𝓘⁺ of Step 2 and in the regularity at 𝓘⁺ in
+exact at an allowed weight; (Ex2) is used again in the removals at ℐ⁺ of Step 2 and in the regularity at ℐ⁺ in
 [[prop:iii-j3-4-3]] ([[prop:iii-i1-2-1]] at ℓ_+ = 3 + ε_+).
 
 (c) At K⁺: Step 2 takes c_K := α and applies the graft to the coefficients of the current right side, which lie in
@@ -720,7 +720,7 @@ depend on the loss; they are identified up to K⁺-order Re λ_0 + 1 − ε > α
 
 **Proposition {#prop:iii-j3-4-1}** ([[prop:iii-a-4-2]] is exact at K and zf.) For
 β_K ∈ (0, ∞) ∖ (ℕ ∪ Re π_1E_K), [[prop:iii-a-4-2]] (1) maps the exact K-weight β_K to the exact zf-weight β_K − 1
-([[eq:iii-a-4-3]]) and (2) maps it back ([[eq:iii-a-4-5]]); the losses ε there sit at 𝓘 and scf only. The constants are
+([[eq:iii-a-4-3]]) and (2) maps it back ([[eq:iii-a-4-5]]); the losses ε there sit at ℐ and scf only. The constants are
 bounded for β_K in compact subsets of (0, ∞) ∖ (ℕ ∪ Re π_1E_K), the other data fixed.
 
 *Proof.* The chain below [[prop:iii-a-4-2]] is: [[lem:ii-g1-2-2]], Plancherel as an equivalence of norms at every
@@ -869,7 +869,7 @@ edge: û_j, j ≤ 2, of degree d′ = μ′_j − 2 ∈ {2 + ε_+, 1 + ε_+, ε_
 z + d′ = 3 + ε_+. As d_ρ ∈ {μ, 0, 1} differs from each of these degrees (μ = ε_+ − 1 being excluded as above), d′ < d_ρ,
 so z + d_ρ > 3 + ε_+.
 
-*The corner.* Near 𝓘⁺ and on {r ≥ t_*/2}, χ_K = 0 and ũ = u, exact at ι⁺ by [[prop:iii-j3-4-3]] (with u_I of
+*The corner.* Near ℐ⁺ and on {r ≥ t_*/2}, χ_K = 0 and ũ = u, exact at ι⁺ by [[prop:iii-j3-4-3]] (with u_I of
 [[prop:iii-j3-3-4]]). On the transition region {t_*/8 < r < t_*/2}, away from the corner, ũ = u − χ_K u_exp with both
 terms exact at ι⁺: u by [[prop:iii-j3-4-3]], and u_exp as a sum of coefficients of exact order times homogeneous or
 exact-degree profiles, exact at ι⁺ where r ∼ t_*. Near the corner of ι⁺ and K⁺, ũ is the sum over the pieces of Step 1
@@ -1011,20 +1011,20 @@ map gains nothing in the weights.
 
 *Proof.* We follow the proof of [[thm:iii-j-2-4]].
 
-*h.* At 𝓘⁺ as before. At ι⁺ the exponents lie in ℰ_♯ ⊂ ℰ_+ ([[lem:iii-j-2-3]]) and h̃ is at the plain weight
+*h.* At ℐ⁺ as before. At ι⁺ the exponents lie in ℰ_♯ ⊂ ℰ_+ ([[lem:iii-j-2-3]]) and h̃ is at the plain weight
 3 + ε_+; no exponent sits at 3 + ε_+ (Ex1). At K⁺, each χ_ι[h]_(λ_0) has order α by [[lem:iii-j3-5-1]], and h̃ by
 hypothesis.
 
 *q.* Its components are S_rem, b_rem, Y_(ρ,rem), exact, plus polyhomogeneous coefficients with real parts below
 3 + ε_+ − d_ρ ([[lem:iii-j-2-3]]).
 
-*[[eq:iii-j-2-5]] at 𝓘⁺:* [[cor:iii-i-4-2]] as before; [[eq:iii-i-4-1]] is exact.
+*[[eq:iii-j-2-5]] at ℐ⁺:* [[cor:iii-i-4-2]] as before; [[eq:iii-i-4-1]] is exact.
 
 *At ι⁺:* the terms of u-exponent below 3 + ε_+ vanish by the identity [[eq:iii-j-2-3]]; the quadratic part is at
 (5 + 2δ_♯)− > w_+; L_(0,p⃗_≤0) h̃ is exact at w_+ by [[eq:iii-i-4-1]]; the terms of the rows of u-exponent ≥ 3 + ε_+ are
 in Λ, so above 3 + ε_+ by (Ex1), with defects at a_+ + Re λ + 2 − ε ≥ 2λ_♯ + 2 − ε > w_+; the conormal parts T_ρ(Y^c_ρ)
 of the towers are diagonal terms of [[lem:iii-j3-2-1]] (c = 3 + ε_+ − d_ρ, m = d_ρ), exact at ι⁺ with K⁺-weight
-c − η > α − 2, and vanish near 𝓘⁺; S_rem, b_rem give ι⁺-orders above 3 + ε_+ ([[lem:iii-j3-2-1]] with their profiles);
+c − η > α − 2, and vanish near ℐ⁺; S_rem, b_rem give ι⁺-orders above 3 + ε_+ ([[lem:iii-j3-2-1]] with their profiles);
 P_4(0, p⃗_≤0) is compactly supported in (ι⁺)°. So the result has the plain weight w_+.
 
 *At K⁺:* L_b h has order α (L_b is stationary and a b-operator there, [[sec:iii-i-4]]); the nonlinear part is ≥ 2α;
