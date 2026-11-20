@@ -709,20 +709,19 @@ Then there is ℓ ∈ ℕ_0 such that for all k ∈ ℕ_0 and ϵ > 0
 
     N_tf(L_b^(·), ±1)⁻¹ : H_b^(k+ℓ, β_sctf+1, β_ztf−2)(tf) → H_b^(k, β_sctf−ϵ, β_ztf)(tf) is bounded.    {#eq:iii-f1-3-3}
 
-*Proof.* *The threshold at R_out.* [[sec:i-a-1]] asks 𝗋 + α_+ < −½ + S̄_L there,
-S̄_L := ½ inf_(∂X) λ_min(S̄ + S̄^(*h)) for a fibre inner product h of our choice ([[prop:i-a-4-9]]). For every δ > 0 some
-smooth h gives S̄_L ≥ −δ, as min Re spec S̄ = 0 ([[eq:iii-f-3-1]]): at each ω, a Jordan basis of S̄(ω) rescaled so that
-the off-diagonal entries are at most δ/2 defines h_ω with Re h_ω((S̄ + δ)u, u) ≥ (δ/2)h_ω(u, u), a strict inequality,
-which persists for S̄(ω′), ω′ near ω; the condition is convex in h, so a partition of unity on 𝕊³ glues these. *The
-orders.* Take β := −β_ztf ∈ (0, 1], q := 2 − β, α_+ := 0, δ := ¼(3/2 − β_sctf), ϵ < δ (it suffices to prove
-[[eq:iii-f1-3-3]] for small ϵ), 𝗋_out := β_sctf − 2 − ϵ/2 < −½ − δ, and the orders 𝗋_± of [[lem:i-a-7-1]] at
-σ_* = ±1 with that outgoing value, constant near R_out. By [[prop:iii-f1-3-3]] and [[cor:i-c-5-2]] (a)–(b), with
-[[thm:i-c-4-3]] (4) for k further b-derivatives, N_tf(±1)⁻¹ is bounded from H^((s−2;k),(𝗋+1,q−2))_(sc,b;b) to
-H^((s;k),(𝗋,q))_(sc,b;b). Near ztf these are H^(s−2+k)_(b,β_ztf−2) and H^(s+k)_(b,β_ztf) for the b-density
-([[def:i-c-4-1]]). Near sctf, on the end of ℝ⁴_(x̂), [[lem:ii-g1-4-1]] ((4.1a)–(4.1b) there, on ℝ⁴ without the
-artificial boundary) gives H_b^(k+ℓ,β_sctf+1) ↪ H^((s−1;k),𝗋+1) and H^((s;k),𝗋) ↪ H_b^(k−ℓ̃,β_sctf−ϵ) with the losses
-ℓ, ℓ̃ of that lemma (𝗋_out + 3 + ϵ/2 = β_sctf + 1 and 𝗋_out + 2 − ϵ/2 = β_sctf − ϵ). Replacing k by k + ℓ̃ and enlarging
-ℓ gives [[eq:iii-f1-3-3]], with ℓ independent of ϵ as in [[cor:ii-g1-4-2]]. ∎
+*Proof.* *The threshold at R_out.* [[sec:i-a-1]] asks 𝗋 + α_+ < −½ + S̄_L there, S̄_L := ½ inf_(∂X) λ_min(S̄ + S̄^(*h))
+for a fibre inner product h of our choice ([[prop:i-a-4-9]]). For every δ > 0 some smooth h gives S̄_L ≥ −δ, as min Re
+spec S̄ = 0 ([[eq:iii-f-3-1]]): at each ω, a Jordan basis of S̄(ω) rescaled so that the off-diagonal entries are at most
+δ/2 defines h_ω with Re h_ω((S̄ + δ)u, u) ≥ (δ/2)h_ω(u, u), a strict inequality, which persists for S̄(ω′), ω′ near ω;
+the condition is convex in h, so a partition of unity on 𝕊³ glues these. *The orders.* Take β := −β_ztf ∈ (0, 1], q := 2
+− β, α_+ := 0, δ := ¼(3/2 − β_sctf), ϵ < δ (it suffices to prove [[eq:iii-f1-3-3]] for small ϵ), 𝗋_out := β_sctf − 2 −
+ϵ/2 < −½ − δ, and the orders 𝗋_± of [[lem:i-a-7-1]] at σ_* = ±1 with that outgoing value, constant near R_out. By
+[[prop:iii-f1-3-3]] and [[cor:i-c-5-2]] (a)–(b), with [[thm:i-c-4-3]] (4) for k further b-derivatives, N_tf(±1)⁻¹ is
+bounded from H^((s−2;k),(𝗋+1,q−2))_(sc,b;b) to H^((s;k),(𝗋,q))_(sc,b;b). Near ztf these are H^(s−2+k)_(b,β_ztf−2) and
+H^(s+k)_(b,β_ztf) for the b-density ([[def:i-c-4-1]]). Near sctf, on the end of ℝ⁴_(x̂), [[lem:ii-g1-4-1]] ((4.1a)–(4.1b)
+there, on ℝ⁴ without the artificial boundary) gives H_b^(k+ℓ,β_sctf+1) ↪ H^((s−1;k),𝗋+1) and H^((s;k),𝗋) ↪
+H_b^(k−ℓ̃,β_sctf−ϵ) with the losses ℓ, ℓ̃ of that lemma (𝗋_out + 3 + ϵ/2 = β_sctf + 1 and 𝗋_out + 2 − ϵ/2 = β_sctf − ϵ).
+Replacing k by k + ℓ̃ and enlarging ℓ gives [[eq:iii-f1-3-3]], with ℓ independent of ϵ as in [[cor:ii-g1-4-2]]. ∎
 
 ### The horizon threshold and the hypotheses of the spectral theory {#sec:iii-f2-1}
 

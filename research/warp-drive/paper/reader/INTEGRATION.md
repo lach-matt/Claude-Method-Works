@@ -1380,3 +1380,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R-CO CONFIRMED 0M 0m 3n (notes/reviews/R-CO.md): the nine commits of coordinator-applied fixes are right; nits 1
   ([AN00, Theorem 3.1, p. 787], the page read from the authors' copy) and 2 (a b.g. structure with finitely many charts at
   30:1292) applied in the reviewer's words; nit 3 optional, not taken.
+- Assembled-width rewrap (coordinator): paragraphs in chapters 34, 47, 61, 65, 83 and 85 rewrapped so that every line
+  also fits in 121 characters after assembly resolves its references; a word-sequence comparison shows no word changed.
+  Chapter 71 (one line, 3164) after its reading.

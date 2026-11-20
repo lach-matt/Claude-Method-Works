@@ -2079,11 +2079,11 @@ difference Ψ(u, ρ) − T(ρ) is ≥ 0 at u1 (ρ ≥ T(ρ) for ρ ≤ R_*, by [
 in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decreasing in ρ, since ∂_ρ(Ψ − T) = J − 1/a < 0; hence u_s
 is decreasing in ρ, and so is the inverse ρ_s(u). For each row [u_a, u_b] of [[sec:tab-bg-slice-packet]], Ψ̃(u_a, ρ_hi) +
 ε₀ < T(ρ_hi) and Ψ̃(u_b, ρ_lo) − ε₀ > T(ρ_lo) (by direct evaluation; at u_a = u1 take ρ_hi ≥ R_* from [[lem:bg-rstar]],
-at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice points with u_s ∈ [u_a, u_b] have ρ ∈ [ρ_lo, ρ_hi].
-On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and ℓ_v lie between their values at u_a and u_b (monotone, [[prop:bg-nprime]]
-(iii)), which are μ̃, ℓ̃_v there up to the errors 4.2 × 10⁻⁷ and 5 × 10⁻⁸ of [[prop:bg-nprime]] (iv); ℬ lies between its
-end values, or between the smaller one and 17/10 when 6.45 is inside, by [[lem:bg-tools]] (e); J and K lie in the
-Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)]. Then
+at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice points with u_s ∈ [u_a, u_b] have ρ ∈ [ρ_lo,
+ρ_hi]. On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and ℓ_v lie between their values at u_a and u_b (monotone,
+[[prop:bg-nprime]] (iii)), which are μ̃, ℓ̃_v there up to the errors 4.2 × 10⁻⁷ and 5 × 10⁻⁸ of [[prop:bg-nprime]] (iv);
+ℬ lies between its end values, or between the smaller one and 17/10 when 6.45 is inside, by [[lem:bg-tools]] (e); J and K
+lie in the Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)]. Then
 [[eq:bg-nk-packet]] and [[lem:bg-tools]] (d) give the enclosures of qf and N_κ in the second table: qf < 1 and N_κ < 0 on
 every row, and the largest upper bound of κK^l_l is −6.00 × 10⁻³, on the row u ∈ [6.05, 6.1]. ∎
 

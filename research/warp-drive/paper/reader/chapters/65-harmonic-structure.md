@@ -1,16 +1,16 @@
 ## The linear solution in harmonic gauge, I: structure, the horizon charge and decay modulo W* {#ch:harmonic-structure}
 
-[[ch:rw-gauge]] determined the gauge vector that carries the linear solution of [[cor:viii-2-3]] to a
-Regge–Wheeler-type gauge. This chapter and the next do the same for the harmonic gauge Υ̇⁰(ġ) = 0 of [[sec:ix-0]], in
-which the linearised vacuum equation is the Lichnerowicz wave equation; in four dimensions the passage is Hung's
-[Hun19]. In the class the harmonic-gauge solutions with the data of ġ are ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g, where □Z′ is
-a forcing term with no spherically symmetric part and the spherically symmetric part of Z′ is free ([[prop:gd-2-1]]). The
-structure of the passage is explicit ([[prop:np-10-2]]): the tensor part is in harmonic gauge already, each scalar
-mode of the gauge vector solves three coupled 1 + 1 wave equations with the master field as source, and the
-spherically symmetric sector has two solutions that do not decay, the stationary 1-form W* and a gauge-fixed mass
-change K* that grows linearly in the ingoing time v, with a coefficient ½ that regularity at the horizon forces. A
-conserved horizon charge ([[lem:gd-2-2]]) shows that the growth cannot be avoided: when the mass changes, no
-harmonic-gauge solution settles to a change of mass near the horizon at an integrable rate ([[thm:gd-2-3]]).
+[[ch:rw-gauge]] determined the gauge vector that carries the linear solution of [[cor:viii-2-3]] to a Regge–Wheeler-type
+gauge. This chapter and the next do the same for the harmonic gauge Υ̇⁰(ġ) = 0 of [[sec:ix-0]], in which the linearised
+vacuum equation is the Lichnerowicz wave equation; in four dimensions the passage is Hung's [Hun19]. In the class the
+harmonic-gauge solutions with the data of ġ are ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g, where □Z′ is a forcing term with no
+spherically symmetric part and the spherically symmetric part of Z′ is free ([[prop:gd-2-1]]). The structure of the
+passage is explicit ([[prop:np-10-2]]): the tensor part is in harmonic gauge already, each scalar mode of the gauge
+vector solves three coupled 1 + 1 wave equations with the master field as source, and the spherically symmetric sector
+has two solutions that do not decay, the stationary 1-form W* and a gauge-fixed mass change K* that grows linearly in the
+ingoing time v, with a coefficient ½ that regularity at the horizon forces. A conserved horizon charge ([[lem:gd-2-2]])
+shows that the growth cannot be avoided: when the mass changes, no harmonic-gauge solution settles to a change of mass
+near the horizon at an integrable rate ([[thm:gd-2-3]]).
 
 The decay of the gauge vector modulo W* rests on the 1-form wave operator □ at zero energy, where its kernel is
 spanned by W* and the annihilator of its range by the horizon functional ℓ ([[lem:iii-d1-2-1]]). Augmenting the
