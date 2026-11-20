@@ -753,9 +753,11 @@ by ‖u‖_(α′). The bounds of [[prop:iii-i8-4-1]] (i) are taken in a second 
 norm at a larger regularity and a smaller ε, which depends on the seminorm of the solution bounded and is fixed in the
 proof: its step bounds the solution at a lower level α′ in ‖·‖_(α′) by (i) at α′, so its seminorm of the forcing must
 bound the seminorm of (i) at α′ as well as ‖·‖_(𝒴(α)). For each seminorm that (i) bounds these choices are finitely
-many and are made first; d is then taken so large that the bounds used below hold in them, uniformly for h small:
-those of [[lem:iii-i8-2-6]] (b)–(c) and [[lem:s21-motions-at-b]], and the count of Step 0 of the proof of
-[[lem:iii-i8-3-2]].
+many and are made first; d is then taken so large that the bounds and the continuity used below hold in them,
+uniformly for h small: those of [[lem:iii-i8-2-6]] (b)–(c) and [[lem:s21-motions-at-b]], and the count of Step 0 of
+the proof of [[lem:iii-i8-3-2]]. F_j → F in 𝒴(α) is meant as F_j → F in 𝒴 is in [[sec:iii-i7-4]], at the regularities
+that d allows: the step of [[prop:iii-i8-4-1]] (ii) applies (ii) at the level below to forcings that converge only as
+[[lem:iii-i8-2-6]] (c) allows for h_j → 0 in 𝒳^d.
 
 ### Corrections of the third kind and the operator {#sec:iii-i8-2}
 
