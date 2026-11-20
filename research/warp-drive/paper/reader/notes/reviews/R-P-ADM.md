@@ -832,3 +832,44 @@ rows c2–c4 and u2–u5".
 - The interactions on P-LB, the explicit K, P-T78 and P-T49 agree with the merged texts.
 - Side findings 1–5 are unchanged and true. Side finding 1 now also explains why (AP0) asks s_C > 100 and (C1)
   separately.
+
+---
+
+## Final (round 3): proofs/P-ADM.md at md5 bb8171d26e255d564043bda5ae5a75c5, 1,253 lines
+
+**Verdict: CONFIRMED (0 Major, 0 minor, 0 nits open).**
+
+**The round-2 points.** I diffed the file against round 2 (md5 321077a8). Only five places changed, and each is what
+round 2 asked for:
+- *F1.* The P-TR paragraph (lines 1201–1206) is my six-line text, verbatim. The old P-TR texts 2–6 and the sentence on
+  thm:tr-transfer at h ∈ 𝖧 are gone.
+- *N1.* Line 51.
+- *N2.* (AP3), lines 36–39. "Im σ ≥ 0" is now on one line.
+- *N3.* Item 54's new text, lines 1033–1035. No line holds only "The".
+- *N4.* The crosswalk row for prop:vi-c-adm-exist (line 1108) has the name field "P-ADM, Proposition" and the note
+  "new: replaces rows c2–c4 and u2–u5". The shortening is right: my longer note did not fit in 121 characters. The
+  row is now 117 characters.
+
+**Crosswalk pins.** They are @PENDING:20, 64 and 106. These are the lines that now carry def:vi-c-admissible,
+prop:vi-c-adm-exist and thm:vi-c-adm-holds; N2 added one line above the last two.
+
+**Against HEAD 6f066bb5.** Its chapters are identical to those I used in round 2 and to the working tree.
+- All 58 old texts occur exactly once, each at the line range its header gives.
+- No two items overlap.
+
+**Scratch merge, re-run.** I used my own script on the chapters at HEAD with all 58 items, Blocks A1–A4 and B1–B3, and
+Part C.
+- `lint.py --chapters`: 62 files, 4652 labels, **0 hits**.
+- `assemble.py --check`: **labels 4652, problems 0**.
+- P-TR has changed again (md5 e8d94b36). Every old text of its form B still occurs exactly once in the merged tree,
+  at 71:29, 71:84, 71:1815, 03:364, 90:81, 33:3541 and 71:5236. So the new P-TR paragraph's claim holds.
+
+**Typography of the file.**
+- The longest line is 121 characters.
+- With labels resolved conservatively, only the notes line 15 exceeds 121.
+- The only wrapped "- " lines are the bullets of item 39.
+- All labels are lowercase.
+
+Nothing else in the file changed. My round-2 checks therefore stand: the mathematics, the cap removal ((AP0) states
+s_C > 100 and (C1); every lower-bound sentence carries h ≤ 10⁻⁶ or γ_C ≥ 10⁶; no silent use of h ≤ 10⁻⁶ at an
+admissible point), and the interactions with P-LB, the explicit K, P-T78, P-T49 and P-F123.
