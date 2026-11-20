@@ -228,17 +228,21 @@ second ([[prop:tl5-scales]], [[thm:ten-l5]]); the statement that the waves are h
 sin⁴(π(v − 1/2)/3), is C³ and not C⁴, so [[thm:main]] does not apply to it at any λ ([[rem:envelope-regularity]]).
 
 Posed as a characteristic initial value problem in double-null gauge, the problem at 10 l5 has a solution where the
-solution is the seed, v ≤ 1/2 in units of the horizon radius; and wherever a vacuum solution exists in the gauge with the
-seed's transverse derivative of R on the seed's cone, its leaves inside the seed's horizon generator are outer trapped,
-and its T²-invariant marginally outer trapped sections lie at or outside that generator ([[thm:ten-l5]]). No existence is
-claimed for v > 1/2: the continuation lemma assumes smooth data and the local existence, uniqueness and continuation of
-the characteristic problem in the gauge, which this paper does not establish, the data are not smooth, its a priori
-estimate is one on a whole region, the axes included, and the residual bounds proved hold at points and on boxes of a
-region not of that form ([[thm:ten-l5]], [[lem:tl5-continuation]], [[rem:tl5-beyond]]). Beyond v = 1/2 the shift on
-the outgoing data cone is subject to a constraint that this paper does not treat ([[def:tl5-problem]]). The size of
-the constant of a linear estimate on a numerical solution at the first seed, and with it how far the closing condition of
-the continuation lemma lies from the residual bounds proved, is a numerical observation that no proof uses
-([[rem:tl5-constants]]).
+solution is the seed, v ≤ 1/2 in units of the horizon radius, and, when the ingoing data cone ends at u* < u₀, where
+−0.7698 < u₀ < −0.7697, also on a strip 1/2 ≤ v ≤ s beyond it, whose width is not estimated, smooth there and of class
+C³; and wherever a vacuum solution exists in the gauge with the seed's transverse derivative of R on the seed's cone,
+its leaves inside the seed's horizon generator are outer trapped, and its T²-invariant marginally outer trapped sections
+lie at or outside that generator ([[thm:ten-l5]]). For smooth data the characteristic problem in the gauge has local
+existence, uniqueness and continuation, uniqueness holding for vacuum metrics in double-null form on regions that
+contain the axes ([[thm:tl5-cip]], [[prop:tl5-cip-unique]]); the data at 10 l5 are C³ and not smooth, but they are
+smooth on two stages, to each of which it applies, and the solutions of the stages glue in class C³
+([[cor:tl5-cip-staged]]). So the regularity of the data is no obstruction. No existence is claimed beyond the strip: the
+continuation lemma, which applies stage by stage, needs an a priori estimate on a whole region, the axes included, and a
+closing condition, and the residual bounds proved hold at points and on boxes of a region not of that form
+([[lem:tl5-continuation]], [[rem:tl5-beyond]]). Beyond v = 1/2 the shift on the outgoing data cone is the solution of
+its constraint ([[lem:tl5-cip-shift]]). The size of the constant of a linear estimate on a numerical solution at the
+first seed, and with it how far the closing condition of the continuation lemma lies from the residual bounds proved, is
+a numerical observation that no proof uses ([[rem:tl5-constants]]).
 
 ### Numerical observations {#sec:scope-observations}
 

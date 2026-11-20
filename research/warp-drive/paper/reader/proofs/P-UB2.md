@@ -1,11 +1,11 @@
 # P-UB2: the upper bound of chapter 71 as a function of the admissible choice
 
 Proof file for the coordinator. Nothing in chapters/, crosswalk/ or elsewhere in the repository was edited; this is the
-only file written there. Every old text below is copied from the chapter files at HEAD 4003eb4c (equal to the
+only file written there. Every old text below is copied from the chapter files at HEAD fb8f8b2c (equal to the
 working tree for these files): 71-explicit-constants.md md5 427412e02c74261f1f87da24b60ddbca,
-00-front.md 0159d409ca212692d303f7beb554441c, 01-introduction.md 9fdbf82e5d5e448b20c72b47547cf03f,
-03-theorems.md 5cfcd471c599489d31bdb60ccd8e9b16, 63-own-data.md 2bd560af0194b8699f05a6fc017404a6,
-90-scope.md 2305d2b2c50d2cee3fa9d990a180e38d. Each old text occurs exactly once in its file as whole lines;
+00-front.md fcb33a08a5d5df2ae599389726a59dba, 01-introduction.md 9cfc5f6bcd496e6d6100c3bf7ed88ffa,
+03-theorems.md 4c4bc00c635267eef3f73f747efee2d0, 63-own-data.md 2bd560af0194b8699f05a6fc017404a6,
+90-scope.md 8c96f1f3d84ffcc63831372a70b0a09a. Each old text occurs exactly once in its file as whole lines;
 line numbers are of those files. Both sets of texts were merged with P-UB1's texts T1–T14 on a scratch copy made from
 a git archive of HEAD and checked there, through the assembled paper (section 7).
 
@@ -1943,14 +1943,16 @@ explicit functions of the admissible ε_K and of the counts of the index sets, w
   with the main blocks it does not replace), the edition's own lint in its --chapters mode reports 0 hits, with 4,667
   labels defined (two new: prop:uc-dependence, eq:uc-levels) and every reference resolved. The old texts each occur
   exactly once.
-- **Scratch merge from a git archive of HEAD 4003eb4c** (nothing run in the repository): P-UB1's 14 texts T1–T14
+- **Scratch merge from a git archive of HEAD fb8f8b2c** (nothing run in the repository): P-UB1's 14 texts T1–T14
   (located by their old texts) and the 36 main blocks applied together, disjoint. Results:
   lint --chapters: "chapters: 62 file(s), 4763 label(s) defined, 0 hit(s)";
-  assemble --check: "labels 4763, computations cited 0, problems 0"; assemble: "labels 4763, computations cited 0, problems 0";
+  assemble --check: "labels 4763, computations cited 0, problems 0";
+  assemble: "labels 4763, computations cited 0, problems 0";
   lint --paper on the scratch PAPER.md: "PAPER.md: 0 hit(s)".
-  The same with the fallback set and the main blocks it does not replace: "chapters: 62 file(s), 4763 label(s) defined, 0 hit(s)";
-  "labels 4763, computations cited 0, problems 0"; "PAPER.md: 0 hit(s)". The line widths of the new texts are measured with every label resolved to its number in that merged assembly, plus one character per
-  label, so a shift of the numbering by a digit stays within 121 characters.
+  The same with the fallback set and the main blocks it does not replace:
+  "chapters: 62 file(s), 4763 label(s) defined, 0 hit(s)"; "labels 4763, computations cited 0, problems 0"; "PAPER.md: 0 hit(s)".
+  The line widths of the new texts are measured with every label resolved to its number in that merged assembly, plus
+  one character per label, so a shift of the numbering by a digit stays within 121 characters.
 - **Not checked here:** P-UB1's texts (sec:is, def:uc-choice, lem:uc-admissible) and their numbers; the crosswalk rows
   (crosswalk/71-explicit-constants.tsv needs rows for prop:uc-dependence and eq:uc-levels and notes for the blocks);
   the real PAPER.md (regenerate after the merge).
@@ -1980,7 +1982,7 @@ fallback rule) is unchanged.
    uses (real part at most 2).
 7. **Rewrapping.** Lines are now measured with the labels resolved (section 7). This rewraps, among others, the four
    lines P-UB1 found over 121 characters in the assembled paper (M6, M7, M13 twice); the words are unchanged.
-8. **This file:** header (final inputs, HEAD 4003eb4c, md5s of 01, 03, 90, which changed at HEAD elsewhere, the quoted
+8. **This file:** header (final inputs, HEAD fb8f8b2c, md5s of 01, 03, 90, which changed at HEAD elsewhere, the quoted
    lines being unchanged and found once), §1.3 item 5 (cor:is-lower), §1.4 (requirements met), §6 (fallback not needed),
    §7 (the merge), §8.
 

@@ -392,6 +392,7 @@ The remaining chapters prove the following; each is stated in full where it is p
   [[def:edge-hypotheses]], among them env_C ([[thm:very-edge]], [[cor:edge-envelope]]).
 - *Physical wavelengths.* An upper bound for λ0 at a numerical point, and an approximate value, which is not proved, of
   the first stage's mean correction there ([[prop:lambda0]], [[rem:m22-value]]); at the prescribed wavelength 10 l5
-  there is no separation of scales, and existence holds where the solution is the seed ([[thm:ten-l5]]).
+  there is no separation of scales, and existence holds where the solution is the seed and on a strip beyond it whose
+  width is not estimated ([[thm:ten-l5]]).
 
 [[ch:scope]] collects what is claimed and what is not.

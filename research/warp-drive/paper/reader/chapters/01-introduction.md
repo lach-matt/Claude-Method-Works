@@ -155,8 +155,8 @@ and d > 0.3168 γ_C², z = 4e_Υγ_Υ² and γ_C being the gauge and damping par
 lie in it, d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them,
 and d < 1.57157 × 10⁵⁰ at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]). A
 high-frequency theorem, whose expansion parameter is the wavelength over the curvature length, does not apply at a
-prescribed wavelength of 10 l5; there existence holds where the solution is the seed ([[thm:ten-l5]]). [[ch:scope]]
-collects these statements.
+prescribed wavelength of 10 l5; there existence holds where the solution is the seed and on a strip beyond it whose
+width is not estimated ([[thm:ten-l5]]). [[ch:scope]] collects these statements.
 
 ### Organisation of the paper {#sec:organisation}
 

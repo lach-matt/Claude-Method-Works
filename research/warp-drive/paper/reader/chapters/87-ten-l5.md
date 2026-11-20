@@ -8,14 +8,18 @@ parameters are those of the first seed below, the threshold λ0 that the proof o
 is not small against the curvature length ([[prop:tl5-scales]]), and the problem is posed as a characteristic initial
 value problem in double-null gauge: the seed on an ingoing cone, the incoming wave on an outgoing one.
 
-The chapter proves the following. The problem has a solution where the solution is the seed ([[thm:ten-l5]]). Wherever
-a vacuum solution exists in the gauge with the seed's transverse derivative of R on the seed's cone, its leaves inside
-the seed's horizon generator are outer trapped, and its T²-invariant marginally outer trapped sections lie at or outside
-that generator and, under a condition on the generators through them, in an explicit band ([[prop:tl5-leaves]],
-[[cor:tl5-mots]]). On the data cone the outgoing constraint has exact solutions, and an explicit approximant satisfies
-it up to an explicit residual ([[sec:cone-approximant]]). Two explicit metrics of the class on a region beyond the seed
-have explicit residual bounds ([[sec:tl5-residuals]]). A continuation lemma states what existence beyond the seed would
-need ([[lem:tl5-continuation]]). No existence is proved beyond the seed, and [[rem:tl5-beyond]] says why. Numerical
+The chapter proves the following. The problem has a solution where the solution is the seed and, for u* < u₀ (u* and u₀
+as in [[def:tl5-problem]] and [[lem:tl5-seed]] (a)), also on a strip 1/2 ≤ v ≤ s beyond it, whose width is not
+estimated; that solution is smooth beyond the seed and of class C³ ([[thm:ten-l5]]). Wherever a vacuum solution exists
+in the gauge with the seed's transverse derivative of R on the seed's cone, its leaves inside the seed's horizon
+generator are outer trapped, and its T²-invariant marginally outer trapped sections lie at or outside that generator
+and, under a condition on the generators through them, in an explicit band ([[prop:tl5-leaves]], [[cor:tl5-mots]]). On
+the data cone the outgoing constraint has exact solutions, and an explicit approximant satisfies it up to an explicit
+residual ([[sec:cone-approximant]]). Two explicit metrics of the class on a region beyond the seed have explicit
+residual bounds ([[sec:tl5-residuals]]). For smooth data the characteristic problem in the gauge has local existence,
+uniqueness and continuation ([[thm:tl5-cip]]); the data at 10 l5 are smooth on two stages, to each of which it applies
+([[cor:tl5-cip-staged]]), and a continuation lemma states what existence on a given region beyond the seed would further
+need ([[lem:tl5-continuation]]). No existence is proved beyond the strip, and [[rem:tl5-beyond]] says why. Numerical
 observations, which no proof uses, are kept as remarks.
 
 ### The seeds and the scales {#sec:tl5-scales}
@@ -444,7 +448,7 @@ first seed and 0 ≤ r − R(r, x) ≤ 0.0112 + 0.0140 (r − r_e) at the second
 (c) R > 0 on [10, ∞) × [−1, 1]; R and ∂_rR are continuous there, and R is C^∞ in x.
 
 The data (R, P, Q, W) therefore satisfy the Raychaudhuri constraint exactly: Ric_vv[R] = 0 on the whole cone, by
-[[eq:cone-ricvv]]. The constraint Ric_vx, which determines the shift on the cone, is not treated here.
+[[eq:cone-ricvv]]. The constraint Ric_vx determines the shift on the cone; [[lem:tl5-cip-shift]] solves it.
 
 *Proof.* By [[lem:cone-generator]], [[eq:cone-ode]] is ∂_r²R = −w R, with w continuous on [10, ∞) × [−1, 1] and zero
 outside (r_s, r_e). On [10, r_s] the function R = r solves it. On [r_s, ∞) the linear equation ∂_r²R = −w R with
@@ -566,12 +570,13 @@ e^(2W) = f(R)/(2 f(10)), the W of [[eq:cone-data]]. For v ≤ 1/2, env(v) = 0, s
 vanish, as for the seed. ∎
 
 **Definition {#def:tl5-problem}** (The characteristic problem at 10 l5.) Fix a seed and u* ∈ (−10, 0), and let
-C₀ := {v = 0, −10 ≤ u ≤ u*} and N := {u = −10, v ≥ 0}. The data on C₀ are those of the seed: R = −u, P = Q = β = 0
-and e^(2W) = 1/2. The data on N are W, P and Q of [[eq:cone-data]], with r the parameter of [[eq:cone-v]], and the R
-of [[prop:cone-exact]]; on N ∩ {v ≤ 1/2} the shift is β = 0, and beyond it is subject to the constraint Ric_vx = 0,
-which this paper does not treat. A solution on a set D ⊂ {−10 ≤ u ≤ u*, v ≥ 0} × S³ is a T²-invariant vacuum metric of
-the class in the gauge on D, whose R, P, Q, W and β are C² functions of (u, v, x) on D and whose values on D ∩ C₀ and
-D ∩ N are the data.
+C₀ := {v = 0, −10 ≤ u ≤ u*} and N := {u = −10, v ≥ 0}. The data on C₀ are those of the seed: R = −u, P = Q = β = 0 and
+e^(2W) = 1/2. The data on N are W, P and Q of [[eq:cone-data]], with r the parameter of [[eq:cone-v]], and the R of
+[[prop:cone-exact]]; on N ∩ {v ≤ 1/2} the shift is β = 0, and beyond it is the solution of the constraint Ric_vx = 0
+with β = ∂_vβ = 0 at v = 1/2, which exists, is unique, is smooth in x and of class C⁴ in v, and is smooth on
+N ∩ {1/2 ≤ v ≤ 7/2} and on N ∩ {v ≥ 7/2} ([[lem:tl5-cip-shift]] and the paragraph after it). A solution on a set
+D ⊂ {−10 ≤ u ≤ u*, v ≥ 0} × S³ is a T²-invariant vacuum metric of the class in the gauge on D, whose R, P, Q, W and β
+are C² functions of (u, v, x) on D and whose values on D ∩ C₀ and D ∩ N are the data.
 
 On N ∩ {v ≤ 1/2}, r ≤ r_s, so the R of [[prop:cone-exact]] is r and the data there are the seed's ([[lem:tl5-seed]]
 (d)).
@@ -584,7 +589,9 @@ horizon it is more than 2.91 times it at the first seed and more than 0.92 times
 (b) the characteristic problem of [[def:tl5-problem]] has a solution where the solution is the seed: on
 D⁰ := ({−10 ≤ u ≤ u*, 0 ≤ v ≤ 1/2} ∩ D_seed) × S³, which is all of {−10 ≤ u ≤ u*, 0 ≤ v ≤ 1/2} × S³ when u* < u₀
 ([[lem:tl5-seed]] (a)), the seed of [[lem:tl5-seed]] is a smooth vacuum metric of the class in the gauge that induces
-the data on D⁰ ∩ C₀ and on D⁰ ∩ N;
+the data on D⁰ ∩ C₀ and on D⁰ ∩ N; and when u* < u₀ the problem also has a solution beyond the seed: for some
+s ∈ (1/2, 7/2] there is a solution on {−10 ≤ u ≤ u*, 0 ≤ v ≤ s} × S³ that is the seed for v ≤ 1/2 and smooth for
+v ≥ 1/2, of class C³, and no other solution there has smooth restrictions to {v ≤ 1/2} and to {v ≥ 1/2};
 
 (c) for every solution on a set D as in [[prop:tl5-leaves]] whose transverse derivative ∂_vR on C₀ is the seed's,
 every leaf with −1 < u < 0 is outer trapped where it meets D; every T²-invariant marginally outer trapped section of an
@@ -592,13 +599,17 @@ ingoing cone contained in the interior of D has its innermost point at u ≤ −
 contains the two generator segments named in [[cor:tl5-mots]] (c) lies in the band of [[cor:tl5-mots]] (c), between
 the infimum and the supremum of u over the zeros of the leaves' expansion on that cone in D.
 
-No existence is asserted for v > 1/2: [[lem:tl5-continuation]] states what a continuation would need, and
-[[rem:tl5-beyond]] why the bounds proved in this chapter do not provide it.
+Existence beyond v = 1/2 is asserted only on the strip of (b), whose width s − 1/2 is not estimated:
+[[lem:tl5-continuation]] states what existence on a given region would need, and [[rem:tl5-beyond]] why the bounds
+proved in this chapter do not provide it.
 
 *Proof.* (a) is [[prop:tl5-scales]]. (b) D⁰ ⊂ D_seed × S³, so by [[lem:tl5-seed]] (b) and (c) the seed is a smooth
-vacuum metric of the class in the gauge on D⁰, and by [[lem:tl5-seed]] (d) and the sentence after
-[[def:tl5-problem]] it induces the data on D⁰ ∩ C₀ and D⁰ ∩ N. (c) is [[prop:tl5-leaves]] and [[cor:tl5-mots]] (b)
-and (c), since θ_S = 0 on a marginally outer trapped section. ∎
+vacuum metric of the class in the gauge on D⁰, and by [[lem:tl5-seed]] (d) and the sentence after [[def:tl5-problem]] it
+induces the data on D⁰ ∩ C₀ and D⁰ ∩ N. When u* < u₀, [[cor:tl5-cip-staged]] (a) and (F1) of [[thm:tl5-cip]] give
+s ∈ (1/2, 7/2] and a solution of the first stage on [−10, u*] × [1/2, s] × S³, and by [[cor:tl5-cip-staged]] (c) it
+continues the seed to a solution of class C³ on {−10 ≤ u ≤ u*, 0 ≤ v ≤ s} × S³, the only one there with smooth
+restrictions to {v ≤ 1/2} and to {v ≥ 1/2}. (c) is [[prop:tl5-leaves]] and [[cor:tl5-mots]] (b) and (c), since θ_S = 0
+on a marginally outer trapped section. ∎
 
 **Remark {#rem:tl5-runs}** (Numerical observation.) The characteristic problem was solved numerically in the gauge,
 with an expansion in the polar angle, at both seeds. At the second seed, with the angular and null grids refined
@@ -1145,14 +1156,803 @@ intervals at the centre, the constants Λ^F_γ, the enclosures of [[lem:tl5-fiel
 [[eq:tl5-certificate]]. A printed interval contains the one these rules give, and a printed number is at least the
 one these rules give; [[sec:tab-d-tables]] says where they differ.
 
+### The characteristic problem in the gauge {#sec:tl5-cip}
+
+This section proves the local existence, uniqueness and continuation of the characteristic problem in the gauge for
+smooth data ([[thm:tl5-cip]]); these are the properties (F1)–(F3) that [[lem:tl5-continuation]] uses. Uniqueness is
+proved for vacuum metrics in double-null form, without any symmetry ([[prop:tl5-cip-unique]]): two of them that agree
+along the two data hypersurfaces have the same derivatives of all orders there ([[lem:tl5-cip-jets]]), so one smooth
+extension across the hypersurfaces serves both, and local harmonic coordinates reduce the comparison to the uniqueness
+of the Cauchy problem for linear wave equations. Existence comes from [[thm:std-ctg-neighbourhood]], through double-null
+coordinates on its development ([[lem:tl5-cip-chart]]); the symmetry of the solution, and with it the form of the class,
+follows from the uniqueness. Everything is done on the five-manifold, in charts of S³, so the axes play no special role
+([[rem:tl5-cip-axes]]). The data of [[def:tl5-problem]] are not smooth, but they are smooth on the stages 1/2 ≤ v ≤ 7/2
+and v ≥ 7/2 of the outgoing cone; the theorem applies to each stage, and the solutions glue to the seed and to each
+other in class C³ ([[cor:tl5-cip-staged]]).
+
+#### Metrics in double-null form {#sec:tl5-cip-form}
+
+Write 𝒬 := ℝ² × S³, with coordinates (u, v) on ℝ² and S³ ⊂ ℂ² the unit sphere, and on S³ the function
+x := |z₁|² − |z₂|² and the angles φ_i := arg z_i, which with x form a chart of {|x| < 1}. The group G = O(2) × O(2) of
+[[sec:class]] acts on S³ ⊂ ℂ² = ℝ² × ℝ², hence on 𝒬, trivially on (u, v); in the chart (x, φ1, φ2) the rotations are
+φ_i ↦ φ_i + c_i and the reflections φ_i ↦ −φ_i. A box is a set I × J × S³ with I, J compact intervals; a function, a
+tensor field or a map on a box is smooth if all its partial derivatives, taken in charts at interior points, extend
+continuously to the box. We use coordinates (u, v, y^A), y a chart of S³, with indices A, B, C, D, E running over 1, 2,
+3; the spheres {u, v constant} are the leaves.
+
+**Definition {#def:tl5-cip-null}** (Double-null form.) A smooth metric g on a box, or on an open subset of 𝒬, is in
+double-null form if g(∂_v, ∂_v) = 0, g(∂_v, X) = 0 for every X tangent to the leaves, g⁻¹(dv, dv) = 0,
+g(∂_u, ∂_v) < 0, and the metric γ that g induces on the leaves is positive definite.
+
+**Lemma {#lem:tl5-cip-form}** (The form.) (a) A smooth metric g is in double-null form if and only if, in every chart
+y of S³,
+
+    g = −2e^(2W) (du ⊗ dv + dv ⊗ du) + γ_AB (dy^A − b^A du) ⊗ (dy^B − b^B du)                  {#eq:tl5-cip-form}
+
+with W, b^A and γ_AB smooth and γ positive definite; then g is Lorentzian, and with e₃ := ∂_u + b^A∂_A and e₄ := ∂_v,
+
+    g⁻¹ = −(e^(−2W)/2) (e₃ ⊗ e₄ + e₄ ⊗ e₃) + γ^(AB) ∂_A ⊗ ∂_B.
+
+(b) If g is in double-null form and G-invariant, then on {|x| < 1} it is a metric of the class in the gauge of
+[[sec:cone-constraint]], with β := b^x and with R > 0, P and Q given by R⁶ := 16 det γ, e^(2P) := 2γ_(φ1φ1)/(R²(1 + x))
+and e^(2Q) := 2γ_(φ2φ2)/(R²(1 − x)), where γ and det γ are taken in the chart (x, φ1, φ2). Conversely, a smooth metric
+of the class in the gauge is G-invariant and in double-null form.
+
+*Proof.* (a) Put θ^A := dy^A − b^A du; the frame (e₃, e₄, ∂_A) is dual to (du, dv, θ^A). If g has the form
+[[eq:tl5-cip-form]], then g(∂_v, ∂_v) = 0, g(∂_v, ∂_A) = 0 and g(∂_u, ∂_v) = −2e^(2W) < 0; in this frame g is block
+diagonal, with the block ((0, −2e^(2W)), (−2e^(2W), 0)) on (e₃, e₄) and γ on the leaves, so g is Lorentzian, its inverse
+is the one stated, and g⁻¹(dv, dv) = 0 since dv(e₃) = dv(∂_A) = 0. Conversely, let g be in double-null form, and define
+W and b by g(∂_u, ∂_v) = −2e^(2W) and b^A := −γ^(AB) g(∂_u, ∂_B). Then g minus the right side of [[eq:tl5-cip-form]] is
+c du ⊗ du with c := g(∂_u, ∂_u) − γ_AB b^A b^B, so in the frame above the (e₃, e₄) block of g is
+((c, −2e^(2W)), (−2e^(2W), 0)); its inverse has the entry −c e^(−4W)/4 in the place of (dv, dv), and g⁻¹(dv, dv) = 0
+gives c = 0.
+
+(b) The rotations act by translations of φ1 and φ2, so the components of g in the chart (u, v, x, φ1, φ2) do not depend
+on φ1, φ2. The reflection φ1 ↦ −φ1 maps ∂_(φ1) to −∂_(φ1) and fixes ∂_u, ∂_v, ∂_x and ∂_(φ2), so its invariance gives
+g(∂_(φ1), Y) = 0 for these Y; likewise for φ2. Hence γ is diagonal and b^(φi) = −γ^(φiφi) g(∂_u, ∂_(φi)) = 0. With R,
+P, Q as stated, γ_(φ1φ1) = R² ((1 + x)/2) e^(2P), γ_(φ2φ2) = R² ((1 − x)/2) e^(2Q), and
+γ_xx = det γ/(γ_(φ1φ1)γ_(φ2φ2)) = R² e^(−2(P + Q))/(4(1 − x²)) = G_x; so [[eq:tl5-cip-form]] is the metric of
+[[sec:cone-constraint]], in which −4e^(2W) du dv stands for −2e^(2W) (du ⊗ dv + dv ⊗ du). Conversely, that metric has
+the form [[eq:tl5-cip-form]] on {|x| < 1}, with components independent of φ1, φ2 and with no term that contains exactly
+one dφ_i, so it is invariant under G there, and on the whole box by continuity; it is in double-null form on {|x| < 1}
+by (a), and at the axes by continuity, γ being positive semi-definite there and nondegenerate, as a vector X tangent to
+a leaf with γ(X, ·) = 0 has g(X, ·) = 0. ∎
+
+**Lemma {#lem:tl5-cip-axis}** (Regularity at the axes.) (a) Let g be a smooth G-invariant metric in double-null form on
+a box I × J × S³. Then the functions R, P, Q, W and β of [[lem:tl5-cip-form]] (b) are the restrictions to
+I × J × (−1, 1) of smooth functions of (u, v, x) on I × J × [−1, 1].
+
+(b) Let J be an interval, k a nonnegative integer or ∞, and R > 0, P, Q functions on J × [−1, 1] whose partial
+derivatives ∂_v^j∂_x^l with j ≤ k exist and are continuous, with P + 2Q = 0 at x = 1 and 2P + Q = 0 at x = −1. Then the
+metrics
+
+    R² e^(−2(P + Q)) dx²/(4(1 − x²)) + R² ((1 + x)/2) e^(2P) dφ1² + R² ((1 − x)/2) e^(2Q) dφ2²
+
+on {|x| < 1} ⊂ S³, one for each v ∈ J, extend to Riemannian metrics on S³ whose components in every chart y of S³ have
+continuous partial derivatives ∂_v^j∂_y^α for j ≤ k.
+
+*Proof.* (a) G acts transitively on each set {x = c} ⊂ S³, a torus or, for c = ±1, a circle, so a G-invariant function f
+on the box is f = F(u, v, x) for a function F on I × J × [−1, 1]. Let ω(ϑ) := (cos ϑ, sin ϑ) ∈ S³ ⊂ ℂ², so that
+x(ω(ϑ)) = cos 2ϑ, and E(u, v, ϑ) := f(u, v, ω(ϑ)), a smooth function on I × J × ℝ. The rotations (z₁, z₂) ↦ (−z₁, z₂)
+and (z₁, z₂) ↦ (z₁, −z₂) map ω(ϑ) to ω(π − ϑ) and to ω(−ϑ), so E is even about ϑ = 0 and about ϑ = π/2, and ∂_ϑE is odd
+about both. Hence ∂_ϑE(u, v, ϑ) = ϑ ∫₀¹ ∂_ϑ²E(u, v, tϑ) dt and sin 2ϑ = ϑ ∫₀¹ 2 cos(2tϑ) dt, the last integral being
+positive for |ϑ| < π/4, and likewise about π/2; so Ẽ := −∂_ϑE/(2 sin 2ϑ) extends from 0 < ϑ < π/2 to a smooth function
+on I × J × (−π/4, 3π/4), again even about 0 and about π/2. For 0 < ϑ < π/2, x = cos 2ϑ gives
+∂_xF(u, v, cos 2ϑ) = Ẽ(u, v, ϑ). By induction, ∂_x^l F(u, v, cos 2ϑ) = E_l(u, v, ϑ) with E_l smooth and even about 0 and
+π/2, so every partial derivative ∂_u^i∂_v^j∂_x^l F, as a function of (u, v, ϑ) with 0 < ϑ < π/2, extends continuously to
+0 ≤ ϑ ≤ π/2; by the mean value theorem, F extended by continuity to x = ±1 is smooth on I × J × [−1, 1].
+
+W = (ln(−g(∂_u, ∂_v)/2))/2 and β = dx(b), with b^A = −γ^(AB) g(∂_u, ∂_B), are smooth and G-invariant, since G acts on S³
+alone and preserves ∂_u, ∂_v and the leaves. With the round metric
+γ₀ := dx²/(4(1 − x²)) + ((1 + x)/2) dφ1² + ((1 − x)/2) dφ2² of S³, whose determinant in the chart (x, φ1, φ2) is 1/16,
+R³ = (det γ/det γ₀)^(1/2) in every chart, a smooth positive G-invariant function. The field ∂_(φ1), which generates the
+rotations of z₁, is smooth on S³ and vanishes exactly on {x = −1}; so γ(∂_(φ1), ∂_(φ1)) is smooth and G-invariant, equal
+to K₁(u, v, x) with K₁ smooth on I × J × [−1, 1] and zero at x = −1, and K₁ = (1 + x) K with
+K := ∫₀¹ ∂_xK₁(u, v, −1 + t(1 + x)) dt smooth. By compactness γ ≥ c γ₀ for some c > 0, so K ≥ c
+γ₀(∂_(φ1), ∂_(φ1))/(1 + x) = c/2, and e^(2P) = 2K/R² shows that P is smooth. Likewise for Q, with ∂_(φ2) and x = 1.
+
+(b) On {|x| < 1}, x and the angles form charts, in which the components are R² e^(−2(P + Q))/(4(1 − x²)),
+R² ((1 + x)/2) e^(2P) and R² ((1 − x)/2) e^(2Q). Near {x = 1}, where z₁ ≠ 0, take the chart (φ1, ξ¹, ξ²) with
+z₂ = ξ¹ + iξ², and put ρ² := |z₂|², so that 1 − x = 2ρ². With A := R² e^(−2(P + Q))/(1 − ρ²), B := R² e^(2Q) and
+C := R² (1 − ρ²) e^(2P), taken at x = 1 − 2ρ², the metric is A dρ² + B ρ² dφ2² + C dφ1², that is
+
+    B ((dξ¹)² + (dξ²)²) + ((A − B)/(4ρ²)) (d(ρ²))² + C dφ1²,
+
+since dρ² + ρ² dφ2² = (dξ¹)² + (dξ²)² and 4ρ² dρ² = (d(ρ²))². As functions of (v, ρ²), A, B and C have continuous
+derivatives ∂_v^j∂_(ρ²)^l for j ≤ k, and A = B at ρ = 0, since P + 2Q = 0 at x = 1; so
+(A − B)/ρ² = ∫₀¹ ∂₂(A − B)(v, tρ²) dt, ∂₂ denoting the derivative in the second variable, has such derivatives as well.
+With ρ² = (ξ¹)² + (ξ²)², the components in this chart have continuous derivatives ∂_v^j∂_ξ^α for j ≤ k, and the metric
+is positive definite, equal to B ((dξ¹)² + (dξ²)²) + C dφ1² at ρ = 0. Near {x = −1} the same holds with z₁ and z₂
+exchanged and 2P + Q = 0. Other charts differ from these by diffeomorphisms of S³. ∎
+
+**Lemma {#lem:tl5-cip-causal}** (Causal structure.) Let g be in double-null form on an open set 𝒪 ⊂ 𝒬, time-oriented
+so that e₃ and e₄ are future directed.
+
+(a) For every future directed causal vector X ≠ 0, du(X) ≥ 0, dv(X) ≥ 0, du(X) + dv(X) > 0 and
+γ(X′, X′) ≤ 4e^(2W) du(X) dv(X), where X′ := X − du(X) e₃ − dv(X) e₄ is tangent to the leaves.
+
+(b) Let ψ₁, ψ₂ be smooth functions of one variable with ψ₁′, ψ₂′ ≥ 0, and τ := u + v + ψ₁(u) + ψ₂(v). Then τ is
+strictly increasing along future directed causal curves and g⁻¹(dτ, dτ) < 0, so every level set of τ is a smooth
+spacelike hypersurface, acausal in 𝒪. Each of the sets {u < a}, {v < b} and {τ < c}, and every union of such sets, is a
+past set: a past directed causal curve that starts in it stays in it.
+
+(c) e₄ = −2e^(2W) ∇u and e₃ = −2e^(2W) ∇v, and ∇_(∇w)∇w = 0 for w = u, v; so the integral curves of e₄ and of e₃ are
+null pregeodesics.
+
+*Proof.* (a) Write X = λe₃ + μe₄ + X′ with λ = du(X), μ = dv(X). Then g(X, X) = −4e^(2W)λμ + γ(X′, X′) ≤ 0, so
+λμ ≥ γ(X′, X′)/(4e^(2W)) ≥ 0. As e₃ + e₄ is future directed and timelike, g(X, e₃ + e₄) = −2e^(2W)(λ + μ) < 0, so
+λ + μ > 0, and with λμ ≥ 0 both are non-negative. (b) dτ(X) = (1 + ψ₁′)du(X) + (1 + ψ₂′)dv(X) > 0 by (a), and by the
+inverse in [[lem:tl5-cip-form]] (a), g⁻¹(du, du) = g⁻¹(dv, dv) = 0 and g⁻¹(du, dv) = −e^(−2W)/2, so
+g⁻¹(dτ, dτ) = −(1 + ψ₁′)(1 + ψ₂′) e^(−2W) < 0. A causal curve meets a level set of τ at most once, and along a past
+directed causal curve u, v and τ do not increase. (c) By the inverse in [[lem:tl5-cip-form]] (a), ∇u = −(e^(−2W)/2) e₄
+and ∇v = −(e^(−2W)/2) e₃. For w = u, v, g(∇w, ∇w) = 0 everywhere, and as ∇∇w is symmetric,
+g(∇_(∇w)∇w, Y) = ∇∇w(Y, ∇w) = Y(g(∇w, ∇w))/2 = 0 for every Y. ∎
+
+**Lemma {#lem:tl5-cip-frame}** (The vacuum equations in double-null form.) Let g be in double-null form, with
+[[eq:tl5-cip-form]] in a chart y, e₃ := ∂_u + b^A∂_A and e₄ := ∂_v, and put
+
+    χ_AB := ∂_vγ_AB/2,    χ̲_AB := (e₃γ_AB + γ_CB ∂_Ab^C + γ_AC ∂_Bb^C)/2,    ζ_A := e^(−2W) γ_AB ∂_vb^B/4,
+
+with indices raised by γ, trχ := χ_A^A, |χ|² := χ_A^B χ_B^A, ⟨χ, χ̲⟩ := χ_A^B χ̲_B^A, likewise for χ̲, and |dW|² :=
+γ^(AB) ∂_AW ∂_BW, ⟨ζ, dW⟩ := γ^(AB) ζ_A ∂_BW, |ζ|² := γ^(AB) ζ_A ζ_B. Let ∇̸, Γ̸, Ric̸ and Δ̸ be the Levi-Civita
+connection, its Christoffel symbols, the Ricci tensor and the Laplacian of γ on the leaves, and put (div̸ χ)_A :=
+γ^(BC) ∇̸_B χ_CA, div̸ ζ := γ^(AB) ∇̸_A ζ_B, (ℒ₃ζ)_A := e₃(ζ_A) + ∂_Ab^B ζ_B and (ℒ₃χ)_AB := e₃(χ_AB) + ∂_Ab^C χ_CB +
+∂_Bb^C χ_AC. Then
+
+    Ric(e₄, e₄) = −∂_v trχ + 2∂_vW trχ − |χ|²,
+    Ric(e₃, e₃) = −e₃(trχ̲) + 2e₃(W) trχ̲ − |χ̲|²,
+    Ric(e₄, ∂_A) = ∂_vζ_A + trχ ζ_A − ∂_A∂_vW + trχ ∂_AW + (div̸ χ)_A − ∂_A trχ,
+    Ric(e₃, ∂_A) = −(ℒ₃ζ)_A − trχ̲ ζ_A − ∂_A(e₃W) + trχ̲ ∂_AW + (div̸ χ̲)_A − ∂_A trχ̲,
+    Ric(∂_A, ∂_B) = (e^(−2W)/2) (∂_vχ̲_AB + (ℒ₃χ)_AB + trχ χ̲_AB + trχ̲ χ_AB − 2χ_A^C χ̲_CB − 2χ̲_A^C χ_CB)
+                    − 2∇̸_A∇̸_BW − 2∂_AW ∂_BW − 2ζ_A ζ_B + Ric̸_AB,
+    Ric(e₃, e₄) = −2e₃(∂_vW) − e₃(trχ) − ⟨χ, χ̲⟩ + 2e^(2W) (Δ̸W − div̸ ζ + 2|dW|² − 4⟨ζ, dW⟩ − 2|ζ|²).
+                                                                                                {#eq:tl5-cip-ricci}
+
+*Proof.* The commutators of the frame are [e₄, e₃] = ∂_vb^A ∂_A, [∂_A, e₃] = ∂_Ab^B ∂_B and [∂_A, e₄] = [∂_A, ∂_B] = 0;
+the products are g(e₃, e₄) = −2e^(2W) and g(∂_A, ∂_B) = γ_AB, all others vanishing. Put a_A := ∂_AW + ζ_A and
+a̲_A := ∂_AW − ζ_A, and write ∇_3 := ∇_(e₃), ∇_4 := ∇_(e₄), ∇_A := ∇_(∂_A). The Koszul formula
+2g(∇_XY, Z) = Xg(Y, Z) + Yg(X, Z) − Zg(X, Y) + g([X, Y], Z) − g([X, Z], Y) − g([Y, Z], X), evaluated on the frame, gives
+
+    ∇_4e₄ = 2∂_vW e₄,    ∇_3e₃ = 2e₃(W) e₃,    ∇_4e₃ = 2e^(2W) a^A ∂_A,    ∇_3e₄ = 2e^(2W) a̲^A ∂_A,
+    ∇_Ae₄ = ∇_4∂_A = χ_A^B ∂_B + a_A e₄,    ∇_Ae₃ = χ̲_A^B ∂_B + a̲_A e₃,    ∇_3∂_A = ∇_Ae₃ − ∂_Ab^B ∂_B,
+    ∇_A∂_B = Γ̸^C_AB ∂_C + (e^(−2W)/2) (χ̲_AB e₄ + χ_AB e₃).                                    {#eq:tl5-cip-connection}
+
+For instance 2g(∇_Ae₄, e₃) = ∂_A g(e₄, e₃) − g([∂_A, e₃], e₄) − g([e₄, e₃], ∂_A) = −2∂_A e^(2W) − γ_AB ∂_vb^B, which is
+−4e^(2W) a_A, and 2g(∇_Ae₄, ∂_B) = ∂_vγ_AB; the other entries follow in the same way, and
+∇_4e₃ − ∇_3e₄ = [e₄, e₃] checks the third and fourth. With R(Z, X)Y := ∇_Z∇_XY − ∇_X∇_ZY − ∇_([Z, X])Y,
+
+    Ric(X, Y) = θ³(R(e₃, X)Y) + θ⁴(R(e₄, X)Y) + γ^(CD) g(R(∂_C, X)Y, ∂_D),
+
+where θ³(V) := −e^(−2W) g(V, e₄)/2 and θ⁴(V) := −e^(−2W) g(V, e₃)/2 are the components of V along e₃ and e₄.
+
+For Ric(e₄, e₄) the first two terms vanish, R being antisymmetric in its last two slots after lowering. The ∂_D
+component of R(∂_C, e₄)e₄ = ∇_C(2∂_vW e₄) − ∇_4(χ_C^B ∂_B + a_C e₄), paired by g, is
+2∂_vW χ_CD − γ_BD ∂_vχ_C^B − χ_C^B χ_BD, and the contraction with γ^(CD) is the first line. For Ric(e₃, e₃) the same
+steps with e₃, χ̲, a̲ give the second line: the term −∇_([∂_C, e₃])e₃ = −∂_Cb^B ∇_Be₃ and the term −∂_Bb^E ∂_E of ∇_3∂_B
+contribute −∂_Cb^B χ̲_B^C and +χ̲_E^B ∂_Bb^E to the contraction, which cancel.
+
+For Ric(e₄, ∂_A): θ³(R(e₃, ∂_A)e₄) = 0; the e₄ component of R(e₄, ∂_A)e₄ = ∇_4(χ_A^B ∂_B + a_A e₄) − ∇_A(2∂_vW e₄) is
+χ_A^B a_B + ∂_va_A − 2∂_A∂_vW; and since g(∇_C∇_Ae₄, ∂_D) = γ_BD ∂_Cχ_A^B + γ_ED Γ̸^E_CB χ_A^B + a_A χ_CD, the
+contraction of R(∂_C, ∂_A)e₄ is (div̸ χ)_A − ∂_A trχ + a_A trχ − χ_A^B a_B. The sum, with a = dW + ζ, is the third
+line. For Ric(e₃, ∂_A) the same steps, with the extra term −∇_([e₃, ∂_A])e₃ = ∂_Ab^B ∇_Be₃, give
+θ³(R(e₃, ∂_A)e₃) = χ̲_A^B a̲_B + e₃(a̲_A) + ∂_Ab^B a̲_B − 2∂_A(e₃W) and the contraction
+(div̸ χ̲)_A − ∂_A trχ̲ + a̲_A trχ̲ − χ̲_A^B a̲_B; as e₃(∂_AW) + ∂_Ab^B ∂_BW = ∂_A(e₃W), the sum is the fourth line.
+
+For Ric(∂_A, ∂_B): from g(∇_A∂_B, e₃) = −χ̲_AB, g(∇_4∂_B, e₃) = −2e^(2W) a_B and [[eq:tl5-cip-connection]],
+
+    θ⁴(R(e₄, ∂_A)∂_B) = (e^(−2W)/2) (∂_vχ̲_AB − χ_B^C χ̲_AC) − ∇̸_Aa_B − 2∂_AW a_B + a_B a̲_A,
+
+and in the same way, the terms of [e₃, ∂_A] and of ∇_3∂_B combining into ℒ₃χ,
+
+    θ³(R(e₃, ∂_A)∂_B) = (e^(−2W)/2) ((ℒ₃χ)_AB − χ̲_B^C χ_AC) − ∇̸_Aa̲_B − 2∂_AW a̲_B + a̲_B a_A;
+
+the contraction of R(∂_C, ∂_A)∂_B is, by the last line of [[eq:tl5-cip-connection]],
+Ric̸_AB + (e^(−2W)/2)(trχ χ̲_AB + trχ̲ χ_AB − χ_A^C χ̲_CB − χ̲_A^C χ_CB). Since χ_B^C χ̲_AC = χ̲_A^C χ_CB,
+a + a̲ = 2dW and a_B a̲_A + a̲_B a_A = 2∂_AW ∂_BW − 2ζ_A ζ_B, the sum is the fifth line.
+
+For Ric(e₃, e₄): θ³(R(e₃, e₃)e₄) = 0, and R(e₄, e₃)e₄ = ∇_4(2e^(2W) a̲^B ∂_B) − ∇_3(2∂_vW e₄) − ∂_vb^B ∇_Be₄ has, as
+g(∇_3e₄, e₃) = 0 and ∂_vb^B = 4e^(2W) ζ^B, the e₄ component 2e^(2W) a̲^B a_B − 2e₃(∂_vW) − 4e^(2W) ζ^B a_B; the
+contraction of R(∂_C, e₃)e₄ = ∇_C(2e^(2W) a̲^B ∂_B) − ∇_3(χ_C^B ∂_B + a_C e₄) − ∂_Cb^B ∇_Be₄ is
+2e^(2W)(div̸ a̲ + 2⟨dW, a̲⟩) − e₃(trχ) − ⟨χ, χ̲⟩ − 2e^(2W) ⟨a, a̲⟩, the two terms in ∂b cancelling as before. With
+div̸ a̲ = Δ̸W − div̸ ζ, the sum is the sixth line. ∎
+
+#### Data, constraints and the shift {#sec:tl5-cip-data}
+
+**Definition {#def:tl5-cip-data}** (Data in the gauge.) Let u* ∈ (−10, 0) and v* > 1/2, and put
+N₀ := [−10, u*] × {1/2} × S³, N₁ := {−10} × [1/2, v*] × S³, N := N₀ ∪ N₁ and S := N₀ ∩ N₁. Characteristic data in
+the gauge on N are a field g_N that assigns to every p ∈ N a symmetric bilinear form on T_p𝒬, whose components in the
+coordinates (u, v, y) are smooth functions on N₀ and on N₁, which is G-invariant and which satisfies at every point the
+conditions of [[def:tl5-cip-null]]. By [[lem:tl5-cip-form]], g_N amounts to functions W, b^A, γ_AB on N in every
+chart, and on {|x| < 1} to functions R > 0, P, Q, W and β of (u, x) on N₀ and of (v, x) on N₁. A metric g on a set that
+contains a part N′ of N induces the data on N′ if g = g_N at every point of N′. The data satisfy the characteristic
+constraints if
+
+    Ric(e₄, e₄) = 0  and  Ric(e₄, ∂_A) = 0  on N₁,      Ric(e₃, e₃) = 0  on N₀.               {#eq:tl5-cip-constraints}
+
+By [[eq:tl5-cip-ricci]] the left sides contain only derivatives of W, b, γ along N₁, respectively along N₀
+(e₃ is tangent to N₀, and χ̲ contains e₃γ and ∂_Ab), so they are defined by g_N. For s ∈ (1/2, v*] we put
+D_s := [−10, u*] × [1/2, s] × S³.
+
+In the variables of [[sec:cone-constraint]], Ric(e₄, e₄) on N₁ is the right side of [[eq:cone-raychaudhuri]], the
+components Ric(e₄, ∂_(φi)) vanish identically ([[lem:warped-ricci]]), and Ric(e₄, ∂_x) = 0 is the constraint on the
+shift that the next lemma solves.
+
+**Lemma {#lem:tl5-cip-shift}** (The shift constraint.) Let a G-invariant metric γ on the leaves of N₁ and a G-invariant
+function W on N₁ be given, smooth in y and of class C^m in v for some m ≥ 1 (all derivatives ∂_y^α∂_v^jγ, ∂_y^α∂_v^jW
+with j ≤ m continuous), and on S a G-invariant vector field b_S tangent to the leaves and a G-invariant 1-form ζ_S.
+There is exactly one field b along N₁, tangent to the leaves, with Ric(e₄, ∂_A) = 0 on N₁, b = b_S and ζ = ζ_S on S; it
+is G-invariant, smooth in y and of class C^(m+1) in v, and smooth if γ and W are. In the variables of
+[[sec:cone-constraint]], b = β ∂_x and
+
+    Ric(∂_v, ∂_x) = (1/(4R³)) ∂_v(R³ e^(−2W) G_x ∂_vβ) − 𝔣,
+    𝔣 := ∂_x∂_vW − 3 (∂_vR/R) ∂_xW + 2∂_x∂_v ln R + ∂_x∂_v(P + Q)
+         + (∂_xR/R + ∂_xP + 1/(2(1 + x))) ∂_v(2P + Q) + (∂_xR/R + ∂_xQ − 1/(2(1 − x))) ∂_v(P + 2Q),
+                                                                                                {#eq:tl5-cip-shift}
+
+so that on {|x| < 1} the constraint reads ∂_v(R³ e^(−2W) G_x ∂_vβ) = 4R³ 𝔣. With x = cos 2ϑ, Ω = e^W,
+γ_ϑ = R² e^(−2(P + Q)), A_c = ln(R cos ϑ) + P, A_s = ln(R sin ϑ) + Q and b = −β/(2 sin 2ϑ) in [[eq:loc-double-null]],
+Ric(∂_v, ∂_x) = −Ric(∂_v, ∂_ϑ)/(2 sin 2ϑ), so the constraint is the vanishing of the second line of [[eq:loc-cone]].
+
+*Proof.* By the third line of [[eq:tl5-cip-ricci]], Ric(e₄, ∂_A) = 0 reads
+
+    ∂_vζ_A + trχ ζ_A = F_A,      F_A := ∂_A∂_vW − trχ ∂_AW − (div̸ χ)_A + ∂_A trχ,
+
+where trχ, χ and F are determined by γ and W. In every chart this is, along each generator v ↦ (−10, v, y), a linear
+system of ordinary differential equations for the components ζ_A, whose coefficients and right sides are continuous in v
+and, together with all their derivatives in y, continuous in (v, y). It has exactly one solution with ζ = ζ_S at
+v = 1/2, smooth in y by the differentiable dependence of solutions of linear equations on parameters; solutions in
+overlapping charts agree, by uniqueness, as the equation is tensorial on the leaves. Since ζ′ = −trχ ζ + F, with trχ and
+F of class C^(m−1) in v, ζ is of class C^m in v. Then ∂_vb^A = 4e^(2W) γ^(AB) ζ_B determines b with b = b_S on S,
+uniquely, and of class C^(m+1) in v, as ζ and γ are C^m. For σ ∈ G the field σ*b solves the same problem, the equation
+and the data being invariant, so σ*b = b.
+
+In the chart (x, φ1, φ2), G-invariance makes γ diagonal and b = β ∂_x ([[lem:tl5-cip-form]] (b)), so
+ζ_x = e^(−2W) G_x ∂_vβ/4 and ζ_(φi) = 0. As det γ = R⁶/16, trχ = 3∂_vR/R and ∂_vζ_x + trχ ζ_x =
+R⁻³ ∂_v(R³ ζ_x). With ϰ_1 := (ln G_x)/2, ϰ_2 := (ln γ_(φ1φ1))/2, ϰ_3 := (ln γ_(φ2φ2))/2, the Christoffel symbols of the
+diagonal metric γ that depends on x alone give Γ̸^C_(Cx) = ∂_xϰ_C, and (div̸ χ)_x = ∂_xχ_x^x + Σ_C Γ̸^C_(Cx) χ_x^x −
+Σ_C Γ̸^C_(Cx) χ_C^C = ∂_x∂_vϰ_1 + (∂_xϰ_2 + ∂_xϰ_3) ∂_vϰ_1 − ∂_xϰ_2 ∂_vϰ_2 − ∂_xϰ_3 ∂_vϰ_3. Hence
+−(div̸ χ)_x + ∂_x trχ = Σ_(i=2,3) (∂_x∂_vϰ_i + ∂_xϰ_i (∂_vϰ_i − ∂_vϰ_1)), and with ϰ_2 = ln R + (ln((1 + x)/2))/2 + P,
+ϰ_3 = ln R + (ln((1 − x)/2))/2 + Q and ϰ_1 = ln R − P − Q − (ln(4(1 − x²)))/2 this is 𝔣 − ∂_x∂_vW + 3(∂_vR/R)∂_xW,
+which gives [[eq:tl5-cip-shift]]. The components Ric(∂_v, ∂_(φi)) vanish by [[lem:warped-ricci]]. Finally, with
+x = cos 2ϑ we have dx = −2 sin 2ϑ dϑ and G_x (dx − β du)² = 4(1 − x²) G_x (dϑ + β du/(2 sin 2ϑ))², which is the term
+γ_ϑ (dϑ − b du)² of [[eq:loc-double-null]] with the stated γ_ϑ and b; the other terms match as stated, and ∂_x and
+∂_ϑ differ by the factor dϑ/dx = −1/(2 sin 2ϑ). ∎
+
+The lemma applies to the data on N of [[def:tl5-problem]]. There W is a smooth function of v, and P and Q are smooth in
+x, with 2P + Q = (1 + x) m and P + 2Q = (1 − x) n by [[eq:cone-data]], so that 2P + Q = 0 at x = −1 and P + 2Q = 0 at
+x = 1. In v, env is smooth on each of the intervals [0, 1/2], [1/2, 7/2] and [7/2, ∞), being there the restriction of 0,
+of the entire function sin⁴(π(v − 1/2)/3) and of 0, and it is C³ on [0, ∞), its derivatives of order at most 3 vanishing
+at 1/2 and 7/2; so P and Q, with all their derivatives in x, are smooth on each interval and C³ in v. R > 0
+([[prop:cone-exact]] (c)) is smooth on each interval: on [r_s, r_e] it solves ∂_r²R = −w R with w smooth on
+[r_s, r_e] × [−1, 1] and initial values at r_s that do not depend on x, and for r ≥ r_e it is affine in r with
+coefficients smooth in x. It is C⁷ in v across v = 1/2 and v = 7/2: by the formulas in the proof of [[lem:cone-w]], A
+and B are σ³ times smooth functions on [r_s, r_e], so w is σ⁶ times a smooth function, σ has simple zeros at r_s and
+r_e, and ∂_r^(k+2)∂_x^l R = −∂_r^k∂_x^l(w R) vanishes there for k ≤ 5, as do the derivatives of order at least 2 in r of
+r and of R(r_e, x) + ∂_rR(r_e, x)(r − r_e), while the values and first derivatives in r, with all their derivatives in
+x, agree by construction. By [[lem:tl5-cip-axis]] (b), the leaf metrics on N are smooth on each interval and C³ in v on
+N. At the corner, where the data are the seed's, b_S = 0 and ζ_S = 0; for v ≤ 1/2, 𝔣 = 0, as P = Q = 0 and W, R depend
+on v alone there, so β = 0 for v ≤ 1/2. The solution of the lemma continues it. It is smooth on each of the intervals
+[1/2, 7/2] and [7/2, ∞), by the lemma applied there, after a translation in v, with the values of b and ζ at the left
+end, and C⁴ in v on N, by the lemma with m = 3 applied on all of N after a translation in v.
+
+#### Uniqueness {#sec:tl5-cip-uniqueness}
+
+**Lemma {#lem:tl5-cip-extend}** (Extension and gluing.) (a) Every smooth function on a box [a, b] × [c, d] × S³ is the
+restriction of a smooth function on (a − 1, b + 1) × (c − 1, d + 1) × S³, given by an extension operator that is linear
+and acts on the variables u, v alone; so it commutes with multiplication by functions of y and with changes of chart
+of S³, and extends tensor fields component by component.
+
+(b) Let O be an open set, a box or a product of compact intervals, w a coordinate function of a chart (w, w′) on O, and
+f a continuous function on O that is smooth on O ∩ {w ≥ c} and on O ∩ {w ≤ c}, the partial derivatives of the two pieces
+agreeing on {w = c}. Then f is smooth on O. If instead, for some m ≥ 1, the partial derivatives of order at most m of
+the two pieces exist, extend continuously to the closed pieces and agree on {w = c}, then f is of class C^m on O.
+
+(c) Let 𝒪 := (−10 − ε, u*) × (1/2 − ε, s) × S³ with ε > 0, and h a function on 𝒪 that vanishes on 𝒪 ∖ D_s and is
+smooth on 𝒪 ∩ D_s, with every partial derivative zero on N ∩ 𝒪. Then h is smooth on 𝒪.
+
+(d) Let O be an open subset of ℝⁿ, for instance the image of a chart, F ⊂ O a relatively closed set with interior F°,
+and h a function on O that vanishes on O ∖ F°, is smooth on F°, and whose partial derivatives on F°, h included, all
+extend continuously to F, with the value 0 on F ∖ F°. Then h is smooth on O, and its derivatives vanish on O ∖ F°.
+
+*Proof.* (a) For a function f on the box and u < a put, with Seeley's sequences a_k, b_k and cut-off φ
+([[thm:std-seeley]]) and ℓ := (b − a)/2, (Ef)(u, v, y) := Σ_k a_k φ(b_k (u − a)/ℓ) f(a + b_k (u − a), v, y). Each
+point a + b_k(u − a) with φ(b_k(u − a)/ℓ) ≠ 0 lies in [a, b], the sum is finite for each u, and Seeley's argument, which
+treats each line {(v, y)} × ℝ separately and uses only bounds of the derivatives of f on compact sets, shows that Ef,
+equal to f for u ≥ a, has derivatives of all orders continuous on [a − 1, b] × [c, d] × S³; derivatives in v and y
+commute with E. The same at u = b, with u replaced by −u, and then in v at c and at d, gives the extension.
+
+(b) For each multi-index α the partial derivatives ∂^α of the two pieces define one continuous function f_α on O. At
+a point of {w = c}, the difference quotients of f_α in the direction of w have one-sided limits from both sides, both
+equal to f_(α + e_w); in the directions of w′ the line stays in {w = c}, where both pieces have the derivative
+f_(α + e). So every f_α has continuous partial derivatives f_(α + e), and f is smooth. For the second statement the same
+argument applies to the f_α with |α| < m.
+
+(c) In the charts (u, v, y), 𝒪 ∩ D_s is relatively closed in 𝒪, the points of it that are not interior are those of
+N ∩ 𝒪, and the partial derivatives of h on 𝒪 ∩ D_s are continuous and vanish on N ∩ 𝒪; so (c) is a case of (d).
+
+(d) For a multi-index α let f_α be ∂^α h on F° and 0 on O ∖ F°; it is continuous on O by the hypothesis. Let z ∈ O and e
+a coordinate direction. If z ∈ F°, or z ∉ F, then f_α = ∂^α h, respectively f_α = 0, near z, and f_α has the partial
+derivative f_(α + e) at z. Let z ∈ F ∖ F°, so that f_α(z) = 0 = f_(α + e)(z), and let t ≠ 0 be small. If
+f_α(z + te) ≠ 0, then z + te lies in an interval I of the segment from z to z + te that is contained in F° and has an
+end point z′ not in F°, the one nearer to z, where f_α(z′) = 0; on I, f_α is differentiable along e with derivative
+f_(α + e), so by the mean value theorem |f_α(z + te)| ≤ |t| sup |f_(α + e)|, the supremum over the segment. This is
+o(|t|) as f_(α + e) is continuous and vanishes at z; so f_α has the partial derivative 0 = f_(α + e)(z). Hence every f_α
+has the continuous partial derivatives f_(α + e), and h = f_0 is smooth. ∎
+
+**Lemma {#lem:tl5-cip-wave}** (One-sided uniqueness for linear waves.) Let (X, h) be a time-oriented Lorentzian
+manifold, Σ ⊂ X a connected smooth spacelike hypersurface that is acausal, and 𝔓 a linear differential operator on
+ℝ^k-valued functions on X with smooth coefficients and principal part −h^(ij) ∂_i∂_j times the identity. Let V ⊂ X be
+an open set containing D⁺(Σ), the set of points p such that every past inextendible causal curve through p meets Σ. If
+w is a smooth function on V with 𝔓w = 0, and w and its derivative along a vector field transverse to Σ vanish on Σ,
+then w = 0 on D⁺(Σ). The same holds with D⁻(Σ).
+
+*Proof.* In a chart near a point of Σ in which Σ = {ξ⁰ = 0}, h^(00) ≠ 0 as Σ is spacelike, so 𝔓w = 0 gives ∂_0²w in
+terms of derivatives with at most one ∂_0; by induction all derivatives of w vanish on Σ. By [[thm:std-bgp-development]]
+the Cauchy development D(Σ) is an open, globally hyperbolic and causally compatible subset of X with Cauchy
+hypersurface Σ, and by [[thm:std-bgp-causal]] (3) it has a Cauchy time-function t with Σ = t⁻¹(0), whose gradient is
+timelike. Then D(Σ) ∩ {t ≥ 0} = D⁺(Σ) ⊂ V, and the function w̃ equal to w on {t ≥ 0} and to 0 on {t < 0} is smooth on
+D(Σ) by [[lem:tl5-cip-extend]] (b), with t as a coordinate near Σ, and solves 𝔓w̃ = 0. Its support lies in J⁺(Σ), and
+J⁺(Σ) ∩ J⁻(q) is compact for every q ∈ D(Σ) by [[thm:std-bgp-causal]] (4); so w̃ has past compact support. 𝔓 is
+normally hyperbolic in the sense of [[def:std-normally-hyperbolic]], and [[thm:std-bgp-cauchy]] (2) gives w̃ = 0. ∎
+
+**Lemma {#lem:tl5-cip-jets}** (Transverse derivatives on null hypersurfaces.) Let g₁ and g₂ be smooth vacuum metrics
+in double-null form, with W_i, b_i, γ_i in [[eq:tl5-cip-form]] in a chart y; write ∂_v^k g_i, ∂_u^k g_i for the
+derivatives of order k of (W_i, b_i, γ_i) in v, in u.
+
+(a) Let H := [−10, u₁] × {s₀} × S³ and Z := {−10} × {s₀} × S³, and let g_i be defined on [−10, u₁] × I_i × S³, with I₁,
+I₂ intervals that have s₀ as an endpoint, on the same side of s₀ or on opposite sides. If g₁ = g₂ at every point of H
+and ∂_v^k g₁ = ∂_v^k g₂ on Z for every k, then ∂_v^k g₁ = ∂_v^k g₂ on H for every k, the derivatives in v at s₀ being
+one-sided. The same holds for every m ≥ 0 with "for every k" replaced by "for every k ≤ m", in the hypothesis on Z
+and in the conclusion.
+
+(b) Let H′ := {−10} × [s₀, s₁] × S³ and Z := {−10} × {s₀} × S³, and let g₁, g₂ be defined on
+[−10, −10 + η] × [s₀, s₁] × S³. If g₁ = g₂ at every point of H′, and ∂_u^k g₁ = ∂_u^k g₂ and ∂_u^k∂_vb₁ = ∂_u^k∂_vb₂
+on Z for every k, then ∂_u^k g₁ = ∂_u^k g₂ on H′ for every k.
+
+(c) If g₁ and g₂ are defined on D_s and g₁ = g₂ at every point of N ∩ D_s, then every partial derivative of g₁ − g₂ in
+the coordinates (u, v, y) vanishes on N ∩ D_s.
+
+*Proof.* We write δ for the difference of a quantity computed from g₁ and from g₂. Since Ric(g_i) = 0, every
+derivative of every line of [[eq:tl5-cip-ricci]] vanishes.
+
+(a) By induction on k; the case k = 0 is the hypothesis. Let k ≥ 1 and suppose ∂_v^j g₁ = ∂_v^j g₂ on H for j < k.
+Then all derivatives of W, b, γ with at most k − 1 derivatives in v agree on H, being derivatives along H of functions
+that agree there; we call a quantity known if it is built from these. On H, e₃ = ∂_u + b^A∂_A is the same for both
+metrics, and its integral curves in H start on Z and fill H, as b is tangent to the spheres.
+
+(i) In the fourth line of [[eq:tl5-cip-ricci]], derivatives in v occur only in ζ = e^(−2W) γ ∂_vb/4, through
+−(ℒ₃ζ)_A − trχ̲ ζ_A; the other terms contain derivatives in u and y alone. Applying ∂_v^(k−1), with
+[∂_v, e₃] = ∂_vb^C ∂_C, gives on H
+
+    0 = −e^(−2W) γ_AB e₃(∂_v^k b^B)/4 + m_AB ∂_v^k b^B + n_A,
+
+with m and n known. So δ∂_v^k b satisfies a linear homogeneous system of ordinary differential equations along the
+integral curves of e₃, and vanishes on Z; hence it vanishes on H. (In each chart the system is of this form, and as it
+is tensorial on the leaves, vanishing passes from chart to chart along a curve.)
+
+(ii) In the fifth line, ∂_vχ̲ = (ℒ₃(∂_vγ) + ℒ_(∂_vb)γ)/2, where (ℒ_(∂_vb)γ)_AB := ∂_vb^C ∂_Cγ_AB + γ_CB ∂_A∂_vb^C +
+γ_AC ∂_B∂_vb^C and ℒ₃ acts on 2-tensors as on χ, and (ℒ₃χ)_AB = (ℒ₃(∂_vγ))_AB/2; the other derivatives in v are those
+of γ in χ and trχ, and those of b in ζ. Applying ∂_v^(k−1) gives on H
+
+    0 = (e^(−2W)/2) (ℒ₃(∂_v^k γ))_AB + (terms linear in ∂_v^k γ, with known coefficients)
+        + (terms in ∂_v^k b and ∂_C∂_v^k b, with known coefficients) + (known),
+
+so by (i) δ∂_v^k γ satisfies a linear homogeneous system along the integral curves of e₃ and vanishes on Z, hence on
+H. In the sixth line the terms with k derivatives in v after applying ∂_v^(k−1) are −2e₃(∂_v^k W),
+−γ^(AB) e₃(∂_v^k γ_AB)/2, terms linear in ∂_v^k γ, and terms in ∂_v^k b and ∂_C∂_v^k b from div̸ ζ and ζ; so
+e₃(δ∂_v^k W) = 0 on H, and δ∂_v^k W = 0. The step to k uses the hypothesis on Z for this k only, so the induction
+stopped at m gives the second statement.
+
+(b) By induction on k, as in (a), with "known" now meaning built from derivatives with at most k − 1 derivatives in u.
+The fifth line contains no derivative in u of W or of b: derivatives in u occur only in e₃γ (in χ̲) and in e₃χ (in
+ℒ₃χ). So ∂_u^(k−1) of it is, on H′, (e^(−2W)/2) ∂_v(∂_u^k γ_AB) + (terms linear in ∂_u^k γ) + (known), and δ∂_u^k γ
+satisfies a linear homogeneous system along the generators v ↦ (−10, v, y) of H′ and vanishes on Z; so it vanishes.
+In the sixth line ∂_u^(k−1) gives −2∂_v(∂_u^k W) plus terms in ∂_u^k γ, ∂_v∂_u^k γ and known ones, so ∂_v(δ∂_u^k W) = 0
+and δ∂_u^k W = 0. The third line contains b only through ζ and no derivative in u; ∂_u^k of it is
+∂_vY_A + trχ Y_A plus terms now known, with Y_A := e^(−2W) γ_AB ∂_v∂_u^k b^B/4. So δY satisfies ∂_v δY + trχ δY = 0,
+δY = 0 on Z by hypothesis, hence δY = 0, ∂_v δ∂_u^k b = 0, and δ∂_u^k b = 0 as it vanishes on Z.
+
+(c) Apply (a) with H = N₀, s₀ = 1/2 and I₁ = I₂ = [1/2, s]: on S the derivatives in v are derivatives along N₁, where
+g₁ = g₂. Then apply (b) with H′ = N₁ ∩ D_s: on S the derivatives in u are derivatives along N₀, and ∂_u^k∂_vb₁ =
+∂_u^k∂_vb₂ on S because ∂_vb₁ = ∂_vb₂ on N₀ by (a). Every partial derivative ∂_u^i ∂_v^j ∂_y^α of g₁ − g₂ at a point of
+N₁ is a derivative along N₁ of ∂_u^i(g₁ − g₂), which vanishes there, and likewise on N₀. ∎
+
+**Proposition {#prop:tl5-cip-unique}** (Uniqueness in double-null form.) Let s ∈ (1/2, v*] and let g₁, g₂ be smooth
+vacuum metrics on D_s in double-null form with g₁ = g₂ at every point of N ∩ D_s. Then g₁ = g₂.
+
+*Proof.* Step 1 (a common extension). By [[lem:tl5-cip-extend]] (a), applied to W₁, b₁ and γ₁ of g₁ in charts of S³,
+these extend to smooth W, b, γ on (−11, u* + 1) × (−1/2, s + 1) × S³, and [[eq:tl5-cip-form]] with them defines a
+smooth metric in double-null form wherever γ is positive definite, which holds on 𝒪 := (−10 − ε, u*) × (1/2 − ε, s) × S³
+for some ε > 0, by compactness. Call it ĝ₁; it equals g₁ on 𝒪 ∩ D_s. Let ĝ₂ equal g₂ on 𝒪 ∩ D_s and ĝ₁ on 𝒪 ∖ D_s. By
+[[lem:tl5-cip-jets]] (c) every partial derivative of g₂ − g₁ vanishes on N ∩ D_s, so ĝ₂ − ĝ₁ is smooth on 𝒪 by
+[[lem:tl5-cip-extend]] (c). So ĝ₁ and ĝ₂ are smooth metrics on 𝒪 in double-null form, vacuum on 𝒪 ∩ D_s, and equal on
+𝒫 := 𝒪 ∖ D_s = 𝒪 ∩ ({u < −10} ∪ {v < 1/2}). We time-orient both as in [[lem:tl5-cip-causal]] and put
+τ := u + v + 1/(u* − u) + 1/(s − v) on 𝒪, which is of the form of [[lem:tl5-cip-causal]] (b) for both metrics; for
+every c the set {τ ≤ c} ∩ D_s ∩ 𝒪 is compact.
+
+Step 2 (a first point of disagreement). Let 𝔅 be the set of q ∈ 𝒪 such that ĝ₁ ≠ ĝ₂ somewhere in every neighbourhood of
+q. It is closed in 𝒪 and contained in D_s, as 𝒫 is open. Suppose 𝔅 is not empty. Then τ attains its minimum T on 𝔅,
+at a point p, since 𝔅 ∩ {τ ≤ c} is compact for every c; and ĝ₁ = ĝ₂ on the open set 𝒜 := 𝒫 ∪ {q ∈ 𝒪 : τ(q) < T}, hence,
+with all derivatives, on its closure 𝒜̄ in 𝒪, which contains Σ := {τ = T}. We show that ĝ₁ = ĝ₂ near p, which
+contradicts p ∈ 𝔅; so 𝔅 is empty, ĝ₁ = ĝ₂ on 𝒪, g₁ = g₂ on 𝒪 ∩ D_s, and by continuity on D_s.
+
+Step 3 (harmonic coordinates). Σ is a smooth spacelike hypersurface, acausal for ĝ₁ and for ĝ₂
+([[lem:tl5-cip-causal]] (b)), and both metrics induce the same Cauchy data on it. Fix a chart ξ = (ξ⁰, …, ξ⁴) of 𝒪 at p,
+a connected open neighbourhood Σ₀ of p in Σ inside the domain of ξ, and χ ∈ C_c^∞(Σ₀) equal to 1 near p. For i = 1, 2,
+D_i := D(Σ₀) in (𝒪, ĝ_i) is open and globally hyperbolic with Cauchy hypersurface Σ₀ ([[thm:std-bgp-development]]), and
+by [[thm:std-bgp-cauchy]] (5) there are z_i^μ ∈ C^∞(D_i) with □_(ĝ_i) z_i^μ = 0, z_i^μ = χξ^μ and n(z_i^μ) = χ n(ξ^μ) on
+Σ₀, n the future unit normal of Σ, the same for both metrics. Near p, z_i and ξ agree to first order on Σ₀, so
+dz_i(p) = dξ(p), and z_i := (z_i^μ) is a chart on a neighbourhood U_i ⊂ D_i of p.
+
+Step 4 (the coordinates agree on 𝒜̄ near p). (i) The past side. Membership of a point q with τ(q) ≤ T in D(Σ₀) depends
+only on the causal curves from q up to their first point on Σ, which lie in {τ ≤ T}, where the two metrics agree; so
+D_1 ∩ {τ ≤ T} = D_2 ∩ {τ ≤ T}. Let Z equal z₁ on D_2 ∩ {τ ≤ T} and z₂ on D_2 ∩ {τ ≥ T}. As z₁ and z₂ have the same
+Cauchy data on Σ₀ and solve wave equations whose coefficients agree with all derivatives on Σ₀, the induction of
+[[lem:tl5-cip-wave]] shows that their derivatives of all orders agree on Σ₀; so Z is smooth by [[lem:tl5-cip-extend]]
+(b), and □_(ĝ₂) Z = 0 on D_2, as ĝ₁ = ĝ₂ on {τ ≤ T}. By [[lem:tl5-cip-wave]] with V = D_2, Z − z₂ = 0 on D⁻(Σ₀), so
+z₁ = z₂ on D_2 ∩ {τ ≤ T}. (ii) The outer side. Suppose p ∈ N, so that 𝒫 meets every neighbourhood of p. The sets
+𝒫⁰ := 𝒪 ∩ {v < 1/2} and 𝒫¹ := 𝒪 ∩ {u < −10}, whose union is 𝒫, are past sets for both metrics
+([[lem:tl5-cip-causal]] (b)), and ĝ₁ = ĝ₂ on them. Near p, Σ is a graph v = v_Σ(u, y) over a box of the variables (u, y)
+with v_Σ decreasing in u, so for Σ₀ small each Σʲ := Σ₀ ∩ 𝒫ʲ, j = 0, 1, is connected or empty. Every past inextendible
+causal curve in 𝒪 from a point of D⁺(Σʲ), the development taken in (𝒫ʲ, ĝ₁), stays in 𝒫ʲ and meets Σʲ; so
+D⁺(Σʲ) ⊂ D_1 ∩ D_2, and on it z₁ and z₂ solve □_(ĝ₁) z = 0 with the same Cauchy data on Σʲ. [[lem:tl5-cip-wave]] in
+(𝒫ʲ, ĝ₁), with V = 𝒫ʲ ∩ D_1 ∩ D_2, gives z₁ = z₂ on D⁺(Σʲ). By [[lem:tl5-cip-causal]] (a), along a causal curve near p
+the coordinates y change by at most a constant times the change of u + v, and from a point q near p with τ(q) ≥ T the
+function u + v decreases by at most τ(q) − T before τ reaches T; a past inextendible causal curve from q, which cannot
+stay in a compact subset of a chart without an end point, therefore meets Σ near p, inside Σ₀; a point of 𝒫 near p with
+τ ≥ T lies in exactly one of 𝒫⁰, 𝒫¹, as τ < T on 𝒫⁰ ∩ 𝒫¹ near p, and such curves from it stay in that set. So for a
+neighbourhood V_p of p every point of 𝒜̄ ∩ V_p lies in D_2 ∩ {τ ≤ T}, in D⁺(Σ⁰) or D⁺(Σ¹), or in their closure; hence
+z₁ = z₂ on 𝒜̄ ∩ V_p, with all derivatives, as 𝒜̄ is the closure of its interior.
+
+Step 5 (the transition map). Let Ψ := z₂⁻¹ ∘ z₁, a diffeomorphism between neighbourhoods of p with Ψ(p) = p; by Step 4,
+Ψ = id on 𝒜̄ near p. If q ∉ 𝒜̄ is near p and Ψ(q) ∈ 𝒜̄, then Ψ(Ψ(q)) = Ψ(q), so Ψ(q) = q ∈ 𝒜̄ by injectivity, which is
+absurd; hence Ψ maps points near p outside 𝒜̄, which lie in D_s, to points outside 𝒜̄, again in D_s. Put
+G_i := (z_i⁻¹)*ĝ_i on z_i(U_i) ⊂ ℝ⁵. The coordinate functions are harmonic for G_i, so H^λ := G_i^(αβ) Γ^λ_(αβ) = 0, and
+[[thm:std-cbcm-reduced]] with the flat background gives
+
+    Ric(G_i)_(αβ) = −(1/2) G_i^(λμ) ∂_λ∂_μ (G_i)_(αβ) + f̂[G_i, ∂G_i]_(αβ),
+
+f̂ being, by the coordinate formula for the Ricci tensor, a polynomial in ∂G with coefficients rational in G. Moreover
+Ric(G₁) = Ric(G₂) =: 𝒯 near z₁(p) = z₂(p): at w = z₁(q), if q ∈ 𝒜̄ then z₂⁻¹(w) = q, and Ric(ĝ₁), Ric(ĝ₂) and the
+differentials of z₁, z₂ agree at q; if q ∉ 𝒜̄, then q and Ψ(q) lie in D_s, where both Ricci tensors vanish.
+
+Step 6 (the metrics agree near p). δ := G₂ − G₁ satisfies
+
+    0 = −(1/2) G₂^(λμ) ∂_λ∂_μ δ + (1/2) G₂^(λρ) δ_(ρσ) G₁^(σμ) ∂_λ∂_μ G₁ + f̂[G₂, ∂G₂] − f̂[G₁, ∂G₁],
+
+and f̂[G₂, ∂G₂] − f̂[G₁, ∂G₁] = 𝒜₀δ + 𝒜₁∂δ, with 𝒜₀, 𝒜₁ smooth, by the fundamental theorem of calculus along G₁ + θδ. So
+𝔓δ = 0 for an operator 𝔓 with principal part −(1/2) G₂^(λμ) ∂_λ∂_μ, and 2𝔓 is as in [[lem:tl5-cip-wave]] for
+(z₁(U₁) ∩ z₂(U₂), G₂). δ vanishes with all derivatives on z₁(𝒜̄ ∩ V_p), which contains z₁(Σ′) = z₂(Σ′) for a connected
+open neighbourhood Σ′ of p in Σ, the image under the isometry z₂ of a hypersurface acausal and spacelike for ĝ₂. By
+[[lem:tl5-cip-wave]], δ = 0 on D⁺(z₁(Σ′)), and δ = 0 on D⁻(z₁(Σ′)) ⊂ z₁(𝒜̄); so δ = 0 on D(z₁(Σ′)), an open
+neighbourhood of z₁(p) ([[thm:std-bgp-development]]). Hence Ψ*ĝ₂ = z₁*G₂ = z₁*G₁ = ĝ₁ near p: Ψ is an isometry of ĝ₁
+onto ĝ₂ there.
+
+Step 7 (the gauge fixes Ψ). Let q be near p with q ∉ 𝒜̄, and write q = (u_q, v_q, y_q) in the coordinates (u, v, y) of
+𝒪. The curve c: v′ ↦ (u_q, v′, y_q) is a null pregeodesic of ĝ₁ and of ĝ₂ ([[lem:tl5-cip-causal]] (c)); followed
+from q in the direction of decreasing v′ it enters the interior of 𝒜̄ after a short arc, along which τ decreases. Let
+c̃ be its reparametrization by an affine parameter of ĝ₁ starting at a point c₀ of that interior and ending at q. Then
+Ψ ∘ c̃ is a geodesic of ĝ₂ with the initial point c₀ and the initial velocity c̃′(0), since Ψ = id near c₀; the maximal
+geodesic of ĝ₂ with these initial data is a reparametrization of the integral curve of ∂_v through c₀, because c is a
+pregeodesic of ĝ₂. So Ψ(q) lies on that integral curve: u(Ψ(q)) = u_q and y(Ψ(q)) = y_q. Likewise let d be the integral
+curve through q of e₃ = ∂_u + b₁^A∂_A, a null pregeodesic of ĝ₁ in {v = v_q}, followed in the direction of decreasing u
+into the interior of 𝒜̄, to a point d₀. There ĝ₁ = ĝ₂, so b₁ = b₂ and the direction of d at d₀ is that of the field
+e₃ of ĝ₂; the geodesic Ψ ∘ d̃ of ĝ₂ has the initial data of d̃ at d₀, so it lies on the integral curve of the e₃ of ĝ₂
+through d₀, which is a pregeodesic of ĝ₂ in {v = v_q}. So v(Ψ(q)) = v_q, and Ψ(q) = q. The arcs used are short for q
+near p and lie where Ψ is defined and isometric. Hence Ψ = id near p, and ĝ₁ = Ψ*ĝ₂ = ĝ₂ near p. ∎
+
+#### Existence and the continuation {#sec:tl5-cip-existence}
+
+**Definition {#def:tl5-cip-development}** (Development.) Let g_N be data in the gauge on N satisfying
+[[eq:tl5-cip-constraints]], with W, b, γ as in [[def:tl5-cip-data]], e₃ = ∂_u + b^A∂_A on N₀ and e₄ = ∂_v on N₁. A
+development of the data consists of a time-oriented smooth Lorentzian manifold (M̃, g̃) of dimension five, a closed set
+M ⊂ M̃ with Ric(g̃) = 0 on M, and an injective map ι: N → M with smooth restrictions to N₀ and N₁ that are immersions,
+such that, with ∇̃ the connection of g̃:
+
+(a) g̃(dι X, dι Y) = g_N(X, Y) for X, Y tangent to N₀ at a point of N₀, and for X, Y tangent to N₁ at a point of N₁;
+
+(b) along N₁, ∇̃_V V = 2∂_vW V for V := dι(e₄), and along N₀, ∇̃_(V̲) V̲ = 2e₃(W) V̲ for V̲ := dι(e₃), these fields
+being future directed;
+
+(c) at every point of S, g̃(dι ∂_u, dι ∂_v) = g_N(∂_u, ∂_v), and g̃(∇̃_(dιX) V, dι e₃) = −X(e^(2W)) − γ(X, ∂_vb)/2 for
+X tangent to S;
+
+(d) there is an open set U ⊂ M̃ that contains ι(N) and satisfies U ∩ J⁺(ι(N)) ⊂ M, J⁺ taken in (U, g̃).
+
+By (a), ι(N₀) and ι(N₁) are null hypersurfaces, with generators the images of the integral curves of e₃ in N₀ and of
+∂_v in N₁, whose spacelike leaves ι({u = c} ∩ N₀) and ι({v = d} ∩ N₁) carry the metrics γ. The right sides of (b) and
+(c) are the values that a metric in double-null form with the data's W, b, γ has, by [[eq:tl5-cip-connection]].
+
+**Lemma {#lem:tl5-cip-data-extend}** (Extending the data.) Let g_N be data in the gauge on N satisfying
+[[eq:tl5-cip-constraints]]. There are η > 0 with u* + η < 0 and data in the gauge on
+N′ := ([−10, u* + η] × {1/2} × S³) ∪ ({−10} × [1/2, v* + η] × S³), in the sense of [[def:tl5-cip-data]] with u* + η and
+v* + η in place of u* and v*, that satisfy [[eq:tl5-cip-constraints]] and whose restriction to N is g_N.
+
+*Proof.* On N₁ put Ω := (det γ/det γ₀)^(1/6), with γ₀ the round metric of the proof of [[lem:tl5-cip-axis]], and
+γ̂ := Ω⁻²γ, so that det γ̂ = det γ₀ in every chart. Then χ_A^B = (∂_vΩ/Ω) δ_A^B + χ̂_A^B, where χ̂_AB := ∂_vγ̂_AB/2 and
+the index is raised with γ̂, and χ̂ has trace zero, as det γ̂ does not depend on v; so trχ = 3∂_vΩ/Ω
+and |χ|² = 3(∂_vΩ/Ω)² + |χ̂|², |χ̂|² taken with γ̂, and the first line of [[eq:tl5-cip-ricci]] reads
+
+    Ric(e₄, e₄) = −(3/Ω) (∂_v²Ω − 2∂_vW ∂_vΩ + |χ̂|² Ω/3).
+
+Extend W and γ̂ beyond v = v* by the operator of [[lem:tl5-cip-extend]] (a), multiply the extended γ̂ by
+(det γ₀/det γ̂)^(1/3), so that its determinant is again that of γ₀, and let Ω solve ∂_v²Ω − 2∂_vW ∂_vΩ + |χ̂|² Ω/3 = 0
+along each generator, with its value and first derivative at v = 1/2. On [1/2, v*] it is the given Ω, by uniqueness for
+this linear equation, as Ric(e₄, e₄) = 0 there; it is smooth in (v, y), and for η > 0 small it is positive and the
+extended γ̂ is positive definite on [1/2, v* + η], by continuity, as both hold on the compact set
+{−10} × [1/2, v*] × S³. Put γ := Ω²γ̂ there; then Ric(e₄, e₄) = 0 on {−10} × [1/2, v* + η] × S³. [[lem:tl5-cip-shift]],
+with the given b and ζ on S, gives a smooth b on [1/2, v* + η] with Ric(e₄, ∂_A) = 0, by its uniqueness the given one on
+[1/2, v*].
+
+On N₀ let ψ_u be the flow of the field b(u, ·) on S³ from u = −10, so that the curves u ↦ (u, ψ_u(ỹ)) are the integral
+curves of e₃ in N₀ and (u, ỹ) are coordinates on N₀ in which e₃ = ∂_u. As ∂_u(ψ_u*γ) = ψ_u*(∂_uγ + ℒ_bγ), ℒ_b the Lie
+derivative on S³, the field γ̃ := ψ_u*γ has ∂_uγ̃ = 2ψ_u*χ̲, so in these coordinates the second line of
+[[eq:tl5-cip-ricci]] is the first with u in place of v. Extend W and b beyond u = u* by the operator of
+[[lem:tl5-cip-extend]] (a), so that ψ_u is defined for u ≤ u* + η; extend γ̃ as γ was extended on N₁, with u in place of
+v, γ₀ taken in the coordinates ỹ and the conformal factor's value and first derivative at u = −10; and put
+γ := (ψ_u⁻¹)*γ̃. Then Ric(e₃, e₃) = 0 on [−10, u* + η] × {1/2} × S³.
+
+The operator of [[lem:tl5-cip-extend]] (a) acts on u and v alone and so commutes with G, γ₀ and the equations are
+G-invariant, and ψ_u commutes with G as b is G-invariant; so the extended data are G-invariant. They are smooth on each
+of the two hypersurfaces, agree on S, equal g_N on N, and are in double-null form at every point, γ being positive
+definite. ∎
+
+We use [[thm:std-ctg-neighbourhood]] in the following form: smooth data in the gauge satisfying
+[[eq:tl5-cip-constraints]] have a development. The characteristic data of that theorem are those of the theorem of
+Rendall that [CTG23, Section 1, p. 2] recalls, in the formulation of [CP12, Theorem 2.1, p. 5] ([[thm:std-cp-rendall]],
+and the passages quoted with [[thm:std-ctg-neighbourhood]]): on each hypersurface a family of Riemannian metrics on the
+sections, given up to a conformal factor, in coordinates in which the generators are affinely parametrized, and on the
+intersection the conformal factor and its derivatives along the two hypersurfaces, g₁₂ and the torsion. The data g_N
+determine these: the metrics γ, in the angular coordinates y on N₁ and, on N₀, in those that are constant along the
+integral curves of e₃; the affine parameters, which by (b) are the functions with derivative a constant times e^(2W)
+along ∂_v on N₁ and along e₃ on N₀; and on S the values in (c). The conformal factor that the theorem determines from
+them by the Raychaudhuri equations, with the value 1 and the derivatives 0 on S, is the one of γ, as g_N satisfies
+Ric(e₄, e₄) = 0 on N₁ and Ric(e₃, e₃) = 0 on N₀; so the metric of the theorem satisfies (a)–(c).
+
+To obtain a development we apply the theorem to the data on N′ ⊃ N of [[lem:tl5-cip-data-extend]], on the two
+hypersurfaces without their far ends {u = u* + η} and {v = v* + η}. By its proof (the passages quoted with
+[[thm:std-ctg-neighbourhood]]), the solution g is defined in a double-null coordinate system (p, q, z), z ∈ S³, in which
+the two hypersurfaces are {q = 0} and {p = 0}, each parametrised as [0, ∞) × S³, and g^(pp) = g^(qq) = 0: for all a₀,
+a₀′ > 0 there are a₁, a₁′ > 0 such that the coordinates cover B := [0, a₀] × [0, a₁] × S³ and
+B′ := [0, a₁′] × [0, a₀′] × S³, and g is smooth on B and on B′ up to their boundaries, as the metric of
+[[thm:std-cp-rendall]] is on the closed region {x¹ ≥ 0, x² ≥ 0}. Let ι be the identification of N with its image, choose
+a₀ and a₀′ with ι(N₀) ⊂ {p < a₀} and ι(N₁) ⊂ {q < a₀′}, and then a₁ ≤ a₀′ and a₁′ ≤ a₀, as we may, and put
+M₀ := ([0, a₀] × [0, a₁/2] ∪ [0, a₁′/2] × [0, a₀′]) × S³. Extend the components of g⁻¹ from B and from B′ by
+[[lem:tl5-cip-extend]] (a), and glue the two extensions with a smooth function of (p, q) that is 1 near the points of M₀
+outside B′ and 0 on {q ≥ a₁}. The result is a smooth field equal to g⁻¹ on M₀, and its components (pp) and (qq) vanish,
+as the extension operator is linear. Near ι(N) it is defined and nondegenerate and its component (pq) is negative, as
+g⁻¹ has these properties on ι(N). Let M̃ be a connected open neighbourhood of ι(N) in
+{p < a₀, q < a₀′} ∩ ({q < a₁/2} ∪ {p < a₁′/2}) on which they hold, g̃ its inverse there, Lorentzian as M̃ is connected
+and g̃ = g on ι(N), and M := M₀ ∩ M̃, a closed subset of M̃ on which Ric(g̃) = Ric(g) = 0. On M̃, ∇p and ∇q are null and
+nonzero, and g̃(∇p, ∇q) = g̃^(pq) < 0, so ∇p + ∇q is timelike; we time-orient M̃ so that ∇p + ∇q is past directed, which
+on M is the time orientation of the development, in which p and q increase towards the future. As g̃(∇p, ∇p + ∇q) and
+g̃(∇q, ∇p + ∇q) equal g̃^(pq) < 0, ∇p and ∇q are past directed. Then (a)–(c) hold, as g̃ = g on M, and (d) holds with
+U := M̃: for a future directed causal vector X, dp(X) = g̃(∇p, X) ≥ 0 and dq(X) ≥ 0, so a future directed causal curve
+in M̃ from ι(N) stays in {p ≥ 0, q ≥ 0} ∩ M̃, which is contained in M. The uniqueness of the development is not used.
+
+**Lemma {#lem:tl5-cip-dn-form}** (Double-null form from null coordinate functions.) Let g_N be data in the gauge on N
+satisfying [[eq:tl5-cip-constraints]], u₁ ∈ (−10, u*], v₁ ∈ (1/2, v*], D′ := [−10, u₁] × [1/2, v₁] × S³ and
+N_D := N ∩ D′, and let g be a smooth time-oriented Lorentzian metric on D′, with ∇ its gradient in the coordinates
+(u, v, y).
+
+(a) If g⁻¹(du, du) = g⁻¹(dv, dv) = 0 and ∂_v = f∇u with f < 0, ∂_v being future directed, then g is in double-null form.
+
+(b) If g is in double-null form and vacuum, and (a)–(c) of [[def:tl5-cip-development]] hold on N_D with (D′, g) in place
+of (M̃, g̃) and the inclusion of N_D in place of ι, then g = g_N at every point of N_D.
+
+*Proof.* (a) ∂_v = f∇u gives g(∂_v, ∂_v) = f² g⁻¹(du, du) = 0, g(∂_v, ∂_A) = f du(∂_A) = 0 and
+g(∂_u, ∂_v) = f du(∂_u) = f < 0, and g⁻¹(dv, dv) = 0 is assumed. ∇u and ∇v are null and independent, so they span a
+timelike plane, and the tangent space of a leaf, the common kernel of du and dv, is its orthogonal complement, hence
+spacelike; so γ is positive definite.
+
+(b) On N₀ ∩ D′, (a) of [[def:tl5-cip-development]] gives g = g_N on pairs of vectors tangent to N₀; by
+[[eq:tl5-cip-form]] these values are γ_AB, −γ_AB b^B and γ_AB b^A b^B, so g and g_N have the same γ and b there, and
+likewise the same γ on N₁ ∩ D′. So they have the same e₄ = ∂_v on N₁ and the same e₃ = ∂_u + b^A∂_A on N₀. For a metric
+in double-null form ∇_(e₄)e₄ = 2∂_vW e₄ and ∇_(e₃)e₃ = 2e₃(W) e₃ ([[eq:tl5-cip-connection]]); with (b) of
+[[def:tl5-cip-development]], the functions W of g and of g_N have the same derivative along the generators of N₁ and
+along the integral curves of e₃ in N₀, which start on S, and at S they agree by the first part of (c). So W agrees on
+N_D. By [[eq:tl5-cip-connection]], g(∇_X e₄, e₃) = −X(e^(2W)) − γ(X, ∂_vb)/2 for X tangent to S, so the second part of
+(c) gives the same ζ on S. Finally g satisfies Ric(e₄, ∂_A) = 0 on N₁ ∩ D′, being vacuum, and g_N does by
+[[eq:tl5-cip-constraints]]; by [[lem:tl5-cip-shift]], with v₁ in place of v*, the same γ and W on N₁ ∩ D′, the same b on
+S and the same ζ on S, the two have the same b on N₁ ∩ D′. As W, b and γ determine all components, g = g_N on N_D. ∎
+
+**Lemma {#lem:tl5-cip-chart}** (Double-null coordinates on a development.) Let (M̃, g̃, M, ι) be a development of data
+g_N on N. There are s ∈ (1/2, v*] and a smooth map Φ: D_s → M̃, a diffeomorphism onto its image, with Φ(D_s) ⊂ M and
+Φ = ι on N ∩ D_s, such that g := Φ*g̃ is a vacuum metric on D_s in double-null form with g = g_N at every point of
+N ∩ D_s.
+
+*Proof.* We use repeatedly that a smooth map on a box or a product of boxes that has invertible differential at the
+points of a compact set K and is injective on K is a diffeomorphism of a neighbourhood of K in its domain onto its
+image: near each point it extends smoothly ([[lem:tl5-cip-extend]] (a), in charts of M̃) to a local diffeomorphism, and
+injectivity on a neighbourhood of K follows from that on K by compactness.
+
+(1) The function v. For d ∈ [1/2, v*] let L_d := ι({−10} × {d} × S³), a spacelike leaf of ι(N₁), and K(d, y) the future
+directed null normal of L_d at ι(−10, d, y) with g̃(K, dι ∂_v) = −2, transverse to ι(N₁). For d = 1/2 the geodesic
+t ↦ exp(tK) is, up to parametrization, the generator of ι(N₀) through ι(−10, 1/2, y), the null normal of ι(S) transverse
+to ι(N₁) being the direction of these generators. Let t_*(y) be its affine parameter at the point where u = u*, and
+Ξ(d, t, y) := exp_(ι(−10, d, y))(t K(d, y)) for d ∈ [1/2, 1/2 + δ] and t ∈ [−δ, t_*(y) + δ]; for δ > 0 small these
+geodesics exist in M̃, being close to the generators of ι(N₀) continued slightly beyond their ends, and with
+t = (t_*(y) + 2δ)t′ − δ, Ξ is a smooth map of (d, t′, y) on the box [1/2, 1/2 + δ] × [0, 1] × S³. Along a geodesic with
+d = 1/2 the field J := ∂_dΞ is a Jacobi field, and as all the curves t ↦ Ξ(d, t, y) are null geodesics,
+∂_t g̃(J, ∂_tΞ) = g̃(∇̃_J ∂_tΞ, ∂_tΞ) = J(g̃(∂_tΞ, ∂_tΞ))/2 = 0, so g̃(J, ∂_tΞ) = g̃(dι ∂_v, K) = −2. Since ∂_tΞ spans
+the null normal direction of ι(N₀), every vector tangent to ι(N₀) is orthogonal to it; so J is transverse to ι(N₀).
+Ξ(1/2, ·, ·) is, for δ small, an injective immersion whose image contains ι(N₀), so dΞ is invertible on {d = 1/2}, and
+for δ small Ξ is a diffeomorphism onto a closed set 𝒱. Put v := d on 𝒱. The tangent space of a level set H_d of v is
+spanned by ∂_tΞ, which is null, and by the Jacobi fields ∂_(y^A)Ξ, with g̃(∂_(y^A)Ξ, ∂_tΞ) constant in t by the same
+calculation and zero at t = 0, as K is normal to L_d. So H_d is a null hypersurface, and g̃⁻¹(dv, dv) = 0 on 𝒱.
+
+(2) The function u and the angles. For c ∈ [−10, u*] let S_c := ι({c} × {1/2} × S³) and L(c, y) the future directed
+null normal of S_c at ι(c, 1/2, y) transverse to ι(N₀), with g̃(L, V̲) = −2e^(2W). For c = −10 it is tangent to ι(N₁),
+whose generator through ι(−10, 1/2, y) is the geodesic λ ↦ exp(λL) up to parametrization. Let
+Θ(c, λ, y) := exp_(ι(c, 1/2, y))(λ L(c, y)) for λ ∈ [0, λ₀]. As in (1), for λ₀ small Θ is a diffeomorphism onto a
+closed set 𝒰, and with u := c on 𝒰 the level sets C_c of u are null hypersurfaces, so g̃⁻¹(du, du) = 0, whose
+generators λ ↦ Θ(c, λ, y) are the integral curves of ∇u. Let y also denote the third component of Θ⁻¹; it is constant
+along these generators.
+
+(3) The chart. At a point of ι(N₀) the linear form g̃(·, V̲) vanishes on the tangent space of ι(N₀) and is negative on
+J and on L; so L = κJ + Y with κ > 0 and Y tangent to ι(N₀). Hence dv(L) = κ > 0, and the curves λ ↦ Θ(c, λ, y) leave
+ι(N₀) to the side into which J points, where Ξ, extended near ι(N₀) to a local diffeomorphism, takes values with
+d > 1/2. By compactness there are λ₀ > 0 and κ₀ > 0 with Θ([−10, u*] × [0, λ₀] × S³) ⊂ 𝒱 and ∂_λ v(Θ(c, λ, y)) ≥ κ₀
+there. Let s ∈ (1/2, v*] with s ≤ 1/2 + κ₀λ₀. For (u, v, y) ∈ D_s there is exactly one λ ∈ [0, λ₀] with
+v(Θ(u, λ, y)) = v; put Φ(u, v, y) := Θ(u, λ, y). Φ is smooth, with the smooth inverse (u, v, y) on its image. On N₀,
+λ = 0 and Φ = ι. On N₁, Θ(−10, λ, y) runs along the generator ι({−10} × [1/2, v*] × {y}) of ι(N₁), on which
+v(ι(−10, d, y)) = d, as ι(−10, d, y) = Ξ(d, 0, y); so Φ = ι there. Each point Θ(u, λ, y) is joined to ι(N₀) by the
+future directed null geodesic Θ(u, ·, y) on [0, λ], so for λ₀ small it lies in U ∩ J⁺(ι(N)) ⊂ M.
+
+(4) The double-null form. In the coordinates (u, v, y) the field ∂_v is tangent to the generators of the C_u, so it is a
+multiple f∇u of ∇u, and g⁻¹(du, du) = 0 by (2) and g⁻¹(dv, dv) = 0 by (1). ∂_v = ∂_λΘ/∂_λv is future directed, and ∇u is
+past directed, since g̃(∇u, V̲) = du(V̲) = du(e₃) = 1 > 0 with V̲ future directed; so f < 0. By [[lem:tl5-cip-dn-form]]
+(a), g is in double-null form, and it is vacuum as Φ(D_s) ⊂ M.
+
+(5) The data. Φ = ι on N ∩ D_s, so dΦ = dι on vectors tangent to N₀ and to N₁, and Φ is an isometry of (D_s, g) onto its
+image; so (a)–(c) of [[def:tl5-cip-development]] hold on N ∩ D_s with (D_s, g) in place of (M̃, g̃) and the inclusion in
+place of ι, and [[lem:tl5-cip-dn-form]] (b), with u₁ = u* and v₁ = s, gives g = g_N at every point of N ∩ D_s. ∎
+
+**Theorem {#thm:tl5-cip}** (The characteristic problem in the gauge.) Let u* ∈ (−10, 0) and v* > 1/2, and let smooth
+characteristic data in the gauge be given on N₀ and N₁ ([[def:tl5-cip-data]]), satisfying the characteristic constraints
+[[eq:tl5-cip-constraints]]. With D_s as in [[def:tl5-cip-data]], call a solution on D_s a smooth T²-invariant vacuum
+metric of the class on D_s, in the gauge, that induces the data on N ∩ D_s. Then:
+
+(F1) there are s ∈ (1/2, v*] and a solution on D_s;
+
+(F2) two solutions on the same D_s coincide;
+
+(F3) a solution on D_s with s < v* is the restriction of a solution on D_(s′) for some s′ ∈ (s, v*].
+
+Uniqueness holds more generally for vacuum metrics in double-null form on D_s, without symmetry
+([[prop:tl5-cip-unique]]).
+
+*Proof.* By [[lem:tl5-cip-form]] (b), a solution on D_s is a G-invariant vacuum metric on D_s in double-null form that
+induces the data on N ∩ D_s.
+
+(F2) is [[prop:tl5-cip-unique]].
+
+(F1) By [[thm:std-ctg-neighbourhood]], in the form stated after [[def:tl5-cip-development]], the data have a
+development, and [[lem:tl5-cip-chart]] gives s ∈ (1/2, v*] and a vacuum metric g on D_s in double-null form that induces
+the data. For σ ∈ G, σ*g is vacuum and in double-null form, since σ acts on S³ alone and preserves ∂_v, dv and the
+leaves, and σ*g = σ*g_N = g_N on N ∩ D_s, since the data and N are G-invariant. By [[prop:tl5-cip-unique]], σ*g = g. So
+g is G-invariant, and a solution on D_s.
+
+(F3) Let g be a solution on D_s with s < v*. Let g′ be the field on N′ := ([−10, u*] × {s} × S³) ∪ ({−10} × [s, v*] × S³)
+equal to g on the first part and to g_N on the second; the two agree on {−10} × {s} × S³, as g induces the data on
+N₁ ∩ D_s. g′ is smooth on each part, G-invariant and in double-null form at every point, so it is data in the gauge
+for the problem with v = 1/2 replaced by v = s, and it satisfies the constraints: on the second part they are those of
+g_N, and on the first Ric(e₃, e₃) is, by [[eq:tl5-cip-ricci]], computed from derivatives along {v = s}, so it is that of
+g, which vanishes. By (F1), applied to this problem after the translation v ↦ v − s + 1/2, there are s′ ∈ (s, v*] and
+a solution g″ on [−10, u*] × [s, s′] × S³ that induces g′. Let ḡ equal g on D_s and g″ there. By
+[[lem:tl5-cip-jets]] (a), with H = [−10, u*] × {s} × S³, I₁ = [1/2, s] and I₂ = [s, s′], all one-sided derivatives in v
+of g and g″ agree on H: on Z = {−10} × {s} × S³ they are the derivatives in v along N₁ of g_N, which is smooth on N₁.
+With the derivatives along H, all partial derivatives of the two pieces agree on H, so ḡ is smooth on D_(s′) by
+[[lem:tl5-cip-extend]] (b). It is G-invariant, vacuum and in double-null form, and induces the data on N ∩ D_(s′); so
+it is a solution on D_(s′), and its restriction to D_s is g. ∎
+
+**Remark {#rem:tl5-cip-axes}** (The axes.) The regions D_s contain the axes {x = ±1}, where the T² orbits degenerate.
+The proofs above use the coordinates (x, φ1, φ2) only to express G-invariance ([[lem:tl5-cip-form]] (b)); the equations
+[[eq:tl5-cip-ricci]], the transport along the generators in [[lem:tl5-cip-jets]] and [[lem:tl5-cip-shift]], the
+extension and the harmonic coordinates are written in charts of S³ near any point, axes included, with smooth
+coefficients. The reduction to the orbit space ([[prop:reduction]]), whose equations are singular at the axes, is not
+used. In particular the shift β of [[lem:tl5-cip-shift]] is a smooth function that vanishes at the axes, as β = −2e^(2W)
+g⁻¹(dv, dx) and dx = 0 there. By [[lem:tl5-cip-axis]] (a), the functions R, P, Q, W and β of a solution are smooth
+functions of (u, v, x) up to the axes.
+
+#### The problem at 10 l5 in two stages {#sec:tl5-cip-staged}
+
+The data of [[def:tl5-problem]] are not smooth on N, but they are smooth on the parts of N on which env is the
+restriction of an analytic function, and for u* < u₀, with u₀ as in [[lem:tl5-seed]] (a), the seed covers
+[−10, u*] × [0, 1/2] × S³ and solves the problem there. So the problem splits into the seed and two characteristic
+problems with smooth data, to which [[thm:tl5-cip]] applies. Below, g_N denotes the field on N, in the sense of
+[[def:tl5-cip-data]], that has in the variables of [[lem:tl5-cip-form]] (b) the data's R, P, Q, W and β; it is
+G-invariant and in double-null form, smooth on N ∩ {v ≤ 1/2}, on N ∩ {1/2 ≤ v ≤ 7/2} and on N ∩ {v ≥ 7/2}, and of class
+C³ in v on N (the paragraph after [[lem:tl5-cip-shift]]).
+
+**Corollary {#cor:tl5-cip-staged}** (The problem at 10 l5 in two stages.) Fix a seed and u* ∈ (−10, u₀), with u₀ as in
+[[lem:tl5-seed]] (a), and let g_N be as above.
+
+(a) For v* ∈ (1/2, 7/2], the field equal to the seed on N₀ = [−10, u*] × {1/2} × S³ and to g_N on
+N₁ = {−10} × [1/2, v*] × S³ is smooth characteristic data in the gauge satisfying [[eq:tl5-cip-constraints]]. So
+(F1)–(F3) of [[thm:tl5-cip]] hold for it; its solutions are called solutions of the first stage.
+
+(b) Let g₁ be a solution of the first stage on D_(7/2), and v* > 7/2. The field equal to g₁ on [−10, u*] × {7/2} × S³
+and to g_N on {−10} × [7/2, v*] × S³ is, after the translation v ↦ v − 3, smooth characteristic data in the gauge
+satisfying [[eq:tl5-cip-constraints]]. So (F1)–(F3) hold for it; its solutions, translated back to regions
+[−10, u*] × [7/2, s] × S³, are called solutions of the second stage.
+
+(c) Let s ∈ (1/2, 7/2] and g₁ be a solution of the first stage on D_s. The metric equal to the seed on
+[−10, u*] × [0, 1/2] × S³ and to g₁ on D_s is a solution of [[def:tl5-problem]] on [−10, u*] × [0, s] × S³; it is of
+class C³, with Lipschitz derivatives of order 3, and smooth on each of the two pieces, and its R, P, Q, W and β are C³
+functions of (u, v, x). If s = 7/2 and g₂ is a solution of the second stage on [−10, u*] × [7/2, s₂] × S³, the metric
+equal to g₂ there and to the former one on [−10, u*] × [0, 7/2] × S³ is a solution on [−10, u*] × [0, s₂] × S³ with the
+same properties. Conversely, let g′ be a solution of [[def:tl5-problem]] on [−10, u*] × [0, s′] × S³, s′ > 1/2, whose
+restrictions to [−10, u*] × [0, 1/2] × S³, to [−10, u*] × [1/2, min(s′, 7/2)] × S³ and, if s′ > 7/2, to
+[−10, u*] × [7/2, s′] × S³ are smooth. Then g′ is the seed on the first of these sets, a solution of the first stage on
+the second and a solution of the second stage on the third; by (F2), there is at most one such g′ for each s′.
+
+*Proof.* (a) By [[lem:tl5-seed]] (a), every (u, v) with −10 ≤ u ≤ u* and 0 ≤ v ≤ 1/2 lies in D_seed: for u ≤ −1 every
+v ≥ 0 does, and for −1 < u ≤ u* those with v < 2u + ln((1 − u)/(1 + u)) do, a bound that exceeds 1/2 as u < u₀. So the
+seed, real-analytic on D_seed × S³ ([[lem:tl5-seed]] (b), (c)), is a smooth vacuum metric of the class in the gauge on
+[−10, u*] × [0, 1/2] × S³, G-invariant and in double-null form ([[lem:tl5-cip-form]] (b)), and the field is smooth on
+N₀; on N₁ it is smooth, as stated above. The two agree on S: by [[lem:tl5-seed]] (d), the seed induces on
+{u = −10, 0 ≤ v ≤ 1/2} the data's W, P and Q, with R = r, which is r_s = R(r_s, x) at v = 1/2, and β = 0, which is the
+data's β at v = 1/2; so W, b and γ agree on S, and with them the fields ([[lem:tl5-cip-form]] (a)). On N₁,
+Ric(e₄, e₄) = Ric_vv is on {|x| < 1} the right side of [[eq:cone-raychaudhuri]] ([[lem:cone-raychaudhuri]]), which
+vanishes by [[prop:cone-exact]], and it vanishes at x = ±1 by continuity; Ric(e₄, ∂_A) = 0 on N₁ by the choice of β
+([[lem:tl5-cip-shift]]); and on N₀, Ric(e₃, e₃) is determined by the field on N₀, which the seed induces, so it
+vanishes, the seed being vacuum.
+
+(b) g₁ is smooth on D_(7/2), G-invariant and in double-null form, so the field is smooth on [−10, u*] × {7/2} × S³; on
+{−10} × [7/2, v*] × S³ it is smooth, as stated above. The two agree on {−10} × {7/2} × S³, as g₁ induces g_N on
+N₁ ∩ D_(7/2). The constraints hold as in (a), with g₁, which is vacuum, in place of the seed. The translation v ↦ v − 3
+preserves the class, the gauge and the vacuum equations, and maps these hypersurfaces to N₀ and N₁ of
+[[def:tl5-cip-data]] with v* − 3 in place of v*.
+
+(c) Write g for the glued metric, H := [−10, u*] × {1/2} × S³ and Z := {−10} × {1/2} × S³. The seed is smooth on
+[−10, u*] × [0, 1/2] × S³ by (a), g₁ is smooth on D_s, and the two agree at every point of H, as g₁ induces the seed's
+values on N₀. On Z the derivatives ∂_v^k of their W, b and γ are those of g_N along N, from below and from above
+v = 1/2, since both induce g_N on their parts of N; as g_N is C³ in v on N, they agree for k ≤ 3. By
+[[lem:tl5-cip-jets]] (a) with m = 3, I₁ = [0, 1/2] and I₂ = [1/2, s], the derivatives ∂_v^k of W, b and γ of the two
+agree on H for k ≤ 3; so do the derivatives of these along H, and so all partial derivatives of order at most 3. By
+[[lem:tl5-cip-extend]] (b), the components of g in charts of S³ are C³ on [−10, u*] × [0, s] × S³; their derivatives of
+order 3 are Lipschitz on compact convex sets of a chart, being smooth on each piece, as a segment meets {v = 1/2} at
+most once or lies in it. So g is a G-invariant metric of class C³ in double-null form, and Ric(g), which is continuous,
+vanishes on both pieces and hence everywhere. The functions R, P, Q, W and β of g₁ are smooth on
+[−10, u*] × [1/2, s] × [−1, 1] by [[lem:tl5-cip-axis]] (a), and those of the seed are smooth on
+[−10, u*] × [0, 1/2] × [−1, 1], P, Q and β being 0 and R and W not depending on x. For |x| < 1 their partial derivatives
+of order at most 3 from the two sides of v = 1/2 are the same expressions in those of the components of g in the chart
+(x, φ1, φ2), so they agree, and at x = ±1 they agree by continuity; by [[lem:tl5-cip-extend]] (b) in the variables
+(u, v, x), they are C³. Finally g induces the data on C₀ and on N ∩ {v ≤ 1/2} ([[lem:tl5-seed]] (d) and the sentence
+after [[def:tl5-problem]]) and on N ∩ {1/2 ≤ v ≤ s}; so it is a solution of [[def:tl5-problem]]. The second gluing is
+the same argument at v = 7/2, with g₁ and g₂ in place of the seed and g₁, I₁ = [1/2, 7/2] and I₂ = [7/2, s₂].
+
+Conversely, the restrictions of g′ are G-invariant vacuum metrics in double-null form ([[lem:tl5-cip-form]] (b)). On
+{v = 0} and on N ∩ {v ≤ 1/2}, g′ and the seed have the data's R, P, Q, W and β, which determine the metric on {|x| < 1}
+and by continuity everywhere; so by [[prop:tl5-cip-unique]], after the translation v ↦ v + 1/2 and with s = v* = 1, g′
+is the seed on [−10, u*] × [0, 1/2] × S³. Then its restriction to [−10, u*] × [1/2, min(s′, 7/2)] × S³ induces the data
+of the first stage and so is a solution of the first stage; and if s′ > 7/2, its restriction to
+[−10, u*] × [7/2, s′] × S³ is a solution of the second stage for the restriction of g′ to D_(7/2). By (F2) for each
+stage, g′ is determined by s′. ∎
+
+**Remark {#rem:tl5-cip-regularity}** (Regularity.) [[thm:tl5-cip]] is proved for smooth data, and smoothness enters at
+three places: [[thm:std-ctg-neighbourhood]] is a theorem about smooth data; the common extension in the proof of
+[[prop:tl5-cip-unique]] uses derivatives of all orders, and the linear theory of [[thm:std-bgp-cauchy]] is for smooth
+coefficients; and the gluing in (F3) uses derivatives of all orders. The data of [[def:tl5-problem]] are C³ and not C⁴
+in v at v = 1/2 and v = 7/2, as env is ([[rem:envelope-regularity]]), but they are smooth on each stage, and
+[[cor:tl5-cip-staged]] applies the theorem stage by stage. Only the gluing across v = 1/2 and v = 7/2 is done in finite
+regularity, by [[lem:tl5-cip-jets]] (a) with m = 3, and the solutions of [[cor:tl5-cip-staged]] (c) are of class C³ and
+not C⁴, since the fourth derivatives in v of P and Q on N jump at v = 1/2 and v = 7/2. No theorem of finite regularity
+is used, and the regularity of the data is no obstruction to existence on a given region: what [[lem:tl5-continuation]]
+needs beyond [[thm:tl5-cip]] is (H1)–(H3) ([[rem:tl5-beyond]]). For an envelope that is smooth on ℝ and vanishes outside
+[1/2, 7/2], the data on N would be smooth, and the theorem would apply in one stage, posed on {v = 0} and N after a
+translation in v, as long as the R of the Raychaudhuri constraint stays positive.
+
 ### Continuation beyond the seed {#sec:tl5-beyond}
 
 The following lemma reduces existence beyond the seed to an a priori estimate on the whole region and a closing
-condition, assuming the local existence, uniqueness and continuation of the characteristic problem in the gauge.
+condition; the local existence, uniqueness and continuation of the characteristic problem in the gauge that it uses are
+[[thm:tl5-cip]].
 
 **Lemma {#lem:tl5-continuation}** (Existence by continuity.) Let u* ∈ (−10, 0) and v* > 1/2, and let smooth
-T²-invariant characteristic data for the vacuum equations of the class in the gauge be given on
-N₀ := {v = 1/2, −10 ≤ u ≤ u*} and N₁ := {u = −10, 1/2 ≤ v ≤ v*}, satisfying the characteristic constraints. Put
+characteristic data in the gauge ([[def:tl5-cip-data]]) be given on N₀ := {v = 1/2, −10 ≤ u ≤ u*} × S³ and
+N₁ := {u = −10, 1/2 ≤ v ≤ v*} × S³, satisfying the characteristic constraints [[eq:tl5-cip-constraints]]. Put
 D := {−10 ≤ u ≤ u*, 1/2 ≤ v ≤ v*} × S³ and D_s := D ∩ {v ≤ s}, and call a solution on D_s a smooth T²-invariant
 vacuum metric of the class on D_s, in the gauge, that induces the data. Suppose that to every solution g on a D_s and
 every σ ∈ [1/2, s] a number y_σ(g) ≥ 0 is assigned, depending only on the restriction of g to D_σ and continuous in σ,
@@ -1166,33 +1966,20 @@ finite atlas of [−10, u*] × [1/2, v*] × S³;
 
 (H3) 4AB < 1, and y_(1/2)(g) ≤ A for every solution g.
 
-Suppose moreover that the characteristic initial value problem in the gauge has, for these data, the following three
-properties.
-
-(F1) There are s ∈ (1/2, v*] and a solution on D_s.
-
-(F2) Two solutions on the same D_s coincide.
-
-(F3) A solution on D_s with s < v* is the restriction of a solution on D_(s′) for some s′ ∈ (s, v*].
-
 Then there is a solution g on D, and y_σ(g) ≤ 2A for every σ ∈ [1/2, v*].
 
-(F1)–(F3) are the local existence, uniqueness and continuation of the characteristic problem in the gauge. For smooth
-data, [[thm:std-ctg-neighbourhood]] gives a vacuum development containing a future neighbourhood of N₀ ∪ N₁ (its
-proof, [CTG23, Section 4, p. 10], runs the argument of [CCTW16, Theorem 5.3] in any maximal domain of existence and
-does not show that this domain is unique), and likewise for the data that a solution on D_s induces on {v = s} ∩ D
-and on N₁ ∩ {v ≥ s}, which meet transversally at the sphere {u = −10, v = s}. Three further facts would give (F1)–(F3)
-from it: that the T² action of the data and the reflections φ1 ↦ −φ1 and φ2 ↦ −φ2 extend to isometries of the
-development, which puts the metric in the form of the class; that double-null coordinates on that neighbourhood, with u
-constant on the outgoing null hypersurfaces through the leaves of N₀, v constant on the ingoing ones through the leaves
-of N₁, and x, φ1 and φ2 constant along the outgoing generators and equal on N₀ to those of the data, cover a region
-D_(s′) with s′ > s; and that a solution in the gauge is determined by its data. The first and the third rest on the
-uniqueness, up to isometry, of the vacuum development of characteristic data on a neighbourhood of the whole of the two
-hypersurfaces, which no result quoted in [[app:standard-results]] provides. [CP12, Section 4.3, p. 16] writes of the
-characteristic problem that "Here uniqueness is understood locally, though again it is clear that unique maximal
-globally hyperbolic developments should exist in the current context", and the proof of [CCTW16, Theorem 5.3, p. 55]
-notes that "the question, whether a unique such maximal domain exists is irrelevant for our purposes". So (F1)–(F3) are
-hypotheses of the lemma. No proof in this paper uses the lemma.
+The proof uses three properties of the characteristic problem in the gauge, for the data of the lemma: (F1) there are
+s ∈ (1/2, v*] and a solution on D_s; (F2) two solutions on the same D_s coincide; (F3) a solution on D_s with s < v* is
+the restriction of a solution on D_(s′) for some s′ ∈ (s, v*]. For smooth data satisfying the constraints these are
+[[thm:tl5-cip]]. Its proof does not use the uniqueness of a maximal development, which [CP12, Section 4.3, p. 16] and
+the proof of [CCTW16, Theorem 5.3, p. 55] leave aside: [[thm:std-ctg-neighbourhood]] is used only for the existence of
+one development, on which double-null coordinates cover a region D_s ([[lem:tl5-cip-chart]]), uniqueness is proved in
+the gauge, for vacuum metrics in double-null form on the regions D_s, axes included ([[prop:tl5-cip-unique]]), and the
+symmetry of the class follows from the uniqueness. For the problem of [[def:tl5-problem]] with u* < u₀ the lemma applies
+stage by stage: to the data of the first stage of [[cor:tl5-cip-staged]] (a), with v* ≤ 7/2, and, given a solution on
+the whole first stage, to the data of its second stage, translated by v ↦ v − 3 ([[cor:tl5-cip-staged]] (b)); with the
+seed, the solutions it gives form a solution of [[def:tl5-problem]] of class C³ ([[cor:tl5-cip-staged]] (c)). No proof
+in this paper uses the lemma.
 
 *Proof.* First, if 4AB < 1 and y ≥ 0 satisfies y ≤ A + By², then y ∉ (2A, 1/(2B)), and if moreover y ≤ 2A then
 y ≤ A + 4A²B < 2A. Indeed q(y) := By² − y + A is convex with q(2A) = A(4AB − 1) < 0 and q(1/(2B)) =
@@ -1201,16 +1988,17 @@ y ≤ A + 4A²B < 2A. Indeed q(y) := By² − y + A is convex with q(2A) = A(4AB
 Let I be the set of s ∈ (1/2, v*] for which there is a solution g on D_s with y_σ(g) ≤ 2A for all σ ∈ [1/2, s]. If
 s ∈ I and 1/2 < s′ < s, then s′ ∈ I, by restriction.
 
-I is not empty. By (F1) there is a solution g on some D_(s₁); y_(1/2)(g) ≤ A < 2A by (H3), and y_σ(g) is continuous in
-σ, so y_σ(g) ≤ 2A on [1/2, s₂] for some s₂ ∈ (1/2, s₁], and s₂ ∈ I.
+I is not empty. By (F1) of [[thm:tl5-cip]] there is a solution g on some D_(s₁); y_(1/2)(g) ≤ A < 2A by (H3), and
+y_σ(g) is continuous in σ, so y_σ(g) ≤ 2A on [1/2, s₂] for some s₂ ∈ (1/2, s₁], and s₂ ∈ I.
 
 I is open in (1/2, v*]. Let s ∈ I with s < v*, and g the solution on D_s. For σ ∈ (1/2, s] the restriction of g to D_σ
 is a solution on D_σ, so (H1) and y_σ(g) ≤ 2A give y_σ(g) ≤ A + 4A²B < 2A; at σ = 1/2, y_(1/2)(g) ≤ A by (H3). By
-(F3), g is the restriction of a solution g′ on some D_(s′), s′ > s, and since y_σ(g′) is continuous in σ and
-y_s(g′) = y_s(g) < 2A, y_σ(g′) ≤ 2A on [1/2, s″] for some s″ ∈ (s, s′]. So s″ ∈ I.
+(F3) of [[thm:tl5-cip]], g is the restriction of a solution g′ on some D_(s′), s′ > s, and since y_σ(g′) is continuous
+in σ and y_s(g′) = y_s(g) < 2A, y_σ(g′) ≤ 2A on [1/2, s″] for some s″ ∈ (s, s′]. So s″ ∈ I.
 
-I is closed. Let s_n ∈ I increase to s̄ ≤ v*, with solutions g_n on D_(s_n). By (F2), g_m restricted to D_(s_n)
-is g_n for m ≥ n, so the g_n define a smooth metric g on D ∩ {v < s̄}, with y_σ(g) ≤ 2A for σ < s̄. By (H2) the
+I is closed. Let s_n ∈ I increase to s̄ ≤ v*, with solutions g_n on D_(s_n). By (F2) of [[thm:tl5-cip]], g_m
+restricted to D_(s_n) is g_n for m ≥ n, so the g_n define a smooth metric g on D ∩ {v < s̄}, with y_σ(g) ≤ 2A for
+σ < s̄. By (H2) the
 components of g and of g⁻¹ in the charts of the atlas are bounded on D ∩ {v < s̄} together with all their derivatives,
 so each component and each derivative is uniformly continuous there and extends continuously to D_(s̄); the extended
 components are smooth, and the extended metric is nondegenerate, since the components of g⁻¹ extend as well. The
@@ -1226,16 +2014,17 @@ with A = F ε_r and B = F G: ε_r is the size of the residual of ĝ, F the const
 linearised about ĝ, and G the constant of its quadratic remainder. The condition 4AB < 1 of (H3) is then the closing
 condition 4F²G ε_r < 1.
 
-**Remark {#rem:tl5-beyond}** (Why no existence is claimed beyond the seed.) [[lem:tl5-continuation]] concerns smooth
-data and assumes (F1)–(F3), which this paper does not establish. The data of [[def:tl5-problem]] are not smooth: env is
-C³ and not C⁴ at v = 1/2 and v = 7/2 ([[rem:envelope-regularity]]), and so are the fields P and Q on N there.
-[[thm:std-ctg-neighbourhood]] is stated in the smooth category, its authors adding that it remains true in suitable
-Sobolev spaces; a version of [[lem:tl5-continuation]] for data of finite regularity is not stated in this paper.
-Whatever the data, (H1) is an estimate on all of D, axes included. An estimate for the linearised problem on a
-truncated domain of dependence that avoids the axes would not give (H1): no such domain contains a region of the form
-D_s, since D_s contains the axes. The residual bounds of [[sec:tl5-residuals]] hold at points and on boxes of the
-region Π of [[eq:tl5-region]], which is not of the form D_s, and are not bounds of a norm over a region D_s. So
-(H1)–(H3) are established in this paper for no region D with v* > 1/2, and no existence beyond v = 1/2 is claimed.
+**Remark {#rem:tl5-beyond}** (Why existence beyond the seed is claimed only on a strip.) [[lem:tl5-continuation]]
+concerns smooth data, for which (F1)–(F3) hold ([[thm:tl5-cip]]). The data of [[def:tl5-problem]] are not smooth: env is
+C³ and not C⁴ at v = 1/2 and v = 7/2 ([[rem:envelope-regularity]]), and so are the fields P and Q on N there. But for
+u* < u₀ the problem splits into the seed and two stages with smooth data, whose solutions glue in class C³
+([[cor:tl5-cip-staged]]); so the regularity of the data is no obstruction: (F1) gives the strip of [[thm:ten-l5]] (b),
+and the lemma applies stage by stage. What is missing for a given region D is (H1)–(H3). (H1) is an estimate on all of
+D, axes included. An estimate for the linearised problem on a truncated domain of dependence that avoids the axes would
+not give (H1): no such domain contains a region of the form D_s, since D_s contains the axes. The residual bounds of
+[[sec:tl5-residuals]] hold at points and on boxes of the region Π of [[eq:tl5-region]], which is not of the form D_s,
+and are not bounds of a norm over a region D_s. So (H1)–(H3) are established in this paper for no region D with
+v* > 1/2, and no existence is claimed beyond the strip of [[thm:ten-l5]] (b), whose width is not estimated.
 
 **Remark {#rem:tl5-constants}** (Numerical observation.) Write the vacuum equations of the class as three-dimensional
 gravity for the rescaled orbit metric of [[prop:reduction]] coupled to its two waves, in a null frame of that metric,

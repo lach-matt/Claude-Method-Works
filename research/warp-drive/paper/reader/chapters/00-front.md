@@ -36,4 +36,4 @@ damping parameter, so that d is unbounded on that set, and, at a parameter point
 admissible choice of the weights, orders and inner products and the index sets as the proofs construct them,
 1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰; at equality, μ0 = √72 l5², timelike
 curves of g_λ cross the boundary in a layer whose width tends to zero with λ; and at the physical wavelength 10 l5
-there is no separation of scales, existence holding where the solution is the seed.
+there is no separation of scales, existence holding where the solution is the seed and on a strip beyond it.

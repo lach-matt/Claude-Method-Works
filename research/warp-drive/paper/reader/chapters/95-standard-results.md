@@ -500,6 +500,33 @@ of smooth initial data for vacuum Einstein equations with a (possibly zero) cosm
 characteristic hypersurfaces intersecting transversally, contains a future neighborhood of the initial data
 hypersurfaces." The theorem holds in every spacetime dimension. The authors add that "the result remains true in
 suitable Sobolev spaces" (p. 3).
+The data are those of the theorem the authors recall in their Section 1 (p. 2): "A classical theorem of Rendall […]
+shows that characteristic initial data for the vacuum Einstein equations on two three-dimensional characteristic
+hypersurfaces intersecting transversally at a submanifold S lead to a vacuum spacetime that covers a future neighborhood
+of S. The result has been extended to higher dimensions in [2]", [2] being [CBCM10]. Their proof (Section 4, p. 10) is
+the argument of [CCTW16, Theorem 5.3], which recalls (p. 53) that "in Rendall's scheme the starting point is an initial
+data symmetric tensor field γ = γ_AB(r, x^C)dx^A dx^B which is assumed to form a one-parameter family of Riemannian
+metrics r ↦ γ(r, x^A) on the level sets of r" and that "the characteristic data on each of N^± have to be complemented
+by certain data on N⁺ ∩ N⁻". That proof (p. 55) begins: "As shown in Section 4.1.1, without loss of generality we can
+parameterise each of N^± as [0, ∞) × Y. Symmetry under interchange of u and v, together with the argument presented in
+Remark 3.12 shows that it suffices to establish that given b₀ > 0 there exists a∗ > 0 and a solution of the vacuum
+Einstein equations defined in a doubly-null coordinate system covering the set [0, a∗] × [0, b₀] × Y", Y being N⁺ ∩ N⁻,
+and it works on "a neighborhood V₀ of N in U on which we can introduce a coordinate system (u, v, x^A) comprising a pair
+of null coordinates u and v" (p. 55). Their own proof, in every dimension, uses "a coordinate system
+(x^μ) ≡ (u, v, x^A), A ∈ {2, . . . , n}, where ∇u and ∇v are null" (p. 9).
+
+**Theorem {#thm:std-cp-rendall}** ([CP12, Theorem 2.1, p. 5; pp. 3–4].) "Theorem 2.1 (Rendall) Consider two smooth
+hypersurfaces N₁ and N₂ in an (n + 1)-dimensional manifold with transverse intersection along a smooth submanifold S in
+adapted null coordinates. Let γ_AB be a smooth family of Riemannian metrics on N₁ ∪ N₂, continuous at S. Moreover, let
+Ω, ∂₁Ω, ∂₂Ω, f and f_A, A = 3, …, n + 1, be smooth fields on S, where we assume Ω and f to be nowhere vanishing on S.
+Then there exists an open neighbourhood U of S in the region {x¹ ≥ 0, x² ≥ 0}, a unique function Ω on (N₁ ∪ N₂) ∩ U and
+a unique smooth Lorentz metric g_μν on U such that (i) g_μν satisfies the vacuum Einstein equations, (ii) ḡ_AB = Ω²γ_AB,
+(iii) Ω induces the given data on S, g₁₂|_S = f and ζ_A = f_A." In the adapted coordinates (p. 3) N₁ is {x¹ = 0} and N₂
+is {x² = 0}, "an overbar over a quantity denotes restriction to the initial data surface N₁ ∪ N₂", and "Rendall assumes
+moreover that x² is an affine parameter along the curves {x¹ = 0, x^A = const_A}, and that x¹ is an affine parameter
+along the curves {x² = 0, x^A = const_A}". By (13), p. 4, "Let L and L̲ be two null normals to a codimension-two
+spacelike hypersurface S satisfying g(L, L̲) = −2. Christodoulou […] defines the torsion one-form of S by the formula
+ζ(X) = (1/2) g(∇_X L, L̲)".
 
 ### Higher-dimensional black holes {#sec:std-black-holes}
 
@@ -758,11 +785,15 @@ in H¹, so J(f_ε φ) → J(f φ) in L² by Plancherel; thus f_ε J^s g_ε → f
 (f_ε, g_ε) are bounded in L² and converge as distributions; a subsequence converges weakly in L², its limit is J^s(f g)
 − f (J^s g), and its norm is at most the limit inferior of the norms. ∎
 
-**Theorem {#thm:std-seeley}** ([See64, Theorem, p. 625].) For x ∈ ℝⁿ and t ∈ ℝ, let S₊ = ℝⁿ × {t > 0} and
+**Theorem {#thm:std-seeley}** ([See64, Theorem and Lemma, p. 625].) For x ∈ ℝⁿ and t ∈ ℝ, let S₊ = ℝⁿ × {t > 0} and
 "D₊ = {f : f ∈ C^∞(S₊), f and all its derivatives have continuous limits as t → 0+}". D₊ "has the topology of uniform
 convergence of each derivative on compact subsets of the closure of S₊ in ℝ^(n+1), and C^∞(ℝ^(n+1)) has a corresponding
 topology". "There is a continuous linear extension operator E : D₊ → C^∞(ℝ^(n+1)) such that Ef(x, t) = f(x, t) for
-t > 0."
+t > 0." The proof takes sequences with "(i) b_k < 0 (ii) Σ|a_k||b_k|^n < ∞ for n = 0, 1, 2, …, (iii)
+Σ_0^∞ a_k(b_k)^n = 1 for n = 0, 1, 2, …, and (iv) b_k → −∞", with "Let φ be a C^∞ function on ℝ¹ with φ(t) = 1 for
+0 ≤ t ≤ 1, φ(t) = 0 for t ≥ 2", and sets "For t < 0 define (Ef)(x, t) = Σ_0^∞ a_k φ(b_k t) f(x, b_k t)"; "because
+b_k → −∞, the sum is finite for each t < 0; because Σ|a_k||b_k|^n < ∞, all derivatives of Ef converge as t → 0−, and
+uniformly in each bounded set {|x| ≤ R}; because Σ_0^∞ a_k(b_k)^n = 1, these limits agree with those for t → 0+".
 
 **Theorem {#thm:std-ly-extension}** ([LY22, Theorem 1, pp. 1–2; Theorem 26 and Lemma 27, p. 16].) Theorem 1: "(i)
 There exists an extension operator E : C⁰(ℝ̄ⁿ_+) → C⁰(ℝⁿ) that has the form
