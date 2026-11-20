@@ -258,3 +258,61 @@ The functions θ_ϰ allocate the shared diagonal entries between the two familie
 free. Any choice gives admissible rates, and the rates enter the constants only through the integrals of
 [[prop:tl5-hf-linear]]. The best rates for a given ĝ can be sought by optimising these choices over a partition of
 D^κ; that search is not part of any proof.
+
+**Proposition {#prop:tl5-hf-linear}** (The weighted linear estimate.) Let a ∈ [−10, u*], b ∈ [1/2, v*], let
+(Ψ_ι)_(ι∈ℐ) be a finite family of C² symmetric 2-tensor fields on Q(a, b), each vanishing on N₀ ∩ Q(a, b), and m_ι > 0
+weights; write e_o := Σ_ι m_ι e_o[Ψ_ι], e_i := Σ_ι m_ι e_i[Ψ_ι], and ε₁, ε₂ for the corresponding face densities
+[[eq:tl5-hf-faces]]. Let a_o ≥ 0 and a_i ≥ 0 be continuous on [−10, u*] and [1/2, v*], Φ_o(t) := ∫_(−10)^t a_o,
+Φ_i(t) := ∫_(1/2)^t a_i and φ := Φ_o(τ₁) + Φ_i(τ₂), and let s ≥ 0 be a bounded measurable function on Q(a, b) with
+
+    Σ_ι m_ι 2Ω̂² div J[Ψ_ι] ≤ (a_o + κ a_i) e_o + (a_i + κ′ a_o) e_i + 2Ω̂² s (√e_o + √c √e_i)                 {#eq:tl5-hf-hyp}
+
+at every point of Q(a, b), a_o and a_i evaluated at τ₁ and τ₂. For a′ ≤ a and b′ ≤ b let ℰ(a′, b′) be the left side of
+[[eq:tl5-hf-identity]] for Q(a′, b′), summed over ι with the weights m_ι, and put
+
+    Y² := sup {ℰ(a′, b′) : −10 ≤ a′ ≤ a, 1/2 ≤ b′ ≤ b},      Y_d² := ∫_(N₁ ∩ Q(a,b)) e^(−φ) e_o dμ dv,
+    𝒮 := ∫_(−10)^a ‖2Ω̂² s‖_(1,t) dt + ∫_(1/2)^b ‖2√c Ω̂² s‖_(2,t) dt,                                    {#eq:tl5-hf-source}
+
+where ‖f‖²_(1,t) := ∫_(Σ₁(t,b)) e^(−φ) f² dμ dτ₂/(1 − κκ′) and ‖f‖²_(2,t) := ∫_(Σ₂(a,t)) e^(−φ) f² dμ dτ₁/(1 − κκ′).
+Then
+
+    Y ≤ Y_d + 2𝒮.                                                                                   {#eq:tl5-hf-linear}
+
+Moreover, the unweighted energies ℰ⁰ (the same with φ replaced by 0) satisfy ℰ⁰(a′, b′) ≤ e^(Φ_o(a′) + Φ_i(b′)) Y².
+With δ and 𝒮₀ the quantities Y_d and 𝒮 with φ replaced by 0, and
+y_sep² := sup_(a′ ≤ a) ∫_(Σ₁(a′,b)) ε₁ dμ dτ₂ + sup_(b′ ≤ b) ∫_(Σ₂(a,b′)) ε₂ dμ dτ₁, the sum of the two unweighted
+suprema taken separately,
+
+    y_sep ≤ F (δ + 2𝒮₀),      F² := 2 e^(Φ_o(a) + Φ_i(b)).                                                {#eq:tl5-hf-f}
+
+*Proof.* Fix a′ ≤ a and b′ ≤ b. [[lem:tl5-hf-identity]] for each Ψ_ι on Q(a′, b′), summed with the weights, has no
+contribution from N₀, since each Ψ_ι vanishes there, and its N₁-term is at most Y_d², as e_o ≥ 0. By
+[[eq:tl5-hf-hyp]] its bulk is at most ∫_(Q(a′,b′)) e^(−φ) 2Ω̂² s (√e_o + √c √e_i) dμ du dv. In the coordinates
+(τ₁, τ₂), du dv = dτ₁ dτ₂/(1 − κκ′), and the set Q(a′, b′) ∩ {τ₁ = t} is Σ₁(t, b′) ⊂ Σ₁(t, b). By the Cauchy–Schwarz
+inequality on it, with e_o/(1 − κκ′) ≤ ε₁,
+
+    ∫_(Σ₁(t,b′)) e^(−φ) 2Ω̂² s √e_o dμ dτ₂/(1 − κκ′) ≤ ‖2Ω̂² s‖_(1,t) (∫_(Σ₁(t,b′)) e^(−φ) ε₁ dμ dτ₂)^(1/2)
+      ≤ ‖2Ω̂² s‖_(1,t) ℰ(t, b′)^(1/2) ≤ ‖2Ω̂² s‖_(1,t) Y,
+
+since ε₂ ≥ 0 and Q(t, b′) is in the family of the supremum. Integrating over t ∈ [−10, a′] and treating the term with
+√c √e_i alike on the sets Σ₂(a′, t) ⊂ Σ₂(a, t), with e_i/(1 − κκ′) ≤ ε₂, gives ℰ(a′, b′) ≤ Y_d² + 2Y𝒮. Taking the
+supremum, Y² ≤ Y_d² + 2Y𝒮, so Y ≤ 𝒮 + (𝒮² + Y_d²)^(1/2) ≤ Y_d + 2𝒮.
+
+Since a_o, a_i ≥ 0, φ is nondecreasing in τ₁ and τ₂, and on Q(a′, b′) it is at most Φ_o(a′) + Φ_i(b′); hence
+ℰ⁰(a′, b′) ≤ e^(Φ_o(a′) + Φ_i(b′)) ℰ(a′, b′). Each of the two suprema in y_sep² is at most a supremum of ℰ⁰ over the
+family, so y_sep² ≤ 2 e^(Φ_o(a) + Φ_i(b)) Y². Finally φ ≥ 0 gives Y_d ≤ δ and 𝒮 ≤ 𝒮₀. ∎
+
+**Corollary {#cor:tl5-hf-level0}** (Level zero.) Let a_o, a_i be admissible rates for (𝔅, E_o, E_i), and Ψ a C²
+symmetric 2-tensor field on Q(a, b) vanishing on N₀ ∩ Q(a, b). Then [[eq:tl5-hf-hyp]] holds for the family (Ψ) with
+weight 1 and s := |L̂Ψ|, and so [[eq:tl5-hf-linear]] and [[eq:tl5-hf-f]] hold.
+
+*Proof.* By [[lem:tl5-hf-divergence]] and [[lem:tl5-hf-pointwise]], 2Ω̂² div J ≤ nᵀ𝔅n + 2Ω̂² |L̂Ψ| (√e_o + √c √e_i),
+and by [[eq:tl5-hf-admissible]], nᵀ𝔅n ≤ (a_o + κa_i) e_o + (a_i + κ′a_o) e_i, as e_o = nᵀE_on and e_i = nᵀE_in. ∎
+
+**Remark {#rem:tl5-hf-weight}** (The weight.) The weight e^(−φ) lets each density be paid by the rate of its own family
+at each point, and the estimate [[eq:tl5-hf-linear]] has constant 1 in the weighted norm; the factor e^(φ/2) appears
+only on passing to unweighted energies. Bounding instead the sum of the two unweighted fluxes Φ by an integral
+inequality Φ ≤ Φ_data + ∫ a_o Φ du + ∫ a_i Φ dv over rectangles gives the square of e^(Φ_o + Φ_i) in place of
+e^(Φ_o + Φ_i). The rates need not be functions of τ₁ and τ₂ separately: the proof uses only that dφ(J) dominates the
+bulk, and any C¹ function φ with ∂_(τ₁)φ ≥ 0, ∂_(τ₂)φ ≥ 0 and [[eq:tl5-hf-admissible]] at every point with
+(a_o, a_i) := (∂_(τ₁)φ, ∂_(τ₂)φ) gives [[eq:tl5-hf-linear]], with F² = 2 e^(φ(a, b)).
