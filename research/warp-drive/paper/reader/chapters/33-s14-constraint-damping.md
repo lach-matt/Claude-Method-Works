@@ -1819,8 +1819,8 @@ A past timelike η is λ₁η₁ + λ₂η₂ with λ₁, λ₂ > 0 and η₁, �
 through η and a spacelike covector); so 𝒬_(G,η,ℓ) = λ₁𝒬_(G,η₁,ℓ) + λ₂𝒬_(G,η₂,ℓ) ≥ 0, with nullspace
 (η₁ ⊗ V*) ∩ (η₂ ⊗ V*) = 0.
 
-Positivity of 𝒬 on all of V* ⊗ E, as in (b), uses the form of ℓ, not the hypothesis of (a) alone. For D = 3, g⁻¹ =
-in a basis f⁰, f¹, f² with f⁰ past timelike, E = ℝ² with the Euclidean B, and ℓ(f⁰) := −Id, ℓ(f¹) := sJ₁,
+Positivity of 𝒬 on all of V* ⊗ E, as in (b), uses the form of ℓ, not the hypothesis of (a) alone. For D = 3,
+g⁻¹ = diag(−1, 1, 1) in a basis f⁰, f¹, f² with f⁰ past timelike, E = ℝ² with Euclidean B, ℓ(f⁰) := −Id, ℓ(f¹) := sJ₁,
 ℓ(f²) := sJ₂, where J₁ := diag(1, −1), J₂ has the rows (0, 1) and (1, 0), and 2^(−1/2) < s < 1: a future causal
 ζ = −αf⁰ + θ₁f¹ + θ₂f², α ≥ |θ| and α > 0, gives ℓ(ζ) the eigenvalues α ± s|θ| > 0; but
 𝒬_(G,f⁰,ℓ)(ξ) = Σ_μ |ξ_μ|² − 2sΣ_(j=1,2) J_jξ_j · ξ_0, which is 1 − 2s² < 0 at ξ_0 = u, ξ_j = sJ_ju, |u| = 1.

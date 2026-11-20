@@ -36,7 +36,7 @@ families A such that A_(P′) ∈ wΨ^m_𝒱(N_(P′)) for every countable P′ 
 the device by which [Hin26d] proves the uniform boundedness in parameterised settings ((S7), with footnote 13). The
 seminorms of A_(P′) ((S5)) are suprema over h ∈ P′ of seminorms of the A_h; so they are bounded independently of P′,
 for otherwise the union of countably many P′ on which some seminorm exceeds 1, 2, 3, … would be a countable set on which
-it is infinite. We write whΨ^m_(3b,ħ) := {hA : A ∈ wΨ^m_(3b,ħ)} and wh^∞Ψ^(−∞)_(3b,ħ) := ⋂_N wh^NΨ^(−N)_(3b,h); a
+it is infinite. We write whΨ^m_(3b,ħ) := {hA : A ∈ wΨ^m_(3b,ħ)} and wh^∞Ψ^(−∞)_(3b,ħ) := ⋂_N wh^NΨ^(−N)_(3b,ħ); a
 family of symbols a = (a_h) lies in wS^m if its restriction to every N_(P′) lies in wS^m(^𝒱T*N_(P′)); and
 Op(a) := (Op_(𝒱_h)(a_h))_h. The principal symbol of A is the class of the symbols of the A_(P′), an element of
 wS^m/whS^(m−1). The classes wΨ^m_3b of the 3b-structure, and wΨ^m_(eb,ħ), wΨ^m_eb on M°, are defined in the same way
@@ -210,12 +210,13 @@ h ∈ (0, 1]: C_c^∞ of the set is dense in the subspace of H^s_(𝒱_h) of the
 
 *Proof.* Fix h; the property is qualitative. For fixed h, H^s_(𝒱_h) is the space H^s of ℬ with scalings 1, with an
 equivalent norm, by (3.14): the maps S_α are dilations by h⁻¹, which are isomorphisms of H^s(ℝ⁵). By (S12) we may also
-replace ℬ by a compatible bounded geometry structure. For Ω₁ we keep ℬ. For Ω₃, let R₀ := 2r_♯ + 4, take finitely many
-charts κ_ℓ : V_ℓ → (−2, 2)⁴ of ℝ⁴ covering {|x| ≤ R₀}, each either disjoint from {|x| = r_♯} or such that
-κ_ℓ(V_ℓ ∩ {|x| < r_♯}) = {y_1 < 0}, and replace the charts of ℬ that meet {|x| ≤ R₀/2} by the charts
-(j − 2, j + 2)_t × V_ℓ, (t − j, κ_ℓ(x)), j ∈ ℤ. The charts of ℬ that meet {|x| ≤ R₀} have k ≤ log₂R₀ + 2, so all
-transition maps between the two families are translates in t of finitely many smooth maps, and the structures are
-compatible. In each chart of the structure so obtained that meets ∂Ω (Ω = Ω₁ or Ω₃), with coordinates (T, y),
+replace ℬ by a compatible bounded geometry structure. For Ω₁ we keep ℬ. For Ω₃, let R₀ := r_♯ + 1 and R₁ := 200R₀,
+take finitely many charts κ_ℓ : V_ℓ → (−2, 2)⁴ of ℝ⁴ such that the sets κ_ℓ⁻¹((−1, 1)⁴) cover {|x| ≤ R₁}, each V_ℓ
+either disjoint from {|x| = r_♯} or such that κ_ℓ(V_ℓ ∩ {|x| < r_♯}) = {y_1 < 0}, and replace the charts of ℬ that meet
+{|x| ≤ R₀} by the charts (j − 2, j + 2)_t × V_ℓ, (t − j, κ_ℓ(x)), j ∈ ℤ. The charts of ℬ that are kept still cover
+{|x| > R₁}: a chart U_((2)) whose set φ⁻¹((−1, 1)⁵) contains a point with |x| > R₁ has 2^(k−2) > R₁/56 > R₀. The charts
+of ℬ that meet {|x| ≤ R₁} have k ≤ log₂R₁ + 2, so all transition maps between the two families are translates in t of
+finitely many smooth maps; the result is a bounded geometry structure compatible with ℬ. In each chart of the structure so obtained that meets ∂Ω (Ω = Ω₁ or Ω₃), with coordinates (T, y),
 the set Ω is {T > a} or {T > a, y_1 < 0} for some a ∈ ℝ, because the charts are products in t with T an affine function
 of t with positive slope; a chart not meeting ∂Ω lies in Ω or in its complement, being connected.
 
@@ -229,8 +230,8 @@ Let χ ∈ C_c^∞((−5/4, 5/4)⁵) be nonnegative and equal to 1 on [−1, 1]�
 supported in Ω̄ put w_α := (φ_α)_*(χ_αv) and v_ε := Σ_α φ_α^*(ϱ_ε ∗ w_α); ϱ_ε ∗ w_α is supported in (−3/2, 3/2)⁵. Then
 v_ε is smooth and supported in Ω, at distance at least cε from ∂Ω in every chart. By (3.14), the norm of an element of
 H^s is the square root of Σ_β ‖(φ_β)_*(φ_β^*χ ·)‖²_(H^s(ℝ⁵)); hence ‖Σ_α g_α‖² ≤ L Σ_α ‖g_α‖² for any g_α, L being
-the multiplicity, since each term (φ_β)_*(φ_β^*χ Σ_α g_α) involves at most L of the g_α and Σ_β ‖(φ_β)_*(φ_β^*χ g_α)‖²
-= ‖g_α‖². Moreover, for f ∈ H^s(ℝ⁵) supported in (−3/2, 3/2)⁵, ‖φ_α^*f‖_(H^s) ≤ C‖f‖_(H^s(ℝ⁵)), and
+the multiplicity, since each term (φ_β)_*(φ_β^*χ Σ_α g_α) involves at most L of the g_α, and since
+Σ_β ‖(φ_β)_*(φ_β^*χ g_α)‖² is ‖g_α‖². Moreover, for f ∈ H^s(ℝ⁵) supported in (−3/2, 3/2)⁵, ‖φ_α^*f‖_(H^s) ≤ C‖f‖_(H^s(ℝ⁵)), and
 Σ_α ‖w_α‖²_(H^s(ℝ⁵)) ≤ C‖v‖²_(H^s), with C independent of α: H^s(ℝ⁵), for distributions supported in a fixed compact set,
 is invariant under multiplication by functions bounded in C^∞ and under diffeomorphisms bounded in C^∞ together with
 their inverses, and the transition maps and the functions Σ_β φ_β^*χ are so bounded ((S1)). Convolution with
@@ -290,8 +291,8 @@ the norm of w⁻¹H̄^(−s)(Ω₁). Extend λ to w⁻¹H̄^(−s)(Ω₁) with t
 statement, with −s for 𝗌 and Ω₁ for Ω, there is ũ ∈ wH^s_(3b,h) supported in cl Ω₁ with ‖ũ‖ ≤ C‖λ‖ and λ(v) = ⟨ṽ, ũ⟩
 for every v and every extension ṽ of v. Then u := ũ|_(Ω₂) lies in wH^s(Ω)^(•,−), with ‖u‖ ≤ ‖ũ‖ ≤ C‖λ‖ and
 λ(v) = ⟨v, u⟩. Conversely, let λ be bounded on wH^s(Ω)^(•,−). Then λ̃(ũ) := λ(ũ|_(Ω₂)) is bounded on the space of the
-elements of wH^s_(3b,h) supported in cl Ω₁, with norm at most ‖λ‖. By the first statement of [[lem:ii-a-7-3]] (3), in
-its form with the two kinds of spaces exchanged, λ̃(ũ) = ⟨ũ, ṽ⟩ for some ṽ ∈ w⁻¹H^(−s)_(3b,h) with ‖ṽ‖ ≤ C‖λ‖. As λ̃
+elements of wH^s_(3b,h) supported in cl Ω₁, with norm at most ‖λ‖. By the first statement of [[lem:ii-a-7-3]] (3), with
+−s for 𝗌 and Ω₁ for Ω, λ̃(ũ) = ⟨ũ, ṽ⟩ for some ṽ ∈ w⁻¹H^(−s)_(3b,h) with ‖ṽ‖ ≤ C‖λ‖. As λ̃
 vanishes on C_c^∞(Ω₃), whose elements restrict to 0 on Ω₂, ṽ vanishes on Ω₃. So v := ṽ|_(Ω₁) is supported in
 {r ≥ r_♯}, v ∈ w⁻¹H^(−s)(Ω)^(−,•), ‖v‖ ≤ ‖ṽ‖, and λ(u) = ⟨u, v⟩.
 
@@ -313,13 +314,13 @@ computed entrywise. Here H_p is the Hamilton vector field of [[prop:np-10-65-a]]
 
 *Proof.* (a) In a chart, j_ε = f(εC_α(y)⁻¹ξ) with f(η) := ⟨η⟩^(−K) ∈ S⁰(ℝ⁵) ([[lem:iv5-calc-structure]] (d)). A derivative
 ∂_y^β∂_ξ^γ of it is a sum of terms (∂^κf)(εC_α⁻¹ξ) times ε^(|κ|) times polynomials in ξ of degree at most |κ| − |γ| with
-coefficients bounded uniformly; as |∂^κf(η)| ≤ C⟨η⟩^(−|κ|) and ε⟨ξ⟩⟨εξ⟩⁻¹ ≤ C⟨ξ⟩⟨ξ⟩⁻¹ hmm-free bound
-ε^(|κ|)|ξ|^(|κ|−|γ|)⟨εξ⟩^(−|κ|) ≤ C⟨ξ⟩^(−|γ|), the family is bounded in S⁰, uniformly in (ε, h). For fixed ε,
+coefficients bounded uniformly. As |∂^κf(η)| ≤ C⟨η⟩^(−|κ|), and ε⟨ξ⟩ ≤ ⟨εξ⟩ ≤ C⟨εC_α⁻¹ξ⟩ for ε ≤ 1, each term is at
+most Cε^(|κ|)⟨ξ⟩^(|κ|−|γ|)⟨εξ⟩^(−|κ|) ≤ C⟨ξ⟩^(−|γ|); so the family is bounded in S⁰, uniformly in (ε, h). For fixed ε,
 j_ε ≤ ε^(−K)⟨ζ⟩^(−K), and likewise for the derivatives, so j_ε ∈ S^(−K). The structure with parameters (ε, h) is
 parameterised ((S7)), and the boundedness follows from (S5), (S7) as in [[def:iv5-calc-cells]].
 
 (b) For δ ∈ (0, 1], |∂_y^β∂_ξ^γ(j_ε − 1)| ≤ C_δε^δ⟨ξ⟩^(δ−|γ|), since |1 − f(η)| ≤ C min(1, |η|) ≤ C|η|^δ and the
-derivatives of positive order are estimated as in (a) with one more factor (ε⟨ξ⟩)^δ. So ε^(−δ)(j_ε − 1) is bounded in
+terms of (a) with |κ| ≥ 1 are at most C(ε⟨ξ⟩⟨εξ⟩⁻¹)^(|κ|)⟨ξ⟩^(−|γ|) ≤ C(ε⟨ξ⟩)^δ⟨ξ⟩^(−|γ|). So ε^(−δ)(j_ε − 1) is bounded in
 S^δ, and ‖(J_ε − I)u‖_(wH^s_(3b,h)) ≤ Cε^δ‖u‖_(wH^(s+δ)_(3b,h)), by Op(1) = I ([[prop:np-10-65-a]] (a)) and (S5). As
 C_c^∞ is dense in wH^s_(3b,h) ([Hin26d, Lemma 3.20], (S16)), so is wH^(s+δ)_(3b,h); with the uniform bound of (a), J_ε → I
 strongly.

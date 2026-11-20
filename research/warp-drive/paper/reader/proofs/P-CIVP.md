@@ -37,7 +37,7 @@ band away from the axes, these cone data have a development.
 **Theorem {#thm:loc-cone-development}** (Development of cone data localised in angle.) Let u_1, v_1 > 0 be such that
 R > a on the segments 𝒞_out ∩ {v ≤ v_1} and 𝒞_in ∩ {u ≤ u_1}, a = 0.70 the inner radius of [[sec:loc-setting]], let
 R_min be the least value of R on them and C_0 := 2√2/R_min. Let 0 < ϑ_a < ϑ_b < π/2, η := (1/4) min(ϑ_a, π/2 − ϑ_b),
-k ≥ 6 an integer and m := 6k + 15. Take free data (ℓ_1, ℓ_2, ℓ_3) and q_in ≥ 0 on 𝒞_out ∩ {v ≤ v_1} as in
+k ≥ 6 an integer and m := 6k + 21. Take free data (ℓ_1, ℓ_2, ℓ_3) and q_in ≥ 0 on 𝒞_out ∩ {v ≤ v_1} as in
 [[prop:loc-cones]], and (ℓ_1, ℓ_2, ℓ_3) and q_out ≥ 0 on 𝒞_in ∩ {u ≤ u_1} as in [[lem:loc-cone-in]], the two sets of
 free data agreeing on S. Let them be smooth and equal to the background's outside compact sets K_out ⊂ [0, v_1) ×
 (ϑ_a, ϑ_b) and K_in ⊂ [0, u_1) × (ϑ_a, ϑ_b) of the coordinates (v, ϑ) and (u, ϑ), and let ε be the largest absolute
@@ -85,7 +85,7 @@ whose perturbation reaches an axis this fails: at an axis the augmented system i
 ([[thm:class-stability]]) needs lateral boundaries adapted to the dust, and no domain-of-dependence statement with null
 boundaries near an axis is proved in this paper. No development is asserted for such data, and (d) gives uniqueness
 near the axes only among solutions that equal the background there. (iii) *Regularity.* The data are smooth and near
-the background's in C^m, m = 6k + 15. Densities that are only bounded, or measures (shells), are not covered. For the
+the background's in C^m, m = 6k + 21. Densities that are only bounded, or measures (shells), are not covered. For the
 3 + 1 problem with two families of null dust, possibly measure-valued, [LR20, Theorem 4.6, p. 29] states: "Given a
 strongly angularly regular reduced characteristic initial data set … there exists ε > 0 sufficiently small such that
 whenever u_∗ ∈ (0, I] and u̲_∗ ∈ (0, ε], there exists a unique angularly regular weak solution to the Einstein–null
@@ -138,7 +138,7 @@ Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o, the left sides being
 on N_o, and Ric(L̲, L̲) = q_out on N_i, L̲ := ∂_u + b∂_ϑ, the left side being given by the last line of
 [[eq:loc-cone-frame-ricci]] in terms of the functions on N_i, L̲ being tangent to N_i; (iii) for some numbers
 0 < ϑ_a′ < ϑ_b′ < π/2 they equal the background's at the points with ϑ ∉ [ϑ_a′, ϑ_b′]. Their *size* is the largest
-absolute value of a derivative of order at most m_0 := 6k + 12 of their differences from the background's. They are in
+absolute value of a derivative of order at most m_0 := 6k + 18 of their differences from the background's. They are in
 the *normalised gauge* if b = 0 on N_i; then Ric(L̲, L̲) on N_i is [[eq:loc-cone-in]]. The data consist of the gauge
 functions ln Ω on both edges and b on N_i, which are free, of the conformal data and densities, which are free, and of
 the functions that (ii) determines; the corner values are arbitrary, subject to (i).
@@ -487,7 +487,7 @@ and let 0 < δ_e ≤ δ_1/4. There are smooth functions Δ = (Δ_l) of (u, v, ϑ
 the metric Ĝ of the form [[eq:loc-double-null]] with the functions X̂, and q̂_A := ρ̂_A/𝒱̂:
 
 (a) Δ vanishes outside {ϑ_a′ ≤ ϑ ≤ ϑ_b′} ∩ ({|u| ≤ 2δ_e, v ≥ −2δ_e} ∪ {|v| ≤ 2δ_e, u ≥ 0}) and where u < u_K and
-v < v_K, and ‖Δ‖_(C^(k+2)) ≤ C times the size, C depending only on Λ, δ_e, k and the background;
+v < v_K, and ‖Δ‖_(C^(k+3)) ≤ C times the size, C depending only on Λ, δ_e, k and the background;
 
 (b) the derivatives of X̂ across N are the a_j and b_k of [[lem:loc-cone-jets]]; so Ĝ and q̂_A induce the cone data on N,
 and Ĝ is a smooth G-invariant Lorentzian metric on 𝒮 × S³, equal to g_e near the axes, for which u and v are null;
@@ -495,9 +495,9 @@ and Ĝ is a smooth G-invariant Lorentzian metric on 𝒮 × S³, equal to g_e ne
 (c) E := Ric(Ĝ) − q̂_in dv ⊗ dv − q̂_out du ⊗ du, ∂_u ρ̂_in + ∂_ϑ(b̂ ρ̂_in) and ∂_v ρ̂_out vanish to infinite order on N.
 
 *Proof.* Apply [[lem:loc-cone-borel]] to each component of (a_j − å_j) and (b_k − b̊_k), with Y = [0, π/2], λ_u = l_u +
-δ_1, λ_v = l_v + δ_1, r := k + 2, ε_0 := δ_e and γ_0 the size (Δ := 0 if the size is 0); the compatibility at the corner
+δ_1, λ_v = l_v + δ_1, r := k + 3, ε_0 := δ_e and γ_0 the size (Δ := 0 if the size is 0); the compatibility at the corner
 holds for the data and for the background by [[lem:loc-cone-jets]] (i). (a) follows from parts (a) and (b) there and
-[[lem:loc-cone-jets]] (ii), (iii), since m_0 − 4(k + 2) = 2k + 4. (b) The double-null form with Ω̂ > 0 and γ̂_ϑ > 0 is
+[[lem:loc-cone-jets]] (ii), (iii), since m_0 − 4(k + 3) = 2(k + 3). (b) The double-null form with Ω̂ > 0 and γ̂_ϑ > 0 is
 Lorentzian, with g^(uu) = g^(vv) = 0. (c) E′ and the conservation laws vanish to infinite order on N by
 [[lem:loc-cone-jets]]. On N_o, E(∂_v, ∂_v) = E(∂_v, ∂_ϑ) = 0, and on N_i, E(L̲, L̲) = 0, by (ii) of [[def:loc-cone-data]],
 these components being expressions in the functions on the edges, L̲ being tangent to N_i. By [[lem:loc-cone-ricci]] (b), div T̂ vanishes to infinite order on N,
@@ -526,7 +526,8 @@ Two cases are treated together: (I) small data, the size at most ε ≤ ε_0, an
 rectangle at the corner. In case (II) we truncate the edges, l_u = l_v := 2δ_1: by [[lem:loc-cone-jets]] the derivatives
 across N near the corner do not depend on the data farther out.
 
-*Constants, coordinates and regions.* Put C_* := max(1, sup_𝒮 e^(σ_e)/R_e), c_+ := (min(δ_1, η/C_*)/4)²,
+*Constants, coordinates and regions.* Put C_* := sup_𝒮 e^(σ_e)/R_e (in case (I), C_* := C_0, which is at least
+that by [[lem:loc-cone-strips]] (b)), c_+ := (min(δ_1, η/C_*)/4)²,
 κ := δ_1/(4(l_u + l_v + 1)), and fix δ_c ∈ (0, √c_+/8]. On {u > −δ_c, v > −δ_c} put
 
     τ := ln((u + δ_c)(v + δ_c)),      y := ((v + δ_c)/(u + δ_c)) ω(ϑ, φ1, φ2),                     {#eq:loc-cone-time}
@@ -847,7 +848,7 @@ equal the background where ϑ ∉ [η, π/2 − η] and whose functions have C^(
 also on Λ′; no result here uses this.
 
 *Proof of [[thm:loc-cone-development]].* Take the background of [[lem:loc-cone-strips]] (b) on 𝒮, with l_u = u_1,
-l_v = v_1, and in case (I) use C_* := max(1, C_0), which is at least sup_𝒮 e^(σ_e)/R_e. The free data are ε-close to the
+l_v = v_1, and C_* = C_0. The free data are ε-close to the
 background's in C^m, m = m_0 + 3 = 6k + 21. The equations of [[prop:loc-cones]] and [[lem:loc-cone-in]] are linear
 ordinary differential equations along the generators whose coefficients differ from the background's by at most Cε in
 C^(m−1); so for ε small e^ϕ stays within Cε of the background's, positive, on [0, v_1 + δ_1] and [0, u_1 + δ_1], ϕ is
@@ -861,6 +862,5 @@ and corner values). [[lem:loc-cone-cauchy]], case (I), [[lem:loc-cone-past]], [[
 [[lem:loc-cone-gauge]] give the background at the points of G_* with ϑ < ϑ_a′ − 2C_* ((u + δ_c)(v + δ_c))^(1/2), with
 ϑ > ϑ_b′ + 2C_* ((u + δ_c)(v + δ_c))^(1/2), or with u < u_K and v < v_K. The construction may be made with every smaller
 δ_c, and by (d) the solutions coincide on G_*, all of them equalling the background where ϑ < 3η or ϑ > π/2 − 3η; letting
-δ_c → 0 gives (b), since C_0 ≥ C_* in place of C_* serves in [[lem:loc-cone-support]]. Finally 2C_0 (uv)^(1/2) ≤
-2C_* δ_* ≤ η/4 on G_*, and ϑ_a′ > ϑ_a, ϑ_b′ < ϑ_b. ∎
+δ_c → 0 gives (b). Finally 2C_0 (uv)^(1/2) ≤ 2C_* δ_* ≤ η/4 on G_*, and ϑ_a′ > ϑ_a, ϑ_b′ < ϑ_b. ∎
 
