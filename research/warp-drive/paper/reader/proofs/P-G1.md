@@ -101,7 +101,7 @@ derivatives, uniformly in the chart. This is the description of 𝒲, and 𝒱_h
 *Smooth functions.* The fields ⟨x⟩∂_(z^μ) extend to smooth vector fields on M₀ tangent to its boundary hypersurfaces.
 Near 𝗌𝖿 away from K^±, in the coordinates 1/r, t/r and x/r, one has r∂_t = ∂_(t/r) and
 r∂_r = −(1/r)∂_(1/r) − (t/r)∂_(t/r), the angle being fixed. Near the interior of K⁺, in the coordinates s := 1/t and x,
-⟨x⟩∂_t = −⟨x⟩s·s∂_s. Near K⁺ ∩ 𝗌𝖿, in (ρ_K, ρ_sf) := (r/t, 1/r) and the angle, r∂_t = −ρ_K·ρ_K∂_(ρ_K) and
+⟨x⟩∂_t = −⟨x⟩s·s∂_s, and the ⟨x⟩∂_(x^q) are tangent to K⁺. Near K⁺ ∩ 𝗌𝖿, in (ρ_K, ρ_sf) := (r/t, 1/r) and the angle, r∂_t = −ρ_K·ρ_K∂_(ρ_K) and
 r∂_r = ρ_K∂_(ρ_K) − ρ_sf∂_(ρ_sf). In all cases r∂_(x^q) = (x^q/r)r∂_r plus vector fields tangent to the spheres with
 coefficients smooth in the angle, and ⟨x⟩/r is smooth near r = ∞; K⁻ is the same with −t for t. So every iterated
 derivative of f ∈ C^∞(M₀) along the ⟨x⟩∂_(z^μ) is bounded, and by the previous paragraph f is bounded with all
@@ -231,15 +231,16 @@ only on ϱ.
 Let χ ∈ C_c^∞((−5/4, 5/4)⁵) be nonnegative and equal to 1 on [−1, 1]⁵, and χ_α := φ_α^*χ/Σ_β φ_β^*χ. For v in H^s
 supported in Ω̄ put w_α := (φ_α)_*(χ_αv) and v_ε := Σ_α φ_α^*(ϱ_ε ∗ w_α); ϱ_ε ∗ w_α is supported in (−3/2, 3/2)⁵. Then
 v_ε is smooth and supported in Ω, at distance at least cε from ∂Ω in every chart. By (3.14), the norm of an element of
-H^s is the square root of Σ_β ‖(φ_β)_*(φ_β^*χ ·)‖²_(H^s(ℝ⁵)); hence ‖Σ_α g_α‖² ≤ L Σ_α ‖g_α‖² for any g_α, L being the
-multiplicity, since each term (φ_β)_*(φ_β^*χ Σ_α g_α) involves at most L of the g_α, and since Σ_β ‖(φ_β)_*(φ_β^*χ
-g_α)‖² is ‖g_α‖². Moreover, for f ∈ H^s(ℝ⁵) supported in (−3/2, 3/2)⁵, ‖φ_α^*f‖_(H^s) ≤ C‖f‖_(H^s(ℝ⁵)), and Σ_α
+H^s is the square root of Σ_β ‖(φ_β)_*(φ_β^*χ ·)‖²_(H^s(ℝ⁵)); hence ‖Σ_α g_α‖² ≤ L Σ_α ‖g_α‖² for any g_α supported in
+U_α, L being a bound for the number of charts that meet a given chart (finite by the description of the transitions),
+since each term (φ_β)_*(φ_β^*χ Σ_α g_α) involves at most L of the g_α, and since Σ_β ‖(φ_β)_*(φ_β^*χ g_α)‖² is
+‖g_α‖². Moreover, for f ∈ H^s(ℝ⁵) supported in (−3/2, 3/2)⁵, ‖φ_α^*f‖_(H^s) ≤ C‖f‖_(H^s(ℝ⁵)), and Σ_α
 ‖w_α‖²_(H^s(ℝ⁵)) ≤ C‖v‖²_(H^s), with C independent of α: H^s(ℝ⁵), for distributions supported in a fixed compact set,
 is invariant under multiplication by functions bounded in C^∞ and under diffeomorphisms bounded in C^∞ together with
 their inverses, and the transition maps and the functions Σ_β φ_β^*χ are so bounded ((S1)). Convolution with ϱ_ε − δ_0
-is the Fourier multiplier ϱ̂(εξ) − 1, bounded by C uniformly in ε and tending to 0 pointwise; so ‖(ϱ_ε − δ_0) ∗
-w_α‖_(H^s(ℝ⁵)) ≤ C‖w_α‖_(H^s(ℝ⁵)) and tends to 0 for each α. As Σ_α χ_α = 1, ‖v_ε − v‖²_(H^s) ≤ LC Σ_α ‖(ϱ_ε − δ_0) ∗
-w_α‖²_(H^s(ℝ⁵)), which tends to 0 by dominated convergence for the series.
+is the Fourier multiplier ϱ̂(εξ) − 1, bounded by C uniformly in ε and tending to 0 pointwise; so
+‖(ϱ_ε − δ_0) ∗ w_α‖_(H^s(ℝ⁵)) ≤ C‖w_α‖_(H^s(ℝ⁵)), and it tends to 0 for each α. As Σ_α χ_α = 1,
+‖v_ε − v‖²_(H^s) ≤ LC Σ_α ‖(ϱ_ε − δ_0) ∗ w_α‖²_(H^s(ℝ⁵)), which tends to 0 by dominated convergence for the series.
 
 Finally let ψ ∈ C_c^∞(ℝ) equal 1 near 0 and ψ_R(t, x) := ψ(t/R)ψ(|x|/R), R ≥ 1. The ψ_R are bounded in C^∞_(uni,ℬ)
 uniformly in R, since ⟨x⟩ ≤ CR on supp ψ(|x|/R); so multiplication by ψ_R is bounded on H^s uniformly in R ((S3), (S7)
@@ -426,8 +427,9 @@ A − Op(a) ∈ whΨ^(m−1). Op(y) is microsupported in supp y ([[lem:iv5-calc-
 the factor h^(5/2) of the norms appears on both sides. An element of w_1h^(2N)Ψ^(−2N) maps w_2H^(−N) to w_1w_2H^N with
 norm O(h^(2N)).
 
-(e) Write O := Ell(A) ∩ Ell(G) and let a, g be representatives of the principal symbols. By compactness of K ∩ ∂_ħ there
-are an open set O′ ⊂ 𝒫 with K ∩ ∂_ħ ⊂ O′ and closure in a neighbourhood of O, and C₀, such that ga is invertible on
+(e) Let a, g be representatives of the principal symbols of A and G. Every point of K ∩ ∂_ħ has a neighbourhood in 𝒫
+on which a and g are invertible with the bounds of [[def:iv5-calc-micro]]. As K ∩ ∂_ħ is compact, there are an open set
+O′ ⊃ K ∩ ∂_ħ whose closure is covered by finitely many of these neighbourhoods, and C₀, such that ga is invertible on
 cl O′ ∩ 𝒫° with |(ga)⁻¹| ≤ C₀w′⁻¹ρ_∞^m.
 
 *Reduction to K ⊂ O′.* Choose a real y ∈ C^∞(𝒫) with y = 1 near K, whose support meets ∂_ħ only inside O′ (possible by
@@ -524,7 +526,7 @@ when the coefficients are bounded and c is bounded below uniformly in b.
 represented by q, which is B-self-adjoint ([[prop:np-10-65-a]] (a), (b)). Choose φ ∈ C^∞(M₀) with 0 ≤ φ ≤ 1, φ = 1
 near K and supp φ ⊂ U, and put q_* := φ²q + (1 − φ²)|ζ|², where |ζ|² denotes |ζ|² times the identity. Then q_* is
 B-self-adjoint and B((q_* + 1)v, v) ≥ min(c, 1)⟨ζ⟩²B(v, v). By [[prop:np-10-65-a]] (f), (i) (non-semiclassical, with
-k = 1 and W = 𝒫), θ := (q_* + 1)^(1/2) ∈ S¹ and θ⁻¹ ∈ S^(−1). Put Θ := Op(θ) and Θ′ := Op(θ⁻¹). By
+k = 1 and W the whole compactified bundle ³ᵇT̄*M₀), θ := (q_* + 1)^(1/2) ∈ S¹ and θ⁻¹ ∈ S^(−1). Put Θ := Op(θ) and Θ′ := Op(θ⁻¹). By
 [[prop:np-10-65-a]] (b), Θ*Θ − I − Op(q_*) and Q̃ − Op(q) lie in Ψ¹_3b, and Θ′Θ − I ∈ Ψ^(−1)_3b. By
 [[prop:np-10-65-a]] (a), Op(q_*) = φ²Op(q) + (1 − φ²)Op(|ζ|²). As φu = u and multiplication by a real scalar function is
 symmetric for ⟨·, ·⟩, ⟨φ²Op(q)u, u⟩ = ⟨Op(q)u, u⟩ and ⟨(1 − φ²)Op(|ζ|²)u, u⟩ = 0. Hence
