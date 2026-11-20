@@ -197,9 +197,10 @@ Op(a) for the operator with that kernel, and Ψ^(m,ℓ)_sc := Op(S^(m,ℓ)_sc), 
 
     H^(s,r)_sc := {u ∈ 𝒮′ : ⟨D⟩^s ⟨x⟩^r u ∈ L²},     ‖u‖_(s,r) := ‖⟨D⟩^s ⟨x⟩^r u‖_(L²).
 
-This is [Mel94]'s H^(s,r)_sc [Mel94, (5.27), p. 19]: ⟨D⟩^s⟨x⟩^r lies in [Mel94]'s Ψ^(s,−r)_sc by [Mel94, (5.1)], and
-every element of it is ⟨D⟩^s⟨x⟩^r followed by an operator of order (0, 0), which is bounded on L² by (C3). Pages of
-[Mel94] are those of the author's online edition.
+This is [Mel94]'s H^(s,r)_sc [Mel94, (5.27), p. 19]: ⟨D⟩^s⟨x⟩^r lies in [Mel94]'s Ψ^(s,−r)_sc, its factors having
+the classical amplitudes ⟨ξ⟩^s and ⟨x⟩^r [Mel94, Definition 2 and (5.1)], and every element of it is ⟨D⟩^s⟨x⟩^r
+followed by an operator of order (0, 0), which is bounded on L² by (C3). Pages of [Mel94] are those of the author's
+online edition.
 Its statements hold on every compact manifold with boundary, in particular on ℝ̄ⁿ for every n, so at n = 4. Every
 operator below has Schwartz kernel supported in X̃ × X̃, and X̄ ⊂ ℝ̄⁴, so the calculus on ℝ⁴ is the calculus used.
 [Mel94] treats constant orders and states neither adjoints nor duality. What it does not state is proved after the
@@ -258,8 +259,9 @@ and [[eq:i-b-2-5]] at h = 1 these classes are closed under composition and adjoi
 of the expansions there gains 1 − δ in both orders, for every δ > 0. So the principal symbol is the class of the
 amplitude modulo the class of order (m − 1 + δ, 𝗅 − 1 + δ) for every δ > 0; it is multiplicative; σ(A∗) = σ(A)∗; and
 if σ(A) = a Id is scalar, [A, B] has order (m + m′ − 1 + δ, 𝗅 + 𝗅′ − 1 + δ) for every δ > 0, with
-σ(i[A, B]) = H_aσ(B). Operators of order (0, 0) are bounded on L² ([[thm:i-b-2-7]] at h = 1). For constant s, a variable
-order 𝗋, E := Op(⟨ξ⟩^s⟨x⟩^𝗋 Id) and an integer N ≥ max(−s, −inf 𝗋) + 1, let
+σ(i[A, B]) = H_aσ(B) if moreover A = Op(a Id) or σ(B) is scalar. Operators of order (0, 0) are bounded on L²
+([[thm:i-b-2-7]] at h = 1). For constant s, a variable order 𝗋, E := Op(⟨ξ⟩^s⟨x⟩^𝗋 Id) and an integer
+N ≥ max(−s, −inf 𝗋) + 1, let
 
     H^(s,𝗋)_sc := {u ∈ H^(−N,−N)_sc : Eu ∈ L²},     ‖u‖²_(s,𝗋) := ‖Eu‖²_(L²) + ‖u‖²_(−N,−N).
 
@@ -324,8 +326,9 @@ WF′ disjoint from K, so BA − Id has too. If A is elliptic everywhere, take f
 then 1 − χ has compact support and Id − Op(χ) ∈ Ψ^(−∞,−∞)_sc. For the estimate, let B be such an
 operator for GA, which is elliptic near K := WF′(Q). Then Q = QBGA + Q(Id − BGA), where the last operator has empty
 WF′ and so lies in Ψ^(−∞,−∞)_sc, and (C3) gives the estimate. With variable orders the same holds by (C6), R₀ gaining
-1 − δ in both orders. By the seminorm bounds and the uniform asymptotic sums of (C1), B depends continuously on the
-amplitude of A, and is bounded when A is bounded in Ψ^(m,ℓ)_sc and uniformly elliptic near K.
+1 − δ in both orders. By the seminorm bounds and the uniform asymptotic sums of (C1), if A depends on a parameter, is
+bounded in Ψ^(m,ℓ)_sc and is uniformly elliptic near K, then B can be chosen bounded in Ψ^(−m,−ℓ)_sc, and continuous
+in the parameter if the amplitude of A is.
 
 *Variable orders (C6).* Asymptotic sums: let A_j have order (m − j + δ, 𝗅 − j + δ) for a fixed δ ∈ [0, 1). With
 δ′ := (1 + δ)/2 and ω := sup 𝗅 − inf 𝗅, A_j lies in Ψ^(m−j+δ′,sup𝗅−j+δ′)_sc, and an asymptotic sum A there [Mel94,
