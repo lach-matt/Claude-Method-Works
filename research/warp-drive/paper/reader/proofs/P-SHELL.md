@@ -457,9 +457,9 @@ bands increase with the index, and k + 1, j + 1 ≤ N. The shell densities are j
 a past set of 𝒫_k^out relative to its corner (0, c_k), g̃ is smooth on it since 𝒫_k^out ⊂ Q_0k, and g̃ induces the cone
 data on N_o ∩ D′ and the functions of g_(k−1)^out on N_i ∩ D′ ⊂ 𝒮_(k−1)^out: Ω, γ_ϑ, b, A_c and A_s by continuity,
 q_out by (J3) of [[prop:loc-shell-junction]] (d). After the change of angle Φ_k, which depends only on these functions,
-(T2) (c) gives g̃ = g_k^out on D′ ∩ 𝒮_k^out. In the same way, with q_in on N_o by (J3) across {u = d_j}, g̃ = g_j^in
-on D′ ∩ 𝒮_j^in for every j. So g̃ = g on D′ ∩ 𝒮_δ, the densities q̃_in and q̃_out included, and the shell densities, which
-(J2) determines from the metric, agree as well.
+(T2) (c) gives g̃ = g_k^out on D′ ∩ 𝒮_k^out. In the same way, with q_in on N_o by (J3) across {u = d_j},
+g̃ = g_j^in on D′ ∩ 𝒮_j^in for every j. So g̃ = g on D′ ∩ 𝒮_δ, the densities q̃_in and q̃_out included, and the shell
+densities, which (J2) determines from the metric, agree as well.
 
 (d) We repeat Steps 1–5, with [[thm:loc-cone-development]] at S and (T1) in place of (T2) at the other corners, and keep
 track of sizes; C denotes constants that depend only on g0, u_1, v_1, the leaves, the band and N. The rectangle of depth
@@ -484,32 +484,34 @@ u_1] × [0, λ_1], λ_1 := min(δ_*,0²/max(u_1, v_1), min(c_1, d_1)/2, 3δ_e), 
 and 𝒴_0.
 
 *Depth k ≥ 1 along 𝒞_out.* Let λ_k^out be the width found at depth k − 1, so that the solution of depth k − 1 contains
-[0, λ_k^out] × 𝒵_(k−1) and is within Cε of the background's there with its derivatives of order at most k_(k−1) − 4: at
-depth 0 by [[thm:loc-cone-development]] (b) and (c), at depth k − 1 ≥ 1 by the end of this paragraph. Apply (T1) at
-(0, c_k) with l_u := (2/3) λ_k^out and l_v := v_1 − c_k: then δ_1 ≤ λ_k^out/3 ≤ δ_e, so N_i ⊂ [0, λ_k^out] × {c_k},
+[0, λ_k^out] × 𝒵_(k−1) and is within Cε of the background's there with its derivatives of order at most k_(k−1) − 4 (at
+depth 0 as found there, at depth k − 1 ≥ 1 by the next paragraph, applied at that depth). Apply (T1) at (0, c_k) with
+l_u := (2/3) λ_k^out and l_v := v_1 − c_k: then δ_1 ≤ λ_k^out/3 ≤ δ_e, so N_i ⊂ [0, λ_k^out] × {c_k},
 N_o = {0} × [c_k, v_1 + δ_1] carries the extended cone data of depth k, and the rectangle they span lies in
 [0, 3δ_e] × [0, v_1 + δ_e], so that R > a on N_o and N_i and g0 is defined in the gauge near the rectangle. On N_i take
 the functions of the solution of depth k − 1. The map Φ_k(u, ·) is the inverse of the flow from 0 to u of the
-u-dependent vector field b(u, c_k, ·) ∂_ϑ, which is within Cε of 0 in C^(k_(k−1) − 4); so Φ_k − id and the inverse
-map (u, ϑ) ↦ (u, Φ_k(u, ·)⁻¹(ϑ)) minus the identity are at most Cε with their derivatives of order at most
-k_(k−1) − 4. The transformed functions, built from these functions and ∂_uΦ_k and ∂_ϑΦ_k and composed with that inverse
-map, are therefore within Cε of the background's with their derivatives of order at most k_(k−1) − 5 = 6k_k + 18, the
-order m_0 of [[def:loc-cone-data]] for the index k_k. On N_o the change of angle subtracts b(0, c_k, ·). So the data
-have size at most Cε, and for ε small (T1) gives a solution on {0 ≤ u ≤ l_u, c_k ≤ v ≤ v_1, u(v − c_k) ≤ δ_*,k²}, which
-contains [0, λ_(k+1)^out] × [c_k, v_1] with λ_(k+1)^out := min(l_u, δ_*,k²/(v_1 − c_k)), and which is within Cε of the
-background's with its derivatives of order at most k_k − 4 in the transformed angle.
+u-dependent vector field b(u, c_k, ·) ∂_ϑ on (0, π/2), which is within Cε of 0 in C^(k_(k−1) − 4); such a flow and its
+inverse are within Cε of the identity in C^(k_(k−1) − 4), so Φ_k(u, ϑ) − ϑ and Φ_k(u, ·)⁻¹(ϑ) − ϑ are at most Cε with
+their derivatives in (u, ϑ) of order at most k_(k−1) − 4. The transformed functions are γ_ϑ/(∂_ϑΦ_k)², ∂_uΦ_k + b ∂_ϑΦ_k
+and the other functions, composed in the angle with Φ_k(u, ·)⁻¹; by the argument of the next paragraph, with
+Φ_k(u, ·)⁻¹ in place of Φ_k and k_(k−1) − 5 in place of k_k − 4, they are within Cε of the background's with their
+derivatives of order at most k_(k−1) − 5 = 6k_k + 18, the order m_0 of [[def:loc-cone-data]] for the index k_k. On N_o
+the change of angle subtracts b(0, c_k, ·). So the data have size at most Cε, and for ε small (T1) gives a solution on
+{0 ≤ u ≤ l_u, c_k ≤ v ≤ v_1, u(v − c_k) ≤ δ_*,k²}, which contains [0, λ_(k+1)^out] × [c_k, v_1] with
+λ_(k+1)^out := min(l_u, δ_*,k²/(v_1 − c_k)), and which is within Cε of the background's with its derivatives of order at
+most k_k − 4 in the transformed angle.
 
-Changing the angle back loses no derivative. It composes each function with Φ_k, that is, replaces F(u, v, ϑ) by
-F(u, v, Φ_k(u, ϑ)), and then multiplies γ_ϑ by (∂_ϑΦ_k)² and replaces b by (b − ∂_uΦ_k)/∂_ϑΦ_k. Let F be one of the
-functions, within Cε of the background's F̊ in C^(k_k − 4) in the transformed angle. Then
-F ∘ Φ_k − F̊ = (F − F̊) ∘ Φ_k + (F̊ ∘ Φ_k − F̊). The first term is within Cε in C^(k_k − 4) by the chain rule, the
-derivatives of Φ_k of order at most k_k − 4 being bounded. The second is (Φ_k − ϑ) ∫_0^1 ∂_ϑF̊(u, v, ϑ + t(Φ_k − ϑ)) dt,
-and Φ_k − ϑ vanishes, with all its derivatives, off a compact subset K of the band, and maps K into K; so on the interval
-between the least and the largest angle of K, where F̊ is smooth, the integral is bounded in C^(k_k − 4), and the second
-term is within Cε in C^(k_k − 4). The factors (∂_ϑΦ_k)², ∂_uΦ_k and 1/∂_ϑΦ_k, and ln ∂_ϑΦ_k, which is what the change
-adds to ½ ln γ_ϑ, are within Cε of 1, 0, 1 and 0 in C^(k_(k−1) − 5), and k_(k−1) − 5 = 6k_k + 18 ≥ k_k − 4. So the
-solution of depth k is within Cε of the background's with its derivatives of order at most k_k − 4 in the original angle
-too; the background's b is 0 and its γ_ϑ is R², which do not depend on the angle. Along 𝒞_in the same holds with
+*Changing the angle back loses no derivative.* The change back replaces each function F(u, v, ϑ) by F(u, v, Φ_k(u, ϑ)),
+written F ∘ Φ_k, and then multiplies γ_ϑ by (∂_ϑΦ_k)² and replaces b by (b − ∂_uΦ_k)/∂_ϑΦ_k. Let F be one of the
+functions of the solution, within Cε of the background's F̊ in C^(k_k − 4). Then F ∘ Φ_k − F̊ = (F − F̊) ∘ Φ_k +
+(F̊ ∘ Φ_k − F̊). The first term is within Cε in C^(k_k − 4) by the chain rule, the derivatives of Φ_k of order at most
+k_k − 4 being bounded. The second is (Φ_k − ϑ) ∫_0^1 ∂_ϑF̊(u, v, ϑ + t(Φ_k − ϑ)) dt. Here Φ_k(u, ·) is the identity off a
+compact subset K of (0, π/2) and maps K onto K, so the second term vanishes off K, and on K the angles ϑ + t(Φ_k − ϑ)
+lie in the least interval that contains K, a compact subset of (0, π/2) on which F̊ is smooth; so the integral is
+bounded in C^(k_k − 4) on K, and the second term is within Cε in C^(k_k − 4). The factors (∂_ϑΦ_k)², ∂_uΦ_k and
+1/∂_ϑΦ_k, and ln ∂_ϑΦ_k, which the change adds to ½ ln γ_ϑ, are within Cε of 1, 0, 1 and 0 in C^(k_(k−1) − 5), and
+k_(k−1) − 5 = 6k_k + 18 ≥ k_k − 4. As the background's b is 0, the solution of depth k is within Cε of the background's
+with its derivatives of order at most k_k − 4 in the original angle too. Along 𝒞_in the same holds with
 l_v := (2/3) λ_j^in, l_u := u_1 − d_j and no change of angle, the functions on N_o being those of the solution of depth
 j − 1, within Cε with their derivatives of order at most k_(j−1) − 4 ≥ 6k_j + 18.
 
@@ -522,10 +524,15 @@ induces the cone data and equals g0 near the axes, and 𝒮_w is a past set; by 
 **Proposition {#prop:loc-shell-crossing}** (Crossing shells.) Let D ⊂ Q1 be a past set, (g, v, u, q_in, q_out, 𝔪_k, 𝔫_j)
 a solution with null shells along the leaves on D × S³, and Z := {(d_j, c_k)} × S³ a crossing sphere in D. Number the
 four cells at Z by (±, ±), the first sign being that of u − d_j and the second that of v − c_k, and write F_(±±) for the
-value at a point of Z, from the cell (±, ±), of a cellwise smooth function F.
+value at a point of Z, from the cell (±, ±), of a cellwise smooth function F. For a set D′ ⊂ Q1 that meets every line
+{u = const} and every line {v = const} in an interval, a solution with null shells along the leaves on D′ × S³ is
+defined by [[def:loc-shell-solution]], and the definitions before it, with D′ in place of D, and [[lem:loc-shell-ricci]]
+and [[prop:loc-shell-junction]] hold with D′ in place of D, the last sentence of (a) of the latter with any sphere
+{(u′, c_k)} × S³ ⊂ D′ × S³ in place of {(0, c_k)} × S³ and the part of the leaf where u ≥ u′ in place of the leaf. The
+sets 𝔏, 𝔏 ∪ [d_j, d_j + s] × [c_k, c_k + s] and 𝔏 ∪ D″ of (b) and (c) have this property.
 
-(a) *The crossing rule.* At every point of Z, tr χ_(+−) = tr χ_(−−), tr χ_(++) = tr χ_(−+), tr χ̲_(−+) = tr χ̲_(−−) and
-tr χ̲_(++) = tr χ̲_(+−), so that
+(a) *The crossing rule.* If D contains a neighbourhood of (d_j, c_k), then at every point of Z, tr χ_(+−) = tr χ_(−−),
+tr χ_(++) = tr χ_(−+), tr χ̲_(−+) = tr χ̲_(−−) and tr χ̲_(++) = tr χ̲_(+−), so that
 
     (tr χ tr χ̲)_(++) (tr χ tr χ̲)_(−−) = (tr χ tr χ̲)_(+−) (tr χ tr χ̲)_(−+),
 
@@ -562,7 +569,23 @@ axes; in particular nothing is asserted for shells that are not round at an axis
 equations of round metrics, and the results used in (c) need data equal to a smooth round background near the axes
 ([[rem:loc-cone-scope]] (ii), [[rem:loc-cone-local-scope]]).
 
-*Proof.* (a) Ω, b and 𝒱 are continuous. ∂_v is tangent to {u = d_j}, so tr χ = ∂_v ln 𝒱 has the same values at Z from the
+*Proof.* *The sets D′.* The proof of [[lem:loc-shell-ricci]] (a) uses of D only that for fixed (u, y) the points of D
+with these coordinates form an interval in v, and for fixed (v, y) an interval in u; the proof of its part (b) works at
+each point separately. The proof of [[prop:loc-shell-junction]] solves linear ordinary differential equations along
+integral curves of L̲ and along generators in a leaf, over the interval in which the line {v = c_k} or {u = d_j} meets
+D, and in (d) applies the rule for derivatives of the proof of [[lem:loc-shell-ricci]] (a) on such intervals and tests
+with functions supported near single points; it uses the sphere {(0, c_k)} × S³ only in the last sentence of (a), where
+the same argument, with the curves started at u = u′, gives the form stated. So both results hold with D′ in place of D.
+The set 𝔏 meets {u = u′} in {u′} × [c_k − λ, c_k + λ] if d_j − λ ≤ u′ ≤ d_j, in {u′} × [c_k − λ, c_k] if
+d_j < u′ ≤ d_j + λ, and nowhere otherwise, and it meets the lines {v = v′} in the same way, with u and v exchanged. For
+s ∈ (0, λ] the set 𝔏 ∪ [d_j, d_j + s] × [c_k, c_k + s] meets {u = u′} in {u′} × [c_k − λ, c_k + s] if
+d_j < u′ ≤ d_j + s and as 𝔏 does otherwise, since {d_j} × [c_k, c_k + s] ⊂ 𝔏. Let D″ be a past set of 𝒬 relative to
+its corner, and d_j ≤ u′ ≤ d_j + λ. If (u′, v) ∈ D″, then {u′} × [c_k, v] ⊂ D″; so D″ meets {u = u′} in the empty set
+or in {u′} × I, I ⊂ [c_k, c_k + λ] an interval that contains c_k. Hence 𝔏 ∪ D″ meets {u = u′} in
+{u′} × ([c_k − λ, c_k] ∪ I), an interval, if u′ > d_j, and as 𝔏 does if u′ = d_j or u′ ∉ [d_j, d_j + λ]. The lines
+{v = v′} are treated in the same way.
+
+(a) Ω, b and 𝒱 are continuous. ∂_v is tangent to {u = d_j}, so tr χ = ∂_v ln 𝒱 has the same values at Z from the
 two cells on the same side of {v = c_k}; L̲ and ∂_ϑ are tangent to {v = c_k}, so tr χ̲ = L̲ ln 𝒱 + ∂_ϑ b has the same
 values at Z from the two cells on the same side of {u = d_j}. Multiplying gives the identity. By
 [[prop:loc-shell-junction]] (d) the solution satisfies (J1) and (J2), so 𝒱𝔪_k = −𝒱[tr χ] and 𝒱𝔫_j = −𝒱[tr χ̲] are
@@ -614,15 +637,16 @@ solution in the gauge on [0, s]² × S³ that induces these functions and equals
 class solution in the gauge, and (J3) holds, the new cell inducing q_in on N_o and q_out on N_i. By
 [[prop:loc-shell-junction]] (a), applied to the extended metric, [∂_v b] on {v = 0} is continuous at Z, where its value
 from u < 0 vanishes by (J1) for the given solution; b vanishing near the axes, it vanishes on the new part of the leaf,
-(J1). By [[prop:loc-shell-junction]] (b) and (c), 𝒱[tr χ] and 𝒱[tr χ̲] are continuous at Z and keep their signs along the
-new parts of the two leaves, so 𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j; by
-[[prop:loc-shell-junction]] (d) the extension is a solution with null shells along the leaves. Under (T2), with the band
-(3η/2, π/2 − 3η/2), for which η0′ = η/2, the same transformed functions have by (T2) (a) and (b) a development on 𝒬_δ for
-some δ > 0 that equals (g0, q̊_in, q̊_out) at the points with ϑ ∉ [η, π/2 − η], and it is glued in the same way. If g̃ is
-a solution on (𝔏 ∪ D″) × S³ as in (c), its restriction to D″, which is smooth since 𝒬 lies in a cell, is a class solution
-in the gauge on a past set of 𝒬 that equals g0 near the axes and, being continuous, induces on N_o ∩ D″ and N_i ∩ D″ the
-functions of the given solution; after the same change of angle, (T2) (c) shows that it equals the development on
-D″ ∩ 𝒬_δ.
+by the last sentence of (a) with Z in place of {(0, c_k)} × S³, (J1). By [[prop:loc-shell-junction]] (b) and (c),
+𝒱[tr χ] and 𝒱[tr χ̲] are continuous at Z and keep their signs along the new parts of the two leaves, so 𝔪 := −[tr χ] ≥ 0
+and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j; by [[prop:loc-shell-junction]] (d) the extension is a solution with null
+shells along the leaves. Under (T2), with the band (3η/2, π/2 − 3η/2), for which η0′ = η/2, the same transformed
+functions have by (T2) (a) and (b) a development on 𝒬_δ for some δ > 0 that equals (g0, q̊_in, q̊_out) at the points
+with ϑ ∉ [η, π/2 − η], and it is glued in the same way. If g̃ is a solution on (𝔏 ∪ D″) × S³ as in (c), its restriction
+to D″, which is smooth since 𝒬 lies in a cell, is a class solution in the gauge on a past set of 𝒬 that equals g0 near
+the axes and induces on N_o ∩ D″ and N_i ∩ D″ the functions of the given solution, the metric functions by continuity
+and q_in and q_out by (J3) of [[prop:loc-shell-junction]] (d); after the same change of angle, (T2) (c) shows that it
+equals the development on D″ ∩ 𝒬_δ.
 
 (d) The functions tr χ and tr χ̲ are the expansions of the spheres {u, v = const} along the null normal fields ∂_v and
 L̲ = −2Ω² g⁻¹dv, which are smooth on each closed cell, the axes included. So the values in (a) extend continuously to the
@@ -655,9 +679,11 @@ concentrate on a leaf: their C^m norms, m = 6k + 21, are not bounded as the widt
 
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
 source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:"; every old
-text occurs exactly once in its chapter after the sections of Tier 1 (the proof of [[thm:loc-cone-development]], with
-its Blocks A and B) and of Tier 2 (the section [[sec:civp-large]]) are in place. Line numbers are those of the current
-chapter sources and serve only to find the place. The section uses those two sections' results by their labels, and two
+text occurs exactly once in its chapter after the text of Tier 1 (the proof of [[thm:loc-cone-development]], with its
+Blocks A and B) and the section of Tier 2 ([[sec:civp-large]]) are in place and their placements applied. Items 2, 5 and
+8 are written against the Tier 1 text and its placement as they stand (its Block A, its items 7 and 4), which are under
+revision, and are to be re-based on their final form. Line numbers are those of the current chapter sources and serve
+only to find the place. The section uses those two sections' results by their labels, and two
 further statements about them, (T2) and (T1), which it states in full and marks [[pending:civp-large-at-a-corner]] and
 [[pending:loc-cone-development-at-a-corner]].
 
@@ -675,18 +701,18 @@ removed.
 
 *2. [[rem:loc-cone-scope]] (iii), in the Tier 1 text (Block A).* Old:
 
-near the axes only among solutions that equal the background there. (iii) *Regularity.* The data are smooth and near
-the background's in C^m, m = 6k + 21. Densities that are only bounded, or measures (shells), are not covered. For the
+the background there. (iii) *Regularity.* The data are smooth and near the background's in C^m, m = 6k + 21. Densities
+that are only bounded, or measures (shells), are not covered. For the 3 + 1 problem with two families of null dust,
 
 New:
 
-near the axes only among solutions that equal the background there. (iii) *Regularity.* The data are smooth and near
-the background's in C^m, m = 6k + 21. Densities that are only bounded, and measure-valued densities in general, are not
-covered. Finitely many null shells along leaves {v = c} of 𝒞_out and {u = d} of 𝒞_in, with densities smooth in angle
-and supported in the band, and data that are smooth except across finitely many such leaves, are covered by
-[[thm:loc-shells]]: their development is continuous, smooth between the leaves and a solution in the sense of
-distributions ([[def:loc-shell-solution]]), and near the background's data it exists on a neighbourhood of the two
-cones that does not depend on the data ([[thm:loc-shells]] (d)). For the
+the background there. (iii) *Regularity.* The data are smooth and near the background's in C^m, m = 6k + 21. Densities
+that are only bounded, and measure-valued densities in general, are not covered. Finitely many null shells along leaves
+{v = c} of 𝒞_out and {u = d} of 𝒞_in, with densities smooth in angle and supported in the band, and data that are smooth
+except across finitely many such leaves, are covered by [[thm:loc-shells]]: their development is continuous, smooth
+between the leaves and a solution in the sense of distributions ([[def:loc-shell-solution]]), and near the background's
+data it exists on a neighbourhood of the two cones that does not depend on the data ([[thm:loc-shells]] (d)). For the
+3 + 1 problem with two families of null dust,
 
 *3. [[rem:civp-large-domain]], its last sentence, in the Tier 2 section.* Old:
 
@@ -702,7 +728,7 @@ bounded, or measure-valued densities other than finitely many null shells along 
 smooth in angle; those, and data that are smooth except across finitely many leaves, are developed slab by slab with
 [[thm:civp-large]] in [[thm:loc-shells]].
 
-*4. [[ch:localised-data]], the opening (lines 20–21).* A paragraph is inserted before the last paragraph of the opening,
+*4. [[ch:localised-data]], the opening (lines 21–22).* A paragraph is inserted before the last paragraph of the opening,
 which neither the Tier 1 nor the Tier 2 placement changes. Old:
 
 The inequalities on the background that these results use are proved at the end of the chapter, in
@@ -721,20 +747,22 @@ obey a product rule, for round metrics a relation between the masses of the four
 The inequalities on the background that these results use are proved at the end of the chapter, in
 [[sec:bg-below]] and [[sec:margins]], from the tables of [[sec:tab-bg]] and [[sec:table-margins]].
 
-*5. [[ch:scope]], the paragraph on localised data, its last line (line 208).* The Tier 1 placement (its item 7) and the
-Tier 2 placement (its item 4) each append text to this line; the text below is appended after theirs, at the end of the
-paragraph as they leave it. Old:
+*5. [[ch:scope]], the paragraph on localised data, which ends at line 210 of the current source; its last lines as the
+Tier 1 placement leaves them (its item 7, which replaces also the second pair of the Tier 2 placement's item 4).* The
+text is appended at the end of the paragraph. Old:
 
-small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
+estimate ([[thm:loc-cone-development]]). Developments of cone data that differ from the background's near an axis are
+not established ([[rem:loc-cone-scope]]).
 
 New:
 
-small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]). Cone data with
-finitely many null shells along leaves of the two cones, with densities smooth in angle and supported in a band away
-from the axes, have developments that are continuous, smooth between the shells and solutions in the sense of
-distributions, on a neighbourhood of the cones on which the shells do not cross, and a solution continues through a
-crossing sphere on a small square; general measure-valued densities and shells that are not round at an axis are not
-treated ([[thm:loc-shells]], [[prop:loc-shell-crossing]], [[rem:loc-shell-scope]]).
+estimate ([[thm:loc-cone-development]]). Developments of cone data that differ from the background's near an axis are
+not established ([[rem:loc-cone-scope]]). Cone data with finitely many null shells along leaves of the two cones, with
+densities smooth in angle and supported in a band away from the axes, have developments that are continuous, smooth
+between the shells and solutions in the sense of distributions, on a neighbourhood of the cones on which the shells do
+not cross, and a solution continues through a crossing sphere on a small square; general measure-valued densities and
+shells that are not round at an axis are not treated ([[thm:loc-shells]], [[prop:loc-shell-crossing]],
+[[rem:loc-shell-scope]]).
 
 *6. The references.* New entry, in alphabetical place, before [Rac16] (line 157). Old:
 
@@ -752,8 +780,27 @@ New:
 [[rem:loc-shell-poisson]] for comparison only, its wording checked against the arXiv text (version 1, pp. 1 and 4), and
 [LR20, Theorem 4.6] is already quoted in [[rem:loc-cone-scope]] (iii).
 
-*8. No other change.* [[ch:two-dusts]], [[ch:class-system]], [[ch:ten-l5]], [[ch:theorems]] and [[ch:introduction]] need
-no change: no result there uses the section, and the section uses only results those chapters state.
+*8. [[ch:localised-data]], the paragraph after [[prop:loc-cones]], its last sentence, as the Tier 1 placement leaves it
+(its item 4, which replaces also the Tier 2 placement's item 3; the paragraph is at lines 593–600 of the current
+source).* Old:
+
+neither uniqueness in the gauge nor localisation. No development is asserted for cone data that differ from the
+background's near an axis, for data of finite regularity or for densities that are not smooth, and no other result of
+this paper uses these developments.
+
+New:
+
+neither uniqueness in the gauge nor localisation. No development is asserted for cone data that differ from the
+background's near an axis, for data of finite regularity or for densities that are not smooth, except finitely many
+null shells along leaves of the two cones and data that are smooth except across such leaves ([[thm:loc-shells]]), and
+no other result of this paper uses these developments.
+
+If the Tier 2 placement's item 3 is used instead, the same words go into its last sentence ("the solution. No
+development is asserted …", two lines), reflowed.
+
+*9. No other change.* No text outside items 1–8 changes. [[ch:two-dusts]], [[ch:class-system]], [[ch:ten-l5]],
+[[ch:theorems]] and [[ch:introduction]] need no change: no result there uses the section, and the section uses only
+results those chapters state.
 
 ### Crosswalk rows
 
@@ -762,21 +809,21 @@ section. Each row is given as one line with its four fields separated by tab cha
 note); the source is this file with the line of the label.
 
 sec:loc-shells	paper/reader/proofs/P-SHELL.md:1	proof P-SHELL, section heading	new: leaf-aligned null shells for the characteristic problem of the class (scoping report S-T6, route M1); slabs between the leaves developed by the smooth theorems and glued by the junction
-def:loc-shell-solution	paper/reader/proofs/P-SHELL.md:44	proof P-SHELL, Definition (Solutions with null shells along the leaves)	new: continuous, cellwise smooth metric in the gauge; distributional Ricci in charts (u, v, y); measure-valued null dust on the leaves; conservation laws in divergence form
-eq:loc-shell-einstein	paper/reader/proofs/P-SHELL.md:52	proof P-SHELL, display	Ric(g) = q_in^♯ dv ⊗ dv + q_out^♯ du ⊗ du with the shell measures
-eq:loc-shell-dust	paper/reader/proofs/P-SHELL.md:54	proof P-SHELL, display	the conservation laws of the two families in divergence form
-lem:loc-shell-ricci	paper/reader/proofs/P-SHELL.md:67	proof P-SHELL, Lemma (The curvature of a continuous, cellwise smooth metric)	new: δ-part of Ric across a null leaf in invariant form; in the gauge −[tr χ] dv² plus a current term in [∂_v b]; no condition across outgoing leaves; checked independently by computer algebra (private)
-eq:loc-shell-singular	paper/reader/proofs/P-SHELL.md:74	proof P-SHELL, display	the singular tensors 𝔖_k and 𝔖′_j
-lem:loc-shell-identities	paper/reader/proofs/P-SHELL.md:125	proof P-SHELL, Lemma (Two identities)	new: Ric(L̲, ∂_ϑ) from lem:loc-cone-ricci, and the angular trace identity with remainder 𝔞 containing only ϑ-derivatives; formulas of lem:loc-cone-ricci checked independently by computer algebra (private); round check 𝔞 = 6/R²
-eq:loc-shell-trace	paper/reader/proofs/P-SHELL.md:133	proof P-SHELL, display	the angular trace identity
-prop:loc-shell-junction	paper/reader/proofs/P-SHELL.md:165	proof P-SHELL, Proposition (The junction conditions)	new: (J1) [∂_v b] = 0, (J2) densities −[tr χ], −[tr χ̲], (J3) continuity of the transverse densities; necessary and sufficient; transport of [∂_v b]; conservation of the shell densities (S-T6 3.2 (a)–(d) written symbolically)
-eq:loc-shell-torsion	paper/reader/proofs/P-SHELL.md:171	proof P-SHELL, display	homogeneous transport of [∂_v b] along L̲
-eq:loc-shell-conservation	paper/reader/proofs/P-SHELL.md:179	proof P-SHELL, display	null-dust conservation law of an ingoing shell
-rem:loc-shell-poisson	paper/reader/proofs/P-SHELL.md:259	proof P-SHELL, Remark (Null shells in four dimensions)	comparison with [Poi02, (2.15), p. 4] and [Poi02, p. 1]; no proof uses it; Barrabès–Israel named only through the title of [Poi02]
-def:loc-shell-data	paper/reader/proofs/P-SHELL.md:270	proof P-SHELL, Definition (Cone data with shells)	new: cone data of def:civp-large-data with atoms m_k, n_j and breaks on leaves; jump conditions [∂_v b] = 0, [tr χ] = −m_k, [tr χ̲] = −n_j
-prop:loc-shell-cones	paper/reader/proofs/P-SHELL.md:290	proof P-SHELL, Proposition (Free data with atoms)	new: prop:loc-cones and lem:loc-cone-in with measure-valued densities (S-T6 MV-2); [∂_vϕ] = −m_k/3, ∂_v b continuous automatically
-thm:loc-shells	paper/reader/proofs/P-SHELL.md:350	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses (T2) and (T1), marked pending
-eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:355	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
-prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:499	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis
-eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:515	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
-rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:610	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)
+def:loc-shell-solution	paper/reader/proofs/P-SHELL.md:46	proof P-SHELL, Definition (Solutions with null shells along the leaves)	new: continuous, cellwise smooth metric in the gauge; distributional Ricci in charts (u, v, y); measure-valued null dust on the leaves; conservation laws in divergence form
+eq:loc-shell-einstein	paper/reader/proofs/P-SHELL.md:54	proof P-SHELL, display	Ric(g) = q_in^♯ dv ⊗ dv + q_out^♯ du ⊗ du with the shell measures
+eq:loc-shell-dust	paper/reader/proofs/P-SHELL.md:56	proof P-SHELL, display	the conservation laws of the two families in divergence form
+lem:loc-shell-ricci	paper/reader/proofs/P-SHELL.md:69	proof P-SHELL, Lemma (The curvature of a continuous, cellwise smooth metric)	new: δ-part of Ric across a null leaf in invariant form; in the gauge −[tr χ] dv² plus a current term in [∂_v b]; no condition across outgoing leaves; checked independently by computer algebra (private)
+eq:loc-shell-singular	paper/reader/proofs/P-SHELL.md:76	proof P-SHELL, display	the singular tensors 𝔖_k and 𝔖′_j
+lem:loc-shell-identities	paper/reader/proofs/P-SHELL.md:127	proof P-SHELL, Lemma (Two identities)	new: Ric(L̲, ∂_ϑ) from lem:loc-cone-ricci, and the angular trace identity with remainder 𝔞 containing only ϑ-derivatives; formulas of lem:loc-cone-ricci checked independently by computer algebra (private); round check 𝔞 = 6/R²
+eq:loc-shell-trace	paper/reader/proofs/P-SHELL.md:135	proof P-SHELL, display	the angular trace identity
+prop:loc-shell-junction	paper/reader/proofs/P-SHELL.md:167	proof P-SHELL, Proposition (The junction conditions)	new: (J1) [∂_v b] = 0, (J2) densities −[tr χ], −[tr χ̲], (J3) continuity of the transverse densities; necessary and sufficient; transport of [∂_v b]; conservation of the shell densities (S-T6 3.2 (a)–(d) written symbolically)
+eq:loc-shell-torsion	paper/reader/proofs/P-SHELL.md:173	proof P-SHELL, display	homogeneous transport of [∂_v b] along L̲
+eq:loc-shell-conservation	paper/reader/proofs/P-SHELL.md:181	proof P-SHELL, display	null-dust conservation law of an ingoing shell
+rem:loc-shell-poisson	paper/reader/proofs/P-SHELL.md:262	proof P-SHELL, Remark (Null shells in four dimensions)	comparison with [Poi02, (2.15), p. 4] and [Poi02, p. 1]; Poisson's S^αβ is formed from the singular part of the Einstein tensor, equal here to the δ-part of Ric since 𝔖_k and 𝔖′_j are trace-free; no proof uses it; Barrabès–Israel named only through the title of [Poi02]
+def:loc-shell-data	paper/reader/proofs/P-SHELL.md:275	proof P-SHELL, Definition (Cone data with shells)	new: cone data of def:civp-large-data with atoms m_k, n_j and breaks on leaves; jump conditions [∂_v b] = 0, [tr χ] = −m_k, [tr χ̲] = −n_j
+prop:loc-shell-cones	paper/reader/proofs/P-SHELL.md:295	proof P-SHELL, Proposition (Free data with atoms)	new: prop:loc-cones and lem:loc-cone-in with measure-valued densities (S-T6 MV-2); [∂_vϕ] = −m_k/3, ∂_v b continuous automatically
+thm:loc-shells	paper/reader/proofs/P-SHELL.md:355	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses (T2) and (T1), marked pending; derivative count k_(i−1) = 6k_i + 23, the change of angle back losing no derivative
+eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:360	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
+prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:524	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis; the lemma and the junction conditions extended to sets meeting every coordinate line in an interval (𝔏 and its unions); the crossing rule where the domain contains a neighbourhood of the crossing sphere
+eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:545	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
+rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:656	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)

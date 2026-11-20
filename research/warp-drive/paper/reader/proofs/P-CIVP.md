@@ -183,7 +183,7 @@ derivatives of every order on N, so it is smooth; likewise for R. By continuity 
 after decreasing δ_1, since 2e^σ/R ≤ C_0 on S_out ∪ S_in.
 
 (c) On 𝒞_out, e^(2σ) = 1/2 is constant, so [[eq:bg-field]] gives R_vv = −𝒜/(3R²), with R = 5 and R_v = 1/2 at v = 0 and 0
-≤ 𝒜 ≤ 3.6 supported in [3, 4.5] (the bump β is at most 1). While R ≥ 5 on [0, v], R_v(v) ≥ 1/2 − (3.6 × 1.5)/ (3 × 25) =
+≤ 𝒜 ≤ 3.6 supported in [3, 4.5] (the bump β is at most 1). While R ≥ 5 on [0, v], R_v(v) ≥ 1/2 − (3.6 × 1.5)/(3 × 25) =
 0.428 > 0; so R increases, and R ≥ 5 on all of 𝒞_out. On 𝒞_in, R = 5 − 0.47u ≥ 2.321 for u ≤ u1 = 5.7, as ℬ = 0 there
 ([[lem:bg-reduction]] (a)), and R > 1.5 for 5.7 ≤ u ≤ 7.2 ([[sec:loc-setting]], from [[prop:bg-nprime]]). ∎
 
@@ -847,7 +847,7 @@ the band and k, it equals the solution of [[lem:loc-cone-gauge]], in their coord
 *Proof.* (1) *An extension of g′.* By [[lem:loc-cone-jets]] (iv), G_* being a past set, the functions of g′, like those
 of Ĝ, have the derivatives a_j, b_k across N ∩ G_*; so g′ − Ĝ vanishes to infinite order on N ∩ G_*. Let G_*^+ be the set
 of the points of 𝒰 within distance δ_c/4 of G_*, and fix ψ smooth on [0, π/2], equal to 1 on [17η/8, π/2 − 17η/8] and
-supported in (2η, π/2 − 2η). The function f equal to ψ (g′ − Ĝ) on G_* and to 0 on P ∩ G_*^+ is smooth there; extend it
+supported in (2η, π/2 − 2η). The function f equal to ψ (g′ − Ĝ) on G_* and to 0 on P is smooth on G_* ∪ P; extend it
 to G_*^+, for each ϑ, by the operator of [[thm:std-sy-extension]] for a bounded Lipschitz domain that contains G_* ∪ (P ∩
 G_*^+) and lies in G_* ∪ P, and put g″ := Ĝ + f on G_*^+. Then g″ is smooth, equals Ĝ on P ∩ G_*^+ and g′ at the points
 of G_* with 17η/8 ≤ ϑ ≤ π/2 − 17η/8, g″ − Ĝ vanishes to infinite order on N ∩ G_*^+, being smooth and zero on P there,
@@ -943,11 +943,12 @@ C^(p−2) and its inhomogeneous term in C^(p−3) = C^(m_0), and the same argume
 the extension is at most C. ∎
 
 **Proposition {#prop:loc-cone-local}** (Developments near a corner sphere, without smallness.) Let k ≥ 6, m_0 = 6k + 18,
-m_1 := 2m_0 + 6 = 12k + 42, the regularity index of this proposition, η ∈ (0, π/8] and Λ > 0. Let a background be given
-on an open set 𝒪 of the (u, v)-plane, that is a round metric g_e = −2e^(2σ_e) du dv + R_e² dΩ₃², with σ_e and R_e smooth
-on 𝒪 and R_e > 0, and profiles 𝒜(v), ℬ(u) ≥ 0, that solves [[eq:two-dust-limit]] on 𝒪 ∩ {u ≥ u_Q, v ≥ v_Q}, u_Q and v_Q
-the least values of u and v on Q. Let Q ⊂ 𝒪 and d ∈ (0, 1] be such that the set Q′ of the points (u, v) with |u − u″| ≤
-4d and |v − v″| ≤ 4d for some (u″, v″) ∈ Q is a compact subset of 𝒪. There is σ > 0, depending only on k, η, Λ, d and
+m_1 := 2m_0 + 6 = 12k + 42, the regularity index of this proposition, η ∈ (0, π/8] and Λ > 0. Let 𝒪 be an open set of
+the (u, v)-plane, Q ⊂ 𝒪 and d ∈ (0, 1] such that the set Q′ of the points (u, v) with |u − u″| ≤ 4d and |v − v″| ≤ 4d for
+some (u″, v″) ∈ Q is a compact subset of 𝒪, and u_Q, v_Q the least values of u and v on Q. Let a background be given on
+𝒪, that is a round metric g_e = −2e^(2σ_e) du dv + R_e² dΩ₃², with σ_e and R_e smooth on 𝒪 and R_e > 0, and profiles
+𝒜(v), ℬ(u) ≥ 0, that solves [[eq:two-dust-limit]] on 𝒪 ∩ {u ≥ u_Q, v ≥ v_Q}. There is σ > 0, depending only on k, η,
+Λ, d and
 bounds for σ_e, R_e, 1/R_e and their derivatives of order at most m_1 + 2 on Q′, with the following property. Let a
 rectangle [u_c, u_c + λ_u] × [v_c, v_c + λ_v] ⊂ Q be given, with any λ_u, λ_v > 0, N_o := {u_c} × [v_c, v_c + λ_v] and
 N_i := [u_c, u_c + λ_u] × {v_c}. Let smooth functions ln Ω, ϰ_1 = ½ ln γ_ϑ, ϰ_2 = A_c, ϰ_3 = A_s, b and q_in ≥ 0 of (v,
@@ -1206,7 +1207,7 @@ Row 10. lem:loc-cone-strips; paper/reader/proofs/P-CIVP.md@PENDING:158; proof P-
 the cones); strips in G, smooth extension across the cones, R ≥ 5 on 𝒞_out and R > 1.5 on 𝒞_in ∩ {u ≤ 7.2}.
 Row 11. sec:loc-cone-equations-frame; paper/reader/proofs/P-CIVP.md@PENDING:196; proof P-CIVP, Block B, subsection; the
 double-null frame.
-Row 12. eq:loc-cone-quantities; paper/reader/proofs/P-CIVP.md@PENDING:202; proof P-CIVP, Block B, display; χ, χ̲, η, ζ,
+Row 12. eq:loc-cone-quantities; paper/reader/proofs/P-CIVP.md@PENDING:202; proof P-CIVP, Block B, display; χ, χ̲, ϖ, ζ,
 𝒱.
 Row 13. lem:loc-cone-frame; paper/reader/proofs/P-CIVP.md@PENDING:212; proof P-CIVP, Block B, Lemma (The connection);
 Koszul table.
