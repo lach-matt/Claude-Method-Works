@@ -26,7 +26,7 @@ prop:np-10-18	docket68/n1star/N1STAR-PROOF.md:3928-3956	NP 10.18, Prop 10.15 (i)
 prop:np-10-19-i	docket68/n1star/N1STAR-PROOF.md:4000-4004; docket68/n1star/N1STAR-PROOF.md:4034-4036	NP 10.19, Prop 10.16 (i); deduced (a), first clause	(a), (b) derived by hand (A_w = -gamma M_D, A_w + S-bar = Xi S-bar Xi, Xi the radial reflection); (c) is deduced (a), fixing A_w against p_in of S1; replaces hienergy5.py V1
 lem:iii-d-5-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:249-264	III.D Lemma 5.1	computed sentence 240-247 replaced by prop:np-10-18 (iii)
 sec:iii-d-5-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:269-288	III.D §5.2	facts (a)-(d); NP 10.17 (i), (iii)-(v), 10.19 (iii) carried here, (ii) and 10.19 (ii) cited to S12
-prop:np-10-17-i	docket68/n1star/N1STAR-PROOF.md:3854-3855	NP 10.17, Prop 10.14 (i)	derived in coordinates; replaces trap5.py T0
+prop:np-10-17-i	docket68/n1star/N1STAR-PROOF.md:3854-3855	NP 10.17, Prop 10.14 (i)	derived in coordinates; replaces trap5.py T0; header cites [Hin17, Proposition 4.1, p. 20] (arXiv 1502.03183v2), the 1-form case; quoted in Appendix A (G-SWEEP minor item)
 prop:np-10-17-iii	docket68/n1star/N1STAR-PROOF.md:3860-3862	NP 10.17, Prop 10.14 (iii)	Gram matrix and H_G C = 0 derived; replaces trap5.py T2
 prop:np-10-17-iv	docket68/n1star/N1STAR-PROOF.md:3863	NP 10.17, Prop 10.14 (iv)	connection derived in the static chart; replaces trap5.py T3
 prop:np-10-17-v	docket68/n1star/N1STAR-PROOF.md:3864-3865	NP 10.17, Prop 10.14 (v)	eigenvalues of a 3x3 matrix; replaces trap5.py T4

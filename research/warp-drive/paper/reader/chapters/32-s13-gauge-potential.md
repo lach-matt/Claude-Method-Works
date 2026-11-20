@@ -442,8 +442,8 @@ S_sub(P) := −iH_G + σ_sub(P), σ_sub(P) being the matrix p̃_1 − (1/2i)Σ_j
 [[prop:np-10-18]] (iii). The static Christoffel symbols are Γ^t_tr = f′/(2f), Γ^r_tt = ff′/2, Γ^r_rr = −f′/(2f),
 Γ^r_ab = −rf(g_𝕊)_ab, Γ^a_rb = r⁻¹δ^a_b and the Γ^a_bc of g_𝕊; the others vanish.
 
-**Proposition {#prop:np-10-17-i}** (The subprincipal operator; [Hin17, Proposition 4.1].) For every metric g, on
-half-densities by |dg| and in a coordinate frame, □_g = 2δ_gG_gδ*_g has principal part G Id and
+**Proposition {#prop:np-10-17-i}** (The subprincipal operator; [Hin17, Proposition 4.1, p. 20] on 1-forms.) For every
+metric g, on half-densities by |dg| and in a coordinate frame, □_g = 2δ_gG_gδ*_g has principal part G Id and
 subprincipal symbol the matrix iΓ^μ_(αν)∂_(ζ_α)G. Equivalently, S_sub(□_g) = −i∇^(π*T*)_(H_G).
 
 *Proof.* By [[prop:np-10-16]] (i), □_g = ∇*∇ − Ric, and the Ricci term is of order zero. The proof of

@@ -1034,13 +1034,54 @@ as h_* ≤ 10⁻⁶, this includes every h ∈ 𝖧 of [[eq:iv4-0-1]].
 
 **Lemma {#lem:iv4-1-1}** (The fibre algebra; [Hin26a, Lemmas 3.3–3.8] in dimension 4 + 1.) On each fibre, with G(c) < 0,
 B := g⁻¹ − (1 + e)G(c)⁻¹c♯ ⊗ c♯ is positive definite for e > 0, ℓ_(g,c,e)(ζ) of [[eq:s14-ell]] is B-self-adjoint for
-every ζ, and the characteristic polynomial of ½ℓ(ζ) is (ν − G(c)ζ_0)³ times the quadratic of [Hin26a, (3.8)], where
-ζ = ζ_0 c + ζ′ with ζ′ ⊥ c. [Hin26a, Lemmas 3.3–3.8] hold in dimension 4 + 1 verbatim.
+every ζ, and the characteristic polynomial of ½ℓ(ζ) is (ν − G(c)ζ_0)³ times the quadratic
+ν² − (3 − e)G(c)ζ_0ν + 2(1 − e)G(c)²ζ_0² + eG(c)G(ζ) of [Hin26a, (3.8)], where ζ = ζ_0 c + ζ′ with ζ′ ⊥ c. The
+consequences of these facts that the chapter uses from [Hin26a, Lemmas 3.3–3.8 and Corollary 3.6] are stated and
+proved in [[lem:iv4-1-causal]].
 
-*Proof.* The three statements are [[prop:np-10-13]] (i), with ⟨c, ζ⟩ = G(c)ζ_0. [Hin26a, Lemmas 3.3–3.8] are proved on a
-single fibre from these three facts and from the splitting T* = ℝc ⊕ c^⊥, in which G(ζ) = G(c)ζ_0² + G(ζ′) and ℓ(ζ) has
-the block form [Hin26a, (3.5)]. In dimension 4 + 1, c^⊥ has dimension 4 instead of 3, and the factor (ν − G(c)ζ_0)
-appears to the third power instead of the second, which no step uses beyond its eigenvalue. ∎
+*Proof.* The three statements are [[prop:np-10-13]] (i) at D = 5, with ⟨c, ζ⟩ = G(c)ζ_0. ∎
+
+**Lemma {#lem:iv4-1-causal}** (Positivity on causal covectors; the statements of [Hin26a, Lemma 3.5, Corollary 3.6 and
+Lemma 3.7] used in this chapter.) Let g be a Lorentzian inner product on a real vector space V of dimension D, with
+⟨·, ·⟩ and G taken with g⁻¹, let c ∈ V* be timelike, with the time orientation in which c is past timelike, let
+e ∈ (0, 1), and let ℓ := ℓ_(g,c,e) and B be as in [[eq:s14-ell]]. Fix a norm |·| on V*.
+
+(a) For every future causal ζ ≠ 0, ⟨c, ζ⟩ > 0 and B(ℓ(ζ)ω, ω) ≥ 2(1 − e)⟨c, ζ⟩B(ω, ω) for every ω ∈ V*. So ℓ(ζ) is
+B-positive definite, and ℓ(−ζ) = −ℓ(ζ) is B-negative definite.
+
+(b) For every ζ ≠ 0, G(ζ) − iℓ(ζ) is invertible on V* ⊗ ℂ.
+
+(c) There is C > 0 such that Cℓ(ζ)² + G(ζ) is B-positive definite for every ζ ≠ 0.
+
+(d) Let K be a compact set of such pairs (g, c) on V, e being fixed. There are c₁, c₂, C, ε > 0 such that for every
+(g, c) ∈ K, every ω ∈ V* and every ζ ∈ V*: B(ℓ(ζ)ω, ω) ≥ c₁|ζ|B(ω, ω) if |ζ − ζ′| ≤ ε|ζ| for some future causal ζ′,
+in particular if ζ is future causal; and B((Cℓ(ζ)² + G(ζ))ω, ω) ≥ c₂|ζ|²B(ω, ω).
+
+*Proof.* (a) Since c is timelike, c^⊥ is spacelike, so a causal ζ ≠ 0 is not orthogonal to c, and ⟨c, ·⟩ has no zero
+on the connected cone of future causal covectors. That cone contains −c, and ⟨c, −c⟩ = −G(c) > 0; so ⟨c, ζ⟩ > 0 there.
+As ℓ(ζ) is B-self-adjoint ([[prop:np-10-13]] (i)), its eigenvalues are real, and B(ℓ(ζ)ω, ω) is at least the least of
+them times B(ω, ω). By [[prop:np-10-13]] (i), with a := ⟨c, ζ⟩, the eigenvalues of ½ℓ(ζ) are a, D − 2 times, and the
+two roots of ν² − (3 − e)aν + 2(1 − e)a² + eG(c)G(ζ). Its discriminant is (1 + e)²a² − 4eG(c)G(ζ), at most
+(1 + e)²a² since G(c) < 0 and G(ζ) ≤ 0; so both roots are at least ½((3 − e)a − (1 + e)a) = (1 − e)a. Hence every
+eigenvalue of ℓ(ζ) is at least 2(1 − e)a > 0.
+
+(b) Let (G(ζ) − iℓ(ζ))ω = 0, and extend B sesquilinearly. B(ℓ(ζ)ω, ω) is real, ℓ(ζ) being real and B-self-adjoint, so
+the real and imaginary parts of B((G(ζ) − iℓ(ζ))ω, ω) = 0 give G(ζ)B(ω, ω) = 0 and B(ℓ(ζ)ω, ω) = 0. If ω ≠ 0, then
+G(ζ) = 0, so ζ or −ζ is future causal, and (a), applied to the real and imaginary parts of ω, gives B(ℓ(ζ)ω, ω) ≠ 0.
+So ω = 0.
+
+(c) is (d) with K := {(g, c)}.
+
+(d) The set F of the (g, c, ζ) with (g, c) ∈ K, |ζ| = 1 and ζ future causal for (g, c), that is G(ζ) ≤ 0 and
+⟨c, ζ⟩ ≥ 0, is compact, and ⟨c, ζ⟩ > 0 on it by (a); let 2c₀ be its minimum. The least eigenvalue of ℓ(ζ), a
+continuous function of (g, c, ζ), is at least 4(1 − e)c₀ on F by (a); so it is at least c₁ := 2(1 − e)c₀ on a
+neighbourhood of F, which for ε small contains, by compactness, every (g, c, ζ) with |ζ| = 1 and |ζ − ζ′| ≤ 2ε for
+some (g, c, ζ′) ∈ F. Homogeneity gives the first bound. For the second, let Γ_δ be the set of the (g, c, ζ) with
+(g, c) ∈ K, |ζ| = 1 and G(ζ) ≤ δ. On Γ_0, ζ or −ζ is future causal, so B(ℓ(ζ)²ω, ω) = B(ℓ(ζ)ω, ℓ(ζ)ω) ≥ c₁²B(ω, ω), by
+the first bound and the Cauchy–Schwarz inequality; by continuity and compactness this holds with ½c₁² in place of
+c₁² on Γ_δ, for some δ > 0. Let M be the maximum of |G(ζ)| over K × {|ζ| = 1}, and C := 2(M + 1)c₁⁻². Then
+Cℓ(ζ)² + G(ζ) ≥ (M + 1) − M = 1 on Γ_δ, and ≥ G(ζ) > δ off Γ_δ, ℓ(ζ)² being B-positive semidefinite. Homogeneity of
+degree 2 gives c₂ := min(1, δ). ∎
 
 **Lemma {#lem:iv4-1-2}** (The structure at infinity; [Hin26a, (6.4)] in dimension 4 + 1.) Near ∂X, in t_*, ρ and
 spherical coordinates,
@@ -1050,11 +1091,32 @@ spherical coordinates,
 with S̃ smooth, Q ∈ ρ³Diff¹_b, R ∈ ρ²C^∞, P^C_b ∈ ρ²Diff²_b, and S̄^C constant with spectrum
 γ_C{2(1 − v_C), (1 − e_C)(1 − v_C), 1 − v_C (three times)}, all positive.
 
-*Proof.* On 4 + 1 Minkowski space with c = |x|⁻¹(dt − v dr) this is [[prop:np-10-21]] (i): the ∂_(t_*)∂_ρ-coefficient
-is 2 Id, there is no ∂_(t_*) times a tangential derivative, and S̄^C is r/2 times the ∂_(t_*)-coefficient less
-(n − 1)/2 = 3/2. The metric g_b differs from ḡ by ρ²C^∞ ([[prop:iii-b-3-6]]), and c_C from the model's 1-form by
-ρ³C^∞; the differences enter S̃, Q, R and P^C_b as in the proof of [Hin26a, (6.4)], by the same counting
-([[sec:iii-e-1]]). ∎
+*Proof.* On 4 + 1 Minkowski space with c = |x|⁻¹(dt − v dr) this is [[prop:np-10-21]] (i), with S̃, Q and R zero: the
+∂_(t_*)∂_ρ-coefficient is 2 Id, there is no ∂_(t_*) times a tangential derivative, and S̄^C is r/2 times the
+∂_(t_*)-coefficient less (n − 1)/2 = 3/2. (A change of frame by a bundle map depending on x̂ alone, such as
+dt = dt_* + x̂ · dx, commutes with ∂_(t_*) and ρ∂_ρ and preserves each class below.) For g_b and c_C we count as in the
+proof of [[lem:iii-d2-2-1]]. Near ∂X, in the coordinates (t_*, x), the components of g_b, g_b⁻¹, ḡ and ḡ⁻¹ are smooth
+functions on X̄, free of t_*, with g_b − ḡ and g_b⁻¹ − ḡ⁻¹ in ρ²C^∞ ([[eq:iii-d2-2-3]]); c_C and the model's 1-form c̄
+lie in ρC^∞ and differ by ρ³C^∞ ([[sec:iii-e-1]]); and ∂_(x^i) ∈ ρDiff¹_b on functions on X̄. So the Christoffel
+symbols lie in ρC^∞, and those of g_b and ḡ differ by ρ³C^∞. For g ∈ {g_b, ḡ}, each with its 1-form, write the
+factors of □^C = 2δ_gG_g(δ*_g + E^C_g) as polynomials in ∂_(t_*) with stationary coefficients:
+
+    δ*_g + E^C_g = A∂_(t_*) + Δ_g,     δ_g = D_g∂_(t_*) + δ^(0)_g.
+
+Here A, the ∂_(t_*)-part of ω ↦ ½(∂_μω_ν + ∂_νω_μ), is a constant bundle map, the same for both metrics;
+Δ_g ∈ ρDiff¹_b, the Christoffel symbols and the coefficients of E^C_g lying in ρC^∞; D_gk := −k(·, g⁻¹(dt_*, ·)) has
+coefficients in C^∞; and δ^(0)_g ∈ ρDiff¹_b. Each of Δ_(g_b) − Δ_ḡ, G_(g_b) − G_ḡ, D_(g_b) − D_ḡ and
+δ^(0)_(g_b) − δ^(0)_ḡ is a sum of terms each with one factor a difference of components of the metrics, of their
+inverses, of the Christoffel symbols or of the 1-forms; so these differences lie in ρ³Diff⁰_b, ρ²C^∞, ρ²C^∞ and
+ρ³Diff¹_b. As the coefficients are stationary,
+
+    □^C = 2D_gG_gA∂²_(t_*) + 2(D_gG_gΔ_g + δ^(0)_gG_gA)∂_(t_*) + 2δ^(0)_gG_gΔ_g.
+
+For ḡ the first coefficient vanishes and the second is −2ρ(ρ∂_ρ − 3/2 − S̄^C) ([[prop:np-10-21]] (i)). Expand the
+differences into terms with one difference each, and use ρDiff¹_b ∘ ρ²C^∞ ⊂ ρ³Diff¹_b. Then R := 2D_(g_b)G_(g_b)A
+lies in ρ²C^∞; the ∂_(t_*)-coefficient of □^C_b is the model's plus some Q ∈ ρ³Diff¹_b; and
+P^C_b = 2δ^(0)_(g_b)G_(g_b)Δ_(g_b) lies in ρ²Diff²_b, with P^C_b − P̄^C ∈ ρ⁴Diff²_b. This is [[eq:iv4-1-1]] with S̃ := 0:
+the mass enters g_b at ρ², so the part ρ²S̃ of order 0 that [[eq:iv4-1-1]] allows does not arise. ∎
 
 **Lemma {#lem:iv4-1-3}** (The indicial roots; [Hin26a, Theorem 4.9] in dimension 4 + 1.) Let h ∈ (0, 10⁻⁶] and b near
 b₀.
@@ -1128,8 +1190,8 @@ the same 3sc model; so it persists for b near b₀. ∎
 *Proof.* ϑ_ℋ is the maximum over the compact ∂ℛ_± of the top eigenvalue of β_0⁻¹p_(1,±)(0), self-adjoint for the fibre
 inner product B of [[lem:iv4-1-1]]. By its definition p_(1,±)(0) = A_± − h⁻¹ℓ(±ρ_∞·), where A_± comes from 2δGδ* and is
 free of h, and the h⁻¹-part is h⁻¹ρ_∞ times the damping symbol of L at the conormal covectors of the horizon. These are
-future null, so [[lem:iv4-1-1]] ([Hin26a, Lemma 3.5]) makes ℓ of them B-positive definite, so that −h⁻¹ℓ is
-negative definite, the sign that damps.
+future null, and c_C is past timelike there ([[prop:np-10-14]] (i)), so [[lem:iv4-1-causal]] (a) makes ℓ of them
+B-positive definite, so that −h⁻¹ℓ is negative definite, the sign that damps.
 So, by Weyl's inequality, ϑ_ℋ ≤ ϑ_0(b) − c(b)h⁻¹ with ϑ_0 and c > 0 continuous in b. At b₀,
 ϑ_0 = 102401/640 and c = 102399/20480000, and ϑ_ℋ itself is −4995.83… at h = 10⁻⁶ ([[prop:np-10-79]]); the bound
 ϑ_0 − ch⁻¹ is −4839.95… at h = 10⁻⁶. So ½ + ϑ_0(b) − c(b)h⁻¹ < −100 for b near b₀ and h ≤ 10⁻⁶, the margin at b₀ being
@@ -1294,18 +1356,22 @@ they persist on a neighbourhood U of b₀. A future timelike V has dr(V) < 0, so
 (d) is direct. ∎
 
 **Lemma {#lem:iv5-0-4}** (The fibre algebra and the subprincipal symbol; [Hin26a, Lemmas 3.3–3.9, Corollary 3.6] in
-dimension 4 + 1.) At every point of M^♭, [Hin26a, Lemmas 3.3–3.8 and Corollary 3.6] hold for (g, c, e), with
+dimension 4 + 1.) At every point of Ω ⊂ M^♭, [[lem:iv4-1-1]] and [[lem:iv4-1-causal]] hold for (g, c, e), with
 B := g⁻¹ − (1 + e)G(c)⁻¹c♯ ⊗ c♯. The skew-adjoint part S := (2ih)⁻¹(L_h − L_h*), adjoint for |dg| and B, is the bundle
 map of [[eq:s14-s]], which is [Hin26a, Lemma 3.9] in dimension 4 + 1. There is C > 0, uniform for b ∈ U, such that
 C(ρ_sf⁻²ℓ(ζ))² + ρ_sf⁻²G(ζ) is B-positive definite for 0 ≠ ζ ∈ ³ᵇT*_Ω M^♭.
 
-*Proof.* [Hin26a, Lemmas 3.3–3.8] are [[lem:iv4-1-1]]; [Hin26a, Corollary 3.6] follows from [Hin26a, Lemma 3.5] on
-one fibre, as there. As (2ih)⁻¹(L_h − L_h*) = A + A* with
+*Proof.* c is past timelike on {r ≥ ½r_♯} ([[sec:iv5-0]]), so [[lem:iv4-1-1]] and [[lem:iv4-1-causal]] apply on each
+fibre over Ω°. As (2ih)⁻¹(L_h − L_h*) = A + A* with
 A = (2ih)⁻¹L_h, the formula for S is [[prop:np-10-13]] (ii), proved there on a Lorentzian manifold of any dimension
 with the adjoint taken for |dg| and B.
-For the uniform C, note that ρ_sf⁻²G and ρ_sf⁻²ℓ are smooth homogeneous functions on ³ᵇT*M^♭ ([[lem:iv5-0-2]] (a),
-(d)), and B is continuous on the compact Ω, K⁺ and 𝗌𝖿 included. [Hin26a, Corollary 3.6] at each point and compactness
-of the unit sphere bundle over Ω give one C ([Hin26a, p. 47]), and continuity in b gives it for b ∈ U, shrinking U. ∎
+For the uniform C, write ζ ∈ ³ᵇT*M^♭ as Σ_μ ζ_μ dz^μ/r, put ζ̂ := Σ_μ ζ_μ dz^μ ∈ 𝒯* and ĉ := rc. As ℓ_(g,c,e)(ζ) is
+bilinear in (c, ζ), and B does not change under c ↦ rc, ρ_sf⁻²G(ζ) = G(ζ̂) and ρ_sf⁻²ℓ(ζ) = ℓ_(g,ĉ,e)(ζ̂). The
+components of g and ĉ in the frame dz^μ are continuous on Ω, K⁺ and 𝗌𝖿 included, and in b ([[lem:iv5-0-2]] (a), (d));
+g is Lorentzian and ĉ past timelike there ([[lem:iv5-0-5]] (1); at 𝗌𝖿, g = η and ĉ = dt − v dr). So for b in a
+compact neighbourhood of b₀, shrinking U, these pairs (g, ĉ) form a compact set, and [[lem:iv4-1-causal]] (d) gives
+one C, which also gives the statements of [[lem:iv4-1-causal]] at the points of Ω on K⁺ ∪ 𝗌𝖿, for the rescaled
+symbols. ∎
 
 **Lemma {#lem:iv5-0-5}** (The 1-form; [Hin26a, Proposition 5.1] in dimension 4 + 1.) Let (α_sf, α_K) = (−C_0 − 5/2, 1)
 with C_0 ∈ [0, 100], the weights [[eq:iv4-2-1]]. Put w := ρ_sf^(α_sf+1)ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1). Shrinking U,
