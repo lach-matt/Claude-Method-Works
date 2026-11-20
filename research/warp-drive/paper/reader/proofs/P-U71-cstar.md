@@ -449,31 +449,30 @@ f^ν and D_(p⃗)P_3 (11), the inverse T⁻¹ (0), and [[lem:iii-i8-3-2]] from �
 α_1 − ε′, α_1 − 2 < ε_K < ε_g − 2ε): 508. (7) Step 1 of the proof of [[thm:iii-i14-3-1]]: the terms by which P_5
 differs from P_3, D_(W⃗)P_5 and Δ_q (11). In all 407 + 469 + 11 + 497 + 11 + 508 + 11 = 1,914.
 
-*Steps 3, 4′ and 4, every step charged.* Step 3 inverts finite-dimensional maps (0). Step 4′ forms
-G̃_0 = F − Δ_q(p⃗′) − R_q u − Σ_(ν∈𝒩_rot) f^ν(W′_ν), a sum of background terms (11), identifies p⃗′_0 through
-[[thm:iii-i11-4-1]] and expands u by [[thm:iii-i12-3-1]]; Step 4 applies [[thm:iii-i12-3-1]] again. We charge each in
-full. G̃_0 is affine in the finite-dimensional W⃗′^rot, and [[thm:iii-i11-4-1]] and [[thm:iii-i12-3-1]] are linear in
-F; so the applications in Step 4 are those of Step 4′, with W⃗′^rot entering by a finite-rank assembly, and no further
-application of [[thm:iii-i11-4-1]] lies on a chain. [[thm:iii-i11-4-1]] applies [[prop:iii-i8-4-1]] at the level α′ of
-[[def:cs-choices]] (f), a base whose level step α_0 → α′ has no transition face round (τ_0 = 2 + ε_g − 2ε exceeds
-α′ − ε′, as in (6) of Step 1), at most 20,183 + 1,914 + I_base by [[lem:cs-iterations]] (b) (its forward solution,
-and the 1,914 of the base with the forward solutions at (h, p⃗)), the sources of F(W⃗) and G(W⃗) (11 + 11), and
+*Steps 3, 4′ and 4, every step charged.* Step 3 inverts finite-dimensional maps (0). Step 4′ forms G̃_0 = F − Δ_q(p⃗′) −
+R_q u − Σ_(ν∈𝒩_rot) f^ν(W′_ν), a sum of background terms (11), identifies p⃗′_0 through [[thm:iii-i11-4-1]] and expands u
+by [[thm:iii-i12-3-1]]; Step 4 applies [[thm:iii-i12-3-1]] again. We charge each in full. G̃_0 is affine in the
+finite-dimensional W⃗′^rot, and [[thm:iii-i11-4-1]] and [[thm:iii-i12-3-1]] are linear in F; so the applications in Step
+4 are those of Step 4′, with W⃗′^rot entering by a finite-rank assembly, and no further application of
+[[thm:iii-i11-4-1]] lies on a chain. [[thm:iii-i11-4-1]] applies [[prop:iii-i8-4-1]] at the level α′ of
+[[def:cs-choices]] (f), a base whose level step α_0 → α′ has no transition face round (τ_0 = 2 + ε_g − 2ε exceeds α′ −
+ε′, as in (6) of Step 1), at most 20,183 + 1,914 + I_base by [[lem:cs-iterations]] (b) (its forward solution, and the
+1,914 of the base with the forward solutions at (h, p⃗)), the sources of F(W⃗) and G(W⃗) (11 + 11), and
 [[lem:iii-i11-3-2]] at α, at most C_lev − 11 + I_lev by [[lem:cs-iterations]] (a); this is at most T_11.
-[[thm:iii-i12-3-1]] applies, in its Step 0, the decomposition of the proof of [[lem:iii-i11-3-2]] at α (at most
-C_lev − 11 + I_lev), and beyond it at most X_12, as follows. In Step 1, the pieces (i)–(v) and (vii) are read by
-[[lem:iii-i12-2-1]] (b) and Taylor's formula with fixed moments (0). In (vi) the zf-expansion of
-σ^jχ_tfρ_tf^(α_0−2)u_tf costs nothing, and its zf-remainder is transformed back by [[prop:iii-a-4-2]] (2) with E_K = ∅
-and with E_ι the tf-index set plus 1, counted up to the ι⁺-order 3 + η_2 − 2ε: these are the exponents α_0 − 1 + j + m,
-m ∈ ℕ₀, with logarithmic order at most k ≤ k̄_max, and at most 4 of them lie below 3 + η_2 (Re α_0 ≥ 2 at level 1,
-Re α_0 ≥ 1 + η_1 at level 2); so n_ι ≤ 4(k̄_max + 1) and the charge is at most 4k̄_max + 4 + 5 (ℓ_F ≤ 5 by
-[[lem:cs-transforms]] (b), the output weights being at most 3 + η_2 at ι⁺ and α − ε at K⁺). In (viii) the conormal
-coefficients are transformed by [[lem:iii-i12-2-1]] (a), that is [[prop:ii-g1-3-5]] (1) (5), and the zf-remainder by
-[[prop:iii-a-4-2]] (2) with plain tf-weight (5). In (ix), σ³û_f is transformed back with plain weights (5), and the
-columns by [[lem:iii-i12-2-2]], whose A and B are [[prop:ii-g1-3-5]] (1) (5) and whose convolutions cost nothing.
-Steps 2–5 assemble, subtract by [[lem:iii-i12-2-4]] and read coefficients (0). The pieces (i)–(ix) are summands of u,
-so by [[def:ec-accounted-loss]] they are charged the largest of these charges, 4k̄_max + 9 < X_12; so
-[[thm:iii-i12-3-1]] is charged at most C_lev − 11 + I_lev + X_12 = T_12. In all, Steps 3, 4′ and 4 are charged at most
-11 + T_11 + 2T_12.
+[[thm:iii-i12-3-1]] applies, in its Step 0, the decomposition of the proof of [[lem:iii-i11-3-2]] at α (at most C_lev −
+11 + I_lev), and beyond it at most X_12, as follows. In Step 1, the pieces (i)–(v) and (vii) are read by
+[[lem:iii-i12-2-1]] (b) and Taylor's formula with fixed moments (0). In (vi) the zf-expansion of σ^jχ_tfρ_tf^(α_0−2)u_tf
+costs nothing, and its zf-remainder is transformed back by [[prop:iii-a-4-2]] (2) with E_K = ∅ and with E_ι the tf-index
+set plus 1, counted up to the ι⁺-order 3 + η_2 − 2ε: these are the exponents α_0 − 1 + j + m, m ∈ ℕ₀, with logarithmic
+order at most k ≤ k̄_max, and at most 4 of them lie below 3 + η_2 (Re α_0 ≥ 2 at level 1, Re α_0 ≥ 1 + η_1 at level 2);
+so n_ι ≤ 4(k̄_max + 1) and the charge is at most 4k̄_max + 4 + 5 (ℓ_F ≤ 5 by [[lem:cs-transforms]] (b), the output
+weights being at most 3 + η_2 at ι⁺ and α − ε at K⁺). In (viii) the conormal coefficients are transformed by
+[[lem:iii-i12-2-1]] (a), that is [[prop:ii-g1-3-5]] (1) (5), and the zf-remainder by [[prop:iii-a-4-2]] (2) with plain
+tf-weight (5). In (ix), σ³û_f is transformed back with plain weights (5), and the columns by [[lem:iii-i12-2-2]], whose A
+and B are [[prop:ii-g1-3-5]] (1) (5) and whose convolutions cost nothing. Steps 2–5 assemble, subtract by
+[[lem:iii-i12-2-4]] and read coefficients (0). The pieces (i)–(ix) are summands of u, so by [[def:ec-accounted-loss]]
+they are charged the largest of these charges, 4k̄_max + 9 < X_12; so [[thm:iii-i12-3-1]] is charged at most C_lev − 11 +
+I_lev + X_12 < T_12. In all, Steps 3, 4′ and 4 are charged at most 11 + T_11 + 2T_12.
 
 *The map U ↦ Φ(U)* has the loss d_Φ of [[lem:uc-phi-loss]], at most 1,038,326,399,999,940 ([[lem:uc-lambda]] (d)).
 

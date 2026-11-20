@@ -1244,8 +1244,9 @@ U ∈ 𝒟^∞_ex with ‖U‖_(𝒟^d_ex) < ε_0:
 (c) P_5(Ψ(U)) ∈ ℱ^∞_ex, and U ↦ P_5(Ψ(U)) satisfies [[prop:iii-j2-4-3]] on the scales of [[cor:iii-j3-6-6]], with
 constants depending on the data through finitely many norms of (γ̃, k̃);
 
-(d) P_5(Ψ(0)) is supported in {T̂ + 7/4 ≤ t^♭_* ≤ T̂ + 2}, and ‖P_5(Ψ(0))‖_(ℱ^k_ex) ≤ C_kω_k(‖(γ̃, k̃)‖_(H^(k+k′_k)))
-when ‖(γ̃, k̃)‖_(H^(k+k′_k)) ≤ s_k, with k′_k, s_k and ω_k of [[prop:iii-k-1-2]] (3).
+(d) P_5(Ψ(0)) is supported in {T̂ + 7/4 ≤ t^♭_* ≤ T̂ + 2}, and there is s_P > 0 such that ‖P_5(Ψ(0))‖_(ℱ^k_ex) ≤
+C_kω_(k+3)(‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3)))) when ‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3))) ≤ min(s_(k+3), s_P), with k′_k, s_k and ω_k
+of [[prop:iii-k-1-2]] (3).
 
 Below, d is the d of [[thm:iii-k-3-2]], fixed in its proof (not the d = 7 of [[ch:s26]], whose N_NM is the N_ex of
 [[thm:iv3-2-2]] here), N_NM := 21d + 6 is the regularity of [[thm:ii-g-2-1]] for it, k″ := max_(k≤N_NM) k′_k = k′_(N_NM),
@@ -1285,9 +1286,13 @@ with constants depending on finitely many norms of h_(−S,−S⁰) and of its d
 (d) At U = 0, h̃ = 0 and S = S⁰ = 0, so P_5(Ψ(0)) = P(g_(b₀) + χ_−h_0, g_(b₀)) on Ω_* ∩ {t^♭_* < T̂ + 2} by the display
 above, and P_5(Ψ(0)) = P_5(Φ(0)) = P(g_(b₀), g_(b₀)) = 0 on {t^♭_* > T̂ + 2} by (a). On {t^♭_* < T̂ + 7/4} it is
 P(g_(b₀) + h_0, g_(b₀)) = 0 by [[prop:iii-k-1-2]] (2). So it vanishes outside supp dχ_−, and it is a smooth function
-of h_0 and its derivatives of order at most 2, vanishing at h_0 = 0; so its ℱ^k_ex-norm is at most C_k‖h_0‖_(H^(k+2))
-while h_0 is bounded in a fixed norm of finite order (a Moser bound), and [[prop:iii-k-1-2]] (3) bounds
-‖h_0‖_(H^(k+2)) by ω_k(‖(γ̃, k̃)‖_(H^(k+k′_k))). ∎
+of h_0 and its derivatives of order at most 2, vanishing at h_0 = 0, on the compact set supp dχ_−(t^♭_*); so, by
+[[lem:ii-g-4-1]] (3) with d = 3 after a finite partition of unity, in the form for functions smooth also in the point
+(the proof of [[lem:iii-j2-2-4]]), its ℱ^k_ex-norm is at most C_k‖h_0‖_(H^(k+5)) while ‖h_0‖_(H^5) is small. By
+[[prop:iii-k-1-2]] (3) at the order 3, ‖h_0‖_(H^5) ≤ ω_3(‖(γ̃, k̃)‖_(H^(3+k′_3))), which is that small once
+‖(γ̃, k̃)‖_(H^(3+k′_3)) ≤ s_P for some s_P ∈ (0, s_3], as ω_3(s) → 0; and ‖(γ̃, k̃)‖_(H^(3+k′_3)) ≤
+‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3))), k′_k being non-decreasing. At the order k + 3, [[prop:iii-k-1-2]] (3) bounds
+‖h_0‖_(H^(k+5)) by ω_(k+3)(‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3)))). ∎
 
 **Lemma {#lem:iii-k-2-3}** (Right inverses for Ψ; [[thm:iii-j1-2-1]] for Ψ, [Hin26, Theorem 12.8, last paragraph].)
 There are d and ε_0 such that for U ∈ 𝒟^∞_ex with ‖U‖_(𝒟^d_ex) < ε_0 there is a linear map
@@ -1462,7 +1467,8 @@ at every u in the domain does not hold here (the proof of [[lem:iii-k-2-3]]).
 ([[lem:iii-k-2-2]] (c), [[lem:iii-k-2-3]]); they are bounded independently of the data once that norm is at most s_♭,
 the threshold of [[prop:iii-k-1-2]] (3) at the orders k ≤ N_NM. So the threshold of [[thm:ii-g-2-1]], ε_NM, is
 uniform. Let d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]]. By [[lem:iii-k-2-2]] (d),
-‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ C_(2d)ω_(2d)(‖(γ̃, k̃)‖_(H^(2d+k′_(2d)))), and 2d + k′_(2d) ≤ N_NM + k″ ≤ d_1; as ω_(2d)(s)
+‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ C_(2d)ω_(2d+3)(‖(γ̃, k̃)‖_(H^(2d+3+k′_(2d+3)))) for data of that norm at most
+min(s_(2d+3), s_P), and 2d + 3 + k′_(2d+3) ≤ N_NM + k″ ≤ d_1, as 2d + 3 ≤ N_NM and k′_k is non-decreasing; as ω_(2d+3)(s)
 tends to 0 with s, ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1). [[thm:ii-g-2-1]] gives U ∈ B^∞_(1/2)
 with |U|_(3d) < δ and P_5(Ψ(U)) = 0. ∎
 

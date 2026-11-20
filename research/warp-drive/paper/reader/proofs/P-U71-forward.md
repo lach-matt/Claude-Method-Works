@@ -800,12 +800,12 @@ The same value serves at every black hole parameter near b₀, where the forward
 the conditions (B1)–(B5) of [[sec:fwd-box]] are called the box conditions.
 
 **Corollary {#cor:fwd-near-b0}** (The forward loss near b₀.) Let the order 𝗌 of (B4), which is the order of
-[[lem:ii-f1-2-3]] built for 2L_(b₀) that the proof of [[thm:iii-i-5-3]] uses, be that of [[lem:fwd-orders]]
-(s_in = 11, s_out = −10), and let β_+ ∈ (½, 3/2), β_I ∈ (β_+, 3/2), with the weights α_+ = β_+ − 5/2 and
-α_I = β_I − 2 of the proof of [[thm:iii-i-5-3]]. Then [[thm:iii-h2-4-1]], in the form of [[rem:ii-f1-7-1]] with
-margin 1, holds with d = 20,175 at every b ∈ B̄_1, and [[cor:iii-h2-5-1]] holds with d = 20,180 at every b ∈ B̄_*. In
-particular, at every base point with black hole parameter b ∈ ℬ̄_*, the forward solution operators of
-[[lem:iii-j2-2-1]] (a) satisfy [[eq:iii-i-5-2]] with d = 20,180.
+[[lem:ii-f1-2-3]] built for 2L_(b₀) that the proof of [[thm:iii-i-5-3]] uses, be that of [[lem:fwd-orders]] (s_in = 11,
+s_out = −10), and let β_+ ∈ (½, 3/2), β_I ∈ (β_+, 3/2), with the weights α_+ = β_+ − 5/2 and α_I = β_I − 2 of the proof
+of [[thm:iii-i-5-3]]. Then [[thm:iii-h2-4-1]], in the form of [[rem:ii-f1-7-1]] with margin 1, holds with d = 20,175 at
+every b ∈ B̄_1, and [[cor:iii-h2-5-1]] holds with d = 20,180 at every b ∈ B̄_*. In particular, at every base point with
+black hole parameter b ∈ ℬ̄_*, the forward solution operators of [[lem:iii-j2-2-1]] (a) satisfy [[eq:iii-i-5-2]], in the
+form of [[lem:iii-j2-2-1]] (a), with d = 20,180.
 
 *Proof.* By its proof, the d of [[thm:iii-h2-4-1]] at b is the d that the proof of [[thm:ii-f1-1-1]] fixes when it is run
 with P_0 := 2L_b, the order 𝗌 of (B4) (input (iii) of the proof of [[thm:iii-h2-4-1]]) and the results it cites applied
@@ -830,21 +830,21 @@ trapped set and (−10, −13) at ∂R_(∂K⁺,out) and ∂R_(ℐ⁺,out), are 
 
 (2) *The cited results.* D_1 and D_0 are maxima of the losses d and of the coefficient indices d_0 of [[thm:ii-e-6-1]],
 [[prop:ii-e-3-4]], [[prop:ii-e-4-3]], [[prop:ii-e-4-4]] and [[lem:ii-f1-2-8]] at the orders of (1), and of
-[[prop:ii-e-3-4]] (i) at s′ = s_u. At b these results are applied relative to 2L_b, at the same orders. The losses d
-are the closed forms [[eq:fwd-dtilde]] that their proofs fix in terms of the orders and of N ([[lem:fwd-tame]]), and
-P_0 enters none of them; so D_1 = 49 at b. For D_0: [[prop:fwd-calculus]] and [[lem:fwd-derived]] concern the calculus
-of [[ch:s04]] alone, symbols and Sobolev spaces of variable order on ρℬ, and involve no operator. In [[lem:fwd-box]],
-the proof of [[thm:ii-f1-1-1]] at b applies the same sites in the same pattern: the radial estimates (R) at the radial
-sets of 2L_b, the estimate (Γ) at Γ_b, which is normally hyperbolic with the data of (B1) and strongly trapping
-admissible ([[prop:iii-h2-1-1]]), and its other sites, from (G) to (F), at the orders of (1), with N′ = 13 and the
-operator order m = 2. So their parameters, and the symbol orders, Sobolev orders, numbers N and numbers of
-quantizations computed from them, are those at b₀, and the box conditions hold at every site. The increments of
-[[lem:fwd-increments]] count the coefficient derivatives that the constructions inside the sites consume: the symbols
-of the radial and trapping estimates, the stable and unstable manifolds of [[prop:ii-c1-3-4]], the extension h̃_F of
-[[lem:ii-e-3-1]], the flow box of [[lem:ii-a1-5-2]] and the tame bounds with d_0 ≥ d_1 + 2. Each is fixed by the proof
-of its site, for every P admissible relative to a smooth stationary P_0, and does not depend on P_0. The results that
-use 2L_b only as a smooth operator, [[thm:iii-h2-3-1]] (with [[sec:ii-f-6]] run with 2L_(b₀) inside it) and
-[[thm:iii-h2-2-1]], are no sites, as at b₀. So D_0 ≤ 𝔐(100) + 4 = 20,104 at b.
+[[prop:ii-e-3-4]] (i) at s′ = s_u. At b these results are applied relative to 2L_b, at the same orders. The losses d are
+the closed forms [[eq:fwd-dtilde]] that their proofs fix in terms of the orders and of N ([[lem:fwd-tame]]), and P_0
+enters none of them; so D_1 = 49 at b. For D_0: [[prop:fwd-calculus]] and [[lem:fwd-derived]] concern the calculus of
+[[ch:s04]] alone, symbols and Sobolev spaces of variable order on ρℬ, and involve no operator. In [[lem:fwd-box]], the
+proof of [[thm:ii-f1-1-1]] at b applies the same sites in the same pattern: the radial estimates (R) at the radial sets
+of 2L_b, the estimate (Γ) at Γ_b, which is normally hyperbolic with the data of (B1) and strongly trapping admissible
+([[prop:iii-h2-1-1]]), and its other sites, from (G) to (F), at the orders of (1), with N′ = 13 and the operator order
+m = 2. So their parameters, and the symbol orders, Sobolev orders, numbers N and numbers of quantizations computed from
+them, are those at b₀, and the box conditions hold at every site. The increments of [[lem:fwd-increments]] count the
+coefficient derivatives that the constructions inside the sites consume: the symbols of the radial and trapping
+estimates, the stable and unstable manifolds of [[prop:ii-c1-3-4]], the extension h̃_F of [[lem:ii-e-3-1]], the flow box
+of [[lem:ii-a1-5-2]] and the tame bounds with d_0 ≥ d_1 + 2. Each is fixed by the proof of its site, for every P
+admissible relative to a smooth stationary P_0, and does not depend on P_0. The results that use 2L_b only as a smooth
+operator, [[thm:iii-h2-3-1]] (with [[sec:ii-f-6]] run with 2L_(b₀) inside it) and [[thm:iii-h2-2-1]], are not sites, as
+at b₀. So D_0 ≤ 𝔐(100) + 4 = 20,104 at b.
 
 (3) *The two raisings.* The margin d̄_ℵ = 1 of [[rem:ii-f1-7-1]] is that with which 2L_b is 2-admissible
 ([[thm:iii-h2-2-1]]), as at b₀. So the d of [[thm:iii-h2-4-1]] is at most 20,104 + 49 + 10 + 11 + 1 = 20,175 at

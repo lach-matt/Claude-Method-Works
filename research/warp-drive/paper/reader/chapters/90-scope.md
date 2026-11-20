@@ -53,20 +53,21 @@ the wave is largest would sharpen the three bounds; its value is a numerical obs
 on it is proved, and the bounds proved are those of [[prop:lambda0]] ([[rem:m22-value]]).
 
 The thresholds λ1 and δ of [[thm:settling]] are positive by its proof, and their values are not determined
-([[rem:ec-not-evaluated]]). The proof's formulas give λ1 < δ and bound the modulus of the initial family at 2δ by
-2^(−(32d+8)), d the loss with which the Nash–Moser theorem is applied ([[prop:ec-delta-cap]]). A lower bound for δ or
-λ1 would need upper bounds for every constant of the proof that enters them ([[sec:ec-delta]]).
+([[rem:ec-not-evaluated]]). The proof's formulas give λ1 < δ ≤ 2^(−(32d+9)) and bound the modulus of the initial family
+at 2δ by 2^(−(32d+8)), d the loss with which the Nash–Moser theorem is applied ([[prop:ec-delta-cap]]). A lower bound for
+δ or λ1 would need upper bounds for every constant of the proof that enters them ([[sec:ec-delta]]).
 
-The loss d is at least the loss d_acc that the proof assigns to the tame estimates, and the regularity of the
-Nash–Moser step is N_NM = 21d + 6; d_acc is composed of elementary losses in closed form and of the numbers of steps of
-the iterations of the construction, except the loss of the forward solution operators, which the proof fixes without
-a value ([[thm:loss-d]] (i)). At the computational point of [[def:ec-point]], d > 7.959 × 10¹⁵ and
-N_NM > 1.671 × 10¹⁷, so that log₁₀ of the modulus at 2δ is below −7.666 × 10¹⁶ ([[thm:loss-d]] (ii),
-[[prop:ec-delta-cap]]). These are lower bounds for the loss that this proof's choices produce, not for the least loss
-with which the tame estimates hold ([[thm:loss-d]]); the upper bound for d at that point is [[pending:scope-d-upper]].
-The computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on
-which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the
-proof of any theorem of this paper ([[ch:explicit-constants]]).
+The loss d is at least the loss d_acc that the proof assigns to the tame estimates, and the regularity of the Nash–Moser
+step is N_NM = 21d + 6; d_acc is composed of elementary losses in closed form, of the loss of the forward solution
+operators, at most 20,180, and of the numbers of steps of the iterations of the construction ([[thm:loss-d]] (i)). At the
+computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 × 10²¹, so that log₁₀ δ < −1.351 × 10²¹
+([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ at every admissible choice of
+the weights, for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). These are lower bounds for the
+loss that this proof's choices produce, not for the least loss with which the tame estimates hold ([[thm:loss-d]]). At
+that point, at one admissible choice of the weights, d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one
+below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The computational point is a point at which the formulas of the proof can be
+evaluated, and it lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of
+[[ch:explicit-constants]] is used in the proof of any theorem of this paper ([[ch:explicit-constants]]).
 
 Explicit values stop upstream of every constant of [[thm:settling]]: the proof fixes the gauge and damping parameters
 only below thresholds whose existence it proves, and the cut-offs and orders of its function spaces only up to

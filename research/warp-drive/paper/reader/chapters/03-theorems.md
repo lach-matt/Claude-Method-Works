@@ -350,9 +350,10 @@ The remaining chapters prove the following; each is stated in full where it is p
   ([[thm:harmonic-rate]]).
 - *The constants of [[thm:settling]].* The loss d with which the Nash–Moser step is applied, at least the loss that
   the proof assigns to the tame estimates, and its regularity N_NM = 21d + 6, with explicit lower bounds at a
-  parameter point that lies outside the proved set ([[thm:loss-d]]) and, through them, an upper bound for the modulus
-  of the initial family at 2δ (and λ1 < δ), explicit resolvent bounds on five-dimensional Tangherlini
-  ([[ch:resolvent-bounds]]), and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
+  parameter point that lies outside the proved set ([[thm:loss-d]]) and, there, explicit upper bounds for d and N_NM
+  at one admissible choice of the weights ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for
+  the modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
+  ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
 - *More families.* Two crossing radial null dusts, one ingoing and one outgoing, with the background, the
   approximant, the uniform estimate and the data ([[thm:two-dusts]]); Cauchy stability of the class
   Einstein–null-dust system, without smallness, on compact domains of the type of Ω, for caustic-free dusts, the axes

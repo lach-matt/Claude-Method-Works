@@ -26,7 +26,8 @@ and by induction on the order in half steps.
 
 *Notation.* Orders that may vary on phase space are written in sans-serif (𝗌, 𝗍); an order written s, s_0 or s′ is a
 constant. For a matrix 𝔞 that is self-adjoint for some fibre inner product, max spec 𝔞 is its largest eigenvalue. N′
-is a fixed large integer; every a priori term ‖χu‖_(−N′) below is with respect to it (such terms are written ‖χu‖_(−N)
+is a fixed integer with N′ ≥ −inf 𝗌_0 for every order 𝗌_0 (or s_0) of an a priori term below (N′ = 13 for the operator
+of [[thm:iii-i-5-3]]); every a priori term ‖χu‖_(−N′) below is with respect to it (such terms are written ‖χu‖_(−N)
 in [[ch:s04]]), and N_E is the rank of the bundle E = ℂ^(N_E) of [[sec:ii-c-1-1]]. ϕ^u, ϕ^s and ϕ_u, ϕ_s denote the
 defining functions of hypersurfaces at the trapped set that [[ch:s02]] and [[ch:s05]] write φ^(u/s), φ_(u/s); here
 φ_ε is the regulariser of [[sec:ii-d-2]]. β_0 is the constant of (H3) at the horizon ([[eq:i-a-1-3]],
@@ -107,7 +108,7 @@ C_b^∞Ψ^0_e3b, w⁻¹Bw and A⁻¹BA differ from B by operators of order −1 
 #### The radial sets and the standing choices {#sec:ii-d-1-3}
 
 On ∂Σ⁺ the future field is 𝖧, on ∂Σ⁻ it is −𝖧 ([[sec:ii-c-2-3]]). We use the sets of [[ch:s05]]: the horizon radial
-set ∂R_(𝓗⁺) ([[def:ii-b-4-1]]), the radial sets ∂R_(∂K⁺,in/out) over ∂K⁺ ([[def:ii-b-3-1]]), ∂R_(ℐ⁺,in,+) and
+set ∂R_(ℋ⁺) ([[def:ii-b-4-1]]), the radial sets ∂R_(∂K⁺,in/out) over ∂K⁺ ([[def:ii-b-3-1]]), ∂R_(ℐ⁺,in,+) and
 ∂R_(ℐ⁺,out) ([[def:ii-b-7-1]]), the trapped set ∂Γ_(K⁺) and the stable and unstable sets Γ^(u/s)_(K⁺), ∂Γ̄^(u/s)_(K⁺)
 ([[def:ii-b-5-1]]), and ∂W_(in/out) over ι⁺ ([[lem:ii-b-3-2]], [[lem:ii-b-3-3]]). By [[lem:ii-c-4-1]], the
 characteristic set and 𝖧 of P agree with those of P_0 over ∂M, and near it 𝖧_G − 𝖧_(G_0) ∈ ε_P w C^(d_0−1) 𝒱_b with
@@ -320,9 +321,9 @@ odd in the covector, so ς𝔭′ and every threshold are the same there. Throug
 χ, and "strong sense" means: if the right side is finite, so is the left, and the estimate holds.
 
 **Proposition {#prop:ii-d-3-1}** (The horizon.) There are B, E, G such that (1) their operator wave front sets lie in
-any fixed neighbourhood U of ∂R_(𝓗⁺); (2) their Schwartz kernels are supported in K × K for any fixed compact
-neighbourhood K ⊂ M of 𝓗⁺ ∩ K⁺ = {r = r_h, ρ_K = 0}; (3) B is elliptic at ∂R_(𝓗⁺); (4) the Schwartz kernel of E is
-supported in (K ∖ K⁺)²; and such that for all constants s > s_0 > ½ + ϑ_𝓗 ([[eq:i-a-1-5]]), α_K ∈ ℝ, and χ̃ ∈ C^∞(M)
+any fixed neighbourhood U of ∂R_(ℋ⁺); (2) their Schwartz kernels are supported in K × K for any fixed compact
+neighbourhood K ⊂ M of ℋ⁺ ∩ K⁺ = {r = r_h, ρ_K = 0}; (3) B is elliptic at ∂R_(ℋ⁺); (4) the Schwartz kernel of E is
+supported in (K ∖ K⁺)²; and such that for all constants s > s_0 > ½ + ϑ_ℋ ([[eq:i-a-1-5]]), α_K ∈ ℝ, and χ̃ ∈ C^∞(M)
 supported near K and equal to 1 near K,
 
     ‖Bu‖_(H^(s,α_K)) ≤ C (‖GPu‖_(H^(s−1,α_K)) + ‖Eu‖_(H^(s,α_K)) + ‖χ̃u‖_(H^(s_0,α_K)))                  {#eq:ii-d-3-2}
@@ -333,33 +334,33 @@ H^(s,(2α_I,α_+,α_K))_e3b over K, where x_I and ρ_+ are smooth and positive, 
 This is [Hin26c, Proposition 7.4] in dimension 4 + 1.
 
 *Proof.* W′ := 1, ρ the function of (H3) (extended positive, even and homogeneous of degree −1), 𝖧 = ρH_G, w :=
-ρ_K^(α_K) with ρ_K = t_*⁻¹, and A the frame of an inner product for which ϑ_𝓗 of [[eq:i-a-1-5]] is attained (ϑ_𝓗 is
-at least the supremum of max spec(β_0⁻¹ p_(1,+)(0)) over ∂ℛ_+, with p_(1,+)(0) = ρ σ_1(Im_h P̂(0))). ∂R_(𝓗⁺) lies
+ρ_K^(α_K) with ρ_K = t_*⁻¹, and A the frame of an inner product for which ϑ_ℋ of [[eq:i-a-1-5]] is attained (ϑ_ℋ is
+at least the supremum of max spec(β_0⁻¹ p_(1,+)(0)) over ∂ℛ_+, with p_(1,+)(0) = ρ σ_1(Im_h P̂(0))). ∂R_(ℋ⁺) lies
 over K⁺ in {σ = 0}, where σ_1(Im_h P_0) = σ_1(Im_h P̂(0)) ([[sec:ii-c-2-3]]), and P − P_0 has coefficients vanishing
 at K⁺; so 𝔭′ = p_(1,+)(0) there. By [[eq:ii-b-4-1]], ρ⁻¹𝖧ρ = β_0 and ρ_K⁻¹𝖧ρ_K = ρ_K(ρ_K⁻²𝖧ρ_K) = 0 at
-∂R_(𝓗⁺). So at ∂R_(𝓗⁺), as A⁻¹𝔭′A has the eigenvalues of the h-self-adjoint 𝔭′,
+∂R_(ℋ⁺). So at ∂R_(ℋ⁺), as A⁻¹𝔭′A has the eigenvalues of the h-self-adjoint 𝔭′,
 
-    Q_ε = (2s_ε − 1)β_0 − 2A⁻¹𝔭′A ≥ (2s_ε − 1 − 2ϑ_𝓗)β_0 ≥ (2s_0 − 1 − 2ϑ_𝓗) inf β_0 =: 2c > 0
+    Q_ε = (2s_ε − 1)β_0 − 2A⁻¹𝔭′A ≥ (2s_ε − 1 − 2ϑ_ℋ)β_0 ≥ (2s_0 − 1 − 2ϑ_ℋ) inf β_0 =: 2c > 0
 
 for s_ε ≥ s_0, which is the range of the iteration ([[lem:ii-d-2-2]] and the remark after [[lem:ii-d-2-5]]).
 
-Let F be the quadratic defining function of [[lem:ii-b-4-2]], with 𝖧F ≥ c_F F on a neighbourhood W of ∂R_(𝓗⁺) in
+Let F be the quadratic defining function of [[lem:ii-b-4-2]], with 𝖧F ≥ c_F F on a neighbourhood W of ∂R_(ℋ⁺) in
 ³ᵇS*_((K⁺)°) M_0. F does not depend on t_*, and the field of P_0 is invariant under t_*-translations, so 𝖧_(P_0)F ≥
 c_F F on W × {ρ_K ≤ ρ_0}. For P, 𝖧 − 𝖧_(P_0) = O(ε_P ρ_K^(ℓ_K)) in C^(d_0−1), and |dF| ≤ CF^(1/2), so 𝖧F ≥ ½c_F F where
 F ≥ (2𝔐_R)⁻¹ and ρ_K ≤ 𝔐⁻¹, for 𝔐 large given 𝔐_R. As F is defined only on W, extend it to a smooth t_*-independent
-function bounded below by a positive constant outside a smaller t_*-invariant neighbourhood W′ of ∂R_(𝓗⁺) with closure
+function bounded below by a positive constant outside a smaller t_*-invariant neighbourhood W′ of ∂R_(ℋ⁺) with closure
 in W; for 𝔐_R large, ψ(𝔐_R F) is then a symbol supported in W′. Put Ψ := ψ(𝔐_R F) ψ(𝔐ρ_K). Then
 
     𝖧(Ψ²) = 2𝔐_R (ψψ′)(𝔐_R F) 𝖧F ψ(𝔐ρ_K)² + 2𝔐 (ψψ′)(𝔐ρ_K) 𝖧ρ_K ψ(𝔐_R F)².
 
 The first term is ≤ 0 and is −b′*b′ with b′ := ρ^(−s) φ_ε θ(𝔐_R F) (2𝔐_R 𝖧F)^(1/2) ψ(𝔐ρ_K), θ := (−ψψ′)^(1/2), smooth
 as 𝖧F ≥ c_F/(4𝔐_R) on the support of θ(𝔐_R F). In the second, 𝖧ρ_K = ρ_K²(ρ_K⁻²𝖧ρ_K) ≤ −½ββ_0ρ_K² < 0 near
-∂R_(𝓗⁺) ([[eq:ii-b-4-1]]), so it is +e*e with e := ρ^(−s) φ_ε θ(𝔐ρ_K) (−2𝔐𝖧ρ_K)^(1/2) ψ(𝔐_R F), supported in {ρ_K ≥
+∂R_(ℋ⁺) ([[eq:ii-b-4-1]]), so it is +e*e with e := ρ^(−s) φ_ε θ(𝔐ρ_K) (−2𝔐𝖧ρ_K)^(1/2) ψ(𝔐_R F), supported in {ρ_K ≥
 (2𝔐)⁻¹}, away from K⁺. Choosing 𝔐_R and then 𝔐 large, supp Ψ lies in U, in W and in {Q_ε ≥ c}. The localiser φ_E of
 the pattern (6) is taken supported, near fibre infinity, in U ∩ {ρ_K ≥ (4𝔐)⁻¹}. So the set of (6), the union of the
-support of e and of supp φ_E, misses ∂R_(𝓗⁺) ⊂ {ρ_K = 0}, and its base projection is a compact subset of K ∖ K⁺ when U
+support of e and of supp φ_E, misses ∂R_(ℋ⁺) ⊂ {ρ_K = 0}, and its base projection is a compact subset of K ∖ K⁺ when U
 is small; E can be chosen elliptic on it with Schwartz kernel in (K ∖ K⁺)², as (4) requires. No cut-off to the
-characteristic set is needed, as the signs hold on a full neighbourhood of ∂R_(𝓗⁺) ([[lem:ii-b-4-2]]); so
+characteristic set is needed, as the signs hold on a full neighbourhood of ∂R_(ℋ⁺) ([[lem:ii-b-4-2]]); so
 [[eq:ii-d-2-2]] holds with j_ε = 0. The pattern (6) gives [[eq:ii-d-3-2]], with ‖χũ‖_(−N′) ≤ C‖χ̃u‖_(H^(s_0,α_K)). ∎
 
 **Proposition {#prop:ii-d-3-2}** (The incoming radial set over ∂K⁺.) There are B, E, G with (1) operator wave front
@@ -1048,7 +1049,7 @@ such ϖ the entrance times are bounded, the flow being continuous on the compact
 are non-increasing along the future flow on ∂Σ⁺ for P ([[prop:ii-c-5-1]] (2)). (P2) *Initial surface.* As u = 0 in
 {t_*^♭ < 1}, u is controlled at every order there. (P3) *Dynamics.* Over M° every backward curve in ∂Σ⁺ reaches
 {t_*^♭ = 1} at a finite parameter ([[prop:ii-c-4-2]]); over ∂M the curves are those of P_0 ([[lem:ii-c-4-1]]), described
-by [[prop:ii-b-8-1]], whose table we use with its notation R_𝓗, R^I_in, R^K_in, Γ_K, R^K_out, R^I_out.
+by [[prop:ii-b-8-1]], whose table we use with its notation R_ℋ, R^I_in, R^K_in, Γ_K, R^K_out, R^I_out.
 
 *Step 1: finite times.* Let t^♯ ∈ (1, ∞) and 𝒱_out a neighbourhood of ∂R_(ℐ⁺,out). Then u is controlled at order 𝗌 + 1
 on a neighbourhood of every compact subset of ∂Σ⁺ over Ω_* ∩ {t_*^♭ ≤ t^♯} disjoint from 𝒱_out, with C depending on
@@ -1059,11 +1060,11 @@ fixed by the flow and are left to Step 6. ([Hin26c] propagates into them already
 finite t_(*,+); see [[sec:s06-remarks]].)
 
 *Step 2: the horizon and ∂R_(ℐ⁺,in,+).* [[prop:ii-d-3-1]] with the orders (𝗌 + 1, 𝗌_0), which are constant near
-∂R_(𝓗⁺), with 𝗌_0 > ½ + ϑ_𝓗 as 𝗌_0 is admissible ([[def:ii-c-2-4]] (4)), and [[prop:ii-d-3-5]] with the same orders,
+∂R_(ℋ⁺), with 𝗌_0 > ½ + ϑ_ℋ as 𝗌_0 is admissible ([[def:ii-c-2-4]] (4)), and [[prop:ii-d-3-5]] with the same orders,
 whose condition [[eq:ii-d-3-7]] is [[eq:ii-d-1-3]], have their E supported at finite times: in {ρ_K ≥ (2𝔐)⁻¹}, resp.
 {ρ_+ ≥ (2𝔐)⁻¹}. The E of [[prop:ii-d-3-5]] is microsupported near ξ̂ = 2, so away from ∂R_(ℐ⁺,out) = {ξ̂ = 0}, and that
 of [[prop:ii-d-3-1]] lies over a neighbourhood of the horizon, away from ℐ⁺. So Step 1, with t^♯ large and 𝒱_out small,
-bounds ‖Eu‖_(𝗌+1), and u is controlled at order 𝗌 + 1 on neighbourhoods V_𝓗 of ∂R_(𝓗⁺) and V_I of ∂R_(ℐ⁺,in,+).
+bounds ‖Eu‖_(𝗌+1), and u is controlled at order 𝗌 + 1 on neighbourhoods V_ℋ of ∂R_(ℋ⁺) and V_I of ∂R_(ℐ⁺,in,+).
 
 *Step 3: ∂R_(∂K⁺,in).* [[prop:ii-d-3-2]] with the orders (𝗌 + 1, 𝗌_0), where [[eq:ii-d-3-3]] holds as 𝗌_0 is
 admissible ([[def:ii-c-2-4]] (6)). Its E has kernel supported away from K⁺, near ∂K⁺, and is microsupported in a small
@@ -1078,14 +1079,14 @@ order 𝗌 + 1 on a neighbourhood V_K of ∂R_(∂K⁺,in).
 (3)), with U_Γ ⊂ Φ_1(O) small and Pu ∈ H^𝗌. Let ϖ ∈ WF′(E) ∩ ∂Σ⁺. Over M°, its backward curve reaches {t_*^♭ < 1}.
 Over (K⁺)°, ϖ ∉ Γ^u_(K⁺), so ϖ is not in the global unstable set ∂Γ̄^u_(K⁺), as ∂Γ̄^u_(K⁺) ∩ Φ_1(O) = Γ^u_(K⁺)
 ([[lem:ii-b-5-2]] (b), from the no-return condition (H8) (b)); by [[prop:ii-b-6-1]] (2) its curve tends backward to
-∂R_(𝓗⁺) or ∂R_(∂K⁺,in), entering V_𝓗 ∪ V_K. As WF′(E) is compact and the entrance times are locally bounded, (P1) at
+∂R_(ℋ⁺) or ∂R_(∂K⁺,in), entering V_ℋ ∪ V_K. As WF′(E) is compact and the entrance times are locally bounded, (P1) at
 order 𝗌 + 1 and (P2) bound ‖Eu‖_(𝗌+1). So u is controlled at order 𝗌 on a neighbourhood V_Γ of ∂Γ_(K⁺). This is the
 step that needs Pu in H^𝗌, and the reason Steps 1–3 work at the order 𝗌 + 1.
 
 *Step 5: ∂R_(∂K⁺,out).* [[prop:ii-d-3-3]] with the orders (𝗌, 𝗌_0), with [[eq:ii-d-3-5]] from [[def:ii-c-2-4]] (5),
 at the order 𝗌 itself, the threshold being an upper bound. Its E is microsupported near ∂R_(∂K⁺,out) with WF′(E) ∩
 ∂W_out = ∅. Let ϖ ∈ WF′(E) ∩ ∂Σ⁺. Over ∂K⁺ its curve is of type (R^K_in, R^K_out) and enters V_K backward. Over (K⁺)°,
-of type (A, R^K_out) with A ∈ {R_𝓗, R^K_in, Γ_K}, it enters V_𝓗 ∪ V_K ∪ V_Γ. Over (ι⁺)°, A ≠ R^K_out as ϖ ∉ ∂W_out,
+of type (A, R^K_out) with A ∈ {R_ℋ, R^K_in, Γ_K}, it enters V_ℋ ∪ V_K ∪ V_Γ. Over (ι⁺)°, A ≠ R^K_out as ϖ ∉ ∂W_out,
 the unstable manifold of ∂R_(∂K⁺,out) over ι⁺ ([[lem:ii-b-3-3]] (4)), so by the table A = R^I_in, and the curve enters
 V_I. Over M°, it reaches {t_*^♭ < 1}. (P1) at order 𝗌 bounds ‖Eu‖_𝗌, and u is controlled at order 𝗌 on a neighbourhood
 V_(K,out) of ∂R_(∂K⁺,out).
@@ -1102,8 +1103,8 @@ of ∂R_(ℐ⁺,out) ∩ {t_*^♭ ≥ ½}.
 *Conclusion.* Let ϖ ∈ ∂Σ⁺ over supp χ. If ϖ lies over M° or over ℐ⁺ at finite t_*, it is controlled at order 𝗌 by Step
 1 when ϖ ∉ 𝒱_out, with t^♯ > t_*^♭(ϖ), and by Step 6 when ϖ ∈ V_(I,out), choosing 𝒱_out inside V_(I,out). If ϖ lies
 over K⁺ ∪ ι⁺, it lies in one of the sets of Steps 2–6 or on a curve of the table, whose backward end A is {t_* = 1} or
-one of R_𝓗, R^I_in, R^K_in, Γ_K, R^K_out, each of which has a controlled neighbourhood. This includes the curves inside
-the black hole, from ∂R_(𝓗⁺) to {r < r_0 − δ_0} ([[prop:ii-b-6-1]]), which reach supp χ ⊂ {r ≥ r_1}; (P1) at order 𝗌
+one of R_ℋ, R^I_in, R^K_in, Γ_K, R^K_out, each of which has a controlled neighbourhood. This includes the curves inside
+the black hole, from ∂R_(ℋ⁺) to {r < r_0 − δ_0} ([[prop:ii-b-6-1]]), which reach supp χ ⊂ {r ≥ r_1}; (P1) at order 𝗌
 applies. By compactness of the cosphere bundle over supp χ, finitely many such B, with elliptic estimates off Σ, are
 jointly elliptic there, and the elliptic estimate ([[lem:ii-a-8-4]] (c)), with the a priori term ‖χu‖_(−N′) ≤
 ‖u‖_(𝗌_0), gives [[eq:ii-d-1-4]], in the strong sense since every step propagates regularity.
@@ -1238,7 +1239,7 @@ P, so they hold for [[eq:ii-d1-2-2-prime]]. For a letter 1 with α_i = 1, α[i�
 is diagonal. This is what the horizon needs ([[lem:ii-d1-4-1]] (c)). With [[eq:ii-d1-2-2]] the word 1·(α∖i) differs
 from α in general (for instance α = (2, 1), i = 2), and for k ≥ 2 the Hermitian part of the coupling is indefinite. At
 the horizon Q_(1j) = 0 for j ≠ 1, and Q_(21), Q_(22) decay at K⁺ ([[lem:ii-d1-4-1]] (b), (c) and their proofs); so at
-∂R_(𝓗⁺), on the two components (1, 2, …, 2) and (2, 1, 2, …, 2), the principal symbol of Im(L^(k) − L ⊗ Id) for
+∂R_(ℋ⁺), on the two components (1, 2, …, 2) and (2, 1, 2, …, 2), the principal symbol of Im(L^(k) − L ⊗ Id) for
 [[eq:ii-d1-2-2]] is σ_1(Im(−Q_11)) ≠ 0 times the matrix with rows (1, ½) and (½, 0), whose determinant is −¼.
 
 The coefficients of L^(k) − L ⊗ Id carry at most 1 + 𝔩 b-derivatives of those of P, whatever k is; this is what makes
@@ -1467,25 +1468,25 @@ The thresholds ([[eq:ii-d-3-7]] and [[eq:ii-d-3-9]]) concern the weights only an
 
 ### The horizon {#sec:ii-d1-4}
 
-Near 𝓗⁺ ∩ K⁺ = {r = r_h, ρ_K = 0} use the coordinates (t_*, r, ω), ρ_K = t_*⁻¹, with covectors −σ dt_* + ξ_0 dr + η;
-W′ = 1 and L = P, as in [[prop:ii-d-3-1]]. ∂R_(𝓗⁺) lies in {σ = 0, η = 0} with ξ_0 ≠ 0 ([[def:ii-b-4-1]]: it is the
+Near ℋ⁺ ∩ K⁺ = {r = r_h, ρ_K = 0} use the coordinates (t_*, r, ω), ρ_K = t_*⁻¹, with covectors −σ dt_* + ξ_0 dr + η;
+W′ = 1 and L = P, as in [[prop:ii-d-3-1]]. ∂R_(ℋ⁺) lies in {σ = 0, η = 0} with ξ_0 ≠ 0 ([[def:ii-b-4-1]]: it is the
 boundary of the conormal bundle of {r = r_h}), so we take U_0 ⊂ {|ξ_0| ≥ c(|σ| + |ξ_0| + |η|)}, a small neighbourhood
-of ∂R_(𝓗⁺). The family is 𝒳_𝓗 := (∂_r, t_* ∂_(t_*), I).
+of ∂R_(ℋ⁺). The family is 𝒳_ℋ := (∂_r, t_* ∂_(t_*), I).
 
-**Lemma {#lem:ii-d1-4-1}** (Commutators at the horizon.) (a) (M) holds: 𝒱_b near 𝓗⁺ ∩ K⁺ is spanned by 𝒱_3b and t_*
+**Lemma {#lem:ii-d1-4-1}** (Commutators at the horizon.) (a) (M) holds: 𝒱_b near ℋ⁺ ∩ K⁺ is spanned by 𝒱_3b and t_*
 ∂_(t_*) ([[cor:ii-a-2-3]]); ∂_r ∈ 𝒱_3b is elliptic on Ū_0 (with w = 1); both are e3b-commutator fields
 ([[lem:ii-a-2-2]]). (b) (C) holds on U_0. (c) The system L^(k) = P ⊗ Id − Q of [[lem:ii-d1-2-1]] in the form
-[[eq:ii-d1-2-2-prime]], all letters commuting ([∂_r, t_* ∂_(t_*)] = 0), satisfies, at ∂R_(𝓗⁺),
+[[eq:ii-d1-2-2-prime]], all letters commuting ([∂_r, t_* ∂_(t_*)] = 0), satisfies, at ∂R_(ℋ⁺),
 
     ς ρ σ_1(Im(−Q)) = −diag(j_α)_(α∈𝒲_k) β_0 ≤ 0,                                                         {#eq:ii-d1-4-1}
 
 with j_α the number of letters 1 (that is, of factors ∂_r) in α, ρ the function of (H3) and β_0 > 0 of
-[[eq:ii-b-4-1]]. So [[eq:ii-d1-2-8]] holds, and the threshold of [[prop:ii-d-3-1]] for L^(k) is at most ϑ_𝓗.
+[[eq:ii-b-4-1]]. So [[eq:ii-d1-2-8]] holds, and the threshold of [[prop:ii-d-3-1]] for L^(k) is at most ϑ_ℋ.
 
 This is [Hin26c, Lemmas 7.15–7.16] in dimension 4 + 1, with the sign at the horizon calculated from β_0 rather than
 from the Kerr formula [Hin26c, (7.48)].
 
-*Proof.* (b) Write P = Σ_l p_l A_l near 𝓗⁺ ∩ K⁺, with A_l ∈ Diff²_3b fixed and independent of t_* (products of
+*Proof.* (b) Write P = Σ_l p_l A_l near ℋ⁺ ∩ K⁺, with A_l ∈ Diff²_3b fixed and independent of t_* (products of
 ∂_(t_*), ∂_r, ∂_ω), and p_l = p^♯_l + p̃_l, p^♯_l the coefficients of P_0, independent of t_*, and p̃_l ∈ ρ_K^(ℓ_K)
 C^((d_0;k))_(3b;b) ([[def:ii-c-3-3]]). Let Q_r ∈ C_b^∞Ψ^(−1)_3b be a microlocal parametrix of ∂_r on Ū_0: I = Q_r
 ∂_r + R_r, WF′(R_r) ∩ Ū_0 = ∅.
@@ -1505,19 +1506,19 @@ and with I = Q_r ∂_r + R_r on the second-order terms, Q_22 := −Σ_l p_l ρ_K
 ρ_K A^♯_l) Q_r, R_2 := −Σ_l ((X_2 p̃_l) A_l + p_l ρ_K A^♯_l) R_r. Their coefficients carry a factor ρ_K or ρ_K^(ℓ_K)
 (X_2 p̃_l ∈ ρ_K^(ℓ_K) C^((d_0;k−1))_(3b;b)), so they decay at K⁺.
 
-(c) By (b) and [[eq:ii-d1-2-2-prime]], −Q has, at ∂R_(𝓗⁺) ⊂ {ρ_K = 0}, first-order principal symbol diag(j_α) i(H_(G_0)
+(c) By (b) and [[eq:ii-d1-2-2-prime]], −Q has, at ∂R_(ℋ⁺) ⊂ {ρ_K = 0}, first-order principal symbol diag(j_α) i(H_(G_0)
 ξ_0)/ξ_0: each letter 1 of α couples the component α to itself through Q_11, as α[i→1] = α, and the couplings through
 Q_21, Q_22 decay; G = G_0 there. Let ρ̃ := |ξ_0|⁻¹ on U_0 and 𝖧 := ρH_G. Then ρ(H_G ξ_0)/ξ_0 = −ρρ̃⁻¹ H_G ρ̃ = −ρ̃⁻¹𝖧ρ̃.
-At the radial set ∂R_(𝓗⁺) the vector field 𝖧 on the cosphere bundle vanishes, so ρ̃⁻¹𝖧ρ̃ = ρ⁻¹𝖧ρ +
+At the radial set ∂R_(ℋ⁺) the vector field 𝖧 on the cosphere bundle vanishes, so ρ̃⁻¹𝖧ρ̃ = ρ⁻¹𝖧ρ +
 (ρ̃/ρ)⁻¹𝖧(ρ̃/ρ) = ρ⁻¹𝖧ρ = β_0 there ([[eq:ii-b-4-1]], as in the proof of [[prop:ii-d-3-1]]), ρ̃/ρ being homogeneous of
 degree 0. This gives [[eq:ii-d1-4-1]] on ∂Σ⁺, where ς = 1; on ∂Σ⁻ the quantity (H_G ξ_0)/ξ_0 is odd (H_G ξ_0 even, ξ_0
 odd), the future field is −𝖧, whose ρ⁻¹(−𝖧)ρ is β_0, so ρ⁻¹𝖧ρ = −β_0 there, and ς = −1 restores [[eq:ii-d1-4-1]]. The
-threshold of [[prop:ii-d-3-1]] for L^(k) is then sup max spec(β_0⁻¹(𝔭 − j_α β_0)) ≤ ϑ_𝓗, in the inner product h^(⊕𝒲_k). ∎
+threshold of [[prop:ii-d-3-1]] for L^(k) is then sup max spec(β_0⁻¹(𝔭 − j_α β_0)) ≤ ϑ_ℋ, in the inner product h^(⊕𝒲_k). ∎
 
 The non-positive sign in [[eq:ii-d1-4-1]] is the red shift: commuting with ∂_r lowers the threshold, so the minimal
-regularity s_0 > ½ + ϑ_𝓗 of [[prop:ii-d-3-1]] does not rise with k.
+regularity s_0 > ½ + ϑ_ℋ of [[prop:ii-d-3-1]] does not rise with k.
 
-**Proposition {#prop:ii-d1-4-2}** (The horizon with b-regularity.) Let s > s_0 > ½ + ϑ_𝓗 and k ∈ ℕ_0. There are B, E,
+**Proposition {#prop:ii-d1-4-2}** (The horizon with b-regularity.) Let s > s_0 > ½ + ϑ_ℋ and k ∈ ℕ_0. There are B, E,
 G with the properties (1)–(4) of [[prop:ii-d-3-1]] such that for all α_K ∈ ℝ and χ̃ as there
 
     ‖Bu‖_((s;k),α_K) ≤ C_k (‖GPu‖_((s−1;k),α_K) + ‖Eu‖_((s;k),α_K) + ‖χ̃u‖_((s_0;k),α_K)),                {#eq:ii-d1-4-2}
@@ -1656,10 +1657,10 @@ elsewhere by [[lem:ii-d1-3-1]] (d), [[lem:ii-d1-5-1]] (b) and [[lem:ii-d1-6-1]] 
 ∂Σ⁺ over Ω_* ∩ {t_*^♭ ≤ t^♯} disjoint from 𝒱_out.
 
 *Step 2: the horizon and ∂R_(ℐ⁺,in,+).* [[prop:ii-d1-4-2]] and [[prop:ii-d1-3-2]] (for [[prop:ii-d-3-5]]), with the
-orders (𝗌 + 1, 𝗌_0), 𝗌_0 > ½ + ϑ_𝓗 near ∂R_(𝓗⁺) and [[eq:ii-d-3-7]] from [[eq:ii-d-1-3]]. Their E have property (4),
+orders (𝗌 + 1, 𝗌_0), 𝗌_0 > ½ + ϑ_ℋ near ∂R_(ℋ⁺) and [[eq:ii-d-3-7]] from [[eq:ii-d-1-3]]. Their E have property (4),
 so they lie at finite times, away from K⁺, resp. ι⁺, and operator wave front sets in small neighbourhoods of the two
 sets, the second away from ∂R_(ℐ⁺,out); this is what Step 2 of [[sec:ii-d-5]] uses. So Step 1 bounds ‖Eu‖_(𝗌+1;k), and
-u is controlled at order (𝗌 + 1; k) on neighbourhoods V_𝓗 of ∂R_(𝓗⁺) and V_I of ∂R_(ℐ⁺,in,+).
+u is controlled at order (𝗌 + 1; k) on neighbourhoods V_ℋ of ∂R_(ℋ⁺) and V_I of ∂R_(ℐ⁺,in,+).
 
 *Step 3: ∂R_(∂K⁺,in).* [[prop:ii-d1-5-2]] (for [[prop:ii-d-3-2]]), with the orders (𝗌 + 1, 𝗌_0) and [[eq:ii-d-3-3]].
 Its E has property (4) and operator wave front set in a small neighbourhood of ∂R_(∂K⁺,in); the backward curves from it
@@ -1668,11 +1669,11 @@ are those of Step 3 of [[sec:ii-d-5]], which reach {t_*^♭ < 1} or enter V_I. (
 
 *Step 4: the trapped set.* [[prop:ii-d1-6-2]] with the orders (𝗌, 𝗌_0), U_Γ small and Pu ∈ H^((𝗌;k)). Its E has
 WF′(E) ∩ Γ^u_(K⁺) = ∅, and by Step 4 of [[sec:ii-d-5]] the backward curves from WF′(E) ∩ ∂Σ⁺ reach {t_*^♭ < 1} or
-enter V_𝓗 ∪ V_K in locally bounded times. (P1_k) at order (𝗌 + 1; k) and (P2) bound ‖Eu‖_(𝗌+1;k), and u is controlled
+enter V_ℋ ∪ V_K in locally bounded times. (P1_k) at order (𝗌 + 1; k) and (P2) bound ‖Eu‖_(𝗌+1;k), and u is controlled
 at order (𝗌; k) on a neighbourhood V_Γ of ∂Γ_(K⁺).
 
 *Step 5: ∂R_(∂K⁺,out).* [[prop:ii-d1-5-2]] (for [[prop:ii-d-3-3]]), with the orders (𝗌, 𝗌_0) and [[eq:ii-d-3-5]] at
-the order 𝗌. Its E has WF′(E) ∩ ∂W_out = ∅, and by Step 5 of [[sec:ii-d-5]] the backward curves from it enter V_𝓗 ∪
+the order 𝗌. Its E has WF′(E) ∩ ∂W_out = ∅, and by Step 5 of [[sec:ii-d-5]] the backward curves from it enter V_ℋ ∪
 V_K ∪ V_Γ ∪ V_I or reach {t_*^♭ < 1}. (P1_k) at order (𝗌; k) bounds ‖Eu‖_(𝗌;k), and u is controlled at order (𝗌; k)
 on a neighbourhood V_(K,out) of ∂R_(∂K⁺,out).
 

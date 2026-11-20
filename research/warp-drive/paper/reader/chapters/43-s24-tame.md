@@ -302,20 +302,29 @@ None of these orders depends on k, and d_* is their maximum. For [[thm:iii-j1-2-
 
 **Lemma {#lem:iii-j2-2-4}** (Tame products in partially polyhomogeneous spaces.) Let E, E′ be partially polyhomogeneous
 spaces of [[sec:iii-j2-1]] at one or more faces, at the loss ε, and G the space that the membership statements
-([[lem:iii-c-2-1]]) give to products. There is d_1 with
+([[lem:iii-c-2-1]]) give to products. There is d_1 ≥ 3 with
 
-    ‖uv‖_(G^k) ≤ C_k (‖u‖_(E^k) ‖v‖_(E′^(d_1)) + ‖u‖_(E^(d_1)) ‖v‖_(E′^k));
+    ‖uv‖_(G^k) ≤ C_k (‖u‖_(E^(k+3)) ‖v‖_(E′^(d_1)) + ‖u‖_(E^(d_1)) ‖v‖_(E′^k)),
 
-and if the exponents of E have positive real parts, as those of the background do, then for a smooth Θ, depending also
-on the point (through g_0, g_0⁻¹ and their derivatives), with Θ(·, 0) = 0 and ‖u‖_(E^(d_1)) ≤ 1,
-‖Θ(u)‖_(G^k) ≤ C_k ‖u‖_(E^k), G the space of Θ(u) by the same statements.
+and the same with the roles of u and v exchanged; and if the exponents of E have positive real parts, as those of the
+background do, then for a smooth Θ, depending also on the point (through g_0, g_0⁻¹ and their derivatives), with
+Θ(·, 0) = 0, there is δ_Θ > 0 with ‖Θ(u)‖_(G^k) ≤ C_k ‖u‖_(E^(k+3)) for ‖u‖_(E^(d_1)) ≤ δ_Θ, G the space of Θ(u) by
+the same statements.
 
 *Proof.* The coefficient of uv at an exponent is a finite sum of products of coefficients of u and of v, functions on
-the face bounded by [[lem:ii-g-4-1]] (2) there; a product with a remainder factor is bounded by [[lem:ii-g-4-1]] (2) in
-the weighted b-Sobolev space, the weights adding ([[cor:ii-a-9-7]]); a term whose exponent lies beyond the remainder's
-weight is put in the remainder with the same bound. For Θ: Taylor's formula to an order M, fixed by the weights, at
-which M times the least real part of the exponents exceeds the remainder's weight; the polynomial part is bounded by
-the product bound, and the Taylor remainder by [[lem:ii-g-4-1]] in the weighted b-Sobolev space. ∎
+the face, of dimension at most 4, bounded by [[lem:ii-g-4-1]] (2) there with d = 3 > 4/2; a product with a remainder
+factor is bounded by [[lem:ii-g-4-1]] (2) with d = 3 > 5/2 in the weighted b-Sobolev space, the weights adding
+([[cor:ii-a-9-7]]) and a coefficient being extended from its face by a cut-off; in each product the factor from u is
+the one that (2) measures at the order k + 3; and a term whose exponent lies beyond the remainder's weight is put in
+the remainder with the same bound. As the norms are non-decreasing in the order and d_1 ≥ 3, this gives the bound
+stated, and by symmetry the one with u and v exchanged. For Θ: Taylor's formula to an order M, fixed by the weights,
+at which M times the least real part of the exponents exceeds the remainder's weight. The polynomial part is a finite
+sum of terms c u^γ, |γ| < M, with c smooth; [[lem:ii-g-4-1]] (2), applied |γ| − 1 times with one factor u at the
+order k + 3 and the product of the others at the order 0, bounded through (1) by the L^∞-norms of its factors, gives
+‖c u^γ‖_(G^k) ≤ C_k ‖u‖_(E^(k+3)) ‖u‖_(E^(d_1))^(|γ|−1). The Taylor remainder is bounded by [[lem:ii-g-4-1]] (3) with
+d = 3 in the weighted b-Sobolev space after a finite partition of unity: the proof of (3), by the chain rule and
+[[eq:ii-g-4-1]], applies verbatim to a function smooth also in the point, with bounded derivatives on the chart
+domains, and δ_Θ is fixed by the domain of Θ and C_Sob. ∎
 
 ### The inventory {#sec:iii-j2-3}
 

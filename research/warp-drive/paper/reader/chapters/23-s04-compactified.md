@@ -358,7 +358,7 @@ compact subset of M [Hin26d, Definition 3.27, p. 41].
 (S6) [Hin26d, Remark 3.33, p. 45]; [Hin26c, Lemma 3.5, p. 49]. The boundedness
 Op_𝒱(a) : w′H^((s;k))_(𝒱;𝒲) → ww′H^((s−m;k))_(𝒱;𝒲) requires only uniform bounds ⟨ξ⟩^(m−|γ|) on
 (ρ_α∂_x)^β ∂_x^(β′) ∂_ξ^γ a_α for |β′| ≤ k (𝒱-regular symbols with x-derivatives up to order k) [Hin26d, Remark 3.33].
-[Hin26c, Lemma 3.5] states: given a compact interval I ⊂ ℝ, there exist d_0 ∈ ℕ and C such that for all s, m ∈ I and
+[Hin26c, Lemma 3.5] states: given a compact set I ⊂ ℝ, there exist d_0 ∈ ℕ and C such that for all s, m ∈ I and
 all symbols a of order m with d_0 bounded 𝒱-derivatives, ‖Op_𝒱(a)‖_(ℒ(H^s_𝒱, H^(s−m)_𝒱)) ≤ C‖a‖_(C^(d_0)_𝒱 S^m), and,
 for the same d_0 and all k, the same bound between H^((s;k))_(𝒱;𝒲) and H^((s−m;k))_(𝒱;𝒲) with the norm of a in
 C^((d_0;k))_(𝒱;𝒲) S^m. Neither statement is used below: the bounds of this kind that the chapter needs are proved in
@@ -1068,6 +1068,9 @@ pseudolocality in the proof of [Hin26c, Proposition 3.28].) Let 𝗌 and 𝗌_0 
 WF′_e3b(I − B^♯) ∩ WF′_e3b(B) = ∅. Then there is C, depending on B and B^♯, with
 ‖Bℓ(I − B^♯)u‖_(H^𝗌_e3b) ≤ C‖ℓ‖_(C^(d_0)_e3b)‖u‖_(H^(𝗌_0)_e3b) for all ℓ ∈ C^(d_0)_e3b.
 
+For Θ ∈ ℕ, d_0 = 200Θ + 100 serves in (a) when 𝗌 has values in [−Θ, Θ], and in (b) when 𝗌_0 has values in [−Θ, Θ]
+and sup 𝗌 − inf 𝗌_0 ≤ Θ ([[prop:fwd-calculus]] with T := Θ, which proves (b) without the commutator expansion).
+
 *Proof.* *Smooth coefficients.* Let C^∞_e3b be the space of functions all of whose e3b-derivatives are bounded. With the
 seminorms ‖·‖_(C^d_e3b) it is a Fréchet space. Such a function ℓ is a symbol of order 0, independent of the fibre
 variable, for the secondary b.g. structure ρℬ. In its charts the e3b-vector fields are the uniformly bounded
@@ -1460,7 +1463,12 @@ the support of u.
 **Proposition {#prop:ii-a1-2-4}** (Finite regularity.) Let 𝗍 be a variable order, ν ∈ ℕ_0, and 𝗆, 𝗆_1, 𝗆_2 orders,
 constant or variable. There are M and C, depending on these orders, on ν and on δ > 0, with the following properties,
 for symbols in C^((M+2))_ν S̃ of the stated orders (symbols of different indices are taken in the largest). Throughout,
-"order 𝗋" means bounded from H^𝗍 to H^(𝗍−𝗋).
+"order 𝗋" means bounded from H^𝗍 to H^(𝗍−𝗋). For Θ ∈ ℕ, when 𝗍 and the orders of all quantized symbols have values in
+[−Θ, Θ] (of any index ν), M := 200Θ + 98 serves in (a)–(d); in (e) for N ≤ Θ and expressions with at most six
+quantizations in each product (B_1, B_2 and the localisers included); and in (f) for expressions with at most six
+quantizations in each product whose formal symbol in every chart is a sum of terms of pointwise order at most μ, an order
+function with values in [−6Θ − 3, 6Θ + 3] ([[prop:fwd-calculus]] with T := Θ, which proves (e) without the commutator
+expansion).
 
 (a) Op(a) extends from C_c^∞ to a bounded operator of order 𝗆, without loss, with norm at most C‖a‖_((M);ν,𝗆).
 

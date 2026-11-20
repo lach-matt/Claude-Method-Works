@@ -130,13 +130,13 @@ beyond the bound ε_Υ < δ̂, which holds at every h as ε_Υ is fixed by (γ_�
 [[lem:iii-k-2-3]] accounted by [[def:ec-accounted-loss]]. Then [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with
 d = d_acc, [[thm:ii-g-2-1]] is applied at the regularity N_NM = 21d_NM + 6, d_NM ≥ d_acc, and:
 
-(i) d_acc is composed, by the rules of [[def:ec-accounted-loss]], of elementary losses and of the numbers of steps of
-the iterations of the inventory of [[sec:iii-j2-3]], among them the three of [[sec:ec-floor]], each round of those
-three and of the iteration at ι⁺ of [[prop:iii-i5-2-1]] being charged at least the loss of [[lem:ec-round-loss]]; the
-elementary losses are closed forms in the weights, the small numbers that the proofs choose, the thresholds ϑ_in,
-ϑ_ℋ, the regularity orders s_c, the counts n(E, β) of the index sets and the order d_BG of the bounds of the
-background terms ([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), except the loss of the forward solution
-operators, which is at most 20,180 ([[thm:fwd-loss]]);
+(i) d_acc is composed, by the rules of [[def:ec-accounted-loss]], of elementary losses and of the numbers of steps of the
+iterations of the inventory of [[sec:iii-j2-3]], among them the three of [[sec:ec-floor]], each round of those three and
+of the iteration at ι⁺ of [[prop:iii-i5-2-1]] being charged at least the loss of [[lem:ec-round-loss]]; the elementary
+losses are closed forms in the weights, the small numbers that the proofs choose, the thresholds ϑ_in, ϑ_ℋ, the
+regularity orders s_c, the counts n(E, β) of the index sets and the order d_BG of the bounds of the background terms
+([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), except the loss of the forward solution operators, which is at most
+20,180 at every base point ([[thm:fwd-loss]] at b₀, [[cor:fwd-near-b0]] at b ∈ ℬ̄_*);
 
 (ii) at the computational point, for every admissible choice of the weights there,
 
@@ -156,21 +156,20 @@ bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). The bound (iii) 
 the index sets. At the computational point [[thm:uc-integer]] evaluates every number of steps and every such count: d_acc
 and d_NM are at most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹.
 
-*Proof.* [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d_acc by [[lem:iii-j2-1-2]], which gives the tame
-estimates with any loss at least the accounted one; N_NM = 21d_NM + 6 is the regularity of [[thm:ii-g-2-1]] at the
-loss d_NM ([[eq:ii-g-2-5]]). *d_NM ≥ d_acc.* Hypothesis (iii) of [[thm:ii-g-2-1]] asks [[eq:ii-g-2-4]], with the loss
-d_NM, of the right inverse Zℛ(U) of the proof of [[thm:iii-k-3-2]], where ℛ(U) is that of [[lem:iii-k-2-3]] and the
-multiplication Z loses nothing; so the loss of ℛ(U), the loss of [[eq:iii-j2-4-2]] for it, is one of the three whose
-largest is d_NM. By the proof of [[lem:iii-k-2-3]], ℛ(U) is the construction of [[thm:iii-j2-4-2]] at the base point
-Ψ(U), with two more terms, linear in the finite-dimensional boost and translation components, added to the forcing
-of Step 2 of the proof of [[thm:iii-i14-3-1]] and entering its Steps 1 and 3 as terms of the same kind; and the
-construction of [[thm:iii-j2-4-2]] applies that of [[thm:iii-j2-4-1]] to the right side and assembles U′ from its
-output by maps of non-negative loss (Step 0 of the proof of [[thm:iii-j1-2-1]]). The elementary losses do not depend
-on the base point ([[lem:iii-j2-2-1]]: only its constants do). By [[def:ec-accounted-loss]], a further summand does
-not lower the largest of the losses of a sum, and a further factor of non-negative loss does not lower the loss of a
-composition; so the loss of ℛ(U) is at least the numbers assigned to both constructions, and d_NM ≥ d_acc. (i) is
-[[def:ec-accounted-loss]] with [[lem:ec-closed-forms]], [[rem:ec-other-losses]], [[lem:ec-round-loss]] and
-[[thm:fwd-loss]].
+*Proof.* [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d_acc by [[lem:iii-j2-1-2]], which gives the tame estimates
+with any loss at least the accounted one; N_NM = 21d_NM + 6 is the regularity of [[thm:ii-g-2-1]] at the loss d_NM
+([[eq:ii-g-2-5]]). *d_NM ≥ d_acc.* Hypothesis (iii) of [[thm:ii-g-2-1]] asks [[eq:ii-g-2-4]], with the loss d_NM, of the
+right inverse Zℛ(U) of the proof of [[thm:iii-k-3-2]], where ℛ(U) is that of [[lem:iii-k-2-3]] and the multiplication Z
+loses nothing; so the loss of ℛ(U), the loss of [[eq:iii-j2-4-2]] for it, is one of the three whose largest is d_NM. By
+the proof of [[lem:iii-k-2-3]], ℛ(U) is the construction of [[thm:iii-j2-4-2]] at the base point Ψ(U), with two more
+terms, linear in the finite-dimensional boost and translation components, added to the forcing of Step 2 of the proof of
+[[thm:iii-i14-3-1]] and entering its Steps 1 and 3 as terms of the same kind; and the construction of [[thm:iii-j2-4-2]]
+applies that of [[thm:iii-j2-4-1]] to the right side and assembles U′ from its output by maps of non-negative loss (Step
+0 of the proof of [[thm:iii-j1-2-1]]). The elementary losses do not depend on the base point ([[lem:iii-j2-2-1]]: only
+its constants do). By [[def:ec-accounted-loss]], a further summand does not lower the largest of the losses of a sum, and
+a further factor of non-negative loss does not lower the loss of a composition; so the loss of ℛ(U) is at least the
+numbers assigned to both constructions, and d_NM ≥ d_acc. (i) is [[def:ec-accounted-loss]] with [[lem:ec-closed-forms]],
+[[rem:ec-other-losses]], [[lem:ec-round-loss]], [[thm:fwd-loss]] and [[cor:fwd-near-b0]].
 
 (ii) Level k + 1 of [[thm:iii-i14-3-1]] takes the solution of level k as input through R_qu, and at each level the
 rounds of [[sec:ec-floor]] are composed one after another, each round's output being the next round's forcing, and
@@ -256,20 +255,20 @@ A + 2X ≤ d_0, so (b) gives the split loss (A_1 + A_2; max(c_2, A_2 + c_1), max
 at most A_1 + A_2 + X. At the top, (a) gives the loss max(A, c, b) ≤ A + X. ∎
 
 The families of [[lem:iii-j2-2-1]] fall into this frame. A linear map independent of β bounded E^(k+m) → G^k has split
-loss (m; 0, 0) ([[lem:iii-j2-1-2]] (d)). The forward solution operators have split loss (d_F; d_F, d_F), d_F the loss
-d of [[thm:iii-i-5-3]] ([[eq:iii-i-5-2]]), at most 20,180 ([[thm:fwd-loss]]). The background terms of
-[[lem:iii-j2-2-1]] (b), and the operator L̃ of [[lem:iii-j2-2-1]] (g) where its coefficients depend on h, have split
-loss (2; d_BG, d_BG), d_BG the order in the background of their bound ‖Au‖_k ≤ C_k(‖u‖_(k+2) +
-‖β‖_(k+d_BG)‖u‖_(d_BG)); in the sense of [[def:iii-j2-1-1]] they are tame with loss max(2, d_BG), the charge of
-[[rem:ec-other-losses]]. A finite-rank map e ↦ Σ_i (ℓ_βe)_i v^i with |ℓ_βe| ≤ C‖e‖_(d_ℓ) and fixed sections v^i, as
-the rows and the coefficient maps of the construction are ([[lem:iii-j2-2-1]] (c)), has split loss (d_ℓ; 0, d_ℓ). So
-every family other than the background terms has c, b ≤ a, and the background terms have c, b ≤ 2 + (d_BG − 2)_+. By
-(d) with X := (d_BG − 2)_+, the excess over 2 need only be paid once: an expression built by compositions and sums
-from these families, in which every background term is charged 2 and every other family its loss, is tame with the
-number so assigned plus (d_BG − 2)_+, whatever the number of background terms in it, once d_0 is at least that
-number plus 2(d_BG − 2)_+, which [[lem:iii-j2-2-1]], taking d_0 large, allows. The fixed operators L_b, L̂_b(σ) and
-L̃_b at the background 0, which alone enter the rounds and windows of the long iterations, have split loss (2; 0, 0),
-so the excess does not enter those iterations either way.
+loss (m; 0, 0) ([[lem:iii-j2-1-2]] (d)). The forward solution operators have split loss (d_F; d_F, d_F), d_F the loss d
+of [[thm:iii-i-5-3]] and of [[cor:iii-h2-5-1]] ([[eq:iii-i-5-2]]), at most 20,180 ([[thm:fwd-loss]],
+[[cor:fwd-near-b0]]). The background terms of [[lem:iii-j2-2-1]] (b), and the operator L̃ of [[lem:iii-j2-2-1]] (g) where
+its coefficients depend on h, have split loss (2; d_BG, d_BG), d_BG the order in the background of their bound ‖Au‖_k ≤
+C_k(‖u‖_(k+2) + ‖β‖_(k+d_BG)‖u‖_(d_BG)); in the sense of [[def:iii-j2-1-1]] they are tame with loss max(2, d_BG), the
+charge of [[rem:ec-other-losses]]. A finite-rank map e ↦ Σ_i (ℓ_βe)_i v^i with |ℓ_βe| ≤ C‖e‖_(d_ℓ) and fixed sections
+v^i, as the rows and the coefficient maps of the construction are ([[lem:iii-j2-2-1]] (c)), has split loss (d_ℓ; 0, d_ℓ).
+So every family other than the background terms has c, b ≤ a, and the background terms have c, b ≤ 2 + (d_BG − 2)_+. By
+(d) with X := (d_BG − 2)_+, the excess over 2 need only be paid once: an expression built by compositions and sums from
+these families, in which every background term is charged 2 and every other family its loss, is tame with the number so
+assigned plus (d_BG − 2)_+, whatever the number of background terms in it, once d_0 is at least that number plus 2(d_BG −
+2)_+, which [[lem:iii-j2-2-1]], taking d_0 large, allows. The fixed operators L_b, L̂_b(σ) and L̃_b at the background 0,
+which alone enter the rounds and windows of the long iterations, have split loss (2; 0, 0), so the excess does not enter
+those iterations either way.
 
 **Lemma {#lem:ec-iota-gap}** (The gaps of the index sets at ι⁺.) The index set ℰ^ι_ind of [[thm:iii-g2-4-2]]
 ([[eq:iii-g2-4-4]]) satisfies ε^ι_ind := min Re ℰ^ι_ind ≥ ε_Υ, and the number η_0 of [[def:iii-i10-1-1]] satisfies η_0
@@ -609,23 +608,23 @@ admissible choice of [[def:uc-choice]], with ε_K = 1.6416·10⁻¹⁴ and ε_g 
 The losses c(β_k), c_b and c′_b of single steps enter the second line with the multiplicities K < 1.22077·10¹⁴ and N_b,
 N_b + 1 < 6.10383·10¹³, and c_0 once; [[prop:cs-cstar]] bounds their largest value c_* by 6.4368·10³⁵.
 
-**Remark {#rem:ec-upper-open}** (The inputs of the upper bound.) Four inputs separate [[prop:ec-upper]] from an
-integer; at the computational point all four are bounded: (1), (2) and (4) are evaluated, and (3) through one number,
-c_*, which [[prop:cs-cstar]] bounds. (1) ε_K, N_Λ, k̄_0 and l_*: (G) asks that no element of the set Λ of
-[[def:iii-i10-1-1]] have real part in (2, 2 + ε_K] or in (3, 3 + ε_K],
-and that no λ + d_c0 or λ + d_c1, λ ∈ Λ, have real part in (2, 2 + ε_K]. [[prop:gap-sums]] and [[rem:gap-sums]] settle
-the three windows for ε_K < 5.019·10⁻⁸ on the part of Λ built from 2, 3, λ_♯ and the offsets 𝔡₁, 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁.
-With ℰ_ind as the proofs construct it, 𝔡₀ and 𝔡₁ are themselves increments, and (G) holds exactly for ε_K < μ_G,
-1.64160217197·10⁻¹⁴ < μ_G < 1.64160217198·10⁻¹⁴ ([[thm:is-gap]], [[cor:uc-two-offsets]]); [[prop:is-count]] and
-[[cor:sp-lstar]] give 1.62066·10¹³ < N_Λ < 1.67472·10¹³, k̄_0 = 3, J_* = 15,000,015 and the admissible l_* = 50, and
-[[prop:uc-explicit]] the numbers of levels, rounds, applications and windows at an admissible choice. (2) ℓ⁺_tf = 1 at
-the choices of [[lem:ec-tf-loss]] with s = 1 ([[prop:uc-ltf]]). (3) The single-step losses c(β), c_b, c′_b and c_0: each
-is a finite composition of the elementary losses of [[lem:ec-closed-forms]] and [[rem:ec-other-losses]] and of the
-forward loss, at most 20,180 ([[thm:fwd-loss]]), charged at each forward solution they apply; they contain the counts
-n(E, β) of the index sets entering [[eq:ec-fourier-loss]], which [[lem:uc-n-iota]] bounds through N_Λ, k̄_0, l_* and J_*;
-c_0 contains, besides, the iterations of Steps 4′ and 4 at the top level, each bounded as in [[lem:ec-counts]], and the
-loss of [[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its steps over the exponents of Λ ∩ {Re <
-3 + ε_+} ([[lem:uc-phi-loss]]). Their largest value c_* enters [[thm:uc-integer]] with the coefficient 2.44153·10¹⁴;
+**Remark {#rem:ec-upper-open}** (The inputs of the upper bound.) Four inputs separate [[prop:ec-upper]] from an integer;
+at the computational point all four are bounded: (1), (2) and (4) are evaluated, and (3) through one number, c_*, which
+[[prop:cs-cstar]] bounds. (1) ε_K, N_Λ, k̄_0 and l_*: (G) asks that no element of the set Λ of [[def:iii-i10-1-1]] have
+real part in (2, 2 + ε_K] or in (3, 3 + ε_K], and that no λ + d_c0 or λ + d_c1, λ ∈ Λ, have real part in (2, 2 + ε_K].
+[[prop:gap-sums]] and [[rem:gap-sums]] settle the three windows for ε_K < 5.019·10⁻⁸ on the part of Λ built from 2, 3,
+λ_♯ and the offsets 𝔡₁, 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁. With ℰ_ind as the proofs construct it, 𝔡₀ and 𝔡₁ are themselves
+increments, and (G) holds exactly for ε_K < μ_G, 1.64160217197·10⁻¹⁴ < μ_G < 1.64160217198·10⁻¹⁴ ([[thm:is-gap]],
+[[cor:uc-two-offsets]]); [[prop:is-count]] and [[cor:sp-lstar]] give 1.62066·10¹³ < N_Λ < 1.67472·10¹³, k̄_0 = 3, J_* =
+15,000,015 and the admissible l_* = 50, and [[prop:uc-explicit]] the numbers of levels, rounds, applications and windows
+at an admissible choice. (2) ℓ⁺_tf = 1 at the choices of [[lem:ec-tf-loss]] with s = 1 ([[prop:uc-ltf]]). (3) The
+single-step losses c(β), c_b, c′_b and c_0: each is a finite composition of the elementary losses of
+[[lem:ec-closed-forms]] and [[rem:ec-other-losses]] and of the forward loss, at most 20,180 ([[thm:fwd-loss]],
+[[cor:fwd-near-b0]]), charged at each forward solution they apply; they contain the counts n(E, β) of the index sets
+entering [[eq:ec-fourier-loss]], which [[lem:uc-n-iota]] bounds through N_Λ, k̄_0, l_* and J_*; c_0 contains, besides,
+the iterations of Steps 4′ and 4 at the top level, each bounded as in [[lem:ec-counts]], and the loss of
+[[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its steps over the exponents of Λ ∩ {Re < 3 + ε_+}
+([[lem:uc-phi-loss]]). Their largest value c_* enters [[thm:uc-integer]] with the coefficient 2.44153·10¹⁴;
 [[prop:cs-cstar]] bounds it by 6.4368·10³⁵. (4) d_BG = 11 serves ([[prop:uc-dbg]]); it enters c(β), c_b, c′_b and c_0
 through the charge max(2, d_BG). For d_NM, and so for N_NM, the losses of [[lem:iii-k-2-2]] and [[prop:iii-j2-4-3]] are
 at most 62N_Λ + 10 < 1.04·10¹⁵ ([[lem:uc-phi-loss]], [[lem:uc-lambda]]), and that of [[lem:iii-k-2-3]] satisfies
