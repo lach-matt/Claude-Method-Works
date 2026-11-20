@@ -835,11 +835,11 @@ are only bounded, or measures, are not covered ([[rem:loc-cone-scope]] (iii)).
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
 source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:". Line numbers
 are those of the chapter sources at the current head and serve only to find the place; every old text below occurs
-there exactly once, as whole lines. Items 2, 3, 8 and 9 change sites that the placements of the sections of
+there exactly once, as whole lines. Items 2, 3, 9 and 10 change sites that the placements of the sections of
 [[thm:loc-cone-development]] (Tier 1) and of [[thm:civp-large]] (Tier 2) also change; their new texts are merged texts,
 each replacing at its site Tier 1's item (3, 4, 6 and 7 of its placement) together with the corresponding item of Tier
 2, which Tier 1's items already absorb, so that every site is changed once. Their old texts are the chapter sources at
-the current head; where Tier 1's item has already been applied, the old text is that item's new text. Items 4 to 6
+the current head; where Tier 1's item has already been applied, the old text is that item's new text. Items 4 to 7
 change the texts of the Tier 1 and Tier 2 sections and apply once those are inserted; their old texts are quoted from
 those sections as they now stand.
 
@@ -909,9 +909,10 @@ outside a slightly wider band and is unique in the gauge among solutions that eq
 asserted for cone data that are not near the background's at an axis, for data of finite regularity or for densities
 that are not smooth ([[rem:loc-axis-scope]]), and no other result of this paper uses these developments.
 
-*4. [[rem:loc-cone-scope]] (ii) and (iv), in the text of Tier 1's Block A.* In (ii), the last two sentences on the
-axes. This replaces the statement that no domain-of-dependence statement with null boundaries near an axis is proved,
-which [[lem:loc-axis-dependence]] makes false for double-null rectangles. Old:
+*4. [[rem:loc-cone-scope]] (ii), in the text of Tier 1's Block A.* Its last two sentences, on the axes, are rewritten:
+such data are developed near the background's by [[thm:loc-axis]], and the statement that no domain-of-dependence
+statement with null boundaries near an axis is proved is no longer true for double-null rectangles
+([[lem:loc-axis-dependence]]). Old:
 
 background, which reach the axes, are carried there by the background itself. For data whose perturbation reaches an axis
 this fails: at an axis the augmented system is not local, its Cauchy theory ([[thm:class-stability]]) needs lateral
@@ -928,7 +929,7 @@ with uniqueness in the gauge among nearby solutions, by a reduction that keeps t
 at the axes ([[thm:loc-axis]]); (d) gives uniqueness near the axes only among solutions that equal the background
 there. (iii) *Regularity.* The data are smooth and near the background's in C^m, m = 6k + 21. Densities
 
-*4b. [[rem:loc-cone-scope]] (iv).* Old:
+*5. [[rem:loc-cone-scope]] (iv), in the text of Tier 1's Block A.* Old:
 
 achieves the prescribed initial data." (iv) *The domain.* The development is asserted on G_*, a neighbourhood of the two
 cones, and not on the whole rectangle [0, u_1] × [0, v_1]; in particular not where the two dusts cross away from the
@@ -941,7 +942,7 @@ two cones, and not on the whole rectangle [0, u_1] × [0, v_1]; in particular no
 the cones. That rectangle is reached by [[thm:loc-axis]] when the background is defined on it with a margin, as the
 background of [[sec:bg-data]] is on [0, 7.2] × [0, 4.5] ([[lem:loc-axis-rectangle]], [[cor:loc-axis-cones]]).
 
-*5. [[rem:loc-cone-local-scope]], its last sentence, in the text of Tier 1's Block B.* Old:
+*6. [[rem:loc-cone-local-scope]], its last sentence, in the text of Tier 1's Block B.* Old:
 
 b(0, 0, ϑ) on N_o; it is the identity on N_o and off the band; and the C^(m_1) norms of the new functions are bounded in
 terms of the C^(m_1 + 1) norms of the old ones. A statement with no background, the data being prescribed up to the axes,
@@ -957,13 +958,13 @@ is not given in this paper: [[thm:loc-axis]] solves the reduced problem through 
 its statement of dependence on the past faces of a double-null rectangle ([[lem:loc-axis-dependence]]), which needs no
 smallness, gives uniqueness and not existence.
 
-*6. [[rem:civp-large-domain]], in the text of the Tier 2 section.* After its last sentence, which ends "bounded or
+*7. [[rem:civp-large-domain]], in the text of the Tier 2 section.* After its last sentence, which ends "bounded or
 measure-valued.", the sentence "Cone data near the background's that differ from it at the axes are developed on the
 whole rectangle by [[thm:loc-axis]]." is appended to the same paragraph, the lines being rewrapped. The old text of
 this item is not quoted, as that remark is being revised in the Tier 2 round; the sentence is to follow whatever its
 last sentence then is.
 
-*7. [[ch:class-system]], [[lem:class-leaf-differences]], the definition of the leaves (lines 1326–1329).* The formula
+*8. [[ch:class-system]], [[lem:class-leaf-differences]], the definition of the leaves (lines 1326–1329).* The formula
 of step (1) of [[lem:class-planar-shear]] holds n(u) and the trace of K_Σ over TΣ_L, the tangent plane of the leaf,
 which for a state whose p_A is not closed is not defined before the leaf is; the clause reads it with p_A(n) and with a
 plane fixed by p_A, as [[eq:loc-axis-hl]] does, and changes no statement or proof of that chapter: on a solution with
@@ -985,7 +986,7 @@ plane of the level set of the phase through the point, and H_L[Θ_A] is the form
 leaves exist and are unique by [[lem:class-volterra]], and for U near ů they are C¹-close to the leaves of ů and
 foliate a neighbourhood of the axis. Let σ[U] at a point be the planar shear [[eq:class-shear-leaf]] of
 
-*8. [[ch:theorems]], the bullet "More families" (line 376; replaces Tier 1's item 6).* Old:
+*9. [[ch:theorems]], the bullet "More families" (line 376; replaces Tier 1's item 6).* Old:
 
   construction of that background does not decide ([[cor:vlasov-two-dust]]); and exactly localised vacuum data
 
@@ -1000,8 +1001,8 @@ New:
   two cones in which the two dusts cross, [0, 7.2] × [0, 4.5], with an estimate and unique in the gauge among nearby
   solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]); and exactly localised vacuum data
 
-*9. [[ch:scope]], the paragraph on localised data, its last line (line 210; replaces Tier 1's item 7, which absorbs the
-second pair of Tier 2's item 4).* Old:
+*10. [[ch:scope]], the paragraph on localised data, its last line (line 210; replaces Tier 1's item 7, which absorbs
+the second pair of Tier 2's item 4).* Old:
 
 small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
 
@@ -1018,22 +1019,22 @@ on the whole rectangle of the two cones, [0, 7.2] × [0, 4.5], in which the two 
 in the gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Developments of cone data that are not
 near the background's at an axis are not established ([[rem:loc-axis-scope]]).
 
-*10. Unchanged.* [[ch:introduction]] needs no change beyond Tier 1's item 5, whose words "their development from two
+*11. Unchanged.* [[ch:introduction]] needs no change beyond Tier 1's item 5, whose words "their development from two
 null cones" cover this section. [[ch:ten-l5]] and the sentences of [[ch:scope]] on the characteristic problem at 10 l5
 stand: that problem is vacuum and not near an explicit background, its data are C³, and the uniqueness it needs, (F2)
 of [[lem:tl5-continuation]], is uniqueness in the double-null gauge for solutions on regions D_s, which
 [[lem:loc-axis-dependence]] does not give, as it compares two solutions in one wave gauge, and [[lem:loc-axis-unique]]
 gives it only near the background. [[ch:two-dusts]] is unchanged.
 
-*11. Appendix A and the references.* No new entry: the proofs use no published result beyond those already stated in
+*12. Appendix A and the references.* No new entry: the proofs use no published result beyond those already stated in
 [[app:standard-results]]. The extension operator of [[lem:loc-axis-unique]] is that of [[thm:std-ly-extension]] (i),
 used in one variable, and the Borel sums of [[lem:loc-axis-constraints]] (c) are those of [[lem:loc-cone-extension]].
 No reference is added.
 
-*12. Without the Tier 2 section.* If the Tier 2 section is not merged, the section above goes immediately after
+*13. Without the Tier 2 section.* If the Tier 2 section is not merged, the section above goes immediately after
 [[sec:loc-cone-proof]]; the sentence "Off the axes, [[thm:civp-large]] needs no smallness." of [[rem:loc-axis-scope]]
-(i) is dropped; item 6 is void; and in the new texts of items 2, 3, 8 and 9 the clauses that cite [[thm:civp-large]] or
-[[def:civp-large-data]] are dropped as in Tier 1's item 11.
+(i) is dropped; item 7 is void; and in the new texts of items 2, 3, 9 and 10 the clauses that cite [[thm:civp-large]]
+or [[def:civp-large-data]] are dropped as in Tier 1's item 11.
 
 ### Crosswalk rows
 
@@ -1115,8 +1116,9 @@ Row 31. rem:loc-axis-scope; paper/reader/proofs/P-CIVP3.md@PENDING:820; proof P-
 not give); large data at the axes; further families (Tier 5); regularity.
 
 Changed row of the crosswalk table of [[ch:class-system]]: lem:class-leaf-differences keeps its label, source and
-source_name fields and appends to its source field "; paper/reader/proofs/P-CIVP3.md@PENDING:P7", P7 the line of item 7
-of the placement above, to its source_name field "; proof P-CIVP3, Placement 7", and to its note "; H_L[Θ_A] read with
+source_name fields and appends to its source field "; paper/reader/proofs/P-CIVP3.md:967-987", the lines of item 8 of
+the placement above, to its source_name field "; proof P-CIVP3, Placement 8", and to its note "; H_L[Θ_A] read with
 p_A(n) and the γ3-orthogonal complement of the spatial part of p_A, a plane fixed by p_A (eq:loc-axis-hl)". The rows of
 rem:loc-cone-scope, rem:loc-cone-local-scope and rem:civp-large-domain append to their notes "; amended by proof
-P-CIVP3, Placement 4, 5 and 6" respectively.
+P-CIVP3, Placement 4 and 5", "; amended by proof P-CIVP3, Placement 6" and "; amended by proof P-CIVP3, Placement 7"
+respectively.
