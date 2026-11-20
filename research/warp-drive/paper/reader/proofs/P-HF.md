@@ -803,3 +803,96 @@ and |∂_u| ≤ √(2/c) Ω̂ + |b̂| e^ζ, |∂_v| = √(2c) Ω̂, |∂_ϑ| = R
 the second derivative D̂²h(∂_κ, ∂_λ, ∂_μ, ∂_ν), five with one derivative of h and one D̂∂, two with D̂D̂∂ and two with
 two factors D̂∂; each is bounded by the product of the norms. On M_σ, ∂_ϑ = −2 sin 2ϑ ∂_x and |∂_x| = e^ζ, with
 e^ζ = R e^(−(P+Q))/(2(1 − x²)^(1/2)) by [[eq:tl5-radii]]. ∎
+
+#### The weighted bootstrap {#sec:tl5-hf-bootstrap}
+
+**Definition {#def:tl5-hf-norm}** (The weighted norm.) Fix N ≥ 5, μ ∈ (0, 1], weights z, z̲, admissible rates a_o, a_i
+for (𝔅_N, E_o^N, E_i^N) and φ as in [[prop:tl5-hf-linear]]. For a solution g of the reduced problem on D^κ_s, with
+h := g − ĝ, and σ ∈ [1/2, s] put
+
+    Y_σ(g)² := sup {Σ_(|I|≤N) μ^|I| ℰ_I(a, b) : −10 ≤ a ≤ u*, 1/2 ≤ b ≤ σ},
+    ℰ_I(a, b) := ∫_(Σ₁(a,b)) e^(−φ) ε₁[Ψ_I] dμ dτ₂ + ∫_(Σ₂(a,b)) e^(−φ) ε₂[Ψ_I] dμ dτ₁.
+
+Since Q(a, b) ⊂ D^κ_σ for a ≤ u* and b ≤ σ, Y_σ(g) depends only on the restriction of g to D^κ_σ. It is continuous in
+σ: (a, b) ↦ ℰ_I(a, b) is continuous, the faces depending continuously on (a, b) and the integrands being continuous,
+and the supremum of a continuous function over [−10, u*] × [1/2, σ] is continuous in σ. And Y_(1/2)(g) = 0, as
+D^κ_(1/2) is the sphere S and its faces have measure zero.
+
+**Definition {#def:tl5-hf-constants}** (The constants of the bootstrap.) In the setting of [[def:tl5-hf-norm]], let G^♯
+be data in the wave gauge, and on N₁ let Ψ_I := ℒ^I(G^♯ − ĝ) and H := (G^♯)⁻¹ − ĝ⁻¹, computed from the derivatives of
+G^♯ on N₁. Put, with s_N of [[eq:tl5-hf-sn]], ϱ the function of [[lem:tl5-hf-linfty]] for p with τ₁(p) = u*,
+τ₂(p) = v*, and the constants of [[lem:tl5-hf-linfty]] and [[lem:tl5-hf-quasilinear]],
+
+    δ_w² := Σ_(|I|≤N) μ^|I| ∫_(N₁) e^(−φ) (e_o[Ψ_I] + 2Ω̂² |du(𝔟[Ψ_I])|) dμ dv,
+    ε_w := 𝒮[s_N[2R̂ic] + (1/4) 𝔤_N k₂ ϱ]   (the quantity [[eq:tl5-hf-source]] for a = u*, b = v*),
+    𝔤_N := (Σ_(j≤N) μ^j (Σ_(j′≤j) 𝔮_(jj′) 7^(j′/2) (𝔠_(j′) + 1))²)^(1/2),
+    ϰ₀ := (√5 + 1/2) |T| 𝔤₀² + |D̂T| + (1/2)|div T| + (√5 + 1/2) 𝔡 |T|,
+    𝔞_o := ϰ₀/c + (1/2)|T| ‖𝒞_(·0)‖ (1/z̲ + 1/c) + 2Ω̂ 𝔤_N (2k₁ + 3) μ^(−N/2) (1 + 1/z̲ + 1/c)^(1/2),
+    𝔞_i := ϰ₀ + (1/2)|T| ‖𝒞_(·0)‖ + 2Ω̂ 𝔤_N (2k₁ + 3) μ^(−N/2) (1 + 1/z̲ + 1/c)^(1/2),
+    S_F := μ^(−N/2) (∫_(−10)^(u*) sup_(Σ₁(t,v*)) (𝔞_o C_∞ e^(φ/2)) dt + ∫_(1/2)^(v*) sup_(Σ₂(u*,t)) (𝔞_i C_∞ e^(φ/2)) dt),
+    𝔯_w := ∫_(−10)^(u*) sup_(Σ₁(t,v*)) (𝔞_o C_(∞,ϱ) ϱ) dt + ∫_(1/2)^(v*) sup_(Σ₂(u*,t)) (𝔞_i C_(∞,ϱ) ϱ) dt,
+    A_w := √2 δ_w + 4ε_w,      B_w := 2 S_F,
+
+where C_∞, C_(∞,ϱ), k₁, k₂ are evaluated at the point of the supremum, and
+
+    𝔰₀ := min(1/8, 1/(2 sup_(D^κ) k₃)),   𝔰_θ := (4(√2 + 1/2) sup_(D^κ) max((c + κ′)/min(c, κ′), (1 + κc)/(κc)))⁻¹,
+    𝔰₁ := min(𝔰₀/2, c_* κ_m/2, 𝔰_θ),   𝔰_* := sup_(p∈D^κ) (2 C_∞(p) μ^(−N/2) e^(φ(p)/2) A_w + C_(∞,ϱ)(p) ϱ(p)).
+
+**Proposition {#prop:tl5-hf-bootstrap}** (The a priori estimate.) In the setting of [[def:tl5-hf-constants]], suppose
+that G^♯ − ĝ vanishes together with its partial derivatives of order at most N + 1 at every point of N₀, and that
+
+    𝔯_w ≤ 1/4,      𝔰_* < 𝔰₁.                                                                        {#eq:tl5-hf-smallness}
+
+Let g be a solution of the reduced problem on D^κ_s with Y_σ(g) ≤ 2A_w for every σ ∈ [1/2, s]. Then 𝔰 ≤ 𝔰_* on
+D^κ_s; in particular |h|_k̂ < κ_m/2 there, and
+
+    Y_s(g) ≤ A_w + B_w Y_s(g)².                                                                         {#eq:tl5-hf-h1}
+
+*Proof.* By [[thm:tl5-wg]] (F4_W), g is vacuum and has on N ∩ D^κ_s the derivatives of all orders of G^♯; so h and
+its derivatives of order at most N + 1 vanish on N₀ ∩ D^κ_s, and the quantities of [[def:tl5-hf-constants]] on N₁ are
+those of g. In particular 𝔰 = 0 on N₀ ∩ D^κ_s, the low quantities being built from such derivatives.
+
+*Step 1: the low quantities.* Let Σ_* be the set of σ ∈ [1/2, s] with 𝔰 ≤ 𝔰₀ on D^κ_σ. It contains 1/2, as
+D^κ_(1/2) = S ⊂ N₀, and it is closed, 𝔰 being continuous. If σ ∈ Σ_* and p ∈ D^κ_σ, then Q(τ₁(p), τ₂(p)) ⊂ D^κ_σ,
+and [[lem:tl5-hf-linfty]] applies at p. On the face Σ₁(τ₁(p), τ₂(p)), φ ≤ φ(p), so
+ℰ⁰_N(p) ≤ μ^(−N) e^(φ(p)) Y_σ(g)² ≤ 4μ^(−N) e^(φ(p)) A_w², and 𝔰(p) ≤ 𝔰_* < 𝔰₁ ≤ 𝔰₀/2. By the uniform continuity
+of 𝔰 on D^κ_s, 𝔰 ≤ 𝔰₀ on D^κ_(σ′) for some σ′ > σ (unless σ = s). So Σ_* = [1/2, s], and 𝔰 ≤ 𝔰_* on D^κ_s. Then
+|h| ≤ 𝔰 < c_* κ_m/2 gives |h|_k̂ < κ_m/2 by [[lem:tl5-hf-conversions]] (a), and |H| ≤ 𝔰 < 𝔰_θ gives θ_H ≤ 1/4.
+
+*Step 2: the energy identity.* For |I| ≤ N apply [[lem:tl5-hf-identity]] to the current J̃ := J[Ψ_I] − 𝔟[Ψ_I], with H
+the tensor of g; the identity holds for J̃, its proof using only that J̃ is a C¹ vector field. By (b) of
+[[lem:tl5-hf-quasilinear]], its face densities are at least (1 − θ_H) ≥ 3/4 times ε₁[Ψ_I] and ε₂[Ψ_I]; on N₀ they
+vanish, as Ψ_I and H do; on N₁ they are at most e_o[Ψ_I] + 2Ω̂²|du(𝔟)|. By [[lem:tl5-hf-divergence]] and (a) of
+[[lem:tl5-hf-quasilinear]], div J̃ = −⟨L̂Ψ_I + H^(αβ)D̂_αD̂_βΨ_I, D̂_TΨ_I⟩ + ℬ[Ψ_I] − 𝔮_H[Ψ_I]. By
+[[def:tl5-hf-coupling]] with 𝔤 = 2R̂ic − N(h),
+
+    L̂Ψ_I + H^(αβ)D̂_αD̂_βΨ_I = Σ_J 𝔄_IJ(D̂Ψ_J, Ψ_J) + Σ_J 𝔔_IJ ℒ^J(2R̂ic) − Σ_(J≠I) 𝔔_IJ ℒ^J N(h) − 𝔑_I,
+
+with 𝔑_I := ℒ^I N(h) − H^(αβ)D̂_αD̂_βΨ_I. The first two sums are treated as in the proof of
+[[prop:tl5-hf-linear-n]]: with the weights μ^|I|, their bulk is absorbed by the admissible rates, up to the source
+term 2Ω̂² s_N[2R̂ic](√e_o + √c √e_i). By [[lem:tl5-hf-quadratic]] and |H| ≤ 𝔰, |ℒ^J N(h)| ≤ (𝔠_(|J|) + 1) 𝔰 𝔧 for
+|J| ≤ N − 1 and |𝔑_I| ≤ 𝔠_(|I|) 𝔰 𝔧; so the third and fourth terms, summed as in [[eq:tl5-hf-sn]], contribute at most
+2Ω̂² 𝔤_N 𝔰 𝔧 (√e_o + √c √e_i), the factor 7^(j′/2) counting the words of length j′. By the proof of
+[[lem:tl5-hf-linfty]], 𝔧 ≤ 𝒥₁ + M₂ ≤ (2k₁ + 3) 𝒥₁ + 2k₂ ϱ, and by [[eq:tl5-hf-coercive]], with e_o and e_i the weighted
+sums, 𝒥₁² ≤ μ^(−N) ((1/z̲ + 1/c) e_o + e_i)/(2Ω̂²); with √(XY) ≤ (X + Y)/2 after scaling, 2Ω̂² 𝒥₁ (√e_o + √c √e_i) ≤
+2Ω̂ μ^(−N/2) (1 + 1/z̲ + 1/c)^(1/2) (e_o + e_i). Likewise, by (a) of [[lem:tl5-hf-quasilinear]] with
+|D̂H| = |g⁻¹(D̂h)g⁻¹| ≤ 𝔤₀² 𝔰 and |D̂Ψ|² ≤ (e_o/c + e_i)/(2Ω̂²) for each field, the weighted sum of 2Ω̂²|𝔮_H| is at most
+𝔰 times the first two terms of 𝔞_o e_o + 𝔞_i e_i. Hence the bulk of the weighted sum over I is at most
+
+    ∫ e^(−φ) (2Ω̂² (s_N[2R̂ic] + (1/4) 𝔤_N k₂ ϱ)(√e_o + √c √e_i) + 𝔰 (𝔞_o e_o + 𝔞_i e_i)) dμ du dv,
+
+using 2𝔤_N k₂ 𝔰 ϱ ≤ (1/4)𝔤_N k₂ ϱ.
+
+*Step 3: the inequality.* The first term is bounded as in [[prop:tl5-hf-linear]] by 2Y_s ε_w. For the second, foliate
+by the faces Σ₁(t, b′) and Σ₂(a′, t): with e_o/(1 − κκ′) ≤ ε₁ and du dv = dτ₁ dτ₂/(1 − κκ′),
+∫ e^(−φ) 𝔰 𝔞_o e_o ≤ ∫ dt sup_(Σ₁(t,v*)) (𝔰 𝔞_o) Y_s², and likewise for the ingoing term. By Step 1 and
+[[lem:tl5-hf-linfty]], 𝔰 ≤ C_∞ μ^(−N/2) e^(φ/2) Y_s + C_(∞,ϱ) ϱ at every point. So for every a′ ≤ u*, b′ ≤ s,
+
+    (3/4) Σ_I μ^|I| ℰ_I(a′, b′) ≤ δ_w² + 2Y_s ε_w + 𝔯_w Y_s² + S_F Y_s³,
+
+and taking the supremum, with 𝔯_w ≤ 1/4, Y_s² ≤ 2δ_w² + 4Y_s ε_w + 2S_F Y_s³. If Y_s ≥ √2 δ_w this gives
+Y_s ≤ 2δ_w²/Y_s + 4ε_w + 2S_F Y_s² ≤ √2 δ_w + 4ε_w + 2S_F Y_s², and otherwise the same holds trivially. ∎
+
+The factor F of the linear estimate enters A_w B_w only through e^(φ/2) in S_F, that is linearly: the nonlinear error
+made at a point is amplified from there to the future boundary, and the weight e^(−φ) records that it is quadratic in
+the solution at that point, whose size is e^(φ/2) Y there.
