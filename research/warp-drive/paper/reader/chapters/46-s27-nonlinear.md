@@ -1383,8 +1383,9 @@ k > N_NM + d, as k + 3 + k′_(k+3) ≤ N_NM + k″ and s_♭ ≤ min(s_(k+3), s
 
 So [[thm:iii-i14-3-1]] at the base point Ψ(U), with the defects f^S_Ψ and f^s1_Ψ, is [[thm:iii-i14-3-1]] with two
 more terms e_S(S′) + e_(S⁰)(S⁰′) in the forcing G′ of Step 2 of its proof. They are linear in the finite-dimensional
-(S′, S⁰′), and small with Θ_d and U in the fixed seminorm in which [[lem:iii-j2-2-3]] asks such terms small: with m its
-order, the display in its form with Θ_k and Θ_0 bounds them there by C_m(Θ_m + Θ_0‖U‖_(𝒟^(m+5)_ex))(|S′| + |S⁰′|),
+(S′, S⁰′), and small with Θ_d and U in the fixed seminorm in which the proof of [[lem:iii-j2-2-3]] asks such terms
+small: with m its order, the display in its form with Θ_k and Θ_0 bounds them there by
+C_m(Θ_m + Θ_0‖U‖_(𝒟^(m+5)_ex))(|S′| + |S⁰′|),
 which is less than 2C_mε_0(|S′| + |S⁰′|), as Θ_m ≤ Θ_d < ε_0, Θ_0 < ε_0 ≤ 1 and ‖U‖_(𝒟^(m+5)_ex) ≤ ‖U‖_(𝒟^d_ex) < ε_0,
 the d of the statement being at least m + 5 (*The constants*). They enter the maps A_k of Step 3 as Δ_q does
 ([[lem:iii-i14-2-4]]), and they perturb Step 1 (the base level, where the parameters of low rate, among them S′ and
@@ -1419,7 +1420,7 @@ which L_b, of loss 2 ([[lem:iii-j2-1-2]] (d)), and [[lem:iii-j2-2-1]] (b) bound 
 C_j(‖u‖_(𝒳^(j+2)) + ‖Ψ(U)‖_(j+d_BG)‖u‖_(𝒳^(d_BG))). By [[eq:s27-base]] at l = 1, ‖u‖_(𝒳^(j+2)) ≤ C_jΘ_j(|S′| + |S⁰′|)
 and ‖u‖_(𝒳^(d_BG)) ≤ ‖u‖_(𝒳^(d_BG+2)) ≤ CΘ_(d_BG)(|S′| + |S⁰′|), with Θ_(d_BG) ≤ Θ_d < 1. The four terms are bounded
 one by one, at the orders of ℱ_ex at ℐ⁺ but without its support condition, as the terms at Ψ(U) need not vanish near
-the initial face; only the sums e_S(S′), e_(S⁰)(S⁰′) have the supported character of ℱ_ex. They are supported in
+the initial face, while the sums e_S(S′), e_(S⁰)(S⁰′) have the supported character of ℱ_ex. The sums are supported in
 {t^♭_* ≤ T̂ + 2}, away from ι⁺ and K⁺, and at an integer order a section of supported character has the norm of its
 zero extension, whose derivatives are its own extended by zero; so their norms in ℱ^j_ex are at most the sums of the
 bounds of their terms. (The displays above pass from the terms of the products to e_S and e_(S⁰) in the same way.)
@@ -1429,7 +1430,8 @@ With Θ_j ≤ ‖β̂‖_j,
 
 the form that [[lem:iii-j2-1-2]] (c) asks of the finite-rank terms they add, with the loss d_BG that the defects
 f^S_(h,p⃗), f^s1_(h,p⃗) have in the background Φ(U) in the construction for Φ; read in β^Ψ through (i), this is the loss
-d_BG + d_Φ that they have in U.
+d_BG + d_Φ that they have in U. The defects themselves, which the construction keeps at Φ(U), are tame in Φ(U) with
+the loss d_BG, and so in β̂, as ‖Φ(U)‖_j ≤ ‖β̂‖_j.
 
 (iii) D_UΦ at U, which Steps 1–3 of the proof of [[thm:iii-j2-4-2]] subtract, is tame in U ([[rem:iii-j-2-5]]), and
 so in β^Ψ, as ‖U‖_(𝒟^j_ex) ≤ ‖β^Ψ‖_j.
@@ -1445,8 +1447,13 @@ this has the form [[eq:iii-j2-1-1]] in β^Ψ with the loss d_F + d_Φ, as it has
 taken in β^Ψ before composing would add d_Φ at every step of the composition.) The smallness that these proofs ask is
 that of ‖β̂‖ at the order d_0 of [[thm:iii-j2-4-1]], which (i) bounds by C‖β^Ψ‖_(d_0+d_Φ), and that of ‖β^Ψ‖ at the
 order d′_0 at which the proof of [[thm:iii-j2-4-2]] asks U small, d′_0 ≥ d_0 + d_Φ as that proof reads ‖Φ(U)‖_(d_0)
-through ‖U‖_(𝒟^(d_0+d_Φ)_ex); the elimination asks the order m + 5 above. We take the d of the statement at least d_R,
-d′_0, m + 5 and d_BG. Then [[eq:s27-rinv]] holds with it, as the norms are non-decreasing in the order, and
+through ‖U‖_(𝒟^(d_0+d_Φ)_ex); the elimination asks the order m + 5 above, which is at most d′_0. Indeed m ≤ d_*, as
+the proof of [[lem:iii-j2-2-3]] bounds the background terms in that seminorm by [[lem:iii-j2-2-1]] (b) at the order m,
+which reads the background at an order at least m, and d_* is the largest of the orders so read; and
+d′_0 ≥ d_0 + d_Φ ≥ d_* + 5, as d_0 = d_* + D ([[lem:iii-j2-2-3]]) with D at least the loss of the forward solution
+operators, which is at least the 5 derivatives that [[cor:iii-i-5-2]] costs ([[lem:iii-j2-2-1]] (a)). We take the d of
+the statement at least d_R, d′_0 and d_BG. Then [[eq:s27-rinv]] holds with it, as the norms are non-decreasing in the
+order, and
 ‖β^Ψ‖_j ≤ ‖U‖_(𝒟^d_ex) + Θ_d < 2ε_0 for j ≤ d, so the smallness holds for ε_0 small.
 
 *Supports.* Let h̃ and f vanish on {t^♭_* < c}, c ∈ [T̂, T̂ + 7/4]. There χ_ι, χ_K and the corrections vanish, as in
