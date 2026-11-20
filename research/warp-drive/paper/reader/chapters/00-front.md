@@ -29,9 +29,10 @@ of Kerr into five dimensions in full, with linear stability in the gauge of the 
 Further, the development of the continued data also reaches inside the black hole after the shell, up to the curvature
 boundary; the development of g_λ's own data settles without gluing, in a class wider by half-integer orders; the
 construction extends to two crossing null dusts and to restricted massless Vlasov limits; the constants are stated as
-far as they are explicit, among them an upper bound for λ0 at a numerical point and, at a parameter point outside the set
-on which settling is proved, for one admissible choice of the weights, orders and inner products and the index sets as
-the proofs construct them, 1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰ for the loss d with which the settling proof applies the
-Nash–Moser theorem; at equality, μ0 = √72 l5², timelike curves of g_λ cross the boundary in a layer whose width tends to
-zero with λ; and at the physical wavelength 10 l5 there is no separation of scales, existence holding where the solution
-is the seed.
+far as they are explicit, among them an upper bound for λ0 at a numerical point; for the loss d with which the settling
+proof applies the Nash–Moser theorem, a lower bound at every point of the set on which settling is proved, which grows
+like the inverse square of the gauge parameter and like the square of the damping parameter, so that d is unbounded on
+that set, and, at a parameter point outside it, for one admissible choice of the weights, orders and inner products and
+the index sets as the proofs construct them, 1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰; at equality, μ0 = √72 l5², timelike
+curves of g_λ cross the boundary in a layer whose width tends to zero with λ; and at the physical wavelength 10 l5
+there is no separation of scales, existence holding where the solution is the seed.

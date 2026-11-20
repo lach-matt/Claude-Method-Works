@@ -63,7 +63,11 @@ at 2δ by 2^(−(32d+8)), d the loss with which the Nash–Moser theorem is appl
 The loss d is at least the loss d_acc that the proof assigns to the tame estimates, and the regularity of the Nash–Moser
 step is N_NM = 21d + 6; d_acc is composed of elementary losses in closed form, of the loss of the forward solution
 operators, at most 20,180, or 20,183 at the backgrounds h + h_rem(q) + h_tot(p⃗), and of the numbers of steps of the
-iterations of the construction ([[thm:loss-d]] (i)). At the
+iterations of the construction ([[thm:loss-d]] (i)). At every point of the set on which [[thm:settling]] is proved,
+with z = 4e_Υγ_Υ² and γ_C the gauge and damping parameters, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻², d > 0.3168 γ_C²,
+N_NM > 4.7158 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and N_NM > 6.654 γ_C², so that log₁₀ δ < −2.163 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and
+log₁₀ δ < −3.052 γ_C² ([[thm:ec-lb-proved]], [[cor:ec-lb-delta]]); these bounds tend to infinity as z or γ_C⁻¹ tends
+to 0, so that no upper bound for d holds on all of that set ([[rem:ec-lb-unbounded]]). At the
 computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 × 10²¹, so that log₁₀ δ < −1.351 × 10²¹
 ([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ at every admissible choice of
 the weights, for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). These are lower bounds for the

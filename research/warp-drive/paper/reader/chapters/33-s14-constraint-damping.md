@@ -1359,8 +1359,8 @@ they persist on a neighbourhood U of b₀. A future timelike V has dr(V) < 0, so
 
 **Lemma {#lem:iv5-0-4}** (The fibre algebra and the subprincipal symbol; [Hin26a, Lemmas 3.3–3.9, Corollary 3.6] in
 dimension 4 + 1.) At every point of M^♭, [[lem:iv4-1-1]] and [[lem:iv4-1-causal]] hold for (g, rc, e), with
-B := g⁻¹ − (1 + e)G(c)⁻¹c♯ ⊗ c♯. The skew-adjoint part S := (2ih)⁻¹(L_h − L_h*), adjoint for |dg| and B, is the bundle
-map of [[eq:s14-s]], which is [Hin26a, Lemma 3.9] in dimension 4 + 1. There is C > 0, uniform for b ∈ U, such that
+B := g⁻¹ − (1 + e)G(rc)⁻¹(rc)♯ ⊗ (rc)♯. The skew-adjoint part S := (2ih)⁻¹(L_h − L_h*), adjoint for |dg| and B, is the
+bundle map of [[eq:s14-s]], which is [Hin26a, Lemma 3.9] in dimension 4 + 1. There is C > 0, uniform for b ∈ U, such that
 C(ρ_sf⁻²ℓ(ζ))² + ρ_sf⁻²G(ζ) is B-positive definite for 0 ≠ ζ ∈ ³ᵇT*_Ω M^♭.
 
 *Proof.* c is past timelike on {r ≥ ½r_♯} ([[sec:iv5-0]]), so [[lem:iv4-1-1]] and [[lem:iv4-1-causal]] apply on each
@@ -1945,7 +1945,7 @@ free of the dimension.
 applies, on N := ℝ_t × {r > ½r_♯} and R := {r ≥ r_♯, τ ≤ T_0}, with f_1 := τ − T_0, f_2 := r_♯ − r and
 w := ρ_sf^(−α_sf−2)e^(−𝔛τ), so that a = wH(T_0 − τ)H(r − r_♯). Its bulk term carries
 −d(w²) = 2w²(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf), and its two boundary terms carry dτ on {τ = T_0} and −dr on Σ^♯; these are
-the parts of −a da = −½d(a²) with the weights 𝔛a² + ½w²δ(T_0 − τ) and ½w²δ(r − r_♯).
+the three parts of −a da = −½d(a²) = a²(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) + ½w²δ(T_0 − τ)dτ − ½w²δ(r − r_♯)dr.
 The hypotheses of [[cor:iv5-6-energy]] (ii) hold uniformly for b ∈ U. The components of g and rc, continuous on the
 compact Ω and in b ([[lem:iv5-0-2]] (a), (d)), lie in a compact set of pairs, rc being past timelike
 ([[lem:iv5-0-5]] (1)); e = 1/102400 < 2/5; and r(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) = 𝔛(dt − τ dr) − (α_sf + 2)dr,
@@ -3534,6 +3534,7 @@ and [[cor:s14-eps-ind-point]] are used by none of them. For h ∈ 𝖧 the theor
 [[prop:np-10-52]] (iii) gives for every such h. [[lem:s14-delta50]] and the sums of the gauge potential offsets of
 [[prop:gap-sums]] concern numbers fixed by the gauge parameters (e_Υ, γ_Υ) alone, not by h, so they hold whatever h is.
 What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
-every constant, and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50.
-[[cor:s14-eps-ind-point]] shows that this upper bound is attained at the end h = 10⁻⁶ of the interval on which ε_ind is
+every constant, and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50 and the bound
+ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]], which is the smaller for h ≤ 6.309·10⁻⁹. [[cor:s14-eps-ind-point]] shows that
+the upper bound δ_50 is attained at the end h = 10⁻⁶ of the interval on which ε_ind is
 defined.
