@@ -621,3 +621,214 @@ The places that meet roots outside the window allow multiplicity: ℰ_K, l_* and
 - 1 is true: (C1) gives γ_Cv_C > 49.5, so s_C > 49.4995 at v_C = ½.
 - 2, 3 and 5 are true. For 5, z ≤ 4ϵ_1³ is needed.
 - 4 is the open question above.
+
+---
+
+## Final (round 2): proofs/P-ADM.md at md5 321077a8168dd1940db23a33397ee7fa, 1,335 lines
+
+This round read:
+- the whole file;
+- the writer's reports P-ADM-b.md (the cap removed) and F-P-ADM.md (the fix round);
+- the chapters at HEAD 2768bfb8. They are identical to those at fb87f2fc, where P-LB, the explicit K, P-T78 and P-T49
+  are merged, and to the working tree.
+
+**Verdict: NOT CONFIRMED, 0 Major, 1 minor, 4 nits.**
+- All of m1–m7 and n1–n12 are resolved.
+- The cap removal is complete, and no proof step at an admissible point uses h ≤ 10⁻⁶ silently.
+- All 58 old texts occur exactly once at HEAD, at the lines the item headers give, and no two items overlap.
+- My own scratch merge is clean: lint 0 hits, assemble 4652 labels and 0 problems.
+
+The one minor finding is in the notes: the P-TR paragraph no longer matches P-TR, which now carries its own texts
+against this file. Once that paragraph is replaced (text below), I would confirm the file; the 4 nits do not block it.
+
+### The round-1 findings
+
+| finding | status | where |
+|---|---|---|
+| m1 | resolved | The crosswalk rows are only in the crosswalk section (lines 1106–1108). They are pinned `@PENDING:20/63/105`, which are the label lines 20, 63 and 105, in P-T49's convention. Item 14's new text is clean. |
+| m2 | resolved | Item 20 is 46:1706–1711. In the merge the blank line 1712 stays, and the definition starts a new paragraph (checked in the merged chapter). |
+| m3 | resolved | Items 22, 28, 33, 40, 44 and 53 are rebased on the merged texts. Item 33 is the 23-line remark with P-T49's sentence. |
+| m4 | resolved | Items 42, 43, 46, 49 and 52. |
+| m5 | resolved | Items 57 and 58. Item 58 is my text, against 33:3866–3872. |
+| m6 | resolved | Renamed (AP0)–(AP4). "(P1)–(P5)" remains only in the note on line 11, where it names lem:iii-i15-1-1. |
+| m7 | resolved | Items 54–56. |
+| n1–n12 | resolved | n1 (line 189), n2 (59), n3 (97), n4 (lines 504–505 and 813), n5 (66, 75), n6 (154–156), n7 (item 48), n8 (Part C, 236–238, with "and h ≤ 10⁻⁶"), n9 (item 45), n10 (268, 286–287), n11 (crosswalk notes), n12 (line 36). |
+
+Two decisions of the writer:
+- *m4, item 49.* The writer chose 03:314–316 instead of my 316–318, so that the "bounded below" clause can carry the cap
+  qualifier. That is right. The new fourth line "admissible choice of the" joins 03:317 correctly.
+- *m7, item 56.* The writer is right and my wording was wrong. cor:s14-eps-ind-point and prop:s14-damping-distance are
+  used in chapter 71, at 71:52, 1406, 3114–3116 and 3862, so "used in the proof of no theorem" is false. "Used by no
+  step of the proof of [[thm:settling]]" is true, since no result of chapter 71 is used outside it.
+
+### The cap removal, against my list
+
+**(AP0) states both conditions explicitly** (lines 27–28): s_C > 100 and (C1), the latter for □^C_b, b near b₀. It also
+keeps e_Υ < 1 and γ_Υ < ¼. The consequences are derived correctly:
+- γ_C = 2s_C/(1 − e_C) > 200, so γ_Cv_C > 100, which gives (C5);
+- z_Υ ∈ (0, ¼);
+- γ_Υ < min(½s_C, ⅜);
+- δ_♯ ∈ (0, ¼).
+
+(C1) is now asked by the definition, not derived. This is needed: (C1) gives only s_C > 49.49 (side finding 1), and no
+result proves (C1) for h > 10⁻⁶.
+
+**Where the cap was derived before, it is now read from (AP0):**
+- (b) (line 122);
+- (f) (line 135);
+- (h) (lines 139–140);
+- (j) (line 147);
+- step (2) (line 96);
+- row a1;
+- item 19 (sec:iii-k-0);
+- item 38 ("(C1) holds by (AP0)");
+- item 39 ("(C1), part of (AP0)");
+- Part C at the point ((C1) at h = 10⁻⁶ by lem:iv4-1-3 (a), closed at 10⁻⁶).
+
+The proof of prop:vi-c-adm-exist (line 70) now shows s_C > 100 and (C1) from h < 10⁻⁶. The new item 6 gives the opening
+of ch:s16 the clause "(AP0) … at every admissible point".
+
+**Every lower-bound sentence carries the qualifier.**
+- In chapter 71:
+  - 71:18–21 (item 31);
+  - 71:73–77 (Part C);
+  - 71:1484–1487 (item 34, which also covers the "([[thm:ec-lb-proved]])" at 1487);
+  - 71:1535–1536 (item 35);
+  - 71:1555–1562 (item 36);
+  - thm:ec-lb-proved: title and hypothesis (item 37);
+  - its proof (item 38);
+  - rem:ec-lb-conditions (items 39–40; "each of which, except h ≤ 10⁻⁶, holds at every point of the proved set");
+  - rem:ec-lb-unbounded (item 41);
+  - rem:uc-data-order-limits (item 43);
+  - rem:ec-not-evaluated (item 44).
+- 00:33–36 (item 47), 01:152–156 (item 48), 03:314–316 (item 49), 03:359–365 (item 50) and 90:66–70 (item 51).
+- cor:ec-lb-delta is stated "in the setting of [[thm:ec-lb-proved]]", so it inherits the hypothesis. lem:ec-lb-ind
+  already assumes 0 < h ≤ 10⁻⁶.
+- I grepped the chapters at HEAD for every citation of thm:ec-lb-proved, cor:ec-lb-delta, lem:ec-lb-ind and
+  lem:ec-lb-rounds, and for the numbers 0.3168, 2.2456, 4.7158, 6.654 and 3.052. Every hit is inside one of these items
+  or is a proof step under the theorem's own hypothesis.
+- "d is unbounded on the proved set" and "no upper bound holds on all of it" stay true without the qualifier, because
+  prop:vi-c-adm-exist gives admissible points with h arbitrarily small, at which the bound holds.
+
+**No silent use of h ≤ 10⁻⁶ at an admissible point.** I grepped the results that thm:vi-c-adm-holds (1) covers
+(chapter 32 from sec:iii-d2-1, chapter 33 from sec:iii-e-2 to sec:iii-e1-3, chapters 34–48 and 60) for 10⁻⁶, 10⁶, h_*,
+γ_C bounds and every citation of the h-dependent results of chapter 33: lem:iv4-1-*, thm:iv*, prop:np-10-5*,
+sec:s14-every-h, *s14-* labels. The hits are:
+- *Sites that items 1, 8 and 19–28 rewrite.*
+- *Explicit s_C > 100 sites,* which (AP0) covers: 34:76, 38:53, 38:1200–1202, 45:53, 45:802, 45:1632, 46:1852.
+- *Remarks on the gauge point that no proof step uses:*
+  - 34:35 and 34:452–453 (δ_50 and prop:np-10-52);
+  - row w1's remark at 46:1769–1771;
+  - 34:492 (P-T49's sentence in the proof of (e), unused).
+  The bound ε_ind ≤ δ_50 at (1/100, 1/100) holds at every h anyway, the entry −49 − δ_50 being independent of h.
+- *33:2958 (prop:iii-e1-3-1).* It cites "the proof of [[lem:iv4-1-6]], (H2)" for the principal symbol of ρ⁻²P^C_b,
+  which does not depend on h, and (H2) is part of (AP1) in any case.
+
+The step-4 use of thm:iii-e-1-1 (4) is in (AP4), and (H1)–(H4) with ½ + ϑ_ℋ < −C_0 are in (AP1). lem:iii-f2-1-1 and
+cor:iii-f2-1-2 hold at every γ_C. The 1-form c_C of sec:iv4-0 does not depend on h.
+
+### Old texts and the scratch merge
+
+- I parsed all 58 items:
+  - every old text occurs exactly once in the chapters at HEAD 2768bfb8;
+  - every header's line range is exactly where the old text sits;
+  - no two items overlap;
+  - every "Old/New, the N lines" count is correct.
+- I built an independent scratch merge, with my own script and not the writer's: the chapters at HEAD, then all 58
+  items, with Blocks A1–A4, B1–B3 and Part C substituted as the headers say. In the merged chapter 46, the rows read c1,
+  u1, a1, b1–b4, w1–w2, d1–d2, n1, and thm:vi-c-adm-holds follows the paragraph after the proof of thm:vi-c-2-1.
+  - `lint.py --chapters`: 62 files, 4652 labels, **0 hits**.
+  - `assemble.py --check`: **labels 4652, problems 0**.
+- In the file itself:
+  - every line is at most 121 characters;
+  - with labels resolved conservatively, only the notes line 15 exceeds 121;
+  - the only wrapped "- " starts are the bullets of item 39, as in the chapter;
+  - all labels are lowercase;
+  - every label cited is defined in the chapters at HEAD or in P-ADM, except thm:tr-transfer, rem:tr-scope and
+    prop:tr-fail, which appear only in the P-TR notes.
+- Other proof files:
+  - P-F123 (ebfba4ae): its item 15 (front matter 37–38) and item 13 (ch01 157–159) are compatible with items 47 and 48
+    in the merge.
+  - P-TR (35df0aaf): every old text of its form B occurs once in the merged tree, at 71:29, 71:84, 71:1815, 03:364,
+    90:81, 71:5236 and 71:5244. Its item 7 is at 33:3541, not at the "3537 in form B" it states; that is P-TR's line
+    number, not this file's.
+
+### New findings
+
+#### F1. minor (notes; a merge hazard): the P-TR paragraph conflicts with P-TR's own form B (lines 1200–1288)
+
+Current text (lines 1200–1201, and the texts that follow down to line 1288): "*P-TR (not merged).* Nothing in P-TR's
+mathematics changes. [[thm:tr-transfer]] is stated at h ∈ 𝖧 ∩ [h₁, 10⁻⁶), within the cap, … Its texts 2–6 change the
+places of items 32, 33, 41, 50 and 52 of this file. If P-TR merges after this file, its texts 2–6 read as follows, …"
+
+What is wrong:
+- *Two sets of texts for the same lines.* P-TR (md5 35df0aaf) now gives its own form B against this file's new texts:
+  - item 1b;
+  - items 2, 3, 5, 6 and 8, against the new texts of items 32, 33, 50, 52 and 43;
+  - item 4, after item 41;
+  - item 7, after item 56.
+
+  This paragraph gives different new texts for the same lines, with different line ranges. For example, its text 2
+  replaces three lines where P-TR's form B replaces one.
+- *Wrong overlaps.* The paragraph names items 32, 33, 41, 50 and 52. P-TR's item 4 lies after item 41 without
+  overlapping it; its item 8 overlaps item 43, which the paragraph does not name; and item 1b is not mentioned.
+- *Out of date.* thm:tr-transfer is now stated for h_m ≤ h < 10⁻⁶, h ∉ 𝖩, with (h, 1/100, 1/100) admissible. It no
+  longer takes h ∈ 𝖧, so "is stated at h ∈ 𝖧 ∩ [h₁, 10⁻⁶)" no longer describes P-TR.
+
+Replacement: lines 1200–1288 (from "*P-TR (not merged).*" through "Its text 7 ([[rem:s14-eps-ind-scope]] in
+[[ch:s14]]) does not overlap this file.") become:
+
+    *P-TR (not merged).* P-TR gives its own texts against this file (its form B): its item 1b states its notion of an
+    admissible parameter point (h, 1/100, 1/100) through [[def:vi-c-admissible]], and its items 2, 3, 5, 6 and 8 change lines
+    of the new texts of items 32, 33 (Part C), 50, 52 and 43 of this file. Its item 4 changes the two lines after item 41,
+    and its item 7 lines of [[rem:s14-eps-ind-scope]] after item 56; neither overlaps this file. Each old text of P-TR's
+    form B occurs exactly once in the chapters after this file is applied. This file gives no text of P-TR; if its new texts
+    of items 32, 33, 43, 50 or 52 change again, P-TR's form B is to be checked against them.
+
+(Widths 113, 121, 118, 116, 120 and 88.)
+
+#### N1. nit: the usage paragraph credits γ_Υ < ½s_C to item (f) (line 50)
+
+Current: "Each condition is used, and the proof of [[thm:vi-c-adm-holds]] says where: s_C > 100 in its item (f), directly
+and / through γ_Cv_C > 100 and γ_Υ < ½s_C; …"
+
+γ_Υ < min(½s_C, ⅜) is listed in item (l), not in (f).
+
+Replacement for line 50 (114 characters; line 51 unchanged):
+
+    Each condition is used, and the proof of [[thm:vi-c-adm-holds]] says where: s_C > 100 in (f) and (l), directly and
+
+#### N2. nit: (AP3) splits "Im σ" across a line break (lines 36–38)
+
+Replacement for lines 36–38 (four lines, widths 116, 118, 101 and 20):
+
+    (AP3) there is a neighbourhood ℬ(γ_(Υ,H)) of b₀ (depending on 𝗉) such that for every b ∈ ℬ(γ_(Υ,H)) and every σ with
+    Im σ ≥ 0, (□^Υ_b)^(σ) is invertible, as a map 𝒳_σ → 𝒴_σ when σ ≠ 0, and as a map 𝒳_0 → 𝒴_0 for every s > 3/2 and every
+    α with α + 2 ∈ (0, ι^Υ_(s1,2)) when σ = 0 (the spaces of [[sec:iii-d1-1]]); this is the conclusion of
+    [[prop:iii-d1-4-1]];
+
+#### N3. nit (optional): item 54's new text ends with a line that holds only "The" (line 1034)
+
+Replacement for the new text (three lines, the last no longer a single word):
+
+    Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters; the
+    results that [[thm:vi-c-adm-holds]] (1) lists hold as well with γ_C = h⁻¹ at every admissible point
+    ([[def:vi-c-admissible]]). The
+
+#### N4. nit (optional): crosswalk row note (line 1107)
+
+"new: replaces rows c2–u5" reads as if row u1 were replaced too. Replace by "new: with def:vi-c-admissible, replaces
+rows c2–c4 and u2–u5".
+
+### Checked again and found correct in this revision
+
+- Parts A–C read line by line against the chapters.
+- The definition's new paragraph on where each condition is used matches the items of the proof.
+- prop:vi-c-adm-exist with ℬ(γ_(Υ,H)) ∩ ℬ_VI.
+- thm:vi-c-adm-holds (b), (f), (h) and (j) with the explicit (AP0).
+- Part (g) and Blocks B1–B3, unchanged.
+- Part C, with (AP0) at the point, the three open conditions, and the qualifier in its last two sentences.
+- Items 6, 31, 34–41, 43, 44 and 47–58 read in context. Each joins the line after it in the merged tree.
+- The interactions on P-LB, the explicit K, P-T78 and P-T49 agree with the merged texts.
+- Side findings 1–5 are unchanged and true. Side finding 1 now also explains why (AP0) asks s_C > 100 and (C1)
+  separately.
