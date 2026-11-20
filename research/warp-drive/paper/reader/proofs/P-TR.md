@@ -19,7 +19,8 @@ h ∈ 𝖧 ∩ [h₁, 10⁻⁶) outside a set 𝖩 ([[def:tr-exceptional]]), and
 integers, at finitely many values of h for each degree, and near such a value ε_ind(h) tends to 0. 𝖩 is a finite union
 of intervals of total length below 1.7·10⁻¹¹ ([[prop:tr-measure]]), and it cannot be dropped: near a crossing every
 admissible choice of the weights gives d_acc > D_acc ([[prop:tr-fail]]). The lower end h₁ is fixed by the root of P_2
-near 2, which lies at 2 + (40/13)h(1 + O(h)): below 13ε_Υ/40 = 4.7512…·10⁻¹¹ no h satisfies the hypothesis.
+near 2, which lies less than 153600h² below 2 + 40h/13: below 13ε_Υ/40 = 4.7512…·10⁻¹¹ no h satisfies the
+hypothesis.
 
 *Setting.* Throughout this section e := e_C = 1/102400 and v := v_C = 1/2; h ∈ (0, 10⁻⁶] and ϖ := h/e = 102400h, so
 0 < ϖ ≤ 0.1024; for l ≥ 1, κ := l(l + 2), x := hκ and y := eκ, so that x = ϖy and y depends on l alone; P_l,
@@ -45,7 +46,7 @@ h₁ ≤ h < 10⁻⁶ and h ∉ 𝖩, and suppose that, with this h, the gauge p
 [[thm:vi-c-2-1]] places on them, for some γ_(Υ,H). Take (v_C, e_C) of [[eq:iv4-0-1]], the index sets as constructed,
 and the choices of [[def:uc-choice]] and [[def:cs-choices]]. Then:
 
-(i) (*the inputs*) ε_Υ ≤ ε_ind(h) ≤ min(δ_50, ι₂ − 2) < min(δ_50, 40h/13), where ι₂ is the root of P_2 with
+(i) (*the inputs*) ε_Υ ≤ ε_ind(h) ≤ min(δ_50, ι₂ − 2), where ι₂ is the root of P_2 with
 (40/13 − 153600h)h < ι₂ − 2 < 40h/13; the exponents of ℰ^ι_ind of real part at most 5 are those of ℰ_ind, the integers
 1, …, 5 and numbers of real part greater than 3, none an integer; every indicial root of L̂_b(0) of real part in
 [−101, 5] is simple; and every pole of N_ι⁺(L̄, ·)⁻¹ of real part at most 5 is simple ([[prop:tr-eps]],
@@ -179,14 +180,14 @@ U(a) ≥ 1.9846·0.4/32 > 0.0248. And |F(a)| ≤ Ā₀(0.01536, 0.1024) + 10⁻�
 ≤ 4.832 + 0.0009, as a ≤ 2.5116. So e|F(a)| < 4.8·10⁻⁵ and P_l(a) > 0.
 
 *At 3 − y/2.* U(3 − y/2) = (y/4)(y + 2ϖy − 2)(4 − 8ϖ + y + 3ϖy + 2ϖ²y), whose second factor is at most
-−2 + 0.15·1.2048 < −1.8192 and whose third is at least 4 − 0.8192; so U(3 − y/2) ≤ −1.4467y. Further
+−2 + 0.15·1.2048 < −1.8192 and whose third is at least 4 − 0.8192; so U(3 − y/2) ≤ −1.4466y. Further
 
     F₁(3 − y/2) = −8ϖ − y(10 + 24ϖ − 28ϖ²) + y²(25/4 + 17ϖ/2 − 53ϖ²/2 − 11ϖ³)
                   + y³(−5/8 + 9ϖ/8 + 19ϖ²/2 + 6ϖ³) − y⁴(5ϖ/16 + ϖ² + 3ϖ³/4),
 
 so |F₁(3 − y/2)| ≤ 8ϖ + 13.89y, and h|F₂| + h²|F₃| ≤ 10⁻⁶F̄₂(3, 0.01536) + 10⁻¹²F̄₃(3) < 0.0016 there. Hence
-e|F(3 − y/2)| ≤ 8h + 1.357·10⁻⁴y + 1.6·10⁻⁸, which is below 1.4467y, as y ≥ 3e > 2.9297·10⁻⁵ gives
-(1.4467 − 1.357·10⁻⁴)y > 4.23·10⁻⁵ > 8·10⁻⁶ + 1.6·10⁻⁸. So P_l(3 − y/2) < 0.
+e|F(3 − y/2)| ≤ 8h + 1.357·10⁻⁴y + 1.6·10⁻⁸, which is below 1.4466y, as y ≥ 3e > 2.9297·10⁻⁵ gives
+(1.4466 − 1.357·10⁻⁴)y > 4.23·10⁻⁵ > 8·10⁻⁶ + 1.6·10⁻⁸. So P_l(3 − y/2) < 0.
 
 *Near 2.* (a) P_1(2) = 0 ([[prop:np-10-12]] (iii)); with the signs −, +, − at 2 + y, a, 3 − y/2 this gives the three
 roots. (b) At l = 2, κ = 8, put ι = 2 + τh. Substituting into [[eq:tr-split]] with x = 8h and dividing by he = ϖe²,
@@ -204,7 +205,7 @@ f(τ₀) = −9280/169 − (3ϖ/2)(17/13) + 9ϖ²/2 > −54.912 − 1.9616ϖ, so
 𝒬(2 + t) = (x − 2t)(1 + x − t) + (3 − 2ϖ)y ≥ 2.7952y, and U(2 + t) = (x − t)𝒬(2 + t) ≥ 2.7952heκ(κ − 3.1). By
 [[eq:tr-split]], F(2) = −x(9 − x − 3ϖ + 2ϖx + 3h + 3ϖh), so |F(2)| ≤ 9.326x, and |∂_ιF| ≤ 15.64 on [2, 2 + t], by the
 majorant of ∂_ιF(2 + t′, x, ϖ, h) in t′ ≤ 3.1·10⁻⁶ and x ≤ 0.01536. So e|F(2 + t)| ≤ he(9.326κ + 48.49), and
-2.7952κ(κ − 3.1) − 9.326κ − 48.49 is 310.4… at κ = 15 and increases for κ ≥ 15. So P_l(2 + t) > 0; with the signs
+2.7952κ(κ − 3.1) − 9.326κ − 48.49 is 310.56… at κ = 15 and increases for κ ≥ 15. So P_l(2 + t) > 0; with the signs
 at 2 + y, a and 3 − y/2 this gives the three roots. ∎
 
 **Lemma {#lem:tr-large}** (The degrees with y ≥ 3/20.) Let 0 < h ≤ 10⁻⁶ and l ≥ 123, so that y ≥ 3/20, and let
@@ -224,9 +225,10 @@ greater than 19/10 are ι_B(l, h), ι_P(l, h) and its conjugate. If |ι_P(l, h) 
 (d) If x ≥ 70, no root of P_l satisfies |ι − 1| ≤ 50.
 
 *Proof.* (a) By [[eq:tr-split]], 𝒬(2 + x + s) = 3(1 − ϖ)y + (x − 2)s + 2s², and 3(1 − ϖ)y ≥ max(0.40392, 26.296875x),
-since y ≥ 3/20, ϖ ≤ 0.1024 and (1 − ϖ)y = x(1/ϖ − 1) ≥ 8.765625x. On |s| = r, |U| = r|𝒬| and U has the single root
-2 + x in |s| < r, the roots of 𝒬 lying at distance (3(1 − ϖ)y/2)^(1/2) ≥ 0.449 from 2 + x. By Rouché's theorem it
-suffices that e|F| < r|𝒬| on |s| = r; then P_l has exactly one root there, simple, and real, as P_l has real
+since y ≥ 3/20, ϖ ≤ 0.1024 and (1 − ϖ)y = x(1/ϖ − 1) ≥ 8.765625x. On |s| = r ≤ 1/4, |U| = r|𝒬|, and U has the
+single root 2 + x in |s| < r: the roots of 𝒬 lie at distance (3(1 − ϖ)y/2)^(1/2) ≥ 0.449 from 2 + x if they are
+non-real, and at distance (2 − x)/4 − Δ^(1/2)/4 > 0.27 if they are real, as then x ≤ 0.0187 and Δ ≤ 0.78. By Rouché's
+theorem it suffices that e|F| < r|𝒬| on |s| = r; then P_l has exactly one root there, simple, and real, as P_l has real
 coefficients and the disc is symmetric about ℝ. On |s| = r, |F(2 + x + s)| ≤ x|g_B| + rF̄_ι(2 + x + r, x) by
 [[eq:tr-gb]] and the mean value theorem. For r = x/2 and x ≤ 1/2: |𝒬| ≥ 3(1 − ϖ)y − x ≥ max(0.40392 − x, 25.296875x)
 ≥ 0.3885, so |U| ≥ 0.194x, while e|F| ≤ ex(ḡ_B(1/2) + F̄_ι(11/4, 1/2)/2) ≤ ex(30.14 + 222.7) < 0.0025x. For
@@ -246,7 +248,7 @@ m := max(|x_a − 2|, |x_b − 2|), which bound e|F| and r|𝒬| from above and 
 In every row the fourth entry is below the fifth.
 
 (b) Here x = ϖy ≤ 0.02048 and Δ = 4 + 20x + x² − 24y lies in [−0.8, 0.81], so the roots of 𝒬 lie within 0.225 of a,
-while |2 + x − a| = (2 − x)/4 ≥ 0.4948. On |ι − a| = 2/5, |U| ≥ 0.0948·2·0.175² > 0.00581. There |ι| ≤ 2.9155, and
+while |2 + x − a| = (2 − x)/4 ≥ 0.4948. On |ι − a| = 2/5, |U| ≥ 0.09488·2·0.175² > 0.00581. There |ι| ≤ 2.9155, and
 by [[eq:tr-aj]], |F| ≤ Σ_j Ā_j(0.02048, 0.1024)(2/5)^j + 10⁻⁶F̄₂(2.9155, 0.02048) + 10⁻¹²F̄₃(2.9155), with
 Ā₀, …, Ā₄ ≤ 4.9526, 1.7264, 18.695, 6.7555, 0.512; so |F| ≤ 9.081 and e|F| < 9·10⁻⁵ < |U|. By Rouché's theorem P_l
 has as many roots in |ι − a| < 2/5 as U, namely the two roots of 𝒬. The disc of (a) with r = x/2 is disjoint from
@@ -298,10 +300,10 @@ disc of (a), as d − r > 1/100; by symmetry its conjugate holds exactly one roo
 three roots of real part greater than 19/10 ([[prop:np-10-54]] (i)), and the root in the upper disc is ι_P(l, h).
 Finally |ι_P − 1| ≥ Im ι_P > b − r, which exceeds 50 if b > 50.2 (r ≤ 1/5 for b ≤ 56, r = b/10 for b ≥ 56).
 
-(d) For |ι − 1| ≤ 50, |ι| ≤ 51 and Re ι ≤ 51, so |2 + x − ι| ≥ x − 49. The roots of 𝒬 are non-real for x ≤ 214.36,
-as Δ < 0 there (24y ≥ 234.375x and x² − 214.375x + 4 < 0), with real part a; for larger x they are real and at least
-a − (2 + x)/4 = x/2 + 2, as Δ < (2 + x)². So |𝒬(ι)| ≥ 2m², with m := (3x − 194)/4 ≥ x/17.5 for 70 ≤ x ≤ 214.36 and
-m := x/2 − 49 ≥ 0.2714x beyond, and |U| ≥ 2(x − 49)m² ≥ 0.001959x³ for x ≥ 70. On the other side
+(d) For |ι − 1| ≤ 50, |ι| ≤ 51 and Re ι ≤ 51, so |2 + x − ι| ≥ x − 49. The roots of 𝒬 are non-real for x ≤ 214.35,
+as Δ < 0 there (24y ≥ 234.375x and x² − 214.375x + 4 < 0), with real part a; for larger x they have real part a or
+are real and at least a − (2 + x)/4 = x/2 + 2, as Δ < (2 + x)². So |𝒬(ι)| ≥ 2m², with m := (3x − 194)/4 ≥ x/17.5 for
+70 ≤ x ≤ 214.35 and m := x/2 − 49 ≥ 0.2714x beyond, and |U| ≥ 2(x − 49)m² ≥ 0.001959x³ for x ≥ 70. On the other side
 |F| ≤ F̄(51, x) = c₀ + c₁x + c₂x² with c₀ < 4,646,946, c₁ < 141,543, c₂ < 882.57, so for x ≥ 70,
 e|F| ≤ ex²(c₀/4900 + c₁/70 + c₂) < 0.0377x² < 0.001959·70x² ≤ |U|. So P_l = U + eF has no zero with
 |ι − 1| ≤ 50. ∎
@@ -349,8 +351,8 @@ right side is at most the last column there, at most 0.2923; so ∂_h Re ι_P �
 
 #### The four inputs {#sec:tr-inputs}
 
-**Proposition {#prop:tr-eps}** (The number ε_ind(h).) (a) For every h ∈ (0, 10⁻⁶], ε_ind(h) ≤ min(δ_50, ι₂ − 2) <
-min(δ_50, 40h/13), with ι₂ of [[lem:tr-small]].
+**Proposition {#prop:tr-eps}** (The number ε_ind(h).) (a) For every h ∈ (0, 10⁻⁶], ε_ind(h) ≤ min(δ_50, ι₂ − 2) with
+ι₂ of [[lem:tr-small]], and ι₂ − 2 < 40h/13.
 
 (b) Every h ∈ [h₁, 10⁻⁶] ∖ 𝖩 satisfies (H_ε), and then ε_ind(h) ≥ ε_Υ.
 
@@ -367,7 +369,7 @@ a root of P_l; then Re ι > 19/10 ([[prop:np-10-54]] (i)). For l ≤ 122, [[lem:
 distance more than min((40/13 − 153600h)h, 3.1h, 3e, 3e/2) from 2 and 3, apart from ι = 2 at l = 1; as h ↦ (40/13 −
 153600h)h increases on (0, 10⁻⁶] and is 1.46461…·10⁻¹⁰ at h₁, and 3.1h₁ = 1.4756·10⁻¹⁰, this is at least ε_Υ. For
 123 ≤ l ≤ 142 (3/20 ≤ y ≤ 1/5), [[lem:tr-large]] (a), (b) give ι = ι_B ∈ (2 + x/2, 2.031), with
-x/2 = hκ/2 ≥ 7564h > ε_Υ, or Re ι ∈ (2.1, 2.92). For l ≥ 143 and x ≤ 70: if ι = ι_B and x ≤ 1/2, ι ∈ (2 + x/2, 2.75)
+x/2 = hκ/2 ≥ 7687h > ε_Υ, or Re ι ∈ (2.1, 2.92). For l ≥ 143 and x ≤ 70: if ι = ι_B and x ≤ 1/2, ι ∈ (2 + x/2, 2.75)
 with x/2 ≥ 10240h > ε_Υ; if ι = ι_B and x > 1/2, ι is real and within ε_Υ of an integer only if that integer n lies in
 [3, 51] (as |ι − 1| ≤ 50), which h ∉ 𝖩 excludes; if ι = ι_P or its conjugate, then b ≤ 50.2 by [[lem:tr-large]] (c),
 Re ι ∈ (a − 1/5, a + 1/5) ⊂ (2.3, 51.2), and Re ι lies within ε_Υ of an integer only if that integer lies in [3, 51],
@@ -477,7 +479,7 @@ and ε_ind(h) ≤ δ_50 and hold at every h ∈ 𝖧 at which the gauge point is
 #### The exceptional set {#sec:tr-exceptional}
 
 **Proposition {#prop:tr-measure}** (The size of 𝖩.) 𝖩 is a union of finitely many intervals, and its total length is
-below 1.7·10⁻¹¹, less than 1.7·10⁻⁵ times the length of [h₁, 10⁻⁶].
+below 1.698·10⁻¹¹, less than 1.7·10⁻⁵ times the length of [h₁, 10⁻⁶].
 
 *Proof.* For fixed l and n, write 𝖩_B(l, n), 𝖩_P(l, n) and 𝖩_v(l, n) for the three parts of the set of
 [[def:tr-exceptional]] (c).
@@ -490,8 +492,8 @@ below 2ε_Υ/(0.98κ). The least l with l(l + 2) > (n − 2.0101)·10⁶ is L_n 
 and the sum is at most 0.9899^(−1/2) + 2(48.9899^(1/2) − 0.9899^(1/2)) < 13.014; so it is below 0.02659ε_Υ.
 
 *𝖩_P.* On {b ≤ 50.2}, which is an interval of h as b² = (24y − (2 + x)² − 16x)/16 decreases in h at fixed l, Re ι_P
-lies within 1/5 of a ([[lem:tr-large]] (c)); so |Re ι_P − n| < ε_Υ forces |x − x_n| < (4/3)(1/5 + ε_Υ), x_n := (4n − 10)/3,
-whence 1/2 ≤ x ≤ 70 and κ ≥ (4n/3 − 3.6001)·10⁶. There ∂_h Re ι_P ≥ (2/5)κ ([[lem:tr-slopes]] (b)), so 𝖩_P(l, n) is an
+lies within ϱ of a ([[lem:tr-large]] (c)); so |Re ι_P − n| < ε_Υ forces |x − x_n| < (4/3)(ϱ + ε_Υ), with
+x_n := (4n − 10)/3 ≥ 2/3, whence 1/2 < x ≤ 70 (ϱ = 1/20 for x ≤ 20) and κ ≥ (4n/3 − 3.6001)·10⁶ (ϱ ≤ 1/5). There ∂_h Re ι_P ≥ (2/5)κ ([[lem:tr-slopes]] (b)), so 𝖩_P(l, n) is an
 interval of length below 5ε_Υ/κ, and the least l is at least 1000(4n/3 − 3.6001)^(1/2) − 1 ≥ 631. As
 Σ_(n=3)^(51)(4n/3 − 3.6001)^(−1/2) ≤ 0.3999^(−1/2) + (3/2)(64.3999^(1/2) − 0.3999^(1/2)) < 12.671, the total length of 𝖩_P is
 below 5ε_Υ·1.0016·10⁻³·12.671 < 0.06346ε_Υ.
@@ -499,27 +501,27 @@ below 5ε_Υ·1.0016·10⁻³·12.671 < 0.06346ε_Υ.
 *𝖩_v.* ι_v(l, ·) increases in h, and |ι_v(l, h) − n| < ε_Υ for some h ≤ 10⁻⁶ forces ι_v(l, 10⁻⁶) > n − ε_Υ, that is
 (l + 1)² > (n − 1)² + 10⁶(n − 3) − 10⁻⁴ by the closed form of [[lem:s14-vector-distance]], so l ≥ 1000(n − 3)^(1/2) − 1
 ≥ 999. By [[lem:tr-slopes]] (c), 𝖩_v(l, n) is an interval of length below 2ε_Υ/(0.99κ), and as
-Σ_(n=4)^(51)(n − 3)^(−1/2) ≤ 1 + 2(48^(1/2) − 1) < 12.857, the total length of 𝖩_v is below (2ε_Υ/0.99)·1.001·10⁻³·12.857 <
-0.02600ε_Υ.
+Σ_(n=4)^(51)(n − 3)^(−1/2) ≤ 1 + 2(48^(1/2) − 1) < 12.857, the total length of 𝖩_v is below
+(2ε_Υ/0.99)·1.0011·10⁻³·12.857 < 0.02601ε_Υ.
 
-Only finitely many l occur, as κ ≤ 70/h₁ in each case. The total length is below (0.02659 + 0.06346 + 0.02600)ε_Υ <
-0.1161ε_Υ < 1.7·10⁻¹¹. ∎
+Only finitely many l occur, as κ ≤ 70/h₁ in each case. The total length is below (0.02659 + 0.06346 + 0.02601)ε_Υ <
+0.1161ε_Υ < 1.698·10⁻¹¹. ∎
 
 **Proposition {#prop:tr-fail}** (The bound fails near a crossing.) Let h ∈ 𝖧, and suppose that, with this h, (1/100,
 1/100) meets the conditions of [[thm:vi-c-2-1]]. If ε_ind(h) < 1.38·10⁻²⁵, every admissible choice of the weights at
 (h, 1/100, 1/100) gives d_NM ≥ d_acc > D_acc, with D_acc of [[thm:uc-integer]]. Let h_c := 1/1001992 = 9.98012…·10⁻⁷;
-then h_c ∈ 𝖩, ι_v(1000, h_c) = 4, and ε_ind(h) < 1.38·10⁻²⁵ for 0 < |h − h_c| < 1.377·10⁻³¹. So if h_* > h_c, the
-hypothesis of the first sentence holds at points of 𝖧 arbitrarily close to h_c that are admissible for the damping, and
-[[thm:tr-transfer]] (ii) fails at every such point at which the gauge point is admissible.
+then h_c ∈ 𝖩, ι_v(1000, h_c) = 4, and ε_ind(h) < 1.38·10⁻²⁵ for 0 < |h − h_c| < 1.377·10⁻³¹. So if h_* > h_c, there are
+points of 𝖧 arbitrarily close to h_c with ε_ind(h) < 1.38·10⁻²⁵, and [[thm:tr-transfer]] (ii) fails at each of them
+at which the gauge point is admissible.
 
 *Proof.* The proof of [[prop:ec-rounds]] uses of its number δ̂ only that ε_g ≤ δ̂, ε_K < δ̂ and 5δ̂ + δ̄ < 2.1·10⁻⁸.
 As ε_K < ε_+ < ε_ind ≤ ε_ind(h) and ε_g ≤ ε_ind, it applies with δ̂ := ε_ind(h), and gives
-R > (1 − 5δ̂ − δ̄)/δ̂²; so by [[thm:loss-d]] (ii), d_NM ≥ d_acc ≥ 3R > 3(1 − 2.1·10⁻⁸)/(1.38·10⁻²⁵)² > 1.5753·10⁵⁰ >
+R > (1 − 5δ̂ − δ̄)/δ̂²; so by [[thm:loss-d]] (ii), d_NM ≥ d_acc ≥ 3R > 3(1 − 2.1·10⁻⁸)/(1.38·10⁻²⁵)² > 1.5752·10⁵⁰ >
 D_acc. At l = 1000, κ = 1002000 and (n − 3)/((l + 1)² − (n − 1)²) = 1/1001992 at n = 4, so ι_v(1000, h_c) = 4
 ([[lem:tr-c-v]] (b)) and h_c ∈ 𝖩_v(1000, 4). By [[eq:tr-vslope]], 0 < ∂_hι_v ≤ (l + 1)² = 1002001, so for
 0 < |h − h_c| < 1.377·10⁻³¹, 0 < |ι_v(1000, h) − 4| < 1.38·10⁻²⁵, and the entry ι_v − 1 of ℛ^v_1000, of modulus below
-50 and not an integer, bounds ε_ind(h). If h_* > h_c, 𝖧 contains all but countably many points of such a neighbourhood
-of h_c. ∎
+50 and not an integer, bounds ε_ind(h). If h_* > h_c, 𝖧 contains all but countably many points of
+(h_c − 1.377·10⁻³¹, h_c + 1.377·10⁻³¹) ∩ (0, h_*). ∎
 
 The same holds near every point of 𝖩 at which some ι_B, Re ι_P or ι_v equals an integer n ∈ [3, 51]; the number
 1.38·10⁻²⁵ and the bound of [[thm:loss-d]] (ii) make the threshold explicit. For h < 13ε_Υ/40 the condition (H_ε) fails
@@ -533,15 +535,15 @@ source, unindented, each preceded by a line ending "Old:" or "New:". Line number
 sources and serve only to find the place.
 
 *1. Where the section goes.* The section above, from its heading through the paragraph after [[prop:tr-fail]], is
-inserted in [[ch:explicit-constants]] immediately before the heading "### The first constants of the linear theory
-{#sec:ec-linear}" (after the section sec:uc-data-order, if that section has been inserted before it), with one blank
+inserted in [[ch:explicit-constants]] immediately before the heading of [[sec:ec-linear]], "The first constants of the
+linear theory" (after the section sec:uc-data-order, if that section has been inserted before it), with one blank
 line before and one after. It defines sec:tr, def:tr-exceptional, thm:tr-transfer, rem:tr-scope, sec:tr-split,
 lem:tr-split, eq:tr-split, eq:tr-dh, eq:tr-gb, eq:tr-aj, sec:tr-roots, lem:tr-c-v, eq:tr-vslope, lem:tr-small,
 eq:tr-p2, lem:tr-large, lem:tr-slopes, sec:tr-inputs, prop:tr-eps, prop:tr-inputs, sec:tr-proof, sec:tr-exceptional,
 prop:tr-measure and prop:tr-fail, none of which is defined elsewhere. Its two tables are of the size of those of
 [[lem:ec-gauge-gap]] and [[prop:gap-sums]] and stay in the text. No number already printed in any chapter changes.
 
-*2. [[ch:explicit-constants]], its opening paragraph (lines 23–25).* Old:
+*2. [[ch:explicit-constants]], its opening paragraph (lines 22–25).* Old:
 
 products ([[def:uc-choice]], [[def:cs-choices]]), d_acc and d_NM, the latter the d of [[thm:iii-k-3-2]], at least the
 orders at which its lemmas ask U small ([[prop:uc-d-small]]), are at most an integer below 1.57157 × 10⁵⁰, and N_NM at
@@ -584,16 +586,13 @@ New:
   gauge parameters for h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside a set of length below 1.7·10⁻¹¹ if those gauge parameters
   are admissible there, a condition not decided ([[thm:tr-transfer]]); through the lower bounds,
 
-*5. [[ch:scope]], the paragraph on the constants (lines 72–74).* Old:
+*5. [[ch:scope]], [[sec:scope-constants]] (line 74; the item that inserts the order of the approximant after line 72
+leaves this line as it is).* Old:
 
-d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The
-computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on which
 [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the proof of any
 
-New:
+New (the paragraph may be refilled):
 
-d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The
-computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on which
 [[thm:settling]] is proved ([[rem:ec-point-outside]]). The upper bounds hold with the same numbers at the points
 (h, 1/100, 1/100) with h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside a set 𝖩 of total length below 1.7·10⁻¹¹, provided the
 gauge values 1/100 are admissible at h; this conditional statement may be empty, as h_* and the gauge thresholds are not
@@ -601,8 +600,8 @@ determined, and near the points of 𝖩 the bounds fail ([[thm:tr-transfer]], [[
 result of [[ch:explicit-constants]] is used in the proof of any
 
 *6. Unchanged.* [[def:ec-point]], [[thm:uc-integer]] and every statement at the computational point keep their texts
-and numbers; [[cor:s14-eps-ind-point]] and [[rem:s14-eps-ind-scope]] stand, h = 10⁻⁶ being the point where ch33's
-enclosures are made. No result of the new section is used outside [[ch:explicit-constants]].
+and numbers; [[cor:s14-eps-ind-point]] and [[rem:s14-eps-ind-scope]] stand, h = 10⁻⁶ being the point at which the
+enclosures of [[ch:s14]] are made. No result of the new section is used outside [[ch:explicit-constants]].
 
 ### Crosswalk rows
 

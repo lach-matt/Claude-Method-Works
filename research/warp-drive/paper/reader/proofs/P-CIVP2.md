@@ -415,13 +415,13 @@ background on a neighbourhood of Q1 × S³, uniformly in the corner and in the l
 **Proposition {#prop:civp-large-corner}** (Developments near a corner sphere, without smallness.) Let m be the
 regularity index of [[pending:civp-tier1-local]] and κ ∈ (0, π/8]. For every Λ > 0 there is σ > 0 with the following
 property. Let 𝒬 = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ Q1, N_o := {u_c} × [v_c, v_c + l_v] and N_i := [u_c, u_c + l_u]
-× {v_c}. Let smooth functions Ω > 0, γ_ϑ > 0, b, A_c, A_s and q_in ≥ 0 of (v, ϑ) ∈ [v_c, v_c + l_v] × (0, π/2), and Ω >
-0, γ_ϑ > 0, A_c, A_s and q_out ≥ 0 of (u, ϑ) ∈ [u_c, u_c + l_u] × (0, π/2), with b = 0 on N_i, be given that agree on
-the corner sphere, satisfy Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(∂_u, ∂_u) = q_out on N_i, equal
-the background's at the points with ϑ ∉ [2κ, π/2 − 2κ], and whose differences from the background's, with ln Ω, ln γ_ϑ
-in place of Ω, γ_ϑ, have C^m norms at most Λ. Then there is a class solution in the gauge on [u_c, u_c + min(l_u, σ)] ×
-[v_c, v_c + min(l_v, σ)] × S³ that induces these functions on the two edges and equals (g0, q̊_in, q̊_out) at the
-points with ϑ ∉ [κ, π/2 − κ].
+× {v_c}. Let smooth functions Ω > 0, γ_ϑ > 0, b, A_c, A_s and q_in ≥ 0 of (v, ϑ) ∈ [v_c, v_c + l_v] × (0, π/2),
+and Ω > 0, γ_ϑ > 0, A_c, A_s and q_out ≥ 0 of (u, ϑ) ∈ [u_c, u_c + l_u] × (0, π/2), with b = 0 on N_i, be given that
+agree on the corner sphere, satisfy Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(∂_u, ∂_u) = q_out on N_i,
+equal the background's at the points with ϑ ∉ [2κ, π/2 − 2κ], and whose differences from the background's, with ln Ω,
+ln γ_ϑ in place of Ω, γ_ϑ, have C^m norms at most Λ. Then there is a class solution in the gauge on [u_c, u_c +
+min(l_u, σ)] × [v_c, v_c + min(l_v, σ)] × S³ that induces these functions on the two edges and equals (g0, q̊_in,
+q̊_out) at the points with ϑ ∉ [κ, π/2 − κ].
 
 *Proof.* This is the development theorem of [[pending:civp-tier1-theorem]] with its smallness hypothesis replaced by
 smallness of the rectangle, and its proof is the one given there ([[pending:civp-tier1-local]]), with 𝒞_out, 𝒞_in and S
