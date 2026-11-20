@@ -179,7 +179,7 @@ and 0 ≤ 𝒜 ≤ 3.6 supported in [3, 4.5] (the bump β is at most 1). While R
 (3 × 25) = 0.428 > 0; so R increases, and R ≥ 5 on all of 𝒞_out. On 𝒞_in, R = 5 − 0.47u ≥ 2.321 for u ≤ u1 = 5.7
 ([[lem:bg-reduction]] (a)), and R > 1.5 for 5.7 ≤ u ≤ 7.2 ([[sec:loc-setting]], from [[prop:bg-nprime]]). ∎
 
-For [[prop:loc-cone-local]] the background is that of [[thm:civp-large]]'s setting or any background on 𝒮 in the sense
+For [[prop:loc-cone-local]] the background is the one of this chapter or any other background on 𝒮 in the sense
 above; the proofs below use of it only the properties listed there and the bound C_* := sup over 𝒮 of e^(σ_e)/R_e,
 which for [[thm:loc-cone-development]] is at most C_0.
 
@@ -189,7 +189,7 @@ Let g have the form [[eq:loc-double-null]] off the axes, with ϰ_1 = ½ ln γ_ϑ
 
     L̲ := ∂_u + b ∂_ϑ,   𝒱 := e^(ϰ_1 + ϰ_2 + ϰ_3),   η := ∂_ϑ ln Ω,   ζ := (γ_ϑ/(4Ω²)) ∂_v b,
     χ_i := ∂_vϰ_i,   χ̲_1 := L̲ϰ_1 + ∂_ϑ b,   χ̲_2 := L̲ϰ_2,   χ̲_3 := L̲ϰ_3,   tr χ := Σ_i χ_i,   tr χ̲ := Σ_i χ̲_i.
-                                                                                                  {#eq:loc-cone-quantities}
+                                                                                                {#eq:loc-cone-quantities}
 
 The χ_i are the eigenvalues of the null second fundamental form of the sections {u, v = const} along ∂_v, the χ̲_i
 those along L̲, which is the null normal field of the hypersurfaces {v = const}: g(L̲, L̲) = g_(uu) + 2b g_(uϑ) +
@@ -235,7 +235,7 @@ Ric(∂_v, ∂_v) − q_in and E(∂_v, ∂_ϑ) = Ric(∂_v, ∂_ϑ) of [[eq:loc
                  + 𝒱⁻¹ ∂_ϑ(𝒱 γ_ϑ⁻¹ ∂_ϑ Ω²),
     E(L̲, ∂_ϑ) = −(γ_ϑ/(4Ω²)) (L̲∂_v b + (L̲ ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) + 2∂_ϑ b) ∂_v b) + r̲,
     r̲ := (η + ∂_ϑϰ_2 + ∂_ϑϰ_3) χ̲_1 + (χ̲_2 + χ̲_3) η − ∂_ϑ L̲ ln Ω − Σ_(i=2,3) (∂_ϑϰ_i χ̲_i + ∂_ϑχ̲_i),
-    E(L̲, L̲) = Σ_i (−L̲χ̲_i − χ̲_i² + 2 L̲ ln Ω χ̲_i) − q_out.                                  {#eq:loc-cone-frame-ricci}
+    E(L̲, L̲) = Σ_i (−L̲χ̲_i − χ̲_i² + 2 L̲ ln Ω χ̲_i) − q_out.                                {#eq:loc-cone-frame-ricci}
 
 (b) √|det g| = 2Ω²𝒱, div_g(q_in g⁻¹dv) = −(2Ω²𝒱)⁻¹ (∂_u ρ_in + ∂_ϑ(b ρ_in)) and div_g(q_out g⁻¹du) =
 −(2Ω²𝒱)⁻¹ ∂_v ρ_out; tr_g T = 0, and div_g T = div_g(q_in g⁻¹dv) dv + div_g(q_out g⁻¹du) du.
@@ -293,7 +293,8 @@ Likewise R(L̲, L̲) = 0 and
     g(R(∂_v, L̲)∂_v, L̲) = 4Ω² ∂_v L̲ ln Ω − 4Ω⁴γ_ϑ⁻¹ η² − 2Ω² η ∂_v b + ¾ γ_ϑ (∂_v b)²,
     γ_ϑ⁻¹ g(R(∂_ϑ, L̲)∂_v, ∂_ϑ) = −(∂_v χ̲_1 + χ_1 χ̲_1) + ½ e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b) + (γ_ϑ/(8Ω²)) (∂_v b)²
                                 + 2Ω²γ_ϑ⁻¹ (∂_ϑη + η² − ∂_ϑϰ_1 η),
-    e^(−2ϰ_(i+1)) g(R(K_i, L̲)∂_v, K_i) = −(∂_v χ̲_(i+1) + χ_(i+1) χ̲_(i+1)) + 2Ω²γ_ϑ⁻¹ η ∂_ϑϰ_(i+1) + ½ ∂_ϑϰ_(i+1) ∂_v b;
+    e^(−2ϰ_(i+1)) g(R(K_i, L̲)∂_v, K_i) = −(∂_v χ̲_(i+1) + χ_(i+1) χ̲_(i+1)) + 2Ω²γ_ϑ⁻¹ η ∂_ϑϰ_(i+1)
+                                         + ½ ∂_ϑϰ_(i+1) ∂_v b;
 
 summing gives E(L̲, ∂_v), since 2Ω²γ_ϑ⁻¹(∂_ϑη + 2η² + η ∂_ϑ(ϰ_2 + ϰ_3 − ϰ_1)) = 𝒱⁻¹∂_ϑ(𝒱γ_ϑ⁻¹∂_ϑΩ²) and
 ½ ∂_ϑ∂_v b + ½ ∂_v b ∂_ϑ ln 𝒱 + η ∂_v b = (2Ω²𝒱)⁻¹ ∂_ϑ(Ω²𝒱 ∂_v b).
@@ -537,7 +538,7 @@ metrics equal to the background's near the axes are smooth; dτ = du/(u + δ_c) 
 field ∂_τ = ½((u + δ_c)∂_u + (v + δ_c)∂_v) is future timelike for g_e and for the metrics C⁰-close to it. Let
 τ_init := ln(δ_c²/4), τ_+ := ln c_+, Σ_init := {τ = τ_init} and
 
-    𝒰 := {(u, v) : u, v > −δ_c, τ_init ≤ τ ≤ τ_+, u + κv ≤ l_u + δ_1/2, v + κu ≤ l_v + δ_1/2}.             {#eq:loc-cone-region}
+    𝒰 := {(u, v) : u, v > −δ_c, τ_init ≤ τ ≤ τ_+, u + κv ≤ l_u + δ_1/2, v + κu ≤ l_v + δ_1/2}.      {#eq:loc-cone-region}
 
 On 𝒰, min(u + δ_c, v + δ_c) ≤ √c_+ ≤ δ_1/4 and u + δ_c ≥ δ_c²/(4(l_v + 2δ_1)), so 𝒰 is a compact subset of the interior
 of 𝒮 inside the chart. Its boundary consists of Σ_init ∩ 𝒰, of a piece of {τ = τ_+} and of pieces of the two far cuts,
@@ -872,7 +873,7 @@ are those of the current chapter sources and serve only to find the place. The t
 by the Tier 2 section on large data, which follows the section of item 2 and cites [[thm:loc-cone-development]],
 [[lem:loc-cone-in]] and [[prop:loc-cone-local]]; where both change a text, the coordinator merges the two new texts.
 
-*1. Block A.* The text of Block A, from "**Lemma {#lem:loc-cone-in}**" through the end of [[rem:loc-cone-scope]]
+*1. Block A.* The text of Block A, from the statement of [[lem:loc-cone-in]] through the end of [[rem:loc-cone-scope]]
 (without the heading "Block A" and its first paragraph), is inserted in [[sec:loc-cones]] immediately after the proof
 of [[prop:loc-cones]], whose last line is "background's by uniqueness. ∎" (line 591), with one blank line before and
 one after; the paragraph of item 4 follows it. It defines lem:loc-cone-in, eq:loc-cone-in, thm:loc-cone-development,
@@ -880,9 +881,9 @@ eq:loc-cone-domain and rem:loc-cone-scope.
 
 *2. Block B.* The section of Block B, from its heading through the end of the proof of [[thm:loc-cone-development]], is
 inserted in [[ch:localised-data]] as a new section immediately after [[sec:loc-cones]], that is before the heading
-"### The static Killing field and the charge {#sec:loc-kid}" (line 602), and before the Tier 2 section if that is placed
-there too, with one blank line before and one after. Its heading line is "### The development of the cone data
-{#sec:loc-cone-proof}" (the words "Block B." are dropped). It defines sec:loc-cone-proof, sec:loc-cone-setting,
+of [[sec:loc-kid]] (line 602), and before the Tier 2 section if that is placed
+there too, with one blank line before and one after. Its heading line is the heading of Block B
+without the words "Block B.". It defines sec:loc-cone-proof, sec:loc-cone-setting,
 eq:loc-cone-collar, def:loc-cone-data, lem:loc-cone-strips, sec:loc-cone-equations-frame, eq:loc-cone-quantities,
 lem:loc-cone-frame, lem:loc-cone-ricci, eq:loc-cone-frame-ricci, eq:loc-cone-bianchi, sec:loc-cone-formal,
 lem:loc-cone-borel, lem:loc-cone-jets, eq:loc-cone-goursat, prop:loc-cone-formal, sec:loc-cone-reduced, eq:loc-cone-time,
@@ -984,7 +985,7 @@ against the arXiv text (version 1, p. 29).
 ### Crosswalk rows
 
 New rows for the crosswalk table of [[ch:localised-data]], one per label, each given as its four fields (label; source;
-source_name; note), to be written with tab separators. The source is "P-CIVP" with the line of the label in this file.
+source_name; note), to be written with tab separators. The second field is "P-CIVP" with the line of the label in this file.
 
 Row 1. lem:loc-cone-in; P-CIVP:6; P-CIVP Block A, Lemma (Exact localisation on the ingoing cone); new: the analogue of
 prop:loc-cones on 𝒞_in in the gauge b = 0, Raychaudhuri along ∂_u, ∂_v b a transverse derivative.
