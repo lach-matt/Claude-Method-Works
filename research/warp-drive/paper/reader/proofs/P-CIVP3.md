@@ -123,15 +123,16 @@ b = 0, E(∂_u, ∂_u) is the right side of [[eq:loc-cone-in]] minus q_out, the 
 place of v ([[lem:loc-cone-in]]), and the same calculation applies.
 
 (b) The equation for Y is linear and of second order in v, with the coefficients −2∂_v ln Ω of ∂_vY and
-(1/3)((1/4) |∂_vγ̂|²_γ̂ + q_in) of Y, smooth G-invariant functions on N_o ∩ {v ≤ v′}; so its solution with smooth G-invariant
-initial values is smooth, by the smooth dependence of the solutions of linear ordinary differential equations on
-parameters, here the point of S³, and G-invariant, by uniqueness. Where Y > 0, γ = Y²γ̂ is a smooth family of metrics,
-so χ and 𝔯 are smooth, and the second line of (a) with E(∂_v, ·) = 0 is the linear equation ∂_vW = −(tr_γχ − 2∂_v ln Ω)
-W − 2γ⁻¹χ(W, ·) − 4Ω² γ⁻¹𝔯 for the vector field W along each generator, with smooth coefficients; its solution with W =
-W_0 at v = 0 is smooth and G-invariant, and so is b := b_0 + ∫_0^v W. By (a) the constraints hold. Conversely, fields
-satisfying the constraints define Y, γ̂ and W as above, which solve these equations with their own initial values, and
-by uniqueness they are the solutions. On N_i the same argument applies to the first line. The coordinate expressions
-were found in the proof of (a); for the background γ = R_e² dΩ₃², whose volume form is R_e³ dvol_1.
+(1/3)((1/4) |∂_vγ̂|²_γ̂ + q_in) of Y, smooth G-invariant functions on N_o ∩ {v ≤ v′}; so its solution with smooth
+G-invariant initial values is smooth, by the smooth dependence of the solutions of linear ordinary differential
+equations on parameters, here the point of S³, and G-invariant, by uniqueness. Where Y > 0, γ = Y²γ̂ is a smooth family
+of metrics, so χ and 𝔯 are smooth, and the second line of (a) with E(∂_v, ·) = 0 is the linear equation ∂_vW = −(tr_γχ
+− 2∂_v ln Ω) W − 2γ⁻¹χ(W, ·) − 4Ω² γ⁻¹𝔯 for the vector field W along each generator, with smooth coefficients; its
+solution with W = W_0 at v = 0 is smooth and G-invariant, and so is b := b_0 + ∫_0^v W. By (a) the constraints hold.
+Conversely, fields satisfying the constraints define Y, γ̂ and W as above, which solve these equations with their own
+initial values, and by uniqueness they are the solutions. On N_i the same argument applies to the first line. The
+coordinate expressions were found in the proof of (a); for the background γ = R_e² dΩ₃², whose volume form is R_e³
+dvol_1.
 
 (c) We extend the data on {0} × [0, v_1]; on [0, u_1] × {0} the same argument applies with u, q_out and the first line
 of (a) only, b = 0 being kept. As in the proof of [[lem:loc-cone-extension]], for f each of ln Ω, γ̂ and q_in, with
@@ -227,8 +228,8 @@ with 𝔪 linear, with smooth G-invariant coefficients, its first two components
 system of ordinary differential equations in v along the generators: for (Z_Ω, Z_γ), with the invertible coefficient
 (Z_Ω, Z_γ) ↦ ((2Ω²)⁻¹ Z_γ, −2Z_Ω − ½ tr_γ Z_γ) of ∂_v, and then for Z_b, whose inhomogeneous term holds ∇̊Z_Ω and
 ∇̊Z_γ. For the densities put Z_in := the solution of ∂_u^(j−1)𝒞_in = 0 at u = 0, in which ∂_u^jq_in enters with the
-factor 1 and nothing else of order j but Z_γ, and let Z_out solve ∂_u^j𝒞_out = 0 at u = 0, the linear equation
-∂_vZ_out + tr_γχ Z_out = (terms in a_0, …, a_(j−1) and Z) along the generators. We solve with the initial values at v = 0 the
+factor 1 and nothing else of order j but Z_γ, and let Z_out solve ∂_u^j𝒞_out = 0 at u = 0, the linear equation ∂_vZ_out
++ tr_γχ Z_out = (terms in a_0, …, a_(j−1) and Z) along the generators. We solve with the initial values at v = 0 the
 j-th u-derivatives at the corner of the data on N_i; the coefficients and the initial values being smooth and
 G-invariant and the system G-equivariant, the solution is smooth and G-invariant, and we take it as a_j. Off the axes
 a_j is the derivative of the proof of [[lem:loc-cone-jets]]: both solve ∂_u^(j−1)E′ = 0 and the conservation equations,
@@ -355,8 +356,8 @@ r)/ a_L(r, z, p) − E_L(r, z, p), a_L and E_L those of [[lem:class-leaf]] (c) f
 and also |∂_zG_V| ≤ C (r + |p|), since by that proof E_L = (C3 r + A3 p) N_L²/det₂ − p + r B̃/a_L with B̃ smooth. These
 constants hold the C¹ norms of H_L[V], which hold p_A, Θ_A and first derivatives of the metric, and the C² norms of γ3,
 bounded on 𝔅′ by the Sobolev inequality of [[lem:sobolev]] at the order k − 4 ≥ 2. The map 𝒯 of that proof is C¹ in (p,
-z0) and a contraction uniformly in z0, so z0 ↦ h_V(z0, ·) is C¹, and w := ∂_(z0)h_V solves r ∂_r w(r) = ∫_0^r (∂_zG_V
-w + ∂_pG_V ∂_r w) dρ with w(0) = 1. So |∂_r w| ≤ C r sup |w| on [0, 2δ] and |w − 1| ≤ C δ² sup |w|, and after decreasing
+z0) and a contraction uniformly in z0, so z0 ↦ h_V(z0, ·) is C¹, and w := ∂_(z0)h_V solves r ∂_r w(r) = ∫_0^r (∂_zG_V w
++ ∂_pG_V ∂_r w) dρ with w(0) = 1. So |∂_r w| ≤ C r sup |w| on [0, 2δ] and |w − 1| ≤ C δ² sup |w|, and after decreasing
 δ, w ∈ [1/2, 2] and |∂_(z0) q_V| = |∂_r w|/r ≤ C. Hence (z0, y) ↦ (h_V(z0, y), y), for |z0 − z(p)| < 3δ/2 and |y| < 2δ,
 is a C¹ diffeomorphism onto a neighbourhood of 𝒰_δ(p) ∩ M3 contained in 𝒰_(2δ)(p), with Jacobian in [1/2, 2].
 
@@ -454,8 +455,8 @@ the sets {ρ1 ≤ δ/2} and {ρ2 ≤ δ/2} being disjoint where |y| ≥ ρ_-. Fo
 on the slices, let 𝒜^ax(U) = 0 be (Aug1), (Aug2) and (Aug4) of [[sec:class-augmented]], with the reduced Ricci tensor
 and the gauge vector relative to Ĝ, together with, in place of (Aug3),
 
-    P_A(Θ_A) = (1 − ψ_ax) S_A + ψ_ax S_A^ax,      S_A^ax := −κ_A⊥² − ½ (Θ_A − κ_A⊥)² − ½ σ_A[U]² − Σ_B q_B g⁻¹(p_A, p_B)²,
-                                                                                                    {#eq:loc-axis-closure}
+    P_A(Θ_A) = (1 − ψ_ax) S_A + ψ_ax S_A^ax,
+    S_A^ax := −κ_A⊥² − ½ (Θ_A − κ_A⊥)² − ½ σ_A[U]² − Σ_B q_B g⁻¹(p_A, p_B)²,                       {#eq:loc-axis-closure}
 
 A ∈ {in, out}, with S_A of (Aug3), κ_A⊥ := κ_A1 near axis 2 and κ_A⊥ := κ_A2 near axis 1, and σ_A[U] that of the slice
 Σ_s of [[eq:loc-axis-time]] through the point ([[sec:loc-axis-leaves]]): the closure of Step 6 of the proof of
@@ -659,8 +660,8 @@ it equals the solution of [[lem:loc-axis-gauge]] on Q1′ × S³.
 neighbourhood of Q1″ and supported in ((0, u_1′) × (0, v_1′) ∪ P) ∩ 𝒰_1, hence where g″ is defined, and with the frozen
 part taken with the wave operator of g_e. The wave map system is semilinear and local, with coefficients smooth in the
 chart through the axes. φ := 0 satisfies the cut-off system on P exactly, as g″ = Ĝ there, and on F up to the residual
-χ′ 1_F g″^μν (Γ[Ĝ] − Γ[g″])^λ_μν, which is smooth, as it vanishes to infinite order on N ∩ Q1′ by (1), and at most
-C(ε + ε_2) in C^(k−5). [[thm:class-kato-stability]] (a), with s := k − 5 > 3, gives a smooth G-equivariant solution φ on
+χ′ 1_F g″^μν (Γ[Ĝ] − Γ[g″])^λ_μν, which is smooth, as it vanishes to infinite order on N ∩ Q1′ by (1), and at most C(ε
++ ε_2) in C^(k−5). [[thm:class-kato-stability]] (a), with s := k − 5 > 3, gives a smooth G-equivariant solution φ on
 [τ_init, s*] × ℝ⁴, at most C(ε + ε_2)^(1/(4s)) in W^(1,∞); φ = 0 on P ∩ 𝒰^♯, by the argument of the proof of
 [[lem:loc-cone-past]]; and φ solves the wave map system on Q1″, χ′ being 1 there.
 
@@ -731,14 +732,14 @@ both cones, G is a closed past set in Q whose boundary in Q lies in {R = a}, a =
 *On 𝒞_in.* There σ_u = 0, so C_u = 0 reads R_uu = −ℬ/(3R²). By [[lem:bg-reduction]] (a), R_u = −0.47 at u = 5.7; R >
 1.5 on 𝒞_in ∩ {u ≤ 7.2} ([[lem:loc-cone-strips]] (c)); and 0 ≤ ℬ ≤ 1.7, the bump being at most 1. So |R_u(7.2, 0)| ≤
 0.47 + 1.5 × 1.7/(3 × 2.25) ≤ 0.84778. The cone 𝒞_in ∩ {u ≤ 7.2} is untrapped, R² > 3/2 ≥ μ ([[sec:loc-setting]]), so
-f = 1 − μ/R² > 0 there and, as f = −2e^(−2σ) R_u R_v, R_v > 0; at u = 7.2, μ = μ3 ≤ 0.8221253 ([[sec:loc-setting]]), so f
-≥ 1 − 0.8221253/2.25 ≥ 0.63461 and R_v(7.2, 0) = f/(4|R_u(7.2, 0)|) ≥ 0.18713. The points of 𝒞_in ∩ {u ≤ 7.2} lie in G
-(proof of [[lem:loc-cone-strips]] (a)).
+f = 1 − μ/R² > 0 there and, as f = −2e^(−2σ) R_u R_v, R_v > 0; at u = 7.2, μ = μ3 ≤ 0.8221253 ([[sec:loc-setting]]), so
+f ≥ 1 − 0.8221253/2.25 ≥ 0.63461 and R_v(7.2, 0) = f/(4|R_u(7.2, 0)|) ≥ 0.18713. The points of 𝒞_in ∩ {u ≤ 7.2} lie in
+G (proof of [[lem:loc-cone-strips]] (a)).
 
 *Before the shell.* Let v* be the supremum of the v ∈ [0, 4.5] with (7.2, v) ∈ G; G being closed and a past set, [0,
 7.2] × [0, v*] ⊂ G. There σ_uv = (3/2) e^(2σ) μ/R⁴ > 0 and σ_v = 0 on 𝒞_out, so σ_v ≥ 0 and e^(2σ) ≥ 1/2. On {v ≤ 3},
-𝒜 = 0, so e^(−2σ) R_v does not depend on v ([[lem:two-dust-identities]] (iv)), and R_v(u, v) = 2e^(2σ(u, v)) R_v(u, 0) ≥
-R_v(u, 0) > 0 for v ≤ min(v*, 3). With R_u < 0, R(u, v) ≥ R(7.2, v) ≥ 1.5 + 0.18713 v there.
+𝒜 = 0, so e^(−2σ) R_v does not depend on v ([[lem:two-dust-identities]] (iv)), and R_v(u, v) = 2e^(2σ(u, v)) R_v(u, 0)
+≥ R_v(u, 0) > 0 for v ≤ min(v*, 3). With R_u < 0, R(u, v) ≥ R(7.2, v) ≥ 1.5 + 0.18713 v there.
 
 *Through the shell.* Let v* ≥ 3, so that R(7.2, 3) ≥ 2.0613, and let v′ be the supremum of the v ∈ [3, v*] with R_v > 0
 on [0, 7.2] × [0, v]. On [0, 7.2] × [0, v′], μ_u = −(2/3) ℬ e^(−2σ) R_v ≤ 0 ([[lem:two-dust-identities]] (i)), so μ(u,

@@ -152,3 +152,249 @@ G-invariant functions, the L² norm over a G-invariant set is the L² norm in (z
 [ρ1(p)/2, 2ρ1(p)] on 𝒰_(2δ). For fixed y, z0 ↦ h_U(|y|; z0) is increasing with difference quotients in [1/2, 3/2], so
 ∫ f(z, y) dz = ∫ f(h_U(|y|; z0), y) ∂_(z0) h_U dz0 with ∂_(z0) h_U ∈ [1/2, 3/2] almost everywhere. Squaring the bound of
 one leaf, integrating over z0 and changing variables on both sides gives [[eq:class-leaf-wise]]. ∎
+
+### Block B. The new section of chapter 83
+
+### Developments of data of any size through the axes {#sec:civp-axes}
+
+The developments of [[sec:loc-cone-proof]] and [[sec:civp-large]] take cone data equal to the background's near the axes,
+and those of [[pending:tier3-section]] take data near the background's. This section drops both conditions for the two
+adapted families: cone data of any size, reaching the axes, with or without dust, have a development on a neighbourhood
+of the two cones, unique in the double-null gauge, and a maximal development with a continuation criterion
+([[thm:civp-axes]]). The development of the whole rectangle is not asserted, and for data of any size it does not
+exist in general: a large density makes the cones focus, and then no development in the gauge reaches beyond the focal
+sphere ([[rem:civp-axes-scope]]).
+
+The route has four steps. First, the derivatives of the metric functions across each cone obey linear ordinary
+differential equations along the generators, through the axes, when the equations are written on the sections as
+equations for tensor fields ([[lem:civp-axes-principal]], [[lem:civp-axes-jets]]); so they exist and are bounded on the
+whole of each cone. Second, near a corner sphere, Rendall's reduction is carried out with chapter 81's closure at the
+axes, about the formal solution Û rather than about a background, for a short time; this needs the planar shear about a
+state that is not a solution ([[lem:class-leaf-reference]]), and the time obtained depends only on norms of the data
+near the corner ([[prop:civp-axes-corner]]). Third, two developments in the gauge agree, without smallness
+([[prop:civp-axes-unique]]). Fourth, corner problems at the spheres of the cones and of null hypersurfaces of the
+solution, glued by uniqueness, continue the development along the generators; no a priori estimate is used, the width of
+the development being allowed to shrink ([[prop:civp-axes-faces]]).
+
+#### Data reaching the axes {#sec:civp-axes-data}
+
+Let γ̊ be the round metric of S³ and ∇̊ its connection. For an interval I and a function, a vector field or a symmetric
+2-tensor field X on S³ depending on s ∈ I, ‖X‖_(C^m(I × S³)) is the largest of the suprema of |∂_s^j ∇̊^i X|_γ̊ over
+j + i ≤ m. A metric on D × S³, D a subset of the (u, v)-plane, is in *natural double-null form* if
+
+    g = −2Ω² (du ⊗ dv + dv ⊗ du) + γ(· − b du, · − b du),                                  {#eq:civp-axes-form}
+
+that is g = −2Ω² (du ⊗ dv + dv ⊗ du) + γ_AB (dθ^A − b^A du)(dθ^B − b^B du) in every chart (θ^A) of S³, where for each
+(u, v) the function Ω > 0, the vector field b and the Riemannian metric γ are smooth on S³, and they depend smoothly on
+(u, v). Such a g is a smooth Lorentzian metric on D × S³, for which u and v are null. It is G-invariant with b = b∂_ϑ
+and γ = γ_ϑ dϑ² + e^(2A_c) dφ1² + e^(2A_s) dφ2² exactly when Ω, b and γ are G-invariant, since the reflections φ_i ↦ −φ_i
+make an invariant vector field a multiple of ∂_ϑ and an invariant symmetric tensor diagonal in (ϑ, φ1, φ2); off the axes
+it is then [[eq:loc-double-null]]. Conversely the metric of a class solution in the gauge of [[sec:civp-large]] is in this
+form: Ω² = −g(∂_u, ∂_v)/2, γ is the restriction of g to the sections and γ(b, ·) = −g(∂_u, ·) on their tangent vectors,
+all smooth on D × S³ because g and the coordinate fields of the product are.
+
+An invariant vector field vanishes at the axes: at a point of axis 2 the rotations of the (x3, x4)-plane fix the point and
+act on the plane of the K2-directions without fixed vector, and the reflection in the (x1, x2)-plane through the point
+reverses K1. Near axis 2, with x := ϑ, smoothness of the invariant tensors gives, as for [[eq:class-axis-metric]], that
+Ω, γ_ϑ and e^(2A_c) are even smooth functions of x, that b is odd, and that e^(2A_s) = sin²x e^(2s) with s even and
+γ_ϑ = e^(2s) at x = 0 (the conical condition); near axis 1 the same holds with x := π/2 − ϑ and the roles of A_c and A_s
+exchanged. No step below uses these coordinate conditions: the data are tensor fields on S³, and the conditions are
+their smoothness written in coordinates.
+
+**Definition {#def:civp-axes-data}** (Cone data through the axes.) Let (u_c, v_c) be a point, λ_u, λ_v > 0, N_o :=
+{u_c} × [v_c, v_c + λ_v] and N_i := [u_c, u_c + λ_u] × {v_c}, the *edges*, and S_c := {(u_c, v_c)} × S³ the *corner
+sphere*. *Cone data* consist of G-invariant smooth families, in the sense of [[eq:civp-axes-form]], of a function Ω > 0,
+a vector field b, a Riemannian metric γ and a function q_in on N_o, and of Ω, b, γ and q_out on N_i, such that: (i) Ω, b
+and γ of the two edges agree on S_c; (ii) Ric(∂_v, ∂_v) = q_in and Ric(∂_v, X) = 0 for X tangent to the sections on N_o,
+and Ric(L̲, L̲) = q_out on N_i, L̲ := ∂_u + b; and (iii) q_in ≥ 0 and q_out ≥ 0. *Cone data of any sign* omit (iii). Their
+*size* in C^m is the largest of ‖ln Ω‖, ‖b‖, ‖γ‖ and ‖q_A‖ in C^m of the two edges, and they are *κ-nondegenerate*,
+κ ∈ (0, 1], if γ ≥ κ γ̊ on both edges.
+
+In (ii), Ric(∂_v, ∂_v) and Ric(∂_v, X) on N_o are those of any metric in natural double-null form inducing the functions
+of N_o, and Ric(L̲, L̲) on N_i those of any such metric inducing the functions of N_i: off the axes they are given by
+[[eq:loc-cone]] and by the last line of [[eq:loc-cone-frame-ricci]] in terms of the functions on that edge, and they are
+continuous up to the axes. The free part of cone data is that of [[def:loc-cone-data]]: Ω on both edges, b on N_i, the
+conformal class of γ and the densities, the corner values being arbitrary subject to (i). In the normalised form
+γ = ỹ² γ̂ with μ_γ̂ = μ_γ̊, μ the Riemannian volume density, ỹ = (μ_γ/μ_γ̊)^(1/3) is a smooth positive function on S³, and
+by the proof of [[prop:loc-cones]], with trace and norm of ½ ∂_v γ taken in γ, the first constraint on N_o reads
+
+    ∂_v² ỹ − 2 ∂_v ln Ω ∂_v ỹ + (1/3)(¼ |∂_v γ̂|²_γ̂ + q_in) ỹ = 0,                        {#eq:civp-axes-raychaudhuri}
+
+a linear ordinary differential equation along each generator with coefficients smooth on S³, axis generators included;
+on N_i with b = 0 the constraint is the same equation with u in place of v. Positivity of ỹ on an edge is the absence of
+a focal sphere there. The constraint Ric(∂_v, X) = 0 is a linear first-order equation for ∂_v b along the generators,
+with the leading coefficient (1/(4Ω²)) γ(∂_v ·, X) (the second line of [[eq:loc-cone]]).
+
+A *class solution in the gauge* on D × S³, for a set D of the (u, v)-plane, is as in [[sec:civp-large]]: a smooth class
+solution (g, v, u, q_in, q_out) of [[eq:class-system]] with N_f = 2, v the phase of the density q_in and u that of
+q_out, whose metric is in natural double-null form. It *induces* cone data on edges contained in D if its functions Ω, b,
+γ and the densities restrict to them. A set D is a *past set* relative to (u_c, v_c) if [u_c, u] × [v_c, v] ⊂ D for every
+(u, v) ∈ D.
+
+#### The derivatives across the edges {#sec:civp-axes-jets}
+
+**Lemma {#lem:civp-axes-principal}** (The equations across an outgoing edge.) Let g be a metric in natural double-null
+form on {0 ≤ u < ε} × I × S³, I an interval of v, smooth up to u = 0, q_in and q_out any functions, E := Ric(g) − q_in
+dv ⊗ dv − q_out du ⊗ du and ℰ := (E(L̲, ∂_v), E(L̲, ·), E(·, ·)), the last two restricted to vectors tangent to the
+sections: for each (u, v) a function, a 1-form and a symmetric 2-tensor field on S³. Put J_j := ∂_u^j (Ω, b, γ) at
+u = 0, for j ≥ 0.
+
+(a) ℰ contains no second u-derivative of Ω, b, γ, and does not contain q_in or q_out. So for j ≥ 1, ∂_u^(j−1) ℰ at
+u = 0 is a smooth expression in J_0, …, J_j and their derivatives along N_o := {0} × I × S³ of order at most two.
+
+(b) For j ≥ 2 it is affine in J_j: ∂_u^(j−1) ℰ|_(u=0) = 𝔏_j J_j + 𝔖_j, with 𝔖_j depending on J_0, …, J_(j−1) only and,
+for J = (ω, β, h),
+
+    𝔏_j J = (−(2/Ω) ∂_v ω − ½ tr_γ ∂_v h, −(1/(4Ω²)) γ(∂_v β, ·), (1/(2Ω²)) ∂_v h) + 𝔏_j′ J,          {#eq:civp-axes-principal}
+
+Ω and γ those of J_0. The operator 𝔏_j′ contains no ∂_v. Its first and third components are linear in (ω, β, h) at each
+point, with no derivative on S³; its second component contains derivatives on S³ of order at most one of ω and h and
+none of β. The coefficients are smooth on N_o, axes included, and built from J_0, J_1 and their first derivatives.
+
+(c) If g is G-invariant, then (b) holds also for j = 1, the coefficients of 𝔏_1 being built from J_0 alone, and for
+j ≥ 1 the first and third components of ∂_u^(j−1) ℰ|_(u=0) do not depend on the β-component of J_j.
+
+*Proof.* (a), (b) Work in coordinates (u, v, θ^A), (θ^A) any chart of S³. The components of g are g_uv = −2Ω², g_uA =
+−γ_AB b^B, g_uu = γ_AB b^A b^B, g_AB = γ_AB and g_vv = g_vA = 0, and since g(L̲, ∂_v) = −2Ω², g(L̲, L̲) = g(L̲, ∂_A) = 0 and
+g(∂_v, ∂_v) = g(∂_v, ∂_A) = 0, the inverse metric is −(2Ω²)⁻¹ (L̲ ⊗ ∂_v + ∂_v ⊗ L̲) + γ^AB ∂_A ⊗ ∂_B: g^uu = g^uA = g^vv
+= 0, g^uv = −1/(2Ω²), g^vA = −b^A/(2Ω²), g^AB = γ^AB. From the Christoffel symbols,
+
+    Ric_μν = ½ g^αβ (∂_α∂_μ g_βν + ∂_α∂_ν g_βμ − ∂_μ∂_ν g_αβ − ∂_α∂_β g_μν) + Q_μν,
+
+with Q_μν a polynomial in g^αβ and the first derivatives of the g_αβ, quadratic in the latter. A term ∂_u∂_u g_·· can
+arise from the first sum only with α = μ = u, then β = v and ν = u, as g^uβ ≠ 0 only for β = v and g_vν ≠ 0 only for
+ν = u; from the second only with μ = ν = u; from the third only with μ = ν = u; and the fourth would need g^uu ≠ 0.
+So ∂_u² occurs only in Ric_uu, which is not in ℰ: E(L̲, ∂_v) = E_uv + b^A E_Av and E(L̲, ∂_A) = E_uA + b^B E_BA, and
+T(L̲, ∂_v) = T(L̲, ∂_A) = T(∂_A, ∂_B) = 0 because dv(L̲) = du(∂_v) = du(∂_A) = dv(∂_A) = 0. Every term of ℰ is therefore a
+product of factors each containing at most one u-derivative, and ∂_u^(j−1) at u = 0 produces u-derivatives of order at
+most j. J_j appears only where all j − 1 derivatives fall on one factor that already contains ∂_u; for j ≥ 2 at most
+one factor of a term can receive them, so the dependence on J_j is affine, through ∂_u ∂_v g, ∂_u ∂_A g and ∂_u g at
+u = 0, the components of ∂_u^j g being J_j-linear modulo lower jets.
+
+The ∂_u∂_v- and ∂_u∂_C-terms are read off the four sums, with the inverse metric above. In Ric_AB only the fourth sum
+with (α, β) = (u, v), (v, u) contributes, giving (1/(2Ω²)) ∂_u∂_v γ_AB, and there is no ∂_u∂_C-term: the first two sums
+with α = u need g_vB = 0, the fourth with (α, β) = (u, C) needs g^uC = 0. In Ric_uv the four sums contribute (1/(2Ω²) +
+1/(2Ω²) − 1/Ω² − 1/Ω²) ∂_u∂_v Ω² − ½ γ^CD ∂_u∂_v γ_CD and no ∂_u∂_C-term, and Ric_Av contains no second derivative with a
+u at all (its first sum needs β = u, α = v; its second α = u, β = v and g_vA = 0; its fourth vanishes as g_Av ≡ 0). In
+Ric_uA the first sum gives (1/(4Ω²)) ∂_u∂_v b_A − (b^C/(4Ω²)) ∂_u∂_v γ_CA + ½ γ^DC ∂_D∂_u γ_CA, b_A := γ_AC b^C, the
+second (1/(2Ω²)) ∂_u∂_A Ω², the third −(1/Ω²) ∂_u∂_A Ω² − ½ γ^CD ∂_u∂_A γ_CD, and the fourth −(1/(2Ω²)) ∂_u∂_v b_A. With
+∂_u∂_v b_A = γ_AC ∂_u∂_v b^C + b^C ∂_u∂_v γ_AC modulo products of first derivatives, and b^B times the term of Ric_BA,
+
+    E(L̲, ∂_A) = −(1/(4Ω²)) γ_AC ∂_u∂_v b^C + ½ γ^CD (∂_D∂_u γ_CA − ∂_A∂_u γ_CD) − (1/(2Ω²)) ∂_u∂_A Ω²
+                + (terms with at most first derivatives),
+    E(L̲, ∂_v) = −(2/Ω) ∂_u∂_v Ω − ½ γ^CD ∂_u∂_v γ_CD + (terms with at most first derivatives),
+    E(∂_A, ∂_B) = (1/(2Ω²)) ∂_u∂_v γ_AB + (terms with no second derivative containing ∂_u).
+
+Applying ∂_u^(j−1) at u = 0 gives [[eq:civp-axes-principal]] and the statements on 𝔏_j′: derivatives on S³ of J_j arise
+only from the ∂_u∂_C-terms, which occur only in the second component and hold Ω and γ only; the terms with at most
+first derivatives give zero-order terms in J_j. Every coefficient is a polynomial in the components of g, of the inverse
+metric and of their derivatives at u = 0 in the chart, so smooth on N_o; it is independent of the chart, the components
+of ℰ being tensorial on the sections.
+
+(c) Off the axes, in the class, the components of ℰ are linear combinations of E(L̲, ∂_v), E(L̲, ∂_ϑ), E(∂_ϑ, ∂_ϑ) and
+E(K_i, K_i), the others vanishing by the reflections, and [[eq:loc-cone-frame-ricci]] gives them explicitly in terms of
+ln Ω, the ϰ_i and b. Each of their monomials contains at most one factor among L̲ ln Ω, L̲ϰ_i (in χ̲_i and tr χ̲), ∂_v L̲
+ln Ω, ∂_v L̲ϰ_i, L̲∂_v b, ∂_ϑ L̲ ln Ω and ∂_ϑ L̲ϰ_i; with L̲ = ∂_u + b∂_ϑ these are affine in the first u-derivatives at
+u = 0. And ∂_u b and ∂_u ln Ω do not occur in E(∂_ϑ, ∂_ϑ) and E(K_i, K_i), nor ∂_u b in E(L̲, ∂_v). So off the axes, for
+invariant g, ℰ|_(u=0) − 𝔏_1 J_1 − 𝔖_1 = 𝔔(J_1, J_1) vanishes, where 𝔏_1 is the operator of [[eq:civp-axes-principal]]
+with coefficients from J_0 and 𝔔 the quadratic part, a pointwise quadratic form with smooth coefficients; at the axes
+𝔔(J_1, J_1) vanishes by continuity, J_1 being a smooth section. For j ≥ 1 the β-component of J_j enters the first and
+third components through ∂_u b only, after j − 1 further derivatives, so not at all off the axes; at the axes the
+β-component of the invariant J_j vanishes. ∎
+
+On an ingoing edge {v = 0} with b = 0 there, put ψ_(u,v) for the flow of the vector field b(·, v, ·) on S³ in the
+variable u from 0, which commutes with G, and θ̃ := ψ_(u,v)⁻¹(θ). Then dθ − b du = Dψ (dθ̃ − b̃ dv) with b̃ := −Dψ⁻¹ ∂_v ψ,
+and g = −2Ω̃² (du ⊗ dv + dv ⊗ du) + γ̃(· − b̃ dv, · − b̃ dv) with Ω̃ := Ω ∘ ψ and γ̃ := ψ^*γ: the form
+[[eq:civp-axes-form]] with u and v exchanged, equal to the given one on {v = 0}, where ψ = id. The lemma applies there
+with u and v exchanged, and the v-derivatives at v = 0 of (Ω, b, γ) and of (Ω̃, b̃, γ̃) determine one another: ∂_v ψ =
+−Dψ b̃ with ψ = id at v = 0, b = (∂_u ψ) ∘ ψ⁻¹, Ω = Ω̃ ∘ ψ⁻¹ and γ = ψ_*γ̃.
+
+**Lemma {#lem:civp-axes-jets}** (The derivatives across the edges through the axes.) Let cone data of any sign be given on
+edges N_o = {0} × [0, λ_v] and N_i = [0, λ_u] × {0}, with b = 0 on N_i. There are unique sequences a_j (j ≥ 0) on N_o and
+b_k (k ≥ 0) on N_i of G-invariant smooth families of a function, a vector field and a symmetric 2-tensor field on S³,
+with a_0 and b_0 the data, together with unique invariant smooth densities a_j^ρ, b_k^ρ (of q_in μ_γ and q_out μ_γ),
+such that for every metric g in natural double-null form near N := N_o ∪ N_i with ∂_u^j (Ω, b, γ) = a_j on N_o and ∂_v^k
+(Ω, b, γ) = b_k on N_i for all j, k, and densities with the corresponding derivatives, the evolution components ℰ of
+[[lem:civp-axes-principal]] on N_o, the corresponding components with u and v exchanged on N_i, and the conservation
+laws vanish to infinite order on N. Moreover:
+
+(i) (Linear and triangular.) For j ≥ 1, a_j = (ω, β, h) solves along each generator of N_o the linear system 𝔏_j a_j =
+−𝔖_j: a linear ordinary differential equation in v for (ω, h) at each point of S³, followed by one for β whose
+inhomogeneous term contains (ω, h) and their first derivatives on S³; the initial values at v = 0 are given by the b_k.
+The same holds on N_i, in the form of [[lem:civp-axes-principal]] with u and v exchanged. No Riccati term occurs at any
+order, and the a_j exist on the whole of N_o and the b_k on the whole of N_i, whatever their lengths.
+
+(ii) (Corner.) ∂_v^k a_j = ∂_u^j b_k on S_c for all j, k.
+
+(iii) (Bounds.) If the data have size at most Λ in C^m on edges of length at most 1 and are κ-nondegenerate, then for
+4j ≤ m, ‖a_j‖_(C^(m−4j)) + ‖b_j‖_(C^(m−4j)) ≤ C_j, with C_j depending only on j, m, Λ and κ.
+
+(iv) (Solutions.) Every class solution in the gauge on D × S³, D ⊃ N a past set relative to (0, 0) containing a
+neighbourhood of N in it, that induces the data has ∂_u^j (Ω, b, γ) = a_j on N_o and ∂_v^k (Ω, b, γ) = b_k on N_i, and the
+corresponding densities.
+
+(v) a_j on N_o ∩ {v ≤ v′} depends only on the data on N_o ∩ {v ≤ v′} and on the b_k at the corner, and b_k on N_i ∩
+{u ≤ u′} only on the data on N_i ∩ {u ≤ u′} and the a_j at the corner.
+
+*Proof.* *Existence and uniqueness on N_o.* Induction on j. For j ≥ 1, given a_0, …, a_(j−1), [[lem:civp-axes-principal]]
+(b), (c) turns ∂_u^(j−1) ℰ|_(u=0) = 0, for invariant a_j, into the system 𝔏_j a_j = −𝔖_j: by [[eq:civp-axes-principal]]
+the first and third components form a linear system for (ω, h) whose v-derivatives have the invertible coefficient
+matrix ((−2/Ω, −½ tr_γ), (0, (1/(2Ω²)) id)), with no derivative on S³ and no β; the second is then a linear equation
+for γ(∂_v β, ·)/(4Ω²) with coefficients and an inhomogeneous term smooth on N_o. Linear ordinary differential equations
+with smooth coefficients have unique solutions on the whole interval, depending smoothly on the point of S³ and on v;
+the solution with the initial values at v = 0 given by the b_k at the corner is invariant, since the system is natural
+and commutes with G and the data are invariant, so its image under each element of G solves it with the same initial
+values. Conversely every invariant a_j with ∂_u^(j−1) ℰ|_(u=0) = 0 solves this system. For the densities put ρ_in :=
+q_in μ_γ and ρ_out := q_out μ_γ: by [[lem:loc-cone-ricci]] (b), written in a chart, the conservation laws are ∂_u ρ_in +
+ℒ_b ρ_in = 0 and ∂_v ρ_out = 0 for these densities on S³, so ∂_u^j ρ_in at u = 0 is ∂_u^(j−1) of −ℒ_b ρ_in, a polynomial
+in lower jets, and ∂_u^j ρ_out is constant along each generator, with its value at the corner from the b_k.
+
+*On N_i* the same, in the form with u and v exchanged given before the lemma, with the generators of N_i, the integral
+curves of ∂_u (b = 0 there), and the initial values at u = 0 from the a_j; the change of form is smooth through the
+axes, ψ commuting with G.
+
+*Vanishing to infinite order.* For g as in the statement, ∂_u^(j−1) ℰ vanishes on N_o for every j ≥ 1 and the
+corresponding derivatives on N_i; all their derivatives along N then vanish, and so ℰ and the components on N_i vanish
+to infinite order on N; likewise the conservation laws.
+
+(ii) Off the axes the a_j and b_k solve the equations of the proof of [[lem:loc-cone-jets]] with the same initial values,
+and that proof, being local in ϑ, applies at every ϑ ∈ (0, π/2) to cone data of any sign; so they are the sequences
+constructed there on N ∩ {0 < ϑ < π/2}, and (ii) holds there by [[lem:loc-cone-jets]] (i). At the axes it holds by
+continuity.
+
+(iii) For a linear system ∂_v Z = MZ + h on an interval of length at most 1, ‖Z‖_(C^r) ≤ C(r, ‖M‖_(C^r))(‖Z(0)‖_(C^r)
++ ‖h‖_(C^r)), by differentiating with ∇̊ and in v. With Ω ≥ e^(−Λ) and γ ≥ κγ̊ the leading coefficients of
+[[eq:civp-axes-principal]] have inverses bounded in terms of Λ and κ, and the induction of the proof of
+[[lem:loc-cone-jets]] (iii), with the data in place of their differences from a background, gives the bound: 𝔖_j holds
+derivatives of order at most two of a_0, …, a_(j−1), and the β-equation one derivative on S³ of (ω, h).
+
+(iv) Such a solution satisfies E = 0 and the conservation laws on D, hence their derivatives of every order on N by
+continuity; its derivatives across N are invariant and solve the systems above with the same initial values.
+
+(v) The systems on N_o at the points with v ≤ v′ involve the data there and the initial values at v = 0 only. ∎
+
+The loss of four derivatives per order in (iii) is that of [[lem:loc-cone-jets]] (iii). On a cone of finite length the
+derivatives across it of every order are bounded, by smoothness on the compact edge; their bounds grow at most
+exponentially in its length, by Gronwall's inequality.
+
+**Proposition {#prop:civp-axes-formal}** (The formal solution through the axes.) Let the data of [[lem:civp-axes-jets]]
+have size at most Λ in C^m, m ≥ 6k + 18, on edges of length at most 1, be κ-nondegenerate, and let 0 < δ_e ≤ 1/8. There
+are G-invariant smooth families X̂ = (Ω̂, b̂, γ̂) and ρ̂_in, ρ̂_out of a function, a vector field, a symmetric 2-tensor field
+and two densities on S³, over the set {−2δ_e ≤ u ≤ λ_u, −2δ_e ≤ v ≤ λ_v, min(u, v) ≤ 2δ_e}, with ∂_u^j X̂ = a_j on N_o
+and ∂_v^k X̂ = b_k on N_i for all j, k, likewise for the densities, and ‖X̂‖_(C^(k+3)) ≤ C, C depending only on k, Λ, κ
+and δ_e. On the part of that set where Ω̂ > 0 and γ̂ is positive definite, which contains a neighbourhood of N of width
+depending only on Λ, κ and δ_e, the metric Ĝ of [[eq:civp-axes-form]] with the functions X̂ is a smooth G-invariant
+Lorentzian metric for which u and v are null, and Ĝ, q̂_in := ρ̂_in/μ_γ̂ and q̂_out := ρ̂_out/μ_γ̂ induce the data on N.
+E := Ric(Ĝ) − q̂_in dv ⊗ dv − q̂_out du ⊗ du and the conservation laws vanish to infinite order on N.
+
+*Proof.* Apply [[lem:loc-cone-borel]] to the components of a_j, b_k in the Cartesian components on ℝ⁴ ⊃ S³ (tensor fields
+on S³ written as restrictions of tensors of ℝ⁴ annihilating the normal), with Y replaced by S³, r := k + 3, ε_0 := δ_e and
+γ_0 := 1: its proof uses Y only as a parameter set, the Borel sums being taken in u and v with cut-offs depending on u
+and v alone, so the sums are G-invariant when their coefficients are, and the bound of its part (b) holds with
+∇̊-derivatives. The compatibility at the corner is [[lem:civp-axes-jets]] (ii), and the bound follows from
+[[lem:civp-axes-jets]] (iii) since m − 4(k + 3) ≥ 2(k + 3). X̂ equals the data on N, so by its C¹ bound Ω̂ ≥ e^(−Λ)/2 and
+γ̂ ≥ (κ/2) γ̊ within a distance of N depending only on Λ, κ and δ_e. The evolution components and the conservation laws
+vanish to infinite order on N by [[lem:civp-axes-jets]]. The other components of E vanish to infinite order on N by the
+proof of [[prop:loc-cone-formal]] (c), which uses the contracted Bianchi identity in the form [[eq:loc-cone-bianchi]] and
+the constraints of the data, and is local in ϑ: it applies off the axes, and at the axes by continuity, E being a smooth
+tensor field. ∎
