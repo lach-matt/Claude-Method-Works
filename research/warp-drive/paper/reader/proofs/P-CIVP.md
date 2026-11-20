@@ -864,3 +864,176 @@ and corner values). [[lem:loc-cone-cauchy]], case (I), [[lem:loc-cone-past]], [[
 δ_c, and by (d) the solutions coincide on G_*, all of them equalling the background where ϑ < 3η or ϑ > π/2 − 3η; letting
 δ_c → 0 gives (b). Finally 2C_0 (uv)^(1/2) ≤ 2C_* δ_* ≤ η/4 on G_*, and ϑ_a′ > ϑ_a, ϑ_b′ < ϑ_b. ∎
 
+### Placement
+
+Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
+source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:". Line numbers
+are those of the current chapter sources and serve only to find the place. The texts of items 3 and 4 are also replaced
+by the Tier 2 section on large data, which follows the section of item 2 and cites [[thm:loc-cone-development]],
+[[lem:loc-cone-in]] and [[prop:loc-cone-local]]; where both change a text, the coordinator merges the two new texts.
+
+*1. Block A.* The text of Block A, from "**Lemma {#lem:loc-cone-in}**" through the end of [[rem:loc-cone-scope]]
+(without the heading "Block A" and its first paragraph), is inserted in [[sec:loc-cones]] immediately after the proof
+of [[prop:loc-cones]], whose last line is "background's by uniqueness. ∎" (line 591), with one blank line before and
+one after; the paragraph of item 4 follows it. It defines lem:loc-cone-in, eq:loc-cone-in, thm:loc-cone-development,
+eq:loc-cone-domain and rem:loc-cone-scope.
+
+*2. Block B.* The section of Block B, from its heading through the end of the proof of [[thm:loc-cone-development]], is
+inserted in [[ch:localised-data]] as a new section immediately after [[sec:loc-cones]], that is before the heading
+"### The static Killing field and the charge {#sec:loc-kid}" (line 602), and before the Tier 2 section if that is placed
+there too, with one blank line before and one after. Its heading line is "### The development of the cone data
+{#sec:loc-cone-proof}" (the words "Block B." are dropped). It defines sec:loc-cone-proof, sec:loc-cone-setting,
+eq:loc-cone-collar, def:loc-cone-data, lem:loc-cone-strips, sec:loc-cone-equations-frame, eq:loc-cone-quantities,
+lem:loc-cone-frame, lem:loc-cone-ricci, eq:loc-cone-frame-ricci, eq:loc-cone-bianchi, sec:loc-cone-formal,
+lem:loc-cone-borel, lem:loc-cone-jets, eq:loc-cone-goursat, prop:loc-cone-formal, sec:loc-cone-reduced, eq:loc-cone-time,
+eq:loc-cone-region, eq:loc-cone-modified, lem:loc-cone-system, lem:loc-cone-energy, lem:loc-cone-cauchy,
+lem:loc-cone-past, lem:loc-cone-support, lem:loc-cone-constraints, lem:loc-cone-gauge, lem:loc-cone-unique and
+prop:loc-cone-local, none of which is defined elsewhere. Numbers are resolved at assembly.
+
+*3. [[ch:localised-data]], its opening paragraph (lines 8–9).* Old:
+
+Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
+and data localised in an angular band exist exactly ([[prop:loc-cones]]). On Σ_τ0 the constraints split, after Rácz
+
+New:
+
+Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
+and data localised in an angular band exist exactly ([[prop:loc-cones]], [[lem:loc-cone-in]]); near the background's
+data, with the band away from the axes, they have a development on a neighbourhood of the two cones, with or without
+dust, equal to the background outside the domain of influence of the band and unique in the gauge off the axes
+([[thm:loc-cone-development]]). On Σ_τ0 the constraints split, after Rácz
+
+*4. [[ch:localised-data]], the paragraph after [[prop:loc-cones]] (lines 593–600).* Old:
+
+When these cone data carry no dust, their vacuum development near the two cones exists by [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]): this is the case when v_1 < 3, so that 𝒞_out ∩ {v ≤ v_1} lies before the shell, the
+dust densities are left zero there, and 𝒞_in is taken only on u < 5.7, before the packet; both cones then carry
+vacuum data of Tangherlini's metric of mass 3/2 outside the band, and the two cones meet transversally in the corner
+sphere. [CTG23, Theorem 1.1] concerns vacuum data only. For cone data that carry dust, among them every perturbation
+of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2} and every density added in the band,
+no development is asserted here: [[prop:loc-cones]] gives the cone data only, and no result of this paper uses their
+development.
+
+New (after Block A):
+
+[[thm:loc-cone-development]] develops these cone data when they are near the background's and their band avoids the
+axes, with or without dust: on the neighbourhood G_* of the two cones there is a class solution in the gauge
+[[eq:loc-double-null]] that induces them, equal to the background outside the domain of influence of the band and
+unique in the gauge off the axes. Every small perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on
+𝒞_in ∩ {5.7 < u < 7.2}, and every small density added in the band, supported away from the axes, is of this kind, with
+v_1 = 4.5 and u_1 = 7.2 ([[lem:loc-cone-strips]] (c)). For vacuum data of any size, before the shell (v_1 < 3) and on
+𝒞_in before the packet (u_1 < 5.7), a development near the two cones exists by [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]); that theorem gives neither uniqueness in the gauge nor localisation. For cone data that
+carry dust and are not small, and for data whose perturbation reaches an axis, no development is asserted by
+[[thm:loc-cone-development]] ([[rem:loc-cone-scope]]). No result of the other chapters uses these developments.
+
+*5. [[ch:introduction]], the paragraph on [[part:further]] (lines 189–191).* Old:
+
+[[part:further]] treats two crossing dusts ([[ch:two-dusts]]), the class Einstein–null-dust system
+([[ch:class-system]]), restricted massless Vlasov limits ([[ch:vlasov]]), localised data and the sign of the charge
+([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]], [[ch:equality-edge]]), the threshold λ0 at a
+
+New:
+
+[[part:further]] treats two crossing dusts ([[ch:two-dusts]]), the class Einstein–null-dust system
+([[ch:class-system]]), restricted massless Vlasov limits ([[ch:vlasov]]), localised data, their development from two
+null cones and the sign of the charge ([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]],
+[[ch:equality-edge]]), the threshold λ0 at a
+
+*6. [[ch:theorems]], the bullet "More families", its last lines (lines 371–372).* Old:
+
+  data exist for small amplitude, while on vacuum bands outside it the sign of their charge at second order excludes
+  them for small amplitude when the first-order part is T² × Z2 × Z2-invariant ([[thm:charge-sign]]).
+
+New:
+
+  data exist for small amplitude, while on vacuum bands outside it the sign of their charge at second order excludes
+  them for small amplitude when the first-order part is T² × Z2 × Z2-invariant ([[thm:charge-sign]]). Data localised
+  in angle on two null cones of that background exist exactly, and near the background's data, with the band away from
+  the axes, they develop, dust included, on a neighbourhood of the cones, equal to the background outside the domain
+  of influence of the band and unique in the gauge off the axes ([[thm:loc-cone-development]]).
+
+*7. [[ch:scope]], the paragraph on localised data, its last line (line 200).* Old:
+
+small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
+
+New:
+
+small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]). Data localised
+in angle on the two null cones exist exactly, and near the background's data, with the band away from the axes, they
+develop, dust included, on a neighbourhood of the cones, equal to the background outside the domain of influence of the
+band and unique in the gauge off the axes; developments of dust-carrying cone data that are not small, or whose
+perturbation reaches an axis, are not established ([[prop:loc-cones]], [[thm:loc-cone-development]],
+[[rem:loc-cone-scope]]).
+
+*8. Unchanged.* [[ch:ten-l5]] and the sentences of [[ch:scope]] on the characteristic problem at 10 l5 stand: that
+problem is vacuum, not near an explicit background, needs the regions D_s that contain the axes and uniqueness in the
+gauge on them, and has data that are C³; [[thm:loc-cone-development]] gives none of these. [[ch:class-system]] and
+[[ch:two-dusts]] are unchanged.
+
+*9. Appendix A.* No new entry: the proofs use no published result as a black box beyond those already stated there.
+[LR20, Theorem 4.6, p. 29] is quoted only for comparison in [[rem:loc-cone-scope]] (iii); its wording there was checked
+against the arXiv text (version 1, p. 29).
+
+*10. References.* New entry, in alphabetical place (after [Rac16]):
+
+- [Ren90] A. D. Rendall, *Reduction of the characteristic initial value problem to the Cauchy problem and its
+  applications to the Einstein equations*, Proc. Roy. Soc. London Ser. A 427 (1990), no. 1872, 221–239.
+  doi:10.1098/rspa.1990.0009
+
+### Crosswalk rows
+
+New rows for the crosswalk table of [[ch:localised-data]], one per label, each given as its four fields (label; source;
+source_name; note), to be written with tab separators. The source is "P-CIVP" with the line of the label in this file.
+
+Row 1. lem:loc-cone-in; P-CIVP:6; P-CIVP Block A, Lemma (Exact localisation on the ingoing cone); new: the analogue of
+prop:loc-cones on 𝒞_in in the gauge b = 0, Raychaudhuri along ∂_u, ∂_v b a transverse derivative.
+Row 2. eq:loc-cone-in; P-CIVP:11; P-CIVP Block A, display; Ric(∂_u, ∂_u) on 𝒞_in.
+Row 3. thm:loc-cone-development; P-CIVP:37; P-CIVP Block A, Theorem (Development of cone data localised in angle);
+new: Tier 1 of the scoping report, existence on G_*, localisation, estimate, uniqueness off the axes.
+Row 4. eq:loc-cone-domain; P-CIVP:49; P-CIVP Block A, display; the set G_*.
+Row 5. rem:loc-cone-scope; P-CIVP:78; P-CIVP Block A, Remark; smallness, axes, regularity ([LR20, Theorem 4.6]),
+domain.
+Row 6. sec:loc-cone-proof; P-CIVP:96; P-CIVP Block B, section heading; Rendall's reduction for the augmented system.
+Row 7. sec:loc-cone-setting; P-CIVP:116; P-CIVP Block B; corners, edges, backgrounds on 𝒮.
+Row 8. eq:loc-cone-collar; P-CIVP:122; P-CIVP Block B, display; the set 𝒮.
+Row 9. def:loc-cone-data; P-CIVP:134; P-CIVP Block B, Definition (Cone data at a corner); any gauge on both edges.
+Row 10. lem:loc-cone-strips; P-CIVP:151; P-CIVP Block B, Lemma (The background near the cones); strips in G, smooth
+extension across the cones, R ≥ 5 on 𝒞_out and R > 1.5 on 𝒞_in ∩ {u ≤ 7.2}.
+Row 11. sec:loc-cone-equations-frame; P-CIVP:186; P-CIVP Block B, subsection; the double-null frame.
+Row 12. eq:loc-cone-quantities; P-CIVP:192; P-CIVP Block B, display; χ, χ̲, η, ζ, 𝒱.
+Row 13. lem:loc-cone-frame; P-CIVP:202; P-CIVP Block B, Lemma (The connection); Koszul table.
+Row 14. lem:loc-cone-ricci; P-CIVP:224; P-CIVP Block B, Lemma (The equations); Ricci in the frame, dust, Bianchi;
+(L̲, L̲) and (L̲, ∂_ϑ) from lem:loc-cone-equations by exchanging u and v.
+Row 15. eq:loc-cone-frame-ricci; P-CIVP:238; P-CIVP Block B, display; the frame components of E.
+Row 16. eq:loc-cone-bianchi; P-CIVP:249; P-CIVP Block B, display; div E for the constraint components.
+Row 17. sec:loc-cone-formal; P-CIVP:320; P-CIVP Block B, subsection; the formal solution.
+Row 18. lem:loc-cone-borel; P-CIVP:322; P-CIVP Block B, Lemma (Extension of derivatives given on two edges); Borel
+with a corner, C^r bound.
+Row 19. lem:loc-cone-jets; P-CIVP:369; P-CIVP Block B, Lemma (The derivatives across the edges); linear ODEs along
+the generators, corner compatibility, no smallness; loss 4 derivatives per order.
+Row 20. eq:loc-cone-goursat; P-CIVP:401; P-CIVP Block B, display; the five equations solved for the mixed derivatives.
+Row 21. prop:loc-cone-formal; P-CIVP:484; P-CIVP Block B, Proposition (The formal solution); constraints propagated to
+all orders by the contracted Bianchi identity.
+Row 22. sec:loc-cone-reduced; P-CIVP:521; P-CIVP Block B, subsection; cases (I) small data, (II) small rectangle.
+Row 23. eq:loc-cone-time; P-CIVP:533; P-CIVP Block B, display; the time τ and the chart (τ, y).
+Row 24. eq:loc-cone-region; P-CIVP:540; P-CIVP Block B, display; the region 𝒰.
+Row 25. eq:loc-cone-modified; P-CIVP:586; P-CIVP Block B, display; the modified system and the forcing term F̃.
+Row 26. lem:loc-cone-system; P-CIVP:591; P-CIVP Block B, Lemma (The modified system); reference metric Ĝ in the gauge,
+cut-offs, residuals.
+Row 27. lem:loc-cone-energy; P-CIVP:640; P-CIVP Block B, Lemma (Energy on a region).
+Row 28. lem:loc-cone-cauchy; P-CIVP:658; P-CIVP Block B, Lemma (The Cauchy problem); thm:class-kato-stability (a).
+Row 29. lem:loc-cone-past; P-CIVP:683; P-CIVP Block B, Lemma (The past of the edges).
+Row 30. lem:loc-cone-support; P-CIVP:697; P-CIVP Block B, Lemma (Localisation).
+Row 31. lem:loc-cone-constraints; P-CIVP:717; P-CIVP Block B, Lemma (The constraints); Step 10 of
+thm:class-stability-off-axes with zero data on the cones.
+Row 32. lem:loc-cone-gauge; P-CIVP:751; P-CIVP Block B, Lemma (The double-null gauge).
+Row 33. lem:loc-cone-unique; P-CIVP:787; P-CIVP Block B, Lemma (Uniqueness); comparison through a wave map.
+Row 34. prop:loc-cone-local; P-CIVP:829; P-CIVP Block B, Proposition (Developments near a corner sphere, of any size);
+cited by the Tier 2 section for its corner developments.
+
+Notes for existing rows: sec:loc-cones and prop:loc-cones (the closing paragraph now states the development,
+[[thm:loc-cone-development]], and names what is not covered; the loss "no development is asserted" for cone data with
+dust remains only for data that are not small or that reach an axis); ch:localised-data (opening, text 3); in
+[[ch:introduction]], the paragraph on Part further (text 5); in [[ch:theorems]], the bullet "More families" (text 6); in
+[[ch:scope]], the paragraph on localised data (text 7).

@@ -120,8 +120,8 @@ on M₀ tangent to the boundary, then Vρ_H/ρ_H ∈ C^∞(M₀); with (a) this 
 and the charts do not depend on h, the ratios of the weight across overlapping charts of the parameterised structure are
 those for ℬ, which are bounded ((S7), the sufficient condition after Definition 3.58).
 
-(c) On U_((2),i,±,j,k,m), dt = 2^k dT, dx^i = (ln 2)x^i dX and dx^a = Ω̃_a dx^i + x^i dΩ_a, so
-|dt dx| = (ln 2)2^k|x^i|⁴|dT dX dΩ|; as 2^k/|x^i| ∈ (¼, 4) and ⟨x⟩/|x^i| ∈ [1, 11], ⟨x⟩^(−5)|dt dx| is the Lebesgue
+(c) On U_((2),i,±,j,k,m), dt = 2^k dT, dx^i = (ln 2)x^i dX and dx^a = Ω̃_a dx^i + x^i dΩ_a, so the density |dt dx|
+equals (ln 2)2^k|x^i|⁴|dT dX dΩ|; as 2^k/|x^i| ∈ (¼, 4) and ⟨x⟩/|x^i| ∈ [1, 11], ⟨x⟩^(−5)|dt dx| is the Lebesgue
 measure of the chart times a function lying between two positive constants. On U_((1)) this is clear. By (3.14)
 ([[rem:std-sbg-sobolev]]) at s = 0, where S_α is the dilation by h⁻¹,
 ‖v‖²_(H⁰_(𝒱_h)) = Σ_α ‖(S_α)_*(φ_α)_*(χ_αv)‖²_(L²) = h^(−5) Σ_α ∫ |(φ_α)_*(χ_αv)|² dx. As Σ_α χ_α² lies between two
@@ -133,13 +133,14 @@ constants.
 
 (d) In a chart U_α of ℬ, with coordinates y and the fibre coordinates ξ of (S4), the covector Σ_i ξ_i dy^i/h equals
 h⁻¹Σ_μ ζ_μ dz^μ/⟨x⟩ exactly when ξ = C_α(y)ζ, where C_α(y)_(iμ) := ⟨x⟩⁻¹∂z^μ/∂y^i are the coefficients of ∂_(y^i) in
-terms of the ⟨x⟩∂_(z^μ). By (a), C_α and C_α⁻¹ are bounded with all derivatives, uniformly in α, and they do not depend on
-h; so ⟨ξ⟩/⟨ζ⟩ lies between two positive constants. A smooth function on ³ᵇT̄*M₀ has bounded derivatives of all orders
-along the fields ⟨x⟩∂_(z^μ), acting at fixed ζ (smooth vector fields on ³ᵇT̄*M₀ by (a)), and its ζ-derivatives of order
-γ are bounded by C⟨ζ⟩^(−|γ|), by the radial compactification. By the chain rule through ζ = C_α(y)⁻¹ξ, the function
-(y, ξ) ↦ a(h, y, C_α(y)⁻¹ξ) satisfies |∂_y^β∂_ξ^γ ·| ≤ C_(βγ)⟨ξ⟩^(−|γ|), uniformly in α and h: a y-derivative at fixed ξ
-adds a ζ-derivative times (∂_yC_α⁻¹)ξ, and |ξ| ≤ C⟨ζ⟩. The function ρ_∞⟨ξ⟩ and its inverse satisfy the same estimates,
-so ρ_∞^(−m) ∈ S^m with uniform bounds; this gives the claim, w being a weight. The eb-case is the same. ∎
+terms of the ⟨x⟩∂_(z^μ). By (a), C_α and C_α⁻¹ are bounded with all derivatives, uniformly in α, and they do not
+depend on h; so ⟨ξ⟩/⟨ζ⟩ lies between two positive constants. A smooth function on ³ᵇT̄*M₀ has bounded derivatives of
+all orders along the fields ⟨x⟩∂_(z^μ), acting at fixed ζ (smooth vector fields on ³ᵇT̄*M₀ by (a)), and its
+ζ-derivatives of order γ are bounded by C⟨ζ⟩^(−|γ|), by the radial compactification. By the chain rule through ζ =
+C_α(y)⁻¹ξ, the function (y, ξ) ↦ a(h, y, C_α(y)⁻¹ξ) satisfies |∂_y^β∂_ξ^γ ·| ≤ C_(βγ)⟨ξ⟩^(−|γ|), uniformly in α and h:
+a y-derivative at fixed ξ adds a ζ-derivative times (∂_yC_α⁻¹)ξ, and |ξ| ≤ C⟨ζ⟩. The function ρ_∞⟨ξ⟩ and its inverse
+satisfy the same estimates, so ρ_∞^(−m) ∈ S^m with uniform bounds; this gives the claim, w being a weight. The eb-case
+is the same. ∎
 
 **Definition {#def:iv5-calc-micro}** (Microsupport and elliptic set.) Let ∂_ħ := ({0} × ³ᵇT̄*M₀) ∪ ([0, 1] × ³ᵇS*M₀)
 ⊂ 𝒫, where ³ᵇS*M₀ is fibre infinity, and let o := {0} × (zero section). A family of symbols a is *supported in* a closed
@@ -212,13 +213,14 @@ h ∈ (0, 1]: C_c^∞ of the set is dense in the subspace of H^s_(𝒱_h) of the
 equivalent norm, by (3.14): the maps S_α are dilations by h⁻¹, which are isomorphisms of H^s(ℝ⁵). By (S12) we may also
 replace ℬ by a compatible bounded geometry structure. For Ω₁ we keep ℬ. For Ω₃, let R₀ := r_♯ + 1 and R₁ := 200R₀,
 take finitely many charts κ_ℓ : V_ℓ → (−2, 2)⁴ of ℝ⁴ such that the sets κ_ℓ⁻¹((−1, 1)⁴) cover {|x| ≤ R₁}, each V_ℓ
-either disjoint from {|x| = r_♯} or such that κ_ℓ(V_ℓ ∩ {|x| < r_♯}) = {y_1 < 0}, and replace the charts of ℬ that meet
-{|x| ≤ R₀} by the charts (j − 2, j + 2)_t × V_ℓ, (t − j, κ_ℓ(x)), j ∈ ℤ. The charts of ℬ that are kept still cover
-{|x| > R₁}: a chart U_((2)) whose set φ⁻¹((−1, 1)⁵) contains a point with |x| > R₁ has 2^(k−2) > R₁/56 > R₀. The charts
-of ℬ that meet {|x| ≤ R₁} have k ≤ log₂R₁ + 2, so all transition maps between the two families are translates in t of
-finitely many smooth maps; the result is a bounded geometry structure compatible with ℬ. In each chart of the structure so obtained that meets ∂Ω (Ω = Ω₁ or Ω₃), with coordinates (T, y),
-the set Ω is {T > a} or {T > a, y_1 < 0} for some a ∈ ℝ, because the charts are products in t with T an affine function
-of t with positive slope; a chart not meeting ∂Ω lies in Ω or in its complement, being connected.
+either disjoint from {|x| = r_♯} or such that κ_ℓ(V_ℓ ∩ {|x| < r_♯}) = {y_1 < 0}, and replace the charts of ℬ that
+meet {|x| ≤ R₀} by the charts (j − 2, j + 2)_t × V_ℓ, (t − j, κ_ℓ(x)), j ∈ ℤ. The charts of ℬ that are kept still
+cover {|x| > R₁}: a chart U_((2)) whose set φ⁻¹((−1, 1)⁵) contains a point with |x| > R₁ has 2^(k−2) > R₁/56 > R₀. The
+charts of ℬ that meet {|x| ≤ R₁} have k ≤ log₂R₁ + 2, so all transition maps between the two families are translates
+in t of finitely many smooth maps; the result is a bounded geometry structure compatible with ℬ. In each chart of the
+structure so obtained that meets ∂Ω (Ω = Ω₁ or Ω₃), with coordinates (T, y), the set Ω is {T > a} or {T > a, y_1 < 0}
+for some a ∈ ℝ, because the charts are products in t with T an affine function of t with positive slope; a chart not
+meeting ∂Ω lies in Ω or in its complement, being connected.
 
 Let e := (1, −1, 0, 0, 0)/√2 in the coordinates (T, y_1, …), and Γ := {Y ∈ ℝ⁵ : Y·e ≥ ¾|Y|}; every Y ∈ Γ ∖ 0 has
 positive T-component and negative y_1-component. Fix ϱ ∈ C_c^∞(ℝ⁵) with ∫ϱ = 1 and supp ϱ ⊂ Γ ∩ {½ ≤ |Y| ≤ 1}, and put
@@ -229,15 +231,15 @@ only on ϱ.
 Let χ ∈ C_c^∞((−5/4, 5/4)⁵) be nonnegative and equal to 1 on [−1, 1]⁵, and χ_α := φ_α^*χ/Σ_β φ_β^*χ. For v in H^s
 supported in Ω̄ put w_α := (φ_α)_*(χ_αv) and v_ε := Σ_α φ_α^*(ϱ_ε ∗ w_α); ϱ_ε ∗ w_α is supported in (−3/2, 3/2)⁵. Then
 v_ε is smooth and supported in Ω, at distance at least cε from ∂Ω in every chart. By (3.14), the norm of an element of
-H^s is the square root of Σ_β ‖(φ_β)_*(φ_β^*χ ·)‖²_(H^s(ℝ⁵)); hence ‖Σ_α g_α‖² ≤ L Σ_α ‖g_α‖² for any g_α, L being
-the multiplicity, since each term (φ_β)_*(φ_β^*χ Σ_α g_α) involves at most L of the g_α, and since
-Σ_β ‖(φ_β)_*(φ_β^*χ g_α)‖² is ‖g_α‖². Moreover, for f ∈ H^s(ℝ⁵) supported in (−3/2, 3/2)⁵, ‖φ_α^*f‖_(H^s) ≤ C‖f‖_(H^s(ℝ⁵)), and
-Σ_α ‖w_α‖²_(H^s(ℝ⁵)) ≤ C‖v‖²_(H^s), with C independent of α: H^s(ℝ⁵), for distributions supported in a fixed compact set,
+H^s is the square root of Σ_β ‖(φ_β)_*(φ_β^*χ ·)‖²_(H^s(ℝ⁵)); hence ‖Σ_α g_α‖² ≤ L Σ_α ‖g_α‖² for any g_α, L being the
+multiplicity, since each term (φ_β)_*(φ_β^*χ Σ_α g_α) involves at most L of the g_α, and since Σ_β ‖(φ_β)_*(φ_β^*χ
+g_α)‖² is ‖g_α‖². Moreover, for f ∈ H^s(ℝ⁵) supported in (−3/2, 3/2)⁵, ‖φ_α^*f‖_(H^s) ≤ C‖f‖_(H^s(ℝ⁵)), and Σ_α
+‖w_α‖²_(H^s(ℝ⁵)) ≤ C‖v‖²_(H^s), with C independent of α: H^s(ℝ⁵), for distributions supported in a fixed compact set,
 is invariant under multiplication by functions bounded in C^∞ and under diffeomorphisms bounded in C^∞ together with
-their inverses, and the transition maps and the functions Σ_β φ_β^*χ are so bounded ((S1)). Convolution with
-ϱ_ε − δ_0 is the Fourier multiplier ϱ̂(εξ) − 1, bounded by C uniformly in ε and tending to 0 pointwise; so
-‖(ϱ_ε − δ_0) ∗ w_α‖_(H^s(ℝ⁵)) ≤ C‖w_α‖_(H^s(ℝ⁵)) and tends to 0 for each α. As Σ_α χ_α = 1,
-‖v_ε − v‖²_(H^s) ≤ LC Σ_α ‖(ϱ_ε − δ_0) ∗ w_α‖²_(H^s(ℝ⁵)), which tends to 0 by dominated convergence for the series.
+their inverses, and the transition maps and the functions Σ_β φ_β^*χ are so bounded ((S1)). Convolution with ϱ_ε − δ_0
+is the Fourier multiplier ϱ̂(εξ) − 1, bounded by C uniformly in ε and tending to 0 pointwise; so ‖(ϱ_ε − δ_0) ∗
+w_α‖_(H^s(ℝ⁵)) ≤ C‖w_α‖_(H^s(ℝ⁵)) and tends to 0 for each α. As Σ_α χ_α = 1, ‖v_ε − v‖²_(H^s) ≤ LC Σ_α ‖(ϱ_ε − δ_0) ∗
+w_α‖²_(H^s(ℝ⁵)), which tends to 0 by dominated convergence for the series.
 
 Finally let ψ ∈ C_c^∞(ℝ) equal 1 near 0 and ψ_R(t, x) := ψ(t/R)ψ(|x|/R), R ≥ 1. The ψ_R are bounded in C^∞_(uni,ℬ)
 uniformly in R, since ⟨x⟩ ≤ CR on supp ψ(|x|/R); so multiplication by ψ_R is bounded on H^s uniformly in R ((S3), (S7)
@@ -312,18 +314,18 @@ J_ε is bounded on every wH^s_(3b,h), uniformly in (ε, h).
 h⁻¹i[P, J_ε] is bounded in wΨ^(m−1)_(3b,ħ) uniformly in ε, with principal symbol H_pj_ε, p the principal symbol of P,
 computed entrywise. Here H_p is the Hamilton vector field of [[prop:np-10-65-a]] (b).
 
-*Proof.* (a) In a chart, j_ε = f(εC_α(y)⁻¹ξ) with f(η) := ⟨η⟩^(−K) ∈ S⁰(ℝ⁵) ([[lem:iv5-calc-structure]] (d)). A derivative
-∂_y^β∂_ξ^γ of it is a sum of terms (∂^κf)(εC_α⁻¹ξ) times ε^(|κ|) times polynomials in ξ of degree at most |κ| − |γ| with
-coefficients bounded uniformly. As |∂^κf(η)| ≤ C⟨η⟩^(−|κ|), and ε⟨ξ⟩ ≤ ⟨εξ⟩ ≤ C⟨εC_α⁻¹ξ⟩ for ε ≤ 1, each term is at
-most Cε^(|κ|)⟨ξ⟩^(|κ|−|γ|)⟨εξ⟩^(−|κ|) ≤ C⟨ξ⟩^(−|γ|); so the family is bounded in S⁰, uniformly in (ε, h). For fixed ε,
-j_ε ≤ ε^(−K)⟨ζ⟩^(−K), and likewise for the derivatives, so j_ε ∈ S^(−K). The structure with parameters (ε, h) is
-parameterised ((S7)), and the boundedness follows from (S5), (S7) as in [[def:iv5-calc-cells]].
+*Proof.* (a) In a chart, j_ε = f(εC_α(y)⁻¹ξ) with f(η) := ⟨η⟩^(−K) ∈ S⁰(ℝ⁵) ([[lem:iv5-calc-structure]] (d)). A
+derivative ∂_y^β∂_ξ^γ of it is a sum of terms (∂^κf)(εC_α⁻¹ξ) times ε^(|κ|) times polynomials in ξ of degree at
+most |κ| − |γ| with coefficients bounded uniformly. As |∂^κf(η)| ≤ C⟨η⟩^(−|κ|), and ε⟨ξ⟩ ≤ ⟨εξ⟩ ≤ C⟨εC_α⁻¹ξ⟩ for ε ≤ 1,
+each term is at most Cε^(|κ|)⟨ξ⟩^(|κ|−|γ|)⟨εξ⟩^(−|κ|) ≤ C⟨ξ⟩^(−|γ|); so the family is bounded in S⁰, uniformly in (ε,
+h). For fixed ε, j_ε ≤ ε^(−K)⟨ζ⟩^(−K), and likewise for the derivatives, so j_ε ∈ S^(−K). The structure with
+parameters (ε, h) is parameterised ((S7)), and the boundedness follows from (S5), (S7) as in [[def:iv5-calc-cells]].
 
-(b) For δ ∈ (0, 1], |∂_y^β∂_ξ^γ(j_ε − 1)| ≤ C_δε^δ⟨ξ⟩^(δ−|γ|), since |1 − f(η)| ≤ C min(1, |η|) ≤ C|η|^δ and the
-terms of (a) with |κ| ≥ 1 are at most C(ε⟨ξ⟩⟨εξ⟩⁻¹)^(|κ|)⟨ξ⟩^(−|γ|) ≤ C(ε⟨ξ⟩)^δ⟨ξ⟩^(−|γ|). So ε^(−δ)(j_ε − 1) is bounded in
+(b) For δ ∈ (0, 1], |∂_y^β∂_ξ^γ(j_ε − 1)| ≤ C_δε^δ⟨ξ⟩^(δ−|γ|), since |1 − f(η)| ≤ C min(1, |η|) ≤ C|η|^δ and the terms
+of (a) with |κ| ≥ 1 are at most C(ε⟨ξ⟩⟨εξ⟩⁻¹)^(|κ|)⟨ξ⟩^(−|γ|) ≤ C(ε⟨ξ⟩)^δ⟨ξ⟩^(−|γ|). So ε^(−δ)(j_ε − 1) is bounded in
 S^δ, and ‖(J_ε − I)u‖_(wH^s_(3b,h)) ≤ Cε^δ‖u‖_(wH^(s+δ)_(3b,h)), by Op(1) = I ([[prop:np-10-65-a]] (a)) and (S5). As
-C_c^∞ is dense in wH^s_(3b,h) ([Hin26d, Lemma 3.20], (S16)), so is wH^(s+δ)_(3b,h); with the uniform bound of (a), J_ε → I
-strongly.
+C_c^∞ is dense in wH^s_(3b,h) ([Hin26d, Lemma 3.20], (S16)), so is wH^(s+δ)_(3b,h); with the uniform bound of (a), J_ε
+→ I strongly.
 
 (c) By the chain rule, H_pj_ε = −(K/2)(1 + ε²|ζ|²)^(−K/2−1)ε²H_p(|ζ|²) = ϑ_εj_εe_p. The Poisson bracket H_p(|ζ|²) of
 p ∈ wS^m and |ζ|² ∈ S² lies in wS^(m+1), by the estimates in the coordinates (y, ξ) of a chart, in which the bracket is
@@ -457,13 +459,14 @@ u ∈ wH^(−N), all terms being defined by (d); if GAu ∈ ww′H^(s−m), then
 lies in wH^(σ−1), and so Bu ∈ wH^s.
 
 (f) Put q̂ := w⁻²ρ_∞^(2k)q ∈ S⁰. It is B-self-adjoint, and its spectrum lies in [c, C₁] on W ∩ 𝒫°, C₁ := sup|q̂|. With
-γ a fixed contour in {Re z > 0} around [c, C₁], at distance at least c/2 from it, q̂^(±1/2) = (2πi)⁻¹∮_γ z^(±1/2)(z − q̂)⁻¹dz
-on W ∩ 𝒫°; this is the B-self-adjoint, positive definite square root and its inverse, as q̂ is diagonalisable with real
-eigenvalues in [c, C₁] for B. For z ∈ γ, |(z − q̂)⁻¹| ≤ 2/c in the norm of B, and a derivative ∂_y^β∂_ξ^γ(z − q̂)⁻¹ in
-the coordinates of a chart is a sum of products of (z − q̂)⁻¹ and derivatives of q̂, each bounded with the weights
-⟨ξ⟩^(−|γ|) of S⁰, uniformly. So q̂^(±1/2) satisfies the estimates of S⁰ on W ∩ 𝒫°, and q^(±1/2) = w^(±1)ρ_∞^(∓k)q̂^(±1/2)
-those of w^(±1)S^(±k). The principal symbol of Op(φq^(1/2))*Op(φq^(1/2)) is (φq^(1/2))^(*_B)φq^(1/2) = φ²q by (b). If
-q = fq′ as stated, f^(1/2)q′^(1/2) is B-self-adjoint, positive semidefinite, and squares to q.
+γ a fixed contour in {Re z > 0} around [c, C₁], at distance at least c/2 from it, q̂^(±1/2) = (2πi)⁻¹∮_γ z^(±1/2)(z −
+q̂)⁻¹dz on W ∩ 𝒫°; this is the B-self-adjoint, positive definite square root and its inverse, as q̂ is diagonalisable
+with real eigenvalues in [c, C₁] for B. For z ∈ γ, |(z − q̂)⁻¹| ≤ 2/c in the norm of B, and a derivative ∂_y^β∂_ξ^γ(z
+− q̂)⁻¹ in the coordinates of a chart is a sum of products of (z − q̂)⁻¹ and derivatives of q̂, each bounded with the
+weights ⟨ξ⟩^(−|γ|) of S⁰, uniformly. So q̂^(±1/2) satisfies the estimates of S⁰ on W ∩ 𝒫°, and q^(±1/2) =
+w^(±1)ρ_∞^(∓k)q̂^(±1/2) those of w^(±1)S^(±k). The principal symbol of Op(φq^(1/2))*Op(φq^(1/2)) is
+(φq^(1/2))^(*_B)φq^(1/2) = φ²q by (b). If q = fq′ as stated, f^(1/2)q′^(1/2) is B-self-adjoint, positive semidefinite,
+and squares to q.
 
 (g) and (h) are [[lem:iv5-calc-dual]] and [[lem:iv5-calc-reg]].
 
@@ -840,34 +843,34 @@ New:
 
 > (S7) Parameterised structures [Hin26d, Definition 1.9, p. 9; p. 58 and Remark 3.56, p. 58; Definitions 3.58 and 3.59
 > and the text after them, with footnote 13, p. 59]. Definition 1.9 defines a parameterized scaled bounded geometry
-> structure on (M, P) as a collection {𝓑_(p,×)} of scaled b.g. structures 𝓑_(p,×) = {(U_(α_p), φ_(α_p), ρ_(α_p))},
-> p ∈ P, "so that the quantities A and the C^∞ bounds on transition functions in Definition 1.1 as well as the constants
+> structure on (M, P) as a collection {𝓑_(p,×)} of scaled b.g. structures 𝓑_(p,×) = {(U_(α_p), φ_(α_p), ρ_(α_p))}, p ∈
+> P, "so that the quantities A and the C^∞ bounds on transition functions in Definition 1.1 as well as the constants
 > C_γ in (1.6) are uniform also in p ∈ P", and continues: "Furthermore, it includes semiclassical bounded geometry
 > settings when P = (0, 1]_h if all 𝓑_(h,×) feature the same b.g. structure {(U_α, φ_α)}, and the scalings are
 > ρ_(α_h,i) = h for h ∈ (0, 1]." On p. 58 the space P × M = ⊔_(p∈P) {p} × M is considered "with P given the discrete
 > topology". Remark 3.56 (Subsets of P): "In applications, one often only works with operators defined for (typically
-> countable) subsets of parameters p ∈ P (e.g. in the semiclassical setting: sequences of semiclassical parameters
-> h_j ↘ 0). Since one can implement this simply by replacing P by such a subset (and then defining the microlocalization
-> locus as in (3.40) for the new set P), we do not explicitly allow for symbols to be defined only on subsets of P here."
-> Definition 3.58: "Let w = (w_p)_(p∈P) be a weight on (P × M, 𝓑^×). Let m ∈ ℝ. Then we say that a family
-> a = (a_p)_(p∈P) lies in wS^m(𝒱T*M) if a_p ∈ w_pS^m(𝒱_pT*M) for all p ∈ P, with uniformly bounded symbol seminorms.
-> …" After it: for w to be a weight, "a sufficient additional condition is that the ratios w_(p,α)/w_(p,β) for
-> α, β ∈ 𝒜_p with U_(p,α) ∩ U_(p,β) ≠ ∅ are uniformly bounded." Definition 3.59: "In the notation of Definition 3.58, a
+> countable) subsets of parameters p ∈ P (e.g. in the semiclassical setting: sequences of semiclassical parameters h_j
+> ↘ 0). Since one can implement this simply by replacing P by such a subset (and then defining the microlocalization
+> locus as in (3.40) for the new set P), we do not explicitly allow for symbols to be defined only on subsets of P
+> here." Definition 3.58: "Let w = (w_p)_(p∈P) be a weight on (P × M, 𝓑^×). Let m ∈ ℝ. Then we say that a family a =
+> (a_p)_(p∈P) lies in wS^m(𝒱T*M) if a_p ∈ w_pS^m(𝒱_pT*M) for all p ∈ P, with uniformly bounded symbol seminorms. …"
+> After it: for w to be a weight, "a sufficient additional condition is that the ratios w_(p,α)/w_(p,β) for α, β ∈ 𝒜_p
+> with U_(p,α) ∩ U_(p,β) ≠ ∅ are uniformly bounded." Definition 3.59: "In the notation of Definition 3.58, a
 > 𝒱-pseudodifferential operator A ∈ wΨ^m_𝒱(M) is a family A = (A_p)_(p∈P) of operators A_p = Op_(𝒱_p)(a_p) + R_p where
-> the quantization map Op_(𝒱_p) is defined as in Definition 3.31, (a_p)_(p∈P) ∈ wS^m(𝒱T*M), and (R_p)_(p∈P) is a family
-> of residual operators R_p on (M, 𝓑_(p,×)) for which the conditions in Definition 3.34 hold with uniform constants and
-> operator norm bounds for all weights w′ in (3.30). The principal symbol of A is the equivalence class of a in
-> wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M). …" The text after it: "An operator A = (A_p)_(p∈P) ∈ wΨ^m_𝒱(M) defines a uniformly
-> bounded family of operators A_p : w′_pH^s_(𝒱_p)(M) → w_pw′_pH^(s−m)_(𝒱_p)(M), and more generally
-> A_p : w′_pH^(s;k)_(𝒱_p;𝒲_p)(M) → w_pw′_pH^(s−m;k)_(𝒱_p;𝒲_p)(M). (This is in fact a special case of Theorem 3.44,
-> applied to the scaled b.g. structure (P × M, 𝓑^×) and the input u = (u_p)_(p∈P) where u_p = 0 for all p ≠ p_0 ∈ P and
-> u_(p_0) ∈ w′_(p_0)H^s_(𝒱_(p_0))(M) with norm ≤ 1, since then Au = (A_pu_p)_(p∈P) has norm ≤ C for some constant C only
-> depending on A; but the norm of Au is bounded from below by the w_(p_0)w′_(p_0)H^(s−m)_(𝒱_(p_0))(M)-norm of
-> A_(p_0)u_(p_0).) The properties of adjoints, compositions, commutators, and principal symbols in Theorem 3.51 carry over
-> verbatim." Footnote 13: "Strictly speaking, one needs to apply this argument for all countable subsets P′ ⊂ P of
-> parameters (so that P′ × M is second countable and the total index set ⊔_(p′∈P′) 𝒜_(p′) is countable, as required in
-> Definition 1.1); but the uniform bound on the operators A_(p′) is independent of P′." And: "The membership
-> A = (A_p)_(p∈P) ∈ wDiff^m_𝒱(M) is characterized by requiring that each A_p is a differential operator, and
+> the quantization map Op_(𝒱_p) is defined as in Definition 3.31, (a_p)_(p∈P) ∈ wS^m(𝒱T*M), and (R_p)_(p∈P) is a
+> family of residual operators R_p on (M, 𝓑_(p,×)) for which the conditions in Definition 3.34 hold with uniform
+> constants and operator norm bounds for all weights w′ in (3.30). The principal symbol of A is the equivalence class
+> of a in wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M). …" The text after it: "An operator A = (A_p)_(p∈P) ∈ wΨ^m_𝒱(M) defines a
+> uniformly bounded family of operators A_p : w′_pH^s_(𝒱_p)(M) → w_pw′_pH^(s−m)_(𝒱_p)(M), and more generally A_p :
+> w′_pH^(s;k)_(𝒱_p;𝒲_p)(M) → w_pw′_pH^(s−m;k)_(𝒱_p;𝒲_p)(M). (This is in fact a special case of Theorem 3.44, applied
+> to the scaled b.g. structure (P × M, 𝓑^×) and the input u = (u_p)_(p∈P) where u_p = 0 for all p ≠ p_0 ∈ P and
+> u_(p_0) ∈ w′_(p_0)H^s_(𝒱_(p_0))(M) with norm ≤ 1, since then Au = (A_pu_p)_(p∈P) has norm ≤ C for some constant C
+> only depending on A; but the norm of Au is bounded from below by the w_(p_0)w′_(p_0)H^(s−m)_(𝒱_(p_0))(M)-norm of
+> A_(p_0)u_(p_0).) The properties of adjoints, compositions, commutators, and principal symbols in Theorem 3.51 carry
+> over verbatim." Footnote 13: "Strictly speaking, one needs to apply this argument for all countable subsets P′ ⊂ P
+> of parameters (so that P′ × M is second countable and the total index set ⊔_(p′∈P′) 𝒜_(p′) is countable, as required
+> in Definition 1.1); but the uniform bound on the operators A_(p′) is independent of P′." And: "The membership A =
+> (A_p)_(p∈P) ∈ wDiff^m_𝒱(M) is characterized by requiring that each A_p is a differential operator, and
 > (φ_(p,α))_*A_p = Σ_(|β|≤m) w_(p,α)a_(p,α,β)(x)(ρ_(p,α)∂_x)^β where the C^∞((−2, 2)^n)-seminorms of the coefficients
 > a_(p,α,β) are uniformly (in p ∈ P, α ∈ 𝒜_p, β ∈ ℕ^n_0) bounded."
 
@@ -918,19 +921,19 @@ chapter 33 only as an attribution of statements and display numbers.
 
 ## Crosswalk rows (chapter 33)
 
-The row of prop:np-10-65-a is replaced; the other rows are added after it. Columns: label, source, source name, note.
+The row of prop:np-10-65-a is replaced; the other rows are added after it, with the columns of the chapter's rows.
 
 sec:iv5-calc	paper/reader/proofs/P-G1.md:1	proof G1, the calculi	new section; replaces the citation of preprints
-def:iv5-calc-cells	paper/reader/proofs/P-G1.md:LINE_CELLS	proof G1, cells	4 + 1 cells of the 3b- and eb-structures
-lem:iv5-calc-structure	paper/reader/proofs/P-G1.md:LINE_STRUCT	proof G1, structures	parameterised structure, weights, symbols
-def:iv5-calc-micro	paper/reader/proofs/P-G1.md:LINE_MICRO	proof G1, microsupport	concrete WF′ and Ell
-lem:iv5-calc-disjoint	paper/reader/proofs/P-G1.md:LINE_DISJ	proof G1, disjoint supports	via P′ × M and Lemma 3.28
-lem:iv5-calc-d	paper/reader/proofs/P-G1.md:LINE_D	proof G1, property (D)	X_0 and Σ^♯, noncompact boundaries
-lem:iv5-calc-dual	paper/reader/proofs/P-G1.md:LINE_DUAL	proof G1, duality	supported and extendible spaces
-lem:iv5-calc-reg	paper/reader/proofs/P-G1.md:LINE_REG	proof G1, regulariser	J_ε = Op(⟨εζ⟩^(−K))
-prop:np-10-65-a	paper/reader/proofs/P-G1.md:LINE_PROP	proof G1, the calculi	replaces NP 10.65 (a); real proof
-eq:iv5-calc-ell	paper/reader/proofs/P-G1.md:LINE_EQELL	proof G1, elliptic estimate	new display
-lem:iv5-calc-garding	paper/reader/proofs/P-G1.md:LINE_GARD	proof G1, margin bound	replaces the sharp Gårding step
-eq:iv5-calc-garding	paper/reader/proofs/P-G1.md:LINE_EQGARD	proof G1, margin bound	new display
-lem:iv5-calc-q0	paper/reader/proofs/P-G1.md:LINE_Q0	proof G1, lower bound for Q_0	replaces Q_0 = Θ*Θ + R
-eq:iv5-calc-q0	paper/reader/proofs/P-G1.md:LINE_EQQ0	proof G1, lower bound for Q_0	new display
+def:iv5-calc-cells	paper/reader/proofs/P-G1.md:13	proof G1, cells	4 + 1 cells of the 3b- and eb-structures
+lem:iv5-calc-structure	paper/reader/proofs/P-G1.md:49	proof G1, structures	structure, weights, symbols
+def:iv5-calc-micro	paper/reader/proofs/P-G1.md:145	proof G1, microsupport	concrete WF′ and Ell
+lem:iv5-calc-disjoint	paper/reader/proofs/P-G1.md:158	proof G1, disjoint supports	via P′ × M and Lemma 3.28
+lem:iv5-calc-d	paper/reader/proofs/P-G1.md:208	proof G1, property (D)	X_0 and Σ^♯, noncompact boundaries
+lem:iv5-calc-dual	paper/reader/proofs/P-G1.md:250	proof G1, duality	supported and extendible spaces
+lem:iv5-calc-reg	paper/reader/proofs/P-G1.md:304	proof G1, regulariser	J_ε = Op(⟨εζ⟩^(−K))
+prop:np-10-65-a	paper/reader/proofs/P-G1.md:337	proof G1, the calculi	replaces NP 10.65 (a); real proof
+eq:iv5-calc-ell	paper/reader/proofs/P-G1.md:368	proof G1, elliptic estimate	new display
+lem:iv5-calc-garding	paper/reader/proofs/P-G1.md:481	proof G1, margin bound	replaces the sharp Gårding step
+eq:iv5-calc-garding	paper/reader/proofs/P-G1.md:485	proof G1, margin bound	new display
+lem:iv5-calc-q0	paper/reader/proofs/P-G1.md:513	proof G1, lower bound for Q_0	replaces Q_0 = Θ*Θ + R
+eq:iv5-calc-q0	paper/reader/proofs/P-G1.md:518	proof G1, lower bound for Q_0	new display
