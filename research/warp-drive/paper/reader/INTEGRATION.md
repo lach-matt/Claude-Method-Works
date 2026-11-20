@@ -1371,3 +1371,6 @@ Items found while chapters were written in parallel; each is settled once, editi
   20-48 (both risk more than they cure; each chapter defines its symbols locally; a notation sentence at the start of
   the stability theory says so); the statement-changing optional nits (ε_g sweep, 38's M° → Ω_*, S20 zf-weight, S17
   λ_♯-pole sentences), declined by their readers; the lost-review nits whose intent cannot be recovered.
+- R-I1b 0M 1m 1n (notes/reviews/R-I1b.md): I-1 correct in chapters 30-84; the minor (row index ρ → ψ still in 46:1728,
+  1769) and the nit (36:1622, (E1) and (E2)) applied by the coordinator with the reviewer's texts; to be checked by the
+  I-2 reader. R-DB-3 CONFIRMED P-U71-IS and P-U71-SP (notes/reviews/R-DB-3.md).

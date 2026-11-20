@@ -1725,7 +1725,7 @@ in ℰ_0 + 1 below ℓ_0 + 1 < 5. On {r ≤ 2R′} the weights are bounded above
 
 O(4) acts on M by (t, x) ↦ (t, σx) and on tensors by σ_* := (σ⁻¹)^*. On the components of 𝒟_ex ([[def:iii-j3-1-1]],
 [[def:iii-j-1-1]]) it acts as follows: on b = (m, A) ∈ 𝔟 by (m, σAσ⁻¹); on 𝒮_1 ∋ S_w by S_w ↦ S_(σw); on the
-coefficient spaces 𝒲_τ, 𝒴_ρ (spaces of harmonics on 𝕊³, 𝒮_1, and 𝒱′ = 0) by their representations; on 𝒱_1, the
+coefficient spaces 𝒲_τ, 𝒴_ψ (spaces of harmonics on 𝕊³, 𝒮_1, and 𝒱′ = 0) by their representations; on 𝒱_1, the
 rotations, the coefficient space of the rotation rows ([[def:iii-i14-1-3]]), by conjugation V ↦ σVσ⁻¹; and on the
 tensor and function components (u^0_λ, f_λ, h̃, and the values of the q-tails) by σ_*.
 
@@ -1766,7 +1766,7 @@ physical rows are not δ*-images; both are averaged as the maps of 𝒴_τ. One 
 φ^*(ℒ_X g) = ℒ_(φ^*X)(φ^*g) and φ^*(g⁻¹ω) = (φ^*g)⁻¹(φ^*ω), so φ^*(δ*_g ω) = δ*_(φ^*g)(φ^*ω); every σ ∈ O(4) is an
 isometry of g_(b₀), so σ_* δ*_(g_(b₀)) = δ*_(g_(b₀)) σ_*.
 
-(C3′) *Families in b:* the towers and states at b used in h_(b,rem)(q), namely T_(ρ,b), h^(≤1)_(b,s1), h_(b,v1) and
+(C3′) *Families in b:* the towers and states at b used in h_(b,rem)(q), namely T_(ψ,b), h^(≤1)_(b,s1), h_(b,v1) and
 h^(≤2)_(b,v1), chosen smooth in b by [[lem:iii-i14-2-1]]. Replace a family L_b by
 
     L^(O(4))_b := ∫_(O(4)) σ_* ∘ L_(σ⁻¹·b) ∘ σ⁻¹ dσ.

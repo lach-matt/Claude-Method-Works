@@ -1618,16 +1618,16 @@ For j = k₀, k₀ + 1, …, ⌊ℓ_zf⌋ in turn, let v_j solve
 
     𝒩v_j = ρ^(α−2−j)χ₃(ρ)f^((j)) on (0, ∞)_ρ × 𝕊³,     v_j ∈ H^(∞,α−2−j)_b,                              {#eq:iii-g4-5-3}
 
-(χ₃ ∈ C_c^∞([0, ρ₀)) equal to 1 near supp χ_tf): 𝒩 is elliptic and dilation invariant, and α − 2 − j is not the real
-part of a root (2 − α + j ≠ −μ, the roots being real), so its Mellin family is invertible on that line ((E3) of
-[[sec:iii-a-1-1]]), with the bounds (E1) of [[sec:iii-a-1-1]], and [[eq:iii-g4-5-3]] is solved by Mellin inversion on {Re
-λ = α − 2 − j} (Plancherel). Then U_j := χ_zf χ_tf|σ|^j v_j satisfies, by [[eq:iii-g4-1-2]] and [[lem:iii-g4-1-2]],
-L̂_b(σ)U_j = χ_zf χ_tf|σ|^jρ^(α−j)f^((j)) + e_j on supp χ_tf (where χ₃ = 1), where e_j consists of three kinds of
-terms. First, χ_zf χ_tf|σ|^(j+1)ρ^(α−j−1)g_(j+1) with g_(j+1) := ±iρ^(j+1−α)ρ(ρ∂_ρ − 3/2 − S̄)v_j ∈ H^(∞,0)_b, from
-the term iσρ(·) of [[eq:iii-g4-1-2]]: a term of the same form at j + 1. Second, terms of tf-order α + 2, from
-L̂_b(σ) − L̄̂(σ) ([[lem:iii-g4-1-2]]), of zf-class (k₀, 0). Third, commutators with χ_zf χ_tf; those with χ_tf are
-supported away from tf and have zf-class (k₀, 0), and those with χ_zf = χ₁(r̂) are supported in {1/8 ≤ r̂ ≤ ¼}, away
-from zf and scf. Subtracting g_(j+1) from f^((j+1)) (or setting f^((j+1)) := −g_(j+1) when j + 1 ≥ ℓ_zf) and
+(χ₃ ∈ C_c^∞([0, ρ₀)) equal to 1 near supp χ_tf): 𝒩 is elliptic and dilation invariant, and α − 2 − j is not the real part
+of a root (2 − α + j ≠ −μ, the roots being real), so its Mellin family is invertible on that line ((E3) of
+[[sec:iii-a-1-1]]), with the bounds (E1) there for |Im λ| large and (E2) on the rest of the line, and [[eq:iii-g4-5-3]]
+is solved by Mellin inversion on {Re λ = α − 2 − j} (Plancherel). Then U_j := χ_zf χ_tf|σ|^j v_j satisfies, by
+[[eq:iii-g4-1-2]] and [[lem:iii-g4-1-2]], L̂_b(σ)U_j = χ_zf χ_tf|σ|^jρ^(α−j)f^((j)) + e_j on supp χ_tf (where χ₃ = 1),
+where e_j consists of three kinds of terms. First, χ_zf χ_tf|σ|^(j+1)ρ^(α−j−1)g_(j+1) with g_(j+1) := ±iρ^(j+1−α)ρ(ρ∂_ρ −
+3/2 − S̄)v_j ∈ H^(∞,0)_b, from the term iσρ(·) of [[eq:iii-g4-1-2]]: a term of the same form at j + 1. Second, terms of
+tf-order α + 2, from L̂_b(σ) − L̄̂(σ) ([[lem:iii-g4-1-2]]), of zf-class (k₀, 0). Third, commutators with χ_zf χ_tf; those
+with χ_tf are supported away from tf and have zf-class (k₀, 0), and those with χ_zf = χ₁(r̂) are supported in {1/8 ≤ r̂ ≤
+¼}, away from zf and scf. Subtracting g_(j+1) from f^((j+1)) (or setting f^((j+1)) := −g_(j+1) when j + 1 ≥ ℓ_zf) and
 proceeding, we obtain u₀ := Σ_j U_j ∈ H^(∞,∞,α−2,(k₀,0))_b with
 
     χ_tf f − L̂_b(σ)u₀ = f₁ + f₂,     f₁ ∈ H^(∞,ℓ_scf+1,α,ℓ_zf)_b,                                       {#eq:iii-g4-5-4}
