@@ -382,8 +382,9 @@ of |ℱf_1(σ)|, which ⌈γ + ½⌉ ≥ 1 gives. Every other step, the integrat
 [[lem:ec-closed-forms]] (h) gives the loss of [[lem:iii-i2-3-1]]. The forward solution operators of [[lem:iii-j2-2-1]]
 (a) lose the d of [[thm:iii-i-5-3]], which [[sec:fwd]] evaluates: [[thm:fwd-loss]] shows that d = 20,180 may be taken,
 and [[cor:fwd-near-b0]] gives the same value at every base point with black hole parameter in ℬ̄_*. At the backgrounds
-h + h_rem(q) + h_tot(p⃗) the forward solution operators are charged 3 more, 20,183, the order of q that h_rem(q) reads
-([[lem:iii-j2-2-1]] (a), [[lem:cs-elem]] (e)). The order of choices behind ℓ + 1 is: d_acc and d_NM first, then N_NM,
+h + h_rem(q) + h_tot(p⃗) the forward solution operators are charged 3 more, 20,183, the 3 bounding the order of the
+t_*-derivatives of q that h_rem(q) reads ([[lem:iii-j2-2-1]] (a), [[lem:cs-elem]] (e)). The order of choices behind
+ℓ + 1 is: d_acc and d_NM first, then N_NM,
 then the trapping data at the orders k ≤ N_NM ([[cor:iii-h2-1-2]]); the constants of the smallness conditions are used at
 those orders only, the tame estimates themselves at every order. An
 explicit value of d_acc needs, besides these closed forms, the order d_BG, numbers for the weights at the parameters in
@@ -1437,9 +1438,9 @@ iterations of the inventory of [[sec:iii-j2-3]], among them the three of [[sec:e
 of the iteration at ι⁺ of [[prop:iii-i5-2-1]] being charged at least the loss of [[lem:ec-round-loss]]; the elementary
 losses are closed forms in the weights, the small numbers that the proofs choose, the thresholds ϑ_in, ϑ_ℋ, the
 regularity orders s_c, the counts n(E, β) of the index sets and the order d_BG of the bounds of the background terms
-([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), except the loss of the forward solution operators, which is at most
-20,180 at every base point ([[thm:fwd-loss]] at b₀, [[cor:fwd-near-b0]] at b ∈ ℬ̄_*), and at most 20,183 at the
-backgrounds h + h_rem(q) + h_tot(p⃗) ([[lem:iii-j2-2-1]] (a));
+([[lem:ec-closed-forms]], [[rem:ec-other-losses]]), except the loss of the forward solution operators, which at every
+base point ([[thm:fwd-loss]] at b₀, [[cor:fwd-near-b0]] at b ∈ ℬ̄_*) is at most 20,180 at the backgrounds h,
+h + h^(−1)(S) and h + h_tot(p⃗), and at most 20,183 at the backgrounds h + h_rem(q) + h_tot(p⃗) ([[lem:iii-j2-2-1]] (a));
 
 (ii) at the computational point, for every admissible choice of the weights there,
 
@@ -1472,7 +1473,8 @@ applies that of [[thm:iii-j2-4-1]] to the right side and assembles U′ from its
 its constants do). By [[def:ec-accounted-loss]], a further summand does not lower the largest of the losses of a sum, and
 a further factor of non-negative loss does not lower the loss of a composition; so the loss of ℛ(U) is at least the
 numbers assigned to both constructions, and d_NM ≥ d_acc. (i) is [[def:ec-accounted-loss]] with [[lem:ec-closed-forms]],
-[[rem:ec-other-losses]], [[lem:ec-round-loss]], [[thm:fwd-loss]] and [[cor:fwd-near-b0]].
+[[rem:ec-other-losses]], [[lem:ec-round-loss]], [[thm:fwd-loss]], [[cor:fwd-near-b0]] and [[lem:iii-j2-2-1]] (a), which
+charges the forward solution operators 3 more at the backgrounds h + h_rem(q) + h_tot(p⃗).
 
 (ii) Level k + 1 of [[thm:iii-i14-3-1]] takes the solution of level k as input through R_qu, and at each level the
 rounds of [[sec:ec-floor]] are composed one after another, each round's output being the next round's forcing, and

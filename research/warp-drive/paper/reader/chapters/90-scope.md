@@ -62,7 +62,8 @@ at 2δ by 2^(−(32d+8)), d the loss with which the Nash–Moser theorem is appl
 
 The loss d is at least the loss d_acc that the proof assigns to the tame estimates, and the regularity of the Nash–Moser
 step is N_NM = 21d + 6; d_acc is composed of elementary losses in closed form, of the loss of the forward solution
-operators, at most 20,180, and of the numbers of steps of the iterations of the construction ([[thm:loss-d]] (i)). At the
+operators, at most 20,180, or 20,183 at the backgrounds h + h_rem(q) + h_tot(p⃗), and of the numbers of steps of the
+iterations of the construction ([[thm:loss-d]] (i)). At the
 computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 × 10²¹, so that log₁₀ δ < −1.351 × 10²¹
 ([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ at every admissible choice of
 the weights, for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). These are lower bounds for the

@@ -182,16 +182,16 @@ and ‖h_tot(p⃗)‖_(𝒳^m) ≤ C_m|p⃗| ([[lem:iii-i4-2-5]], [[lem:iii-i7-2
 At h + h_rem(q) + h_tot(p⃗), ‖h̃‖_(𝒳^m) ≤ C_m ‖β‖_(m+3): by [[eq:iii-i14-1-2]] and [[eq:iii-g2-2-7]], h_(b,rem)(q) is
 a finite sum of fixed tensors, smooth in b ([[lem:iii-i15-1-1]] (P3)), times the components of q and their
 t_*-derivatives of order at most 3 (S_rem with one, through h^(≤1)_(b,s1), b_rem with none, and Y_ψ with at most
-k_μ ≤ 3, [[def:iii-g2-table-1-1]]); on functions of t_*, ∂_(t_*) = t_*⁻¹(t_*∂_(t_*)), where t_*∂_(t_*) is the
-b-vector field of the spaces of [[eq:iii-i14-1-1]] and t_*⁻¹ only adds decay; so
-‖h_(b,rem)(q)‖_(𝒳^m) ≤ C_m ‖q‖_(𝒬^(m+3)). Hence, with E^j the space of [[eq:iii-i-5-1]] and G^j that of the solution
-at the order j, the forward solution operator T_β satisfies
+k_μ ≤ 3, the towers being those of [[def:iii-i12-1-1]] with the k_μ of [[def:iii-g2-table-1-1]]); on functions of t_*,
+∂_(t_*) = t_*⁻¹(t_*∂_(t_*)), where t_*∂_(t_*) is the b-vector field of the spaces of [[eq:iii-i14-1-1]] and t_*⁻¹ only
+adds decay; so ‖h_(b,rem)(q)‖_(𝒳^m) ≤ C_m ‖q‖_(𝒬^(m+3)). Hence, with E^j the space of [[eq:iii-i-5-1]] and G^j that of
+the solution at the order j, the forward solution operator T_β satisfies
 
     ‖T_β f‖_(G^k) ≤ C_k (‖f‖_(E^(k+d)) + ‖β‖_(k+d) ‖f‖_(E^d))        at h, h + h^(−1)(S) and h + h_tot(p⃗),
     ‖T_β f‖_(G^k) ≤ C_k (‖f‖_(E^(k+d)) + ‖β‖_(k+d+3) ‖f‖_(E^d))      at h + h_rem(q) + h_tot(p⃗),
 
 and ‖P − P_0‖_((0;k+d−5)) ≤ C_k ‖β‖_(k+d), respectively C_k ‖β‖_(k+d+3), for d_0 ≥ d + 3 and δ_𝔹 small, which make
-‖h̃‖_(𝒳^d) ≤ C‖β‖_(d+3) and |p⃗| as small as [[thm:iii-i-5-3]] asks. The norms being non-decreasing in the order,
+‖h̃‖_(𝒳^d), at most C‖β‖_(d+3), and |p⃗| as small as [[thm:iii-i-5-3]] asks. The norms being non-decreasing in the order,
 T_β is tame with loss d at the first three backgrounds and with loss d + 3 at the fourth: the 3 enters the order of
 ‖β‖ only, and the orders k + d and d of f are those of [[eq:iii-i-5-2]].
 
