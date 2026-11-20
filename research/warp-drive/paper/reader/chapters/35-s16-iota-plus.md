@@ -1116,7 +1116,7 @@ W^βu ∈ H^s for |β| ≤ k + m(s). Then for |α| ≤ k
 with C depending on s, k and M_0. In particular, if W^βu ∈ H^s for every word, then u is conormal at {v = 0⁺} with the
 bound v^(s−½).
 
-*Proof.* (i) *Values in ℋ := H²(𝕊³; ℂ^N) ⊂ C⁰.* Expand in spherical harmonics, with eigenvalues κ_j of Δ_(𝕊³). For
+*Proof.* (i) *Values in ℋ := H²(𝕊³; ℂ^(N_E)) ⊂ C⁰.* Expand in spherical harmonics, with eigenvalues κ_j of Δ_(𝕊³). For
 s ≥ 0, (1 + ξ² + κ_j)^s ≥ (1 + ξ²)^s. For s < 0, (1 + ξ²)^s ≤ (1 + ξ² + κ_j)^s(1 + κ_j)^(−s), since
 (1 + ξ² + κ_j)/(1 + ξ²) ≤ 1 + κ_j. In both cases
 

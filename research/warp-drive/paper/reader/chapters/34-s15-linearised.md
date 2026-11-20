@@ -497,18 +497,18 @@ would make ι^C_(·,+) non-real with real part n + 1 ∈ [3, 51], against (C4). 
 set is positive, and ε_ind is any number in (0, 1] not exceeding it. ∎
 
 **Lemma {#lem:iii-f1-2-4}** (Roots in a strip, uniformly.) Let 𝒯 be a compact parameter space and
-I_τ(ι) = −ι² + a_τ ι + Δ_(𝕊³) + V_τ + b_τ, τ ∈ 𝒯, indicial families of the form of [[lem:i-c-2-4]] on ℂ^N-valued
+I_τ(ι) = −ι² + a_τ ι + Δ_(𝕊³) + V_τ + b_τ, τ ∈ 𝒯, indicial families of the form of [[lem:i-c-2-4]] on ℂ^(N_E)-valued
 functions on 𝕊³ (the Cartesian frame of T* or S²T* of ℝ^(1+4)), with coefficients continuous in τ and commuting with
 the action of SO(4) that rotates both the base and the Cartesian components. For an irreducible representation π let
-W_π be the π-isotypic subspace, finite-dimensional, and d(π) the least d with W_π ∩ (H_d ⊗ ℂ^N) ≠ 0. Then for every
+W_π be the π-isotypic subspace, finite-dimensional, and d(π) the least d with W_π ∩ (H_d ⊗ ℂ^(N_E)) ≠ 0. Then for every
 X > 0 there is d_0 such that for all τ ∈ 𝒯, all π with d(π) ≥ d_0 and all ι with |Re ι| ≤ X, I_τ(ι) is invertible on
 W_π. On each W_π, det(I_τ(ι)|_(W_π)) is a polynomial of degree 2 dim W_π with leading coefficient (−1)^(dim W_π), so its
 roots, with multiplicity, depend continuously on τ.
 
-*Proof.* H_d ⊗ ℂ^N is invariant under the action (the rotation of components is by constant matrices), and
-Δ = κ_d := d(d + 2) on it. The representation on ℂ^N has irreducible constituents of highest weights (a, b) with
+*Proof.* H_d ⊗ ℂ^(N_E) is invariant under the action (the rotation of components is by constant matrices), and
+Δ = κ_d := d(d + 2) on it. The representation on ℂ^(N_E) has irreducible constituents of highest weights (a, b) with
 a + b ≤ 2 (for S²(ℝ ⊕ ℝ⁴), ℝ⁴ = (½, ½)), and H_d = (d/2, d/2); by the Clebsch–Gordan rule for SU(2) × SU(2),
-π = (j_1, j_2) occurs in H_d ⊗ ℂ^N only if |j_1 + j_2 − d| ≤ 2, so W_π ⊂ ⊕_(|d−d(π)|≤4) H_d ⊗ ℂ^N, a
+π = (j_1, j_2) occurs in H_d ⊗ ℂ^(N_E) only if |j_1 + j_2 − d| ≤ 2, so W_π ⊂ ⊕_(|d−d(π)|≤4) H_d ⊗ ℂ^(N_E), a
 finite-dimensional space preserved by I_τ(ι), on which κ_(d(π)) ≤ Δ ≤ κ_(d(π)+4). By [[lem:i-c-2-4]] (a), whose
 constants depend on finitely many seminorms of the coefficients and so are uniform in τ, there is μ_0 with I_τ(ι)
 invertible on all of H² for |Re ι| ≤ X, |Im ι| ≥ μ_0. For |ι| ≤ X + μ_0 and u ∈ W_π write I_τ(ι) = (1 + Δ) + R,
@@ -572,7 +572,7 @@ symbol J(ι) = I(−ι) ([[sec:i-c-4-1]] (c)); so a root μ of J is −μ_b, μ_
 **Lemma {#lem:iii-f1-3-1}** (Relative index.) Let β_1 < β_2 < β_1 + 1, neither the real part of a point of spec_b,
 and s ∈ ℤ. Then ind(β_2) − ind(β_1) = dim F, where F := ⊕_μ F_μ over the roots μ of J with −β_2 < Re μ < −β_1 and
 
-    F_μ := {Res_(ι=μ)(ϱ^ι J(ι)⁻¹ g(ι)) : g holomorphic near μ, C^∞(𝕊³; ℂ^N)-valued}.                     {#eq:iii-f1-3-1}
+    F_μ := {Res_(ι=μ)(ϱ^ι J(ι)⁻¹ g(ι)) : g holomorphic near μ, C^∞(𝕊³; ℂ^(N_E))-valued}.                     {#eq:iii-f1-3-1}
 
 dim F_μ is the sum over the finitely many W_π on which μ is a root of ord_μ det(J|_(W_π)), the algebraic
 multiplicity; when J is an indicial family as in [[lem:iii-f1-2-4]], it is the multiplicity of −μ as a root of I on

@@ -121,7 +121,7 @@ The existence of solutions below uses one standard result on hyperbolic equation
 the following case.
 
 *The Cauchy problem* ([[thm:std-hormander-cauchy]] on ℝ^(1+4) with the Minkowski metric). Let Q be a second-order
-operator on ℂ^N-valued functions on ℝ^(1+4), with principal symbol Ḡ Id, Ḡ the dual metric function of the Minkowski
+operator on ℂ^(N_E)-valued functions on ℝ^(1+4), with principal symbol Ḡ Id, Ḡ the dual metric function of the Minkowski
 metric ḡ, and with smooth lower-order coefficients, and let t be the Minkowski time. For s ∈ ℤ, t_0 ∈ ℝ and
 f ∈ H^(s−1)_loc(ℝ^(1+4)) with supp f ⊂ {t ≥ t_0} there is u ∈ H^(s)_loc(ℝ^(1+4)) with Qu = f and supp u ⊂ {t ≥ t_0}.
 

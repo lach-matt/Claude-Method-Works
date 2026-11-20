@@ -643,8 +643,8 @@ terms of the present class.
 
 #### The class {#sec:ii-c-1-1}
 
-Throughout, g is the stationary metric of [[sec:ii-b-1-1]], which satisfies (K1)–(K4), E_X := X̃ × ℂ^N is the trivial
-bundle of [[sec:i-a-1-2]], and E := π_X^*E_X is its pullback along π_X(t_*, x) := x. Sections of E are ℂ^N-valued
+Throughout, g is the stationary metric of [[sec:ii-b-1-1]], which satisfies (K1)–(K4), E_X := X̃ × ℂ^(N_E) is the trivial
+bundle of [[sec:i-a-1-2]], and E := π_X^*E_X is its pullback along π_X(t_*, x) := x. Sections of E are ℂ^(N_E)-valued
 functions, and ∂_(t_*) and ρ∂_ρ act componentwise; the connection of [Hin26c, Remark 5.3], needed for non-trivial
 bundles, is not needed here. We write G(ζ) := g⁻¹(ζ, ζ) and ρ := r⁻¹, and ρ₁ is that of [[sec:i-a-1-1]]. The density
 is |dt_* dx| = |dt dx|, the Euclidean density of [[sec:i-a-1-1]] times |dt_*|, and for a fibre inner product h
@@ -656,7 +656,7 @@ t_*-translation-invariant P₀ ∈ Diff²(ℝ_(t_*) × X̃°; E) is a *stationar
 
     P₀ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S) + P̂₀(0) + Q∂_(t_*) − g₀₀∂_(t_*)²,                                 {#eq:ii-c-1-1}
 
-with g₀₀ := g⁻¹(dt_*, dt_*) and, all t_*-independent, P̂₀(0) ∈ ρ²Diff²_b(X̄; E), S ∈ C^∞(X̄; End ℂ^N) and
+with g₀₀ := g⁻¹(dt_*, dt_*) and, all t_*-independent, P̂₀(0) ∈ ρ²Diff²_b(X̄; E), S ∈ C^∞(X̄; End ℂ^(N_E)) and
 Q ∈ ρ³Diff¹_b(X̄; E). Put ([Hin26c, (5.2)])
 
     S̄ := inf_(p∈∂X) min Re spec S(p).
@@ -694,7 +694,7 @@ So the stationary wave-type operators for g are the operators whose spectral fam
 #### Tensor wave operators {#sec:ii-c-1-2}
 
 **Lemma {#lem:ii-c-1-3}** (Tensor wave operators; [Hin26c, Example 5.4] at n = 4.) Identify (p, q)-tensors on ℝ^(1+4)
-with ℂ^N-valued functions, N = 5^(p+q), by the coordinate frame of (t_*, x¹, …, x⁴) (for 1-forms, the frame dt_*, dx^i
+with ℂ^(N_E)-valued functions, N_E = 5^(p+q), by the coordinate frame of (t_*, x¹, …, x⁴) (for 1-forms, the frame dt_*, dx^i
 of [[sec:i-a-1-2]]). Let ∇ be the Levi-Civita connection of g and □_g^((p,q)) := −g^(μν)∇_μ∇_ν. Then □_g^((p,q)) is a
 stationary wave-type operator for g with S = 0, so S̄ = 0, and
 
@@ -845,12 +845,12 @@ t_*-translation-invariant 𝗌 ∈ C^∞(³ᵇS*M̃₀), over {r > r₀ − 2δ�
 
 Each threshold is computed in a fibre inner product chosen for its radial set.
 
-**Lemma {#lem:ii-c-2-5}** (Inner products adapted to S.) Let S ∈ C^∞(X̄; End ℂ^N) and ϵ > 0. There is a fibre inner
+**Lemma {#lem:ii-c-2-5}** (Inner products adapted to S.) Let S ∈ C^∞(X̄; End ℂ^(N_E)) and ϵ > 0. There is a fibre inner
 product h on E_X with λ_min(½(S + S^(*h))) ≥ S̄ − ϵ on ∂X. For every fibre inner product,
 inf_(∂X) λ_min(½(S + S^(*h))) ≤ S̄. This is [Hin23c, Proposition B.1].
 
 *Proof.* For p ∈ ∂X write S(p) = A(D + N)A⁻¹ in Jordan form, D diagonal and N with entries 0 or 1 on the first
-superdiagonal. With Λ := diag(1, δ⁻¹, …, δ^(1−N)), ΛNΛ⁻¹ = δN. Put h_p(v, w) := ⟨ΛA⁻¹v, ΛA⁻¹w⟩_(ℂ^N); for
+superdiagonal. With Λ := diag(1, δ⁻¹, …, δ^(1−N_E)), ΛNΛ⁻¹ = δN. Put h_p(v, w) := ⟨ΛA⁻¹v, ΛA⁻¹w⟩_(ℂ^(N_E)); for
 u := ΛA⁻¹v, Re h_p(S(p)v, v) = Re⟨(D + δN)u, u⟩ ≥ (min Re spec S(p) − δ)|u|² ≥ (S̄ − δ)h_p(v, v). As
 λ_min(½(S + S^(*h))) = min_(h(v,v)=1) Re h(Sv, v), the constant inner product h_p gives λ_min ≥ S̄ − 2δ on a
 neighbourhood U_p of p, by continuity of (q, v) ↦ Re h_p(S(q)v, v) on {h_p(v, v) = 1}. Take a finite cover of ∂X by
@@ -1042,14 +1042,14 @@ operator P ∈ Diff²(Ω°; E) is *admissible* (relative to P₀) *of class* ((d
 
 (2) with a cut-off χ_I = χ_I(x_I), equal to 1 near 0 and supported in {x_I < 1}, there are
 
-    p₀, p̃₁ ∈ ρ₊^(ℓ₊)C^(k+d₀)_b(ℐ⁺ ∩ Ω; End ℂ^N)                                                       {#eq:ii-c-3-1}
+    p₀, p̃₁ ∈ ρ₊^(ℓ₊)C^(k+d₀)_b(ℐ⁺ ∩ Ω; End ℂ^(N_E))                                                       {#eq:ii-c-3-1}
 
 (extended to supp χ_I independently of x_I) with
 
     P̃ := P − [P₀ + χ_I ½x_I²ρ₊²(2p̃₁(x_I∂_(x_I) − 2ρ₊∂_(ρ₊)) + p₀)]
          ∈ x_I²ρ₊² C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) Diff²_(e3b)(Ω; E);                                  {#eq:ii-c-3-2}
 
-(3) there is a splitting ℂ^N = ⊕_(j=1)^J E_j, over ∂X, in which p₁ := S|_(∂X) + p̃₁ is lower triangular with diagonal
+(3) there is a splitting ℂ^(N_E) = ⊕_(j=1)^J E_j, over ∂X, in which p₁ := S|_(∂X) + p̃₁ is lower triangular with diagonal
 blocks of real spectrum, and p₀ is strictly lower triangular.
 
 P is *weakly admissible* if only ℓ_I ∈ (0, ½], ℓ₊ > 0 and ℓ_K > 0 are assumed ([Hin26c, (5.26)]).

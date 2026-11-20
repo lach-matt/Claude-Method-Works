@@ -547,7 +547,7 @@ spaces.
 
 #### Bundles {#sec:ii-a-4-3}
 
-Operators on the trivial bundle ℂ^N (the bundles of [[sec:i-a-1-2]]) are N × N matrices of scalar operators; all
+Operators on the trivial bundle ℂ^(N_E) (the bundles of [[sec:i-a-1-2]]) are N_E × N_E matrices of scalar operators; all
 statements above and below hold for them with matrix-valued symbols, the principal symbols multiplying as matrices
 ((S14), for differential and for pseudodifferential operators). Where a
 scalar principal symbol is needed (commutators lowering the order), it is assumed and said.
