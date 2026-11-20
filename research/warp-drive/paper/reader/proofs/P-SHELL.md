@@ -1,21 +1,21 @@
 ### Null shells along the leaves {#sec:loc-shells}
 
 This section extends the developments of [[thm:loc-cone-development]] and [[thm:civp-large]] to cone data that carry
-finitely many null shells: an atom m(ϑ) δ(v − c) in the density on 𝒞_out, or n(ϑ) δ(u − d) on 𝒞_in, with m and n
-smooth in ϑ and supported in the band, the other data being smooth between the atoms. The development is continuous,
-smooth between the leaves {v = c} and {u = d} through the atoms, and solves the Einstein–null-dust equations in the sense
-of distributions, with a null shell along each such leaf ([[thm:loc-shells]]). Between the leaves it is a smooth
+finitely many null shells: an atom m(ϑ) δ(v − c) in the density on 𝒞_out, or n(ϑ) δ(u − d) on 𝒞_in, with m and n smooth
+in ϑ and supported in the band, the other data being smooth between the atoms. The development is continuous, smooth
+between the leaves {v = c} and {u = d} through the atoms, and solves the Einstein–null-dust equations in the sense of
+distributions, with a null shell along each such leaf ([[thm:loc-shells]]). Between the leaves it is a smooth
 characteristic problem, solved by the smooth theorems; at a leaf the pieces are glued by junction conditions, which are
 derived here from the metric [[eq:loc-double-null]] ([[prop:loc-shell-junction]]). Across an ingoing leaf the transverse
 derivative ∂_v b of the shift must be continuous, and this holds on the whole leaf once it holds where the leaf meets
-𝒞_out; the shell's density is the jump of −tr χ, and it is carried along the leaf by the conservation law of a null
-dust. Across an outgoing leaf no condition arises. On the neighbourhood of the cones on which the development is
-constructed no two shells cross. Where two shells cross, the null expansions obey a product rule, which for round
-metrics is a relation between the masses of the four adjacent regions ([[prop:loc-shell-crossing]]).
+𝒞_out; the shell's density is the jump of −tr χ, and it is carried along the leaf by the conservation law of a null dust.
+Across an outgoing leaf no condition arises. On the neighbourhood of the cones on which the development is constructed no
+two shells cross. Where two shells cross, the null expansions obey a product rule, which for round metrics is a relation
+between the masses of the four adjacent regions ([[prop:loc-shell-crossing]]).
 
 *Leaves and cells.* Throughout, g0, Q1 = [0, u_1] × [0, v_1] and the band 0 < ϑ_a < ϑ_b < π/2 are as in
-[[sec:civp-large]]: g0 is defined, in the gauge [[eq:loc-double-null]], on a neighbourhood of Q1 × S³. Fix numbers 0 <
-c_1 < ⋯ < c_p < v_1 and 0 < d_1 < ⋯ < d_q < u_1, where p, q ≥ 0, and put c_0 := 0, c_(p+1) := v_1, d_0 := 0 and
+[[sec:civp-large]]: g0 is defined, in the gauge [[eq:loc-double-null]], on a neighbourhood of Q1 × S³. Fix numbers
+0 < c_1 < ⋯ < c_p < v_1 and 0 < d_1 < ⋯ < d_q < u_1, where p, q ≥ 0, and put c_0 := 0, c_(p+1) := v_1, d_0 := 0 and
 d_(q+1) := u_1. The sets {v = c_k} (1 ≤ k ≤ p) are the *ingoing leaves*, the sets {u = d_j} (1 ≤ j ≤ q) the *outgoing
 leaves*, their intersections the *crossing spheres*, and the rectangles Q_jk := [d_j, d_(j+1)] × [c_k, c_(k+1)] the
 *cells*; as in [[sec:loc-cone-setting]], points of the (u, v)-plane stand for the corresponding spheres. Let D ⊂ Q1 be a
@@ -23,18 +23,17 @@ past set. A function on D × S³, or off the axes on D × (0, π/2), is *cellwis
 intersection of that set with each cell is the restriction of a smooth function on a neighbourhood of it; it then has
 one-sided values and one-sided derivatives of every order on the leaves. At a point of an ingoing leaf {v = c_k} that is
 not on a crossing sphere, the *jump* of a cellwise smooth F is [F] := F(c_k⁺) − F(c_k⁻), the difference of the values
-from the cells above and below; across an outgoing leaf {u = d_j}, [F] := F(d_j⁺) − F(d_j⁻). A continuous cellwise
-smooth F has the same restriction to a leaf from both sides, so its derivatives along the leaf are continuous across
-it: [∂_u F] = [∂_ϑ F] = 0 across an ingoing leaf, [∂_v F] = [∂_ϑ F] = 0 across an outgoing one, and likewise for every
-derivative along the leaf.
+from the cells above and below; across an outgoing leaf {u = d_j}, [F] := F(d_j⁺) − F(d_j⁻). A continuous cellwise smooth
+F has the same restriction to a leaf from both sides, so its derivatives along the leaf are continuous across it: [∂_u
+F] = [∂_ϑ F] = 0 across an ingoing leaf, [∂_v F] = [∂_ϑ F] = 0 across an outgoing one, and likewise for every derivative
+along the leaf.
 
 A metric g on D × S³ is *continuous and cellwise smooth* if it is a continuous G-invariant Lorentzian metric whose
 restriction to the intersection of D × S³ with each cell is the restriction of a smooth G-invariant Lorentzian metric on
 a neighbourhood of it, and which off the axes has the form [[eq:loc-double-null]] with Ω > 0, γ_ϑ > 0, b, A_c and A_s
-continuous and cellwise smooth. Charts (u, v, y), with y = (y¹, y², y³) a chart of S³, cover D × S³, the axes
-included. In such a chart the components of g are continuous with locally bounded first derivatives, and its
-Christoffel symbols Γ^a_bc are locally bounded and cellwise smooth. Its *Ricci tensor in the sense of distributions* is,
-in the chart,
+continuous and cellwise smooth. Charts (u, v, y), with y = (y¹, y², y³) a chart of S³, cover D × S³, the axes included.
+In such a chart the components of g are continuous with locally bounded first derivatives, and its Christoffel symbols
+Γ^a_bc are locally bounded and cellwise smooth. Its *Ricci tensor in the sense of distributions* is, in the chart,
 
     Ric(g)_bd := ∂_aΓ^a_bd − ∂_dΓ^a_ab + Γ^a_ae Γ^e_bd − Γ^a_de Γ^e_ab,
 
@@ -44,21 +43,21 @@ bounded function F on {v = c}, F δ(v − c) is φ ↦ ∫ F φ(u, c, y) du d³y
 
 **Definition {#def:loc-shell-solution}** (Solutions with null shells along the leaves.) Let D ⊂ Q1 be a past set. A
 *solution with null shells along the leaves* on D × S³ consists of a continuous and cellwise smooth metric g, the phases
-v and u, cellwise smooth densities q_in ≥ 0 and q_out ≥ 0, and *shell densities*: continuous functions 𝔪_k ≥ 0 on (D ∩
-{v = c_k}) × S³ (1 ≤ k ≤ p) and 𝔫_j ≥ 0 on (D ∩ {u = d_j}) × S³ (1 ≤ j ≤ q), smooth on the parts of these sets between
-consecutive crossing spheres, all of them invariant under G, such that in every chart (u, v, y), on the interior of
-D × S³ and in the sense of distributions,
+v and u, cellwise smooth densities q_in ≥ 0 and q_out ≥ 0, and *shell densities*: continuous functions 𝔪_k ≥ 0 on
+(D ∩ {v = c_k}) × S³ (1 ≤ k ≤ p) and 𝔫_j ≥ 0 on (D ∩ {u = d_j}) × S³ (1 ≤ j ≤ q), smooth on the parts of these sets
+between consecutive crossing spheres, all of them invariant under G, such that in every chart (u, v, y), on the interior
+of D × S³ and in the sense of distributions,
 
     Ric(g) = q_in^♯ dv ⊗ dv + q_out^♯ du ⊗ du,      q_in^♯ := q_in + Σ_k 𝔪_k δ(v − c_k),
-                                                     q_out^♯ := q_out + Σ_j 𝔫_j δ(u − d_j),       {#eq:loc-shell-einstein}
+                                                     q_out^♯ := q_out + Σ_j 𝔫_j δ(u − d_j),  {#eq:loc-shell-einstein}
 
-    ∂_a(|det g|^(1/2) q_in^♯ g^(ab) ∂_b v) = 0,      ∂_a(|det g|^(1/2) q_out^♯ g^(ab) ∂_b u) = 0.       {#eq:loc-shell-dust}
+    ∂_a(|det g|^(1/2) q_in^♯ g^(ab) ∂_b v) = 0,      ∂_a(|det g|^(1/2) q_out^♯ g^(ab) ∂_b u) = 0.  {#eq:loc-shell-dust}
 
 In such a chart g^(vv) = g⁻¹(dv, dv) = 0 and g^(uu) = 0, so the first field |det g|^(1/2) g^(ab) ∂_b v has no
 ∂_v-component and the second no ∂_u-component, and the products with δ(v − c_k) and δ(u − d_j) in [[eq:loc-shell-dust]]
 are products of continuous functions with these distributions. The solution *induces* the functions Ω, γ_ϑ, b, A_c, A_s
-and q_in of its restriction to 𝒞_out ∩ D, and Ω, γ_ϑ, b, A_c, A_s and q_out of its restriction to 𝒞_in ∩ D, the
-densities being one-sided at the leaves.
+and q_in of its restriction to 𝒞_out ∩ D, and Ω, γ_ϑ, b, A_c, A_s and q_out of its restriction to 𝒞_in ∩ D, the densities
+being one-sided at the leaves.
 
 Away from the leaves [[eq:loc-shell-einstein]] and [[eq:loc-shell-dust]] are the class system [[eq:class-system]] with
 the two families of [[sec:loc-cone-setting]]. So on the interior of each cell (g, v, u, q_in, q_out) is a class solution
@@ -82,47 +81,46 @@ of v and the jumps across {v = c_k}.
     𝒮_k = −[tr χ] dv ⊗ dv + (γ_ϑ [∂_v b]/(4Ω²)) (dv ⊗ (dϑ − b du) + (dϑ − b du) ⊗ dv),      𝒮′_j = −[tr χ̲] du ⊗ du.
 
 So 𝒮′_j involves no jump of ∂_u b, and neither 𝒮_k nor 𝒮′_j involves the jumps of the derivatives of ln Ω or of the
-ϰ_i − ϕ, ϕ := (ϰ_1 + ϰ_2 + ϰ_3)/3; tr χ = 3 ∂_vϕ, and tr χ̲ = 3 ∂_uϕ wherever b = 0.
+ϰ_i − ϕ, ϕ := (ϰ_1 + ϰ_2 + ϰ_3)/3; tr χ = 3 ∂_vϕ, and tr χ̲ = 3 ∂_uϕ where b vanishes identically, as on 𝒞_in.
 
 *Proof.* (a) Let F be bounded and cellwise smooth on the domain of the chart and φ a test function supported in the
 interior of D × S³. For fixed (u, y) the points of D with these coordinates form an interval in v, since D is a past set,
-and the numbers c_k cut it into intervals on each of which v ↦ F is smooth with one-sided limits. Integrating by parts
-on each of them, and using Fubini's theorem,
+and the numbers c_k cut it into intervals on each of which v ↦ F is smooth with one-sided limits. Integrating by parts on
+each of them, and using Fubini's theorem,
 
     ∫ F ∂_vφ du dv d³y = −∫ {∂_vF} φ du dv d³y − Σ_k ∫ [F] φ(u, c_k, y) du d³y,
 
 {∂_vF} denoting the cellwise derivative; the boundary of D does not enter, as φ vanishes near it, and the crossing
-spheres, where [F] is not defined, have measure zero in the leaves. So ∂_vF = {∂_vF} + Σ_k [F] δ(v − c_k); likewise ∂_uF
-= {∂_uF} + Σ_j [F] δ(u − d_j), and ∂F/∂y^A = {∂F/∂y^A}, F being smooth in y on each cell. We apply this to the Γ^a_bd.
-On {v = c_k}, g is continuous and its derivatives along the leaf are continuous across it, so [∂_e g_ab] = δ^v_e h_ab and
+spheres, where [F] is not defined, have measure zero in the leaves. So ∂_vF = {∂_vF} + Σ_k [F] δ(v − c_k); likewise
+∂_uF = {∂_uF} + Σ_j [F] δ(u − d_j), and ∂F/∂y^A = {∂F/∂y^A}, F being smooth in y on each cell. We apply this to the
+Γ^a_bd. On {v = c_k}, g is continuous and its derivatives along the leaf are continuous across it, so [∂_e g_ab] = δ^v_e
+h_ab and
 
     [Γ^a_bd] = ½ g^(ae) (δ^v_b h_ed + δ^v_d h_eb − δ^v_e h_bd).
 
-With Y_d = g^(ve) h_ed and g^(vv) = 0, [Γ^v_bd] = ½ (δ^v_b Y_d + δ^v_d Y_b), and [Γ^a_ab] = ½ (Y_b + δ^v_b tr_g h − Y_b) =
-½ δ^v_b tr_g h. So the coefficient of δ(v − c_k) in Ric(g)_bd is [Γ^v_bd] − δ^v_d [Γ^a_ab] = (𝒮_k)_bd. The products of
-the Christoffel symbols are bounded and equal their cellwise values off the leaves, a set of measure zero. The outgoing
-leaves are treated in the same way, with g^(uu) = 0.
+With Y_d = g^(ve) h_ed and g^(vv) = 0, [Γ^v_bd] = ½ (δ^v_b Y_d + δ^v_d Y_b), and [Γ^a_ab] = ½ (Y_b + δ^v_b tr_g
+h − Y_b) = ½ δ^v_b tr_g h. So the coefficient of δ(v − c_k) in Ric(g)_bd is [Γ^v_bd] − δ^v_d [Γ^a_ab] = (𝒮_k)_bd. The
+products of the Christoffel symbols are bounded and equal their cellwise values off the leaves, a set of measure zero.
+The outgoing leaves are treated in the same way, with g^(uu) = 0.
 
 (b) The functions Ω, γ_ϑ, b and e^(ϰ_i) are continuous, so the nonzero components of h are
 
     h_uv = −4Ω² [∂_v ln Ω],   h_uu = b² [∂_vγ_ϑ] + 2γ_ϑ b [∂_v b],   h_uϑ = −b [∂_vγ_ϑ] − γ_ϑ [∂_v b],
     h_ϑϑ = [∂_vγ_ϑ],   h_(φiφi) = 2 e^(2ϰ_(i+1)) [∂_vϰ_(i+1)].
 
-By the inverse metric of the proof of [[lem:loc-cone-equations]], g⁻¹dv = −(2Ω²)⁻¹ L̲, L̲ = ∂_u + b∂_ϑ, so Y_d =
-−(2Ω²)⁻¹ (h_ud + b h_ϑd): Y_u = −(2Ω²)⁻¹ γ_ϑ b [∂_v b], Y_v = 2[∂_v ln Ω], Y_ϑ = (2Ω²)⁻¹ γ_ϑ [∂_v b] and Y_(φi) = 0, that
-is
+By the inverse metric of the proof of [[lem:loc-cone-equations]], g⁻¹dv = −(2Ω²)⁻¹ L̲, L̲ = ∂_u + b∂_ϑ, so Y_d = −(2Ω²)⁻¹
+(h_ud + b h_ϑd): Y_u = −(2Ω²)⁻¹ γ_ϑ b [∂_v b], Y_v = 2[∂_v ln Ω], Y_ϑ = (2Ω²)⁻¹ γ_ϑ [∂_v b] and Y_(φi) = 0, that is
 
     Y = 2 [∂_v ln Ω] dv + (γ_ϑ [∂_v b]/(2Ω²)) (dϑ − b du).
 
-Since g^(ab) ∂_v g_ab = ∂_v ln |det g| on each side and |det g|^(1/2) = 2Ω²𝒱 ([[lem:loc-cone-ricci]] (b)), with ∂_v ln 𝒱
-= tr χ, tr_g h = [∂_v ln |det g|] = 4[∂_v ln Ω] + 2[tr χ]. Substituting in [[eq:loc-shell-singular]] gives 𝒮_k. Across an
-outgoing leaf, h′ := [∂_u g_ab] dx^a ⊗ dx^b has h′(∂_v, ∂_d) = 0 for d ≠ u and h′_vu = −4Ω² [∂_u ln Ω], and g⁻¹du =
-−(2Ω²)⁻¹ ∂_v; so Y′ := h′(g⁻¹du, ·) = 2[∂_u ln Ω] du and tr_g h′ = 4[∂_u ln Ω] + 2[∂_u ln 𝒱], and 𝒮′_j = −[∂_u ln 𝒱] du ⊗
-du. Finally ∂_u ln 𝒱 = L̲ ln 𝒱 − b ∂_ϑ ln 𝒱 = tr χ̲ − ∂_ϑ b − b ∂_ϑ ln 𝒱, and ∂_ϑ b and b ∂_ϑ ln 𝒱 are continuous across
-{u = d_j}; so [∂_u ln 𝒱] = [tr χ̲]. ∎
+Since g^(ab) ∂_v g_ab = ∂_v ln |det g| on each side and |det g|^(1/2) = 2Ω²𝒱 ([[lem:loc-cone-ricci]] (b)), with ∂_v ln
+𝒱 = tr χ, tr_g h = [∂_v ln |det g|] = 4[∂_v ln Ω] + 2[tr χ]. Substituting in [[eq:loc-shell-singular]] gives 𝒮_k. Across
+an outgoing leaf, h′ := [∂_u g_ab] dx^a ⊗ dx^b has h′(∂_v, ∂_d) = 0 for d ≠ u and h′_vu = −4Ω² [∂_u ln Ω], and
+g⁻¹du = −(2Ω²)⁻¹ ∂_v; so Y′ := h′(g⁻¹du, ·) = 2[∂_u ln Ω] du and tr_g h′ = 4[∂_u ln Ω] + 2[∂_u ln 𝒱], and 𝒮′_j = −[∂_u ln
+𝒱] du ⊗ du. Finally ∂_u ln 𝒱 = L̲ ln 𝒱 − b ∂_ϑ ln 𝒱 = tr χ̲ − ∂_ϑ b − b ∂_ϑ ln 𝒱, and ∂_ϑ b and b ∂_ϑ ln 𝒱 are continuous
+across {u = d_j}; so [∂_u ln 𝒱] = [tr χ̲]. ∎
 
-The next two identities hold for every metric of the form [[eq:loc-double-null]]; they are read off from
-[[eq:loc-cone-frame-ricci]]. For a round metric the second is the angular part of [[lem:two-dust-equations]].
+The next two identities are read off from [[eq:loc-cone-frame-ricci]].
 
 **Lemma {#lem:loc-shell-identities}** (Two identities.) Let g have the form [[eq:loc-double-null]] off the axes, with
 smooth functions, and let L̲, 𝒱, η, χ_i, χ̲_i, tr χ and tr χ̲ be as in [[eq:loc-cone-quantities]] and K_i = ∂_(φi). Then
@@ -132,7 +130,7 @@ smooth functions, and let L̲, 𝒱, η, χ_i, χ̲_i, tr χ and tr χ̲ be as i
 with r̲ of [[eq:loc-cone-frame-ricci]], and
 
     γ_ϑ⁻¹ Ric(∂_ϑ, ∂_ϑ) + Σ_(i=1,2) e^(−2ϰ_(i+1)) Ric(K_i, K_i)
-        = (Ω²𝒱)⁻¹ (L̲∂_v𝒱 + (∂_ϑ b) ∂_v𝒱 + ½ ∂_ϑ(𝒱 ∂_v b)) − (γ_ϑ/(8Ω⁴)) (∂_v b)² + 𝔞,                {#eq:loc-shell-trace}
+        = (Ω²𝒱)⁻¹ (L̲∂_v𝒱 + (∂_ϑ b) ∂_v𝒱 + ½ ∂_ϑ(𝒱 ∂_v b)) − (γ_ϑ/(8Ω⁴)) (∂_v b)² + 𝔞,  {#eq:loc-shell-trace}
 
     𝔞 := −γ_ϑ⁻¹ Σ_(i=2,3) (∂_ϑ²ϰ_i + (∂_ϑϰ_i)² − ∂_ϑϰ_1 ∂_ϑϰ_i) − 2γ_ϑ⁻¹ (∂_ϑη + η² − ∂_ϑϰ_1 η)
           − (Ω²𝒱)⁻¹ Σ_(i=2,3) ∂_ϑ(Ω²𝒱 γ_ϑ⁻¹ ∂_ϑϰ_i).
@@ -149,12 +147,483 @@ i = 1, 2, since ∂_vL̲ϰ_(i+1) = ∂_vχ̲_(i+1),
     e^(−2ϰ_(i+1)) Ric(K_i, K_i) = −□_g ϰ_(i+1) = Ω⁻² (∂_vχ̲_(i+1) + ½ (tr χ̲ χ_(i+1) + tr χ χ̲_(i+1) − ∂_v b ∂_ϑϰ_(i+1)))
                                    − (Ω²𝒱)⁻¹ ∂_ϑ(Ω²𝒱 γ_ϑ⁻¹ ∂_ϑϰ_(i+1)),
 
-and γ_ϑ⁻¹ Ric(∂_ϑ, ∂_ϑ) is Ω⁻² (∂_vχ̲_1 + ½ (tr χ χ̲_1 + χ_1 tr χ̲) − ½ e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b)) − (γ_ϑ/(8Ω⁴))(∂_v b)²
-plus the first two terms of 𝔞. In the sum, ½ (tr χ χ̲_1 + χ_1 tr χ̲) + ½ Σ_(i=2,3) (tr χ̲ χ_i + tr χ χ̲_i) = tr χ tr χ̲
-and e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b) + ∂_v b ∂_ϑ(ϰ_2 + ϰ_3) = 𝒱⁻¹ ∂_ϑ(𝒱 ∂_v b), so the left side of [[eq:loc-shell-trace]] is
-Ω⁻² (∂_v tr χ̲ + tr χ tr χ̲ − ½ 𝒱⁻¹ ∂_ϑ(𝒱 ∂_v b)) − (γ_ϑ/(8Ω⁴))(∂_v b)² + 𝔞. Since ∂_v𝒱 = 𝒱 tr χ, 𝒱 tr χ̲ = L̲𝒱 + 𝒱
+and γ_ϑ⁻¹ Ric(∂_ϑ, ∂_ϑ) is Ω⁻² (∂_vχ̲_1 + ½ (tr χ χ̲_1 + χ_1 tr χ̲) − ½ e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b)) − (γ_ϑ/(8Ω⁴))(∂_v
+b)² plus the first two terms of 𝔞. In the sum, ½ (tr χ χ̲_1 + χ_1 tr χ̲) + ½ Σ_(i=2,3) (tr χ̲ χ_i + tr χ χ̲_i) = tr χ tr
+χ̲ and e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b) + ∂_v b ∂_ϑ(ϰ_2 + ϰ_3) = 𝒱⁻¹ ∂_ϑ(𝒱 ∂_v b), so the left side of [[eq:loc-shell-trace]]
+is Ω⁻² (∂_v tr χ̲ + tr χ tr χ̲ − ½ 𝒱⁻¹ ∂_ϑ(𝒱 ∂_v b)) − (γ_ϑ/(8Ω⁴))(∂_v b)² + 𝔞. Since ∂_v𝒱 = 𝒱 tr χ, 𝒱 tr χ̲ = L̲𝒱 + 𝒱
 ∂_ϑ b, and ∂_vL̲ = L̲∂_v + (∂_v b) ∂_ϑ as operators,
 
     𝒱 (∂_v tr χ̲ + tr χ tr χ̲) = ∂_v(𝒱 tr χ̲) = L̲∂_v𝒱 + (∂_v b) ∂_ϑ𝒱 + (∂_ϑ b) ∂_v𝒱 + 𝒱 ∂_ϑ∂_v b
                              = L̲∂_v𝒱 + (∂_ϑ b) ∂_v𝒱 + ∂_ϑ(𝒱 ∂_v b),
 
+which gives [[eq:loc-shell-trace]]. For a round metric η = 0, ∂_ϑϰ_1 = 0, ∂_ϑϰ_2 = −tan ϑ, ∂_ϑϰ_3 = cot ϑ and
+Ω²𝒱γ_ϑ⁻¹ = Ω²R sin ϑ cos ϑ, so the first sum in 𝔞 is (tan²ϑ − sec²ϑ) + (cot²ϑ − csc²ϑ) = −2 and the last one is R⁻² (sin
+ϑ cos ϑ)⁻¹ ∂_ϑ(cos²ϑ − sin²ϑ) = −4R⁻², and 𝔞 = 6/R²; with 𝒱 = R³ sin ϑ cos ϑ, (Ω²𝒱)⁻¹
+∂_u∂_v𝒱 = 2e^(−2σ)(R³)_uv/R³ = (6e^(−2σ)/R²)(R R_uv + 2R_u R_v). The left side is R⁻² times the trace over the unit
+sphere of the angular components, which [[lem:two-dust-equations]] gives as the same expression. ∎
+
+**Proposition {#prop:loc-shell-junction}** (The junction conditions.) Let D ⊂ Q1 be a past set, g a continuous and
+cellwise smooth metric on D × S³ and q_in, q_out ≥ 0 cellwise smooth functions, such that on each closed cell (g, v, u,
+q_in, q_out) is a class solution in the gauge. Then the following hold off the axes and off the crossing spheres.
+
+(a) *The torsion jump.* On each ingoing leaf,
+
+    L̲ [∂_v b] + (L̲ ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) + 2∂_ϑ b) [∂_v b] = 0,  {#eq:loc-shell-torsion}
+
+and [∂_v b] is continuous at the crossing spheres. So [∂_v b] vanishes along each integral curve of L̲ in the leaf that
+starts at a point of {(0, c_k)} × S³ where it vanishes; when b vanishes near the axes, these curves fill the leaf off the
+axes.
+
+(b) *An ingoing shell.* If [∂_v b] = 0 on {v = c_k}, then there
+
+    ∂_u(𝒱 [tr χ]) + ∂_ϑ(b 𝒱 [tr χ]) = 0,  {#eq:loc-shell-conservation}
+
+and 𝒱[tr χ] is continuous at the crossing spheres; so [tr χ] keeps its sign along each integral curve of L̲ in the leaf.
+
+(c) *An outgoing shell.* On each outgoing leaf ∂_v(𝒱 [tr χ̲]) = 0, and 𝒱[tr χ̲] is continuous at the crossing spheres; so
+[tr χ̲] keeps its sign along each generator of the leaf.
+
+(d) *The junction.* Let 𝔪_k and 𝔫_j be shell densities as in [[def:loc-shell-solution]]. Then (g, v, u, q_in, q_out, 𝔪_k,
+𝔫_j) is a solution with null shells along the leaves on D × S³ if and only if, off the axes and off the crossing spheres:
+
+(J1) [∂_v b] = 0 on every ingoing leaf;
+
+(J2) 𝔪_k = −[tr χ] on {v = c_k} and 𝔫_j = −[tr χ̲] on {u = d_j};
+
+(J3) [q_out] = 0 across every ingoing leaf and [q_in] = 0 across every outgoing leaf.
+
+No condition is placed on the jumps of ∂_u b across an outgoing leaf, of the derivatives of ln Ω, or of the derivatives
+of the ϰ_i − ϕ.
+
+*Proof.* (a) Off the leaves Ric(g) = q_in dv ⊗ dv + q_out du ⊗ du, and dv and du vanish on ∂_ϑ; so on each closed cell
+Ric(L̲, ∂_ϑ) = 0 for the one-sided values. In the first identity of [[lem:loc-shell-identities]], the coefficient of ∂_v
+b and r̲ contain only b, which is continuous, and derivatives along L̲ and ∂_ϑ, which are tangent to {v = c_k}; so they
+are continuous across the leaf, and [L̲∂_v b] = L̲[∂_v b]. The jump of the identity is [[eq:loc-shell-torsion]]. At a
+crossing sphere {(d_j, c_k)} × S³, ∂_v b is a derivative along {u = d_j}, so above the leaf {v = c_k} its values from
+u < d_j and from u > d_j agree on {u = d_j}, and likewise below; hence the jump across {v = c_k} has the same limits from
+u < d_j and from u > d_j. Along an integral curve of L̲ in the leaf, [[eq:loc-shell-torsion]] is a linear homogeneous
+ordinary differential equation for [∂_v b] with continuous coefficients, so [∂_v b] vanishes along the curve if it
+vanishes at its starting point. When b vanishes near the axes, the integral curves of L̲ = ∂_u + b ∂_ϑ in the leaf, the
+solutions of dϑ/du = b(u, c_k, ϑ), b being bounded, continuous and smooth in ϑ, are defined for all u in the leaf, do not
+reach the axes, and through every point of the leaf off the axes passes one of them that starts at u = 0.
+
+(b) By [[eq:loc-shell-einstein]] off the leaves, Ric(∂_ϑ, ∂_ϑ) = Ric(K_i, K_i) = 0 on each closed cell, so the left side
+of [[eq:loc-shell-trace]] vanishes on both sides of {v = c_k}. On its right side Ω²𝒱 and 𝔞 are continuous across the
+leaf, 𝔞 containing only derivatives along ∂_ϑ; [L̲∂_v𝒱] = L̲[∂_v𝒱] and [(∂_ϑ b) ∂_v𝒱] = (∂_ϑ b)[∂_v𝒱]; [∂_ϑ(𝒱 ∂_v
+b)] = ∂_ϑ(𝒱[∂_v b]) = 0; and [(∂_v b)²] = [∂_v b](∂_v b(c_k⁺) + ∂_v b(c_k⁻)) = 0. So L̲[∂_v𝒱] + (∂_ϑ b)[∂_v𝒱] = 0, which
+is [[eq:loc-shell-conservation]], as [∂_v𝒱] = 𝒱[tr χ] and L̲F + (∂_ϑ b)F = ∂_uF + ∂_ϑ(bF). At a crossing sphere, ∂_v𝒱 is
+a derivative along {u = d_j}, and the continuity follows as in (a). Along an integral curve of L̲, L̲(𝒱[tr χ]) = −(∂_ϑ b)
+𝒱[tr χ], so 𝒱[tr χ] keeps its sign, and 𝒱 > 0.
+
+(c) Since L̲F + (∂_ϑ b)F = ∂_uF + ∂_ϑ(bF), [[eq:loc-shell-trace]] with vanishing left side gives on each closed cell
+
+    ∂_v∂_u𝒱 = −∂_ϑ(b ∂_v𝒱) − ½ ∂_ϑ(𝒱 ∂_v b) + (γ_ϑ 𝒱/(8Ω²)) (∂_v b)² − Ω²𝒱 𝔞.
+
+The right side contains Ω, γ_ϑ, b, 𝒱 and derivatives along ∂_v and ∂_ϑ only, which are tangent to {u = d_j}; so it is
+continuous across the leaf, and ∂_v[∂_u𝒱] = [∂_v∂_u𝒱] = 0. By the end of the proof of [[lem:loc-shell-ricci]] (b),
+[∂_u𝒱] = 𝒱[∂_u ln 𝒱] = 𝒱[tr χ̲]. At a crossing sphere, ∂_u𝒱 = L̲𝒱 − b ∂_ϑ𝒱 is built from derivatives along {v = c_k}, so
+it is continuous across that leaf, and the continuity follows as in (a).
+
+(d) By [[lem:loc-shell-ricci]] (a), in a chart (u, v, y), since Ric_c(g) = q_in dv ⊗ dv + q_out du ⊗ du on each cell,
+
+    Ric(g) − q_in^♯ dv ⊗ dv − q_out^♯ du ⊗ du = Σ_k (𝒮_k − 𝔪_k dv ⊗ dv) δ(v − c_k) + Σ_j (𝒮′_j − 𝔫_j du ⊗ du) δ(u − d_j).
+
+The coefficients are bounded functions on the leaves, continuous off the crossing spheres; testing with functions
+supported near a point of one leaf off the others shows that the sum vanishes if and only if every coefficient vanishes
+off the crossing spheres. On each part of a leaf between crossing spheres the coefficients are continuous up to the axes,
+so it suffices that they vanish off the axes, where [[lem:loc-shell-ricci]] (b) applies: since γ_ϑ/(4Ω²) ≠ 0 and
+dv ⊗ (dϑ − b du) + (dϑ − b du) ⊗ dv is not a multiple of dv ⊗ dv, 𝒮_k = 𝔪_k dv ⊗ dv if and only if [∂_v b] = 0 and
+𝔪_k = −[tr χ], and 𝒮′_j = 𝔫_j du ⊗ du if and only if 𝔫_j = −[tr χ̲]. So [[eq:loc-shell-einstein]] holds if and only if
+(J1) and (J2) do.
+
+For [[eq:loc-shell-dust]], let X^a := |det g|^(1/2) g^(av), a continuous and cellwise smooth vector density with X^v = 0.
+By the rule for derivatives in the proof of [[lem:loc-shell-ricci]] (a), applied to X^a q_in and, on the leaf {v = c_k},
+to X^a 𝔪_k as a function of (u, y),
+
+    ∂_a(X^a q_in^♯) = {∂_a(X^a q_in)} + Σ_j [X^u q_in] δ(u − d_j)
+                      + Σ_k ({∂_u(X^u 𝔪_k) + ∂_A(X^A 𝔪_k)} + Σ_j [X^u 𝔪_k] δ(u − d_j)) δ(v − c_k),
+
+the last jump being taken along the leaf at u = d_j; no term at the ingoing leaves comes from the first part, as X^v = 0.
+The cellwise term vanishes by the conservation law on each cell. So the first equation of [[eq:loc-shell-dust]] holds if
+and only if [X^u q_in] = 0 across every outgoing leaf, ∂_u(X^u 𝔪_k) + ∂_A(X^A 𝔪_k) = 0 on the parts of the ingoing leaves
+between crossing spheres, and X^u 𝔪_k is continuous at the crossing spheres. The divergence of a vector density along the
+leaf does not depend on the chart, the functions involved are continuous up to the axes on the parts of the leaves, and
+X^u = |det g|^(1/2) g^(uv) ≠ 0 is continuous; off the axes, in the coordinates (u, v, ϑ, φ1, φ2), X = −𝒱 ∂_u − b𝒱 ∂_ϑ
+([[lem:loc-cone-ricci]] (b)). So these conditions are [q_in] = 0 across the outgoing leaves, ∂_u(𝒱𝔪_k) + ∂_ϑ(b𝒱𝔪_k) = 0
+off the axes, and the continuity of 𝒱𝔪_k at the crossing spheres; given (J1) and (J2), the last two are (b). In the same
+way, with X′^a := |det g|^(1/2) g^(au), which off the axes is −𝒱 δ^a_v, the second equation of [[eq:loc-shell-dust]]
+holds if and only if [q_out] = 0 across the ingoing leaves, ∂_v(𝒱𝔫_j) = 0 and 𝒱𝔫_j is continuous at the crossing spheres,
+and given (J2) the last two are (c). Hence [[eq:loc-shell-einstein]] and [[eq:loc-shell-dust]] hold if and only if
+(J1)–(J3) do. ∎
+
+**Remark {#rem:loc-shell-poisson}** (Null shells in four dimensions.) In four dimensions, Poisson's reformulation of the
+null-shell formalism of Barrabès and Israel describes the δ-part of the Ricci tensor of a metric that is continuous
+across a null hypersurface by "a mass density, a mass current, and an isotropic pressure" [Poi02, p. 1], through
+"S^(αβ) = μk^α k^β + j^A (k^α e^β_A + e^α_A k^β) + p σ^(AB) e^α_A e^β_B" [Poi02, (2.15), p. 4], k tangent to the null
+generators. [[lem:loc-shell-ricci]] is the analogue in five dimensions and in the gauge of the class, proved directly: on
+an ingoing leaf, whose generators are tangent to L̲ = −2Ω² g⁻¹dv, the term in dv ⊗ dv is the density, the term in [∂_v b]
+the current, and no pressure term occurs; a null-dust shell, whose stress is a multiple of dv ⊗ dv, is the case of zero
+current, (J1). A jump of the derivatives of the ϰ_i − ϕ across a leaf produces no δ in Ric; in four dimensions such a
+jump is what [Poi02, p. 1] calls "an independent impulsive tidal wave", a δ in the Weyl tensor. No proof here uses
+[Poi02].
+
+**Definition {#def:loc-shell-data}** (Cone data with shells.) *Cone data with shells along the leaves* consist of
+functions Ω > 0, γ_ϑ > 0, b, A_c and A_s of (v, ϑ) ∈ [0, v_1] × (0, π/2) on 𝒞_out, continuous and smooth on each [c_k,
+c_(k+1)] × (0, π/2), a density q_in ≥ 0 smooth on each of these sets and smooth functions m_k ≥ 0 of ϑ (1 ≤ k ≤ p), and
+of functions Ω > 0, γ_ϑ > 0, A_c and A_s of (u, ϑ) ∈ [0, u_1] × (0, π/2) on 𝒞_in, with b = 0 there, continuous and smooth
+on each [d_j, d_(j+1)] × (0, π/2), a density q_out ≥ 0 smooth on each of these sets and smooth functions n_j ≥ 0 of ϑ
+(1 ≤ j ≤ q), such that:
+
+(i) the two sets of functions agree on S;
+
+(ii) on each [c_k, c_(k+1)] the functions on 𝒞_out satisfy Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0, by
+[[eq:loc-cone]], and at each c_k, [∂_v b] = 0 and [tr χ] = −m_k; on each [d_j, d_(j+1)] the functions on 𝒞_in satisfy
+Ric(∂_u, ∂_u) = q_out, by [[eq:loc-cone-in]], which holds for every Ω when b = 0, and at each d_j, [tr χ̲] = −n_j, where
+tr χ̲ = ∂_u ln 𝒱 on 𝒞_in;
+
+(iii) they equal the background's, and the m_k and n_j vanish, outside compact sets K_out ⊂ [0, v_1] × (ϑ_a, ϑ_b) and
+K_in ⊂ [0, u_1] × (ϑ_a, ϑ_b).
+
+Here the jumps are taken along the cones: [F] := F(c_k⁺) − F(c_k⁻) on 𝒞_out and F(d_j⁺) − F(d_j⁻) on 𝒞_in. With p = q = 0
+these are the cone data of [[def:civp-large-data]].
+
+**Proposition {#prop:loc-shell-cones}** (Free data with atoms.) On 𝒞_out write γ_ϑ = e^(2ϕ + 2ℓ_1), A_c = ϕ + ℓ_2 and
+A_s = ϕ + ℓ_3 with ℓ_1 + ℓ_2 + ℓ_3 = 0, and keep Ω the background's. Let the free data (ℓ_1, ℓ_2, ℓ_3) be continuous on
+[0, v_1] × (0, π/2) and smooth on each [c_k, c_(k+1)] × (0, π/2), let q_in ≥ 0 be smooth on each of these sets and the
+m_k ≥ 0 smooth, all equal to the background's, and m_k = 0, outside a compact subset of [0, v_1] × (ϑ_a, ϑ_b), and let
+the corner values of ϕ, ∂_vϕ, b and ∂_v b be the background's. On each generator read the constraints
+
+    Ric(∂_v, ∂_v) = q_in + Σ_k m_k δ(v − c_k),      Ric(∂_v, ∂_ϑ) = 0,
+
+with the left sides of [[eq:loc-cone]], as equations between distributions in v at fixed ϑ for functions ϕ and b that are
+continuous and smooth on each [c_k, c_(k+1)]. They determine ϕ and b on every generator on which e^ϕ stays positive; the
+resulting functions satisfy (ii) of [[def:loc-shell-data]] on 𝒞_out, with [∂_vϕ] = −m_k/3 at c_k, and equal the
+background's at every ϑ outside the band. The same holds on 𝒞_in in the gauge b = 0, with the free data there, q_out, the
+n_j, the points d_j, u and [[eq:loc-cone-in]] in place of the free data on 𝒞_out, q_in, the m_k, the points c_k, v and
+the first line of [[eq:loc-cone]], the corner values of ϕ and ∂_uϕ being the background's; then [∂_uϕ] = −n_j/3. No
+smallness is used; for free data near the background's and small m_k and n_j, e^ϕ stays positive on [0, v_1] and on [0,
+u_1].
+
+*Proof.* As distributions in v, for ϰ_i continuous and smooth on each [c_k, c_(k+1)], ∂_v²ϰ_i = {∂_v²ϰ_i} + Σ_k [∂_vϰ_i]
+δ(v − c_k), as in the proof of [[lem:loc-shell-ricci]] (a), while the other terms of the first line of [[eq:loc-cone]]
+are bounded. So the first constraint holds if and only if it holds on each [c_k, c_(k+1)] and −Σ_i [∂_vϰ_i] = m_k at each
+c_k, that is −3[∂_vϕ] = m_k, as Σ_i ℓ_i = 0; then [tr χ] = −m_k. With y := e^ϕ, on each interval the constraint is, as in
+the proof of [[prop:loc-cones]], the linear equation y″ − 2(ln Ω)′ y′ + (1/3)(Σ_i (ℓ_i′)² + q_in) y = 0, ′ := ∂_v. With
+the corner values and the conditions y′(c_k⁺) = y′(c_k⁻) − (m_k/3) y(c_k) it has exactly one continuous solution that is
+smooth on each interval, and this solution is positive near v = 0 and smooth in (v, ϑ) on each [c_k, c_(k+1)] × (0, π/2),
+by induction on k, the coefficients and the jumps being smooth in ϑ. In the second line of [[eq:loc-cone]] the
+coefficient ∂_v ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) and the term r of [[eq:loc-cone-r]] are bounded: r contains ∂_v∂_ϑ ln Ω
+and the ∂_v∂_ϑϰ_i only as derivatives in v of ∂_ϑ ln Ω and of the ∂_ϑϰ_i, which are continuous in v, since ϕ and the ℓ_i
+are continuous and smooth in ϑ on each closed interval. So the δ-part of the second line is (γ_ϑ/(4Ω²)) [∂_v b]
+δ(v − c_k), and the line holds if and only if it holds on each interval and [∂_v b] = 0: a linear first-order equation
+for ∂_v b on each interval, with ∂_v b continuous at the c_k, which with the corner value has exactly one solution; b
+follows by integration from the corner. At an angle outside the band the coefficients, the m_k and the corner values are
+the background's, so ϕ and b are the background's, by uniqueness. On 𝒞_in, [[eq:loc-cone-in]] is treated in the same way,
+and [tr χ̲] = 3[∂_uϕ] = −n_j. For free data near the background's and small m_k and n_j, y is near the background's on
+the compact intervals, by continuous dependence on the coefficients and on the jumps, and so positive. ∎
+
+*The smooth theorems at other corners.* [[thm:civp-large]] and [[thm:loc-cone-development]] are stated at the corner
+sphere S. The proof of [[thm:loc-shells]] applies them at corner spheres on the cones, and [[prop:loc-shell-crossing]]
+(c) at crossing spheres; what is used of them is the following.
+
+(T2) [[pending:civp-large-at-a-corner]] For every rectangle 𝒬 = [u_c, u′] × [v_c, v′] ⊂ Q1, [[thm:civp-large]] (a), (b)
+and (c) hold with Q1, S, 𝒞_out ∩ Q1 and 𝒞_in ∩ Q1 replaced by 𝒬, its corner sphere {(u_c, v_c)} × S³ and its edges
+N_o := {u_c} × [v_c, v′] and N_i := [u_c, u′] × {v_c}, the cone data by functions on N_o and N_i with the properties of
+[[def:civp-large-data]] (b = 0 on N_i), past sets by the sets D ⊂ 𝒬 with [u_c, u] × [v_c, v] ⊂ D for every (u, v) ∈ D,
+and 𝒮_δ by {(u, v) ∈ 𝒬 : min(u − u_c, v − v_c) ≤ δ}. The proof of [[thm:civp-large]] uses of g0 only that it is a smooth
+round class solution in the gauge, with b = 0, on a neighbourhood of Q1 × S³, and its corner step already works at every
+corner of Q1.
+
+(T1) [[pending:loc-cone-development-at-a-corner]] Let (u_c, v_c) be (0, c) with 0 < c < v_1 or (d, 0) with 0 < d < u_1,
+let l_u, l_v > 0 and δ_1 := min(l_u, l_v)/2 be such that R > a on the edges N_o := {u_c} × [v_c, v_c + l_v + δ_1] and
+N_i := [u_c, u_c + l_u + δ_1] × {v_c}, a = 0.70, and g0 is defined in the gauge on a neighbourhood of the rectangle they
+span, and let k ≥ 6 and η := (1/4) min(ϑ_a, π/2 − ϑ_b). There are δ_* > 0, depending only on g0 near that rectangle, on
+l_u, l_v and on η, and ε_0, C > 0, depending also on k, such that cone data at the corner (u_c, v_c) in the sense of
+[[def:loc-cone-data]] on N_o and N_i, relative to the background obtained from g0 as in [[lem:loc-cone-strips]] (b), with
+b = 0 on N_i, equal to g0's outside compact subsets of (ϑ_a, ϑ_b) and of size ε ≤ ε_0, have a class solution in the gauge
+on {(u, v) : u_c ≤ u ≤ u_c + l_u, v_c ≤ v ≤ v_c + l_v, (u − u_c)(v − v_c) ≤ δ_*²} × S³ that induces them, equals g0 at
+the points with ϑ ≤ ϑ_a − η or ϑ ≥ ϑ_b + η, and whose functions ln Ω, ½ ln γ_ϑ, b, A_c, A_s, q_in and q_out differ from
+g0's by at most Cε, together with their derivatives of order at most k − 4. This is case (I) of [[sec:loc-cone-reduced]],
+with [[lem:loc-cone-cauchy]], [[lem:loc-cone-past]], [[lem:loc-cone-support]], [[lem:loc-cone-constraints]] and
+[[lem:loc-cone-gauge]], at that corner.
+
+**Theorem {#thm:loc-shells}** (Developments of cone data with null shells.) Let cone data with shells along the leaves be
+given ([[def:loc-shell-data]]); no smallness is assumed. Put c_1 := v_1 if p = 0 and d_1 := u_1 if q = 0, let N := max(p,
+q) + 1, and define bands by (ϑ_a^(0), ϑ_b^(0)) := (ϑ_a, ϑ_b) and
+
+    ϑ_a^(i+1) := ϑ_a^(i) − w_i,      ϑ_b^(i+1) := ϑ_b^(i) + w_i,
+    w_i := ½ min(ϑ_a^(i), π/2 − ϑ_b^(i)),                                                       {#eq:loc-shell-bands}
+
+so that ϑ_a^(N) ≥ 2^(−N) ϑ_a and π/2 − ϑ_b^(N) ≥ 2^(−N) (π/2 − ϑ_b). Assume (T2). There is δ ∈ (0, min(c_1, d_1)) such
+that, with 𝒮_δ := {(u, v) ∈ Q1 : min(u, v) ≤ δ}, the following hold.
+
+(a) *Existence.* There is a solution with null shells along the leaves on 𝒮_δ × S³ ([[def:loc-shell-solution]]) that
+induces the cone data. No crossing sphere lies in 𝒮_δ. On every ingoing leaf [∂_v b] = 0; q_out is continuous across the
+ingoing leaves and q_in across the outgoing ones. The shell densities are 𝔪_k = −[tr χ] on {v = c_k}, with 𝔪_k = m_k at
+u = 0 and ∂_u(𝒱𝔪_k) + ∂_ϑ(b𝒱𝔪_k) = 0, and 𝔫_j = −[tr χ̲] on {u = d_j}, with 𝔫_j = n_j at v = 0 and ∂_v(𝒱𝔫_j) = 0.
+
+(b) *Localisation.* The solution equals (g0, q̊_in, q̊_out), and its shell densities vanish, at the points with ϑ ∉
+(ϑ_a^(N), ϑ_b^(N)).
+
+(c) *Uniqueness.* Let D′ ⊂ Q1 be a past set and (g̃, v, u, q̃_in, q̃_out, 𝔪̃_k, 𝔫̃_j) a solution with null shells along
+the same leaves on D′ × S³ that induces the cone data on 𝒞_out ∩ D′ and on 𝒞_in ∩ D′ and equals (g0, q̊_in, q̊_out) at
+the points with ϑ ∉ [η′, π/2 − η′], for some η′ > 0. Then it equals the solution of (a) on (D′ ∩ 𝒮_δ) × S³.
+
+(d) *Small data.* Assume (T1) besides (T2), let u_1 and v_1 be as in [[thm:loc-cone-development]], and let the cone data
+be given by [[prop:loc-shell-cones]] from free data whose pieces extend: for 0 ≤ k ≤ p there are smooth free data
+(ℓ_1^(k), ℓ_2^(k), ℓ_3^(k)) and a density q_in^(k) ≥ 0 on [c_k, v_1] × (0, π/2), equal to the given ones on [c_k,
+c_(k+1)] × (0, π/2) and to the background's outside a compact subset of [0, v_1) × (ϑ_a, ϑ_b), and likewise on 𝒞_in for
+0 ≤ j ≤ q. Let k_(N−1) := 6, k_(i−1) := 6k_i + 23 for 1 ≤ i ≤ N − 1, and m_* := 6k_0 + 21, and let ε be the largest
+absolute value of a derivative of order at most m_* of the differences of these extensions from the background's and of
+the m_k and n_j. There are w ∈ (0, min(c_1, d_1)), depending only on g0, u_1, v_1, the leaves and the band, and ε_0,
+C > 0, depending also on N, such that for ε ≤ ε_0 the conclusions of (a) and (b) hold with 𝒮_w in place of 𝒮_δ; the
+solution equals that of (a) on 𝒮_(min(δ, w)) × S³; and on each closed cell of 𝒮_w its functions ln Ω, ½ ln γ_ϑ, b, A_c,
+A_s, q_in and q_out differ from the background's by at most Cε, together with their first derivatives, one-sided at the
+leaves.
+
+*Proof.* Write 𝒵_k := [c_k, c_(k+1)] and 𝒴_j := [d_j, d_(j+1)]. For a band (ϑ_a′, ϑ_b′), with η0′ := (1/3) min(ϑ_a′,
+π/2 − ϑ_b′) as in [[eq:civp-large-band]] and w′ := ½ min(ϑ_a′, π/2 − ϑ_b′) = (3/2) η0′, the interval [ϑ_a′ − η0′,
+ϑ_b′ + η0′] is a compact subset of (ϑ_a′ − w′, ϑ_b′ + w′). The development is built on the rectangles 𝒫_0 := [0,
+d_1] × [0, c_1], 𝒫_k^out := [0, λ_k^out] × 𝒵_k (1 ≤ k ≤ p) along 𝒞_out and 𝒫_j^in := 𝒴_j × [0, λ_j^in] (1 ≤ j ≤ q) along
+𝒞_in, with numbers λ chosen below; 𝒫_k^out has depth k, 𝒫_j^in depth j and 𝒫_0 depth 0.
+
+*Step 1: the corner rectangle.* The restrictions of the cone data to {0} × [0, c_1] and [0, d_1] × {0} are cone data in
+the sense of [[def:civp-large-data]] with d_1 and c_1 in place of u_1 and v_1: they are smooth up to the ends, and (i)–
+(iii) hold by [[def:loc-shell-data]]. [[thm:civp-large]] gives a class solution in the gauge on {(u, v) ∈ 𝒫_0 : min(u,
+v) ≤ δ} for some δ > 0, inducing these data and equal to (g0, q̊_in, q̊_out) at the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0],
+so off (ϑ_a^(1), ϑ_b^(1)), and unique in the sense of its part (c). Let δ_0 := min(δ, min(c_1, d_1)/2), 𝒮_0 := {(u,
+v) ∈ 𝒫_0 : min(u, v) ≤ δ_0} and g_0 the restriction of that solution to 𝒮_0 × S³.
+
+*Step 2: along 𝒞_out.* For k = 1, …, p in turn put λ_k^out := δ_(k−1)^out, with δ_0^out := δ_0; then 𝒫_k^out lies in the
+cell Q_0k, as λ_k^out ≤ δ_0 < d_1. On N_o := {0} × 𝒵_k take the cone data, which are smooth up to the ends of 𝒵_k. On
+N_i := [0, λ_k^out] × {c_k}, which lies in the domain 𝒮_(k−1)^out of g_(k−1)^out (𝒮_0^out := 𝒮_0, g_0^out := g_0), take
+the functions Ω, γ_ϑ, b, A_c, A_s and q_out of g_(k−1)^out. The two agree at (0, c_k), where both are the values of the
+cone data, g_(k−1)^out inducing them; and Ric(L̲, L̲) = q_out on N_i, the left side involving only derivatives along N_i
+([[def:loc-cone-data]] (ii)), because g_(k−1)^out solves the class system up to {v = c_k}. Let Φ_k(u, ϑ) solve
+(∂_u + b(u, c_k, ϑ) ∂_ϑ) Φ_k = 0 with Φ_k(0, ϑ) = ϑ. As b vanishes on N_i outside a compact subset of (ϑ_a^(k), ϑ_b^(k)),
+where g_(k−1)^out is g0, Φ_k(u, ·) is a diffeomorphism of (0, π/2) equal to the identity off that set. The change of
+angle (u, v, ϑ) ↦ (u, v, Φ_k(u, ϑ)) maps a metric of the form [[eq:loc-double-null]] to one of the same form, with Ω,
+A_c, A_s unchanged, γ_ϑ replaced by γ_ϑ/(∂_ϑΦ_k)² and b by ∂_uΦ_k + b ∂_ϑΦ_k, because Φ_k does not depend on v and
+
+    dϑ − b du = (∂_ϑΦ_k)⁻¹ (dΦ_k − (∂_uΦ_k + b ∂_ϑΦ_k) du).
+
+It commutes with the action of G, it is the identity on N_o and off that set, and it makes b vanish on N_i, while b on
+N_o becomes b − b(0, c_k, ·). The transformed functions on N_o and N_i have the properties of [[def:civp-large-data]] for
+𝒬 := 𝒫_k^out and the band (ϑ_a^(k), ϑ_b^(k)): the constraints are statements about Ric(∂_v, ·) on N_o and Ric(L̲, L̲) on
+N_i, and the fields ∂_v and L̲, and ∂_ϑ on N_o, are unchanged. By (T2) there are δ_k^out ∈ (0, λ_k^out] and a class
+solution in the gauge on 𝒮_k^out := {(u, v) ∈ 𝒫_k^out : min(u, v − c_k) ≤ δ_k^out} that induces these functions and
+equals (g0, q̊_in, q̊_out) off (ϑ_a^(k+1), ϑ_b^(k+1)); changing the angle back gives g_k^out on 𝒮_k^out × S³, which
+induces the cone data on N_o and the functions of g_(k−1)^out on N_i.
+
+*Step 3: along 𝒞_in.* For j = 1, …, q in turn put λ_j^in := δ_(j−1)^in, with δ_0^in := δ_0, 𝒮_0^in := 𝒮_0 and
+g_0^in := g_0. On N_i := 𝒴_j × {0} ⊂ 𝒞_in take the cone data, with b = 0. On N_o := {d_j} × [0, λ_j^in], which lies in
+𝒮_(j−1)^in, take the functions Ω, γ_ϑ, b, A_c, A_s and q_in of g_(j−1)^in. They agree at (d_j, 0), and Ric(∂_v,
+∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o by [[lem:loc-cone-equations]], since g_(j−1)^in solves the class system up to
+{u = d_j}. No change of angle is needed. By (T2) there are δ_j^in ∈ (0, λ_j^in] and a class solution g_j^in in the gauge
+on 𝒮_j^in := {(u, v) ∈ 𝒫_j^in : min(u − d_j, v) ≤ δ_j^in} that induces these functions and equals (g0, q̊_in, q̊_out) off
+(ϑ_a^(j+1), ϑ_b^(j+1)).
+
+*Step 4: the glued metric.* Let δ be the least of δ_0, the δ_k^out and the δ_j^in; then δ < min(c_1, d_1). A point of 𝒮_δ
+with v ≥ c_1 has u ≤ δ < d_1, and one with u ≥ d_1 has v ≤ δ < c_1. So no crossing sphere lies in 𝒮_δ, and 𝒮_δ is the
+union of 𝒮_δ ∩ 𝒫_0 ⊂ 𝒮_0, of the sets [0, δ] × 𝒵_k ⊂ 𝒮_k^out and of the sets 𝒴_j × [0, δ] ⊂ 𝒮_j^in, two of which meet
+only along a leaf {v = c_k} or {u = d_j}. Define g, q_in and q_out on 𝒮_δ × S³ by g_0, the g_k^out and the g_j^in. On a
+common leaf the two solutions induce the same functions, by Steps 2 and 3. So g is continuous and cellwise smooth, each
+closed cell carries a class solution in the gauge, and q_out is continuous across the ingoing leaves and q_in across the
+outgoing ones: (J3) of [[prop:loc-shell-junction]] holds.
+
+*Step 5: the junction.* At (0, c_k), the jump of ∂_v b across {v = c_k} is that of the cone data along 𝒞_out, since
+g_(k−1)^out and g_k^out induce b on 𝒞_out; it vanishes by [[def:loc-shell-data]] (ii). As b vanishes near the axes,
+[[prop:loc-shell-junction]] (a) gives [∂_v b] = 0 on {v = c_k} ∩ 𝒮_δ: (J1). At u = 0, −[tr χ] is the jump of −tr χ = −∂_v
+ln 𝒱 of the cone data along 𝒞_out, which is m_k ≥ 0; by [[prop:loc-shell-junction]] (b), 𝔪_k := −[tr χ] ≥ 0 on the leaf
+and ∂_u(𝒱𝔪_k) + ∂_ϑ(b𝒱𝔪_k) = 0. At v = 0, −[tr χ̲] is the jump of −∂_u ln 𝒱 of the cone data along 𝒞_in, where b = 0,
+which is n_j ≥ 0; by [[prop:loc-shell-junction]] (c), 𝔫_j := −[tr χ̲] ≥ 0 on the leaf and ∂_v(𝒱𝔫_j) = 0. These functions
+are smooth and vanish near the axes, the solution being g0 there. So (J1)–(J3) hold with these shell densities, and by
+[[prop:loc-shell-junction]] (d), g is a solution with null shells along the leaves on 𝒮_δ × S³. It induces the cone data:
+on 𝒞_out ∩ 𝒮_δ through g_0 and the g_k^out, and on 𝒞_in ∩ 𝒮_δ through g_0 and the g_j^in. This proves (a).
+
+(b) g_0 equals g0 off (ϑ_a^(1), ϑ_b^(1)), g_k^out off (ϑ_a^(k+1), ϑ_b^(k+1)) and g_j^in off (ϑ_a^(j+1), ϑ_b^(j+1)); these
+bands increase with the index, and k + 1, j + 1 ≤ N. The shell densities are jumps of functions that equal g0's off
+(ϑ_a^(N), ϑ_b^(N)). Finally w_i ≤ ϑ_a^(i)/2 and w_i ≤ (π/2 − ϑ_b^(i))/2, which give the bounds after
+[[eq:loc-shell-bands]] by induction.
+
+(c) Let g̃ be as stated. The set D′ ∩ 𝒫_0 is a past set of 𝒫_0, and the restriction of g̃ to it, which is smooth since
+𝒫_0 is a cell, is a class solution in the gauge that induces the data of Step 1 and equals g0 near the axes; by
+[[thm:civp-large]] (c), g̃ = g_0 on D′ ∩ 𝒮_0. Suppose that g̃ = g_(k−1)^out on D′ ∩ 𝒮_(k−1)^out. The set D′ ∩ 𝒫_k^out is
+a past set of 𝒫_k^out relative to its corner (0, c_k), g̃ is smooth on it since 𝒫_k^out ⊂ Q_0k, and g̃ induces the cone
+data on N_o ∩ D′ and, being continuous, the functions of g_(k−1)^out on N_i ∩ D′ ⊂ 𝒮_(k−1)^out. After the change of angle
+Φ_k, which depends only on these functions, (T2) (c) gives g̃ = g_k^out on D′ ∩ 𝒮_k^out. In the same way g̃ = g_j^in on
+D′ ∩ 𝒮_j^in for every j. So g̃ = g on D′ ∩ 𝒮_δ, the densities q̃_in and q̃_out included, and the shell densities, which
+(J2) determines from the metric, agree as well.
+
+(d) We repeat Steps 1–5, with [[thm:loc-cone-development]] at S and (T1) in place of (T2) at the other corners, and keep
+track of sizes; C denotes constants that depend only on g0, u_1, v_1, the leaves, the band and N. The rectangle of depth
+i is developed with the index k_i, and its band is (ϑ_a^(i), ϑ_b^(i)); the localisation of [[thm:loc-cone-development]]
+(b) and of (T1), with η = w_i/2, gives g0 off (ϑ_a^(i) − η, ϑ_b^(i) + η), a compact subset of (ϑ_a^(i+1), ϑ_b^(i+1)). As
+the extensions equal the background's near v = v_1 and u = u_1 and g0 is defined on a neighbourhood of Q1 × S³, there is
+δ_e > 0 such that the extended free data, continued by the background's, are defined on [c_k, v_1 + δ_e] and on [d_j,
+u_1 + δ_e].
+
+*Extended data.* On 𝒞_out ∩ {c_k ≤ v ≤ v_1 + δ_e} solve the equations of the proof of [[prop:loc-shell-cones]] with the
+free data (ℓ_i^(k), q_in^(k)) and the values of ϕ, ∂_vϕ, b and ∂_v b of the cone data at c_k⁺. By uniqueness the result
+agrees with the cone data on 𝒵_k. The initial values differ from the background's by at most Cε, with their derivatives
+in ϑ of order at most m_* − 3, as they come from the solutions on the earlier intervals and from the m_k; so, as in the
+proof of [[thm:loc-cone-development]], for ε small e^ϕ stays positive and the result differs from the background's by at
+most Cε in C^(m_* − 3) = C^(6k_0 + 18). These are the *extended cone data of depth k*; likewise on 𝒞_in.
+
+*Depth 0.* [[thm:loc-cone-development]] with the free data (ℓ_i^(0), q_in^(0)) and their analogues on 𝒞_in, k = k_0 and
+m = m_*, gives for ε ≤ ε_0 a solution on {(u, v) ∈ Q1 : uv ≤ δ_*,0²}, within Cε of the background's with the derivatives
+of order at most k_0 − 4, and equal to them off (ϑ_a^(1), ϑ_b^(1)); this set contains [0, λ_1] × [0, v_1] and [0,
+u_1] × [0, λ_1], λ_1 := min(δ_*,0²/max(u_1, v_1), min(c_1, d_1)/2, 3δ_e), and the solution induces the cone data on 𝒵_0
+and 𝒴_0.
+
+*Depth k ≥ 1 along 𝒞_out.* Let λ_k^out be the width found at depth k − 1, so that the solution of depth k − 1 contains
+[0, λ_k^out] × 𝒵_(k−1). Apply (T1) at (0, c_k) with l_u := (2/3) λ_k^out and l_v := v_1 − c_k: then
+δ_1 ≤ λ_k^out/3 ≤ δ_e, so N_i ⊂ [0, λ_k^out] × {c_k}, and N_o = {0} × [c_k, v_1 + δ_1] carries the extended cone data of
+depth k; R > a on N_i once λ_1 is small, R being continuous and > a on the cones. On N_i take the functions of the
+solution of depth k − 1; they are within Cε of the background's with their derivatives of order at most k_(k−1) − 4. Then
+Φ_k − id is at most Cε with its derivatives of the same order, the flow of a vector field within Cε of 0 in C^r being
+within Cε of the identity in C^r, and the transformed functions are within Cε with their derivatives of order at most
+k_(k−1) − 5 = 6k_k + 18, the order m_0 of [[def:loc-cone-data]] for the index k_k. On N_o the change of angle subtracts
+b(0, c_k, ·). So the data have size at most Cε, and for ε small (T1) gives a solution on {0 ≤ u ≤ l_u, c_k ≤ v ≤ v_1,
+u(v − c_k) ≤ δ_*,k²}, which contains [0, λ_(k+1)^out] × [c_k, v_1] with λ_(k+1)^out := min(l_u, δ_*,k²/(v_1 − c_k)); it
+is within Cε of the background's with its derivatives of order at most k_k − 4 in the transformed angle, and k_k − 5 ≥ 1
+after the angle is changed back. Along 𝒞_in the same holds with l_v := (2/3) λ_j^in, l_u := u_1 − d_j and no change of
+angle.
+
+All these widths depend only on g0, u_1, v_1, the leaves, the band and the k_i, and not on the data; let w be the least
+of them. Steps 4 and 5 and the proof of (b) apply with w in place of δ, and give a solution with null shells on 𝒮_w × S³
+with the properties of (a) and (b) and the stated estimate, the rectangle of depth N − 1 giving k_(N−1) − 5 = 1. It
+induces the cone data and equals g0 near the axes, and 𝒮_w is a past set; by (c) it equals the solution of (a) on
+𝒮_w ∩ 𝒮_δ = 𝒮_(min(δ, w)). ∎
+
+**Proposition {#prop:loc-shell-crossing}** (Crossing shells.) Let D ⊂ Q1 be a past set, (g, v, u, q_in, q_out, 𝔪_k, 𝔫_j)
+a solution with null shells along the leaves on D × S³, and Z := {(d_j, c_k)} × S³ a crossing sphere in D. Number the
+four cells at Z by (±, ±), the first sign being that of u − d_j and the second that of v − c_k, and write F_(±±) for the
+value at a point of Z, from the cell (±, ±), of a cellwise smooth function F.
+
+(a) *The crossing rule.* At every point of Z, tr χ_(+−) = tr χ_(−−), tr χ_(++) = tr χ_(−+), tr χ̲_(−+) = tr χ̲_(−−) and
+tr χ̲_(++) = tr χ̲_(+−), so that
+
+    (tr χ tr χ̲)_(++) (tr χ tr χ̲)_(−−) = (tr χ tr χ̲)_(+−) (tr χ tr χ̲)_(−+),
+
+and 𝒱𝔪_k and 𝒱𝔫_j are continuous at Z. If g is round, b = 0, γ_ϑ = R², e^(A_c) = R cos ϑ, e^(A_s) = R sin ϑ and
+Ω² = e^(2σ)/2 with R and σ functions of (u, v), then tr χ = 3R_v/R and tr χ̲ = 3R_u/R, the function f = 1 − μ/R² =
+−2e^(−2σ) R_u R_v of [[eq:two-dust-mass]], μ the mass function, is −(R²/(9Ω²)) tr χ tr χ̲, R and σ are continuous, and on
+Z
+
+    f_(++) f_(−−) = f_(+−) f_(−+),      that is,      (R² − μ_(++)) (R² − μ_(−−)) = (R² − μ_(+−)) (R² − μ_(−+)).
+                                                                                           {#eq:loc-shell-crossing-rule}
+
+Moreover, for round g, R²[R_v] is constant along {v = c_k}, through Z, and R²[R_u] along {u = d_j}; and the mass function
+jumps by [μ] = 2e^(−2σ) R² R_u [R_v] across {v = c_k} and by [μ] = 2e^(−2σ) R² R_v [R_u] across {u = d_j}.
+
+(b) *Round continuation.* Let λ > 0 be less than the distance from (d_j, c_k) to the other leaves, and put
+𝔏 := ([d_j − λ, d_j + λ] × [c_k − λ, c_k + λ]) ∖ ((d_j, d_j + λ] × (c_k, c_k + λ]). If 𝔏 ⊂ D and g is round on 𝔏 × S³,
+there is s ∈ (0, λ] such that the restriction of the solution to 𝔏 × S³ extends to a round solution with null shells
+along the leaves on (𝔏 ∪ [d_j, d_j + s] × [c_k, c_k + s]) × S³; the extension is unique among round ones, and its shells
+continue those of the solution through Z.
+
+(c) *Continuation off the axes.* With λ and 𝔏 as in (b), let 𝔏 ⊂ D and let the solution equal (g0, q̊_in, q̊_out) at the
+points of 𝔏 × S³ with ϑ ∉ [2η, π/2 − 2η], where η ∈ (0, π/8]. There is s ∈ (0, λ] such that its restriction to 𝔏 × S³
+extends to a solution with null shells along the leaves on (𝔏 ∪ [d_j, d_j + s] × [c_k, c_k + s]) × S³ that equals (g0,
+q̊_in, q̊_out) at the points with ϑ ∉ [η, π/2 − η], its shells continuing those of the solution through Z. Under (T2),
+with 𝒬 := [d_j, d_j + λ] × [c_k, c_k + λ], there are δ > 0 and such an extension on (𝔏 ∪ 𝒬_δ) × S³, 𝒬_δ := {(u, v) ∈ 𝒬 :
+min(u − d_j, v − c_k) ≤ δ}, and it is unique: a solution with null shells along the leaves on (𝔏 ∪ D″) × S³, D″ a past
+set of 𝒬 relative to its corner, that equals the given one on 𝔏 × S³ and (g0, q̊_in, q̊_out) near the axes, equals it on
+D″ ∩ 𝒬_δ.
+
+(d) *At an axis.* The identities of (a) hold at the points of Z on the axes too, for every solution in the sense of
+[[def:loc-shell-solution]], and so do the junction conditions of [[prop:loc-shell-junction]], by continuity. No
+continuation through a crossing sphere is asserted for solutions that near Z are neither round nor equal to g0 near the
+axes; in particular nothing is asserted for shells that are not round at an axis, whether or not they cross: (b) uses the
+equations of round metrics, and the results used in (c) need data equal to a smooth round background near the axes
+([[rem:loc-cone-scope]] (ii), [[rem:loc-cone-local-scope]]).
+
+*Proof.* (a) Ω, b and 𝒱 are continuous. ∂_v is tangent to {u = d_j}, so tr χ = ∂_v ln 𝒱 has the same values at Z from the
+two cells on the same side of {v = c_k}; L̲ and ∂_ϑ are tangent to {v = c_k}, so tr χ̲ = L̲ ln 𝒱 + ∂_ϑ b has the same
+values at Z from the two cells on the same side of {u = d_j}. Multiplying gives the identity. By
+[[prop:loc-shell-junction]] (d) the solution satisfies (J1) and (J2), so 𝒱𝔪_k = −𝒱[tr χ] and 𝒱𝔫_j = −𝒱[tr χ̲] are
+continuous at Z by [[prop:loc-shell-junction]] (b) and (c). For a round metric 𝒱 = R³ sin ϑ cos ϑ and b = 0, so tr
+χ = 3R_v/R and tr χ̲ = 3R_u/R, and with 2e^(−2σ) = Ω⁻², f = −(R²/(9Ω²)) tr χ tr χ̲. R and Ω are continuous, so the
+identity for tr χ tr χ̲ gives the first form of [[eq:loc-shell-crossing-rule]], and R² − μ = R² f gives the second.
+Further, 𝒱[tr χ] = 3R²[R_v] sin ϑ cos ϑ, so [[prop:loc-shell-junction]] (b), with b = 0, shows that R²[R_v] is constant
+in u along {v = c_k} and continuous at Z; likewise (c) for R²[R_u]. Finally R_u is continuous across {v = c_k}, being a
+derivative along it, so [μ] = −R²[f] = 2e^(−2σ) R² R_u [R_v] there, and likewise across {u = d_j}.
+
+(b) Translate u and v so that Z is {(0, 0)} × S³. A round class solution with the phases v and u has q_in = 𝒜/R³ and
+q_out = ℬ/R³ with 𝒜 a function of v and ℬ of u, since its conservation laws are ∂_u(R³ q_in) = 0 and ∂_v(R³ q_out) = 0;
+so the cells (−, +) and (+, −) carry round solutions of the two-null-dust equations, with smooth profiles 𝒜 on [0, λ] and
+ℬ on [0, λ]. The functions R, σ and R_v of the cell (−, +) on N_o := {0} × [0, λ], and R, σ and R_u of the cell (+, −) on
+N_i := [0, λ] × {0}, agree at Z and satisfy C_v = 0 on N_o and C_u = 0 on N_i ([[eq:two-dust-constraints]]), these being
+equations along the edges. Let r_0 > 0 be the least value of R on N_o ∪ N_i, and U := (R, σ, P, Q̄). On [0, s]², s ≤ λ,
+consider [[eq:two-dust-volterra]] with (u0, v0) := (0, 0), P(·, 0) := R_u on N_i and Q̄(0, ·) := R_v on N_o, and let
+U_D(u, v) := (R(0, v), D[σ](u, v), P(u, 0), Q̄(0, v)) be the part of its right sides given by the data. On the set B of
+continuous U on [0, s]² with |U − U_D| ≤ r_0/2 in each component, R ≥ r_0/2 and |U| ≤ M_0, with M_0 depending only on the
+data, and 𝔉 and ℌ are bounded by a number M_1 and Lipschitz with a constant L_1. Each single integral in
+[[eq:two-dust-volterra]] runs over an interval of length at most s and the double one over a square of area at most s²,
+so the right sides map B into itself if s(M_0 + M_1) + s²M_1 ≤ r_0/2, and are a contraction in the supremum norm if
+s(1 + 2L_1) + s²L_1 ≤ 1/2. For such s they have exactly one fixed point in B. As in the proof of
+[[prop:two-dust-background]] (d), it solves [[eq:two-dust-evolution]], the constraints [[eq:two-dust-constraints]] hold
+by [[lem:two-dust-equations]], propagated from the edges, and it is smooth on [0, s]², the data being smooth on the
+closed edges; and two continuous solutions of [[eq:two-dust-volterra]] on [0, s]² with R > 0 agree, by the contraction in
+the norm sup e^(−γ(u + v))|U| with γ large used there, applied on the compact set of values of the two solutions.
+
+Extend the solution by the round metric of this (R, σ) on [0, s]², with q_in = 𝒜/R³ and q_out = ℬ/R³. The extended metric
+is continuous and cellwise smooth, and each closed cell carries a class solution in the gauge. (J1) holds, as b = 0, and
+(J3), as 𝒜 depends on v alone, ℬ on u alone, and R is continuous. By [[prop:loc-shell-junction]] (b) and (c), applied to
+the extended metric, 𝒱[tr χ] = 3R²[R_v] sin ϑ cos ϑ is constant along {v = 0} through Z, and 𝒱[tr χ̲] along {u = 0}; so
+𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j. By [[prop:loc-shell-junction]] (d) the extension is a
+solution with null shells along the leaves. A round extension that is such a solution has R and σ continuous, and R_v on
+N_o and R_u on N_i are derivatives along the edges, so it takes the same data on N_o and N_i and solves
+[[eq:two-dust-volterra]] on the new cell; so it is the one constructed.
+
+(c) Translate u and v so that Z is {(0, 0)} × S³. On N_o := {0} × [0, λ] take the functions Ω, γ_ϑ, b, A_c, A_s and q_in
+of the cell (−, +), and on N_i := [0, λ] × {0} the functions Ω, γ_ϑ, b, A_c, A_s and q_out of the cell (+, −). They agree
+at Z, the metric being continuous; Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(L̲, L̲) = q_out on N_i,
+these being equations along the edges that the two cells satisfy up to their boundaries; and they equal g0's at the
+points with ϑ ∉ [2η, π/2 − 2η]. Change the angle by Φ, with (∂_u + b(u, 0, ϑ) ∂_ϑ) Φ = 0 and Φ(0, ϑ) = ϑ, as in Step 2 of
+the proof of [[thm:loc-shells]], so that b = 0 on N_i; Φ is the identity where ϑ ∉ [2η, π/2 − 2η]. Apply
+[[prop:loc-cone-local]] with the background g0 on an open neighbourhood 𝒪 of Q1 on which it is defined, Q := Q1 (after
+the translation), d ∈ (0, 1] so small that the points within 4d of Q form a compact subset of 𝒪, the rectangle 𝒬, and Λ
+the largest C^(m_1) norm of the differences of the transformed functions from g0's: it gives s ∈ (0, λ] and a class
+solution in the gauge on [0, s]² × S³ that induces these functions and equals (g0, q̊_in, q̊_out) at the points with ϑ ∉
+[η, π/2 − η]; change the angle back. The extended metric is continuous and cellwise smooth, each closed cell carries a
+class solution in the gauge, and (J3) holds, the new cell inducing q_in on N_o and q_out on N_i. By
+[[prop:loc-shell-junction]] (a), applied to the extended metric, [∂_v b] on {v = 0} is continuous at Z, where its value
+from u < 0 vanishes by (J1) for the given solution; b vanishing near the axes, it vanishes on the new part of the leaf,
+(J1). By [[prop:loc-shell-junction]] (b) and (c), 𝒱[tr χ] and 𝒱[tr χ̲] are continuous at Z and keep their signs along the
+new parts of the two leaves, so 𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j; by
+[[prop:loc-shell-junction]] (d) the extension is a solution with null shells along the leaves. Under (T2), with the band
+(3η/2, π/2 − 3η/2), for which η0′ = η/2, the same transformed functions have by (T2) (a) and (b) a development on 𝒬_δ for
+some δ > 0 that equals (g0, q̊_in, q̊_out) at the points with ϑ ∉ [η, π/2 − η], and it is glued in the same way. If g̃ is
+a solution on (𝔏 ∪ D″) × S³ as in (c), its restriction to D″, which is smooth since 𝒬 lies in a cell, is a class solution
+in the gauge on a past set of 𝒬 that equals g0 near the axes and, being continuous, induces on N_o ∩ D″ and N_i ∩ D″ the
+functions of the given solution; after the same change of angle, (T2) (c) shows that it equals the development on
+D″ ∩ 𝒬_δ.
+
+(d) The functions tr χ and tr χ̲ are the expansions of the spheres {u, v = const} along the null normal fields ∂_v and
+L̲ = −2Ω² g⁻¹dv, which are smooth on each closed cell, the axes included. So the values in (a) extend continuously to the
+points of Z on the axes, and the identities of (a) hold there by continuity; likewise the coefficients 𝒮_k and 𝒮′_j of
+[[lem:loc-shell-ricci]] are continuous up to the axes, which is how the junction conditions were extended to the axes in
+the proof of [[prop:loc-shell-junction]] (d). The remaining assertions of (d) state what is not proved. ∎
+
+**Remark {#rem:loc-shell-scope}** (What this section does not give.) (i) *Measures.* Only finitely many atoms along
+leaves, with densities smooth in ϑ, are treated. A density with a continuous singular part in v, atoms on sections
+{v = f(ϑ)} of 𝒞_out that are not leaves, whose supports are not null hypersurfaces of the development, and infinitely
+many atoms accumulating on a cone are not; [LR20, Theorem 4.6] concerns angularly regular measures in 3 + 1 dimensions
+([[rem:loc-cone-scope]] (iii)). Data that are only piecewise smooth, with breaks on finitely many leaves and no atoms,
+are covered by [[thm:loc-shells]] with every m_k and n_j zero; a jump of the derivatives of the free data across a leaf
+gives no singular part of Ric ([[lem:loc-shell-ricci]] (b)). (ii) *Domains.* The development of [[thm:loc-shells]] lies
+in a neighbourhood of the cones on which no two shells cross. [[prop:loc-shell-crossing]] continues a solution through
+one crossing sphere, on a small square or, under (T2), on a neighbourhood of the two leaves beyond it; a development on
+the whole rectangle Q1, where the shells cross away from the cones, is not asserted, as for smooth data
+([[rem:loc-cone-scope]] (iv)). (iii) *Backgrounds with shells.* [[thm:loc-shells]] perturbs the smooth background g0. A
+round solution with shells, as in [[prop:loc-shell-crossing]] (b), is smooth only on each cell, and developing
+perturbations of it slab by slab needs [[thm:civp-large]] and [[thm:loc-cone-development]] around a round background that
+is smooth only on a closed rectangle, which are not stated in this paper. (iv) *The axes.* As in [[rem:loc-cone-scope]]
+(ii), the part of the data that is not the background's must avoid the axes; shells that are not round at an axis are not
+treated ([[prop:loc-shell-crossing]] (d)). (v) *Uniqueness.* Uniqueness is asserted among solutions with null shells
+along the same leaves, smooth on each cell and equal to the background near the axes; among continuous or Lipschitz
+metrics with measure-valued densities it is not. (vi) *Limits.* Nothing is asserted about smooth densities that
+concentrate on a leaf: their C^m norms, m = 6k + 21, are not bounded as the width of their support tends to 0, so
+[[thm:loc-cone-development]] does not apply to them uniformly.

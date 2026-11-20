@@ -67,8 +67,10 @@ decided. [[def:ec-point]] does not fix γ_(Υ,H), and no number of this chapter 
 that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]], where y = 0 for the 1-form
 c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not depend on the horizon
 modification ([[sec:iii-d2-1]]). So the computational point is a point at which the formulas of the proof can be
-evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Every number of this chapter that
-depends on the point is stated at it. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-10-52]] (iii)),
+evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Its damping and gauge parameters
+avoid the countable exclusions: h = 10⁻⁶ ∉ 𝖹, and the set 𝖹_exc of [[prop:iii-f1-2-3]] (e) is empty at h = 10⁻⁶
+([[thm:t49-point]]). Every number of this chapter that depends on the point is stated at it. For h ∈ 𝖧 the theorems
+use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-10-52]] (iii)),
 and the lower bound of [[thm:loss-d]] uses besides only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed
 by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a lower bound for d holds
 as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that
@@ -3120,10 +3122,11 @@ k = n − 1 ([[lem:s14-vector-distance]], proof), which for k = 2 gives l = 1, e
 **Proposition {#prop:is-mult}** (The multiplicities of the roots of L̂_b(0).) Every indicial root of L̂_b(0) has
 multiplicity at most 7 at each type and degree at which it occurs. Every one of real part in [−101, 5] is a simple root
 of each type and degree at which it occurs. So N(L̂_b(0), ·)⁻¹ has poles of order at most 7, and simple poles on the
-strip −101 ≤ Re ≤ 5. (Whether P_l has a root of real part at most 6 for some l with hκ > 70, κ = l(l + 2), is not
-decided here; such a root would be non-real and simple.) Whether the roots of real part below −101 (the
-ι^C_(·,≪) − 1 and the gauge roots −l, 1 − l, 2 − l, 2 − ι^Υ of large degree) are simple at h = 10⁻⁶ is not decided
-here ((C2)–(C3) of [[sec:iii-f1-1]] are proved for h ∈ 𝖧, which does not contain 10⁻⁶).
+strip −101 ≤ Re ≤ 5. No root of P_l with hκ > 70, κ = l(l + 2), has real part in [2, 51] ([[cor:t49-right]]). The
+roots of real part below −101 (the ι^C_(·,≪) − 1 and the gauge roots −l, 1 − l, 2 − l, 2 − ι^Υ of large degree) are
+simple as well: (C1)–(C4) of [[sec:iii-f1-1]] hold at h = 10⁻⁶ and 𝖹_exc is empty there, so every indicial root of
+L̂_b(0) is simple at each type and degree at which it occurs ([[thm:t49-point]]), and N(L̂_b(0), ·)⁻¹ has only simple
+poles, by the argument for the poles in the proof below.
 
 *Proof.* *The bound 7.* [[prop:iii-f1-2-3]] assumes z ∈ (0, ½], true for z = 4·10⁻⁶, and (C1), which holds at
 h = 10⁻⁶: the indicial roots of □^C_b at scalar type l ≥ 1, scalar type 0 and vector type l are the roots of P_l, P_0
@@ -3459,7 +3462,7 @@ logarithmic orders at most 39 for ℰ_ind (attained), 50 for ℰ^ι_ind and 0 fo
 below 2λ_♯ are [[prop:is-ci-pp]] (b); above 2λ_♯ they depend on ℰ_+, and none of Λ ∩ {Re ≤ 3 + ε_+}, l_* and k̄_0
 uses them. Every indicial root of L̂_b(0) has multiplicity at most 7, and is simple on [−101, 5] ([[prop:is-mult]]);
 [[def:iii-i10-1-1]] asks l_* to bound them at real part at most 5, a half-plane that contains the roots below −101; for
-these the bound 7 serves, and their exact multiplicities, which this paper does not decide, are not needed. So the
+these the bound 7 serves, and their exact multiplicities, which are 1 ([[thm:t49-point]]), are not needed. So the
 largest multiplicity M of an indicial root of L̂_b(0) of real part at most 5 satisfies M ≤ 7 ([[prop:iii-f1-2-3]] (b)),
 the largest logarithmic order L of ℰ_ind ∪ ℰ^ι_ind ∪ ℰ^C_I at real part at most 5 satisfies 39 ≤ L ≤ 50, the order 39
 being attained at (5, 39) ∈ ℰ_ind ([[prop:is-logs]], [[prop:is-ci-pp]] (a)), and the part of l_* that (IS) fixes,
@@ -4070,12 +4073,10 @@ numbers lie in 3/2 + σ_Υ + {1, 2, 3} ⊂ Q; they are not integers, not 4 + �
 
 **Remark {#rem:sp-scope}** (What the evaluation leaves open.) [[thm:sp-spectrum]] describes the poles exactly, by the
 roots of the explicit polynomials P_l and p_(v). The vector type is in closed form, and for the scalar types with
-x ≤ 70 the roots are enclosed by [[lem:s14-sextic-small]] and [[lem:s14-sextic-large]]; for x > 70 this paper locates
-the roots of P_l only in {Re ι > 2} with no real root in (2, 5], and shows those of real part at most 5 simple, which
-suffices for every statement above but leaves the largest l contributing a pole below real part 5 unevaluated. This
-section does not determine the multiplicities of the indicial roots of real part at most 0 or in (4, 5]: they are 1
-at real part in [−101, 5] ([[prop:is-mult]]) and at most 7 everywhere ([[prop:iii-f1-2-3]] (b)). Nor does it
-determine L of [[cor:sp-lstar]] (a), which lies in [39, 50] ([[prop:is-logs]]); l_* = 50 is admissible for every
+x ≤ 70 the roots are enclosed by [[lem:s14-sextic-small]] and [[lem:s14-sextic-large]]; for x > 70 no root of P_l has
+real part in [2, 51] ([[cor:t49-right]]), so every pole of real part at most 5 comes from a degree with x ≤ 70. Every
+indicial root of L̂_b(0) is simple at each type and degree at which it occurs ([[thm:t49-point]]). This section does
+not determine L of [[cor:sp-lstar]] (a), which lies in [39, 50] ([[prop:is-logs]]); l_* = 50 is admissible for every
 value of L in that range.
 
 ### The single-step losses at the computational point {#sec:cs}

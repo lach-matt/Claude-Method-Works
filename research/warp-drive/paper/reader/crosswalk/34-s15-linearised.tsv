@@ -20,7 +20,7 @@ sec:iii-f1-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:60-263	III.F1 sectio
 lem:iii-f1-2-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:68-76	III.F1 Lemma 2.1	new written proof (block determinant identity + flat case by Clebsch-Gordan) replacing lin5.py E2; c = (-1)^k determined
 eq:iii-f1-2-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:69-72	III.F1 (2.1)	
 lem:iii-f1-2-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:89-102	III.F1 Lemma 2.2	linroots5 R1 parenthetical dropped
-prop:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:104-188	III.F1 Proposition 2.3	(f): numeral eps_ind<3e-6 replaced by eps_ind<=delta_50 (VI.C row w1, PART-VI4-PARAMS.md:38), citing prop:np-10-52
+prop:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:104-188	III.F1 Proposition 2.3	(f): numeral eps_ind<3e-6 replaced by eps_ind<=delta_50 (VI.C row w1, PART-VI4-PARAMS.md:38), citing prop:np-10-52; proof of (e): Z_exc empty at the constants (P-T49 text 5)
 eq:iii-f1-2-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:130-132	III.F1 (2.2)	
 lem:iii-f1-2-4	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:190-243	III.F1 Lemma 2.4	
 lem:iii-f1-2-5	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:226-263	III.F1 Lemma 2.5	linroots5 R2-R3 parenthetical dropped

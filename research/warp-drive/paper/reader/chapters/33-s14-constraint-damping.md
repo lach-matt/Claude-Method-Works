@@ -112,7 +112,8 @@ h > 0, an indicial root near ι_w = (1 + 5e_C)/(3 − 5e_C), which lies in (1/3,
 where 𝖧 := (0, h_*) ∖ 𝖹. Here h_* := min(10⁻⁶, h_0, h_tf), with h_0 the smaller of the thresholds of
 [[thm:iv5-7-3]] at these (v_C, e_C), with the regularity range C₁ := C_0 + 1, for the weights [[eq:iv4-2-1]] at C_0
 and at C_0 − 1, and h_tf the threshold of [[thm:iv6-3-1]]; and 𝖹 := 𝖹₁ ∪ 𝖹₂ ∪ 𝖹₃ ⊂ (0, 10⁻⁶] is the countable set
-made of the set 𝖹₁ of [[lem:iv4-1-3]] (b) and the sets 𝖹₂, 𝖹₃ of [[prop:np-10-52]] (ii), (iii). The nonlinear theorem
+made of the set 𝖹₁ of [[lem:iv4-1-3]] (b) and the sets 𝖹₂, 𝖹₃ of [[prop:np-10-52]] (ii), (iii). The set 𝖹₂ is
+empty, the point 10⁻⁶ is not in 𝖹, and 𝖹 meets [5·10⁻¹¹, 10⁻⁶] ([[sec:s14-exceptional]]). The nonlinear theorem
 of [[ch:s27]] takes C_0 = 100.
 The 1-form c_C is that of [[prop:np-10-14]] at m = 1 and r_0 = 100, smoothed near r_0/2 and 2r_0 as in
 [[prop:np-10-14]] (b), with ε small enough that (i) and (ii) of that proposition hold, only on [r_0/4, r_0/2] and
@@ -3536,5 +3537,339 @@ and [[cor:s14-eps-ind-point]] are used by none of them. For h ∈ 𝖧 the theor
 What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
 every constant, and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50 and the bound
 ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]], which is the smaller for h ≤ 6.309·10⁻⁹. [[cor:s14-eps-ind-point]] shows that
-the upper bound δ_50 is attained at the end h = 10⁻⁶ of the interval on which ε_ind is
-defined.
+the upper bound δ_50 is attained at the end h = 10⁻⁶ of the interval on which ε_ind is defined; no positive lower
+bound for ε_ind holds on any subinterval of (0, 10⁻⁶] of length 2·10⁻⁹ with the countable set 𝖹 removed
+([[prop:t49-vector]]), and the point h = 10⁻⁶ itself lies outside 𝖹 ([[thm:t49-point]]).
+
+### The exceptional sets of the damping and gauge parameters {#sec:s14-exceptional}
+
+The constants of [[eq:iv4-0-1]] leave out a countable set 𝖹 = 𝖹₁ ∪ 𝖹₂ ∪ 𝖹₃ of values of h, and [[prop:iii-f1-2-3]] (e)
+leaves out a countable set Z_exc of values of the gauge parameter z = 4e_Υγ_Υ². Each is contained in a union of zero
+sets of explicit polynomials. This section decides them at the damping point h = 10⁻⁶ of [[sec:s14-pa]], with
+z = 4·10⁻⁶, and describes 𝖹 on the interval
+
+    I := [h₁, 10⁻⁶],     h₁ := 5·10⁻¹¹.
+
+Throughout, (v, e) = (1/2, 1/102400); P(ι; κ, h) is the determinant of [[sec:s14-every-h]], P_l = P(·; l(l + 2), h),
+and C and p_(v) are the polynomials of [[prop:np-10-12]] at (v, e). For l ≥ 1 we write K := κ^(1/2), κ = l(l + 2),
+and δ_l := l + 1 − K = 1/(l + 1 + K), so that 0 < δ_l ≤ 2 − √3 < 0.268.
+
+**Remark {#rem:t49-sets}** (The four sets.) Each set below is contained in a union, over the types and degrees, of
+the zero sets of finitely many polynomials, none of which vanishes identically; 𝖹₁ and 𝖹₂ are such unions.
+
+(a) 𝖹₁ ([[lem:iv4-1-3]] (b)) is the union of the zero sets in (0, 10⁻⁶] of the following polynomials in h: the
+discriminants in ι of P_l (l ≥ 1), of C and of p_(v) (l ≥ 1), and C(2); the values P_l(y) for
+y ∈ {1 − l, 3 − l, l + 3, l + 5} ∖ {2} (l ≥ 1), C(y) for y ∈ {1, 3, 5}, and p_(v)(y) for y ∈ {1 − l, 2 − l, l + 3, l + 4}
+(l ≥ 2); and, for each integer k ∈ [3, 51], the resultants Res(A_k, B_k) of the proof of [[lem:iv4-1-3]] (b), for P_l
+(l ≥ 1) and for C, which vanish exactly when two roots, counted with multiplicity, have sum 2k. The set is left out
+because [[ch:s15]] uses the clauses (C2)–(C4) of [[sec:iii-f1-1]]. The polynomials of the first group vanish exactly
+where a root is multiple, so where (C2) fails; those of the second exactly where (C3) fails; and outside the zero set
+of the third no root whose real part is an integer in [3, 51] is non-real, which is (C4). So 𝖹₁ contains the set 𝖹₁′
+of the h at which (C2), (C3) or (C4) fails, and a point of 𝖹₁ ∖ 𝖹₁′ is one at which two distinct roots of some P_l,
+or of C, that are not complex conjugates of each other, have sum 2k for an integer k ∈ [3, 51].
+
+(b) 𝖹₂ ([[prop:np-10-52]] (ii)), at z = 4·10⁻⁶, is the union over l ≥ 2 of the zero sets in (0, 10⁻⁶] of P_l(y) for
+the eight numbers y ∈ {1 − l, 3 − l, l + 3, l + 5, l + 4 + d₁, 1 − l − d₁, l + 3 + d₂, 2 − l − d₂}, d₁ and d₂ those of
+[[prop:np-10-52]] (i), and of p_(v)(y) for y ∈ {1 − l, 2 − l, l + 3, l + 4}. A root of P_l at such a y makes the entry
+ι − 1 of ℛ^sc_l equal to an entry that does not depend on h (one of −l, 2 − l, l + 2, l + 4 or a root of Q_l(ι − 1)),
+and likewise for ℛ^v_l; the set is left out so that the entries of each list are distinct, that is, so that the
+indicial roots of the linearised gauge-fixed Einstein operator at the types l ≥ 2 are simple.
+
+(c) 𝖹₃ ([[prop:np-10-52]] (iii)) is the set of the h ∈ (0, 10⁻⁶] at which, for some l ≥ 0 and some integer
+k ∈ [−49, 51], P_l (C if l = 0) has a non-real root of real part k. Outside 𝖹₃ no non-integer entry ι of the lists
+with |ι| ≤ 50 has integer real part, so ε_ind(h) > 0: the set is left out for the condition [Hin26, (8.13)].
+
+(d) Z_exc ([[prop:iii-f1-2-3]] (e)), written 𝖹_exc in row u5 of [[sec:vi-c-1]], is defined at an h at which (C2) and
+(C3) hold. It is the set of the z ∈ (0, ½] at which, for some l ≥ 0, a real root of C (l = 0) or of P_l (l ≥ 1) equals
+ι^Υ + 2 or 3 − ι^Υ, for a root ι^Υ = ι^Υ_(s0,2) (l = 0), or ι^Υ = ι^Υ_(sl,l+1) or ι^Υ_(sl,l+2) (l ≥ 1), of the gauge
+potential operator ([[lem:iii-d-4-1]]). There an entry ι − 1 that comes from □^C equals an entry 1 + ι^Υ or 2 − ι^Υ of
+the same type and degree, and the indicial root of L_b^(0) is double; the set is left out so that every indicial root of
+L_b^(0) is simple. With d₁ := ι^Υ_(sl,l+2) − l − 2 and d₂ := ι^Υ_(sl,l+1) − l − 1, which lie in (0, ¼) for every
+z ∈ (0, ½] by [[eq:iii-d-4-2]], the four numbers ι^Υ + 2 and 3 − ι^Υ at l ≥ 1 are l + 4 + d₁, l + 3 + d₂, 1 − l − d₁
+and 2 − l − d₂. So Z_exc at a fixed h and the non-integer part of 𝖹₂ at a fixed z are the two sections of one set of
+coincidences in (h, z), taken in (b) for l ≥ 2 and in (d) for l ≥ 0.
+
+#### Values near ±κ^(1/2) {#sec:s14-exc-shifted}
+
+The coefficients of P(ι; κ, h) = Σ_(j=0)^6 a_j(κ, h)ι^j, read off from [[eq:s14-nl]] at (v, e) = (1/2, 1/102400), are
+
+    a₆ = −h³,     a₅ = 6h³ − (409599/102400)h²,
+    a₄ = (3κ − 10)h³ + (2559997/102400)h² − (255997/51200)h,
+    a₃ = −12κh³ + ((409599/51200)κ − 5017599/102400)h² + (3379181/102400)h − 40959/20480,
+    a₂ = (−3κ² + 12κ + 11)h³ − ((819199/25600)κ − 2150403/102400)h² + ((511991/102400)κ − 3635197/51200)h
+         + 71679/5120,
+    a₁ = (6κ² − 6)h³ − ((409599/102400)κ² − (3379199/102400)κ − 1075199/51200)h²
+         − ((430077/20480)κ − 4608021/102400)h − (3/102400)κ − 655359/20480,
+    a₀ = (κ³ − 2κ² − 3κ)h³ + ((716799/102400)κ² + (102399/102400)κ − 6)h²
+         + ((3/102400)κ² + (2252797/102400)κ + 102399/10240)h + (3/51200)κ + 245763/10240.          {#eq:t49-coeffs}
+
+At h = 10⁻⁶ these are π_j(κ)/(64·10¹⁸), with π_j of [[sec:tab-a-sextic]]. Expanding [[eq:s14-nl]] with ι = ±K + s
+and κ = K² gives, for both choices of the sign together, the identity in (K, s, h, e)
+
+    P(±K + s; K², h) = ±K³q₃(s) + K²q₂(s) ± Kq₁(s) + q₀(s),                                          {#eq:t49-shift}
+
+    q₃ = −2(1 + hs)(1 − 2h + 2hs)(1 − e − 4h + 2hs),
+    q₂ = 14 − 6s + e(12s − 14) − h(25s² − 78s + 49) + 3eh(9s² − 14s + 1) − 2h²(16s³ − 59s² + 57s − 11)
+         + 2eh²(4s³ − 7s² + s + 1) − 4h³(3s⁴ − 12s³ + 12s² − 2),
+    q₁ = −2(s − 2)(3s − 8) + 5e(3s² − 8s + 1) − h(20s³ − 99s² + 142s − 45) + 3eh(s − 1)(8s² − 11s − 7)
+         − h²(20s⁴ − 100s³ + 147s² − 42s − 21) + eh²(s − 1)(5s³ − 7s² − 4s + 2) − 2h³(s − 1)(3s⁴ − 12s³ + 8s² + 8s − 3),
+    q₀ = −2(s − 3)(s − 2)² + 5e(s − 3)(s − 2)(s + 1) − h(s − 2)(5s³ − 23s² + 25s + 5)
+         + eh(s − 2)(s + 1)(2s − 1)(3s − 5) − h²(s − 2)(4s⁴ − 17s³ + 15s² + 9s − 3) + eh²s(s − 2)(s − 1)²(s + 1)
+         − h³s(s − 3)(s − 2)(s − 1)²(s + 1).
+
+**Lemma {#lem:t49-shifted}** (No root near ±κ^(1/2).) Let 0 < h ≤ 10⁻⁶, l ≥ 1 and K = (l(l + 2))^(1/2).
+
+(a) P_l(y) ≠ 0 for every real y with 2 ≤ y − K ≤ 43/10.
+
+(b) P_l(y) ≠ 0 for every real y ≤ 1 with 7/5 ≤ y + K ≤ 4.
+
+*Proof.* *Bounds on [7/5, 43/10].* Let 7/5 ≤ s ≤ 43/10. The three factors of q₃ are at least 1, 1 and
+1 − e − 6h/5, so |q₃(s)| ≥ 2(1 − e − 6h/5) > 1.9999. In q₂, q₁ and q₀ the terms free of e and h have moduli at most
+11.8, 22.54 and 13.754 on the interval, at s = 43/10 in each case: |14 − 6s| ≤ 11.8; 2(s − 2)(3s − 8) is 4.56 at
+s = 7/5, −2/3 at its vertex 7/3 and 22.54 at 43/10; and 2|s − 3|(s − 2)² is 1.152 at 7/5, at most 8/27 on [2, 3] and
+13.754 at 43/10. The terms of order e have the factors 12s − 14, 5(3s² − 8s + 1) and 5(s − 3)(s − 2)(s + 1), of
+moduli at most 37.6, 110.4 and 79.3; those of order h have the factors 25s² − 78s + 49, 20s³ − 99s² + 142s − 45 and
+(s − 2)(5s³ − 23s² + 25s + 5), of moduli at most 175.9, 325.3 and 195; every other term carries eh, h² or h³, each
+at most 10⁻¹¹, times a polynomial factor of modulus at most 2000 on the interval. With e < 0.98·10⁻⁵ and h ≤ 10⁻⁶,
+
+    |q₂(s)| < 11.8006,     |q₁(s)| < 22.5415,     |q₀(s)| < 13.755.
+
+*Large degrees.* For K ≥ 7.6, [[eq:t49-shift]] gives |P(±K + s; K², h)| ≥ g(K), where
+g(K) := 1.9999K³ − 11.8006K² − 22.5415K − 13.755; here g(7.6) > 11 and g′(K) = 5.9997K² − 23.6012K − 22.5415 > 0
+for K ≥ 7.6. So P_l(K + s) ≠ 0 and P_l(−K + s) ≠ 0 for 7/5 ≤ s ≤ 43/10 when K ≥ 7.6, that is, when l ≥ 7. This
+gives (a) and (b) for l ≥ 7, with s = y − K and s = y + K.
+
+*(b) for every l.* If y ≥ −100, then y ∈ [−100, 1] ⊂ [−100, 19/10], and P_l(y) ≠ 0 by [[prop:np-10-54]] (i). If
+y < −100, then K ≥ y + K − y > 7/5 + 100, so l ≥ 7 and the previous step applies.
+
+*(a) for 1 ≤ l ≤ 6.* Then κ ≤ 48 and y ∈ [√3 + 2, √48 + 43/10] ⊂ [37/10, 113/10]. By [[eq:s14-q5]] at v = 1/2,
+P(y; κ, 0) = 4(y − 2)Q_5(y) with 4Q_5(y) = −2(y − 2)(y − 3) + 5e(y − 3)(y + 1) − 3eκ. For y ≥ 37/10,
+(y + 1)/(y − 2) ≤ 47/17, so 5e(y − 3)(y + 1) ≤ 14e(y − 2)(y − 3) and |P(y; κ, 0)| ≥ (2 − 14e)(y − 2)²(y − 3) ≥
+1.9997·(17/10)²·(7/10) > 4.04. Each coefficient a_j(κ, h) − a_j(κ, 0) of [[eq:t49-coeffs]] is a sum of terms carrying
+a positive power of h; bounding each term by its modulus at κ = 48, h = 10⁻⁶ and multiplying by (113/10)^j, the sum
+over j is below 0.19. So |P(y; κ, h) − P(y; κ, 0)| < 0.19 and |P_l(y)| > 3.8. ∎
+
+**Theorem {#thm:t49-uniform}** (The listed points are never roots.) Let 0 < h ≤ 10⁻⁶ and 0 < z ≤ ½.
+
+(i) For every l ≥ 1, P_l has no root in {1 − l, 3 − l, l + 3, l + 5} ∖ {2}; C has no root in {1, 3, 5}; and for every
+l ≥ 2, p_(v) has no root in {1 − l, 2 − l, l + 3, l + 4}. So (C3) holds at every h ∈ (0, 10⁻⁶], and none of the
+polynomials of the second group of [[rem:t49-sets]] (a) vanishes on (0, 10⁻⁶].
+
+(ii) For every l ≥ 1 and j ∈ {1, 2}, neither ι^Υ_(sl,l+j) + 2 nor 3 − ι^Υ_(sl,l+j) is a root of P_l; and neither
+ι^Υ_(s0,2) + 2 nor 3 − ι^Υ_(s0,2) is a root of C.
+
+(iii) 𝖹₂ is empty, whatever z ∈ (0, ½] is used to define it, in particular at z = 4·10⁻⁶; and at every h ∈ (0, 10⁻⁶] at
+which (C2) holds, Z_exc is empty: then, for every z ∈ (0, ½], every indicial root of L_b^(0) is simple.
+
+*Proof.* (i) and (ii) for P_l. The numbers to be excluded are, at l ≥ 1, the integers l + 3 and l + 5 and the numbers
+l + 3 + d₂ and l + 4 + d₁ above l + 1, and the integers 1 − l and 3 − l (for l ≥ 2) and the numbers 2 − l − d₂ and
+1 − l − d₁ below 1, with d₁, d₂ ∈ (0, ¼) as in [[rem:t49-sets]] (d). For the first four, y − (l + 1) lies in
+{2, 4} ∪ (2, 9/4) ∪ (3, 13/4), so y − K = y − (l + 1) + δ_l lies in [2, 4 + 0.268] ⊂ [2, 43/10], and
+[[lem:t49-shifted]] (a) applies. For the last four, y ≤ 1 and y + (l + 1) lies in {2, 4} ∪ (11/4, 3) ∪ (7/4, 2), so
+y + K = y + (l + 1) − δ_l lies in [7/4 − 0.268, 4] ⊂ [7/5, 4], and [[lem:t49-shifted]] (b) applies. (At l = 1 the
+integer 3 − l = 2 is not excluded.)
+
+*C.* With C = C₀ + C_h as in the proof of [[prop:np-10-54]],
+
+    C(1) = 2 + 10e + 6h + 2eh + 4h²,     C(3) = −2 + 20e − 6h + 12eh,     C(4) = −4 + 25e − 21h + 20eh − 20h²,
+    C(5) = −6 + 30e − 42h + 30eh − 60h²,
+
+so C(1) > 0 > C(3), C(4), C(5). By that proof C > 0 on [−100, 2], and C has exactly one root ι₁ in (2, ∞), with C < 0
+on (ι₁, ∞); as C(4) < 0, ι₁ < 4 and C < 0 on [4, ∞). By [[eq:iii-d-4-2]], ι^Υ_(s0,2) ∈ (2, 2 + z/3] ⊂ (2, 13/6], so
+ι^Υ_(s0,2) + 2 ∈ (4, 25/6], where C < 0, and 3 − ι^Υ_(s0,2) ∈ [5/6, 1), where C > 0.
+
+*p_(v).* At v = 1/2, p_(v)(y) = h(κ + 2y − y²) + 3 − y. At the four numbers y = l + 3, l + 4, 1 − l and 2 − l the
+bracket κ + 2y − y² is −2l − 3, −4l − 8, 2l + 1 and 4l, so p_(v)(y) is −(2l + 3)h − l, −(4l + 8)h − l − 1,
+(2l + 1)h + l + 2 and 4lh + l + 1, none zero.
+
+(iii) The polynomials whose zero sets make up 𝖹₂ ([[rem:t49-sets]] (b)) are P_l(y) at the eight numbers listed there,
+which are those of (i) and (ii) at l ≥ 2 (with the d₁, d₂ of the z used), and p_(v)(y) at the four numbers of (i). By
+(i) and (ii) none vanishes at any h ∈ (0, 10⁻⁶], so 𝖹₂ = ∅. If (C2) holds at h, so does (C3), by (i); and the
+coincidences that define Z_exc ([[rem:t49-sets]] (d)) are those excluded by (ii), for every z ∈ (0, ½]. So Z_exc = ∅,
+and by [[prop:iii-f1-2-3]] (e), whose hypothesis (C1) holds at every h ∈ (0, 10⁻⁶] by [[prop:np-10-54]], every indicial
+root of L_b^(0) is simple for every z ∈ (0, ½]. ∎
+
+#### The damping point γ_C = 10⁶ {#sec:s14-exc-point}
+
+Let 𝒫(ι; κ) := Σ_(j=0)^6 π_j(κ)ι^j = 64·10¹⁸P(ι; κ, 10⁻⁶), with the integer coefficients π_j of [[sec:tab-a-sextic]].
+Its discriminant in ι is (−1)^15 times the resultant of 𝒫 and ∂_ι𝒫 divided by the leading coefficient π₆, a
+polynomial in κ with integer coefficients; expanding it,
+
+    disc_ι 𝒫(·; κ) = 144·𝔇(κ),                                                                      {#eq:t49-disc}
+
+with 𝔇 the polynomial of degree 9 of [[sec:tab-t49-disc]]. For an integer k write 𝒫(k + w; κ) = Σ_(j=0)^6 φ_j(k, κ)w^j
+and put 𝒜_k(s) := φ₀ − φ₂s + φ₄s² − φ₆s³ and ℬ_k(s) := φ₁ − φ₃s + φ₅s², so that 𝒫(k + iy; κ) = 𝒜_k(y²) + iyℬ_k(y²);
+these are A_k and B_k of [[lem:iv4-1-3]] (b) at h = 10⁻⁶, up to the factor 64·10¹⁸. Expanding the resultant in s,
+
+    Res_s(𝒜_k, ℬ_k) = 4·𝔖(k, κ),                                                                           {#eq:t49-res}
+
+with 𝔖 the polynomial with integer coefficients, of degree 15 in k and 3 in κ, of [[sec:tab-t49-res]]. The leading
+coefficients of 𝒜_k and ℬ_k in s are 64 and φ₅ = −384k − 255998991, both non-zero.
+
+**Proposition {#prop:t49-simple}** (Simple roots at γ_C = 10⁶.) At h = 10⁻⁶, for every l ≥ 1 the six roots of P_l are
+simple; the three roots of C and the two roots of p_(v) are simple; and ι = 2 is not a root of C. In particular (C2)
+holds at h = 10⁻⁶, and none of the polynomials of the first group of [[rem:t49-sets]] (a) vanishes at h = 10⁻⁶.
+
+*Proof.* *P_l.* The leading coefficient of 𝒫(·; κ) is π₆ = −64 ≠ 0, so 𝒫(·; κ) has a multiple root exactly when its
+discriminant vanishes, that is, by [[eq:t49-disc]], when 𝔇(κ) = 0. The coefficients of 𝔇, from κ⁹ to κ⁰, have the
+signs +, −, +, +, +, +, −, +, +, + ([[sec:tab-t49-disc]]): four changes of sign, so by Descartes' rule 𝔇 has at most
+four positive roots. By the second table of [[sec:tab-t49-disc]], 𝔇(n) and 𝔇(n + 1) have opposite signs for each of
+the four integers n = 18656, 214373184, 2354423533873 and 24600231683951, so 𝔇 has a root in each of the four open
+intervals (n, n + 1). These are its four positive roots, and none is an integer. So 𝔇(l(l + 2)) ≠ 0, and P_l has
+simple roots, for every l ≥ 1.
+
+*C and p_(v).* At h = 10⁻⁶, C(−3·10⁶) > 5.9·10⁶, C(−1.5·10⁶) < −3.7·10⁵, C(−10⁶) < −39 and C(−100) > 0, and
+C(2 + δ_C) > 0 > C(5/2) ([[lem:s14-scalar-zero]]); so C has a root in each of (−3·10⁶, −1.5·10⁶), (−10⁶, −100) and
+(2 + δ_C, 5/2), three distinct real roots. C(2) > 0 by the proof of [[prop:np-10-54]]. The roots of p_(v) are real and
+of opposite signs ([[lem:s14-small-h]] (c)). ∎
+
+**Proposition {#prop:t49-pairs}** (No symmetric pairs at γ_C = 10⁶.) At h = 10⁻⁶, for every l ≥ 1 and every integer
+k ∈ [3, 51], no two roots of P_l, counted with multiplicity, have sum 2k; and no two roots of C have sum 2k. In
+particular every root of P_l whose real part is an integer in [3, 51] is real, and so, the roots of C and of p_(v)
+being real (proof of [[prop:t49-simple]]), (C4) holds at h = 10⁻⁶; and none of the resultants of the third group of
+[[rem:t49-sets]] (a) vanishes at h = 10⁻⁶.
+
+*Proof.* As in the proof of [[lem:iv4-1-3]] (b), 𝒫(·; κ) has two roots with sum 2k exactly when 𝒜_k and ℬ_k have a
+common root, that is, as their leading coefficients do not vanish, when Res_s(𝒜_k, ℬ_k) = 0, which by [[eq:t49-res]]
+is 𝔖(k, κ) = 0. Fix k ∈ {3, …, 51}; 𝔖(k, ·) is a cubic with integer coefficients. For k = 3 its coefficients, from κ³
+to κ⁰, have the signs −, −, +, +, one change, so it has exactly one positive root. For 4 ≤ k ≤ 51 its discriminant is
+negative, so it has exactly one real root. By the table of [[sec:tab-t49-res]], 𝔖(k, l_k(l_k + 2)) > 0 and
+𝔖(k, (l_k + 1)(l_k + 3)) < 0 for the integer l_k listed, so that root is positive and lies strictly between two
+consecutive values of l(l + 2). Hence 𝔖(k, l(l + 2)) ≠ 0 for every l ≥ 1. If P_l had a non-real root of real part k,
+that root and its conjugate would have sum 2k. For C, its roots at h = 10⁻⁶ are real and lie in
+(−3·10⁶, −1.5·10⁶), (−10⁶, −100) and (2, 5/2) (proof of [[prop:t49-simple]]), so any two have sum below 5/2 − 100,
+and they are distinct. ∎
+
+**Theorem {#thm:t49-point}** (The damping point avoids the exceptional sets.) h = 10⁻⁶ lies in none of 𝖹₁, 𝖹₂ and
+𝖹₃, and not in the set 𝖹₁′ of [[rem:t49-sets]] (a): (C1)–(C4) of [[sec:iii-f1-1]] hold at γ_C = 10⁶, for every b
+near b₀. At h = 10⁻⁶ the set Z_exc is empty; so z = 4·10⁻⁶ ∉ Z_exc, and at the computational point of
+[[def:ec-point]] every indicial root of L̂_b(0) is simple at each type and degree at which it occurs.
+
+*Proof.* The indicial roots of □^C_b are those of the model, independent of b (proof of [[lem:iv4-1-3]]). (C1) holds at
+every h ∈ (0, 10⁻⁶] ([[prop:np-10-54]]); (C2) at 10⁻⁶ by [[prop:t49-simple]], (C3) by [[thm:t49-uniform]] (i) and (C4)
+by [[prop:t49-pairs]]. So h = 10⁻⁶ ∉ 𝖹₁′. The three groups of polynomials of [[rem:t49-sets]] (a) do not vanish at
+10⁻⁶, by [[prop:t49-simple]], [[thm:t49-uniform]] (i) and [[prop:t49-pairs]], so 10⁻⁶ ∉ 𝖹₁. 𝖹₂ = ∅ by
+[[thm:t49-uniform]] (iii). For 𝖹₃: by [[prop:np-10-54]] (i), (ii) no root of P_l or C has real part in [−100, 19/10],
+and the only roots with real part in [−100, 2] are ι = 2 at l = 0 and l = 1, which are real; so no non-real root has
+real part in [−49, 2]; P_l has no non-real root of real part k ∈ [3, 51] by [[prop:t49-pairs]]; and the
+roots of C are real at 10⁻⁶. So 10⁻⁶ ∉ 𝖹₃. As (C2) holds at 10⁻⁶, Z_exc = ∅ there by [[thm:t49-uniform]] (iii), and
+every indicial root of L_b^(0) is simple, for z = 4·10⁻⁶ in particular; the indicial roots of L̂_b(0) are those of
+L_b^(0), its indicial family being that of the model ([[lem:iii-f-2-1]] (3)). ∎
+
+**Corollary {#cor:t49-right}** (The roots of P_l beyond hκ = 70.) At h = 10⁻⁶, for every real κ ≥ κ₀ := 8365·8367 =
+69989955, in particular for κ = l(l + 2) with l ≥ 8365, three roots of P(·; κ, 10⁻⁶) have real part greater than 51
+and three have real part less than −5·10⁵. So no root of P_l with hκ > 70 has real part in [2, 51].
+
+*Proof.* A root of real part 51 is either the real number 51, a root of 𝒫(51; ·), or a non-real root 51 + iy, which
+with its conjugate gives two roots with sum 102, so 𝔖(51, κ) = 0 ([[eq:t49-res]]). From [[sec:tab-a-sextic]],
+
+    𝒫(51; κ) = 64κ³ − 10733448686κ² + 673357544904696250κ − 14753258230942677244890000;
+
+its derivative 192κ² − 21466897372κ + 673357544904696250 has negative discriminant
+(21466897372² < 4·192·673357544904696250), so 𝒫(51; ·) increases and has exactly one real root, which lies in
+(49002580, 49002581) as 𝒫(51; 49002580) < 0 < 𝒫(51; 49002581). The only real root of 𝔖(51, ·) lies in
+(64657680, 64673763) ([[prop:t49-pairs]]). Both are below κ₀, so no root of P(·; κ, 10⁻⁶) has real part 51 for
+κ ≥ κ₀. By [[lem:s14-half-plane-count]] with Ω = [κ₀, ∞) × {10⁻⁶} the number of roots with real part greater than 51
+is the same for every κ ≥ κ₀. At κ = κ₀, x = hκ₀ = 69.989955 ∈ [35, 70], and [[lem:s14-sextic-large]] (a), (c) with
+the last
+rows of [[sec:tab-a-pieces]] give the real root ι_B ≥ 2 + x − h·5155 − 29h > 71 and the pair ι_P, ῑ_P with
+Re ι_P ≥ (3x + 10)/4 − h(1990 + 4.17)/2 − 72h > 54.9, by the bound on the function Π of
+[[lem:s14-sextic-split]] (v). So the number is 3, and the other three roots have real part less than −5·10⁵ by
+[[prop:s14-scalar-every-h]], whose proof counts the roots for every real κ ≥ 3. ∎
+
+#### The interval [5·10⁻¹¹, 10⁻⁶] {#sec:s14-exc-interval}
+
+For l ≥ 1 put, with x = hκ,
+
+    Δ_l(h) := x² − (24e/h − 20)x + 4 = h²κ² + 20hκ + 4 − 24eκ,                                      {#eq:t49-delta}
+
+the discriminant Δ_𝒬(x) of [[lem:s14-sextic-split]] (iii) at ε₀ = e/h. It increases with h, and Δ_l(h) = c exactly
+when h = ((96 + c + 24eκ)^(1/2) − 10)/κ.
+
+**Proposition {#prop:t49-six}** (Six points of 𝖹₁ in I.) For 130 ≤ l ≤ 135 put κ = l(l + 2),
+h⁻_l := ((96 − 3/500 + 24eκ)^(1/2) − 10)/κ and h⁺_l := ((96 + 1/1000 + 24eκ)^(1/2) − 10)/κ. Then
+
+    (h⁻_l, h⁺_l) ⊂ (4.62·10⁻⁸, 6.67·10⁻⁸), (2.22·10⁻⁷, 2.43·10⁻⁷), (3.94·10⁻⁷, 4.15·10⁻⁷), (5.62·10⁻⁷, 5.83·10⁻⁷),
+                    (7.27·10⁻⁷, 7.47·10⁻⁷), (8.88·10⁻⁷, 9.07·10⁻⁷)
+
+for l = 130, …, 135 respectively, six disjoint intervals in I. For each such l there is h ∈ (h⁻_l, h⁺_l) at which
+P_l has a double real root in 𝒥 := [21/10, 59/20], and for h ∈ (0, 10⁻⁶] outside (h⁻_l, h⁺_l) P_l has no multiple
+root in 𝒥. In particular 𝖹₁ ∩ I and 𝖹₁′ ∩ I each contain at least six points, one in each interval.
+
+*Proof.* *The parts.* [[lem:s14-sextic-split]] (i) holds with e = ε₀h for every ε₀ ([[sec:tab-a-split]]); take
+ε₀ = e/h. Then P_l = U + hW, U = (2 + x − ι)𝒬, 𝒬 = 2(ι − a)² − Δ_l(h)/8 with a := (3x + 10)/4, x = hκ; indeed
+𝒬 − 2(ι − a)² = (−x² + (24ε₀ − 20)x − 4)/8 and ε₀x = eκ. For 0 < h ≤ 10⁻⁶, 0 < x ≤ 0.018495 and
+2.5 < a < 2.514. Writing R_j = ε₀R_jᵉ + R_j⁰ with R_jᵉ, R_j⁰ free of ε₀,
+
+    hW = eR₁ᵉ + hR₁⁰ + ehR₂ᵉ + h²R₂⁰ + eh²R₃ᵉ + h³R₃⁰.
+
+On 𝒥, with 0 ≤ x ≤ 0.0185: R₁ᵉ = 5(ι − 2)(ι − 3)(ι + 1) − x(9ι² − 15ι + 3) + x²(ι − 1), where
+0 ≤ (ι − 2)(3 − ι)(ι + 1) < 0.88 and 0 < 9ι² − 15ι + 3 ≤ 37.1, so |R₁ᵉ| < 5.1;
+R₁⁰ = (ι − 2)(−5ι³ + 23ι² − 25ι − 5) + x(8ι³ − 32ι² + 33ι + 1) − x²(3ι² − 6ι + 2), where the cubic in the first term
+lies in [−6.96, −1.6] and the second in [3.2, 25.3], so |R₁⁰| < 7.1; the sums of the moduli of the terms at
+ι = 59/20, x = 0.0185 give |R₂ᵉ| < 1070 and |R₂⁰| < 4310; the factors of R₃ᵉ = ι(ι − 2)(ι − 1)²(ι + 1) and of
+R₃⁰ = (3 − ι)R₃ᵉ are positive on 𝒥, so |R₃ᵉ| ≤ (59/20)(19/20)(39/20)²(79/20) < 42.1 and |R₃⁰| < (9/10)·42.1 < 38.
+Hence
+
+    |hW| < 5.1e + 7.1h + 1070eh + 4310h² + 43eh² + 38h³ < 5.7·10⁻⁵     on 𝒥, for 0 < h ≤ 10⁻⁶.
+
+*Signs.* For 130 ≤ l ≤ 135 and 0 < h ≤ 10⁻⁶, Δ_l(h) ≤ Δ₁₃₀(10⁻⁶) < 0.3217. So 𝒬(21/10, x) ≥ 2(2/5)² − 0.0403 > 0.279
+and 𝒬(59/20, x) ≥ 2(0.436)² − 0.0403 > 0.339, whence U(21/10) ≤ −0.0815·0.279 < −0.022 and
+U(59/20) ≤ −0.93·0.339 < −0.31: P_l(21/10) < 0 and P_l(59/20) < 0. Also P_l(2) > 0 ([[lem:s14-line-two]] (a)).
+
+*The count.* Let N(h) be the number of roots of P_l in 𝒥, with multiplicity. By [[prop:s14-scalar-every-h]], P_l has
+exactly three roots of real part greater than 2, and one of them is real and lies in (2, 21/10), as P_l(2) > 0 >
+P_l(21/10); so N(h) ≤ 2. As P_l(21/10) and P_l(59/20) have the same sign, N(h) is even. If Δ_l(h) ≥ 1/1000, then
+U(a) = (2 − x)Δ_l(h)/32 ≥ 6.1·10⁻⁵, so P_l(a) > 0, and P_l has a root in (21/10, a) and one in (a, 59/20): N(h) = 2,
+both simple. If Δ_l(h) ≤ −3/500, then on 𝒥, U = (2 + x − ι)𝒬 ≤ −(1/10 − x)(−Δ_l(h)/8) < −6.1·10⁻⁵ < −|hW|, so P_l < 0
+on 𝒥 and N(h) = 0. By [[eq:t49-delta]], Δ_l(h) ≤ −3/500 exactly for h ≤ h⁻_l and Δ_l(h) ≥ 1/1000 exactly for h ≥ h⁺_l;
+so for h ∉ (h⁻_l, h⁺_l) there is no multiple root in 𝒥. The interval bounds follow from the formulas, with
+24eκ = 3κ/12800, and Δ_l(h₁) < −0.0218, Δ_l(10⁻⁶) > 0.0354 give h₁ < h⁻_l < h⁺_l < 10⁻⁶.
+
+*The double root.* Suppose that for no h ∈ [h⁻_l, h⁺_l] does P_l have a multiple root in 𝒥. Then for each such h the
+roots in 𝒥 are simple, real (a non-real root has its conjugate as a root and is not in 𝒥) and interior to 𝒥. By the
+implicit function theorem each persists, simple and real, for nearby h; and the roots in 𝒥 at nearby h are close to
+roots in 𝒥 at h, as the roots depend continuously on h and none lies at an end of 𝒥. So N is locally constant on
+[h⁻_l, h⁺_l], hence constant, against N(h⁻_l) = 0 and N(h⁺_l) = 2. So some h ∈ [h⁻_l, h⁺_l] gives a multiple root in
+𝒥, and by the count it lies in the open interval and the root is real and double. At such h the discriminant of P_l
+vanishes and (C2) fails, so h ∈ 𝖹₁ and h ∈ 𝖹₁′. ∎
+
+**Proposition {#prop:t49-vector}** (The index distance near the integer crossings of the vector roots.) For integers
+n ∈ [4, 50] and l ≥ 2 with κ := l(l + 2) > n² − 2n put
+
+    h^v_(n,l) := (n − 3)/(κ − n² + 2n).
+
+(a) At h = h^v_(n,l), n is the larger root of p_(v) at vector type l.
+
+(b) If 0 < h ≤ 10⁻⁶ and δ := (κ − n² + 2n)|h − h^v_(n,l)| satisfies 0 < δ < 1, then ε_ind(h) ≤ δ.
+
+(c) Every subinterval of (0, 10⁻⁶] of length 2·10⁻⁹ contains a point h^v_(4,l). Hence for every η > 0 every such
+subinterval contains a non-empty open set on which ε_ind < η, and this set contains points h ∉ 𝖹, at which
+0 < ε_ind(h) < η. In particular ε_ind has no positive lower bound on I ∖ 𝖹, nor on any subinterval of length 2·10⁻⁹
+with 𝖹 removed. The largest point h^v_(n,l) below 10⁻⁶ with 4 ≤ n ≤ 50 is h^v_(35,5656) = 32/32000493 > 9.99984·10⁻⁷.
+
+*Proof.* At v = 1/2, p_(v)(ι) = −hι² + (2h − 1)ι + hκ + 3, so p_(v)(n) = h(κ − n² + 2n) − (n − 3) =
+(κ − n² + 2n)(h − h^v_(n,l)). (a) At h = h^v_(n,l), n > 0 is a root, and the roots have opposite signs
+([[lem:s14-small-h]] (c)), so n is the larger. (b) For ι ∈ [3, 51], ∂_ιp_(v)(ι) = −1 − 2h(ι − 1) ∈ [−1.0001, −1].
+As |p_(v)(n)| = δ < 1 and 3 < n − δ < n + δ < 51, the mean value theorem gives p_(v)(n − δ) ≥ p_(v)(n) + δ ≥ 0 ≥
+p_(v)(n) − δ ≥ p_(v)(n + δ), so p_(v) has a root ι_v ∈ [n − δ, n + δ], positive, hence the larger root; and ι_v ≠ n as
+p_(v)(n) ≠ 0. So ι_v − 1, an entry of ℛ^v_l ([[sec:s14-simple]]), is not an integer, |ι_v − 1| < 50, and
+dist(Re(ι_v − 1), ℤ) ≤ |ι_v − n| ≤ δ; hence ε_ind(h) ≤ δ ([[prop:np-10-52]] (iii)). (c) h^v_(4,l) = 1/((l + 4)(l − 2)),
+which lies in (0, 10⁻⁶) for l ≥ 1000, the largest of these values being 1/1001992 > 10⁻⁶ − 2·10⁻⁹. Consecutive ones
+differ by (2l + 3)/((l + 4)(l − 2)(l + 5)(l − 1)), which decreases in l and is below 2·10⁻⁹ at l = 1000. So every
+subinterval of (0, 10⁻⁶] of length 2·10⁻⁹ contains some h^v_(4,l); by (b), ε_ind < η on the set of its points h ≠
+h^v_(4,l) with (κ − 8)|h − h^v_(4,l)| < min(η, 1), which contains an open interval, and ε_ind > 0 there by
+[[prop:np-10-52]] (iii) off the countable set 𝖹₃. That open set is uncountable and 𝖹 is countable. For the last
+claim, for each n the largest h^v_(n,l) below 10⁻⁶ comes from the least l with κ > (n − 3)·10⁶ + n² − 2n, and the
+largest over 4 ≤ n ≤ 50 is at n = 35, l = 5656, κ = 32001648. ∎
+
+**Remark {#rem:t49-scope}** (What this decides.) At the damping point, the parts of rows c2, c3 and u5 of
+[[sec:vi-c-1]] that concern the indicial roots hold: h = 10⁻⁶ ∉ 𝖹, (C1)–(C4) hold, and Z_exc = ∅ at h = 10⁻⁶, so
+z = 4·10⁻⁶ ∉ Z_exc ([[thm:t49-point]]); every indicial root of L̂_b(0) at the computational point is simple. The
+computational point is not in 𝖧, because 𝖧 ⊂ (0, h_*) and h_* ≤ 10⁻⁶ ([[rem:ec-point-outside]]), and the thresholds
+h_0, h_tf of row c2 and those of rows u2–u4 are not determined. Away from the point, 𝖹₂ is empty and (C3) holds at
+every h ∈ (0, 10⁻⁶], and Z_exc is empty at every h at which (C2) holds ([[thm:t49-uniform]]); so 𝖹 = 𝖹₁ ∪ 𝖹₃, and,
+as (C2) holds at every h ∈ 𝖧, the order of choices in [[thm:vi-c-2-1]] meets no exclusion in z. The set 𝖹 meets I
+([[prop:t49-six]]); whether 𝖹 ∩ I is finite is not decided here. For every interval J ⊂ (0, h_*) of length 2·10⁻⁹,
+ε_ind has no positive lower bound on J ∖ 𝖹 ([[prop:t49-vector]]); [[prop:np-10-52]] (iii) gives only ε_ind(h) > 0
+for h ∈ 𝖧.

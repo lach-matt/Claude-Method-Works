@@ -487,7 +487,9 @@ degree. Each ι^Υ is a strictly increasing function of z: ι^Υ_(s0,2) = ½ + (
 Q_l(s) = s² − (2 + 2κ + z)s + κ(κ + 1) + zκ ([[lem:iii-d-4-1]]), where Q_l(κ) = −κ < 0 puts κ strictly between the
 two roots, so that ∂_z s_(l,j) = (s_(l,j) − κ)/∂_s Q_l(s_(l,j)) > 0 for both (numerator and denominator have the same
 sign). The roots of □^C_b do not depend on z (its parameters are fixed first), and there are countably many of them, by
-type and degree; so each coincidence happens at at most one z, and Z_exc, the set of those z, is countable.
+type and degree; so each coincidence happens at at most one z, and Z_exc, the set of those z, is countable. At the
+constants of [[eq:iv4-0-1]] it is empty: no root of C or of P_l equals ι^Υ + 2 or 3 − ι^Υ, for any z ∈ (0, ½] and
+any h ∈ (0, 10⁻⁶] ([[thm:t49-uniform]]).
 
 *(f)* By [[lem:iii-f1-2-4]] below, with the strip |Re ι| ≤ R, only finitely many isotypic components carry roots
 with |ι| ≤ R, each finitely many. The non-integer roots with |ι| ≤ 50 are those from □^Υ, which are real and lie in the

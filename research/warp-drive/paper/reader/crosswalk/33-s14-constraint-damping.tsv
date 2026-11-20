@@ -6,7 +6,7 @@ eq:iii-e-1-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:30	III.E (1.2)
 thm:iii-e-1-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:37	III.E Theorem 1.1 as proved by IV(4) Theorem 2.1 and IV(6) Theorem 4.1	constants of IV(4) (0.1), gamma_C = 1/h with h in H (IV(4) findings 1-2 folded); C_0 in [3/2,100] from IV(6) T4.1
 sec:iv4-0	docket68/n1star/proof5/PART-IV5-CDMODES.md:17	IV(4) section 0	damping constants fixed once (replaces VI.C section 3)
 eq:s14-lh	docket68/n1star/proof5/PART-IV5-CDMODES.md:23-24	IV(4) section 0, display of h^2 box^C ([Hin26a] (3.2) with L_(g,c,e,h))	the display formerly keyed eq:iv4-0-2 (row removed), now under this key
-eq:iv4-0-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:31	IV(4) (0.1)	Z also contains the countable set of NP 10.54 (d) / 10.52
+eq:iv4-0-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:31	IV(4) (0.1)	Z also contains the countable set of NP 10.54 (d) / 10.52; names sec:s14-exceptional: 𝖹₂ empty, 10⁻⁶ ∉ 𝖹, 𝖹 meets [5·10⁻¹¹, 10⁻⁶] (P-T49 text 3)
 sec:s14-model	docket68/n1star/N1STAR-PROOF.md:3414	NP 10.12-10.14, 10.21-10.22, 10.54, 10.79	program steps written as derivations
 lem:s14-box-c	docket68/n1star/N1STAR-PROOF.md:3438	NP 10.12 (U2), (10.46)	box^C = Box_g + h^-1 L_c; derivation added
 eq:s14-lc	docket68/n1star/N1STAR-PROOF.md:3438	NP 10.12 (U2)	formula derived
@@ -179,4 +179,23 @@ lem:s14-crossings	paper/reader/proofs/P-A-indicial.md@0a8a4fa:313-345	proof A Le
 sec:s14-pa-distance	paper/reader/proofs/P-A-indicial.md@0a8a4fa:347-407	proof A, the distance from the integers and eps_ind at gamma_C = 10^6	merged verbatim from the confirmed proof A
 prop:s14-damping-distance	paper/reader/proofs/P-A-indicial.md@0a8a4fa:349-381	proof A Proposition, the roots of the constraint damping polynomials at gamma_C = 10^6	merged verbatim from the confirmed proof A, rewrapped where 2 lines began with a bar (no word changed)
 cor:s14-eps-ind-point	paper/reader/proofs/P-A-indicial.md@0a8a4fa:383-398	proof A Corollary, eps_ind at gamma_C = 10^6	merged verbatim from the confirmed proof A, rewrapped where 1 line began with a bar (no word changed); cited by rem:s14-delta50 and rem:s14-eps-ind-scope, and by chapters 34 and 71
-rem:s14-eps-ind-scope	paper/reader/proofs/P-A-indicial.md@0a8a4fa:400-407	proof A Remark, the point h = 10^-6 and the set H	merged verbatim from the confirmed proof A except the last sentence, which names cor:s14-eps-ind-point ("The corollary shows") as the section now holds two corollaries; prop:gap-sums resolves to chapter 71; cited by chapter 71; prop:gap-sums named as the sums of the gauge potential offsets, and the paragraph rewrapped; cites lem:ec-lb-ind for ε_ind(h) < 40h/13 (P-LB text 12)
+rem:s14-eps-ind-scope	paper/reader/proofs/P-A-indicial.md@0a8a4fa:400-407	proof A Remark, the point h = 10^-6 and the set H	merged verbatim from the confirmed proof A except the last sentence, which names cor:s14-eps-ind-point ("The corollary shows") as the section now holds two corollaries; prop:gap-sums resolves to chapter 71; cited by chapter 71; prop:gap-sums named as the sums of the gauge potential offsets, and the paragraph rewrapped; cites lem:ec-lb-ind for ε_ind(h) < 40h/13 (P-LB text 12); last sentence extended by prop:t49-vector and thm:t49-point (P-T49 text 4)
+sec:s14-exceptional	paper/reader/proofs/P-T49.md@6ab0a0d0:1	P-T49, section	new; after rem:s14-eps-ind-scope
+rem:t49-sets	paper/reader/proofs/P-T49.md@6ab0a0d0:14-47	P-T49, Remark (the four sets)	definitions
+sec:s14-exc-shifted	paper/reader/proofs/P-T49.md@6ab0a0d0:49	P-T49, subsection	values near ±κ^(1/2)
+eq:t49-coeffs	paper/reader/proofs/P-T49.md@6ab0a0d0:61	P-T49, display	coefficients of P
+eq:t49-shift	paper/reader/proofs/P-T49.md@6ab0a0d0:66	P-T49, display	cubic in K
+lem:t49-shifted	paper/reader/proofs/P-T49.md@6ab0a0d0:77-107	P-T49, Lemma (near ±κ^(1/2))	every h ≤ 10⁻⁶
+thm:t49-uniform	paper/reader/proofs/P-T49.md@6ab0a0d0:109-147	P-T49, Theorem (listed points)	𝖹₂ = ∅; Z_exc = ∅
+sec:s14-exc-point	paper/reader/proofs/P-T49.md@6ab0a0d0:149	P-T49, subsection	the damping point
+eq:t49-disc	paper/reader/proofs/P-T49.md@6ab0a0d0:155	P-T49, display	disc of 64·10¹⁸P = 144𝔇
+eq:t49-res	paper/reader/proofs/P-T49.md@6ab0a0d0:161	P-T49, display	Res(𝒜_k, ℬ_k) = 4𝔖(k, κ)
+prop:t49-simple	paper/reader/proofs/P-T49.md@6ab0a0d0:166-181	P-T49, Proposition ((C2) at 10⁻⁶)	via 𝔇
+prop:t49-pairs	paper/reader/proofs/P-T49.md@6ab0a0d0:183-198	P-T49, Proposition ((C4) at 10⁻⁶)	via 𝔖
+thm:t49-point	paper/reader/proofs/P-T49.md@6ab0a0d0:200-214	P-T49, Theorem (the point)	10⁻⁶ ∉ 𝖹; Z_exc = ∅
+cor:t49-right	paper/reader/proofs/P-T49.md@6ab0a0d0:216-235	P-T49, Corollary (hκ > 70)	right roots beyond 51
+sec:s14-exc-interval	paper/reader/proofs/P-T49.md@6ab0a0d0:237	P-T49, subsection	the interval
+eq:t49-delta	paper/reader/proofs/P-T49.md@6ab0a0d0:241	P-T49, display	Δ_l(h)
+prop:t49-six	paper/reader/proofs/P-T49.md@6ab0a0d0:246-292	P-T49, Proposition (six points)	l = 130–135
+prop:t49-vector	paper/reader/proofs/P-T49.md@6ab0a0d0:294-321	P-T49, Proposition (vector crossings)	ε_ind
+rem:t49-scope	paper/reader/proofs/P-T49.md@6ab0a0d0:323-332	P-T49, Remark (what is decided)	rows c2, c3, u5
