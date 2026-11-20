@@ -24,7 +24,7 @@ holds for U;
 
 (b) for x ∈ 𝒰_(δ/2), with f(t) := |U − V| at the point of the arc of V through x at radius t,
 
-    |σ[U](x) − σ[V](x)| ≤ C (f(r_x) + r_x⁻² ∫_0^(r_x) t f(t) dt + (∫_0^(r_x) t f(t)² dt)^(1/2));      {#eq:class-leaf-arc}
+    |σ[U](x) − σ[V](x)| ≤ C (f(r_x) + r_x⁻² ∫_0^(r_x) t f(t) dt + (∫_0^(r_x) t f(t)² dt)^(1/2));  {#eq:class-leaf-arc}
 
 (c) if D is a G-invariant set such that the arc of V through every point of D ∩ 𝒰_(δ/2) lies in D, then ‖σ[U] −
 σ[V]‖_(L²(D∩𝒰_(δ/2))) ≤ C ‖U − V‖_(L²(D∩𝒰_δ)).
@@ -145,8 +145,8 @@ bounds of these.
 
 *Proof.* (a) For |γ| ≤ σ, ∂^γ(fg) is a sum of terms ∂^(γ1) f ∂^(γ2) g with |γ1| + |γ2| ≤ σ; put α := σ1 − |γ1| ≥ 0 and β
 := σ2 − |γ2| ≥ 0, so α + β > d/2. Choose p, q ∈ [2, ∞] with 1/p + 1/q = 1/2: p = ∞, q = 2 if α > d/2; p = 2, q = ∞ if
-β > d/2; otherwise 1/p := 1/2 − α/d + λ and 1/q := 1/2 − β/d + λ with 2λ := (α + β)/d − 1/2 > 0, for which 0 < 1/p, 1/q ≤
-1/2 since β − α ≤ d/2 and α − β ≤ d/2. On every unit cube Q of the lattice, [[thm:std-bh17-embedding]] (for finite
+β > d/2; otherwise 1/p := 1/2 − α/d + λ and 1/q := 1/2 − β/d + λ with 2λ := (α + β)/d − 1/2 > 0, for which 0 < 1/p, 1/q
+≤ 1/2 since β − α ≤ d/2 and α − β ≤ d/2. On every unit cube Q of the lattice, [[thm:std-bh17-embedding]] (for finite
 exponents, α − d/2 ≥ −d/p) and [[thm:std-bh-embedding]] (for the exponent ∞) give ‖F‖_(L^p(Q)) ≤ C ‖F‖_(H^α(Q)) and
 ‖G‖_(L^q(Q)) ≤ C ‖G‖_(H^β(Q)), C independent of Q by translation. With F := ∂^(γ1) f and G := ∂^(γ2) g, Hölder's
 inequality on each cube and summation give ‖FG‖² ≤ Σ_Q C ‖F‖²_(H^α(Q)) ‖G‖²_(H^β(Q)) ≤ C ‖F‖²_(H^α) sup_Q ‖G‖²_(H^β(Q))
@@ -154,8 +154,8 @@ inequality on each cube and summation give ‖FG‖² ≤ Σ_Q C ‖F‖²_(H^α
 (b) By the chain rule ∂_t^a [Φ(t, x, v)] − (∂_t^a Φ)(t, x, v) is a sum, with coefficients depending on a, of terms
 (∂_t^(a0) ∂_u^l Φ)(t, x, v)[∂_t^(a1) v, …, ∂_t^(al) v] with l ≥ 1, every a_i ≥ 1 and a0 + a1 + … + al = a. The product
 of the l factors lies in H^(s−a1−…−al) ⊂ H^(s−a) by (a) applied l − 1 times, as (s − a1) + (s − a2) − (s − a1 − a2) =
-s > d/2 and s − a ≥ 1, with the bound C 𝔐^l. A function Ψ(t, x, v) with Ψ smooth as Φ multiplies H^σ, σ ≤ s, with norm at
-most C(𝔐): Ψ(t, x, 0) has bounded derivatives of every order, and ‖Ψ(t, ·, v) − Ψ(t, ·, 0)‖_(H^s) ≤ C(𝔐) by
+s > d/2 and s − a ≥ 1, with the bound C 𝔐^l. A function Ψ(t, x, v) with Ψ smooth as Φ multiplies H^σ, σ ≤ s, with norm
+at most C(𝔐): Ψ(t, x, 0) has bounded derivatives of every order, and ‖Ψ(t, ·, v) − Ψ(t, ·, 0)‖_(H^s) ≤ C(𝔐) by
 [[lem:class-composition]] (b), so (a) with σ1 = s and σ2 = σ applies to it. ∎
 
 **Lemma {#lem:class-kato-history}** (The linear problem with forcing in a space-time space and a history.) Let m > 0,
@@ -188,12 +188,13 @@ Differentiating j − 1 times in the sense of distributions, ∂_t^j w is a sum 
 ∂_t^a[(𝐀^0)⁻¹] ∂_t^(b1)[𝐀^i] ∂_t^(b2) ∂_i w with a + b = a + b1 + b2 = j − 1. Write each factor ∂_t^a[Ψ(v)] as in
 [[lem:class-mixed-product]] (b), a multiplier plus R_a ∈ H^(s−a); ∂_t^b f ∈ H^(s−1−b) and ∂_t^(b2) ∂_i w ∈ H^(s−1−b2).
 By [[lem:class-mixed-product]] (a), every product of factors in H^(s−a), H^(s−b1) and H^(s−1−b2) lies in
-H^(s−1−a−b1−b2) = H^(s−j), each exponent being at least s − j and the sum of any two exceeding the target by at least s > d/2; likewise
-for the terms with f. The bound (ii) follows, with only ∂_t^i v, i ≤ j − 1, entering. The same products with one order
-less show that ∂_t^j w is continuous into H^(s−j−1) for j ≤ s − 1, and ∂_t^s w ∈ L^∞(J; L²). So w|_J ∈ 𝒳^s(J). On J_−
-the same identities hold for w̄, with the same v and f. At t1, w(t1) = w̄(t1), and by induction on j ≤ s − 1 the formula
-gives ∂_t^j w(t1) = ∂_t^j w̄(t1), all its ingredients ∂_t^i v, ∂_t^i f (i ≤ j − 1) and ∂_t^i w (i < j) being continuous
-at t1 into H^(s−j−1). So w ∈ 𝒳^s(J_+), by the concatenation property. (iii) is [[eq:class-trace]]. ∎
+H^(s−1−a−b1−b2) = H^(s−j), each exponent being at least s − j and the sum of any two exceeding the target by at least
+s > d/2; likewise for the terms with f. The bound (ii) follows, with only ∂_t^i v, i ≤ j − 1, entering. The same
+products with one order less show that ∂_t^j w is continuous into H^(s−j−1) for j ≤ s − 1, and ∂_t^s w ∈ L^∞(J; L²). So
+w|_J ∈ 𝒳^s(J). On J_− the same identities hold for w̄, with the same v and f. At t1, w(t1) = w̄(t1), and by induction on
+j ≤ s − 1 the formula gives ∂_t^j w(t1) = ∂_t^j w̄(t1), all its ingredients ∂_t^i v, ∂_t^i f (i ≤ j − 1) and ∂_t^i w (i
+< j) being continuous at t1 into H^(s−j−1). So w ∈ 𝒳^s(J_+), by the concatenation property. (iii) is [[eq:class-trace]].
+∎
 
 Fix m > 0, T0 > 0, a reference path u_* ∈ 𝒳^(s+1)([−2m, T0]) and ρ > 0, and put 𝔐_ρ := ⟦u_*⟧_(s+1,[−2m,T0]) + ρ. For t̄
 ∈ (−2m, T0] let 𝒫_t̄ := {u ∈ 𝒳^s([−2m, t̄]) : ⟦u − u_*⟧_(s,[−2m,t̄]) ≤ ρ}; every u ∈ 𝒫_t̄ has ⟦u⟧_(s,[−2m,t̄]) ≤ 𝔐_ρ.
@@ -395,8 +396,8 @@ tangential derivatives of the data; at order j the derivatives of order j of the
 metric of order j + 1 only. The same holds on 𝒞_in with u and v exchanged.
 
 *Proof.* (a) On 𝒞_out, ∂_v u_A = ∂_v U_A and ∂_ϑ u_A = ∂_ϑ U_A are tangential, and dv(∂_v) = du(∂_v) = du(∂_ϑ) =
-dv(∂_ϑ) = 0, which gives the sources. They are smooth invariant functions on the face, and T(∂_v, ·) restricted to the sections
-is a smooth invariant 1-form, ∂_ϑ U_A being odd at the axis generators. With these sources the proof of
+dv(∂_ϑ) = 0, which gives the sources. They are smooth invariant functions on the face, and T(∂_v, ·) restricted to the
+sections is a smooth invariant 1-form, ∂_ϑ U_A being odd at the axis generators. With these sources the proof of
 [[prop:loc-cones]] and of [[lem:loc-cone-in]], through the axis generators [[pending:t3-cone-data]], applies unchanged:
 the sources are known on the face and enter the two equations as inhomogeneous terms. (b) In the double-null form
 [[eq:loc-double-null]], g^(uu) = g^(uϑ) = g^(vv) = 0, so on 𝒞_out the eikonal equation reads 2g^(uv) ∂_u u_A ∂_v U_A +
@@ -427,7 +428,7 @@ chosen so that ξ_A = 0 near the corner circle on {v ≤ 2v_A} ([[def:loc-t5-fam
 with 𝒞_in, U_A(u, ϑ), T_i and the faces exchanged. For the adapted families put t_v := t_u := τ0. For a further family
 put
 
-    t_A := τ0 − Σ_i χ(ρ_i/δ_*) ψ_A Ĝ_A^(i) ρ_i²,      τ := τ0 + K Σ_i χ(ρ_i/δ_*) ρ_i²,                       {#eq:loc-t5-times}
+    t_A := τ0 − Σ_i χ(ρ_i/δ_*) ψ_A Ĝ_A^(i) ρ_i²,      τ := τ0 + K Σ_i χ(ρ_i/δ_*) ρ_i²,  {#eq:loc-t5-times}
 
 the sums over the axes at which A is carried, Ĝ_A^(i) the function above for axis i.
 
@@ -504,26 +505,26 @@ memory m_A := 2m and the history at τ_init.
 operator of [[sec:class-kato]] (N = k + 1), U_e := Ů + Z_e. For x with τ(x) ≤ t̄, the arc through x used by σ_A lies in
 {τ ≤ τ(x)} (the remark after [[lem:loc-t5-times]]), where U_e = U; so F(Z) on {τ ≤ t̄} does not depend on the extension,
 and the value of F(Z) at a time t depends on Z on [t − m, t] only: this is (M0). *The slices of t_A.* For every t,
-{t_A = t} is a slice of the chart (t_A, x), spacelike, and the change of chart (τ, x) ↦ (t_A, x) has derivatives bounded with
-their inverses. By [[eq:class-trace]] in the chart (t_A, x), on an interval of t_A-length 1, the norm 𝒩_(k−1) of U_e − Ů
-on {t_A = t} (all space-time derivatives of order at most k − 1 of the first-order variables) is at most C ‖Z_e‖_(H^k)
-over a slab of bounded thickness, hence at most C C_E ρ; for ρ small U_e lies, on every such slice, in the ball 𝔅′ of
-[[lem:class-leaf-differences]] about Ů, and has bounds (M, c) in the sense of [[lem:class-leaf-arc]] uniform in t, by
-[[lem:sobolev]]. *(M1′).* The local terms of F are smooth functions of (x, Z, ∂Z) of first order vanishing outside a
-compact set where Z = 0 [[pending:t3-setting]]; their difference from those at Z = 0 is bounded in H^k([t1, t2]) by C
-‖Z‖_(H^k([t1,t2])), by [[lem:class-composition]] (b) in the five variables (τ, x) after the extension E_(t2). For the
-closure of family A near axis i, [[lem:class-leaf-tame]] on each slice {t_A = t}, with ů := Ů, gives ‖∂^α(σ_A[U_e] −
-σ_A[Ů])‖_(L²(𝒰_δ∩{t_A=t})) ≤ C 𝒩_k(U_e − Ů; {t_A = t}), |α| ≤ k, with δ := δ_*/2. Squaring and integrating over t ∈ [t1
-− m, t2], by Fubini's theorem in the chart (t_A, x), the left sides give the square of the H^k norm of σ_A[U] − σ_A[Ů]
-over the part of [t1, t2] × R⁴ within δ_*/4 of axis i, and the right sides at most C ‖Z_e‖²_(H^k([t1−m,t2+m])) ≤ C
-‖Z‖²_(H^k([t1−2m,t2])). S_A^ax holds σ_A through ½ σ_A², and σ_A[Ů] is bounded with all its derivatives; by
-[[cor:std-moser-product]] (1) in the variables (τ, x), with the bound of σ_A[U_e] − σ_A[Ů] in L^∞ given by the slice
-bound and [[lem:sobolev]], the difference of S_A^ax is bounded likewise; the partition of unity has bounded
-derivatives. So ‖F(Z) − F(0)‖_(H^k([t1,t2])) ≤ C′ ‖Z‖_(H^k([t1−m_A,t2])). *(M1)* follows, as F(0) is smooth with bounded
-derivatives and ‖Z‖_(H^k([t1−m_A,t2])) ≤ (t2 − t1 + m_A)^(1/2) ρ. *(M2).* The local terms are Lipschitz pointwise. For
-two paths Z, Z′, [[lem:class-leaf-arc]] (c) on each slice {t_A = t}, with D the whole slice, gives ‖σ_A[U_e] −
-σ_A[U′_e]‖_(L²(𝒰_(δ/2)∩{t_A=t})) ≤ C ‖U_e − U′_e‖_(L²(𝒰_δ∩{t_A=t})); squaring, integrating over t and using ‖E_(t2)
-g‖_(L²([t2,t2+m])) ≤ C_E ‖g‖_(L²([t2−m,t2])) gives (M2) with the memory 2m = m_A. ∎
+{t_A = t} is a slice of the chart (t_A, x), spacelike, and the change of chart (τ, x) ↦ (t_A, x) has derivatives bounded
+with their inverses. By [[eq:class-trace]] in the chart (t_A, x), on an interval of t_A-length 1, the norm 𝒩_(k−1) of
+U_e − Ů on {t_A = t} (all space-time derivatives of order at most k − 1 of the first-order variables) is at most C
+‖Z_e‖_(H^k) over a slab of bounded thickness, hence at most C C_E ρ; for ρ small U_e lies, on every such slice, in the
+ball 𝔅′ of [[lem:class-leaf-differences]] about Ů, and has bounds (M, c) in the sense of [[lem:class-leaf-arc]] uniform
+in t, by [[lem:sobolev]]. *(M1′).* The local terms of F are smooth functions of (x, Z, ∂Z) of first order vanishing
+outside a compact set where Z = 0 [[pending:t3-setting]]; their difference from those at Z = 0 is bounded in H^k([t1,
+t2]) by C ‖Z‖_(H^k([t1,t2])), by [[lem:class-composition]] (b) in the five variables (τ, x) after the extension E_(t2).
+For the closure of family A near axis i, [[lem:class-leaf-tame]] on each slice {t_A = t}, with ů := Ů, gives
+‖∂^α(σ_A[U_e] − σ_A[Ů])‖_(L²(𝒰_δ∩{t_A=t})) ≤ C 𝒩_k(U_e − Ů; {t_A = t}), |α| ≤ k, with δ := δ_*/2. Squaring and
+integrating over t ∈ [t1 − m, t2], by Fubini's theorem in the chart (t_A, x), the left sides give the square of the H^k
+norm of σ_A[U] − σ_A[Ů] over the part of [t1, t2] × R⁴ within δ_*/4 of axis i, and the right sides at most C
+‖Z_e‖²_(H^k([t1−m,t2+m])) ≤ C ‖Z‖²_(H^k([t1−2m,t2])). S_A^ax holds σ_A through ½ σ_A², and σ_A[Ů] is bounded with all
+its derivatives; by [[cor:std-moser-product]] (1) in the variables (τ, x), with the bound of σ_A[U_e] − σ_A[Ů] in L^∞
+given by the slice bound and [[lem:sobolev]], the difference of S_A^ax is bounded likewise; the partition of unity
+has bounded derivatives. So ‖F(Z) − F(0)‖_(H^k([t1,t2])) ≤ C′ ‖Z‖_(H^k([t1−m_A,t2])). *(M1)* follows, as F(0) is smooth
+with bounded derivatives and ‖Z‖_(H^k([t1−m_A,t2])) ≤ (t2 − t1 + m_A)^(1/2) ρ. *(M2).* The local terms are Lipschitz
+pointwise. For two paths Z, Z′, [[lem:class-leaf-arc]] (c) on each slice {t_A = t}, with D the whole slice, gives
+‖σ_A[U_e] − σ_A[U′_e]‖_(L²(𝒰_(δ/2)∩{t_A=t})) ≤ C ‖U_e − U′_e‖_(L²(𝒰_δ∩{t_A=t})); squaring, integrating over t and using
+‖E_(t2) g‖_(L²([t2,t2+m])) ≤ C_E ‖g‖_(L²([t2−m,t2])) gives (M2) with the memory 2m = m_A. ∎
 
 **Lemma {#lem:loc-t5-residual}** (The forcing term is smooth across the faces.) 𝔄_ξ(Û), with the closures of
 [[sec:loc-t5-system]], vanishes to infinite order on ∂F ∩ {τ ≤ τ_fin}. Hence F̃ = 1_P 𝔄_ξ(Û) is smooth, and R := 𝔄_ξ(Ů)
@@ -542,8 +543,8 @@ d(Ĝ⁻¹(dû_A, dû_A)), and the inverse metric on the timelike plane orthogona
 in that plane, entries that are smooth and that put the factor Ĝ⁻¹(dû_A, dû_A) on ∇²û_A(Q, Q), the difference □_Ĝ û_A −
 θ_A is a smooth function of (Ĝ, dĜ, dû_A, ∇²û_A) vanishing where Ĝ⁻¹(dû_A, dû_A) and its differential vanish; these
 vanish to infinite order on ∂F near the crossing set, û_A being a formal eikonal there, and so does Θ̂_A − □_Ĝ û_A.
-So |Û − W| = |Θ̂_A − θ_A| ≤ C_N d^N near ∂F for every N. The level sets of û_A in the slice foliate a neighbourhood of the
-axis, ∂_z û_A being bounded below there; S is one of them; and the slice is transverse to the face. So the level set
+So |Û − W| = |Θ̂_A − θ_A| ≤ C_N d^N near ∂F for every N. The level sets of û_A in the slice foliate a neighbourhood of
+the axis, ∂_z û_A being bounded below there; S is one of them; and the slice is transverse to the face. So the level set
 through x lies within C d(x) of S, hence of ∂F, and so does the arc of W through x. [[lem:class-leaf-arc]] (b) with V :=
 W and U := Û gives |σ_A[Û](x) − σ(û_A)(x)| ≤ C_N d(x)^N, σ(û_A)(x) := σ[W](x) the planar shear of the level set. For û_A
 the identities of [[prop:class-structure]] (b) and (c), with [[eq:class-x]], hold up to smooth functions vanishing where
