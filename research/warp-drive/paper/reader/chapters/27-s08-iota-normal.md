@@ -410,7 +410,7 @@ fibre infinity over all of ι⁺_ħ; it is compact. The part over sf is a manifo
 are fibre infinity, F_I (over sf ∩ 0f = {x_I = 0}) and F_K (over sf ∩ tf = {R = 0}); F_I ∩ F_K = ∅. On it we use the
 semiclassical 0-covectors ξ dx_I/(hx_I) + η dω/(hx_I) near F_I and the semiclassical cone covectors of [[sec:ii-f-1-3]]
 near F_K, over sf ξ_cħ dR/h + η_cħ R dω/h. WF′(A) and Ell(A) ⊂ 𝒫_ι are defined as in [[def:i-b-2-9]], with S^(−K𝐞) in
-place of S^(−K𝟏): ϖ ∉ WF′(A) if the symbol of A lies in S^(−K𝐞) on a neighbourhood of ϖ in ^(0ħ,cħ)T̄*ι⁺_ħ for every K.
+place of S^(−M𝟏): ϖ ∉ WF′(A) if the symbol of A lies in S^(−K𝐞) on a neighbourhood of ϖ in ^(0ħ,cħ)T̄*ι⁺_ħ for every K.
 The principal symbol of A ∈ Ψ^𝐨 is its symbol modulo S^(𝐨−(1−ϵ)𝐞), ϵ > 0 small (S8); over sf at finite frequencies it is
 determined by its restriction to 𝒫_ι, as a symbol w_𝐨a with a smooth and vanishing at sf lies in S^(𝐨−(0;0,0,0;1)),
 which at finite frequencies is S^(𝐨−𝐞).
@@ -510,7 +510,7 @@ becomes ‖GPu‖_(𝐨−𝐦+𝐞). In [[eq:i-b-4-3]] and [[lem:i-b-5-1]] (ii)
 becomes Im 𝐏 = ε_♭(𝒫_1 − ℓ𝒜), with 𝒫_1 ∈ Ψ^(𝐦−𝐞), ℓ ∈ [0, 2] a constant and 𝒜 ∈ Ψ^(𝐦−𝐞_1) (in [[ch:s02]], ℓ ∈ [0, 2h⁻¹]
 and 𝒜 is one order h⁻¹ above 𝒫_1; here 𝒜 is one order ρ_sf⁻¹ above).
 
-(D4) The residual error ‖u‖_(−K𝟏) is ‖u‖_(𝐨−K𝐞) (the weights at 0f, cf, tf are never lowered).
+(D4) The residual error ‖u‖_(−M𝟏) is ‖u‖_(𝐨−K𝐞) (the weights at 0f, cf, tf are never lowered).
 
 (D5) Iteration lowers all of 𝐨: in place of [[lem:i-b-3-4]], which lowers only the semiclassical order, the iteration of
 [[cor:i-b-4-6-prime]] (the form of [[cor:i-b-4-6]] with all orders lowered) is used, applying
@@ -629,8 +629,8 @@ in (A). By (D8), 𝖧_z depends on z only through Re z when c_z = 1; when c_z = 
 z⁻¹, smooth in z, and the flow boxes of [[lem:i-b-4-3]] are taken with the parameter (Re z, Im z), as there. The
 monotonicity is needed for 𝖻 only, the weights being constant (D7). ∎
 
-**Proposition {#prop:ii-f-2-6}** (Elliptic estimate; [[prop:i-b-4-2]].) If K ⊂ 𝒫_ι is compact, w_𝐦⁻¹c_zG_(ι,z) is
-bounded away from 0 on K for z ∈ Z, WF′(B) ⊂ K and G is elliptic on K, then ‖Bu‖_𝐨 ≤ C(‖G𝐏u‖_(𝐨−𝐦) + ‖u‖_(𝐨−K𝐞)),
+**Proposition {#prop:ii-f-2-6}** (Elliptic estimate; [[prop:i-b-4-2]].) If K_0 ⊂ 𝒫_ι is compact, w_𝐦⁻¹c_zG_(ι,z) is
+bounded away from 0 on K_0 for z ∈ Z, WF′(B) ⊂ K_0 and G is elliptic on K_0, then ‖Bu‖_𝐨 ≤ C(‖G𝐏u‖_(𝐨−𝐦) + ‖u‖_(𝐨−K𝐞)),
 uniformly for z ∈ Z and h < h_0. Fibre infinity of 𝒫_ι lies in Ell(P′) for every z, by [[eq:ii-f-1-10]], P″ being of
 lower order.
 
