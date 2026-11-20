@@ -112,9 +112,9 @@ D^γ_bu is bounded by [[lem:ii-g-4-1]] (2), which reads the coefficient at the o
 smooth in b and h_tot(p⃗) is smooth in p⃗, and ‖w_s‖_j ≤ C_j(‖β‖_(j+5) + ‖β′‖_(j+5)), this gives [[eq:uc-small-diff]].
 The weights and the coefficients at the faces are treated as in the proof of [[prop:uc-dbg]].
 
-(F2) In each comparison below, a solution u of an earlier entry of [[sec:iii-j2-3]] enters only through terms (A_β −
-A_β′)u, at a rotating b also through (L_(b₀) − L_b)u, whose coefficients are O(|b − b₀|), and is needed at the order ρ +
-2, ρ the regularity of the seminorm. By the induction in the proof of [[thm:iii-j2-4-1]], over the entries of
+(F2) In each comparison below, a solution u of an earlier entry of [[sec:iii-j2-3]] enters only through terms
+(A_β − A_β′)u, at a rotating b also through (L_(b₀) − L_b)u, whose coefficients are O(|b − b₀|), and is needed at the
+order ρ + 2, ρ the regularity of the seminorm. By the induction in the proof of [[thm:iii-j2-4-1]], over the entries of
 [[sec:iii-j2-3]] in their order and, in [[thm:iii-i14-3-1]], over its levels, the solution maps of the earlier entries
 are tame with losses at most D. Their forcings are F, which lies in every order, and background sources times
 finite-dimensional coordinates, of order-j norm at most C_j(1 + ‖β‖_(j+11)) per unit coordinate ([[prop:uc-dbg]]). So
@@ -162,7 +162,7 @@ second norms, ‖·‖^+_(𝒴(α)) of [[sec:iii-i8-1]] and ‖·‖^+_𝒴, who
 2 + R_base: 2 for the count of Step 0, and R_base for the base map that bounds the solution. So they too are needed at
 regularities at most 2R_base + 2. These bounds, and those of [[lem:iii-i7-2-5]] (c), enter the conditions only as bounds
 of solutions and parameters by the data of the step, which (F2) supplies. In these norms, the second ones included, the
-proofs ask: bounds of background terms by ‖h‖ + |p⃗ − p⃗_b| (or by ‖h‖), as in [[lem:iii-i8-2-6]] (b),
+proofs ask: bounds of background terms by ‖h‖ + |p⃗ − p⃗_b| (or by ‖h‖), as in [[lem:iii-i8-2-6]] (b)–(c),
 [[lem:s21-motions-at-b]], [[lem:iii-i15-2-7]] and (1) of the proof of [[prop:iii-i15-2-12]], and with ‖q‖ added in the
 bound by which the proof of [[prop:iii-i15-2-5]] obtains [[eq:s25-motions-small]]; the counts
 ‖(L − L′)u‖ ≤ C(‖h‖ + |p⃗ − p⃗′|)‖u‖ of Step 0 of the proof of [[lem:iii-i8-3-2]], of the proofs of [[lem:iii-i7-4-1]]
