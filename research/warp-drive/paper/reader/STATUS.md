@@ -24,7 +24,7 @@ repaired (INTEGRATION.md, S4 Major 1) and must be re-checked when the repair lan
 | 30 S11 | NOT CONFIRMED 0M 2m 6n | done (one parameter set def:s11-parameters) | CONFIRMED (fourth reading 0M 0m 2n; (E3) proved in full; both nits applied) |
 | 31 S12 | NOT CONFIRMED 2M 7m 9n | done (with S11) | CONFIRMED (fourth reading, no finding; infimum 0.7881114 ≥ printed 0.788) |
 | 32 S13 | NOT CONFIRMED 4M 8m 7n | done (ε_Υ) | CONFIRMED (third reading 0M 0m 2n; ℳ restricted to roots with Re ι at most 10 in modulus) |
-| 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | CONFIRMED (S11 (E3) now confirmed, so the contingency is discharged) |
+| 33 S14 | NOT CONFIRMED 7M 15m 11n | done (r_♯ := r_♭; S formula; strip finiteness; δ_50 cited) | CONFIRMED (S11 (E3) now confirmed, so the contingency is discharged); proofs A and A3 merged (M-33: A3 at the end of sec:s14-model, A after sec:s14-simple, their tables to Appendix B as B.1, the numerator table B.2 computed); R-M33 0M 1m 7n, F-M33 done, R2-M33 CONFIRMED 0M 0m 0n — CONFIRMED |
 | 34 S15 | NOT CONFIRMED 0M 2m 10n (edition sign correct; markers go) | done (sign by own computation; δ_50 cited; ε_Υ for S13's constant) | CONFIRMED (second reading 0M 0m 3n) |
 | 35 S16 | NOT CONFIRMED 1M 6m 5n | done | CONFIRMED (5 optional nits; one pending page, AN00) |
 | 36 S17 | NOT CONFIRMED 0M 4m 10n | done | CONFIRMED (third reading; 4 nits) |
