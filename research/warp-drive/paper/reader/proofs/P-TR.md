@@ -39,7 +39,7 @@ l ≥ 143), ι_P(l, h) is the root of P_l with Re ι > 19/10 and Im ι > 0, and 
 [[lem:tr-c-v]]).
 
 (c) 𝖩 is the set of h ∈ [h₁, 10⁻⁶] for which there are l and an integer n with 3 ≤ n ≤ 51 such that
-|ι_B(l, h) − n| < ε_Υ, or b(l, h) ≤ 50.2 and |Re ι_P(l, h) − n| < ε_Υ, or n ≥ 4 and |ι_v(l, h) − n| < ε_Υ.
+the distance |ι_B(l, h) − n| is below ε_Υ, or b(l, h) ≤ 50.2 and |Re ι_P(l, h) − n| < ε_Υ, or n ≥ 4 and |ι_v(l, h) − n| < ε_Υ.
 
 **Theorem {#thm:tr-transfer}** (The bounds of [[thm:uc-integer]] at other values of h.) Let h ∈ 𝖧 with
 h₁ ≤ h < 10⁻⁶ and h ∉ 𝖩, and suppose that, with this h, the gauge parameters e_Υ = γ_Υ = 1/100 meet the conditions that
@@ -119,7 +119,7 @@ and κ∂_x(eF) + e⁻¹∂_ϖ(eF) = κe∂_xF + F^ϖ, the term eF₂ + 2ehF₃ 
 
 *Majorants.* For a polynomial g in ι, x, ϖ and h (and e) we write ḡ(R, X) for the polynomial obtained by replacing every
 coefficient by its absolute value, ϖ by 0.1024, h by 10⁻⁶ and e by 1/102400, |ι| by R and x by X. Then
-|g(ι, x, ϖ, h)| ≤ ḡ(R, X) whenever |ι| ≤ R, 0 ≤ x ≤ X, 0 < ϖ ≤ 0.1024 and 0 < h ≤ 10⁻⁶, and ḡ increases in R and X
+the bound |g(ι, x, ϖ, h)| ≤ ḡ(R, X) holds whenever |ι| ≤ R, 0 ≤ x ≤ X, 0 < ϖ ≤ 0.1024 and 0 < h ≤ 10⁻⁶, and ḡ increases in R and X
 ([[lem:s14-majorant]]). We use F̄₂, F̄₃, F̄_ι := (∂_ιF)‾, F̄_x := (∂_xF)‾, F̄^ϖ := (F^ϖ)‾ and ḡ_B(X); and Ā_j(X, ϖ̄)
 for A_j with its coefficients replaced by their absolute values, x by X and ϖ by ϖ̄. Where a smaller bound ϖ̄ for ϖ
 is known, it replaces 0.1024.
@@ -258,8 +258,9 @@ a ± 2/5 ⊂ (2.1, 2.92) as 2.5 ≤ a ≤ 2.5154.
 (c) As y = x/ϖ ≥ max(1/5, x/0.1024), 16b² = 24y − (2 + x)² − 16x ≥ max(4.8 − (2 + x)² − 16x, 214.375x − 4 − x²);
 the first bound decreases and the second increases in x, and they agree at x = 0.02048, where both exceed 0.3899; so
 b ≥ 0.1561, and b ≥ 2.536, 8.073, 15.579, 21.82 for x ≥ 1/2, 5, 20, 45. By [[eq:tr-split]] U = (ι − ζ)V with
-V := 2(2 + x − ι)(ι − ζ̄), and d := |2 + x − ζ| = (b² + (x − 2)²/16)^(1/2) ≥ b. On |ι − ζ| = r < b,
-|U| ≥ 2r(d − r)(2b − r) ≥ 2r(b − r)(2b − r), and U has the single root ζ inside. On that circle |ι − a| ≤ b + r, so by
+V := 2(2 + x − ι)(ι − ζ̄), and d := |2 + x − ζ| = (b² + (x − 2)²/16)^(1/2) ≥ b. On |ι − ζ| = r < b we
+have |U| ≥ 2r(d − r)(2b − r) ≥ 2r(b − r)(2b − r), and U has the single root ζ inside. On that circle |ι − a| ≤ b + r,
+so by
 [[eq:tr-aj]] |F| ≤ Σ_j Ā_j(x, ϖ̄)(b + r)^j + 10⁻⁶F̄₂(a + b + r, x) + 10⁻¹²F̄₃(a + b + r), where ϖ̄ bounds ϖ: ϖ ≤ 0.1024,
 ϖ = x/y ≤ 5x, and ϖ ≤ 3x/(2b²), as b² ≤ 3y/2. For b ≤ 56 the following table covers the possible (x, b) by boxes
 [x_a, x_b] × [b_a, b_b], each with r = ϱ; in each, N bounds e|F| (from the values at x_b and b_b, with
@@ -303,10 +304,10 @@ Finally |ι_P − 1| ≥ Im ι_P > b − r, which exceeds 50 if b > 50.2 (r ≤ 
 (d) For |ι − 1| ≤ 50, |ι| ≤ 51 and Re ι ≤ 51, so |2 + x − ι| ≥ x − 49. The roots of 𝒬 are non-real for x ≤ 214.35,
 as Δ < 0 there (24y ≥ 234.375x and x² − 214.375x + 4 < 0), with real part a; for larger x they have real part a or
 are real and at least a − (2 + x)/4 = x/2 + 2, as Δ < (2 + x)². So |𝒬(ι)| ≥ 2m², with m := (3x − 194)/4 ≥ x/17.5 for
-70 ≤ x ≤ 214.35 and m := x/2 − 49 ≥ 0.2714x beyond, and |U| ≥ 2(x − 49)m² ≥ 0.001959x³ for x ≥ 70. On the other side
-|F| ≤ F̄(51, x) = c₀ + c₁x + c₂x² with c₀ < 4,646,946, c₁ < 141,543, c₂ < 882.57, so for x ≥ 70,
-e|F| ≤ ex²(c₀/4900 + c₁/70 + c₂) < 0.0377x² < 0.001959·70x² ≤ |U|. So P_l = U + eF has no zero with
-|ι − 1| ≤ 50. ∎
+70 ≤ x ≤ 214.35 and m := x/2 − 49 ≥ 0.2714x beyond, and |U| ≥ 2(x − 49)m² ≥ 0.001959x³ for x ≥ 70. On the other side, we
+have |F| ≤ F̄(51, x) = c₀ + c₁x + c₂x² with c₀ < 4,646,946, c₁ < 141,543, c₂ < 882.57, so for x ≥ 70,
+e|F| ≤ ex²(c₀/4900 + c₁/70 + c₂) < 0.0377x² < 0.001959·70x² ≤ |U|. So P_l = U + eF has no zero
+in |ι − 1| ≤ 50. ∎
 
 **Lemma {#lem:tr-slopes}** (The roots move fast at the integers.) Let l be fixed and let the derivatives be in h.
 
@@ -342,7 +343,7 @@ and −A₂c₀/(4ibA₂) = 3/4 − i(10 + x)/(16b) has real part 3/4. Hence
     |∂_hι_P/κ − 3/4 + i(10 + x)/(16b)| ≤ (|δN| + (|c₀|/(4b))|δD|)/(4bd − |δD|),
 
 with |δN| ≤ 2r(r + 2b) + 3dr + r|c₀| + 3r² + eF̄_x + 10⁻⁶F̄^ϖ/x, |δD| ≤ 2r(r + 2b) + 4dr + 4br + 4r² + eF̄_ι,
-|c₀| ≤ (10 + x)/4 + 3b, d ≤ b + |x − 2|/4 and d ≥ b, the majorants at (a + b + r, x). Evaluated on the boxes of the
+and |c₀| ≤ (10 + x)/4 + 3b, d ≤ b + |x − 2|/4 and d ≥ b, the majorants at (a + b + r, x). Evaluated on the boxes of the
 table of [[lem:tr-large]] with x_a ≥ 1/2 (b_b and x_b where the bound increases, b_a and x_a where it decreases), the
 right side is at most the last column there, at most 0.2923; so ∂_h Re ι_P ≥ (3/4 − 0.2923)κ > (2/5)κ.
 
@@ -435,8 +436,8 @@ differences: at s0, 𝔡₀ < 1.34·10⁻⁶ ([[lem:is-roots]] (b)), so 3 − ι
 (3 + 𝔡₁) − 3 = 𝔡₁. At s2 the three numbers lie in (1, 2) and are distinct, and 4 − (ι − 1) ∈ (2, 3). At sl, l ≥ 3: for
 l ≤ 122 the roots of real part above 2 lie in (2, 3) ([[lem:tr-small]]); for 123 ≤ l ≤ 142 they are ι_B ∈ (2, 2.031)
 and two of real part in (2.1, 2.92) ([[lem:tr-large]] (b)), so two real ones differ by less than 1 and a non-real one
-differs from each other root by a non-real number; for l ≥ 143 and x ≤ 70 only ι_B is real; for x > 70 no root with
-|ι − 1| ≤ 50 exists, so a real root of real part at least 2 exceeds 51, and those of real part at most 5 are non-real,
+differs from each other root by a non-real number; for l ≥ 143 and x ≤ 70 only ι_B is real; for x > 70 no root
+in |ι − 1| ≤ 50 exists, so a real root of real part at least 2 exceeds 51, and those of real part at most 5 are non-real,
 simple and at most one conjugate pair, as in the proof of [[lem:sp-roots]] (c). At v2, 4 − (ι_v(2, h) − 1) ∈ (1, 2).
 So the proof of [[thm:sp-spectrum]] (b) applies: by [[thm:sp-reduction]] (b), [[lem:sp-two-roots]] (c), whose
 conditions at s0 and v1 are those just stated, and [[lem:sp-block]], N_sf(·)⁻¹ has at most simple poles on
@@ -493,10 +494,11 @@ and the sum is at most 0.9899^(−1/2) + 2(48.9899^(1/2) − 0.9899^(1/2)) < 13.
 
 *𝖩_P.* On {b ≤ 50.2}, which is an interval of h as b² = (24y − (2 + x)² − 16x)/16 decreases in h at fixed l, Re ι_P
 lies within ϱ of a ([[lem:tr-large]] (c)); so |Re ι_P − n| < ε_Υ forces |x − x_n| < (4/3)(ϱ + ε_Υ), with
-x_n := (4n − 10)/3 ≥ 2/3, whence 1/2 < x ≤ 70 (ϱ = 1/20 for x ≤ 20) and κ ≥ (4n/3 − 3.6001)·10⁶ (ϱ ≤ 1/5). There ∂_h Re ι_P ≥ (2/5)κ ([[lem:tr-slopes]] (b)), so 𝖩_P(l, n) is an
-interval of length below 5ε_Υ/κ, and the least l is at least 1000(4n/3 − 3.6001)^(1/2) − 1 ≥ 631. As
-Σ_(n=3)^(51)(4n/3 − 3.6001)^(−1/2) ≤ 0.3999^(−1/2) + (3/2)(64.3999^(1/2) − 0.3999^(1/2)) < 12.671, the total length of 𝖩_P is
-below 5ε_Υ·1.0016·10⁻³·12.671 < 0.06346ε_Υ.
+x_n := (4n − 10)/3 ≥ 2/3, whence 1/2 < x ≤ 70 (ϱ = 1/20 for x ≤ 20) and κ ≥ (4n/3 − 3.6001)·10⁶ (ϱ ≤ 1/5).
+There ∂_h Re ι_P ≥ (2/5)κ ([[lem:tr-slopes]] (b)), so 𝖩_P(l, n) is an interval of length below 5ε_Υ/κ, and the least
+l is at least 1000(4n/3 − 3.6001)^(1/2) − 1 ≥ 631. As Σ_(n=3)^(51)(4n/3 − 3.6001)^(−1/2) is at most
+0.3999^(−1/2) + (3/2)(64.3999^(1/2) − 0.3999^(1/2)) < 12.671, the total length of 𝖩_P is below
+5ε_Υ·1.0016·10⁻³·12.671 < 0.06346ε_Υ.
 
 *𝖩_v.* ι_v(l, ·) increases in h, and |ι_v(l, h) − n| < ε_Υ for some h ≤ 10⁻⁶ forces ι_v(l, 10⁻⁶) > n − ε_Υ, that is
 (l + 1)² > (n − 1)² + 10⁶(n − 3) − 10⁻⁴ by the closed form of [[lem:s14-vector-distance]], so l ≥ 1000(n − 3)^(1/2) − 1
@@ -674,5 +676,5 @@ Row 24. prop:tr-fail; paper/reader/proofs/P-TR.md:LFAIL; transfer proof P-TR, Pr
 crossing.); d_acc > D_acc when ε_ind(h) < 1.38·10⁻²⁵; h_c = 1/1001992.
 
 Notes for existing rows: ch:explicit-constants (opening states the transfer, text 2); rem:ec-point-outside (text 3); in
-the crosswalk table of [[ch:theorems]], the list of further results (text 4); in that of [[ch:scope]], the paragraph on
-the constants (text 5).
+the crosswalk table of [[ch:theorems]], the list of further results (text 4); in that of [[ch:scope]],
+sec:scope-constants (text 5).
