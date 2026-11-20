@@ -232,3 +232,34 @@ I tested the replacement in a scratch copy:
   notes, separated by "; ". Row 3's note itself contains "; " ("… of thm:own-data; at the computational point …").
   That does no harm, because the rows are given as four named fields, but whoever merges should keep it in the note
   column.
+
+## Final
+
+**Verdict: CONFIRMED.** I checked proofs/P-K.md at md5 5258f67d066990c6de53d35be8fcfbd6 (466 lines) against the
+chapters at HEAD 6de81a35 (P-LB already merged). The diff from e38d85b6 contains only the changes listed in F2-P-K, and
+no number changed.
+
+| Item | Status | Where (P-K lines) | Check |
+|---|---|---|---|
+| m1 | resolved | 347, 353–356 | Text 3 now carries "at one admissible choice of the weights, orders and inner products" and cites [[thm:uc-integer]], with the header saying "seven lines". |
+| n1 | resolved | 444, 449, 454, 456, 459 | The rows point at :40, :176, :184, :192 and :307. Each matches the line where its label is defined, and row 1 stays at :1. |
+| n2 | resolved | 11 | Reads "the bounds for d". |
+| n3 | resolved | 240–241 | In the words I proposed. |
+| n4 | resolved | 353, 311 | Text 3 and the remark cite [[thm:ec-lb-proved]], ch71 line 1707, the lower bound at every point of the proved set. The remark was refilled at 309–316; "β0(k_P) = max(2, 4C(k_P) + 1)" now starts a line and is no longer split, and that start is not forbidden. |
+| n5 | resolved | 330, 403, 415 | 29–30, 76–77 and 134–135 match the current ch71 and ch90. |
+| n6 | resolved | 431–434 | The writer's wording is accurate. It names the label, says this placement applies after the lower-bound section, and says that section's texts, three lines of rem:ec-not-evaluated among them, overlap none of texts 2, 3, 8 and 9. I accept the departure from my wording. |
+
+**Checks**
+- **Old texts.** Each of the eight old texts, and the insertion anchor, occurs exactly once in the chapters at HEAD, at
+  the lines the headers give.
+- **Scratch merge** in …/scratchpad/r2pk/, rebuilt from HEAD:
+  - `lint.py --chapters`: 4615 labels (4609 + 6), 0 hits;
+  - `assemble.py --check`: 0 problems;
+  - `lint.py --paper`, after a plain assemble in the scratch copy: 0 hits.
+- **Line lengths.** The longest line of the assembled paper is 121 characters, and none is over. The 360 changed or new
+  assembled lines are at most 120 characters. Resolved, text 3's longest line is 111 and the remark's is 106.
+- **Wrapped lines.** No changed line starts a wrapped line with "+ ", "- ", "* ", "> ", "#", "=" or "|".
+- **P-K.md itself.** Every line is at most 121 characters, and none has a forbidden wrapped start. The labels are
+  lowercase, and there is no backslash.
+
+**Merge note.** Row 3's note contains "; ". Whoever merges should keep it inside the note column.
