@@ -1,6 +1,6 @@
 # Report P-UB1: a proved admissible choice for the repaired Λ
 
-Proof file: research/warp-drive/paper/reader/proofs/P-UB1.md. It has 2898 lines and md5 a4e10a41efcf0b396490ffad095af7dd.
+Proof file: research/warp-drive/paper/reader/proofs/P-UB1.md. It has 2897 lines and md5 58b580faf8acbc14503d7c5e33c0b087, after the R-P-UB1 fixes; the first version had 2898 lines and md5 a4e10a41efcf0b396490ffad095af7dd.
 - The old texts are copied from the chapter files at HEAD bce54b51. Chapter 71 has md5 427412e0…, the file P-UB2 read; chapter 96 has md5 f577ca62….
 - Nothing else in the repository was edited, and nothing was committed.
 
@@ -58,3 +58,10 @@ sec:tab-is in chapter 96 has 1269 + 680 rows, about 2000 source lines. I estimat
 - Whether 𝔡₁ can be omitted.
 - Anything at another h.
 - A lower bound for N_Λ that also counts the real families. It is not needed for any bound.
+
+## Revision after R-P-UB1 (0 Major, 2 minor, 6 nits; all applied in the reader's words)
+- minor 1: lem:is-z3's Counting step now proves the roots of different degrees distinct (any two r more than 5.09·10⁻⁷ apart, b strictly increasing), and the T14 table head says so.
+- minor 2: T1 now says "at the computational point".
+- Nits: the radius is no longer called r; "now" is removed from T12; T2 now says "ε_K < ε_Υ"; the T14 heading is "of real part below 3"; T14 says "the columns p and q"; the §4 note is updated.
+- The joint merge with P-UB2 (md5 69990efa…) has no overlap and gives lint --chapters 0 hits, assemble 0 problems, lint --paper 0 hits.
+- The mathematics, the numbers and the inputs are unchanged. cor:is-lower is kept.
