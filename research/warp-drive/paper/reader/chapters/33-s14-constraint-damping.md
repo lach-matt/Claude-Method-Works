@@ -1942,13 +1942,12 @@ three arguments, free of the dimension.
 −a da is past timelike for 𝔛 large, since dτ is past timelike with r²g⁻¹(dτ, dτ) ≤ −¾ ([[lem:iv5-0-3]] (b)) and the
 δ(r − r_♯)-part of −a da is a positive multiple of −dr, past timelike ([[lem:iv5-0-3]] (c)). So [[cor:iv5-6-energy]]
 applies, on N := ℝ_t × {r > ½r_♯} and R := {r ≥ r_♯, τ ≤ T_0}, with f_1 := τ − T_0, f_2 := r_♯ − r and
-w := ρ_sf^(−α_sf−2)e^(−𝔛τ), so that
-a = wH(T_0 − τ)H(r − r_♯). Its bulk term carries −d(w²) = 2w²(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf), and its two boundary terms
-carry dτ on {τ = T_0} and −dr on Σ^♯; these are the parts of −a da with the weights 𝔛a² +
-ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(T_0 − τ) and ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(r − r_♯). The hypotheses of [[cor:iv5-6-energy]] (ii)
-hold uniformly for b ∈ U: the components of g and rc, continuous on the compact Ω and in b ([[lem:iv5-0-2]] (a), (d)),
-lie in a compact set of pairs, rc being past timelike ([[lem:iv5-0-5]] (1)); e = 1/102400 < 2/5; and
-r(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) = 𝔛(dt − τ dr) − (α_sf + 2)dr,
+w := ρ_sf^(−α_sf−2)e^(−𝔛τ), so that a = wH(T_0 − τ)H(r − r_♯). Its bulk term carries
+−d(w²) = 2w²(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf), and its two boundary terms carry dτ on {τ = T_0} and −dr on Σ^♯; these are
+the parts of −a da with the weights 𝔛a² + ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(T_0 − τ) and ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(r − r_♯).
+The hypotheses of [[cor:iv5-6-energy]] (ii) hold uniformly for b ∈ U. The components of g and rc, continuous on the
+compact Ω and in b ([[lem:iv5-0-2]] (a), (d)), lie in a compact set of pairs, rc being past timelike
+([[lem:iv5-0-5]] (1)); e = 1/102400 < 2/5; and r(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) = 𝔛(dt − τ dr) − (α_sf + 2)dr,
 r dτ = dt − T_0 dr on {τ = T_0} and −r dr on Σ^♯ satisfy its condition with one κ > 0 for 𝔛 large, by
 [[lem:iv5-0-3]] (b), (c). So each of the three terms is at least c₀ times the corresponding weighted integral of the
 square of |r∇ω|_B, the bulk term with the factor 𝔛. Here the level sets of τ carry r⁴|dr d𝑔̸|, which tensored with |dτ|
