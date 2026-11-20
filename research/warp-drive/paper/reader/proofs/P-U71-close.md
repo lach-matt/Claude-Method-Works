@@ -392,7 +392,8 @@ has the K⁺-order (α − 2)− ([[lem:ec-counts]]), so Step 1 of the proof of 
 with any a♭_K in (α_1, α − 2); the stated range meets that interval, as α_1 < α − 2 and 2 + 0.999(α − 4) < α − 2.
 *α_0.* The proof of [[prop:iii-i8-4-1]] at the level α_1, at the background of K⁺-order a♭_K, starts from an
 admissible α_0 ∈ (2, min(a♭_K, 2 + ε_g, 5/2)) below α_1; as α_1 < a♭_K, α_1 < 2 + ε_K < 2 + ε_g and the excluded
-values are finitely many, an admissible α_0 ∈ (max(2, α_1 − (a♭_K − 2)), α_1) exists.
+values are finitely many, an admissible α_0 ∈ (max(2, α_1 − (a♭_K − 2)), α_1) exists; as α_1 − α_0 < a♭_K − 2, that
+proof then has the single level step α_0 → α_1.
 
 *The hypotheses of [[prop:ec-upper]].* Δβ ≥ 0.999(α − 4) ≥ 0.999²ε_K = Δβ_0 and Δβ ≥ 0.999(α − 4) > ½(α − 4);
 a♭_K − 2 ≥ 0.999(α − 4) ≥ Δβ_0; Δτ = ε_g − ε ≥ (1 − 10⁻³)ε_Υ = Δτ_0; and Δβ_0 ∈ (0, 1]. ℓ⁺_tf = 1 by [[prop:uc-ltf]]
