@@ -240,9 +240,9 @@ the splitting [[eq:iii-c-1-6]],
 For h ∈ H^(k,(⟨(3,0)⟩₀,a_I),(ℰ_+,a_+),·)_b the same holds with (2, 0) in place of ℰ_I^tot.
 
 *Proof.* This is the proof of [[prop:iii-c-4-4]] on U⁺, with [[lem:iii-i-3-1]]–[[lem:iii-i-3-2]] in place of
-[[lem:iii-c-1-1]] and [[lem:iii-c-4-1]], and with the expansion of g⁻¹ after [[prop:iii-i-3-4]] in place of the Neumann
-series used there (whose convergence needs smallness in H^k). The change of frame ([[lem:iii-c-1-3]], with
-ρ² = ρ_+²ρ_I²) turns S̄ into Ā ([[lem:iii-c-4-2]]). The backgrounds (g_1, g_0) differ from (g_b, g_b) by
+[[lem:iii-c-1-1]] and [[lem:iii-c-4-1]], and with the expansion of g⁻¹ after [[prop:iii-i-3-4]] in place of Steps 1–3
+of the part *The perturbation* there; both ask smallness at the order 3 only. The change of frame ([[lem:iii-c-1-3]],
+with ρ² = ρ_+²ρ_I²) turns S̄ into Ā ([[lem:iii-c-4-2]]). The backgrounds (g_1, g_0) differ from (g_b, g_b) by
 ρ_+²ρ_I²C^∞, which with the two factors ρ_+ from the derivatives gives ρ_+⁴ρ_I²C^∞ Diff²_b. The perturbation, counted
 as in [[lem:iii-c-4-3]] with Cartesian derivatives in ρ_+𝒱_b ([[lem:iii-i-3-1]]) and c_C, c_Υ ∈ ρ_+ρ_I C^∞, gives
 ρ_+² times H^(k−2)-functions of the index sets of h: ℰ_I^tot at ℐ⁺ ([[lem:iii-c-3-2]] (b)–(c)), and ℰ_+ at ι⁺
@@ -411,8 +411,8 @@ The factor (−g_1⁻¹δ)^(N+1) has N + 1 times the least orders of δ, which a
 lies in H^k_b with weights beyond every weight in [[eq:iii-i-3-4]], [[eq:iii-i-3-6]] and [[eq:iii-i-3-7]]
 ([[lem:s19-products]] (a) with weights, and (c)), and adds no expansion term. In [[prop:iii-i-3-3]], on U⁺ ∩ {ρ_I ≤ 1},
 g_1⁻¹ − g_b⁻¹ = −g_1⁻¹(g_1 − g_b)g_b⁻¹ ∈ ρ_+²ρ_I²C^∞ is part of the background difference counted in its proof. The
-Taylor terms are products, handled by [[lem:iii-c-2-1]]. This replaces the Neumann series of [[prop:iii-c-4-4]], whose
-convergence needs smallness in H^k.
+Taylor terms are products, handled by [[lem:iii-c-2-1]]. This is the counterpart on Ω_* of Steps 1–3 of the proof of
+[[prop:iii-c-4-4]], with the tame bound of [[lem:s19-inverse]] in addition.
 
 **Remark {#rem:iii-i-3-5}** ([Hin26, Remark 11.7] in dimension 4 + 1.) g_(b₀) + h and g_(b₀,b,0) + h differ near
 (ι⁺)° by χ_K(g_b − g_(b₀)) ∈ ρ_+²C^∞, which is absorbed into h as (2, 0) ∈ ℰ_+. The same holds for the boost:

@@ -420,16 +420,17 @@ their derivatives and the c's. The difference of a polynomial expression at two 
 one difference factor, by ab − a′b′ = (a − a′)b + a′(b − b′) and g⁻¹ − g′⁻¹ = −g⁻¹(g − g′)g′⁻¹. ∎
 
 **Proposition {#prop:iii-c-4-4}** ([Hin26, Proposition 5.11 and (5.41a)] in dimension 4 + 1.) Let k ≥ 5, ℰ₀ as in
-[[def:iii-c-3-1]] (1), ℓ₀ > 0, ℓ_I > 0, and let ℱ be an index set with min Re ℱ > 0 and 2ℱ ⊂ ℱ. Let g₁, g₀ ∈ 𝒢 and
-h ∈ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b(U; S²T*) (every component), with ‖h‖_(H^(k,a₀,a_I)_b) < ε₀ for some a₀, a_I > 0 with
-h ∈ H^(k,a₀,a_I)_b, ε₀ > 0 small depending on k, a₀, a_I and on g₁. Then g := g₁ + h satisfies, on U, in the splitting
-[[eq:iii-c-1-6]],
+[[def:iii-c-3-1]] (1), ℓ₀ > 0, ℓ_I > 0, and let ℱ be an index set with min Re ℱ > 0 and 2ℱ ⊂ ℱ. Let g₁, g₀ ∈ 𝒢,
+a₀, a_I > 0, and h ∈ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b(U; S²T*) ∩ H^(k,a₀,a_I)_b(U; S²T*) (every component), with
+‖h‖_(H^(3,a₀,a_I)_b) < ε₀, where ε₀ > 0 is small depending on a₀, a_I and g₁, and not on k. Then g := g₁ + h
+satisfies, on U, in the splitting [[eq:iii-c-1-6]],
 
     L^(g,g₀) ≡ −ρ₀²ρ_I(X_I − 3/2 − Ā)(X₀ − X_I)
-               mod (ρ₀²ρ_I²C^∞ + H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b) Diff²_b(U; S²T*).                       {#eq:iii-c-4-4}
+               mod (ρ₀²ρ_I²C^∞ + H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b) Diff²_b(U; S²T*),                       {#eq:iii-c-4-4}
 
-In particular this holds with ℱ = ℰ_I^tot for h ∈ H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b ([[lem:iii-c-3-2]] (b)–(c)), and with
-ℱ = (2, 0) for h ∈ H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b.
+with L^(g,g₀) − L^(g₁,g₀) in the second class, its coefficients depending smoothly on h in
+H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b ∩ H^(k,a₀,a_I)_b and vanishing at h = 0. In particular this holds with ℱ = ℰ_I^tot for
+h ∈ H^(k,(ℰ₀,ℓ₀),⟨ℰ_I^C⟩,ℓ_I)_b ([[lem:iii-c-3-2]] (b)–(c)), and with ℱ = (2, 0) for h ∈ H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b.
 
 *Proof.* *The background.* By [[lem:iii-c-4-1]] and [[lem:iii-c-1-3]], conjugate by the frame change
 F = F₀(ω)(I + E), E ∈ ρ₀²ρ_I²C^∞. F₀ commutes with X₀ and X_I, so F₀⁻¹L_bF₀ has a leading part with F₀⁻¹S̄F₀ = Ā
@@ -450,14 +451,48 @@ other δ factors, applied through Diff²_b.
 [[lem:iii-c-3-5]] (1)), which 𝒱_b preserves; the terms lie in
 ρ₀⁴ρ_I²C^∞Diff²_b ⊂ ρ₀²ρ_I²C^∞Diff²_b.
 
-*The perturbation.* For (g₁ + h, g₀) against (g₁, g₀): δ = h, and
-(g₁ + h)⁻¹ − g₁⁻¹ = Σ_(j≥1)(−1)^j g₁⁻¹(hg₁⁻¹)^j. By [[lem:iii-c-2-1]] with γ = (ℓ₀, ℓ_I) (the strict inequalities
-hold, as min Re ℰ₀, min Re ℱ, ℓ₀, ℓ_I > 0), the j-th term lies in
-H^(k,(jℰ₀,ℓ₀),(jℱ,ℓ_I))_b ⊂ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b. For j so large that ja₀ ≥ ℓ₀ and ja_I ≥ ℓ_I, it lies in
-H^(k,ℓ₀,ℓ_I)_b with norm at most C(Cε₀)^j (part (i) of the proof of [[lem:iii-c-2-1]]); so the series converges for
-Cε₀ < 1. Every coefficient of the difference is then ρ₀² times an element of H^(k−2,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b
-([[lem:iii-c-2-1]] with k − 2 > 5/2, and (F1)); that is, an element of H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b. The frame change
-F preserves both classes. ∎
+*The perturbation.* For (g₁ + h, g₀) against (g₁, g₀): δ = h. Smallness enters only through g⁻¹, and only at the
+order 3. Put A := −g₁⁻¹h, so that g = g₁(I − A), and G := g⁻¹ − g₁⁻¹; write ‖·‖_m for the norm of H^(m,a₀,a_I)_b(U).
+
+Step 1 (order 3). By part (i) of the proof of [[lem:iii-c-2-1]] at the order 3 > 5/2, as ρ₀^(a₀)ρ_I^(a_I) is bounded
+with its b-derivatives on U, ‖uv‖₃ ≤ C‖u‖₃‖v‖₃ with C depending on a₀ and a_I only; and multiplication by the
+components of g₁⁻¹, smooth on U, is bounded. So ‖A^jg₁⁻¹‖₃ ≤ C(Cε₀)^j, and for Cε₀ < 1 the series Σ_(j≥1)A^jg₁⁻¹
+converges in H^(3,a₀,a_I)_b; its sum is G, as (I − A)Σ_(j≥0)A^j = I. The Sobolev embedding on the cubes of that proof
+gives sup|h| + sup|G| ≤ C‖h‖₃; so for ε₀ small, g is Lorentzian with bounded inverse, as [[lem:iii-c-4-3]] asks.
+
+Step 2 (order k). Let 3 ≤ m < k and G ∈ H^(m,a₀,a_I)_b. For V ∈ 𝒱_b(U), V(g⁻¹) = −g⁻¹(Vg)g⁻¹ by Leibniz's rule (the
+factors are bounded and lie in H³ locally), so
+
+    VG = −g₁⁻¹(Vh)g₁⁻¹ − G(Vg₁ + Vh)g₁⁻¹ − g₁⁻¹(Vg₁ + Vh)G − G(Vg₁ + Vh)G.
+
+The components of g₁⁻¹ and Vg₁ are smooth on U, and G, Vh ∈ H^(m,a₀,a_I)_b, as h ∈ H^(m+1,a₀,a_I)_b; so by part (i)
+of the proof of [[lem:iii-c-2-1]] at the order m > 5/2, each term lies in H^(m,a₀,a_I)_b, with no smallness. Hence
+G ∈ H^(m+1,a₀,a_I)_b ([[def:s11-b-analysis]] (3)), and by induction G ∈ H^(k,a₀,a_I)_b, with ‖G‖_k bounded by a
+polynomial in ‖h‖_k.
+
+Step 3 (expansions). For J ≥ 1, g⁻¹ = Σ_(j<J)A^jg₁⁻¹ + A^Jg⁻¹. By [[lem:iii-c-2-1]] with γ = (ℓ₀, ℓ_I) (the strict
+inequalities hold, as min Re ℰ₀, min Re ℱ, ℓ₀, ℓ_I > 0), the term A^jg₁⁻¹, j ≥ 1, lies in
+H^(k,(jℰ₀,ℓ₀),(jℱ,ℓ_I))_b ⊂ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b. By Step 2 and part (i) of the proof of [[lem:iii-c-2-1]],
+A^Jg⁻¹ = A^Jg₁⁻¹ + A^JG lies in H^(k,Ja₀,Ja_I)_b, so in H^(k,ℓ₀,ℓ_I)_b for J so large that Ja₀ ≥ ℓ₀ and Ja_I ≥ ℓ_I,
+and it adds no expansion term. So G ∈ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b. Every coefficient of the difference is then ρ₀² times
+an element of H^(k−2,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b ([[lem:iii-c-2-1]] with k − 2 > 5/2, and (F1)); that is, an element of
+H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b. The frame change F preserves both classes.
+
+Step 4 (dependence on h). Let X := H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b ∩ H^(k,a₀,a_I)_b, on which multiplication is continuous
+([[lem:iii-c-2-1]]). By Steps 2–3, ‖G‖_X is bounded by a polynomial in ‖h‖_X. For h′ ∈ X with ‖h′‖₃ < ε₀ and
+g′ := g₁ + h′, g′⁻¹ − g⁻¹ = −g′⁻¹(h′ − h)g⁻¹. So G is locally Lipschitz in h on {h ∈ X : ‖h‖₃ < ε₀}, with values in
+X, and differentiable, with derivative ḣ ↦ −g⁻¹ḣg⁻¹, which is of the same form; by induction, G is smooth in h. The
+coefficients of L^(g,g₀) − L^(g₁,g₀) are sums of products of G, of h and its b-derivatives of order at most 2, and of
+smooth functions, each with a factor h or a b-derivative of h ([[lem:iii-c-4-3]]); so they depend smoothly on h and
+vanish at h = 0. ∎
+
+The smallness is asked at the order 3 only, and ε₀ does not depend on k: Step 1 uses it for the inverse metric at that
+order, and Steps 2–3 give the membership at the order k from the products of [[lem:iii-c-2-1]] without it. This form,
+and the dependence on h, are proved here and are not taken from [Hin26].
+Below, h is *small as in [[prop:iii-c-4-4]]* if, for some a₀, a_I > 0 with h ∈ H^(k,a₀,a_I)_b,
+‖h‖_(H^(3,a₀,a_I)_b) < ε₀ on the domain of h, with ε₀ depending only on a₀, a_I and g₁ (off U, so small that Step 1
+applies there without weights). For h in the classes of [[def:iii-c-3-1]] or [[def:iii-c-3-3]] such a₀, a_I exist
+(0 < a₀ < min(ℓ₀, min Re ℰ₀) and 0 < a_I < 3/2), and the condition does not involve k.
 
 The form [Hin26, (5.26a)] of this statement in dimension 4 + 1 is
 L^(g,g₀) ≡ (2|x|^(−3/2)∂₀|x|^(3/2) + |x|⁻¹Ā)∂₁ modulo the same class, by [[eq:iii-c-1-5]]:
@@ -513,7 +548,8 @@ continuously. If h ∈ H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b (small), the
     L^(g,g₀) : H^(k,(ℰ₀,ℓ₀),⟨(3,0)⟩₀,ℓ_I)_b(Ω_ext) → H^(k−2,(ℰ₀+2,ℓ₀+2),⟨(4,0)⟩′,ℓ_I+1)_b(Ω_ext).         {#eq:iii-c-5-3}
 
 *Proof.* Away from U the spaces impose nothing beyond H^k and H^(k−2), and L^(g,g₀) is a second-order operator with
-coefficients in H^(k−2); by property (F2) of [[sec:iii-a-1]] it suffices to work on U. Let ġ be in the domain of
+coefficients in H^(k−2) (there h is small in H³, and Steps 1–2 of the proof of [[prop:iii-c-4-4]], without weights,
+give g⁻¹ − g₁⁻¹ ∈ H^k); by property (F2) of [[sec:iii-a-1]] it suffices to work on U. Let ġ be in the domain of
 [[eq:iii-c-5-2]]. Every slot of ġ lies in H^(k,(ℰ₀,ℓ₀),(ℰ_I^tot,ℓ_I))_b ([[lem:iii-c-3-2]] (c)). Split L^(g,g₀) by
 [[eq:iii-c-4-4]] with ℱ = ℰ_I^tot.
 
@@ -553,9 +589,10 @@ E^Υ_(g₀)G_(g₀)(g₀ − g₀) = 0 ([[eq:iii-b-6-3]]–[[eq:iii-b-6-4]]). So
 
     P(g₀ + h, g₀) = ∫₀¹ L^(g₀+sh,g₀) h ds,                                                              {#eq:iii-c-5-5}
 
-and [[prop:iii-c-5-2]] with g₁ = g₀ and the perturbation sh applies for each s ∈ [0, 1], with bounds uniform in s. The
-integrand is continuous in s with values in the target space (the coefficients are polynomial in s and in the Neumann
-series of (g₀ + sh)⁻¹), so the integral converges there. ∎
+and [[prop:iii-c-5-2]] with g₁ = g₀ and the perturbation sh, small as h is, applies for each s ∈ [0, 1]. The
+integrand is continuous in s with values in the target space (its coefficients depend continuously on sh: on U by
+[[prop:iii-c-4-4]], away from U by Step 4 of its proof without weights), so it is bounded uniformly in s and the
+integral converges there. ∎
 
 [Hin26] states Corollary 5.15 with g = g_b + h and writes P(g_b + h, g₀) through h̃ = h − (g₀ − g_b) ([Hin26, (5.48)]).
 When g₀ ≠ g_b, L(g₀ − g_b) has I₀-index set (2, 0) + 2 in dimension 4 + 1, which lies in ℰ₀ + 2 only if

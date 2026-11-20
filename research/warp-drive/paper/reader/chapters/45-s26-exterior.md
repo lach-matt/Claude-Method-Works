@@ -526,9 +526,10 @@ use as they stand.
 U, M_♯, x_I = ρ_I^(1/2), X₀, X_I, 𝒱_(e,b) and the spaces are those of [[sec:iv-0]], and the splitting
 [[eq:iii-c-1-6]], its slots and Ā are those of [[lem:iii-c-4-2]]. Let g₁, g₀ ∈ 𝒢 ([[def:iii-c-3-4]]), k ≥ 5, and
 h ∈ H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b(U; S²T*) as in [[prop:iii-c-4-4]]. That is: ℰ₀ as in [[def:iii-c-3-1]] (1),
-min Re ℱ > 0, 2ℱ ⊂ ℱ, ℓ₀, ℓ_I > 0, and h small in H^(k,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b, the polyhomogeneous norm. (The coefficients
-ã below are ρ_I⁻¹ times terms in h, whose size near ℐ⁺ the conormal norm H^(k,a₀,a_I)_b does not control when
-a_I < 1.) Assume moreover
+min Re ℱ > 0, 2ℱ ⊂ ℱ, ℓ₀, ℓ_I > 0, and h small in H^(5,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b, the polyhomogeneous norm; the smallness is
+at the order 5 for every k. It gives the smallness of [[prop:iii-c-4-4]], at the order 3, with
+0 < a₀ < min(ℓ₀, min Re ℰ₀) and 0 < a_I < min(ℓ_I, min Re ℱ). (The coefficients ã below are ρ_I⁻¹ times terms in h,
+whose size near ℐ⁺ the conormal norm H^(5,a₀,a_I)_b does not control when a_I < 1.) Assume moreover
 
     min Re ℱ > 1,     ℓ_I > 1,                                                                          {#eq:iv1-0-1}
 
@@ -602,14 +603,15 @@ part of [[eq:iv1-1-1]] holds with L̃ in x_IC^∞Diff²_(e,b).
 *The perturbation.* For (g₁ + h, g₀) against (g₁, g₀) the factor is δ = h. By [[lem:iii-c-4-3]] and [[lem:iv1-1-1]],
 each term is ρ₀² times a product of h or of 𝒱_b-derivatives of h of order at most 2 with smooth bounded functions,
 applied through Diff²_(e,b) ([[lem:iv1-1-1]] replaces ρ₀𝒱_b by ρ₀𝒱_(e,b) for the derivatives acting on u). By the
-proof of [[prop:iii-c-4-4]] (the Neumann series, and [[lem:iii-c-2-1]] there), the coefficients lie in
-ρ₀²H^(k−2,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b = H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b. After the prefactor they lie in
+proof of [[prop:iii-c-4-4]] (Steps 1–3 of its part *The perturbation*, and [[lem:iii-c-2-1]] there), the coefficients
+lie in ρ₀²H^(k−2,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b = H^(k−2,(ℰ₀+2,ℓ₀+2),(ℱ,ℓ_I))_b. After the prefactor they lie in
 H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b, multiplying Diff²_(e,b). The frame change of [[lem:iii-c-1-3]] preserves the classes, as
 in the proof of [[prop:iii-c-4-4]].
 
-*Smallness.* By [[eq:iv1-0-1]] and the embedding [[eq:iv-0-1]] (k − 2 ≥ 3), elements of
-H^(k−2,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b are bounded by Cρ₀^(min(min Re ℰ₀,ℓ₀))ρ_I^(γ−ε) times their norm, with γ as above, and
-their norm is O(‖h‖_(H^k)). ∎
+*Smallness.* By [[eq:iv1-0-1]] and the embedding [[eq:iv-0-1]] (order 3), elements of H^(3,(ℰ₀,ℓ₀),(ℱ−1,ℓ_I−1))_b are
+bounded by Cρ₀^(min(min Re ℰ₀,ℓ₀))ρ_I^(γ−ε) times their norm, with γ as above. The coefficients of the second class
+lie in this space (k − 2 ≥ 3), and their norm there tends to 0 with the norm of h in H^(5,(ℰ₀,ℓ₀),(ℱ,ℓ_I))_b: they are
+products of the same kind as in Step 4 of the proof of [[prop:iii-c-4-4]], which applies at k = 5. ∎
 
 **Remark {#rem:iv1-1-3}** (The terms A_g and B_g of [Hin23a].) In [Hin23a, (3.29a)] the h-dependent entries of A_g
 and the term B_g are of the size of the leading part at ℐ⁺; in dimension 3 + 1 they are bounded there. In dimension
