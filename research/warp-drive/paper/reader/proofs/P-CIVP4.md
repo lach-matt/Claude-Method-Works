@@ -491,25 +491,26 @@ of [[thm:class-kato-stability]] (a). Constants C below depend only on k, Λ, κ 
 nondegeneracy κ_1, both depending only on k, Λ and κ: a class solution in the gauge for the new data gives one for the
 old on the same rectangle, the change of angle not depending on v.
 
-*Step 1 (The formal solution and the constants).* Let C_b and d be the numbers of [[prop:civp-axes-formal]] (b), (c)
-for Λ_1, κ_1 and λ_0 := l, and let δ_1 ≤ d/4, so that by (c) there Ω̂ ≥ e^(−Λ_1)/2 and γ̂ ≥ (κ_1/2) γ̊ on the set 𝒮 of
-[[eq:loc-cone-collar]], every point of which lies within δ_1 of N and has |u|, |v| ≤ 3δ_1. With δ_c := δ_1/32 and
-δ_e := δ_c/8 as below, let 𝒮′ be the set of the points of 𝒮 with u, v > −δ_c and (u + δ_c)(v + δ_c) ≥ δ_c² e^(−1); there
-u + δ_c, v + δ_c ≤ 4δ_1, so u + δ_c and v + δ_c are at least δ_c² e^(−1)/(4δ_1). For ∂_τ of [[eq:loc-cone-time]],
+*Step 1 (The formal solution and the constants).* Let C_b and d be the numbers of [[prop:civp-axes-formal]] (b), (c) for
+Λ_1, κ_1 and λ_0 := l, and let δ_1 ≤ d/4, so that by (c) there Ω̂ ≥ e^(−Λ_1)/2 and γ̂ ≥ (κ_1/2) γ̊ on the set 𝒮 of
+[[eq:loc-cone-collar]], every point of which lies within δ_1 of N and has |u|, |v| ≤ 3δ_1. With δ_c := δ_1/32 and δ_e :=
+δ_c/8 as below, let 𝒮′ be the set of the points of 𝒮 with u, v > −δ_c and (u + δ_c)(v + δ_c) ≥ δ_c² e^(−1); there u +
+δ_c, v + δ_c ≤ 4δ_1, so u + δ_c and v + δ_c are at least δ_c² e^(−1)/(4δ_1). For ∂_τ of [[eq:loc-cone-time]],
 
     4Ĝ(∂_τ, ∂_τ) = −4Ω̂² (u + δ_c)(v + δ_c) + γ̂(b̂, b̂) (u + δ_c)².
 
-At the points of 𝒮′ with u ≥ 2δ_e, |b̂| ≤ C_b |v| by (b) there, and |v| ≤ δ_c + (v + δ_c), so |b̂|² (u + δ_c)/(v + δ_c)
-≤ 2C_b² (δ_c²/(v + δ_c) + (v + δ_c)) 4δ_1 ≤ 32 e C_b² δ_1² + 32 C_b² δ_1²; at those with u < 2δ_e, |u| ≤ δ_c, u + δ_c ≤
+At the points of 𝒮′ with u ≥ 2δ_e, |b̂| ≤ C_b |v| by (b) there, and |v| ≤ δ_c + (v + δ_c), so |b̂|² (u + δ_c)/(v + δ_c) ≤
+2C_b² (δ_c²/(v + δ_c) + (v + δ_c)) 4δ_1 ≤ 32 e C_b² δ_1² + 32 C_b² δ_1²; at those with u < 2δ_e, |u| ≤ δ_c, u + δ_c ≤
 2δ_c and |b̂| ≤ C_b (|u| + |v|), so |b̂|² (u + δ_c)/(v + δ_c) ≤ 2C_b² (δ_c² + v²) 2δ_c (u + δ_c) e/δ_c² ≤ 8e C_b² (δ_c² +
-16δ_1²). Hence, with |·| the norm of γ̊ and γ̂(b̂, b̂) ≤ C |b̂|², there is δ_2 > 0, depending only on Λ_1, κ_1 and l, such
-that 4Ĝ(∂_τ, ∂_τ) ≤ −2Ω̂² (u + δ_c)(v + δ_c) on 𝒮′ whenever δ_1 ≤ δ_2; this replaces the paragraph on the reference
-metric in case (II) of [[sec:loc-cone-reduced]], where b̂ vanished off the support of the correction. Fix δ_1 :=
-min(l/3, d/4, δ_2), l_u = l_v := 2δ_1 (so that N_o and N_i have length l ≥ 3δ_1 = l_u + δ_1), c_+ := (δ_1/4)², δ_c :=
-√c_+/8 = δ_1/32 and δ_e := δ_c/8, and let X̂, Ĝ, q̂_A be the formal solution of [[prop:civp-axes-formal]] for these data.
-Ĝ is a smooth G-invariant Lorentzian metric on 𝒮 × S³, for which u and v are null; on 𝒮′, ∂_τ is timelike for Ĝ, and dτ
-is timelike with P̂_A(τ) > 0, where P̂_A := Ĝ⁻¹p̂_A, p̂_in := −dv and p̂_out := −du; then the block Ĝ^(ab) of the inverse
-metric on the dy^a is positive definite there, as in that paragraph. By (a) there ‖X̂‖_(C^(k+3)) ≤ C. Put Θ̂_A := div_Ĝ P̂_A and Û := (Ĝ, p̂_A, Θ̂_A, q̂_A).
+16δ_1²). Hence, with |·| the norm of γ̊ and γ̂(b̂, b̂) ≤ C |b̂|², there is δ_2 > 0, depending only on Λ_1, κ_1 and l,
+such that 4Ĝ(∂_τ, ∂_τ) ≤ −2Ω̂² (u + δ_c)(v + δ_c) on 𝒮′ whenever δ_1 ≤ δ_2; this replaces the paragraph on the reference
+metric in case (II) of [[sec:loc-cone-reduced]], where b̂ vanished off the support of the correction. Fix δ_1 := min(l/3,
+d/4, δ_2), l_u = l_v := 2δ_1 (so that N_o and N_i have length l ≥ 3δ_1 = l_u + δ_1), c_+ := (δ_1/4)², δ_c := √c_+/8 =
+δ_1/32 and δ_e := δ_c/8, and let X̂, Ĝ, q̂_A be the formal solution of [[prop:civp-axes-formal]] for these data. Ĝ is a
+smooth G-invariant Lorentzian metric on 𝒮 × S³, for which u and v are null; on 𝒮′, ∂_τ is timelike for Ĝ, and dτ is
+timelike with P̂_A(τ) > 0, where P̂_A := Ĝ⁻¹p̂_A, p̂_in := −dv and p̂_out := −du; then the block Ĝ^(ab) of the inverse
+metric on the dy^a is positive definite there, as in that paragraph. By (a) there ‖X̂‖_(C^(k+3)) ≤ C. Put Θ̂_A := div_Ĝ
+P̂_A and Û := (Ĝ, p̂_A, Θ̂_A, q̂_A).
 
 *Step 2 (Chart, region, and the leaves of Û).* Use the chart (τ, y) of [[eq:loc-cone-time]] with this δ_c, τ_c := 2 ln
 δ_c, the time of the corner sphere, τ_+ := ln c_+, and the region 𝒰 of [[eq:loc-cone-region]] with its lower end τ_init ∈
@@ -529,9 +530,9 @@ are the level sets of u and v there: the round spheres {|y| = r}. At a point of 
 bounded below by a number c_Û > 0 depending only on δ_1, and likewise at axis 1. [[lem:class-leaf-reference]] therefore
 applies with V := Û on every slice, at every axis point of 𝒰, with constants depending only on C^(k+3) bounds of Û, on
 c_Û and on the radius r_Û of its part (o), so only on k, Λ, κ, l. Fix δ ∈ (0, r_Û/8], also at most δ_𝔐 of its part (b′)
-for 𝔐 := 1 + (the bound of 𝔐 for Û), at most a quarter of the least distance of 𝒰 to {y = 0}, and so small that the
-sets 𝒰_(2δ) about the axis points of the support of ξ below lie in the interior of 𝒮′; and let χ_ax be a
-smooth G-invariant function of y equal to 1 where dist(y, axes) ≤ δ/2 and to 0 where dist(y, axes) ≥ δ.
+for 𝔐 := 1 + (the bound of 𝔐 for Û), at most a quarter of the least distance of 𝒰 to {y = 0}, and so small that the sets
+𝒰_(2δ) about the axis points of the support of ξ below lie in the interior of 𝒮′; and let χ_ax be a smooth G-invariant
+function of y equal to 1 where dist(y, axes) ≤ δ/2 and to 0 where dist(y, axes) ≥ δ.
 
 *Step 3 (The modified system).* The unknowns U = (g, p_A, Θ_A, q_A), A ∈ {in, out}, and their first-order variables 𝐔 :=
 (g, g_τ, g_a, p_A, Θ_A, q_A) in the chart, are those of case (II), with the reduced Ricci tensor and the gauge vector
@@ -542,9 +543,10 @@ closure of Step 6 of the proof of [[thm:class-stability]], built near axis 2 fro
 leaves of U in Σ_τ ([[lem:class-leaf-reference]]), and near axis 1 likewise with the two circles exchanged. We write
 𝒜(U) = 0 for this system; its right side at a time depends on the unknowns at that time only.
 
-Let ξ be a smooth function of (u, v), equal to 1 on a neighbourhood 𝒰_1 of 𝒰 and supported in the interior of 𝒮′,
-which contains 𝒰 as (u + δ_c)(v + δ_c) ≥ δ_c² e^(−1/2) on 𝒰, χ_♭ and A^μ_♭ as in case (II) with Ĝ⁻¹ and P̂_A in place of g_e⁻¹ and P̊_A (so A^μ_♭ = A^μ(x, 𝐔̂) on supp ξ), and
-c_0, r_0, ϒ as there with 𝐔_c := 𝐔̂. For Z := 𝐔 − 𝐔̂ (𝐔̂ needed only on supp ξ) consider
+Let ξ be a smooth function of (u, v), equal to 1 on a neighbourhood 𝒰_1 of 𝒰 and supported in the interior of 𝒮′, which
+contains 𝒰 as (u + δ_c)(v + δ_c) ≥ δ_c² e^(−1/2) on 𝒰, χ_♭ and A^μ_♭ as in case (II) with Ĝ⁻¹ and P̂_A in place of g_e⁻¹
+and P̊_A (so A^μ_♭ = A^μ(x, 𝐔̂) on supp ξ), and c_0, r_0, ϒ as there with 𝐔_c := 𝐔̂. For Z := 𝐔 − 𝐔̂ (𝐔̂ needed only on
+supp ξ) consider
 
     ξ (A^μ(x, 𝐔̂ + ϒ(Z)) ∂_μ(𝐔̂ + Z) − F^♮(x, 𝐔̂ + Z)) + (1 − ξ) A^μ_♭ ∂_μ Z = F̃,
     F̃ := 1_P ξ 𝒜(Û),                                                                          {#eq:civp-axes-modified}
@@ -1020,17 +1022,17 @@ in place of ∇_Σ u and, for TΣ_L there, the γ3-orthogonal complement in TM3 
 H_L[Θ_A] is a function of position; they exist and are unique by [[lem:class-volterra]], and for U near ů they are
 C¹-close to the
 
-*3. Block B, [[ch:localised-data]].* The section of Block B, from its heading through the end of
-[[rem:civp-axes-scope]], is inserted as a new section after the Tier 3 section, which follows [[sec:civp-large]], and
-before the heading "### The static Killing field and the charge {#sec:loc-kid}" (line 602 of the current chapter), with
-one blank line before and one after. Its heading line is "### Developments of data of any size through the axes
-{#sec:civp-axes}". It defines sec:civp-axes, sec:civp-axes-data, eq:civp-axes-form, def:civp-axes-data,
-eq:civp-axes-raychaudhuri, sec:civp-axes-jets, lem:civp-axes-principal, eq:civp-axes-principal, lem:civp-axes-jets,
-lem:civp-axes-extension, prop:civp-axes-formal, sec:civp-axes-corner, prop:civp-axes-corner, eq:civp-axes-modified,
-sec:civp-axes-unique, prop:civp-axes-unique, cor:civp-axes-maximal, sec:civp-axes-faces, prop:civp-axes-faces,
-rem:civp-axes-riccati, sec:civp-axes-criterion, prop:civp-axes-criterion, sec:civp-axes-theorem,
-lem:civp-axes-free-data, thm:civp-axes, cor:civp-axes-cones, cor:civp-axes-perturbations and rem:civp-axes-scope, none
-of which is defined elsewhere. The prefix may be changed to loc- without other changes.
+*3. Block B, [[ch:localised-data]].* The section of Block B, from its heading through the end of [[rem:civp-axes-scope]],
+is inserted as a new section after the Tier 3 section, which follows [[sec:civp-large]], and before the heading "### The
+static Killing field and the charge {#sec:loc-kid}" (line 602 of the current chapter), with one blank line before and one
+after. Its heading line is the first line of Block B after the heading "Block B". It defines sec:civp-axes,
+sec:civp-axes-data, eq:civp-axes-form, def:civp-axes-data, eq:civp-axes-raychaudhuri, sec:civp-axes-jets,
+lem:civp-axes-principal, eq:civp-axes-principal, lem:civp-axes-jets, lem:civp-axes-extension, prop:civp-axes-formal,
+sec:civp-axes-corner, prop:civp-axes-corner, eq:civp-axes-modified, sec:civp-axes-unique, prop:civp-axes-unique,
+cor:civp-axes-maximal, sec:civp-axes-faces, prop:civp-axes-faces, rem:civp-axes-riccati, sec:civp-axes-criterion,
+prop:civp-axes-criterion, sec:civp-axes-theorem, lem:civp-axes-free-data, thm:civp-axes, cor:civp-axes-cones,
+cor:civp-axes-perturbations and rem:civp-axes-scope, none of which is defined elsewhere. The prefix may be changed to
+loc- without other changes.
 
 *4. [[ch:localised-data]], the paragraph after [[prop:loc-cones]], its last sentence, as Tier 2's item 3 writes it
 (proofs/P-CIVP2.md, lines 694–695).* Old:
@@ -1124,29 +1126,29 @@ Row B12. sec:civp-axes-corner; P-CIVP4:474; P-CIVP4 Block B, subsection; the cor
 Row B13. prop:civp-axes-corner; P-CIVP4:476; P-CIVP4 Block B, Proposition (Developments near a corner sphere through the
 axes, without smallness); T4-2: thm:class-kato (a) about Û, initial slice T*/2 before the corner, σ depending only on
 k, Λ, κ, l.
-Row B14. eq:civp-axes-modified; P-CIVP4:544; P-CIVP4 Block B, display; the modified system with the axis closure and
+Row B14. eq:civp-axes-modified; P-CIVP4:552; P-CIVP4 Block B, display; the modified system with the axis closure and
 F̃ = 1_P ξ 𝒜(Û).
-Row B15. sec:civp-axes-unique; P-CIVP4:666; P-CIVP4 Block B, subsection; uniqueness and the maximal development.
-Row B16. prop:civp-axes-unique; P-CIVP4:668; P-CIVP4 Block B, Proposition (Uniqueness in the gauge, without smallness);
+Row B15. sec:civp-axes-unique; P-CIVP4:674; P-CIVP4 Block B, subsection; uniqueness and the maximal development.
+Row B16. prop:civp-axes-unique; P-CIVP4:676; P-CIVP4 Block B, Proposition (Uniqueness in the gauge, without smallness);
 T4-4: wave maps from the first disagreement, leaf-wise estimate near the corner, extension about the first solution
 elsewhere.
-Row B17. cor:civp-axes-maximal; P-CIVP4:756; P-CIVP4 Block B, Corollary (The maximal development); D_max.
-Row B18. sec:civp-axes-faces; P-CIVP4:769; P-CIVP4 Block B, subsection; continuation along the generators.
-Row B19. prop:civp-axes-faces; P-CIVP4:771; P-CIVP4 Block B, Proposition (Continuation along the generators); T4-5 with
+Row B17. cor:civp-axes-maximal; P-CIVP4:764; P-CIVP4 Block B, Corollary (The maximal development); D_max.
+Row B18. sec:civp-axes-faces; P-CIVP4:777; P-CIVP4 Block B, subsection; continuation along the generators.
+Row B19. prop:civp-axes-faces; P-CIVP4:779; P-CIVP4 Block B, Proposition (Continuation along the generators); T4-5 with
 (C), (E), (J), (U); no a priori estimate.
-Row B20. rem:civp-axes-riccati; P-CIVP4:846; P-CIVP4 Block B, Remark; the Riccati model where bounded jets fail.
-Row B21. sec:civp-axes-criterion; P-CIVP4:854; P-CIVP4 Block B, subsection; the continuation criterion.
-Row B22. prop:civp-axes-criterion; P-CIVP4:856; P-CIVP4 Block B, Proposition (Continuation criterion); T4-6.
-Row B23. sec:civp-axes-theorem; P-CIVP4:877; P-CIVP4 Block B, subsection; the theorem.
-Row B24. lem:civp-axes-free-data; P-CIVP4:879; P-CIVP4 Block B, Lemma (Cone data from free data through the axes); the
+Row B20. rem:civp-axes-riccati; P-CIVP4:854; P-CIVP4 Block B, Remark; the Riccati model where bounded jets fail.
+Row B21. sec:civp-axes-criterion; P-CIVP4:862; P-CIVP4 Block B, subsection; the continuation criterion.
+Row B22. prop:civp-axes-criterion; P-CIVP4:864; P-CIVP4 Block B, Proposition (Continuation criterion); T4-6.
+Row B23. sec:civp-axes-theorem; P-CIVP4:885; P-CIVP4 Block B, subsection; the theorem.
+Row B24. lem:civp-axes-free-data; P-CIVP4:887; P-CIVP4 Block B, Lemma (Cone data from free data through the axes); the
 data of prop:loc-cones and lem:loc-cone-in through the axes.
-Row B25. thm:civp-axes; P-CIVP4:904; P-CIVP4 Block B, Theorem (Developments of cone data of any size through the axes);
+Row B25. thm:civp-axes; P-CIVP4:912; P-CIVP4 Block B, Theorem (Developments of cone data of any size through the axes);
 T4 (a)–(e).
-Row B26. cor:civp-axes-cones; P-CIVP4:941; P-CIVP4 Block B, Corollary (The cones of the two-dust background); the
+Row B26. cor:civp-axes-cones; P-CIVP4:949; P-CIVP4 Block B, Corollary (The cones of the two-dust background); the
 chapter's data of any size reaching the axes, when the cones do not focus.
-Row B27. cor:civp-axes-perturbations; P-CIVP4:957; P-CIVP4 Block B, Corollary (Small perturbations of a background that
+Row B27. cor:civp-axes-perturbations; P-CIVP4:965; P-CIVP4 Block B, Corollary (Small perturbations of a background that
 is round); Corollary P, conditional on the Tier 3 theorem about a general round background.
-Row B28. rem:civp-axes-scope; P-CIVP4:970; P-CIVP4 Block B, Remark (What thm:civp-axes does not give); width,
+Row B28. rem:civp-axes-scope; P-CIVP4:978; P-CIVP4 Block B, Remark (What thm:civp-axes does not give); width,
 rectangle, further families, regularity, symmetry.
 
 Notes for existing rows: the paragraph after prop:loc-cones (Placement item 4), the chapter opening (item 5); in
