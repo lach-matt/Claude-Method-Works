@@ -1105,14 +1105,15 @@ taken at its right end σ_+. Constants are rounded as in [[sec:tb2-algebraic-row
 
 ### Tables for the background below R_* {#sec:tab-bg}
 
-These tables carry the objects and the finite lists of inequalities used in [[sec:bg-below]]; the reference quintic
-ψ_s and the mass μ_s are those of [[sec:table-seed-profile]]. A number written with a decimal point and no exponent in
-the definition of an object (the approximants R̂ and Ψ̃) is an exact decimal. In the rows, the segment ends, the radii
-r of [[sec:tab-bg-nprime-defects]], the u- and ρ-ranges of the seed and slice tables and the entries 0 are exact
-decimals. Every other number in a row is a bound rounded outward: an upper bound, or a lower bound when it is the left
-entry of a range [x, y] or is named a minimum (Ŝ_min). Each row is checked from the rows above it and from the
-objects, by the rule named in its table; later rows use the rounded values as printed, and an entry obtained from
-other entries of its own row uses their unrounded values.
+These tables carry the objects and the finite lists of inequalities used in [[sec:bg-below]], for [[prop:bg-nprime]],
+[[prop:bg-rays]], [[prop:bg-seed]], [[prop:bg-slice]] and [[prop:bg-region-three-end]]; the reference quintic ψ_s and
+the mass μ_s are those of [[sec:table-seed-profile]]. A number written with a decimal point and no exponent in the
+definition of an object (the approximants R̂ and Ψ̃) is an exact decimal. In the rows, the segment ends, the radii r of
+[[sec:tab-bg-nprime-defects]], the u- and ρ-ranges of the seed and slice tables and the entries 0 are exact decimals.
+Every other number in a row is a bound rounded outward: an upper bound, or a lower bound when it is the left entry of a
+range [x, y] or is named a minimum (Ŝ_min). Each row is checked from the rows above it and from the objects, by the rule
+named in its table; later rows use the rounded values as printed, and an entry obtained from other entries of its own
+row uses their unrounded values.
 
 #### The approximant R̂ on 𝒞_in {#sec:tab-bg-nprime}
 
@@ -1511,9 +1512,9 @@ the proof of [[prop:bg-region-three-end]] (b) and 𝔲, m, W, n0, A0, A1, A2, A3
 
 ### Tables for the margins of the angle-localised families {#sec:table-margins}
 
-These tables carry the objects and the rows that the proofs of [[sec:margins]] use. Every number is a terminating
-decimal. Where a printed number is a rounding of a real number, the proof that uses it states the rounding and absorbs
-it into its error bounds.
+These tables carry the objects and the rows that the proofs of [[sec:margins]] use, for [[prop:margins-bend]],
+[[thm:margins-hyperbolic]] and [[prop:margins-seed]]. Every number is a terminating decimal. Where a printed number is a
+rounding of a real number, the proof that uses it states the rounding and absorbs it into its error bounds.
 
 #### The bump and its integrals {#sec:table-bump}
 
