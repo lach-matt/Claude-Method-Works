@@ -642,3 +642,25 @@ C95-3, the crosswalk deletion, insertion and notes, and P-G24b's T1–T45 with v
 - **F3.** This one is not in P-G1. P-G24b's §8 still describes the earlier C33-11 ("the coefficient of ‖Aω‖² is at most
   −c_0 + …") and says "C33-12 is the end of line 1534"; C33-12 is now the whole of line 1534. Neither affects the merge in
   the stated order, P-G1 first. It is for P-G24b's next round.
+
+---
+
+## Confirmation (proofs/P-G1.md md5 b2d824fb9e0990378a7f16c0d1a726b7, 1,224 lines)
+
+**CONFIRMED.** I diffed the file against the version read in the Final section (d7105443…), and only the two requested
+lines changed:
+
+- **F1 (lines 1091–1092).** These now read "[Hin26d, Lemma 3.18, p. 36, and the norm after it," / "p. 37; Lemma 3.20, p.
+  38; …", at 115 and 112 characters.
+- **F2 (line 1180).** This now reads "each of the 45 old texts of P-G24b", at 121 characters.
+
+Nothing else moved. The scratch merge at HEAD was rerun with this file and with the current P-G24b (md5 e43265c4…): P-G1
+first, then T1–T45 with T41 as variant A. It is clean:
+
+- every old text is found exactly once;
+- lint reports 0 hits (62 files, 4678 labels);
+- the assembly check reports 0 problems;
+- no line exceeds 121 characters in any chapter or in the assembled PAPER.md;
+- the crosswalk notes apply.
+
+No Major or minor finding remains. F3 belongs to P-G24b's writer.
