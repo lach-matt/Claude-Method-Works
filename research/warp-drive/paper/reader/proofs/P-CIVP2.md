@@ -1,46 +1,42 @@
 ### Developments of cone data without smallness {#sec:civp-large}
 
 This section develops the cone data of [[prop:loc-cones]] without smallness; for data near the background's the
-development is [[pending:civp-tier1-theorem]]. For cone data of any size that equal the background's outside a band
-away from the axes, with or without dust, a development in the gauge [[eq:loc-double-null]] exists on a neighbourhood
-{min(u, v) ≤ δ} of the two cones, which contains {uv ≤ δ²}; it equals the background outside a slightly wider band, and
-it is unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]). The number δ
-depends on the data. The route is that of Cabet, Chruściel and Tagne Wafo [CCTW16]. Off the axes, [[prop:reduction]]
-turns the class system into a three-dimensional one for the conformal orbit metric h, two waves ψ and ω and the two
-densities. In three dimensions the curvature is determined by the Ricci tensor, and the reduction expresses the Ricci
-tensor through the densities and the first derivatives of ψ and ω. So in a double-null frame of h the connection
-coefficients obey transport equations along the two null directions with no angular derivative of an unknown on the
-right, and the waves become first-order systems of the same kind ([[lem:civp-large-frame]]). The resulting evolution
-system has the doubly-null form of [CCTW16, (2.7)–(2.8)] ([[prop:civp-large-system]]), and once it is localised in
-angle their theorem ([[thm:std-cctw-existence]], [[thm:std-cctw-strips]]) gives a solution on two strips along the
-cones. That this solution solves the Einstein equations is shown by the device of the proof of [CCTW16, Theorem 5.3,
-pp. 55–56], which builds the development up in the time u + v; where that proof solves Cauchy and mixed problems, the
-local developments here are those near corner spheres ([[prop:civp-large-corner]]), each of which coincides with the
-strip solution by an energy estimate ([[lem:civp-large-energy]]).
+development is that of [[thm:loc-cone-development]]. For cone data of any size that equal the background's outside a
+band away from the axes, with or without dust, a development in the gauge [[eq:loc-double-null]] exists on a
+neighbourhood {min(u, v) ≤ δ} of the two cones, which contains {uv ≤ δ²}; it equals the background outside a slightly
+wider band, and it is unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]).
+The number δ depends on the data. The route is that of Cabet, Chruściel and Tagne Wafo [CCTW16]. Off the axes,
+[[prop:reduction]] turns the class system into a three-dimensional one for the conformal orbit metric h, two waves ψ and
+ω and the two densities. In three dimensions the curvature is determined by the Ricci tensor, and the reduction
+expresses the Ricci tensor through the densities and the first derivatives of ψ and ω. So in a double-null frame of h
+the connection coefficients obey transport equations along the two null directions with no angular derivative of an
+unknown on the right, and the waves become first-order systems of the same kind ([[lem:civp-large-frame]]). The
+resulting evolution system has the doubly-null form of [CCTW16, (2.7)–(2.8)] ([[prop:civp-large-system]]), and once it
+is localised in angle their theorem ([[thm:std-cctw-existence]], [[thm:std-cctw-strips]]) gives a solution on two strips
+along the cones. That this solution solves the Einstein equations is shown by the device of the proof of [CCTW16,
+Theorem 5.3, pp. 55–56], which builds the development up in the time u + v; where that proof solves Cauchy and mixed
+problems, the local developments here are those near corner spheres ([[prop:civp-large-corner]]), each of which
+coincides with the strip solution by an energy estimate ([[lem:civp-large-energy]]).
 
-*The small-data theorem.* [[pending:civp-tier1-theorem]] is used only for comparison, in [[rem:civp-large-domain]] and
-[[rem:civp-large-beyond]], and what is used of it is the following statement: for cone data in the sense of
-[[def:civp-large-data]] near the background's, with Ω the background's on 𝒞_out, there is a class solution in the gauge
-[[eq:loc-double-null]] on the explicit past set {uv ≤ δ_*²} ∩ Q1, times S³, that induces the data and equals (g0,
-q̊_in, q̊_out) at the points with ϑ ∉ [η′, π/2 − η′] for some η′ > 0; it comes with an estimate of the solution, and
-its uniqueness is stated near the background only.
-
-*Notation.* The background g0, the cones 𝒞_out = {u = 0} and 𝒞_in = {v = 0}, the corner sphere S = 𝒞_out ∩ 𝒞_in and
-the gauge [[eq:loc-double-null]] are those of [[sec:loc-cones]]. We fix u_1, v_1 > 0 such that the background is defined,
-in the gauge [[eq:loc-double-null]], on a neighbourhood of Q1 × S³, Q1 := [0, u_1] × [0, v_1]; there b = 0, γ_ϑ = R²,
-A_c = ln(R cos ϑ) and A_s = ln(R sin ϑ), Ω is a function of (u, v), and Ric(g0) = q̊_in dv ⊗ dv + q̊_out du ⊗ du
-([[eq:two-dust-limit]]). We fix a band 0 < ϑ_a < ϑ_b < π/2 and put
+*Notation.* The background g0, the cones 𝒞_out = {u = 0} and 𝒞_in = {v = 0}, the corner sphere S = 𝒞_out ∩ 𝒞_in and the
+gauge [[eq:loc-double-null]] are those of [[sec:loc-cones]], and R is the area radius of g0. We fix u_1, v_1 > 0 such
+that the background is defined and smooth on [0, u_1′] × [0, v_1′] for some u_1′ > u_1 and v_1′ > v_1, and put Q1 := [0,
+u_1] × [0, v_1]; every u_1 ≤ 7.2 and every v_1 > 0 will do ([[lem:civp-large-rectangle]] (a)). On Q1 × S³, in the gauge
+[[eq:loc-double-null]], b = 0, γ_ϑ = R², A_c = ln(R cos ϑ) and A_s = ln(R sin ϑ), Ω is a function of (u, v), and
+Ric(g0) = q̊_in dv ⊗ dv + q̊_out du ⊗ du ([[eq:two-dust-limit]]). We extend Ω and R smoothly across the two cones, as in
+[[lem:civp-large-rectangle]] (a), to an open set 𝒪 of the (u, v)-plane that contains Q1 and on which Ω, R > 0; so g0 =
+−4Ω² du dv + R² dΩ₃² is given on 𝒪 × S³ and solves [[eq:two-dust-limit]] at the points of 𝒪 with u, v ≥ 0. We fix a band
+0 < ϑ_a < ϑ_b < π/2 and put
 
     η0 := (1/3) min(ϑ_a, π/2 − ϑ_b),      J0 := [ϑ_a − 2η0, ϑ_b + 2η0] ⊂ [η0, π/2 − η0].  {#eq:civp-large-band}
 
-A set D ⊂ Q1 is a *past set* if [0, u] × [0, v] ⊂ D for every (u, v) ∈ D. A *class solution in the gauge* on D × S³ is
-a smooth class solution (g, v, u, q_in, q_out) of [[eq:class-system]] with N_f = 2, the phase v carrying the density
-q_in and the phase u the density q_out, whose metric has the form [[eq:loc-double-null]] off the axes with Ω, γ_ϑ, b,
-A_c, A_s smooth functions of (u, v, ϑ) on D × (0, π/2), the metric extending smoothly to the axes, as g0 does.
+A set D ⊂ Q1 is a *past set* if [0, u] × [0, v] ⊂ D for every (u, v) ∈ D. Class solutions in the gauge on D × S³, D ⊂
+Q1, are those of [[sec:loc-cone-setting]], with the corner at S and g0 as the background; their metrics equal g0 near
+the axes, and so extend smoothly to them.
 
-**Definition {#def:civp-large-data}** (Cone data.) *Cone data* consist of smooth functions Ω > 0, γ_ϑ > 0, b, A_c, A_s
-and q_in ≥ 0 of (v, ϑ) ∈ [0, v_1] × (0, π/2) on 𝒞_out, and Ω > 0, γ_ϑ > 0, A_c, A_s and q_out ≥ 0 of (u, ϑ) ∈ [0, u_1] ×
-(0, π/2) on 𝒞_in, with b = 0 on 𝒞_in, such that:
+**Definition {#def:civp-large-data}** (Cone data on Q1.) *Cone data on Q1* consist of smooth functions Ω > 0, γ_ϑ > 0,
+b, A_c, A_s and q_in ≥ 0 of (v, ϑ) ∈ [0, v_1] × (0, π/2) on 𝒞_out, and Ω > 0, γ_ϑ > 0, A_c, A_s and q_out ≥ 0 of (u, ϑ)
+∈ [0, u_1] × (0, π/2) on 𝒞_in, with b = 0 on 𝒞_in, such that:
 
 (i) the two sets of functions agree on S;
 
@@ -51,14 +47,128 @@ there);
 
 (iii) they equal the background's outside compact sets K_out ⊂ [0, v_1] × (ϑ_a, ϑ_b) and K_in ⊂ [0, u_1] × (ϑ_a, ϑ_b).
 
-[[prop:loc-cones]] and its analogue on 𝒞_in with b = 0 there ([[pending:civp-tier1-cin-cones]]) produce cone data from
-free data (ℓ_1, ℓ_2, ℓ_3, q_in) on 𝒞_out and (ℓ_1, ℓ_2, ℓ_3, q_out) on 𝒞_in whenever the conformal factors e^ϕ that
-they determine stay positive on [0, v_1] and on [0, u_1]; no smallness is needed for that. The analogue on 𝒞_in is the
-statement: for free data (ℓ_1, ℓ_2, ℓ_3, q_out) on 𝒞_in ∩ {u ≤ u_1} that agree with those on 𝒞_out at S and equal the
-background's outside a compact subset of [0, u_1] × (ϑ_a, ϑ_b), with b = 0 and Ω the background's on 𝒞_in, the
-constraint Ric(∂_u, ∂_u) = q_out determines γ_ϑ, A_c, A_s on every generator on which e^ϕ stays positive, and the
-result is the background's at every ϑ outside the band. No step of the proof of [[thm:civp-large]] uses it, the theorem
-taking cone data as given. Data with q_in = q_out = 0 are vacuum data.
+[[prop:loc-cones]] and [[lem:loc-cone-in]] produce cone data on Q1 from free data whenever the conformal factors e^ϕ
+that they determine stay positive, and no smallness is needed for that ([[lem:civp-large-free]]).
+
+**Lemma {#lem:civp-large-free}** (Cone data on Q1 from free data.) Let free data (ℓ_1, ℓ_2, ℓ_3) and q_in ≥ 0 on 𝒞_out ∩
+{v ≤ v_1} be given as in [[prop:loc-cones]], and (ℓ_1, ℓ_2, ℓ_3) and q_out ≥ 0 on 𝒞_in ∩ {u ≤ u_1} as in
+[[lem:loc-cone-in]], smooth, agreeing on S, and equal to the background's outside compact subsets of [0, v_1] × (ϑ_a,
+ϑ_b) and of [0, u_1] × (ϑ_a, ϑ_b). On a generator of either cone let y := e^ϕ be the factor that the constraint
+determines, ′ the derivative along the generator, L := v_1 on 𝒞_out and L := u_1 on 𝒞_in, ρ := Ω^(−2) and p := (1/3)(Σ_i
+(ℓ_i′)² + q), with q := q_in on 𝒞_out and q := q_out on 𝒞_in, and let ẙ := e^(ϕ̊) and p̊ be the background's.
+
+(a) If y > 0 on [0, L] on every generator of both cones, then the functions so determined, Ω, γ_ϑ = e^(2ϕ + 2ℓ_1), b,
+A_c = ϕ + ℓ_2, A_s = ϕ + ℓ_3 and q_in on 𝒞_out, and Ω, γ_ϑ, A_c, A_s and q_out on 𝒞_in, with b = 0 there, are cone data
+on Q1.
+
+(b) On a generator put
+
+    I := ∫_0^L ρ(s) (p − p̊)_+(s) ẙ(s)² ∫_s^L ρ(t)⁻¹ ẙ(t)^(−2) dt ds,      (p − p̊)_+ := max(p − p̊, 0).
+
+If I < 1, then y ≥ (1 − I) ẙ > 0 on [0, L]. In particular y ≥ ẙ on a generator on which p ≤ p̊.
+
+*Proof.* (b) By the first line of [[eq:loc-cone]] and by [[eq:loc-cone-in]], as in the proof of [[prop:loc-cones]], y
+solves y″ − 2(ln Ω)′y′ + py = 0, that is (ρy′)′ + ρpy = 0, since ρ′ = −2(ln Ω)′ρ; the background's ẙ solves (ρẙ′)′ +
+ρp̊ẙ = 0, Ω being the background's; and y and ẙ have the same value and the same derivative at the corner. Put p̃ :=
+p̊ + (p − p̊)_+, so that p ≤ p̃, let z solve (ρz′)′ + ρp̃z = 0 with the same initial values, and put w := z/ẙ. Then
+ρẙ²w′ = ρ(z′ẙ − zẙ′), so (ρẙ²w′)′ = −ρ(p − p̊)_+ẙ²w, with w(0) = 1 and w′(0) = 0. On an interval [0, t_0] on which w ≥ 0
+this gives ρẙ²w′ ≤ 0, so w ≤ 1, and, exchanging the order of integration, for t ≤ t_0
+
+    w(t) = 1 − ∫_0^t (ρẙ²)⁻¹(τ) ∫_0^τ (ρ(p − p̊)_+ẙ²w)(s) ds dτ
+         ≥ 1 − ∫_0^t ρ(s) (p − p̊)_+(s) ẙ(s)² ∫_s^t (ρẙ²)⁻¹(τ) dτ ds ≥ 1 − I.
+
+If w vanished somewhere on [0, L], this bound at its first zero would contradict I < 1; so w ≥ 1 − I on [0, L]. Next, W
+:= ρ(y′z − yz′) vanishes at 0 and has W′ = (ρy′)′z − y(ρz′)′ = ρ(p̃ − p)yz. On an interval [0, t_1) on which y > 0,
+therefore, W ≥ 0, (y/z)′ = W/(ρz²) ≥ 0 and y ≥ z. If y had a first zero t_1 ∈ (0, L], continuity would give y(t_1) ≥
+z(t_1) > 0, which is absurd. So y ≥ z = wẙ ≥ (1 − I)ẙ on [0, L]. If p ≤ p̊, then I = 0.
+
+(a) By [[prop:loc-cones]] and [[lem:loc-cone-in]], the constraints determine ϕ and b on 𝒞_out, and ϕ on 𝒞_in, on every
+generator on which y > 0, as solutions of linear ordinary differential equations along the generators whose coefficients
+and initial values depend smoothly on the angle; so the functions are smooth on [0, v_1] × (0, π/2) and on [0, u_1] ×
+(0, π/2), and Ω, γ_ϑ > 0. Condition (i) of [[def:civp-large-data]] holds: on S the free data agree, ϕ and Ω are the
+background's on both cones, and b vanishes on both, being the background's at v = 0 on 𝒞_out. Condition (ii) holds by
+construction, since T = q_in dv ⊗ dv + q_out du ⊗ du gives T(∂_v, ∂_v) = q_in, T(∂_v, ∂_ϑ) = 0 and T(∂_u, ∂_u) = q_out.
+For (iii) let [ϑ_a″, ϑ_b″] ⊂ (ϑ_a, ϑ_b) contain in its interior the angles of the two compact sets. [[prop:loc-cones]]
+and [[lem:loc-cone-in]], applied with the band (ϑ_a″, ϑ_b″), give the background's functions at every ϑ ∉ [ϑ_a″, ϑ_b″];
+so K_out := [0, v_1] × [ϑ_a″, ϑ_b″] and K_in := [0, u_1] × [ϑ_a″, ϑ_b″] serve. ∎
+
+**Lemma {#lem:civp-large-rectangle}** (The background on a rectangle of the two cones.) Use the coordinates (u, v) of
+[[sec:loc-setting]], let v_1 > 0, and let V1 in [[prop:two-dust-background]] be chosen so large that V1′ > v_1 + 1, as
+in the proof of [[lem:loc-cone-strips]] (a).
+
+(a) The rectangle [0, 7.2] × [0, v_1] lies in the set G of [[prop:two-dust-background]] (d), and R_v > 0 and R ≥
+1.519357 on it. There is δ ∈ (0, 1/2) such that the background is defined and smooth on [0, 7.2 + 2δ] × [0, v_1 + 2δ],
+and Ω and R extend to smooth positive functions on [−δ, 7.2 + δ] × [−δ, v_1 + δ].
+
+(b) Let free data be given as in [[lem:civp-large-free]], with u_1 ≤ 7.2. On 𝒞_out the number I of
+[[lem:civp-large-free]] (b) is at most ∫_0^(v_1) (v_1 − s) (p − p̊)_+(s) ds, and on 𝒞_in it is at most R(7.2, 0)^(−2)
+∫_0^(u_1) R(s, 0)² (u_1 − s) (p − p̊)_+(s) ds, with R(7.2, 0)² ≥ 2.308; and p − p̊ = (1/3)(Σ_i (ℓ_i′)² + q − q̊), q̊ the
+background's density. So e^ϕ stays positive on every generator of a cone in each of the following cases, and when it
+does on both cones the free data give cone data on Q1 ([[lem:civp-large-free]] (a)), the conformal data (ℓ_1, ℓ_2, ℓ_3)
+being the background's and c a smooth function of ϑ with compact support in (ϑ_a, ϑ_b): a density q − q̊ ≥ 0 added on
+𝒞_out with supremum A on an interval of v of length l, if v_1 A l < 3, or on 𝒞_in with supremum A on an interval of u of
+length l, if 26 A l ≤ 1; the density of the shell multiplied by 1 + c with −1 ≤ c ≤ 76, if v_1 = 4.5; and the density of
+the packet multiplied by 1 + c with −1 ≤ c ≤ 4.5, if u_1 = 7.2. In particular there are such data with densities of
+every amplitude.
+
+*Proof.* (a) Let σ be the function of [[eq:bg-field]], e^(2σ) = 2Ω². By [[lem:two-dust-reparametrisation]] (b),
+[[prop:two-dust-background]] holds in these coordinates (proof of [[lem:loc-cone-strips]] (a)): G is closed in Q = [0,
+∞) × [0, V1′], its boundary in Q lies in {R = a}, a = 0.70, the background is smooth on G, and μ ≥ μ0 > 0 on G. G is a
+past set: for p ∈ G and q ∈ J⁻(p) = [0, u_p] × [0, v_p], J⁻(q) ⊂ J⁻(p). By [[eq:two-dust-evolution]] and
+[[eq:two-dust-mass]], which hold in these coordinates, σ_uv = 3(e^(2σ) + 2R_uR_v)/(2R²) = (3/2)e^(2σ)μ/R⁴ > 0 on G, and
+σ = −(1/2) ln 2 on both cones; so σ(u, v) = −(1/2) ln 2 + ∫_0^u ∫_0^v σ_uv ≥ −(1/2) ln 2 on every rectangle J⁻(p), p ∈
+G, that is 1/2 ≤ e^(2σ) and e^(−2σ) ≤ 2. Put λ := e^(−2σ)R_v. Then λ_v = −𝒜e^(−2σ)/(3R²) ([[lem:bg-identities]]) and
+λ(u, 0) = 2R_v(u, 0) = ℓ_v(u) ([[lem:bg-reduction]] (a)).
+
+*On 𝒞_in.* There R″ = −ℬ/(3R²) ≤ 0 and R′ = −0.47 on [0, u1] ([[lem:bg-reduction]] (a)), so R(·, 0) decreases, and R(u,
+0) ≥ R(u2, 0) ≥ 1.519357 for u ≤ 7.2 ([[prop:bg-nprime]] (i)). μ(·, 0) is 3/2 on [0, u1] ([[lem:bg-reduction]] (b)) and
+at least μ3 > 0 on [u1, u2] ([[prop:bg-nprime]] (iii)), so ℓ_v′ = −μ/R³ < 0 on [0, 7.2] ([[eq:bg-nprime]]) and ℓ_v(u) ≥
+ℓ_v(u2) ≥ 0.529533 for u ≤ 7.2 ([[prop:bg-nprime]] (iii)).
+
+*At a point of G.* Let p ∈ G with u_p ≤ 7.2 and v_p ≤ v_1, and (u, v) ∈ J⁻(p). For v ≤ 3, 𝒜 = 0, so λ(u, v) = ℓ_v(u) ≥
+0.529533 and R_v = e^(2σ)λ ≥ 0.264766. Hence R(u, v) ≥ R(u, 0) ≥ 1.519357 for v ≤ min(v_p, 3), and R(u, 3) ≥ 1.519357 +
+3 × 0.264766 ≥ 2.3136 if v_p ≥ 3. If v_p > 3, let w be the supremum of the v ∈ [3, v_p] such that λ(u, ·) > 0 on [3, v];
+λ(u, 3) > 0, so w > 3. On [3, w], R(u, ·) is nondecreasing, so R ≥ 2.3136, and since 𝒜 ≥ 0 vanishes outside [3, 4.5] and
+∫_3^4.5 𝒜 = 2.7 K ≤ 3.25878, K := ∫_(−1)^1 β ≤ 1.2069549 ([[lem:margins-bump-table]] (a)),
+
+    λ(u, v) = ℓ_v(u) − (1/3) ∫_3^v 𝒜 e^(−2σ)/R² ≥ 0.529533 − (2 × 3.25878)/(3 × 2.3136²) ≥ 0.1236.
+
+By continuity w = v_p. So R_v = e^(2σ)λ > 0 on J⁻(p), and R ≥ R(u, 0) ≥ 1.519357 > a there; in particular R(p) > a, p is
+not on the boundary of G in Q, and G contains a neighbourhood of p in Q.
+
+*Conclusion.* So G ∩ T, T := [0, 7.2] × [0, v_1], is open in T; it is closed in T, G being closed in Q; and it contains
+the corner, which lies in G, R being 5 there. T is connected, so T ⊂ G, and by the previous paragraph R_v > 0 and R ≥
+1.519357 on T. The points of G with R > a are interior points of G in Q, so they form a set open in Q that contains the
+compact T, hence [0, 7.2 + 2δ] × [0, v_1 + 2δ] for some δ ∈ (0, 1/2); there the background is smooth, solves
+[[eq:two-dust-limit]] and has R > a. [[lem:loc-cone-borel]], with r := 0, applied as in the proof of
+[[lem:loc-cone-strips]] (b) to the derivatives of σ and of R on {0} × [0, v_1 + 2δ] and on [0, 7.2 + 2δ] × {0}, which do
+not depend on ϑ, extends σ and R to smooth functions on (−∞, 7.2 + 2δ] × (−∞, v_1 + 2δ]; after decreasing δ, R > 0 on
+[−δ, 7.2 + δ] × [−δ, v_1 + δ] by continuity, and Ω = e^σ/√2 > 0.
+
+(b) On the cones e^(2σ) = 1/2, so Ω² = 1/4 and ρ = 4; and ẙ = R (sin ϑ cos ϑ)^(1/3), since ϕ̊ = (ϰ̊_1 + ϰ̊_2 + ϰ̊_3)/3
+with ϰ̊_1 = ln R, ϰ̊_2 = ln(R cos ϑ), ϰ̊_3 = ln(R sin ϑ). So ρ and the angular factor cancel in I, and I = ∫_0^L (p −
+p̊)_+(s) ∫_s^L (R(s)/R(t))² dt ds, R taken on the cone. On 𝒞_out, R increases ([[lem:loc-cone-strips]] (c)), so the
+inner integral is at most L − s. On 𝒞_in, R decreases, so for s ≤ t ≤ u_1 ≤ 7.2 it is at least R(7.2, 0) ≥ 1.519357, and
+the inner integral is at most (u_1 − s)R(s, 0)²/R(7.2, 0)². The background's ℓ̊_i = ϰ̊_i − ϕ̊ depend on ϑ only, so
+ℓ̊_i′ = 0 and p − p̊ = (1/3)(Σ_i (ℓ_i′)² + q − q̊). With the conformal data the background's, (p − p̊)_+ = (q − q̊)_+/3.
+For an added density on 𝒞_out, I ≤ v_1 · A l/3 < 1. On 𝒞_in, R(s, 0) ≤ 5, so I ≤ (25/2.308) · 7.2 · A l/3 ≤ 25.997 A l <
+1. For the shell, q̊_in = 𝒜/R³ ≤ 𝒜/125 on 𝒞_out; at an angle with c ≤ 0, p ≤ p̊, and at one with 0 < c ≤ 76, I ≤ (1.5/3)
+· 76 · ∫_3^4.5 𝒜/125 ≤ 0.5 × 76 × 3.25878/125 < 0.991, since (q − q̊)_+ = c q̊_in vanishes outside [3, 4.5] and v_1 − s
+≤ 1.5 there. For the packet, q̊_out = ℬ/R³ with ℬ supported in [u1, u2] and ∫ ℬ = 1.275 K ≤ 1.53887; at an angle with 0
+< c ≤ 4.5, I ≤ (4.5/3) · 1.5 · ∫ ℬ/(R(s, 0) R(7.2, 0)²) ds ≤ 2.25 × 1.53887/(1.519357 × 2.308) < 0.988, and where c ≤ 0,
+p ≤ p̊. In each case [[lem:civp-large-free]] (b) gives e^ϕ > 0. A density added on 𝒞_out with supremum A on an interval
+of length l < 3/(v_1 A) has amplitude A, for every A > 0. ∎
+
+No step of the proof of [[thm:civp-large]] uses the two lemmas, the theorem taking cone data on Q1 as given. Data with
+q_in = q_out = 0 are vacuum data.
+
+*The small-data theorem.* [[thm:loc-cone-development]] is used only for comparison, in [[rem:civp-large-domain]] and
+[[rem:civp-large-beyond]]. Its data are cone data on Q1 in the sense of [[def:civp-large-data]], with Ω the background's
+on both cones, obtained by [[prop:loc-cones]] and [[lem:loc-cone-in]] from free data within ε_0 of the background's in
+C^(6k+21) that equal the background's outside compact subsets of [0, v_1) × (ϑ_a, ϑ_b) and [0, u_1) × (ϑ_a, ϑ_b), with
+u_1, v_1 as in that theorem; it gives a class solution in the gauge [[eq:loc-double-null]] on the explicit past set {uv
+≤ δ_*²} ∩ Q1, times S³, that induces the data and equals (g0, q̊_in, q̊_out) where ϑ ≤ ϑ_a − 3η0/4 or ϑ ≥ ϑ_b + 3η0/4,
+with an estimate of the solution, and its uniqueness in the gauge is stated near the background only.
 
 #### The reduced system in a double-null frame {#sec:civp-large-frame}
 
@@ -80,9 +190,9 @@ Its *connection coefficients* are
     χ := h(∇_1 e4, e1),   χ̲ := h(∇_1 e3, e1),   η := (1/2) h(e1, ∇_3 e4),   η̲ := (1/2) h(e1, ∇_4 e3),
     ϖ := (1/4) h(e3, ∇_4 e4),   ϖ̲ := (1/4) h(e4, ∇_3 e3),   ζ := (1/2) h(∇_1 e4, e3),
 
-with ∇ the connection of h and ∇_i := ∇_(e_i). We write Ric_ij := Ric[h](e_i, e_j) and, for a function F, e_iF for
-its derivative. The *exchange* is the map e3 ↔ e4, χ ↔ χ̲, η ↔ η̲, ϖ ↔ ϖ̲, ζ ↔ −ζ; it maps each definition above to
-another one.
+with ∇ the connection of h and ∇_i := ∇_(e_i). These are not the quantities of the same names in [[sec:loc-cone-proof]].
+We write Ric_ij := Ric[h](e_i, e_j) and, for a function F, e_iF for its derivative. The *exchange* is the map e3 ↔ e4, χ
+↔ χ̲, η ↔ η̲, ϖ ↔ ϖ̲, ζ ↔ −ζ; it maps each definition above to another one.
 
 **Lemma {#lem:civp-large-frame}** (The double-null frame of h.) (a) The coefficients are
 
@@ -306,7 +416,7 @@ other than η and χ are the functions on N_i and their derivatives along N_i, �
 and η and χ solve (F5) (with η̲ = 2e1α − η) and (F4) along the integral curves of e3 in N_i with M_31, M_11 in place of
 Ric_31, Ric_11.
 
-(b) Let cone data be given. Define on 𝒞_out, from its functions and with α, β, ψ, ω as in [[eq:civp-large-h]],
+(b) Let cone data on Q1 be given. Define on 𝒞_out, from its functions and with α, β, ψ, ω as in [[eq:civp-large-h]],
 
     ϖ := −(1/2) e4α,   η̲ := (1/4) e^(β−2α) ∂_vb + e1α,   Ψ° := Ψ,   Ψ_4 := e4Ψ,   Ψ_1 := e1Ψ,
 
@@ -404,44 +514,28 @@ faces ϑ = ϑ± the field X vanishes, since z does. The same inequality gives z 
 
 #### Local developments {#sec:civp-large-local}
 
-*What is required of [[pending:civp-tier1-local]].* [[prop:civp-large-corner]] is the one result of this section whose
-proof is not written out here: it is the local form, without smallness, of the construction of
-[[pending:civp-tier1-local]], and that construction must provide it exactly as stated, with its regularity index m
-defined there. Each of the following features is used in the continuation of the proof of [[thm:civp-large]]: the
-corner anywhere in Q1, not only at S, and any lengths of the edges; Ω arbitrary on both edges and b arbitrary on N_o,
-with b = 0 on N_i; densities q_in, q_out ≥ 0; no smallness of the data; and σ depending only on Λ, κ, m and the
-background on a neighbourhood of Q1 × S³, uniformly in the corner and in the lengths of the edges.
-
-**Proposition {#prop:civp-large-corner}** (Developments near a corner sphere, without smallness.) Let m be the
-regularity index of [[pending:civp-tier1-local]] and κ ∈ (0, π/8]. For every Λ > 0 there is σ > 0 with the following
-property. Let 𝒬 = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ Q1, N_o := {u_c} × [v_c, v_c + l_v] and N_i := [u_c, u_c + l_u]
-× {v_c}. Let smooth functions Ω > 0, γ_ϑ > 0, b, A_c, A_s and q_in ≥ 0 of (v, ϑ) ∈ [v_c, v_c + l_v] × (0, π/2),
-and Ω > 0, γ_ϑ > 0, A_c, A_s and q_out ≥ 0 of (u, ϑ) ∈ [u_c, u_c + l_u] × (0, π/2), with b = 0 on N_i, be given that
-agree on the corner sphere, satisfy Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(∂_u, ∂_u) = q_out on N_i,
-equal the background's at the points with ϑ ∉ [2κ, π/2 − 2κ], and whose differences from the background's, with ln Ω,
-ln γ_ϑ in place of Ω, γ_ϑ, have C^m norms at most Λ. Then there is a class solution in the gauge on [u_c, u_c +
-min(l_u, σ)] × [v_c, v_c + min(l_v, σ)] × S³ that induces these functions on the two edges and equals (g0, q̊_in,
+**Proposition {#prop:civp-large-corner}** (Developments near a corner sphere, without smallness.) Let m := 114, the
+regularity index m_1 = 12k + 42 of [[prop:loc-cone-local]] for k = 6, and κ ∈ (0, π/8]. For every Λ > 0 there is σ > 0
+with the following property. Let 𝒬 = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ Q1, N_o := {u_c} × [v_c, v_c + l_v] and N_i
+:= [u_c, u_c + l_u] × {v_c}. Let smooth functions Ω > 0, γ_ϑ > 0, b, A_c, A_s and q_in ≥ 0 of (v, ϑ) ∈ [v_c, v_c + l_v]
+× (0, π/2), and Ω > 0, γ_ϑ > 0, A_c, A_s and q_out ≥ 0 of (u, ϑ) ∈ [u_c, u_c + l_u] × (0, π/2), with b = 0 on N_i, be
+given that agree on the corner sphere, satisfy Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(∂_u, ∂_u) =
+q_out on N_i, equal the background's at the points with ϑ ∉ [2κ, π/2 − 2κ], and whose differences from the background's,
+with ln Ω, ln γ_ϑ in place of Ω, γ_ϑ, have C^m norms at most Λ. Then there is a class solution in the gauge on [u_c,
+u_c + min(l_u, σ)] × [v_c, v_c + min(l_v, σ)] × S³ that induces these functions on the two edges and equals (g0, q̊_in,
 q̊_out) at the points with ϑ ∉ [κ, π/2 − κ].
 
-*Proof.* This is the development theorem of [[pending:civp-tier1-theorem]] with its smallness hypothesis replaced by
-smallness of the rectangle, and its proof is the one given there ([[pending:civp-tier1-local]]), with 𝒞_out, 𝒞_in and S
-replaced by N_o, N_i and the corner sphere. Three steps of that proof use the smallness of the data. (i) The Cauchy
-problem for the augmented system with the forcing term supported to the past of the two edges is solved there on the
-whole time interval by [[thm:class-kato-stability]] (a) around the background; here it is solved by [[thm:class-kato]]
-(a), with [[rem:class-kato-local]] for the forcing term, on a time interval of length T > 0 that depends only on bounds
-for the coefficients and for the norm of the extended data, hence only on Λ, κ, m and the background on a neighbourhood
-of Q1 × S³, and not on the corner. (ii) Finite speed of propagation and the localisation away from the axes are used
-there with a cone field close to g0's; here the cone field of the solution is bounded in terms of Λ on the time
-interval, the perturbation spreads in ϑ by at most a constant depending on Λ times the size of the rectangle, and the
-solution equals the background at the points with ϑ ∉ [κ, π/2 − κ] once σ is small in terms of Λ and κ. (iii) The
-double-null coordinates are built there from the two phases and the transported angle near the background's; here they
-are built in the same way on the rectangle of side σ, and they are close to the data's coordinates once σ is small in
-terms of Λ. With σ chosen so that the initial slice of the Cauchy problem lies to the past of the corner sphere and its
-development contains the rectangle of side σ, the remaining steps of that proof apply unchanged. ∎
+*Proof.* Choose d ∈ (0, 1] such that the open set 𝒪 of the notation at the beginning of this section contains the points
+within 4d of Q1 in each coordinate. In the notation of [[prop:loc-cone-local]], with Q := Q1, k := 6, η := κ, λ_u := l_u
+and λ_v := l_v, the background is g_e = −2e^(2σ_e) du dv + R_e² dΩ₃² with e^(2σ_e) := 2Ω² and R_e := R, solving
+[[eq:two-dust-limit]] on 𝒪 ∩ {u ≥ 0, v ≥ 0}, and the given functions are data of that proposition, with ϰ_1 = ½ ln γ_ϑ,
+ϰ_2 = A_c, ϰ_3 = A_s: the C^m norm of ϰ_1 − ϰ̊_1 is half that of ln γ_ϑ − ln γ̊_ϑ, so each difference has C^m norm at
+most Λ. That proposition gives the solution, with σ depending only on κ, Λ, d and bounds for the background on the
+points within 4d of Q1. ∎
 
 #### The theorem {#sec:civp-large-theorem}
 
-**Theorem {#thm:civp-large}** (Developments of cone data without smallness.) Let cone data be given
+**Theorem {#thm:civp-large}** (Developments of cone data without smallness.) Let cone data on Q1 be given
 ([[def:civp-large-data]]), with η0 and J0 as in [[eq:civp-large-band]]; no smallness is assumed. There is δ > 0 such
 that, with 𝒮_δ := {(u, v) ∈ Q1 : min(u, v) ≤ δ}, the following hold.
 
@@ -514,26 +608,37 @@ at least η0 from its ends, that is
 
     f = f̊_e  at the points of 𝒮 × Y with ϑ ∉ (ϑ_a − η0, ϑ_b + η0),   𝒮 := [0, s1] × [0, v_1] ∪ [0, u_1] × [0, s2] ⊃ 𝒮_δ.
 
-Define F on 𝒮_δ × (0, π/2) by F := f on J0 and F := f̊ off J0. It is smooth, since f = f̊_e = f̊ near the ends of J0;
-it equals f̊ at the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0]; and it solves [[eq:civp-large-system]], since ϱ = 1 on [ϑ_a −
-η0, ϑ_b + η0] and f̊ solves [[eq:civp-large-system]]. On 𝒞_out its f₃-components are f̄₃, and its f₄-components solve
-the restriction of Step 1 with the same initial values at S; that restriction is a system of ordinary differential
-equations in v along the lines {ϑ = const} (A^ϑ has no f₄f₄-block), so they are the solution of [[lem:civp-large-data]]
-(b) (i), whose components α, β, b, ψ, ω are the functions of the data. Likewise on 𝒞_in its f₄-components are f̄₄ and
-its f₃-components the solution of [[lem:civp-large-data]] (b) (i), b vanishing there. Its components q_in and q_out are
-nonnegative: they solve D_3q_in = −e^α χ̲ q_in and ∂_vq_out = −e^α χ q_out; 𝒮_δ is a past set, and the integral curves
-of D_3 = ∂_u + b∂_ϑ in a line {v = const} stay in (0, π/2), b vanishing off [ϑ_a − η0, ϑ_b + η0]; so q_in at a point is
-q_in at the point of {u = 0} on its integral curve, which is the data's and nonnegative, times a positive factor, and
-q_out is likewise the data's at v = 0 along {u = const, ϑ = const}.
+Define F on 𝒮_δ × (0, π/2) by F := f on J0 and F := f̊ off J0. It is smooth, since f = f̊_e = f̊ near the ends of J0; it
+equals f̊ at the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0]; and it solves [[eq:civp-large-system]], since ϱ = 1 on [ϑ_a − η0,
+ϑ_b + η0] and f̊ solves [[eq:civp-large-system]]. On 𝒞_out its f₃-components are f̄₃, and its f₄-components solve the
+restriction of Step 1 with the same initial values at S; that restriction is a system of ordinary differential equations
+in v along the lines {ϑ = const} (A^ϑ has no f₄f₄-block), so they are the solution of [[lem:civp-large-data]] (b) (i),
+whose components α, β, b, ψ, ω are the functions of the data. Likewise on 𝒞_in its f₄-components are f̄₄ and its
+f₃-components the solution of [[lem:civp-large-data]] (b) (i), b vanishing there.
+
+*The signs of the densities.* The components q_in and q_out of F are nonnegative on 𝒮_δ × (0, π/2). Let (u′, v′) ∈ 𝒮_δ
+and ϑ′ ∈ (0, π/2). Since 𝒮_δ is a past set, the segments [0, u′] × {v′} and {u′} × [0, v′] lie in it. The component b of
+F is smooth on 𝒮_δ × (0, π/2) and vanishes at the angles outside [ϑ_a − η0, ϑ_b + η0], where F = f̊; so the constant
+functions ϑ_a − η0 and ϑ_b + η0 solve dϑ/du = b(u, v′, ϑ), and by uniqueness the solution ϑ(·) with ϑ(u′) = ϑ′ stays in
+[ϑ_a − η0, ϑ_b + η0] if ϑ′ lies there, and is constant otherwise. It therefore exists on all of [0, u′], with values in
+(0, π/2), and c(u) := (u, v′, ϑ(u)) is an integral curve of D_3 = ∂_u + b∂_ϑ. By the equation D_3q_in = −e^α χ̲ q_in of
+[[eq:civp-large-system]], (q_in ∘ c)′ = −(e^α χ̲ q_in) ∘ c, so
+
+    q_in(u′, v′, ϑ′) = q_in(0, v′, ϑ(0)) exp(−∫_0^(u′) (e^α χ̲)(c(u)) du).
+
+At u = 0, q_in is a component of f̄₃, the q_in of the data, which is nonnegative; so q_in(u′, v′, ϑ′) ≥ 0. Likewise the
+equation ∂_vq_out = −e^α χ q_out gives q_out(u′, v′, ϑ′) = q_out(u′, 0, ϑ′) exp(−∫_0^(v′) (e^α χ)(u′, v, ϑ′) dv), and
+q_out(u′, 0, ϑ′) is a component of f̄₄, the q_out of the data, which is nonnegative.
 
 *Step 4: F is geometric.* Let h_F and g_F be the metrics built from the components α, β, b, ψ, ω of F as in
 [[prop:civp-large-system]] (b); they are defined on all of 𝒮_δ × (0, π/2), times T² for g_F. F is geometric on a set
 when the identities of [[prop:civp-large-system]] (b) hold at its points; on the closure of a set where they hold they
-hold too, F being smooth. Where F is geometric, (g_F, v, u, q_in, q_out) is a class solution in the gauge, by that
-proposition. We say that F is *geometric to first order* at a point if there its components χ, χ̲, η, η̲, ϖ, ϖ̲ are the
+hold too, F being smooth. Where F is geometric, (g_F, v, u, q_in, q_out), extended by (g0, q̊_in, q̊_out) to the axes,
+is a class solution in the gauge, by that proposition, the densities being nonnegative and F being f̊ off [ϑ_a − η0,
+ϑ_b + η0]. We say that F is *geometric to first order* at a point if there its components χ, χ̲, η, η̲, ϖ, ϖ̲ are the
 connection coefficients of h_F and Ψ° = Ψ, Ψ_3 = e3Ψ, Ψ_4 = e4Ψ, Ψ_1 = Ψ′_1 = e1Ψ for Ψ ∈ {ψ, ω}. We show that F is
-geometric on 𝒮_δ × (0, π/2). As 𝒮_δ = 𝒯₁ ∪ 𝒯₂, 𝒯₁ := [0, δ] × [0, v_1], 𝒯₂ := [0, u_1] × [0, δ], it suffices to treat one
-of them, 𝒯 = [0, l1] × [0, l2].
+geometric on 𝒮_δ × (0, π/2). As 𝒮_δ = 𝒯₁ ∪ 𝒯₂, 𝒯₁ := [0, δ] × [0, v_1], 𝒯₂ := [0, u_1] × [0, δ], it suffices to treat
+one of them, 𝒯 = [0, l1] × [0, l2].
 
 *Constants.* F is smooth on 𝒮_δ × (0, π/2) and equals f̊ off [ϑ_a − η0, ϑ_b + η0] ⊂ [2η0, π/2 − 2η0]. So the functions
 Ω = e^(α−ψ), γ_ϑ = e^(2β−2ψ), b, A_c = (ψ − 2ω)/2, A_s = (ψ + 2ω)/2, q_in, q_out formed from F on segments {u_c} ×
@@ -609,93 +714,63 @@ theorem asserts their existence and gives no bound for them (a* does not depend 
 b* by that theorem with u and v exchanged). p1, q1 and β1 are suprema of the strip solution, the shift, the ratio
 e^(α−β) = Ω γ_ϑ^(−1/2) and ∂_vb, and are not bounded here in terms of the data. So δ depends on the data, on the band
 through η0, on u_1, v_1 and on the choice of the cut-off and the extension, and no lower bound for it in terms of norms
-of the data is asserted. For data near the background's, [[pending:civp-tier1-theorem]] gives a development on the
-explicit set {uv ≤ δ_*²}; it equals g0 near the axes, so by [[thm:civp-large]] (c) the two developments agree where
-both are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that
-differ from the background's at the axes are not treated, nor are data of finite regularity or densities that are only
-bounded or measure-valued.
+of the data is asserted. For data near the background's, [[thm:loc-cone-development]] gives a development on the
+explicit set {uv ≤ δ_*²}; it equals g0 near the axes, so by [[thm:civp-large]] (c) the two developments agree where both
+are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
+from the background's at the axes are not treated, nor are data of finite regularity or densities that are only bounded
+or measure-valued.
 
-**Remark {#rem:civp-large-beyond}** (What the theorem adds.) With [[thm:civp-large]], the cone data of
-[[sec:loc-cones]] that are localised in a band away from the axes have developments without any smallness: among them,
-when the background is defined in the gauge on Q1 for some v_1 > 4.5 and u_1 > 7.2, every perturbation of the shell on
-𝒞_out ∩ {3 < v < 4.5} and of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, of any amplitude for which the factors e^ϕ stay
-positive on [0, v_1] and on [0, u_1], and every such density added in the band. The development contains the strip {u ≤
-δ} along all of 𝒞_out ∩ {v ≤ v_1} and the strip {v ≤ δ} along all of 𝒞_in ∩ {u ≤ u_1}, so the dust on the cones lies in
-it; it is in the double-null gauge of the class, with u and v the phases of the two families; it is localised, equal to
-the background outside {ϑ_a − η0 ≤ ϑ ≤ ϑ_b + η0}, so that localisation on the cones is localisation of a spacetime; and
-it is unique in the gauge among solutions that equal the background near the axes. For vacuum cone data (v_1 < 3 and u_1
-< 5.7, the densities zero), [CTG23, Theorem 1.1] ([[thm:std-ctg-neighbourhood]]) gives a vacuum development for data of
-any size; the theorem adds the double-null gauge, uniqueness in it, and localisation. Compared with
-[[pending:civp-tier1-theorem]], smallness is dropped and uniqueness holds among all solutions that equal the background
-near the axes, not only near the background; the neighbourhood is not explicit and no estimate of the solution is
-given.
+**Remark {#rem:civp-large-beyond}** (What the theorem adds.) With [[thm:civp-large]], the cone data of [[sec:loc-cones]]
+that are localised in a band away from the axes have developments without any smallness. With u_1 = 7.2 and v_1 = 4.5,
+which are admissible ([[lem:civp-large-rectangle]] (a)), every perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} and of
+the packet on 𝒞_in ∩ {5.7 < u < 7.2}, together or apart, and every density added in the band, of any amplitude for which
+the factors e^ϕ stay positive on [0, 4.5] and on [0, 7.2], gives cone data on Q1 ([[lem:civp-large-free]] (a)) and so
+has a development. Such data exist with densities of every amplitude: the density of the shell may be multiplied by 1 +
+c with −1 ≤ c ≤ 76, and that of the packet by 1 + c with −1 ≤ c ≤ 4.5, c a smooth function of ϑ with compact support in
+the band, and densities of any supremum may be added on short enough intervals ([[lem:civp-large-rectangle]] (b)). The
+development contains the strip {u ≤ δ} along all of 𝒞_out ∩ {v ≤ v_1} and the strip {v ≤ δ} along all of 𝒞_in ∩ {u ≤
+u_1}, so the dust on the cones lies in it; it is in the double-null gauge of the class, with u and v the phases of the
+two families; it is localised, equal to the background outside {ϑ_a − η0 ≤ ϑ ≤ ϑ_b + η0}, so that localisation on the
+cones is localisation of a spacetime; and it is unique in the gauge among solutions that equal the background near the
+axes. For vacuum cone data (v_1 < 3 and u_1 < 5.7, the densities zero), [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]) gives a vacuum development for data of any size; the theorem adds the double-null gauge,
+uniqueness in it, and localisation. Compared with [[thm:loc-cone-development]], smallness is dropped and uniqueness
+holds among all solutions that equal the background near the axes, not only near the background; the neighbourhood is
+not explicit and no estimate of the solution is given.
 
 ### Placement
 
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
 source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:"; every old
 text occurs exactly once in its chapter. Line numbers are those of the current chapter sources and serve only to find
-the place. The section above follows the section of [[pending:civp-tier1-theorem]] and uses three of its results, each
-marked where it is first used and stated there: the theorem itself, for comparison, the analogue of [[prop:loc-cones]]
-on 𝒞_in with the gauge b = 0 there ([[pending:civp-tier1-cin-cones]]), and, for [[prop:civp-large-corner]], its local
-construction ([[pending:civp-tier1-local]]). Where that section also changes a text listed below, the new text below
-replaces both.
+the place. The section above follows [[sec:loc-cone-proof]] and uses four of its results: [[thm:loc-cone-development]],
+for comparison; [[lem:loc-cone-in]], the analogue of [[prop:loc-cones]] on 𝒞_in in the gauge b = 0; the class solutions
+in the gauge of [[sec:loc-cone-setting]]; and [[prop:loc-cone-local]], for [[prop:civp-large-corner]]. The sites that
+both sections change, those of items 2, 3, 5 and 6 and of the second pair of item 4 below, are changed once, by the
+merged texts of items 3 to 7 of the placement of [[sec:loc-cone-proof]], which name [[thm:civp-large]],
+[[def:civp-large-data]], [[lem:civp-large-free]] and [[lem:civp-large-rectangle]] of this section.
 
 *1. Where the section goes.* The section above, from its heading through [[rem:civp-large-beyond]], is inserted in
-[[ch:localised-data]] after the section of [[pending:civp-tier1-theorem]], which follows [[sec:loc-cones]], and before
-the heading "### The static Killing field and the charge {#sec:loc-kid}" (line 602), with one blank line before and one
-after. It defines sec:civp-large, eq:civp-large-band, def:civp-large-data, sec:civp-large-frame, eq:civp-large-h,
-lem:civp-large-frame, eq:civp-large-coefficients, eq:civp-large-null, eq:civp-large-box, eq:civp-large-dust,
-eq:civp-large-table, lem:civp-large-reduction, eq:civp-large-reduced, eq:civp-large-m, eq:civp-large-system,
-prop:civp-large-system, eq:civp-large-form, sec:civp-large-data, lem:civp-large-data, sec:civp-large-energy,
-lem:civp-large-energy, eq:civp-large-linear, sec:civp-large-local, prop:civp-large-corner, sec:civp-large-theorem,
-thm:civp-large, eq:civp-large-localised, eq:civp-large-delta, rem:civp-large-domain and rem:civp-large-beyond, none of
-which is defined elsewhere; the prefix may be changed to the chapter's prefix loc- without other changes. Numbers are
-resolved at assembly.
+[[ch:localised-data]] after [[sec:loc-cone-proof]], which follows [[sec:loc-cones]], and before the heading "### The
+static Killing field and the charge {#sec:loc-kid}" (line 602), with one blank line before and one after. It defines
+sec:civp-large, eq:civp-large-band, def:civp-large-data, lem:civp-large-free, lem:civp-large-rectangle,
+sec:civp-large-frame, eq:civp-large-h, lem:civp-large-frame, eq:civp-large-coefficients, eq:civp-large-null,
+eq:civp-large-box, eq:civp-large-dust, eq:civp-large-table, lem:civp-large-reduction, eq:civp-large-reduced,
+eq:civp-large-m, eq:civp-large-system, prop:civp-large-system, eq:civp-large-form, sec:civp-large-data,
+lem:civp-large-data, sec:civp-large-energy, lem:civp-large-energy, eq:civp-large-linear, sec:civp-large-local,
+prop:civp-large-corner, sec:civp-large-theorem, thm:civp-large, eq:civp-large-localised, eq:civp-large-delta,
+rem:civp-large-domain and rem:civp-large-beyond, none of which is defined elsewhere; the prefix may be changed to the
+chapter's prefix loc- without other changes. Numbers are resolved at assembly.
 
-*2. [[ch:localised-data]], its opening paragraph (lines 8–9).* Old:
+*2. [[ch:localised-data]], its opening paragraph (lines 8–9).* Changed by item 3 of the placement of
+[[sec:loc-cone-proof]], whose new text is the merged text for both sections; no separate change.
 
-Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
-and data localised in an angular band exist exactly ([[prop:loc-cones]]). On Σ_τ0 the constraints split, after Rácz
+*3. [[ch:localised-data]], the paragraph after [[prop:loc-cones]] (lines 593–600).* Changed by item 4 of the placement
+of [[sec:loc-cone-proof]], whose new text is the merged text for both sections; no separate change.
 
-New:
-
-Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
-and data localised in an angular band exist exactly ([[prop:loc-cones]]); when the band avoids the axes they have a
-development in the double-null gauge on a neighbourhood of the two cones, with or without dust and without smallness,
-equal to the background outside a slightly wider band and unique in the gauge among solutions that equal the background
-near the axes, the neighbourhood depending on the data ([[thm:civp-large]]; for data near the background's on an
-explicit neighbourhood, [[pending:civp-tier1-theorem]]). On Σ_τ0 the constraints split, after Rácz
-
-*3. [[ch:localised-data]], the paragraph after [[prop:loc-cones]] (lines 593–600).* Old:
-
-When these cone data carry no dust, their vacuum development near the two cones exists by [CTG23, Theorem 1.1]
-([[thm:std-ctg-neighbourhood]]): this is the case when v_1 < 3, so that 𝒞_out ∩ {v ≤ v_1} lies before the shell, the
-dust densities are left zero there, and 𝒞_in is taken only on u < 5.7, before the packet; both cones then carry
-vacuum data of Tangherlini's metric of mass 3/2 outside the band, and the two cones meet transversally in the corner
-sphere. [CTG23, Theorem 1.1] concerns vacuum data only. For cone data that carry dust, among them every perturbation
-of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2} and every density added in the band,
-no development is asserted here: [[prop:loc-cones]] gives the cone data only, and no result of this paper uses their
-development.
-
-New:
-
-When these cone data carry no dust, their vacuum development near the two cones exists by [CTG23, Theorem 1.1]
-([[thm:std-ctg-neighbourhood]]): this is the case when v_1 < 3, so that 𝒞_out ∩ {v ≤ v_1} lies before the shell, the
-dust densities are left zero there, and 𝒞_in is taken only on u < 5.7, before the packet; both cones then carry vacuum
-data of Tangherlini's metric of mass 3/2 outside the band, and the two cones meet transversally in the corner sphere.
-With or without dust, these cone data, completed on 𝒞_in in the gauge b = 0 ([[def:civp-large-data]]), among them, when
-v_1 > 4.5, 𝒞_in is taken on u ≤ u_1 with u_1 > 7.2 and the background is defined on [0, u_1] × [0, v_1], every
-perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2} of any amplitude for
-which e^ϕ stays positive and every density added in the band, have a development in the gauge [[eq:loc-double-null]] on
-a neighbourhood {min(u, v) ≤ δ} of the two cones; it equals the background outside a slightly wider band and is unique
-in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]). The number δ depends on the
-data; for data near the background's [[pending:civp-tier1-theorem]] gives an explicit neighbourhood and an estimate of
-the solution. No development is asserted for cone data that differ from the background's near an axis, for data of
-finite regularity or for densities that are not smooth, and no other result of this paper uses these developments.
-
-*4. [[ch:scope]], the paragraph on localised data (lines 195–196 and 204).* Its opening sentence and its last line
-change. Old:
+*4. [[ch:scope]], the paragraph on localised data (lines 201–202).* Its opening sentence changes; its last line (line
+210) is changed by item 7 of the placement of [[sec:loc-cone-proof]], whose new text is the merged text for both
+sections. Old:
 
 The results on localised data concern the explicit two-dust background of [[sec:bg-data]], on its slice Σ_τ0 or on a
 slice bent from it, and invariant data near the background's data ([[ch:localised-data]]). Data localised in angle away
@@ -706,42 +781,12 @@ The results on localised data concern the explicit two-dust background of [[sec:
 background's data on its slice Σ_τ0 or on a slice bent from it, and data of any size on the two null cones through its
 corner sphere ([[ch:localised-data]]). Data localised in angle away
 
-Old:
+*5. [[ch:introduction]], the paragraph on [[part:further]] (lines 192–193).* Changed by item 5 of the placement of
+[[sec:loc-cone-proof]], whose old text (lines 191–193) contains these lines and whose new text names the development
+from two null cones; no separate change.
 
-small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
-
-New:
-
-small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]). On the two null
-cones through the corner sphere, data localised in an angular band exist exactly, with or without dust
-([[prop:loc-cones]]); when the band avoids the axes they have a development in the double-null gauge on a neighbourhood
-{min(u, v) ≤ δ} of the cones, without smallness, equal to the background outside a slightly wider band and unique in
-the gauge among solutions that equal the background near the axes; δ depends on the data and is explicit only for data
-near the background's ([[thm:civp-large]], [[pending:civp-tier1-theorem]]). Developments of cone data that differ from
-the background's near an axis are not established.
-
-*5. [[ch:introduction]], the paragraph on [[part:further]] (lines 192–193).* Old:
-
-([[ch:class-system]]), restricted massless Vlasov limits ([[ch:vlasov]]), localised data and the sign of the charge
-([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]], [[ch:equality-edge]]), the threshold λ0 at a
-
-New:
-
-([[ch:class-system]]), restricted massless Vlasov limits ([[ch:vlasov]]), localised data, their development from two
-null cones, and the sign of the charge ([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]],
-[[ch:equality-edge]]), the threshold λ0 at a
-
-*6. [[ch:theorems]], the item *More families* (line 368).* Old:
-
-  construction of that background does not decide ([[cor:vlasov-two-dust]]); and exactly localised vacuum data
-
-New:
-
-  construction of that background does not decide ([[cor:vlasov-two-dust]]); developments in the double-null gauge
-  of data on the two null cones through the corner sphere of the explicit two-dust background of [[sec:bg-data]],
-  localised in an angular band away from the axes, with or without dust and without smallness, on a neighbourhood of
-  the two cones that depends on the data, localised and unique in the gauge among solutions equal to the background
-  near the axes ([[thm:civp-large]]); and exactly localised vacuum data
+*6. [[ch:theorems]], the item *More families* (line 376).* Changed by item 6 of the placement of [[sec:loc-cone-proof]],
+whose old text is this item's and whose new text is the merged text for both sections; no separate change.
 
 *7. [[app:standard-results]], [[sec:std-characteristic]].* Insert before [[thm:std-ctg-neighbourhood]] (line 467), with
 one blank line after each item; this defines thm:std-cctw-existence and thm:std-cctw-strips. New:

@@ -1175,11 +1175,11 @@ extension operator of [[lem:loc-cone-unique]] is that of [[thm:std-sy-extension]
 
 *11. Without the Tier 2 section.* If the Tier 2 section is not merged, the second sentence of [[rem:loc-cone-scope]] (i)
 reads "For cone data that carry dust and are not small nothing is asserted.", and the new texts of items 3, 4, 6 and 7,
-at the same sites and with the same old texts, are the following, which drop the clauses that cite that section; they say,
-for data near the background's, that the development is equal to the background outside a slightly wider band and unique
-in the gauge near the background off the axes ([[thm:loc-cone-development]]), and that developments of dust-carrying cone
-data that are not small, or whose perturbation reaches an axis, are not established. The new text of item 5 needs no
-change.
+at the same sites and with the same old texts, are the following, which drop the clauses that cite that section; they
+say, for data near the background's, that the development is equal to the background outside a slightly wider band and
+unique in the gauge near the background off the axes ([[thm:loc-cone-development]]), and that developments of
+dust-carrying cone data that are not small, or whose perturbation reaches an axis, are not established. The new text of
+item 5 needs no change.
 
 Item 3 without the Tier 2 section. New:
 
