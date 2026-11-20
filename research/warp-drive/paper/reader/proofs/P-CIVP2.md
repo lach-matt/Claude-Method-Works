@@ -347,3 +347,248 @@ along the lines {ϑ = const}, since b = 0 on 𝒞_in and the f₄-equations cont
 ϑ_b) the data are the background's on a neighbourhood of ϑ, the background's reduced fields solve all the equations
 used ([[prop:civp-large-system]] (a)), and by uniqueness for these equations f̄ and the solutions of (i) are the
 background's there. ∎
+
+#### An energy identity {#sec:civp-large-energy}
+
+**Lemma {#lem:civp-large-energy}** (Energy for systems in doubly-null form.) Let R := [u_c, u_c + l_u] × [v_c, v_c +
+l_v], let J = [ϑ₋, ϑ₊] be an interval, or an arc of a circle with a coordinate ϑ on it, and let z = (z₃, z₄), of class
+C¹ on R × J with values in ℝ^(N₃) × ℝ^(N₄), solve
+
+    ∂_u z₃ + P ∂_ϑ z₃ + Q ∂_ϑ z₄ = B₃ z,      ∂_v z₄ + Qᵀ ∂_ϑ z₃ = B₄ z,                              {#eq:civp-large-linear}
+
+with P symmetric, P and Q of class C¹ and B₃, B₄ continuous on R × J. Assume z₃ = 0 on {u_c} × [v_c, v_c + l_v] × J
+and z₄ = 0 on [u_c, u_c + l_u] × {v_c} × J.
+
+(a) Let |P| ≤ p and |Q| ≤ q on R × J (operator norms), let t > 0, c1 := p + t, c2 := q²/t and k(u, v) := c1(u − u_c) +
+c2(v − v_c). Then z = 0 at every point of R × J with ϑ₋ + k(u, v) ≤ ϑ ≤ ϑ₊ − k(u, v).
+
+(b) If z = 0 on R × ([ϑ₋, ϑ₋ + ε] ∪ [ϑ₊ − ε, ϑ₊]) for some ε > 0, then z = 0 on R × J.
+
+*Proof.* Put A^u := diag(I, 0), A^v := diag(0, I) and A^ϑ := (P, Q; Qᵀ, 0), so that [[eq:civp-large-linear]] reads
+A^μ∂_μz = Bz with B := (B₃; B₄), and for λ ≥ 0 let X^μ := e^(−λ(u+v)) ⟨z, A^μz⟩, μ ∈ {u, v, ϑ}, a C¹ vector field in
+the coordinates (u, v, ϑ). Since the A^μ are symmetric and A^u, A^v are constant,
+
+    ∂_μX^μ = e^(−λ(u+v)) (−λ ⟨z, (A^u + A^v)z⟩ + ⟨z, (∂_ϑA^ϑ)z⟩ + 2⟨z, Bz⟩) ≤ e^(−λ(u+v)) (C₁ − λ) |z|²,
+
+with C₁ := sup_(R×J) (|∂_ϑA^ϑ| + 2|B|), finite since R × J is compact, and A^u + A^v = I. Fix λ > C₁.
+
+(a) Fix (u′, v′) ∈ R with ϑ₋ + k(u′, v′) ≤ ϑ₊ − k(u′, v′), and let W be the set of (u, v, ϑ) with u_c ≤ u ≤ u′,
+v_c ≤ v ≤ v′ and ϑ₋ + k(u, v) ≤ ϑ ≤ ϑ₊ − k(u, v); since k increases in u and v, its sections are nonempty intervals,
+and W is compact with a piecewise smooth boundary. By the divergence theorem ∫_W ∂_μX^μ = ∫_(∂W) X^μ ν_μ dS, with ν the
+outer unit conormal. On the face u = u′, X^μν_μ = e^(−λ(u+v)) |z₃|² ≥ 0; on v = v′ it is e^(−λ(u+v)) |z₄|² ≥ 0; on
+u = u_c and v = v_c it vanishes, since these faces lie in the sets where z₃, respectively z₄, vanish. On the face
+ϑ = ϑ₊ − k the conormal is a positive multiple of dϑ + c1 du + c2 dv, and on ϑ = ϑ₋ + k one of −dϑ + c1 du + c2 dv, so
+X^μν_μ is a positive multiple of e^(−λ(u+v)) ⟨z, (±A^ϑ + c1A^u + c2A^v)z⟩, and
+
+    ⟨z, (±A^ϑ + c1A^u + c2A^v)z⟩ ≥ (c1 − p)|z₃|² − 2q|z₃||z₄| + c2|z₄|² = (t^(1/2)|z₃| − q t^(−1/2)|z₄|)² ≥ 0.
+
+Hence 0 ≤ ∫_(∂W) X^μν_μ dS = ∫_W ∂_μX^μ ≤ (C₁ − λ) ∫_W e^(−λ(u+v)) |z|², so z = 0 on W, and in particular at (u′, v′)
+for every ϑ with ϑ₋ + k ≤ ϑ ≤ ϑ₊ − k.
+
+(b) Take W := [u_c, u′] × [v_c, v′] × J. The faces u = u′, v = v′, u = u_c, v = v_c contribute as in (a), and on the
+faces ϑ = ϑ± the field X vanishes, since z does. The same inequality gives z = 0 on W. ∎
+
+#### Local developments {#sec:civp-large-local}
+
+**Proposition {#prop:civp-large-corner}** (Developments near a corner sphere, without smallness.) Let m be the
+regularity index of [[pending:civp-tier1-local]] and η ∈ (0, π/8]. For every Λ > 0 there is σ > 0 with the following
+property. Let R = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ Q1, N_o := {u_c} × [v_c, v_c + l_v] and N_i := [u_c, u_c + l_u]
+× {v_c}. Let smooth functions Ω > 0, γ_ϑ > 0, b, A_c, A_s and q_in ≥ 0 of (v, ϑ) on N_o × S³, and Ω > 0, γ_ϑ > 0, A_c,
+A_s and q_out ≥ 0 of (u, ϑ) on N_i × S³, with b = 0 on N_i, be given that agree on the corner sphere, satisfy
+Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(∂_u, ∂_u) = q_out on N_i, equal the background's at the
+points with ϑ ∉ [2η, π/2 − 2η], and whose differences from the background's, with ln Ω, ln γ_ϑ in place of Ω, γ_ϑ,
+have C^m norms at most Λ. Then there is a class solution in the gauge on [u_c, u_c + min(l_u, σ)] × [v_c, v_c +
+min(l_v, σ)] × S³ that induces these functions on the two edges and equals (g0, q̊_in, q̊_out) at the points with
+ϑ ∉ [η, π/2 − η].
+
+*Proof.* This is the development theorem of [[pending:civp-tier1-theorem]] with its smallness hypothesis replaced by
+smallness of the rectangle, and its proof is the one given there ([[pending:civp-tier1-local]]), with 𝒞_out, 𝒞_in
+and S replaced by N_o, N_i and the corner sphere. Three steps of that proof use the smallness of the data. (i) The
+Cauchy problem for the augmented system with Rendall's forcing term is solved there on the whole time interval by
+[[thm:class-kato-stability]] (a) around the background; here it is solved by [[thm:class-kato]] (a), with
+[[rem:class-kato-local]] for the forcing term, on a time interval of length T > 0 that depends only on bounds for the
+coefficients and for the norm of the extended data, hence only on Λ, η, m and the background on a neighbourhood of
+Q1 × S³, and not on the corner. (ii) Finite speed of propagation and the localisation away from the axes are used
+there with a cone field close to g0's; here the cone field of the solution is bounded in terms of Λ on the time
+interval, the perturbation spreads in ϑ by at most a constant depending on Λ times the size of the rectangle, and the
+solution equals the background at the points with ϑ ∉ [η, π/2 − η] once σ is small in terms of Λ and η. (iii) The
+double-null coordinates are built there from the two phases and the transported angle near the background's; here
+they are built in the same way on the rectangle of side σ, and they are close to the data's coordinates once σ is
+small in terms of Λ. With σ chosen so that the initial slice of the Cauchy problem lies to the past of the corner
+sphere and its development contains the rectangle of side σ, the remaining steps of that proof apply unchanged. ∎
+
+#### The theorem {#sec:civp-large-theorem}
+
+**Theorem {#thm:civp-large}** (Developments of cone data without smallness.) Let cone data be given
+([[def:civp-large-data]]), with η0 and J0 as in [[eq:civp-large-band]]; no smallness is assumed. There is δ > 0 such
+that, with 𝒮_δ := {(u, v) ∈ Q1 : min(u, v) ≤ δ}, the following hold.
+
+(a) *Existence.* There is a class solution (g, v, u, q_in, q_out) in the gauge on 𝒮_δ × S³ that induces the cone data.
+So v and u are the phases of the ingoing and the outgoing family of [[eq:class-system]] with N_f = 2, and the
+development contains the strips {u ≤ δ} along 𝒞_out and {v ≤ δ} along 𝒞_in, a future neighbourhood of both cones.
+
+(b) *Localisation.* g = g0, q_in = q̊_in and q_out = q̊_out at the points of 𝒮_δ × S³ with ϑ ∉ [ϑ_a − η0, ϑ_b + η0].
+
+(c) *Uniqueness in the gauge.* Let D′ ⊂ Q1 be a past set and (g′, v, u, q′_in, q′_out) a class solution in the gauge
+on D′ × S³ that induces the cone data on 𝒞_out ∩ D′ and 𝒞_in ∩ D′ and equals (g0, q̊_in, q̊_out) at the points with
+ϑ ∉ [η′, π/2 − η′], for some η′ > 0. Then it equals (g, q_in, q_out) on (D′ ∩ 𝒮_δ) × S³.
+
+(d) *The neighbourhood.* 𝒮_δ ⊃ {(u, v) ∈ Q1 : uv ≤ δ²}, and δ = min(s1, s2) with s1, s2 of [[eq:civp-large-delta]]:
+they are given by the constants a*, b* of [[thm:std-cctw-strips]] for the localised system [[eq:civp-large-localised]]
+with the data of [[lem:civp-large-data]] and by three suprema of its solution, and they depend on the cone data through
+these. No lower bound for δ in terms of norms of the cone data is asserted.
+
+The proof of (a) uses [[prop:civp-large-corner]]; (b), (c) and (d) do not.
+
+*Proof.* Since uv ≤ δ² implies u ≤ δ or v ≤ δ, 𝒮_δ contains {uv ≤ δ²}.
+
+*Step 1: the localised system.* Let Y := ℝ/πℤ, which contains J0 ⊂ (0, π/2) as an arc. Fix ϱ ∈ C^∞(Y) with 0 ≤ ϱ ≤ 1,
+ϱ = 1 on [ϑ_a − η0, ϑ_b + η0] and supp ϱ ⊂ (ϑ_a − 2η0, ϑ_b + 2η0). Let f̊ be the reduced fields of the background on
+Q1 × (0, π/2), and f̊_e ∈ C^∞(Q1 × Y; ℝ²³) a function that equals f̊ on Q1 × J0 and whose b-component vanishes (b̊ = 0).
+With A^u, A^v, A^ϑ and G of [[prop:civp-large-system]], the *localised system* is
+
+    A^u∂_uf + A^v∂_vf + ϱ A^ϑ(f) ∂_ϑf = ϱ G(f) + (1 − ϱ)(A^u∂_u + A^v∂_v) f̊_e      on Q1 × Y.          {#eq:civp-large-localised}
+
+It has the form (2.7)–(2.8) of [CCTW16]: A^u = diag(I₁₀, 0) and A^v = diag(0, I₁₃) are unchanged, ϱA^ϑ(f) is symmetric,
+and the coefficients and the right side are smooth functions of f and of (u, v, ϑ). It coincides with
+[[eq:civp-large-system]] where ϱ = 1. The function f̊_e solves it: where ϱ = 0 trivially, and on supp ϱ ⊂ J0 because
+there f̊_e = f̊ solves [[eq:civp-large-system]] ([[prop:civp-large-system]] (a) for g0), so that both sides equal
+A^u∂_uf̊ + A^v∂_vf̊ + ϱA^ϑ(f̊)∂_ϑf̊. Its data are ϕ̄ := f̄₃ on {u = 0} × J0 and f̊_e,₃ on the rest of {u = 0} × Y, and
+ψ̄ := f̄₄ on {v = 0} × J0 and f̊_e,₄ on the rest, with f̄ of [[lem:civp-large-data]] (b); they are smooth, because f̄ =
+f̊ at the points of J0 with ϑ ∉ (ϑ_a, ϑ_b) ([[lem:civp-large-data]] (b) (ii)). The transport equations [CCTW16,
+(3.100)–(3.101)] of [[thm:std-cctw-existence]] for this system are the restrictions of [[eq:civp-large-localised]] to
+{v = 0} and {u = 0}. They have global solutions: on J0 take the solutions of [[lem:civp-large-data]] (b) (i), and on
+the rest of Y the restrictions of f̊_e. Where ϱ = 1 these are the equations of [[lem:civp-large-data]] (b) (i); at the
+other points of J0 those solutions equal f̊ ([[lem:civp-large-data]] (b) (ii)), which solves the localised system; and
+the two pieces agree near the ends of J0.
+
+*Step 2: the strip solution.* [[thm:std-cctw-existence]] and [[thm:std-cctw-strips]] apply with n = 2, a0 := u1,
+b0 := v1 and any integer ℓ ≥ 6 (ℓ > (n + 9)/2): Y is a compact one-dimensional manifold without boundary, the system has
+the form (2.7)–(2.8) with the scalar product and the flat connection preserving the splitting, the data are smooth, and
+the transport equations have global solutions. They give a* ∈ (0, u1], b* ∈ (0, v1] and a solution f of
+[[eq:civp-large-localised]] with these data on 𝒰 := ([0, a*] × [0, v1] ∪ [0, u1] × [0, b*]) × Y, unique among C¹
+solutions and smooth, the data being smooth.
+
+*Step 3: localisation and δ.* Put z := f − f̊_e on 𝒰. Subtracting the equations for f and f̊_e,
+
+    A^u∂_uz + A^v∂_vz + ϱA^ϑ(f)∂_ϑz = ϱ(G(f) − G(f̊_e)) − ϱ(A^ϑ(f) − A^ϑ(f̊_e))∂_ϑf̊_e,
+
+whose right side is B z with B := ϱ∫_0^1 (dG − (dA^ϑ)∂_ϑf̊_e)(f̊_e + s z) ds continuous. This is [[eq:civp-large-linear]]
+with P := ϱb I₁₀ and Q := ϱQ(f), b and Q(f) evaluated on f. Its data vanish on the arc I := Y ∖ (ϑ_a, ϑ_b). Let
+
+    p1 := sup |b| over [0, a*] × [0, v1] × Y,      q1 := sup e^(α−β) over 𝒰,      β1 := sup |∂_vb| over [0, u1] × [0, b*] × Y,
+    s1 := min(a*, η0²/(2p1η0 + 4q1²v1)),      s2 := min(b*, η0/(4u1β1), η0²/(8q1²u1)),      δ := min(s1, s2),
+                                                                                             {#eq:civp-large-delta}
+
+with the middle term of s2 omitted if β1 = 0, the components b, α, β being those of f. On [0, s1] × [0, v1] apply
+[[lem:civp-large-energy]] (a) with J := I, p := p1, q := q1 and t := 2q1²v1/η0: then c2 = η0/(2v1), c1 = p1 + t, and
+k = c1u + c2v ≤ c1s1 + η0/2 ≤ η0. On [0, u1] × [0, s2] the b-component of f vanishes at v = 0, both on J0 (b = 0 on
+𝒞_in) and elsewhere (f̊_e has b = 0), so |b| ≤ β1 v ≤ β1 s2 ≤ η0/(4u1) =: p there; with t := η0/(4u1), c1 = p + t ≤
+η0/(2u1) and c2 = 4q1²u1/η0, so k ≤ η0/2 + c2s2 ≤ η0. On both strips, therefore, z = 0 at the points of I at distance
+at least η0 from its ends, that is
+
+    f = f̊_e  at the points of 𝒮 × Y with ϑ ∉ (ϑ_a − η0, ϑ_b + η0),   𝒮 := [0, s1] × [0, v1] ∪ [0, u1] × [0, s2] ⊃ 𝒮_δ.
+
+Define F on 𝒮_δ × (0, π/2) by F := f on J0 and F := f̊ off J0. It is smooth, since f = f̊_e = f̊ near the ends of J0;
+it equals f̊ at the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0]; and it solves [[eq:civp-large-system]], since ϱ = 1 on
+[ϑ_a − η0, ϑ_b + η0] and f̊ solves [[eq:civp-large-system]]. On 𝒞_out its f₃-components are f̄₃, and its f₄-components
+solve the restriction of Step 1 with the same initial values at S; that restriction is a system of ordinary
+differential equations in v along the lines {ϑ = const} (A^ϑ has no f₄f₄-block), so they are the solution of
+[[lem:civp-large-data]] (b) (i), whose components α, β, b, ψ, ω are the functions of the data. Likewise on 𝒞_in its
+f₄-components are f̄₄ and its f₃-components the solution of [[lem:civp-large-data]] (b) (i), b vanishing there.
+
+*Step 4: F is geometric.* Recall from [[prop:civp-large-system]] (b) what it means for F to be geometric on a set; for
+a closed set this means that the identities defining it hold there, which follows from their holding on a dense
+subset. If F is geometric on a set, let g_F be the metric of [[prop:civp-large-system]] (b) built from F there; by
+that proposition (g_F, v, u, q_in, q_out) is a class solution in the gauge. We show that F is geometric on 𝒮_δ ×
+(0, π/2). As 𝒮_δ = 𝒯₁ ∪ 𝒯₂, 𝒯₁ := [0, δ] × [0, v1], 𝒯₂ := [0, u1] × [0, δ], it suffices to treat one of them, 𝒯 =
+[0, l1] × [0, l2].
+
+*Constants.* F is smooth on 𝒮_δ × (0, π/2) and equals f̊ off [ϑ_a − η0, ϑ_b + η0] ⊂ [2η0, π/2 − 2η0]. So the functions
+Ω = e^(α−ψ), γ_ϑ = e^(2β−2ψ), b, A_c = (ψ − 2ω)/2, A_s = (ψ + 2ω)/2, q_in, q_out formed from F on segments {u_c} ×
+[v_c, v_c + l_v] and [u_c, u_c + l_u] × {v_c} in 𝒯, transformed by the change of angle described below, have
+differences from the background's whose C^m norms are bounded by one Λ, for all such segments. Let σ be given by
+[[prop:civp-large-corner]] for this Λ and η := η0, and L := σ/2.
+
+*The corner step.* Let R = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ 𝒯 with l_u, l_v ≤ σ and edges N_o, N_i, and assume:
+F is geometric at the points of the corner circle {(u_c, v_c)} × (0, π/2); N_o × (0, π/2) is contained in a set on
+which F is geometric, or u_c = 0; and N_i × (0, π/2) is contained in a set on which F is geometric, or v_c = 0. We show
+that F is geometric on R × (0, π/2). On N_o take the functions Ω, γ_ϑ, b, A_c, A_s, q_in formed from F, and on N_i the
+functions Ω, γ_ϑ, b, A_c, A_s, q_out. Where an edge lies in 𝒞_out or 𝒞_in these are the cone data (Step 3), and they
+satisfy the constraints by [[def:civp-large-data]] (ii); where F is geometric they are induced by the class solution
+g_F, and the constraints are components of Ric(g_F) = q_in dv² + q_out du². They agree at the corner and equal the
+background's off [2η0, π/2 − 2η0]. If b does not vanish on N_i, let Φ(u, ϑ) solve (∂_u + b(u, v_c, ϑ)∂_ϑ)Φ = 0 with
+Φ(u_c, ϑ) = ϑ; for each u it is a diffeomorphism of (0, π/2) equal to the identity off [ϑ_a − η0, ϑ_b + η0], where
+b = 0. The change of angle (u, v, ϑ) ↦ (u, v, Φ(u, ϑ)) maps a metric of the form [[eq:loc-double-null]] to one of the
+same form, with γ_ϑ replaced by γ_ϑ/(∂_ϑΦ)², b by ∂_uΦ + b∂_ϑΦ, and Ω, A_c, A_s unchanged, since Φ does not depend on
+v and dϑ − b du = (dΦ − (∂_uΦ + b∂_ϑΦ) du)/∂_ϑΦ; it commutes with the T² action and the reflections, it is the
+identity on N_o, and after it b = 0 on N_i. [[prop:civp-large-corner]] applies to the transformed functions and gives a
+class solution in the gauge on R × S³; changing the angle back gives a class solution g_c in the gauge on R × S³ that
+induces the functions above on N_o and N_i and equals (g0, q̊_in, q̊_out) off [η0, π/2 − η0]. Let f_c be its reduced
+fields, a solution of [[eq:civp-large-system]] on R × (0, π/2) ([[prop:civp-large-system]] (a)). By
+[[lem:civp-large-data]] (a), the f₃-components of f_c on N_o and its f₄-components on N_i are given by the functions
+on the edges, through [[eq:civp-large-coefficients]] and the equations (F4′) on N_o and (F5), (F4) on N_i, with the
+values of f_c at the corner, which are given by [[eq:civp-large-coefficients]] in the functions near the corner. The
+same holds for F: at the corner and on the edges where F is geometric because F is there the reduced fields of g_F,
+which induces the same functions; on an edge in 𝒞_out or 𝒞_in because of the definition of f̄ in
+[[lem:civp-large-data]] (b), the linear equations there being those used here with the same coefficients and the
+values at the corner being those of F. So z := f_c − F has z₃ = 0 on N_o and z₄ = 0 on N_i. It solves the linear
+system A^μ(F)∂_μz = G(f_c) − G(F) − (A^ϑ(f_c) − A^ϑ(F))∂_ϑf_c, of the form [[eq:civp-large-linear]] on R × [η0/2,
+π/2 − η0/2], and z = 0 at the points with ϑ ≤ η0 or ϑ ≥ π/2 − η0, where f_c = f̊ = F. By [[lem:civp-large-energy]]
+(b), z = 0 on R × (0, π/2). So F is the reduced fields of g_c on R × (0, π/2) and is geometric there.
+
+*Continuation in u + v.* For t > 0 let D_t := {(u, v) ∈ 𝒯 : u + v < t}, and let t* be the supremum of the t ∈ (0,
+l1 + l2] such that F is geometric on D_t × (0, π/2), with t* := 0 if there is none. The corner step with R =
+[0, min(L, l1)] × [0, min(L, l2)] applies: its corner is S, where F = f̄ is geometric, because the values of f̄ at S are
+those of [[eq:civp-large-coefficients]] in the cone data, and its edges lie in 𝒞_out and 𝒞_in. So t* ≥ min(L, l1, l2)
+> 0. Suppose t* < l1 + l2. F is geometric on the closure of D_t* × (0, π/2). Let Γ := {(u, v) ∈ 𝒯 : u + v = t*}, and for
+p = (u_p, v_p) ∈ Γ let u_c := max(u_p − L/2, 0), v_c := max(v_p − L/2, 0) and R_p := [u_c, min(u_p + L/2, l1)] ×
+[v_c, min(v_p + L/2, l2)], whose sides are at most L < σ. Its corner satisfies u_c + v_c ≤ t*. If v_c > 0, the edge
+N_i = [u_c, min(u_p + L/2, l1)] × {v_c} satisfies u + v ≤ u_p + L/2 + v_p − L/2 = t*, so it lies in the closure of
+D_t*; likewise N_o if u_c > 0. So the corner step applies, and F is geometric on R_p × (0, π/2). Every (u, v) ∈ 𝒯
+with t* ≤ u + v < t* + L/4 lies in some R_p: with s := (u + v − t*)/2 < L/8, take p := (u − s, v − s) if this point
+lies in 𝒯, and otherwise the end point of Γ on the side of 𝒯 that it leaves; in both cases u_p − L/4 ≤ u ≤ u_p + L/4
+and v_p − L/4 ≤ v ≤ v_p + L/4. Hence F is geometric on D_(t*+L/4) × (0, π/2), contrary to the choice of t*. So
+t* = l1 + l2, and F is geometric on 𝒯 × (0, π/2).
+
+*Step 5: the solution.* By Step 4 and [[prop:civp-large-system]] (b), g_F with v, u, q_in, q_out is a class solution in
+the gauge on 𝒮_δ × (0, π/2) × T². At the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0] it equals (g0, q̊_in, q̊_out), since
+F = f̊ there; extended by (g0, q̊_in, q̊_out) to the axes it is a class solution in the gauge on 𝒮_δ × S³, which gives
+(a) and (b). It induces the cone data: on 𝒞_out the components α, β, b, ψ, ω of F are the functions of the data and its
+q_in is the data's (Step 3), and on 𝒞_in its f₄-components are f̄₄. By [[eq:civp-large-h]] the functions Ω, γ_ϑ, b, A_c,
+A_s are therefore the data's on both cones.
+
+*Step 6: uniqueness.* Let (g′, q′_in, q′_out) be as in (c) and f′ its reduced fields on D′ × (0, π/2), a solution of
+[[eq:civp-large-system]] ([[prop:civp-large-system]] (a)) with f′₃ = f̄₃ on 𝒞_out ∩ D′ and f′₄ = f̄₄ on 𝒞_in ∩ D′
+([[lem:civp-large-data]] (b) (iii)), and equal to f̊ off [η′, π/2 − η′]. Put η″ := min(η′, η0). D′ ∩ 𝒮_δ is a past
+set; for (u, v) in it, z := f′ − F solves on [0, u] × [0, v] × [η″/2, π/2 − η″/2] a linear system of the form
+[[eq:civp-large-linear]] as in Step 4, with z₃ = 0 at u = 0, z₄ = 0 at v = 0 (Step 3), and z = 0 at ϑ ≤ η″ and at
+ϑ ≥ π/2 − η″, where f′ = f̊ = F. By [[lem:civp-large-energy]] (b), f′ = F on (D′ ∩ 𝒮_δ) × (0, π/2). The metric and the
+densities are determined by α, β, b, ψ, ω, q_in, q_out through [[prop:civp-large-system]] (b), so (g′, q′_in, q′_out) =
+(g, q_in, q_out) there, and both equal (g0, q̊_in, q̊_out) near the axes.
+
+(d) is [[eq:civp-large-delta]] with Steps 2 and 3. ∎
+
+**Remark {#rem:civp-large-domain}** (How the neighbourhood depends on the data.) In [[eq:civp-large-delta]], a* and b*
+are the constants of [[thm:std-cctw-strips]] for the localised system with the data of [[lem:civp-large-data]]; that
+theorem asserts their existence, independent of ℓ, and gives no bound for them. p1, q1 and β1 are suprema of the strip
+solution, the shift, the ratio e^(α−β) = Ω γ_ϑ^(−1/2) and ∂_vb, and are not bounded here in terms of the data. So δ
+depends on the data, on the band through η0 and on u1, v1, and no lower bound for it in terms of norms of the data is
+asserted. For data near the background's, [[pending:civp-tier1-theorem]] gives a development on the explicit set
+{uv ≤ δ_*²}; it equals g0 near the axes, so by [[thm:civp-large]] (c) the two developments agree where both are
+defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ from
+the background's at the axes are not treated, nor are data of finite regularity or densities that are only bounded or
+measure-valued.
+
+**Remark {#rem:civp-large-beyond}** (What the theorem adds.) With [[thm:civp-large]], the cone data of
+[[sec:loc-cones]] that are localised in a band away from the axes have developments without any smallness: among
+them every perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} and of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, of any
+amplitude, and every density added in the band, when v1 > 4.5 and u1 > 7.2. The development contains the strip
+{u ≤ δ} along all of 𝒞_out^(v1) and the strip {v ≤ δ} along all of 𝒞_in^(u1), so the dust on the cones lies in it; it
+is in the double-null gauge of the class, with u and v the phases of the two families; it is localised, equal to the
+background outside {ϑ_a − η0 ≤ ϑ ≤ ϑ_b + η0}, so that localisation on the cones is localisation of a spacetime; and it
+is unique in the gauge among solutions that equal the background near the axes. For vacuum cone data in the band,
+[CTG23, Theorem 1.1] ([[thm:std-ctg-neighbourhood]]) gives a vacuum development of any size; the theorem adds the
+double-null gauge, uniqueness in it, and localisation. Compared with [[pending:civp-tier1-theorem]], smallness is
+dropped and uniqueness holds among all solutions that equal the background near the axes, not only near the background;
+the neighbourhood is not explicit and no estimate of the solution is given.
