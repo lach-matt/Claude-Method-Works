@@ -817,30 +817,27 @@ concentrate on a leaf: their C^m norms, m = 6k + 21, are not bounded as the widt
 ### Placement
 
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
-source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:"; every old
-text occurs exactly once in its chapter after the text of Tier 1 (the proof of [[thm:loc-cone-development]], with its
-Blocks A and B) and the section of Tier 2 ([[sec:civp-large]]) are in place and their placements applied. Items 2, 3, 5
-and 8 are written against the final texts of Tier 1 (its Block A and its placement's items 7 and 4) and of Tier 2
-([[rem:civp-large-domain]]). Line numbers are those of the current chapter sources and serve only to find the place. The
+source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:". The old texts
+are quoted from the chapter sources at the current head, into which the sections of Tiers 1 and 2 are merged
+([[sec:loc-cone-proof]] and [[sec:civp-large]], with the texts of their placements); every old text occurs there exactly
+once, as whole lines. Line numbers are those of the current chapter sources and serve only to find the place. The
 section uses those two sections' results by their labels. It carries them to the other corner spheres in two lemmas of
 its own, [[lem:loc-shell-corner-large]] and [[lem:loc-shell-corner-small]], proved from the proofs of [[thm:civp-large]]
 and [[thm:loc-cone-development]].
 
 *1. Where the section goes.* The section above, from its heading through [[rem:loc-shell-scope]], is inserted in
 [[ch:localised-data]] after the Tier 2 section, which ends with [[rem:civp-large-beyond]], immediately before the
-heading "### The static Killing field and the charge {#sec:loc-kid}" (line 602 of the current source), with one blank
+heading "### The static Killing field and the charge {#sec:loc-kid}" (line 2391 of the current source), with one blank
 line before and one after; it depends only on the sections of Tiers 1 and 2, and so follows any further section placed
 between the Tier 2 section and that heading. It defines sec:loc-shells, def:loc-shell-solution, eq:loc-shell-einstein,
 eq:loc-shell-dust, lem:loc-shell-ricci, eq:loc-shell-singular, lem:loc-shell-identities, eq:loc-shell-trace,
 prop:loc-shell-junction, eq:loc-shell-torsion, eq:loc-shell-conservation, rem:loc-shell-poisson, def:loc-shell-data,
-prop:loc-shell-cones, thm:loc-shells, eq:loc-shell-bands, prop:loc-shell-crossing, eq:loc-shell-crossing-rule and
-rem:loc-shell-scope, none of which is defined elsewhere. Numbers are resolved at assembly. When (T2) and (T1) are
-established, the paragraph "*The smooth theorems at other corners.*" is replaced by citations of the results that
-state them, and the words "Assume (T2)." and "Assume (T1) besides (T2)," in [[thm:loc-shells]] and "Under (T2)," in
-[[prop:loc-shell-crossing]] (c) are removed.
+lem:loc-shell-corner-large, lem:loc-shell-corner-small, prop:loc-shell-cones, thm:loc-shells, eq:loc-shell-bands,
+prop:loc-shell-crossing, eq:loc-shell-crossing-rule and rem:loc-shell-scope, none of which is defined elsewhere. Numbers
+are resolved at assembly.
 
-*2. [[rem:loc-cone-scope]] (iii), in the Tier 1 text (Block A), its second line.* Only this line is replaced, so that the
-item composes with a placement that rewrites the end of (ii) on the line before it. Old:
+*2. [[ch:localised-data]], [[rem:loc-cone-scope]] (iii), its second line (line 681).* Only this line is replaced, so
+that the item composes with a placement that rewrites the end of (ii) on the line before it. Old:
 
 that are only bounded, or measures (shells), are not covered. For the 3 + 1 problem with two families of null dust,
 
@@ -853,7 +850,7 @@ between the leaves and a solution in the sense of distributions ([[def:loc-shell
 data it exists on a neighbourhood of the two cones that does not depend on the data ([[thm:loc-shells]] (d)). For the
 3 + 1 problem with two families of null dust,
 
-*3. [[rem:civp-large-domain]], its last sentence, in the Tier 2 section.* Old:
+*3. [[ch:localised-data]], [[rem:civp-large-domain]], its last sentence (lines 2369–2371).* Old:
 
 are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
 from the background's at the axes are not treated, nor are data of finite regularity or densities that are only bounded
@@ -867,7 +864,7 @@ or measure-valued densities other than finitely many null shells along leaves of
 angle; those, and data that are smooth except across finitely many leaves, are developed slab by slab with
 [[thm:civp-large]] in [[thm:loc-shells]].
 
-*4. [[ch:localised-data]], the opening (lines 21–22).* A paragraph is inserted before the last paragraph of the opening,
+*4. [[ch:localised-data]], the opening (lines 26–27).* A paragraph is inserted before the last paragraph of the opening,
 which neither the Tier 1 nor the Tier 2 placement changes. Old:
 
 The inequalities on the background that these results use are proved at the end of the chapter, in
@@ -886,9 +883,8 @@ obey a product rule, for round metrics a relation between the masses of the four
 The inequalities on the background that these results use are proved at the end of the chapter, in
 [[sec:bg-below]] and [[sec:margins]], from the tables of [[sec:tab-bg]] and [[sec:table-margins]].
 
-*5. [[ch:scope]], the paragraph on localised data, which ends at line 210 of the current source; its last lines as the
-Tier 1 placement leaves them (its item 7, to which the second pair of the Tier 2 placement's item 4 defers).* The text
-is appended at the end of the paragraph. Old:
+*5. [[ch:scope]], the paragraph on localised data, its last two lines (lines 217–218), which close the text on the
+developments from the two null cones.* The text is appended at the end of the paragraph. Old:
 
 estimate ([[thm:loc-cone-development]]). Developments of cone data that differ from the background's near an axis are
 not established ([[rem:loc-cone-scope]]).
@@ -903,7 +899,7 @@ not cross, and a solution continues through a crossing sphere on a small square;
 shells that are not round at an axis are not treated ([[thm:loc-shells]], [[prop:loc-shell-crossing]],
 [[rem:loc-shell-scope]]).
 
-*6. The references.* New entry, in alphabetical place, before [Rac16] (line 157). Old:
+*6. The references.* New entry, in alphabetical place, before [Rac16] (lines 157–158). Old:
 
 - [Rac16] I. Rácz, *Constraints as evolutionary systems*, Class. Quantum Grav. 33 (2016), 015014.
   doi:10.1088/0264-9381/33/1/015014 arXiv:1508.01810v3
@@ -919,9 +915,8 @@ New:
 [[rem:loc-shell-poisson]] for comparison only, its wording checked against the arXiv text (version 1, pp. 1 and 4), and
 [LR20, Theorem 4.6] is already quoted in [[rem:loc-cone-scope]] (iii).
 
-*8. [[ch:localised-data]], the paragraph after [[prop:loc-cones]], the last two lines of its last sentence, as the Tier 1
-placement leaves them (its item 4, to which the Tier 2 placement's item 3 defers; the paragraph is at lines 593–600 of
-the current source).* The closing clause is narrowed to the other chapters: [[thm:loc-shells]] applies
+*8. [[ch:localised-data]], the paragraph after [[lem:loc-cone-in]] and [[rem:loc-cone-scope]] on the developments of
+these cone data (lines 689–705), the last two lines of its last sentence (lines 704–705).* The closing clause is narrowed to the other chapters: [[thm:loc-shells]] applies
 [[thm:civp-large]] to restrictions of cone data of this kind and [[thm:loc-cone-development]] to extensions of them, so
 "no other result of this paper" would no longer hold. Where another placement rewrites this sentence, the exception for
 null shells and the narrowed clause are carried into the merged text. Old:

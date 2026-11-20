@@ -26,7 +26,7 @@ lem:iii-f1-2-4	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:190-243	III.F1 Lem
 lem:iii-f1-2-5	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:226-263	III.F1 Lemma 2.5	linroots5 R2-R3 parenthetical dropped
 eq:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:229	III.F1 (2.3)	
 sec:iii-f1-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:265-491	III.F1 section 3	the operator with parameters (0, gamma) dropped from its opening (P-T78 text 12)
-lem:iii-f1-3-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:291-360	III.F1 Lemma 3.1	
+lem:iii-f1-3-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:291-360	III.F1 Lemma 3.1	P-RI: s >= 2 added to the hypothesis (Steps 1-2 take the Mellin transform of an element of H^(s-2)_b, defined for weighted L^2 functions); its uses take s large (prop:iii-f1-3-3 (iii)) and s = 2 (prop:iv6-1-1) (P-RI text 3)
 eq:iii-f1-3-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:294-296	III.F1 (3.1)	
 lem:iii-f1-3-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:362-373	III.F1 Lemma 3.2	
 lem:tf-lin-reduction	paper/reader/proofs/P-T78.md@59de7926:200	explicit tf-admissibility proof P-T78, Lemma (The kernel at the transition face, reduced to the gauge potential operator.)	new, inserted in ch:s15 before prop:iii-f1-3-3: a kernel element u_0 with eta_0 = 0 is delta-bar*(omega_0), omega_0 in the kernel of N_tf of the gauge potential operator; by the flat 1-form inverse and the flat tensor tf-admissibility; replaces the perturbation in gamma of Step 6
