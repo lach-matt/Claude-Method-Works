@@ -159,7 +159,8 @@ check fails unless z_m ≡ z_m′ (mod 97). (d) An error that leaves every line 
 the printed field takes the same values at the three points (1, 1, 1), (−1, −1, −1) and (0, 0, 0) as the correct one,
 and a misplaced or omitted line changes the entry count.
 
-*Proof.* A line holds at most 30 entries, so 1 ≤ m ≤ 30 < 97. (a) Changing the digit of weight 10^r of z_m by
+*Proof.* Each entry with its separating space takes at least two of the 121 characters, so a line holds fewer than 61
+entries and 1 ≤ m < 97. (a) Changing the digit of weight 10^r of z_m by
 δ ∈ {±1, …, ±9} changes the sum by mδ10^r, and interchanging the digits d, d′ of weights 10^(r+1), 10^r changes z_m by
 9(d − d′)10^r; since 97 is prime and divides none of m, δ, 9(d − d′) ≠ 0 and 10^r, neither change is 0 mod 97. (b) The
 change is −2mz, and 97 ∤ 2m. (c) The change is (m − m′)(z_m′ − z_m) and 97 ∤ m − m′. (d) is [[eq:appc-sums]]. ∎
@@ -574,34 +575,34 @@ Rows for the crosswalk of the new appendix, in its four columns, separated by ta
     eq:appc-sums	paper/reader/proofs/P-APPC.md:141	P-APPC, display	block checks S1, S2, S0
     eq:appc-linecheck	paper/reader/proofs/P-APPC.md:151	P-APPC, display	line check mod 97
     lem:appc-checks	paper/reader/proofs/P-APPC.md:155	P-APPC, Lemma	detection properties
-    sec:appc-regular	paper/reader/proofs/P-APPC.md:171	P-APPC, section	new; S-APP 5 item 3 prerequisite
-    eq:appc-checked	paper/reader/proofs/P-APPC.md:185	P-APPC, display	w psi_x, w^2 psi_xx regular
-    eq:appc-hat	paper/reader/proofs/P-APPC.md:190	P-APPC, display	muhat, tauhat, etahat, lambda, alpha1, beta1
-    eq:appc-sigma	paper/reader/proofs/P-APPC.md:198	P-APPC, display	Sigma_EE, Sigma_11, Sigma_22, Theta_A, Theta_B
-    lem:appc-regular	paper/reader/proofs/P-APPC.md:200	P-APPC, Lemma	axis-regular residual; verified identical to the chapter's formula
-    eq:appc-regular	paper/reader/proofs/P-APPC.md:207	P-APPC, display	the eight components
-    eq:appc-sing	paper/reader/proofs/P-APPC.md:245	P-APPC, display	singular identities
-    sec:appc-certification	paper/reader/proofs/P-APPC.md:283	P-APPC, section	new; S-APP 5 method B, overlaps
-    sec:appc-exact	paper/reader/proofs/P-APPC.md:293	P-APPC, section	new
-    lem:appc-reexpand	paper/reader/proofs/P-APPC.md:298	P-APPC, Lemma	exact affine re-expansion
-    sec:appc-seed	paper/reader/proofs/P-APPC.md:308	P-APPC, section	new
-    eq:appc-seed-eq	paper/reader/proofs/P-APPC.md:312	P-APPC, display	G(R) = H(u, v)
-    eq:appc-seed-jets	paper/reader/proofs/P-APPC.md:319	P-APPC, display	seed jets, Omega_s^2 without a logarithm
-    lem:appc-seed-holo	paper/reader/proofs/P-APPC.md:325	P-APPC, Lemma	G injective on Re R > 3/2
-    lem:appc-newton	paper/reader/proofs/P-APPC.md:333	P-APPC, Lemma	interval Newton (Brouwer)
-    sec:appc-box	paper/reader/proofs/P-APPC.md:346	P-APPC, section	new
-    lem:appc-analytic	paper/reader/proofs/P-APPC.md:364	P-APPC, Lemma	holomorphy on the polyellipse; pluriharmonic minimum of Re R
-    lem:appc-majorant	paper/reader/proofs/P-APPC.md:379	P-APPC, Lemma	new
-    lem:appc-coefficients	paper/reader/proofs/P-APPC.md:393	P-APPC, Lemma	coefficient bound, Lobatto aliasing, E_alpha
-    eq:appc-ealpha	paper/reader/proofs/P-APPC.md:399	P-APPC, display	interpolation error of derivatives
-    prop:appc-element-bound	paper/reader/proofs/P-APPC.md:419	P-APPC, Proposition	element's own residual and derivatives on its box
-    eq:appc-element-bound	paper/reader/proofs/P-APPC.md:425	P-APPC, display	the bound
-    sec:appc-overlaps	paper/reader/proofs/P-APPC.md:440	P-APPC, section	new; S-APP risk 5
-    eq:appc-delta	paper/reader/proofs/P-APPC.md:444	P-APPC, display	blend minus element
-    lem:appc-lipschitz	paper/reader/proofs/P-APPC.md:449	P-APPC, Lemma	mean value bound in the jets
-    prop:appc-overlap	paper/reader/proofs/P-APPC.md:461	P-APPC, Proposition	blended residual on the use interval
-    sec:appc-norm	paper/reader/proofs/P-APPC.md:476	P-APPC, section	interface to the level-N estimate (pending its exact source term)
-    eq:appc-certificate	paper/reader/proofs/P-APPC.md:480	P-APPC, display	certificate numbers B per element, |alpha| <= 3
-    eq:appc-target	paper/reader/proofs/P-APPC.md:490	P-APPC, display	allocation f e^(phi_min/2) (S-APP 3g)
-    sec:appc-outcomes	paper/reader/proofs/P-APPC.md:496	P-APPC, section	new; all rows pending
-    sec:appc-specimen	paper/reader/proofs/P-APPC.md:510	P-APPC, section	format specimen, to be replaced
+    sec:appc-regular	paper/reader/proofs/P-APPC.md:172	P-APPC, section	new; S-APP 5 item 3 prerequisite
+    eq:appc-checked	paper/reader/proofs/P-APPC.md:186	P-APPC, display	w psi_x, w^2 psi_xx regular
+    eq:appc-hat	paper/reader/proofs/P-APPC.md:191	P-APPC, display	muhat, tauhat, etahat, lambda, alpha1, beta1
+    eq:appc-sigma	paper/reader/proofs/P-APPC.md:199	P-APPC, display	Sigma_EE, Sigma_11, Sigma_22, Theta_A, Theta_B
+    lem:appc-regular	paper/reader/proofs/P-APPC.md:201	P-APPC, Lemma	axis-regular residual; verified identical to the chapter's formula
+    eq:appc-regular	paper/reader/proofs/P-APPC.md:208	P-APPC, display	the eight components
+    eq:appc-sing	paper/reader/proofs/P-APPC.md:246	P-APPC, display	singular identities
+    sec:appc-certification	paper/reader/proofs/P-APPC.md:284	P-APPC, section	new; S-APP 5 method B, overlaps
+    sec:appc-exact	paper/reader/proofs/P-APPC.md:294	P-APPC, section	new
+    lem:appc-reexpand	paper/reader/proofs/P-APPC.md:299	P-APPC, Lemma	exact affine re-expansion
+    sec:appc-seed	paper/reader/proofs/P-APPC.md:309	P-APPC, section	new
+    eq:appc-seed-eq	paper/reader/proofs/P-APPC.md:313	P-APPC, display	G(R) = H(u, v)
+    eq:appc-seed-jets	paper/reader/proofs/P-APPC.md:320	P-APPC, display	seed jets, Omega_s^2 without a logarithm
+    lem:appc-seed-holo	paper/reader/proofs/P-APPC.md:326	P-APPC, Lemma	G injective on Re R > 3/2
+    lem:appc-newton	paper/reader/proofs/P-APPC.md:334	P-APPC, Lemma	interval Newton (Brouwer)
+    sec:appc-box	paper/reader/proofs/P-APPC.md:347	P-APPC, section	new
+    lem:appc-analytic	paper/reader/proofs/P-APPC.md:365	P-APPC, Lemma	holomorphy on the polyellipse; pluriharmonic minimum of Re R
+    lem:appc-majorant	paper/reader/proofs/P-APPC.md:380	P-APPC, Lemma	new
+    lem:appc-coefficients	paper/reader/proofs/P-APPC.md:394	P-APPC, Lemma	coefficient bound, Lobatto aliasing, E_alpha
+    eq:appc-ealpha	paper/reader/proofs/P-APPC.md:400	P-APPC, display	interpolation error of derivatives
+    prop:appc-element-bound	paper/reader/proofs/P-APPC.md:420	P-APPC, Proposition	element's own residual and derivatives on its box
+    eq:appc-element-bound	paper/reader/proofs/P-APPC.md:426	P-APPC, display	the bound
+    sec:appc-overlaps	paper/reader/proofs/P-APPC.md:441	P-APPC, section	new; S-APP risk 5
+    eq:appc-delta	paper/reader/proofs/P-APPC.md:445	P-APPC, display	blend minus element
+    lem:appc-lipschitz	paper/reader/proofs/P-APPC.md:450	P-APPC, Lemma	mean value bound in the jets
+    prop:appc-overlap	paper/reader/proofs/P-APPC.md:462	P-APPC, Proposition	blended residual on the use interval
+    sec:appc-norm	paper/reader/proofs/P-APPC.md:477	P-APPC, section	interface to the level-N estimate (pending its exact source term)
+    eq:appc-certificate	paper/reader/proofs/P-APPC.md:481	P-APPC, display	certificate numbers B per element, |alpha| <= 3
+    eq:appc-target	paper/reader/proofs/P-APPC.md:491	P-APPC, display	allocation f e^(phi_min/2) (S-APP 3g)
+    sec:appc-outcomes	paper/reader/proofs/P-APPC.md:497	P-APPC, section	new; all rows pending
+    sec:appc-specimen	paper/reader/proofs/P-APPC.md:511	P-APPC, section	format specimen, to be replaced
