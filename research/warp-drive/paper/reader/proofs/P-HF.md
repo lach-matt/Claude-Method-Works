@@ -217,9 +217,9 @@ where div 𝒵 = z ∂_v log(Ω̂²R³) + z̲ (∂_u log(Ω̂²R³) + ∂_x b̂ 
 come from the deformation π of T and from 𝔇, that is from the acceleration and the deformation of the congruence of
 E₀; the blocks (±, 0) are the operators |T|(𝓡̂ ∓ 𝒞_10/2)/2 + z √c Ω̂ (resp. z̲ Ω̂/√c) times the identity, the block
 (∥, 0) is −|T|(𝒞_(j0))_j/2, and ℬ₀₀ is zeroth order. In particular, if T is a Killing field of ĝ, as for the first
-seed, the principal term vanishes. The divergence of 𝒵 follows from the volume form Ω̂²R³ dω du dv/... of the proof
-of [[lem:tl5-hf-identity]]: div ∂_v = ∂_v log(Ω̂²R³) and div(∂_u + b̂ ∂_x) = ∂_u log(Ω̂²R³) + ∂_x b̂ + b̂ ∂_x log(Ω̂²R³),
-since the coordinate density of the volume form is Ω̂²R³/2.
+seed, the principal term vanishes. The formula for div 𝒵 follows from div(fV) = f div V + V(f) and from the
+coordinate density Ω̂²R³/2 of the volume form in the coordinates (u, v, x, φ1, φ2) (proof of
+[[lem:tl5-hf-identity]]): div ∂_v = ∂_v log(Ω̂²R³) and div(∂_u + b̂ ∂_x) = ∂_u log(Ω̂²R³) + ∂_x b̂ + b̂ ∂_x log(Ω̂²R³).
 
 **Definition {#def:tl5-hf-rates}** (Admissible rates.) Let 𝔐 be a function on D^κ with values in the symmetric
 m × m matrices with nonnegative off-diagonal entries, and ℰ_o, ℰ_i functions with values in the nonnegative diagonal
@@ -232,8 +232,8 @@ For level zero, m = 4 and (𝔐, ℰ_o, ℰ_i) = (𝔅, E_o, E_i).
 
 Since the off-diagonal entries of the matrix in [[eq:tl5-hf-admissible]] are nonpositive, the condition for all n ≥ 0
 is equivalent to positive semidefiniteness: for any n, nᵀMn ≥ |n|ᵀ M |n| when M has nonpositive off-diagonal entries,
-|n| denoting the vector of absolute values. The condition is weakest for κ = κ′ = 0 replaced by the given κ, κ′:
-rates admissible with κ = κ′ = 0 are admissible for every tilt.
+|n| denoting the vector of absolute values. The condition is monotone in the tilt: rates that satisfy
+[[eq:tl5-hf-admissible]] with κ = κ′ = 0 satisfy it for all κ, κ′ ≥ 0.
 
 **Lemma {#lem:tl5-hf-allocation}** (Explicit admissible rates.) In the setting of [[def:tl5-hf-rates]] suppose that
 for each index ϰ at least one of the diagonal entries (ℰ_o)_ϰϰ, (ℰ_i)_ϰϰ is positive everywhere. Let θ_ϰ be

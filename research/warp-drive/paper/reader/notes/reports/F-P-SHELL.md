@@ -442,3 +442,49 @@ by the merge.
   - `lint --chapters`: 0 hits in all 62 chapters;
   - the section is 53.6, 820 lines; the lemmas are 53.48 and 53.49, and thm:loc-shells is Theorem 53.50;
   - no overlong line after label resolution, in the section or in the placed texts.
+
+---------------------------------------------------------------------------------------------------------------------
+
+# Round 4: the confirming reading's C-1 and nits 1–3 (R-P-SHELL, section "Confirmation")
+
+File: proofs/P-SHELL.md, md5 0dbc56e0d7f13174376f7e7180142946, 971 lines.
+- Section: lines 1-820.
+- Placement: lines 822-944.
+- Crosswalk: lines 945-971.
+
+Not committed. In the real directory only this file was touched; PAPER.md is clean.
+
+## What was applied
+
+- **C-1, applied as given.** Each replacement replaced whole lines exactly once.
+  - Item 8's New (Old at 83:704–705) now says "with densities smooth in angle" and "where the metric functions are
+    continuous".
+  - Item 2's New and the last two lines of item 3's New carry "where the metric functions are continuous".
+  - I checked the content against thm:loc-shells: def:loc-shell-data has the metric functions continuous and the m_k, n_j
+    smooth in ϑ; the densities q_in and q_out may jump.
+- **nit 1, applied as given.** rem:loc-shell-scope (i): breaks "across which the metric functions are continuous".
+- **nit 2, applied with one change.** The reader's "a round one on a small square" became "a round solution on a small
+  square". lint.py flags `\bround\s+(one|two|three)\b` as a process word, and the scratch build's lint showed it. The
+  content is unchanged: (b) gives a small square only, and (c) also gives the neighbourhood of the two leaves. The stray
+  short line is gone.
+- **nit 3, applied as given.** The stray short line at 443 is reflowed.
+
+## Item 8's final New (chapter 83, replacing lines 704–705)
+
+    asserted for cone data that differ from the background's near an axis, for data of finite regularity or for densities
+    that are not smooth, except finitely many null shells along leaves of the two cones with densities smooth in angle and
+    data that are smooth except across such leaves, where the metric functions are continuous, which [[thm:loc-shells]]
+    develops slab by slab with [[thm:civp-large]] and [[thm:loc-cone-development]]; no result of the other chapters uses
+    these developments.
+
+## Checks
+
+- Every Old text still occurs once, as whole lines, at the same chapter lines: 83:681, 83:2369–2371, 83:26–27,
+  90:217–218, 98:157–158 and 83:704–705. sec:loc-kid is at 83:2391.
+- The 21 crosswalk rows point at their labels.
+- No file line exceeds 121 characters, apart from the crosswalk rows.
+- **Scratch build at HEAD:**
+  - `assemble`: 0 problems;
+  - `lint --chapters`: 0 hits in 62 files;
+  - 0 lines over 121 characters in PAPER.md;
+  - the lemmas are 53.48 and 53.49, and thm:loc-shells is Theorem 53.50.
