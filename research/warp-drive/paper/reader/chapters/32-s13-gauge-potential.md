@@ -777,15 +777,18 @@ W* = ρ²dt + r_hρ³f⁻¹dr, so 2g^00W* = −4m_0ρ⁴dt + O(ρ⁵). For the l
 two choices differ by −i[□, F]W* = −i((□_0F)W* − 2∇_(∇F)W*), with □_0F = −r⁻³(r³fF′)′ = O(ρ³), ∇F = fF′∂_r = O(ρ²)∂_r,
 W* = O(ρ²) and ∇_(∂_r)W* = O(ρ³) in the static frame (proof of [[prop:np-10-15]] (vi)); this is O(ρ⁵). ∎
 
-**Lemma {#lem:iii-d-7-1}** (tf-admissibility; [Hin26, Lemma 6.8] in dimension 4 + 1.) There is ϵ > 0 such that for e_Υ ∈
-[0, ϵ), |γ_Υ| < ϵ, every γ_(Υ,H) and every b ∈ ℬ, the family σ ↦ (□^Υ_b)^(σ) is tf-admissible ([[def:i-c-5-1]]) with
-every weight in the indicial gap (0, ι^Υ_(s1,2)) of [[lem:iii-d-4-1]] (with (0, 2) when e_Υγ_Υ² = 0).
+**Lemma {#lem:iii-d-7-1}** (tf-admissibility; [Hin26, Lemma 6.8] in dimension 4 + 1.) (a) For e_Υ ∈ [0, ½],
+γ_Υ ∈ [0, ¼], every γ_(Υ,H) and every b ∈ ℬ, the family σ ↦ (□^Υ_b)^(σ) is tf-admissible ([[def:i-c-5-1]]) with every
+weight in the indicial gap (0, ι^Υ_(s1,2)) of [[lem:iii-d-4-1]] (with (0, 2) when e_Υγ_Υ² = 0). (b) There is ϵ > 0
+such that the same holds for e_Υ ∈ [0, ϵ), |γ_Υ| < ϵ, every γ_(Υ,H) and every b ∈ ℬ.
 
 *Proof.* The transition face operator N_tf(e^(iθ)) of [[sec:i-c-4]] is built from the data of the operator at ρ = 0
 only: S_0, the normal operator N(P⁽⁰⁾) and H_0. By [[lem:iii-d-2-1]] (3) these are the model's, independent of b and
 of the horizon modification; so it suffices to consider □̄^Υ. *At γ_Υ = 0.* The model is □̄, which in the Cartesian
 frame has S_0 = 0, N(P⁽⁰⁾) = (−(ρ∂_ρ)² + 2ρ∂_ρ + Δ_𝕊) Id ([[lem:iii-d-2-1]] (3), [[prop:np-10-20]] (i)) and, with the
-standard inner product, H_0 = Id: by [[prop:i-c-5-3]] it is tf-admissible with every weight in (0, 2). *Small γ_Υ.*
+standard inner product, H_0 = Id: by [[prop:i-c-5-3]] it is tf-admissible with every weight in (0, 2), which is (a)
+at γ_Υ = 0, where z = 0. *(a): γ_Υ > 0.* This is [[prop:tf-gauge-explicit]] (b): for e_Υ ∈ [0, ½] and γ_Υ ∈ (0, ¼],
+z = 4e_Υγ_Υ² ≤ ⅛ and Λ_tf(γ_Υ, e_Υ) ≤ 41/64 < 1 ([[eq:tf-lambda]]). *(b): small |γ_Υ|.*
 Fix the weight β = 1, which lies in the gap for all small parameters ([[lem:iii-d-4-1]]), q = 2 − β, and orders s, α_+,
 𝗋_± as in [[thm:i-c-4-3]], admissible with margins at γ_Υ = 0; as S̄ = O(γ_Υ) ([[lem:iii-d-3-1]]) and the thresholds
 of [[eq:i-a-1-5]] move continuously, they remain admissible for small parameters. The perturbation
@@ -800,6 +803,203 @@ over the three sectors, ‖w‖ ≤ C‖N^0_tf w‖ ≤ C‖N^γ_tf w‖ + C′|
 N^γ_tf(e^(iθ)) for all θ ∈ [0, π], and the adjoint estimate [[eq:i-c-5-2]] gives that of N^γ_tf(1)^(*h) in the same
 way. So the family of □̄^Υ is tf-admissible with weight 1, and by [[cor:i-c-5-2]] (c) with every weight in the gap.
 The condition e_Υ ≥ 0 makes z ≥ 0, so that [[lem:iii-d-4-1]] describes the gap. ∎
+
+### tf-admissibility at explicit gauge parameters {#sec:tf-explicit}
+
+This section proves part (a) of [[lem:iii-d-7-1]]: for every gauge parameter with 0 ≤ e_Υ ≤ ½ and 0 < γ_Υ ≤ ¼, and more
+generally wherever γ_Υ > 0, 0 ≤ e_Υ < 1, 4e_Υγ_Υ² ≤ ½ and the number Λ_tf(γ_Υ, e_Υ) of [[eq:tf-lambda]] is less than 1,
+the family σ ↦ (□^Υ_b)^(σ) is tf-admissible with every weight in its indicial gap. At (γ_Υ, e_Υ) = (1/100, 1/100),
+Λ_tf < 1.0111·10⁻⁴. The proof is not a perturbation from γ_Υ = 0. By [[thm:i-c-4-3]] (5), an element of the kernel of
+the transition face operator decays at sctf faster than r̂^(−3/2), by the margin γ_Υ(1 − e_Υ) that the modification
+gives the endomorphism S̄. Conjugated by e^(iσ̂r̂), its components solve Helmholtz equations with damping terms
+−2iσ̂c r̂⁻¹, c > 0, coupled through one first-order term of size γ_Υ and one of size γ_Υe_Υ ([[lem:tf-gauge-modes]]).
+Two inequalities with a sign ([[lem:tf-damped-helmholtz]]) bound each component by its coupling term, and the two
+couplings together carry the factor Λ_tf. In [[ch:s15]], [[lem:tf-lin-reduction]] reduces the kernel of the transition
+face operator of the linearised gauge-fixed operator L_b to that of □̄^Υ, which gives [[prop:iii-f1-3-3]] on the same
+set of gauge parameters with e_Υ > 0.
+
+*Notation.* In this section x ∈ ℝ⁴ ∖ 0 is the variable x̂ of tf° ([[sec:i-c-4-1]]), r := |x| = r̂, and from here on
+x̂ := x/r denotes the direction on the unit sphere. dx is Lebesgue measure, Δ_e := −Σ_(j=1)^4 ∂_j² is the Euclidean
+Laplacian of ℝ⁴ ([[prop:np-10-20]]), and γ := γ_Υ, e := e_Υ and z := 4eγ² as in [[lem:iii-d-4-1]]. For functions on
+ℝ⁴ ∖ 0 put
+
+    ‖v‖_+² := ∫ |v|² r⁻¹ dx,     ‖∇v‖_+² := ∫ |∇v|² r⁻¹ dx,     ‖f‖_−² := ∫ |f|² r dx,
+
+the integrals over ℝ⁴ ∖ 0, possibly infinite. By the Cauchy–Schwarz inequality, |∫ f v̄ dx| ≤ ‖f‖_−‖v‖_+.
+
+**Lemma {#lem:tf-damped-helmholtz}** (Damped Helmholtz inequalities.) Let θ ∈ [0, π], σ := e^(iθ) and c > 0. Let
+v ∈ C^∞(ℝ⁴ ∖ 0), and suppose that there are C > 0, a > 0 and b ∈ [0, ½) with
+
+    |v| + r|∇v| ≤ C r^(−b) on {0 < r ≤ 1},          |v| + |∇v| ≤ C r^(−3/2−a) on {r ≥ 1}.            {#eq:tf-dh-bounds}
+
+Put f := (Δ_e − σ² − 2iσc r⁻¹)v. Then ‖v‖_+ and ‖∇v‖_+ are finite, and if ‖f‖_− is finite,
+
+    2c‖v‖_+² ≤ |∫ f v̄ dx|,     hence     ‖v‖_+ ≤ ‖f‖_−/(2c);                                          {#eq:tf-dh-zero}
+
+    ‖∇v‖_+² ≤ ‖v‖_+² + ½‖f‖_−² ≤ (1/(4c²) + ½)‖f‖_−².                                                {#eq:tf-dh-one}
+
+*Proof.* As dx = r³ dr dω, [[eq:tf-dh-bounds]] gives |v|²r⁻¹ ≤ C²r^(−2b−1) and |∇v|²r⁻¹ ≤ C²r^(−2b−3) on
+{r ≤ 1}, and the sum of the two is at most 2C²r^(−4−2a) on {r ≥ 1}, so ‖v‖_+ and ‖∇v‖_+ are finite. For
+0 < ε < 1 < R let A := {ε < r < R}, and write ∫_A for integrals over A with respect to dx. The sphere {r = t} has area
+2π²t³.
+
+*The first inequality.* By Green's formula, with the outward normal ∂_r on {r = R} and −∂_r on {r = ε},
+
+    ∫_A (Δ_e v) v̄ = ∫_A |∇v|² − ∫_(r=R) (∂_r v) v̄ dS + ∫_(r=ε) (∂_r v) v̄ dS.
+
+The boundary terms are at most 2π²C²R^(−2a) and 2π²C²ε^(2−2b) in modulus, and tend to 0. With
+P_A := ∫_A |∇v|², Q_A := ∫_A |v|² and N_A := ∫_A |v|²r⁻¹ this reads ∫_A f v̄ = P_A − σ²Q_A − 2iσcN_A + o(1), o(1)
+denoting terms that tend to 0 as ε → 0 and R → ∞. Multiply by σ̄. As |σ| = 1, σ̄σ² = σ, and Im σ̄ = Im(−σ) = −sin θ, so
+
+    Im(σ̄ ∫_A f v̄) = −(sin θ)(P_A + Q_A) − 2cN_A + o(1).
+
+As sin θ ≥ 0, 2cN_A ≤ |∫_A f v̄| + o(1). As ε → 0 and R → ∞, N_A increases to ‖v‖_+², and ∫_A f v̄ tends to ∫ f v̄,
+since f v̄ is integrable when ‖f‖_− and ‖v‖_+ are finite. This gives the first part of [[eq:tf-dh-zero]], and the
+second follows from |∫ f v̄| ≤ ‖f‖_−‖v‖_+.
+
+*The second inequality.* Green's formula with v̄r⁻¹ in place of v̄ gives
+
+    ∫_A (Δ_e v) v̄ r⁻¹ = ∫_A ∇v · ∇(v̄ r⁻¹) − R⁻¹∫_(r=R) (∂_r v) v̄ dS + ε⁻¹∫_(r=ε) (∂_r v) v̄ dS,
+
+with boundary terms at most 2π²C²R^(−1−2a) and 2π²C²ε^(1−2b) in modulus, which tend to 0 as b < ½. Next
+∇(v̄ r⁻¹) = r⁻¹∇v̄ − r⁻²v̄ x̂, so ∇v · ∇(v̄ r⁻¹) = r⁻¹|∇v|² − r⁻² v̄ ∂_r v, and in polar coordinates
+
+    Re ∫_A r⁻² v̄ ∂_r v = ½ ∫_(𝕊³) ∫_ε^R ∂_r(|v|²) r dr dω = ½ [t ∫_(𝕊³) |v(tω)|² dω]_(t=ε)^(t=R) − ½ ∫_A |v|² r⁻³.
+
+The bracket is at most 2π²C²(R^(−2−2a) + ε^(1−2b)) in modulus and tends to 0. Put G_A := ∫_A |∇v|²r⁻¹ and
+E_A := ∫_A |v|²r⁻³, finite for each A. As Re(−σ²) = −cos 2θ and Re(−2iσc) = 2c sin θ,
+
+    Re ∫_A f v̄ r⁻¹ = G_A + ½E_A − (cos 2θ)N_A + 2c(sin θ) ∫_A |v|² r⁻² + o(1).
+
+The fourth term on the right is non-negative and −cos 2θ ≥ −1. By the Cauchy–Schwarz inequality, as
+f v̄ r⁻¹ = (f r^(1/2))(v̄ r^(−3/2)),
+
+    G_A + ½E_A ≤ N_A + ‖f‖_− E_A^(1/2) + o(1) ≤ N_A + ½‖f‖_−² + ½E_A + o(1).
+
+So G_A ≤ N_A + ½‖f‖_−² + o(1), and letting ε → 0 and R → ∞ gives the first inequality of [[eq:tf-dh-one]]. The
+second follows from [[eq:tf-dh-zero]]. ∎
+
+**Lemma {#lem:tf-gauge-modes}** (The transition face operator of the gauge potential operator, conjugated.) Let
+σ̂ ∈ ℂ, let w be a section of E over tf° = ℝ⁴ ∖ 0, and write w = w_0 dt̄ + Σ_(i=1)^4 w_i dx^i in the frame
+(dt̄, dx¹, …, dx⁴), t̄ = t_* + r. Put φ := e^(iσ̂r) w_0 and ω_i := e^(iσ̂r) w_i. Then the transition face operator of
+(□^Υ_b)^(·) satisfies N_tf(σ̂)w = e^(−iσ̂r)(F_0 dt̄ + Σ_i F_i dx^i), where
+
+    F_0 = (Δ_e − σ̂²)φ − 2iσ̂γ(2 − e) r⁻¹ φ + 2γe r⁻¹ Σ_(j=1)^4 ∂_j ω_j,
+    F_i = (Δ_e − σ̂²)ω_i − 2iσ̂γ r⁻¹ ω_i + 2γ r⁻¹ ∂_i φ          (i = 1, …, 4).                           {#eq:tf-modes}
+
+*Proof.* N_tf(σ̂) is built from the data S_0, N(P⁽⁰⁾) and H_0 at ρ = 0, which by [[lem:iii-d-2-1]] (3) are those of
+the model □̄^Υ, independent of b and of the horizon modification. By [[lem:iii-d-2-1]] (2),
+□̄^Υ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S̄) + (□̄^Υ)^(0) exactly on {|x| > 0}, and (□̄^Υ)^(0) ∈ ρ²Diff²_b is dilation
+homogeneous, so it is ρ² times its normal operator. By [[eq:i-c-4-1]] and [[eq:i-c-4-2]] with ς = 1, N_tf(σ̂) is
+therefore the spectral family of □̄^Υ written in x: reading w as a stationary 1-form on the Minkowski model,
+N_tf(σ̂)w = e^(iσ̂t_*) □̄^Υ(e^(−iσ̂t_*) w), as for L_b at the start of [[sec:iii-f1-3]]. The covector
+dt̄ = dt_* + Σ_i x̂_i dx^i is stationary, so the components w_μ depend on x alone, and as t_* = t̄ − r,
+e^(−iσ̂t_*)w = e^(−iσ̂t̄)u with u := φ dt̄ + Σ_i ω_i dx^i, whose components depend on x alone.
+
+In the coordinates (t̄, x), in which ḡ = −dt̄² + Σ_i (dx^i)² and c̄ = r⁻¹dt̄, the coefficients of □̄^Υ do not depend
+on t̄, so □̄^Υ(e^(−iσ̂t̄)u) is e^(−iσ̂t̄) times the result of applying □̄^Υ to u with ∂_t̄ replaced by −iσ̂. Write
+x⁰ := t̄ and ω = ω_μ dx^μ for a 1-form. In the frame (dt̄, dx^i), □̄ = 2δ̄Ḡδ̄* acts on each component as ∂_t̄² + Δ_e
+([[prop:np-10-20]] (i)). For the modification, ĒḠh = −γ(2ι_(ḡ⁻¹c̄)h − e c̄ tr h) (proof of [[lem:iii-d-3-1]]) with
+ḡ⁻¹c̄ = −r⁻¹∂_t̄, and h := δ̄*ω has the components ½(∂_μω_ν + ∂_νω_μ) and the trace
+ḡ^(μν)∂_μω_ν = −∂_t̄ω_0 + Σ_j ∂_jω_j. So
+
+    2ĒḠδ̄*ω = 2γ r⁻¹ ((∂_t̄ω_ν + ∂_νω_0) dx^ν + e(Σ_j ∂_jω_j − ∂_t̄ω_0) dt̄),
+
+whose dt̄-component is 2γr⁻¹((2 − e)∂_t̄ω_0 + e Σ_j ∂_jω_j) and whose dx^i-component is 2γr⁻¹(∂_t̄ω_i + ∂_iω_0).
+Replacing ∂_t̄ by −iσ̂ in □̄^Υ = □̄ + 2ĒḠδ̄* and applying the result to u gives F_0 dt̄ + Σ_i F_i dx^i with
+[[eq:tf-modes]]. Finally N_tf(σ̂)w = e^(iσ̂t_*) e^(−iσ̂t̄)(F_0 dt̄ + Σ_i F_i dx^i) = e^(−iσ̂r)(F_0 dt̄ + Σ_i F_i dx^i). ∎
+
+**Proposition {#prop:tf-gauge-explicit}** (tf-admissibility of the gauge potential operator at explicit parameters.) Let
+γ_Υ > 0 and 0 ≤ e_Υ < 1, with z = 4e_Υγ_Υ² ≤ ½ and
+
+    Λ_tf(γ_Υ, e_Υ) := (1 + 2γ_Υ²)(4e_Υ²(2 − e_Υ)⁻² + 8γ_Υ²e_Υ²) < 1.                                    {#eq:tf-lambda}
+
+Then for every γ_(Υ,H) and every b ∈ ℬ:
+
+(a) for every θ ∈ [0, π], every weight in the indicial gap (0, ι^Υ_(s1,2)) of [[lem:iii-d-4-1]] (with (0, 2) when
+z = 0) and the orders of [[def:i-c-5-1]], the operator N_tf(e^(iθ)) of (□^Υ_b)^(·) is injective on 𝒳_(tf,θ);
+
+(b) the family σ ↦ (□^Υ_b)^(σ) is tf-admissible ([[def:i-c-5-1]]) with every weight in that gap.
+
+The hypotheses hold whenever 0 ≤ e_Υ ≤ ½ and 0 < γ_Υ ≤ ¼; then z ≤ ⅛ and Λ_tf(γ_Υ, e_Υ) ≤ 41/64. At
+(γ_Υ, e_Υ) = (1/100, 1/100),
+
+    Λ_tf = (5001/5000)(4/39601 + 1/12500000) = 250248044601/2475062500000000 < 1.0111·10⁻⁴.         {#eq:tf-lambda-point}
+
+*Proof.* By [[lem:iii-d-2-1]] (3), N_tf(e^(iθ)) is built from the data of the model □̄^Υ at ρ = 0, which do not
+depend on b or on the horizon modification. Put λ := γ(1 − e) > 0.
+
+*(a) The kernel element.* Let θ ∈ [0, π], σ̂ := e^(iθ), let the weight lie in the gap, and let w ∈ 𝒳_(tf,θ) satisfy
+N_tf(σ̂)w = 0. By [[lem:iii-d-3-1]] the endomorphism S̄ has the eigenvalues γ(1 − e), 2γ and γ, so the number
+inf min Re spec S of (H2) of [[sec:i-a-1-3]] for (□^Υ_b)^(·), which [[thm:i-c-4-3]] (5) writes S̄ and which is that of
+N_tf ([[sec:i-c-4-1]] (a)), is γ min(1 − e, 1) = λ. By
+[[thm:i-c-4-3]] (5), w ∈ 𝒜^(3/2+λ−ϵ,−β′)(tf) for every ϵ > 0 and β′ ∈ (0, ι^Υ_(s1,2)); take ϵ := λ/2 and β′ := ¼.
+Since r∂_j = x̂_j r∂_r + Σ_k x̂_k(x_k∂_j − x_j∂_k), every r∂_j is a combination, with coefficients homogeneous of degree
+0, of the b-vector fields r∂_r and of the rotations of 𝕊³; and the frames (dt_*, dx^i) and (dt̄, dx^i) differ by a
+matrix that is smooth and homogeneous of degree 0. So there is C with
+
+    |w_μ| + r|∇w_μ| ≤ C r^(−1/4) on {0 < r ≤ 1},          |w_μ| + r|∇w_μ| ≤ C r^(−3/2−λ/2) on {r ≥ 1},
+
+for the components w_μ of w in the frame (dt̄, dx^i). As |e^(iσ̂r)| = e^(−r sin θ) ≤ 1 and
+∇e^(iσ̂r) = iσ̂ x̂ e^(iσ̂r), the functions φ and ω_i of [[lem:tf-gauge-modes]] are smooth on ℝ⁴ ∖ 0 and satisfy
+[[eq:tf-dh-bounds]] with a := λ/2, b := ¼ and 2C in place of C. By [[lem:tf-gauge-modes]], F_0 = F_1 = ⋯ = F_4 = 0.
+
+*(a) The two estimates.* By [[eq:tf-modes]], for i = 1, …, 4,
+
+    (Δ_e − σ̂² − 2iσ̂γ r⁻¹)ω_i = f_i := −2γ r⁻¹ ∂_iφ,     (Δ_e − σ̂² − 2iσ̂γ(2 − e) r⁻¹)φ = f_0 := −2γe r⁻¹ Σ_j ∂_jω_j.
+
+So ‖f_i‖_−² = 4γ²‖∂_iφ‖_+², and, as |Σ_j ∂_jω_j|² ≤ 4 Σ_j |∂_jω_j|² ≤ 4 Σ_j |∇ω_j|²,
+‖f_0‖_−² ≤ 16γ²e² Σ_j ‖∇ω_j‖_+². These are finite by [[lem:tf-damped-helmholtz]]. Put Φ := ‖∇φ‖_+² and
+Ω := Σ_j ‖∇ω_j‖_+². By [[eq:tf-dh-one]] for ω_i with c = γ, summed over i,
+
+    Ω ≤ (1/(4γ²) + ½) · 4γ² Σ_i ‖∂_iφ‖_+² = (1 + 2γ²)Φ,
+
+and by [[eq:tf-dh-one]] for φ with c = γ(2 − e) > 0,
+
+    Φ ≤ (1/(4γ²(2 − e)²) + ½) · 16γ²e² Ω = (4e²(2 − e)⁻² + 8γ²e²) Ω.
+
+Hence Φ ≤ Λ_tf(γ, e)Φ. As Φ is finite and Λ_tf < 1, Φ = 0: ∇φ = 0 on the connected set ℝ⁴ ∖ 0, and φ is a constant
+that tends to 0 at infinity, so φ = 0. Then f_i = 0, and [[eq:tf-dh-zero]] gives ‖ω_i‖_+ = 0, so ω_i = 0. Hence every
+w_μ = e^(−iσ̂r)·(φ or ω_i) vanishes, and w = 0.
+
+*(b)* By [[cor:i-c-5-2]] (c) it suffices to prove tf-admissibility with the weight 1. (i) of [[def:i-c-5-1]] holds by
+[[lem:iii-d-4-1]], as z ∈ [0, ½], and (ii) is (a). For (iii), let P̂_τ, τ ∈ [0, 1], be (□^Υ_b)^(·) with γ_Υ replaced by
+τγ_Υ and the given e_Υ, γ_(Υ,H) and b. P̂_1 is the family of the statement. The model of P̂_0 is □̄, so P̂_0 is
+tf-admissible with every weight in (0, 2) by [[prop:i-c-5-3]], as in the proof of [[lem:iii-d-7-1]]. Each P̂_τ satisfies
+(H1)–(H2) by [[lem:iii-d-2-1]], whose proof uses no value of the parameters, and 1 lies in its indicial gap by
+[[lem:iii-d-4-1]], as 4eτ²γ² ≤ ½. By [[lem:iii-f1-3-2]] fix s, α_+ and a decay order 𝗋_+ admissible with weight α_+ for
+every σ_0 ∈ J_+ and for all P̂_τ at once, and put q := 1,
+
+    H := H_(sc,b)^(s,(𝗋_++α_+,1)),     𝒴 := H_(sc,b)^(s−2,(𝗋_++α_++1,−1)).
+
+By [[eq:iii-d-3-1]]–[[eq:iii-d-3-3]], S̄ and γM_E are linear in γ, so that N_τ := N_tf(P̂_τ, 1) = N_0 + τV with
+
+    V := −2iρ̂S̄ + γρ̂²M_E(ρ̂∂_ρ̂, ∂_x̂),     S̄ and M_E taken at the given e_Υ and γ_Υ.
+
+V is bounded from H into 𝒴: near sctf, ρ̂ times a bundle map gains one order of decay, and ρ̂²Diff¹_b = ρ̂Diff¹_sc
+gains one order of decay for one sc-derivative; near ztf, where H and 𝒴 are H^s_(b,−1) and H^(s−2)_(b,−3)
+([[def:i-c-4-1]]), multiplication by ρ̂ = r̂⁻¹ maps H^s_(b,−1) into H^s_(b,−2), and ρ̂²M_E maps it into H^(s−1)_(b,−3);
+in between the coefficients are smooth. This is the boundedness used in the proof of [[lem:iii-d-7-1]]. Hence
+𝒳 := {w ∈ H : N_τ w ∈ 𝒴} does not depend on τ, it is the space 𝒳_(tf,0) of every P̂_τ, the norms ‖w‖_H + ‖N_τw‖_𝒴 on
+it are equivalent, and τ ↦ N_τ is continuous from [0, 1] into the bounded maps 𝒳 → 𝒴. Each N_τ is Fredholm
+([[thm:i-c-4-3]] (3)), and the index of a continuous family of Fredholm operators is constant. N_0 is invertible
+([[cor:i-c-5-2]] (a)), so ind N_1 = 0. N_1 is injective by (a), hence onto 𝒴, and by [[thm:i-c-4-3]] (3) the
+annihilator of its range, which is therefore {0}, is ker_(𝒳*_(tf,0)) N_tf(1)^(*h). This is (iii).
+
+*The last statements.* Let 0 ≤ e ≤ ½ and 0 < γ ≤ ¼. Then z = 4eγ² ≤ ⅛, 1 + 2γ² ≤ 9/8 and 8γ²e² ≤ ⅛; and since
+e ↦ 4e²(2 − e)⁻² has the derivative 16e(2 − e)⁻³ ≥ 0 on [0, 2), 4e²(2 − e)⁻² ≤ 4/9. So
+Λ_tf ≤ (9/8)(4/9 + 1/8) = (9/8)(41/72) = 41/64. At γ = e = 1/100: 1 + 2γ² = 5001/5000,
+4e²(2 − e)⁻² = (4/10⁴)(100/199)² = 4/39601 and 8γ²e² = 8·10⁻⁸ = 1/12500000. As 4·12500000 + 39601 = 50039601 and
+39601·12500000 = 495012500000, the sum is 50039601/495012500000, and the product with 5001/5000 is
+250248044601/2475062500000000. Finally 2475062500000000·1.0111·10⁻⁴ = 24750625·10111 = 250253569375, which exceeds
+250248044601. ∎
+
+**Remark {#rem:tf-sign}** (Where the sign of γ_Υ enters.) The proof of [[prop:tf-gauge-explicit]] uses γ_Υ > 0 twice.
+The threshold λ = γ_Υ(1 − e_Υ) of the model is positive, so that a kernel element decays at sctf faster than r^(−3/2)
+and the boundary terms of [[lem:tf-damped-helmholtz]] vanish also at θ = 0 and θ = π, where the factor e^(iσ̂r) does not
+decay. And the damping constants c = γ_Υ and c = γ_Υ(2 − e_Υ) of [[eq:tf-modes]] are positive. The coupling enters
+only through Λ_tf, which vanishes at e_Υ = 0; there the system [[eq:tf-modes]] is triangular. For γ_Υ < 0 neither sign
+holds, and [[lem:iii-d-7-1]] (b) rests on the perturbation from γ_Υ = 0.
 
 ### The zero energy setting {#sec:iii-d1-1}
 

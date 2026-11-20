@@ -1,5 +1,5 @@
 label	source	source_name	note
-ch:s16	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:15-41; docket68/n1star/proof5/PART-III-G2-IOTA.md:3-13; docket68/n1star/proof5/PART-III-G3-GRAFT.md:12-26	III.G intro (What n = 4 changes, Method); III.G1 and III.G2 status sentences; III.G2 window paragraph	intro composed; status paragraphs and history dropped; window stated as a condition on the grafted order
+ch:s16	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:15-41; docket68/n1star/proof5/PART-III-G2-IOTA.md:3-13; docket68/n1star/proof5/PART-III-G3-GRAFT.md:12-26	III.G intro (What n = 4 changes, Method); III.G1 and III.G2 status sentences; III.G2 window paragraph	intro composed; status paragraphs and history dropped; window stated as a condition on the grafted order; gamma as in prop:iii-f1-3-3, not small (P-T78 item 13)
 sec:iii-g-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:42	III.G section 1	
 sec:iii-g-1-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:44-135	III.G section 1.1	
 eq:iii-g-1-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:48-50	III.G (1.1)	

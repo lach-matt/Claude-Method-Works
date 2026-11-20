@@ -558,7 +558,7 @@ N(P⁽⁰⁾) is (2L̄)^(0) ([[lem:iii-f-2-1]] (2)–(3)); since 2L̄ = −2∂_
 [[eq:i-c-4-2]] with ς = 1). The same holds for □^C_b with its model □̄^C: the ∂_(t_*)-coefficient of □̄^C is
 −2ρ(ρ∂_ρ − 3/2 − S̄^C) exactly (□̄ gives −2ρ(ρ∂_ρ − 3/2), and 2δ̄ḠĒ^C gives ρS̄^C as in [[lem:iii-f-3-1]]), and the
 rest is stationary and dilation homogeneous. And it holds for the operators of [[lem:iii-f-2-1]] with the parameters
-(γ_C, γ_Υ) replaced by (τγ_C, τγ_Υ), τ ∈ [0, 1], or by (0, γ_Υ), which satisfy (H1)–(H2) by the proof of
+(γ_C, γ_Υ) replaced by (τγ_C, τγ_Υ), τ ∈ [0, 1], which satisfy (H1)–(H2) by the proof of
 [[lem:iii-f-2-1]], which does not use the values of the parameters; at τ = 0 the model is □̄ on S²T*, componentwise in
 the Cartesian frame. For all of them spec S̄ ⊂ [0, ∞) ([[eq:iii-f-3-1]], the γ's being ≥ 0), and spec S̄^C ⊂ (0, ∞)
 ([[sec:iii-e-1]]). Here P^(·) denotes the family σ ↦ P^(σ).
@@ -632,14 +632,67 @@ principal symbol, up to positive multiples ([[sec:i-a-4]]). Take 𝗋_in above t
 which satisfies (O1)–(O3) of [[sec:i-a-1]] for each operator. On compact subsets of (0, π) the constant order 𝗋_out is
 allowed for each ([[thm:i-c-4-3]] (2)). ∎
 
-**Proposition {#prop:iii-f1-3-3}** (tf-admissibility; [Hin26, Proposition 8.6] in dimension 4 + 1.) Assume e_Υ > 0
-and (C1), and fix all parameters but γ_Υ. There is γ_1 > 0 such that for γ_Υ ∈ (0, γ_1) (so that
-z = 4e_Υγ_Υ² ∈ (0, ½]) and every b near b_0, L_b^(·) is tf-admissible ([[def:i-c-5-1]]) with every weight β ∈ (0, 1].
+**Lemma {#lem:tf-lin-reduction}** (The kernel at the transition face, reduced to the gauge potential operator.) Assume
+(C1) and z = 4e_Υγ_Υ² ∈ (0, ½]. Let s ∈ ℤ and α_+ be given, and let the orders be admissible at once
+([[lem:iii-f1-3-2]]) for (2L_b)^(·), for (□^Υ_b)^(·) at the given gauge parameters and at γ_Υ = 0, and for (2L_b)^(·)
+with (γ_C, γ_Υ) replaced by (0, 0), whose model is □̄ on S²T*, componentwise in the Cartesian frame
+([[sec:iii-f1-3]]). Let θ ∈ [0, π], σ̂ := e^(iθ) and β ∈ (0, ½), and let u_0 ∈ 𝒳(β) satisfy
+N_tf((2L_b)^(·), σ̂)u_0 = 0 and (δ̄_(Ē_Υ)Ḡ)^(σ̂)u_0 = 0. Then u_0 = (δ̄*)^(σ̂)ω_0 for some ω_0 in the space 𝒳_(tf,θ)
+of (□^Υ_b)^(·) at the weight ½ with N_tf((□^Υ_b)^(·), σ̂)ω_0 = 0.
+
+*Proof.* *The decay of u_0 at ztf.* By [[prop:iii-f1-2-3]] (a) and (c), the indicial gap of L_b(0) that contains
+(0, 1] is (0, β_+) with β_+ > 1. By [[thm:i-c-4-3]] (5), u_0 ∈ ρ_ztf^(−β′)C^∞_b near ztf for every β′ > 0, and so
+u_0 ∈ H^∞_(b,−2β′) there ([[lem:i-c-2-2]] (f)).
+
+*The equations.* N_tf((2L_b)^(·), σ̂) = (2L̄)^(σ̂) (the start of [[sec:iii-f1-3]]), and
+2L̄ = 2D Ric + 2δ̄*_(Ē_C)δ̄_(Ē_Υ)Ḡ, D Ric the linearisation at ḡ. The operators are stationary, so their spectral
+families compose. As (δ̄_(Ē_Υ)Ḡ)^(σ̂)u_0 = 0 and δ̄_(Ē_Υ) = δ̄ + Ē^Υ, where Ē^ΥḠ is a bundle map and equals its
+spectral family,
+
+    (D Ric)^(σ̂)u_0 = 0,     (δ̄Ḡ)^(σ̂)u_0 = −ξ_0,     ξ_0 := Ē^ΥḠ u_0.
+
+As c̄_Υ = r⁻¹dt̄, Ē^ΥḠ = ρ̂B with B a bundle map homogeneous of degree 0.
+
+*The flat gauge 1-form.* Let N_ω be the transition face operator at σ̂ of (□^Υ_b)^(·) at γ_Υ = 0. Its data at ρ = 0
+are those of □̄ on 1-forms in the Cartesian frame, S_0 = 0, N(P⁽⁰⁾) = (−(ρ∂_ρ)² + 2ρ∂_ρ + Δ_𝕊)Id and H_0 = Id (proof of
+[[lem:iii-d-7-1]] at γ_Υ = 0), so this family is tf-admissible with every weight in (0, 2) ([[prop:i-c-5-3]]), and by
+[[cor:i-c-5-2]] (a) N_ω maps its space 𝒳_(tf,θ) at the weight ½, that is at q = 3/2, invertibly onto
+𝒴_(tf,θ) = H_(sc,b)^(s−2,(𝗋+α_++1,−1/2)). ξ_0 lies in this space: near sctf, u_0 ∈ H_sc^(s,𝗋+α_+), which
+multiplication by ρ̂B maps into H_sc^(s,𝗋+α_++1); near ztf, ξ_0 ∈ r̂^(−1−β′)C^∞_b ⊂ H^∞_(b,−1−2β′) for every β′ > 0,
+which lies in H^(s−2)_(b,−5/2), the space of 𝒴_(tf,θ) there, once 2β′ < 3/2; in between, ξ_0 is smooth. Let
+ω_0 := N_ω⁻¹(−2ξ_0). On 1-forms of Minkowski space 2δ̄Ḡδ̄* = □̄ (proof of [[lem:iii-f1-2-1]]), so
+N_ω = 2(δ̄Ḡ)^(σ̂)(δ̄*)^(σ̂), and (δ̄Ḡ)^(σ̂)(δ̄*)^(σ̂)ω_0 = −ξ_0.
+
+*The tensor part vanishes.* Put h_0 := u_0 − (δ̄*)^(σ̂)ω_0. Then (δ̄Ḡ)^(σ̂)h_0 = −ξ_0 + ξ_0 = 0, and
+(D Ric)^(σ̂)h_0 = −(D Ric δ̄*)^(σ̂)ω_0 = 0, as D Ric ∘ δ̄* = 0 on Minkowski space (proof of [[lem:iii-f1-2-1]]). On
+symmetric 2-tensors of Minkowski space 2D Ric = □̄ − 2δ̄*δ̄Ḡ ([[eq:iii-f-1-2]] and the identity used there, the curvature
+term being 0), so (□̄)^(σ̂)h_0 = 2(D Ric)^(σ̂)h_0 + 2(δ̄*)^(σ̂)(δ̄Ḡ)^(σ̂)h_0 = 0: h_0 lies in the kernel of the
+transition face operator N_h at σ̂ of (2L_b)^(·) with (γ_C, γ_Υ) replaced by (0, 0), whose model is □̄ on S²T*. On
+stationary sections a Cartesian derivative acts as ∂_(x^i)|_(t_*), which lies in ρ𝒱_b and is homogeneous, plus
+(dt_*)_μ∂_(t_*), and ∂_(t_*) acts as −iσ̂ in the spectral family; so (δ̄*)^(σ̂) = ρ̂B_1 + σ̂B_0 with
+B_1 := ρ⁻¹(δ̄*)^(0) ∈ Diff¹_b and B_0 := −i dt_* ⊗_s ·, both homogeneous of degree 0. Hence, near ztf,
+(δ̄*)^(σ̂)ω_0 ∈ r̂⁻¹H^(s−1)_(b,−1/2) = H^(s−1)_(b,−3/2), and u_0 ∈ H^∞_(b,−2β′) ⊂ H^(s−1)_(b,−3/2) once 2β′ < 3/2;
+near sctf both lie in H_sc^(s−1,𝗋+α_+), as ρ̂B_1 ∈ Diff¹_sc and B_0 is bounded; in between both are in H^(s−1)_loc. So
+h_0 ∈ H_(sc,b)^(s−1,(𝗋+α_+,1/2)), the space of N_h at the regularity s − 1 and the weight 3/2 ∈ (0, 2), and as
+N_h h_0 = 0, h_0 lies in its 𝒳_(tf,θ). By [[prop:i-c-5-3]] this family is tf-admissible with every
+weight in (0, 2), and by [[thm:i-c-4-3]] (3) its kernel does not depend on the regularity. So h_0 = 0.
+
+*The gauge potential operator.* So u_0 = (δ̄*)^(σ̂)ω_0. As □̄^Υ = □̄ + 2Ē^ΥḠδ̄* on 1-forms ([[sec:iii-d-2]]),
+
+    N_tf((□^Υ_b)^(·), σ̂)ω_0 = N_ω ω_0 + 2Ē^ΥḠ(δ̄*)^(σ̂)ω_0 = −2ξ_0 + 2Ē^ΥḠu_0 = 0.
+
+ω_0 lies in H_(sc,b)^(s,(𝗋+α_+,3/2)), the orders are admissible for (□^Υ_b)^(·), and the weight ½ lies in its indicial
+gap (0, ι^Υ_(s1,2)) ([[lem:iii-d-4-1]]). So ω_0 lies in the space 𝒳_(tf,θ) of (□^Υ_b)^(·) at the weight ½. ∎
+
+**Proposition {#prop:iii-f1-3-3}** (tf-admissibility; [Hin26, Proposition 8.6] in dimension 4 + 1.) Assume (C1),
+0 < e_Υ ≤ ½ and 0 < γ_Υ ≤ ¼ (so that z = 4e_Υγ_Υ² ∈ (0, ⅛]), or more generally (C1), 0 < e_Υ < 1, γ_Υ > 0, z ≤ ½
+and Λ_tf(γ_Υ, e_Υ) < 1 ([[eq:tf-lambda]]). Then for every b near b_0, L_b^(·) is tf-admissible ([[def:i-c-5-1]]) with
+every weight β ∈ (0, 1].
 
 *Proof.* (i) of [[def:i-c-5-1]]: (0, 1] lies in an indicial gap, by [[prop:iii-f1-2-3]] (a), and the gap contains
 (0, β_+) with β_+ > 1. As N_tf depends only on the model, b plays no role. Fix α_+, s ∈ ℤ large, and by
-[[lem:iii-f1-3-2]] orders admissible at once for (2L_b)^(·), (□^C_b)^(·), the operator P̂′ with parameters (0, γ_Υ), and
-the operators P̂_τ with parameters (τγ_C, τγ_Υ), uniformly for γ_Υ ∈ [0, 1] and τ ∈ [0, 1]; by [[thm:i-c-4-3]] (3)
+[[lem:iii-f1-3-2]] orders admissible at once for (2L_b)^(·), (□^C_b)^(·), (□^Υ_b)^(·) at the given gauge parameters and
+at γ_Υ = 0, and the operators P̂_τ with parameters (τγ_C, τγ_Υ), uniformly for τ ∈ [0, 1]; by [[thm:i-c-4-3]] (3)
 kernels, annihilators and indices do not depend on these choices or on q with 2 − q in the gap.
 
 *(ii) The kernel.* Let θ ∈ [0, π], σ̂ := e^(iθ), β ∈ (0, ½) (by [[thm:i-c-4-3]] (3) this covers every weight in the
@@ -662,26 +715,19 @@ weight β_C, which lies in the gap (−C_0, 2) of □^C_b (C1).
 
 *Step 4.* By [[thm:iii-e-1-1]] (4), (□^C_b)^(·) is tf-admissible with the weight β_C ∈ [−C_0, 2), so η_0 = 0.
 
-*Step 5: the unmodified gauge.* With η_0 = 0, (2L̄)^(σ̂)u_0 = 2(D Ric)^(σ̂)u_0 = (2L̄′)^(σ̂)u_0,
-L̄′ := D Ric + δ̄*δ̄_(Ē_Υ)Ḡ, the model of P̂′ (parameters (0, γ_Υ)). So N_tf(P̂′, σ̂)u_0 = 0.
-2L̄′ = □̄ + 2δ̄*Ē^ΥḠ does not involve γ_C.
-
-*Step 6: small γ_Υ.* u_0 ∈ 𝒳_(P̂′)(1): near ztf u_0 ∈ H^s_(b,−1), as u_0 = O(r̂^(−β′)) with b-regularity and β′ < 1;
-near sctf it is as before. At γ_Υ = 0, P̂′ = □^(·) on S²T*, componentwise in the Cartesian frame, tf-admissible with
-every weight in (0, 2) ([[prop:i-c-5-3]]), so by [[cor:i-c-5-2]] (b) at the weight 1, uniformly in θ over the three
-sectors, ‖w‖ ≤ C‖N⁰_tf w‖. The difference N_tf(P̂′, e^(iθ)) − N⁰_tf(e^(iθ)) = −2ie^(iθ)ρ̂S̄′ + ρ̂²M′, with S̄′ and
-M′ ∈ Diff¹_b homogeneous and O(γ_Υ), is bounded from the space of 𝒳 into that of 𝒴 with norm C′γ_Υ, uniformly in θ,
-exactly as in [[lem:iii-d-7-1]]; so ‖u_0‖ ≤ C‖N_tf(P̂′, e^(iθ))u_0‖ + CC′γ_Υ‖u_0‖, and u_0 = 0 once CC′γ_Υ ≤ ½. This
-fixes γ_1; it depends on the orders, hence on γ_C, which is fixed first. The weight 1 lies in the indicial gap of
-P̂′(0) for small γ_Υ: its roots are within O(γ_Υ) of the integer roots of □̄ on S²T* ([[lem:iii-a1-2-3]]), none in
-(0, 2), on the finitely many components that meet the strip |Re ι − 1| ≤ ½ ([[lem:iii-f1-2-4]]), and on no other.
+*Step 5: reduction to the gauge potential operator.* By Steps 1–4, u_0 ∈ 𝒳(β), N_tf((2L_b)^(·), σ̂)u_0 = 0 and
+(δ̄_(Ē_Υ)Ḡ)^(σ̂)u_0 = η_0 = 0. By [[lem:tf-lin-reduction]], u_0 = (δ̄*)^(σ̂)ω_0 with ω_0 in the kernel of
+N_tf((□^Υ_b)^(·), σ̂) on its space 𝒳_(tf,θ) at the weight ½. By [[prop:tf-gauge-explicit]] (a), whose hypotheses are
+those of the statement, ω_0 = 0. So u_0 = 0, for every θ ∈ [0, π].
 
 *(iii) The adjoint.* By [[thm:i-c-4-3]] (3) the annihilator of the range of
 N_tf((2L_b)^(·), 1) : 𝒳(β) → 𝒴(β) is ker_(𝒳*) N_tf(1)^(*h); by (ii) the operator is injective, so it suffices that its
 index is 0. Consider the family P̂_τ, τ ∈ [0, 1], at θ = 0 with the common orders. P̂_1 = (2L_b)^(·) and P̂_0 = □^(·) on
-S²T*. 𝒳 does not depend on τ, and τ ↦ N_tf(P̂_τ, 1) is continuous in the norm of bounded maps 𝒳 → 𝒴 (the differences are
-as in Step 6). Let I_τ be the indicial family of P̂_τ(0), apply [[lem:iii-f1-2-4]] with X := 2 and 𝒯 = [0, 1], and for β″
-not the real part of a root of I_τ, |β″ − β| < 1, put
+S²T*. 𝒳 does not depend on τ, and τ ↦ N_tf(P̂_τ, 1) is continuous in the norm of bounded maps 𝒳 → 𝒴: the differences
+are −2iρ̂ times a bundle map plus ρ̂² times an operator in Diff¹_b, homogeneous of degree 0 and polynomial in τ, which
+are bounded from the space of 𝒳 into that of 𝒴 as in the proof of [[lem:iii-d-7-1]]. Let I_τ be the indicial family
+of P̂_τ(0), apply [[lem:iii-f1-2-4]] with X := 2 and 𝒯 = [0, 1], and for a β″ with |β″ − β| < 1 that is not the
+real part of a root of I_τ, put
 
     G(τ) := ind_τ(β″) − Σ_π (n_π(τ, β″) − dim W_π),
 

@@ -56,19 +56,23 @@ and, by [[cor:s14-eps-ind-point]], ε_ind(10⁻⁶) = δ_50, where 1.94137056846
 the set on which [[thm:settling]] is proved, and it lies outside through h. [[thm:settling]] takes h in the set 𝖧 of
 [[eq:iv4-0-1]], whose supremum h_* = min(10⁻⁶, h_0, h_tf) is at most 10⁻⁶ whatever the values of h_0 and h_tf, and
 𝖧 ⊂ (0, h_*); so h = 10⁻⁶ is not in 𝖧 ([[rem:s14-eps-ind-scope]]). Whether the gauge half of the point lies in the
-proved set is not decided: the parameters γ_Υ and e_Υ are required in [[thm:vi-c-2-1]] to lie below thresholds whose
-existence is proved and whose values are not determined, and (γ_Υ, e_Υ) = (1/100, 1/100) is not shown to lie below them.
-[[def:ec-point]] does not fix the parameter γ_(Υ,H) of the horizon modification (row u2 of
-[[sec:vi-c-1]]), on which the threshold ε_1 of [[prop:iii-d1-4-1]] for γ_Υ and e_Υ depends, and no number of this
-chapter depends on it: the horizon thresholds that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]],
-where y = 0 for the 1-form c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not
-depend on the horizon modification ([[sec:iii-d2-1]]). So the computational point is a point at which the formulas of
-the proof can be evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Every number of this
-chapter that depends on the point is stated at it. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50
-([[prop:np-10-52]] (iii)), and the lower bound of [[thm:loss-d]] uses besides only ε_Υ < 1.46214·10⁻¹⁰, which holds at
-every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a
-lower bound for d holds as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for
-ε_Υ and ε_ind(h) that hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
+proved set is not decided. Of the conditions that [[thm:vi-c-2-1]] places on γ_Υ and e_Υ, the tf-admissibility of
+[[lem:iii-d-7-1]] and [[prop:iii-f1-3-3]] holds for every e_Υ ∈ (0, ½] and γ_Υ ∈ (0, ¼] and every h ∈ 𝖧
+([[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]]; at (γ_Υ, e_Υ) = (1/100, 1/100) the factor of [[eq:tf-lambda]] is
+below 1.0111·10⁻⁴), and the caps 3/8, ½s_C and ¼ of row u4 of [[sec:vi-c-1]] hold there; the exclusion z_Υ ∉ 𝖹_exc
+of row u5 is a separate condition. The threshold ε_1 of [[prop:iii-d1-4-1]] for γ_Υ and e_Υ depends on the parameter
+γ_(Υ,H) ∈ (0, ε_0] of the horizon modification (row u2 of [[sec:vi-c-1]]); ε_0 and ε_1 are proved to exist, their
+values are not determined, and whether (γ_Υ, e_Υ) = (1/100, 1/100) lies below ε_1 for some such γ_(Υ,H) is not
+decided. [[def:ec-point]] does not fix γ_(Υ,H), and no number of this chapter depends on it: the horizon thresholds
+that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]], where y = 0 for the 1-form
+c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not depend on the horizon
+modification ([[sec:iii-d2-1]]). So the computational point is a point at which the formulas of the proof can be
+evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Every number of this chapter that
+depends on the point is stated at it. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-10-52]] (iii)),
+and the lower bound of [[thm:loss-d]] uses besides only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed
+by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a lower bound for d holds
+as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that
+hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
 
 ### Sums of the gauge potential offsets {#sec:ec-gap-sums}
 
@@ -1780,7 +1784,7 @@ conditions of [[thm:settling]], each of which holds at every point of the proved
   point: the levels, η_2 ∈ (ε_K, ε_+) ([[sec:iii-i11-1]]), and the losses 0 < ε < ½ε_g and ε′ ≤ ε.
 
 It uses none of the thresholds that define the proved set: not h < h_0, h < h_tf or h ∉ 𝖹; not γ_(Υ,H) ≤ ε_0, nor the
-bounds ε_1, ε_L and γ_1 on e_Υ and γ_Υ; not z ∉ 𝖹_exc; not (C2), (C3) or (C5), nor (C4) beyond the existence of ε_ind;
+bounds of rows u3 and u4 on e_Υ and γ_Υ; not z ∉ 𝖹_exc; not (C2), (C3) or (C5), nor (C4) beyond the existence of ε_ind;
 not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data classes (rows d1–d2), the parameter set ℬ_*
 (rows b1–b4) or the smallness of row n1. So the bound holds on the proved set without any of those thresholds being
 evaluated. It holds as well at every (h, z) ∈ (0, 10⁻⁶] × (0, ½] at which the constructions of [[sec:ec-floor]] are run
@@ -5279,8 +5283,9 @@ them.
 **Remark {#rem:ec-not-evaluated}** (Where explicit evaluation stops.) The values of λ1 and δ are not determined in this
 paper; [[prop:ec-delta-cap]] bounds λ1 by δ, δ by a power of 2 that decreases with d, and the modulus at 2δ, and they are
 positive by the proof of [[thm:settling]]. Explicit values stop first upstream of every constant: the proof fixes the
-gauge and damping parameters only below thresholds whose existence it proves ([[thm:vi-c-2-1]]), and the cut-offs and
-orders of its function spaces only up to admissibility, so explicit constants need those choices made with numbers, which
+gauge and damping parameters only below thresholds whose existence it proves ([[thm:vi-c-2-1]]; the conditions of
+tf-admissibility on the gauge are explicit, [[prop:tf-gauge-explicit]]), and the cut-offs and orders of its function
+spaces only up to admissibility, so explicit constants need those choices made with numbers, which
 this chapter does only at a point outside the proved set: [[def:ec-point]] for the gauge and damping parameters, and
 [[def:uc-choice]] and [[def:cs-choices]] for the weights, orders and inner products on which d depends. The lower bound
 for d of [[thm:ec-lb-proved]] needs no such choice: it holds at every point of the proved set as an explicit function

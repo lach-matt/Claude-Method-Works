@@ -1729,12 +1729,13 @@ c1.
 
 **u2.** γ_(Υ,H) ∈ (0, ε_0], ε_0 that of [[prop:iii-d1-4-1]]. Threshold: none.
 
-**u3.** e_Υ ∈ (0, min(ε_1, ε_L)), with ε_1 of [[prop:iii-d1-4-1]] and ε_L of [[lem:iii-d-7-1]]
-([[prop:iii-f1-3-3]]). Threshold: ε_1 on u2; ε_L on c1–c2.
+**u3.** e_Υ ∈ (0, min(ε_1, ½)], with ε_1 of [[prop:iii-d1-4-1]]. With row u4 this gives the tf-admissibility of
+[[lem:iii-d-7-1]] (a) and of [[prop:iii-f1-3-3]], whose conditions e_Υ ≤ ½ and γ_Υ ≤ ¼ are explicit
+([[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]]). Threshold: ε_1 on u2.
 
-**u4.** 0 < γ_Υ < min(ε_1, ε_L, γ_1, 3/8, ½s_C, ¼), with γ_1 of [[prop:iii-f1-3-3]]; ε_L contains the bound
-C′|γ_Υ| ≤ ½ of the proof of [[lem:iii-d-7-1]] ([[prop:iii-d1-4-1]], [[sec:iii-g2-1]], [[eq:iii-c-1-1]],
-[[eq:iii-i9-1-1]]). Threshold: γ_1 on c1–c3 and u2–u3; ε_L on c1–c2.
+**u4.** 0 < γ_Υ < min(ε_1, 3/8, ½s_C, ¼) ([[prop:iii-d1-4-1]], [[sec:iii-g2-1]], [[eq:iii-c-1-1]],
+[[eq:iii-i9-1-1]]). With e_Υ ≤ ½ this gives z_Υ ≤ ⅛ and Λ_tf(γ_Υ, e_Υ) ≤ 41/64 ([[eq:tf-lambda]]). Threshold: ε_1 on
+u2; ½s_C on c1–c2.
 
 **u5.** z_Υ := 4e_Υγ_Υ² ∈ (0, ½] ∖ 𝖹_exc, 𝖹_exc countable ([[prop:iii-f1-2-3]] (e), [[sec:iii-g2-1]]). Threshold:
 𝖹_exc on c1–c3; u3.
@@ -1792,10 +1793,10 @@ together. Make the choices in this order; at each step the thresholds depend onl
 γ_C > 10⁶.
 
 (2) The gauge. ε_0 of [[prop:iii-d1-4-1]] is uniform. Choose γ_(Υ,H) ∈ (0, ε_0]; this fixes ε_1 and ℬ(γ_(Υ,H)).
-Choose e_Υ ∈ (0, min(ε_1, ε_L)); this fixes γ_1 of [[prop:iii-f1-3-3]], which fixes all parameters but γ_Υ and
-depends on the orders, hence on γ_C. 𝖹_exc is fixed by step (1). Choose γ_Υ in the interval of row u4 with
+Choose e_Υ ∈ (0, min(ε_1, ½)]. 𝖹_exc is fixed by step (1). Choose γ_Υ in the interval of row u4 with
 4e_Υγ_Υ² ∉ 𝖹_exc. This is possible because the interval is nonempty and open, while {γ > 0 : 4e_Υγ² ∈ 𝖹_exc} is
-countable. Then z_Υ ∈ (0, ½], as γ_Υ < ¼ and e_Υ < 1. [[prop:iii-d-6-3]] (the invertibility of the spectral family
+countable. Then z_Υ ∈ (0, ⅛], as γ_Υ < ¼ and e_Υ ≤ ½, so that [[lem:iii-d-7-1]] (a) and [[prop:iii-f1-3-3]] hold
+([[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]]). [[prop:iii-d-6-3]] (the invertibility of the spectral family
 of □^Υ_b at |σ| ≥ c_σ) is then implied, for every c_σ and b ∈ ℬ(γ_(Υ,H)), by [[prop:iii-d1-4-1]], which gives it for
 every σ with Im σ ≥ 0; so it imposes no further condition.
 

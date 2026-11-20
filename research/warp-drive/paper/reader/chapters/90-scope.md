@@ -83,7 +83,8 @@ theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[l
 [[ch:explicit-constants]], whose opening states both.
 
 Explicit values stop upstream of every constant of [[thm:settling]]: the proof fixes the gauge and damping parameters
-only below thresholds whose existence it proves, and the cut-offs and orders of its function spaces only up to
+only below thresholds whose existence it proves (the conditions of tf-admissibility on the gauge are explicit: e_Υ ≤ ½
+and γ_Υ ≤ ¼ suffice, [[prop:tf-gauge-explicit]]), and the cut-offs and orders of its function spaces only up to
 admissibility; arguments by contradiction, compactness and defect measures give constants without a value; and the
 parametrix norms at ι⁺, the tame constants to the order N_NM, the Nash–Moser thresholds of the exterior and slab
 problems and the constants of the gluing are not evaluated. This is a limit of the explicit evaluation, not of

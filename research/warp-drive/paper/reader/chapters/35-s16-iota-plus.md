@@ -51,7 +51,7 @@ spacetime and Ω a domain in it, while elsewhere Ω and Ω_a are rotation fields
 ℐ⁺, ι⁺ and K⁺ of the compactified spacetime are those of [[ch:s04]]. The inner radius of the artificial boundary plays
 no role in this chapter: the spectral family lives on Minkowski space, and the grafting of [[sec:iii-g2-4]] takes place
 near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which [[thm:iii-e-1-1]] (3) provides, and
-γ_Υ is small as in [[prop:iii-f1-3-3]].
+γ_Υ is as in [[prop:iii-f1-3-3]].
 
 ### The spectral family: the operator and the spaces {#sec:iii-g-1}
 
