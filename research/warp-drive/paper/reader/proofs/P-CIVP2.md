@@ -402,20 +402,20 @@ min(l_v, σ)] × S³ that induces these functions on the two edges and equals (g
 ϑ ∉ [η, π/2 − η].
 
 *Proof.* This is the development theorem of [[pending:civp-tier1-theorem]] with its smallness hypothesis replaced by
-smallness of the rectangle, and its proof is the one given there ([[pending:civp-tier1-local]]), with 𝒞_out, 𝒞_in
-and S replaced by N_o, N_i and the corner sphere. Three steps of that proof use the smallness of the data. (i) The
-Cauchy problem for the augmented system with Rendall's forcing term is solved there on the whole time interval by
-[[thm:class-kato-stability]] (a) around the background; here it is solved by [[thm:class-kato]] (a), with
-[[rem:class-kato-local]] for the forcing term, on a time interval of length T > 0 that depends only on bounds for the
-coefficients and for the norm of the extended data, hence only on Λ, η, m and the background on a neighbourhood of
-Q1 × S³, and not on the corner. (ii) Finite speed of propagation and the localisation away from the axes are used
+smallness of the rectangle, and its proof is the one given there ([[pending:civp-tier1-local]]), with 𝒞_out, 𝒞_in and S
+replaced by N_o, N_i and the corner sphere. Three steps of that proof use the smallness of the data. (i) The Cauchy
+problem for the augmented system with the forcing term supported to the past of the two edges is solved there on the
+whole time interval by [[thm:class-kato-stability]] (a) around the background; here it is solved by [[thm:class-kato]]
+(a), with [[rem:class-kato-local]] for the forcing term, on a time interval of length T > 0 that depends only on bounds
+for the coefficients and for the norm of the extended data, hence only on Λ, η, m and the background on a neighbourhood
+of Q1 × S³, and not on the corner. (ii) Finite speed of propagation and the localisation away from the axes are used
 there with a cone field close to g0's; here the cone field of the solution is bounded in terms of Λ on the time
 interval, the perturbation spreads in ϑ by at most a constant depending on Λ times the size of the rectangle, and the
 solution equals the background at the points with ϑ ∉ [η, π/2 − η] once σ is small in terms of Λ and η. (iii) The
-double-null coordinates are built there from the two phases and the transported angle near the background's; here
-they are built in the same way on the rectangle of side σ, and they are close to the data's coordinates once σ is
-small in terms of Λ. With σ chosen so that the initial slice of the Cauchy problem lies to the past of the corner
-sphere and its development contains the rectangle of side σ, the remaining steps of that proof apply unchanged. ∎
+double-null coordinates are built there from the two phases and the transported angle near the background's; here they
+are built in the same way on the rectangle of side σ, and they are close to the data's coordinates once σ is small in
+terms of Λ. With σ chosen so that the initial slice of the Cauchy problem lies to the past of the corner sphere and its
+development contains the rectangle of side σ, the remaining steps of that proof apply unchanged. ∎
 
 #### The theorem {#sec:civp-large-theorem}
 
