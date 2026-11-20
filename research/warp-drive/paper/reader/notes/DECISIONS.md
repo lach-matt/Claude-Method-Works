@@ -22,6 +22,14 @@ seed 1 on D_A (GO) and on D* once its closing is shown GO (then its D* table rep
 (GO; its table covers D_A). Estimated totals: about 1,600 pages (seed 1 D_A plus seed 2 D*), about 2,900 if seed 1's
 D* is printed, each up to about 3.3x larger if the decay is 30 % slower than measured.
 
+## 2026-11-20: improving the upper bound on d
+
+The author asked for both improvements to be pursued, beside the proved bound (which does not wait for them):
+- whether the offset d0 can be dropped from the index set (it would bring d_NM from about 10^56 to about 10^38 if a
+  coefficient c_b vanishes at rotating b, or can be made to vanish by a free choice of the paper);
+- moving the computational point h from 10^-6 to a better point (about 84x smaller at h = 9.6e-7, numerically), scoped
+  first for cost and robustness.
+
 ## Earlier decisions in this segment
 
 - Admissible points (P-ADM): the cap h <= 10^-6 is removed from the definition; the lower bounds on d state it as an

@@ -821,89 +821,89 @@ neighbourhood of the axis on which its cut-off ζ_A equals 1, as in Step 10 of t
 while ζ_A must vanish near the points where the cones meet the axes. Neither case is treated here, nor are further
 families whose densities avoid the axes. (iii) *Regularity.* The data are smooth and small in C^(m_1); densities that
 are only bounded, or measures, are not covered ([[rem:loc-cone-scope]] (iii)).
+
 ### Placement
 
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
-source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:". Line numbers
-are those of the chapter sources at the current head and serve only to find the place; every old text below occurs
-there exactly once, as whole lines. Items 2, 3, 9 and 10 change sites that the placements of the sections of
-[[thm:loc-cone-development]] (Tier 1) and of [[thm:civp-large]] (Tier 2) also change; their new texts are merged texts,
-each replacing at its site Tier 1's item (3, 4, 6 and 7 of its placement) together with the corresponding item of Tier
-2, which Tier 1's items already absorb, so that every site is changed once. Their old texts are the chapter sources at
-the current head; where Tier 1's item has already been applied, the old text is that item's new text. Items 4 to 7
-change the texts of the Tier 1 and Tier 2 sections and apply once those are inserted; their old texts are quoted from
-those sections as they now stand.
+source, unindented except where the chapter indents them, each preceded by a line "Old:", "New:" or "New, with the
+null-shell section:". The old texts are quoted from the chapter sources at the current head, into which the sections of
+Tiers 1 and 2 are merged ([[sec:loc-cone-proof]] and [[sec:civp-large]], with the texts of their placements); every old
+text occurs there exactly once, as whole lines. Line numbers are those of the current chapter sources and serve only to
+find the place. Three sites are also changed by the placement of the section on null shells ([[thm:loc-shells]]): for
+items 3, 7 and 10 a second new text is given, which replaces at that site both this item and the corresponding item of
+that placement (its items 8, 3 and 5), so that every site is changed once; the first new text is the one to use without
+that section. Item 4 ends on the line before the one that the null-shell placement changes in [[rem:loc-cone-scope]]
+(iii), so the two compose.
 
 *1. Where the section goes.* The section above, from its heading through [[rem:loc-axis-scope]], is inserted in
 [[ch:localised-data]] as a new section immediately after the Tier 2 section, which ends with [[rem:civp-large-beyond]]
-and itself follows [[sec:loc-cone-proof]], that is before the heading of [[sec:loc-kid]] (line 602 at the current
-head), with one blank line before and one after. Its heading is of the level of [[sec:loc-cone-proof]] and its four
-subsections of the level below. It defines sec:loc-axis, thm:loc-axis, sec:loc-axis-data, def:loc-axis-data,
-lem:loc-axis-constraints, eq:loc-axis-cone, lem:loc-axis-jets, eq:loc-axis-principal, sec:loc-axis-leaves,
-eq:loc-axis-hl, lem:loc-axis-leaf, lem:loc-axis-shear, eq:loc-axis-shear, sec:loc-axis-reduced, eq:loc-axis-time,
-eq:loc-axis-region, eq:loc-axis-closure, lem:loc-axis-system, lem:loc-axis-energy, lem:loc-axis-cauchy,
-lem:loc-axis-past, lem:loc-axis-propagation, lem:loc-axis-gauge, lem:loc-axis-dependence, lem:loc-axis-unique,
-lem:loc-axis-angle, sec:loc-axis-example, lem:loc-axis-rectangle, cor:loc-axis-cones, rem:loc-axis-constants and
-rem:loc-axis-scope, none of which is defined elsewhere. Numbers are resolved at assembly.
+(line 2389), that is before the heading "### The static Killing field and the charge {#sec:loc-kid}" (line 2391) and
+before any other section placed between them, with one blank line before and one after. Its heading is of the level of
+[[sec:civp-large]] and its four subsections of the level below. It defines sec:loc-axis, thm:loc-axis,
+sec:loc-axis-data, def:loc-axis-data, lem:loc-axis-constraints, eq:loc-axis-cone, lem:loc-axis-jets,
+eq:loc-axis-principal, sec:loc-axis-leaves, eq:loc-axis-hl, lem:loc-axis-leaf, lem:loc-axis-shear, eq:loc-axis-shear,
+sec:loc-axis-reduced, eq:loc-axis-time, eq:loc-axis-region, eq:loc-axis-closure, lem:loc-axis-system,
+lem:loc-axis-energy, lem:loc-axis-cauchy, lem:loc-axis-past, lem:loc-axis-propagation, lem:loc-axis-gauge,
+lem:loc-axis-dependence, lem:loc-axis-unique, lem:loc-axis-angle, sec:loc-axis-example, cor:loc-axis-cones,
+rem:loc-axis-constants and rem:loc-axis-scope, none of which is defined elsewhere. Numbers are resolved at assembly.
 
-*2. [[ch:localised-data]], its opening paragraph (lines 8–9; replaces Tier 1's item 3 and Tier 2's item 2).* Old:
+*2. [[ch:localised-data]], the opening paragraph, its last two lines on the cones (lines 13–14).* A sentence on this
+section is added before the sentence on Σ_τ0. Old:
 
-Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
-and data localised in an angular band exist exactly ([[prop:loc-cones]]). On Σ_τ0 the constraints split, after Rácz
+background's, on an explicit neighbourhood and with an estimate ([[thm:loc-cone-development]]). On Σ_τ0 the
+constraints split, after Rácz
 
 New:
 
-Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
-and data localised in an angular band exist exactly ([[prop:loc-cones]], [[lem:loc-cone-in]]); when the band avoids the
-axes they have a development in the double-null gauge on a neighbourhood of the two cones, with or without dust, equal
-to the background outside a slightly wider band: without smallness, on a neighbourhood that depends on the data and
-unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]), and, for data near
-the background's, on an explicit neighbourhood and with an estimate ([[thm:loc-cone-development]]). Data near the
+background's, on an explicit neighbourhood and with an estimate ([[thm:loc-cone-development]]). Data near the
 background's need not be localised away from the axes: they have a development in that gauge on the whole rectangle
-spanned by the two cones, with an estimate, unique in the gauge among nearby solutions ([[thm:loc-axis]]). On Σ_τ0 the
-constraints split, after Rácz
+spanned by the two cones, with an estimate, unique in the gauge among nearby solutions ([[thm:loc-axis]],
+[[cor:loc-axis-cones]]). On Σ_τ0 the constraints split, after Rácz
 
-*3. [[ch:localised-data]], the paragraph after [[prop:loc-cones]] (lines 593–600; replaces Tier 1's item 4 and Tier 2's
-item 3).* Old:
+*3. [[ch:localised-data]], the paragraph after [[rem:loc-cone-scope]] on the developments of these cone data (lines
+689–705), first its lines 694–695.* A sentence on this section is inserted after the sentence that ends with
+"([[lem:loc-cone-strips]] (c))", and the next sentence names its data, which are no longer the only ones the paragraph
+speaks of. Old:
 
-When these cone data carry no dust, their vacuum development near the two cones exists by [CTG23, Theorem 1.1]
-([[thm:std-ctg-neighbourhood]]): this is the case when v_1 < 3, so that 𝒞_out ∩ {v ≤ v_1} lies before the shell, the
-dust densities are left zero there, and 𝒞_in is taken only on u < 5.7, before the packet; both cones then carry
-vacuum data of Tangherlini's metric of mass 3/2 outside the band, and the two cones meet transversally in the corner
-sphere. [CTG23, Theorem 1.1] concerns vacuum data only. For cone data that carry dust, among them every perturbation
-of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2} and every density added in the band,
-no development is asserted here: [[prop:loc-cones]] gives the cone data only, and no result of this paper uses their
-development.
+added in the band, supported away from the axes, is of this kind, with v_1 = 4.5 and u_1 = 7.2 ([[lem:loc-cone-strips]]
+(c)). Without smallness, these cone data, completed on 𝒞_in in the gauge b = 0 ([[def:civp-large-data]]), have a
 
-New (after Block A of Tier 1, as in its item 4):
+New:
 
-[[thm:loc-cone-development]] develops these cone data, completed on 𝒞_in by [[lem:loc-cone-in]], when they are near the
-background's and their band avoids the axes, with or without dust: on the explicit neighbourhood G_* of the two cones
-there is a class solution in the gauge [[eq:loc-double-null]] that induces them, with an estimate, equal to the
-background outside a slightly wider band and unique in the gauge near the background off the axes. Every small
-perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, and every small density
 added in the band, supported away from the axes, is of this kind, with v_1 = 4.5 and u_1 = 7.2
 ([[lem:loc-cone-strips]] (c)). Near the background's the restriction to a band can be dropped: cone data given as in
 [[prop:loc-cones]] and [[lem:loc-cone-in]] with no restriction of their supports in angle, their metrics on the spheres
 and their densities smooth through the axes, among them every small perturbation of the shell and of the packet at once
 and every small density added on either cone, the axes included, have a development in the gauge [[eq:loc-double-null]]
-on the whole rectangle [0, 7.2] × [0, 4.5] in which the two dusts cross, with an estimate, unique in that gauge among
-nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Without smallness, these cone data, completed on 𝒞_in in
-the gauge b = 0 ([[def:civp-large-data]]), have a development in the gauge [[eq:loc-double-null]] on a neighbourhood
-{min(u, v) ≤ δ} of the two cones whenever their band avoids the axes; among them, when the background is defined
-on [0, u_1] × [0, v_1] for some v_1 > 4.5 and u_1 > 7.2, are every perturbation of the shell or of the packet of any
-amplitude for which e^ϕ stays positive and every density added in the band. That development equals the background
-outside a slightly wider band and is unique in the gauge among solutions that equal the background near the axes
-([[thm:civp-large]]); the number δ depends on the data. For vacuum data of any size, before the shell (v_1 < 3) and on
-𝒞_in before the packet (u_1 < 5.7), a development near the two cones exists also by [CTG23, Theorem 1.1]
-([[thm:std-ctg-neighbourhood]]), which gives neither uniqueness in the gauge nor localisation. No development is
-asserted for cone data that are not near the background's at an axis, for data of finite regularity or for densities
-that are not smooth ([[rem:loc-axis-scope]]), and no other result of this paper uses these developments.
+on every rectangle [0, 7.2] × [0, v_1], among them [0, 7.2] × [0, 4.5], in which the two dusts cross, with an estimate,
+unique in that gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Without smallness, the cone
+data localised in a band, completed on 𝒞_in in the gauge b = 0 ([[def:civp-large-data]]), have a
 
-*4. [[rem:loc-cone-scope]] (ii), in the text of Tier 1's Block A.* Its last two sentences, on the axes, are rewritten:
-such data are developed near the background's by [[thm:loc-axis]], and the statement that no domain-of-dependence
-statement with null boundaries near an axis is proved is no longer true for double-null rectangles
-([[lem:loc-axis-dependence]]). Old:
+*3, continued: its last two lines (lines 704–705).* The data that the chapter does not develop are now those that
+differ from the background's near an axis without being near the background's. The null-shell placement (its item 8)
+replaces the same two lines; the second new text carries both changes. Old:
+
+asserted for cone data that differ from the background's near an axis, for data of finite regularity or for densities
+that are not smooth, and no other result of this paper uses these developments.
+
+New:
+
+asserted for cone data that differ from the background's near an axis and are not near the background's
+([[rem:loc-axis-scope]]), for data of finite regularity or for densities that are not smooth, and no other result of
+this paper uses these developments.
+
+New, with the null-shell section:
+
+asserted for cone data that differ from the background's near an axis and are not near the background's
+([[rem:loc-axis-scope]]), for data of finite regularity or for densities that are not smooth, except finitely many null
+shells along leaves of the two cones and data that are smooth except across such leaves, which [[thm:loc-shells]]
+develops slab by slab with [[thm:civp-large]] and [[thm:loc-cone-development]]; no result of the other chapters uses
+these developments.
+
+*4. [[rem:loc-cone-scope]] (ii), its last two sentences (lines 676–680).* Such data are developed near the background's
+by [[thm:loc-axis]], and the statement that no domain-of-dependence statement with null boundaries near an axis is
+proved no longer holds for double-null rectangles ([[lem:loc-axis-dependence]]). The last old line is the one before
+the line that the null-shell placement replaces (its item 2). Old:
 
 background, which reach the axes, are carried there by the background itself. For data whose perturbation reaches an axis
 this fails: at an axis the augmented system is not local, its Cauchy theory ([[thm:class-stability]]) needs lateral
@@ -915,12 +915,13 @@ New:
 
 background, which reach the axes, are carried there by the background itself. For data whose perturbation reaches an
 axis this proof fails: at an axis the augmented system is not local, and its Cauchy theory ([[thm:class-stability]])
-needs lateral boundaries adapted to the dust. Near the background's such data are developed on the whole rectangle,
-with uniqueness in the gauge among nearby solutions, by a reduction that keeps the closure of the Raychaudhuri equation
-at the axes ([[thm:loc-axis]]); (d) gives uniqueness near the axes only among solutions that equal the background
-there. (iii) *Regularity.* The data are smooth and near the background's in C^m, m = 6k + 21. Densities
+needs lateral boundaries adapted to the dust. Near the background's such data are developed on the whole rectangle when
+the background is defined on it with a margin, with uniqueness in the gauge among nearby solutions, by a reduction that
+keeps the closure of the Raychaudhuri equation at the axes ([[thm:loc-axis]]); (d) gives uniqueness near the axes only
+among solutions that equal the background there. (iii) *Regularity.* The data are smooth and near the background's in
+C^m, m = 6k + 21. Densities
 
-*5. [[rem:loc-cone-scope]] (iv), in the text of Tier 1's Block A.* Old:
+*5. [[rem:loc-cone-scope]] (iv) (lines 685–687).* Old:
 
 achieves the prescribed initial data." (iv) *The domain.* The development is asserted on G_*, a neighbourhood of the two
 cones, and not on the whole rectangle [0, u_1] × [0, v_1]; in particular not where the two dusts cross away from the
@@ -931,35 +932,53 @@ New:
 achieves the prescribed initial data." (iv) *The domain.* The development is asserted on G_*, a neighbourhood of the
 two cones, and not on the whole rectangle [0, u_1] × [0, v_1]; in particular not where the two dusts cross away from
 the cones. That rectangle is reached by [[thm:loc-axis]] when the background is defined on it with a margin, as the
-background of [[sec:bg-data]] is on [0, 7.2] × [0, 4.5] ([[lem:loc-axis-rectangle]], [[cor:loc-axis-cones]]).
+background of [[sec:bg-data]] is on [0, 7.2] × [0, v_1] for every v_1 > 0 ([[lem:civp-large-rectangle]] (a),
+[[cor:loc-axis-cones]]).
 
-*6. [[rem:loc-cone-local-scope]], its last sentence, in the text of Tier 1's Block B.* Old:
+*6. [[rem:loc-cone-local-scope]], its last sentence (lines 1628–1630).* Old:
 
-b(0, 0, ϑ) on N_o; it is the identity on N_o and off the band; and the C^(m_1) norms of the new functions are bounded in
 terms of the C^(m_1 + 1) norms of the old ones. A statement with no background, the data being prescribed up to the axes,
 needs a local theory of the augmented system at the axes, with a domain of dependence for null boundaries there, and is
 not given in this paper.
 
 New:
 
-b(0, 0, ϑ) on N_o; it is the identity on N_o and off the band; and the C^(m_1) norms of the new functions are bounded
-in terms of the C^(m_1 + 1) norms of the old ones. A statement with no background, the data being prescribed up to the
+terms of the C^(m_1 + 1) norms of the old ones. A statement with no background, the data being prescribed up to the
 axes, needs a local theory of the augmented system at the axes for data that are not near a known solution there, and
 is not given in this paper: [[thm:loc-axis]] solves the reduced problem through the axes about the background only, and
-its statement of dependence on the past faces of a double-null rectangle ([[lem:loc-axis-dependence]]), which needs no
-smallness, gives uniqueness and not existence.
+the dependence on the past faces of a double-null rectangle that its proof uses ([[lem:loc-axis-dependence]]), which
+needs no smallness, gives uniqueness and not existence.
 
-*7. [[rem:civp-large-domain]], in the text of the Tier 2 section.* After its last sentence, which ends "bounded or
-measure-valued.", the sentence "Cone data near the background's that differ from it at the axes are developed on the
-whole rectangle by [[thm:loc-axis]]." is appended to the same paragraph, the lines being rewrapped. The old text of
-this item is not quoted, as that remark is being revised in the Tier 2 round; the sentence is to follow whatever its
-last sentence then is.
+*7. [[rem:civp-large-domain]], its last sentence (lines 2369–2371).* One sentence is appended. The null-shell placement
+(its item 3) rewrites the same sentence; the second new text is its new text with the same sentence appended. Old:
+
+are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
+from the background's at the axes are not treated, nor are data of finite regularity or densities that are only bounded
+or measure-valued.
+
+New:
+
+are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
+from the background's at the axes are not treated, nor are data of finite regularity or densities that are only bounded
+or measure-valued. Cone data near the background's that differ from it at the axes are developed on the whole rectangle
+by [[thm:loc-axis]].
+
+New, with the null-shell section:
+
+are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
+from the background's at the axes are not treated, nor are data of finite regularity, densities that are only bounded,
+or measure-valued densities other than finitely many null shells along leaves of the two cones with densities smooth in
+angle; those, and data that are smooth except across finitely many leaves, are developed slab by slab with
+[[thm:civp-large]] in [[thm:loc-shells]]. Cone data near the background's that differ from it at the axes are developed
+on the whole rectangle by [[thm:loc-axis]].
 
 *8. [[ch:class-system]], [[lem:class-leaf-differences]], the definition of the leaves (lines 1326–1329).* The formula
 of step (1) of [[lem:class-planar-shear]] holds n(u) and the trace of K_Σ over TΣ_L, the tangent plane of the leaf,
 which for a state whose p_A is not closed is not defined before the leaf is; the clause reads it with p_A(n) and with a
 plane fixed by p_A, as [[eq:loc-axis-hl]] does, and changes no statement or proof of that chapter: on a solution with
-p_A the differential of a phase the two readings agree. Old:
+p_A the differential of a phase the two readings agree. The placement of the Tier 4 section (its item 2) changes the
+same lines for the same reason; this text contains its clause, the γ3-orthogonal complement of the spatial part of p_A
+in place of TΣ_L, and one copy is kept. Old:
 
 be the graphs z = h(r) through the points of the axis near that point, each solving [[eq:class-leaf-volterra]] with
 H_L := H_L[Θ_A], the formula of step (1) of [[lem:class-planar-shear]] with Θ_A in place of Θ and the spatial part of
@@ -977,139 +996,107 @@ plane of the level set of the phase through the point, and H_L[Θ_A] is the form
 leaves exist and are unique by [[lem:class-volterra]], and for U near ů they are C¹-close to the leaves of ů and
 foliate a neighbourhood of the axis. Let σ[U] at a point be the planar shear [[eq:class-shear-leaf]] of
 
-*9. [[ch:theorems]], the bullet "More families" (line 376; replaces Tier 1's item 6).* Old:
+*9. [[ch:theorems]], the bullet "More families" (lines 376–381).* The two kinds of data are listed separately. Old:
 
-  construction of that background does not decide ([[cor:vlasov-two-dust]]); and exactly localised vacuum data
+  construction of that background does not decide ([[cor:vlasov-two-dust]]); developments in the double-null gauge
+  of data on the two null cones through the corner sphere of the explicit two-dust background of [[sec:bg-data]],
+  localised in an angular band away from the axes, with or without dust and without smallness, on a neighbourhood of
+  the two cones that depends on the data, localised and unique in the gauge among solutions equal to the background
+  near the axes ([[thm:civp-large]]), and, for data near the background's, on an explicit neighbourhood with an
+  estimate ([[thm:loc-cone-development]]); and exactly localised vacuum data
 
 New:
 
   construction of that background does not decide ([[cor:vlasov-two-dust]]); developments in the double-null gauge of
-  data on the two null cones through the corner sphere of the explicit two-dust background of [[sec:bg-data]],
+  data on the two null cones through the corner sphere of the explicit two-dust background of [[sec:bg-data]]: of data
   localised in an angular band away from the axes, with or without dust and without smallness, on a neighbourhood of
   the two cones that depends on the data, localised and unique in the gauge among solutions equal to the background
-  near the axes ([[thm:civp-large]]), and, for data near the background's, on an explicit neighbourhood with an
-  estimate ([[thm:loc-cone-development]]) and, whether or not their band avoids the axes, on the whole rectangle of the
-  two cones in which the two dusts cross, [0, 7.2] × [0, 4.5], with an estimate and unique in the gauge among nearby
-  solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]); and exactly localised vacuum data
+  near the axes ([[thm:civp-large]]), and, for such data near the background's, on an explicit neighbourhood with an
+  estimate ([[thm:loc-cone-development]]), and of data near the background's, localised in angle or not, on the whole
+  rectangle of the two cones in which the two dusts cross, [0, 7.2] × [0, 4.5], with an estimate and unique in the
+  gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]); and exactly localised vacuum data
 
-*10. [[ch:scope]], the paragraph on localised data, its last line (line 210; replaces Tier 1's item 7, which absorbs
-the second pair of Tier 2's item 4).* Old:
+*10. [[ch:scope]], the paragraph on localised data, its last two lines (lines 217–218).* The null-shell placement (its
+item 5) appends a sentence to the same two lines; the second new text carries both changes. Old:
 
-small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
+estimate ([[thm:loc-cone-development]]). Developments of cone data that differ from the background's near an axis are
+not established ([[rem:loc-cone-scope]]).
 
 New:
 
-small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]). On the two null
-cones through the corner sphere, data localised in an angular band exist exactly, with or without dust
-([[prop:loc-cones]], [[lem:loc-cone-in]]); when the band avoids the axes they have a development in the double-null
-gauge on a neighbourhood {min(u, v) ≤ δ} of the cones, without smallness, equal to the background outside a slightly
-wider band and unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]); δ
-depends on the data, and for data near the background's the neighbourhood is explicit and the solution carries an
 estimate ([[thm:loc-cone-development]]). Cone data near the background's, localised in angle or not, have a development
 on the whole rectangle of the two cones, [0, 7.2] × [0, 4.5], in which the two dusts cross, with an estimate and unique
-in the gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Developments of cone data that are not
-near the background's at an axis are not established ([[rem:loc-axis-scope]]).
+in the gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Developments of cone data that differ
+from the background's near an axis and are not near the background's are not established ([[rem:loc-cone-scope]],
+[[rem:loc-axis-scope]]).
 
-*11. Unchanged.* [[ch:introduction]] needs no change beyond Tier 1's item 5, whose words "their development from two
-null cones" cover this section. [[ch:ten-l5]] and the sentences of [[ch:scope]] on the characteristic problem at 10 l5
-stand: that problem is vacuum and not near an explicit background, its data are C³, and the uniqueness it needs, (F2)
-of [[lem:tl5-continuation]], is uniqueness in the double-null gauge for solutions on regions D_s, which
-[[lem:loc-axis-dependence]] does not give, as it compares two solutions in one wave gauge, and [[lem:loc-axis-unique]]
-gives it only near the background. [[ch:two-dusts]] is unchanged.
+New, with the null-shell section:
+
+estimate ([[thm:loc-cone-development]]). Cone data near the background's, localised in angle or not, have a development
+on the whole rectangle of the two cones, [0, 7.2] × [0, 4.5], in which the two dusts cross, with an estimate and unique
+in the gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Developments of cone data that differ
+from the background's near an axis and are not near the background's are not established ([[rem:loc-cone-scope]],
+[[rem:loc-axis-scope]]). Cone data with finitely many null shells along leaves of the two cones, with densities smooth
+in angle and supported in a band away from the axes, have developments that are continuous, smooth between the shells
+and solutions in the sense of distributions, on a neighbourhood of the cones on which the shells do not cross, and a
+solution continues through a crossing sphere on a small square; general measure-valued densities and shells that are
+not round at an axis are not treated ([[thm:loc-shells]], [[prop:loc-shell-crossing]], [[rem:loc-shell-scope]]).
+
+*11. Unchanged.* [[ch:introduction]] needs no change: its text on [[part:further]] names "localised data, their
+development from two null cones", which covers this section. [[ch:ten-l5]] and the sentences of [[ch:scope]] on the
+characteristic problem at 10 l5 stand: that problem is vacuum and not near an explicit background, its data are C³, and
+the uniqueness it needs, (F2) of [[lem:tl5-continuation]], is uniqueness in the double-null gauge for solutions on
+regions D_s, which [[lem:loc-axis-dependence]] does not give, as it compares two solutions in one wave gauge, and
+[[lem:loc-axis-unique]] gives only near the background. [[ch:two-dusts]] is unchanged.
 
 *12. Appendix A and the references.* No new entry: the proofs use no published result beyond those already stated in
 [[app:standard-results]]. The extension operator of [[lem:loc-axis-unique]] is that of [[thm:std-ly-extension]] (i),
-used in one variable, and the Borel sums of [[lem:loc-axis-constraints]] (c) are those of [[lem:loc-cone-extension]].
-No reference is added.
-
-*13. Without the Tier 2 section.* If the Tier 2 section is not merged, the section above goes immediately after
-[[sec:loc-cone-proof]]; the sentence "Off the axes, [[thm:civp-large]] needs no smallness." of [[rem:loc-axis-scope]]
-(i) is dropped; item 7 is void; and in the new texts of items 2, 3, 9 and 10 the clauses that cite [[thm:civp-large]]
-or [[def:civp-large-data]] are dropped as in Tier 1's item 11.
+used in one variable, and the Borel sums of [[lem:loc-axis-constraints]] (c) are those of [[lem:loc-cone-borel]]. No
+reference is added.
 
 ### Crosswalk rows
 
-New rows for the crosswalk table of [[ch:localised-data]], one per label, in chapter order, each given as its four
-fields (label; source; source_name; note), to be written with tab separators, after the rows of the Tier 2 section and
-before the row of sec:loc-kid. The second field is "paper/reader/proofs/P-CIVP3.md@PENDING:N", N the line of the label
-in this file, to be replaced by the line in the merged chapter.
+New rows for the crosswalk table of [[ch:localised-data]], one per label, in chapter order, after the row of
+rem:civp-large-beyond and before any row of a section placed after this one. Each row is given as one line with its
+four fields separated by tab characters (label, source, source_name, note). The source is
+"paper/reader/proofs/P-CIVP3.md@PENDING:N", N the line of the label in this file and PENDING to be replaced by the
+commit at which this file is merged, as in the rows of the Tier 1 and Tier 2 sections.
 
-Row 1. sec:loc-axis; paper/reader/proofs/P-CIVP3.md@PENDING:1; proof P-CIVP3, section; new: Tier 3 of the scoping
-report, Route B: the faces are leaves of both families, Rendall's reduction to the Cauchy theory of ch:class-system
-with the non-local closure at the axes.
-Row 2. thm:loc-axis; paper/reader/proofs/P-CIVP3.md@PENDING:31; proof P-CIVP3, Theorem (Development of cone data
-through the axes); k ≥ 9, m_0 = 6k + 18, m_1 = 12k + 42; existence on Q1 × S³, estimate in C^(k−4), uniqueness in the
-double-null gauge among nearby solutions, localisation; proved at the end of sec:loc-axis-reduced.
-Row 3. sec:loc-axis-data; paper/reader/proofs/P-CIVP3.md@PENDING:63; proof P-CIVP3, subsection; fields smooth through
-the axes.
-Row 4. def:loc-axis-data; paper/reader/proofs/P-CIVP3.md@PENDING:65; proof P-CIVP3, Definition (Fields smooth through
-the axes); ln Ω, γ, b as tensors on S³; cone data through the axes; C^r norms with ∇̊.
-Row 5. lem:loc-axis-constraints; paper/reader/proofs/P-CIVP3.md@PENDING:82; proof P-CIVP3, Lemma (The constraints
-through the axes); Y, γ̂, W in tensorial form; constraints as linear ODEs smooth through the axes; extension beyond
-u_1, v_1 by Borel sums.
-Row 6. eq:loc-axis-cone; paper/reader/proofs/P-CIVP3.md@PENDING:90; proof P-CIVP3, display; the constraint components
-E(∂_v, ∂_v) and E(∂_v, X).
-Row 7. lem:loc-axis-jets; paper/reader/proofs/P-CIVP3.md@PENDING:153; proof P-CIVP3, Lemma (The formal solution through
-the axes); transverse jets as tensors on S³; the derivatives across N_o and N_i solve linear ODEs with coefficients
-smooth through the axes; Ĝ, Û and Δ.
-Row 8. eq:loc-axis-principal; paper/reader/proofs/P-CIVP3.md@PENDING:200; proof P-CIVP3, display; principal parts of
-the transverse equations.
-Row 9. sec:loc-axis-leaves; paper/reader/proofs/P-CIVP3.md@PENDING:264; proof P-CIVP3, subsection; leaves in a chart;
-H_L[V] with the plane fixed by p_A.
-Row 10. eq:loc-axis-hl; paper/reader/proofs/P-CIVP3.md@PENDING:275; proof P-CIVP3, display; H_L[V]; the reading of
-H_L[Θ_A] of lem:class-leaf-differences.
-Row 11. lem:loc-axis-leaf; paper/reader/proofs/P-CIVP3.md@PENDING:289; proof P-CIVP3, Lemma (The sections of the cones
-are leaves); Lemma A of the scoping report: criterion for a hypersurface to be a leaf, in the chart; spheres are leaves
-of both families of Ů and Û for every time increasing in u and v.
-Row 12. lem:loc-axis-shear; paper/reader/proofs/P-CIVP3.md@PENDING:337; proof P-CIVP3, Lemma (The planar shear on
-unions of arcs of leaves); lem:class-leaf-differences (b) leaf by leaf, on any set closed under arcs of the first
-state's leaves, constant independent of the set.
-Row 13. eq:loc-axis-shear; paper/reader/proofs/P-CIVP3.md@PENDING:344; proof P-CIVP3, display; the leaf-wise L² bound.
-Row 14. sec:loc-axis-reduced; paper/reader/proofs/P-CIVP3.md@PENDING:407; proof P-CIVP3, subsection; the chart adapted
-to Q1, the regions, the closure at the axes.
-Row 15. eq:loc-axis-time; paper/reader/proofs/P-CIVP3.md@PENDING:419; proof P-CIVP3, display; the time τ adapted to Q1
-and the chart (τ, y).
-Row 16. eq:loc-axis-region; paper/reader/proofs/P-CIVP3.md@PENDING:433; proof P-CIVP3, display; the region 𝒰^♯ and the
-slice-triangles 𝔗(s).
-Row 17. eq:loc-axis-closure; paper/reader/proofs/P-CIVP3.md@PENDING:463; proof P-CIVP3, display; the closure of the
-Raychaudhuri equation for both families, no cut-off at the axes.
-Row 18. lem:loc-axis-system; paper/reader/proofs/P-CIVP3.md@PENDING:471; proof P-CIVP3, Lemma (The modified system
-through the axes); (F1)–(F3) on 𝒟_ρ; the non-local residual of Û is local, Û's leaves being the coordinate spheres.
-Row 19. lem:loc-axis-energy; paper/reader/proofs/P-CIVP3.md@PENDING:515; proof P-CIVP3, Lemma (Energy with a non-local
-term); lem:loc-cone-energy with a term bounded in L² on each slice.
-Row 20. lem:loc-axis-cauchy; paper/reader/proofs/P-CIVP3.md@PENDING:522; proof P-CIVP3, Lemma (The Cauchy problem
-through the axes); thm:class-kato (a) on the whole interval, smallness keeping the solution in 𝒟_ρ.
-Row 21. lem:loc-axis-past; paper/reader/proofs/P-CIVP3.md@PENDING:542; proof P-CIVP3, Lemma (The past of the edges);
-U = Û to the past of the cones; the sections of the cones are leaves of U.
-Row 22. lem:loc-axis-propagation; paper/reader/proofs/P-CIVP3.md@PENDING:556; proof P-CIVP3, Lemma (The constraints on
-the slice-triangle); constraints propagate on 𝔗(s*) ⊃ Q1, the axes included, by the leaf-wise bound.
-Row 23. lem:loc-axis-gauge; paper/reader/proofs/P-CIVP3.md@PENDING:591; proof P-CIVP3, Lemma (The double-null gauge
-through the axes); Ψ = (u_out, u_in, ω′), the form eq:loc-double-null with fields smooth through the axes.
-Row 24. lem:loc-axis-dependence; paper/reader/proofs/P-CIVP3.md@PENDING:611; proof P-CIVP3, Lemma (Dependence on the
-past faces of a double-null rectangle); Lemma R of the scoping report: no smallness; time t = u + v, chart x = e^(v −
-μu) ω, continuity in t, localised comparison state.
-Row 25. lem:loc-axis-unique; paper/reader/proofs/P-CIVP3.md@PENDING:661; proof P-CIVP3, Lemma (Uniqueness in the
-double-null gauge); extension of g′ by thm:std-ly-extension in one variable, wave map relative to Ĝ, then
-lem:loc-axis-dependence; k ≥ 9 for s = k − 5 > 3.
-Row 26. lem:loc-axis-angle; paper/reader/proofs/P-CIVP3.md@PENDING:717; proof P-CIVP3, Lemma (Localisation near an
-axis); ϑ_a′ ≤ π/4 (ϑ_b′ ≥ π/4) so that one axis only is met; face conormal dϑ + C_* e^(τ_1/2) dτ_1 for every δ′.
-Row 27. sec:loc-axis-example; paper/reader/proofs/P-CIVP3.md@PENDING:751; proof P-CIVP3, subsection; the background of
-sec:bg-data on [0, 7.2] × [0, 4.5].
-Row 28. lem:loc-axis-rectangle; paper/reader/proofs/P-CIVP3.md@PENDING:753; proof P-CIVP3, Lemma (The background on the
-crossing rectangle); [0, 7.2] × [0, 4.5] ⊂ G, R ≥ 1.5, R_v > 0; |R_u(7.2, 0)| ≤ 0.84778, R_v(7.2, 0) ≥ 0.18713, R(7.2,
-3) ≥ 2.0613, f > 0.15 through the shell.
-Row 29. cor:loc-axis-cones; paper/reader/proofs/P-CIVP3.md@PENDING:789; proof P-CIVP3, Corollary (Cone data reaching
-the axes for the background of sec:bg-data); shell and packet perturbed at once, densities on either cone, the axes
-included.
-Row 30. rem:loc-axis-constants; paper/reader/proofs/P-CIVP3.md@PENDING:809; proof P-CIVP3, Remark (What the constants
-depend on); the three places where smallness enters.
-Row 31. rem:loc-axis-scope; paper/reader/proofs/P-CIVP3.md@PENDING:822; proof P-CIVP3, Remark (What thm:loc-axis does
-not give); large data at the axes; further families (Tier 5); regularity.
+sec:loc-axis	paper/reader/proofs/P-CIVP3.md@PENDING:1	proof P-CIVP3, section heading	new: Tier 3 of the scoping report, Route B: the faces are leaves of both families; Rendall's reduction to the Cauchy theory of ch:class-system with the non-local closure at the axes
+thm:loc-axis	paper/reader/proofs/P-CIVP3.md@PENDING:31	proof P-CIVP3, Theorem (Development of cone data through the axes)	k ≥ 9, m_0 = 6k + 18, m_1 = 12k + 42; existence on Q1 × S³ for any round background on a rectangle with a margin, estimate in C^(k−4), uniqueness in the double-null gauge among nearby solutions, localisation; proved at the end of sec:loc-axis-reduced
+sec:loc-axis-data	paper/reader/proofs/P-CIVP3.md@PENDING:63	proof P-CIVP3, subsection	fields smooth through the axes
+def:loc-axis-data	paper/reader/proofs/P-CIVP3.md@PENDING:65	proof P-CIVP3, Definition (Fields smooth through the axes)	ln Ω, γ, b as tensors on S³, the metric a smooth field of Lorentzian forms; cone data through the axes; C^r norms with ∇̊
+lem:loc-axis-constraints	paper/reader/proofs/P-CIVP3.md@PENDING:82	proof P-CIVP3, Lemma (The constraints through the axes)	Y, γ̂, W in tensorial form; constraints as linear ODEs smooth through the axes; extension beyond u_1, v_1 by Borel sums, equal to the background's where the data are
+eq:loc-axis-cone	paper/reader/proofs/P-CIVP3.md@PENDING:90	proof P-CIVP3, display	the constraint components E(∂_v, ∂_v) and E(∂_v, X)
+lem:loc-axis-jets	paper/reader/proofs/P-CIVP3.md@PENDING:157	proof P-CIVP3, Lemma (The formal solution through the axes)	transverse jets as tensors on S³; the derivatives across N_o and N_i solve linear ODEs with coefficients smooth through the axes, decoupled by (Ψ1) and (Ψ3); Ĝ, Û and Δ
+eq:loc-axis-principal	paper/reader/proofs/P-CIVP3.md@PENDING:204	proof P-CIVP3, display	principal parts of the transverse equations; checked by computer algebra in the review (private)
+sec:loc-axis-leaves	paper/reader/proofs/P-CIVP3.md@PENDING:271	proof P-CIVP3, subsection	leaves in a chart; H_L[V] with the plane fixed by p_A
+eq:loc-axis-hl	paper/reader/proofs/P-CIVP3.md@PENDING:282	proof P-CIVP3, display	H_L[V]; the reading of H_L[Θ_A] of lem:class-leaf-differences
+lem:loc-axis-leaf	paper/reader/proofs/P-CIVP3.md@PENDING:296	proof P-CIVP3, Lemma (The sections of the cones are leaves)	Lemma A of the scoping report: criterion for a hypersurface annihilated by p_A to be a leaf, in the chart; the spheres are leaves of both families of Ů and Û for every time increasing in u and v
+lem:loc-axis-shear	paper/reader/proofs/P-CIVP3.md@PENDING:344	proof P-CIVP3, Lemma (The planar shear on unions of arcs of leaves)	lem:class-leaf-differences (b) leaf by leaf, on any set closed under arcs of the first state's leaves, the constant independent of the set
+eq:loc-axis-shear	paper/reader/proofs/P-CIVP3.md@PENDING:352	proof P-CIVP3, display	the leaf-wise L² bound
+sec:loc-axis-reduced	paper/reader/proofs/P-CIVP3.md@PENDING:415	proof P-CIVP3, subsection	the chart adapted to Q1, the regions, the closure at the axes
+eq:loc-axis-time	paper/reader/proofs/P-CIVP3.md@PENDING:427	proof P-CIVP3, display	the time τ adapted to Q1 and the chart (τ, y)
+eq:loc-axis-region	paper/reader/proofs/P-CIVP3.md@PENDING:441	proof P-CIVP3, display	the region 𝒰^♯ and the slice-triangles 𝔗(s)
+eq:loc-axis-closure	paper/reader/proofs/P-CIVP3.md@PENDING:472	proof P-CIVP3, display	the closure of the Raychaudhuri equation for both families, no cut-off at the axes
+lem:loc-axis-system	paper/reader/proofs/P-CIVP3.md@PENDING:480	proof P-CIVP3, Lemma (The modified system through the axes)	(F1)–(F3) on 𝒟_ρ; the non-local residual of Û is local, Û's leaves being the coordinate spheres
+lem:loc-axis-energy	paper/reader/proofs/P-CIVP3.md@PENDING:525	proof P-CIVP3, Lemma (Energy with a non-local term)	lem:loc-cone-energy with a term bounded in L² on each slice and without transversality of the faces
+lem:loc-axis-cauchy	paper/reader/proofs/P-CIVP3.md@PENDING:534	proof P-CIVP3, Lemma (The Cauchy problem through the axes)	thm:class-kato (a) on the whole interval, smallness keeping the solution in 𝒟_ρ
+lem:loc-axis-past	paper/reader/proofs/P-CIVP3.md@PENDING:554	proof P-CIVP3, Lemma (The past of the edges)	U = Û to the past of the cones; the sections of the cones are leaves of U
+lem:loc-axis-propagation	paper/reader/proofs/P-CIVP3.md@PENDING:568	proof P-CIVP3, Lemma (The constraints on the slice-triangle)	constraints propagate on 𝔗(s*) ⊃ Q1, the axes included, by the leaf-wise bound
+lem:loc-axis-gauge	paper/reader/proofs/P-CIVP3.md@PENDING:603	proof P-CIVP3, Lemma (The double-null gauge through the axes)	Ψ = (u_out, u_in, ω′), the form eq:loc-double-null with fields smooth through the axes
+lem:loc-axis-dependence	paper/reader/proofs/P-CIVP3.md@PENDING:623	proof P-CIVP3, Lemma (Dependence on the past faces of a double-null rectangle)	Lemma R of the scoping report: no smallness; time t = ũ + ṽ, chart x = e^(ṽ − μũ) ω̃, continuity in t, a comparison state localised by Taylor's formula on the convex set where the two agree
+lem:loc-axis-unique	paper/reader/proofs/P-CIVP3.md@PENDING:678	proof P-CIVP3, Lemma (Uniqueness in the double-null gauge)	extension of g′ by thm:std-ly-extension in one variable, wave map relative to Ĝ, then lem:loc-axis-dependence; k ≥ 9 for s = k − 5 > 3
+lem:loc-axis-angle	paper/reader/proofs/P-CIVP3.md@PENDING:734	proof P-CIVP3, Lemma (Localisation near an axis)	ϑ_a′ ≤ π/4 (ϑ_b′ ≥ π/4) so that one axis only is met; face conormal dϑ + C_* e^(τ_1/2) dτ_1 for every δ′
+sec:loc-axis-example	paper/reader/proofs/P-CIVP3.md@PENDING:771	proof P-CIVP3, subsection	the background of sec:bg-data on [0, 7.2] × [0, v_1], from lem:civp-large-rectangle (a)
+cor:loc-axis-cones	paper/reader/proofs/P-CIVP3.md@PENDING:773	proof P-CIVP3, Corollary (Cone data reaching the axes for the background of sec:bg-data)	every v_1 > 0; with v_1 = 4.5 the shell and the packet perturbed at once, densities on either cone, the axes included
+rem:loc-axis-constants	paper/reader/proofs/P-CIVP3.md@PENDING:797	proof P-CIVP3, Remark (What the constants depend on)	the four places where smallness enters in the existence proof, and the wave map of the uniqueness
+rem:loc-axis-scope	paper/reader/proofs/P-CIVP3.md@PENDING:812	proof P-CIVP3, Remark (What thm:loc-axis does not give)	large data at the axes; further families (Tier 5); regularity
 
-Changed row of the crosswalk table of [[ch:class-system]]: lem:class-leaf-differences keeps its label, source and
-source_name fields and appends to its source field "; paper/reader/proofs/P-CIVP3.md:969-989", the lines of item 8 of
-the placement above, to its source_name field "; proof P-CIVP3, Placement 8", and to its note "; H_L[Θ_A] read with
-p_A(n) and the γ3-orthogonal complement of the spatial part of p_A, a plane fixed by p_A (eq:loc-axis-hl)". The rows of
-rem:loc-cone-scope, rem:loc-cone-local-scope and rem:civp-large-domain append to their notes "; amended by proof
-P-CIVP3, Placement 4 and 5", "; amended by proof P-CIVP3, Placement 6" and "; amended by proof P-CIVP3, Placement 7"
-respectively.
+Changed rows. In the crosswalk table of [[ch:class-system]], the row of lem:class-leaf-differences appends to its
+source field "; paper/reader/proofs/P-CIVP3.md@PENDING:975-997", the lines of item 8 above, to its source_name field ";
+proof P-CIVP3, Placement 8", and to its note "; H_L[Θ_A] read with p_A(n) and the γ3-orthogonal complement of the
+spatial part of p_A, a plane fixed by p_A (eq:loc-axis-hl)". In the table of [[ch:localised-data]] the rows of
+rem:loc-cone-scope, rem:loc-cone-local-scope and rem:civp-large-domain append to their notes "; (ii) and (iv) amended
+by proof P-CIVP3, Placement 4 and 5", "; last sentence amended by proof P-CIVP3, Placement 6" and "; a sentence on
+thm:loc-axis appended by proof P-CIVP3, Placement 7".
