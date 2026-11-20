@@ -24,9 +24,9 @@ and order functions monotone along the flow of every nearby metric are construct
 unstable hypersurfaces ([[sec:ii-c1-1]]–[[sec:ii-c1-3]]) is proved by a graph transform, quantitatively, from the
 defining functions of the trapped set and the tangential growth bound of (K3).
 
-The radii 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h are those of [[sec:i-a-1-1]]. Nothing in this chapter depends on them beyond
-these inequalities: they enter as the domains of the hypotheses, and every constant chosen from them below (the radius
-r^♮ and the constant c₁ of [[lem:ii-c-3-2]], the radius r_Γ of [[sec:ii-c-5-2]]) is chosen by an inequality that a
+The radii 0 < r₀ − 2δ₀ < r₀ < r₀ + δ₀ < r₂ < r_h are those of [[sec:i-a-1-1]]. Nothing in this chapter depends on them
+beyond these inequalities: they enter as the domains of the hypotheses, and every constant chosen from them below (the
+radius r^♮ and the constant c₁ of [[lem:ii-c-3-2]], the radius r_Γ of [[sec:ii-c-5-2]]) is chosen by an inequality that a
 smaller r₀ does not make harder. The inner radius r₀ is therefore a free parameter of every result of this chapter.
 
 ### The stationary model {#sec:ii-b-1}

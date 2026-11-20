@@ -20,8 +20,8 @@ two ordinary differential equation lemmas used for the radiation field are prove
 [[lem:ii-g1-5-3]].
 
 Throughout, ℕ = {1, 2, …}, ℕ₀ = ℕ ∪ {0}, and constants C may change from line to line, depending only on the quantities
-named. The radii 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h are those of [[sec:i-a-1-1]]; the inner radius r_0 is a parameter, and
-nothing in this chapter depends on it beyond these inequalities.
+named. The radii 0 < r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 < r_h are those of [[sec:i-a-1-1]]; the inner radius r_0 is a
+parameter, and nothing in this chapter depends on it beyond these inequalities.
 
 ### Scope of the first half {#sec:ii-g-1}
 

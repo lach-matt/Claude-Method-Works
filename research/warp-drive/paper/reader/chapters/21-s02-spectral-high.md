@@ -30,9 +30,9 @@ with a subscript, for closed subsets of phase space (K_0, K_1, K_E, K_Γ, …), 
 
 The space X̄ ⊂ ℝ̄⁴, the radii r_0, δ_0, r_2, r_h, the bundle E = X̃ × ℂ^(N_E), fibre inner products h = ⟨H·,·⟩ and
 h-adjoints A^(*h) = H⁻¹A*H, and the family P̂(σ) = P̂(0) + σT + σ²P_2 are those of [[sec:i-a-1]], and (H1)–(H5) of
-[[sec:i-a-1-3]] are assumed. The radii enter only through the ordering 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h, the domains
-of the hypotheses and the slabs of [[sec:i-b-7]]; constants depend on them, but no particular value of them is used.
-We write ρ = |x|⁻¹ near ∂X, scattering covectors as ξ dr + r η, and use [[lem:i-a-4-4]]: at the boundary face T has
+[[sec:i-a-1-3]] are assumed. The radii enter only through the ordering 0 < r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 < r_h, the
+domains of the hypotheses and the slabs of [[sec:i-b-7]]; constants depend on them, but no particular value of them is
+used. We write ρ = |x|⁻¹ near ∂X, scattering covectors as ξ dr + r η, and use [[lem:i-a-4-4]]: at the boundary face T has
 principal symbol 2ξ Id, and Im_h T = −ρ(S + S^(*h)) + T_2 with T_2 ∈ Ψ^(1,−2).
 
 #### The Lorentzian structure {#sec:i-b-1-2}

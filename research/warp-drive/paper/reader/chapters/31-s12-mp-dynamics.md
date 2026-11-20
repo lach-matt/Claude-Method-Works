@@ -52,7 +52,7 @@ the statements below.
 
 These radii are ordered:
 
-    ½r_♭ ≤ r₀ − 2δ₀ < r₀ − δ₀ < r₀ < r₂ < r_h < r_h + δ₀ ≤ r_e,
+    ½r_♭ ≤ r₀ − 2δ₀ < r₀ − δ₀ < r₀ < r₀ + δ₀ < r₂ < r_h < r_h + δ₀ ≤ r_e,
 
 since δ₀ ≤ r_♭/4, r_♭ ≤ ½R₁ < 7R₁/8 and δ₀ ≤ R₁/16. Since χ_∞ = 0 on (−∞, 2R₁], ψ′ = 1 on [r₀ − 2δ₀, 2R₁]. For every
 r_♭, r₀ = r_♭ is the inner radius of [[sec:iii-b-2]]. At r_♭ = ½R₁ the radii are r₀ − 2δ₀ = 3R₁/8, r₀ − δ₀ = 7R₁/16,

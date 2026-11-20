@@ -43,11 +43,11 @@ Everything else is proved here from [[ch:s01]]–[[ch:s14]].
 metric alone. For g_b, b near b_0, they hold by [[thm:vi-a-6-1]] and [[thm:vi-b1-5-1]], for every operator with
 principal symbol G Id.
 
-*The inner radius.* The radii 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h are those of [[sec:i-a-1-1]]. The steps below the
-horizon are [[lem:iii-f2-2-3]], on (r_0 − δ_0, r_h), whose radial equation is regular wherever f < 0, and the interior
-uniqueness of [[prop:iii-d-6-2]] (d), which holds on (r_0, r_h) for every r_0 > 0; the pairings of [[sec:iii-f4-2]]
-use only that one factor vanishes on {r_0 < |x| < r_h}, and the independence of the dual states only that
-{|x| > r_0} is connected. Every other step reaches the inner boundary through the theorems of [[ch:s01]]–[[ch:s03]],
+*The inner radius.* The radii 0 < r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 < r_h are those of [[sec:i-a-1-1]]. The steps below
+the horizon are [[lem:iii-f2-2-3]], on (r_0 − δ_0, r_h), whose radial equation is regular wherever f < 0, and the
+interior uniqueness of [[prop:iii-d-6-2]] (d), which holds on (r_0, r_h) for every r_0 > 0; the pairings of
+[[sec:iii-f4-2]] use only that one factor vanishes on {r_0 < |x| < r_h}, and the independence of the dual states only
+that {|x| > r_0} is connected. Every other step reaches the inner boundary through the theorems of [[ch:s01]]–[[ch:s03]],
 which hold with r_0 as a parameter. So every result of this chapter holds with the inner radius r_0 as a parameter.
 
 *Small frequencies near b_0.* For b ≠ b_0 and 0 < |σ| < c_0, invertibility of the spectral family of L_b is not

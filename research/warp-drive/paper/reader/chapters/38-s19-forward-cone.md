@@ -42,14 +42,14 @@ has α_K − ε ([[prop:iii-i2-5-1]]). The cap 3/2 is the transport of the radia
 linearised gauge-fixed Einstein operator of [[ch:s15]], with the gauge modification E_Υ of [[sec:iii-d-1]] and the
 constraint damping (c_C, e_C, γ_C) of [[sec:iii-f-1]] fixed there, and for metrics g, g_0, L^(g,g_0) is the
 linearisation [[eq:iii-c-4-1]] of the gauge-fixed Einstein operator P(g, g_0) of [[eq:iii-b-6-4]] in g, so that
-L^(g_b,g_b) = L_b. The radii r_0 − 2δ_0 < r_0 < r_2 of the artificial boundary are those of [[def:s12-radii]], with
-r_0 = r_♭ ∈ (0, ½R₁], the inner radius of the spacetime of [[ch:s11]]; then the artificial boundary of the spaces of
-[[ch:s04]]–[[ch:s10]] is the inner boundary of that spacetime. Every result of the chapter holds for each such r_♭, with
-constants and neighbourhoods of b₀ that may depend on it. The slots of a symmetric 2-tensor near ℐ⁺ are those of
-[[def:iii-c-1-2]], in the splitting [[eq:iii-c-1-6]]: slots 1–3 form π_C, and slots 4, 5, 6, 7 are π₀₁, π_(1/), π̸₀
-and π₁₁. The eigenvalues of Ā ([[eq:iii-c-4-3]]) on the slots 6, 4, 5, 7 are the elements 0, (1 − e_Υ)γ_Υ, γ_Υ,
-2γ_Υ of the set σ_Υ of [[sec:iii-c-3]], and those on the slots 1–3 are the elements 2(1 − v_C)γ_C, (1 − v_C)γ_C,
-(1 − e_C)(1 − v_C)γ_C of the set σ_C of [[eq:iii-g1-1-4]]. The gauge parameters satisfy 0 < γ_Υ < 1/4,
+L^(g_b,g_b) = L_b. The radii r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 of the artificial boundary are those of
+[[def:s12-radii]], with r_0 = r_♭ ∈ (0, ½R₁], the inner radius of the spacetime of [[ch:s11]]; then the artificial
+boundary of the spaces of [[ch:s04]]–[[ch:s10]] is the inner boundary of that spacetime. Every result of the chapter
+holds for each such r_♭, with constants and neighbourhoods of b₀ that may depend on it. The slots of a symmetric 2-tensor
+near ℐ⁺ are those of [[def:iii-c-1-2]], in the splitting [[eq:iii-c-1-6]]: slots 1–3 form π_C, and slots 4, 5, 6, 7 are
+π₀₁, π_(1/), π̸₀ and π₁₁. The eigenvalues of Ā ([[eq:iii-c-4-3]]) on the slots 6, 4, 5, 7 are the elements 0, (1 −
+e_Υ)γ_Υ, γ_Υ, 2γ_Υ of the set σ_Υ of [[sec:iii-c-3]], and those on the slots 1–3 are the elements 2(1 − v_C)γ_C, (1 −
+v_C)γ_C, (1 − e_C)(1 − v_C)γ_C of the set σ_C of [[eq:iii-g1-1-4]]. The gauge parameters satisfy 0 < γ_Υ < 1/4,
 0 < e_Υ < 1 ([[eq:iii-c-1-1]]) and (1 − e_C)(1 − v_C)γ_C > 100 ([[sec:iii-f-1]]). For an index set E, (E, ℓ) denotes
 the expansion in E up to the weight ℓ, and E ∪̄ {(z, 0)} is the extended union of [[lem:iii-a-1-2]]: E ∪ {(z, 0)} if
 z ∉ π_1E, and E with the logarithmic order at z raised by one otherwise; ∪̄^m is that union taken m times.

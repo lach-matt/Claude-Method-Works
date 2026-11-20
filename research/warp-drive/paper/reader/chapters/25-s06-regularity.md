@@ -39,10 +39,10 @@ as in [[ch:s02]] and [[ch:s05]].
 
 g_0 is the stationary metric of [[sec:ii-b-1-1]], which satisfies (K1)–(K4) together with the hypotheses (H1)–(H8) of
 [[sec:i-a-1-3]], [[sec:i-b-1-2]] and [[sec:i-b-1-5]], and P_0 is a stationary wave-type operator for g_0
-([[def:ii-c-1-1]]). The radii r_0 − 2δ_0 < r_0 < r_2 < r_h that enter those hypotheses are arbitrary, subject to the
-hypotheses: nothing below uses their values, and the radii chosen from them below (r_1, r_1⁺, r^♮) are chosen again
-with them. Fix ℓ_I ∈ (0, ½], ℓ_+ ∈ (0, 1] and ℓ_K > 0. P is a weakly admissible wave-type operator relative to P_0 of
-class ((d_0; 0), (2ℓ_I, ℓ_+, ℓ_K)) ([[def:ii-c-3-3]]), and ε_P := ‖P − P_0‖_((d_0;0),(2ℓ_I,ℓ_+,ℓ_K))
+([[def:ii-c-1-1]]). The radii r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 < r_h that enter those hypotheses are arbitrary, subject
+to the hypotheses: nothing below uses their values, and the radii chosen from them below (r_1, r_1⁺, r^♮) are chosen
+again with them. Fix ℓ_I ∈ (0, ½], ℓ_+ ∈ (0, 1] and ℓ_K > 0. P is a weakly admissible wave-type operator relative to P_0
+of class ((d_0; 0), (2ℓ_I, ℓ_+, ℓ_K)) ([[def:ii-c-3-3]]), and ε_P := ‖P − P_0‖_((d_0;0),(2ℓ_I,ℓ_+,ℓ_K))
 ([[def:ii-c-3-6]]). Only ℓ_I ∈ (0, ½], ℓ_+ > 0, ℓ_K > 0 are used: the conditions [Hin26c, (5.23)] play no part in
 microlocal regularity ([Hin26c, p. 115]). The bound ℓ_+ ≤ 1 is no restriction: as ρ_+ is bounded on Ω, ρ_+^(ℓ_+−1) is
 bounded with its b-derivatives for ℓ_+ > 1, so a class with ℓ_+ > 1 lies in the class with ℓ_+ = 1, with norm at most

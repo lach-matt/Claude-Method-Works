@@ -38,10 +38,10 @@ hypotheses for □^Υ_b: (H1) and (H2) with the endomorphism S̄ ([[sec:iii-d-2]
 ([[sec:iii-d-5-1]]), the bound (Γ.4) at the trapped set ([[sec:iii-d-5-2]]), the gap (G) ([[sec:iii-d-4]]) and (TF)
 ([[sec:iii-d-7]]).
 
-*The inner radius.* The radii 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h are those of [[sec:i-a-1-1]]. The only step below the
-horizon, part (d) of the proof of [[prop:iii-d-6-2]] (repeated in [[lem:iii-d1-2-1]]), holds on (r_0, r_h) for every
-r_0 ∈ (0, r_h); every other step reaches the inner boundary only through the theorems of [[ch:s01]]–[[ch:s03]], which
-hold with r_0 as a parameter. So every result of this chapter holds with the inner radius r_0 as a parameter.
+*The inner radius.* The radii 0 < r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 < r_h are those of [[sec:i-a-1-1]]. The only step
+below the horizon, part (d) of the proof of [[prop:iii-d-6-2]] (repeated in [[lem:iii-d1-2-1]]), holds on (r_0, r_h) for
+every r_0 ∈ (0, r_h); every other step reaches the inner boundary only through the theorems of [[ch:s01]]–[[ch:s03]],
+which hold with r_0 as a parameter. So every result of this chapter holds with the inner radius r_0 as a parameter.
 
 *Notation.* b = (m, A) are the parameters of [[sec:iii-b-3]], b_0 = (m_0, 0), and g_m := g_((m,0)) is the
 five-dimensional Schwarzschild–Tangherlini metric of mass parameter m. On g_(b_0) we write f := 1 − m_0/r²,

@@ -18,10 +18,10 @@ of [[eq:ii-f-1-11]], the parameter sets [[eq:ii-f-3-2]], the orders and spaces [
 [[eq:ii-f-4-1]]. Order functions are written in sans-serif type (𝗌, 𝗍, 𝖻). The defining function x_I of ℐ⁺ is
 R^(−1/2) near ι⁺ ∩ ℐ⁺, r^(−1/2) at finite times ([[sec:ii-f-6-3]]) and (t_*/(t_* + r))^(1/2) on Ω ([[eq:ii-f1-1-1]]);
 where two of these are defined near ℐ⁺ they differ by a smooth positive factor, so the weighted spaces do not depend on
-the choice. The radii 0 < r_0 − 2δ_0 < r_0 < r_2 of the artificial boundary are parameters of the setting. The constants
-chosen from r_0 below (T_+ in [[def:ii-f-7-1]], the set Ω_♮ and the constants of [[lem:ii-f1-2-3]], the width κ of
-[[sec:ii-f1-2-5]]) are chosen by inequalities that a smaller r_0 makes no harder, so every result holds for each choice
-of the radii at which the hypotheses of [[ch:s05]] hold.
+the choice. The radii 0 < r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 of the artificial boundary are parameters of the setting.
+The constants chosen from r_0 below (T_+ in [[def:ii-f-7-1]], the set Ω_♮ and the constants of [[lem:ii-f1-2-3]], the
+width κ of [[sec:ii-f1-2-5]]) are chosen by inequalities that a smaller r_0 makes no harder, so every result holds for
+each choice of the radii at which the hypotheses of [[ch:s05]] hold.
 
 ### Forward solutions of the ι⁺-normal operator {#sec:ii-f-6}
 
