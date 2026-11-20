@@ -1,26 +1,27 @@
 ## The development of g_λ's own data settles {#ch:own-data}
 
 [[thm:settling]] (i) concerns data that agree with those of g_λ on a ball and are continued equivariantly to exact
-Tangherlini data beyond it. This chapter proves that the maximal vacuum development of the data that g_λ itself induces
-on Hintz's initial surface Σ^IVP settles to five-dimensional Tangherlini, with no gluing, for every λ below a threshold
-and with no exceptional set. The data class of [[thm:settling]] (ii) does not contain these data: after the shell the
-difference g_λ − g0 carries at past null infinity a coefficient of r^(−5/2), of size O(λ^∞) but, for every amplitude
-but at most one, nonzero for all λ off a set whose only possible accumulation point is λ = 0, and it reaches the data
-at spatial infinity as a term ρ^(5/2), ρ := 1/r. The class is therefore widened by the half-integer orders, and the
+Tangherlini data beyond it. This chapter proves that the data that g_λ itself induces on Hintz's initial surface Σ^IVP
+have a vacuum development that settles to five-dimensional Tangherlini, with no gluing, for every λ below a threshold and
+with no exceptional set, and that their maximal globally hyperbolic development, which contains it off the inner
+boundary, settles with it. The data class of [[thm:settling]] (ii) does not contain these data: after the shell the
+difference g_λ − g0 carries at past null infinity a coefficient of r^(−5/2), of size O(λ^∞) but, for every amplitude but
+at most one, nonzero for all λ off a set whose only possible accumulation point is λ = 0, and it reaches the data at
+spatial infinity as a term ρ^(5/2), ρ := 1/r. The class is therefore widened by the half-integer orders, and the
 stability theory runs in the wider class with the same index sets.
 
 The argument has five parts. (1) The far part S := Σ^IVP ∩ {r ≥ 4R} of the initial surface has a past domain of
 dependence W for Tangherlini, bounded by S, by an ingoing null cone ℋ on which g_λ is known, and by past null infinity,
-where nothing comes in after the shell (Section [[sec:own-far-part]]). (2) The tail at r^(−5/2) is computed
-(Section [[sec:own-tail]]). (3) The stability theory holds in the half-integer class with the same index sets
-(Section [[sec:own-half-class]]). (4) The constants of the construction from past null infinity are polynomial in
-λ^(−1) at every order, which makes the data of g_λ on ℋ small at every weight that the estimate below uses
-(Sections [[sec:own-orders]] and [[sec:own-sigma]]). (5) After its self-similar terms through r^(−4) are subtracted,
-g_λ continues to W by one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence,
-whose exponents follow from homogeneity under a dilation; the continuation is vacuum, unique in a class of weight
-below ½, and its data on S lie in the half-integer class with small norm (Sections [[sec:far-homogeneity]],
-[[sec:cutoff-expansion]], [[sec:own-continuation]] and [[sec:own-vacuum]]). The theorem is assembled in Section
-[[sec:own-proof]].
+where nothing comes in after the shell ([[sec:own-far-part]]). (2) The tail at r^(−5/2) is computed ([[sec:own-tail]]).
+(3) The stability theory holds in the half-integer class with the same index sets ([[sec:own-half-class]]). (4) The
+constants of the construction from past null infinity are polynomial in λ^(−1) at every order, which makes the data of
+g_λ on ℋ small at every weight that the estimate below uses (Sections [[sec:own-orders]] and [[sec:own-sigma]]). (5)
+After its self-similar terms through r^(−4) are subtracted, g_λ continues to W by one weighted energy estimate at a
+weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, whose exponents follow from homogeneity under a dilation;
+the continuation is vacuum, unique in a class of weight below ½, and its data on S lie in the half-integer class with
+small norm (Sections [[sec:far-homogeneity]], [[sec:cutoff-expansion]], [[sec:own-continuation]] and [[sec:own-vacuum]]).
+The theorem is assembled in [[sec:own-proof]], where the development is placed, off its inner boundary, in the maximal
+globally hyperbolic development of the data ([[lem:own-maximal]]).
 
 *Notation.* We use the chart (τ, x) of [[sec:background]], v = τ + r, the background g0 of [[eq:background]] and the
 gauge of [[sec:gauge]]. Ω′ is the domain of the form [[eq:omega]], with constants (T′, δ′0) and inner radius a′ = q0 −
@@ -48,20 +49,28 @@ such that for every 0 < λ ≤ λ_2, with no exceptional set:
 (1) g_λ continues to the past domain of dependence W of S := Σ^IVP ∩ {r ≥ 4R} for g_b0 as a smooth G-invariant vacuum
 metric g in the wave-map gauge relative to g_b0, and all of W but a strip along its null boundary, of v-width tending to
 0 with λ, lies in the domain of dependence of S for g. It is the only continuation in that gauge with |g − g_b0| ≤ 1/50
-whose energies of some weight a_0 ∈ (0, ½) of the fields Γ^α (g − g_b0), |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab, Z} (Section
-[[sec:far-homogeneity]]), are bounded uniformly in the slices and whose energy tends to 0 toward past null infinity
+whose energies of some weight a_0 ∈ (0, ½) of the fields Γ^α (g − g_b0), |α| ≤ 3, Γ ∈ {∂_t, L_Ω_ab, Z}
+([[sec:far-homogeneity]]), are bounded uniformly in the slices and whose energy tends to 0 toward past null infinity
 ([[prop:own-uniqueness]]);
 
 (2) its data (γ, k) on Σ^IVP satisfy γ − γ_b0 ∈ H^(∞,(ℰ_0^½,ℓ0))_b, k − k_b0 ∈ H^(∞,(ℰ_0^½+1,ℓ0+1))_b, with
 ‖(γ − γ_b0, k − k_b0)‖_(d_1) < ε in the norm of [[sec:s27-class]] taken with ℰ_0 = ℰ_0^½;
 
-(3) the maximal vacuum development ĝ of (γ, k) settles to a Tangherlini metric g_(m′,0) with |m′ − μ_end| < ε_m: on
-{r_♭ ≤ r ≤ R′, t_* ≥ t_1}, |(t_*∂_(t_*))^i ∂_x^β (ĝ − g_(m′,0))| ≤ C t_*^(−2−ε_t) for every R′, i and β, with C and t_1
-depending on them.
+(3) (γ, k) have a G-invariant vacuum development ǧ on {t_IVP ≥ 0}, t_IVP being the function of [[lem:iii-b-3-7]] (b),
+with Σ^IVP = t_IVP⁻¹(0), which settles to a Tangherlini metric g_(m′,0) with |m′ − μ_end| < ε_m: on {r_♭ ≤ r ≤ R′, t_* ≥
+t_1}, |(t_*∂_(t_*))^i ∂_x^β (ǧ − g_(m′,0))| ≤ C t_*^(−2−ε_t) for every R′, i and β, with C and t_1 ≥ 1 depending on them.
+The maximal globally hyperbolic vacuum development (M̂, ĝ, ι̂) of the data (γ, k) on the surface without boundary Σ̊ :=
+Σ^IVP ∩ {r > r_♭} contains ǧ off the inner boundary {r = r_♭}: there is a time-orientation-preserving isometric embedding
+Ψ of ({r > r_♭, t_IVP > 0}, ǧ) into (M̂, ĝ) that extends continuously to Σ̊ by ι̂ ([[lem:own-maximal]]). So ĝ settles in
+the same sense: |(t_*∂_(t_*))^i ∂_x^β (Ψ^*ĝ − g_(m′,0))| ≤ C t_*^(−2−ε_t) on {r_♭ < r ≤ R′, t_* ≥ t_1}.
 
-The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The order k_P is what the subtracted
-expansion of Section [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
-derivatives of their data on ℋ ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in Section
+The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. d_1, k1 and K* are explicit in the loss d of
+[[thm:iii-k-3-2]]: d_1 = 22d + 292 + L_P, L_P ≤ 48 an explicit number of derivatives, k1 = d_1 + 4, and
+K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a), which exceeds d_1 + 14, so that the least admissible K is
+quadratic in d_1 ([[prop:uc-data-order]]); d is bounded above only at the computational point of [[def:ec-point]], which
+is not shown to lie in the set where the theorem is proved. The order k_P is what the subtracted
+expansion of [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
+derivatives of their data on ℋ ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in
 [[sec:own-proof]]; its first step checks every use of k_P.
 
 ### The far part of the initial surface and its past domain of dependence {#sec:own-far-part}
@@ -284,8 +293,10 @@ H^(∞,(ℰ_0^½,ℓ0))_b (the new coefficients are 0), so the bound of [[lem:vi
 the proof of [[thm:iii-c1-3-1]] applies R = Π_((z,k)∈ℰ_(0,≤))(X_0 − z), with one factor for each exponent of ℰ_0 up to
 the weight reached: at the last step R has 3 factors for ℓ0 ∈ (3, 7/2) and 4 for ℓ0 ∈ (7/2, 4), against 2 for ℰ_0^ℤ,
 and each factor costs one derivative (the converse part of [[lem:iii-a-1-3]]). So d_1 changes by a finite amount, and ε
-with it; the thresholds λ1 and δ of [[thm:settling]] change accordingly. None of ε, d_1, λ1, δ is evaluated, in either
-class. (c) The weights α_1, α′ avoid finitely many more points in each bounded interval.
+with it; the thresholds λ1 and δ of [[thm:settling]] change accordingly. In either class d_1 = 22d + 292 + L_P, d the
+loss of [[thm:iii-k-3-2]], which is the same for the two classes, with L_P ≤ 43 for ℰ_0^ℤ and L_P ≤ 48 for ℰ_0^½
+([[prop:uc-data-order]]). None of ε, λ1, δ is evaluated, in either class, and d is bounded above only at the
+computational point. (c) The weights α_1, α′ avoid finitely many more points in each bounded interval.
 
 ### The construction from past null infinity at every order {#sec:own-orders}
 
@@ -532,7 +543,7 @@ k_P − 4 gives |Ω^β e_(2p)(v1)| ≤ C λ^(1+). G_5(v1) = G_5^∞ ([[prop:own-
 coefficients, of ∂_s^i Ω^β F_p with i + |β| ≤ j; by [[lem:own-self-similar]] these are at most C ‖G_(2p)(v1)‖_(C^(2j+2)),
 which is O(λ) for j ≤ k1 + 4 by (a); at fixed λ, G_(2p)(v1) is smooth ([[prop:bondi-hierarchy]]), so every such
 derivative is bounded. The bounds on W ∩ {r ≥ 1} follow by the homogeneity of Σ_p of degree −p under the dilation of
-Section [[sec:far-homogeneity]], which maps {r = 1, 0 ≤ s ≤ 3/2} onto {r = ς, 0 ≤ s ≤ 3/2}, together with
+[[sec:far-homogeneity]], which maps {r = 1, 0 ≤ s ≤ 3/2} onto {r = ς, 0 ≤ s ≤ 3/2}, together with
 [[lem:own-wedge]] (b). (c) g_λ is invariant under T² and the two reflections (item 5 of [[thm:past-construction]]),
 which generate G, so it is G-invariant; so are the coefficients of its expansion, and the equation of
 [[lem:own-self-similar]] commutes with G. ∎
@@ -575,7 +586,7 @@ integrand of [[eq:own-flux-n]] for Γ^α h_R is O(r^(2a−11+3)), and its integr
 
 ### The far region by homogeneity {#sec:far-homogeneity}
 
-This section proves the exponents on which the weighted energy estimate of Section [[sec:own-continuation]] rests: the
+This section proves the exponents on which the weighted energy estimate of [[sec:own-continuation]] rests: the
 decay of the coefficients of the linearised operator, the degree of the residual of the subtracted expansion, and the
 naturality of the operator under G. Every exponent is obtained by counting powers of r under one dilation.
 
@@ -588,7 +599,7 @@ For Lorentzian metrics g and g′, Ric^H(g; g′) denotes the expression [[eq:ga
 field D and the connection ∇̂ are formed with g′. By [[eq:background]], g_b0 = g0 on {v ≥ v_end}, which contains W, so
 there P(h) is Ric^H(g0 + h) of [[eq:gauge]]. Pointwise norms |·| are those of [[sec:profiles]]: the Euclidean operator
 norm on symmetric 2-tensors and the Frobenius norm on arrays of higher rank. W, ℋ, the slices Σ̃_σ, s = (v − v1)/r and
-r_σ are those of Section [[sec:own-far-part]]: on W, 0 ≤ s ≤ 5/4 and |t − v1| ≤ r, and r_σ ≥ c_W (1 + |σ|)
+r_σ are those of [[sec:own-far-part]]: on W, 0 ≤ s ≤ 5/4 and |t − v1| ≤ r, and r_σ ≥ c_W (1 + |σ|)
 ([[lem:own-wedge]] (b)). The commutators are Γ ∈ {∂_t, L_Ω_ab, Z}, with Ω_ab := x_a ∂_b − x_b ∂_a and
 Z := (t − v1) ∂_t + x·∂_x, acting on Cartesian components; Γ^α is a product of |α| of them. The subtracted expansion
 Σ = Σ_(p∈Π) Σ_p, Σ_p = r^(−p) F_p(s, x̂), is that of [[def:own-sigma]]: □_η Σ_p = 0 for every p ∈ Π; each F_p is smooth
@@ -748,7 +759,7 @@ components of Õ^* h are Ōᵀ h(Ō ·) Ō. ∎
 
 ### The expansion after the shell to every order {#sec:cutoff-expansion}
 
-The truncated problems of Section [[sec:own-continuation]] interpolate, on a band of bounded width in v, between the
+The truncated problems of [[sec:own-continuation]] interpolate, on a band of bounded width in v, between the
 data of g_λ and data that continue them to spatial infinity. The commuted energies of the remainder at the initial
 slice are bounded uniformly in the truncation only if the two data agree on the band to high order in r⁻¹: the
 commutator Z is transverse to the initial slice at the band with a coefficient of size |T|, and each Z turns a time
@@ -757,7 +768,7 @@ agree with those of g_λ to every prescribed order and are homogeneous, so that 
 expansion of [[prop:bondi-hierarchy]] at fixed λ; no smallness in λ is needed of the new terms, because they enter only
 the data of the truncated problems, whose effect disappears as T → −∞ at fixed λ.
 
-*Setting.* We use the notation of Section [[sec:far-homogeneity]]: P(h) = Ric^H(g_b0 + h; g_b0), g_b0 = η + μ m with
+*Setting.* We use the notation of [[sec:far-homogeneity]]: P(h) = Ric^H(g_b0 + h; g_b0), g_b0 = η + μ m with
 m := r⁻² dv ⊗ dv, μ = μ_end, the coordinates (v, r, x̂) with ℓ = ∂_r at fixed (v, x̂) and ∂_v the derivative at fixed
 (r, x̂), which is ∂_t at fixed x, and the commutators Γ ∈ {∂_t, L_Ω_ab, Z}, Z = (t − v1) ∂_t + x·∂_x. The Cartesian
 derivatives are
@@ -778,7 +789,7 @@ W ∩ {r ≥ r′}, for some r′ ≥ 1, is *tame of order q* if |∂^j Γ^α F|
 depending on j and α but not on the member. By [[eq:bondi-expansion]], u_J is of strip order (J + 1)/2, and H_J of strip
 order 2, the G_k being bounded with all their derivatives. A *monomial* is r^(−k/2) (v − v1)^n a(x̂) with integers
 k, n ≥ 0 and a smooth; its *weight* is n − k/2. Since r^(−k/2) (v − v1)^n = r^(n−k/2) s^n with s = (v − v1)/r, a
-monomial is homogeneous, of degree equal to its weight, under the dilation D_ς of Section [[sec:far-homogeneity]].
+monomial is homogeneous, of degree equal to its weight, under the dilation D_ς of [[sec:far-homogeneity]].
 
 **Lemma {#lem:cutoff-expansion}** (the operator at fixed v). Let K_0 ≥ 4, let c_4, …, c_(K_0) be smooth symmetric
 tensors on I_1 × S³ (Cartesian components), bounded with all derivatives, and put H := Σ_(k=4)^(K_0) r^(−k/2) c_k and
@@ -884,7 +895,7 @@ constants depending on λ and J.
 
 *Proof.* (a) Each term is r^(−p) s^n a(x̂) with p = k/2 − n ≥ 4, a polynomial in s with smooth coefficients, so smooth
 and homogeneous of degree −p on 𝒞_1 = {r ≥ 1, 0 ≤ s ≤ 3/2} ⊃ W. The bounds follow as [[eq:far-sigma-bounds]], from the
-dilation (Section [[sec:far-homogeneity]]). G-invariance: G_(k,n) is a Taylor coefficient at v = v1 of the G-invariant
+dilation ([[sec:far-homogeneity]]). G-invariance: G_(k,n) is a Taylor coefficient at v = v1 of the G-invariant
 G_k ([[lem:cutoff-polynomial]]); G_(2p)(v1) is G-invariant and the equation of [[lem:own-self-similar]] commutes with G,
 so each F_p, and each of its Taylor coefficients F_(p,n), is G-invariant.
 
@@ -924,7 +935,7 @@ g_λ − g_b0, truncated as polynomials in s. Their sizes in λ are not controll
 
 *Setting.* Fix ℓ0 ∈ (3, 4) ∖ {7/2}, a ∈ (ℓ0 − 1, 3) and k1 := max(8, d_1 + 4). On W we use the Kerr–Schild Cartesian
 coordinates (t, x), t = τ, the operator P of [[eq:far-operator]], which is the operator [[eq:gauge]] relative to g0 there
-(g0 = g_b0 on v ≥ v_end), and the commutators Γ ∈ {∂_t, L_Ω_ab, Z} of Section [[sec:far-homogeneity]], acting on
+(g0 = g_b0 on v ≥ v_end), and the commutators Γ ∈ {∂_t, L_Ω_ab, Z} of [[sec:far-homogeneity]], acting on
 Cartesian components, Γ^α being the product for a multi-index α. Put u := t − r, u* := τ_max + 1 and w := (u* − u)^(2a);
 on W, t ≤ f(r) ≤ τ_max and t − v1 ≥ −r, so r + 1 ≤ u* − u ≤ 2r + |u* − v1|. For a metric g = g_b0 + H on W, |·| denotes
 the Euclidean operator norm of a component matrix, and for a function φ and σ ≤ 0,
@@ -1660,7 +1671,7 @@ h_R^(J) := g^(J) − g_b0 − Σ, has 𝔈_(k1) ≤ ε_B² and 𝔈_k ≤ C_k(λ
 k1 − 2 ≤ k_J − 3), and has E_σ[Γ^α h_R^(J)] ≤ C ϑ(σ) → 0 as σ → −∞ for |α| ≤ k1. G-invariance passes to the limit.
 
 *The limit does not depend on J.* For J′ ≥ J ≥ 2k1 + 7, g^(J′) = g^(J) by [[lem:cutoff-independence]], which is in
-Section [[sec:own-vacuum]]; its proof uses only the properties of g^(J) and g^(J′) just listed and
+[[sec:own-vacuum]]; its proof uses only the properties of g^(J) and g^(J′) just listed and
 [[lem:own-two-continuations]], not the conclusions of this theorem. Write g for the common limit. As g = g^(J) is of
 class C^(k_J−3) for every J, g is smooth, and as it equals g_λ on ℋ with all its derivatives (each g_T equals g_λ on its
 side v ≤ v1, [[lem:own-truncation]] (ii)), g and g_λ join smoothly across ℋ. Taking J := max(2k1 + 7, 2k + 7) gives
@@ -1864,6 +1875,111 @@ nonzero, hence so is a_(5/2). Suppose γ − γ_b0 = ρ² b_2 + ρ³ b_3 + ψ on
 other term lies there. But if c ≠ 0 its modulus is at least |c|ρ²/2, and otherwise it is |a_(5/2)| ρ^(5/2); in either
 case ∫_0 |ρ^(−q)(ρ² c + ρ^(5/2) a_(5/2))|² dρ/ρ = ∞, as q > 5/2. ∎
 
+**Lemma {#lem:own-maximal}** (the development lies in the maximal one). Let (γ, k) be G-invariant vacuum data on Σ^IVP as
+in [[thm:own-half-settling]], below its threshold, and let ǧ be the G-invariant vacuum development given there: the
+metric of [[thm:iii-k-4-3]] on Ω_* ∪ 𝒟_(0,0), with vanishing boost and translation parameters, S = S⁰ = 0 in the notation
+of [[ch:s27]] ([[prop:vii-3-2]]). Put Σ̊ := Σ^IVP ∩ {r > r_♭} and M₊ := {r > r_♭, t_IVP ≥ 0}. Then ǧ is defined on
+{t_IVP ≥ 0}, which contains M₊; (Σ̊, γ, k) is initial data in the sense of [Sbi15, p. 11], with d = 4; its maximal
+globally hyperbolic development (M̂, ĝ, ι̂), a globally hyperbolic development that is an extension of every other one,
+exists and is unique up to isometry [Sbi15, Theorem 2.8, p. 12] ([[thm:std-sbierski]] (7)); and there is a
+time-orientation-preserving isometric embedding Ψ : (M₊ ∖ Σ̊, ǧ) → (M̂, ĝ) that extends continuously to M₊ by ι̂ on Σ̊.
+
+*Proof.* In this proof t is the time of the chart of [[lem:vii-1-2]], as in [[ch:s27]], and not the Kerr–Schild time of
+the far region. *The development.* By [[thm:own-half-settling]] the results of [[ch:s27]] hold in the class ℰ_0^½, and
+by [[prop:vii-3-2]] the map φ_(0,0) is the identity, so ǧ induces (γ, k) on Σ^IVP ([[thm:iii-k-4-3]] (2)); here b₀ =
+(μ_end, 0), and g_(b₀) is g_b0 written in the chart of [[lem:vii-1-2]] ([[lem:interior-chart]] (a)). On Ω_*, t_IVP ≥
+t_* ≥ t^♭_* ≥ 1 (ψ_IVP ≤ ψ, with ψ of [[eq:iii-b-3-6]], by the proof of [[lem:iii-b-3-7]] (b), and [[lem:ii-c-3-2]]
+(b)); and 𝒟_(0,0) = {t_IVP ≥ 0} ∩ {t^♭_* ≤ T̂ + 2} ([[prop:iii-k-1-2]]), while {t^♭_* > T̂ + 2} ⊂ Ω_*. So Ω_* ∪ 𝒟_(0,0)
+is the part {t_IVP ≥ 0} of the spacetime of [[ch:s27]], which contains M₊. Where t^♭_* ≤ T̂ + ¼c_0, a set containing
+{t^♭_* ≤ 3/2} as T̂ ≥ 2, ǧ = g_(b₀) + h_0 ([[prop:iii-k-4-2]] with vanishing boost and translation; h_0 := h_(0,0)),
+the metric g_(0,0) of [[lem:iii-k-6-2]] on the region 𝒟 of [[prop:iii-k-1-2]]; it is smooth on 𝒟 up to its boundary
+(the proof of [[prop:iii-k-1-2]]), and dt_IVP is past timelike for it on 𝒟 ([[lem:iii-k-6-2]] (a)). So near each point
+of Σ̊, ǧ is the restriction of a smooth Lorentzian metric: of g_(0,0) where r > R_ν, 𝒟 being a two-sided neighbourhood
+of Σ^IVP there, and, where r ≤ R_ν, of an extension of g_(0,0) across {t_IVP = 0}, given in the coordinates (t_IVP, x)
+by [[thm:std-seeley]] applied after a cut-off near the point, and Lorentzian near the point by continuity; the future
+unit normal of Σ̊ points into M₊, and ǧ induces (γ, k) on Σ̊ with respect to it. On Ω°_*, ǧ − g_(b₀) is small in
+𝒢̃^(0,(1,0,0))_(e3b) and t^♭_* is a time function of ǧ, as in the proof of [[prop:iii-k-4-2]] ([[lem:s27-below]]
+(iii)).
+
+*The data, and a development of them.* Σ̊ is the graph t = ψ_IVP(|x|) over the connected set {|x| > r_♭} ⊂ ℝ⁴, an open
+subset of Σ^IVP and, unlike Σ^IVP, which ends at {r = r_♭}, a manifold without boundary, as [Sbi15, p. 11] asks of
+initial data; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the Gauss and Codazzi equations for the
+vacuum metric ǧ. So (Σ̊, γ, k) is initial data in the sense of [Sbi15, p. 11] ([[thm:std-sbierski]]), with d = 4, and
+[Sbi15, Theorem 2.8, p. 12] ([[thm:std-sbierski]] (7)) gives (M̂, ĝ, ι̂). By [Sbi15, Theorem 2.6] ([[thm:std-sbierski]]
+(3)) the same data have a globally hyperbolic development (N, g_N, ι_N). Σ_N := ι_N(Σ̊) is a smooth spacelike Cauchy
+hypersurface of N, γ being Riemannian, so there is a Cauchy time-function h_N on N with Σ_N = h_N⁻¹(0)
+([[thm:std-bgp-causal]] (3)); its gradient
+is past directed timelike ([[thm:std-bgp-causal]] (2)), so dh_N is past timelike. We glue the past half of N to M₊, show
+that the result contains a globally hyperbolic development of (Σ̊, γ, k) that contains M₊, and obtain Ψ from the
+maximality of (M̂, ĝ, ι̂).
+
+*The glued space.* N₋ := {h_N ≤ 0} and M₊ are manifolds with boundary Σ_N and Σ̊, as dh_N and dt_IVP do not vanish. Let
+M_gl := (N₋ ⊔ M₊)/∼, where ι_N(y) ∼ y for y ∈ Σ̊, with the quotient topology and the projection π. π maps N₋ and M₊
+homeomorphically onto closed subsets of M_gl: for a closed F ⊂ N₋, the preimage of π(F) is F together with
+ι_N⁻¹(F ∩ Σ_N) ⊂ Σ̊, which is closed, and likewise for M₊. So π(N₋ ∖ Σ_N) and π(M₊ ∖ Σ̊) are disjoint open subsets of
+M_gl, covering the complement of the closed set π(Σ̊), which we write Σ̊.
+
+*Charts, smooth structure, metric, time orientation.* The paragraphs of the proof of [[lem:interior-one-spacetime]] from
+*(i), the charts at Σ* to *(i), time orientation and connectedness* apply with Σ̊, M₊ and ǧ in place of Σ, B and g, and
+with N₋ in place of A, g_N in place of g_λ, N in place of both V and D_V(Σ), h_N in place of t_IVP on the side of A, n_N
+in place of n_λ, and E_N(s, y) := exp^(g_N)_(ι_N(y))(s n_N), n_N the future unit normal of Σ_N, in place of E_λ, and with
+{|x| > r_♭} in place of the shell {r_♭ < |x| < R}. Of the common chart of that lemma they use only the following, which
+hold here: dh_N(n_N) > 0, dh_N being past timelike, and dt_IVP(n) > 0, n pointing into M₊; the coordinates x of the graph
+Σ̊, carried to Σ_N by ι_N, as the coordinates on Σ̊ in every chart; that ǧ is near each point of Σ̊ the restriction of a
+smooth Lorentzian metric; that the two halves are closed in M_gl and carried homeomorphically by π; and that a set W_Π is
+open when it meets the two halves in open sets, which here is the definition of the quotient topology. For the
+connectedness of N₋: through a point p′ ∈ N₋ ∖ Σ_N passes an inextendible timelike curve of N, which meets the Cauchy
+hypersurface Σ_N after p′, h_N increasing along it, and between the two it lies in N₋. This gives charts Φ_Π : (−s_0,
+s_0) × Π → W_Π at the points of Σ̊, homeomorphisms onto open sets which, with charts of the two open halves, form a
+smooth atlas (M_gl is Hausdorff and second countable by the next paragraph, which uses only these charts); a smooth
+Ricci-flat Lorentzian metric g_gl on M_gl, equal to g_N and to ǧ off Σ̊, which induces (γ, k) on the smooth spacelike
+hypersurface Σ̊; a time orientation in which the unit normal of Σ̊ is future and which is that of ǧ on π(M₊ ∖ Σ̊); and
+the connectedness of M_gl. Part *(ii)* of that proof then shows that Σ̊ is acausal in M_gl.
+
+*Hausdorff and second countable.* Two points of π(N₋ ∖ Σ_N), or two of π(M₊ ∖ Σ̊), are separated in that open set, and a
+point of each by these two disjoint open sets. Let y ∈ Σ̊ and z ≠ y. If z = π(p′), p′ ∈ N₋ ∖ Σ_N, take disjoint open
+sets U′ ∋ p′ and U_y ∋ ι_N(y) of N with U′ ⊂ N₋ ∖ Σ_N, and Π and s_0 so small that E_N((−s_0, 0] × Π) ⊂ U_y, as
+E_N(0, y) = ι_N(y); then π(U′) and W_Π are disjoint open sets. If z lies in π(M₊ ∖ Σ̊), the same holds with M₊ and the
+map E of that proof in place of N and E_N. If z ∈ Σ̊, take disjoint neighbourhoods of ι_N(y) and ι_N(z) in N and of y
+and z in M₊, and charts W_Π ∋ y and W_Π′ ∋ z whose halves lie in them; then W_Π ∩ W_Π′ = ∅. So M_gl is Hausdorff. Σ̊,
+being second countable, is covered by countably many W_Π, and M_gl is the union of these and of the two open halves,
+each second countable; so M_gl is second countable.
+
+*The development D_gl.* Σ̊ is an acausal smooth spacelike hypersurface of the connected time-oriented Lorentzian
+manifold M_gl. So D_gl := D_(M_gl)(Σ̊) is open and globally hyperbolic, with Σ̊ as a Cauchy hypersurface
+([[thm:std-bgp-development]]); it is connected, every point of it being joined to Σ̊ within it as at the end of the
+connectedness paragraph cited; and with the inclusion ι of Σ̊ it is a globally hyperbolic development of (Σ̊, γ, k)
+[Sbi15, Definition 2.1] ([[thm:std-sbierski]] (1)): connected, time oriented, vacuum, with ι^*g_gl = γ and with second
+fundamental form k with respect to the future normal.
+
+*M₊ lies in D_gl.* Let p ∈ π(M₊ ∖ Σ̊) and let 𝔠 be an inextendible causal curve of M_gl through p, run from p to the
+past. Suppose that 𝔠 does not meet Σ̊. Then it stays in the open set π(M₊ ∖ Σ̊) = {r > r_♭, t_IVP > 0}, the complement of
+Σ̊ being the disjoint union of the two open halves, and it is past inextendible there. First, if t^♭_*(p) > 3/2, 𝔠 does
+not stay in {t^♭_* > 3/2}. The part of this set in {r > r_♭} lies in Ω°_*, and the argument of the proof of
+[[lem:ii-f-1-3]] on Ω°_*, with τ := t^♭_*, the level 3/2 and the compact sets L_p ⊂ Ω°_* of [[lem:iii-k-6-1]] (c),
+applied as in the proof of [[prop:iii-k-4-2]], shows that t^♭_* reaches 3/2 along every past directed causal curve from p
+that is past inextendible in Ω°_*; 𝔠 would be one if it stayed in {t^♭_* > 3/2}. Second, from the first point p_1 of 𝔠 at
+which t^♭_* ≤ 3/2 (p_1 := p if t^♭_*(p) ≤ 3/2) on, t^♭_* stays at most 3/2: to exceed it, 𝔠 would run in {t^♭_* > 3/2},
+where t^♭_* is a time function, along an interval starting at a point where t^♭_* = 3/2, and t^♭_* decreases to the past
+along such an interval. Third, beyond p_1, 𝔠 therefore lies in {t_IVP > 0, t^♭_* ≤ 3/2} ⊂ 𝒟, where ǧ = g_(0,0): dt_IVP is
+past timelike there, and r ≤ R_𝔠 := max(R_s, r(p_1)) + 2t_IVP(p_1) along 𝔠 beyond p_1 ([[lem:iii-k-6-2]] (a) and (c), the
+latter at the level 0; R_s is the radius R of that lemma). So 𝔠 lies in L_𝔠 := {0 ≤ t_IVP ≤ t_IVP(p_1), r_♭ ≤ r ≤ R_𝔠,
+t^♭_* ≤ 3/2}, a closed set, bounded in the coordinates (t, x) as t = t_IVP + ψ_IVP(r), hence compact, on which ǧ =
+g_(0,0) is continuous and dt_IVP is past timelike; parametrised by t_IVP, it converges in L_𝔠 to a point q, as in the
+proof of [[lem:ii-f-1-3]]. q is not in {r > r_♭, t_IVP > 0}, in which 𝔠 is past inextendible, nor in Σ̊, where 𝔠 would
+have an end point in M_gl; so r(q) = r_♭. But g_(b₀)⁻¹(dr, dr) ≤ −c_r < 0 on {r_♭ ≤ r ≤ r^♮}, with dr future timelike for
+g_(b₀) there (the proof of [[lem:s27-below]] (iv)), and h_0 is small in C⁰ on the compact set 𝒟 ∩ {r ≤ R_s} (the proof of
+[[lem:iii-k-6-2]] (a)), which contains 𝒟 ∩ {r ≤ r^♮}, as r^♮ = ½(r_♭ + 7R₁/8) < R₁ ([[lem:ii-c-3-2]], [[def:s12-radii]])
+while R_s ≥ R_5 ≥ 3R₁ ([[lem:iii-k-6-2]], [[sec:iii-k-0]]). So, as in the proof of [[lem:s27-below]] (iv), dr stays
+timelike for g_(b₀) + s h_0, s ∈ [0, 1], on 𝒟 ∩ {r ≤ r^♮}, and it is future timelike for ǧ there, the time orientation of
+ǧ on 𝒟 being the one that continues that of g_(b₀) ([[lem:iii-k-6-2]] (a)). Hence r increases strictly along 𝔠 towards q
+near q, and r(q) > r_♭, a contradiction. So 𝔠 meets Σ̊, and π(M₊) ⊂ D_gl.
+
+*The embedding.* By [Sbi15, Theorem 2.8] ([[thm:std-sbierski]] (7)), (M̂, ĝ, ι̂) is an extension of (D_gl, g_gl, ι):
+there is a time-orientation-preserving isometric embedding j : D_gl → M̂ with j ∘ ι = ι̂ [Sbi15, Definition 2.2]
+([[thm:std-sbierski]] (2)). Ψ := j ∘ π on M₊ is continuous and equal to ι̂ on Σ̊, and on M₊ ∖ Σ̊, where π is an isometry
+of ǧ onto g_gl that preserves the time orientations, it is a time-orientation-preserving isometric embedding. ∎
+
 *Proof of [[thm:own-data]].* *The order k_P.* By [[cor:own-p-order]] the solution g_λ is the same at every order, and
 the proof uses its bounds at the order k_P = 2k1 + 14 at four places, each of which needs at most k_P. (a)
 [[lem:own-sigma-data]] (a) applies [[lem:own-e-flux]] (1) with i = 0 and |β| ≤ 2k1 + 10, which needs
@@ -1906,8 +2022,13 @@ compact set Σ^IVP ∩ {r_♭ ≤ r ≤ 4R} plus its norm on S, which Step 6 of 
 So ‖·‖_(d_1) ≤ C(λ + ε_B) < ε for λ ≤ λ_2.
 
 (3) The data are G-invariant (g is), vacuum, in the half-integer class and below the thresholds of [[prop:vii-3-2]] and
-[[cor:s27-rate]]. By [[thm:own-half-settling]] they have a G-invariant vacuum development settling to g_(m′,0)
-with |m′ − μ_end| < ε_m (b₀ = (μ_end, 0)) at the rate O(t_*^(−2−ε_t)) of [[eq:s27-rate]] on
-{r_♭ ≤ r ≤ R′, t_* ≥ t_1}; this development embeds in the maximal vacuum development of (γ, k), which therefore
-settles in the same sense. No gluing is used, and no value of λ ∈ (0, λ_2] is excluded: [[prop:own-transfer]] shows
-only that, off the exceptional set of [[prop:own-tail]] (d), the half-integer class is needed. ∎
+[[cor:s27-rate]]. By [[thm:own-half-settling]] they have a G-invariant vacuum development ǧ, the metric of
+[[thm:iii-k-4-3]] with b = (m′, 0) and vanishing boost and translation ([[prop:vii-3-2]]), defined on {t_IVP ≥ 0}
+([[lem:own-maximal]]), which settles to g_(m′,0) with |m′ − μ_end| < ε_m (b₀ = (μ_end, 0)) at the rate O(t_*^(−2−ε_t)) of
+[[eq:s27-rate]] on {r_♭ ≤ r ≤ R′, t_* ≥ t_1}, t_1 being the T′ of [[cor:s27-rate]] (c), taken at least 1. By
+[[lem:own-maximal]] the maximal globally hyperbolic development (M̂, ĝ, ι̂) of (Σ̊, γ, k) exists, and Ψ embeds ({r > r_♭,
+t_IVP > 0}, ǧ) in it isometrically, preserving the time orientation and extending continuously to Σ̊ by ι̂. On {r_♭ < r ≤
+R′, t_* ≥ t_1}, t_IVP ≥ t_* ≥ 1, so this set lies in the domain of Ψ, and Ψ^*ĝ = ǧ there satisfies the same bound. No
+data are glued (the gluing in [[lem:own-maximal]] joins two developments of the same data), and no value of λ ∈ (0, λ_2]
+is excluded: [[prop:own-transfer]] shows only that, off the exceptional set of [[prop:own-tail]] (d), the half-integer
+class is needed. ∎

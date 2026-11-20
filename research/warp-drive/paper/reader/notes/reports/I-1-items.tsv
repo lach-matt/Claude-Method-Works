@@ -1,0 +1,183 @@
+item	source	chapter	class	note
+K_m rename (stage quantity vs Kretschmann)	INT:6; INT:266-270	04,08,60,80,84	APPLY	𝒦_m -> 𝒴_m at every site (04:311,314,421,426; 08:407,409,411; 60:154,157; 80:679-734; 84:543-735); 𝒴 unused in all five
+rank N -> N_E in files 20-48	INT:7-8; INT:134; INT:349	23,24,28,34,35	APPLY	ℂ^N (bundle rank) -> ℂ^(N_E): 23:550; 24:646-1052 (N = 5^(p+q), δ^(1-N)); 28:124; 34:500-575; 35:1119
+large orders N -> M in files 20-48	INT:7-8	23,25,30,33,...	DEFER	N for orders (H^(-N), 𝐨-K𝐞) appears ~200 times in 23 alone beside N as a count; a census and a decision are needed
+energy 𝒩 in chapter 9	INT:9	09	DONE	09:465-467 writes 𝒩_P; N is the stage count only
+numerical markers ch 3,7,8/9	INT:12-14; INT:50	03,07,08	DONE	no computational marker left; 07, 08, 10 carry Numerical observation remarks
+ch 3 stability-parameters pending	INT:17	03	DONE	no pending marker in 03
+S7 folds II.E (E2)	INT:18-19	26	DONE	26:46-50 (conditions (1) and (2) of def:ii-c-3-3 only)
+S2 C_Γ undefined	INT:20	21	DONE	defined 21:1283
+S5 ∂Γ vs Γ	INT:21	24	DONE	24:421-429 states both and their relation
+[Hö85], [Hö83] statements	INT:22-23; INT:87	95,98	DROP	both removed from Appendix A and bibliography
+thm:bondi-law values of g0	INT:26-27	03	DONE	03:227
+Ch 10 s = r_B^(-1/2) letter	INT:28; INT:108; INT:225	10	DONE	ς throughout chapter 10
+derivative bound in thm:past-construction	INT:29-30; INT:205	03	DONE	03:190 item 3
+Ch 10 restated equations	INT:31	10	DONE	10 cites eq:bondi-form, eq:bondi-law
+Ch 10 pending keys	INT:32	10	DONE	none left
+37 Appendix A blocks	INT:35-37	95	DONE	merged
+[BH17] 9.14, [CBCL06], [0C] p.11	INT:38	95	DONE	95:658 quoted; 95:1067 p. 11
+[CS06], [Wu26] in five dimensions	INT:39-40; INT:71-76	80,81,83,95,98	DONE	[CS06] cited nowhere and absent from 98; [Wu26] used by no chapter
+[ER08] Kerr-Schild form	INT:41	30	DONE	closed by R-S11
+S12 f -> f^2 in prop:np-10-19-ii (a)	INT:98-101	31	DONE	statement rewritten in the S11+S12 fix; (a) has no f; chapter confirmed
+lem:s12-ks-domain replaced	INT:101; INT:540	31,38	DONE	removed
+S13 carries NP 10.17 (i),(iii)-(v), 10.19 (i),(iii)	INT:58-59; INT:190	32	DONE	32:361-523
+Ch 7 duplicate of thm:main 1-5	INT:62; INT:103-104; INT:238	07	DONE	pointer only
+rem:ii-g-3-2, prop:ii-g1-2-8 keys	INT:63-64	29	DONE	29:239, 29:649
+[Hin17, Prop 4.1] page	INT:65; INT:102; INT:182	38	DONE	38:773 stated with p. 20
+S7 issues 1-2	INT:67-68	26	DONE	no marker
+ℐ (U+2110) for null infinity	INT:79	28,35,38,39,43	APPLY	𝓘 (U+1D4D8) -> ℐ: 319 occurrences in five chapters; ℐ unused there
+ι+ parameter λ -> ϰ (S17-S27)	INT:80-82; INT:123-124; INT:245-248; INT:709-711; INT:1002	36,39-44,46	DEFER	about 1,900 λ in 36-48 with several meanings (u-exponents, rows, λ^Υ, λ^C); needs the symbol census the item asks for and a κ check
+[AN00] page	INT:82; INT:249-250	35	DONE	marker removed before this pass
+S25 placement	INT:83-84; INT:97; INT:210-217	38a,44	DONE	38a exists; order acyclic
+(E1)-(E5) -> (E1)-(E4)	INT:85	all	DONE	no (E5) left
+B_* -> ℬ_* (reversed)	INT:85; INT:180	38	DROP	reversed by the S19 fix
+trapped-set constant β_0 -> β_Γ	INT:86	21,24,25,31,32,34,38,43,70	APPLY	trapped-set β_0/β₀ -> β_Γ at every site of (Γ.4) (horizon β₀ unchanged); 25:32-34 notation sentence and 31 rem:s12-two-beta reworded; 71:642 deferred (excluded)
+[BH17] arXiv v3	INT:88	98	DONE	98 lists arXiv:1704.07930v3
+[Mel93] printing vs online page	INT:88-89	98,33,95	DEFER	needs the online 5.0E bibliographic data or a printed page; literature item
+S6 overloads ϕ/φ, J, p_1, θ_ε; S6 nits	INT:109	25	DONE	25:30-34 notation; S6 confirmed after six readings, eleven nits applied
+Ch 3 cite def:iii-j-g-plus	INT:110	03	DONE	03:283
+S8 cites S^(-K𝟏) of S2	INT:111; INT:175-176	27	APPLY	27:412-413 S^(-K𝟏) -> S^(-M𝟏); 27:513 ‖u‖_(-K𝟏) -> ‖u‖_(-M𝟏); 27:632-633 compact set K -> K_0 (it clashed with the order K in the same statement)
+S5 nit ρ_a ≤ c_V^2 implicit	INT:112	24	DEFER	c_V is fixed after ρ_a in the proof (24:979-985); making it explicit reorders constants; lost text
+S5 nit ϵ₁ two thresholds	INT:112	24	APPLY	24:1667 ϵ₁ -> ϵ₂ (24:1193-1295 keep ϵ₁)
+Ch 4 φ1(X) -> κ(X); Hopf angles vs phases	INT:112; INT:266-268	02,04,08,...	DEFER	φ1, φ2 are the Hopf angles and φ1 the first phase edition-wide; which family to rename is a decision
+S3 line 33 stale N	INT:113	22	APPLY	22:33 notation sentence
+S3 'every other term' in remark (4)	INT:113	22	DEFER	lost text; intent not recoverable
+S3 missing |Y_0| factor	INT:113	22	APPLY	22:867 r̂²|w| = r̂|H_1^(1)(r̂)||Y_0| (w = e^(-ir̂) r̂⁻¹H_1^(1)(r̂) Y_0)
+S3 'a' with three meanings in lem:i-c-6-2	INT:113	22	DEFER	which meanings to rename and which letters is not recorded
+[Tre19] in 98 and 95	INT:117-119; INT:458	95,98	DONE	present
+D1 Raychaudhuri marker	INT:120; INT:398	87	DONE	lem:cone-raychaudhuri
+D1 sharper constants	INT:121-122	87	DROP	optional; chapters keep the stated constants by decision
+S1 N1 initial-segment step	INT:128-131	20	DEFER	lost text; adds a proof step
+S1 N2 parenthesis in prop:i-a-5-2	INT:128-131	20	DEFER	lost text; 20:968 parenthesis reads correctly as it stands
+S1 N3 C_y before y	INT:128-131	20	APPLY	20:492-497 y defined in the statement
+S1 N4 cokernel in the index remark	INT:128-131	20	DEFER	what of thm:i-a-7-2 (3) is meant is not recorded
+S1 N5 symbol r₂ vs radius r₂	INT:128-131	20	APPLY	symbols r₁, r₂, r₃ -> 𝔯₁, 𝔯₂, 𝔯₃ at 20:773, 837-838
+S1 N6 𝒩 for a kernel	INT:128-131	20	APPLY	20:1383-1399 𝒩 -> 𝔑
+radii ordering r_0 + δ_0 < r_2	INT:132-133	21,24,25,26,28,29,31,32,34,38	APPLY	inserted in each stated chain; 31:55 checked: r₀ + δ₀ ≤ 9R₁/16 < 7R₁/8 = r₂
+Ch 23 e^(-Mz) -> C_z	INT:135	23	APPLY	the constant M of prop:ii-a1-5-3's proof -> C_z (M is reserved for orders)
+proofs F, G intervals and windows	INT:141-146	85,63	DONE	85:1511-1529; 63:19, 43, 925
+06:198 M1 -> Λ	INT:150; INT:171-172	06	DONE	(M1) is now the mollifier property label
+[CBCL06] drop if uncited	INT:151	95,98	DEFER	thm:std-cbcl-harmonicity is cited by no chapter; pruning waits for the pending merges (with the bibliography prune)
+S8 optional nits (1394, 1443, L′_p)	INT:152-155	27	DONE	L′_p labelled eq:ii-f-lp-prime (27:299); the other two not locatable, chapter confirmed
+S28 marker; cor:vii-2-3 placement	INT:162-164	47,61	DONE	marker gone; placement kept by decision (n9)
+λ* in chapters 2 and 8	INT:166-167; INT:234	02,08	DONE	decided: ε_out in 02, λ* kept in 08
+S10 N5 'bounded above'	INT:173-174	29	DEFER	lost text; location unknown
+S10 N6 S̄ clash	INT:173-174	29	DEFER	lost text; which clash is unknown
+S10 N7 cite lem:iii-i2-4-2	INT:173-174	29	APPLY	29:1486
+S2 δ_O looks like δ_0	INT:175	21	APPLY	21:1280 δ_O -> d_O
+S2 other optional nits	INT:175	21	DEFER	lost text
+S7 nits N1-N4	INT:184-186	26	DONE	η_0 ≤ 1/2 in lem:ii-e-1-2 (iv); 'near {r ≤ r_0}' dropped; confirmed R7-S06
+S17/S14 mass letter m_0	INT:200-201; INT:397	36,33	DONE	no μ₀ in 36
+44:475 ℰ_col	INT:203-204	44	DONE	44:554
+Ch 10 h_P(τ)	INT:205-206	10	DONE	10:405
+S24 rows ρ vs ψ	INT:207	43	APPLY	row index ρ -> ψ in 43 (Y_ψ, d_ψ, w_ψ, T_ψ, a_ψ, μ_ψ); local ψ := φ/R at 43:657-658 -> ϖ; notation sentence corrected
+S24 N_*	INT:207	43	APPLY	43:355 'windows, at most N_*' (undefined) -> 'finitely many windows'
+S25 step 2 optional moves	INT:212-217; INT:586-587	40-44	DEFER	decide at integration (coordinator): the citation order is already acyclic
+ch:resolvent-bounds keys	INT:223-224	01,03,71	DONE	only chapter-level references remain
+rename prop:bondi-hierarchy	INT:225-226	10	DROP	optional; the key is exported in OUTLINE
+Ch 9 ~564 derivative bound	INT:226	09	DONE	09:560 (P-iii)
+𝒦 compact part of III.K (46, 48, 65)	INT:228-229; INT:557-560; INT:1003	46,48,65	DEFER	letter choice pending; scope ~100 sites; letters unused edition-wide: 𝔒, 𝔘, ℨ
+Θ cut-off in 40, 46	INT:229	40,46	DROP	the clashing Θ of 48 and 65 became -Υ̇⁰
+44 (E1)-(E5), δ₀	INT:230-231	44	DONE	44:673, 44:699
+𝔥 edition-wide; hat convention	INT:248; INT:261-262	OUTLINE	DEFER	OUTLINE notation decision
+S26 [Tay11] -> GO13	INT:257-259; INT:375	45	DONE	cor:std-moser-product
+Ch 6 cite thm:std-bh17-embedding	INT:260	06	APPLY	06:431
+ch 4-5 D, C, d nits	INT:266-267	04,08,09	DEFER	lost text; renaming the coefficient matrix and the development needs choices across 04, 08, 09
+∂_r at 04:441; typo 04:468; 05:93	INT:268-269	04,05	DONE	'Its oscillating part' and 'or profile m' gone; 04:441 not locatable
+Σ_τ0 := {τ = τ0} in Ch 2	INT:271-272	02	DONE	not present
+S20 nits	INT:280-281	39	DEFER	lost text (zf-weight 0 vs -ε touches a statement)
+smaller ball carried	INT:281-283; INT:195-196	41-44,46	DONE	41:62-66; S22-S25 confirmed with it
+ch 60/61 duplicate lemma	INT:286	61	DEFER	61's prop:after-shell-profiles (a) still reproves 60's lem:np-10-50-a; cutting 61's proof to a pointer is the coordinator's call
+lem:iii-i9-2-6 (c) -> (e) at b	INT:289-290; INT:336	41,42,44	DONE	41:27,38,1733; 44:83,93,308
+S21 shared letters	INT:291-292	40-44	DEFER	no specific change recorded
+S18 broken line 1131	INT:299-300	37	APPLY	37:1131-1132 rewrapped
+S18 other optional nits	INT:299-300	37	DEFER	lost text (weak-limit credit, β - 2ϵ reason, ϵ at 789)
+eq:ii-f-lp-prime crosswalk; 48:285 cite	INT:322-323; INT:370-371	27,48	DONE	label exists, crosswalks match (XW-1)
+46 point to def:after-shell-norm	INT:326-327	46	DROP	46:1709 defines the norm itself
+rem:settling-class cites thm:after-shell-reach	INT:327-328	60	DEFER	optional forward pointer; no text
+rem:s28-mass-bound cites rem:after-shell-bump	INT:328	47	DONE	47:814
+Ch 10 Σ̂_τ	INT:337	10	DONE	10:31
+S16 optional nits	INT:347-349	35	DEFER	lost text; the window list would add a bound for lem:iii-i8-3-1
+S24 nits	INT:366-369	43	DEFER	lost text; locations shifted
+27:1467 c = -γ_cf	INT:370	27	DONE	not present
+[RS1] 1980	INT:377	98	DONE	98:216
+46 (E1)-(E2) -> (Ex1)-(Ex2)	INT:391	46	DONE	46:1614
+85 renames R_k, ℛ_2, ℬ_k, 𝒫_k	INT:392; INT:405-406	85	DONE	R_k, 𝒫_k kept; bound named 𝔩 (N3-85)
+Ch 9 l.46 contraction	INT:403-404	09	APPLY	09:46
+Ch 9 l.58 Σ̂_τ1 ∩ P ∩ {v ≤ v_start}	INT:403-404	09	APPLY	09:58
+S13 renames in 34, 36, 42	INT:410-412	34,36,42	DONE	ε_Υ at 34:1130, 36:1429, η_E at 42:114
+Ch 6 L -> Θ (constant)	INT:424	06	APPLY	06:296-316 constant L -> Θ (L also the torus period 06:336 and L⁴ the Lebesgue space 06:431-436)
+Ch 6 name C in λ_ext; |β| ≤ 2L; Hadamard	INT:424-425	06	DEFER	lost text; additions to a proof
+Ch 6 (iii) ε2 independent of λ	INT:425-426	06	APPLY	06:332
+Ch 6 N3 paraphrase (optional)	INT:426-427	06	DEFER	lost text
+07:83 hypotheses on Σ_τ0	INT:427	07	DROP	Σ := Σ_τ0 (07:4)
+Ch 10:172 region	INT:428	10	APPLY	'the region between {v = v_start} and Σ̂_τ' -> 'P⁺ ∩ {τ′ ≤ τ}'
+S22 ball sentence prop:iii-i15-2-12	INT:440-441	41	DONE	41:65
+S15 34:1113 ε_ind for S13	INT:444-446	34	DONE	34:1130-1133
+D1 nits	INT:458-459	87,96	DEFER	the D1 tables are in Appendix B (excluded)
+interpolant clause	INT:462-464; INT:584	—	DROP	in no chapter
+ṁ vs μ̇	INT:471; INT:837-838	03	DEFER	chapter 3 excluded: μ̇ -> ṁ there
+citations of removed entries (F2-95)	INT:485-489	45,06,09,22,35,62	DONE	no [Hö83], [Hö85], [Ho85], [BW15, Corollary 12] left
+ε sweep S20, S23, S24 (ε_g)	INT:494-495; INT:519-521; INT:578	39,42,43	DEFER	choosing ε_g in place of ε_ind where the gain is used changes statements
+S17 nits (λ_♯ pole; m index vs mass)	INT:496-498	36	DEFER	lost text; λ_♯ pole claims touch statements
+Ch 63 notation N, k	INT:505-506	63	DONE	F2-63 (λ and N restricted; σ kept)
+Ch 60 nits (R2-60)	INT:511-512	60	DEFER	lost text
+[Chr11] and other uncited entries	INT:533; INT:563	98	DEFER	46 uncited entries (now more); prune after the pending merges
+[Hin26c, Lemma 3.5] in (S6); 27:1280; 26:258; 28:1411	INT:536-537	95,27	DEFER	Appendix A addition needs the source statement
+S26 nit n1 (OUTLINE)	INT:538-539	OUTLINE	DEFER	OUTLINE change
+S24:640 H^s integer (O3)	INT:541-542	43	DEFER	whether s is an integer there is not stated; lost text
+S11/S12 nit 14 (ḡ)	INT:542	30,31	DEFER	lost text
+Appendix A nits (R2-95)	INT:561-564	95	DEFER	lost text except [Hin26c, Lemma 3.5]
+n10 [CD03] Theorem 3.6 gloss; rem:v-3-4 crosswalk	INT:574-576; INT:704-705	95,47	DEFER	lost text
+ch 61 step (2) C^(k_g+2)	INT:576; INT:703	61	DEFER	adds a bound to a proof; lost text
+S21 nits	INT:577-578	40	DEFER	lost text
+ch 61 nits	INT:581-582	61	DEFER	lost text (one clause; δ depends on ε)
+Rácz (4.22) entry	INT:583; INT:729-735	95	DONE	rem:std-racz-characteristic
+proof H, B2 nits	INT:589-591; INT:599-600	85,70	DONE	merged and confirmed
+S11/S12 nits (R2-S11-S12)	INT:609-613	30,31	DONE	F2-S11 (𝒩 -> 𝖭, 𝔑; Theorem 3.21 p. 38; uP)
+S13 nits 1197, 1993-1996	INT:615-617	32	DEFER	lost text; mathematical additions
+34:453 δ_50 value	INT:621-623	34	APPLY	cite lem:s14-delta50 for the value
+46:1110 δ_50 value	INT:623	46	APPLY	46:1618-1619 cite lem:s14-delta50 for the value
+[Hin23a, Cor 3.36] footnote 17	INT:625	95	DEFER	needs the footnote's text
+S25/38a nits	INT:633-636	44,38a	DEFER	lost text; 44:531 sub-item letter needs checking against lem:iii-j2-2-1
+S22 nits (1035 etc.)	INT:646	41	DONE	fixed in F3-S22 (R4-S22 confirmed)
+S15 nits 519-521, 407-409, 453	INT:663-664	34	DEFER	lost text (n_W, n_L names; 'give twice'); 453 done above
+65 Θ := δGk	INT:667	65	DONE	65 writes -Υ̇⁰
+45 κ vs 46 κ	INT:668	45,46	DEFER	two chapters, two second-fundamental-form objects; letter choice
+S19 nit 𝒢⁺ non-degeneracy	INT:679-680	38	DEFER	lost text
+S28 nits k₀, ψ-sign	INT:704-705	47	DEFER	lost text
+λ1 vs λ_Ω in 05, 06, 09; translations 01:61; env_C in 86	INT:727-728; INT:799-800	05,06,09,01,86	DEFER	lost text (R4 §3 notes)
+OUTLINE std- keys; thm:two-dusts	INT:732-733; INT:752; INT:815	OUTLINE	DEFER	OUTLINE
+chapter 08 optional sentence	INT:747; INT:905	08	DROP	needs no sentence (R2-P-C)
+46 lem:s27-translated-exterior (c) suggestion	INT:760	46	DEFER	optional suggestion
+S29 nits; 45, 64, 65 items	INT:779-784	48,45,64,65	DONE	F2-S29 nits; 64, 65 fix rounds
+[Shu92] Appendix A entry	INT:791	95	DONE	95 cites Shu92
+O2 S14:2399	INT:792	33	DEFER	chapter 33 excluded
+O4 S13:1149-1151	INT:792	32	DEFER	lost text
+Ch 60 nits (R5-00-03)	INT:796-798	60	DEFER	lost text
+S27:1276, 62:52, 71:74 (R2-S14)	INT:821-822	46,62,71	DEFER	lost text
+chapter 48 changed statements	INT:843-844; INT:857	48	DONE	INTEG-1, R5-S27
+46:95/98 note	INT:881; INT:991	46	DEFER	lost wording
+(E3) at 32:1862	INT:985-987; INT:1042-1043	32	APPLY	cite (E3) with Π
+(E3) at 36:1621 (must)	INT:985-987; INT:1042-1043	36	APPLY	(E1)-(E2) -> (E1)-(E3)
+(E3) at 36:1307 (should)	INT:987; INT:1043	36	APPLY	cite (E3) for invertibility on the line
+(E3) at 43:640 (should)	INT:987; INT:1043	43	APPLY	cite (E3) for invertibility on the strip
+[Hin26d, Remark 3.15] entry	INT:1044	95	DEFER	needs the source statement
+S19 nits (F5-S19)	INT:990-991	38	DONE	F5-S19, R6-S19 confirmed
+eq:envelope-c upper end unused	INT:1017-1018	02,86	DEFER	optional; whether to drop a stated bound is a decision
+82:651 (F1) -> (L1); 83 lem:two-dust-reparametrisation	INT:1039-1040	82,83	DEFER	excluded chapters
+thm:std-cd-compact, thm:std-corvino-schoen, [CS06]	INT:1066-1067	95,98	DONE	none present
+P-F-edge envelope wording	INT:1089-1091	85	DONE	85:17, 58 'env_C'
+65:631, 65:671 line starts; 03:296	INT:1116-1117	65,03	DONE	INTEG-1 and the coordinator
+OUTLINE τ	INT:1116	OUTLINE	DEFER	OUTLINE
+R6-S19 optional: Ω_2, τ_1 in 28; M° -> Ω_* in 38; '=' starts in 28	INT:1149; STATUS:22,32	28,38	DEFER	lost text; narrowing M° to Ω_* changes three statements; no '=' start left in 28
+crosswalk 03 rem:envelope-regularity	INT:1328	03	DEFER	chapter 3's crosswalk, with the P-K82 merge
+S26 integration nits	STATUS:39; INT:1147	45	DONE	INTEG-1
+86 nit 4	STATUS:58	86	DROP	not taken by decision
+S4 (S15) entry	STATUS:17; INT:1144	95	DONE	F4-S06
+line-start sweep	INT:900-901; INT:1008-1010; task	all editable	APPLY	see report
+β_Γ in chapter 71	INT:86 (scope)	71	DEFER	71:642 writes β_0^Γ for the trapped-set constant; to read β_Γ (excluded chapter)
+numeric list-marker starts (0. / 1) at line start)	task sweep	20,30,32,81,84	APPLY	20:376 '0. So', 32:1637 '0) and', 81:984 '0. So', 30:1894 '1) at tf', 84:1298 '1) i^(j−2)' rewrapped
+ch 7:230 symmetrizer sentence	task check (a); INT:917; INT:1228-1229	07	DEFER	true but weaker than lem:vlasov-symmetrizer; proposed text in the report
+ch 81:976-980 (55b7401), now 974-978	task check (b); INT:1228-1229	81	DROP	smoothness, G-invariance and uniqueness via the Kato lemma; nothing to do with the radial solve's symmetrizer; nothing false
+ch 81:1018-1022 radial-solve sentence	task check (b), nearest related text	81	DEFER	true; optional pointer to chapter 82 proposed in the report

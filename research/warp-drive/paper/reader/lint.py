@@ -20,6 +20,7 @@ FORBIDDEN = [
     (r"(?i)\bn1star\b|N1\*|\bN1STAR\b", "working name"),
     (r"(?i)\bwarp\b", "research tree name"),
     (r"`", "backtick span"),
+    (r"\\", "backslash (TeX markup; the renderer refuses it)"),
     (r"\b[0-9a-f]{32}\b", "md5"),
     (r"(?i)\bverifiers?\b|\bverified by an independent\b|\bindependent readers?\b", "process word: verifier/reader"),
     (r"(?i)\bseat(ed|ing|s)?\b", "process word: seat"),
@@ -57,6 +58,13 @@ DEF_RX = re.compile(r"\{#(" + "|".join(RESULT_KINDS) + r"):([a-z0-9][a-z0-9\-]*)
 REF_RX = re.compile(r"\[\[(" + "|".join(RESULT_KINDS) + r"|C):([a-z0-9][a-z0-9_\-]*)\]\]")
 
 
+# A symbolic label left in the assembled paper: [[kind:key]]. Nested brackets of mathematics (a matrix written by its
+# rows, [[a, b], [c, d]], or a double commutator [[X, A], A]) are not labels.
+LEFT_RX = re.compile(r"\[\[\s*[A-Za-z]+\s*:")
+# A paragraph continuation must not begin with a character that Markdown reads as structure. "- " is left out: it
+# also opens a list after a paragraph line, which the chapters use.
+WRAP_START = re.compile(r"^(\+ |\* |> |#|=|\|)")
+HEADING = re.compile(r"^#{1,6} \S")
 URL = re.compile(r"https?://\S+|doi:\S+|arXiv:\S+")
 
 
@@ -66,12 +74,18 @@ def scan_text(name, text, assembled):
     refs = "references" in name
     in_obs = False
     for i, ln in enumerate(lines, 1):
+        if assembled and ln.startswith("## References"):
+            refs = True  # in the assembled paper the bibliography is the last section
         if OBS_START.match(ln):
             in_obs = True
         elif not ln.strip():
             in_obs = False
         if len(ln) > 121:
             hits.append((i, "line longer than 121 characters (%d)" % len(ln), ln[:80]))
+        prev = lines[i - 2] if i > 1 else ""
+        if (prev.strip() and WRAP_START.match(ln) and not HEADING.match(ln) and not HEADING.match(prev)
+                and not (ln[0] in "|>" and prev.startswith(ln[0]))):
+            hits.append((i, "wrapped line starts with a Markdown marker", ln.strip()[:110]))
         probe = URL.sub("", ln)
         for rx, why in RX:
             if refs and why in ("no-code ruling", "file name", "filler", "process word"):
@@ -79,7 +93,7 @@ def scan_text(name, text, assembled):
             m = (OBS_NARROW if in_obs and why == "no-code ruling" else rx).search(probe)
             if m:
                 hits.append((i, why, ln.strip()[:110]))
-        if assembled and ("{#" in ln or "[[" in ln):
+        if assembled and ("{#" in ln or LEFT_RX.search(ln)):
             hits.append((i, "unresolved symbolic label", ln.strip()[:110]))
         if "[[pending:" in ln:
             hits.append((i, "pending: an open issue the coordinator must resolve", ln.strip()[:110]))
@@ -138,6 +152,7 @@ def selftest():
         "READ at source", "(computed, exactly)", "Claude", "an earlier version", "crucially", "N1* says", "`x`",
         "warp field", "5c1a186aa2528e503e24c336f9a6dcef", "x" * 130, "Proof. trivial", "see [[C:ix5]]", "Computation C12 verifies",
         "checked numerically", "by interval arithmetic", "the program", "sympy",
+        "the conjugate \\overline{p}",
     ]
     ok = True
     for p in planted:
@@ -154,8 +169,18 @@ def selftest():
         print("CONTROL FAILED: program name inside a numerical observation remark"); ok = False
     if not scan_text("selftest", obs + "\n\nComputed numerically again.", assembled=False):
         print("CONTROL FAILED: computation words after the remark's paragraph"); ok = False
-    if not scan_text("selftest", "see [[thm:main]]", assembled=True):
-        print("CONTROL FAILED: unresolved label in assembled mode"); ok = False
+    for wrapped in ("a sentence that wraps\n| x | = 2", "a sentence that wraps\n= 2x + 1", "a sentence\n+ 3 more"):
+        if not scan_text("selftest", wrapped, assembled=False):
+            print("CONTROL FAILED: wrapped line start", wrapped.split(chr(10))[1]); ok = False
+    if scan_text("selftest", "| a | b |\n|---|---|\n| 1 | 2 |", assembled=False):
+        print("FALSE POSITIVE on a table"); ok = False
+    if scan_text("selftest", "the matrix [[a, b], [c, d]] and [[X, A], A]", assembled=True):
+        print("FALSE POSITIVE on nested brackets in assembled mode"); ok = False
+    for left in ("see [[thm:main]]", "see [[thm: main]]", "see [[Thm:main]]"):
+        if not scan_text("selftest", left, assembled=True):
+            print("CONTROL FAILED: unresolved label in assembled mode:", left); ok = False
+    if scan_text("selftest", "### Table\n| a | b |\n|---|---|\n| 1 | 2 |", assembled=False):
+        print("FALSE POSITIVE on a table right after a heading"); ok = False
     print("selftest:", "PASS" if ok else "FAIL")
     return 0 if ok else 1
 

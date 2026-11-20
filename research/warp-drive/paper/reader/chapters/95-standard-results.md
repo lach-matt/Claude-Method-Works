@@ -5,11 +5,11 @@ results and are proved here: [[thm:std-hormander-cauchy]], [[cor:std-moser-produ
 [[cor:std-kato-ponce]] and [[cor:std-zero-sobolev]]; [[thm:std-mazzeo-melrose]] (5) and the closing sentences of a few
 other items draw short consequences of the quoted statements, each with its reason. Each published result is cited by
 its source, with its number and its page where given. Pages are those of the arXiv versions listed in the references;
-the arXiv text of [BGP] carries the book's page numbers, [See64] and [MM87] are cited by their journal pages, [Mel93] by
-the page of the author's online edition (version 5.0E, 1993), [Hö90], [RS1] and [Tre19] by the pages of the printed
-books, and [DLMF] by equation number. Quotation marks enclose the source's own wording, transcribed into this edition's
-typography; an ellipsis marks words of the statement left out because no proof here depends on them. Inside each item
-the letters are the source's.
+the arXiv text of [BGP] carries the book's page numbers, [See64], [MM87] and [DS41] are cited by their journal pages,
+[Mel93] and [Mel94] by the pages of the author's online editions (for [Mel93] version 5.0E, 1993, for [Mel94] the
+corrected edition of 1997), [Hö90], [RS1] and [Tre19] by the pages of the printed books, and [DLMF] by equation number.
+Quotation marks enclose the source's own wording, transcribed into this edition's typography; an ellipsis marks words of
+the statement left out because no proof here depends on them. Inside each item the letters are the source's.
 
 ### Linear wave equations on Lorentzian manifolds {#sec:std-linear-wave}
 
@@ -78,18 +78,6 @@ K = supp(u0) ∪ supp(u1) ∪ supp(f)."
 
 In (4) and (5), ∇ is the connection on E with which [BGP, Section 3.2] poses the Cauchy problem. Globally hyperbolic
 manifolds are connected, by [[thm:std-bgp-causal]] (1).
-
-**Theorem {#thm:std-bgp-riesz}** ([BGP, Definition 1.2.1, p. 10; Lemma 1.2.2 (4), p. 11; Proposition 1.2.4, p. 13],
-after [Rie49].) Let V be an n-dimensional Minkowski space, with ⟨x, y⟩ = −x₁y₁ + x₂y₂ + ⋯ + xₙyₙ and
-γ(X) := −⟨X, X⟩. For Re α > n,
-
-    R_±(α)(X) := C(α, n) γ(X)^((α−n)/2)  for X ∈ J_±(0),   R_±(α)(X) := 0  otherwise,
-
-    C(α, n) := 2^(1−α) π^((2−n)/2) / ((α/2 − 1)! ((α − n)/2)!).
-
-"The map α ↦ R_±(α) extends uniquely to ℂ as a holomorphic family of distributions". For all α ∈ ℂ: "(3)
-□R_±(α + 2) = R_±(α)"; "(4) For every α ∈ ℂ ∖ ({0, −2, −4, …} ∪ {n − 2, n − 4, …}), we have supp(R_±(α)) = J_±(0)
-and sing supp(R_±(α)) ⊂ C_±(0)"; "(7) R_±(0) = δ_0".
 
 **Theorem {#thm:std-hormander-cauchy}** (The Cauchy problem for wave operators on Minkowski space; proved below from
 [BW15, Definition 7 and Theorem 8, p. 13] and [BGP, Definition 3.4.1, pp. 88–89; Corollary 3.4.3, p. 89].) Let
@@ -295,60 +283,12 @@ with connection D̂ and Christoffel symbols Γ̂, and for a metric g put W^λ :=
 
 with f̂ "independent of the second derivatives of g".
 
-**Theorem {#thm:std-cbcl-harmonicity}** ([CBCL06, Section 3 and (3.1), p. 5; Section 5.1, p. 9].) "The vacuum Einstein
-equations in wave coordinates on ℝ^(n+1) constitute a set of quasi-diagonal quasi-linear wave equations for the
-components g_μν of the spacetime metric g, which we write symbolically as
-
-    g^(αβ) ∂²g/∂x^α∂x^β = F(g)(∂g/∂x)²,      (3.1)
-
-where the right-hand-side is a quadratic form in the first derivatives of the g's with coefficients polynomials in the
-g's and their contravariant associates." "The spacetime manifold will be a subset V of ℝ^(n+1). The geometric initial
-data on ℝⁿ are a metric ḡ and a symmetric 2-tensor K." In Section 3, p. 5: "We suppose also given on ℝⁿ the lapse N̄,
-shift β̄ as well as their time derivatives, chosen so that the corresponding spacetime metric and its first derivatives
-satisfy on ℝⁿ the harmonicity conditions F^μ = 0. If the initial data ḡ, K satisfy the constraints, a solution of the
-Einstein equations in wave coordinates on V is such that the harmonicity functions F^μ := □_g x^μ satisfy an
-homogeneous linear system of wave equations on (V, g), with also ∂_t F^μ = 0, hence F^μ = 0 if (V, g) is globally
-hyperbolic." In Section 5.1, p. 9, the initial data (ḡ, K) are given "on a manifold ℝⁿ embedded as a submanifold
-M_x := {x⁰ = 2λ} of ℝ^(n+1)_x", and: "We suppose these initial data satisfy the Einstein constraints, and we choose the
-initial lapse and shift so that the harmonicity conditions are everywhere initially zero. Any globally hyperbolic
-solution (V_x ⊂ ℝ^(n+1)_x, g) of the Einstein equations in wave coordinates taking these initial data is then a
-solution of the full Einstein equations. Such a solution exists if the initial data belong to H^loc_(s+1) × H^loc_s,
-s > n/2."
-
-**Theorem {#thm:std-lr-propagation}** ([LR05, (1.3), p. 2; Section 2.2, p. 8].) In 3 + 1 dimensions and wave coordinates
-the reduced Einstein–scalar field equations are "□̃_g g_μν = F_μν(g)(∂g, ∂g) + 2 ∂_μψ ∂_νψ, □̃_g ψ = 0" (1.3), with
-□̃_g := g^(αβ) ∂_α ∂_β; their vacuum case is ψ = 0. With the gauge's data (2.3)–(2.5), p. 8: "any solution of the system
-(2.1) with initial data … compatible with (2.2) and constraint equations, gives rise to a solution of the full Einstein
-system. In addition, thus constructed tensor g_μν will satisfy the wave coordinate condition (2.2) for all times." For
-the verification [LR05, p. 8] refers to Wald: "Verification of the above statements is straightforward and can be found
-in e.g. [Wa]."
-
-**Theorem {#thm:std-hin26a-cform}** ([Hin26a, Proposition 5.1, p. 38].) "Fix any v ∈ (0, 1) and C0 > 0. Fix moreover
-α_sf, α_K ∈ ℝ subject to the conditions α_sf < −1/2 and α_K > α_sf + 1/2. Set ρ_sf = r⁻¹ and ρ_K = r/t; put
-w := ρ_sf^(α_sf+1) ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1). Then for all sufficiently small e > 0, there exists a 1-form
-c ∈ ρ_sf C^∞(M; T*) satisfying the following properties for some r0 > 100m, 0 < δ_r < (4r0)⁻¹, and δ_sf > 0:
-- (1) (Basic properties.) c is stationary, i.e., ℒ_(∂_t) c = 0 … Moreover, rc ∈ C^∞(M; T*) is past timelike and
-  nowhere vanishing.
-- (2) (Explicit regions.) We have c = (1/2) r0^(−2) (r0 dt − v(r − r0) dr) for r0/2 ≤ r ≤ 2r0 (5.1), and
-  c = r⁻¹ (dt − v dr) for r ≥ 3r0 (5.2).
-- (3) (Interior saddle point …) The endomorphism S_(g,c,e) from Lemma 3.9 is positive definite (with respect to the
-  inner product B_(g,c,e) on T* from Lemma 3.3) at all points with |r − r0| ≤ (5/6) r0 √(e/v).
-- (4) (Saddle point at ∂𝒦⁺ …) For ρ_sf ≤ 2δ_r and ρ_K ≤ 2δ_r, the endomorphism r²(−ℓ_(g,c,e)(dw/w) + S_(g,c,e)) is
-  positive definite.
-- (5) (Sink in sf° …) At points where r/t/v ∈ [1 − 2δ_sf, 1 + 2δ_sf] and r⁻¹ ≤ 2δ_r, the endomorphism
-  r²(−ℓ_(g,c,e)(dw′/w′) + S_(g,c,e)) is positive definite.
-- (6) (Positivity along escape functions …) For m ≤ r ≤ r0 − r0√(e/v), −ℓ_(g,c,e)(−dr) is positive definite. For
-  r0 + r0√(e/v) ≤ r < ∞, −ℓ_(g,c,e)(dr) is positive definite. On sf ∩ {r/t ∈ [δ_r, v(1 − δ_sf)]},
-  −r² ℓ_(g,c,e)(d(r/t)) is positive definite, and on sf ∩ {r/t ∈ [v(1 + δ_sf), 10]}, −r² ℓ_(g,c,e)(−d(r/t)) is
-  positive definite."
-
-The objects S_(g,c,e), B_(g,c,e) and ℓ_(g,c,e) are those of [Hin26a, Lemmas 3.3 and 3.9], and r/t/v in (5) is (r/t)/v.
-
 **Theorem {#thm:std-sbierski}** (Globally hyperbolic developments; [Sbi15, Definitions 2.1, 2.2 and 2.4, p. 11;
-Theorems 2.6 and 2.7, p. 12; Theorem 3.4, p. 14; Definition 3.5, p. 15; Theorem 3.13, p. 20; proof of Theorem 2.7,
-pp. 20–22].) [Sbi15] works with the vacuum Einstein equations Ric(g) = 0 in any dimension. Its standing assumptions
-(p. 10): "we stipulate that all manifolds and tensor fields considered in this paper are smooth, even if this is not
-mentioned explicitly"; "We moreover assume that all Lorentzian manifolds we consider are connected and time oriented.
+Theorems 2.6, 2.7 and 2.8, p. 12; Theorem 3.4, p. 14; Definition 3.5, p. 15; Theorem 3.13, p. 20; proof of
+Theorem 2.7, pp. 20–22; proof of Theorem 2.8, pp. 22–24].) [Sbi15] works with the vacuum Einstein equations Ric(g) = 0 in
+any dimension. Its standing assumptions (p. 10): "we stipulate that all manifolds and tensor fields considered in this
+paper are smooth, even if this is not mentioned explicitly"; "We moreover assume that all Lorentzian manifolds we
+consider are connected and time oriented.
 The dimension of the Lorentzian manifolds is denoted by d + 1, where d ≥ 1." "Initial data (𝓜, ḡ, k̄)
 for the vacuum Einstein equations consists of a connected d-dimensional Riemannian manifold (𝓜, ḡ) together with a
 symmetric 2-covariant tensor field k̄ on 𝓜 that satisfy the constraint equations: R̄ − |k̄|² + (tr k̄)² = 0,
@@ -385,6 +325,11 @@ Theorem 3.13 the quotient is Hausdorff (p. 21), and "(M̃, g̃, ι̃) is a GHD o
 extension of M and M′, where the isometric embeddings are given by the maps π ∘ j and π ∘ j′" (p. 22), π being the
 quotient map and j, j′ the inclusions of M and M′ into M ⊔ M′.
 
+(7) Theorem 2.8 (Existence of MGHD): "Given initial data there exists a GHD M̃ that is an extension of any other GHD of
+the same initial data. The GHD M̃ is unique up to isometry and is called the maximal globally hyperbolic development
+(MGHD) of the given initial data." Its proof is on pp. 22–24; [Sbi15, p. 10] notes that the MGHD is "a priori, only
+maximal among smooth GHDs".
+
 ### The constraint equations {#sec:std-constraints}
 
 **Theorem {#thm:std-cd-constraints}** ([CD03, (2.1)–(2.2), p. 4].) "Initial data (g, K) for the vacuum Einstein
@@ -397,13 +342,6 @@ linearisation of the constraints map at (K, g) reads"
 
     P(Q, h) = ( −K^pq ∇_i h_pq + K^q_i (2∇^j h_qj − ∇_q h^l_l) − 2∇^j Q_ij + 2∇_i tr Q − 2(∇_i K^pq − ∇^q K^p_i) h_pq ,
                 −Δ(tr h) + div div h − ⟨h, Ric(g)⟩ + 2 K^pl K^q_l h_pq − 2⟨K, Q⟩ + 2 tr K (−⟨h, K⟩ + tr Q) ).   (2.2)
-
-**Remark {#rem:std-racz}** ([Rac16, (3.3), p. 6; (4.7), p. 8].) Rácz foliates the initial slice by codimension-one
-surfaces with a transverse coordinate ρ. The momentum constraint becomes the first-order system (3.3) for the mixed
-and trace parts (k_B, K^E_E) of the second fundamental form, with ρ as the evolution parameter, and he observes:
-"Notice that the coefficients of ∂_ρ and ∂_K are symmetric, and that the coefficient of ∂_ρ is also positive definite",
-K = 2, …, n being an index of coordinates on the leaves. The Hamiltonian constraint becomes a parabolic equation for the
-lapse of the foliation, (4.7).
 
 **Theorem {#thm:std-racz-hyperbolic}** ([Rac16, (4.20), (4.21) and Lemma 4.1, p. 12; Theorem 4.3, p. 14].) In the
 notation of [Rac16, Sections 3–4]: the slice Σ is foliated by the level surfaces S_ρ; κ is given algebraically by
@@ -526,21 +464,69 @@ Proposition 5.10.
 
 ### The characteristic initial value problem {#sec:std-characteristic}
 
-**Theorem {#thm:std-wu-characteristic}** ([Wu26, Theorem 2.1, p. 6].) The setting is that of [Wu26]: the Einstein
-vacuum equations in 3 + 1 dimensions, sections S², and the gauge (1.1). "Given initial null hypersurface H0, H̲0 and
-regular initial metric (g, Ω, b) on it, we define χ_AB = (1/2) ℒ_(e4) g_AB on H0 and χ̲_AB = (1/2) ℒ_(e3) g_AB on H̲0.
-Let ζ be a vector field on H0 ∩ H̲0. Suppose
+**Theorem {#thm:std-cctw-existence}** ([CCTW16, (2.1)–(2.2), p. 6; (2.7)–(2.9), p. 7; (3.2), p. 11; Theorem 3.9, pp.
+32–33].) The authors consider "quasi-linear first order symmetric hyperbolic systems of the form Lf = G, (2.1) on
+subsets of M̃ := {u ∈ [0, ∞), v ∈ [0, ∞), y ∈ Y}. (2.2) In (2.1), f is assumed to be a section of a real vector bundle
+over M̃, equipped with a scalar product, similarly for G. … Both the scalar product and the connection coefficients are
+allowed to depend upon f, and we assume that ∇ is compatible with ⟨·, ·⟩. … L is a first order operator of the form L =
+A^μ∇_μ, where the A^μ's are self-adjoint, and are smooth functions of f and of the space-time coordinates" (p. 6), with
+G = G(f, ·) (p. 11); here Y is "a (n − 1)-dimensional compact manifold without boundary" and ∇̊ "a fixed, arbitrarily
+chosen, smooth connection which is f, u, and v–independent" (p. 6). They "specialise to f's which are of the form f =
+(ϕ, ψ), (2.7) with A^v and A^u satisfying A^u = (A^u_ϕϕ, 0; 0, 0), A^v = (0, 0; 0, A^v_ψψ), and A^v_ψψ > 0, A^u_ϕϕ > 0.
+(2.8) It is further assumed that the connections ∇ and ∇̊ preserve the splitting (2.7). We will write G = (G_ϕ, G_ψ).
+(2.9)" (p. 7). With N₋ = {0} × [0, b0] × Y and N₊ = [0, a0] × {0} × Y (p. 32), a bar denoting restriction to N₋ ∪ N₊
+(p. 11), Theorem 3.9 reads: "Let Y be a (n − 1)−dimensional compact manifold without boundary, let a0 and b0 two
+positive real numbers and set Ω0 = [0, a0] × [0, b0] × Y Consider the symmetric hyperbolic system (2.1) on Ω0 with the
+splitting (2.7) and assume that (2.8) holds. Let ϕ̄ and ψ̄ be defined respectively on N₋ and N₊, providing Cauchy data
+for (2.1): ϕ = ϕ̄ on N₋, ψ = ψ̄ on N₊. (3.98) Let ℓ ∈ ℕ, ℓ > (n + 9)/2 and suppose that ϕ̄ ∈ ∩_(0≤j≤ℓ) C^j([0, b0];
+H^(ℓ−j)(Y)) and ψ̄ ∈ ∩_(0≤j≤ℓ) C^j([0, a0]; H^(ℓ−j)(Y)). (3.99) Assume that the transport equations A^μ_ϕϕ|_(v=0)
+∂_μϕ|_(v=0) = (−A^μ_ϕψ ∂_μψ + G_ϕ)|_(v=0), (3.100) A^μ_ψψ|_(u=0) ∂_μψ|_(u=0) = (−A^μ_ψϕ ∂_μϕ + G_ψ)|_(u=0), (3.101)
+with initial data ϕ|_(u=v=0) = ϕ̄|_(v=0) and ψ|_(u=v=0) = ψ̄|_(u=0), have a global solution on ([0, a0] × Y) ∪ ([0, b0]
+× Y). Then there exists an ℓ-independent constant a* ∈ (0, a0] such that the Cauchy problem (2.1), (3.98) has a
+solution f defined on [0, a*] × [0, b0] × Y satisfying (3.88)-(3.90) with k = ℓ − 1. … The solution f is unique within
+the class of C¹ solutions, and is smooth if ϕ̄ and ψ̄ are." The omitted sentence states further regularity for ℓ > (n +
+12)/2.
 
-    e4(tr χ) + |χ|² + 2ω tr χ = 0,    e3(tr χ̲) + |χ̲|² + 2ω̲ tr χ̲ = 0
-
-hold on H0, H̲0 respectively, then there is a future open neighborhood of H0 ∪ H̲0 and metric (g, b, Ω) on it solving
-the Einstein vacuum equations and extending the initial data (g, Ω, b) and ζ."
+**Theorem {#thm:std-cctw-strips}** ([CCTW16, Corollary 3.11, p. 35].) "Under the hypotheses of Theorem 3.9, there
+exists two constants 0 < a* ≤ a0 and 0 < b* ≤ b0 and a unique solution f of the Cauchy problem (2.1), (3.98) defined on
+the neighborhood ([0, a*] × [0, b0] × Y) ∪ ([0, a0] × [0, b*] × Y) of N = N₊ ∪ N₋ such that f ∈ L^∞([0, a*] × [0, b0];
+H^(ℓ−2)(Y)) ∩ ⋂_(0<3i≤ℓ−(n+9)/2) W^(i,∞)([0, a*] × [0, b0]; H^(ℓ−1−3i)(Y)) similarly on [0, a0] × [0, b*]." The
+corollary follows from Theorem 3.9 by "the symmetry of the problem under the interchange of u and v" (p. 35). Theorem
+3.9 applied to the system with u and v exchanged therefore also gives that f is smooth on [0, a0] × [0, b*] × Y when ϕ̄
+and ψ̄ are smooth; on the overlap of the two strips the two solutions agree, by the uniqueness in Theorem 3.9.
 
 **Theorem {#thm:std-ctg-neighbourhood}** ([CTG23, Theorem 1.1, pp. 2–3].) "The maximal globally hyperbolic development
 of smooth initial data for vacuum Einstein equations with a (possibly zero) cosmological constant Λ ∈ ℝ, on two
 characteristic hypersurfaces intersecting transversally, contains a future neighborhood of the initial data
 hypersurfaces." The theorem holds in every spacetime dimension. The authors add that "the result remains true in
 suitable Sobolev spaces" (p. 3).
+The data are those of the theorem the authors recall in their Section 1 (p. 2): "A classical theorem of Rendall […]
+shows that characteristic initial data for the vacuum Einstein equations on two three-dimensional characteristic
+hypersurfaces intersecting transversally at a submanifold S lead to a vacuum spacetime that covers a future neighborhood
+of S. The result has been extended to higher dimensions in [2]", [2] being [CBCM10]. Their proof (Section 4, p. 10) is
+the argument of [CCTW16, Theorem 5.3], which recalls (p. 53) that "in Rendall's scheme the starting point is an initial
+data symmetric tensor field γ = γ_AB(r, x^C)dx^A dx^B which is assumed to form a one-parameter family of Riemannian
+metrics r ↦ γ(r, x^A) on the level sets of r" and that "the characteristic data on each of N^± have to be complemented
+by certain data on N⁺ ∩ N⁻". That proof (p. 55) begins: "As shown in Section 4.1.1, without loss of generality we can
+parameterise each of N^± as [0, ∞) × Y. Symmetry under interchange of u and v, together with the argument presented in
+Remark 3.12 shows that it suffices to establish that given b₀ > 0 there exists a∗ > 0 and a solution of the vacuum
+Einstein equations defined in a doubly-null coordinate system covering the set [0, a∗] × [0, b₀] × Y", Y being N⁺ ∩ N⁻,
+and it works on "a neighborhood V₀ of N in U on which we can introduce a coordinate system (u, v, x^A) comprising a pair
+of null coordinates u and v" (p. 55). Their own proof, in every dimension, uses "a coordinate system
+(x^μ) ≡ (u, v, x^A), A ∈ {2, . . . , n}, where ∇u and ∇v are null" (p. 9).
+
+**Theorem {#thm:std-cp-rendall}** ([CP12, Theorem 2.1, p. 5; pp. 3–4].) "Theorem 2.1 (Rendall) Consider two smooth
+hypersurfaces N₁ and N₂ in an (n + 1)-dimensional manifold with transverse intersection along a smooth submanifold S in
+adapted null coordinates. Let γ_AB be a smooth family of Riemannian metrics on N₁ ∪ N₂, continuous at S. Moreover, let
+Ω, ∂₁Ω, ∂₂Ω, f and f_A, A = 3, …, n + 1, be smooth fields on S, where we assume Ω and f to be nowhere vanishing on S.
+Then there exists an open neighbourhood U of S in the region {x¹ ≥ 0, x² ≥ 0}, a unique function Ω on (N₁ ∪ N₂) ∩ U and
+a unique smooth Lorentz metric g_μν on U such that (i) g_μν satisfies the vacuum Einstein equations, (ii) ḡ_AB = Ω²γ_AB,
+(iii) Ω induces the given data on S, g₁₂|_S = f and ζ_A = f_A." In the adapted coordinates (p. 3) N₁ is {x¹ = 0} and N₂
+is {x² = 0}, "an overbar over a quantity denotes restriction to the initial data surface N₁ ∪ N₂", and "Rendall assumes
+moreover that x² is an affine parameter along the curves {x¹ = 0, x^A = const_A}, and that x¹ is an affine parameter
+along the curves {x² = 0, x^A = const_A}". By (13), p. 4, "Let L and L̲ be two null normals to a codimension-two
+spacelike hypersurface S satisfying g(L, L̲) = −2. Christodoulou […] defines the torsion one-form of S by the formula
+ζ(X) = (1/2) g(∇_X L, L̲)".
 
 ### Higher-dimensional black holes {#sec:std-black-holes}
 
@@ -644,12 +630,6 @@ positive surface gravity κ_n := (n − 1)/(2r_h)" (20).
 ### Function spaces {#sec:std-function-spaces}
 
 In [BH17], s ∈ ℝ and p ∈ (1, ∞) throughout unless stated otherwise (p. 1).
-
-**Theorem {#thm:std-bh-extension}** ([BH17, Theorem 7.21, p. 55].) "Let Ω ⊂ ℝⁿ be a bounded open set with Lipschitz
-continuous boundary. Then for all s > 0 and for 1 ≤ p < ∞, there exists a continuous linear extension operator P :
-W^(s,p)(Ω) ↪ W^(s,p)(ℝⁿ) such that (Pu)|_Ω = u and ‖Pu‖_(W^(s,p)(ℝⁿ)) ≤ C ‖u‖_(W^(s,p)(Ω)) for some constant C that may
-depend on s, p, and Ω but is independent of u." The spaces are the Sobolev–Slobodeckij spaces of [BH17, Definitions 7.1
-and 7.11].
 
 **Theorem {#thm:std-bh-embedding}** ([BH17, Theorem 7.26, p. 55].) "Let Ω be a nonempty bounded open subset of ℝⁿ with
 Lipschitz continuous boundary or Ω = ℝⁿ. If sp > n, then W^(s,p)(Ω) ↪ L^∞(Ω) ∩ C⁰(Ω) and W^(s,p)(Ω) is a Banach
@@ -805,11 +785,15 @@ in H¹, so J(f_ε φ) → J(f φ) in L² by Plancherel; thus f_ε J^s g_ε → f
 (f_ε, g_ε) are bounded in L² and converge as distributions; a subsequence converges weakly in L², its limit is J^s(f g)
 − f (J^s g), and its norm is at most the limit inferior of the norms. ∎
 
-**Theorem {#thm:std-seeley}** ([See64, Theorem, p. 625].) For x ∈ ℝⁿ and t ∈ ℝ, let S₊ = ℝⁿ × {t > 0} and
+**Theorem {#thm:std-seeley}** ([See64, Theorem and Lemma, p. 625].) For x ∈ ℝⁿ and t ∈ ℝ, let S₊ = ℝⁿ × {t > 0} and
 "D₊ = {f : f ∈ C^∞(S₊), f and all its derivatives have continuous limits as t → 0+}". D₊ "has the topology of uniform
 convergence of each derivative on compact subsets of the closure of S₊ in ℝ^(n+1), and C^∞(ℝ^(n+1)) has a corresponding
 topology". "There is a continuous linear extension operator E : D₊ → C^∞(ℝ^(n+1)) such that Ef(x, t) = f(x, t) for
-t > 0."
+t > 0." The proof takes sequences with "(i) b_k < 0 (ii) Σ|a_k||b_k|^n < ∞ for n = 0, 1, 2, …, (iii)
+Σ_0^∞ a_k(b_k)^n = 1 for n = 0, 1, 2, …, and (iv) b_k → −∞", with "Let φ be a C^∞ function on ℝ¹ with φ(t) = 1 for
+0 ≤ t ≤ 1, φ(t) = 0 for t ≥ 2", and sets "For t < 0 define (Ef)(x, t) = Σ_0^∞ a_k φ(b_k t) f(x, b_k t)"; "because
+b_k → −∞, the sum is finite for each t < 0; because Σ|a_k||b_k|^n < ∞, all derivatives of Ef converge as t → 0−, and
+uniformly in each bounded set {|x| ≤ R}; because Σ_0^∞ a_k(b_k)^n = 1, these limits agree with those for t → 0+".
 
 **Theorem {#thm:std-ly-extension}** ([LY22, Theorem 1, pp. 1–2; Theorem 26 and Lemma 27, p. 16].) Theorem 1: "(i)
 There exists an extension operator E : C⁰(ℝ̄ⁿ_+) → C⁰(ℝⁿ) that has the form
@@ -843,62 +827,93 @@ E^S : W^(k,p)(Ω) → W^(k,p)(ℝⁿ) is bounded for all k ∈ ℕ and 1 ≤ p �
 
 ### Microlocal analysis and Fredholm theory {#sec:std-microlocal}
 
-**Theorem {#thm:std-hjs-calculus}** ([HJS, (2.1), Propositions 2.3, 3.7, 3.11, 3.13, 4.9, 4.10, 7.4, 7.5 and 10.1,
-Definitions 7.2 and 10.2, Sections 7.5 and 10.1–10.3, Lemma 12.5, pp. 9–95].) The scattering calculus Ψ^(m,l)_sc on
-ℝⁿ, n arbitrary, and on scattering manifolds M has the following properties.
+**Theorem {#thm:std-melrose-sc}** ([Mel94, (1.1), p. 4; (4.1)–(4.3) and Definition 1, pp. 12–13; Definition 2, p. 14;
+(5.1), p. 15; (5.4), p. 16; Proposition 3, (5.10) and (5.12)–(5.14), p. 17; Proposition 4, Lemma 5 and (5.15)–(5.20),
+p. 18; (5.22) and (5.27), p. 19; Proposition 5 and Lemma 6, p. 20; (5.34), p. 21; (7.1), (7.2) and (7.6), p. 23].)
+Let X be a compact manifold with boundary and x a boundary defining function.
 
-(1) Composition [HJS, (2.1), p. 9]: Ψ^(m,l)_sc ∘ Ψ^(m′,l′)_sc ⊂ Ψ^(m+m′,l+l′)_sc.
+(1) (1.1), p. 4: SP : ℝⁿ ∋ z ↦ ((1 + |z|²)^(−1/2), z(1 + |z|²)^(−1/2)) ∈ S^n_+, the closed upper half of the unit sphere
+of ℝ^(n+1). "This is clearly an isomorphism onto the interior of S^n_+, so it compactifies ℝⁿ. We call this the radial
+compactification. Indeed the function t_0 = (1 + |z|²)^(−1/2) is a defining function for the boundary of S^n_+, hence so
+is x = 1/|z|, which is defined in t_0 < 1."
 
-(2) Ellipticity [HJS, Proposition 2.3, p. 12]: "Every elliptic element of the scattering calculus has a parametrix",
-that is, a B ∈ Ψ^(−m,−l)_sc with AB − Id ∈ Ψ^(−∞,−∞)_sc ∋ BA − Id ((2.9)).
+(2) Definition 1, p. 13: "The space Ψ^(m,l)_scc(S^n_+) consists of those operators A : Ċ^∞(S^n_+) → Ċ^∞(S^n_+) such that
+if A′ is defined by SP^∗(Aϕ) = A′(SP^∗ϕ) ∀ ϕ ∈ Ċ^∞(S^n_+) (4.4) then A′ is of the form (4.1), (4.2)". These are the
+kernels A′(z, z′) = (2π)^(−n) ∫ e^(i(z−z′)·ζ) a_L(z, ζ) dζ (4.1), "where the amplitude satisfies the estimates |D_z^α
+D_ζ^β a_L(z, ζ)| ≤ C_αβ (1 + |z|)^(−l−|α|) (1 + |ζ|)^(m−|β|)" (4.2); SP^∗ : Ċ^∞(S^n_+) → 𝒮(ℝⁿ) "is a isomorphism, with
+Ċ^∞(X) = ⋂_k x^k C^∞(X)" (4.3). By Definition 2 (p. 14) the classical subspace Ψ^(m,l)_sc(S^n_+) consists of the
+operators with a_L ∈ SP^∗(ρ_N^l ρ_σ^(−m) C^∞(S^n_+ × S^n_+)), where "SP^∗ρ_N = (1 + |z|²)^(−1/2) and SP^∗ρ_σ =
+(1 + |ζ|²)^(−1/2)" (p. 13); and "we shall let 'sk' stand for either 'sc' or 'scc' but fixed throughout a particular
+discussion" (p. 14).
 
-(3) Duality [HJS, Proposition 3.7, p. 19]: the L² pairing "extends boundedly to a (conjugate linear) isomorphism
-H^(−s,−r)_sc ≅ (H^(s,r)_sc)*".
+(3) (5.1), p. 15: "Ψ^(m1,l1)_sk(X) ∘ Ψ^(m2,l2)_sk(X) ⊂ Ψ^(m1+m2,l1+l2)_sk(X)."
 
-(4) Boundedness [HJS, Proposition 3.11 and Remark 3.12, p. 20]: "If A ∈ Ψ^(m,l)_sc, then, for all s, r ∈ ℝ, A maps
-A : H^(s,r)_sc → H^(s−m,r−l)_sc, and does so boundedly". Moreover "Op(a), viewed as an element of
-L(H^(s,r)_sc, H^(s−m,r−l)_sc), depends continuously on a in the sense that if a_1, a_2, ⋯ ∈ S^(m,l)_sc is some
-sequence such that a_n → a in S^(m,l)_sc, then Op(a_n) → Op(a) in L(H^(s,r)_sc, H^(s−m,r−l)_sc)".
+(4) p. 17: with A^({m,l})(C_scX) = A^(m,l)(^(sc)T̄^∗X)/A^(m−1,l+1)(^(sc)T̄^∗X) (5.12), "Proposition 3 is replaced for
+the scattering-conormal calculus by a short exact sequence 0 → Ψ^(m−1,l+1)_scc(X) → Ψ^(m,l)_scc(X) → A^({m,l})(C_scX) →
+0 (5.13)", the third map being the symbol map j_(sc,m,l), "and similarly for operators on sections of vector bundles. In
+both cases the symbol maps are multiplicative: j_(sc,m1+m2,l1+l2)(A · B) = j_(sc,m1,l1)(A) · j_(sc,m2,l2)(B) A ∈
+Ψ^(m1,l1)_sk(X), B ∈ Ψ^(m2,l2)_sk(X), with values in commutative algebras" (5.14). Proposition 3 states the sequence for
+the classical calculus "for any compact manifold with boundary, X, and any vector bundles E and F over X", with kernel
+Ψ^(m−1,l+1)_sc(X; E, F) (5.10).
 
-(5) Compactness [HJS, Proposition 3.13, p. 20]: "For any s, s′, r, r′, with s < s′ and r < r′, the embedding
-H^(s′,r′)_sc ↪ H^(s,r)_sc is compact."
+(5) Proposition 4, p. 18: "The Poisson bracket on T^∗X extends by continuity from the interior of ^(sc)T̄^∗X to define …
+and for any m1, m2, l1, l2 ∈ ℝ j_(sc,m1+m2,l1+l2)([A, B]) = (1/i){j_(sc,m1,l1)(A), j_(sc,m2,l2)(B)} ∀ A ∈
+Ψ^(m1,l1)_sk(X), B ∈ Ψ^(m2,l2)_sk(X)" (5.16). Lemma 5, p. 18: "If a ∈ C^∞(^(sc)T̄^∗X; S^(m,l)) the Hamilton vector field
+extends from the interior to be of the form H_a = ρ_σ^(−m+1) ρ_N^(l+1) ^(sc)H^(m,l)_a, ^(sc)H^(m,l)_a ∈ 𝒱_b(^(sc)T̄^∗X)
+(5.17) and for any b ∈ A^({m′,l′})(^(sc)T̄^∗X) {a, b} = ρ_σ^(−m+1) ρ_N^(l+1) ^(sc)H^(m,l)_a b ∈
+A^({m+m′−1,l+l′+1})(^(sc)T̄^∗X) (5.18) …", with ρ_σ = (1 + |ζ|²)^(−1/2) and ρ_N = x (5.19). In coordinates (x, y) with
+dual coordinates (ξ, η), "τ = x²ξ, μ = xη" (5.20), and the bracket is {a, b} = ∂_ξa ∂_xb − ∂_xa ∂_ξb + Σ_j (∂_(η_j)a
+∂_(y_j)b − ∂_(y_j)a ∂_(η_j)b) (5.22), p. 19.
 
-(6) Microlocality [HJS, Proposition 4.9, p. 27]: "If A ∈ Ψ^(m,l)_sc and u ∈ 𝒮′, then
-WF^(s,r)_sc(Au) ⊆ WF^(s+m,r+l)_sc(u) ∩ WF′_sc(A)."
+(6) (5.27), p. 19: "H^(m,l)_sc(X) = {u ∈ C^(−∞)(X); Ψ^(m,−l)_sc(X)u ⊂ L²_sc(X)}"; "For the case of S^n_+,
+H^(m,0)_sc(S^n_+) is the image under SP^∗ of the standard Sobolev space H^m(ℝⁿ)."
 
-(7) Microlocal parametrix [HJS, Proposition 4.10, p. 29]: "Suppose that A ∈ Ψ^(m,l)_sc is elliptic at
-p ∈ ∂(ℝⁿ × ℝⁿ). Then, there exists a B ∈ Ψ^(−m,−l)_sc such that AB − 1, BA − 1 have WF′_sc disjoint from p. This also
-applies with p replaced by any closed subset."
+(7) Proposition 5, p. 20: "For any m, l, M, L ∈ ℝ each A ∈ Ψ^(m,l)_scc(X) defines a continuous linear operator A :
+H^(M,L)_sc(X) → H^(M−m,L+l)_sc(X); (5.28) if A ∈ Ψ^(m,l)_sc(X) this map is compact if and only if j_(sc,m,l)(A) ≡ 0."
 
-(8) Adjoints and principal symbols [HJS, Definition 7.2, p. 48; Proposition 7.4, pp. 49–50]. The principal symbol of
-A ∈ Ψ^(m,l)_sc(M) is a class σ_(m,l)(A) ∈ S^(m,l)_sc(M)/S^(m−1,l−1)_sc(M). Further,
-"A ∈ Ψ^(m,l)_sc(M) ⇒ A* ∈ Ψ^(m,l)_sc(M)", and "σ_(m1+m2,l1+l2)(AB) = σ_(m1,l1)(A) σ_(m2,l2)(B)" (7.29).
+(8) Lemma 6, p. 20: "If A_j ∈ Ψ^(m−j,l)_sk(X), B_j ∈ Ψ^(m,l+j)_sk(X), and C_j ∈ Ψ^(m−j,l+j)_sk(X), for j ∈ ℕ₀, there
+exist asymptotic sums A, B, C ∈ Ψ^(m,l)_sk(X) in the sense that A − Σ_(j=0)^(N−1) A_j ∈ Ψ^(m−N,l)_sk(X), B −
+Σ_(j=0)^(N−1) B_j ∈ Ψ^(m,l+N)_sk(X), C − Σ_(j=0)^(N−1) C_j ∈ Ψ^(m−N,l+N)_sk(X) (5.29) and the sums are determined
+uniquely modulo Ψ^(−∞,l)_sk(X), Ψ^(m,∞)_sk(X) and Ψ^(−∞,∞)_sc(X) respectively."
 
-(9) Commutators [HJS, Proposition 7.5, p. 50]: for A ∈ Ψ^(m1,l1)_sc(M) and B ∈ Ψ^(m2,l2)_sc(M),
-"[A, B] ∈ Ψ^(m1+m2−1,l1+l2−1)_sc(M) and σ_(m1+m2−1,l1+l2−1)(i[A, B]) = {σ_(m1,l1)(A), σ_(m2,l2)(B)}" (7.30). Here
-{p, a} = H_p a (7.31), with the scattering Hamilton vector field H_p of (7.34).
+(9) (5.34), p. 21: "Ψ^(−∞,∞)_sc(X) ∋ A : C^(−∞)(X) → Ċ^∞(X)".
 
-(10) Bundles [HJS, Section 7.5, pp. 52–53]: "Ψ^(m,l)_sc(M; E, F) := C^∞(X; Hom(E, F)) ⊗ Ψ^(m,l)_sc(M)" (7.43), the
-tensor product being over C^∞(M).
+(10) p. 23: "WF′_sc(A) ⊂ C_scX ∀ A ∈ Ψ^(m,l)_sk(X)" (7.1), C_scX = ∂(^(sc)T̄^∗X) being the boundary of the
+fibre-compactified scattering cotangent bundle ((5.4), p. 16); "The scattering pseudodifferential operators are
+microlocal in the sense that WF′_sc(A ∘ B) ⊂ WF′_sc(A) ∩ WF′_sc(B)" (7.2); and "WF′_sc(A) = ∅ ⟺ A ∈ Ψ^(−∞,∞)_sc(X)"
+(7.6).
 
-(11) Variable spatial orders [HJS, Sections 10.1–10.3, pp. 77–80]. "We will take the differential order to be
-constant, and the spatial order to be variable" (p. 77). A variable order is a classical symbol of order (0, 0).
-Proposition 10.1 (p. 79): "Let A ∈ Ψ^(m,l)_sc be elliptic. Then there exists a parametrix B ∈ Ψ^(−m,−l)_sc such that
-AB − Id ∈ Ψ^(−∞,−∞)_sc ∋ BA − Id." Definition 10.2 (p. 80): for s ∈ ℝ and a variable spatial order r, a constant
-order L ≤ r, an elliptic A ∈ Ψ^(s,r)_sc and Λ = ⟨ξ⟩^s ⟨x⟩^L, "the Sobolev space H^(s,r) is defined to be the set of
-u ∈ 𝒮′(ℝⁿ) such that Au ∈ L² and Λu ∈ L²", with ‖u‖²_(H^(s,r)) = ‖Au‖²_(L²) + ‖Λu‖²_(L²) (10.8). By the text that
-follows, this space is independent of the choices and is a Hilbert space, and B ∈ Ψ^(m,l)_sc maps H^(s,r) to
-H^(s−m,r−l) boundedly.
+By (5.18), and for a conormal a by the same count of derivatives in (5.22), the bracket in (5.16) has the orders
+(m1 + m2 − 1, l1 + l2 + 1); and by (5.10), (5.13) and (5.14), the symbols commuting, [A, B] ∈ Ψ^(m1+m2−1,l1+l2+1)_sk(X).
+So (5.16) is read, and used in [[sec:i-a-2-1]], with j_(sc,m1+m2−1,l1+l2+1)([A, B]) on its left side: with the
+subscripts as printed both of its sides vanish, the left by (5.14) and the right by (5.12). The decay order l of [Mel94]
+has the sign opposite to that of [[sec:i-a-2-1]], where Ψ^(m,ℓ)_sc is Ψ^(m,−ℓ)_scc(S^n_+) and H^(s,r)_sc is the space
+of (6).
 
-(12) A regularising family [HJS, Lemma 12.5, p. 95]: "There exists a family of T_r ∈ Ψ^(−∞,−∞)_sc for r ∈ (0, r0]
-with some r0 > 0 such that T_r → Id (12.7) as r → 0 with respect to the strong operator topology". The family is
-T_r = χ(r⟨z⟩) Op(χ(⟨rζ⟩)), with χ ∈ C_c^∞(ℝⁿ) even, equal to 1 near the origin and decreasing on [0, ∞). Its proof
-records that one "can require T_r being uniformly bounded in Ψ^(0,0)_sc and T_r → Id in the operator topology of
-Ψ^(δ,δ)_sc".
+**Theorem {#thm:std-hin17-subprincipal}** ([Hin17, Definition 3.8, p. 16; Proposition 4.1, p. 20; Theorem 4.8, p. 26].)
+Definition 3.8: "For P ∈ Ψ^m(X, E ⊗ Ω^(1/2)) with scalar principal symbol p, there is a well-defined subprincipal
+operator S_sub(P) ∈ Diff¹(T^∗X ∖ 0, π^∗E), homogeneous of degree m − 1 with respect to dilations in the fibers of T^∗X ∖
+0, defined as follows: If {e_1(x), …, e_N(x)} is a local frame of E, define the operators P_jk ∈ Ψ^m(X, Ω^(1/2)) by
+P(Σ_k u_k(x)e_k(x)) = Σ_jk P_jk(u_k)e_j(x), u_k ∈ C^∞(X, Ω^(1/2)). Then S_sub(P)(Σ_k q_k(x, ξ)e_k(x)) := Σ_jk
+(σ_sub(P_jk)q_k)e_j − i Σ_k (H_p q_k)e_k. In shorthand notation, S_sub(P) = σ_sub(P) − iH_p, understood in a local frame
+as a matrix of first order differential operators." Here σ_sub is the subprincipal symbol of a scalar operator, [Hin17,
+(3.3)].
 
-**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemmas 3.24 and 3.42, Propositions 2.3–4.22,
-Remarks 3.13–3.48, Theorems 3.21–3.52, (1.6), (2.3), (2.5), (3.2), (3.26), (3.28), (4.24a–b), (4.27), (4.28),
-pp. 2–75].) On a smooth manifold M of any dimension n, without boundary, the following hold.
+Proposition 4.1, in the setting of [Hin17, Section 4, p. 20]: "Let (M, g) be a smooth manifold equipped with a metric
+tensor g of arbitrary signature. Denote by T^kM = ⊗^k T^∗M, k ≥ 1, the bundle of (covariant) tensors of rank k on M. The
+metric g induces a metric (which we also call g) on T^kM. We study the symbolic properties of Δ_k = − tr ∇² ∈ Diff²(M,
+T^kM), the Laplace-Beltrami operator on M acting on the bundle T^kM. Denote by G ∈ C^∞(T^∗M) the metric function, i.e.
+G(x, ξ) = |ξ|²_(G(x)), where G is the dual metric of g." Then: "The subprincipal operator of Δ_k is S_sub(Δ_k)(x, ξ) =
+−i∇^(π^∗T^kM)_(H_G) ∈ Diff¹(T^∗M ∖ 0, π^∗T^kM), (4.1) where ∇^(π^∗T^kM) is the pullback connection, with π : T^∗M ∖ 0 →
+M being the projection."
+
+After Theorem 4.8 (p. 26): "By restriction, the analogous statements are true for □ acting on subbundles of the tensor
+bundle on M, for instance differential forms of all degrees and symmetric 2-tensors."
+
+**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemmas 3.18, 3.20, 3.24 and 3.42,
+Propositions 2.3–4.22, Remarks 3.13–3.56, Theorems 3.21–3.52, footnote 13, (1.6), (2.3), (2.5), (3.2), (3.19), (3.26),
+(3.28), (3.30), (4.24a–b), (4.27), (4.28), pp. 2–75].) On a smooth manifold M of any dimension n, without boundary, the
+following hold.
 
 (S1) Structures [Hin26d, Definitions 1.1 and 1.3, (1.6), pp. 2–6]. A bounded geometry structure is a countable set
 {(U_α, φ_α)} of diffeomorphisms φ_α : U_α → (−2, 2)ⁿ such that the U_α have finite multiplicity,
@@ -938,7 +953,40 @@ there exists a compact subset K ⊂ M so that ρ < ϵ on M ∖ K", ρ being a sc
 on |(ρ_α ∂_(x_α))^β ∂_ξ^γ a_α(x_α, ξ)|, corresponding to '𝒱-regular' symbols", together with their derivatives for the
 spaces with k orders of 𝒲-regularity.
 
-(S7) Parameterised structures [Hin26d, Definitions 3.58–3.59, p. 59].
+(S7) Parameterised structures [Hin26d, Definition 1.9, p. 9; p. 58 and Remark 3.56, p. 58; Definitions 3.58 and 3.59 and
+the text after them, with footnote 13, p. 59]. Definition 1.9 defines a parameterized scaled bounded geometry structure
+on (M, P) as a collection {𝓑_(p,×)} of scaled b.g. structures 𝓑_(p,×) = {(U_(α_p), φ_(α_p), ρ_(α_p))}, p ∈ P, "so that
+the quantities A and the C^∞ bounds on transition functions in Definition 1.1 as well as the constants C_γ in (1.6) are
+uniform also in p ∈ P", and two sentences later states: "Furthermore, it includes semiclassical bounded geometry
+settings when P = (0, 1]_h if all 𝓑_(h,×) feature the same b.g. structure {(U_α, φ_α)}, and the scalings are
+ρ_(α_h,i) = h for h ∈ (0, 1]." On p. 58 the space P × M = ⊔_(p∈P) {p} × M is considered "with P given the discrete
+topology". Remark 3.56 (Subsets of P): "In applications, one often only works with operators defined for
+(typically countable) subsets of parameters p ∈ P (e.g. in the semiclassical setting: sequences of semiclassical
+parameters h_j ↘ 0). Since one can implement this simply by replacing P by such a subset
+(and then defining the microlocalization locus as in (3.40) for the new set P), we do not explicitly allow for symbols
+to be defined only on subsets of P here." Definition 3.58: "Let w = (w_p)_(p∈P) be a weight on (P × M, 𝓑^×). Let m ∈ ℝ.
+Then we say that a family a = (a_p)_(p∈P) lies in wS^m(𝒱T*M) if a_p ∈ w_pS^m(𝒱_pT*M) for all p ∈ P, with uniformly
+bounded symbol seminorms. …" After it: for w to be a weight, "a sufficient additional condition is that the ratios
+w_(p,α)/w_(p,β) for α, β ∈ 𝒜_p with U_(p,α) ∩ U_(p,β) ≠ ∅ are uniformly bounded." Definition 3.59: "In the notation of
+Definition 3.58, a 𝒱-pseudodifferential operator A ∈ wΨ^m_𝒱(M) is a family A = (A_p)_(p∈P) of operators
+A_p = Op_(𝒱_p)(a_p) + R_p where the quantization map Op_(𝒱_p) is defined as in Definition 3.31,
+(a_p)_(p∈P) ∈ wS^m(𝒱T*M), and (R_p)_(p∈P) is a family of residual operators R_p on (M, 𝓑_(p,×)) for which the conditions
+in Definition 3.34 hold with uniform constants and operator norm bounds for all weights w′ in (3.30). The principal
+symbol of A is the equivalence class of a in wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M). …" The text after it: "An operator
+A = (A_p)_(p∈P) ∈ wΨ^m_𝒱(M) defines a uniformly bounded family of operators A_p :
+w′_pH^s_(𝒱_p)(M) → w_pw′_pH^(s−m)_(𝒱_p)(M), and more generally A_p :
+w′_pH^(s;k)_(𝒱_p;𝒲_p)(M) → w_pw′_pH^(s−m;k)_(𝒱_p;𝒲_p)(M). (This is in fact a special case of Theorem 3.44, applied to
+the scaled b.g. structure (P × M, 𝓑^×) and the input u = (u_p)_(p∈P) where u_p = 0 for all p ≠ p_0 ∈ P and
+u_(p_0) ∈ w′_(p_0)H^s_(𝒱_(p_0))(M) with norm ≤ 1, since then Au = (A_pu_p)_(p∈P) has norm ≤ C for some constant C only
+depending on A; but the norm of Au is bounded from below by the w_pw′_pH^(s−m)_(𝒱_p)(M)-norm of A_(p_0)u_(p_0).) The
+properties of adjoints, compositions, commutators, and principal symbols in Theorem 3.51 carry over verbatim."
+(In the parenthesis, the subscripts p of the norm that bounds the norm of Au from below stand for p_0.) Footnote 13:
+"Strictly speaking, one needs to apply this argument for all countable subsets P′ ⊂ P of parameters
+(so that P′ × M is second countable and the total index set ⊔_(p′∈P′) 𝒜_(p′) is countable, as required in
+Definition 1.1); but the uniform bound on the operators A_(p′) is independent of P′." And: "The membership
+A = (A_p)_(p∈P) ∈ wDiff^m_𝒱(M) is characterized by requiring that each A_p is a differential operator, and
+(φ_(p,α))_*A_p = Σ_(|β|≤m) w_(p,α)a_(p,α,β)(x)(ρ_(p,α)∂_x)^β where the C^∞((−2, 2)^n)-seminorms of the coefficients
+a_(p,α,β) are uniformly (in p ∈ P, α ∈ 𝒜_p, β ∈ ℕ^n_0) bounded."
 
 (S8) Variable orders [Hin26d, Definition 4.6, p. 66]: for m, l ∈ S⁰(𝒱T*M),
 
@@ -1041,6 +1089,84 @@ commutator" (p. 75). Proposition 4.22 defines ρ^(−l) Ψ^m_(𝒱,[ ])(M) ⊂ �
 of the form A = Op_𝒱(a) + R where a ∈ ρ^(−l) S^m(𝒱T*M) and R ∈ ρ^∞Ψ^(−∞)_(𝒱,[ ])(M)". In its proof (p. 75): "the
 conclusion in Proposition 3.39 can be strengthened to membership in wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) (which then implies an
 analogous strengthening of Lemma 3.42)."
+
+(S16) Residual operators, essential supports and wave front sets [Hin26d, Lemma 3.18, p. 36, and the norm after it,
+p. 37; Lemma 3.20, p. 38; Proposition 3.22, p. 39; Lemma 3.24 (1), p. 40; Definition 3.25, p. 41; the text after
+Definition 3.31, p. 44; Definition 3.34, p. 46; Definition 3.43, p. 51; Theorem 3.51, p. 55; Definition 3.54 and
+Proposition 3.55, p. 57]. Lemma 3.18 (Towards a norm): "There exists a finite subset W ⊂ 𝒲 which spans 𝒲 over
+C^∞_(uni,𝓑)(M)." After it: "We can now define a norm on wH^(s;k)_(𝒱;𝒲)(M) by setting ‖u‖²_(wH^(s;k)_(𝒱;𝒲)) := Σ_(j=0)^k
+Σ_(W_1,…,W_j∈W) ‖W_1 ⋯ W_ju‖²_(wH^s_𝒱)." Lemma 3.20 (Density): "The space C_c^∞(M) is dense in wH^s_𝒱(M) for all weights
+w ∈ C^∞(M) on (M, 𝓑) and s ∈ ℝ, and also in wH^(s;k)_(𝒱;𝒲)(M) for all k ∈ ℕ₀." Proposition 3.22 (Duality): "Fix a
+uniformly positive 𝒱-density μ on M, by which we mean that (φ_α)_*μ = μ_α(x)|dx¹_α/ρ_(α,1) ⋯ dxⁿ_α/ρ_(α,n)| where
+μ_α ∈ C^∞((−2, 2)ⁿ) is uniformly bounded and inf_α inf_((−2,2)ⁿ) μ_α > 0. Let w ∈ C^∞(M) be a weight on (M, 𝓑), and let
+s ∈ ℝ. Then the L²(M; μ)-pairing (u, v) ↦ ⟨u, v⟩ := ∫_M u v̄ dμ extends from C_c^∞(M) × C_c^∞(M) → ℂ to a nondegenerate
+pairing wH^s_𝒱(M) × w⁻¹H^(−s)_𝒱(M) → ℂ, and thus (wH^s_𝒱(M))* = w⁻¹H^(−s)_𝒱(M). (3.19)" Lemma 3.24 (1):
+"S⁰(𝒱T*M) = C^∞_(uni,𝓑*)(𝒱T*M)", 𝓑* being the phase space b.g. structure of (S8). Definition 3.25 uses the uniform
+compactification u𝒱T*M of (𝒱T*M, 𝓑*) and "the continuous extension map j : C⁰_(uni,𝓑*)(𝒱T*M) → C⁰(u𝒱T*M)": "The
+microlocalization locus of (M, 𝓑^×) is then the set 𝔐 := u𝒱T*M ∩ {j(λρ) = 0}", ρ and λ being the scaling weight (S2) and
+an elliptic weight (S8), and "The essential support ess supp^w_𝔐 a ⊂ 𝔐 of a ∈ ⋃_(l,m) wρ^(−l)S^m(𝒱T*M) is defined by
+𝔐 ∋ ϖ ∉ ess supp^w_𝔐 a ⟺ ∃ χ ∈ S⁰(𝒱T*M), χ(ϖ) ≠ 0 s.t. χa ∈ wρ^∞S^(−∞)(𝒱T*M), where we write wρ^∞S^(−∞) = ⋂_(m,l)
+wρ^lS^m"; here χ(ϖ) is the value of j(χ). After Definition 3.31 (the quantization Op_𝒱 of (S4)): "By property (1) from
+Definition 1.1, and using the standard mapping properties of quantizations of symbols on ℝⁿ, such quantizations Op_𝒱(a)
+define bounded maps on C_c^∞(M), C^∞(M), and indeed w′C^∞_(uni,𝓑)(M) → ww′C^∞_(uni,𝓑)(M) for any weight w′.
+(Thus, they can be composed.)" Definition 3.34 (Residual operators): "Let w ∈ C^∞(M) be a weight on (M, 𝓑); recall the
+scaling weight ρ ∈ C^∞(M) from Definition 3.6. Then the space wρ^∞Ψ^(−∞)_𝒱(M) of residual operators consists of all
+linear operators R : C_c^∞(M) → C_c^∞(M) with the following properties. (1) For all weights w′ ∈ C^∞(M) on (M, 𝓑) and
+for all N ∈ ℝ, k ∈ ℕ₀, the operator R : w′ρ^(−N)H^(−N;k)_(𝒱;𝒲)(M) → ww′ρ^NH^(N;k)_(𝒱;𝒲)(M). (3.30) is bounded. (2) Let
+μ ∈ C^∞_(uni,𝓑)(M; ^𝒱ΩM) be a uniformly positive 𝒱-density. Then also the formal L²(M; μ)-adjoint R* of R is bounded as
+a map (3.30) for all w′, N, k." Definition 3.43: "Let m ∈ ℝ, and let w ∈ C^∞(M) be a weight on (M, 𝓑). Then the space of
+weighted 𝒱-pseudodifferential operators (of order m with weight w) is defined by wΨ^m_𝒱(M) := {Op_𝒱(a) + R :
+a ∈ wS^m(𝒱T*M), R ∈ wρ^∞Ψ^(−∞)_𝒱(M)}. In the notation of Definition 3.25, the principal symbol of A = Op_𝒱(a) + R is
+σ^(m,w)_𝒱(A) := [a] ∈ wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M), and its operator wave front set is WF′^w_𝒱(A) := ess supp^w_𝔐 a." and
+"Directly from the definition, we have a short exact sequence 0 → wρΨ^(m−1)_𝒱(M) ↪ wΨ^m_𝒱(M) →^(σ^m_𝒱)
+wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M) → 0." Theorem 3.51, whose first part is stated in (S5), is stated for "a uniformly positive
+𝒱-density" and continues: "The principal symbol of i[A_1, A_2] ∈ wρ^(−(l_1+l_2−1))Ψ^(m_1+m_2−1)_𝒱(M) is the Poisson
+bracket of the principal symbols of A_1, A_2." Definition 3.54 (𝒱-Sobolev wave front set): "Let w ∈ C^∞(M) be a weight
+on (M, 𝓑), recall the scaling weight ρ ∈ C^∞(M) from Definition 3.6, and recall the microlocalization locus 𝔐 from
+Definition 3.25. Let u ∈ wρ^(−∞)H^(−∞)_𝒱(M) = ⋃_(m,l) wρ^lH^m_𝒱(M). Then WF^(m,w,l)_𝒱(u) ⊂ 𝔐 is the complement of the
+set of all ϖ ∈ 𝔐 for which there exists an operator A ∈ Ψ⁰_𝒱(M) which is elliptic at ϖ and for which Au ∈ wρ^lH^m_𝒱(M)."
+Proposition 3.55 (Properties of the 𝒱-Sobolev wave front set): "Let u ∈ wρ^(−∞)H^(−∞)_𝒱(M) and A ∈ w′Ψ^(m′)_𝒱(M),
+B ∈ Ψ⁰_𝒱(M). (1) u ∈ wρ^lH^m_𝒱(M) if and only if WF^(m,w,l)_𝒱(u) = ∅. (2) (Microlocality.)
+WF^(m−m′,ww′,l)_𝒱(Au) ⊂ WF^(m,w,l)_𝒱(u) ∩ WF′^(w′)_𝒱(A). …"
+
+The numbers and pages in (S1)–(S16) are those of arXiv version 1 of [Hin26d]. In the published version, Definitions 1.1,
+1.3 and 1.9 and (1.6) are Definitions 1.2, 1.4 and 1.10 and (1.11); Proposition 2.3 is Proposition 2.4, with (2.3) and
+(2.6) for (2.3) and (2.5); in Section 3 the displays and the items up to Definition 3.34 keep their numbers, and from
+Lemma 3.36 to Definition 3.61 each number is increased by one, so that Proposition 3.39, Lemma 3.42, Definition 3.43,
+Theorems 3.44, 3.51 and 3.52, Remarks 3.46–3.48, Definition 3.54, Proposition 3.55, Remark 3.56 and Definitions 3.58 and
+3.59 are Proposition 3.40, Lemma 3.43, Definition 3.44, Theorems 3.45, 3.52 and 3.53, Remarks 3.47–3.49,
+Definition 3.55, Proposition 3.56, Remark 3.57 and Definitions 3.59 and 3.60 there; footnote 13 is footnote 22; and in
+Section 4, Proposition 4.2 and Definition 4.6 keep their numbers, Definitions 4.11, 4.14 and 4.20 and Propositions 4.15,
+4.17, 4.18 and 4.22 are Definitions 4.12, 4.15 and 4.21 and Propositions 4.16, 4.18, 4.19 and 4.23, and each display
+(4.n) is (4.n + 1).
+
+**Remark {#rem:std-sbg-sobolev}** (Uniform Sobolev spaces; [Hin26d, (3.4), p. 29; Definition 3.14, p. 34; Remark 3.15,
+p. 35; p. 36].) The setting is that of [[thm:std-sbg-calculus]], with the charts φ_α : U_α → (−2, 2)ⁿ, α ∈ 𝒜, of 𝓑
+and the scalings ρ_α; H^s(ℝⁿ) is normed by ‖u‖_(H^s(ℝⁿ)) := ‖⟨ξ⟩^s û‖_(L²(ℝⁿ_ξ)) (p. 34). Definition 3.14: "Let s ∈ ℝ,
+and let w ∈ C^∞(M) be a weight on (M, 𝓑) equivalent to a weight family {w_α : α ∈ 𝒜}. Fix χ ∈ C_c^∞((−2, 2)ⁿ) with
+χ = 1 on [−1, 1]ⁿ; let χ_α = φ_α^*χ and define the map
+
+    S_α : (−2, 2)ⁿ ∋ x_α ↦ x̃_α := (x¹_α/ρ_(α,1), …, xⁿ_α/ρ_(α,n)).      (3.13)
+
+Then the space w H^s_𝒱(M) consists of all distributions u ∈ 𝒟′(M) so that (φ_α)_*(χ_α u) ∈ H^s(ℝⁿ) for all α ∈ 𝒜 and
+
+    ‖u‖²_(w H^s_𝒱(M)) := Σ_α ‖w_α⁻¹(S_α)_*(φ_α)_*(χ_α u)‖²_(H^s(ℝⁿ))."      (3.14)
+
+Remark 3.15 ("Uniform Sobolev spaces") states: "In the case that ρ_(α,i) = 1 for all α, i, the maps S_α are the
+identity maps, and if further w_α = 1 for all α, then the space H^s_𝒱(M) thus defined" is "the usual uniform Sobolev
+space for the b.g. structure 𝓑 (denoted W^s_2(M) in [Shu92, Appendix 1])"; and further: "… consider the special case
+s ∈ ℕ and set u_α := (φ_α)_*(χ_α u); then, using the notation (3.4), ‖(S_α)_*u_α‖²_(H^s(ℝⁿ)) is equivalent to (i.e.
+bounded above and below by an α-independent constant by)
+
+    Σ_(|β|≤s) ∫ |(ρ_α∂_x)^β u_α(x)|² dx¹/ρ_(α,1) ⋯ dxⁿ/ρ_(α,n) = Σ_(|β|≤s) ∫ |∂^β_x̃ ũ_α(x̃)|² dx̃,      (3.15)
+
+where we write ũ_α(x̃) = u_α(x) (i.e. ũ_α = (S_α)_*u_α)." Here (3.4) is (ρ_α∂_x)^γ = Π_(i=1)^n (ρ_(α,i)∂_(x^i))^(γ_i). On
+p. 36, H^s_𝒱(M) and w H^s_𝒱(M) are unchanged "(up to equivalence of norms) when defined with respect to a b.g. structure
+compatible with ρ𝓑" ((S13)), and "these spaces are unchanged when defined with respect to a scaled b.g. structure
+compatible with 𝓑^×", and: "Similarly, these spaces are unchanged when different cutoffs χ are used, or indeed when a
+family χ_α ∈ C_c^∞(U_α), α ∈ 𝒜, of cutoffs is used subject only to the conditions that (φ_α)_*χ_α ∈ C_c^∞((−2, 2)ⁿ) is
+uniformly bounded, all χ_α are nonnegative, and inf_M Σ_α χ_α > 0. One can then easily show that every V ∈ 𝒱 defines a
+bounded linear map V : w H^s_𝒱(M) → w H^(s−1)_𝒱(M)."
 
 In [[thm:std-zero-calculus]], [[thm:std-mazzeo-melrose]] and [[cor:std-zero-sobolev]], n denotes the dimension of X,
 as in [Hin23e]. [Usu26] writes n + 1 for the dimension of X; accordingly its exponent −n − 1 is written −n here, also
@@ -1192,14 +1318,26 @@ Here rank_j(z) is the rank of the zero z of the indicial family at the j-th boun
 and the difference is minus the sum of the ranks of the points of spec_b(P) between the two lines Im z = −α and
 Im z = −α′".
 
-**Theorem {#thm:std-analytic-fredholm}** ([RS1, Theorem VI.14, p. 201].) Let D ⊂ ℂ be open and connected, 𝓗 a Hilbert
-space, and f : D → 𝓛(𝓗) analytic with f(z) compact for every z ∈ D. Then either (I − f(z))⁻¹ exists for no z ∈ D, or
+**Theorem {#thm:std-analytic-fredholm}** ([RS1, Theorem VI.14, p. 201].) Let D ⊂ ℂ be open and connected, ℋ a Hilbert
+space, and f : D → 𝓛(ℋ) analytic with f(z) compact for every z ∈ D. Then either (I − f(z))⁻¹ exists for no z ∈ D, or
 (I − f(z))⁻¹ exists for all z ∈ D ∖ S, where S is a discrete subset of D; in the second case (I − f(z))⁻¹ is
 meromorphic in D and analytic in D ∖ S, its residues at the poles are finite rank operators, and for z ∈ S the
-equation f(z)ψ = ψ has a nonzero solution in 𝓗.
+equation f(z)ψ = ψ has a nonzero solution in ℋ.
 
-Applied to f = −F: if F : D → 𝓛(𝓗) is analytic with compact values and Id + F(z0) is invertible for one z0 ∈ D, then
+Applied to f = −F: if F : D → 𝓛(ℋ) is analytic with compact values and Id + F(z0) is invertible for one z0 ∈ D, then
 (Id + F(z))⁻¹ exists for z off a discrete set S ⊂ D, and it is meromorphic on D with finite-rank residues.
+
+**Theorem {#thm:std-abk-holomorphy}** ([ABK20, pp. 1–2; Theorem 1.1, p. 2].) Let Ω ⊂ ℂ be open and X a complex Banach
+space. "We say that f is very weakly holomorphic … if there exists a separating subset W ⊂ X′ such that x′ ∘ f is
+holomorphic … for all x′ ∈ W." "We say that a set F of functions from Ω to X is locally L¹-bounded if there exists a
+function g ∈ L¹_loc(Ω, ℝ) such that ‖f(ξ)‖_X ≤ g(ξ) holds for almost all ξ ∈ Ω and for all f ∈ F. A single function f :
+Ω → X is called locally L¹-bounded if {f} is locally L¹-bounded." Theorem 1.1: "Let X be a Banach space and Ω ⊂ ℂ (Ω ⊂
+ℝ^d) be open. A function f : Ω → X is holomorphic (harmonic) if and only if it is locally L¹-bounded and very weakly
+holomorphic (very weakly harmonic)."
+
+A locally bounded f is locally L¹-bounded: if K_1 ⊂ K_2 ⊂ … are compact sets whose interiors exhaust Ω and K_0 := ∅,
+then g := Σ_j (sup_(K_j) ‖f‖) 1_(K_j ∖ K_(j−1)) is measurable, bounded on compact sets and ≥ ‖f‖_X on Ω, so
+g ∈ L¹_loc(Ω, ℝ).
 
 ### Special functions and the Fourier–Laplace transform {#sec:std-special}
 
@@ -1286,3 +1424,15 @@ distinct points in [−1,1] satisfy Λ_n ≥ (2/π) log(n + 1) + 0.52125…; (15
     Λ_n ≤ (2/π) log(n + 1) + 1 and Λ_n ∼ (2/π) log n, n → ∞. (15.8a,b)
 
 …". Here log is the natural logarithm.
+
+**Theorem {#thm:std-duffin-schaeffer}** (Derivatives of a polynomial bounded at the Chebyshev points; [DS41, p. 517;
+Theorem III and its proof, p. 525].) In [DS41], T_n(x) = cos(n cos⁻¹ x) is "the Tchebychef polynomial" (p. 517).
+Theorem III: "Let f(z) be a polynomial of degree n satisfying |f(cos(νπ/n))| ≤ 1; ν = 0, 1, 2, ⋯, n. Then for
+p = 1, 2, 3, ⋯, n,
+
+    |f^(p)(x)| ≤ n²(n² − 1)(n² − 2²) ⋯ (n² − (p − 1)²)/(1 · 3 · 5 ⋯ (2p − 1)).      (19)
+
+The equality occurs only if f(z) ≡ γT_n(z), |γ| = 1." The variable x of (19) ranges over −1 ≤ x ≤ 1: the proof
+obtains (19) from "|cf^(p)(x)| ≤ |T_n^(p)(1)|, −1 ≤ x ≤ 1", c > 1 a constant, and ends: "Now T_n(1) = 1 so, using
+induction, we find that T_n^(p)(1) is equal to the right-hand side of (19)." The points cos(νπ/n) are the Chebyshev
+points x_j of [[thm:std-chebyshev]].

@@ -13,9 +13,9 @@ eq:i-a-1-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:124-126	I.A (1.4)
 sec:i-a-1-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:140-182	I.A section 1.4	lambda_max and lambda_min written max spec and min spec
 def:i-a-admissible	docket68/n1star/proof5/PART-I-SPECTRAL.md:149-173	I.A order pairs, (O1)-(O3)	private key; unnumbered in source
 eq:i-a-1-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:163-165	I.A (1.5)	
-rem:i-a-1-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:184-190	I.A Remark 1.1	Part I.B (in preparation) replaced by ch:s02; D186 tag and READ dropped; conditional of source 188-189 kept: would supply ..., not needed in this chapter
+rem:i-a-1-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:184-190	I.A Remark 1.1	Part I.B (in preparation) replaced by ch:s02; D186 tag and READ dropped; conditional of source 188-189 kept: would supply ..., not needed in this chapter; G5: [HJS, p. 77] quote replaced by a pointer to sec:i-a-2-1
 sec:i-a-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:192	I.A section 2	
-sec:i-a-2-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:194-245	I.A section 2.1, (C1)-(C8)	[HJS] black boxes stated with pages; access date and the aside at 244-245 dropped
+sec:i-a-2-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:194-245	I.A section 2.1, (C1)-(C8)	[HJS] black boxes stated with pages; access date and the aside at 244-245 dropped; G-SWEEP G5: (C1)-(C8) re-sourced from [HJS] (lecture notes, unpublished) to [Mel94] (published; pages of the author's corrected online edition, read 2026-11-20); adjoints, seminorm bounds, compactness, duality, microlocal parametrix, the variable-order classes and spaces (via sec:i-b-2 at h = 1) and the regularising family proved in the section; [HJS] no longer cited; review R-F-G5: sign remark scoped to amplitudes and operators (n3); both inclusions with [Mel94]'s H^(s,r) (n6); (C1) carries the composition formula with seminorm bounds, disjoint supports and uniform asymptotic sums, with proof (m5); (C2) states the reading of [Mel94, (5.16)] (m3); (C5) attribution to [Mel94, (6.2)-(6.5)] for Delta + V - z (n4), continuity of the parametrix in the amplitude (m5), the case K = whole boundary (n5); (C6) commutator gain only for scalar sigma(A) (m4); duality conclusion (n1); N admissible for both pairs in the compactness (n2)
 sec:i-a-2-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:247-252	I.A section 2.2	rank N written N_E; M_N(...) written in words
 lem:i-a-2-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:254-277	I.A Lemma 2.1	D186 tag dropped (263)
 lem:i-a-2-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:279-292	I.A Lemma 2.2	weight lambda renamed Lambda
@@ -30,7 +30,7 @@ eq:i-a-3-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:384-385	I.A (3.3)
 eq:i-a-3-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:399	I.A (3.4)	
 lem:i-a-3-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:488-518	I.A Lemma 3.2	G_j renamed calligraphic G_j (G_0 is the symbol of (H1)); D186 dropped (507)
 eq:i-a-3-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:498-499	I.A (3.5)	
-rem:i-a-3-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:520-533	I.A Remark 3.3	D187 dropped (532)
+rem:i-a-3-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:520-533	I.A Remark 3.3	D187 dropped (532); review R-F-G5 m2: hypothesis on B0 stated as the form w phi Q^(1/2) of lem:i-b-2-12, which gives the elliptic estimate in the logarithmic class
 def:i-a-cutoff	docket68/n1star/proof5/PART-I-SPECTRAL.md:535-540	I.A The cut-off	private key; unnumbered in source; example rescaled to supp psi = [-3/4, 3/4] so that psi is compactly supported in (-1, 1) as the class requires (source 537-540 has supp psi = [-1, 1])
 def:i-a-regulariser	docket68/n1star/proof5/PART-I-SPECTRAL.md:542-555	I.A The regulariser	private key; unnumbered in source
 eq:i-a-3-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:546-547	I.A (3.6)	
@@ -43,7 +43,7 @@ eq:i-a-4-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:604	I.A (4.2)
 eq:i-a-4-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:609	I.A (4.3)	
 rem:i-a-4-3	docket68/n1star/proof5/PART-I-SPECTRAL.md:703-708	I.A Remark 4.3	computed in 10.79 (hthresh5.py) replaced by pointer to ch:s13, ch:s14
 sec:i-a-4-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:710-770	I.A section 4.2	
-lem:i-a-4-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:712-753	I.A Lemma 4.4	READ dropped (745)
+lem:i-a-4-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:712-753	I.A Lemma 4.4	READ dropped (745); G5: (c) derived by the chain rule from [Mel94, (5.20), (5.22)] in place of [HJS, (7.33)-(7.34)]
 eq:i-a-4-4	docket68/n1star/proof5/PART-I-SPECTRAL.md:724-725	I.A (4.4)	
 eq:i-a-4-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:758-760	I.A (4.5)	
 eq:i-a-4-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:764-766	I.A (4.6)	
@@ -69,7 +69,7 @@ sec:i-a-4-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:1128-1135	I.A section 4.6
 lem:i-a-4-10	docket68/n1star/proof5/PART-I-SPECTRAL.md:1137-1144	I.A Lemma 4.10 = [Hin26c] Remark 9.14, (9.53)	
 sec:i-a-5	docket68/n1star/proof5/PART-I-SPECTRAL.md:1146	I.A section 5	
 prop:i-a-5-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1148-1159	I.A Proposition 5.1	
-prop:i-a-5-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:1161-1265	I.A Proposition 5.2	sign epsilon renamed eps_f, curve length T renamed t_1, scalar lambda renamed Lambda_rho; D186, D187, D195 dropped (1198, 1208, 1235, 1255); large constant M renamed C_z (M reserved for orders)
+prop:i-a-5-2	docket68/n1star/proof5/PART-I-SPECTRAL.md:1161-1265	I.A Proposition 5.2	sign epsilon renamed eps_f, curve length T renamed t_1, scalar lambda renamed Lambda_rho; D186, D187, D195 dropped (1198, 1208, 1235, 1255); large constant M renamed C_z (M reserved for orders); G5: [HJS, (7.34)] replaced by [Mel94, Lemma 5, (5.17)]; Q_eps^(1/2) via the class of (C6) and lem:i-b-2-12
 eq:i-a-5-1	docket68/n1star/proof5/PART-I-SPECTRAL.md:1183-1184	I.A (5.1)	
 rem:i-a-5-2-uses	docket68/n1star/proof5/PART-I-SPECTRAL.md:1267-1278	I.A The two uses	private key
 sec:i-a-6	docket68/n1star/proof5/PART-I-SPECTRAL.md:1280	I.A section 6	

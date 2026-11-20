@@ -1,0 +1,103 @@
+--- line 864
+  0.012 → 0.0121 (3.81·10⁶ unchanged; no other citation). lem:rb-m33: M₃₃ = −(γ_C a r − 1)/r³. FOR THE FINAL REPORT
+  TO THE USER: the source's singular-value bounds were rounded the wrong way. Citation of formulas inside chapter 30
+  proofs: allowed as "the formula [[eq:...]] in the proof of [[lem:...]]" when labelled; unlabelled ones restated in
+  chapter 70. Re-merge of proof B running (also crosswalk rows for the seven new labels).
+
+--- line 939
+  count the edition does not carry); rem:ec-integer-bound stays a Numerical observation. FOR THE FINAL REPORT TO THE
+  USER: the source's "explicit upper bound d ≤ 46,236,517,538,883,361" is not proved and is reported as a numerical
+  observation. Chapter 3 (coordinator, exact text from the report): "explicit lower bounds … and, through them, upper
+  bounds for δ and λ1". Crosswalk: lem:ec-theta-in, eq:ec-theta-in, eq:ec-theta-in-l added; thm:loss-d,
+  lem:ec-closed-forms, rem:ec-other-losses notes amended (35 rows, labels in order). Notes outside: chapter 34 line about
+  170 (Y := ḡ⁻¹dt̄ with ρ in one term only — nit); rem:ec-other-losses's "2" for background terms is tame with loss
+  max(2, d) (minor, affects only an upper bound). Independent reader running.
+
+--- line 958
+  cor:layer-interpolation-band (ε_c² ≤ C λ^(−1/8) E² at m = 56c; ≤ C λ^(−1/8) m0 for m ≥ 84c). FOR THE FINAL REPORT TO
+  THE USER: the source's λ_L < 2.71·10⁻¹² rested on Chebyshev nodes, the Duffin–Schaeffer inequality and a certified
+  bound on M_1456, none carried by the edition; the edition proves λ_L ≤ 10^(−430) at the numerical point instead. L.12
+  now proved for every K ≥ 6 (source: ledgers on grids). L.14 dropped (conclusion withdrawn; reader to say whether its
+  numerics stay as a remark); Remark E.6's heuristic dropped (the source shows it false). Notation: ν for K, d_1, β_2,
+  β_Φ, 𝒯, 𝔖, g0°. Independent reader running; chapter 85 writer launched on its exports.
+
+--- line 1099
+  a replacement for prop:ec-delta-cap with ω_k. FOR THE FINAL REPORT TO THE USER: the outcome on the upper bound
+  (the source's figure contradicted by a proved lower bound, if R-P-U71-assembly confirms).
+
+--- line 1139
+  1/(96J²), a λ^(N−2)ε_c term, L.19, L.20 and the exp(−a/x^q) claim dropped. FOR THE FINAL REPORT if a claim of the
+  source is withdrawn here.
+
+--- line 1154
+- R-P-U71-assembly NOT CONFIRMED 1M 8m 4n. FOR THE FINAL REPORT: the lower bound d_NM ≥ d_acc > 1.403·10²⁰ is
+  confirmed for every admissible choice. The source's upper bound of 4.62·10¹⁶ rests on weights that break two
+  conditions of the edition, ε_K < ε_Υ and the round increment ≤ ε_g − ε, so no admissible choice gives it; this
+  does not show the source miscounted at its own weights. No integer upper bound yet: ε_K is blocked on the undetermined
+  index sets (G); ϑ_in = 0 is provable; ℓ_tf = max(1, ⌈s − 1⌉) with s unfixed. F-P-U71-assembly repairs the texts.
+
+--- line 1171
+  for the far window: FOR THE FINAL REPORT (the author may want to see it). F2-63 now does R-63's minors and nits, the
+  issue-1 proof, and P-G-far's fixes and merge; then one reading of the whole of chapter 63.
+
+--- line 1178
+  rows). FOR THE FINAL REPORT: the 10 l5 data are only C³, so the source's continuation lemma, which needs smooth data,
+  does not apply to them as stated; the source does not say so, the chapter does. R-87 reading; P-K87 closes issue-1
+  (the source's linear estimates: prove in full or replace the sentence) and issue-2 (three standard facts: symmetry
+  extension, double-null gauge, uniqueness).
+
+--- line 1183
+  FOR THE FINAL REPORT: chapter 66's cor:gd-r7-7 (b) had a gap also present in the source (a corollary applied to data
+  vanishing only outside a ball); the edition proves the extension by the domain of influence inside the horizon.
+
+--- line 1188
+- P-U71-close written (reports/P-U71-close.md). FOR THE FINAL REPORT (pending its reader): the upper bound on d is
+  not reached; the paper's statements give no upper bound at all, because the index sets entering (G) are specified only
+  by their least real parts (prop:uc-no-eps). The missing statement (IS) is the explicit exponents of those index sets,
+  which needs chapters 32-36 with the exponents tracked. Per the author's directive (evaluate and prove), the (IS)
+  project starts once R-P-U71-close confirms the non-reachability argument. The report also lists a loss-free bound in
+  lem:iii-j2-2-4 that its own proof does not support: to the chapter's fix list.
+
+--- line 1209
+  P-K87. FOR THE FINAL REPORT: the source's 2.41·10⁻³ is false (f_ll = −2.41418·10⁻³ at the worst point); the edition
+  prints 2.42·10⁻³.
+
+--- line 1220
+- P-K87 done (reports/P-K87.md). FOR THE FINAL REPORT: the source's continuation lemma for 10 l5 relies on three
+  facts, symmetry extension to the development, the double-null gauge and MGHD uniqueness, which the cited literature
+  ([CCTW16] p. 55, [CP12] §4.3 p. 16) calls open; the edition states them as hypotheses of that lemma, which no proof
+  uses. The source's Theorem 7.L (linear estimates) is not carried; the sentence is reworded. F-87 merges and fixes.
+
+--- line 1224
+- P-K85 done (reports/P-K85.md). FOR THE FINAL REPORT: the 10^(−6613.6) bound on λ_25 (from the source's coarser
+  B_44) is false as stated; λ_25 ≤ 10^(−6282) is proved; and a gap in the source's localisation (case P needs the
+  remainder bound with weight t^(3/2)) is closed. F-85 merges and fixes R-85 (3M 12m 5n), R2-84's X1.
+
+--- line 1230
+- F2-63 done (reports/F2-63.md). FOR THE AUTHOR: F-P-I's observation kept, Σ_4 is not needed for the far window
+  with matched data. n4: the slice parameter σ is kept (about 150 uses); only λ and N are restricted by the outline.
+
+--- line 1237
+  P-U71-SP. FOR THE FINAL REPORT: with ℰ_ind as constructed, 𝔡₀ and 𝔡₁ are exponents and (G) forces
+  ε_K < 1.6417·10⁻¹⁴ (about 2.5·10¹² pairs below 3), so the explicit point ε_K = 1.46·10⁻¹⁰ of the assembly fails;
+  and lem:iii-j2-2-4 and lem:iii-k-2-2 (d) use a lossless composition bound the edition does not prove (loss 3,
+  absorbed by every use). The d-bound integration round for chapters 71 and 3 waits for F-P-U71-forward,
+  F-P-U71-close, R2-P-U71-assembly, P-U71-IS and P-U71-SP.
+
+--- line 1247
+  FOR THE FINAL REPORT: the proof project's own last step for λ_25 was short (79.259² = 6281.989 < 6282); sharpened
+  to 79.2593², the bound λ_25 ≤ 10^(−6282) stands.
+
+--- line 1251
+- F-P-U71-close done. FOR THE FINAL REPORT: lem:iii-j2-2-4 is lossless as stated in both halves (composition and
+  product) and the edition proves neither; corrected to a fixed loss 3, absorbed by every use (also lem:iii-k-2-2 (d)).
+  Chapter texts for these are in reports/F-P-U71-close.md, for the d-bound integration round.
+
+--- line 1255
+- P-K83c done. FOR THE FINAL REPORT: chapter 83's cone data with dust (m4) rests on a characteristic initial value
+  problem for five-dimensional Einstein-null dust that no published theorem covers (Luk-Rodnianski is 3+1 only); the
+  chapter states only what holds and names the loss. Its localisation (c) drops radial localisation inside the lens.
+
+--- line 1262
+  FOR THE FINAL REPORT once confirmed. Merge into chapter 82 after F3-82 and R-P-K82; block 5 for chapter 03.
+

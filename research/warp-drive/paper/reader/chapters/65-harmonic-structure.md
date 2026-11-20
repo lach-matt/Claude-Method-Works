@@ -1,16 +1,16 @@
 ## The linear solution in harmonic gauge, I: structure, the horizon charge and decay modulo W* {#ch:harmonic-structure}
 
-[[ch:rw-gauge]] determined the gauge vector that carries the linear solution of [[cor:viii-2-3]] to a
-Regge–Wheeler-type gauge. This chapter and the next do the same for the harmonic gauge Υ̇⁰(ġ) = 0 of [[sec:ix-0]], in
-which the linearised vacuum equation is the Lichnerowicz wave equation; in four dimensions the passage is Hung's
-[Hun19]. In the class the harmonic-gauge solutions with the data of ġ are ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g, where □Z′ is
-a forcing term with no spherically symmetric part and the spherically symmetric part of Z′ is free ([[prop:gd-2-1]]). The
-structure of the passage is explicit ([[prop:np-10-2]]): the tensor part is in harmonic gauge already, each scalar
-mode of the gauge vector solves three coupled 1 + 1 wave equations with the master field as source, and the
-spherically symmetric sector has two solutions that do not decay, the stationary 1-form W* and a gauge-fixed mass
-change K* that grows linearly in the ingoing time v, with a coefficient ½ that regularity at the horizon forces. A
-conserved horizon charge ([[lem:gd-2-2]]) shows that the growth cannot be avoided: when the mass changes, no
-harmonic-gauge solution settles to a change of mass near the horizon at an integrable rate ([[thm:gd-2-3]]).
+[[ch:rw-gauge]] determined the gauge vector that carries the linear solution of [[cor:viii-2-3]] to a Regge–Wheeler-type
+gauge. This chapter and the next do the same for the harmonic gauge Υ̇⁰(ġ) = 0 of [[sec:ix-0]], in which the linearised
+vacuum equation is the Lichnerowicz wave equation; in four dimensions the passage is Hung's [Hun19]. In the class the
+harmonic-gauge solutions with the data of ġ are ġ_RW + ṁℒ_(W**_H)g + ℒ_(Z′)g, where □Z′ is a forcing term with no
+spherically symmetric part and the spherically symmetric part of Z′ is free ([[prop:gd-2-1]]). The structure of the
+passage is explicit ([[prop:np-10-2]]): the tensor part is in harmonic gauge already, each scalar mode of the gauge
+vector solves three coupled 1 + 1 wave equations with the master field as source, and the spherically symmetric sector
+has two solutions that do not decay, the stationary 1-form W* and a gauge-fixed mass change K* that grows linearly in the
+ingoing time v, with a coefficient ½ that regularity at the horizon forces. A conserved horizon charge ([[lem:gd-2-2]])
+shows that the growth cannot be avoided: when the mass changes, no harmonic-gauge solution settles to a change of mass
+near the horizon at an integrable rate ([[thm:gd-2-3]]).
 
 The decay of the gauge vector modulo W* rests on the 1-form wave operator □ at zero energy, where its kernel is
 spanned by W* and the annihilator of its range by the horizon functional ℓ ([[lem:iii-d1-2-1]]). Augmenting the
@@ -837,18 +837,18 @@ on each Cartesian component of L_□ by (b). Its coefficients are 4|α_I| (writt
 α_I < min(α₀, 0), then −4α_I > 0, 4κ(α₀ − α_I) > 0 and c_A > 1 + κ > 0; conversely positivity of the first two for
 some κ > 0 needs α_I < 0 and α₀ > α_I. ∎
 
-**Proposition {#prop:gd-r4-2}** (The exterior estimate for □.) Let 𝒟, Ω_(ext,r_1), 𝒦, 𝒮,
+**Proposition {#prop:gd-r4-2}** (The exterior estimate for □.) Let 𝒟, Ω_(ext,r_1), 𝔒, 𝒮,
 Ω^♮ := Ω_(ext,r_1) ∪ 𝒮, ρ′₀ and ρ′_I be those of [[sec:iii-k-0]], the proof of [[prop:iii-k-1-2]] and
-[[sec:iv3-0]]–[[sec:iv3-2]], at S = 0, and 𝒟⁺ := 𝒟 ∩ {t_IVP ≥ 0}, 𝒦⁺ := 𝒦 ∩ {t_IVP ≥ 0} those of
+[[sec:iv3-0]]–[[sec:iv3-2]], at S = 0, and 𝒟⁺ := 𝒟 ∩ {t_IVP ≥ 0}, 𝔒⁺ := 𝔒 ∩ {t_IVP ≥ 0} those of
 [[lem:s27-cover]] (e); put τ′ := t_IVP/|x|. Let a₀ ∈ ℝ, α_I < min(a₀, 0) and m ∈ ℕ_0; let c_1 ∈ (0, c_♮], with c_♮
 the constant fixed in [[sec:iv3-1]], be so small that 2 of the proof holds on {ρ′_I < c_1} for these weights, and put
 Ω^♮_(c_1) := Ω^♮ ∩ {ρ′_I < c_1}. Let F be a smooth 1-form on 𝒟⁺ with
 f_♭ := ρ_Iρ^(−7/2)F ∈ H^(m+4,(a₀,2α_I))_b over Ω^♮ near infinity (in the translated chart over 𝒮) and
-F ∈ H^(m+4)(𝒦⁺). Then the solution Z of □Z = F on 𝒟⁺ with vanishing Cauchy data on Σ^IVP lies in H^(m+1)(𝒦⁺), and
+F ∈ H^(m+4)(𝔒⁺). Then the solution Z of □Z = F on 𝒟⁺ with vanishing Cauchy data on Σ^IVP lies in H^(m+1)(𝔒⁺), and
 u := ρ^(−3/2)Z satisfies
 
     ‖u‖_(H^(m+1,a₀)_b(Ω^♮∩{ρ′_I>c_1/2})) + ‖u‖_(H^((1;m),(a₀,2α_I))_(e,b;b)(Ω^♮_(c_1)))
-        ≤ C(‖f_♭‖_(H^(m+4,(a₀,2α_I))_b) + ‖F‖_(H^(m+4)(𝒦⁺))).                                        {#eq:gd-r4-2}
+        ≤ C(‖f_♭‖_(H^(m+4,(a₀,2α_I))_b) + ‖F‖_(H^(m+4)(𝔒⁺))).                                        {#eq:gd-r4-2}
 
 (The loss of four derivatives is the d of [[thm:iv2-2-4]]. Compactly supported F is allowed.)
 
@@ -882,7 +882,7 @@ u := ρ^(−3/2)Z satisfies
    translated chart, g being stationary; and the regions, whose curves ([[lem:iv3-1-1]]) are statements about g, t^♭_*,
    t_IVP and ρ′_I alone, are unchanged, with c_1 in place of c_♮, every condition on c_♮ in [[sec:iv3-1]] being an
    upper bound. The compact part, the set Q of that proof (a compact set of the first kind of [[sec:s27-local]] for g,
-   containing 𝒦⁺, 𝒮 ∩ {ρ′_I ≥ c_1/4} and 𝒟⁺ ∩ {r ≤ R_K + 2}, whose only data surface is Σ^IVP ∩ Q), uses the energy
+   containing 𝔒⁺, 𝒮 ∩ {ρ′_I ≥ c_1/4} and 𝒟⁺ ∩ {r ≤ R_K + 2}, whose only data surface is Σ^IVP ∩ Q), uses the energy
    estimates for a linear wave equation with principal symbol g⁻¹(ζ, ζ) Id ([[lem:ix-2-1]] (a)) on that compact domain
    of dependence; on Ω^♮_(c_1), 2 applies with Σ_in = {ρ′_I = c_1} and Σ_fin = {t^♭_* = T̂ + 3}, spacelike for g.
    Uniqueness on each region is [[lem:ii-f-1-3]].

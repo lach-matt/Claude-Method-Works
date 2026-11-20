@@ -10,17 +10,17 @@ law then gives.
 The argument has four steps. At fixed λ the far region of [[thm:past-construction]] is a neighbourhood of past null
 infinity, and there the remainder g_λ − g_app solves a wave equation whose forcing decays like r^(−3). First, every
 derivative of the remainder obeys the bound which the construction gives for the first few
-(Section [[sec:bondi-every-order]]). Second, subtracting the explicit leading term of the forcing and estimating the rest
+([[sec:bondi-every-order]]). Second, subtracting the explicit leading term of the forcing and estimating the rest
 with the energy of the far region gains half a power of r; repeated, this gives an expansion of g_λ − g0 in powers of
 r^(−1/2) to any order, with the radiation field as its leading term. The derivatives of the remainders along the ingoing
 generators gain a full order, because for them the wave equation is a transport along the outgoing generators, and these
-reach the seed region, where everything vanishes, after a bounded parameter length (Section [[sec:bondi-expansion]]).
+reach the seed region, where everything vanishes, after a bounded parameter length ([[sec:bondi-expansion]]).
 Third, Bondi coordinates are built from the null geodesics of g_λ asymptotic to the ingoing generators of the
-background, in the manner of the eikonal function of [HL21] at future null infinity (Section [[sec:bondi-chart]]).
+background, in the manner of the eikonal function of [HL21] at future null infinity ([[sec:bondi-chart]]).
 Fourth, in the Bondi form the vacuum equations are a hierarchy in r^(−1/2). Its radial equations kill every coefficient
 below the waves' and fix the shift and the first correction of W; the traceless angular equation makes the r^(−2)
 coefficients of the angular metric constant in v, which the seed sets to zero; and R_vv at order r^(−3) is the mass law
-plus a divergence that then vanishes (Section [[sec:bondi-hierarchy]]).
+plus a divergence that then vanishes ([[sec:bondi-hierarchy]]).
 
 Throughout the chapter λ is fixed, 0 < λ ≤ λ_P, and every constant may depend on λ.
 
@@ -59,7 +59,7 @@ x̂; so G_3 is smooth and bounded with all its derivatives, smooth at the axes (
 v ≤ v_start, where env vanishes. The construction controls finitely many derivatives of u_1: with the regularity index
 k = 6 of [[sec:far-near]], [[eq:far-energy]] and the Sobolev inequality with rotations, [[lem:past-sobolev]] (a), give
 ∂^i w ∈ E_2 for i ≤ 4, the higher norms bounded. The approximating solutions of the construction give every order at
-fixed λ, uniformly; this is [[lem:every-order-fixed]], which the induction of Section [[sec:bondi-expansion]] consumes.
+fixed λ, uniformly; this is [[lem:every-order-fixed]], which the induction of [[sec:bondi-expansion]] consumes.
 
 ### Every order at fixed λ {#sec:bondi-every-order}
 
@@ -71,7 +71,7 @@ fixed λ, uniformly; this is [[lem:every-order-fixed]], which the induction of S
 At every order at which the derivatives of u are in E_(3/2), the terms of S have the following classes:
 Ric(g0) = (3μ'/(2r³)) dv dv exactly ([[prop:vaidya]] (a)); g_λ⁻¹ − g0⁻¹ is in E_(3/2), ∂²g0 = O(r^(−2)) and ∂²u is in
 E_(3/2); and the difference of the Q terms is quadratic in ∂u (in E_3) plus Γ[g0] times ∂u (in E_2 E_(3/2)). So S(u)
-is in E_3 at those orders. The construction gives them for the first few orders (Section [[sec:bondi-setting]]), and
+is in E_3 at those orders. The construction gives them for the first few orders ([[sec:bondi-setting]]), and
 [[lem:every-order-fixed]] gives them at every order.
 
 Proof. Ric^H(g_λ) = 0, since g_λ is vacuum and in the wave-map gauge, and Ric^H(g0) = Ric(g0) ([[sec:gauge]]); subtract
@@ -169,7 +169,7 @@ lowest orders). The term ∂_X^γ F_1(X, 0, 0), in E_3, has L² norm at most C t
 C t³; each product has L² norm at most C t^(−2), a coefficient in E_(3/2) or a second factor of u_1 in E_2 times the L²
 factor. So ‖R_γ‖ ≤ C(λ, j) t^(−3/2).
 
-*The approximating solutions.* We do not apply the energy inequality on the region between {v = v_start} and Σ̂_τ: that
+*The approximating solutions.* We do not apply the energy inequality on the region P⁺ ∩ {τ' ≤ τ}: that
 region is unbounded toward past null infinity ([[lem:past-domain]] (e)), and the flux of ∂^γ u_1 through infinity
 there is known to vanish only at the orders that [[thm:past-construction]] controls. We apply it instead to each
 approximating solution g_n of [[prop:far-region]]. The metric g_n equals g0 on {v ≤ v_start} and solves the same
@@ -516,7 +516,7 @@ dϑ-parts of dr_B meet g_λ⁻¹(dv, dϑ_B) = O(ς⁶) and g_λ⁻¹(dϑ, dϑ_B)
 W − 1 = O(ς_B²) and U = O(ς_B⁴). ∎
 
 **Remark {#rem:bondi-j8}** Taking J = 8 in [[prop:bondi-hierarchy]] gives the Bondi functions to order ς_B⁶ with
-o(ς_B⁶) remainders, which is what Section [[sec:bondi-hierarchy]] uses. The hierarchy there, run from ς¹, gives
+o(ς_B⁶) remainders, which is what [[sec:bondi-hierarchy]] uses. The hierarchy there, run from ς¹, gives
 β_1 = β_2 = β_3 = 0 for a vacuum metric. By [[eq:bondi-first-metric]] this means ∂_v C_4 = ∂_v C_5 = 0, and then
 C_4 = C_5 = 0, since C_4 and C_5 are components of G_4 and G_5, which vanish for v ≤ v_start
 ([[prop:bondi-hierarchy]]): the (ℓ, ℓ) component of g_λ − g0 is O(r^(−3)). This is a consequence, not an input:

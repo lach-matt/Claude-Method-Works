@@ -13,10 +13,10 @@ determined to leading order ([[prop:edge-horizon-value]]), and [[thm:very-edge]]
 admissible τ0. The degree-two terms are bounded at every depth of the edge by a localisation of the remainder estimates
 ([[lem:edge-localisation]]). Third, in the band λ^(3+δ) ≤ E ≤ λ^(3−δ) of [[prop:layer-regions]] the ratio of the
 first-degree amplitude to the margin crosses 1 once per column, and the boundary switches from timelike points to
-spacelike once ([[thm:l-24]]). The hypotheses on the envelope are properties of its edge; we prove them, for every order,
-for the envelope env_C of [[eq:envelope]] and for the edges exp(−a/x) ([[sec:edge-envelope]]). For some C_c^∞ envelopes
-whose intervals of zeros accumulate at the edge, intervals of length 4πλ below λ^(3+δ) on which the boundary is spacelike
-throughout occur for every small λ ([[prop:edge-dips]]): some regularity of the edge is needed.
+spacelike once ([[thm:l-24]]). The hypotheses on the envelope are properties of its edge; we prove them, for every
+order, for the envelope env_C of [[eq:envelope]] and for the edges exp(−a/x) ([[sec:edge-envelope]]). For some C_c^∞
+envelopes whose intervals of zeros accumulate at the edge, intervals of length 4πλ below λ^(3+δ) on which the boundary is
+spacelike throughout occur for every small λ ([[prop:edge-dips]]): some regularity of the edge is needed.
 
 Throughout, μ0 = √72 l5², and the notation is that of [[ch:equality-layer]]: g0, the seed g0°, r_q, Φ0, Φ0♯ = ∂_v + β_Φ
 ∂_r, the margin m0 of [[eq:eq-margin]], the coefficient ν of [[eq:layer-nu]], the angular factors d_1, d of
@@ -1181,11 +1181,11 @@ the constant fixed in that proof; δ_* > 0 is that of [[lem:edge-next-family]]. 
 (αc_R)^(−1/α) x^(2−1/α) ≥ c > 0 by [[lem:edge-kappa]] (a). Split by the size of ν at the left end t₀ of J; ν moves over J
 by at most 8πc_ν x λ ≪ λ. Let C_a bound |a₁| and put M′ := 16 C_a.
 
-(1) *|ν(t₀)| ≥ 2M′λ.* Then |λa₁| ≤ |ν|/8 on J, which is all that step (3) of [[prop:l-26]] and the cases of the proof of
-[[thm:very-edge]] take from (H_*) at ρ*: the bound λ ≪ Λ of Case 1 (Λ ≥ M|ν|/(Γ_R|Ξ|) ≥ c M M′ λ), the bound λ ≪ |ν| of
-Case 2 and of Case 3 (i), and, for N ≡ 0 modulo 4, [[prop:l-26]] itself. The other use of (H_*) in [[prop:l-26]], |ν″| ≤
-C|ν|κ, is replaced by |ν″| ≤ 3c_ν ≤ |ν| κ^(1+α), which holds near v_s since x² κ^(1+α) ≥ κx/(α c_R) → ∞ (κ^α ≥ 1/(α c_R
-x)); the phase bounds use |ν′| ≤ 3c_ν x ≤ C|ν|κ^α and λ/x ≤ (λc_ν/M′)^(1/2).
+(1) *|ν(t₀)| ≥ 2M′λ.* Then |λa₁| ≤ |ν|/8 on J, which is all that step (3) of [[prop:l-26]] and the cases of the proof
+of [[thm:very-edge]] take from (H_*) at ρ*: the bound λ ≪ Λ of Case 1 (Λ ≥ M|ν|/(Γ_R|Ξ|) ≥ c M M′ λ), the bound λ ≪ |ν|
+of Case 2 and of Case 3 (i), and, for N ≡ 0 modulo 4, [[prop:l-26]] itself. The other use of (H_*) in
+[[prop:l-26]], |ν″| ≤ C|ν|κ, is replaced by |ν″| ≤ 3c_ν ≤ |ν| κ^(1+α), which holds near v_s since x² κ^(1+α) ≥ κx/(α
+c_R) → ∞ (κ^α ≥ 1/(α c_R x)); the phase bounds use |ν′| ≤ 3c_ν x ≤ C|ν|κ^α and λ/x ≤ (λc_ν/M′)^(1/2).
 
 (2) *|ν(t₀)| < 2M′λ.* Then |ν| ≤ 3M′λ on J. With a₁ = b̂4(r0, ϑ) + iT0 b̂5 + O(T0² + λ) and b̂4(r0) − b̂4(ρ*√μ0) =
 O(x),
@@ -1200,9 +1200,9 @@ applies.
 
 *R2:* Γ_R|Ξ|Λ ≤ λδ_*/M. Then T0 → 0 (Λ ≥ 2^(−(N−1)) T0^(N−2) κ and Λ ≤ Cλ), |σ| ≥ λδ_*/4, and arg σ moves over J by at
 most 4πλ(|ν′| + C|ν|T0κ^α + Cλ(1 + T0κ^α) + |B_s′| + |ê′|)/(λδ_*/4). Here |ν′| ≤ C x ≤ Cλ^(1/2), |B_s′| ≤ Γ_R
-Λ(|Ξ_ex′| + |Ξ_ex| |κ − κ_(N−1)|) ≤ C λδ_* κ^α/M by step (2) of [[prop:l-26]], |Ξ_ex| ≥ c_N/2 and κ ≥ 1, and |ê′| ≤ C(1 +
-T0)Γ_R|Ξ|Λ ≤ Cλδ_*/M by step (1) there. So the motion is at most C(λ^(1/2) + λ^(1−α) T0^(1+α))/δ_* + 16πC(T0 κ^(α−1) +
-λ)/M → 0, and [[lem:edge-two-signs]] (A) applies.
+Λ(|Ξ_ex′| + |Ξ_ex| |κ − κ_(N−1)|) ≤ C λδ_* κ^α/M by step (2) of [[prop:l-26]], |Ξ_ex| ≥ c_N/2 and κ ≥ 1, and |ê′|
+≤ C(1 + T0)Γ_R|Ξ|Λ ≤ Cλδ_*/M by step (1) there. So the motion is at most C(λ^(1/2) + λ^(1−α) T0^(1+α))/δ_* + 16πC(T0
+κ^(α−1) + λ)/M → 0, and [[lem:edge-two-signs]] (A) applies.
 
 *R3:* otherwise. Then Λ ≍ λ, so T0 ≍ λ^(2/(N−1)) → 0 and λκ^(1+α) = T0^(1+α) λ^(−α) ≍ λ^(2(1+α)/(N−1)−α) → ∞, as α >
 1/2 > 2/(N − 3) for N ≥ 9. Put 𝔱 := c_t δ_* λ κ^(α−1)/16; |ê| ≤ C(1/κ + λ)Mλ ≪ 𝔱, as κ^(−α) → 0 and λκ^(1−α) = T0 κ^(−α)
@@ -1279,13 +1279,13 @@ Use σ, Λ, ê of [[eq:edge-sigma]], so that f := g_λ⁻¹(dΦ0, dΦ0) = Re[−
 applies as to S. Fix M ≥ max(8, M_26), large against the constants, and split by the values at v: Case 1 is Γ_R|Ξ|Λ ≥
 M|ν||1 + 2iT0| or T0 > 1, Case 2 is Γ_R|Ξ|Λ ≤ |ν|/M, and Case 3 is the rest. These conditions persist on J with M
 replaced by M/C_0 in Cases 1 and 2 and by C_0 M in Case 3, for a constant C_0 ≥ 1, which we absorb into M; Case 3 (iii)
-uses [[prop:l-26]] with C_0 M ≥ M_26. Indeed, if λκ(v)^α > 1, then for t ∈ J, κ(t)^(−α) ≤ κ(v)^(−α) + α c_R 4πλ ≤ (1 +
-4πα c_R)λ, so λκ(t) ≥ c λ^(1−1/α) > 1 for λ small: Case 1 on all of J. Otherwise 4πλ ≤ 4πκ(v)^(−α); κ is nonincreasing
-and κ(t)^(−α) ≤ (1 + 4πα c_R) κ(v)^(−α) on J, so κ, T0 and T change over J by factors at most a constant C_κ, and so
-does |1 + 2iT0|. Where T0(v) ≤ C_κ, T ≤ 2T0 ≤ 2C_κ² on J, so |Ξ| lies between c_N (1 + 4C_κ⁴)^(−1/2) and C there
-([[eq:edge-xi]]) and changes by a bounded factor. Where T0(v) > C_κ, T0 > 1 on all of J, which is Case 1. In either
-case log Λ changes by at most 4πλ C κ(v)^α ≤ C, as Λ′/Λ = κ_(N−1) − κ; and x changes by a factor at most 1 + 4πα c_R
-(κ^(−α) ≤ α c_R x), so ν by a bounded factor. Where 1 < T0(v) ≤ C_κ, Λ(v) ≥ 2^(−(N−1)) κ(v) and |Ξ(v)| ≥ c_N (1 +
+uses [[prop:l-26]] with C_0 M ≥ M_26. Indeed, if λκ(v)^α > 1, then for t ∈ J, κ(t)^(−α) ≤ κ(v)^(−α) + α c_R 4πλ ≤
+(1 + 4πα c_R)λ, so λκ(t) ≥ c λ^(1−1/α) > 1 for λ small: Case 1 on all of J. Otherwise 4πλ ≤ 4πκ(v)^(−α); κ is
+nonincreasing and κ(t)^(−α) ≤ (1 + 4πα c_R) κ(v)^(−α) on J, so κ, T0 and T change over J by factors at most a constant
+C_κ, and so does |1 + 2iT0|. Where T0(v) ≤ C_κ, T ≤ 2T0 ≤ 2C_κ² on J, so |Ξ| lies between c_N (1 + 4C_κ⁴)^(−1/2) and C
+there ([[eq:edge-xi]]) and changes by a bounded factor. Where T0(v) > C_κ, T0 > 1 on all of J, which is Case 1. In
+either case log Λ changes by at most 4πλ C κ(v)^α ≤ C, as Λ′/Λ = κ_(N−1) − κ; and x changes by a factor at most 1 + 4πα
+c_R (κ^(−α) ≤ α c_R x), so ν by a bounded factor. Where 1 < T0(v) ≤ C_κ, Λ(v) ≥ 2^(−(N−1)) κ(v) and |Ξ(v)| ≥ c_N (1 +
 4C_κ⁴)^(−1/2), so Γ_R|Ξ|Λ ≥ M|ν||1 + 2iT0| at v once x0′ is small, and this persists as above.
 
 *Case 1.* |σ| ≥ (1 − 1/M) Γ_R|Ξ|Λ − |ê| ≥ Γ_R|Ξ|Λ/2 for λ and x0′ small. Indeed ϵ′ + 1/κ + λ → 0, as ϵ′ ≤ κ^(α−1) for

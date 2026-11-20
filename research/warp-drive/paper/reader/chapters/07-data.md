@@ -227,7 +227,10 @@ takes (J_r, J_A) to
 
     (J_r + (γ^(rA)/γ^(rr)) J_A,  −(1/2) Π^(AB) J_B),                                              {#eq:data-symmetrizer}
 
-has 𝒮 A0 = diag(6, γ_U^(rr) Π^(AB)) > 0 and 𝒮 A^C symmetric for every angle C. The construction needs only γ_rA small.
+has 𝒮 A0 = diag(6, γ_U^(rr) Π^(AB)) > 0 and 𝒮 A^C symmetric for every angle C. The smallness of γ_rA enters only the
+uniqueness of the symmetrizer: for every Riemannian metric γ and every α with 1 + α γ^(rr) > 0, 𝒮 is invertible (it is
+block triangular with diagonal blocks 1 and −(1/2) Π^(AB)), 𝒮 A0 > 0 and every 𝒮 A^C is symmetric, by the proof below,
+and these are the properties of 𝒮 that [[lem:linear-evolution]] uses.
 
 (b) At the approximant's data (the data on Σ of g_app built from the stage data of [[lem:stage-data]]) the constraint
 map of (γ_U, κ_U), as a function of U, has no coefficient of order 1/λ: the second derivatives of γ of order 1/λ enter
@@ -258,7 +261,8 @@ derivatives of α come from −2 ν_U⁻¹ Δ_Π ν_U = −ν_U⁻² Δ_Π α + 
 R_Π, H², |𝒜|² and the σ-part of ∂_(e_r) H contain α algebraically or through its angular derivatives. The terms
 −|κ_U|² + (tr κ_U)² contain U algebraically. This proves the form [[eq:data-rho]].
 
-(a), J. Let γ_rA be small. Put Π^(ij) := γ^(ik) γ^(jl) Π_kl and Π_i^k := γ^(kj) Π_ji. Since Π = γ − dr ⊗ dr/γ^(rr),
+(a), J. Let γ be a Riemannian metric and 1 + α γ^(rr) > 0; the smallness of γ_rA is used only for the uniqueness
+at the end. Put Π^(ij) := γ^(ik) γ^(jl) Π_kl and Π_i^k := γ^(kj) Π_ji. Since Π = γ − dr ⊗ dr/γ^(rr),
 Π^(ij) = γ^(ij) − γ^(ri) γ^(rj)/γ^(rr), that is γ⁻¹ = Π^♯ + γ⁻¹dr ⊗ γ⁻¹dr/γ^(rr) with Π^♯ := (Π^(ij)); so Π^(rk) = 0, and
 the angular block Π^(AB) = γ^(AB) − γ^(rA) γ^(rB)/γ^(rr) is the inverse of the angular block (γ_AB) of γ (the inverse of
 a block of a matrix is the Schur complement of the complementary block of the inverse matrix), that is of the induced

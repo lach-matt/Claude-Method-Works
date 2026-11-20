@@ -225,11 +225,14 @@ A ∖ Σ = M_gl ∩ {t_IVP < 0} and B ∖ Σ = M_gl ∩ {t_IVP > 0} are disjoint
 carry the smooth structures of V and of ℝ × ℝ⁴ and the metrics g_λ and g. The smooth structure across Σ is the one
 constructed next, not that of the coordinates (t, x): g_λ and g need not agree as matrices on Σ.
 
-*(i), the charts at Σ.* Let n_λ and n be the future unit normals of Σ for g_λ and g. Then dt_IVP(n_λ) > 0, as dt_IVP
-is past timelike for g_λ on V, and dt_IVP(n) > 0, as n points into B. In the chart, Σ is the graph t = ψ_IVP(|x|) over
-the open shell {r_♭ < |x| < R}, so the coordinates x = (x¹, …, x⁴) of the chart, restricted to Σ, are coordinates on all
-of Σ; every chart below uses them. Let p ∈ Σ, and let Π_0 be a neighbourhood of p in Σ. Near p, g is the restriction to
-B of a smooth Lorentzian metric g̃ on an open set of ℝ × ℝ⁴, g being smooth up to Σ. The maps
+*(i), the charts at Σ.* Let n_λ and n be the future unit normals of Σ for g_λ and g. Then dt_IVP(n_λ) > 0, as dt_IVP is
+past timelike for g_λ on V, and dt_IVP(n) > 0, as n points into B. In the chart, Σ is the graph t = ψ_IVP(|x|) over the
+open shell {r_♭ < |x| < R}, so the coordinates x = (x¹, …, x⁴) of the chart, restricted to Σ, are coordinates on all of
+Σ; every chart below uses them. Let p ∈ Σ, and let Π_0 be a neighbourhood of p in Σ. Near p, g is the restriction to B of
+a smooth Lorentzian metric g̃ on an open set of ℝ × ℝ⁴, g being smooth up to Σ: in the coordinates (t − ψ_IVP(|x|), x),
+in which Σ is {0} × {r_♭ < |x| < R}, [[thm:std-seeley]], applied to each component of g multiplied by a cut-off that
+equals 1 near p and is supported in a neighbourhood of p in ℝ × {r_♭ < |x| < R}, extends that component smoothly across Σ
+near p, and the extension is Lorentzian near p by continuity. The maps
 
     E_λ(s, x) := exp^(g_λ)_x(s n_λ),     Ẽ(s, x) := exp^(g̃)_x(s n)
 
@@ -574,10 +577,11 @@ bound l_* of [[def:iii-i10-1-1]], and the smallness threshold of [[thm:iii-k-4-3
 (row n1). Every index set ℰ^C_I satisfying [[def:iii-c-3-1]] contains (2, 0) and is closed under adding ½
 ([[lem:iii-c-3-2]] (a)), so it contains ℰ_0^½. Hence the smallest such set containing the index set of [[eq:vii-0-1]]
 ([[lem:iii-c-3-2]] (e)), from which the proof of [[thm:iii-c1-3-1]] starts, is also the smallest containing ℰ_0^½. So
-π_1ℰ^C_I, Λ, the conditions (G) and (G⁺), ε_+, ε_K and the loss d ([[thm:loss-d]]) are the same in the half-integer
-class. Only the logarithmic orders of ℰ^C_I at the half-integers can rise, through the extended unions ℰ_0 ∪̄ ℰ^C_I of
-that proof; they enter l_* and k̄(λ) of [[def:iii-i10-1-1]], and their values are not determined here. ε_n and d_1,
-and with them λ1 and δ, may change.
+π_1ℰ^C_I, Λ, the conditions (G) and (G⁺), ε_+ and ε_K are the same in the half-integer class. Only the logarithmic orders
+of ℰ^C_I at the half-integers can rise, through the extended unions ℰ_0 ∪̄ ℰ^C_I of that proof; they enter l_* and k̄(λ)
+of [[def:iii-i10-1-1]], and through k̄(λ) the counts of the index sets in the loss d ([[thm:loss-d]]), and their values
+are not determined here. So d, ε_n and d_1, and with them λ1 and δ, may change; [[sec:own-half-class]] shows that the
+logarithmic orders do not rise, and [[rem:own-half-changes]] that d_1 and ε_n change through the exponents of ℰ_0^½.
 
 So the continuation of g_λ's own data consists of three steps: (1) the scattering problem on W of
 [[lem:interior-far-part]], with r-weighted estimates in place of the annuli of bounded thickness of

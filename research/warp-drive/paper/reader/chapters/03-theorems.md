@@ -309,6 +309,14 @@ dimension n + 1 = 5 and written out in full. Gluing a perturbation far out to a 
 Myers–Perry metric replaces its data near infinity, on which the solution near the hole at late times depends; so (ii)
 is stated for perturbations in Hintz's own data class, where his theorem applies without gluing, and [[ch:after-shell]]
 determines which decaying perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
+The order K is explicit in the loss d with which the proof applies the Nash–Moser theorem ([[thm:iii-k-3-2]]): with
+the orders that [[prop:uc-data-order]] counts, d_1 = 22d + 292 + L_P and K = 22d + 306 + L_P, where L_P ≤ 43 is an
+explicit number of derivatives. d is not evaluated on the set where [[thm:settling]] is proved; at its points with
+γ_C ≥ 10⁶ it is bounded below by explicit functions of the gauge and damping parameters ([[thm:ec-lb-proved]]). At the
+computational point of [[def:ec-point]], which is not shown to lie in that set ([[rem:ec-point-outside]]), and at one
+admissible choice of the
+weights, orders and inner products, d is at most an integer below 7.57245 × 10⁵⁵ ([[thm:uc-integer]]), and K at most one
+below 1.66594 × 10⁵⁷.
 
 The linear statement is proved with it, as the nonlinear theorem's linearisation at the Tangherlini data
 ([[thm:viii-2-2]], [[cor:viii-2-3]]). Every solution of the linearised constraint equations in Hintz's data class has
@@ -349,16 +357,32 @@ The remaining chapters prove the following; each is stated in full where it is p
   the stability theory, and c is fixed by the horizon charge of Z′_0 and the Killing part of its data
   ([[thm:harmonic-rate]]).
 - *The constants of [[thm:settling]].* The loss d with which the Nash–Moser step is applied, at least the loss that
-  the proof assigns to the tame estimates, and its regularity N_NM = 21d + 6, with explicit lower bounds at a
-  parameter point that lies outside the proved set ([[thm:loss-d]]) and, through them, an upper bound for the modulus
-  of the initial family at 2δ (and λ1 < δ), explicit resolvent bounds on five-dimensional Tangherlini
-  ([[ch:resolvent-bounds]]), and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
+  the proof assigns to the tame estimates, and its regularity N_NM = 21d + 6, with explicit lower bounds at every point
+  of the proved set at which γ_C ≥ 10⁶, as functions of the gauge parameter z = 4e_Υγ_Υ² and the damping parameter γ_C
+  that grow like z⁻² and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that is not shown to lie in the proved set,
+  explicit lower bounds ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the
+  weights, orders and inner products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the
+  modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
+  ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
 - *More families.* Two crossing radial null dusts, one ingoing and one outgoing, with the background, the
   approximant, the uniform estimate and the data ([[thm:two-dusts]]); Cauchy stability of the class
   Einstein–null-dust system, without smallness, on compact domains of the type of Ω, for caustic-free dusts, the axes
   included where the lateral boundaries meeting them are adapted to the dust ([[thm:class-stability]]); restricted
   massless Vlasov limits, for fields that are caustic-free families of dusts meeting the hypotheses stated there, as
-  weak limits of class vacuum metrics along odd numbers of dusts ([[thm:vlasov]]); and exactly localised vacuum data
+  weak limits of class vacuum metrics along odd numbers of dusts ([[thm:vlasov]]), also with the two radial dusts of
+  [[thm:two-dusts]] added to a small field, as weak limits on domains of the type of Ω inside the adapted domain of
+  [[cor:class-two-dust]], not on the whole of that domain, under the hypothesis of both corollaries that the outgoing
+  packet of the two-dust background does not reach its inner sphere, {u1 ≤ u ≤ u2} ∩ Ω₂ ∩ {R = a} = ∅, which the
+  construction of that background does not decide ([[cor:vlasov-two-dust]]); developments in the double-null gauge of
+  data on the two null cones through the corner sphere of the explicit two-dust background of [[sec:bg-data]]: of data
+  localised in an angular band away from the axes, with or without dust and without smallness, on a neighbourhood of
+  the two cones that depends on the data, localised and unique in the gauge among solutions equal to the background
+  near the axes ([[thm:civp-large]]), and, for such data near the background's, on an explicit neighbourhood with an
+  estimate ([[thm:loc-cone-development]]), of data near the background's, localised in angle or not, on the whole
+  rectangle of the two cones in which the two dusts cross, [0, 7.2] × [0, 4.5], with an estimate and unique in the gauge
+  among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]), and of data of any size reaching the axes, on a
+  neighbourhood of the two cones, unique in the gauge, with a maximal development and a continuation criterion
+  ([[thm:civp-axes]]); and exactly localised vacuum data
   near the initial data of an explicit two-dust background of [[thm:two-dusts]] ([[sec:bg-data]]): on a vacuum band
   of the initial slice (a shell {R1 < r < R2} whose closure lies where the background is vacuum), data equal to the
   background's outside a compact subset of the band and vacuum in the band, whose first-order part in a small
@@ -372,6 +396,7 @@ The remaining chapters prove the following; each is stated in full where it is p
   [[def:edge-hypotheses]], among them env_C ([[thm:very-edge]], [[cor:edge-envelope]]).
 - *Physical wavelengths.* An upper bound for λ0 at a numerical point, and an approximate value, which is not proved, of
   the first stage's mean correction there ([[prop:lambda0]], [[rem:m22-value]]); at the prescribed wavelength 10 l5
-  there is no separation of scales, and existence holds where the solution is the seed ([[thm:ten-l5]]).
+  there is no separation of scales, and existence holds where the solution is the seed and on a strip beyond it whose
+  width is not estimated ([[thm:ten-l5]]).
 
 [[ch:scope]] collects what is claimed and what is not.

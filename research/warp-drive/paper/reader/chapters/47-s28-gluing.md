@@ -2,16 +2,16 @@
 
 This chapter proves [CD03, Theorem 8.1] in space dimension 4 for vacuum initial data whose Poincaré charges lie near
 those of five-dimensional Schwarzschild–Tangherlini. Smooth vacuum data on ℝ⁴ ∖ B that decay at a rate α ∈ (3/2, 2] are
-glued, on an annulus Γ(R, 4R), to the data of a translated, rotated and boosted Myers–Perry metric, which they
-equal for |x| ≥ 4R ([[thm:v-3-1]]). [CD03, Theorem 8.1, p. 35] is stated for three-dimensional data, and [CD03, Remark
-8.2, p. 36] names what is missing in higher dimensions: "The argument below carries over to any dimension, the only
-element missing is an equivalent of Proposition F.1 for the family of translated, rotated, and boosted Myers-Perry
-metrics." Near Tangherlini, which is the case needed here, this equivalent is [[prop:v-2-3]] and [[cor:v-2-4]]. The proof
-follows [CD03, Section 8.1], with three changes in dimension 4 + 1. First, the charges are defined and estimated directly
-from a linear flux identity ([[sec:v-1]]); this replaces [CD03, Appendix E] and needs no parity condition, since
-2α > n − 1 = 3. Second, the exponentially weighted spaces of [CD03, Theorem 5.9] are used from the start, so the glued
-data are smooth. Third, the powers of R are those of space dimension 4: R⁻² for the energy and the momentum, R⁻³ for
-the angular momentum and the centre of mass. Every result of [CD03] used here holds in every space dimension n ≥ 2
+glued, on an annulus Γ(R, 4R), to the data of a translated, rotated and boosted Myers–Perry metric, which they equal
+for |x| ≥ 4R ([[thm:v-3-1]]). [CD03, Theorem 8.1, p. 35] is stated for three-dimensional data, and [CD03, Remark 8.2,
+p. 36] names what is missing in higher dimensions: "The argument below carries over to any dimension, the only element
+missing is an equivalent of Proposition F.1 for the family of translated, rotated, and boosted Myers-Perry metrics."
+Near Tangherlini, which is the case needed here, this equivalent is [[prop:v-2-3]] and [[cor:v-2-4]]. The proof
+follows [CD03, Section 8.1], with three changes in dimension 4 + 1. First, the charges are defined and estimated
+directly from a linear flux identity ([[sec:v-1]]); this replaces [CD03, Appendix E] and needs no parity condition,
+since 2α > n − 1 = 3. Second, the exponentially weighted spaces of [CD03, Theorem 5.9] are used from the start, so the
+glued data are smooth. Third, the powers of R are those of space dimension 4: R⁻² for the energy and the momentum, R⁻³
+for the angular momentum and the centre of mass. Every result of [CD03] used here holds in every space dimension n ≥ 2
 ([CD03, p. 4]); each is stated exactly, here or in [[app:standard-results]]. [CD03, Lemma 3.18] is proved again
 ([[lem:v-3-3]]), and the continuity in the parameter that [CD03, Theorem 3.19] needs is proved as [[lem:v-3-2]].
 

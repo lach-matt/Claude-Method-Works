@@ -121,7 +121,7 @@ bound ε_g of [[def:s21-eps-g]]. [[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b), 
 (H4) ℓ_I > 3 + ε_+, with ℓ_I off the discrete exclusion sets of [[prop:iii-i1-3-1]] and [[thm:iii-g2-4-2]]. As
 ℓ_I ≤ a_I ([[sec:iii-i8-1]]; this is used in [[lem:iii-i9-2-6]] (a), on which this section relies), (H4) asks
 a_I > 3 + ε_+ of the class; the class of [Hin26] has the ℐ⁺-order 3 + ε_I. The condition ℓ_I < 3/2 + s_C of
-[[thm:iii-g2-4-2]] is no restriction, s_C being large by (C1) of [[ch:s15]].
+[[thm:iii-g2-4-2]] is no restriction, as s_C > 100 ([[sec:iii-f-1]]).
 
 *The sources.* Fix ℰ_src as the least choice in [[eq:iii-i9-1-3]], and put
 
@@ -137,10 +137,10 @@ r^ν_(h,p⃗) carries no index set ([[eq:iii-i9-2-5]]).
 *The parameter exponents.* The index set ℰ_par of [[sec:iii-i9-1]], which [Hin26] calls Ẽ′_++ and builds after the
 proof of its Theorem 11.59 by the procedure of its (11.186), is fixed here in advance.
 
-**Definition {#def:iii-i10-1-1}** (The parameter exponents.) Let Λ ⊂ ℂ be the smallest set, closed under conjugation,
-that contains
+**Definition {#def:iii-i10-1-1}** (The parameter exponents.) Let 𝒵 be the set of the indicial roots μ of L̂_b(0) at ∂X
+([[prop:iii-f1-2-3]]) with 0 < Re μ < 3, and let Λ ⊂ ℂ be the smallest set, closed under conjugation, that contains
 
-    π_1(ℰ_++ ∪ 𝒢 ∪ ℰ^C_I) ∪ {λ_♯, 3} ∪ (2 + π_1ℰ_col)
+    π_1(ℰ_++ ∪ 𝒢 ∪ ℰ^C_I) ∪ {λ_♯, 3} ∪ (2 + π_1ℰ_col) ∪ (1 + 𝒵)
 
 and satisfies Λ + w ⊂ Λ for every w ∈ π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1}. Here ℰ_++ is the least choice in [[eq:iii-i8-1-1]],
 and
@@ -165,7 +165,13 @@ Put
 The number 3 ∈ Λ is the u-exponent of the boost row that the zero energy mass state produces ([[sec:iii-i11-3]]); the
 increment 1 accounts for the Taylor levels of the spectral construction, and 2 + π_1ℰ_col for the column terms at its
 first Taylor level. Since 2 + π_1ℰ_col = ({2, 3} ∪ (2 + π_1ℰ_ind) ∪ (3 + π_1ℰ_ind)) + ℕ₀ lies in π_1𝒢 + ℕ₀ ⊂ Λ, this
-last generator adds no exponent to Λ; the logarithmic orders of the column terms are bounded through k̄_0.
+generator adds no exponent to Λ; the logarithmic orders of the column terms are bounded through k̄_0. The set 1 + 𝒵 holds
+the u-exponents μ + 1 of the indicial roots μ that the zero energy solve of level 0 of [[sec:iii-i11-3]] meets
+([[lem:iii-i11-2-1]]), and with the increment 1 those of the roots met at level 1. 𝒵 consists of the root 2, the mass,
+which gives 3 again, and the roots ι^C_(·,+) − 1 of real part below 3 that come from □^C, whose real parts exceed 1; for
+γ_C ≥ 10⁶ at least four of them lie in (1, 2) ([[lem:s22-c-roots]]). 𝒵 is finite, by [[lem:iii-f1-2-4]] with the
+strip |Re ι| ≤ 3, and closed under conjugation, the indicial family of L̂_b(0) being real. It is fixed by the parameters
+of [[sec:iii-f1-1]]: it depends neither on b ((P2) of [[lem:iii-i15-1-1]]) nor on ε_K, ε_+, the class 𝒳 or ℰ^C_I.
 
 **Lemma {#lem:iii-i10-1-2}** (a) Λ ∩ {Re ≤ R} is finite for every R, Λ ⊂ {Re ≥ λ_♯}, and Λ ∩ {Re < 2} = π_1ℳ.
 
@@ -176,24 +182,26 @@ last generator adds no exponent to Λ; the logarithmic orders of the column term
 ℰ_par does not depend on ℰ_+. Hence (H3), which asks ℰ_+ ⊃ (λ, k) + ℱ for the rows, can be imposed on the class
 together with (H1): this is the form of [Hin26, Remark 11.62] in dimension 4 + 1.
 
-(c) (The logarithmic count.) Applied to sources in 𝒴⁰(α), the constructions of [[sec:iii-i10-3]] and
-[[sec:iii-i11-3]] change index sets only by: adding (w, l) ∈ ℰ_ind ∪ ℰ^ι_ind ∪ {(1, 0)} to an exponent; unions with
-the column exponents (2 + j, 0) + ℰ_col at the Taylor level j + 1 ([[lem:iii-i11-2-2]]), of logarithmic orders at most
-k̄_0; extended unions with ℰ^C_I ([[eq:iii-i1-3-2]]) or with the indicial roots ([[lem:iii-a-1-4]]), each raising the
-logarithmic order at one exponent by at most l_* + 1; and raising the logarithmic order at a treated exponent by a pole
-order of N_ι⁺(L̄, ·)⁻¹ ([[cor:iii-g2-4-3]]) or by 1 ([[prop:iii-g4-4-4]] at α_0 = 2, [[rem:iii-g4-4-5]]). At an
-exponent of real part at most 3 + ε_+ at most J_* such raises occur: each belongs to one window of the iteration of
-[[sec:iii-i10-3]], of width at least η_0 below 2, or to one Taylor level of [[sec:iii-i11-3]], of which there are
-four. Hence every exponent (λ, k) produced with 2 ≤ Re λ ≤ 3 + ε_+ has λ ∈ Λ and k ≤ k̄(λ). These are all the
-exponents recorded: the ι⁺-data of 𝒴⁰(α) stop at the weight w_+ − ε, that is, at the u-exponent 3 + ε_+ − ε.
+(c) (The logarithmic count.) Applied to sources in 𝒴⁰(α), the constructions of [[sec:iii-i10-3]] and [[sec:iii-i11-3]]
+change index sets only by: adding (w, l) ∈ ℰ_ind ∪ ℰ^ι_ind ∪ {(1, 0)} to an exponent; unions with the column exponents
+(2 + j, 0) + ℰ_col at the Taylor level j + 1 ([[lem:iii-i11-2-2]]), of logarithmic orders at most k̄_0; extended unions
+with ℰ^C_I ([[eq:iii-i1-3-2]]) or with the indicial roots ([[lem:iii-a-1-4]]; a root μ met by the zero energy solve of
+the Taylor level j lies in 𝒵 and enters at the u-exponent μ + j + 1, [[lem:iii-i11-2-1]]), each raising the logarithmic
+order at one exponent by at most l_* + 1; and raising the logarithmic order at a treated exponent by a pole order of
+N_ι⁺(L̄, ·)⁻¹ ([[cor:iii-g2-4-3]]) or by 1 ([[prop:iii-g4-4-4]] at α_0 = 2, [[rem:iii-g4-4-5]]). At an exponent of real
+part at most 3 + ε_+ at most J_* such raises occur: each belongs to one window of the iteration of [[sec:iii-i10-3]], of
+width at least η_0 below 2, or to one Taylor level of [[sec:iii-i11-3]], of which there are four. Hence every exponent
+(λ, k) produced with 2 ≤ Re λ ≤ 3 + ε_+ has λ ∈ Λ and k ≤ k̄(λ). These are all the exponents recorded: the ι⁺-data of
+𝒴⁰(α) stop at the weight w_+ − ε, that is, at the u-exponent 3 + ε_+ − ε.
 
-*Proof.* (a) The generators are index sets of real parts at least λ_♯ (ℰ_++ ⊂ ℰ_+ by (H1); min Re ℰ^C_I >
-3/2 + 2γ_Υ > λ_♯, by Step 1 of the proof of [[prop:iii-i5-2-1]]), finitely many below every bound, and the increments
-have real part at least η_0; so below R only sums with at most R/η_0 increments occur. Below 2 the generators lie in
-π_1ℰ_++: λ_♯ does, and so does every element of π_1ℰ^C_I below 2, since [[eq:iii-i1-3-2]] puts it into ℰ^♯_+ and
-ℰ_++ ⊃ ℰ^♯_+ ∩ {Re < 2} by (H1); 𝒢, 3 and 2 + π_1ℰ_col have real part at least 2. And π_1ℰ_++ ∩ {Re < 2} is closed
-under the increments below 2 ([[eq:iii-i8-1-1]]; adding 1 leaves {Re < 2}, as λ_♯ + 1 > 2). So
-Λ ∩ {Re < 2} = π_1ℳ.
+*Proof.* (a) The generators are index sets of real parts at least λ_♯ (ℰ_++ ⊂ ℰ_+ by (H1);
+min Re ℰ^C_I > 3/2 + 2γ_Υ > λ_♯, by Step 1 of the proof of [[prop:iii-i5-2-1]]) and the finite set 1 + 𝒵, whose real
+parts exceed 2, as no indicial root has real part in (0, 1] ([[prop:iii-f1-2-3]] (a)). All are finitely many below every
+bound, and the increments have real part at least η_0, so below R only sums with at most R/η_0 increments occur. Below 2
+the generators lie in π_1ℰ_++: λ_♯ does, and so does every element of π_1ℰ^C_I below 2, since [[eq:iii-i1-3-2]] puts it
+into ℰ^♯_+ and ℰ_++ ⊃ ℰ^♯_+ ∩ {Re < 2} by (H1); 𝒢, 3, 2 + π_1ℰ_col and 1 + 𝒵 have real part at least 2. And
+π_1ℰ_++ ∩ {Re < 2} is closed under the increments below 2 ([[eq:iii-i8-1-1]]; adding 1 leaves {Re < 2}, as
+λ_♯ + 1 > 2). So Λ ∩ {Re < 2} = π_1ℳ.
 
 (b) ℰ_par is an index set: by (a) it has finitely many exponents below each bound, with finitely many logarithms at
 each, and it is closed under (z, k) ↦ (z + 1, k), as Λ + 1 ⊂ Λ, k̄(λ + 1) ≥ k̄(λ) (since n(λ + 1) > n(λ)), and, for
@@ -203,20 +211,23 @@ n(λ̄) = n(λ), and ℳ = ℳ̄. [[eq:iii-i9-1-2]]: min Re ℰ_par ≥ λ_♯, 
 
 *Independence of ℰ_+.* The increments have positive real parts, so Λ ∩ {Re < R} is determined by the generators of real
 part below R, and ℰ_par by Λ ∩ {Re ≤ 3} and k̄_0. Below 2λ_♯ = 3 + 2δ_♯ > 3 + ε_+ ([[eq:iii-i9-1-1]]) nothing used
-involves ℰ_+: 𝒢, ℰ^C_I and ℰ_col do not; the parts of ℰ⁰_src (and of ℰ_rows) that involve ℰ_+, namely ℰ_+ + 𝒢, 2ℰ_+
+involves ℰ_+: 𝒢, ℰ^C_I, ℰ_col and 𝒵 do not; the parts of ℰ⁰_src (and of ℰ_rows) that involve ℰ_+, namely ℰ_+ + 𝒢, 2ℰ_+
 and (λ, k) + ℱ + ℰ_+, have real part at least 2λ_♯ by (H1); and the least ℰ_++ of [[eq:iii-i8-1-1]] agrees below 2λ_♯
-with the least index set that contains ℰ^♯_+ ∩ {Re < 2} and is closed under the addition of ℰ^ι_ind ∪ ℰ_ind, since
-adding an element of ℰ_+ lands at real part at least 2λ_♯. So Λ ∩ {Re ≤ 3}, k̄_0 and ℰ_par do not depend on ℰ_+. The
-conditions on ℰ_+ ((H1); (H3), which with [[eq:iii-i8-1-1]] gives ℰ_+ ⊃ ℰ_par + ℱ; ℰ_+ ⊃ ℰ^♯_+ ∩ {Re < 2}; and
+with the least index set that contains ℰ^♯_+ ∩ {Re < 2} and is closed under the addition of ℰ^ι_ind ∪ ℰ_ind, since adding
+an element of ℰ_+ lands at real part at least 2λ_♯. So Λ ∩ {Re ≤ 3}, k̄_0 and ℰ_par do not depend on ℰ_+. The conditions
+on ℰ_+ ((H1); (H3), which with [[eq:iii-i8-1-1]] gives ℰ_+ ⊃ ℰ_par + ℱ; ℰ_+ ⊃ ℰ^♯_+ ∩ {Re < 2}; and
 ℰ_+ + (ℰ^ι_ind ∪ ℰ_ind ∪ ℰ_+) ⊂ ℰ_+ there) are therefore conditions on ℰ_+ alone, and the least index set that contains
 ℰ_par + ℱ and ℰ^♯_+ ∩ {Re < 2} and is closed under these additions meets them, its exponents being sums of exponents of
 real part at least λ_♯.
 
-(c) The exponents produced lie in Λ, which contains the generators and is closed under the additions listed (the
-exponent 4 of [[eq:iii-g4-4-3]], at the Taylor level j of [[sec:iii-i11-3]], is the u-exponent 3 + j). Logarithmic
-orders, by induction on n(λ): the logarithmic order at λ is the largest over its contributions, each either a
-generator's or a column exponent's (at most k̄_0, as Re λ ≤ 3 + ε_+ < 2λ_♯) or (λ′, k′) + (w, l) with
-Re λ′ < Re λ, k′ ≤ k̄(λ′) and l ≤ l_*, plus at most J_*(l_* + 1) from the raises at λ. As n(λ) ≥ n(λ′) + 1,
+(c) The exponents produced lie in Λ, which contains the generators and is closed under the additions listed (the exponent
+4 of [[eq:iii-g4-4-3]], at the Taylor level j of [[sec:iii-i11-3]], is the u-exponent 3 + j; a root μ met by the zero
+energy solve of the level j lies in 𝒵 and gives the u-exponent μ + j + 1 ∈ (1 + 𝒵) + j, [[lem:iii-i11-2-1]]). Logarithmic
+orders, by induction on n(λ): the logarithmic order at λ is the largest over its contributions, each either a generator's
+or a column exponent's (at most k̄_0, as Re λ ≤ 3 + ε_+ < 2λ_♯) or (λ′, k′) + (w, l) with Re λ′ < Re λ, k′ ≤ k̄(λ′) and
+l ≤ l_*, plus at most J_*(l_* + 1) from the raises at λ. The generators 1 + 𝒵 enter only through the roots met: the
+extended union with a root met at λ is one of these raises, also where nothing else contributes at λ, the order there
+being then at most the multiplicity of the root less 1, so below l_* ([[def:iii-i10-1-1]]). As n(λ) ≥ n(λ′) + 1,
 
     k̄(λ) − k̄(λ′) ≥ (J_* + 1)(l_* + 1) ≥ l_* + J_*(l_* + 1),     and     k̄_0 + J_*(l_* + 1) ≤ k̄(λ).     ∎
 
@@ -519,8 +530,10 @@ u-exponent λ has the K⁺-rate λ − 1 (s1), λ (s0, s2) or λ + d_τ (c0, c1)
 which one of the conditions [[eq:iii-g4-4-2]] of [[prop:iii-g4-4-4]] fails at the levels 1 and 2 below (for the finitely
 many α_0 treated there, with ℓ_zf = α − 1 − j − ε), one of the conditions of [[prop:iii-g4-5-1]] fails at level 3
 (finitely many rounds), or α − 4 − ε is a real part excluded in [[lem:iii-i2-4-2]] or in [[eq:iii-h-1-1]]. Then ε > 0 is
-taken small, with 2ε < ε_+ − η_2, and off a finite set as well. The orders q_j ∈ (2, 3) of the zero energy solves are
-chosen off the real parts of the exponents at hand.
+taken small, with 2ε < ε_+ − η_2, and off a finite set as well; that set contains the ε for which 2 + ε_+ − ε or
+1 + ε_+ − ε is the real part of an indicial root of L̂_b(0), finitely many by [[lem:iii-f1-2-4]], as [[lem:iii-i11-2-1]]
+asks at the levels 0 and 1 below (at the levels 2 and 3, q′ − 2 lies in (0, 1), where there is no root). The orders
+q_j ∈ (2, 3) of the zero energy solves are chosen off the real parts of the exponents at hand.
 
 *The a priori facts.* f^♭ is the forcing of [[prop:iii-i10-3-1]] (c) for f ∈ 𝒴⁰(α), and v is the forward solution of
 L_b v = f^♭. In [[sec:iii-i11-3]], v = u − u_I − u_ι with u as in the hypothesis of [[lem:iii-i11-3-2]], so v has a
@@ -568,24 +581,67 @@ r⁻³G(σr, x) = ρ³_tf G(±r̂, x). ∎
 
 ### The lemmas of the spectral phase {#sec:iii-i11-2}
 
-**Lemma {#lem:iii-i11-2-1}** (Zero energy with expansions.) Let q ∈ (2, 3), q′ ∈ (q, 5], and let
-F ∈ H^(∞,(E,q′))_b(X̄) be partially polyhomogeneous at ∂X with an index set E, min Re E > q. Then
-(û, ḃ, S) := L̃_b(0)⁻¹(F, 0, 0) ([[prop:iii-h-3-2]] at b, with its weight α_H := q − 4, so that α_H + 2 = q − 2 ∈ (0, 1)
-is the L²-b-weight of a forcing of conormal order q) has û ∈ H^(∞,(E′,q′−2))_b(X̄), where E′ is the index set that
-[[lem:iii-a-1-4]] builds from (E − 2) ∪ (1 + ℰ_col) and the indicial roots of L̂_b(0) ([[prop:iii-f1-2-3]]) with real
-part in (q − 2, q′ − 2). Below the real part 3 the only such root is 2 (of type s0: the mass), so E′ lies in the extended
-union of (E − 2) ∪ (1 + ℰ_col) and (2, l_*), plus ℕ₀; in u-exponents at level j these are Λ-valued
-([[lem:iii-i10-1-2]]).
+**Lemma {#lem:iii-i11-2-1}** (Zero energy with expansions.) Let q ∈ (2, 3) and q′ ∈ (q, 5], with q′ − 2 not the real
+part of an indicial root of L̂_b(0), and let F ∈ H^(∞,(E,q′))_b(X̄) be partially polyhomogeneous at ∂X with an index
+set E, min Re E > q. Then (û, ḃ, S) := L̃_b(0)⁻¹(F, 0, 0)
+([[prop:iii-h-3-2]] at b, with its weight α_H := q − 4, so that α_H + 2 = q − 2 ∈ (0, 1) is the L²-b-weight of a forcing
+of conormal order q) has û ∈ H^(∞,(E′,q′−2))_b(X̄), where E′ is the index set that [[lem:iii-a-1-4]] builds from
+(E − 2) ∪ (1 + ℰ_col) and the indicial roots of L̂_b(0) ([[prop:iii-f1-2-3]]) with real part in (q − 2, q′ − 2). These
+roots lie in the set 𝒵 of [[def:iii-i10-1-1]]: each is 2 (of type s0: the mass) or one of the roots ι^C_(·,+) − 1 that
+come from □^C, whose real parts exceed 1; for γ_C ≥ 10⁶ at least four of the latter lie in (1, 2) ([[lem:s22-c-roots]]).
+So E′ lies in the extended union of (E − 2) ∪ (1 + ℰ_col) and the (μ, l_*), μ ∈ 𝒵 with q − 2 < Re μ < q′ − 2, plus ℕ₀. In
+u-exponents at the Taylor level j (the dictionary of [[sec:iii-i11-1]]), E − 2 has those of F, 1 + ℰ_col gives (2 +
+π_1ℰ_col) + j and a root μ gives μ + j + 1 ∈ (1 + 𝒵) + j; as these lie in Λ and Λ + 1 ⊂ Λ, the u-exponents of E′ are
+Λ-valued ([[lem:iii-i10-1-2]]) when those of F are.
 
 *Proof.* [[prop:iii-h-3-2]] at b ([[lem:iii-i15-1-1]] (P4)) gives û ∈ H^(∞,q−2)_b (conormal order q − 2, as in Step 3.1
 of the proof of [[prop:iii-i6-2-1]]). Near ∂X, L̂_b(0) = ρ²A with A an elliptic b-operator ([[sec:iii-f1-2]], as the
-proof of [[prop:iii-f4-5-1]] uses it), and L̂_b(0)û = F − f̂_ḃ(0) − f̂_S(0) there, with
-f̂_ḃ(0), f̂_S(0) ∈ 𝒜^(3+ℰ_col) ([[lem:iii-i11-1-1]]). [[lem:iii-a-1-4]] with the weight q − 2 and with F replaced by ρ⁻²
-times the right side (index set (E − 2) ∪ (1 + ℰ_col), remainder q′ − 2), applied finitely many times, each time from
-the remainder order the previous application gave (each gains less than 1), gives the expansion up to q′ − 2. The
-roots, which do not depend on b ((P2)): [[prop:iii-f1-2-3]] (a) (none in (0, 1]) and its list of decaying roots: 2 for
-s0; 3, 1 + λ^Υ_(s1,2), 1 + λ^Υ_(s1,3) and 5 for s1; 3 and 4 for v1; l + 2 ≥ 4 and above for l ≥ 2; and
-1 + λ^Υ_(s0,2) ∈ (3, 3 + z_Υ/3] and 4 for s0. ∎
+proof of [[prop:iii-f4-5-1]] uses it), and L̂_b(0)û = F − f̂_ḃ(0) − f̂_S(0) there, with f̂_ḃ(0), f̂_S(0) ∈ 𝒜^(3+ℰ_col)
+([[lem:iii-i11-1-1]]). [[lem:iii-a-1-4]] with the weight q − 2 and with F replaced by ρ⁻² times the right side (index set
+(E − 2) ∪ (1 + ℰ_col), remainder q′ − 2), applied finitely many times, each time from the remainder order the previous
+application gave (each gains less than 1), gives the expansion up to q′ − 2. [[lem:iii-a-1-4]] asks that the order up to
+which it expands not be the real part of a root: the intermediate orders are chosen so, the roots being finitely many in
+every strip ([[lem:iii-f1-2-4]]), and q′ − 2 is so by hypothesis. The roots, which do not depend on b ((P2)), enter with
+real part in (q − 2, q′ − 2) ⊂ (0, 3), as q′ ≤ 5; so they lie in 𝒵. By [[prop:iii-f1-2-3]] (a) none has real part in
+(0, 1], and its list of the roots after the semicolons gives, below the real part 3, the root 2 for s0 and the roots
+ι^C_(·,+) − 1 at s0, s1, sl and vl (l ≥ 2), of real part above 1 by (C1) (the bounds in its proof), and nothing else: the
+other entries are 4 and 1 + ι^Υ_(s0,2) ∈ (3, 3 + z_Υ/3] for s0; 3, 5, 1 + ι^Υ_(s1,2) ∈ (3, 13/4) and 1 + ι^Υ_(s1,3) ∈
+(4, 17/4) for s1; 3 and 4 for v1; and, at degree l ≥ 2, l + 2, l + 3, l + 4 and 1 + ι^Υ_(sl,l+j) ∈
+(l + j + 1, l + j + 5/4), all at least 4. By the dictionary of [[sec:iii-i11-1]] an exponent w of û at ∂X, at the Taylor
+level j, is the u-exponent w + j + 1: for w = ζ − 2, ζ an exponent of E, this is the u-exponent ζ + j − 1 of the
+tf-exponent ζ of the forcing; for w = 1 + c, c ∈ π_1ℰ_col, it is 2 + c + j; and for a root μ it is μ + j + 1. As
+2 + π_1ℰ_col ⊂ Λ, 1 + 𝒵 ⊂ Λ and Λ + 1 ⊂ Λ ([[def:iii-i10-1-1]]), this gives the last statement. ∎
+
+**Lemma {#lem:s22-c-roots}** (Roots from □^C below 2.) Let z_Υ ∈ (0, ½], let (v_C, e_C) = (1/2, 1/102400) be the
+constants of [[eq:iv4-0-1]], and let γ_C ≥ 10⁶. Then (C1) holds, and the numbers ι^C_(s0,+) − 1, of type s0,
+ι^C_(s1,+,1) − 1 and ι^C_(s1,+,2) − 1, of type s1, one in (1, 3/2) and one in (3/2, 2), and ι₂ − 1, of type s2, where ι₂
+is the root of P_2 of [[lem:ec-lb-ind]] at h = γ_C⁻¹, with 0 < ι₂ − 2 < 40/(13γ_C), are real indicial roots of L̂_b(0) in
+(1, 2). They lie in 𝒵 ([[def:iii-i10-1-1]]) and in the window (1 − ε, 2 + ε_+ − ε) of the zero energy solve of level 0
+(Step 1 of the proof of [[prop:iii-i11-3-1]]).
+
+*Proof.* Put h := γ_C⁻¹ ∈ (0, 10⁻⁶] and e := e_C. The indicial roots of □^C_b at scalar type 0 and at scalar type l ≥ 1
+are the roots of P_0 = −(ι − 2)C and of P_l of [[prop:np-10-12]] (iii) at this h (the proof of [[lem:iv4-1-3]]), and
+(C1), with C_0 = 100, is [[lem:iv4-1-3]] (a). At v = 1/2, [[eq:s14-c0]] gives
+
+    C(2) = 3(h + 2h² + 5e + 2eh) > 0,     C(3) = −2 + 20e − 6h + 12eh < 0,
+
+the latter as 20e + 12eh < 1. So C has a real root in (2, 3); as C has exactly one root of real part above 2 (the proof
+of [[prop:np-10-54]]), this is that root, ι^C_(s0,+) by (C1). At scalar type 1, where κ = 3, P_1(2) = 0 and
+P_1 = (ι − 2)P̃_1, with P̃_1(2) = ∂_ιP_1(2) = f₁ < 0 by [[lem:s14-line-two]] (a). [[eq:s14-f-two]] at κ = 3 and w = 1,
+resp. w = 1/2, gives
+
+    P_1(3) = −9e + (4 − 10e)h + 15h²,
+    P_1(5/2) = 1/4 − 71e/8 + (21/16 − 83e/4)h − (55/16 + 189e/32)h² − 945h³/64.
+
+As 9e > 8.7·10⁻⁵ > 4h + 15h², P_1(3) < 0; as 1/4 − 71e/8 > 0.24, (21/16 − 83e/4)h > 0 and (55/16 + 189e/32)h² +
+945h³/64 < 10⁻¹¹, P_1(5/2) > 0. So P̃_1, with P̃_1(3) = P_1(3) and P̃_1(5/2) = 2P_1(5/2), is negative at 2 and at 3 and
+positive at 5/2, and it has a real root in each of (2, 5/2) and (5/2, 3). By [[prop:s14-scalar-every-h]], P_1 has,
+counted with multiplicity, exactly three roots of real part at least 2: the simple root 2 and two of real part above 2.
+So these two real roots are the roots of P̃_1 of real part above 2, by (C1) ι^C_(s1,+,1) and ι^C_(s1,+,2). At scalar type
+2, [[lem:ec-lb-ind]] gives a real root ι₂ of P_2 with 0 < (40/13)h(1 − 5·10⁴h) < ι₂ − 2 < (40/13)h, which by (C1) is one
+of the ι^C_(s2,+,j). The list of [[prop:iii-f1-2-3]] contains ι^C_(s0,+) − 1, the ι^C_(s1,+,j) − 1 and the ι^C_(s2,+,j) −
+1 at the types s0, s1 and s2; so the four numbers of the statement are indicial roots of L̂_b(0) of these types. Their
+real parts lie in (1, 2) ⊂ (0, 3), so they lie in 𝒵, and in (1 − ε, 2 + ε_+ − ε), as 0 < ε < ε_+. ∎
 
 **Lemma {#lem:iii-i11-2-2}** (One level.) Let j ∈ {0, 1, 2, 3} and g ∈ H^(∞,(5/2−ε,(E,κ),((0,0),z)))_b(X^±_(sc-b))
 with z > 0, its zf-coefficient g(0) ∈ H^(∞,(E,κ))_b(X̄), and let (û, ḃ, S) be as in [[lem:iii-i11-2-1]] for F = g(0)
@@ -719,11 +775,13 @@ with tf-exponents of real part at least 3 and u-exponents (level 0) in Λ. We co
 [[lem:iii-i11-2-5]].
 
 *Step 1 (level 0; [Hin26, Step 2.A.3]).* [[lem:iii-i11-2-1]] with q_0 := 3 − ε, q′ := w_+ − 1 − ε and F = g_0(0) gives
-(û_0, ḃ_0, S_0), the same for both signs; û_0 has the exponents (ℰ^♭ − 1) ∪ (1 + ℰ_col) ∪ (2, ·) (and their
-ℕ₀-shifts) below q′ − 2 = 2 + ε_+ − ε, the root 2 being the mass. S_0 = 0 by the argument of Step 3.1 of the proof of
-[[prop:iii-i6-2-1]] (f^♭ lies in the space of Step 3 of the proof of [[prop:iii-i5-2-1]], and v has K⁺-weight above
-−1). Pieces: χ_zf û_0 and ĝ^aug(ḃ_0). [[lem:iii-i11-2-2]] gives g_1, with tf-exponents of real part at least 2,
-u-exponents in Λ (level 1), tf-weight 3 + ε_+ − ε, and zf-data ((0, 0), α − 2 − ε).
+(û_0, ḃ_0, S_0), the same for both signs; below q′ − 2 = 2 + ε_+ − ε, û_0 has the exponents (ℰ^♭ − 1) ∪ (1 + ℰ_col) and
+(μ, ·) for the roots μ ∈ 𝒵 with Re μ < 2 + ε_+ − ε (and their ℕ₀-shifts): the root 2, the mass, and the roots
+ι^C_(·,+) − 1 of real part in (1, 2 + ε_+ − ε) that come from □^C (for γ_C ≥ 10⁶ at least four of them,
+[[lem:s22-c-roots]]). Their u-exponents μ + 1 lie in 1 + 𝒵 ⊂ Λ. S_0 = 0 by the argument of Step 3.1 of the proof of
+[[prop:iii-i6-2-1]] (f^♭ lies in the space of Step 3 of the proof of [[prop:iii-i5-2-1]], and v has K⁺-weight above −1).
+Pieces: χ_zf û_0 and ĝ^aug(ḃ_0). [[lem:iii-i11-2-2]] gives g_1, with tf-exponents of real part at least 2, u-exponents in
+Λ (level 1), tf-weight 3 + ε_+ − ε, and zf-data ((0, 0), α − 2 − ε).
 
 *Step 2 (level 1; [Hin26, Steps 2.A.4–2.A.5]).* For each tf-exponent (α_0, k) of g_1 with 2 ≤ Re α_0 < 2 + η_1 (finitely
 many), [[prop:iii-g4-4-4]] with ℓ_zf := α − 2 − ε and ℓ_scf := 3/2 − ε applies (admissibility) to the corresponding
@@ -820,20 +878,22 @@ t_*^(−z−1)(log t_*)^l, with z = α_0 − 3 + j for s1, α_0 − 2 + j for v1
 derivatives come from (−iσ)^i ↔ ∂^i_(t_*), as (σ + i0)^z σ^i = (σ + i0)^(z+i): the tail of a tower piece is the tower
 Σ_i a^((i)) h̆^i_τ of a := 𝒯_+c.
 
-*Step 6 (the stationary terms and the rows).* v has K⁺-weight w_v > 0, and every other term above decays
-(Re z + 1 > 0); so the stationary tensor ġ(ḃ_0) + h(iS_1) (S_1 being independent of the sign by Step 5) vanishes, and
-ḃ_0 = 0, S_1 = 0 ([[eq:iii-h-3-1]]), as in Step 6 of the proof of [[lem:iii-i8-3-2]]. The towers: at level 1 (j = 1,
-2 ≤ Re α_0 < 2 + η_1, u-exponent α_0) the s1 tower has the rate α_0 − 1 and is the row (s1, α_0, ·); the s0 and s2
-towers have the rate α_0, below α − 2 only for Re α_0 = 2 by (G) (the rows (s0, 2, ·), (s2, 2, ·)); the c0, c1 towers
-have the rate α_0 + d_τ > 2 + ε_K by (G); the rows outside 𝒯 have rate at least α_0 + 1; and the v1 tower, whose
-coefficient a = 𝒯_+c_v1 has the exponents (α_0 + j − 1, ·) = (α_0, ·), has the rate α_0 through its bottom
-a h_(b,v1)(V^(−1)_1), and the rate α_0 + 1 when h_(b,v1) = 0. By (G) the v1 towers with Re α_0 > 2 have rate above
-2 + ε_K ≥ α − 2; those with Re α_0 = 2 form v^rot. At level 2 (u-exponent α_0 + 1, of real part in [2 + η_1, 3 + η_2))
-only the s1 tower can have a rate α_0 < 2 + ε_K, and by (G) then Re(α_0 + 1) ≤ 3; the s0, s2 and v1 towers have rate
-at least α_0 + 1 ≥ 2 + η_1 > 2 + ε_K. So the towers of rate below α − 2, other than those of v^rot, are those of the
-rows of 𝒩_σ, with (λ, k) ∈ ℰ_par by [[lem:iii-i10-1-2]] (c). By [[lem:iii-i10-2-1]], each such tower is m_ν(S_ν) in
-{r ≤ R} for large t_*, up to the terms with a^((i)), i ≥ 4 (s1), i ≥ 3 (s0, s2), of rate at least
-Re e_ν + 3 > α − 2; and the towers of rate at least α − 2 are O(t_*^(−α+2+3ε)). Hence
+*Step 6 (the stationary terms and the rows).* v has K⁺-weight w_v > 0, and every other term above decays (Re z + 1 > 0);
+so the stationary tensor ġ(ḃ_0) + h(iS_1) (S_1 being independent of the sign by Step 5) vanishes, and ḃ_0 = 0, S_1 = 0
+([[eq:iii-h-3-1]]), as in Step 6 of the proof of [[lem:iii-i8-3-2]]. The towers: at level 1 (j = 1, 2 ≤ Re α_0 < 2 + η_1,
+u-exponent α_0) the s1 tower has the rate α_0 − 1 and is the row (s1, α_0, ·); the s0 and s2 towers have the rate α_0,
+below α − 2 only for Re α_0 = 2 by (G) (the rows (s0, 2, ·), (s2, 2, ·)); the c0, c1 towers have the rate α_0 + d_τ >
+2 + ε_K by (G); the rows outside 𝒯 have rate at least α_0 + 1; and the v1 tower, whose coefficient a = 𝒯_+c_v1 has the
+exponents (α_0 + j − 1, ·) = (α_0, ·), has the rate α_0 through its bottom a h_(b,v1)(V^(−1)_1), and the rate α_0 + 1
+when h_(b,v1) = 0. By (G) the v1 towers with Re α_0 > 2 have rate above 2 + ε_K ≥ α − 2; those with Re α_0 = 2 form
+v^rot. At level 2 (u-exponent α_0 + 1, of real part in [2 + η_1, 3 + η_2)) only the s1 tower can have a rate α_0 <
+2 + ε_K, and by (G) then Re(α_0 + 1) ≤ 3; the s0, s2 and v1 towers have rate at least α_0 + 1 ≥ 2 + η_1 > 2 + ε_K. The
+roots μ ∈ 𝒵 met at level 0 enter here: such a root gives g_1 the tf-exponent μ + 1 (Step 1), which level 1 treats if
+Re μ < 1 + η_1 and which otherwise gives g_2 the tf-exponent μ (Step 2); where it is treated, the s1 tower has the
+u-exponent 1 + μ ∈ Λ and the rate Re μ, which by (G) is below α − 2 exactly when Re μ ≤ 2. So the towers of rate below
+α − 2, other than those of v^rot, are those of the rows of 𝒩_σ, with (λ, k) ∈ ℰ_par by [[lem:iii-i10-1-2]] (c). By
+[[lem:iii-i10-2-1]], each such tower is m_ν(S_ν) in {r ≤ R} for large t_*, up to the terms with a^((i)), i ≥ 4 (s1), i ≥
+3 (s0, s2), of rate at least Re e_ν + 3 > α − 2; and the towers of rate at least α − 2 are O(t_*^(−α+2+3ε)). Hence
 v − Σ_(ν∈𝒩_σ) m_ν(S_ν) − v^rot = O(t_*^(−α+2+3ε)) in {r ≤ R}, with all t_*∂_(t_*)- and spatial derivatives.
 
 *Step 7 (joint weights).* The sum of the pieces other than the columns with constant coefficients lies, on each half, in
@@ -1031,14 +1091,15 @@ F are real and T commutes with the conjugation of [[sec:iii-i9-1]].
 
 *Uniqueness.* If p⃗″ also gives [[eq:iii-i11-4-2]] at α, its solution lies in [[eq:iii-i8-4-2]] at α′, so its
 𝒫_(α′)-part is q⃗(W⃗″) by the uniqueness at α′ ([[prop:iii-i8-4-1]]), where W⃗″ is its 𝒩′-part; then C(W⃗″) = 0, so
-W⃗″ = W⃗. *Linearity, bounds, continuity:* linearity holds by construction. Write ‖F‖ := ‖F‖_(𝒴⁰(α)); F lies in
-𝒴(α′) with ‖F‖_(𝒴(α′)) ≤ C‖F‖. By [[prop:iii-i8-4-1]] (i) at α′, |q⃗(0)| ≤ C‖F‖ and ‖u(0)‖_(α′) ≤ C‖F‖, with the
-seminorm ‖·‖_(α′) taken as above; so ‖G(0)‖_(𝒴⁰(α)) ≤ C‖F‖ and, as above, ‖u_0(0)‖_(w_0) ≤ C‖F‖. The bound of
-[[lem:iii-i11-3-2]] then gives |C(0)| ≤ C‖F‖, so |W⃗| ≤ 2|C(0)| ≤ C‖F‖, and (i) at α′ for the forcing F(W⃗), of size at
-most C‖F‖ in 𝒴(α′), gives |q⃗(W⃗)| ≤ C‖F‖ and ‖u(W⃗)‖_(α′) ≤ C‖F‖. So |p⃗′_(h,p⃗)(F)| ≤ C‖F‖, and likewise
-‖G(W⃗)‖_(𝒴⁰(α)) ≤ C‖F‖ and ‖u_0(W⃗)‖_(w_0) ≤ C‖F‖, with C uniform for (h, p⃗) small. Continuity at
-(0, 0) as in [[prop:iii-i8-4-1]] (ii), with [[lem:iii-i11-3-3]] at b_0, whose hypothesis (the solutions u_0 bounded)
-these bounds give. ∎
+W⃗″ = W⃗. *Linearity, bounds, continuity:* linearity holds by construction. With the seminorm ‖·‖_(α′) taken as
+above, let ‖·‖^+_(𝒴(α′)) be the seminorm of [[prop:iii-i8-4-1]] (i) at α′ for it, and write ‖F‖ for a seminorm of
+𝒴⁰(α) of large enough regularity ([[sec:iii-i8-1]]): it bounds ‖F‖_(𝒴⁰(α)), and F lies in 𝒴(α′) with
+‖F‖^+_(𝒴(α′)) ≤ C‖F‖. By (i) at α′, |q⃗(0)| ≤ C‖F‖ and ‖u(0)‖_(α′) ≤ C‖F‖; so ‖G(0)‖_(𝒴⁰(α)) ≤ C‖F‖ and, as
+above, ‖u_0(0)‖_(w_0) ≤ C‖F‖. The bound of [[lem:iii-i11-3-2]] then gives |C(0)| ≤ C‖F‖, so |W⃗| ≤ 2|C(0)| ≤ C‖F‖,
+and (i) at α′ for the forcing F(W⃗), of size at most C‖F‖ in ‖·‖^+_(𝒴(α′)), gives |q⃗(W⃗)| ≤ C‖F‖ and
+‖u(W⃗)‖_(α′) ≤ C‖F‖. So |p⃗′_(h,p⃗)(F)| ≤ C‖F‖, and likewise ‖G(W⃗)‖_(𝒴⁰(α)) ≤ C‖F‖ and ‖u_0(W⃗)‖_(w_0) ≤ C‖F‖, with
+C uniform for (h, p⃗) small. Continuity at (0, 0) as in [[prop:iii-i8-4-1]] (ii), with [[lem:iii-i11-3-3]] at b_0,
+whose hypothesis (the solutions u_0 bounded) these bounds give. ∎
 
 At a base point with black hole parameter b ∈ ℬ̄_*, the elimination is [[prop:iii-i15-2-5]] with q = 0: when
 h_(b,v1) ≠ 0 the v1 terms u^rot of [[lem:iii-i11-3-2]] are not removed by the parameters of 𝒫, whose v1 rows carry the
@@ -1201,8 +1262,9 @@ growing boost section h̆²(S′), S′ ≠ 0.
 ρ⁻²L_0X ∈ 𝒜¹, [[lem:iii-a-1-4]] (stated on H^(∞,α)_b; passing from 𝒜^a costs an ε in the weight, which is immaterial
 here) makes X polyhomogeneous modulo 𝒜^(1−ε), with exponents in the indicial roots of real part in (a, 1) plus ℕ₀; a
 logarithm can occur only where a root meets a lower one plus an integer, so the lowest exponent carries none, the roots
-being simple. Let μ_0 be the least real part of an exponent of X, and suppose μ_0 ≤ 0. As every indicial root is simple
-([[sec:iii-g2-1]]), the argument of the proof of [[thm:iii-g2-3-1]] (the lowest term) applies: the top logarithm at μ_0
+of real part in (a, 1) lying in (−3, 0] ([[prop:iii-f1-2-3]] (a)) and being simple ([[prop:iii-f1-2-3]] (g)). Let μ_0
+be the least real part of an exponent of X, and suppose μ_0 ≤ 0. As the roots of real part μ_0 > −3 are simple, the
+argument of the proof of [[thm:iii-g2-3-1]] (the lowest term) applies: the top logarithm at μ_0
 vanishes, μ_0 is a root in 𝒲 (real), and the ρ^(μ_0)-coefficient is Σ_τ h̄_τ(Y_τ) ([[lem:iii-g2-1-2]]). Subtract, for
 every type, the element of ker L_0 listed above with this leading term (for v1 at −1, h̆¹_(b_0,v1)(V)), and for s1 at −1
 the section h̆²(S′), h̄_s1(S′) being the s1-component; then μ_0 rises (the corrections of the states are smaller by
@@ -1218,9 +1280,9 @@ Q := X_1 + w_ḃ + w_(S+S′) ∈ 𝒜¹, which lies in the space 𝒳_0 of [[ch
 u_e ∈ ker L_0 ∩ 𝒳_0 with r(u_e) = −r(Q) (possible by the normalisation [[eq:iii-h-3-1]] of the rows f*_1, f*_2 of
 L̃_(b_0)(0)). Then L̃_(b_0)(0)(−Q − u_e, ḃ, S + S′) = (0, 0), and [[prop:iii-h-3-2]] gives ḃ = 0 and S′ = −S.
 
-(a) The reduction of p ends in p_1 ∈ 𝒜¹ ∩ ker L_0 once S′ = 0, which is (b) with ḃ = 0 and S = 0. Then p_1 ∈ 𝒜^(2−)
-(the next roots are at least 2) lies in the domain of [[prop:iii-f3-4-1]] for a small weight, whose nullspace (1) is
-spanned by ġ(ḃ) and h(S). Uniqueness: Y ↦ h̄_τ(Y) is injective ([[lem:iii-g2-1-2]]), and that nullspace is
+(a) The reduction of p ends in p_1 ∈ 𝒜¹ ∩ ker L_0 once S′ = 0, which is (b) with ḃ = 0 and S = 0. As 𝒜¹ ⊂ H̄_b^(s,α) near
+∂X for α < 1, p_1 lies in the nullspace of [[eq:iii-f3-4-1]] at a weight α ∈ (0, 1), which is spanned by ġ(ḃ) and h(S)
+([[prop:iii-f3-4-1]] (1)). Uniqueness: Y ↦ h̄_τ(Y) is injective ([[lem:iii-g2-1-2]]), and that nullspace is
 eleven-dimensional. The last statement: a state of root μ grows like r^(−μ). ∎
 
 **Lemma {#lem:iii-i12-2-4}** (Formal solutions at K⁺.) Let b = b_0, β ∈ (α − 1, α], and
@@ -1426,10 +1488,11 @@ have the order at least 3 + η_2 − 2ε at ι⁺ (α_κ + 2 for (viii); at leas
 
 *Step 6 (the rest).* Every map used is linear and bounded, uniformly for (h, p⃗) small ([[lem:iii-i11-3-2]],
 [[thm:iii-i11-4-1]], [[lem:iii-i12-2-1]]–[[lem:iii-i12-2-4]]), and is applied to the forcing f′ of Step 0, whose size
-is at most C‖F‖_(𝒴⁰(α)). Put w_(α′) := min(α′ − 2, λ_♯ − 1), with α′ ∈ (2, 3) the admissible level fixed in the proof of
-[[thm:iii-i11-4-1]]: ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0‖_(w_(α′)) are at most C‖F‖_(𝒴⁰(α)) by the bounds in that proof, and
-‖(L_(h,p⃗) − L_(b_0))u_0‖_(𝒴⁰(α)) ≤ C(‖h‖ + |p⃗|)‖u_0‖_(w_(α′)) by the count of Step 0 of the proof of
-[[lem:iii-i11-3-2]]. Reality: u is real and the towers are real (the conjugate of T_ψ(Y) is T_ψ(Ȳ)), so replacing
+is at most C‖F‖, ‖F‖ being the seminorm of 𝒴⁰(α) of large enough regularity at the end of the proof of
+[[thm:iii-i11-4-1]]. Put w_(α′) := min(α′ − 2, λ_♯ − 1), with α′ ∈ (2, 3) the admissible level fixed in that proof:
+‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0‖_(w_(α′)) are at most C‖F‖ by the bounds there, and ‖(L_(h,p⃗) − L_(b_0))u_0‖_(𝒴⁰(α)) ≤
+C(‖h‖ + |p⃗|)‖u_0‖_(w_(α′)) by the count of Step 0 of the proof of [[lem:iii-i11-3-2]]. Reality: u is real and the
+towers are real (the conjugate of T_ψ(Y) is T_ψ(Ȳ)), so replacing
 every coefficient and ũ by their real parts keeps [[eq:iii-i12-3-1]]–[[eq:iii-i12-3-3]], ℰ_♯ being closed under
 conjugation. L_(b_0)(χ_K u_exp) has K⁺-order α − ε by the tower relations, as in Step 3. ∎
 
@@ -1456,8 +1519,8 @@ depends on w and these seminorms and is uniform for (h, p⃗) small. This is not
 this section, 𝒩″ = 𝒩, G is the G(W⃗) of Step 0, and the coefficients W_ν are the S_ν of Step 0, which are the row
 components of p⃗′ (the C_ν vanish). Take for w the number w_(α′) = min(α′ − 2, λ_♯ − 1) of Step 6, which lies in
 (0, w_0]. The bounds at the end of the proof of [[thm:iii-i11-4-1]], which hold for every choice of the seminorms of
-large enough regularity, give |p⃗′_(h,p⃗)(F)|, ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0(W⃗)‖_(w) at most C‖F‖_(𝒴⁰(α)); so the three
-terms are at most C‖F‖_(𝒴⁰(α)), which is the bound of Step 6.
+large enough regularity, give |p⃗′_(h,p⃗)(F)|, ‖G(W⃗)‖_(𝒴⁰(α)) and ‖u_0(W⃗)‖_(w) at most C‖F‖, with ‖F‖ a seminorm of
+𝒴⁰(α) of larger regularity, as there; so the three terms are at most C‖F‖, which is the bound of Step 6.
 
 ### Admissible levels and enlarged sources {#sec:iii-i13-1}
 

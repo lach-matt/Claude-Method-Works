@@ -4,9 +4,9 @@ sec:iii-e-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:18	III.E section 1
 eq:iii-e-1-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:25	III.E (1.1)	
 eq:iii-e-1-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:30	III.E (1.2)	
 thm:iii-e-1-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:37	III.E Theorem 1.1 as proved by IV(4) Theorem 2.1 and IV(6) Theorem 4.1	constants of IV(4) (0.1), gamma_C = 1/h with h in H (IV(4) findings 1-2 folded); C_0 in [3/2,100] from IV(6) T4.1
-sec:iv4-0	docket68/n1star/proof5/PART-IV5-CDMODES.md:17	IV(4) section 0	damping constants fixed once (replaces VI.C section 3)
-eq:iv4-0-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:31	IV(4) (0.1)	Z also contains the countable set of NP 10.54 (d) / 10.52
-eq:iv4-0-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:21	IV(4) section 0, display of h^2 box^C	
+sec:iv4-0	docket68/n1star/proof5/PART-IV5-CDMODES.md:17	IV(4) section 0	damping constants fixed once (replaces VI.C section 3); the theorems at admissible points; 𝖧 is where thm:iii-e-1-1 is stated (P-ADM text 54)
+eq:s14-lh	docket68/n1star/proof5/PART-IV5-CDMODES.md:23-24	IV(4) section 0, display of h^2 box^C ([Hin26a] (3.2) with L_(g,c,e,h))	the display formerly keyed eq:iv4-0-2 (row removed), now under this key
+eq:iv4-0-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:31	IV(4) (0.1)	Z also contains the countable set of NP 10.54 (d) / 10.52; names sec:s14-exceptional: 𝖹₂ empty, 10⁻⁶ ∉ 𝖹, 𝖹 meets [5·10⁻¹¹, 10⁻⁶] (P-T49 text 3)
 sec:s14-model	docket68/n1star/N1STAR-PROOF.md:3414	NP 10.12-10.14, 10.21-10.22, 10.54, 10.79	program steps written as derivations
 lem:s14-box-c	docket68/n1star/N1STAR-PROOF.md:3438	NP 10.12 (U2), (10.46)	box^C = Box_g + h^-1 L_c; derivation added
 eq:s14-lc	docket68/n1star/N1STAR-PROOF.md:3438	NP 10.12 (U2)	formula derived
@@ -18,82 +18,141 @@ lem:s14-q5	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (10.47): properties of 
 lem:s14-small-h	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (U3) h = 0 limits; NP 10.54 (d)	new lemma; replaces values at h = 10^-6
 eq:s14-ttau	docket68/n1star/N1STAR-PROOF.md:3445	NP 10.12 (U3), the very negative roots	
 prop:np-10-54	docket68/n1star/N1STAR-PROOF.md:7381	NP 10.54 Proposition 10.44 and (a)	vector type and scalar type 0 by hand; scalar type l >= 1 from prop:s14-scalar-every-h (proof A3); (iii) finiteness in strips by rescaling and Hurwitz
+rem:s14-u6	docket68/n1star/N1STAR-PROOF.md:3459-3462	NP 10.12 (U6) (numerical, a measurement)	numerical observation remark (class (b)); no proof uses it
 prop:np-10-13	docket68/n1star/N1STAR-PROOF.md:3529	NP 10.13 Proposition 10.10 (i)-(v)	by hand; the numerical estimate e_0 ~ 0.000069 v^2 is not stated
 eq:s14-ell	docket68/n1star/N1STAR-PROOF.md:3529	NP 10.13 (i); [Hin26a] (3.3)	
 eq:s14-s	docket68/n1star/N1STAR-PROOF.md:3557	NP 10.13 proof: S = (L - L*)/(2ih)	
-prop:np-10-14	docket68/n1star/N1STAR-PROOF.md:3593	NP 10.14 Proposition 10.11 (i)-(iv) and (a)-(c)	(i),(ii),(iv) and (5.8) by hand; (iii) written proof, trace and determinant numerators in app:tables; (b) smoothing written out; measurement (v) kept as rem:s14-r0
+eq:s14-s-ang	docket68/n1star/N1STAR-PROOF.md:3540-3541; docket68/n1star/N1STAR-PROOF.md:3549-3550	NP 10.13 Proposition 10.10 (iii) and its proof (S from its definition; semiclass5 W2)	S on r dω written out by hand in the proof of prop:np-10-13; no record display
+eq:s14-s-rad	docket68/n1star/N1STAR-PROOF.md:3540-3541; docket68/n1star/N1STAR-PROOF.md:3549-3550	NP 10.13 Proposition 10.10 (iii) and its proof (S from its definition; semiclass5 W2)	the matrices of s and B on span{dt, dr} written out by hand; no record display
+rem:s14-e0	docket68/n1star/N1STAR-PROOF.md:3542-3543	NP 10.13 Proposition 10.10 (iii), the largest admissible e (W4)	numerical observation remark (class (b)); no proof uses it
+prop:np-10-14	docket68/n1star/N1STAR-PROOF.md:3593	NP 10.14 Proposition 10.11 (i)-(iv) and (a)-(c)	(i),(ii),(iv) and (5.8) by hand; (iii) written proof, trace and determinant numerators in sec:tab-s14-numerators (Appendix B); (b) smoothing written out; measurement (v) kept as rem:s14-r0
 eq:s14-tang	docket68/n1star/N1STAR-PROOF.md:3586	NP (10.48)	
 eq:s14-cform	docket68/n1star/N1STAR-PROOF.md:3593	NP (10.49)	
 eq:s14-q	docket68/n1star/N1STAR-PROOF.md:3611	NP 10.14 (iv), polynomial q	
+rem:s14-r0	docket68/n1star/N1STAR-PROOF.md:3616-3618	NP 10.14 Proposition 10.11 (v) (a measurement, C6)	numerical observation remark (class (b)); no proof uses it
 prop:np-10-21	docket68/n1star/N1STAR-PROOF.md:4216	NP 10.21 Proposition 10.18 (i)-(iii)	(ii) stated through the isometry t -> -t
+eq:s14-theta-in	docket68/n1star/N1STAR-PROOF.md:4223-4225; docket68/n1star/N1STAR-PROOF.md:4035-4038	NP 10.21 Proposition 10.18 (ii) (K2); NP 10.19 (a), vartheta_in = -2 S-bar	ϑ_in at the bottom h⁻¹(1 − e)(1 + v) of the spectrum written out
 prop:np-10-22	docket68/n1star/N1STAR-PROOF.md:4336	NP 10.22 Proposition 10.19 (i)-(iv)	
 prop:np-10-79	docket68/n1star/N1STAR-PROOF.md:10042	NP 10.79 (i)-(v)	threshold quadratic chi derived in closed form
 eq:s14-chi	docket68/n1star/N1STAR-PROOF.md:10075	NP 10.79 (v)	
+sec:s14-every-h	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:3-198	proof A3, the scalar type l >= 1 for every h in (0, 10^-6]	merged verbatim from the confirmed proof A3, as a section at the end of sec:s14-model before sec:iv4-1; the placement comment (line 1) dropped; the opening's sentence on cor:s14-remote-point dropped, that corollary being moved into sec:s14-pa
+lem:s14-half-plane-count	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:19-30	proof A3 Lemma, counting roots in a half-plane	merged verbatim from the confirmed proof A3
+sec:s14-every-h-two	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:32-91	proof A3, the line Re iota = 2	merged verbatim from the confirmed proof A3
+eq:s14-hn-two	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:36-38	proof A3, the matrix at iota = 2 + w	merged verbatim from the confirmed proof A3
+eq:s14-ph-two	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:45-49	proof A3, P^(0)-P^(3)	merged verbatim from the confirmed proof A3
+eq:s14-f-two	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:55-61	proof A3, the coefficients f_0-f_6	merged verbatim from the confirmed proof A3
+lem:s14-line-two	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:63-91	proof A3 Lemma, the line Re iota = 2	merged verbatim from the confirmed proof A3
+eq:s14-d-two	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:81-85	proof A3, the coefficients d_0-d_3	merged verbatim from the confirmed proof A3
+sec:s14-every-h-far	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:93-132	proof A3, the line Re iota = -1/(2h)	merged verbatim from the confirmed proof A3
+lem:s14-line-far	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:95-132	proof A3 Lemma, the line Re iota = -1/(2h)	merged verbatim from the confirmed proof A3
+eq:s14-y	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:102-104	proof A3, the matrix Y	merged verbatim from the confirmed proof A3
+sec:s14-every-h-count	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:134-198	proof A3, the count	merged verbatim from the confirmed proof A3 (without the corollary at 200-206)
+lem:s14-limit-sides	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:136-153	proof A3 Lemma, the limits as h -> 0+	merged verbatim from the confirmed proof A3
+prop:s14-scalar-every-h	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:155-198	proof A3 Proposition, the scalar type l >= 1 for every h	merged verbatim from the confirmed proof A3 with the paragraph after it; cited by prop:np-10-54
 sec:iv4-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:42	IV(4) section 1	
-lem:iv4-1-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:44	IV(4) Lemma 1.1	
-lem:iv4-1-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:55	IV(4) Lemma 1.2	
+lem:iv4-1-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:44	IV(4) Lemma 1.1	F-G24: the quadratic of [Hin26a, (3.8)] written out; the sentence "[Hin26a, Lemmas 3.3-3.8] hold verbatim" replaced by a pointer to lem:iv4-1-causal; proof reduced to prop:np-10-13 (i)
+lem:iv4-1-causal	G-SWEEP fix F-G24	[Hin26a] Lemma 3.5, Corollary 3.6, Lemma 3.7 as used in the chapter, stated and proved from prop:np-10-13 (i)	positivity of l on future causal covectors with the bound 2(1-e)<c,zeta>; invertibility of G - il; the constant C of C l^2 + G; uniform version on compact sets of (g, c), with a conic neighbourhood
+lem:iv4-1-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:55	IV(4) Lemma 1.2	F-G24: the counting "as in the proof of [Hin26a, (6.4)]" written out (polynomials in d/dt_* with stationary coefficients, one difference per term, as in lem:iii-d2-2-1); S-tilde = 0 suffices; F2-G24: d_(t_*)d_r-coefficient (was d_(t_*)d_rho)
 eq:iv4-1-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:58	IV(4) (1.1)	
 lem:iv4-1-3	docket68/n1star/proof5/PART-IV5-CDMODES.md:70	IV(4) Lemma 1.3	(b) proved by the h -> 0 limits
 lem:iv4-1-4	docket68/n1star/proof5/PART-IV5-CDMODES.md:95	IV(4) Lemma 1.4 with its C_0 - 1 clause	
 eq:iv4-2-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:96	IV(4) (2.1)	
-lem:iv4-1-5	docket68/n1star/proof5/PART-IV5-CDMODES.md:121	IV(4) Lemma 1.5	
+lem:iv4-1-5	docket68/n1star/proof5/PART-IV5-CDMODES.md:121	IV(4) Lemma 1.5	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (a)
 lem:iv4-1-6	docket68/n1star/proof5/PART-IV5-CDMODES.md:135	IV(4) Lemma 1.6	
 sec:iv5	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5)	
 sec:iv5-0	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5) section 0	
-def:iv5-0-1	docket68/n1star/proof5/PART-IV6-SOLV.md:36	IV(5) Definition 0.1	
-prop:np-10-65-a	docket68/n1star/N1STAR-PROOF.md:8189	NP 10.65 (a)	statement of [Hin23d] and [Hin26d]
-lem:iv5-0-2	docket68/n1star/proof5/PART-IV6-SOLV.md:89	IV(5) Lemma 0.2	
+def:iv5-0-1	docket68/n1star/proof5/PART-IV6-SOLV.md:36	IV(5) Definition 0.1	G1: the calculus is that of sec:iv5-calc; the spaces on Omega defined in lem:iv5-calc-dual (P-G1 texts C33-1, C33-2); P-G24b: ∂_(z^μ) ∈ ρ_sf𝒱_3b by r⁻¹ ∈ ρ_sf C^∞ (P-G24b text T1)
+lem:iv5-0-2	docket68/n1star/proof5/PART-IV6-SOLV.md:89	IV(5) Lemma 0.2	P-G24b: (c) proved: classes of ∇, □_g, δ*_g, δ_g (P-G24b text T2)
 lem:iv5-0-3	docket68/n1star/proof5/PART-IV6-SOLV.md:137	IV(5) Lemma 0.3	
-lem:iv5-0-4	docket68/n1star/proof5/PART-IV6-SOLV.md:171	IV(5) Lemma 0.4	
-lem:iv5-0-5	docket68/n1star/proof5/PART-IV6-SOLV.md:188	IV(5) Lemma 0.5	
+lem:iv5-0-4	docket68/n1star/proof5/PART-IV6-SOLV.md:171	IV(5) Lemma 0.4	F-G24: statement cites lem:iv4-1-1 and lem:iv4-1-causal in place of [Hin26a, Lemmas 3.3-3.8, Corollary 3.6]; uniform C proved by the rescaling (g, rc) and lem:iv4-1-causal (d); F2-G24: statement for (g, rc, e), as c vanishes at sf
+lem:iv5-0-5	docket68/n1star/proof5/PART-IV6-SOLV.md:188	IV(5) Lemma 0.5	P-G24b: δ_r < 1/5 added (P-G24b text T3)
+sec:iv5-calc	paper/reader/proofs/P-G1.md@3b715dd5:1-575	proof G1, the calculi	new section; replaces preprint citations
+def:iv5-calc-cells	paper/reader/proofs/P-G1.md@3b715dd5:14-48	proof G1, cells	4 + 1 cells; classes via P' x M
+lem:iv5-calc-structure	paper/reader/proofs/P-G1.md@3b715dd5:50-143	proof G1, structures	structures, weights, symbols
+def:iv5-calc-micro	paper/reader/proofs/P-G1.md@3b715dd5:145-158	proof G1, microsupport	two-sided microsupport, Ell, WF'
+lem:iv5-calc-disjoint	paper/reader/proofs/P-G1.md@3b715dd5:160-233	proof G1, disjoint supports	[Hin26d] Prop. 3.55, Def. 3.34
+lem:iv5-calc-d	paper/reader/proofs/P-G1.md@3b715dd5:235-279	proof G1, property (D)	at X_0 and Sigma^#
+lem:iv5-calc-dual	paper/reader/proofs/P-G1.md@3b715dd5:281-333	proof G1, duality	supported/extendible spaces
+lem:iv5-calc-reg	paper/reader/proofs/P-G1.md@3b715dd5:335-366	proof G1, regulariser	J_eps = Op(<eps zeta>^(-K))
+prop:np-10-65-a	paper/reader/proofs/P-G1.md@3b715dd5:368-512	proof G1, the calculi	replaces NP 10.65 (a); (a)-(j) proved
+eq:iv5-calc-ell	paper/reader/proofs/P-G1.md@3b715dd5:400	proof G1, elliptic estimate	new display
+lem:iv5-calc-garding	paper/reader/proofs/P-G1.md@3b715dd5:514-541	proof G1, margin bound	replaces the sharp Gårding step
+eq:iv5-calc-garding	paper/reader/proofs/P-G1.md@3b715dd5:518	proof G1, margin bound	new display
+lem:iv5-calc-q0	paper/reader/proofs/P-G1.md@3b715dd5:546-571	proof G1, bound for Q_0	replaces Q_0 = Theta*Theta + R
+eq:iv5-calc-q0	paper/reader/proofs/P-G1.md@3b715dd5:551	proof G1, bound for Q_0	new display
 sec:iv5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:211	IV(5) section 1	
-lem:iv5-1-1	docket68/n1star/proof5/PART-IV6-SOLV.md:213	IV(5) Lemma 1.1	
-prop:iv5-1-2	docket68/n1star/proof5/PART-IV6-SOLV.md:235	IV(5) Proposition 1.2	
-prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	
-sec:iv5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:298	IV(5) section 2	
+lem:iv5-1-1	docket68/n1star/proof5/PART-IV6-SOLV.md:213	IV(5) Lemma 1.1	F-G24: [Hin26a, Lemma 3.7] replaced by lem:iv4-1-causal (b)
+prop:iv5-1-2	docket68/n1star/proof5/PART-IV6-SOLV.md:235	IV(5) Proposition 1.2	G1: proof by prop:np-10-65-a (e) with the cut-offs (P-G1 text C33-5)
+prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d); G1: regulariser lem:iv5-calc-reg; commutant, (5.26), absorption by prop:np-10-65-a (P-G1 texts C33-6 to C33-9); P-G24b: (5.30) and (5.28) displayed (P-G24b texts T42, T43)
+eq:iv5-fib	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.21)	estimate written out in dimension 4 + 1
+eq:iv5-fib-adj	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.22)	adjoint estimate written out in dimension 4 + 1
+sec:iv5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:298	IV(5) section 2	P-G24b: cut-off conventions (cut-offs positive on their support) and lem:iv5-2-symbols inserted (P-G24b text T4)
 eq:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:303	IV(5) (2.1)	
-prop:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:313	IV(5) Proposition 2.1	
+eq:iv5-2-a	paper/reader/proofs/P-G24b.md@4add0685:391	commutants of [Hin26a, §5.2.2–5.2.5], common form	a = w^-1 phi_1...phi_m chi_0(X|zeta|); cut-off conventions with smooth (+-chi chi')^(1/2), existence by an explicit formula
+lem:iv5-2-symbols	paper/reader/proofs/P-G24b.md@4add0685:401	[Hin26a] (5.39)-(5.43), (5.54), (5.57), (5.60), (B.38): the symbol decompositions	Leibniz identity for aH_(-l+j)a -+ Sa^2 of a product commutant; replaces "the b_0, b_R, e and f of [Hin26a]"
+eq:iv5-2-leibniz	paper/reader/proofs/P-G24b.md@4add0685:405	[Hin26a] (5.39)-(5.43)	the identity and the definition of f
+prop:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:313	IV(5) Proposition 2.1	G1: (5.44) by lem:iv5-calc-q0, (5.45) by lem:iv5-calc-garding, 9C_2 + 2 for 2C (P-G1 texts C33-10 to C33-12); P-G24b: cut-offs defined; b_0, b_R, e from lem:iv5-2-symbols; adjoint pairing eq:iv5-2-adj; (5.47)–(5.48) and the iteration written out as eq:iv5-2-iter (P-G24b texts T5–T7, T41)
+eq:iv5-2-iter	paper/reader/proofs/P-G24b.md@4add0685:515	[Hin26a] (5.47)-(5.48)	the estimate before the h^(1/2) iteration; text T41, variant A (after P-G1 C33-11)
+eq:iv5-2-adj	paper/reader/proofs/P-G24b.md@4add0685:545	[Hin26a] (5.49)-(5.50)	the adjoint pairing for L_h*, used in prop:iv5-2-1 (2), prop:iv5-5-2 (2), prop:iv5-5-3 (2)
 sec:iv5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:358	IV(5) section 3	
-prop:iv5-3-1	docket68/n1star/proof5/PART-IV6-SOLV.md:362	IV(5) Proposition 3.1	
+prop:iv5-3-1	docket68/n1star/proof5/PART-IV6-SOLV.md:362	IV(5) Proposition 3.1	G1: Q-terms with the weight rho_sf (P-G1 text C33-13); P-G24b: cut-offs defined (χ_K now supported in [0, 2δ_r)); symbols from lem:iv5-2-symbols (P-G24b texts T8–T10)
 sec:iv5-4	docket68/n1star/proof5/PART-IV6-SOLV.md:391	IV(5) section 4	
-prop:iv5-4-1	docket68/n1star/proof5/PART-IV6-SOLV.md:393	IV(5) Proposition 4.1	
+prop:iv5-4-1	docket68/n1star/proof5/PART-IV6-SOLV.md:393	IV(5) Proposition 4.1	G1: weighted Q-terms of prop:iv5-3-1 (P-G1 text C33-14); P-G24b: χ_R a cut-off; b_0, e₁, e₂ explicit (P-G24b texts T11–T12)
 sec:iv5-5	docket68/n1star/proof5/PART-IV6-SOLV.md:417	IV(5) section 5	
-prop:iv5-5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:419	IV(5) Proposition 5.1	
-prop:iv5-5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:445	IV(5) Proposition 5.2	
-prop:iv5-5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:510	IV(5) Proposition 5.3	
-sec:iv5-6	docket68/n1star/proof5/PART-IV6-SOLV.md:566	IV(5) section 6	
-prop:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:576	IV(5) Proposition 6.1	
+prop:iv5-5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:419	IV(5) Proposition 5.1	P-G24b: χ₂, χ_K defined; b_0, e_R, e_T explicit (P-G24b texts T13–T14)
+prop:iv5-5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:445	IV(5) Proposition 5.2	G1: Q-terms by lem:iv5-calc-q0 and lem:iv5-calc-garding (P-G1 text C33-15); P-G24b: adjoint pairing cites eq:iv5-2-adj (P-G24b text T15)
+prop:iv5-5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:510	IV(5) Proposition 5.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (a); P-G24b: adjoint pairing cites eq:iv5-2-adj (P-G24b text T16)
+sec:iv5-6	docket68/n1star/proof5/PART-IV6-SOLV.md:566	IV(5) section 6	F-G24: the paragraph using [Hin26a, Lemma 5.14, Corollary 5.15] replaced by lem:iv5-6-tform and cor:iv5-6-energy: the slice-wise use of [Hin26a, Corollary 5.15] replaced by a pointwise route, which needs e < 2/D, which holds (e = 1/102400 < 2/5); the old text described the preprint's hypothesis correctly (F2-G24)
+lem:iv5-6-tform	G-SWEEP fix F-G24	[Hin26a] (5.61); in place of [Hin26a] Lemma 5.14 (which gives positivity only on eta x e + eta' x f with eta' orthogonal to eta, enough for its slice-integrated Corollary 5.15): pointwise positivity of Q for l_(g,c,e), 0 < e < 2/D (every D >= 3)	T_(G,eta,l) and its quadratic form Q on T* x E defined; (a) rank-one positivity for any l positive on future causal covectors; (b) Q positive semidefinite at past null eta with nullspace eta x T*, positive definite at past timelike eta, for l = l_(g,c,e) with 0 < e < 2/D, by a sum of squares; the counterexample shows only that pointwise positivity on all of T* x E needs the form of l (it does not bear on [Hin26a] Lemma 5.14); (c) uniform bound on compact sets; F2-G24: header reads in place of, not as a transcription
+eq:iv5-6-t	G-SWEEP fix F-G24	[Hin26a] (5.61)	definition of T_(G,eta,l) and its polarisation
+cor:iv5-6-energy	G-SWEEP fix F-G24	in place of [Hin26a] Corollary 5.15 (a coercivity estimate integrated over time slices): divergence identity with a pointwise lower bound, in 4 + 1	divergence identity for B(box omega, w^2 l<nabla omega>) integrated over a domain with one or two boundary pieces, remainder written out; pointwise lower bound c_0 r^-4 |r eta| |r xi|^2 hence the bulk and the two delta-weighted boundary terms; remainder bound r^-4; the case -l; F2-G24: header reads in place of; g and c smooth; P-G24b: (i) allows k = 3 (P-G24b text T17)
+eq:iv5-6-energy	G-SWEEP fix F-G24	[Hin26a] (5.71)/(5.74), main part	the integrated identity
+lem:iv5-6-transport	paper/reader/proofs/P-G24b.md@4add0685:754	[Hin26a] (5.77), the fundamental theorem of calculus for L_h, as an identity	A = -1/2 l<nabla> + N; integrated identity for 2B(Aw, w) with boundary terms; |N|, |S| = O(r^-2)
+eq:iv5-6-transport	paper/reader/proofs/P-G24b.md@4add0685:762	[Hin26a] (5.77)	the integrated transport identity
+lem:iv5-6-core	paper/reader/proofs/P-G24b.md@4add0685:790	[Hin26a] (5.70)-(5.78), the energy argument of Proposition 5.16	energy estimate for h^2 box + 2hA + hY from eq:iv5-6-energy and eq:iv5-6-transport, with good and bad boundary pieces; explicit lambda_*, C_*
+eq:iv5-6-core	paper/reader/proofs/P-G24b.md@4add0685:804	[Hin26a] (5.74), (5.76), (5.78)	the conclusion of lem:iv5-6-core
+eq:iv5-6-core-1	paper/reader/proofs/P-G24b.md@4add0685:829	[Hin26a] (5.74)-(5.76)	the energy step
+eq:iv5-6-core-2	paper/reader/proofs/P-G24b.md@4add0685:840	[Hin26a] (5.77)-(5.78)	the transport step
+prop:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:576	IV(5) Proposition 6.1	F-G24: proof uses T of eq:iv5-6-t, cor:iv5-6-energy (region, f_1, f_2, w, the three covectors, remainder) and lem:iv4-1-causal (a); adjoint and Sigma-sharp estimates pointed to the corollary; F2-G24: delta-weights of -a da = -(1/2)d(a^2) carry the factor 1/2; P-G24b: second estimate of (1) needs ω supported at Σ^♯ (P-G24b text T19; counterexample in P-G24b §3); proof rewritten from lem:iv5-6-core, all four estimates and eq:iv5-6-1, every h ∈ (0, 1] (P-G24b text T20)
 eq:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:582	IV(5) (6.1)	
 sec:iv5-7	docket68/n1star/proof5/PART-IV6-SOLV.md:620	IV(5) section 7	
-prop:iv5-7-1	docket68/n1star/proof5/PART-IV6-SOLV.md:624	IV(5) Proposition 7.1 with its extension argument	
+prop:iv5-7-1	docket68/n1star/proof5/PART-IV6-SOLV.md:624	IV(5) Proposition 7.1 with its extension argument	G1: strong sense at fibre infinity by the regularisation in prop:iv5-1-3 (P-G1 text C33-16); P-G24b: the estimates near Σ^♯ on the extended domain need lem:iv5-0-3 (a), (c), lem:iv5-0-4 and the bounds of the proof of prop:iv5-6-1 (P-G24b text T45)
 eq:iv5-5-79	docket68/n1star/proof5/PART-IV6-SOLV.md:627	IV(5) (5.79)	
 prop:iv5-7-2	docket68/n1star/proof5/PART-IV6-SOLV.md:691	IV(5) Proposition 7.2 with its parameter ordering	
 eq:iv5-5-81	docket68/n1star/proof5/PART-IV6-SOLV.md:694	IV(5) (5.81)	
-thm:iv5-7-3	docket68/n1star/proof5/PART-IV6-SOLV.md:742	IV(5) Theorem 7.3	
+thm:iv5-7-3	docket68/n1star/proof5/PART-IV6-SOLV.md:742	IV(5) Theorem 7.3	G1: duality of the supported and extendible spaces, uniform in h, by lem:iv5-calc-dual (P-G1 text C33-17); P-G24b: (b): continuity in τ from eq:iv5-6-core (P-G24b text T21); Cauchy problem via thm:std-bgp-development and thm:std-bgp-cauchy (5) (P-G24b text T22)
 eq:iv5-5-16	docket68/n1star/proof5/PART-IV6-SOLV.md:755	IV(5) (5.16)	
 rem:iv5-7-4	docket68/n1star/proof5/PART-IV6-SOLV.md:813	IV(5) Remark 7.4	
 sec:iv5-8	docket68/n1star/proof5/PART-IV6-SOLV.md:821	IV(5) section 8	
-lem:iv5-8-1	docket68/n1star/proof5/PART-IV6-SOLV.md:823	IV(5) Lemma 8.1	
-sec:iv6	docket68/n1star/proof5/PART-IV7-TFACE.md:11	IV(6)	
+lem:iv5-8-1	docket68/n1star/proof5/PART-IV6-SOLV.md:823	IV(5) Lemma 8.1	F-G24: margin of [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d); G1: uniformity in b by prop:np-10-65-a (j) (P-G1 text C33-18)
+sec:iv6	docket68/n1star/proof5/PART-IV7-TFACE.md:11	IV(6)	P-RI: overview names the relative index formula lem:iii-f1-3-1 (P-RI text 1)
 sec:iv6-0	docket68/n1star/proof5/PART-IV7-TFACE.md:24	IV(6) section 0	
 eq:iv6-0-1	docket68/n1star/proof5/PART-IV7-TFACE.md:37	IV(6) (0.1)	
 lem:s14-tf-inputs	docket68/n1star/N1STAR-PROOF.md:4441	NP 10.23 Proposition 10.20 (i)-(v)	used by IV(6); not in the entry list; written out
 lem:iv6-0-1	docket68/n1star/proof5/PART-IV7-TFACE.md:39	IV(6) Lemma 0.1	S-bar lower triangular in the basis dr, dt_*, r domega
 eq:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:48	IV(6) (0.2)	
-def:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:88	IV(6) Definition 0.2	
+lem:iv6-0-flow	G-SWEEP fix F-G24	[Hin26a] (B.15)-(B.18) and (B.23), written out in 4 + 1	scattering Hamilton field H_p = rho Hsf_p in the covector xi drho/rho^2 + r eta; characteristic set for Im sigma > 0; flow of the model on Char_sigma from R_in to R_out (logistic equation); the commutator symbol at the sink for every |sigma| = 1, with sigma-independent signs; the Spaces paragraph before it now cites it; F2-G24: field 3 no longer lists (B.16) apart, as it lies in (B.15)-(B.18)
+eq:iv6-0-flow	G-SWEEP fix F-G24	[Hin26a] (B.16)	the rescaled Hamilton vector field
+def:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:88	IV(6) Definition 0.2	P-G24b: admissibility at complex σ only at R_out; admissible at real σ₀; admissible on a set, as in sec:i-a-1-4 (P-G24b text T23)
 sec:iv6-1	docket68/n1star/proof5/PART-IV7-TFACE.md:93	IV(6) section 1	
-prop:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:95	IV(6) Proposition 1.1	
+prop:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:95	IV(6) Proposition 1.1	F-G24: sink symbol from lem:iv6-0-flow (c); conjugation identity after [Hin26a, (B.27)] derived; flow from R_in to R_out by lem:iv6-0-flow (b) with prop:i-a-5-2; uniformity near +-1 proved (sink by lem:iv6-0-flow (c), R_in and propagation by prop:i-a-4-6, prop:i-a-5-2 of ch:s01 at the scattering end); F2-G24: uniformity at R_out with an explicit choice of supp chi_2; uniformity of the propagation constants by the argument of thm:i-a-7-2 (1); P-G24b: dual estimate displayed (eq:iv6-1-3), its strong sense with ℓ_1 above the threshold at R_out; shift and sink symbol defined; (B.20), (B.29), pp. 89–90 replaced by the pieces of ch. 20 and the proof of thm:i-c-4-3 (eq:iv6-1-4); uniformity on sets of admissible orders (P-G24b texts T24–T29); P-RI: index 0 by the relative index formula lem:iii-f1-3-1 (localisation at ztf and the Smith-form count rank = order of the zero of the determinant) and lem:iii-f1-2-4, through the invariant G of the proof of prop:iii-f1-3-3 (iii), with gamma_C deformed to 0 in the spectral family of box^C_b; counts at gamma_C = 1/h from lem:iv4-1-3 (a) and prop:np-10-54 (i) with multiplicity, at 0 from the componentwise free operator; replaces the sector argument and the use of [Mel93, Theorem 6.5] outside its hypotheses; theta_in -> vartheta_in and r_mid -> sans-serif r_mid in the rewritten sentence, and its R_in clause restricted to theta in {0, pi} (P-RI text 2)
 eq:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:97	IV(6) (1.1)	
 eq:iv6-1-2	docket68/n1star/proof5/PART-IV7-TFACE.md:102	IV(6) (1.2)	
-sec:iv6-2	docket68/n1star/proof5/PART-IV7-TFACE.md:201	IV(6) section 2	
-thm:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:211	IV(6) Theorem 2.1	
+eq:iv6-1-3	paper/reader/proofs/P-G24b.md@4add0685:1118	[Hin26a] (B.28)	the dual estimate, displayed
+eq:iv6-1-4	paper/reader/proofs/P-G24b.md@4add0685:1210	[Hin26a] (B.19)-(B.20), p. 89	the estimate with error term in H^(-M,(-M,-M)), by the boundary-face pieces of ch. 20 and the proof of thm:i-c-4-3
+sec:iv6-2	docket68/n1star/proof5/PART-IV7-TFACE.md:201	IV(6) section 2	G1: eb-structure of def:iv5-calc-cells, calculus by prop:np-10-65-a (i) (P-G1 text C33-19)
+thm:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:211	IV(6) Theorem 2.1	F-G24: energy near X_0 cites lem:iv5-6-tform and cor:iv5-6-energy on M with their hypotheses checked; G1: Q-terms at the cone face by lem:iv5-calc-q0 and lem:iv5-calc-garding (P-G1 text C33-20); P-G24b: (B.34)–(B.35) displayed (eq:iv6-2-e1, eq:iv6-2-e2); (B.36)–(B.37) as eq:iv5-fib on M; (B.38) symbols from lem:iv5-2-symbols, with 𝔛 = δ_r⁻¹ and χ_cf supported in [0, 4); (B.39)–(B.40) the forward and backward cone estimates, on {τ ≥ (0.75/10)T} and {τ ≥ (2.75/10)T}; (B.41) displayed (eq:iv6-2-ap) (P-G24b texts T30–T38, T44)
 eq:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:225	IV(6) (2.1)	
+eq:iv6-2-e1	paper/reader/proofs/P-G24b.md@4add0685:1281	[Hin26a] (B.34)	energy estimate near X_0 on M, forward
+eq:iv6-2-e2	paper/reader/proofs/P-G24b.md@4add0685:1287	[Hin26a] (B.35)	energy estimate near X_0 on M, adjoint
+eq:iv6-2-ap	paper/reader/proofs/P-G24b.md@4add0685:1433	[Hin26a] (B.41)	the a priori estimate of thm:iv6-2-1 at Sobolev order 1
 sec:iv6-3	docket68/n1star/proof5/PART-IV7-TFACE.md:346	IV(6) section 3	
-thm:iv6-3-1	docket68/n1star/proof5/PART-IV7-TFACE.md:348	IV(6) Theorem 3.1	
+thm:iv6-3-1	docket68/n1star/proof5/PART-IV7-TFACE.md:348	IV(6) Theorem 3.1	P-G24b: uniformity clause refers to def:iv6-0-2 (P-G24b text T39)
 sec:iv4-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:152	IV(4) section 2	
 thm:iv4-2-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:154	IV(4) Theorem 2.1 (data at t_KS = 0; adjoint at C_0 - 1)	
+rem:s14-other-routes	docket68/n1star/proof5/PART-IV5-CDMODES.md:228-231	IV(4) section 2, the paragraph after Theorem 2.1's proof	the source's other two routes to surjectivity, not used
 sec:iv6-4	docket68/n1star/proof5/PART-IV7-TFACE.md:385	IV(6) section 4	
-thm:iv6-4-1	docket68/n1star/proof5/PART-IV7-TFACE.md:387	IV(6) Theorem 4.1	
+thm:iv6-4-1	docket68/n1star/proof5/PART-IV7-TFACE.md:387	IV(6) Theorem 4.1	P-G24b: orders admissible on Θ_± and the middle sector (P-G24b text T40)
 sec:iii-e-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:74	III.E section 2	
 lem:iii-e-2-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:76	III.E Lemma 2.1 with consequences (a), (b)	
 prop:np-10-31	docket68/n1star/N1STAR-PROOF.md:5288	NP 10.31 Proposition 10.28 (i)-(ii)	(iii) superseded by III.E1 exact lemmas; nonvanishing of the leading terms not claimed (rem:s14-counting)
@@ -101,6 +160,8 @@ sec:iii-e-3	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:125	III.E section 3
 prop:iii-e-3-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:129	III.E Proposition 3.1 and Remarks	
 eq:iii-e-3-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:132	III.E (3.1)	
 eq:iii-e-3-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:146	III.E (3.2)	
+rem:s14-counting	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:206-208	III.E Proposition 3.1, Remark (a) Counting	
+rem:s14-polyhom	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:208-210	III.E Proposition 3.1, Remark (b)	
 sec:iii-e1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:1	III.E1	
 sec:iii-e1-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:18	III.E1 section 1	
 eq:iii-e1-1-1	docket68/n1star/proof5/PART-III-E2-V1STATES.md:24	III.E1 (1.1)	
@@ -119,5 +180,51 @@ eq:iii-e1-3-4	docket68/n1star/proof5/PART-III-E2-V1STATES.md:119	III.E1 (3.4)
 eq:iii-e1-3-5	docket68/n1star/proof5/PART-III-E2-V1STATES.md:128	III.E1 (3.5)	
 eq:iii-e1-3-6	docket68/n1star/proof5/PART-III-E2-V1STATES.md:151	III.E1 (3.6)	
 eq:iii-e1-3-7	docket68/n1star/proof5/PART-III-E2-V1STATES.md:165	III.E1 (3.7)	
+rem:s14-dim3	docket68/n1star/proof5/PART-III-E2-V1STATES.md:210-215	III.E1, the Remark after Proposition 3.1	the mass μ written m, Kerr's m written m_K
 sec:s14-simple	docket68/n1star/N1STAR-PROOF.md:7259	NP 10.52 setting	
 prop:np-10-52	docket68/n1star/N1STAR-PROOF.md:7269	NP 10.52 Proposition 10.43 with 10.54 (d) and VI.C row w1	stated off a countable set of h; eq:s14-theta proved; the value of δ_50 in lem:s14-delta50 and ε_ind(10^-6) = δ_50 in cor:s14-eps-ind-point (proof A)
+eq:s14-theta	docket68/n1star/N1STAR-PROOF.md:7272-7274; docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:192-194	NP 10.52 Proposition 10.43 (i) (Q's roots in s); III.D Lemma 4.1 (the z -> 0 expansions)	closed forms of d₁, d₂ and the bounds on θ₁, θ₂ derived by hand in prop:np-10-52 (i); no record display
+rem:s14-delta50	docket68/n1star/N1STAR-PROOF.md:7291-7296; docket68/n1star/N1STAR-PROOF.md:7427-7428; paper/reader/proofs/P-A-indicial.md@0a8a4fa:24	NP 10.52 Deduced (the bound attained at box^Ups's root near 1 - l, l = 50); NP 10.54 (d); proof A Lemma lem:s14-delta50	distinguishes ε_ind(h), ch:s15's ε_ind and δ_50; δ_50's value is proof A's lem:s14-delta50 (merged in sec:s14-pa)
+sec:s14-pa	paper/reader/proofs/P-A-indicial.md@0a8a4fa:1-407	proof A, the indicial roots at the damping point gamma_C = 10^6	merged verbatim from the confirmed proof A, as a section after sec:s14-simple; its section on the sums of the gauge potential offsets (P-A-indicial.md:409-482, sec:pa-gap-sums, prop:gap-sums, rem:gap-sums) not merged, chapter 71 carries prop:gap-sums and rem:gap-sums; cor:s14-remote-point moved in from proof A3; rewrapped at the 14 lines that began with a bar, no word changed; rem:s14-eps-point, which restated the section, deleted; the theorems at admissible points; 𝖧 is where thm:iii-e-1-1 is stated (P-ADM text 55)
+eq:s14-pa-sqrt	paper/reader/proofs/P-A-indicial.md@0a8a4fa:18	proof A, the elementary square-root bounds	merged verbatim from the confirmed proof A
+sec:s14-pa-delta	paper/reader/proofs/P-A-indicial.md@0a8a4fa:22-45	proof A, the number delta_50	merged verbatim from the confirmed proof A
+lem:s14-delta50	paper/reader/proofs/P-A-indicial.md@0a8a4fa:24-45	proof A Lemma, the value of delta_50	merged verbatim from the confirmed proof A; cited by rem:s14-delta50, cor:s14-eps-ind-point and rem:s14-eps-ind-scope, and by chapter 71
+sec:s14-pa-vector	paper/reader/proofs/P-A-indicial.md@0a8a4fa:47-84	proof A, the vector type and the scalar type 0	merged verbatim from the confirmed proof A
+lem:s14-vector-distance	paper/reader/proofs/P-A-indicial.md@0a8a4fa:49-75	proof A Lemma, the vector type at gamma_C = 10^6	merged verbatim from the confirmed proof A, rewrapped where 1 line began with a bar (no word changed); its nine exceptional numbers in sec:tab-a-vector
+lem:s14-scalar-zero	paper/reader/proofs/P-A-indicial.md@0a8a4fa:77-84	proof A Lemma, the scalar type 0 at gamma_C = 10^6	merged verbatim from the confirmed proof A
+sec:s14-pa-sextic	paper/reader/proofs/P-A-indicial.md@0a8a4fa:86-240	proof A, the sextic: decomposition, majorants and counting	merged verbatim from the confirmed proof A; cor:s14-remote-point (proof A3) added at its end
+lem:s14-sextic-split	paper/reader/proofs/P-A-indicial.md@0a8a4fa:88-191	proof A Lemma, the sextic at gamma_C = 10^6	merged verbatim from the confirmed proof A, rewrapped where 2 lines began with a bar (no word changed); tables in sec:tab-a-sextic and sec:tab-a-split
+eq:s14-pa-split	paper/reader/proofs/P-A-indicial.md@0a8a4fa:92-93	proof A, the splitting P_l = U + hW	merged verbatim from the confirmed proof A
+eq:s14-pa-re	paper/reader/proofs/P-A-indicial.md@0a8a4fa:125	proof A, Re(W/d_iota U) at zeta	merged verbatim from the confirmed proof A
+lem:s14-majorant	paper/reader/proofs/P-A-indicial.md@0a8a4fa:193-197	proof A Lemma, majorants	merged verbatim from the confirmed proof A with the paragraph after it (199-208), which names the majorants; rewrapped where 2 lines began with a bar (no word changed)
+lem:s14-fixed-point	paper/reader/proofs/P-A-indicial.md@0a8a4fa:210-221	proof A Lemma, a perturbed simple root	merged verbatim from the confirmed proof A
+lem:s14-sextic-count	paper/reader/proofs/P-A-indicial.md@0a8a4fa:223-240	proof A Lemma, counting the roots	merged verbatim from the confirmed proof A, rewrapped where 2 lines began with a bar (no word changed)
+cor:s14-remote-point	paper/reader/proofs/P-A3-every-h.md@0a8a4fa:200-206	proof A3 Corollary, the remote roots at gamma_C = 10^6	merged verbatim from the confirmed proof A3, moved into sec:s14-pa after lem:s14-sextic-count (the suggestion of the proof A3 reading); its dependence on lem:s14-sextic-count (a) is visible in its proof; its first sentence drops the standing h = 10⁻⁶ of the section and writes x for hκ
+sec:s14-pa-small	paper/reader/proofs/P-A-indicial.md@0a8a4fa:242-273	proof A, degrees with kappa <= 18000	merged verbatim from the confirmed proof A
+lem:s14-sextic-small	paper/reader/proofs/P-A-indicial.md@0a8a4fa:244-273	proof A Lemma, the roots near 2 and 3	merged verbatim from the confirmed proof A; expansions in sec:tab-a-expansions
+sec:s14-pa-large	paper/reader/proofs/P-A-indicial.md@0a8a4fa:275-345	proof A, degrees with kappa >= 18000	merged verbatim from the confirmed proof A
+lem:s14-sextic-large	paper/reader/proofs/P-A-indicial.md@0a8a4fa:277-311	proof A Lemma, location of the roots	merged verbatim from the confirmed proof A, rewrapped where 4 lines began with a bar (no word changed); constants in sec:tab-a-pieces
+lem:s14-crossings	paper/reader/proofs/P-A-indicial.md@0a8a4fa:313-345	proof A Lemma, the crossings of the integers	merged verbatim from the confirmed proof A; K_n, K'_n in sec:tab-a-crossings
+sec:s14-pa-distance	paper/reader/proofs/P-A-indicial.md@0a8a4fa:347-407	proof A, the distance from the integers and eps_ind at gamma_C = 10^6	merged verbatim from the confirmed proof A
+prop:s14-damping-distance	paper/reader/proofs/P-A-indicial.md@0a8a4fa:349-381	proof A Proposition, the roots of the constraint damping polynomials at gamma_C = 10^6	merged verbatim from the confirmed proof A, rewrapped where 2 lines began with a bar (no word changed)
+cor:s14-eps-ind-point	paper/reader/proofs/P-A-indicial.md@0a8a4fa:383-398	proof A Corollary, eps_ind at gamma_C = 10^6	merged verbatim from the confirmed proof A, rewrapped where 1 line began with a bar (no word changed); cited by rem:s14-delta50 and rem:s14-eps-ind-scope, and by chapters 34 and 71
+rem:s14-eps-ind-scope	paper/reader/proofs/P-A-indicial.md@0a8a4fa:400-407	proof A Remark, the point h = 10^-6 and the set H	merged verbatim from the confirmed proof A except the last sentence, which names cor:s14-eps-ind-point ("The corollary shows") as the section now holds two corollaries; prop:gap-sums resolves to chapter 71; cited by chapter 71; prop:gap-sums named as the sums of the gauge potential offsets, and the paragraph rewrapped; cites lem:ec-lb-ind for ε_ind(h) < 40h/13 (P-LB text 12); last sentence extended by prop:t49-vector and thm:t49-point (P-T49 text 4); the theorems at admissible points; 𝖧 is where thm:iii-e-1-1 is stated (P-ADM text 56)
+sec:s14-exceptional	paper/reader/proofs/P-T49.md@6ab0a0d0:1	P-T49, section	new; after rem:s14-eps-ind-scope
+rem:t49-sets	paper/reader/proofs/P-T49.md@6ab0a0d0:14-47	P-T49, Remark (the four sets)	definitions; no rows named; the exclusions met at the point although not asked (P-ADM text 57)
+sec:s14-exc-shifted	paper/reader/proofs/P-T49.md@6ab0a0d0:49	P-T49, subsection	values near ±κ^(1/2)
+eq:t49-coeffs	paper/reader/proofs/P-T49.md@6ab0a0d0:61	P-T49, display	coefficients of P
+eq:t49-shift	paper/reader/proofs/P-T49.md@6ab0a0d0:66	P-T49, display	cubic in K
+lem:t49-shifted	paper/reader/proofs/P-T49.md@6ab0a0d0:77-107	P-T49, Lemma (near ±κ^(1/2))	every h ≤ 10⁻⁶
+thm:t49-uniform	paper/reader/proofs/P-T49.md@6ab0a0d0:109-147	P-T49, Theorem (listed points)	𝖹₂ = ∅; Z_exc = ∅
+sec:s14-exc-point	paper/reader/proofs/P-T49.md@6ab0a0d0:149	P-T49, subsection	the damping point
+eq:t49-disc	paper/reader/proofs/P-T49.md@6ab0a0d0:155	P-T49, display	disc of 64·10¹⁸P = 144𝔇
+eq:t49-res	paper/reader/proofs/P-T49.md@6ab0a0d0:161	P-T49, display	Res(𝒜_k, ℬ_k) = 4𝔖(k, κ)
+prop:t49-simple	paper/reader/proofs/P-T49.md@6ab0a0d0:166-181	P-T49, Proposition ((C2) at 10⁻⁶)	via 𝔇
+prop:t49-pairs	paper/reader/proofs/P-T49.md@6ab0a0d0:183-198	P-T49, Proposition ((C4) at 10⁻⁶)	via 𝔖
+thm:t49-point	paper/reader/proofs/P-T49.md@6ab0a0d0:200-214	P-T49, Theorem (the point)	10⁻⁶ ∉ 𝖹; Z_exc = ∅
+cor:t49-right	paper/reader/proofs/P-T49.md@6ab0a0d0:216-235	P-T49, Corollary (hκ > 70)	right roots beyond 51
+sec:s14-exc-interval	paper/reader/proofs/P-T49.md@6ab0a0d0:237	P-T49, subsection	the interval
+eq:t49-delta	paper/reader/proofs/P-T49.md@6ab0a0d0:241	P-T49, display	Δ_l(h)
+prop:t49-six	paper/reader/proofs/P-T49.md@6ab0a0d0:246-292	P-T49, Proposition (six points)	l = 130–135
+prop:t49-vector	paper/reader/proofs/P-T49.md@6ab0a0d0:294-321	P-T49, Proposition (vector crossings)	ε_ind
+rem:t49-scope	paper/reader/proofs/P-T49.md@6ab0a0d0:323-332	P-T49, Remark (what is decided)	no rows named; the exclusions met at the point although not asked (P-ADM text 58)

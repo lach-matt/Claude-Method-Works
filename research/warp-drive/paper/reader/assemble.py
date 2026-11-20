@@ -13,7 +13,8 @@ Order: chapters/ files sorted by name (NN-key.md). Headings:
 Appendix A (computations) is built from computations/<key>.md, one entry per cited key, in number order; the
 assembler fails if a cited key has no entry. A file chapters/NN-front.md carries the title block, unnumbered.
 
-    python3 assemble.py            write PAPER.md and computations/NUMBERS.tsv
+    python3 assemble.py            write PAPER.md (and computations/NUMBERS.tsv when a computation is cited;
+                                   a numbering file left with no computation cited is removed)
     python3 assemble.py --check    resolve everything, report problems, write nothing
 """
 import os, re, sys
@@ -164,11 +165,15 @@ def main():
     print("labels %d, computations cited %d, problems %d" % (len(labels), len(order), len(problems)))
     if not check:
         open(os.path.join(HERE, "PAPER.md"), "w", encoding="utf-8").write(text.rstrip("\n") + "\n")
-        os.makedirs(os.path.join(HERE, "computations"), exist_ok=True)
-        with open(os.path.join(HERE, "computations", "NUMBERS.tsv"), "w", encoding="utf-8") as f:
-            f.write("number\tkey\n")
-            for k in order:
-                f.write("C%d\t%s\n" % (cnum[k], k))
+        numbers = os.path.join(HERE, "computations", "NUMBERS.tsv")
+        if order:  # the computation numbering is written only when some computation is cited
+            os.makedirs(os.path.join(HERE, "computations"), exist_ok=True)
+            with open(numbers, "w", encoding="utf-8") as f:
+                f.write("number\tkey\n")
+                for k in order:
+                    f.write("C%d\t%s\n" % (cnum[k], k))
+        elif os.path.exists(numbers):  # no computation cited: a numbering left from an earlier build is stale
+            os.remove(numbers)
     return 1 if problems else 0
 
 

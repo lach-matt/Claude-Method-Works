@@ -491,10 +491,10 @@ The rest is the inverse function theorem. ∎
 So, by [[lem:vii-0-1]], whose proof applies at every order, a smooth vacuum data set on Σ that agrees for r large with
 the data (g̃_p, K̃_p) of a nearby translated, rotated and boosted Myers–Perry metric differs from (γ_λ, k_λ) by an
 element of the class: the class contains these data on Hintz's own surface. On the slices {y⁰ = 0} of [[def:v-2-1]] the
-data (g_p, K_p) of the same metrics lie in the class too, as g_p − δ ∈ ρ²C^∞ and K_p ∈ ρ³C^∞ far out by (a) and (d)
-(∇²f ∈ ρ³C^∞), but not near (γ_λ, k_λ): by (d), already at p_λ the second fundamental form differs from k^(m_λ) by a
-fixed term of order r⁻³, of size μ_end, so the members of [[def:v-2-1]] are at a distance from (γ_λ, k_λ), in the norm of
-the class, that no smallness of a perturbation removes. This is why the gluing below takes its family on Σ, as
+data (g_p, K_p) of the same metrics lie in the class too, as g_p − δ ∈ ρ²C^∞ and K_p ∈ ρ³C^∞ far out by (a) and (d) (∇²f
+∈ ρ³C^∞), but not near (γ_λ, k_λ): by (d), already at p_λ the second fundamental form differs from k^(m_λ) by a fixed
+term of order r⁻³, of size μ_end, so the members of [[def:v-2-1]] are at a distance from (γ_λ, k_λ), in the norm of the
+class, that no smallness of a perturbation removes. This is why the gluing below takes its family on Σ, as
 [[prop:vii-2-2]] does in the class. That the mass and the boost are fixed by the energy and momentum alone (c) is what
 makes the coefficient of ρ² of the glued data decay with R when a > 2 ([[eq:after-shell-params]] below).
 
@@ -611,14 +611,14 @@ are vacuum.
 [[eq:after-shell-params]] is (1), and [[eq:after-shell-annulus]] is (2) with [[eq:after-shell-theta]]. ∎
 
 **Remark {#rem:after-shell-box}** (Why the box does not shrink.) For a ≤ 2 + d(X) the charge difference Δ𝔔_X is O(Ξ) and
-need not vanish, so the radius r_X cannot tend to 0 with R. For instance, with d(X) = 1, pull the data of (i) back by
-x ↦ x + χ_1(|x|) c for a small constant c ∈ ℝ⁴, χ_1 as in [[prop:after-shell-outside]]. This is a vacuum perturbation,
-pure gauge, of order 3 = 2 + d(X): by [[eq:after-shell-gain]], γ^(m_λ)(x + c) − γ^(m_λ)(x) ∈ ρ³C^∞. Its centre-of-mass
-charges are Δ𝔔_(e′_l) = −6π² m_λ c_l + O(|c|²): they involve the metric only, the metric on Σ differs from that on the
+need not vanish, so the radius r_X cannot tend to 0 with R. For instance, with d(X) = 1, pull the data of (i) back by x ↦
+x + χ_1(|x|) c for a small constant c ∈ ℝ⁴, χ_1 as in [[prop:after-shell-outside]]. This is a vacuum perturbation, pure
+gauge, of order 3 = 2 + d(X): by [[eq:after-shell-gain]], γ^(m_λ)(x + c) − γ^(m_λ)(x) ∈ ρ³C^∞. Its centre-of-mass charges
+are Δ𝔔_(e′_l) = −6π² m_λ c_l + O(|c|²): they involve the metric only, the metric on Σ differs from that on the
 Kerr–Schild slice by ρ⁴C^∞ ([[lem:after-shell-mp-data]] (d) at w = 0), whose translation derivative contributes no
-degree-1 flux, and the derivative of the slice charges at p_λ is a22 = −6π² m_λ ([[prop:v-2-3]]). This does not depend on
-R, so a box of radius tending to 0 would exclude it. The same example lies in the class: its difference from (γ_λ, k_λ)
-lies in ρ³C^∞ × ρ⁴C^∞ far out, so in ℋ^∞ by [[lem:vii-0-1]], whose proof applies at every order.
+degree-1 flux, and the derivative of the slice charges at p_λ is a22 = −6π² m_λ ([[prop:v-2-3]]). This does not depend
+on R, so a box of radius tending to 0 would exclude it. The same example lies in the class: its difference from (γ_λ,
+k_λ) lies in ρ³C^∞ × ρ⁴C^∞ far out, so in ℋ^∞ by [[lem:vii-0-1]], whose proof applies at every order.
 
 **Corollary {#cor:after-shell-glued-norm}** (The norm of the glued data.) In [[prop:after-shell-gluing]],
 (γ̂_R − γ_λ, k̂_R − k_λ) ∈ ℋ^∞ and

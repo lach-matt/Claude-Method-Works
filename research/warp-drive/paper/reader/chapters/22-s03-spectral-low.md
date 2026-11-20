@@ -18,7 +18,7 @@ needs it, because the augmented operator used there has an index that is not kno
 smallness of |σ| in [[thm:i-c-6-4]] may depend on the b-regularity order ([[rem:i-c-6-7]]).
 
 Every input is proved here or in [[ch:s01]]–[[ch:s02]], from the classical facts of [[sec:i-c-2-1]], the scattering
-calculus of [HJS] as used in [[ch:s01]], and the facts about Hankel functions from [DLMF] stated in [[sec:i-c-5-2]].
+calculus of [Mel94] as used in [[ch:s01]], and the facts about Hankel functions from [DLMF] stated in [[sec:i-c-5-2]].
 The radii r_0, δ_0, r_2, r_h of [[sec:i-a-1-1]] enter only through the results of [[ch:s01]] cited here, under the
 conditions that [[ch:s01]] places on them: the ordering of [[sec:i-a-1-1]], and the conditions on the slab of
 [[cor:i-a-6-5]], which is used in [[sec:i-c-3]] and [[sec:i-c-6-7]]. The radius R_∂ of [[sec:i-c-2-6]] is chosen above
@@ -30,7 +30,7 @@ infinity and at the origin of the transition face. [[sec:i-c-3]] treats the zero
 transition face normal operator, [[sec:i-c-5]] tf-admissibility and the asymptotically Minkowski case, [[sec:i-c-6]]
 the low-energy estimates and the index, and [[sec:i-c-7]] their uniformity in the operator.
 
-*Notation.* As in [[ch:s02]], the rank of the bundle, N in [[sec:i-a-1-2]], is written N_E, and large integers that
+*Notation.* As in [[ch:s02]], the rank of the bundle of [[sec:i-a-1-2]] is N_E, and large integers that
 bound orders of Sobolev spaces are written M. Δ := Δ_(𝕊³) ≥ 0 is the Laplacian of the round metric on 𝕊³. The variable
 of the Mellin transform and of indicial families is ι ∈ ℂ, and an indicial root is a value of ι. Variable decay orders
 are written 𝗋, as in [[sec:i-a-1-4]], and r = |x|. For an operator A on 𝕊³ with End ℂ^(N_E)-valued coefficients (in
@@ -108,12 +108,12 @@ s > d + m/2, sup_(|β|≤d) |∂^β w| ≤ (2π)^(−m) ‖⟨ζ⟩^(d−s)‖_(
 compact set K ⊂ ℝ⁴, with End ℂ^(N_E)-valued coefficients bounded in C^∞(Ω̄′) and principal symbols p Id
 with |p(x, ζ)| ≥ c|ζ|². For φ ∈ C_c^∞(int K), φ̃ ∈ C_c^∞(Ω′) equal to 1 near K, and all s and M, there is C with
 ‖φu‖_(H^s) ≤ C(‖φ̃Lu‖_(H^(s−2)) + ‖φ̃u‖_(H^(−M))) for all L ∈ ℱ. This is [[prop:i-a-5-1]] over a compact set, where
-the scattering calculus is the classical one (last paragraph of [[sec:i-a-2-1]]). The uniformity comes from the proof
+the scattering calculus is the classical one (after (C8) in [[sec:i-a-2-1]]). The uniformity comes from the proof
 of [[prop:i-a-5-1]], whose construction depends continuously on the symbol: by Arzelà–Ascoli the closure of ℱ in the
 coefficient topology is compact, the coefficients depend continuously on its points, and the ellipticity bound
 persists.
 
-(K3) *Rellich.* [HJS, Proposition 3.13]: for distributions supported in a fixed compact set and s′ > s, the inclusion
+(K3) *Rellich.* (C4) of [[sec:i-a-2-1]]: for distributions supported in a fixed compact set and s′ > s, the inclusion
 H^(s′) ↪ H^s is compact.
 
 (K4) *The sphere.* L²(𝕊³) = ⊕_(ℓ≥0) ℋ_ℓ, with ℋ_ℓ the finite-dimensional spaces of spherical harmonics of degree ℓ,
@@ -547,8 +547,8 @@ with H_sc^((s;k),𝗋) the space of [[sec:i-a-4-6]] (k further b-derivatives) an
 [[def:i-c-2-1]] at the end at 0. For k = 0 we write H_(sc,b)^(s,(𝗋,q))(tf).
 
 Near ztf, ρ_ztf^q L²(|dx̂|) = r̂^(q−2) L²(μ_b) as |dx̂| = r̂⁴μ_b, so the b-weight is q − 2, and the norm is that of
-ρ_sctf^𝗋 ρ_ztf^q H_(sc,b)^s(tf) for the Euclidean density, as in [Hin26c]. By [HJS, Propositions 3.7, 3.11 and 3.13,
-Sections 10.1–10.3] and [[lem:i-c-2-2]]: the L²(|dx̂|) pairing identifies the dual of H_(sc,b)^(s,(𝗋,q)) with
+ρ_sctf^𝗋 ρ_ztf^q H_(sc,b)^s(tf) for the Euclidean density, as in [Hin26c]. By (C3), (C4) and (C6) of [[sec:i-a-2-1]]
+and [[lem:i-c-2-2]]: the L²(|dx̂|) pairing identifies the dual of H_(sc,b)^(s,(𝗋,q)) with
 H_(sc,b)^(−s,(−𝗋,−q)) (near ztf the pairing is ⟨w, r̂⁴v⟩_(μ_b), and v ↦ r̂⁴v maps the b-weight −q − 2 of the second
 space onto −(q − 2), the dual of q − 2); the inclusion is compact when all three orders drop, the decay order by a
 positive constant; and N_tf(σ̂) maps H_(sc,b;b)^((s;k),(𝗋,q)) to H_(sc,b;b)^((s−2;k),(𝗋,q−2)), by (a) and (c) of
@@ -601,7 +601,7 @@ In the settings of (1) and (2), C is uniform in θ.
 This is [Hin26c, Theorem 9.38] in dimension 4 + 1, on E, with the sign in the definition of Θ_± that matches the orders
 𝗋_± ([[sec:s03-remarks]]). [Hin26c, Theorem 9.38 (5)] also states [Hin26c, (9.115)]: the annihilator lies in
 e^(−2i/ρ_sctf) 𝒜^(a,−2+β)(tf) (at n = 4). Its proof conjugates the scattering calculus by e^(2ir̂), which lies outside
-the results of [HJS] used in [[ch:s01]], and uses [Hin26c, (9.117)], whose printed proof omits a term
+the calculus of [[sec:i-a-2-1]], and uses [Hin26c, (9.117)], whose printed proof omits a term
 ([[sec:s03-remarks]]). Nothing here uses [Hin26c, (9.115)]: tf-admissibility is stated in [[sec:i-c-5]] on the spaces of
 this theorem. [Hin26c, (9.115)] is not proved here.
 
@@ -641,7 +641,7 @@ the normal operator of the adjoint, whose roots μ̄ − 2 avoid the real part �
 *(3).* The inclusion 𝒳_(tf,θ) ↪ H_(sc,b)^(−M,(−M,−M)) is compact for M large, so [[eq:i-c-4-3]]–[[eq:i-c-4-4]] give
 the Fredholm property, by Peetre's lemma, as in [[sec:i-a-7-3]]. Green's formula ⟨N_tf w, v⟩ = ⟨w, N_tf^(*h)v⟩ holds
 for w ∈ 𝒳_(tf,θ), v ∈ 𝒳_(tf,θ)^*: near sctf by the proof in [[sec:i-a-7-3]] (with the regularising family T_t of
-[HJS, Lemma 12.5], there being no artificial boundary); near ztf as in [[sec:i-c-3-1]], by [[lem:i-c-2-5]] and density
+(C8) of [[ch:s01]], there being no artificial boundary); near ztf as in [[sec:i-c-3-1]], by [[lem:i-c-2-5]] and density
 ([[lem:i-c-2-2]] (d)). So the annihilator of the range is the kernel of the adjoint on 𝒳_(tf,θ)^*. *Independence.*
 Kernel elements are independent of q, s and the orders by (5) and its converse. For the annihilator: near ztf,
 [[lem:i-c-2-5]] and [[lem:i-c-2-7]] for the adjoint, with roots μ̄ − 2 and gap (β_− − 2, β_+ − 2) containing −q, put
@@ -783,7 +783,7 @@ operator of order (2, 0) whose principal symbol at the boundary face is (ξ − 
 symbol ξ, and r̂⁻¹Z_i that of a component of η), and which is elliptic at fibre infinity. It is elliptic at the boundary
 face off {ξ = κ, η = 0}. (D_r̂ − κ)(e^(iκr̂)gY) = e^(iκr̂)(D_r̂ g)Y and r̂⁻¹Z_i(e^(iκr̂)gY) = e^(iκr̂) r̂⁻¹ g Z_iY, and
 (D_r̂ − κ)^* = D_r̂ − κ − 3i/r̂; so A^j v has the form of v with γ replaced by γ + 2j, plus a smooth compactly supported
-term, and lies in H^(m,l) for l < γ + 2j − 2. The microlocal elliptic estimate ([HJS, Propositions 4.9 and 4.10]) for
+term, and lies in H^(m,l) for l < γ + 2j − 2. The microlocal elliptic estimate ((C5) of [[sec:i-a-2-1]]) for
 A^j, elliptic of order (2j, 0) on WF′(Q), gives Qv ∈ H^(m,l) for l < γ + 2j − 2, for every j. ∎
 
 #### The asymptotically Minkowski case {#sec:i-c-5-3}
@@ -864,8 +864,8 @@ weight β ≥ 2.
 N_tf(1) = e^(−ir̂)(Δ_e − 1)e^(ir̂). Let q := 2 − β, let Y_0 ∈ ℋ_0 be a nonzero constant, let f_1, g_1 be the functions
 of [[lem:i-c-5-4]] at ℓ = 0 and θ = 0, and put w := g_1Y_0 = e^(−ir̂)f_1Y_0 ≠ 0. Then
 N_tf(1)w = e^(−ir̂)(Δ_e − 1)(f_1Y_0) = 0 by [[lem:i-c-5-4]] (a), and w ∈ 𝒜^(3/2) near sctf by [[lem:i-c-5-4]] (b).
-Near ztf, r̂²|w| = r̂|H_1^(1)(r̂)| is bounded on (0, 2], by [DLMF, (10.7.7)] (H_1^(1)(z) ∼ −2i/(πz)) and continuity; so
-‖r̂^(−c)w‖_(L²(μ_b)) is finite on {r̂ < 2} for every c < −2, as ∫_0^2 r̂^(−2c−4) dr̂/r̂ < ∞. Since r̂²N_tf(1) is
+Near ztf, r̂²|w| = r̂|H_1^(1)(r̂)||Y_0| is bounded on (0, 2], by [DLMF, (10.7.7)] (H_1^(1)(z) ∼ −2i/(πz)) and continuity;
+so ‖r̂^(−c)w‖_(L²(μ_b)) is finite on {r̂ < 2} for every c < −2, as ∫_0^2 r̂^(−2c−4) dr̂/r̂ < ∞. Since r̂²N_tf(1) is
 b-elliptic there ((c) of [[sec:i-c-4-1]]), [[lem:i-c-2-5]] and [[lem:i-c-2-2]] (f) give w ∈ 𝒜^c near ztf for every
 c < −2. As w is smooth on tf° and −β_− − ϵ ≤ −2 − ϵ, w ∈ ∩_(ϵ>0) 𝒜^(3/2−ϵ,−β_−−ϵ)(tf), which lies in 𝒳_(tf,0) by
 the converse in [[thm:i-c-4-3]] (5) (S̄ = 0). So N_tf(1) is not injective on 𝒳_(tf,0), and (ii) of [[def:i-c-5-1]]
@@ -957,7 +957,7 @@ for a scattering symbol a,
 
 exactly (substitute y = ŷ/ς and ζ = ςζ̂ in the oscillatory integral). If a is an elliptic symbol of order (s, 𝗋_ς),
 then a_ς is one of order (s, 𝗋), as (x̂, ζ̂) ↦ (x̂/ς, ςζ̂) extends to a diffeomorphism of the compactified phase space.
-So S_ς maps H_sc^(s,𝗋_ς) isomorphically onto H_sc^(s,𝗋) ([HJS, Definition 10.2]), and the same holds with k
+So S_ς maps H_sc^(s,𝗋_ς) isomorphically onto H_sc^(s,𝗋) ((C6) of [[sec:i-a-2-1]]), and the same holds with k
 b-derivatives, since S_ς ⟨x⟩D_x S_ς⁻¹ = ⟨x̂/ς⟩ ς D_x̂ lies in the span of the fields ⟨x̂⟩D_x̂ over C^∞(ℝ̄⁴). For
 admissibility, let D_ς(ω, ξ, η) := (ω, ςξ, ςη) on the boundary face, so 𝗋_ς = 𝗋 ∘ D_ς⁻¹. With
 G_(σ_0) = 2σ_0ξ + ξ² + |η|² ([[lem:i-a-4-4]]), G_(ςσ_0) ∘ D_ς = ς²G_(σ_0), so D_ς maps Σ^∂_(σ_0),
@@ -973,8 +973,8 @@ than q − l. (d2) is (a). (d3): for ς < 1/(2R_∂Λ) the first term vanishes, 
 take m = 1 and show H^((s;k+1),𝗋) ⊂ H^((s+1;k),𝗋) ([[sec:i-a-4-6]]) on ℝ⁴_x̂, which does not involve ς. Let
 V_j := ⟨x⟩D_(x_j) and w := V^β u, |β| ≤ k. Then w and every V_j w lie in H^(s,𝗋), since V_jV^β is a combination of
 the V^γ, |γ| ≤ k + 1, with coefficients in C^∞(ℝ̄⁴). Off the zero section of the boundary face the system (V_j) is
-elliptic in Ψ^(1,1) (proof of [[lem:i-a-4-10]]), so w ∈ H^(s+1,𝗋+1) ⊂ H^(s+1,𝗋) microlocally there ([HJS,
-Propositions 2.3, 4.9 and 4.10]); near the zero section, at finite frequencies, B ∈ Ψ^(−∞,0) maps H^(s,𝗋) to
+elliptic in Ψ^(1,1) (proof of [[lem:i-a-4-10]]), so w ∈ H^(s+1,𝗋+1) ⊂ H^(s+1,𝗋) microlocally there ((C5) of
+[[sec:i-a-2-1]]); near the zero section, at finite frequencies, B ∈ Ψ^(−∞,0) maps H^(s,𝗋) to
 H^(s+1,𝗋). With the norms, this is the claim. ∎
 
 #### The model at tf {#sec:i-c-6-2}

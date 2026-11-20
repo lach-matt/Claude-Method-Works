@@ -358,7 +358,7 @@ compact subset of M [Hin26d, Definition 3.27, p. 41].
 (S6) [Hin26d, Remark 3.33, p. 45]; [Hin26c, Lemma 3.5, p. 49]. The boundedness
 Op_𝒱(a) : w′H^((s;k))_(𝒱;𝒲) → ww′H^((s−m;k))_(𝒱;𝒲) requires only uniform bounds ⟨ξ⟩^(m−|γ|) on
 (ρ_α∂_x)^β ∂_x^(β′) ∂_ξ^γ a_α for |β′| ≤ k (𝒱-regular symbols with x-derivatives up to order k) [Hin26d, Remark 3.33].
-[Hin26c, Lemma 3.5] states: given a compact interval I ⊂ ℝ, there exist d_0 ∈ ℕ and C such that for all s, m ∈ I and
+[Hin26c, Lemma 3.5] states: given a compact set I ⊂ ℝ, there exist d_0 ∈ ℕ and C such that for all s, m ∈ I and
 all symbols a of order m with d_0 bounded 𝒱-derivatives, ‖Op_𝒱(a)‖_(ℒ(H^s_𝒱, H^(s−m)_𝒱)) ≤ C‖a‖_(C^(d_0)_𝒱 S^m), and,
 for the same d_0 and all k, the same bound between H^((s;k))_(𝒱;𝒲) and H^((s−m;k))_(𝒱;𝒲) with the norm of a in
 C^((d_0;k))_(𝒱;𝒲) S^m. Neither statement is used below: the bounds of this kind that the chapter needs are proved in
@@ -547,7 +547,7 @@ spaces.
 
 #### Bundles {#sec:ii-a-4-3}
 
-Operators on the trivial bundle ℂ^N (the bundles of [[sec:i-a-1-2]]) are N × N matrices of scalar operators; all
+Operators on the trivial bundle ℂ^(N_E) (the bundles of [[sec:i-a-1-2]]) are N_E × N_E matrices of scalar operators; all
 statements above and below hold for them with matrix-valued symbols, the principal symbols multiplying as matrices
 ((S14), for differential and for pseudodifferential operators). Where a
 scalar principal symbol is needed (commutators lowering the order), it is assumed and said.
@@ -1068,6 +1068,9 @@ pseudolocality in the proof of [Hin26c, Proposition 3.28].) Let 𝗌 and 𝗌_0 
 WF′_e3b(I − B^♯) ∩ WF′_e3b(B) = ∅. Then there is C, depending on B and B^♯, with
 ‖Bℓ(I − B^♯)u‖_(H^𝗌_e3b) ≤ C‖ℓ‖_(C^(d_0)_e3b)‖u‖_(H^(𝗌_0)_e3b) for all ℓ ∈ C^(d_0)_e3b.
 
+For Θ ∈ ℕ, d_0 = 200Θ + 100 serves in (a) when 𝗌 has values in [−Θ, Θ], and in (b) when 𝗌_0 has values in [−Θ, Θ]
+and sup 𝗌 − inf 𝗌_0 ≤ Θ ([[prop:fwd-calculus]] with T := Θ, which proves (b) without the commutator expansion).
+
 *Proof.* *Smooth coefficients.* Let C^∞_e3b be the space of functions all of whose e3b-derivatives are bounded. With the
 seminorms ‖·‖_(C^d_e3b) it is a Fréchet space. Such a function ℓ is a symbol of order 0, independent of the fibre
 variable, for the secondary b.g. structure ρℬ. In its charts the e3b-vector fields are the uniformly bounded
@@ -1460,7 +1463,12 @@ the support of u.
 **Proposition {#prop:ii-a1-2-4}** (Finite regularity.) Let 𝗍 be a variable order, ν ∈ ℕ_0, and 𝗆, 𝗆_1, 𝗆_2 orders,
 constant or variable. There are M and C, depending on these orders, on ν and on δ > 0, with the following properties,
 for symbols in C^((M+2))_ν S̃ of the stated orders (symbols of different indices are taken in the largest). Throughout,
-"order 𝗋" means bounded from H^𝗍 to H^(𝗍−𝗋).
+"order 𝗋" means bounded from H^𝗍 to H^(𝗍−𝗋). For Θ ∈ ℕ, when 𝗍 and the orders of all quantized symbols have values in
+[−Θ, Θ] (of any index ν), M := 200Θ + 98 serves in (a)–(d); in (e) for N ≤ Θ and expressions with at most six
+quantizations in each product (B_1, B_2 and the localisers included); and in (f) for expressions with at most six
+quantizations in each product whose formal symbol in every chart is a sum of terms of pointwise order at most μ, an order
+function with values in [−6Θ − 3, 6Θ + 3] ([[prop:fwd-calculus]] with T := Θ, which proves (e) without the commutator
+expansion).
 
 (a) Op(a) extends from C_c^∞ to a bounded operator of order 𝗆, without loss, with norm at most C‖a‖_((M);ν,𝗆).
 
@@ -1920,35 +1928,35 @@ near fibre infinity and supported where (z, y) are defined and in {ρ_∞ < 1}, 
 derivatives are supported in a set compact in the fibres, where every symbol has order −∞.
 
 *Commutant.* With 𝗄 := 𝗌 − (m − 1)/2 (the restriction to fibre infinity), the regulariser φ_ε of [[sec:ii-a1-2-3]] with
-exponent κ, and a large constant M, put
+exponent κ, and a large constant C_z, put
 
-    ǎ_ε := χ_∞ ρ_∞^(−𝗄) φ_ε e^(−Mz) χ_s(z) χ_e(z) ψ_y.
+    ǎ_ε := χ_∞ ρ_∞^(−𝗄) φ_ε e^(−C_z z) χ_s(z) χ_e(z) ψ_y.
 
 Its factors other than ρ_∞^(−𝗄)φ_ε have d_0 − 1 bounded derivatives ([[lem:ii-a1-5-2]]), so ǎ_ε is bounded in
 C^((d_0−1)) S̃^𝗄 (index 0), and lies in C^((d_0−1)) S̃^(𝗄−κ) for each ε. Since 𝖧_fz = 1 and 𝖧_fψ_y = 0,
 [[eq:ii-a1-2-1]] gives, where χ_∞ = 1,
 
-    𝖧_f(ǎ_ε²) = ρ_∞^(−2𝗄) φ_ε² ψ_y² e^(−2Mz) [−χ_s²χ_e² Q_ε + χ_e² ∂_z(χ_s²) + χ_s² ∂_z(χ_e²)],
-    Q_ε := 2M + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ + 2(𝖧_f𝗄) log ρ_∞,     𝗄_ε := 𝗄 − κθ_ε.
+    𝖧_f(ǎ_ε²) = ρ_∞^(−2𝗄) φ_ε² ψ_y² e^(−2C_z z) [−χ_s²χ_e² Q_ε + χ_e² ∂_z(χ_s²) + χ_s² ∂_z(χ_e²)],
+    Q_ε := 2C_z + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ + 2(𝖧_f𝗄) log ρ_∞,     𝗄_ε := 𝗄 − κθ_ε.
 
 On the support, 𝖧_f𝗄 = 𝖧_f𝗌 ≤ 0 and log ρ_∞ < 0, so the last term of Q_ε is nonnegative. These two signs hold on the
 set W where (z, y) are defined, 𝖧_f𝗌 ≤ 0 and ρ_∞ < 1, a neighbourhood of the box
 {z ∈ [−2δ, T + 2δ], |y| ≤ 2δ_1} ∩ supp χ_∞; off W, Q_ε need not be positive, nor even defined. Fix
 ζ ∈ C^∞(ᵉ³ᵇT̄*M̃) with values in [0, 1], equal to 1 near that box and supported in W, and choose
-M ≥ 1 + sup_(supp ζ) |2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞|, uniformly in ε as 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ M on supp ζ; M will be enlarged
-once more below. Put
+C_z ≥ 1 + sup_(supp ζ) |2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞|, uniformly in ε as 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ C_z on supp ζ; C_z will be
+enlarged once more below. Put
 
-    Q̃_ε := ζQ_ε + (1 − ζ)M = Q̃_(0,ε) + ζλ,     Q̃_(0,ε) := ζQ_(0,ε) + (1 − ζ)M,
+    Q̃_ε := ζQ_ε + (1 − ζ)C_z = Q̃_(0,ε) + ζλ,     Q̃_(0,ε) := ζQ_(0,ε) + (1 − ζ)C_z,
 
-with Q_(0,ε) := 2M + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ and λ := 2(𝖧_f𝗄) log ρ_∞. Then Q̃_ε is defined on all of phase space,
-Q̃_(0,ε) ≥ M and ζλ ≥ 0 everywhere, so Q̃_ε ≥ M everywhere, and Q̃_ε = Q_ε near the box. Q̃_(0,ε) has d_0 − 2 bounded
+with Q_(0,ε) := 2C_z + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ and λ := 2(𝖧_f𝗄) log ρ_∞. Then Q̃_ε is defined on all of phase space,
+Q̃_(0,ε) ≥ C_z and ζλ ≥ 0 everywhere, so Q̃_ε ≥ C_z everywhere, and Q̃_ε = Q_ε near the box. Q̃_(0,ε) has d_0 − 2 bounded
 derivatives, and ζλ has d_0 − 2 derivatives bounded by C⟨log ρ_∞⟩, uniformly in ε ([[lem:ii-a1-5-1]] (b),
 [[def:ii-a1-1-3]], and [[lem:ii-a1-1-1]] for ζ). By [[lem:ii-a1-2-5]] (ii) with ν = 0, Q̃_ε^(−1/2) is bounded in
 C^((d_0−2))_1 S̃⁰ and Q̃_ε^(1/2) in C^((d_0−2))_1 S̃^δ for every δ > 0. Put
 
-    b_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_s χ_e Q̃_ε^(1/2) χ_∞,
-    b_(e,ε) := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_s (−∂_z(χ_e²))^(1/2) χ_∞,
-    e_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_e (∂_z(χ_s²))^(1/2) χ_∞,
+    b_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−C_z z) χ_s χ_e Q̃_ε^(1/2) χ_∞,
+    b_(e,ε) := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−C_z z) χ_s (−∂_z(χ_e²))^(1/2) χ_∞,
+    e_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−C_z z) χ_e (∂_z(χ_s²))^(1/2) χ_∞,
     z_ε := μ^(−1/2) Q̃_ε^(−1/2).
 
 Then ςH_ℓ(ǎ_ε²) = μ𝖧_f(ǎ_ε²) = −b_ε² − b_(e,ε)² + e_ε² modulo symbols of order −∞ (from χ_∞), as Q̃_ε = Q_ε on the
@@ -1956,8 +1964,8 @@ supports, and ǎ_ε = z_εb_ε exactly, on all of phase space. The factor μρ_�
 and d_0 − 2 derivatives, b_ε is bounded in the class of order 𝗌 + δ for every δ > 0 (the factor Q̃_ε^(1/2)), e_ε and
 b_(e,ε) in that of order 𝗌, and z_ε, a global symbol, in that of order −(m − 1)/2, on which it acts without loss
 ([[prop:ii-a1-2-4]] (a)). e_ε is supported in {z ∈ [−δ, −δ/2]}, inside Ell(E) and away from γ([0, T]). b_0 is elliptic
-on γ([0, T]), where χ_s = χ_e = ψ_y = 1 and Q̃_0 ≥ M: on the open set U′ := {z ∈ (−δ/2, T + δ/2), |y|² < δ_1²/2}, near
-fibre infinity, b_0⁻¹ = ρ_∞^𝗌 e^(Mz) Q̃_0^(−1/2) lies in C^((d_0−2))_1 S̃^(−𝗌).
+on γ([0, T]), where χ_s = χ_e = ψ_y = 1 and Q̃_0 ≥ C_z: on the open set U′ := {z ∈ (−δ/2, T + δ/2), |y|² < δ_1²/2}, near
+fibre infinity, b_0⁻¹ = ρ_∞^𝗌 e^(C_z z) Q̃_0^(−1/2) lies in C^((d_0−2))_1 S̃^(−𝗌).
 
 *Localisers.* The symbols ǎ_ε, b_ε and b_(e,ε) are supported in the closed set
 K_1 := {z ∈ [−δ, T + δ], |y| ≤ δ_1} ∩ supp χ_∞, and e_ε in K_E := {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ∩ supp χ_∞. Choose
@@ -2007,15 +2015,15 @@ fibres, so its quantization has every order. So
 
 dropping −‖B_(e,ε)w‖² ≤ 0. For the L_I term, fix elliptic operators Λ_± of orders ±(m − 1)/2 defining the norms of
 H^(±(m−1)/2), and let C_I be the norm of L_I between these spaces. It depends on finitely many norms of the coefficients
-and not on M or ε. Take Λ_+ := Op(λ_+) with λ_+ classical. Then Λ_+Ǎ = Op(λ_+z_ε)B_ε + (order 𝗌 − 1 + 2δ)
-([[prop:ii-a1-2-4]] (b), with ǎ_ε = z_εb_ε), where λ_+z_ε ∈ C^((d_0−2))_1 S̃⁰. Its supremum is at most C_ΛM^(−1/2), with
-C_Λ := sup |λ_+μ^(−1/2)|, as Q̃_ε ≥ M on all of phase space. [[lem:ii-a1-2-6]] with η := M⁻¹ and δ/2 in place of
+and not on C_z or ε. Take Λ_+ := Op(λ_+) with λ_+ classical. Then Λ_+Ǎ = Op(λ_+z_ε)B_ε + (order 𝗌 − 1 + 2δ)
+([[prop:ii-a1-2-4]] (b), with ǎ_ε = z_εb_ε), where λ_+z_ε ∈ C^((d_0−2))_1 S̃⁰. Its supremum is at most C_ΛC_z^(−1/2),
+with C_Λ := sup |λ_+μ^(−1/2)|, as Q̃_ε ≥ C_z on all of phase space. [[lem:ii-a1-2-6]] with η := C_z⁻¹ and δ/2 in place of
 δ, applied to B_εw, and (a + b)² ≤ 2a² + 2b² give
 
-    ‖Ǎw‖²_((m−1)/2) ≤ 2(C_Λ² + 1)M⁻¹‖B_εw‖² + C‖w‖²_(𝗌−1/2+δ),
+    ‖Ǎw‖²_((m−1)/2) ≤ 2(C_Λ² + 1)C_z⁻¹‖B_εw‖² + C‖w‖²_(𝗌−1/2+δ),
 
-where ‖B_εw‖_(−1/2+δ/2) ≤ C‖w‖_(𝗌−1/2+δ), b_ε being bounded in the class of order 𝗌 + δ/2. Enlarge M so that
-4C_I(C_Λ² + 1)M⁻¹ ≤ 1/2. Then
+where ‖B_εw‖_(−1/2+δ/2) ≤ C‖w‖_(𝗌−1/2+δ), b_ε being bounded in the class of order 𝗌 + δ/2. Enlarge C_z so that
+4C_I(C_Λ² + 1)C_z⁻¹ ≤ 1/2. Then
 
     ς⟨C_(ǎ_ε)w, w⟩ ≤ −(1/2)‖B_εw‖² + ‖E_εw‖² + C‖w‖²_(𝗌−1/2+δ).
 
@@ -2031,7 +2039,7 @@ misses Γ. There is no threshold, so τ is arbitrary. Take τ ≥ sup 𝗌 + N; 
 ℂ^(N′) the commutant is scalar and L_I is matrix-valued; nothing above used a scalar L_I.
 
 The uniformity: all constants are bounded by finitely many norms of the coefficients, by the bounds of
-[[lem:ii-a1-5-2]], and by M, δ and δ_1. Let L′ be a perturbation small in C^(d_0), with field 𝖧′, let γ′ be the
+[[lem:ii-a1-5-2]], and by C_z, δ and δ_1. Let L′ be a perturbation small in C^(d_0), with field 𝖧′, let γ′ be the
 integral curve of 𝖧′_f with γ′(T) = γ(T), and build the coordinates (z′, y′) of [[lem:ii-a1-5-2]] for 𝖧′ with the same
 slice {σ = 0} and the same ỹ, shifted so that γ′(t) = (t, 0). As 𝖧′ → 𝖧, the integral curves of 𝖧′ from points of the
 slice near p_0 converge to those of 𝖧 uniformly on the compact time interval ([[lem:ii-a1-5-1]] (c)). So the
@@ -2039,8 +2047,8 @@ compactness argument for the injectivity in [[lem:ii-a1-5-2]] (a curve meets the
 close to 𝖧, (z′, y′) is defined and injective on a fixed neighbourhood of γ([−3δ′, T + 3δ′]), with the derivative bounds
 of [[lem:ii-a1-5-2]] uniform, and (z′, y′) → (z, y) uniformly there. The box {z′ ∈ [−δ, T + δ], |y′| ≤ δ_1} then lies in
 the box of 𝖧 with 2δ and 2δ_1, which has the properties required above by the choice of the margin, given that
-𝖧′_f𝗌 ≤ 0 on the same neighbourhood. With M chosen with a margin too, as the bounds it must exceed depend continuously on
-the coefficients, the same δ, δ_1 and M serve, and so do the same ζ and the same localisers once (z′, y′) is within
+𝖧′_f𝗌 ≤ 0 on the same neighbourhood. With C_z chosen with a margin too, as the bounds it must exceed depend continuously
+on the coefficients, the same δ, δ_1 and C_z serve, and so do the same ζ and the same localisers once (z′, y′) is within
 min(δ/16, δ_1/2) of (z, y). Indeed φ_0 and ζ are 1 near the box of 𝖧 with 2δ and 2δ_1. φ_E is 1 near
 {z ∈ [−3δ/2, −δ/4], |y| ≤ 3δ_1/2}, which contains the E-set {z′ ∈ [−δ, −δ/2], |y′| ≤ δ_1} of 𝖧′, as there
 z ∈ (−17δ/16, −7δ/16) and |y| < 3δ_1/2. And supp φ_E ⊂ {z ≤ −δ/8} misses γ′([0, T]) ⊂ {z > −δ/16}. ∎
@@ -2165,7 +2173,7 @@ The two estimates without b-regularity are [Hin26c, Propositions 3.23 and 3.24] 
 commutator arguments. For variable orders it cites [Vas18, Theorem 5.3], with the sharp Gårding inequality on each unit
 cell and a commutant as in [dHUV15], and it takes the coefficient regularity d_0 finite because the arguments use the
 boundedness of finitely many operators on a fixed range of spaces. [Hin26d] does not treat propagation (its Section 3.6
-says so), and [HJS] has constant differential orders. In this edition the two estimates are [[thm:ii-a1-3-1]] and
+says so), and [Mel94] has constant orders. In this edition the two estimates are [[thm:ii-a1-3-1]] and
 [[thm:ii-a1-5-4]], proved in [[sec:ii-a1-1]] to [[sec:ii-a1-5]] without the sharp Gårding inequality. We refer to them
 as (L3) and (L4) and recall their content.
 

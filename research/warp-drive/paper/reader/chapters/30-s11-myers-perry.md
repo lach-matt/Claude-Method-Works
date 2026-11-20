@@ -1224,7 +1224,7 @@ E ∪̄ {(0, 0)}. It remains to treat f ∈ H^(k,α,(F⃗,β⃗)) (E = ∅). Sub
 which lies in H^(k,∞,(F⃗,β⃗)) by hypothesis, we may assume u = f = 0 near x = 1. The operator x∂_x commutes with x∂_x and
 with b-derivatives on H, so the case k = 0 applied to derivatives gives every k. The solution operators below act in x
 alone, commute with multiplication by functions of y and with ρ^w(log ρ)^j for defining functions ρ of the faces of H,
-and are bounded on x^α L²(|dx/x|; 𝓗) for any Hilbert space 𝓗; applied to the terms and the remainders of the
+and are bounded on x^α L²(|dx/x|; ℋ) for any Hilbert space ℋ; applied to the terms and the remainders of the
 expansions [[eq:s11-partial]] at the faces [0, 1) × ∂_jH (inductively on the number of faces), they preserve (F⃗, β⃗).
 So we drop y. If α < 0: u(x) = −∫_x^1 f(s) ds/s, and by Cauchy–Schwarz with ∫_x^1 s^α ds/s ≤ |α|⁻¹x^α and
 ∫_0^s x^(−α) dx/x = |α|⁻¹s^(−α),
@@ -1287,12 +1287,18 @@ written in that frame, an element of Diff^m_b(M; ℂ^(N_E)); the bundles of the 
 way ([[sec:i-a-1-2]]).
 
 Fix smooth vector fields X₁, …, X_q on ∂M spanning T∂M at every point. For an integer k ≥ 0, H^k(∂M) is normed by
-‖u‖_(H^k) := Σ ‖X_(i₁)⋯X_(i_l)u‖_(L²(∂M,μ)), the sum over l ≤ k and all indices, the fields acting on each component
-and ‖u‖²_(L²(∂M,μ)) := ∫ |u|² μ with |·| the Euclidean norm of ℂ^(N_E); this is the usual Sobolev norm up to
-equivalence ([Hin26d, Definition 3.14 and Remark 3.15, pp. 34–35], for each component), and
-‖u‖_(H^k) = ‖u‖_(L²) + Σ_i ‖X_iu‖_(H^(k−1)) for k ≥ 1. For A ∈ Diff^m_b(M; ℂ^(N_E)) elliptic near ρ = 0,
-N(A, ι) = Σ_j A_j(0)ι^j depends polynomially on ι and is elliptic on ∂M: its principal symbol, the matrix
-Σ_(|β|=m) a_0β(0, y)η^β, which is that of A at ρ = 0 and ξ = 0, is invertible for η ≠ 0. We use three facts about it.
+‖u‖_(H^k) := Σ ‖X_(i₁)⋯X_(i_l)u‖_(L²(∂M,μ)), the sum over l ≤ k and all indices, the fields acting on each component and
+‖u‖²_(L²(∂M,μ)) := ∫ |u|² μ with |·| the Euclidean norm of ℂ^(N_E); this is the usual Sobolev norm up to equivalence, for
+each component. Indeed, let 𝓑 be a b.g. structure of ∂M with finitely many charts ((S1) of [[thm:std-sbg-calculus]]; for
+instance restrictions of charts defined near their closures), with all scalings 1 (so that 𝒱 consists of all smooth
+vector fields), its charts so small that on each of them some dim ∂M of the X_i form a frame. Then H^k_𝒱(∂M) is the usual
+space, normed up to equivalence by the sum (3.15) of [[rem:std-sbg-sobolev]] ([Hin26d, Definition 3.14 and Remark 3.15,
+pp. 34–35]). Every X_i is bounded from H^s_𝒱 to H^(s−1)_𝒱 (p. 36 there), which bounds ‖u‖_(H^k) by that norm; and on each
+chart every ∂_(x^j) is a combination of those X_i with smooth coefficients, which bounds that norm by ‖u‖_(H^k), by
+induction on k (at k = 0 both are comparable to ∫ |u|² μ, μ being smooth and positive). Also ‖u‖_(H^k) = ‖u‖_(L²) + Σ_i
+‖X_iu‖_(H^(k−1)) for k ≥ 1. For A ∈ Diff^m_b(M; ℂ^(N_E)) elliptic near ρ = 0, N(A, ι) = Σ_j A_j(0)ι^j depends
+polynomially on ι and is elliptic on ∂M: its principal symbol, the matrix Σ_(|β|=m) a_0β(0, y)η^β, which is that of A at
+ρ = 0 and ξ = 0, is invertible for η ≠ 0. We use three facts about it.
 
 (E1) *Large-parameter ellipticity.* For every strip {c₁ ≤ Re ι ≤ c₂} and every integer s ≥ 0 there are R and C such
 that N(A, ι) : H^(s+m)(∂M) → H^s(∂M) is invertible for |Im ι| ≥ R in the strip, with
@@ -1315,19 +1321,19 @@ bijective if ι ∉ spec_b(A) and not injective if ι ∈ spec_b(A); and spec_b(
 
 The three facts rest on the following results of the literature. All three use the elliptic estimate on a compact
 manifold without boundary, quoted below, and the equivalence of the norms of this section with the usual Sobolev norms,
-[Hin26d, Definition 3.14 and Remark 3.15]. The proof of (E2), on which that of (E3) builds, also uses the compact
-inclusion H^(m+1)(∂M) ↪ H^m(∂M), [Hin26d, Theorem 3.21], and analytic Fredholm theory, [[thm:std-analytic-fredholm]];
-(E2) and (E3) also use the Sobolev embedding theorem ([[thm:std-bh-manifold]]) on the compact ∂M, by which C^∞(∂M) is the
-intersection of the H^s(∂M). In the following quotation the letters A, X, E, F, m, s, t, p, u and C are the source's.
-[Shu92, Appendix 1, Lemma 1.4, pp. 69–70] states: "Let A be a C^∞-bounded uniformly elliptic differential operator acting
-as in (1.2) between spaces of sections of vector bundles of bounded geometry. Then for every s, t ∈ ℝ, p ∈ (1, +∞) there
-exists C > 0 such that (1.5) ‖u‖_(s,p) ≤ C(‖Au‖_(s−m,p) + ‖u‖_(t,p)), u ∈ C_0^∞(X, E). Moreover if u ∈ W_p^(−∞)(X, E) and
-Au ∈ W_p^(s−m)(X, F) then u ∈ W_p^s(X, E)." There (p. 69) the principal symbol a_m(x, ξ) of A is a matrix in local
-trivialisations, A "is called elliptic if this matrix is invertible for every (x, ξ) with ξ ≠ 0. It is called uniformly
-elliptic if there exists C > 0 such that (1.4) |a_m⁻¹(x, ξ)| ≤ C|ξ|^(−m), (x, ξ) ∈ T*X, ξ ≠ 0", with |ξ| the length in
-the Riemannian metric of X; W_p^(−∞)(X, E) is the union of the W_p^s(X, E), s ∈ ℝ; and W_2^s(X, E) is the Sobolev space
-of order s, the completion of C_0^∞(X, E) in a norm built from a partition of unity subordinate to coordinate balls and
-Sobolev norms in the coordinates, with W_2^0(X, E) = L²(X, E) (pp. 67–69).
+[Hin26d, Definition 3.14 and Remark 3.15] ([[rem:std-sbg-sobolev]]). The proof of (E2), on which that of (E3) builds,
+also uses the compact inclusion H^(m+1)(∂M) ↪ H^m(∂M), [Hin26d, Theorem 3.21], and analytic Fredholm theory,
+[[thm:std-analytic-fredholm]]; (E2) and (E3) also use the Sobolev embedding theorem ([[thm:std-bh-manifold]]) on the
+compact ∂M, by which C^∞(∂M) is the intersection of the H^s(∂M). In the following quotation the letters A, X, E, F, m, s,
+t, p, u and C are the source's. [Shu92, Appendix 1, Lemma 1.4, pp. 69–70] states: "Let A be a C^∞-bounded uniformly
+elliptic differential operator acting as in (1.2) between spaces of sections of vector bundles of bounded geometry. Then
+for every s, t ∈ ℝ, p ∈ (1, +∞) there exists C > 0 such that (1.5) ‖u‖_(s,p) ≤ C(‖Au‖_(s−m,p) + ‖u‖_(t,p)), u ∈ C_0^∞(X,
+E). Moreover if u ∈ W_p^(−∞)(X, E) and Au ∈ W_p^(s−m)(X, F) then u ∈ W_p^s(X, E)." There (p. 69) the principal symbol
+a_m(x, ξ) of A is a matrix in local trivialisations, A "is called elliptic if this matrix is invertible for every (x, ξ)
+with ξ ≠ 0. It is called uniformly elliptic if there exists C > 0 such that (1.4) |a_m⁻¹(x, ξ)| ≤ C|ξ|^(−m), (x, ξ) ∈
+T*X, ξ ≠ 0", with |ξ| the length in the Riemannian metric of X; W_p^(−∞)(X, E) is the union of the W_p^s(X, E), s ∈ ℝ;
+and W_2^s(X, E) is the Sobolev space of order s, the completion of C_0^∞(X, E) in a norm built from a partition of unity
+subordinate to coordinate balls and Sobolev norms in the coordinates, with W_2^0(X, E) = L²(X, E) (pp. 67–69).
 
 Let Z be a compact manifold without boundary, fix a Riemannian metric on it, and let P be a differential operator of
 order m on Z with smooth coefficients, acting on ℂ^(N_E)-valued functions, whose principal symbol is invertible at every
@@ -1341,7 +1347,7 @@ all their derivatives, uniformly, and P is C^∞-bounded. The function |a_m⁻¹
 homogeneous of degree 0 in ξ, so it is bounded by its maximum on the compact set {|ξ| = 1}; this is (1.4). On the
 compact Z, W_2^k, k ∈ ℕ₀, is the usual Sobolev space of ℂ^(N_E)-valued functions, so it is H^k(Z) with an equivalent
 norm: the norms of this section, built from smooth fields spanning TZ, are equivalent to the usual one by
-[Hin26d, Definition 3.14 and Remark 3.15], as on ∂M above. So (1.5) with s + m in
+[Hin26d, Definition 3.14 and Remark 3.15] ([[rem:std-sbg-sobolev]]), as on ∂M above. So (1.5) with s + m in
 place of s, t = 0 and p = 2, extended from C^∞(Z) to H^(s+m)(Z) by density and by the continuity of both of its sides
 in H^(s+m)(Z) (P maps H^(s+m)(Z) continuously to H^s(Z), p. 69), and the last sentence of the quotation give, for
 every integer s ≥ 0, a constant C with
@@ -1478,17 +1484,17 @@ Define
 uses, is the same whether "of order ≥ k + 1" or "of order k + 1" is used). By (E3), π₁Spec_b(A) = spec_b(A), and, the
 pole orders being finite, Spec_b(A) has finitely many elements (ι, k) with c₁ ≤ Re ι ≤ c₂, for all c₁ ≤ c₂.
 
-The Mellin transform is ℳg(ι) := ∫_0^∞ ρ^(−ι) g(ρ) dρ/ρ. In the variable s = −log ρ it is the Fourier–Laplace transform
-∫ e^(ιs) g(e^(−s)) ds, so Plancherel's theorem gives (M1): for g supported in ρ < ρ₀, g ∈ ρ^γ L²(|dρ/ρ|; 𝓗) if and only
-if ℳg is holomorphic in Re ι < γ with sup_(c<γ) ∫ |ℳg(c + iη)|² dη < ∞, and then 2π‖ρ^(−γ)g‖² equals the integral on
-Re ι = γ; ℳ(ρ∂_ρ g) = ιℳg; and g = (2πi)⁻¹ ∫_(Re ι=c) ρ^ι ℳg(ι) dι for c ≤ γ. So g ∈ H^(k,γ)_b(M) if and only if
-Σ_(j+|β|≤k) ∫_(Re ι=γ) |ι|^(2j) ‖ℳg(ι)‖²_(H^(|β|)(∂M)) |dι| < ∞ (with the same bound for Re ι < γ). (M2)
-([Hin26, Remark 2.14]) For χ ∈ C_c^∞([0, 1)) equal to 1 near 0,
-ℳ(χρ^z(log ρ)^k a)(ι) = (−1)^k k!(z − ι)^(−k−1) a + e(ι)a with e entire, since ∫_0^1 ρ^(w−ι) dρ/ρ = (w − ι)⁻¹ for
-Re ι < Re w and k derivatives in w give the first term, while (χ − 1_[0,1])ρ^z(log ρ)^k is supported away from 0 and of
-compact support. Hence for g ∈ H^(∞,(F,β))_b supported in ρ < 1, ℳg is holomorphic in Re ι < min(β, min Re F) and
-meromorphic in Re ι < β with poles only at ι ∈ π₁F, of order at most k(F, ι) + 1, and on vertical lines in Re ι < β
-away from the poles |ι|^J ‖ℳg(ι)‖_(H^J(∂M)) is square-integrable for every J, uniformly on compact sets of real parts.
+The Mellin transform is ℳg(ι) := ∫_0^∞ ρ^(−ι) g(ρ) dρ/ρ. In the variable s = −log ρ it is the Fourier–Laplace transform ∫
+e^(ιs) g(e^(−s)) ds, so Plancherel's theorem gives (M1): for g supported in ρ < ρ₀, g ∈ ρ^γ L²(|dρ/ρ|; ℋ), ℋ a Hilbert
+space, if and only if ℳg is holomorphic in Re ι < γ with sup_(c<γ) ∫ |ℳg(c + iη)|² dη < ∞, and then 2π‖ρ^(−γ)g‖² equals
+the integral on Re ι = γ; ℳ(ρ∂_ρ g) = ιℳg; and g = (2πi)⁻¹ ∫_(Re ι=c) ρ^ι ℳg(ι) dι for c ≤ γ. So g ∈ H^(k,γ)_b(M) if and
+only if Σ_(j+|β|≤k) ∫_(Re ι=γ) |ι|^(2j) ‖ℳg(ι)‖²_(H^(|β|)(∂M)) |dι| < ∞ (with the same bound for Re ι < γ). (M2) ([Hin26,
+Remark 2.14]) For χ ∈ C_c^∞([0, 1)) equal to 1 near 0, ℳ(χρ^z(log ρ)^k a)(ι) = (−1)^k k!(z − ι)^(−k−1) a + e(ι)a with e
+entire, since ∫_0^1 ρ^(w−ι) dρ/ρ = (w − ι)⁻¹ for Re ι < Re w and k derivatives in w give the first term, while (χ −
+1_[0,1])ρ^z(log ρ)^k is supported away from 0 and of compact support. Hence for g ∈ H^(∞,(F,β))_b supported in ρ < 1, ℳg
+is holomorphic in Re ι < min(β, min Re F) and meromorphic in Re ι < β with poles only at ι ∈ π₁F, of order at most k(F,
+ι) + 1, and on vertical lines in Re ι < β away from the poles |ι|^J ‖ℳg(ι)‖_(H^J(∂M)) is square-integrable for every J,
+uniformly on compact sets of real parts.
 
 **Lemma {#lem:iii-a-1-4}** ([Hin26, Lemma 2.13], boundary spectrum and polyhomogeneity.) Let
 A ∈ Diff^m_b(M; ℂ^(N_E)) be elliptic near ρ = 0, χ ∈ C_c^∞([0, ½ρ₀)) equal 1 on [0, ¼ρ₀] and χ̃ ∈ C_c^∞([0, ρ₀))
@@ -1890,12 +1896,12 @@ k(E_I, z) + 1 times and Z is E_(I,≤) completed by [[eq:s11-index-set]], contai
 which has no logarithms, and (F, β) = (E_ι − 1, β_ι − 1). Its hypotheses hold: β_K − 1 + Re z > β_ι − 1 by the choice of
 β_K; Re(w + z) ≠ β_ι − 1 for w ∈ ℕ₀, as β_ι − 1 ∉ Re π₁E_I and index sets are closed under adding ℕ₀; and on ρ ≥ ¼,
 where 1 − χ(2ρ) ≠ 0, the a priori condition is ℱu = ℱ(χ̃u), of order k + l ≥ k + l′ + |E_(I,≤)|. As (0, 0) + Z = Z,
-[[lem:iii-a-3-3]] gives the index sets ((0, 0), β_K − 1) at zf and (Z ∪̄ (E_ι − 1), β_ι − 1) ⊂ (E_I ∪̄ (E_ι − 1), β_ι −
-1) at tf. Near scf, in ρ_scf = ρ/|σ|, ρ_tf = |σ|, ρ∂_ρ − z = ρ_scf∂_(ρ_scf) − z, and [[lem:iii-a-1-2]] at scf, one factor
-at a time in decreasing order of Re z as in [[lem:iii-a-1-3]] (with min(β_I, β̃_ι) − ε ≠ Re z by the choice of ε; the a
-priori condition on ρ_scf ≥ ½ holds in the zf chart, and the tf index set found there is carried as the data at the
-other face), gives the index set (E_I, min(β_I, β̃_ι) − ε) there, the derivatives lost one factor at a time absorbed
-in l. This is [[eq:iii-a-4-3]].
+[[lem:iii-a-3-3]] gives the index sets ((0, 0), β_K − 1) at zf and (Z ∪̄ (E_ι − 1), β_ι − 1) ⊂
+(E_I ∪̄ (E_ι − 1), β_ι − 1) at tf. Near scf, in ρ_scf = ρ/|σ|, ρ_tf = |σ|, ρ∂_ρ − z = ρ_scf∂_(ρ_scf) − z, and
+[[lem:iii-a-1-2]] at scf, one factor at a time in decreasing order of Re z as in [[lem:iii-a-1-3]] (with min(β_I, β̃_ι) −
+ε ≠ Re z by the choice of ε; the a priori condition on ρ_scf ≥ ½ holds in the zf chart, and the tf index set found there
+is carried as the data at the other face), gives the index set (E_I, min(β_I, β̃_ι) − ε) there, the derivatives lost one
+factor at a time absorbed in l. This is [[eq:iii-a-4-3]].
 
 *Part (2), E_K = ∅.* Then [[eq:iii-a-4-4]] is the equality of the σ-Taylor coefficients of v^± of orders
 ≤ ⌊β_K − 1⌋ (as ℓ_j = −1), and v^± ∈ H^(k+l,(β_scf,β̃_ι−1,((0,0),β_K−1))), so (T3) gives

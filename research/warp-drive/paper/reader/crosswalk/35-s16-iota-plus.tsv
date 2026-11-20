@@ -1,5 +1,5 @@
 label	source	source_name	note
-ch:s16	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:15-41; docket68/n1star/proof5/PART-III-G2-IOTA.md:3-13; docket68/n1star/proof5/PART-III-G3-GRAFT.md:12-26	III.G intro (What n = 4 changes, Method); III.G1 and III.G2 status sentences; III.G2 window paragraph	intro composed; status paragraphs and history dropped; window stated as a condition on the grafted order
+ch:s16	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:15-41; docket68/n1star/proof5/PART-III-G2-IOTA.md:3-13; docket68/n1star/proof5/PART-III-G3-GRAFT.md:12-26	III.G intro (What n = 4 changes, Method); III.G1 and III.G2 status sentences; III.G2 window paragraph	intro composed; status paragraphs and history dropped; window stated as a condition on the grafted order; gamma as in prop:iii-f1-3-3, not small (P-T78 text 13); (C1) at admissible points from (AP0) (P-ADM text 6)
 sec:iii-g-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:42	III.G section 1	
 sec:iii-g-1-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:44-135	III.G section 1.1	
 eq:iii-g-1-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:48-50	III.G (1.1)	
@@ -79,7 +79,7 @@ lem:iii-g1-2-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:130-180	III.G1 Lemma 2
 eq:iii-g1-2-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:133-135	III.G1 (2.1)	
 lem:iii-g1-2-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:184-203	III.G1 Lemma 2.2	
 sec:iii-g1-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:205-419	III.G1 section 3	
-thm:iii-g1-3-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:207-419	III.G1 Theorem 3.1 = [Hin26] Proposition 9.4	(2) at the final order ell_I; Step 5 (ii) with d_1 = 0 folded; Steps 3-4 variable mu renamed nu, Omega renamed O; [AN00, Theorem 3.1] stated at its use
+thm:iii-g1-3-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:207-419	III.G1 Theorem 3.1 = [Hin26] Proposition 9.4	(2) at the final order ell_I; Step 5 (ii) with d_1 = 0 folded; Steps 3-4 variable mu renamed nu, Omega renamed O; [AN00, Theorem 3.1] stated at its use; G-SWEEP minor item: [AN00, Theorem 3.1, p. 787] (paywalled, not read) replaced by [ABK20, Theorem 1.1, p. 2] (arXiv 1904.03088v1, read 2026-11-20), quoted in Appendix A
 eq:iii-g1-3-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:210-212	III.G1 (3.1)	
 eq:iii-g1-3-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:216-218	III.G1 (3.2)	
 eq:iii-g1-3-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:224-227	III.G1 (3.3)	
@@ -93,10 +93,10 @@ def:iii-g1-4-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:423-426	III.G1 Definit
 lem:iii-g1-4-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:428-454	III.G1 Lemma 4.2	
 lem:iii-g1-4-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:456-467	III.G1 Lemma 4.3	(4.1) derived by hand (sf5 S10)
 eq:iii-g1-4-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:461-463	III.G1 (4.1)	
-sec:iii-g2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:27-94	III.G2 section 1	window paragraph from the intro, 14-26
+sec:iii-g2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:27-94	III.G2 section 1	window paragraph from the intro, 14-26; simplicity from prop:iii-f1-2-3 (g); (C5) at admissible points (P-ADM texts 7, 8)
 eq:iii-g2-1-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:33	III.G2 (1.1)	(C5) with its verification by VI.C Theorem 2.1
 def:iii-g2-table-1-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:44-71	III.G2 Table 1.1	table as an enumerated definition; column K renamed m_0; factor (lambda + l) named by its root -l
-lem:iii-g2-1-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:73-94	III.G2 Lemma 1.2	
+lem:iii-g2-1-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:73-94	III.G2 Lemma 1.2	simplicity from (g) (P-ADM text 9)
 sec:iii-g2-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:96	III.G2 section 2	
 sec:iii-g2-2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:98-127	III.G2 section 2.1	
 lem:iii-g2-2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:103-113	III.G2 Lemma 2.1	tower length K renamed m_0
@@ -115,7 +115,7 @@ def:iii-g2-2-5	docket68/n1star/proof5/PART-III-G3-GRAFT.md:180-183	III.G2 Defini
 eq:iii-g2-2-7	docket68/n1star/proof5/PART-III-G3-GRAFT.md:181-183	III.G2 (2.7)	
 lem:iii-g2-2-6	docket68/n1star/proof5/PART-III-G3-GRAFT.md:185-198	III.G2 Lemma 2.6	
 sec:iii-g2-3	docket68/n1star/proof5/PART-III-G3-GRAFT.md:200-255	III.G2 section 3	
-thm:iii-g2-3-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:202-246	III.G2 Theorem 3.1 = [Hin26] Proposition 9.9	
+thm:iii-g2-3-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:202-246	III.G2 Theorem 3.1 = [Hin26] Proposition 9.9	simplicity from (g) (P-ADM text 10)
 eq:iii-g2-3-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:205-207	III.G2 (3.1)	
 eq:iii-g2-3-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:217	III.G2 (3.2)	
 cor:iii-g2-3-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:248-255	III.G2 Corollary 3.2	
