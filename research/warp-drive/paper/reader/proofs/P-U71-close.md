@@ -149,9 +149,9 @@ so (𝔡₀, 0) and (𝔡₁, 0) lie in that ℰ_ind, which is part of the union
 ε_K < 5.019·10⁻⁸. For ℰ_ind as the proof of [[prop:iii-d2-3-1]] constructs it, 𝔡₀ and 𝔡₁ are exponents: (F1) there,
 with k = 2, takes the boundary spectrum above a weight in (2 − ε_Υ, 2), at every type ([[cor:uc-two-offsets]] (b)). So
 with ℰ_ind as constructed, (G) fails at every ε_K ≥ 1.6417·10⁻¹⁴ ([[cor:uc-two-offsets]]). Whether a smaller
-admissible ℰ_ind omits 𝔡₀ is not decided by this paper; [[thm:is-d0]] reduces it to the vanishing of one family of coefficients. The root
-ι^Υ_(s0,2) = 2 + 𝔡₀ of (□^Υ_b)^(0) lies above the weights in (0, ι^Υ_(s1,2)) at which [[prop:iii-d2-3-1]] solves for
-the corrections of the states, and these corrections start at the order (2, 0), so a smaller admissible ℰ_ind keeps the
+admissible ℰ_ind omits 𝔡₀ is not decided by this paper; [[thm:is-d0]] reduces it to the vanishing of one family of
+coefficients. The root ι^Υ_(s0,2) = 2 + 𝔡₀ of (□^Υ_b)^(0) lies above the weights in (0, ι^Υ_(s1,2)) at which
+[[prop:iii-d2-3-1]] solves for the corrections of the states, and these corrections start at the order (2, 0), so a smaller admissible ℰ_ind keeps the
 exponent 𝔡₀ wherever a term at that root has a nonzero coefficient. At b₀ the operator commutes with the rotations, and
 the corrections of the states of types s1 and v1 do not meet the roots of type s0. At a rotating b the metric couples
 the angular types at the order |x|⁻³ ([[eq:iii-d2-2-2]]), and ℰ_ind is one index set serving at every b near b₀. So (G)
@@ -484,9 +484,8 @@ As η_2 − η_1 < ε_+ < 10⁻¹³, (1 + η_2 − η_1)/𝔡₁ + 2 < (1 + 10�
 T_2 < 6.10382·10¹³ · 3.000005·10⁶ < 1.83115·10²⁰. W = 0.4901/𝔡₁ + 1 < 1,470,302.27, and the number of windows of a
 loop, an integer at most W ([[lem:uc-gaps]]), is at most 1,470,302. In the first line of [[eq:ec-upper]],
 1/Δτ ≤ 1/Δτ_0, so 4(1/Δτ + 2) < 4(6.847261·10⁹ + 2) < 2.74·10¹⁰; N_< + N_> + N_b + 3 < 3 · 6.10382·10¹³ + 3 <
-1.831147·10¹⁴, so the window loops contribute at most 16 · 1,470,302.27 · 1.831147·10¹⁴ < 4.30775·10²¹, and so does
-the integer count of the windows. Hence the first
-line is less than
+1.831147·10¹⁴, so r_ιW(N_< + N_> + N_b + 3) < 16 · 1,470,302.27 · 1.831147·10¹⁴ < 4.30775·10²¹, and so is the
+contribution of the window loops, each of at most 1,470,302 windows. Hence the first line is less than
 
     3 · (2 · 2.089723·10²³ + 1.83115·10²⁰) + 2.74·10¹⁰ + 4.30775·10²¹
         < 1.2543832·10²⁴ + 4.30775·10²¹ + 2.74·10¹⁰ < 1.2587·10²⁴.
