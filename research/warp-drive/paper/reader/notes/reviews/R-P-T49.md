@@ -535,3 +535,58 @@ was used only to locate brackets, which were then confirmed exactly.
 - Over 4 ≤ n ≤ 50, the largest h^v_(n,l) below 10⁻⁶ is 32/32000493 = 9.9998459·10⁻⁷, at n = 35, l = 5656,
   κ = 32001648.
 - No h^v_(n,l) equals 10⁻⁶.
+
+---
+
+## Final (second round: proofs/P-T49.md md5 d2cad2883b4f7aeeb56571bd92615400, 659 lines; chapters at HEAD c1021295, identical to 7854b15c, working tree clean)
+
+**Verdict: CONFIRMED.**
+
+I compared the revised file against the pre-fix copy, line by line. The only changes are the fixes for the findings
+above, the crosswalk pins (n5) and the leading digits in the table of cubics (n9).
+
+**Majors**
+- **M1.** Text 6 now says "has real part in [2, 51]". Its five lines carry the pole clause and use 𝖹_exc, and the
+  heading reads "five lines".
+- **M2.** rem:t49-count is deleted, and so is its pending marker. rem:t49-scope says that whether 𝖹 ∩ I is finite is
+  not decided here. Text 1 and the crosswalk no longer name the remark.
+
+**minors**
+- **m1, m2.** Texts 4 and 7 are rebased.
+- **m3.** Texts 9 and 10 are added, and text 8 now excepts texts 6, 7, 9 and 10.
+- **m4–m8.** Fixed as proposed.
+
+**nits**
+- **n1–n4.** Fixed.
+- **n5.** The crosswalk rows carry "@PENDING" for the confirmation commit and line ranges.
+- **n6.** Fixed.
+- **n7.** c₀, …, c₃ are renamed q₀, …, q₃ throughout, and no c₀, …, c₃ is left in the file.
+- **n8.** 𝖹_exc is used in the chapter 71 texts.
+- **n9.** Signs and leading digits are given in the table of cubics.
+
+**Re-checked**
+- **Tables.**
+  - All ten 𝔡_j equal disc_ι 𝒫/144, exactly.
+  - All 52 s_(a,b) equal Res_s(𝒜_k, ℬ_k)/4.
+  - All 49 rows of the revised table of cubics match: coefficient signs, l_k, and the two values 𝔖(k, l_k(l_k + 2))
+    and 𝔖(k, (l_k + 1)(l_k + 3)), each with its sign and its four leading digits, all correct truncations. The
+    discriminant sign and the ten-digit root match too.
+- **The renaming.** eq:t49-shift is unchanged apart from the names.
+- **Placement.**
+  - Each old text of 3, 4, 5, 6, 7, 9 and 10 occurs exactly once in the current chapters. Each is at its stated line:
+    114, 3538, 490, 3123, 69, 3462 and 4073.
+  - Each new text has the number of lines its heading says.
+  - The anchors of texts 1 and 2 are unique.
+- **Scratch merge.** I re-ran the merge, applying the file's own texts verbatim. assemble.py reports 0 problems. The
+  assembled lint reports 0 hits. No line exceeds 121 characters after label resolution.
+- **Typography of the file.** Every line is at most 121 characters. No wrapped line starts with a marker. All labels
+  are lowercase.
+- **Crosswalk.** The 22 rows have four columns. Each label line and range end matches the file. The rows rem:is-summary
+  and rem:sp-scope exist in the chapter 71 crosswalk.
+
+**Remaining for the coordinator (no finding)**
+- Fill "@PENDING" with the confirmation commit.
+- P-ADM's note at proofs/P-ADM.md:909 about "the pending marker computational-1 in P-T49's rem:t49-count" is now
+  stale.
+- P-ADM's replacements for rem:t49-sets (d) and rem:t49-scope must be rebased on the revised remark, whichever file
+  merges second.
