@@ -149,13 +149,12 @@ with R the number of rounds of [[prop:ec-rounds]], the sum over those rounds, an
 [[prop:ec-upper]], explicitly in the numbers of steps of the long iterations, which [[lem:ec-counts]] counts, in the
 losses of their single steps, and in finitely many further losses, each assigned to a finite composition.
 
-The bounds (ii) are lower bounds for the loss that this proof's choices produce, not for the least loss with which
-the tame estimates hold; for the index sets as the proofs construct them, (G) asks ε_K < μ_G ([[thm:is-gap]]), and the
-lower bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). The bound (iii) is explicit in the numbers of steps,
-which [[lem:ec-counts]] bounds through the spacing of the levels, below ε_K, and in the further losses, which contain
-counts of the index sets. At the computational point [[thm:uc-integer]] evaluates every number of steps and every such
-count: d_acc and d_NM are at most 1.2587 × 10²⁴ plus 2.44153 × 10¹⁴ times the largest single-step loss c_*, which
-[[rem:uc-missing]] describes.
+The bounds (ii) are lower bounds for the loss that this proof's choices produce, not for the least loss with which the
+tame estimates hold; for the index sets as the proofs construct them, (G) asks ε_K < μ_G ([[thm:is-gap]]), and the lower
+bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). The bound (iii) is explicit in the numbers of steps, which
+[[lem:ec-counts]] bounds through the spacing of the levels, below ε_K, and in the further losses, which contain counts of
+the index sets. At the computational point [[thm:uc-integer]] evaluates every number of steps and every such count: d_acc
+and d_NM are at most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹.
 
 *Proof.* [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d_acc by [[lem:iii-j2-1-2]], which gives the tame
 estimates with any loss at least the accounted one; N_NM = 21d_NM + 6 is the regularity of [[thm:ii-g-2-1]] at the
@@ -597,39 +596,37 @@ N_b ≤ 1/(a♭_K − 2) + 1. For L ≥ 1 the function x ↦ (L + x/2)²/(2x) = 
 Δβ < α − 4 ≤ ε_K < 2; so the bounds of [[lem:ec-counts]] (b), (c) decrease in Δβ and in Δτ, which gives
 [[eq:ec-upper-counts]]. ∎
 
-**Remark {#rem:ec-upper-point}** (The upper bound at the computational point.) At the computational point
-ε_g ≤ ε_Υ < 1.46214·10⁻¹⁰ ([[lem:ec-gauge-gap]], [[rem:ec-gauge-gap]]), and for the index sets as the proofs construct
-them 𝔡₀ and 𝔡₁ are increments of Λ ([[cor:uc-two-offsets]], [[rem:uc-offset-d0]]) and (G) holds exactly for
-ε_K < μ_G, where μ_G < 1.64160217198·10⁻¹⁴ ([[thm:is-gap]]). The levels are then less than μ_G apart, and the first
-line of [[eq:ec-upper]] is of the order 3/(ε_Kε_g), the order of the lower bound 3R of [[prop:ec-rounds]].
-[[prop:uc-explicit]] evaluates it at the admissible choice of [[def:uc-choice]], with ε_K = 1.6416·10⁻¹⁴ and
-ε_g = ε_Υ = 1.4619·10⁻¹⁰: it is less than 1.2587·10²⁴, of which less than 4.30775·10²¹ comes from the window loops at
-ι⁺ (bounded there through ε^ι_ind = 𝔡₁, [[lem:uc-gaps]]), and less than 1.0072 times the lower bound 3R > 1.2498·10²⁴ at
-the same choice ([[thm:uc-integer]]). The losses c(β_k), c_b and c′_b of single steps enter the second line with the
-multiplicities K < 1.22077·10¹⁴ and N_b, N_b + 1 < 6.10383·10¹³, and c_0 once; [[thm:uc-integer]] bounds them through
-their largest value c_*.
+**Remark {#rem:ec-upper-point}** (The upper bound at the computational point.) At the computational point ε_g ≤ ε_Υ <
+1.46214·10⁻¹⁰ ([[lem:ec-gauge-gap]], [[rem:ec-gauge-gap]]), and for the index sets as the proofs construct them 𝔡₀ and 𝔡₁
+are increments of Λ ([[cor:uc-two-offsets]], [[rem:uc-offset-d0]]) and (G) holds exactly for ε_K < μ_G, where μ_G <
+1.64160217198·10⁻¹⁴ ([[thm:is-gap]]). The levels are then less than μ_G apart, and the first line of [[eq:ec-upper]] is
+of the order 3/(ε_Kε_g), the order of the lower bound 3R of [[prop:ec-rounds]]. [[prop:uc-explicit]] evaluates it at the
+admissible choice of [[def:uc-choice]], with ε_K = 1.6416·10⁻¹⁴ and ε_g = ε_Υ = 1.4619·10⁻¹⁰: it is less than
+1.2587·10²⁴, of which less than 4.30775·10²¹ comes from the window loops at ι⁺ (bounded there through ε^ι_ind = 𝔡₁,
+[[lem:uc-gaps]]), and less than 1.0072 times the lower bound 3R > 1.2498·10²⁴ at the same choice ([[thm:uc-integer]]).
+The losses c(β_k), c_b and c′_b of single steps enter the second line with the multiplicities K < 1.22077·10¹⁴ and N_b,
+N_b + 1 < 6.10383·10¹³, and c_0 once; [[prop:cs-cstar]] bounds their largest value c_* by 6.4368·10³⁵.
 
 **Remark {#rem:ec-upper-open}** (What the upper bound leaves open.) Four inputs separate [[prop:ec-upper]] from an
 integer; at the computational point (1), (2) and (4) are evaluated, and (3) is reduced to one number. (1) ε_K, N_Λ, k̄_0
-and l_*: (G) asks that no element of the set Λ of [[def:iii-i10-1-1]] have real part in (2, 2 + ε_K] or in
-(3, 3 + ε_K], and that no λ + d_c0 or λ + d_c1, λ ∈ Λ, have real part in (2, 2 + ε_K]. [[prop:gap-sums]] and
-[[rem:gap-sums]] settle the three windows for ε_K < 5.019·10⁻⁸ on the part of Λ built from 2, 3, λ_♯ and the offsets
-𝔡₁, 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁. With ℰ_ind as the proofs construct it, 𝔡₀ and 𝔡₁ are themselves increments, and (G) holds
-exactly for ε_K < μ_G, 1.64160217197·10⁻¹⁴ < μ_G < 1.64160217198·10⁻¹⁴ ([[thm:is-gap]], [[cor:uc-two-offsets]]);
-[[prop:is-count]] and [[cor:sp-lstar]] give 1.62066·10¹³ < N_Λ < 1.67472·10¹³, k̄_0 = 3, J_* = 15,000,015 and the
-admissible l_* = 50, and [[prop:uc-explicit]] the numbers of levels, rounds, applications and windows at an admissible
-choice. (2) ℓ⁺_tf = 1 at the choices of [[lem:ec-tf-loss]] with s = 1 ([[prop:uc-ltf]]). (3) The single-step losses
-c(β), c_b, c′_b and c_0: each is a finite composition of the elementary losses of [[lem:ec-closed-forms]] and
-[[rem:ec-other-losses]] and of the forward loss, at most 20,180 ([[thm:fwd-loss]]), charged at each forward solution
-they apply; they contain the counts n(E, β) of the index sets entering [[eq:ec-fourier-loss]], which [[lem:uc-n-iota]]
-bounds through N_Λ, k̄_0, l_* and J_*; c_0 contains, besides, the iterations of Steps 4′ and 4 at the top level, each
-bounded as in [[lem:ec-counts]], and the loss of [[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its
-steps over the exponents of Λ ∩ {Re < 3 + ε_+} ([[lem:uc-phi-loss]]). Their largest value c_* enters [[thm:uc-integer]]
-with the coefficient 2.44153·10¹⁴; [[rem:uc-missing]] says what its value needs. (4) d_BG = 11 serves ([[prop:uc-dbg]]);
-it enters c(β), c_b, c′_b and c_0 through the charge max(2, d_BG). For d_NM, and so for N_NM, the losses of
-[[lem:iii-k-2-2]] and [[prop:iii-j2-4-3]] are at most 62N_Λ + 10 < 1.04·10¹⁵ ([[lem:uc-phi-loss]], [[lem:uc-lambda]]),
-and that of [[lem:iii-k-2-3]] satisfies [[eq:ec-upper]] in the form of [[lem:uc-dr]], so that d_NM equals it
-([[thm:uc-integer]]). Given ε_K, the explicit part of [[eq:ec-upper]] is of the order 1/(ε_Kε_g), the order of the lower
-bound of [[prop:ec-rounds]]; ℓ⁺_tf multiplies terms of that order, c(β) enters at most N_< + N_> times, about 2/ε_K, and
-c_b and c′_b at most about 1/ε_K times each. All these numbers depend on the point through z, which fixes ε_Υ
-([[rem:ec-gauge-gap]]), and through the index sets.
+and l_*: (G) asks that no element of the set Λ of [[def:iii-i10-1-1]] have real part in (2, 2 + ε_K] or in (3, 3 + ε_K],
+and that no λ + d_c0 or λ + d_c1, λ ∈ Λ, have real part in (2, 2 + ε_K]. [[prop:gap-sums]] and [[rem:gap-sums]] settle
+the three windows for ε_K < 5.019·10⁻⁸ on the part of Λ built from 2, 3, λ_♯ and the offsets 𝔡₁, 1 + 𝔡₀, 1 + δ₂, 1 + δ′₁.
+With ℰ_ind as the proofs construct it, 𝔡₀ and 𝔡₁ are themselves increments, and (G) holds exactly for ε_K < μ_G,
+1.64160217197·10⁻¹⁴ < μ_G < 1.64160217198·10⁻¹⁴ ([[thm:is-gap]], [[cor:uc-two-offsets]]); [[prop:is-count]] and
+[[cor:sp-lstar]] give 1.62066·10¹³ < N_Λ < 1.67472·10¹³, k̄_0 = 3, J_* = 15,000,015 and the admissible l_* = 50, and
+[[prop:uc-explicit]] the numbers of levels, rounds, applications and windows at an admissible choice. (2) ℓ⁺_tf = 1 at
+the choices of [[lem:ec-tf-loss]] with s = 1 ([[prop:uc-ltf]]). (3) The single-step losses c(β), c_b, c′_b and c_0: each
+is a finite composition of the elementary losses of [[lem:ec-closed-forms]] and [[rem:ec-other-losses]] and of the
+forward loss, at most 20,180 ([[thm:fwd-loss]]), charged at each forward solution they apply; they contain the counts
+n(E, β) of the index sets entering [[eq:ec-fourier-loss]], which [[lem:uc-n-iota]] bounds through N_Λ, k̄_0, l_* and J_*;
+c_0 contains, besides, the iterations of Steps 4′ and 4 at the top level, each bounded as in [[lem:ec-counts]], and the
+loss of [[thm:iii-j-2-4]], which its proof takes as the sum of the losses of its steps over the exponents of Λ ∩ {Re <
+3 + ε_+} ([[lem:uc-phi-loss]]). Their largest value c_* enters [[thm:uc-integer]] with the coefficient 2.44153·10¹⁴;
+[[prop:cs-cstar]] bounds it by 6.4368·10³⁵. (4) d_BG = 11 serves ([[prop:uc-dbg]]); it enters c(β), c_b, c′_b and c_0
+through the charge max(2, d_BG). For d_NM, and so for N_NM, the losses of [[lem:iii-k-2-2]] and [[prop:iii-j2-4-3]] are
+at most 62N_Λ + 10 < 1.04·10¹⁵ ([[lem:uc-phi-loss]], [[lem:uc-lambda]]), and that of [[lem:iii-k-2-3]] satisfies
+[[eq:ec-upper]] in the form of [[lem:uc-dr]], so that d_NM equals it ([[thm:uc-integer]]). Given ε_K, the explicit part
+of [[eq:ec-upper]] is of the order 1/(ε_Kε_g), the order of the lower bound of [[prop:ec-rounds]]; ℓ⁺_tf multiplies terms
+of that order, c(β) enters at most N_< + N_> times, about 2/ε_K, and c_b and c′_b at most about 1/ε_K times each. All
+these numbers depend on the point through z, which fixes ε_Υ ([[rem:ec-gauge-gap]]), and through the index sets.

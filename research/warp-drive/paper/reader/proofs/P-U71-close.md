@@ -6,17 +6,17 @@ model is 1 at the weights at which the construction may use it, so ℓ_tf = 1 ([
 background terms may be taken to be d_BG = 11 ([[prop:uc-dbg]]). The others are fixed by the index sets that define the
 set Λ of [[def:iii-i10-1-1]] and by the orders of the poles of N_ι⁺(L̄, ·)⁻¹: the admissible ε_K of the gap condition
 (G), the counts n(E, β) of the index sets entering the Fourier steps of the levels ([[lem:uc-fourier-count]]), and the
-loss of the map Φ of [[thm:iii-j-2-4]], which governs the two other components of d_NM ([[lem:uc-phi-loss]]).
-Memberships and least real parts of the index sets alone fix no admissible ε_K ([[prop:uc-no-eps]]); and if both
-offsets of the class roots are increments of Λ, as they are for the index sets that the proofs construct, every
-admissible ε_K lies below 1.6417·10⁻¹⁴ ([[cor:uc-two-offsets]]). [[sec:is]] lists the exponents of the index sets as
-constructed, and [[sec:sp]] the poles of N_ι⁺(L̄, ·)⁻¹ at real part at most 5, all simple. With them (G) holds exactly
-for ε_K < μ_G ([[thm:is-gap]]), and N_Λ, k̄_0, l_* and J_* are explicit ([[prop:is-count]], [[cor:sp-lstar]]).
-[[sec:uc-eval]] fixes an admissible choice of the weights, evaluates every count of [[eq:ec-upper]] at it, and proves
-[[thm:uc-integer]]: d_acc and d_NM are at most 1.2587·10²⁴ plus 2.44153·10¹⁴ times the largest loss c_* of a single
-step outside the long iterations, against the lower bound 1.2497·10²⁴; [[rem:uc-missing]] states what separates this
-from an integer. Throughout we work at the computational point of [[def:ec-point]], so z = 4·10⁻⁶ = 1/250000 and
-λ_♯ = 15099/10000, and 𝔡₀ = d_c0, 𝔡₁ = d_c1 are the offsets of [[sec:ec-gap-sums]].
+loss of the map Φ of [[thm:iii-j-2-4]], which governs the two other components of d_NM ([[lem:uc-phi-loss]]). Memberships
+and least real parts of the index sets alone fix no admissible ε_K ([[prop:uc-no-eps]]); and if both offsets of the class
+roots are increments of Λ, as they are for the index sets that the proofs construct, every admissible ε_K lies below
+1.6417·10⁻¹⁴ ([[cor:uc-two-offsets]]). [[sec:is]] lists the exponents of the index sets as constructed, and [[sec:sp]]
+the poles of N_ι⁺(L̄, ·)⁻¹ at real part at most 5, all simple. With them (G) holds exactly for ε_K < μ_G
+([[thm:is-gap]]), and N_Λ, k̄_0, l_* and J_* are explicit ([[prop:is-count]], [[cor:sp-lstar]]). [[sec:uc-eval]] fixes an
+admissible choice of the weights, evaluates every count of [[eq:ec-upper]] at it, and proves [[thm:uc-integer]]: d_acc
+and d_NM are at most an integer D_acc < 1.57157·10⁵⁰, the largest single-step loss being below 6.4368·10³⁵
+([[prop:cs-cstar]]), against the lower bound 1.2497·10²⁴; [[rem:uc-missing]] states what the bound rests on. Throughout
+we work at the computational point of [[def:ec-point]], so z = 4·10⁻⁶ = 1/250000 and λ_♯ = 15099/10000, and 𝔡₀ = d_c0,
+𝔡₁ = d_c1 are the offsets of [[sec:ec-gap-sums]].
 
 #### The index sets of the gap condition {#sec:uc-index-sets}
 

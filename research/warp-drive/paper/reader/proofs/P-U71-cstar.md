@@ -227,8 +227,8 @@ Step 1 of the proof of [[prop:iii-i1-2-1]] goes from α_I to below ℓ_+ < 3/2 i
 Step 2 from there to ℓ_I in at most ⌈5/0.4⌉ = 13 steps. In all 7 + 1 + 5 + 8 + 13 = 34 ≤ 37 steps. At the
 applications below the a priori ℐ⁺-weights are: β^(0)_I > ½ at the start of [[prop:iii-i2-5-1]] (the weight of
 [[thm:iii-i-5-3]]), γ_+ − ε > ½ in its Step 3, and at least 1 − 5ε in [[prop:iii-i3-2-1]], [[prop:iii-i6-2-1]],
-[[lem:iii-i8-3-2]] and [[prop:iii-i11-3-1]], whose remainders are sums of pieces of ℐ⁺-weight at least 3/2 − 5ε and
-of u_I, which has the ℐ⁺-data (⟨ℰ^C_I⟩, ℓ_I). ∎
+[[lem:iii-i8-3-2]] and [[prop:iii-i11-3-1]], whose remainders are sums of pieces of ℐ⁺-weight at least
+min(3/2, α^♯_+) − 5ε > 1 − 5ε and of u_I, which has the ℐ⁺-data (⟨ℰ^C_I⟩, ℓ_I). ∎
 
 **Lemma {#lem:cs-fourier}** (The Fourier steps of a level above 3.) Let β ∈ (3, α] be a level of Step 2 of the proof of
 [[thm:iii-i14-3-1]], and consider the proof of [[prop:iii-i11-3-1]] at β (through [[prop:iii-i13-2-1]] when β < 4).
@@ -268,7 +268,8 @@ an application of [[prop:iii-g4-4-4]] at a tf-exponent (α_0, k) at the level j 
 α_0 ∈ Λ is the u-exponent; at level 2, Re α_0 ∈ [1 + η_1, 2 + η_2) and α_0 + 1 ∈ Λ is the u-exponent; and the
 logarithmic order k at the tf-exponent is at most k̄ of the u-exponent ([[lem:iii-i10-1-2]] (c),
 [[lem:iii-i13-1-3]] (b)). As Λ ∩ {Re ≤ 3 + ε_+} is real ([[prop:is-lambda]]) and meets (2, 2 + ε_K] in no point ((G)),
-and as the roots of the table with −1 < Re μ < 0 are −𝔡₀ and −𝔡₁, both below −ε_K, a term of real part below
+and as the roots of the table are real, and those with −1 < μ < 0 are class roots with −μ ≥ ε_ind > ε_K
+([[sec:iii-g4-1]], [[eq:iii-f1-2-2]], [[eq:iii-i9-1-1]]), a term of real part below
 1 + ε_K is one of: at level 1, the s1 term with i = 0, of degree α_0 − 2; at level 1 with α_0 = 2, the s1 term with
 i = 1, the v1 term with i = 0 and the terms of the rows with μ = 0 and i = 0, all of degree 1 = 3 − 2; at level 2, the
 s1 term with i = 0, of degree α_0 − 1 = (α_0 + 1) − 2; and the integer degrees 0 = 2 − 2 and 1 = 3 − 2. So every pair
