@@ -203,8 +203,8 @@ point, with C = r²(f⁻¹ − fξ²), whose differential in (r, ξ) vanishes th
 (c) {φ_u, φ_s} = ν/f = 2ν > 0 at (r_ph, 0), and ∂_C G₁ = r⁻² ≠ 0.
 
 (d) With q₁ := 2g⁻¹(−dt_s + ζ, dt_s), ½q₁ = f⁻¹, which is 1/f(r_ph) = 2 at the point; for a time function t_s − F(r)
-the value at the point is the same. So the constant β_Γ = ½ min_Γ |q₁| of (Γ.4) is 2, and ν/(4β_Γ) = (8m)^(−1/2), half the
-rate (2m)^(−1/2) of [[prop:np-10-17-ii]] (d).
+the value at the point is the same. So the constant β_Γ = ½ min_Γ |q₁| of (Γ.4) is 2, and ν/(4β_Γ) = (8m)^(−1/2), half
+the rate (2m)^(−1/2) of [[prop:np-10-17-ii]] (d).
 
 *Proof.* (a) H_(G₁) r = 2fξ vanishes for r > r_h only at ξ = 0; there G₁ = 0 gives C = r²f⁻¹, and
 H_(G₁) ξ = −∂_rG₁ = −f′f⁻² + 2Cr⁻³ = (2f − rf′)/(f² r) = 2(r² − 2m)/(f² r³), which vanishes only at r² = 2m; then
