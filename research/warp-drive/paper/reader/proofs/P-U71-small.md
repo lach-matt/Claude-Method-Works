@@ -162,9 +162,9 @@ second norms, ‖·‖^+_(𝒴(α)) of [[sec:iii-i8-1]] and ‖·‖^+_𝒴, who
 2 + R_base: 2 for the count of Step 0, and R_base for the base map that bounds the solution. So they too are needed at
 regularities at most 2R_base + 2. These bounds, and those of [[lem:iii-i7-2-5]] (c), enter the conditions only as bounds
 of solutions and parameters by the data of the step, which (F2) supplies. In these norms, the second ones included, the
-proofs ask: bounds of background terms by ‖h‖ + |p⃗ − p⃗_b| (or by ‖h‖), as in [[lem:iii-i8-2-6]] (b)–(c),
-[[lem:s21-motions-at-b]], [[lem:iii-i15-2-7]] and (1) of the proof of [[prop:iii-i15-2-12]], and with ‖q‖ added in the
-bound by which the proof of [[prop:iii-i15-2-5]] obtains [[eq:s25-motions-small]]; the counts
+proofs ask: bounds of background terms by ‖h‖ + |p⃗ − p⃗_b| (or by ‖h‖), and their continuity, as in [[lem:iii-i8-2-6]]
+(b)–(c), [[lem:s21-motions-at-b]], [[lem:iii-i15-2-7]] and (1) of the proof of [[prop:iii-i15-2-12]], and with ‖q‖
+added in the bound by which the proof of [[prop:iii-i15-2-5]] obtains [[eq:s25-motions-small]]; the counts
 ‖(L − L′)u‖ ≤ C(‖h‖ + |p⃗ − p⃗′|)‖u‖ of Step 0 of the proof of [[lem:iii-i8-3-2]], of the proofs of [[lem:iii-i7-4-1]]
 and [[prop:iii-i15-2-8]], and of (2) of the proof of [[prop:iii-i15-2-12]], with u bounded; and the conditions of (a)
 and (b). By (F1) at a regularity ρ ≤ 2R_base + 2, the first two kinds are bounds by ‖β − β′‖_(ρ+11), β′ being
