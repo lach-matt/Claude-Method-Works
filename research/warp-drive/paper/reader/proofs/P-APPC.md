@@ -90,10 +90,11 @@ triples of nonnegative integers. Put
 
 with t and σ the variables of [[eq:appc-element]] on B_ij, and
 
-    R := R_s + (v − 1/2)⁴ Σ_ij χ_i ψ_j G^R_ij,      W := W_s + (v − 1/2)⁴ Σ_ij χ_i ψ_j G^W_ij,
-    F := (v − 1/2)⁴ Σ_ij χ_i ψ_j G^F_ij   (F ∈ {m, n, s}),                                            {#eq:appc-seedform}
+    R := R_s + (v − 1/2)^κ Σ_ij χ_i ψ_j G^R_ij,      W := W_s + (v − 1/2)^κ Σ_ij χ_i ψ_j G^W_ij,
+    F := (v − 1/2)^κ Σ_ij χ_i ψ_j G^F_ij   (F ∈ {m, n, s}),                                            {#eq:appc-seedform}
 
-where R_s and W_s are the seed's R and W of [[lem:tl5-seed]]. The approximant ĝ of the case is the metric
+where R_s and W_s are the seed's R and W of [[lem:tl5-seed]] and κ = 4 is the order of contact with the seed on N₀
+([[rem:appc-contact]]). The approximant ĝ of the case is the metric
 [[eq:tl5-metric]] with these fields, P := (2(1 + x)m − (1 − x)n)/3, Q := (2(1 − x)n − (1 + x)m)/3 and b = (1 − x²)s.
 
 Each term of the sum is defined where χ_iψ_j ≠ 0, which is inside B_ij by [[lem:appc-pou]] (b), so the fields are
@@ -106,7 +107,7 @@ an open set 𝒪 ⊂ ⋃ B_ij containing the region. Then:
 under the reflections φ1 ↦ −φ1 and φ2 ↦ −φ2;
 
 (b) on N₀ = {v = 1/2}, each of the five fields and its partial derivatives of all orders in u and x, and of order at
-most 3 in v, take the values of the seed: R − R_s, W − W_s, m, n and s vanish to order four at v = 1/2;
+most κ − 1 in v, take the values of the seed: R − R_s, W − W_s, m, n and s vanish to order κ at v = 1/2;
 
 (c) the coefficients are exact rational numbers, and ĝ and all its derivatives are given by finitely many arithmetic
 operations, exponentials and the seed's R_s from these numbers.
@@ -115,10 +116,22 @@ operations, exponentials and the seed's R_s from these numbers.
 are χ_i, ψ_j and the chart. The metric of the class with smooth fields and R > 0 is smooth on 𝒪 × S³, axes included,
 because 2P + Q = (1 + x)m and P + 2Q = (1 − x)n vanish at x = −1 and x = 1 and b = (1 − x²)s
 ([[pending:lem-tl5-cip-axis]]); its form is the double-null form, and the invariances hold for every metric of the
-class. (b) Each correction is (v − 1/2)⁴ times a smooth function, and m, n, s vanish for the seed. (c) is the
+class. (b) Each correction is (v − 1/2)^κ times a smooth function, and m, n, s vanish for the seed. (c) is the
 definition. ∎
 
-The form [[eq:appc-seedform]] makes the agreement with the seed's 3-jet on N₀ exact, whatever the printed integers.
+The form [[eq:appc-seedform]] makes the agreement with the seed's (κ − 1)-jet on N₀ exact, whatever the printed integers.
+
+**Remark {#rem:appc-contact}** (The order of contact on N₀.) The solution of [[def:tl5-problem]] agrees with the seed on
+N₀ only to order 3 in v. On N₀ the differences R − R_s, W − W_s, m, n and s vanish with their first three v-derivatives,
+and their fourth v-derivatives (a_R, a_W, a_m, a_n, a_s) at (u, x) satisfy the linear system in u obtained from the
+equations at order (v − 1/2)³: every term of the evolution equations containing no v-derivative, or a product of two
+differences, is O((v − 1/2)⁴) there, so only the terms ∂_u∂_v and ∂_v of single differences remain, and these give
+∂_u a = 𝔄(u, x) a with 𝔄 built from the seed. The value at u = −10 is fixed by the fourth v-derivatives of the data
+[[eq:cone-data]] at v = 1/2, which are not zero because env(v) = (π/3)⁴(v − 1/2)⁴ + O((v − 1/2)⁶); so a ≠ 0 at every
+u by uniqueness for linear systems. A contact of order κ > 4 between the approximant and the solution on N₀ therefore
+needs, in place of R_s and W_s and of 0 for m, n, s in [[eq:appc-seedform]], a reference that carries the solution's
+v-derivatives of orders 4 to κ − 1 on N₀; with the seed as reference, κ = 4 is the largest order for which
+[[eq:appc-seedform]] defines smooth fields.
 
 ### The format of the tables and their checks {#sec:appc-format}
 
@@ -446,8 +459,8 @@ and the jets over a monomial in R, Ω² and e^S. Then for J, J + δJ ∈ 𝒥,
 
     |E(J + δJ) − E(J)| ≤ Σ_(q=1..50) L_q |δJ_q|,      L_q := sup_(𝒥) |∂E/∂J_q|.
 
-The same holds with 2-jets replaced by 5-jets and E by any derivative of order at most 3 of a component in (t, σ, x),
-which is again a polynomial in x and the 5-jets over a monomial in R, Ω² and e^S.
+The same holds with 2-jets replaced by (K + 2)-jets and E by any derivative of order at most K of a component in
+(t, σ, x), which is again a polynomial in x and the (K + 2)-jets over a monomial in R, Ω² and e^S.
 
 *Proof.* The mean value theorem on the segment from J to J + δJ, which lies in 𝒥. ∎
 
@@ -458,7 +471,7 @@ the bounds φ_k of [[lem:appc-pou]] (a) for the derivatives of χ_(i′) and ψ_
 (1/(2d′))^k of the chain rule), the derivatives of (v − 1/2)⁴, and the sums of the absolute values of the Chebyshev
 coefficients of the derivatives of G^F_(i′j′) − G^F_ij on the strips, which are exact by [[lem:appc-reexpand]] (both
 polynomials re-expanded in the variables of the strip). The same holds for the derivatives of order at most 3, with
-5-jets.
+(K + 2)-jets.
 
 *Proof.* [[lem:appc-lipschitz]] with J the jet of F_ij and δJ that of δF, at each point of U_ij. ∎
 
@@ -470,11 +483,12 @@ difference.
 
 The certificate of an element is the family of numbers
 
-    B^(ab)_(ij,α) ≥ sup_(U_ij) |∂_t^(α₁)∂_σ^(α₂)∂_x^(α₃) f̃_ab(ĝ)|,   |α| ≤ 3,                     {#eq:appc-certificate}
+    B^(ab)_(ij,α) ≥ sup_(U_ij) |∂_t^(α₁)∂_σ^(α₂)∂_x^(α₃) f̃_ab(ĝ)|,   |α| ≤ K,                     {#eq:appc-certificate}
 
-given by [[prop:appc-element-bound]] and [[prop:appc-overlap]], printed rounded upward. They bound every quantity the
-continuation argument uses: the derivatives in (u, v, x) follow by [[eq:tl5-chain]] with the element's chart, and the
-Lie derivatives of Ric(ĝ) along the commutation fields of the level-3 estimate, weighted by μ^(|I|/2), are explicit
+given by [[prop:appc-element-bound]] and [[prop:appc-overlap]], printed rounded upward, where K is the number of
+derivatives of the residual that the norm of the continuation argument contains (K = N for a level-N norm). They bound
+every quantity that argument uses: the derivatives in (u, v, x) follow by [[eq:tl5-chain]] with the element's chart, and the
+Lie derivatives of Ric(ĝ) along the commutation fields of the level-K estimate, weighted by μ^(|I|/2), are explicit
 combinations of these derivatives, of f_ab themselves and of the fields' jets, as [[pending:lem-tl5-f3-residual]] states.
 With the weight φ of the weighted norm, whose rates are those of [[pending:lem-tl5-l7-rates]], the target of element
 (i, j) is
