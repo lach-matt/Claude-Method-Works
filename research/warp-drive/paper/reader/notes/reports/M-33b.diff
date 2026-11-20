@@ -1,0 +1,1148 @@
+diff --git a/research/warp-drive/paper/reader/chapters/33-s14-constraint-damping.md b/research/warp-drive/paper/reader/chapters/33-s14-constraint-damping.md
+index a77c3e74..a3b2d4a6 100644
+--- a/research/warp-drive/paper/reader/chapters/33-s14-constraint-damping.md
++++ b/research/warp-drive/paper/reader/chapters/33-s14-constraint-damping.md
+@@ -1270,7 +1270,8 @@ On {t > ½r} we use ρ_K = r/t and ρ_sf = 1/r. Further:
+ 𝒯*);
+ 
+ - 𝒱_3b(M^♭) is the C^∞(M^♭)-span of r∂_(z^μ), μ = 0, …, 4; with it come ³ᵇTM^♭, ³ᵇT*M^♭ (frame dz^μ/r) and
+-Diff^k_3b with weights; ∂_(z^μ) ∈ ρ_sf 𝒱_3b(M^♭) by [Hin26a, Section 2];
++Diff^k_3b with weights; ∂_(z^μ) = r⁻¹ · r∂_(z^μ) ∈ ρ_sf 𝒱_3b(M^♭), as r⁻¹ ∈ ρ_sf C^∞(M^♭) (r⁻¹ = ρ_sf near 𝗌𝖿,
++and r ≥ r_♯);
+ 
+ - the projection (t, x) ↦ x extends to a smooth map π : M^♭ → X̄_♯ := X̄ ∩ {r ≥ r_♯}, so π*C^∞(X̄_♯) ⊂ C^∞(M^♭).
+ 
+@@ -1313,8 +1314,12 @@ components are those of η. Smoothness in b is that of [[sec:iii-b-3-1]].
+ gives |dt dr| = r|dτ dr|.
+ 
+ (c) Γ^κ_(μν) = ½g^(κλ)(∂_μg_(νλ) + ∂_νg_(μλ) − ∂_λg_(μν)), with g^(κλ) ∈ C^∞(M^♭) and ∂_μg_(νλ) ∈ ρ_sf C^∞(M^♭)
+-because ∂_(z^μ) ∈ ρ_sf 𝒱_3b. The rest is [Hin26a, (2.13)–(2.14)], with the same proof. (On Tangherlini space,
+-Γ ∈ mρ³C^∞ by [[prop:np-10-22]] (i).)
++because ∂_(z^μ) ∈ ρ_sf 𝒱_3b. In the frame dz^μ, ∇_(∂_(z^μ)) acts on components as ∂_(z^μ) + Γ_μ, with one
++Christoffel symbol for each index; so ∇ = Σ_μ dz^μ ⊗ (∂_(z^μ) + Γ_μ) lies in ρ_sf Diff¹_3b. For V = r∂_(z^μ), the
++function ρ_sf⁻¹V(ρ_sf) is smooth on M^♭: near 𝗌𝖿 it is −∂_(z^μ)r, which is 0 or −x^i/r, and elsewhere ρ_sf is smooth
++and positive. Hence ρ_sf^a Diff^k_3b ∘ ρ_sf^b Diff^l_3b ⊂ ρ_sf^(a+b) Diff^(k+l)_3b, and, with g^(μν) ∈ C^∞(M^♭) by
++(a), □_g = −g^(μν)(∇∇)_(μν) ∈ ρ_sf² Diff²_3b, while δ*_g, the symmetrisation of ∇, and δ_g, the contraction of ∇ with
++−g⁻¹, lie in ρ_sf Diff¹_3b. (On Tangherlini space, Γ ∈ mρ³C^∞ by [[prop:np-10-22]] (i).)
+ 
+ (d) c is stationary and smooth on {r ≥ ½r_♯}, and equals r⁻¹(dt − v dr) for r ≥ 3r_c ([[prop:np-10-14]] (b)). Its
+ components (r⁻¹, −vr⁻¹x̂) lie in |x|⁻¹C^∞(X̄), so c ∈ ρ_sf C^∞(M^♭; 𝒯*). By [[sec:iv4-0]], the trace weight 2/3 gives
+@@ -1371,7 +1376,7 @@ one C. ∎
+ 
+ **Lemma {#lem:iv5-0-5}** (The 1-form; [Hin26a, Proposition 5.1] in dimension 4 + 1.) Let (α_sf, α_K) = (−C_0 − 5/2, 1)
+ with C_0 ∈ [0, 100], the weights [[eq:iv4-2-1]]. Put w := ρ_sf^(α_sf+1)ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1). Shrinking U,
+-there are δ_r ∈ (0, (4r_c)⁻¹) and δ_sf = 1/100 such that for b ∈ U, c satisfies the conditions (1)–(6) of
++there are δ_r ∈ (0, min((4r_c)⁻¹, 1/5)) and δ_sf = 1/100 such that for b ∈ U, c satisfies the conditions (1)–(6) of
+ [[lem:iv4-1-4]] ([Hin26a, Proposition 5.1] with r_c for r_0 and r_♯ for its inner radius). The positivity statements
+ (3)–(6) hold with lower bounds uniform in b ∈ U.
+ 
+@@ -2042,14 +2047,23 @@ at future and negative at past lightlike ζ over supp dχ_(τ,1) ⊂ τ⁻¹([0,
+ ([[lem:iv5-0-3]] (b)). Finally ∓χ_(r,1)H_Gχ_(r,1) = +e_R², because H_Gr = 2g⁻¹(ζ, dr) is negative at future and
+ positive at past lightlike ζ over supp dχ_(r,1) ⊂ r⁻¹([r_♯, r̂)), where dr is future timelike ([[lem:iv5-0-3]] (c)).
+ 
+-*Conclusion.* Cauchy–Schwarz on the left of [Hin26a, (5.25)] gives [Hin26a, (5.30)]. Drop ‖E_Rω‖², which has the sign
++*Conclusion.* Let Λ⁻ be a microlocal parametrix of Λ* near supp a. By [Hin26a, (5.25)–(5.26)] and the split of the
++commutator, with ∓Im⟨P_hω, A²ω⟩ ≤ (4c_0)⁻¹‖Λ⁻AP_hω‖² + c_0‖ΛAω‖² + h^(2N)‖ω‖²_(H^(−N,(α_sf,α_K))_(3b,h)), the terms
++c_0‖ΛAω‖² cancel and
++
++    ‖B̃_0Aω‖² + h‖E_Rω‖² ≤ (4c_0)⁻¹‖Λ⁻AP_hω‖² + h‖E_Tω‖² + h|⟨B̃_2Aω, Aω⟩| + h|⟨(E + F)ω, ω⟩|
++                             + h|⟨AQP_hω, ω⟩| + Ch^(2N)‖ω‖²_(H^(−N,(α_sf,α_K))_(3b,h))
++
++([Hin26a, (5.30)]), F collecting the remainders of the split, microsupported near supp a; the term with Q is bounded by
++the elliptic estimate, WF′(Q) lying off the characteristic set. Drop ‖E_Rω‖², which has the sign
+ of the main term, and absorb h⟨B̃_2Aω, Aω⟩ ≤ Ch‖B̃_0Aω‖² + h^N‖ω‖², which holds by [[prop:np-10-65-a]] (e), B̃_0 being
+ elliptic on a neighbourhood of supp a in which A is microsupported. Iterate in h^(1/2) on the error term
+ h^(1/2)‖B̃′_0ω‖, whose wave front set lies near supp a. This proves [Hin26a, (5.21)]; the a priori term is h^(1/2)‖E_Tω‖,
+ supported over supp dχ_(τ,1).
+ 
+-For [Hin26a, (5.22)], P_h* = □_h* + iL_h* with □_h* − □_h ∈ hDiff¹ and L_h* − L_h ∈ hDiff⁰, and [Hin26a, (5.28)] has
+-main term ∓ρ_sf⁻²ℓ, now negative definite. The weights in a become (−α_sf − 2, −α_K). [Hin26a, (5.29)] holds for P_h*,
++For [Hin26a, (5.22)], P_h* = □_h* + iL_h* with □_h* − □_h ∈ hDiff¹ and L_h* − L_h ∈ hDiff⁰, and the pairing is now
++∓Im⟨P_h*ω, A²ω⟩ = ⟨(∓(Re L_h − Im □_h)A² ∓ (i/2)[P_h*, A²])ω, ω⟩ ([Hin26a, (5.28)]), whose main term has the symbol
++∓ρ_sf⁻²ℓ, now negative definite. The weights in a become (−α_sf − 2, −α_K). The split of the commutator holds for P_h*,
+ as only □_h*, with principal symbol G, entered it. Now −e_T² has the sign of the main term and e_R² needs the a priori
+ term. ∎
+ 
+@@ -2066,6 +2080,40 @@ J_1 ∈ ρ²Diff³_3b, Q_0 ∈ ρ²Diff²_3b and Q_1 ∈ ρ²Diff²_3b follow fr
+ self-adjoint). The symbol j of J is homogeneous of degree 3 and vanishes cubically at o. Near (K⁺)°, ρ_K := t⁻¹, and the
+ weight at 𝗌𝖿 and the differential order are dropped.
+ 
++*Commutants near o.* A *cut-off* below is a smooth function χ of one variable with values in [0, 1], equal to 1 on a
++closed interval J, positive on a larger interval I that is open in the range of the variable, and 0 outside I,
++non-decreasing to the left of J and non-increasing to its right, such that (χχ′)^(1/2) is smooth to the left of J and
++(−χχ′)^(1/2) to its right; "supported in I" refers to this I. Such cut-offs exist: with φ(x) := e^(−1/x) for x > 0
++and φ(x) := 0 for x ≤ 0, the function χ(x) := φ(β − x)/(φ(β − x) + φ(x − α)), α < β, is equal to 1 on (−∞, α],
++positive on (−∞, β) and 0 on [β, ∞), and near α and near β the function −χχ′ is the square of a smooth positive
++function times φ(x − α)^(1/2)(x − α)⁻¹, resp. φ(β − x)(β − x)⁻¹; cut-offs equal to 1 on a bounded J are products of
++two such functions, one of them reflected. Also χ₁(x) := e^(−𝔛/x) for x > 0, χ₁(x) := 0 for x ≤ 0, is used, with
++χ₁′ = 𝔛x⁻²χ₁ and (χ₁χ₁′)^(1/2) = 𝔛^(1/2)x⁻¹χ₁ smooth. Every commutant in [[sec:iv5-2]]–[[sec:iv5-5]] has the form
++
++    a = w⁻¹φ_1⋯φ_mχ_0(𝔛|ζ|),                                                                                {#eq:iv5-2-a}
++
++with w a positive function (a product of powers of boundary defining functions), each φ_k a cut-off or χ₁, composed
++with a function on M^♭, 𝔛 ≥ 1, and χ_0 a cut-off equal to 1 on [0, 1] and supported in [0, 2); we put
++a_k := w⁻¹χ_0(𝔛|ζ|)Π_(k′≠k) φ_(k′). The square roots of the symbols below are smooth: each is taken of a product of
++a factor ±φ_kφ_k′ ≥ 0 (or χ₁′/χ₁ times a²), whose square root is smooth on the support in question, with a B-self-adjoint
++factor that is positive definite there. In [[prop:iv5-5-3]] (2) the factor called f is one of the φ_k, not the symbol f
++of [[lem:iv5-2-symbols]]. The commutants on M in [[sec:iv6-2]] have the same form, with functions on M, and
++[[lem:iv5-2-symbols]] and its proof hold for them unchanged.
++
++**Lemma {#lem:iv5-2-symbols}** (The commutator symbol of a product commutant; the form of [Hin26a, (5.39)–(5.43)].) For
++a as in [[eq:iv5-2-a]] and either choice of sign,
++
++    aH_(−ℓ+j)a ∓ Sa² = −a²(±S − ℓ(dw/w) − wH_j(w⁻¹)) + Σ_k a_k²φ_k(−ℓ(dφ_k) + H_jφ_k) + f,
++    f := w⁻²(φ_1⋯φ_m)²χ_0(𝔛|ζ|)H_(−ℓ+j)(χ_0(𝔛|ζ|)),                                                   {#eq:iv5-2-leibniz}
++
++and f is supported in supp a ∩ {1 ≤ 𝔛|ζ| ≤ 2}, off o.
++
++*Proof.* H_(−ℓ+j), the Hamilton vector field of the End-valued symbol −ℓ + j, acts on scalar symbols as a derivation:
++H(uv) = uHv + vHu. For a function φ on M^♭, H_(−ℓ)φ = −ℓ(dφ), ℓ being linear in the fibre; so
++wH_(−ℓ+j)(w⁻¹) = w⁻¹ℓ(dw) + wH_j(w⁻¹) = ℓ(dw/w) + wH_j(w⁻¹). The Leibniz rule for the m + 2 factors of a gives
++H_(−ℓ+j)a = a·wH_(−ℓ+j)(w⁻¹) + Σ_k a_kH_(−ℓ+j)φ_k + w⁻¹φ_1⋯φ_mH_(−ℓ+j)(χ_0(𝔛|ζ|)); multiplying by a and using
++a·a_k = a_k²φ_k gives [[eq:iv5-2-leibniz]]. The support of f is that of χ_0′(𝔛|ζ|) within supp a. ∎
++
+ **Proposition {#prop:iv5-2-1}** ([Hin26a, Proposition 5.8].) Near K⁺ let ρ_K := t⁻¹; the weight at 𝗌𝖿 and the
+ differential order play no role here and are dropped. Put ε_c := r_ce^(1/2)/v. There is δ > 0 such that, with
+ K := {|r − r_c| ≤ (3/2)ε_c, ρ_K ≤ 4δ}, the following holds for every χ ∈ C^∞(M^♭) equal to 1 on K and supported in a
+@@ -2085,15 +2133,23 @@ These are [Hin26a, (5.33) and (5.34)] with r_c for r_0; (1) propagates control f
+ out of it.
+ 
+ *Proof.* (1) By [[prop:iv5-1-2]] and the ellipticity of 1 + iCL_h*ρ_sf⁻² it suffices to prove [Hin26a, (5.33)] with 𝓛_h
+-for P_h, near o. With χ_0, χ_K and ψ as in [Hin26a, (5.35)] (r_c for r_0), take the commutant [Hin26a, (5.36)],
++for P_h, near o. Let χ_K be a cut-off equal to 1 on [0, 1] and supported in [0, 3), and ψ = ψ(r) a cut-off equal to 1
++on {|r − r_c| ≤ (55/50)ε_c} and supported in {|r − r_c| < (60/50)ε_c} ([Hin26a, (5.35)]). Take the commutant
+ a = ρ_K^(−α_K)ψ(r)χ_K(𝔛ρ_K)χ_0(𝔛|ζ|), and A = A* a quantisation of a as in [[prop:np-10-65-a]] (c), with Schwartz kernel
+ supported in K × K. The pairing is [Hin26a, (5.37)–(5.38)]:
+ 
+     h⁻¹Im⟨𝓛_hω, A²ω⟩ = ⟨𝒞ω, ω⟩,     𝒞 = ((i/(2h))[−L_h + J, A²] − h⁻¹(Im L_h)A²) − h⁻¹AQA − (1/(2h))[A, [A, Q]].
+ 
+ The bracket has principal symbol aH_(−ℓ+j)a − Sa². As ℓ is linear in the fibre, H_(−ℓ)f = −ℓ(df) for a function f on
+-M^♭. This gives [Hin26a, (5.39)], aH_(−ℓ+j)a − Sa² = −c_0a² − b_0² − b_R² + e² + f, with b_0, b_R, e and f those of
+-[Hin26a, (5.40)–(5.43)]. Their square roots exist for the following reasons.
++M^♭. So [[lem:iv5-2-symbols]], with w = ρ_K^(α_K), φ_1 = ψ(r) and φ_2 = χ_K(𝔛ρ_K), gives
++aH_(−ℓ+j)a − Sa² = −c_0a² − b_0² − b_R² + e² + f ([Hin26a, (5.39)]), with f as there and, as ρ_K⁻¹ = t and
++dρ_K/ρ_K² = −dt, so that ℓ(dw/w) = −α_Kρ_Kℓ(dt) and wH_j(w⁻¹) = α_Kρ_KH_jt,
++
++    b_0 := a(S − c_0 + α_Kρ_K(ℓ(dt) − H_jt))^(1/2),     b_R := ρ_K^(−α_K)χ_Kχ_0(ψψ′(ℓ(dr) − H_jr))^(1/2),
++    e := ρ_K^(−α_K)ψχ_0ρ_K(−𝔛χ_Kχ_K′)^(1/2)(ℓ(−dt) + H_jt)^(1/2),
++
++χ_K and χ_K′ being evaluated at 𝔛ρ_K, χ_0 at 𝔛|ζ|. H_jt and H_jr are O(|ζ|²), j vanishing cubically at o. Their square
++roots exist for the following reasons.
+ 
+ - b_0: S is positive definite on {|r − r_c| ≤ (6/5)r_c e^(1/2)/v} ([[lem:iv5-0-5]] (3)), so S ≥ 2c_0 there;
+ ℓ(dρ_K/ρ_K²) = −ℓ(dt) and H_jρ_K⁻¹ are bounded on supp χ_0(𝔛|ζ|) and carry the factor ρ_K ≲ 𝔛⁻¹.
+@@ -2134,12 +2190,38 @@ which is [Hin26a, (5.45)] with 9C₂ + 2 for 2C and an additional term of the fo
+ 
+ Collecting, the Q-terms add at most (9C₂ + 2)𝔛⁻² + C′_𝔛h to the coefficient −c_0 of ‖Aω‖², where C₂ does not depend
+ on 𝔛 and C′_𝔛 does not depend on h: fix 𝔛 large
+-and then h small to absorb ‖Aω‖². Then [Hin26a, (5.47)], with WF′(F) ⊂ Ell(𝓛_h) and [[prop:np-10-65-a]] (e), gives
+-[Hin26a, (5.48)], and finitely many iterations in h^(1/2) give [Hin26a, (5.33)], with δ := 𝔛⁻¹.
++and then h small to absorb ‖Aω‖². Let B_0, B_R, E and F be quantisations of b_0, b_R, e and f, and
++B̃_0 ∈ Ψ_(3b,ħ) elliptic on a neighbourhood of supp a in which A is microsupported. The pairing, the symbol
++identity and the bound |h⁻¹⟨A𝓛_hω, Aω⟩| ≤ ¼c_0‖Aω‖² + c_0⁻¹h⁻²‖A𝓛_hω‖² give
++
++    c_0‖Aω‖² + ‖B_0ω‖² + ‖B_Rω‖²
++        ≤ C(h⁻²‖A𝓛_hω‖² + ‖Eω‖² + |⟨Fω, ω⟩| + h‖B̃_0ω‖² + h^(2N)‖χω‖²_(ρ_K^(α_K)H^(−N)_(3b,h))),
++
++the term h‖B̃_0ω‖² collecting the remainders of the symbol calculus ([Hin26a, (5.47)]). As WF′(F) lies off o and in
++Ell(𝓛_h), [[prop:np-10-65-a]] (e) gives |⟨Fω, ω⟩| ≤ C(‖B̃_0𝓛_hω‖² + h^(2N)‖χω‖²_(ρ_K^(α_K)H^(−N)_(3b,h))). Dropping
++‖B_Rω‖²,
++
++    ‖B_0ω‖ ≤ C(h⁻¹‖B̃_0𝓛_hω‖ + ‖Eω‖ + h^(1/2)‖B̃_0ω‖ + h^N‖χω‖_(ρ_K^(α_K)H^(−N)_(3b,h)))                 {#eq:iv5-2-iter}
++
++([Hin26a, (5.48)]). The positivity used holds, by continuity, for commutants whose supports are larger by a fixed small
++amount; so the same argument bounds h^(1/2)‖B̃_0ω‖ by h^(1/2) times the right side with B̃_0 replaced by an operator
++B̃_1 of the same kind, and after 2N such steps the remaining term is h^N‖B̃_(2N)ω‖, which is at most
++Ch^N‖χω‖_(ρ_K^(α_K)H^(−N)_(3b,h)), B̃_(2N) being microsupported in a compact set at finite frequencies. On the operator
++wave front set of the B_0 of the statement, b_0 is elliptic where the fibre variable has length at most 𝔛⁻¹, and
++[[prop:iv5-1-2]] applies where it has length at least 𝔛⁻¹. The quantisation of e is bounded by the E of the statement,
++whose elliptic set contains supp e, and B̃_0𝓛_hω by B_1P_hω, B̃_0 being microsupported in Ell(B_1), each up to
++h^N‖χω‖_(ρ_K^(α_K)H^(−N)_(3b,h)). This gives [Hin26a, (5.33)], with δ := 𝔛⁻¹.
+ 
+ (2) Replace P_h* by 𝓛_h* = iP_h*(1 − iCρ_sf⁻²L_h) = −L_h* + J + iQ and take
+-a = ρ_K^(α_K)ψχ_K(𝔛ρ_K)χ_0(𝔛|ζ|). The main symbol is aH_(−ℓ+j)a + Sa² = c_0a² + b_0² + b_K² − e² + f with the b_0, b_K,
+-e, f of [Hin26a]. The same three facts give the square roots, now with b_K from the sign of −ℓ(dt) and e from
++a = ρ_K^(α_K)ψχ_K(𝔛ρ_K)χ_0(𝔛|ζ|). As J and Q are self-adjoint and Im(−L_h*) = Im L_h = hS, the pairing is
++
++    h⁻¹Im⟨𝓛_h*ω, A²ω⟩ = ⟨𝒞′ω, ω⟩,     𝒞′ = ((i/(2h))[−L_h* + J, A²] + h⁻¹(Im L_h)A²) + h⁻¹AQA + (1/(2h))[A, [A, Q]]
++                                                                                                          {#eq:iv5-2-adj}
++
++([Hin26a, (5.49)–(5.50)]), and the bracket has principal symbol aH_(−ℓ+j)a + Sa². By [[lem:iv5-2-symbols]] with
++w = ρ_K^(−α_K), the main bracket S + ℓ(dw/w) + wH_j(w⁻¹) is again S + α_Kρ_K(ℓ(dt) − H_jt), and
++aH_(−ℓ+j)a + Sa² = c_0a² + b_0² + b_K² − e² + f, where b_0, b_K and e are the b_0, e and b_R of (1) with ρ_K^(α_K) for
++ρ_K^(−α_K). The same three facts give the square roots, now with b_K from the sign of −ℓ(dt) and e from
+ [[lem:iv5-0-5]] (6) on supp ψ′. Q enters with a lower bound, the adjoint pairing containing +h⁻¹⟨AQAω, ω⟩:
+ h⟨Q_0Aω, Aω⟩ ≥ −Ch‖Aω‖² by [[lem:iv5-calc-q0]], and ⟨h²Q_1Aω, Aω⟩ ≥ −((9C₂ + 2)𝔛⁻² + C_𝔛h)‖Aω‖² − C_(𝔛,N)h^(2N)‖χω‖² as
+ in (1), by [[lem:iv5-calc-garding]] applied to −Ã*h²Q_1Ã. The iteration is the same. ∎
+@@ -2165,15 +2247,21 @@ Ell(B_1) ⊃ {ρ_K ≤ 2δ_r, ρ_sf ≤ 2δ, |ζ| < 2}, then for every N there i
+ 
+ These are [Hin26a, (5.51) and (5.52)].
+ 
+-*Proof.* (1) Replace P_h by 𝓛_h. With χ_sf, χ_K and χ_0 as in [Hin26a], take the commutant [Hin26a, (5.53)],
+-a = w⁻¹χ_sf(𝔛ρ_sf)χ_K(ρ_K)χ_0(𝔛|ζ|). Then 𝒞 ∈ ρ_sf^(−2α_sf)ρ_K^(−2α_K)Ψ_3b, and [Hin26a, (5.54)] holds:
+-aH_(−ℓ+j)a − Sa² = −c_0ρ_sf²a² − b_0² − b_sf² + e² + f, with the b_0, b_sf, e and f of [Hin26a]. Their square roots
+-exist for the following reasons.
++*Proof.* (1) Replace P_h by 𝓛_h. Let χ_sf be a cut-off equal to 1 on [0, 5/4] and supported in [0, 2), and χ_K a
++cut-off equal to 1 on [0, (5/4)δ_r] and supported in [0, 2δ_r). Take the commutant ([Hin26a, (5.53)])
++a = w⁻¹χ_sf(𝔛ρ_sf)χ_K(ρ_K)χ_0(𝔛|ζ|). Then 𝒞 ∈ ρ_sf^(−2α_sf)ρ_K^(−2α_K)Ψ_3b, and [[lem:iv5-2-symbols]] gives
++aH_(−ℓ+j)a − Sa² = −c_0ρ_sf²a² − b_0² − b_sf² + e² + f ([Hin26a, (5.54)]), with f as there and, as dρ_sf = −ρ_sf²dr,
++
++    b_0 := a(S − ℓ(dw/w) − wH_j(w⁻¹) − c_0ρ_sf²)^(1/2),     b_sf := w⁻¹χ_sfχ_0(−χ_Kχ_K′)^(1/2)(−ℓ(dρ_K) + H_jρ_K)^(1/2),
++    e := w⁻¹χ_Kχ_0ρ_sf(−𝔛χ_sfχ_sf′)^(1/2)(−ℓ(dr) + H_jr)^(1/2),
++
++χ_sf and χ_sf′ being evaluated at 𝔛ρ_sf, χ_K and χ_K′ at ρ_K. Their square roots exist for the following reasons.
+ 
+ - b_0: ρ_sf⁻²(−ℓ(dw/w) + S) is positive definite on {ρ_sf ≤ 2δ_r, ρ_K ≤ 2δ_r} ([[lem:iv5-0-5]] (4)), with a fixed lower
+ bound; ρ_sf⁻²w⁻¹H_jw vanishes at o, since ρ_sf⁻²j vanishes cubically there.
+ 
+-- b_sf: on supp χ′_K, ρ_K ∈ [(5/4)δ_r, (3/2)δ_r), and [[lem:iv5-0-5]] (6) on 𝗌𝖿 ∩ {r/t ∈ [δ_r, v(1 − δ_sf)]} gives
++- b_sf: on supp χ′_K, ρ_K ∈ [(5/4)δ_r, 2δ_r) ⊂ [δ_r, v(1 − δ_sf)], as δ_r < 1/5, and [[lem:iv5-0-5]] (6) on
++𝗌𝖿 ∩ {r/t ∈ [δ_r, v(1 − δ_sf)]} gives
+ ρ_sf⁻²(−ℓ(dρ_K)) > 0 near 𝗌𝖿 for 𝔛 large.
+ 
+ - e: dρ_sf/ρ_sf² = −dr, and −ℓ(dr) is positive definite for r ≥ r_c + r_c e^(1/2)/v ([[lem:iv5-0-5]] (6)); H_jr
+@@ -2188,8 +2276,9 @@ sphere bundle above a neighbourhood of K; so ‖Aω‖ is replaced by ‖ρ_sfA
+ [[prop:iv5-2-1]], with δ := 𝔛⁻¹.
+ 
+ (2) Take a = wχ_sf(𝔛ρ_sf)χ_K(ρ_K)χ_0(𝔛|ζ|) and the pairing with 𝓛_h*. Then
+-aH_(−ℓ+j)a + Sa² = c_0ρ_sf²a² + b_0² + b_K² − e² + f, with the symbols of [Hin26a]. These are those of (1) with
+-−α_sf − 2 for α_sf; b_0 comes from [[lem:iv5-0-5]] (4), and the a priori term from supp χ′_K. ∎
++aH_(−ℓ+j)a + Sa² = c_0ρ_sf²a² + b_0² + b_K² − e² + f by [[lem:iv5-2-symbols]] with w⁻¹ in place of w, where b_0, b_K
++and e are the b_0, e and b_sf of (1) with the prefactor w in place of w⁻¹: the main bracket S + ℓ(d(w⁻¹)/w⁻¹) + w⁻¹H_jw
++is again S − ℓ(dw/w) − wH_j(w⁻¹). b_0 comes from [[lem:iv5-0-5]] (4), and the a priori term from supp χ′_K. ∎
+ 
+ #### The sink in 𝗌𝖿° {#sec:iv5-4}
+ 
+@@ -2211,9 +2300,15 @@ every N there is C with
+ 
+ These are [Hin26a, (5.55) and (5.56)], with the weight w′ = ρ_sf^(α_sf+1) in the commutant.
+ 
+-*Proof.* (1) The commutant is a = (w′)⁻¹χ_sf(𝔛ρ_sf)χ_R((r/t)/v − 1)χ_0(𝔛|ζ|), with χ_R supported in
+-(−2δ_sf, 2δ_sf) and equal to 1 on [−(5/4)δ_sf, (5/4)δ_sf]. Then [Hin26a, (5.57)] holds:
+-aH_(−ℓ+j)a − Sa² = −c_0ρ_sf²a² − b_0² + e₁² + e₂² + f. Their square roots exist for the following reasons.
++*Proof.* (1) The commutant is a = (w′)⁻¹χ_sf(𝔛ρ_sf)χ_R((r/t)/v − 1)χ_0(𝔛|ζ|), with χ_sf as in [[prop:iv5-3-1]] and
++χ_R a cut-off supported in (−2δ_sf, 2δ_sf) and equal to 1 on [−(5/4)δ_sf, (5/4)δ_sf]. With s := r/t,
++[[lem:iv5-2-symbols]] gives aH_(−ℓ+j)a − Sa² = −c_0ρ_sf²a² − b_0² + e₁² + e₂² + f ([Hin26a, (5.57)]), with f as there,
++
++    b_0 := a(S − ℓ(dw′/w′) − w′H_j((w′)⁻¹) − c_0ρ_sf²)^(1/2),
++    e₁ := (w′)⁻¹χ_Rχ_0ρ_sf(−𝔛χ_sfχ_sf′)^(1/2)(−ℓ(dr) + H_jr)^(1/2),
++    e₂ := (w′)⁻¹χ_sfχ_0(v⁻¹χ_Rχ_R′(−ℓ(ds) + H_js))^(1/2),
++
++χ_R and χ_R′ being evaluated at s/v − 1. Their square roots exist for the following reasons.
+ 
+ - b_0: [[lem:iv5-0-5]] (5), for 𝔛 large.
+ 
+@@ -2225,7 +2320,9 @@ aH_(−ℓ+j)a − Sa² = −c_0ρ_sf²a² − b_0² + e₁² + e₂² + f. Thei
+ e₁ and e₂ are supported away from {|(r/t)/v − 1| ≤ δ_sf, ρ_sf ≤ 𝔛⁻¹} and give ‖Eω‖. The rest is the proof of
+ [[prop:iv5-2-1]], with the weighted Q-terms of [[prop:iv5-3-1]].
+ 
+-(2) Take a = w′χ_sf(𝔛ρ_sf)χ_R((r/t)/v − 1)χ_0(𝔛|ζ|). Then aH_(−ℓ+j)a + Sa² = c_0ρ_sf²a² + b_0² + b₁² + b₂² + f. Every
++(2) Take a = w′χ_sf(𝔛ρ_sf)χ_R((r/t)/v − 1)χ_0(𝔛|ζ|). Then [[lem:iv5-2-symbols]] gives
++aH_(−ℓ+j)a + Sa² = c_0ρ_sf²a² + b_0² + b₁² + b₂² + f, with b_0 as in (1) and b₁, b₂ the e₁, e₂ of (1) with the prefactor
++w′ in place of (w′)⁻¹. Every
+ term except f, which is elliptic, has the sign of the main term, by the same three facts. So [Hin26a, (5.56)] carries no
+ a priori term. ∎
+ 
+@@ -2251,8 +2348,16 @@ These are [Hin26a, (5.58) and (5.59)]: (1) propagates control from the saddle to
+ the inner boundary towards the saddle.
+ 
+ *Proof.* (1) The commutant is a = ρ_K^(−α_K)χ₁(r − r_1)χ₂(r)χ_K(ρ_K)χ_0(𝔛|ζ|), where χ₁(x) = e^(−𝔛/x) for x > 0, so
+-χ₁′(x) = 𝔛x⁻²χ₁(x). Then [Hin26a, (5.60)] holds: aH_(−ℓ+j)a − Sa² = −a² − b_0² + e_R² + e_T² + f, with the b_0, e_R,
+-e_T and f of [Hin26a]. The square roots exist for the following reasons.
++χ₁′(x) = 𝔛x⁻²χ₁(x), χ₂ is a cut-off equal to 1 on (−∞, r_3] and supported in (−∞, r_4), and χ_K a cut-off equal to 1
++on [0, t_3⁻¹] and supported in [0, t_1⁻¹). Then [[lem:iv5-2-symbols]] with w = ρ_K^(α_K), as in [[prop:iv5-2-1]], gives
++aH_(−ℓ+j)a − Sa² = −a² − b_0² + e_R² + e_T² + f ([Hin26a, (5.60)]), with f as there and, χ₁ and χ₁′ being evaluated
++at r − r_1,
++
++    b_0 := a(S + α_Kρ_K(ℓ(dt) − H_jt) + (χ₁′/χ₁)(ℓ(dr) − H_jr) − 1)^(1/2),
++    e_R := ρ_K^(−α_K)χ₁χ_Kχ_0(−χ₂χ₂′)^(1/2)(ℓ(dr) − H_jr)^(1/2),
++    e_T := ρ_K^(−α_K)χ₁χ₂χ_0ρ_K(−χ_Kχ_K′)^(1/2)(ℓ(−dt) + H_jt)^(1/2),
++
++the term of χ₁ being −a²(χ₁′/χ₁)(ℓ(dr) − H_jr). The square roots exist for the following reasons.
+ 
+ - b_0: on [r_1, r_4] ⊂ [r_♯, r_c − r_c e^(1/2)/v], −ℓ(−dr) is positive definite ([[lem:iv5-0-5]] (6)), so
+ −𝔛(r − r_1)⁻²(−ℓ(dr) + H_jr) ≥ C for any fixed C once 𝔛 is large.
+@@ -2263,8 +2368,10 @@ e_T and f of [Hin26a]. The square roots exist for the following reasons.
+ 
+ e_R (on supp χ₂′χ_K) and e_T (on supp χ₂χ′_K) give ‖Eω‖. The rest is as before.
+ 
+-(2) Take a = ρ_K^(α_K)χ₁(r_4 − r)χ̃₂(r)χ_K(ρ_K)χ_0(𝔛|ζ|), with χ̃₂ = 0 near (−∞, r_1] and 1 near [r_2, ∞). Then
+-aH_(−ℓ+j)a + Sa² = a² + b_0² + b_T² − e_R² + f, and the only a priori term is e_R, on supp χ̃₂′. ∎
++(2) Take a = ρ_K^(α_K)χ₁(r_4 − r)χ̃₂(r)χ_K(ρ_K)χ_0(𝔛|ζ|), with χ̃₂ a cut-off equal to 0 near (−∞, r_1] and 1 near
++[r_2, ∞). Then [[lem:iv5-2-symbols]] gives aH_(−ℓ+j)a + Sa² = a² + b_0² + b_T² − e_R² + f, the symbols formed from the
++factors of a as in (1), the term of χ₁(r_4 − r) now being a²(χ₁′/χ₁)(r_4 − r)(ℓ(dr) − H_jr) ≥ 0; the only a priori term
++is e_R, on supp χ̃₂′. ∎
+ 
+ [Hin26a, pp. 57–58] states the next propagation estimates as analogous to [[prop:iv5-5-1]]. They are stated and proved
+ here, both directions included, since the combination in [[sec:iv5-7]] uses each.
+@@ -2324,7 +2431,7 @@ is the proof of [[prop:iv5-2-1]]: 𝓛_h, the Q-terms ([[lem:iv5-calc-q0]] and [
+ ρ_sf as in [[prop:iv5-3-1]] in (b)–(c)), the double commutator, and the iteration.
+ 
+ In (2) the commutant is Wχ₁(φ − φ_1)χ̃₃(φ)χ_⋆χ_0, with χ̃₃ = 1 near φ ≤ φ_3 and 0 near φ ≥ φ_4. The main term
+-H_(−ℓ)χ₁(φ − φ_1) = χ₁′(−ℓ(dφ)) is now positive, the sign the adjoint pairing [Hin26a, (5.49)] needs. The χ_⋆-terms,
++H_(−ℓ)χ₁(φ − φ_1) = χ₁′(−ℓ(dφ)) is now positive, the sign the adjoint pairing [[eq:iv5-2-adj]] needs. The χ_⋆-terms,
+ ≥ 0, now have the sign of the main term. The χ̃₃-term, ≤ 0, needs control at the far end. ∎
+ 
+ **Proposition {#prop:iv5-5-3}** (Propagation through the interior of Ω.) Weights play no role here, all supports being
+@@ -2361,7 +2468,7 @@ H_(−ℓ)χ_r(r) = χ_r′(−ℓ(dr)) = −χ_r′(−ℓ(−dr)) ≤ 0 has th
+     a = χ₁(t − t_1)χ_late(t)f(t − κr)χ_r(r)χ_0(𝔛|ζ|),
+ 
+ with χ_late non-increasing, 1 on t ≤ t_2 and 0 on t ≥ t_2 + 1, and f non-decreasing, 0 on (−∞, −c₁] and 1 on [0, ∞). In
+-the adjoint pairing [Hin26a, (5.49)] the main term must be positive. The terms are signed as follows:
++the adjoint pairing [[eq:iv5-2-adj]] the main term must be positive. The terms are signed as follows:
+ H_(−ℓ)χ₁(t − t_1) = χ₁′(−ℓ(dt)) is positive and dominant; H_(−ℓ)f = f′(−ℓ(d(t − κr))) ≥ 0 has its sign and is dropped;
+ H_(−ℓ)χ_late = χ_late′(−ℓ(dt)) ≤ 0 needs control on {t_2 ≤ t ≤ t_2 + 1}; and H_(−ℓ)χ_r ≤ 0 needs control near Σ^♯. On
+ supp a, r ≤ (t + c₁)/κ and t ≤ t_2 + 1, so the support is compact, and χ₁(t − t_1) is bounded below on WF′(B_0). The rest
+@@ -2452,8 +2559,9 @@ and B be as in [[eq:s14-ell]], 𝒬 as in [[eq:iv5-6-t]] in the frame dz^μ, ∇
+ ℓ^λ := ℓ(dz^λ); for a 1-form ω put ℓ⟨∇ω⟩ := Σ_λ ℓ^λ∇_λω and |r∇ω|²_B := Σ_μ B(r∇_μω, r∇_μω), and let Bℓ^λ be the
+ bilinear form (ω₁, ω₂) ↦ B(ℓ^λω₁, ω₂).
+ 
+-(i) (*The divergence identity, integrated.*) Let k ∈ {1, 2}, let f_1, …, f_k ∈ C^∞(N) have linearly independent
+-differentials at each point where they vanish, and let R := {f_1 ≤ 0, …, f_k ≤ 0}, ∂_iR := R ∩ {f_i = 0}, and σ_i the
++(i) (*The divergence identity, integrated.*) Let k ∈ {1, 2, 3}, let f_1, …, f_k ∈ C^∞(N) be such that at each point at
++most two of them vanish, and those that vanish there have linearly independent differentials, and let
++R := {f_1 ≤ 0, …, f_k ≤ 0}, ∂_iR := R ∩ {f_i = 0}, and σ_i the
+ density on {f_i = 0} with |dg| = |df_i| ⊗ σ_i. For real w ∈ C^∞(N) and real ω ∈ C²(N; T*N) with R ∩ supp ω compact,
+ 
+     ½∫_R 𝒬_(G,−d(w²),ℓ)(∇ω) |dg| + ½Σ_i ∫_(∂_iR) w²𝒬_(G,df_i,ℓ)(∇ω) σ_i
+@@ -2515,6 +2623,103 @@ r∂_(z^μ) are bounded, and ℓ = r⁻¹ℓ_(g,rc,e) is O(r⁻¹); as ∂_(z^μ
+ Christoffel symbols are O(r⁻¹), Rm is O(r⁻²), ∇B is O(r⁻¹), and ∇ℓ and ∇(Bℓ) are O(r⁻²). With ∇_μω = r⁻¹(r∇_μω),
+ each term is at most Cr⁻⁴(|r∇ω|²_B + B(ω, ω)), B being comparable to the Euclidean inner product on K₀. ∎
+ 
++**Lemma {#lem:iv5-6-transport}** (The damping term as a transport term.) Let N, g, c, e, ℓ, B, ∇, R, f_i, ∂_iR and σ_i
++be as in [[cor:iv5-6-energy]], and A := (2ih)⁻¹L_(g,c,e,h) = 2δ_g(c ⊗_s ·) + e dι_(c♯), so that −iL_(g,c,e,h) = 2hA.
++
++(i) Aω = −½ℓ⟨∇ω⟩ + 𝒩ω, with the bundle map 𝒩 of the proof of [[prop:np-10-13]] (ii),
++(𝒩ω)_a = −K(ω♯, ∂_a) − (tr K)ω_a + eK(∂_a, ω♯), K(X, Y) = (∇_Xc)(Y).
++
++(ii) For real φ ∈ C^∞(N) and real ω ∈ C¹(N; T*N) with R ∩ supp ω compact, S being the bundle map of [[eq:s14-s]],
++
++    ½∫_R B(ℓ(dφ)ω, ω) |dg| − ½Σ_i ∫_(∂_iR) φB(ℓ(df_i)ω, ω) σ_i = ∫_R φ(2B(Aω, ω) − B(Sω, ω)) |dg|.  {#eq:iv5-6-transport}
++
++(iii) Where the components of g and rc lie in a compact set K₀ as in [[cor:iv5-6-energy]] (ii) and those of g, g⁻¹
++and rc have bounded derivatives of order at most 2 along the r∂_(z^μ), we have |𝒩ω|_B + |Sω|_B ≤ C_Nr⁻²|ω|_B, where
++the norm is |·|_B := B(·, ·)^(1/2) and C_N depends only on these bounds, K₀ and e.
++
++Replacing c by −c replaces A, ℓ, 𝒩 and S by −A, −ℓ, −𝒩 and −S and leaves B unchanged.
++
++*Proof.* (i) In the proof of [[prop:np-10-13]] (ii), Aω = ∇_μ(M^μω) = M^μ∇_μω + 𝒩ω, with ζ_μM^μ = −½ℓ(ζ) for every
++covector ζ; so M^μ = −½ℓ^μ and M^μ∇_μω = −½ℓ⟨∇ω⟩.
++
++(ii) Each M^μ is B-self-adjoint. As in that proof, at every point,
++B(Aω, ω) = ∇_μ(B(M^μω, ω)) − (∇_μB)(M^μω, ω) − B(ω, M^μ∇_μω) and B(ω, M^μ∇_μω) = B(ω, Aω) − B(ω, 𝒩ω); so
++2B(Aω, ω) = ∇_μ(B(M^μω, ω)) + B(ω, 𝒩ω) − (∇_μB)(M^μω, ω) = ∇_μ(B(M^μω, ω)) + B(Sω, ω), by the formula for S there.
++Multiplying by φ and using −(∂_μφ)M^μ = ½ℓ(dφ),
++
++    2φB(Aω, ω) = ∇_μ(φB(M^μω, ω)) + ½B(ℓ(dφ)ω, ω) + φB(Sω, ω).
++
++Integrate over R. By the divergence theorem, as in the proof of [[cor:iv5-6-energy]] (i), the first term gives
++Σ_i ∫_(∂_iR) φB((df_i)_μM^μω, ω) σ_i = −½Σ_i ∫_(∂_iR) φB(ℓ(df_i)ω, ω) σ_i, the vector field φB(M^μω, ω)∂_(z^μ) being
++C¹ and R ∩ supp ω compact. This is [[eq:iv5-6-transport]].
++
++(iii) With ĉ := rc, K_(μν) = ∂_μc_ν − Γ^λ_(μν)c_λ = r⁻²(r∂_μĉ_ν − (∂_μr)ĉ_ν − rΓ^λ_(μν)ĉ_λ), and
++rΓ = ½g⁻¹(r∂g) is bounded; so the components of K are O(r⁻²), and |𝒩ω|_B ≤ Cr⁻²|ω|_B, B being comparable to the
++Euclidean inner product on K₀. Each term of [[eq:s14-s]] is a product of one component of K with components of g⁻¹,
++of c and of G(c)⁻¹, with twice as many factors c as factors G(c)⁻¹; under c = r⁻¹ĉ, G(c)⁻¹ = r²G(ĉ)⁻¹, with |G(ĉ)|
++bounded below on K₀, so each term is O(r⁻²), and |Sω|_B ≤ Cr⁻²|ω|_B. ∎
++
++**Lemma {#lem:iv5-6-core}** (The energy estimate with damping.) Let N, g, c, e ∈ (0, 2/5), ℓ, B, ∇, R, f_i, ∂_iR and
++σ_i be as in [[cor:iv5-6-energy]], A as in [[lem:iv5-6-transport]], h ∈ (0, 1], and P := h²□_g + 2hA + hY, where Y is
++a linear differential operator of order at most 1 with |Yω|_B ≤ C_Yr⁻²(|ω|_B + h|r∇ω|_B) pointwise. Let ψ ∈ C^∞(N) be
++real, w := e^(−ψ), η_0 := dψ = −dw/w and η_1 := η_0 + r⁻¹dr; let κ ∈ (0, 1], λ ≥ 1, and {1, …, k} = I_+ ⊔ I_−. Let
++ω ∈ C²(N; T*N) be real, with R ∩ supp ω compact, and suppose that at every point of R ∩ supp ω the components of g
++and rc lie in a compact set K₀ as in [[cor:iv5-6-energy]] (ii), the bounds of [[cor:iv5-6-energy]] (iii) hold with a
++constant C₁, rη_0 is past timelike with G(rη_0) ≤ −κ|rη_0|², rη_1 is past causal, and |rη_0|, |rη_1| ≥ λ; and that
++for i ∈ I_+, at every point of ∂_iR ∩ supp ω, df_i is past timelike with G(r df_i) ≤ −κ|r df_i|². Put
++
++    E_0 := ∫_R w²r⁻⁴|ω|²_B |dg|,     E_1 := ∫_R w²r⁻⁴|r∇ω|²_B |dg|,     F := ∫_R w²|Pω|²_B |dg|,
++    β⁰_i := ∫_(∂_iR) w²r⁻⁴|r df_i||ω|²_B σ_i,     β¹_i := ∫_(∂_iR) w²r⁻⁴|r df_i||r∇ω|²_B σ_i.
++
++There are λ_* and C_*, depending only on K₀, κ, e, C₁ and C_Y, such that if λ ≥ λ_*, then
++
++    E_0 + h²E_1 + Σ_(i∈I_+)(β⁰_i + h²β¹_i) ≤ C_*(h⁻²F + Σ_(i∈I_−)(β⁰_i + β¹_i)).                         {#eq:iv5-6-core}
++
++*Proof.* Write |·| for |·|_B, and ∫ for integrals over R against |dg| and over ∂_iR against σ_i. *Constants.* Let c₀
++be the constant of [[cor:iv5-6-energy]] (ii) for K₀ and κ, C_R that of [[cor:iv5-6-energy]] (iii) for C₁, K₀ and e,
++and C_N that of [[lem:iv5-6-transport]] (iii). By [[lem:iv4-1-causal]] (d) with K := K₀ there is c₁ > 0 with
++B(ℓ_(g,ĉ,e)(ζ)v, v) ≥ c₁|ζ||v|² for (g, ĉ) ∈ K₀ and future causal ζ, and by continuity on compact sets there are C_ℓ
++and C_Q with |B(ℓ_(g,ĉ,e)(ζ)v, v)| ≤ C_ℓ|ζ||v|² and |𝒬_(G,ζ,ℓ_(g,ĉ,e))(ξ)| ≤ C_Q|ζ|Σ_μ|ξ_μ|² for (g, ĉ) ∈ K₀ and all
++ζ, v and ξ. As ℓ_(g,c,e)(ζ) is bilinear in (c, ζ) and B does not change under c ↦ rc, at the points of R ∩ supp ω
++B(ℓ(ζ)v, v) ≥ c₁r⁻²|rζ||v|² for future causal ζ, |B(ℓ(ζ)v, v)| ≤ C_ℓr⁻²|rζ||v|², and, by the identity in the proof of
++[[cor:iv5-6-energy]] (ii), |𝒬_(G,ζ,ℓ)(ξ)| ≤ C_Qr⁻⁴|rζ|Σ_μ|rξ_μ|². Put C₂ := 2C_Y² + 4C_N² + C_R and
++
++    λ_* := max(1, 2(2C_Y² + C_R)/c₀, 8C_N/c₁, 4C₂^(1/2)/c₁),     C_* := (32c₁⁻² + 4c₀⁻¹)(1 + C₂C_ℓ/c₁ + C_Q) + 2C_ℓ/c₁.
++
++*The energy identity.* Apply [[eq:iv5-6-energy]], with −d(w²) = 2w²η_0. By the hypotheses and [[cor:iv5-6-energy]] (ii),
++its bulk term is at least c₀∫w²r⁻⁴|rη_0||r∇ω|² ≥ c₀λE_1, its boundary terms for i ∈ I_+ are at least ½c₀β¹_i, and
++those for i ∈ I_− are at least −½C_Qβ¹_i. By [[lem:iv5-6-transport]] (i), h²□_gω = Pω − hYω + hℓ⟨∇ω⟩ − 2h𝒩ω. With
++Λ := ∫w²|ℓ⟨∇ω⟩|², the Cauchy–Schwarz inequality, ∫w²|Yω|² ≤ 2C_Y²(E_0 + h²E_1), the bound |𝒩ω| ≤ C_Nr⁻²|ω| and
++the bound |𝓡(ω)| ≤ C_Rr⁻⁴(|r∇ω|² + |ω|²) of [[cor:iv5-6-energy]] (iii), the right side of [[eq:iv5-6-energy]] is
++at most
++
++    −h⁻¹Λ + h⁻²F^(1/2)Λ^(1/2) + h⁻¹(2C_Y²(E_0 + h²E_1))^(1/2)Λ^(1/2) + 2h⁻¹C_NE_0^(1/2)Λ^(1/2) + C_R(E_0 + E_1)
++        ≤ −¼h⁻¹Λ + h⁻³F + 2C_Y²h⁻¹(E_0 + h²E_1) + 4C_N²h⁻¹E_0 + C_R(E_0 + E_1),
++
++each of the three products being at most ¼h⁻¹Λ plus the corresponding square. As h ≤ 1,
++
++    (c₀λ − 2C_Y² − C_R)E_1 + ½c₀Σ_(I_+)β¹_i + ¼h⁻¹Λ ≤ h⁻³F + C₂h⁻¹E_0 + ½C_QΣ_(I_−)β¹_i.               {#eq:iv5-6-core-1}
++
++*The transport identity.* Apply [[eq:iv5-6-transport]] with φ := r⁻²w². Then dφ = −2φη_1, and −rη_1 is future causal,
++so ½B(ℓ(dφ)ω, ω) = φB(ℓ(−η_1)ω, ω) ≥ c₁λw²r⁻⁴|ω|²; for i ∈ I_+, −df_i is future timelike, so
++−½φB(ℓ(df_i)ω, ω) ≥ ½c₁w²r⁻⁴|r df_i||ω|²; for i ∈ I_−, −½φB(ℓ(df_i)ω, ω) ≥ −½C_ℓw²r⁻⁴|r df_i||ω|². By (i) and (iii)
++of [[lem:iv5-6-transport]], |2B(Aω, ω) − B(Sω, ω)| ≤ |ℓ⟨∇ω⟩||ω| + 2C_Nr⁻²|ω|². So
++
++    c₁λE_0 + ½c₁Σ_(I_+)β⁰_i − ½C_ℓΣ_(I_−)β⁰_i ≤ Λ^(1/2)E_0^(1/2) + 2C_NE_0 ≤ (c₁λ)⁻¹Λ + ¼c₁λE_0 + 2C_NE_0,
++
++and as 2C_N ≤ ¼c₁λ,
++
++    ½c₁λE_0 + ½c₁Σ_(I_+)β⁰_i ≤ (c₁λ)⁻¹Λ + ½C_ℓΣ_(I_−)β⁰_i.                                             {#eq:iv5-6-core-2}
++
++*Conclusion.* By [[eq:iv5-6-core-2]] and λ ≥ 1, E_0 ≤ 2(c₁λ)⁻²Λ + (C_ℓ/c₁)Σ_(I_−)β⁰_i. Insert this into
++[[eq:iv5-6-core-1]]: as λ ≥ λ_*, c₀λ − 2C_Y² − C_R ≥ ½c₀λ and 2C₂(c₁λ)⁻² ≤ ⅛, so
++
++    ½c₀λE_1 + ½c₀Σ_(I_+)β¹_i + ⅛h⁻¹Λ ≤ h⁻¹Θ,     Θ := h⁻²F + (C₂C_ℓ/c₁)Σ_(I_−)β⁰_i + ½C_QΣ_(I_−)β¹_i.
++
++Hence Λ ≤ 8Θ, h²(E_1 + Σ_(I_+)β¹_i) ≤ 4c₀⁻¹hΘ ≤ 4c₀⁻¹Θ, and, by [[eq:iv5-6-core-2]] once more,
++E_0 + Σ_(I_+)β⁰_i ≤ 4c₁⁻²Λ + (2C_ℓ/c₁)Σ_(I_−)β⁰_i ≤ 32c₁⁻²Θ + (2C_ℓ/c₁)Σ_(I_−)β⁰_i. Adding, and using
++Θ ≤ h⁻²F + (C₂C_ℓ/c₁ + C_Q)Σ_(I_−)(β⁰_i + β¹_i), gives [[eq:iv5-6-core]] with the C_* above. ∎
++
+ **Proposition {#prop:iv5-6-1}** ([Hin26a, Proposition 5.16] in dimension 4 + 1.) Let α_sf, α_K ∈ ℝ.
+ 
+ (1) (*Near X_0*; the weight at K⁺ is dropped.) There are h_0 > 0 and C such that for h ∈ (0, h_0) and every
+@@ -2522,7 +2727,8 @@ each term is at most Cr⁻⁴(|r∇ω|²_B + B(ω, ω)), B being comparable to t
+ 
+     ‖ω‖_(ρ_sf^(α_sf)H¹_(3b,h)(τ⁻¹([0,T_0]))) ≤ Ch⁻¹‖P_hω‖_(ρ_sf^(α_sf+2)L²(τ⁻¹([0,T_0]))),
+ 
+-and for every ω ∈ ρ_sf^(−α_sf−2)H²_(3b,h), without support condition,
++and for every ω ∈ ρ_sf^(−α_sf−2)H²_(3b,h) supported at Σ^♯ (as are the elements of the spaces (·)^(−,•) of
++[[def:iv5-0-1]]), without support condition at X_0,
+ 
+     ‖ω‖_(ρ_sf^(−α_sf−2)H¹_(3b,h)(τ⁻¹([0,T_0/2])))
+         ≤ C(h⁻¹‖P_h*ω‖_(ρ_sf^(−α_sf)L²(τ⁻¹([0,T_0]))) + ‖ω‖_(ρ_sf^(−α_sf−2)H¹_(3b,h)(τ⁻¹([T_0/2,T_0])))).
+@@ -2546,49 +2752,94 @@ tensored with |dτ| is |dg|. Moreover, at fixed h, for ω ∈ ρ_sf^(α_sf)H̄²
+ 
+ where ℋ_data := ρ_sf^(α_sf)H̄¹_b(X_0, r⁴|dr d𝑔̸|) ⊕ ρ_sf^(α_sf)H̄⁰_b(X_0, r⁴|dr d𝑔̸|).
+ 
+-*Proof.* [Hin26a, (5.66)]. Take the multiplier a²L_h with a = ρ_sf^(−α_sf−2)e^(−𝔛τ)H(T_0 − τ)H(r − r_♯) (H the
+-Heaviside function), and the pairing [Hin26a, (5.70)],
+-h⁻¹Im⟨P_hω, a²L_hω⟩ = ⟨𝒞ω, ω⟩ − h⁻¹‖aL_hω‖². The principal symbol of 𝒞 is aT_(G,da,ℓ) − a²E, with T of
+-[[eq:iv5-6-t]], since H_Ga = 2g⁻¹(ζ, da). This leads to the decomposition [Hin26a, (5.71)], whose derivation only
+-expands (i/2)(□_h*bL_h − L_h*b□_h) in local coordinates with b = a². Its part from □_h and from the principal part
+-−ihℓ⟨∇·⟩ of L_h is h²∫_R B(□_gω, w²ℓ⟨∇ω⟩)|dg| for real ω, and the sum of this for Re ω and Im ω in general, with the
+-R and w below; [[eq:iv5-6-energy]] writes it through the 𝒬-terms and 𝓡 (for ω vanishing for t < 0 by density, each
+-term being continuous in the norm of ρ_sf^(α_sf)H²_(3b,h)). Then a da is [Hin26a, (5.72)], and the weight identity
+-[Hin26a, (5.73)] holds: aT_(G,−da,ℓ) = ρ_sf⁴T_(ρ_sf⁻²G, −a da, ρ_sf⁻²ℓ), as T is linear in each of its three arguments,
+-free of the dimension.
+-
+-−a da is past timelike for 𝔛 large, since dτ is past timelike with r²g⁻¹(dτ, dτ) ≤ −¾ ([[lem:iv5-0-3]] (b)) and the
+-δ(r − r_♯)-part of −a da is a positive multiple of −dr, past timelike ([[lem:iv5-0-3]] (c)). So [[cor:iv5-6-energy]]
+-applies, on N := ℝ_t × {r > ½r_♯} and R := {r ≥ r_♯, τ ≤ T_0}, with f_1 := τ − T_0, f_2 := r_♯ − r and
+-w := ρ_sf^(−α_sf−2)e^(−𝔛τ), so that a = wH(T_0 − τ)H(r − r_♯). Its bulk term carries
+-−d(w²) = 2w²(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf), and its two boundary terms carry dτ on {τ = T_0} and −dr on Σ^♯; these are
+-the three parts of −a da = −½d(a²) = a²(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) + ½w²δ(T_0 − τ)dτ − ½w²δ(r − r_♯)dr.
+-The hypotheses of [[cor:iv5-6-energy]] (ii) hold uniformly for b ∈ U. The components of g and rc, continuous on the
+-compact Ω and in b ([[lem:iv5-0-2]] (a), (d)), lie in a compact set of pairs, rc being past timelike
+-([[lem:iv5-0-5]] (1)); e = 1/102400 < 2/5; and r(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) = 𝔛(dt − τ dr) − (α_sf + 2)dr,
+-r dτ = dt − T_0 dr on {τ = T_0} and −r dr on Σ^♯ satisfy its condition with one κ > 0 for 𝔛 large, by
+-[[lem:iv5-0-3]] (b), (c). So each of the three terms is at least c₀ times the corresponding weighted integral of the
+-square of |r∇ω|_B, the bulk term with the factor 𝔛. Here the level sets of τ carry r⁴|dr d𝑔̸|, which tensored with |dτ|
+-is |dg| ([[lem:iv5-0-2]] (b)). This gives [Hin26a, (5.74)].
+-
+-The other terms of [Hin26a, (5.71)] carry the total weight ρ_sf⁴ of ∇*T∇ and are bounded by [Hin26a, (5.75)] and its
+-companions. Among them is h² times the term with 𝓡 in [[eq:iv5-6-energy]], bounded by [[cor:iv5-6-energy]] (iii), as
+-the components of g, g⁻¹ and rc lie in C^∞(M^♭) and r∂_(z^μ) ∈ 𝒱_3b(M^♭), with r⁻¹ = ρ_sf. The left side of
+-[Hin26a, (5.70)] is at least −½h⁻¹(‖aP_hω‖² + ‖aL_hω‖²), which gives [Hin26a, (5.76)]. The fundamental theorem of
+-calculus for L_h, [Hin26a, (5.77)], uses [[lem:iv5-0-4]] ([[lem:iv4-1-causal]] (a)) for the future timelike covector
+-ρ_sf a d(ρ_sf a). It gives the bulk term C𝔛ρ_sf⁴a² and the two positive δ-terms, hence [Hin26a, (5.78)]. Adding
+-[Hin26a, (5.76)] and (5.78) and absorbing for h small gives [Hin26a, (5.66)].
+-
+-[Hin26a, (5.68)] follows by the same argument with a = ρ_K^(−α_K)e^(𝔛r)H(r − r_1), applied to χω (χ = 1 on r ≤ r_2,
+-0 on r ≥ r_3), as −dr is past timelike on [r_♯, r̂] ([[lem:iv5-0-3]] (c)); in [[cor:iv5-6-energy]], R = {r ≥ r_1},
+-f_1 = r_1 − r and w = ρ_K^(−α_K)e^(𝔛r). [Hin26a, (5.67) and (5.69)] are the same arguments for P_h* = □_h* + iL_h*,
+-whose damping acts backwards, as in [Hin26a]; its damping symbol is −ℓ, for which [[cor:iv5-6-energy]] holds with the
+-time orientation reversed.
+-
+-[[eq:iv5-6-1]]. Run the proof of [Hin26a, (5.66)] at fixed h with a multiplied by H(τ). The boundary τ = 0 then adds to
+-[Hin26a, (5.74) and (5.77)] the terms of the boundary τ = T_0 with the opposite sign. Each is a quadratic form in
+-(ω, ∂_τω)|_(τ=0) with bounded coefficients in the 3b frame, so it is bounded by
+-C‖(ω, r𝓛_(∂_t)ω)|_(X_0)‖²_(ℋ_data). Here ∂_τ = r∂_t at fixed (r, ω), and the weight matches by [[lem:iv5-0-2]] (b):
++*Proof.* *The operators.* As g is Ricci-flat, P_h = h²□_g − iL_h = h²□_g + 2hA ([[lem:s14-box-c]]), with A of
++[[lem:iv5-6-transport]], a real operator; so it suffices to prove the estimates for real ω, those for complex ω
++following by adding the estimates for Re ω and Im ω. For the adjoint, A* = S − A ([[prop:np-10-13]] (ii)), and
++B(ω, ω′) = ⟨ω, Θω′⟩ with Θω := ω − (1 + e)G(c)⁻¹⟨c, ω⟩c, which is invertible, B being positive definite; as □_g is
++symmetric for ⟨·, ·⟩ and |dg|, □_g* = Θ⁻¹□_gΘ = □_g + Z with Z := −Θ⁻¹(2(∇^μΘ)∇_μ + (∇^μ∇_μΘ)). So
++
++    P_h* = h²□_g + 2h(−A) + hY,     Y := 2S + hZ,
++
++and −A is the operator A of the 1-form −c, which is past timelike for the opposite time orientation
++([[lem:iv5-6-transport]]). Θ depends only on g and rc, so ∇Θ = O(r⁻¹) and ∇∇Θ = O(r⁻²) under the bounds below, and
++with [[lem:iv5-6-transport]] (iii), |Yω|_B ≤ C_Yr⁻²(|ω|_B + h|r∇ω|_B).
++
++*The hypotheses of [[lem:iv5-6-core]].* Let N := ℝ_t × {r > ½r_♯}. On {r ≥ ½r_♯} ∩ τ⁻¹([0, T_0]) and on
++{½r_♯ ≤ r ≤ r̂} ∩ {t ≥ 0}, whose closures in the compactification of [[def:iv5-0-1]] are compact, the components of g,
++g⁻¹ and rc are smooth up to the faces at infinity and continuous in b, by the proofs of [[lem:iv5-0-2]] (a), (d), which
++hold on {r ≥ ½r_♯}; r∂_(z^μ) ∈ 𝒱_3b; and rc is past timelike there ([[sec:iv5-0]]). So the components of g and rc lie
++in a compact set K₀ of pairs, and the bounds of [[cor:iv5-6-energy]] (iii) hold with one C₁, for b ∈ U, for the
++pair (g, c) and, with the opposite orientation, for (g, −c); so does the bound on Y with one C_Y. Let Γ bound the
++Euclidean operator norm of g⁻¹ over K₀. We use: (∗) if u is past timelike with G(u) ≤ −γ|u|², γ ∈ (0, 1], |·| the
++Euclidean norm of the components, |v| ≤ m and 𝔛|u| ≥ 6m max(1, Γ/γ), then 𝔛u + v is past timelike, with
++G(𝔛u + v) ≤ −(γ/4)|𝔛u + v|² and |𝔛u + v| ≥ ¾𝔛|u|. Indeed, with q := 𝔛|u| ≥ 6m, so that Γm ≤ γq/6,
++G(𝔛u + v) ≤ −γq² + 2Γmq + Γm² ≤ −γq² + (9/4)Γmq ≤ −(5/8)γq² ≤ −(γ/4)(5q/4)², while
++q − m ≤ |𝔛u + v| ≤ q + m ≤ 5q/4; the same holds with sv, s ∈ [0, 1], in place of v, so 𝔛u + v lies in the cone of u.
++Let λ_* be the number of [[lem:iv5-6-core]] for K₀, κ := ⅛, e, C₁ and C_Y. All constants below are uniform for b ∈ U.
++
++*The first estimate of (1)* ([Hin26a, (5.66)]). There ρ_sf = r⁻¹. Take R := {τ ≤ T_0, r ≥ r_♯} ⊂ N, f_1 := τ − T_0,
++f_2 := r_♯ − r, I_+ := {1, 2}, Y := 0 and w := ρ_sf^(−α_sf−2)e^(−𝔛τ). With u := r dτ = dt − τ dr,
++rη_0 = 𝔛u − (α_sf + 2)dr and rη_1 = 𝔛u − (α_sf + 1)dr. On τ⁻¹([0, T_0]), G(u) ≤ −¾ ≤ −(3/5)|u|²
++([[lem:iv5-0-3]] (b); |u|² = 1 + τ² ≤ 5/4) and |u| ≥ 1, so by (∗) with γ := 3/5 and m := |α_sf| + 2, both are past
++timelike with G ≤ −(3/20)|·|² and of length at least ¾𝔛, for 𝔛 ≥ 6m max(1, 5Γ/3). On {τ = T_0}, r df_1 = u; on
++Σ^♯, r df_2 = −r dr is past timelike with G(−r dr) ≤ −½|r dr|² ([[lem:iv5-0-3]] (c)). Fix 𝔛 ≥ max(6m max(1, 5Γ/3),
++(4/3)λ_*). Then [[eq:iv5-6-core]] holds for every real ω, smooth on N, vanishing for t < 0, with R ∩ supp ω compact.
++On R ∩ supp ω ⊂ τ⁻¹([0, T_0]), w²r⁻⁴ = ρ_sf^(−2α_sf)e^(−2𝔛τ) ≥ e^(−𝔛)ρ_sf^(−2α_sf) and w² ≤ ρ_sf^(−2α_sf−4); and
++r∇_μω = r∂_(z^μ)ω − rΓ_μω with rΓ_μ bounded ([[lem:iv5-0-2]] (c)), the r∂_(z^μ) spanning 𝒱_3b, and B is comparable to
++the Euclidean inner product. So E_0 + h²E_1 ≥ c‖ω‖²_(ρ_sf^(α_sf)H¹_(3b,h)(τ⁻¹([0,T_0]))) for some c > 0 and
++F ≤ ‖P_hω‖²_(ρ_sf^(α_sf+2)L²(τ⁻¹([0,T_0]))), and the estimate holds with C := (C_*/c)^(1/2), for every h ∈ (0, 1]. It
++extends to every ω ∈ ρ_sf^(α_sf)H²_(3b,h) vanishing for t < 0: such ω are limits in that space of smooth sections
++vanishing for t < 0 with compact support (extend across Σ^♯, translate in t, mollify and cut off at large r), and both
++sides are continuous in its norm.
++
++*The first estimate of (2)* ([Hin26a, (5.68)]). Let χ = χ(r) be smooth, equal to 1 for r ≤ r_2 and to 0 for r ≥ r_3,
++and ω′ := χω, with ω smooth, vanishing for t < 0 and with compact support. On {t > −r} put ρ_K := r/(t + r), extended
++smoothly and positively to N; on r⁻¹([r_♯, r̂]) ∩ {t ≥ 0} it is ρ_K′/(1 + ρ_K′), ρ_K′ the ρ_K of [[def:iv5-0-1]]
++near K⁺, so the weights are equivalent. Take R := {r ≥ r_1}, f_1 := r_1 − r, I_+ := {1}, Y := 0 and
++w := ρ_K^(−α_K)e^(𝔛r). With u := −r dr, rη_0 = 𝔛u + α_K(dr − r(dt + dr)/(t + r)) and rη_1 = rη_0 + dr, the added
++covectors having Euclidean norm at most 3|α_K| + 1 on {t ≥ 0}. On r⁻¹([r_1, r_3]) ⊂ r⁻¹([r_♯, r̂]), u is past timelike
++with G(u) ≤ −½|u|² and |u| ≥ r_♯ ([[lem:iv5-0-3]] (c)), and so is r df_1 = u. By (∗) with γ := ½ and m := 3|α_K| + 1,
++[[lem:iv5-6-core]] applies to ω′, whose support meets R in r⁻¹([r_1, r_3]) ∩ {t ≥ 0}, with κ = ⅛ and λ := ¾𝔛r_♯, for
++𝔛 ≥ r_♯⁻¹ max(6(3|α_K| + 1) max(1, 2Γ), (4/3)λ_*). There w²r⁻⁴ and w² lie between positive multiples of ρ_K^(−2α_K), so
++‖ω′‖_(ρ_K^(α_K)H¹_(3b,h)(r⁻¹([r_1,r_3]))) ≤ Ch⁻¹‖P_hω′‖_(ρ_K^(α_K)L²(r⁻¹([r_1,r_3]))). Now
++P_hω′ = χP_hω + [P_h, χ]ω, where [P_h, χ]ω = −h²(2∇^μχ∇_μω + (∇^μ∇_μχ)ω) − hℓ(dχ)ω by [[lem:iv5-6-transport]] (i),
++supported in r⁻¹([r_2, r_3]) with bounded coefficients; so h⁻¹‖[P_h, χ]ω‖ ≤ C‖ω‖_(ρ_K^(α_K)H¹_(3b,h)(r⁻¹([r_2,r_3]))).
++As ω′ = ω on r⁻¹([r_1, r_2]), this gives the estimate, which extends by density as before.
++
++*The second estimate of (1)* ([Hin26a, (5.67)]). Let ω be smooth with compact support in {r > r_♯}; such sections are
++dense among those supported at Σ^♯, both sides being continuous in the norm of ρ_sf^(−α_sf−2)H²_(3b,h). Let χ = χ(τ)
++be smooth, equal to 1 for τ ≤ ½T_0 and to 0 for τ ≥ ¾T_0, and ω′ := χω. Apply [[lem:iv5-6-core]] to P_h*, with the
++1-form −c and the opposite time orientation, R := {τ ≥ 0} ∩ N, f_1 := −τ, I_+ := {1} and w := ρ_sf^(α_sf)e^(𝔛τ). Now
++rη_0 = −𝔛u + α_sf dr and rη_1 = −𝔛u + (α_sf + 1)dr, with −u past timelike for the opposite orientation, and
++r df_1 = −u; by (∗) as before, the hypotheses hold on R ∩ supp ω′ ⊂ τ⁻¹([0, ¾T_0]) ∩ {r > r_♯} for
++𝔛 ≥ max(6(|α_sf| + 1) max(1, 5Γ/3), (4/3)λ_*), with λ := ¾𝔛. There
++w²r⁻⁴ ≥ ρ_sf^(2α_sf+4) and w² ≤ e^(2𝔛T_0)ρ_sf^(2α_sf), so
++‖ω′‖_(ρ_sf^(−α_sf−2)H¹_(3b,h)(τ⁻¹([0,T_0]))) ≤ Ch⁻¹‖P_h*ω′‖_(ρ_sf^(−α_sf)L²(τ⁻¹([0,T_0]))). Here
++P_h*ω′ = χP_h*ω + [P_h*, χ]ω, where
++[P_h*, χ]ω = −h²(2∇^μχ∇_μω + (∇^μ∇_μχ)ω) + hℓ(dχ)ω − 2h²Θ⁻¹(∇^μΘ)(∂_μχ)ω is supported in τ⁻¹([½T_0, ¾T_0]),
++and |[P_h*, χ]ω|_B ≤ Chr⁻²(|ω|_B + h|r∇ω|_B), as dχ = χ′(τ)r⁻¹u; so
++h⁻¹‖[P_h*, χ]ω‖_(ρ_sf^(−α_sf)L²) ≤ C‖ω‖_(ρ_sf^(−α_sf−2)H¹_(3b,h)(τ⁻¹([T_0/2,T_0]))). As ω′ = ω on τ⁻¹([0, ½T_0]),
++this gives the estimate.
++
++*The second estimate of (2)* ([Hin26a, (5.69)]). Let ω be smooth, with compact support in {r > r_1}, dense as before.
++Apply [[lem:iv5-6-core]] to P_h*, with −c and the opposite orientation, R := {τ ≥ 0, r ≤ r_3} ∩ N, f_1 := −τ,
++f_2 := r − r_3, I_+ := {1, 2} and w := ρ_K^(α_K)e^(−𝔛r), ρ_K as above. Now rη_0 = −𝔛u − α_K(dr − r(dt + dr)/(t + r))
++and rη_1 = rη_0 + dr, with u = −r dr as above, and r df_2 = −u, r df_1 = −r dτ; −u = r dr is past timelike for the
++opposite orientation on [r_♯, r̂], with G(−u) ≤ −½|u|², and on {τ = 0}, −r dτ = −dt is past timelike for it, with
++G(dt) ≤ −1 = −|dt|² ([[lem:iv5-0-3]] (a)). By (∗) the hypotheses hold, with λ := ¾𝔛r_♯,
++for 𝔛 ≥ r_♯⁻¹ max(6(3|α_K| + 1) max(1, 2Γ), (4/3)λ_*), and as there w²r⁻⁴ and w² lie between positive multiples of
++ρ_K^(2α_K), [[eq:iv5-6-core]] gives the estimate.
++
++[[eq:iv5-6-1]]. Fix h, and let ω be smooth on N with compact support. Apply [[lem:iv5-6-core]] as for the first
++estimate of (1), on R := {0 ≤ τ ≤ T_0, r ≥ r_♯} with the third function f_3 := −τ and I_− := {3}; at most two of
++f_1, f_2, f_3 vanish at any point. On X_0 = {τ = 0}, |dg| = |dτ| ⊗ r⁴|dr d𝑔̸| ([[lem:iv5-0-2]] (b)), |r dτ| = 1 and
++w²r⁻⁴ = ρ_sf^(−2α_sf); r∇_tω = r𝓛_(∂_t)ω − rΓ_tω, the coordinates being stationary, and
++r∇_(x^i)ω = r∂_(x^i)ω − rΓ_iω, the r∂_(x^i) being b-vector fields on X̄; so
++β⁰_3 + β¹_3 ≤ C‖(ω, r𝓛_(∂_t)ω)|_(X_0)‖²_(ℋ_data), and [[eq:iv5-6-core]] gives [[eq:iv5-6-1]], which extends to
++ω ∈ ρ_sf^(α_sf)H̄²_3b by density, the traces on X_0 depending continuously on ω. Applied with T ∈ (0, T_0] in place of
++T_0 in R, the same bounds the term β⁰_1 + h²β¹_1 on {τ = T}, which is comparable to
++‖(ω, r∇ω)|_(τ=T)‖² in ρ_sf^(α_sf)L²(r⁴|dr d𝑔̸|), by the right side of [[eq:iv5-6-1]], uniformly in T. Here
++∂_τ = r∂_t at fixed (r, ω), and the weight matches by [[lem:iv5-0-2]] (b):
+ ρ_sf^(α+½)H̄^k_b(X_0, r³|dr d𝑔̸|) = ρ_sf^α H̄^k_b(X_0, r⁴|dr d𝑔̸|). ∎
+ 
+ #### Combination: [Hin26a, Theorem 5.2] in dimension 4 + 1 {#sec:iv5-7}
+@@ -2647,8 +2898,9 @@ forward solution ω̃ ∈ H^(0,(α_sf,α_K))_(3b,h)(Ω̃)^(•,−) exists with
+ s′ = 1 on Ω̃ and duality. On Ω̃ the argument runs with two changes. [[prop:iv5-5-1]] is used with r_1 ≥ r_♯, and the
+ transition of χ_r in [[prop:iv5-5-3]] is placed in {r ≥ r_♯}, where c is the 1-form of [[prop:np-10-14]] and
+ [[lem:iv5-0-5]] (6) holds. On {¾r_♯ ≤ r ≤ r_3}, r_3 < r̂, the estimates [Hin26a, (5.68)–(5.69)] of
+-[[prop:iv5-6-1]] are used, with ¾r_♯ for r_♯; they need only [[lem:iv5-0-3]] (c) and [[lem:iv5-0-4]], which hold on
+-{r ≥ ½r_♯}, where g is defined and c is past timelike ([[sec:iv5-0]]). [[prop:iv5-1-3]] needs only
++[[prop:iv5-6-1]] are used, with ¾r_♯ for r_♯; their proof needs only [[lem:iv5-0-3]] (a), (c),
++[[lem:iv5-0-4]] and the bounds it derives for the hypotheses of [[lem:iv5-6-core]], which hold on {r ≥ ½r_♯},
++where g is defined and c is past timelike ([[sec:iv5-0]]). [[prop:iv5-1-3]] needs only
+ [[lem:iv5-0-3]] (c) there. Moreover ω̃ = ω on Ω, by uniqueness of forward solutions: Σ^♯ is spacelike with future
+ timelike vectors pointing out, and X_0 is spacelike ([[lem:iv5-0-3]] (a), (c)). The microlocal estimates of
+ [[sec:iv5-1]]–[[sec:iv5-5]] hold for every s in the strong sense: near the zero section the operators have compact
+@@ -2733,12 +2985,18 @@ causal curves r increases inside {r ≤ r̂} ([[lem:iv5-0-3]] (c)), so r stays a
+ extension of ω by zero across X_0 with ψ gives ⟨ω, φ⟩ = ⟨P_hω, ψ⟩ = 0.
+ 
+ (b) By [[lem:iv5-0-2]] (b) the data space is ℋ_data of [[eq:iv5-6-1]], with the density r⁴|dr d𝑔̸| that tensors with
+-dτ to |dg|; the shift ½ does not depend on the dimension ([Hin26a, p. 65]). *Smooth data.* Take f and data smooth with
+-compact support in Ω° ∪ X_0°. The initial value problem then has a solution ω smooth on Ω ∖ (K⁺ ∪ 𝗌𝖿), for the
+-following reasons. □^C_b has scalar principal symbol G Id ([[lem:iv5-0-2]] (d)). Every past-inextendible causal curve in
+-Ω° meets X_0: t decreases along it ([[lem:iv5-0-3]] (a)), r increases along it inside {r ≤ r̂} ([[lem:iv5-0-3]] (c)),
+-and |dr/dt| is bounded along causal curves, since g is a 3sc-metric. So the classical theory of the Cauchy problem for
+-linear wave equations with scalar principal symbol applies ([Hin26a, p. 42]). By finite speed of propagation, ω
++dτ to |dg|; the shift ½ does not depend on the dimension ([Hin26a, p. 65]). *Smooth data.* Take f smooth with compact
++support in Ω°, and data smooth on X_0 with compact support in X_0 ∖ 𝗌𝖿. The initial value problem then has a solution
++ω smooth on Ω ∖ (K⁺ ∪ 𝗌𝖿), for the following reasons. □^C_b is normally hyperbolic ([[def:std-normally-hyperbolic]]):
++its second-order part is that of □_g = −∇^a∇_a ([[lem:s14-box-c]]). Let N := ℝ_t × {r > ½r_♯} and
++S := N ∩ {t = 0}, which is acausal, as t increases strictly along future causal curves ([[lem:iv5-0-3]] (a)). Every
++inextendible causal curve through a point of Ω ∖ (K⁺ ∪ 𝗌𝖿) meets S: t decreases along it towards the past, r increases
++along it inside {r ≤ r̂} ([[lem:iv5-0-3]] (c)), so it stays in N, and |dr/dt| is bounded along causal curves, since g
++is a 3sc-metric. So Ω ∖ (K⁺ ∪ 𝗌𝖿) lies in the Cauchy development D of S, which is globally hyperbolic with Cauchy
++hypersurface S ([[thm:std-bgp-development]]), and [[thm:std-bgp-cauchy]] (5) on D gives a smooth solution, for the
++data extended smoothly to S with compact support (on S, (ω, r𝓛_(∂_t)ω) and (ω, ∇_nω) determine each other); by its
++support statement the solution on Ω does not depend on the extension, future causal curves from S ∩ {r < r_♯} staying
++in {r < r_♯} ([[lem:iv5-0-3]] (c)). By finite speed of propagation, ω
+ vanishes on τ⁻¹([0, T_0]) near 𝗌𝖿, the speed being 1 + O(r⁻²) and T_0 < 1; so
+ ω ∈ ρ_sf^(α_sf)H̄²_3b(τ⁻¹([0, T_0])) and [[eq:iv5-6-1]] applies. Let χ = χ(τ) equal 1 for τ ≥ ½T_0 and 0 for
+ τ ≤ ¼T_0. Then P_h(χω) = h²χf + [P_h, χ]ω ∈ H^(0,(α_sf+2,α_K))(Ω)^(•,−), with norm bounded by ‖f‖ and by
+@@ -2749,9 +3007,10 @@ so it lies in H^(1,(α_sf,α_K)). Using [[eq:iv5-6-1]],
+ 
+ *General data.* Approximate f and the data in their spaces by such smooth data. By this estimate the solutions converge
+ in ρ_sf^(α_sf)ρ_K^(α_K)H̄¹_3b(Ω). Near X_0 they also converge in
+-C([0, T_0]_τ; ρ_sf^(α_sf)H̄¹_b) ∩ C¹([0, T_0]_τ; ρ_sf^(α_sf)H̄⁰_b): the boundary term at τ = T of [Hin26a, (5.74) and
+-(5.77)], run at every T ∈ [0, T_0] in the proof of [[eq:iv5-6-1]], bounds the norm of (ω, ∂_τω)|_(τ=T) by the right
+-side of [[eq:iv5-6-1]]. So the limit takes the data and solves [[eq:iv5-5-16]]. For uniqueness, let
++C([0, T_0]_τ; ρ_sf^(α_sf)H̄¹_b) ∩ C¹([0, T_0]_τ; ρ_sf^(α_sf)H̄⁰_b): the term of [[eq:iv5-6-core]] on {τ = T}, for the
++region {0 ≤ τ ≤ T, r ≥ r_♯} of the proof of [[eq:iv5-6-1]] at every T ∈ (0, T_0], bounds the norm of
++(ω, ∂_τω)|_(τ=T) by the right side of [[eq:iv5-6-1]]. So the limit takes the data and solves [[eq:iv5-5-16]]. For
++uniqueness, let
+ ω ∈ ρ_sf^(α_sf)ρ_K^(α_K)H̄¹_3b(Ω) solve [[eq:iv5-5-16]] with f = 0 and vanishing data. Its extension by zero across X_0
+ is a distribution supported in {t ≥ 0} with P_hω = 0, the vanishing data leaving no layer on X_0; so ω = 0 by the
+ uniqueness in (a). ∎
+@@ -2789,7 +3048,9 @@ This section proves that □^C_b is tf-admissible with every weight in [−C_0,
+ [Hin26a, Theorem B.1] in dimension 4 + 1 ([[thm:iv6-3-1]]): the invertibility of the spectral family of the
+ dilation-invariant model on 4 + 1 Minkowski space, which is the transition face normal operator of □^C_b. The proof has
+ three steps, as in [Hin26a, Appendix B, pp. 85–98]: the Fredholm property and index 0 ([[sec:iv6-1]]), by radial
+-estimates and Melrose's relative index theorem, sector by sector on 𝕊³; solvability on edge-b spaces
++estimates and the relative index formula of [[lem:iii-f1-3-1]] (for b-elliptic operators on compact manifolds with
++boundary this is Melrose's [[thm:std-relative-index]]), with the indicial roots counted by type and degree on 𝕊³;
++solvability on edge-b spaces
+ ([[sec:iv6-2]]), by the arguments of [[sec:iv5]]; and the kernel argument of [Hin26a, Section B.4] ([[sec:iv6-3]]).
+ [[sec:iv6-4]] identifies the spaces with those of [[sec:i-c-4]] and verifies [[def:i-c-5-1]].
+ 
+@@ -2934,9 +3195,15 @@ integrable in s; so ω converges as s → ±∞, uniformly for initial points in
+ η·∂_η|η|² = 2|η|² and H_(|η|²)|η|² = 0, and 𝖧_(p_σ)χ₂(ξ) = −2κ|η|²χ₂′. On supp a, |κξ| ≤ ¼ as |κ| = |Re σ̄| ≤ 1,
+ which gives the two ranges. The signs follow from χ_0χ_0′ ≤ 0 and χ₁χ₁′ ≤ 0. ∎
+ 
+-**Definition {#def:iv6-0-2}** (Admissible orders; [Hin26a, (B.13)] in dimension 4 + 1.) (s, ℓ, β) is *admissible at σ*
+-if β ∈ (0, 2 + C_0], ℓ < −½ + h⁻¹(1 − e)(1 − v) at R_out, and, when σ = ±1, ℓ > −½ − h⁻¹(1 − e)(1 + v) at R_in, with ℓ
+-constant near R_in and R_out and non-increasing along σH_(G_σ).
++**Definition {#def:iv6-0-2}** (Admissible orders; [Hin26a, (B.13)] in dimension 4 + 1.) For real σ₀ ≠ 0 let
++R_(σ₀,in) := {ρ = 0, ξ = 2σ₀, η = 0} and Char_(σ₀) := {ρ = 0, G_(σ₀) = 0}, with the real symbol G_(σ₀) of
++[[lem:iv6-0-1]] (c); for σ₀ = ±1 these are the R_in of [[sec:iv6-0]] and the Char_σ of [[lem:iv6-0-flow]] (b). For
++σ ∈ ℂ ∖ 0 with Im σ ≥ 0, (s, ℓ, β) is *admissible at σ* if β ∈ (0, 2 + C_0], ℓ is constant near R_out with
++ℓ < −½ + h⁻¹(1 − e)(1 − v) there, and, when σ is real, ℓ is also constant near R_(σ,in) with
++ℓ > −½ − h⁻¹(1 − e)(1 + v) there and σ𝖧_(G_σ)ℓ ≤ 0 on Char_σ, 𝖧 as in [[eq:iv6-0-flow]]. For Im σ > 0 nothing is
++asked off R_out, which is then the whole characteristic set over ρ = 0 ([[lem:iv6-0-flow]] (a)). Fixed orders are
++*admissible on* a set of such σ if they are admissible at every σ of the set and at Re σ for every σ of the set with
++Re σ ≠ 0: as in [[sec:i-a-1-4]], the orders used at a complex σ are those for Re σ.
+ 
+ #### Fredholm property and index 0 {#sec:iv6-1}
+ 
+@@ -2951,21 +3218,30 @@ The estimate
+ 
+     ‖ω‖_(H^(s,(ℓ,β))_(sc,b)) ≤ C(‖(□^C)^(σ)ω‖_(H^(s−2,(ℓ+1,β−2))_(sc,b)) + ‖ω‖_(H^(s_0,(ℓ_0,β_0))_(sc,b)))  {#eq:iv6-1-2}
+ 
+-(for admissible s_0 < s, ℓ_0 < ℓ, β_0 < β, in the strong sense) and its dual ([Hin26a, (B.28)]) hold uniformly for σ in
+-e^(i[0,π−δ]) near 1 and in e^(i[δ,π]) near −1, for fixed orders admissible there.
++(for admissible s_0 < s, ℓ_0 < ℓ, β_0 < β, in the strong sense) and its dual
++
++    ‖ω‖_(H^(−s+2,(−ℓ−1,−β+2))_(sc,b)) ≤ C(‖((□^C)^(σ))*ω‖_(H^(−s,(−ℓ,−β))_(sc,b)) + ‖ω‖_(H^(s_1,(ℓ_1,β_1))_(sc,b)))
++                                                                                                          {#eq:iv6-1-3}
++
++(for s_1 < −s + 2, β_1 < −β + 2 and ℓ_1 < −ℓ − 1 with ℓ_1 > −½ − h⁻¹(1 − e)(1 − v) near R_out, in the strong sense,
++the adjoint being taken for the L² pairing of these spaces; [Hin26a, (B.28)]) hold uniformly for σ in e^(i[0,π−δ]) near
++1 and in e^(i[δ,π]) near −1, for fixed orders admissible on that set ([[def:iv6-0-2]]).
+ 
+ *Proof.* *Real σ*, say σ = 1 (σ = −1 by reversing the propagation). Off the characteristic set the operator is elliptic,
+ by [[lem:iv6-0-1]] (c). Over ρ = 0:
+ 
+-- *Sink R_out.* With the commutant [Hin26a, (B.21)], a = ρ^(−ℓ−½)χ_0(ρ)χ₁(|η|²)χ₂(ξ), the principal symbol of
++- *Sink R_out.* With the commutant a = ρ^(−ℓ−½)χ_0(ρ)χ₁(|η|²)χ₂(ξ) ([Hin26a, (B.21)]), the principal symbol of
+ (i/2)[(□^C)^(σ), A²] is aH_(G_σ)a = ρa𝖧_(p_σ)a, given by [[lem:iv6-0-flow]] (c) ([Hin26a, (B.23)]). That of
+-(2i)⁻¹((□^C)^(σ) − (□^C)^(σ)*)A² adds at the zero section the shift [Hin26a, (B.24)]. By [[lem:iv6-0-1]] the shift
+-comes only from −2iσρh⁻¹S̄: (□^C)^(0) − (□^C)^(0)* ∈ ρ²Diff¹_b, whose quotient by ρ has scattering symbol vanishing at
++(2i)⁻¹((□^C)^(σ) − (□^C)^(σ)*)A² is a²ρ times the principal symbol of (2iρ)⁻¹((□^C)^(σ) − (□^C)^(σ)*), whose value at
++the zero section, the shift, adds to the coefficient (2ℓ + 1)σ of the main term. By [[lem:iv6-0-1]] the shift
++comes only from −2iσρh⁻¹S̄: (□^C)^(0) − (□^C)^(0)* ∈ ρ²Diff¹_b ([[rem:i-a-hypotheses]] (a)), whose quotient by ρ has
++scattering symbol vanishing at
+ (ξ, η) = 0; and 2iσ(ρ²∂_ρ − (3/2)ρ) is symmetric on L²(ρ⁻⁴dρ/ρ) ([[lem:iv6-0-1]] (b)), so its imaginary part lies in
+ ρ²C^∞ for any fibre inner product. Taking the fibre inner product for which an eigenbasis of S̄ is orthonormal
+-([[lem:iv6-0-1]] (b)), the shift is −2h⁻¹S̄, which gives [Hin26a, (B.25)].
+-The main term (2ℓ + 1)(σ − ξ) − 2h⁻¹S̄ is negative near the zero section iff
+-ℓ < −½ + h⁻¹ min spec S̄ = −½ + h⁻¹(1 − e)(1 − v); this is [Hin26a, (B.26)].
++([[lem:iv6-0-1]] (b)), the shift is −2h⁻¹S̄. So the principal symbol of the commutator term is
++ρ^(−2ℓ)((2ℓ + 1)(σ − ξ) − 2h⁻¹S̄ + O(|ξ| + |η|))χ_0²χ₁²χ₂² plus the three cut-off terms of [[lem:iv6-0-flow]] (c)
++([Hin26a, (B.25)]). The main term (2ℓ + 1)(σ − ξ) − 2h⁻¹S̄ is negative near the zero section iff
++ℓ < −½ + h⁻¹ min spec S̄ = −½ + h⁻¹(1 − e)(1 − v), the threshold of [[def:iv6-0-2]] at R_out.
+ 
+ - *The incoming radial set R_in.* The isometry t ↦ −t of η pulls c_v := r⁻¹(dt − v dr) back to −c_(−v), so it
+ conjugates □^C with (c_v, h⁻¹) to the operator with (c_(−v), −h⁻¹) ([[prop:np-10-21]] (ii)). On stationary sections,
+@@ -2978,35 +3254,59 @@ bottom (1 − e)(1 + v). The threshold is ℓ > −½ − h⁻¹(1 − e)(1 + v)
+ - In between, real principal type propagation ([[prop:i-a-5-2]], with [[rem:i-a-5-2-uses]] (ii)) applies along
+ Char_σ, which flows from R_in to R_out by [[lem:iv6-0-flow]] (b).
+ 
+-The regularisation argument gives the strong form, and this proves [Hin26a, (B.20)], whose error term carries the
+-b-weight β. Near r = 0 the operator r²(□^C)^(σ) is b-elliptic ([[lem:iv6-0-1]] (c)), with Mellin transformed normal
+-operator that of r²(□^C)^(0). By (a) and the inversion ρ = r⁻¹, its indicial roots at r = 0 are −ι, with ι running over
+-those of [[lem:iv4-1-3]] at infinity. These have Re ι ∉ [−100, 19/10], and only ι = 2 in [−100, 2]. So no root at 0 has
+-real part in (−2, 100], and the b-weight β − 2 ∈ (−2, C_0] is root-free. With [β_0 − 2, β − 2] root-free as well, the
+-inverse Mellin transform of the normal operator gives [[eq:iv6-1-2]] from [Hin26a, (B.20)] ([[lem:s14-tf-inputs]]
+-(ii); [Hin26a, p. 89]). The dual estimate is the same with the propagation reversed.
+-
+-*Complex σ.* Only R_out is characteristic ([[lem:iv6-0-flow]] (a)). Write σ⁻¹(□^C)^(σ) = P − iQ as in
+-[Hin26a, (B.29)], with Q_0 = 2ρh⁻¹S̄, P_1 = Re 2i(ρ²∂_ρ − (3/2)ρ), and Q_3 = (Im σ)Re (□^C)^(0) a nonnegative
+-absorption. With the same commutant, the zero-section symbol is (2ℓ + 1 − 2h⁻¹S̄)ρ^(−2ℓ). −AQ_3A has the sign of the
+-main term, because the b-principal symbol of (□^C)^(0) is ξ_b² + |η_b|², so (□^C)^(0) = Σ_jT_j*T_j + R with
+-T_j ∈ ρDiff¹_b and R ∈ ρ²Diff¹_b. The rest is subprincipal or elliptic ([Hin26a, p. 90]).
++*The estimates.* These three commutator arguments are those of the estimates of [[ch:s01]] at the boundary face over
++∂X, which give them: the pieces (C), (D), (E) and (F) of the proof of [[thm:i-a-7-2]] (1) ([[sec:i-a-7-1]]), namely
++[[prop:i-a-4-6]] at R_in, [[prop:i-a-5-2]] with [[rem:i-a-5-2-uses]] (ii) along Char_σ, [[prop:i-a-4-9]] at R_out and
++the elliptic estimate [[prop:i-a-5-1]] off Char_σ. These use only the form (H1)–(H2) of [[sec:i-a-1-3]] on {ρ < ρ_1},
++their commutants being microsupported at the boundary face, and near ρ = 0, (□^C)^(σ) = (□^C)^(0) + σT has this form
++with T := 2iρ(ρ∂_ρ − 3/2 − h⁻¹S̄), S = h⁻¹S̄, Q = 0 and P₂ = 0 ([[eq:iv6-0-2]]; the ξ of [[ch:s01]] is −ξ here). Their
++thresholds are those found above: in the fibre inner product for which an eigenbasis of S̄ is orthonormal, S̄ is
++self-adjoint and ½ inf min spec(S + S^(*h)) = h⁻¹(1 − e)(1 − v) in [[prop:i-a-4-9]]; and ϑ_in = −2h⁻¹(1 − e)(1 + v)
++([[eq:s14-theta-in]]), so that (−1 + ϑ_in)/2 = −½ − h⁻¹(1 − e)(1 + v) in [[prop:i-a-4-6]]. So an order admissible at
++σ ([[def:iv6-0-2]]) satisfies the conditions of these estimates at σ₀ := σ. Moreover (□^C)^(σ) = N_tf(σ) for
++P̂ := (□^C_b)^ ([[lem:iv6-0-1]] (d)), which satisfies (H1)–(H2) ([[lem:iv4-1-6]]) with the indicial gap (β_−, 2), and
++2 − β ∈ [−C_0, 2) lies in that gap. So the proof of [[thm:i-c-4-3]] (1) ([[sec:i-c-4-4]]) applies with q := β and with
++these estimates at σ₀ := σ in place of those of [[thm:i-a-7-2]] (1): near the boundary at infinity the pieces, the a
++priori term at R_in being absorbed as there; in the interior the elliptic estimate (K2) of [[sec:i-c-2-1]]; and near
++r = 0 [[lem:i-c-2-5]] and [[lem:i-c-2-6]] for L := r²(□^C)^(σ), which is b-elliptic with the normal operator of
++r²(□^C)^(0) ([[lem:iv6-0-1]] (c), the terms with σ being O(r)), at the b-weight β − 2 ([[lem:s14-tf-inputs]] (ii)). By
++[[lem:iv6-0-1]] (a) and the inversion ρ = r⁻¹, the indicial roots at r = 0 are −ι, with ι running over those of
++[[lem:iv4-1-3]] at infinity. These have Re ι ∉ [−100, 19/10], and only ι = 2 in [−100, 2]. So no root at 0 has real
++part in (−2, 100], and β − 2 ∈ (−2, C_0] is not the real part of a root. This gives, for every M and every ω in the
++domain of [[eq:iv6-1-1]],
++
++    ‖ω‖_(H^(s,(ℓ,β))_(sc,b)) ≤ C(‖(□^C)^(σ)ω‖_(H^(s−2,(ℓ+1,β−2))_(sc,b)) + ‖ω‖_(H^(−M,(−M,−M))_(sc,b)))     {#eq:iv6-1-4}
++
++([Hin26a, (B.19)–(B.20)]), which implies [[eq:iv6-1-2]]; its strong sense is that of the pieces ([[rem:i-a-7-3]]) and
++of [[lem:i-c-2-5]]. The adjoint chain of the same proof (the estimates (2) of
++[[prop:i-a-4-6]] and [[prop:i-a-4-9]], [[prop:i-a-5-2]] along the backward field, and near r = 0 [[lem:i-c-2-5]] and
++[[lem:i-c-2-6]] for the normal operator of the adjoint) gives [[eq:iv6-1-3]] with the error term
++‖ω‖_(H^(−M,(−M,−M))_(sc,b)), which is smaller, for ω in the domain, and in the strong sense with the a priori orders of
++[[eq:iv6-1-3]] ([[rem:i-a-7-3]]).
++
++*Complex σ.* Only R_out is characteristic over ρ = 0 ([[lem:iv6-0-flow]] (a)); so off R_out the elliptic estimate
++[[prop:i-a-5-1]] applies at the boundary face, and at R_out [[prop:i-a-4-9]] (1), for σ in any compact subset of
++{σ ≠ 0, Im σ ≥ 0}, with the threshold found above. With ℓ constant near R_out and below that threshold, the proof of
++[[thm:i-c-4-3]] (2) applies as for real σ and gives [[eq:iv6-1-4]] and the dual estimate.
+ 
+ *Uniformity* in σ near ±1 is the limiting absorption principle. At R_out, [[lem:iv6-0-flow]] (c), with the same
+ cut-offs for every σ ∈ e^(i[0,π]), gives the main term (2ℓ + 1)(1 − κξ)a², where |κξ| ≤ δ₂ on supp a if
+ supp χ₂ ⊂ [−δ₂, δ₂]. Take δ₂ ∈ (0, ¼] with δ₂|2ℓ + 1| < m, m := 2h⁻¹(1 − e)(1 − v) − (2ℓ + 1) > 0 the margin of ℓ at
+ R_out; then (2ℓ + 1)(1 − κξ) − 2h⁻¹S̄ ≤ −(m − δ₂|2ℓ + 1|) < 0 on supp a for every σ; and the lemma gives
+ cut-off terms whose signs, supports and bounds do not depend on σ; the zero-section term (2ℓ + 1 − 2h⁻¹S̄)ρ^(−2ℓ) does
+-not depend on σ either, and −AQ_3A has the sign of the main term. So the estimate at R_out holds with constants
++not depend on σ either, and the absorption (Im σ)Re (□^C)^(0) has the sign of the main term, as
++(□^C)^(0) = Σ_jT_j*T_j + R with T_j ∈ ρDiff¹_b and R ∈ ρ²Diff¹_b, its b-principal symbol being ξ_b² + |η_b|²
++near ρ = 0 ((H2) of [[sec:i-a-1-3]], which (□^C)^(σ) satisfies, as above). So the estimate at R_out holds with constants
+ uniform on e^(i[0,π]), as in [[prop:i-a-4-9]]. Over the rest of ρ = 0 the estimates are microlocal near ρ = 0, where
+ (□^C)^(σ) = (□^C)^(0) + σT has the form (H1)–(H2) of [[sec:i-a-1-3]], with T = 2iρ(ρ∂_ρ − 3/2 − h⁻¹S̄), Q = 0 and
+ P₂ = 0 ([[eq:iv6-0-2]]; the ξ of [[ch:s01]] is −ξ here), and with ϑ_in as in [[eq:s14-theta-in]]. So the radial
+ estimate at R_(Re σ,in) and the propagation along Char_(Re σ) are [[prop:i-a-4-6]] and [[prop:i-a-5-2]], with
+-[[rem:i-a-5-2-uses]] (ii) for the absorption (Im σ)Re T. Their constants are uniform for σ ∈ I + i[0, ν], I a compact
+-interval about ±1 not containing 0 (for [[prop:i-a-5-2]] by the argument of the proof of [[thm:i-a-7-2]] (1)), the
+-orders being admissible at every real σ₀ ∈ I with uniform margins, as the
+-orders constructed in the proof of [[lem:i-a-7-1]] are. Near r = 0 the normal operator of r²(□^C)^(σ) does not depend
+-on σ, the terms with σ being O(r) there.
++[[rem:i-a-5-2-uses]] (ii) for the absorption (Im σ)Re T. Their constants are uniform for σ ∈ I + i[0, ν], I the
++compact interval of the Re σ, σ in the given set near ±1, which does not contain 0 (for [[prop:i-a-5-2]] by the
++argument of the proof of [[thm:i-a-7-2]] (1)): the orders are admissible on that set ([[def:iv6-0-2]]), hence at every
++real σ₀ ∈ I, with uniform margins and constancy neighbourhoods, as ℓ is continuous and constant near each R_(σ₀,in),
++σ₀ ∈ I, hence near the compact connected union of these. The orders constructed in the proof of [[lem:i-a-7-1]] are of
++this kind. Near r = 0 the normal operator of r²(□^C)^(σ) does not depend on σ, the terms with σ being O(r) there.
+ 
+ So [[eq:iv6-1-1]] is Fredholm, and by [[eq:iv6-1-2]] and elliptic and propagation regularity its nullspace consists of
+ elements in every admissible space; it is the same for every admissible (s, ℓ, β). The annihilator of the range is the
+@@ -3014,39 +3314,70 @@ nullspace of the adjoint on the dual spaces; by the dual estimate and the propag
+ consists of elements of every dual space, so it does not depend on the orders either, as in the proof of
+ [[thm:i-c-4-3]] (3). Hence the index does not depend on the admissible orders.
+ 
+-*Index 0.* (□^C)^(σ) commutes with the rotations of 𝕊³, and with the dilations up to the factor of (a). Decompose
+-sections of 𝒯*_X by harmonics on 𝕊³ ([[ch:s11]]): scalar type of degree l ≥ 0 (three components for l ≥ 1, the dt, dr
+-and gradient parts; two for l = 0), and vector type of degree l ≥ 1 (one component, the co-closed 1-forms on 𝕊³). The
+-projections onto a type and degree are bounded on the spaces with rotation-invariant orders (the proof of
+-[[prop:i-c-5-3]]), and (□^C)^(σ) commutes with them. So [[eq:iv6-1-1]] is the direct sum of its restrictions to the
+-sectors. Each restriction is Fredholm, and only finitely many have nonzero kernel or cokernel, as the kernel and the
+-cokernel of the sum are finite-dimensional. Fix a sector and write I
+-for its index on [[eq:iv6-1-1]], with ℓ a variable order > −½ at R_in and < −½ at R_out. Take for ℓ the order of
+-[[ch:s03]] for the free operator at this σ = e^(iθ): that of [[lem:i-a-7-1]] with θ_in = 0 and S̄ = 0 for θ ∈ {0, π},
+-or r_mid for θ ∈ (0, π). It is invariant under the rotations of 𝕊³, > −½ at R_in and < −½ at R_out, so it is admissible
+-for every h⁻¹ ≥ 0; as the index does not depend on the admissible orders, I is the index of the sector for all of them.
+-
+-(i) *Lowering β.* In the sector, (□^C)^(0) has finitely many indicial roots at r = 0, continuous in
+-h⁻¹ ∈ [0, h_f⁻¹], h_f ∈ (0, 10⁻⁶] the value at hand ([[eq:iv6-0-2]]: they are the roots of the sector's indicial
+-polynomial, whose coefficients are polynomial in h⁻¹ with leading coefficient free of it). Fix β₁ below all of them for
+-all such h⁻¹. Moving the weight from β to β₁ raises the index by the number of roots, with multiplicity, whose real
+-part lies in [β₁ − 2, β − 2). This is Melrose's relative index theorem [Mel93, Theorem 6.5], a theorem on b-operators
+-in every dimension ([Hin26a, p. 91]). These are the roots −ι with Re ι ≥ 2: two in the scalar sector l = 0, three in
+-each scalar sector l ≥ 1, one in each vector sector ([[lem:iv4-1-3]] (a)). The index becomes I + j, with j = 2, 3, 1.
+-
+-(ii) *Removing the damping.* Deform h⁻¹ to 0 at the weight β₁. The family is continuous in operator norm between the
+-fixed spaces, as the h⁻¹-terms (2iσρh⁻¹S̄, and the first-order part h⁻¹ρ²Q̃ of (□^C)^(0) from L_h) map H^(s,(ℓ,β₁))
+-boundedly to H^(s−2,(ℓ+1,β₁−2)). It stays Fredholm, by the estimates above, whose thresholds hold for every h⁻¹ ≥ 0
+-with this ℓ and whose weight β₁ stays root-free. So the index I + j is kept at h⁻¹ = 0. There the operator is
+-2δ_ηG_ηδ*_η = □_η on 1-forms (Ric(η) = 0, [[lem:s14-box-c]]), acting componentwise in the frame dt, dx^i.
+-
+-(iii) *Raising β for the free operator.* Its roots at r = 0 are those of [[lem:s14-tf-inputs]] (v), and the window
+-between the groups contains (−2, 0). Raising β₁ to β₂ with β₂ − 2 ∈ (−2, 0) crosses 2, 3 or 1 roots and lowers the
+-index by as many, to I. On these spaces (□_η)^(σ) is invertible: it is N_tf of the free operator, which is
+-tf-admissible with every weight in (0, 2) ([[prop:i-c-5-3]], whose data are those of □_η componentwise). By
+-[[cor:i-c-5-2]] (a) it is invertible on the spaces of [[sec:i-c-4]] with q ∈ (0, 2), the free gap being (0, 2), and
+-these are the spaces here with β = q and ℓ the order fixed above ([[sec:iv6-4]]); take β₂ := q. So I = 0 in every
+-sector, and the index of [[eq:iv6-1-1]] is 0. ∎
++*Index 0.* As the index does not depend on the admissible orders, we find it for s := 2, the given β and ℓ the order
++of [[ch:s03]] for the free operator at this σ = e^(iθ): that of [[lem:i-a-7-1]] with ϑ_in = 0 and S̄ = 0 for
++θ ∈ {0, π}, which is > −½ at R_in and < −½ at R_out, or a constant 𝗋_mid < −½ for θ ∈ (0, π), where only R_out
++enters ([[def:iv6-0-2]]); so it is admissible for every h⁻¹ ≥ 0. For λ ∈ [0, 1] let P̂_λ be the spectral family of
++□^C_b with γ_C replaced by λh⁻¹. It satisfies (H1)–(H2) of [[sec:i-a-1-3]], by the proof of [[lem:iv4-1-6]], whose
++(H1)–(H2) part does not use the value of γ_C. Its transition
++face normal operator N_tf(P̂_λ, ·) is (□^C)^(·) with h⁻¹ replaced by λh⁻¹, by the proof of [[lem:iv6-0-1]] (d); at
++λ = 0 it is the spectral family of □_η = 2δ_ηG_ηδ*_η, which acts componentwise in the frame dt, dx^i
++([[lem:s14-box-c]], Ric(η) = 0). The thresholds of P̂_λ at R_out and at R_in are −½ + λh⁻¹(1 − e)(1 − v) ≥ −½ and
++−½ − λh⁻¹(1 − e)(1 + v) ≤ −½ ([[prop:np-10-21]], [[eq:s14-theta-in]]). So these orders are allowed in
++[[thm:i-c-4-3]] (1)–(2) for every λ, and with them the map [[eq:iv6-1-1]], with N_tf(P̂_λ, e^(iθ)) in place of
++(□^C)^(σ), is the map 𝒳_(tf,θ) → 𝒴_(tf,θ) of [[sec:i-c-4]] for P̂_λ at q = β ([[sec:iv6-4]]). For γ ∈ ℝ that is
++not the real part of an indicial root of P̂_λ(0), let ind_λ(γ) be the index of this map at q = 2 − γ, which is
++Fredholm by [[thm:i-c-4-3]] (3); this is the index of [[sec:iii-f1-3]] at the weight γ. The index to be found is
++ind_1(2 − β), and 2 − β ∈ [−C_0, 2).
++
++For λ ∈ [0, 1] let I_λ be the indicial family ([[eq:i-c-1-3]]) of P̂_λ(0). It is that of ρ⁻²(□^C)^(0) with h⁻¹
++replaced by λh⁻¹ (the proof of [[lem:iv4-1-3]]), of the form of [[lem:i-c-2-4]], with coefficients affine in λ that
++commute with the action of SO(4) rotating both 𝕊³ and the Cartesian components. For an irreducible representation π
++of SO(4) let W_π, the π-isotypic subspace of C^∞(𝕊³; ℂ⁵), and d(π) be as in [[lem:iii-f1-2-4]]; sums over π below
++run over the π with W_π ≠ 0. For γ ∈ ℝ let n_π(λ, γ) be the number of roots of I_λ on W_π with real part < γ, with
++multiplicity. By *Types and representations* in [[sec:iii-f1-1]], W_π is ℂ^k ⊗ π for the type and degree of π, with
++k = 2 at scalar type 0, k = 3 at scalar type l ≥ 1 and k = 1 at vector type, and I_λ(ι) acts on W_π as N(ι) ⊗ Id_π
++for a k × k matrix N(ι). So det(I_λ(ι)|_(W_π)) = det(N(ι))^(dim π), and the roots on W_π are those of det N, each
++with its multiplicity multiplied by dim π. At λ = 1, in the basis S dt, S dr, r dS (resp. rV) of [[prop:np-10-12]]
++(ii), N is N_0, N_l or N_(v,l), so that det N is h⁻²P_0, h⁻³P_l or h⁻¹p_(v) ([[prop:np-10-12]] (iii)).
++
++Let γ_* := C_0 + 2. By [[lem:iii-f1-2-4]] with 𝒯 = [0, 1], there is d_0 > γ_* such that for every λ and every π
++with d(π) ≥ d_0 no root of I_λ on W_π has real part in [−γ_*, γ_*]. For λ ∈ [0, 1] and γ ∈ [−γ_*, γ_*] not the real
++part of a root of I_λ put
++
++    G(λ, γ) := ind_λ(γ) − Σ_π (n_π(λ, γ) − dim W_π).
++
++The sum is finite. Each H_d ⊗ ℂ⁵, H_d the harmonics of degree d ((K4) of [[sec:i-c-2-1]]), is invariant under the
++action of SO(4), so W_π is the sum of its intersections with these spaces, which vanish for d < d(π). At λ = 0, on
++H_d ⊗ ℂ⁵, I_0(ι) = −ι² + 2ι + d(d + 2) = −(ι + d)(ι − d − 2), the free operator acting componentwise (the proof of
++[[prop:i-c-5-3]]). So at λ = 0, W_π carries dim W_π roots ≤ −d(π) and dim W_π roots ≥ d(π) + 2; hence
++n_π(0, γ) = dim W_π for γ ∈ (0, 2), and for every γ ∈ [−γ_*, γ_*] if d(π) ≥ d_0. In the latter case the roots on
++W_π, which depend continuously on λ ([[lem:iii-f1-2-4]]), never have real part in [−γ_*, γ_*], so n_π(λ, γ) = dim W_π
++for every λ. So the terms with d(π) ≥ d_0 vanish, and only finitely many π have d(π) < d_0.
++
++G(λ, γ) does not depend on γ. Let γ₁ < γ₂ be two such weights, and choose γ₁ = w_0 < w_1 < … < w_M = γ₂ with
++w_(i+1) − w_i < 1, none of them the real part of a root of I_λ; this is possible, as only finitely many roots have
++real part in [γ₁, γ₂] ([[lem:i-c-2-4]] (b)). By [[lem:iii-f1-3-1]], applied to each pair (w_i, w_(i+1)) as its
++weights (β_1, β_2), ind_λ(w_(i+1)) − ind_λ(w_i) is the number of roots of I_λ with real part in (w_i, w_(i+1)), with
++multiplicity. Adding, ind_λ(γ₂) − ind_λ(γ₁) is the number of roots with real part in (γ₁, γ₂), which is the change of
++the sum.
++
++G(λ, γ) does not depend on λ. Let λ_0 ∈ [0, 1]. Only the finitely many W_π with d(π) < d_0 carry roots with real part
++in [−γ_*, γ_*], and these roots depend continuously on λ; so there is γ ∈ (−γ_*, γ_*) that is not the real part of a
++root of I_λ for any λ near λ_0. The terms with the factor λh⁻¹, namely −2iσλh⁻¹ρS̄ in [[eq:iv6-0-2]] and the part of
++(□^C)^(0) that comes from λh⁻¹𝓛_c ([[lem:s14-box-c]]), which lies in ρ²Diff¹_b ([[lem:s14-tf-inputs]] (i)), map
++H^(s,(ℓ,q))_(sc,b) boundedly into H^(s−2,(ℓ+1,q−2))_(sc,b). So the domain of the map does not depend on λ, the map
++is continuous in λ in operator norm, and, being Fredholm, it has an index that is constant near λ_0; and every
++n_π(λ, γ) is constant near λ_0, as no root crosses the line Re ι = γ. So G is constant near λ_0, and as [0, 1] is
++connected, G(1, ·) = G(0, ·).
++
++At λ = 0 and γ ∈ (0, 2), ind_0(γ) = 0: at ρ = 0, P̂_0 has the data of □_η acting componentwise, so it is
++tf-admissible with every weight in (0, 2) ([[prop:i-c-5-3]]), and N_tf(P̂_0, e^(iθ)) is invertible at q = 2 − γ by
++[[cor:i-c-5-2]] (a). As n_π(0, γ) = dim W_π for every π, G(0, γ) = 0. At λ = 1 and γ = 2 − β, no indicial root of
++P̂_1(0) has real part in [−100, 2) ([[lem:iv4-1-3]] (a)), so n_π(1, 2 − β) is the number of roots on W_π with real
++part < −100. With multiplicity, P_0 has two such roots, P_l (l ≥ 1) three and p_(v) one ([[prop:np-10-54]] (i)); so
++n_π(1, 2 − β) = k dim π = dim W_π for every π. Hence ind_1(2 − β) = G(1, 2 − β) = G(0, 1) = 0, and the index of
++[[eq:iv6-1-1]] is 0. ∎
+ 
+ #### Solvability on edge-b spaces {#sec:iv6-2}
+ 
+@@ -3077,23 +3408,43 @@ H̄^(1,(−N,α_cf))_eb for some N.
+ 
+ *Energy near X_0.* η = r²(−dτ² − 2τ dτ (dr/r) + (1 − τ²)dr²/r² + 𝑔̸) is a weighted b-metric on
+ (−1, 1)_τ × [0, ∞]_r × 𝕊³. Here r²η⁻¹(dτ, dτ) = −(1 − τ²), and b-norms on {t/r ∈ I} are edge-b norms. The proof of
+-[[prop:iv5-6-1]], with the level-set density r⁴|dr d𝑔̸|, gives [Hin26a, (B.34) and (B.35)] at T := ½, with
+-ρ_sf = (1 + r)⁻¹ and ρ_cf = r(1 + r)⁻¹ there. In it, [[lem:iv5-6-tform]] and [[cor:iv5-6-energy]] are used on
+-N := ℝ_t × (ℝ⁴ ∖ 0), with k = 1 and f_1 := τ − T, as there is no inner boundary. Their hypotheses hold: the components
++[[prop:iv5-6-1]] (1), with the level-set density r⁴|dr d𝑔̸|, gives at T := ½, with ρ_sf = (1 + r)⁻¹ and
++ρ_cf = r(1 + r)⁻¹ there, its two estimates on M with the weight ρ_sf^(α_sf)ρ_cf^(α_cf) in place of ρ_sf^(α_sf)
++([Hin26a, (B.34) and (B.35)]): for ω vanishing for t < 0,
++
++    ‖ω‖_(H^(1,(α_sf,α_cf))_(eb,h)(τ⁻¹([0,T]))) ≤ Ch⁻¹‖P_hω‖_(H^(0,(α_sf+2,α_cf−2))_(eb,h)(τ⁻¹([0,T]))),    {#eq:iv6-2-e1}
++
++and, with no support condition, there being no inner boundary,
++
++    ‖ω‖_(H^(1,(−α_sf−2,−α_cf+2))_(eb,h)(τ⁻¹([0,T/2])))
++        ≤ C(h⁻¹‖P_h*ω‖_(H^(0,(−α_sf,−α_cf))_(eb,h)(τ⁻¹([0,T]))) + ‖ω‖_(H^(1,(−α_sf−2,−α_cf+2))_(eb,h)(τ⁻¹([T/2,T])))).
++                                                                                                         {#eq:iv6-2-e2}
++
++In it, [[lem:iv5-6-tform]], [[cor:iv5-6-energy]], [[lem:iv5-6-transport]] and [[lem:iv5-6-core]] are used on
++N := ℝ_t × (ℝ⁴ ∖ 0), with k = 1, f_1 := τ − T and w := ρ_sf^(−α_sf−2)ρ_cf^(−α_cf+2)e^(−𝔛τ) for [[eq:iv6-2-e1]], and
++f_1 := −τ and w := ρ_sf^(α_sf)ρ_cf^(α_cf)e^(𝔛τ) for [[eq:iv6-2-e2]]. Their hypotheses hold: the components
+ of η and of rc = dt − v x̂ · dx in the frame dt, dx^i lie in a compact set of pairs and are bounded with their
+ derivatives along r∂_t and r∂_(x^i); e = 1/102400 < 2/5; r dτ = dt − τ dr has η⁻¹(r dτ, r dτ) = −(1 − τ²) ≤ −¾ for
+-0 ≤ τ ≤ ½; and r dρ_sf/ρ_sf and r dρ_cf/ρ_cf are bounded, so that the bulk covector of the weight is past timelike,
+-with a uniform κ, for 𝔛 large.
++0 ≤ τ ≤ ½; and r dρ_sf/ρ_sf and r dρ_cf/ρ_cf are bounded, so that rη_0 and rη_1 of [[lem:iv5-6-core]] are past
++timelike (for [[eq:iv6-2-e2]], with −c and the opposite time orientation), with a uniform κ, for 𝔛 large.
+ 
+-*Nonzero and infinite frequencies.* [Hin26a, (B.37)] is [[prop:iv5-1-3]] with the cut-offs χ_j(τ) of
+-[Hin26a, (B.36)] and no cut-off in r. There is no E_r term; the E_τ term is a negative square because ±H_Gτ > 0 at
+-future, resp. past, lightlike covectors, dτ being past timelike on supp χ₁′.
++*Nonzero and infinite frequencies.* The estimates [[eq:iv5-fib]] and [[eq:iv5-fib-adj]] of [[prop:iv5-1-3]] hold on M,
++by its proof, with the weights of [[eq:iv6-2-e1]], resp. [[eq:iv6-2-e2]], the cut-offs χ_(τ,j) of [[sec:iv5-1]]
++at T and no cut-off in r (χ_(r,j) := 1) ([Hin26a, (B.36)–(B.37)]). There is no E_r term; the E_τ term is a negative
++square because ±H_Gτ > 0 at future, resp. past, lightlike covectors, dτ being past timelike on supp χ′_(τ,1).
+ 
+ *The cone face 𝖼𝖿.* Use 𝓛_h := −i(1 + iCL_h*r²)P_h = −L_h + J − iQ as in [[eq:iv5-2-1]], with r⁻¹ for ρ_sf. In
+ t ≥ −r/2 let ρ_sf := (t + r + 1)⁻¹ and ρ_cf := r(t + r + 1)⁻¹. Take the commutant
+-a = w⁻¹χ_cf(𝔛ρ_cf)χ_0(𝔛|ζ|)χ₁(t/r), w := ρ_sf^(α_sf+1)ρ_cf^(α_cf−1). The symbol identity is [Hin26a, (B.38)]:
+-aH_(−ℓ+j)a − Sa² = −c_0r⁻²a² − b_0² − b_cf² + e_τ² + f. Since dw/w ≡ (α_cf − 1)dr/r modulo
+-ρ_cf C^∞(M; ^(eb)T*M), the square roots exist for the following reasons.
++a = w⁻¹χ_cf(𝔛ρ_cf)χ_0(𝔛|ζ|)χ₁(t/r), w := ρ_sf^(α_sf+1)ρ_cf^(α_cf−1), with 𝔛 := δ_r⁻¹, χ_cf a cut-off equal to 1 on
++[0, 5/2] and supported in [0, 4), and χ₁ := χ_(τ,0) of [[sec:iv5-1]] at T, δ_r being fixed below so small that 𝔛 is
++large enough. By
++[[lem:iv5-2-symbols]], with r⁻¹ for ρ_sf, aH_(−ℓ+j)a − Sa² = −c_0r⁻²a² − b_0² − b_cf² + e_τ² + f ([Hin26a, (B.38)]),
++with f as there and, χ_cf, χ_cf′ being evaluated at 𝔛ρ_cf and χ₁, χ₁′ at t/r,
++
++    b_0 := a(S − ℓ(dw/w) − wH_j(w⁻¹) − c_0r⁻²)^(1/2),     b_cf := w⁻¹χ₁χ_0(−𝔛χ_cfχ_cf′)^(1/2)(−ℓ(dρ_cf) + H_jρ_cf)^(1/2),
++    e_τ := w⁻¹χ_cfχ_0(χ₁χ₁′)^(1/2)(−ℓ(d(t/r)) + H_j(t/r))^(1/2).
++
++Since dw/w ≡ (α_cf − 1)dr/r modulo ρ_cf C^∞(M; ^(eb)T*M), the square roots exist for the following reasons.
+ 
+ - b_0: r²(−ℓ(dw/w) + S) at ρ_cf = 0 is the T of [[prop:np-10-14]] (iv) at ρ_K = 0 with d = 1 − α_cf. It is positive
+ definite iff d < b*, that is α_cf > 1 − b* ([[lem:s14-tf-inputs]] (iii)). Positivity extends to supp a for 𝔛 large,
+@@ -3111,8 +3462,14 @@ The Q-terms are those of the proof of [[prop:iv5-2-1]] with r⁻¹ for ρ_sf: [[
+ w = r⁻¹, the constant C being such that r²G + C(r²ℓ)² is positive definite on the model, as in [[lem:iv5-0-4]]; and
+ [[lem:iv5-calc-garding]] (b), (c) for the term with Q_1.
+ 
+-This gives [Hin26a, (B.39)], whose a priori term lies in τ ≤ (2.75/10)T, covered by [Hin26a, (B.34)]; and
+-[Hin26a, (B.40)] for P_h* likewise.
++This gives, by the proof of [[prop:iv5-3-1]] (1), the estimate of the form of [[prop:iv5-3-1]] (1) at 𝖼𝖿, with 𝖼𝖿,
++ρ_cf and the weights of [[eq:iv6-2-e1]] in place of ∂K⁺, ρ_K and those of M^♭, its operator E elliptic on
++supp χ₁′(t/r) ⊂ {τ ≤ (2.75/10)T}, which [[eq:iv6-2-e1]] covers; we call it the forward cone estimate
++([Hin26a, (B.39)]). For P_h*, with the commutant wχ_cf(𝔛ρ_cf)χ_0(𝔛|ζ|)χ̃(τ), χ̃ := χ_(τ,2), and 𝓛_h*,
++[[lem:iv5-2-symbols]] gives aH_(−ℓ+j)a + Sa² = c_0r⁻²a² + b_0² − b_cf² + b_τ² + f with the symbols formed in the same
++way: the term of χ̃ has the sign of the main term, and that of χ_cf gives the a priori term. This gives the estimate of
++the form of [[prop:iv5-3-1]] (2) at 𝖼𝖿, with the weights of [[eq:iv6-2-e2]], its a priori operator elliptic on
++supp χ_cf′(𝔛ρ_cf) ∩ supp χ̃; we call it the backward cone estimate ([Hin26a, (B.40)]).
+ 
+ *The other zero-section estimates.* The model is stationary and dilation invariant ([[lem:iv6-0-1]] (a)). So each
+ rescaled symbol of the commutator arguments at a point of Ω°, such as r²ℓ(d(r/t)) or r²S, is a function of s := r/t and
+@@ -3120,9 +3477,11 @@ rescaled symbol of the commutator arguments at a point of Ω°, such as r²ℓ(d
+ Minkowski model's, for which [[lem:iv5-0-5]] (4)–(6) hold at 𝗌𝖿 ([[prop:np-10-14]] (iv)–(v)). At s → 0,
+ −r²ℓ(ds) = 2s(−½r²ℓ(dr/r)) + O(s²) is positive by the b_cf positivity, so δ_r may be shrunk. Fix δ_r > 0 so small that
+ the b_0 positivity at 𝖼𝖿 holds on {ρ_cf ≤ 4δ_r} (it is constant along 𝖼𝖿, and 𝖼𝖿 ∩ Ω is a product [0, ∞]_t × 𝕊³ up to
+-the dilations), and that (6) holds on 𝗌𝖿 ∩ {s ∈ [δ_r, v(1 − δ_sf)]}. Then:
++the dilations), that (6) holds on 𝗌𝖿 ∩ {s ∈ [δ_r, v(1 − δ_sf)]}, and that 𝔛 = δ_r⁻¹ is as large as the cone-face
++symbols need, a bound that does not grow as δ_r decreases. Then:
+ 
+-(a) [Hin26a, (B.39) and (B.40)] hold on {ρ_cf ≤ 4δ_r} ∩ {τ ≥ T/40}, globally in t, with a priori sets in
++(a) The forward cone estimate holds on {ρ_cf < 4δ_r} ∩ {τ ≥ (0.75/10)T} and the backward one on
++{ρ_cf < 4δ_r} ∩ {τ ≥ (2.75/10)T}, globally in t, with a priori sets in
+ {τ ≤ (2.75/10)T} and in {(5/2)δ_r ≤ ρ_cf ≤ 4δ_r} respectively.
+ 
+ (b) [[prop:iv5-5-2]] (b)–(c) hold with s = r/t near 𝗌𝖿 on [δ_r, v(1 − δ_sf)] and [v(1 + δ_sf), 10], and
+@@ -3135,19 +3494,24 @@ f(ρ_cf/(2δ_r)), with f non-decreasing, 0 near [0, ½] and 1 on [1, ∞). Its t
+ −ℓ(dρ_cf) > 0 near 𝖼𝖿 (dρ_cf/ρ_cf ≡ dr/r, the b_cf positivity). So it needs a priori control on
+ {δ_r ≤ ρ_cf ≤ 2δ_r} in the forward direction and has the sign of the main term in the adjoint one.
+ 
+-*Combination.* *Forward*: [Hin26a, (B.34)] on {τ ≤ ½} and [Hin26a, (B.37)]; (a) forward; (c) (1) on every compact
+-subset of Ω ∩ {ρ_cf ≥ 2δ_r}, from [Hin26a, (B.34)] and (a), with ε_X ≤ δ_rT so that its set {½ε_X ≤ t ≤ ε_X} lies
+-under [Hin26a, (B.34)], as τ ≤ ε_X/δ_r on {ρ_cf ≥ δ_r}; (b) along 𝗌𝖿 from s ∈ [2δ_r, 3δ_r] (by (a), as
+-ρ_cf = s/(1 + s) + O(ρ_sf) near 𝗌𝖿) and from s ∈ [5, 10] (by [Hin26a, (B.34)]), their interior a priori sets by (c);
++*Combination.* *Forward*: [[eq:iv6-2-e1]] on {τ ≤ ½} and [[eq:iv5-fib]] on M; (a) forward; (c) (1) on every compact
++subset of Ω ∩ {ρ_cf ≥ 2δ_r}, from [[eq:iv6-2-e1]] and (a), with ε_X ≤ δ_rT so that its set {½ε_X ≤ t ≤ ε_X} lies
++under [[eq:iv6-2-e1]], as τ ≤ ε_X/δ_r on {ρ_cf ≥ δ_r}; (b) along 𝗌𝖿 from s ∈ [2δ_r, 3δ_r] (by (a), as
++ρ_cf = s/(1 + s) + O(ρ_sf) near 𝗌𝖿) and from s ∈ [5, 10] (by [[eq:iv6-2-e1]]), their interior a priori sets by (c);
+ and the sink, its a priori sets by (b) and (c). These cover a neighbourhood of o over Ω: near 𝖼𝖿 by (a) and
+-[Hin26a, (B.34)], near 𝗌𝖿 by (a), (b), the sink and [Hin26a, (B.34)], and the compact rest by (c). This gives
+-[Hin26a, (B.41)] at the Sobolev order 1, and at every order ≥ 1 by extension and restriction. *Adjoint*: the sink,
++[[eq:iv6-2-e1]], near 𝗌𝖿 by (a), (b), the sink and [[eq:iv6-2-e1]], and the compact rest by (c). This gives
++
++    ‖ω‖_(H^(1,(α_sf,α_cf))_(eb,h)(Ω)^(•,−)) ≤ Ch⁻¹‖P_hω‖_(H^(0,(α_sf+2,α_cf−2))_(eb,h)(Ω)^(•,−))           {#eq:iv6-2-ap}
++
++([Hin26a, (B.41)]) at the Sobolev order 1, and the same estimate at every order s ≥ 1, with H^(s) and H^(s−1), by
++extension and restriction. *Adjoint*: the sink,
+ which has no a priori term; (b) (2) outward along 𝗌𝖿, the 𝗌𝖿-cut-off terms having the good sign; (c) (2) on compact
+ subsets of Ω ∩ {ρ_cf ≥ 2δ_r} ∩ {τ > κ}, the set of [[prop:iv5-7-2]] (viii) (t − κr > 0; there t ≥ 2t_1 once
+-t_1 < δ_r/9, as ρ_cf ≥ 2δ_r gives r ≥ 2δ_r), which contains the a priori set of [Hin26a, (B.40)], its χ₂(τ) being
+-supported in τ ≥ (2.25/10)T > κ; its late set (large t, r ≤ (t + c₁)/κ, ρ_cf ≥ δ_r) lies near 𝗌𝖿 with s ∈ [δ_r, 10], by
+-κ = 1/9, covered by the previous two steps; (a) adjoint, that is [Hin26a, (B.40)], its a priori set
+-{(5/2)δ_r ≤ ρ_cf ≤ 4δ_r} covered by (c) (2) and, near 𝗌𝖿, by (b) (2); and [Hin26a, (B.35)], its a priori set
++t_1 < δ_r/9, as ρ_cf ≥ 2δ_r gives r ≥ 2δ_r), which contains the a priori set of the backward cone estimate, its
++cut-off χ̃ = χ_(τ,2) being supported in τ ≥ (2.25/10)T > κ; its late set (large t, r ≤ (t + c₁)/κ, ρ_cf ≥ δ_r) lies
++near 𝗌𝖿 with s ∈ [δ_r, 10], by κ = 1/9, covered by the previous two steps; (a) adjoint, that is the backward cone
++estimate, its a priori set {(5/2)δ_r ≤ ρ_cf ≤ 4δ_r} covered by (c) (2) and, near 𝗌𝖿, by (b) (2); and [[eq:iv6-2-e2]],
++its a priori set
+ τ⁻¹([T/2, T]) covered by the steps before. Each step's a priori set lies in the controlled set of an earlier step, as in
+ [[prop:iv5-7-1]] and [[prop:iv5-7-2]]. Duality, extension and restriction, and the initial value problem are the
+ arguments of [[thm:iv5-7-3]] with these estimates. The data weights in [[eq:iv6-2-1]] follow
+@@ -3158,7 +3522,8 @@ because |dg| = r⁴|dt (dr/r) d𝑔̸| = r|dτ| ⊗ r³|dr d𝑔̸| on {t/r ∈
+ vanishing on {t ≤ 0} vanishes on {0 ≤ t ≤ 1, r > t}. On Ω′ := cl{0 ≤ t ≤ 1, r ≤ 1 − t} the a priori estimate
+ ‖ω‖_(ρ_cf^(α_cf)H^s_(eb,h)(Ω′)^(•,−)) ≤ Ch⁻¹‖P_hω‖_(ρ_cf^(α_cf−2)H^(s−1)_(eb,h)(Ω′)^(•,−)) holds. It is proved by the
+ energy estimates near X_0 and near the final surface {r = 1 − t} (spacelike, with d(1 − t − r) past timelike;
+-localisation in (t − 1)/r), together with [Hin26a, (B.37) and (B.39)]. So a solution with zero forcing that is supported
++localisation in (t − 1)/r), together with [[eq:iv5-fib]] on M and the forward cone estimate. So a solution with zero
++forcing that is supported
+ in {t ≥ 0} and lies in that space vanishes on Ω′, hence on {0 ≤ t ≤ ½}. Translating in t, which commutes with □^C, and
+ iterating gives vanishing for all t. ∎
+ 
+@@ -3166,7 +3531,8 @@ iterating gives vanishing for all t. ∎
+ 
+ **Theorem {#thm:iv6-3-1}** ([Hin26a, Theorem B.1] in dimension 4 + 1.) There is h_tf > 0 such that for h ∈ (0, h_tf),
+ every σ ∈ e^(i[0,π]) and every (s, ℓ, β) admissible at σ, the map [[eq:iv6-1-1]] is invertible, with inverse bounded
+-uniformly for σ in each sector where fixed orders are admissible ([[prop:iv6-1-1]]).
++uniformly for σ in each set on which fixed orders are admissible ([[def:iv6-0-2]]) and [[eq:iv6-1-2]] holds uniformly
++([[prop:iv6-1-1]]).
+ 
+ *Proof.* By [[prop:iv6-1-1]] it suffices to show that the nullspace is trivial for one admissible choice. Take ℓ := −½
+ and β := 7/2, admissible as C_0 ≥ 3/2 ([[lem:s14-tf-inputs]] (iv)). Apply [[thm:iv6-2-1]] with
+@@ -3278,7 +3644,9 @@ tf-admissible ([[def:i-c-5-1]]) with every weight β_tf ∈ [−C_0, 2).
+ both. The map 𝒳_(tf,θ) → 𝒴_(tf,θ) of [[sec:i-c-4]] is then [[eq:iv6-1-1]] at σ = e^(iθ), by [[lem:iv6-0-1]] (d).
+ These orders are admissible in the sense of [[def:iv6-0-2]]: q = β ∈ (0, 2 + C_0]; the orders 𝗋_± with weight α₊ are
+ those of [[lem:i-a-7-1]] at σ_* = ±1, constant near the radial sets and monotone along the flow, functions of ξ
+-and |η|²; and their thresholds are those of [[eq:i-a-1-5]] for (□^C_b)^, which are the data of □^C_b at ρ = 0
++and |η|², and admissible on {e^(iθ) : θ ∈ Θ_±}, being admissible for every σ₀ ∈ J_± ∋ Re e^(iθ) ([[sec:i-c-4-3]]); the
++constant orders used for θ ∈ (0, π) ([[thm:i-c-4-3]] (2)) are admissible at e^(iθ), being constant below the threshold
++at R_out; and the thresholds are those of [[eq:i-a-1-5]] for (□^C_b)^, which are the data of □^C_b at ρ = 0
+ ([[sec:i-c-4]]): at R_out, −½ + S̄ with S̄ = min spec S̄^C = h⁻¹(1 − e)(1 − v) ([[prop:np-10-21]] (i)); at R_in,
+ (−1 + ϑ_in)/2 = −½ − h⁻¹(1 − e)(1 + v) by [[eq:s14-theta-in]]. These are the thresholds of [[def:iv6-0-2]].
+ 
+diff --git a/research/warp-drive/paper/reader/chapters/34-s15-linearised.md b/research/warp-drive/paper/reader/chapters/34-s15-linearised.md
+index f72b8f2a..a31a07e1 100644
+--- a/research/warp-drive/paper/reader/chapters/34-s15-linearised.md
++++ b/research/warp-drive/paper/reader/chapters/34-s15-linearised.md
+@@ -593,7 +593,7 @@ indicial root. Near ztf, N_tf = r̂⁻²L, with L as at the end of [[sec:i-c-2-5
+ symbol J(ι) = I(−ι) ([[sec:i-c-4-1]] (c)); so a root μ of J is −μ_b, μ_b ∈ spec_b, and 𝒳(β) is H^s_(b,−β) there.
+ 
+ **Lemma {#lem:iii-f1-3-1}** (Relative index.) Let β_1 < β_2 < β_1 + 1, neither the real part of a point of spec_b,
+-and s ∈ ℤ. Then ind(β_2) − ind(β_1) = dim F, where F := ⊕_μ F_μ over the roots μ of J with −β_2 < Re μ < −β_1 and
++and s ∈ ℤ, s ≥ 2. Then ind(β_2) − ind(β_1) = dim F, where F := ⊕_μ F_μ over the roots μ of J with −β_2 < Re μ < −β_1 and
+ 
+     F_μ := {Res_(ι=μ)(ϱ^ι J(ι)⁻¹ g(ι)) : g holomorphic near μ, C^∞(𝕊³; ℂ^(N_E))-valued}.                 {#eq:iii-f1-3-1}
+ 
+diff --git a/research/warp-drive/paper/reader/crosswalk/33-s14-constraint-damping.tsv b/research/warp-drive/paper/reader/crosswalk/33-s14-constraint-damping.tsv
+index 5e7b24ff..f5bfc258 100644
+--- a/research/warp-drive/paper/reader/crosswalk/33-s14-constraint-damping.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/33-s14-constraint-damping.tsv
+@@ -61,11 +61,11 @@ lem:iv4-1-5	docket68/n1star/proof5/PART-IV5-CDMODES.md:121	IV(4) Lemma 1.5	F-G24
+ lem:iv4-1-6	docket68/n1star/proof5/PART-IV5-CDMODES.md:135	IV(4) Lemma 1.6	
+ sec:iv5	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5)	
+ sec:iv5-0	docket68/n1star/proof5/PART-IV6-SOLV.md:19	IV(5) section 0	
+-def:iv5-0-1	docket68/n1star/proof5/PART-IV6-SOLV.md:36	IV(5) Definition 0.1	G1: the calculus is that of sec:iv5-calc; the spaces on Omega defined in lem:iv5-calc-dual (P-G1 texts C33-1, C33-2)
+-lem:iv5-0-2	docket68/n1star/proof5/PART-IV6-SOLV.md:89	IV(5) Lemma 0.2	
++def:iv5-0-1	docket68/n1star/proof5/PART-IV6-SOLV.md:36	IV(5) Definition 0.1	G1: the calculus is that of sec:iv5-calc; the spaces on Omega defined in lem:iv5-calc-dual (P-G1 texts C33-1, C33-2); P-G24b: ∂_(z^μ) ∈ ρ_sf𝒱_3b by r⁻¹ ∈ ρ_sf C^∞ (P-G24b text T1)
++lem:iv5-0-2	docket68/n1star/proof5/PART-IV6-SOLV.md:89	IV(5) Lemma 0.2	P-G24b: (c) proved: classes of ∇, □_g, δ*_g, δ_g (P-G24b text T2)
+ lem:iv5-0-3	docket68/n1star/proof5/PART-IV6-SOLV.md:137	IV(5) Lemma 0.3	
+ lem:iv5-0-4	docket68/n1star/proof5/PART-IV6-SOLV.md:171	IV(5) Lemma 0.4	F-G24: statement cites lem:iv4-1-1 and lem:iv4-1-causal in place of [Hin26a, Lemmas 3.3-3.8, Corollary 3.6]; uniform C proved by the rescaling (g, rc) and lem:iv4-1-causal (d); F2-G24: statement for (g, rc, e), as c vanishes at sf
+-lem:iv5-0-5	docket68/n1star/proof5/PART-IV6-SOLV.md:188	IV(5) Lemma 0.5	
++lem:iv5-0-5	docket68/n1star/proof5/PART-IV6-SOLV.md:188	IV(5) Lemma 0.5	P-G24b: δ_r < 1/5 added (P-G24b text T3)
+ sec:iv5-calc	paper/reader/proofs/P-G1.md@3b715dd5:1-575	proof G1, the calculi	new section; replaces preprint citations
+ def:iv5-calc-cells	paper/reader/proofs/P-G1.md@3b715dd5:14-48	proof G1, cells	4 + 1 cells; classes via P' x M
+ lem:iv5-calc-structure	paper/reader/proofs/P-G1.md@3b715dd5:50-143	proof G1, structures	structures, weights, symbols
+@@ -83,33 +83,44 @@ eq:iv5-calc-q0	paper/reader/proofs/P-G1.md@3b715dd5:551	proof G1, bound for Q_0
+ sec:iv5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:211	IV(5) section 1	
+ lem:iv5-1-1	docket68/n1star/proof5/PART-IV6-SOLV.md:213	IV(5) Lemma 1.1	F-G24: [Hin26a, Lemma 3.7] replaced by lem:iv4-1-causal (b)
+ prop:iv5-1-2	docket68/n1star/proof5/PART-IV6-SOLV.md:235	IV(5) Proposition 1.2	G1: proof by prop:np-10-65-a (e) with the cut-offs (P-G1 text C33-5)
+-prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d); G1: regulariser lem:iv5-calc-reg; commutant, (5.26), absorption by prop:np-10-65-a (P-G1 texts C33-6 to C33-9)
++prop:iv5-1-3	docket68/n1star/proof5/PART-IV6-SOLV.md:249	IV(5) Proposition 1.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d); G1: regulariser lem:iv5-calc-reg; commutant, (5.26), absorption by prop:np-10-65-a (P-G1 texts C33-6 to C33-9); P-G24b: (5.30) and (5.28) displayed (P-G24b texts T42, T43)
+ eq:iv5-fib	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.21)	estimate written out in dimension 4 + 1
+ eq:iv5-fib-adj	docket68/n1star/proof5/PART-IV6-SOLV.md:249-250	IV(5) Proposition 1.3: [Hin26a] (5.22)	adjoint estimate written out in dimension 4 + 1
+-sec:iv5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:298	IV(5) section 2	
++sec:iv5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:298	IV(5) section 2	P-G24b: cut-off conventions (cut-offs positive on their support) and lem:iv5-2-symbols inserted (P-G24b text T4)
+ eq:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:303	IV(5) (2.1)	
+-prop:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:313	IV(5) Proposition 2.1	G1: (5.44) by lem:iv5-calc-q0, (5.45) by lem:iv5-calc-garding, 9C_2 + 2 for 2C (P-G1 texts C33-10 to C33-12)
++eq:iv5-2-a	paper/reader/proofs/P-G24b.md@4add0685:391	commutants of [Hin26a, §5.2.2–5.2.5], common form	a = w^-1 phi_1...phi_m chi_0(X|zeta|); cut-off conventions with smooth (+-chi chi')^(1/2), existence by an explicit formula
++lem:iv5-2-symbols	paper/reader/proofs/P-G24b.md@4add0685:401	[Hin26a] (5.39)-(5.43), (5.54), (5.57), (5.60), (B.38): the symbol decompositions	Leibniz identity for aH_(-l+j)a -+ Sa^2 of a product commutant; replaces "the b_0, b_R, e and f of [Hin26a]"
++eq:iv5-2-leibniz	paper/reader/proofs/P-G24b.md@4add0685:405	[Hin26a] (5.39)-(5.43)	the identity and the definition of f
++prop:iv5-2-1	docket68/n1star/proof5/PART-IV6-SOLV.md:313	IV(5) Proposition 2.1	G1: (5.44) by lem:iv5-calc-q0, (5.45) by lem:iv5-calc-garding, 9C_2 + 2 for 2C (P-G1 texts C33-10 to C33-12); P-G24b: cut-offs defined; b_0, b_R, e from lem:iv5-2-symbols; adjoint pairing eq:iv5-2-adj; (5.47)–(5.48) and the iteration written out as eq:iv5-2-iter (P-G24b texts T5–T7, T41)
++eq:iv5-2-iter	paper/reader/proofs/P-G24b.md@4add0685:515	[Hin26a] (5.47)-(5.48)	the estimate before the h^(1/2) iteration; text T41, variant A (after P-G1 C33-11)
++eq:iv5-2-adj	paper/reader/proofs/P-G24b.md@4add0685:545	[Hin26a] (5.49)-(5.50)	the adjoint pairing for L_h*, used in prop:iv5-2-1 (2), prop:iv5-5-2 (2), prop:iv5-5-3 (2)
+ sec:iv5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:358	IV(5) section 3	
+-prop:iv5-3-1	docket68/n1star/proof5/PART-IV6-SOLV.md:362	IV(5) Proposition 3.1	G1: Q-terms with the weight rho_sf (P-G1 text C33-13)
++prop:iv5-3-1	docket68/n1star/proof5/PART-IV6-SOLV.md:362	IV(5) Proposition 3.1	G1: Q-terms with the weight rho_sf (P-G1 text C33-13); P-G24b: cut-offs defined (χ_K now supported in [0, 2δ_r)); symbols from lem:iv5-2-symbols (P-G24b texts T8–T10)
+ sec:iv5-4	docket68/n1star/proof5/PART-IV6-SOLV.md:391	IV(5) section 4	
+-prop:iv5-4-1	docket68/n1star/proof5/PART-IV6-SOLV.md:393	IV(5) Proposition 4.1	G1: weighted Q-terms of prop:iv5-3-1 (P-G1 text C33-14)
++prop:iv5-4-1	docket68/n1star/proof5/PART-IV6-SOLV.md:393	IV(5) Proposition 4.1	G1: weighted Q-terms of prop:iv5-3-1 (P-G1 text C33-14); P-G24b: χ_R a cut-off; b_0, e₁, e₂ explicit (P-G24b texts T11–T12)
+ sec:iv5-5	docket68/n1star/proof5/PART-IV6-SOLV.md:417	IV(5) section 5	
+-prop:iv5-5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:419	IV(5) Proposition 5.1	
+-prop:iv5-5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:445	IV(5) Proposition 5.2	G1: Q-terms by lem:iv5-calc-q0 and lem:iv5-calc-garding (P-G1 text C33-15)
+-prop:iv5-5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:510	IV(5) Proposition 5.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (a)
++prop:iv5-5-1	docket68/n1star/proof5/PART-IV6-SOLV.md:419	IV(5) Proposition 5.1	P-G24b: χ₂, χ_K defined; b_0, e_R, e_T explicit (P-G24b texts T13–T14)
++prop:iv5-5-2	docket68/n1star/proof5/PART-IV6-SOLV.md:445	IV(5) Proposition 5.2	G1: Q-terms by lem:iv5-calc-q0 and lem:iv5-calc-garding (P-G1 text C33-15); P-G24b: adjoint pairing cites eq:iv5-2-adj (P-G24b text T15)
++prop:iv5-5-3	docket68/n1star/proof5/PART-IV6-SOLV.md:510	IV(5) Proposition 5.3	F-G24: [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (a); P-G24b: adjoint pairing cites eq:iv5-2-adj (P-G24b text T16)
+ sec:iv5-6	docket68/n1star/proof5/PART-IV6-SOLV.md:566	IV(5) section 6	F-G24: the paragraph using [Hin26a, Lemma 5.14, Corollary 5.15] replaced by lem:iv5-6-tform and cor:iv5-6-energy: the slice-wise use of [Hin26a, Corollary 5.15] replaced by a pointwise route, which needs e < 2/D, which holds (e = 1/102400 < 2/5); the old text described the preprint's hypothesis correctly (F2-G24)
+ lem:iv5-6-tform	G-SWEEP fix F-G24	[Hin26a] (5.61); in place of [Hin26a] Lemma 5.14 (which gives positivity only on eta x e + eta' x f with eta' orthogonal to eta, enough for its slice-integrated Corollary 5.15): pointwise positivity of Q for l_(g,c,e), 0 < e < 2/D (every D >= 3)	T_(G,eta,l) and its quadratic form Q on T* x E defined; (a) rank-one positivity for any l positive on future causal covectors; (b) Q positive semidefinite at past null eta with nullspace eta x T*, positive definite at past timelike eta, for l = l_(g,c,e) with 0 < e < 2/D, by a sum of squares; the counterexample shows only that pointwise positivity on all of T* x E needs the form of l (it does not bear on [Hin26a] Lemma 5.14); (c) uniform bound on compact sets; F2-G24: header reads in place of, not as a transcription
+ eq:iv5-6-t	G-SWEEP fix F-G24	[Hin26a] (5.61)	definition of T_(G,eta,l) and its polarisation
+-cor:iv5-6-energy	G-SWEEP fix F-G24	in place of [Hin26a] Corollary 5.15 (a coercivity estimate integrated over time slices): divergence identity with a pointwise lower bound, in 4 + 1	divergence identity for B(box omega, w^2 l<nabla omega>) integrated over a domain with one or two boundary pieces, remainder written out; pointwise lower bound c_0 r^-4 |r eta| |r xi|^2 hence the bulk and the two delta-weighted boundary terms; remainder bound r^-4; the case -l; F2-G24: header reads in place of; g and c smooth
++cor:iv5-6-energy	G-SWEEP fix F-G24	in place of [Hin26a] Corollary 5.15 (a coercivity estimate integrated over time slices): divergence identity with a pointwise lower bound, in 4 + 1	divergence identity for B(box omega, w^2 l<nabla omega>) integrated over a domain with one or two boundary pieces, remainder written out; pointwise lower bound c_0 r^-4 |r eta| |r xi|^2 hence the bulk and the two delta-weighted boundary terms; remainder bound r^-4; the case -l; F2-G24: header reads in place of; g and c smooth; P-G24b: (i) allows k = 3 (P-G24b text T17)
+ eq:iv5-6-energy	G-SWEEP fix F-G24	[Hin26a] (5.71)/(5.74), main part	the integrated identity
+-prop:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:576	IV(5) Proposition 6.1	F-G24: proof uses T of eq:iv5-6-t, cor:iv5-6-energy (region, f_1, f_2, w, the three covectors, remainder) and lem:iv4-1-causal (a); adjoint and Sigma-sharp estimates pointed to the corollary; F2-G24: delta-weights of -a da = -(1/2)d(a^2) carry the factor 1/2
++lem:iv5-6-transport	paper/reader/proofs/P-G24b.md@4add0685:754	[Hin26a] (5.77), the fundamental theorem of calculus for L_h, as an identity	A = -1/2 l<nabla> + N; integrated identity for 2B(Aw, w) with boundary terms; |N|, |S| = O(r^-2)
++eq:iv5-6-transport	paper/reader/proofs/P-G24b.md@4add0685:762	[Hin26a] (5.77)	the integrated transport identity
++lem:iv5-6-core	paper/reader/proofs/P-G24b.md@4add0685:790	[Hin26a] (5.70)-(5.78), the energy argument of Proposition 5.16	energy estimate for h^2 box + 2hA + hY from eq:iv5-6-energy and eq:iv5-6-transport, with good and bad boundary pieces; explicit lambda_*, C_*
++eq:iv5-6-core	paper/reader/proofs/P-G24b.md@4add0685:804	[Hin26a] (5.74), (5.76), (5.78)	the conclusion of lem:iv5-6-core
++eq:iv5-6-core-1	paper/reader/proofs/P-G24b.md@4add0685:829	[Hin26a] (5.74)-(5.76)	the energy step
++eq:iv5-6-core-2	paper/reader/proofs/P-G24b.md@4add0685:840	[Hin26a] (5.77)-(5.78)	the transport step
++prop:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:576	IV(5) Proposition 6.1	F-G24: proof uses T of eq:iv5-6-t, cor:iv5-6-energy (region, f_1, f_2, w, the three covectors, remainder) and lem:iv4-1-causal (a); adjoint and Sigma-sharp estimates pointed to the corollary; F2-G24: delta-weights of -a da = -(1/2)d(a^2) carry the factor 1/2; P-G24b: second estimate of (1) needs ω supported at Σ^♯ (P-G24b text T19; counterexample in P-G24b §3); proof rewritten from lem:iv5-6-core, all four estimates and eq:iv5-6-1, every h ∈ (0, 1] (P-G24b text T20)
+ eq:iv5-6-1	docket68/n1star/proof5/PART-IV6-SOLV.md:582	IV(5) (6.1)	
+ sec:iv5-7	docket68/n1star/proof5/PART-IV6-SOLV.md:620	IV(5) section 7	
+-prop:iv5-7-1	docket68/n1star/proof5/PART-IV6-SOLV.md:624	IV(5) Proposition 7.1 with its extension argument	G1: strong sense at fibre infinity by the regularisation in prop:iv5-1-3 (P-G1 text C33-16)
++prop:iv5-7-1	docket68/n1star/proof5/PART-IV6-SOLV.md:624	IV(5) Proposition 7.1 with its extension argument	G1: strong sense at fibre infinity by the regularisation in prop:iv5-1-3 (P-G1 text C33-16); P-G24b: the estimates near Σ^♯ on the extended domain need lem:iv5-0-3 (a), (c), lem:iv5-0-4 and the bounds of the proof of prop:iv5-6-1 (P-G24b text T45)
+ eq:iv5-5-79	docket68/n1star/proof5/PART-IV6-SOLV.md:627	IV(5) (5.79)	
+ prop:iv5-7-2	docket68/n1star/proof5/PART-IV6-SOLV.md:691	IV(5) Proposition 7.2 with its parameter ordering	
+ eq:iv5-5-81	docket68/n1star/proof5/PART-IV6-SOLV.md:694	IV(5) (5.81)	
+-thm:iv5-7-3	docket68/n1star/proof5/PART-IV6-SOLV.md:742	IV(5) Theorem 7.3	G1: duality of the supported and extendible spaces, uniform in h, by lem:iv5-calc-dual (P-G1 text C33-17)
++thm:iv5-7-3	docket68/n1star/proof5/PART-IV6-SOLV.md:742	IV(5) Theorem 7.3	G1: duality of the supported and extendible spaces, uniform in h, by lem:iv5-calc-dual (P-G1 text C33-17); P-G24b: (b): continuity in τ from eq:iv5-6-core (P-G24b text T21); Cauchy problem via thm:std-bgp-development and thm:std-bgp-cauchy (5) (P-G24b text T22)
+ eq:iv5-5-16	docket68/n1star/proof5/PART-IV6-SOLV.md:755	IV(5) (5.16)	
+ rem:iv5-7-4	docket68/n1star/proof5/PART-IV6-SOLV.md:813	IV(5) Remark 7.4	
+ sec:iv5-8	docket68/n1star/proof5/PART-IV6-SOLV.md:821	IV(5) section 8	
+@@ -122,21 +133,26 @@ lem:iv6-0-1	docket68/n1star/proof5/PART-IV7-TFACE.md:39	IV(6) Lemma 0.1	S-bar lo
+ eq:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:48	IV(6) (0.2)	
+ lem:iv6-0-flow	G-SWEEP fix F-G24	[Hin26a] (B.15)-(B.18) and (B.23), written out in 4 + 1	scattering Hamilton field H_p = rho Hsf_p in the covector xi drho/rho^2 + r eta; characteristic set for Im sigma > 0; flow of the model on Char_sigma from R_in to R_out (logistic equation); the commutator symbol at the sink for every |sigma| = 1, with sigma-independent signs; the Spaces paragraph before it now cites it; F2-G24: field 3 no longer lists (B.16) apart, as it lies in (B.15)-(B.18)
+ eq:iv6-0-flow	G-SWEEP fix F-G24	[Hin26a] (B.16)	the rescaled Hamilton vector field
+-def:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:88	IV(6) Definition 0.2	
++def:iv6-0-2	docket68/n1star/proof5/PART-IV7-TFACE.md:88	IV(6) Definition 0.2	P-G24b: admissibility at complex σ only at R_out; admissible at real σ₀; admissible on a set, as in sec:i-a-1-4 (P-G24b text T23)
+ sec:iv6-1	docket68/n1star/proof5/PART-IV7-TFACE.md:93	IV(6) section 1	
+-prop:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:95	IV(6) Proposition 1.1	F-G24: sink symbol from lem:iv6-0-flow (c); conjugation identity after [Hin26a, (B.27)] derived; flow from R_in to R_out by lem:iv6-0-flow (b) with prop:i-a-5-2; uniformity near +-1 proved (sink by lem:iv6-0-flow (c), R_in and propagation by prop:i-a-4-6, prop:i-a-5-2 of ch:s01 at the scattering end); F2-G24: uniformity at R_out with an explicit choice of supp chi_2; uniformity of the propagation constants by the argument of thm:i-a-7-2 (1)
++prop:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:95	IV(6) Proposition 1.1	F-G24: sink symbol from lem:iv6-0-flow (c); conjugation identity after [Hin26a, (B.27)] derived; flow from R_in to R_out by lem:iv6-0-flow (b) with prop:i-a-5-2; uniformity near +-1 proved (sink by lem:iv6-0-flow (c), R_in and propagation by prop:i-a-4-6, prop:i-a-5-2 of ch:s01 at the scattering end); F2-G24: uniformity at R_out with an explicit choice of supp chi_2; uniformity of the propagation constants by the argument of thm:i-a-7-2 (1); P-G24b: dual estimate displayed (eq:iv6-1-3), its strong sense with ℓ_1 above the threshold at R_out; shift and sink symbol defined; (B.20), (B.29), pp. 89–90 replaced by the pieces of ch. 20 and the proof of thm:i-c-4-3 (eq:iv6-1-4); uniformity on sets of admissible orders (P-G24b texts T24–T29); P-RI: index 0 by the relative index formula lem:iii-f1-3-1 (localisation at ztf and the Smith-form count rank = order of the zero of the determinant) and lem:iii-f1-2-4, through the invariant G of the proof of prop:iii-f1-3-3 (iii), with gamma_C deformed to 0 in the spectral family of box^C_b; counts at gamma_C = 1/h from lem:iv4-1-3 (a) and prop:np-10-54 (i) with multiplicity, at 0 from the componentwise free operator; replaces the sector argument and the use of [Mel93, Theorem 6.5] outside its hypotheses; theta_in -> vartheta_in and r_mid -> sans-serif r_mid in the rewritten sentence, and its R_in clause restricted to theta in {0, pi} (P-RI text 2)
+ eq:iv6-1-1	docket68/n1star/proof5/PART-IV7-TFACE.md:97	IV(6) (1.1)	
+ eq:iv6-1-2	docket68/n1star/proof5/PART-IV7-TFACE.md:102	IV(6) (1.2)	
++eq:iv6-1-3	paper/reader/proofs/P-G24b.md@4add0685:1118	[Hin26a] (B.28)	the dual estimate, displayed
++eq:iv6-1-4	paper/reader/proofs/P-G24b.md@4add0685:1210	[Hin26a] (B.19)-(B.20), p. 89	the estimate with error term in H^(-M,(-M,-M)), by the boundary-face pieces of ch. 20 and the proof of thm:i-c-4-3
+ sec:iv6-2	docket68/n1star/proof5/PART-IV7-TFACE.md:201	IV(6) section 2	G1: eb-structure of def:iv5-calc-cells, calculus by prop:np-10-65-a (i) (P-G1 text C33-19)
+-thm:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:211	IV(6) Theorem 2.1	F-G24: energy near X_0 cites lem:iv5-6-tform and cor:iv5-6-energy on M with their hypotheses checked; G1: Q-terms at the cone face by lem:iv5-calc-q0 and lem:iv5-calc-garding (P-G1 text C33-20)
++thm:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:211	IV(6) Theorem 2.1	F-G24: energy near X_0 cites lem:iv5-6-tform and cor:iv5-6-energy on M with their hypotheses checked; G1: Q-terms at the cone face by lem:iv5-calc-q0 and lem:iv5-calc-garding (P-G1 text C33-20); P-G24b: (B.34)–(B.35) displayed (eq:iv6-2-e1, eq:iv6-2-e2); (B.36)–(B.37) as eq:iv5-fib on M; (B.38) symbols from lem:iv5-2-symbols, with 𝔛 = δ_r⁻¹ and χ_cf supported in [0, 4); (B.39)–(B.40) the forward and backward cone estimates, on {τ ≥ (0.75/10)T} and {τ ≥ (2.75/10)T}; (B.41) displayed (eq:iv6-2-ap) (P-G24b texts T30–T38, T44)
+ eq:iv6-2-1	docket68/n1star/proof5/PART-IV7-TFACE.md:225	IV(6) (2.1)	
++eq:iv6-2-e1	paper/reader/proofs/P-G24b.md@4add0685:1281	[Hin26a] (B.34)	energy estimate near X_0 on M, forward
++eq:iv6-2-e2	paper/reader/proofs/P-G24b.md@4add0685:1287	[Hin26a] (B.35)	energy estimate near X_0 on M, adjoint
++eq:iv6-2-ap	paper/reader/proofs/P-G24b.md@4add0685:1433	[Hin26a] (B.41)	the a priori estimate of thm:iv6-2-1 at Sobolev order 1
+ sec:iv6-3	docket68/n1star/proof5/PART-IV7-TFACE.md:346	IV(6) section 3	
+-thm:iv6-3-1	docket68/n1star/proof5/PART-IV7-TFACE.md:348	IV(6) Theorem 3.1	
++thm:iv6-3-1	docket68/n1star/proof5/PART-IV7-TFACE.md:348	IV(6) Theorem 3.1	P-G24b: uniformity clause refers to def:iv6-0-2 (P-G24b text T39)
+ sec:iv4-2	docket68/n1star/proof5/PART-IV5-CDMODES.md:152	IV(4) section 2	
+ thm:iv4-2-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:154	IV(4) Theorem 2.1 (data at t_KS = 0; adjoint at C_0 - 1)	
+ rem:s14-other-routes	docket68/n1star/proof5/PART-IV5-CDMODES.md:228-231	IV(4) section 2, the paragraph after Theorem 2.1's proof	the source's other two routes to surjectivity, not used
+ sec:iv6-4	docket68/n1star/proof5/PART-IV7-TFACE.md:385	IV(6) section 4	
+-thm:iv6-4-1	docket68/n1star/proof5/PART-IV7-TFACE.md:387	IV(6) Theorem 4.1	
++thm:iv6-4-1	docket68/n1star/proof5/PART-IV7-TFACE.md:387	IV(6) Theorem 4.1	P-G24b: orders admissible on Θ_± and the middle sector (P-G24b text T40)
+ sec:iii-e-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:74	III.E section 2	
+ lem:iii-e-2-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:76	III.E Lemma 2.1 with consequences (a), (b)	
+ prop:np-10-31	docket68/n1star/N1STAR-PROOF.md:5288	NP 10.31 Proposition 10.28 (i)-(ii)	(iii) superseded by III.E1 exact lemmas; nonvanishing of the leading terms not claimed (rem:s14-counting)
+diff --git a/research/warp-drive/paper/reader/crosswalk/34-s15-linearised.tsv b/research/warp-drive/paper/reader/crosswalk/34-s15-linearised.tsv
+index 27e2de60..34da36b1 100644
+--- a/research/warp-drive/paper/reader/crosswalk/34-s15-linearised.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/34-s15-linearised.tsv
+@@ -26,7 +26,7 @@ lem:iii-f1-2-4	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:190-243	III.F1 Lem
+ lem:iii-f1-2-5	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:226-263	III.F1 Lemma 2.5	linroots5 R2-R3 parenthetical dropped
+ eq:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:229	III.F1 (2.3)	
+ sec:iii-f1-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:265-491	III.F1 section 3	the operator with parameters (0, gamma) dropped from its opening (P-T78 text 12)
+-lem:iii-f1-3-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:291-360	III.F1 Lemma 3.1	
++lem:iii-f1-3-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:291-360	III.F1 Lemma 3.1	P-RI: s >= 2 added to the hypothesis (Steps 1-2 take the Mellin transform of an element of H^(s-2)_b, defined for weighted L^2 functions); its uses take s large (prop:iii-f1-3-3 (iii)) and s = 2 (prop:iv6-1-1) (P-RI text 3)
+ eq:iii-f1-3-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:294-296	III.F1 (3.1)	
+ lem:iii-f1-3-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:362-373	III.F1 Lemma 3.2	
+ lem:tf-lin-reduction	paper/reader/proofs/P-T78.md@59de7926:200	explicit tf-admissibility proof P-T78, Lemma (The kernel at the transition face, reduced to the gauge potential operator.)	new, inserted in ch:s15 before prop:iii-f1-3-3: a kernel element u_0 with eta_0 = 0 is delta-bar*(omega_0), omega_0 in the kernel of N_tf of the gauge potential operator; by the flat 1-form inverse and the flat tensor tf-admissibility; replaces the perturbation in gamma of Step 6

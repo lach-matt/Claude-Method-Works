@@ -125,7 +125,7 @@ eq:iv5-5-16	docket68/n1star/proof5/PART-IV6-SOLV.md:755	IV(5) (5.16)
 rem:iv5-7-4	docket68/n1star/proof5/PART-IV6-SOLV.md:813	IV(5) Remark 7.4	
 sec:iv5-8	docket68/n1star/proof5/PART-IV6-SOLV.md:821	IV(5) section 8	
 lem:iv5-8-1	docket68/n1star/proof5/PART-IV6-SOLV.md:823	IV(5) Lemma 8.1	F-G24: margin of [Hin26a, Lemma 3.5] replaced by lem:iv4-1-causal (d); G1: uniformity in b by prop:np-10-65-a (j) (P-G1 text C33-18)
-sec:iv6	docket68/n1star/proof5/PART-IV7-TFACE.md:11	IV(6)	
+sec:iv6	docket68/n1star/proof5/PART-IV7-TFACE.md:11	IV(6)	P-RI: overview names the relative index formula lem:iii-f1-3-1 (P-RI text 1)
 sec:iv6-0	docket68/n1star/proof5/PART-IV7-TFACE.md:24	IV(6) section 0	
 eq:iv6-0-1	docket68/n1star/proof5/PART-IV7-TFACE.md:37	IV(6) (0.1)	
 lem:s14-tf-inputs	docket68/n1star/N1STAR-PROOF.md:4441	NP 10.23 Proposition 10.20 (i)-(v)	used by IV(6); not in the entry list; written out
