@@ -112,12 +112,12 @@ Write w_± := D̂_(E₀)Ψ ± D̂_(E₁)Ψ and |∇̸Ψ|² := Σ_j |D̂_(f_j)Ψ|
     |D̂_(ê₄)Ψ|² = c Ω̂² |w₊|² ≤ e_o,   |D̂_(ê₃)Ψ|² = (Ω̂²/c) |w₋|²,   |Ψ|² ≤ e_o/(2Ω̂² z̲),   |Ψ|² ≤ e_i/(2Ω̂² z),
     Σ_M |D̂_(F_M)Ψ|² = (|w₊|² + |w₋|²)/2 + |∇̸Ψ|² ≤ e_o/(2cΩ̂²) + e_i/(2Ω̂²).                       {#eq:tl5-hf-coercive}
 
-*Proof.* By [[eq:tl5-hf-null-pair]], D̂_(ê₄)Ψ = √c Ω̂ w₊ and D̂_(ê₃)Ψ = (Ω̂/√c) w₋. The inverse metric is ĝ⁻¹ = −(ê₃ ⊗ ê₄
-+ ê₄ ⊗ ê₃)/(2Ω̂²) + Σ_j f_j ⊗ f_j, so ĝ^(γδ)⟨D̂_γΨ, D̂_δΨ⟩ = −Ω̂⁻² ⟨D̂_(ê₃)Ψ, D̂_(ê₄)Ψ⟩ + |∇̸Ψ|². With ĝ(ê₄, ê₄) = ĝ(ê₃,
-ê₃) = 0 and ĝ(ê₃, ê₄) = −2Ω̂² this gives 𝕋(ê₄, ê₄) = |D̂_(ê₄)Ψ|², 𝕋(ê₃, ê₃) = |D̂_(ê₃)Ψ|² and 𝕋(ê₃, ê₄) = Ω̂² |∇̸Ψ|², and
-with T = ê₄ + c ê₃ the two formulae follow. Further −ĝ(𝒵, ê₄) = 2Ω̂² z̲ and −ĝ(𝒵, ê₃) = 2Ω̂² z. The last line uses
-D̂_(E₀)Ψ = (w₊ + w₋)/2, D̂_(E₁)Ψ = (w₊ − w₋)/2, and that the term |∇̸Ψ|² occurs in both densities, so that |∇̸Ψ|² ≤
-e_i/Ω̂²; then (|w₊|² + |∇̸Ψ|²)/2 ≤ e_o/(2cΩ̂²) and |w₋|²/2 + |∇̸Ψ|²/2 ≤ e_i/(2Ω̂²). ∎
+*Proof.* By [[eq:tl5-hf-null-pair]], D̂_(ê₄)Ψ = √c Ω̂ w₊ and D̂_(ê₃)Ψ = (Ω̂/√c) w₋. The inverse metric is ĝ⁻¹ = −(ê₃ ⊗
+ê₄ + ê₄ ⊗ ê₃)/(2Ω̂²) + Σ_j f_j ⊗ f_j, so ĝ^(γδ)⟨D̂_γΨ, D̂_δΨ⟩ = −Ω̂⁻² ⟨D̂_(ê₃)Ψ, D̂_(ê₄)Ψ⟩ + |∇̸Ψ|². With ĝ(ê₄, ê₄) =
+ĝ(ê₃, ê₃) = 0 and ĝ(ê₃, ê₄) = −2Ω̂² this gives 𝕋(ê₄, ê₄) = |D̂_(ê₄)Ψ|², 𝕋(ê₃, ê₃) = |D̂_(ê₃)Ψ|² and 𝕋(ê₃, ê₄) =
+Ω̂² |∇̸Ψ|², and with T = ê₄ + c ê₃ the two formulae follow. Further −ĝ(𝒵, ê₄) = 2Ω̂² z̲ and −ĝ(𝒵, ê₃) = 2Ω̂² z. The last
+line uses D̂_(E₀)Ψ = (w₊ + w₋)/2, D̂_(E₁)Ψ = (w₊ − w₋)/2, and that the term |∇̸Ψ|² occurs in both densities, so
+that |∇̸Ψ|² ≤ e_i/Ω̂²; then (|w₊|² + |∇̸Ψ|²)/2 ≤ e_o/(2cΩ̂²) and |w₋|²/2 + |∇̸Ψ|²/2 ≤ e_i/(2Ω̂²). ∎
 
 **Lemma {#lem:tl5-hf-divergence}** (The divergence.) Let π := ℒ_T ĝ. For every C² symmetric 2-tensor field Ψ,
 
@@ -216,8 +216,8 @@ from the deformation π of T and from 𝔇, that is from the acceleration and th
 blocks (±, 0) are the operators |T|(𝓡̂ ∓ 𝒞_10/2)/2 + z √c Ω̂ (resp. z̲ Ω̂/√c) times the identity, the block (∥, 0) is
 −|T|(𝒞_(j0))_j/2, and ℬ₀₀ is zeroth order. In particular, if T is a Killing field of ĝ, as for the seed, the principal
 term vanishes. The formula for div 𝒵 follows from div(fV) = f div V + V(f) and from the coordinate density Ω̂²R³/2 of the
-volume form in the coordinates (u, v, x, φ1, φ2) (proof of [[lem:tl5-hf-identity]]): div ∂_v = ∂_v log(Ω̂²R³) and div(∂_u
-+ b̂ ∂_x) = ∂_u log(Ω̂²R³) + ∂_x b̂ + b̂ ∂_x log(Ω̂²R³).
+volume form in the coordinates (u, v, x, φ1, φ2) (proof of [[lem:tl5-hf-identity]]): div ∂_v = ∂_v log(Ω̂²R³) and
+div(∂_u + b̂ ∂_x) = ∂_u log(Ω̂²R³) + ∂_x b̂ + b̂ ∂_x log(Ω̂²R³).
 
 **Definition {#def:tl5-hf-rates}** (Admissible rates.) Let 𝔐 be a function on D^κ with values in the symmetric m × m
 matrices with nonnegative off-diagonal entries, and ℰ_o, ℰ_i functions with values in the nonnegative diagonal m × m
@@ -241,7 +241,7 @@ measurable functions for ϰ < λ, with t_λϰ := 1/t_ϰλ. Put
 
     d_ϰ := max(0, 𝔐_ϰϰ + Σ_(λ≠ϰ) 𝔐_ϰλ t_ϰλ),
     α_o := max over ϰ with θ_ϰ > 0 of θ_ϰ d_ϰ/(ℰ_o)_ϰϰ,
-    α_i := max over ϰ with θ_ϰ < 1 of (1 − θ_ϰ) d_ϰ/(ℰ_i)_ϰϰ.                                       {#eq:tl5-hf-alpha}
+    α_i := max over ϰ with θ_ϰ < 1 of (1 − θ_ϰ) d_ϰ/(ℰ_i)_ϰϰ.                                          {#eq:tl5-hf-alpha}
 
 If a_o(τ₁(p)) ≥ α_o(p) and a_i(τ₂(p)) ≥ α_i(p) at every p ∈ D^κ, then a_o and a_i are admissible. In particular, for the
 bulk matrix of level zero, with the indices (+, −, ∥, 0),
@@ -339,15 +339,15 @@ and the coefficients c^ab_j := Σ_l (M⁻¹)_jl ĝ(K_ab, f_l) satisfy Σ_(a<b) c
 (c) For every background and every Z ∈ Γ, π^Z(ê₄, ê₄) = π^Z(ê₃, ê₃) = 0; and π^(K_ab)(ê₄, Y) = 0 for Y tangent to the
 leaves.
 
-*Proof.* (a) K_ab is the restriction to S³ of a linear vector field of ℝ⁴ tangent to S³, so it is smooth; with z₁ = √((1
-+ x)/2) e^(iφ1) and z₂ = √((1 − x)/2) e^(iφ2), K₁₂ and K₃₄ generate the rotations of φ1 and φ2. For ω ∈ S³ and a covector
-ζ of ℝ⁴, Σ_(a<b) (X_a ζ_b − X_b ζ_a)² = |X|²|ζ|² − (X·ζ)² = |ζ − (X·ζ)X|², which is γ₀⁻¹ applied to the restriction of ζ
-to TS³; so Σ K_ab ⊗ K_ab = γ₀⁻¹. With γ̂ the metric of the leaf, M is the matrix of γ₀⁻¹ in the frame γ̂(f_j, ·), so its
-eigenvalues are those of γ̂ relative to γ₀. In the chart (x, φ1, φ2), γ̂ and γ₀ are diagonal with ratios e^(2ζ) · 4(1 −
-x²) = R² e^(−2(P + Q)), e^(2A) · 2/(1 + x) = R² e^(2P) and e^(2B) · 2/(1 − x) = R² e^(2Q), by [[eq:tl5-radii]]; at the
-axes by continuity. Next Σ_ab c^ab_j K_ab = Σ_(l,m) (M⁻¹)_jl M_lm f_m = f_j, since K_ab is tangent to the leaves. The
-matrix C := (c^ab_j) is M⁻¹G with G_(l,ab) := ĝ(K_ab, f_l) and GGᵀ = M, so CCᵀ = M⁻¹ and the operator norm of C is
-λ_M^(−1/2).
+*Proof.* (a) K_ab is the restriction to S³ of a linear vector field of ℝ⁴ tangent to S³, so it is smooth; with z₁ =
+√((1 + x)/2) e^(iφ1) and z₂ = √((1 − x)/2) e^(iφ2), K₁₂ and K₃₄ generate the rotations of φ1 and φ2. For ω ∈ S³ and a
+covector ζ of ℝ⁴, Σ_(a<b) (X_a ζ_b − X_b ζ_a)² = |X|²|ζ|² − (X·ζ)² = |ζ − (X·ζ)X|², which is γ₀⁻¹ applied to the
+restriction of ζ to TS³; so Σ K_ab ⊗ K_ab = γ₀⁻¹. With γ̂ the metric of the leaf, M is the matrix of γ₀⁻¹ in the frame
+γ̂(f_j, ·), so its eigenvalues are those of γ̂ relative to γ₀. In the chart (x, φ1, φ2), γ̂ and γ₀ are diagonal with
+ratios e^(2ζ) · 4(1 − x²) = R² e^(−2(P + Q)), e^(2A) · 2/(1 + x) = R² e^(2P) and e^(2B) · 2/(1 − x) = R² e^(2Q), by
+[[eq:tl5-radii]]; at the axes by continuity. Next Σ_ab c^ab_j K_ab = Σ_(l,m) (M⁻¹)_jl M_lm f_m = f_j, since K_ab is
+tangent to the leaves. The matrix C := (c^ab_j) is M⁻¹G with G_(l,ab) := ĝ(K_ab, f_l) and GGᵀ = M, so CCᵀ = M⁻¹ and the
+operator norm of C is λ_M^(−1/2).
 
 (b) The components of ĝ in (u, v, x, φ1, φ2) do not depend on φ1 and φ2. The seed of [[lem:tl5-seed]] is of the class
 with b̂ = 0 and P = Q = 0, so its leaves are round of radius R and the K_ab are Killing for it, and T is its static
@@ -356,12 +356,12 @@ Killing field (the remark after [[def:tl5-hf-frame]]).
 (c) For a vector field Z and a vector field V, π^Z(V, V) = 2ĝ(D̂_V Z, V) = 2V(ĝ(Z, V)) − 2ĝ(Z, D̂_V V). The background is
 a warped product over its orbit space, which is totally geodesic ([[lem:warped-ricci]], proof: no Christoffel symbol with
 one index φ_i and two orbit indices), so D̂_(ê₄) ê₄ = 2ω ê₄ and D̂_(ê₃) ê₃ = 2ω̲ ê₃ with ω := ê₄(W), ω̲ := ê₃(W), by
-[[lem:tl5-connection]]. For K = K_ab, ĝ(K, ê₄) = ĝ(K, ê₃) = 0, as K is tangent to the leaves and ĝ(∂_x, ê₃) = −e^(2ζ) b̂
-+ b̂ e^(2ζ) = 0; so π^K(ê₄, ê₄) = −4ω ĝ(K, ê₄) = 0 and π^K(ê₃, ê₃) = 0. For T = ê₄ + c ê₃, with ê₄(c) = 0, π^T(ê₄, ê₄) =
-2c ĝ(D̂_(ê₄) ê₃, ê₄) = 2c (ê₄(ĝ(ê₃, ê₄)) − ĝ(ê₃, 2ω ê₄)) = 2c(−4ω Ω̂² + 4ω Ω̂²) = 0, and π^T(ê₃, ê₃) = 2ĝ(D̂_(ê₃) ê₄, ê₃)
-+ 2ê₃(c) ĝ(ê₃, ê₃) + 2c ĝ(D̂_(ê₃) ê₃, ê₃) = 2(−4ω̲ Ω̂² + 4ω̲ Ω̂²) = 0. Finally [ê₄, K] = 0, so for Y tangent to the
-leaves π^K(ê₄, Y) = ĝ(D̂_K ê₄, Y) + ĝ(D̂_Y K, ê₄) = ĝ(D̂_K ê₄, Y) − ĝ(K, D̂_Y ê₄), which vanishes because (X, Y) ↦ ĝ(D̂_X
-ê₄, Y) is symmetric on vectors tangent to the leaves: its antisymmetric part is −ĝ(ê₄, [X, Y]) for leaf-tangent
+[[lem:tl5-connection]]. For K = K_ab, ĝ(K, ê₄) = ĝ(K, ê₃) = 0, as K is tangent to the leaves and ĝ(∂_x, ê₃) = −e^(2ζ)
+b̂ + b̂ e^(2ζ) = 0; so π^K(ê₄, ê₄) = −4ω ĝ(K, ê₄) = 0 and π^K(ê₃, ê₃) = 0. For T = ê₄ + c ê₃, with ê₄(c) = 0, π^T(ê₄,
+ê₄) = 2c ĝ(D̂_(ê₄) ê₃, ê₄) = 2c (ê₄(ĝ(ê₃, ê₄)) − ĝ(ê₃, 2ω ê₄)) = 2c(−4ω Ω̂² + 4ω Ω̂²) = 0, and π^T(ê₃, ê₃) = 2ĝ(D̂_(ê₃)
+ê₄, ê₃) + 2ê₃(c) ĝ(ê₃, ê₃) + 2c ĝ(D̂_(ê₃) ê₃, ê₃) = 2(−4ω̲ Ω̂² + 4ω̲ Ω̂²) = 0. Finally [ê₄, K] = 0, so for Y tangent to
+the leaves π^K(ê₄, Y) = ĝ(D̂_K ê₄, Y) + ĝ(D̂_Y K, ê₄) = ĝ(D̂_K ê₄, Y) − ĝ(K, D̂_Y ê₄), which vanishes because (X, Y) ↦
+ĝ(D̂_X ê₄, Y) is symmetric on vectors tangent to the leaves: its antisymmetric part is −ĝ(ê₄, [X, Y]) for leaf-tangent
 extensions, and [X, Y] is tangent to the leaves. ∎
 
 By (c), in π^(αβ) D̂_αD̂_βΨ the components D̂²Ψ(ê₃, ê₃) and D̂²Ψ(ê₄, ê₄) never occur, and for the rotations D̂²Ψ(ê₃, f_j)
@@ -486,7 +486,7 @@ of level j′ (in the notation of [[def:tl5-hf-blocks]]) to the family (L̂Ψ_I)
 matrix of size 4(N + 1), indexed by (j, ϰ), with
 
     𝔅_N := diag(𝔅, …, 𝔅) + 𝔒 + 𝔒ᵀ,
-    𝔒_((j,σ),(j′,ϰ)) := √c Ω̂³ μ^((j − j′)/2) ℭ_(jj′ϰ)   (σ ∈ {±}, j′ ≤ j),                       {#eq:tl5-hf-bn}
+    𝔒_((j,σ),(j′,ϰ)) := √c Ω̂³ μ^((j − j′)/2) ℭ_(jj′ϰ)   (σ ∈ {±}, j′ ≤ j),                               {#eq:tl5-hf-bn}
 
 the other entries of 𝔒 being zero, and E_o^N, E_i^N the block diagonal matrices with N + 1 copies of E_o and E_i.
 
@@ -498,7 +498,7 @@ Q(a, b) whose partial derivatives of order at most N vanish on N₀ ∩ Q(a, b),
 rates for (𝔅_N, E_o^N, E_i^N). Then [[eq:tl5-hf-hyp]] holds for the family (Ψ_I)_(|I|≤N) with the weights μ^|I| and
 
     s_N[𝔤] := (Σ_(j≤N) μ^j (Σ_(j′≤j) 𝔮_(jj′) G_(j′))²)^(1/2),
-    G_(j′) := (Σ_(|J|=j′) |ℒ^J 𝔤|²)^(1/2),                                                        {#eq:tl5-hf-sn}
+    G_(j′) := (Σ_(|J|=j′) |ℒ^J 𝔤|²)^(1/2),                                                                {#eq:tl5-hf-sn}
 
 and so [[eq:tl5-hf-linear]] and [[eq:tl5-hf-f]] hold for it.
 
@@ -719,8 +719,8 @@ C₁)), C_(∞,ϱ) := 2 max(C_(1,ϱ), k₁(p) (2𝔐)^(1/2) C_(1,ϱ) + k₂(p)),
 vanishes on N₀, being built from derivatives of h of order at most N + 1.
 
 *Second derivatives.* At a point of Q(a, b) apply [[lem:tl5-hf-recovery]] to Ψ_C, |C| ≤ N − 1, with the tensor H of the
-solution, |H| ≤ 𝔰₀ ≤ 1/8, so 1 − (4/3)|H| ≥ 5/6. There (Σ_Z |D̂ℒ_ZΨ_C|²)^(1/2) ≤ 𝒥₁ and (Σ_Z 𝔷_Z²)^(1/2) ≤ √7 (3 max|D̂Z|
-+ 2 max|D̂²Z|) 𝒥₁, as Γ has seven fields; |D̂Ψ_J| + |Ψ_J| ≤ √2 𝒥₁; and by [[lem:tl5-hf-quadratic]] |ℒ^J N(h)|
+solution, |H| ≤ 𝔰₀ ≤ 1/8, so 1 − (4/3)|H| ≥ 5/6. There (Σ_Z |D̂ℒ_ZΨ_C|²)^(1/2) ≤ 𝒥₁ and (Σ_Z 𝔷_Z²)^(1/2) ≤ √7 (3
+max|D̂Z| + 2 max|D̂²Z|) 𝒥₁, as Γ has seven fields; |D̂Ψ_J| + |Ψ_J| ≤ √2 𝒥₁; and by [[lem:tl5-hf-quadratic]] |ℒ^J N(h)|
 ≤ |H| |D̂²Ψ_J| + 𝔠_(|J|) 𝔰𝔧 ≤ (𝔠_(|J|) + 1) 𝔰 𝔧 for |J| ≤ N − 1, with 𝔧 ≤ max(𝒥₁, M₂). Hence M₂ ≤ k₁ 𝒥₁ +
 k₂ |ℒ^(≤N−1)(2R̂ic)| + k₃ 𝔰 max(𝒥₁, M₂), and with k₃𝔰 ≤ 1/2,
 
@@ -771,8 +771,8 @@ Hence |dτ₁| |T| ≤ √2 (c + κ′), |dτ₂| |T| ≤ √2 (1 + κc), and
 
     |dτ₁(𝔟)| ≤ |H| (|dτ₁| |T| + (c + κ′)/2) |D̂Ψ|² ≤ (√2 + 1/2) (c + κ′) |H| |D̂Ψ|²,
 
-and likewise |dτ₂(𝔟)| ≤ (√2 + 1/2)(1 + κc) |H| |D̂Ψ|². By [[lem:tl5-hf-densities]], e_o + κ′e_i ≥ cΩ̂²|w₊|² + κ′Ω̂²|w₋|²
-+ (c + κ′)Ω̂²|∇̸Ψ|² ≥ 2 min(c, κ′) Ω̂² |D̂Ψ|², and e_i + κe_o ≥ 2 min(1, κc) Ω̂² |D̂Ψ|² = 2κc Ω̂² |D̂Ψ|². ∎
+and likewise |dτ₂(𝔟)| ≤ (√2 + 1/2)(1 + κc) |H| |D̂Ψ|². By [[lem:tl5-hf-densities]], e_o + κ′e_i ≥ cΩ̂²|w₊|² +
+κ′Ω̂²|w₋|² + (c + κ′)Ω̂²|∇̸Ψ|² ≥ 2 min(c, κ′) Ω̂² |D̂Ψ|², and e_i + κe_o ≥ 2 min(1, κc) Ω̂² |D̂Ψ|² = 2κc Ω̂² |D̂Ψ|². ∎
 
 **Lemma {#lem:tl5-hf-conversions}** (The norms of the local theory and of the double-null conversion.) Let c_* := c(u*) =
 f(−u*)/2, the minimum of c on [−10, u*].

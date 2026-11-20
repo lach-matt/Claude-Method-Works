@@ -1,149 +1,85 @@
-# Report: P-CIVP4 (Tier 4 of the characteristic initial value problem: data of any size reaching the axes)
+# Report: P-CIVP4, fix round (Tier 4: data of any size reaching the axes)
 
-File written: `research/warp-drive/paper/reader/proofs/P-CIVP4.md`, 1154 lines, md5 436d17be962a9c34358832bfce3c00b9.
-No chapter, crosswalk, Appendix A or bibliography file, and neither P-CIVP.md nor P-CIVP2.md, was edited. Nothing under
-method/, drive/, extracted/ or recovered/ was read. Nothing was committed. P-CIVP3.md (Tier 3) does not exist yet; its
-results are cited by pending markers, and only where Tier 4 cannot do without them.
+File: `research/warp-drive/paper/reader/proofs/P-CIVP4.md`, 1292 lines, md5 0e0ef24b527d9ae78536e0208f86b9b5 (was
+436d17be962a9c34358832bfce3c00b9). Review applied: notes/reviews/R-P-CIVP4.md (5 Major, 13 minor, 16 nits). Old texts of
+the Placement are taken from the chapters at HEAD 481f86a1 (Tiers 1, 2, 3 and the null-shell section merged). No chapter,
+crosswalk, review or other proof file was edited; nothing under method/, drive/, extracted/ or recovered/ was read;
+nothing was committed; assemble.py was run without --check only in the scratch tree.
 
-## 1. The theorem as stated (thm:civp-axes)
+## Labels
 
-Cone data in the sense of def:civp-axes-data on edges N_o = {0} × [0, λ_v], N_i = [0, λ_u] × {0}: G-invariant smooth
-families of Ω > 0, a vector field b and a Riemannian metric γ on S³ (the natural double-null form eq:civp-axes-form,
-smooth through the axes because they are tensor fields on S³), densities q_in ≥ 0, q_out ≥ 0, the constraints, any Ω
-on both edges and any b on N_i, any size, no condition at the axes beyond smoothness. Q := [0, λ_u] × [0, λ_v].
-(The face lengths are λ_u, λ_v, not u1, v1, to avoid the chapter's u1 = 5.7.)
+No label of this file is renamed or removed; none is added. The 31 labels are those of the first version
+(lem:class-leaf-reference, eq:class-leaf-lipschitz, eq:class-leaf-wise; sec:civp-axes and its 28 labels). proofs/P-CIVP5.md
+(Tier 5) cites none of them. The three pending markers are resolved: [[pending:tier3-section]] -> [[sec:loc-axis]],
+[[pending:tier3-theorem]] -> [[thm:loc-axis]] (a) (theorem (c), its proof, rem:civp-axes-scope (i)),
+[[pending:tier3-theorem-general]] -> [[thm:loc-axis]] in the rewritten Corollary P, which is now unconditional.
 
-- (a) Corner: a class solution in the gauge on [0, σ]² × S³, σ depending only on k, the size Λ in C^(6k+19) of the data
-  within distance l := min(1, λ_u, λ_v) of the corner, their nondegeneracy κ (γ ≥ κγ̊) there, and l.
-- (b) Neighbourhood of the cones: u*, v* > 0 and a development on ([0, u*] × [0, λ_v]) ∪ ([0, λ_u] × [0, v*]).
-- (c) Uniqueness in the gauge without smallness; the maximal development D_max (relatively open past set); it contains
-  the developments of (a), (b), Tier 1 (thm:loc-cone-development), Tier 2 (thm:civp-large) and Tier 3 when their
-  hypotheses hold.
-- (d) Continuation criterion on rectangles R_(a,b): bounded derivatives of order ≤ 6k + 26 and γ ≥ κγ̊ on R_(a,b) ∖ {(a,b)}
-  give a neighbourhood of R_(a,b).
-- (e) Localisation: a development on any relatively open past set (e.g. the background on a rectangle) is the maximal
-  development there.
+## The term "class solution in double-null form"
 
-Corollaries: cor:civp-axes-cones (the chapter's cone data of prop:loc-cones / lem:loc-cone-in, any size and support,
-axes included, with γ̂ smooth on S³ and e^ϕ > 0 on every generator, develop near both cones, unique in the gauge);
-cor:civp-axes-perturbations (Corollary P: small non-round perturbations of a round two-dust background develop on every
-rectangle in its G, conditional on Tier 3 written about a general such background).
+Defined once, in sec:civp-axes-data (file line 246 ff., the paragraph after eq:civp-axes-raychaudhuri), worded as P-SHELL's
+definition, with a sentence that on sets D ⊂ F these are Tier 3's "class solutions in the gauge through the axes"
+(def:loc-axis-data). The paragraph after eq:civp-axes-form now proves the equivalence of the two forms (a smooth invariant
+metric of the form eq:loc-double-null off the axes is in natural double-null form, Ω² > 0 and γ > 0 at the axes by
+nondegeneracy). All 21 occurrences of "class solution(s) in the gauge" in Block B now read "in double-null form", except
+the two that name Tier 1's term. Since sec:civp-axes precedes sec:loc-shells, Placement item 10 turns P-SHELL's second
+definition (83:3282–3286 at HEAD) into a reference to sec:civp-axes-data with the same content.
 
-## 2. What is proved in the file (all proofs written out; 14 proofs, 14 end marks)
+## Major findings
 
-Block A (chapter 81, after rem:class-leaf-numerics): **lem:class-leaf-reference** (K-ax).
-- (o) foliation by the Volterra leaves of a smooth non-solution V: radius r_V and constants from c, lower bounds of
-  A3, B3, det₂, C² of g_V, C¹ of (p_V, Θ_V); the difference-quotient bound [1/2, 3/2] (eq:class-leaf-lipschitz) proved
-  from the contraction constants of lem:class-volterra; smoothness from step (3) of lem:class-planar-shear and the
-  implicit function theorem in C([0, r_V]).
-- (a), (b) about V: the proof of lem:class-leaf-differences with five listed changes (leaves h_V, same-axis-point
-  differences with the zero-order term −∂_z H_L[V] δh, derivatives in z0 with Jacobian ∂_(z0) h_V ∈ [1/2, 3/2], the shift
-  (∂_(z0) σ_V) δz0, balls about V).
-- (b′) leaf by leaf, eq:class-leaf-wise: no ball, no extension, constant independent of D; needs C³ of g and C¹ of
-  (p_A, Θ_A). Proof: the Volterra difference with the bounds |∂_z G|, |∂_q G| ≤ C_4 r along leaves, the Hardy operator
-  𝒜 (norm 1 on L²(r dr)) and two operators with small norm on [0, R], then the shift term via Lipschitz dependence of
-  σ on the axis point, then integration over axis points. (GN-T4's mean-value form is replaced by this direct estimate;
-  the H² interior estimate is not needed.)
-- Placement item 2: the definitional clause (TΣ_L := γ3-orthogonal complement of p_A^Σ) in lem:class-leaf-differences.
+1. Shift across N_i: applied as written (lem:civp-axes-jets statement, the "On N_i" paragraph, prop:civp-axes-formal (d)).
+   Added: (i) says the shift of the exchanged form solves a linear ODE; the "Vanishing to infinite order" step says why
+   E(L̲, ·) = 0 on N_i.
+2. Time chart: applied (y := e^(v−μu)ω, 4μΩ² > γ(b, b) on R_ε). Changed: the extension now also carries the densities and
+   keeps 4μΩ_e² > γ_e(b_e, b_e) by the choice of ε_1 ≤ ε; Φ's image is stated to contain the set 𝒲 of points within
+   ε_1/2 of R′, where Ũ and U are defined (needed for the localisation of Major 3).
+3. Non-local term: applied with W := U + χ_𝒩(Ũ − U) and (b′) for (U, W), D := D_t; covers both cases. Changed where the
+   replacement was not quantitative: the cut-off χ_𝒩 has derivatives O(η_2^(−i)), so I use Taylor's formula at order
+   k + 2 (Ũ − U = O(s^(k+2−j)) near R′ ∩ {t ≤ t*}) to get W − U = O(η_2²) in C^k; the displacement of the leaves of W from
+   those of U is then C″η_2² ≤ η_2/4, which is what puts them where W = Ũ. D_t lies within η_2/8 (not /4) of
+   R′ ∩ {t ≤ t*}; η′ := η_2/8. Time steps renamed θ, θ_1, θ′ -> η_1, η_2, η′ (nit 11); minor 13 folded in.
+4. Criterion: applied with the replacement's structure. Changed: uniqueness is applied on D_max ∩ 𝒬 ∩ {u < λ_u, v < λ_v}
+   (relatively open in the rectangle of the extended edges, which may pass the far sides of Q) and extended by
+   continuity; the relative openness of D_max ∪ 𝒬 gets its reason. Also changed, against the review's parenthesis: part
+   (b) of lem:civp-axes-extension bounds the mixed derivatives ∇̊^i∂_s^j with i, j ≤ m separately (total order 2m + 1),
+   and part (d) raises the total order by one, so the hypothesis of the criterion and of thm:civp-axes (d) is now
+   "derivatives of total order at most 12k + 46" (was 6k + 26). Faces Step 0/3 were made consistent (K′ over
+   i + j ≤ 2m + 8, K″ over i, j ≤ m + 3, L(η) for ∇̊^i∂_u^(m+4)).
+5. Block A complete without chapter 81's base proof: (a) is "the proof of lem:class-leaf-differences (a) with changes
+   (i)–(vii)", (vi) the zero-order bound by the radial form (δh(0) = 0, step One leaf with (U, V)), (vii) the integration
+   over axis points; (b) is proved as (b′) with D := Σ_τ. P-CLD.md does not exist yet; when it reports, (vi)–(vii) can
+   cite its labels instead. No chapter 81 placement item for the base proof.
+   Added for (b′) to apply in the corner and uniqueness proofs, where states are defined only near the region: the lemma
+   now fixes r_* ∈ (0, ρ1(p)/4] and takes all bounds on 𝒰_(r_*) (r_V ≤ r_*/2, δ_𝔐 ≤ r_*/16); (a), (b) hold for
+   δ ≤ δ_V := min(r_V/8, δ_𝔐 for 2𝔐_V and c/2). Corner Step 2 and uniqueness Step 4 choose r_* and δ accordingly.
 
-Block B (chapter 83, a new section after Tier 3's):
-- def:civp-axes-data; eq:civp-axes-raychaudhuri (the cone constraint for ỹ = (μ_γ/μ_γ̊)^(1/3), regular at the axes).
-- **lem:civp-axes-principal** (T4-3, natural form): in any chart of S³, the evolution components contain no ∂_u²; the
-  ∂_v-principal part, computed by hand from the coordinate formula for Ricci, is block-triangular and invertible
-  ((1/(2Ω²)) on γ, −2/Ω on Ω, −(1/(4Ω²))γ on b) at every point, axes included; angular derivatives of the top jet only in
-  the b-row; affine in the top jet for j ≥ 2; for the class, affinity at j = 1 and the absence of b-jets in the (Ω, γ)-rows
-  from eq:loc-cone-frame-ricci off the axes and continuity (invariant vector fields vanish at the axes). GN-T4's
-  frame-normalised determinant −γ_ϑ/(4Ω⁹) is the coordinate form of this; the conical condition and its propagation are
-  the smoothness of the tensor jets, so no separate defect equation is needed.
-- **lem:civp-axes-jets**: jets at all orders through the axes by linear triangular ODEs along the generators (no
-  Riccati term), on the whole edges; corner compatibility (Tier 1's proof, local in ϑ, plus continuity); bounds with the
-  loss of 4 derivatives per order; every solution has them.
-- **lem:civp-axes-extension**: (a) extension past an end with C^m bound, from the coefficients a_j, b_j of [LY22,
-  Theorem 1 (i)] (thm:std-ly-extension, already in Appendix A), the extension property proved in the text; (b) short
-  pieces: Taylor polynomial of order m plus the extension of the remainder at the scale a (GN-T4's "rescaled Seeley");
-  (c) solving the constraints past an end with positivity for a length ℓ(m, Λ, κ), loss of 3 derivatives; (d) the change
-  of angle making b = 0 on N_i.
-- **prop:civp-axes-formal**: Borel about X_0(u, v) = a_0(v) + b_0(u) − a_0(0), with |X̂ − X_0| ≤ C_b(|u| + |v|), C_b
-  independent of δ_e (no background is available to fall back on away from N).
-- **prop:civp-axes-corner** (T4-2): Steps 0–7, constants traced: Λ, κ, l → δ_1 = min(l/3, d/4, δ_2), δ_c = δ_1/32,
-  ‖X̂‖_(C^(k+3)), the K-ax constants for Û, ρ, T* of thm:class-kato (a) with reference path 0 in Z := 𝐔 − 𝐔̂, initial slice
-  T*/2 before the corner (GN4-2 item 3), σ = δ_c(e^(T*/4) − 1)/2. Two observations remove two of Tier 3's ingredients
-  from this proof: the formal metric Ĝ is double-null in the chart's own (u, v), so its leaves in every slice are the
-  round spheres |y| = r, and the face sections and the far cuts are Û-leaves (no Lemma A needed for Û); and the residual
-  of the axis closure at Û is −E(P̂_A, P̂_A), local and flat on N (no GN3 argument needed). The past region uses the
-  extension version about Û with K-ax (b) on annuli of uniform shape; the constraints use K-ax (b′) on the shells of the
-  slice triangle (GN4-2 item 6 avoided); the double-null gauge through the axes as in lem:loc-cone-gauge with the
-  displacement estimate |Ψ − id| ≤ Cρ·dist(·, N). The timelike character of ∂_τ for Ĝ (Tier 1's "reference metric"
-  paragraph) is re-proved on the set 𝒮′, since here b̂ = a_0^b(v) + correction does not vanish off the correction's support.
-- **prop:civp-axes-unique** (T4-4), proved in full: reduction to compact rectangles; first disagreement time t* in
-  t = u + v; a wave map from g′ to g on a layer, solved as a Cauchy problem from {t = t*} with cut-offs
-  (thm:class-kato (a), local forcing); comparison in the wave gauge of g, the non-local term by K-ax (b′) while both ends
-  of D_t lie on the cones and by the extension version about the genuine solution g (lem:class-leaf-differences (b))
-  otherwise; the coordinates recovered as in lem:loc-cone-unique. **cor:civp-axes-maximal** (D_max).
-- **prop:civp-axes-faces** (T4-5) with (C), (E), (J), (U), as GN-T4 §4.1, with the gluing done on D_max ∩ Q′ (so no
-  hidden assumption that D_max stops at v_η + η/2), and the ingoing edge by symmetry. **rem:civp-axes-riccati**: the
-  model □φ = (∂_uφ)² derived in the text (Riccati, blow-up at v = 4/|w_0|) and □φ = ∂_uφ ∂_vφ (linear); no citation.
-- **prop:civp-axes-criterion** (T4-6); **lem:civp-axes-free-data** (cone data from free data through the axes, which is
-  what T3-0 would give for the corollary, proved here); thm:civp-axes; the two corollaries; **rem:civp-axes-scope**.
+## minor findings and nits
 
-## 3. Pending markers and exactly what each needs
+All applied. Where I changed a replacement: minor 3 and 4 rebased on HEAD with Tier 3 and the null shells merged (items
+4–9 keep the Tier 3 and null-shell clauses; item 4 drops only the false clause "No development is asserted for cone data
+that differ from the background's near an axis and are not near the background's" and says what thm:civp-axes adds);
+minor 5: item 2 is now "no change" (Tier 3's merged clause is the one copy), and the line-9 clause was reverted since Tier 3
+is placed; minor 10: the constant in |X_0 − X| is 2Λ′, and the points with |u|, |v| ≤ d are within √2 d of N; minor 12:
+"have a neighbourhood in F contained in G" replaces "at positive distance from the boundary of G" (that wording allowed
+Q_0 to touch the side v = V1 of Q, where the margin fails), and the finite-union part is proved (slightly larger
+rectangles, interiors relative to the least containing rectangle). Nit 14 also fixes κ′ := κ/(4Λ²). Lemma
+civp-axes-extension (c) now asks extensions on [λ, λ + 1/2] and gives ℓ ≤ 1/2, matching what (b) supplies. Nit 11: the
+rectangle sides are a_R, b_R in the uniqueness proof, the criterion, thm:civp-axes (d), (e) and cor:civp-axes-cones.
+rem:civp-axes-scope (iv) now points to thm:loc-shells for null shells.
 
-- `[[pending:tier3-section]]` (intro of the section and the Placement): the label of the Tier 3 section; only a
-  cross-reference.
-- `[[pending:tier3-theorem]]` (thm:civp-axes (c), its proof, rem:civp-axes-scope (i)): the Tier 3 theorem for chapter
-  83's background, as GN-T3 §6 plans it: small cone data, axes included, have a class solution in the gauge on Q1 (a
-  past set relatively open in the rectangle, smooth through the axes). Used only to say that D_max contains it.
-- `[[pending:tier3-theorem-general]]` (cor:civp-axes-perturbations): the Tier 3 theorem written about a general round
-  two-dust background g_0 of prop:two-dust-background on a rectangle Q_0 ⊂ G: there is ε_0 > 0 such that cone data within
-  ε_0 of g_0's on the edges of Q_0 (in Tier 3's norm, no condition in angle) have a class solution in the gauge on
-  Q_0 × S³. If Tier 3 is stated only for chapter 83's background, Corollary P holds only for that background.
+## Placement (13 items)
 
-No Tier 3 lemma is needed in a proof step of (a)–(e): Lemma A and GN3 are not needed for Û (above), and Lemma R is
-replaced by the full proof of prop:civp-axes-unique. Tier 2's own pending markers remain in its texts that my Placement
-items 4–7 quote; they are replaced by the Tier 2 wiring round.
+1 Block A after rem:class-leaf-numerics; 2 no change to lem:class-leaf-differences; 3 Block B after sec:loc-axis, before
+sec:loc-shells; 4 ch83 last sentence of the paragraph after rem:loc-cone-scope (83:728–730); 5 ch83 opening (83:16);
+6 ch90 (90:219–221); 7 ch03 More families (03:381–383); 8 rem:loc-cone-local-scope (83:1656–1660); 9 rem:civp-large-domain
+(83:2403–2404); 10 sec:loc-shells definition -> reference (83:3282–3286); 11 optional pointer in rem:loc-axis-scope (i)
+(83:3237–3238); 12 unchanged; 13 Appendix A (no entry; Stein's operator now only in the corner proof). Crosswalk: 31 rows,
+tab-separated, source "paper/reader/proofs/P-CIVP4.md@PENDING:N", plus notes for the existing rows touched.
 
-## 4. What remains open
+## Checks (scratch merge of `git archive` HEAD 481f86a1 with all 13 items applied)
 
-- No lower bound for u*, v* in terms of norms (S-T4's N′, T4-6′, not written); an explicit width needs estimates near the
-  axes on a strip of fixed width.
-- The whole rectangle (not asserted; can fail by focusing).
-- Further families (only the two adapted families are treated; rem:civp-axes-scope (iii)).
-- Finite regularity, measure-valued densities, no symmetry.
-- Not done (optional in S-T4): cor:class-short-time at the axes in chapter 81; the remark on [HL17, p. 1] (the paper is
-  not in the bibliography and its text was not re-checked); no change to rem:class-scope.
-
-## 5. Points a reader should check
-
-1. lem:civp-axes-principal (c): the continuity arguments (affinity at j = 1, b-independence) rely on the class
-   formulas eq:loc-cone-frame-ricci off the axes and on invariant vector fields vanishing at the axes.
-2. lem:class-leaf-reference (a), (b) are written as changes to the proof of lem:class-leaf-differences, which is itself a
-   sketch in chapter 81; (o) and (b′) are self-contained.
-3. Corner Step 5: the uniform Stein constant for the annuli P ∩ 𝒰 ∩ Σ_τ (bounded by face sections and far cuts, all
-   round spheres) for τ ∈ [τ_init, τ_end].
-4. prop:civp-axes-unique Step 4 (ii) applies lem:class-leaf-differences in the slicing by t = u + v; its constants depend
-   on that slicing (S-T3 R5, GN-T3 R2), which is fixed by the solution g.
-5. prop:civp-axes-faces Step 0: K″ (the jets after the change of angle of a piece of {v = const}) is described, not
-   computed; it is a polynomial bound in K′.
-
-## 6. Interactions with the Tier 1 and Tier 2 rounds
-
-Labels of P-CIVP and P-CIVP2 are cited as they stand. Names of Tier 1 that my text uses and that its fix round renames:
-"ε_0" of lem:loc-cone-borel in the proof of prop:civp-axes-formal (→ ε_B); Tier 1's "η" appears in no text of mine
-(my axis partition function is χ_ax, chosen to avoid Tier 1's new ϖ). I also use Tier 1's δ_1, δ_c, δ_e, c_+, 𝒮, 𝒰,
-case (II), the "reference metric" paragraph, A^μ_♭, ϒ, r_0, c_0, by name. Placement items 4, 6 and 7 quote Tier 2's new
-texts as they stand in P-CIVP2.md (lines 694–695, 720–721, 744); item 5 is a sentence to insert at a described position.
-
-## 7. Check outputs
-
-On a scratch copy (scratchpad/pcivp4/tree: chapters/, crosswalk/, assemble.py, lint.py, OUTLINE.md), with Tier 1's
-Blocks A and B, Tier 2's placement (its own apply script) and this file's items 1–7 applied, and the chapter-83 opening
-paragraph reflowed after the item-5 insertion:
-
-- `python3 lint.py --chapters`: "chapters: 62 file(s), 4764 label(s) defined, 19 hit(s)", all 19 "pending" (13 lines with Tier 2's
-  markers for Tier 1, 6 with Tier 4's markers for Tier 3), no other hit.
-- `python3 assemble.py --check`: "labels 4764, computations cited 0, problems 0".
-- On the file itself: every line ≤ 121 code points raw and with each reference replaced by a worst case ("Proposition
-  83.123", "(83.123)", "Section 83.12.4"); no wrapped line starting with "+ ", "- ", "* ", "> ", "#", "=" or "|"; no
-  backslash; labels lowercase; 14 proofs, 14 end marks. `python3 lint.py proofs/P-CIVP4.md` reports, besides the
-  pending markers and the chapter labels a single-file run cannot see, only file names in the Placement and Crosswalk
-  sections (which are not merged into chapters).
+Every old text found exactly once as whole lines. `lint.py --chapters`: 62 files, 4864 labels, 0 hits.
+`assemble.py --check`: labels 4864, problems 0. Full assembly (scratch only): 0 problems, no line of PAPER.md over 121
+characters; the section is 53.7, lem:class-leaf-reference is Lemma 51.30; `lint.py --paper`: 0 hits. `lint.py` on the
+proof file: only cross-file labels, file names and long lines in the Crosswalk section. Own checker: no line of Blocks A,
+B or the Placement over 121 characters raw or with labels resolved, no bad wrapped starts, no backslashes, 14 proofs and
+14 ∎. All 31 crosswalk rows give the line of their label.

@@ -242,7 +242,7 @@ A°_a − ζ°_a = P_a + S_a = (2P + Q)_a = ((1 + x)m)_a and B°_a − ζ°_a = 
 
     A°_v − ζ°_v = (1 + x)m_v,   B°_v − ζ°_v = (1 − x)n_v,   A°_u − ζ°_u = (1 + x)m_u,   B°_u − ζ°_u = (1 − x)n_u.
 
-Now take the chapter's formula ([[eq:tl5-components]], [[eq:tl5-derivatives]], [[eq:tl5-frame-derivatives]] and the
+Take the chapter's formula ([[eq:tl5-components]], [[eq:tl5-derivatives]], [[eq:tl5-frame-derivatives]] and the
 lines after it) term by term. A first derivative ψ_x occurs multiplied by b, b_u, b_v or b·b_x, which carry the factor
 w, so bψ_x = sψ̌, b_uψ_x = s_uψ̌, b_vψ_x = s_vψ̌ and b b_xψ_x = s b_xψ̌; ψ_xx occurs only as b²ψ_xx = s²ψ̌₂, and in
 the factors E(ψ_E) = μ²(ψ_xx − ζ_xψ_x), μ²ψ_x and μ ψ_x treated below. With μ = √w μ̂, ϑ = e^(ζ−2W)/4 = 1/(4√w μ̂Ω²)
@@ -425,7 +425,7 @@ index 0 and N_d halved; with the values enclosed in intervals they are enclosed 
 chain rule for τ₁ = (t − t_c)/t_h and τ₂ = (σ − σ_c)/σ_h gives the division. The transform is the inverse of the
 evaluation at the Chebyshev–Lobatto points, which is the standard identity for interpolation at those points. ∎
 
-The values g_ab(τ_l) at the nodes are computed from the 2-jets of the fields there, which by [[lem:appc-reexpand]] and
+The values g_ab(τ_l) at the nodes are obtained from the 2-jets of the fields there, which by [[lem:appc-reexpand]] and
 [[eq:tl5-cheb-derivative]] are exact rational combinations of the printed integers evaluated at the nodes, the seed's
 jets by [[lem:appc-newton]] and [[eq:appc-seed-jets]], and the chart's derivatives by [[eq:tl5-chain]] with the
 element's h_i in place of h_ξ; then [[eq:appc-regular]] is evaluated in interval arithmetic.
