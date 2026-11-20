@@ -28,10 +28,10 @@ governed by the mass law of [[thm:bondi-law]] ([[prop:mean-mass]], [[rem:mean-ma
 nothing is claimed about future null infinity or the Bondi mass there, which the domain does not reach
 ([[rem:bondi-scope]]).
 
-If μ0 > √72 l5², the boundary x_K = 1 is spacelike for g_λ with a uniform margin, and a future causal curve that meets it
-leaves D_T there and does not return ([[prop:boundary-spacelike]]). At equality, μ0 = √72 l5², this fails in a layer at
-the start of the shell whose width tends to 0 with λ: on every column the boundary has points where it is timelike for
-g_λ, and future timelike curves cross it into D_T ([[thm:layer]], [[cor:layer]]). That the domain of [[prop:eq-domain]],
+If μ0 > √72 l5², the boundary x_K = 1 is spacelike for g_λ with a uniform margin once λ is small, and a future causal
+curve that meets it leaves D_T there and does not return ([[prop:boundary-spacelike]]). At equality, μ0 = √72 l5²,
+this fails in a layer at the start of the shell whose width tends to 0 with λ: on every column the boundary has points
+where it is timelike for g_λ, and future timelike curves cross it into D_T ([[thm:layer]], [[cor:layer]]). That the domain of [[prop:eq-domain]],
 whose inner boundary no future causal curve enters, is needed in place of D_T is not shown ([[cor:layer]]). Inside the
 layer the character of the boundary is decided in the parts of the layer that [[prop:layer-regions]] describes, by one
 switch per column on the band between the levels λ^(3+δ) and λ^(3−δ) for an envelope increasing at its edge with the
@@ -96,13 +96,13 @@ continuation of g_λ beyond the ball, and their development is not one ([[sec:af
 stated for perturbations in Hintz's own data class, and not for a class of decaying data reached by gluing, since gluing
 replaces the data near infinity on which the solution near the hole at late times depends ([[rem:settling-class]]). The
 perturbations that (ii) reaches, directly or through gluing uniformly in the gluing radius, are exactly those small in
-Hintz's class: a perturbation decaying like r^(−a) with a > 3 is reached directly, for 3/2 < a ≤ ℓ0 the rate does not
-decide, and the statement that (ii) applies up to the gluing is false for fixed size and large radius at every such a
-([[thm:after-shell-reach]]).
+Hintz's class: a perturbation of order of decay a > 3 and small enough size is reached directly, for 3/2 < a ≤ ℓ0 the
+rate does not decide, and the statement that (ii) applies up to the gluing is false for fixed size and large radius at
+every such a ([[thm:after-shell-reach]]).
 
 With its inner radius taken as half the radius q_end of the curvature boundary after the shell, the development of
 [[thm:settling]] (i) is defined on all of {r ≥ q_end} to the future of its initial surface and settles there at the
-rate of [[thm:settling]], for every final mass, λ1, δ and the constants then depending on μ_end; the part of its domain
+rate of [[thm:settling]], for every final mass, with λ1, δ and the constants depending on μ_end; the part of its domain
 below q_end lies beyond the curvature boundary ([[prop:interior]]). For λ small, glued to g_λ along the part of the
 initial surface where the two induce the same data, it forms one vacuum spacetime; how far their identification reaches
 into the future is not decided, nor whether that part of the initial surface is acausal in all of the domain of g_λ
@@ -116,8 +116,8 @@ The development of g_λ's own data on Hintz's initial surface settles, with no g
 a data class wider than that of [[thm:settling]] (ii) by half-integer orders ([[thm:own-data]]). The class of (ii) does
 not contain these data: for every amplitude but at most one, the coefficient of r^(−5/2) that g_λ − g0 carries at past
 null infinity after the shell is nonzero for every λ ∈ (0, λ_P] off a set with no accumulation point in (0, λ_P], and it
-reaches the data at spatial infinity ([[ch:own-data]], [[prop:own-tail]]). The threshold λ_2 is not evaluated, and ε,
-d_1 and λ_2 depend on the class ([[thm:own-data]]). The continuation of g_λ to the past domain of dependence of the far
+reaches the data at spatial infinity ([[ch:own-data]], [[prop:own-tail]]). The constants ε, d_1 and λ_2 depend on the
+class ([[thm:own-data]]). The continuation of g_λ to the past domain of dependence of the far
 part of the initial surface is unique in the wave-map gauge among the continuations within 1/50 of Tangherlini whose
 commuted energies of some weight a_0 ∈ (0, 1/2) stay bounded and whose energy tends to 0 toward past null infinity
 ([[prop:own-uniqueness]]); existence is not attempted at a weight a_0 ≤ 1/2 ([[rem:own-low-weight]]).
@@ -170,11 +170,11 @@ direction and kept off the axes, on domains of the type of Ω whose initial sphe
 smallness is assumed, and the hypotheses hold on a nonempty open set of solutions ([[thm:vlasov]], [[lem:vlasov-open]],
 [[prop:vlasov-nonempty]]). The hypotheses avoid four obstructions proved in [[ch:vlasov]], among them that two dusts of
 one orientation are not separated at an axis and that a continuous density carried to an axis transversally would
-focus there ([[rem:vlasov-obstructions]]). The two radial dusts of [[thm:two-dusts]],
-which reach the axes, can be added to a small restricted field when the outgoing packet does not reach the inner
-sphere; the solution then exists on its adapted domain and is a weak limit of class vacuum metrics on domains of the
-type of Ω inside it, narrower than it, the high-frequency step not being carried out on the adapted domain itself, and
-no uniqueness of that solution is stated [[pending:scope-two-dust-radial]].
+focus there ([[rem:vlasov-obstructions]]). The two radial dusts of [[thm:two-dusts]], which reach the axes, can be added
+to a small restricted field when the outgoing packet does not reach the inner sphere; the solution then exists on its
+adapted domain and is a weak limit of class vacuum metrics only on narrower domains of the type of Ω inside it, the
+high-frequency step not being carried out on the adapted domain itself, and no uniqueness of that solution is stated
+[[pending:scope-two-dust-radial]].
 
 The results on localised data concern the explicit two-dust background of [[sec:bg-data]], on its slice Σ_τ0 or on a
 slice bent from it, and invariant data near the background's data ([[ch:localised-data]]). Data localised in angle away
@@ -182,20 +182,20 @@ from the axes exist on the whole of a slice bent from Σ_τ0 by at most 0.0012, 
 everywhere; on Σ_τ0 itself the split is hyperbolic except in one band inside the shell, where it is hyperbolic for no
 foliation ([[thm:loc-bent-slice]], [[prop:loc-band]]). Localisation in angle and radius at once is decided at second
 order in the amplitude by the sign of the charge, and it is stated in terms of the sign of f, nothing using the event
-horizon: on a vacuum band that meets {f < 0} such vacuum data exist for every small amplitude, on a vacuum band where
-f > 0 they are excluded for small amplitude when the first-order part is not a gauge perturbation, and on every vacuum
-band they are excluded for small amplitude when the first-order part perturbs the extrinsic curvature alone
-([[thm:charge-sign]]).
+horizon: on a vacuum band that meets {f < 0} such vacuum data whose first-order part is not a gauge perturbation exist
+for every small amplitude, on a vacuum band where f > 0 they are excluded for small amplitude when the first-order part
+is not a gauge perturbation, and on every vacuum band they are excluded for small amplitude when the first-order part
+perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
 
 ### At the prescribed wavelength 10 l5 {#sec:scope-ten-l5}
 
 [[thm:main]] is a statement for small λ; for the smooth envelope of [[def:lambda0-point]], whose parameters are those
 of the first seed at 10 l5, the threshold that its proof delivers lies below 10 l5 by a factor above 409
-([[sec:lambda0-bound]]). At λ = 10 l5 there is no separation of scales: at both seeds the wavelength is 10 times the
-curvature length on x_K = 1 and of the order of it at the horizon ([[prop:tl5-scales]]); the statement that the waves
-are high-frequency on D_T once λ < l5/10 concerns the approximant, not the threshold λ0 ([[sec:tl5-scales]]). The
-envelope taken there, sin⁴(π(v − 1/2)/3), is C³ and not C⁴, so [[thm:main]] does not apply to it at any λ
-([[rem:envelope-regularity]]).
+([[sec:lambda0-bound]]). At λ = 10 l5 there is no separation of scales: the wavelength is 10 times the curvature
+length on x_K = 1, and at the horizon more than 2.91 times it at the first seed and more than 0.92 times it at the
+second ([[prop:tl5-scales]], [[thm:ten-l5]]); the statement that the waves are high-frequency on D_T once
+λ < l5/10 concerns the approximant, not the threshold λ0 ([[sec:tl5-scales]]). The envelope taken there,
+sin⁴(π(v − 1/2)/3), is C³ and not C⁴, so [[thm:main]] does not apply to it at any λ ([[rem:envelope-regularity]]).
 
 Posed as a characteristic initial value problem in double-null gauge, the problem at 10 l5 has a solution where the
 solution is the seed, v ≤ 1/2 in units of the horizon radius; and wherever a vacuum solution exists in the gauge with the
@@ -205,9 +205,10 @@ claimed for v > 1/2: the continuation lemma assumes smooth data and the local ex
 the characteristic problem in the gauge, which this paper does not establish, the data are not smooth, its a priori
 estimate is one on a whole region, the axes included, and the residual bounds proved hold at points and on boxes of a
 region not of that form ([[thm:ten-l5]], [[lem:tl5-continuation]], [[rem:tl5-beyond]]). Beyond v = 1/2 the shift on
-the outgoing data cone is subject to a constraint that this paper does not treat ([[def:tl5-problem]]). The size of the constant of a linear estimate on a solution found at the first seed,
-and with it how far the closing condition of the continuation lemma lies from the residual bounds proved, is a numerical
-observation that no proof uses ([[rem:tl5-constants]]).
+the outgoing data cone is subject to a constraint that this paper does not treat ([[def:tl5-problem]]). The size of
+the constant of a linear estimate on a solution found at the first seed, and with it how far the closing condition of
+the continuation lemma lies from the residual bounds proved, is a numerical observation that no proof uses
+([[rem:tl5-constants]]).
 
 ### Numerical observations {#sec:scope-observations}
 
