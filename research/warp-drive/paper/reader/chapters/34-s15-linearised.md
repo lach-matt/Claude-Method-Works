@@ -593,7 +593,7 @@ indicial root. Near ztf, N_tf = r̂⁻²L, with L as at the end of [[sec:i-c-2-5
 symbol J(ι) = I(−ι) ([[sec:i-c-4-1]] (c)); so a root μ of J is −μ_b, μ_b ∈ spec_b, and 𝒳(β) is H^s_(b,−β) there.
 
 **Lemma {#lem:iii-f1-3-1}** (Relative index.) Let β_1 < β_2 < β_1 + 1, neither the real part of a point of spec_b,
-and s ∈ ℤ. Then ind(β_2) − ind(β_1) = dim F, where F := ⊕_μ F_μ over the roots μ of J with −β_2 < Re μ < −β_1 and
+and s ∈ ℤ, s ≥ 2. Then ind(β_2) − ind(β_1) = dim F, where F := ⊕_μ F_μ over the roots μ of J with −β_2 < Re μ < −β_1 and
 
     F_μ := {Res_(ι=μ)(ϱ^ι J(ι)⁻¹ g(ι)) : g holomorphic near μ, C^∞(𝕊³; ℂ^(N_E))-valued}.                 {#eq:iii-f1-3-1}
 
