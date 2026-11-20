@@ -715,3 +715,145 @@ only problems are the three "chapter 81" references (minor 6), which lint does n
   - chapter 81: thm:class-kato, rem:class-kato-local, lem:class-volterra, lem:class-leaf, lem:class-planar-shear step
     (3), prop:class-augmented, Steps 6, 9, 10 of thm:class-stability;
   - Appendix A: thm:std-ly-extension, thm:std-sy-extension, cor:std-moser-product.
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Confirmation
+
+File read: proofs/P-CIVP4.md after its fix round, md5 0e0ef24b527d9ae78536e0208f86b9b5, 1292 lines; every line
+re-read. Also read: the writer's fix-round report (notes/reports/P-CIVP4.md). HEAD is now 0c913792. Its chapters and
+crosswalk are identical to 481f86a1's, on which the placement is based (`git diff --stat 481f86a1 HEAD` shows only
+proof files).
+
+Scratch merge: `git archive` of HEAD into scratchpad/reader/scratch/rpcivp4c/, script rpcivp4-tools/apply_fix.py.
+
+- Block A follows rem:class-leaf-numerics, and Block B goes before "### Null shells along the leaves
+  {#sec:loc-shells}". Each anchor occurs once.
+- Items 4–11 each occur once, as whole lines.
+- `python3 lint.py --chapters`: "62 file(s), 4864 label(s) defined, 0 hit(s)".
+- `python3 assemble.py --check`: "labels 4864, computations cited 0, problems 0".
+- `python3 assemble.py` (scratch only): 0 problems. No assembled line is over 121 characters. The section is 53.7 and
+  lem:class-leaf-reference is Lemma 51.30.
+- `python3 lint.py --paper`: 0 hits.
+- In the file: no line before the Crosswalk section is over 121 characters, and no wrapped line has a forbidden start.
+  There are 14 proofs and 14 end marks, and no pending marker remains.
+- "chapter 81" no longer appears in paper text. "class solution in the gauge" is left only where it names Tier 1's or
+  Tier 3's terms (lines 208, 248, 251, 1020).
+- All 31 crosswalk rows are tab-separated, have four fields, and give the right line of their label.
+
+### Verdict on the findings: all resolved
+
+**Major 1 (the shift across N_i): resolved.**
+
+- The statement now says that E(L̲, ·) vanishes on N_i.
+- (i) records the extra ODE.
+- The "On N_i" paragraph fixes b̃ at v = 0 by the exchanged constraint, with b̃ = 0 and ∂_u b̃ = −∂_v b at the
+  corner.
+- "Vanishing to infinite order" now says why E(L̲, ·) = 0 on N_i.
+- prop:civp-axes-formal (d) runs the Bianchi argument on N_i in the exchanged form, with the right constraints. It uses
+  E(L̲, L̲) and E(L̲, ·) on N_i and E(∂_v, ∂_v) on N_o.
+
+**Major 2 (the time chart): resolved.**
+
+- The chart is y = e^(v−μu)ω with 4μΩ² > γ(b, b) on R_ε for both solutions; ∂_t is a positive multiple of
+  ∂_u + μ∂_v.
+- The writer's changes are right:
+  - the densities are extended with the metric, which is needed, as U and Ũ carry them;
+  - ε_1 ≤ ε is chosen so that the inequality persists on the extension, by continuity from R_ε where g_e = g;
+  - g′_e inherits the inequality.
+- The set 𝒲 is what Major 3 needs. One small overstatement remains (nit A below).
+
+**Major 3 (the non-local term in uniqueness): resolved.**
+
+- The writer is right that my replacement did not close. There ϵ′ was fixed before the scale θ_1 of the cut-off, so the
+  derivatives of χ_𝒩, of size θ_1^(−i), are not compensated.
+- The Taylor version works:
+  - Ũ − U vanishes to infinite order on the closed set R′ ∩ {t ≤ t*}, so its derivatives of order j ≤ k + 2 are
+    ≤ C′ s^(k+2−j) at distance s, along the segment to the nearest point, which stays in 𝒲 as η_2 ≤ ε_1/4;
+  - with |∂^i χ_𝒩| ≤ C η_2^(−i) on supp χ_𝒩 ⊂ {s ≤ η_2}, every derivative of order ≤ k of W − U = χ_𝒩(Ũ − U) is
+    ≤ C C′ η_2^(k+2−j) ≤ C C′ η_2²;
+  - so W has the bounds of (b′), and *One leaf* (sup |F| ≤ C C′ η_2²) with eq:class-leaf-lipschitz puts the leaf of W
+    through a point within C″ η_2² of the leaf of U through it.
+- With C″ η_2² ≤ η_2/4 and D_t within η_2/8 of R′ ∩ {t ≤ t*} (R′ star-shaped, |(u, v)| ≤ t), the W-leaf lies within
+  3η_2/8 < η_2/2, where W = Ũ.
+- (b′) with (U, W) on D_t, which is closed under the round U-leaves, then gives the estimate, for t ≤ t* + η_2/8.
+- η′ := η_2/8 is consistent. r_*, δ ≤ δ_𝔐 (for 2𝔐_U and c_U/2) and χ_ax are now fixed for U in the t-slicing, which
+  closes minor 13.
+
+**Major 4 (the criterion): resolved, and the writer's correction of my parenthesis is right.**
+
+- lem:civp-axes-extension (b) needs Λ ≥ |∇̊^i ∂_s^j f(0)| with i, j ≤ m separately: the C^m norm of the Taylor
+  polynomial P holds ∇̊^α ∂_s^l f(0) with |α| ≤ m − j′ and l ≤ m. It also needs L ≥ |∇̊^i ∂_s^(m+1) f| with i ≤ m.
+- That is total order 2m + 1 at the order m, hence 2m + 7 at the order m + 3. Part (d) raises it to 2m + 8 =
+  12k + 46. My 6k + 26 was too few.
+- The new hypotheses of prop:civp-axes-criterion and thm:civp-axes (d), the sentence after the criterion, and faces
+  Steps 0 and 3 (K′ over i + j ≤ 2m + 8, K″ over i, j ≤ m + 3, L(η) for ∇̊^i ∂_u^(m+4)) are consistent with each
+  other.
+- The gluing is right:
+  - uniqueness on D_max ∩ 𝒬 ∩ {u < λ_u, v < λ_v}, which is relatively open in the rectangle of the extended edges
+    even where those pass the far sides of Q;
+  - then continuity;
+  - D_max ∪ 𝒬 is a past set, by the three inclusions, and relatively open in Q.
+
+**Major 5 (the zero-order bound of lem:class-leaf-differences): resolved for Tier 4.**
+
+- Block A (a) now adds (vi), the zero-order term ‖δh‖_(L²(𝔻_(2δ))) and the shift z0^U − z0^V, bounded by *One leaf*
+  of (b′) with (U, V), using δh(0) = 0.
+- It also adds (vii), the integration over axis points, with the Jacobian ∂_(z0) h_V ∈ [1/2, 3/2] and the weight 2πρ1.
+- (b) is proved as (b′) with D := Σ_τ.
+- The bounds are taken on 𝒰_(r_*). I checked:
+  - r_V ≤ r_*/2, and the leaves over [0, r_V] stay in 𝒰_(r_*), since |h_V − z(p)| ≤ 3r_V/2;
+  - δ_𝔐 ≤ r_V/8 ≤ r_*/16, with ρ1 ∈ [ρ1(p)/2, 2ρ1(p)] on 𝒰_(2δ) still holding;
+  - δ_V := min(r_V/8, δ_𝔐(2𝔐_V, c/2)), and the bounds of (b′) hold for states in 𝔅′ by (v).
+- The corner (Step 2: r_*, δ_Û, ξ fixed first) and the uniqueness proof (Step 4: r_* with 𝒰_(r_*) ⊂ 𝒲) choose r_* and
+  δ consistently.
+- Block A no longer needs any further step of chapter 81's base proof beyond those I accepted in the first reading: the
+  elliptic estimate with the quadratic terms absorbed, and the induction on transverse derivatives. So it stands on its
+  own until proofs/P-CLD.md lands; (vi) and (vii) can then cite it.
+
+**minor 1–13: all resolved.** Where the writer changed my replacement, I agree:
+
+- minor 3 and 4: rebased on HEAD. Item 4 drops only the false clause and keeps the Tier 3 citation and the null-shell
+  exception with its closing clause. Item 6 keeps the sentences of Tier 3 and the null shells. Items 8 and 9 are right
+  in context.
+- minor 5: item 2 is "no change". The merged Tier 3 clause in lem:class-leaf-differences (p_A^Σ, p_A(n), the sign of
+  p_A(∂_z), the γ3-orthogonal complement) is at HEAD, and Block A reads H_L[U] from it.
+- minor 7: the term is defined once, at line 246.
+  - The new paragraph after eq:civp-axes-form proves the equivalence of the two forms. I checked the step at the axes:
+    det g = −4Ω⁴ det γ, so nondegeneracy with γ ≥ 0 and Ω² ≥ 0 as limits gives γ > 0 and Ω² > 0.
+  - Item 10 turns the null-shells definition (83:3282–3286) into a reference with the same content. The section's
+    later uses (83:3318, 3421, 3988, 4007 at HEAD: "a class solution in double-null form" on cells, with "round", on
+    each closed cell) read correctly with it. Tier 4's section precedes sec:loc-shells, so the definition comes before
+    every use.
+  - Chapter 57's "metrics in double-null form" (sec:tl5-cip-form) is a different, explicitly defined notion in another
+    chapter, and does not conflict.
+- minor 10: the constant 2Λ′ (for points with u, v < 0 the nearest point is the corner, |u| + |v| ≤ √2 dist) and
+  √2 d are right; min(|u|, |v|) ≤ dist(·, N) holds on 𝒮_e.
+- minor 12: "Q_0 has a neighbourhood in F contained in G" is the right hypothesis; the writer's point about the side
+  v = V1 of Q is correct. Corollary P is now unconditional: it cites thm:loc-axis with k ≥ 9, cone data through the
+  axes in the normalised gauge, nonnegative densities, size ≤ ε_0 in C^(12k+42), and a background with margin δ_1. The
+  finite-union part is proved correctly: the slightly larger Q_0″, Q_0′ := Q_0″ ∩ Q′, its interior relative to Q′,
+  and the least ε_0.
+- nit 14: κ′ := κ/(4Λ²) is right (ỹ² ≥ κ/4, γ̂ ≥ Λ⁻² γ̊). Extension (c) on [λ, λ + 1/2] with ℓ ≤ 1/2 matches what (a)
+  (to [−w, 1] in v − λ_v) and (b) (to [0, 1]) supply.
+- The other minors and nits 1–16 are applied as written: lines 102, 136, 141, 145, 120–124, 148, 185–186, 215, 463–465,
+  494, 500–507, 527, 537, 565, 591, 608, 611–613, 703, 754, 779, 864, 887–888, 916, 975, and the crosswalk format.
+
+### Remaining nits (none blocks confirmation)
+
+A. Line 771–773: "the image under Φ of the points … with t ≤ t* + η_1 contains the set 𝒲 of the points of
+   {t* ≤ t ≤ t* + η_1} …". Φ moves points by O(η_1²) (φ = ∂φ = 0 at t*), so near the top slice t = t* + η_1 the
+   claim is not exact. Only slices with t ≤ t* + η_2/8 ≤ t* + η_1/8 are used, so nothing depends on it.
+   - Fix: at line 773 read "{t* ≤ t ≤ t* + η_1/2}", and at line 784 read "t* ≤ t ≤ t* + η_1/2".
+
+B. Lines 1130 and 1158: the new texts of items 4 and 6 end in the short lines "except finitely many null" and "with
+   densities smooth", followed by the unchanged chapter lines. This is legal, but ragged. The paragraph can be rewrapped
+   at merge.
+
+C. Line 948–950: prop:civp-axes-unique is applied to the corner solution, whose domain is the closed square. Take its
+   relatively open part [a_R − η, a_R − η + σ″)² (∩ Q), as cor:civp-axes-maximal does.
+
+D. Lines 3–4 (not merged): "the Placement section below gives the position and one clause added to
+   [[lem:class-leaf-differences]]" is stale, since item 2 is now "no change". Read "gives the position".
+
+**Verdict: CONFIRMED.** There is no open Major or minor finding; nits A–D are optional.
