@@ -33,15 +33,16 @@ curve that meets it leaves D_T there and does not return ([[prop:boundary-spacel
 this fails in a layer at the start of the shell whose width tends to 0 with λ: on every column the boundary has points
 where it is timelike for g_λ, and future timelike curves cross it into D_T ([[thm:layer]], [[cor:layer]]). That the
 domain of [[prop:eq-domain]], whose inner boundary no future causal curve enters, is needed in place of D_T is not shown
-([[cor:layer]]). Inside the layer, for δ ∈ (0, 1/2] and P > 4, the boundary is spacelike above the band between the
-levels λ^(3+δ) and λ^(3−δ), and it has points of both characters on every window of length 4πλ that starts where |env|
-first reaches a level between λ^P and λ^(3+δ) ([[prop:layer-regions]]); on the band its character is decided up to a
-factor 1 ± 2λ^(1/10) in the ratio of the first-degree amplitude to the margin ([[rem:edge-criterion]]). For an envelope
-increasing at its edge with the hypothesis (H_N) of [[def:edge-hypotheses]] the band is decided by one switch per column
-([[thm:l-24]]), and the very edge for envelopes with the edge hypotheses, which hold for env_C ([[thm:very-edge]],
-[[cor:edge-envelope]]). Some regularity of the edge is needed: for an explicit smooth envelope whose intervals of zeros
-accumulate at the edge, the boundary is spacelike throughout intervals of length 4πλ below the level λ^(3+δ), for every
-small λ ([[prop:edge-dips]]), and at a dip of a general envelope the criterion of [[rem:edge-criterion]] decides nothing.
+([[cor:layer]]). Inside the layer, for δ ∈ (0, 1/2], P > 4 and λ small, the boundary is spacelike above the band between
+the levels λ^(3+δ) and λ^(3−δ), and it has points of both characters on every window of length 4πλ that starts
+where |env| first reaches a level between λ^P and λ^(3+δ) ([[prop:layer-regions]]); on the band its character is decided
+up to a factor 1 ± 2λ^(1/10) in the ratio of the first-degree amplitude to the margin ([[rem:edge-criterion]]). For an
+envelope increasing at its edge with the hypothesis (H_N) of [[def:edge-hypotheses]] the band is decided by one switch
+per column ([[thm:l-24]]), and the very edge for envelopes with the edge hypotheses, which hold for env_C
+([[thm:very-edge]], [[cor:edge-envelope]]). Some regularity of the edge is needed: for an explicit smooth envelope whose
+intervals of zeros accumulate at the edge, the boundary is spacelike throughout intervals of length 4πλ below the level
+λ^(3+δ), for every small λ ([[prop:edge-dips]]), and at a dip of a general envelope the criterion of
+[[rem:edge-criterion]] decides nothing.
 
 ### The thresholds and the constants {#sec:scope-constants}
 
@@ -72,7 +73,7 @@ computational point is a point at which the formulas of the proof can be evaluat
 [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the proof of any
 theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
 [[prop:fwd-calculus]] proves, and the value N′ = 13 of [[ch:s06]], which rests on [[lem:fwd-orders]], are used only in
-that chapter ([[ch:explicit-constants]]).
+[[ch:explicit-constants]], whose opening states both.
 
 Explicit values stop upstream of every constant of [[thm:settling]]: the proof fixes the gauge and damping parameters
 only below thresholds whose existence it proves, and the cut-offs and orders of its function spaces only up to
@@ -104,10 +105,10 @@ continuation of g_λ beyond the ball, and their development is not one ([[sec:af
 stated for perturbations in Hintz's own data class, and not for a class of decaying data reached by gluing, since gluing
 replaces the data near infinity on which the solution near the hole at late times depends ([[rem:settling-class]]). The
 perturbations that (ii) reaches, directly or through gluing uniformly in the gluing radius, are exactly those small in
-Hintz's class: a perturbation of order of decay a > ℓ0 and small enough size is reached directly, which over the
-admissible ℓ0 covers every a > 3 ([[cor:after-shell-every-rate]]), for 3/2 < a ≤ ℓ0 the rate does not decide, and the
-statement that (ii) applies up to the gluing is false for fixed size and large radius at every such a
-([[thm:after-shell-reach]]).
+Hintz's class: a perturbation of order of decay a > ℓ0, ℓ0 ∈ (3, 4) being the order of that class's conormal remainder in
+the metric ([[thm:settling]]), and of small enough size is reached directly, which over the admissible ℓ0 covers every
+a > 3 ([[cor:after-shell-every-rate]]), for 3/2 < a ≤ ℓ0 the rate does not decide, and the statement that (ii) applies up
+to the gluing is false for fixed size and large radius at every such a ([[thm:after-shell-reach]]).
 
 With its inner radius taken as half the radius q_end of the curvature boundary after the shell, the development of
 [[thm:settling]] (i) is defined on all of {r ≥ q_end} to the future of its initial surface and settles there at the
