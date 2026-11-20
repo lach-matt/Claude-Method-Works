@@ -17,7 +17,7 @@ in the coordinates (u, v), times S³. The four cases are named by the seed and t
 
 We use the chart of [[def:tl5-chart]] in the u-direction, ξ := arsinh((u + 1)/a) with a = 1/500, and v itself. The
 region D_A is [ξ₀, ξ_A] × [1/2, 7/2] in (ξ, v), with ξ₀ := −arsinh 4500 and ξ_A := −arsinh 500, and D* is
-[ξ₀, ξ*] × [1/2, 7/2] with ξ* := −arsinh 50; numerically ξ₀ = −9.10498…, ξ_A = −6.90776… and ξ* = −4.60527….
+[ξ₀, ξ*] × [1/2, 7/2] with ξ* := −arsinh 50; here ξ₀ = −9.10498…, ξ_A = −6.90776… and ξ* = −4.60527….
 
 **Definition {#def:appc-layout}** (Elements.) A layout consists of integers n_ξ, n_v ≥ 1, rational numbers
 c₁ < … < c_(n_ξ−1) and d > 0 (the breakpoints in ξ and the half-width of their transitions), rational numbers
@@ -77,8 +77,8 @@ suffices to take s ∈ (0, 1/2]. On [1/100, 1/2], cover the interval by 20,000 e
 Taylor coefficients of order at most 6 of Φ on each by the rules of [[def:tl5-jets]] (series of order 6), the
 exponential and the reciprocal being applied to series whose constant term is an interval; the largest end points,
 times k!, are at most φ_k. On (0, 1/100] use Cauchy's estimate on the disc |z − s| ≤ s/2: there Re(1/z) ≥ 2/(3s),
-since inversion maps the disc onto the disc with diameter [2/(3s), 2/s], and Re(1/(1 − z)) ≤ 1/(1 − 3s/2), so
-|Φ(z)| ≤ e^(−2/(3s))/(e^(−1/(1−3/200)) − e^(−2/(3s))) and |Φ^(k)(s)| ≤ k!(2/s)^k sup |Φ|, which at s = 1/100 is far
+since inversion maps the disc onto the disc with diameter [2/(3s), 2/s], and Re(1/(1 − z)) ≤ 1/(1 − 3s/2),
+so |Φ(z)| ≤ e^(−2/(3s))/(e^(−1/(1−3/200)) − e^(−2/(3s))) and |Φ^(k)(s)| ≤ k!(2/s)^k sup |Φ|, which at s = 1/100 is far
 below φ_k and increases in s on (0, 1/100]. (b) The Φ_i are nonincreasing in i at each point, because the transitions
 are disjoint by admissibility, and the sums telescope. The supports follow from those of the Φ_i. ∎
 
@@ -259,9 +259,9 @@ A_x + B_x − ζ_x = λ + σ′_A + σ′_B − σ′_ζ because A° + B° − �
 and ψ_xx = ψ°_xx + σ″_ψ, the products of two regular parts and the terms ψ°_x · wσ′_χ are polynomials, and the purely
 singular parts are the left sides of [[eq:appc-sing]]; collecting gives w times these brackets equal to Σ_EE, Σ₁₁ and
 Σ₂₂. For example w(A_xx + A_x(A_x + B_x − ζ_x)) = w(A°_xx + A°_xλ) + A°_x · w(−2x/w) + wσ′_A λ + w(σ″_A +
-σ′_A(−2x/w)) = Σ₁₁ by the first identity of [[eq:appc-sing]]. Next, M_A(L, E) + M_B(L, E) = Σ_ψ (L(ψ_E) − (η + τ)ψ_L
-+ ψ_Lψ_E) = √w Σ_ψ (μ̂(ψ°_vx + ψ_x(ψ°_v − ζ°_v)) − (η̂ + τ̂)ψ°_v), and with the last display and the fifth and sixth
-identities of [[eq:appc-sing]], ψ_x(ψ°_v − ζ°_v) is α₁m_v for ψ = A and β₁n_v for ψ = B; this is √w Σ_LE.
+σ′_A(−2x/w)) = Σ₁₁ by the first identity of [[eq:appc-sing]]. Next, M_A(L, E) + M_B(L, E) = Σ_ψ (L(ψ_E) −
+(η + τ)ψ_L + ψ_Lψ_E) = √w Σ_ψ (μ̂(ψ°_vx + ψ_x(ψ°_v − ζ°_v)) − (η̂ + τ̂)ψ°_v), and with the last display and the fifth and
+sixth identities of [[eq:appc-sing]], ψ_x(ψ°_v − ζ°_v) is α₁m_v for ψ = A and β₁n_v for ψ = B; this is √w Σ_LE.
 Likewise M_A(Y, E) + M_B(Y, E) = √w Σ_ψ (μ̂(ψ°_ux + bψ_xx + ψ_x(ψ_Y − Y(ζ))) − (η̂ − τ̂)ψ_Y), and with
 ψ_Y − Y(ζ) = (ψ°_u − ζ°_u) + s(ψ̌ − ζ̌) one gets μ̂(ψ°_ux + ψ_x(ψ°_u − ζ°_u)) + μ̂ s w(ψ_xx + ψ_x(ψ_x − ζ_x)), where
 the first is μ̂(A°_ux + α₁m_u) or μ̂(B°_ux + β₁n_u) and the second is μ̂sΘ_ψ by the third and fourth identities of
@@ -383,9 +383,9 @@ modulus of the quantity it replaces, on all of ℰ_ρ. For |R_s|: the map R ↦ 
 the disc with diameter [1/5, 1], so |log((R − 1)/(R + 1))| ≤ log 5 + arcsin(2/3) < 2.35 there, and
 2R_s = H − log((R_s − 1)/(R_s + 1)) gives |R_s| ≤ (|H| + 2.35)/2. ∎
 
-**Lemma {#lem:appc-coefficients}** (Coefficients and interpolation.) Let g be holomorphic on a neighbourhood of ℰ_ρ with
-|g| ≤ M there, and let g = Σ a_ijk T_i(τ₁)T_j(τ₂)T_k(τ₃) be its Chebyshev expansion on [−1, 1]³. Then
-|a_ijk| ≤ 8Mρ₁^(−i)ρ₂^(−j)ρ₃^(−k). For N = (N₁, N₂, N₃) let p be the polynomial of degree at most N_d in τ_d that
+**Lemma {#lem:appc-coefficients}** (Coefficients and interpolation.) Let g be holomorphic on a neighbourhood of ℰ_ρ
+with |g| ≤ M there, and let g = Σ a_ijk T_i(τ₁)T_j(τ₂)T_k(τ₃) be its Chebyshev expansion on [−1, 1]³.
+Then |a_ijk| ≤ 8Mρ₁^(−i)ρ₂^(−j)ρ₃^(−k). For N = (N₁, N₂, N₃) let p be the polynomial of degree at most N_d in τ_d that
 interpolates g at the points (cos(πl₁/N₁), cos(πl₂/N₂), cos(πl₃/N₃)), 0 ≤ l_d ≤ N_d. Then for every multi-index
 α = (α₁, α₂, α₃),
 
@@ -428,7 +428,7 @@ evaluation at the Chebyshev–Lobatto points, which is the standard identity for
 The values g_ab(τ_l) at the nodes are obtained from the 2-jets of the fields there, which by [[lem:appc-reexpand]] and
 [[eq:tl5-cheb-derivative]] are exact rational combinations of the printed integers evaluated at the nodes, the seed's
 jets by [[lem:appc-newton]] and [[eq:appc-seed-jets]], and the chart's derivatives by [[eq:tl5-chain]] with the
-element's h_i in place of h_ξ; then [[eq:appc-regular]] is evaluated in interval arithmetic.
+element's h_i in place of h_ξ; then [[eq:appc-regular]] is evaluated by the rules for intervals.
 
 #### The overlaps {#sec:appc-overlaps}
 
@@ -475,14 +475,15 @@ The certificate of an element is the family of numbers
 given by [[prop:appc-element-bound]] and [[prop:appc-overlap]], printed rounded upward. They bound every quantity the
 continuation argument uses: the derivatives in (u, v, x) follow by [[eq:tl5-chain]] with the element's chart, and the
 Lie derivatives of Ric(ĝ) along the commutation fields of the level-3 estimate, weighted by μ^(|I|/2), are explicit
-combinations of these derivatives, of f_ab themselves and of the fields' jets, as [[pending:lem-tl5-f3-source]] states.
+combinations of these derivatives, of f_ab themselves and of the fields' jets, as [[pending:lem-tl5-f3-residual]] states.
 With the weight φ of the weighted norm, whose rates are those of [[pending:lem-tl5-l7-rates]], the target of element
 (i, j) is
 
     f_ij := f e^(φ_ij/2),   φ_ij := min over U_ij of φ,                                                 {#eq:appc-target}
 
 where f is the target of the case ([[sec:appc-outcomes]]); since e^(−φ/2) ≤ e^(−φ_ij/2) on U_ij, a pointwise bound f_ij
-on U_ij for every element gives the weighted source norm at most the bound that f gives with φ ≡ 0 on the whole region.
+on U_ij for every element gives the weighted norm of the residual at most the bound that f gives with φ ≡ 0 on the
+whole region.
 
 ### Certified outcomes {#sec:appc-outcomes}
 
@@ -525,7 +526,7 @@ paginated on; its blocks are in the format of [[sec:appc-format]], one case afte
 block of the first table when the tables are certified.
 
 *2. Pending items.* [[pending:lem-tl5-cip-axis]] is the axis lemma of the characteristic problem (smoothness of a
-metric of the class with smooth fields). [[pending:lem-tl5-f3-source]] is the statement of the level-3 estimate that
+metric of the class with smooth fields). [[pending:lem-tl5-f3-residual]] is the statement of the level-3 estimate that
 names the residual norm; [[sec:appc-norm]] must be completed with its exact combination once it is written.
 [[pending:lem-tl5-l7-rates]] is the certified rates lemma. The four outcome rows and the specimen are computational
 items: no coefficients have been certified.
