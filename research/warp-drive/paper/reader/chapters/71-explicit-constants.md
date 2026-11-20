@@ -161,9 +161,10 @@ may exceed it. Each elementary loss is a non-negative integer, so d_acc is at le
 family of steps that are composed one after another in the construction.
 
 [[thm:ii-g-2-1]] is applied in the proof of [[thm:iii-k-3-2]] with N_NM = 21d_NM + 6, where d_NM is the largest of
-the d's of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]], as [[prop:uc-d-small]] fixes them. Each of
-these is at least the loss of the estimate of its result, that of [[lem:iii-k-2-3]], a construction, accounted by
-[[def:ec-accounted-loss]] and the other two as their proofs fix them, and at least the orders at which its proof asks U
+the d's of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]], as their proofs fix them ([[prop:uc-d-small]] at
+the computational point). Each of these is at least the loss of the estimate of its result, that of [[lem:iii-k-2-3]], a
+construction, accounted by [[def:ec-accounted-loss]] and the other two as their proofs fix them, and at least the orders
+at which its proof asks U
 small; for [[lem:iii-k-2-3]] these include the order d′_0 ≥ d_* + D + d_Φ of its proof, with d_* of [[lem:iii-j2-2-3]],
 D the d of [[thm:iii-j2-4-1]] and d_Φ the loss of U ↦ Φ(U). As (iii) of [[thm:ii-g-2-1]] asks [[eq:ii-g-2-4]] of the
 right inverse of [[lem:iii-k-2-3]], whose loss is that of [[eq:iii-j2-4-2]], d_NM ≥ d_acc ([[thm:loss-d]]).
@@ -1432,10 +1433,11 @@ beyond the bound ε_Υ < δ̂, which holds at every h as ε_Υ is fixed by (γ_�
 
 **Theorem {#thm:loss-d}** (The loss d and the regularity N_NM.) Let d_acc be the accounted loss of
 [[def:ec-accounted-loss]], and d_NM the loss with which the proof of [[thm:iii-k-3-2]] applies the Nash–Moser theorem
-[[thm:ii-g-2-1]]: the largest of the d's of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]] that
-[[prop:uc-d-small]] fixes, each at least the loss of its estimate, that of [[lem:iii-k-2-3]] accounted by
-[[def:ec-accounted-loss]], and the orders at which its proof asks U small. Then [[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]]
-hold with d = d_acc, [[thm:ii-g-2-1]] is applied at the regularity N_NM = 21d_NM + 6, d_NM ≥ d_acc, and:
+[[thm:ii-g-2-1]]: the largest of the d's of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]] that their
+proofs fix ([[prop:uc-d-small]] at the computational point), each at least the loss of its estimate, that of
+[[lem:iii-k-2-3]] accounted by [[def:ec-accounted-loss]], and the orders at which its proof asks U small. Then
+[[thm:iii-j2-4-1]] and [[thm:iii-j2-4-2]] hold with d = d_acc, [[thm:ii-g-2-1]] is applied at the regularity N_NM =
+21d_NM + 6, d_NM ≥ d_acc, and:
 
 (i) d_acc is composed, by the rules of [[def:ec-accounted-loss]], of elementary losses and of the numbers of steps of the
 iterations of the inventory of [[sec:iii-j2-3]], among them the three of [[sec:ec-floor]], each round of those three and
@@ -1496,8 +1498,8 @@ bound for d_acc in this chapter holds for d_NM and N_NM as well, because d_NM �
 ### What the proof's formulas give for δ and λ1 {#sec:ec-delta}
 
 **Proposition {#prop:ec-delta-cap}** (The thresholds δ and λ1.) In the proof of [[thm:settling]], let d be the loss
-d_NM with which [[thm:iii-k-3-2]] applies [[thm:ii-g-2-1]] (d ≥ d_R ≥ d_acc, [[thm:loss-d]], [[prop:uc-d-small]]),
-and let the Nash–Moser
+d_NM with which [[thm:iii-k-3-2]] applies [[thm:ii-g-2-1]] (d ≥ d_R ≥ d_acc, d_R the accounted loss of the right
+inverse ℛ(U) of [[lem:iii-k-2-3]] ([[lem:uc-dr]]); [[thm:loss-d]], [[prop:uc-d-small]]), and let the Nash–Moser
 threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]]. Let ε be the data threshold
 of [[cor:s27-rate]], chosen, as in the proof of [[thm:iii-k-3-2]], with ε ≤ s̃ and C_(2d)ω̃(ε) < ε_NM, where C_(2d) is
 the constant of [[lem:iii-k-2-2]] (d) at the order 2d, and ω̃ := ω_(2d+3) and s̃ := min(s_(2d+3), s_P) are the modulus

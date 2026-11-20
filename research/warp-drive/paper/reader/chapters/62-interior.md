@@ -578,7 +578,7 @@ bound l_* of [[def:iii-i10-1-1]], and the smallness threshold of [[thm:iii-k-4-3
 of ℰ^C_I at the half-integers can rise, through the extended unions ℰ_0 ∪̄ ℰ^C_I of that proof; they enter l_* and k̄(λ)
 of [[def:iii-i10-1-1]], and through k̄(λ) the counts of the index sets in the loss d ([[thm:loss-d]]), and their values
 are not determined here. So d, ε_n and d_1, and with them λ1 and δ, may change; [[sec:own-half-class]] shows that the
-logarithmic orders do not rise.
+logarithmic orders do not rise, and [[rem:own-half-changes]] that d_1 and ε_n change through the exponents of ℰ_0^½.
 
 So the continuation of g_λ's own data consists of three steps: (1) the scattering problem on W of
 [[lem:interior-far-part]], with r-weighted estimates in place of the annuli of bounded thickness of
