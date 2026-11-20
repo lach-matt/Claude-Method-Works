@@ -1553,8 +1553,10 @@ in the chapter at HEAD. P-G1 gives the line numbers of an earlier chapter, two l
   C33-11 would have to stop before "Collecting", and its last paragraph ("Collecting, the Q-terms add at most
   (9C₂ + 2)𝔛⁻² + C′_𝔛h to the coefficient −c_0 of ‖Aω‖², …") would go into T41's first sentence.
 - **C33-12 and T7 share one sentence.** The old text of T7 ends with "[[lem:iv5-0-5]] (6) on supp ψ′." at the start of
-  line 1536, and the old text of C33-12 is that line. Both new texts keep these words in place, so either order works:
-  after C33-12 the old text of T7 is found once, and after T7 the old text of C33-12 is.
+  line 1536, and the old text of C33-12 is that whole line. Both new texts keep these words in place, so either order
+  works: after C33-12 the old text of T7 is found once, and after T7 the old text of C33-12 is. After both, the line is
+  "[[lem:iv5-0-5]] (6) on supp ψ′. Q enters with a lower bound, the adjoint pairing containing +h⁻¹⟨AQAω, ω⟩:", 106
+  characters.
 - **C33-20 and T34.** C33-20 inserts a paragraph before the sentence "This gives [Hin26a, (B.39)], …", which T34
   replaces. If both are merged, insert C33-20's paragraph before T34's new text; P-G1 says the same.
 - **Adjacent but not overlapping.** T42 (line 1465) and C33-9 (line 1466); T5 (line 1507) and C33-10 (line 1508).
@@ -1563,7 +1565,9 @@ in the chapter at HEAD. P-G1 gives the line numbers of an earlier chapter, two l
 - **Simulated merge in P-G1's order.** All of P-G1's chapter-33 texts (C33-1 to C33-20, with C33-4 the new section and
   C33-3 the deletion) were applied to the chapter at HEAD, and then T1–T45 with variant A for T41. Each of the 45 old
   texts occurs exactly once in the chapter after P-G1, no two overlap, and the paragraph of C33-20 ends up immediately
-  before the new text of T34. The combined chapter has no line over 121 characters and no backslash.
+  before the new text of T34. The combined chapter has no line over 121 characters and no backslash. The P-G1 reader
+  ran the full merge in this order (P-G1, then T1–T45 with variant A) and found every old text once, lint 0 hits and
+  assembly 0 problems.
 
 ## 9. Crosswalk
 
