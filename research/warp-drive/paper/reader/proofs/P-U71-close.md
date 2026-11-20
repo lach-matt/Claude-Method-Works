@@ -364,19 +364,28 @@ Moreover ℓ⁺_tf = 1 and r_ι ≤ 16 in [[eq:ec-upper]], and the hypotheses of
 
 *Proof.* *The gaps.* ε_Υ is admissible by [[lem:ec-gauge-gap]], and ε_ind(10⁻⁶) = δ_50 > 1.9413·10⁻⁸ > ε_Υ
 ([[def:ec-point]]), so ε_g = min(ε_Υ, ε_ind) = ε_Υ ([[def:s21-eps-g]]). *The constants of [[eq:iii-i9-1-1]].* They ask
-0 < ε_K < ε_+ < min(δ_♯, ε_ind), and 1.6416·10⁻¹⁴ < 1.9·10⁻⁸ < 1.9413·10⁻⁸ < δ_50, while δ_♯ = λ_♯ − 3/2 = 0.0099.
-*(G).* By [[thm:is-gap]], for the set Λ that [[def:iii-i10-1-1]] builds from the index sets of [[def:uc-choice]], (G)
-holds if and only if ε_K < μ_G, and μ_G > 1.64160217197·10⁻¹⁴ > 1.6416·10⁻¹⁴ = ε_K by [[eq:is-mu]]. Also ε_K < ε_Υ, as
-[[def:iii-i10-1-3]] asks. *(H4) and the strips.* (H4) asks ℓ_I > 3 + ε_+ off discrete sets, and a_I > 3 + ε_+ of the
-class; so ℓ_I ∈ (3 + ε_+, 3.5) off those sets exists. [[lem:uc-phi-loss]] asks 3 < ℓ_I < 3.5, λ₋ ∈ (ℓ_I − 2, 3/2) and
-δ_ι < 3.5 − ℓ_I, which are imposed. *η_1 and η_2.* [[sec:iii-i11-1]] asks η_1 < η_2 in (ε_K, ε_+), η_1 < ε_g, and that
-2 + η_1 and 3 + η_2 be the real part of no element of Λ; as Λ ∩ {Re ≤ 4} is finite ([[lem:iii-i10-1-2]] (a)), such η_1
-and η_2 exist. *ε.* [[sec:iii-j2-1]], [[sec:iii-i11-1]] and the proofs of [[lem:iii-i8-3-2]] and [[prop:iii-i13-2-1]]
-ask ε small and off finite sets, so ε ≤ 10⁻³ε_g may be imposed besides. Step 4 of the proof of [[prop:iii-i11-3-1]] asks
-a δ₄ > 0 with δ₄ + ℓ_3 + 2ε < ε_g, where ℓ_3 = α − 4 − ε < ε_K; it exists, as ε_K + ε ≤ 1.6416·10⁻¹⁴ + 1.4619·10⁻¹³
-< ε_g. *α.* An admissible α ≥ 3 is a number in (4 + ε_K − ε′_0, 4 + ε_K], ε′_0 = ½ min(ε_K, ε_+ − ε_K) = ½ε_K, off a
-finite set ([[def:iii-i10-1-3]]); [4 + 0.999ε_K, 4 + ε_K] lies in that interval, so an admissible α with
-0.999ε_K ≤ α − 4 ≤ ε_K exists. *The levels.* The excluded values near each level are finitely many ([[sec:iii-i8-1]],
+0 < ε_K < ε_+ < min(δ_♯, ε_ind), and 1.6416·10⁻¹⁴ < 1.64160217·10⁻¹⁴ < 1.9413·10⁻⁸ < δ_50, while
+δ_♯ = λ_♯ − 3/2 = 0.0099. *(G).* By [[thm:is-gap]], for the set Λ that [[def:iii-i10-1-1]] builds from the index sets
+of [[def:uc-choice]], (G) holds if and only if ε_K < μ_G, and μ_G > 1.64160217197·10⁻¹⁴ > 1.6416·10⁻¹⁴ = ε_K by
+[[eq:is-mu]]. Also ε_K < ε_Υ, as [[def:iii-i10-1-3]] asks. *(G⁺) and the exactness conditions.* By [[thm:is-gap]] and
+its proof, λ_♯ + 1109655𝔡₀ + 31682𝔡₁ = 3 + μ_G has the least real part above 3 of the elements of Λ, and
+ε_+ < 1.64160217197·10⁻¹⁴ < μ_G ([[eq:is-mu]]); so no λ ∈ Λ has real part in (3, 3 + ε_+], which is (G⁺) of
+[[def:iii-j-g-plus]] and (Ex1) of [[def:iii-j3-1-3]]. (Ex2) holds: near 3 the real parts of the exponents of ℰ^tot_I
+([[eq:iii-c-3-1]]) are 3 and numbers at distance at least 0.0099 from 3 ([[prop:is-ci-pp]] (a)), so none is 3 + ε_+,
+and λ_♯ < 2. *(H4) and the strips.* (H4) asks ℓ_I > 3 + ε_+ off discrete sets, with ℓ_I ≤ a_I ([[sec:iii-i8-1]]), and
+so a_I > 3 + ε_+ of the class; so ℓ_I ∈ (3 + ε_+, 3.5) with ℓ_I ≤ a_I off those sets exists. [[lem:uc-phi-loss]] asks
+3 < ℓ_I < 3.5, λ₋ ∈ (ℓ_I − 2, 3/2) and δ_ι < 3.5 − ℓ_I, which are imposed. *η_1 and η_2.* [[sec:iii-i11-1]] asks
+η_1 < η_2 in (ε_K, ε_+), η_1 < ε_g, and that 2 + η_1 and 3 + η_2 be the real part of no element of Λ; as
+Λ ∩ {Re ≤ 4} is finite ([[lem:iii-i10-1-2]] (a)), such η_1 and η_2 exist. *ε.* [[sec:iii-j2-1]], [[sec:iii-i11-1]],
+[[def:iii-i13-1-1]] and the proofs of [[lem:iii-i8-3-2]] and [[prop:iii-i13-2-1]] ask ε small and off finite sets,
+so ε ≤ 10⁻³ε_g may be imposed besides. Step 4 of the proof of [[prop:iii-i11-3-1]] asks a δ₄ > 0 with
+δ₄ + ℓ_3 + 2ε < ε_g, where ℓ_3 = α − 4 − ε < ε_K; it exists, as ε_K + ε ≤ 1.6416·10⁻¹⁴ + 1.4619·10⁻¹³ < ε_g. *α.* An
+admissible α ≥ 3 is a number in (4 + ε_K − ε′_0, 4 + ε_K], ε′_0 = ½ min(ε_K, ε_+ − ε_K) = ½(ε_+ − ε_K) =
+1.085·10⁻²⁰, off a finite set ([[def:iii-i10-1-3]]), and (A_J), (Ex3) and (Ex4) exclude finitely many more
+([[def:iii-j-a-j]], [[lem:iii-j3-1-4]]: (A_J) excludes the α with α − Re λ₀ one of the finitely many numbers −Re μ and
+Re π_1ℰ_K in (0, 3), for the finitely many λ₀ ∈ Λ with Re λ₀ < 3 + ε_+); so such an α exists, and as
+ε′_0 < 0.001ε_K, 0.999ε_K ≤ α − 4 ≤ ε_K.
+*The levels.* The excluded values near each level are finitely many ([[sec:iii-i8-1]],
 [[def:iii-i13-1-1]]). Choose the levels downward from β_K := α, each spacing in [0.999(α − 4), α − 4) and each level
 admissible and different from 3, until the first level below α − 2 is reached; as every spacing is less than α − 4, that
 level lies in (2, α − 2), and it is α_1. *a♭_K.* The background h + h_rem(q) has the K⁺-order (α − 2)−
