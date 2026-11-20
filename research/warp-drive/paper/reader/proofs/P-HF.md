@@ -8,7 +8,7 @@ five-dimensional tensor wave operator of ĝ with its curvature term, on the regi
 tilted foliations of [[def:tl5-wg-domains]] ([[lem:tl5-hf-identity]]); the whole linear bulk is absorbed pointwise
 by two rates, one for each family of hypersurfaces ([[def:tl5-hf-rates]]), and no Grönwall inequality is used
 ([[prop:tl5-hf-linear]]). The second is commutation with the static Killing field and the six rotations of the
-first seed, whose deformation tensors measure only the departure of ĝ from the seed ([[lem:tl5-hf-commutator]]),
+seed, whose deformation tensors measure only the departure of ĝ from the seed ([[lem:tl5-hf-commutator]]),
 together with the recovery of all second derivatives from them and from the equation ([[lem:tl5-hf-recovery]]). The
 third is the bound of the quadratic terms ([[lem:tl5-hf-quadratic]]) by a Sobolev inequality on the future boundaries
 ([[lem:tl5-hf-sobolev]]). [[thm:tl5-hf]] collects them.
@@ -43,7 +43,7 @@ over the frame F = (E₀, E₁, f₁, f₂, f₃). Frame components are written 
 and indices j, l ∈ {2, 3, 4} refer to f₁, f₂, f₃. The operator norm of a linear map between spaces of tensors is
 taken in these norms.
 
-For the first seed, T is the static Killing field ∂_v + (f(−u)/2) ∂_u of [[lem:tl5-seed]], since there b̂ = 0. The
+For the seed of [[lem:tl5-seed]], T is the static Killing field ∂_v + (f(−u)/2) ∂_u of [[lem:tl5-seed]], since there b̂ = 0. The
 norm k is the norm k̂ of [[eq:tl5-wg-khat]] with E₀ in place of the vector e₀ = (ê₃ + ê₄)/(2Ω̂) used there.
 
 **Lemma {#lem:tl5-hf-khat}** (The two norms.) For every tensor A of rank r (covariant, contravariant or mixed) at a
@@ -216,7 +216,7 @@ where div 𝒵 = z ∂_v log(Ω̂²R³) + z̲ (∂_u log(Ω̂²R³) + ∂_x b̂ 
 𝒞_00 = 0 and T = |T| E₀; the third uses ĝ^(αβ) ∂_α ⊗ ∂_β = Σ_M η^MM F_M ⊗ F_M. So the first-order blocks (ϰ, λ ≠ 0)
 come from the deformation π of T and from 𝔇, that is from the acceleration and the deformation of the congruence of
 E₀; the blocks (±, 0) are the operators |T|(𝓡̂ ∓ 𝒞_10/2)/2 + z √c Ω̂ (resp. z̲ Ω̂/√c) times the identity, the block
-(∥, 0) is −|T|(𝒞_(j0))_j/2, and ℬ₀₀ is zeroth order. In particular, if T is a Killing field of ĝ, as for the first
+(∥, 0) is −|T|(𝒞_(j0))_j/2, and ℬ₀₀ is zeroth order. In particular, if T is a Killing field of ĝ, as for the
 seed, the principal term vanishes. The formula for div 𝒵 follows from div(fV) = f div V + V(f) and from the
 coordinate density Ω̂²R³/2 of the volume form in the coordinates (u, v, x, φ1, φ2) (proof of
 [[lem:tl5-hf-identity]]): div ∂_v = ∂_v log(Ω̂²R³) and div(∂_u + b̂ ∂_x) = ∂_u log(Ω̂²R³) + ∂_x b̂ + b̂ ∂_x log(Ω̂²R³).
@@ -336,7 +336,7 @@ definite, with smallest eigenvalue
 and the coefficients c^ab_j := Σ_l (M⁻¹)_jl ĝ(K_ab, f_l) satisfy Σ_(a<b) c^ab_j K_ab = f_j and
 Σ_j |Σ_(a<b) c^ab_j v_ab|² ≤ λ_M⁻¹ Σ_(a<b) |v_ab|² for vectors v_ab of any Euclidean space.
 
-(b) π^(K₁₂) = π^(K₃₄) = 0 for every background, and for the first seed π^Z = 0 for every Z ∈ Γ.
+(b) π^(K₁₂) = π^(K₃₄) = 0 for every background, and for the seed π^Z = 0 for every Z ∈ Γ.
 
 (c) For every background and every Z ∈ Γ, π^Z(ê₄, ê₄) = π^Z(ê₃, ê₃) = 0; and π^(K_ab)(ê₄, Y) = 0 for Y tangent to the
 leaves.
@@ -351,9 +351,9 @@ by [[eq:tl5-radii]]; at the axes by continuity. Next Σ_ab c^ab_j K_ab = Σ_(l,m
 tangent to the leaves. The matrix C := (c^ab_j) is M⁻¹G with G_(l,ab) := ĝ(K_ab, f_l) and GGᵀ = M, so CCᵀ = M⁻¹ and
 the operator norm of C is λ_M^(−1/2).
 
-(b) The components of ĝ in (u, v, x, φ1, φ2) do not depend on φ1 and φ2. The first seed is of the class with
-b̂ = 0, P = Q = 0, so its leaves are round of radius R and the K_ab are Killing for it, and T is its static Killing
-field ([[lem:tl5-seed]] and the remark after [[def:tl5-hf-frame]]).
+(b) The components of ĝ in (u, v, x, φ1, φ2) do not depend on φ1 and φ2. The seed of [[lem:tl5-seed]] is of the
+class with b̂ = 0 and P = Q = 0, so its leaves are round of radius R and the K_ab are Killing for it, and T is its
+static Killing field (the remark after [[def:tl5-hf-frame]]).
 
 (c) For a vector field Z and a vector field V, π^Z(V, V) = 2ĝ(D̂_V Z, V) = 2V(ĝ(Z, V)) − 2ĝ(Z, D̂_V V). The background is
 a warped product over its orbit space, which is totally geodesic ([[lem:warped-ricci]], proof: no Christoffel symbol
@@ -434,4 +434,4 @@ By the definition of 𝔏 and induction on m, ℒ_(W₁) ⋯ ℒ_(W_m)(𝔭Ψ) =
 complement taken in its order: for m = 1 this is the definition, and applying ℒ_(W₁) to the identity for (W₂, …, W_m)
 splits each term into the term with 1 ∉ S and the term with 1 ∈ S. ∎
 
-For the first seed every operator in the sum vanishes, since π^Z = 0 for all Z ∈ Γ.
+For the seed every operator in the sum vanishes, since π^Z = 0 for all Z ∈ Γ.
