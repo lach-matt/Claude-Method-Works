@@ -1,22 +1,21 @@
 ### Developments of cone data without smallness {#sec:civp-large}
 
-This section removes the smallness from the development of the cone data of [[prop:loc-cones]]
-([[pending:civp-tier1-theorem]] proves it for data near the background's). For cone data of any size that equal the
-background's outside a band away from the axes, with or without dust, a development in the gauge [[eq:loc-double-null]]
-exists on a neighbourhood {min(u, v) ≤ δ} of the two cones, which contains {uv ≤ δ²}; it equals the background outside a
-slightly wider band, and it is unique in the gauge among solutions that equal the background near the axes
-([[thm:civp-large]]). The number δ depends on the data. The route is that of Cabet, Chruściel and Tagne Wafo [CCTW16].
-Off the axes, [[prop:reduction]] turns the class system into a three-dimensional one for the conformal orbit metric h,
-two waves ψ and ω and the two densities. In three dimensions the curvature is determined by the Ricci tensor, and the
-reduction expresses the Ricci tensor through the densities and the first derivatives of ψ and ω. So in a double-null
-frame of h the connection coefficients obey transport equations along the two null directions with no angular
-derivative of an unknown on the right, and the waves become first-order systems of the same kind
-([[lem:civp-large-frame]]). The resulting evolution system has the doubly-null form of [CCTW16, (2.7)–(2.8)]
-([[prop:civp-large-system]]), and once it is localised in angle their theorem ([[thm:std-cctw-existence]],
-[[thm:std-cctw-strips]]) gives a solution on two strips along the cones. That this solution solves the Einstein
-equations is shown as in the proof of [CCTW16, Theorem 5.3]: the development is built up in the time u + v from local
-developments near corner spheres ([[prop:civp-large-corner]]), each of which coincides with the strip solution by an
-energy estimate ([[lem:civp-large-energy]]).
+This section develops the cone data of [[prop:loc-cones]] without smallness; for data near the background's the
+development is [[pending:civp-tier1-theorem]]. For cone data of any size that equal the background's outside a band
+away from the axes, with or without dust, a development in the gauge [[eq:loc-double-null]] exists on a neighbourhood
+{min(u, v) ≤ δ} of the two cones, which contains {uv ≤ δ²}; it equals the background outside a slightly wider band, and
+it is unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]). The number δ
+depends on the data. The route is that of Cabet, Chruściel and Tagne Wafo [CCTW16]. Off the axes, [[prop:reduction]]
+turns the class system into a three-dimensional one for the conformal orbit metric h, two waves ψ and ω and the two
+densities. In three dimensions the curvature is determined by the Ricci tensor, and the reduction expresses the Ricci
+tensor through the densities and the first derivatives of ψ and ω. So in a double-null frame of h the connection
+coefficients obey transport equations along the two null directions with no angular derivative of an unknown on the
+right, and the waves become first-order systems of the same kind ([[lem:civp-large-frame]]). The resulting evolution
+system has the doubly-null form of [CCTW16, (2.7)–(2.8)] ([[prop:civp-large-system]]), and once it is localised in
+angle their theorem ([[thm:std-cctw-existence]], [[thm:std-cctw-strips]]) gives a solution on two strips along the
+cones. That this solution solves the Einstein equations is shown as in the proof of [CCTW16, Theorem 5.3]: the
+development is built up in the time u + v from local developments near corner spheres ([[prop:civp-large-corner]]),
+each of which coincides with the strip solution by an energy estimate ([[lem:civp-large-energy]]).
 
 *Notation.* The background g0, the cones 𝒞_out = {u = 0} and 𝒞_in = {v = 0}, the corner sphere S = 𝒞_out ∩ 𝒞_in and
 the gauge [[eq:loc-double-null]] are those of [[sec:loc-cones]]. We fix u1, v1 > 0 such that the background is defined,
@@ -126,8 +125,8 @@ From the coordinate expressions, with ∂_v and ∂_u + b∂_ϑ and ∂_ϑ commu
     [e4, e3] = −(e4α) e3 + (e3α) e4 + e^(β−2α)(∂_vb) e1,   [e4, e1] = (e1α) e4 − (e4β) e1,
     [e3, e1] = (e1α) e3 − (e3β + e^(−α)∂_ϑb) e1.
 
-Comparing coefficients gives ϖ, ϖ̲, χ, χ̲, η̲ + ζ = e1α = η − ζ, and η − η̲ = −(1/2) e^(β−2α) ∂_vb, which is ζ by the
-two previous relations. This is [[eq:civp-large-coefficients]]. We use below
+Comparing coefficients gives ϖ, ϖ̲, χ, χ̲, η̲ + ζ = e1α = η − ζ, and 2(η̲ − η) = e^(β−2α) ∂_vb; since η − η̲ = 2ζ by
+the previous relation, ζ = −(1/4) e^(β−2α) ∂_vb. This is [[eq:civp-large-coefficients]]. We use below
 
     [e4, e3] = 2ϖ e3 − 2ϖ̲ e4 − 4ζ e1,   [e4, e1] = (e1α) e4 − χ e1,   [e3, e1] = (e1α) e3 − χ̲ e1,   e1α = (η + η̲)/2.
 
@@ -301,9 +300,9 @@ q_in as given, and χ̲ the solution of the linear equation (F4′), e4χ̲ = 2e
 and M_11 := (3/2)(e1ψ)² + 2(e1ω)², whose value at v = 0 is e^(−α)∂_uβ computed on 𝒞_in. Define on 𝒞_in, where b = 0 and
 e3 = e^(−α)∂_u,
 
-    ϖ̲ := −(1/2) e3α,   Ψ := Ψ,   Ψ_3 := e3Ψ,   Ψ′_1 := e1Ψ,
+    ϖ̲ := −(1/2) e3α,   Ψ_3 := e3Ψ,   Ψ′_1 := e1Ψ,
 
-α, β, b = 0 and q_out as given, η the solution of the linear equation (F5), e3η = M_31 − 2χ̲η − 4e1ϖ̲ − 4ϖ̲ e1α with
+α, β, b = 0, Ψ and q_out as given, η the solution of the linear equation (F5), e3η = M_31 − 2χ̲η − 4e1ϖ̲ − 4ϖ̲ e1α with
 χ̲ := e3β and M_31 := (3/2)e3ψ e1ψ + 2e3ω e1ω, whose value at u = 0 is (−1/4) e^(β−2α)∂_vb + e1α computed on 𝒞_out, and
 χ the solution of the linear equation (F4), e3χ = 2e1η + 2η² + 2ϖ̲χ − χχ̲ + M_11, whose value at u = 0 is e4β computed
 on 𝒞_out. Let f̄₃ be the first list on 𝒞_out and f̄₄ the second on 𝒞_in. Then:
@@ -512,8 +511,9 @@ of them, 𝒯 = [0, l1] × [0, l2].
 *Constants.* F is smooth on 𝒮_δ × (0, π/2) and equals f̊ off [ϑ_a − η0, ϑ_b + η0] ⊂ [2η0, π/2 − 2η0]. So the functions
 Ω = e^(α−ψ), γ_ϑ = e^(2β−2ψ), b, A_c = (ψ − 2ω)/2, A_s = (ψ + 2ω)/2, q_in, q_out formed from F on segments {u_c} ×
 [v_c, v_c + l_v] and [u_c, u_c + l_u] × {v_c} in 𝒯, transformed by the change of angle described below, have
-differences from the background's whose C^m norms are bounded by one Λ, for all such segments. Let σ be given by
-[[prop:civp-large-corner]] for this Λ and η := η0, and L := σ/2.
+differences from the background's whose C^m norms are bounded by one Λ, for all such segments, because F and its
+derivatives are bounded on 𝒯 × [η0, π/2 − η0] and the change of angle has derivatives bounded by those of b. Let σ be
+given by [[prop:civp-large-corner]] for this Λ and η := η0, and L := σ/2.
 
 *The corner step.* Let R = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ 𝒯 with l_u, l_v ≤ σ and edges N_o, N_i, and assume: F
 is geometric to first order at the points of the corner circle {(u_c, v_c)} × (0, π/2); N_o × (0, π/2) is contained in
@@ -588,14 +588,14 @@ the background's at the axes are not treated, nor are data of finite regularity 
 measure-valued.
 
 **Remark {#rem:civp-large-beyond}** (What the theorem adds.) With [[thm:civp-large]], the cone data of
-[[sec:loc-cones]] that are localised in a band away from the axes have developments without any smallness: among
-them every perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} and of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, of any
-amplitude, and every density added in the band, when v1 > 4.5 and u1 > 7.2. The development contains the strip
-{u ≤ δ} along all of 𝒞_out^(v1) and the strip {v ≤ δ} along all of 𝒞_in^(u1), so the dust on the cones lies in it; it
-is in the double-null gauge of the class, with u and v the phases of the two families; it is localised, equal to the
-background outside {ϑ_a − η0 ≤ ϑ ≤ ϑ_b + η0}, so that localisation on the cones is localisation of a spacetime; and it
-is unique in the gauge among solutions that equal the background near the axes. For vacuum cone data in the band,
-[CTG23, Theorem 1.1] ([[thm:std-ctg-neighbourhood]]) gives a vacuum development of any size; the theorem adds the
-double-null gauge, uniqueness in it, and localisation. Compared with [[pending:civp-tier1-theorem]], smallness is
-dropped and uniqueness holds among all solutions that equal the background near the axes, not only near the background;
-the neighbourhood is not explicit and no estimate of the solution is given.
+[[sec:loc-cones]] that are localised in a band away from the axes have developments without any smallness: among them
+every perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} and of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, of any amplitude,
+and every density added in the band, when v1 > 4.5 and u1 > 7.2. The development contains the strip {u ≤ δ} along all
+of 𝒞_out^(v1) and the strip {v ≤ δ} along all of 𝒞_in^(u1), so the dust on the cones lies in it; it is in the
+double-null gauge of the class, with u and v the phases of the two families; it is localised, equal to the background
+outside {ϑ_a − η0 ≤ ϑ ≤ ϑ_b + η0}, so that localisation on the cones is localisation of a spacetime; and it is unique
+in the gauge among solutions that equal the background near the axes. For vacuum cone data (v1 < 3 and u1 < 5.7, the
+densities zero), [CTG23, Theorem 1.1] ([[thm:std-ctg-neighbourhood]]) gives a vacuum development of any size; the
+theorem adds the double-null gauge, uniqueness in it, and localisation. Compared with [[pending:civp-tier1-theorem]],
+smallness is dropped and uniqueness holds among all solutions that equal the background near the axes, not only near
+the background; the neighbourhood is not explicit and no estimate of the solution is given.

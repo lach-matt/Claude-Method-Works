@@ -2345,10 +2345,10 @@ The main term (2ℓ + 1)(σ − ξ) − 2h⁻¹S̄ is negative near the zero sec
 - *The incoming radial set R_in.* The isometry t ↦ −t of η pulls c_v := r⁻¹(dt − v dr) back to −c_(−v), so it
 conjugates □^C with (c_v, h⁻¹) to the operator with (c_(−v), −h⁻¹) ([[prop:np-10-21]] (ii)). On stationary sections,
 e^(2iσr)(□^C)^(σ)e^(−2iσr) is the pullback of the spectral family at −σ of that operator ([Hin26a, (B.27)]): with
-Φ(t, x) := (−t, x) and t_* = t − r, Φ*(e^(−iσt_*)u) = e^(−i(−σ)t_*)e^(2iσr)Φ*u for stationary u, and Φ* commutes
-with the passage to stationary sections. With an eigenbasis of S̄_(−v) orthonormal, the shift at R_in is
-(−1)(−2(−h⁻¹)S̄_(−v)). S̄_(−v) has spectrum {2(1 + v), (1 − e)(1 + v), 1 + v}, with bottom (1 − e)(1 + v). The
-threshold is ℓ > −½ − h⁻¹(1 − e)(1 + v).
+Φ(t, x) := (−t, x) and t_* = t − r, Φ*(e^(−iσt_*)u) = e^(−i(−σ)t_*)e^(2iσr)Φ*u for stationary u, as
+t_* ∘ Φ = −t_* − 2r, and Φ* maps stationary sections to stationary sections. With an eigenbasis of S̄_(−v)
+orthonormal, the shift at R_in is (−1)(−2(−h⁻¹)S̄_(−v)). S̄_(−v) has spectrum {2(1 + v), (1 − e)(1 + v), 1 + v}, with
+bottom (1 − e)(1 + v). The threshold is ℓ > −½ − h⁻¹(1 − e)(1 + v).
 
 - In between, real principal type propagation ([[prop:i-a-5-2]], with [[rem:i-a-5-2-uses]] (ii)) applies along
 Char_σ, which flows from R_in to R_out by [[lem:iv6-0-flow]] (b).
@@ -2363,10 +2363,9 @@ inverse Mellin transform of the normal operator gives [[eq:iv6-1-2]] from [Hin26
 
 *Complex σ.* Only R_out is characteristic ([[lem:iv6-0-flow]] (a)). Write σ⁻¹(□^C)^(σ) = P − iQ as in
 [Hin26a, (B.29)], with Q_0 = 2ρh⁻¹S̄, P_1 = Re 2i(ρ²∂_ρ − (3/2)ρ), and Q_3 = (Im σ)Re (□^C)^(0) a nonnegative
-absorption. With the same commutant, the
-zero-section symbol is (2ℓ + 1 − 2h⁻¹S̄)ρ^(−2ℓ). −AQ_3A has the sign of the main term, because the b-principal symbol of
-(□^C)^(0) is ξ_b² + |η_b|², so (□^C)^(0) = Σ_jT_j*T_j + R with T_j ∈ ρDiff¹_b and R ∈ ρ²Diff¹_b. The rest is
-subprincipal or elliptic ([Hin26a, p. 90]).
+absorption. With the same commutant, the zero-section symbol is (2ℓ + 1 − 2h⁻¹S̄)ρ^(−2ℓ). −AQ_3A has the sign of the
+main term, because the b-principal symbol of (□^C)^(0) is ξ_b² + |η_b|², so (□^C)^(0) = Σ_jT_j*T_j + R with
+T_j ∈ ρDiff¹_b and R ∈ ρ²Diff¹_b. The rest is subprincipal or elliptic ([Hin26a, p. 90]).
 
 *Uniformity* in σ near ±1 is the limiting absorption principle. At R_out, [[lem:iv6-0-flow]] (c), with the same
 cut-offs for every σ ∈ e^(i[0,π]), gives the main term (2ℓ + 1)(1 − κξ)a² with 1 − κξ ∈ [¾, 5/4] on supp a, and
