@@ -848,9 +848,9 @@ The same argument as in [[lem:loc-cone-unique]], with the residual of the wave m
 equal the background where ϑ ∉ [η, π/2 − η] and whose functions have C^(k+1) norms at most Λ′ there, σ′ ≤ σ depending
 also on Λ′; no result here uses this.
 
-*Proof of [[thm:loc-cone-development]].* Take the background of [[lem:loc-cone-strips]] (b) on 𝒮, with l_u = u_1,
-l_v = v_1, and C_* = C_0. The free data are ε-close to the
-background's in C^m, m = m_0 + 3 = 6k + 21. The equations of [[prop:loc-cones]] and [[lem:loc-cone-in]] are linear
+**Remark {#rem:loc-cone-local-scope}** (What the size of the rectangle depends on.) The number σ of [[prop:loc-cone-local]] depends on the data only through their C^(m_0) norms on the two edges within 3δ_1 of the corner, in any gauge and with any corner values, and not on l_u, l_v or on any smallness of the data. It depends on the background through δ_1, the width of the collar of 𝒮 on which the background is given, and through the bounds named there, for three reasons, which are the only places where the proof uses the background: near the axes the solution is the background, since off the band the augmented system is used only through the background's own solution and is not local at an axis ([[rem:loc-cone-scope]] (ii)); the modified system [[eq:loc-cone-modified]] takes the background's coefficients where its cut-off vanishes; and the time function [[eq:loc-cone-time]] and the faces of 𝒰 are spacelike for the metrics C⁰-close to g_e, with the constant C_*. A statement with no background, the data being prescribed up to the axes and the rectangle depending on their norms alone, needs a local theory of the augmented system at the axes, with domain of dependence for null boundaries there, and is not given in this paper.
+
+*Proof of [[thm:loc-cone-development]].* Take the background of [[lem:loc-cone-strips]] (b) on 𝒮, with l_u = u_1, l_v = v_1, and C_* = C_0. The free data are ε-close to the background's in C^m, m = m_0 + 3 = 6k + 21. The equations of [[prop:loc-cones]] and [[lem:loc-cone-in]] are linear
 ordinary differential equations along the generators whose coefficients differ from the background's by at most Cε in
 C^(m−1); so for ε small e^ϕ stays within Cε of the background's, positive, on [0, v_1 + δ_1] and [0, u_1 + δ_1], ϕ is
 within Cε of the background's in C^(m−1), and b in C^(m−3), r of [[eq:loc-cone-r]] holding two derivatives of the data.
@@ -888,8 +888,8 @@ eq:loc-cone-collar, def:loc-cone-data, lem:loc-cone-strips, sec:loc-cone-equatio
 lem:loc-cone-frame, lem:loc-cone-ricci, eq:loc-cone-frame-ricci, eq:loc-cone-bianchi, sec:loc-cone-formal,
 lem:loc-cone-borel, lem:loc-cone-jets, eq:loc-cone-goursat, prop:loc-cone-formal, sec:loc-cone-reduced, eq:loc-cone-time,
 eq:loc-cone-region, eq:loc-cone-modified, lem:loc-cone-system, lem:loc-cone-energy, lem:loc-cone-cauchy,
-lem:loc-cone-past, lem:loc-cone-support, lem:loc-cone-constraints, lem:loc-cone-gauge, lem:loc-cone-unique and
-prop:loc-cone-local, none of which is defined elsewhere. Numbers are resolved at assembly.
+lem:loc-cone-past, lem:loc-cone-support, lem:loc-cone-constraints, lem:loc-cone-gauge, lem:loc-cone-unique,
+prop:loc-cone-local and rem:loc-cone-local-scope, none of which is defined elsewhere. Numbers are resolved at assembly.
 
 *3. [[ch:localised-data]], its opening paragraph (lines 8–9).* Old:
 
