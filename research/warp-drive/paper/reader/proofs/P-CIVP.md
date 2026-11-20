@@ -941,7 +941,7 @@ New:
 null cones and the sign of the charge ([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]],
 [[ch:equality-edge]]), the threshold λ0 at a
 
-*6. [[ch:theorems]], the bullet "More families", its last lines (lines 371–372).* Old:
+*6. [[ch:theorems]], the bullet "More families", its last lines (lines 373–374).* Old:
 
   data exist for small amplitude, while on vacuum bands outside it the sign of their charge at second order excludes
   them for small amplitude when the first-order part is T² × Z2 × Z2-invariant ([[thm:charge-sign]]).
