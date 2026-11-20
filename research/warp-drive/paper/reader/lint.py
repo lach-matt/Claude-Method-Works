@@ -60,7 +60,7 @@ REF_RX = re.compile(r"\[\[(" + "|".join(RESULT_KINDS) + r"|C):([a-z0-9][a-z0-9_\
 
 # A symbolic label left in the assembled paper: [[kind:key]]. Nested brackets of mathematics (a matrix written by its
 # rows, [[a, b], [c, d]], or a double commutator [[X, A], A]) are not labels.
-LEFT_RX = re.compile(r"\[\[[A-Za-z]+:")
+LEFT_RX = re.compile(r"\[\[\s*[A-Za-z]+\s*:")
 # A paragraph continuation must not begin with a character that Markdown reads as structure. "- " is left out: it
 # also opens a list after a paragraph line, which the chapters use.
 WRAP_START = re.compile(r"^(\+ |\* |> |#|=|\|)")
@@ -83,7 +83,7 @@ def scan_text(name, text, assembled):
         if len(ln) > 121:
             hits.append((i, "line longer than 121 characters (%d)" % len(ln), ln[:80]))
         prev = lines[i - 2] if i > 1 else ""
-        if (prev.strip() and WRAP_START.match(ln) and not HEADING.match(ln)
+        if (prev.strip() and WRAP_START.match(ln) and not HEADING.match(ln) and not HEADING.match(prev)
                 and not (ln[0] in "|>" and prev.startswith(ln[0]))):
             hits.append((i, "wrapped line starts with a Markdown marker", ln.strip()[:110]))
         probe = URL.sub("", ln)
@@ -151,7 +151,8 @@ def selftest():
         "D612 records", "the record's text", "the supplement's Lemma", "the brief", "a census of", "mutant 3",
         "READ at source", "(computed, exactly)", "Claude", "an earlier version", "crucially", "N1* says", "`x`",
         "warp field", "5c1a186aa2528e503e24c336f9a6dcef", "x" * 130, "Proof. trivial", "see [[C:ix5]]", "Computation C12 verifies",
-        "checked numerically", "by interval arithmetic", "the program", "sympy", "the conjugate \\overline{p}",
+        "checked numerically", "by interval arithmetic", "the program", "sympy",
+        "the conjugate \\overline{p}",
     ]
     ok = True
     for p in planted:
@@ -175,8 +176,11 @@ def selftest():
         print("FALSE POSITIVE on a table"); ok = False
     if scan_text("selftest", "the matrix [[a, b], [c, d]] and [[X, A], A]", assembled=True):
         print("FALSE POSITIVE on nested brackets in assembled mode"); ok = False
-    if not scan_text("selftest", "see [[thm:main]]", assembled=True):
-        print("CONTROL FAILED: unresolved label in assembled mode"); ok = False
+    for left in ("see [[thm:main]]", "see [[thm: main]]", "see [[Thm:main]]"):
+        if not scan_text("selftest", left, assembled=True):
+            print("CONTROL FAILED: unresolved label in assembled mode:", left); ok = False
+    if scan_text("selftest", "### Table\n| a | b |\n|---|---|\n| 1 | 2 |", assembled=False):
+        print("FALSE POSITIVE on a table right after a heading"); ok = False
     print("selftest:", "PASS" if ok else "FAIL")
     return 0 if ok else 1
 
