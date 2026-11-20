@@ -500,10 +500,12 @@ differential equations in v along the lines {ϑ = const} (A^ϑ has no f₄f₄-b
 [[lem:civp-large-data]] (b) (i), whose components α, β, b, ψ, ω are the functions of the data. Likewise on 𝒞_in its
 f₄-components are f̄₄ and its f₃-components the solution of [[lem:civp-large-data]] (b) (i), b vanishing there.
 
-*Step 4: F is geometric.* Recall from [[prop:civp-large-system]] (b) what it means for F to be geometric on a set; for
-a closed set this means that the identities defining it hold there, which follows from their holding on a dense
-subset. If F is geometric on a set, let g_F be the metric of [[prop:civp-large-system]] (b) built from F there; by
-that proposition (g_F, v, u, q_in, q_out) is a class solution in the gauge. We show that F is geometric on 𝒮_δ ×
+*Step 4: F is geometric.* Let h_F and g_F be the metrics built from the components α, β, b, ψ, ω of F as in
+[[prop:civp-large-system]] (b); they are defined on all of 𝒮_δ × (0, π/2), times T² for g_F. F is geometric on a set
+when the identities of [[prop:civp-large-system]] (b) hold at its points; on the closure of a set where they hold they
+hold too, F being smooth. Where F is geometric, (g_F, v, u, q_in, q_out) is a class solution in the gauge, by that
+proposition. We say that F is *geometric to first order* at a point if there its components χ, χ̲, η, η̲, ϖ, ϖ̲ are the
+connection coefficients of h_F and Ψ° = Ψ, Ψ_3 = e3Ψ, Ψ_4 = e4Ψ, Ψ_1 = Ψ′_1 = e1Ψ for Ψ ∈ {ψ, ω}. We show that F is geometric on 𝒮_δ ×
 (0, π/2). As 𝒮_δ = 𝒯₁ ∪ 𝒯₂, 𝒯₁ := [0, δ] × [0, v1], 𝒯₂ := [0, u1] × [0, δ], it suffices to treat one of them, 𝒯 =
 [0, l1] × [0, l2].
 
@@ -514,7 +516,7 @@ differences from the background's whose C^m norms are bounded by one Λ, for all
 [[prop:civp-large-corner]] for this Λ and η := η0, and L := σ/2.
 
 *The corner step.* Let R = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ 𝒯 with l_u, l_v ≤ σ and edges N_o, N_i, and assume:
-F is geometric at the points of the corner circle {(u_c, v_c)} × (0, π/2); N_o × (0, π/2) is contained in a set on
+F is geometric to first order at the points of the corner circle {(u_c, v_c)} × (0, π/2); N_o × (0, π/2) is contained in a set on
 which F is geometric, or u_c = 0; and N_i × (0, π/2) is contained in a set on which F is geometric, or v_c = 0. We show
 that F is geometric on R × (0, π/2). On N_o take the functions Ω, γ_ϑ, b, A_c, A_s, q_in formed from F, and on N_i the
 functions Ω, γ_ϑ, b, A_c, A_s, q_out. Where an edge lies in 𝒞_out or 𝒞_in these are the cone data (Step 3), and they
@@ -542,7 +544,7 @@ system A^μ(F)∂_μz = G(f_c) − G(F) − (A^ϑ(f_c) − A^ϑ(F))∂_ϑf_c, of
 
 *Continuation in u + v.* For t > 0 let D_t := {(u, v) ∈ 𝒯 : u + v < t}, and let t* be the supremum of the t ∈ (0, l1 +
 l2] such that F is geometric on D_t × (0, π/2), with t* := 0 if there is none. The corner step with R = [0, min(L, l1)]
-× [0, min(L, l2)] applies: its corner is S, where F = f̄ is geometric, because the values of f̄ at S are those of
+× [0, min(L, l2)] applies: its corner is S, where F is geometric to first order, because the values of f̄ at S are those of
 [[eq:civp-large-coefficients]] in the cone data, and its edges lie in 𝒞_out and 𝒞_in. So t* ≥ min(L, l1, l2) > 0.
 Suppose t* < l1 + l2. F is geometric on the closure of D_t* × (0, π/2). Let Γ := {(u, v) ∈ 𝒯 : u + v = t*}, and for p =
 (u_p, v_p) ∈ Γ let u_c := max(u_p − L/2, 0), v_c := max(v_p − L/2, 0) and R_p := [u_c, min(u_p + L/2, l1)] × [v_c,

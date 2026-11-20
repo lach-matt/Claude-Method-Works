@@ -1800,7 +1800,7 @@ With ⟨f^ν, c⟩ = −δ_(ν0), ⟨c, ξ_ν⟩ = −x_(ν0), ⟨f^ν, w⟩ = �
     β(w) = −⟨ξ_0, w⟩ + e(tr x)w_0 + eΣ_ν ε_νx_(ν0)w_ν − (1 − e²)x_(00)w_0,
 
 and b(c; ω, ω) = −⟨ω, ω⟩ − (1 + 2e − e²)ω_0², b(n; ω, ω) = 2eω_0ω_1. Inserting these, with y := Σ_a x_(aa) and with the
-sums over j, k ≥ 1 and over a, b ≥ 2,
+sums over j, k ≥ 1 and over a, a′ ≥ 2,
 
     ½𝒬_(G,c,ℓ)(ξ) = e(2 − e)x_(00)² − 2ex_(00)(x_(11) + y) + Σ_j x_(0j)² + e(2 − e)Σ_j x_(j0)² − 2eΣ_j x_(0j)x_(j0)
                     + Σ_(j,k) x_(jk)²,
@@ -1809,8 +1809,8 @@ sums over j, k ≥ 1 and over a, b ≥ 2,
 
 Adding, and writing u_λ := x_(0λ) − x_(1λ) and q := D − 2, the x_(1λ) enter only through the u_λ, and
 
-    ½𝒬_(G,η,ℓ)(ξ) = (u_1 + eu_0)² + q⁻¹(y − equ_0)² + e(2 − De)u_0² + Σ_a ((u_a − ex_(a0))² + (x_(a1) − ex_(a0))²
-                    + e(2 − 3e)x_(a0)²) + Σ_(a≠b) x_(ab)² + Σ_a (x_(aa) − q⁻¹y)².
+    ½𝒬_(G,η,ℓ)(ξ) = (u_1 + eu_0)² + q(q⁻¹y − eu_0)² + e(2 − De)u_0² + Σ_a ((u_a − ex_(a0))² + (x_(a1) − ex_(a0))²
+                    + e(2 − 3e)x_(a0)²) + Σ_(a≠a′) x_(aa′)² + Σ_a (x_(aa) − q⁻¹y)².
 
 For 0 < e < 2/D ≤ 2/3 every coefficient is positive. So 𝒬_(G,η,ℓ) ≥ 0, with equality exactly when every square
 vanishes, that is when u_λ = 0 for every λ and x_(aλ) = 0 for every a ≥ 2 and every λ: ξ = (f⁰ + f¹) ⊗ ξ_0 = η ⊗ ξ_0.
@@ -1830,9 +1830,9 @@ positive on K by (b). ∎
 **Corollary {#cor:iv5-6-energy}** (The energy identity and the integrated inequality; [Hin26a, Corollary 5.15] in
 dimension 4 + 1.) Let N ⊂ ℝ_t × (ℝ⁴ ∖ 0) be open, with the coordinates z⁰ = t, z^i = x^i and r = |x|, a Lorentzian
 metric g, a timelike 1-form c, g being time-oriented so that c is past timelike, and e ∈ (0, 2/5). Let ℓ := ℓ_(g,c,e)
-and B be as in [[eq:s14-ell]], 𝒬 as in
-[[eq:iv5-6-t]] in the frame dz^μ, ∇ the Levi-Civita connection of g and ℓ^λ := ℓ(dz^λ); for a 1-form ω put
-ℓ⟨∇ω⟩ := Σ_λ ℓ^λ∇_λω and |r∇ω|²_B := Σ_μ B(r∇_μω, r∇_μω), and let Bℓ^λ be the bilinear form (ω₁, ω₂) ↦ B(ℓ^λω₁, ω₂).
+and B be as in [[eq:s14-ell]], 𝒬 as in [[eq:iv5-6-t]] in the frame dz^μ, ∇ the Levi-Civita connection of g and
+ℓ^λ := ℓ(dz^λ); for a 1-form ω put ℓ⟨∇ω⟩ := Σ_λ ℓ^λ∇_λω and |r∇ω|²_B := Σ_μ B(r∇_μω, r∇_μω), and let Bℓ^λ be the
+bilinear form (ω₁, ω₂) ↦ B(ℓ^λω₁, ω₂).
 
 (i) (*The divergence identity, integrated.*) Let k ∈ {1, 2}, let f_1, …, f_k ∈ C^∞(N) have linearly independent
 differentials at each point where they vanish, and let R := {f_1 ≤ 0, …, f_k ≤ 0}, ∂_iR := R ∩ {f_i = 0}, and σ_i the
