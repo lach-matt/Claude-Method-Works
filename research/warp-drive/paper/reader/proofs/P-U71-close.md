@@ -344,14 +344,13 @@ constructed ([[sec:is]]), ℰ^C_I the least index set satisfying (2)–(3) of [[
                                                                                                     {#eq:uc-choice}
 
 Take ℓ_I ∈ (3 + ε_+, 3.5) with ℓ_I ≤ a_I, off the exclusion sets of (H4) of [[sec:iii-i10-1]], and λ₋ ∈ (ℓ_I − 2, 3/2)
-and δ_ι ∈ (0, 3.5 − ℓ_I) in [[lem:uc-phi-loss]] and [[lem:ec-closed-forms]] (e); η_1 < η_2 in (ε_K, ε_+) with
-η_1 < ε_g such that no λ ∈ Λ has real part 2 + η_1 or 3 + η_2; the loss ε of [[lem:iii-i8-3-2]] and
-[[prop:iii-i13-2-1]] with 0 < ε ≤ 10⁻³ε_g, besides the conditions that [[sec:iii-j2-1]], [[sec:iii-i11-1]] and
-[[def:iii-i13-1-1]] place on it; α admissible ([[def:iii-i10-1-3]]) and satisfying (A_J) of [[def:iii-j-a-j]] and
-(Ex3)–(Ex4) of [[def:iii-j3-1-3]]; levels β_0 = α_1 < β_1 < ⋯ < β_K = α of Step 2 of the proof of
-[[thm:iii-i14-3-1]] with 0.999(α − 4) ≤ β_(k+1) − β_k < α − 4; the number a♭_K of [[lem:ec-counts]] with
-a♭_K > α_1 and 0.999(α − 4) ≤ a♭_K − 2 < α − 4; and the base level α_0 of [[lem:ec-counts]], admissible, with
-max(2, α_1 − (a♭_K − 2)) < α_0 < α_1.
+and δ_ι ∈ (0, 3.5 − ℓ_I) in [[lem:uc-phi-loss]] and [[lem:ec-closed-forms]] (e); η_1 < η_2 in (ε_K, ε_+) with η_1 < ε_g
+such that no λ ∈ Λ has real part 2 + η_1 or 3 + η_2; the loss ε of [[lem:iii-i8-3-2]] and [[prop:iii-i13-2-1]] with 0 < ε
+≤ 10⁻³ε_g, besides the conditions that [[sec:iii-j2-1]], [[sec:iii-i11-1]] and [[def:iii-i13-1-1]] place on it; α ≥ 3
+admissible ([[def:iii-i10-1-3]]) and satisfying (A_J) of [[def:iii-j-a-j]] and (Ex3)–(Ex4) of [[def:iii-j3-1-3]]; levels
+β_0 = α_1 < β_1 < ⋯ < β_K = α of Step 2 of the proof of [[thm:iii-i14-3-1]] with 0.999(α − 4) ≤ β_(k+1) − β_k < α − 4;
+the number a♭_K of [[lem:ec-counts]] with a♭_K > α_1 and 0.999(α − 4) ≤ a♭_K − 2 < α − 4; and the base level α_0 of
+[[lem:ec-counts]], admissible, with max(2, α_1 − (a♭_K − 2)) < α_0 < α_1.
 
 **Lemma {#lem:uc-admissible}** (The choice is admissible.) The choice of [[def:uc-choice]] exists and is admissible
 for [[thm:iii-i14-3-1]], [[prop:iii-i8-4-1]], [[lem:iii-i8-3-2]] and [[prop:iii-i13-2-1]], for [[thm:iii-j-2-4]] and
