@@ -1083,8 +1083,9 @@ approximant of the first kind satisfies |f^(1)_ab| ≤ 2.42 × 10⁻³ and every
 the bound |f^(2)_ab| ≤ 3.73 × 10⁻⁵. Two approximants of the same kind have residuals that differ by at most
 1.3 × 10⁻⁷ at every point of G. The largest values are taken by f_ll at (−23/24, 23/24, −21/32), where |f^(1)_ll|
 lies in [2.4141, 2.4143] × 10⁻³, and at (−23/24, 23/24, x₆), x₆ := −1 + (d₆ + d₇)/2, where |f^(2)_ll| lies in
-[3.715, 3.728] × 10⁻⁵. In particular 2.41 × 10⁻³ is not an upper bound for |f^(1)_ll| on G; the bound to three
-significant figures is 2.42 × 10⁻³.
+[3.715, 3.728] × 10⁻⁵. In particular 2.41 × 10⁻³, the value of |f^(1)_ll| there rounded to three significant
+figures, is not an upper bound for |f^(1)_ll| on G; the least upper bound with three significant figures is
+2.42 × 10⁻³.
 
 *Proof.* By [[lem:tl5-positive]], [[lem:tl5-jet-enclosure]] applies with jets of order 0 at every point of G, with
 the intervals J^F_γ of [[lem:tl5-centre]], and gives eight intervals containing the values f_ab there for every
