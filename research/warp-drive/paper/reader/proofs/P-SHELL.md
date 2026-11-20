@@ -440,9 +440,8 @@ not on the data.
 
 *Proof.* [[thm:loc-cone-development]] states this only at S. [[prop:loc-cone-local]] holds at every corner, with a
 width that depends on the data only through a bound for their norms, but it gives neither a neighbourhood of the whole
-edges nor an estimate. So we
-prove it from the proof of [[thm:loc-cone-development]], that is from case (I) of [[sec:loc-cone-reduced]], at the
-corner (u_c, v_c).
+edges nor an estimate. So we prove it from the proof of [[thm:loc-cone-development]], that is from case (I) of
+[[sec:loc-cone-reduced]], at the corner (u_c, v_c).
 
 Translate u and v so that the corner is (0, 0). Then 𝒮_c is the set 𝒮 of [[eq:loc-cone-collar]], and G_c is the set
 G_* of [[eq:loc-cone-domain]] with l_u and l_v in place of u_1 and v_1.
@@ -801,12 +800,14 @@ the proof of [[prop:loc-shell-junction]] (d). The remaining assertions of (d) st
 leaves, with densities smooth in ϑ, are treated. A density with a continuous singular part in v, atoms on sections
 {v = f(ϑ)} of 𝒞_out that are not leaves, whose supports are not null hypersurfaces of the development, and infinitely
 many atoms accumulating on a cone are not; [LR20, Theorem 4.6] concerns angularly regular measures in 3 + 1 dimensions
-([[rem:loc-cone-scope]] (iii)). Data that are only piecewise smooth, with breaks on finitely many leaves and no atoms,
-are covered by [[thm:loc-shells]] with every m_k and n_j zero; a jump of the derivatives of the free data across a leaf
-gives no singular part of Ric ([[lem:loc-shell-ricci]] (b)). (ii) *Domains.* The development of [[thm:loc-shells]] lies
+([[rem:loc-cone-scope]] (iii)). Data that are only piecewise smooth, with breaks on finitely many leaves across which the
+metric functions are continuous, and no atoms, are covered by [[thm:loc-shells]] with every m_k and n_j zero; a jump of
+the derivatives of the free data across a leaf gives no singular part of Ric ([[lem:loc-shell-ricci]] (b)).
+(ii) *Domains.* The development of [[thm:loc-shells]] lies
 in a neighbourhood of the cones on which no two shells cross. [[prop:loc-shell-crossing]] continues a solution through
-one crossing sphere, on a small square and on a neighbourhood of the two leaves beyond it; a development on
-the whole rectangle Q1, where the shells cross away from the cones, is not asserted, as for smooth data
+one crossing sphere: a round one on a small square, and one that equals the background near the axes also on a
+neighbourhood of the two leaves beyond it; a development on the whole rectangle Q1, where the shells cross away from the
+cones, is not asserted, as for smooth data
 ([[rem:loc-cone-scope]] (iv)). (iii) *Backgrounds with shells.* [[thm:loc-shells]] perturbs the smooth background g0. A
 round solution with shells, as in [[prop:loc-shell-crossing]] (b), is smooth only on each cell, and developing
 perturbations of it slab by slab needs [[thm:civp-large]] and [[thm:loc-cone-development]] around a round background that
@@ -849,10 +850,10 @@ New:
 
 that are only bounded, and measure-valued densities in general, are not covered. Finitely many null shells along leaves
 {v = c} of 𝒞_out and {u = d} of 𝒞_in, with densities smooth in angle and supported in the band, and data that are smooth
-except across finitely many such leaves, are covered by [[thm:loc-shells]]: their development is continuous, smooth
-between the leaves and a solution in the sense of distributions ([[def:loc-shell-solution]]), and near the background's
-data it exists on a neighbourhood of the two cones that does not depend on the data ([[thm:loc-shells]] (d)). For the
-3 + 1 problem with two families of null dust,
+except across finitely many such leaves, where the metric functions are continuous, are covered by [[thm:loc-shells]]:
+their development is continuous, smooth between the leaves and a solution in the sense of distributions
+([[def:loc-shell-solution]]), and near the background's data it exists on a neighbourhood of the two cones that does not
+depend on the data ([[thm:loc-shells]] (d)). For the 3 + 1 problem with two families of null dust,
 
 *3. [[ch:localised-data]], [[rem:civp-large-domain]], its last sentence (lines 2369–2371).* Old:
 
@@ -865,8 +866,8 @@ New:
 are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
 from the background's at the axes are not treated, nor are data of finite regularity, densities that are only bounded,
 or measure-valued densities other than finitely many null shells along leaves of the two cones with densities smooth in
-angle; those, and data that are smooth except across finitely many leaves, are developed slab by slab with
-[[thm:civp-large]] in [[thm:loc-shells]].
+angle; those, and data that are smooth except across finitely many leaves, where the metric functions are continuous,
+are developed slab by slab with [[thm:civp-large]] in [[thm:loc-shells]].
 
 *4. [[ch:localised-data]], the opening (lines 26–27).* A paragraph is inserted before the last paragraph of the opening,
 which neither the Tier 1 nor the Tier 2 placement changes. Old:
@@ -932,9 +933,10 @@ that are not smooth, and no other result of this paper uses these developments.
 New:
 
 asserted for cone data that differ from the background's near an axis, for data of finite regularity or for densities
-that are not smooth, except finitely many null shells along leaves of the two cones and data that are smooth except
-across such leaves, which [[thm:loc-shells]] develops slab by slab with [[thm:civp-large]] and
-[[thm:loc-cone-development]]; no result of the other chapters uses these developments.
+that are not smooth, except finitely many null shells along leaves of the two cones with densities smooth in angle and
+data that are smooth except across such leaves, where the metric functions are continuous, which [[thm:loc-shells]]
+develops slab by slab with [[thm:civp-large]] and [[thm:loc-cone-development]]; no result of the other chapters uses
+these developments.
 
 *9. No other change.* No text outside items 1–8 changes. [[ch:two-dusts]], [[ch:class-system]], [[ch:ten-l5]],
 [[ch:theorems]] and [[ch:introduction]] need no change: no result there uses the section, and the section uses only
@@ -962,8 +964,8 @@ def:loc-shell-data	paper/reader/proofs/P-SHELL.md:281	proof P-SHELL, Definition 
 prop:loc-shell-cones	paper/reader/proofs/P-SHELL.md:301	proof P-SHELL, Proposition (Free data with atoms)	new: prop:loc-cones and lem:loc-cone-in with measure-valued densities (S-T6 MV-2); [∂_vϕ] = −m_k/3, ∂_v b continuous automatically
 lem:loc-shell-corner-large	paper/reader/proofs/P-SHELL.md:340	proof P-SHELL, Lemma (Developments without smallness at a corner sphere in Q1)	new: thm:civp-large (a)–(c) at any rectangle in Q1 for any band, Ω free on both edges, b free on N_o and zero on N_i; proof: the proof of thm:civp-large with every corner-dependent place replaced (replaces the pending statement T2)
 lem:loc-shell-corner-small	paper/reader/proofs/P-SHELL.md:419	proof P-SHELL, Lemma (Developments near the background's data at a corner sphere in Q1)	new: case (I) of sec:loc-cone-reduced at any corner in Q1 with g0 restricted to the collar as background; explicit width δ_* = √c_+/2 independent of the data; existence, the "in particular" localisation, the estimate to order k − 4; steps of the proof of thm:loc-cone-development reused named (replaces the pending statement T1)
-thm:loc-shells	paper/reader/proofs/P-SHELL.md:496	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses lem:loc-shell-corner-large and lem:loc-shell-corner-small at the other corners; derivative count k_(i−1) = 6k_i + 23, the change of angle back losing no derivative
-eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:501	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
-prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:667	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis; the lemma and the junction conditions extended to sets meeting every coordinate line in an interval (𝔏 and its unions); the crossing rule where the domain contains a neighbourhood of the crossing sphere
-eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:688	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
-rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:800	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)
+thm:loc-shells	paper/reader/proofs/P-SHELL.md:495	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses lem:loc-shell-corner-large and lem:loc-shell-corner-small at the other corners; derivative count k_(i−1) = 6k_i + 23, the change of angle back losing no derivative
+eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:500	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
+prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:666	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis; the lemma and the junction conditions extended to sets meeting every coordinate line in an interval (𝔏 and its unions); the crossing rule where the domain contains a neighbourhood of the crossing sphere
+eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:687	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
+rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:799	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)

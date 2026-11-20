@@ -1,161 +1,133 @@
-# P-CIVP3: Tier 3 of the characteristic problem (cone data through the axes)
+# P-CIVP3: fix round after R-P-CIVP3, and re-base on the merged Tiers 1–2
 
-File written: `/home/user/Claude-Method-Works/research/warp-drive/paper/reader/proofs/P-CIVP3.md`
-(1,126 lines, md5 1d196fae6ed5c92557721eb8dadfd294). The section text is lines 1–833 (31 labels); the Placement
-section starts at line 835 and the crosswalk rows at "### Crosswalk rows". I edited no chapter, crosswalk, Tier 1 or
-Tier 2 file and committed nothing. A tab-separated copy of the 31 new crosswalk rows is at
-`/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/pcivp3-crosswalk.tsv`.
+I edited one file: `/home/user/Claude-Method-Works/research/warp-drive/paper/reader/proofs/P-CIVP3.md`.
+- Before: md5 1d196fae6ed5c92557721eb8dadfd294, 1,126 lines.
+- **After: md5 d4c83116408265dc0c64406172842077, 1,102 lines.** The section is lines 1–823, the Placement starts at line
+  825 and the crosswalk rows at line 1057.
 
-## The theorem as stated (thm:loc-axis)
+No chapter, crosswalk or other proof file was edited, and nothing was committed. Plain `assemble.py` ran only in the
+scratch copy.
 
-Let k ≥ 9, m_0 = 6k + 18 and m_1 = 12k + 42. Take a background on Q1 = [0, u_1] × [0, v_1] with margin δ_1 (a round
-two-dust solution on Q^♯ = [−δ_1, u_1 + 2δ_1] × [−δ_1, v_1 + 2δ_1]). Take cone data through the axes on
-{0} × [0, v_1] and [0, u_1] × {0}: fields ln Ω, γ and b smooth through the axes as tensors on S³, in the normalised
-gauge, with nonnegative densities. Let ε be their size in C^(m_1). Then there are ε_0, C and ε_2 depending only on k,
-u_1, v_1, δ_1 and the background such that, for ε ≤ ε_0:
+## Labels renamed or removed (for the Tier 4 and Tier 5 files)
 
-- (a) there is a class solution in the double-null gauge through the axes on Q1 × S³ that induces the data, with phases
-  v and u, smooth with the axes included;
-- (b) its fields and densities are within Cε of the background's in C^(k−4);
-- (c) on every Q1′ ⊂ Q1 it is unique among class solutions in that gauge that induce the data and whose fields are
-  ε_2-close in C^(k−4);
-- (d) localisation: where the data equal the background's on {0} × [0, v_K) and [0, u_K) × {0}, the solution equals
-  the background on u < u_K, v < v_K. Where the data equal the background's at ϑ < ϑ_a′ ≤ π/4, the solution does too
-  at ϑ < ϑ_a′ − 2C_*(uv)^(1/2), and symmetrically at the other axis.
+- **Removed: `lem:loc-axis-rectangle`.** The corollary now cites Tier 2's lem:civp-large-rectangle (a). Neither
+  P-CIVP4.md nor P-CIVP5.md cites the removed label.
+- **Renamed: none.**
+- **The other 30 labels are unchanged.** That includes sec:loc-axis-leaves, which P-CIVP5.md cites.
+- **cor:loc-axis-cones** keeps its label but is now stated for every v_1 > 0, the rectangle being [0, 7.2] × [0, v_1].
+  This is because Tier 2's lemma gives every v_1.
 
-cor:loc-axis-cones applies the theorem to the chapter's background on [0, 7.2] × [0, 4.5]. It takes free data within ε
-in C^(m_1 + 3) and allows the shell and the packet to be perturbed at once, with densities on either cone and the axes
-included. lem:loc-axis-rectangle proves in writing that this rectangle lies in G with R ≥ 1.5 and R_v > 0. Its numbers
-are |R_u(7.2, 0)| ≤ 0.84778, f ≥ 0.63461, R_v(7.2, 0) ≥ 0.18713, R(7.2, 3) ≥ 2.0613, μ ≤ 3.6059 and f > 0.15
-through the shell.
+**Mapping for Tier 4's pending markers:**
+- `tier3-section` → sec:loc-axis.
+- `tier3-theorem` → thm:loc-axis.
+- `tier3-theorem-general` → also thm:loc-axis. It is stated for any round two-dust background on a rectangle
+  Q1 = [0, u_1] × [0, v_1] with a margin δ_1: σ_e and R_e > 0 smooth on [−δ_1, u_1 + 2δ_1] × [−δ_1, v_1 + 2δ_1], solving
+  the equations on its part in F. The data must be near the background's in C^(m_1), m_1 = 12k + 42, k ≥ 9, in the
+  normalised gauge, with nonnegative densities. A rectangle Q_0 ⊂ G qualifies when the background extends past its far
+  sides with a margin, as Tier 2's lemma shows for [0, 7.2] × [0, v_1].
 
-## What is proved
+## Findings applied
 
-Every statement is proved in full. The lemmas, in order:
+All findings were applied. Where I changed the replacement text, the reason is given.
 
-- **def:loc-axis-data and lem:loc-axis-constraints.** The constraints are linear ODEs in tensorial form (Y, γ̂, W), so
-  they are smooth through the axes. The data are extended beyond u_1 and v_1 by Borel sums.
-- **lem:loc-axis-jets (T3-0).** The transverse jets are written as tensors on S³. The derivatives across N_o and N_i
-  solve linear ODEs whose coefficients are smooth through the axes. This gives Ĝ, Û and Δ, with ‖Δ‖_(C^(k+3)) ≤ Cε.
-- **lem:loc-axis-leaf (Lemma A).** (i) Any time that increases with u and with v meets each face in at most one data
-  sphere; this includes t = u + v. (ii) In the actual chart: a G-invariant hypersurface on which p_A vanishes is a leaf
-  exactly when Θ_A equals its expansion. (iii) A curve is a leaf of one state exactly when it is a leaf of another
-  state with the same p_A, Θ_A, metric and first derivatives along it. For Ů and Û the spheres are the leaves of both
-  families.
-- **lem:loc-axis-shear (T3-2).** This is lem:class-leaf-differences (b) proved leaf by leaf. It holds on any set O such
-  that, for each point of O near the axis, the arc of the first state's leaf from the axis to that point lies in the
-  closure of O. The constant does not depend on O (Hardy average of prop:class-flat-model (b)).
-- **The reduced problem.** The chart time is adapted to Q1 (eq:loc-axis-time). The slice-triangles 𝔗(s) contain Q1
-  and meet the cones only where the data are given. The closure eq:loc-axis-closure covers both families with no
-  cut-off at the axes.
-- **lem:loc-axis-system.** (F1)–(F3) hold on 𝒟_ρ.
-- **lem:loc-axis-energy.** The energy estimate with a non-local term.
-- **lem:loc-axis-cauchy.** Kato's theorem holds on the whole interval.
-- **lem:loc-axis-past.** U = Û to the past of the cones.
-- **lem:loc-axis-propagation.** The constraints propagate on 𝔗(s*) ⊃ Q1, the axes included.
-- **lem:loc-axis-gauge.** The double-null gauge through the axes.
-- **lem:loc-axis-dependence (Lemma R).** Two solutions in one wave gauge that agree to all orders on the past faces of a
-  double-null rectangle agree on it, with no smallness. The proof uses continuity in t = ũ + ṽ, the chart
-  x = e^(ṽ−μũ) ω̃ with 4μΩ² > γ(b, b), and a localised comparison state W.
-- **lem:loc-axis-unique.** Uniqueness in the double-null gauge: extension of the competitor, a wave map, then Lemma R.
-- **lem:loc-axis-angle.** Angular localisation.
-- **Proof of the theorem.**
-- **rem:loc-axis-constants.** Says where smallness enters (three places) and that the leaf constants depend only on
-  the ball about Û and the chart.
-- **rem:loc-axis-scope.** What the theorem does not give: large data at the axes, further families, finite regularity.
+### Major 1 (lem:loc-axis-dependence, θ chosen after ϵ′)
 
-## Pending markers and needs
+Applied as given. The infinite-order vanishing on the convex set 𝒦 = R′ ∩ {t ≤ t*} gives, by Taylor's formula, a bound
+Cθ^(k+1) on 𝒩_θ. That absorbs the cut-off, and ϵ′ is gone. The review named lines 638–649; the text it replaces is
+638–648, so I applied it by content.
 
-There are **no pending markers** in the file and no outstanding needs from other tiers.
+### Minor findings
 
-**Tier 1 labels cited** (25, as they stand now):
-- thm:loc-cone-development, rem:loc-cone-scope, sec:loc-cone-reduced, sec:loc-cone-setting
-- eq:loc-cone-collar, eq:loc-cone-domain, def:loc-cone-data, lem:loc-cone-in, eq:loc-cone-in
-- lem:loc-cone-extension, lem:loc-cone-borel, lem:loc-cone-jets, prop:loc-cone-formal
-- lem:loc-cone-ricci, eq:loc-cone-frame-ricci, eq:loc-cone-time, eq:loc-cone-modified
-- lem:loc-cone-system, lem:loc-cone-energy, lem:loc-cone-past, lem:loc-cone-constraints
-- lem:loc-cone-gauge, lem:loc-cone-unique, lem:loc-cone-support, lem:loc-cone-strips
+- **Minor 1 (sign in σ_A[V]).** Applied.
+- **Minor 2 (def:loc-axis-data).** Applied as "extends to a smooth field of Lorentzian forms on D × S³" instead of "a
+  smooth Lorentzian metric". D may be an edge, where the forms act on the 5-dimensional tangent spaces along D × S³. The
+  non-degeneracy is what the equivalence needs.
+- **Minor 3 (the extension keeps the localisation).** Both replacements applied. In the proof I wrote "every
+  v-derivative of f − f̊ at v = v_1 vanishes" instead of "every h_j vanishes", because h_j is not named in that proof. I
+  also added that γ̃ is unchanged by its renormalisation there.
+- **Minor 4 (the decoupling of the jet equations through (Ψ1) and (Ψ3)).** Applied. I checked it against (Ψ1) and (Ψ3)
+  of lem:loc-cone-jets as merged.
+- **Minor 5 (four places, plus the uniqueness wave map).** Applied.
+- **Minor 6 and minor 7 (placement items 9 and 3).** Absorbed by the re-base below. Item 3 no longer rewrites Tier 1's
+  Tier 2 clause at all: it inserts a sentence. So the superseded "v_1 > 4.5 and u_1 > 7.2" clause cannot come back, and
+  the merged "u_1 = 7.2, v_1 = 4.5 admissible" text stands.
 
-The Placement also names sec:loc-cone-proof and rem:loc-cone-local-scope.
+### Nits
 
-**Tier 2 labels cited:** thm:civp-large in the section text. The Placement also names def:civp-large-data,
-rem:civp-large-domain and rem:civp-large-beyond.
+- **Nits 3, 5–12, 14, 15, 19 and 20.** Applied as given. For nit 11 the letter is ξ; nit 19 uses it.
+- **Nit 1.** Applied, with "and 2δ_e < δ_1" added. This is why extending Δ by 0 is smooth: the support strips lie inside
+  𝒮, away from its inner boundary.
+- **Nit 2.** Applied. F_0 is described explicitly (local terms at 𝐔̊ + ϒ(Z), the σ_A term at 𝐔) rather than "evaluated
+  as just stated", because that evaluation is stated before the lemma.
+- **Nit 4.** Applied in lem:loc-axis-angle. I also amended lem:loc-axis-energy:
+  - its statement drops the transversality of the faces to the slices;
+  - its proof says that lem:loc-cone-energy uses only that every 𝒟_s is Lipschitz;
+  - so lem:loc-axis-angle cites lem:loc-axis-energy for the Lipschitz domains.
+- **Nit 13.** Applied. Ω̂ > 0 is automatic, since ln Ω is the field.
+- **Nits 16–18 (placement).** Carried into the re-based items 4, 2 and 6.
 
-**Renames.** The coordinator's rename list is still to come and I will apply it when it arrives. Tier 1's symbol
-renames (η → ϖ, ε_0 → ε_B, a_0 → λ_e) do not touch this file:
-- The ε_0 here is this theorem's own constant.
-- The a_j here are the jets of lem:loc-cone-jets, which Tier 1 still writes a_j.
-- I use u_1 and v_1 for the sides of Q1, which matches Tier 1 and Tier 2's rename u1 → u_1 (its minor 3).
+### Tier 2's lem:civp-large-rectangle (a)
 
-## Departures from the GN-T3 outline, with reasons
+It gives everything lem:loc-axis-rectangle gave:
+- [0, 7.2] × [0, v_1] ⊂ G;
+- R ≥ 1.519357 > 1.5 and R_v > 0;
+- a smooth background on [0, 7.2 + 2δ] × [0, v_1 + 2δ] and smooth positive extensions on [−δ, 7.2 + δ] × [−δ, v_1 + δ].
 
-1. **T3-2 is one leaf-wise lemma, not an extension version (a) plus a leaf-wise version (b).** The estimate only needs
-   the first state's leaves to be closed under arcs from the axis; the second state's leaves need no closure. That
-   one-sided condition covers every use: the past region, whose slices are spheres (the leaves of Û); the
-   slice-triangle, bounded by two leaves of U; the angular region, whose slices contain the arcs of the background's
-   spheres; and Lemma R. So the extension version is not needed. It is written leaf by leaf with a constant independent
-   of the set, as asked.
-2. **GN3 forcing smoothness, including the corner case, is not needed as an O(d^∞) argument.** In the slices of any
-   time that increases with u and v, the leaves of Û are exactly the coordinate spheres (lem:loc-axis-leaf (iii)). So
-   σ_A[Û] is a smooth local function of the 1-jet of Ĝ, and the closure residual of Û is −E(P̂, P̂), which is local
-   and vanishes to infinite order on N (lem:loc-axis-system (d), (e)). The corner case is therefore moot.
-3. **Item (4), the chart time.** τ = ln((u+δ_c)(v+δ_c)) + M(β((u−u_1)/δ_1) + β((v−v_1)/δ_1)). With it, 𝔗(s*)
-   contains Q1 but meets the cones only on the given data and their extension (lem:loc-axis-constraints (c),
-   m_1 = 2m_0 + 6).
-4. **k ≥ 9 and uniqueness in C^(k−4).** Tier 1 has k ≥ 6. The uniqueness lemma's wave-map step runs at s = k − 5 > 3
-   with the competitor's fields in C^(k−4), the same norm as the estimate (b). Uniqueness also no longer lets the
-   rectangle grow: the competitor is extended across the far faces by the operator of thm:std-ly-extension (i) in one
-   variable, so ε_2 does not depend on Q1′.
-5. **Lemma A, statement (ii).** It assumes that p_A vanishes on the hypersurface and characterises leaves by Θ_A = θ_S.
-   The converse, that a leaf is annihilated by p_A, is false for a general state and is never used. Where a level set
-   has to be a leaf (the propagation lemma, Lemma R), this is argued through (ii), using nullness of the phase on an
-   open set.
-6. **Lemma R** is proved by continuity in t with no smallness, as S-T4 §4.5 asks. It is stated for two states in one
-   wave gauge relative to an arbitrary metric Ĝ′.
-7. **Angular localisation is restricted to ϑ_a′ ≤ π/4 (and ϑ_b′ ≥ π/4).** This way each region meets one axis only.
-   The (uv)^(1/2) form comes from an auxiliary δ′ → 0 inside one fixed construction. Letting δ_c → 0 instead, as an
-   earlier draft did, would have been wrong, because ε_0 depends on δ_c.
-8. **Item (5).** Only the two double-null families are treated (rem:loc-axis-scope (ii)). Further families reaching the
-   axes are left to Tier 5.
-9. **Constants are traced.** rem:loc-axis-constants lists them, including the dependence on the size of Û through
-   ‖Δ‖_(C^(k+3)).
+It does so for every v_1 > 0, not only v_1 = 4.5. So my lemma is removed, and the corollary's proof derives a background
+with margin δ_1 := min(δ, v_1)/2 from it.
 
-## Placement (summary)
+## Re-base of the Placement on HEAD (Tiers 1–2 merged at f7b0cab8)
 
-The section goes into chapter 83 right after the Tier 2 section, before sec:loc-kid. The merged texts replace Tier 1's
-items 3, 4, 6 and 7, together with the corresponding Tier 2 items:
-- items 2 and 3: chapter 83's opening paragraph and the paragraph after prop:loc-cones;
-- item 9: chapter 03, "More families";
-- item 10: chapter 90, the localised-data paragraph.
+Every old text is quoted from chapters/ at HEAD bce54b51. The merge script checks that each occurs exactly once, as
+whole lines. Item 13 is dropped.
 
-The other items:
-- **Items 4 and 5:** rem:loc-cone-scope (ii) and (iv) inside Tier 1's Block A. Its sentence that no domain-of-dependence
-  statement near an axis is proved is now false for double-null rectangles.
-- **Item 6:** the last sentence of rem:loc-cone-local-scope.
-- **Item 7:** a sentence appended to Tier 2's rem:civp-large-domain. It is an append, not an old/new pair, because that
-  remark is being revised.
-- **Item 8:** chapter 81, lem:class-leaf-differences. The new definitional clause reads H_L[Θ_A] with p_A(n) and with
-  the plane fixed by p_A. No statement of chapter 81 changes.
-- **Item 11, unchanged:** chapter 01 (Tier 1's item 5 suffices), chapter 87 and chapter 90's sentences on 10 l5.
-  lem:tl5-continuation's (F2) is not given by this section.
-- **Item 12:** no Appendix A entry and no reference.
-- **Item 13:** what changes if Tier 2 is not merged.
-- **Crosswalk:** 31 new chapter-83 rows, plus note and source additions for chapter 81's lem:class-leaf-differences row
-  and for the three amended remarks' rows.
+1. **The section.** Goes into chapter 83 after the Tier 2 section (ending with rem:civp-large-beyond, line 2389), before
+   sec:loc-kid (line 2391) and before any other section placed there.
+2. **83:13–14.** A sentence on thm:loc-axis and cor:loc-axis-cones, added before the sentence on Σ_τ0 (nit 17).
+3. **83:694–695 and 83:704–705.**
+   - 694–695: one sentence on the whole-rectangle development is inserted after "([[lem:loc-cone-strips]] (c))", and the
+     next sentence names its data ("the cone data localised in a band").
+   - 704–705: the last sentence now says what the section adds, "cone data that differ from the background's near an
+     axis and are not near the background's" are not developed, and cites rem:loc-axis-scope.
+   - Two new texts are given for 704–705: one without the null-shell section, ending "no other result of this paper uses
+     these developments", and one merged with P-SHELL's item 8, ending "except finitely many null shells … ; no result of
+     the other chapters uses these developments". The merged one carries P-SHELL's text verbatim (checked by script).
+4. **83:676–680, rem:loc-cone-scope (ii).** The last old line is 680, so P-SHELL's item 2 on line 681 composes with it
+   (nit 16).
+5. **83:685–687, rem:loc-cone-scope (iv).** Now cites lem:civp-large-rectangle (a) and cor:loc-axis-cones, for every
+   v_1.
+6. **83:1628–1630, rem:loc-cone-local-scope.** Nit 18 applied.
+7. **83:2369–2371, rem:civp-large-domain.** An old/new pair with one sentence appended. A second text is P-SHELL's
+   item 3 new text with the same sentence appended.
+8. **ch81 1326–1329.** Tier 4's item 2 changes the same lines for the same reason. My text contains its clause, so one
+   copy is kept.
+9. **ch03 376–381.** Minor 6: the two kinds of data are listed separately.
+10. **ch90 217–218.** One text alone and one merged with P-SHELL's item 5, which is carried verbatim.
+11. **Unchanged:** ch01, the 10 l5 sentences of ch87 and ch90, and ch80.
+12. **No Appendix A entry and no reference.**
 
-**Caveat.** The old texts in items 4–6 quote Tier 1 as it stands now. The merged new texts in items 2, 3, 9 and 10 are
-built on Tier 1's current new texts. If Tier 1's fix round or Tier 2's wiring round changes those texts, these items
-must be re-merged.
+**Crosswalk.** 30 rows as real tab-separated lines, source `paper/reader/proofs/P-CIVP3.md@PENDING:N`, as in the merged
+Tier 1/2 rows. A copy is at
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/pcivp3-crosswalk.tsv. Note
+additions are given for these rows:
+- chapter 81's lem:class-leaf-differences, whose source is my lines 975–997;
+- rem:loc-cone-scope, rem:loc-cone-local-scope and rem:civp-large-domain.
+
+**Still to merge by hand if Tier 4 lands.** Item 6 keeps Tier 1's claim that a statement with no background, for data
+prescribed up to the axes, "is not given in this paper", and item 3's alone text keeps "no other result of this paper".
+If Tier 4's thm:civp-axes (large data at the axes near the cones) is placed, these sentences must be merged with its
+texts.
 
 ## Check outputs
 
-On a scratch copy (`.../scratchpad/pcivp3/`), I inserted Tier 1's Block A and Block B, the Tier 2 section with its
-Appendix A entries, and this section, and applied placement items 2–10.
+The scratch copy was made by `git archive HEAD` (bce54b51):
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/m3/research/warp-drive/paper/reader/.
+The section was inserted, and items 2–10 (the texts without the null-shell section) were applied by `scratchpad/tools/merge3.py`.
 
-- `python3 lint.py --chapters` printed `chapters: 62 file(s), 4764 label(s) defined, 10 hit(s)`. All 10 hits are Tier
-  2's `[[pending:civp-tier1-*]]` markers; none comes from this section or from my placement texts.
-- `python3 assemble.py --check` printed `labels 4764, computations cited 0, problems 0`. One intermediate run showed 7
-  undefined-label problems in chapter 33. They came from another task's edit in progress and were gone on the rerun.
-- A resolved-length check (labels replaced by their assembled numbers) over all changed lines found no line over 121
-  characters before or after resolution, no wrapped line starting with "+ ", "- ", "* ", "> ", "#", "=" or "|", no
-  backslash and no unresolved reference.
+- `python3 lint.py --chapters`: "chapters: 62 file(s), 4781 label(s) defined, 0 hit(s)".
+- `python3 assemble.py --check`: "labels 4781, computations cited 0, problems 0".
+- `python3 assemble.py`, in the scratch copy only: "labels 4781, computations cited 0, problems 0".
+- `python3 lint.py --paper`: "PAPER.md: 0 hit(s)".
+- The resolved-length and line-start check over the 876 changed chapter lines found no line over 121 characters before
+  or after label resolution, no bad wrapped start, no backslash and no unresolved reference.
+- In P-CIVP3.md itself, no non-TSV line is over 121 characters and no wrapped prose line starts badly.

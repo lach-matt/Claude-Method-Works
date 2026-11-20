@@ -28,7 +28,8 @@ thm:std-cd-exponential	docket68/n1star/proof5/PART-V-GLUING.md:279-302	[CD03] Th
 sec:std-characteristic	docket68/n1star/N1STAR-PROOF.md:1886-1890; docket68/n1star/CERTIFY-10L5-RESULT.md:2537-2545	NP 10.2 READ [Wu26]; CR READ [CTG23]	section heading
 thm:std-cctw-existence	paper/reader/proofs/P-CIVP2.md@26195481:795	proof P-CIVP2, Appendix A entry: [CCTW16] (2.1)–(2.2), (2.7)–(2.9), (3.2), Theorem 3.9, pp. 6–7, 11, 32–33	new, before thm:std-ctg-neighbourhood (P-CIVP2 text 7); quoted with the page numbers of arXiv:1406.3009v2; used by prop:civp-large-system, thm:civp-large and rem:civp-large-domain
 thm:std-cctw-strips	paper/reader/proofs/P-CIVP2.md@26195481:818	proof P-CIVP2, Appendix A entry: [CCTW16] Corollary 3.11, p. 35	new, before thm:std-ctg-neighbourhood (P-CIVP2 text 7); the two strips, with Theorem 3.9 for u and v exchanged; used by thm:civp-large and rem:civp-large-domain
-thm:std-ctg-neighbourhood	docket68/n1star/CERTIFY-10L5-RESULT.md:2537-2545; paper/RESPONSE-HL-5D.md:2071-2073	[CTG23] Theorem 1.1 pp. 2-3, READ 2026-11-06	
+thm:std-ctg-neighbourhood	docket68/n1star/CERTIFY-10L5-RESULT.md:2537-2545; paper/RESPONSE-HL-5D.md:2071-2073	[CTG23] Theorem 1.1 pp. 2-3, READ 2026-11-06	[CTG23] pp. 2 and 9 and [CCTW16] pp. 53 and 55 quoted for the data and for the double-null form of the solution (P-F123 text 16 (ii))
+thm:std-cp-rendall	paper/reader/proofs/P-F123.md@f4542afa:1181	P-F123, Theorem	CP12 Theorem 2.1, pp. 3-5, quoted
 sec:std-black-holes	paper/RESPONSE-HL-5D.md:1950-1967	P s.10 [HKW18], [KI03], [ER08]	section heading
 thm:std-myers-perry	paper/RESPONSE-HL-5D.md:1965-1967	[ER08] (32)-(34) p. 14 and p. 16, READ 2026-10-23 and 2026-10-24	the appendix quotes (14)-(16), (31)-(34), (42)-(45)
 thm:std-ki-master	paper/RESPONSE-HL-5D.md:1957-1961	[KI03], READ 2026-10-20, 2026-10-21 and 2026-10-23	chapter 64's thm:rw-ki statements folded in
@@ -44,7 +45,7 @@ thm:std-gn-moser	docket68/n1star/FAMILIES5-FULL.md:617-618	FAMILIES5-FULL Step 4
 eq:std-gn-moser	docket68/n1star/FAMILIES5-FULL.md:617-618	FAMILIES5-FULL Step 4 (j): Moser's product estimate	no record display
 thm:std-kato-ponce	docket68/n1star/N1STAR-PROOF.md:1071-1072	[GO13] p. 1	
 cor:std-kato-ponce	(derivation)	density extension of [GO13] at p = 2	added so that the use in chapter 7 (H^s functions, not Schwartz) rests on a stated result; 8-line proof
-thm:std-seeley	docket68/n1star/proof5/PART-IX-GAUGE.md:41-42; docket68/n1star/proof5/PART-IX-GAUGE.md:405-406	[See64] Theorem p. 625 (Seeley's extension), cited, not read, in Part IX	
+thm:std-seeley	docket68/n1star/proof5/PART-IX-GAUGE.md:41-42; docket68/n1star/proof5/PART-IX-GAUGE.md:405-406	[See64] Theorem p. 625 (Seeley's extension), cited, not read, in Part IX	extended by the construction of the proof, p. 625 (P-F123 text 16 (i))
 thm:std-ly-extension	docket68/n1star/N1STAR-PROOF.md:1076-1081	[LY22] Theorems 1, 26, Lemma 27	pages from the source (reader report)
 thm:std-sy-extension	docket68/n1star/N1STAR-PROOF.md:1081-1086	[SY21] s.1, s.2.1	pages from the source (reader report)
 sec:std-microlocal	docket68/n1star/proof5/PART-I-SPECTRAL.md:198; docket68/n1star/proof5/PART-II-F-IOTA.md:2724-2737	Part I.A READ [HJS]; II.F's literature ([0C], [MM87])	section heading
