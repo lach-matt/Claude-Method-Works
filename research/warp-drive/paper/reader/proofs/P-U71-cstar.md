@@ -516,9 +516,10 @@ numbers after 6N_ι + 3N̄_Λ add up to 17,389,163,815,025,371,354,557,103,786, 
 6N_ι = 643,676,371,080,158,357,455,404,787,199,999,976 and 3N̄_Λ = 50,241,599,999,997 the sum is the integer of
 [[eq:cs-cstar]], which is less than C_*. This bound exceeds C_lev, 469 and 466, so it bounds c_*. ∎
 
-**Remark {#rem:cs-sharpness}** (What the bound counts.) Of C_*, all but less than 1.74·10²⁸ is 6N_ι: two counts of
-the logarithmic terms of Λ below 3 + ε_+ in each of the three runs of the top level that c_0 contains, each count
-being taken at the bound k̄(λ) of [[def:iii-i10-1-1]] for the logarithmic orders. The next term,
+**Remark {#rem:cs-sharpness}** (What the bound counts.) Of the bound of [[eq:cs-cstar]], all but less than 1.74·10²⁸
+is 6N_ι (C_* itself exceeds 6N_ι by less than 3.63·10³⁰): two counts of the logarithmic terms of Λ below 3 + ε_+ in
+each of the three runs of the top level counted in the bound for c_0, each count being taken at the bound k̄(λ) of
+[[def:iii-i10-1-1]] for the logarithmic orders. The next term,
 (N̄_Λ + 2)(d_Φ + 30) < 1.739·10²⁸, comes from Step 2 of the proof of [[thm:iii-j1-2-1]], whose chain passes through
 every exponent of Λ_* and composes the map Φ at each. A level step above 3 is charged at most C_lev ≈ C_*/3, and c_0
 enters the second line of [[eq:ec-upper]] once; bounding that line by K·C_lev + 469N_b + 466(N_b + 1) + C_*, with
