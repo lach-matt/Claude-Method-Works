@@ -570,3 +570,256 @@ description here, "angularly regular measures in 3 + 1 dimensions", agrees with 
 - **rem:loc-shell-scope (i)-(vi).** Each item agrees with what the section proves and does not prove.
 - **The section is self-contained.** Every proof is written out, and no step rests on a computation or on "as in the
   source".
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Confirmation (after the fix rounds)
+
+**File read.** `proofs/P-SHELL.md`, md5 93003d07312398b58c9557abb5354dc8, 969 lines:
+- section 1-819;
+- Placement 821-941;
+- Crosswalk 943-969.
+
+Every line was read.
+
+**Texts it was read against.**
+- The writer's reports F-P-SHELL.md, all three rounds.
+- The merged chapter 83 at HEAD (commit f700baf0; Tier 1 at 83:598-1648, Tier 2 at 83:1650-2389, sec:loc-kid at
+  83:2391), and chapters 90 and 98.
+
+All of these were taken from a `git archive` of HEAD in the session scratchpad (reader/pshell2/). For chapters 83, 90 and
+98 the working tree agrees with HEAD. No repository file was edited, and assemble.py was run only in the scratch copy.
+
+**Verdict: NOT CONFIRMED — 0 Major, 1 minor, 3 nits.** The minor concerns the text of placement items 8, 2 and 3: the
+exception they make for null shells says more than is proved. Everything else is resolved or correct, including both new
+lemmas.
+
+### C1. The 19 findings of the first reading
+
+All 19 are resolved. For the four applied with changes, and for nit 9, the judgement is as follows.
+
+- **minor 1 (applied in full, lines 627-659).** Correct, and better than my replacement.
+  - Φ_k(u, ·) is the inverse of the flow of b(u, c_k, ·)∂_ϑ, so Φ_k − id and its inverse are within Cε in
+    C^(k_(k−1) − 4).
+  - The forward transform lands in C^(k_(k−1) − 5) = C^(6k_k + 18) = m_0 of index k_k.
+  - The paragraph "Changing the angle back loses no derivative" is right:
+    - F ∘ Φ_k − F̊ = (F − F̊) ∘ Φ_k + (F̊ ∘ Φ_k − F̊);
+    - the second term is (Φ_k − ϑ) times a mean value, vanishing off the compact set K that Φ_k maps onto itself;
+    - the added factors (∂_ϑΦ_k)², ∂_uΦ_k, 1/∂_ϑΦ_k and ln ∂_ϑΦ_k lie in C^(k_(k−1) − 5) ⊃ C^(k_k − 4);
+    - the formula b ↦ (b ∘ Φ_k − ∂_uΦ_k)/∂_ϑΦ_k inverts b̃ = ∂_uΦ_k + b∂_ϑΦ_k.
+  - The 𝒞_in order k_(j−1) − 4 ≥ 6k_j + 18 and the closing "k_i − 4 ≥ k_(N−1) − 4 = 2" are right. The C¹ claim is kept.
+- **minor 3 (applied, lines 670-675 and 715-729).** Correct, and sharper than mine.
+  - The exception now says what (c) needs: the curves start at any sphere {(u′, c_k)} × S³ in D′ and fill the part of the
+    leaf with u ≥ u′.
+  - I checked the three interval computations, for 𝔏, for 𝔏 ∪ [d_j, d_j + s] × [c_k, c_k + s] and for 𝔏 ∪ D″, D″ a past
+    set of 𝒬 relative to its corner.
+  - I checked that no other step uses more of a past set: lem:loc-shell-ricci (a), the ODEs of prop:loc-shell-junction,
+    and the rule for derivatives in its part (d).
+- **minor 5 (applied, lines 212-215).** Correct. "Locally bounded along the curve and continuous off the crossing
+  spheres" is all that uniqueness for the linear equation needs.
+- **nit 5 (applied, lines 610-612 and 631-633).** Correct.
+  - δ_e is now chosen so that 𝒪 contains [−δ_e, 3δ_e] × [−δ_e, v_1 + δ_e] and [−δ_e, u_1 + δ_e] × [−δ_e, 3δ_e].
+  - At depth k the collar of lem:loc-shell-corner-small at (0, c_k) lies in the first of these sets, since
+    l_u + δ_1 ≤ λ_k^out ≤ λ_1 ≤ 3δ_e, v_1 + δ_1 ≤ v_1 + δ_e and c_k − δ_1 ≥ −δ_e. The collar at (d_j, 0) lies in the
+    second.
+  - The old "R > a" is no longer needed, as lem:loc-shell-corner-small asks only that the collar lie in 𝒪.
+- **nit 9 (not applied).** Agreed. The remark was optional, and a citation that has not been checked against its source
+  must not enter the edition.
+
+The others are applied as proposed:
+- minor 2: lines 268-279;
+- minor 4: line 677;
+- minor 6: lines 599-602 and 789-792, the q_in clause added at the first site;
+- minors 7-9: items 2, 5 and 8, now against HEAD; see C4;
+- minor 10: ϖ at lines 133, 142, 150 and 166, which matches chapter 83 (83:810, 83:857);
+- nits 1-4 and 6: lines 536-538, the item line numbers, 𝔖_k and 𝔖′_j, line 312, and line 497 with line 524;
+- nit 7: superseded by the decision of C2;
+- nit 8: void, as the Tier 2 prefix is unchanged.
+
+### C2. "Class solution in double-null form" against Tier 1's sense
+
+The definition (lines 34-39) and its sites are right. Tier 1's sense (83:731-734, which Tier 2 adopts at 83:1690-1692)
+requires the functions to equal the background's near the axes. "Class solution in double-null form" drops only that
+requirement.
+
+The five sites that need the broader sense use it, and each needs it:
+1. Lines 69-72. A general solution with null shells has cells of this kind, and for p = q = 0 it is "a class solution in
+   the gauge if it equals g0 near the axes".
+2. Line 174, the hypothesis of prop:loc-shell-junction. prop:loc-shell-crossing (a), (b) and (d) apply the proposition to
+   solutions that need not equal g0 near the axes.
+3. Lines 742 and 761, the round solutions in the proof of prop:loc-shell-crossing (b).
+
+Every other use keeps Tier 1's sense, and at each of them the solution does equal g0 near the axes:
+- lem:loc-shell-corner-large (a) and (c), by its (b);
+- lem:loc-shell-corner-small, by its localisation;
+- Steps 1-4 of thm:loc-shells (lines 538, 558, 568, 577), by the bands;
+- thm:loc-shells (c), line 596, by hypothesis;
+- prop:loc-shell-crossing (c), lines 777, 779-780 and 789: on 𝔏 by hypothesis, and on the new cell by
+  prop:loc-cone-local.
+
+Where a site in Tier 1's sense feeds prop:loc-shell-junction (Step 4, and (c) of the crossing proposition), this is
+legitimate, since a class solution in the gauge is in particular one in double-null form.
+
+### C3. The two new lemmas, read as a first reading against the merged chapter
+
+**lem:loc-shell-corner-large (lines 340-417): correct.** It is a faithful transcription of the proof of thm:civp-large
+(83:2209-2359). I went through the cited proof step by step against each replacement.
+
+- **The statement.**
+  - Cone data on 𝒬 are (i)-(iii) of def:civp-large-data at the corner, with Ω free on both edges and b free on N_o and
+    zero on N_i. def:civp-large-data already leaves Ω free on both cones, so nothing is lost.
+  - (a)-(c) are thm:civp-large (a)-(c) with S_𝒬, the edges, the past sets of 𝒬 and 𝒬_δ.
+- **The results that proof uses.**
+  - lem:civp-large-energy and prop:civp-large-corner are stated for arbitrary rectangles. prop:civp-large-corner is
+    stated in Q1, with 𝒪 ⊃ Q1, and κ = η0′ ≤ π/12 < π/8, as it requires.
+  - lem:civp-large-data (a) is general (83:2057-2068). Its (b) is a set of ODEs along the edges from the corner: b = 0 on
+    N_i makes them ODEs along {ϑ = const} on N_i, and the f₄-equations have no ∂_ϑ of an f₄-unknown on N_o.
+  - The frame, reduction and system results are pointwise.
+- **Its Step 1.** J0′ = [ϑ_a′ − 2η0′, ϑ_b′ + 2η0′] ⊂ [η0′, π/2 − η0′], since ϑ_a′ ≥ 3η0′.
+- **Its Step 2.** The CCTW16 theorems apply in the translated coordinates, with a0 = u′ − u_c and b0 = v′ − v_c.
+- **Its Step 3.**
+  - In eq:civp-large-delta, η0′, v′ − v_c and u′ − u_c replace η0, v_1 and u_1, and the energy lemma is applied on the
+    translated strips.
+  - |b| ≤ β1(v − v_c) follows from b = 0 on N_i.
+  - The sign argument uses the segments from u_c and v_c.
+- **Its Step 4.**
+  - 𝒯₁ and 𝒯₂ are the two strips at the corner. The constants come with η0′; [ϑ_a′ − η0′, ϑ_b′ + η0′] ⊂
+    [2η0′, π/2 − 2η0′].
+  - In the corner step the edges at u = u_c or v = v_c are N_o or N_i.
+  - D_t and Γ are taken in (u − u_c) + (v − v_c). The first rectangle has its corner at S_𝒬, where f̄ is geometric to
+    first order. The rectangles about Γ have their corners clipped at (u_c, v_c).
+  - The rename that avoids the clash with Tier 2's u_c, v_c is handled consistently.
+- **Its Steps 5 and 6.** Step 6 uses z₃ = 0 at u = u_c and z₄ = 0 at v = v_c, with η″ = min(η′, η0′).
+- **The uses.**
+  - Steps 2 and 3 of thm:loc-shells, the bands of depth k.
+  - thm:loc-shells (c).
+  - prop:loc-shell-crossing (c): band (3η/2, π/2 − 3η/2), η0′ = η/2, data equal to g0 off [2η, π/2 − 2η] ⊂
+    (3η/2, π/2 − 3η/2), and 𝒬 ⊂ Q1 since 𝔏 ⊂ D.
+
+  Each use meets the hypotheses.
+
+**lem:loc-shell-corner-small (lines 419-494): correct.** It is checked against sec:loc-cone-setting (83:728-755),
+sec:loc-cone-reduced (83:1143-1240), lem:loc-cone-system, -cauchy, -past, -support, -constraints and -gauge
+(83:1241-1450), and the proof of thm:loc-cone-development (83:1632-1648).
+
+- **The background.** g0 restricted to the collar, with e^(2σ_e) = 2Ω² and R_e = R, is a background on 𝒮 in Tier 1's
+  sense: it is smooth with R_e > 0 on 𝒮_c ⊂ 𝒪, and 𝒮_c ∩ F lies in 𝒪 ∩ {u, v ≥ 0}, where g0 solves eq:two-dust-limit
+  (83:1680-1684).
+  - Tier 1's paragraph at 83:749-753 states that the later proofs use only these properties and a number
+    C_* ≥ sup e^(σ_e)/R_e. Here e^(σ_e)/R_e = √2Ω/R, so the lemma's C_* is admissible; lem:loc-cone-support needs exactly
+    this inequality.
+  - lem:loc-cone-strips is used only to supply the background and C_0, which this replaces.
+- **The data.** The least interval [ϑ_a″, ϑ_b″] ⊂ (ϑ_a′, ϑ_b′) ⊂ [4η, π/2 − 4η] gives agreement off [2η, π/2 − 2η], with
+  η ≤ π/16 < π/8. These are case (I) data.
+- **The steps reused.**
+  - δ_c ≤ √c_+/8 and δ_c(l_u + l_v + 1) ≤ c_+/2 come from case (I).
+  - 2C_*(δ_c(l_u + l_v + 1))^(1/2) ≤ η/4 comes from the proof of the theorem.
+  - δ_c ≤ 1 is added, rightly: with arbitrary l_u, l_v, δ_1 and hence √c_+ may exceed 32. It is what gives
+    (u + δ_c)(v + δ_c) ≤ uv + δ_c(l_u + l_v + 1) on G_c, and with it G_c ⊂ F ∩ 𝒰. The far cuts hold because κ l_v ≤ δ_1/4.
+  - The existence and the C^(k−4) estimate are the last sentence of lem:loc-cone-gauge (83:1418-1420).
+- **The localisation.**
+  - lem:loc-cone-support gives the background where ϑ < ϑ_a″ − 2C_* e^(τ/2), with e^(τ/2) = ((u + δ_c)(v + δ_c))^(1/2).
+  - On G_c, 2C_*(uv)^(1/2) ≤ 2C_*δ_* ≤ η/4, as δ_* = √c_+/2 ≤ η/(8C_*).
+  - Adding the δ_c condition gives η/2, and so the background where ϑ ≤ ϑ_a′ − η or ϑ ≥ ϑ_b′ + η.
+- **The constants.** δ_* depends only on δ_1, η and C_*. ε_0 and C depend on k, η, l_u, l_v and g0 on 𝒮_c, through
+  lem:loc-cone-system (a) with Λ = ε ≤ 1 and through 𝒰. None depends on the data. Not using lem:loc-cone-unique, nor the
+  u_K, v_K clause, is right.
+- **The use in thm:loc-shells (d), lines 627-659.**
+  - The edges: N_o = {0} × [c_k, v_1 + δ_1] carries the extended data, and N_i ⊂ [0, λ_k^out] × {c_k}.
+  - The corner values agree, the metric functions being continuous at c_k, and b = 0 at the corner on both edges after
+    the change of angle.
+  - The size is in C^(6k_k + 18) on both edges, η = w_k/2, and G_c contains [0, λ_(k+1)^out] × [c_k, v_1].
+
+### C4. Placement at HEAD
+
+Every Old text occurs exactly once in its chapter at HEAD, as whole lines:
+
+| Item | Site | Lines |
+|---|---|---|
+| 2 | chapter 83, rem:loc-cone-scope (iii), its second line | 681 |
+| 3 | chapter 83, rem:civp-large-domain, its last sentence | 2369-2371 |
+| 4 | chapter 83, the opening | 26-27 |
+| 5 | chapter 90, the paragraph on localised data | 217-218 |
+| 6 | chapter 98, [Rac16] | 157-158 |
+| 8 | chapter 83, the paragraph on the developments | 704-705 |
+
+- Item 1's anchor sec:loc-kid is at 83:2391, directly after rem:civp-large-beyond. Its list of 21 labels equals the
+  labels the section defines, and none is defined elsewhere.
+- The 21 crosswalk rows each point at their label.
+- **Scratch build** (HEAD chapters, the section inserted before sec:loc-kid, items 2-6 and 8 applied):
+  - `assemble.py` reports 0 problems;
+  - `lint.py --chapters` reports 0 hits in 62 files;
+  - no line of PAPER.md is longer than 121 characters;
+  - the section is 53.6, the lemmas 53.48 and 53.49, the theorem 53.50.
+- The proof file has no line over 121 characters and no wrapped line starting with a marker. Its new lists sit between
+  blank lines, and no pending marker remains.
+- Item 8's narrowed clause, "no result of the other chapters uses these developments", is true. Outside chapter 83,
+  thm:civp-large and thm:loc-cone-development are cited only in the descriptive texts of chapter 03 (lines 380-381) and
+  chapter 90 (lines 215-217), and no chapter outside 83 cites prop:loc-cone-local or any loc-shell label.
+
+### C5. Finding
+
+**minor C-1: the exception in items 8, 2 and 3 says more than is proved (lines 934-937, 850-855, 868-869).**
+
+Item 8's New (83:704-705) reads: "except finitely many null shells along leaves of the two cones and data that are smooth
+except across such leaves, which [[thm:loc-shells]] develops …". thm:loc-shells covers less than that, in two ways:
+- **Angular regularity.** It covers shells whose densities m_k and n_j are smooth in ϑ (def:loc-shell-data). Item 8 drops
+  the "with densities smooth in angle" that items 2 and 3 carry. Shells with merely bounded or measure-valued angular
+  densities are not covered.
+- **Continuity.** It covers data whose metric functions are continuous across the leaves. def:loc-shell-data has Ω, γ_ϑ,
+  b, A_c, A_s "continuous and smooth on each [c_k, c_(k+1)]", and prop:loc-shell-cones requires the free data continuous.
+  The densities q_in and q_out may jump. "Data that are smooth except across such leaves" also reads as allowing jumps of
+  the conformal data, and those make the metric discontinuous, which no result here treats.
+
+Replacement for item 8's New (lines 934-937):
+
+    asserted for cone data that differ from the background's near an axis, for data of finite regularity or for densities
+    that are not smooth, except finitely many null shells along leaves of the two cones with densities smooth in angle and
+    data that are smooth except across such leaves, where the metric functions are continuous, which [[thm:loc-shells]]
+    develops slab by slab with [[thm:civp-large]] and [[thm:loc-cone-development]]; no result of the other chapters uses
+    these developments.
+
+For the same reason, item 2's New (lines 850-855) becomes:
+
+    that are only bounded, and measure-valued densities in general, are not covered. Finitely many null shells along leaves
+    {v = c} of 𝒞_out and {u = d} of 𝒞_in, with densities smooth in angle and supported in the band, and data that are smooth
+    except across finitely many such leaves, where the metric functions are continuous, are covered by [[thm:loc-shells]]:
+    their development is continuous, smooth between the leaves and a solution in the sense of distributions
+    ([[def:loc-shell-solution]]), and near the background's data it exists on a neighbourhood of the two cones that does not
+    depend on the data ([[thm:loc-shells]] (d)). For the 3 + 1 problem with two families of null dust,
+
+and the last two lines of item 3's New (lines 868-869) become:
+
+    angle; those, and data that are smooth except across finitely many leaves, where the metric functions are continuous,
+    are developed slab by slab with [[thm:civp-large]] in [[thm:loc-shells]].
+
+Each replacement replaces whole lines of the current file exactly once. It is at most 121 characters per line, also after
+label resolution, and starts no wrapped line with a marker.
+
+### C6. Nits
+
+1. **rem:loc-shell-scope (i), lines 804-806**, for the same reason as C-1. "breaks on finitely many leaves" does not say
+   that the metric functions stay continuous; only the later "a jump of the derivatives" implies it. Replacement:
+
+        ([[rem:loc-cone-scope]] (iii)). Data that are only piecewise smooth, with breaks on finitely many leaves across which the
+        metric functions are continuous, and no atoms, are covered by [[thm:loc-shells]] with every m_k and n_j zero; a jump of
+        the derivatives of the free data across a leaf gives no singular part of Ric ([[lem:loc-shell-ricci]] (b)).
+        (ii) *Domains.* The development of [[thm:loc-shells]] lies
+
+2. **rem:loc-shell-scope (ii), lines 807-809.** "continues a solution through one crossing sphere, on a small square and
+   on a neighbourhood of the two leaves beyond it". The neighbourhood holds only for solutions equal to the background
+   near the axes (prop:loc-shell-crossing (c)); a round one continues on a small square only ((b)). Line 808 is also a
+   stray short line. Replacement:
+
+        in a neighbourhood of the cones on which no two shells cross. [[prop:loc-shell-crossing]] continues a solution through
+        one crossing sphere: a round one on a small square, and one that equals the background near the axes also on a
+        neighbourhood of the two leaves beyond it; a development on the whole rectangle Q1, where the shells cross away from the
+        cones, is not asserted, as for smooth data
+
+3. **Line 443 is a stray short line** ("edges nor an estimate. So we"). Replacement for lines 442-445:
+
+        width that depends on the data only through a bound for their norms, but it gives neither a neighbourhood of the whole
+        edges nor an estimate. So we prove it from the proof of [[thm:loc-cone-development]], that is from case (I) of
+        [[sec:loc-cone-reduced]], at the corner (u_c, v_c).
+
+With C-1 applied, and the nits at the writer's discretion, the file is confirmed.
