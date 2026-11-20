@@ -435,3 +435,86 @@ complement taken in its order: for m = 1 this is the definition, and applying �
 splits each term into the term with 1 ∉ S and the term with 1 ∈ S. ∎
 
 For the seed every operator in the sum vanishes, since π^Z = 0 for all Z ∈ Γ.
+
+**Lemma {#lem:tl5-hf-recovery}** (Recovery of second derivatives.) At a point p of D̄ let H be a symmetric tensor of
+type (2, 0) with |H| ≤ 1/4, and Ψ a C² symmetric 2-tensor field near p. Put 𝔣 := L̂Ψ + H^(αβ) D̂_αD̂_βΨ at p,
+
+    K_rec := max(|T|⁻¹, λ_M^(−1/2)),      𝔷_Z := 3 |D̂Z| |D̂Ψ| + 2 |D̂²Z| |Ψ|   (Z ∈ Γ),
+
+with λ_M of [[eq:tl5-hf-lambda]], and let ‖𝓡̂‖ and ‖𝒞_(·1)‖ be the operator norms of Ψ ↦ 𝓡̂Ψ and of
+Ψ ↦ (𝒞_(M1)Ψ)_(M=0,…,4) on 𝒮_p. Then at p
+
+    (1 − (4/3)|H|) |D̂²Ψ| ≤ (√3 + 8/3) K_rec ((Σ_(Z∈Γ) |D̂ ℒ_ZΨ|²)^(1/2) + (Σ_(Z∈Γ) 𝔷_Z²)^(1/2))
+                          + (4/3) |𝔣| + ((8/3)‖𝓡̂‖ + √2 ‖𝒞_(·1)‖) |Ψ|.                                       {#eq:tl5-hf-recovery}
+
+For H = 0 the proof gives D̂²Ψ(p) as an explicit linear function ℛ_p of (D̂ℒ_ZΨ(p))_(Z∈Γ), D̂Ψ(p), Ψ(p) and L̂Ψ(p),
+with coefficients built from the 2-jets of ĝ and of the fields Z at p.
+
+*Proof.* Write D̂²Ψ(A, B) for the second covariant derivative in the frame directions F_A, F_B, and let X be the sum of
+|D̂²Ψ(A, B)|² over all A and all B ≠ 1. By [[eq:tl5-hf-lie]], for Z ∈ Γ and every A,
+
+    D̂_A(ℒ_ZΨ) = Z^B D̂²Ψ(A, B) + 𝔷_(Z,A),
+    𝔷_(Z,A) := (D̂_A Z)^B D̂_BΨ + (D̂_AΨ)(D̂Z ·, ·) + (D̂_AΨ)(·, D̂Z ·) + Ψ(D̂_A D̂Z ·, ·) + Ψ(·, D̂_A D̂Z ·),
+
+and (Σ_A |𝔷_(Z,A)|²)^(1/2) ≤ 𝔷_Z, each contraction being bounded by the product of the norms. Since T = |T| E₀,
+D̂²Ψ(A, 0) = |T|⁻¹ (D̂_A ℒ_TΨ − 𝔷_(T,A)); since f_j = Σ_ab c^ab_j K_ab ([[lem:tl5-hf-fields]] (a)),
+D̂²Ψ(A, j) = Σ_ab c^ab_j (D̂_A ℒ_(K_ab)Ψ − 𝔷_(K_ab,A)). By [[lem:tl5-hf-fields]] (a) and Minkowski's inequality,
+
+    X^(1/2) ≤ K_rec ((Σ_Z |D̂ℒ_ZΨ|²)^(1/2) + (Σ_Z 𝔷_Z²)^(1/2)).
+
+For A ≠ 1, D̂²Ψ(A, 1) = D̂²Ψ(1, A) + 𝒞_(A1)Ψ, and D̂²Ψ(1, A) is a term of X; so
+Σ_(A≠1) |D̂²Ψ(A, 1)|² ≤ 2X + 2‖𝒞_(·1)‖² |Ψ|². For the entry (1, 1), ĝ^(αβ) D̂_αD̂_βΨ = −D̂²Ψ(0, 0) + D̂²Ψ(1, 1) +
+Σ_j D̂²Ψ(j, j) and H^(αβ) D̂_αD̂_βΨ = Σ_(M,N) H^MN D̂²Ψ(M, N), with |H^MN| the frame components of H; so
+
+    (1 + H^11) D̂²Ψ(1, 1) = 𝔣 − 2𝓡̂Ψ + D̂²Ψ(0, 0) − Σ_j D̂²Ψ(j, j) − Σ_((M,N)≠(1,1)) H^MN D̂²Ψ(M, N).
+
+With |H^11| ≤ |H| ≤ 1/4 and |D̂²Ψ(0, 0)| + Σ_j |D̂²Ψ(j, j)| ≤ 2X^(1/2), four terms of X,
+|D̂²Ψ(1, 1)| ≤ (4/3)(|𝔣| + 2‖𝓡̂‖|Ψ| + 2X^(1/2) + |H| |D̂²Ψ|). Finally |D̂²Ψ| ≤ (3X + 2‖𝒞_(·1)‖²|Ψ|²)^(1/2) +
+|D̂²Ψ(1, 1)| ≤ √3 X^(1/2) + √2 ‖𝒞_(·1)‖ |Ψ| + |D̂²Ψ(1, 1)|, and collecting gives [[eq:tl5-hf-recovery]]. For H = 0
+every step is an identity between the frame components, which defines ℛ_p. ∎
+
+**Definition {#def:tl5-hf-coupling}** (The couplings at level N.) Fix N ≥ 1 and μ ∈ (0, 1]. For a C^(N+2) symmetric
+2-tensor field h put 𝔤 := L̂h. At a point p, substitute in [[eq:tl5-hf-system]], for each word I with |I| ≤ N, every
+second derivative D̂²Ψ_J (|J| < |I|) by ℛ_p of [[lem:tl5-hf-recovery]] with Ψ := Ψ_J, using D̂ℒ_ZΨ_J = D̂Ψ_(ZJ) and
+L̂Ψ_J given again by [[eq:tl5-hf-system]]; after finitely many steps this writes
+
+    L̂Ψ_I(p) = Σ_(|J|≤|I|) 𝔄_IJ (D̂Ψ_J(p), Ψ_J(p)) + Σ_(|J|≤|I|) 𝔔_IJ (ℒ^J 𝔤(p)),
+
+with 𝔔_II the identity, 𝔄_IJ zero on Ψ_J when |J| = |I|, and every 𝔄_IJ, 𝔔_IJ a linear map built from the jets of ĝ
+and of the fields Γ at p, of order at most N + 3, and independent of h. For levels j′ ≤ j ≤ N and ϰ ∈ {+, −, ∥, 0}
+let ℭ_(jj′ϰ)(p) be the operator norm of the map (ξ_ϰ[Ψ_J])_(|J|=j′) ↦ (𝔄_IJ-part)_(|I|=j) from the ϰ-components of
+the jets of level j′ (in the notation of [[def:tl5-hf-blocks]]) to the family (L̂Ψ_I)_(|I|=j), and 𝔮_(jj′)(p) that of
+(ℒ^J𝔤)_(|J|=j′) ↦ (𝔔_IJ ℒ^J𝔤)_(|I|=j), in the Euclidean norms of the families; 𝔮_(jj) = 1. Let 𝔅_N be the symmetric
+matrix of size 4(N + 1), indexed by (j, ϰ), with
+
+    𝔅_N := diag(𝔅, …, 𝔅) + 𝔒 + 𝔒ᵀ,      𝔒_((j,σ),(j′,ϰ)) := √c Ω̂³ μ^((j − j′)/2) ℭ_(jj′ϰ)   (σ ∈ {±}, j′ ≤ j),  {#eq:tl5-hf-bn}
+
+the other entries of 𝔒 being zero, and E_o^N, E_i^N the block diagonal matrices with N + 1 copies of E_o and E_i.
+
+The maps 𝔄_IJ with |J| = |I| come only from the recovery of D̂²Ψ_(I′) with |I′| = |I| − 1: they are the
+same-level couplings. All couplings vanish for the seed.
+
+**Proposition {#prop:tl5-hf-linear-n}** (The linear estimate at level N.) Let h be a C^(N+2) symmetric 2-tensor field
+on Q(a, b) whose partial derivatives of order at most N vanish on N₀ ∩ Q(a, b), 𝔤 := L̂h, and let a_o, a_i be
+admissible rates for (𝔅_N, E_o^N, E_i^N). Then [[eq:tl5-hf-hyp]] holds for the family (Ψ_I)_(|I|≤N) with the weights
+μ^|I| and
+
+    s_N[𝔤] := (Σ_(j≤N) μ^j (Σ_(j′≤j) 𝔮_(jj′) G_(j′))²)^(1/2),      G_(j′) := (Σ_(|J|=j′) |ℒ^J 𝔤|²)^(1/2),     {#eq:tl5-hf-sn}
+
+and so [[eq:tl5-hf-linear]] and [[eq:tl5-hf-f]] hold for it.
+
+*Proof.* Each Ψ_I is a combination of partial derivatives of h of order at most |I| with smooth coefficients, so it
+vanishes on N₀ ∩ Q(a, b). At a point, let n^(j)_ϰ := (Σ_(|I|=j) |ξ_ϰ[Ψ_I]|²)^(1/2) and ñ^(j) := μ^(j/2) n^(j). Since
+𝔅 has nonnegative off-diagonal entries, the Cauchy–Schwarz inequality over the words of level j gives
+Σ_(|I|=j) n[Ψ_I]ᵀ 𝔅 n[Ψ_I] ≤ n^(j)ᵀ 𝔅 n^(j), so by [[lem:tl5-hf-pointwise]] the terms ℬ contribute at most
+Σ_j ñ^(j)ᵀ 𝔅 ñ^(j). By [[lem:tl5-hf-divergence]] the remaining terms are −2Ω̂² Σ_I μ^|I| ⟨L̂Ψ_I, D̂_TΨ_I⟩, and
+|⟨L̂Ψ_I, D̂_TΨ_I⟩| ≤ √c Ω̂ |L̂Ψ_I| (|w₊[Ψ_I]| + |w₋[Ψ_I]|). By the Cauchy–Schwarz inequality over the words of level
+j and [[def:tl5-hf-coupling]],
+
+    Σ_(|I|=j) |L̂Ψ_I| (|w₊| + |w₋|) ≤ (n^(j)_+ + n^(j)_−) (Σ_(j′≤j) Σ_ϰ ℭ_(jj′ϰ) n^(j′)_ϰ + Σ_(j′≤j) 𝔮_(jj′) G_(j′)).
+
+Multiplied by 2√c Ω̂³ μ^j, the first part is 2√c Ω̂³ Σ μ^((j−j′)/2) ℭ_(jj′ϰ) (ñ^(j)_+ + ñ^(j)_−) ñ^(j′)_ϰ =
+ñᵀ(𝔒 + 𝔒ᵀ)ñ; so the bulk without the source is at most ñᵀ𝔅_N ñ, which by admissibility is at most
+(a_o + κa_i) e_o + (a_i + κ′a_o) e_i, as e_o = Σ_j ñ^(j)ᵀ E_o ñ^(j) and e_i likewise. The source part is
+2√c Ω̂³ Σ_j μ^(j/2) 𝔊_j (ñ^(j)_+ + ñ^(j)_−) with 𝔊_j := Σ_(j′≤j) 𝔮_(jj′) G_(j′), and by the Cauchy–Schwarz inequality
+over j, with c Ω̂² Σ_j (ñ^(j)_+)² ≤ e_o and Ω̂² Σ_j (ñ^(j)_−)² ≤ e_i, it is at most 2Ω̂² s_N[𝔤] (√e_o + √c √e_i). ∎
