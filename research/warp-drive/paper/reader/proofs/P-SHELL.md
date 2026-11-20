@@ -407,8 +407,8 @@ are the cone data. In the continuation in u + v:
 
 *Step 5.* The functions induced on N_o and N_i are those of the cone data, by Step 3, as there.
 
-*Step 6.* D′ is a past set of 𝒬, f′₃ = f̄₃ on N_o ∩ D′ and f′₄ = f̄₄ on N_i ∩ D′ ([[lem:civp-large-data]] (b) (iii) in the
-form above). For (u, v) ∈ D′ ∩ 𝒬_δ, z := f′ − F is treated on [u_c, u] × [v_c, v] × [η″/2, π/2 − η″/2], with z₃ = 0
+*Step 6.* D′ is a past set of 𝒬, f′₃ = f̄₃ on N_o ∩ D′ and f′₄ = f̄₄ on N_i ∩ D′ ([[lem:civp-large-data]] (b) (iii) in
+the form above). For (u, v) ∈ D′ ∩ 𝒬_δ, z := f′ − F is treated on [u_c, u] × [v_c, v] × [η″/2, π/2 − η″/2], with z₃ = 0
 at u = u_c and z₄ = 0 at v = v_c, and η″ := min(η′, η0′).
 
 No other step refers to the position of the corner, to u_1 or v_1, or to Ω. With these replacements the proof of
@@ -536,27 +536,24 @@ the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0], so off (ϑ_a^(1), ϑ_b^(1)), 
 δ_0 := min(δ, min(c_1, d_1)/2), 𝒮_0 := {(u, v) ∈ 𝒫_0 : min(u, v) ≤ δ_0} and g_0 the restriction of that solution to
 𝒮_0 × S³.
 
-*Step 2: along 𝒞_out.* For k = 1, …, p in turn put λ_k^out := δ_(k−1)^out, with δ_0^out := δ_0; then 𝒫_k^out lies in the
-cell Q_0k, as λ_k^out ≤ δ_0 < d_1. On N_o := {0} × 𝒵_k take the cone data, which are smooth up to the ends of 𝒵_k. On
-N_i := [0, λ_k^out] × {c_k}, which lies in the domain 𝒮_(k−1)^out of g_(k−1)^out (𝒮_0^out := 𝒮_0, g_0^out := g_0), take
-the functions Ω, γ_ϑ, b, A_c, A_s and q_out of g_(k−1)^out. The two agree at (0, c_k), where both are the values of the
-cone data, g_(k−1)^out inducing them; and Ric(L̲, L̲) = q_out on N_i, the left side involving only derivatives along N_i
-([[def:loc-cone-data]] (ii)), because g_(k−1)^out solves the class system up to {v = c_k}. Let Φ_k(u, ϑ) solve
+*Step 2: along 𝒞_out.* For k = 1, …, p in turn put λ_k^out := δ_(k−1)^out, with δ_0^out := δ_0; then 𝒫_k^out lies in
+the cell Q_0k, as λ_k^out ≤ δ_0 < d_1. On N_o := {0} × 𝒵_k take the cone data, which are smooth up to the ends of 𝒵_k.
+On N_i := [0, λ_k^out] × {c_k}, which lies in the domain 𝒮_(k−1)^out of g_(k−1)^out (𝒮_0^out := 𝒮_0, g_0^out := g_0),
+take the functions Ω, γ_ϑ, b, A_c, A_s and q_out of g_(k−1)^out. The two agree at (0, c_k), where both are the values
+of the cone data, g_(k−1)^out inducing them; and Ric(L̲, L̲) = q_out on N_i, the left side involving only derivatives
+along N_i ([[def:loc-cone-data]] (ii)), because g_(k−1)^out solves the class system up to {v = c_k}. Let Φ_k(u, ϑ) solve
 (∂_u + b(u, c_k, ϑ) ∂_ϑ) Φ_k = 0 with Φ_k(0, ϑ) = ϑ. As b vanishes on N_i outside a compact subset of (ϑ_a^(k), ϑ_b^(k)),
 where g_(k−1)^out is g0, Φ_k(u, ·) is a diffeomorphism of (0, π/2) equal to the identity off that set. The change of
 angle (u, v, ϑ) ↦ (u, v, Φ_k(u, ϑ)) maps a metric of the form [[eq:loc-double-null]] to one of the same form, with Ω,
-A_c, A_s unchanged, γ_ϑ replaced by γ_ϑ/(∂_ϑΦ_k)² and b by ∂_uΦ_k + b ∂_ϑΦ_k, because Φ_k does not depend on v and
-
-    dϑ − b du = (∂_ϑΦ_k)⁻¹ (dΦ_k − (∂_uΦ_k + b ∂_ϑΦ_k) du).
-
-It commutes with the action of G, it is the identity on N_o and off that set, and it makes b vanish on N_i, while b on
-N_o becomes b − b(0, c_k, ·). The transformed functions on N_o and N_i are cone data on 𝒬 := 𝒫_k^out for the band
-(ϑ_a^(k), ϑ_b^(k)) in the sense of [[lem:loc-shell-corner-large]]: the constraints are statements about Ric(∂_v, ·) on
-N_o and Ric(L̲, L̲) on N_i, and the fields ∂_v and L̲, and ∂_ϑ on N_o, are unchanged. By [[lem:loc-shell-corner-large]] (a)
-and (b) there are δ_k^out ∈ (0, λ_k^out] and a class
-solution in the gauge on 𝒮_k^out := {(u, v) ∈ 𝒫_k^out : min(u, v − c_k) ≤ δ_k^out} that induces these functions and
-equals (g0, q̊_in, q̊_out) off (ϑ_a^(k+1), ϑ_b^(k+1)); changing the angle back gives g_k^out on 𝒮_k^out × S³, which
-induces the cone data on N_o and the functions of g_(k−1)^out on N_i.
+A_c, A_s unchanged, γ_ϑ replaced by γ_ϑ/(∂_ϑΦ_k)² and b by ∂_uΦ_k + b ∂_ϑΦ_k, because Φ_k does not depend on v and dϑ − b
+du = (∂_ϑΦ_k)⁻¹ (dΦ_k − (∂_uΦ_k + b ∂_ϑΦ_k) du). It commutes with the action of G, it is the identity on N_o and off that
+set, and it makes b vanish on N_i, while b on N_o becomes b − b(0, c_k, ·). The transformed functions on N_o and N_i are
+cone data on 𝒬 := 𝒫_k^out for the band (ϑ_a^(k), ϑ_b^(k)) in the sense of [[lem:loc-shell-corner-large]]: the constraints
+are statements about Ric(∂_v, ·) on N_o and Ric(L̲, L̲) on N_i, and the fields ∂_v and L̲, and ∂_ϑ on N_o, are unchanged.
+By [[lem:loc-shell-corner-large]] (a) and (b) there are δ_k^out ∈ (0, λ_k^out] and a class solution in the gauge on
+𝒮_k^out := {(u, v) ∈ 𝒫_k^out : min(u, v − c_k) ≤ δ_k^out} that induces these functions and equals (g0, q̊_in, q̊_out) off
+(ϑ_a^(k+1), ϑ_b^(k+1)); changing the angle back gives g_k^out on 𝒮_k^out × S³, which induces the cone data on N_o and the
+functions of g_(k−1)^out on N_i.
 
 *Step 3: along 𝒞_in.* For j = 1, …, q in turn put λ_j^in := δ_(j−1)^in, with δ_0^in := δ_0, 𝒮_0^in := 𝒮_0 and
 g_0^in := g_0. On N_i := 𝒴_j × {0} ⊂ 𝒞_in take the cone data, with b = 0. On N_o := {d_j} × [0, λ_j^in], which lies in
@@ -590,24 +587,24 @@ bands increase with the index, and k + 1, j + 1 ≤ N. The shell densities are j
 (ϑ_a^(N), ϑ_b^(N)). Finally w_i ≤ ϑ_a^(i)/2 and w_i ≤ (π/2 − ϑ_b^(i))/2, which give the bounds after
 [[eq:loc-shell-bands]] by induction.
 
-(c) Let g̃ be as stated. The set D′ ∩ 𝒫_0 is a past set of 𝒫_0, and the restriction of g̃ to it, which is smooth since
-𝒫_0 is a cell, is a class solution in the gauge that induces the data of Step 1 and equals g0 near the axes; by
-[[thm:civp-large]] (c), g̃ = g_0 on D′ ∩ 𝒮_0. Suppose that g̃ = g_(k−1)^out on D′ ∩ 𝒮_(k−1)^out. The set D′ ∩ 𝒫_k^out is
-a past set of 𝒫_k^out relative to its corner (0, c_k), g̃ is smooth on it since 𝒫_k^out ⊂ Q_0k, and g̃ induces the cone
-data on N_o ∩ D′ and the functions of g_(k−1)^out on N_i ∩ D′ ⊂ 𝒮_(k−1)^out: Ω, γ_ϑ, b, A_c and A_s by continuity,
+(c) Let g̃ be as stated. The set D′ ∩ 𝒫_0 is a past set of 𝒫_0, and the restriction of g̃ to it, which is smooth
+since 𝒫_0 is a cell, is a class solution in the gauge that induces the data of Step 1 and equals g0 near the axes; by
+[[thm:civp-large]] (c), g̃ = g_0 on D′ ∩ 𝒮_0. Suppose that g̃ = g_(k−1)^out on D′ ∩ 𝒮_(k−1)^out. The set D′ ∩ 𝒫_k^out
+is a past set of 𝒫_k^out relative to its corner (0, c_k), g̃ is smooth on it since 𝒫_k^out ⊂ Q_0k, and g̃ induces the
+cone data on N_o ∩ D′ and the functions of g_(k−1)^out on N_i ∩ D′ ⊂ 𝒮_(k−1)^out: Ω, γ_ϑ, b, A_c and A_s by continuity,
 q_out by (J3) of [[prop:loc-shell-junction]] (d). After the change of angle Φ_k, which depends only on these functions,
-[[lem:loc-shell-corner-large]] (c) gives g̃ = g_k^out on D′ ∩ 𝒮_k^out. In the same way, with q_in on N_o by (J3) across {u = d_j},
-g̃ = g_j^in on D′ ∩ 𝒮_j^in for every j. So g̃ = g on D′ ∩ 𝒮_δ, the densities q̃_in and q̃_out included, and the shell
-densities, which (J2) determines from the metric, agree as well.
+[[lem:loc-shell-corner-large]] (c) gives g̃ = g_k^out on D′ ∩ 𝒮_k^out. In the same way, with q_in on N_o by (J3) across
+{u = d_j}, g̃ = g_j^in on D′ ∩ 𝒮_j^in for every j. So g̃ = g on D′ ∩ 𝒮_δ, the densities q̃_in and q̃_out included, and
+the shell densities, which (J2) determines from the metric, agree as well.
 
 (d) We repeat Steps 1–5, with [[thm:loc-cone-development]] at S and [[lem:loc-shell-corner-small]] in place of
-[[lem:loc-shell-corner-large]] at the other corners, and keep
-track of sizes; C denotes constants that depend only on g0, u_1, v_1, the leaves, the band and N. The rectangle of depth
-i is developed with the index k_i, and its band is (ϑ_a^(i), ϑ_b^(i)); the localisation of [[thm:loc-cone-development]]
-(b) and of [[lem:loc-shell-corner-small]], with η = w_i/2, gives g0 off (ϑ_a^(i) − η, ϑ_b^(i) + η), a compact subset of (ϑ_a^(i+1), ϑ_b^(i+1)). As
-the extensions equal the background's near v = v_1 and u = u_1 and 𝒪 is an open neighbourhood of Q1, there is δ_e > 0
-such that the extended free data, continued by the background's, are defined on [c_k, v_1 + δ_e] and on [d_j, u_1 + δ_e],
-and such that 𝒪 contains [−δ_e, 3δ_e] × [−δ_e, v_1 + δ_e] and [−δ_e, u_1 + δ_e] × [−δ_e, 3δ_e].
+[[lem:loc-shell-corner-large]] at the other corners, and keep track of sizes; C denotes constants that depend only on
+g0, u_1, v_1, the leaves, the band and N. The rectangle of depth i is developed with the index k_i, and its band is
+(ϑ_a^(i), ϑ_b^(i)); the localisation of [[thm:loc-cone-development]] (b) and of [[lem:loc-shell-corner-small]], with
+η = w_i/2, gives g0 off (ϑ_a^(i) − η, ϑ_b^(i) + η), a compact subset of (ϑ_a^(i+1), ϑ_b^(i+1)). As the extensions equal
+the background's near v = v_1 and u = u_1 and 𝒪 is an open neighbourhood of Q1, there is δ_e > 0 such that the extended
+free data, continued by the background's, are defined on [c_k, v_1 + δ_e] and on [d_j, u_1 + δ_e], and such that 𝒪
+contains [−δ_e, 3δ_e] × [−δ_e, v_1 + δ_e] and [−δ_e, u_1 + δ_e] × [−δ_e, 3δ_e].
 
 *Extended data.* On 𝒞_out ∩ {c_k ≤ v ≤ v_1 + δ_e} solve the equations of the proof of [[prop:loc-shell-cones]] with the
 free data (ℓ_i^(k), q_in^(k)) and the values of ϕ, ∂_vϕ, b and ∂_v b of the cone data at c_k⁺. By uniqueness the result
@@ -622,23 +619,22 @@ of order at most k_0 − 4, and equal to them off (ϑ_a^(1), ϑ_b^(1)); this set
 u_1] × [0, λ_1], λ_1 := min(δ_*,0²/max(u_1, v_1), min(c_1, d_1)/2, 3δ_e), and the solution induces the cone data on 𝒵_0
 and 𝒴_0.
 
-*Depth k ≥ 1 along 𝒞_out.* Let λ_k^out be the width found at depth k − 1, so that the solution of depth k − 1 contains
-[0, λ_k^out] × 𝒵_(k−1) and is within Cε of the background's there with its derivatives of order at most k_(k−1) − 4 (at
-depth 0 as stated above, at depth k − 1 ≥ 1 by the next paragraph, applied at that depth). Apply
+*Depth k ≥ 1 along 𝒞_out.* Let λ_k^out be the width found at depth k − 1, so that the solution of depth k − 1
+contains [0, λ_k^out] × 𝒵_(k−1) and is within Cε of the background's there with its derivatives of order at most
+k_(k−1) − 4 (at depth 0 as stated above, at depth k − 1 ≥ 1 by the next paragraph, applied at that depth). Apply
 [[lem:loc-shell-corner-small]] at (0, c_k), with the band (ϑ_a^(k), ϑ_b^(k)), the index k_k, l_u := (2/3) λ_k^out and
-l_v := v_1 − c_k: then δ_1 ≤ λ_k^out/3 ≤ δ_e, so N_i ⊂ [0, λ_k^out] × {c_k}, N_o = {0} × [c_k, v_1 + δ_1] carries the
-extended cone data of depth k, and the set 𝒮_c of that lemma lies in [−δ_e, 3δ_e] × [−δ_e, v_1 + δ_e] ⊂ 𝒪, as
+l_v := v_1 − c_k: then δ_1 ≤ λ_k^out/3 ≤ δ_e, so N_i ⊂ [0, λ_k^out] × {c_k}, N_o = {0} × [c_k, v_1 + δ_1] carries
+the extended cone data of depth k, and the set 𝒮_c of that lemma lies in [−δ_e, 3δ_e] × [−δ_e, v_1 + δ_e] ⊂ 𝒪, as
 l_u + δ_1 ≤ λ_k^out ≤ λ_1 ≤ 3δ_e. Its width δ_*,k depends only on λ_k^out, v_1 − c_k, the band and g0, and not on the
-data. On N_i take
-the functions of the solution of depth k − 1. The map Φ_k(u, ·) is the inverse of the flow from 0 to u of the
-u-dependent vector field b(u, c_k, ·) ∂_ϑ on (0, π/2), which is within Cε of 0 in C^(k_(k−1) − 4); such a flow and its
-inverse are within Cε of the identity in C^(k_(k−1) − 4), so Φ_k(u, ϑ) − ϑ and Φ_k(u, ·)⁻¹(ϑ) − ϑ are at most Cε with
-their derivatives in (u, ϑ) of order at most k_(k−1) − 4. The transformed functions are γ_ϑ/(∂_ϑΦ_k)², ∂_uΦ_k + b ∂_ϑΦ_k
-and the other functions, composed in the angle with Φ_k(u, ·)⁻¹; by the argument of the next paragraph, with
-Φ_k(u, ·)⁻¹ in place of Φ_k and k_(k−1) − 5 in place of k_k − 4, they are within Cε of the background's with their
-derivatives of order at most k_(k−1) − 5 = 6k_k + 18, the order m_0 of [[def:loc-cone-data]] for the index k_k. On N_o
-the change of angle subtracts b(0, c_k, ·). So the data have size at most Cε, and for ε small the lemma gives a solution on
-{0 ≤ u ≤ l_u, c_k ≤ v ≤ v_1, u(v − c_k) ≤ δ_*,k²}, which contains [0, λ_(k+1)^out] × [c_k, v_1] with
+data. On N_i take the functions of the solution of depth k − 1. The map Φ_k(u, ·) is the inverse of the flow from 0
+to u of the u-dependent vector field b(u, c_k, ·) ∂_ϑ on (0, π/2), which is within Cε of 0 in C^(k_(k−1) − 4); such a
+flow and its inverse are within Cε of the identity in C^(k_(k−1) − 4), so Φ_k(u, ϑ) − ϑ and Φ_k(u, ·)⁻¹(ϑ) − ϑ are at
+most Cε with their derivatives in (u, ϑ) of order at most k_(k−1) − 4. The transformed functions are γ_ϑ/(∂_ϑΦ_k)²,
+∂_uΦ_k + b ∂_ϑΦ_k and the other functions, composed in the angle with Φ_k(u, ·)⁻¹; by the argument of the next paragraph,
+with Φ_k(u, ·)⁻¹ in place of Φ_k and k_(k−1) − 5 in place of k_k − 4, they are within Cε of the background's with
+their derivatives of order at most k_(k−1) − 5 = 6k_k + 18, the order m_0 of [[def:loc-cone-data]] for the index k_k.
+On N_o the change of angle subtracts b(0, c_k, ·). So the data have size at most Cε, and for ε small the lemma gives
+a solution on {0 ≤ u ≤ l_u, c_k ≤ v ≤ v_1, u(v − c_k) ≤ δ_*,k²}, which contains [0, λ_(k+1)^out] × [c_k, v_1] with
 λ_(k+1)^out := min(l_u, δ_*,k²/(v_1 − c_k)), and which is within Cε of the background's with its derivatives of order at
 most k_k − 4 in the transformed angle.
 
@@ -778,14 +774,17 @@ on [0, s]² × S³ that induces these functions and equals (g0, q̊_in, q̊_out)
 the angle back. The extended metric is continuous and cellwise smooth, each closed cell carries a class solution in the
 gauge, and (J3) holds, the new cell inducing q_in on N_o and q_out on N_i. By [[prop:loc-shell-junction]] (a), applied
 to the extended metric, [∂_v b] on {v = 0} is continuous at Z, where its value from u < 0 vanishes by (J1) for the given
-solution; b vanishing near the axes, it vanishes on the new part of the leaf, by the last sentence of (a) with Z in place
-of {(0, c_k)} × S³, (J1). By [[prop:loc-shell-junction]] (b) and (c), 𝒱[tr χ] and 𝒱[tr χ̲] are continuous at Z and keep
-their signs along the new parts of the two leaves, so 𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j; by
-[[prop:loc-shell-junction]] (d) the extension is a solution with null shells along the leaves. The same transformed functions are cone data on 𝒬 for the band (3η/2, π/2 − 3η/2), in the sense of [[lem:loc-shell-corner-large]], for which η0′ = η/2; by its parts (a) and (b) they have a development on 𝒬_δ for some δ > 0 that equals (g0, q̊_in, q̊_out) at the points with ϑ ∉ [η, π/2 − η], and it is glued in the same way. If g̃ is
-a solution on (𝔏 ∪ D″) × S³ as in (c), its restriction to D″, which is smooth since 𝒬 lies in a cell, is a class solution
-in the gauge on a past set of 𝒬 that equals g0 near the axes and induces on N_o ∩ D″ and N_i ∩ D″ the functions of the
-given solution, the metric functions by continuity and q_in and q_out by (J3) of [[prop:loc-shell-junction]] (d); after
-the same change of angle, [[lem:loc-shell-corner-large]] (c) shows that it equals the development on D″ ∩ 𝒬_δ.
+solution; b vanishing near the axes, it vanishes on the new part of the leaf, by the last sentence of (a) with Z in
+place of {(0, c_k)} × S³, (J1). By [[prop:loc-shell-junction]] (b) and (c), 𝒱[tr χ] and 𝒱[tr χ̲] are continuous at Z and
+keep their signs along the new parts of the two leaves, so 𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j;
+by [[prop:loc-shell-junction]] (d) the extension is a solution with null shells along the leaves. The same transformed
+functions are cone data on 𝒬 for the band (3η/2, π/2 − 3η/2), in the sense of [[lem:loc-shell-corner-large]], for which
+η0′ = η/2; by its parts (a) and (b) they have a development on 𝒬_δ for some δ > 0 that equals (g0, q̊_in, q̊_out) at
+the points with ϑ ∉ [η, π/2 − η], and it is glued in the same way. If g̃ is a solution on (𝔏 ∪ D″) × S³ as in (c),
+its restriction to D″, which is smooth since 𝒬 lies in a cell, is a class solution in the gauge on a past set of 𝒬
+that equals g0 near the axes and induces on N_o ∩ D″ and N_i ∩ D″ the functions of the given solution, the metric
+functions by continuity and q_in and q_out by (J3) of [[prop:loc-shell-junction]] (d); after the same change of angle,
+[[lem:loc-shell-corner-large]] (c) shows that it equals the development on D″ ∩ 𝒬_δ.
 
 (d) The functions tr χ and tr χ̲ are the expansions of the spheres {u, v = const} along the null normal fields ∂_v and
 L̲ = −2Ω² g⁻¹dv, which are smooth on each closed cell, the axes included. So the values in (a) extend continuously to the
@@ -832,7 +831,7 @@ line before and one after; it depends only on the sections of Tiers 1 and 2, and
 between the Tier 2 section and that heading. It defines sec:loc-shells, def:loc-shell-solution, eq:loc-shell-einstein,
 eq:loc-shell-dust, lem:loc-shell-ricci, eq:loc-shell-singular, lem:loc-shell-identities, eq:loc-shell-trace,
 prop:loc-shell-junction, eq:loc-shell-torsion, eq:loc-shell-conservation, rem:loc-shell-poisson, def:loc-shell-data,
-lem:loc-shell-corner-large, lem:loc-shell-corner-small, prop:loc-shell-cones, thm:loc-shells, eq:loc-shell-bands,
+prop:loc-shell-cones, lem:loc-shell-corner-large, lem:loc-shell-corner-small, thm:loc-shells, eq:loc-shell-bands,
 prop:loc-shell-crossing, eq:loc-shell-crossing-rule and rem:loc-shell-scope, none of which is defined elsewhere. Numbers
 are resolved at assembly.
 
@@ -915,11 +914,12 @@ New:
 [[rem:loc-shell-poisson]] for comparison only, its wording checked against the arXiv text (version 1, pp. 1 and 4), and
 [LR20, Theorem 4.6] is already quoted in [[rem:loc-cone-scope]] (iii).
 
-*8. [[ch:localised-data]], the paragraph after [[lem:loc-cone-in]] and [[rem:loc-cone-scope]] on the developments of
-these cone data (lines 689–705), the last two lines of its last sentence (lines 704–705).* The closing clause is narrowed to the other chapters: [[thm:loc-shells]] applies
-[[thm:civp-large]] to restrictions of cone data of this kind and [[thm:loc-cone-development]] to extensions of them, so
-"no other result of this paper" would no longer hold. Where another placement rewrites this sentence, the exception for
-null shells and the narrowed clause are carried into the merged text. Old:
+*8. [[ch:localised-data]], the paragraph after [[lem:loc-cone-in]] and [[rem:loc-cone-scope]] on the developments
+of these cone data (lines 689–705), the last two lines of its last sentence (lines 704–705).* The closing clause is
+narrowed to the other chapters: [[thm:loc-shells]] applies [[thm:civp-large]] to restrictions of cone data of this kind
+and [[thm:loc-cone-development]] to extensions of them, so "no other result of this paper" would no longer hold. Where
+another placement rewrites this sentence, the exception for null shells and the narrowed clause are carried into the
+merged text. Old:
 
 asserted for cone data that differ from the background's near an axis, for data of finite regularity or for densities
 that are not smooth, and no other result of this paper uses these developments.
@@ -955,8 +955,10 @@ eq:loc-shell-conservation	paper/reader/proofs/P-SHELL.md:187	proof P-SHELL, disp
 rem:loc-shell-poisson	paper/reader/proofs/P-SHELL.md:268	proof P-SHELL, Remark (Null shells in four dimensions)	comparison with [Poi02, (2.15), p. 4] and [Poi02, p. 1]; Poisson's S^αβ is formed from the singular part of the Einstein tensor, equal here to the δ-part of Ric since 𝔖_k and 𝔖′_j are trace-free; no proof uses it; Barrabès–Israel named only through the title of [Poi02]
 def:loc-shell-data	paper/reader/proofs/P-SHELL.md:281	proof P-SHELL, Definition (Cone data with shells)	new: cone data of def:civp-large-data with atoms m_k, n_j and breaks on leaves; jump conditions [∂_v b] = 0, [tr χ] = −m_k, [tr χ̲] = −n_j
 prop:loc-shell-cones	paper/reader/proofs/P-SHELL.md:301	proof P-SHELL, Proposition (Free data with atoms)	new: prop:loc-cones and lem:loc-cone-in with measure-valued densities (S-T6 MV-2); [∂_vϕ] = −m_k/3, ∂_v b continuous automatically
-thm:loc-shells	paper/reader/proofs/P-SHELL.md:361	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses (T2) and (T1), marked pending; derivative count k_(i−1) = 6k_i + 23, the change of angle back losing no derivative
-eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:366	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
-prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:531	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis; the lemma and the junction conditions extended to sets meeting every coordinate line in an interval (𝔏 and its unions); the crossing rule where the domain contains a neighbourhood of the crossing sphere
-eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:552	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
-rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:663	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)
+lem:loc-shell-corner-large	paper/reader/proofs/P-SHELL.md:340	proof P-SHELL, Lemma (Developments without smallness at a corner sphere in Q1)	new: thm:civp-large (a)–(c) at any rectangle in Q1 for any band, Ω free on both edges, b free on N_o and zero on N_i; proof: the proof of thm:civp-large with every corner-dependent place replaced (replaces the pending statement T2)
+lem:loc-shell-corner-small	paper/reader/proofs/P-SHELL.md:417	proof P-SHELL, Lemma (Developments near the background's data at a corner sphere in Q1)	new: case (I) of sec:loc-cone-reduced at any corner in Q1 with g0 restricted to the collar as background; explicit width δ_* = √c_+/2 independent of the data; existence, the "in particular" localisation, the estimate to order k − 4; steps of the proof of thm:loc-cone-development reused named (replaces the pending statement T1)
+thm:loc-shells	paper/reader/proofs/P-SHELL.md:491	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses lem:loc-shell-corner-large and lem:loc-shell-corner-small at the other corners; derivative count k_(i−1) = 6k_i + 23, the change of angle back losing no derivative
+eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:496	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
+prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:666	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis; the lemma and the junction conditions extended to sets meeting every coordinate line in an interval (𝔏 and its unions); the crossing rule where the domain contains a neighbourhood of the crossing sphere
+eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:687	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
+rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:796	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)
