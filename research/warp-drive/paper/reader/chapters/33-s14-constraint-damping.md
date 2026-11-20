@@ -2334,8 +2334,8 @@ by [[lem:iv6-0-1]] (c). Over ρ = 0:
 (2i)⁻¹((□^C)^(σ) − (□^C)^(σ)*)A² adds at the zero section the shift [Hin26a, (B.24)]. By [[lem:iv6-0-1]] the shift
 comes only from −2iσρh⁻¹S̄: (□^C)^(0) − (□^C)^(0)* ∈ ρ²Diff¹_b, whose quotient by ρ has scattering symbol vanishing at
 (ξ, η) = 0; and 2iσ(ρ²∂_ρ − (3/2)ρ) is symmetric on L²(ρ⁻⁴dρ/ρ) ([[lem:iv6-0-1]] (b)), so its imaginary part lies in
-ρ²C^∞ for any fibre inner product. Taking the fibre inner product
-for which an eigenbasis of S̄ is orthonormal ([[lem:iv6-0-1]] (b)), the shift is −2h⁻¹S̄, which gives [Hin26a, (B.25)].
+ρ²C^∞ for any fibre inner product. Taking the fibre inner product for which an eigenbasis of S̄ is orthonormal
+([[lem:iv6-0-1]] (b)), the shift is −2h⁻¹S̄, which gives [Hin26a, (B.25)].
 The main term (2ℓ + 1)(σ − ξ) − 2h⁻¹S̄ is negative near the zero section iff
 ℓ < −½ + h⁻¹ min spec S̄ = −½ + h⁻¹(1 − e)(1 − v); this is [Hin26a, (B.26)].
 
@@ -2362,8 +2362,20 @@ inverse Mellin transform of the normal operator gives [[eq:iv6-1-2]] from [Hin26
 P_1 = Re 2i(ρ²∂_ρ − (3/2)ρ), and Q_3 = (Im σ)Re (□^C)^(0) a nonnegative absorption. With the same commutant, the
 zero-section symbol is (2ℓ + 1 − 2h⁻¹S̄)ρ^(−2ℓ). −AQ_3A has the sign of the main term, because the b-principal symbol of
 (□^C)^(0) is ξ_b² + |η_b|², so (□^C)^(0) = Σ_jT_j*T_j + R with T_j ∈ ρDiff¹_b and R ∈ ρ²Diff¹_b. The rest is
-subprincipal or elliptic ([Hin26a, p. 90]). *Uniformity* in σ near ±1 is the limiting absorption principle: the full
-Hamilton field on the cut-offs keeps the sign structure of [Hin26a, (B.23)] ([Hin26a, p. 91]).
+subprincipal or elliptic ([Hin26a, p. 90]).
+
+*Uniformity* in σ near ±1 is the limiting absorption principle. At R_out, [[lem:iv6-0-flow]] (c), with the same
+cut-offs for every σ ∈ e^(i[0,π]), gives the main term (2ℓ + 1)(1 − κξ)a² with 1 − κξ ∈ [¾, 5/4] on supp a, and
+cut-off terms whose signs, supports and bounds do not depend on σ; the zero-section term (2ℓ + 1 − 2h⁻¹S̄)ρ^(−2ℓ) does
+not depend on σ either, and −AQ_3A has the sign of the main term. So the estimate at R_out holds with constants
+uniform on e^(i[0,π]), as in [[prop:i-a-4-9]]. Over the rest of ρ = 0 the estimates are microlocal near ρ = 0, where
+(□^C)^(σ) = (□^C)^(0) + σT has the form (H1)–(H2) of [[sec:i-a-1-3]], with T = 2iρ(ρ∂_ρ − 3/2 − h⁻¹S̄), Q = 0 and
+P₂ = 0 ([[eq:iv6-0-2]]; the ξ of [[ch:s01]] is −ξ here), and with ϑ_in as in [[eq:s14-theta-in]]. So the radial
+estimate at R_(Re σ,in) and the propagation along Char_(Re σ) are [[prop:i-a-4-6]] and [[prop:i-a-5-2]], with
+[[rem:i-a-5-2-uses]] (ii) for the absorption (Im σ)Re T. Their constants are uniform for σ ∈ I + i[0, ν], I a compact
+interval about ±1 not containing 0, the orders being admissible at every real σ₀ ∈ I with uniform margins, as the
+orders constructed in the proof of [[lem:i-a-7-1]] are. Near r = 0 the normal operator of r²(□^C)^(σ) does not depend
+on σ, the terms with σ being O(r) there.
 
 So [[eq:iv6-1-1]] is Fredholm, and by [[eq:iv6-1-2]] and elliptic and propagation regularity its nullspace consists of
 elements in every admissible space; it is the same for every admissible (s, ℓ, β). The annihilator of the range is the

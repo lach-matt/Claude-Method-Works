@@ -70,7 +70,7 @@ leading coefficient 1/13680 = 5/171 − 7/240 does not depend on z.
 **Lemma {#lem:ec-lb-ind}** (The index distance at every damping point.) Let 0 < h ≤ 10⁻⁶. The polynomial P_2 of
 [[prop:np-10-12]] (iii), at (v, e) = (1/2, 1/102400), has a real root ι₂(h) with
 
-    (40/13)h(1 − 5·10⁴h) < ι₂(h) − 2 < (40/13)h.                                                            {#eq:ec-lb-root}
+    (40/13)h(1 − 5·10⁴h) < ι₂(h) − 2 < (40/13)h.                                                         {#eq:ec-lb-root}
 
 Hence the number ε_ind(h) of [[prop:np-10-52]] (iii) satisfies ε_ind(h) < (40/13)h. If moreover z ∈ (0, ½] and (C1)
 holds, every constant ε_ind with [[eq:iii-f1-2-2]] satisfies ε_ind < (40/13)h.
@@ -78,7 +78,7 @@ holds, every constant ε_ind with [[eq:iii-f1-2-2]] satisfies ε_ind < (40/13)h.
 *Proof.* At κ = 8, that is l = 2, put ι = 2 + hξ in [[eq:s14-f-two]], so that w = hξ there, and collect the powers of
 h. Each f_j is a polynomial in h of degree at most 3, and
 
-    P_2(2 + hξ) = Σ_(j=1)^9 p_j(ξ)h^j                                                                        {#eq:ec-lb-p}
+    P_2(2 + hξ) = Σ_(j=1)^9 p_j(ξ)h^j                                                                       {#eq:ec-lb-p}
 
 with
 
@@ -96,7 +96,7 @@ terms, taken at ξ = 40/13 and e = 10⁻⁵:
 
 So, for 0 < h ≤ 10⁻⁶ and 0 ≤ ξ ≤ 40/13,
 
-    P_2(2 + hξ) = hp₁(ξ) + h²(p₂(ξ) + ϱ),     |ϱ| ≤ Σ_(j=3)^9 |p_j(ξ)|h^(j−2) < 0.0017.                        {#eq:ec-lb-rho}
+    P_2(2 + hξ) = hp₁(ξ) + h²(p₂(ξ) + ϱ),     |ϱ| ≤ Σ_(j=3)^9 |p_j(ξ)|h^(j−2) < 0.0017.                   {#eq:ec-lb-rho}
 
 *The upper end.* At ξ = 40/13, p₁ = 0 and p₂ = (2 + 10e)·1600/169 − (11 + 159e)·40/13 − 40(1 − e) =
 −(9280 + 59920e)/169 < −54.9. So P_2(2 + (40/13)h) < h²(−54.9 + 0.0017) < 0.
@@ -131,7 +131,7 @@ h ≤ 6.309·10⁻⁹, (40/13)h < δ_50 ([[lem:s14-delta50]]), and the bound imp
 Then the transition face rounds at the levels below 3 and the level-3 rounds at the levels in (3, 4) of
 [[sec:ec-floor]] number together
 
-    R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂) > (1 − 5δ̂ − δ̄)/δ̂².                                                    {#eq:ec-lb-rounds}
+    R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂) > (1 − 5δ̂ − δ̄)/δ̂².                                            {#eq:ec-lb-rounds}
 
 *Proof.* At every parameter point the admissible choices give: α ∈ (4, 4 + ε_K]; levels α_1 = β_0 < β_1 < ⋯ < β_K = α
 with spacings below α − 4 ≤ ε_K, α_1 ∈ (2, α − 2) and no level equal to 3 ([[sec:ec-floor]]); the loss ε of
@@ -172,12 +172,12 @@ Then, for every admissible choice of η_2, α, the levels and the losses ε, ε�
 and [[prop:iii-i13-2-1]], the number R of [[lem:ec-lb-rounds]] satisfies R > (1 − 2·10⁻⁵)/δ̂², and
 
     d_NM ≥ d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²),
-    N_NM = 21d_NM + 6 > 63(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²).                                          {#eq:ec-lb-bound}
+    N_NM = 21d_NM + 6 > 63(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²).                                        {#eq:ec-lb-bound}
 
 In particular
 
     d_acc > 2.2456·10⁹ z⁻²(1 + 25.15z)⁻²,       d_acc > 0.3168 γ_C²,
-    N_NM > 4.7158·10¹⁰ z⁻²(1 + 25.15z)⁻²,       N_NM > 6.654 γ_C²,                                          {#eq:ec-lb-numbers}
+    N_NM > 4.7158·10¹⁰ z⁻²(1 + 25.15z)⁻²,       N_NM > 6.654 γ_C²,                                    {#eq:ec-lb-numbers}
 
 and, in the gauge parameters, d_acc > 1.4035·10⁸ e_Υ⁻²γ_Υ⁻⁴(1 + 100.6e_Υγ_Υ²)⁻².
 
@@ -259,7 +259,7 @@ each new text is to replace it as a whole, with the line breaks shown.
 
 *1. Where the section goes.* The section above, from its heading through [[rem:ec-lb-unbounded]], is inserted in
 [[ch:explicit-constants]] after the paragraph that closes [[sec:ec-delta]], whose last line is "stop." (line 1527),
-and before the heading "### An upper bound for the accounted loss {#sec:ec-upper}" (line 1529), with one blank line
+and before the heading of [[sec:ec-upper]], "An upper bound for the accounted loss" (line 1529), with one blank line
 before and one after. It defines sec:ec-lb-proved, lem:ec-lb-gauge, eq:ec-lb-g, lem:ec-lb-ind, eq:ec-lb-root,
 eq:ec-lb-p, eq:ec-lb-rho, rem:ec-lb-ind, lem:ec-lb-rounds, eq:ec-lb-rounds, thm:ec-lb-proved, eq:ec-lb-bound,
 eq:ec-lb-numbers, cor:ec-lb-delta, rem:ec-lb-conditions and rem:ec-lb-unbounded, none of which is defined elsewhere.
@@ -452,25 +452,25 @@ point: it needs the least excess μ_G of the gap condition, which [[thm:is-gap]]
 
 ### Crosswalk rows
 
-Rows for the crosswalk of [[ch:explicit-constants]], in its four columns (label, source, source name, note), separated
-by tabs; the line numbers are those of this file:
+Rows for the crosswalk of [[ch:explicit-constants]], in its four columns, separated by tabs; the line numbers are
+those of this file, at the line that carries the label:
 
     sec:ec-lb-proved	paper/reader/proofs/P-LB.md:1	P-LB, section	new; after sec:ec-delta
     lem:ec-lb-gauge	paper/reader/proofs/P-LB.md:12	P-LB, Lemma (ℳ, every gauge point)	new: 𝔡_ℳ ≤ z/13680 + z²/544
-    eq:ec-lb-g	paper/reader/proofs/P-LB.md:31	P-LB, display	g(z) = z/27360 + z²/1088 bounds ε_Υ
-    lem:ec-lb-ind	paper/reader/proofs/P-LB.md:76	P-LB, Lemma (index distance, every h)	new: ε_ind(h) < 40h/13
-    eq:ec-lb-root	paper/reader/proofs/P-LB.md:79	P-LB, display	root of P_2 near 2, two-sided
-    eq:ec-lb-p	paper/reader/proofs/P-LB.md:87	P-LB, display	P_2(2 + hξ) in powers of h
-    eq:ec-lb-rho	paper/reader/proofs/P-LB.md:106	P-LB, display	remainder below 0.0017
-    rem:ec-lb-ind	paper/reader/proofs/P-LB.md:131	P-LB, Remark (root ι₂(h))	consistency at 10⁻⁶; sharpness
-    lem:ec-lb-rounds	paper/reader/proofs/P-LB.md:138	P-LB, Lemma (rounds, general)	prop:ec-rounds with δ̂, δ̄
-    eq:ec-lb-rounds	paper/reader/proofs/P-LB.md:148	P-LB, display	R > (1 − 5δ̂ − δ̄)/δ̂²
-    thm:ec-lb-proved	paper/reader/proofs/P-LB.md:185	P-LB, Theorem (proved set)	new: functional lower bound
-    eq:ec-lb-bound	paper/reader/proofs/P-LB.md:197	P-LB, display	d_acc, N_NM against 1/δ̂²
-    eq:ec-lb-numbers	paper/reader/proofs/P-LB.md:202	P-LB, display	2.2456e9/z², 0.3168γ_C²
-    cor:ec-lb-delta	paper/reader/proofs/P-LB.md:236	P-LB, Corollary (δ, proved set)	from prop:ec-delta-cap
-    rem:ec-lb-conditions	paper/reader/proofs/P-LB.md:250	P-LB, Remark (what is used)	conditions used and unused
-    rem:ec-lb-unbounded	paper/reader/proofs/P-LB.md:274	P-LB, Remark (unbounded)	d unbounded on the proved set
+    eq:ec-lb-g	paper/reader/proofs/P-LB.md:29	P-LB, display	g(z) = z/27360 + z²/1088 bounds ε_Υ
+    lem:ec-lb-ind	paper/reader/proofs/P-LB.md:70	P-LB, Lemma (index distance, every h)	new: ε_ind(h) < 40h/13
+    eq:ec-lb-root	paper/reader/proofs/P-LB.md:73	P-LB, display	root of P_2 near 2, two-sided
+    eq:ec-lb-p	paper/reader/proofs/P-LB.md:81	P-LB, display	P_2(2 + hξ) in powers of h
+    eq:ec-lb-rho	paper/reader/proofs/P-LB.md:99	P-LB, display	remainder below 0.0017
+    rem:ec-lb-ind	paper/reader/proofs/P-LB.md:118	P-LB, Remark (root ι₂(h))	consistency at 10⁻⁶; sharpness
+    lem:ec-lb-rounds	paper/reader/proofs/P-LB.md:125	P-LB, Lemma (rounds, general)	prop:ec-rounds with δ̂, δ̄
+    eq:ec-lb-rounds	paper/reader/proofs/P-LB.md:134	P-LB, display	R > (1 − 5δ̂ − δ̄)/δ̂²
+    thm:ec-lb-proved	paper/reader/proofs/P-LB.md:164	P-LB, Theorem (proved set)	new: functional lower bound
+    eq:ec-lb-bound	paper/reader/proofs/P-LB.md:175	P-LB, display	d_acc, N_NM against 1/δ̂²
+    eq:ec-lb-numbers	paper/reader/proofs/P-LB.md:180	P-LB, display	2.2456e9/z², 0.3168γ_C²
+    cor:ec-lb-delta	paper/reader/proofs/P-LB.md:209	P-LB, Corollary (δ, proved set)	from prop:ec-delta-cap
+    rem:ec-lb-conditions	paper/reader/proofs/P-LB.md:221	P-LB, Remark (what is used)	conditions used and unused
+    rem:ec-lb-unbounded	paper/reader/proofs/P-LB.md:242	P-LB, Remark (unbounded)	d unbounded on the proved set
 
 Notes to add to existing rows. Crosswalk of [[ch:explicit-constants]]: ch:explicit-constants, "opening states the
 lower bound on the proved set (P-LB text 2)"; rem:ec-point-outside, "rewritten: outside through h, gauge half
