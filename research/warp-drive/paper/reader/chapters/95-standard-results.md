@@ -848,9 +848,10 @@ M being the projection."
 After Theorem 4.8 (p. 26): "By restriction, the analogous statements are true for □ acting on subbundles of the tensor
 bundle on M, for instance differential forms of all degrees and symmetric 2-tensors."
 
-**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemmas 3.24 and 3.42, Propositions 2.3–4.22,
-Remarks 3.13–3.48, Theorems 3.21–3.52, (1.6), (2.3), (2.5), (3.2), (3.26), (3.28), (4.24a–b), (4.27), (4.28),
-pp. 2–75].) On a smooth manifold M of any dimension n, without boundary, the following hold.
+**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemmas 3.18, 3.20, 3.24 and 3.42,
+Propositions 2.3–4.22, Remarks 3.13–3.56, Theorems 3.21–3.52, footnote 13, (1.6), (2.3), (2.5), (3.2), (3.19), (3.26),
+(3.28), (3.30), (4.24a–b), (4.27), (4.28), pp. 2–75].) On a smooth manifold M of any dimension n, without boundary, the
+following hold.
 
 (S1) Structures [Hin26d, Definitions 1.1 and 1.3, (1.6), pp. 2–6]. A bounded geometry structure is a countable set
 {(U_α, φ_α)} of diffeomorphisms φ_α : U_α → (−2, 2)ⁿ such that the U_α have finite multiplicity,
@@ -890,7 +891,40 @@ there exists a compact subset K ⊂ M so that ρ < ϵ on M ∖ K", ρ being a sc
 on |(ρ_α ∂_(x_α))^β ∂_ξ^γ a_α(x_α, ξ)|, corresponding to '𝒱-regular' symbols", together with their derivatives for the
 spaces with k orders of 𝒲-regularity.
 
-(S7) Parameterised structures [Hin26d, Definitions 3.58–3.59, p. 59].
+(S7) Parameterised structures [Hin26d, Definition 1.9, p. 9; p. 58 and Remark 3.56, p. 58; Definitions 3.58 and 3.59 and
+the text after them, with footnote 13, p. 59]. Definition 1.9 defines a parameterized scaled bounded geometry structure
+on (M, P) as a collection {𝓑_(p,×)} of scaled b.g. structures 𝓑_(p,×) = {(U_(α_p), φ_(α_p), ρ_(α_p))}, p ∈ P, "so that
+the quantities A and the C^∞ bounds on transition functions in Definition 1.1 as well as the constants C_γ in (1.6) are
+uniform also in p ∈ P", and two sentences later states: "Furthermore, it includes semiclassical bounded geometry
+settings when P = (0, 1]_h if all 𝓑_(h,×) feature the same b.g. structure {(U_α, φ_α)}, and the scalings are
+ρ_(α_h,i) = h for h ∈ (0, 1]." On p. 58 the space P × M = ⊔_(p∈P) {p} × M is considered "with P given the discrete
+topology". Remark 3.56 (Subsets of P): "In applications, one often only works with operators defined for
+(typically countable) subsets of parameters p ∈ P (e.g. in the semiclassical setting: sequences of semiclassical
+parameters h_j ↘ 0). Since one can implement this simply by replacing P by such a subset
+(and then defining the microlocalization locus as in (3.40) for the new set P), we do not explicitly allow for symbols
+to be defined only on subsets of P here." Definition 3.58: "Let w = (w_p)_(p∈P) be a weight on (P × M, 𝓑^×). Let m ∈ ℝ.
+Then we say that a family a = (a_p)_(p∈P) lies in wS^m(𝒱T*M) if a_p ∈ w_pS^m(𝒱_pT*M) for all p ∈ P, with uniformly
+bounded symbol seminorms. …" After it: for w to be a weight, "a sufficient additional condition is that the ratios
+w_(p,α)/w_(p,β) for α, β ∈ 𝒜_p with U_(p,α) ∩ U_(p,β) ≠ ∅ are uniformly bounded." Definition 3.59: "In the notation of
+Definition 3.58, a 𝒱-pseudodifferential operator A ∈ wΨ^m_𝒱(M) is a family A = (A_p)_(p∈P) of operators
+A_p = Op_(𝒱_p)(a_p) + R_p where the quantization map Op_(𝒱_p) is defined as in Definition 3.31,
+(a_p)_(p∈P) ∈ wS^m(𝒱T*M), and (R_p)_(p∈P) is a family of residual operators R_p on (M, 𝓑_(p,×)) for which the conditions
+in Definition 3.34 hold with uniform constants and operator norm bounds for all weights w′ in (3.30). The principal
+symbol of A is the equivalence class of a in wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M). …" The text after it: "An operator
+A = (A_p)_(p∈P) ∈ wΨ^m_𝒱(M) defines a uniformly bounded family of operators A_p :
+w′_pH^s_(𝒱_p)(M) → w_pw′_pH^(s−m)_(𝒱_p)(M), and more generally A_p :
+w′_pH^(s;k)_(𝒱_p;𝒲_p)(M) → w_pw′_pH^(s−m;k)_(𝒱_p;𝒲_p)(M). (This is in fact a special case of Theorem 3.44, applied to
+the scaled b.g. structure (P × M, 𝓑^×) and the input u = (u_p)_(p∈P) where u_p = 0 for all p ≠ p_0 ∈ P and
+u_(p_0) ∈ w′_(p_0)H^s_(𝒱_(p_0))(M) with norm ≤ 1, since then Au = (A_pu_p)_(p∈P) has norm ≤ C for some constant C only
+depending on A; but the norm of Au is bounded from below by the w_pw′_pH^(s−m)_(𝒱_p)(M)-norm of A_(p_0)u_(p_0).) The
+properties of adjoints, compositions, commutators, and principal symbols in Theorem 3.51 carry over verbatim."
+(In the parenthesis, the subscripts p of the norm that bounds the norm of Au from below stand for p_0.) Footnote 13:
+"Strictly speaking, one needs to apply this argument for all countable subsets P′ ⊂ P of parameters
+(so that P′ × M is second countable and the total index set ⊔_(p′∈P′) 𝒜_(p′) is countable, as required in
+Definition 1.1); but the uniform bound on the operators A_(p′) is independent of P′." And: "The membership
+A = (A_p)_(p∈P) ∈ wDiff^m_𝒱(M) is characterized by requiring that each A_p is a differential operator, and
+(φ_(p,α))_*A_p = Σ_(|β|≤m) w_(p,α)a_(p,α,β)(x)(ρ_(p,α)∂_x)^β where the C^∞((−2, 2)^n)-seminorms of the coefficients
+a_(p,α,β) are uniformly (in p ∈ P, α ∈ 𝒜_p, β ∈ ℕ^n_0) bounded."
 
 (S8) Variable orders [Hin26d, Definition 4.6, p. 66]: for m, l ∈ S⁰(𝒱T*M),
 
@@ -993,6 +1027,56 @@ commutator" (p. 75). Proposition 4.22 defines ρ^(−l) Ψ^m_(𝒱,[ ])(M) ⊂ �
 of the form A = Op_𝒱(a) + R where a ∈ ρ^(−l) S^m(𝒱T*M) and R ∈ ρ^∞Ψ^(−∞)_(𝒱,[ ])(M)". In its proof (p. 75): "the
 conclusion in Proposition 3.39 can be strengthened to membership in wρ^∞Ψ^(−∞)_(𝒱,[ ])(M) (which then implies an
 analogous strengthening of Lemma 3.42)."
+
+(S16) Residual operators, essential supports and wave front sets [Hin26d, Lemma 3.18, p. 36, and the norm after it,
+p. 37; Lemma 3.20, p. 38; Proposition 3.22, p. 39; Lemma 3.24 (1), p. 40; Definition 3.25, p. 41; the text after
+Definition 3.31, p. 44; Definition 3.34, p. 46; Definition 3.43, p. 51; Theorem 3.51, p. 55; Definition 3.54 and
+Proposition 3.55, p. 57]. Lemma 3.18 (Towards a norm): "There exists a finite subset W ⊂ 𝒲 which spans 𝒲 over
+C^∞_(uni,𝓑)(M)." After it: "We can now define a norm on wH^(s;k)_(𝒱;𝒲)(M) by setting ‖u‖²_(wH^(s;k)_(𝒱;𝒲)) := Σ_(j=0)^k
+Σ_(W_1,…,W_j∈W) ‖W_1 ⋯ W_ju‖²_(wH^s_𝒱)." Lemma 3.20 (Density): "The space C_c^∞(M) is dense in wH^s_𝒱(M) for all weights
+w ∈ C^∞(M) on (M, 𝓑) and s ∈ ℝ, and also in wH^(s;k)_(𝒱;𝒲)(M) for all k ∈ ℕ₀." Proposition 3.22 (Duality): "Fix a
+uniformly positive 𝒱-density μ on M, by which we mean that (φ_α)_*μ = μ_α(x)|dx¹_α/ρ_(α,1) ⋯ dxⁿ_α/ρ_(α,n)| where
+μ_α ∈ C^∞((−2, 2)ⁿ) is uniformly bounded and inf_α inf_((−2,2)ⁿ) μ_α > 0. Let w ∈ C^∞(M) be a weight on (M, 𝓑), and let
+s ∈ ℝ. Then the L²(M; μ)-pairing (u, v) ↦ ⟨u, v⟩ := ∫_M u v̄ dμ extends from C_c^∞(M) × C_c^∞(M) → ℂ to a nondegenerate
+pairing wH^s_𝒱(M) × w⁻¹H^(−s)_𝒱(M) → ℂ, and thus (wH^s_𝒱(M))* = w⁻¹H^(−s)_𝒱(M). (3.19)" Lemma 3.24 (1):
+"S⁰(𝒱T*M) = C^∞_(uni,𝓑*)(𝒱T*M)", 𝓑* being the phase space b.g. structure of (S8). Definition 3.25 uses the uniform
+compactification u𝒱T*M of (𝒱T*M, 𝓑*) and "the continuous extension map j : C⁰_(uni,𝓑*)(𝒱T*M) → C⁰(u𝒱T*M)": "The
+microlocalization locus of (M, 𝓑^×) is then the set 𝔐 := u𝒱T*M ∩ {j(λρ) = 0}", ρ and λ being the scaling weight (S2) and
+an elliptic weight (S8), and "The essential support ess supp^w_𝔐 a ⊂ 𝔐 of a ∈ ⋃_(l,m) wρ^(−l)S^m(𝒱T*M) is defined by
+𝔐 ∋ ϖ ∉ ess supp^w_𝔐 a ⟺ ∃ χ ∈ S⁰(𝒱T*M), χ(ϖ) ≠ 0 s.t. χa ∈ wρ^∞S^(−∞)(𝒱T*M), where we write wρ^∞S^(−∞) = ⋂_(m,l)
+wρ^lS^m"; here χ(ϖ) is the value of j(χ). After Definition 3.31 (the quantization Op_𝒱 of (S4)): "By property (1) from
+Definition 1.1, and using the standard mapping properties of quantizations of symbols on ℝⁿ, such quantizations Op_𝒱(a)
+define bounded maps on C_c^∞(M), C^∞(M), and indeed w′C^∞_(uni,𝓑)(M) → ww′C^∞_(uni,𝓑)(M) for any weight w′.
+(Thus, they can be composed.)" Definition 3.34 (Residual operators): "Let w ∈ C^∞(M) be a weight on (M, 𝓑); recall the
+scaling weight ρ ∈ C^∞(M) from Definition 3.6. Then the space wρ^∞Ψ^(−∞)_𝒱(M) of residual operators consists of all
+linear operators R : C_c^∞(M) → C_c^∞(M) with the following properties. (1) For all weights w′ ∈ C^∞(M) on (M, 𝓑) and
+for all N ∈ ℝ, k ∈ ℕ₀, the operator R : w′ρ^(−N)H^(−N;k)_(𝒱;𝒲)(M) → ww′ρ^NH^(N;k)_(𝒱;𝒲)(M). (3.30) is bounded. (2) Let
+μ ∈ C^∞_(uni,𝓑)(M; ^𝒱ΩM) be a uniformly positive 𝒱-density. Then also the formal L²(M; μ)-adjoint R* of R is bounded as
+a map (3.30) for all w′, N, k." Definition 3.43: "Let m ∈ ℝ, and let w ∈ C^∞(M) be a weight on (M, 𝓑). Then the space of
+weighted 𝒱-pseudodifferential operators (of order m with weight w) is defined by wΨ^m_𝒱(M) := {Op_𝒱(a) + R :
+a ∈ wS^m(𝒱T*M), R ∈ wρ^∞Ψ^(−∞)_𝒱(M)}. In the notation of Definition 3.25, the principal symbol of A = Op_𝒱(a) + R is
+σ^(m,w)_𝒱(A) := [a] ∈ wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M), and its operator wave front set is WF′^w_𝒱(A) := ess supp^w_𝔐 a." and
+"Directly from the definition, we have a short exact sequence 0 → wρΨ^(m−1)_𝒱(M) ↪ wΨ^m_𝒱(M) →^(σ^m_𝒱)
+wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M) → 0." Theorem 3.51, whose first part is stated in (S5), is stated for "a uniformly positive
+𝒱-density" and continues: "The principal symbol of i[A_1, A_2] ∈ wρ^(−(l_1+l_2−1))Ψ^(m_1+m_2−1)_𝒱(M) is the Poisson
+bracket of the principal symbols of A_1, A_2." Definition 3.54 (𝒱-Sobolev wave front set): "Let w ∈ C^∞(M) be a weight
+on (M, 𝓑), recall the scaling weight ρ ∈ C^∞(M) from Definition 3.6, and recall the microlocalization locus 𝔐 from
+Definition 3.25. Let u ∈ wρ^(−∞)H^(−∞)_𝒱(M) = ⋃_(m,l) wρ^lH^m_𝒱(M). Then WF^(m,w,l)_𝒱(u) ⊂ 𝔐 is the complement of the
+set of all ϖ ∈ 𝔐 for which there exists an operator A ∈ Ψ⁰_𝒱(M) which is elliptic at ϖ and for which Au ∈ wρ^lH^m_𝒱(M)."
+Proposition 3.55 (Properties of the 𝒱-Sobolev wave front set): "Let u ∈ wρ^(−∞)H^(−∞)_𝒱(M) and A ∈ w′Ψ^(m′)_𝒱(M),
+B ∈ Ψ⁰_𝒱(M). (1) u ∈ wρ^lH^m_𝒱(M) if and only if WF^(m,w,l)_𝒱(u) = ∅. (2) (Microlocality.)
+WF^(m−m′,ww′,l)_𝒱(Au) ⊂ WF^(m,w,l)_𝒱(u) ∩ WF′^(w′)_𝒱(A). …"
+
+The numbers and pages in (S1)–(S16) are those of arXiv version 1 of [Hin26d]. In the published version, Definitions 1.1,
+1.3 and 1.9 and (1.6) are Definitions 1.2, 1.4 and 1.10 and (1.11); Proposition 2.3 is Proposition 2.4, with (2.3) and
+(2.6) for (2.3) and (2.5); in Section 3 the displays and the items up to Definition 3.34 keep their numbers, and from
+Lemma 3.36 to Definition 3.61 each number is increased by one, so that Proposition 3.39, Lemma 3.42, Definition 3.43,
+Theorems 3.44, 3.51 and 3.52, Remarks 3.46–3.48, Definition 3.54, Proposition 3.55, Remark 3.56 and Definitions 3.58 and
+3.59 are Proposition 3.40, Lemma 3.43, Definition 3.44, Theorems 3.45, 3.52 and 3.53, Remarks 3.47–3.49,
+Definition 3.55, Proposition 3.56, Remark 3.57 and Definitions 3.59 and 3.60 there; footnote 13 is footnote 22; and in
+Section 4, Proposition 4.2 and Definition 4.6 keep their numbers, Definitions 4.11, 4.14 and 4.20 and Propositions 4.15,
+4.17, 4.18 and 4.22 are Definitions 4.12, 4.15 and 4.21 and Propositions 4.16, 4.18, 4.19 and 4.23, and each display
+(4.n) is (4.n + 1).
 
 **Remark {#rem:std-sbg-sobolev}** (Uniform Sobolev spaces; [Hin26d, (3.4), p. 29; Definition 3.14, p. 34; Remark 3.15,
 p. 35; p. 36].) The setting is that of [[thm:std-sbg-calculus]], with the charts φ_α : U_α → (−2, 2)ⁿ, α ∈ 𝒜, of 𝓑

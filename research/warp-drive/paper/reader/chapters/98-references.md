@@ -73,8 +73,8 @@
 - [Hin23b] P. Hintz, *Gluing small black holes along timelike geodesics I: formal solution*, preprint (2023).
   arXiv:2306.07409v2
 - [Hin23c] P. Hintz, *Linear waves on asymptotically flat spacetimes. I*, preprint (2023). arXiv:2302.14647v1
-- [Hin23d] P. Hintz, *Microlocal analysis of operators with asymptotic translation- and dilation-invariances*, preprint
-  (2023). arXiv:2302.13803v1
+- [Hin23d] P. Hintz, *Microlocal analysis of operators with asymptotic translation- and dilation-invariances*, Ars
+  Inven. Anal. 2026, Paper No. 5, 159 pp. doi:10.15781/yw47vq75 arXiv:2302.13803v2
 - [Hin23e] P. Hintz, *Elliptic parametrices in the 0-calculus of Mazzeo and Melrose*, Pure Appl. Anal. 5 (2023),
   729–766. doi:10.2140/paa.2023.5.729 arXiv:2112.08130v1
 - [Hin24a] P. Hintz, *Gluing small black holes along timelike geodesics II: uniform analysis on glued spacetimes*,
