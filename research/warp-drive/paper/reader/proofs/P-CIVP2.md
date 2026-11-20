@@ -599,3 +599,152 @@ densities zero), [CTG23, Theorem 1.1] ([[thm:std-ctg-neighbourhood]]) gives a va
 theorem adds the double-null gauge, uniqueness in it, and localisation. Compared with [[pending:civp-tier1-theorem]],
 smallness is dropped and uniqueness holds among all solutions that equal the background near the axes, not only near
 the background; the neighbourhood is not explicit and no estimate of the solution is given.
+
+### Placement
+
+Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
+source, unindented except where the source indents them, each preceded by a line ending "Old:" or "New:". Line numbers
+are those of the current chapter sources and serve only to find the place. The section above follows the section of
+[[pending:civp-tier1-theorem]] and uses it at three places, each marked: the analogue of [[prop:loc-cones]] on 𝒞_in
+with the gauge b = 0 there ([[pending:civp-tier1-cin-cones]]), the theorem itself, for comparison, and its proof, for
+[[prop:civp-large-corner]] ([[pending:civp-tier1-local]]). Where that section also changes a text listed below, the new
+text below replaces both.
+
+*1. Where the section goes.* The section above, from its heading through [[rem:civp-large-beyond]], is inserted in
+[[ch:localised-data]] after the section of [[pending:civp-tier1-theorem]], which follows [[sec:loc-cones]], and before
+the heading "### The static Killing field and the charge {#sec:loc-kid}", with one blank line before and one after. It
+defines sec:civp-large, eq:civp-large-band, def:civp-large-data, sec:civp-large-frame, eq:civp-large-h,
+lem:civp-large-frame, eq:civp-large-coefficients, eq:civp-large-null, eq:civp-large-box, eq:civp-large-dust,
+eq:civp-large-table, lem:civp-large-reduction, eq:civp-large-reduced, eq:civp-large-m, eq:civp-large-system,
+prop:civp-large-system, eq:civp-large-form, sec:civp-large-data, lem:civp-large-data, sec:civp-large-energy,
+lem:civp-large-energy, eq:civp-large-linear, sec:civp-large-local, prop:civp-large-corner, sec:civp-large-theorem,
+thm:civp-large, eq:civp-large-localised, eq:civp-large-delta, rem:civp-large-domain and rem:civp-large-beyond, none of
+which is defined elsewhere; the prefix may be changed to the chapter's prefix loc- without other changes. No number
+already printed in any chapter changes.
+
+*2. [[ch:localised-data]], its opening paragraph (lines 8–9).* Old:
+
+Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
+and data localised in an angular band exist exactly ([[prop:loc-cones]]). On Σ_τ0 the constraints split, after Rácz
+
+New:
+
+Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
+and data localised in an angular band exist exactly ([[prop:loc-cones]]); when the band avoids the axes they have a
+development in the double-null gauge on a neighbourhood of the two cones, with or without dust and without smallness,
+equal to the background outside a slightly wider band and unique in the gauge among solutions that equal the background
+near the axes, the neighbourhood depending on the data ([[thm:civp-large]]; for data near the background's on an
+explicit neighbourhood, [[pending:civp-tier1-theorem]]). On Σ_τ0 the constraints split, after Rácz
+
+*3. [[ch:localised-data]], the paragraph after [[prop:loc-cones]] (lines 593–600).* Old:
+
+When these cone data carry no dust, their vacuum development near the two cones exists by [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]): this is the case when v_1 < 3, so that 𝒞_out ∩ {v ≤ v_1} lies before the shell, the
+dust densities are left zero there, and 𝒞_in is taken only on u < 5.7, before the packet; both cones then carry
+vacuum data of Tangherlini's metric of mass 3/2 outside the band, and the two cones meet transversally in the corner
+sphere. [CTG23, Theorem 1.1] concerns vacuum data only. For cone data that carry dust, among them every perturbation
+of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2} and every density added in the band,
+no development is asserted here: [[prop:loc-cones]] gives the cone data only, and no result of this paper uses their
+development.
+
+New:
+
+When these cone data carry no dust, their vacuum development near the two cones exists by [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]): this is the case when v_1 < 3, so that 𝒞_out ∩ {v ≤ v_1} lies before the shell, the
+dust densities are left zero there, and 𝒞_in is taken only on u < 5.7, before the packet; both cones then carry vacuum
+data of Tangherlini's metric of mass 3/2 outside the band, and the two cones meet transversally in the corner sphere.
+With or without dust, the cone data of [[def:civp-large-data]], completed on 𝒞_in with b = 0 there, among them every
+perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2} of any amplitude and
+every density added in the band, have a development in the gauge [[eq:loc-double-null]] on a neighbourhood {min(u, v) ≤
+δ} of the two cones; it equals the background outside a slightly wider band and is unique in the gauge among solutions
+that equal the background near the axes ([[thm:civp-large]]). The number δ depends on the data; for data near the
+background's [[pending:civp-tier1-theorem]] gives an explicit neighbourhood and an estimate of the solution. No
+development is asserted for cone data that differ from the background's near an axis, for data of finite regularity or
+for densities that are not smooth, and no other result of this paper uses these developments.
+
+*4. [[ch:scope]], the paragraph on localised data (line 200).* Old:
+
+small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
+
+New:
+
+small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]). On the two null
+cones through the corner sphere, data localised in an angular band exist exactly, with or without dust
+([[prop:loc-cones]]); when the band avoids the axes they have a development in the double-null gauge on a neighbourhood
+{min(u, v) ≤ δ} of the cones, without smallness, equal to the background outside a slightly wider band and unique in
+the gauge among solutions that equal the background near the axes; δ depends on the data and is explicit only for data
+near the background's ([[thm:civp-large]], [[pending:civp-tier1-theorem]]). Developments of cone data that differ from
+the background's near an axis are not established.
+
+*5. [[ch:introduction]], the paragraph on [[part:further]] (lines 190–191).* Old:
+
+([[ch:class-system]]), restricted massless Vlasov limits ([[ch:vlasov]]), localised data and the sign of the charge
+([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]], [[ch:equality-edge]]), the threshold λ0 at a
+
+New:
+
+([[ch:class-system]]), restricted massless Vlasov limits ([[ch:vlasov]]), localised data, their development from two
+null cones, and the sign of the charge ([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]],
+[[ch:equality-edge]]), the threshold λ0 at a
+
+*6. [[ch:theorems]], the item *More families* (line 367).* Old:
+
+  construction of that background does not decide ([[cor:vlasov-two-dust]]); and exactly localised vacuum data
+
+New:
+
+  construction of that background does not decide ([[cor:vlasov-two-dust]]); developments in the double-null gauge
+  of cone data localised in an angular band away from the axes, with or without dust and without smallness, on a
+  neighbourhood of the two cones that depends on the data, localised and unique in the gauge among solutions equal to
+  the background near the axes ([[thm:civp-large]]); and exactly localised vacuum data
+
+*7. [[app:standard-results]], [[sec:std-characteristic]].* Insert before [[thm:std-ctg-neighbourhood]], with one blank
+line after each item. New:
+
+**Theorem {#thm:std-cctw-existence}** ([CCTW16, (2.1)–(2.2), p. 6; (2.7)–(2.9), p. 7; (3.2), p. 11; Theorem 3.9, pp.
+32–33].) The authors consider "quasi-linear first order symmetric hyperbolic systems of the form Lf = G, (2.1) on
+subsets of M̃ := {u ∈ [0, ∞), v ∈ [0, ∞), y ∈ Y}. (2.2) In (2.1), f is assumed to be a section of a real vector bundle
+over M̃, equipped with a scalar product, similarly for G. … Both the scalar product and the connection coefficients are
+allowed to depend upon f, and we assume that ∇ is compatible with ⟨·, ·⟩. … L is a first order operator of the form L =
+A^μ∇_μ, where the A^μ's are self-adjoint, and are smooth functions of f and of the space-time coordinates" (p. 6), with
+G = G(f, ·) (p. 11); here Y is "a (n − 1)-dimensional compact manifold without boundary" and ∇̊ "a fixed, arbitrarily
+chosen, smooth connection which is f, u, and v–independent" (p. 6). They "specialise to f's which are of the form f =
+(ϕ, ψ), (2.7) with A^v and A^u satisfying A^u = (A^u_ϕϕ, 0; 0, 0), A^v = (0, 0; 0, A^v_ψψ), and A^v_ψψ > 0, A^u_ϕϕ > 0.
+(2.8) It is further assumed that the connections ∇ and ∇̊ preserve the splitting (2.7). We will write G = (G_ϕ, G_ψ).
+(2.9)" (p. 7). With N₋ = {0} × [0, b0] × Y and N₊ = [0, a0] × {0} × Y (p. 32), a bar denoting restriction to N₋ ∪ N₊
+(p. 11), Theorem 3.9 reads: "Let Y be a (n − 1)−dimensional compact manifold without boundary, let a0 and b0 two
+positive real numbers and set Ω0 = [0, a0] × [0, b0] × Y. Consider the symmetric hyperbolic system (2.1) on Ω0 with the
+splitting (2.7) and assume that (2.8) holds. Let ϕ̄ and ψ̄ be defined respectively on N₋ and N₊, providing Cauchy data
+for (2.1): ϕ = ϕ̄ on N₋, ψ = ψ̄ on N₊. (3.98) Let ℓ ∈ ℕ, ℓ > (n + 9)/2 and suppose that ϕ̄ ∈ ∩_(0≤j≤ℓ) C^j([0, b0];
+H^(ℓ−j)(Y)) and ψ̄ ∈ ∩_(0≤j≤ℓ) C^j([0, a0]; H^(ℓ−j)(Y)). (3.99) Assume that the transport equations A^μ_ϕϕ|_(v=0)
+∂_μϕ|_(v=0) = (−A^μ_ϕψ ∂_μψ + G_ϕ)|_(v=0), (3.100) A^μ_ψψ|_(u=0) ∂_μψ|_(u=0) = (−A^μ_ψϕ ∂_μϕ + G_ψ)|_(u=0), (3.101)
+with initial data ϕ|_(u=v=0) = ϕ̄|_(v=0) and ψ|_(u=v=0) = ψ̄|_(u=0), have a global solution on ([0, a0] × Y) ∪ ([0, b0]
+× Y). Then there exists an ℓ-independent constant a* ∈ (0, a0] such that the Cauchy problem (2.1), (3.98) has a
+solution f defined on [0, a*] × [0, b0] × Y satisfying (3.88)-(3.90) with k = ℓ − 1. … The solution f is unique within
+the class of C¹ solutions, and is smooth if ϕ̄ and ψ̄ are." The omitted sentence states further regularity for ℓ > (n +
+12)/2.
+
+**Theorem {#thm:std-cctw-strips}** ([CCTW16, Corollary 3.11, p. 35].) "Under the hypotheses of Theorem 3.9, there
+exists two constants 0 < a* ≤ a0 and 0 < b* ≤ b0 and a unique solution f of the Cauchy problem (2.1), (3.98) defined on
+the neighborhood ([0, a*] × [0, b0] × Y) ∪ ([0, a0] × [0, b*] × Y) of N = N₊ ∪ N₋ such that f ∈ L^∞([0, a*] × [0, b0];
+H^(ℓ−2)(Y)) ∩ ⋂_(0<3i≤ℓ−(n+9)/2) W^(i,∞)([0, a*] × [0, b0]; H^(ℓ−1−3i)(Y)) similarly on [0, a0] × [0, b*]." The
+corollary follows from Theorem 3.9 by "the symmetry of the problem under the interchange of u and v" (p. 35). Theorem
+3.9 applied to the system with u and v exchanged therefore also gives that f is smooth on [0, a0] × [0, b*] × Y when ϕ̄
+and ψ̄ are smooth; on the overlap of the two strips the two solutions agree, by the uniqueness in Theorem 3.9.
+
+*8. The references, [CCTW16] (lines 26–28).* The publisher's page gives volume 515 and pages 1–67; the page numbers
+cited in the edition are those of arXiv:1406.3009v2, as the appendix states for all arXiv versions. Old:
+
+- [CCTW16] A. Cabet, P. T. Chruściel, R. Tagne Wafo, *On the characteristic initial value problem for nonlinear
+  symmetric hyperbolic systems, including Einstein equations*, Dissertationes Math. (2016), 1–72.
+  doi:10.4064/dm732-7-2015 arXiv:1406.3009v2
+
+New:
+
+- [CCTW16] A. Cabet, P. T. Chruściel, R. Tagne Wafo, *On the characteristic initial value problem for nonlinear
+  symmetric hyperbolic systems, including Einstein equations*, Dissertationes Math. 515 (2016), 1–67.
+  doi:10.4064/dm732-7-2015 arXiv:1406.3009v2
+
+*9. No change.* [[ch:two-dusts]], [[ch:class-system]], [[ch:vlasov]] and [[ch:ten-l5]] need no change: no result there
+uses the cone developments, and the section uses only results those chapters state. The crosswalk of
+[[ch:localised-data]] receives one row for each label listed in item 1.
