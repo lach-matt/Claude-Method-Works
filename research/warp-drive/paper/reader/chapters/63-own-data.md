@@ -1942,21 +1942,22 @@ connectedness paragraph cited; and with the inclusion ι of Σ̊ it is a globall
 fundamental form k with respect to the future normal.
 
 *M₊ lies in D_gl.* Let p ∈ π(M₊ ∖ Σ̊) and let 𝔠 be an inextendible causal curve of M_gl through p, run from p to the
-past. Suppose that 𝔠 does not meet Σ̊. Then it stays in the open set π(M₊ ∖ Σ̊) = {r > r_♭, t_IVP > 0}, in which it is
-past inextendible. First, if t^♭_*(p) > 3/2, 𝔠 does not stay in {t^♭_* > 3/2}. The part of this set in {r > r_♭} lies in
-Ω°_*, and the argument of the proof of [[lem:ii-f-1-3]] on Ω°_*, with τ := t^♭_*, the level 3/2 and the compact sets
-L_p ⊂ Ω°_* of [[lem:iii-k-6-1]] (c), applied as in the proof of [[prop:iii-k-4-2]], shows that t^♭_* reaches 3/2 along
-every past directed causal curve from p that is past inextendible in Ω°_*; 𝔠 would be one if it stayed in {t^♭_* > 3/2}.
-Second, from the first point p_1 of 𝔠 at which t^♭_* ≤ 3/2 (p_1 := p if t^♭_*(p) ≤ 3/2) on, t^♭_* stays at most 3/2: to
-exceed it, 𝔠 would run in {t^♭_* > 3/2}, where t^♭_* is a time function, along an interval starting at a point where
-t^♭_* = 3/2, and t^♭_* decreases to the past along such an interval. Third, beyond p_1, 𝔠 therefore lies in
-{t_IVP > 0, t^♭_* ≤ 3/2} ⊂ 𝒟, where ǧ = g_(0,0): dt_IVP is past timelike there, and
-r ≤ R_𝔠 := max(R_s, r(p_1)) + 2t_IVP(p_1) along 𝔠 beyond p_1 ([[lem:iii-k-6-2]] (a) and (c), the latter at the level 0;
-R_s is the radius R of that lemma). So 𝔠 lies in L_𝔠 := {0 ≤ t_IVP ≤ t_IVP(p_1), r_♭ ≤ r ≤ R_𝔠, t^♭_* ≤ 3/2}, a closed
-set, bounded in the coordinates (t, x) as t = t_IVP + ψ_IVP(r), hence compact, on which ǧ = g_(0,0) is continuous and
-dt_IVP is past timelike; parametrised by t_IVP, it converges in L_𝔠 to a point q, as in the proof of [[lem:ii-f-1-3]]. q
-is not in {r > r_♭, t_IVP > 0}, in which 𝔠 is past inextendible, nor in Σ̊, where 𝔠 would have an end point in M_gl; so
-r(q) = r_♭. But g_(b₀)⁻¹(dr, dr) ≤ −c_r < 0 on {r_♭ ≤ r ≤ r^♮}, with dr future timelike for g_(b₀) there
+past. Suppose that 𝔠 does not meet Σ̊. Then it stays in the open set π(M₊ ∖ Σ̊) = {r > r_♭, t_IVP > 0}, the complement
+of Σ̊ being the disjoint union of the two open halves, and it is past inextendible there. First, if t^♭_*(p) > 3/2, 𝔠
+does not stay in {t^♭_* > 3/2}. The part of this set in {r > r_♭} lies in Ω°_*, and the argument of the proof of
+[[lem:ii-f-1-3]] on Ω°_*, with τ := t^♭_*, the level 3/2 and the compact sets L_p ⊂ Ω°_* of [[lem:iii-k-6-1]] (c),
+applied as in the proof of [[prop:iii-k-4-2]], shows that t^♭_* reaches 3/2 along every past directed causal curve from
+p that is past inextendible in Ω°_*; 𝔠 would be one if it stayed in {t^♭_* > 3/2}. Second, from the first point p_1 of 𝔠
+at which t^♭_* ≤ 3/2 (p_1 := p if t^♭_*(p) ≤ 3/2) on, t^♭_* stays at most 3/2: to exceed it, 𝔠 would run in
+{t^♭_* > 3/2}, where t^♭_* is a time function, along an interval starting at a point where t^♭_* = 3/2, and t^♭_*
+decreases to the past along such an interval. Third, beyond p_1, 𝔠 therefore lies in {t_IVP > 0, t^♭_* ≤ 3/2} ⊂ 𝒟, where
+ǧ = g_(0,0): dt_IVP is past timelike there, and r ≤ R_𝔠 := max(R_s, r(p_1)) + 2t_IVP(p_1) along 𝔠 beyond p_1
+([[lem:iii-k-6-2]] (a) and (c), the latter at the level 0; R_s is the radius R of that lemma). So 𝔠 lies in
+L_𝔠 := {0 ≤ t_IVP ≤ t_IVP(p_1), r_♭ ≤ r ≤ R_𝔠, t^♭_* ≤ 3/2}, a closed set, bounded in the coordinates (t, x) as
+t = t_IVP + ψ_IVP(r), hence compact, on which ǧ = g_(0,0) is continuous and dt_IVP is past timelike; parametrised by
+t_IVP, it converges in L_𝔠 to a point q, as in the proof of [[lem:ii-f-1-3]]. q is not in {r > r_♭, t_IVP > 0}, in which
+𝔠 is past inextendible, nor in Σ̊, where 𝔠 would have an end point in M_gl; so r(q) = r_♭. But
+g_(b₀)⁻¹(dr, dr) ≤ −c_r < 0 on {r_♭ ≤ r ≤ r^♮}, with dr future timelike for g_(b₀) there
 (the proof of [[lem:s27-below]] (iv)), and h_0 is small in C⁰ on the compact set 𝒟 ∩ {r ≤ R_s}
 (the proof of [[lem:iii-k-6-2]] (a)), which contains 𝒟 ∩ {r ≤ r^♮}, as r^♮ = ½(r_♭ + 7R₁/8) < R₁ ([[def:s12-radii]])
 while R_s ≥ 5R₁, t_IVP = t − C″ holding on {r ≥ R_s} and ψ_IVP = ψ increasing strictly on [3R₁, 5R₁]
