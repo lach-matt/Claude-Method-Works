@@ -696,3 +696,54 @@ of the form H or Ψ_B, those of D̂²h of the form D̂²Ψ_B, D̂Ψ_B or Ψ_B, o
 least (N − 1) + (N − 3) > N letters. In the terms from 𝔠, both are of the form H or Ψ_B, and 2(N − 1) > N. So each
 monomial is bounded by its background norm times 𝔰^(q−1) 𝔧, q ≥ 2 the number of its solution factors, the high one or
 any one of them bounded by 𝔧 and the others by 𝔰; and 𝔰^(q−1) ≤ 𝔰. ∎
+
+**Lemma {#lem:tl5-hf-linfty}** (The low quantities at a point.) Let N ≥ 5, g a solution of the reduced problem on
+D^κ_s, h := g − ĝ, and suppose that all partial derivatives of h of order at most N + 1 vanish on N₀ ∩ D^κ_s. For
+p ∈ D^κ_s put a := τ₁(p), b := τ₂(p), let ℰ⁰_N(p) := Σ_(|I|≤N) ∫_(Σ₁(a,b)) ε₁[Ψ_I] dμ dτ₂, the unweighted face energy
+of all words of length at most N, and ϱ(p) := sup over Q(a, b) of max_(|J|≤N−1) |ℒ^J(2R̂ic)|. At points of D^κ_s let
+
+    𝒥₁ := (Σ_(|C|≤N) (|Ψ_C|² + |D̂Ψ_C|²))^(1/2),   M₂ := max_(|C|≤N−1) |D̂²Ψ_C|,   𝔯₀ := (8/3)‖𝓡̂‖ + √2 ‖𝒞_(·1)‖,
+    α_𝔄 := √2 max_(|C|≤N−1) Σ_J ‖𝔄_CJ‖,   q₁ := max_(|C|≤N−1) Σ_J ‖𝔔_CJ‖,
+    k₁ := (6/5) ((√3 + 8/3) K_rec (1 + √7 (3 max_Z |D̂Z| + 2 max_Z |D̂²Z|)) + 𝔯₀ + (4/3) α_𝔄),   k₂ := (8/5) q₁,
+    k₃ := (8/5) max_(|C|≤N−1) (𝔠_(|C|) + Σ_(J≠C) ‖𝔔_CJ‖ (𝔠_(|J|) + 1)),
+
+with the maps of [[def:tl5-hf-coupling]] and 𝔠_n of [[eq:tl5-hf-cn]], and 𝔨₂ := (1/z̲ + max(1/c, 1/κ′))/(2Ω̂²). If
+𝔰 ≤ 𝔰₀ := min(1/8, 1/(2 sup_(Q(a,b)) k₃)) on Q(a, b), then
+
+    𝔰(p) ≤ C_∞(p) ℰ⁰_N(p)^(1/2) + C_(∞,ϱ)(p) ϱ(p),                                                    {#eq:tl5-hf-linfty}
+
+with C_∞ := 2 max(2C_S, C₁, k₁(p) max(C_S, C₁)), C_(∞,ϱ) := 2 max(C_(1,ϱ), k₁(p) C_(1,ϱ) + k₂(p)), C_S of
+[[eq:tl5-hf-cs]] and
+
+    C₁² := 258 C_(S³)² 𝔭₃ 𝔴(p)⁶ sup_(Σ₁(a,b)) 𝔳⁶ R⁻³ 𝔨₂ ((1 + 18|D̂∂_γ|²)(1 + 6Λ)² + 4|∂_γ|² (72Λ² + 8(k₁ + 1)²)),
+    C_(1,ϱ)² := 258 C_(S³)² 𝔭₃ 𝔴(p)⁶ sup_(Σ₁(a,b)) (𝔳⁶ R⁻³ 32 |∂_γ|² k₂²) · ∫_(Σ₁(a,b)) dμ dτ₂/(1 − κκ′).
+
+*Proof.* By [[thm:tl5-wg]] (F4_W) g is vacuum, so by [[lem:tl5-hf-reduced]] L̂h = 2R̂ic − N(h); with 𝔤 := L̂h,
+[[def:tl5-hf-coupling]] gives at every point, for |C| ≤ N − 1, L̂Ψ_C + H^(αβ)D̂_αD̂_βΨ_C = Σ_J 𝔄_CJ(D̂Ψ_J, Ψ_J) +
+Σ_J 𝔔_CJ ℒ^J(2R̂ic) − Σ_(J≠C) 𝔔_CJ ℒ^J N(h) − (ℒ^C N(h) − H^(αβ)D̂_αD̂_βΨ_C). Each Ψ_I, |I| ≤ N, and each low
+quantity vanishes on N₀, being built from derivatives of h of order at most N + 1.
+
+*Second derivatives.* At a point of Q(a, b) apply [[lem:tl5-hf-recovery]] to Ψ_C, |C| ≤ N − 1, with the tensor H of
+the solution, |H| ≤ 𝔰₀ ≤ 1/8, so 1 − (4/3)|H| ≥ 5/6. There (Σ_Z |D̂ℒ_ZΨ_C|²)^(1/2) ≤ 𝒥₁ and
+(Σ_Z 𝔷_Z²)^(1/2) ≤ √7 (3 max|D̂Z| + 2 max|D̂²Z|) 𝒥₁, as Γ has seven fields; |D̂Ψ_J| + |Ψ_J| ≤ √2 𝒥₁; and by
+[[lem:tl5-hf-quadratic]] |ℒ^J N(h)| ≤ |H| |D̂²Ψ_J| + 𝔠_(|J|) 𝔰𝔧 ≤ (𝔠_(|J|) + 1) 𝔰 𝔧 for |J| ≤ N − 1, with
+𝔧 ≤ max(𝒥₁, M₂). Hence M₂ ≤ k₁ 𝒥₁ + k₂ |ℒ^(≤N−1)(2R̂ic)| + k₃ 𝔰 max(𝒥₁, M₂), and with k₃𝔰 ≤ 1/2,
+
+    M₂ ≤ 2(k₁ + 1) 𝒥₁ + 2k₂ max_(|J|≤N−1) |ℒ^J(2R̂ic)|.
+
+*Zeroth order.* [[lem:tl5-hf-sobolev]] for A := Ψ_B, |B| ≤ N − 2, gives |Ψ_B(p)| ≤ C_S(p) ℰ⁰_N(p)^(1/2), since
+ℒ^J Ψ_B = Ψ_(JB) and the words JB are distinct for distinct J; and |H(p)| ≤ 2|h(p)| by [[lem:tl5-wg-norms]] (a).
+
+*First order.* For |B| ≤ N − 3 apply [[eq:tl5-hf-cs-r]] with r = 3 to A := D̂Ψ_B. For a word J of rotations,
+|J| ≤ 2, ℒ^J D̂Ψ_B = D̂Ψ_(JB) + R′, with at most six monomials in R′ by the proof of [[lem:tl5-hf-quadratic]] (ii), each
+a contraction of one coefficient of norm at most Λ with a Ψ_C; so |ℒ^J A| ≤ (1 + 6Λ) 𝒥₁, and, with Λ bounding also
+the derivatives D̂ℒ^B Γ′[π^Z], |D̂ℒ^J A| ≤ M₂ + 6√2 Λ 𝒥₁, as |JB| ≤ N − 1. There are 43 words J. On the face,
+by [[eq:tl5-hf-coercive]] and [[lem:tl5-hf-densities]], |Ψ_C|² + |D̂Ψ_C|² ≤ 𝔨₂ (e_o[Ψ_C] + κ′ e_i[Ψ_C]), so
+∫ 𝒥₁² dμ dτ₂/(1 − κκ′) ≤ sup 𝔨₂ ℰ⁰_N(p) on Σ₁(a, b); inserting the bound for M₂, with (x + y)² ≤ 2x² + 2y², gives
+|D̂Ψ_B(p)| ≤ C₁ ℰ⁰_N(p)^(1/2) + C_(1,ϱ) ϱ(p).
+
+*Second order at low levels.* For |B| ≤ N − 4 every solution factor of every monomial of ℒ^B N(h) is low, so the proof
+of [[lem:tl5-hf-quadratic]] gives |ℒ^B N(h)| ≤ (𝔠_(|B|) + 1) 𝔰², and the computation above at p, with every term of
+𝒥₁ and of M₂ replaced by the low quantities, gives |D̂²Ψ_B(p)| ≤ k₁ max(C_S, C₁) ℰ⁰_N^(1/2) + (k₁ C_(1,ϱ) + k₂) ϱ +
+k₃ 𝔰(p)²; as k₃ 𝔰(p) ≤ 1/2, the last term is at most 𝔰(p)/2. Taking the maximum of the four bounds and absorbing
+𝔰(p)/2 gives [[eq:tl5-hf-linfty]]. ∎
