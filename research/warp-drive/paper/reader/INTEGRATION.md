@@ -1356,3 +1356,18 @@ Items found while chapters were written in parallel; each is settled once, editi
   both nits applied by the coordinator in the reviewer's words (notation sentences in B.5, B.6; 83 "the table of
   [[sec:table-bump]]"). Appendix B now B.1-B.8. R5-82 CONFIRMED (notes/reviews/R5-82.md): chapter 82 CONFIRMED; chapter 90
   cites cor:vlasov-two-dust in place of its marker.
+- P-U71-cstar written (notes/reports/P-U71-cstar.md): c_* < C_* = 6.4368·10³⁵, so thm:uc-integer gives d_acc, d_NM ≤
+  D_acc < 1.57157·10⁵⁰ and N_NM < 3.30029·10⁵¹ (lower bound 3R > 1.2497·10²⁴ for every admissible choice). Combined
+  reading running: R-DB-1 (cstar and thm:uc-integer), R-DB-2 (close and assembly in full), R-DB-3 (IS and SP fixes).
+- I-1 done (notes/reports/I-1.md, notes/reports/I-1-items.tsv): 182 items, 73 done, 32 applied in 31 chapters, 66
+  deferred, 11 dropped. R-I1a (chapters ≤ 29) and R-I1b (chapters ≥ 30) reading. Coordinator's decisions on the deferred
+  items: to the d-bound integration round: 71:642 β_Γ; chapter 3 ṁ for μ̇. To I-2 after the I-1 readings: 82:651 (L1);
+  83 cites lem:two-dust-reparametrisation; 33 (E3) citation and the d_s0 clash; 07:230 and 07:261 texts (I-1 report);
+  81:1659 (R4-83 text) and the optional pointer at 81:1022; 87:351-353 (R-96 nit 3); 61 prop:after-shell-profiles (a)
+  cut to a citation of lem:np-10-50-a; the compact part 𝒦 of 46, 48, 65 renamed 𝔒; 24:979 (ρ_a ≤ c_V², the order of
+  choice) checked and fixed if needed; Appendix A statements still missing ([Hin26c, Lemma 3.5], [Hin26d, Remark 3.15],
+  [Hin23a, Cor. 3.36]) stated from their sources with pages, or the use rewritten; uncited Appendix A and bibliography
+  entries pruned at the end. Not done, by decision: the global λ → ϰ rename in 36-46 and N → M for large orders in
+  20-48 (both risk more than they cure; each chapter defines its symbols locally; a notation sentence at the start of
+  the stability theory says so); the statement-changing optional nits (ε_g sweep, 38's M° → Ω_*, S20 zf-weight, S17
+  λ_♯-pole sentences), declined by their readers; the lost-review nits whose intent cannot be recovered.
