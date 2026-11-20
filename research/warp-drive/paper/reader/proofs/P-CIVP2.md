@@ -114,7 +114,7 @@ every amplitude.
 *Proof.* (a) Let σ be the function of [[eq:bg-field]], e^(2σ) = 2Ω². By [[lem:two-dust-reparametrisation]] (b),
 [[prop:two-dust-background]] holds in these coordinates (proof of [[lem:loc-cone-strips]] (a)): G is closed in Q = [0,
 ∞) × [0, V1′], its boundary in Q lies in {R = a}, a = 0.70, the background is smooth on G, and μ ≥ μ0 > 0 on G. G is a
-past set, 𝒟 being one: for p ∈ G and q ∈ J⁻(p) = [0, u_p] × [0, v_p], q ∈ 𝒟 and J⁻(q) ⊂ J⁻(p). By
+past set, 𝒟 being one: for p ∈ G and p′ ∈ J⁻(p) = [0, u_p] × [0, v_p], p′ ∈ 𝒟 and J⁻(p′) ⊂ J⁻(p). By
 [[eq:two-dust-evolution]] and [[eq:two-dust-mass]], which hold in these coordinates, σ_uv = 3(e^(2σ) + 2R_uR_v)/(2R²) =
 (3/2)e^(2σ)μ/R⁴ > 0 on G, and σ = −(1/2) ln 2 on both cones; so σ(u, v) = −(1/2) ln 2 + ∫_0^u ∫_0^v σ_uv ≥ −(1/2) ln 2
 on every rectangle J⁻(p), p ∈ G, that is 1/2 ≤ e^(2σ) and e^(−2σ) ≤ 2. Put λ := e^(−2σ)R_v. Then λ_v = −𝒜e^(−2σ)/(3R²)
@@ -136,11 +136,11 @@ at least μ3 > 0 on [u1, u2] ([[prop:bg-nprime]] (iii)), so ℓ_v′ = −μ/R³
 By continuity w = v_p. So R_v = e^(2σ)λ > 0 on J⁻(p), and R ≥ R(u, 0) ≥ 1.519357 > a there; in particular R(p) > a, p is
 not on the boundary of G in Q, and G contains a neighbourhood of p in Q.
 
-*Conclusion.* So G ∩ T, T := [0, 7.2] × [0, v_1], is open in T; it is closed in T, G being closed in Q; and it contains
-the corner, which lies in G, R being 5 there. T is connected, so T ⊂ G, and by the previous paragraph R_v > 0 and R ≥
-1.519357 on T. The points of G with R > a are interior points of G in Q, so they form a set open in Q that contains the
-compact T, hence [0, 7.2 + 2δ] × [0, v_1 + 2δ] for some δ ∈ (0, 1/2); there the background is smooth, solves
-[[eq:two-dust-limit]] and has R > a. [[lem:loc-cone-borel]], with r := 0, applied as in the proof of
+*Conclusion.* So G ∩ Q_*, Q_* := [0, 7.2] × [0, v_1], is open in Q_*; it is closed in Q_*, G being closed in Q; and it
+contains the corner, which lies in G, R being 5 there. Q_* is connected, so Q_* ⊂ G, and by the previous paragraph R_v >
+0 and R ≥ 1.519357 on Q_*. The points of G with R > a are interior points of G in Q, so they form a set open in Q that
+contains the compact Q_*, hence [0, 7.2 + 2δ] × [0, v_1 + 2δ] for some δ ∈ (0, 1/2); there the background is smooth,
+solves [[eq:two-dust-limit]] and has R > a. [[lem:loc-cone-borel]], with r := 0, applied as in the proof of
 [[lem:loc-cone-strips]] (b) to the derivatives of σ and of R on {0} × [0, v_1 + 2δ] and on [0, 7.2 + 2δ] × {0}, which do
 not depend on ϑ, extends σ and R to smooth functions on (−∞, 7.2 + 2δ] × (−∞, v_1 + 2δ]; after decreasing δ, R > 0 on
 [−δ, 7.2 + δ] × [−δ, v_1 + δ] by continuity, and Ω = e^σ/√2 > 0.
@@ -751,16 +751,16 @@ merged texts of items 3 to 7 of the placement of [[sec:loc-cone-proof]], which n
 [[def:civp-large-data]], [[lem:civp-large-free]] and [[lem:civp-large-rectangle]] of this section.
 
 *1. Where the section goes.* The section above, from its heading through [[rem:civp-large-beyond]], is inserted in
-[[ch:localised-data]] after [[sec:loc-cone-proof]], which follows [[sec:loc-cones]], and before the heading "### The
-static Killing field and the charge {#sec:loc-kid}" (line 602), with one blank line before and one after. It defines
-sec:civp-large, eq:civp-large-band, def:civp-large-data, lem:civp-large-free, lem:civp-large-rectangle,
-sec:civp-large-frame, eq:civp-large-h, lem:civp-large-frame, eq:civp-large-coefficients, eq:civp-large-null,
-eq:civp-large-box, eq:civp-large-dust, eq:civp-large-table, lem:civp-large-reduction, eq:civp-large-reduced,
-eq:civp-large-m, eq:civp-large-system, prop:civp-large-system, eq:civp-large-form, sec:civp-large-data,
-lem:civp-large-data, sec:civp-large-energy, lem:civp-large-energy, eq:civp-large-linear, sec:civp-large-local,
-prop:civp-large-corner, sec:civp-large-theorem, thm:civp-large, eq:civp-large-localised, eq:civp-large-delta,
-rem:civp-large-domain and rem:civp-large-beyond, none of which is defined elsewhere; the prefix may be changed to the
-chapter's prefix loc- without other changes. Numbers are resolved at assembly.
+[[ch:localised-data]] after [[sec:loc-cone-proof]], which follows [[sec:loc-cones]], and before the heading
+"### The static Killing field and the charge {#sec:loc-kid}" (line 602), with one blank line before and one
+after. It defines sec:civp-large, eq:civp-large-band, def:civp-large-data, lem:civp-large-free,
+lem:civp-large-rectangle, sec:civp-large-frame, eq:civp-large-h, lem:civp-large-frame, eq:civp-large-coefficients,
+eq:civp-large-null, eq:civp-large-box, eq:civp-large-dust, eq:civp-large-table, lem:civp-large-reduction,
+eq:civp-large-reduced, eq:civp-large-m, eq:civp-large-system, prop:civp-large-system, eq:civp-large-form,
+sec:civp-large-data, lem:civp-large-data, sec:civp-large-energy, lem:civp-large-energy, eq:civp-large-linear,
+sec:civp-large-local, prop:civp-large-corner, sec:civp-large-theorem, thm:civp-large, eq:civp-large-localised,
+eq:civp-large-delta, rem:civp-large-domain and rem:civp-large-beyond, none of which is defined elsewhere; the prefix may
+be changed to the chapter's prefix loc- without other changes. Numbers are resolved at assembly.
 
 *2. [[ch:localised-data]], its opening paragraph (lines 8–9).* Changed by item 3 of the placement of
 [[sec:loc-cone-proof]], whose new text is the merged text for both sections; no separate change.
