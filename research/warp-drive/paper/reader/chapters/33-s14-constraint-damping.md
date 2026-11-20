@@ -1446,7 +1446,8 @@ and a quantisation A = A* with WF′(A) = supp a. Then [Hin26a, (5.25)] holds:
 *The main term.* On supp a, for 𝔛 large, the covectors are close to future (for +), resp. past (for −) lightlike
 covectors. c is past timelike ([[lem:iv5-0-5]] (1)), so [[lem:iv5-0-4]] ([[lem:iv4-1-causal]] (d)) makes ±ρ_sf⁻²ℓ
 positive definite there, with a lower bound fixed by compactness. Im □_h ∈ h Diff¹_(3b,ħ) is semiclassically
-subprincipal, □_h having real scalar principal symbol. This gives [Hin26a, (5.26)]: ±(Re L_h − Im □_h)A² = A(B̃_0*B̃_0 + c_0Λ*Λ)A + hE.
+subprincipal, □_h having real scalar principal symbol. This gives [Hin26a, (5.26)]:
+±(Re L_h − Im □_h)A² = A(B̃_0*B̃_0 + c_0Λ*Λ)A + hE.
 
 *The commutator and the cut-offs.* ∓(i/2)[P_h, A²] has principal symbol ∓aH_Ga at order h ([Hin26a, (5.27)]). In
 [Hin26a, (5.29)] it is split as follows. Differentiation of χ_± and of χ(𝔛Ĝ) lands off the characteristic set, so these
@@ -1996,11 +1997,11 @@ coefficients of P_h as an element of h²ρ_sf²Diff²_3b + hρ_sf²Diff¹_3b in 
 ([[lem:iv5-0-2]] (a), (d), and the smooth dependence of [[sec:iii-b-3-1]]); the lower bounds in the positivity
 statements, from [[lem:iv5-0-3]] (exact in (a)–(b) for all b ∈ ℬ, by continuity in (c)), [[lem:iv5-0-4]] (the
 constant C and the margins of [[lem:iv4-1-causal]] (d) on compact sets) and [[lem:iv5-0-5]] (uniform by its
-statement); and the cut-offs, commutants and the parameters 𝔛, δ, δ′, t_j, r_j, κ, chosen from these bounds alone, hence independently
-of b. The calculus estimates used (composition, elliptic parametrices, the sharp Gårding inequality, L²-boundedness)
-have constants depending on finitely many seminorms of the symbols involved, which depend continuously on b. Each
-absorption step needs h below a threshold determined by these quantities. So each h_0 and C is uniform on U, after
-shrinking U to a compact neighbourhood. ∎
+statement); and the cut-offs, commutants and the parameters 𝔛, δ, δ′, t_j, r_j, κ, chosen from these bounds alone,
+hence independently of b. The calculus estimates used (composition, elliptic parametrices, the sharp Gårding
+inequality, L²-boundedness) have constants depending on finitely many seminorms of the symbols involved, which depend
+continuously on b. Each absorption step needs h below a threshold determined by these quantities. So each h_0 and C is
+uniform on U, after shrinking U to a compact neighbourhood. ∎
 
 ### The transition face model {#sec:iv6}
 
