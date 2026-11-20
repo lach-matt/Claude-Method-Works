@@ -472,9 +472,9 @@ track of sizes; C denotes constants that depend only on g0, u_1, v_1, the leaves
 i is developed with the index k_i, and its band is (ϑ_a^(i), ϑ_b^(i)); the localisation of [[thm:loc-cone-development]]
 (b) and of (T1), with η = w_i/2, gives g0 off (ϑ_a^(i) − η, ϑ_b^(i) + η), a compact subset of (ϑ_a^(i+1), ϑ_b^(i+1)). As
 the extensions equal the background's near v = v_1 and u = u_1 and 𝒪 is an open neighbourhood of Q1, there is δ_e > 0
-such that the extended free data, continued by the background's, are defined on [c_k, v_1 + δ_e] and on [d_j,
-u_1 + δ_e], and such that 𝒪 contains a neighbourhood of [0, 3δ_e] × [0, v_1 + δ_e] and of [0, u_1 + δ_e] × [0, 3δ_e]
-and R > a on these two sets, R being continuous and > a on the cones.
+such that the extended free data, continued by the background's, are defined on [c_k, v_1 + δ_e] and on [d_j, u_1 + δ_e],
+and such that 𝒪 contains a neighbourhood of [0, 3δ_e] × [0, v_1 + δ_e] and of [0, u_1 + δ_e] × [0, 3δ_e] and R > a on
+these two sets, R being continuous and > a on the cones.
 
 *Extended data.* On 𝒞_out ∩ {c_k ≤ v ≤ v_1 + δ_e} solve the equations of the proof of [[prop:loc-shell-cones]] with the
 free data (ℓ_i^(k), q_in^(k)) and the values of ϕ, ∂_vϕ, b and ∂_v b of the cone data at c_k⁺. By uniqueness the result
@@ -629,30 +629,29 @@ is a solution with null shells along the leaves. A round extension that is such 
 and R_v on N_o and R_u on N_i are derivatives along the edges, so it takes the same data on N_o and N_i and solves
 [[eq:two-dust-volterra]] on the new cell; so it is the one constructed.
 
-(c) Translate u and v so that Z is {(0, 0)} × S³. On N_o := {0} × [0, λ] take the functions Ω, γ_ϑ, b, A_c, A_s and q_in
-of the cell (−, +), and on N_i := [0, λ] × {0} the functions Ω, γ_ϑ, b, A_c, A_s and q_out of the cell (+, −). They agree
-at Z, the metric being continuous; Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(L̲, L̲) = q_out on N_i,
-these being equations along the edges that the two cells satisfy up to their boundaries; and they equal g0's at the
-points with ϑ ∉ [2η, π/2 − 2η]. Change the angle by Φ, with (∂_u + b(u, 0, ϑ) ∂_ϑ) Φ = 0 and Φ(0, ϑ) = ϑ, as in Step 2 of
-the proof of [[thm:loc-shells]], so that b = 0 on N_i; Φ is the identity where ϑ ∉ [2η, π/2 − 2η]. Apply
-[[prop:loc-cone-local]] with the background g0 on the open set 𝒪 of [[sec:civp-large]], Q := Q1 (after
-the translation), d ∈ (0, 1] so small that the points within 4d of Q form a compact subset of 𝒪, the rectangle 𝒬, and Λ
-the largest C^(m_1) norm of the differences of the transformed functions from g0's: it gives s ∈ (0, λ] and a class
-solution in the gauge on [0, s]² × S³ that induces these functions and equals (g0, q̊_in, q̊_out) at the points with ϑ ∉
-[η, π/2 − η]; change the angle back. The extended metric is continuous and cellwise smooth, each closed cell carries a
-class solution in the gauge, and (J3) holds, the new cell inducing q_in on N_o and q_out on N_i. By
-[[prop:loc-shell-junction]] (a), applied to the extended metric, [∂_v b] on {v = 0} is continuous at Z, where its value
-from u < 0 vanishes by (J1) for the given solution; b vanishing near the axes, it vanishes on the new part of the leaf,
-by the last sentence of (a) with Z in place of {(0, c_k)} × S³, (J1). By [[prop:loc-shell-junction]] (b) and (c),
-𝒱[tr χ] and 𝒱[tr χ̲] are continuous at Z and keep their signs along the new parts of the two leaves, so 𝔪 := −[tr χ] ≥ 0
-and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j; by [[prop:loc-shell-junction]] (d) the extension is a solution with null
-shells along the leaves. Under (T2), with the band (3η/2, π/2 − 3η/2), for which η0′ = η/2, the same transformed
-functions have by (T2) (a) and (b) a development on 𝒬_δ for some δ > 0 that equals (g0, q̊_in, q̊_out) at the points
-with ϑ ∉ [η, π/2 − η], and it is glued in the same way. If g̃ is a solution on (𝔏 ∪ D″) × S³ as in (c), its restriction
-to D″, which is smooth since 𝒬 lies in a cell, is a class solution in the gauge on a past set of 𝒬 that equals g0 near
-the axes and induces on N_o ∩ D″ and N_i ∩ D″ the functions of the given solution, the metric functions by continuity
-and q_in and q_out by (J3) of [[prop:loc-shell-junction]] (d); after the same change of angle, (T2) (c) shows that it
-equals the development on D″ ∩ 𝒬_δ.
+(c) Translate u and v so that Z is {(0, 0)} × S³. On N_o := {0} × [0, λ] take the functions Ω, γ_ϑ, b, A_c, A_s and
+q_in of the cell (−, +), and on N_i := [0, λ] × {0} the functions Ω, γ_ϑ, b, A_c, A_s and q_out of the cell (+, −).
+They agree at Z, the metric being continuous; Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(L̲, L̲) = q_out
+on N_i, these being equations along the edges that the two cells satisfy up to their boundaries; and they equal g0's
+at the points with ϑ ∉ [2η, π/2 − 2η]. Change the angle by Φ, with (∂_u + b(u, 0, ϑ) ∂_ϑ) Φ = 0 and Φ(0, ϑ) = ϑ, as
+in Step 2 of the proof of [[thm:loc-shells]], so that b = 0 on N_i; Φ is the identity where ϑ ∉ [2η, π/2 − 2η]. Apply
+[[prop:loc-cone-local]] with the background g0 on the open set 𝒪 of [[sec:civp-large]], Q := Q1 (after the translation),
+d ∈ (0, 1] so small that the points within 4d of Q form a compact subset of 𝒪, the rectangle 𝒬, and Λ the largest C^(m_1)
+norm of the differences of the transformed functions from g0's: it gives s ∈ (0, λ] and a class solution in the gauge
+on [0, s]² × S³ that induces these functions and equals (g0, q̊_in, q̊_out) at the points with ϑ ∉ [η, π/2 − η]; change
+the angle back. The extended metric is continuous and cellwise smooth, each closed cell carries a class solution in the
+gauge, and (J3) holds, the new cell inducing q_in on N_o and q_out on N_i. By [[prop:loc-shell-junction]] (a), applied
+to the extended metric, [∂_v b] on {v = 0} is continuous at Z, where its value from u < 0 vanishes by (J1) for the given
+solution; b vanishing near the axes, it vanishes on the new part of the leaf, by the last sentence of (a) with Z in place
+of {(0, c_k)} × S³, (J1). By [[prop:loc-shell-junction]] (b) and (c), 𝒱[tr χ] and 𝒱[tr χ̲] are continuous at Z and keep
+their signs along the new parts of the two leaves, so 𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j; by
+[[prop:loc-shell-junction]] (d) the extension is a solution with null shells along the leaves. Under (T2), with the band
+(3η/2, π/2 − 3η/2), for which η0′ = η/2, the same transformed functions have by (T2) (a) and (b) a development on 𝒬_δ for
+some δ > 0 that equals (g0, q̊_in, q̊_out) at the points with ϑ ∉ [η, π/2 − η], and it is glued in the same way. If g̃ is
+a solution on (𝔏 ∪ D″) × S³ as in (c), its restriction to D″, which is smooth since 𝒬 lies in a cell, is a class solution
+in the gauge on a past set of 𝒬 that equals g0 near the axes and induces on N_o ∩ D″ and N_i ∩ D″ the functions of the
+given solution, the metric functions by continuity and q_in and q_out by (J3) of [[prop:loc-shell-junction]] (d); after
+the same change of angle, (T2) (c) shows that it equals the development on D″ ∩ 𝒬_δ.
 
 (d) The functions tr χ and tr χ̲ are the expansions of the spheres {u, v = const} along the null normal fields ∂_v and
 L̲ = −2Ω² g⁻¹dv, which are smooth on each closed cell, the axes included. So the values in (a) extend continuously to the
@@ -686,17 +685,17 @@ concentrate on a leaf: their C^m norms, m = 6k + 21, are not bounded as the widt
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
 source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:"; every old
 text occurs exactly once in its chapter after the text of Tier 1 (the proof of [[thm:loc-cone-development]], with its
-Blocks A and B) and the section of Tier 2 ([[sec:civp-large]]) are in place and their placements applied. Items 2, 5 and
-8 are written against the Tier 1 text and its placement as they stand (its Block A, its items 7 and 4), which are under
-revision, and are to be re-based on their final form. Line numbers are those of the current chapter sources and serve
-only to find the place. The section uses those two sections' results by their labels, and two
-further statements about them, (T2) and (T1), which it states in full and marks [[pending:civp-large-at-a-corner]] and
-[[pending:loc-cone-development-at-a-corner]].
+Blocks A and B) and the section of Tier 2 ([[sec:civp-large]]) are in place and their placements applied. Items 2, 3, 5
+and 8 are written against the final texts of Tier 1 (its Block A and its placement's items 7 and 4) and of Tier 2
+([[rem:civp-large-domain]]). Line numbers are those of the current chapter sources and serve only to find the place. The
+section uses those two sections' results by their labels, and two further statements about them, (T2) and (T1), which
+it states in full and marks [[pending:civp-large-at-a-corner]] and [[pending:loc-cone-development-at-a-corner]].
 
 *1. Where the section goes.* The section above, from its heading through [[rem:loc-shell-scope]], is inserted in
-[[ch:localised-data]] after the Tier 2 section, which ends with [[rem:civp-large-beyond]], and before the heading
-"### The static Killing field and the charge {#sec:loc-kid}" (line 602 of the current source), with one blank line
-before and one after. It defines sec:loc-shells, def:loc-shell-solution, eq:loc-shell-einstein, eq:loc-shell-dust,
+[[ch:localised-data]] after the Tier 2 section, which ends with [[rem:civp-large-beyond]], immediately before the
+heading "### The static Killing field and the charge {#sec:loc-kid}" (line 602 of the current source), with one blank
+line before and one after; it depends only on the sections of Tiers 1 and 2, and so follows any further section placed
+between the Tier 2 section and that heading. It defines sec:loc-shells, def:loc-shell-solution, eq:loc-shell-einstein, eq:loc-shell-dust,
 lem:loc-shell-ricci, eq:loc-shell-singular, lem:loc-shell-identities, eq:loc-shell-trace, prop:loc-shell-junction,
 eq:loc-shell-torsion, eq:loc-shell-conservation, rem:loc-shell-poisson, def:loc-shell-data, prop:loc-shell-cones,
 thm:loc-shells, eq:loc-shell-bands, prop:loc-shell-crossing, eq:loc-shell-crossing-rule and rem:loc-shell-scope, none
@@ -705,14 +704,13 @@ smooth theorems at other corners.*" is replaced by citations of the results that
 (T2)." and "Assume (T1) besides (T2)," in [[thm:loc-shells]] and "Under (T2)," in [[prop:loc-shell-crossing]] (c) are
 removed.
 
-*2. [[rem:loc-cone-scope]] (iii), in the Tier 1 text (Block A).* Old:
+*2. [[rem:loc-cone-scope]] (iii), in the Tier 1 text (Block A), its second line.* The line before it, which ends (ii) and
+opens (iii), is left to other placements that rewrite (ii). Old:
 
-the background there. (iii) *Regularity.* The data are smooth and near the background's in C^m, m = 6k + 21. Densities
 that are only bounded, or measures (shells), are not covered. For the 3 + 1 problem with two families of null dust,
 
 New:
 
-the background there. (iii) *Regularity.* The data are smooth and near the background's in C^m, m = 6k + 21. Densities
 that are only bounded, and measure-valued densities in general, are not covered. Finitely many null shells along leaves
 {v = c} of 𝒞_out and {u = d} of 𝒞_in, with densities smooth in angle and supported in the band, and data that are smooth
 except across finitely many such leaves, are covered by [[thm:loc-shells]]: their development is continuous, smooth
@@ -722,16 +720,16 @@ data it exists on a neighbourhood of the two cones that does not depend on the d
 
 *3. [[rem:civp-large-domain]], its last sentence, in the Tier 2 section.* Old:
 
-both are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that
-differ from the background's at the axes are not treated, nor are data of finite regularity or densities that are only
-bounded or measure-valued.
+are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
+from the background's at the axes are not treated, nor are data of finite regularity or densities that are only bounded
+or measure-valued.
 
 New:
 
-both are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that
-differ from the background's at the axes are not treated, nor are data of finite regularity, densities that are only
-bounded, or measure-valued densities other than finitely many null shells along leaves of the two cones with densities
-smooth in angle; those, and data that are smooth except across finitely many leaves, are developed slab by slab with
+are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
+from the background's at the axes are not treated, nor are data of finite regularity, densities that are only bounded,
+or measure-valued densities other than finitely many null shells along leaves of the two cones with densities smooth in
+angle; those, and data that are smooth except across finitely many leaves, are developed slab by slab with
 [[thm:civp-large]] in [[thm:loc-shells]].
 
 *4. [[ch:localised-data]], the opening (lines 21–22).* A paragraph is inserted before the last paragraph of the opening,
@@ -754,8 +752,8 @@ The inequalities on the background that these results use are proved at the end 
 [[sec:bg-below]] and [[sec:margins]], from the tables of [[sec:tab-bg]] and [[sec:table-margins]].
 
 *5. [[ch:scope]], the paragraph on localised data, which ends at line 210 of the current source; its last lines as the
-Tier 1 placement leaves them (its item 7, which replaces also the second pair of the Tier 2 placement's item 4).* The
-text is appended at the end of the paragraph. Old:
+Tier 1 placement leaves them (its item 7, to which the second pair of the Tier 2 placement's item 4 defers).* The text
+is appended at the end of the paragraph. Old:
 
 estimate ([[thm:loc-cone-development]]). Developments of cone data that differ from the background's near an axis are
 not established ([[rem:loc-cone-scope]]).

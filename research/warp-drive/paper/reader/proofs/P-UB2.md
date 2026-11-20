@@ -8,8 +8,9 @@ d92b28fd579e4a6331ad1615ce2e1f9c, 63-own-data.md 2bd560af0194b8699f05a6fc017404a
 9caf0d10254bd6de807407e65374fe2d. Each old text occurs exactly once in its file as whole lines; line numbers are of
 those files. Both sets of texts were applied to scratch copies of chapters/ and checked there (section 7).
 
-The numbers in the drafted texts are evaluated at **PROVISIONAL inputs (R-V-I11's placeholders), to be replaced by P-UB1's**:
-ε_K = 1.6747·10⁻¹⁷, ε_+ = 1.67475·10⁻¹⁷, N̄_Λ = 910,000,000,000,000, k̄_0 = 3, J_* = 15,000,015, l_* = 50. Every number that depends on them is recomputed by the one
+The numbers in the drafted texts are evaluated at **PROVISIONAL inputs (R-V-I11's placeholders)**:
+ε_K = 1.6747·10⁻¹⁷, ε_+ = 1.67475·10⁻¹⁷, N̄_Λ = 910,000,000,000,000, k̄_0 = 3, J_* = 15,000,015, l_* = 50.
+Every number that depends on them is recomputed by the one
 evaluation step of section 3; nothing else in the texts changes when the inputs change, except where section 1.4 says.
 
 ## 1. Summary
