@@ -20,9 +20,9 @@ moving h: as h varies, the roots of real part at least 5/2 cross the integers, a
 degree, and near such a value, when the root has |ι − 1| ≤ 50, ε_ind(h) tends to 0; 𝖩 holds as well the finitely many
 h at which two roots of P_l near 5/2 meet. 𝖩 is a finite union of intervals and points of total length below
 1.7·10⁻¹¹ ([[prop:tr-measure]]), and it cannot be dropped: near such a crossing, at every h at which the parameter
-point is admissible, every admissible choice of the weights gives d_acc > D_acc ([[prop:tr-fail]]). The lower end h_m is fixed by the root ι₂(h) of P_2 near
-2, with (40/13)h(1 − 5·10⁴h) < ι₂(h) − 2 < 40h/13 ([[lem:ec-lb-ind]]): below 13ε_Υ/40 = 4.751175·10⁻¹¹ no h
-satisfies (H_ε) ([[prop:tr-eps]] (b)).
+point is admissible, every admissible choice of the weights gives d_acc > D_acc ([[prop:tr-fail]]). The lower end h_m
+is fixed by the root ι₂(h) of P_2 near 2, with (40/13)h(1 − 5·10⁴h) < ι₂(h) − 2 < 40h/13 ([[lem:ec-lb-ind]]): below
+13ε_Υ/40 = 4.751175·10⁻¹¹ no h satisfies (H_ε) ([[prop:tr-eps]] (b)).
 
 *Setting.* Throughout this section e := e_C = 1/102400 and v := v_C = 1/2; h ∈ (0, 10⁻⁶] and ϖ := h/e = 102400h, so
 0 < ϖ ≤ 0.1024; for l ≥ 1, κ := l(l + 2), x := hκ and y := eκ, so that x = ϖy and y depends on l alone; P_l,
@@ -73,13 +73,15 @@ empty. It needs an h ∈ [h_m, 10⁻⁶) at which the parameter point (h, 1/100,
 not decide whether there is one: the conditions on h include properties of □^C_b that [[thm:iii-e-1-1]] asserts and
 that this paper proves only for h below thresholds whose existence is proved and whose values are not determined, and
 the conditions on the gauge values include those that [[rem:ec-point-outside]] records as not decided at
-(γ_Υ, e_Υ) = (1/100, 1/100), which do not involve h. The two other restrictions, h ≥ h_m and h ∉ 𝖩, are those under
-which the proof at h = 10⁻⁶ carries over unchanged; the proof uses no other property of h than h < 10⁻⁶. Below
+(γ_Υ, e_Υ) = (1/100, 1/100). The two other restrictions, h ≥ h_m and h ∉ 𝖩, are those under which the proof at
+h = 10⁻⁶ carries over unchanged, and the proof of (i) and (ii) uses no other property of h than h < 10⁻⁶;
+admissibility is what makes the numbers bounds for the loss with which [[thm:settling]] is proved at h. Below
 13ε_Υ/40 = 4.751175·10⁻¹¹ the root ι₂(h) gives ε_ind(h) < ε_Υ ([[lem:ec-lb-ind]]), so ε_g < ε_Υ and the counts of
 [[prop:uc-explicit]] and [[sec:cs]] that use ε_g change; they are not evaluated here, and h_m lies within 0.19 % of
-that value. On 𝖩 the condition (H_ε), or the simplicity of [[prop:tr-inputs]] (b), can fail, and where ε_ind(h) < 1.38·10⁻²⁵ the bound itself fails for every
-admissible choice ([[prop:tr-fail]]); so 𝖩 cannot be dropped. What the theorem gives is therefore: if the parameter
-point (h, 1/100, 1/100) is admissible, h ≥ h_m and h ∉ 𝖩, the bounds computed at h = 10⁻⁶ are bounds at h.
+that value. On 𝖩 the condition (H_ε), or the simplicity of [[prop:tr-inputs]] (b), can fail, and where
+ε_ind(h) < 1.38·10⁻²⁵ the bound itself fails for every admissible choice ([[prop:tr-fail]]); so 𝖩 cannot be dropped.
+What the theorem gives is therefore: if the parameter point (h, 1/100, 1/100) is admissible, h ≥ h_m and h ∉ 𝖩, the
+bounds computed at h = 10⁻⁶ are bounds at h.
 
 #### The sextic in two parameters {#sec:tr-split}
 

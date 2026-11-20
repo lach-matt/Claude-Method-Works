@@ -5,9 +5,10 @@ and in steps (1)–(2) of [[thm:vi-c-2-1]] by a definition of admissible points 
 inequalities or conclusions of named results at the point. Parts A to C are chapter text. The sections after them (the
 lead, the placement, the crosswalk rows, the interactions and the side findings) are notes for merging and are not
 chapter text. This revision follows the author's decision to drop the cap h ≤ 10⁻⁶ from the definition: its condition
-(P0) now asks only what the proof of [[thm:settling]] uses, s_C > 100 and (C1), with e_Υ < 1 and γ_Υ < ¼, and every
+(AP0) now asks only what the proof of [[thm:settling]] uses, s_C > 100 and (C1), with e_Υ < 1 and γ_Υ < ¼, and every
 merged statement that the cap kept true carries "h ≤ 10⁻⁶" (or "γ_C ≥ 10⁶") explicitly. The texts of Parts A to C cite
-one label that the chapters do not yet define, thm:t49-point of the proof file P-T49; see the interactions.
+only labels that the chapters or Parts A to C define. The clauses of the definition are named (AP0)–(AP4), since the
+chapters cite the properties (P1)–(P5) of [[lem:iii-i15-1-1]] by their bare names.
 
 #### Part A. Chapter 46: the definition, the existence of admissible points, and the theorem
 
@@ -23,56 +24,56 @@ s_C := (1 − e_C)(1 − v_C)γ_C and z_Υ := 4e_Υγ_Υ², and let □^C_b, □
 [[sec:iii-d-1]] and [[eq:iii-f-1-1]] with the damping (c_C, e_C, γ_C) and the gauge modification
 E_Υ = (c_Υ, e_Υ, γ_Υ; c_(Υ,H), γ_(Υ,H)). The point 𝗉 is *admissible* if:
 
-(P0) s_C > 100, e_Υ < 1 and γ_Υ < ¼, and for every b in a neighbourhood of b₀ the indicial roots of □^C_b satisfy (C1) of
-[[sec:iii-f1-1]];
+(AP0) s_C > 100, e_Υ < 1 and γ_Υ < ¼, and for every b in a neighbourhood of b₀ the indicial roots of □^C_b satisfy (C1)
+of [[sec:iii-f1-1]];
 
-(P1) for every b in a neighbourhood of b₀, □^C_b has the properties (1) and (2) of [[thm:iii-e-1-1]]: mode stability for
-σ ≠ 0, and the invertibility of P^C_b, with (H1)–(H4) and ½ + ϑ_ℋ < −C_0;
+(AP1) for every b in a neighbourhood of b₀, □^C_b has the properties (1) and (2) of [[thm:iii-e-1-1]]: mode stability
+for σ ≠ 0, and the invertibility of P^C_b, with (H1)–(H4) and ½ + ϑ_ℋ < −C_0;
 
-(P2) the indicial roots of □^C_b satisfy (C4′) of [[sec:iii-f1-1]]: every non-real one with |ι − 1| ≤ 50 has non-integer
+(AP2) the indicial roots of □^C_b satisfy (C4′) of [[sec:iii-f1-1]]: every non-real one with |ι − 1| ≤ 50 has non-integer
 real part;
 
-(P3) there is a neighbourhood ℬ(γ_(Υ,H)) of b₀ such that for every b ∈ ℬ(γ_(Υ,H)) and every σ with Im σ ≥ 0, (□^Υ_b)^(σ)
-is invertible, as a map 𝒳_σ → 𝒴_σ when σ ≠ 0, and as a map 𝒳_0 → 𝒴_0 for every s > 3/2 and every α with
-α + 2 ∈ (0, ι^Υ_(s1,2)) when σ = 0 (the spaces of [[sec:iii-d1-1]]); this is the conclusion of [[prop:iii-d1-4-1]];
+(AP3) there is a neighbourhood ℬ(γ_(Υ,H)) of b₀ (depending on 𝗉) such that for every b ∈ ℬ(γ_(Υ,H)) and every σ with Im
+σ ≥ 0, (□^Υ_b)^(σ) is invertible, as a map 𝒳_σ → 𝒴_σ when σ ≠ 0, and as a map 𝒳_0 → 𝒴_0 for every s > 3/2 and every α
+with α + 2 ∈ (0, ι^Υ_(s1,2)) when σ = 0 (the spaces of [[sec:iii-d1-1]]); this is the conclusion of [[prop:iii-d1-4-1]];
 
-(P4) Λ_tf(γ_Υ, e_Υ) < 1 ([[eq:tf-lambda]]), and for every b in a neighbourhood of b₀, (□^C_b)^(·) is tf-admissible
+(AP4) Λ_tf(γ_Υ, e_Υ) < 1 ([[eq:tf-lambda]]), and for every b in a neighbourhood of b₀, (□^C_b)^(·) is tf-admissible
 ([[def:i-c-5-1]]) with every weight in (1, 2), as (4) of [[thm:iii-e-1-1]] asserts with every weight in [−C_0, 2).
 
 Each condition is a property of 𝗉 alone, and [[thm:settling]] holds at every admissible point ([[thm:vi-c-adm-holds]]).
-By (P0), γ_C > 2s_C > 200, so γ_Cv_C > 100 and (C5) of [[sec:iii-g2-1]], γ_Cv_C ≥ ½, holds; z_Υ ∈ (0, ¼), so the results
+By (AP0), γ_C > 2s_C > 200, so γ_Cv_C > 100 and (C5) of [[sec:iii-g2-1]], γ_Cv_C ≥ ½, holds; z_Υ ∈ (0, ¼), so the results
 of [[ch:s13]] and [[ch:s15]] stated for z ∈ (0, ½] apply; 2γ_Υ < ½ < s_C and γ_Υ < ⅜, so γ_Υ < min(½s_C, ⅜)
-([[lem:iii-g1-1-1]]); and δ_♯ := (1 − e_Υ)γ_Υ lies in (0, ¼). (C1) and (C4) imply (C4′). By (P0) and (P4), L_b^(·) is
+([[lem:iii-g1-1-1]]); and δ_♯ := (1 − e_Υ)γ_Υ lies in (0, ¼). (C1) and (C4) imply (C4′). By (AP0) and (AP4), L_b^(·) is
 tf-admissible with every weight in (0, 1] for b near b₀ ([[prop:iii-f1-3-3]]); Λ_tf(γ_Υ, e_Υ) < 1 holds whenever e_Υ ≤ ½,
 and at (γ_Υ, e_Υ) = (1/100, 1/100) it is below 1.0111·10⁻⁴ ([[prop:tf-gauge-explicit]]).
 
 Each condition is used, and the proof of [[thm:vi-c-adm-holds]] says where: s_C > 100 in its item (f), directly and
 through γ_Cv_C > 100 and γ_Υ < ½s_C; (C1) in its item (b), which lists its uses, among them the hypothesis of
 [[prop:iii-f1-2-3]] on which (c) and (d) rest, and in (j) as a hypothesis of [[prop:iii-f1-3-3]]; e_Υ < 1 and γ_Υ < ¼ in
-(l), directly and through z_Υ ∈ (0, ¼) and γ_Υ < ⅜, and in (j); (P1) in (a); (P2) in (c); (P3) in (i); and (P4) in (e)
-and (j).
+(l), directly and through z_Υ ∈ (0, ¼) and γ_Υ < ⅜, and in (j); (AP1) in (a); (AP2) in (c); (AP3) in (i); and (AP4) in
+(e) and (j).
 
 s_C > 100 and (C1) hold whenever h ≤ 10⁻⁶: then s_C ≥ (1 − e_C)·10⁶/2 > 100, and (C1) holds by [[lem:iv4-1-3]] (a).
 The definition does not ask h ≤ 10⁻⁶, h ∈ 𝖧 ([[eq:iv4-0-1]]), the gauge parameters below the thresholds of
 [[prop:iii-d1-4-1]] or of [[lem:iii-d-7-1]] (b), or z_Υ ∉ Z_exc ([[prop:iii-f1-2-3]] (e)): the proofs use those
-requirements only through (P0)–(P4), and the simplicity of indicial roots of L̂_b(0) only where (P0) gives it
+requirements only through (AP0)–(AP4), and the simplicity of indicial roots of L̂_b(0) only where (AP0) gives it
 ([[prop:iii-f1-2-3]] (g)). [[thm:ec-lb-proved]] and the bounds that rest on it assume h ≤ 10⁻⁶ in addition.
 [[rem:ec-point-outside]] records which conditions are decided at the computational point.
 
 **Proposition {#prop:vi-c-adm-exist}** (Admissible points exist.) Let h ∈ 𝖧 ([[eq:iv4-0-1]]) and γ_C := h⁻¹; let
 γ_(Υ,H) ∈ (0, ϵ_0], with ϵ_0 of [[prop:iii-d1-4-1]] and its ϵ_1 and ℬ(γ_(Υ,H)) at this γ_(Υ,H); and let
 e_Υ ∈ (0, min(ϵ_1, ½)] and γ_Υ ∈ (0, min(ϵ_1, ¼)). Then the point (h, γ_(Υ,H), e_Υ, γ_Υ) is admissible, with the
-neighbourhood ℬ(γ_(Υ,H)) of [[prop:iii-d1-4-1]] in (P3). Such points exist, with h, e_Υ and γ_Υ arbitrarily small; they
-include the points that satisfy in addition 4e_Υγ_Υ² ∉ Z_exc ([[prop:iii-f1-2-3]] (e)), and those with e_Υ and γ_Υ below
-the threshold of [[lem:iii-d-7-1]] (b).
+neighbourhood ℬ(γ_(Υ,H)) of [[prop:iii-d1-4-1]], intersected with the ball ℬ_VI of [[thm:vi-b1-5-1]], in (AP3). Such
+points exist, with h, e_Υ and γ_Υ arbitrarily small; they include the points that satisfy in addition 4e_Υγ_Υ² ∉ Z_exc
+([[prop:iii-f1-2-3]] (e)), and those with e_Υ and γ_Υ below the threshold of [[lem:iii-d-7-1]] (b).
 
-*Proof.* (P0): h ∈ 𝖧 gives h < 10⁻⁶, so s_C > (1 − e_C)·10⁶/2 > 100, and (C1) holds by [[lem:iv4-1-3]] (a); e_Υ ≤ ½
-and γ_Υ < ¼ by the choice. (P1), (P2) and the second half of (P4): at h ∈ 𝖧, [[thm:iii-e-1-1]] holds for every b near b₀
-([[thm:iv4-2-1]], [[thm:iv6-4-1]]); its (1) and (2) are those of (P1), its (4) contains the tf-admissibility of
-(P4), and the clauses of its (3) include (C1) and (C4) of [[sec:iii-f1-1]], which give (C4′). (P3): (Dyn) holds for b
+*Proof.* (AP0): h ∈ 𝖧 gives h < 10⁻⁶, so s_C > (1 − e_C)·10⁶/2 > 100, and (C1) holds by [[lem:iv4-1-3]] (a); e_Υ ≤ ½
+and γ_Υ < ¼ by the choice. (AP1), (AP2) and the second half of (AP4): at h ∈ 𝖧, [[thm:iii-e-1-1]] holds for every b near
+b₀ ([[thm:iv4-2-1]], [[thm:iv6-4-1]]); its (1) and (2) are those of (AP1), its (4) contains the tf-admissibility of
+(AP4), and the clauses of its (3) include (C1) and (C4) of [[sec:iii-f1-1]], which give (C4′). (AP3): (Dyn) holds for b
 near b₀ ([[thm:vi-a-6-1]], [[thm:vi-b1-5-1]]), and γ_(Υ,H) ∈ (0, ϵ_0], e_Υ ∈ [0, ϵ_1] and 0 < γ_Υ < ϵ_1; so
-[[prop:iii-d1-4-1]] gives the invertibility of (P3) for b ∈ ℬ(γ_(Υ,H)), shrunk if necessary so that (Dyn) holds on it.
-The first half of (P4): e_Υ ≤ ½ and γ_Υ < ¼ give Λ_tf(γ_Υ, e_Υ) ≤ 41/64 ([[prop:tf-gauge-explicit]]). Existence:
+[[prop:iii-d1-4-1]] gives the invertibility of (AP3) for b ∈ ℬ(γ_(Υ,H)), and (Dyn) holds on its intersection with ℬ_VI.
+The first half of (AP4): e_Υ ≤ ½ and γ_Υ < ¼ give Λ_tf(γ_Υ, e_Υ) ≤ 41/64 ([[prop:tf-gauge-explicit]]). Existence:
 𝖧 = (0, h_*) ∖ 𝖹 with h_* > 0 and 𝖹 countable, so 𝖧 contains points arbitrarily close to 0; and ϵ_0 and ϵ_1 are positive,
 so the conditions on γ_(Υ,H), e_Υ and γ_Υ define non-empty intervals with left end point 0. The further conditions of the
 last sentence are upper bounds on e_Υ and γ_Υ and, at fixed e_Υ, the exclusion from an open interval of the countable set
@@ -80,10 +81,10 @@ last sentence are upper bounds on e_Υ and γ_Υ and, at fixed e_Υ, the exclusi
 
 *Block A2.*
 
-**a1.** (h, γ_(Υ,H), e_Υ, γ_Υ), with γ_C = h⁻¹: an admissible point ([[def:vi-c-admissible]]), that is (P0) s_C > 100,
-0 < e_Υ < 1, 0 < γ_Υ < ¼ and (C1) of [[sec:iii-f1-1]], with (P1)–(P4): the properties (1)–(2) of [[thm:iii-e-1-1]], (C4′)
-of the same section, the conclusion of [[prop:iii-d1-4-1]], and Λ_tf(γ_Υ, e_Υ) < 1 with the tf-admissibility of □^C_b at
-the weights in (1, 2) ([[sec:iii-f-1]], [[sec:iii-g2-1]], [[sec:iii-i10-1]], [[eq:iii-c-1-1]], [[sec:iii-k-0]],
+**a1.** (h, γ_(Υ,H), e_Υ, γ_Υ), with γ_C = h⁻¹: an admissible point ([[def:vi-c-admissible]]), that is (AP0) s_C > 100,
+0 < e_Υ < 1, 0 < γ_Υ < ¼ and (C1) of [[sec:iii-f1-1]], with (AP1)–(AP4): the properties (1)–(2) of [[thm:iii-e-1-1]],
+(C4′) of the same section, the conclusion of [[prop:iii-d1-4-1]], and Λ_tf(γ_Υ, e_Υ) < 1 with the tf-admissibility of
+□^C_b at the weights in (1, 2) ([[sec:iii-f-1]], [[sec:iii-g2-1]], [[sec:iii-i10-1]], [[eq:iii-c-1-1]], [[sec:iii-k-0]],
 [[prop:iii-f1-3-3]]). Threshold: c1, u1; every condition is a property of the point alone.
 
 *Block A3.*
@@ -92,18 +93,18 @@ the weights in (1, 2) ([[sec:iii-f-1]], [[sec:iii-g2-1]], [[sec:iii-i10-1]], [[e
 (h, γ_(Υ,H), e_Υ, γ_Υ) of [[def:vi-c-admissible]], γ_C := h⁻¹. Admissible points exist ([[prop:vi-c-adm-exist]]),
 and at each the results of the stability theory hold ([[thm:vi-c-adm-holds]] (1)).
 
-(2) The numbers the point fixes. By (P0), 0 < e_Υ < 1, 0 < γ_Υ < ¼, z_Υ := 4e_Υγ_Υ² ∈ (0, ¼), s_C > 100 and (C1), and
-γ_Cv_C = γ_C/2 > s_C > 100, so that (C5) holds; by (P0) and (P4), L_b^(·) is tf-admissible with every weight in (0, 1]
+(2) The numbers the point fixes. By (AP0), 0 < e_Υ < 1, 0 < γ_Υ < ¼, z_Υ := 4e_Υγ_Υ² ∈ (0, ¼), s_C > 100 and (C1), and
+γ_Cv_C = γ_C/2 > s_C > 100, so that (C5) holds; by (AP0) and (AP4), L_b^(·) is tf-admissible with every weight in (0, 1]
 ([[prop:iii-f1-3-3]]). The point fixes δ_♯ := (1 − e_Υ)γ_Υ ∈ (0, ¼), the set σ_Υ, the constant ε_Υ of [[sec:iii-d2-1]], a
-constant ε_ind ∈ (0, 1] with [[eq:iii-f1-2-2]] ([[prop:iii-f1-2-3]] (f), under (P2)), and the neighbourhood ℬ(γ_(Υ,H)) of
-(P3). [[prop:iii-d-6-3]] (the invertibility of the spectral family of □^Υ_b for σ with |σ| ≥ c_σ) is implied, for every
-c_σ and b ∈ ℬ(γ_(Υ,H)), by (P3), which gives it for every σ with Im σ ≥ 0; so it imposes no further condition.
+constant ε_ind ∈ (0, 1] with [[eq:iii-f1-2-2]] ([[prop:iii-f1-2-3]] (f), under (AP2)), and the neighbourhood ℬ(γ_(Υ,H))
+of (AP3). [[prop:iii-d-6-3]] (the invertibility of the spectral family of □^Υ_b for σ with |σ| ≥ c_σ) is implied, for
+every c_σ and b ∈ ℬ(γ_(Υ,H)), by (AP3), which gives it for every σ with Im σ ≥ 0; so it imposes no further condition.
 
 *Block A4.*
 
 **Theorem {#thm:vi-c-adm-holds}** (The stability theory at an admissible point.) Let 𝗉 = (h, γ_(Υ,H), e_Υ, γ_Υ) be
 an admissible point ([[def:vi-c-admissible]]), with γ_C = h⁻¹, the constants of row c1, the 1-forms of row u1 and the
-neighbourhood ℬ(γ_(Υ,H)) of its condition (P3).
+neighbourhood ℬ(γ_(Υ,H)) of its condition (AP3).
 
 (1) Every result of [[ch:s13]] from [[sec:iii-d2-1]] on, [[lem:iii-d1-5-1]], every result of [[ch:s14]] from
 [[sec:iii-e-2]] to [[sec:iii-e1-3]], and every result of [[ch:s15]] to [[ch:s29]] holds at 𝗉, with its proof.
@@ -116,10 +117,10 @@ available at 𝗉.
 
 *The damping.* (a) The properties (1) and (2) of [[thm:iii-e-1-1]]: in [[prop:iii-f2-3-1]], [[prop:iii-f3-4-1]], Step 4
 of the proof of [[prop:iii-f4-5-1]] and [[lem:iii-e-2-1]], and through the last in [[prop:iii-e-3-1]] and
-[[prop:iii-e1-3-1]]. These are (P1). (b) The clause (C1): in the list of [[prop:iii-f1-2-3]] and its parts (a)–(d) and
+[[prop:iii-e1-3-1]]. These are (AP1). (b) The clause (C1): in the list of [[prop:iii-f1-2-3]] and its parts (a)–(d) and
 (g), in [[lem:iii-e-2-1]] (2), in [[thm:iii-g-5-1]], and in the settings of [[ch:s16]], [[sec:iii-f3-1]],
-[[sec:iii-g2-1]] and [[sec:iii-h-1]]. It is part of (P0). (c) The clause (C4): only through [[prop:iii-f1-2-3]] (f),
-which assumes only (C4′), that is (P2). (d) The clauses (C2)–(C3) and the condition z_Υ ∉ Z_exc: only through
+[[sec:iii-g2-1]] and [[sec:iii-h-1]]. It is part of (AP0). (c) The clause (C4): only through [[prop:iii-f1-2-3]] (f),
+which assumes only (C4′), that is (AP2). (d) The clauses (C2)–(C3) and the condition z_Υ ∉ Z_exc: only through
 [[prop:iii-f1-2-3]] (e), whose conclusion, the simplicity of the roots of L̂_b(0), is used only for roots with real part
 in (−3, 0]: the root 0 in [[lem:iii-f1-2-5]] and [[lem:iii-g1-1-3]] (b), through (c) of [[prop:iii-f1-2-3]]; the root −2
 at the types s2, v2 and t2 in [[sec:iii-f4-5]]; and the roots of 𝒲(ℓ_K), ℓ_K < ℓ_K^max ≤ 3, in [[lem:iii-g2-1-2]],
@@ -128,30 +129,31 @@ at the types s2, v2 and t2 in [[sec:iii-f4-5]]; and the roots of 𝒲(ℓ_K), �
 and (C1), every root with real part in [−101, 0] is real and simple at 𝗉, and these proofs cite (c), the list or (g) for
 it. No other proof uses the simplicity of a root of L̂_b(0); those that meet roots of real part below −101 or above 1
 allow them any finite multiplicity ([[lem:iii-g1-1-3]], [[def:iii-i10-1-1]]). (e) The property (4) of [[thm:iii-e-1-1]]:
-only in Step 4 of the proof of [[prop:iii-f1-3-3]], at the weights in (1, 2), which is in (P4). (f) The inequality
+only in Step 4 of the proof of [[prop:iii-f1-3-3]], at the weights in (1, 2), which is in (AP4). (f) The inequality
 s_C > 100: in [[sec:iii-f-1]], [[eq:iii-i1-1-1]], [[sec:iii-c1-0]], [[sec:iv2-0]], [[sec:iii-k-0]] and row d2, and
 through the bound ℓ_I < 3/2 + s_C in [[thm:iii-g1-3-1]], [[eq:iii-g3-1-2]] and [[sec:iii-i10-1]]; and (C5), in
-[[sec:iii-g2-1]] and [[sec:iii-i10-1]]. These follow from (P0): s_C > 100 is part of it, and γ_Cv_C = γ_C/2 > s_C. (g)
+[[sec:iii-g2-1]] and [[sec:iii-i10-1]]. These follow from (AP0): s_C > 100 is part of it, and γ_Cv_C = γ_C/2 > s_C. (g)
 The horizon threshold of [[lem:iii-f2-1-1]] and the bound of [[cor:iii-f2-1-2]] hold for every γ_C. (h) The set 𝖧, the
 thresholds h_0 and h_tf and the sets 𝖹, 𝖹₁, 𝖹₂ and 𝖹₃ enter only through [[thm:iii-e-1-1]] and through
 [[prop:np-10-52]] (ii)–(iii), whose conclusions are those of [[prop:iii-f1-2-3]] (e)–(f) at z = 4·10⁻⁶; so only through
 (a)–(f). The bound h < 10⁻⁶ that h ∈ 𝖧 contains enters these proofs only through s_C > 100 and (C1)
-([[lem:iv4-1-3]] (a)), which (P0) asks directly.
+([[lem:iv4-1-3]] (a)), which (AP0) asks directly.
 
-*The gauge.* (i) The mode stability of □^Υ_b: in the setting of [[sec:iii-d2-1]] and in [[lem:iii-d1-5-1]] (the
-invertibility of (□^Υ_b)^(0)), in [[prop:iii-f2-3-1]], [[rem:iii-f3-2-3]] and [[prop:iii-f3-4-1]] (kernels of □^Υ),
-and through ℬ(γ_(Υ,H)) in row b2; [[prop:iii-d-6-3]] is implied by it. This is (P3). (j) The tf-admissibility of L_b:
-in [[cor:iii-f1-3-4]], [[prop:iii-g-3-2]], [[sec:iii-g-4-1]], [[lem:iii-g-4-5]], [[thm:iii-g-5-1]], [[sec:iii-h-1]],
-[[thm:iii-h1-1-3]] and [[thm:iii-h2-2-1]]. [[prop:iii-f1-3-3]] gives it at 𝗉: its hypotheses (C1), 0 < e_Υ < 1,
-γ_Υ > 0, z_Υ ≤ ½ and Λ_tf(γ_Υ, e_Υ) < 1 hold by (P0) and (P4), and its proof uses besides only (P4) (in Step 4),
-[[lem:tf-lin-reduction]] and [[prop:tf-gauge-explicit]]. (k) The threshold of [[lem:iii-d-7-1]] (b) is used only in
-the proof of [[prop:iii-d1-4-1]] ([[sec:iii-d1-1]]), outside the results of (1); elsewhere [[lem:iii-d-7-1]] enters
-through its part (a) or through its proof at γ_Υ = 0. (l) The inequalities 0 < e_Υ < 1 and
-0 < γ_Υ < ¼: in [[eq:iii-c-1-1]], [[prop:np-10-38]], the opening of [[ch:s19]], [[sec:s20-setting]], [[sec:iii-i9-1]],
-[[sec:iii-c1-0]] and row d1; γ_Υ < min(½s_C, ⅜): in [[lem:iii-g1-1-1]], [[thm:iii-g1-3-1]], [[sec:iii-g2-1]],
-[[sec:iii-g3-1]] and [[lem:iii-g3-1-2]]; and z_Υ ∈ (0, ½]: in [[lem:iii-d-4-1]], in the constant ε_Υ of
-[[sec:iii-d2-1]], in (R1)–(R5) of [[sec:iii-d3-1]] with [[prop:np-10-29]] and [[prop:np-10-30]], in
-[[prop:iii-f1-2-3]] and in [[lem:iii-g1-1-3]]. These follow from (P0), as [[def:vi-c-admissible]] records.
+*The gauge.* (i) The mode stability of □^Υ_b: in the setting of [[sec:iii-d2-1]] and in [[lem:iii-d1-5-1]]
+(the invertibility of (□^Υ_b)^(0)), in [[prop:iii-f2-3-1]], [[rem:iii-f3-2-3]] and [[prop:iii-f3-4-1]] (kernels of □^Υ),
+and through ℬ(γ_(Υ,H)) in row b2; [[prop:iii-d-6-3]] is implied by it. This is (AP3). (j) The tf-admissibility of L_b: in
+[[cor:iii-f1-3-4]], [[prop:iii-g-3-2]], [[sec:iii-g-4-1]], [[lem:iii-g-4-5]], [[thm:iii-g-5-1]], [[sec:iii-h-1]],
+[[thm:iii-h1-1-3]] and [[thm:iii-h2-2-1]]. [[prop:iii-f1-3-3]] gives it at 𝗉: its hypotheses (C1), 0 < e_Υ < 1, γ_Υ > 0,
+z_Υ ≤ ½ and Λ_tf(γ_Υ, e_Υ) < 1 hold by (AP0) and (AP4), and its proof uses besides only (AP4) (in Step 4),
+[[lem:tf-lin-reduction]] and [[prop:tf-gauge-explicit]]. (k) The threshold of [[lem:iii-d-7-1]] (b) is used only in the
+proof of [[prop:iii-d1-4-1]] ([[sec:iii-d1-1]]), outside the results of (1); elsewhere [[lem:iii-d-7-1]] enters through
+its part (a) or through its proof at γ_Υ = 0. (l) The inequalities 0 < e_Υ < 1 and 0 < γ_Υ < ¼: in [[eq:iii-c-1-1]],
+[[prop:np-10-38]], the opening of [[ch:s19]], [[sec:s20-setting]], [[sec:iii-i9-1]], [[sec:iii-c1-0]] and row d1;
+γ_Υ < min(½s_C, ⅜): in [[lem:iii-g1-1-1]], [[thm:iii-g1-3-1]], [[sec:iii-g2-1]], [[sec:iii-g3-1]] and [[lem:iii-g3-1-2]];
+and z_Υ ∈ (0, ½]: in [[lem:iii-d-4-1]], in the constant ε_Υ of [[sec:iii-d2-1]], in (R1)–(R5) of [[sec:iii-d3-1]] with
+[[prop:np-10-29]] and [[prop:np-10-30]], in [[prop:iii-f1-2-3]] and in [[lem:iii-g1-1-3]]. These follow from (AP0), as
+[[def:vi-c-admissible]] records; so do the other uses of these inequalities, of s_C > 100 and of the bound
+ℓ_I < 3/2 + s_C of row d2 in [[ch:s17]] to [[ch:s27]].
 
 *Continuity and the rest.* [[lem:iii-d-5-1]], [[prop:iii-d-6-1]], [[lem:iii-f2-1-1]], [[cor:iii-f2-1-2]],
 [[lem:iii-f1-2-4]] and [[lem:iii-f1-3-2]] hold for parameters in a compact set and are applied with the compact set
@@ -184,7 +186,7 @@ real part would lie in [3, 51], where (C4) would make the root real.
 ε_ind enters only through [[eq:iii-f1-2-2]], never as a number of order one. (g) Every root with real part in
 [−C_0 − 1, 0] is real, and at each type and degree at which it is a root it occurs once in the list, so that it is a
 simple zero of the determinant of the indicial matrix N_L there; this needs neither (C2)–(C3) nor z ∉ Z_exc, and it
-covers the roots with real part in (−3, 0] that [[ch:s16]] and [[ch:s17]] use.
+covers the roots with real part in (−3, 0] that the later chapters use.
 
 *Block B3.*
 
@@ -206,37 +208,38 @@ simple zero. Only z ∈ (0, ½], (C1) and [[lem:iii-f1-2-2]] were used. ∎
 #### Part C. Chapter 71: the computational point
 
 The new [[rem:ec-point-outside]], which combines this file's statement of what is decided at the computational point with
-the merged texts of P-LB and P-T78 and with P-T49's text 7.
+the merged texts of P-LB, P-T78 and P-T49.
 
 **Remark {#rem:ec-point-outside}** (The computational point and the proved set.) [[thm:settling]] holds at every
 admissible point of the gauge and damping parameters ([[def:vi-c-admissible]], [[thm:vi-c-adm-holds]]); no threshold and
-no exceptional set in that definition excludes the computational point. Completed by any γ_(Υ,H) > 0, it satisfies (P0):
-s_C = 499995.1171875 > 100, (C1) holds at h = 10⁻⁶ ([[lem:iv4-1-3]] (a)), and e_Υ = γ_Υ = 1/100 < ¼; in (P1), the
+no exceptional set in that definition excludes the computational point. Completed by any γ_(Υ,H) > 0, it satisfies (AP0):
+s_C = 499995.1171875 > 100, (C1) holds at h = 10⁻⁶ ([[lem:iv4-1-3]] (a)), and e_Υ = γ_Υ = 1/100 < ¼; in (AP1), the
 hypotheses (H1)–(H4) with ½ + ϑ_ℋ < −C_0 contained in (2) of [[thm:iii-e-1-1]], by [[lem:iv4-1-5]] and
-[[lem:iv4-1-6]]; (P2), by [[prop:s14-damping-distance]], since the indicial roots of □^C_b are the roots of P_l, P_0 and
-p_(v); and, in (P4), Λ_tf(γ_Υ, e_Υ) < 1.0111·10⁻⁴ ([[eq:tf-lambda-point]]). Three conditions are not decided. First, in
-(P1), the mode stability (1) of [[thm:iii-e-1-1]] and the invertibility of P^C_b in its (2), at γ_C = 10⁶ and b near b₀:
-[[thm:iv4-2-1]] proves them only for h below a threshold of [[thm:iv5-7-3]] whose existence is proved and whose
-value is not determined. Second, in (P4), the tf-admissibility of □^C_b at γ_C = 10⁶ with the weights in (1, 2), which
-[[thm:iv6-4-1]] proves only for h below the threshold h_tf of [[thm:iv6-3-1]]. Third, (P3): the invertibility of
+[[lem:iv4-1-6]]; (AP2), by [[prop:s14-damping-distance]], since the indicial roots of □^C_b are the roots of P_l, P_0 and
+p_(v); and, in (AP4), Λ_tf(γ_Υ, e_Υ) < 1.0111·10⁻⁴ ([[eq:tf-lambda-point]]). Three conditions are not decided. First, in
+(AP1), the mode stability (1) of [[thm:iii-e-1-1]] and the invertibility of P^C_b in its (2), at γ_C = 10⁶ and b near
+b₀: [[thm:iv4-2-1]] proves them only for h below a threshold of [[thm:iv5-7-3]] whose existence is proved and whose
+value is not determined. Second, in (AP4), the tf-admissibility of □^C_b at γ_C = 10⁶ with the weights in (1, 2), which
+[[thm:iv6-4-1]] proves only for h below the threshold h_tf of [[thm:iv6-3-1]]. Third, (AP3): the invertibility of
 (□^Υ_b)^(σ) for every σ with Im σ ≥ 0 at (e_Υ, γ_Υ) = (1/100, 1/100), for some γ_(Υ,H) > 0 and every b near b₀, which
 [[prop:iii-d1-4-1]] gives only for γ_(Υ,H) ≤ ϵ_0 and e_Υ, γ_Υ below a threshold ϵ_1 that depends on γ_(Υ,H), both proved
 to exist with values not determined. As [[lem:iii-d-7-1]] (a) gives the tf-admissibility of σ ↦ (□^Υ_b)^(σ) at these
-parameters for every b and every γ_(Υ,H), (P3) follows from its case b = b₀ by the argument of Step 2 of the proof of
+parameters for every b and every γ_(Υ,H), (AP3) follows from its case b = b₀ by the argument of Step 2 of the proof of
 [[prop:iii-d1-4-1]]. [[def:ec-point]] does not fix γ_(Υ,H), and no number of this chapter depends on it: the horizon
 thresholds that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]], where y = 0 for the 1-form
 c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not depend on the horizon modification
-([[sec:iii-d2-1]]). The definition asks no simplicity of the indicial roots of L̂_b(0) beyond what (P0) gives
+([[sec:iii-d2-1]]). The definition asks no simplicity of the indicial roots of L̂_b(0) beyond what (AP0) gives
 ([[prop:iii-f1-2-3]] (g)); at the point every root of real part in [−101, 5] is simple ([[prop:is-mult]]), and the point
 also avoids the countable exclusions of [[eq:iv4-0-1]] and [[prop:iii-f1-2-3]] (e), which the definition does not ask:
 h = 10⁻⁶ ∉ 𝖹, and Z_exc is empty at h = 10⁻⁶ ([[thm:t49-point]]). So the computational point is a point at which the
 formulas of the proof can be evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Every
-number of this chapter that depends on the point is stated at it. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50
-([[prop:np-10-52]] (iii)), and the lower bound of [[thm:loss-d]] uses besides only ε_Υ < 1.46214·10⁻¹⁰, which holds
-at every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set
-with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated,
-through bounds for ε_Υ and ε_ind(h) that hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]],
-[[thm:ec-lb-proved]]).
+number of this chapter that depends on the point is stated at it. At every admissible point with
+(e_Υ, γ_Υ) = (1/100, 1/100) and h ≤ 10⁻⁶ the theorems use only 0 < ε_ind(h) ≤ δ_50 ((AP2) and [[prop:iii-f1-2-3]] (f) for
+the first inequality, [[prop:np-10-52]] (iii) for the second), and the lower bound of [[thm:loss-d]] uses besides
+only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]],
+[[prop:ec-rounds]]). At every point of the proved set with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of
+z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
+([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
 
 ### The lead: every use of the simplicity of indicial roots
 
@@ -262,10 +265,10 @@ with α < Re z = z_0 < ℓ_K, α ∈ (−1, 0), so −3 < Re μ < 1 and, by (a),
 
 (U4) The standing hypothesis of [[sec:iii-g4-1]] (36:1138, "z_Υ ∉ Z_exc, so that every indicial root of L̂_b(0) is
 simple"), used in [[lem:iii-g4-1-1]] (2) (36:1153–1166), whose statement is made at every root; the lemma is used in
-[[lem:iii-g4-3-4]] (36:1360), at the roots −μ in a strip {b < Re λ < b̃} with −1 < b < b̃ ≤ w₀ < ℓ_K^max ≤ 3, so −3 < Re
-μ ≤ 0; through it in [[thm:iii-g4-3-1]] (36:1423, "the multiplicities are one per type, as each root is simple", over
-𝒲(w₀)); and in Step 2 of the proof of [[prop:iii-g4-5-1]] (36:1698, the residues Π_μ for μ ∈ 𝒲(w), w < 3). Its other
-citations (37:546, 38a:56, 39:85, 36:1226, 36:1552, 36:1706) use its parts (1) and (3) only.
+[[lem:iii-g4-3-4]] (36:1360 and 36:1375), at the roots −μ in a strip {b < Re λ < b̃} with −1 < b < b̃ ≤ w₀ < ℓ_K^max ≤ 3,
+so −3 < Re μ ≤ 0; through it in [[thm:iii-g4-3-1]] (36:1423, "the multiplicities are one per type, as each root is
+simple", over 𝒲(w₀)); and in Step 2 of the proof of [[prop:iii-g4-5-1]] (36:1698, the residues Π_μ for μ ∈ 𝒲(w), w < 3).
+Its other citations (37:546, 38a:56, 39:85, 36:1226, 36:1552, 36:1706) use its parts (1) and (3) only.
 
 (U5) [[lem:iii-i12-2-3]] (41:1203–1205): "the roots being simple" for the roots of real part in (a, 1), a > −3, so
 −3 < Re μ ≤ 0, and "As every indicial root is simple ([[sec:iii-g2-1]])" at the least exponent μ_0 ∈ (−3, 0].
@@ -278,9 +281,10 @@ hypothesis of (U3). (C2) is also a clause of [[thm:iii-e-1-1]] (3); no proof cit
 Places that meet roots outside the window allow multiplicity and use no simplicity: the index set ℰ_K
 ([[lem:iii-g1-1-3]], 35:1094: "(−μ, k) with k below the order of the root"), the count l_* of [[def:iii-i10-1-1]]
 (41:154–156, which bounds "the multiplicities of the indicial roots of L̂_b(0)" at real part at most 5), the expansions
-by [[lem:iii-a-1-4]] in [[prop:iii-f4-5-1]] Step 3, [[lem:iii-i11-2-1]] and [[cor:iii-g2-3-2]], and the finiteness
-statements cited to (f) (36:1166, 43:68, 43:553). [[prop:is-mult]] (71) proves simplicity on [−101, 5] at the
-computational point and is used by no theorem outside its chapter.
+by [[lem:iii-a-1-4]] in [[prop:iii-f4-5-1]] Step 3 and [[lem:iii-i11-2-1]], and the finiteness statements cited to (f)
+(36:1166, 43:68, 43:553). [[prop:is-mult]] (71) proves simplicity on [−101, 5] at the computational point and is used
+by no theorem outside its chapter. [[cor:iii-g2-3-2]] uses simplicity through [[thm:iii-g2-3-1]], for
+μ ∈ 𝒲(ℓ_K) ⊂ (−3, 0], which (g) covers.
 
 Conclusion: every use concerns roots with real part in (−3, 0]. On [−101, 0] simplicity holds for every z ∈ (0, ½] under
 (C1) alone: this is the new part (g) of [[prop:iii-f1-2-3]], proved in full in block B3 from the list of that
@@ -294,10 +298,10 @@ and unused.
 ### Placement
 
 Each item names the place, the old text and the new text, given as lines of the chapter, with the line breaks shown. Line
-numbers are those of the chapters at commit 7854b15c (P-LB, the explicit order K and P-T78 merged) and serve only to find
-the place; every old text occurs exactly once in its chapter, and no two items overlap. Item 33 is combined with P-T49's
-text 7, which merges first; the interactions give its old text after that merge. Items 31, 34–41, 43, 44 and 47–51 add
-"h ≤ 10⁻⁶" or "γ_C ≥ 10⁶" to the merged statements that the cap kept true.
+numbers are those of the chapters at commit fb87f2fc (P-LB, the explicit order K, P-T78 and P-T49 merged) and serve only
+to find the place; every old text occurs exactly once in its chapter, and no two items overlap. Items 1–53 keep the
+numbers of the previous revision of this file, and the items in [[ch:s14]] follow them (items 54–58). Items 31, 34–41,
+43, 44 and 47–51 add "h ≤ 10⁻⁶" or "γ_C ≥ 10⁶" to the merged statements that the cap kept true.
 
 *1. [[ch:s15]], [[sec:iii-f-1]], the paragraph that fixes the parameters (lines 76–77).* Old, the two lines:
 
@@ -331,7 +335,7 @@ determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simp
 
 New: Block B2 of Part B.
 
-*5. [[ch:s15]], the proof of [[prop:iii-f1-2-3]], the end of (f) and the proof of (g) (lines 496–497).* Old, the two
+*5. [[ch:s15]], the proof of [[prop:iii-f1-2-3]], the end of (f) and the proof of (g) (lines 498–499).* Old, the two
 lines:
 
 would make ι^C_(·,+) non-real with real part n + 1 ∈ [3, 51], against (C4). The minimum of d(Re ι, ℤ) over this finite
@@ -347,7 +351,7 @@ near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which 
 New, the two lines:
 
 near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which [[thm:iii-e-1-1]] (3) provides for h ∈ 𝖧
-and (P0) of [[def:vi-c-admissible]] at every admissible point, and γ_Υ is as in [[prop:iii-f1-3-3]].
+and (AP0) of [[def:vi-c-admissible]] at every admissible point, and γ_Υ is as in [[prop:iii-f1-3-3]].
 
 *7. [[ch:s16]], [[sec:iii-g2-1]], the standing hypotheses (lines 1423–1426).* Old, the four lines:
 
@@ -484,9 +488,7 @@ from
 *19. [[ch:s27]], [[sec:iii-k-0]], *Parameters* (lines 89–93).* Old, the five lines:
 
 *Parameters* ([Hin26, Section 13.1, Step 1]). The constraint damping E_C has the constants of [[thm:iii-e-1-1]] fixed
-    def:vi-c-admissible	paper/reader/proofs/P-ADM.md:19	P-ADM, Definition (admissible points)	new: (P0)–(P4)
-    prop:vi-c-adm-exist	paper/reader/proofs/P-ADM.md:62	P-ADM, Proposition (existence)	new: contains the former rows
-    thm:vi-c-adm-holds	paper/reader/proofs/P-ADM.md:104	P-ADM, Theorem (admissible points)	new: thm:settling holds there
+in [[eq:iv4-0-1]], with C_0 = 100: v_C = ½, e_C = 1/102400 and γ_C = h⁻¹, h ∈ 𝖧; as h < 10⁻⁶,
 s_C := (1 − e_C)(1 − v_C)γ_C > 100. The gauge modification E_Υ = (c_Υ, e_Υ, γ_Υ; c_(Υ,H), γ_(Υ,H)) has c_Υ and c_(Υ,H)
 as in [[sec:iii-d-1]] and [[lem:iii-d1-3-1]], and γ_(Υ,H), e_Υ, γ_Υ small enough for the mode stability of
 [[prop:iii-d1-4-1]] and the tf-admissibility of [[prop:iii-f1-3-3]]. The data index set ℰ_0 and the weight ℓ_0 satisfy
@@ -499,11 +501,11 @@ New, the nine lines:
 s_C := (1 − e_C)(1 − v_C)γ_C > 100, the indicial roots of □^C_b satisfy (C1) of [[sec:iii-f1-1]], 0 < e_Υ < 1 and
 0 < γ_Υ < ¼; □^C_b has the properties (1)–(2) of [[thm:iii-e-1-1]], (C4′) of [[sec:iii-f1-1]] and tf-admissibility with
 the weights in (1, 2); □^Υ_b has the mode stability of [[prop:iii-d1-4-1]]; and Λ_tf(γ_Υ, e_Υ) < 1, so that L_b has the
-tf-admissibility of [[prop:iii-f1-3-3]]. Such points exist: h ∈ 𝖧 ([[eq:iv4-0-1]]) with γ_(Υ,H) ∈ (0, ε_0],
-e_Υ ∈ (0, min(ε_1, ½)] and γ_Υ ∈ (0, min(ε_1, ¼)) ([[prop:vi-c-adm-exist]]). The data index set ℰ_0 and the weight ℓ_0
+tf-admissibility of [[prop:iii-f1-3-3]]. Such points exist: h ∈ 𝖧 ([[eq:iv4-0-1]]) with γ_(Υ,H) ∈ (0, ϵ_0],
+e_Υ ∈ (0, min(ϵ_1, ½)] and γ_Υ ∈ (0, min(ϵ_1, ¼)) ([[prop:vi-c-adm-exist]]). The data index set ℰ_0 and the weight ℓ_0
 satisfy
 
-*20. [[ch:s27]], [[sec:vi-c-1]], the opening paragraph (lines 1706–1712).* Old, the seven lines:
+*20. [[ch:s27]], [[sec:vi-c-1]], the opening paragraph (lines 1706–1711).* Old, the six lines:
 
 made. m₀ > 0 is fixed and R₁ := m₀^(1/2). Conditions that only restate a choice made in another row are omitted. The
 constants v_C, e_C, C_0 and γ_C of the damping are fixed once, in [[eq:iv4-0-1]], at the point where [[thm:iii-e-1-1]]
@@ -511,7 +513,6 @@ is proved, and no result varies them; every result that names them uses that poi
 [[sec:iii-i-1]], the e3b-weight at ℐ⁺ of the admissible operators, is a number in (0, ½) fixed once and for all; it
 carries no threshold and depends on no other choice. [[ch:s19]] writes it ℓ_I as well; in the rows below, ℓ_I is the
 b-weight at ℐ⁺ of the data class of [[thm:iii-c1-3-1]].
-
 
 New, the six lines:
 
@@ -568,10 +569,10 @@ the neighbourhood of [[cor:iii-h-4-3]]–[[cor:iii-h-4-4]]; and b near b₀ as [
 
 New, the four lines:
 
-**b2.** b ∈ ℬ(γ_(Υ,H)), the neighbourhood of (P3) of [[def:vi-c-admissible]]; with the low-frequency radius c_0 of
+**b2.** b ∈ ℬ(γ_(Υ,H)), the neighbourhood of (AP3) of [[def:vi-c-admissible]]; with the low-frequency radius c_0 of
 [[cor:iii-h-4-3]], written c_σ in this section and the next to distinguish it from the constant c_0 of [[sec:iii-k-3]],
 b ∈ ℬ(c_σ) ([[prop:iii-f2-4-1]]) and in the neighbourhood of [[cor:iii-h-4-3]]–[[cor:iii-h-4-4]]; and b near b₀ as
-(P1), (P4) and [[sec:iii-j-1]] ask. Threshold: c1, u1, a1.
+(AP1), (AP4) and [[sec:iii-j-1]] ask. Threshold: c1, u1, a1.
 
 *24. [[ch:s27]], [[sec:vi-c-1]], the threshold of row b3 (line 1751).* Old, the line:
 
@@ -673,8 +674,7 @@ most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 ×
 point is not shown to lie in the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at
 it bound what this proof's choices produce, not the optimal loss. The
 
-*33. [[ch:explicit-constants]], [[rem:ec-point-outside]] (combined text: P-T49 text 7 and this file) (lines 55–75).* Old,
-the twenty-one lines:
+*33. [[ch:explicit-constants]], [[rem:ec-point-outside]] (lines 55–77).* Old, the twenty-three lines:
 
 **Remark {#rem:ec-point-outside}** (The computational point and the proved set.) The computational point lies outside
 the set on which [[thm:settling]] is proved, and it lies outside through h. [[thm:settling]] takes h in the set 𝖧 of
@@ -691,8 +691,10 @@ decided. [[def:ec-point]] does not fix γ_(Υ,H), and no number of this chapter 
 that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]], where y = 0 for the 1-form
 c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not depend on the horizon
 modification ([[sec:iii-d2-1]]). So the computational point is a point at which the formulas of the proof can be
-evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Every number of this chapter that
-depends on the point is stated at it. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-10-52]] (iii)),
+evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Its damping and gauge parameters
+avoid the countable exclusions: h = 10⁻⁶ ∉ 𝖹, and the set 𝖹_exc of [[prop:iii-f1-2-3]] (e) is empty at h = 10⁻⁶
+([[thm:t49-point]]). Every number of this chapter that depends on the point is stated at it. For h ∈ 𝖧 the theorems
+use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-10-52]] (iii)),
 and the lower bound of [[thm:loss-d]] uses besides only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed
 by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a lower bound for d holds
 as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that
@@ -700,7 +702,7 @@ hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-pr
 
 New: Part C.
 
-*34. [[ch:explicit-constants]], the paragraph after [[thm:loss-d]] (lines 1482–1483).* Old, the two lines:
+*34. [[ch:explicit-constants]], the paragraph after [[thm:loss-d]] (lines 1484–1485).* Old, the two lines:
 
 bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). At every point of the set on which [[thm:settling]] is
 proved, d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²), where R is the number of rounds at that point,
@@ -710,7 +712,7 @@ New, the two lines:
 bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). At every point of the set on which [[thm:settling]] is proved
 at which h ≤ 10⁻⁶, d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²), where R is the number of rounds at that point,
 
-*35. [[ch:explicit-constants]], [[prop:ec-delta-cap]], the sentence after the display (lines 1533–1534).* Old, the two
+*35. [[ch:explicit-constants]], [[prop:ec-delta-cap]], the sentence after the display (lines 1535–1536).* Old, the two
 lines:
 
 As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives, at the computational point, log₁₀ δ < −1.351 × 10²¹; at every
@@ -722,7 +724,7 @@ As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives, at the computational poi
 point of the proved set with h ≤ 10⁻⁶, [[cor:ec-lb-delta]] bounds log₁₀ δ by a function of the gauge and damping
 parameters.
 
-*36. [[ch:explicit-constants]], [[sec:ec-lb-proved]], the opening paragraph (lines 1553–1560).* Old, the eight lines:
+*36. [[ch:explicit-constants]], [[sec:ec-lb-proved]], the opening paragraph (lines 1555–1562).* Old, the eight lines:
 
 The lower bound of [[thm:loss-d]] (ii) is stated at the computational point, and that point lies outside the set on
 which [[thm:settling]] is proved ([[rem:ec-point-outside]]). This section proves a lower bound for d_acc, and so for
@@ -744,7 +746,7 @@ every h ∈ (0, 10⁻⁶] ([[lem:ec-lb-ind]]), and the count of [[prop:ec-rounds
 ([[lem:ec-lb-rounds]]); [[thm:ec-lb-proved]] assembles them, and [[rem:ec-lb-conditions]] lists the conditions that the
 proof uses. Throughout, (v_C, e_C) = (1/2, 1/102400) as in [[eq:iv4-0-1]], and e := e_C.
 
-*37. [[ch:explicit-constants]], [[thm:ec-lb-proved]], the title and the first sentence (lines 1714–1716).* Old, the three
+*37. [[ch:explicit-constants]], [[thm:ec-lb-proved]], the title and the first sentence (lines 1716–1718).* Old, the three
 lines:
 
 **Theorem {#thm:ec-lb-proved}** (The loss at every point of the proved set.) Let h ∈ 𝖧, γ_C = h⁻¹, the gauge
@@ -758,7 +760,7 @@ New, the four lines:
 weights be chosen as in [[thm:settling]], that is, so that the conditions of [[sec:vi-c-1]] hold ([[thm:vi-c-2-1]]).
 Put z := 4e_Υγ_Υ², let g be the function of
 
-*38. [[ch:explicit-constants]], the proof of [[thm:ec-lb-proved]], *The gaps* (lines 1734–1737).* Old, the four lines:
+*38. [[ch:explicit-constants]], the proof of [[thm:ec-lb-proved]], *The gaps* (lines 1736–1739).* Old, the four lines:
 
 *Proof.* *The gaps.* By rows c1–c2 of [[sec:vi-c-1]], (v_C, e_C) = (1/2, 1/102400) and h ∈ 𝖧 ⊂ (0, h_*) with
 h_* ≤ 10⁻⁶; by row u5, z ∈ (0, ½]. [[sec:iii-d2-1]] fixes ε_Υ below half the least distance between distinct points of
@@ -768,12 +770,12 @@ h_* ≤ 10⁻⁶; by row u5, z ∈ (0, ½]. [[sec:iii-d2-1]] fixes ε_Υ below h
 New, the four lines:
 
 *Proof.* *The gaps.* By row c1 of [[sec:vi-c-1]], (v_C, e_C) = (1/2, 1/102400); h ≤ 10⁻⁶ by hypothesis; and
-z ∈ (0, ¼) ⊂ (0, ½] by (P0) of [[def:vi-c-admissible]]. [[sec:iii-d2-1]] fixes ε_Υ below half the least distance between
-distinct points of ℳ, so ε_Υ < g(z) by [[lem:ec-lb-gauge]]. (C1) holds by (P0), and ε_ind is a constant with
+z ∈ (0, ¼) ⊂ (0, ½] by (AP0) of [[def:vi-c-admissible]]. [[sec:iii-d2-1]] fixes ε_Υ below half the least distance between
+distinct points of ℳ, so ε_Υ < g(z) by [[lem:ec-lb-gauge]]. (C1) holds by (AP0), and ε_ind is a constant with
 [[eq:iii-f1-2-2]] ([[eq:iii-i9-1-1]]); so ε_ind < 40h/13 by [[lem:ec-lb-ind]].
 
 *39. [[ch:explicit-constants]], [[rem:ec-lb-conditions]], the opening sentence and the bullets on the parameter point
-(lines 1772–1780).* Old, the nine lines:
+(lines 1774–1782).* Old, the nine lines:
 
 **Remark {#rem:ec-lb-conditions}** (What the bound uses.) The proof of [[thm:ec-lb-proved]] uses exactly the following
 conditions of [[thm:settling]], each of which holds at every point of the proved set:
@@ -792,11 +794,11 @@ conditions, each of which, except h ≤ 10⁻⁶, holds at every point of the pr
 
 - (v_C, e_C) = (1/2, 1/102400) (row c1 of [[sec:vi-c-1]]), through v = 1/2 and e in P_2 and [[eq:s14-f-two]];
 - h ≤ 10⁻⁶, the hypothesis of the theorem, for [[lem:ec-lb-ind]] and for 6Θ_η < 2·10⁻⁵;
-- (C1), part of (P0) of [[def:vi-c-admissible]], to read ι₂(h) − 1 as an indicial root of L_b^(0);
-- (C4′) of [[sec:iii-f1-1]] ((P2)), only through the existence of the constant ε_ind ([[prop:iii-f1-2-3]] (f));
-- z ∈ (0, ½], which (P0) gives, for [[lem:ec-lb-gauge]];
+- (C1), part of (AP0) of [[def:vi-c-admissible]], to read ι₂(h) − 1 as an indicial root of L_b^(0);
+- (C4′) of [[sec:iii-f1-1]] ((AP2)), only through the existence of the constant ε_ind ([[prop:iii-f1-2-3]] (f));
+- z ∈ (0, ½], which (AP0) gives, for [[lem:ec-lb-gauge]];
 
-*40. [[ch:explicit-constants]], [[rem:ec-lb-conditions]], the paragraph after the bullets (lines 1786–1790).* Old, the
+*40. [[ch:explicit-constants]], [[rem:ec-lb-conditions]], the paragraph after the bullets (lines 1788–1792).* Old, the
 five lines:
 
 It uses none of the thresholds that define the proved set: not h < h_0, h < h_tf or h ∉ 𝖹; not γ_(Υ,H) ≤ ε_0, nor the
@@ -807,14 +809,14 @@ evaluated. It holds as well at every (h, z) ∈ (0, 10⁻⁶] × (0, ½] at whic
 
 New, the six lines:
 
-It uses no other condition: of (P0) only (C1) and z ∈ (0, ½]; not (P1), (P3) or (P4); not h < h_0, h < h_tf, h ∉ 𝖹,
-γ_(Υ,H) ≤ ε_0, e_Υ < ε_1, γ_Υ < ε_1 or z ∉ 𝖹_exc, by which [[prop:vi-c-adm-exist]] exhibits admissible points; not (C2),
+It uses no other condition: of (AP0) only (C1) and z ∈ (0, ½]; not (AP1), (AP3) or (AP4); not h < h_0, h < h_tf, h ∉ 𝖹,
+γ_(Υ,H) ≤ ϵ_0, e_Υ ≤ ϵ_1, γ_Υ < ϵ_1 or z ∉ Z_exc, by which [[prop:vi-c-adm-exist]] exhibits admissible points; not (C2),
 (C3) or (C5), nor (C4) beyond (C4′); not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data classes
 (rows d1–d2), the parameter set ℬ_* (rows b1–b4) or the smallness of row n1. So the bound holds at every point of the
 proved set with h ≤ 10⁻⁶ without any threshold being evaluated. It holds as well at every (h, z) ∈ (0, 10⁻⁶] × (0, ½] at
 which the constructions of [[sec:ec-floor]] are run
 
-*41. [[ch:explicit-constants]], [[rem:ec-lb-unbounded]] (lines 1794–1802).* Old, the nine lines:
+*41. [[ch:explicit-constants]], [[rem:ec-lb-unbounded]] (lines 1796–1804).* Old, the nine lines:
 
 **Remark {#rem:ec-lb-unbounded}** (No upper bound holds on all of the proved set.) The set 𝖧 = (0, h_*) ∖ 𝖹, with 𝖹
 countable, contains numbers h arbitrarily close to 0, and at each of them [[thm:vi-c-2-1]] completes the choice of the
@@ -838,7 +840,7 @@ close to 0, where the first bound of [[eq:ec-lb-numbers]] grows like z⁻². If 
 point for some h ≤ 10⁻⁶ and some γ_(Υ,H), the theorem gives d_NM > 1.4032·10²⁰ there, as at the computational point, and
 the larger bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
 
-*42. [[ch:explicit-constants]], [[sec:uc-data-order]], the end of its opening paragraph (lines 4924–4926).* Old, the
+*42. [[ch:explicit-constants]], [[sec:uc-data-order]], the end of its opening paragraph (lines 4925–4927).* Old, the
 three lines:
 
 ([[prop:uc-data-order]]). The count holds at every choice of the parameters of [[thm:vi-c-2-1]]. The numbers that
@@ -851,7 +853,7 @@ New, the three lines:
 from it use the bounds for d at the computational point, which is not shown to lie in the set on which [[thm:settling]]
 is proved ([[rem:ec-point-outside]]).
 
-*43. [[ch:explicit-constants]], [[rem:uc-data-order-limits]] (lines 5224–5226).* Old, the three lines:
+*43. [[ch:explicit-constants]], [[rem:uc-data-order-limits]] (lines 5225–5227).* Old, the three lines:
 
 smaller orders may serve. It gives no number on the set where [[thm:settling]] is proved, on which d is not evaluated
 and is bounded only from below ([[thm:ec-lb-proved]]); the numbers of its part (d) are those of the computational
@@ -864,7 +866,7 @@ and at whose points with h ≤ 10⁻⁶ it is bounded only from below ([[thm:ec-
 those of the computational point, which is not shown to lie in that set ([[rem:ec-point-outside]]). L_0 and J depend on
 ℓ_0 and ℓ_I, on the gauge parameters through
 
-*44. [[ch:explicit-constants]], [[rem:ec-not-evaluated]] (lines 5285–5293).* Old, the nine lines:
+*44. [[ch:explicit-constants]], [[rem:ec-not-evaluated]] (lines 5286–5294).* Old, the nine lines:
 
 positive by the proof of [[thm:settling]]. Explicit values stop first upstream of every constant: the proof fixes the
 gauge and damping parameters only below thresholds whose existence it proves ([[thm:vi-c-2-1]]; the conditions of
@@ -889,17 +891,19 @@ choice: it holds at every point of the proved set with h ≤ 10⁻⁶ as an expl
 parameters, and it tends to infinity as z tends to 0 or γ_C to infinity, so that no upper bound for d holds on all of
 that set ([[rem:ec-lb-unbounded]]). Among the inputs
 
-*45. [[ch:resolvent-bounds]], [[sec:rb-scalar-blocks]], the paragraph that fixes the parameters (lines 1695–1696).* Old,
-the two lines:
+*45. [[ch:resolvent-bounds]], [[sec:rb-scalar-blocks]], the paragraph that fixes the parameters (lines 1695–1697).* Old,
+the three lines:
 
 those parameters. This point lies outside the set on which the theorems are proved: γ_C = 10⁶ is not of the form h⁻¹
 with h as in [[eq:iv4-0-1]], where h < 10⁻⁶, and (γ_Υ, e_Υ) = (1/100, 1/100) are not shown to lie below the thresholds
+of [[prop:iii-d1-4-1]], which are proved to exist without a value.
 
-New, the three lines:
+New, the four lines:
 
 those parameters. This point is not shown to lie in the set on which [[thm:settling]] is proved
 ([[rem:ec-point-outside]]): γ_C = 10⁶ is not of the form h⁻¹ with h as in [[eq:iv4-0-1]], where h < 10⁻⁶, so
-[[thm:iii-e-1-1]] is not proved there, and (γ_Υ, e_Υ) = (1/100, 1/100) are not shown to lie below the thresholds
+[[thm:iii-e-1-1]] is not proved there, and the invertibility (AP3) of [[def:vi-c-admissible]] is not shown at
+(γ_Υ, e_Υ) = (1/100, 1/100), the thresholds of [[prop:iii-d1-4-1]] being proved to exist without a value.
 
 *46. [[ch:own-data]], the paragraph after [[thm:own-data]] (lines 70–71).* Old, the two lines:
 
@@ -1019,7 +1023,68 @@ tf-admissibility on the gauge are explicit: e_Υ ≤ ½ and γ_Υ ≤ ¼ suffice
 and orders of its function spaces only up to admissibility; arguments by contradiction, compactness and defect measures
 give constants without a value; and the
 
-*54. Unchanged.* Every other statement of [[ch:s13]], [[ch:s15]]–[[ch:s29]] and [[ch:settling-proof]] keeps its text: the
+*54. [[ch:s14]], [[sec:iv4-0]], the sentence after the 1-form c_C (line 126).* Old, the line:
+
+Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters. The
+
+New, the three lines:
+
+Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters; the results
+that [[thm:vi-c-adm-holds]] (1) lists hold as well with γ_C = h⁻¹ at every admissible point ([[def:vi-c-admissible]]).
+The
+
+*55. [[ch:s14]], [[sec:s14-pa]], the opening paragraph (line 3130).* Old, the line:
+
+(iii) defines ε_ind; it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which the theorems of this paper are stated, and
+
+New, the line:
+
+(iii) defines ε_ind; it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which [[thm:iii-e-1-1]] is stated, and
+
+*56. [[ch:s14]], [[rem:s14-eps-ind-scope]], its first sentence (lines 3532–3534).* Old, the three lines:
+
+**Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) The theorems of this paper take h in 𝖧 = (0, h_*)
+∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧, and [[prop:s14-damping-distance]]
+and [[cor:s14-eps-ind-point]] are used by none of them. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50, which
+
+New, the five lines:
+
+**Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) [[thm:iii-e-1-1]] and [[prop:vi-c-adm-exist]]
+take h in 𝖧 = (0, h_*) ∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧.
+[[prop:s14-damping-distance]] and [[cor:s14-eps-ind-point]] are used by no step of the proof of [[thm:settling]]; the
+first shows that (AP2) of [[def:vi-c-admissible]] holds at h = 10⁻⁶ ([[rem:ec-point-outside]]). For h ∈ 𝖧 the theorems
+use only 0 < ε_ind(h) ≤ δ_50, which
+
+*57. [[ch:s14]], [[rem:t49-sets]], its part (d) (line 3582).* Old, the line:
+
+(d) Z_exc ([[prop:iii-f1-2-3]] (e)), written 𝖹_exc in row u5 of [[sec:vi-c-1]], is defined at an h at which (C2) and
+
+New, the line:
+
+(d) Z_exc ([[prop:iii-f1-2-3]] (e)) is defined at an h at which (C2) and
+
+*58. [[ch:s14]], [[rem:t49-scope]], from its first line through the sentence on the order of choices (lines 3866–3872).*
+Old, the seven lines:
+
+**Remark {#rem:t49-scope}** (What this decides.) At the damping point, the parts of rows c2, c3 and u5 of
+[[sec:vi-c-1]] that concern the indicial roots hold: h = 10⁻⁶ ∉ 𝖹, (C1)–(C4) hold, and Z_exc = ∅ at h = 10⁻⁶, so
+z = 4·10⁻⁶ ∉ Z_exc ([[thm:t49-point]]); every indicial root of L̂_b(0) at the computational point is simple. The
+computational point is not in 𝖧, because 𝖧 ⊂ (0, h_*) and h_* ≤ 10⁻⁶ ([[rem:ec-point-outside]]), and the thresholds
+h_0, h_tf of row c2 and those of rows u2–u4 are not determined. Away from the point, 𝖹₂ is empty and (C3) holds at
+every h ∈ (0, 10⁻⁶], and Z_exc is empty at every h at which (C2) holds ([[thm:t49-uniform]]); so 𝖹 = 𝖹₁ ∪ 𝖹₃, and,
+as (C2) holds at every h ∈ 𝖧, the order of choices in [[thm:vi-c-2-1]] meets no exclusion in z. The set 𝖹 meets I
+
+New, the seven lines:
+
+**Remark {#rem:t49-scope}** (What this decides.) At the damping point the exclusions of [[eq:iv4-0-1]] and
+[[prop:iii-f1-2-3]] (e) are met, although [[def:vi-c-admissible]] does not ask them: h = 10⁻⁶ ∉ 𝖹, (C1)–(C4) hold, and
+Z_exc = ∅ at h = 10⁻⁶, so z = 4·10⁻⁶ ∉ Z_exc ([[thm:t49-point]]); every indicial root of L̂_b(0) at the computational
+point is simple. The computational point is not in 𝖧, because 𝖧 ⊂ (0, h_*) and h_* ≤ 10⁻⁶, and whether it is admissible
+is decided by the conditions that [[rem:ec-point-outside]] lists as open. Away from the point, 𝖹₂ is empty and (C3) holds
+at every h ∈ (0, 10⁻⁶], and Z_exc is empty at every h at which (C2) holds ([[thm:t49-uniform]]); so 𝖹 = 𝖹₁ ∪ 𝖹₃. The set
+𝖹 meets I
+
+*59. Unchanged.* Every other statement of [[ch:s13]], [[ch:s15]]–[[ch:s29]] and [[ch:settling-proof]] keeps its text: the
 standing phrases "small", "as [[prop:iii-d1-4-1]] allows" and "the parameters of [[prop:iii-f1-3-3]]" in
 [[sec:iii-f1-1]], [[sec:iii-d2-1]], [[lem:iii-d1-5-1]], [[prop:iii-f2-3-1]], [[sec:iii-f3-1]], [[thm:iii-g-5-1]],
 [[sec:iii-g2-1]] and [[sec:iii-h-1]] describe the setting in which the existence results are proved, and
@@ -1030,7 +1095,7 @@ and to δ_♯, ε_ind, (G⁺) and (G), which step (2) still fixes. Row c1, row u
 [[prop:iii-f1-2-3]] (e) and the clauses (C2)–(C3) stay, unused by the proof of [[thm:settling]]. [[lem:ec-lb-ind]]
 keeps its text, as it assumes 0 < h ≤ 10⁻⁶ already, and [[cor:ec-lb-delta]] keeps its text, as it is stated in the
 setting of [[thm:ec-lb-proved]]; every statement at the computational point keeps its text, h = 10⁻⁶ being within the
-cap. Chapter 33 is not edited by this file; the interactions give the three sentences there that should follow.
+cap. [[ch:s14]] is edited only by items 54–58.
 
 ### Crosswalk rows
 
@@ -1038,14 +1103,16 @@ New rows for the crosswalk of [[ch:s27]], in its four columns separated by tabs,
 after the row of sec:vi-c-1, the third directly after the row of thm:vi-c-2-1. The line numbers are those of this file,
 at the line that carries the label.
 
-CROSSWALK-PLACEHOLDER
+    def:vi-c-admissible	paper/reader/proofs/P-ADM.md@PENDING:20	P-ADM, Definition (admissible points)	new: (AP0)–(AP4)
+    prop:vi-c-adm-exist	paper/reader/proofs/P-ADM.md@PENDING:63	P-ADM, Proposition (existence)	new: replaces rows c2–u5
+    thm:vi-c-adm-holds	paper/reader/proofs/P-ADM.md@PENDING:105	P-ADM, Theorem (admissible points)	new: settling at 𝗉
 
 Notes to add to existing rows. [[ch:s27]]: sec:iii-k-0, "parameters: an admissible point (P-ADM item 19)"; sec:vi-c-1,
 "rows c2–c4 and u2–u5 replaced by def:vi-c-admissible, prop:vi-c-adm-exist and row a1; thresholds of b2, b3, w1, d1, d2
 re-keyed (P-ADM items 20–27)"; thm:vi-c-2-1, "steps (1)–(2): an admissible point and the numbers it fixes; proof sentence
 on steps (1)–(2); thm:vi-c-adm-holds after it (P-ADM items 28–30)". [[ch:s15]]: sec:iii-f-1, "results hold at admissible
 points (P-ADM item 1)"; sec:iii-f1-1, "(C4′) added (P-ADM item 2)"; prop:iii-f1-2-3, "(f) under (C4′); (g) simplicity on
-[−101, 0] for every z ∈ (0, ½] (P-ADM items 3–5)". [[ch:s16]]: ch:s16, "(C1) at admissible points from (P0)
+[−101, 0] for every z ∈ (0, ½] (P-ADM items 3–5)". [[ch:s16]]: ch:s16, "(C1) at admissible points from (AP0)
 (P-ADM item 6)"; sec:iii-g2-1, "simplicity from prop:iii-f1-2-3 (g); (C5) at admissible points (P-ADM items 7, 8)";
 lem:iii-g2-1-2 and thm:iii-g2-3-1, "simplicity from (g) (P-ADM items 9, 10)". [[ch:s17]]: sec:iii-g4-1, lem:iii-g4-1-1,
 lem:iii-g4-3-4 and thm:iii-g4-3-1, "simplicity only on [−101, 0], from (g) (P-ADM items 11–15)". [[ch:s22]]:
@@ -1058,46 +1125,48 @@ computational point not shown to lie in the proved set (P-ADM items 31–44)". [
 sec:rb-scalar-blocks, "point not shown to lie in the proved set (P-ADM item 45)". [[ch:own-data]]: thm:own-data, "point
 not shown to lie in the proved set (P-ADM item 46)". [[ch:introduction]]: sec:introduction-scope (item 48).
 [[ch:theorems]]: sec:settling-statement and sec:further-results (items 49, 50). [[ch:scope]]: sec:scope-constants
-(items 51–53). The front matter: the abstract (item 47).
+(items 51–53). The front matter: the abstract (item 47). [[ch:s14]]: sec:iv4-0, sec:s14-pa and rem:s14-eps-ind-scope,
+"the theorems at admissible points; 𝖧 is where thm:iii-e-1-1 is stated (P-ADM items 54–56)"; rem:t49-sets and
+rem:t49-scope, "no rows named; the exclusions met at the point although not asked (P-ADM items 57, 58)", the latter in
+place of the note "rows c2, c3, u5".
 
 ### Interactions with other proof files
 
-*Merge order and base.* P-LB (commit a722cb42), the explicit order K of the proof file P-K (commit 7e73223b) and P-T78
-(commit 7854b15c) are merged; the old texts of this file are their merged texts, at the line numbers of 7854b15c. P-T49
-must merge before this file: Part C cites thm:t49-point, and item 33 ([[rem:ec-point-outside]]) is combined with P-T49's
-text 7. After P-T49's merge the old text of item 33 is the remark as it then stands, from its first line through
-"([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]])." (P-T49's text 7 inserts two lines inside it); the new
-text, Part C, is unchanged and contains the sentence of P-T49's text 7, so that text lapses. The merged tree was checked
-on a scratch copy built in this order: the chapters at 7854b15c, then P-T49's items 1 and 2 (its section and its tables),
-then every item of this file. The check lint.py --chapters reports 0 hits, assemble.py --check reports 4652 labels and 0
-problems, and no new line is longer than 121 characters, also with every new label resolved to "Proposition 49.999".
+*Merge order and base.* P-LB (commit a722cb42), the explicit order K of the proof file P-K (commit 7e73223b), P-T78
+(commit 7854b15c) and P-T49 (commit fb87f2fc) are merged; the old texts of this file are their merged texts, at the line
+numbers of fb87f2fc, and no item of this file is a combination any longer. Item 33 replaces the merged
+[[rem:ec-point-outside]] as a whole; its new text, Part C, keeps the sentence of P-T49 on the countable exclusions at the
+point. The merged tree was checked on a scratch copy: the chapters at fb87f2fc, then every item of this file. The check
+lint.py --chapters reports 0 hits, assemble.py --check reports 4652 labels and 0 problems, and no new line is longer than
+121 characters, also with every new label resolved to "Proposition 49.999".
 
-*The cap h ≤ 10⁻⁶ (the author's decision).* The definition no longer contains h ≤ 10⁻⁶. (P0) asks the two consequences of
-the cap that the proof of [[thm:settling]] uses, s_C > 100 and (C1), and keeps e_Υ < 1 and γ_Υ < ¼, which it uses
+*The cap h ≤ 10⁻⁶ (the author's decision).* The definition no longer contains h ≤ 10⁻⁶. (AP0) asks the two consequences
+of the cap that the proof of [[thm:settling]] uses, s_C > 100 and (C1), and keeps e_Υ < 1 and γ_Υ < ¼, which it uses
 directly; the definition says where each is used. Every place that used the cap was checked again. (C1) is now asked by
-(P0), and [[prop:iii-f1-2-3]] assumes only z ∈ (0, ½] and (C1). Its new part (g) uses (b), (d), [[lem:iii-f1-2-2]] and
-the bounds [[eq:iii-d-4-2]], none of which involves h. (P2), that is (C4′), follows from (C1) and (C4) by an argument on
+(AP0), and [[prop:iii-f1-2-3]] assumes only z ∈ (0, ½] and (C1). Its new part (g) uses (b), (d), [[lem:iii-f1-2-2]] and
+the bounds [[eq:iii-d-4-2]], none of which involves h. (AP2), that is (C4′), follows from (C1) and (C4) by an argument on
 the roots alone, and part (f) under (C4′) uses [[lem:iii-f1-2-4]] for a compact set of parameters, with no bound on h.
-(P4) and [[prop:iii-f1-3-3]] as merged: its hypotheses are (C1), 0 < e_Υ < 1, γ_Υ > 0, z ≤ ½ and Λ_tf < 1; its Step 4
+(AP4) and [[prop:iii-f1-3-3]] as merged: its hypotheses are (C1), 0 < e_Υ < 1, γ_Υ > 0, z ≤ ½ and Λ_tf < 1; its Step 4
 uses (4) of [[thm:iii-e-1-1]] only at the weight β_C = 1 + 2β ∈ (1, 2); and the section of P-T78 in [[ch:s13]] and
 [[lem:tf-lin-reduction]] contain no bound on h or γ_C. The horizon threshold of [[lem:iii-f2-1-1]] holds for every γ_C.
 [[lem:iii-e-2-1]] (2) uses (3) of [[thm:iii-e-1-1]] only through (C1). A search of chapters 34–48 for 10⁻⁶, 10⁶, h_*,
 [[lem:iv4-1-3]] and bounds on γ_C finds only rows c2–c4 and the two sentences that items 8 and 19 replace, each of
-which uses the cap only for s_C > 100 or (C5). At the computational point (P0) holds: s_C = 499995.1171875 and (C1) holds
-by [[lem:iv4-1-3]] (a), which is stated for h ∈ (0, 10⁻⁶], closed at 10⁻⁶. In [[prop:vi-c-adm-exist]], h ∈ 𝖧 ⊂ (0, 10⁻⁶)
-gives (P0) by the same lemma. So no statement of this file needs a further hypothesis. The admissible set may now contain
-points with 10⁻⁶ < h < (1 − e_C)/200, where s_C > 100 still holds; no result of the paper certifies any of them, as
-[[thm:iii-e-1-1]] is proved only for h ∈ 𝖧. The statements that the cap kept true are [[thm:ec-lb-proved]] and those
-resting on it, whose proof uses h ≤ 10⁻⁶ in [[lem:ec-lb-ind]] and in 6Θ_η < 2·10⁻⁵. Items 31, 34–41, 43, 44 and 47–51
-add the qualifier: "h ≤ 10⁻⁶" in [[ch:explicit-constants]], where h is in use, and "γ_C ≥ 10⁶" (in the abstract, "the
-damping parameter is at least 10⁶") where the text speaks of the damping parameter. Part C carries it in its last
-sentence. "d is unbounded on the proved set" and "no upper bound holds on all of it" stay true without the qualifier,
-since admissible points with h arbitrarily small exist. [[lem:ec-lb-ind]] already assumes 0 < h ≤ 10⁻⁶,
-[[cor:ec-lb-delta]] is stated in the setting of [[thm:ec-lb-proved]], [[lem:ec-lb-gauge]] and [[lem:ec-lb-rounds]] do not
-involve h, and the statements at the computational point are within the cap; none of these changes.
+which uses the cap only for s_C > 100 or (C5). At the computational point (AP0) holds: s_C = 499995.1171875 and (C1)
+holds by [[lem:iv4-1-3]] (a), which is stated for h ∈ (0, 10⁻⁶], closed at 10⁻⁶. In [[prop:vi-c-adm-exist]],
+h ∈ 𝖧 ⊂ (0, 10⁻⁶) gives (AP0) by the same lemma. So no statement of this file needs a further hypothesis. The admissible
+set may now contain points with 10⁻⁶ < h < (1 − e_C)/200, where s_C > 100 still holds; no result of the paper certifies
+any of them, as [[thm:iii-e-1-1]] is proved only for h ∈ 𝖧. The statements that the cap kept true are
+[[thm:ec-lb-proved]] and those resting on it, whose proof uses h ≤ 10⁻⁶ in [[lem:ec-lb-ind]] and in 6Θ_η < 2·10⁻⁵. Items
+31, 34–41, 43, 44 and 47–51 add the qualifier: "h ≤ 10⁻⁶" in [[ch:explicit-constants]], where h is in use, and
+"γ_C ≥ 10⁶" (in the abstract, "the damping parameter is at least 10⁶") where the text speaks of the damping parameter.
+Part C carries it in its last sentence. "d is unbounded on the proved set" and "no upper bound holds on all of it" stay
+true without the qualifier, since admissible points with h arbitrarily small exist. [[lem:ec-lb-ind]] already assumes
+0 < h ≤ 10⁻⁶, [[cor:ec-lb-delta]] is stated in the setting of [[thm:ec-lb-proved]], [[lem:ec-lb-gauge]] and
+[[lem:ec-lb-rounds]] do not involve h, and the statements at the computational point are within the cap; none of these
+changes.
 
 *P-LB (merged).* No statement or number of P-LB changes. Its section cited rows c1–c3 and u5 and assumed h ∈ 𝖧; items
-36–41 restate [[thm:ec-lb-proved]] at an admissible point with h ≤ 10⁻⁶, cite row c1, (P0) and (P2) in place of the
+36–41 restate [[thm:ec-lb-proved]] at an admissible point with h ≤ 10⁻⁶, cite row c1, (AP0) and (AP2) in place of the
 removed rows, and say in [[rem:ec-lb-conditions]] that h ≤ 10⁻⁶ is the one condition the proof uses that an admissible
 point need not satisfy. The words "outside" of its merged texts become "not shown to lie in" (items 32, 33, 36, 44, 45,
 47, 48, 50 and 52), since the definition does not exclude the computational point.
@@ -1111,49 +1180,29 @@ depends on the cap: the count "holds at every choice of the parameters of [[thm:
 its numbers are those of the computational point. Its texts in [[ch:s27]] (lines 248–249 and 1604–1606), in
 [[ch:own-data]] (lines 295–299) and in [[ch:scope]] (lines 136–138) say nothing about the proved set and stay.
 
-*P-T78 (merged, commit 7854b15c).* Its texts at rows u3 and u4, at step (2) of [[thm:vi-c-2-1]], in
-[[rem:ec-point-outside]], in [[rem:ec-lb-conditions]], in [[rem:ec-not-evaluated]] and in [[sec:scope-constants]] are the
-old texts of items 22, 28, 33, 40, 44 and 53, which are no longer combinations, and the new texts keep their content:
-(P4) is P-T78's criterion Λ_tf < 1; [[prop:iii-f1-3-3]] as merged applies at every admissible point, its hypotheses being
-in (P0) and (P4); Part C states Λ_tf < 1.0111·10⁻⁴ at the point ([[eq:tf-lambda-point]]); and items 44 and 53 keep
-P-T78's parentheses on the explicit conditions. Its labels are cited directly. The cap changes nothing for P-T78: none of
-[[lem:iii-d-7-1]] (a), [[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]] and [[prop:iii-f1-3-3]] uses a bound on h or
-γ_C. Its sentence in the opening of [[ch:s16]] (line 54) gets a clause (item 6); its text at line 561 of [[ch:s15]] is
-not touched. Its crosswalk notes for rows u3 and u4 and for step (2) are replaced by this file's notes.
+*P-T78 (merged, commit 7854b15c).* P-T78 is merged; the old texts of items 22, 28, 33, 40, 44 and 53 are its merged texts
+(item 33 with P-T49's sentence added), and the labels eq:tf-lambda, eq:tf-lambda-point, prop:tf-gauge-explicit,
+lem:tf-lin-reduction and the parts (a), (b) of lem:iii-d-7-1 are in the chapters. The cap changes nothing for P-T78: none
+of those results and of [[prop:iii-f1-3-3]] as merged uses a bound on h or γ_C. Its sentence in the opening of [[ch:s16]]
+(line 54) gets a clause (item 6).
 
-*P-T49 (in its fix round; merges before this file).* The cap changes nothing for P-T49. [[thm:t49-uniform]] is stated for
-h ≤ 10⁻⁶ and the definition does not use it, since it asks none of (C2), (C3), z ∉ Z_exc and h ∉ 𝖹; [[thm:t49-point]],
-at h = 10⁻⁶, is cited by Part C for the exclusions that the definition does not ask; cor:t49-right is not used. Its text
-7 is contained in Part C, as above, and its texts 5, 6, 9 and 10 do not overlap this file (its text 5 is line 490 of
-[[ch:s15]], above item 5). Two of its chapter texts name rows that this file removes and should change after it, as they
-read in the current P-T49. In the remark (d) of rem:t49-sets, replace
-
-(d) Z_exc ([[prop:iii-f1-2-3]] (e)), written 𝖹_exc in row u5 of [[sec:vi-c-1]], is defined at an h at which (C2) and
-
-by
-
-(d) Z_exc ([[prop:iii-f1-2-3]] (e)) is defined at an h at which (C2) and
-
-(the line then continues as it stands). In rem:t49-scope, replace the text from "**Remark {#rem:t49-scope}**
-(What this decides.)" through "the order of choices in [[thm:vi-c-2-1]] meets no exclusion in z." by:
-
-**Remark {#rem:t49-scope}** (What this decides.) At the damping point the exclusions of [[eq:iv4-0-1]] and
-[[prop:iii-f1-2-3]] (e) are met, although [[def:vi-c-admissible]] does not ask them: h = 10⁻⁶ ∉ 𝖹, (C1)–(C4) hold, and
-Z_exc = ∅ at h = 10⁻⁶, so z = 4·10⁻⁶ ∉ Z_exc ([[thm:t49-point]]); every indicial root of L̂_b(0) at the computational
-point is simple. The computational point is not in 𝖧, because 𝖧 ⊂ (0, h_*) and h_* ≤ 10⁻⁶, and whether it is admissible
-is decided by the conditions that [[rem:ec-point-outside]] lists as open. Away from the point, 𝖹₂ is empty and (C3) holds
-at every h ∈ (0, 10⁻⁶], and Z_exc is empty at every h at which (C2) holds ([[thm:t49-uniform]]); so 𝖹 = 𝖹₁ ∪ 𝖹₃, and, as
-(C2) holds at every h ∈ 𝖧, the choice of [[prop:vi-c-adm-exist]] meets no exclusion in z.
-
-and keep the rest of the remark ("The set 𝖹 meets I ..."). The sentence of its item 8, "Row u5 of [[sec:vi-c-1]] stays
-true as written", lapses, as row u5 is removed.
+*P-T49 (merged, commit fb87f2fc).* The cap changes nothing for P-T49. [[thm:t49-uniform]] is stated for h ≤ 10⁻⁶ and the
+definition does not use it, since it asks none of (C2), (C3), z ∉ Z_exc and h ∉ 𝖹; [[thm:t49-point]], at h = 10⁻⁶, is
+cited by Part C for the exclusions that the definition does not ask; [[cor:t49-right]] is not used. Its merged texts in
+[[rem:ec-point-outside]] are part of the old text of item 33; its texts at lines 114–117, 3539–3542 and in its new
+section of [[ch:s14]], at lines 490–492 of [[ch:s15]] and at lines 3125–3129, 3465 and 4076–4080 of
+[[ch:explicit-constants]] do not overlap this file (the last three concern the computational point only). Two of its
+texts named rows that this file removes: [[rem:t49-sets]] (d) and [[rem:t49-scope]]; items 57, 58 rewrite them, the
+second stating that the exclusions are met at the point although the definition does not ask them, and that whether the
+point is admissible is decided by the conditions [[rem:ec-point-outside]] lists as open. Its crosswalk note for
+rem:t49-scope ("rows c2, c3, u5") is replaced by this file's note.
 
 *P-TR (not merged).* Nothing in P-TR's mathematics changes. [[thm:tr-transfer]] is stated at h ∈ 𝖧 ∩ [h₁, 10⁻⁶), within
 the cap, and uses [[thm:ec-lb-proved]] and [[lem:ec-lb-ind]] only there. After this file its hypothesis "the gauge
 parameters e_Υ = γ_Υ = 1/100 meet the conditions that [[thm:vi-c-2-1]] places on them, for some γ_(Υ,H)" means that
 (h, γ_(Υ,H), 1/100, 1/100) is admissible for some γ_(Υ,H), and should say so; in [[rem:tr-scope]], "that (1/100, 1/100)
 lie below the gauge thresholds of [[thm:vi-c-2-1]] at that h" should read "that (h, γ_(Υ,H), 1/100, 1/100) be
-admissible for some γ_(Υ,H), whose open conditions are (P1), (P3) and the tf-admissibility of □^C_b in (P4)
+admissible for some γ_(Υ,H), whose open conditions are (AP1), (AP3) and the tf-admissibility of □^C_b in (AP4)
 ([[rem:ec-point-outside]])". P-TR may keep h ∈ 𝖧 in its hypotheses; whether its proof needs more of 𝖧 than h < 10⁻⁶ is
 for P-TR to say. Its texts 2–6 change the places of items 32, 33, 41, 50 and 52 of this file. If P-TR merges after this
 file, its texts 2–6 read as follows, against this file's new texts; each new text is P-TR's with its added sentence, and
@@ -1174,19 +1223,17 @@ an h exists is not decided ([[rem:tr-scope]]). The
 
 P-TR text 3, old (the last lines of Part C):
 
-at every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set
-with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated,
-through bounds for ε_Υ and ε_ind(h) that hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]],
-[[thm:ec-lb-proved]]).
+[[prop:ec-rounds]]). At every point of the proved set with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of
+z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
+([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
 
 P-TR text 3, new:
 
-at every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set
-with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated,
-through bounds for ε_Υ and ε_ind(h) that hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]],
-[[thm:ec-lb-proved]]). The upper bounds of [[thm:uc-integer]] hold, with the same numbers, at (h, 1/100, 1/100) for
-h ∈ 𝖧 ∩ [h₁, 10⁻⁶), h₁ = 4.76·10⁻¹¹, outside a set 𝖩 of total length below 1.7·10⁻¹¹, if that point is admissible for
-some γ_(Υ,H), which is not decided ([[thm:tr-transfer]]).
+[[prop:ec-rounds]]). At every point of the proved set with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of
+z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
+([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]). The upper bounds of [[thm:uc-integer]] hold, with the
+same numbers, at (h, 1/100, 1/100) for h ∈ 𝖧 ∩ [h₁, 10⁻⁶), h₁ = 4.76·10⁻¹¹, outside a set 𝖩 of total length below
+1.7·10⁻¹¹, if that point is admissible for some γ_(Υ,H), which is not decided ([[thm:tr-transfer]]).
 
 P-TR text 4, old (the two lines that follow item 41):
 
@@ -1247,21 +1294,10 @@ lines of item 48 (152–156) without overlap, and its items 12 and 14 are elsewh
 195–204, away from items 48–53. P-G24b edits only [[ch:s14]]. The remaining proof files (the B, D, E and H series,
 P-F-edge, P-G1 and the T-files) change no place that this file changes.
 
-*Chapter 33 (edited in parallel; not changed here).* Three sentences there describe the parameter set of the paper's
-theorems as h ∈ 𝖧 and go stale after this file; they read at 7854b15c as quoted. P-T49's texts 3–4, P-TR's text 7 and
-P-G24b also edit that chapter, at other sentences. Suggested texts, to be checked against the chapter as it then stands.
-In [[sec:iv4-0]], "Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later
-chapters." becomes "Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later
-chapters, which hold as well with γ_C = h⁻¹ at every admissible point ([[def:vi-c-admissible]], [[thm:vi-c-adm-holds]])."
-In the opening paragraph of [[sec:s14-pa]], "it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which the theorems of this
-paper are stated" becomes "it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which [[thm:iii-e-1-1]] is stated". In
-[[rem:s14-eps-ind-scope]], "The theorems of this paper take h in 𝖧 = (0, h_*) ∖ 𝖹 ([[eq:iv4-0-1]]), and
-h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧, and [[prop:s14-damping-distance]] and
-[[cor:s14-eps-ind-point]] are used by none of them." becomes "[[thm:iii-e-1-1]] takes h in 𝖧 = (0, h_*) ∖ 𝖹
-([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧. [[prop:s14-damping-distance]] and
-[[cor:s14-eps-ind-point]] are used in the proof of no theorem; the first shows that (P2) of [[def:vi-c-admissible]] holds
-at h = 10⁻⁶ ([[rem:ec-point-outside]])." The sentence after it, "For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50,
-...", stays true.
+*[[ch:s14]].* With P-T49 merged, the three sentences there that described the parameter set of the paper's theorems as
+h ∈ 𝖧, which earlier revisions of this file gave as suggestions, are now items 54–56. P-TR's text 7 changes the later
+lines of [[rem:s14-eps-ind-scope]] (from "What changes for h ∈ 𝖧"), after the sentence of item 56, and P-G24b does not
+touch these sentences.
 
 ### Side findings of the audit, verified
 
@@ -1270,7 +1306,7 @@ at h = 10⁻⁶ ([[rem:ec-point-outside]])." The sentence after it, "For h ∈ �
 "[[eq:iii-g3-1-2]] holds, s_C being large by (C1)". (C1) is a statement about the indicial roots of □^C_b, and no proof
 in the chapters derives s_C > 100 from it; by [[lem:iii-f1-2-2]] it gives at vector type 1 only −1 − 2γ_Cv_C < −C_0, that
 is γ_Cv_C > 49.5, so s_C = (1 − e_C)γ_Cv_C > 49.49 at v_C = ½. The inequality s_C > 100 is the explicit condition of
-[[sec:iii-f-1]] (row c4, now part of (P0)); this is also why (P0) asks s_C > 100 and (C1) separately. Items 16 and 18
+[[sec:iii-f-1]] (row c4, now part of (AP0)); this is also why (AP0) asks s_C > 100 and (C1) separately. Items 16 and 18
 cite it.
 
 *2. 𝖹₂ and 𝖹₃ in row c2.* True. Row c2 removes from 𝖧 the sets 𝖹₂ and 𝖹₃ of [[prop:np-10-52]] (ii)–(iii), and
@@ -1296,4 +1332,4 @@ involve simplicity and is reported for the coordinator.
 
 *5. A small point in the setting of [[sec:iii-d2-1]].* "Fix γ_(Υ,H) ∈ (0, ϵ_0] and then ... e_Υ ∈ (0, ϵ_1] and
 0 < |γ_Υ| < ϵ_1 as in [[prop:iii-d1-4-1]], so that z ∈ (0, ½]" needs 4ϵ_1³ ≤ ½, which [[prop:iii-d1-4-1]] does not state.
-At an admissible point (P0) gives z ∈ (0, ¼), so nothing depends on it.
+At an admissible point (AP0) gives z ∈ (0, ¼), so nothing depends on it.
