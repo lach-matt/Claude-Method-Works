@@ -33,13 +33,15 @@ curve that meets it leaves D_T there and does not return ([[prop:boundary-spacel
 this fails in a layer at the start of the shell whose width tends to 0 with λ: on every column the boundary has points
 where it is timelike for g_λ, and future timelike curves cross it into D_T ([[thm:layer]], [[cor:layer]]). That the
 domain of [[prop:eq-domain]], whose inner boundary no future causal curve enters, is needed in place of D_T is not shown
-([[cor:layer]]). Inside the layer the character of the boundary is decided in the parts of the layer that
-[[prop:layer-regions]] describes, by one switch per column on the band between the levels λ^(3+δ) and λ^(3−δ) for an
-envelope increasing at its edge with the hypothesis (H_N) of [[def:edge-hypotheses]] ([[thm:l-24]]), and at the very
-edge for envelopes with the edge hypotheses, which hold for env_C ([[thm:very-edge]], [[cor:edge-envelope]]). Some
-regularity of the edge is needed: for an envelope whose intervals of zeros accumulate at the edge, the boundary is
-spacelike throughout intervals of length 4πλ below the level λ^(3+δ), for every small λ ([[prop:edge-dips]]), and at a
-dip of a general envelope the criterion of [[rem:edge-criterion]] decides nothing.
+([[cor:layer]]). Inside the layer [[prop:layer-regions]] decides the character of the boundary above the band between the
+levels λ^(3+δ) and λ^(3−δ), on the windows of length 4πλ that start where |env| first reaches a level between λ^P and
+λ^(3+δ), and on the band up to a factor 1 ± 2λ^(1/10) in the ratio of the first-degree amplitude to the margin
+([[rem:edge-criterion]]). For an envelope increasing at its edge with the hypothesis (H_N) of [[def:edge-hypotheses]] the
+band is decided by one switch per column ([[thm:l-24]]), and the very edge for envelopes with the edge hypotheses, which
+hold for env_C ([[thm:very-edge]], [[cor:edge-envelope]]). Some regularity of the edge is needed: for an explicit smooth
+envelope whose intervals of zeros accumulate at the edge, the boundary is spacelike throughout intervals of length 4πλ
+below the level λ^(3+δ), for every small λ ([[prop:edge-dips]]), and at a dip of a general envelope the criterion of
+[[rem:edge-criterion]] decides nothing.
 
 ### The thresholds and the constants {#sec:scope-constants}
 
@@ -67,7 +69,8 @@ loss that this proof's choices produce, not for the least loss with which the ta
 that point, at one admissible choice of the weights, d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one
 below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The computational point is a point at which the formulas of the proof can be
 evaluated, and it lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of
-[[ch:explicit-constants]] is used in the proof of any theorem of this paper ([[ch:explicit-constants]]).
+[[ch:explicit-constants]] is used in the proof of any theorem of this paper; the explicit indices of [[prop:ii-a1-2-4]]
+and [[lem:ii-a-8-5]], which [[prop:fwd-calculus]] proves, are used only there ([[ch:explicit-constants]]).
 
 Explicit values stop upstream of every constant of [[thm:settling]]: the proof fixes the gauge and damping parameters
 only below thresholds whose existence it proves, and the cut-offs and orders of its function spaces only up to
@@ -76,12 +79,14 @@ parametrix norms at ι⁺, the tame constants to the order N_NM, the Nash–Mose
 problems and the constants of the gluing are not evaluated. This is a limit of the explicit evaluation, not of
 [[thm:settling]] ([[rem:ec-not-evaluated]]).
 
-Explicit resolvent bounds are proved for one operator, the scalar wave operator on five-dimensional Tangherlini of mass
-1, cut off to {6/5 ≤ r ≤ 4}: for every harmonic and every real 0 < |σ| ≤ 3, and with the constant 11.477 for
-3 ≤ |σ| ≤ 384 ([[prop:morawetz-resolvent-l-ge-1]], [[prop:morawetz-l-zero]], [[thm:band]]). The smaller values
-observed from |σ| = 12 on, and their decay in |σ|, are not proved ([[rem:band-observed]]). For the scalar-type blocks of
-the linearised gauge-fixed operator at zero energy, an upper bound for the least singular value obstructs a good
-constant at a weight next to an indicial root ([[lem:rb-quasimode]]).
+Explicit resolvent bounds are proved for the scalar wave operator on five-dimensional Tangherlini of mass 1, cut off to
+{6/5 ≤ r ≤ 4}: for every harmonic and every real 0 < |σ| ≤ 3, and with the constant 11.477 for 3 ≤ |σ| ≤ 384
+([[prop:morawetz-resolvent-l-ge-1]], [[prop:morawetz-l-zero]], [[thm:band]]); the same identities bound the cut-off
+resolvent of every master operator of the 1-form wave operator and of the linearised Einstein operator, at every harmonic
+and every real σ ≠ 0 ([[prop:morawetz-master-potentials]]). The smaller values observed from |σ| = 12 on, and their decay
+in |σ|, are not proved ([[rem:band-observed]]). For the scalar-type blocks of the linearised gauge-fixed operator at zero
+energy, an upper bound for the least singular value obstructs a good constant at a weight next to an indicial root
+([[lem:rb-quasimode]]).
 
 The threshold λ_2 of [[thm:own-data]], the threshold λ_L of [[thm:layer]] and the thresholds of [[thm:very-edge]] and
 [[thm:l-24]] are not evaluated ([[thm:own-data]], [[rem:layer-threshold-size]], [[rem:edge-thresholds]]). λ_L is the
@@ -163,7 +168,8 @@ high-frequency construction over a non-round background needs more: beyond one i
 further families must have densities vanishing near the axes, and pairwise separation does not suffice when three or
 more families are present at a point ([[thm:class-stability]], [[rem:class-scope]]). Its application to the two-dust
 background assumes that the outgoing packet does not reach the inner sphere, which the construction of that background
-does not decide ([[cor:class-two-dust]]).
+does not decide ([[cor:class-two-dust]]). On the seed with small non-round families away from the axes the data are
+assumed, not constructed ([[cor:class-seed-families]]).
 
 [[thm:vlasov]] realises as weak limits of class vacuum metrics, along odd numbers of dusts, the class
 Einstein–restricted massless Vlasov solutions whose field is a caustic-free family of dusts labelled by initial
@@ -180,13 +186,13 @@ high-frequency step not being carried out on the adapted domain itself, and no u
 The results on localised data concern the explicit two-dust background of [[sec:bg-data]], on its slice Σ_τ0 or on a
 slice bent from it, and invariant data near the background's data ([[ch:localised-data]]). Data localised in angle away
 from the axes exist on the whole of a slice bent from Σ_τ0 by at most 0.0012, on which Rácz's split is hyperbolic
-everywhere; on Σ_τ0 itself the split is hyperbolic except in one band inside the shell, where it is hyperbolic for no
-foliation ([[thm:loc-bent-slice]], [[prop:loc-band]]). Localisation in angle and radius at once is decided at second
-order in the amplitude by the sign of the charge, and it is stated in terms of the sign of f, nothing using the event
-horizon: on a vacuum band that meets {f < 0} such vacuum data whose first-order part is not a gauge perturbation exist
-for every small amplitude, on a vacuum band where f > 0 they are excluded for small amplitude when the first-order part
-is not a gauge perturbation, and on every vacuum band they are excluded for small amplitude when the first-order part
-perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
+everywhere; on Σ_τ0 itself the split is hyperbolic off the band 4.2882 ≤ R ≤ 4.5310 inside the shell, and on
+4.2955 ≤ R ≤ 4.5258 it is hyperbolic for no foliation ([[thm:loc-bent-slice]], [[prop:loc-band]]). Localisation in angle
+and radius at once is decided at second order in the amplitude by the sign of the charge, and it is stated in terms of
+the sign of f, nothing using the event horizon: on a vacuum band that meets {f < 0} such vacuum data whose first-order
+part is not a gauge perturbation exist for every small amplitude, on a vacuum band where f > 0 they are excluded for
+small amplitude when the first-order part is not a gauge perturbation, and on every vacuum band they are excluded for
+small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
 
 ### At the prescribed wavelength 10 l5 {#sec:scope-ten-l5}
 
@@ -207,7 +213,7 @@ the characteristic problem in the gauge, which this paper does not establish, th
 estimate is one on a whole region, the axes included, and the residual bounds proved hold at points and on boxes of a
 region not of that form ([[thm:ten-l5]], [[lem:tl5-continuation]], [[rem:tl5-beyond]]). Beyond v = 1/2 the shift on
 the outgoing data cone is subject to a constraint that this paper does not treat ([[def:tl5-problem]]). The size of
-the constant of a linear estimate on a solution found at the first seed, and with it how far the closing condition of
+the constant of a linear estimate on a numerical solution at the first seed, and with it how far the closing condition of
 the continuation lemma lies from the residual bounds proved, is a numerical observation that no proof uses
 ([[rem:tl5-constants]]).
 

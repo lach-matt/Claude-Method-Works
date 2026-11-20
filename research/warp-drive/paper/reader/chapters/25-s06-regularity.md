@@ -26,13 +26,13 @@ and by induction on the order in half steps.
 
 *Notation.* Orders that may vary on phase space are written in sans-serif (𝗌, 𝗍); an order written s, s_0 or s′ is a
 constant. For a matrix 𝔞 that is self-adjoint for some fibre inner product, max spec 𝔞 is its largest eigenvalue. N′
-is a fixed integer with N′ ≥ −inf 𝗌_0 for every order 𝗌_0 (or s_0) of an a priori term below (N′ = 13 for the operator
-of [[thm:iii-i-5-3]]); every a priori term ‖χu‖_(−N′) below is with respect to it (such terms are written ‖χu‖_(−N)
-in [[ch:s04]]), and N_E is the rank of the bundle E = ℂ^(N_E) of [[sec:ii-c-1-1]]. ϕ^u, ϕ^s and ϕ_u, ϕ_s denote the
-defining functions of hypersurfaces at the trapped set that [[ch:s02]] and [[ch:s05]] write φ^(u/s), φ_(u/s); here
-φ_ε is the regulariser of [[sec:ii-d-2]]. β_0 is the constant of (H3) at the horizon ([[eq:i-a-1-3]],
-[[eq:ii-b-4-1]]); the constant ½ min_Γ |q_(z_0)| > 0 of condition (Γ.4) of (H7) at the trapped set is β_Γ,
-as in [[ch:s02]] and [[ch:s05]].
+is a fixed integer with N′ ≥ −inf 𝗌_0 for every order 𝗌_0 (or s_0) of an a priori term below (N′ = 13 for the operator of
+[[thm:iii-i-5-3]] at the orders of [[lem:fwd-orders]]); every a priori term ‖χu‖_(−N′) below is with respect to it (such
+terms are written ‖χu‖_(−N) in [[ch:s04]]), and N_E is the rank of the bundle E = ℂ^(N_E) of [[sec:ii-c-1-1]]. ϕ^u, ϕ^s
+and ϕ_u, ϕ_s denote the defining functions of hypersurfaces at the trapped set that [[ch:s02]] and [[ch:s05]] write
+φ^(u/s), φ_(u/s); here φ_ε is the regulariser of [[sec:ii-d-2]]. β_0 is the constant of (H3) at the horizon
+([[eq:i-a-1-3]], [[eq:ii-b-4-1]]); the constant ½ min_Γ |q_(z_0)| > 0 of condition (Γ.4) of (H7) at the trapped set is
+β_Γ, as in [[ch:s02]] and [[ch:s05]].
 
 ### The setting and the global estimate {#sec:ii-d-1}
 

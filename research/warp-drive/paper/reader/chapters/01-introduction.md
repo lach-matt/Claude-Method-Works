@@ -150,10 +150,10 @@ Kretschmann scalar being 72 μ²/r⁸ ([[prop:vaidya]]). The thresholds λ0, λ1
 evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point, and [[ch:explicit-constants]] states where the explicit
 evaluation of λ1 and δ stops and bounds the loss d with which the proof of [[thm:settling]] applies the Nash–Moser
 theorem at a point of the gauge and damping parameters outside the set on which that theorem is proved: there
-d > 1.2497 × 10²⁴ at every admissible choice of the weights, and d < 1.57157 × 10⁵⁰ at one ([[thm:uc-integer]]). A
-high-frequency theorem, whose expansion parameter is the wavelength over the curvature length, does not apply at a
-prescribed wavelength of 10 l5; there existence holds where the solution is the seed ([[thm:ten-l5]]). [[ch:scope]]
-collects these statements.
+d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them, and
+d < 1.57157 × 10⁵⁰ at one ([[thm:uc-integer]]). A high-frequency theorem, whose expansion parameter is the wavelength
+over the curvature length, does not apply at a prescribed wavelength of 10 l5; there existence holds where the solution
+is the seed ([[thm:ten-l5]]). [[ch:scope]] collects these statements.
 
 ### Organisation of the paper {#sec:organisation}
 

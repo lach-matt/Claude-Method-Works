@@ -1249,10 +1249,11 @@ C_kω_(k+3)(‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3)))) when ‖(γ̃, k̃)‖_(H^(k
 of [[prop:iii-k-1-2]] (3).
 
 Below, d is the d of [[thm:iii-k-3-2]], fixed in its proof (not the d = 7 of [[ch:s26]], whose N_NM is the N_ex of
-[[thm:iv3-2-2]] here), N_NM := 21d + 6 is the regularity of [[thm:ii-g-2-1]] for it, k″ := max_(k≤N_NM) k′_k = k′_(N_NM),
-s_♭ := min_(k≤N_NM) s_k and ω_♭ := max_(k≤N_NM) ω_k on [0, s_♭]. The smallness constants use orders k ≤ N_NM only; a
-bound needed at every order k (the bound on e_S and e_(S⁰) in the proof of [[lem:iii-k-2-3]], which feeds
-[[eq:ii-g-2-4]]) carries k′_k and ω_k.
+[[thm:iv3-2-2]] here), N_NM := 21d + 6 is the regularity of [[thm:ii-g-2-1]] for it, k″ := k′_(N_NM+3) + 3,
+s_♭ := min(min_(k≤N_NM+3) s_k, s_P) and ω_♭ := max_(k≤N_NM+3) ω_k on [0, s_♭]. The smallness constants use orders
+k ≤ N_NM only, and so, since a product or a composition bounded by [[lem:ii-g-4-1]] (2)–(3) takes one factor at the
+order k + 3, the initial family at the orders k ≤ N_NM + 3, as in (d); a bound needed at every order k (the bound on e_S
+and e_(S⁰) in the proof of [[lem:iii-k-2-3]], which feeds [[eq:ii-g-2-4]]) carries k′_(k+3) and ω_(k+3).
 
 *Proof.* Write ĝ := ĝ_(S,S⁰) and G := G_(S,S⁰), with S⁰ := S^(0)_1. On {t^♭_* < T̂ + 2}, χ_K = 0 (as T_K > T̂ + 2), so
 g_(p⃗) = ĝ ([[sec:iii-k-0]]). Also h_tot(p⃗) and ϑ_tot(p⃗) vanish there, being supported in 𝒞 ⊂ supp χ_K
@@ -1333,12 +1334,14 @@ vanishes on {t^♭_* < T̂}, e_S and e_(S⁰) vanish there, and they lie in ℱ^
 [[lem:iii-k-2-2]] (c). Their bounds are tame, e_S and e_(S⁰) involving h̃ through D_hP_5 at Ψ(U):
 
     ‖e_S(S′)‖_(ℱ^k_ex) + ‖e_(S⁰)(S⁰′)‖_(ℱ^k_ex)
-        ≤ C_k (ω_k(‖(γ̃, k̃)‖_(H^(k+k′_k))) + ω_♭(‖(γ̃, k̃)‖_(H^(N_NM+k″))) ‖U‖_(𝒟^(k+d)_ex)) (|S′| + |S⁰′|),
+        ≤ C_k (ω_(k+3)(‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3)))) + ω_♭(‖(γ̃, k̃)‖_(H^(N_NM+k″))) ‖U‖_(𝒟^(k+d)_ex)) (|S′| + |S⁰′|),
 
-by [[prop:iii-k-1-2]] (3) and the tame bounds of [[sec:iii-j2-1]], when ‖(γ̃, k̃)‖_(H^(k+k′_k)) ≤ s_k and
-‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_♭. At an order k > N_NM at which the first condition fails, ω_k(‖(γ̃, k̃)‖_(H^(k+k′_k))) is
-replaced by a finite constant depending on the data, h_(S,S⁰) and its derivatives in (S, S⁰) lying in every H^(k+2)
-([[prop:iii-k-1-2]] (3)); such a constant does not enter the threshold of [[thm:ii-g-2-1]].
+by [[prop:iii-k-1-2]] (3) at the order k + 3 and the tame bounds of [[sec:iii-j2-1]], with [[lem:ii-g-4-1]] (2)–(3)
+for the products of the coefficients, which carry h_(−S,−S⁰), with ∂_S H, ∂_(S⁰) H and h̃, when
+‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3))) ≤ min(s_(k+3), s_P) and ‖(γ̃, k̃)‖_(H^(N_NM+k″)) ≤ s_♭. At an order k > N_NM at which the
+first condition fails, ω_(k+3)(‖(γ̃, k̃)‖_(H^(k+3+k′_(k+3)))) is replaced by a finite constant depending on the data,
+h_(S,S⁰) and its derivatives in (S, S⁰) lying in every H^(k+2) ([[prop:iii-k-1-2]] (3)); such a constant does not enter
+the threshold of [[thm:ii-g-2-1]].
 
 So [[thm:iii-i14-3-1]] at the base point Ψ(U), with the defects f^S_Ψ and f^s1_Ψ, is [[thm:iii-i14-3-1]] with two
 more terms e_S(S′) + e_(S⁰)(S⁰′) in the forcing G′ of Step 2 of its proof. They are small with the data and linear in
@@ -1465,12 +1468,13 @@ at every u in the domain does not hold here (the proof of [[lem:iii-k-2-3]]).
 
 *Smallness.* The constants C_k (k ≤ N_NM), C_1, C_2 and δ depend on the data only through ‖(γ̃, k̃)‖_(H^(N_NM+k″))
 ([[lem:iii-k-2-2]] (c), [[lem:iii-k-2-3]]); they are bounded independently of the data once that norm is at most s_♭,
-the threshold of [[prop:iii-k-1-2]] (3) at the orders k ≤ N_NM. So the threshold of [[thm:ii-g-2-1]], ε_NM, is
-uniform. Let d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]]. By [[lem:iii-k-2-2]] (d),
-‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ C_(2d)ω_(2d+3)(‖(γ̃, k̃)‖_(H^(2d+3+k′_(2d+3)))) for data of that norm at most
-min(s_(2d+3), s_P), and 2d + 3 + k′_(2d+3) ≤ N_NM + k″ ≤ d_1, as 2d + 3 ≤ N_NM and k′_k is non-decreasing; as ω_(2d+3)(s)
-tends to 0 with s, ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1). [[thm:ii-g-2-1]] gives U ∈ B^∞_(1/2)
-with |U|_(3d) < δ and P_5(Ψ(U)) = 0. ∎
+the threshold of [[prop:iii-k-1-2]] (3) at the orders k ≤ N_NM + 3 and of [[lem:iii-k-2-2]] (d); in particular
+C_k ≥ ‖P_5(Ψ(0))‖_(ℱ^k_ex), which (d) bounds for k ≤ N_NM through the norm of order k + 3 + k′_(k+3) ≤ N_NM + k″. So
+the threshold of [[thm:ii-g-2-1]], ε_NM, is uniform. Let d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]].
+By [[lem:iii-k-2-2]] (d), ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) ≤ C_(2d)ω_(2d+3)(‖(γ̃, k̃)‖_(H^(2d+3+k′_(2d+3)))) for data of that norm
+at most min(s_(2d+3), s_P), and 2d + 3 + k′_(2d+3) ≤ N_NM + k″ ≤ d_1, as 2d + 3 ≤ N_NM and k′_k is non-decreasing; as
+ω_(2d+3)(s) tends to 0 with s, ‖P_5(Ψ(0))‖_(ℱ^(2d)_ex) < ε_NM for data small in H^(d_1). [[thm:ii-g-2-1]] gives
+U ∈ B^∞_(1/2) with |U|_(3d) < δ and P_5(Ψ(U)) = 0. ∎
 
 ### Constraint propagation and the theorem {#sec:iii-k-4}
 

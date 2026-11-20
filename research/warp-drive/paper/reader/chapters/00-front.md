@@ -30,7 +30,7 @@ Further, the development of the continued data also reaches inside the black hol
 boundary; the development of g_λ's own data settles without gluing, in a class wider by half-integer orders; the
 construction extends to two crossing null dusts and to restricted massless Vlasov limits; the constants are stated as
 far as they are explicit, among them an upper bound for λ0 at a numerical point and, at a parameter point outside the set
-on which settling is proved, for one choice of the weights, 1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰ for the loss d with which
-the settling proof applies the Nash–Moser theorem; at equality, μ0 = √72 l5², timelike curves of g_λ cross the boundary
-in a layer whose width tends to zero with λ; and at the physical wavelength 10 l5 there is no separation of scales,
-existence holding where the solution is the seed.
+on which settling is proved, for one admissible choice of the weights, 1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰ for the loss d
+with which the settling proof applies the Nash–Moser theorem; at equality, μ0 = √72 l5², timelike curves of g_λ cross the
+boundary in a layer whose width tends to zero with λ; and at the physical wavelength 10 l5 there is no separation of
+scales, existence holding where the solution is the seed.
