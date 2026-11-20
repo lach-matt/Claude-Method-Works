@@ -379,28 +379,6 @@ The loss of four derivatives per order in (iii) is that of [[lem:loc-cone-jets]]
 derivatives across it of every order are bounded, by smoothness on the compact edge; their bounds grow at most
 exponentially in its length, by Gronwall's inequality.
 
-**Proposition {#prop:civp-axes-formal}** (The formal solution through the axes.) Let the data of [[lem:civp-axes-jets]]
-have size at most Λ in C^m, m ≥ 6k + 18, on edges of length at most 1, be κ-nondegenerate, and let 0 < δ_e ≤ 1/8. There
-are G-invariant smooth families X̂ = (Ω̂, b̂, γ̂) and ρ̂_in, ρ̂_out of a function, a vector field, a symmetric 2-tensor field
-and two densities on S³, over the set {−2δ_e ≤ u ≤ λ_u, −2δ_e ≤ v ≤ λ_v, min(u, v) ≤ 2δ_e}, with ∂_u^j X̂ = a_j on N_o
-and ∂_v^k X̂ = b_k on N_i for all j, k, likewise for the densities, and ‖X̂‖_(C^(k+3)) ≤ C, C depending only on k, Λ, κ
-and δ_e. On the part of that set where Ω̂ > 0 and γ̂ is positive definite, which contains a neighbourhood of N of width
-depending only on Λ, κ and δ_e, the metric Ĝ of [[eq:civp-axes-form]] with the functions X̂ is a smooth G-invariant
-Lorentzian metric for which u and v are null, and Ĝ, q̂_in := ρ̂_in/μ_γ̂ and q̂_out := ρ̂_out/μ_γ̂ induce the data on N.
-E := Ric(Ĝ) − q̂_in dv ⊗ dv − q̂_out du ⊗ du and the conservation laws vanish to infinite order on N.
-
-*Proof.* Apply [[lem:loc-cone-borel]] to the components of a_j, b_k in the Cartesian components on ℝ⁴ ⊃ S³ (tensor fields
-on S³ written as restrictions of tensors of ℝ⁴ annihilating the normal), with Y replaced by S³, r := k + 3, ε_0 := δ_e and
-γ_0 := 1: its proof uses Y only as a parameter set, the Borel sums being taken in u and v with cut-offs depending on u
-and v alone, so the sums are G-invariant when their coefficients are, and the bound of its part (b) holds with
-∇̊-derivatives. The compatibility at the corner is [[lem:civp-axes-jets]] (ii), and the bound follows from
-[[lem:civp-axes-jets]] (iii) since m − 4(k + 3) ≥ 2(k + 3). X̂ equals the data on N, so by its C¹ bound Ω̂ ≥ e^(−Λ)/2 and
-γ̂ ≥ (κ/2) γ̊ within a distance of N depending only on Λ, κ and δ_e. The evolution components and the conservation laws
-vanish to infinite order on N by [[lem:civp-axes-jets]]. The other components of E vanish to infinite order on N by the
-proof of [[prop:loc-cone-formal]] (c), which uses the contracted Bianchi identity in the form [[eq:loc-cone-bianchi]] and
-the constraints of the data, and is local in ϑ: it applies off the axes, and at the axes by continuity, E being a smooth
-tensor field. ∎
-
 **Lemma {#lem:civp-axes-extension}** (Extending and normalising cone data.) Let m ≥ 1. Constants C_m depend only on m.
 
 (a) (Past an end.) Let w ∈ (0, 1] and f a smooth family on [−w, 0] × S³ of functions, vector fields or symmetric
@@ -459,3 +437,38 @@ Dψ_u ·) = ψ_u^* γ. ψ_u commutes with G because b is invariant, and ψ_0 = i
 Ricci tensor of the same metric along the same generators: ∂_v at fixed θ′ is ∂_v at fixed θ, and on N_i, ∂_u at fixed
 θ′ is L̲. The bounds follow from those of ψ_u, whose derivatives of order m are bounded by the derivatives of b of order
 at most m. ∎
+
+**Proposition {#prop:civp-axes-formal}** (The formal solution through the axes.) Let the data of [[lem:civp-axes-jets]]
+have size at most Λ in C^m, m ≥ 6k + 18, on edges of length at most 1, be κ-nondegenerate, and let 0 < δ_e ≤ 1/8.
+Extend a_0 to v ∈ [−2δ_e, 0] and b_0 to u ∈ [−2δ_e, 0] by [[lem:civp-axes-extension]] (a), and put X_0(u, v) := a_0(v)
++ b_0(u) − a_0(0). There are G-invariant smooth families X̂ = (Ω̂, b̂, γ̂) and ρ̂_in, ρ̂_out on the set 𝒮_e := {−2δ_e ≤ u ≤
+λ_u, −2δ_e ≤ v ≤ λ_v, min(u, v) ≤ 2δ_e} with ∂_u^j X̂ = a_j on N_o and ∂_v^k X̂ = b_k on N_i for all j, k, likewise for the
+densities, such that:
+
+(a) ‖X̂‖_(C^(k+3)(𝒮_e)) ≤ C, with C depending only on k, Λ, κ and δ_e;
+
+(b) |X̂ − X_0| ≤ C_b (|u| + |v|) on 𝒮_e, and |b̂| ≤ C_b |v| where u ≥ 2δ_e, with C_b depending only on k, Λ and κ, and
+not on δ_e;
+
+(c) on the points of 𝒮_e with |u|, |v| ≤ d, and on those within distance d of N, where d > 0 depends only on Λ and κ,
+Ω̂ ≥ e^(−Λ)/2 and γ̂ ≥ (κ/2) γ̊; there the metric Ĝ of [[eq:civp-axes-form]] with the functions X̂ is a smooth
+G-invariant Lorentzian metric for which u and v are null, and Ĝ, q̂_in := ρ̂_in/μ_γ̂ and q̂_out := ρ̂_out/μ_γ̂ induce the
+data on N;
+
+(d) E := Ric(Ĝ) − q̂_in dv ⊗ dv − q̂_out du ⊗ du and the conservation laws vanish to infinite order on N.
+
+*Proof.* Apply [[lem:loc-cone-borel]] to the components of a_j − ∂_u^j X_0 and b_k − ∂_v^k X_0, which agree at the corner
+by [[lem:civp-axes-jets]] (ii) and vanish for j = 0 and k = 0, in the Cartesian components on ℝ⁴ ⊃ S³ of tensor fields on
+S³, with Y replaced by S³, r := k + 3, ε_0 := δ_e and γ_0 := 1, and add X_0. That proof uses Y only as a parameter set,
+the Borel sums being taken in u and v with cut-offs depending on u and v alone; so the sums are G-invariant when their
+coefficients are, and the bound of its part (b) holds with ∇̊-derivatives, which gives (a) by [[lem:civp-axes-jets]]
+(iii), since m − 4(k + 3) ≥ 2(k + 3). (b) is the argument of the paragraph on the reference metric in case (II) of
+[[sec:loc-cone-reduced]], which uses only the form of the Borel sums: the terms of index 0 vanish on N, as the jets of
+order 0 of X − X_0 vanish, every other term vanishes at u = 0 (respectively v = 0) and is at most |u| (respectively |v|)
+times a bound of the jets of order at most k + 3 or 2^(−j); and b vanishes on N_i and on N_o at v = 0, so b_0 = 0 and
+|a_0^b(v)| ≤ Λ |v|. (c) X_0 equals the data on N, so |X_0 − X| ≤ Λ (|u| + |v|) with X the data at the nearest point of
+N, and Ω ≥ e^(−Λ), γ ≥ κ γ̊ there; with (b) this gives (c) for d := min(1, κ, e^(−Λ))/(8(Λ + C_b)). (d) The evolution
+components and the conservation laws vanish to infinite order on N by [[lem:civp-axes-jets]]. The other components of E
+vanish to infinite order on N by the proof of [[prop:loc-cone-formal]] (c), which uses the contracted Bianchi identity in
+the form [[eq:loc-cone-bianchi]] and the constraints of the data and is local in ϑ: it applies off the axes, and at the
+axes by continuity, E being a smooth tensor field. ∎
