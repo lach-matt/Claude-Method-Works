@@ -627,3 +627,133 @@ along the same leaves, smooth on each cell and equal to the background near the 
 metrics with measure-valued densities it is not. (vi) *Limits.* Nothing is asserted about smooth densities that
 concentrate on a leaf: their C^m norms, m = 6k + 21, are not bounded as the width of their support tends to 0, so
 [[thm:loc-cone-development]] does not apply to them uniformly.
+
+### Placement
+
+Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
+source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:"; every old
+text occurs exactly once in its chapter after the sections of Tier 1 (the proof of [[thm:loc-cone-development]], with
+its Blocks A and B) and of Tier 2 (the section [[sec:civp-large]]) are in place. Line numbers are those of the current
+chapter sources and serve only to find the place. The section uses those two sections' results by their labels, and two
+further statements about them, (T2) and (T1), which it states in full and marks [[pending:civp-large-at-a-corner]] and
+[[pending:loc-cone-development-at-a-corner]].
+
+*1. Where the section goes.* The section above, from its heading through [[rem:loc-shell-scope]], is inserted in
+[[ch:localised-data]] after the Tier 2 section, which ends with [[rem:civp-large-beyond]], and before the heading
+"### The static Killing field and the charge {#sec:loc-kid}" (line 602 of the current source), with one blank line
+before and one after. It defines sec:loc-shells, def:loc-shell-solution, eq:loc-shell-einstein, eq:loc-shell-dust,
+lem:loc-shell-ricci, eq:loc-shell-singular, lem:loc-shell-identities, eq:loc-shell-trace, prop:loc-shell-junction,
+eq:loc-shell-torsion, eq:loc-shell-conservation, rem:loc-shell-poisson, def:loc-shell-data, prop:loc-shell-cones,
+thm:loc-shells, eq:loc-shell-bands, prop:loc-shell-crossing, eq:loc-shell-crossing-rule and rem:loc-shell-scope, none
+of which is defined elsewhere. Numbers are resolved at assembly. When (T2) and (T1) are established, the paragraph "*The
+smooth theorems at other corners.*" is replaced by citations of the results that state them, and the words "Assume
+(T2)." and "Assume (T1) besides (T2)," in [[thm:loc-shells]] and "Under (T2)," in [[prop:loc-shell-crossing]] (c) are
+removed.
+
+*2. [[rem:loc-cone-scope]] (iii), in the Tier 1 text (Block A).* Old:
+
+near the axes only among solutions that equal the background there. (iii) *Regularity.* The data are smooth and near
+the background's in C^m, m = 6k + 21. Densities that are only bounded, or measures (shells), are not covered. For the
+
+New:
+
+near the axes only among solutions that equal the background there. (iii) *Regularity.* The data are smooth and near
+the background's in C^m, m = 6k + 21. Densities that are only bounded, and measure-valued densities in general, are not
+covered. Finitely many null shells along leaves {v = c} of 𝒞_out and {u = d} of 𝒞_in, with densities smooth in angle
+and supported in the band, and data that are smooth except across finitely many such leaves, are covered by
+[[thm:loc-shells]]: their development is continuous, smooth between the leaves and a solution in the sense of
+distributions ([[def:loc-shell-solution]]), and near the background's data it exists on a neighbourhood of the two
+cones that does not depend on the data ([[thm:loc-shells]] (d)). For the
+
+*3. [[rem:civp-large-domain]], its last sentence, in the Tier 2 section.* Old:
+
+both are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that
+differ from the background's at the axes are not treated, nor are data of finite regularity or densities that are only
+bounded or measure-valued.
+
+New:
+
+both are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that
+differ from the background's at the axes are not treated, nor are data of finite regularity, densities that are only
+bounded, or measure-valued densities other than finitely many null shells along leaves of the two cones with densities
+smooth in angle; those, and data that are smooth except across finitely many leaves, are developed slab by slab with
+[[thm:civp-large]] in [[thm:loc-shells]].
+
+*4. [[ch:localised-data]], the opening (lines 20–21).* A paragraph is inserted before the last paragraph of the opening,
+which neither the Tier 1 nor the Tier 2 placement changes. Old:
+
+The inequalities on the background that these results use are proved at the end of the chapter, in
+[[sec:bg-below]] and [[sec:margins]], from the tables of [[sec:tab-bg]] and [[sec:table-margins]].
+
+New:
+
+The developments extend to cone data that carry finitely many null shells along leaves {v = c} of 𝒞_out and {u = d} of
+𝒞_in, with densities smooth in angle and supported in a band away from the axes: the development is then continuous,
+smooth between the leaves, and a solution of the Einstein–null-dust equations in the sense of distributions with a null
+shell along each leaf, and the junction conditions and the conservation laws of the shells follow from the metric of
+the double-null gauge ([[thm:loc-shells]], [[prop:loc-shell-junction]]). Where two shells cross, the null expansions
+obey a product rule, for round metrics a relation between the masses of the four adjacent regions
+([[prop:loc-shell-crossing]]).
+
+The inequalities on the background that these results use are proved at the end of the chapter, in
+[[sec:bg-below]] and [[sec:margins]], from the tables of [[sec:tab-bg]] and [[sec:table-margins]].
+
+*5. [[ch:scope]], the paragraph on localised data, its last line (line 208).* The Tier 1 placement (its item 7) and the
+Tier 2 placement (its item 4) each append text to this line; the text below is appended after theirs, at the end of the
+paragraph as they leave it. Old:
+
+small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
+
+New:
+
+small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]). Cone data with
+finitely many null shells along leaves of the two cones, with densities smooth in angle and supported in a band away
+from the axes, have developments that are continuous, smooth between the shells and solutions in the sense of
+distributions, on a neighbourhood of the cones on which the shells do not cross, and a solution continues through a
+crossing sphere on a small square; general measure-valued densities and shells that are not round at an axis are not
+treated ([[thm:loc-shells]], [[prop:loc-shell-crossing]], [[rem:loc-shell-scope]]).
+
+*6. The references.* New entry, in alphabetical place, before [Rac16] (line 157). Old:
+
+- [Rac16] I. Rácz, *Constraints as evolutionary systems*, Class. Quantum Grav. 33 (2016), 015014.
+  doi:10.1088/0264-9381/33/1/015014 arXiv:1508.01810v3
+
+New:
+
+- [Poi02] E. Poisson, *A reformulation of the Barrabès–Israel null-shell formalism*, preprint (2002).
+  arXiv:gr-qc/0207101v1
+- [Rac16] I. Rácz, *Constraints as evolutionary systems*, Class. Quantum Grav. 33 (2016), 015014.
+  doi:10.1088/0264-9381/33/1/015014 arXiv:1508.01810v3
+
+*7. Appendix A.* No new entry. No proof uses a published result as a black box: [Poi02] is quoted in
+[[rem:loc-shell-poisson]] for comparison only, its wording checked against the arXiv text (version 1, pp. 1 and 4), and
+[LR20, Theorem 4.6] is already quoted in [[rem:loc-cone-scope]] (iii).
+
+*8. No other change.* [[ch:two-dusts]], [[ch:class-system]], [[ch:ten-l5]], [[ch:theorems]] and [[ch:introduction]] need
+no change: no result there uses the section, and the section uses only results those chapters state.
+
+### Crosswalk rows
+
+New rows for the crosswalk table of [[ch:localised-data]], one per label, in chapter order, after the rows of the Tier 2
+section. Each row is given as one line with its four fields separated by tab characters (label, source, source_name,
+note); the source is this file with the line of the label.
+
+sec:loc-shells	paper/reader/proofs/P-SHELL.md:1	proof P-SHELL, section heading	new: leaf-aligned null shells for the characteristic problem of the class (scoping report S-T6, route M1); slabs between the leaves developed by the smooth theorems and glued by the junction
+def:loc-shell-solution	paper/reader/proofs/P-SHELL.md:44	proof P-SHELL, Definition (Solutions with null shells along the leaves)	new: continuous, cellwise smooth metric in the gauge; distributional Ricci in charts (u, v, y); measure-valued null dust on the leaves; conservation laws in divergence form
+eq:loc-shell-einstein	paper/reader/proofs/P-SHELL.md:52	proof P-SHELL, display	Ric(g) = q_in^♯ dv ⊗ dv + q_out^♯ du ⊗ du with the shell measures
+eq:loc-shell-dust	paper/reader/proofs/P-SHELL.md:54	proof P-SHELL, display	the conservation laws of the two families in divergence form
+lem:loc-shell-ricci	paper/reader/proofs/P-SHELL.md:67	proof P-SHELL, Lemma (The curvature of a continuous, cellwise smooth metric)	new: δ-part of Ric across a null leaf in invariant form; in the gauge −[tr χ] dv² plus a current term in [∂_v b]; no condition across outgoing leaves; checked independently by computer algebra (private)
+eq:loc-shell-singular	paper/reader/proofs/P-SHELL.md:74	proof P-SHELL, display	the singular tensors 𝒮_k and 𝒮′_j
+lem:loc-shell-identities	paper/reader/proofs/P-SHELL.md:125	proof P-SHELL, Lemma (Two identities)	new: Ric(L̲, ∂_ϑ) from lem:loc-cone-ricci, and the angular trace identity with remainder 𝔞 containing only ϑ-derivatives; formulas of lem:loc-cone-ricci checked independently by computer algebra (private); round check 𝔞 = 6/R²
+eq:loc-shell-trace	paper/reader/proofs/P-SHELL.md:133	proof P-SHELL, display	the angular trace identity
+prop:loc-shell-junction	paper/reader/proofs/P-SHELL.md:165	proof P-SHELL, Proposition (The junction conditions)	new: (J1) [∂_v b] = 0, (J2) densities −[tr χ], −[tr χ̲], (J3) continuity of the transverse densities; necessary and sufficient; transport of [∂_v b]; conservation of the shell densities (S-T6 3.2 (a)–(d) written symbolically)
+eq:loc-shell-torsion	paper/reader/proofs/P-SHELL.md:171	proof P-SHELL, display	homogeneous transport of [∂_v b] along L̲
+eq:loc-shell-conservation	paper/reader/proofs/P-SHELL.md:179	proof P-SHELL, display	null-dust conservation law of an ingoing shell
+rem:loc-shell-poisson	paper/reader/proofs/P-SHELL.md:259	proof P-SHELL, Remark (Null shells in four dimensions)	comparison with [Poi02, (2.15), p. 4] and [Poi02, p. 1]; no proof uses it; Barrabès–Israel named only through the title of [Poi02]
+def:loc-shell-data	paper/reader/proofs/P-SHELL.md:270	proof P-SHELL, Definition (Cone data with shells)	new: cone data of def:civp-large-data with atoms m_k, n_j and breaks on leaves; jump conditions [∂_v b] = 0, [tr χ] = −m_k, [tr χ̲] = −n_j
+prop:loc-shell-cones	paper/reader/proofs/P-SHELL.md:290	proof P-SHELL, Proposition (Free data with atoms)	new: prop:loc-cones and lem:loc-cone-in with measure-valued densities (S-T6 MV-2); [∂_vϕ] = −m_k/3, ∂_v b continuous automatically
+thm:loc-shells	paper/reader/proofs/P-SHELL.md:350	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses (T2) and (T1), marked pending
+eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:355	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
+prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:499	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis
+eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:515	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
+rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:610	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)
