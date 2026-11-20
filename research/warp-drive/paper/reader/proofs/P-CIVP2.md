@@ -120,8 +120,9 @@ past set, 𝒟 being one: for p ∈ G and p′ ∈ J⁻(p) = [0, u_p] × [0, v_p
 on every rectangle J⁻(p), p ∈ G, that is 1/2 ≤ e^(2σ) and e^(−2σ) ≤ 2. Put λ := e^(−2σ)R_v. Then λ_v = −𝒜e^(−2σ)/(3R²)
 ([[lem:bg-identities]]) and λ(u, 0) = 2R_v(u, 0) = ℓ_v(u) ([[lem:bg-reduction]] (a)).
 
-*On 𝒞_in.* There R″ = −ℬ/(3R²) ≤ 0 and R′ = −0.47 on [0, u1] ([[lem:bg-reduction]] (a)), so R(·, 0) decreases, and R(u,
-0) ≥ R(u2, 0) ≥ 1.519357 for u ≤ 7.2 ([[prop:bg-nprime]] (i)). μ(·, 0) is 3/2 on [0, u1] ([[lem:bg-reduction]] (b)) and
+*On 𝒞_in.* There R″ = −ℬ/(3R²) ≤ 0, and R′ = −0.47 on [0, u1], u1 = 5.7 ([[lem:bg-reduction]] (a)), so R(·, 0)
+decreases, and R(u, 0) ≥ R(u2, 0) ≥ 1.519357 for u ≤ u2 = 7.2 ([[prop:bg-nprime]] (i)). μ(·, 0) is 3/2 on [0, u1]
+([[lem:bg-reduction]] (b)) and
 at least μ3 > 0 on [u1, u2] ([[prop:bg-nprime]] (iii)), so ℓ_v′ = −μ/R³ < 0 on [0, 7.2] ([[eq:bg-nprime]]) and ℓ_v(u) ≥
 ℓ_v(u2) ≥ 0.529533 for u ≤ 7.2 ([[prop:bg-nprime]] (iii)).
 

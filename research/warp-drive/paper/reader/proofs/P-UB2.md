@@ -8,8 +8,8 @@ d92b28fd579e4a6331ad1615ce2e1f9c, 63-own-data.md 2bd560af0194b8699f05a6fc017404a
 9caf0d10254bd6de807407e65374fe2d. Each old text occurs exactly once in its file as whole lines; line numbers are of
 those files. Both sets of texts were applied to scratch copies of chapters/ and checked there (section 7).
 
-The numbers in the drafted texts are evaluated at **PROVISIONAL inputs (R-V-I11's placeholders), to be replaced by P-UB1's**: ε_K = 1.6747·10⁻¹⁷, ε_+ = 1.67475·10⁻¹⁷, N̄_Λ =
-910,000,000,000,000, k̄_0 = 3, J_* = 15,000,015, l_* = 50. Every number that depends on them is recomputed by the one
+The numbers in the drafted texts are evaluated at **PROVISIONAL inputs (R-V-I11's placeholders), to be replaced by P-UB1's**:
+ε_K = 1.6747·10⁻¹⁷, ε_+ = 1.67475·10⁻¹⁷, N̄_Λ = 910,000,000,000,000, k̄_0 = 3, J_* = 15,000,015, l_* = 50. Every number that depends on them is recomputed by the one
 evaluation step of section 3; nothing else in the texts changes when the inputs change, except where section 1.4 says.
 
 ## 1. Summary
@@ -54,9 +54,9 @@ With u := 1/Δβ_0 = 1/(0.998001ε_K) and N̄ := N̄_Λ:
 | N_NM, K, d_1, N | 21D_NM + 6, 22D_NM + 345, 22D_NM + 331, 22D_NM + 348 | |
 | K* (class ℰ_0^½) | < 4k̄² + 48k̄ + 109, k̄ := 22D_NM + 340 | 1936D_NM² |
 
-Each is non-decreasing in N̄_Λ, k̄_0, J′ and non-increasing in ε_K ([[prop:uc-dependence]]). R-V-I11's scaling (rounds
-like 1/ε_K, Fourier counts like N_Λ²) is right: the old level-by-level bound times (1.6416·10⁻¹⁴/ε_K)·(N̄_Λ/16,747,199,999,999)²
-reproduces the new one to twelve digits.
+Each is non-decreasing in N̄_Λ, k̄_0, J′ and non-increasing in ε_K ([[prop:uc-dependence]]). R-V-I11's scaling
+(rounds like 1/ε_K, Fourier counts like N_Λ²) is right: the old level-by-level bound times
+(1.6416·10⁻¹⁴/ε_K)·(N̄_Λ/16,747,199,999,999)² reproduces the new one to twelve digits.
 
 ### 1.3 What the check of every step found
 
@@ -107,8 +107,8 @@ reproduces the new one to twelve digits.
 
 | step | statement (block) | depends on | proof |
 |---|---|---|---|
-| 1 | levels, rounds, windows: L_<, L_>, R_b, K ≤ L_< + L_>, N_b < R_b, D_e (prop:uc-explicit, M11) | ε_K, ε_+, ε_Υ, 𝔡₁ | lem:ec-counts (a), (f), eq:ec-upper-counts, eq:uc-t2-w, exact floors |
-| 2 | N̄_Λ, J′, k̄(λ_i) ≤ k̄_0 + J′i, k̄_max, d̄_Φ (lem:uc-lambda, M9) | N̄_Λ, k̄_0, J_*, l_* | def:iii-i10-1-1, order by real part |
+| 1 | L_<, L_>, R_b, K ≤ L_< + L_>, N_b < R_b, D_e (prop:uc-explicit, M11) | ε_K, ε_+, ε_Υ, 𝔡₁ | lem:ec-counts |
+| 2 | N̄_Λ, J′, k̄(λ_i) ≤ k̄_0 + J′i, k̄_max, d̄_Φ (lem:uc-lambda, M9) | N̄_Λ, k̄_0, J_*, l_* | def:iii-i10-1-1 |
 | 3 | n(E, w) ≤ N_ι (lem:uc-n-iota, M10) | step 2 | sum over i of k̄_0 + 1 + J′i |
 | 4 | n_K ≤ N_Λ + N_ι (lem:cs-fourier (b), M15a/b) | step 2, (G), R3 | zf-terms below 1 + ε_K |
 | 5 | c(β) ≤ 497 below 3, ≤ C_lev above 3 (lem:cs-levels, M16) | steps 3, 4 | charges added (unchanged proof) |
@@ -174,7 +174,7 @@ Drafted here (main set, section 5; fallback, section 6):
 | chapters/01-introduction.md:156 (155–156) | O2 / FO2 |
 | chapters/03-theorems.md:318–319 (316–319) | O3 / FO3 |
 | chapters/03-theorems.md:363–366 (qualitative; true in the main set) | — / FO4 |
-| chapters/63-own-data.md:70–71 and 298–299 ("d is bounded above only at the computational point"; true in the main set) | — / FO6, FO7 |
+| chapters/63-own-data.md:70–71, 298–299 ("bounded above only at the computational point") | — / FO6, FO7 |
 | chapters/90-scope.md:77–79 (75–79) | O4 / FO5 |
 | 71:24–28 and 33 (chapter summary) | M1, M2 / F1, F2 |
 | 71:425 (rem:ec-other-losses, last sentence; true in the main set) | — / F9 |
@@ -1612,7 +1612,7 @@ quadratic in a bound N̄_Λ for the number N_Λ of points of Λ below 3 + ε_+ (
 The admissible ε_K and N_Λ are not evaluated in this paper, and so neither is the bound.
 ```
 
-### F6. thm:uc-integer, and prop:uc-dependence after it (the same text as in the main set), 71-explicit-constants.md lines 2759–2796
+### F6. thm:uc-integer, then prop:uc-dependence as in M12, 71-explicit-constants.md lines 2759–2796
 
 Old (38 lines):
 

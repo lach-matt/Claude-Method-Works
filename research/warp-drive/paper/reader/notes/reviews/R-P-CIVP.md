@@ -685,3 +685,118 @@ must say Ω the background's on both cones (item 2); and the two terms defined t
        [[rem:loc-cone-scope]]).
 
    (all lines ≤ 121, no wrapped line starting with a marker; item 5's text needs no change).
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Second final
+
+Files read at HEAD df9a4c35: `proofs/P-CIVP.md`, md5 f8a1e948a7f9c53831719f5d526cc3a8, 1319 lines (diff read in full
+against 280a89e0…, commit 6f066bb5), and `proofs/P-CIVP2.md`, md5 e80ea7a4542d128253dccbb16a7dd408, 841 lines (diff
+read in full against 924a45ec…, commit 877bb2fe; the new mathematics read as a first reading). The chapters at HEAD
+differ from those of the first two rounds (18 files changed since 30a6cdeb), so every placement anchor was re-measured.
+
+**Verdict: P-CIVP.md CONFIRMED. P-CIVP2.md CONFIRMED.** No Major or minor finding on either file; one optional nit on
+P-CIVP2 below.
+
+**P-CIVP.md.** The 7 nits of the Final section are applied: the statement of [[prop:loc-cone-local]] now introduces 𝒪,
+Q, d, Q′, u_Q, v_Q before the background (lines 946-951); the stray space at line 186 is gone; f := 0 on P (line 850);
+crosswalk Row 12 says ϖ; the Placement opening now says Tier 2's items "defer to these", which is true of the current
+Tier 2 file (its items 2, 3, 5, 6 and the second pair of 4 carry no texts and point here); nit 6 sits in Tier 2 after
+"∇_i := ∇_(e_i)."; item 11 carries the exact fallback texts of nit 7. Item 6 is now at chapter 03 line 376 and item 7
+at chapter 90 line 210, as measured. Merged text B now says that u_1 = 7.2 and v_1 = 4.5 are admissible for
+[[thm:civp-large]] and that such data exist of every amplitude, citing [[lem:civp-large-free]] and
+[[lem:civp-large-rectangle]]; both claims are what those lemmas prove (added densities on short intervals give every
+amplitude, on 𝒞_out ∩ {3 < v < 4.5} as well).
+
+**P-CIVP2.md: interface T1-T4 and section B.** prop:civp-large-corner sets m := 114 = 12·6 + 42 and is proved by citing
+[[prop:loc-cone-local]] with Q := Q1, k := 6, η := κ, λ_u := l_u, λ_v := l_v and e^(2σ_e) := 2Ω², R_e := R. The
+background solves [[eq:two-dust-limit]] on 𝒪 ∩ {u ≥ 0, v ≥ 0}, which is the hypothesis of that proposition with
+u_Q = v_Q = 0. The requirements paragraph is deleted; [[lem:loc-cone-in]] and [[thm:loc-cone-development]] replace the
+markers, and no marker is left. Section B items 1-9 are applied. Item 2's conversion is right: Tier 1's η = (1/4)min(ϑ_a,
+π/2 − ϑ_b) is (3/4)η0, so the theorem's "ϑ ≤ ϑ_a − η" is Tier 2's "ϑ ≤ ϑ_a − 3η0/4"; and ϑ_a − 3η0/4 ≥ 9η0/4, so
+[[thm:civp-large]] (c) applies to the comparison in rem:civp-large-domain with η′ = 9η0/4. Item 6's changes (d chosen for
+the 𝒪 of the Notation, the equations only for u, v ≥ 0) are consistent with Tier 1's weakened hypothesis. On item 9 I
+agree with the writer: Tier 1's definition requires equality with the background near the axes, and every class
+solution in Tier 2 has it — thm:civp-large (c) assumes it of the competitor, the corner solutions of
+[[prop:loc-cone-local]] equal g0 off [κ, π/2 − κ], and g_F is extended by g0 — so no step needs the relaxation I proposed.
+
+**P-CIVP2.md: R-P-CIVP2's findings.** All resolved:
+- **minor 1:** "let q_in, q_out ≥ 0 on U" (line 375), and the new paragraph on the signs (below).
+- **minor 2:** (0, π/2) in def:civp-large-data and prop:civp-large-corner, and the class-solution definition now refers to
+  Tier 1's.
+- **minor 3:** the bounds are u_1 and v_1, and "phases u_1 = v", q_1 and 𝒞_out^(v1) no longer occur. The remaining u1, u2
+  are the chapter's 5.7 and 7.2, used as such.
+- **minor 4:** rem:civp-large-beyond now proves its admissibility claims.
+- **minor 5:** item 4's first pair is at chapter 90 lines 201-202, found exactly once.
+- **nits 1-14:** "first five lines", ℝ² × Y, the misprint note, the CCTW16 description, "f₃-equations restricted to
+  {v = 0}", "for any choice of the cut-off", "a* does not depend on ℓ", "for data of any size", "× Y Consider", the
+  data-lemma wording "with η̲ = 2e1α − η", "the flat connection as both ∇ and ∇̊" (twice), item 9's appendix rows, 𝒬, κ, the
+  spread w(u, v); and q_1 is removed.
+
+**P-CIVP2.md: new mathematics, checked line by line.**
+- *The signs of the densities* (Step 3, lines 615-630). 𝒮_δ = {min(u, v) ≤ δ} ∩ Q1 is a past set. b vanishes at the
+  angles off (ϑ_a − η0, ϑ_b + η0), so the constant angles there solve dϑ/du = b and by uniqueness trap or freeze every
+  other solution, which therefore exists on [0, u′] in (0, π/2). Integrating D_3q_in = −e^αχ̲q_in and
+  ∂_vq_out = −e^αχq_out, both rows of [[eq:civp-large-system]] (line 351 and the f₄ block), gives exponential factors
+  times the data's values on f̄₃ and f̄₄. Correct.
+- *lem:civp-large-free.*
+  - (b): (ρy′)′ + ρpy = 0 with ρ = Ω⁻², since ρ′ = −2(ln Ω)′ρ, and y, ẙ have equal Cauchy data at S. With p̃ = p̊ + (p − p̊)_+
+    and w = z/ẙ, (ρẙ²w′)′ = −ρ(p − p̊)_+ẙ²w. Where w ≥ 0, w ≤ 1 and the integral identity, after Fubini, gives w ≥ 1 − I.
+    The first-zero argument and the Wronskian W = ρ(y′z − yz′), with W′ = ρ(p̃ − p)yz ≥ 0, give y ≥ z ≥ (1 − I)ẙ. All
+    correct, as is I = 0 when p ≤ p̊.
+  - (a): smoothness off the axes, Ω, γ_ϑ > 0, condition (i) at S, condition (ii) by construction, and condition (iii) with
+    the band (ϑ_a″, ϑ_b″) are all correct.
+- *lem:civp-large-rectangle* (a). G is a past set. Under both identities cited,
+  σ_uv = 3(e^(2σ) + 2R_uR_v)/(2R²) = (3/2)e^(2σ)μ/R⁴ > 0 on G, with μ ≥ μ0 > 0. So σ ≥ −½ ln 2 on each J⁻(p), and
+  e^(−2σ) ≤ 2.
+  - λ := e^(−2σ)R_v has λ_v = −𝒜e^(−2σ)/(3R²) and λ(u, 0) = ℓ_v(u).
+  - On 𝒞_in: R decreases (R′ = −0.47 on [0, u1] and R″ ≤ 0), R ≥ R(u2) ≥ 1.519357 (prop:bg-nprime (i): R(u2) ≥ 1.5193579),
+    and ℓ_v ≥ ℓ_v(u2) ≥ 0.529533 (prop:bg-nprime (iii)).
+  - Below the shell, R_v ≥ 0.529533/2 = 0.2647665 ≥ 0.264766, and R(u, 3) ≥ 1.519357 + 0.794298 = 2.313655 ≥ 2.3136.
+  - Across the shell, ∫_3^4.5 𝒜 = 3.6 · 0.75 · K = 2.7K. With K ≤ 1.2069048544 + 5 × 10⁻⁵ = 1.2069548544
+    (lem:margins-bump-table (a); the true value is 1.2069003), 2.7K ≤ 3.2587781 ≤ 3.25878. Then
+    λ ≥ 0.529533 − 6.51756/16.05821 = 0.1236627… ≥ 0.1236.
+  - The supremum argument, openness of {R > a} in Q, closedness, connectedness of Q_*, the margin δ and the Borel
+    extension across the cones are all correct.
+- *lem:civp-large-rectangle* (b).
+  - On the cones ρ = 4 and ẙ = R(sin ϑ cos ϑ)^(1/3), so I = ∫(p − p̊)_+ ∫_s^L (R(s)/R(t))². The background's ℓ̊_i depend on ϑ
+    only, so ℓ̊_i′ = 0. R increases on 𝒞_out (R ≥ 5) and decreases on 𝒞_in, with R(7.2, 0)² ≥ 1.519357² = 2.308446 ≥ 2.308.
+  - The constants, in exact rational arithmetic:
+    - (25/2.308) · 7.2/3 = 25.99653… ≤ 25.997.
+    - Shell: 0.5 · 76 · 3.25878/125 = 0.9906691 < 0.991.
+    - ∫ℬ = 1.7 · 0.75 · K = 1.275K ≤ 1.5388674 ≤ 1.53887.
+    - Packet: 2.25 · 1.53887/(1.519357 · 2.308) = 0.9873902… < 0.988.
+  - The restrictions on v_1 (shell: v_1 − s ≤ 1.5 on [3, 4.5] needs v_1 = 4.5) and on u_1 (packet: u_1 − s ≤ 1.5 on
+    [5.7, 7.2] needs u_1 = 7.2) are stated, as is c ≥ −1 for q ≥ 0.
+- The Notation is consistent with (a): every u_1 ≤ 7.2 and every v_1 are admissible. The open set 𝒪 with Ω, R > 0 comes
+  from the extension, and g0 = −4Ω² du dv + R² dΩ₃² is [[eq:loc-double-null]] with b = 0.
+
+**Scratch merge of both tiers at HEAD** (scratchpad/rpcivp3/, fresh copy of chapters/, crosswalk/, assemble.py, lint.py,
+OUTLINE.md; nothing written in the repository).
+- What was applied:
+  - Block A after 83:591, and Block B then Tier 2's section (as it stands, no marker to replace) before the heading of
+    sec:loc-kid.
+  - Tier 1 items 3-7, each old text found exactly once, as whole lines, at 83:8-9, 83:593-600, 01:191-193, 03:376 and
+    90:210.
+  - Tier 2 item 4's first pair at 90:201-202, item 7 before thm:std-ctg-neighbourhood (95:467), item 8 at 98:26-28, and
+    [Ren90] before [RS1].
+  - Tier 2's items 2, 3, 5, 6 and the second pair of 4 make no separate change, so every site changes once.
+- Results:
+  - Baseline at HEAD: `lint.py --chapters` 0 hits, 4665 labels.
+  - After the merge: `lint.py --chapters` 0 hits, 4735 labels (36 + 32 + 2 new, none defined twice);
+    `assemble.py --check` 0 problems.
+  - Assembled PAPER.md (scratch only): `lint.py --paper` 0 hits, and no line over 121 characters.
+  - In the new region (assembled lines 75663-77455, maximum 121), no wrapped line starts with "+ ", "- ", "* ", "> ",
+    "#", "=" or "|". Outside lists and tables, none does anywhere in the paper.
+
+### Nit (P-CIVP2, optional)
+
+1. Lines 123-125: lem:civp-large-rectangle uses the chapter's u1 = 5.7 and u2 = 7.2 next to Q1's bound u_1 ≤ 7.2. Naming
+   their values at first use, as Tier 1 does at line 187 ("u ≤ u1 = 5.7"), avoids the confusion. Replace lines 123-124,
+   from "*On 𝒞_in.*" to "is 3/2 on [0, u1] ([[lem:bg-reduction]] (b)) and", by:
+
+       *On 𝒞_in.* There R″ = −ℬ/(3R²) ≤ 0, and R′ = −0.47 on [0, u1], u1 = 5.7 ([[lem:bg-reduction]] (a)), so R(·, 0)
+       decreases, and R(u, 0) ≥ R(u2, 0) ≥ 1.519357 for u ≤ u2 = 7.2 ([[prop:bg-nprime]] (i)). μ(·, 0) is 3/2 on [0, u1]
+       ([[lem:bg-reduction]] (b)) and
+
+   (line 125, "at least μ3 > 0 on [u1, u2] …", follows unchanged; lines of 110, 113 and 30 characters).

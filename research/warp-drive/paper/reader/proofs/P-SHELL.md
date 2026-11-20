@@ -35,11 +35,11 @@ continuous and cellwise smooth. A *class solution in the gauge* is one in the se
 corner at S and g0 as the background, as in [[sec:civp-large]]; its functions equal g0's near the axes. A *class solution
 in double-null form* on D × S³ is a smooth class solution of [[eq:class-system]] with two families, phases v and u and
 densities q_in and q_out, whose metric has the form [[eq:loc-double-null]] with Ω, γ_ϑ, b, A_c, A_s smooth functions of
-(u, v, ϑ) ∈ D × (0, π/2): a class solution in the gauge without the condition near the axes. Its metric, being smooth on
-D × S³, extends smoothly to the axes, and it need not equal g0 near them. Charts (u, v, y), with y = (y¹, y², y³) a chart
-of S³, cover D × S³, the axes included. In such a chart the components of g are continuous with locally bounded first
-derivatives, and its Christoffel symbols Γ^a_bc are locally bounded and cellwise smooth. Its *Ricci tensor in the sense
-of distributions* is, in the chart,
+(u, v, ϑ) ∈ D × (0, π/2): a class solution in the gauge without the condition near the axes. Its metric is smooth on
+D × S³, the axes included, but need not equal g0 near them. Charts (u, v, y), with y = (y¹, y², y³) a chart of S³, cover
+D × S³, the axes included. In such a chart the components of g are continuous with locally bounded first derivatives, and
+its Christoffel symbols Γ^a_bc are locally bounded and cellwise smooth. Its *Ricci tensor in the sense of distributions*
+is, in the chart,
 
     Ric(g)_bd := ∂_aΓ^a_bd − ∂_dΓ^a_ab + Γ^a_ae Γ^e_bd − Γ^a_de Γ^e_ab,
 
@@ -169,9 +169,10 @@ which gives [[eq:loc-shell-trace]]. For a round metric ϖ = 0, ∂_ϑϰ_1 = 0, �
 ∂_u∂_v𝒱 = 2e^(−2σ)(R³)_uv/R³ = (6e^(−2σ)/R²)(R R_uv + 2R_u R_v). The left side is R⁻² times the trace over the unit
 sphere of the angular components, which [[lem:two-dust-equations]] gives as the same expression. ∎
 
-**Proposition {#prop:loc-shell-junction}** (The junction conditions.) Let D ⊂ Q1 be a past set, g a continuous and
-cellwise smooth metric on D × S³ and q_in, q_out ≥ 0 cellwise smooth functions, such that on each closed cell (g, v, u,
-q_in, q_out) is a class solution in double-null form. Then the following hold off the axes and off the crossing spheres.
+**Proposition {#prop:loc-shell-junction}** (The junction conditions.) Let D ⊂ Q1 be a past set, g a continuous
+and cellwise smooth metric on D × S³ and q_in, q_out ≥ 0 cellwise smooth functions, such that on each closed cell
+(g, v, u, q_in, q_out) is a class solution in double-null form. Then the following hold off the axes and off the crossing
+spheres.
 
 (a) *The torsion jump.* On each ingoing leaf,
 
@@ -336,9 +337,9 @@ the compact intervals, by continuous dependence on the coefficients and on the j
 sphere S. The proof of [[thm:loc-shells]] applies them at corner spheres on the cones, and [[prop:loc-shell-crossing]]
 (c) at crossing spheres; what is used of them is the following.
 
-(T2) [[pending:civp-large-at-a-corner]] For every rectangle 𝒬 = [u_c, u′] × [v_c, v′] ⊂ Q1, [[thm:civp-large]] (a), (b)
-and (c) hold with Q1, S, 𝒞_out ∩ Q1 and 𝒞_in ∩ Q1 replaced by 𝒬, its corner sphere {(u_c, v_c)} × S³ and its edges
-N_o := {u_c} × [v_c, v′] and N_i := [u_c, u′] × {v_c}, the cone data on Q1 by functions on N_o and N_i with the
+(T2) [[pending:civp-large-at-a-corner]] For every rectangle 𝒬 = [u_c, u′] × [v_c, v′] ⊂ Q1, [[thm:civp-large]] (a),
+(b) and (c) hold with Q1, S, 𝒞_out ∩ Q1 and 𝒞_in ∩ Q1 replaced by 𝒬, its corner sphere {(u_c, v_c)} × S³ and its
+edges N_o := {u_c} × [v_c, v′] and N_i := [u_c, u′] × {v_c}, the cone data on Q1 by functions on N_o and N_i with the
 properties of [[def:civp-large-data]] (b = 0 on N_i), past sets by the sets D ⊂ 𝒬 with [u_c, u] × [v_c, v] ⊂ D for every
 (u, v) ∈ D, and 𝒮_δ by {(u, v) ∈ 𝒬 : min(u − u_c, v − v_c) ≤ δ}. The proof of [[thm:civp-large]] uses of g0 only that it
 is round, with b = 0, given on 𝒪 × S³ and a solution of [[eq:two-dust-limit]] at the points of 𝒪 with u, v ≥ 0, and its
@@ -601,33 +602,31 @@ Further, 𝒱[tr χ] = 3R²[R_v] sin ϑ cos ϑ, so [[prop:loc-shell-junction]] (
 in u along {v = c_k} and continuous at Z; likewise (c) for R²[R_u]. Finally R_u is continuous across {v = c_k}, being a
 derivative along it, so [μ] = −R²[f] = 2e^(−2σ) R² R_u [R_v] there, and likewise across {u = d_j}.
 
-(b) Translate u and v so that Z is {(0, 0)} × S³. A round class solution in double-null form with the phases v and u has
-q_in = 𝒜/R³ and
-q_out = ℬ/R³ with 𝒜 a function of v and ℬ of u, since its conservation laws are ∂_u(R³ q_in) = 0 and ∂_v(R³ q_out) = 0;
-so the cells (−, +) and (+, −) carry round solutions of the two-null-dust equations, with smooth profiles 𝒜 on [0, λ] and
-ℬ on [0, λ]. The functions R, σ and R_v of the cell (−, +) on N_o := {0} × [0, λ], and R, σ and R_u of the cell (+, −) on
-N_i := [0, λ] × {0}, agree at Z and satisfy C_v = 0 on N_o and C_u = 0 on N_i ([[eq:two-dust-constraints]]), these being
-equations along the edges. Let r_0 > 0 be the least value of R on N_o ∪ N_i, and U := (R, σ, P, Q̄). On [0, s]², s ≤ λ,
-consider [[eq:two-dust-volterra]] with (u0, v0) := (0, 0), P(·, 0) := R_u on N_i and Q̄(0, ·) := R_v on N_o, and let
-U_D(u, v) := (R(0, v), D[σ](u, v), P(u, 0), Q̄(0, v)) be the part of its right sides given by the data. On the set B of
-continuous U on [0, s]² with |U − U_D| ≤ r_0/2 in each component, R ≥ r_0/2 and |U| ≤ M_0, with M_0 depending only on the
-data, and 𝔉 and ℌ are bounded by a number M_1 and Lipschitz with a constant L_1. Each single integral in
-[[eq:two-dust-volterra]] runs over an interval of length at most s and the double one over a square of area at most s²,
-so the right sides map B into itself if s(M_0 + M_1) + s²M_1 ≤ r_0/2, and are a contraction in the supremum norm if
-s(1 + 2L_1) + s²L_1 ≤ 1/2. For such s they have exactly one fixed point in B. As in the proof of
-[[prop:two-dust-background]] (d), it solves [[eq:two-dust-evolution]], the constraints [[eq:two-dust-constraints]] hold
-by [[lem:two-dust-equations]], propagated from the edges, and it is smooth on [0, s]², the data being smooth on the
+(b) Translate u and v so that Z is {(0, 0)} × S³. A round class solution in double-null form with the phases v and u
+has q_in = 𝒜/R³ and q_out = ℬ/R³ with 𝒜 a function of v and ℬ of u, since its conservation laws are ∂_u(R³ q_in) = 0
+and ∂_v(R³ q_out) = 0; so the cells (−, +) and (+, −) carry round solutions of the two-null-dust equations, with
+smooth profiles 𝒜 on [0, λ] and ℬ on [0, λ]. The functions R, σ and R_v of the cell (−, +) on N_o := {0} × [0, λ],
+and R, σ and R_u of the cell (+, −) on N_i := [0, λ] × {0}, agree at Z and satisfy C_v = 0 on N_o and C_u = 0 on N_i
+([[eq:two-dust-constraints]]), these being equations along the edges. Let r_0 > 0 be the least value of R on N_o ∪ N_i,
+and U := (R, σ, P, Q̄). On [0, s]², s ≤ λ, consider [[eq:two-dust-volterra]] with (u0, v0) := (0, 0), P(·, 0) := R_u on
+N_i and Q̄(0, ·) := R_v on N_o, and let U_D(u, v) := (R(0, v), D[σ](u, v), P(u, 0), Q̄(0, v)) be the part of its right
+sides given by the data. On the set B of continuous U on [0, s]² with |U − U_D| ≤ r_0/2 in each component, R ≥ r_0/2
+and |U| ≤ M_0, with M_0 depending only on the data, and 𝔉 and ℌ are bounded by a number M_1 and Lipschitz with a constant
+L_1. Each single integral in [[eq:two-dust-volterra]] runs over an interval of length at most s and the double one over
+a square of area at most s², so the right sides map B into itself if s(M_0 + M_1) + s²M_1 ≤ r_0/2, and are a contraction
+in the supremum norm if s(1 + 2L_1) + s²L_1 ≤ 1/2. For such s they have exactly one fixed point in B. As in the proof
+of [[prop:two-dust-background]] (d), it solves [[eq:two-dust-evolution]], the constraints [[eq:two-dust-constraints]]
+hold by [[lem:two-dust-equations]], propagated from the edges, and it is smooth on [0, s]², the data being smooth on the
 closed edges; and two continuous solutions of [[eq:two-dust-volterra]] on [0, s]² with R > 0 agree, by the contraction in
 the norm sup e^(−γ(u + v))|U| with γ large used there, applied on the compact set of values of the two solutions.
 
 Extend the solution by the round metric of this (R, σ) on [0, s]², with q_in = 𝒜/R³ and q_out = ℬ/R³. The extended metric
 is continuous and cellwise smooth, and each closed cell carries a class solution in double-null form. (J1) holds, as
-b = 0, and
-(J3), as 𝒜 depends on v alone, ℬ on u alone, and R is continuous. By [[prop:loc-shell-junction]] (b) and (c), applied to
-the extended metric, 𝒱[tr χ] = 3R²[R_v] sin ϑ cos ϑ is constant along {v = 0} through Z, and 𝒱[tr χ̲] along {u = 0}; so
-𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j. By [[prop:loc-shell-junction]] (d) the extension is a
-solution with null shells along the leaves. A round extension that is such a solution has R and σ continuous, and R_v on
-N_o and R_u on N_i are derivatives along the edges, so it takes the same data on N_o and N_i and solves
+b = 0, and (J3), as 𝒜 depends on v alone, ℬ on u alone, and R is continuous. By [[prop:loc-shell-junction]] (b) and (c),
+applied to the extended metric, 𝒱[tr χ] = 3R²[R_v] sin ϑ cos ϑ is constant along {v = 0} through Z, and 𝒱[tr χ̲] along
+{u = 0}; so 𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j. By [[prop:loc-shell-junction]] (d) the extension
+is a solution with null shells along the leaves. A round extension that is such a solution has R and σ continuous,
+and R_v on N_o and R_u on N_i are derivatives along the edges, so it takes the same data on N_o and N_i and solves
 [[eq:two-dust-volterra]] on the new cell; so it is the one constructed.
 
 (c) Translate u and v so that Z is {(0, 0)} × S³. On N_o := {0} × [0, λ] take the functions Ω, γ_ϑ, b, A_c, A_s and q_in
