@@ -733,7 +733,7 @@ spheres of D_t lie on N, where Ũ = U to infinite order; they are therefore leav
 [[lem:class-volterra]], the leaf equations of Ũ and U agreeing along them, and D_t is closed under the leaves of Ũ.
 [[lem:class-leaf-reference]] (b′) with (U, U′) := (Ũ, U), whose bounds 𝔐 hold on R′_(t*+θ), gives ‖σ_A[Ũ] −
 σ_A[U]‖_(L²(D_t∩𝒰_δ)) ≤ C ‖z‖_(L²(D_t)), C not depending on the width of D_t. (ii) Otherwise the width of D_t, in the
-variable v − u, is bounded below near t = t*, since t* < a + b. Let 𝔼_t be Stein's operator for an annulus transported to
+variable v − u, is bounded below near t = t*, since t* < a + b + 2ε. Let 𝔼_t be Stein's operator for an annulus transported to
 D_t by a radial map of y and averaged over G, as in Step 5 of the proof of [[prop:civp-axes-corner]], bounded on H^σ,
 σ ≤ k − 1, uniformly for t near t*. Put Ŭ := Ũ − 𝔼_t(Ũ − U). Then Ŭ = U on D_t, and since the leaves of U through
 points of D_t lie in D_t, σ_A[Ŭ] = σ_A[U] there, by the uniqueness in [[lem:class-volterra]]. As Ũ − U vanishes to
