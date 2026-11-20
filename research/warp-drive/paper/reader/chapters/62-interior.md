@@ -574,10 +574,11 @@ bound l_* of [[def:iii-i10-1-1]], and the smallness threshold of [[thm:iii-k-4-3
 (row n1). Every index set ℰ^C_I satisfying [[def:iii-c-3-1]] contains (2, 0) and is closed under adding ½
 ([[lem:iii-c-3-2]] (a)), so it contains ℰ_0^½. Hence the smallest such set containing the index set of [[eq:vii-0-1]]
 ([[lem:iii-c-3-2]] (e)), from which the proof of [[thm:iii-c1-3-1]] starts, is also the smallest containing ℰ_0^½. So
-π_1ℰ^C_I, Λ, the conditions (G) and (G⁺), ε_+, ε_K and the loss d ([[thm:loss-d]]) are the same in the half-integer
-class. Only the logarithmic orders of ℰ^C_I at the half-integers can rise, through the extended unions ℰ_0 ∪̄ ℰ^C_I of
-that proof; they enter l_* and k̄(λ) of [[def:iii-i10-1-1]], and their values are not determined here. ε_n and d_1,
-and with them λ1 and δ, may change.
+π_1ℰ^C_I, Λ, the conditions (G) and (G⁺), ε_+ and ε_K are the same in the half-integer class. Only the logarithmic orders
+of ℰ^C_I at the half-integers can rise, through the extended unions ℰ_0 ∪̄ ℰ^C_I of that proof; they enter l_* and k̄(λ)
+of [[def:iii-i10-1-1]], and through k̄(λ) the counts of the index sets in the loss d ([[thm:loss-d]]), and their values
+are not determined here. So d, ε_n and d_1, and with them λ1 and δ, may change; [[sec:own-half-class]] shows that the
+logarithmic orders do not rise.
 
 So the continuation of g_λ's own data consists of three steps: (1) the scattering problem on W of
 [[lem:interior-far-part]], with r-weighted estimates in place of the annuli of bounded thickness of
