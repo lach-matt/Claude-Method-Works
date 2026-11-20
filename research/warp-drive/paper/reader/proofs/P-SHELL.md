@@ -138,8 +138,8 @@ with r̲ of [[eq:loc-cone-frame-ricci]], and
           − (Ω²𝒱)⁻¹ Σ_(i=2,3) ∂_ϑ(Ω²𝒱 γ_ϑ⁻¹ ∂_ϑϰ_i).
 
 The function r̲ contains derivatives of Ω, γ_ϑ, b, A_c, A_s only along L̲ and ∂_ϑ, and 𝔞 only along ∂_ϑ. For a round
-metric, b = 0, γ_ϑ = R², e^(A_c) = R cos ϑ, e^(A_s) = R sin ϑ and Ω² = e^(2σ)/2, one finds 𝔞 = 6/R², and
-[[eq:loc-shell-trace]] reads (6e^(−2σ)/R²)(R R_uv + 2R_u R_v + e^(2σ)), the angular trace of [[lem:two-dust-equations]].
+metric (b = 0, γ_ϑ = R², e^(A_c) = R cos ϑ, e^(A_s) = R sin ϑ, Ω² = e^(2σ)/2) both sides of [[eq:loc-shell-trace]] equal
+(6e^(−2σ)/R²)(R R_uv + 2R_u R_v + e^(2σ)), the trace of the angular components of [[lem:two-dust-equations]].
 
 *Proof.* Take q_in = q_out = 0 in [[lem:loc-cone-ricci]], so that E = Ric there. The first identity is the formula for
 E(L̲, ∂_ϑ) in [[eq:loc-cone-frame-ricci]]; r̲ is built from η = ∂_ϑ ln Ω, the ∂_ϑϰ_i, the χ̲_i, ∂_ϑL̲ ln Ω and the
