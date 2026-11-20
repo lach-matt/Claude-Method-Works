@@ -518,3 +518,71 @@ Multiplied by 2√c Ω̂³ μ^j, the first part is 2√c Ω̂³ Σ μ^((j−j′
 (a_o + κa_i) e_o + (a_i + κ′a_o) e_i, as e_o = Σ_j ñ^(j)ᵀ E_o ñ^(j) and e_i likewise. The source part is
 2√c Ω̂³ Σ_j μ^(j/2) 𝔊_j (ñ^(j)_+ + ñ^(j)_−) with 𝔊_j := Σ_(j′≤j) 𝔮_(jj′) G_(j′), and by the Cauchy–Schwarz inequality
 over j, with c Ω̂² Σ_j (ñ^(j)_+)² ≤ e_o and Ω̂² Σ_j (ñ^(j)_−)² ≤ e_i, it is at most 2Ω̂² s_N[𝔤] (√e_o + √c √e_i). ∎
+
+#### Bounds at a point {#sec:tl5-hf-sobolev}
+
+**Lemma {#lem:tl5-hf-sphere}** (Sobolev on S³.) For f ∈ C²(S³) and ω ∈ S³,
+
+    |f(ω)|² ≤ 6 C_(S³)² ∫_(S³) (f² + Σ_(a<b) (K_ab f)² + Σ_(a<b) Σ_(c<d) (K_cd K_ab f)²) dω,
+    C_(S³)² := Σ_(n≥0) (n + 1)²/(2π² (1 + n(n + 2))²).                                                   {#eq:tl5-hf-sphere}
+
+*Proof.* Let f = Σ_n f_n be the expansion in spherical harmonics, f_n of degree n, with −Δf_n = n(n + 2) f_n, where
+Δ is the Laplacian of γ₀; the space of degree n has dimension (n + 1)², and its reproducing kernel at (ω, ω) is
+(n + 1)²/(2π²), the volume of S³ being 2π² = ∫ dω, so |f_n(ω)|² ≤ (n + 1)² ‖f_n‖²/(2π²) with ‖·‖ the norm of
+L²(S³, dω). By the Cauchy–Schwarz inequality over n and Parseval's identity, |f(ω)| ≤ Σ_n (n + 1)(2π²)^(−1/2)
+‖f_n‖ ≤ C_(S³) ‖(1 − Δ)f‖, the series converging as its terms are O(n⁻²). Since the K_ab are Killing fields of γ₀
+with Σ K_ab ⊗ K_ab = γ₀⁻¹ ([[lem:tl5-hf-fields]] (a)), |df|²_(γ₀) = Σ (K_ab f)² and Δf = Σ_(a<b) K_ab K_ab f; so
+‖(1 − Δ)f‖² = ‖f‖² + 2‖df‖² + ‖Δf‖² ≤ ‖f‖² + 2 Σ‖K_ab f‖² + 6 Σ ‖K_ab K_ab f‖², which is at most six times the
+integral in [[eq:tl5-hf-sphere]]. ∎
+
+**Definition {#def:tl5-hf-component}** (Components.) Let W_a := ∂_(X_a) − X_a Σ_b X_b ∂_(X_b) (a = 1, …, 4), the
+projections of the coordinate fields of ℝ⁴ to TS³, and 𝒱 := (∂_u, ∂_v, W₁, …, W₄). For a tensor A of rank r at a
+point let A_e be the array of its 6^r components on 𝒱 and |A|_e its Euclidean norm, and put
+
+    𝔳² := Σ_(V∈𝒱) |V|²,      𝔴² := Σ_M (du(F_M)² + dv(F_M)² + |F_M − du(F_M) ∂_u − dv(F_M) ∂_v|²_(γ₀)).
+
+Explicitly, |∂_v|² = 2cΩ̂², |∂_u| ≤ √(2/c) Ω̂ + |b̂| e^ζ, Σ_a |W_a|² = R² (e^(−2(P+Q)) + e^(2P) + e^(2Q)), and
+𝔴² = 2(1 + c²)/|T|² + c² (1 − x²) s²/(2|T|²) + R⁻² (e^(2(P+Q)) + e^(−2P) + e^(−2Q)), all smooth on D̄.
+
+**Lemma {#lem:tl5-hf-components}** (Components.) For a tensor A of rank r, |A|_e ≤ 𝔳^r |A| and |A| ≤ 𝔴^r |A|_e. For
+a rotation K_ab, the components of ℒ_(K_ab) A and the derivative K_ab(A_e) differ by the action of an
+antisymmetric matrix of norm at most 1 on each index in the place of a W, so |K_ab(A_e) − (ℒ_(K_ab) A)_e| ≤ r |A|_e;
+and ∂_u, ∂_v commute with every field of 𝒱, so ∂(A_e) = (ℒ_∂ A)_e for ∂ = ∂_u, ∂_v.
+
+*Proof.* |A(V₁, …, V_r)| ≤ |A| Π|V_i|, and summing the squares over 𝒱^r gives the first inequality. On the leaves
+Σ_a dX_a(Y) W_a = Y for Y ∈ TS³, as W_a = P∂_(X_a) with P the projection; so every vector Y equals
+du(Y)∂_u + dv(Y)∂_v + Σ_a dX_a(Y_∥) W_a, with Y_∥ := Y − du(Y)∂_u − dv(Y)∂_v, and Σ_a dX_a(Y_∥)² = |Y_∥|²_(γ₀).
+Expanding A(F_(M₁), …, F_(M_r)) in this way and applying the Cauchy–Schwarz inequality gives the second. K_ab is the
+restriction of a linear field X ↦ BX with B antisymmetric of norm 1, and [K_ab, W_c] = Σ_d B_cd W_d, as the flow of
+K_ab is a rotation commuting with the projection; [K_ab, ∂_u] = [K_ab, ∂_v] = 0. Then K_ab(A(V₁, …)) =
+(ℒ_(K_ab)A)(V₁, …) + Σ_i A(…, [K_ab, V_i], …). The last statement holds as W_a does not depend on (u, v). The formula
+for 𝔴 uses du(E₀) = c/|T|, dv(E₀) = 1/|T|, E₀ − (c ∂_u + ∂_v)/|T| = c b̂ ∂_x/|T|, |∂_x|²_(γ₀) = 1/(4(1 − x²)), the
+same for E₁ with −c, and Σ_j |f_j|²_(γ₀) = tr_(γ̂) γ₀; those for 𝔳 use [[eq:tl5-hf-null-pair]],
+|∂_x| = e^ζ and Σ_a |W_a|² = tr_(γ₀) γ̂, with the ratios of the proof of [[lem:tl5-hf-fields]] (a). ∎
+
+**Lemma {#lem:tl5-hf-sobolev}** (A Sobolev inequality on the future faces.) Let p ∈ D^κ, a := τ₁(p), b := τ₂(p), and
+let A be a symmetric 2-tensor field on Q(a, b), with ℒ_(K)A and ℒ_(K′)ℒ_K A of class C¹ for all rotations K, K′, and
+A = 0 on N₀ ∩ Q(a, b). Then, with ε₁ the face density [[eq:tl5-hf-faces]] and the sums over words J of length at
+most two in the six rotations,
+
+    |A(p)|² ≤ C_S(p)² Σ_(|J|≤2) ∫_(Σ₁(a,b)) ε₁[ℒ^J A] dμ dτ₂,
+    C_S(p)² := 6 C_(S³)² 𝔭₂ 𝔴(p)⁴ sup_(Σ₁(a,b)) 𝔳⁴ R⁻³ ((1 + 8|D̂∂_γ|²)/(2Ω̂² z̲) + 2𝔨₁),                    {#eq:tl5-hf-cs}
+
+where 𝔭₂ := 2353, ∂_γ := ∂_v − κ′ ∂_u, |D̂∂_γ| is the norm of the (1, 1)-tensor D̂∂_γ, and
+𝔨₁ := 3 max(1, κ′/c, κ′² b̂² e^(2ζ)/((c + κ′) Ω̂²)).
+
+*Proof.* For ω ∈ S³ let γ_ω(v) := (a − κ′(v − 1/2), v, ω), 1/2 ≤ v ≤ v_p; its (u, v)-image is the face Σ₁(a, b) in
+the (u, v)-plane, from N₀ to p, since dτ₂/dv = 1 − κκ′ > 0 along it, and its velocity is ∂_γ. For a function f on
+Q(a, b) put 𝔈(f)(v) := ∫_(S³) (f² + Σ(K f)² + Σ(K′K f)²)(γ_ω(v)) dω. By [[lem:tl5-hf-components]] and
+[[lem:tl5-hf-sphere]], |A(p)|² ≤ 𝔴(p)⁴ |A(p)|²_e ≤ 6C_(S³)² 𝔴(p)⁴ Σ 𝔈(A_(VV′))(v_p), the sum over the 36 components.
+These vanish at v = 1/2, as A and its derivatives along N₀ do, so 𝔈(A_(VV′))(v_p) = ∫ ∂_v 𝔈 dv ≤
+∫_(1/2)^(v_p) (𝔈(A_(VV′)) + 𝔈(∂_γ A_(VV′))) dv, by 2|f ∂_γ f| ≤ f² + (∂_γ f)²; here ∂_γ commutes with the K and with
+the index actions, so ∂_γ(K′K A_(VV′)) = K′K((ℒ_(∂_γ)A)_(VV′)). By [[lem:tl5-hf-components]] with r = 2,
+|K(B_e)| ≤ |(ℒ_K B)_e| + 2|B_e| and |K′K(B_e)| ≤ |(ℒ_(K′)ℒ_K B)_e| + 2|(ℒ_K B)_e| + 2|(ℒ_(K′)B)_e| + 4|B_e|; squaring
+with (x + y + z + w)² ≤ 4(x² + y² + z² + w²) and summing over the six K and the 36 pairs gives
+Σ_(VV′) 𝔈-integrand of B_(VV′) ≤ 𝔭₂ Σ_(|J|≤2) |ℒ^J B|²_e, with 𝔭₂ = 1 + 12·4 + 144·16. Apply this to B = A and to
+B = ℒ_(∂_γ)A, using ℒ_(∂_γ) ℒ^J = ℒ^J ℒ_(∂_γ), |B|_e ≤ 𝔳² |B|, and ℒ_(∂_γ)B = D̂_(∂_γ)B + B(D̂∂_γ ·, ·) + B(·, D̂∂_γ ·),
+so that |B|² + |ℒ_(∂_γ)B|² ≤ (1 + 8|D̂∂_γ|²)|B|² + 2|D̂_(∂_γ)B|². With ∂_γ = ê₄ − κ′ê₃ + κ′b̂ ∂_x,
+|D̂_(∂_γ)B|² ≤ 3(cΩ̂²|w₊|² + κ′²(Ω̂²/c)|w₋|² + κ′² b̂² e^(2ζ) |∇̸B|²) ≤ 𝔨₁ (e_o[B] + κ′ e_i[B]), and
+|B|² ≤ (e_o[B] + κ′ e_i[B])/(2Ω̂² z̲), by [[lem:tl5-hf-densities]]. Finally dω dv = R⁻³ dμ dτ₂/(1 − κκ′) on the face,
+and (e_o + κ′e_i)/(1 − κκ′) = ε₁. ∎
