@@ -36,7 +36,8 @@ fields act on them componentwise, and a fibre inner product is a smooth family o
 The radii r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 < r_h are those of [[sec:i-a-1]]. They are parameters: every constant chosen
 below from them is chosen by an inequality that a smaller inner radius r_0 does not make harder to satisfy (for instance
 the bound (ε_ι δ)⁻¹ > r_h + 1 in [[sec:ii-e-3-2]]), so every result of this chapter holds at every inner radius r_0 for
-which the hypotheses (H1)–(H8) of [[sec:i-a-1]], [[sec:i-b-1-2]] and [[sec:i-b-1-5]], and (K1)–(K4) of [[sec:ii-b-1-1]], hold.
+which the hypotheses (H1)–(H8) of [[sec:i-a-1]], [[sec:i-b-1-2]] and [[sec:i-b-1-5]], and (K1)–(K4) of
+[[sec:ii-b-1-1]], hold.
 
 ### Setting {#sec:ii-e-1}
 
