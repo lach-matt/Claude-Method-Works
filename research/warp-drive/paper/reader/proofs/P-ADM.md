@@ -280,11 +280,11 @@ rewritten to cite (g) or removed (Placement, items 6, 8–14, 16, 21 and 27). (e
 
 ### Placement
 
-Each item names the place, the old text and the new text, given as the lines of the chapter source with the line breaks
-shown. Line numbers are those of the chapter sources after the merge of P-LB (commit a722cb42) and serve only to find the
-place; every old text occurs exactly once in its chapter. Items marked "combined" replace the item of another proof file
-at the same place, as the interactions section says. Items 33–38 amend the section of the lower bound that P-LB merged
-into [[ch:explicit-constants]].
+Each item names the place, the old text and the new text, given as lines of the chapter, with the line breaks shown. Line
+numbers are those of the chapters after the merge of P-LB (commit a722cb42) and serve only to find the place; every old
+text occurs exactly once in its chapter. Items marked "combined" replace the item of another proof file at the same
+place, as the interactions section says. Items 33–38 amend the section of the lower bound that P-LB merged into
+[[ch:explicit-constants]].
 
 *1. [[ch:s15]], [[sec:iii-f-1]], the paragraph that fixes the parameters (lines 76–77).* Old, the two lines:
 
@@ -1000,8 +1000,8 @@ P-E-margins, P-F-edge, P-H-l24 and the T-files change no place that this file ch
 [[ch:introduction]] near its lines 189–191, [[ch:theorems]] near its lines 367–374 and [[ch:scope]] near its line 200,
 away from items 41–44.
 
-*Chapter 33 (edited by another agent; not changed here).* Three sentences there describe the parameter set of the paper's
-theorems as h ∈ 𝖧 and go stale after this file. Suggested texts, for that agent to check against the chapter as it then
+*Chapter 33 (being edited in parallel; not changed here).* Three sentences there describe the parameter set of the
+paper's theorems as h ∈ 𝖧 and go stale after this file. Suggested texts, to be checked against the chapter as it then
 stands. In [[sec:iv4-0]], "Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all
 later chapters." becomes "Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all
 later chapters, which hold as well with γ_C = h⁻¹ at every admissible point ([[def:vi-c-admissible]],
