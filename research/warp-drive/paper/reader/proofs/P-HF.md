@@ -311,8 +311,7 @@ and by [[eq:tl5-hf-admissible]], nᵀ𝔅n ≤ (a_o + κa_i) e_o + (a_i + κ′a
 
 **Remark {#rem:tl5-hf-weight}** (The weight.) The weight e^(−φ) lets each density be paid by the rate of its own family
 at each point, and the estimate [[eq:tl5-hf-linear]] has constant 1 in the weighted norm; the factor e^(φ/2) appears
-only on passing to unweighted energies. Bounding instead the sum of the two unweighted fluxes Φ by an integral
-inequality Φ ≤ Φ_data + ∫ a_o Φ du + ∫ a_i Φ dv over rectangles gives the square of e^(Φ_o + Φ_i) in place of
-e^(Φ_o + Φ_i). The rates need not be functions of τ₁ and τ₂ separately: the proof uses only that dφ(J) dominates the
-bulk, and any C¹ function φ with ∂_(τ₁)φ ≥ 0, ∂_(τ₂)φ ≥ 0 and [[eq:tl5-hf-admissible]] at every point with
-(a_o, a_i) := (∂_(τ₁)φ, ∂_(τ₂)φ) gives [[eq:tl5-hf-linear]], with F² = 2 e^(φ(a, b)).
+only on passing to unweighted energies. The rates need not be functions of τ₁ and τ₂ separately: the proof uses
+only that dφ(J) dominates the bulk, and any C¹ function φ ≥ 0 with ∂_(τ₁)φ ≥ 0, ∂_(τ₂)φ ≥ 0 and
+[[eq:tl5-hf-admissible]] at every point with (a_o, a_i) := (∂_(τ₁)φ, ∂_(τ₂)φ) gives [[eq:tl5-hf-linear]], with
+F² = 2 e^(φ(a, b)).
