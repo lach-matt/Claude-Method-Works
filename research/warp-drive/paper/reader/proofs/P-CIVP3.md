@@ -825,22 +825,20 @@ are only bounded, or measures, are not covered ([[rem:loc-cone-scope]] (iii)).
 ### Placement
 
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
-source, unindented except where the chapter indents them, each preceded by a line "Old:", "New:" or "New, with the
-null-shell section:". The old texts are quoted from the chapter sources at the current head, into which the sections of
-Tiers 1 and 2 are merged ([[sec:loc-cone-proof]] and [[sec:civp-large]], with the texts of their placements); every old
-text occurs there exactly once, as whole lines. Line numbers are those of the current chapter sources and serve only to
-find the place. Three sites are also changed by the placement of the section on null shells ([[thm:loc-shells]]): for
-items 3, 7 and 10 a second new text is given, which replaces at that site both this item and the corresponding item of
-that placement (its items 8, 3 and 5), so that every site is changed once; the first new text is the one to use without
-that section. Item 4 ends on the line before the one that the null-shell placement changes in [[rem:loc-cone-scope]]
-(iii), so the two compose.
+source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:". The old
+texts are quoted from the chapter sources at the current head, into which the sections of Tiers 1 and 2 and the section
+on null shells are merged ([[sec:loc-cone-proof]], [[sec:civp-large]] and [[sec:loc-shells]], with the texts of their
+placements); every old text occurs there exactly once, as whole lines. Line numbers are those of the current chapter
+sources and serve only to find the place. Where the text at a site was written by the null-shell placement (items 3, 7
+and 10), the new text keeps that wording verbatim and adds only what this section adds.
 
 *1. Where the section goes.* The section above, from its heading through [[rem:loc-axis-scope]], is inserted in
-[[ch:localised-data]] as a new section immediately after the Tier 2 section, which ends with [[rem:civp-large-beyond]]
-(line 2389), that is before the heading "### The static Killing field and the charge {#sec:loc-kid}" (line 2391) and
-before any other section placed between them, with one blank line before and one after. Its heading is of the level of
-[[sec:civp-large]] and its four subsections of the level below. It defines sec:loc-axis, thm:loc-axis,
-sec:loc-axis-data, def:loc-axis-data, lem:loc-axis-constraints, eq:loc-axis-cone, lem:loc-axis-jets,
+[[ch:localised-data]] as a new section between the Tier 2 section and the section on null shells: immediately after the
+last line of [[rem:civp-large-beyond]], which ends the Tier 2 section with "not explicit and no estimate of the
+solution is given." (line 2407), and immediately before the heading
+"### Null shells along the leaves {#sec:loc-shells}" (line 2409), with one blank line before and one after. Its heading
+is of the level of [[sec:civp-large]] and its four subsections of the level below. It defines sec:loc-axis,
+thm:loc-axis, sec:loc-axis-data, def:loc-axis-data, lem:loc-axis-constraints, eq:loc-axis-cone, lem:loc-axis-jets,
 eq:loc-axis-principal, sec:loc-axis-leaves, eq:loc-axis-hl, lem:loc-axis-leaf, lem:loc-axis-shear, eq:loc-axis-shear,
 sec:loc-axis-reduced, eq:loc-axis-time, eq:loc-axis-region, eq:loc-axis-closure, lem:loc-axis-system,
 lem:loc-axis-energy, lem:loc-axis-cauchy, lem:loc-axis-past, lem:loc-axis-propagation, lem:loc-axis-gauge,
@@ -861,7 +859,7 @@ spanned by the two cones, with an estimate, unique in the gauge among nearby sol
 [[cor:loc-axis-cones]]). On Σ_τ0 the constraints split, after Rácz
 
 *3. [[ch:localised-data]], the paragraph after [[rem:loc-cone-scope]] on the developments of these cone data (lines
-689–705), first its lines 694–695.* A sentence on this section is inserted after the sentence that ends with
+702–721), first its lines 707–708.* A sentence on this section is inserted after the sentence that ends with
 "([[lem:loc-cone-strips]] (c))", and the next sentence names its data, which are no longer the only ones the paragraph
 speaks of. Old:
 
@@ -879,31 +877,28 @@ on every rectangle [0, 7.2] × [0, v_1], among them [0, 7.2] × [0, 4.5], in whi
 unique in that gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Without smallness, the cone
 data localised in a band, completed on 𝒞_in in the gauge b = 0 ([[def:civp-large-data]]), have a
 
-*3, continued: its last two lines (lines 704–705).* The data that the chapter does not develop are now those that
-differ from the background's near an axis without being near the background's. The null-shell placement (its item 8)
-replaces the same two lines; the second new text carries both changes. Old:
+*3, continued: its last five lines (lines 717–721), as the null-shell placement wrote them.* The data that the chapter
+does not develop are now those that differ from the background's near an axis without being near the background's; the
+rest of the sentence, with its exception for null shells, is unchanged. Old:
 
 asserted for cone data that differ from the background's near an axis, for data of finite regularity or for densities
-that are not smooth, and no other result of this paper uses these developments.
+that are not smooth, except finitely many null shells along leaves of the two cones with densities smooth in angle and
+data that are smooth except across such leaves, where the metric functions are continuous, which [[thm:loc-shells]]
+develops slab by slab with [[thm:civp-large]] and [[thm:loc-cone-development]]; no result of the other chapters uses
+these developments.
 
 New:
 
 asserted for cone data that differ from the background's near an axis and are not near the background's
-([[rem:loc-axis-scope]]), for data of finite regularity or for densities that are not smooth, and no other result of
-this paper uses these developments.
-
-New, with the null-shell section:
-
-asserted for cone data that differ from the background's near an axis and are not near the background's
 ([[rem:loc-axis-scope]]), for data of finite regularity or for densities that are not smooth, except finitely many null
-shells along leaves of the two cones and data that are smooth except across such leaves, which [[thm:loc-shells]]
-develops slab by slab with [[thm:civp-large]] and [[thm:loc-cone-development]]; no result of the other chapters uses
-these developments.
+shells along leaves of the two cones with densities smooth in angle and data that are smooth except across such leaves,
+where the metric functions are continuous, which [[thm:loc-shells]] develops slab by slab with [[thm:civp-large]] and
+[[thm:loc-cone-development]]; no result of the other chapters uses these developments.
 
-*4. [[rem:loc-cone-scope]] (ii), its last two sentences (lines 676–680).* Such data are developed near the background's
+*4. [[rem:loc-cone-scope]] (ii), its last two sentences (lines 684–688).* Such data are developed near the background's
 by [[thm:loc-axis]], and the statement that no domain-of-dependence statement with null boundaries near an axis is
-proved no longer holds for double-null rectangles ([[lem:loc-axis-dependence]]). The last old line is the one before
-the line that the null-shell placement replaces (its item 2). Old:
+proved no longer holds for double-null rectangles ([[lem:loc-axis-dependence]]). (iii), which begins on the next line,
+is unchanged. Old:
 
 background, which reach the axes, are carried there by the background itself. For data whose perturbation reaches an axis
 this fails: at an axis the augmented system is not local, its Cauchy theory ([[thm:class-stability]]) needs lateral
@@ -921,7 +916,7 @@ keeps the closure of the Raychaudhuri equation at the axes ([[thm:loc-axis]]); (
 among solutions that equal the background there. (iii) *Regularity.* The data are smooth and near the background's in
 C^m, m = 6k + 21. Densities
 
-*5. [[rem:loc-cone-scope]] (iv) (lines 685–687).* Old:
+*5. [[rem:loc-cone-scope]] (iv) (lines 698–700).* Old:
 
 achieves the prescribed initial data." (iv) *The domain.* The development is asserted on G_*, a neighbourhood of the two
 cones, and not on the whole rectangle [0, u_1] × [0, v_1]; in particular not where the two dusts cross away from the
@@ -935,7 +930,7 @@ the cones. That rectangle is reached by [[thm:loc-axis]] when the background is 
 background of [[sec:bg-data]] is on [0, 7.2] × [0, v_1] for every v_1 > 0 ([[lem:civp-large-rectangle]] (a),
 [[cor:loc-axis-cones]]).
 
-*6. [[rem:loc-cone-local-scope]], its last sentence (lines 1628–1630).* Old:
+*6. [[rem:loc-cone-local-scope]], its last sentence (lines 1644–1646).* Old:
 
 terms of the C^(m_1 + 1) norms of the old ones. A statement with no background, the data being prescribed up to the axes,
 needs a local theory of the augmented system at the axes, with a domain of dependence for null boundaries there, and is
@@ -949,28 +944,23 @@ is not given in this paper: [[thm:loc-axis]] solves the reduced problem through 
 the dependence on the past faces of a double-null rectangle that its proof uses ([[lem:loc-axis-dependence]]), which
 needs no smallness, gives uniqueness and not existence.
 
-*7. [[rem:civp-large-domain]], its last sentence (lines 2369–2371).* One sentence is appended. The null-shell placement
-(its item 3) rewrites the same sentence; the second new text is its new text with the same sentence appended. Old:
-
-are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
-from the background's at the axes are not treated, nor are data of finite regularity or densities that are only bounded
-or measure-valued.
-
-New:
-
-are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
-from the background's at the axes are not treated, nor are data of finite regularity or densities that are only bounded
-or measure-valued. Cone data near the background's that differ from it at the axes are developed on the whole rectangle
-by [[thm:loc-axis]].
-
-New, with the null-shell section:
+*7. [[rem:civp-large-domain]], its last sentence, as the null-shell placement wrote it (lines 2385–2389).* One sentence
+is appended. Old:
 
 are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
 from the background's at the axes are not treated, nor are data of finite regularity, densities that are only bounded,
 or measure-valued densities other than finitely many null shells along leaves of the two cones with densities smooth in
-angle; those, and data that are smooth except across finitely many leaves, are developed slab by slab with
-[[thm:civp-large]] in [[thm:loc-shells]]. Cone data near the background's that differ from it at the axes are developed
-on the whole rectangle by [[thm:loc-axis]].
+angle; those, and data that are smooth except across finitely many leaves, where the metric functions are continuous,
+are developed slab by slab with [[thm:civp-large]] in [[thm:loc-shells]].
+
+New:
+
+are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
+from the background's at the axes are not treated, nor are data of finite regularity, densities that are only bounded,
+or measure-valued densities other than finitely many null shells along leaves of the two cones with densities smooth in
+angle; those, and data that are smooth except across finitely many leaves, where the metric functions are continuous,
+are developed slab by slab with [[thm:civp-large]] in [[thm:loc-shells]]. Cone data near the background's that differ
+from it at the axes are developed on the whole rectangle by [[thm:loc-axis]].
 
 *8. [[ch:class-system]], [[lem:class-leaf-differences]], the definition of the leaves (lines 1326–1329).* The formula
 of step (1) of [[lem:class-planar-shear]] holds n(u) and the trace of K_Σ over TΣ_L, the tangent plane of the leaf,
@@ -1016,21 +1006,19 @@ New:
   rectangle of the two cones in which the two dusts cross, [0, 7.2] × [0, 4.5], with an estimate and unique in the
   gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]); and exactly localised vacuum data
 
-*10. [[ch:scope]], the paragraph on localised data, its last two lines (lines 217–218).* The null-shell placement (its
-item 5) appends a sentence to the same two lines; the second new text carries both changes. Old:
+*10. [[ch:scope]], the paragraph on localised data, its last seven lines (lines 217–223), as the null-shell placement
+wrote them.* A sentence on this section is inserted before the sentence on the developments that are not established,
+which is narrowed accordingly; the sentence on null shells is unchanged. Old:
 
 estimate ([[thm:loc-cone-development]]). Developments of cone data that differ from the background's near an axis are
-not established ([[rem:loc-cone-scope]]).
+not established ([[rem:loc-cone-scope]]). Cone data with finitely many null shells along leaves of the two cones, with
+densities smooth in angle and supported in a band away from the axes, have developments that are continuous, smooth
+between the shells and solutions in the sense of distributions, on a neighbourhood of the cones on which the shells do
+not cross, and a solution continues through a crossing sphere on a small square; general measure-valued densities and
+shells that are not round at an axis are not treated ([[thm:loc-shells]], [[prop:loc-shell-crossing]],
+[[rem:loc-shell-scope]]).
 
 New:
-
-estimate ([[thm:loc-cone-development]]). Cone data near the background's, localised in angle or not, have a development
-on the whole rectangle of the two cones, [0, 7.2] × [0, 4.5], in which the two dusts cross, with an estimate and unique
-in the gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Developments of cone data that differ
-from the background's near an axis and are not near the background's are not established ([[rem:loc-cone-scope]],
-[[rem:loc-axis-scope]]).
-
-New, with the null-shell section:
 
 estimate ([[thm:loc-cone-development]]). Cone data near the background's, localised in angle or not, have a development
 on the whole rectangle of the two cones, [0, 7.2] × [0, 4.5], in which the two dusts cross, with an estimate and unique
@@ -1057,8 +1045,8 @@ reference is added.
 ### Crosswalk rows
 
 New rows for the crosswalk table of [[ch:localised-data]], one per label, in chapter order, after the row of
-rem:civp-large-beyond and before any row of a section placed after this one. Each row is given as one line with its
-four fields separated by tab characters (label, source, source_name, note). The source is
+rem:civp-large-beyond and before the row of sec:loc-shells. Each row is given as one line with its four fields
+separated by tab characters (label, source, source_name, note). The source is
 "paper/reader/proofs/P-CIVP3.md@PENDING:N", N the line of the label in this file and PENDING to be replaced by the
 commit at which this file is merged, as in the rows of the Tier 1 and Tier 2 sections.
 
@@ -1094,7 +1082,7 @@ rem:loc-axis-constants	paper/reader/proofs/P-CIVP3.md@PENDING:797	proof P-CIVP3,
 rem:loc-axis-scope	paper/reader/proofs/P-CIVP3.md@PENDING:812	proof P-CIVP3, Remark (What thm:loc-axis does not give)	large data at the axes; further families (Tier 5); regularity
 
 Changed rows. In the crosswalk table of [[ch:class-system]], the row of lem:class-leaf-differences appends to its
-source field "; paper/reader/proofs/P-CIVP3.md@PENDING:975-997", the lines of item 8 above, to its source_name field ";
+source field "; paper/reader/proofs/P-CIVP3.md@PENDING:965-987", the lines of item 8 above, to its source_name field ";
 proof P-CIVP3, Placement 8", and to its note "; H_L[Θ_A] read with p_A(n) and the γ3-orthogonal complement of the
 spatial part of p_A, a plane fixed by p_A (eq:loc-axis-hl)". In the table of [[ch:localised-data]] the rows of
 rem:loc-cone-scope, rem:loc-cone-local-scope and rem:civp-large-domain append to their notes "; (ii) and (iv) amended
