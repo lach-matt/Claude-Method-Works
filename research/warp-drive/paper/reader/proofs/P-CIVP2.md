@@ -286,7 +286,12 @@ solution, and they determine the data on the cones.
 and let g, g′ be class solutions in the gauge on neighbourhoods of the two edges N_o := {u_c} × [v_c, v_c + l_v] and
 N_i := [u_c, u_c + l_u] × {v_c} (times S³) that induce the same functions Ω, γ_ϑ, b, A_c, A_s, q_in on N_o and the same
 Ω, γ_ϑ, b, A_c, A_s, q_out on N_i. Then their reduced fields have the same f₃-components on N_o and the same
-f₄-components on N_i.
+f₄-components on N_i. More precisely, for the reduced fields of a class solution in the gauge: the values at the corner
+sphere of all reduced fields are given by [[eq:civp-large-coefficients]] in the functions on N_o and N_i near it; on
+N_o the f₃-components other than χ̲ are given by [[eq:civp-large-coefficients]] in the functions on N_o, and χ̲ solves
+(F4′) along N_o with M_11 in place of Ric_11; on N_i the f₄-components other than η and χ are given by
+[[eq:civp-large-coefficients]] in the functions on N_i, and η and χ solve (F5) and (F4) along the integral curves of e3
+in N_i with M_31, M_11 in place of Ric_31, Ric_11.
 
 (b) Let cone data be given. Define on 𝒞_out, from its functions and with α, β, ψ, ω as in [[eq:civp-large-h]],
 
@@ -307,7 +312,7 @@ on 𝒞_out. Let f̄₃ be the first list on 𝒞_out and f̄₄ the second on �
 as initial values, has a solution on all of 𝒞_out ∩ (Q1 × (0, π/2)), and the restriction to 𝒞_in, the f₃-equations
 with f₄ = f̄₄, with the values of f̄₃ at S, has one on all of 𝒞_in ∩ (Q1 × (0, π/2));
 
-(ii) f̄ equals the background's reduced fields at every point with ϑ ∉ (ϑ_a, ϑ_b);
+(ii) f̄ and the two solutions of (i) equal the background's reduced fields at every point with ϑ ∉ (ϑ_a, ϑ_b);
 
 (iii) the reduced fields of every class solution in the gauge on D × S³, D ⊂ Q1 a past set, that induces the cone data
 have f₃ = f̄₃ on 𝒞_out ∩ D and f₄ = f̄₄ on 𝒞_in ∩ D, and solve the two restricted problems of (i) there.
@@ -336,7 +341,14 @@ coefficients defined on all of 𝒞_out, so they have solutions there. On 𝒞_i
 for Ψ_4, then ϖ, then q_in are linear and have solutions on all of 𝒞_in. In each case the initial values at S are those
 of f̄, so these are the solutions of (i).
 
-(ii) Every formula and every coefficient of the linear equations above at an angle ϑ is built from the functions of the
-data and their derivatives at ϑ, and so are the initial values at S. At ϑ ∉ (ϑ_a, ϑ_b) the data are the background's on
-a neighbourhood of ϑ, the background solves all the equations used, and by uniqueness for the linear equations f̄ is
-the background's there. ∎
+(ii) Every formula and every coefficient of the equations above at an angle ϑ is built from the functions of the data
+and their derivatives at ϑ, and so are the initial values at S; the equations are ordinary differential equations
+along the lines {ϑ = const}, since b = 0 on 𝒞_in and the f₄-equations contain no ∂_ϑ of an f₄-unknown. At ϑ ∉ (ϑ_a,
+ϑ_b) the data are the background's on a neighbourhood of ϑ, the background's reduced fields solve all the equations
+used ([[prop:civp-large-system]] (a)), and by uniqueness for these equations f̄ and the solutions of (i) are the
+background's there.
+
+(a) also gives the form in which it is used below: the f₃-components on N_o are the formulas above in the functions on
+N_o together with the solution of (F4′) along N_o, and the f₄-components on N_i are the formulas in the functions on
+N_i together with the solutions of (F5) and (F4) along N_i; the only further input is the value at the corner sphere
+of all reduced fields, which [[eq:civp-large-coefficients]] gives from the functions on N_o and N_i near the corner. ∎

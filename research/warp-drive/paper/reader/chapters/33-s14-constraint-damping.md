@@ -1946,9 +1946,9 @@ carry dτ on {τ = T_0} and −dr on Σ^♯; these are the parts of −a da with
 hold uniformly for b ∈ U: the components of g and rc are continuous on Ω ([[lem:iv5-0-2]] (a), (d)), rc is past
 timelike ([[lem:iv5-0-5]] (1)), e = 1/102400 < 2/5, and r(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) = 𝔛(dt − τ dr) − (α_sf + 2)dr,
 r dτ = dt − T_0 dr on {τ = T_0} and −r dr on Σ^♯ satisfy its condition with one κ > 0 for 𝔛 large, by
-[[lem:iv5-0-3]] (b), (c). So each of the three terms is at least c₀ times the corresponding weighted integral of
-|r∇ω|²_B, the bulk term with the factor 𝔛. Here the level sets of τ carry r⁴|dr d𝑔̸|, which tensored with |dτ| is |dg|
-([[lem:iv5-0-2]] (b)). This gives [Hin26a, (5.74)].
+[[lem:iv5-0-3]] (b), (c). So each of the three terms is at least c₀ times the corresponding weighted integral of the
+square of |r∇ω|_B, the bulk term with the factor 𝔛. Here the level sets of τ carry r⁴|dr d𝑔̸|, which tensored with |dτ|
+is |dg| ([[lem:iv5-0-2]] (b)). This gives [Hin26a, (5.74)].
 
 The other terms of [Hin26a, (5.71)] carry the total weight ρ_sf⁴ of ∇*T∇ and are bounded by [Hin26a, (5.75)] and its
 companions. Among them is h² times the term with 𝓡 in [[eq:iv5-6-energy]], bounded by [[cor:iv5-6-energy]] (iii), as
@@ -2358,8 +2358,9 @@ real part in (−2, 100], and the b-weight β − 2 ∈ (−2, C_0] is root-free
 inverse Mellin transform of the normal operator gives [[eq:iv6-1-2]] from [Hin26a, (B.20)] ([[lem:s14-tf-inputs]]
 (ii); [Hin26a, p. 89]). The dual estimate is the same with the propagation reversed.
 
-*Complex σ.* Only R_out is characteristic. Write σ⁻¹(□^C)^(σ) = P − iQ as in [Hin26a, (B.29)], with Q_0 = 2ρh⁻¹S̄,
-P_1 = Re 2i(ρ²∂_ρ − (3/2)ρ), and Q_3 = (Im σ)Re (□^C)^(0) a nonnegative absorption. With the same commutant, the
+*Complex σ.* Only R_out is characteristic ([[lem:iv6-0-flow]] (a)). Write σ⁻¹(□^C)^(σ) = P − iQ as in
+[Hin26a, (B.29)], with Q_0 = 2ρh⁻¹S̄, P_1 = Re 2i(ρ²∂_ρ − (3/2)ρ), and Q_3 = (Im σ)Re (□^C)^(0) a nonnegative
+absorption. With the same commutant, the
 zero-section symbol is (2ℓ + 1 − 2h⁻¹S̄)ρ^(−2ℓ). −AQ_3A has the sign of the main term, because the b-principal symbol of
 (□^C)^(0) is ξ_b² + |η_b|², so (□^C)^(0) = Σ_jT_j*T_j + R with T_j ∈ ρDiff¹_b and R ∈ ρ²Diff¹_b. The rest is
 subprincipal or elliptic ([Hin26a, p. 90]).
