@@ -88,15 +88,15 @@ whose existence is proved and whose values are not determined, and the one on �
 other h. Third, its bound is a number only once μ(h) is known, and μ(h) is evaluated only at h = 10⁻⁶, from roots
 enclosed to within 10⁻²¹ ([[lem:is-z3]], [[lem:is-gap-z]]); elsewhere this paper proves 0 < μ(h) ≤ μ_G and nothing more,
 and μ(h) has no positive lower bound on (h_μ, 10⁻⁶] ([[prop:tr-mu-small]]). The count N̄(h) is explicit, and the bound
-of [[prop:uc-dependence]] is at least of the order N̄(h)²/ε_K; N̄(h) < 1.512·10¹⁵ at h = 10⁻⁶ and N̄(h) < 1.477·10¹⁷ at
-h = h_m, against N̄(10⁻⁶) ≤ 909,507,124,095,312 from the enclosures of [[lem:is-z3]]. The restrictions h ≥ h_m and h ∉ 𝖩
-are those under which (a)–(d) carry over with their values at h = 10⁻⁶, and besides (R_h) the proof uses no other
-property of h than h < 10⁻⁶; admissibility is what makes the numbers bounds for the loss with which [[thm:settling]] is
-proved at h. Below 13ε_Υ/40 = 4.751175·10⁻¹¹ the root ι₂(h) gives ε_ind(h) < ε_Υ ([[lem:ec-lb-ind]]), so ε_g < ε_Υ and
-the first line of the bound, which uses Δτ_0 = 0.999ε_Υ, changes; it is not evaluated here, and h_m lies within 0.19 %
-of that value. On 𝖩 the condition (H_ε), or the simplicity of [[prop:tr-inputs]] (b), can fail, and where ε_ind(h) <
-1.99·10⁻²⁸ the bounds of [[thm:uc-integer]] fail for every admissible choice ([[prop:tr-fail]]). The lower bounds of
-(ii) use only admissibility.
+of [[prop:uc-dependence]] is at least of the order N̄(h)²/ε_K; the bound of (iii) for N̄(h) is below 1.512·10¹⁵ at h =
+10⁻⁶ and below 1.477·10¹⁷ at h = h_m, while the enclosures of [[lem:is-z3]] give N̄(10⁻⁶) ≤ 909,507,124,095,312. The
+restrictions h ≥ h_m and h ∉ 𝖩 are those under which (a)–(d) carry over with their values at h = 10⁻⁶, and besides (R_h)
+the proof uses no other property of h than h < 10⁻⁶; admissibility is what makes the numbers bounds for the loss with
+which [[thm:settling]] is proved at h. Below 13ε_Υ/40 = 4.751175·10⁻¹¹ the root ι₂(h) gives ε_ind(h) < ε_Υ
+([[lem:ec-lb-ind]]), so ε_g < ε_Υ and the first line of the bound, which uses Δτ_0 = 0.999ε_Υ, changes; it is not
+evaluated here, and h_m lies within 0.19 % of that value. On 𝖩 the condition (H_ε), or the simplicity of
+[[prop:tr-inputs]] (b), can fail, and where ε_ind(h) < 1.99·10⁻²⁸ the bounds of [[thm:uc-integer]] fail for every
+admissible choice ([[prop:tr-fail]]). The lower bounds of (ii) use only admissibility.
 
 #### The sextic in two parameters {#sec:tr-split}
 
