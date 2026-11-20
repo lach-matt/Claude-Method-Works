@@ -837,18 +837,18 @@ on each Cartesian component of L_□ by (b). Its coefficients are 4|α_I| (writt
 α_I < min(α₀, 0), then −4α_I > 0, 4κ(α₀ − α_I) > 0 and c_A > 1 + κ > 0; conversely positivity of the first two for
 some κ > 0 needs α_I < 0 and α₀ > α_I. ∎
 
-**Proposition {#prop:gd-r4-2}** (The exterior estimate for □.) Let 𝒟, Ω_(ext,r_1), 𝒦, 𝒮,
+**Proposition {#prop:gd-r4-2}** (The exterior estimate for □.) Let 𝒟, Ω_(ext,r_1), 𝔒, 𝒮,
 Ω^♮ := Ω_(ext,r_1) ∪ 𝒮, ρ′₀ and ρ′_I be those of [[sec:iii-k-0]], the proof of [[prop:iii-k-1-2]] and
-[[sec:iv3-0]]–[[sec:iv3-2]], at S = 0, and 𝒟⁺ := 𝒟 ∩ {t_IVP ≥ 0}, 𝒦⁺ := 𝒦 ∩ {t_IVP ≥ 0} those of
+[[sec:iv3-0]]–[[sec:iv3-2]], at S = 0, and 𝒟⁺ := 𝒟 ∩ {t_IVP ≥ 0}, 𝔒⁺ := 𝔒 ∩ {t_IVP ≥ 0} those of
 [[lem:s27-cover]] (e); put τ′ := t_IVP/|x|. Let a₀ ∈ ℝ, α_I < min(a₀, 0) and m ∈ ℕ_0; let c_1 ∈ (0, c_♮], with c_♮
 the constant fixed in [[sec:iv3-1]], be so small that 2 of the proof holds on {ρ′_I < c_1} for these weights, and put
 Ω^♮_(c_1) := Ω^♮ ∩ {ρ′_I < c_1}. Let F be a smooth 1-form on 𝒟⁺ with
 f_♭ := ρ_Iρ^(−7/2)F ∈ H^(m+4,(a₀,2α_I))_b over Ω^♮ near infinity (in the translated chart over 𝒮) and
-F ∈ H^(m+4)(𝒦⁺). Then the solution Z of □Z = F on 𝒟⁺ with vanishing Cauchy data on Σ^IVP lies in H^(m+1)(𝒦⁺), and
+F ∈ H^(m+4)(𝔒⁺). Then the solution Z of □Z = F on 𝒟⁺ with vanishing Cauchy data on Σ^IVP lies in H^(m+1)(𝔒⁺), and
 u := ρ^(−3/2)Z satisfies
 
     ‖u‖_(H^(m+1,a₀)_b(Ω^♮∩{ρ′_I>c_1/2})) + ‖u‖_(H^((1;m),(a₀,2α_I))_(e,b;b)(Ω^♮_(c_1)))
-        ≤ C(‖f_♭‖_(H^(m+4,(a₀,2α_I))_b) + ‖F‖_(H^(m+4)(𝒦⁺))).                                        {#eq:gd-r4-2}
+        ≤ C(‖f_♭‖_(H^(m+4,(a₀,2α_I))_b) + ‖F‖_(H^(m+4)(𝔒⁺))).                                        {#eq:gd-r4-2}
 
 (The loss of four derivatives is the d of [[thm:iv2-2-4]]. Compactly supported F is allowed.)
 
@@ -882,7 +882,7 @@ u := ρ^(−3/2)Z satisfies
    translated chart, g being stationary; and the regions, whose curves ([[lem:iv3-1-1]]) are statements about g, t^♭_*,
    t_IVP and ρ′_I alone, are unchanged, with c_1 in place of c_♮, every condition on c_♮ in [[sec:iv3-1]] being an
    upper bound. The compact part, the set Q of that proof (a compact set of the first kind of [[sec:s27-local]] for g,
-   containing 𝒦⁺, 𝒮 ∩ {ρ′_I ≥ c_1/4} and 𝒟⁺ ∩ {r ≤ R_K + 2}, whose only data surface is Σ^IVP ∩ Q), uses the energy
+   containing 𝔒⁺, 𝒮 ∩ {ρ′_I ≥ c_1/4} and 𝒟⁺ ∩ {r ≤ R_K + 2}, whose only data surface is Σ^IVP ∩ Q), uses the energy
    estimates for a linear wave equation with principal symbol g⁻¹(ζ, ζ) Id ([[lem:ix-2-1]] (a)) on that compact domain
    of dependence; on Ω^♮_(c_1), 2 applies with Σ_in = {ρ′_I = c_1} and Σ_fin = {t^♭_* = T̂ + 3}, spacelike for g.
    Uniqueness on each region is [[lem:ii-f-1-3]].

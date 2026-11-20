@@ -43,7 +43,7 @@ infinity (v and x̂ fixed, r → ∞). (f) There is ε_P > 0 such that for every
 decreasing along future causal curves; L0 is transverse to Σ̂_τ; and J⁻(p; g) ∩ {τ ≥ τ1} lies in P for every p in P and
 τ1 ≤ τ(p).
 
-*Proof.* (a) g0⁻¹(dτ, dτ) = −1 − μ/r² < 0 at every point of P, the contraction of [[lem:domain]] (a). (b) dΦ_B = dv +
+*Proof.* (a) g0⁻¹(dτ, dτ) = −1 − μ/r² < 0 wherever r > 0, the contraction of [[lem:domain]] (a). (b) dΦ_B = dv +
 h_P′ dτ, with h_P′ = dh_P/dτ = (κ_P/4) t^(−5/4) > 0 because dt/dτ = −1. By [[prop:vaidya]] (c)–(d), g0⁻¹(dv, dv) = 0,
 g0⁻¹(dv, dτ) = −1 and g0⁻¹(dτ, dτ) = −1 − μ/r², so g0⁻¹(dΦ_B, dΦ_B) = −2h_P′ − h_P′²(1 + μ/r²) ≤ −2h_P′ = −(κ_P/2)
 t^(−5/4). For a future causal Y, dv(Y) = −g0(L0, Y) ≥ 0 and dτ(Y) > 0, so dΦ_B(Y) > 0. (c) At τ0, h_P = κ_P and the

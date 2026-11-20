@@ -954,9 +954,9 @@ r^♮ := ½(r₀ + r₂). There are ϵ_G > 0, C′ ∈ (0, 1), r′₀ > r₂ an
 such that for every g = g₀ + h with ‖h‖_(𝒢̃^(0,(2ℓ,0,0))_(e3b)) < ϵ_G: (1) dr is future timelike for g on
 {r₀ ≤ r ≤ r^♮}; (2) dt^♭_* is past timelike for g on Ω°.
 
-*Proof.* *Bounds on g⁻¹.* By [[lem:ii-a-2-5]], near ℐ⁺ the covectors x_I⁻¹dt_*, x_I dr and r dω span
-ρ₊⁻¹x_I⁻¹C^∞(ᵉᵇT*), so the pointwise dual vectors x_I∂_(t_*), x_I⁻¹∂_r, r⁻¹∂_ω span ρ₊x_I C^∞(ᵉᵇT), and the
-symmetric products
+*Proof.* *Bounds on g⁻¹.* Fix c_V > 0 so small that the description of [[lem:ii-a-2-5]] used below holds on {x_I < c_V}.
+By that lemma, on {x_I < c_V} the covectors x_I⁻¹dt_*, x_I dr and r dω span ρ₊⁻¹x_I⁻¹C^∞(ᵉᵇT*), so the pointwise dual
+vectors x_I∂_(t_*), x_I⁻¹∂_r, r⁻¹∂_ω span ρ₊x_I C^∞(ᵉᵇT), and the symmetric products
 
     ρ_I∂_(t_*)²,   ∂_(t_*) ⊗_s ∂_r,   x_I∂_(t_*) ⊗_s r⁻¹∂_ω,   ρ_I⁻¹∂_r²,   x_I⁻¹∂_r ⊗_s r⁻¹∂_ω,
     r⁻¹∂_ω ⊗_s r⁻¹∂_ω,        ρ_I := x_I² = t_*/r,
@@ -976,12 +976,11 @@ evaluated on (A dt_* + B dr)^(⊗2) give ρA², O(|AB|), 0, ρ⁻¹B², 0, 0, al
 
     g⁻¹(d(t_*F₁), d(t_*F₁)) ≤ −2ℓρ^(ℓ+1)(1 − 2ρ^ℓ) + ρ^(2ℓ+2) + C₂(ϵ_G + ρ^(1−ℓ))ρ^(ℓ+1) ≤ −ℓρ^(ℓ+1)
 
-for ρ ≤ ρ_a and ϵ_G ≤ ϵ_a, with ρ_a, ϵ_a small depending on ℓ and C₂ (the error is of the order of the main term,
-which is why ϵ_G must be small). This is timelike. It is past directed: V := t∂_t + r∂_r is future timelike for g on
-{r ≥ R₂} ∩ Ω. For g₀ this is [[sec:ii-b-7]], with |g₀(V, V)| ≥ ½(t_*² + 2t_*r). For g, fix c_V > 0 so small that the
-description of [[lem:ii-a-2-5]] used above holds on {x_I < c_V}. There, near ℐ⁺, |h(V, V)|
-≤ Cϵ_G x_I^(2ℓ) r t_* ≤ Cϵ_G|g₀(V, V)|. Where x_I ≥ c_V, the same membership of h, in the frames listed above,
-gives |h(V, V)| ≤ Cϵ_G(t_* + r)², with C depending on c_V; there r ≤ c_V⁻²t_*, so
+for ρ ≤ ρ_a and ϵ_G ≤ ϵ_a, with ρ_a < c_V² and ρ_a, ϵ_a small depending on ℓ and C₂ (the error is of the order of the
+main term, which is why ϵ_G must be small). This is timelike. It is past directed: V := t∂_t + r∂_r is future timelike
+for g on {r ≥ R₂} ∩ Ω. For g₀ this is [[sec:ii-b-7]], with |g₀(V, V)| ≥ ½(t_*² + 2t_*r). For g: where x_I < c_V, we
+have |h(V, V)| ≤ Cϵ_G x_I^(2ℓ) r t_* ≤ Cϵ_G|g₀(V, V)|. Where x_I ≥ c_V, the same membership of h, in the frames listed
+above, gives |h(V, V)| ≤ Cϵ_G(t_* + r)², with C depending on c_V; there r ≤ c_V⁻²t_*, so
 ½(t_*² + 2t_*r) ≥ c_V²(1 + 2c_V²)⁻¹(t_* + r)², and again |h(V, V)| ≤ Cϵ_G|g₀(V, V)|. The orientation is continuous
 along g₀ + τh, so V is future timelike for g once ϵ_G is small. Moreover d(t_*F₁)(V) = At_* + Br > 0, as Vt_* = t_* and
 Vr = r; a timelike covector that is positive on a future timelike vector is past timelike.
@@ -1664,8 +1663,8 @@ independent of t_*, with φ₀^(u/s) = φ_(u/s)(x, z) on the stationary characte
     |∂^αφ̃^u| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 1),        |∂^αφ̃^s| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 2),
 
 derivatives along ∂_(t_*), ∂_x and the fibres, such that, with φ^(u/s) := φ₀^(u/s) + φ̃^(u/s), the field 𝖧_G is tangent
-to Γ^(u/s) := ∂Σ⁺ ∩ U ∩ (φ^(u/s))⁻¹(0). For ϵ ≤ ϵ₂, sup t_*^(ℓ_K)|∂^αφ̃^(u/s)| ≤ 1 over the stated ranges of α. The same
-holds, with uniform constants, for the stationary models of parameters b near b₀ ((K4)).
+to Γ^(u/s) := ∂Σ⁺ ∩ U ∩ (φ^(u/s))⁻¹(0). There is ϵ₂ > 0 such that, for ϵ ≤ ϵ₂, sup t_*^(ℓ_K)|∂^αφ̃^(u/s)| ≤ 1 over the
+stated ranges of α. The same holds, with uniform constants, for the stationary models of parameters b near b₀ ((K4)).
 
 *Proof.* By [[lem:ii-c1-3-1]] and [[eq:ii-c1-3-3]], [[thm:ii-c1-1-1]] applies on Y with V₀ = 𝖵, k := d₀ − 1 ≥ 2,
 ℓ := ℓ_K and T₀ := T_♭ (the metric is defined on Ω_* by [[eq:ii-c-4-1]], and Ω_* ⊃ {t_* ≥ T_♭} because t^♭_* ≥ C′t_*

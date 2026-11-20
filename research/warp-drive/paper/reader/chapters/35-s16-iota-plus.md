@@ -897,7 +897,7 @@ outgoing ray (iii) and the curves (ii) near it). For ∂ℛ_− this step is tak
 (5) The curves in F_K from R_(cf,1,in) to R_(cf,out), by [[prop:ii-f-2-5]] from U_3; then a neighbourhood U_5 of
 R_(cf,out) by (R4), whose control set K_E ⊂ {φ ≥ δ_2} consists of points of Σ ∩ F_K on these curves, of points of Σ
 over R > 0 near them, which lie on curves (ii) and so are covered by (2) or by [[prop:ii-f-2-5]] once more from (4), and
-of elliptic points. This is steps (3)–(5) of the proof of [[lem:ii-f-3-4]], with "curves from R_(I⁺,1,in)" read as
+of elliptic points. This is steps (3)–(5) of the proof of [[lem:ii-f-3-4]], with "curves from R_(ℐ⁺,1,in)" read as
 "curves from {v < −1}".
 
 (6) The outgoing ray (iii) and the curves (ii) near it, from U_5 to a neighbourhood of ∂ℛ_−: over {R < ½}

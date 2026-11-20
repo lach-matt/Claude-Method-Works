@@ -35,7 +35,7 @@ with constants depending on it. Besides results of earlier chapters stated for e
 chapter use the inner radius directly only through: [[lem:s11-ks-domain]] (g_(b₀) is defined on {|x| ≥ ½r_♭});
 [[lem:iii-b-3-7]] (the time functions; ψ_IVP(r_♭) = 0 by the proof of its (b)); [[lem:ii-c-3-2]] (1)–(2) at h = 0
 (dr future timelike on {r_♭ ≤ r ≤ r^♮}, dt^♭_* past timelike); [[lem:ii-f-1-4]] (a) with r₀ = r_♭; [[lem:s27-cover]]
-(c) (the boundary piece {r = r_♭} of 𝒦); the identity F = 0 on [r_♭, 5R₁] of [[sec:iii-k-0]], so that t_* = t_IVP
+(c) (the boundary piece {r = r_♭} of 𝔒); the identity F = 0 on [r_♭, 5R₁] of [[sec:iii-k-0]], so that t_* = t_IVP
 there; and the radius R_ν = ½(r_♭ + 5R₁) of [[prop:iii-k-1-2]]. Each holds at r_♭. [[lem:ii-c-3-2]] is stated on
 {t_* > 1}, but it is used below also near Σ^IVP, where t_* is near 0. At h = 0 its statement (1) concerns r only,
 g_(b₀) being stationary, so it holds on all of {r_♭ ≤ r ≤ r^♮}, at every t_*: this is the argument of
@@ -57,8 +57,8 @@ contains the points where t^♭_* is not defined. Also kept are χ^♮_0 and P^�
 
     𝒟 = N_ν ∩ {t^♭_* ≤ T̂ + 3},        N_ν = {t_IVP ≥ −ν(|x|)},
 
-with ν = 0 on [0, R_ν] and ν > 0 on (R_ν, ∞), and its cover by Ω_(ext,r_1), the compact part 𝒦 and the slab 𝒮
-([[lem:s27-cover]], with the same r_1, R_8, R_9, c, T″ and ρ′_I), with 𝒟^± := 𝒟 ∩ {±t_IVP ≥ 0} and the compact set 𝒦⁻
+with ν = 0 on [0, R_ν] and ν > 0 on (R_ν, ∞), and its cover by Ω_(ext,r_1), the compact part 𝔒 and the slab 𝒮
+([[lem:s27-cover]], with the same r_1, R_8, R_9, c, T″ and ρ′_I), with 𝒟^± := 𝒟 ∩ {±t_IVP ≥ 0} and the compact set 𝔒⁻
 of its part (e). 𝒟 contains Ω_* ∩ {t^♭_* ≤ T̂ + 3}, as t_IVP ≥ t_* ≥ t^♭_* ≥ 1 there.
 
 *Linearised operators.* For a symmetric 2-tensor k let DRic(k) := (d/ds) Ric(g + sk)|_(s=0), and let Υ̇(k), Υ̇^♮(k),
@@ -171,7 +171,7 @@ and:
 C_k with ‖ḣ‖_(H^k) ≤ C_k‖(γ̇, k̇)‖_(H^(k+k′)).
 
 *Proof.* *The solution.* As in the proof of [[prop:iii-k-1-2]], 𝒟 is the union of 𝒟 ∩ Ω_(ext,r_1), of
-𝒟⁺ = 𝒟 ∩ {t_IVP ≥ 0} and of the compact set 𝒦⁻ ([[lem:s27-cover]] (b), (e)); the solution is found on each, the three
+𝒟⁺ = 𝒟 ∩ {t_IVP ≥ 0} and of the compact set 𝔒⁻ ([[lem:s27-cover]] (b), (e)); the solution is found on each, the three
 agree where two of them are defined, and they are glued across Σ^IVP. The linear theorems take the place of the
 nonlinear ones. The data lie in H^(∞,ℓ^♭_0)_b, as ℓ^♭_0 < min Re ℰ_0 and ℓ^♭_0 < ℓ_0 (the first step of the proof of
 [[thm:iii-c1-3-1]]).
@@ -188,17 +188,17 @@ nonlinear ones. The data lie in H^(∞,ℓ^♭_0)_b, as ℓ^♭_0 < min Re ℰ_0
   Σ^IVP_(r_1), and their difference vanishes by the forward parts of [[lem:iv2-2-2]] and [[lem:iv2-2-3]], as in the
   uniqueness of [[thm:iv2-2-4]] (the last clause of [[thm:iv3-2-1]]).
 
-- *Backward part.* 𝒦⁻ is compact, and for the reversed time orientation it is the domain of dependence of
+- *Backward part.* 𝔒⁻ is compact, and for the reversed time orientation it is the domain of dependence of
   Σ^IVP ∩ {r ≤ 2R_8} within 𝒟⁻ = 𝒟 ∩ {t_IVP ≤ 0}: a compact set of the second kind of [[sec:s27-local]]
   ([[lem:s27-cover]] (e), which holds for g). L^♮ is a linear operator with smooth coefficients and principal part
   ½□_g ⊗ id = −½g^(αβ)∂_α∂_β ⊗ id, □_g as in [[eq:iii-b-6-7]], that is with principal symbol ½g⁻¹(ζ, ζ) Id
   (∂ → iζ): this is the normal form of the gauge of [[sec:s27-local]], at h = 0. Its only data are those on
-  Σ^IVP ∩ 𝒦⁻. The linear local theory (L) of [[sec:s27-local]], with 𝒦′ := 𝒦⁻, then gives ḣ on 𝒦⁻, backward from
-  Σ^IVP to {t_IVP = −ν}, unique in H²(𝒦⁻), and bounded in H^(k+1)(𝒦⁻) for every k ≥ 4 by finitely many norms of the
-  data; uniqueness also follows from [[lem:ii-f-1-3]]. On Ω_(ext,r_1) ∩ 𝒦⁻, which lies in the past slab, it equals
+  Σ^IVP ∩ 𝔒⁻. The linear local theory (L) of [[sec:s27-local]], with 𝔒′ := 𝔒⁻, then gives ḣ on 𝔒⁻, backward from
+  Σ^IVP to {t_IVP = −ν}, unique in H²(𝔒⁻), and bounded in H^(k+1)(𝔒⁻) for every k ≥ 4 by finitely many norms of the
+  data; uniqueness also follows from [[lem:ii-f-1-3]]. On Ω_(ext,r_1) ∩ 𝔒⁻, which lies in the past slab, it equals
   the exterior solution, by the uniqueness clause of (L), as in the proof of [[prop:iii-k-1-2]] (*Backward part*).
 
-*Gluing.* 𝒟⁺ ∩ 𝒦⁻ = Σ^IVP ∩ {r ≤ 2R_8}, where both solutions take the data, and each point of 𝒟 off
+*Gluing.* 𝒟⁺ ∩ 𝔒⁻ = Σ^IVP ∩ {r ≤ 2R_8}, where both solutions take the data, and each point of 𝒟 off
 Σ^IVP ∩ {R_ν ≤ r ≤ r_1} has a neighbourhood in 𝒟 contained in one of the three sets, as in the proof of
 [[prop:iii-k-1-2]] (*Gluing*). Near a point p of Σ^IVP with R_ν ≤ r(p) ≤ r_1 and for m ≥ 2, the forward solution is
 the restriction to {t_IVP ≥ 0} of a C^m tensor u_1 on a small coordinate ball V about p (Sobolev embedding, its class
@@ -207,7 +207,7 @@ the proof of (L), which is C^m and solves L^♮u_2 = 0 below Σ^IVP near p, beyo
 the linear operator L^♮, with A₁ := V ∩ {t_IVP ≥ 0}, A₂ := V ∩ {t_IVP ≤ 0} and the one hypersurface Σ^IVP ∩ V,
 spacelike for g, shows that ḣ is C^m on V ∩ 𝒟. So ḣ is smooth on 𝒟, up to its boundary.
 *The uniqueness classes:* H^(max(k,1),ℓ^♭_0,(−,ℓ^♭_I))_b of [[thm:iv2-2-4]] on Ω_(ext,r_1), that of [[thm:iv3-2-1]] on
-𝒟⁺, H^(max(k,2),ℓ^♭_0,(−,ℓ^♭_I))_b(𝒟⁺) (k ≥ 1), and H² on 𝒦⁻ ((L) of [[sec:s27-local]]). Each is preserved by every
+𝒟⁺, H^(max(k,2),ℓ^♭_0,(−,ℓ^♭_I))_b(𝒟⁺) (k ≥ 1), and H² on 𝔒⁻ ((L) of [[sec:s27-local]]). Each is preserved by every
 isometry of g that fixes t and |x|, the weights being functions of (t, |x|) ([[eq:iii-b-2-2]]) and ρ′_I a function of
 (t, |x|) ([[sec:s27-cover]]).
 
@@ -432,8 +432,8 @@ partition of unity subordinate to a cover of Σ_U by such charts and to U ∩ {t
 t^♭_* is not defined. So Ω_* ∪ 𝒟 = N_ν, and DRic(ġ) = 0 there ([[thm:viii-2-2]] (1)).
 
 *ḣ is smooth on the interior of 𝒟.* The proof of [[prop:viii-1-2]] (*Gluing*) shows that ḣ is smooth on 𝒟: on each
-of 𝒟⁺, 𝒦⁻ and Ω_(ext,r_1), near each of its points in the interior of M, ḣ is for every k the restriction of a tensor
-of class H^k on a neighbourhood (on 𝒦⁻ by (L) of [[sec:s27-local]], H^k(𝒦⁻) consisting of restrictions; on 𝒟⁺ and
+of 𝒟⁺, 𝔒⁻ and Ω_(ext,r_1), near each of its points in the interior of M, ḣ is for every k the restriction of a tensor
+of class H^k on a neighbourhood (on 𝔒⁻ by (L) of [[sec:s27-local]], H^k(𝔒⁻) consisting of restrictions; on 𝒟⁺ and
 Ω_(ext,r_1) because ḣ lies, for every k, in the classes of order k of [[thm:iv3-2-1]] and [[thm:iv2-2-4]], b-Sobolev
 spaces of restrictions ([[sec:iii-c-2]]), which near points of the interior of M are the spaces H^k), hence C^m there
 for k > m + 5/2 by Sobolev embedding on ℝ⁵; each point of 𝒟 off Σ^IVP ∩ {R_ν ≤ r ≤ r_1} has a neighbourhood in 𝒟
@@ -460,7 +460,7 @@ smooth on the interior of N_ν.
 of N_ν. Such points have r ≤ R_ν < r_1: R_ν = ½(r_♭ + 5R₁) < 5R₁, and r_1 ≥ R_6 ≥ R₃ > 5R₁ ([[sec:iii-k-0]],
 [[sec:s27-cover]]), as ψ′_IVP = ψ′ > 0 at 5R₁ and ψ′_IVP = 0 on [R₃, ∞) (the proof of [[lem:iii-b-3-7]] (b)). So of
 the three sets on which [[prop:viii-1-2]] solves, only 𝒟⁺ reaches them off Σ^IVP: Ω_(ext,r_1) ⊂ {r ≥ r_1}, and
-𝒦⁻ ⊂ 𝒟⁻ meets {r ≤ R_ν} only in Σ^IVP, as ν = 0 there. So a half-ball {t_IVP ≥ 0} about each such point lies in
+𝔒⁻ ⊂ 𝒟⁻ meets {r ≤ R_ν} only in Σ^IVP, as ν = 0 there. So a half-ball {t_IVP ≥ 0} about each such point lies in
 𝒟⁺ ∩ {r < r_1}. There ġ = ḣ + ġ_(S′) + ġ⁰_(S⁰′) ([[thm:viii-2-2]] (2)); ġ_(S′) and ġ⁰_(S⁰′) vanish on {|x| < 5R₁},
 which contains these points ([[sec:viii-0]]), and ḣ is, for every k, of class H^k up to Σ^IVP on 𝒟⁺ ∩ {r ≤ r_1}, the
 class of [[thm:iv3-2-1]] imposing H^k away from infinity ([[sec:iv3-1]]). In a chart {t_IVP ≥ 0} near such a point,

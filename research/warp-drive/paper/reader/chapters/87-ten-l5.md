@@ -349,8 +349,8 @@ with e = 5 × 10⁻¹¹, and at the interior nodes already with e = 10⁻⁹. Th
 rounded up to two significant digits. The smallest margin ε_k − max_l |G(r_k, x_l)| exceeds 1.3 × 10⁻¹⁴ at the
 first seed (k = 19) and 1.6 × 10⁻¹⁴ at the second (k = 32), so every ε_k is confirmed with e = 3 × 10⁻¹⁵, that
 is, with G₁ and F to about fourteen significant digits. The data allow this, by the previous paragraph. Two node
-values of each seed, one at an end node and one where G₁ and F are largest, are printed with the tables as
-checkpoints. ∎
+values of each seed, one at an end node and one where G₁ and F are largest, are printed as checkpoints with the tables
+of [[sec:cone-table-n1]] and [[sec:cone-table-n2]]. ∎
 
 We use two results on polynomial interpolation in the Chebyshev points ξ_k := cos(kπ/n), 0 ≤ k ≤ n. For a
 continuous g on [−1, 1], I_n g denotes the polynomial of degree at most n that equals g at these n + 1 points;

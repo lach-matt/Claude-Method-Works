@@ -329,12 +329,12 @@ transformed as a tensor, and the system stays quasilinear with coefficients smoo
 (iii) *The cut-off.* Let ϒ be a smooth map of the components, the identity on |w| ≤ ε2/2 and with values in |w| ≤ ε2,
 with ε2 so small that every metric within ε2 of g_ext keeps the conditions g^(00) ≤ −c_0 and g^(ab) ξ_a ξ_b ≥ c_0 |ξ|²
 with a fixed constant c_0 > 0 in (τ, y). Put ϒ(w) for w in the coefficients and lower-order terms. The modified system
-agrees with the original where |w| ≤ ε2/2, which holds on Ω once C M λ0^(K−3) ≤ ε2/2 (|w| ≤ C M λ^(K−3), Step 3; ε2 does
-not depend on λ). The coefficients and the forcing term are taken at time τ̄(τ), τ̄ smooth, equal to τ on [τ0 − 1,
-τ_end + 1] and constant outside [τ0 − 2, τ_end + 2]: the coordinates of (ii) degenerate as |τ| grows (the flow lines of Z
-pile up where β_ext vanishes), and [DS23, (A1)] asks for bounds uniform in t; on [τ0, τ_end] nothing changes. The
-coefficients and the forcing term equal Minkowski's outside a compact set in y, so the system is posed on a torus
-T⁴_L of large period L.
+agrees with the original where |w| ≤ ε2/2, which holds on Ω once C M λ0^(K−3) ≤ ε2/2 (|w| ≤ C M λ^(K−3), Step 3; c_0 and
+ε2 depend only on Θ and on bounds for DΦ_Z and its inverse, which do not depend on λ since |∂g_app| ≤ C). The
+coefficients and the forcing term are taken at time τ̄(τ), τ̄ smooth, equal to τ on [τ0 − 1, τ_end + 1] and constant
+outside [τ0 − 2, τ_end + 2]: the coordinates of (ii) degenerate as |τ| grows (the flow lines of Z pile up where β_ext
+vanishes), and [DS23, (A1)] asks for bounds uniform in t; on [τ0, τ_end] nothing changes. The coefficients and the
+forcing term equal Minkowski's outside a compact set in y, so the system is posed on a torus T⁴_L of large period L.
 
 Write the modified system as −(1/2) g^(μν) ∂_μ ∂_ν w = F̃(τ, y, w, ∂w), with μ, ν running over (τ, y) and a, b, c below
 over y alone. In V := (w, u_0, u_a), with u_0 := ∂_τ w and u_a := ∂_(y^a) w, it is the first-order system

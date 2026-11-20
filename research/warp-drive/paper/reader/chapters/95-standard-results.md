@@ -1192,13 +1192,13 @@ Here rank_j(z) is the rank of the zero z of the indicial family at the j-th boun
 and the difference is minus the sum of the ranks of the points of spec_b(P) between the two lines Im z = −α and
 Im z = −α′".
 
-**Theorem {#thm:std-analytic-fredholm}** ([RS1, Theorem VI.14, p. 201].) Let D ⊂ ℂ be open and connected, 𝓗 a Hilbert
-space, and f : D → 𝓛(𝓗) analytic with f(z) compact for every z ∈ D. Then either (I − f(z))⁻¹ exists for no z ∈ D, or
+**Theorem {#thm:std-analytic-fredholm}** ([RS1, Theorem VI.14, p. 201].) Let D ⊂ ℂ be open and connected, ℋ a Hilbert
+space, and f : D → 𝓛(ℋ) analytic with f(z) compact for every z ∈ D. Then either (I − f(z))⁻¹ exists for no z ∈ D, or
 (I − f(z))⁻¹ exists for all z ∈ D ∖ S, where S is a discrete subset of D; in the second case (I − f(z))⁻¹ is
 meromorphic in D and analytic in D ∖ S, its residues at the poles are finite rank operators, and for z ∈ S the
-equation f(z)ψ = ψ has a nonzero solution in 𝓗.
+equation f(z)ψ = ψ has a nonzero solution in ℋ.
 
-Applied to f = −F: if F : D → 𝓛(𝓗) is analytic with compact values and Id + F(z0) is invertible for one z0 ∈ D, then
+Applied to f = −F: if F : D → 𝓛(ℋ) is analytic with compact values and Id + F(z0) is invertible for one z0 ∈ D, then
 (Id + F(z))⁻¹ exists for z off a discrete set S ⊂ D, and it is meromorphic on D with finite-rank residues.
 
 ### Special functions and the Fourier–Laplace transform {#sec:std-special}

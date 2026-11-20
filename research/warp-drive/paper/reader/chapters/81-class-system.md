@@ -1019,7 +1019,9 @@ The corollary gives a large background, the seed, carrying any finite number of 
 away from the axes, on the whole domain; the hole grows by O(ε), unlike the growing hole of [[thm:main]]. It assumes
 the data. They are not constructed here: the outward radial solve of [[ch:data]] is built for data depending on the
 wavelength, and a small non-round dust density, with regularity at the axes for a solve that is parabolic in ϑ, is not
-examined; data localised in an angle are the subject of [[ch:localised-data]].
+examined (the symmetrizer of that solve exists on every slice, [[lem:vlasov-symmetrizer]], and the solve is carried out
+with constants independent of λ for the data of [[ch:vlasov]]); data localised in an angle are the subject of
+[[ch:localised-data]].
 
 **Corollary {#cor:class-short-time}** (Large data for a short time.) Let a datum on Σ_τ0 satisfy the constraints and the
 gauge condition, with densities vanishing within 2δ of the axes, and let Ω be admissible for a smooth G-invariant metric
@@ -1656,7 +1658,9 @@ ingoing family has tubes, near those of the outer boundary at most the outgoing 
 
 Whether the outgoing packet stays off the inner sphere is a property of the background that [[prop:two-dust-background]]
 does not decide; it is assumed here. Data for the corollary are any small invariant solutions of the constraints with
-the stated supports; data localised in an angle are constructed in [[ch:localised-data]].
+the stated supports; data equal to the background's outside the domain of influence, for the constraints solved with
+the radius as time, of a compact set away from the axes are constructed in [[ch:localised-data]] on a slice bent from
+Σ_τ0, and carried to Σ_τ0 by their development.
 
 **Remark {#rem:class-scope}** (What the theorems do not give.) [[thm:class-stability]] constructs the background; the
 high-frequency construction over a non-round background needs more. By [[prop:class-separation]], two families of one

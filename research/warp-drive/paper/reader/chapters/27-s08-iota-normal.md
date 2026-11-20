@@ -193,7 +193,7 @@ set is a compact subset of the face sf over ι⁺, away from fibre infinity ([Hi
 Proposition 4.24]) along the identification of the semiclassical phase space with the e3b-phase space over ι⁺ at the
 time frequency ∓1 ([Hin26c, Section 10.1.1]). Its radial sets are
 
-    R_(I⁺,±1,in) := {x_I = 0, ξ = ±2, η = 0},              R_(I⁺,out) := {x_I = 0, ξ = 0, η = 0},
+    R_(ℐ⁺,±1,in) := {x_I = 0, ξ = ±2, η = 0},              R_(ℐ⁺,out) := {x_I = 0, ξ = 0, η = 0},
     R_(cf,±1,in) := {R = 0, ξ_cħ = ∓2, η_cħ = 0},    R_(cf,out) := {R = 0, ξ_cħ = 0, η_cħ = 0},   {#eq:ii-f-1-14}
 
 all over sf. At z = 1: on {x_I = 0}, G_(ι,1)/x_I² = ½(ξ − 1)² − ½ + |η|²; its Hamilton field in the coordinates (x_I, ω;
@@ -203,23 +203,23 @@ all over sf. At z = 1: on {x_I = 0}, G_(ι,1)/x_I² = ½(ξ − 1)² − ½ + |�
            at x_I = 0 to first order,                                                                     {#eq:ii-f-1-15}
 
 with H_(|η|²) = 2η·∂_ω at the centre of normal coordinates ([Hin26c, Section 10.1.2]; the evaluation is that of
-[[eq:ii-b-7-4]] at the time frequency −1). It vanishes exactly at R_(I⁺,1,in) and R_(I⁺,out) on the characteristic set
+[[eq:ii-b-7-4]] at the time frequency −1). It vanishes exactly at R_(ℐ⁺,1,in) and R_(ℐ⁺,out) on the characteristic set
 over {x_I = 0}, where ξ(ξ − 2) = −2|η|². Near ι⁺ ∩ K⁺, with ĥ := h/R, the field of G_(ι,1) in the covectors ξ_cħ dR/h +
 η_cħ R dω/h is ([Hin26c, Section 10.1.2], by the change of variables)
 
     𝖧_cf := ĥ((2(1 + 2R)ξ_cħ + 2)(R∂_R − η_cħ·∂_(η_cħ)) + 2(|η_cħ|² − Rξ_cħ²)∂_(ξ_cħ) + H_(|η_cħ|²)).   {#eq:ii-f-1-16}
 
 Up to the factor ĥ, it vanishes over {R = 0} on the characteristic set exactly at R_(cf,1,in) and R_(cf,out). The future
-flow has the types (A, B) (A the α-limit set, B the ω-limit set): A = R_(I⁺,±1,in) and B = R_(I⁺,out) or R_(cf,±1,in);
-A = R_(cf,±1,in) and B = R_(cf,out); A = R_(cf,out) and B = R_(I⁺,out) ([[prop:ii-b-8-1]], the entries over ι⁺, pulled
-back). R_(I⁺,±1,in) is a source, R_(I⁺,out) a sink, and R_(cf,±1,in), R_(cf,out) are saddles: the stable manifold of
-R_(cf,±1,in) lies over R > 0 (the curves from R_(I⁺,±1,in)), its unstable manifold over R = 0, which is the stable
-manifold of R_(cf,out), whose unstable manifold lies over R > 0 (the curves to R_(I⁺,out)).
+flow has the types (A, B) (A the α-limit set, B the ω-limit set): A = R_(ℐ⁺,±1,in) and B = R_(ℐ⁺,out) or R_(cf,±1,in);
+A = R_(cf,±1,in) and B = R_(cf,out); A = R_(cf,out) and B = R_(ℐ⁺,out) ([[prop:ii-b-8-1]], the entries over ι⁺, pulled
+back). R_(ℐ⁺,±1,in) is a source, R_(ℐ⁺,out) a sink, and R_(cf,±1,in), R_(cf,out) are saddles: the stable manifold of
+R_(cf,±1,in) lies over R > 0 (the curves from R_(ℐ⁺,±1,in)), its unstable manifold over R = 0, which is the stable
+manifold of R_(cf,out), whose unstable manifold lies over R > 0 (the curves to R_(ℐ⁺,out)).
 
 *Complex z.* If Im z ≠ 0, Im G_(ι,z) = 2(Im z)ξ_cħ (resp. −x_I²(Im z)ξ) vanishes only where ξ_cħ = 0, and then Re
 G_(ι,z) = |η_cħ|² forces η_cħ = 0; likewise in the 0-variables. So the characteristic set is the zero section over sf,
 and the flow of the Hamilton field of Re(z⁻¹G_(ι,z)) on it, 2ĥR∂_R = 2h∂_R near R = 0 and −x_I∂_(x_I) near x_I = 0 (up
-to positive factors), runs from R_(cf,out), now a source, to the sink R_(I⁺,out) ([Hin26c, (10.22) and Figure 10.1]).
+to positive factors), runs from R_(cf,out), now a source, to the sink R_(ℐ⁺,out) ([Hin26c, (10.22) and Figure 10.1]).
 
 *Orders.* Let 𝗌 be an order function admissible for P_0 with weights α_+, 0 and margin 0 ([[def:ii-c-5-2]]). As in
 [Hin26c, Section 10.1.1] (by pull-back along the identifications above) it induces a differential order 𝗌_(0,b) on
@@ -798,9 +798,9 @@ needed; the error is ‖Gu‖_(𝐨−¼𝐞).
 
 **Lemma {#lem:ii-f-3-3}** For z ∈ 𝒵^+_h with y = Im z ≤ ν, ν ∈ (0, 1] small, the estimate [[eq:ii-f-2-4]] holds at:
 
-(R1) Λ = R_(I⁺,1,in), for 𝐏 = P, ς = +1, as a source, with δ = 0;
+(R1) Λ = R_(ℐ⁺,1,in), for 𝐏 = P, ς = +1, as a source, with δ = 0;
 
-(R2) Λ = R_(I⁺,out), for 𝐏 = P̃, ς = +1, as a sink (δ = 1, K_E in a punctured neighbourhood of Λ), and this for every z
+(R2) Λ = R_(ℐ⁺,out), for 𝐏 = P̃, ς = +1, as a sink (δ = 1, K_E in a punctured neighbourhood of Λ), and this for every z
 ∈ 𝒵^+_h ∪ 𝒵^i;
 
 (R3) Λ = R_(cf,1,in), for 𝐏 = P, ς = +1, with K_E ⊂ {R ≥ δ_1} (ϱ-sink, ϕ-source);
@@ -890,8 +890,8 @@ the zero section o_sf.
 (b) *The dynamics.* For Re z = 1 the Hamilton field of Re G_(ι,z) = G_(ι,1) is that of [[sec:ii-f-1-3]]; on Σ_1, q :=
 σ(Q_1) = −2ξ_cħ (= x_I²ξ near F_I) satisfies q ≥ 0 with equality exactly on o_sf, since G_(ι,1) = 0 gives 2ξ_cħ = −((1 +
 2R)ξ_cħ² + |η_cħ|²) over sf. The future flow is 𝖧 (ς = +1), and every integral curve in Σ_1 has its α-limit in
-R_(I⁺,1,in) ∪ R_(cf,1,in) ∪ R_(cf,out) and its ω-limit in R_(cf,1,in) ∪ R_(cf,out) ∪ R_(I⁺,out), with the types of
-[[sec:ii-f-1-3]]. The curves from R_(cf,out) to R_(I⁺,out) are the fibres of o_sf over (ι⁺)°: o_sf ⊂ Σ_1, and on it 𝖧 =
+R_(ℐ⁺,1,in) ∪ R_(cf,1,in) ∪ R_(cf,out) and its ω-limit in R_(cf,1,in) ∪ R_(cf,out) ∪ R_(ℐ⁺,out), with the types of
+[[sec:ii-f-1-3]]. The curves from R_(cf,out) to R_(ℐ⁺,out) are the fibres of o_sf over (ι⁺)°: o_sf ⊂ Σ_1, and on it 𝖧 =
 2R∂_R near F_K and −x_I∂_(x_I) near F_I by [[eq:ii-f-3-11]]–[[eq:ii-f-3-12]] and [[eq:ii-f-3-9]], as the unstable
 manifold of the saddle R_(cf,out) is one-dimensional over each ω (its linearisation is 2R∂_R − 2η·∂_η plus terms
 quadratic in (ξ, η)). The curves from R_(cf,1,in) to R_(cf,out) lie in F_K. For Im z ≥ ν and on 𝒵^i, the field of
@@ -904,16 +904,16 @@ for 𝐏 = P̃, ς = +1, with (B) for Im z ≥ 0 and |ℓ| ≤ Ch for Im z < 0 (
 non-increasing along 𝖧 = 2R∂_R on o_sf (the same flow as at z = 1), and 𝖻_mid is constant.
 
 (d) *Assembly for y ≤ ν.* Cover the compact set Σ_1 over sf by finitely many open sets in which [[eq:ii-f-2-4]] or
-[[eq:ii-f-2-5]] holds, in this order. (1) A neighbourhood U_1 of R_(I⁺,1,in), by (R1), with no control term. (2) For
+[[eq:ii-f-2-5]] holds, in this order. (1) A neighbourhood U_1 of R_(ℐ⁺,1,in), by (R1), with no control term. (2) For
 each point of Σ_1 ∖ o_sf over sf° ∪ F_I° whose backward curve enters U_1: [[prop:ii-f-2-5]] from U_1. These cover a
 neighbourhood of the stable manifold of R_(cf,1,in) over R > 0, minus a neighbourhood of Λ, and of the incoming curves
-to R_(I⁺,out) in Σ_1 ∖ o_sf. (3) A neighbourhood U_3 of R_(cf,1,in) by (R3), whose control set K_E ⊂ {R ≥ δ_1} near Λ
-lies in the set covered in (2), after shrinking δ_1 (points of Σ_1 near Λ with R > 0 lie on curves from R_(I⁺,1,in), and
+to R_(ℐ⁺,out) in Σ_1 ∖ o_sf. (3) A neighbourhood U_3 of R_(cf,1,in) by (R3), whose control set K_E ⊂ {R ≥ δ_1} near Λ
+lies in the set covered in (2), after shrinking δ_1 (points of Σ_1 near Λ with R > 0 lie on curves from R_(ℐ⁺,1,in), and
 points off Σ_1 are elliptic). (4) The curves in F_K from R_(cf,1,in) to R_(cf,out), by [[prop:ii-f-2-5]] from U_3, with
 (D9) for (A). (5) A neighbourhood U_5 of R_(cf,out) by (R4), whose K_E ⊂ {ϕ ≥ δ_2} near Λ consists of points of Σ_1 ∩
-F_K on the curves of (4), of points of Σ_1 over R > 0 near them, which lie on curves from R_(I⁺,1,in) or from
+F_K on the curves of (4), of points of Σ_1 over R > 0 near them, which lie on curves from R_(ℐ⁺,1,in) or from
 R_(cf,1,in) and so are covered by (2), or by (4) with [[prop:ii-f-2-5]] once more, and of elliptic points. (6) o_sf over
-(ι⁺)°, by [[prop:ii-f-2-5]] for P̃ from U_5. (7) A neighbourhood of R_(I⁺,out) by (R2), whose punctured control set lies
+(ι⁺)°, by [[prop:ii-f-2-5]] for P̃ from U_5. (7) A neighbourhood of R_(ℐ⁺,out) by (R2), whose punctured control set lies
 in the sets of (2) and (6) and in the elliptic set. The finitely many operators B_* so obtained, together with elliptic
 ones, are jointly elliptic on 𝒫_ι; a microlocal partition of unity gives ‖u‖_𝐨 ≤ C(Σ_i‖B_(*,i)u‖_𝐨 + ‖u‖_(𝐨−K𝐞)). Each
 estimate has its ‖G𝐏u‖_(𝐨−𝐦+𝐞) (or ‖GPu‖_(𝐨−𝐦) for elliptic ones) bounded by C‖Pu‖_(Y_𝐨) (|z|⁻¹ ≤ 1 for P̃; the
@@ -924,7 +924,7 @@ give them on neighbourhoods of each z_* in the compact set {1 + iy : 0 ≤ y ≤
 are covered by the case |ℓ| ≤ Ch near y = 0).
 
 (e) *Assembly for Im z ≥ ν and on 𝒵^i.* The characteristic set is o_sf: (R4) at R_(cf,out) with its K_E in the elliptic
-set, [[prop:ii-f-2-5]] for P̃ with (B) along o_sf, (R2) at R_(I⁺,out), and the elliptic estimate elsewhere, uniformly
+set, [[prop:ii-f-2-5]] for P̃ with (B) along o_sf, (R2) at R_(ℐ⁺,out), and the elliptic estimate elsewhere, uniformly
 for z in the compact sets {1 + iy : ν ≤ y ≤ 1} and 𝒵^i.
 
 Finally ‖u‖_(𝐨−K𝐞) ≤ ‖u‖_((−M;…;𝖻−1/4)) for K ≥ max(M + sup 𝗌′, ¼). ∎
@@ -1047,8 +1047,8 @@ infinity, and [[lem:ii-f-2-2]] (g) at the two orders, with a microlocal partitio
 Every radial estimate of [[lem:ii-f-3-3]] holds for 𝐏* (ε_♭ = −1) with ς ↦ −ς at the dual order: the dual of the order 𝐤
 of (D3) is −𝐤, so κ̃ ↦ −κ̃, while β_ϱ ↦ −β_ϱ and ςε_♭ is unchanged; so 𝒯 is the same, and sources and sinks (in ϱ and in
 ϕ) are interchanged. The absorbing terms keep their sign (ε_♭ς unchanged); the dual sf order −𝖻 − 1 is non-increasing
-along −𝖧. So the assembly runs backwards: from R_(I⁺,out) (now a source), along o_sf and Σ_1 ∖ o_sf backwards, to
-R_(cf,out), R_(cf,1,in) and R_(I⁺,1,in); at the saddles the roles of ϱ and ϕ interchange, and the control sets are the
+along −𝖧. So the assembly runs backwards: from R_(ℐ⁺,out) (now a source), along o_sf and Σ_1 ∖ o_sf backwards, to
+R_(cf,out), R_(cf,1,in) and R_(ℐ⁺,1,in); at the saddles the roles of ϱ and ϕ interchange, and the control sets are the
 unstable manifolds, reached from the earlier steps. In Step 2 the second estimate of [[eq:ii-f-3-15]] replaces the
 first, with [P*, χ_tf] and P* − N_tf(z)* bounded as before; Y_♭ and 𝐨_♭ are replaced by their duals shifted in the same
 way.
@@ -1122,9 +1122,9 @@ multiplication operators they have differential order 0. ∎
 level 𝐦 − 𝐞) of the imaginary parts of P^(k) and z⁻¹P^(k), decomposed as in [[lem:ii-f-3-3]] with the same ℓ and 𝒜. At
 the four radial sets (Re z = 1, resp. on the zero section),
 
-    ϖ⁻¹p^(k)_1 = ϖ⁻¹p_1 ⊗ Id                    at R_(I⁺,1,in),
+    ϖ⁻¹p^(k)_1 = ϖ⁻¹p_1 ⊗ Id                    at R_(ℐ⁺,1,in),
     ϖ⁻¹p^(k)_1 = ϖ⁻¹p_1 ⊗ Id − 2 diag(j_α)      at R_(cf,1,in),
-    ϖ⁻¹p̃^(k)_1 = ϖ⁻¹p̃_1 ⊗ Id − 2 diag(j_α)      at R_(I⁺,out) and at R_(cf,out).
+    ϖ⁻¹p̃^(k)_1 = ϖ⁻¹p̃_1 ⊗ Id − 2 diag(j_α)      at R_(ℐ⁺,out) and at R_(cf,out).
 
 So the threshold quantities 𝒯^(k) of [[prop:ii-f-2-4]] satisfy 𝒯^(k) ≥ 𝒯 ⊗ Id at each of the four radial sets, and
 (R1)–(R4) of [[lem:ii-f-3-3]] hold for P^(k), resp. z⁻¹P^(k), with the same orders.

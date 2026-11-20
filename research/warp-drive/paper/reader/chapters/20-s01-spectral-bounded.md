@@ -21,6 +21,12 @@ commutator lemma for b-regularity, [[sec:i-a-5]] the elliptic and propagation es
 estimates near an artificial boundary inside the horizon. [[sec:i-a-7]] proves the theorem and [[sec:i-a-8]] its
 uniformity in the operator.
 
+*Notation.* The stability theory, from [[ch:s01]] to [[ch:s29]], does not use the number N of stages of the
+approximant, and it uses the wavelength λ of the main construction only where [[ch:s28]] applies the gluing to the data
+of the solution g_λ ([[cor:vii-2-3]]). Elsewhere in these chapters λ, with or without indices, and N denote other
+objects (exponents, parameters, eigenvalues and orders among them), each defined by its chapter where it is introduced;
+λ is also a tensor index, and λ_max and λ_min are the largest and the least eigenvalue.
+
 ### Setting and hypotheses {#sec:i-a-1}
 
 #### The space {#sec:i-a-1-1}
