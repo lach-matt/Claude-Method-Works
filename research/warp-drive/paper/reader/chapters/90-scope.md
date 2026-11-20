@@ -33,8 +33,8 @@ curve that meets it leaves D_T there and does not return ([[prop:boundary-spacel
 this fails in a layer at the start of the shell whose width tends to 0 with λ: on every column the boundary has points
 where it is timelike for g_λ, and future timelike curves cross it into D_T ([[thm:layer]], [[cor:layer]]). That the
 domain of [[prop:eq-domain]], whose inner boundary no future causal curve enters, is needed in place of D_T is not shown
-([[cor:layer]]). Inside the layer, for δ ∈ (0, 1/2], P > 4 and λ small, the boundary is spacelike above the band between
-the levels λ^(3+δ) and λ^(3−δ), and it has points of both characters on every window of length 4πλ that starts
+([[cor:layer]]). Inside the layer, for δ ∈ (0, 1/2], P > 4 and λ small, the boundary is spacelike above the band
+between the levels λ^(3+δ) and λ^(3−δ), and it has points of both characters on every window of length 4πλ that starts
 where |env| first reaches a level between λ^P and λ^(3+δ) ([[prop:layer-regions]]); on the band its character is decided
 up to a factor 1 ± 2λ^(1/10) in the ratio of the first-degree amplitude to the margin ([[rem:edge-criterion]]). For an
 envelope increasing at its edge with the hypothesis (H_N) of [[def:edge-hypotheses]] the band is decided by one switch
