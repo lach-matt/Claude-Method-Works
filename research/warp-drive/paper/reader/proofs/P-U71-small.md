@@ -309,10 +309,9 @@ eq:uc-small-diff, rem:uc-small-reading, prop:uc-d-small and eq:uc-d-small, none 
 number of [[ch:explicit-constants]] stands, among them D_acc, 21D_acc + 6 and the lower bounds. The definition of d_NM
 changes from the largest of the losses of the three results to the largest of their d's, which [[prop:uc-d-small]]
 bounds, and the following sentences of [[ch:explicit-constants]] change with it; [[rem:uc-missing]] gains one sentence
-(text 14). No sentence of the title page,
-[[ch:introduction]], [[ch:theorems]], [[ch:s27]] or [[ch:scope]] needs to change: each states its bounds for the loss d
-with which the settling proof applies the Nash–Moser theorem, which is d_NM, and they hold for it by
-[[prop:uc-d-small]] (d).
+(text 14). No sentence of the title page, [[ch:introduction]], [[ch:theorems]], [[ch:s27]] or [[ch:scope]] needs to
+change: each states its bounds for the loss d with which the settling proof applies the Nash–Moser theorem, which is
+d_NM, and they hold for it by [[prop:uc-d-small]] (d).
 
 *1. In [[sec:ec-accounted]],* replace the paragraph that begins "[[thm:ii-g-2-1]] is applied in the proof of" and ends
 "([[thm:loss-d]])." by:
@@ -394,9 +393,9 @@ accounted by [[def:ec-accounted-loss]] and at least d_acc ([[thm:loss-d]]), and 
 *9. In (ii) of [[thm:uc-reduction]],* replace "(ii) d_NM = max(d_R, d_FM, d_Ψ) with" by "(ii) d_NM ≥ max(d_R, d_FM,
 d_Ψ) with"; the line keeps its length.
 
-*10. In [[lem:uc-dr]],* replace "If d_R > 62N_Λ + 10, then d_NM = d_R." by "If d_R > 62N_Λ + 10, then
-d_R = max(d_R, d_FM, d_Ψ)."; and in the last sentence of its proof replace "d_NM = max(d_R, d_FM, d_Ψ) with
-d_FM, d_Ψ ≤ 62N_Λ + 10." by "d_FM, d_Ψ ≤ 62N_Λ + 10." Both lines become shorter.
+*10. In [[lem:uc-dr]],* replace "If d_R > 62N_Λ + 10, then d_NM = d_R." by "If d_R > 62N_Λ + 10, then d_R = max(d_R,
+d_FM, d_Ψ)."; and in the last sentence of its proof replace "d_NM = max(d_R, d_FM, d_Ψ) with d_FM, d_Ψ ≤ 62N_Λ + 10." by
+"d_FM, d_Ψ ≤ 62N_Λ + 10." The first line becomes 121 characters long, the second shorter.
 
 *11. In [[thm:uc-integer]],* replace the display line of [[eq:uc-integer]] by:
 
