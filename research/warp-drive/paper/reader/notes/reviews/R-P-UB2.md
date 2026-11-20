@@ -416,3 +416,150 @@ admissibility claim. Outside chapters/, P-TR.md, STATUS.md, INTEGRATION.md and P
   K* > 1.0078·10⁵¹ (F7, F8, by prop:uc-data-order (c)'s lower formula and (4/3)(2.74934·10²⁵)² > 7.5588·10⁵⁰).
 - None of 1.57157·10⁵⁰, 3.30029·10⁵¹, 3.45745·10⁵¹ or 4.78156·10¹⁰³ survives the fallback merge.
 - What does survive is in the rule-kept blocks of Major 2.
+
+## Confirmation
+
+**File:** proofs/P-UB2.md after its fix round, md5 75319d6e5051df9521c0a23f6fb6c3ff, 1730 lines (commit 03ea039e).
+**P-UB1:** md5 58b580faf8acbc14503d7c5e33c0b087, CONFIRMED. I read §8.1 of the file and the FIX ROUND section of
+notes/reports/P-UB2.md. I compared every block word by word with 69990efa and checked each change. I edited no
+repository file.
+
+### Verdict
+
+**One minor finding is still open, so the file is not yet CONFIRMED.**
+
+- **minor C1:** the proof of thm:uc-reduction still cites cor:uc-two-offsets for the bound that L4 raised.
+- **Nits:** 3, listed under Nits below.
+
+Everything else is CONFIRMED: all four first-round fixes, the Option L split, the numbers and the merges. With the
+one-line block L4b below applied, the file is CONFIRMED.
+
+### The first-round findings: all resolved
+
+- **Major 1.** The statement and proof of prop:uc-dependence in M12 are my replacement text, character for character.
+  M23c now ends "exceeds R_base + 22, so that also T_11 < T_12 in (d)".
+  At the choice:
+  - X_12 = 2,783,094,768,362,907,767,098,404;
+  - I_base + 22,119 = 1,407,588,774,438,516,741,176,921;
+  - the ratio is 1.977.
+- **Major 2.** The fallback set is retired. F1–F9 and FO1–FO7 are gone, and §6 says so. No kept block refers to it.
+- **minor 1.** M10 now reads "where N̄_Λ/2 = 454,753,562,047,656" and
+  "4 · 909,507,124,095,312 + 765,000,816 · 454,753,562,047,656 · 909,507,124,095,313 = N_ι". The identity is exact.
+- **Nits.**
+  - M3 ends "at most one below" / "1.59022 × 10⁵⁷.".
+  - No new line ends in "×" or "·", and none begins with "10ⁿ".
+  - M25a reads "D_NM = …".
+  - The local k̄_0 of lem:uc-small-orders is k̂_0 everywhere it occurs: 7 occurrences, in M23a, M23d (old text found
+    once at 71:4769–4772) and M23e (71:4795). No k̄_0 is left between lem:uc-small-orders and rem:uc-small-reading.
+  - The header md5s of the chapters equal HEAD.
+
+### Option L: the split checked site by site against cor:is-lower
+
+cor:is-lower (P-UB1 T9) holds at the computational point, for ℰ_ind and ℰ^ι_ind as constructed, at every admissible
+choice. Its arithmetic checks: (1 − 1.98·10⁻⁸)/2.44878·10⁻²⁷ > 4.0836·10²⁶; 3 · 4.0836·10²⁶ > 1.2250·10²⁷; and
+N_NM = 21d_NM + 6 > 2.5725·10²⁸. Each changed site meets all three hypotheses:
+
+| block | site | hypotheses met there |
+|---|---|---|
+| M1 | 71:23–24, chapter summary | "at one parameter point …, for the index sets as the proofs construct them" |
+| O1 | 00-front:37 | "at a parameter point not shown to lie in it, for one admissible choice … and the index sets as the proofs construct them" |
+| O2 | 01:155–156 | "at every admissible choice of the weights, for the index sets as the proofs construct them" |
+| L2 | thm:loss-d, closing paragraph | the bounds (ii) are at the computational point, for every admissible choice; "(G) asks ε_K < μ_Z" is thm:is-gap |
+| L3 | rem:ec-lb-unbounded | both bounds named; correctly says the second rests also on h = 10⁻⁶ (ι_* of P_390) and the first on z only (lem:uc-two-offsets) |
+| M7 | sec:uc-close | — |
+| L4 | thm:uc-reduction, closing | stated "At the computational point" |
+| M12 | eq:uc-lower and its proof (thm:uc-integer) | — |
+| M26a, M26b | prop:uc-data-order (d) | — |
+| L5 | 90-scope:73–74 | "at every admissible choice of the weights, for the index sets as the proofs construct them" |
+
+The new numbers are exact:
+
+- 22 · 1.2250·10²⁷ = 2.695·10²⁸, and K > 22d > 2.695·10²⁸ is strict because d > 1.2250·10²⁷.
+- (2.695·10²⁸)² = 7.263025·10⁵⁶.
+- (4/3) · 7.263025·10⁵⁶ = 9.684033…·10⁵⁶ > 9.684·10⁵⁶.
+- k1 = d_1 + 4 > 22d.
+- K* > k1 + 4 + (4k1 + 35)(k1 + 2)/3 > (4/3)k1², by prop:uc-data-order (c).
+
+I grepped the merged chapters for 1.2497, 2.624, 2.7493, 1.0078, 7.5588, 1.2498, 1.403, 2.946, log₁₀ δ and
+cor:uc-two-offsets. Every unchanged site is still true:
+
+- **cor:uc-two-offsets** (71:2381–2392): weaker hypothesis, and its bound 1.2497·10²⁴ is still true.
+- **thm:loss-d (ii), prop:ec-delta-cap and their quotes** (71:21–23, 71:1547, 90:72): 1.403·10²⁰, 2.946·10²¹ and
+  log₁₀ δ < −1.351·10²¹. They hold at the computational point for every admissible choice with any index sets
+  (prop:ec-rounds needs only ε_K < ε_Υ).
+- **thm:ec-lb-proved and cor:ec-lb-delta, with their quotes:** they hold on the proved set.
+- **rem:ec-lb-unbounded's** 1.4032·10²⁰ and 0.3168h⁻².
+- 3R > 1.2251·10²⁷ at the choice.
+
+No site quoting K > 2.7493·10²⁵ or K* > 1.0078·10⁵¹ remains.
+
+### Open finding
+
+**minor C1.** The proof of thm:uc-reduction does not prove its raised closing assertion.
+
+The site is chapter 71 at HEAD, lines 2573–2574 (merged: 2583–2584). It is not in a block and not in §4.2's table.
+
+**Current text:**
+
+    of the results cited. The last assertion is [[cor:uc-two-offsets]] (a), whose hypothesis holds by (b) there, and
+    [[thm:uc-integer]]. ∎
+
+**What is wrong.** After L4, the statement's closing paragraph asserts the lower bound "raised to 3R > 1.2250·10²⁷ for
+the index sets as constructed ([[cor:is-lower]])". cor:uc-two-offsets (a) gives only 3R > 1.2497·10²⁴, so the proof no
+longer proves the statement.
+
+**Exact replacement** (new block L4b, chapter 71 lines 2573–2574; it overlaps neither L4 (2566–2568) nor M8 (2559–2564)
+nor P-UB1's T-blocks):
+
+```old
+of the results cited. The last assertion is [[cor:uc-two-offsets]] (a), whose hypothesis holds by (b) there, and
+[[thm:uc-integer]]. ∎
+```
+
+```new
+of the results cited. The last assertion is [[cor:is-lower]] and [[thm:uc-integer]]. ∎
+```
+
+### Nits (optional)
+
+- **C-n1. M25b, prop:uc-d-small (d), proof.** The proof says "every lower bound for d_acc and N_NM in this chapter"
+  carries to d_NM, and its list of those bounds leaves out cor:is-lower. The statement stays true, since cor:is-lower
+  states d_NM ≥ d_acc itself. Replace the block's last three lines by:
+
+```new
+then N_NM = 21d_NM + 6 ≤ 21D_NM + 6. The lower bounds of [[thm:loss-d]] (ii), [[cor:uc-two-offsets]],
+[[cor:is-lower]] and [[thm:uc-integer]] are bounds for d_acc, carried to d_NM and N_NM by d_NM ≥ d_acc and
+N_NM = 21d_NM + 6; by (a) they hold for the d_NM of [[eq:uc-d-small]]. ∎
+```
+
+- **C-n2. File header.** It still names P-UB1 by md5 a4e10a41…; P-UB1 is now 58b580fa…. P-UB1's changes are wording
+  and proof details. cor:is-lower, thm:is-gap, prop:is-lambda's 2.514 and prop:is-count (a) are unchanged.
+- **C-n3. §1.4, last bullet.** "thm:uc-reduction (iii) is block M8 only" is stale: L4, and L4b if adopted, are there
+  too.
+
+### Checks
+
+**Old texts.**
+- All 42 old texts (M1–M26b, M23d, M23e, O1–O4, L2–L5) occur exactly once, as whole lines, at the stated lines at HEAD
+  03ea039e.
+- That HEAD's chapter md5s equal the file header's (03 111b543a…, 90 f6e86ae3…).
+- No two blocks overlap, and none overlaps P-UB1's T1–T14 (md5 58b580fa).
+
+**Scratch merges** from a git archive of 03ea039e (not the working tree, which holds the Tier 3 merge in progress).
+Nothing was run in the repository.
+
+| merge | lint --chapters | assemble --check | assemble | lint --paper |
+|---|---|---|---|---|
+| base (xbase/) | 0 hits, 4833 labels | 0 problems | 0 problems | 0 hits |
+| P-UB1 T1–T14 + all P-UB2 blocks (xmain/) | 0 hits, 4845 labels | 0 problems | 0 problems | 0 hits |
+| the same + L4b + C-n1 (xfix/) | 0 hits, 4845 labels | 0 problems | 0 problems | 0 hits |
+
+The directories are under /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/rpub2/.
+Every new line is at most 121 characters, in the source and with labels resolved. The wrap rule holds.
+
+**Numbers.**
+- The comma-grouped integers of every kept block are those of 69990efa, checked there in exact arithmetic. The one
+  exception is M10's corrected factor 909,507,124,095,313.
+- The upper-bound decimals are unchanged and were re-verified: D_acc < 3.78623·10⁵⁵, D_NM < 7.57245·10⁵⁵,
+  N_NM < 1.59022·10⁵⁷, K < 1.66594·10⁵⁷, K* < 1.11014·10¹¹⁵.
+- The Option L numbers check as above.

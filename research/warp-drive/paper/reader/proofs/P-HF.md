@@ -978,3 +978,305 @@ all but one of them bounded at the point; the bounds at a point of [[lem:tl5-hf-
 faces, each using two rotations or one face derivative. A product D̂Ψ_B D̂Ψ_(B′) with |B| + |B′| = N then has a
 bounded factor exactly when N ≥ 5, which is the condition of [[lem:tl5-hf-quadratic]]; at the next level the same
 count, with the bounds of level N − 1 only, needs N ≥ 6, which is the condition of [[lem:tl5-hf-persistence]].
+
+### Placement
+
+This part and the crosswalk rows below are instructions for merging; they are not chapter text. Line numbers are those
+of the chapter sources at the time of writing and serve only to find the place; each old text is quoted exactly, and
+each new text replaces it as a whole, with the line breaks shown.
+
+*1. Where the section goes.* The section above, from its heading through [[rem:tl5-hf-level]], is inserted at the end
+of [[ch:ten-l5]], after the last line of [[rem:tl5-constants]] (line 2043), with one blank line before it. It cites
+[[lem:tl5-continuation]] in the form of item 3 below, and the labels of the wave-gauge sections (sec:tl5-wg, sec:tl5-dn),
+which come before [[sec:tl5-beyond]]; it defines the labels listed in the crosswalk rows, none of which is defined
+elsewhere. No number already printed changes.
+
+*2. The first paragraph of [[sec:tl5-beyond]] (lines 1949–1951).* Old:
+
+The following lemma reduces existence beyond the seed to an a priori estimate on the whole region and a closing
+condition; the local existence, uniqueness and continuation of the characteristic problem in the gauge that it uses are
+[[thm:tl5-cip]].
+
+New:
+
+The following lemma reduces existence beyond the seed to an a priori estimate on the whole region and a closing
+condition; the local existence, uniqueness and continuation of the reduced problem in the wave gauge that it uses are
+[[thm:tl5-wg]]. [[thm:tl5-hf]] proves the estimate, with explicit constants, for solutions close to a background.
+
+*3. The statement of [[lem:tl5-continuation]] (lines 1953–1969).* Old:
+
+**Lemma {#lem:tl5-continuation}** (Existence by continuity.) Let u* ∈ (−10, 0) and v* > 1/2, and let smooth
+characteristic data in the gauge ([[def:tl5-cip-data]]) be given on N₀ := {v = 1/2, −10 ≤ u ≤ u*} × S³ and
+N₁ := {u = −10, 1/2 ≤ v ≤ v*} × S³, satisfying the characteristic constraints [[eq:tl5-cip-constraints]]. Put
+D := {−10 ≤ u ≤ u*, 1/2 ≤ v ≤ v*} × S³ and D_s := D ∩ {v ≤ s}, and call a solution on D_s a smooth T²-invariant
+vacuum metric of the class on D_s, in the gauge, that induces the data. Suppose that to every solution g on a D_s and
+every σ ∈ [1/2, s] a number y_σ(g) ≥ 0 is assigned, depending only on the restriction of g to D_σ and continuous in σ,
+and that there are A, B > 0 such that:
+
+(H1) y_s(g) ≤ A + B y_s(g)² for every solution g on every D_s;
+
+(H2) for every k ≥ 0 there is C_k such that every solution g on a D_s with y_σ(g) ≤ 2A for all σ ∈ [1/2, s] has its
+components and their derivatives of order at most k, and the components of g⁻¹, bounded by C_k on D_s, in a fixed
+finite atlas of [−10, u*] × [1/2, v*] × S³;
+
+(H3) 4AB < 1, and y_(1/2)(g) ≤ A for every solution g.
+
+Then there is a solution g on D, and y_σ(g) ≤ 2A for every σ ∈ [1/2, v*].
+
+New:
+
+**Lemma {#lem:tl5-continuation}** (Existence by continuity.) Let ĝ be a background ([[def:tl5-wg-background]]),
+κ and κ′ as in [[def:tl5-wg-domains]], g_N smooth characteristic data in the gauge on N⁺ satisfying the characteristic
+constraints [[eq:tl5-cip-constraints]], and G^♯ data in the wave gauge for g_N ([[def:tl5-wg-data]]). For
+s ∈ (1/2, v*] call a solution on D^κ_s a solution of the reduced problem on the tilted domain D^κ_s of
+[[eq:tl5-wg-tilted]] ([[def:tl5-wg-solution]]). Suppose that to every solution g on a D^κ_s and every σ ∈ [1/2, s] a
+number y_σ(g) ≥ 0 is assigned, depending only on the restriction of g to D^κ_σ and continuous in σ, and that there are
+A, B > 0 such that every solution g on every D^κ_s with y_σ(g) ≤ 2A for all σ ∈ [1/2, s] satisfies:
+
+(H1) y_s(g) ≤ A + B y_s(g)²;
+
+(H2) for every k ≥ 0 there is C_k, independent of g and s, such that the components of g and their derivatives of
+order at most k, and the components of g⁻¹, are bounded by C_k on D^κ_s, in a fixed finite atlas of
+[−10, u*] × [1/2, v*] × S³;
+
+(H4) |g⁻¹ − ĝ⁻¹|_k̂ < κ_m at every point of D^κ_s;
+
+and that
+
+(H3) 4AB < 1, and y_(1/2)(g) ≤ A for every solution g.
+
+Then there is a solution g on D^κ = D^κ_(v*), and y_σ(g) ≤ 2A for every σ ∈ [1/2, v*].
+
+*4. The paragraph after the statement of [[lem:tl5-continuation]] (lines 1971–1982).* Old:
+
+The proof uses three properties of the characteristic problem in the gauge, for the data of the lemma: (F1) there are
+s ∈ (1/2, v*] and a solution on D_s; (F2) two solutions on the same D_s coincide; (F3) a solution on D_s with s < v* is
+the restriction of a solution on D_(s′) for some s′ ∈ (s, v*]. For smooth data satisfying the constraints these are
+[[thm:tl5-cip]]. Its proof does not use the uniqueness of a maximal development, which [CP12, Section 4.3, p. 16] and
+the proof of [CCTW16, Theorem 5.3, p. 55] leave aside: [[thm:std-ctg-neighbourhood]] is used only for the existence of
+one development, on which double-null coordinates cover a region D_s ([[lem:tl5-cip-chart]]), uniqueness is proved in
+the gauge, for vacuum metrics in double-null form on the regions D_s, axes included ([[prop:tl5-cip-unique]]), and the
+symmetry of the class follows from the uniqueness. For the problem of [[def:tl5-problem]] with u* < u₀ the lemma applies
+stage by stage: to the data of the first stage of [[cor:tl5-cip-staged]] (a), with v* ≤ 7/2, and, given a solution on
+the whole first stage, to the data of its second stage, translated by v ↦ v − 3 ([[cor:tl5-cip-staged]] (b)); with the
+seed, the solutions it gives form a solution of [[def:tl5-problem]] of class C³ ([[cor:tl5-cip-staged]] (c)). No proof
+in this paper uses the lemma.
+
+New:
+
+The proof uses three properties of the reduced problem, for the data of the lemma, which [[thm:tl5-wg]] provides:
+(F1_W) there are s₁ ∈ (1/2, v*] and a solution on D^κ_(s₁); (F2_W) two solutions, on D^κ_s and on D^κ_(s′), coincide
+on D^κ_(min(s, s′)); (F3_W) a solution on D^κ_s with s < v* and |g⁻¹ − ĝ⁻¹|_k̂ < κ_m on D^κ_s is the restriction of a
+solution on D^κ_(s′) for some s′ ∈ (s, v*]. Of the regions D^κ_s it uses only that they increase with s and that a
+solution on D^κ_s restricts to solutions on D^κ_σ for σ < s ([[rem:tl5-wg-continuation]]); (H4) is the strict tilt
+that (F3_W) requires, and (H1), (H2) and (H4) are used only for solutions with y_σ ≤ 2A for all σ. By [[thm:tl5-wg]]
+(F4_W) the solution is a G-invariant vacuum metric in the wave gauge, and [[thm:tl5-dn]] puts it into the gauge of
+[[sec:cone-constraint]] on a region D′ whose loss against D̄ is the tilt plus an explicit multiple of the
+C^(1,1)-distance of g to ĝ on the slice. For the problem of [[def:tl5-problem]] with u* < u₀ the data of the first stage
+of [[cor:tl5-cip-staged]] (a), with v* ≤ 7/2, are such data g_N, and [[cor:tl5-wg-data-first-stage]] gives data in the
+wave gauge for them under two explicit conditions on the background along N⁺.
+
+*5. The proof of [[lem:tl5-continuation]] (lines 1984–2010).* Old:
+
+*Proof.* First, if 4AB < 1 and y ≥ 0 satisfies y ≤ A + By², then y ∉ (2A, 1/(2B)), and if moreover y ≤ 2A then
+y ≤ A + 4A²B < 2A. Indeed q(y) := By² − y + A is convex with q(2A) = A(4AB − 1) < 0 and q(1/(2B)) =
+(4AB − 1)/(4B) < 0, so q < 0 on [2A, 1/(2B)], an interval since 2A < 1/(2B); and 4A²B < A.
+
+Let I be the set of s ∈ (1/2, v*] for which there is a solution g on D_s with y_σ(g) ≤ 2A for all σ ∈ [1/2, s]. If
+s ∈ I and 1/2 < s′ < s, then s′ ∈ I, by restriction.
+
+I is not empty. By (F1) of [[thm:tl5-cip]] there is a solution g on some D_(s₁); y_(1/2)(g) ≤ A < 2A by (H3), and
+y_σ(g) is continuous in σ, so y_σ(g) ≤ 2A on [1/2, s₂] for some s₂ ∈ (1/2, s₁], and s₂ ∈ I.
+
+I is open in (1/2, v*]. Let s ∈ I with s < v*, and g the solution on D_s. For σ ∈ (1/2, s] the restriction of g to D_σ
+is a solution on D_σ, so (H1) and y_σ(g) ≤ 2A give y_σ(g) ≤ A + 4A²B < 2A; at σ = 1/2, y_(1/2)(g) ≤ A by (H3). By
+(F3) of [[thm:tl5-cip]], g is the restriction of a solution g′ on some D_(s′), s′ > s, and since y_σ(g′) is continuous
+in σ and y_s(g′) = y_s(g) < 2A, y_σ(g′) ≤ 2A on [1/2, s″] for some s″ ∈ (s, s′]. So s″ ∈ I.
+
+I is closed. Let s_n ∈ I increase to s̄ ≤ v*, with solutions g_n on D_(s_n). By (F2) of [[thm:tl5-cip]], g_m
+restricted to D_(s_n) is g_n for m ≥ n, so the g_n define a smooth metric g on D ∩ {v < s̄}, with y_σ(g) ≤ 2A for
+σ < s̄. By (H2) the
+components of g and of g⁻¹ in the charts of the atlas are bounded on D ∩ {v < s̄} together with all their derivatives,
+so each component and each derivative is uniformly continuous there and extends continuously to D_(s̄); the extended
+components are smooth, and the extended metric is nondegenerate, since the components of g⁻¹ extend as well. The
+extension is T²-invariant, of the form of the class in the gauge, vacuum and induces the data on D_(s̄), since each of
+these conditions is preserved under limits of the components and their derivatives. So it is a solution ḡ on D_(s̄).
+For σ ≤ s_n, y_σ(ḡ) = y_σ(g_n) ≤ 2A, since y_σ depends only on the restriction to D_σ; so y_σ(ḡ) ≤ 2A for σ < s̄,
+and y_(s̄)(ḡ) ≤ 2A by the continuity of y_σ(ḡ) in σ. Hence s̄ ∈ I.
+
+So I = (1/2, v*], and v* ∈ I is the claim. ∎
+
+New:
+
+*Proof.* First, if 4AB < 1 and y ≥ 0 satisfies y ≤ A + By², then y ∉ (2A, 1/(2B)), and if moreover y ≤ 2A then
+y ≤ A + 4A²B < 2A. Indeed q(y) := By² − y + A is convex with q(2A) = A(4AB − 1) < 0 and q(1/(2B)) =
+(4AB − 1)/(4B) < 0, so q < 0 on [2A, 1/(2B)], an interval since 2A < 1/(2B); and 4A²B < A.
+
+Let I be the set of s ∈ (1/2, v*] for which there is a solution g on D^κ_s with y_σ(g) ≤ 2A for all σ ∈ [1/2, s]. If
+s ∈ I and 1/2 < s′ < s, then s′ ∈ I, by restriction.
+
+I is not empty. By (F1_W) of [[thm:tl5-wg]] there is a solution g on some D^κ_(s₁); y_(1/2)(g) ≤ A < 2A by (H3), and
+y_σ(g) is continuous in σ, so y_σ(g) ≤ 2A on [1/2, s₂] for some s₂ ∈ (1/2, s₁], and s₂ ∈ I.
+
+I is open in (1/2, v*]. Let s ∈ I with s < v*, and g the solution on D^κ_s. For σ ∈ (1/2, s] the restriction of g
+to D^κ_σ is a solution on D^κ_σ with y_σ′ ≤ 2A for σ′ ≤ σ, so (H1) and y_σ(g) ≤ 2A give y_σ(g) ≤ A + 4A²B < 2A; at
+σ = 1/2, y_(1/2)(g) ≤ A by (H3). By (H4), |g⁻¹ − ĝ⁻¹|_k̂ < κ_m on D^κ_s, so by (F3_W) of [[thm:tl5-wg]], g is the
+restriction of a solution g′ on some D^κ_(s′), s′ > s, and since y_σ(g′) is continuous in σ and
+y_s(g′) = y_s(g) < 2A, y_σ(g′) ≤ 2A on [1/2, s″] for some s″ ∈ (s, s′]. So s″ ∈ I.
+
+I is closed. Let s_n ∈ I increase to s̄ ≤ v*, with solutions g_n on D^κ_(s_n). By (F2_W) of [[thm:tl5-wg]], g_m
+restricted to D^κ_(s_n) is g_n for m ≥ n, so the g_n define a smooth metric g on D^κ ∩ {τ₂ < s̄}, with y_σ(g) ≤ 2A
+for σ < s̄. By (H2) the components of g and of g⁻¹ in the charts of the atlas are bounded on D^κ ∩ {τ₂ < s̄} together
+with all their derivatives, so each component and each derivative is uniformly continuous there and extends
+continuously to D^κ_(s̄), the closure of that set; the extended components are smooth, and the extended metric is
+nondegenerate, since the components of g⁻¹ extend as well. The extension is tilted, the inequality
+|g⁻¹ − ĝ⁻¹|_k̂ ≤ κ_m being preserved under limits, satisfies Ric^W = 0 and equals G^♯ at the points of N ∩ D^κ_(s̄),
+since each of these conditions is preserved under limits of the components and their derivatives; it is Lorentzian,
+being tilted, by [[lem:tl5-wg-norms]] (b). So it is a solution ḡ on D^κ_(s̄). For σ ≤ s_n, y_σ(ḡ) = y_σ(g_n) ≤ 2A,
+since y_σ depends only on the restriction to D^κ_σ; so y_σ(ḡ) ≤ 2A for σ < s̄, and y_(s̄)(ḡ) ≤ 2A by the continuity
+of y_σ(ḡ) in σ. Hence s̄ ∈ I.
+
+So I = (1/2, v*], and v* ∈ I is the claim. ∎
+
+*6. The paragraph after the proof of [[lem:tl5-continuation]] (lines 2012–2015).* Old:
+
+In an application y_σ(g) is a norm of g − ĝ on D_σ, ĝ an explicit approximant on D, and (H1) is an a priori estimate
+with A = F ε_r and B = F G: ε_r is the size of the residual of ĝ, F the constant of a linear estimate for the problem
+linearised about ĝ, and G the constant of its quadratic remainder. The condition 4AB < 1 of (H3) is then the closing
+condition 4F²G ε_r < 1.
+
+New:
+
+In [[thm:tl5-hf]], y_σ is the weighted norm Y_σ of [[def:tl5-hf-norm]]: a supremum of the energies of g − ĝ and of
+its Lie derivatives along the static Killing field and the six rotations of the seed through the future faces of the
+tilted regions, weighted by e^(−φ), with φ the integral of two rates that absorb the linear bulk of the energy identity
+pointwise. There A = A_w is of the size of the data error on N₁ and of the residual of ĝ, and B = B_w the constant of
+the quadratic remainder, in which the amplification e^(φ/2) of the linear estimate enters once; the condition 4AB < 1
+of (H3) is the closing condition [[eq:tl5-hf-closing]], linear in that amplification.
+
+*7. [[rem:tl5-beyond]] (lines 2017–2027).* Old:
+
+**Remark {#rem:tl5-beyond}** (Why existence beyond the seed is claimed only on a strip.) [[lem:tl5-continuation]]
+concerns smooth data, for which (F1)–(F3) hold ([[thm:tl5-cip]]). The data of [[def:tl5-problem]] are not smooth: env is
+C³ and not C⁴ at v = 1/2 and v = 7/2 ([[rem:envelope-regularity]]), and so are the fields P and Q on N there. But for
+u* < u₀ the problem splits into the seed and two stages with smooth data, whose solutions glue in class C³
+([[cor:tl5-cip-staged]]); so the regularity of the data is no obstruction: (F1) gives the strip of [[thm:ten-l5]] (b),
+and the lemma applies stage by stage. What is missing for a given region D is (H1)–(H3). (H1) is an estimate on all of
+D, axes included. An estimate for the linearised problem on a truncated domain of dependence that avoids the axes would
+not give (H1): no such domain contains a region of the form D_s, since D_s contains the axes. The residual bounds of
+[[sec:tl5-residuals]] hold at points and on boxes of the region Π of [[eq:tl5-region]], which is not of the form D_s,
+and are not bounds of a norm over a region D_s. So (H1)–(H3) are established in this paper for no region D with
+v* > 1/2, and no existence is claimed beyond the strip of [[thm:ten-l5]] (b), whose width is not estimated.
+
+New:
+
+**Remark {#rem:tl5-beyond}** (Why existence beyond the seed is claimed only on a strip.) [[lem:tl5-continuation]]
+concerns smooth data, for which the local theory holds in the double-null gauge ([[thm:tl5-cip]]) and in the wave gauge
+([[thm:tl5-wg]]). The data of [[def:tl5-problem]] are not smooth: env is C³ and not C⁴ at v = 1/2 and v = 7/2
+([[rem:envelope-regularity]]), and so are the fields P and Q on N there. But for u* < u₀ the problem splits into the
+seed and two stages with smooth data, whose solutions glue in class C³ ([[cor:tl5-cip-staged]]); so the regularity of
+the data is no obstruction: (F1) of [[thm:tl5-cip]] gives the strip of [[thm:ten-l5]] (b), and the lemma applies stage
+by stage. What is missing for a given region is the verification of the hypotheses of [[thm:tl5-hf]] for a background
+there: that theorem gives (H1), (H2) and (H4) and reduces (H3) to inequalities between suprema and integrals of explicit
+functions of the background, of its residual and of the data on N₁. The estimate (H1) is one on all of D^κ_s, axes
+included. An estimate for the linearised problem on a truncated domain of dependence that avoids the axes would not
+give (H1): no such domain contains a region of the form D^κ_s, since D^κ_s contains the axes. The residual bounds of
+[[sec:tl5-residuals]] hold at points and on boxes of the region Π of [[eq:tl5-region]], which is not of the form
+D^κ_s, and are not bounds of the quantities ε_w and ϱ of [[def:tl5-hf-constants]] over a region D^κ_s. So the
+hypotheses of [[thm:tl5-hf]] are established in this paper for no background at 10 l5, and no existence is claimed
+beyond the strip of [[thm:ten-l5]] (b), whose width is not estimated.
+
+### Crosswalk rows
+
+Rows for the crosswalk of [[ch:ten-l5]], in its four columns, separated by tabs, in chapter order; the line numbers
+are those of this file:
+
+    sec:tl5-hf	paper/reader/proofs/P-HF.md:1	P-HF, section	new; at the end of ch:ten-l5, after rem:tl5-constants; L3-L5 of the plan and the weighted bootstrap (G0 sec 2-5, 8; G0b sec 3)
+    sec:tl5-hf-setting	paper/reader/proofs/P-HF.md:28	P-HF, section	new
+    def:tl5-hf-frame	paper/reader/proofs/P-HF.md:30	P-HF, Definition	new
+    eq:tl5-hf-null-pair	paper/reader/proofs/P-HF.md:38	P-HF, display	new
+    lem:tl5-hf-khat	paper/reader/proofs/P-HF.md:49	P-HF, Lemma	conversion factor c^(-r/2) between the norm with c = f(-u)/2 and khat (c = 1)
+    def:tl5-hf-operators	paper/reader/proofs/P-HF.md:61	P-HF, Definition	new
+    eq:tl5-hf-operators	paper/reader/proofs/P-HF.md:64	P-HF, display	new
+    eq:tl5-hf-frame-terms	paper/reader/proofs/P-HF.md:70	P-HF, display	new
+    eq:tl5-hf-dk	paper/reader/proofs/P-HF.md:74	P-HF, display	new
+    def:tl5-hf-domains	paper/reader/proofs/P-HF.md:88	P-HF, Definition	new
+    sec:tl5-hf-identity	paper/reader/proofs/P-HF.md:98	P-HF, section	new
+    def:tl5-hf-current	paper/reader/proofs/P-HF.md:100	P-HF, Definition	new
+    lem:tl5-hf-densities	paper/reader/proofs/P-HF.md:111	P-HF, Lemma	new
+    eq:tl5-hf-coercive	paper/reader/proofs/P-HF.md:115	P-HF, display	new
+    lem:tl5-hf-divergence	paper/reader/proofs/P-HF.md:124	P-HF, Lemma	G0 Lemma F0.1, with the tensor commutator term
+    eq:tl5-hf-bulk	paper/reader/proofs/P-HF.md:128	P-HF, display	new
+    lem:tl5-hf-identity	paper/reader/proofs/P-HF.md:141	P-HF, Lemma	G0 Lemma F0.2 on the tilted corner regions; no axis boundary
+    eq:tl5-hf-faces	paper/reader/proofs/P-HF.md:145	P-HF, display	new
+    eq:tl5-hf-identity	paper/reader/proofs/P-HF.md:151	P-HF, display	new
+    sec:tl5-hf-rates	paper/reader/proofs/P-HF.md:173	P-HF, section	new
+    def:tl5-hf-blocks	paper/reader/proofs/P-HF.md:184	P-HF, Definition	new
+    lem:tl5-hf-pointwise	paper/reader/proofs/P-HF.md:192	P-HF, Lemma	G0 Lemma F0.3 as exact block norms of the bulk form
+    rem:tl5-hf-blocks	paper/reader/proofs/P-HF.md:203	P-HF, Remark	new
+    def:tl5-hf-rates	paper/reader/proofs/P-HF.md:224	P-HF, Definition	pointwise admissibility (allocation between the families), tilt-monotone
+    eq:tl5-hf-admissible	paper/reader/proofs/P-HF.md:229	P-HF, display	new
+    lem:tl5-hf-allocation	paper/reader/proofs/P-HF.md:238	P-HF, Lemma	explicit rates from a measurable allocation and Young parameters
+    eq:tl5-hf-alpha	paper/reader/proofs/P-HF.md:244	P-HF, display	new
+    prop:tl5-hf-linear	paper/reader/proofs/P-HF.md:262	P-HF, Proposition	G0 Lemma F0.4, weighted estimate, F^2 = 2 e^(A+B)
+    eq:tl5-hf-hyp	paper/reader/proofs/P-HF.md:268	P-HF, display	new
+    eq:tl5-hf-source	paper/reader/proofs/P-HF.md:274	P-HF, display	new
+    eq:tl5-hf-linear	paper/reader/proofs/P-HF.md:279	P-HF, display	new
+    eq:tl5-hf-f	paper/reader/proofs/P-HF.md:286	P-HF, display	new
+    cor:tl5-hf-level0	paper/reader/proofs/P-HF.md:305	P-HF, Corollary	new
+    rem:tl5-hf-weight	paper/reader/proofs/P-HF.md:312	P-HF, Remark	new
+    sec:tl5-hf-commutation	paper/reader/proofs/P-HF.md:319	P-HF, section	new
+    def:tl5-hf-fields	paper/reader/proofs/P-HF.md:321	P-HF, Definition	new
+    lem:tl5-hf-fields	paper/reader/proofs/P-HF.md:330	P-HF, Lemma	G0 sec 3.1; null structure of the deformation tensors (G0b sec 2)
+    eq:tl5-hf-lambda	paper/reader/proofs/P-HF.md:334	P-HF, display	new
+    lem:tl5-hf-commutator	paper/reader/proofs/P-HF.md:372	P-HF, Lemma	G0 sec 3.2; exact commutator maps (G0b sec 3 items 1-2)
+    eq:tl5-hf-k	paper/reader/proofs/P-HF.md:379	P-HF, display	new
+    eq:tl5-hf-comm	paper/reader/proofs/P-HF.md:387	P-HF, display	new
+    eq:tl5-hf-lie-d	paper/reader/proofs/P-HF.md:404	P-HF, display	new
+    eq:tl5-hf-lie	paper/reader/proofs/P-HF.md:408	P-HF, display	new
+    def:tl5-hf-triples	paper/reader/proofs/P-HF.md:412	P-HF, Definition	new
+    lem:tl5-hf-system	paper/reader/proofs/P-HF.md:424	P-HF, Lemma	commuted equation with all lower-level terms exactly (G0b item 6(a) replaced by exact maps)
+    eq:tl5-hf-system	paper/reader/proofs/P-HF.md:427	P-HF, display	new
+    lem:tl5-hf-recovery	paper/reader/proofs/P-HF.md:439	P-HF, Lemma	G0 Lemma F3.1 with explicit constants, quasilinear H included
+    eq:tl5-hf-recovery	paper/reader/proofs/P-HF.md:448	P-HF, display	new
+    def:tl5-hf-coupling	paper/reader/proofs/P-HF.md:476	P-HF, Definition	level-N coupling norms as operator norms of explicit maps (G0b sec 3)
+    eq:tl5-hf-bn	paper/reader/proofs/P-HF.md:490	P-HF, display	new
+    prop:tl5-hf-linear-n	paper/reader/proofs/P-HF.md:497	P-HF, Proposition	G0 Lemma F3.2 at level N
+    eq:tl5-hf-sn	paper/reader/proofs/P-HF.md:502	P-HF, display	new
+    sec:tl5-hf-sobolev	paper/reader/proofs/P-HF.md:522	P-HF, section	new
+    lem:tl5-hf-sphere	paper/reader/proofs/P-HF.md:524	P-HF, Lemma	H2 to L-infinity on S3 with explicit constant
+    eq:tl5-hf-sphere	paper/reader/proofs/P-HF.md:527	P-HF, display	new
+    def:tl5-hf-component	paper/reader/proofs/P-HF.md:538	P-HF, Definition	new
+    lem:tl5-hf-components	paper/reader/proofs/P-HF.md:547	P-HF, Lemma	new
+    lem:tl5-hf-sobolev	paper/reader/proofs/P-HF.md:563	P-HF, Lemma	Sobolev on the tilted future faces; replaces G0 C_S
+    eq:tl5-hf-cs	paper/reader/proofs/P-HF.md:569	P-HF, display	new
+    eq:tl5-hf-cs-r	paper/reader/proofs/P-HF.md:594	P-HF, display	new
+    sec:tl5-hf-quadratic	paper/reader/proofs/P-HF.md:598	P-HF, section	new
+    lem:tl5-hf-reduced	paper/reader/proofs/P-HF.md:600	P-HF, Lemma	exact expansion of the reduced Ricci operator about ghat; G0 sec 5
+    eq:tl5-hf-n	paper/reader/proofs/P-HF.md:604	P-HF, display	new
+    def:tl5-hf-levels	paper/reader/proofs/P-HF.md:633	P-HF, Definition	new
+    eq:tl5-hf-cn	paper/reader/proofs/P-HF.md:648	P-HF, display	new
+    lem:tl5-hf-quadratic	paper/reader/proofs/P-HF.md:652	P-HF, Lemma	Lemma G: explicit majorant c_n; one high factor for N >= 5
+    eq:tl5-hf-g	paper/reader/proofs/P-HF.md:655	P-HF, display	new
+    lem:tl5-hf-linfty	paper/reader/proofs/P-HF.md:701	P-HF, Lemma	pointwise bounds of the low quantities from the face energies
+    eq:tl5-hf-linfty	paper/reader/proofs/P-HF.md:714	P-HF, display	new
+    lem:tl5-hf-quasilinear	paper/reader/proofs/P-HF.md:753	P-HF, Lemma	quasilinear term by an integrated current; strict tilt of the faces
+    eq:tl5-hf-qh	paper/reader/proofs/P-HF.md:762	P-HF, display	new
+    eq:tl5-hf-theta	paper/reader/proofs/P-HF.md:766	P-HF, display	new
+    lem:tl5-hf-conversions	paper/reader/proofs/P-HF.md:785	P-HF, Lemma	khat tilt and the C^(1,1) slice distance eps of thm:tl5-dn
+    eq:tl5-hf-eps	paper/reader/proofs/P-HF.md:797	P-HF, display	new
+    sec:tl5-hf-bootstrap	paper/reader/proofs/P-HF.md:807	P-HF, section	new
+    def:tl5-hf-norm	paper/reader/proofs/P-HF.md:809	P-HF, Definition	new
+    def:tl5-hf-constants	paper/reader/proofs/P-HF.md:821	P-HF, Definition	new
+    prop:tl5-hf-bootstrap	paper/reader/proofs/P-HF.md:841	P-HF, Proposition	(H1) in the weighted norm; G0 sec 8.2 with explicit constants
+    eq:tl5-hf-smallness	paper/reader/proofs/P-HF.md:845	P-HF, display	new
+    eq:tl5-hf-h1	paper/reader/proofs/P-HF.md:850	P-HF, display	new
+    lem:tl5-hf-persistence	paper/reader/proofs/P-HF.md:904	P-HF, Lemma	(H2), qualitative, N >= 6
+    thm:tl5-hf	paper/reader/proofs/P-HF.md:938	P-HF, Theorem	(H1)-(H4) and the closing condition linear in F; existence on D^kappa and double-null form via thm:tl5-dn
+    eq:tl5-hf-closing	paper/reader/proofs/P-HF.md:949	P-HF, display	new
+    rem:tl5-hf-level	paper/reader/proofs/P-HF.md:975	P-HF, Remark	why N >= 5 (and 6): departs from the plan level 3
+
+Notes to change in existing rows of the crosswalk of [[ch:ten-l5]]: lem:tl5-continuation, "restated for the tilted
+domains and the reduced problem in the wave gauge (thm:tl5-wg), y := Y of def:tl5-hf-norm in thm:tl5-hf; (H1), (H2)
+required only below 2A; (H4) the strict tilt (P-HF items 3-6)"; rem:tl5-beyond, "the missing step is the verification of
+the hypotheses of thm:tl5-hf for a background (P-HF item 7)".
