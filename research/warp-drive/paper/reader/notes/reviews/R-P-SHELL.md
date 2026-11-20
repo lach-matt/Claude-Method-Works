@@ -823,3 +823,33 @@ label resolution, and starts no wrapped line with a marker.
         [[sec:loc-cone-reduced]], at the corner (u_c, v_c).
 
 With C-1 applied, and the nits at the writer's discretion, the file is confirmed.
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Second confirmation (round 4)
+
+**Verdict: CONFIRMED.** No Major, minor or nit remains open.
+
+**File read.** `proofs/P-SHELL.md`, md5 0dbc56e0d7f13174376f7e7180142946, 971 lines. Its HEAD copy (commit 71185786) has
+the same md5.
+
+**Diff.** It was taken against the confirmed version (md5 93003d07…, from commit f700baf0). It contains exactly the
+four changes and nothing else:
+- **C-1.** The text is as I gave it:
+  - item 8's New, at lines 935-939, carries "with densities smooth in angle" and "where the metric functions are
+    continuous";
+  - item 2's New, at lines 851-856;
+  - the last two lines of item 3's New, at lines 869-870.
+- **nit 1** (lines 803-806): as given.
+- **nit 2** (lines 807-810): as given, except "a round one" becomes "a round solution". The meaning is the same, and the
+  phrase is clearer.
+- **nit 3** (lines 442-444): as given. The file is therefore one line shorter above line 495.
+- **Crosswalk.** Five rows are renumbered by −1 (thm:loc-shells 495, eq:loc-shell-bands 500, prop:loc-shell-crossing
+  666, eq:loc-shell-crossing-rule 687, rem:loc-shell-scope 799). All 21 rows point at their labels.
+
+**Checks.**
+- The file has no line longer than 121 characters and no wrapped line that starts with a marker. Line 695 has "round
+  ones", which does not match the lint rule `round (one|two|three)`, because "ones" continues the word.
+- Scratch build from a git archive of HEAD 71185786: the section was inserted before sec:loc-kid (83:2391), and all six
+  Old texts occurred once and were applied. `assemble.py` reports 0 problems, `lint.py --chapters` reports 0 hits in 62
+  files, and PAPER.md has no line longer than 121 characters.
