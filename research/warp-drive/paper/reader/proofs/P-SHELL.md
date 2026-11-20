@@ -398,12 +398,13 @@ leaves.
 d_1] × [0, c_1], 𝒫_k^out := [0, λ_k^out] × 𝒵_k (1 ≤ k ≤ p) along 𝒞_out and 𝒫_j^in := 𝒴_j × [0, λ_j^in] (1 ≤ j ≤ q) along
 𝒞_in, with numbers λ chosen below; 𝒫_k^out has depth k, 𝒫_j^in depth j and 𝒫_0 depth 0.
 
-*Step 1: the corner rectangle.* The restrictions of the cone data to {0} × [0, c_1] and [0, d_1] × {0} are cone data on
-𝒫_0 in the sense of [[def:civp-large-data]], with d_1 and c_1 in place of u_1 and v_1: they are smooth up to the ends, and
-(i)–(iii) hold by [[def:loc-shell-data]]. [[thm:civp-large]] gives a class solution in the gauge on {(u, v) ∈ 𝒫_0 :
-min(u, v) ≤ δ} for some δ > 0, inducing these data and equal to (g0, q̊_in, q̊_out) at the points with ϑ ∉ [ϑ_a − η0,
-ϑ_b + η0], so off (ϑ_a^(1), ϑ_b^(1)), and unique in the sense of its part (c). Let δ_0 := min(δ, min(c_1, d_1)/2),
-𝒮_0 := {(u, v) ∈ 𝒫_0 : min(u, v) ≤ δ_0} and g_0 the restriction of that solution to 𝒮_0 × S³.
+*Step 1: the corner rectangle.* The restrictions of the cone data to {0} × [0, c_1] and [0, d_1] × {0} are cone
+data on 𝒫_0 in the sense of [[def:civp-large-data]], with d_1 and c_1 in place of u_1 and v_1: they are smooth
+up to the ends, and (i)–(iii) hold by [[def:loc-shell-data]]. [[thm:civp-large]] gives a class solution in the
+gauge on {(u, v) ∈ 𝒫_0 : min(u, v) ≤ δ} for some δ > 0, inducing these data and equal to (g0, q̊_in, q̊_out) at
+the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0], so off (ϑ_a^(1), ϑ_b^(1)), and unique in the sense of its part (c). Let
+δ_0 := min(δ, min(c_1, d_1)/2), 𝒮_0 := {(u, v) ∈ 𝒫_0 : min(u, v) ≤ δ_0} and g_0 the restriction of that solution to
+𝒮_0 × S³.
 
 *Step 2: along 𝒞_out.* For k = 1, …, p in turn put λ_k^out := δ_(k−1)^out, with δ_0^out := δ_0; then 𝒫_k^out lies in the
 cell Q_0k, as λ_k^out ≤ δ_0 < d_1. On N_o := {0} × 𝒵_k take the cone data, which are smooth up to the ends of 𝒵_k. On
@@ -695,14 +696,14 @@ it states in full and marks [[pending:civp-large-at-a-corner]] and [[pending:loc
 [[ch:localised-data]] after the Tier 2 section, which ends with [[rem:civp-large-beyond]], immediately before the
 heading "### The static Killing field and the charge {#sec:loc-kid}" (line 602 of the current source), with one blank
 line before and one after; it depends only on the sections of Tiers 1 and 2, and so follows any further section placed
-between the Tier 2 section and that heading. It defines sec:loc-shells, def:loc-shell-solution, eq:loc-shell-einstein, eq:loc-shell-dust,
-lem:loc-shell-ricci, eq:loc-shell-singular, lem:loc-shell-identities, eq:loc-shell-trace, prop:loc-shell-junction,
-eq:loc-shell-torsion, eq:loc-shell-conservation, rem:loc-shell-poisson, def:loc-shell-data, prop:loc-shell-cones,
-thm:loc-shells, eq:loc-shell-bands, prop:loc-shell-crossing, eq:loc-shell-crossing-rule and rem:loc-shell-scope, none
-of which is defined elsewhere. Numbers are resolved at assembly. When (T2) and (T1) are established, the paragraph "*The
-smooth theorems at other corners.*" is replaced by citations of the results that state them, and the words "Assume
-(T2)." and "Assume (T1) besides (T2)," in [[thm:loc-shells]] and "Under (T2)," in [[prop:loc-shell-crossing]] (c) are
-removed.
+between the Tier 2 section and that heading. It defines sec:loc-shells, def:loc-shell-solution, eq:loc-shell-einstein,
+eq:loc-shell-dust, lem:loc-shell-ricci, eq:loc-shell-singular, lem:loc-shell-identities, eq:loc-shell-trace,
+prop:loc-shell-junction, eq:loc-shell-torsion, eq:loc-shell-conservation, rem:loc-shell-poisson, def:loc-shell-data,
+prop:loc-shell-cones, thm:loc-shells, eq:loc-shell-bands, prop:loc-shell-crossing, eq:loc-shell-crossing-rule and
+rem:loc-shell-scope, none of which is defined elsewhere. Numbers are resolved at assembly. When (T2) and (T1) are
+established, the paragraph "*The smooth theorems at other corners.*" is replaced by citations of the results that
+state them, and the words "Assume (T2)." and "Assume (T1) besides (T2)," in [[thm:loc-shells]] and "Under (T2)," in
+[[prop:loc-shell-crossing]] (c) are removed.
 
 *2. [[rem:loc-cone-scope]] (iii), in the Tier 1 text (Block A), its second line.* Only this line is replaced, so that the
 item composes with a placement that rewrites the end of (ii) on the line before it. Old:
@@ -812,21 +813,21 @@ section. Each row is given as one line with its four fields separated by tab cha
 note); the source is this file with the line of the label.
 
 sec:loc-shells	paper/reader/proofs/P-SHELL.md:1	proof P-SHELL, section heading	new: leaf-aligned null shells for the characteristic problem of the class (scoping report S-T6, route M1); slabs between the leaves developed by the smooth theorems and glued by the junction
-def:loc-shell-solution	paper/reader/proofs/P-SHELL.md:46	proof P-SHELL, Definition (Solutions with null shells along the leaves)	new: continuous, cellwise smooth metric in the gauge; distributional Ricci in charts (u, v, y); measure-valued null dust on the leaves; conservation laws in divergence form
-eq:loc-shell-einstein	paper/reader/proofs/P-SHELL.md:54	proof P-SHELL, display	Ric(g) = q_in^♯ dv ⊗ dv + q_out^♯ du ⊗ du with the shell measures
-eq:loc-shell-dust	paper/reader/proofs/P-SHELL.md:56	proof P-SHELL, display	the conservation laws of the two families in divergence form
-lem:loc-shell-ricci	paper/reader/proofs/P-SHELL.md:69	proof P-SHELL, Lemma (The curvature of a continuous, cellwise smooth metric)	new: δ-part of Ric across a null leaf in invariant form; in the gauge −[tr χ] dv² plus a current term in [∂_v b]; no condition across outgoing leaves; checked independently by computer algebra (private)
-eq:loc-shell-singular	paper/reader/proofs/P-SHELL.md:76	proof P-SHELL, display	the singular tensors 𝔖_k and 𝔖′_j
-lem:loc-shell-identities	paper/reader/proofs/P-SHELL.md:127	proof P-SHELL, Lemma (Two identities)	new: Ric(L̲, ∂_ϑ) from lem:loc-cone-ricci, and the angular trace identity with remainder 𝔞 containing only ϑ-derivatives; formulas of lem:loc-cone-ricci checked independently by computer algebra (private); round check 𝔞 = 6/R²
-eq:loc-shell-trace	paper/reader/proofs/P-SHELL.md:135	proof P-SHELL, display	the angular trace identity
-prop:loc-shell-junction	paper/reader/proofs/P-SHELL.md:167	proof P-SHELL, Proposition (The junction conditions)	new: (J1) [∂_v b] = 0, (J2) densities −[tr χ], −[tr χ̲], (J3) continuity of the transverse densities; necessary and sufficient; transport of [∂_v b]; conservation of the shell densities (S-T6 3.2 (a)–(d) written symbolically)
-eq:loc-shell-torsion	paper/reader/proofs/P-SHELL.md:173	proof P-SHELL, display	homogeneous transport of [∂_v b] along L̲
-eq:loc-shell-conservation	paper/reader/proofs/P-SHELL.md:181	proof P-SHELL, display	null-dust conservation law of an ingoing shell
-rem:loc-shell-poisson	paper/reader/proofs/P-SHELL.md:262	proof P-SHELL, Remark (Null shells in four dimensions)	comparison with [Poi02, (2.15), p. 4] and [Poi02, p. 1]; Poisson's S^αβ is formed from the singular part of the Einstein tensor, equal here to the δ-part of Ric since 𝔖_k and 𝔖′_j are trace-free; no proof uses it; Barrabès–Israel named only through the title of [Poi02]
-def:loc-shell-data	paper/reader/proofs/P-SHELL.md:275	proof P-SHELL, Definition (Cone data with shells)	new: cone data of def:civp-large-data with atoms m_k, n_j and breaks on leaves; jump conditions [∂_v b] = 0, [tr χ] = −m_k, [tr χ̲] = −n_j
-prop:loc-shell-cones	paper/reader/proofs/P-SHELL.md:295	proof P-SHELL, Proposition (Free data with atoms)	new: prop:loc-cones and lem:loc-cone-in with measure-valued densities (S-T6 MV-2); [∂_vϕ] = −m_k/3, ∂_v b continuous automatically
-thm:loc-shells	paper/reader/proofs/P-SHELL.md:355	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses (T2) and (T1), marked pending; derivative count k_(i−1) = 6k_i + 23, the change of angle back losing no derivative
-eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:360	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
-prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:524	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis; the lemma and the junction conditions extended to sets meeting every coordinate line in an interval (𝔏 and its unions); the crossing rule where the domain contains a neighbourhood of the crossing sphere
-eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:545	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
-rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:657	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)
+def:loc-shell-solution	paper/reader/proofs/P-SHELL.md:50	proof P-SHELL, Definition (Solutions with null shells along the leaves)	new: continuous, cellwise smooth metric in the gauge; distributional Ricci in charts (u, v, y); measure-valued null dust on the leaves; conservation laws in divergence form; on each cell a class solution in double-null form (Tier 1's class solution in the gauge without the condition near the axes)
+eq:loc-shell-einstein	paper/reader/proofs/P-SHELL.md:58	proof P-SHELL, display	Ric(g) = q_in^♯ dv ⊗ dv + q_out^♯ du ⊗ du with the shell measures
+eq:loc-shell-dust	paper/reader/proofs/P-SHELL.md:60	proof P-SHELL, display	the conservation laws of the two families in divergence form
+lem:loc-shell-ricci	paper/reader/proofs/P-SHELL.md:74	proof P-SHELL, Lemma (The curvature of a continuous, cellwise smooth metric)	new: δ-part of Ric across a null leaf in invariant form; in the gauge −[tr χ] dv² plus a current term in [∂_v b]; no condition across outgoing leaves; checked independently by computer algebra (private)
+eq:loc-shell-singular	paper/reader/proofs/P-SHELL.md:81	proof P-SHELL, display	the singular tensors 𝔖_k and 𝔖′_j
+lem:loc-shell-identities	paper/reader/proofs/P-SHELL.md:132	proof P-SHELL, Lemma (Two identities)	new: Ric(L̲, ∂_ϑ) from lem:loc-cone-ricci, and the angular trace identity with remainder 𝔞 containing only ϑ-derivatives; formulas of lem:loc-cone-ricci checked independently by computer algebra (private); round check 𝔞 = 6/R²
+eq:loc-shell-trace	paper/reader/proofs/P-SHELL.md:140	proof P-SHELL, display	the angular trace identity
+prop:loc-shell-junction	paper/reader/proofs/P-SHELL.md:172	proof P-SHELL, Proposition (The junction conditions)	new: (J1) [∂_v b] = 0, (J2) densities −[tr χ], −[tr χ̲], (J3) continuity of the transverse densities; necessary and sufficient; transport of [∂_v b]; conservation of the shell densities (S-T6 3.2 (a)–(d) written symbolically); hypothesis: a class solution in double-null form on each closed cell
+eq:loc-shell-torsion	paper/reader/proofs/P-SHELL.md:179	proof P-SHELL, display	homogeneous transport of [∂_v b] along L̲
+eq:loc-shell-conservation	paper/reader/proofs/P-SHELL.md:187	proof P-SHELL, display	null-dust conservation law of an ingoing shell
+rem:loc-shell-poisson	paper/reader/proofs/P-SHELL.md:268	proof P-SHELL, Remark (Null shells in four dimensions)	comparison with [Poi02, (2.15), p. 4] and [Poi02, p. 1]; Poisson's S^αβ is formed from the singular part of the Einstein tensor, equal here to the δ-part of Ric since 𝔖_k and 𝔖′_j are trace-free; no proof uses it; Barrabès–Israel named only through the title of [Poi02]
+def:loc-shell-data	paper/reader/proofs/P-SHELL.md:281	proof P-SHELL, Definition (Cone data with shells)	new: cone data of def:civp-large-data with atoms m_k, n_j and breaks on leaves; jump conditions [∂_v b] = 0, [tr χ] = −m_k, [tr χ̲] = −n_j
+prop:loc-shell-cones	paper/reader/proofs/P-SHELL.md:301	proof P-SHELL, Proposition (Free data with atoms)	new: prop:loc-cones and lem:loc-cone-in with measure-valued densities (S-T6 MV-2); [∂_vϕ] = −m_k/3, ∂_v b continuous automatically
+thm:loc-shells	paper/reader/proofs/P-SHELL.md:361	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses (T2) and (T1), marked pending; derivative count k_(i−1) = 6k_i + 23, the change of angle back losing no derivative
+eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:366	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
+prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:530	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis; the lemma and the junction conditions extended to sets meeting every coordinate line in an interval (𝔏 and its unions); the crossing rule where the domain contains a neighbourhood of the crossing sphere
+eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:551	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
+rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:662	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)
