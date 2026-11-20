@@ -1289,7 +1289,7 @@ way ([[sec:i-a-1-2]]).
 Fix smooth vector fields X₁, …, X_q on ∂M spanning T∂M at every point. For an integer k ≥ 0, H^k(∂M) is normed by
 ‖u‖_(H^k) := Σ ‖X_(i₁)⋯X_(i_l)u‖_(L²(∂M,μ)), the sum over l ≤ k and all indices, the fields acting on each component
 and ‖u‖²_(L²(∂M,μ)) := ∫ |u|² μ with |·| the Euclidean norm of ℂ^(N_E); this is the usual Sobolev norm up to
-equivalence ([Hin26d, Definition 3.14 and Remark 3.15, pp. 34–35], for each component), and
+equivalence ([Hin26d, Definition 3.14 and Remark 3.15, pp. 34–35], [[rem:std-sbg-sobolev]], for each component), and
 ‖u‖_(H^k) = ‖u‖_(L²) + Σ_i ‖X_iu‖_(H^(k−1)) for k ≥ 1. For A ∈ Diff^m_b(M; ℂ^(N_E)) elliptic near ρ = 0,
 N(A, ι) = Σ_j A_j(0)ι^j depends polynomially on ι and is elliptic on ∂M: its principal symbol, the matrix
 Σ_(|β|=m) a_0β(0, y)η^β, which is that of A at ρ = 0 and ξ = 0, is invertible for η ≠ 0. We use three facts about it.
@@ -1315,7 +1315,8 @@ bijective if ι ∉ spec_b(A) and not injective if ι ∈ spec_b(A); and spec_b(
 
 The three facts rest on the following results of the literature. All three use the elliptic estimate on a compact
 manifold without boundary, quoted below, and the equivalence of the norms of this section with the usual Sobolev norms,
-[Hin26d, Definition 3.14 and Remark 3.15]. The proof of (E2), on which that of (E3) builds, also uses the compact
+[Hin26d, Definition 3.14 and Remark 3.15] ([[rem:std-sbg-sobolev]]). The proof of (E2), on which that of (E3) builds,
+also uses the compact
 inclusion H^(m+1)(∂M) ↪ H^m(∂M), [Hin26d, Theorem 3.21], and analytic Fredholm theory, [[thm:std-analytic-fredholm]];
 (E2) and (E3) also use the Sobolev embedding theorem ([[thm:std-bh-manifold]]) on the compact ∂M, by which C^∞(∂M) is the
 intersection of the H^s(∂M). In the following quotation the letters A, X, E, F, m, s, t, p, u and C are the source's.
@@ -1341,7 +1342,7 @@ all their derivatives, uniformly, and P is C^∞-bounded. The function |a_m⁻¹
 homogeneous of degree 0 in ξ, so it is bounded by its maximum on the compact set {|ξ| = 1}; this is (1.4). On the
 compact Z, W_2^k, k ∈ ℕ₀, is the usual Sobolev space of ℂ^(N_E)-valued functions, so it is H^k(Z) with an equivalent
 norm: the norms of this section, built from smooth fields spanning TZ, are equivalent to the usual one by
-[Hin26d, Definition 3.14 and Remark 3.15], as on ∂M above. So (1.5) with s + m in
+[Hin26d, Definition 3.14 and Remark 3.15] ([[rem:std-sbg-sobolev]]), as on ∂M above. So (1.5) with s + m in
 place of s, t = 0 and p = 2, extended from C^∞(Z) to H^(s+m)(Z) by density and by the continuity of both of its sides
 in H^(s+m)(Z) (P maps H^(s+m)(Z) continuously to H^s(Z), p. 69), and the last sentence of the quotation give, for
 every integer s ≥ 0, a constant C with
