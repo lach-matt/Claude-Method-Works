@@ -16,29 +16,30 @@ between the masses of the four adjacent regions ([[prop:loc-shell-crossing]]).
 *Leaves and cells.* Throughout, g0, Q1 = [0, u_1] × [0, v_1], the open set 𝒪 ⊃ Q1 and the band 0 < ϑ_a < ϑ_b < π/2 are
 as in [[sec:civp-large]]: g0 is given, in the gauge [[eq:loc-double-null]], on 𝒪 × S³, and solves [[eq:two-dust-limit]]
 at the points of 𝒪 with u, v ≥ 0. Fix numbers 0 < c_1 < ⋯ < c_p < v_1 and 0 < d_1 < ⋯ < d_q < u_1, where p, q ≥ 0, and
-put c_0 := 0, c_(p+1) := v_1, d_0 := 0 and d_(q+1) := u_1. The sets {v = c_k} (1 ≤ k ≤ p) are the *ingoing leaves*, the
-sets {u = d_j} (1 ≤ j ≤ q) the *outgoing leaves*, their intersections the *crossing spheres*, and the rectangles Q_jk :=
-[d_j, d_(j+1)] × [c_k, c_(k+1)] the *cells*; as in [[sec:loc-cone-setting]], points of the (u, v)-plane stand for the
-corresponding spheres. Let D ⊂ Q1 be a past set. A function on D × S³, or off the axes on D × (0, π/2), is *cellwise
-smooth* if its restriction to the intersection of that set with each cell is the restriction of a smooth function on a
-neighbourhood of it; it then has one-sided values and one-sided derivatives of every order on the leaves. At a point of
-an ingoing leaf {v = c_k} that is not on a crossing sphere, the *jump* of a cellwise smooth F is [F] := F(c_k⁺) −
-F(c_k⁻), the difference of the values from the cells above and below; across an outgoing leaf {u = d_j}, [F] := F(d_j⁺)
-− F(d_j⁻). A continuous cellwise smooth F has the same restriction to a leaf from both sides, so its derivatives along
-the leaf are continuous across it: [∂_u F] = [∂_ϑ F] = 0 across an ingoing leaf, [∂_v F] = [∂_ϑ F] = 0 across an
-outgoing one, and likewise for every derivative along the leaf.
+put c_0 := 0, c_(p+1) := v_1, d_0 := 0 and d_(q+1) := u_1. The sets {v = c_k} (1 ≤ k ≤ p) are the *ingoing leaves*,
+the sets {u = d_j} (1 ≤ j ≤ q) the *outgoing leaves*, their intersections the *crossing spheres*, and the rectangles
+Q_jk := [d_j, d_(j+1)] × [c_k, c_(k+1)] the *cells*; as in [[sec:loc-cone-setting]], points of the (u, v)-plane stand
+for the corresponding spheres. Let D ⊂ Q1 be a past set. A function on D × S³, or off the axes on D × (0, π/2), is
+*cellwise smooth* if its restriction to the intersection of that set with each cell is the restriction of a smooth
+function on a neighbourhood of it; it then has one-sided values and one-sided derivatives of every order on the
+leaves. At a point of an ingoing leaf {v = c_k} that is not on a crossing sphere, the *jump* of a cellwise smooth F is
+[F] := F(c_k⁺) − F(c_k⁻), the difference of the values from the cells above and below; across an outgoing leaf {u = d_j},
+[F] := F(d_j⁺) − F(d_j⁻). A continuous cellwise smooth F has the same restriction to a leaf from both sides, so its
+derivatives along the leaf are continuous across it: [∂_u F] = [∂_ϑ F] = 0 across an ingoing leaf, [∂_v F] = [∂_ϑ F] = 0
+across an outgoing one, and likewise for every derivative along the leaf.
 
 A metric g on D × S³ is *continuous and cellwise smooth* if it is a continuous G-invariant Lorentzian metric whose
 restriction to the intersection of D × S³ with each cell is the restriction of a smooth G-invariant Lorentzian metric on
 a neighbourhood of it, and which off the axes has the form [[eq:loc-double-null]] with Ω > 0, γ_ϑ > 0, b, A_c and A_s
 continuous and cellwise smooth. A *class solution in the gauge* is one in the sense of [[sec:loc-cone-setting]], with the
 corner at S and g0 as the background, as in [[sec:civp-large]]; its functions equal g0's near the axes. A *class solution
-in double-null form* is defined in the same way without that condition near the axes: a smooth class solution of
-[[eq:class-system]] with two families, phases v and u and densities q_in and q_out, whose metric has the form
-[[eq:loc-double-null]] with Ω, γ_ϑ, b, A_c, A_s smooth functions of (u, v, ϑ) off the axes. A class solution in the
-gauge is one in double-null form. Charts (u, v, y), with y = (y¹, y², y³) a chart of S³, cover D × S³, the axes included. In such a chart the components
-of g are continuous with locally bounded first derivatives, and its Christoffel symbols Γ^a_bc are locally bounded and
-cellwise smooth. Its *Ricci tensor in the sense of distributions* is, in the chart,
+in double-null form* on D × S³ is a smooth class solution of [[eq:class-system]] with two families, phases v and u and
+densities q_in and q_out, whose metric has the form [[eq:loc-double-null]] with Ω, γ_ϑ, b, A_c, A_s smooth functions of
+(u, v, ϑ) ∈ D × (0, π/2): a class solution in the gauge without the condition near the axes. Its metric, being smooth on
+D × S³, extends smoothly to the axes, and it need not equal g0 near them. Charts (u, v, y), with y = (y¹, y², y³) a chart
+of S³, cover D × S³, the axes included. In such a chart the components of g are continuous with locally bounded first
+derivatives, and its Christoffel symbols Γ^a_bc are locally bounded and cellwise smooth. Its *Ricci tensor in the sense
+of distributions* is, in the chart,
 
     Ric(g)_bd := ∂_aΓ^a_bd − ∂_dΓ^a_ab + Γ^a_ae Γ^e_bd − Γ^a_de Γ^e_ab,
 
@@ -67,8 +68,8 @@ being one-sided at the leaves.
 Away from the leaves [[eq:loc-shell-einstein]] and [[eq:loc-shell-dust]] are the class system [[eq:class-system]] with
 the two families of [[sec:loc-cone-setting]]. So on the interior of each cell (g, v, u, q_in, q_out) is a class solution
 in double-null form, and by continuity its equations hold on each closed cell for the one-sided values. When p = q = 0 a
-solution with null shells is a class solution in double-null form, and a class solution in the gauge if it equals g0
-near the axes.
+solution with null shells is a class solution in double-null form, and a class solution in the gauge if it equals g0 near
+the axes.
 
 **Lemma {#lem:loc-shell-ricci}** (The curvature of a continuous, cellwise smooth metric.) Let g be continuous and
 cellwise smooth on D × S³, and let Ric_c(g) be its Ricci tensor on each cell, a locally bounded cellwise smooth tensor.

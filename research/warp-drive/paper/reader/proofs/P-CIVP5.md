@@ -302,8 +302,14 @@ T0], with R ∈ H^s([−m, T0]), and
 (M1′) ‖F(u) − F(u_*)‖_(H^s([t1,t2])) ≤ C′ ‖u − u_*‖_(H^s([t1−m,t2])) for u ∈ 𝒫_t̄ and −m ≤ t1 < t2 ≤ t̄.
 
 There are ε0 > 0 and C, depending on the quantities of (a), on C′ and on T0, such that every solution h on [−m, 0] with
-δ := ⟦h − u_*⟧_(s,[−2m,0]) + ‖R‖_(H^s([−m,T0])) ≤ ε0 extends to a solution u on [−m, T0], with ⟦u − u_*⟧_(s,[−2m,T0]) ≤
-C δ.
+δ := ⟦h − u_*⟧_(s,[−2m,0]) + ‖R‖_(H^s([−m,T0])) ≤ ε0 extends to a solution u on [−m, T0], with ⟦u − u_*⟧_(s,[−2m,T0]) ≤ C δ.
+
+(c) (Regularity.) Assume moreover that the A^μ and u_* are smooth, with u_* ∈ H^σ([−2m, T0]) for every σ, that R = 0 on
+[−m, 0], and, for every integer σ > s,
+
+(M1_σ) ‖F(u)‖_(H^σ([t1,t2])) ≤ C_σ (1 + ‖u‖_(H^σ([t1−m,t2]))) for u ∈ 𝒫_t̄ ∩ H^σ([−2m, t̄]) and −m ≤ t1 < t2 ≤ t̄.
+
+Then the solution of (b) with the history h := u_* lies in H^σ([−2m, T0]) for every σ.
 
 *Proof.* (a) *Uniqueness.* Let u, ũ be solutions on [−m, t̄] that agree on [−2m, t1]. z := u − ũ solves the linear
 problem with the coefficients at u and the forcing term F(u) − F(ũ) − (A^μ(u) − A^μ(ũ)) ∂_μ ũ, continuous into L² by
@@ -350,7 +356,43 @@ for R. Then (i)–(iii) give, for almost every τ ∈ [τ1, τ2],
     Σ_(j≤s) ‖∂_t^j z(τ)‖_(H^(s−j)) ≤ B′ (X(τ1) + θ^(1/2) X(τ2) + ‖R‖_(H^s([−m,T0]))),
 
 so X(τ2) ≤ B′ X(τ1) + B′ θ^(1/2) X(τ2) + B′ δ, and for B′ θ^(1/2) ≤ ½, X(τ2) ≤ 2B′ (X(τ1) + δ). Over the N := ⌈T0/θ⌉
-intervals of length θ this gives X ≤ (4B′)^N δ =: C δ on [−2m, T_m). For C δ ≤ η ρ/2, (a) excludes T_m ≤ T0. ∎
+intervals of length θ this gives X ≤ (4B′)^N δ =: C δ on [−2m, T_m). For C δ ≤ η ρ/2, (a) excludes T_m ≤ T0.
+
+(c) *A global iteration.* Let u^0 := u_* on [−2m, T0] and, for n ≥ 0, u^(n+1) := u_* on [−2m, 0] and, on [0, T0], the
+solution of [[lem:class-kato-history]] with v := u^n, f := F(u^n) and w̄ := u_* on [−m, 0], which solves the linear
+equation there, as R = 0 on [−m, 0] and F(u^n) = F(u_*) there by (M0). Put Y_n(τ) := ⟦u^n − u_*⟧_(s,[−2m,τ]) and fix
+0 = τ_0 < τ_1 < … < τ_N = T0 with τ_(i+1) − τ_i ≤ θ. The proof of (b), applied to z := u^(n+1) − u_* with the
+coefficients at u^n, gives, as long as the u^j lie in the ball, Y_(n+1)(τ_(i+1)) ≤ B′ Y_(n+1)(τ_i) + B′ θ^(1/2)
+Y_n(τ_(i+1)) + B′ δ. Put M_0 := 0 and M_(i+1) := 2B′ (M_i + δ), and take B′ θ^(1/2) ≤ ¼. If Y_n(τ_j) ≤ M_j for all j,
+then by induction on i, Y_(n+1)(τ_(i+1)) ≤ B′ M_i + M_(i+1)/4 + B′ δ ≤ M_(i+1); as Y_0 = 0, this holds for all n, and
+M_N ≤ (4B′)^N δ ≤ ρ for δ small: every u^n lies in 𝒫_(T0). *Convergence.* δ^(n+1) := u^(n+1) − u^n vanishes on
+[−2m, 0], and, as in the contraction of (a), ‖δ^(n+1)(t)‖ ≤ C t^(1/2) ‖δ^n‖_(L²([0,t]×R^d)); with Q_n := sup_t e^(−λt)
+‖δ^n(t)‖, ‖δ^n‖²_(L²([0,t]×R^d)) ≤ Q_n² e^(2λt)/(2λ), so Q_(n+1) ≤ C T0^(1/2) (2λ)^(−1/2) Q_n ≤ ½ Q_n for λ large. So u^n
+converges in C([−2m, T0]; L²); its limit is a solution, as in (a), within ρ of u_*, hence the solution u of (b), by the
+uniqueness of (a).
+
+*Higher norms.* We show by induction on σ ≥ s that L_σ := sup_n ‖u^n‖_(H^σ([−2m,T0])) < ∞; for σ = s, ‖u^n‖_(H^s) ≤
+(T0 + 2m)^(1/2) 𝔐_ρ. Let σ > s with L_(σ−1) < ∞. For w := u^(n+1) put S_(n+1)(τ) := sup_([0,τ]) E_σ(t; w)^(1/2), with
+E_σ of [[lem:class-kato-linear]]. (i) *Spatial energy.* Part (c) of [[lem:class-kato-linear]] at the order σ, on an
+interval [τ_i, t], with v := u^n and f := F(u^n), gives E_σ(t; w)^(1/2) ≤ e^(C_* θ) (E_σ(τ_i; w)^(1/2) + C_* ∫_(τ_i)^t
+(‖f‖_(H^σ) + K_w ‖v‖_(H^σ))), C_* and K_w bounded by the order s, the ball and bounds of order σ of the A^μ; it applies
+with f and v replaced by J_ε f and J_ε v, whose values at each time lie in H^σ, and the bound passes to the limit
+ε → 0, the solutions converging in C(L²) by part (a) of that lemma and the norms on the right not increasing. With (M1_σ)
+and the Cauchy–Schwarz inequality, S_(n+1)(τ_(i+1)) ≤ e^(C_* θ) S_(n+1)(τ_i) + C θ^(1/2) (1 + ‖u^n‖_(H^σ([−2m,τ_(i+1)]))).
+(ii) *Time derivatives.* On [0, τ], for j ≥ 1 and j + |β| ≤ σ, ∂_t^j ∂_x^β w = ∂_t^(j−1) ∂_x^β[(𝐀^0)⁻¹ (f − 𝐀^l ∂_l w)] in
+the sense of distributions. Extend the factors to R × R^d in t by the operators E_b at both ends, bounded on every H^σ′
+and on L^∞; by [[thm:std-gn-moser]] (1) and [[lem:class-composition]] (b) in the d + 1 variables (t, x), every product in
+which a derivative falls on (𝐀^0)⁻¹ or 𝐀^l, and every term with f, is bounded in L²([0, τ] × R^d) by C (1 + L_(σ−1) +
+‖F(u^n)‖_(H^(σ−1)([0,τ]))), the sup norms of v, ∂v, ∂w and f being bounded by the order s (f by ‖F(u^n)‖_(H^s), as s >
+(d + 1)/2); and ‖F(u^n)‖_(H^(σ−1)) ≤ C_(σ−1) (1 + L_(σ−1)) by (M1_(σ−1)) (by (M1) if σ − 1 = s). The remaining term is
+(𝐀^0)⁻¹ 𝐀^l ∂_t^(j−1) ∂_x^β ∂_l w, with one time derivative fewer. By induction on j, ‖w‖_(H^σ([0,τ])) ≤ C (τ^(1/2)
+S_(n+1)(τ) + 1 + L_(σ−1)). On [−2m, 0], w = u_*, and at t = 0 all derivatives of w equal those of u_* from the left, by
+the equation, as in [[lem:class-kato-history]]; so ‖w‖_(H^σ([−2m,τ])) ≤ ‖u_*‖_(H^σ([−2m,0])) + C (τ^(1/2) S_(n+1)(τ) + 1 +
+L_(σ−1)). (iii) *Induction in n.* So S_(n+1)(τ_(i+1)) ≤ e^(C_* θ) S_(n+1)(τ_i) + C θ^(1/2) (A + T0^(1/2) S_n(τ_(i+1))), A
+depending on L_(σ−1) and u_*. Put M′_0 := ‖u_*(0)‖_(H^σ) + 1 and M′_(i+1) := 2 (e^(C_* θ) M′_i + C θ^(1/2) A), and take
+C θ^(1/2) T0^(1/2) ≤ ¼. If S_n(τ_j) ≤ M′_j for all j, then S_(n+1)(τ_(i+1)) ≤ ½ M′_(i+1) + ¼ M′_(i+1), by induction on
+i; S_0 is the energy of u_*, so this holds for all n, and L_σ < ∞ by (ii). Since u^n → u in C(L²) and the u^n are
+bounded in H^σ([−2m, T0]), u ∈ H^σ([−2m, T0]). ∎
 
 **Remark {#rem:class-kato-memory}** (Why the hypotheses are integrated.) In the application ([[sec:loc-t5]]) the
 forcing term at a point x of the slice {t = t̄} is computed on the hypersurface through x of a second foliation, tilted
