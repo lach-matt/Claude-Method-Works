@@ -1952,14 +1952,17 @@ r dτ = dt − T_0 dr on {τ = T_0} and −r dr on Σ^♯ satisfy its condition 
 
 The other terms of [Hin26a, (5.71)] carry the total weight ρ_sf⁴ of ∇*T∇ and are bounded by [Hin26a, (5.75)] and its
 companions. Among them is h² times the term with 𝓡 in [[eq:iv5-6-energy]], bounded by [[cor:iv5-6-energy]] (iii), as
-the components of g, g⁻¹ and rc lie in C^∞(M^♭) and r∂_(z^μ) ∈ 𝒱_3b(M^♭), with r⁻¹ = ρ_sf. The left side of [Hin26a, (5.70)] is at least −½h⁻¹(‖aP_hω‖² + ‖aL_hω‖²), which gives [Hin26a, (5.76)].
-The fundamental theorem of calculus for L_h, [Hin26a, (5.77)], uses [[lem:iv5-0-4]] ([[lem:iv4-1-causal]] (a)) for the
-future timelike covector ρ_sf a d(ρ_sf a). It gives the bulk term C𝔛ρ_sf⁴a² and the two positive δ-terms, hence
-[Hin26a, (5.78)]. Adding [Hin26a, (5.76)] and (5.78) and absorbing for h small gives [Hin26a, (5.66)].
+the components of g, g⁻¹ and rc lie in C^∞(M^♭) and r∂_(z^μ) ∈ 𝒱_3b(M^♭), with r⁻¹ = ρ_sf. The left side of
+[Hin26a, (5.70)] is at least −½h⁻¹(‖aP_hω‖² + ‖aL_hω‖²), which gives [Hin26a, (5.76)]. The fundamental theorem of
+calculus for L_h, [Hin26a, (5.77)], uses [[lem:iv5-0-4]] ([[lem:iv4-1-causal]] (a)) for the future timelike covector
+ρ_sf a d(ρ_sf a). It gives the bulk term C𝔛ρ_sf⁴a² and the two positive δ-terms, hence [Hin26a, (5.78)]. Adding
+[Hin26a, (5.76)] and (5.78) and absorbing for h small gives [Hin26a, (5.66)].
 
 [Hin26a, (5.68)] follows by the same argument with a = ρ_K^(−α_K)e^(𝔛r)H(r − r_1), applied to χω (χ = 1 on r ≤ r_2,
-0 on r ≥ r_3), as −dr is past timelike on [r_♯, r̂] ([[lem:iv5-0-3]] (c)). [Hin26a, (5.67) and (5.69)] are the same
-arguments for P_h* = □_h* + iL_h*, whose damping acts backwards, as in [Hin26a].
+0 on r ≥ r_3), as −dr is past timelike on [r_♯, r̂] ([[lem:iv5-0-3]] (c)); in [[cor:iv5-6-energy]], R = {r ≥ r_1},
+f_1 = r_1 − r and w = ρ_K^(−α_K)e^(𝔛r). [Hin26a, (5.67) and (5.69)] are the same arguments for P_h* = □_h* + iL_h*,
+whose damping acts backwards, as in [Hin26a]; its damping symbol is −ℓ, for which [[cor:iv5-6-energy]] holds with the
+time orientation reversed.
 
 [[eq:iv5-6-1]]. Run the proof of [Hin26a, (5.66)] at fixed h with a multiplied by H(τ). The boundary τ = 0 then adds to
 [Hin26a, (5.74) and (5.77)] the terms of the boundary τ = T_0 with the opposite sign. Each is a quadratic form in
@@ -2372,9 +2375,13 @@ H̄^(1,(−N,α_cf))_eb for some N.
 
 *Energy near X_0.* η = r²(−dτ² − 2τ dτ (dr/r) + (1 − τ²)dr²/r² + 𝑔̸) is a weighted b-metric on
 (−1, 1)_τ × [0, ∞]_r × 𝕊³. Here r²η⁻¹(dτ, dτ) = −(1 − τ²), and b-norms on {t/r ∈ I} are edge-b norms. The proof of
-[[prop:iv5-6-1]] ([Hin26a, Lemma 5.14 and Corollary 5.15], stated in every dimension, with charts on 𝕊³ and the
-level-set density r⁴|dr d𝑔̸|) gives [Hin26a, (B.34) and (B.35)] at T := ½, with ρ_sf = (1 + r)⁻¹ and
-ρ_cf = r(1 + r)⁻¹ there.
+[[prop:iv5-6-1]], with the level-set density r⁴|dr d𝑔̸|, gives [Hin26a, (B.34) and (B.35)] at T := ½, with
+ρ_sf = (1 + r)⁻¹ and ρ_cf = r(1 + r)⁻¹ there. In it, [[lem:iv5-6-tform]] and [[cor:iv5-6-energy]] are used on
+N := ℝ_t × (ℝ⁴ ∖ 0), with k = 1 and f_1 := τ − T, as there is no inner boundary. Their hypotheses hold: the components
+of η and of rc = dt − v x̂ · dx in the frame dt, dx^i lie in a compact set of pairs and are bounded with their
+derivatives along r∂_t and r∂_(x^i); e = 1/102400 < 2/5; r dτ = dt − τ dr has η⁻¹(r dτ, r dτ) = −(1 − τ²) ≤ −¾ for
+0 ≤ τ ≤ ½; and r dρ_sf/ρ_sf and r dρ_cf/ρ_cf are bounded, so that the bulk covector of the weight is past timelike,
+with a uniform κ, for 𝔛 large.
 
 *Nonzero and infinite frequencies.* [Hin26a, (B.37)] is [[prop:iv5-1-3]] with the cut-offs χ_j(τ) of
 [Hin26a, (B.36)] and no cut-off in r. There is no E_r term; the E_τ term is a negative square because ±H_Gτ > 0 at

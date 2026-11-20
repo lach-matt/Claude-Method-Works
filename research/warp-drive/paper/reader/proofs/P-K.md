@@ -185,8 +185,7 @@ and the proof of [[thm:settling]] builds g_λ with an approximant of order K and
 J ≤ 10, so that L_P ≤ 43 and K ≤ 22d + 348.
 
 (c) In the class ℰ_0^½ of [[thm:own-data]] the loss d is that of the class of [[eq:vii-0-1]], L_0 ≤ 28, L_P ≤ 48 and
-d_1 = 22d + 291 + L_P.
-[[thm:own-data]] then takes k1 = d_1 + 4 and M = 2k1 + 17, and for a ∈ (ℓ0 − 1, 3)
+d_1 = 22d + 291 + L_P. [[thm:own-data]] then takes k1 = d_1 + 4 and M = 2k1 + 17, and for a ∈ (ℓ0 − 1, 3)
 
     K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a),                                              {#eq:uc-kstar-own}
 
@@ -203,22 +202,22 @@ d_1 ≤ 22D_acc + 330 and N ≤ 22D_acc + 347. For the fixed seminorms of [[lem:
 and for those of [[rem:uc-small-reading]], K < 1.15248·10⁵¹; and K > 22d > 2.7493·10²⁵. In the class ℰ_0^½,
 k1 ≤ 22D_acc + 339 and 1.0078·10⁵¹ < K*(a, M, k1) < 4.78156·10¹⁰³ for every a ∈ (ℓ0 − 1, 3).
 
-*Proof.* (a) *d_0.* [[thm:iii-c2-3-1]], for φ_(S,S⁰) by [[lem:s27-translated-exterior]] (c), asks the data
-(h̊_0, h̊_1) on Σ_(IVP,r_ext) small in H^(k₂,ℓ^♭_0)_b with k₂ = 2 · 153 + 2 = 308, together with the smallness of
-[[thm:iii-c1-2-1]] at the order 153 that [[thm:iii-c1-3-1]] asks; by [[lem:uc-data-losses]] (i) the data at the order
-309 control both. [[thm:iv3-2-2]] asks (h⁰, h¹) small in 𝒜^153_Σ, for every (S, S⁰) with |S| + |S⁰| ≤ σ_0. By
-(v) at l = 0, h_0 in 𝒜^155(𝒪_𝒟) controls them. 𝒪_𝒟 is the union of 𝒪_𝒟 ∩ 𝒟⁺, 𝒪_𝒟 ∩ 𝔒⁻ and 𝒪_𝒟 ∩ Ω_(ext,r_1)
-([[lem:s27-cover]] (e)); on these h_0 is the solution of [[thm:iv3-2-2]] for (h̊_0, h̊_1), the backward solution of (N)
-and the solution of [[thm:iii-c1-2-1]] (the proof of [[prop:iii-k-1-2]]). h_0 is smooth across Σ^IVP (*Gluing* there),
-so at an integer order its norm on 𝒪_𝒟 is at most the sum of its norms on the three parts, which (ii) bounds: (h̊_0, h̊_1)
-in 𝒜^(155+a)_Σ = 𝒜^287_Σ control h_0 in 𝒜^155(𝒪_𝒟), and by (i) the data at the order 288 do. (N) asks the data small
-in H^5 × H^4 on Σ^IVP ∩ 𝔒⁻, which (v) and (ii) give at lower orders. The largest of these orders is 309; and the
-smallness of γ̃ in H³_b that [[prop:iii-c2-4-1]] asks is weaker. So d_0 := 309 serves.
+*Proof.* (a) *d_0.* [[thm:iii-c2-3-1]], for φ_(S,S⁰) by [[lem:s27-translated-exterior]] (c), asks the data (h̊_0, h̊_1)
+on Σ_(IVP,r_ext) small in H^(k₂,ℓ^♭_0)_b with k₂ = 2 · 153 + 2 = 308, together with the smallness of [[thm:iii-c1-2-1]]
+at the order 153 that [[thm:iii-c1-3-1]] asks; by [[lem:uc-data-losses]] (i) the data at the order 309 control both.
+[[thm:iv3-2-2]] asks (h⁰, h¹) small in 𝒜^153_Σ, for every (S, S⁰) with |S| + |S⁰| ≤ σ_0. By (v) at l = 0, h_0 in
+𝒜^155(𝒪_𝒟) controls them. 𝒪_𝒟 is the union of 𝒪_𝒟 ∩ 𝒟⁺, 𝒪_𝒟 ∩ 𝔒⁻ and 𝒪_𝒟 ∩ Ω_(ext,r_1) ([[lem:s27-cover]] (e)); on
+these h_0 is the solution of [[thm:iv3-2-2]] for (h̊_0, h̊_1), the backward solution of (N) and the solution of
+[[thm:iii-c1-2-1]] (the proof of [[prop:iii-k-1-2]]). h_0 is smooth across Σ^IVP (*Gluing* there), so at an integer
+order its norm on 𝒪_𝒟 is at most the sum of its norms on the three parts, which (ii) bounds: (h̊_0, h̊_1) in
+𝒜^(155+a)_Σ = 𝒜^287_Σ control h_0 in 𝒜^155(𝒪_𝒟), and by (i) the data at the order 288 do. (N) asks the data small in
+H^5 × H^4 on Σ^IVP ∩ 𝔒⁻, which (v) and (ii) give at lower orders. The largest of these orders is 309; and the smallness
+of γ̃ in H³_b that [[prop:iii-c2-4-1]] asks is weaker. So d_0 := 309 serves.
 
-*k′_k.* Fix k ≥ 0, and put m := k + 2 and n := m + L_P; then n ≥ 9, as L_P ≥ L_0 ≥ 7. By (iii) and (iv) of [[lem:uc-data-losses]], applied in
-turn, the triple (h_(S,S⁰), ∂h_(S,S⁰), ∂²h_(S,S⁰)) in 𝒜^n, with the triple of its data in ℬ^n_Σ, controls the triple in
-ℬ^m, and so the left side of (3) at the order k + 2, which consists of norms of the triple in the class of (3), on
-𝒟 ∩ Ω_* ⊂ 𝒟⁺ ((3) of the proof of [[prop:iii-k-1-2]]).
+*k′_k.* Fix k ≥ 0, and put m := k + 2 and n := m + L_P; then n ≥ 9, as L_P ≥ L_0 ≥ 7. By (iii) and (iv) of
+[[lem:uc-data-losses]], applied in turn, the triple (h_(S,S⁰), ∂h_(S,S⁰), ∂²h_(S,S⁰)) in 𝒜^n, with the triple of its
+data in ℬ^n_Σ, controls the triple in ℬ^m, and so the left side of (3) at the order k + 2, which consists of norms of
+the triple in the class of (3), on 𝒟 ∩ Ω_* ⊂ 𝒟⁺ ((3) of the proof of [[prop:iii-k-1-2]]).
 
 *The triple in 𝒜^n.* By (vi), ∂²h_(S,S⁰) in 𝒜^n is controlled by ∂h_(S,S⁰) in 𝒜^(n+6), h_(S,S⁰) in 𝒜^(n+7) and
 ∂²(h⁰, h¹) in 𝒜^(n+4)_Σ, and ∂h_(S,S⁰) in 𝒜^(n+6) by h_(S,S⁰) in 𝒜^(n+13) and ∂(h⁰, h¹) in 𝒜^(n+10)_Σ. So h_(S,S⁰) in
@@ -256,17 +255,26 @@ by (iv) there; hence L_P ≤ 43 and K ≤ 22d + 348.
 ([[lem:iii-k-2-2]] (c), [[eq:s27-rinv]]). So d is the same. L_0 ≤ 28 by [[lem:uc-data-losses]] (iii), and J ≤ 10 as in
 (b); so L_P ≤ 48, and d_1 = max(309, 22d + 291 + L_P) = 22d + 291 + L_P.
 
-*The threshold of [[thm:own-data]].* k1 = max(8, d_1 + 4) = d_1 + 4 and M = 15 + 2(k1 + 1) = 2k1 + 17, so 2M + 1 =
-4k1 + 35. As a > ℓ0 − 1 > 2 and a < 3, (4k1 + 35)/(7 − 2a) > 67/3 > 5/2, and s_R of [[lem:own-e-flux]] is (4k1 + 35)/(7
-− 2a) ≥ (4k1 + 35)/3. The first entry of [[eq:own-kstar]] at j = k1 is k1 + 4 + s_R(a + k1), which is
-[[eq:uc-kstar-own]]. The other entries, E(k, i) := 3 + i + (s_R max(0, 2a + 2 − k)/2 + (M + i)θ_k)/(1 − θ_k) with 4 ≤ k
-≤ 8 and 0 ≤ i ≤ k1 + 1, increase with i, and M + k1 + 1 = 3k1 + 18; so E(k, i) ≤ k1 + 4 + s_R(a + k1) when s_R X_k ≥
-(3k1 + 18)θ_k, where X_k := (1 − θ_k)(a + k1) − max(0, 2a + 2 − k)/2. For a ∈ (2, 3), X_4 = k1 + 1, X_5 > (4k1 +
-9/2)/5, X_6 > (3k1 + 4)/5, X_7 > (4k1 + 7)/10 and X_8 > (k1 + 2)/5. With s_R ≥ (4k1 + 35)/3 the condition holds at k =
-4 trivially, and at k = 5, 6, 7, 8 it follows from (4k1 + 35)(4k1 + 9/2) ≥ 9k1 + 54, 12k1² + 121k1 + 140 ≥ 18k1 + 108,
-16k1² + 168k1 + 245 ≥ 54k1 + 324 and 4k1² + 43k1 + 70 ≥ 36k1 + 216, the last being 4k1² + 7k1 ≥ 146; all hold for k1
-≥ 8. So K*(a, M, k1) is [[eq:uc-kstar-own]]. It exceeds k1 + 10 = d_1 + 14, and it increases with a, its numerator
-increasing and its denominator decreasing; a ∈ (2, 3) gives the two bounds.
+*The threshold of [[thm:own-data]].* k1 = max(8, d_1 + 4) = d_1 + 4 and M = 15 + 2(k1 + 1) = 2k1 + 17, so
+2M + 1 = 4k1 + 35. As a > ℓ0 − 1 > 2 and a < 3, (4k1 + 35)/(7 − 2a) > 67/3 > 5/2, and s_R of [[lem:own-e-flux]] is
+(4k1 + 35)/(7 − 2a) ≥ (4k1 + 35)/3. The first entry of [[eq:own-kstar]] at j = k1 is k1 + 4 + s_R(a + k1), which is
+[[eq:uc-kstar-own]]. The other entries are
+
+    E(k, i) := 3 + i + (s_R max(0, 2a + 2 − k)/2 + (M + i)θ_k)/(1 − θ_k),     4 ≤ k ≤ 8,  0 ≤ i ≤ k1 + 1.
+
+They increase with i, and M + k1 + 1 = 3k1 + 18; so E(k, i) ≤ k1 + 4 + s_R(a + k1) when s_R X_k ≥ (3k1 + 18)θ_k,
+where X_k := (1 − θ_k)(a + k1) − max(0, 2a + 2 − k)/2. For a ∈ (2, 3),
+
+    X_4 = k1 + 1,  X_5 > (4k1 + 9/2)/5,  X_6 > (3k1 + 4)/5,  X_7 > (4k1 + 7)/10,  X_8 > (k1 + 2)/5.
+
+With s_R ≥ (4k1 + 35)/3 the condition holds at k = 4 at once, and at k = 5, 6, 7, 8 it follows from
+
+    (4k1 + 35)(4k1 + 9/2) ≥ 9k1 + 54,     12k1² + 121k1 + 140 ≥ 18k1 + 108,
+    16k1² + 168k1 + 245 ≥ 54k1 + 324,     4k1² + 43k1 + 70 ≥ 36k1 + 216,
+
+the last being 4k1² + 7k1 ≥ 146; all four hold for k1 ≥ 8. So K*(a, M, k1) is [[eq:uc-kstar-own]]. It exceeds
+k1 + 10 = d_1 + 14, and it increases with a, its numerator increasing and its denominator decreasing; a ∈ (2, 3) gives
+the two bounds.
 
 (d) At the choice of [[def:uc-choice]], ℓ_I < 3.5 and γ_Υ = e_Υ = 1/100 ([[def:ec-point]]), so
 ℓ^♭_I = 3/2 + ¼ · (99/100) · (1/100) = 60,099/40,000 and 4(ℓ_I − ℓ^♭_I) + 1 < 4(7/2 − 60,099/40,000) + 1 = 89,901/10,000
@@ -291,14 +299,15 @@ k̄ > 10⁵¹, 48k̄ + 109 < 10⁻⁴⁹k̄², and as k̄ < 3.4574408669·10⁵�
 K*(a, M, k1) < (4 + 10⁻⁴⁹) · 11.95389735·10¹⁰² < 4.78156·10¹⁰³. And K*(a, M, k1) > (4/3)k1², with
 k1 > 22d > 2.74934·10²⁵, so K*(a, M, k1) > (4/3) · 7.5588·10⁵⁰ > 1.0078·10⁵¹. ∎
 
-**Remark {#rem:uc-data-order-limits}** (What the count gives and what it does not.) [[prop:uc-data-order]] makes d_1 and
-K explicit in d, with an additive term of at most 48 derivatives, and makes the threshold K* of [[thm:own-data]] explicit
-as a quadratic in d_1; the count is an upper count of the orders the proofs read, and smaller orders may serve. It gives
-no number on the set where [[thm:settling]] is proved, on which d is not evaluated, and the numbers of (d) are those of
-the computational point, outside that set ([[rem:ec-point-outside]]). L_0 and J depend on ℓ_0, ℓ_I and the weights of
-the proof of [[thm:iii-c1-3-1]], and are bounded, not fixed, by [[lem:uc-data-losses]]. The number K + 4 + ⌈4β0(k_P)⌉
-of stages of the approximant of [[thm:own-data]] involves β0(k_P) = max(2, 4C(k_P) + 1), whose constants C(q) of
-[[eq:near-lines]] are not evaluated, and the thresholds λ1, δ and λ_2 are not evaluated ([[rem:ec-not-evaluated]]).
+**Remark {#rem:uc-data-order-limits}** (What the count gives and what it does not.) [[prop:uc-data-order]] makes d_1
+and K explicit in d, with an additive term of at most 48 derivatives, and makes the threshold K* of [[thm:own-data]]
+explicit as a quadratic in d_1; the count is an upper count of the orders the proofs read, and smaller orders may
+serve. It gives no number on the set where [[thm:settling]] is proved, on which d is not evaluated, and the numbers of
+its part (d) are those of the computational point, outside that set ([[rem:ec-point-outside]]). L_0 and J depend on
+ℓ_0, ℓ_I and the weights of the proof of [[thm:iii-c1-3-1]], and are bounded, not fixed, by [[lem:uc-data-losses]]. The
+number K + 4 + ⌈4β0(k_P)⌉ of stages of the approximant of [[thm:own-data]] involves β0(k_P) = max(2, 4C(k_P) + 1),
+whose constants C(q) of [[eq:near-lines]] are not evaluated, and the thresholds λ1, δ and λ_2 are not evaluated
+([[rem:ec-not-evaluated]]).
 
 ### Placement
 
@@ -363,10 +372,10 @@ New (the four lines that follow it, from "expansion of Section [[sec:own-sigma]]
 k_P.", stay, and the paragraph may be refilled):
 
 The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. d_1, k1 and K* are explicit in the loss d of
-[[thm:iii-k-3-2]]: d_1 = 22d + 291 + L_P with L_P ≤ 48, k1 = d_1 + 4, and K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/
-(7 − 2a), which exceeds d_1 + 14, so that the least admissible K is quadratic in d_1 ([[prop:uc-data-order]]); d is
-bounded only at the computational point of [[def:ec-point]], which lies outside the set where the theorem is proved.
-The order k_P is what the subtracted
+[[thm:iii-k-3-2]]: d_1 = 22d + 291 + L_P, L_P ≤ 48 an explicit number of derivatives, k1 = d_1 + 4, and
+K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a), which exceeds d_1 + 14, so that the least admissible K is
+quadratic in d_1 ([[prop:uc-data-order]]); d is bounded only at the computational point of [[def:ec-point]], which
+lies outside the set where the theorem is proved. The order k_P is what the subtracted
 
 *7. [[ch:own-data]], [[rem:own-half-changes]] (b) (lines 291–293).* Old:
 
@@ -424,16 +433,16 @@ initial family reads.); new written count of the orders that prop:iii-k-1-2 (3) 
 exterior solutions +132 above order 21, Step 1 L_0 ≤ 23 (28 for the half class), Step 2 2J, pull-back +2+l (+4+l with
 expansions), derivatives in (S, S⁰) +7 and +6.
 
-Row 3. prop:uc-data-order; paper/reader/proofs/P-K.md:172; data-order proof P-K, Proposition (The regularity d_1
+Row 3. prop:uc-data-order; paper/reader/proofs/P-K.md:173; data-order proof P-K, Proposition (The regularity d_1
 and the order of the approximant.); new: d_0 = 309, k′_k = 282 + L_P, d_1 = 22d + 291 + L_P, K = 22d + 305 + L_P ≤
 22d + 348, K*(a, M, k1) of thm:own-data; at the computational point K ≤ 22D_acc + 344 < 3.45745·10⁵¹.
 
-Row 4. eq:uc-data-order; paper/reader/proofs/P-K.md:180; data-order proof P-K, display; display of d_1 and K.
+Row 4. eq:uc-data-order; paper/reader/proofs/P-K.md:182; data-order proof P-K, display; display of d_1 and K.
 
-Row 5. eq:uc-kstar-own; paper/reader/proofs/P-K.md:188; data-order proof P-K, display; display of
+Row 5. eq:uc-kstar-own; paper/reader/proofs/P-K.md:190; data-order proof P-K, display; display of
 K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a).
 
-Row 6. rem:uc-data-order-limits; paper/reader/proofs/P-K.md:289; data-order proof P-K, Remark (What the count gives
+Row 6. rem:uc-data-order-limits; paper/reader/proofs/P-K.md:302; data-order proof P-K, Remark (What the count gives
 and what it does not.); what stays open: d on the proved set, β0(k_P), λ1, δ, λ_2.
 
 Notes for existing rows: ch:explicit-constants (opening states d_1 and K, text 2); in the crosswalk table of
