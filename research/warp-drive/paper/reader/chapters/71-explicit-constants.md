@@ -164,10 +164,10 @@ family of steps that are composed one after another in the construction.
 the d's of [[lem:iii-k-2-2]], [[lem:iii-k-2-3]] and [[prop:iii-j2-4-3]], as their proofs fix them ([[prop:uc-d-small]] at
 the computational point). Each of these is at least the loss of the estimate of its result, that of [[lem:iii-k-2-3]], a
 construction, accounted by [[def:ec-accounted-loss]] and the other two as their proofs fix them, and at least the orders
-at which its proof asks U
-small; for [[lem:iii-k-2-3]] these include the order d′_0 ≥ d_* + D + d_Φ of its proof, with d_* of [[lem:iii-j2-2-3]],
-D the d of [[thm:iii-j2-4-1]] and d_Φ the loss of U ↦ Φ(U). As (iii) of [[thm:ii-g-2-1]] asks [[eq:ii-g-2-4]] of the
-right inverse of [[lem:iii-k-2-3]], whose loss is that of [[eq:iii-j2-4-2]], d_NM ≥ d_acc ([[thm:loss-d]]).
+at which its proof asks U small; for [[lem:iii-k-2-3]] these include the order d′_0 ≥ d_* + D + d_Φ of its proof, with
+d_* of [[lem:iii-j2-2-3]], D the d of [[thm:iii-j2-4-1]] and d_Φ the loss of U ↦ Φ(U). As (iii) of [[thm:ii-g-2-1]] asks
+[[eq:ii-g-2-4]] of the right inverse of [[lem:iii-k-2-3]], whose loss is that of [[eq:iii-j2-4-2]], d_NM ≥ d_acc
+([[thm:loss-d]]).
 
 One threshold enters the lower bounds below: the incoming threshold ϑ_in of [[eq:i-a-1-5]] of the transition face
 model N_tf(L_b^(·), ±1) of [[cor:iii-f1-3-4]], taken, as its proof takes it, for 2L_b, which has the form (H1)–(H2) of
