@@ -1343,3 +1343,8 @@ Items found while chapters were written in parallel; each is settled once, editi
   byte for byte with six heading levels changed. Nits 1-2 (96:1108) applied by the coordinator in the reviewer's words;
   nit 3 (87:351-353, "with the tables of [[sec:cone-table-n1]] and [[sec:cone-table-n2]]") after I-1; nit 4 (crosswalk/96
   notes "; moved to Appendix B") after F-M33.
+- R4-83 CONFIRMED 0M 0m 0n (notes/reviews/R4-83.md): chapter 83 CONFIRMED. For chapter 81 (after I-1): replace 81:1659
+  "data localised in an angle are constructed in [[ch:localised-data]]." by the reviewer's accepted text: "the stated
+  supports; data equal to the background's outside the domain of influence, for the constraints solved with the radius
+  as time, of a compact set away from the axes are constructed in [[ch:localised-data]] on a slice bent from Σ_τ0, and
+  carried to Σ_τ0 by their development." Chapter 83's tables (sec:tab-bg, sec:table-margins) to Appendix B next.
