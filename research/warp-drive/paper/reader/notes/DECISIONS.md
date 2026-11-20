@@ -17,6 +17,11 @@ Order, from the same recommendation: D_A first (one seed, about 400-450 pages, d
 only the D* table is printed); seed 1's D* is not printed until its closing is GO. Every page figure is extrapolated
 from measured decay rates and could be about 3.3x larger if the decay is 30 % slower.
 
+Update the same day, by the author: print both seeds. Each seed is printed on the largest domain its closing certifies:
+seed 1 on D_A (GO) and on D* once its closing is shown GO (then its D* table replaces its D_A table); seed 2 on D*
+(GO; its table covers D_A). Estimated totals: about 1,600 pages (seed 1 D_A plus seed 2 D*), about 2,900 if seed 1's
+D* is printed, each up to about 3.3x larger if the decay is 30 % slower than measured.
+
 ## Earlier decisions in this segment
 
 - Admissible points (P-ADM): the cap h <= 10^-6 is removed from the definition; the lower bounds on d state it as an
