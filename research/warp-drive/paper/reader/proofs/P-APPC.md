@@ -121,17 +121,11 @@ definition. ∎
 
 The form [[eq:appc-seedform]] makes the agreement with the seed's (κ − 1)-jet on N₀ exact, whatever the printed integers.
 
-**Remark {#rem:appc-contact}** (The order of contact on N₀.) The solution of [[def:tl5-problem]] agrees with the seed on
-N₀ only to order 3 in v. On N₀ the differences R − R_s, W − W_s, m, n and s vanish with their first three v-derivatives,
-and their fourth v-derivatives (a_R, a_W, a_m, a_n, a_s) at (u, x) satisfy the linear system in u obtained from the
-equations at order (v − 1/2)³: every term of the evolution equations containing no v-derivative, or a product of two
-differences, is O((v − 1/2)⁴) there, so only the terms ∂_u∂_v and ∂_v of single differences remain, and these give
-∂_u a = 𝔄(u, x) a with 𝔄 built from the seed. The value at u = −10 is fixed by the fourth v-derivatives of the data
-[[eq:cone-data]] at v = 1/2, which are not zero because env(v) = (π/3)⁴(v − 1/2)⁴ + O((v − 1/2)⁶); so a ≠ 0 at every
-u by uniqueness for linear systems. A contact of order κ > 4 between the approximant and the solution on N₀ therefore
-needs, in place of R_s and W_s and of 0 for m, n, s in [[eq:appc-seedform]], a reference that carries the solution's
-v-derivatives of orders 4 to κ − 1 on N₀; with the seed as reference, κ = 4 is the largest order for which
-[[eq:appc-seedform]] defines smooth fields.
+**Remark {#rem:appc-contact}** (The order of contact on N₀.) The integer κ ≥ 1 is a parameter of the definition: for
+every κ the approximant agrees with the seed on N₀ to order κ − 1 in v, whatever the printed integers. The tables are
+printed for κ = 4. A contact of higher order with a metric other than the seed, as a hypothesis on N₀ may require,
+needs a reference part in place of R_s, W_s and the zero functions in [[eq:appc-seedform]] that carries that metric's
+v-derivatives on N₀ of the orders between 4 and κ − 1.
 
 ### The format of the tables and their checks {#sec:appc-format}
 
@@ -470,7 +464,7 @@ taken over the convex hull of the 2-jets of F_ij + θδF, 0 ≤ θ ≤ 1, on U_i
 the bounds φ_k of [[lem:appc-pou]] (a) for the derivatives of χ_(i′) and ψ_(j′) (with the factors (1/(2d))^k and
 (1/(2d′))^k of the chain rule), the derivatives of (v − 1/2)⁴, and the sums of the absolute values of the Chebyshev
 coefficients of the derivatives of G^F_(i′j′) − G^F_ij on the strips, which are exact by [[lem:appc-reexpand]] (both
-polynomials re-expanded in the variables of the strip). The same holds for the derivatives of order at most 3, with
+polynomials re-expanded in the variables of the strip). The same holds for the derivatives of order at most K, with
 (K + 2)-jets.
 
 *Proof.* [[lem:appc-lipschitz]] with J the jet of F_ij and δJ that of δF, at each point of U_ij. ∎
@@ -540,7 +534,7 @@ paginated on; its blocks are in the format of [[sec:appc-format]], one case afte
 block of the first table when the tables are certified.
 
 *2. Pending items.* [[pending:lem-tl5-cip-axis]] is the axis lemma of the characteristic problem (smoothness of a
-metric of the class with smooth fields). [[pending:lem-tl5-f3-residual]] is the statement of the level-3 estimate that
+metric of the class with smooth fields). [[pending:lem-tl5-f3-residual]] is the statement of the level-N estimate that
 names the residual norm; [[sec:appc-norm]] must be completed with its exact combination once it is written.
 [[pending:lem-tl5-l7-rates]] is the certified rates lemma. The four outcome rows and the specimen are computational
 items: no coefficients have been certified.
@@ -595,7 +589,7 @@ Rows for the crosswalk of the new appendix, in its four columns, separated by ta
     eq:appc-delta	paper/reader/proofs/P-APPC.md:437	P-APPC, display	blend minus element
     lem:appc-lipschitz	paper/reader/proofs/P-APPC.md:442	P-APPC, Lemma	mean value bound in the jets
     prop:appc-overlap	paper/reader/proofs/P-APPC.md:454	P-APPC, Proposition	blended residual on the use interval
-    sec:appc-norm	paper/reader/proofs/P-APPC.md:469	P-APPC, section	interface to the level-3 estimate (pending its statement)
+    sec:appc-norm	paper/reader/proofs/P-APPC.md:469	P-APPC, section	interface to the level-N estimate (pending its exact source term)
     eq:appc-certificate	paper/reader/proofs/P-APPC.md:473	P-APPC, display	certificate numbers B per element, |alpha| <= 3
     eq:appc-target	paper/reader/proofs/P-APPC.md:482	P-APPC, display	allocation f e^(phi_min/2) (S-APP 3g)
     sec:appc-outcomes	paper/reader/proofs/P-APPC.md:487	P-APPC, section	new; all rows pending
