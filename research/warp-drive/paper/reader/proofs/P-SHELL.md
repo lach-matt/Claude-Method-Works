@@ -467,7 +467,8 @@ i is developed with the index k_i, and its band is (ϑ_a^(i), ϑ_b^(i)); the loc
 (b) and of (T1), with η = w_i/2, gives g0 off (ϑ_a^(i) − η, ϑ_b^(i) + η), a compact subset of (ϑ_a^(i+1), ϑ_b^(i+1)). As
 the extensions equal the background's near v = v_1 and u = u_1 and g0 is defined on a neighbourhood of Q1 × S³, there is
 δ_e > 0 such that the extended free data, continued by the background's, are defined on [c_k, v_1 + δ_e] and on [d_j,
-u_1 + δ_e].
+u_1 + δ_e], and such that g0 is defined in the gauge on a neighbourhood of [0, 3δ_e] × [0, v_1 + δ_e] and of
+[0, u_1 + δ_e] × [0, 3δ_e] and R > a on these two sets, R being continuous and > a on the cones.
 
 *Extended data.* On 𝒞_out ∩ {c_k ≤ v ≤ v_1 + δ_e} solve the equations of the proof of [[prop:loc-shell-cones]] with the
 free data (ℓ_i^(k), q_in^(k)) and the values of ϕ, ∂_vϕ, b and ∂_v b of the cone data at c_k⁺. By uniqueness the result

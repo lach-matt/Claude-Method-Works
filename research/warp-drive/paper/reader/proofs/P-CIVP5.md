@@ -232,12 +232,12 @@ J, the solution of [[lem:class-kato-history]] with v := u^n, f := F(u^n) on [t1 
 by (M0), F(u^n) = F(h) on [−m, t1], so w̄ solves the linear equation there. Suppose u^n ∈ 𝒫_(t1+T), u^n = h on
 [−2m, t1]. Then u^(n+1) ∈ 𝒳^s([−2m, t1 + T]) by [[lem:class-kato-history]], and w := u^(n+1) − u_* solves on J the linear
 problem with the coefficients 𝐀^μ := A^μ(u^n), the data h(t1) − u_*(t1) and the forcing term f_w := F(u^n) − 𝐀^μ ∂_μ u_*,
-whose ingredients are those of [[lem:class-kato-history]] (with w̄ := h − u_*). By [[lem:class-mixed-product]] at each
+to which [[lem:class-kato-history]] applies (with w̄ := h − u_*). By [[lem:class-mixed-product]] at each
 time, ‖𝐀^μ ∂_μ u_*‖_(H^s([t1,t])) ≤ (t − t1)^(1/2) C(𝔐_ρ), u_* ∈ 𝒳^(s+1); with (M1), ‖f_w‖_(H^s([t1,t])) ≤ C (T + m)^(1/2).
 By (i), with C_A := sup |A^0| at |u| ≤ C_S 𝔐_ρ, ‖w(t)‖_(H^s) ≤ c0^(−1/2) e^(CT) (C_A^(1/2) η ρ + C T^(1/2) (T + m)^(1/2)).
-At t1 the equation for h gives f_w(t1) = A^μ(h) ∂_μ (h − u_*)(t1), and its time derivatives of order i ≤ s − 2 there are
-those of A^μ(h) ∂_μ(h − u_*) from the left, by [[lem:class-kato-history]] applied to h; by [[lem:class-mixed-product]],
-‖∂_t^i f_w(t1)‖_(H^(s−1−i)) ≤ C(𝔐_ρ) ⟦h − u_*⟧_(s)(t1) ≤ C η ρ. By (ii) for w and (iii),
+On [t1 − m, t1] the equation for h gives f_w = A^μ(h) ∂_μ(h − u_*), and ∂_t^i f_w is continuous into H^(s−1−i) for
+i ≤ s − 1; so by [[lem:class-mixed-product]], ‖∂_t^i f_w(t1)‖_(H^(s−1−i)) ≤ C(𝔐_ρ) ⟦h − u_*⟧_(s,[t1−m,t1]) ≤ C η ρ. By
+(ii) for w and (iii),
 
     ⟦w⟧_(s,J) ≤ B (η ρ + T^(1/2) (T + m)^(1/2)),
 
@@ -257,21 +257,21 @@ first part agrees with u on [−2m, T2) by uniqueness.
 (b) By (a), the solution u with history h exists on a maximal interval [−m, T_m) ∩ [−m, T0] on which ⟦u − u_*⟧_s ≤ η ρ.
 Let τ1 < τ2 < T_m with τ2 − τ1 ≤ θ, θ ≤ m to be fixed, and z := u − u_*. z solves the linear problem with coefficients at
 u and the forcing term f_z := F(u) − F(u_*) − R − (A^μ(u) − A^μ(u_*)) ∂_μ u_*, and ‖f_z‖_(H^s([τ1,τ])) ≤ C (‖z‖_(H^s([τ1−m,τ]))
-+ ‖R‖_(H^s([τ1,τ]))) by (M1′) and [[lem:class-mixed-product]] at each time. At τ1, by the two equations, ∂_t^i f_z(τ1) =
-∂_t^i(A^μ(u) ∂_μ z)(τ1) for i ≤ s − 2, so ‖∂_t^i f_z(τ1)‖_(H^(s−1−i)) ≤ C ⟦z⟧_s(τ1). Put X(τ) := ⟦z⟧_(s,[−2m,τ]); then
-‖z‖_(H^s([τ1−m,τ])) ≤ (2m)^(1/2) X(τ). (i)–(iii) give, for τ ∈ [τ1, τ2],
++ ‖R‖_(H^s([τ1,τ]))) by (M1′) and [[lem:class-mixed-product]] at each time. Put X(τ) := ⟦z⟧_(s,[−2m,τ]); then
+‖z‖_(H^s([τ1−m,τ])) ≤ (2m)^(1/2) X(τ). By the two equations, f_z + R = A^μ(u) ∂_μ z on [τ1 − m, τ1], so, as in (a),
+‖∂_t^i f_z(τ1)‖_(H^(s−1−i)) ≤ C (X(τ1) + ‖R‖_(H^s([−m,T0]))) for i ≤ s − 1, by [[eq:class-trace]] for R. Then (i)–(iii)
+give, for almost every τ ∈ [τ1, τ2],
 
-    ⟦z⟧_(s)(τ) ≤ B′ (⟦z⟧_(s)(τ1) + θ^(1/2) X(τ) + ‖R‖_(H^s([−m,T0]))),
+    Σ_(j≤s) ‖∂_t^j z(τ)‖_(H^(s−j)) ≤ B′ (X(τ1) + θ^(1/2) X(τ2) + ‖R‖_(H^s([−m,T0]))),
 
 so X(τ2) ≤ B′ X(τ1) + B′ θ^(1/2) X(τ2) + B′ δ, and for B′ θ^(1/2) ≤ ½, X(τ2) ≤ 2B′ (X(τ1) + δ). Over the N := ⌈T0/θ⌉
 intervals of length θ this gives X ≤ (4B′)^N δ =: C δ on [−2m, T_m). For C δ ≤ η ρ/2, (a) excludes T_m ≤ T0. ∎
 
-**Remark {#rem:class-kato-memory}** (Why the hypotheses are integrated.) Let the forcing term be an average along arcs
-that lie on hypersurfaces tilted against the slices: at a point x of the slice {t = t̄}, the value at x is an average of
-an L² function over the arc from the axis to x on the hypersurface through x of a second foliation, whose points have
-earlier times. On each slice of both foliations the function may be bounded in L² while the average is not bounded in
-L² on the slice {t = t̄}: by a factor that grows like the square root of the logarithm of the inverse scale of the
-function near the axis, the Jacobian of the map from the arcs to the slice vanishing at the axis. The square of the
-space-time L² norm of the average is the integral over the second foliation of the squares of its L² norms on its
-hypersurfaces, which are bounded. So (F2) fails for such terms, while (M2) holds; [[thm:class-kato-memory]] uses only
-(M0)–(M2).
+**Remark {#rem:class-kato-memory}** (Why the hypotheses are integrated.) In the application
+([[sec:loc-t5]]) the forcing term at a point x of the slice {t = t̄} is computed on the hypersurface through x of a
+second foliation, tilted against the slices, from the state on an arc of that hypersurface from the axis to x, whose
+other points have earlier times. Its value on a slice is then a trace of a function that is controlled in space-time:
+the square of its space-time norm is the integral, over the second foliation, of the squares of norms on its
+hypersurfaces, which the slice estimates of [[lem:class-leaf-differences]] and [[lem:class-leaf-arc]] control. This is
+(M1) and (M2); the fixed-time hypotheses (F1) and (F2) would ask for bounds on each slice {t = t̄} itself, which the slice
+estimates do not give. [[thm:class-kato-memory]] uses only (M0)–(M2).
