@@ -108,10 +108,9 @@ either state: G(0, z, q) = −A3 q³/B3 by the proof of [[lem:class-volterra]], 
 ∂_r ∂_z G is bounded by the C³ norms of g and the C¹ norms of p_A, Θ_A. Along a leaf |q| = |h′| ≤ C_0 r, so there
 |∂_z G| ≤ C_4 r and |∂_q G| ≤ C_4 r with C_4 := C_3 (1 + C_0³ r_V²) + C_2 (1 + C_0).
 
-*One leaf.* Fix z0 and let h := h_U(·; z0), h′ := h_(U′)(·; z0), δh := h − h′, δw := δh′ (so δh(0) = 0) and
-ω(r) := |δw(r)|/r, which is bounded since |δw| ≤ 2C_0 r. Subtracting the two Volterra equations and writing G_U −
-G_(U′) at (ρ, h(ρ), h′(ρ)) plus the increment of G_(U′) from (h′(ρ), h′′(ρ)) to (h(ρ), h′(ρ)), with the first and
-second argument of the increment the position and the slope,
+*One leaf.* Fix z0 and let h := h_U(·; z0), h̃ := h_(U′)(·; z0), δh := h − h̃, δw := h′ − h̃′ (so δh(0) = 0) and
+ω(r) := |δw(r)|/r, which is bounded since |δw| ≤ 2C_0 r. Subtracting the two Volterra equations, and writing the
+difference of the integrands as G_U − G_(U′) at (ρ, h(ρ), h′(ρ)) plus G_(U′)(ρ, h(ρ), h′(ρ)) − G_(U′)(ρ, h̃(ρ), h̃′(ρ)),
 
     r δw(r) = ∫_0^r (ρ F(ρ) + θ_1(ρ) δh(ρ) + θ_2(ρ) δw(ρ)) dρ,      |θ_1|, |θ_2| ≤ C_4 ρ,
 
@@ -135,12 +134,12 @@ Let δ_𝔐 := min(R_0/2, r_V/8, 1/(3C_0), ρ1(p)/16) with C_4 (R_0/2 + R_0³) �
 K_Σ(e2, e2)) with σ_L = ½ H_L − k_φ, k_φ = ν^r/r + ½ ν(log B3) and ν^r = −(C3 r + A3 h′)/(det₂^(1/2) N_L): at a point of
 a leaf, σ is a smooth function of the point, of h′, of h′/r and of the values of Θ_A, p_A and of the metric with its
 first derivatives there, with derivatives bounded in terms of 𝔐 and c. Let x = (h(|y|), y) be the point of the leaf of
-U over y and x′ = (h′(|y|), y). Then |σ[U](x) − σ[U′](x′)| ≤ C (|δw| + ω + |U − U′|(x) + |δh|), the last term from
+U over y and x̃ = (h̃(|y|), y). Then |σ[U](x) − σ[U′](x̃)| ≤ C (|δw| + ω + |U − U′|(x) + |δh|), the last term from
 moving the point of evaluation of U′, whose 1-jet is Lipschitz with constant 𝔐. Let z0′ be the axis point of the leaf
 of U′ through x. By [[eq:class-leaf-lipschitz]] for U′, |z0′ − z0| ≤ 2 |δh(|y|)|. Along the leaves of U′ through
 (ζ, y), the position and h′ are Lipschitz in ζ by Step 2, and so is h′/r: by Step 2 and |∂_z G|, |∂_q G| ≤ C_4 ρ,
 |Δh′(r)|/r ≤ r⁻² ∫_0^r C_4 ρ (|Δh| + |Δh′|) dρ ≤ C_4 (3/2 + 4C_1) |Δζ|. So σ[U′] on the leaf with axis point ζ, over y,
-is Lipschitz in ζ with a constant depending only on 𝔐 and c, and |σ[U′](x) − σ[U′](x′)| ≤ C |δh(|y|)|. Hence
+is Lipschitz in ζ with a constant depending only on 𝔐 and c, and |σ[U′](x) − σ[U′](x̃)| ≤ C |δh(|y|)|. Hence
 
     ‖σ[U] − σ[U′]‖_(L²(𝔻_δ)) ≤ C ‖F‖_(L²(r dr; [0,2δ])) + C ‖(U − U′)(h(|y|), y)‖_(L²(𝔻_δ)),
 
