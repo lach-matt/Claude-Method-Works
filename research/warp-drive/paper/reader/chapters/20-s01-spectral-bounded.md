@@ -489,13 +489,13 @@ By [[eq:i-a-1-4]], p₁(σ) = p₁(0) ± (Im σ)ρ_∞τ₁ Id. So by [[eq:i-a-1
 
     β₀⁻¹p₁(σ) ≤ (ϑ_± − β Im σ) Id     at ∂ℛ.                                                             {#eq:i-a-4-1}
 
-**Lemma {#lem:i-a-4-1}** (A defining function in S∗X̃°.) There are C_y, c′ > 0 and a neighbourhood W of ∂ℛ in S∗X̃°
-such that q̃ := q_ext + C_y(ρ_∞²G₀)² is a quadratic defining function of ∂ℛ in S∗X̃° and 𝖧q̃ ≥ c′q̃ on W. Here
-q_ext := q_± ∘ π for a smooth retraction π of a neighbourhood of ∂ℛ onto ∂Σ₀, an extension with dq_ext = 0 on ∂ℛ (an
+**Lemma {#lem:i-a-4-1}** (A defining function in S∗X̃°.) Let y := ρ_∞²G₀. There are C_y, c′ > 0 and a neighbourhood W
+of ∂ℛ in S∗X̃° such that q̃ := q_ext + C_y y² is a quadratic defining function of ∂ℛ in S∗X̃° and 𝖧q̃ ≥ c′q̃ on W.
+Here q_ext := q_± ∘ π for a smooth retraction π of a neighbourhood of ∂ℛ onto ∂Σ₀, an extension with dq_ext = 0 on ∂ℛ (an
 arbitrary extension may carry a term linear in ρ_∞²G₀, and then q̃ need not be a defining function), and 𝖧 is given
 near ∂ℛ by the same formula off Σ₀.
 
-*Proof.* At ∂ℛ, 𝖧ρ_∞ = β₀ρ_∞ ≠ 0, so H_(G₀) ≠ 0 and dG₀ ≠ 0; hence y := ρ_∞²G₀ defines ∂Σ₀ near ∂ℛ. Since 𝖧G₀ = 0,
+*Proof.* At ∂ℛ, 𝖧ρ_∞ = β₀ρ_∞ ≠ 0, so H_(G₀) ≠ 0 and dG₀ ≠ 0; hence y defines ∂Σ₀ near ∂ℛ. Since 𝖧G₀ = 0,
 𝖧y = 2β₀y, with β₀ := ρ_∞⁻¹𝖧ρ_∞ extended as a smooth function, ≥ b₀ > 0 near ∂ℛ. 𝖧 vanishes on ∂ℛ, which consists of
 radial points. So q_ext and 𝖧q_ext vanish to second order at ∂ℛ, and so does Z := 𝖧q_ext − (c/2)q_ext. In local
 coordinates (y, z, w) near a point of ∂ℛ, with ∂ℛ = {y = 0, z = 0}: Z(0, z, w) ≥ (c/2)q_± ≥ c₁|z|²;
@@ -770,7 +770,7 @@ of 𝔰𝔬(4) acting on functions on 𝕊³, which is Δ_(𝕊³). All act comp
 
 **Lemma {#lem:i-a-4-7}** (Sum of squares; [Hin26c, (9.49)] on E.) Near ∂X,
 Re_h P̂(0) = Σ_j W_j^(∗h)W_j + R₁ + R₂, with W_j ∈ ρDiff¹_b acting componentwise, R₁ ∈ ρ²Diff¹_b and
-R₂ ∈ ρ³Diff²_b, both h-self-adjoint. The σ-independent symbols r₁ := σ(ρ⁻¹R₁) and r₂ := σ(ρ⁻¹R₂) at ρ = 0 are
+R₂ ∈ ρ³Diff²_b, both h-self-adjoint. The σ-independent symbols 𝔯₁ := σ(ρ⁻¹R₁) and 𝔯₂ := σ(ρ⁻¹R₂) at ρ = 0 are
 homogeneous of degrees 1 and 2 in (ξ, η), and so vanish at R_out.
 
 *Proof.* Re_h P̂(0) = P̂(0) − i Im_h P̂(0) with Im_h P̂(0) ∈ ρ²Diff¹_b. So by (H2),
@@ -834,8 +834,8 @@ and 𝖧̃g̃ = 0. By Im_h(cA) = (Re c) Im_h A + (Im c) Re_h A, [[lem:i-a-4-4]] 
     Im_h P̃ = P̃_I^(0) − ι_σ Σ_j W_j^(∗h)W_j,
     P̃_I^(0) := Im_h T + κ_σ Im_h P̂(0) − ι_σ(R₁ + R₂) + σ₁g₀₀ ∈ Ψ^(2,−1).                                 {#eq:i-a-4-12}
 
-(Here Im_h(σ⁻¹σ²g₀₀) = σ₁g₀₀.) P̃_I^(0) has symbol ρp̃ at ρ = 0, with p̃ := −(S + S^(∗h)) + κ_σr₃ − ι_σ(r₁ + r₂) and
-r₃ := σ(ρ⁻¹Im_h P̂(0)). The last three terms vanish at R_out, so p̃ = −(S + S^(∗h)) there.
+(Here Im_h(σ⁻¹σ²g₀₀) = σ₁g₀₀.) P̃_I^(0) has symbol ρp̃ at ρ = 0, with p̃ := −(S + S^(∗h)) + κ_σ𝔯₃ − ι_σ(𝔯₁ + 𝔯₂) and
+𝔯₃ := σ(ρ⁻¹Im_h P̂(0)). The last three terms vanish at R_out, so p̃ = −(S + S^(∗h)) there.
 
 **Proposition {#prop:i-a-4-9}** (Radial estimate at R_out.) Let 𝒟 be a compact subset of {σ ≠ 0, Im σ ≥ 0}, U a
 neighbourhood of R_out, s, M ∈ ℝ, and h a fibre inner product.
@@ -1380,15 +1380,15 @@ threshold, by (O3)). Elsewhere the adjoint estimates are below threshold or prop
 condition.
 
 *Local constancy of the index.* Let σ_* be in one of the settings, and fix orders admissible for all σ near σ_*:
-[[lem:i-a-7-1]] if σ_* is real, any 𝗋 as in (2) if Im σ_* > 0. Let 𝒩 := ker P̂(σ_*). Let 𝒲 ⊂ C_c^∞(X̄°; E) be a
+[[lem:i-a-7-1]] if σ_* is real, any 𝗋 as in (2) if Im σ_* > 0. Let 𝔑 := ker P̂(σ_*). Let 𝒲 ⊂ C_c^∞(X̄°; E) be a
 complement of the closed, finite-codimensional range in 𝒴_(σ_*); it exists because C_c^∞(X̄°) is dense in 𝒴_(σ_*).
-Let E₀₁ : ℂ^(dim 𝒲) → 𝒲 be an isomorphism and E₁₀u := (⟨u, v_j⟩)_j with v_j ∈ C_c^∞(X̄°) chosen so that E₁₀|_𝒩 is an
+Let E₀₁ : ℂ^(dim 𝒲) → 𝒲 be an isomorphism and E₁₀u := (⟨u, v_j⟩)_j with v_j ∈ C_c^∞(X̄°) chosen so that E₁₀|_𝔑 is an
 isomorphism. Then the operator
 
     P^♯(σ) := ( P̂(σ)   E₀₁ )
               ( E₁₀     0  )
 
-has index ind P̂(σ) + dim 𝒲 − dim 𝒩, and is invertible at σ_*.
+has index ind P̂(σ) + dim 𝒲 − dim 𝔑, and is invertible at σ_*.
 
 *Injectivity.* P^♯(σ) is injective for σ near σ_*. Otherwise there are σ_j → σ_* and (u_j, c_j) ≠ 0 in the kernel,
 normalised by ‖u_j‖_(−𝐌) + |c_j| = 1. By [[eq:i-a-7-1]], ‖u_j‖_𝐬 ≤ C(|c_j| + ‖u_j‖_(−𝐌)) ≤ C. Pass to a subsequence
@@ -1396,7 +1396,7 @@ with u_j ⇀ u in H̄^𝐬, hence u_j → u in H̄^(−𝐌) (compactness), and 
 P̂(σ_j)u_j → P̂(σ_*)u as distributions, so P̂(σ_*)u = −E₀₁c and u ∈ 𝒳_(σ_*), and E₁₀u = lim E₁₀u_j = 0. This
 contradicts the invertibility of P^♯(σ_*).
 
-So ind P̂(σ) ≤ dim 𝒩 − dim 𝒲 = ind P̂(σ_*) near σ_*. The same argument for the adjoint family, with [[eq:i-a-7-2]],
+So ind P̂(σ) ≤ dim 𝔑 − dim 𝒲 = ind P̂(σ_*) near σ_*. The same argument for the adjoint family, with [[eq:i-a-7-2]],
 gives ind P̂^(∗h)(σ) ≤ ind P̂^(∗h)(σ_*), that is ind P̂(σ) ≥ ind P̂(σ_*). So the index is locally constant, and by
 independence of the orders it does not depend on the local choice of orders. The set {σ ≠ 0, Im σ ≥ 0} is connected
 and covered by these neighbourhoods, so the index is constant. ∎
