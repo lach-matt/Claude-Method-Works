@@ -874,10 +874,10 @@ by the Tier 2 section on large data, which follows the section of item 2 and cit
 [[lem:loc-cone-in]] and [[prop:loc-cone-local]]; where both change a text, the coordinator merges the two new texts.
 
 *1. Block A.* The text of Block A, from the statement of [[lem:loc-cone-in]] through the end of [[rem:loc-cone-scope]]
-(without the heading "Block A" and its first paragraph), is inserted in [[sec:loc-cones]] immediately after the proof
-of [[prop:loc-cones]], whose last line is "background's by uniqueness. ∎" (line 591), with one blank line before and
-one after; the paragraph of item 4 follows it. It defines lem:loc-cone-in, eq:loc-cone-in, thm:loc-cone-development,
-eq:loc-cone-domain and rem:loc-cone-scope.
+(without the heading "Block A" and its first paragraph), is inserted in [[sec:loc-cones]] immediately after the proof of
+[[prop:loc-cones]], whose last line ends with "background's by uniqueness." and the end mark (line 591), with one blank
+line before and one after; the paragraph of item 4 follows it. It defines lem:loc-cone-in, eq:loc-cone-in,
+thm:loc-cone-development, eq:loc-cone-domain and rem:loc-cone-scope.
 
 *2. Block B.* The section of Block B, from its heading through the end of the proof of [[thm:loc-cone-development]], is
 inserted in [[ch:localised-data]] as a new section immediately after [[sec:loc-cones]], that is before the heading
