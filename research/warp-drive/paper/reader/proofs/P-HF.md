@@ -586,3 +586,105 @@ so that |B|² + |ℒ_(∂_γ)B|² ≤ (1 + 8|D̂∂_γ|²)|B|² + 2|D̂_(∂_γ)
 |D̂_(∂_γ)B|² ≤ 3(cΩ̂²|w₊|² + κ′²(Ω̂²/c)|w₋|² + κ′² b̂² e^(2ζ) |∇̸B|²) ≤ 𝔨₁ (e_o[B] + κ′ e_i[B]), and
 |B|² ≤ (e_o[B] + κ′ e_i[B])/(2Ω̂² z̲), by [[lem:tl5-hf-densities]]. Finally dω dv = R⁻³ dμ dτ₂/(1 − κκ′) on the face,
 and (e_o + κ′e_i)/(1 − κκ′) = ε₁. ∎
+
+#### The reduced operator and its quadratic part {#sec:tl5-hf-quadratic}
+
+**Lemma {#lem:tl5-hf-reduced}** (The reduced operator about ĝ.) Let g be a C² Lorentzian metric near a point,
+h := g − ĝ, H := g⁻¹ − ĝ⁻¹, K_σμν := (1/2)(D̂_μ h_σν + D̂_ν h_σμ − D̂_σ h_μν) and C := g⁻¹K, the tensor
+C^λ_μν = g^(λσ) K_σμν. Then
+
+    −2 Ric^W(g) = −2 R̂ic + L̂h + N(h),      N(h) := H^(λσ) D̂_λD̂_σ h − 2 𝔠(H) h − 2 𝔮,                     {#eq:tl5-hf-n}
+
+where, with D̂g^(λσ) = −g^(λμ) g^(σν) D̂h_μν and Υ^λ = g^(λσ) g^(μν) K_σμν,
+
+    (𝔠(H)h)_αβ := −(1/2) H^(λσ) (R̂^ρ_βλα h_ρσ + R̂^ρ_σλα h_βρ + R̂^ρ_αλβ h_ρσ + R̂^ρ_σλβ h_αρ + R̂^ρ_λαβ h_ρσ),
+    𝔮_αβ := (D̂_λ g^(λσ)) K_σαβ − (1/2) (D̂_β g^(λσ)) D̂_α h_λσ + C^λ_λσ C^σ_αβ − C^λ_βσ C^σ_λα
+            − (1/2) ((D̂_β g^(μν)) K_αμν + (D̂_α g^(μν)) K_βμν) + (1/2) (D̂_β h_αλ + D̂_α h_βλ) Υ^λ.
+
+So g solves the reduced equation [[eq:tl5-wg-reduced]] if and only if L̂h = 2R̂ic − N(h). Each term of 2𝔮 is a
+contraction of g⁻¹ ⊗ g⁻¹ ⊗ D̂h ⊗ D̂h, and the sum of the absolute values of its coefficients, counted over the
+monomials obtained by expanding K, is 16; 2𝔠(H)h is a sum of five contractions of H ⊗ R̂ ⊗ h with coefficient 1.
+
+*Proof.* Since D̂ĝ = 0, D̂g = D̂h, and the difference of the connections is C. The standard formula for the Ricci
+tensor of a connection D̂ + C reads Ric(g)_αβ = R̂ic_αβ + D̂_λ C^λ_αβ − D̂_β C^λ_λα + C^λ_λσ C^σ_αβ − C^λ_βσ C^σ_λα,
+with C^λ_λα = (1/2) g^(λσ) D̂_α h_λσ. In [[eq:tl5-wg-def]], g_αλ D̂_β Υ^λ = D̂_β 𝒱_α − (D̂_β h_αλ) Υ^λ with
+𝒱_α := g_αλ Υ^λ = g^(μν)(D̂_μ h_αν − (1/2) D̂_α h_μν). Expanding, the terms with two derivatives of h are
+
+    (1/2) g^(λσ) ([D̂_λ, D̂_α] h_βσ + [D̂_λ, D̂_β] h_ασ) − (1/2) g^(λσ) D̂_λD̂_σ h_αβ + (1/4) g^(μν) [D̂_α, D̂_β] h_μν,
+
+by pairing (1/2) g^(λσ) D̂_λD̂_α h_σβ from D̂_λC^λ_αβ with −(1/2) g^(μν) D̂_αD̂_μ h_βν from −(1/2)D̂_α𝒱_β, the same with α
+and β exchanged, and −(1/2) g^(λσ) D̂_βD̂_α h_λσ from −D̂_βC^λ_λα with (1/4) g^(μν)(D̂_βD̂_α + D̂_αD̂_β) h_μν from the
+gauge term. By the convention of [[lem:tl5-wg-linear]], [D̂_μ, D̂_ν] h_αβ = −R̂^ρ_αμν h_ρβ − R̂^ρ_βμν h_αρ, and the
+commutator terms are 𝔠(g⁻¹)h, with g⁻¹ in place of H (the last term of 𝔠 uses the symmetry of g^(μν) and of h). The
+terms with products of first derivatives are 𝔮. So Ric^W(g) = R̂ic − (1/2) g^(λσ) D̂_λD̂_σ h + 𝔠(g⁻¹)h + 𝔮. Applied to
+ĝ + th and differentiated at t = 0, this gives (d/dt)Ric^W = −(1/2)□̂h + 𝔠(ĝ⁻¹)h, as 𝔮 is quadratic in h; by
+[[eq:tl5-wg-lin]], 𝔠(ĝ⁻¹)h = −𝓡̂h. Since 𝔠 is linear in its first argument, −2Ric^W(g) = −2R̂ic + □̂h + 2𝓡̂h +
+H^(λσ)D̂_λD̂_σh − 2𝔠(H)h − 2𝔮. The count: the six groups of 𝔮 contribute 3/2, 1/2, 3/4, 9/4, 3/2 and 3/2, since K is
+one half of a sum of three index permutations of D̂h and 𝒱 a sum of two monomials with coefficients 1 and 1/2. ∎
+
+**Definition {#def:tl5-hf-levels}** (Low and high quantities.) Fix N ≥ 5. For a C^(N+2) symmetric 2-tensor field h
+with g = ĝ + h Lorentzian, put at each point
+
+    𝔰 := max(|H|, |Ψ_B| (|B| ≤ N − 2), |D̂Ψ_B| (|B| ≤ N − 3), |D̂²Ψ_B| (|B| ≤ N − 4)),
+    𝔧 := max(𝔰, |Ψ_B|, |D̂Ψ_B| (|B| ≤ N), |D̂²Ψ_B| (|B| ≤ N − 1)),
+
+the maxima over words B in Γ. The tensors in the first line are the low quantities. Let Λ ≥ 1 be a bound at the point
+for the norms of ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z] and ℒ^B R̂ for all words B with |B| ≤ N and all Z ∈ Γ, and put
+𝔤₀ := √5 + 1/4 and, with the ordered Bell numbers F₀ = F₁ = 1, F₂ = 3, F₃ = 13, F₄ = 75, F₅ = 541,
+F_k = Σ_(r) r! S(k, r) in general,
+
+    β₁(k) := 1 + (2^(k+1) − 2) Λ,      β₂(k) := 1 + (7/3)(4^k − 1) Λ²,
+    b_g(0) := 𝔤₀,   b_g(k) := F_k 𝔤₀^(k+1) (Λ + 1)^k,   b_H(0) := 1,   b_H(k) := (2k + 1) F_k 𝔤₀^(k+1) (Λ + 1)^k,
+    𝔠_n := β₂(n) − 1 + Σ_(k=1)^n C(n, k) b_H(k) β₂(n − k) + 5Λ Σ_(k=0)^n C(n, k) 2^(n−k) b_H(k)
+           + 16 Σ_(k₁+k₂+k₃+k₄=n) (n!/(k₁! k₂! k₃! k₄!)) b_g(k₁) b_g(k₂) β₁(k₃) β₁(k₄),                       {#eq:tl5-hf-cn}
+
+C(n, k) the binomial coefficients and k ≥ 1 where not stated.
+
+**Lemma {#lem:tl5-hf-quadratic}** (The quadratic terms.) Let N ≥ 5, h as in [[def:tl5-hf-levels]], and p a point with
+𝔰(p) ≤ 1/8. Then for every word I with |I| ≤ N,
+
+    |ℒ^I N(h) − H^(αβ) D̂_αD̂_β Ψ_I| ≤ 𝔠_(|I|) 𝔰 𝔧   at p.                                                {#eq:tl5-hf-g}
+
+*Proof.* As |h| ≤ 𝔰 ≤ 1/8, |H| ≤ 1/4 by [[lem:tl5-wg-norms]] (a), whose proof applies to the norm |·| as it uses only
+a ĝ-orthonormal frame; so |g⁻¹| ≤ |ĝ⁻¹| + |H| ≤ 𝔤₀. Lie derivatives commute with contractions and obey Leibniz's
+rule, so ℒ^I of a contraction of m factors is the sum, over the assignments of the letters of I to the factors with
+the order kept, of the contractions of the Lie derivatives of the factors; there are n!/(k₁! ⋯ k_m!) assignments with
+k_i letters on the i-th factor, n := |I|. A full contraction of tensors is bounded by the product of their norms.
+Expand each Lie derivative of a factor as follows; a monomial is a contraction of background factors and of solution
+factors, the latter among H, Ψ_B, D̂Ψ_B and D̂²Ψ_B.
+
+(i) ℒ^J h = Ψ_J and ℒ^J R̂, of norm at most Λ.
+
+(ii) ℒ^J D̂h = D̂Ψ_J + R′_J, where by [[eq:tl5-hf-lie-d]] R′_(ZJ) = ℒ_Z R′_J − Γ′[π^Z] ⋆ Ψ_J: each monomial of R′_J has one
+coefficient ℒ^B Γ′[π^Z] and one solution factor Ψ_B, |B| < |J|, and their number m′_k (k := |J|) satisfies
+m′_k ≤ 2m′_(k−1) + 2, m′₀ = 0; so ℒ^J D̂h is a sum of monomials with background norms of total at most β₁(k).
+
+(iii) ℒ^J D̂²h = D̂²Ψ_J + R_J with R_(ZJ) = ℒ_Z R_J + [ℒ_Z, D̂²]Ψ_J and [ℒ_Z, D̂²]Ψ = −Γ′ ⋆ D̂Ψ − (D̂Γ′) ⋆ Ψ − Γ′ ⋆̃ D̂Ψ,
+seven monomials, ⋆̃ the contraction in which D̂ falls on Ψ inside D̂(Γ′ ⋆ Ψ); Lie differentiation of a monomial with
+solution factor D̂Ψ_B gives at most four monomials, by ℒ_Z D̂Ψ_B = D̂Ψ_(ZB) − Γ′ ⋆ Ψ_B, and of one with Ψ_B two; so the
+number m_k of monomials of R_J satisfies m_k ≤ 4m_(k−1) + 7, m_k ≤ (7/3)(4^k − 1), each with at most two background
+factors and one solution factor D̂Ψ_B or Ψ_B with |B| < k.
+
+(iv) ℒ^J g⁻¹ = Σ (−1)^r g⁻¹ (ℒ^(B₁) g) g⁻¹ ⋯ (ℒ^(B_r) g) g⁻¹, the sum over the ordered sequences of r ≥ 1 disjoint
+nonempty subwords B_i of J, in the order of J, covering J; this follows by induction from ℒ_Z g⁻¹ = −g⁻¹(ℒ_Z g)g⁻¹,
+the new letter either starting a block at one of the r + 1 factors g⁻¹ or joining a block, so that there are
+r! S(k, r) terms with r blocks, F_k in all. Here ℒ^B g = ℒ^B ĝ + Ψ_B with ℒ^B ĝ = ℒ^(B′) π^(Z) for B = (Z, B′), of norm
+at most Λ. So ℒ^J g⁻¹ is a sum of monomials of total background norm at most b_g(k). For ℒ^J H = ℒ^J g⁻¹ − ℒ^J ĝ⁻¹,
+write each difference of products of 2r + 1 factors as a telescoping sum of 2r + 1 terms, each with one difference
+factor H or Ψ_(B_i) and the other factors among g⁻¹, ĝ⁻¹, ℒ^B g and ℒ^B ĝ; every monomial of ℒ^J H then contains a
+solution factor, and the total background norm is at most b_H(k), |ĝ⁻¹| = √5 ≤ 𝔤₀.
+
+By [[lem:tl5-hf-reduced]], with these expansions, ℒ^I N(h) − H^(αβ) D̂_αD̂_βΨ_I is a sum of monomials whose total
+background norm, with the coefficients, is at most 𝔠_n: the first two terms of [[eq:tl5-hf-cn]] come from
+H^(λσ)D̂_λD̂_σh, the term D̂²Ψ_I with all letters on D̂²h being the one subtracted; the third from the five terms of
+2𝔠(H)h, the letters distributed over H, R̂ and h; the fourth from 2𝔮.
+
+Every monomial has at least two solution factors, since each term of N(h) has two (H and D̂²h, H and h, D̂h and D̂h)
+and each expansion above keeps one in every monomial. Call a solution factor high if it is not a low quantity: Ψ_B
+with |B| ≥ N − 1, D̂Ψ_B with |B| ≥ N − 2, or D̂²Ψ_B with |B| ≥ N − 3. A monomial has at most one high factor. In the
+terms from 𝔮 the solution factors are of the forms Ψ_B and D̂Ψ_B, carried by disjoint sets of letters, and two high
+ones would need at least 2N − 4 > N letters. In the terms from H^(λσ)D̂_λD̂_σh the factors of the expansion of H are
+of the form H or Ψ_B, those of D̂²h of the form D̂²Ψ_B, D̂Ψ_B or Ψ_B, one of them, and two high factors would need at
+least (N − 1) + (N − 3) > N letters. In the terms from 𝔠, both are of the form H or Ψ_B, and 2(N − 1) > N. So each
+monomial is bounded by its background norm times 𝔰^(q−1) 𝔧, q ≥ 2 the number of its solution factors, the high one or
+any one of them bounded by 𝔧 and the others by 𝔰; and 𝔰^(q−1) ≤ 𝔰. ∎
