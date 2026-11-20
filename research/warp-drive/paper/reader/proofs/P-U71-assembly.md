@@ -187,27 +187,28 @@ increases with d_NM.
 **Proposition {#prop:ec-delta-cap}** (The thresholds δ and λ1.) In the proof of [[thm:settling]], let d be the loss
 d_NM with which [[thm:iii-k-3-2]] applies [[thm:ii-g-2-1]] (d ≥ d_acc, [[thm:loss-d]]), and let the Nash–Moser
 threshold be ε_NM = θ_0^(−(8d+2)), with θ_0 as chosen in the proof of [[thm:ii-g-2-1]]. Let ε be the data threshold
-of [[cor:s27-rate]], chosen, as in the proof of [[thm:iii-k-3-2]], with ε ≤ s_(2d) and C_(2d)ω_(2d)(ε) ≤ ε_NM, where
-s_(2d), C_(2d) and the modulus ω_(2d) are those of [[lem:iii-k-2-2]] (d) at the order 2d ([[prop:iii-k-1-2]] (3)),
-enlarged if necessary so that C_(2d) ≥ 1 and ω_(2d)(t) ≥ t on [0, s_(2d)]; and let C_R ≥ 1 be the constant of
-[[cor:vii-2-3]]. Then δ = ½ε and λ1 satisfy
+of [[cor:s27-rate]], chosen, as in the proof of [[thm:iii-k-3-2]], with ε ≤ s̃ and C_(2d)ω̃(ε) ≤ ε_NM, where C_(2d) is
+the constant of [[lem:iii-k-2-2]] (d) at the order 2d, and ω̃ := ω_(2d+3) and s̃ := min(s_(2d+3), s_P) are the modulus
+and the threshold with which (d) holds there (those of [[prop:iii-k-1-2]] (3) at the order 2d + 3), enlarged if
+necessary so that C_(2d) ≥ 1 and ω̃(t) ≥ t on [0, s̃]; and let C_R ≥ 1 be the constant of [[cor:vii-2-3]]. Then
+δ = ½ε and λ1 satisfy
 
-    λ1 < δ,     ω_(2d)(2δ) ≤ 2^(−(32d+8)),     δ ≤ 2^(−(32d+9)),     log₁₀ δ < −(59/196)(32d + 9).
+    λ1 < δ,     ω̃(2δ) ≤ 2^(−(32d+8)),     δ ≤ 2^(−(32d+9)),     log₁₀ δ < −(59/196)(32d + 9).
 
 As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives, at the computational point, log₁₀ δ < −1.351 × 10²¹.
 
-*Proof.* Replacing C_(2d) by max(C_(2d), 1) and ω_(2d)(t) by max(ω_(2d)(t), t) keeps [[lem:iii-k-2-2]] (d) true,
+*Proof.* Replacing C_(2d) by max(C_(2d), 1) and ω̃(t) by max(ω̃(t), t) keeps [[lem:iii-k-2-2]] (d) true,
 and the modulus still tends to 0 with t, which is all that the proof of [[thm:iii-k-3-2]] uses of it; so these are
 choices that proof allows. The proof of [[thm:ii-g-2-1]] chooses θ_0 ≥ 16η_0^(−2) with η_0 ≤ 1, so θ_0 ≥ 16 and
-ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So ω_(2d)(2δ) = ω_(2d)(ε) ≤ ε_NM/C_(2d) ≤ 2^(−(32d+8)), and as ε ≤ s_(2d),
-ε ≤ ω_(2d)(ε) ≤ 2^(−(32d+8)), that is, δ = ½ε ≤ 2^(−(32d+9)). The proof of [[thm:settling]] ([[sec:vii-4]]) takes λ1
+ε_NM ≤ 16^(−(8d+2)) = 2^(−(32d+8)). So ω̃(2δ) = ω̃(ε) ≤ ε_NM/C_(2d) ≤ 2^(−(32d+8)), and as ε ≤ s̃,
+ε ≤ ω̃(ε) ≤ 2^(−(32d+8)), that is, δ = ½ε ≤ 2^(−(32d+9)). The proof of [[thm:settling]] ([[sec:vii-4]]) takes λ1
 with C_Rλ1 < ½ε = δ, so λ1 < δ/C_R ≤ δ. Next, 2^10 = 1.024·10³, so 2^196 = 2^190·2^6 = 1.024^19·10^57·64, and by the
 binomial expansion, all of whose terms are positive, 1.024^19 > 1 + 19x + 171x² + 969x³ > 1.5678 > 100/64 with
 x = 0.024; so 2^196 > 10^59 and log₁₀ 2 > 59/196, and log₁₀ δ ≤ −(32d + 9) log₁₀ 2 < −(59/196)(32d + 9). With
 d ≥ d_acc > 1.403·10²⁰, (59/196)(32d + 9) > (59/196) · 32 · 1.403·10²⁰ = 1.35146…·10²¹ > 1.351·10²¹. ∎
 
 The bounds hold whatever the other constants are, once each constant of an upper bound is taken at least 1, which
-enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), the inverse of ω_(2d) and 1/C_R,
+enlarging it allows. A lower bound for δ or λ1 would need lower bounds for θ_0^(−1), the inverse of ω̃ and 1/C_R,
 that is, upper bounds for every constant of the proof that enters them; [[rem:ec-not-evaluated]] says where those
 stop.
 
