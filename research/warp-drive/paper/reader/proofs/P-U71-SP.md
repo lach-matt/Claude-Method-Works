@@ -22,9 +22,10 @@ for every b ([[lem:iii-h2-3-2]]).
 *Setting.* The hypotheses of [[thm:iii-g-5-1]] and of [[thm:iii-g1-3-1]] are assumed throughout, as in [[ch:s16]]; at
 the computational point they are the hypotheses under which its formulas are evaluated ([[rem:ec-point-outside]]).
 𝒫 is the set of poles of N_sf(·)⁻¹. By [[thm:iii-g-5-1]] (1)–(2) it is the set of ϰ at which N_sf(ϰ) is not
-injective, and it does not meet {Re < 2}. Admissible pairs, 𝒳 and 𝒴 are those of [[eq:iii-g-2-6]]–[[eq:iii-g-2-7]].
-For a pair admissible for every ϰ in a disc, 𝒳 does not depend on ϰ in the disc, and ϰ ↦ N_sf(ϰ) ∈ ℒ(𝒳, 𝒴) is a
-polynomial of degree 2 ([[lem:iii-g-1-2]] (f)). On ℝ⁴ we write r = |x| = ρ⁻¹ and n = x/r, and t̄ is the Cartesian time.
+injective, and it does not meet {Re < 2}. Admissible pairs, 𝒳 and 𝒴 are those of [[eq:iii-g-2-6]]–[[eq:iii-g-2-7]]; we
+write c for the weight μ there, μ denoting indicial roots in this section. For a pair admissible for every ϰ in a disc, 𝒳
+does not depend on ϰ in the disc, and ϰ ↦ N_sf(ϰ) ∈ ℒ(𝒳, 𝒴) is a polynomial of degree 2 ([[lem:iii-g-1-2]] (f)). On ℝ⁴ we
+write r = |x| = ρ⁻¹ and n = x/r, and t̄ is the Cartesian time.
 
 For a type and degree τ ([[sec:iii-f1-1]]) let n_τ be the size of its indicial matrices on symmetric 2-tensors and
 N_τ(ι) the matrix N_L(ι) of [[sec:iii-f1-2]], the indicial matrix of ρ⁻²(2L̄)^(0) = L̃(0)(ω, ρ∂_ρ, ∂_ω): on an
@@ -316,17 +317,17 @@ Finally Δ(r^(−2)) = 0, so Δ(r^(−2)dt̄²) = 0 and Δ(r^(−2)δ_(ij)) = 0,
 (c) K_s0 and Z are invariant under SO(4), of type s0. The rotation 1-forms are the sum of the two irreducible
 representations π of vector type 1; for W in one of them, K_v1 lies in W_π = ℂ² ⊗ π. Let k_τ ∈ ℂ^(n_τ) be the vector
 with K_s0 = k_s0, resp. K_v1 = k_v1 ⊗ W, and z the one of Z. By (a), N_τ(ι)k_τ = (ι − 4)(2S_τ − ι − 2)k_τ, so k_τ
-spans ker N_τ(4), the root 4 being simple. K(5) = 3, and by [[eq:sp-matrix]] a vector (μ_0, μ_1, μ_2, μ_3)
+spans ker N_τ(4), the root 4 being simple. K(5) = 3, and by [[eq:sp-matrix]] a vector (ν_0, ν_1, ν_2, ν_3)
 lies in ker 𝔐_τ(5) exactly when
 
-    N_τ(4)μ_0 = 0,  N_τ(3)μ_1 = −2(5/2 − S_τ)μ_0,  N_τ(2)μ_2 = −4(3/2 − S_τ)μ_1,  N_τ(1)μ_3 = −6(1/2 − S_τ)μ_2.
+    N_τ(4)ν_0 = 0,  N_τ(3)ν_1 = −2(5/2 − S_τ)ν_0,  N_τ(2)ν_2 = −4(3/2 − S_τ)ν_1,  N_τ(1)ν_3 = −6(1/2 − S_τ)ν_2.
 
-*Type s0.* N_s0(3) and N_s0(1) are invertible. By (a) at ι = 3, N_s0(3)k_s0 = 2(5/2 − S_s0)k_s0, so μ_0 := k_s0
-gives μ_1 = −k_s0. By (a) at ι = 2, N_s0(2)k_s0 = 4(2 − S_s0)k_s0, so −4(3/2 − S_s0)μ_1 = N_s0(2)k_s0 − 2k_s0, which
-by (b) equals N_s0(2)(k_s0 − z/(2(e_Υ + 2))). So μ_2 := k_s0 − z/(2(e_Υ + 2)) and
-μ_3 := −6N_s0(1)⁻¹(1/2 − S_s0)μ_2 complete a kernel vector with μ_0 ≠ 0. A second one is (0, 0, w, μ_3), w spanning
-ker N_s0(2) and μ_3 := −6N_s0(1)⁻¹(1/2 − S_s0)w. *Type v1.* N_v1(2) and N_v1(1) are invertible. For μ_0 := a k_v1
-and w ∈ ker N_v1(3), μ_1 := −a k_v1 + w solves the second equation, by (a) at ι = 3, and μ_2, μ_3 are then determined;
+*Type s0.* N_s0(3) and N_s0(1) are invertible. By (a) at ι = 3, N_s0(3)k_s0 = 2(5/2 − S_s0)k_s0, so ν_0 := k_s0
+gives ν_1 = −k_s0. By (a) at ι = 2, N_s0(2)k_s0 = 4(2 − S_s0)k_s0, so −4(3/2 − S_s0)ν_1 = N_s0(2)k_s0 − 2k_s0, which
+by (b) equals N_s0(2)(k_s0 − z/(2(e_Υ + 2))). So ν_2 := k_s0 − z/(2(e_Υ + 2)) and
+ν_3 := −6N_s0(1)⁻¹(1/2 − S_s0)ν_2 complete a kernel vector with ν_0 ≠ 0. A second one is (0, 0, w, ν_3), w spanning
+ker N_s0(2) and ν_3 := −6N_s0(1)⁻¹(1/2 − S_s0)w. *Type v1.* N_v1(2) and N_v1(1) are invertible. For ν_0 := a k_v1
+and w ∈ ker N_v1(3), ν_1 := −a k_v1 + w solves the second equation, by (a) at ι = 3, and ν_2, ν_3 are then determined;
 this gives kernel vectors for every (a, w). In both cases dim ker 𝔐_τ(5) ≥ 2 = Σ_k dim ker N_τ(4 − k). The
 diagonal blocks of 𝔐_τ(ϰ) are N_τ(ϰ − k − 1), k ≤ 3, whose determinants are non-zero polynomials with at most a
 simple zero at ϰ = 5, as 4 − k is a simple root of type τ or not a root, by the hypotheses. So [[lem:sp-block]]

@@ -225,14 +225,14 @@ is (c1). (c3): F = (1, 0); at 1 + j the count is j + 1 + (j − 1)₊, so k = j 
 
     ℓ̂ = 1 + Σ_(i=1)^j (2i + 1) + (j − 1)₊ = j² + 2j + 1 + (j − 1)₊,     k = j² + 3j − 1 (j ≥ 1);
 
-at 2 + 𝔡₁ the count is ℓ̂_F(2 + 𝔡₁) + ℓ̂_F(1 + 𝔡₁) + 1 = 2 + 1 + 1, so k = 3, and likewise at 2 + 𝔡₀; at 2 + δ′₁ and
-2 + δ₂, ℓ̂_F = 1 and no root lies at or below, so k = 0. The classes: at m = 1 − 𝔡₀ the exponent 2 + 𝔡₀ comes from u₂
-alone, with no term of 𝒢 ⊂ {Re ≥ 3} below it, so k = 0; the same at 2 + 𝔡₁ for m = 1 − 𝔡₀ and m = 1 − 𝔡₁. At the
-integer offset 1 of a step at m ≤ 0 the exponent m + 1 comes from u₁ alone; for the class first steps with m ∈ {0, −1,
-−2} this gives at most ord(m + 1) ≤ 1, and for the later steps the order is that of the step before at offset 1 plus
-ord(m + 1) ≤ 1, which along a chain of at most three later steps starting from order 0 gives at most 3. So the largest
-order at real part at most 3/2 is 3, at 1, 1 + 𝔡₁ and 1 + 𝔡₀, and (a) follows, the other exponents of [[eq:is-low]]
-having order 0.
+at 2 + 𝔡₁ the count is ℓ̂_F(2 + 𝔡₁) + ℓ̂_F(1 + 𝔡₁) + 1 = 2 + 1 + 1, so k = 3, and likewise at 2 + 𝔡₀; at 1 + 𝔡₀, 1 + 𝔡₁,
+2 + δ′₁ and 2 + δ₂, ℓ̂_F = 1 and no root lies at or below, so k = 0. The classes: at m = 1 − 𝔡₀ the exponent 2 + 𝔡₀ comes
+from u₂ alone, with no term of 𝒢 ⊂ {Re ≥ 3} below it, so k = 0; the same at 2 + 𝔡₁ for m = 1 − 𝔡₀ and m = 1 − 𝔡₁, and at
+2 + 𝔡₀ for m = 1 − 𝔡₁. At the integer offset 1 of a step at m ≤ 0 the exponent m + 1 comes from u₁ alone; for the class
+first steps with m ∈ {0, −1, −2} this gives at most ord(m + 1) ≤ 1, and for the later steps the order is that of the step
+before at offset 1 plus ord(m + 1) ≤ 1, which along a chain of at most three later steps starting from order 0 gives at
+most 3. So the largest order at real part at most 3/2 is 3, at 1, 1 + 𝔡₁ and 1 + 𝔡₀, and (a) follows, the other exponents
+of [[eq:is-low]] having order 0.
 
 (b) *A step bound.* Let a step of [[lem:iii-d3-2-1]] at the order m have a right side of order at most k_R at offsets
 of real part at most t ≤ 5. By [[lem:is-count]] (b), u₁ has order at most k_R + ⌊t⌋ + 1 there, as a ladder of length
@@ -529,7 +529,7 @@ has the same orders; ℰ_++ has orders at most 3, with 3 at λ_♯ + 1 ([[prop:i
 (c) The least real part of π_1(ℰ_ind ∪ ℰ^ι_ind) ∪ {1} is 𝔡₁ ([[eq:is-low]], [[prop:is-iota]]). By the row y = 1 of the
 table, 1/𝔡₁ = 3000002.583…, so 5/𝔡₁ = 15000012.91…, whose ceiling is 15000013. ∎
 
-[[lem:uc-fourier-count]] bounded J_* through η_0 ≥ ε_Υ; with η_0 = 𝔡₁ the bound becomes J_* = 15,000,015.
+[[lem:uc-fourier-count]] bounds J_* through η_0 ≥ ε_Υ; with η_0 = 𝔡₁, J_* = 15,000,015 ([[prop:is-count]] (c)).
 
 #### How far ℰ_ind can be made smaller {#sec:is-smaller}
 
@@ -650,11 +650,11 @@ largest multiplicity M of an indicial root of L̂_b(0) of real part at most 5 sa
 the largest logarithmic order L of ℰ_ind ∪ ℰ^ι_ind ∪ ℰ^C_I at real part at most 5 satisfies 39 ≤ L ≤ 50, the order 39
 being attained at (5, 39) ∈ ℰ_ind ([[prop:is-logs]], [[prop:is-ci-pp]] (a)), and the part of l_* that (IS) fixes,
 max(L, M) = L, is at most 50: l_* = 50 is admissible for it. (G), N_Λ, k̄_0 and J_* are [[thm:is-gap]] and
-[[prop:is-count]]. Two further things are not determined by this paper. (1) The orders of the poles of N_ι⁺(L̄, ·)⁻¹,
-statement (SP) of [[rem:uc-missing]]; l_* depends on them. (2) The coefficient c_b of [[def:is-cb]] at a rotating b; for
-index sets that keep 𝔡₁ it decides whether ε_K may be taken up to μ♭ ([[cor:is-flat]]) or only below μ_G
-([[thm:is-gap]]); whether an admissible ℰ_ind can omit 𝔡₁ is not decided either. Neither question in (2) enters an upper
-bound for d: the index sets as constructed serve with every ε_K < μ_G, and the two questions decide only whether smaller
-index sets, with a larger ε_K, are available. The individual roots ι ∈ Z of [[prop:is-iota]] are fixed by the
-polynomials of [[prop:np-10-12]] and located by [[sec:s14-pa]]; they lie above 3 as exponents of ℰ^ι_ind and do not
-enter Λ below 3 + ε_+.
+[[prop:is-count]]. The orders of the poles of N_ι⁺(L̄, ·)⁻¹ at real part at most 5, statement (SP) of [[rem:uc-missing]],
+are all 1 ([[cor:sp-lstar]] (a)), so they do not raise l_* above L. One thing is not determined by this paper: the
+coefficient c_b of [[def:is-cb]] at a rotating b; for index sets that keep 𝔡₁ it decides whether ε_K may be taken up to
+μ♭ ([[cor:is-flat]]) or only below μ_G ([[thm:is-gap]]); whether an admissible ℰ_ind can omit 𝔡₁ is not decided either.
+Neither question enters an upper bound for d: the index sets as constructed serve with every ε_K < μ_G, and the two
+questions decide only whether smaller index sets, with a larger ε_K, are available. The individual roots ι ∈ Z of
+[[prop:is-iota]] are fixed by the polynomials of [[prop:np-10-12]] and located by [[sec:s14-pa]]; they lie above 3 as
+exponents of ℰ^ι_ind and do not enter Λ below 3 + ε_+.
