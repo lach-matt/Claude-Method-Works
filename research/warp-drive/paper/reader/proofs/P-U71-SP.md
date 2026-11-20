@@ -339,8 +339,8 @@ At the computational point let h := 10⁻⁶ (so γ_C = h⁻¹), κ := l(l + 2),
 δ_C := 2.94·10⁻⁶, as in [[sec:s14-pa]]. Let ι₁ ∈ (2 + δ_C, 5/2) be the root of C of [[lem:s14-scalar-zero]],
 ι_v(l) := (250002000000 + (l + 1)²)^(1/2) − 499999 the larger root of p_(v) ([[lem:s14-vector-distance]]), and
 𝔡₀ := ι^Υ_(s0,2) − 2 and 𝔡₁ := ι^Υ_(s1,2) − 2 the offsets of [[sec:ec-gap-sums]], with
-1.3333327·10⁻⁶ < 𝔡₀ < 1.3333334·10⁻⁶ and 3.3333·10⁻⁷ < 𝔡₁ < 3.3334·10⁻⁷ ([[prop:gap-sums]]). Further
-σ_Υ = {0, 99/10000, 1/100, 1/50} ([[eq:iii-g1-1-4]]).
+1.3333327·10⁻⁶ < 𝔡₀ < 1.3333334·10⁻⁶ and 3.3333·10⁻⁷ < 𝔡₁ < 3.3334·10⁻⁷ (proof of [[prop:gap-sums]]).
+Further σ_Υ = {0, 99/10000, 1/100, 1/50} ([[eq:iii-g1-1-4]]).
 
 **Lemma {#lem:sp-roots}** (The singular roots of real part at most 4.) At the computational point, for a type τ let 𝒮_τ
 be the set of its roots μ with 1 < Re μ ≤ 4.
@@ -546,10 +546,11 @@ most m_ι(ϰ₀) ([[cor:iii-g3-3-1]] (1)): by at most 1 at the points of [[thm:s
 other ϰ₀ with Re ϰ₀ ≤ 5. Likewise each raise "by a pole order of N_ι⁺(L̄, ·)⁻¹" in [[lem:iii-i10-1-2]] (c) is at
 most 1.
 
-(d) On {2 ≤ Re ϰ ≤ 3 + ε_+}, ε_+ < 1/4, the poles are 3; ι₁; and the roots ι of P_l (l ≥ 1) with 2 < Re ι ≤ 3 + ε_+,
-together with ι + 1 for those with Re ι ≤ 2 + ε_+. All are simple. Of these poles, 3 lies in Λ ([[def:iii-i10-1-1]]);
-whether ι₁, a root ι of some P_l or such an ι + 1 lies in Λ is not decided here, and no bound depends on it, each raise
-being at most 1 by (c). The numbers λ_♯ + j, 3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1, 2, 3) are not poles.
+(d) On {2 ≤ Re ϰ ≤ 3 + ε_+}, where ε_+ < δ_50 < 2·10⁻⁸ ([[eq:iii-i9-1-1]], [[def:ec-point]]), the poles are 3; ι₁;
+and the roots ι of P_l (l ≥ 1) with 2 < Re ι ≤ 3 + ε_+, together with ι + 1 for those with Re ι ≤ 2 + ε_+. All are
+simple. Of these poles, 3 lies in Λ ([[def:iii-i10-1-1]]); whether ι₁, a root ι of some P_l or such an ι + 1 lies in
+Λ is not decided here, and no bound depends on it, each raise being at most 1 by (c). The numbers λ_♯ + j,
+3/2 + γ_Υ + j and 3/2 + 2γ_Υ + j (j = 1, 2, 3) are not poles.
 
 *Proof.* (a) The orders are [[thm:sp-spectrum]] (b) and the multiplicities [[lem:sp-roots]] (b); the set of poles at
 real part at most 5 is not empty, so the pole orders require l_* ≥ 1. That M ≤ 7 is stated in [[prop:is-mult]];
