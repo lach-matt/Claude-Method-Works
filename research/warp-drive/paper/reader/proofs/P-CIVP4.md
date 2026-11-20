@@ -472,3 +472,191 @@ components and the conservation laws vanish to infinite order on N by [[lem:civp
 vanish to infinite order on N by the proof of [[prop:loc-cone-formal]] (c), which uses the contracted Bianchi identity in
 the form [[eq:loc-cone-bianchi]] and the constraints of the data and is local in ϑ: it applies off the axes, and at the
 axes by continuity, E being a smooth tensor field. ∎
+
+#### The corner theorem {#sec:civp-axes-corner}
+
+**Proposition {#prop:civp-axes-corner}** (Developments near a corner sphere through the axes, without smallness.) Let
+k ≥ 6 and m := 6k + 19. For Λ ≥ 1, κ ∈ (0, 1] and l ∈ (0, 1] there is σ ∈ (0, l/3], depending only on k, Λ, κ and l,
+with the following property. Let cone data be given on edges N_o = {u_c} × [v_c, v_c + λ_v] and N_i = [u_c, u_c + λ_u] ×
+{v_c} with λ_u, λ_v ≥ l, with any Ω on both edges and any b on N_i, of size at most Λ in C^m and κ-nondegenerate on
+N_o ∩ {v ≤ v_c + l} and on N_i ∩ {u ≤ u_c + l}. Then there is a class solution in the gauge on [u_c, u_c + σ] × [v_c,
+v_c + σ] × S³ that induces the data on N_o ∩ {v ≤ v_c + σ} and on N_i ∩ {u ≤ u_c + σ}. The number σ depends neither on
+the corner, nor on λ_u and λ_v, nor on the data at distance more than l from the corner sphere; no background and no
+smallness of the data enter, and the data may differ from any background at the axes.
+
+*Proof.* We follow case (II) of [[sec:loc-cone-reduced]], with the formal solution Û as the reference state everywhere,
+with chapter 81's closure at the axes in place of the angular cut-off, and with [[thm:class-kato]] (a) about Û in place
+of [[thm:class-kato-stability]] (a). Constants C below depend only on k, Λ, κ and l.
+
+*Step 0 (Reductions).* Translate u and v so that the corner is (0, 0), and restrict the data to edges of length l. By
+[[lem:civp-axes-extension]] (d) we may assume b = 0 on N_i, the size becoming at most Λ_1 in C^(m−1) = C^(6k+18) and the
+nondegeneracy κ_1, both depending only on k, Λ and κ: a class solution in the gauge for the new data gives one for the
+old on the same rectangle, the change of angle not depending on v.
+
+*Step 1 (The formal solution and the constants).* Let C_b and d be the numbers of [[prop:civp-axes-formal]] (b), (c)
+for Λ_1, κ_1 and λ_0 := l. By (b) there, |b̂| ≤ C_b (|u| + |v|) and |b̂| ≤ C_b |v| where u ≥ 2δ_e, with C_b independent of
+δ_e; so the argument of the paragraph on the reference metric in case (II) of [[sec:loc-cone-reduced]], with |X̂ − X̊| ≤ C_b
+replaced by these bounds and by (c) there, gives δ_2 > 0, depending only on Λ_1, κ_1 and l, such that
+
+    4Ĝ(∂_τ, ∂_τ) = −4Ω̂² (u + δ_c)(v + δ_c) + γ̂(b̂, b̂) (u + δ_c)² ≤ −2Ω̂² (u + δ_c)(v + δ_c)
+
+on the set 𝒮 of [[eq:loc-cone-collar]] whenever δ_1 ≤ δ_2, ∂_τ being the field of [[eq:loc-cone-time]]. Fix δ_1 := min(l/3,
+d/4, δ_2), l_u = l_v := 2δ_1 (so that N_o and N_i have length l ≥ 3δ_1 = l_u + δ_1), c_+ := (δ_1/4)², δ_c := √c_+/8 =
+δ_1/32 and δ_e := δ_c/8, and let X̂, Ĝ, q̂_A be the formal solution of [[prop:civp-axes-formal]] for these data. Every point
+of 𝒮 lies within δ_1 ≤ d of N and has |u|, |v| ≤ 3δ_1, so by (c) there Ĝ is a smooth G-invariant Lorentzian metric on
+𝒮 × S³, for which u and v are null, ∂_τ is timelike and dτ is timelike with P̂_A(τ) > 0, where P̂_A := Ĝ⁻¹p̂_A, p̂_in :=
+−dv and p̂_out := −du; then the block Ĝ^(ab) of the inverse metric on the dy^a is positive definite, as in that paragraph.
+By (a) there ‖X̂‖_(C^(k+3)) ≤ C. Put Θ̂_A := div_Ĝ P̂_A and Û := (Ĝ, p̂_A, Θ̂_A, q̂_A).
+
+*Step 2 (Chart, region, and the leaves of Û).* Use the chart (τ, y) of [[eq:loc-cone-time]] with this δ_c, τ_c := 2 ln δ_c,
+the time of the corner sphere, τ_+ := ln c_+, and the region 𝒰 of [[eq:loc-cone-region]] with its lower end τ_init ∈
+[τ_c − 1/2, τ_c] to be fixed in Step 4 (τ_c − 1/2 > ln(δ_c²/4), so the description of 𝒰 in [[sec:loc-cone-reduced]]
+holds). 𝒰 is a compact subset of the interior of 𝒮 in the chart, and the pieces of its boundary other than Σ_init ∩ 𝒰 are
+spacelike, with 𝒰 to their past, for Ĝ and for every Lorentzian metric C⁰-close to it. The chart is G-equivariant onto
+ℝ × (ℝ⁴ ∖ {0}), and metrics in natural double-null form are smooth in it through the axes, the axes being {y3 = y4 = 0}
+and {y1 = y2 = 0}. On Σ_τ := {τ = const}, (u + δ_c)(v + δ_c) = e^τ and |y| = (v + δ_c)/(u + δ_c), so u and v are
+functions of |y| on each slice: every set {F(u, v) = c} ∩ Σ_τ is a round sphere {|y| = r}, among them the face sections
+N_o ∩ Σ_τ = {|y| = e^τ/δ_c²} and N_i ∩ Σ_τ = {|y| = δ_c² e^(−τ)}. For τ > τ_c, F ∩ Σ_τ is the shell between them and
+P ∩ Σ_τ consists of the ball inside N_i ∩ Σ_τ and the exterior of N_o ∩ Σ_τ; for τ ≤ τ_c, Σ_τ ∩ 𝒰 ⊂ P.
+
+The p̂_A are differentials of the eikonals −v and −u of Ĝ and Θ̂_A = □_Ĝ(−u_A), u_in := v, u_out := u. So, by the last
+statement of [[lem:class-leaf-differences]], whose proof uses no field equation, the leaves of Û of both families in
+Σ_τ are the level sets of u and v there: the round spheres {|y| = r}. At a point of axis 2, |p̂_A(∂_z)| = |du_A(∂_r)|
+with ∂_r the radial field of the chart in Σ_τ, and du(∂_r) = −(u + δ_c)/(2|y|), dv(∂_r) = (v + δ_c)/(2|y|); on 𝒰 these are
+bounded below by a number c_Û > 0 depending only on δ_1, and likewise at axis 1. [[lem:class-leaf-reference]] therefore
+applies with V := Û on every slice, at every axis point of 𝒰, with constants depending only on C^(k+3) bounds of Û, on
+c_Û and on the radius r_Û of its part (o), so only on k, Λ, κ, l. Fix δ ∈ (0, r_Û/8], also at most δ_𝔐 of its part (b′)
+for 𝔐 := 1 + (the bound of 𝔐 for Û), and at most a quarter of the least distance of 𝒰 to {y = 0}; and let ϖ be a smooth
+G-invariant function of y equal to 1 where dist(y, axes) ≤ δ/2 and to 0 where dist(y, axes) ≥ δ.
+
+*Step 3 (The modified system).* The unknowns U = (g, p_A, Θ_A, q_A), A ∈ {in, out}, and their first-order variables
+𝐔 := (g, g_τ, g_a, p_A, Θ_A, q_A) in the chart, are those of case (II), with the reduced Ricci tensor and the gauge vector
+D(g) := g^(ab) (Γ[g] − Γ[Ĝ])_(ab) relative to Ĝ, and with ζ_A := 1. (Aug1), (Aug2) and (Aug4) are as in
+[[sec:class-augmented]], and (Aug3) is P_A(Θ_A) = S_A^♮, S_A^♮ := (1 − ϖ) S_A + ϖ S_A^ax, with S_A of
+[[sec:class-augmented]], a smooth function of (g, dg, p_B, Θ_A, q_B) where dist(y, axes) ≥ δ/2, and S_A^ax the axis closure
+of Step 6 of the proof of [[thm:class-stability]], built near axis 2 from κ_A1 and the planar shear σ_A[U] of the leaves
+of U in Σ_τ ([[lem:class-leaf-reference]]), and near axis 1 likewise with the two circles exchanged. We write 𝒜(U) = 0 for
+this system; its right side at a time depends on the unknowns at that time only.
+
+Let ξ be a smooth function of (u, v), equal to 1 on a neighbourhood 𝒰_1 of 𝒰 and supported in the interior of 𝒮 in the
+chart, χ_♭ and A^μ_♭ as in case (II) with Ĝ⁻¹ and P̂_A in place of g_e⁻¹ and P̊_A (so A^μ_♭ = A^μ(x, 𝐔̂) on supp ξ), and c_0,
+r_0, ϒ as there with 𝐔_c := 𝐔̂. For Z := 𝐔 − 𝐔̂ (𝐔̂ needed only on supp ξ) consider
+
+    ξ (A^μ(x, 𝐔̂ + ϒ(Z)) ∂_μ(𝐔̂ + Z) − F^♮(x, 𝐔̂ + Z)) + (1 − ξ) A^μ_♭ ∂_μ Z = F̃,      F̃ := 1_P ξ 𝒜(Û),     {#eq:civp-axes-modified}
+
+where A^μ ∂_μ 𝐔 = F^♮ is the first-order form of 𝒜(U) = 0 and 𝒜(Û) := A^μ(x, 𝐔̂) ∂_μ 𝐔̂ − F^♮(x, 𝐔̂). (i) *F̃ is smooth.*
+In (Aug1), Ric^H(Ĝ) = Ric(Ĝ) since D(Ĝ) = 0, so its residual is E of [[prop:civp-axes-formal]] (d); (Aug2) holds exactly,
+∇_(P̂_A) p̂_A = ½ d Ĝ⁻¹(p̂_A, p̂_A) = 0; in (Aug3), for the eikonal u_A of Ĝ, the Raychaudhuri equation of the proof of
+[[prop:class-structure]] (c), which holds everywhere, gives P̂_A(Θ̂_A) = −|∇²u_A|² − Ric(Ĝ)(P̂_A, P̂_A), and |∇²u_A|² equals
+the expression of [[eq:class-identity]] off the axes and that of [[eq:class-x]], with σ the planar shear of the level sets
+of u_A, which is σ_A[Û] by Step 2, and both extend continuously to the axes ([[prop:class-axis]] (d)); so S_A(Û) = S_A^ax(Û)
+wherever both are defined and the residual of (Aug3) is −E(P̂_A, P̂_A); and (Aug4) is the conservation law, by
+[[lem:loc-cone-ricci]] (b) in a chart. So 𝒜(Û) is local in Û and vanishes to infinite order on N, by
+[[prop:civp-axes-formal]] (d), and 1_P ξ 𝒜(Û) is smooth. (ii) *Form.* [[eq:civp-axes-modified]] reads A^μ_ξ(x, Z) ∂_μ Z =
+Φ(τ, Z) with A^μ_ξ := ξ A^μ(x, 𝐔̂ + ϒ(Z)) + (1 − ξ) A^μ_♭ symmetric and A^0_ξ ≥ c_1 I, as in [[lem:loc-cone-system]] (a),
+and Φ(τ, Z) := ξ (F^♮(x, 𝐔̂ + Z) − A^μ(x, 𝐔̂ + ϒ(Z)) ∂_μ 𝐔̂) + F̃. The first and third rows of its wave block give
+g_τ = ∂_τ g and g_a = ∂_a g if they hold initially, as in [[lem:loc-cone-system]] (c). (iii) *The forcing.* Let ρ > 0 be
+so small that, for (τ, Z) with ‖Z‖_(H^k) ≤ ρ, C_S ρ ≤ r_0 (so ϒ(Z) = Z) and the states 𝐔̂ + Z lie, at the axis points of
+supp ξϖ, in the balls 𝔅 and 𝔅′ of [[lem:class-leaf-reference]] (a), (b) about Û and have their leaves foliating the sets
+𝒰_δ, as in Step 9 of the proof of [[thm:class-stability]]; ρ depends only on k, Λ, κ, l. On 𝒟_ρ := {‖Z‖_(H^k) ≤ ρ}, with
+u_* := 0, Φ satisfies (F1)–(F3): its local part by [[rem:class-kato-local]], Φ_loc(τ, x, 0) being supported in supp ξ;
+and its non-local part −½ ξϖ (σ_A[𝐔̂ + Z]² − σ_A[Û]²) in the Θ-rows, σ_A[Û] being smooth, by [[lem:class-leaf-reference]]
+(a) for (F1), with Moser's estimate ([[cor:std-moser-product]] (1)), by [[lem:class-leaf-reference]] (b) for (F2), σ_A being
+bounded in L^∞ on 𝒟_ρ by (a) and [[lem:sobolev]], and by (F2) and the smoothness in τ of Û, of ξ and of the leaves of Û
+for (F3).
+
+*Step 4 (The Cauchy problem, and the time it gives).* Apply [[thm:class-kato]] (a) with d = 4, s = k, on the slab [τ_c −
+1/2, τ_c + 1/2] × ℝ⁴, with u_* := 0 and the radius ρ of Step 3. Its hypotheses are unchanged under translation in τ, and
+by its proof the time T* it gives for the datum Z = 0 at any τ_init ∈ [τ_c − 1/2, τ_c] depends only on c_1, ρ, C_A, the
+constants of [[lem:class-kato-linear]] for bounds of order k of the A^μ_ξ on {|Z| ≤ C_S (1 + ρ)}, and the functions C_F and
+L of (F1), (F2): u_* = 0 enters through nothing else, and ‖u0‖_(H^k) = 0. Each of these is bounded in terms of the C^(k+3)
+norm of X̂ on 𝒮, the chart and the cut-offs, which are fixed by δ_1, and the constants of [[lem:class-leaf-reference]] for
+Û, so T* depends only on k, Λ, κ and l; we may take T* ≤ 1. Put
+
+    τ_init := τ_c − T*/2,      τ_end := τ_c + T*/2,      σ := δ_c (e^(T*/4) − 1)/2.
+
+Σ_init ⊂ P, every point of it having (u + δ_c)(v + δ_c) < δ_c². [[thm:class-kato]] (a) gives a solution Z on [τ_init, τ_end]
+× ℝ⁴ with Z(τ_init) = 0 and ‖Z(τ)‖_(H^k) ≤ ρ; it is smooth, by the argument of *Smoothness* in the proof of
+[[thm:class-stability]], with [[lem:class-leaf-reference]] (a) at every order in place of [[lem:class-leaf-differences]]
+(a), and G-invariant, the system and the datum being G-invariant and the solution unique. g_τ = ∂_τ g and g_a = ∂_a g
+hold, as at τ_init. Below U denotes the corresponding state on 𝒰 ∩ {τ ≤ τ_end}. F ∩ {τ ≤ τ_end} lies in {u, v ≥ 0,
+(u + δ_c)(v + δ_c) ≤ δ_c² e^(1/2)}, inside 𝒰 and away from its far cuts and from {τ = τ_+}, and it contains [0, 2σ]².
+
+*Step 5 (The past of the edges).* U = Û on P ∩ 𝒰 ∩ {τ ≤ τ_end}. Indeed, on P, F̃ = ξ 𝒜(Û), so z := 𝐔 − 𝐔̂ satisfies, with
+the coefficients at Û as in [[lem:loc-cone-past]],
+
+    A^μ_ξ(x, 0) ∂_μ z = M z − ½ ξϖ (σ_A[U]² − σ_A[Û]²)  (in the Θ-rows),
+
+M bounded. Let e(τ) := ∫_(P∩𝒰∩Σ_τ) ⟨A^0_ξ(x, 0) z, z⟩. The divergence theorem on the Lipschitz domain P ∩ 𝒰 ∩ {τ ≤ s}, as in
+[[lem:loc-cone-past]], has nonnegative boundary terms on N, which is null for Ĝ with du(P̂_out) = dv(P̂_in) = 0 and the other
+pairings positive, and on the far cuts, and z = 0 on Σ_init. For the non-local term, P ∩ 𝒰 ∩ Σ_τ has at most two
+components D, each bounded near the axes by round spheres {|y| = r}, and the leaves of Û through points of D near the
+axes, being such spheres, lie in D. Let 𝔼_D be the extension operator from D used in the proof of [[thm:class-stability]]
+(*The adapted domain is a domain of dependence*): Stein's operator ([[thm:std-sy-extension]]) for a fixed ball or annulus,
+transported by a dilation of y and averaged over G. D is a ball, or an annulus whose two radii lie in a compact
+subinterval of (0, ∞) with their quotient bounded below by a number larger than 1, uniformly for τ ∈ [τ_init, τ_end];
+so 𝔼_D is bounded on H^σ, σ ≤ k − 1, uniformly in τ. Put Ŭ := U − 𝔼_D(U − Û) on Σ_τ. Then Ŭ = Û on D with its first
+derivatives, and Ŭ lies in the ball 𝔅′ of [[lem:class-leaf-reference]] (b) about Û, ‖Ŭ − Û‖_(H^(k−1)) ≤ (1 + C) ρ, for ρ
+small. For x ∈ D near the axes the leaf of Û through x lies in D, so it solves the leaf equation of Ŭ and is the leaf of
+Ŭ, by the uniqueness in [[lem:class-volterra]]; so σ_A[Ŭ] = σ_A[Û] on D, and by [[lem:class-leaf-reference]] (b)
+
+    ‖σ_A[U] − σ_A[Û]‖_(L²(D∩𝒰_δ)) = ‖σ_A[U] − σ_A[Ŭ]‖_(L²(D∩𝒰_δ)) ≤ C ‖𝔼_D(U − Û)‖_(L²(𝒰_(2δ))) ≤ C ‖z‖_(L²(D)).
+
+So e(s) ≤ C ∫_(τ_init)^s e, and e = 0. Hence U − Û vanishes with all its derivatives on N ∩ {τ ≤ τ_end}, U carries the
+formal solution's derivatives across N, and g and the densities induce the data on N ∩ {τ ≤ τ_end}.
+
+*Step 6 (The constraints on the slice triangle).* Let 𝒯 := F ∩ {τ ≤ τ_end}, whose slices 𝒯 ∩ Σ_τ are the shells between
+the two face sections, and whose boundary consists of N ∩ {τ ≤ τ_end} and 𝒯 ∩ Σ_(τ_end). On 𝒯, ξ = 1, F̃ = 0 and
+ϒ(Z) = Z, so 𝒜(U) = 0. Then g⁻¹(p_A, p_A) = 0, dp_A = 0 and p_A = −du_A on (P ∩ 𝒰) ∪ 𝒯, with u_in = v and u_out = u on
+P ∩ 𝒰, as in [[lem:loc-cone-constraints]]: ν_A and dp_A are transported along P_A ([[prop:class-augmented]] (b)), and the
+integral curve of P_A through a point of 𝒯, followed to the past, reaches N inside 𝒯, where they vanish by Step 5. For D
+and Δ_A := Θ_A − div_g P_A: off the axes [[prop:class-augmented]] (d), (e) give P_A(Δ_A) = −Δ_A (Θ_A + div_g P_A − 2κ_A1 −
+2κ_A2) + g(∇_(P_A) D, P_A) + L(P_A, P_A), and near the axes Step 10 of the proof of [[thm:class-stability]] gives the same
+with −½ Δ_A (Θ_A + div_g P_A − 2κ_A1) − ½ (σ_A[U]² − σ_A[U′]²) in place of the first term, U′ := U with Θ_A replaced by
+div_g P_A; on the overlap the equation is the corresponding combination with the weights 1 − ϖ and ϖ, since S_A(U′) =
+S_A^ax(U′) there, the leaves of U′ being the level sets of u_A. D solves [[eq:class-gauge-wave]] with B_g T = Σ_A Δ_A q_A
+p_A. On N, U = Û to infinite order and div_Ĝ P̂_A = Θ̂_A, so U′ = U to infinite order there; so the face sections, which are
+leaves of Û, solve the leaf equations of U and of U′ and are their leaves through their axis points, by the uniqueness in
+[[lem:class-volterra]]; the leaves of U foliate the sets 𝒰_δ ([[lem:class-leaf-reference]] (o) for U), so the leaf of U
+through a point of a shell 𝒯 ∩ Σ_τ near the axes lies, over 𝔻_(2δ), between the two face sections, in the shell. So
+[[lem:class-leaf-reference]] (b′), with D the shell, gives
+
+    ‖σ_A[U] − σ_A[U′]‖_(L²(𝒯∩Σ_τ∩𝒰_δ)) ≤ C ‖Δ_A‖_(L²(𝒯∩Σ_τ∩𝒰_(2δ))),
+
+with C depending on bounds of U and U′ that hold on 𝒯, and not on the width of the shell, which tends to 0 as τ → τ_c;
+the bound 𝔐 of (b′) holds for U and U′ by ‖Z‖_(H^k) ≤ ρ, k ≥ 6. The energy of [[lem:loc-cone-energy]] for z :=
+(D, ∂_τ D, ∂_y D, Δ_in, Δ_out) on 𝒯, with B_0 := N ∩ {τ ≤ τ_end}, where z = 0 by Step 5, B_1 := 𝒯 ∩ Σ_(τ_end), and the
+non-local term bounded as above, gives D = 0 and Δ_A = 0 on 𝒯. So (g, u_in, u_out, q_in, q_out) solves [[eq:class-system]]
+on 𝒯, in the gauge D(g) = 0 relative to Ĝ, as in [[lem:loc-cone-constraints]]; q_A ≥ 0 there by the argument on the signs
+there, the data being nonnegative.
+
+*Step 7 (The double-null gauge).* Let θ′: 𝒰′ := (P ∩ 𝒰 ∩ {τ ≤ τ_end}) ∪ 𝒯 → S³ be constant along the integral curves of
+P_out and equal to the identity on P ∩ 𝒰: as in [[lem:loc-cone-gauge]], with the past integral curves of P_out reaching P ∩
+𝒰. It is smooth through the axes and G-equivariant, P_out being smooth and G-invariant, so that its flow commutes with G and
+preserves the zero sets of K_1 and K_2. Put Ψ := (u_out, u_in, θ′). In the coordinates (u′, v′, θ′) := Ψ, g⁻¹(du′, du′) =
+g⁻¹(dv′, dv′) = 0 and g⁻¹du′ = −P_out annihilates the dθ′; so in every chart of S³, g^(u′u′) = g^(v′v′) = g^(u′A) = 0, and
+inverting, g_(v′v′) = g_(v′A) = 0, g_(u′v′) = 1/g^(u′v′), and the (θ′, θ′)-block of g is the inverse of that of g⁻¹: g is
+in natural double-null form [[eq:civp-axes-form]], with −2Ω² = 1/g^(u′v′), γ the inverse of the block g^(AB) and b^A =
+g^(v′A)/g^(u′v′). Ψ and its differential are the identity on N, where g = Ĝ to infinite order, so the functions of g in
+the new coordinates and the densities are the data on N.
+
+Ψ is a diffeomorphism near the identity: d(u_out − u) = −(p_out − p̂_out), d(u_in − v) = −(p_in − p̂_in) and P_out(θ′ − θ)
+= −(P_out − P̂_out)(θ) with zero values on P, and ‖Z‖_(H^k) ≤ ρ bounds 𝐔 − 𝐔̂ and its first derivatives by C_S ρ; so
+|d(Ψ − id)| ≤ C ρ on 𝒯. For ρ small, depending only on k, Λ, κ and l, this is at most 1/4. 𝒯 is a down-set in (u, v), so
+two of its points are joined in it by a path of length at most three times their distance, and Ψ is injective. Ψ − id
+and its differential vanish on N, so a point at distance d′ from N moves by at most C ρ d′; every point of [0, σ]² is at
+distance at least σ/2 from 𝒯 ∩ Σ_(τ_end), as [0, 2σ]² ⊂ 𝒯, and at distance at most 2σ from N; so for C ρ ≤ 1/8 the image
+Ψ(𝒯) contains [0, σ]², by the homotopy invariance of the degree of id + t(Ψ − id), 0 ≤ t ≤ 1, as in [[lem:loc-cone-gauge]].
+The smallness of ρ is imposed in Step 3, before T* is fixed in Step 4, so there is no circularity.
+
+So on [0, σ]² × S³ the metric g in the coordinates Ψ, with v′ and u′ the phases and the densities q_in, q_out, is a class
+solution in the gauge that induces the data on the two edges. σ depends only on k, Λ, κ and l through δ_1, δ_c, ρ and T*.
+Undoing the change of angle of Step 0 and the translation gives the proposition. ∎
+
+The proof uses of the data only their restriction to the edges of length l, through the formal solution: so
+[[prop:civp-axes-corner]] is the corner part of Rendall's reduction for data of any size, at the axes, with the size of
+the rectangle bounded below in terms of norms of the data near the corner sphere. The sizes it uses enter at exactly
+these places: the C^(6k+18) norm of the data with b = 0 on N_i, which bounds Û in C^(k+3) ([[prop:civp-axes-formal]]);
+the nondegeneracy, through d and the reference metric; the constants of [[lem:class-leaf-reference]] for Û, which also
+fix δ; and the time T* of [[thm:class-kato]] (a), which depends on Û only through bounds of order k of the coefficients and
+the bounds C_F, L of the forcing, the reference path being 0 in the variable Z.
