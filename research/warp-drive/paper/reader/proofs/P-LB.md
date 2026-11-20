@@ -370,7 +370,7 @@ for d of [[thm:ec-lb-proved]] needs no such choice: it holds at every point of t
 of the gauge and damping parameters, and it tends to infinity as they tend to 0, so that no upper bound for d holds on
 all of that set ([[rem:ec-lb-unbounded]]). Among the inputs
 
-*7. [[ch:introduction]]-front matter, the abstract (lines 32–37 of the front matter).* Old, the six lines:
+*7. The front matter, the abstract (lines 32–37).* Old, the six lines:
 
 far as they are explicit, among them an upper bound for λ0 at a numerical point and, at a parameter point outside the set
 on which settling is proved, for one admissible choice of the weights, orders and inner products and the index sets as

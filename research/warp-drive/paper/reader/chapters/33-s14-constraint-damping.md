@@ -2283,7 +2283,8 @@ for every σ with |σ| = 1.
 W = ρ⁻¹η, η being taken in the coordinates of T*𝕊³ dual to ω. So ∂_P = ρ²∂_ξ, ∂_W = ρ∂_η and
 ∂_ρ|_(P,W) = ∂_ρ + 2ρ⁻¹ξ∂_ξ + ρ⁻¹η·∂_η. Inserting these into H_p = (∂_Pp)∂_ρ − (∂_ρp)∂_P + ∂_Wp·∂_ω − ∂_ωp·∂_W, in
 which ∂_ρ is taken at fixed (ω, P, W), the terms ±2ρξ(∂_ξp)∂_ξ cancel and [[eq:iv6-0-flow]] follows. (At ρ = 0 it is
-[[eq:i-a-4-4]] with ξ replaced by −ξ, the covector being written ξ dr + rη there.) As 𝖧_pp = ρ⁻¹H_pp = 0, 𝖧_(p_σ) is tangent to the level sets of p_σ.
+[[eq:i-a-4-4]] with ξ replaced by −ξ, the covector being written ξ dr + rη there.) As 𝖧_pp = ρ⁻¹H_pp = 0, 𝖧_(p_σ) is
+tangent to the level sets of p_σ.
 
 (a) Im G_σ = −2(Im σ)ξ vanishes only at ξ = 0, and then G_σ = |η|².
 
@@ -2329,22 +2330,25 @@ e^(i[0,π−δ]) near 1 and in e^(i[δ,π]) near −1, for fixed orders admissib
 by [[lem:iv6-0-1]] (c). Over ρ = 0:
 
 - *Sink R_out.* With the commutant [Hin26a, (B.21)], a = ρ^(−ℓ−½)χ_0(ρ)χ₁(|η|²)χ₂(ξ), the principal symbol of
-(i/2)[(□^C)^(σ), A²] is [Hin26a, (B.23)]. That of (2i)⁻¹((□^C)^(σ) − (□^C)^(σ)*)A² adds at the zero section the shift
-[Hin26a, (B.24)]. By [[lem:iv6-0-1]] the shift comes only from −2iσρh⁻¹S̄: (□^C)^(0) − (□^C)^(0)* ∈ ρ²Diff¹_b, whose
-quotient by ρ has scattering symbol vanishing at (ξ, η) = 0; and 2iσ(ρ²∂_ρ − (3/2)ρ) is symmetric on L²(ρ⁻⁴dρ/ρ)
-([[lem:iv6-0-1]] (b)), so its imaginary part lies in ρ²C^∞ for any fibre inner product. Taking the fibre inner product
+(i/2)[(□^C)^(σ), A²] is aH_(G_σ)a = ρa𝖧_(p_σ)a, given by [[lem:iv6-0-flow]] (c) ([Hin26a, (B.23)]). That of
+(2i)⁻¹((□^C)^(σ) − (□^C)^(σ)*)A² adds at the zero section the shift [Hin26a, (B.24)]. By [[lem:iv6-0-1]] the shift
+comes only from −2iσρh⁻¹S̄: (□^C)^(0) − (□^C)^(0)* ∈ ρ²Diff¹_b, whose quotient by ρ has scattering symbol vanishing at
+(ξ, η) = 0; and 2iσ(ρ²∂_ρ − (3/2)ρ) is symmetric on L²(ρ⁻⁴dρ/ρ) ([[lem:iv6-0-1]] (b)), so its imaginary part lies in
+ρ²C^∞ for any fibre inner product. Taking the fibre inner product
 for which an eigenbasis of S̄ is orthonormal ([[lem:iv6-0-1]] (b)), the shift is −2h⁻¹S̄, which gives [Hin26a, (B.25)].
 The main term (2ℓ + 1)(σ − ξ) − 2h⁻¹S̄ is negative near the zero section iff
 ℓ < −½ + h⁻¹ min spec S̄ = −½ + h⁻¹(1 − e)(1 − v); this is [Hin26a, (B.26)].
 
 - *The incoming radial set R_in.* The isometry t ↦ −t of η pulls c_v := r⁻¹(dt − v dr) back to −c_(−v), so it
 conjugates □^C with (c_v, h⁻¹) to the operator with (c_(−v), −h⁻¹) ([[prop:np-10-21]] (ii)). On stationary sections,
-e^(2iσr)(□^C)^(σ)e^(−2iσr) is the pullback of the spectral family at −σ of that operator, by the identity after
-[Hin26a, (B.27)], which is free of the dimension. With an eigenbasis of S̄_(−v) orthonormal, the shift at R_in is
+e^(2iσr)(□^C)^(σ)e^(−2iσr) is the pullback of the spectral family at −σ of that operator ([Hin26a, (B.27)]): with
+Φ(t, x) := (−t, x) and t_* = t − r, Φ*(e^(−iσt_*)u) = e^(−i(−σ)t_*)e^(2iσr)Φ*u for stationary u, and Φ* commutes
+with the passage to stationary sections. With an eigenbasis of S̄_(−v) orthonormal, the shift at R_in is
 (−1)(−2(−h⁻¹)S̄_(−v)). S̄_(−v) has spectrum {2(1 + v), (1 − e)(1 + v), 1 + v}, with bottom (1 − e)(1 + v). The
 threshold is ℓ > −½ − h⁻¹(1 − e)(1 + v).
 
-- In between, real principal type propagation applies along Char_σ, which flows from R_in to R_out by [Hin26a, (B.16)].
+- In between, real principal type propagation ([[prop:i-a-5-2]], with [[rem:i-a-5-2-uses]] (ii)) applies along
+Char_σ, which flows from R_in to R_out by [[lem:iv6-0-flow]] (b).
 
 The regularisation argument gives the strong form, and this proves [Hin26a, (B.20)], whose error term carries the
 b-weight β. Near r = 0 the operator r²(□^C)^(σ) is b-elliptic ([[lem:iv6-0-1]] (c)), with Mellin transformed normal
