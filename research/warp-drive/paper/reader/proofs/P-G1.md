@@ -99,11 +99,11 @@ coordinate vector fields and the fields ⟨x⟩∂_(z^μ) are combinations of ea
 derivatives, uniformly in the chart. This is the description of 𝒲, and 𝒱_h = h𝒲 because all scalings equal h ((S1)).
 
 *Smooth functions.* The fields ⟨x⟩∂_(z^μ) extend to smooth vector fields on M₀ tangent to its boundary hypersurfaces.
-Near 𝗌𝖿 away from K^±, in the coordinates 1/r, t/r and x/r, one has r∂_t = ∂_(t/r) and
-r∂_r = −(1/r)∂_(1/r) − (t/r)∂_(t/r), the angle being fixed. Near the interior of K⁺, in the coordinates s := 1/t and x,
-⟨x⟩∂_t = −⟨x⟩s·s∂_s, and the ⟨x⟩∂_(x^q) are tangent to K⁺. Near K⁺ ∩ 𝗌𝖿, in (ρ_K, ρ_sf) := (r/t, 1/r) and the angle, r∂_t = −ρ_K·ρ_K∂_(ρ_K) and
-r∂_r = ρ_K∂_(ρ_K) − ρ_sf∂_(ρ_sf). In all cases r∂_(x^q) = (x^q/r)r∂_r plus vector fields tangent to the spheres with
-coefficients smooth in the angle, and ⟨x⟩/r is smooth near r = ∞; K⁻ is the same with −t for t. So every iterated
+Near 𝗌𝖿 away from K^±, in the coordinates 1/r, t/r and x/r, one has r∂_t = ∂_(t/r) and r∂_r = −(1/r)∂_(1/r) −
+(t/r)∂_(t/r), the angle being fixed. Near the interior of K⁺, in the coordinates s := 1/t and x, ⟨x⟩∂_t = −⟨x⟩s·s∂_s,
+and the ⟨x⟩∂_(x^q) are tangent to K⁺. Near K⁺ ∩ 𝗌𝖿, in (ρ_K, ρ_sf) := (r/t, 1/r) and the angle, r∂_t = −ρ_K·ρ_K∂_(ρ_K)
+and r∂_r = ρ_K∂_(ρ_K) − ρ_sf∂_(ρ_sf). In all cases r∂_(x^q) = (x^q/r)r∂_r plus vector fields tangent to the spheres
+with coefficients smooth in the angle, and ⟨x⟩/r is smooth near r = ∞; K⁻ is the same with −t for t. So every iterated
 derivative of f ∈ C^∞(M₀) along the ⟨x⟩∂_(z^μ) is bounded, and by the previous paragraph f is bounded with all
 derivatives in the charts, uniformly.
 
@@ -350,9 +350,10 @@ wΨ_3b, without h.
 principal symbol a_1a_2, and A_1* ∈ w_1Ψ^(m_1)_(3b,ħ) with principal symbol a_1^(*_B), the B-adjoint. An element of
 wΨ^m_(3b,ħ) with principal symbol 0 lies in whΨ^(m−1)_(3b,ħ). If a_1a_2 = a_2a_1, then h⁻¹i[A_1, A_2] ∈
 w_1w_2Ψ^(m_1+m_2−1)_(3b,ħ); if moreover A_1 = Op(a_1) + hE with a_1 scalar and E ∈ w_1Ψ^(m_1−1)_(3b,ħ) of principal
-symbol e, its principal symbol is H_(a_1)a_2 + i[e, a_2], where H_(a_1)a_2 is computed entrywise and H_(a_1) is the
-Hamilton vector field of a_1 for the symplectic structure of T*M₀°, functions on 𝒫° being regarded as functions of the
-covector Σ_μ ζ_μ dz^μ/⟨x⟩. In particular it is H_(a_1)a_2 when a_2 is scalar.
+symbol e (every A_1 with scalar principal symbol a_1 has this form), its principal symbol is H_(a_1)a_2 + i[e, a_2],
+where H_(a_1)a_2 is computed entrywise and H_(a_1) is the Hamilton vector field of a_1 for the symplectic structure of
+T*M₀°, functions on 𝒫° being regarded as functions of the covector Σ_μ ζ_μ dz^μ/⟨x⟩. In particular it is H_(a_1)a_2
+when a_2 is scalar.
 
 (c) (*Self-adjoint quantisations.*) Let a ∈ wS^m be real and scalar, or B-self-adjoint, supported in a closed set
 K_a ⊂ 𝒫; let K be a closed neighbourhood of K_a, and ψ ∈ C^∞(M₀) real and equal to 1 near the projection of K_a to M₀.
@@ -522,14 +523,14 @@ satisfies B(q(z, ζ)v, v) ≥ c|ζ|²B(v, v) for z ∈ U ∩ M₀°, all ζ and 
 The same holds in the eb-calculus. By [[prop:np-10-65-a]] (j), C is uniform for families depending on a parameter b,
 when the coefficients are bounded and c is bounded below uniformly in b.
 
-*Proof.* Put u := wv and Q̃ := w⁻¹Qw⁻¹ ∈ Diff²_3b. Then ⟨Qv, v⟩ = ⟨Q̃u, u⟩, Q̃ is symmetric, and its principal symbol is
-represented by q, which is B-self-adjoint ([[prop:np-10-65-a]] (a), (b)). Choose φ ∈ C^∞(M₀) with 0 ≤ φ ≤ 1, φ = 1
+*Proof.* Put u := wv and Q̃ := w⁻¹Qw⁻¹ ∈ Diff²_3b. Then ⟨Qv, v⟩ = ⟨Q̃u, u⟩, Q̃ is symmetric, and its principal symbol
+is represented by q, which is B-self-adjoint ([[prop:np-10-65-a]] (a), (b)). Choose φ ∈ C^∞(M₀) with 0 ≤ φ ≤ 1, φ = 1
 near K and supp φ ⊂ U, and put q_* := φ²q + (1 − φ²)|ζ|², where |ζ|² denotes |ζ|² times the identity. Then q_* is
 B-self-adjoint and B((q_* + 1)v, v) ≥ min(c, 1)⟨ζ⟩²B(v, v). By [[prop:np-10-65-a]] (f), (i) (non-semiclassical, with
-k = 1 and W the whole compactified bundle ³ᵇT̄*M₀), θ := (q_* + 1)^(1/2) ∈ S¹ and θ⁻¹ ∈ S^(−1). Put Θ := Op(θ) and Θ′ := Op(θ⁻¹). By
-[[prop:np-10-65-a]] (b), Θ*Θ − I − Op(q_*) and Q̃ − Op(q) lie in Ψ¹_3b, and Θ′Θ − I ∈ Ψ^(−1)_3b. By
-[[prop:np-10-65-a]] (a), Op(q_*) = φ²Op(q) + (1 − φ²)Op(|ζ|²). As φu = u and multiplication by a real scalar function is
-symmetric for ⟨·, ·⟩, ⟨φ²Op(q)u, u⟩ = ⟨Op(q)u, u⟩ and ⟨(1 − φ²)Op(|ζ|²)u, u⟩ = 0. Hence
+k = 1 and W the whole compactified bundle ³ᵇT̄*M₀), θ := (q_* + 1)^(1/2) ∈ S¹ and θ⁻¹ ∈ S^(−1). Put Θ := Op(θ) and Θ′ :=
+Op(θ⁻¹). By [[prop:np-10-65-a]] (b), Θ*Θ − I − Op(q_*) and Q̃ − Op(q) lie in Ψ¹_3b, and Θ′Θ − I ∈ Ψ^(−1)_3b. By
+[[prop:np-10-65-a]] (a), Op(q_*) = φ²Op(q) + (1 − φ²)Op(|ζ|²). As φu = u and multiplication by a real scalar function
+is symmetric for ⟨·, ·⟩, ⟨φ²Op(q)u, u⟩ = ⟨Op(q)u, u⟩ and ⟨(1 − φ²)Op(|ζ|²)u, u⟩ = 0. Hence
 
     ⟨Q̃u, u⟩ = ‖Θu‖² − ‖u‖² + ⟨Ru, u⟩,     R ∈ Ψ¹_3b.
 
@@ -931,11 +932,11 @@ lem:iv5-calc-structure	paper/reader/proofs/P-G1.md:49	proof G1, structures	struc
 def:iv5-calc-micro	paper/reader/proofs/P-G1.md:145	proof G1, microsupport	concrete WF′ and Ell
 lem:iv5-calc-disjoint	paper/reader/proofs/P-G1.md:158	proof G1, disjoint supports	via P′ × M and Lemma 3.28
 lem:iv5-calc-d	paper/reader/proofs/P-G1.md:208	proof G1, property (D)	X_0 and Σ^♯, noncompact boundaries
-lem:iv5-calc-dual	paper/reader/proofs/P-G1.md:250	proof G1, duality	supported and extendible spaces
-lem:iv5-calc-reg	paper/reader/proofs/P-G1.md:304	proof G1, regulariser	J_ε = Op(⟨εζ⟩^(−K))
-prop:np-10-65-a	paper/reader/proofs/P-G1.md:337	proof G1, the calculi	replaces NP 10.65 (a); real proof
-eq:iv5-calc-ell	paper/reader/proofs/P-G1.md:368	proof G1, elliptic estimate	new display
-lem:iv5-calc-garding	paper/reader/proofs/P-G1.md:481	proof G1, margin bound	replaces the sharp Gårding step
-eq:iv5-calc-garding	paper/reader/proofs/P-G1.md:485	proof G1, margin bound	new display
-lem:iv5-calc-q0	paper/reader/proofs/P-G1.md:513	proof G1, lower bound for Q_0	replaces Q_0 = Θ*Θ + R
-eq:iv5-calc-q0	paper/reader/proofs/P-G1.md:518	proof G1, lower bound for Q_0	new display
+lem:iv5-calc-dual	paper/reader/proofs/P-G1.md:251	proof G1, duality	supported and extendible spaces
+lem:iv5-calc-reg	paper/reader/proofs/P-G1.md:305	proof G1, regulariser	J_ε = Op(⟨εζ⟩^(−K))
+prop:np-10-65-a	paper/reader/proofs/P-G1.md:338	proof G1, the calculi	replaces NP 10.65 (a); real proof
+eq:iv5-calc-ell	paper/reader/proofs/P-G1.md:370	proof G1, elliptic estimate	new display
+lem:iv5-calc-garding	paper/reader/proofs/P-G1.md:484	proof G1, margin bound	replaces the sharp Gårding step
+eq:iv5-calc-garding	paper/reader/proofs/P-G1.md:488	proof G1, margin bound	new display
+lem:iv5-calc-q0	paper/reader/proofs/P-G1.md:516	proof G1, lower bound for Q_0	replaces Q_0 = Θ*Θ + R
+eq:iv5-calc-q0	paper/reader/proofs/P-G1.md:521	proof G1, lower bound for Q_0	new display
