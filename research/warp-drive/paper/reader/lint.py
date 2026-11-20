@@ -57,6 +57,9 @@ DEF_RX = re.compile(r"\{#(" + "|".join(RESULT_KINDS) + r"):([a-z0-9][a-z0-9\-]*)
 REF_RX = re.compile(r"\[\[(" + "|".join(RESULT_KINDS) + r"|C):([a-z0-9][a-z0-9_\-]*)\]\]")
 
 
+# A symbolic label left in the assembled paper: [[kind:key]]. Nested brackets of mathematics (a matrix written by its
+# rows, [[a, b], [c, d]], or a double commutator [[X, A], A]) are not labels.
+LEFT_RX = re.compile(r"\[\[[A-Za-z]+:")
 URL = re.compile(r"https?://\S+|doi:\S+|arXiv:\S+")
 
 
@@ -66,6 +69,8 @@ def scan_text(name, text, assembled):
     refs = "references" in name
     in_obs = False
     for i, ln in enumerate(lines, 1):
+        if assembled and ln.startswith("## References"):
+            refs = True  # in the assembled paper the bibliography is the last section
         if OBS_START.match(ln):
             in_obs = True
         elif not ln.strip():
@@ -79,7 +84,7 @@ def scan_text(name, text, assembled):
             m = (OBS_NARROW if in_obs and why == "no-code ruling" else rx).search(probe)
             if m:
                 hits.append((i, why, ln.strip()[:110]))
-        if assembled and ("{#" in ln or "[[" in ln):
+        if assembled and ("{#" in ln or LEFT_RX.search(ln)):
             hits.append((i, "unresolved symbolic label", ln.strip()[:110]))
         if "[[pending:" in ln:
             hits.append((i, "pending: an open issue the coordinator must resolve", ln.strip()[:110]))

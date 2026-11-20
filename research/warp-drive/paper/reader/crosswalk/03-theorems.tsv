@@ -2,6 +2,7 @@ label	source	source_name	note
 ch:theorems	paper/RESPONSE-HL-5D.md:261-466; paper/RESPONSE-HL-5D.md:1239-1269; paper/RESPONSE-HL-5D.md:777-796; docket68/n1star/N1STAR-PROOF.md:143-194	P section 3, 8.2, 8.8; NP 0.4-0.7	
 sec:main-statement	paper/RESPONSE-HL-5D.md:263-357	P section 3	
 thm:main	paper/RESPONSE-HL-5D.md:263-295; docket68/n1star/N1STAR-PROOF.md:483-532	P Theorem 1	item 5 uniqueness class as NP Step 8 (|g - g0| <= eps1 on Ω, D625); item 2 data norm written out from NP (E4)
+rem:envelope-regularity	paper/RESPONSE-HL-5D.md:263-264; paper/RESPONSE-HL-5D.md:693-694; paper/RESPONSE-HL-5D.md:1604-1606	P Theorem 1 (the hypothesis env ∈ C_c^∞); P section 6 (the solver's envelope sin⁴); P section 9 'Physical wavelengths' (the smooth envelope of the constants)	composed: the hypothesis C_c^∞ used as stated, the solver's profile C³ and not C⁴ and the eight derivatives of env written out; env_C defined, its constant by lem:envelope-constant; row added at M-82 (missing, XW-1)
 prop:boundary-spacelike	paper/RESPONSE-HL-5D.md:297-309	P Proposition 3.2	statement only; proof in ch:horizon-mass; the margin written delta_b (delta is the threshold of thm:settling)
 eq:boundary-margin	paper/RESPONSE-HL-5D.md:299	P (3.1)	
 prop:one-zero	paper/RESPONSE-HL-5D.md:311-319	P Proposition 3.3 = NP Proposition 8.1	angle ω renamed x̂; proof in ch:horizon-mass
