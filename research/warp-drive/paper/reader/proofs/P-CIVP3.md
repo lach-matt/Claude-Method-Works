@@ -322,15 +322,16 @@ E_L := rH_S/a_L − (rh_S′)′ is the function of (r, h_S, h_S′) of that lem
 invariant. So if H_S = H_L[V], integrating (rh_S′)′ = rH_L[V]/a_L − E_L from 0 shows that h_S solves
 [[eq:class-leaf-volterra]] with h_S(0) its point of the axis, and by the uniqueness in [[lem:class-volterra]] it is the
 leaf of V there. Conversely, if Σ_S is the leaf, differentiating [[eq:class-leaf-volterra]] at r > 0, and by continuity
-at r = 0, gives H_S = H_L[V] along it, and with (a), (b) follows.
+at r = 0, gives H_S = H_L[V] along it, hence Θ_A = θ_S.
 
-(iii) The frame of TS and ∇_XY for X, Y tangent to S are determined by the metric and its first derivatives at the
-points of S, so (a) and (b) involve only the quantities named. For Ů and Û, p_in = −dv and p_out = −du vanish on the
+(iii) [[eq:class-leaf-volterra]] for the curve S ∩ M3 holds H_L[V], a_L and E_L at the points of the curve only, and
+these are functions of p_A, Θ_A, the metric and its first derivatives there ([[eq:loc-axis-hl]], [[lem:class-leaf]]
+(c)); so the curve solves it for one state if and only if it solves it for the other. For Ů and Û, p_in = −dv and p_out = −du vanish on the
 tangent spaces of the spheres. u and v are null for every metric of the form [[eq:loc-double-null]], so ∇²v(P, ·) = 0
 by [[prop:class-structure]] (b), and the tangent space of a sphere is a screen there: it is spacelike, orthogonal to P
 := Ĝ⁻¹ (−dv), which it does not contain, and so equal to {P, L̄}^⊥ for the null L̄ orthogonal to it with Ĝ(P, L̄) = −1.
 As v is constant on the sphere, −p_in(∇_XX) = dv(∇_XX) = −∇²v(X, X) for X tangent to it, so θ_S = −tr_(TS)∇²v =
-□_Ĝ(−v) = div_Ĝ P̂_in = Θ̂_in, and likewise for the outgoing family and for Ů. By (ii) the spheres are the leaves. ∎
+□_Ĝ(−v) = div_Ĝ P̂_in = Θ̂_in, and likewise for the outgoing family and for Ů. By (ii), over every disc on which a sphere meets M3 in a graph, the spheres are the leaves. ∎
 
 **Lemma {#lem:loc-axis-shear}** (The planar shear on unions of arcs of leaves.) In a chart as above, let ů be a smooth
 class solution near Σ_s, and let δ, the balls 𝔅 ⊂ 𝔅′ and C_L be those of [[lem:class-leaf-differences]] and
@@ -562,10 +563,12 @@ curve of P_A through a point of 𝔗(s*), followed to the past, decreases τ at 
 through its slice in Σ_(s*), so it reaches N. *The phases.* (Aug2) holds on 𝔗(s*), the axes included, and the argument
 of the paragraph *The phases* of the proof of [[lem:loc-cone-constraints]], with 𝒪_1 := 𝔗(s*), gives ν_A = 0 and dp_A =
 0 on 𝔗(s*), and p_A = −du_A on the simply connected 𝒰′, with u_A fixed by its values on P ∩ 𝒰^♯. *The gauge and the
-expansions.* Put Δ_A := Θ_A − div_g P_A and let U′ be U with Θ_A replaced by div_g P_A. With p_A = −du_A an eikonal,
-[[eq:class-raychaudhuri]] holds for div_g P_A = □_g(−u_A), and by [[eq:class-identity]], [[eq:class-x]],
-[[prop:class-axis]] (d) and the last statement of [[lem:class-leaf-differences]] its right side is both S_A and S_A^ax
-with div_g P_A in place of Θ_A, σ_A[U′] in place of σ_A[U] and Ric(g) in place of T. Subtracting it from
+expansions.* Put Δ_A := Θ_A − div_g P_A and let U′ be U with Θ_A replaced by div_g P_A. With p_A = −du_A an eikonal on 𝒰′,
+[[eq:class-raychaudhuri]] holds for div_g P_A = □_g(−u_A). Near an axis the level sets of u_A in the slices of 𝔗(s*)
+are graphs close to the spheres, and they are leaves of U′, by [[lem:loc-axis-leaf]] (ii): p_A vanishes on them, and
+their expansion is □_g(−u_A), as in the proof of its part (iii), u_A being null on 𝒰′. So by [[eq:class-identity]],
+[[eq:class-x]] and [[prop:class-axis]] (d) the right side of [[eq:class-raychaudhuri]] is both S_A and S_A^ax with
+div_g P_A in place of Θ_A, σ_A[U′] in place of σ_A[U] and Ric(g) in place of T. Subtracting it from
 [[eq:loc-axis-closure]] and using [[prop:class-augmented]] (e),
 
     P_A(Δ_A) = −Δ_A ((1 − ψ_ax)(Θ_A + div_g P_A − 2κ_A1 − 2κ_A2) + ½ ψ_ax (Θ_A + div_g P_A − 2κ_A⊥))
@@ -794,8 +797,8 @@ is defined, through [[lem:class-leaf-differences]], on balls about a solution, a
 the background over the whole interval; for cone data that are not near the background's at the axes nothing is
 asserted there. Off the axes, [[thm:civp-large]] needs no smallness. (ii) *Further families.* Only the two families
 adapted to the double-null gauge are treated. A further family with a density at a point where a cone meets an axis
-would need the sections of that cone by the slices to be among its leaves, which by [[lem:loc-axis-leaf]] (ii) requires
-its phase to be constant on them; one whose density reaches an axis inside F would need its expansion defect to be
+would need the sections of that cone by the slices to be among its leaves, which for a solution, whose leaves are the
+level sets of its phase ([[lem:class-leaf-differences]]), requires its phase to be constant on them; one whose density reaches an axis inside F would need its expansion defect to be
 estimated on a region that contains a whole neighbourhood of the axis on which its cut-off ζ_A equals 1, as in Step 10
 of the proof of [[thm:class-stability]], while ζ_A must vanish near the points where the cones meet the axes. Neither
 case is treated here, nor are further families whose densities avoid the axes. (iii) *Regularity.* The data are smooth
