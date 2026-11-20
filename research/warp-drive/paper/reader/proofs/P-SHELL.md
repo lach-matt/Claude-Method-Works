@@ -485,7 +485,7 @@ and 𝒴_0.
 
 *Depth k ≥ 1 along 𝒞_out.* Let λ_k^out be the width found at depth k − 1, so that the solution of depth k − 1 contains
 [0, λ_k^out] × 𝒵_(k−1) and is within Cε of the background's there with its derivatives of order at most k_(k−1) − 4 (at
-depth 0 as found there, at depth k − 1 ≥ 1 by the next paragraph, applied at that depth). Apply (T1) at (0, c_k) with
+depth 0 as stated above, at depth k − 1 ≥ 1 by the next paragraph, applied at that depth). Apply (T1) at (0, c_k) with
 l_u := (2/3) λ_k^out and l_v := v_1 − c_k: then δ_1 ≤ λ_k^out/3 ≤ δ_e, so N_i ⊂ [0, λ_k^out] × {c_k},
 N_o = {0} × [c_k, v_1 + δ_1] carries the extended cone data of depth k, and the rectangle they span lies in
 [0, 3δ_e] × [0, v_1 + δ_e], so that R > a on N_o and N_i and g0 is defined in the gauge near the rectangle. On N_i take
