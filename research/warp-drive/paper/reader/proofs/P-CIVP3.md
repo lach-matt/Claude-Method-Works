@@ -1042,7 +1042,7 @@ regions D_s, which [[lem:loc-axis-dependence]] does not give, as it compares two
 used in one variable, and the Borel sums of [[lem:loc-axis-constraints]] (c) are those of [[lem:loc-cone-borel]]. No
 reference is added.
 
-*13. [[ch:localised-data]], the proof of the region-III slice bound in [[sec:bg-rays]], a rewrap only (lines
+*13. [[ch:localised-data]], the proof of [[prop:bg-slice]], its paragraph *The packet*, a rewrap only (lines
 4707–4711).* The section adds numbered statements to the chapter, so the numbers of its later labels grow; with them
 the line that cites [[prop:bg-rays]] reaches 122 characters after assembly. The words are unchanged; the new lines are
 at most 121 characters also with every label of the chapter numbered with three digits after the point. Old:
