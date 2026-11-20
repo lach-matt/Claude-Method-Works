@@ -237,3 +237,36 @@ report is kept as a record, its sentence could say that.
 The header (95:768–770) now also cites (4.1)–(4.3), (5.4) and (5.10). Replacement:
 
     [Mel94] (1.1), (4.1)-(4.3), Definitions 1-2, (5.1), (5.4), Propositions 3-5, (5.10), Lemmas 5-6, (5.12)-(5.34), (7.1), (7.2), (7.6), read 2026-11-20
+
+---
+
+## Final
+
+**Verdict: CONFIRMED.** I checked the files at 192646dd. `chapters/20-s01-spectral-bounded.md` and
+`crosswalk/95-standard-results.tsv` have no uncommitted changes.
+
+The four texts below are applied in my exact words, and they read correctly in context:
+- **m6**, 20:261–264: the (C6) symbol formula now requires A = Op(a Id) or a scalar σ(B). This matches lem:i-a-2-1 (c).
+- **n9**, 20:329–331: the (C5) parametrix is now stated for a bounded, uniformly elliptic family depending on a
+  parameter.
+- **n10**, 20:200–203: the citation is now [Mel94, Definition 2 and (5.1)]. Line 204 "Its statements hold …" follows
+  unchanged.
+- **n12**, crosswalk/95:49, column 3: it lists (4.1)–(4.3), (5.4) and (5.10). The row still has four fields.
+
+`git diff 99cdddb7 HEAD` on chapters 20, 22, 95 and 98 and their crosswalks shows only these four edits. n11 needed no
+change. With m6 resolved, every finding is resolved and no Major or minor issue remains.
+
+Checks on the current tree. The label count went from 4593 to 4609 because of the merge another agent is running in
+chapters 00, 01, 03, 33, 71 and 90; I did not read those changes.
+
+```
+$ python3 lint.py --chapters
+chapters: 62 file(s), 4609 label(s) defined, 0 hit(s)
+$ python3 assemble.py --check
+labels 4609, computations cited 0, problems 0
+$ python3 -c "...in-memory check..."
+[] 0
+```
+
+After label resolution the applied lines are at most 117 characters long. None starts with "+ ", "- ", "* ", "> ", "#",
+"=" or "|".
