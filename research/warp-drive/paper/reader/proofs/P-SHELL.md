@@ -704,8 +704,8 @@ smooth theorems at other corners.*" is replaced by citations of the results that
 (T2)." and "Assume (T1) besides (T2)," in [[thm:loc-shells]] and "Under (T2)," in [[prop:loc-shell-crossing]] (c) are
 removed.
 
-*2. [[rem:loc-cone-scope]] (iii), in the Tier 1 text (Block A), its second line.* The line before it, which ends (ii) and
-opens (iii), is left to other placements that rewrite (ii). Old:
+*2. [[rem:loc-cone-scope]] (iii), in the Tier 1 text (Block A), its second line.* Only this line is replaced, so that the
+item composes with a placement that rewrites the end of (ii) on the line before it. Old:
 
 that are only bounded, or measures (shells), are not covered. For the 3 + 1 problem with two families of null dust,
 
@@ -784,23 +784,22 @@ New:
 [[rem:loc-shell-poisson]] for comparison only, its wording checked against the arXiv text (version 1, pp. 1 and 4), and
 [LR20, Theorem 4.6] is already quoted in [[rem:loc-cone-scope]] (iii).
 
-*8. [[ch:localised-data]], the paragraph after [[prop:loc-cones]], its last sentence, as the Tier 1 placement leaves it
-(its item 4, which replaces also the Tier 2 placement's item 3; the paragraph is at lines 593–600 of the current
-source).* Old:
+*8. [[ch:localised-data]], the paragraph after [[prop:loc-cones]], the last two lines of its last sentence, as the Tier 1
+placement leaves them (its item 4, to which the Tier 2 placement's item 3 defers; the paragraph is at lines 593–600 of
+the current source).* The closing clause is narrowed to the other chapters: [[thm:loc-shells]] applies
+[[thm:civp-large]] to restrictions of cone data of this kind and [[thm:loc-cone-development]] to extensions of them, so
+"no other result of this paper" would no longer hold. Where another placement rewrites this sentence, the exception for
+null shells and the narrowed clause are carried into the merged text. Old:
 
-neither uniqueness in the gauge nor localisation. No development is asserted for cone data that differ from the
-background's near an axis, for data of finite regularity or for densities that are not smooth, and no other result of
-this paper uses these developments.
+asserted for cone data that differ from the background's near an axis, for data of finite regularity or for densities
+that are not smooth, and no other result of this paper uses these developments.
 
 New:
 
-neither uniqueness in the gauge nor localisation. No development is asserted for cone data that differ from the
-background's near an axis, for data of finite regularity or for densities that are not smooth, except finitely many
-null shells along leaves of the two cones and data that are smooth except across such leaves ([[thm:loc-shells]]), and
-no other result of this paper uses these developments.
-
-If the Tier 2 placement's item 3 is used instead, the same words go into its last sentence ("the solution. No
-development is asserted …", two lines), reflowed.
+asserted for cone data that differ from the background's near an axis, for data of finite regularity or for densities
+that are not smooth, except finitely many null shells along leaves of the two cones and data that are smooth except
+across such leaves, which [[thm:loc-shells]] develops slab by slab with [[thm:civp-large]] and
+[[thm:loc-cone-development]]; no result of the other chapters uses these developments.
 
 *9. No other change.* No text outside items 1–8 changes. [[ch:two-dusts]], [[ch:class-system]], [[ch:ten-l5]],
 [[ch:theorems]] and [[ch:introduction]] need no change: no result there uses the section, and the section uses only
