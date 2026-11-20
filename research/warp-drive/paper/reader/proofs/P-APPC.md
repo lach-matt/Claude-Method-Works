@@ -25,7 +25,7 @@ c′₁ < … < c′_(n_v−1) and d′ > 0 (the same in v), and for every i ≤
 h′_j > 0. Element (i, j) is the box
 
     B_ij := [m_i − h_i, m_i + h_i] × [m′_j − h′_j, m′_j + h′_j]   in (ξ, v),
-    t := (ξ − m_i)/h_i,   σ := (v − m′_j)/h′_j,                                                         {#eq:appc-element}
+    t := (ξ − m_i)/h_i,   σ := (v − m′_j)/h′_j,                                                        {#eq:appc-element}
 
 so that (t, σ) ∈ [−1, 1]² on B_ij. With c₀ − d := ξ₀ and c_(n_ξ) + d the upper end of the region in ξ, and likewise
 c′₀ − d′ := 1/2 and c′_(n_v) + d′ := 7/2, the use interval of the element is
@@ -86,12 +86,12 @@ are disjoint by admissibility, and the sums telescope. The supports follow from 
 the tables give an integer p = p_(ij,F) and integers z_abk = z^(ij,F)_abk for (a, b, k) in a finite set I_(ij,F) of
 triples of nonnegative integers. Put
 
-    G^F_ij(t, σ, x) := Σ_((a,b,k) ∈ I_(ij,F)) z_abk 10^(−p) T_a(t) T_b(σ) T_k(x)                          {#eq:appc-fields}
+    G^F_ij(t, σ, x) := Σ_((a,b,k) ∈ I_(ij,F)) z_abk 10^(−p) T_a(t) T_b(σ) T_k(x)                        {#eq:appc-fields}
 
 with t and σ the variables of [[eq:appc-element]] on B_ij, and
 
     R := R_s + (v − 1/2)⁴ Σ_ij χ_i ψ_j G^R_ij,      W := W_s + (v − 1/2)⁴ Σ_ij χ_i ψ_j G^W_ij,
-    F := (v − 1/2)⁴ Σ_ij χ_i ψ_j G^F_ij   (F ∈ {m, n, s}),                                             {#eq:appc-seedform}
+    F := (v − 1/2)⁴ Σ_ij χ_i ψ_j G^F_ij   (F ∈ {m, n, s}),                                            {#eq:appc-seedform}
 
 where R_s and W_s are the seed's R and W of [[lem:tl5-seed]]. The approximant ĝ of the case is the metric
 [[eq:tl5-metric]] with these fields, P := (2(1 + x)m − (1 − x)n)/3, Q := (2(1 − x)n − (1 + x)m)/3 and b = (1 − x²)s.
@@ -131,7 +131,7 @@ in the order R, m, n, W, s. A block begins with two header lines:
 where r is the number of rows, e the number of printed integers, and S₁, S₂, S₀ are the integers
 
     S₁ := Σ z_abk = 10^p G(1, 1, 1),      S₂ := Σ (−1)^(a+b+k) z_abk = 10^p G(−1, −1, −1),
-    S₀ := Σ_(a, b, k even) (−1)^((a+b+k)/2) z_abk = 10^p G(0, 0, 0),                                       {#eq:appc-sums}
+    S₀ := Σ_(a, b, k even) (−1)^((a+b+k)/2) z_abk = 10^p G(0, 0, 0),                                      {#eq:appc-sums}
 
 the identities holding because T_n(1) = 1, T_n(−1) = (−1)^n and T_n(0) = cos(nπ/2). Then come the rows. Row (a, b)
 lists z_ab0, z_ab1, …, z_abK in order of k, where K = K(a, b) is the largest k with (a, b, k) ∈ I and z_abK ≠ 0;
@@ -141,7 +141,7 @@ in the order of a and then b. So I is determined by the row labels and the row l
 beginning with "+". An entry is a decimal integer without leading zeros, preceded by "−" when negative. Every line
 ends with " |cc", where cc, two digits, is the check of the line:
 
-    cc := (Σ_m m z_m) mod 97,                                                                           {#eq:appc-linecheck}
+    cc := (Σ_m m z_m) mod 97,                                                                        {#eq:appc-linecheck}
 
 the sum over the integers z₁, z₂, … printed on that line, in order.
 
@@ -196,7 +196,8 @@ R > 0, at every point with |x| < 1, the eight components of [[eq:tl5-components]
     f_ll = ρ N(L, L),   f_ln = ρ N(L, Y)/(2Ω²),   f_nn = ρ N(Y, Y)/(4Ω⁴),
     f_lx = ρ √w (−L̂η + L̂τ + 2kτ̂ − Σ_LE),   f_nx = ρ √w (−Ŷη − Ŷτ − 2k̲τ̂ − Σ_YE)/(2Ω²),
     f_xx = ρ (Ric(E, E) − h°_A − h°_B − μ̂²Σ_EE),
-    f_11 = −ρ (□°A + ⟨dA, dA⟩° + ⟨dA, dB⟩° + μ̂²Σ₁₁),   f_22 = −ρ (□°B + ⟨dB, dB⟩° + ⟨dA, dB⟩° + μ̂²Σ₂₂),  {#eq:appc-regular}
+    f_11 = −ρ (□°A + ⟨dA, dA⟩° + ⟨dA, dB⟩° + μ̂²Σ₁₁),   f_22 = −ρ (□°B + ⟨dB, dB⟩° + ⟨dA, dB⟩° + μ̂²Σ₂₂),
+                                                                                                       {#eq:appc-regular}
 
 where N(X, Z) := Ric(X, Z) − M_A(X, Z) − M_B(X, Z) for XZ ∈ {LL, YY, LY}, and all quantities are the following
 polynomials in x, in the values and first and second derivatives of R, m, n, W, s, and in 1/R, e^(±S) and 1/Ω²:
@@ -280,7 +281,7 @@ approximant, by interpolation in ball arithmetic and an analyticity bound on a p
 ([[prop:appc-overlap]]). Every number used is either exact or an interval that contains the exact value, formed by the
 rules of [[def:tl5-jets]] (real intervals) and the same rules for complex rectangles; the exponential, logarithm,
 sine, cosine and square root of an interval are enclosed by their power series with an explicit tail bound, in any
-of the standard ways, and the rules need not be those of any particular implementation.
+of the standard ways.
 
 #### Exact operations on the printed coefficients {#sec:appc-exact}
 
@@ -301,14 +302,14 @@ rational Chebyshev coefficients in the variables τ₁ := (t − t_c)/t_h, τ₂
 
 On u < −1 the seed's radius solves G(R) = H(u, v), where
 
-    G(R) := 2R + log((R − 1)/(R + 1)),      H(u, v) := v − 2u + log((u + 1)/(u − 1)),                    {#eq:appc-seed-eq}
+    G(R) := 2R + log((R − 1)/(R + 1)),      H(u, v) := v − 2u + log((u + 1)/(u − 1)),                  {#eq:appc-seed-eq}
 
 by [[eq:tl5-seed-radius]] after taking logarithms; and by [[lem:tl5-seed]] (b) and the chain rule, with f(r) = 1 − r⁻²
 and g(u) := f(−u) = 1 − u⁻²,
 
     ∂_vR_s = f/2,   ∂_uR_s = −f/g,   ∂_v²R_s = f′∂_vR_s/2,   ∂_u∂_vR_s = f′∂_uR_s/2,
     ∂_u²R_s = −f′∂_uR_s/g + fg′/g²,   Ω_s² = e^(2W_s) = f/(2g),   ∂_vW_s = f′∂_vR_s/(2f),
-    ∂_uW_s = (f′∂_uR_s/f − g′/g)/2,                                                                      {#eq:appc-seed-jets}
+    ∂_uW_s = (f′∂_uR_s/f − g′/g)/2,                                                                  {#eq:appc-seed-jets}
 
 and the second derivatives of W_s by differentiating the last two once more; here f = f(R_s), f′ = 2R_s⁻³,
 g′ = 2u⁻³. In [[eq:appc-seedform]] W enters the residual only through its derivatives and through
@@ -388,7 +389,7 @@ the disc with diameter [1/5, 1], so |log((R − 1)/(R + 1))| ≤ log 5 + arcsin(
 interpolates g at the points (cos(πl₁/N₁), cos(πl₂/N₂), cos(πl₃/N₃)), 0 ≤ l_d ≤ N_d. Then for every multi-index
 α = (α₁, α₂, α₃),
 
-    sup_([−1,1]³) |∂^α (g − p)| ≤ E_α := 16M Σ_(d=1..3) S^(>N_d)_d(α_d) ∏_(d′≠d) S_(d′)(α_(d′)),             {#eq:appc-ealpha}
+    sup_([−1,1]³) |∂^α (g − p)| ≤ E_α := 16M Σ_(d=1..3) S^(>N_d)_d(α_d) ∏_(d′≠d) S_(d′)(α_(d′)),        {#eq:appc-ealpha}
 
 where S_d(l) := Σ_(n≥0) ρ_d^(−n) T_n^(l)(1) and S^(>N)_d(l) := Σ_(n>N) ρ_d^(−n) T_n^(l)(1), with T_n^(l)(1) as in
 [[lem:tl5-rounding]].
@@ -413,7 +414,8 @@ n₀^(2l)ρ^(−n₀)/(1 − ((n₀ + 1)/n₀)^(2l)/ρ) when the denominator is 
 interpolant p_ab of [[lem:appc-coefficients]], and c^(ab,α) those of ∂^αp_ab ([[lem:tl5-chebyshev]]). Then for every
 ab and every α,
 
-    sup_𝔅 |∂_t^(α₁)∂_σ^(α₂)∂_x^(α₃) f̃_ab(F_ij)| ≤ (Σ_ijk |c^(ab,α)_ijk| + E_α)/(t_h^(α₁) σ_h^(α₂)).          {#eq:appc-element-bound}
+    sup_𝔅 |∂_t^(α₁)∂_σ^(α₂)∂_x^(α₃) f̃_ab(F_ij)| ≤ (Σ_ijk |c^(ab,α)_ijk| + E_α)/(t_h^(α₁) σ_h^(α₂)).
+                                                                                                 {#eq:appc-element-bound}
 
 The coefficients c^(ab) are the exact discrete transform of the values at the nodes,
 c_ijk = (2/N₁)(2/N₂)(2/N₃) Σ″ g(τ_l) T_i(τ_l₁)T_j(τ_l₂)T_k(τ_l₃) with the end terms of each sum and the coefficients of
@@ -432,7 +434,7 @@ element's h_i in place of h_ξ; then [[eq:appc-regular]] is evaluated in interva
 
 On U_ij the fields [[eq:appc-seedform]] differ from those of F_ij by
 
-    δF := (v − 1/2)⁴ Σ_((i′,j′) ≠ (i,j)) χ_(i′)ψ_(j′) (G^F_(i′j′) − G^F_ij),                                 {#eq:appc-delta}
+    δF := (v − 1/2)⁴ Σ_((i′,j′) ≠ (i,j)) χ_(i′)ψ_(j′) (G^F_(i′j′) − G^F_ij),                             {#eq:appc-delta}
 
 because Σχ_(i′)ψ_(j′) = 1 ([[lem:appc-pou]] (b)), and by [[lem:appc-pou]] (b) the sum has at most three nonzero terms,
 all on the transition strips of width 2d in ξ or 2d′ in v.
@@ -468,7 +470,7 @@ difference.
 
 The certificate of an element is the family of numbers
 
-    B^(ab)_(ij,α) ≥ sup_(U_ij) |∂_t^(α₁)∂_σ^(α₂)∂_x^(α₃) f̃_ab(ĝ)|,   |α| ≤ 3,                                 {#eq:appc-certificate}
+    B^(ab)_(ij,α) ≥ sup_(U_ij) |∂_t^(α₁)∂_σ^(α₂)∂_x^(α₃) f̃_ab(ĝ)|,   |α| ≤ 3,                     {#eq:appc-certificate}
 
 given by [[prop:appc-element-bound]] and [[prop:appc-overlap]], printed rounded upward. They bound every quantity the
 continuation argument uses: the derivatives in (u, v, x) follow by [[eq:tl5-chain]] with the element's chart, and the
@@ -477,7 +479,7 @@ combinations of these derivatives, of f_ab themselves and of the fields' jets, a
 With the weight φ of the weighted norm, whose rates are those of [[pending:lem-tl5-l7-rates]], the target of element
 (i, j) is
 
-    f_ij := f e^(φ_ij/2),   φ_ij := min over U_ij of φ,                                                    {#eq:appc-target}
+    f_ij := f e^(φ_ij/2),   φ_ij := min over U_ij of φ,                                                 {#eq:appc-target}
 
 where f is the target of the case ([[sec:appc-outcomes]]); since e^(−φ/2) ≤ e^(−φ_ij/2) on U_ij, a pointwise bound f_ij
 on U_ij for every element gives the weighted source norm at most the bound that f gives with φ ≡ 0 on the whole region.
@@ -557,29 +559,29 @@ Rows for the crosswalk of the new appendix, in its four columns, separated by ta
     eq:appc-hat	paper/reader/proofs/P-APPC.md:183	P-APPC, display	muhat, tauhat, etahat, lambda, alpha1, beta1
     eq:appc-sigma	paper/reader/proofs/P-APPC.md:191	P-APPC, display	Sigma_EE, Sigma_11, Sigma_22, Theta_A, Theta_B
     lem:appc-regular	paper/reader/proofs/P-APPC.md:193	P-APPC, Lemma	axis-regular residual; verified identical to the chapter's formula
-    eq:appc-regular	paper/reader/proofs/P-APPC.md:199	P-APPC, display	the eight components
-    eq:appc-sing	paper/reader/proofs/P-APPC.md:237	P-APPC, display	singular identities
-    sec:appc-certification	paper/reader/proofs/P-APPC.md:275	P-APPC, section	new; S-APP 5 method B, overlaps
-    sec:appc-exact	paper/reader/proofs/P-APPC.md:285	P-APPC, section	new
-    lem:appc-reexpand	paper/reader/proofs/P-APPC.md:290	P-APPC, Lemma	exact affine re-expansion
-    sec:appc-seed	paper/reader/proofs/P-APPC.md:300	P-APPC, section	new
-    eq:appc-seed-eq	paper/reader/proofs/P-APPC.md:304	P-APPC, display	G(R) = H(u, v)
-    eq:appc-seed-jets	paper/reader/proofs/P-APPC.md:311	P-APPC, display	seed jets, Omega_s^2 without a logarithm
-    lem:appc-seed-holo	paper/reader/proofs/P-APPC.md:317	P-APPC, Lemma	G injective on Re R > 3/2
-    lem:appc-newton	paper/reader/proofs/P-APPC.md:325	P-APPC, Lemma	interval Newton (Brouwer)
-    sec:appc-box	paper/reader/proofs/P-APPC.md:338	P-APPC, section	new
-    lem:appc-analytic	paper/reader/proofs/P-APPC.md:356	P-APPC, Lemma	holomorphy on the polyellipse; pluriharmonic minimum of Re R
-    lem:appc-majorant	paper/reader/proofs/P-APPC.md:371	P-APPC, Lemma	new
-    lem:appc-coefficients	paper/reader/proofs/P-APPC.md:385	P-APPC, Lemma	coefficient bound, Lobatto aliasing, E_alpha
-    eq:appc-ealpha	paper/reader/proofs/P-APPC.md:391	P-APPC, display	interpolation error of derivatives
-    prop:appc-element-bound	paper/reader/proofs/P-APPC.md:411	P-APPC, Proposition	element's own residual and derivatives on its box
-    eq:appc-element-bound	paper/reader/proofs/P-APPC.md:416	P-APPC, display	the bound
-    sec:appc-overlaps	paper/reader/proofs/P-APPC.md:431	P-APPC, section	new; S-APP risk 5
-    eq:appc-delta	paper/reader/proofs/P-APPC.md:435	P-APPC, display	blend minus element
-    lem:appc-lipschitz	paper/reader/proofs/P-APPC.md:440	P-APPC, Lemma	mean value bound in the jets
-    prop:appc-overlap	paper/reader/proofs/P-APPC.md:452	P-APPC, Proposition	blended residual on the use interval
-    sec:appc-norm	paper/reader/proofs/P-APPC.md:467	P-APPC, section	interface to the level-3 estimate (pending its statement)
-    eq:appc-certificate	paper/reader/proofs/P-APPC.md:471	P-APPC, display	certificate numbers B per element, |alpha| <= 3
-    eq:appc-target	paper/reader/proofs/P-APPC.md:480	P-APPC, display	allocation f e^(phi_min/2) (S-APP 3g)
-    sec:appc-outcomes	paper/reader/proofs/P-APPC.md:485	P-APPC, section	new; all rows pending
-    sec:appc-specimen	paper/reader/proofs/P-APPC.md:499	P-APPC, section	format specimen, to be replaced
+    eq:appc-regular	paper/reader/proofs/P-APPC.md:200	P-APPC, display	the eight components
+    eq:appc-sing	paper/reader/proofs/P-APPC.md:238	P-APPC, display	singular identities
+    sec:appc-certification	paper/reader/proofs/P-APPC.md:276	P-APPC, section	new; S-APP 5 method B, overlaps
+    sec:appc-exact	paper/reader/proofs/P-APPC.md:286	P-APPC, section	new
+    lem:appc-reexpand	paper/reader/proofs/P-APPC.md:291	P-APPC, Lemma	exact affine re-expansion
+    sec:appc-seed	paper/reader/proofs/P-APPC.md:301	P-APPC, section	new
+    eq:appc-seed-eq	paper/reader/proofs/P-APPC.md:305	P-APPC, display	G(R) = H(u, v)
+    eq:appc-seed-jets	paper/reader/proofs/P-APPC.md:312	P-APPC, display	seed jets, Omega_s^2 without a logarithm
+    lem:appc-seed-holo	paper/reader/proofs/P-APPC.md:318	P-APPC, Lemma	G injective on Re R > 3/2
+    lem:appc-newton	paper/reader/proofs/P-APPC.md:326	P-APPC, Lemma	interval Newton (Brouwer)
+    sec:appc-box	paper/reader/proofs/P-APPC.md:339	P-APPC, section	new
+    lem:appc-analytic	paper/reader/proofs/P-APPC.md:357	P-APPC, Lemma	holomorphy on the polyellipse; pluriharmonic minimum of Re R
+    lem:appc-majorant	paper/reader/proofs/P-APPC.md:372	P-APPC, Lemma	new
+    lem:appc-coefficients	paper/reader/proofs/P-APPC.md:386	P-APPC, Lemma	coefficient bound, Lobatto aliasing, E_alpha
+    eq:appc-ealpha	paper/reader/proofs/P-APPC.md:392	P-APPC, display	interpolation error of derivatives
+    prop:appc-element-bound	paper/reader/proofs/P-APPC.md:412	P-APPC, Proposition	element's own residual and derivatives on its box
+    eq:appc-element-bound	paper/reader/proofs/P-APPC.md:418	P-APPC, display	the bound
+    sec:appc-overlaps	paper/reader/proofs/P-APPC.md:433	P-APPC, section	new; S-APP risk 5
+    eq:appc-delta	paper/reader/proofs/P-APPC.md:437	P-APPC, display	blend minus element
+    lem:appc-lipschitz	paper/reader/proofs/P-APPC.md:442	P-APPC, Lemma	mean value bound in the jets
+    prop:appc-overlap	paper/reader/proofs/P-APPC.md:454	P-APPC, Proposition	blended residual on the use interval
+    sec:appc-norm	paper/reader/proofs/P-APPC.md:469	P-APPC, section	interface to the level-3 estimate (pending its statement)
+    eq:appc-certificate	paper/reader/proofs/P-APPC.md:473	P-APPC, display	certificate numbers B per element, |alpha| <= 3
+    eq:appc-target	paper/reader/proofs/P-APPC.md:482	P-APPC, display	allocation f e^(phi_min/2) (S-APP 3g)
+    sec:appc-outcomes	paper/reader/proofs/P-APPC.md:487	P-APPC, section	new; all rows pending
+    sec:appc-specimen	paper/reader/proofs/P-APPC.md:501	P-APPC, section	format specimen, to be replaced

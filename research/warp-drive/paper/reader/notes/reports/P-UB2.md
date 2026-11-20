@@ -77,3 +77,9 @@ rem:ec-lb-conditions (any index sets), thm:ec-lb-proved and quotes (every point 
 Upper bounds unchanged: D_acc < 3.78623·10⁵⁵, D_NM < 7.57245·10⁵⁵, N_NM < 1.59022·10⁵⁷, K < 1.66594·10⁵⁷,
 K* < 1.11014·10¹¹⁵. Merge at db20bc79 with T1–T14 + 42 blocks: lint --chapters 0 (4815 labels), assemble --check 0,
 assemble 0, lint --paper 0.
+
+## CONFIRMATION FIXES — proof file md5 4b2831564a19e1572794761ce2ef77da, 1759 lines
+C1: new block L4b (71:2573–2574): "The last assertion is [[cor:is-lower]] and [[thm:uc-integer]]. ∎". C-n1: M25b lists
+[[cor:is-lower]]. C-n2: header P-UB1 md5 58b580faf8acbc14503d7c5e33c0b087 (read at build). C-n3: §1.4 names M8, L4,
+L4b for thm:uc-reduction; R6 and §4.2 list L4b, M25b. No number changed. Merge at 481f86a1 with T1–T14 + 43 blocks:
+lint --chapters 0 (4845 labels), assemble --check 0, assemble 0, lint --paper 0.
