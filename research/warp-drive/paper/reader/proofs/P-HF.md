@@ -749,3 +749,57 @@ of [[lem:tl5-hf-quadratic]] gives |ℒ^B N(h)| ≤ (𝔠_(|B|) + 1) 𝔰², and 
 all words involved have length at most N − 3, gives |D̂²Ψ_B(p)| ≤ k₁ L + k₂ ϱ + k₃ 𝔰(p)²; as k₃ 𝔰(p) ≤ 1/2, the
 last term is at most 𝔰(p)/2. Taking the maximum of the four bounds and absorbing
 𝔰(p)/2 gives [[eq:tl5-hf-linfty]]. ∎
+
+**Lemma {#lem:tl5-hf-quasilinear}** (The quasilinear term.) Let H be a C¹ symmetric tensor field of type (2, 0) and Ψ a
+C² symmetric 2-tensor field on Q(a, b), and put
+
+    𝔟[Ψ]^α := H^(αβ) ⟨D̂_βΨ, D̂_TΨ⟩ − (1/2) T^α H^(βγ) ⟨D̂_βΨ, D̂_γΨ⟩.
+
+(a) div 𝔟 = H^(αβ) ⟨D̂_αD̂_βΨ, D̂_TΨ⟩ + 𝔮_H[Ψ], where, with |D̂Ψ|² := Σ_M |D̂_(F_M)Ψ|²,
+𝔡 := max {|𝔇_V(A, B)| : |V| = |A| = |B| = 1} and ‖𝒞_(·0)‖ the norm of Ψ ↦ (𝒞(F_M, E₀)Ψ)_M,
+
+    |𝔮_H[Ψ]| ≤ ϰ_H |D̂Ψ|² + |H| |T| ‖𝒞_(·0)‖ |Ψ| |D̂Ψ|,
+    ϰ_H := (√5 + 1/2) |T| |D̂H| + |H| (|D̂T| + (1/2)|div T| + (√5 + 1/2) 𝔡 |T|).                          {#eq:tl5-hf-qh}
+
+(b) 2Ω̂² |dτ₁(𝔟)| ≤ θ_H (e_o[Ψ] + κ′ e_i[Ψ]) and 2Ω̂² |dτ₂(𝔟)| ≤ θ_H (e_i[Ψ] + κ e_o[Ψ]), where
+
+    θ_H := (√2 + 1/2) |H| max((c + κ′)/min(c, κ′), (1 + κc)/(κc)).                                     {#eq:tl5-hf-theta}
+
+*Proof.* (a) By [[eq:tl5-hf-dk]], D̂_α(H^(αβ)⟨D̂_βΨ, D̂_TΨ⟩) = (D̂_αH^(αβ))⟨D̂_βΨ, D̂_TΨ⟩ + H^(αβ)⟨D̂_αD̂_βΨ, D̂_TΨ⟩ +
+H^(αβ)⟨D̂_βΨ, (D̂_αT)^δ D̂_δΨ + T^δ D̂_αD̂_δΨ⟩ + H^(αβ) 𝔇_(∂_α)(D̂_βΨ, D̂_TΨ), and
+(1/2) D̂_α(T^α H^(βγ)⟨D̂_βΨ, D̂_γΨ⟩) = (1/2)(div T) H^(βγ)⟨·,·⟩ + (1/2)(D̂_T H^(βγ))⟨D̂_βΨ, D̂_γΨ⟩ +
+H^(βγ)⟨T^δ D̂_δD̂_βΨ, D̂_γΨ⟩ + (1/2) H^(βγ) 𝔇_T(D̂_βΨ, D̂_γΨ). The two terms with T^δ and two derivatives of Ψ differ
+by H^(αβ) T^δ ⟨D̂_βΨ, 𝒞_αδ Ψ⟩. So 𝔮_H is the sum of the six remaining terms. Bounding each: a contraction of different
+tensors by the product of their norms, the trace D̂_αH^(αβ) by √5 |D̂H|, |D̂_TΨ| ≤ |T| |D̂Ψ|, and
+|Σ_(A,B) H^AB 𝔇_A(D̂_BΨ, X)| ≤ |H| √5 𝔡 |D̂Ψ| |X|, with T^δ 𝒞_αδ = |T| 𝒞(·, E₀), gives [[eq:tl5-hf-qh]].
+
+(b) The covectors du and dv have the k-norms |du| = √2 c/|T| = √c/(√2 Ω̂) and |dv| = √2/|T| = 1/(√2 √c Ω̂), since
+du(E₀) = −du(E₁) = c/|T|, dv(E₀) = dv(E₁) = 1/|T| and both vanish on the leaves; and dτ₁(T) = c + κ′,
+dτ₂(T) = 1 + κc. Hence |dτ₁| |T| ≤ √2 (c + κ′), |dτ₂| |T| ≤ √2 (1 + κc), and
+
+    |dτ₁(𝔟)| ≤ |H| (|dτ₁| |T| + (c + κ′)/2) |D̂Ψ|² ≤ (√2 + 1/2) (c + κ′) |H| |D̂Ψ|²,
+
+and likewise |dτ₂(𝔟)| ≤ (√2 + 1/2)(1 + κc) |H| |D̂Ψ|². By [[lem:tl5-hf-densities]], e_o + κ′e_i ≥ cΩ̂²|w₊|² +
+κ′Ω̂²|w₋|² + (c + κ′)Ω̂²|∇̸Ψ|² ≥ 2 min(c, κ′) Ω̂² |D̂Ψ|², and e_i + κe_o ≥ 2 min(1, κc) Ω̂² |D̂Ψ|² = 2κc Ω̂² |D̂Ψ|². ∎
+
+**Lemma {#lem:tl5-hf-conversions}** (The norms of the local theory and of the double-null conversion.) Let
+c_* := c(u*) = f(−u*)/2, the minimum of c on [−10, u*].
+
+(a) At every point of D̄, |h|_k̂ ≤ |h|/c_* for every symmetric 2-tensor h. So |h| < c_* κ_m/2 at every point of a set X
+gives |h|_k̂ < κ_m/2, hence |g⁻¹ − ĝ⁻¹|_k̂ < κ_m on X by [[lem:tl5-wg-norms]] (a): g is tilted on X with the strict
+inequality that [[thm:tl5-wg]] (F3_W) requires.
+
+(b) On the slice M_σ of [[def:tl5-dn-slice]], with the coordinates (u, v, ϑ), let ν := max_μ |∂_μ|, Γ̂_s :=
+max_(λ,μ) |D̂_(∂_λ) ∂_μ| and Γ̂′_s := max_(κ,λ,μ) |D̂_(∂_κ) D̂_(∂_λ) ∂_μ|, the maxima over μ, λ, κ ∈ {u, v, ϑ}, all
+norms those of k. Then for the quantity ε of [[eq:tl5-dn-eps]], for g_σ and ĝ_σ on a set B ∩ M_σ,
+
+    ε ≤ ε_𝔰 · sup_(B ∩ M_σ) max(|h|, |D̂h|, |D̂²h|),
+    ε_𝔰 := sup_(B ∩ M_σ) max(ν², ν³ + 2νΓ̂_s, ν⁴ + 5ν²Γ̂_s + 2νΓ̂′_s + 2Γ̂_s²),                         {#eq:tl5-hf-eps}
+
+and |∂_u| ≤ √(2/c) Ω̂ + |b̂| e^ζ, |∂_v| = √(2c) Ω̂, |∂_ϑ| = R e^(−(P+Q)), the last since x = cos 2ϑ on M_σ.
+
+*Proof.* (a) is [[lem:tl5-hf-khat]] with r = 2 and c ≤ 1. (b) The components are h_μν = h(∂_μ, ∂_ν), and
+∂_λ(h_μν) = (D̂_(∂_λ)h)(∂_μ, ∂_ν) + h(D̂_(∂_λ)∂_μ, ∂_ν) + h(∂_μ, D̂_(∂_λ)∂_ν); differentiating once more gives ten terms,
+the second derivative D̂²h(∂_κ, ∂_λ, ∂_μ, ∂_ν), five with one derivative of h and one D̂∂, two with D̂D̂∂ and two with
+two factors D̂∂; each is bounded by the product of the norms. On M_σ, ∂_ϑ = −2 sin 2ϑ ∂_x and |∂_x| = e^ζ, with
+e^ζ = R e^(−(P+Q))/(2(1 − x²)^(1/2)) by [[eq:tl5-radii]]. ∎
