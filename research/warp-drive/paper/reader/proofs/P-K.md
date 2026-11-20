@@ -4,11 +4,12 @@
 [[thm:own-data]] takes k1 := max(8, d_1 + 4), M := 15 + 2(k1 + 1) and K > max(d_1 + 14, K*(a, M, k1)). The proof of
 [[thm:iii-k-3-2]] takes d_1 := max(d_0, N_NM + k″) with k″ := d + 3 + k′_(N_NM+d+3), where d is the loss with which it
 applies [[thm:ii-g-2-1]], N_NM = 21d + 6, d_0 is the regularity of [[prop:iii-k-1-2]], and k + k′_k is the order at
-which [[prop:iii-k-1-2]] (3) reads the data to bound the initial family at the order k + 2. Its proof gives d_0 as the largest,
-and k′_k as the sum, of finitely many orders of derivatives, and does not evaluate them. This section counts those
-orders ([[lem:uc-data-losses]]) and evaluates d_0, k′_k, d_1, K, k1 and K* in terms of d ([[prop:uc-data-order]]). The
-count holds at every choice of the parameters of [[thm:vi-c-2-1]]. The numbers that follow from it use the upper bound for
-d at the computational point, which lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]).
+which [[prop:iii-k-1-2]] (3) reads the data to bound the initial family at the order k + 2. Its proof gives d_0 as the
+largest, and k′_k as the sum, of finitely many orders of derivatives, and does not evaluate them. This section counts
+those orders ([[lem:uc-data-losses]]) and evaluates d_0, k′_k, d_1, K, k1 and K* in terms of d
+([[prop:uc-data-order]]). The count holds at every choice of the parameters of [[thm:vi-c-2-1]]. The numbers that
+follow from it use the upper bound for d at the computational point, which lies outside the set on which
+[[thm:settling]] is proved ([[rem:ec-point-outside]]).
 
 *Conventions.* ‖·‖_n is the norm ‖(γ̃, k̃)‖_(H^n) of [[sec:s27-class]], built from ℰ_0 of [[eq:vii-0-1]] or from ℰ_0^½
 of [[eq:half-class]]. Put L_F := 132 = 153 − 21: the data of [[thm:iv3-2-2]] and of [[thm:iv2-3-1]] at the order 153 + k
@@ -31,14 +32,14 @@ We write h_0 := h_(0,0), (h⁰, h¹) := (h⁰_(S,S⁰), h¹_(S,S⁰)), and ∂ a
 finitely many parameters (S, S⁰).
 
 *The numbers L_0, J and L_P.* Step 1 of the proof of [[thm:iii-c1-3-1]] raises the weight at I₀ in steps. A step from
-the weight α₀ to α₁ := min(α₀ + 1, ℓ₀) applies R = Π_((z,k)∈ℰ_(0,≤))(X₀ − z), where
-ℰ_(0,≤) is the set of the (z, k) ∈ ℰ₀ with Re z ≤ α₁; let p := |ℰ_(0,≤)| be its number of factors. With p_1, p_2, … these
-numbers at the successive steps, put L_0 := Σ_i (p_i + 6). Let J be the number of repetitions of Step 2 of that proof,
-and L_P := L_0 + 2J. The same steps run on 𝒟⁺ in the proof of [[cor:iv3-2-3]].
+the weight α₀ to α₁ := min(α₀ + 1, ℓ₀) applies R = Π_((z,k)∈ℰ_(0,≤))(X₀ − z), where ℰ_(0,≤) is the set of the (z, k) ∈
+ℰ₀ with Re z ≤ α₁; let p := |ℰ_(0,≤)| be its number of factors. With p_1, p_2, … these numbers at the successive steps,
+put L_0 := Σ_i (p_i + 6). Let J be the number of repetitions of Step 2 of that proof, and L_P := L_0 + 2J. The same
+steps run on 𝒟⁺ in the proof of [[cor:iv3-2-3]].
 
 **Lemma {#lem:uc-data-losses}** (The orders that the initial family reads.) Let the parameters be chosen as in
-[[thm:vi-c-2-1]], with ℰ_0 of [[eq:vii-0-1]] or of [[eq:half-class]]. Uniformly for |S| + |S⁰| ≤ σ_0, and for n
-as stated:
+[[thm:vi-c-2-1]], with ℰ_0 of [[eq:vii-0-1]] or of [[eq:half-class]]. Uniformly for |S| + |S⁰| ≤ σ_0, and for n as
+stated:
 
 (i) (gauged data) the data at the order n + 1 control (h̊_0, h̊_1) in ℬ^n_Σ, for n ≥ 3;
 
@@ -65,15 +66,15 @@ and h_(S,S⁰) in 𝒜^(n+7), ∂h_(S,S⁰) in 𝒜^(n+6) and ∂²(h⁰, h¹) i
 *Proof.* (i) In the proof of [[prop:iii-c2-4-1]], h̊_0 = γ̃, extended to S²T* by h̊_0(ν_(b₀), ·) := 0, a linear map
 with smooth coefficients, bounded on every H^(n,(ℰ₀,ℓ₀))_b. And h̊_1 = rh̃₁, where h̃₁ is determined algebraically by
 the first equation at (e_i, e_j) and the e^j- and e⁰-components of the second, whose right sides are k̃ and the
-contractions of ∇^(g₀) − ∇^(g_(b₀)) with ν₀ and g₀; their coefficients are smooth functions of the components of
-g₀ = g_(b₀) + h̊_0 and of the frame, which is a smooth function of g₀. ∇^(g₀) − ∇^(g_(b₀)) is g₀⁻¹ times first
-derivatives of h̊_0 plus Christoffel symbols of g_(b₀) times h̊_0, and an x-derivative is r⁻¹ times a b-derivative. So
-h̊_1 is a smooth function of the point, of γ̃ and its first b-derivatives and of k̃, vanishing at 0, linear in k̃ and in
-the first b-derivatives of γ̃. On Σ^IVP, of dimension 4, the products of [[lem:iii-c-2-1]] at the order n ≥ 3 > 2,
-with a Neumann series for g₀⁻¹ as in Step 1 of the proof of [[prop:iii-c-4-4]] and Taylor expansions of the other
-smooth functions of g₀ at g_(b₀), whose terms are such products, bound h̊_1 in H^(n,(ℰ₀,ℓ₀))_b by a quantity that
-tends to 0 with ‖(γ̃, k̃)‖_(n+1), the index sets being closed under sums and positive multiples (row d1 of [[sec:vi-c-1]]). The weight and
-the index set of k̃ are those of h̃₁, one above those of h̊_1.
+contractions of ∇^(g₀) − ∇^(g_(b₀)) with ν₀ and g₀; their coefficients are smooth functions of the components of g₀ =
+g_(b₀) + h̊_0 and of the frame, which is a smooth function of g₀. ∇^(g₀) − ∇^(g_(b₀)) is g₀⁻¹ times first derivatives
+of h̊_0 plus Christoffel symbols of g_(b₀) times h̊_0, and an x-derivative is r⁻¹ times a b-derivative. So h̊_1 is a
+smooth function of the point, of γ̃ and its first b-derivatives and of k̃, vanishing at 0, linear in k̃ and in the
+first b-derivatives of γ̃. On Σ^IVP, of dimension 4, the products of [[lem:iii-c-2-1]] at the order n ≥ 3 > 2, with a
+Neumann series for g₀⁻¹ as in Step 1 of the proof of [[prop:iii-c-4-4]] and Taylor expansions of the other smooth
+functions of g₀ at g_(b₀), whose terms are such products, bound h̊_1 in H^(n,(ℰ₀,ℓ₀))_b by a quantity that tends to 0
+with ‖(γ̃, k̃)‖_(n+1), the index sets being closed under sums and positive multiples (row d1 of [[sec:vi-c-1]]). The
+weight and the index set of k̃ are those of h̃₁, one above those of h̊_1.
 
 (ii) By the last clause of [[thm:iv3-2-2]] with k := max(n, 21) − 21, data with ‖h_j‖_(H^(153+k,ℓ^♭_0)_b) < ε_1 give
 ‖h‖_(H^(21+k,ℓ^♭_0,(−,ℓ^♭_I))_b) < ε, and 21 + k ≥ n. Its constants and thresholds depend on the background
@@ -85,9 +86,9 @@ it tends to 0 in H^(r+1)(𝔒⁻) as the data tend to 0 in H^(r+1) × H^r; take 
 (iii) *The number of steps.* ℓ^♭_0 = 3/2 + ½(1 − e_Υ)γ_Υ lies in (3/2, 13/8), as 0 < e_Υ < 1 and γ_Υ < ¼. In both
 classes Re π₁ℰ₀ ⊂ ½ℤ, while ℓ^♭_0 + 1 ∈ (5/2, 21/8) and ℓ^♭_0 + 2 ∈ (7/2, 29/8) are not in ½ℤ, and ℓ₀ ∉ Re π₁ℰ₀; so
 Step 1 never lowers α₀. Its first step gives α₁ = ℓ^♭_0 + 1 < 3, its second α₁ = min(ℓ^♭_0 + 2, ℓ₀) < 4, and, if
-ℓ^♭_0 + 2 < ℓ₀, a third gives α₁ = ℓ₀ < 4, as ℓ^♭_0 + 3 > 4 > ℓ₀. ℰ_0 of [[eq:vii-0-1]] has the
-exponents 2, 3, 4, …, without logarithms, so p ≤ 1, 2, 2 at the three steps and L_0 ≤ 7 + 8 + 8 = 23; ℰ_0^½ has the
-exponents 2, 5/2, 3, 7/2, …, without logarithms, so p ≤ 2, 4, 4 and L_0 ≤ 8 + 10 + 10 = 28.
+ℓ^♭_0 + 2 < ℓ₀, a third gives α₁ = ℓ₀ < 4, as ℓ^♭_0 + 3 > 4 > ℓ₀. ℰ_0 of [[eq:vii-0-1]] has the exponents 2, 3, 4, …,
+without logarithms, so p ≤ 1, 2, 2 at the three steps and L_0 ≤ 7 + 8 + 8 = 23; ℰ_0^½ has the exponents 2, 5/2, 3,
+7/2, …, without logarithms, so p ≤ 2, 4, 4 and L_0 ≤ 8 + 10 + 10 = 28.
 
 *One step.* Let a step go from α₀ to α₁ with p factors, and let j ≥ 1. The step obtains Rh from the linear estimate
 [[eq:iii-c1-2-2]] at h = 0, with α₁ in place of α₀ (on 𝒟⁺, [[eq:iv2-2-3]] of [[thm:iv3-2-1]] at h = 0, with
@@ -120,13 +121,13 @@ steps the orders add up to L_0, which gives (iii) on 𝒟⁺, and on Ω_(ext,r_e
 
 (iv) The bound for J is part of Step 2 of the proof of [[thm:iii-c1-3-1]]. In one repetition the right side f̃ of
 [[eq:iii-c1-3-5]] at an order j ≥ 3 reads h at the order j + 2 ([[lem:iii-c-2-1]] asks the order of a product above
-5/2): R̃_b ∈ ρ₀²ρ_I²C^∞Diff²_b, and the second term is a
-second-order operator with coefficients in h and its first two derivatives applied to h ([[prop:iii-c-4-4]],
-[[lem:iii-c-2-1]]). w = (X₀ − X_I)h at the order j reads h at the order j + 1 ((F1) of [[sec:iii-a-1]]). The
-integrations of [[lem:iii-a-1-2]] and [[lem:iii-a-3-2]] lose nothing: each holds with the same order k in its hypothesis
-and its conclusion, and its a priori hypothesis away from the face asks the same order. So h at the order j + 2 in the
-class of weight α_I controls h at the order j in the class of weight α′. For ∂h and ∂²h the forcing of (vi) enters f̃
-with its factors read at the order j + 2 in the class of the repetition. J repetitions give (iv).
+5/2): R̃_b ∈ ρ₀²ρ_I²C^∞Diff²_b, and the second term is a second-order operator with coefficients in h and its first two
+derivatives applied to h ([[prop:iii-c-4-4]], [[lem:iii-c-2-1]]). w = (X₀ − X_I)h at the order j reads h at the order
+j + 1 ((F1) of [[sec:iii-a-1]]). The integrations of [[lem:iii-a-1-2]] and [[lem:iii-a-3-2]] lose nothing: each holds
+with the same order k in its hypothesis and its conclusion, and its a priori hypothesis away from the face asks the
+same order. So h at the order j + 2 in the class of weight α_I controls h at the order j in the class of weight α′. For
+∂h and ∂²h the forcing of (vi) enters f̃ with its factors read at the order j + 2 in the class of the repetition. J
+repetitions give (iv).
 
 (v) φ := φ_(S,S⁰) = ψ_(S⁰) ∘ φ_S, φ_S and ψ_(S⁰) being the time-1 flows of b-vector fields that depend linearly on the
 parameters and are tangent to every boundary hypersurface ([[lem:s27-translated-exterior]] (a), the proof of
@@ -162,15 +163,15 @@ with h := h_(S,S⁰), g_0 := φ_(S,S⁰)^*g_(b₀), ġ_0 its derivative in that 
 
     ‖ḣ‖_(𝒜^n) ≤ C(N(F₁, ∂(h⁰, h¹); n + 4) + ‖h‖_(𝒜^(n+7)) N(F₁, ∂(h⁰, h¹); 8)),
 
-with C uniform for h small in 𝒜^10 and for |S| + |S⁰| small; for n ≥ 4 the orders 8 and 10 are at most n + 4 and
-n + 7. F₁ is linear in ġ_0, which is smooth with the slots of
-ρ₀²ρ_I²C^∞ ([[lem:s27-translated-exterior]] (b) differentiated in (S, S⁰)), with coefficients that carry a factor of h
-and are smooth functions of the point, of g_0 and of h and its first two derivatives; so in the forcing class at the
-order n + 4 it is controlled by h at the order n + 6, by the Moser estimates of part (ii) of the proof of
-[[thm:iv3-2-2]]. This is the first claim. The derivative ḧ in two directions e, f solves Lḧ = F₂ := ∂_fF_(1,e) −
-(∂_fL)ḣ_e with the twice differentiated data, where ∂_fL is a second-order operator whose coefficients involve ḣ_f with
-at most two of its derivatives, ġ_0 and its derivative, and h and its first two derivatives. So F₂ at the order n + 4
-is controlled by ∂h and h at the order n + 6, and [[eq:iv2-2-3]] gives the second claim. ∎
+with C uniform for h small in 𝒜^10 and for |S| + |S⁰| small; for n ≥ 4 the orders 8 and 10 are at most n + 4 and n + 7.
+F₁ is linear in ġ_0, which is smooth with the slots of ρ₀²ρ_I²C^∞ ([[lem:s27-translated-exterior]] (b) differentiated
+in (S, S⁰)), with coefficients that carry a factor of h and are smooth functions of the point, of g_0 and of h and its
+first two derivatives; so in the forcing class at the order n + 4 it is controlled by h at the order n + 6, by the
+Moser estimates of part (ii) of the proof of [[thm:iv3-2-2]]. This is the first claim. The derivative ḧ in two
+directions e, f solves Lḧ = F₂ := ∂_fF_(1,e) − (∂_fL)ḣ_e with the twice differentiated data, where ∂_fL is a
+second-order operator whose coefficients involve ḣ_f with at most two of its derivatives, ġ_0 and its derivative, and h
+and its first two derivatives. So F₂ at the order n + 4 is controlled by ∂h and h at the order n + 6, and
+[[eq:iv2-2-3]] gives the second claim. ∎
 
 **Proposition {#prop:uc-data-order}** (The regularity d_1 and the order of the approximant.) Let the parameters be chosen
 as in [[thm:vi-c-2-1]], let d be the loss with which [[thm:iii-k-3-2]] applies [[thm:ii-g-2-1]], N_NM = 21d + 6, and
@@ -210,10 +211,10 @@ at the order 153 that [[thm:iii-c1-3-1]] asks; by [[lem:uc-data-losses]] (i) the
 𝒜^155(𝒪_𝒟) controls them. 𝒪_𝒟 is the union of 𝒪_𝒟 ∩ 𝒟⁺, 𝒪_𝒟 ∩ 𝔒⁻ and 𝒪_𝒟 ∩ Ω_(ext,r_1) ([[lem:s27-cover]] (e)); on
 these h_0 is the solution of [[thm:iv3-2-2]] for (h̊_0, h̊_1), the backward solution of (N) and the solution of
 [[thm:iii-c1-2-1]] (the proof of [[prop:iii-k-1-2]]). h_0 is smooth across Σ^IVP (*Gluing* there), so at an integer
-order its norm on 𝒪_𝒟 is at most a constant times the sum of its norms on the three parts, which (ii) bounds:
-(h̊_0, h̊_1) in 𝒜^(155+L_F)_Σ = 𝒜^287_Σ control h_0 in 𝒜^155(𝒪_𝒟), and by (i) the data at the order 288 do. (N) asks the data small in
-H^5 × H^4 on Σ^IVP ∩ 𝔒⁻, which (v) and (ii) give at lower orders. The largest of these orders is 309; and the smallness
-of γ̃ in H³_b that [[prop:iii-c2-4-1]] asks is weaker. So d_0 := 309 serves.
+order its norm on 𝒪_𝒟 is at most a constant times the sum of its norms on the three parts, which (ii) bounds: (h̊_0,
+h̊_1) in 𝒜^(155+L_F)_Σ = 𝒜^287_Σ control h_0 in 𝒜^155(𝒪_𝒟), and by (i) the data at the order 288 do. (N) asks the data
+small in H^5 × H^4 on Σ^IVP ∩ 𝔒⁻, which (v) and (ii) give at lower orders. The largest of these orders is 309; and the
+smallness of γ̃ in H³_b that [[prop:iii-c2-4-1]] asks is weaker. So d_0 := 309 serves.
 
 *k′_k.* Fix k ≥ 0, and put m := k + 3 and n := m + L_P; then m ≥ 3, as (iv) asks, and n ≥ 10, as L_P ≥ L_0 ≥ 7. By
 (iii) and (iv) of [[lem:uc-data-losses]], applied in turn, the triple (h_(S,S⁰), ∂h_(S,S⁰), ∂²h_(S,S⁰)) in 𝒜^n, with
@@ -335,22 +336,23 @@ New:
 
 same formulas bound λ1 by δ, δ by a power of 2 that decreases with d, and the modulus of the initial family
 ([[prop:iii-k-1-2]]) at 2δ by a power of 2 that decreases with d ([[prop:ec-delta-cap]]). The regularity d_1 of
-[[thm:iii-k-4-3]] is 22d + 291 + L_P and the order of the approximant of [[thm:settling]] is K = d_1 + 14, L_P ≤ 43
-being a number of derivatives fixed by ℓ_0 and ℓ_I; at that point K is at most an integer below 3.45745 × 10⁵¹
+[[thm:iii-k-4-3]] is 22d + 292 + L_P and the order of the approximant of [[thm:settling]] is K = d_1 + 14, L_P ≤ 43
+being an explicit number of derivatives; at the computational point K is at most an integer below 3.45745 × 10⁵¹
 ([[prop:uc-data-order]]). The chapter ends with the parts
 
 *3. [[ch:theorems]], the paragraph after [[thm:settling]] (line 311).* Old:
 
 determines which decaying perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
 
-New (the same line, followed by five lines that continue its paragraph):
+New (the same line, followed by six lines that continue its paragraph):
 
 determines which decaying perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
 The order K is explicit in the loss d with which the proof applies the Nash–Moser theorem ([[thm:iii-k-3-2]]): with
-the orders that [[prop:uc-data-order]] counts, d_1 = 22d + 291 + L_P and K = 22d + 305 + L_P, where L_P ≤ 43 is a number
-of derivatives fixed by ℓ0 and ℓ_I. d is not evaluated on the set where [[thm:settling]] is proved; at the
-computational point of [[def:ec-point]], which lies outside that set ([[rem:ec-point-outside]]), d is at most an integer
-below 1.57157 × 10⁵⁰, and K at most one below 3.45745 × 10⁵¹.
+the orders that [[prop:uc-data-order]] counts, d_1 = 22d + 292 + L_P and K = 22d + 306 + L_P, where L_P ≤ 43 is an
+explicit number of derivatives. d is not evaluated on the set where [[thm:settling]] is proved; there it is bounded
+below by explicit functions of the gauge and damping parameters ([[ch:explicit-constants]]). At the computational
+point of [[def:ec-point]], which lies outside that set ([[rem:ec-point-outside]]), d is at most an integer below
+1.57157 × 10⁵⁰, and K at most one below 3.45745 × 10⁵¹.
 
 *4. [[ch:s27]], [[prop:iii-k-1-2]] (3) (line 248).* Old:
 
@@ -358,7 +360,8 @@ uses it). We take k′_k non-decreasing in k.
 
 New:
 
-uses it). We take k′_k non-decreasing in k; a constant serves, and [[prop:uc-data-order]] counts it.
+uses it). We take k′_k non-decreasing in k; in the classes of [[eq:vii-0-1]] and [[eq:half-class]] a constant serves
+([[prop:uc-data-order]]).
 
 *5. [[ch:s27]], *Smallness* in the proof of [[thm:iii-k-3-2]] (line 1603).* Old:
 
@@ -366,21 +369,22 @@ d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]]. By [[lem:iii-k-2-2
 
 New:
 
-d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]] ([[prop:uc-data-order]] evaluates d_0 and k′_k, which gives
-d_1 = 22d + 291 + L_P, L_P ≤ 48 an explicit number of derivatives). By [[lem:iii-k-2-2]] (d),
+d_1 := max(d_0, N_NM + k″), with d_0 of [[prop:iii-k-1-2]] ([[prop:uc-data-order]] evaluates d_0 and k′_k in the classes
+of [[eq:vii-0-1]] and [[eq:half-class]], which gives there d_1 = 22d + 292 + L_P, L_P ≤ 48 an explicit number of
+derivatives). By [[lem:iii-k-2-2]] (d),
 
 *6. [[ch:own-data]], the paragraph after [[thm:own-data]] (line 67).* Old:
 
 The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. The order k_P is what the subtracted
 
-New (the four lines that follow it, from "expansion of Section [[sec:own-sigma]] needs:" through "checks every use of
-k_P.", stay, and the paragraph may be refilled):
+New (the three lines that follow it, from "expansion of [[sec:own-sigma]] needs:" through "[[sec:own-proof]]; its
+first step checks every use of k_P.", stay, and the paragraph may be refilled):
 
 The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. d_1, k1 and K* are explicit in the loss d of
-[[thm:iii-k-3-2]]: d_1 = 22d + 291 + L_P, L_P ≤ 48 an explicit number of derivatives, k1 = d_1 + 4, and
+[[thm:iii-k-3-2]]: d_1 = 22d + 292 + L_P, L_P ≤ 48 an explicit number of derivatives, k1 = d_1 + 4, and
 K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a), which exceeds d_1 + 14, so that the least admissible K is
-quadratic in d_1 ([[prop:uc-data-order]]); d is bounded only at the computational point of [[def:ec-point]], which
-lies outside the set where the theorem is proved. The order k_P is what the subtracted
+quadratic in d_1 ([[prop:uc-data-order]]); d is bounded above only at the computational point of [[def:ec-point]],
+which lies outside the set where the theorem is proved. The order k_P is what the subtracted
 
 *7. [[ch:own-data]], [[rem:own-half-changes]] (b) (lines 291–293).* Old:
 
@@ -391,10 +395,10 @@ class. (c) The weights α_1, α′ avoid finitely many more points in each bound
 New:
 
 and each factor costs one derivative (the converse part of [[lem:iii-a-1-3]]). So d_1 changes by a finite amount, and ε
-with it; the thresholds λ1 and δ of [[thm:settling]] change accordingly. In either class d_1 = 22d + 291 + L_P, d the
+with it; the thresholds λ1 and δ of [[thm:settling]] change accordingly. In either class d_1 = 22d + 292 + L_P, d the
 loss of [[thm:iii-k-3-2]], which is the same for the two classes, with L_P ≤ 43 for ℰ_0^ℤ and L_P ≤ 48 for ℰ_0^½
-([[prop:uc-data-order]]). None of ε, λ1, δ is evaluated, in either class, and d is bounded only at the computational
-point. (c) The weights α_1, α′ avoid finitely many more points in each bounded interval.
+([[prop:uc-data-order]]). None of ε, λ1, δ is evaluated, in either class, and d is bounded above only at the
+computational point. (c) The weights α_1, α′ avoid finitely many more points in each bounded interval.
 
 *8. [[ch:scope]], [[sec:scope-constants]] (lines 72–73).* Old:
 
@@ -404,8 +408,8 @@ computational point is a point at which the formulas of the proof can be evaluat
 New:
 
 d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The order
-of the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 305 + L_P, with L_P ≤ 43 a number of derivatives fixed
-by ℓ0 and ℓ_I, so that at that point K is at most an integer below 3.45745 × 10⁵¹ ([[prop:uc-data-order]]). The
+of the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of
+derivatives, so that at that point K is at most an integer below 3.45745 × 10⁵¹ ([[prop:uc-data-order]]). The
 computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on which
 
 *9. [[ch:scope]], [[sec:scope-after]] (lines 130–131).* Old:
@@ -421,9 +425,13 @@ exceed a quadratic in d_1 ([[prop:uc-data-order]]). The continuation of g_λ to 
 
 *10. Unchanged.* [[thm:settling]] and [[thm:own-data]] keep their statements, which fix K through d_1 and K*; the proofs
 in [[ch:settling-proof]], [[ch:after-shell]], [[ch:interior]] and [[ch:own-data]] use d_1 only as a finite order and
-stand. [[prop:ec-delta-cap]] and its numbers stand: the chosen ε is still at most s̃, and only the value of k′_k is
-named. [[rem:ec-not-evaluated]] stands, as d_1 and K are now explicit in d while d is bounded only at the computational
-point. [[ch:introduction]] states no value of K or d_1.
+stand. [[lem:viii-2-1]], which takes k′_k as in [[lem:iii-k-2-2]] (d), stands. [[prop:ec-delta-cap]] and its numbers
+stand: the chosen ε is still at most s̃, and only the value of k′_k is named. [[rem:ec-not-evaluated]] keeps its
+statements, as d_1 and K are now explicit in d while d is bounded above only at the computational point; the proposal
+for the lower bounds of d on the proved set rewrites three of its lines (lines 4693–4695), which no text here touches.
+That proposal also rewrites lines 16–25 of the opening of [[ch:explicit-constants]], lines 351–357 of [[ch:theorems]]
+and lines 66–67 of [[ch:scope]]; none of these overlaps texts 2, 3, 8 or 9. [[ch:introduction]] states no value of K or
+d_1.
 
 ### Crosswalk rows
 
@@ -438,16 +446,17 @@ initial family reads.); new written count of the orders that prop:iii-k-1-2 (3) 
 exterior solutions +132 above order 21, Step 1 L_0 ≤ 23 (28 for the half class), Step 2 2J, pull-back +2+l (+4+l with
 expansions), derivatives in (S, S⁰) +7 and +6.
 
-Row 3. prop:uc-data-order; paper/reader/proofs/P-K.md:173; data-order proof P-K, Proposition (The regularity d_1
-and the order of the approximant.); new: d_0 = 309, k′_k = 282 + L_P, d_1 = 22d + 291 + L_P, K = 22d + 305 + L_P ≤
-22d + 348, K*(a, M, k1) of thm:own-data; at the computational point K ≤ 22D_acc + 344 < 3.45745·10⁵¹.
+Row 3. prop:uc-data-order; paper/reader/proofs/P-K.md:175; data-order proof P-K, Proposition (The regularity d_1
+and the order of the approximant.); new: d_0 = 309, k′_k = 283 + L_P for every k (282 + L_P would serve for k ≥ 1),
+d_1 = 22d + 292 + L_P, K = 22d + 306 + L_P ≤ 22d + 349, K*(a, M, k1) of thm:own-data; at the computational point
+K ≤ 22D_acc + 345 < 3.45745·10⁵¹.
 
-Row 4. eq:uc-data-order; paper/reader/proofs/P-K.md:182; data-order proof P-K, display; display of d_1 and K.
+Row 4. eq:uc-data-order; paper/reader/proofs/P-K.md:183; data-order proof P-K, display; display of d_1 and K.
 
-Row 5. eq:uc-kstar-own; paper/reader/proofs/P-K.md:190; data-order proof P-K, display; display of
+Row 5. eq:uc-kstar-own; paper/reader/proofs/P-K.md:191; data-order proof P-K, display; display of
 K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a).
 
-Row 6. rem:uc-data-order-limits; paper/reader/proofs/P-K.md:302; data-order proof P-K, Remark (What the count gives
+Row 6. rem:uc-data-order-limits; paper/reader/proofs/P-K.md:306; data-order proof P-K, Remark (What the count gives
 and what it does not.); what stays open: d on the proved set, β0(k_P), λ1, δ, λ_2.
 
 Notes for existing rows: ch:explicit-constants (opening states d_1 and K, text 2); in the crosswalk table of
