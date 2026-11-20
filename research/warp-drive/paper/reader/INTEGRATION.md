@@ -1348,3 +1348,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   supports; data equal to the background's outside the domain of influence, for the constraints solved with the radius
   as time, of a compact set away from the axes are constructed in [[ch:localised-data]] on a slice bent from Σ_τ0, and
   carried to Σ_τ0 by their development." Chapter 83's tables (sec:tab-bg, sec:table-margins) to Appendix B next.
+- W-90 done (notes/reports/W-90.md): chapter 90 written, 218 lines, two markers (scope-d-upper after the c_* project;
+  scope-two-dust-radial after R5-82). λ0 said to be bounded, not evaluated, as chapter 86 states. F-M33 done; R2-M33,
+  R5-82, W-96b (chapter 83 tables to Appendix B), I-1 and P-U71-cstar running; a container restart stopped all five
+  on 2026-11-20, and each was resumed from its transcript.
