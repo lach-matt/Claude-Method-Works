@@ -707,7 +707,7 @@ New:
 
 New:
 
-> Q enters with a lower bound, the pairing now containing +h⁻¹⟨AQAω, ω⟩: h⟨Q_0Aω, Aω⟩ ≥ −Ch‖Aω‖² by
+> Q enters with a lower bound, the adjoint pairing containing +h⁻¹⟨AQAω, ω⟩: h⟨Q_0Aω, Aω⟩ ≥ −Ch‖Aω‖² by
 > [[lem:iv5-calc-q0]], and ⟨h²Q_1Aω, Aω⟩ ≥ −((9C₂ + 2)𝔛⁻² + C_𝔛h)‖Aω‖² − C_(𝔛,N)h^(2N)‖χω‖² as in (1), by
 > [[lem:iv5-calc-garding]] applied to −Ã*h²Q_1Ã. The iteration is the same.
 
@@ -877,8 +877,8 @@ New:
 > (φ_(p,α))_*A_p = Σ_(|β|≤m) w_(p,α)a_(p,α,β)(x)(ρ_(p,α)∂_x)^β where the C^∞((−2, 2)^n)-seminorms of the coefficients
 > a_(p,α,β) are uniformly (in p ∈ P, α ∈ 𝒜_p, β ∈ ℕ^n_0) bounded."
 
-**C95-3. New item (S16)**, inserted after the paragraph of (S15), which ends "(which then implies an analogous
-strengthening of Lemma 3.42)."", and before [[rem:std-sbg-sobolev]]:
+**C95-3. New item (S16)**, inserted after the paragraph of (S15), whose last words are "analogous strengthening of
+Lemma 3.42)", and before [[rem:std-sbg-sobolev]]:
 
 > (S16) Essential supports and wave front sets [Hin26d, Lemma 3.20, p. 38; Lemma 3.24 (1), p. 40; Definition 3.25,
 > p. 41; Lemma 3.28, p. 42; Definition 3.43, p. 51; Theorem 3.51, p. 55]. Lemma 3.20 (Density): "The space C_c^∞(M) is

@@ -16,18 +16,18 @@ localisation; for small perturbations e^ϕ stays positive on [0, u_1]. The compo
 on 𝒞_in contains the derivative ∂_v b across 𝒞_in: it is a linear transport equation for ∂_v b along the generators,
 and it places no condition on these data ([[lem:loc-cone-ricci]] (a)).
 
-*Proof.* On 𝒞_in, b = 0, so ∂_u b = ∂_ϑ b = 0 there, and g(∂_u, ∂_u) = γ_ϑ b² and g(∂_u, ∂_ϑ) = −γ_ϑ b vanish there.
-So ∂_u is null and orthogonal to ∂_u, ∂_ϑ, ∂_(φ1), ∂_(φ2) along 𝒞_in: it is the null normal of 𝒞_in, and the
-sections {u = const} of 𝒞_in carry γ_ϑ dϑ² + e^(2A_c) dφ1² + e^(2A_s) dφ2². With the inverse metric of the proof of
-[[lem:loc-cone-equations]], Γ^u_(uu) = ½ g^(uv)(2∂_u g_(uv) − ∂_v g_(uu)) = 2∂_u ln Ω + ∂_v(γ_ϑ b²)/(4Ω²), and
-∂_v(γ_ϑ b²) = b (2γ_ϑ ∂_v b + b ∂_vγ_ϑ) = 0 on 𝒞_in; Γ^v_(uu) = ½ g^(vu) ∂_u(γ_ϑ b²) + ½ g^(vϑ)(2∂_u g_(ϑu) − ∂_ϑ
-g_(uu)) and Γ^ϑ_(uu) = ½ g^(ϑv)(2∂_u g_(vu) − ∂_v g_(uu)) + ½ γ_ϑ⁻¹(−2∂_u(γ_ϑ b) − ∂_ϑ(γ_ϑ b²)) vanish there, since
-g^(vϑ) = −b/(2Ω²); and Γ^(φi)_(uu) = 0. So ∇_(∂_u)∂_u = 2∂_u ln Ω ∂_u on 𝒞_in. The field ∂_u commutes with ∂_ϑ,
-∂_(φ1), ∂_(φ2), so for X, Y among these g(∇_X ∂_u, Y) = −g(∂_u, ∇_X Y) on 𝒞_in is symmetric in X and Y, and the null
-second fundamental form of the sections along ∂_u is half the u-derivative of their metric, with eigenvalues ∂_uϰ_i.
-The Raychaudhuri equation along ∂_u is [[eq:loc-cone-in]], as in the proof of [[lem:loc-cone-equations]]. With
-y := e^ϕ, T(∂_u, ∂_u) = q_out and (ln Ω)′ = 0 on 𝒞_in (there e^(2σ) = 1/2), it reads y″ + (1/3)(Σ_i (ℓ_i′)² + q_out) y
-= 0, ′ = ∂_u, and the proof of [[prop:loc-cones]] applies with u in place of v. ∎
+*Proof.* On 𝒞_in, b = 0, so ∂_u b = ∂_ϑ b = 0 there, and g(∂_u, ∂_u) = γ_ϑ b² and g(∂_u, ∂_ϑ) = −γ_ϑ b vanish there. So
+∂_u is null and orthogonal to ∂_u, ∂_ϑ, ∂_(φ1), ∂_(φ2) along 𝒞_in: it is the null normal of 𝒞_in, and the sections {u =
+const} of 𝒞_in carry γ_ϑ dϑ² + e^(2A_c) dφ1² + e^(2A_s) dφ2². With the inverse metric of the proof of
+[[lem:loc-cone-equations]], Γ^u_(uu) = ½ g^(uv)(2∂_u g_(uv) − ∂_v g_(uu)) = 2∂_u ln Ω + ∂_v(γ_ϑ b²)/(4Ω²), and ∂_v(γ_ϑ
+b²) = b (2γ_ϑ ∂_v b + b ∂_vγ_ϑ) = 0 on 𝒞_in; Γ^v_(uu) = ½ g^(vu) ∂_u(γ_ϑ b²) + ½ g^(vϑ)(2∂_u g_(ϑu) − ∂_ϑ g_(uu)) and
+Γ^ϑ_(uu) = ½ g^(ϑv)(2∂_u g_(vu) − ∂_v g_(uu)) + ½ γ_ϑ⁻¹(−2∂_u(γ_ϑ b) − ∂_ϑ(γ_ϑ b²)) vanish there, since g^(vϑ) =
+−b/(2Ω²); and Γ^(φi)_(uu) = 0. So ∇_(∂_u)∂_u = 2∂_u ln Ω ∂_u on 𝒞_in. The field ∂_u commutes with ∂_ϑ, ∂_(φ1), ∂_(φ2), so
+for X, Y among these g(∇_X ∂_u, Y) = −g(∂_u, ∇_X Y) on 𝒞_in is symmetric in X and Y, and the null second fundamental form
+of the sections along ∂_u is half the u-derivative of their metric, with eigenvalues ∂_uϰ_i. The Raychaudhuri equation
+along ∂_u is [[eq:loc-cone-in]], as in the proof of [[lem:loc-cone-equations]]. With y := e^ϕ, T(∂_u, ∂_u) = q_out and
+(ln Ω)′ = 0 on 𝒞_in (there e^(2σ) = 1/2), it reads y″ + (1/3)(Σ_i (ℓ_i′)² + q_out) y = 0, ′ = ∂_u, and the proof of
+[[prop:loc-cones]] applies with u in place of v. ∎
 
 On the corner sphere S = 𝒞_out ∩ 𝒞_in the two cones carry one metric, γ_ϑ dϑ² + e^(2A_c) dφ1² + e^(2A_s) dφ2² with the
 background's ϕ, so the free data of [[prop:loc-cones]] at v = 0 and those of [[lem:loc-cone-in]] at u = 0 agree; nothing
@@ -121,27 +121,27 @@ S³, F := {u ≥ 0, v ≥ 0}, P := {u < 0} ∪ {v < 0} and
 
     𝒮 := {(u, v) : −δ_1 ≤ u ≤ l_u + δ_1, −δ_1 ≤ v ≤ l_v + δ_1, min(u, v) ≤ δ_1}.                {#eq:loc-cone-collar}
 
-Points of the (u, v)-plane stand for the corresponding spheres; a set of points is identified with its product with S³.
-A *background* on 𝒮 is a round metric g_e = −2e^(2σ_e) du dv + R_e² dΩ₃² with σ_e, R_e > 0 smooth on 𝒮, together with
+Points of the (u, v)-plane stand for the corresponding spheres; a set of points is identified with its product with S³. A
+*background* on 𝒮 is a round metric g_e = −2e^(2σ_e) du dv + R_e² dΩ₃² with σ_e, R_e > 0 smooth on 𝒮, together with
 smooth profiles 𝒜(v), ℬ(u) ≥ 0, such that on 𝒮 ∩ F it solves the two-null-dust equations [[eq:two-dust-limit]],
-Ric(g_e) = (𝒜/R_e³) dv ⊗ dv + (ℬ/R_e³) du ⊗ du. Its double-null functions are Ω_e² = e^(2σ_e)/2, γ_ϑ = R_e²,
-A_c = ln(R_e cos ϑ), A_s = ln(R_e sin ϑ), b = 0, and its densities are q̊_in := 𝒜/R_e³ and q̊_out := ℬ/R_e³; so
-ρ̊_in := 𝒱q̊_in = 𝒜(v) sin ϑ cos ϑ and ρ̊_out := ℬ(u) sin ϑ cos ϑ, with 𝒱 of [[sec:loc-cone-equations-frame]]. A *class
-solution in the gauge* on a set D × S³, D ⊂ F, is a smooth class solution of [[eq:class-system]] with two families, phases
-v and u and densities q_in and q_out, so that Ric(g) = q_in dv ⊗ dv + q_out du ⊗ du, whose metric has the form
-[[eq:loc-double-null]] with Ω, γ_ϑ, b, A_c, A_s smooth functions of (u, v, ϑ), equal to the background's near the axes.
+Ric(g_e) = (𝒜/R_e³) dv ⊗ dv + (ℬ/R_e³) du ⊗ du. Its double-null functions are Ω_e² = e^(2σ_e)/2, γ_ϑ = R_e², A_c = ln(R_e
+cos ϑ), A_s = ln(R_e sin ϑ), b = 0, and its densities are q̊_in := 𝒜/R_e³ and q̊_out := ℬ/R_e³; so ρ̊_in := 𝒱q̊_in = 𝒜(v)
+sin ϑ cos ϑ and ρ̊_out := ℬ(u) sin ϑ cos ϑ, with 𝒱 of [[sec:loc-cone-equations-frame]]. A *class solution in the gauge*
+on a set D × S³, D ⊂ F, is a smooth class solution of [[eq:class-system]] with two families, phases v and u and densities
+q_in and q_out, so that Ric(g) = q_in dv ⊗ dv + q_out du ⊗ du, whose metric has the form [[eq:loc-double-null]] with Ω,
+γ_ϑ, b, A_c, A_s smooth functions of (u, v, ϑ), equal to the background's near the axes.
 
 **Definition {#def:loc-cone-data}** (Cone data at a corner.) Let a background on 𝒮 be given and k ≥ 6. *Cone data* are
-smooth functions ln Ω, ϰ_1 = ½ ln γ_ϑ, ϰ_2 = A_c, ϰ_3 = A_s, b and q_in ≥ 0 of (v, ϑ) on N_o and ln Ω, ϰ_1, ϰ_2, ϰ_3,
-b and q_out ≥ 0 of (u, ϑ) on N_i, such that: (i) ln Ω, the ϰ_i and b of the two edges agree on S_c; (ii)
-Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o, the left sides being given by [[eq:loc-cone]] in terms of the functions
-on N_o, and Ric(L̲, L̲) = q_out on N_i, L̲ := ∂_u + b∂_ϑ, the left side being given by the last line of
-[[eq:loc-cone-frame-ricci]] in terms of the functions on N_i, L̲ being tangent to N_i; (iii) for some numbers
-0 < ϑ_a′ < ϑ_b′ < π/2 they equal the background's at the points with ϑ ∉ [ϑ_a′, ϑ_b′]. Their *size* is the largest
-absolute value of a derivative of order at most m_0 := 6k + 18 of their differences from the background's. They are in
-the *normalised gauge* if b = 0 on N_i; then Ric(L̲, L̲) on N_i is [[eq:loc-cone-in]]. The data consist of the gauge
-functions ln Ω on both edges and b on N_i, which are free, of the conformal data and densities, which are free, and of
-the functions that (ii) determines; the corner values are arbitrary, subject to (i).
+smooth functions ln Ω, ϰ_1 = ½ ln γ_ϑ, ϰ_2 = A_c, ϰ_3 = A_s, b and q_in ≥ 0 of (v, ϑ) on N_o and ln Ω, ϰ_1, ϰ_2, ϰ_3, b
+and q_out ≥ 0 of (u, ϑ) on N_i, such that: (i) ln Ω, the ϰ_i and b of the two edges agree on S_c; (ii) Ric(∂_v, ∂_v) =
+q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o, the left sides being given by [[eq:loc-cone]] in terms of the functions on N_o, and
+Ric(L̲, L̲) = q_out on N_i, L̲ := ∂_u + b∂_ϑ, the left side being given by the last line of [[eq:loc-cone-frame-ricci]]
+in terms of the functions on N_i, L̲ being tangent to N_i; (iii) for some numbers 0 < ϑ_a′ < ϑ_b′ < π/2 they equal the
+background's at the points with ϑ ∉ [ϑ_a′, ϑ_b′]. Their *size* is the largest absolute value of a derivative of order at
+most m_0 := 6k + 18 of their differences from the background's. They are in the *normalised gauge* if b = 0 on N_i; then
+Ric(L̲, L̲) on N_i is [[eq:loc-cone-in]]. The data consist of the gauge functions ln Ω on both edges and b on N_i, which
+are free, of the conformal data and densities, which are free, and of the functions that (ii) determines; the corner
+values are arbitrary, subject to (i).
 
 The data of [[thm:loc-cone-development]] are cone data at the corner S, with l_u = u_1, l_v = v_1: on 𝒞_out the
 functions of [[prop:loc-cones]], extended to v ≤ v_1 + δ_1 by the background's, and on 𝒞_in those of
@@ -211,15 +211,15 @@ frame with
 
 where L̲ϰ_(i+1) = χ̲_(i+1) and ∂_vϰ_(i+1) = χ_(i+1).
 
-*Proof.* Each entry is Koszul's formula 2g(∇_X Y, Z) = X g(Y, Z) + Y g(Z, X) − Z g(X, Y) + g([X, Y], Z) − g([Y, Z], X)
-+ g([Z, X], Y), with X, Y, Z in the frame, the products and brackets above, and the fact that the products depend on
-(u, v, ϑ) only. For instance 2g(∇_L̲ L̲, ∂_v) = 2L̲ g(L̲, ∂_v) + 2g([∂_v, L̲], L̲) = −4L̲Ω², while g(∇_L̲ L̲, Z) = 0 for
-Z = L̲, ∂_ϑ, K_i, which gives the first entry; and 2g(∇_L̲ ∂_v, ∂_ϑ) = L̲ g(∂_v, ∂_ϑ) + ∂_v g(∂_ϑ, L̲) − ∂_ϑ g(L̲, ∂_v) +
-g([L̲, ∂_v], ∂_ϑ) − g([∂_v, ∂_ϑ], L̲) + g([∂_ϑ, L̲], ∂_v) = 4Ω²η − γ_ϑ ∂_v b, while 2g(∇_L̲ ∂_v, Z) = 0 for the other
-frame fields, which gives the third. The others follow in the same way. The derivatives of the frame have no
-K_i-component unless the K_i enters, because the reflection φ_i ↦ −φ_i is an isometry that fixes L̲, ∂_v, ∂_ϑ and
-reverses K_i. As a check, ∇_(∂_v) L̲ − ∇_L̲ ∂_v = (4Ω²ζ/γ_ϑ) ∂_ϑ = (∂_v b) ∂_ϑ and ∇_(∂_ϑ) L̲ − ∇_L̲ ∂_ϑ = (χ̲_1 −
-L̲ϰ_1) ∂_ϑ = (∂_ϑ b) ∂_ϑ, the brackets. ∎
+*Proof.* Each entry is Koszul's formula 2g(∇_X Y, Z) = X g(Y, Z) + Y g(Z, X) − Z g(X, Y) + g([X, Y], Z) − g([Y, Z], X) +
+g([Z, X], Y), with X, Y, Z in the frame, the products and brackets above, and the fact that the products depend on (u, v,
+ϑ) only. For instance 2g(∇_L̲ L̲, ∂_v) = 2L̲ g(L̲, ∂_v) + 2g([∂_v, L̲], L̲) = −4L̲Ω², while g(∇_L̲ L̲, Z) = 0 for Z = L̲,
+∂_ϑ, K_i, which gives the first entry; and 2g(∇_L̲ ∂_v, ∂_ϑ) = L̲ g(∂_v, ∂_ϑ) + ∂_v g(∂_ϑ, L̲) − ∂_ϑ g(L̲, ∂_v) + g([L̲,
+∂_v], ∂_ϑ) − g([∂_v, ∂_ϑ], L̲) + g([∂_ϑ, L̲], ∂_v) = 4Ω²η − γ_ϑ ∂_v b, while 2g(∇_L̲ ∂_v, Z) = 0 for the other frame
+fields, which gives the third. The others follow in the same way. The derivatives of the frame have no K_i-component
+unless the K_i enters, because the reflection φ_i ↦ −φ_i is an isometry that fixes L̲, ∂_v, ∂_ϑ and reverses K_i. As a
+check, ∇_(∂_v) L̲ − ∇_L̲ ∂_v = (4Ω²ζ/γ_ϑ) ∂_ϑ = (∂_v b) ∂_ϑ and ∇_(∂_ϑ) L̲ − ∇_L̲ ∂_ϑ = (χ̲_1 − L̲ϰ_1) ∂_ϑ = (∂_ϑ b) ∂_ϑ,
+the brackets. ∎
 
 **Lemma {#lem:loc-cone-ricci}** (The equations.) Off the axes let g have the form [[eq:loc-double-null]], let q_in and
 q_out be functions, T := q_in dv ⊗ dv + q_out du ⊗ du, E := Ric(g) − T, ρ_in := 𝒱q_in and ρ_out := 𝒱q_out.
@@ -287,8 +287,8 @@ the trace in the frame. Lemma [[lem:loc-cone-frame]] gives, by a direct calculat
     g(R(L̲, ∂_ϑ)∂_ϑ, ∂_v) + g(R(∂_v, ∂_ϑ)∂_ϑ, L̲) = 4Ω² (∂_ϑη + η² − ∂_ϑϰ_1 η) + (γ_ϑ²/(4Ω²)) (∂_v b)²
                                          − 2γ_ϑ (∂_v χ̲_1 + χ_1 χ̲_1 − ½ e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b)),
 
-and R(∂_ϑ, ∂_ϑ) = 0; summing gives E(∂_ϑ, ∂_ϑ), since χ_1χ̲_1 + ½ Σ_(i=2,3) (χ_1χ̲_i + χ̲_1χ_i) = ½(tr χ χ̲_1 + χ_1 tr χ̲).
-Likewise R(L̲, L̲) = 0 and
+and R(∂_ϑ, ∂_ϑ) = 0; summing gives E(∂_ϑ, ∂_ϑ), since χ_1χ̲_1 + ½ Σ_(i=2,3) (χ_1χ̲_i + χ̲_1χ_i) = ½(tr χ χ̲_1 + χ_1 tr
+χ̲). Likewise R(L̲, L̲) = 0 and
 
     g(R(∂_v, L̲)∂_v, L̲) = 4Ω² ∂_v L̲ ln Ω − 4Ω⁴γ_ϑ⁻¹ η² − 2Ω² η ∂_v b + ¾ γ_ϑ (∂_v b)²,
     γ_ϑ⁻¹ g(R(∂_ϑ, L̲)∂_v, ∂_ϑ) = −(∂_v χ̲_1 + χ_1 χ̲_1) + ½ e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b) + (γ_ϑ/(8Ω²)) (∂_v b)²
@@ -299,24 +299,23 @@ Likewise R(L̲, L̲) = 0 and
 summing gives E(L̲, ∂_v), since 2Ω²γ_ϑ⁻¹(∂_ϑη + 2η² + η ∂_ϑ(ϰ_2 + ϰ_3 − ϰ_1)) = 𝒱⁻¹∂_ϑ(𝒱γ_ϑ⁻¹∂_ϑΩ²) and
 ½ ∂_ϑ∂_v b + ½ ∂_v b ∂_ϑ ln 𝒱 + η ∂_v b = (2Ω²𝒱)⁻¹ ∂_ϑ(Ω²𝒱 ∂_v b).
 
-(b) The determinant is that of the proof of [[lem:loc-cone-equations]]. div(q P) = |det g|^(−1/2) ∂_μ(|det g|^(1/2)
-q P^μ) with P = g⁻¹dv, P^u = g^(uv), P^ϑ = g^(ϑv), and with P = g⁻¹du = g^(uv) ∂_v. tr_g T = q_in g^(vv) + q_out g^(uu)
-= 0. By [[prop:class-augmented]] (c), div_g T is the stated sum plus q_in ∇_(g⁻¹dv) dv + q_out ∇_(g⁻¹du) du, and
+(b) The determinant is that of the proof of [[lem:loc-cone-equations]]. div(q P) = |det g|^(−1/2) ∂_μ(|det g|^(1/2) q
+P^μ) with P = g⁻¹dv, P^u = g^(uv), P^ϑ = g^(ϑv), and with P = g⁻¹du = g^(uv) ∂_v. tr_g T = q_in g^(vv) + q_out
+g^(uu) = 0. By [[prop:class-augmented]] (c), div_g T is the stated sum plus q_in ∇_(g⁻¹dv) dv + q_out ∇_(g⁻¹du) du, and
 ∇_(g⁻¹dv) dv = ½ d(g⁻¹(dv, dv)) = 0, likewise for du.
 
-(c) In the frame, g⁻¹ = −(2Ω²)⁻¹ (L̲ ⊗ ∂_v + ∂_v ⊗ L̲) + γ_ϑ⁻¹ ∂_ϑ ⊗ ∂_ϑ + Σ_i e^(−2ϰ_(i+1)) K_i ⊗ K_i, so tr_g E =
-−Ω⁻² E(L̲, ∂_v) + γ_ϑ⁻¹ E(∂_ϑ, ∂_ϑ) + Σ_i e^(−2ϰ_(i+1)) E(K_i, K_i) is linear in E′, and (div_g E)(Y) =
-−(2Ω²)⁻¹ ((∇_L̲ E)(∂_v, Y) + (∇_(∂_v) E)(L̲, Y)) + γ_ϑ⁻¹ (∇_(∂_ϑ) E)(∂_ϑ, Y) + Σ_i e^(−2ϰ_(i+1)) (∇_(K_i) E)(K_i, Y),
-with (∇_X E)(Z, Y) = X(E(Z, Y)) − E(∇_X Z, Y) − E(Z, ∇_X Y). The terms in E′ and its first derivatives make up the ℓ_j.
-The rest has only a, β, c, and the table of [[lem:loc-cone-frame]] gives, for Y = L̲: (∇_(∂_v) E)(L̲, L̲) = ∂_v c −
-2E(∇_(∂_v) L̲, L̲) = ∂_v c, (∇_L̲ E)(∂_v, L̲) = 0, (∇_(∂_ϑ) E)(∂_ϑ, L̲) = −(γ_ϑ/(2Ω²)) χ_1 c and (∇_(K_i) E)(K_i, L̲) =
-−(e^(2ϰ_(i+1))/(2Ω²)) χ_(i+1) c; for Y = ∂_ϑ: (∇_L̲ E)(∂_v, ∂_ϑ) = L̲β − (L̲ϰ_1) β, (∇_(∂_v) E)(L̲, ∂_ϑ) = 0,
-(∇_(∂_ϑ) E)(∂_ϑ, ∂_ϑ) = −(γ_ϑ/Ω²) χ̲_1 β and (∇_(K_i) E)(K_i, ∂_ϑ) = −(e^(2ϰ_(i+1))/(2Ω²)) χ̲_(i+1) β, and 2χ̲_1 − L̲ϰ_1 =
-χ̲_1 + ∂_ϑ b; for Y = ∂_v: (∇_L̲ E)(∂_v, ∂_v) = L̲a − (4Ω²/γ_ϑ)(η − ζ) β, (∇_(∂_v) E)(L̲, ∂_v) = −(2Ω²/γ_ϑ)(η + ζ) β,
-(∇_(∂_ϑ) E)(∂_ϑ, ∂_v) = ∂_ϑβ − (γ_ϑ/(2Ω²)) χ̲_1 a − (∂_ϑϰ_1 + η + ζ) β and (∇_(K_i) E)(K_i, ∂_v) =
-−(e^(2ϰ_(i+1))/(2Ω²)) χ̲_(i+1) a + e^(2ϰ_(i+1))γ_ϑ⁻¹ ∂_ϑϰ_(i+1) β, and 2γ_ϑ⁻¹ζ = (2Ω²)⁻¹ ∂_v b. Summing gives
-[[eq:loc-cone-bianchi]]. The last identity is the contracted Bianchi identity div Ric = ½ d(tr_g Ric), with
-tr_g Ric = tr_g E + tr_g T = tr_g E. ∎
+(c) In the frame, g⁻¹ = −(2Ω²)⁻¹ (L̲ ⊗ ∂_v + ∂_v ⊗ L̲) + γ_ϑ⁻¹ ∂_ϑ ⊗ ∂_ϑ + Σ_i e^(−2ϰ_(i+1)) K_i ⊗ K_i, so tr_g E = −Ω⁻²
+E(L̲, ∂_v) + γ_ϑ⁻¹ E(∂_ϑ, ∂_ϑ) + Σ_i e^(−2ϰ_(i+1)) E(K_i, K_i) is linear in E′, and (div_g E)(Y) = −(2Ω²)⁻¹ ((∇_L̲
+E)(∂_v, Y) + (∇_(∂_v) E)(L̲, Y)) + γ_ϑ⁻¹ (∇_(∂_ϑ) E)(∂_ϑ, Y) + Σ_i e^(−2ϰ_(i+1)) (∇_(K_i) E)(K_i, Y), with (∇_X E)(Z,
+Y) = X(E(Z, Y)) − E(∇_X Z, Y) − E(Z, ∇_X Y). The terms in E′ and its first derivatives make up the ℓ_j. The rest has only
+a, β, c, and the table of [[lem:loc-cone-frame]] gives, for Y = L̲: (∇_(∂_v) E)(L̲, L̲) = ∂_v c − 2E(∇_(∂_v) L̲, L̲) =
+∂_v c, (∇_L̲ E)(∂_v, L̲) = 0, (∇_(∂_ϑ) E)(∂_ϑ, L̲) = −(γ_ϑ/(2Ω²)) χ_1 c and (∇_(K_i) E)(K_i, L̲) = −(e^(2ϰ_(i+1))/(2Ω²))
+χ_(i+1) c; for Y = ∂_ϑ: (∇_L̲ E)(∂_v, ∂_ϑ) = L̲β − (L̲ϰ_1) β, (∇_(∂_v) E)(L̲, ∂_ϑ) = 0, (∇_(∂_ϑ) E)(∂_ϑ, ∂_ϑ) = −(γ_ϑ/Ω²)
+χ̲_1 β and (∇_(K_i) E)(K_i, ∂_ϑ) = −(e^(2ϰ_(i+1))/(2Ω²)) χ̲_(i+1) β, and 2χ̲_1 − L̲ϰ_1 = χ̲_1 + ∂_ϑ b; for Y = ∂_v: (∇_L̲
+E)(∂_v, ∂_v) = L̲a − (4Ω²/γ_ϑ)(η − ζ) β, (∇_(∂_v) E)(L̲, ∂_v) = −(2Ω²/γ_ϑ)(η + ζ) β, (∇_(∂_ϑ) E)(∂_ϑ, ∂_v) = ∂_ϑβ −
+(γ_ϑ/(2Ω²)) χ̲_1 a − (∂_ϑϰ_1 + η + ζ) β and (∇_(K_i) E)(K_i, ∂_v) = −(e^(2ϰ_(i+1))/(2Ω²)) χ̲_(i+1) a + e^(2ϰ_(i+1))γ_ϑ⁻¹
+∂_ϑϰ_(i+1) β, and 2γ_ϑ⁻¹ζ = (2Ω²)⁻¹ ∂_v b. Summing gives [[eq:loc-cone-bianchi]]. The last identity is the contracted
+Bianchi identity div Ric = ½ d(tr_g Ric), with tr_g Ric = tr_g E + tr_g T = tr_g E. ∎
 
 #### The formal solution {#sec:loc-cone-formal}
 
@@ -333,21 +332,21 @@ v < v_K;
 (b) with C^r norms over the sets named, ‖f‖_(C^r) ≤ C (max_(j≤r) ‖a_j‖_(C^(2r)) + max_(k≤r) ‖b_k‖_(C^(2r))) + γ_0, C
 depending only on r and ε_0.
 
-*Proof.* Fix χ ∈ C^∞(ℝ) with 0 ≤ χ ≤ 1, χ = 1 on [−1, 1] and supp χ ⊂ (−2, 2). For 0 < ε ≤ 1 and integers i, j ≥ 0,
-|∂_x^i(χ(x/ε) x^j)| ≤ C(i, j) ε^(j−i) when i ≤ j, since the derivatives of χ(x/ε) are ε^(−l) χ^(l)(x/ε) and vanish for
-|x| ≥ 2ε. So for a smooth function h(z) of further variables z, the term χ(x/ε) x^j h(z)/j! has C^(j−1) norm at most
-C(j) ε ‖h‖_(C^(j−1)) and C^r norm at most C(r, j) ‖h‖_(C^r). Given smooth h_j, choose ε_j := ε_0 for j ≤ r and, for
-j > r, ε_j ≤ ε_0 so small that the C^(j−1) norm of the j-th term is at most 2^(−j) γ_0. Then the series Σ_j χ(x/ε_j)
-x^j h_j(z)/j! converges in every C^p, its terms of index above p + 1 having C^p norms at most 2^(−j) γ_0; its sum B is
+*Proof.* Fix χ ∈ C^∞(ℝ) with 0 ≤ χ ≤ 1, χ = 1 on [−1, 1] and supp χ ⊂ (−2, 2). For 0 < ε ≤ 1 and integers i, j ≥
+0, |∂_x^i(χ(x/ε) x^j)| ≤ C(i, j) ε^(j−i) when i ≤ j, since the derivatives of χ(x/ε) are ε^(−l) χ^(l)(x/ε) and vanish
+for |x| ≥ 2ε. So for a smooth function h(z) of further variables z, the term χ(x/ε) x^j h(z)/j! has C^(j−1) norm at most
+C(j) ε ‖h‖_(C^(j−1)) and C^r norm at most C(r, j) ‖h‖_(C^r). Given smooth h_j, choose ε_j := ε_0 for j ≤ r and, for j >
+r, ε_j ≤ ε_0 so small that the C^(j−1) norm of the j-th term is at most 2^(−j) γ_0. Then the series Σ_j χ(x/ε_j) x^j
+h_j(z)/j! converges in every C^p, its terms of index above p + 1 having C^p norms at most 2^(−j) γ_0; its sum B is
 smooth, may be differentiated termwise, and ∂_x^j B(0, z) = h_j(z), as χ = 1 near 0. Call B the Borel sum of (h_j).
 
-*Step 1.* For each j let ã_j := a_j on [0, λ_v] × Y and, for v < 0, ã_j := the Borel sum in v of (c_(jk))_k. All one-sided
-v-derivatives of the two pieces at v = 0 are the c_(jk), so ã_j is smooth on (−∞, λ_v] × Y. *Step 2.* Let f_1 be the Borel
-sum in u of (ã_j)_j; then ∂_u^j f_1(0, v, ϑ) = ã_j(v, ϑ). *Step 3.* Termwise, ∂_v^k f_1(u, 0, ϑ) = Σ_j χ(u/ε_j) u^j
-c_(jk)(ϑ)/j!, whose u-derivatives at u = 0 are the c_(jk). So d_k := b_k − ∂_v^k f_1(·, 0, ·) on [0, λ_u] × Y has all its
-u-derivatives zero at u = 0, and extended by 0 to u < 0 it is smooth. Let f := f_1 + the Borel sum in v of (d_k)_k. Its
-u-derivatives at u = 0 are those of f_1, since every d_k vanishes for u ≤ 0, and ∂_v^k f(u, 0, ϑ) = ∂_v^k f_1(u, 0, ϑ) +
-d_k(u, ϑ) = b_k(u, ϑ).
+*Step 1.* For each j let ã_j := a_j on [0, λ_v] × Y and, for v < 0, ã_j := the Borel sum in v of (c_(jk))_k. All
+one-sided v-derivatives of the two pieces at v = 0 are the c_(jk), so ã_j is smooth on (−∞, λ_v] × Y. *Step 2.* Let f_1
+be the Borel sum in u of (ã_j)_j; then ∂_u^j f_1(0, v, ϑ) = ã_j(v, ϑ). *Step 3.* Termwise, ∂_v^k f_1(u, 0, ϑ) = Σ_j
+χ(u/ε_j) u^j c_(jk)(ϑ)/j!, whose u-derivatives at u = 0 are the c_(jk). So d_k := b_k − ∂_v^k f_1(·, 0, ·) on [0, λ_u] ×
+Y has all its u-derivatives zero at u = 0, and extended by 0 to u < 0 it is smooth. Let f := f_1 + the Borel sum in v of
+(d_k)_k. Its u-derivatives at u = 0 are those of f_1, since every d_k vanishes for u ≤ 0, and ∂_v^k f(u, 0, ϑ) = ∂_v^k
+f_1(u, 0, ϑ) + d_k(u, ϑ) = b_k(u, ϑ).
 
 (a) f_1 vanishes for |u| ≥ 2ε_0 and, ã_j vanishing for v ≤ −2ε_0, for v ≤ −2ε_0; the second sum vanishes for |v| ≥ 2ε_0
 and for u < 0. The cut-offs depend on u and v only. If all a_j vanish for v < v_K, then all c_(jk) = 0, so ã_j = 0 for
@@ -355,9 +354,9 @@ v < v_K and f_1 = 0 there; and d_k = b_k vanishes for u < u_K.
 
 (b) The terms of index at most r have the cut-off scale ε_0 and C^r norms at most C(r, ε_0) times the C^r norms of ã_j,
 respectively d_k; ‖ã_j‖_(C^r) ≤ ‖a_j‖_(C^r) + C max_(k≤r) ‖c_(jk)‖_(C^r) + (the sum of the terms of index above r),
-‖d_k‖_(C^r) ≤ ‖b_k‖_(C^r) + C max_(j≤r) ‖c_(jk)‖_(C^r) + (the like), and ‖c_(jk)‖_(C^r) ≤ ‖a_j‖_(C^(r+k)) ≤ ‖a_j‖_(C^(2r))
-for k ≤ r. Choosing every ε of index above r also so small that the C^r norms of the terms it multiplies sum, over all
-three sums, to at most γ_0/2 in total, (b) follows. ∎
+‖d_k‖_(C^r) ≤ ‖b_k‖_(C^r) + C max_(j≤r) ‖c_(jk)‖_(C^r) + (the like), and ‖c_(jk)‖_(C^r) ≤ ‖a_j‖_(C^(r+k)) ≤
+‖a_j‖_(C^(2r)) for k ≤ r. Choosing every ε of index above r also so small that the C^r norms of the terms it multiplies
+sum, over all three sums, to at most γ_0/2 in total, (b) follows. ∎
 
 In the rest of the section a background on 𝒮 and cone data are fixed, X denotes the list of functions
 (ln Ω, ϰ_1, ϰ_2, ϰ_3, b, ρ_in, ρ_out) of (u, v, ϑ), and X̊ the background's. On N_o let a_0 be the cone data, with
@@ -451,15 +450,15 @@ order on N, and so does E′, which is obtained from them by multiplying with sm
 conservation laws are the same: at order 0 on N_o, ∂_v ρ_out = 0 is the constancy of a_0^(ρ_out) along the generators,
 and on N_i the conservation law for ρ_in is the equation that defines b_0^(ρ_in).
 
-(i) For j = 0 or k = 0 the equality holds by the choice of the initial values and of a_0, b_0, which agree on S_c. For
-j, k ≥ 1 we use induction on n := j + k. Let c^o_(jk) := ∂_v^k a_j(0, ·) and c^i_(jk) := ∂_u^j b_k(0, ·). For the
-components Y_l, c^o_(jk) = ∂_v^(k−1) of the right side of the equation for ∂_v a_j at v = 0, which is the formal mixed
-derivative ∂_u^(j−1)∂_v^(k−1) of the right side of the form ∂_u∂_v Y_l = Ψ_l − ∂_v(b ∂_ϑ Y_l) (respectively
-∂_u∂_v b = Ψ_4 − b ∂_ϑ∂_v b) at the corner, expanded by the chain rule into the numbers ∂_ϑ^p c^o_(j′k′); and
-c^i_(jk) = ∂_u^(j−1) of the right side of the equation for ∂_u b_k at u = 0, written in the same form, which is the same
-expansion in the numbers ∂_ϑ^p c^i_(j′k′). These right sides hold at most first derivatives in u and in v of each factor,
-so only pairs with j′ + k′ ≤ n − 1 occur, and these agree by induction. For ρ_in and j ≥ 1 both are ∂_u^(j−1)∂_v^k of −∂_ϑ(b ρ_in), expanded in the
-same way with j′ ≤ j − 1, k′ ≤ k; for ρ_out both vanish when k ≥ 1.
+(i) For j = 0 or k = 0 the equality holds by the choice of the initial values and of a_0, b_0, which agree on S_c. For j,
+k ≥ 1 we use induction on n := j + k. Let c^o_(jk) := ∂_v^k a_j(0, ·) and c^i_(jk) := ∂_u^j b_k(0, ·). For the components
+Y_l, c^o_(jk) = ∂_v^(k−1) of the right side of the equation for ∂_v a_j at v = 0, which is the formal mixed derivative
+∂_u^(j−1)∂_v^(k−1) of the right side of the form ∂_u∂_v Y_l = Ψ_l − ∂_v(b ∂_ϑ Y_l) (respectively ∂_u∂_v b = Ψ_4 − b
+∂_ϑ∂_v b) at the corner, expanded by the chain rule into the numbers ∂_ϑ^p c^o_(j′k′); and c^i_(jk) = ∂_u^(j−1) of the
+right side of the equation for ∂_u b_k at u = 0, written in the same form, which is the same expansion in the numbers
+∂_ϑ^p c^i_(j′k′). These right sides hold at most first derivatives in u and in v of each factor, so only pairs with j′ +
+k′ ≤ n − 1 occur, and these agree by induction. For ρ_in and j ≥ 1 both are ∂_u^(j−1)∂_v^k of −∂_ϑ(b ρ_in), expanded in
+the same way with j′ ≤ j − 1, k′ ≤ k; for ρ_out both vanish when k ≥ 1.
 
 (ii) The coefficients, the inhomogeneous terms and the initial values of all the equations at an angle ϑ are built from
 the cone data and their derivatives at ϑ. Where the data equal the background's on a neighbourhood of ϑ, the
@@ -500,10 +499,11 @@ and Ĝ is a smooth G-invariant Lorentzian metric on 𝒮 × S³, equal to g_e ne
 holds for the data and for the background by [[lem:loc-cone-jets]] (i). (a) follows from parts (a) and (b) there and
 [[lem:loc-cone-jets]] (ii), (iii), since m_0 − 4(k + 3) = 2(k + 3). (b) The double-null form with Ω̂ > 0 and γ̂_ϑ > 0 is
 Lorentzian, with g^(uu) = g^(vv) = 0. (c) E′ and the conservation laws vanish to infinite order on N by
-[[lem:loc-cone-jets]]. On N_o, E(∂_v, ∂_v) = E(∂_v, ∂_ϑ) = 0, and on N_i, E(L̲, L̲) = 0, by (ii) of [[def:loc-cone-data]],
-these components being expressions in the functions on the edges, L̲ being tangent to N_i. By [[lem:loc-cone-ricci]] (b), div T̂ vanishes to infinite order on N,
-and by (c) there tr E does; so div E does, and by [[eq:loc-cone-bianchi]] the three expressions on its right sides, without
-the terms ℓ_j(E′), vanish to infinite order on N. With a := E(∂_v, ∂_v), β := E(∂_v, ∂_ϑ), c := E(L̲, L̲):
+[[lem:loc-cone-jets]]. On N_o, E(∂_v, ∂_v) = E(∂_v, ∂_ϑ) = 0, and on N_i, E(L̲, L̲) = 0, by (ii) of
+[[def:loc-cone-data]], these components being expressions in the functions on the edges, L̲ being tangent to N_i. By
+[[lem:loc-cone-ricci]] (b), div T̂ vanishes to infinite order on N, and by (c) there tr E does; so div E does, and by
+[[eq:loc-cone-bianchi]] the three expressions on its right sides, without the terms ℓ_j(E′), vanish to infinite order on
+N. With a := E(∂_v, ∂_v), β := E(∂_v, ∂_ϑ), c := E(L̲, L̲):
 
 *On N_o.* We show by induction on j that ∂_u^i a = ∂_u^i β = 0 on N_o for i ≤ j and ∂_u^i c = 0 on N_o for i ≤ j − 1;
 this holds for j = 0. Given it for j, apply ∂_u^j to the first identity: on N_o, ∂_v(∂_u^j c) + tr χ ∂_u^j c = 0, the
@@ -513,8 +513,8 @@ terms with lower u-derivatives of c vanishing; and ∂_u^j c = 0 at v = 0, since
 
 *On N_i.* We show by induction on k that ∂_v^i c = 0 on N_i for i ≤ k and ∂_v^i a = ∂_v^i β = 0 on N_i for i ≤ k − 1;
 this holds for k = 0. Given it for k, apply ∂_v^k to the second identity: on N_i, ∂_v^k L̲β = L̲ ∂_v^k β plus terms with
-∂_v^i β, i ≤ k − 1, so L̲(∂_v^k β) + (tr χ̲ + ∂_ϑ b) ∂_v^k β = 0 along the generators of N_i, and ∂_v^k β = 0 at u = 0, as
-β = 0 on N_o; so ∂_v^k β = 0 on N_i. Then ∂_v^k of the third gives L̲(∂_v^k a) + tr χ̲ ∂_v^k a = 0 along the
+∂_v^i β, i ≤ k − 1, so L̲(∂_v^k β) + (tr χ̲ + ∂_ϑ b) ∂_v^k β = 0 along the generators of N_i, and ∂_v^k β = 0 at u = 0,
+as β = 0 on N_o; so ∂_v^k β = 0 on N_i. Then ∂_v^k of the third gives L̲(∂_v^k a) + tr χ̲ ∂_v^k a = 0 along the
 generators, with ∂_v^k a = 0 at u = 0, so ∂_v^k a = 0. Finally ∂_v^k of the first gives ∂_v^(k+1) c = 0 on N_i.
 
 So a, β and c, with all their derivatives, vanish on N, and E vanishes to infinite order on N. ∎
@@ -542,10 +542,10 @@ field ∂_τ = ½((u + δ_c)∂_u + (v + δ_c)∂_v) is future timelike for g_e 
 
 On 𝒰, min(u + δ_c, v + δ_c) ≤ √c_+ ≤ δ_1/4 and u + δ_c ≥ δ_c²/(4(l_v + 2δ_1)), so 𝒰 is a compact subset of the interior
 of 𝒮 inside the chart. Its boundary consists of Σ_init ∩ 𝒰, of a piece of {τ = τ_+} and of pieces of the two far cuts,
-with conormals dτ, du + κdv and dv + κdu; g_e⁻¹ of each with itself is negative (g_e^(uv) = −e^(−2σ_e) is the only
-entry of g_e⁻¹ pairing du, dv), uniformly on 𝒰, so these pieces are spacelike, with 𝒰 to their past, for g_e and for every
-Lorentzian metric close enough to g_e in C⁰. On 𝒰, 2C_* e^(τ/2) ≤ 2C_*√c_+ ≤ η/2, and the corner sphere S_c, where
-τ = 2 ln δ_c, lies in 𝒰, with F ∩ 𝒰 ⊂ {τ ≥ 2 ln δ_c}.
+with conormals dτ, du + κdv and dv + κdu; g_e⁻¹ of each with itself is negative (g_e^(uv) = −e^(−2σ_e) is the only entry
+of g_e⁻¹ pairing du, dv), uniformly on 𝒰, so these pieces are spacelike, with 𝒰 to their past, for g_e and for every
+Lorentzian metric close enough to g_e in C⁰. On 𝒰, 2C_* e^(τ/2) ≤ 2C_*√c_+ ≤ η/2, and the corner sphere S_c, where τ = 2
+ln δ_c, lies in 𝒰, with F ∩ 𝒰 ⊂ {τ ≥ 2 ln δ_c}.
 
 In case (I) put δ_* := √c_+/2 and take δ_c so small also that δ_c(l_u + l_v + 1) ≤ c_+/2; then the set G_* of
 [[eq:loc-cone-domain]] lies in F ∩ 𝒰, since there (u + δ_c)(v + δ_c) ≤ δ_*² + c_+/2 < c_+ and u + κv ≤ l_u + δ_1/4.
@@ -562,9 +562,9 @@ supp θ ⊂ 𝒰 and θ = 1 on F ∩ 𝒰_σ.
 ≤ (3δ_c/4)², in particular near Σ_init. Let Ů := (g_e, p̊_in, p̊_out, Θ̊_in, Θ̊_out, q̊_in, q̊_out) with p̊_in := −dv,
 p̊_out := −du, P̊_A := g_e⁻¹p̊_A, Θ̊_A := div_(g_e) P̊_A and q̊_A of [[sec:loc-cone-setting]]; and Û := (Ĝ, −dv, −du,
 Θ̂_A, q̂_A) with Ĝ of the form [[eq:loc-double-null]] with the functions X̊ + χ_𝒰Δ, Θ̂_A := div_Ĝ P̂_A, P̂_A := Ĝ⁻¹p̂_A,
-and q̂_A := (ρ̊_A + χ_𝒰Δ_(ρ_A))/𝒱̂. The fields P̊_A, P̂_A are future directed: P̂_out = (2Ω̂²)⁻¹ ∂_v and P̂_in = (2Ω̂²)⁻¹ L̲.
-On {χ_𝒰 = 1}, Û is the formal solution of [[prop:loc-cone-formal]]. Put K := supp(χ_𝒰 Δ); it lies in {ϑ_a′ ≤ ϑ ≤ ϑ_b′},
-outside {u < u_K, v < v_K}, and in {(u + δ_c)(v + δ_c) ≥ (3δ_c/4)²}, and Ĝ = g_e and Û = Ů outside K.
+and q̂_A := (ρ̊_A + χ_𝒰Δ_(ρ_A))/𝒱̂. The fields P̊_A, P̂_A are future directed: P̂_out = (2Ω̂²)⁻¹ ∂_v and P̂_in = (2Ω̂²)⁻¹
+L̲. On {χ_𝒰 = 1}, Û is the formal solution of [[prop:loc-cone-formal]]. Put K := supp(χ_𝒰 Δ); it lies in {ϑ_a′ ≤ ϑ ≤
+ϑ_b′}, outside {u < u_K, v < v_K}, and in {(u + δ_c)(v + δ_c) ≥ (3δ_c/4)²}, and Ĝ = g_e and Û = Ů outside K.
 
 *The modified system.* Let 𝒜(U) = 0 denote the augmented system (Aug1)–(Aug4) of [[sec:class-augmented]] for the
 unknowns U = (g, p_A, Θ_A, q_A), A ∈ {in, out}, with ζ_A := 1 and with the reduced Ricci tensor and the gauge vector
@@ -616,13 +616,13 @@ supp χ_𝒰, by (d); so [[rem:class-kato-local]] applies. Its bounds involve Ĝ
 with the matrices g^(ab) of 𝐔_c + ϒ(𝐔 − 𝐔_c) and h^(ab), and F̃ has no component in them, since those of 𝔄_χ(Û) vanish
 (𝐔̂ has ĝ_τ = ∂_τ ĝ, ĝ_a = ∂_a ĝ); so ∂_τ(g_a − ∂_a g) = ∂_a(g_τ − ∂_τ g) = 0.
 
-(d) On P, θ 1_F = 0. F̃ = 𝔄_χ(Û) − θ 1_F 𝔄_χ(Û), and 𝔄_χ(Û) is smooth. On supp θ ⊂ {χ_𝒰 = 1}, 𝐔̂ − 𝐔̊ vanishes where
-χ_ϑ ≠ 1 (Δ vanishes for ϑ ∉ [2η, π/2 − 2η]), so the frozen part of 𝔄_χ(Û) vanishes there, and |𝐔̂ − 𝐔_c| ≤ r_0 (in case
-(I) since ‖Δ‖_(C^(k+3)) ≤ Cε); so 𝔄_χ(Û) = χ 𝒜(Û) on supp θ. 𝒜(Û) vanishes to infinite order on N ∩ {χ_𝒰 = 1}: in
-(Aug1), Ric^H_Ĝ(Ĝ) = Ric(Ĝ) since D(Ĝ) = 0, so its residual is E of [[prop:loc-cone-formal]] (c); (Aug2) holds exactly,
-∇_(P̂_A) p̂_A = ½ d Ĝ⁻¹(p̂_A, p̂_A) = 0 as u and v are null for Ĝ; in (Aug3), off the axes, [[eq:class-raychaudhuri]] for
-the eikonals −v and −u of Ĝ gives P̂_A(Θ̂_A) − S_A(Û) = −E(P̂_A, P̂_A); and (Aug4) is the conservation law,
-P̂_A(q̂_A) + Θ̂_A q̂_A = div_Ĝ(q̂_A P̂_A), which [[lem:loc-cone-ricci]] (b) expresses through the conservation expressions of
+(d) On P, θ 1_F = 0. F̃ = 𝔄_χ(Û) − θ 1_F 𝔄_χ(Û), and 𝔄_χ(Û) is smooth. On supp θ ⊂ {χ_𝒰 = 1}, 𝐔̂ − 𝐔̊ vanishes where χ_ϑ
+≠ 1 (Δ vanishes for ϑ ∉ [2η, π/2 − 2η]), so the frozen part of 𝔄_χ(Û) vanishes there, and |𝐔̂ − 𝐔_c| ≤ r_0 (in case (I)
+since ‖Δ‖_(C^(k+3)) ≤ Cε); so 𝔄_χ(Û) = χ 𝒜(Û) on supp θ. 𝒜(Û) vanishes to infinite order on N ∩ {χ_𝒰 = 1}: in (Aug1),
+Ric^H_Ĝ(Ĝ) = Ric(Ĝ) since D(Ĝ) = 0, so its residual is E of [[prop:loc-cone-formal]] (c); (Aug2) holds exactly, ∇_(P̂_A)
+p̂_A = ½ d Ĝ⁻¹(p̂_A, p̂_A) = 0 as u and v are null for Ĝ; in (Aug3), off the axes, [[eq:class-raychaudhuri]] for the
+eikonals −v and −u of Ĝ gives P̂_A(Θ̂_A) − S_A(Û) = −E(P̂_A, P̂_A); and (Aug4) is the conservation law, P̂_A(q̂_A) + Θ̂_A
+q̂_A = div_Ĝ(q̂_A P̂_A), which [[lem:loc-cone-ricci]] (b) expresses through the conservation expressions of
 [[prop:loc-cone-formal]] (c). A smooth function that vanishes to infinite order on N, times 1_F, is smooth; so θ 1_F
 𝔄_χ(Û) is smooth.
 
@@ -690,8 +690,8 @@ so z := 𝐔 − 𝐔̂ satisfies A^μ_χ(x, Ẑ) ∂_μ z = Mz on P, with Ẑ :
 function in the coordinates u + v, u − v), with B_0 := Σ_init ∩ 𝒰, where z = 0 as 𝐔 = 𝐔̊ = 𝐔̂ there, and B_1 the rest of
 its boundary: N ∩ 𝒰 and pieces of the far cuts. On N the outward conormal is du on {u = 0} and dv on {v = 0}. At Û the
 wave blocks of A^μ_χ have the inverse metrics Ĝ⁻¹ and g_e⁻¹ (convexly combined), for which du and dv are null, with
-du(∂_τ), dv(∂_τ) > 0; the transport fields are P̂_A and P̊_A, with du(P̂_out) = dv(P̂_in) = 0 and du(P̂_in), dv(P̂_out)
-> 0, likewise for P̊_A. On the far cuts the conormals du + κdv and dv + κdu are future timelike for every metric of the
+du(∂_τ), dv(∂_τ) > 0; the transport fields are P̂_A and P̊_A, with du(P̂_out) = dv(P̂_in) = 0 and du(P̂_in), dv(P̂_out) >
+0, likewise for P̊_A. On the far cuts the conormals du + κdv and dv + κdu are future timelike for every metric of the
 form [[eq:loc-double-null]], since such metrics have g^(uu) = g^(vv) = 0 and g^(uv) < 0, and positive on future causal
 vectors. So ν_μ 𝐀^μ ≥ 0 on B_1, and z = 0. ∎
 
@@ -837,8 +837,8 @@ their derivatives of order at most m_0 + 2 on 𝒮 ∩ {|u|, |v| ≤ 3δ_1}, and
 than 3δ_1 from the corner, such that on [0, σ] × [0, σ] × S³ there is a class solution in the gauge that induces the
 cone data on the two edges and equals the background at the points with ϑ ∉ [η, π/2 − η].
 
-*Proof.* Case (II), with l_u = l_v = 2δ_1: by [[lem:loc-cone-jets]] the derivatives across N on N ∩ {u, v ≤ 3δ_1} use only
-the data there. [[lem:loc-cone-cauchy]] for σ ≤ σ_0, then [[lem:loc-cone-past]], [[lem:loc-cone-support]],
+*Proof.* Case (II), with l_u = l_v = 2δ_1: by [[lem:loc-cone-jets]] the derivatives across N on N ∩ {u, v ≤ 3δ_1} use
+only the data there. [[lem:loc-cone-cauchy]] for σ ≤ σ_0, then [[lem:loc-cone-past]], [[lem:loc-cone-support]],
 [[lem:loc-cone-constraints]] and [[lem:loc-cone-gauge]], give the solution on Ψ(F ∩ 𝒰_σ) ⊃ [0, σ]², equal to the
 background where ϑ < 3η/2 or ϑ > π/2 − 3η/2. The constants of these lemmas depend only on the quantities named, once δ_c
 is fixed as a function of δ_1, η and C_*. ∎
@@ -985,7 +985,8 @@ against the arXiv text (version 1, p. 29).
 ### Crosswalk rows
 
 New rows for the crosswalk table of [[ch:localised-data]], one per label, each given as its four fields (label; source;
-source_name; note), to be written with tab separators. The second field is "P-CIVP" with the line of the label in this file.
+source_name; note), to be written with tab separators. The second field is "P-CIVP" with the line of the label in this
+file.
 
 Row 1. lem:loc-cone-in; P-CIVP:6; P-CIVP Block A, Lemma (Exact localisation on the ingoing cone); new: the analogue of
 prop:loc-cones on 𝒞_in in the gauge b = 0, Raychaudhuri along ∂_u, ∂_v b a transverse derivative.
@@ -1016,21 +1017,21 @@ the generators, corner compatibility, no smallness; loss 4 derivatives per order
 Row 20. eq:loc-cone-goursat; P-CIVP:401; P-CIVP Block B, display; the five equations solved for the mixed derivatives.
 Row 21. prop:loc-cone-formal; P-CIVP:484; P-CIVP Block B, Proposition (The formal solution); constraints propagated to
 all orders by the contracted Bianchi identity.
-Row 22. sec:loc-cone-reduced; P-CIVP:521; P-CIVP Block B, subsection; cases (I) small data, (II) small rectangle.
-Row 23. eq:loc-cone-time; P-CIVP:533; P-CIVP Block B, display; the time τ and the chart (τ, y).
-Row 24. eq:loc-cone-region; P-CIVP:540; P-CIVP Block B, display; the region 𝒰.
-Row 25. eq:loc-cone-modified; P-CIVP:586; P-CIVP Block B, display; the modified system and the forcing term F̃.
-Row 26. lem:loc-cone-system; P-CIVP:591; P-CIVP Block B, Lemma (The modified system); reference metric Ĝ in the gauge,
+Row 22. sec:loc-cone-reduced; P-CIVP:522; P-CIVP Block B, subsection; cases (I) small data, (II) small rectangle.
+Row 23. eq:loc-cone-time; P-CIVP:534; P-CIVP Block B, display; the time τ and the chart (τ, y).
+Row 24. eq:loc-cone-region; P-CIVP:541; P-CIVP Block B, display; the region 𝒰.
+Row 25. eq:loc-cone-modified; P-CIVP:587; P-CIVP Block B, display; the modified system and the forcing term F̃.
+Row 26. lem:loc-cone-system; P-CIVP:592; P-CIVP Block B, Lemma (The modified system); reference metric Ĝ in the gauge,
 cut-offs, residuals.
-Row 27. lem:loc-cone-energy; P-CIVP:640; P-CIVP Block B, Lemma (Energy on a region).
-Row 28. lem:loc-cone-cauchy; P-CIVP:658; P-CIVP Block B, Lemma (The Cauchy problem); thm:class-kato-stability (a).
-Row 29. lem:loc-cone-past; P-CIVP:683; P-CIVP Block B, Lemma (The past of the edges).
-Row 30. lem:loc-cone-support; P-CIVP:697; P-CIVP Block B, Lemma (Localisation).
-Row 31. lem:loc-cone-constraints; P-CIVP:717; P-CIVP Block B, Lemma (The constraints); Step 10 of
+Row 27. lem:loc-cone-energy; P-CIVP:641; P-CIVP Block B, Lemma (Energy on a region).
+Row 28. lem:loc-cone-cauchy; P-CIVP:659; P-CIVP Block B, Lemma (The Cauchy problem); thm:class-kato-stability (a).
+Row 29. lem:loc-cone-past; P-CIVP:684; P-CIVP Block B, Lemma (The past of the edges).
+Row 30. lem:loc-cone-support; P-CIVP:698; P-CIVP Block B, Lemma (Localisation).
+Row 31. lem:loc-cone-constraints; P-CIVP:718; P-CIVP Block B, Lemma (The constraints); Step 10 of
 thm:class-stability-off-axes with zero data on the cones.
-Row 32. lem:loc-cone-gauge; P-CIVP:751; P-CIVP Block B, Lemma (The double-null gauge).
-Row 33. lem:loc-cone-unique; P-CIVP:787; P-CIVP Block B, Lemma (Uniqueness); comparison through a wave map.
-Row 34. prop:loc-cone-local; P-CIVP:829; P-CIVP Block B, Proposition (Developments near a corner sphere, of any size);
+Row 32. lem:loc-cone-gauge; P-CIVP:752; P-CIVP Block B, Lemma (The double-null gauge).
+Row 33. lem:loc-cone-unique; P-CIVP:788; P-CIVP Block B, Lemma (Uniqueness); comparison through a wave map.
+Row 34. prop:loc-cone-local; P-CIVP:830; P-CIVP Block B, Proposition (Developments near a corner sphere, of any size);
 cited by the Tier 2 section for its corner developments.
 
 Notes for existing rows: sec:loc-cones and prop:loc-cones (the closing paragraph now states the development,
