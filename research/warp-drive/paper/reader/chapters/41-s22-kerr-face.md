@@ -1031,14 +1031,15 @@ F are real and T commutes with the conjugation of [[sec:iii-i9-1]].
 
 *Uniqueness.* If p⃗″ also gives [[eq:iii-i11-4-2]] at α, its solution lies in [[eq:iii-i8-4-2]] at α′, so its
 𝒫_(α′)-part is q⃗(W⃗″) by the uniqueness at α′ ([[prop:iii-i8-4-1]]), where W⃗″ is its 𝒩′-part; then C(W⃗″) = 0, so
-W⃗″ = W⃗. *Linearity, bounds, continuity:* linearity holds by construction. Write ‖F‖ := ‖F‖_(𝒴⁰(α)); F lies in
-𝒴(α′) with ‖F‖_(𝒴(α′)) ≤ C‖F‖. By [[prop:iii-i8-4-1]] (i) at α′, |q⃗(0)| ≤ C‖F‖ and ‖u(0)‖_(α′) ≤ C‖F‖, with the
-seminorm ‖·‖_(α′) taken as above; so ‖G(0)‖_(𝒴⁰(α)) ≤ C‖F‖ and, as above, ‖u_0(0)‖_(w_0) ≤ C‖F‖. The bound of
-[[lem:iii-i11-3-2]] then gives |C(0)| ≤ C‖F‖, so |W⃗| ≤ 2|C(0)| ≤ C‖F‖, and (i) at α′ for the forcing F(W⃗), of size at
-most C‖F‖ in 𝒴(α′), gives |q⃗(W⃗)| ≤ C‖F‖ and ‖u(W⃗)‖_(α′) ≤ C‖F‖. So |p⃗′_(h,p⃗)(F)| ≤ C‖F‖, and likewise
-‖G(W⃗)‖_(𝒴⁰(α)) ≤ C‖F‖ and ‖u_0(W⃗)‖_(w_0) ≤ C‖F‖, with C uniform for (h, p⃗) small. Continuity at
-(0, 0) as in [[prop:iii-i8-4-1]] (ii), with [[lem:iii-i11-3-3]] at b_0, whose hypothesis (the solutions u_0 bounded)
-these bounds give. ∎
+W⃗″ = W⃗. *Linearity, bounds, continuity:* linearity holds by construction. With the seminorm ‖·‖_(α′) taken as
+above, let ‖·‖^+_(𝒴(α′)) be the seminorm of [[prop:iii-i8-4-1]] (i) at α′ for it, and write ‖F‖ for a seminorm of
+𝒴⁰(α) of large enough regularity ([[sec:iii-i8-1]]): it bounds ‖F‖_(𝒴⁰(α)), and F lies in 𝒴(α′) with
+‖F‖^+_(𝒴(α′)) ≤ C‖F‖. By (i) at α′, |q⃗(0)| ≤ C‖F‖ and ‖u(0)‖_(α′) ≤ C‖F‖; so ‖G(0)‖_(𝒴⁰(α)) ≤ C‖F‖ and, as
+above, ‖u_0(0)‖_(w_0) ≤ C‖F‖. The bound of [[lem:iii-i11-3-2]] then gives |C(0)| ≤ C‖F‖, so |W⃗| ≤ 2|C(0)| ≤ C‖F‖,
+and (i) at α′ for the forcing F(W⃗), of size at most C‖F‖ in ‖·‖^+_(𝒴(α′)), gives |q⃗(W⃗)| ≤ C‖F‖ and
+‖u(W⃗)‖_(α′) ≤ C‖F‖. So |p⃗′_(h,p⃗)(F)| ≤ C‖F‖, and likewise ‖G(W⃗)‖_(𝒴⁰(α)) ≤ C‖F‖ and ‖u_0(W⃗)‖_(w_0) ≤ C‖F‖, with
+C uniform for (h, p⃗) small. Continuity at (0, 0) as in [[prop:iii-i8-4-1]] (ii), with [[lem:iii-i11-3-3]] at b_0,
+whose hypothesis (the solutions u_0 bounded) these bounds give. ∎
 
 At a base point with black hole parameter b ∈ ℬ̄_*, the elimination is [[prop:iii-i15-2-5]] with q = 0: when
 h_(b,v1) ≠ 0 the v1 terms u^rot of [[lem:iii-i11-3-2]] are not removed by the parameters of 𝒫, whose v1 rows carry the
