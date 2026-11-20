@@ -60,6 +60,10 @@ REF_RX = re.compile(r"\[\[(" + "|".join(RESULT_KINDS) + r"|C):([a-z0-9][a-z0-9_\
 # A symbolic label left in the assembled paper: [[kind:key]]. Nested brackets of mathematics (a matrix written by its
 # rows, [[a, b], [c, d]], or a double commutator [[X, A], A]) are not labels.
 LEFT_RX = re.compile(r"\[\[[A-Za-z]+:")
+# A paragraph continuation must not begin with a character that Markdown reads as structure. "- " is left out: it
+# also opens a list after a paragraph line, which the chapters use.
+WRAP_START = re.compile(r"^(\+ |\* |> |#|=|\|)")
+HEADING = re.compile(r"^#{1,6} \S")
 URL = re.compile(r"https?://\S+|doi:\S+|arXiv:\S+")
 
 
@@ -77,6 +81,10 @@ def scan_text(name, text, assembled):
             in_obs = False
         if len(ln) > 121:
             hits.append((i, "line longer than 121 characters (%d)" % len(ln), ln[:80]))
+        prev = lines[i - 2] if i > 1 else ""
+        if (prev.strip() and WRAP_START.match(ln) and not HEADING.match(ln)
+                and not (ln[0] in "|>" and prev.startswith(ln[0]))):
+            hits.append((i, "wrapped line starts with a Markdown marker", ln.strip()[:110]))
         probe = URL.sub("", ln)
         for rx, why in RX:
             if refs and why in ("no-code ruling", "file name", "filler", "process word"):
@@ -159,6 +167,13 @@ def selftest():
         print("CONTROL FAILED: program name inside a numerical observation remark"); ok = False
     if not scan_text("selftest", obs + "\n\nComputed numerically again.", assembled=False):
         print("CONTROL FAILED: computation words after the remark's paragraph"); ok = False
+    for wrapped in ("a sentence that wraps\n| x | = 2", "a sentence that wraps\n= 2x + 1", "a sentence\n+ 3 more"):
+        if not scan_text("selftest", wrapped, assembled=False):
+            print("CONTROL FAILED: wrapped line start", wrapped.split(chr(10))[1]); ok = False
+    if scan_text("selftest", "| a | b |\n|---|---|\n| 1 | 2 |", assembled=False):
+        print("FALSE POSITIVE on a table"); ok = False
+    if scan_text("selftest", "the matrix [[a, b], [c, d]] and [[X, A], A]", assembled=True):
+        print("FALSE POSITIVE on nested brackets in assembled mode"); ok = False
     if not scan_text("selftest", "see [[thm:main]]", assembled=True):
         print("CONTROL FAILED: unresolved label in assembled mode"); ok = False
     print("selftest:", "PASS" if ok else "FAIL")
