@@ -359,7 +359,7 @@ cone data on N_o ∩ D′ and on N_i ∩ D′ and equals (g0, q̊_in, q̊_out) a
 theorem applies with the following replacements. We go through it in order and name every place where it uses the
 cones 𝒞_out and 𝒞_in, the corner sphere S, the numbers u_1 and v_1, the band, the past sets of Q1, or the function Ω.
 
-*The results it uses.* [[lem:civp-large-frame]], [[lem:civp-large-reduction]] and [[prop:civp-large-system]] are
+*The results that proof uses.* [[lem:civp-large-frame]], [[lem:civp-large-reduction]] and [[prop:civp-large-system]] are
 identities at the points of open sets off the axes, and [[lem:civp-large-energy]] is stated for an arbitrary rectangle
 and interval. [[prop:civp-large-corner]] is stated for an arbitrary rectangle in Q1, with the background on the open set
 𝒪 ⊃ Q1, so it applies to rectangles in 𝒬. [[lem:civp-large-data]] (a) is stated for an arbitrary rectangle in Q1.
@@ -371,33 +371,35 @@ data are the background's. None of this depends on the position of the corner. N
 on an edge: [[def:civp-large-data]] leaves Ω free on both cones, and [[lem:civp-large-data]], [[prop:civp-large-corner]]
 and the steps below take the functions on the edges as given.
 
-*Step 1.* Q1 × Y becomes 𝒬 × Y. f̊ becomes the restriction of the background's reduced fields to 𝒬 × (0, π/2), and f̊_e
+*Its Step 1.* Q1 × Y becomes 𝒬 × Y. f̊ becomes the restriction of the background's reduced fields to 𝒬 × (0, π/2), and f̊_e
 a function in C^∞(𝒬 × Y; ℝ²³) with the same properties. The band, η0 and J0 become (ϑ_a′, ϑ_b′), η0′ and
 J0′ := [ϑ_a′ − 2η0′, ϑ_b′ + 2η0′], and the cut-off ϱ is taken for them. The data are given on {u_c} × Y and {v_c} × Y,
 and the transport equations are restricted to {v = v_c} and to {u = u_c}.
 
-*Step 2.* In the coordinates u − u_c and v − v_c the localised system keeps the form (2.7)–(2.8) of [CCTW16], its
+*Its Step 2.* In the coordinates u − u_c and v − v_c the localised system keeps the form (2.7)–(2.8) of [CCTW16], its
 coefficients and right side being smooth functions of f and of the coordinates. So [[thm:std-cctw-existence]] and
 [[thm:std-cctw-strips]] apply with a0 := u′ − u_c and b0 := v′ − v_c. They give a* and b* and a solution on
 𝒰 := ([u_c, u_c + a*] × [v_c, v′] ∪ [u_c, u′] × [v_c, v_c + b*]) × Y.
 
-*Step 3.* In [[eq:civp-large-delta]] the suprema are taken over the corresponding sets, and η0, v_1 and u_1 become η0′,
+*Its Step 3.* In [[eq:civp-large-delta]] the suprema are taken over the corresponding sets, and η0, v_1 and u_1 become η0′,
 v′ − v_c and u′ − u_c. [[lem:civp-large-energy]] (a) is applied on [u_c, u_c + s1] × [v_c, v′] and on
 [u_c, u′] × [v_c, v_c + s2]. On the second set the b-component of f vanishes at v = v_c: on J0′ because b = 0 on N_i,
 and elsewhere because f̊_e has b = 0. So |b| ≤ β1 (v − v_c) there. The set 𝒮 becomes
 [u_c, u_c + s1] × [v_c, v′] ∪ [u_c, u′] × [v_c, v_c + s2] ⊃ 𝒬_δ. F is defined on 𝒬_δ × (0, π/2). Its f₃-components
 on N_o are f̄₃ and its f₄-components on N_i are f̄₄, and the other components there are the solutions of
 [[lem:civp-large-data]] (b) (i) in the form above. In the paragraph on the signs of the densities:
+
 - 𝒬_δ is a past set of 𝒬;
 - the segments through a point (u″, v″) are [u_c, u″] × {v″} and {u″} × [v_c, v″];
 - the integral curves of D_3 are followed back to u = u_c;
 - the densities at u = u_c and at v = v_c are those of the data, which are nonnegative.
 
-*Step 4.* 𝒯₁ := [u_c, u_c + δ] × [v_c, v′] and 𝒯₂ := [u_c, u′] × [v_c, v_c + δ]; 𝒯 is one of them, with sides l1 and
+*Its Step 4.* 𝒯₁ := [u_c, u_c + δ] × [v_c, v′] and 𝒯₂ := [u_c, u′] × [v_c, v_c + δ]; 𝒯 is one of them, with sides l1 and
 l2. The constants Λ, σ and L are found as there, with η0′ in place of η0. In the corner step, the alternatives that the
 corner of the small rectangle has u = 0, or v = 0, become that it has u = u_c, or v = v_c, so that the corresponding edge
 lies in N_o, or in N_i. The edges that lie in 𝒞_out or 𝒞_in become those that lie in N_o or N_i, on which the functions
 are the cone data. In the continuation in u + v:
+
 - D_t := {(u, v) ∈ 𝒯 : (u − u_c) + (v − v_c) < t};
 - the first rectangle is [u_c, u_c + min(L, l1)] × [v_c, v_c + min(L, l2)], with corner sphere S_𝒬, at which F is
   geometric to first order because the values of f̄ there are those of [[eq:civp-large-coefficients]] in the cone data;
@@ -405,9 +407,9 @@ are the cone data. In the continuation in u + v:
 - the rectangle about p ∈ Γ has the corner (max(u_p − L/2, u_c), max(v_p − L/2, v_c)), and its edges in N_o or N_i
   carry the cone data.
 
-*Step 5.* The functions induced on N_o and N_i are those of the cone data, by Step 3, as there.
+*Its Step 5.* The functions induced on N_o and N_i are those of the cone data, by Step 3, as there.
 
-*Step 6.* D′ is a past set of 𝒬, f′₃ = f̄₃ on N_o ∩ D′ and f′₄ = f̄₄ on N_i ∩ D′ ([[lem:civp-large-data]] (b) (iii) in
+*Its Step 6.* D′ is a past set of 𝒬, f′₃ = f̄₃ on N_o ∩ D′ and f′₄ = f̄₄ on N_i ∩ D′ ([[lem:civp-large-data]] (b) (iii) in
 the form above). For (u, v) ∈ D′ ∩ 𝒬_δ, z := f′ − F is treated on [u_c, u] × [v_c, v] × [η″/2, π/2 − η″/2], with z₃ = 0
 at u = u_c and z₄ = 0 at v = v_c, and η″ := min(η′, η0′).
 
@@ -463,8 +465,9 @@ bounds their size.
 
 *The steps reused.* The rest of the proof of [[thm:loc-cone-development]] is used as written, with l_u, l_v and C_* in
 place of u_1, v_1 and C_0:
-- the choice of δ_c ∈ (0, √c_+/8] with δ_c (l_u + l_v + 1) ≤ c_+/2 ([[sec:loc-cone-reduced]], case (I)) and
-  2C_* (δ_c (l_u + l_v + 1))^(1/2) ≤ η/4. So δ_c depends only on l_u, l_v, η and C_*, and G_c ⊂ F ∩ 𝒰;
+
+- the choice of δ_c ∈ (0, √c_+/8] with δ_c (l_u + l_v + 1) ≤ c_+/2 ([[sec:loc-cone-reduced]], case (I)),
+  2C_* (δ_c (l_u + l_v + 1))^(1/2) ≤ η/4 and δ_c ≤ 1. So δ_c depends only on l_u, l_v, η and C_*, and G_c ⊂ F ∩ 𝒰;
 - [[lem:loc-cone-cauchy]] in case (I), [[lem:loc-cone-past]], [[lem:loc-cone-support]], [[lem:loc-cone-constraints]] and
   [[lem:loc-cone-gauge]]. These are stated and proved for cone data at a corner with a background on 𝒮. Their proofs
   refer to the background only through the properties above and C_*. They give a class solution in the gauge on G_c × S³
@@ -483,9 +486,11 @@ part (d) with [[lem:loc-cone-unique]].
 *The constants.* δ_* = √c_+/2 depends only on δ_1, η and C_*, that is on l_u, l_v, η and g0 on 𝒮_c. ε_0 is the number
 for which [[lem:loc-cone-system]], [[lem:loc-cone-cauchy]] and [[lem:loc-cone-gauge]] hold in case (I), and C is the
 constant of their estimates. They depend only on:
+
 - the bounds for the modified system in [[lem:loc-cone-system]] (a), which depend only on η, k, δ_c and the background
   on 𝒮, the size being at most ε ≤ 1;
 - the region 𝒰 of [[eq:loc-cone-region]], which is fixed by δ_1, δ_c, c_+ and κ = δ_1/(4(l_u + l_v + 1)).
+
 None of them depends on the data. ∎
 
 **Theorem {#thm:loc-shells}** (Developments of cone data with null shells.) Let cone data with shells along the leaves be
