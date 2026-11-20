@@ -404,10 +404,11 @@ the sources are known on the face and enter the two equations as inhomogeneous t
 2g^(vϑ) ∂_v U_A ∂_ϑ U_A + g^(ϑϑ) (∂_ϑ U_A)² = 0, linear in ∂_u u_A with the coefficient 2g^(uv) ∂_v U_A = 2g⁻¹(du,
 du_A), nonzero on the crossing set; applying ∂_u^(j−1) gives ∂_u^j u_A linearly with the same coefficient. Likewise
 P_A(q_A) = −Θ_A q_A and P_A(Θ_A) = −|∇²u_A|² − Ric(P_A, P_A) are linear in ∂_u q_A and ∂_u Θ_A with the coefficient
-P_A^u = g^(uv) ∂_v U_A. The Ricci tensor of order j in u-derivatives of the metric is a source T of order j − 1 in those
-of q_A and of order j in those of u_A, which order j − 1 of the metric and order j of u_A determine. So the recursion of
-[[lem:loc-cone-jets]], through the axis generators [[pending:t3-jets]], with these equations added, determines all jets.
-∎
+P_A^u = g^(uv) ∂_v U_A. In the equations of [[lem:loc-cone-jets]] differentiated j − 1 times in u, which fix the
+u-derivatives of order j of the metric, the stress enters through its u-derivatives of order j − 1, which hold those of
+q_A of order j − 1 and of u_A of order j; by the three equations above these are fixed by the metric's u-derivatives of
+order at most j − 1 and by the data. So the recursion of [[lem:loc-cone-jets]], through the axis generators
+[[pending:t3-jets]], with these equations added, determines all jets. ∎
 
 On the crossing sets near 𝒦_A the jets of family A are therefore smooth, also at the axis generators of the cone it
 crosses; with (F-c) at S, [[lem:loc-cone-borel]] extends them, and the formal solution Û carries family A on a
