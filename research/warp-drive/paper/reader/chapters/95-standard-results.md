@@ -305,10 +305,11 @@ c ∈ ρ_sf C^∞(M; T*) satisfying the following properties for some r0 > 100m,
 The objects S_(g,c,e), B_(g,c,e) and ℓ_(g,c,e) are those of [Hin26a, Lemmas 3.3 and 3.9], and r/t/v in (5) is (r/t)/v.
 
 **Theorem {#thm:std-sbierski}** (Globally hyperbolic developments; [Sbi15, Definitions 2.1, 2.2 and 2.4, p. 11;
-Theorems 2.6 and 2.7, p. 12; Theorem 3.4, p. 14; Definition 3.5, p. 15; Theorem 3.13, p. 20; proof of Theorem 2.7,
-pp. 20–22].) [Sbi15] works with the vacuum Einstein equations Ric(g) = 0 in any dimension. Its standing assumptions
-(p. 10): "we stipulate that all manifolds and tensor fields considered in this paper are smooth, even if this is not
-mentioned explicitly"; "We moreover assume that all Lorentzian manifolds we consider are connected and time oriented.
+Theorems 2.6, 2.7 and 2.8, p. 12; Theorem 3.4, p. 14; Definition 3.5, p. 15; Theorem 3.13, p. 20; proof of
+Theorem 2.7, pp. 20–22; proof of Theorem 2.8, pp. 22–24].) [Sbi15] works with the vacuum Einstein equations Ric(g) = 0 in
+any dimension. Its standing assumptions (p. 10): "we stipulate that all manifolds and tensor fields considered in this
+paper are smooth, even if this is not mentioned explicitly"; "We moreover assume that all Lorentzian manifolds we
+consider are connected and time oriented.
 The dimension of the Lorentzian manifolds is denoted by d + 1, where d ≥ 1." "Initial data (𝓜, ḡ, k̄)
 for the vacuum Einstein equations consists of a connected d-dimensional Riemannian manifold (𝓜, ḡ) together with a
 symmetric 2-covariant tensor field k̄ on 𝓜 that satisfy the constraint equations: R̄ − |k̄|² + (tr k̄)² = 0,
@@ -344,6 +345,11 @@ initial data, and let U be the MCGHD of M and M′. Then U does not have corresp
 Theorem 3.13 the quotient is Hausdorff (p. 21), and "(M̃, g̃, ι̃) is a GHD of (𝓜, ḡ, k̄) and, moreover, it is an
 extension of M and M′, where the isometric embeddings are given by the maps π ∘ j and π ∘ j′" (p. 22), π being the
 quotient map and j, j′ the inclusions of M and M′ into M ⊔ M′.
+
+(7) Theorem 2.8 (Existence of MGHD): "Given initial data there exists a GHD M̃ that is an extension of any other GHD of
+the same initial data. The GHD M̃ is unique up to isometry and is called the maximal globally hyperbolic development
+(MGHD) of the given initial data." Its proof is on pp. 22–24; [Sbi15, p. 10] notes that the MGHD is "a priori, only
+maximal among smooth GHDs".
 
 ### The constraint equations {#sec:std-constraints}
 

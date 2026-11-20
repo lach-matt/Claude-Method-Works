@@ -1874,8 +1874,9 @@ as in [[thm:own-half-settling]], below its threshold, and let ǧ be the G-invari
 metric of [[thm:iii-k-4-3]] on Ω_* ∪ 𝒟_(0,0), with S = S⁰ = 0 ([[prop:vii-3-2]]). Put Σ̊ := Σ^IVP ∩ {r > r_♭} and
 M₊ := {r > r_♭, t_IVP ≥ 0}. Then ǧ is defined on M₊; (Σ̊, γ, k) is initial data in the sense of [Sbi15, p. 11], with
 d = 4; its maximal globally hyperbolic development (M̂, ĝ, ι̂), a globally hyperbolic development that is an extension
-of every other one, exists and is unique up to isometry [Sbi15, Theorem 2.8, p. 12]; and there is a
-time-orientation-preserving isometric embedding Ψ : (M₊ ∖ Σ̊, ǧ) → (M̂, ĝ) that extends continuously to M₊ by ι̂ on Σ̊.
+of every other one, exists and is unique up to isometry [Sbi15, Theorem 2.8, p. 12] ([[thm:std-sbierski]] (7)); and there
+is a time-orientation-preserving isometric embedding Ψ : (M₊ ∖ Σ̊, ǧ) → (M̂, ĝ) that extends continuously to M₊ by ι̂ on
+Σ̊.
 
 *Proof.* In this proof t is the time of the chart of [[lem:vii-1-2]], as in [[ch:s27]], and not the Kerr–Schild time of
 the far region. *The development.* By [[thm:own-half-settling]] the results of [[ch:s27]] hold in the class ℰ_0^½, and
@@ -1895,9 +1896,10 @@ as in the proof of [[prop:iii-k-4-2]] ([[lem:s27-below]] (iii)).
 subset of Σ^IVP and, unlike Σ^IVP, which ends at {r = r_♭}, a manifold without boundary, as [Sbi15, p. 11] asks of
 initial data; γ is Riemannian; and (γ, k) satisfies the constraint equations, by the Gauss and Codazzi equations for the
 vacuum metric ǧ. So (Σ̊, γ, k) is initial data in the sense of [Sbi15, p. 11] ([[thm:std-sbierski]]), with d = 4, and
-[Sbi15, Theorem 2.8, p. 12] gives (M̂, ĝ, ι̂). By [Sbi15, Theorem 2.6] ([[thm:std-sbierski]] (3)) the same data have a
-globally hyperbolic development (N, g_N, ι_N). Σ_N := ι_N(Σ̊) is a smooth spacelike Cauchy hypersurface of N, γ being
-Riemannian, so there is a Cauchy time-function h_N on N with Σ_N = h_N⁻¹(0) ([[thm:std-bgp-causal]] (3)); its gradient
+[Sbi15, Theorem 2.8, p. 12] ([[thm:std-sbierski]] (7)) gives (M̂, ĝ, ι̂). By [Sbi15, Theorem 2.6] ([[thm:std-sbierski]]
+(3)) the same data have a globally hyperbolic development (N, g_N, ι_N). Σ_N := ι_N(Σ̊) is a smooth spacelike Cauchy
+hypersurface of N, γ being Riemannian, so there is a Cauchy time-function h_N on N with Σ_N = h_N⁻¹(0)
+([[thm:std-bgp-causal]] (3)); its gradient
 is past directed timelike ([[thm:std-bgp-causal]] (2)), so dh_N is past timelike. We glue the past half of N to M₊, show
 that the result contains a globally hyperbolic development of (Σ̊, γ, k) that contains M₊, and obtain Ψ from the
 maximality of (M̂, ĝ, ι̂).
