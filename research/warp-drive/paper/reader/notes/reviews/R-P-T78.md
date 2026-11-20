@@ -371,3 +371,88 @@ Scratch checks are in
 - `typo.py`: line lengths, wrapped-line starts and labels;
 - `occ.py`: occurrences of the old texts;
 - `proposals.md`: length checks of the replacement texts.
+
+## Final
+
+File checked: `proofs/P-T78.md`, md5 78bfabb87c33125cbc0d627317535495, 673 lines. I read it against the writer's report
+F-P-T78 and against the chapters as they stand during the explicit-K merge. I compared it word by word with the
+previous version, b2bff29e…, which is git 8d4689b7.
+
+**Verdict: CONFIRMED (0 Major, 0 minor; one optional nit below).**
+
+### Findings 1–9: all applied, and correct where they stand
+
+1. **Overview pointer.** The last overview sentence (lines 11–13) now reads "In [[ch:s15]], [[lem:tf-lin-reduction]]
+   … with e_Υ > 0".
+2. **Overview scope.** Lines 3–5 now state γ_Υ > 0, 0 ≤ e_Υ < 1, 4e_Υγ_Υ² ≤ ½ and Λ_tf < 1. These are exactly the
+   hypotheses of prop:tf-gauge-explicit, so the counterexamples (−1/100, 1/100) and (15, 1/1000) are now excluded.
+3. **Item 8 (rem:ec-point-outside).** The new text is identical to my combined text. The writer's correction of the
+   line range is right: the remark began at line 52, not 49; lines 49–50 belong to def:ec-point. The note for re-basing
+   (lines 540–550) describes the changes (i)–(iii) accurately. The sentences from "So the computational point" to the
+   end are verbatim P-LB.
+4. **Item 9 (rem:ec-lb-conditions).** It carries my replacement and its crosswalk note.
+5. **Line numbers.** Corrected (see the drift note below).
+6. **Row u4.** It ends "Threshold: ε_1 on u2; ½s_C on c1–c2."
+7. **Notation.** Every renaming is consistent:
+   - Line 88 reads "written in x".
+   - Δ → Δ_e is used throughout the section; no bare Δ is left.
+   - The Notation paragraph states r := |x| = r̂ and the new meaning of x̂.
+   - The S̄ sentence (lines 127–129) now separates the endomorphism from the number inf min Re spec S of (H2).
+   - N_1, N_2 → N_ω, N_h in lem:tf-lin-reduction. The remaining N_0 and N_1 of prop:tf-gauge-explicit (b) no longer
+     clash.
+   - r̂ stays in the overview, which comes before the Notation paragraph, and in lem:tf-lin-reduction, which goes to
+     ch:s15, where r̂ is the variable of tf. rem:tf-sign uses r.
+8. **lem:iii-d-7-1 at γ_Υ = 0.** The new proof (lines 303–305) states (a) at γ_Υ = 0. Item 2's note on unchanged
+   lines still holds.
+9. **Leftover phrases.** Items 12 and 13 carry my texts. Item 14 rightly no longer lists ch:s16 and records the local
+   γ_1 of prop:iii-d1-4-1. The crosswalk tables do have rows ch:s16 (35-s16-iota-plus.tsv) and sec:iii-f1-3
+   (34-s15-linearised.tsv) to receive the notes.
+
+### Departures
+
+Each departure is acceptable:
+
+- The z ≤ ½ condition is written out as 4e_Υγ_Υ² ≤ ½, because z is defined only in the Notation paragraph.
+- The 52–68 range is a correction of my error.
+- The re-basing note is instruction text, not chapter text.
+- New items 9, 12 and 13, and the renumbering 1–14: the crosswalk notes reference the new text numbers (2, 5, 6, 7,
+  8, 9, 10, 11, 12, 13).
+
+### Mathematics
+
+Unchanged. The word diff shows only notation and the overview sentences. Every claim I confirmed in round one stands.
+
+### Old texts: exact occurrence during the explicit-K merge
+
+Each old text, items 2, 5, 6, 7, 8, 9, 10, 11, 12 and 13, occurs exactly once in its file and once in all chapters
+together, each as whole lines. The merge has shifted these line numbers in chapters 46, 71 and 90, so the numbers
+printed in items 6–11 are now off:
+
+- item 6 is at 1732;
+- item 7 is at 1794;
+- item 8 is at 55–71;
+- item 9 is at 1782–1783;
+- item 10 is at 5281–5283;
+- item 11 is at 85–86.
+
+Items 2, 5, 12 and 13 are at the printed lines. The placement says line numbers serve only to find the place, so no
+change is needed; the merge should go by exact text.
+
+After the merge:
+
+- ε_L and the threshold γ_1 occur only at the places items 5, 6, 7 and 9 replace.
+- The explicit-K text adds no new mention of the gauge thresholds or of the admissibility of the gauge point.
+- 70-resolvent-bounds line 1696 ("not shown to lie below the thresholds of [[prop:iii-d1-4-1]]") refers to ε_1 only
+  and stays true.
+
+### Typography
+
+- Every line of P-T78 is at most 121 characters, also after label resolution.
+- No wrapped line starts with "+ ", "- ", "* ", "> ", "#", "=" or "|".
+- Labels are lowercase, and every reference resolves.
+- `lint.py` on the body together with all new texts: no hit except references undefined in the isolated file.
+
+### Optional nit (does not affect the verdict)
+
+In lem:tf-lin-reduction, line 242 has "N_hh_0 = 0" and line 247 has "N_ωω_0". These can be misread as a double
+subscript. "N_h h_0 = 0" and "N_ω ω_0" read unambiguously.
