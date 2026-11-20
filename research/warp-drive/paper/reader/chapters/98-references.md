@@ -154,6 +154,8 @@
   constant negative curvature*, J. Funct. Anal. 75 (1987), 260–310. doi:10.1016/0022-1236(87)90097-8
 - [MP86] R. C. Myers, M. J. Perry, *Black holes in higher dimensional space-times*, Ann. Physics 172 (1986), 304–347.
   doi:10.1016/0003-4916(86)90186-7
+- [Poi02] E. Poisson, *A reformulation of the Barrabès–Israel null-shell formalism*, preprint (2002).
+  arXiv:gr-qc/0207101v1
 - [Rac16] I. Rácz, *Constraints as evolutionary systems*, Class. Quantum Grav. 33 (2016), 015014.
   doi:10.1088/0264-9381/33/1/015014 arXiv:1508.01810v3
 - [Ren90] A. D. Rendall, *Reduction of the characteristic initial value problem to the Cauchy problem and its

@@ -52,3 +52,15 @@ All texts: ≤ 121 chars, wrap rule, labels lowercase; scratch lint --chapters 0
 cd /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/pub2 &&
 python3 mkproof.py EPS_K EPS_PLUS NBAR_LAMBDA [KBAR0 JSTAR LSTAR] --final
 (regenerates every number, rechecks, lints scratch copies, rewrites the proof file).
+
+## FINAL (P-UB1's proved inputs) — supersedes the provisional numbers above
+Proof file now 2001 lines, md5 69990efadbb064fb43ca5679c0b9d705 (was eb5f55fcc614dcad6625c8778ac03c70).
+Inputs: ε_K = 16747/10²¹, ε_+ = 167478/10²², N̄_Λ = 909,507,124,095,312, k̄_0 = 3, J_* = 15,000,015, l_* = 50,
+ε_Υ and 0.999 factors unchanged (chain constants confirmed).
+d_acc, d_R ≤ D_acc = 37,862,223,260,395,633,917,123,246,147,912,828,863,693,156,076,559,963,974 < 3.78623·10⁵⁵;
+d_NM ≤ D_NM = 75,724,446,520,791,266,568,624,181,582,042,570,869,522,603,615,666,426,111 < 7.57245·10⁵⁵ (both readings;
+3.78623·10⁵⁵ for the seminorms of (d)); N_NM ≤ 21D_NM + 6 < 1.59022·10⁵⁷; K ≤ 22D_NM + 345 < 1.66594·10⁵⁷
+(8.3297·10⁵⁶ for (d)); K* < 1.11014·10¹¹⁵; C_* < 1.89844·10³⁹; C_lev < 6.32812·10³⁸; 3R > 1.2251·10²⁷, D_e < 1.0072·3R;
+rem:ec-lb-unbounded h ≤ 6.46·10⁻²⁹.
+Scratch merge (git archive of HEAD a9ebbff6) with P-UB1's T1–T14: lint --chapters 0 hits (4794 labels), assemble
+--check and assemble 0 problems, lint --paper 0 hits; same for fallback set. Delta list: proof file §8.

@@ -215,7 +215,12 @@ gauge on a neighbourhood {min(u, v) ≤ δ} of the cones, without smallness, equ
 wider band and unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]); δ
 depends on the data, and for data near the background's the neighbourhood is explicit and the solution carries an
 estimate ([[thm:loc-cone-development]]). Developments of cone data that differ from the background's near an axis are
-not established ([[rem:loc-cone-scope]]).
+not established ([[rem:loc-cone-scope]]). Cone data with finitely many null shells along leaves of the two cones, with
+densities smooth in angle and supported in a band away from the axes, have developments that are continuous, smooth
+between the shells and solutions in the sense of distributions, on a neighbourhood of the cones on which the shells do
+not cross, and a solution continues through a crossing sphere on a small square; general measure-valued densities and
+shells that are not round at an axis are not treated ([[thm:loc-shells]], [[prop:loc-shell-crossing]],
+[[rem:loc-shell-scope]]).
 
 ### At the prescribed wavelength 10 l5 {#sec:scope-ten-l5}
 
