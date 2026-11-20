@@ -31,15 +31,15 @@ nothing is claimed about future null infinity or the Bondi mass there, which the
 If μ0 > √72 l5², the boundary x_K = 1 is spacelike for g_λ with a uniform margin once λ is small, and a future causal
 curve that meets it leaves D_T there and does not return ([[prop:boundary-spacelike]]). At equality, μ0 = √72 l5²,
 this fails in a layer at the start of the shell whose width tends to 0 with λ: on every column the boundary has points
-where it is timelike for g_λ, and future timelike curves cross it into D_T ([[thm:layer]], [[cor:layer]]). That the domain of [[prop:eq-domain]],
-whose inner boundary no future causal curve enters, is needed in place of D_T is not shown ([[cor:layer]]). Inside the
-layer the character of the boundary is decided in the parts of the layer that [[prop:layer-regions]] describes, by one
-switch per column on the band between the levels λ^(3+δ) and λ^(3−δ) for an envelope increasing at its edge with the
-hypothesis (H_N) of [[def:edge-hypotheses]] ([[thm:l-24]]), and at the very edge for envelopes with the edge
-hypotheses, which hold for env_C ([[thm:very-edge]], [[cor:edge-envelope]]). Some regularity of the edge is needed: for
-an envelope whose intervals of zeros accumulate at the edge, the boundary is spacelike throughout intervals of length
-4πλ below the level λ^(3+δ), for every small λ ([[prop:edge-dips]]), and at a dip of a general envelope the criterion
-of [[rem:edge-criterion]] decides nothing.
+where it is timelike for g_λ, and future timelike curves cross it into D_T ([[thm:layer]], [[cor:layer]]). That the
+domain of [[prop:eq-domain]], whose inner boundary no future causal curve enters, is needed in place of D_T is not shown
+([[cor:layer]]). Inside the layer the character of the boundary is decided in the parts of the layer that
+[[prop:layer-regions]] describes, by one switch per column on the band between the levels λ^(3+δ) and λ^(3−δ) for an
+envelope increasing at its edge with the hypothesis (H_N) of [[def:edge-hypotheses]] ([[thm:l-24]]), and at the very
+edge for envelopes with the edge hypotheses, which hold for env_C ([[thm:very-edge]], [[cor:edge-envelope]]). Some
+regularity of the edge is needed: for an envelope whose intervals of zeros accumulate at the edge, the boundary is
+spacelike throughout intervals of length 4πλ below the level λ^(3+δ), for every small λ ([[prop:edge-dips]]), and at a
+dip of a general envelope the criterion of [[rem:edge-criterion]] decides nothing.
 
 ### The thresholds and the constants {#sec:scope-constants}
 
