@@ -425,3 +425,211 @@ coefficients in β̂; for the ingoing family (β̂ = dϑ(b̂)) they contain Γ̂
   τ a time function, compact L_p ⊃ J⁻_X(p) ∩ {τ ≥ c}, supp w ⊂ {τ > c}); after M2's repair also in Step 6.
 - Self-containedness: every step not covered by M1, M2 and the minors is proved in the text or cited at a statement
   that says it; the only unproved input is the marked [[pending:wave-gauge-data]], out of scope here.
+
+## Confirmation (round 3)
+
+File read: proofs/P-H29.md, md5 7b8bfd5e3e6c5220cac62e840fb42da3, 1184 lines (chapter text 1-1095, Placement
+1097-1128, crosswalk 1130-1184), against the writer's round-3 report (notes/reports/P-H29.md) and chapter 87 at HEAD
+(md5 fb065781b50b89700aec9e14392624e9, sec:tl5-cip merged at 87:1159-1945). Line numbers in this section are those
+of the round-3 file.
+
+### Verdict
+
+**NOT CONFIRMED: 1 open minor (m9), 3 nits.** All 2 Major, 8 minor and 9 nits of the first reading are resolved. The
+new subsection sec:tl5-wg-first-stage is correct apart from m9, a short gap in the gluing at the start of
+thm:tl5-wg-data. The conditions (X) and (T) are hypotheses that nothing in the paper discharges (see the end of this
+section).
+
+### First-reading findings: each checked against the diff from af8f5907
+
+- **M1**: replacements 1-4 are applied as given (lem:tl5-wg-nullfn statement 374-386, proof 394-402, Step 2 455-464),
+  so the corner q ∈ S is covered. Two changes made beyond the given text are also correct:
+  - m4 makes lem:tl5-wg-domains (c) cover N₀⁺ (146-148, 167-169);
+  - Step 2 now justifies the smoothness of F_q by lem:tl5-cip-extend (d) (451-452), with F the closure of 𝒱_q ∖ Q₊.
+    Then F ∖ F° = 𝒱_q ∩ ∂Q₊ ⊂ N⁺, where Ric^W(G_q) is flat by (P3), so the hypotheses of (d) hold.
+- **M2**: replacements 1-3 are applied (Step 6 495-508, Step 7 511-519), with (d) cited for δ̃. The set is
+  F = Q₊ ∩ {τ₁ < u*} near p, which is relatively closed in the open set {τ₁ < u*}, and F ∖ F° ⊂ N, where δ is flat.
+  The added clause "as D^κ_(s′) ∖ D^κ_s ⊂ Q₊ ∩ {τ₁ ≤ u*}" (515-516) is right.
+- **m1**: applied (324-328, 335-337). **m2**: applied (203-209). The removed constraint claim stays removed, and the new
+  existence sentence describes thm:tl5-wg-data correctly. **m3**: applied (215-218, 290-291).
+- **m4, m5, m7, m8**: applied as given (m5 at 538-545, m7 at 1035-1036, m8 at 896-899). **m6**: applied (line 314,
+  Placement item 4, crosswalk row sec:tl5-wg-existence).
+- lem:tl5-wg-zero (255-258) now cites lem:tl5-cip-extend (d) with F = U_p ∩ D̄. F ∖ F° ⊂ N for U_p small, and w is flat
+  there, so this is correct.
+- **Nits**:
+  - n1 is void: Placement item 3 was removed.
+  - n2-n8 are applied: lines 987, 1093, 1053-1054, 831, 11-13, 902-905, 959-960 and 425-428.
+  - n9 is applied: the setting of sec:tl5-dn-one now has g on an open neighbourhood of B (846-849), the proof of
+    lem:tl5-dn-family says "F_g is defined near B" (930), and thm:tl5-dn extends g G-invariantly at the start of its
+    proof (1017-1019) and says "(extended as above)" (1024).
+- **thm:tl5-dn** gains the hypothesis η < min(u* + 10, v* − 1/2) (1000-1001). It is needed: lem:tl5-cip-dn-form asks
+  u₁ ∈ (−10, u*] and v₁ ∈ (1/2, v*]. The new proof of *The metric* (1076-1087) is correct:
+  - dũ is a positive multiple of du on N₁, by lem:tl5-dn-family (d), since r̃ = r₀ on {r = r₀} forces a_t = a_z = 0
+    there, and by invariance.
+  - g(∇u, V) = du(V) ≥ 0 by lem:tl5-wg-domains (c). So ∇ũ is past directed on the connected set D′, f < 0, and
+    lem:tl5-cip-dn-form (a) applies.
+  - (a)-(c) of def:tl5-cip-development pass to g̃ because Ψ is an isometry that is the identity on N with
+    differential the identity on vectors tangent to N; lem:tl5-cip-dn-form (b) then gives g̃ = g_N.
+- **lem:tl5-dn-gronwall** requires L > 0 (902). The application has L ≥ 1.
+
+### Citations of the merged sec:tl5-cip, checked against chapter 87
+
+All 55 references to labels of sec:tl5-cip in the chapter text (69 with the Placement) resolve, and each is used at what the chapter's statement says:
+- sec:tl5-cip-form, def:tl5-cip-data, def:tl5-cip-null.
+- lem:tl5-cip-form (a), the inverse, and (b), the class.
+- eq:tl5-cip-constraints, lem:tl5-cip-shift.
+- def:tl5-cip-development (a)-(d), with N⁺, N⁺_η and other parameter values.
+- lem:tl5-cip-extend:
+  - (a) on boxes, once after an affine change of (u, v), and for functions on N₁ or N₀⁺ that do not depend on the
+    transverse variable;
+  - (b);
+  - (d) three times, each with a named F.
+- lem:tl5-cip-data-extend, with u⁺ in place of u*.
+- lem:tl5-cip-dn-form (a) and (b) on D′₀ and D′₁ (u₁ = u⁺, v₁ = 1/2 + δ; u₁ = −10 + δ, v₁ = v*) and on D′ in
+  thm:tl5-dn.
+- prop:tl5-cip-unique on the same two boxes.
+- lem:tl5-cip-frame and eq:tl5-cip-connection: ∇₃e₄ = 2e^(2W) a̲^A ∂_A, ∇₄e₃ = 2e^(2W) a^A ∂_A, and
+  ∇_A∂_B = Γ̸ + (e^(−2W)/2)(χ̲_AB e₄ + χ_AB e₃), as used in lem:tl5-wg-tension.
+- lem:tl5-cip-wave, lem:tl5-cip-causal (c), lem:tl5-cip-axis (a) on the box D′.
+- cor:tl5-cip-staged (a) with u⁺ ∈ (−10, u₀).
+- thm:tl5-cip, the notion of solution.
+- thm:std-ctg-neighbourhood "in the form stated in [[sec:tl5-cip-existence]]", as in the proof of thm:tl5-cip (F1).
+- lem:tl5-cip-chart is cited only for the construction in the introduction to sec:tl5-dn. No step number of its proof
+  is cited any more.
+
+### Placement and form (checked)
+
+- The anchor "### Continuation beyond the seed {#sec:tl5-beyond}" occurs exactly once in the chapters at HEAD, at
+  87:1947, directly after rem:tl5-cip-regularity (87:1934-1945) and a blank line.
+- Scratch merge from `git archive` of HEAD (51d38d8a; chapter 87 unchanged since 0c8952c0), in scratch/rph29r3/: lines
+  1-1095 inserted before 87:1947 with one blank line on each side, and the 51 rows before the sec:tl5-beyond row.
+  - `lint.py --chapters`: 4884 labels (4833 at HEAD + 51), 0 hits.
+  - `assemble.py --check` and `assemble.py`: "labels 4884, computations cited 0, problems 0".
+  - `lint.py --paper`: PAPER.md 0 hits.
+- No line of the file is over 121 characters, and the longest assembled line of the section is 121. No backslash.
+  The only line starting with a marker is the deliberate list item at 992.
+- Crosswalk: 51 rows with 4 columns, in chapter order. Every line number matches its label in the round-3 file, and
+  every label has a row.
+
+### The new subsection sec:tl5-wg-first-stage (548-806): first reading
+
+**lem:tl5-wg-lchart** is correct.
+- The development is the one of sec:tl5-cip-existence, built for the data on N⁺_η from lem:tl5-cip-data-extend
+  (u⁺ + η < 0).
+- (1): K(1/2, y) = e^(−2W)V̲, because g̃(V, V̲) = g_N(∂_v, ∂_u) = −2e^(2W) at S by (a) and (c). Ξ has invertible
+  differential on both parts of 𝒦₁: ∂_tΞ is transverse at t = 0, and J is transverse to ι(N₀⁺) by
+  g̃(J, ∂_tΞ) ≡ −2. Ξ is injective on 𝒦₁ because ι is injective and the parts meet only over ι(S). The level sets of
+  v are null.
+- (2): L(−10, y) = V. J̲ is transverse to ι(N₁_η) because g̃(J̲, ∂_λΘ) ≡ −2e^(2W).
+- (3): L = κJ + Y with κ > 0, so dv(L) > 0. Compactness gives λ₀, κ₀ and δ, with δ ≤ u⁺ + 10 implicit in 𝒦₂ ⊂ ℬ.
+  For each point of 𝒩_δ there is exactly one λ. Φ = ι on N⁺, and Φ(𝒩_δ) ⊂ U ∩ J⁺(ι(N⁺_η)) ⊂ M.
+- (4): ∂_v = f∇u with f < 0, as ∇u is past directed on each connected box. lem:tl5-cip-dn-form (a) and (b) on each
+  box give the double-null form and g′ = g_N; both conclusions are pointwise, so the union of the boxes is no issue.
+- (5): G-invariance from prop:tl5-cip-unique on each box.
+
+**lem:tl5-wg-tension** re-derives.
+- (a): τ(id) = G^(ab)(Γ̂ − Γ(G))_ab = −Υ(G), and the identity is natural under the isometry Ψ.
+- (b): dΨ(Y) = Y + dv(Y)ξ on N₀⁺. Splitting g′⁻¹ by lem:tl5-cip-form (a) gives the two terms (∇dΨ)(e₃, e₄) and
+  (∇dΨ)(∂_A, ∂_B), and dΨ(∇′_A∂_B) = ∇′_A∂_B + (e^(−2W)/2)χ̲_AB ξ. The C-terms trace to −Υ(g′), and the remaining
+  terms give −e^(−2W)(∇̂_(e₃)ξ + ½trχ̲ ξ). The N₁ line follows in the same way, with du(e₃) = 1 and the e₃-component
+  (e^(−2W)/2)χ_AB.
+
+**lem:tl5-wg-wavemap** is correct.
+- (i): the coefficient of ∂_u^(k+1)Ψ is g′^(uu) = 0. The order-k terms are as listed, linear in J_k (also at k = 1),
+  and the ODEs are linear along the generators. The equations are chart-independent inductively.
+- (ii): the Borel sum through ℝ⁶ and π: c_k vanishes on N₀⁺ because 𝔍¹_k(1/2, ·) is the jet of the identity. Ψ̃₁ − Ψ̃_c
+  is flat on N₁.
+- (iii): the corner induction (δ_k = 0 on S, then the transport for ∂_uδ_k).
+- (iv): D_k is flat at u = −10, and the correction vanishes on {u ≤ −10}.
+- (v): equivariance.
+
+**thm:tl5-wg-data** is correct apart from m9.
+- The bound: d|ξ|²/du ≤ 2K₀|ξ|² + 2Y₀|ξ| from the transport with τ(Ψ) = 0, so f′ ≤ K₀f + Y₀ and |ξ| ≤ ξ₀; likewise
+  |ξ′| ≤ ξ₁.
+- Invertibility: det dΨ = 1 + dv(ξ) with |dv(ξ)| ≤ |ξ|/(√2Ω̂) < 1 under (X), and Ψ = id on the compact set N⁺.
+- (W1)-(W3) follow from the isometry Ψ, which is the identity on N⁺ and on tangent vectors there, and from
+  eq:tl5-cip-connection for g′.
+- (W4): G^♯⁻¹ = g_N⁻¹ − (e^(−2W)/2)(ξ⊗e₃ + e₃⊗ξ), using g′⁻¹(dv) = −(e^(−2W)/2)e₃, and
+  |ξ⊗e₃ + e₃⊗ξ| ≤ 2|ξ||e₃|; likewise on N₁.
+- The last sentence holds: Υ(g′) = 0 where g′ and ĝ have the same 1-jet.
+
+**cor:tl5-wg-data-first-stage** follows from cor:tl5-cip-staged (a) with u⁺ ∈ (−10, u₀).
+
+### Open finding
+
+**m9 (lines 741-744 and 780-781, thm:tl5-wg-data).** The proof needs the extended g′ to equal g′ on 𝒩_δ near N⁺, but
+"glued with a partition of unity in (u, v)" does not say so. The extensions E₀ from D′₀ and E₁ from D′₁ differ off
+their own boxes. If the weight of E₁ is not zero at the points of D′₀ ∖ D′₁ (for instance at points of N₀⁺ just beyond
+u = −10 + δ), the glued fields there are not W, b, γ, and then g′ = g_N on N⁺, used for (W1), fails. "Ric(g′) vanishes
+to infinite order on N⁺", used for (W2), fails too. Also, 𝒩_δ does not contain a neighbourhood of N⁺ in
+{u ≥ −10, v ≥ 1/2} at the far ends {u = u⁺} ∩ N₀⁺ and {v = v*} ∩ N₁ (line 780). The conclusion there still holds,
+since every point of N⁺ is a limit of interior points of 𝒩_δ.
+
+Replace lines 741-744:
+
+    the gauge on N⁺ satisfying the constraints, δ and g′ as in [[lem:tl5-wg-lchart]], and extend W, b and γ of g′ from the
+    two boxes of 𝒩_δ by [[lem:tl5-cip-extend]] (a), glued with a partition of unity in (u, v), so that
+    [[eq:tl5-cip-form]] defines a G-invariant metric in double-null form, again called g′, on a G-invariant open
+    neighbourhood 𝒰 of N⁺. Let Ψ be the map of [[lem:tl5-wg-wavemap]], ξ and ξ′ as in [[lem:tl5-wg-tension]], and, with W,
+
+by:
+
+    the gauge on N⁺ satisfying the constraints, δ and g′ as in [[lem:tl5-wg-lchart]], and extend W, b and γ of g′ from the
+    boxes D′₀ and D′₁ of 𝒩_δ by [[lem:tl5-cip-extend]] (a), to E₀ and E₁ say, and glue them as ϑ E₁ + (1 − ϑ) E₀, with ϑ a
+    smooth function of (v − 1/2) − (u + 10) equal to 1 on [δ/3, ∞) and to 0 on (−∞, −δ/3]. At the points of 𝒩_δ where
+    min(u + 10, v − 1/2) < δ/3 the glued fields are W, b and γ, as there D′₀ ∖ D′₁ lies in {ϑ = 0} and D′₁ ∖ D′₀ in
+    {ϑ = 1}; so [[eq:tl5-cip-form]] defines a G-invariant metric in double-null form, again called g′, on a G-invariant
+    open neighbourhood 𝒰 of N⁺ in {min(u + 10, v − 1/2) < δ/3}, equal to g′ on 𝒩_δ ∩ 𝒰. Let Ψ be the map of
+    [[lem:tl5-wg-wavemap]], ξ and ξ′ as in [[lem:tl5-wg-tension]], and, with W,
+
+(On D′₀ ∖ D′₁ with v − 1/2 < δ/3 one has u + 10 > δ, so (v − 1/2) − (u + 10) < −2δ/3. On D′₁ ∖ D′₀ with
+u + 10 < δ/3 one has v − 1/2 > δ, so (v − 1/2) − (u + 10) > 2δ/3. On D′₀ ∩ D′₁ the two extensions agree.) Then replace
+lines 780-781:
+
+    the points of N⁺ ([[lem:tl5-wg-lchart]]); this is (W1). g′ is vacuum on 𝒩_δ, which contains a neighbourhood of N⁺ in
+    {u ≥ −10, v ≥ 1/2}, so every partial derivative of Ric(g′) vanishes at the points of N⁺, and Ric(G^♯) = (Ψ⁻¹)*Ric(g′),
+
+by:
+
+    the points of N⁺ ([[lem:tl5-wg-lchart]]); this is (W1). g′ is vacuum on 𝒩_δ ∩ 𝒰, of which every point of N⁺ is a limit
+    of interior points, so every partial derivative of Ric(g′) vanishes at the points of N⁺, and Ric(G^♯) = (Ψ⁻¹)*Ric(g′),
+
+### Nits
+
+- n10 (line 712): "Ψ̃₁ = ι̃ … where |u + 10| ≥ 2ε₁" needs ε_k ≤ ε₁ for all k. Since ε_k ≤ 1, write "where |u + 10| ≥ 2".
+- n11 (line 557): add "and δ ≤ u⁺ + 10" after "δ ∈ (0, v* − 1/2]" in the statement of lem:tl5-wg-lchart. It is implicit
+  in 𝒦₂ ⊂ ℬ, and lem:tl5-cip-dn-form on D′₁ needs u₁ = −10 + δ ≤ u⁺.
+- n12 (after line 749): Y₀ and Y₁ involve the transverse first derivatives of g′ on N⁺, so (X) and (T) are checkable
+  only because these do not depend on the choice of development. Suggested sentence before "Then |ξ| ≤ ξ₀": "By
+  [[lem:tl5-cip-jets]] (c), applied on each box of 𝒩_δ, the derivatives of all orders of g′ at the points of N⁺ do not
+  depend on the choice of g′ in [[lem:tl5-wg-lchart]]; so Y₀ and Y₁ depend only on g_N and ĝ."
+
+### Are (X) and (T) discharged for the paper's background?
+
+**No.** They are hypotheses in thm:tl5-wg-data and cor:tl5-wg-data-first-stage, and are not verified anywhere in the
+file, in chapter 87, or in any other chapter. The paper fixes no background ĝ on a neighbourhood of N⁺ at all:
+- the explicit approximants of sec:tl5-residuals live on the region Π, which does not contain N⁺;
+- def:tl5-wg-background is generic;
+- Placement item 3 and the writer's "Findings for the bootstrap writer" item 4 pass (X) and (T) on to the bootstrap
+  file.
+
+Discharging them needs the following.
+
+1. **A concrete background.** ĝ must be defined and G-invariant on a neighbourhood of N⁺, including N₀⁺ out to u⁺ > u*.
+   The same ĝ must serve the reduced problem and thm:tl5-dn.
+2. **On N₀⁺ the conditions can be made trivial.** Take ĝ with the seed's values and first derivatives on N₀⁺.
+   - The development's first transverse derivatives on N₀⁺ are the seed's. This follows from lem:tl5-cip-jets (a)
+     with m = 1, the seed on [−10, u⁺] × [0, 1/2] × S³ (u⁺ < u₀) on one side of v = 1/2 and g′ on the other, because
+     the N₁ data are C³ across S (as in cor:tl5-cip-staged (c)).
+   - Then Y₀ = 0 and ξ₀ = 0 (the last sentence of the theorem), and (X), (T) on N₀⁺ reduce to 0 < κ_m.
+   - This short argument is not written yet.
+3. **On N₁ real bounds are needed.**
+   - Compute the transverse 1-jet of g′ on N₁ (χ̲, ∂_uW and ∂_ub) by integrating the transport equations of
+     eq:tl5-cip-ricci along the generators from S, as in the proof of lem:tl5-cip-jets (b).
+   - Hence bound Y₁ = max_(N₁) e^(2W)|Υ(g′)|, which needs ĝ's Christoffel symbols on N₁.
+   - Bound K₁ = max_(N₁) (½|∇̂_(e₄)k̂| + ½|trχ|), with trχ = 3∂_vR/R from the cone data.
+   - Then prove, as written inequalities with explicit constants (the author's ruling of 2026-11-13):
+     ξ₁ = Y₁(v* − 1/2)e^(K₁(v* − 1/2)) < √2 min Ω̂, and |g_N⁻¹ − ĝ⁻¹| + e^(−2W)|e₄|ξ₁ < κ_m on N₁.
+   - For v* = 7/2 the factor is 3e^(3K₁). With κ_m of the size G0 §9.2 proposes (κ = κ′ = 10⁻⁴), ĝ must reproduce the
+     cone data on N₁, and the development's transverse 1-jet there, to about κ_m e^(−3K₁)/3 in the k̂ norm.
+   - This is the data item L1 of the plan (G0 §10 risk 6; S-H123 L1).

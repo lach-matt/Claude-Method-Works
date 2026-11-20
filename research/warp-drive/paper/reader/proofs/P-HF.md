@@ -514,8 +514,8 @@ j and [[def:tl5-hf-coupling]],
     Σ_(|I|=j) |L̂Ψ_I| (|w₊| + |w₋|) ≤ (n^(j)_+ + n^(j)_−) (Σ_(j′≤j) Σ_ϰ ℭ_(jj′ϰ) n^(j′)_ϰ + Σ_(j′≤j) 𝔮_(jj′) G_(j′)).
 
 Multiplied by 2√c Ω̂³ μ^j, the first part is 2√c Ω̂³ Σ μ^((j−j′)/2) ℭ_(jj′ϰ) (ñ^(j)_+ + ñ^(j)_−) ñ^(j′)_ϰ =
-ñᵀ(𝔒 + 𝔒ᵀ)ñ; so the bulk without the source is at most ñᵀ𝔅_N ñ, which by admissibility is at most
-(a_o + κa_i) e_o + (a_i + κ′a_o) e_i, as e_o = Σ_j ñ^(j)ᵀ E_o ñ^(j) and e_i likewise. The source part is
+ñᵀ(𝔒 + 𝔒ᵀ)ñ; so the bulk without the forcing terms is at most ñᵀ𝔅_N ñ, which by admissibility is at most
+(a_o + κa_i) e_o + (a_i + κ′a_o) e_i, as e_o = Σ_j ñ^(j)ᵀ E_o ñ^(j) and e_i likewise. The forcing part is
 2√c Ω̂³ Σ_j μ^(j/2) 𝔊_j (ñ^(j)_+ + ñ^(j)_−) with 𝔊_j := Σ_(j′≤j) 𝔮_(jj′) G_(j′), and by the Cauchy–Schwarz inequality
 over j, with c Ω̂² Σ_j (ñ^(j)_+)² ≤ e_o and Ω̂² Σ_j (ñ^(j)_−)² ≤ e_i, it is at most 2Ω̂² s_N[𝔤] (√e_o + √c √e_i). ∎
 
@@ -744,7 +744,7 @@ by [[eq:tl5-hf-coercive]] and [[lem:tl5-hf-densities]], |Ψ_C|² + |D̂Ψ_C|² �
 |D̂Ψ_B(p)| ≤ C₁ ℰ⁰_N(p)^(1/2) + C_(1,ϱ) ϱ(p).
 
 *Second order at low levels.* For |B| ≤ N − 4 every solution factor of every monomial of ℒ^B N(h) is low, so the proof
-of [[lem:tl5-hf-quadratic]] gives |ℒ^B N(h)| ≤ (𝔠_(|B|) + 1) 𝔰², and the computation above at p, with every term of
+of [[lem:tl5-hf-quadratic]] gives |ℒ^B N(h)| ≤ (𝔠_(|B|) + 1) 𝔰², and the argument above at p, with every term of
 𝒥₁ replaced by L := (Σ_(|C|≤N−3) (|Ψ_C|² + |D̂Ψ_C|²))^(1/2) ≤ (2𝔐)^(1/2) (max(C_S, C₁) ℰ⁰_N^(1/2) + C_(1,ϱ) ϱ), as
 all words involved have length at most N − 3, gives |D̂²Ψ_B(p)| ≤ k₁ L + k₂ ϱ + k₃ 𝔰(p)²; as k₃ 𝔰(p) ≤ 1/2, the
 last term is at most 𝔰(p)/2. Taking the maximum of the four bounds and absorbing
@@ -872,7 +872,7 @@ vanish, as Ψ_I and H do; on N₁ they are at most e_o[Ψ_I] + 2Ω̂²|du(𝔟)|
 
 with 𝔑_I := ℒ^I N(h) − H^(αβ)D̂_αD̂_βΨ_I. The first two sums are treated as in the proof of
 [[prop:tl5-hf-linear-n]], with the weights μ^|I|: their bulk, with that of the terms ℬ, is at most ñᵀ𝔅_N ñ plus the
-source term 2Ω̂² s_N[2R̂ic](√e_o + √c √e_i). The weight contributes −2Ω̂² dφ(J̃), and by (b) of
+forcing term 2Ω̂² s_N[2R̂ic](√e_o + √c √e_i). The weight contributes −2Ω̂² dφ(J̃), and by (b) of
 [[lem:tl5-hf-quasilinear]], 2Ω̂² |dφ(𝔟)| ≤ ϑ((a_o + κa_i) e_o + (a_i + κ′a_o) e_i); so by the admissibility for
 (1 − ϑ)⁻¹𝔅_N, ñᵀ𝔅_N ñ − 2Ω̂² dφ(J̃) ≤ 0. By [[lem:tl5-hf-quadratic]] and |H| ≤ 𝔰, |ℒ^J N(h)| ≤ (𝔠_(|J|) + 1) 𝔰 𝔧 for
 |J| ≤ N − 1 and |𝔑_I| ≤ 𝔠_(|I|) 𝔰 𝔧; so the third and fourth terms, summed as in [[eq:tl5-hf-sn]], contribute at most
