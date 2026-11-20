@@ -15,11 +15,12 @@ number that proof uses is fixed by (γ_Υ, e_Υ), by (v_C, e_C) or by the choice
 We locate the roots of the polynomials P_l, C and p_(v) of [[prop:np-10-12]] uniformly for 0 < h ≤ 10⁻⁶, as functions
 of two parameters: h and y := e_Cκ, which fixes the degree ([[sec:tr-roots]]). This gives the four inputs at every
 h ∈ [h_m, 10⁻⁶) outside a set 𝖩 ([[def:tr-exceptional]]), and [[thm:uc-integer]] holds with the same numbers at every
-such h at which the parameter point is admissible ([[thm:tr-transfer]]). The set 𝖩 is the price of moving h: as h
-varies, the roots of real part at least 5/2 cross the integers, at finitely many values of h for each degree, and near
-such a value, when the root has |ι − 1| ≤ 50, ε_ind(h) tends to 0. 𝖩 is a finite union of intervals and points of
-total length below 1.7·10⁻¹¹ ([[prop:tr-measure]]), and it cannot be dropped: near such a crossing every admissible
-choice of the weights gives d_acc > D_acc ([[prop:tr-fail]]). The lower end h_m is fixed by the root ι₂(h) of P_2 near
+such h at which the parameter point (h, 1/100, 1/100) is admissible ([[thm:tr-transfer]]). The set 𝖩 is the price of
+moving h: as h varies, the roots of real part at least 5/2 cross the integers, at finitely many values of h for each
+degree, and near such a value, when the root has |ι − 1| ≤ 50, ε_ind(h) tends to 0; 𝖩 holds as well the finitely many
+h at which two roots of P_l near 5/2 meet. 𝖩 is a finite union of intervals and points of total length below
+1.7·10⁻¹¹ ([[prop:tr-measure]]), and it cannot be dropped: near such a crossing, at every h at which the parameter
+point is admissible, every admissible choice of the weights gives d_acc > D_acc ([[prop:tr-fail]]). The lower end h_m is fixed by the root ι₂(h) of P_2 near
 2, with (40/13)h(1 − 5·10⁴h) < ι₂(h) − 2 < 40h/13 ([[lem:ec-lb-ind]]): below 13ε_Υ/40 = 4.751175·10⁻¹¹ no h
 satisfies (H_ε) ([[prop:tr-eps]] (b)).
 
@@ -28,8 +29,9 @@ satisfies (H_ε) ([[prop:tr-eps]] (b)).
 P_0 = −(ι − 2)C and p_(v) are the polynomials of [[prop:np-10-12]] at (v, e, h); ε_Υ := 1.4619·10⁻¹⁰ is the value of
 [[def:uc-choice]], and h_m := 4.76·10⁻¹¹. The roots of C, P_l and p_(v) give the entries ι − 1 of the lists of
 [[prop:np-10-52]], and such an entry has modulus at most 50 exactly when |ι − 1| ≤ 50. The parameter point
-(h, 1/100, 1/100) is *admissible* if, for some γ_(Υ,H), the damping value h and the gauge values e_Υ = γ_Υ = 1/100 meet
-the conditions that [[thm:vi-c-2-1]] places on them, so that [[thm:settling]] is proved there.
+(h, 1/100, 1/100) is *admissible* if, for some γ_(Υ,H) > 0, the damping value h, the parameter γ_(Υ,H) of the horizon
+modification and the gauge values e_Υ = γ_Υ = 1/100 meet the conditions that [[thm:vi-c-2-1]] places on them, so that
+[[thm:settling]] is proved there.
 
 **Definition {#def:tr-exceptional}** (The condition (H_ε) and the set 𝖩.) Let 0 < h ≤ 10⁻⁶.
 
@@ -68,13 +70,14 @@ point (h, 1/100, 1/100) is admissible, whether or not h ∈ 𝖩 and whether or 
 
 **Remark {#rem:tr-scope}** (What the theorem assumes.) [[thm:tr-transfer]] is conditional, and its hypothesis may be
 empty. It needs an h ∈ [h_m, 10⁻⁶) at which the parameter point (h, 1/100, 1/100) is admissible, and this paper does
-not decide whether there is one: the conditions on h include those under which [[thm:iii-e-1-1]] is proved, for h below
-thresholds whose existence is proved and whose values are not determined, and the conditions on the gauge values
-include those that [[rem:ec-point-outside]] records as not decided at (γ_Υ, e_Υ) = (1/100, 1/100). The two other
-restrictions, h ≥ h_m and h ∉ 𝖩, are those under which the proof at h = 10⁻⁶ carries over unchanged. Below
+not decide whether there is one: the conditions on h include properties of □^C_b that [[thm:iii-e-1-1]] asserts and
+that this paper proves only for h below thresholds whose existence is proved and whose values are not determined, and
+the conditions on the gauge values include those that [[rem:ec-point-outside]] records as not decided at
+(γ_Υ, e_Υ) = (1/100, 1/100), which do not involve h. The two other restrictions, h ≥ h_m and h ∉ 𝖩, are those under
+which the proof at h = 10⁻⁶ carries over unchanged; the proof uses no other property of h than h < 10⁻⁶. Below
 13ε_Υ/40 = 4.751175·10⁻¹¹ the root ι₂(h) gives ε_ind(h) < ε_Υ ([[lem:ec-lb-ind]]), so ε_g < ε_Υ and the counts of
 [[prop:uc-explicit]] and [[sec:cs]] that use ε_g change; they are not evaluated here, and h_m lies within 0.19 % of
-that value. On 𝖩 the condition (H_ε) can fail, and where ε_ind(h) < 1.38·10⁻²⁵ the bound itself fails for every
+that value. On 𝖩 the condition (H_ε), or the simplicity of [[prop:tr-inputs]] (b), can fail, and where ε_ind(h) < 1.38·10⁻²⁵ the bound itself fails for every
 admissible choice ([[prop:tr-fail]]); so 𝖩 cannot be dropped. What the theorem gives is therefore: if the parameter
 point (h, 1/100, 1/100) is admissible, h ≥ h_m and h ∉ 𝖩, the bounds computed at h = 10⁻⁶ are bounds at h.
 
