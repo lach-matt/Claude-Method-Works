@@ -1,7 +1,7 @@
 # P-UB2: the upper bound of chapter 71 as a function of the admissible choice
 
 Proof file for the coordinator. Nothing in chapters/, crosswalk/ or elsewhere in the repository was edited; this is the
-only file written there. Every old text below is copied from the chapter files at HEAD fb8f8b2c (equal to the
+only file written there. Every old text below is copied from the chapter files at HEAD ac31449d (equal to the
 working tree for these files): 71-explicit-constants.md md5 427412e02c74261f1f87da24b60ddbca,
 00-front.md fcb33a08a5d5df2ae599389726a59dba, 01-introduction.md 9cfc5f6bcd496e6d6100c3bf7ed88ffa,
 03-theorems.md 4c4bc00c635267eef3f73f747efee2d0, 63-own-data.md 2bd560af0194b8699f05a6fc017404a6,
@@ -494,8 +494,8 @@ New (16 lines):
 
 (b) k̄_0 = 3, l_* = 50, η_0 = 𝔡₁ and J_* = 15,000,015, so that J′ := (J_* + 1)(l_* + 1) = 765,000,816;
 
-(c) listed in an order of non-decreasing real part as λ_1, …, λ_(N_Λ), the elements of Λ ∩ {Re < 3 + ε_+} have n(λ_i) ≤ i
-− 1 and k̄(λ_i) ≤ k̄_0 + J′i ≤ k̄_max := k̄_0 + J′N̄_Λ = 695,773,692,090,726,941,774,595;
+(c) listed in an order of non-decreasing real part as λ_1, …, λ_(N_Λ), the elements of Λ ∩ {Re < 3 + ε_+} have n(λ_i) ≤
+i − 1 and k̄(λ_i) ≤ k̄_0 + J′i ≤ k̄_max := k̄_0 + J′N̄_Λ = 695,773,692,090,726,941,774,595;
 
 (d) d_Φ = 62N_Λ + 2 ≤ d̄_Φ := 62N̄_Λ + 2 = 56,389,441,693,909,346, and d_FM, d_Ψ ≤ 62N̄_Λ + 10 = 56,389,441,693,909,354.
 
@@ -1257,14 +1257,14 @@ bounded in it, and [[lem:iii-i11-3-2]] chooses its seminorms in the same way. If
 regularities grow downwards through the levels, and d_* is still bounded. Let ρ_k be the regularity of the fixed seminorm
 of the forcing class of the step from β_(k−1) to β_k. The step maps the forcing to the remainder ũ ∈ 𝒵_(β_k), which is
 measured in the seminorm of the hypothesis of the next step, and that seminorm must bound (L − L_b)u and R_qu in the
-seminorm of the next forcing class, two orders lower. The remainder map is part of the step, so ρ_k ≤ ρ_(k+1) + 2 + C_lev
-− 11 + I_lev when β_k > 3, by [[lem:cs-iterations]] (a), and ρ_k ≤ ρ_(k+1) + 2 + 497 + 23,524,832 + 20,541,783,006 =
-ρ_(k+1) + 20,565,308,337 when β_k < 3, by the count in the proof of [[lem:uc-small-orders]] (d); and ρ_K ≤ T_12 + 2 +
-C_lev − 11 + I_lev, Step 4′ reading the solution at α at an order below T_12 + 2. At most L_< of the levels lie below 3
-and at most L_> above ([[prop:uc-explicit]]), so ρ_k ≤ T_12 + 20,565,308,337L_< + (C_lev + I_lev − 9)L_> for every k. The
-norms of the base must bound its maps into the seminorm of the hypothesis of the first step, so they are needed at
-regularities at most ρ_1 + 2 + R_base, and at most ρ_1 + 2R_base + 4 with the terms at a reference point (0, p⃗_b). By
-(F1)–(F3) and the proofs of (c)–(e), every order is then at most
+seminorm of the next forcing class, two orders lower. The remainder map is part of the step, so ρ_k ≤ ρ_(k+1) + 2 +
+C_lev − 11 + I_lev when β_k > 3, by [[lem:cs-iterations]] (a), and ρ_k ≤ ρ_(k+1) + 2 + 497 + 23,524,832 +
+20,541,783,006 = ρ_(k+1) + 20,565,308,337 when β_k < 3, by the count in the proof of [[lem:uc-small-orders]] (d); and ρ_K
+≤ T_12 + 2 + C_lev − 11 + I_lev, Step 4′ reading the solution at α at an order below T_12 + 2. At most L_< of the levels
+lie below 3 and at most L_> above ([[prop:uc-explicit]]), so ρ_k ≤ T_12 + 20,565,308,337L_< + (C_lev + I_lev − 9)L_> for
+every k. The norms of the base must bound its maps into the seminorm of the hypothesis of the first step, so they are
+needed at regularities at most ρ_1 + 2 + R_base, and at most ρ_1 + 2R_base + 4 with the terms at a reference point (0,
+p⃗_b). By (F1)–(F3) and the proofs of (c)–(e), every order is then at most
 
     D′_* := T_12 + 18 + 20,565,308,337L_< + (C_lev + I_lev − 9)L_> + 2R_base
          = 37,862,223,260,395,632,651,500,935,434,129,742,005,773,058,097,412,552,791 < 3.78623·10⁵⁵,
@@ -1389,8 +1389,8 @@ New (10 lines):
       = 1,665,937,823,457,407,864,509,731,994,804,936,559,129,497,279,544,661,374,787 < 1.66594·10⁵⁷,
 
 d_1 ≤ 22D_NM + 331 and N ≤ 22D_NM + 348. For the fixed seminorms of [[lem:uc-small-orders]] (d), K < 8.3297·10⁵⁶; and K >
-22d > 2.7493·10²⁵. In the class ℰ_0^½, k1 ≤ 22D_NM + 340 and 1.0078·10⁵¹ < K*(a, M, k1) < 1.11014·10¹¹⁵ for every a ∈ (ℓ0
-− 1, 3).
+22d > 2.7493·10²⁵. In the class ℰ_0^½, k1 ≤ 22D_NM + 340 and 1.0078·10⁵¹ < K*(a, M, k1) < 1.11014·10¹¹⁵ for every a ∈
+(ℓ0 − 1, 3).
 ```
 
 ### M26b. prop:uc-data-order, proof of (d), 71-explicit-constants.md lines 5209–5230
@@ -1850,9 +1850,9 @@ Old (4 lines):
 New (3 lines):
 
 ```new
-explicit lower bounds ([[thm:loss-d]], [[cor:uc-two-offsets]]); through the lower bounds, upper bounds for δ and for the
-modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
-([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
+  explicit lower bounds ([[thm:loss-d]], [[cor:uc-two-offsets]]); through the lower bounds, upper bounds for δ and for
+  the modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
+  ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
 ```
 
 ### FO5. scope chapter, 90-scope.md lines 75–79
@@ -1943,14 +1943,15 @@ explicit functions of the admissible ε_K and of the counts of the index sets, w
   with the main blocks it does not replace), the edition's own lint in its --chapters mode reports 0 hits, with 4,667
   labels defined (two new: prop:uc-dependence, eq:uc-levels) and every reference resolved. The old texts each occur
   exactly once.
-- **Scratch merge from a git archive of HEAD fb8f8b2c** (nothing run in the repository): P-UB1's 14 texts T1–T14
+- **Scratch merge from a git archive of HEAD ac31449d** (nothing run in the repository): P-UB1's 14 texts T1–T14
   (located by their old texts) and the 36 main blocks applied together, disjoint. Results:
-  lint --chapters: "chapters: 62 file(s), 4763 label(s) defined, 0 hit(s)";
-  assemble --check: "labels 4763, computations cited 0, problems 0";
-  assemble: "labels 4763, computations cited 0, problems 0";
+  lint --chapters: "chapters: 62 file(s), 4794 label(s) defined, 0 hit(s)";
+  assemble --check: "labels 4794, computations cited 0, problems 0";
+  assemble: "labels 4794, computations cited 0, problems 0";
   lint --paper on the scratch PAPER.md: "PAPER.md: 0 hit(s)".
   The same with the fallback set and the main blocks it does not replace:
-  "chapters: 62 file(s), 4763 label(s) defined, 0 hit(s)"; "labels 4763, computations cited 0, problems 0"; "PAPER.md: 0 hit(s)".
+  "chapters: 62 file(s), 4794 label(s) defined, 0 hit(s)";
+  "labels 4794, computations cited 0, problems 0"; "PAPER.md: 0 hit(s)".
   The line widths of the new texts are measured with every label resolved to its number in that merged assembly, plus
   one character per label, so a shift of the numbering by a digit stays within 121 characters.
 - **Not checked here:** P-UB1's texts (sec:is, def:uc-choice, lem:uc-admissible) and their numbers; the crosswalk rows
@@ -1982,7 +1983,7 @@ fallback rule) is unchanged.
    uses (real part at most 2).
 7. **Rewrapping.** Lines are now measured with the labels resolved (section 7). This rewraps, among others, the four
    lines P-UB1 found over 121 characters in the assembled paper (M6, M7, M13 twice); the words are unchanged.
-8. **This file:** header (final inputs, HEAD fb8f8b2c, md5s of 01, 03, 90, which changed at HEAD elsewhere, the quoted
+8. **This file:** header (final inputs, HEAD ac31449d, md5s of 01, 03, 90, which changed at HEAD elsewhere, the quoted
    lines being unchanged and found once), §1.3 item 5 (cor:is-lower), §1.4 (requirements met), §6 (fallback not needed),
    §7 (the merge), §8.
 
