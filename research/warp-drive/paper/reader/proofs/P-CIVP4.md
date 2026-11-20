@@ -391,12 +391,12 @@ F on [0, 1] × S³, G-invariant when f is, with F = f on [0, a], F = Σ_(j≤m) 
 ‖F‖_(C^m([0,1]×S³)) ≤ C_m (Λ + 1).
 
 (c) (Solving the constraints past an end.) Let cone data of any sign, κ-nondegenerate and of size at most Λ in C^m, be
-given on edges N_o = {0} × [0, λ_v] and N_i = [0, λ_u] × {0}, λ_u, λ_v ≤ 1, with b = 0 on N_i. On each edge let ln Ω,
-the density, and γ̂ := (μ_γ̊/μ_γ)^(2/3) γ be extended to smooth invariant families on [0, 1] with C^m norms at most Λ, γ̂
-positive definite with μ_γ̂ = μ_γ̊, and keep b = 0 on the extension of N_i. There are ℓ ∈ (0, 1], C and κ′ > 0,
-depending only on m, Λ and κ, such that solving the constraints from the corner with the given corner values gives cone
-data of any sign on {0} × [0, max(λ_v, ℓ)] and [0, max(λ_u, ℓ)] × {0}, equal to the given data on N_o and N_i, of size at
-most C in C^(m−3), κ′-nondegenerate, and with these free functions.
+given on edges N_o = {0} × [0, λ_v] and N_i = [0, λ_u] × {0}, λ_u, λ_v > 0, with b = 0 on N_i. On each edge let ln Ω,
+the density, and γ̂ := (μ_γ̊/μ_γ)^(2/3) γ be extended to smooth invariant families on [0, λ + 1] (λ the length of the
+edge) with C^m norms at most Λ, γ̂ positive definite with μ_γ̂ = μ_γ̊, and keep b = 0 on the extension of N_i. There are
+ℓ ∈ (0, 1], C and κ′ > 0, depending only on m, Λ and κ, such that solving the constraints from the corner with the given
+corner values gives cone data of any sign on {0} × [0, λ_v + ℓ] and [0, λ_u + ℓ] × {0}, equal to the given data on N_o
+and N_i, of size at most C in C^(m−3), κ′-nondegenerate, and with these free functions.
 
 (d) (The shift on the ingoing edge.) For cone data with any b on N_i, let ψ_u be the flow on S³ of the vector fields
 b(u, 0, ·): ∂_u ψ_u = b(u, 0, ψ_u), ψ_0 = id. The change of coordinates θ = ψ_u(θ′), independent of v, carries every

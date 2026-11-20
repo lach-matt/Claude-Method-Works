@@ -609,7 +609,7 @@ vector field: this is [[eq:loc-double-null]] with fields smooth through the axes
 
 **Lemma {#lem:loc-axis-dependence}** (Dependence on the past faces of a double-null rectangle.) Let Ĝ′ be a smooth
 G-invariant Lorentzian metric, and, for i = 1, 2, let U_i = (g_i, −dv_i, −du_i, div_(g_i) P_i^A, q_i^A) be smooth
-G-invariant states on a neighbourhood 𝒪 of a compact set R′, with u_i and v_i null for g_i and P_i^in := g_i⁻¹(−dv_i),
+G-invariant states on a neighbourhood 𝒪 of a compact set R′, with u_i and v_i null for g_i on 𝒪 and P_i^in := g_i⁻¹(−dv_i),
 P_i^out := g_i⁻¹(−du_i) future directed, that solve [[eq:class-system]] on R′ in the gauge D(g_i) = 0 relative to Ĝ′.
 Let (u_1, v_1, ω_1), ω_1 ∈ S³, be coordinates on 𝒪 in which g_1 has the form [[eq:loc-double-null]] with fields smooth
 through the axes and R′ = [0, a] × [0, b] × S³. If U_2 and U_1 agree, with all their derivatives, on R′ ∩ ({u_1 = 0} ∪
@@ -622,12 +622,14 @@ multiple of ∂_(u_1) + μ ∂_(v_1), is future timelike for g_1 on R′, as g_1
 chart has A^0 positive definite at U_1 on R′. The slices O_s := R′ ∩ {t = s} are unions of spheres {u_1 = c, v_1 = s −
 c}.
 
-*The equations.* For U_i the leaves of [[lem:class-leaf-differences]] in the slices of the chart, where they exist, are
-the level sets of its phases (the last statement there, which uses only p_A = −du_A null and Θ_A = div P_A), σ_A[U_i]
-is their planar shear, and by [[eq:class-identity]], [[eq:class-x]] and [[prop:class-axis]] (d) both S_A and S_A^ax
-equal −|∇²u_A|² − T(P_A, P_A); so on R′, by [[eq:class-raychaudhuri]], U_i solves 𝒜^ax of [[eq:loc-axis-closure]] with
-Ĝ′ in place of Ĝ and every partition ψ_ax. The leaves of both families of U_1 in {t = s} are the spheres {u_1 = c,
-v_1 = s − c}.
+*The equations.* Let x ∈ R′ lie near an axis in a slice {t = s}, and let the level set through x, in that slice, of
+the phase of family A of U_i be, from the axis to x, a graph as in [[lem:loc-axis-leaf]] (ii) that lies in 𝒪, with
+p_A(∂_z) ≠ 0. Then it is the leaf of U_i through x, by that lemma: p_A vanishes on it, and its expansion is Θ_A, as in
+the proof of its part (iii), the phase being null on 𝒪. So σ_A[U_i](x) is its planar shear, and by
+[[eq:class-identity]], [[eq:class-x]] and [[prop:class-axis]] (d) both S_A and S_A^ax equal −|∇²u_A|² − T(P_A, P_A) at
+x, u_A the phase; by [[eq:class-raychaudhuri]], U_i solves at x the rows of 𝒜^ax, with [[eq:loc-axis-closure]], Ĝ′ in
+place of Ĝ and every partition ψ_ax. For U_1 this holds at every point of R′ near an axis: the level sets of its phases
+in {t = s} are the spheres {u_1 = c, v_1 = s − c}, which are therefore the leaves of both families of U_1.
 
 *Continuity in t.* Let t* be the supremum of the s ∈ [0, a + b] with U_2 = U_1 on R′ ∩ {t ≤ s}; the set of these s is
 closed, and it contains 0, R′ ∩ {t ≤ 0} being the corner sphere. Suppose t* < a + b. Take δ, the balls 𝔅 ⊂ 𝔅′ and the
@@ -640,7 +642,10 @@ point of R′ ∩ {t ≤ t*}. Let χ_θ be a G-invariant cut-off equal to 1 on �
 star-shaped about (0, 0) in (u_1, v_1), and the point (t*/s)(u_1, v_1)(x) lies in R′ ∩ {t = t*} within √2 (s − t*) of
 (u_1, v_1)(x); so O_s ⊂ 𝒩_(θ/4), and the arc of the leaf of U_1 through x lies in 𝒩_(θ/4), O_s being a union of its
 leaves. The arc of the leaf of W through x, C¹-close to that one for ϵ′ small, lies in 𝒩_(θ/2), where W = U_2; by the
-uniqueness in [[lem:class-volterra]] it is the arc of the leaf of U_2, and σ_A[W] = σ_A[U_2] on O_s.
+uniqueness in [[lem:class-volterra]] it is the arc of the leaf of U_2, and σ_A[W] = σ_A[U_2] on O_s. Likewise the
+level set through x, in O_s, of the phase of family A of U_2, whose differential is within Cϵ′ of that of U_1 on
+𝒩_θ, is from the axis to x a graph C¹-close to the sphere through x, which lies in 𝒩_(θ/4); for ϵ′ small it lies in
+𝒩_(θ/2) ⊂ 𝒪, so U_2 solves the rows of 𝒜^ax at x.
 [[lem:loc-axis-shear]], with U_1 in place of U, O_s being a union of its leaves, and W in place of U′, gives ‖σ_A[U_2]
 − σ_A[U_1]‖_(L²(O_s∩𝒰_δ(p))) ≤ C ‖U_2 − U_1‖_(L²(O_s)) at every such point p of an axis. So the difference z of the
 first-order variables of U_2 and U_1 satisfies on R′ ∩ {t* ≤ t ≤ t* + θ/8} a system 𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ at
