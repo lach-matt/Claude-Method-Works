@@ -1042,6 +1042,25 @@ regions D_s, which [[lem:loc-axis-dependence]] does not give, as it compares two
 used in one variable, and the Borel sums of [[lem:loc-axis-constraints]] (c) are those of [[lem:loc-cone-borel]]. No
 reference is added.
 
+*13. [[ch:localised-data]], the proof of the region-III slice bound in [[sec:bg-rays]], a rewrap only (lines
+4707–4711).* The section adds numbered statements to the chapter, so the numbers of its later labels grow; with them
+the line that cites [[prop:bg-rays]] reaches 122 characters after assembly. The words are unchanged; the new lines are
+at most 121 characters also with every label of the chapter numbered with three digits after the point. Old:
+
+in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decreasing in ρ, since ∂_ρ(Ψ − T) = J − 1/a < 0; hence u_s
+is decreasing in ρ, and so is the inverse ρ_s(u). For each row [u_a, u_b] of [[sec:tab-bg-slice-packet]], Ψ̃(u_a, ρ_hi) +
+ε₀ < T(ρ_hi) and Ψ̃(u_b, ρ_lo) − ε₀ > T(ρ_lo) (by direct evaluation; at u_a = u1 take ρ_hi ≥ R_* from [[lem:bg-rstar]],
+at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice points with u_s ∈ [u_a, u_b] have ρ ∈ [ρ_lo,
+ρ_hi]. On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and ℓ_v lie between their values at u_a and u_b (monotone,
+
+New:
+
+in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decreasing in ρ, since ∂_ρ(Ψ − T) = J − 1/a < 0; hence
+u_s is decreasing in ρ, and so is the inverse ρ_s(u). For each row [u_a, u_b] of [[sec:tab-bg-slice-packet]], Ψ̃(u_a,
+ρ_hi) + ε₀ < T(ρ_hi) and Ψ̃(u_b, ρ_lo) − ε₀ > T(ρ_lo) (by direct evaluation; at u_a = u1 take ρ_hi ≥ R_* from
+[[lem:bg-rstar]], at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice points with u_s ∈ [u_a, u_b] have
+ρ ∈ [ρ_lo, ρ_hi]. On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and ℓ_v lie between their values at u_a and u_b (monotone,
+
 ### Crosswalk rows
 
 New rows for the crosswalk table of [[ch:localised-data]], one per label, in chapter order, after the row of
