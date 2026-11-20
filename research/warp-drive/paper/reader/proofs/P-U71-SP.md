@@ -282,7 +282,7 @@ and R^(2+ϰ)f is holomorphic in 𝒴. ∎
 
 *Proof.* L̃(0)(ω, ι, ∂_ω)K is defined by (2L̄)^(0)(r^(−ι)K) = r^(−ι−2)L̃(0)(ω, ι, ∂_ω)K, and (2L̄)^(0) is 2L̄ on
 stationary sections ([[lem:iii-f-2-1]] (2)): by [[eq:iii-f-2-1]], (2L̄)^(0)u = □̄u + 2Ē^Cδ̄Ḡu + 2(δ̄* + Ē^C)Ē^ΥḠu, where
-on stationary sections □̄ acts in the Cartesian frame as −Δ on each component and (δ̄k)_μ = −Σ_j ∂_jk_(μj). We use, on
+on stationary sections □̄ acts in the Cartesian frame as −Δ on each component and (δ̄k)_β = −Σ_j ∂_jk_(βj). We use, on
 ℝ⁴ and for real or complex a,
 
     Δr^a = a(a + 2)r^(a−2),     Δ(r^an_in_j) = r^(a−2)((a − 2)(a + 4)n_in_j + 2δ_(ij)),
