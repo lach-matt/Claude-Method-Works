@@ -35,11 +35,11 @@ c′₀ − d′ := 1/2 and c′_(n_v) + d′ := 7/2, the use interval of the el
 The layout is admissible if c_i + d < c_(i+1) − d and c′_j + d′ < c′_(j+1) − d′ for all i and j, and if U_ij lies in
 [m_i − (9/10)h_i, m_i + (9/10)h_i] × [m′_j − (9/10)h′_j, m′_j + (9/10)h′_j] for every element.
 
-So each element is used only on the inner nine tenths of its box in t and σ. The layouts of the four cases are those
-of [[tab:appc-layouts]]; each is admissible, as the numbers show.
+So each element is used only on the inner nine tenths of its box in t and σ.
 
-**Table {#tab:appc-layouts}** (The layouts.) In every case n_v = 2, c′₁ = 2, d′ = 3/80, and the v-boxes are
-[829/2000, 21231/10000] and [18769/10000, 7171/2000] (m′ = 793/625 and 1707/625, h′ = 8543/10000).
+**Definition {#def:appc-layouts}** (The four layouts.) In every case n_v = 2, c′₁ = 2, d′ = 3/80, and the v-boxes are
+[829/2000, 21231/10000] and [18769/10000, 7171/2000] (m′ = 793/625 and 1707/625, h′ = 8543/10000). The ξ-parameters
+are:
 
     case        n_ξ   breakpoints c_i     d        ξ-boxes [m_i − h_i, m_i + h_i]
     (1, D_A)    2     −801/100            11/200   [−9169/1000, −7891/1000], [−813/100, −3421/500]
@@ -51,7 +51,8 @@ of [[tab:appc-layouts]]; each is admissible, as the numbers show.
 In u the ξ-boxes of D_A are [−10.595, −3.673] and [−4.395, −1.936] to three decimals; those of the second seed on D*
 are [−11.260, −1.747] and [−2.218, −1.088], and those of the first seed on D* are [−10.828, −2.715],
 [−3.385, −1.381] and [−1.530, −1.092]. The boxes extend beyond the region by at most one twentieth of their length on
-each side, and the approximant is only required to be small in the region.
+each side, and the approximant is only required to be small in the region. Each layout is admissible, as the numbers
+show.
 
 **Definition {#def:appc-pou}** (The partition of unity.) Let
 
@@ -340,28 +341,46 @@ Fix an element (i, j) and a sub-box 𝔅 = [t_c − t_h, t_c + t_h] × [σ_c −
 (t, σ, x), with rational centre and half-widths; in this appendix 𝔅 is the element's use interval U_ij, rounded
 outward to multiples of 1/1000, in (t, σ). Let F_ij be the fields [[eq:appc-seedform]] with χ_iψ_j replaced by 1 and
 all other terms by 0, and let g_ab(τ) := f̃_ab(F_ij) at (t, σ, x) = (t_c + t_hτ₁, σ_c + σ_hτ₂, τ₃), for τ ∈ [−1, 1]³.
+The polynomial parts of F_ij are Q^F := (v − 1/2)⁴G^F_ij; since v − 1/2 = α + βτ₂ with rational α, β, they are
+polynomials in τ whose Chebyshev coefficients are exact rationals, by [[lem:appc-reexpand]] and four multiplications by
+α + βτ₂ (with τ₂T_k = (T_(k+1) + T_(|k−1|))/2).
 
 For ρ > 1 let E_ρ be the closed region bounded by the ellipse {(ω + ω⁻¹)/2 : |ω| = ρ}, as in [[lem:cone-ellipse]],
 and for ρ = (ρ₁, ρ₂, ρ₃) let ℰ_ρ := E_ρ₁ × E_ρ₂ × E_ρ₃ ⊂ ℂ³ and ∂₀ℰ_ρ := ∂E_ρ₁ × ∂E_ρ₂ × ∂E_ρ₃ its distinguished
 boundary.
 
+On E_ρ every Chebyshev polynomial satisfies |T_n(τ)| ≤ ρ^n, since τ = (ω + ω⁻¹)/2 with 1 ≤ |ω| ≤ ρ and
+T_n(τ) = (ω^n + ω^(−n))/2. Hence a polynomial Σ c_ijk T_i(τ₁)T_j(τ₂)T_k(τ₃) is bounded on ℰ_ρ by its weighted
+coefficient sum Σ |c_ijk| ρ₁^i ρ₂^j ρ₃^k, and so is each derivative, with the coefficients of [[eq:tl5-cheb-derivative]].
+
 **Lemma {#lem:appc-analytic}** (Analyticity on a polyellipse.) Suppose that: (i) on a covering of E_ρ₁ by closed
 rectangles, the enclosures of cosh ξ, of Re((u + 1)/(u − 1)) and of Re u + 1, with ξ = m_i + h_i(t_c + t_hτ₁) and
 u = −1 + a sinh ξ, are respectively of positive real part, positive and negative; (ii) a rectangle in ℂ that contains
 H(u, v) for all τ₁ ∈ E_ρ₁, τ₂ ∈ E_ρ₂ (with v = m′_j + h′_j(σ_c + σ_hτ₂)) is covered by rectangles 𝐇 on each of which
-[[lem:appc-newton]] applies; (iii) on a covering of ∂₀ℰ_ρ by products of closed rectangles, the enclosure of R
-(seed part plus polynomial part) has positive real part. Then every g_ab extends holomorphically to a neighbourhood
-of ℰ_ρ, and sup_(ℰ_ρ) |g_ab| = sup_(∂₀ℰ_ρ) |g_ab|.
+[[lem:appc-newton]] applies, the least real part of the enclosures N so obtained being r_s; (iii) r_s exceeds the
+weighted coefficient sum q_R of Q^R. Then every g_ab extends holomorphically to a neighbourhood of ℰ_ρ, and there
+Re R ≥ r_s − q_R > 0.
 
 *Proof.* By (i), ξ and u are holomorphic in τ₁, cosh ξ ≠ 0 (so dt/du and its derivative are holomorphic), u ∉ [−1, 1]
 and the logarithm in H is holomorphic; so H is holomorphic on E_ρ₁ × E_ρ₂. By (ii) and [[lem:appc-newton]] every value
 of H there is G(R) for a unique R with Re R > 3/2, so R_s = G⁻¹ ∘ H is holomorphic by [[lem:appc-seed-holo]], with
-Re R_s > 3/2, hence f(R_s) ≠ 0; and g(u) ≠ 0. So the seed's jets [[eq:appc-seed-jets]] are holomorphic. The
-polynomial parts are entire, and so are e^S and Ω²/Ω_s². The total R is holomorphic on ℰ_ρ, so Re R is pluriharmonic,
-and in each variable separately its minimum over a closed ellipse is attained on the boundary; applying this in the
-three variables in turn, its minimum over ℰ_ρ is attained on ∂₀ℰ_ρ, where it is positive by (iii). Hence 1/R, 1/e^S
-and 1/Ω² are holomorphic, and by [[lem:appc-regular]] so is every g_ab. The last claim is the maximum principle
-applied in the same way. ∎
+Re R_s ≥ r_s, hence f(R_s) ≠ 0; and g(u) ≠ 0. So the seed's jets [[eq:appc-seed-jets]] are holomorphic. The
+polynomial parts are entire, and so are e^S and Ω²/Ω_s². Since |Q^R| ≤ q_R, Re R ≥ r_s − q_R > 0 by (iii). Hence 1/R,
+1/e^S and 1/Ω² are holomorphic, and by [[lem:appc-regular]] so is every g_ab. ∎
+
+**Lemma {#lem:appc-majorant}** (The bound M.) Under the hypotheses of [[lem:appc-analytic]], replace in
+[[eq:appc-regular]] every quantity by an upper bound of its modulus on ℰ_ρ, and every operation by the bound of its
+result: a ± b by |a| + |b|, ab by |a||b|, and a/b, for b ∈ {R, Ω², e^S, μ̂} and integers, by |a| divided by a lower
+bound of |b|. The inputs are: the weighted coefficient sums of Q^F and of its derivatives, multiplied by the bounds of
+the chart factors dt/du and d²t/du² on a covering of E_ρ₁ ([[eq:tl5-chain]], with the element's h_i) and by 1/t_h,
+1/(h′_jσ_h); the bounds of [[eq:appc-seed-jets]] obtained from r_s ≤ |R_s| ≤ |H|/2 + 1 and from the bounds of |u| on
+the covering of (i); (ρ₃ + ρ₃⁻¹)/2 for |x|; e^(±s_S) for e^(±S), with s_S the bound of |S|; and
+Ω_s² e^(±2q_W) for Ω². The result, times the bound of ρ = R⁴/√72, is a number M ≥ max_ab sup_(ℰ_ρ) |g_ab|.
+
+*Proof.* Each replacement is the triangle inequality or multiplicativity of the modulus, and every input bounds the
+modulus of the quantity it replaces, on all of ℰ_ρ. For |R_s|: when Re R > 3/2, |(R − 1)/(R + 1)| < 1 and its real
+part is positive, so |log((R − 1)/(R + 1))| ≤ −log|(R − 1)/(R + 1)| + π/2, and with |(R − 1)/(R + 1)| ≥ 1/5 this is
+at most 2; hence |R_s| ≤ (|H| + 2)/2. ∎
 
 **Lemma {#lem:appc-coefficients}** (Coefficients and interpolation.) Let g be holomorphic on a neighbourhood of ℰ_ρ with
 |g| ≤ M there, and let g = Σ a_ijk T_i(τ₁)T_j(τ₂)T_k(τ₃) be its Chebyshev expansion on [−1, 1]³. Then
@@ -390,7 +409,7 @@ The sums S are explicit: T_n^(l)(1) ≤ n^(2l)/(1 · 3 ⋯ (2l − 1)), and the 
 n₀^(2l)ρ^(−n₀)/(1 − ((n₀ + 1)/n₀)^(2l)/ρ) when the denominator is positive.
 
 **Proposition {#prop:appc-element-bound}** (The element's own residual.) Under the hypotheses of
-[[lem:appc-analytic]], let M ≥ max_ab sup_(∂₀ℰ_ρ)|g_ab|, let c^(ab)_ijk be the Chebyshev coefficients of the
+[[lem:appc-analytic]], let M be as in [[lem:appc-majorant]], let c^(ab)_ijk be the Chebyshev coefficients of the
 interpolant p_ab of [[lem:appc-coefficients]], and c^(ab,α) those of ∂^αp_ab ([[lem:tl5-chebyshev]]). Then for every
 ab and every α,
 
@@ -407,10 +426,7 @@ evaluation at the Chebyshev–Lobatto points, which is the standard identity for
 The values g_ab(τ_l) at the nodes are computed from the 2-jets of the fields there, which by [[lem:appc-reexpand]] and
 [[eq:tl5-cheb-derivative]] are exact rational combinations of the printed integers evaluated at the nodes, the seed's
 jets by [[lem:appc-newton]] and [[eq:appc-seed-jets]], and the chart's derivatives by [[eq:tl5-chain]] with the
-element's h_i in place of h_ξ; then [[eq:appc-regular]] is evaluated in interval arithmetic. The bound M is obtained the
-same way on a covering of ∂₀ℰ_ρ by products of arcs: on an arc of ∂E_ρ the polynomial T_n((ω + ω⁻¹)/2),
-ω = ρe^(iθ), lies in the disc about its value at the arc's midpoint of radius n(ρ^n + ρ^(−n))/2 times the arc's half
-angle, by the mean value inequality in θ.
+element's h_i in place of h_ξ; then [[eq:appc-regular]] is evaluated in interval arithmetic.
 
 #### The overlaps {#sec:appc-overlaps}
 
@@ -463,14 +479,13 @@ With the weight φ of the weighted norm, whose rates are those of [[pending:lem-
 
     f_ij := f e^(φ_ij/2),   φ_ij := min over U_ij of φ,                                                    {#eq:appc-target}
 
-where f is the target of the case ([[tab:appc-outcomes]]); since e^(−φ/2) ≤ e^(−φ_ij/2) on U_ij, a pointwise bound f_ij
+where f is the target of the case ([[sec:appc-outcomes]]); since e^(−φ/2) ≤ e^(−φ_ij/2) on U_ij, a pointwise bound f_ij
 on U_ij for every element gives the weighted source norm at most the bound that f gives with φ ≡ 0 on the whole region.
 
 ### Certified outcomes {#sec:appc-outcomes}
 
-**Table {#tab:appc-outcomes}** (Targets and certified bounds.) The target f of a case is one tenth of the pointwise
-residual bound its closing needs; the allocated targets f_ij are [[eq:appc-target]]; B_ij is the largest of the
-weighted certificates [[eq:appc-certificate]] of element (i, j).
+The target f of a case is one tenth of the pointwise residual bound its closing needs; the allocated targets f_ij are
+[[eq:appc-target]]; B_ij is the largest of the weighted certificates [[eq:appc-certificate]] of element (i, j).
 
     case        f            elements   B_ij against f_ij
     (1, D_A)    10^(−17.5)   2 × 2      [[pending:computational-appc-1a]]
@@ -478,8 +493,8 @@ weighted certificates [[eq:appc-certificate]] of element (i, j).
     (2, D*)     10^(−20.1)   2 × 2      [[pending:computational-appc-2d]]
     (1, D*)     10^(−22.9)   3 × 2      [[pending:computational-appc-1d]]
 
-For each element the tables also print the parameters of its certificate: the box 𝔅, ρ, N, the arcs covering ∂₀ℰ_ρ,
-the bound M, the least real part of R found in [[lem:appc-analytic]] (iii), and the numbers B^(ab)_(ij,α).
+For each element the tables also print the parameters of its certificate: the box 𝔅, ρ, N, the coverings of
+[[lem:appc-analytic]] (i) and (ii), the numbers r_s, q_R and M, and the numbers B^(ab)_(ij,α).
 
 ### Specimen of the tables {#sec:appc-specimen}
 

@@ -39,9 +39,9 @@ fixed by the root ι₂(h) of P_2 near 2, with (40/13)h(1 − 5·10⁴h) < ι₂
 P_0 = −(ι − 2)C and p_(v) are the polynomials of [[prop:np-10-12]] at (v, e, h); ε_Υ := 1.4619·10⁻¹⁰ is the value of
 [[def:uc-choice]], and h_m := 4.76·10⁻¹¹. The roots of C, P_l and p_(v) give the entries ι − 1 of the lists of
 [[prop:np-10-52]], and such an entry has modulus at most 50 exactly when |ι − 1| ≤ 50. The parameter point
-(h, 1/100, 1/100) is *admissible* if, for some γ_(Υ,H) > 0, the damping value h, the parameter γ_(Υ,H) of the horizon
-modification and the gauge values e_Υ = γ_Υ = 1/100 meet the conditions that [[thm:vi-c-2-1]] places on them, so that
-[[thm:settling]] is proved there.
+(h, 1/100, 1/100) is *admissible* if (h, γ_(Υ,H), 1/100, 1/100) is an admissible point of the damping and gauge
+parameters ([[def:vi-c-admissible]]) for some γ_(Υ,H) > 0, so that [[thm:settling]] is proved there
+([[thm:vi-c-adm-holds]]).
 
 **Definition {#def:tr-exceptional}** (The condition (H_ε) and the set 𝖩.) Let 0 < h ≤ 10⁻⁶.
 
@@ -81,10 +81,9 @@ whether or not h ∈ 𝖩 and whether or not h ≥ h_m; at h = 10⁻⁶, μ(h) =
 
 **Remark {#rem:tr-scope}** (What the theorem assumes.) [[thm:tr-transfer]] (iii) is conditional three times. First, it
 needs an h ∈ [h_m, 10⁻⁶) at which the parameter point (h, 1/100, 1/100) is admissible, and this paper does not decide
-whether there is one: the conditions on h include properties of □^C_b that [[thm:iii-e-1-1]] asserts and that this
-paper proves only for h below thresholds whose existence is proved and whose values are not determined, and the
-conditions on the gauge values include those that [[rem:ec-point-outside]] records as not decided at
-(γ_Υ, e_Υ) = (1/100, 1/100). Second, it needs (R_h), which [[cor:t49-right]] proves at h = 10⁻⁶ by exact arithmetic at
+whether there is one: the conditions of [[def:vi-c-admissible]] that [[rem:ec-point-outside]] lists as not decided at
+the computational point are not decided at any such h either, those on □^C_b being proved only for h below thresholds
+whose existence is proved and whose values are not determined, and the one on □^Υ_b not involving h. Second, it needs (R_h), which [[cor:t49-right]] proves at h = 10⁻⁶ by exact arithmetic at
 that point and which is not decided at any other h. Third, its bound is a number only once μ(h) is known, and μ(h) is
 evaluated only at h = 10⁻⁶, from roots enclosed to within 10⁻²¹ ([[lem:is-z3]], [[lem:is-gap-z]]); elsewhere this
 paper proves 0 < μ(h) ≤ μ_G and nothing more, and μ(h) has no positive lower bound on (h_μ, 10⁻⁶]
@@ -331,7 +330,8 @@ r = ϱ, x̄ := 20 if x ≤ 20 and x̄ := 70 if x > 20, and in the bound for |F| 
 convex on (0, ∞); and |U| ≥ 2ϱ(b − ϱ)(2b − ϱ) ≥ 2ϱ(1 − ϱ/56)(2 − ϱ/56)b². For x̄ = 20, eΦ is below 0.0062 at b = 56
 and below 0.1233 at b = 2481, against 2ϱ(1 − ϱ/56)(2 − ϱ/56) > 0.1997; for x̄ = 70, below 0.0300 at b = 56 and below
 0.2337 at b = 4642, against more than 0.7957. So e|F| < |U| on |ι − ζ| = ϱ, and the root of the disc of radius b/10
-lies in the smaller disc. Finally |ι_P − 1| ≥ Im ι_P > b − r, which exceeds 50 if b > 50.2 (r ≤ 1/5 for b ≤ 56, r = b/10 for b ≥ 56).
+lies in the smaller disc. Finally |ι_P − 1| ≥ Im ι_P > b − r, which exceeds 50 if b > 50.2 (r ≤ 1/5 for b ≤ 56,
+r = b/10 for b ≥ 56).
 
 (d) For |ι − 1| ≤ 50, |ι| ≤ 51 and Re ι ≤ 51, so |2 + x − ι| ≥ x − 49. The roots of 𝒬 are non-real for x ≤ 214.35,
 as Δ < 0 there (24y ≥ 234.375x and x² − 214.375x + 4 < 0), with real part a; for larger x they have real part a or
@@ -534,12 +534,12 @@ below 2ε_Υ/(0.98κ). The least l with l(l + 2) > (n − 2.0101)·10⁶ is L_n 
 and the sum is at most 0.9899^(−1/2) + 2(48.9899^(1/2) − 0.9899^(1/2)) < 13.014; so it is below 0.02659ε_Υ.
 
 *𝖩_P.* The set {b ≤ 50.2} is an interval of h, as b² = (24y − (2 + x)² − 16x)/16 decreases in h at fixed l. On it,
-and for n = 3 on all of [h_m, 10⁻⁶], Re ι_P lies within ϱ = ϱ(x) of a ([[lem:tr-large]] (c)). So |Re ι_P − n| < ε_Υ forces h into the set I of the h
-with |x − x_n| < (4/3)(ϱ(x) + ε_Υ), x_n := (4n − 10)/3 ≥ 2/3, which is an interval, as ϱ = 1/20 for x ≤ 20 and 1/5
-beyond, and on which 1/2 < x ≤ 70 and κ ≥ (4n/3 − 3.6001)·10⁶; for n = 3, x < 0.734 on I. On I ∩ {b ≤ 50.2}, and
-for n = 3 on I, ∂_h Re ι_P ≥ (2/5)κ ([[lem:tr-slopes]] (b)), so 𝖩_P(l, n) is an interval of length below 5ε_Υ/κ, and the least l is at least
-1000(4n/3 − 3.6001)^(1/2) − 1 ≥ 631. As Σ_(n=3)^(51)(4n/3 − 3.6001)^(−1/2) is at most
-0.3999^(−1/2) + (3/2)(64.3999^(1/2) − 0.3999^(1/2)) < 12.671, the total length of 𝖩_P is below
+and for n = 3 on all of [h_m, 10⁻⁶], Re ι_P lies within ϱ = ϱ(x) of a ([[lem:tr-large]] (c)). So |Re ι_P − n| < ε_Υ
+forces h into the set I of the h with |x − x_n| < (4/3)(ϱ(x) + ε_Υ), x_n := (4n − 10)/3 ≥ 2/3, which is an interval,
+as ϱ = 1/20 for x ≤ 20 and 1/5 beyond, and on which 1/2 < x ≤ 70 and κ ≥ (4n/3 − 3.6001)·10⁶; for n = 3, x < 0.734
+on I. On I ∩ {b ≤ 50.2}, and for n = 3 on I, ∂_h Re ι_P ≥ (2/5)κ ([[lem:tr-slopes]] (b)), so 𝖩_P(l, n) is an interval
+of length below 5ε_Υ/κ, and the least l is at least 1000(4n/3 − 3.6001)^(1/2) − 1 ≥ 631. As
+Σ_(n=3)^(51)(4n/3 − 3.6001)^(−1/2) is at most 0.3999^(−1/2) + (3/2)(64.3999^(1/2) − 0.3999^(1/2)) < 12.671, the total length of 𝖩_P is below
 5ε_Υ·1.0016·10⁻³·12.671 < 0.06346ε_Υ.
 
 *𝖩_v.* ι_v(l, ·) increases in h, and |ι_v(l, h) − n| < ε_Υ for some h ≤ 10⁻⁶ forces ι_v(l, 10⁻⁶) > n − ε_Υ, that is
