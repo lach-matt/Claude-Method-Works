@@ -1395,8 +1395,8 @@ definite field, or is positive definite; [Hin26a] arranges this through the cut-
 **Lemma {#lem:iv5-1-1}** ([Hin26a, Lemma 5.4].) The semiclassical 3b-characteristic set of ρ_sf⁻²P_h is ∂Σ ∪ o.
 
 *Proof.* ρ_sf⁻²G and ρ_sf⁻²ℓ are homogeneous of degrees 2 and 1 on the fibres ([[lem:iv5-0-2]]), so the symbol vanishes
-on o. At finite ζ ≠ 0, p(ζ) is invertible by [[lem:iv5-0-4]] ([[lem:iv4-1-causal]] (b)). At fibre infinity G is principal
-and ℓ subprincipal, so the characteristic set there is ∂Σ. ∎
+on o. At finite ζ ≠ 0, p(ζ) is invertible by [[lem:iv5-0-4]] ([[lem:iv4-1-causal]] (b)). At fibre infinity G is
+principal and ℓ subprincipal, so the characteristic set there is ∂Σ. ∎
 
 *Cut-offs.* With T := T_0 of [[lem:iv5-0-3]] and r̂ for the radius r₊ of [Hin26a], let χ_(τ,j)(τ) and χ_(r,j)(r),
 j = 0, 1, 2, be those of [Hin26a, (5.20)]: χ_(τ,j) = 0 for τ ≤ ((j + ¼)/10)T and χ_(τ,j) = 1 for τ ≥ ((j + ¾)/10)T;
@@ -1444,9 +1444,9 @@ and a quantisation A = A* with WF′(A) = supp a. Then [Hin26a, (5.25)] holds:
     ∓Im⟨P_hω, A²ω⟩ = ⟨(±(Re L_h − Im □_h)A² ∓ (i/2)[P_h, A²])ω, ω⟩.
 
 *The main term.* On supp a, for 𝔛 large, the covectors are close to future (for +), resp. past (for −) lightlike
-covectors. c is past timelike ([[lem:iv5-0-5]] (1)), so [[lem:iv5-0-4]] ([[lem:iv4-1-causal]] (d)) makes ±ρ_sf⁻²ℓ positive
-definite there, with a lower bound fixed by compactness. Im □_h ∈ h Diff¹_(3b,ħ) is semiclassically subprincipal, □_h
-having real scalar principal symbol. This gives [Hin26a, (5.26)]: ±(Re L_h − Im □_h)A² = A(B̃_0*B̃_0 + c_0Λ*Λ)A + hE.
+covectors. c is past timelike ([[lem:iv5-0-5]] (1)), so [[lem:iv5-0-4]] ([[lem:iv4-1-causal]] (d)) makes ±ρ_sf⁻²ℓ
+positive definite there, with a lower bound fixed by compactness. Im □_h ∈ h Diff¹_(3b,ħ) is semiclassically
+subprincipal, □_h having real scalar principal symbol. This gives [Hin26a, (5.26)]: ±(Re L_h − Im □_h)A² = A(B̃_0*B̃_0 + c_0Λ*Λ)A + hE.
 
 *The commutator and the cut-offs.* ∓(i/2)[P_h, A²] has principal symbol ∓aH_Ga at order h ([Hin26a, (5.27)]). In
 [Hin26a, (5.29)] it is split as follows. Differentiation of χ_± and of χ(𝔛Ĝ) lands off the characteristic set, so these
@@ -1995,8 +1995,8 @@ intertwining, with its initial data at {t_KS = 0}.
 coefficients of P_h as an element of h²ρ_sf²Diff²_3b + hρ_sf²Diff¹_3b in the frames r∂_(z^μ), which are continuous in b
 ([[lem:iv5-0-2]] (a), (d), and the smooth dependence of [[sec:iii-b-3-1]]); the lower bounds in the positivity
 statements, from [[lem:iv5-0-3]] (exact in (a)–(b) for all b ∈ ℬ, by continuity in (c)), [[lem:iv5-0-4]] (the
-constant C and the margins of [[lem:iv4-1-causal]] (d) on compact sets) and [[lem:iv5-0-5]] (uniform by its statement); and
-the cut-offs, commutants and the parameters 𝔛, δ, δ′, t_j, r_j, κ, chosen from these bounds alone, hence independently
+constant C and the margins of [[lem:iv4-1-causal]] (d) on compact sets) and [[lem:iv5-0-5]] (uniform by its
+statement); and the cut-offs, commutants and the parameters 𝔛, δ, δ′, t_j, r_j, κ, chosen from these bounds alone, hence independently
 of b. The calculus estimates used (composition, elliptic parametrices, the sharp Gårding inequality, L²-boundedness)
 have constants depending on finitely many seminorms of the symbols involved, which depend continuously on b. Each
 absorption step needs h below a threshold determined by these quantities. So each h_0 and C is uniform on U, after
