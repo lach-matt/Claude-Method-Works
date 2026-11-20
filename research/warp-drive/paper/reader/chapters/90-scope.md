@@ -23,9 +23,10 @@ sin⁴(π(v − 1/2)/3) on [1/2, 7/2], which is C³ and not C⁴, is covered for
 Item 6 of [[thm:main]] concerns the round family of spheres {v, r = const}: the zero set of their outgoing expansion on
 the columns is not a marginally trapped surface ([[prop:one-zero]], [[rem:round-family]]). Item 7 concerns the Hawking
 mass of the spheres of the domain, which is not the angular mean of the mass aspect at past null infinity; that mean is
-governed by the mass law of [[thm:bondi-law]] ([[prop:mean-mass]], [[rem:mean-mass-aspect]]). The asymptotic expansion
-behind [[thm:bondi-law]] claims no uniformity in λ beyond its leading term, and nothing is claimed about future null
-infinity or the Bondi mass there, which the domain does not reach ([[rem:bondi-scope]]).
+governed by the mass law of [[thm:bondi-law]] ([[prop:mean-mass]], [[rem:mean-mass-aspect]]). The expansion of
+[[prop:bondi-hierarchy]], on which [[thm:bondi-law]] rests, claims no uniformity in λ beyond its leading term, and
+nothing is claimed about future null infinity or the Bondi mass there, which the domain does not reach
+([[rem:bondi-scope]]).
 
 If μ0 > √72 l5², the boundary x_K = 1 is spacelike for g_λ with a uniform margin, and a future causal curve that meets it
 leaves D_T there and does not return ([[prop:boundary-spacelike]]). At equality, μ0 = √72 l5², this fails in a layer at
@@ -52,9 +53,9 @@ the wave is largest would sharpen the three bounds; its value is a numerical obs
 on it is proved, and the bounds proved are those of [[prop:lambda0]] ([[rem:m22-value]]).
 
 The thresholds λ1 and δ of [[thm:settling]] are positive by its proof, and their values are not determined
-([[rem:ec-not-evaluated]]). The proof's formulas bound them above: λ1 < δ, and the modulus of the initial family at 2δ
-is at most 2^(−(32d+8)), d the loss with which the Nash–Moser theorem is applied ([[prop:ec-delta-cap]]). A lower bound
-for δ or λ1 would need upper bounds for every constant of the proof that enters them ([[sec:ec-delta]]).
+([[rem:ec-not-evaluated]]). The proof's formulas give λ1 < δ and bound the modulus of the initial family at 2δ by
+2^(−(32d+8)), d the loss with which the Nash–Moser theorem is applied ([[prop:ec-delta-cap]]). A lower bound for δ or
+λ1 would need upper bounds for every constant of the proof that enters them ([[sec:ec-delta]]).
 
 The loss d is at least the loss d_acc that the proof assigns to the tame estimates, and the regularity of the
 Nash–Moser step is N_NM = 21d + 6; d_acc is composed of elementary losses in closed form and of the numbers of steps of
@@ -69,10 +70,9 @@ proof of any theorem of this paper ([[ch:explicit-constants]]).
 
 Explicit values stop upstream of every constant of [[thm:settling]]: the proof fixes the gauge and damping parameters
 only below thresholds whose existence it proves, and the cut-offs and orders of its function spaces only up to
-admissibility; compact errors removed by injectivity by contradiction, uniformity by sequences and compactness, the
-trapping estimate by a defect-measure argument and finite covers of compact parameter sets give constants without a
-value; and the parametrix norms at ι⁺, the tame constants to the order N_NM, the Nash–Moser thresholds of the exterior
-and slab problems and the constants of the gluing are not evaluated. This is a limit of the explicit evaluation, not of
+admissibility; arguments by contradiction, compactness and defect measures give constants without a value; and the
+parametrix norms at ι⁺, the tame constants to the order N_NM, the Nash–Moser thresholds of the exterior and slab
+problems and the constants of the gluing are not evaluated. This is a limit of the explicit evaluation, not of
 [[thm:settling]] ([[rem:ec-not-evaluated]]).
 
 Explicit resolvent bounds are proved for one operator, the scalar wave operator on five-dimensional Tangherlini of mass
@@ -82,10 +82,10 @@ observed from |σ| = 12 on, and their decay in |σ|, are not proved ([[rem:band-
 the linearised gauge-fixed operator at zero energy, an upper bound for the least singular value obstructs a good
 constant at a weight next to an indicial root ([[lem:rb-quasimode]]).
 
-The threshold λ_2 of [[thm:own-data]], the threshold λ_L of [[thm:layer]] and the thresholds of [[ch:equality-edge]] are
-not evaluated ([[thm:own-data]], [[rem:layer-threshold-size]], [[rem:edge-thresholds]]). λ_L is the threshold that the
-proof delivers, not the largest λ for which [[thm:layer]] holds, and for the envelope env_C it is at most 10^(−430)
-([[rem:layer-threshold-size]]).
+The threshold λ_2 of [[thm:own-data]], the threshold λ_L of [[thm:layer]] and the thresholds of [[thm:very-edge]] and
+[[thm:l-24]] are not evaluated ([[thm:own-data]], [[rem:layer-threshold-size]], [[rem:edge-thresholds]]). λ_L is the
+threshold that the proof delivers, not the largest λ for which [[thm:layer]] holds, and for the envelope env_C it is at
+most 10^(−430) ([[rem:layer-threshold-size]]).
 
 ### After the shell {#sec:scope-after}
 
@@ -103,30 +103,31 @@ decide, and the statement that (ii) applies up to the gluing is false for fixed 
 With its inner radius taken as half the radius q_end of the curvature boundary after the shell, the development of
 [[thm:settling]] (i) is defined on all of {r ≥ q_end} to the future of its initial surface and settles there at the
 rate of [[thm:settling]], for every final mass, λ1, δ and the constants then depending on μ_end; the part of its domain
-below q_end lies beyond the curvature boundary ([[prop:interior]]). Glued to g_λ along the part of the initial surface
-where the two induce the same data, it forms one vacuum spacetime; how far their identification reaches into the future
-is not decided, nor whether that part of the initial surface is acausal in all of the domain of g_λ
+below q_end lies beyond the curvature boundary ([[prop:interior]]). For λ small, glued to g_λ along the part of the
+initial surface where the two induce the same data, it forms one vacuum spacetime; how far their identification reaches
+into the future is not decided, nor whether that part of the initial surface is acausal in all of the domain of g_λ
 ([[lem:interior-one-spacetime]], [[rem:interior-one-spacetime]]), and nothing in the proof of [[thm:settling]] uses the
 identification ([[rem:vii-4-1]]). The interior covered by [[prop:interior]] belongs to a vacuum continuation of g_λ fixed
-by the gluing, not to the continuation of g_λ's own data ([[rem:interior-one-spacetime]]). At a fixed λ neither
-construction of g_λ reaches further, the proofs giving no threshold uniform in the size of the past domain
-([[rem:interior-reach]]).
+by the gluing, not to the continuation of g_λ's own data ([[rem:interior-one-spacetime]]). At a fixed λ the data of
+either construction of g_λ are available only on a bounded part of Hintz's initial surface, since the proofs give no
+threshold uniform in the size of the domain ([[rem:interior-reach]]).
 
 The development of g_λ's own data on Hintz's initial surface settles, with no gluing and with no exceptional set in λ, in
-a data class wider than that of [[thm:settling]] (ii) by half-integer orders ([[thm:own-data]]). The widening is needed:
-for every amplitude but at most one, the coefficient of r^(−5/2) that g_λ − g0 carries at past null infinity after the
-shell is nonzero for every λ ∈ (0, λ_P] off a set with no accumulation point in (0, λ_P] ([[prop:own-tail]]). Its
-threshold λ_2 is not evaluated, and ε, d_1 and λ_2 depend on the class ([[thm:own-data]]). The continuation of g_λ to the
-past domain of dependence of the far part of the initial surface is unique in the wave-map gauge among the
-continuations close to Tangherlini whose commuted energies of some weight a_0 ∈ (0, 1/2) stay bounded and whose energy
-tends to 0 toward past null infinity ([[prop:own-uniqueness]]); existence is not attempted at a weight a_0 ≤ 1/2
-([[rem:own-low-weight]]).
+a data class wider than that of [[thm:settling]] (ii) by half-integer orders ([[thm:own-data]]). The class of (ii) does
+not contain these data: for every amplitude but at most one, the coefficient of r^(−5/2) that g_λ − g0 carries at past
+null infinity after the shell is nonzero for every λ ∈ (0, λ_P] off a set with no accumulation point in (0, λ_P], and it
+reaches the data at spatial infinity ([[ch:own-data]], [[prop:own-tail]]). The threshold λ_2 is not evaluated, and ε,
+d_1 and λ_2 depend on the class ([[thm:own-data]]). The continuation of g_λ to the past domain of dependence of the far
+part of the initial surface is unique in the wave-map gauge among the continuations within 1/50 of Tangherlini whose
+commuted energies of some weight a_0 ∈ (0, 1/2) stay bounded and whose energy tends to 0 toward past null infinity
+([[prop:own-uniqueness]]); existence is not attempted at a weight a_0 ≤ 1/2 ([[rem:own-low-weight]]).
 
 ### The linear solution in other gauges {#sec:scope-gauges}
 
 The linear statement of [[thm:settling]] is made in the gauge of the stability theory. A linear solution in another
-gauge with the same data differs from it by a linearised diffeomorphism ℒ_X g, and nothing is asserted there about the
-size or the decay of X ([[cor:ix-2-3]], [[rem:ix-2-4]]). Two gauges are treated.
+gauge with the same data, given on the whole future of the initial surface outside r = r_♭, differs from it by a
+linearised diffeomorphism ℒ_X g, and nothing is asserted there about the size or the decay of X ([[cor:ix-2-3]],
+[[rem:ix-2-4]]). Two gauges are treated.
 
 In the Regge–Wheeler-type gauge the gauge vector is explicit, and the perturbation settles to the change of mass on each
 region r_♭ < r ≤ R′, the horizon included, at the rate of the stability theory with two derivatives lost; the constant
@@ -136,9 +137,10 @@ of the stability theory is not determined ([[thm:rw-settling]] (c), [[rem:rw-zet
 fails: the orbit-space components can grow like r^(1/2) on the outgoing part of the leaves of [HKW18]
 ([[thm:rwg-1]]); with the weight r^(−1/2) on the orbit-space components and r^(1/2) on the angular block they settle
 pointwise and uniformly in r, the weights are sharp, and the rates are not claimed sharp ([[thm:rwg-2]],
-[[thm:rwg-2-prime]]). Compared with the decay of the master quantities of [HKW18], the components settle on each region
-r ≤ R once one datum more than [HKW18]'s energies is finite, the second derivative of the master fields transversal to
-the horizon, and for the scalar type that datum cannot be dropped ([[lem:np-10-1b]]).
+[[thm:rwg-2-prime]]). Compared with the decay of the master quantities proved in [HKW18], the components settle on each
+region r ≤ R at the rate τ⁻² in energy once one datum more than [HKW18]'s energies is finite, the second derivative of
+the master fields transversal to the horizon, and for the scalar type that datum cannot be dropped ([[prop:np-10-1]],
+[[lem:np-10-1b]]).
 
 In the harmonic gauge every perturbation of the class has a representative on the whole future of the initial surface
 outside r = r_♭ that induces the given data and settles on each region r_♭ < r ≤ R′, the horizon included, to
@@ -147,7 +149,7 @@ ball, and at t*^(−3/2−κ), κ < δ_♯, for data of compact support ([[thm:h
 ṁK* grows linearly in v, and the growth cannot be avoided: when the mass changes, no harmonic-gauge solution settles to
 a change of mass near the horizon at an integrable rate ([[thm:gd-2-3]]). Without decay of the data of the spherically
 symmetric gauge vector Z′_0, the growth can be traded for a stationary term that does not decay at infinity
-([[prop:gd-r2-13]]).
+([[prop:gd-r2-13]] (c)).
 
 ### Further families {#sec:scope-families}
 
@@ -166,23 +168,24 @@ does not decide ([[cor:class-two-dust]]).
 Einstein–restricted massless Vlasov solutions whose field is a caustic-free family of dusts labelled by initial
 direction and kept off the axes, on domains of the type of Ω whose initial spheres have positive mean curvature; no
 smallness is assumed, and the hypotheses hold on a nonempty open set of solutions ([[thm:vlasov]], [[lem:vlasov-open]],
-[[prop:vlasov-nonempty]]). The hypotheses avoid four obstructions proved in [[ch:vlasov]]: two dusts of one orientation
-are not separated at an axis, a continuous density carried to an axis transversally would focus there, without a
-hierarchy of frequencies an antipodal pair resonates exactly with any third phase, and a non-radial wave whose orbit
-part is a nonzero multiple of the transverse direction leaves a term of order λ⁻¹ in the constraints
-([[rem:vlasov-obstructions]]). The two radial dusts of [[thm:two-dusts]], which reach the axes, can be added to a small
-restricted field; the vacuum weak limit then holds on domains of the type of Ω inside the domain on which that solution
-is constructed, narrower than it, and no uniqueness of the solution is stated [[pending:scope-two-dust-radial]].
+[[prop:vlasov-nonempty]]). The hypotheses avoid four obstructions proved in [[ch:vlasov]], among them that two dusts of
+one orientation are not separated at an axis and that a continuous density carried to an axis transversally would
+focus there ([[rem:vlasov-obstructions]]). The two radial dusts of [[thm:two-dusts]],
+which reach the axes, can be added to a small restricted field when the outgoing packet does not reach the inner
+sphere; the solution then exists on its adapted domain and is a weak limit of class vacuum metrics on domains of the
+type of Ω inside it, narrower than it, the high-frequency step not being carried out on the adapted domain itself, and
+no uniqueness of that solution is stated [[pending:scope-two-dust-radial]].
 
 The results on localised data concern the explicit two-dust background of [[sec:bg-data]], on its slice Σ_τ0 or on a
-slice bent from it, and invariant data near the background's data ([[ch:localised-data]]). Data localised in angle
-exist on the whole of a slice bent from Σ_τ0 by at most 0.0012, on which Rácz's split is hyperbolic everywhere; on Σ_τ0
-itself the split is hyperbolic except in one band inside the shell, where it is hyperbolic for no foliation
-([[thm:loc-bent-slice]], [[prop:loc-band]]). Localisation in angle and radius at once is decided at second order in the
-amplitude by the sign of the charge, and it is stated in terms of the sign of f, nothing using the event horizon: on a
-vacuum band that meets {f < 0} such vacuum data exist for every small amplitude, on a vacuum band where f > 0 they are
-excluded for small amplitude when the first-order part is not a gauge perturbation, and on every vacuum band they are
-excluded for small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]).
+slice bent from it, and invariant data near the background's data ([[ch:localised-data]]). Data localised in angle away
+from the axes exist on the whole of a slice bent from Σ_τ0 by at most 0.0012, on which Rácz's split is hyperbolic
+everywhere; on Σ_τ0 itself the split is hyperbolic except in one band inside the shell, where it is hyperbolic for no
+foliation ([[thm:loc-bent-slice]], [[prop:loc-band]]). Localisation in angle and radius at once is decided at second
+order in the amplitude by the sign of the charge, and it is stated in terms of the sign of f, nothing using the event
+horizon: on a vacuum band that meets {f < 0} such vacuum data exist for every small amplitude, on a vacuum band where
+f > 0 they are excluded for small amplitude when the first-order part is not a gauge perturbation, and on every vacuum
+band they are excluded for small amplitude when the first-order part perturbs the extrinsic curvature alone
+([[thm:charge-sign]]).
 
 ### At the prescribed wavelength 10 l5 {#sec:scope-ten-l5}
 
@@ -198,21 +201,17 @@ Posed as a characteristic initial value problem in double-null gauge, the proble
 solution is the seed, v ≤ 1/2 in units of the horizon radius; and wherever a vacuum solution exists in the gauge with the
 seed's transverse derivative of R on the seed's cone, its leaves inside the seed's horizon generator are outer trapped,
 and its T²-invariant marginally outer trapped sections lie at or outside that generator ([[thm:ten-l5]]). No existence is
-claimed for v > 1/2 ([[thm:ten-l5]]). The continuation lemma assumes smooth data and the local existence, uniqueness and
-continuation of the characteristic problem in the gauge, which this paper does not establish; the data are not smooth;
-its a priori estimate is one on a whole region, the axes included; and the residual bounds proved hold at points and on
-boxes of a region not of that form, not as bounds of a norm over such a region ([[lem:tl5-continuation]],
-[[rem:tl5-beyond]]). Beyond v = 1/2 the shift on the outgoing data cone is subject to a constraint that this paper does
-not treat ([[def:tl5-problem]]). The size of the constant of a linear estimate on a solution found at the first seed,
+claimed for v > 1/2: the continuation lemma assumes smooth data and the local existence, uniqueness and continuation of
+the characteristic problem in the gauge, which this paper does not establish, the data are not smooth, its a priori
+estimate is one on a whole region, the axes included, and the residual bounds proved hold at points and on boxes of a
+region not of that form ([[thm:ten-l5]], [[lem:tl5-continuation]], [[rem:tl5-beyond]]). Beyond v = 1/2 the shift on
+the outgoing data cone is subject to a constraint that this paper does not treat ([[def:tl5-problem]]). The size of the constant of a linear estimate on a solution found at the first seed,
 and with it how far the closing condition of the continuation lemma lies from the residual bounds proved, is a numerical
 observation that no proof uses ([[rem:tl5-constants]]).
 
 ### Numerical observations {#sec:scope-observations}
 
-The remarks headed as numerical observations state what was observed, and no proof in this paper uses them; nothing in
-them is claimed ([[rem:m22-value]], [[rem:rw-numerics]], [[rem:tl5-bondi-scheme]], [[rem:tl5-runs]]). Among them are the
-value of M_22 ([[rem:m22-value]]), the absence of growing modes of the master equations up to a finite time and their
-late-time tails ([[rem:rw-numerics]]), the breakdown of a scheme in the Bondi chart at 10 l5 ([[rem:tl5-bondi-scheme]])
-and the solutions of the characteristic problem there ([[rem:tl5-runs]]), and lower bounds for the resolvent norm at
-sampled frequencies ([[rem:ec-lower-bounds-observed]]). Three further constants of the linear theory at the final black
-hole, evaluated from exact identities, are not proved in this paper ([[rem:ec-linear-observed]]).
+The remarks headed as numerical observations state what was observed, no proof in this paper uses them, and nothing in
+them is claimed: among them the value of M_22 ([[rem:m22-value]]), the absence of growing modes of the master equations
+up to a finite time ([[rem:rw-numerics]]), the solutions at 10 l5 ([[rem:tl5-bondi-scheme]], [[rem:tl5-runs]]) and three
+further constants of the linear theory at the final black hole ([[rem:ec-linear-observed]]).
