@@ -114,11 +114,11 @@ every amplitude.
 *Proof.* (a) Let σ be the function of [[eq:bg-field]], e^(2σ) = 2Ω². By [[lem:two-dust-reparametrisation]] (b),
 [[prop:two-dust-background]] holds in these coordinates (proof of [[lem:loc-cone-strips]] (a)): G is closed in Q = [0,
 ∞) × [0, V1′], its boundary in Q lies in {R = a}, a = 0.70, the background is smooth on G, and μ ≥ μ0 > 0 on G. G is a
-past set: for p ∈ G and q ∈ J⁻(p) = [0, u_p] × [0, v_p], J⁻(q) ⊂ J⁻(p). By [[eq:two-dust-evolution]] and
-[[eq:two-dust-mass]], which hold in these coordinates, σ_uv = 3(e^(2σ) + 2R_uR_v)/(2R²) = (3/2)e^(2σ)μ/R⁴ > 0 on G, and
-σ = −(1/2) ln 2 on both cones; so σ(u, v) = −(1/2) ln 2 + ∫_0^u ∫_0^v σ_uv ≥ −(1/2) ln 2 on every rectangle J⁻(p), p ∈
-G, that is 1/2 ≤ e^(2σ) and e^(−2σ) ≤ 2. Put λ := e^(−2σ)R_v. Then λ_v = −𝒜e^(−2σ)/(3R²) ([[lem:bg-identities]]) and
-λ(u, 0) = 2R_v(u, 0) = ℓ_v(u) ([[lem:bg-reduction]] (a)).
+past set, 𝒟 being one: for p ∈ G and q ∈ J⁻(p) = [0, u_p] × [0, v_p], q ∈ 𝒟 and J⁻(q) ⊂ J⁻(p). By
+[[eq:two-dust-evolution]] and [[eq:two-dust-mass]], which hold in these coordinates, σ_uv = 3(e^(2σ) + 2R_uR_v)/(2R²) =
+(3/2)e^(2σ)μ/R⁴ > 0 on G, and σ = −(1/2) ln 2 on both cones; so σ(u, v) = −(1/2) ln 2 + ∫_0^u ∫_0^v σ_uv ≥ −(1/2) ln 2
+on every rectangle J⁻(p), p ∈ G, that is 1/2 ≤ e^(2σ) and e^(−2σ) ≤ 2. Put λ := e^(−2σ)R_v. Then λ_v = −𝒜e^(−2σ)/(3R²)
+([[lem:bg-identities]]) and λ(u, 0) = 2R_v(u, 0) = ℓ_v(u) ([[lem:bg-reduction]] (a)).
 
 *On 𝒞_in.* There R″ = −ℬ/(3R²) ≤ 0 and R′ = −0.47 on [0, u1] ([[lem:bg-reduction]] (a)), so R(·, 0) decreases, and R(u,
 0) ≥ R(u2, 0) ≥ 1.519357 for u ≤ 7.2 ([[prop:bg-nprime]] (i)). μ(·, 0) is 3/2 on [0, u1] ([[lem:bg-reduction]] (b)) and
@@ -147,17 +147,17 @@ not depend on ϑ, extends σ and R to smooth functions on (−∞, 7.2 + 2δ] ×
 
 (b) On the cones e^(2σ) = 1/2, so Ω² = 1/4 and ρ = 4; and ẙ = R (sin ϑ cos ϑ)^(1/3), since ϕ̊ = (ϰ̊_1 + ϰ̊_2 + ϰ̊_3)/3
 with ϰ̊_1 = ln R, ϰ̊_2 = ln(R cos ϑ), ϰ̊_3 = ln(R sin ϑ). So ρ and the angular factor cancel in I, and I = ∫_0^L (p −
-p̊)_+(s) ∫_s^L (R(s)/R(t))² dt ds, R taken on the cone. On 𝒞_out, R increases ([[lem:loc-cone-strips]] (c)), so the
-inner integral is at most L − s. On 𝒞_in, R decreases, so for s ≤ t ≤ u_1 ≤ 7.2 it is at least R(7.2, 0) ≥ 1.519357, and
-the inner integral is at most (u_1 − s)R(s, 0)²/R(7.2, 0)². The background's ℓ̊_i = ϰ̊_i − ϕ̊ depend on ϑ only, so
-ℓ̊_i′ = 0 and p − p̊ = (1/3)(Σ_i (ℓ_i′)² + q − q̊). With the conformal data the background's, (p − p̊)_+ = (q − q̊)_+/3.
-For an added density on 𝒞_out, I ≤ v_1 · A l/3 < 1. On 𝒞_in, R(s, 0) ≤ 5, so I ≤ (25/2.308) · 7.2 · A l/3 ≤ 25.997 A l <
-1. For the shell, q̊_in = 𝒜/R³ ≤ 𝒜/125 on 𝒞_out; at an angle with c ≤ 0, p ≤ p̊, and at one with 0 < c ≤ 76, I ≤ (1.5/3)
-· 76 · ∫_3^4.5 𝒜/125 ≤ 0.5 × 76 × 3.25878/125 < 0.991, since (q − q̊)_+ = c q̊_in vanishes outside [3, 4.5] and v_1 − s
-≤ 1.5 there. For the packet, q̊_out = ℬ/R³ with ℬ supported in [u1, u2] and ∫ ℬ = 1.275 K ≤ 1.53887; at an angle with 0
-< c ≤ 4.5, I ≤ (4.5/3) · 1.5 · ∫ ℬ/(R(s, 0) R(7.2, 0)²) ds ≤ 2.25 × 1.53887/(1.519357 × 2.308) < 0.988, and where c ≤ 0,
-p ≤ p̊. In each case [[lem:civp-large-free]] (b) gives e^ϕ > 0. A density added on 𝒞_out with supremum A on an interval
-of length l < 3/(v_1 A) has amplitude A, for every A > 0. ∎
+p̊)_+(s) ∫_s^L (R(s)/R(t))² dt ds, R taken on the cone. On 𝒞_out, R increases and R ≥ 5 (proof of
+[[lem:loc-cone-strips]] (c)), so the inner integral is at most L − s. On 𝒞_in, R decreases, so for s ≤ t ≤ u_1 ≤ 7.2 it
+is at least R(7.2, 0) ≥ 1.519357, and the inner integral is at most (u_1 − s)R(s, 0)²/R(7.2, 0)². The background's
+ℓ̊_i = ϰ̊_i − ϕ̊ depend on ϑ only, so ℓ̊_i′ = 0 and p − p̊ = (1/3)(Σ_i (ℓ_i′)² + q − q̊). With the conformal data the
+background's, (p − p̊)_+ = (q − q̊)_+/3. For an added density on 𝒞_out, I ≤ v_1 · A l/3 < 1. On 𝒞_in, R(s, 0) ≤ 5, so I
+≤ (25/2.308) · 7.2 · A l/3 ≤ 25.997 A l < 1. For the shell, q̊_in = 𝒜/R³ ≤ 𝒜/125 on 𝒞_out; at an angle with c ≤ 0, p ≤
+p̊, and at one with 0 < c ≤ 76, I ≤ (1.5/3) · 76 · ∫_3^4.5 𝒜/125 ≤ 0.5 × 76 × 3.25878/125 < 0.991, since (q − q̊)_+ = c
+q̊_in vanishes outside [3, 4.5] and v_1 − s ≤ 1.5 there. For the packet, q̊_out = ℬ/R³ with ℬ supported in [u1, u2] and
+∫ ℬ = 1.275 K ≤ 1.53887; at an angle with 0 < c ≤ 4.5, I ≤ (4.5/3) · 1.5 · ∫ ℬ/(R(s, 0) R(7.2, 0)²) ds ≤ 2.25 ×
+1.53887/(1.519357 × 2.308) < 0.988, and where c ≤ 0, p ≤ p̊. In each case [[lem:civp-large-free]] (b) gives e^ϕ > 0. A
+density added on 𝒞_out with supremum A on an interval of length l < 3/(v_1 A) has amplitude A, for every A > 0. ∎
 
 No step of the proof of [[thm:civp-large]] uses the two lemmas, the theorem taking cone data on Q1 as given. Data with
 q_in = q_out = 0 are vacuum data.
