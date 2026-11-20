@@ -554,183 +554,285 @@ h ≤ 4.48·10⁻²⁶ ([[rem:ec-lb-unbounded]]).
 ### Placement
 
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
-source, unindented, each preceded by a line ending "Old:" or "New:". Line numbers are those of the current chapter
-sources and serve only to find the place.
+source, with the chapter's indentation, each preceded by a line ending "Old:" or "New:". The proof file P-ADM, under
+review, is to be merged first, and its items 32, 33, 43, 50 and 52 change the places of items 2, 3, 5, 6 and 8 here.
+Where the texts differ, an item gives form A, against the chapters at fb87f2fc, and form B, against the chapters after
+P-ADM, with that file's new texts as they stand when this is written; the old texts of form B are to be checked
+against P-ADM as merged. Each old text occurs exactly once in its chapter in each form. Line numbers serve only to find
+the place: those of form A are the lines at fb87f2fc, those of form B the lines after every item of P-ADM in the same
+chapter has been applied.
 
 *1. Where the section goes.* The section above, from its heading through the paragraph after [[prop:tr-fail]], is
 inserted in [[ch:explicit-constants]] immediately before the heading of [[sec:ec-linear]], "The first constants of the
-linear theory" (after the section sec:uc-data-order, if that section has been inserted before it), with one blank line
-before and one after. It defines sec:tr, def:tr-exceptional, thm:tr-transfer, rem:tr-scope, sec:tr-split,
-lem:tr-split, eq:tr-split, eq:tr-dh, eq:tr-gb, eq:tr-aj, sec:tr-roots, lem:tr-c-v, eq:tr-vslope, lem:tr-small,
-lem:tr-large, lem:tr-slopes, sec:tr-inputs, prop:tr-eps, prop:tr-inputs, sec:tr-proof, sec:tr-exceptional,
-prop:tr-measure and prop:tr-fail, none of which is defined elsewhere. Its two tables are of the size of those of
-[[lem:ec-gauge-gap]] and [[prop:gap-sums]] and stay in the text. It uses [[lem:ec-lb-ind]], [[lem:ec-lb-rounds]] and
-[[thm:ec-lb-proved]], which stand earlier in the chapter. No number already printed in any chapter changes.
+linear theory" (line 5233 in form A, 5244 in form B), that is after [[rem:uc-data-order-limits]], the last statement of
+[[sec:uc-data-order]], with one blank line before and one after. It defines sec:tr, def:tr-exceptional,
+thm:tr-transfer, rem:tr-scope, sec:tr-split, lem:tr-split, eq:tr-split, eq:tr-dh, eq:tr-gb, eq:tr-aj, sec:tr-roots,
+lem:tr-c-v, eq:tr-vslope, lem:tr-small, lem:tr-large, lem:tr-slopes, sec:tr-inputs, prop:tr-eps, prop:tr-inputs,
+sec:tr-proof, sec:tr-exceptional, prop:tr-measure and prop:tr-fail, none of which is defined elsewhere. Its two tables
+are of the size of those of [[lem:ec-gauge-gap]] and [[prop:gap-sums]] and stay in the text. It uses
+[[lem:ec-lb-ind]], [[lem:ec-lb-rounds]] and [[thm:ec-lb-proved]], which stand earlier in the chapter, and
+[[prop:s14-scalar-every-h]] and [[prop:t49-simple]] of [[ch:s14]]. No number already printed in any chapter changes.
+In form A the section is inserted as it stands. In form B two of its sentences change (item 1b).
 
-*2. [[ch:explicit-constants]], its opening paragraph (lines 26–28).* Old:
+*1b. The section, form B only.* In the paragraph *Setting*, the last three lines. Old:
 
-most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter
-point lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at it bound
+(h, 1/100, 1/100) is *admissible* if, for some γ_(Υ,H) > 0, the damping value h, the parameter γ_(Υ,H) of the horizon
+modification and the gauge values e_Υ = γ_Υ = 1/100 meet the conditions that [[thm:vi-c-2-1]] places on them, so that
+[[thm:settling]] is proved there.
+
+New:
+
+(h, 1/100, 1/100) is *admissible* if (h, γ_(Υ,H), 1/100, 1/100) is an admissible point of the damping and gauge
+parameters ([[def:vi-c-admissible]]) for some γ_(Υ,H) > 0, so that [[thm:settling]] is proved there
+([[thm:vi-c-adm-holds]]).
+
+In [[rem:tr-scope]], its second to fifth lines. Old:
+
+not decide whether there is one: the conditions on h include properties of □^C_b that [[thm:iii-e-1-1]] asserts and
+that this paper proves only for h below thresholds whose existence is proved and whose values are not determined, and
+the conditions on the gauge values include those that [[rem:ec-point-outside]] records as not decided at
+(γ_Υ, e_Υ) = (1/100, 1/100). The two other restrictions, h ≥ h_m and h ∉ 𝖩, are those under which the proof at
+
+New:
+
+not decide whether there is one: the conditions of [[def:vi-c-admissible]] that [[rem:ec-point-outside]] lists as not
+decided at the computational point are not decided at any such h either, those on □^C_b being proved only for h below
+thresholds whose existence is proved and whose values are not determined, and the one on □^Υ_b not involving h. The
+two other restrictions, h ≥ h_m and h ∉ 𝖩, are those under which the proof at
+
+*2. [[ch:explicit-constants]], its opening paragraph.* Form A (line 28). Old:
+
 what this proof's choices produce, not the optimal loss. The
 
 New:
 
-most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter
-point lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at it bound
-what this proof's choices produce, not the optimal loss. The same upper bounds hold at the gauge values 1/100 for every
-h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside an explicit set of total length below 1.7·10⁻¹¹, if those gauge values are
-admissible at that h, and they fail near the excluded values of h ([[thm:tr-transfer]], [[prop:tr-fail]]); whether such
-an h exists is not decided ([[rem:tr-scope]]). The
+what this proof's choices produce, not the optimal loss. These upper bounds hold as well at (h, 1/100, 1/100) for every
+h ∈ [4.76·10⁻¹¹, 10⁻⁶) at which that parameter point is admissible, outside a set of h of total length below
+1.7·10⁻¹¹, and at such points they fail near the values of h at which the real part of an indicial root ι of □^C_b
+with |ι − 1| ≤ 50 crosses an integer ([[thm:tr-transfer]], [[prop:tr-fail]]); whether such an h exists is not decided
+([[rem:tr-scope]]). The
 
-*3. [[rem:ec-point-outside]], its last sentence (lines 66–68).* Old:
+Form B, after item 32 of P-ADM (line 29). Old:
 
-every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a
-lower bound for d holds as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for
-ε_Υ and ε_ind(h) that hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
+it bound what this proof's choices produce, not the optimal loss. The
 
 New:
 
-every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a
-lower bound for d holds as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for
-ε_Υ and ε_ind(h) that hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]). The
-upper bounds of [[thm:uc-integer]] hold, with the same numbers, at (h, 1/100, 1/100) for h ∈ 𝖧 ∩ [h₁, 10⁻⁶),
-h₁ = 4.76·10⁻¹¹, outside a set 𝖩 of total length below 1.7·10⁻¹¹, under the same undecided condition on (γ_Υ, e_Υ)
-([[thm:tr-transfer]]).
+it bound what this proof's choices produce, not the optimal loss. These upper bounds hold as well at the gauge values
+1/100 for every h ∈ [4.76·10⁻¹¹, 10⁻⁶) at which (h, γ_(Υ,H), 1/100, 1/100) is an admissible point for some γ_(Υ,H),
+outside a set of h of total length below 1.7·10⁻¹¹, and at such points they fail near the values of h at which the real
+part of an indicial root ι of □^C_b with |ι − 1| ≤ 50 crosses an integer ([[thm:tr-transfer]], [[prop:tr-fail]]);
+whether such an h exists is not decided ([[rem:tr-scope]]). The
 
-*4. [[rem:ec-lb-unbounded]], its last sentence (lines 1795–1797).* Old:
+*3. [[rem:ec-point-outside]], the end of its last sentence.* Form A (lines 76–77). Old:
 
-bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
+as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that
+hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
+
+New:
+
+as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that
+hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]). The upper bounds of
+[[thm:uc-integer]] hold, with the same numbers, at (h, 1/100, 1/100) for every h ∈ [4.76·10⁻¹¹, 10⁻⁶) at which that
+point is admissible, outside a set 𝖩 of h of total length below 1.7·10⁻¹¹ ([[thm:tr-transfer]]); whether there is such
+an h is not decided ([[rem:tr-scope]]).
+
+Form B, after item 33 (Part C of that file) of P-ADM (lines 84–85). Old:
+
+z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
+([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
+
+New:
+
+z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
+([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]). The upper bounds of [[thm:uc-integer]] hold, with the
+same numbers, at the admissible points (h, γ_(Υ,H), 1/100, 1/100) with 4.76·10⁻¹¹ ≤ h < 10⁻⁶ and h outside a set 𝖩 of
+total length below 1.7·10⁻¹¹ ([[thm:tr-transfer]]); whether there is such a point is not decided ([[rem:tr-scope]]).
+
+*4. [[rem:ec-lb-unbounded]], its last two lines (lines 1805–1806 in form A, lines 1815–1816 in form B).* The old text is
+the two lines that follow P-ADM's item 41, unchanged by it, so the item is the same in both forms. Old:
+
 condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶ ([[lem:uc-two-offsets]], [[thm:is-gap]]), and
 is stated at that point only.
 
 New:
 
-bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
 condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶ ([[lem:uc-two-offsets]], [[thm:is-gap]]), and
-is stated at that point only. Points of the proved set at which an upper bound holds are given, under the same
-condition on (γ_Υ, e_Υ), by [[thm:tr-transfer]]: there d_NM < 1.57157·10⁵⁰ for h ∈ [4.76·10⁻¹¹, 10⁻⁶) outside a set
-𝖩 of total length below 1.7·10⁻¹¹, and near the points of 𝖩 the bound fails ([[prop:tr-fail]]).
+is stated at that point only. Upper bounds at points of the proved set with these gauge values, if there are any, are
+given by [[thm:tr-transfer]]: d_NM < 1.57157·10⁵⁰ at (h, 1/100, 1/100) for every h ∈ [4.76·10⁻¹¹, 10⁻⁶) at which that
+point is admissible, outside a set 𝖩 of h of total length below 1.7·10⁻¹¹, and at such points the bound fails near the
+values of h at which the real part of an indicial root ι of □^C_b with |ι − 1| ≤ 50 crosses an integer
+([[prop:tr-fail]]).
 
-*5. [[ch:theorems]], the list of further results (lines 354–356).* Old:
+*5. [[ch:theorems]], the list of further results, the item on the constants.* Form A (lines 362–363). Old:
 
-  and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that lies outside the proved set, explicit lower bounds
   ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the weights, orders and inner
   products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the modulus of the initial family
 
 New:
 
-  and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that lies outside the proved set, explicit lower bounds
   ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the weights, orders and inner
-  products ([[thm:uc-integer]]), which hold at the same gauge parameters for h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside a set
-  of length below 1.7·10⁻¹¹ if those gauge parameters are admissible there, a condition not decided
+  products ([[thm:uc-integer]]), which hold at the same gauge parameters for every damping parameter
+  h = 1/γ_C ∈ [4.76·10⁻¹¹, 10⁻⁶) at which these parameters satisfy the conditions under which [[thm:settling]] is
+  proved, a condition not decided at any such h, outside a set of h of total length below 1.7·10⁻¹¹
   ([[thm:tr-transfer]]); through the lower bounds, upper bounds for δ and for the modulus of the initial family
 
-*6. [[ch:scope]], [[sec:scope-constants]] (line 78; an item that inserts the order of the approximant after line 76
-leaves this line as it is).* Old:
+Form B, after item 50 of P-ADM (line 364). Old:
 
-[[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the proof of any
+  weights, orders and inner products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the
 
-New (the paragraph may be refilled):
+New:
 
-[[thm:settling]] is proved ([[rem:ec-point-outside]]). The upper bounds hold with the same numbers at the points
-(h, 1/100, 1/100) with h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside a set 𝖩 of total length below 1.7·10⁻¹¹, provided the
-gauge values 1/100 are admissible at h; this conditional statement may be empty, as h_* and the gauge thresholds are not
-determined, and near the points of 𝖩 the bounds fail ([[thm:tr-transfer]], [[rem:tr-scope]], [[prop:tr-fail]]). No
-result of [[ch:explicit-constants]] is used in the proof of any
+  weights, orders and inner products ([[thm:uc-integer]]), which hold at the same gauge parameters for every damping
+  parameter h = 1/γ_C ∈ [4.76·10⁻¹¹, 10⁻⁶) at which they form an admissible point for some γ_(Υ,H), a condition not
+  decided at any such h, outside a set of h of total length below 1.7·10⁻¹¹ ([[thm:tr-transfer]]); through the lower
+  bounds, upper bounds for δ and for the
 
-*7. [[ch:s14]], [[rem:s14-eps-ind-scope]] (lines 3536–3540; that chapter is being edited, so the old text is to be
-checked against its current form).* Old:
+*6. [[ch:scope]], [[sec:scope-constants]], the sentence on the computational point.* Form A (line 80). Old:
+
+[[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the proof of
+any
+
+New:
+
+[[thm:settling]] is proved ([[rem:ec-point-outside]]). The upper bounds for d and N_NM hold with the same numbers at
+the points (h, 1/100, 1/100) with 4.76·10⁻¹¹ ≤ h < 10⁻⁶ outside a set 𝖩 of total length below 1.7·10⁻¹¹, at each such
+h at which these parameters satisfy the conditions under which [[thm:settling]] is proved; this conditional statement
+may be empty, as those conditions are known to hold only below thresholds whose values are not determined, and at such
+h near some points of 𝖩 the bounds fail ([[thm:tr-transfer]], [[rem:tr-scope]], [[prop:tr-fail]]). No result of
+[[ch:explicit-constants]] is used in the proof of any
+
+Form B, after item 52 of P-ADM (line 81). Old:
+
+set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in
+
+New:
+
+set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). The upper bounds for d and N_NM hold with the same
+numbers at the points (h, 1/100, 1/100) with 4.76·10⁻¹¹ ≤ h < 10⁻⁶ outside a set 𝖩 of total length below 1.7·10⁻¹¹, at
+each such h at which (h, γ_(Υ,H), 1/100, 1/100) is an admissible point for some γ_(Υ,H); this conditional statement may
+be empty, as the conditions that [[rem:ec-point-outside]] lists as not decided are not decided at any such h, and at
+such h near some points of 𝖩 the bounds fail ([[thm:tr-transfer]], [[rem:tr-scope]], [[prop:tr-fail]]). No result of
+[[ch:explicit-constants]] is used in
+
+*7. [[ch:s14]], [[rem:s14-eps-ind-scope]], the sentence on what changes for h ∈ 𝖧 (lines 3537–3539 in form A, lines
+3537–3539 in form B).* P-ADM does not change these lines, so the item is the same in both forms. Old:
 
 What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
 every constant, and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50 and the bound
 ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]], which is the smaller for h ≤ 6.309·10⁻⁹. [[cor:s14-eps-ind-point]] shows that
-the upper bound δ_50 is attained at the end h = 10⁻⁶ of the interval on which ε_ind is
-defined.
 
 New:
 
 What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
-every constant. For h ∈ 𝖧 this paper gives 0 < ε_ind(h) ≤ δ_50, the bound ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]],
-which is the smaller for h ≤ 6.309·10⁻⁹, and ε_ind(h) ≥ ε_Υ = 1.4619·10⁻¹⁰ for h ∈ [4.76·10⁻¹¹, 10⁻⁶) outside a set of
-total length below 1.7·10⁻¹¹, near whose points ε_ind(h) is arbitrarily small ([[prop:tr-eps]], [[prop:tr-measure]],
-[[prop:tr-fail]]). [[cor:s14-eps-ind-point]] shows that the upper bound δ_50 is attained at the end h = 10⁻⁶ of the
-interval on which ε_ind is defined.
+every constant. For h ∈ 𝖧 this paper gives 0 < ε_ind(h) ≤ δ_50 and the bound ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]],
+which is the smaller for h ≤ 6.309·10⁻⁹; and for every h ∈ [4.76·10⁻¹¹, 10⁻⁶] outside a set of total length below
+1.7·10⁻¹¹ it gives ε_ind(h) ≥ 1.4619·10⁻¹⁰, the value of ε_Υ in [[def:uc-choice]] ([[prop:tr-eps]],
+[[prop:tr-measure]]); that set contains the values of h at which Re ι crosses an integer for a root ι of P_l or
+p_(v) with |ι − 1| ≤ 50, near each of which ε_ind(h) is arbitrarily small ([[prop:tr-fail]]).
+[[cor:s14-eps-ind-point]] shows that
 
-*8. Unchanged.* [[def:ec-point]], [[thm:uc-integer]] and every statement at the computational point keep their texts
+*8. [[rem:uc-data-order-limits]], the clause on d.* Form A (line 5226). Old:
+
+and is bounded only from below ([[thm:ec-lb-proved]]); the numbers of its part (d) are those of the computational
+
+New:
+
+and is bounded only from below ([[thm:ec-lb-proved]]), except at the points of [[thm:tr-transfer]] if there are any;
+the numbers of its part (d) are those of the computational
+
+Form B, after item 43 of P-ADM (line 5236). Old:
+
+and at whose points with h ≤ 10⁻⁶ it is bounded only from below ([[thm:ec-lb-proved]]); the numbers of its part (d) are
+
+New:
+
+and at whose points with h ≤ 10⁻⁶ it is bounded only from below ([[thm:ec-lb-proved]]), except at the points of
+[[thm:tr-transfer]] if there are any; the numbers of its part (d) are
+
+*9. Unchanged.* [[def:ec-point]], [[thm:uc-integer]] and every statement at the computational point keep their texts
 and numbers; [[cor:s14-eps-ind-point]] stands, h = 10⁻⁶ being the point at which the enclosures of [[ch:s14]] are made;
 [[lem:ec-lb-ind]], [[thm:ec-lb-proved]] and their consequences stand, and [[prop:tr-eps]] and [[prop:tr-fail]] use
-them. No result of the new section is used outside [[ch:explicit-constants]].
+them. No result of the new section is used outside [[ch:explicit-constants]]. P-ADM's items 41 and 44 and its
+suggested texts for [[ch:s14]] do not overlap any item here.
 
 ### Crosswalk rows
 
 New rows for the crosswalk table of [[ch:explicit-constants]], one per label, each given as its four fields (label;
 location in this file; name; note), to be written with tab separators:
 
-Row 1. sec:tr; paper/reader/proofs/P-TR.md:1; transfer proof P-TR, section heading; new section, inserted before
-sec:ec-linear.
+Row 1. sec:tr; paper/reader/proofs/P-TR.md@PENDING:1; transfer proof P-TR, section heading; new section, inserted
+before sec:ec-linear, after sec:uc-data-order.
 
-Row 2. def:tr-exceptional; paper/reader/proofs/P-TR.md:31; transfer proof P-TR, Definition (The condition (H_ε) and the
-set 𝖩.); new: (H_ε) asks dist ≥ ε_Υ for every h-dependent root with |ι − 1| ≤ 50; 𝖩 collects the h at which ι_B, Re ι_P
-or ι_v is within ε_Υ of an integer n ∈ [3, 51].
+Row 2. def:tr-exceptional; paper/reader/proofs/P-TR.md@PENDING:36; transfer proof P-TR, Definition (The condition
+(H_ε) and the set 𝖩.); new: (H_ε) asks dist ≥ ε_Υ for every h-dependent root with |ι − 1| ≤ 50; 𝖩 collects the h at
+which ι_B, Re ι_P (with b ≤ 50.2) or ι_v (n ≥ 4) is within ε_Υ of an integer n ∈ [3, 51], and the h at which P_l, 123
+≤ l ≤ 142, has a multiple root.
 
-Row 3. thm:tr-transfer; paper/reader/proofs/P-TR.md:45; transfer proof P-TR, Theorem (The bounds of thm:uc-integer at
-other values of h.); new conditional transfer: h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) ∖ 𝖩 and the gauge point admissible at h give
-every number of thm:uc-integer unchanged.
+Row 3. thm:tr-transfer; paper/reader/proofs/P-TR.md@PENDING:51; transfer proof P-TR, Theorem (The bounds of
+thm:uc-integer at other values of h.); new conditional transfer: h ∈ [4.76·10⁻¹¹, 10⁻⁶) ∖ 𝖩 with (h, 1/100, 1/100)
+admissible gives every number of thm:uc-integer unchanged.
 
-Row 4. rem:tr-scope; paper/reader/proofs/P-TR.md:65; transfer proof P-TR, Remark (What the theorem assumes.); the
-hypothesis may be empty (h_* not determined, gauge thresholds not decided); no h ≤ 13ε_Υ/40 satisfies (H_ε); 𝖩 cannot be
-dropped.
+Row 4. rem:tr-scope; paper/reader/proofs/P-TR.md@PENDING:71; transfer proof P-TR, Remark (What the theorem assumes.);
+the hypothesis may be empty (admissibility at (1/100, 1/100) not decided at any h); no h ≤ 13ε_Υ/40 satisfies (H_ε); 𝖩
+cannot be dropped.
 
-Row 5. sec:tr-split; paper/reader/proofs/P-TR.md:76; transfer proof P-TR, subsection heading; new.
+Row 5. sec:tr-split; paper/reader/proofs/P-TR.md@PENDING:86; transfer proof P-TR, subsection heading; new.
 
-Row 6. lem:tr-split; paper/reader/proofs/P-TR.md:78; transfer proof P-TR, Lemma (The sextic and its derivative in h.);
-P_l = U + eF from lem:s14-sextic-split at ε₀ = e/h, with F_k = ϖR_k; ∂_hP_l at fixed l; 𝒬 and F at 2 + x; F₁ expanded
-about a.
+Row 6. lem:tr-split; paper/reader/proofs/P-TR.md@PENDING:88; transfer proof P-TR, Lemma (The sextic and its derivative
+in h.); P_l = U + eF from lem:s14-sextic-split at ε₀ = e/h, with F_k = ϖR_k; ∂_hP_l at fixed l; 𝒬 and F at 2 + x; F₁
+expanded about a.
 
-Row 7. eq:tr-split; paper/reader/proofs/P-TR.md:81; transfer proof P-TR, display; P_l = U + eF and F₁, F₂, F₃.
+Row 7. eq:tr-split; paper/reader/proofs/P-TR.md@PENDING:91; transfer proof P-TR, display; P_l = U + eF and F₁, F₂, F₃.
 
-Row 8. eq:tr-dh; paper/reader/proofs/P-TR.md:92; transfer proof P-TR, display; the h-derivative of P_l at fixed l.
+Row 8. eq:tr-dh; paper/reader/proofs/P-TR.md@PENDING:102; transfer proof P-TR, display; the h-derivative of P_l at
+fixed l.
 
-Row 9. eq:tr-gb; paper/reader/proofs/P-TR.md:98; transfer proof P-TR, display; 𝒬(ι), 𝒬(2 + x + s) and F(2 + x) = −x g_B.
+Row 9. eq:tr-gb; paper/reader/proofs/P-TR.md@PENDING:108; transfer proof P-TR, display; 𝒬(ι), 𝒬(2 + x + s) and F(2 +
+x) = −x g_B.
 
-Row 10. eq:tr-aj; paper/reader/proofs/P-TR.md:104; transfer proof P-TR, display; the coefficients A₀, …, A₄ of F₁(a +
-s).
+Row 10. eq:tr-aj; paper/reader/proofs/P-TR.md@PENDING:114; transfer proof P-TR, display; the coefficients A₀, …, A₄ of
+F₁(a + s).
 
-Row 11. sec:tr-roots; paper/reader/proofs/P-TR.md:129; transfer proof P-TR, subsection heading; new.
+Row 11. sec:tr-roots; paper/reader/proofs/P-TR.md@PENDING:139; transfer proof P-TR, subsection heading; new.
 
-Row 12. lem:tr-c-v; paper/reader/proofs/P-TR.md:131; transfer proof P-TR, Lemma (The scalar type 0 and the vector
-type.); ι₁ ∈ (2 + 7·10⁻⁵, 5/2) and ι_v(l, h) at every h ∈ (0, 10⁻⁶], with its integer values and its h-derivative.
+Row 12. lem:tr-c-v; paper/reader/proofs/P-TR.md@PENDING:141; transfer proof P-TR, Lemma (The scalar type 0 and the
+vector type.); ι₁ ∈ (2 + 7·10⁻⁵, 5/2) and ι_v(l, h) at every h ∈ (0, 10⁻⁶], with its integer values and its
+h-derivative.
 
-Row 13. eq:tr-vslope; paper/reader/proofs/P-TR.md:139; transfer proof P-TR, display; ∂_hι_v.
+Row 13. eq:tr-vslope; paper/reader/proofs/P-TR.md@PENDING:149; transfer proof P-TR, display; ∂_hι_v.
 
-Row 14. lem:tr-small; paper/reader/proofs/P-TR.md:155; transfer proof P-TR, Lemma (The degrees with y ≤ 3/20.); form of
-lem:s14-sextic-small for l ≤ 122 at every h ∈ (0, 10⁻⁶], uniform in h; uses lem:ec-lb-ind at l = 2.
+Row 14. lem:tr-small; paper/reader/proofs/P-TR.md@PENDING:165; transfer proof P-TR, Lemma (The degrees with y ≤
+3/20.); form of lem:s14-sextic-small for l ≤ 122 at every h ∈ (0, 10⁻⁶], uniform in h; uses lem:ec-lb-ind at l = 2.
 
-Row 15. lem:tr-large; paper/reader/proofs/P-TR.md:203; transfer proof P-TR, Lemma (The degrees with y ≥ 3/20.); form of
-lem:s14-sextic-large and lem:s14-sextic-count (b) uniform in h: Rouché discs about 2 + x, a and ζ, with two tables.
+Row 15. lem:tr-large; paper/reader/proofs/P-TR.md@PENDING:214; transfer proof P-TR, Lemma (The degrees with y ≥
+3/20.); form of lem:s14-sextic-large and lem:s14-sextic-count (b) uniform in h: Rouché discs about 2 + x, a and ζ,
+with two tables; the disc about ζ avoids the roots of prop:s14-scalar-every-h.
 
-Row 16. lem:tr-slopes; paper/reader/proofs/P-TR.md:306; transfer proof P-TR, Lemma (The roots move fast at the
+Row 16. lem:tr-slopes; paper/reader/proofs/P-TR.md@PENDING:321; transfer proof P-TR, Lemma (The roots move fast at the
 integers.); ∂_hι_B ≥ 0.98κ, ∂_h Re ι_P ≥ 2κ/5, ∂_hι_v ≥ 0.99κ near the integers.
 
-Row 17. sec:tr-inputs; paper/reader/proofs/P-TR.md:347; transfer proof P-TR, subsection heading; new.
+Row 17. sec:tr-inputs; paper/reader/proofs/P-TR.md@PENDING:362; transfer proof P-TR, subsection heading; new.
 
-Row 18. prop:tr-eps; paper/reader/proofs/P-TR.md:349; transfer proof P-TR, Proposition (The number ε_ind(h).); (H_ε) and
-ε_ind(h) ≥ ε_Υ off 𝖩 on [h₁, 10⁻⁶]; no h ≤ 13ε_Υ/40 satisfies (H_ε).
+Row 18. prop:tr-eps; paper/reader/proofs/P-TR.md@PENDING:364; transfer proof P-TR, Proposition (The number ε_ind(h).);
+(H_ε) and ε_ind(h) ≥ ε_Υ off 𝖩 on [4.76·10⁻¹¹, 10⁻⁶]; no h ≤ 13ε_Υ/40 satisfies (H_ε).
 
-Row 19. prop:tr-inputs; paper/reader/proofs/P-TR.md:374; transfer proof P-TR, Proposition (The other three inputs.);
-prop:is-iota, prop:is-logs (c), prop:is-mult, lem:sp-roots, thm:sp-spectrum (b) and cor:sp-lstar (a)–(c) at h.
+Row 19. prop:tr-inputs; paper/reader/proofs/P-TR.md@PENDING:390; transfer proof P-TR, Proposition (The other three
+inputs.); prop:is-iota, prop:is-logs (c), prop:is-mult, lem:sp-roots, thm:sp-spectrum (b) and cor:sp-lstar (a)–(c) at
+h; simplicity from the location lemmas and h ∉ 𝖩.
 
-Row 20. sec:tr-proof; paper/reader/proofs/P-TR.md:445; transfer proof P-TR, subsection heading; new; the proof of
-thm:tr-transfer.
+Row 20. sec:tr-proof; paper/reader/proofs/P-TR.md@PENDING:467; transfer proof P-TR, subsection heading; new; the proof
+of thm:tr-transfer.
 
-Row 21. sec:tr-exceptional; paper/reader/proofs/P-TR.md:470; transfer proof P-TR, subsection heading; new.
+Row 21. sec:tr-exceptional; paper/reader/proofs/P-TR.md@PENDING:495; transfer proof P-TR, subsection heading; new.
 
-Row 22. prop:tr-measure; paper/reader/proofs/P-TR.md:472; transfer proof P-TR, Proposition (The size of 𝖩.); finitely
-many intervals, total length below 1.698·10⁻¹¹.
+Row 22. prop:tr-measure; paper/reader/proofs/P-TR.md@PENDING:497; transfer proof P-TR, Proposition (The size of 𝖩.);
+finitely many intervals and points, total length below 1.698·10⁻¹¹; the multiple roots by prop:t49-simple.
 
-Row 23. prop:tr-fail; paper/reader/proofs/P-TR.md:503; transfer proof P-TR, Proposition (The bound fails near a
-crossing.); d_acc > D_acc when ε_ind(h) < 1.38·10⁻²⁵, by lem:ec-lb-rounds; h_c = 1/1001992 ∈ 𝖩.
+Row 23. prop:tr-fail; paper/reader/proofs/P-TR.md@PENDING:533; transfer proof P-TR, Proposition (The bound fails near
+a crossing.); d_acc > D_acc when ε_ind(h) < 1.38·10⁻²⁵, by lem:ec-lb-rounds; h_c = 1/1001992 ∈ 𝖩.
 
 Notes for existing rows: ch:explicit-constants (opening states the transfer, text 2); rem:ec-point-outside (text 3);
-rem:ec-lb-unbounded (text 4); in the crosswalk table of [[ch:theorems]], the list of further results (text 5); in that
-of [[ch:scope]], sec:scope-constants (text 6); in that of [[ch:s14]], rem:s14-eps-ind-scope (text 7).
+rem:ec-lb-unbounded (text 4); rem:uc-data-order-limits (text 8); in the crosswalk table of [[ch:theorems]], the list
+of further results (text 5); in that of [[ch:scope]], sec:scope-constants (text 6); in that of [[ch:s14]],
+rem:s14-eps-ind-scope (text 7).

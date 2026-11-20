@@ -395,3 +395,394 @@ there. By (2), (3) and the change of variables of (1), first to (z0, y) and then
                                      ≤ C ∫_(O∩𝒰_(2δ)(p)) |U − U′|²,
 
 the points (h_U(z0, y), y) with |y| < R(z0) lying in the closure of O ∩ 𝒰_(2δ)(p), whose boundary has measure zero. ∎
+
+#### The reduced problem through the axes {#sec:loc-axis-reduced}
+
+In this subsection a background on Q1 with margin δ_1 is fixed, together with cone data through the axes, of either
+sign, on N_o and N_i, of size at most ε in C^(m_0), with k ≥ 6 and with nonnegative densities on {0} × [0, v_1] and
+[0, u_1] × {0}; ε is as small as needed, and C, ε_0 depend only on k, u_1, v_1, δ_1, the background and the numbers fixed
+below in terms of these. We follow case (I) of [[sec:loc-cone-reduced]], whose notation is kept, with the changes stated.
+
+*The chart and the regions.* Fix δ_c ∈ (0, δ_1/8] and a nondecreasing β ∈ C^∞(ℝ) with β = 0 on (−∞, 0] and β = 1 on
+[1, ∞), and put s* := ln((u_1 + δ_c)(v_1 + δ_c)) + 1, M := s* − 2 ln δ_c + 1 and, on {u > −δ_c, v > −δ_c},
+
+    τ := ln((u + δ_c)(v + δ_c)) + M (β((u − u_1)/δ_1) + β((v − v_1)/δ_1)),      y := ((v + δ_c)/(u + δ_c)) ω(ϑ, φ1, φ2),
+                                                                                                    {#eq:loc-axis-time}
+
+the chart [[eq:loc-cone-time]] with its time changed by a function of (u, v). Its partial derivatives τ_u ≥ 1/(u + δ_c)
+and τ_v ≥ 1/(v + δ_c) are positive, so along each ray (u + δ_c, v + δ_c) = λ(1, ϱ), λ > 0, τ increases strictly with λ,
+from −∞ to ∞; hence (u, v) ↦ (τ, (v + δ_c)/(u + δ_c)) is a diffeomorphism of {u, v > −δ_c} onto ℝ × (0, ∞), and (τ, y) is
+a G-equivariant chart onto ℝ × (ℝ⁴ ∖ {0}) in which the metrics with fields smooth through the axes are smooth. The form
+dτ = τ_u du + τ_v dv is timelike, and positive on future causal vectors, for g_e, for every metric of the form
+[[eq:loc-double-null]], which has g^uu = g^vv = 0 and g^uv < 0, and for every Lorentzian metric close enough to g_e in C⁰
+on a compact set; and ∂_τ = λ((u + δ_c)∂_u + (v + δ_c)∂_v), λ := ((u + δ_c)τ_u + (v + δ_c)τ_v)⁻¹, is future timelike for
+g_e. By [[lem:loc-axis-leaf]] (i) the slice Σ_s := {τ = s} meets N_o in at most one sphere S_o(s) and N_i in at most one
+sphere S_i(s); with τ_c := 2 ln δ_c the time of the corner sphere, for s > τ_c it meets both, for s = τ_c both are S_c, and
+for s < τ_c the slice does not meet F. Put τ_init := ln(δ_c²/4), κ := δ_1/(4(l_u + l_v + 1)) and
+
+    𝒰^♯ := {(u, v) : u, v > −δ_c, τ_init ≤ τ ≤ s*, u + κv ≤ l_u + δ_1/2, v + κu ≤ l_v + δ_1/2},      𝔗(s) := F ∩ {τ ≤ s}.
+                                                                                                    {#eq:loc-axis-region}
+
+Then: (1) Q1 ⊂ 𝔗(s* − 1), the terms in β vanishing on Q1; and 𝔗(s*) ⊂ [0, l_u) × [0, l_v), since at a point of F with
+u ≥ l_u = u_1 + δ_1, τ ≥ ln(δ_c²) + M = s* + 1, and likewise for v. As u + κv < l_u + δ_1/4 and v + κu < l_v + δ_1/4 on
+[0, l_u) × [0, l_v), and τ ≥ τ_c > τ_init on F, F ∩ 𝒰^♯ = 𝔗(s*). (2) 𝒰^♯ is a compact subset of the interior of Q^♯ in
+the chart: on it v + δ_c ≤ l_v + δ_1, so τ ≥ τ_init gives u + δ_c ≥ e^(τ_init − 2M)/(l_v + δ_1), and likewise v + δ_c is
+bounded below. Its boundary consists of pieces of Σ_init, of Σ_(s*) and of the two far cuts, with the conormals dτ, du +
+κdv and dv + κdu, timelike and positive on future causal vectors for g_e, for every metric of the form
+[[eq:loc-double-null]] and for the Lorentzian metrics C⁰-close to g_e; so these pieces are spacelike, with 𝒰^♯ to their
+past. (3) Every slice of 𝒰^♯, of P ∩ 𝒰^♯ and of 𝔗(s) is a union of spheres {(u, v)} × S³, these sets being defined by
+conditions on (u, v); for s > τ_c the slice of 𝔗(s*) in Σ_s is bounded by S_o(s) and S_i(s) only. Every time that is a
+function of (u, v), increasing in both, has (3) and the property of [[lem:loc-axis-leaf]] (i); the choice
+[[eq:loc-axis-time]] makes 𝔗(s*), whose slices are bounded by sections of the two cones only, contain the whole of Q1
+while meeting the cones only where the data are given.
+
+*The system.* In case (I) of [[sec:loc-cone-reduced]] take Δ of [[lem:loc-axis-jets]] (c) with δ_e := δ_c/8, so that Δ
+vanishes near Σ_init, where (u + δ_c)(v + δ_c) ≤ δ_c²/4 as the terms in β are nonnegative; χ := χ_𝒰, with no factor χ_ϑ,
+equal to 1 on a neighbourhood 𝒰_1 of 𝒰^♯ and supported in a compact set 𝒰_2 in the interior of Q^♯ in the chart; θ equal
+to 1 on a neighbourhood of 𝒰^♯ and supported in 𝒰_1; and Ů, Û, 𝐔_c := 𝐔̊, ϒ and A^μ_♭ as there. Let 𝒰_3 be a compact
+neighbourhood of 𝒰_2 in the interior of Q^♯ in the chart, and ρ_- the least value of |y| on 𝒰_3. By compactness, as in
+step (6) of the proof of [[lem:loc-lens-dependence]], there are δ ∈ (0, ρ_-/4] and balls 𝔅 ⊂ 𝔅′ about Ů for which
+[[lem:class-leaf-differences]], for both families, and [[lem:loc-axis-shear]] hold near every point p ∈ 𝒰_2 of an axis
+in a slice Σ_s, τ_init ≤ s ≤ s*, with the same constants, and the leaves of the states of 𝔅′ through the points of the
+axis within 2δ of such p lie in 𝒰_3. Let ψ_0 ∈ C^∞(ℝ) equal 1 on [0, δ/4] and 0 on [δ/2, ∞), and ψ_ax := ψ_0(ρ1) +
+ψ_0(ρ2), with ρ1, ρ2 the radii of [[sec:class-phases]] in the coordinates y; it is smooth and G-invariant, the sets
+{ρ1 ≤ δ/2} and {ρ2 ≤ δ/2} being disjoint where |y| ≥ ρ_-. For G-invariant states U = (g, p_A, Θ_A, q_A) near Ů on the
+slices, let 𝒜^ax(U) = 0 be (Aug1), (Aug2) and (Aug4) of [[sec:class-augmented]], with the reduced Ricci tensor and the
+gauge vector relative to Ĝ, together with, in place of (Aug3),
+
+    P_A(Θ_A) = (1 − ψ_ax) S_A + ψ_ax S_A^ax,      S_A^ax := −κ_A⊥² − ½ (Θ_A − κ_A⊥)² − ½ σ_A[U]² − Σ_B q_B g⁻¹(p_A, p_B)²,
+                                                                                                    {#eq:loc-axis-closure}
+
+A ∈ {in, out}, with S_A of (Aug3), κ_A⊥ := κ_A1 near axis 2 and κ_A⊥ := κ_A2 near axis 1, and σ_A[U] that of the slice Σ_s
+of [[eq:loc-axis-time]] through the point ([[sec:loc-axis-leaves]]): the closure of Step 6 of the proof of
+[[thm:class-stability]], for both families and with no cut-off ζ_A. Let 𝔄_χ and F̃ be defined by
+[[eq:loc-cone-modified]], with 𝒜^ax in place of 𝒜 in the first-order form of Step 9, its local terms evaluated at
+𝐔̊ + ϒ(𝐔 − 𝐔̊) and its term in σ_A at 𝐔.
+
+**Lemma {#lem:loc-axis-system}** (The modified system through the axes.) Let ρ > 0 be so small that every 𝐔 = 𝐔̊ + Z on a
+slice with ‖Z‖_(H^k) ≤ ρ has |Z| ≤ r_0 and lies, near the points of the axes in 𝒰_2, in the balls 𝔅 and 𝔅′, and let
+𝒟_ρ be the set of [[sec:class-kato]] with s := k, u_* := 0 and the time interval [τ_init, s*]. For ε small:
+
+(a) on 𝒟_ρ, 𝔄_χ(𝐔) = F̃ has the form [[eq:class-kato-system]] for Z, with A^μ_χ symmetric and A^0_χ ≥ c_1 I as in
+[[lem:loc-cone-system]] (a), and with a forcing term Φ(τ, Z) that satisfies (F1)–(F3) and ‖Φ(τ, Z) − Φ(τ, 0)‖_(H^k) ≤
+C ‖Z‖_(H^k); these bounds and c_1 do not depend on ε;
+
+(b) where χ = 1, 𝔄_χ(𝐔) = 𝒜^ax(𝐔) for (τ, Z) ∈ 𝒟_ρ;
+
+(c) (c) of [[lem:loc-cone-system]] holds;
+
+(d) σ_A[Ů] = 0, and σ_A[Û] is the planar shear for Ĝ of the spheres {(u, v)} × S³ in the slices, a smooth function of
+Ĝ and its first derivatives; 𝒜^ax(Û) is a smooth function on supp χ that vanishes to infinite order on N; 𝔄_χ(Û) = F̃ on
+P, and F̃ is smooth and supported in supp χ;
+
+(e) R := 𝔄_χ(Ů) − F̃ is smooth and supported in supp χ, and sup_τ ‖R(τ)‖_(H^k) ≤ Cε.
+
+*Proof.* (a) The matrices and their bounds are those of [[lem:loc-cone-system]] (a) with χ_ϑ := 1, and its proof
+applies, A^0 being positive definite at 𝐔̊ on supp χ, where g_e is Lorentzian with dτ and ∂_τ timelike and P̊_A(τ) > 0.
+Put Φ(τ, Z) := χ (F_0(x, 𝐔) − A^μ(x, 𝐔̊ + ϒ(Z)) ∂_μ𝐔̊) + F̃. Its local part satisfies (F1)–(F3) and the linear bound, by
+[[rem:class-kato-local]] and [[lem:class-composition]] (b). Its term in σ_A is −½ χ ψ_ax σ_A[𝐔]² in the rows of
+[[eq:loc-axis-closure]], times bounded factors of the first-order form; by (d), σ_A[Ů] = 0, so [[lem:class-leaf-differences]]
+(a) about Ů, with [[lem:class-composition]] (a) for the square and sup |σ_A| bounded on 𝔅, bounds it in H^k by C ‖Z‖_(H^k),
+which gives (F1) and the linear bound; [[lem:class-leaf-differences]] (b), with σ_A bounded on 𝔅′, gives (F2); and (F3)
+follows from (F2) and the smoothness in τ of the coefficients, as in Step 9 of the proof of [[thm:class-stability]]. The
+term in σ_A at a time depends on the state at that time only. (b) is read off, ϒ being inactive where |Z| ≤ r_0, and (c)
+is proved as there.
+
+(d) Along a slice, v increases and u decreases with |y|, so the spheres {(u, v)} × S³ in Σ_s meet M3 in graphs with
+p_A(∂_z) ≠ 0 near the axes, and by [[lem:loc-axis-leaf]] (iii) they are the leaves of both families of Ů and of Û. So
+σ_A[Û] is their planar shear for Ĝ, a smooth function of Ĝ and its first derivatives, and σ_A[Ů] = 0, the null second
+fundamental form of a round sphere for g_e being a multiple of its metric. By [[lem:class-gauss]] (b), σ_A[Û] = Θ_h − κ_2
+for the eikonal −v, respectively −u, of Ĝ, so by [[eq:class-identity]], [[eq:class-x]] and [[prop:class-axis]] (d),
+(1 − ψ_ax) S_A(Û) + ψ_ax S_A^ax(Û) = −|∇²v|²_Ĝ − T̂(P̂_A, P̂_A), respectively with u, off the axes and by continuity at
+them, T̂ := q̂_in dv ⊗ dv + q̂_out du ⊗ du; and [[eq:class-raychaudhuri]] for that eikonal shows that the residual of
+[[eq:loc-axis-closure]] for Û is −E(P̂_A, P̂_A). The other residuals are those of the proof of [[lem:loc-cone-system]]
+(d). By [[lem:loc-axis-jets]] (c) they vanish to infinite order on N. The rest is the proof of (d) there.
+
+(e) R = 𝔄_χ(Ů) − 𝔄_χ(Û) + θ 1_F 𝔄_χ(Û). By (d) the term in σ_A of each is a smooth function of x and of the 1-jet of 𝐔̊,
+respectively of 𝐔̂, vanishing for 𝐔̊; for Ů the residual of [[eq:loc-axis-closure]] vanishes on F, the background solving
+[[eq:class-system]]. So the proof of (e) of [[lem:loc-cone-system]], case (I), applies: R is smooth, supported in supp χ,
+and its C^k norm is at most C ‖Δ‖_(C^(k+3)) ≤ Cε, by [[lem:loc-axis-jets]] (c). ∎
+
+**Lemma {#lem:loc-axis-energy}** (Energy with a non-local term.) [[lem:loc-cone-energy]] holds in every chart (t, x) whose
+slices are spacelike for the systems concerned, with t in place of τ, and with 𝐀^μ ∂_μ z = Mz + 𝔫 in place of 𝐀^μ ∂_μ z =
+Mz, where 𝔫 is continuous on 𝒟 and ‖𝔫‖_(L²(𝒟∩{t=s})) ≤ C ‖z‖_(L²(𝒟∩{t=s})) for every s.
+
+*Proof.* In the proof of [[lem:loc-cone-energy]], ∂_μ V^μ gains the term 2⟨𝔫, z⟩, whose integral over 𝒟 ∩ {t = s} is at
+most 2C ‖z‖²_(L²(𝒟∩{t=s})) ≤ (2C/c) e(s); the rest of the proof is unchanged. ∎
+
+**Lemma {#lem:loc-axis-cauchy}** (The Cauchy problem through the axes.) For ε ≤ ε_0 the system 𝔄_χ(𝐔) = F̃ has a smooth
+G-invariant solution on [τ_init, s*] × ℝ⁴ with 𝐔 = 𝐔̊ at τ_init, g_τ = ∂_τ g, g_a = ∂_a g, (τ, 𝐔 − 𝐔̊) ∈ 𝒟_ρ and
+sup_τ ‖𝐔 − 𝐔̊‖_(H^k) ≤ Cε; so the derivatives of order at most k − 3 of 𝐔 − 𝐔̊ are at most Cε.
+
+*Proof.* [[thm:class-kato]] (a), with (F1)–(F3) of [[lem:loc-axis-system]] (a), gives a solution Z with Z = 0 at τ_init on
+a maximal interval [τ_init, τ_m) ∩ [τ_init, s*], continued while ‖Z‖_(H^k) ≤ η_ρ ρ. On it Z solves the linear problem of
+[[lem:class-kato-linear]] with v := Z and f := Φ(τ, Z), ∂_τZ being bounded in H^(k−1) by the equation, and by part (a) of
+that lemma it is the solution of part (b) there. Part (c), with ‖Φ(τ, Z)‖_(H^k) ≤ ‖R(τ)‖_(H^k) + C ‖Z‖_(H^k), as
+Φ(τ, 0) = −R, and with K_Z bounded, ‖Z‖_(W^(1,∞)) ≤ C_S ρ and ∂_τZ being bounded by the equation, gives E_k(τ; Z)^(1/2) ≤
+C ∫_(τ_init)^τ (‖R‖_(H^k) + ‖Z‖_(H^k)), C independent of ε. By Gronwall's inequality and [[lem:loc-axis-system]] (e),
+‖Z(τ)‖_(H^k) ≤ C_2 ε on the interval. For ε ≤ η_ρ ρ/(2C_2) the continuation of [[thm:class-kato]] (a) gives τ_m > s*.
+[[thm:class-kato-stability]] is not used: it needs ρ = ∞, while the term in σ_A is defined on 𝒟_ρ only. The solution is
+smooth by the argument of the paragraph *Smoothness* of the proof of [[thm:class-stability]], without restarts, F̃ being
+smooth with compact support; and it is G-invariant, as the system is G-invariant, σ_A of the image of a state under an
+element of G being the image of σ_A, and as the solution is unique ([[thm:class-kato]] (a)). The rows of (c) of
+[[lem:loc-cone-system]] hold at τ_init, where 𝐔 = 𝐔̊. The pointwise bounds follow by the Sobolev inequality on the
+slices. ∎
+
+Below U denotes this solution, (g, p_A, Θ_A, q_A) its components and P_A := g⁻¹p_A.
+
+**Lemma {#lem:loc-axis-past}** (The past of the edges.) U = Û on P ∩ 𝒰^♯. So U − Û vanishes with all its derivatives on
+N ∩ 𝒰^♯, g and the densities induce the cone data there, and for τ_c ≤ s ≤ s* the spheres S_o(s) and S_i(s) are leaves of
+both families of U in Σ_s.
+
+*Proof.* On P, 𝔄_χ(𝐔) = F̃ = 𝔄_χ(Û). As in the proof of [[lem:loc-cone-past]], z := 𝐔 − 𝐔̂ satisfies on P ∩ 𝒰^♯ a system
+𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ := A^μ_χ(x, 𝐔̂ − 𝐔̊), M bounded, and 𝔫 := −½ χ ψ_ax (σ_A[𝐔]² − σ_A[Û]²) in the rows of
+[[eq:loc-axis-closure]], times bounded factors. The slices of P ∩ 𝒰^♯ are unions of spheres {(u, v)} × S³, which are the
+leaves of both families of Û in Σ_s ([[lem:loc-axis-system]] (d)); so [[lem:loc-axis-shear]], with Û in place of U and
+U in place of U′, both in 𝔅′, near the points of the axes in 𝒰_2, with σ_A bounded on 𝔅′, gives ‖𝔫(s)‖ ≤ C ‖z(s)‖ on the
+slices of P ∩ 𝒰^♯. [[lem:loc-axis-energy]] on the closure of P ∩ 𝒰^♯, with B_0 := Σ_init ∩ 𝒰^♯ and B_1 the pieces of N
+and of the far cuts, where the boundary matrix is nonnegative as in the proof of [[lem:loc-cone-past]], gives z = 0. U and
+Û are smooth, so they agree with all derivatives on N ∩ 𝒰^♯. By [[lem:loc-axis-leaf]] (iii), S_o(s) and S_i(s), which are
+leaves of both families of Û, are leaves of U. ∎
+
+**Lemma {#lem:loc-axis-propagation}** (The constraints on the slice-triangle.) On 𝔗(s*), g⁻¹(p_A, p_A) = 0, dp_A = 0,
+D(g) = 0 and Θ_A = div_g P_A. There are smooth G-invariant functions u_in, u_out on 𝒰′ := (P ∩ 𝒰^♯) ∪ 𝔗(s*) with p_in =
+−du_in, p_out = −du_out, u_in = v and u_out = u on P ∩ 𝒰^♯; (g, u_in, u_out, q_in, q_out) solves [[eq:class-system]] on
+𝔗(s*), with Ric(g) = q_in du_in ⊗ du_in + q_out du_out ⊗ du_out, in the gauge D(g) = 0 relative to Ĝ; and q_in ≥ 0 where
+u_in ≤ v_1 and q_out ≥ 0 where u_out ≤ u_1.
+
+*Proof.* On 𝔗(s*) ⊂ F ∩ 𝒰^♯, θ = 1 and χ = 1, so F̃ = 0 and 𝒜^ax(U) = 0 ([[lem:loc-axis-system]] (b)). An integral curve
+of P_A through a point of 𝔗(s*), followed to the past, decreases τ at a rate bounded below and cannot leave 𝔗(s*) through
+its slice in Σ_(s*), so it reaches N. *The phases.* (Aug2) holds on 𝔗(s*), the axes included, and the argument of the
+paragraph *The phases* of the proof of [[lem:loc-cone-constraints]], with 𝒪_1 := 𝔗(s*), gives ν_A = 0 and dp_A = 0 on
+𝔗(s*), and p_A = −du_A on the simply connected 𝒰′, with u_A fixed by its values on P ∩ 𝒰^♯. *The gauge and the
+expansions.* Put Δ_A := Θ_A − div_g P_A and let U′ be U with Θ_A replaced by div_g P_A. With p_A = −du_A an eikonal,
+[[eq:class-raychaudhuri]] holds for div_g P_A = □_g(−u_A), and by [[eq:class-identity]], [[eq:class-x]],
+[[prop:class-axis]] (d) and the last statement of [[lem:class-leaf-differences]] its right side is both S_A and S_A^ax
+with div_g P_A in place of Θ_A, σ_A[U′] in place of σ_A[U] and Ric(g) in place of T. Subtracting it from
+[[eq:loc-axis-closure]] and using [[prop:class-augmented]] (e),
+
+    P_A(Δ_A) = −Δ_A ((1 − ψ_ax)(Θ_A + div_g P_A − 2κ_A1 − 2κ_A2) + ½ ψ_ax (Θ_A + div_g P_A − 2κ_A⊥))
+               − ½ ψ_ax (σ_A[U]² − σ_A[U′]²) + g(∇_(P_A) D, P_A) + L(P_A, P_A),
+
+and D solves [[eq:class-gauge-wave]] with B_g T = Σ_A Δ_A q_A p_A, as ν_A = 0. In the first-order variables z := (D,
+∂_τ D, ∂_y D, Δ_in, Δ_out) this is a system 𝐀^μ ∂_μ z = Mz + 𝔫 on 𝔗(s*) of the form of Step 9, with the inverse metric g
+and the transport fields P_A, and 𝔫 the term in σ_A. For s > τ_c the slice of 𝔗(s*) in Σ_s is bounded by S_o(s) and
+S_i(s), leaves of U ([[lem:loc-axis-past]]); the leaves of U foliate a neighbourhood of each point of an axis, so the leaf
+of U through a point of that slice near an axis lies between these two, and its arc from the axis lies in the slice. U′
+lies in 𝔅′, 𝒩_k controlling div_g P_A at the order k − 1, as in Step 10 of the proof of [[thm:class-stability]]. So
+[[lem:loc-axis-shear]] gives ‖𝔫(s)‖ ≤ C ‖Δ(s)‖, with C independent of s, also near τ_c, where these slices are thin.
+By [[lem:loc-axis-past]], z vanishes on N ∩ 𝔗(s*), as D(Ĝ) = 0 relative to Ĝ and Θ̂_A = div_Ĝ P̂_A. [[lem:loc-axis-energy]]
+on 𝔗(s*), whose boundary consists of B_0 := N ∩ 𝔗(s*) and of its slice in Σ_(s*), gives z = 0. Then (Aug1) is Ric(g) =
+Σ_A q_A p_A ⊗ p_A and (Aug4) the conservation law, as in the proof of [[lem:loc-cone-constraints]], whose paragraph *The
+signs* gives the signs, the densities of the data being nonnegative on {0} × [0, v_1] and on [0, u_1] × {0}. ∎
+
+**Lemma {#lem:loc-axis-gauge}** (The double-null gauge through the axes.) Let ω′ be the map of 𝒰′ into S³ that is constant
+along the integral curves of P_out and equals ω on P ∩ 𝒰^♯, and Ψ := (u_out, u_in, ω′). Then Ψ is a G-equivariant
+diffeomorphism from 𝔗(s*) onto a set that contains Q1 × S³, equal to the identity with its differential on N ∩ 𝔗(s*). In
+the coordinates (u′, v′, ω′) := Ψ the metric g has the form [[eq:loc-double-null]] with fields smooth through the axes,
+and (g, v′, u′, q_in, q_out) is a class solution in the gauge through the axes on Ψ(𝔗(s*)) that induces the cone data on
+the edges. Its fields and densities differ from the background's by at most Cε in C^(k−4) on Q1 × S³. Ψ is the identity
+on every set on which U = Ů that contains, with each point, its past integral curve of P_out up to P ∩ 𝒰^♯.
+
+*Proof.* The proof of [[lem:loc-cone-gauge]], case (I), applies, with the point ω′ of S³ in place of the angle ϑ′ and
+𝔗(s*) ⊃ Q1 in place of F ∩ 𝒰_σ ⊃ G_*. The flow of P_out commutes with G, P_out being G-invariant, so ω′ is smooth and
+G-equivariant; Ψ − id is at most Cε in C^(k−3), by [[lem:loc-axis-cauchy]]; 𝔗(s*) is a down-set in (u, v), so Ψ is
+injective; and as Q1 ⊂ 𝔗(s* − 1) lies at positive distance from the slice of 𝔗(s*) in Σ_(s*), the degree argument there
+gives Ψ(𝔗(s*)) ⊃ Q1 for ε small. In the coordinates (u′, v′, ω′), g⁻¹(du′, du′) = g⁻¹(dv′, dv′) = 0, and g⁻¹du′ = −P_out
+annihilates du′ and dω′; so with coordinates θ^a of S³, g^(u′u′) = g^(v′v′) = g^(u′a) = 0. A metric with such an inverse
+is −2Ω² (du′ ⊗ dv′ + dv′ ⊗ du′) + γ_ab (dθ^a − b^a du′)(dθ^b − b^b du′), with −1/(2Ω²) = g^(u′v′), γ_ab the inverse of
+g^ab and b^a = g^(v′a)/g^(u′v′), as the frame computation in the proof of [[lem:loc-axis-jets]] shows; these are smooth,
+since g and the coordinates are, and by G-equivariance γ is a G-invariant metric on S³ and b a G-invariant vector field:
+this is [[eq:loc-double-null]] with fields smooth through the axes. The rest is as there. ∎
+
+**Lemma {#lem:loc-axis-dependence}** (Dependence on the past faces of a double-null rectangle.) Let Ĝ′ be a smooth
+G-invariant Lorentzian metric, and, for i = 1, 2, let U_i = (g_i, −dv_i, −du_i, div_(g_i) P_i^A, q_i^A) be smooth
+G-invariant states on a neighbourhood 𝒪 of a compact set R′, with u_i and v_i null for g_i and P_i^in := g_i⁻¹(−dv_i),
+P_i^out := g_i⁻¹(−du_i) future directed, that solve [[eq:class-system]] on R′ in the gauge D(g_i) = 0 relative to Ĝ′. Let
+(u_1, v_1, ω_1), ω_1 ∈ S³, be coordinates on 𝒪 in which g_1 has the form [[eq:loc-double-null]] with fields smooth through
+the axes and R′ = [0, a] × [0, b] × S³. If U_2 and U_1 agree, with all their derivatives, on R′ ∩ ({u_1 = 0} ∪ {v_1 =
+0}), then U_2 = U_1 on R′. No smallness of U_1, of U_2 or of U_2 − U_1 is assumed.
+
+*Proof.* *The chart.* Fix μ ≥ 1 with 4μΩ_1² > γ_1(b_1, b_1) on R′, and put t := u_1 + v_1 and x := e^(v_1 − μu_1) ω_1.
+(t, x) is a G-equivariant chart near R′ onto an open set of ℝ × (ℝ⁴ ∖ {0}); dt is timelike for g_1, and ∂_t, a positive
+multiple of ∂_(u_1) + μ ∂_(v_1), is future timelike for g_1 on R′, as g_1(∂_(u_1) + μ∂_(v_1), ∂_(u_1) + μ∂_(v_1)) =
+−4μΩ_1² + γ_1(b_1, b_1). So the first-order form of Step 9 of the proof of [[thm:class-stability-off-axes]] in this chart
+has A^0 positive definite at U_1 on R′. The slices O_s := R′ ∩ {t = s} are unions of spheres {u_1 = c, v_1 = s − c}.
+
+*The equations.* For U_i the leaves of [[lem:class-leaf-differences]] in the slices of the chart, where they exist, are the
+level sets of its phases (the last statement there, which uses only p_A = −du_A null and Θ_A = div P_A), σ_A[U_i] is their
+planar shear, and by [[eq:class-identity]], [[eq:class-x]] and [[prop:class-axis]] (d) both S_A and S_A^ax equal
+−|∇²u_A|² − T(P_A, P_A); so on R′, by [[eq:class-raychaudhuri]], U_i solves 𝒜^ax of [[eq:loc-axis-closure]] with Ĝ′ in
+place of Ĝ and every partition ψ_ax. The leaves of both families of U_1 in {t = s} are the spheres {u_1 = c, v_1 =
+s − c}.
+
+*Continuity in t.* Let t* be the supremum of the s ∈ [0, a + b] with U_2 = U_1 on R′ ∩ {t ≤ s}; the set of these s is
+closed, and it contains 0, R′ ∩ {t ≤ 0} being the corner sphere. Suppose t* < a + b. Take δ, the balls 𝔅 ⊂ 𝔅′ and the
+constants of [[lem:class-leaf-differences]] and [[lem:loc-axis-shear]] for ů := U_1 in this chart, uniform near the points
+of the axes in R′ ∩ {t* ≤ t ≤ t* + 1}. U_2 − U_1 is smooth and vanishes with all derivatives on R′ ∩ {t ≤ t*}, on the
+past faces by hypothesis; so for every ϵ′ > 0 there is θ ∈ (0, 1] such that the derivatives of order at most k of U_2 −
+U_1 are at most ϵ′ on the set 𝒩_θ of the points of 𝒪 whose coordinates (u_1, v_1) lie within θ of those of a point of R′
+∩ {t ≤ t*}. Let χ_θ be a G-invariant cut-off equal to 1 on 𝒩_(θ/2) and supported in 𝒩_θ, and W := U_1 + χ_θ (U_2 −
+U_1); for ϵ′ small, W ∈ 𝔅′ on the slices. Let s ∈ [t*, t* + θ/8] and let x ∈ O_s lie near an axis. R′ is star-shaped
+about (0, 0) in (u_1, v_1), and the point (t*/s)(u_1, v_1)(x) lies in R′ ∩ {t = t*} within √2 (s − t*) of (u_1,
+v_1)(x); so O_s ⊂ 𝒩_(θ/4), and the arc of the leaf of U_1 through x lies in 𝒩_(θ/4), O_s being a union of its leaves.
+The arc of the leaf of W through x,
+C¹-close to that one for ϵ′ small, lies in 𝒩_(θ/2), where W = U_2; by the uniqueness in [[lem:class-volterra]] it is the
+arc of the leaf of U_2, and σ_A[W] = σ_A[U_2] on O_s. [[lem:loc-axis-shear]], with U_1 in place of U, O_s being a union of
+its leaves, and W in place of U′, gives ‖σ_A[U_2] − σ_A[U_1]‖_(L²(O_s∩𝒰_δ(p))) ≤ C ‖U_2 − U_1‖_(L²(O_s)) at every such
+point p of an axis. So the difference z of the first-order variables of U_2 and U_1 satisfies on R′ ∩ {t* ≤ t ≤ t* +
+θ/8} a system 𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ at U_1, M bounded and ‖𝔫(s)‖ ≤ C ‖z(s)‖. The lateral boundary of this set
+consists of pieces of {u_1 = 0} and {v_1 = 0}, where z = 0, and of {u_1 = a} and {v_1 = b}, whose outward conormals du_1
+and dv_1 are null for g_1, positive on ∂_t and nonnegative on the transport fields of U_1 (du_1(P_1^out) = 0 <
+du_1(P_1^in) and dv_1(P_1^in) = 0 < dv_1(P_1^out)); so the boundary matrix is nonnegative there (the paragraph after
+[[lem:loc-cone-energy]]). [[lem:loc-axis-energy]], with B_0 the slice {t = t*} and the pieces of the past faces, gives
+z = 0 on R′ ∩ {t ≤ t* + θ/8}, against the definition of t*. So t* = a + b. ∎
+
+**Lemma {#lem:loc-axis-unique}** (Uniqueness in the double-null gauge.) Let k ≥ 9, let Q1′ := [0, u_1′] × [0, v_1′] ⊂ Q1
+with u_1′, v_1′ > 0, and let (g′, q′_in, q′_out) be a class solution in the gauge through the axes on Q1′ × S³ that
+induces the cone data on the edges of Q1′, with fields within ε_2 of the background's in C^(k−4). For ε and ε_2 small it
+equals the solution of [[lem:loc-axis-gauge]] on Q1′ × S³.
+
+*Proof.* (1) By [[lem:loc-axis-jets]] (b), (iv) of [[lem:loc-cone-jets]], the fields and densities of g′ have across
+N ∩ Q1′ the derivatives a_j and b_k, those of Ĝ; so g″ := g′ on Q1′ and Ĝ on P ∩ 𝒰_1 is smooth on Q1′ ∪ (P ∩ 𝒰_1).
+
+(2) Fix u″ ∈ (0, u_1′), v″ ∈ (0, v_1′) and put Q1″ := [0, u″] × [0, v″]. As in step (2) of the proof of
+[[lem:loc-cone-unique]], seek Φ = id + φ with id: (Φ(Q1″), (Φ⁻¹)^*g″) → Ĝ a wave map, now in the chart [[eq:loc-axis-time]]
+with the initial slice Σ_init, with no cut-off in ϑ, with a cut-off χ′ in (u, v) equal to 1 on a neighbourhood of Q1″ and
+supported in ((0, u_1′) × (0, v_1′) ∪ P) ∩ 𝒰_1, hence where g″ is defined, and with the frozen part taken with the wave
+operator of g_e. The wave map system is semilinear and local, with coefficients smooth in the chart through the axes.
+φ := 0 satisfies the cut-off system on P exactly, as g″ = Ĝ there, and on F up to the residual χ′ 1_F g″^μν (Γ[Ĝ] −
+Γ[g″])^λ_μν, which is smooth, as it vanishes to infinite order on N ∩ Q1′ by (1), and at most C(ε + ε_2) in C^(k−5).
+[[thm:class-kato-stability]] (a), with s := k − 5 > 3, gives a smooth G-equivariant solution φ on [τ_init, s*] × ℝ⁴, at
+most C(ε + ε_2)^(1/(4s)) in W^(1,∞); φ = 0 on P ∩ 𝒰^♯, by the argument of the proof of [[lem:loc-cone-past]]; and φ
+solves the wave map system on Q1″, χ′ being 1 there.
+
+(3) For ε and ε_2 small, Φ is a G-equivariant diffeomorphism near the identity, equal to it on P ∩ 𝒰^♯ and so, with all
+derivatives, on N, with Φ(F) ⊂ F near Q1 and Φ(Q1″) ⊂ 𝔗(s*). Put g̃ := (Φ⁻¹)^*g″, ũ := u ∘ Φ⁻¹, ṽ := v ∘ Φ⁻¹, ω̃ := ω ∘
+Φ⁻¹ and q̃_A := q′_A ∘ Φ⁻¹. Then g̃ is in the gauge D(g̃) = 0 relative to Ĝ, has the form [[eq:loc-double-null]] with
+fields smooth through the axes in the coordinates (ũ, ṽ, ω̃) near Φ(Q1″), where Φ(Q1″) = [0, u″] × [0, v″], and
+(g̃, ṽ, ũ, q̃_in, q̃_out) solves [[eq:class-system]] on Φ(Q1″); and the state of g̃ agrees with Û, hence with U, with all
+derivatives on N ∩ Φ(Q1″) = N ∩ Q1″. U is, on 𝒰′, of the form required in [[lem:loc-axis-dependence]], and solves
+[[eq:class-system]] on 𝔗(s*) in the same gauge ([[lem:loc-axis-propagation]]). [[lem:loc-axis-dependence]], with U_1 the
+state of g̃, R′ := Φ(Q1″) and U_2 := U, gives U = g̃ on Φ(Q1″).
+
+(4) As in step (4) of the proof of [[lem:loc-cone-unique]], with the point ω of S³ in place of ϑ: Φ is an isometry from
+(g′, u, v) to (g, u_out, u_in) on Q1″, with u = u_out ∘ Φ and v = u_in ∘ Φ; it carries g′⁻¹du to g⁻¹du_out, so ω′ ∘ Φ is
+constant along the integral curves of g′⁻¹du, which are the curves of constant u and ω, and equals ω on N_i, where Φ is the
+identity. So Ψ ∘ Φ is the identity on Q1″, and g′ has there the fields of the solution of [[lem:loc-axis-gauge]]. Letting
+u″ → u_1′ and v″ → v_1′ gives the claim by continuity. ∎
+
+**Lemma {#lem:loc-axis-angle}** (Localisation near an axis.) Let ϑ_a′ ∈ (0, π/4], and let the cone data equal the
+background's at the points with ϑ < ϑ_a′. Then U = Ů at the points of 𝔗(s*) with ϑ < ϑ_a′ − 2C_* ((u + δ_c)(v +
+δ_c))^(1/2), and Ψ is the identity there. Likewise, for ϑ_b′ ∈ [π/4, π/2), with ϑ > ϑ_b′ and ϑ > ϑ_b′ + 2C_* ((u + δ_c)
+(v + δ_c))^(1/2).
+
+*Proof.* By [[lem:loc-axis-jets]] (b) all derivatives across N are the background's at the points with ϑ < ϑ_a′, so Δ
+vanishes there ([[lem:loc-axis-jets]] (c)), and Ĝ = g_e and Û = Ů there. There Ů solves 𝒜^ax: the background solves
+[[eq:class-system]], D(g_e) = 0 relative to Ĝ = g_e, and the residual of [[eq:loc-axis-closure]] vanishes for it
+([[lem:loc-axis-system]] (d), (e)). For ι ∈ (0, ϑ_a′/4) put α := ϑ_a′ − ι − 2C_* e^(τ_1/2), τ_1 := ln((u + δ_c)(v + δ_c)),
+and 𝒲 := 𝔗(s*) ∩ {α ≥ ι, ϑ ≤ α}. Its lateral boundary consists of a piece of N, where U − Ů vanishes with all derivatives
+([[lem:loc-axis-past]], with Û = Ů there), of a piece of the level set {α = ι} of τ_1, with the outward conormal dτ_1,
+future timelike for g_e and positive on ∂_τ and on the P̊_A, and of the face {ϑ = α}, which lies off the axes and has the
+outward conormal ν := dϑ + C_* e^(τ_1/2) dτ_1; as in the proof of [[lem:loc-cone-support]], g_e⁻¹(ν, ν) = R_e⁻² −
+2C_*² e^(−2σ_e) < 0, ν(∂_τ) > 0 and ν(P̊_A) > 0. So the boundary matrix at 𝐔̊ is nonnegative on both faces. z := 𝐔 − 𝐔̊
+satisfies on 𝒲, where U and Ů solve 𝒜^ax, a system 𝐀^μ ∂_μ z = Mz + 𝔫 with 𝐀^μ at 𝐔̊ and 𝔫 the difference of the terms in
+σ_A. Let O_s be the interior of 𝒲 ∩ Σ_s. Near axis 2 the leaf of Ů through a point x of O_s is the sphere {(u(x), v(x))}
+× S³, and its arc from the axis to x has the same (u, v) and ϑ ≤ ϑ(x), so it lies in the closure of O_s; near axis 1 there
+is nothing to estimate, ψ_ax vanishing on {ϑ ≤ π/4} near axis 1, as ρ1 = |y| cos ϑ ≥ ρ_-/√2 > δ/2 there. So
+[[lem:loc-axis-shear]], with Ů in place of U and U in place of U′, gives ‖𝔫(s)‖ ≤ C ‖z(s)‖. [[lem:loc-axis-energy]] on 𝒲,
+with B_0 the piece of N and B_1 the two faces, gives z = 0. A point with ϑ < ϑ_a′ − 2C_* e^(τ_1/2) lies in 𝒲 for ι small.
+The past integral curve of P_out = P̊_out, a multiple of ∂_v, from a point of 𝒲 keeps u and ω and decreases v, so α
+increases along it, and it stays in 𝒲 until it meets N_i, and then lies in P; so Ψ is the identity on 𝒲
+([[lem:loc-axis-gauge]]). Near axis 1 the same argument applies with π/2 − ϑ in place of ϑ. ∎
+
+*Proof of [[thm:loc-axis]].* By [[lem:loc-axis-constraints]] (c), with 2p = 2m_0 + 6 = m_1, the data extend to cone data
+of either sign through the axes on N_o and N_i, in the normalised gauge, of size at most Cε in C^(m_0), equal to the given
+data, with their nonnegative densities, on {0} × [0, v_1] and [0, u_1] × {0}. For ε small, [[lem:loc-axis-cauchy]],
+[[lem:loc-axis-past]], [[lem:loc-axis-propagation]] and [[lem:loc-axis-gauge]] give (a) and (b): in the coordinates of
+[[lem:loc-axis-gauge]] the phases are v′ and u′, so the densities are nonnegative on Q1 by [[lem:loc-axis-propagation]].
+(c) is [[lem:loc-axis-unique]]. For the first part of (d), the background is a class solution in the gauge through the
+axes on [0, u′] × [0, v′] × S³ for 0 < u′ < min(u_K, u_1) and 0 < v′ < min(v_K, v_1), inducing the data on the edges of
+that rectangle, so by (c) the solution equals it there. For the second part, [[lem:loc-axis-angle]] holds for every δ_c ∈
+(0, δ_1/8], and Ψ is the identity on the sets concerned; by (b) and (c) the solutions obtained with different δ_c, all
+within Cε of the background's in C^(k−4), coincide on Q1, and letting δ_c → 0 gives (d). ∎
+
+#### The background of this chapter on the crossing rectangle {#sec:loc-axis-example}
+
+**Lemma {#lem:loc-axis-rectangle}** (The background on the crossing rectangle.) For the background of [[sec:bg-data]], in
+the coordinates (u, v) of [[sec:loc-setting]], the rectangle [0, 7.2] × [0, 4.5] lies in the set G of
+[[prop:two-dust-background]] (d), and R ≥ 1.5 and R_v > 0 on it. So there is δ_1 > 0 for which the background, extended
+across the cones as in the proof of [[lem:loc-cone-strips]] (b), is a background on Q1 := [0, 7.2] × [0, 4.5] with margin
+δ_1.
+
+*Proof.* We use [[lem:two-dust-identities]], [[eq:two-dust-constraints]] and the parts (b)–(d) of
+[[prop:two-dust-background]], which hold in these coordinates ([[lem:two-dust-reparametrisation]] (b)): e^(2σ) = 1/2 on
+both cones, G is a closed past set in Q whose boundary in Q lies in {R = a}, a = 0.70, and on G, R_u < 0 and μ ≥ μ0 > 0.
+
+*On 𝒞_in.* There σ_u = 0, so C_u = 0 reads R_uu = −ℬ/(3R²). By [[lem:bg-reduction]] (a), R_u = −0.47 at u = 5.7; R > 1.5
+on 𝒞_in ∩ {u ≤ 7.2} ([[lem:loc-cone-strips]] (c)); and 0 ≤ ℬ ≤ 1.7, the bump being at most 1. So |R_u(7.2, 0)| ≤ 0.47 +
+1.5 × 1.7/(3 × 2.25) ≤ 0.84778. The cone 𝒞_in ∩ {u ≤ 7.2} is untrapped, R² > 3/2 ≥ μ ([[sec:loc-setting]]), so f = 1 −
+μ/R² > 0 there and, as f = −2e^(−2σ) R_u R_v, R_v > 0; at u = 7.2, μ = μ3 ≤ 0.8221253 ([[sec:loc-setting]]), so f ≥ 1 −
+0.8221253/2.25 ≥ 0.63461 and R_v(7.2, 0) = f/(4|R_u(7.2, 0)|) ≥ 0.18713. The points of 𝒞_in ∩ {u ≤ 7.2} lie in G (proof
+of [[lem:loc-cone-strips]] (a)).
+
+*Before the shell.* Let v* be the supremum of the v ∈ [0, 4.5] with (7.2, v) ∈ G; G being closed and a past set,
+[0, 7.2] × [0, v*] ⊂ G. There σ_uv = (3/2) e^(2σ) μ/R⁴ > 0 and σ_v = 0 on 𝒞_out, so σ_v ≥ 0 and e^(2σ) ≥ 1/2. On
+{v ≤ 3}, 𝒜 = 0, so e^(−2σ) R_v does not depend on v ([[lem:two-dust-identities]] (iv)), and R_v(u, v) = 2e^(2σ(u, v))
+R_v(u, 0) ≥ R_v(u, 0) > 0 for v ≤ min(v*, 3). With R_u < 0, R(u, v) ≥ R(7.2, v) ≥ 1.5 + 0.18713 v there.
+
+*Through the shell.* Let v* ≥ 3, so that R(7.2, 3) ≥ 2.0613, and let v′ be the supremum of the v ∈ [3, v*] with R_v > 0
+on [0, 7.2] × [0, v]. On [0, 7.2] × [0, v′], μ_u = −(2/3) ℬ e^(−2σ) R_v ≤ 0 ([[lem:two-dust-identities]] (i)), so μ(u,
+v) ≤ μ(0, v) ≤ 3.6059 ([[lem:margins-region-one]] (a)), and R(u, v) ≥ R(7.2, v) ≥ R(7.2, 3) ≥ 2.0613; so f ≥ 1 −
+3.6059/2.0613² > 0.15 and R_v = −e^(2σ) f/(2R_u) > 0 there, at v = v′ too, and by continuity a little beyond. So v′ =
+v*, and in either case R ≥ 1.5 > a and R_v > 0 on [0, 7.2] × [0, v*].
+
+*Conclusion.* If v* < 4.5, then (7.2, v*) ∈ G with R > a, so it is not on the boundary of G in Q, and G contains a
+neighbourhood of it in Q, against the choice of v*. So v* = 4.5. The set {p ∈ G : R(p) > a} is open in Q and contains the
+compact [0, 7.2] × [0, 4.5], so it contains [0, 7.2 + 2δ_1] × [0, 4.5 + 2δ_1] for some δ_1 > 0, and the background is
+smooth there and solves [[eq:two-dust-limit]]. [[lem:loc-cone-borel]], with r := 0, applied to the derivatives of σ and R
+across {u = 0} and {v = 0}, as in the proof of [[lem:loc-cone-strips]] (b), gives smooth σ_e and R_e on Q^♯ equal to σ
+and R on Q^♯ ∩ F, with R_e > 0 after decreasing δ_1. ∎
+
+**Corollary {#cor:loc-axis-cones}** (Cone data reaching the axes for the background of [[sec:bg-data]].) Let k ≥ 9. On
+𝒞_out ∩ {v ≤ 4.5} let free data (ℓ_1, ℓ_2, ℓ_3) and q_in ≥ 0 be given as in [[prop:loc-cones]], and on 𝒞_in ∩ {u ≤ 7.2}
+free data and q_out ≥ 0 as in [[lem:loc-cone-in]], with Ω the background's on both cones, b = 0 on 𝒞_in, the values of ϕ,
+∂_vϕ, b and ∂_vb at v = 0 on 𝒞_out and of ϕ and ∂_uϕ at u = 0 on 𝒞_in the background's, and the two sets of free data
+agreeing on S, but with no restriction of their supports in angle: the metrics γ̂ of [[lem:loc-axis-constraints]] (b)
+that they define are smooth metrics on S³, the densities are smooth through the axes, and these differ from dΩ₃² and from
+the background's densities by at most ε in C^(m_1 + 3). For ε small the constraints determine cone data through the axes,
+and their development of [[thm:loc-axis]] exists on [0, 7.2] × [0, 4.5] × S³, with (b)–(d) there. So every small
+perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} and of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, at once, and every small
+density added on either cone, the axes included, has a development on the whole rectangle in which the two dusts cross.
+
+*Proof.* [[lem:loc-axis-rectangle]] gives the background on Q1 with margin δ_1. By [[lem:loc-axis-constraints]] (b) the
+constraints determine Y and b along every generator, the axis generators included. The coefficients of the equation for Y
+differ from the background's by at most Cε in C^(m_1 + 2), and its initial values are the background's, so Y − R_e is at
+most Cε in C^(m_1 + 2) and Y > 0 for ε small; then the coefficients and the inhomogeneous term of the equation for W are
+within Cε of the background's in C^(m_1), and b is at most Cε in C^(m_1). So the cone data are cone data through the axes
+in the normalised gauge, of size at most Cε in C^(m_1), with nonnegative densities, and [[thm:loc-axis]] applies. ∎
+
+**Remark {#rem:loc-axis-constants}** (What the constants depend on.) [[lem:loc-axis-leaf]] and [[lem:loc-axis-shear]]
+use no smallness: the constant of [[eq:loc-axis-shear]] depends only on the ball 𝔅′ about a solution, that is on bounds
+of the states in C² and on the lower bound of |p_A(∂_z)| at the axis, and on the chart, and not on the set O.
+[[lem:loc-axis-dependence]] uses no smallness of either solution, only the leaf constants of the first one near the
+times up to which the two agree. [[lem:loc-axis-jets]] uses no smallness except for the Lorentzian character of Ĝ, and
+the constraints of [[lem:loc-axis-constraints]] (b) need only Y > 0. Smallness enters in three places: Û must lie in the
+ball 𝔅′ about Ů, through ‖Δ‖_(C^(k+3)) ≤ Cε ([[lem:loc-axis-jets]] (c)); the solution must stay, over the whole interval
+[τ_init, s*], in the ball 𝒟_ρ about the background in H^k on which the term in σ_A is defined, which the bound of
+[[lem:loc-axis-system]] (e) gives ([[lem:loc-axis-cauchy]]); and the extension of the data beyond u_1 and v_1 must keep Y
+positive ([[lem:loc-axis-constraints]] (c)), as must the constraints in [[cor:loc-axis-cones]]. The radius ρ, the number
+δ and the leaf constants are those of the background, and the constants of [[lem:loc-axis-system]] (a) and of
+[[lem:loc-axis-cauchy]] do not depend on ε.
+
+**Remark {#rem:loc-axis-scope}** (What [[thm:loc-axis]] does not give.) (i) *Large data at the axes.* The term in σ_A is
+defined, through [[lem:class-leaf-differences]], on balls about a solution, and the Cauchy problem is solved about the
+background over the whole interval; for cone data that are not near the background's at the axes nothing is asserted
+there. Off the axes, [[thm:civp-large]] needs no smallness. (ii) *Further families.* Only the two families adapted to the
+double-null gauge are treated. A further family with a density at a point where a cone meets an axis would need the
+sections of that cone by the slices to be among its leaves, which by [[lem:loc-axis-leaf]] (ii) requires its phase to be
+constant on them; one whose density reaches an axis inside F would need its expansion defect to be estimated on a region
+that contains a whole neighbourhood of the axis on which its cut-off ζ_A equals 1, as in Step 10 of the proof of
+[[thm:class-stability]], while ζ_A must vanish near the points where the cones meet the axes. Neither case is treated
+here, nor are further families whose densities avoid the axes. (iii) *Regularity.* The data are smooth and small in
+C^(m_1); densities that are only bounded, or measures, are not covered ([[rem:loc-cone-scope]] (iii)).
