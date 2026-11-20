@@ -1932,20 +1932,23 @@ where ℋ_data := ρ_sf^(α_sf)H̄¹_b(X_0, r⁴|dr d𝑔̸|) ⊕ ρ_sf^(α_sf)H
 Heaviside function), and the pairing [Hin26a, (5.70)],
 h⁻¹Im⟨P_hω, a²L_hω⟩ = ⟨𝒞ω, ω⟩ − h⁻¹‖aL_hω‖². The principal symbol of 𝒞 is aT_(G,da,ℓ) − a²E, with T of
 [[eq:iv5-6-t]], since H_Ga = 2g⁻¹(ζ, da). This leads to the decomposition [Hin26a, (5.71)], whose derivation only
-expands (i/2)(□_h*bL_h − L_h*b□_h) in local coordinates with b = a²; its part from □_h and from the principal part
-−ihℓ⟨∇·⟩ of L_h is h² times [[eq:iv5-6-energy]], with the R, f_1, f_2 and w below (for ω vanishing for t < 0 by
-density, each term being continuous in the norm of ρ_sf^(α_sf)H²_(3b,h)). Then a da is [Hin26a, (5.72)], and the
+expands (i/2)(□_h*bL_h − L_h*b□_h) in local coordinates with b = a². Its part from □_h and from the principal part
+−ihℓ⟨∇·⟩ of L_h is h²∫_R B(□_gω, w²ℓ⟨∇ω⟩)|dg| for real ω, and the sum of this for Re ω and Im ω in general, with the
+R and w below; [[eq:iv5-6-energy]] writes it through the 𝒬-terms and 𝓡 (for ω vanishing for t < 0 by density, each
+term being continuous in the norm of ρ_sf^(α_sf)H²_(3b,h)). Then a da is [Hin26a, (5.72)], and the
 weight identity [Hin26a, (5.73)] holds: aT_(G,−da,ℓ) = ρ_sf⁴T_(ρ_sf⁻²G, −a da, ρ_sf⁻²ℓ), as T is linear in each of its
 three arguments, free of the dimension.
 
 −a da is past timelike for 𝔛 large, since dτ is past timelike with r²g⁻¹(dτ, dτ) ≤ −¾ ([[lem:iv5-0-3]] (b)) and the
 δ(r − r_♯)-part of −a da is a positive multiple of −dr, past timelike ([[lem:iv5-0-3]] (c)). So [[cor:iv5-6-energy]]
-applies on R := {r ≥ r_♯, τ ≤ T_0}, with f_1 := τ − T_0, f_2 := r_♯ − r and w := ρ_sf^(−α_sf−2)e^(−𝔛τ), so that
+applies, on N := ℝ_t × {r > ½r_♯} and R := {r ≥ r_♯, τ ≤ T_0}, with f_1 := τ − T_0, f_2 := r_♯ − r and
+w := ρ_sf^(−α_sf−2)e^(−𝔛τ), so that
 a = wH(T_0 − τ)H(r − r_♯). Its bulk term carries −d(w²) = 2w²(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf), and its two boundary terms
 carry dτ on {τ = T_0} and −dr on Σ^♯; these are the parts of −a da with the weights 𝔛a² +
 ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(T_0 − τ) and ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(r − r_♯). The hypotheses of [[cor:iv5-6-energy]] (ii)
-hold uniformly for b ∈ U: the components of g and rc are continuous on Ω ([[lem:iv5-0-2]] (a), (d)), rc is past
-timelike ([[lem:iv5-0-5]] (1)), e = 1/102400 < 2/5, and r(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) = 𝔛(dt − τ dr) − (α_sf + 2)dr,
+hold uniformly for b ∈ U: the components of g and rc, continuous on the compact Ω and in b ([[lem:iv5-0-2]] (a), (d)),
+lie in a compact set of pairs, rc being past timelike ([[lem:iv5-0-5]] (1)); e = 1/102400 < 2/5; and
+r(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) = 𝔛(dt − τ dr) − (α_sf + 2)dr,
 r dτ = dt − T_0 dr on {τ = T_0} and −r dr on Σ^♯ satisfy its condition with one κ > 0 for 𝔛 large, by
 [[lem:iv5-0-3]] (b), (c). So each of the three terms is at least c₀ times the corresponding weighted integral of the
 square of |r∇ω|_B, the bulk term with the factor 𝔛. Here the level sets of τ carry r⁴|dr d𝑔̸|, which tensored with |dτ|

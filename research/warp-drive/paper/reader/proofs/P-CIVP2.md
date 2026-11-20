@@ -505,9 +505,9 @@ f₄-components are f̄₄ and its f₃-components the solution of [[lem:civp-la
 when the identities of [[prop:civp-large-system]] (b) hold at its points; on the closure of a set where they hold they
 hold too, F being smooth. Where F is geometric, (g_F, v, u, q_in, q_out) is a class solution in the gauge, by that
 proposition. We say that F is *geometric to first order* at a point if there its components χ, χ̲, η, η̲, ϖ, ϖ̲ are the
-connection coefficients of h_F and Ψ° = Ψ, Ψ_3 = e3Ψ, Ψ_4 = e4Ψ, Ψ_1 = Ψ′_1 = e1Ψ for Ψ ∈ {ψ, ω}. We show that F is geometric on 𝒮_δ ×
-(0, π/2). As 𝒮_δ = 𝒯₁ ∪ 𝒯₂, 𝒯₁ := [0, δ] × [0, v1], 𝒯₂ := [0, u1] × [0, δ], it suffices to treat one of them, 𝒯 =
-[0, l1] × [0, l2].
+connection coefficients of h_F and Ψ° = Ψ, Ψ_3 = e3Ψ, Ψ_4 = e4Ψ, Ψ_1 = Ψ′_1 = e1Ψ for Ψ ∈ {ψ, ω}. We show that F is
+geometric on 𝒮_δ × (0, π/2). As 𝒮_δ = 𝒯₁ ∪ 𝒯₂, 𝒯₁ := [0, δ] × [0, v1], 𝒯₂ := [0, u1] × [0, δ], it suffices to treat one
+of them, 𝒯 = [0, l1] × [0, l2].
 
 *Constants.* F is smooth on 𝒮_δ × (0, π/2) and equals f̊ off [ϑ_a − η0, ϑ_b + η0] ⊂ [2η0, π/2 − 2η0]. So the functions
 Ω = e^(α−ψ), γ_ϑ = e^(2β−2ψ), b, A_c = (ψ − 2ω)/2, A_s = (ψ + 2ω)/2, q_in, q_out formed from F on segments {u_c} ×
@@ -515,39 +515,41 @@ connection coefficients of h_F and Ψ° = Ψ, Ψ_3 = e3Ψ, Ψ_4 = e4Ψ, Ψ_1 = �
 differences from the background's whose C^m norms are bounded by one Λ, for all such segments. Let σ be given by
 [[prop:civp-large-corner]] for this Λ and η := η0, and L := σ/2.
 
-*The corner step.* Let R = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ 𝒯 with l_u, l_v ≤ σ and edges N_o, N_i, and assume:
-F is geometric to first order at the points of the corner circle {(u_c, v_c)} × (0, π/2); N_o × (0, π/2) is contained in a set on
-which F is geometric, or u_c = 0; and N_i × (0, π/2) is contained in a set on which F is geometric, or v_c = 0. We show
-that F is geometric on R × (0, π/2). On N_o take the functions Ω, γ_ϑ, b, A_c, A_s, q_in formed from F, and on N_i the
-functions Ω, γ_ϑ, b, A_c, A_s, q_out. Where an edge lies in 𝒞_out or 𝒞_in these are the cone data (Step 3), and they
-satisfy the constraints by [[def:civp-large-data]] (ii); where F is geometric they are induced by the class solution
-g_F, and the constraints are components of Ric(g_F) = q_in dv² + q_out du². They agree at the corner and equal the
-background's off [2η0, π/2 − 2η0]. If b does not vanish on N_i, let Φ(u, ϑ) solve (∂_u + b(u, v_c, ϑ)∂_ϑ)Φ = 0 with
-Φ(u_c, ϑ) = ϑ; for each u it is a diffeomorphism of (0, π/2) equal to the identity off [ϑ_a − η0, ϑ_b + η0], where
-b = 0. The change of angle (u, v, ϑ) ↦ (u, v, Φ(u, ϑ)) maps a metric of the form [[eq:loc-double-null]] to one of the
-same form, with γ_ϑ replaced by γ_ϑ/(∂_ϑΦ)², b by ∂_uΦ + b∂_ϑΦ, and Ω, A_c, A_s unchanged, since Φ does not depend on
-v and dϑ − b du = (dΦ − (∂_uΦ + b∂_ϑΦ) du)/∂_ϑΦ; it commutes with the T² action and the reflections, it is the
-identity on N_o, and after it b = 0 on N_i. [[prop:civp-large-corner]] applies to the transformed functions and gives a
-class solution in the gauge on R × S³; changing the angle back gives a class solution g_c in the gauge on R × S³ that
-induces the functions above on N_o and N_i and equals (g0, q̊_in, q̊_out) off [η0, π/2 − η0]. Let f_c be its reduced
-fields, a solution of [[eq:civp-large-system]] on R × (0, π/2) ([[prop:civp-large-system]] (a)). By
-[[lem:civp-large-data]] (a), the f₃-components of f_c on N_o and its f₄-components on N_i are given by the functions
-on the edges, through [[eq:civp-large-coefficients]] and the equations (F4′) on N_o and (F5), (F4) on N_i, with the
-values of f_c at the corner, which are given by [[eq:civp-large-coefficients]] in the functions near the corner. The
-same holds for F: at the corner and on the edges where F is geometric because F is there the reduced fields of g_F,
-which induces the same functions; on an edge in 𝒞_out or 𝒞_in because of the definition of f̄ in
-[[lem:civp-large-data]] (b), the linear equations there being those used here with the same coefficients and the
-values at the corner being those of F. So z := f_c − F has z₃ = 0 on N_o and z₄ = 0 on N_i. It solves the linear
-system A^μ(F)∂_μz = G(f_c) − G(F) − (A^ϑ(f_c) − A^ϑ(F))∂_ϑf_c, of the form [[eq:civp-large-linear]] on R × [η0/2,
-π/2 − η0/2], and z = 0 at the points with ϑ ≤ η0 or ϑ ≥ π/2 − η0, where f_c = f̊ = F. By [[lem:civp-large-energy]]
-(b), z = 0 on R × (0, π/2). So F is the reduced fields of g_c on R × (0, π/2) and is geometric there.
+*The corner step.* Let R = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ 𝒯 with l_u, l_v ≤ σ and edges N_o, N_i, and assume: F
+is geometric to first order at the points of the corner circle {(u_c, v_c)} × (0, π/2); N_o × (0, π/2) is contained in
+a set on which F is geometric, or u_c = 0; and N_i × (0, π/2) is contained in a set on which F is geometric, or v_c =
+0. We show that F is geometric on R × (0, π/2). On N_o take the functions Ω, γ_ϑ, b, A_c, A_s, q_in formed from F, and
+on N_i the functions Ω, γ_ϑ, b, A_c, A_s, q_out. Where an edge lies in 𝒞_out or 𝒞_in these are the cone data (Step 3),
+and they satisfy the constraints by [[def:civp-large-data]] (ii); where F is geometric they are induced by the class
+solution g_F, and the constraints are components of Ric(g_F) = q_in dv² + q_out du². They agree at the corner and equal
+the background's off [2η0, π/2 − 2η0]. If b does not vanish on N_i, let Φ(u, ϑ) solve (∂_u + b(u, v_c, ϑ)∂_ϑ)Φ = 0 with
+Φ(u_c, ϑ) = ϑ; for each u it is a diffeomorphism of (0, π/2) equal to the identity off [ϑ_a − η0, ϑ_b + η0], where b =
+0. The change of angle (u, v, ϑ) ↦ (u, v, Φ(u, ϑ)) maps a metric of the form [[eq:loc-double-null]] to one of the same
+form, with γ_ϑ replaced by γ_ϑ/(∂_ϑΦ)², b by ∂_uΦ + b∂_ϑΦ, and Ω, A_c, A_s unchanged, since Φ does not depend on v and
+dϑ − b du = (dΦ − (∂_uΦ + b∂_ϑΦ) du)/∂_ϑΦ; it commutes with the T² action and the reflections, it is the identity on
+N_o, and after it b = 0 on N_i. [[prop:civp-large-corner]] applies to the transformed functions and gives a class
+solution in the gauge on R × S³; changing the angle back gives a class solution g_c in the gauge on R × S³ that induces
+the functions above on N_o and N_i and equals (g0, q̊_in, q̊_out) off [η0, π/2 − η0]. Let f_c be its reduced fields, a
+solution of [[eq:civp-large-system]] on R × (0, π/2) ([[prop:civp-large-system]] (a)). By [[lem:civp-large-data]] (a),
+the f₃-components of f_c on N_o and its f₄-components on N_i are given by the functions on the edges, through
+[[eq:civp-large-coefficients]] and the equations (F4′) on N_o and (F5), (F4) on N_i, with the values of f_c at the
+corner, which are given by [[eq:civp-large-coefficients]] in the functions near the corner. The same holds for F. At
+the corner F is geometric to first order, and h_F, ψ, ω induce the same functions on the edges as g_c, so F has the
+same values there as f_c. On an edge on which F is geometric, the proof of [[lem:civp-large-data]] (a) applies to F,
+since it uses only identities that hold at the points of the edge. On an edge in 𝒞_out or 𝒞_in it holds by the
+definition of f̄ in [[lem:civp-large-data]] (b), the linear equations there being those used here, with the same
+coefficients, and the values at the corner being those of F. By uniqueness for these linear equations, z := f_c − F has
+z₃ = 0 on N_o and z₄ = 0 on N_i. It solves the linear system A^μ(F)∂_μz = G(f_c) − G(F) − (A^ϑ(f_c) − A^ϑ(F))∂_ϑf_c, of
+the form [[eq:civp-large-linear]] on R × [η0/2, π/2 − η0/2], and z = 0 at the points with ϑ ≤ η0 or ϑ ≥ π/2 − η0, where
+f_c = f̊ = F. By [[lem:civp-large-energy]] (b), z = 0 on R × (0, π/2). So F is the reduced fields of g_c on R × (0,
+π/2) and is geometric there.
 
 *Continuation in u + v.* For t > 0 let D_t := {(u, v) ∈ 𝒯 : u + v < t}, and let t* be the supremum of the t ∈ (0, l1 +
 l2] such that F is geometric on D_t × (0, π/2), with t* := 0 if there is none. The corner step with R = [0, min(L, l1)]
-× [0, min(L, l2)] applies: its corner is S, where F is geometric to first order, because the values of f̄ at S are those of
-[[eq:civp-large-coefficients]] in the cone data, and its edges lie in 𝒞_out and 𝒞_in. So t* ≥ min(L, l1, l2) > 0.
-Suppose t* < l1 + l2. F is geometric on the closure of D_t* × (0, π/2). Let Γ := {(u, v) ∈ 𝒯 : u + v = t*}, and for p =
-(u_p, v_p) ∈ Γ let u_c := max(u_p − L/2, 0), v_c := max(v_p − L/2, 0) and R_p := [u_c, min(u_p + L/2, l1)] × [v_c,
+× [0, min(L, l2)] applies: its corner is S, where F is geometric to first order, because the values of f̄ at S are
+those of [[eq:civp-large-coefficients]] in the cone data, and its edges lie in 𝒞_out and 𝒞_in. So t* ≥ min(L, l1, l2) >
+0. Suppose t* < l1 + l2. F is geometric on the closure of D_t* × (0, π/2). Let Γ := {(u, v) ∈ 𝒯 : u + v = t*}, and for
+p = (u_p, v_p) ∈ Γ let u_c := max(u_p − L/2, 0), v_c := max(v_p − L/2, 0) and R_p := [u_c, min(u_p + L/2, l1)] × [v_c,
 min(v_p + L/2, l2)], whose sides are at most L < σ. Its corner satisfies u_c + v_c ≤ t*. If v_c > 0, the edge N_i =
 [u_c, min(u_p + L/2, l1)] × {v_c} satisfies u + v ≤ u_p + L/2 + v_p − L/2 = t*, so it lies in the closure of D_t*;
 likewise N_o if u_c > 0. So the corner step applies, and F is geometric on R_p × (0, π/2). Every (u, v) ∈ 𝒯 with t* ≤
