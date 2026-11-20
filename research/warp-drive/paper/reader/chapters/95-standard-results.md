@@ -766,9 +766,9 @@ E^S : W^(k,p)(Ω) → W^(k,p)(ℝⁿ) is bounded for all k ∈ ℕ and 1 ≤ p �
 ### Microlocal analysis and Fredholm theory {#sec:std-microlocal}
 
 **Theorem {#thm:std-melrose-sc}** ([Mel94, (1.1), p. 4; (4.1)–(4.3) and Definition 1, pp. 12–13; Definition 2, p. 14;
-(5.1), p. 15; Proposition 3, (5.12)–(5.14), p. 17; Proposition 4, Lemma 5, (5.19)–(5.20), p. 18; (5.22) and (5.27), p.
-19; Proposition 5 and Lemma 6, p. 20; (5.34), p. 21; (7.1), (7.2) and (7.6), p. 23].) Let X be a compact manifold with
-boundary and x a boundary defining function.
+(5.1), p. 15; (5.4), p. 16; Proposition 3, (5.10) and (5.12)–(5.14), p. 17; Proposition 4, Lemma 5 and (5.15)–(5.20),
+p. 18; (5.22) and (5.27), p. 19; Proposition 5 and Lemma 6, p. 20; (5.34), p. 21; (7.1), (7.2) and (7.6), p. 23].)
+Let X be a compact manifold with boundary and x a boundary defining function.
 
 (1) (1.1), p. 4: SP : ℝⁿ ∋ z ↦ ((1 + |z|²)^(−1/2), z(1 + |z|²)^(−1/2)) ∈ S^n_+, the closed upper half of the unit sphere
 of ℝ^(n+1). "This is clearly an isomorphism onto the interior of S^n_+, so it compactifies ℝⁿ. We call this the radial
@@ -821,9 +821,12 @@ fibre-compactified scattering cotangent bundle ((5.4), p. 16); "The scattering p
 microlocal in the sense that WF′_sc(A ∘ B) ⊂ WF′_sc(A) ∩ WF′_sc(B)" (7.2); and "WF′_sc(A) = ∅ ⟺ A ∈ Ψ^(−∞,∞)_sc(X)"
 (7.6).
 
-By (5.18) the bracket in (5.16) has the orders (m1 + m2 − 1, l1 + l2 + 1), and by (5.13)–(5.14), the symbols commuting,
-[A, B] ∈ Ψ^(m1+m2−1,l1+l2+1)_sk(X). The decay order l of [Mel94] has the sign opposite to that of [[sec:i-a-2-1]], where
-Ψ^(m,ℓ)_sc is Ψ^(m,−ℓ)_scc(S^n_+) and H^(s,r)_sc is the space of (6).
+By (5.18), and for a conormal a by the same count of derivatives in (5.22), the bracket in (5.16) has the orders
+(m1 + m2 − 1, l1 + l2 + 1); and by (5.10), (5.13) and (5.14), the symbols commuting, [A, B] ∈ Ψ^(m1+m2−1,l1+l2+1)_sk(X).
+So (5.16) is read, and used in [[sec:i-a-2-1]], with j_(sc,m1+m2−1,l1+l2+1)([A, B]) on its left side: with the
+subscripts as printed both of its sides vanish, the left by (5.14) and the right by (5.12). The decay order l of [Mel94]
+has the sign opposite to that of [[sec:i-a-2-1]], where Ψ^(m,ℓ)_sc is Ψ^(m,−ℓ)_scc(S^n_+) and H^(s,r)_sc is the space
+of (6).
 
 **Theorem {#thm:std-hin17-subprincipal}** ([Hin17, Definition 3.8, p. 16; Proposition 4.1, p. 20; Theorem 4.8, p. 26].)
 Definition 3.8: "For P ∈ Ψ^m(X, E ⊗ Ω^(1/2)) with scalar principal symbol p, there is a well-defined subprincipal
@@ -1187,7 +1190,8 @@ function g ∈ L¹_loc(Ω, ℝ) such that ‖f(ξ)‖_X ≤ g(ξ) holds for almo
 holomorphic (very weakly harmonic)."
 
 A locally bounded f is locally L¹-bounded: if K_1 ⊂ K_2 ⊂ … are compact sets whose interiors exhaust Ω and K_0 := ∅,
-then g := Σ_j (sup_(K_j) ‖f‖) 1_(K_j ∖ K_(j−1)) is measurable and bounded on compact sets, so g ∈ L¹_loc(Ω, ℝ).
+then g := Σ_j (sup_(K_j) ‖f‖) 1_(K_j ∖ K_(j−1)) is measurable, bounded on compact sets and ≥ ‖f‖_X on Ω, so
+g ∈ L¹_loc(Ω, ℝ).
 
 ### Special functions and the Fourier–Laplace transform {#sec:std-special}
 

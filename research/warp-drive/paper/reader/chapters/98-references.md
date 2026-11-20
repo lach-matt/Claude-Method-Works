@@ -146,7 +146,7 @@
   doi:10.1201/9781439864609
 - [Mel94] R. B. Melrose, *Spectral and scattering theory for the Laplacian on asymptotically Euclidian spaces*, in:
   Spectral and Scattering Theory (Sanda, 1992), Lecture Notes in Pure and Appl. Math. 161, Dekker, New York (1994),
-  85–130. doi:10.1201/9781003072096-5; author's corrected online edition (1997),
+  85–130; reissued CRC Press (2020), doi:10.1201/9781003072096-5; author's corrected online edition (1997),
   https://math.mit.edu/~rbm/papers/sslaes/sslaes1.pdf.
 - [Mel96] R. B. Melrose, *Differential analysis on manifolds with corners*, book in preparation (1996),
   https://math.mit.edu/~rbm/daomwcf.ps.

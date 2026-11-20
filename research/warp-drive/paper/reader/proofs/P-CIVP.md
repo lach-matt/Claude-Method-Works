@@ -361,9 +361,10 @@ three sums, to at most γ_0/2 in total, (b) follows. ∎
 In the rest of the section a background on 𝒮 and cone data are fixed, X denotes the list of functions
 (ln Ω, ϰ_1, ϰ_2, ϰ_3, b, ρ_in, ρ_out) of (u, v, ϑ), and X̊ the background's. On N_o let a_0 be the cone data, with
 ρ_in := 𝒱q_in and with ρ_out equal on each generator to the value of 𝒱q_out at the corner; on N_i let b_0 be the cone
-data, with b := 0, ρ_out := 𝒱q_out and ρ_in equal on each generator to the value of 𝒱q_in at the corner. We assume, as
-the corner condition (i) of [[def:loc-cone-data]] together with b = 0 on N_i requires for continuity, that b = 0 at the
-corner on N_o; then a_0 = b_0 on S_c.
+data, with ρ_out := 𝒱q_out and with ρ_in the solution of ∂_u ρ_in + ∂_ϑ(b ρ_in) = 0 along N_i equal to 𝒱q_in at the
+corner (in the normalised gauge, ρ_in is constant along each generator). Then a_0 = b_0 on S_c. On N_i the integral
+curves of L̲ = ∂_u + b∂_ϑ, the generators of N_i, start on S_c and cover N_i: b vanishes outside the band, so dϑ/du = b
+keeps them in [0, π/2].
 
 **Lemma {#lem:loc-cone-jets}** (The derivatives across the edges.) There are unique sequences of functions a_j (j ≥ 0)
 on [0, l_v + δ_1] × [0, π/2] and b_k (k ≥ 0) on [0, l_u + δ_1] × [0, π/2], with values in ℝ⁷ and with a_0, b_0 as above,
@@ -386,34 +387,40 @@ times the size, for 4j ≤ m_0, C_j depending only on j, Λ and the background;
 functions on N_o and N_i are the cone data, has ∂_u^j X = a_j on N_o and ∂_v^k X = b_k on N_i; in particular å_j and
 b̊_k are the derivatives of X̊ across N.
 
-*Proof.* *The equations solved for the mixed derivatives.* In [[eq:loc-cone-frame-ricci]] write ∂_v L̲f = ∂_u∂_v f +
-∂_v b ∂_ϑ f + b ∂_v∂_ϑ f, χ̲_1 = ∂_uϰ_1 + b ∂_ϑϰ_1 + ∂_ϑ b, χ̲_i = ∂_uϰ_i + b ∂_ϑϰ_i (i = 2, 3). The equations
-E(∂_ϑ, ∂_ϑ) = E(K_1, K_1) = E(K_2, K_2) = 0 contain ∂_u∂_vϰ_1, ∂_u∂_vϰ_2, ∂_u∂_vϰ_3 with the factors γ_ϑ/Ω², Ω⁻²
-and Ω⁻², and E(L̲, ∂_v) = 0 contains −2∂_u∂_v ln Ω − Σ_i ∂_u∂_vϰ_i; E(L̲, ∂_ϑ) = 0 contains −(γ_ϑ/(4Ω²)) ∂_u∂_v b.
-Solving the first three for ∂_u∂_vϰ_i and then the fourth for ∂_u∂_v ln Ω, the five equations E′ = 0 are equivalent,
-off the axes, to
+No smallness enters, and a_j, b_k depend on the cone data only on N_o ∩ {v′ ≤ v} and N_i ∩ {u′ ≤ u} respectively.
 
-    ∂_u∂_v Y_l = Ψ_l,      Y := (ln Ω, ϰ_1, ϰ_2, ϰ_3, b),      l = 0, …, 4,                     {#eq:loc-cone-goursat}
+*Proof.* *The equations solved for the mixed derivatives.* In [[eq:loc-cone-frame-ricci]] the second derivatives of
+ln Ω and of the ϰ_i other than ∂_ϑ² enter only through ∂_v L̲ ln Ω and the ∂_v χ̲_i, with ∂_v χ̲_1 = ∂_v L̲ϰ_1 +
+∂_v∂_ϑ b and ∂_v χ̲_i = ∂_v L̲ϰ_i (i = 2, 3), and the second derivatives of b other than ∂_ϑ² b and ∂_v∂_ϑ b only
+through L̲∂_v b in E(L̲, ∂_ϑ). The equations E(∂_ϑ, ∂_ϑ) = E(K_1, K_1) = E(K_2, K_2) = 0 contain ∂_v L̲ϰ_1, ∂_v L̲ϰ_2,
+∂_v L̲ϰ_3 with the factors γ_ϑ/Ω², Ω⁻² and Ω⁻², E(L̲, ∂_v) = 0 contains −2∂_v L̲ ln Ω − Σ_i ∂_v L̲ϰ_i, and
+E(L̲, ∂_ϑ) = 0 contains −(γ_ϑ/(4Ω²)) L̲∂_v b. Solving the first three for ∂_v L̲ϰ_i and then the fourth for
+∂_v L̲ ln Ω, the five equations E′ = 0 are equivalent, off the axes, to
 
-where each Ψ_l is a polynomial in e^(±2 ln Ω), e^(±2ϰ_1), e^(±2ϰ_2), e^(±2ϰ_3), b and the derivatives of the Y_l of the
-kinds listed below, and, read off from [[eq:loc-cone-frame-ricci]]:
+    ∂_v(L̲ Y_l) = Ψ_l  (l = 0, 1, 2, 3),      L̲(∂_v b) = Ψ_4,      (Y_0, …, Y_3) := (ln Ω, ϰ_1, ϰ_2, ϰ_3),
+                                                                                                  {#eq:loc-cone-goursat}
 
-(Ψ1) no Ψ_l contains ∂_u², ∂_v², ∂_u∂_v of any Y_l, or ∂_u b;
-(Ψ2) Ψ_0, …, Ψ_3 contain u-derivatives only as ∂_uϰ_1, ∂_uϰ_2, ∂_uϰ_3, each monomial at most one of them, and contain
-∂_v∂_ϑ of ln Ω and of the ϰ_i only in monomials with the factor b;
-(Ψ3) Ψ_4 contains no v-derivative of ln Ω or of the ϰ_i, contains u-derivatives only as ∂_u and ∂_u∂_ϑ of ln Ω,
-ϰ_2, ϰ_3 and ∂_uϰ_1, each monomial at most one of them, contains ∂_v∂_ϑ b only with the factor b, and contains ∂_v b
-only in monomials (∂_v b) × (terms with ∂_u ln Ω, ∂_uϰ_i, b, ∂_ϑ b and the ϰ_i);
-(Ψ4) each monomial of Ψ_0, …, Ψ_3 contains at most one of ∂_vϰ_1, ∂_vϰ_2, ∂_vϰ_3, ∂_v ln Ω, besides factors ∂_v b,
-∂_v∂_ϑ b.
+where each Ψ_l is a polynomial in e^(±2 ln Ω), e^(±2ϰ_1), e^(±2ϰ_2), e^(±2ϰ_3), b and derivatives of ln Ω, the ϰ_i and
+b of the kinds below, read off from [[eq:loc-cone-frame-ricci]]:
 
-For instance □_g ϰ_2 = 0 reads ∂_u∂_vϰ_2 = −∂_v b ∂_ϑϰ_2 − b ∂_v∂_ϑϰ_2 − ½(tr χ̲ ∂_vϰ_2 + tr χ χ̲_2 − ∂_v b ∂_ϑϰ_2) +
-(Ω²/𝒱) ∂_ϑ(𝒱Ω²γ_ϑ⁻¹∂_ϑϰ_2)/Ω², and E(L̲, ∂_ϑ) = 0 reads ∂_u∂_v b = −b ∂_ϑ∂_v b − (L̲ ln(γ_ϑ^(3/2)e^(A_c+A_s)Ω⁻²) +
-2∂_ϑ b) ∂_v b + 4Ω²γ_ϑ⁻¹ r̲. The conservation laws are ∂_u ρ_in = −∂_ϑ(b ρ_in) and ∂_v ρ_out = 0.
+(Ψ1) the derivatives of ln Ω and the ϰ_i in the Ψ_l are of the forms ∂_ϑ^p, ∂_v, L̲ and ∂_ϑ L̲ (p ≤ 2), those of b of
+the forms ∂_ϑ^p, ∂_v and ∂_ϑ∂_v (p ≤ 2); there is no ∂_u b;
+(Ψ2) each monomial of Ψ_0, …, Ψ_3 contains at most one factor among L̲ ln Ω, the L̲ϰ_i and the ∂_ϑL̲ of these (in fact
+no ∂_ϑ L̲), and at most one among ∂_v ln Ω and the ∂_vϰ_i, besides factors ∂_v b and ∂_ϑ∂_v b;
+(Ψ3) Ψ_4 contains no ∂_v of ln Ω or the ϰ_i and no ∂_ϑ∂_v b, and each of its monomials contains at most one factor among
+L̲ ln Ω, the L̲ϰ_i, ∂_ϑ L̲ ln Ω, ∂_ϑ L̲ϰ_2, ∂_ϑ L̲ϰ_3, and at most one factor ∂_v b.
+
+For instance □_g ϰ_2 = 0 reads ∂_v L̲ϰ_2 = −½(tr χ̲ ∂_vϰ_2 + tr χ χ̲_2 − ∂_v b ∂_ϑϰ_2) + 𝒱⁻¹Ω⁻²∂_ϑ(Ω²𝒱γ_ϑ⁻¹∂_ϑϰ_2), and
+E(L̲, ∂_ϑ) = 0 reads L̲∂_v b = −(L̲ ln(γ_ϑ^(3/2)e^(A_c+A_s)Ω⁻²) + 2∂_ϑ b) ∂_v b + 4Ω²γ_ϑ⁻¹ r̲. With L̲ = ∂_u + b∂_ϑ,
+[[eq:loc-cone-goursat]] is also ∂_u∂_v Y_l = Ψ_l − ∂_v(b ∂_ϑ Y_l) and ∂_u∂_v b = Ψ_4 − b ∂_ϑ∂_v b: every right side holds
+at most first derivatives in u and in v of each factor. The conservation laws are ∂_u ρ_in = −∂_ϑ(b ρ_in) and
+∂_v ρ_out = 0.
 
 *N_o.* Let j ≥ 1 and a_0, …, a_(j−1) be found. Apply ∂_u^(j−1) to [[eq:loc-cone-goursat]] and set u = 0, replacing
-∂_u^i X by a_i. By (Ψ1)–(Ψ3), u-derivatives of order j enter only through ∂_u^(j−1) of the factors listed there, once
-in each monomial, so
+∂_u^i X by a_i. As L̲X = ∂_u X + b ∂_ϑ X, ∂_u^(j−1) ∂_v L̲Y_l = ∂_v ∂_u^j Y_l + ∂_v ∂_u^(j−1)(b ∂_ϑ Y_l), whose second
+part holds u-derivatives of order at most j − 1; likewise ∂_u^(j−1) L̲∂_v b = ∂_v ∂_u^j b + ∂_u^(j−1)(b ∂_ϑ∂_v b). By
+(Ψ1)–(Ψ3) the u-derivatives of order j enter the right sides only through ∂_u^(j−1) of L̲ Y_l and of ∂_ϑ L̲ Y_l, once in
+each monomial, so
 
     ∂_v a_j^(ϰ_i) = Σ_l M_(il) a_j^(ϰ_l) + h_i,   ∂_v a_j^(ln Ω) = Σ_l M_(0l) a_j^(ϰ_l) + h_0,
     ∂_v a_j^b = M_4 · (a_j^(ln Ω), a_j^(ϰ_l), ∂_ϑ a_j^(ln Ω), ∂_ϑ a_j^(ϰ_2), ∂_ϑ a_j^(ϰ_3)) + h_4,
@@ -421,34 +428,36 @@ in each monomial, so
 after substituting the first lines in the second; the coefficients M are smooth functions of a_0 and of its first
 derivatives in v and ϑ, and the h are polynomials in a_0, …, a_(j−1) and their derivatives in v and ϑ of order at most
 two. This is a system of linear ordinary differential equations in v along each generator, which we solve with the
-initial values a_j(0, ϑ) := ∂_u^j b_0(0, ϑ) for the components ln Ω, ϰ_l, b (for b this value is 0): first the
-three ϰ-components, then ln Ω, then b. For the densities put a_j^(ρ_in) := −(∂_u^(j−1)∂_ϑ(b ρ_in)) at u = 0, a
-polynomial in a_0, …, a_(j−1) and their ϑ-derivatives, and a_j^(ρ_out)(v, ϑ) := ∂_u^j b_0^(ρ_out)(0, ϑ) for all v.
+initial values a_j(0, ϑ) := ∂_u^j b_0(0, ϑ) for the components ln Ω, ϰ_l, b: first the three ϰ-components, then ln Ω,
+then b. For the densities put a_j^(ρ_in) := −(∂_u^(j−1)∂_ϑ(b ρ_in)) at u = 0, a polynomial in a_0, …, a_(j−1) and
+their ϑ-derivatives, and a_j^(ρ_out)(v, ϑ) := ∂_u^j b_0^(ρ_out)(0, ϑ) for all v.
 
-*N_i.* Let k ≥ 1 and b_0, …, b_(k−1) be found. Apply ∂_v^(k−1) to [[eq:loc-cone-goursat]] and set v = 0, where b = ∂_u b
-= ∂_ϑ b = 0. By (Ψ3), in the equation for b the v-derivatives of order k enter only through ∂_u∂_v^k b, through
-b ∂_ϑ∂_v^k b and 2∂_ϑ b ∂_v^k b, which vanish at v = 0, and through ∂_v^k b times a function of b_0: a linear equation
-∂_u b_k^b = M_4′ b_k^b + h_4′. By (Ψ2) and (Ψ4), in the other four the v-derivatives of order k enter through
-∂_u∂_v^k(ln Ω, ϰ_l), through ∂_v^k(ln Ω, ϰ_l) once in each monomial, and through ∂_v^k b and ∂_ϑ∂_v^k b; the terms
-b ∂_v∂_ϑ(ln Ω, ϰ_l) give no ∂_ϑ∂_v^k(ln Ω, ϰ_l) at v = 0. So with b_k^b known these are linear equations in u for the
+*N_i.* Let k ≥ 1 and b_0, …, b_(k−1) be found. Apply ∂_v^(k−1) to [[eq:loc-cone-goursat]] and set v = 0. Since ∂_v^k
+(L̲ Y_l) = L̲ ∂_v^k Y_l + Σ_(1≤i≤k) (k choose i) ∂_v^i b ∂_ϑ∂_v^(k−i) Y_l and ∂_v^(k−1)(L̲ ∂_v b) = L̲ ∂_v^k b +
+Σ_(1≤i≤k−1) (k−1 choose i) ∂_v^i b ∂_ϑ∂_v^(k−i) b, the left sides are L̲ applied to the unknowns of order k, plus terms
+with v-derivatives of order at most k − 1 and the term ∂_v^k b ∂_ϑ Y_l. By (Ψ3), the right side for b holds v-derivatives
+of order k only through ∂_v^k b, once in each monomial: a linear equation L̲ b_k^b = M_4′ b_k^b + h_4′ along the
+generators of N_i. By (Ψ2), the other right sides hold them through ∂_v^k(ln Ω, ϰ_l), once in each monomial, and
+through ∂_v^k b and ∂_ϑ∂_v^k b. So, with b_k^b known, these are linear equations along the generators for the
 ϰ-components and then for ln Ω. We solve them with the initial values b_k(0, ϑ) := ∂_v^k a_0(0, ϑ). For the densities
-put b_k^(ρ_out) := 0, and let b_k^(ρ_in) solve ∂_u b_k^(ρ_in) = −(∂_v^k ∂_ϑ(b ρ_in)) at v = 0, whose right side is
-−∂_ϑ Σ_(1≤i≤k) (k choose i) b_i^b b_(k−i)^(ρ_in), with the initial value ∂_v^k a_0^(ρ_in)(0, ϑ).
+put b_k^(ρ_out) := 0, and let b_k^(ρ_in) solve L̲ b_k^(ρ_in) = −(∂_ϑ b) b_k^(ρ_in) − ∂_ϑ Σ_(1≤i≤k) (k choose i)
+b_i^b b_(k−i)^(ρ_in), the derivative ∂_v^k of the conservation law, with the initial value ∂_v^k a_0^(ρ_in)(0, ϑ).
 
-*Vanishing to infinite order.* For X as in the statement, ∂_u^(j−1) of ∂_u∂_v Y − Ψ vanishes at u = 0 for every j ≥ 1,
-by the construction on N_o, and ∂_v^(k−1) of it vanishes at v = 0 for every k ≥ 1; the derivatives along N of these
-restrictions vanish too. So ∂_u∂_v Y − Ψ vanishes to infinite order on N, and so does E′, which is obtained from it by
-multiplying with smooth functions and adding. The conservation laws are the same: at order 0 on N_o, ∂_v ρ_out = 0 is
-the constancy of a_0^(ρ_out) along the generators, and on N_i, where b = ∂_ϑ b = 0, ∂_u ρ_in = 0 is that of
-b_0^(ρ_in).
+*Vanishing to infinite order.* For X as in the statement, ∂_u^(j−1) of the differences of the two sides of
+[[eq:loc-cone-goursat]] vanishes at u = 0 for every j ≥ 1, by the construction on N_o, and ∂_v^(k−1) of them vanishes at
+v = 0 for every k ≥ 1; the derivatives along N of these restrictions vanish too. So the differences vanish to infinite
+order on N, and so does E′, which is obtained from them by multiplying with smooth functions and adding. The
+conservation laws are the same: at order 0 on N_o, ∂_v ρ_out = 0 is the constancy of a_0^(ρ_out) along the generators,
+and on N_i the conservation law for ρ_in is the equation that defines b_0^(ρ_in).
 
 (i) For j = 0 or k = 0 the equality holds by the choice of the initial values and of a_0, b_0, which agree on S_c. For
 j, k ≥ 1 we use induction on n := j + k. Let c^o_(jk) := ∂_v^k a_j(0, ·) and c^i_(jk) := ∂_u^j b_k(0, ·). For the
 components Y_l, c^o_(jk) = ∂_v^(k−1) of the right side of the equation for ∂_v a_j at v = 0, which is the formal mixed
-derivative ∂_u^(j−1)∂_v^(k−1)Ψ_l at the corner, expanded by the chain rule into the numbers ∂_ϑ^p c^o_(j′k′); and
-c^i_(jk) = ∂_u^(j−1) of the right side of the equation for ∂_u b_k at u = 0, which is the same expansion in the numbers
-∂_ϑ^p c^i_(j′k′). By (Ψ1) every Ψ_l holds at most first derivatives in u and in v, so only pairs with j′ + k′ ≤ n − 1
-occur, and these agree by induction. For ρ_in and j ≥ 1 both are ∂_u^(j−1)∂_v^k of −∂_ϑ(b ρ_in), expanded in the
+derivative ∂_u^(j−1)∂_v^(k−1) of the right side of the form ∂_u∂_v Y_l = Ψ_l − ∂_v(b ∂_ϑ Y_l) (respectively
+∂_u∂_v b = Ψ_4 − b ∂_ϑ∂_v b) at the corner, expanded by the chain rule into the numbers ∂_ϑ^p c^o_(j′k′); and
+c^i_(jk) = ∂_u^(j−1) of the right side of the equation for ∂_u b_k at u = 0, written in the same form, which is the same
+expansion in the numbers ∂_ϑ^p c^i_(j′k′). These right sides hold at most first derivatives in u and in v of each factor,
+so only pairs with j′ + k′ ≤ n − 1 occur, and these agree by induction. For ρ_in and j ≥ 1 both are ∂_u^(j−1)∂_v^k of −∂_ϑ(b ρ_in), expanded in the
 same way with j′ ≤ j − 1, k′ ≤ k; for ρ_out both vanish when k ≥ 1.
 
 (ii) The coefficients, the inhomogeneous terms and the initial values of all the equations at an angle ϑ are built from
@@ -463,9 +472,11 @@ solution solves ∂_v(Z − Z̊) = M(Z − Z̊) + (M − M̊) Z̊ + h − h̊. S
 inhomogeneous terms of the ϰ- and ln Ω-equations hold derivatives of order at most two of a_0, …, a_(j−1), so their
 differences are bounded in C^(m_0−4j+2); M − M̊ is bounded in C^(m_0−1) and the initial values ∂_u^j(b_0 − b̊_0)(0, ·) in
 C^(m_0−j), all by C times the size. So these components of a_j − å_j are bounded in C^(m_0−4j+2); the b-component, whose
-equation holds ∂_ϑ a_j^(ln Ω) and ∂_ϑ a_j^(ϰ_l), in C^(m_0−4j+1), and the densities likewise. On N_i, the equation for
-b_k^b holds ∂_ϑ∂_u of b_0, …, b_(k−1) and the initial value ∂_v^k a_0^b(0, ·), so b_k^b − b̊_k^b is bounded in
-C^(m_0−4k+2); the other equations hold ∂_ϑ b_k^b, so the other components are bounded in C^(m_0−4k+1).
+equation holds ∂_ϑ a_j^(ln Ω) and ∂_ϑ a_j^(ϰ_l), in C^(m_0−4j+1), and the densities likewise. On N_i the equations are
+transport equations along L̲, whose flow from u = 0 has derivatives of order r bounded in terms of the C^r norm of b on
+N_i; the same bounds hold for them. The equation for b_k^b holds derivatives of order at most two along N_i of
+b_0, …, b_(k−1) and the initial value ∂_v^k a_0^b(0, ·), so b_k^b − b̊_k^b is bounded in C^(m_0−4k+2); the other
+equations hold ∂_ϑ b_k^b, so the other components are bounded in C^(m_0−4k+1).
 
 (iv) Such a solution satisfies E = 0 and the conservation laws on D, hence, by continuity, their derivatives of every
 order on N; so its derivatives across N solve the equations above with the same initial values. ∎
@@ -489,8 +500,7 @@ holds for the data and for the background by [[lem:loc-cone-jets]] (i). (a) foll
 [[lem:loc-cone-jets]] (ii), (iii), since m_0 − 4(k + 2) = 2k + 4. (b) The double-null form with Ω̂ > 0 and γ̂_ϑ > 0 is
 Lorentzian, with g^(uu) = g^(vv) = 0. (c) E′ and the conservation laws vanish to infinite order on N by
 [[lem:loc-cone-jets]]. On N_o, E(∂_v, ∂_v) = E(∂_v, ∂_ϑ) = 0, and on N_i, E(L̲, L̲) = 0, by (ii) of [[def:loc-cone-data]],
-these components being expressions in the functions on the edges (on N_i, b̂ = 0 with its derivatives along N_i, so
-E(L̲, L̲) there is [[eq:loc-cone-in]] minus q_out). By [[lem:loc-cone-ricci]] (b), div T̂ vanishes to infinite order on N,
+these components being expressions in the functions on the edges, L̲ being tangent to N_i. By [[lem:loc-cone-ricci]] (b), div T̂ vanishes to infinite order on N,
 and by (c) there tr E does; so div E does, and by [[eq:loc-cone-bianchi]] the three expressions on its right sides, without
 the terms ℓ_j(E′), vanish to infinite order on N. With a := E(∂_v, ∂_v), β := E(∂_v, ∂_ϑ), c := E(L̲, L̲):
 
@@ -501,10 +511,10 @@ terms with lower u-derivatives of c vanishing; and ∂_u^j c = 0 at v = 0, since
 ∂_u^j c, so ∂_u^(j+1) β = 0 on N_o; then the third gives ∂_u^(j+1) a = 0.
 
 *On N_i.* We show by induction on k that ∂_v^i c = 0 on N_i for i ≤ k and ∂_v^i a = ∂_v^i β = 0 on N_i for i ≤ k − 1;
-this holds for k = 0. Given it for k, apply ∂_v^k to the second identity: on N_i, where b = 0, ∂_u(∂_v^k β) + (tr χ̲ +
-∂_ϑ b) ∂_v^k β = 0, and ∂_v^k β = 0 at u = 0, as β = 0 on N_o; so ∂_v^k β = 0 on N_i. Then ∂_v^k of the third gives
-∂_u(∂_v^k a) + tr χ̲ ∂_v^k a = 0 on N_i, with ∂_v^k a = 0 at u = 0, so ∂_v^k a = 0. Finally ∂_v^k of the first gives
-∂_v^(k+1) c = 0 on N_i.
+this holds for k = 0. Given it for k, apply ∂_v^k to the second identity: on N_i, ∂_v^k L̲β = L̲ ∂_v^k β plus terms with
+∂_v^i β, i ≤ k − 1, so L̲(∂_v^k β) + (tr χ̲ + ∂_ϑ b) ∂_v^k β = 0 along the generators of N_i, and ∂_v^k β = 0 at u = 0, as
+β = 0 on N_o; so ∂_v^k β = 0 on N_i. Then ∂_v^k of the third gives L̲(∂_v^k a) + tr χ̲ ∂_v^k a = 0 along the
+generators, with ∂_v^k a = 0 at u = 0, so ∂_v^k a = 0. Finally ∂_v^k of the first gives ∂_v^(k+1) c = 0 on N_i.
 
 So a, β and c, with all their derivatives, vanish on N, and E vanishes to infinite order on N. ∎
 

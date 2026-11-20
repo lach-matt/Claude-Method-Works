@@ -189,8 +189,8 @@ Hence ε_g = min(ε_Υ, ε_ind) < B_g ([[def:s21-eps-g]]). Row w1 asks ε_K < ε
 ε_K < ε_Υ ([[def:iii-i10-1-3]]), so ε_K < ε_g < B_g; and [[sec:iii-i11-1]] takes η_2 ∈ (ε_K, ε_+), so η_2 < ε_ind. Put
 B_η := 40h/13. Then ε_K < B_η, η_2 < B_η and B_g ≤ B_η, and 5B_g + B_η ≤ 6B_η ≤ (240/13)·10⁻⁶ < 1.85·10⁻⁵.
 
-*The rounds.* [[lem:ec-lb-rounds]] applies with these B_g and B_η, and gives R > (1 − 5B_g − B_η)/B_g² > (1 −
-2·10⁻⁵)/B_g².
+*The rounds.* [[lem:ec-lb-rounds]] applies with these B_g and B_η, and gives
+R > (1 − 5B_g − B_η)/B_g² > (1 − 2·10⁻⁵)/B_g².
 
 *The loss.* Level k + 1 of [[thm:iii-i14-3-1]] takes the solution of level k as input through R_qu, and at each level
 the rounds of [[sec:ec-floor]] are composed one after another, each round's output being the next round's forcing; so
@@ -236,11 +236,10 @@ conditions of [[thm:settling]], each of which holds at every point of the proved
 It uses none of the thresholds that define the proved set: not h < h_0, h < h_tf or h ∉ 𝖹; not γ_(Υ,H) ≤ ε_0, nor the
 bounds ε_1, ε_L and γ_1 on e_Υ and γ_Υ; not z ∉ 𝖹_exc; not (C2), (C3) or (C5), nor (C4) beyond the existence of ε_ind;
 not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data classes (rows d1–d2), the parameter set ℬ_*
-(rows b1–b4) or the smallness of row n1. So the bound
-holds on the proved set without any of those thresholds being evaluated. It holds as well at every
-(h, z) ∈ (0, 10⁻⁶] × (0, ½] at which the constructions of [[sec:ec-floor]] are run with constants satisfying the
-conditions listed. At the computational point it gives d_acc > 3(1 − 2·10⁻⁵)g(4·10⁻⁶)⁻² > 1.4032·10²⁰, which implies
-the bound 1.403 × 10²⁰ of [[thm:loss-d]] (ii).
+(rows b1–b4) or the smallness of row n1. So the bound holds on the proved set without any of those thresholds being
+evaluated. It holds as well at every (h, z) ∈ (0, 10⁻⁶] × (0, ½] at which the constructions of [[sec:ec-floor]] are run
+with constants satisfying the conditions listed. At the computational point it gives
+d_acc > 3(1 − 2·10⁻⁵)g(4·10⁻⁶)⁻² > 1.4032·10²⁰, which implies the bound 1.403 × 10²⁰ of [[thm:loss-d]] (ii).
 
 **Remark {#rem:ec-lb-unbounded}** (No upper bound holds on all of the proved set.) The set 𝖧 = (0, h_*) ∖ 𝖹, with 𝖹
 countable, contains numbers h arbitrarily close to 0, and at each of them [[thm:vi-c-2-1]] completes the choice of the
@@ -318,8 +317,8 @@ New, the seventeen lines:
 
 **Remark {#rem:ec-point-outside}** (The computational point and the proved set.) The computational point lies outside
 the set on which [[thm:settling]] is proved, and it lies outside through h. [[thm:settling]] takes h in the set 𝖧 of
-[[eq:iv4-0-1]], whose supremum h_* = min(10⁻⁶, h_0, h_tf) is at most 10⁻⁶ whatever the values of h_0 and h_tf, and 𝖧
-⊂ (0, h_*); so h = 10⁻⁶ is not in 𝖧 ([[rem:s14-eps-ind-scope]]). Whether the gauge half of the point lies in the
+[[eq:iv4-0-1]], whose supremum h_* = min(10⁻⁶, h_0, h_tf) is at most 10⁻⁶ whatever the values of h_0 and h_tf, and
+𝖧 ⊂ (0, h_*); so h = 10⁻⁶ is not in 𝖧 ([[rem:s14-eps-ind-scope]]). Whether the gauge half of the point lies in the
 proved set is not decided: the parameters γ_Υ and e_Υ are required in [[thm:vi-c-2-1]] to lie below thresholds whose
 existence is proved and whose values are not determined, and (γ_Υ, e_Υ) = (1/100, 1/100) is not shown to lie below them.
 [[def:ec-point]] does not fix the parameter γ_(Υ,H) of the horizon modification (row u2 of
@@ -451,9 +450,24 @@ The text that another proposal gives for lines 72–73 of this section does not 
 *11. Unchanged.* [[def:ec-point]], [[lem:ec-gauge-gap]], [[rem:ec-gauge-gap]], [[prop:ec-rounds]] (whose last sentence,
 on every h ∈ 𝖧 with the same (γ_Υ, e_Υ), stays true and follows from [[thm:ec-lb-proved]] at z = 4·10⁻⁶), the statement
 of [[thm:loss-d]], [[cor:uc-two-offsets]], [[thm:uc-reduction]], [[thm:uc-integer]] with [[eq:uc-lower]], and every
-statement of [[ch:s14]] except [[rem:s14-eps-ind-scope]] (text 12) keep their texts. The numeric lower bound 1.2497 ×
-10²⁴ stays a statement at the computational point: it needs the least excess μ_G of the gap condition, which
+statement of [[ch:s14]] except [[rem:s14-eps-ind-scope]] (text 12) keep their texts. The numeric lower bound
+1.2497 × 10²⁴ stays a statement at the computational point: it needs the least excess μ_G of the gap condition, which
 [[thm:is-gap]] evaluates at z = 4·10⁻⁶ only.
+
+*12. [[ch:s14]], [[rem:s14-eps-ind-scope]] (lines 3534–3535).* Old, the two lines:
+
+every constant, and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50.
+[[cor:s14-eps-ind-point]] shows that this upper bound is attained at the end h = 10⁻⁶ of the interval on which ε_ind is
+
+New, the three lines:
+
+every constant, and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50 and the bound
+ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]], which is the smaller for h ≤ 6.309·10⁻⁹. [[cor:s14-eps-ind-point]] shows that
+the upper bound δ_50 is attained at the end h = 10⁻⁶ of the interval on which ε_ind is
+
+The next line, "defined.", is unchanged. The sentence of [[rem:ec-point-outside]] that text 3 keeps, "For h ∈ 𝖧 the
+theorems use only 0 < ε_ind(h) ≤ δ_50", stays true. Chapter 33 is being edited; the old text is that of the current
+chapter source, where it occurs exactly once, and should be checked again at the merge.
 
 ### Crosswalk rows
 
@@ -463,19 +477,19 @@ those of this file, at the line that carries the label:
     sec:ec-lb-proved	paper/reader/proofs/P-LB.md:1	P-LB, section	new; after sec:ec-delta
     lem:ec-lb-gauge	paper/reader/proofs/P-LB.md:12	P-LB, Lemma (ℳ, every gauge point)	new: 𝔡_ℳ ≤ z/13680 + z²/544
     eq:ec-lb-g	paper/reader/proofs/P-LB.md:29	P-LB, display	g(z) = z/27360 + z²/1088 bounds ε_Υ
-    lem:ec-lb-ind	paper/reader/proofs/P-LB.md:70	P-LB, Lemma (index distance, every h)	new: ε_ind(h) < 40h/13
-    eq:ec-lb-root	paper/reader/proofs/P-LB.md:73	P-LB, display	root of P_2 near 2, two-sided
-    eq:ec-lb-p	paper/reader/proofs/P-LB.md:81	P-LB, display	P_2(2 + hξ) in powers of h
-    eq:ec-lb-rho	paper/reader/proofs/P-LB.md:99	P-LB, display	remainder below 0.0017
-    rem:ec-lb-ind	paper/reader/proofs/P-LB.md:118	P-LB, Remark (root ι₂(h))	consistency at 10⁻⁶; sharpness
-    lem:ec-lb-rounds	paper/reader/proofs/P-LB.md:125	P-LB, Lemma (rounds, general)	prop:ec-rounds with δ̂, δ̄
-    eq:ec-lb-rounds	paper/reader/proofs/P-LB.md:134	P-LB, display	R > (1 − 5δ̂ − δ̄)/δ̂²
+    lem:ec-lb-ind	paper/reader/proofs/P-LB.md:69	P-LB, Lemma (index distance, every h)	new: ε_ind(h) < 40h/13
+    eq:ec-lb-root	paper/reader/proofs/P-LB.md:72	P-LB, display	root of P_2 near 2, two-sided
+    eq:ec-lb-p	paper/reader/proofs/P-LB.md:80	P-LB, display	P_2(2 + hξ) in powers of h
+    eq:ec-lb-rho	paper/reader/proofs/P-LB.md:98	P-LB, display	remainder below 0.0017
+    rem:ec-lb-ind	paper/reader/proofs/P-LB.md:117	P-LB, Remark (root ι₂(h))	consistency at 10⁻⁶; sharpness
+    lem:ec-lb-rounds	paper/reader/proofs/P-LB.md:124	P-LB, Lemma (rounds, general)	prop:ec-rounds with B_g, B_η
+    eq:ec-lb-rounds	paper/reader/proofs/P-LB.md:133	P-LB, display	R > (1 − 5B_g − B_η)/B_g²
     thm:ec-lb-proved	paper/reader/proofs/P-LB.md:164	P-LB, Theorem (proved set)	new: functional lower bound
-    eq:ec-lb-bound	paper/reader/proofs/P-LB.md:175	P-LB, display	d_acc, N_NM against 1/δ̂²
+    eq:ec-lb-bound	paper/reader/proofs/P-LB.md:175	P-LB, display	d_acc, N_NM against 1/B_g²
     eq:ec-lb-numbers	paper/reader/proofs/P-LB.md:180	P-LB, display	2.2456e9/z², 0.3168γ_C²
-    cor:ec-lb-delta	paper/reader/proofs/P-LB.md:209	P-LB, Corollary (δ, proved set)	from prop:ec-delta-cap
-    rem:ec-lb-conditions	paper/reader/proofs/P-LB.md:221	P-LB, Remark (what is used)	conditions used and unused
-    rem:ec-lb-unbounded	paper/reader/proofs/P-LB.md:243	P-LB, Remark (unbounded)	d unbounded on the proved set
+    cor:ec-lb-delta	paper/reader/proofs/P-LB.md:210	P-LB, Corollary (δ, proved set)	from prop:ec-delta-cap
+    rem:ec-lb-conditions	paper/reader/proofs/P-LB.md:222	P-LB, Remark (what is used)	conditions used and unused
+    rem:ec-lb-unbounded	paper/reader/proofs/P-LB.md:244	P-LB, Remark (unbounded)	d unbounded on the proved set
 
 Notes to add to existing rows. Crosswalk of [[ch:explicit-constants]]: ch:explicit-constants, "opening states the
 lower bound on the proved set (P-LB text 2)"; rem:ec-point-outside, "rewritten: outside through h, gauge half
@@ -484,5 +498,11 @@ after the statement cites thm:ec-lb-proved (P-LB text 4)"; prop:ec-delta-cap, "c
 rem:ec-not-evaluated, "the lower bound needs no numeric choice (P-LB text 6)". Crosswalk of [[ch:introduction]]:
 sec:introduction-scope, "lower bound on the proved set (P-LB text 8)". Crosswalk of [[ch:theorems]]:
 sec:further-results, "constants item: lower bounds on the proved set (P-LB text 9)". Crosswalk of [[ch:scope]]:
-sec:scope-constants, "lower bounds on the proved set, δ included (P-LB text 10)". The front matter has no labels and its
-crosswalk no rows; text 7 changes the abstract only.
+sec:scope-constants, "lower bounds on the proved set, δ included (P-LB text 10)". Crosswalk of [[ch:s14]]:
+rem:s14-eps-ind-scope, "cites lem:ec-lb-ind for ε_ind(h) < 40h/13 (P-LB text 12)". The front matter has no labels and
+its crosswalk no rows; text 7 changes the abstract only.
+
+The proposal for the order of the data appends notes to two of the same rows: ch:explicit-constants in the crosswalk of
+[[ch:explicit-constants]] (its text 2) and sec:scope-constants in the crosswalk of [[ch:scope]] (its text 8). Whichever
+is merged second appends its note to the row's note column after the other's, separated by "; ", so that each row
+keeps both notes. No other row is touched by both proposals.
