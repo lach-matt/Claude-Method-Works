@@ -371,8 +371,8 @@ data are the background's. None of this depends on the position of the corner. N
 on an edge: [[def:civp-large-data]] leaves Ω free on both cones, and [[lem:civp-large-data]], [[prop:civp-large-corner]]
 and the steps below take the functions on the edges as given.
 
-*Its Step 1.* Q1 × Y becomes 𝒬 × Y. f̊ becomes the restriction of the background's reduced fields to 𝒬 × (0, π/2), and f̊_e
-a function in C^∞(𝒬 × Y; ℝ²³) with the same properties. The band, η0 and J0 become (ϑ_a′, ϑ_b′), η0′ and
+*Its Step 1.* Q1 × Y becomes 𝒬 × Y. f̊ becomes the restriction of the background's reduced fields to 𝒬 × (0, π/2),
+and f̊_e a function in C^∞(𝒬 × Y; ℝ²³) with the same properties. The band, η0 and J0 become (ϑ_a′, ϑ_b′), η0′ and
 J0′ := [ϑ_a′ − 2η0′, ϑ_b′ + 2η0′], and the cut-off ϱ is taken for them. The data are given on {u_c} × Y and {v_c} × Y,
 and the transport equations are restricted to {v = v_c} and to {u = u_c}.
 
@@ -381,13 +381,13 @@ coefficients and right side being smooth functions of f and of the coordinates. 
 [[thm:std-cctw-strips]] apply with a0 := u′ − u_c and b0 := v′ − v_c. They give a* and b* and a solution on
 𝒰 := ([u_c, u_c + a*] × [v_c, v′] ∪ [u_c, u′] × [v_c, v_c + b*]) × Y.
 
-*Its Step 3.* In [[eq:civp-large-delta]] the suprema are taken over the corresponding sets, and η0, v_1 and u_1 become η0′,
-v′ − v_c and u′ − u_c. [[lem:civp-large-energy]] (a) is applied on [u_c, u_c + s1] × [v_c, v′] and on
-[u_c, u′] × [v_c, v_c + s2]. On the second set the b-component of f vanishes at v = v_c: on J0′ because b = 0 on N_i,
-and elsewhere because f̊_e has b = 0. So |b| ≤ β1 (v − v_c) there. The set 𝒮 becomes
-[u_c, u_c + s1] × [v_c, v′] ∪ [u_c, u′] × [v_c, v_c + s2] ⊃ 𝒬_δ. F is defined on 𝒬_δ × (0, π/2). Its f₃-components
-on N_o are f̄₃ and its f₄-components on N_i are f̄₄, and the other components there are the solutions of
-[[lem:civp-large-data]] (b) (i) in the form above. In the paragraph on the signs of the densities:
+*Its Step 3.* In [[eq:civp-large-delta]] the suprema are taken over the corresponding sets, and η0, v_1 and
+u_1 become η0′, v′ − v_c and u′ − u_c. [[lem:civp-large-energy]] (a) is applied on [u_c, u_c + s1] × [v_c, v′]
+and on [u_c, u′] × [v_c, v_c + s2]. On the second set the b-component of f vanishes at v = v_c: on J0′
+because b = 0 on N_i, and elsewhere because f̊_e has b = 0. So |b| ≤ β1 (v − v_c) there. The set 𝒮 becomes
+[u_c, u_c + s1] × [v_c, v′] ∪ [u_c, u′] × [v_c, v_c + s2] ⊃ 𝒬_δ. F is defined on 𝒬_δ × (0, π/2). Its f₃-components on N_o
+are f̄₃ and its f₄-components on N_i are f̄₄, and the other components there are the solutions of [[lem:civp-large-data]]
+(b) (i) in the form above. In the paragraph on the signs of the densities:
 
 - 𝒬_δ is a past set of 𝒬;
 - the segments through a point (u″, v″) are [u_c, u″] × {v″} and {u″} × [v_c, v″];
@@ -409,9 +409,9 @@ are the cone data. In the continuation in u + v:
 
 *Its Step 5.* The functions induced on N_o and N_i are those of the cone data, by Step 3, as there.
 
-*Its Step 6.* D′ is a past set of 𝒬, f′₃ = f̄₃ on N_o ∩ D′ and f′₄ = f̄₄ on N_i ∩ D′ ([[lem:civp-large-data]] (b) (iii) in
-the form above). For (u, v) ∈ D′ ∩ 𝒬_δ, z := f′ − F is treated on [u_c, u] × [v_c, v] × [η″/2, π/2 − η″/2], with z₃ = 0
-at u = u_c and z₄ = 0 at v = v_c, and η″ := min(η′, η0′).
+*Its Step 6.* D′ is a past set of 𝒬, f′₃ = f̄₃ on N_o ∩ D′ and f′₄ = f̄₄ on N_i ∩ D′ ([[lem:civp-large-data]] (b) (iii)
+in the form above). For (u, v) ∈ D′ ∩ 𝒬_δ, z := f′ − F is treated on [u_c, u] × [v_c, v] × [η″/2, π/2 − η″/2], with
+z₃ = 0 at u = u_c and z₄ = 0 at v = v_c, and η″ := min(η′, η0′).
 
 No other step refers to the position of the corner, to u_1 or v_1, or to Ω. With these replacements the proof of
 [[thm:civp-large]] proves (a), (b) and (c). ∎
@@ -961,9 +961,9 @@ rem:loc-shell-poisson	paper/reader/proofs/P-SHELL.md:268	proof P-SHELL, Remark (
 def:loc-shell-data	paper/reader/proofs/P-SHELL.md:281	proof P-SHELL, Definition (Cone data with shells)	new: cone data of def:civp-large-data with atoms m_k, n_j and breaks on leaves; jump conditions [∂_v b] = 0, [tr χ] = −m_k, [tr χ̲] = −n_j
 prop:loc-shell-cones	paper/reader/proofs/P-SHELL.md:301	proof P-SHELL, Proposition (Free data with atoms)	new: prop:loc-cones and lem:loc-cone-in with measure-valued densities (S-T6 MV-2); [∂_vϕ] = −m_k/3, ∂_v b continuous automatically
 lem:loc-shell-corner-large	paper/reader/proofs/P-SHELL.md:340	proof P-SHELL, Lemma (Developments without smallness at a corner sphere in Q1)	new: thm:civp-large (a)–(c) at any rectangle in Q1 for any band, Ω free on both edges, b free on N_o and zero on N_i; proof: the proof of thm:civp-large with every corner-dependent place replaced (replaces the pending statement T2)
-lem:loc-shell-corner-small	paper/reader/proofs/P-SHELL.md:417	proof P-SHELL, Lemma (Developments near the background's data at a corner sphere in Q1)	new: case (I) of sec:loc-cone-reduced at any corner in Q1 with g0 restricted to the collar as background; explicit width δ_* = √c_+/2 independent of the data; existence, the "in particular" localisation, the estimate to order k − 4; steps of the proof of thm:loc-cone-development reused named (replaces the pending statement T1)
-thm:loc-shells	paper/reader/proofs/P-SHELL.md:491	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses lem:loc-shell-corner-large and lem:loc-shell-corner-small at the other corners; derivative count k_(i−1) = 6k_i + 23, the change of angle back losing no derivative
-eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:496	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
-prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:666	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis; the lemma and the junction conditions extended to sets meeting every coordinate line in an interval (𝔏 and its unions); the crossing rule where the domain contains a neighbourhood of the crossing sphere
-eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:687	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
-rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:796	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)
+lem:loc-shell-corner-small	paper/reader/proofs/P-SHELL.md:419	proof P-SHELL, Lemma (Developments near the background's data at a corner sphere in Q1)	new: case (I) of sec:loc-cone-reduced at any corner in Q1 with g0 restricted to the collar as background; explicit width δ_* = √c_+/2 independent of the data; existence, the "in particular" localisation, the estimate to order k − 4; steps of the proof of thm:loc-cone-development reused named (replaces the pending statement T1)
+thm:loc-shells	paper/reader/proofs/P-SHELL.md:496	proof P-SHELL, Theorem (Developments of cone data with null shells)	new: existence on {min(u, v) ≤ δ} with no crossings, localisation in widened bands, uniqueness among solutions with shells along the same leaves, small-data part with data-independent widths (S-T6 MV-3); uses lem:loc-shell-corner-large and lem:loc-shell-corner-small at the other corners; derivative count k_(i−1) = 6k_i + 23, the change of angle back losing no derivative
+eq:loc-shell-bands	paper/reader/proofs/P-SHELL.md:501	proof P-SHELL, display	the widened bands, w_i = ½ min(ϑ_a^(i), π/2 − ϑ_b^(i))
+prop:loc-shell-crossing	paper/reader/proofs/P-SHELL.md:667	proof P-SHELL, Proposition (Crossing shells)	new: product rule for tr χ tr χ̲ at a crossing sphere; round crossing rule (R² − μ_++)(R² − μ_−−) = (R² − μ_+−)(R² − μ_−+) (S-T6 MV-0); round continuation by the Volterra system; continuation off the axes by prop:loc-cone-local; nothing asserted for shells not round at an axis; the lemma and the junction conditions extended to sets meeting every coordinate line in an interval (𝔏 and its unions); the crossing rule where the domain contains a neighbourhood of the crossing sphere
+eq:loc-shell-crossing-rule	paper/reader/proofs/P-SHELL.md:688	proof P-SHELL, display	the crossing rule f_++ f_−− = f_+− f_−+
+rem:loc-shell-scope	paper/reader/proofs/P-SHELL.md:800	proof P-SHELL, Remark (What this section does not give)	general measures, domains beyond the cones, backgrounds with shells, axes, uniqueness classes, limits of concentrating densities (S-T6 5.2, open items)
