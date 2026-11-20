@@ -526,13 +526,13 @@ with ∂_r the radial field of the chart in Σ_τ, and du(∂_r) = −(u + δ_c)
 bounded below by a number c_Û > 0 depending only on δ_1, and likewise at axis 1. [[lem:class-leaf-reference]] therefore
 applies with V := Û on every slice, at every axis point of 𝒰, with constants depending only on C^(k+3) bounds of Û, on
 c_Û and on the radius r_Û of its part (o), so only on k, Λ, κ, l. Fix δ ∈ (0, r_Û/8], also at most δ_𝔐 of its part (b′)
-for 𝔐 := 1 + (the bound of 𝔐 for Û), and at most a quarter of the least distance of 𝒰 to {y = 0}; and let ϖ be a smooth
+for 𝔐 := 1 + (the bound of 𝔐 for Û), and at most a quarter of the least distance of 𝒰 to {y = 0}; and let χ_ax be a smooth
 G-invariant function of y equal to 1 where dist(y, axes) ≤ δ/2 and to 0 where dist(y, axes) ≥ δ.
 
 *Step 3 (The modified system).* The unknowns U = (g, p_A, Θ_A, q_A), A ∈ {in, out}, and their first-order variables
 𝐔 := (g, g_τ, g_a, p_A, Θ_A, q_A) in the chart, are those of case (II), with the reduced Ricci tensor and the gauge vector
 D(g) := g^(ab) (Γ[g] − Γ[Ĝ])_(ab) relative to Ĝ, and with ζ_A := 1. (Aug1), (Aug2) and (Aug4) are as in
-[[sec:class-augmented]], and (Aug3) is P_A(Θ_A) = S_A^♮, S_A^♮ := (1 − ϖ) S_A + ϖ S_A^ax, with S_A of
+[[sec:class-augmented]], and (Aug3) is P_A(Θ_A) = S_A^♮, S_A^♮ := (1 − χ_ax) S_A + χ_ax S_A^ax, with S_A of
 [[sec:class-augmented]], a smooth function of (g, dg, p_B, Θ_A, q_B) where dist(y, axes) ≥ δ/2, and S_A^ax the axis closure
 of Step 6 of the proof of [[thm:class-stability]], built near axis 2 from κ_A1 and the planar shear σ_A[U] of the leaves
 of U in Σ_τ ([[lem:class-leaf-reference]]), and near axis 1 likewise with the two circles exchanged. We write 𝒜(U) = 0 for
@@ -557,10 +557,10 @@ wherever both are defined and the residual of (Aug3) is −E(P̂_A, P̂_A); and 
 and Φ(τ, Z) := ξ (F^♮(x, 𝐔̂ + Z) − A^μ(x, 𝐔̂ + ϒ(Z)) ∂_μ 𝐔̂) + F̃. The first and third rows of its wave block give
 g_τ = ∂_τ g and g_a = ∂_a g if they hold initially, as in [[lem:loc-cone-system]] (c). (iii) *The forcing.* Let ρ > 0 be
 so small that, for (τ, Z) with ‖Z‖_(H^k) ≤ ρ, C_S ρ ≤ r_0 (so ϒ(Z) = Z) and the states 𝐔̂ + Z lie, at the axis points of
-supp ξϖ, in the balls 𝔅 and 𝔅′ of [[lem:class-leaf-reference]] (a), (b) about Û and have their leaves foliating the sets
+supp ξχ_ax, in the balls 𝔅 and 𝔅′ of [[lem:class-leaf-reference]] (a), (b) about Û and have their leaves foliating the sets
 𝒰_δ, as in Step 9 of the proof of [[thm:class-stability]]; ρ depends only on k, Λ, κ, l. On 𝒟_ρ := {‖Z‖_(H^k) ≤ ρ}, with
 u_* := 0, Φ satisfies (F1)–(F3): its local part by [[rem:class-kato-local]], Φ_loc(τ, x, 0) being supported in supp ξ;
-and its non-local part −½ ξϖ (σ_A[𝐔̂ + Z]² − σ_A[Û]²) in the Θ-rows, σ_A[Û] being smooth, by [[lem:class-leaf-reference]]
+and its non-local part −½ ξχ_ax (σ_A[𝐔̂ + Z]² − σ_A[Û]²) in the Θ-rows, σ_A[Û] being smooth, by [[lem:class-leaf-reference]]
 (a) for (F1), with Moser's estimate ([[cor:std-moser-product]] (1)), by [[lem:class-leaf-reference]] (b) for (F2), σ_A being
 bounded in L^∞ on 𝒟_ρ by (a) and [[lem:sobolev]], and by (F2) and the smoothness in τ of Û, of ξ and of the leaves of Û
 for (F3).
@@ -586,7 +586,7 @@ hold, as at τ_init. Below U denotes the corresponding state on 𝒰 ∩ {τ ≤
 *Step 5 (The past of the edges).* U = Û on P ∩ 𝒰 ∩ {τ ≤ τ_end}. Indeed, on P, F̃ = ξ 𝒜(Û), so z := 𝐔 − 𝐔̂ satisfies, with
 the coefficients at Û as in [[lem:loc-cone-past]],
 
-    A^μ_ξ(x, 0) ∂_μ z = M z − ½ ξϖ (σ_A[U]² − σ_A[Û]²)  (in the Θ-rows),
+    A^μ_ξ(x, 0) ∂_μ z = M z − ½ ξχ_ax (σ_A[U]² − σ_A[Û]²)  (in the Θ-rows),
 
 M bounded. Let e(τ) := ∫_(P∩𝒰∩Σ_τ) ⟨A^0_ξ(x, 0) z, z⟩. The divergence theorem on the Lipschitz domain P ∩ 𝒰 ∩ {τ ≤ s}, as in
 [[lem:loc-cone-past]], has nonnegative boundary terms on N, which is null for Ĝ with du(P̂_out) = dv(P̂_in) = 0 and the other
@@ -614,7 +614,7 @@ integral curve of P_A through a point of 𝒯, followed to the past, reaches N i
 and Δ_A := Θ_A − div_g P_A: off the axes [[prop:class-augmented]] (d), (e) give P_A(Δ_A) = −Δ_A (Θ_A + div_g P_A − 2κ_A1 −
 2κ_A2) + g(∇_(P_A) D, P_A) + L(P_A, P_A), and near the axes Step 10 of the proof of [[thm:class-stability]] gives the same
 with −½ Δ_A (Θ_A + div_g P_A − 2κ_A1) − ½ (σ_A[U]² − σ_A[U′]²) in place of the first term, U′ := U with Θ_A replaced by
-div_g P_A; on the overlap the equation is the corresponding combination with the weights 1 − ϖ and ϖ, since S_A(U′) =
+div_g P_A; on the overlap the equation is the corresponding combination with the weights 1 − χ_ax and χ_ax, since S_A(U′) =
 S_A^ax(U′) there, the leaves of U′ being the level sets of u_A. D solves [[eq:class-gauge-wave]] with B_g T = Σ_A Δ_A q_A
 p_A. On N, U = Û to infinite order and div_Ĝ P̂_A = Θ̂_A, so U′ = U to infinite order there; so the face sections, which are
 leaves of Û, solve the leaf equations of U and of U′ and are their leaves through their axis points, by the uniqueness in
@@ -720,9 +720,9 @@ holds for both in every slicing, their leaves being the level sets of their phas
 [[eq:class-x]], the closure. Ũ − U vanishes to infinite order on D_(t*) and on N ∩ R′. For t* ≤ s ≤ t* + θ let
 R′_s := R′ ∩ {t* ≤ t ≤ s} and z := 𝐔̃ − 𝐔 its first-order variables, so that, with the coefficients at U,
 
-    A^μ(x, 𝐔) ∂_μ z = M z − ½ ϖ (σ_A[Ũ]² − σ_A[U]²)  (in the Θ-rows),      M bounded,
+    A^μ(x, 𝐔) ∂_μ z = M z − ½ χ_ax (σ_A[Ũ]² − σ_A[U]²)  (in the Θ-rows),      M bounded,
 
-ϖ as in Step 2 of the proof of [[prop:civp-axes-corner]]. The boundary of R′_s consists of D_(t*), of pieces of N, where
+χ_ax as in Step 2 of the proof of [[prop:civp-axes-corner]]. The boundary of R′_s consists of D_(t*), of pieces of N, where
 z = 0, of D_s, and of the future faces {u = a + ε} and {v = b + ε}, null for g with R′_s to their past, on which the
 boundary form at U is nonnegative, du(P_out) = dv(P_in) = 0 and the other pairings positive.
 
