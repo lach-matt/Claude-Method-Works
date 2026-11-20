@@ -7,9 +7,10 @@ lists, step by step, the families that each of them composes, bounds the charge 
 [[def:uc-choice]], and adds the charges. Two counts of index sets dominate the result: the count n_ι of the Fourier
 transform in Step 0 of the proof of [[prop:iii-i11-3-1]], at most N_ι by [[lem:uc-n-iota]], and the count n_K of the
 K⁺-exponents of the inverse transform in its Step 7, at most N_ι + N_Λ ([[lem:cs-fourier]]). A level step below 3 is
-charged at most 497, a round and a step of the base at most 469 and 466, a level step above 3 at most 2N_ι + N_Λ + 529
-([[lem:cs-levels]], [[lem:cs-base]]), and c_0, which contains three runs of the top level, less than
-6N_ι + 1.74·10²⁸ ([[lem:cs-rest]]). So c_* < 6.4368·10³⁵ ([[prop:cs-cstar]]).
+charged at most 497, a round and a step of the base at most 469 and 466, a level step above 3 at most
+C_lev = 2N_ι + N̄_Λ + 529, with the bound N̄_Λ ≥ N_Λ below ([[lem:cs-levels]], [[lem:cs-base]]), and c_0, whose bound
+counts three runs of the top level, less than 6N_ι + 1.74·10²⁸ ([[lem:cs-rest]]). So c_* < 6.4368·10³⁵
+([[prop:cs-cstar]]).
 
 Throughout we write
 
@@ -26,21 +27,26 @@ assemblies from applications of elementary families, each charged a non-negative
 [[def:ec-accounted-loss]] assigns to it is at most the sum of the charges of the applications it contains.
 
 (b) Let M be a map built in this way, ℓ_1, …, ℓ_m functionals computed by maps built in this way, and v^i = M(s^i) for
-sources s^i whose families are charged at most 11. Then e ↦ M(e) + Σ_i ℓ_i(e)v^i is assigned at most A_M + A_ℓ + 11,
-where A_M and A_ℓ are the sums of the charges of the applications in M and in the maps that give the ℓ_i.
+sources s^i whose families are charged at most 11. Then e ↦ M(e) + Σ_i ℓ_i(e)v^i is assigned at most
+max(A_ℓ, A_M + 11), where A_M and A_ℓ are the sums of the charges of the applications in M and in the maps that give
+the ℓ_i; in particular at most A_M + 11 when each ℓ_i is a coefficient functional (charge 0) of the output of maps
+whose applications are among those of M.
 
 *Proof.* (a) By induction over the expression: a composition is assigned the sum of the numbers of its factors, and a
 sum or an assembly the largest of the numbers of its parts, which is at most their sum, all numbers being non-negative.
 (b) The map is a sum of M and of a finite-rank assembly; [[def:ec-accounted-loss]] assigns the assembly the largest of
 the numbers of its parts, the functionals (at most A_ℓ by (a)) and the families v^i (at most A_M + 11 by (a)). So the
-sum is assigned at most max(A_M, A_ℓ, A_M + 11) ≤ A_M + A_ℓ + 11. ∎
+sum is assigned at most max(A_M, A_ℓ, A_M + 11) = max(A_ℓ, A_M + 11). In the particular case the maps that give the ℓ_i
+are among those of M, so A_ℓ ≤ A_M. ∎
 
-Every elimination of finitely many parameters in [[ch:s20]]–[[ch:s23]] has the form of (b): the forward solution for
-the forcing F − D_(p⃗)P(p⃗′) is the solution for F plus Σ_i p′_i times the solutions for the fixed directions
-−D_(p⃗)P(e_i), which are background sources ([[lem:iii-j2-2-1]] (b)), and p⃗′ is a finite-dimensional linear function
-of coefficients read from the expansion of the solution. This is the way in which the finite-dimensional data enter
-in the proof of [[prop:ec-upper]]. So each statement whose proof eliminates parameters is charged at most the sum of
-the charges of the statements it applies, each counted once, plus 11.
+Every elimination of finitely many parameters in [[ch:s20]]–[[ch:s23]] has the form of (b): by linearity and the
+uniqueness of forward solutions, the forward solution for the forcing F − D_(p⃗)P(p⃗′) is the solution for F plus
+Σ_i p′_i times the solutions for the fixed directions −D_(p⃗)P(e_i), which are background sources
+([[lem:iii-j2-2-1]] (b)), and p⃗′ is a finite-dimensional linear function of coefficients read from the expansion of
+the solution, that is, of coefficient functionals of outputs of the maps that compose M. This is the way in which the
+finite-dimensional data enter in the proof of [[prop:ec-upper]]. So, by the particular case of (b), each statement
+whose proof eliminates parameters is charged at most the sum of the charges of the statements it applies, each counted
+once, plus 11.
 
 **Definition {#def:cs-choices}** (The free orders and inner products.) At the choice of [[def:uc-choice]] we take,
 besides:
