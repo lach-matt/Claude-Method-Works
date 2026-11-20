@@ -13,27 +13,30 @@ Across an outgoing leaf no condition arises. On the neighbourhood of the cones o
 two shells cross. Where two shells cross, the null expansions obey a product rule, which for round metrics is a relation
 between the masses of the four adjacent regions ([[prop:loc-shell-crossing]]).
 
-*Leaves and cells.* Throughout, g0, Q1 = [0, u_1] × [0, v_1] and the band 0 < ϑ_a < ϑ_b < π/2 are as in
-[[sec:civp-large]]: g0 is defined, in the gauge [[eq:loc-double-null]], on a neighbourhood of Q1 × S³. Fix numbers
-0 < c_1 < ⋯ < c_p < v_1 and 0 < d_1 < ⋯ < d_q < u_1, where p, q ≥ 0, and put c_0 := 0, c_(p+1) := v_1, d_0 := 0 and
-d_(q+1) := u_1. The sets {v = c_k} (1 ≤ k ≤ p) are the *ingoing leaves*, the sets {u = d_j} (1 ≤ j ≤ q) the *outgoing
-leaves*, their intersections the *crossing spheres*, and the rectangles Q_jk := [d_j, d_(j+1)] × [c_k, c_(k+1)] the
-*cells*; as in [[sec:loc-cone-setting]], points of the (u, v)-plane stand for the corresponding spheres. Let D ⊂ Q1 be a
-past set. A function on D × S³, or off the axes on D × (0, π/2), is *cellwise smooth* if its restriction to the
-intersection of that set with each cell is the restriction of a smooth function on a neighbourhood of it; it then has
-one-sided values and one-sided derivatives of every order on the leaves. At a point of an ingoing leaf {v = c_k} that is
-not on a crossing sphere, the *jump* of a cellwise smooth F is [F] := F(c_k⁺) − F(c_k⁻), the difference of the values
-from the cells above and below; across an outgoing leaf {u = d_j}, [F] := F(d_j⁺) − F(d_j⁻). A continuous cellwise smooth
-F has the same restriction to a leaf from both sides, so its derivatives along the leaf are continuous across it: [∂_u
-F] = [∂_ϑ F] = 0 across an ingoing leaf, [∂_v F] = [∂_ϑ F] = 0 across an outgoing one, and likewise for every derivative
-along the leaf.
+*Leaves and cells.* Throughout, g0, Q1 = [0, u_1] × [0, v_1], the open set 𝒪 ⊃ Q1 and the band 0 < ϑ_a < ϑ_b < π/2 are
+as in [[sec:civp-large]]: g0 is given, in the gauge [[eq:loc-double-null]], on 𝒪 × S³, and solves [[eq:two-dust-limit]]
+at the points of 𝒪 with u, v ≥ 0. Fix numbers 0 < c_1 < ⋯ < c_p < v_1 and 0 < d_1 < ⋯ < d_q < u_1, where p, q ≥ 0, and
+put c_0 := 0, c_(p+1) := v_1, d_0 := 0 and d_(q+1) := u_1. The sets {v = c_k} (1 ≤ k ≤ p) are the *ingoing leaves*, the
+sets {u = d_j} (1 ≤ j ≤ q) the *outgoing leaves*, their intersections the *crossing spheres*, and the rectangles Q_jk :=
+[d_j, d_(j+1)] × [c_k, c_(k+1)] the *cells*; as in [[sec:loc-cone-setting]], points of the (u, v)-plane stand for the
+corresponding spheres. Let D ⊂ Q1 be a past set. A function on D × S³, or off the axes on D × (0, π/2), is *cellwise
+smooth* if its restriction to the intersection of that set with each cell is the restriction of a smooth function on a
+neighbourhood of it; it then has one-sided values and one-sided derivatives of every order on the leaves. At a point of
+an ingoing leaf {v = c_k} that is not on a crossing sphere, the *jump* of a cellwise smooth F is [F] := F(c_k⁺) −
+F(c_k⁻), the difference of the values from the cells above and below; across an outgoing leaf {u = d_j}, [F] := F(d_j⁺)
+− F(d_j⁻). A continuous cellwise smooth F has the same restriction to a leaf from both sides, so its derivatives along
+the leaf are continuous across it: [∂_u F] = [∂_ϑ F] = 0 across an ingoing leaf, [∂_v F] = [∂_ϑ F] = 0 across an
+outgoing one, and likewise for every derivative along the leaf.
 
 A metric g on D × S³ is *continuous and cellwise smooth* if it is a continuous G-invariant Lorentzian metric whose
 restriction to the intersection of D × S³ with each cell is the restriction of a smooth G-invariant Lorentzian metric on
 a neighbourhood of it, and which off the axes has the form [[eq:loc-double-null]] with Ω > 0, γ_ϑ > 0, b, A_c and A_s
-continuous and cellwise smooth. Here and below a class solution in the gauge is meant in the sense of [[sec:civp-large]]:
-its functions are smooth off the axes and the metric extends smoothly to them; it need not equal g0 near the axes.
-Charts (u, v, y), with y = (y¹, y², y³) a chart of S³, cover D × S³, the axes included. In such a chart the components
+continuous and cellwise smooth. A *class solution in the gauge* is one in the sense of [[sec:loc-cone-setting]], with the
+corner at S and g0 as the background, as in [[sec:civp-large]]; its functions equal g0's near the axes. A *class solution
+in double-null form* is defined in the same way without that condition near the axes: a smooth class solution of
+[[eq:class-system]] with two families, phases v and u and densities q_in and q_out, whose metric has the form
+[[eq:loc-double-null]] with Ω, γ_ϑ, b, A_c, A_s smooth functions of (u, v, ϑ) off the axes. A class solution in the
+gauge is one in double-null form. Charts (u, v, y), with y = (y¹, y², y³) a chart of S³, cover D × S³, the axes included. In such a chart the components
 of g are continuous with locally bounded first derivatives, and its Christoffel symbols Γ^a_bc are locally bounded and
 cellwise smooth. Its *Ricci tensor in the sense of distributions* is, in the chart,
 
@@ -63,8 +66,9 @@ being one-sided at the leaves.
 
 Away from the leaves [[eq:loc-shell-einstein]] and [[eq:loc-shell-dust]] are the class system [[eq:class-system]] with
 the two families of [[sec:loc-cone-setting]]. So on the interior of each cell (g, v, u, q_in, q_out) is a class solution
-in the gauge, and by continuity its equations hold on each closed cell for the one-sided values. When p = q = 0 a
-solution with null shells is a class solution in the gauge.
+in double-null form, and by continuity its equations hold on each closed cell for the one-sided values. When p = q = 0 a
+solution with null shells is a class solution in double-null form, and a class solution in the gauge if it equals g0
+near the axes.
 
 **Lemma {#lem:loc-shell-ricci}** (The curvature of a continuous, cellwise smooth metric.) Let g be continuous and
 cellwise smooth on D × S³, and let Ric_c(g) be its Ricci tensor on each cell, a locally bounded cellwise smooth tensor.
@@ -166,7 +170,7 @@ sphere of the angular components, which [[lem:two-dust-equations]] gives as the 
 
 **Proposition {#prop:loc-shell-junction}** (The junction conditions.) Let D ⊂ Q1 be a past set, g a continuous and
 cellwise smooth metric on D × S³ and q_in, q_out ≥ 0 cellwise smooth functions, such that on each closed cell (g, v, u,
-q_in, q_out) is a class solution in the gauge. Then the following hold off the axes and off the crossing spheres.
+q_in, q_out) is a class solution in double-null form. Then the following hold off the axes and off the crossing spheres.
 
 (a) *The torsion jump.* On each ingoing leaf,
 
@@ -290,7 +294,7 @@ tr χ̲ = ∂_u ln 𝒱 on 𝒞_in;
 K_in ⊂ [0, u_1] × (ϑ_a, ϑ_b).
 
 Here the jumps are taken along the cones: [F] := F(c_k⁺) − F(c_k⁻) on 𝒞_out and F(d_j⁺) − F(d_j⁻) on 𝒞_in. With p = q = 0
-these are the cone data of [[def:civp-large-data]].
+these are the cone data on Q1 of [[def:civp-large-data]].
 
 **Proposition {#prop:loc-shell-cones}** (Free data with atoms.) On 𝒞_out write γ_ϑ = e^(2ϕ + 2ℓ_1), A_c = ϕ + ℓ_2 and
 A_s = ϕ + ℓ_3 with ℓ_1 + ℓ_2 + ℓ_3 = 0, and keep Ω the background's. Let the free data (ℓ_1, ℓ_2, ℓ_3) be continuous on
@@ -333,11 +337,11 @@ sphere S. The proof of [[thm:loc-shells]] applies them at corner spheres on the 
 
 (T2) [[pending:civp-large-at-a-corner]] For every rectangle 𝒬 = [u_c, u′] × [v_c, v′] ⊂ Q1, [[thm:civp-large]] (a), (b)
 and (c) hold with Q1, S, 𝒞_out ∩ Q1 and 𝒞_in ∩ Q1 replaced by 𝒬, its corner sphere {(u_c, v_c)} × S³ and its edges
-N_o := {u_c} × [v_c, v′] and N_i := [u_c, u′] × {v_c}, the cone data by functions on N_o and N_i with the properties of
-[[def:civp-large-data]] (b = 0 on N_i), past sets by the sets D ⊂ 𝒬 with [u_c, u] × [v_c, v] ⊂ D for every (u, v) ∈ D,
-and 𝒮_δ by {(u, v) ∈ 𝒬 : min(u − u_c, v − v_c) ≤ δ}. The proof of [[thm:civp-large]] uses of g0 only that it is a smooth
-round class solution in the gauge, with b = 0, on a neighbourhood of Q1 × S³, and its corner step already works at every
-corner of Q1.
+N_o := {u_c} × [v_c, v′] and N_i := [u_c, u′] × {v_c}, the cone data on Q1 by functions on N_o and N_i with the
+properties of [[def:civp-large-data]] (b = 0 on N_i), past sets by the sets D ⊂ 𝒬 with [u_c, u] × [v_c, v] ⊂ D for every
+(u, v) ∈ D, and 𝒮_δ by {(u, v) ∈ 𝒬 : min(u − u_c, v − v_c) ≤ δ}. The proof of [[thm:civp-large]] uses of g0 only that it
+is round, with b = 0, given on 𝒪 × S³ and a solution of [[eq:two-dust-limit]] at the points of 𝒪 with u, v ≥ 0, and its
+corner step, [[prop:civp-large-corner]], already works at every corner of Q1.
 
 (T1) [[pending:loc-cone-development-at-a-corner]] Let (u_c, v_c) be (0, c) with 0 < c < v_1 or (d, 0) with 0 < d < u_1,
 let l_u, l_v > 0 and δ_1 := min(l_u, l_v)/2 be such that R > a on the edges N_o := {u_c} × [v_c, v_c + l_v + δ_1] and
@@ -392,8 +396,8 @@ leaves.
 d_1] × [0, c_1], 𝒫_k^out := [0, λ_k^out] × 𝒵_k (1 ≤ k ≤ p) along 𝒞_out and 𝒫_j^in := 𝒴_j × [0, λ_j^in] (1 ≤ j ≤ q) along
 𝒞_in, with numbers λ chosen below; 𝒫_k^out has depth k, 𝒫_j^in depth j and 𝒫_0 depth 0.
 
-*Step 1: the corner rectangle.* The restrictions of the cone data to {0} × [0, c_1] and [0, d_1] × {0} are cone data in
-the sense of [[def:civp-large-data]] with d_1 and c_1 in place of u_1 and v_1: they are smooth up to the ends, and
+*Step 1: the corner rectangle.* The restrictions of the cone data to {0} × [0, c_1] and [0, d_1] × {0} are cone data on
+𝒫_0 in the sense of [[def:civp-large-data]], with d_1 and c_1 in place of u_1 and v_1: they are smooth up to the ends, and
 (i)–(iii) hold by [[def:loc-shell-data]]. [[thm:civp-large]] gives a class solution in the gauge on {(u, v) ∈ 𝒫_0 :
 min(u, v) ≤ δ} for some δ > 0, inducing these data and equal to (g0, q̊_in, q̊_out) at the points with ϑ ∉ [ϑ_a − η0,
 ϑ_b + η0], so off (ϑ_a^(1), ϑ_b^(1)), and unique in the sense of its part (c). Let δ_0 := min(δ, min(c_1, d_1)/2),
@@ -465,10 +469,10 @@ densities, which (J2) determines from the metric, agree as well.
 track of sizes; C denotes constants that depend only on g0, u_1, v_1, the leaves, the band and N. The rectangle of depth
 i is developed with the index k_i, and its band is (ϑ_a^(i), ϑ_b^(i)); the localisation of [[thm:loc-cone-development]]
 (b) and of (T1), with η = w_i/2, gives g0 off (ϑ_a^(i) − η, ϑ_b^(i) + η), a compact subset of (ϑ_a^(i+1), ϑ_b^(i+1)). As
-the extensions equal the background's near v = v_1 and u = u_1 and g0 is defined on a neighbourhood of Q1 × S³, there is
-δ_e > 0 such that the extended free data, continued by the background's, are defined on [c_k, v_1 + δ_e] and on [d_j,
-u_1 + δ_e], and such that g0 is defined in the gauge on a neighbourhood of [0, 3δ_e] × [0, v_1 + δ_e] and of
-[0, u_1 + δ_e] × [0, 3δ_e] and R > a on these two sets, R being continuous and > a on the cones.
+the extensions equal the background's near v = v_1 and u = u_1 and 𝒪 is an open neighbourhood of Q1, there is δ_e > 0
+such that the extended free data, continued by the background's, are defined on [c_k, v_1 + δ_e] and on [d_j,
+u_1 + δ_e], and such that 𝒪 contains a neighbourhood of [0, 3δ_e] × [0, v_1 + δ_e] and of [0, u_1 + δ_e] × [0, 3δ_e]
+and R > a on these two sets, R being continuous and > a on the cones.
 
 *Extended data.* On 𝒞_out ∩ {c_k ≤ v ≤ v_1 + δ_e} solve the equations of the proof of [[prop:loc-shell-cones]] with the
 free data (ℓ_i^(k), q_in^(k)) and the values of ϕ, ∂_vϕ, b and ∂_v b of the cone data at c_k⁺. By uniqueness the result
@@ -596,7 +600,8 @@ Further, 𝒱[tr χ] = 3R²[R_v] sin ϑ cos ϑ, so [[prop:loc-shell-junction]] (
 in u along {v = c_k} and continuous at Z; likewise (c) for R²[R_u]. Finally R_u is continuous across {v = c_k}, being a
 derivative along it, so [μ] = −R²[f] = 2e^(−2σ) R² R_u [R_v] there, and likewise across {u = d_j}.
 
-(b) Translate u and v so that Z is {(0, 0)} × S³. A round class solution with the phases v and u has q_in = 𝒜/R³ and
+(b) Translate u and v so that Z is {(0, 0)} × S³. A round class solution in double-null form with the phases v and u has
+q_in = 𝒜/R³ and
 q_out = ℬ/R³ with 𝒜 a function of v and ℬ of u, since its conservation laws are ∂_u(R³ q_in) = 0 and ∂_v(R³ q_out) = 0;
 so the cells (−, +) and (+, −) carry round solutions of the two-null-dust equations, with smooth profiles 𝒜 on [0, λ] and
 ℬ on [0, λ]. The functions R, σ and R_v of the cell (−, +) on N_o := {0} × [0, λ], and R, σ and R_u of the cell (+, −) on
@@ -615,7 +620,8 @@ closed edges; and two continuous solutions of [[eq:two-dust-volterra]] on [0, s]
 the norm sup e^(−γ(u + v))|U| with γ large used there, applied on the compact set of values of the two solutions.
 
 Extend the solution by the round metric of this (R, σ) on [0, s]², with q_in = 𝒜/R³ and q_out = ℬ/R³. The extended metric
-is continuous and cellwise smooth, and each closed cell carries a class solution in the gauge. (J1) holds, as b = 0, and
+is continuous and cellwise smooth, and each closed cell carries a class solution in double-null form. (J1) holds, as
+b = 0, and
 (J3), as 𝒜 depends on v alone, ℬ on u alone, and R is continuous. By [[prop:loc-shell-junction]] (b) and (c), applied to
 the extended metric, 𝒱[tr χ] = 3R²[R_v] sin ϑ cos ϑ is constant along {v = 0} through Z, and 𝒱[tr χ̲] along {u = 0}; so
 𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j. By [[prop:loc-shell-junction]] (d) the extension is a
@@ -629,7 +635,7 @@ at Z, the metric being continuous; Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_�
 these being equations along the edges that the two cells satisfy up to their boundaries; and they equal g0's at the
 points with ϑ ∉ [2η, π/2 − 2η]. Change the angle by Φ, with (∂_u + b(u, 0, ϑ) ∂_ϑ) Φ = 0 and Φ(0, ϑ) = ϑ, as in Step 2 of
 the proof of [[thm:loc-shells]], so that b = 0 on N_i; Φ is the identity where ϑ ∉ [2η, π/2 − 2η]. Apply
-[[prop:loc-cone-local]] with the background g0 on an open neighbourhood 𝒪 of Q1 on which it is defined, Q := Q1 (after
+[[prop:loc-cone-local]] with the background g0 on the open set 𝒪 of [[sec:civp-large]], Q := Q1 (after
 the translation), d ∈ (0, 1] so small that the points within 4d of Q form a compact subset of 𝒪, the rectangle 𝒬, and Λ
 the largest C^(m_1) norm of the differences of the transformed functions from g0's: it gives s ∈ (0, λ] and a class
 solution in the gauge on [0, s]² × S³ that induces these functions and equals (g0, q̊_in, q̊_out) at the points with ϑ ∉
