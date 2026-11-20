@@ -891,7 +891,7 @@ functions, sections of the trivial bundle of rank one. For σ ≠ 0 with Im σ �
 [[lem:ii-c-1-3]] at (p, q) = (0, 0), whose proof uses of the metric only (K1), □ is a stationary wave-type operator with
 S = 0; so by [[lem:ii-c-1-2]] its spectral family satisfies (H1), (H2) with S = 0, hence S̄ = 0, and the operator part
 of (H6). By [[thm:vi-a-6-1]], (K1), the metric part of (H6), the dynamical parts of (H3), all of (H4), (Γ.1)–(Γ.3) with
-ν_min = 4(2m_0)^(−1/2), the values q^Γ = 4 and β_0 = 2 on Γ, and (H8) hold, for every operator with principal symbol
+ν_min = 4(2m_0)^(−1/2), the values q^Γ = 4 and β_Γ = 2 on Γ, and (H8) hold, for every operator with principal symbol
 G Id; (H5) is void for a single operator. The remaining conditions concern Im □̂, taken for the density |dx| of
 [[sec:i-a-1-1]] and the standard inner product of ℂ. In coordinates □u = −|g|^(−1/2)∂_μ(|g|^(1/2)g^(μν)∂_νu) has
 real coefficients, and two integrations by parts give ∫(□u)v̄|dg| = ∫g^(μν)∂_νu ∂_μv̄|dg| = ∫u conj(□v)|dg| for

@@ -256,7 +256,7 @@ for |dx| and dt_*; they agree at b_0, and near b_0 the change adds a scalar O(|b
 
 *Near b_0.* Extend h_Γ to a stationary inner product near Γ_(b_0). p_1^Γ for 2L_b is built from the subprincipal
 symbol of 2L_b and h_Γ, continuous in b uniformly near Γ_(b_0), and Γ_b → Γ_(b_0) by (Dyn); so
-sup_(Γ_b) λ_max(p_1^Γ) < ϵ for b near b_0. ν_min and β_0 are continuous in b by (Dyn) and positive at b_0. ∎
+sup_(Γ_b) λ_max(p_1^Γ) < ϵ for b near b_0. ν_min and β_Γ are continuous in b by (Dyn) and positive at b_0. ∎
 
 ### The setting of the indicial analysis {#sec:iii-f1-1}
 

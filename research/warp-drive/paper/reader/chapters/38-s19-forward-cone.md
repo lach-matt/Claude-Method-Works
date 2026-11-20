@@ -700,7 +700,7 @@ such that for b ∈ B̄_1:
 σ > 0 and which meets the characteristic set Σ_b of g_b only in its future component; O lies over U_Γ and is so small
 that on it ζ and dt_* are independent and g_b⁻¹(dt_*, ζ) ≠ 0 (both hold on Σ_b, where a nonzero null covector is
 independent of, and not orthogonal to, the timelike dt_* of (B2), hence near Γ_(b₀) for b near b₀); and (Γ.1)–(Γ.3)
-of (H7) ([[sec:i-b-1-5]]) hold, with ν_min, β_0 and sup_Γ q^Γ continuous in b and positive ((Dyn)).
+of (H7) ([[sec:i-b-1-5]]) hold, with ν_min, β_Γ and sup_Γ q^Γ continuous in b and positive ((Dyn)).
 
 (B2) dt_* is g_b-timelike over U_Γ (g_b^00 < 0 on X°, [[lem:iii-b-3-7]] (a)), and
 ‖g_b − g_(b₀)‖_(𝒢̃^(0,(1,0,0))_(e3b)) < η_♭/2, the norm taken over {t_* ≥ ½, r ≥ r₀ − δ₀}, which contains Ω_* and the
@@ -926,13 +926,13 @@ with h_Γ := h_(η_k,b) in (Γ.4), δ_Γ(0) < 1/(2(k + 1)) and δ_Γ(−ε) ≤ 
 B̄_1 ⊂ ℬ_k for every k, with ℬ_k of [[sec:iii-h1-1]], the set of b ∈ ℬ at which (Γ.4) holds for 2L_b, for z_0 = ±1,
 with δ_Γ(0) < 1/(2(k + 1)) (the case z_0 = −1 being the conjugate one, [[sec:iii-h2-0]]).
 
-*Proof.* With f(η′) := sup_Γ λ_max(p_1^Γ − η′q^Γ) of [[eq:i-b-1-4]], q^Γ ≥ 2β_0 and [[eq:iii-h2-1-1]] give
-f(η′) ≤ Cη − 2β_0η′ for η′ ≥ 0, so γ_+ ≤ Cη/(2β_0). f is Lipschitz with constant Q := sup_Γ q^Γ, and
+*Proof.* With f(η′) := sup_Γ λ_max(p_1^Γ − η′q^Γ) of [[eq:i-b-1-4]], q^Γ ≥ 2β_Γ and [[eq:iii-h2-1-1]] give
+f(η′) ≤ Cη − 2β_Γη′ for η′ ≥ 0, so γ_+ ≤ Cη/(2β_Γ). f is Lipschitz with constant Q := sup_Γ q^Γ, and
 f(γ_−) − f(γ_+) = ½ν_min, so γ_+ − γ_− ≥ ν_min/(2Q). Hence, by [[eq:i-b-1-4]],
 
-    δ_Γ(−ε) ≤ (γ_+ + ε)/(γ_+ − γ_−) ≤ (2Q/ν_min)(Cη/(2β_0) + ε),
+    δ_Γ(−ε) ≤ (γ_+ + ε)/(γ_+ − γ_−) ≤ (2Q/ν_min)(Cη/(2β_Γ) + ε),
 
-and likewise δ_Γ(0) ≤ (2Q/ν_min)Cη/(2β_0). β_0, Q and ν_min are continuous and positive on the compact B̄_1 (B1).
+and likewise δ_Γ(0) ≤ (2Q/ν_min)Cη/(2β_Γ). β_Γ, Q and ν_min are continuous and positive on the compact B̄_1 (B1).
 Choose η_k and ε_k accordingly. ∎
 
 For each k the inner product h_(η_k,b) is a different one. [[thm:i-b-1-3]] is applied at each k separately (in the proof
