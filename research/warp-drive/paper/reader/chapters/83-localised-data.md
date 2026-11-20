@@ -2361,8 +2361,8 @@ complete, so
 
     φ(R) = 0.01 (h_P² D(y_P) − l1 h_L K (R − c_L)),     y_P := (R − c_P)/h_P,
 
-with l1 h_L = 54/305. At R = 4.415, 4.43 and 4.445 (y_P = y_21, y_22, y_23) the table gives, with K̃ := C̃_40 and
-rounded to ten decimals,
+with l1 h_L = 54/305. At R = 4.415, 4.43 and 4.445 (y_P = y_21, y_22, y_23) the table of [[sec:table-bump]] gives, with
+K̃ := C̃_40 and rounded to ten decimals,
 
     0.01 (0.09 D̃_j − (54/305) K̃ (R − c_L)) ≈ −0.0011576361,  −0.0011591651,  −0.0011584676,
 

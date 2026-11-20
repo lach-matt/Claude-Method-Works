@@ -1352,3 +1352,7 @@ Items found while chapters were written in parallel; each is settled once, editi
   scope-two-dust-radial after R5-82). λ0 said to be bounded, not evaluated, as chapter 86 states. F-M33 done; R2-M33,
   R5-82, W-96b (chapter 83 tables to Appendix B), I-1 and P-U71-cstar running; a container restart stopped all five
   on 2026-11-20, and each was resumed from its transcript.
+- R-96b CONFIRMED 0M 0m 2n (notes/reviews/R-96b.md): chapter 83's tables in Appendix B as B.5 and B.6, byte for byte;
+  both nits applied by the coordinator in the reviewer's words (notation sentences in B.5, B.6; 83 "the table of
+  [[sec:table-bump]]"). Appendix B now B.1-B.8. R5-82 CONFIRMED (notes/reviews/R5-82.md): chapter 82 CONFIRMED; chapter 90
+  cites cor:vlasov-two-dust in place of its marker.
