@@ -2,8 +2,8 @@
 
 Proof file for the coordinator. Nothing in `chapters/` or `crosswalk/` was edited. The placement texts below were applied
 to a scratch copy of the tree and checked there (section 7). Every old text is copied from
-`chapters/33-s14-constraint-damping.md` at HEAD (the chapter last changed at the P-T49 merge, b238c1fd), md5
-9571426c902bea231329690543c17455. That file includes the F2-G24 fix round and the P-LB and P-T49 merges, so it is not
+`chapters/33-s14-constraint-damping.md` at HEAD (the chapter last changed at the P-ADM merge, 54350a5d), md5
+147ca1624e75c280f86908a0aa499824. That file includes the F2-G24 fix round and the P-LB, P-T49 and P-ADM merges, so it is not
 the file at 003371f6. Each old text occurs exactly once, and no two old texts overlap; both facts were checked by a
 script. The line numbers given are those of that file.
 
@@ -60,7 +60,7 @@ script. The line numbers given are those of that file.
   displays and proves under that name.
 - **(c)** A published result quoted in Appendix A (chapter 95), with page.
 
-Line numbers refer to the chapter at HEAD, md5 9571426c…. "T n" is the placement text of section 5 that settles an (a).
+Line numbers refer to the chapter at HEAD, md5 147ca162…. "T n" is the placement text of section 5 that settles an (a).
 
 ### 2.2 The table
 
@@ -68,75 +68,75 @@ Line numbers refer to the chapter at HEAD, md5 9571426c…. "T n" is the placeme
 |---|---|---|---|
 | 8, 12 | [Hin26, §7 to Prop. 7.4], [Hin26a, §§3–6, App. A–B], [Hin26a, Lemma 3.2] | b | chapter overview; the form is proved in lem:s14-box-c and prop:np-10-12 (i) |
 | 49 | [Hin26, (7.11)] | b | the adjoint formula is derived on the spot (δ_g = (δ*_g)*, G_g symmetric) |
-| 54, 79, 88, 127 | [Hin26, Thm 7.1], [Hin26, (7.3)–(7.6)], [Hin26, §7.2] | b | statement attributions; the structure is proved in lem:iv4-1-2 and prop:np-10-21 |
+| 54, 79, 88, 129 | [Hin26, Thm 7.1], [Hin26, (7.3)–(7.6)], [Hin26, §7.2] | b | statement attributions; the structure is proved in lem:iv4-1-2 and prop:np-10-21 |
 | 97–98 | [Hin26a, (3.1)], [Hin26a, (3.2)] | b | notation identified; E^C and L_h are defined in the paper |
-| 341, 357 | [Hin26a, Lemma 3.2], [Hin26a, Lemma 3.9] | b | proved in prop:np-10-13 (i)–(ii) and in its proof (ζ_μM^μ = −½ℓ(ζ)) |
-| 552, 555, 557, 560 | [Hin26a, (5.8)], [Prop. 5.1], [p. 39], [p. 41] | b | (5.8) is written out and proved in prop:np-10-14 (v); the p. 39 fact is f = 1 − mr⁻² (prop:np-10-22 (i)); the p. 41 remark is proved in (b) |
-| 781, 785 | [Hin26c, (5.17)] | b | ϑ_ℋ and β₀ are defined in sec:i-a-1-4 and (H3) |
-| 1037, 1040, 1041, 1046 | [Hin26a, Lemmas 3.3–3.8, (3.8), Cor. 3.6, Lemma 3.5, 3.7] | b | lem:iv4-1-1 and lem:iv4-1-causal (F-G24) |
-| 1088, 1123 | [Hin26a, (6.4)], [Hin26a, Thm 4.9] | b | lem:iv4-1-2 and lem:iv4-1-3, proved |
-| 1135 | [Hin26a, p. 29] | b | the indicial family is the normal operator of ρ⁻²P, and P − P̄ ∈ ρ⁴Diff²_b by lem:iv4-1-2 |
-| 1160–1184 | [Hin26a, Prop. 5.1], [(5.8)], [p. 39] | b | lem:iv4-1-4 states the six conditions in 4 + 1 and proves them |
-| 1221–1237 | [Hin26a, Thm 5.2, §5.2, pp. …, §5] | b | section overview, radius names |
-| 1252 | [Hin26a, Defs 2.1, 2.2, 2.5, …] | b | def:iv5-0-1 gives the definitions |
-| 1271 | [Hin26a, §2] (∂_(z^μ) ∈ ρ_sf𝒱_3b) | a | T1: r⁻¹ ∈ ρ_sf C^∞(M^♭) |
-| 1281, 1388 | [Hin26a, (5.19)] | b | notation |
-| 1283–1284 | [Hin26a, §2.3] (supported and extendible spaces) | a-G1 | P-G1 C33-2 |
-| 1286–1290 | [Hin26a, §2.3], [Hin23d] ×2, [Shu92], [Hin26d] ×3 (prop:np-10-65-a) | a-G1 | P-G1 C33-3, C33-4. [Hin26d] is published and quoted in Appendix A (thm:std-sbg-calculus) |
-| 1295, 1327, 1329 | [Hin26a, Lemmas 2.3–2.4, …, Lemma 3.2, (3.2)] | b | proved in lem:iv5-0-2 |
-| 1322 | [Hin26a, (2.13)–(2.14)], "with the same proof" | a | T2: the classes of ∇, □_g, δ*_g, δ_g proved |
-| 1331, 1345 | [Hin26a, p. 15, Props 5.6, 5.16, p. 14] | b | lem:iv5-0-3, proved |
-| 1361, 1364, 1378, 1381 | [Hin26a, Lemmas 3.3–3.9, Cor. 3.6, Lemma 3.9, Prop. 5.1] | b | lem:iv5-0-4, lem:iv5-0-5, proved |
-| 1394 | [Hin26a] (cut-off conditions) | b | remark; the conditions are stated in T4 |
-| 1398, 1404, 1405, 1410, 1423, 1436, 1438, 1465 | [Hin26a, Lemma 5.4, (5.20), Props 5.5, 5.6, (5.21), (5.22)] | b | the cut-offs of (5.20) are written out; (5.21)–(5.22) name eq:iv5-fib and eq:iv5-fib-adj |
-| 1439 | [Hin26a, p. 45] (regularisation) | a-G1 | P-G1 C33-6 |
-| 1441, 1445, 1452, 1455, 1456 | [Hin26a, (5.24)–(5.27), (5.29)] | b | displayed or described term by term; (5.26) uses square roots (P-G1 C33-8) |
-| 1463 | [Hin26a, (5.25)] gives [Hin26a, (5.30)] | a | T42: (5.30) displayed |
-| 1468–1469 | [Hin26a, (5.28)], [(5.29)] | a | T43: the pairing for P_h* displayed |
-| 1475, 1486, 1501, 1504 | [Hin26a, (5.31)–(5.32), Prop. 5.8, (5.33)–(5.34)] | b | eq:iv5-2-1 is displayed; names |
-| 1505 | χ_0, χ_K, ψ "as in [Hin26a, (5.35)]", [(5.36)] | a | T4 (cut-offs), T5 |
-| 1506 | [Hin26a, (5.37)–(5.38)] | b | displayed (P-G1 C33-10 is the next line) |
-| 1511–1512 | [Hin26a, (5.39)], "b_0, b_R, e and f those of [Hin26a, (5.40)–(5.43)]" | a | T4 (lem:iv5-2-symbols), T6 |
-| 1526–1527 | [Hin26a, (5.44)–(5.46)] (the Q-terms) | a-G1 | P-G1 C33-11 |
-| 1528–1529 | [Hin26a, (5.47)] gives [Hin26a, (5.48)]; the h^(1/2) iteration | a | T41, two variants (section 8) |
-| 1532–1533 | "the b_0, b_K, e, f of [Hin26a]" | a | T7 |
-| 1534 | [Hin26a, (5.44)–(5.45)] | a-G1 | P-G1 C33-12 |
-| 1540, 1555, 1572, 1581, 1597, 1614, 1619, 1635 | [Hin26a, Props 5.9, 5.11, 5.12, (5.51)–(5.52), (5.55)–(5.56), (5.58)–(5.59)] | b | statements displayed in the paper; names |
-| 1557–1559 | "χ_sf, χ_K and χ_0 as in [Hin26a]", [(5.53)], [(5.54)], "the b_0, b_sf, e and f of [Hin26a]" | a | T8, T9 |
-| 1576 | "with the symbols of [Hin26a]" | a | T10 |
-| 1600 | [Hin26a, (5.57)] (displayed; symbols undefined) | a | T11, T12 |
-| 1639–1640 | [Hin26a, (5.60)], "the b_0, e_R, e_T and f of [Hin26a]" | a | T13, T14 |
-| 1654, 1659–1661 | [Hin26a, pp. 57–58, (5.58), (5.59), (5.55)] | b | names of displayed forms |
-| 1708 | [Hin26a, (5.44)–(5.46)], "and the iteration" | a-G1, a | P-G1 C33-15 (Q-terms); the iteration is that of prop:iv5-2-1 (T41) |
-| 1711, 1748 | the adjoint pairing [Hin26a, (5.49)] | a | T7 (eq:iv5-2-adj), T15, T16 |
-| 1756–1757, 1760–1761, 1832–1833 | [Hin26a, (5.61), Lemma 5.14, Cor. 5.15] | b | lem:iv5-6-tform and cor:iv5-6-energy, proved |
-| 1902, 1924 | [Hin26a, Prop. 5.16, (5.66)–(5.69)], [Hin26a] (radii) | b | names of the four displayed estimates |
-| 1933–1973 | [Hin26a, (5.66), (5.70)–(5.78), (5.67)–(5.69)], "as in [Hin26a]" | a | T17–T20: lem:iv5-6-transport, lem:iv5-6-core, the new proof |
-| 1978–2090, 2108 | [Hin26a, Thm 5.2, Prop. 5.17, (5.18), (5.21), (5.22), (5.66)–(5.69), (5.80), (5.81)], "as in [Hin26a]" | b | names of displayed statements; (5.80) is displayed; the extension argument is written out |
-| 2107 | [Hin26a, §2.3] (duality) | a-G1 | P-G1 C33-17 |
-| 2117 | [Hin26a, p. 65] | b | the shift ½ is lem:iv5-0-2 (b) |
-| 2122 | [Hin26a, p. 42] (the classical Cauchy theory) | a | T22, through Appendix A (thm:std-bgp-development, thm:std-bgp-cauchy (5), def:std-normally-hyperbolic) |
-| 2133 | [Hin26a, (5.74) and (5.77)] | a | T21 |
-| 2166–2178, 2221, 2258 | [Hin26a, Thm B.1, App. B, §B.4, (B.1), (B.3), (B.7)–(B.12), (B.15)–(B.18), (B.23)] | b | overview; the definitions are given; lem:iv6-0-1 and lem:iv6-0-flow, proved |
-| 2314 | [Hin26a, (B.13)] | b, and the ambiguity treated in section 4 | T23 |
-| 2320, 2337–2338, 2345, 2349 | [Hin26a, Prop. B.2, (B.21), (B.23), (B.26), (B.27)] | b | the commutant is displayed; (B.23) is lem:iv6-0-flow (c); (B.27) is derived |
-| 2331 | the dual estimate [Hin26a, (B.28)], not displayed | a | T24 (eq:iv6-1-3) |
-| 2339, 2343 | the shift [Hin26a, (B.24)], the symbol [Hin26a, (B.25)] | a | T25, T26 |
-| 2358–2364 | [Hin26a, (B.20)] ×2, [p. 89] | a | T27 (eq:iv6-1-4) |
-| 2367–2370 | [Hin26a, (B.29)], [p. 90] | a | T27 (complex σ by prop:i-a-4-9) |
-| 2410–2411 | [Mel93, Thm 6.5], [Hin26a, p. 91] | c | thm:std-relative-index; applied outside its hypotheses (section 6) |
-| 2437 | [Hin26a, Thm B.4] | b | |
-| 2456 | [Hin26a, (B.34) and (B.35)], not displayed | a | T30 (eq:iv6-2-e1, eq:iv6-2-e2), T31 |
-| 2464–2465 | [Hin26a, (B.37)], cut-offs of [Hin26a, (B.36)] | a | T32 |
-| 2470 | [Hin26a, (B.38)] (displayed; symbols undefined) | a | T33 |
-| 2486–2487, 2497 | [Hin26a, (B.39)], [(B.34)], [(B.40)] | a | T34, T35 |
-| 2510–2522 | [Hin26a, (B.34)] ×7, [(B.37)], [(B.41)], [(B.40)] ×2, [(B.35)] | a | T36, T37 (eq:iv6-2-ap) |
-| 2533 | [Hin26a, (B.37) and (B.39)] | a | T38 |
-| 2537, 2539, 2549 | [Hin26a, Thm B.1, (B.44)] | b | (B.44) is displayed |
-| 2569, 2583, 2586 | [Hin26a, Thm 6.2, p. 67, Def. 6.1] | b | the outgoing property used is written out |
-| 2631–2633, 2664–2665 | [Hin26a, Thms B.1, 4.9 (3)], [Hin26, proof of Thm 7.1 (4)], [Hin26c, Def. 5.10, (9.115)] | b | remarks comparing routes; not used |
-| 2671–3032 | [Hin26, Lemma 7.2, (7.10), Prop. 7.3, §7.2.1, Lemma 7.5, Prop. 7.4, (7.16), (7.19), (7.20), (7.31), (7.18), (8.13)] | b | each statement is proved in the paper: (7.10) is derived where it is used, (7.19) is stated and proved in a stronger form, and (8.13) is described and is prop:np-10-52 |
-| 3580 | [Hin26, (8.13)] | b | the condition is described where it is used and proved in prop:np-10-52 |
+| 343, 359 | [Hin26a, Lemma 3.2], [Hin26a, Lemma 3.9] | b | proved in prop:np-10-13 (i)–(ii) and in its proof (ζ_μM^μ = −½ℓ(ζ)) |
+| 554, 557, 559, 562 | [Hin26a, (5.8)], [Prop. 5.1], [p. 39], [p. 41] | b | (5.8) is written out and proved in prop:np-10-14 (v); the p. 39 fact is f = 1 − mr⁻² (prop:np-10-22 (i)); the p. 41 remark is proved in (b) |
+| 783, 787 | [Hin26c, (5.17)] | b | ϑ_ℋ and β₀ are defined in sec:i-a-1-4 and (H3) |
+| 1039, 1042, 1043, 1048 | [Hin26a, Lemmas 3.3–3.8, (3.8), Cor. 3.6, Lemma 3.5, 3.7] | b | lem:iv4-1-1 and lem:iv4-1-causal (F-G24) |
+| 1090, 1125 | [Hin26a, (6.4)], [Hin26a, Thm 4.9] | b | lem:iv4-1-2 and lem:iv4-1-3, proved |
+| 1137 | [Hin26a, p. 29] | b | the indicial family is the normal operator of ρ⁻²P, and P − P̄ ∈ ρ⁴Diff²_b by lem:iv4-1-2 |
+| 1162–1186 | [Hin26a, Prop. 5.1], [(5.8)], [p. 39] | b | lem:iv4-1-4 states the six conditions in 4 + 1 and proves them |
+| 1223–1239 | [Hin26a, Thm 5.2, §5.2, pp. …, §5] | b | section overview, radius names |
+| 1254 | [Hin26a, Defs 2.1, 2.2, 2.5, …] | b | def:iv5-0-1 gives the definitions |
+| 1273 | [Hin26a, §2] (∂_(z^μ) ∈ ρ_sf𝒱_3b) | a | T1: r⁻¹ ∈ ρ_sf C^∞(M^♭) |
+| 1283, 1390 | [Hin26a, (5.19)] | b | notation |
+| 1285–1286 | [Hin26a, §2.3] (supported and extendible spaces) | a-G1 | P-G1 C33-2 |
+| 1288–1292 | [Hin26a, §2.3], [Hin23d] ×2, [Shu92], [Hin26d] ×3 (prop:np-10-65-a) | a-G1 | P-G1 C33-3, C33-4. [Hin26d] is published and quoted in Appendix A (thm:std-sbg-calculus) |
+| 1297, 1329, 1331 | [Hin26a, Lemmas 2.3–2.4, …, Lemma 3.2, (3.2)] | b | proved in lem:iv5-0-2 |
+| 1324 | [Hin26a, (2.13)–(2.14)], "with the same proof" | a | T2: the classes of ∇, □_g, δ*_g, δ_g proved |
+| 1333, 1347 | [Hin26a, p. 15, Props 5.6, 5.16, p. 14] | b | lem:iv5-0-3, proved |
+| 1363, 1366, 1380, 1383 | [Hin26a, Lemmas 3.3–3.9, Cor. 3.6, Lemma 3.9, Prop. 5.1] | b | lem:iv5-0-4, lem:iv5-0-5, proved |
+| 1396 | [Hin26a] (cut-off conditions) | b | remark; the conditions are stated in T4 |
+| 1400, 1406, 1407, 1412, 1425, 1438, 1440, 1467 | [Hin26a, Lemma 5.4, (5.20), Props 5.5, 5.6, (5.21), (5.22)] | b | the cut-offs of (5.20) are written out; (5.21)–(5.22) name eq:iv5-fib and eq:iv5-fib-adj |
+| 1441 | [Hin26a, p. 45] (regularisation) | a-G1 | P-G1 C33-6 |
+| 1443, 1447, 1454, 1457, 1458 | [Hin26a, (5.24)–(5.27), (5.29)] | b | displayed or described term by term; (5.26) uses square roots (P-G1 C33-8) |
+| 1465 | [Hin26a, (5.25)] gives [Hin26a, (5.30)] | a | T42: (5.30) displayed |
+| 1470–1471 | [Hin26a, (5.28)], [(5.29)] | a | T43: the pairing for P_h* displayed |
+| 1477, 1488, 1503, 1506 | [Hin26a, (5.31)–(5.32), Prop. 5.8, (5.33)–(5.34)] | b | eq:iv5-2-1 is displayed; names |
+| 1507 | χ_0, χ_K, ψ "as in [Hin26a, (5.35)]", [(5.36)] | a | T4 (cut-offs), T5 |
+| 1508 | [Hin26a, (5.37)–(5.38)] | b | displayed (P-G1 C33-10 is the next line) |
+| 1513–1514 | [Hin26a, (5.39)], "b_0, b_R, e and f those of [Hin26a, (5.40)–(5.43)]" | a | T4 (lem:iv5-2-symbols), T6 |
+| 1528–1529 | [Hin26a, (5.44)–(5.46)] (the Q-terms) | a-G1 | P-G1 C33-11 |
+| 1530–1531 | [Hin26a, (5.47)] gives [Hin26a, (5.48)]; the h^(1/2) iteration | a | T41, two variants (section 8) |
+| 1534–1535 | "the b_0, b_K, e, f of [Hin26a]" | a | T7 |
+| 1536 | [Hin26a, (5.44)–(5.45)] | a-G1 | P-G1 C33-12 |
+| 1542, 1557, 1574, 1583, 1599, 1616, 1621, 1637 | [Hin26a, Props 5.9, 5.11, 5.12, (5.51)–(5.52), (5.55)–(5.56), (5.58)–(5.59)] | b | statements displayed in the paper; names |
+| 1559–1561 | "χ_sf, χ_K and χ_0 as in [Hin26a]", [(5.53)], [(5.54)], "the b_0, b_sf, e and f of [Hin26a]" | a | T8, T9 |
+| 1578 | "with the symbols of [Hin26a]" | a | T10 |
+| 1602 | [Hin26a, (5.57)] (displayed; symbols undefined) | a | T11, T12 |
+| 1641–1642 | [Hin26a, (5.60)], "the b_0, e_R, e_T and f of [Hin26a]" | a | T13, T14 |
+| 1656, 1661–1663 | [Hin26a, pp. 57–58, (5.58), (5.59), (5.55)] | b | names of displayed forms |
+| 1710 | [Hin26a, (5.44)–(5.46)], "and the iteration" | a-G1, a | P-G1 C33-15 (Q-terms); the iteration is that of prop:iv5-2-1 (T41) |
+| 1713, 1750 | the adjoint pairing [Hin26a, (5.49)] | a | T7 (eq:iv5-2-adj), T15, T16 |
+| 1758–1759, 1762–1763, 1834–1835 | [Hin26a, (5.61), Lemma 5.14, Cor. 5.15] | b | lem:iv5-6-tform and cor:iv5-6-energy, proved |
+| 1904, 1926 | [Hin26a, Prop. 5.16, (5.66)–(5.69)], [Hin26a] (radii) | b | names of the four displayed estimates |
+| 1935–1975 | [Hin26a, (5.66), (5.70)–(5.78), (5.67)–(5.69)], "as in [Hin26a]" | a | T17–T20: lem:iv5-6-transport, lem:iv5-6-core, the new proof |
+| 1980–2092, 2110 | [Hin26a, Thm 5.2, Prop. 5.17, (5.18), (5.21), (5.22), (5.66)–(5.69), (5.80), (5.81)], "as in [Hin26a]" | b | names of displayed statements; (5.80) is displayed; the extension argument is written out |
+| 2109 | [Hin26a, §2.3] (duality) | a-G1 | P-G1 C33-17 |
+| 2119 | [Hin26a, p. 65] | b | the shift ½ is lem:iv5-0-2 (b) |
+| 2124 | [Hin26a, p. 42] (the classical Cauchy theory) | a | T22, through Appendix A (thm:std-bgp-development, thm:std-bgp-cauchy (5), def:std-normally-hyperbolic) |
+| 2135 | [Hin26a, (5.74) and (5.77)] | a | T21 |
+| 2168–2180, 2223, 2260 | [Hin26a, Thm B.1, App. B, §B.4, (B.1), (B.3), (B.7)–(B.12), (B.15)–(B.18), (B.23)] | b | overview; the definitions are given; lem:iv6-0-1 and lem:iv6-0-flow, proved |
+| 2316 | [Hin26a, (B.13)] | b, and the ambiguity treated in section 4 | T23 |
+| 2322, 2339–2340, 2347, 2351 | [Hin26a, Prop. B.2, (B.21), (B.23), (B.26), (B.27)] | b | the commutant is displayed; (B.23) is lem:iv6-0-flow (c); (B.27) is derived |
+| 2333 | the dual estimate [Hin26a, (B.28)], not displayed | a | T24 (eq:iv6-1-3) |
+| 2341, 2345 | the shift [Hin26a, (B.24)], the symbol [Hin26a, (B.25)] | a | T25, T26 |
+| 2360–2366 | [Hin26a, (B.20)] ×2, [p. 89] | a | T27 (eq:iv6-1-4) |
+| 2369–2372 | [Hin26a, (B.29)], [p. 90] | a | T27 (complex σ by prop:i-a-4-9) |
+| 2412–2413 | [Mel93, Thm 6.5], [Hin26a, p. 91] | c | thm:std-relative-index; applied outside its hypotheses (section 6) |
+| 2439 | [Hin26a, Thm B.4] | b | |
+| 2458 | [Hin26a, (B.34) and (B.35)], not displayed | a | T30 (eq:iv6-2-e1, eq:iv6-2-e2), T31 |
+| 2466–2467 | [Hin26a, (B.37)], cut-offs of [Hin26a, (B.36)] | a | T32 |
+| 2472 | [Hin26a, (B.38)] (displayed; symbols undefined) | a | T33 |
+| 2488–2489, 2499 | [Hin26a, (B.39)], [(B.34)], [(B.40)] | a | T34, T35 |
+| 2512–2524 | [Hin26a, (B.34)] ×7, [(B.37)], [(B.41)], [(B.40)] ×2, [(B.35)] | a | T36, T37 (eq:iv6-2-ap) |
+| 2535 | [Hin26a, (B.37) and (B.39)] | a | T38 |
+| 2539, 2541, 2551 | [Hin26a, Thm B.1, (B.44)] | b | (B.44) is displayed |
+| 2571, 2585, 2588 | [Hin26a, Thm 6.2, p. 67, Def. 6.1] | b | the outgoing property used is written out |
+| 2633–2635, 2666–2667 | [Hin26a, Thms B.1, 4.9 (3)], [Hin26, proof of Thm 7.1 (4)], [Hin26c, Def. 5.10, (9.115)] | b | remarks comparing routes; not used |
+| 2673–3034 | [Hin26, Lemma 7.2, (7.10), Prop. 7.3, §7.2.1, Lemma 7.5, Prop. 7.4, (7.16), (7.19), (7.20), (7.31), (7.18), (8.13)] | b | each statement is proved in the paper: (7.10) is derived where it is used, (7.19) is stated and proved in a stronger form, and (8.13) is described and is prop:np-10-52 |
+| 3584 | [Hin26, (8.13)] | b | the condition is described where it is used and proved in prop:np-10-52 |
 
 ## 3. A statement that needs correcting: the second estimate of prop:iv5-6-1 (1)
 
@@ -238,11 +238,11 @@ uniformity near ±1.
 
 This part and the crosswalk rows are instructions for merging; they are not chapter text. Each old text is quoted
 exactly between the fences, and each new text replaces it as a whole, with the line breaks shown. The line numbers are
-those of the chapter at HEAD (md5 9571426c…) and serve only to find the place. The texts are listed in the order of
+those of the chapter at HEAD (md5 147ca162…) and serve only to find the place. The texts are listed in the order of
 their place in the chapter; they are pairwise disjoint and may be applied in any order. Equation labels are
 right-aligned so that no line exceeds 121 characters, also after the labels resolve.
 
-### T1. def:iv5-0-1, the 3b vector fields (lines 1271–1271)
+### T1. def:iv5-0-1, the 3b vector fields (lines 1273–1273)
 
 Old (1 lines):
 
@@ -257,7 +257,7 @@ Diff^k_3b with weights; ∂_(z^μ) = r⁻¹ · r∂_(z^μ) ∈ ρ_sf 𝒱_3b(M^�
 and r ≥ r_♯);
 ```
 
-### T2. lem:iv5-0-2 (c), proof (lines 1322–1323)
+### T2. lem:iv5-0-2 (c), proof (lines 1324–1325)
 
 Old (2 lines):
 
@@ -277,7 +277,7 @@ and positive. Hence ρ_sf^a Diff^k_3b ∘ ρ_sf^b Diff^l_3b ⊂ ρ_sf^(a+b) Diff
 −g⁻¹, lie in ρ_sf Diff¹_3b. (On Tangherlini space, Γ ∈ mρ³C^∞ by [[prop:np-10-22]] (i).)
 ```
 
-### T3. lem:iv5-0-5, the size of δ_r (lines 1380–1380)
+### T3. lem:iv5-0-5, the size of δ_r (lines 1382–1382)
 
 Old (1 lines):
 
@@ -291,7 +291,7 @@ New (1 lines):
 there are δ_r ∈ (0, min((4r_c)⁻¹, 1/5)) and δ_sf = 1/100 such that for b ∈ U, c satisfies the conditions (1)–(6) of
 ```
 
-### T42. prop:iv5-1-3, the inequality after the Cauchy–Schwarz step (lines 1463–1463)
+### T42. prop:iv5-1-3, the inequality after the Cauchy–Schwarz step (lines 1465–1465)
 
 Old (1 lines):
 
@@ -313,7 +313,7 @@ c_0‖ΛAω‖² cancel and
 the elliptic estimate, WF′(Q) lying off the characteristic set. Drop ‖E_Rω‖², which has the sign
 ```
 
-### T43. prop:iv5-1-3, the pairing for P_h* (lines 1468–1469)
+### T43. prop:iv5-1-3, the pairing for P_h* (lines 1470–1471)
 
 Old (2 lines):
 
@@ -330,7 +330,7 @@ For [Hin26a, (5.22)], P_h* = □_h* + iL_h* with □_h* − □_h ∈ hDiff¹ an
 ∓ρ_sf⁻²ℓ, now negative definite. The weights in a become (−α_sf − 2, −α_K). The split of the commutator holds for P_h*,
 ```
 
-### T4. sec:iv5-2, commutants of product form and the symbol identity (inserted before prop:iv5-2-1) (lines 1483–1485)
+### T4. sec:iv5-2, commutants of product form and the symbol identity (inserted before prop:iv5-2-1) (lines 1485–1487)
 
 Old (3 lines):
 
@@ -381,7 +381,7 @@ a·a_k = a_k²φ_k gives [[eq:iv5-2-leibniz]]. The support of f is that of χ_0�
 
 ```
 
-### T5. prop:iv5-2-1 (1), the cut-offs (lines 1505–1505)
+### T5. prop:iv5-2-1 (1), the cut-offs (lines 1507–1507)
 
 Old (1 lines):
 
@@ -396,7 +396,7 @@ for P_h, near o. Let χ_K be a cut-off equal to 1 on [0, 1] and supported in [0,
 on {|r − r_c| ≤ (55/50)ε_c} and supported in {|r − r_c| < (60/50)ε_c} ([Hin26a, (5.35)]). Take the commutant
 ```
 
-### T6. prop:iv5-2-1 (1), the symbols b_0, b_R, e, f (lines 1511–1512)
+### T6. prop:iv5-2-1 (1), the symbols b_0, b_R, e, f (lines 1513–1514)
 
 Old (2 lines):
 
@@ -419,7 +419,7 @@ dρ_K/ρ_K² = −dt, so that ℓ(dw/w) = −α_Kρ_Kℓ(dt) and wH_j(w⁻¹) = 
 roots exist for the following reasons.
 ```
 
-### T41. prop:iv5-2-1 (1), the passage from the symbol identity to the estimate (variant for the current text) (lines 1528–1529)
+### T41. prop:iv5-2-1 (1), the passage from the symbol identity to the estimate (variant for the current text) (lines 1530–1531)
 
 Old (2 lines):
 
@@ -488,7 +488,7 @@ whose elliptic set contains supp e, and B̃_0𝓛_hω by B_1P_hω, B̃_0 being m
 h^N‖χω‖_(ρ_K^(α_K)H^(−N)_(3b,h)). This gives [Hin26a, (5.33)], with δ := 𝔛⁻¹.
 ```
 
-### T7. prop:iv5-2-1 (2), the adjoint pairing and its symbols (lines 1531–1534)
+### T7. prop:iv5-2-1 (2), the adjoint pairing and its symbols (lines 1533–1536)
 
 Old (4 lines):
 
@@ -515,7 +515,7 @@ aH_(−ℓ+j)a + Sa² = c_0a² + b_0² + b_K² − e² + f, where b_0, b_K and e
 [[lem:iv5-0-5]] (6) on supp ψ′.
 ```
 
-### T8. prop:iv5-3-1 (1), the cut-offs and symbols (lines 1557–1560)
+### T8. prop:iv5-3-1 (1), the cut-offs and symbols (lines 1559–1562)
 
 Old (4 lines):
 
@@ -540,7 +540,7 @@ aH_(−ℓ+j)a − Sa² = −c_0ρ_sf²a² − b_0² − b_sf² + e² + f ([Hin2
 χ_sf and χ_sf′ being evaluated at 𝔛ρ_sf, χ_K and χ_K′ at ρ_K. Their square roots exist for the following reasons.
 ```
 
-### T9. prop:iv5-3-1 (1), the support of χ_K′ (lines 1565–1565)
+### T9. prop:iv5-3-1 (1), the support of χ_K′ (lines 1567–1567)
 
 Old (1 lines):
 
@@ -555,7 +555,7 @@ New (2 lines):
 𝗌𝖿 ∩ {r/t ∈ [δ_r, v(1 − δ_sf)]} gives
 ```
 
-### T10. prop:iv5-3-1 (2), its symbols (lines 1576–1577)
+### T10. prop:iv5-3-1 (2), its symbols (lines 1578–1579)
 
 Old (2 lines):
 
@@ -572,7 +572,7 @@ and e are the b_0, e and b_sf of (1) with the prefactor w in place of w⁻¹: th
 is again S − ℓ(dw/w) − wH_j(w⁻¹). b_0 comes from [[lem:iv5-0-5]] (4), and the a priori term from supp χ′_K. ∎
 ```
 
-### T11. prop:iv5-4-1 (1), cut-offs and symbols (lines 1599–1601)
+### T11. prop:iv5-4-1 (1), cut-offs and symbols (lines 1601–1603)
 
 Old (3 lines):
 
@@ -596,7 +596,7 @@ New (9 lines):
 χ_R and χ_R′ being evaluated at s/v − 1. Their square roots exist for the following reasons.
 ```
 
-### T12. prop:iv5-4-1 (2), its symbols (lines 1613–1613)
+### T12. prop:iv5-4-1 (2), its symbols (lines 1615–1615)
 
 Old (1 lines):
 
@@ -612,7 +612,7 @@ aH_(−ℓ+j)a + Sa² = c_0ρ_sf²a² + b_0² + b₁² + b₂² + f, with b_0 as
 w′ in place of (w′)⁻¹. Every
 ```
 
-### T13. prop:iv5-5-1 (1), cut-offs and symbols (lines 1638–1640)
+### T13. prop:iv5-5-1 (1), cut-offs and symbols (lines 1640–1642)
 
 Old (3 lines):
 
@@ -638,7 +638,7 @@ at r − r_1,
 the term of χ₁ being −a²(χ₁′/χ₁)(ℓ(dr) − H_jr). The square roots exist for the following reasons.
 ```
 
-### T14. prop:iv5-5-1 (2), its symbols (lines 1651–1652)
+### T14. prop:iv5-5-1 (2), its symbols (lines 1653–1654)
 
 Old (2 lines):
 
@@ -656,7 +656,7 @@ factors of a as in (1), the term of χ₁(r_4 − r) now being a²(χ₁′/χ�
 is e_R, on supp χ̃₂′. ∎
 ```
 
-### T15. prop:iv5-5-2 (2), the adjoint pairing (lines 1711–1711)
+### T15. prop:iv5-5-2 (2), the adjoint pairing (lines 1713–1713)
 
 Old (1 lines):
 
@@ -670,7 +670,7 @@ New (1 lines):
 the sign the adjoint pairing [[eq:iv5-2-adj]] needs
 ```
 
-### T16. prop:iv5-5-3 (2), the adjoint pairing (lines 1748–1748)
+### T16. prop:iv5-5-3 (2), the adjoint pairing (lines 1750–1750)
 
 Old (1 lines):
 
@@ -684,7 +684,7 @@ New (1 lines):
 the adjoint pairing [[eq:iv5-2-adj]] the main term must be positive
 ```
 
-### T17. cor:iv5-6-energy (i), up to three boundary pieces (lines 1839–1840)
+### T17. cor:iv5-6-energy (i), up to three boundary pieces (lines 1841–1842)
 
 Old (2 lines):
 
@@ -701,7 +701,7 @@ most two of them vanish, and those that vanish there have linearly independent d
 R := {f_1 ≤ 0, …, f_k ≤ 0}, ∂_iR := R ∩ {f_i = 0}, and σ_i the
 ```
 
-### T18. new lem:iv5-6-transport and lem:iv5-6-core, inserted after the proof of cor:iv5-6-energy (lines 1900–1901)
+### T18. new lem:iv5-6-transport and lem:iv5-6-core, inserted after the proof of cor:iv5-6-energy (lines 1902–1903)
 
 Old (2 lines):
 
@@ -814,7 +814,7 @@ E_0 + Σ_(I_+)β⁰_i ≤ 4c₁⁻²Λ + (2C_ℓ/c₁)Σ_(I_−)β⁰_i ≤ 32c�
 
 ```
 
-### T19. prop:iv5-6-1 (1), the support condition at Σ^♯ of the second estimate (lines 1909–1909)
+### T19. prop:iv5-6-1 (1), the support condition at Σ^♯ of the second estimate (lines 1911–1911)
 
 Old (1 lines):
 
@@ -829,7 +829,7 @@ and for every ω ∈ ρ_sf^(−α_sf−2)H²_(3b,h) supported at Σ^♯ (as are 
 [[def:iv5-0-1]]), without support condition at X_0,
 ```
 
-### T20. prop:iv5-6-1, the proof (lines 1933–1976)
+### T20. prop:iv5-6-1, the proof (lines 1935–1978)
 
 Old (44 lines):
 
@@ -974,7 +974,7 @@ T_0 in R, the same bounds the term β⁰_1 + h²β¹_1 on {τ = T}, which is com
 ρ_sf^(α+½)H̄^k_b(X_0, r³|dr d𝑔̸|) = ρ_sf^α H̄^k_b(X_0, r⁴|dr d𝑔̸|). ∎
 ```
 
-### T45. prop:iv5-7-1, what the estimates near Σ^♯ need on the extended domain (lines 2034–2035)
+### T45. prop:iv5-7-1, what the estimates near Σ^♯ need on the extended domain (lines 2036–2037)
 
 Old (2 lines):
 
@@ -991,7 +991,7 @@ bounds of its hypothesis paragraph, which hold on {r ≥ ½r_♯}, where g is de
 ([[sec:iv5-0]]).
 ```
 
-### T22. thm:iv5-7-3 (b), the Cauchy problem for smooth data (lines 2117–2122)
+### T22. thm:iv5-7-3 (b), the Cauchy problem for smooth data (lines 2119–2124)
 
 Old (6 lines):
 
@@ -1022,7 +1022,7 @@ extension, future causal curves from S ∩ {r < r_♯} staying in {r < r_♯} ([
 propagation, ω
 ```
 
-### T21. thm:iv5-7-3 (b), the continuity in τ (lines 2133–2135)
+### T21. thm:iv5-7-3 (b), the continuity in τ (lines 2135–2137)
 
 Old (3 lines):
 
@@ -1041,7 +1041,7 @@ region {0 ≤ τ ≤ T, r ≥ r_♯} of the proof of [[eq:iv5-6-1]] at every T �
 uniqueness, let
 ```
 
-### T23. def:iv6-0-2, admissibility at complex σ (lines 2314–2316)
+### T23. def:iv6-0-2, admissibility at complex σ (lines 2316–2318)
 
 Old (3 lines):
 
@@ -1065,7 +1065,7 @@ asked off R_out, which is then the whole characteristic set over ρ = 0 ([[lem:i
 Re σ ≠ 0: as in [[sec:i-a-1-4]], the orders used at a complex σ are those for Re σ.
 ```
 
-### T24. prop:iv6-1-1, the dual estimate and the uniformity clause (lines 2331–2332)
+### T24. prop:iv6-1-1, the dual estimate and the uniformity clause (lines 2333–2334)
 
 Old (2 lines):
 
@@ -1087,7 +1087,7 @@ the adjoint being taken for the L² pairing of these spaces; [Hin26a, (B.28)]) h
 1 and in e^(i[δ,π]) near −1, for fixed orders admissible on that set ([[def:iv6-0-2]]).
 ```
 
-### T25. prop:iv6-1-1, the shift at the sink (lines 2337–2340)
+### T25. prop:iv6-1-1, the shift at the sink (lines 2339–2342)
 
 Old (4 lines):
 
@@ -1109,7 +1109,7 @@ comes only from −2iσρh⁻¹S̄: (□^C)^(0) − (□^C)^(0)* ∈ ρ²Diff¹_
 scattering symbol vanishing at
 ```
 
-### T26. prop:iv6-1-1, the symbol and threshold at the sink (lines 2343–2345)
+### T26. prop:iv6-1-1, the symbol and threshold at the sink (lines 2345–2347)
 
 Old (3 lines):
 
@@ -1128,7 +1128,7 @@ New (4 lines):
 ℓ < −½ + h⁻¹ min spec S̄ = −½ + h⁻¹(1 − e)(1 − v), the threshold of [[def:iv6-0-2]] at R_out.
 ```
 
-### T27. prop:iv6-1-1, the estimates for real and complex σ (lines 2358–2370)
+### T27. prop:iv6-1-1, the estimates for real and complex σ (lines 2360–2372)
 
 Old (13 lines):
 
@@ -1187,7 +1187,7 @@ of [[lem:i-c-2-5]]. The adjoint chain of the same proof (the estimates (2) of
 [[thm:i-c-4-3]] (2) applies as for real σ and gives [[eq:iv6-1-4]] and the dual estimate.
 ```
 
-### T28. prop:iv6-1-1, uniformity: the absorption and the orders (lines 2377–2377)
+### T28. prop:iv6-1-1, uniformity: the absorption and the orders (lines 2379–2379)
 
 Old (1 lines):
 
@@ -1203,7 +1203,7 @@ not depend on σ either, and the absorption (Im σ)Re (□^C)^(0) has the sign o
 near ρ = 0 ((H2) of [[sec:i-a-1-3]], which (□^C)^(σ) satisfies, as above). So the estimate at R_out holds with constants
 ```
 
-### T29. prop:iv6-1-1, uniformity: the orders on a set (lines 2382–2385)
+### T29. prop:iv6-1-1, uniformity: the orders on a set (lines 2384–2387)
 
 Old (4 lines):
 
@@ -1225,7 +1225,7 @@ real σ₀ ∈ I, with uniform margins and constancy neighbourhoods, as ℓ is c
 this kind.
 ```
 
-### T30. thm:iv6-2-1, the energy estimates near X_0 (lines 2456–2458)
+### T30. thm:iv6-2-1, the energy estimates near X_0 (lines 2458–2460)
 
 Old (3 lines):
 
@@ -1255,7 +1255,7 @@ N := ℝ_t × (ℝ⁴ ∖ 0), with k = 1, f_1 := τ − T and w := ρ_sf^(−α_
 f_1 := −τ and w := ρ_sf^(α_sf)ρ_cf^(α_cf)e^(𝔛τ) for [[eq:iv6-2-e2]]. Their hypotheses hold: the components
 ```
 
-### T31. thm:iv6-2-1, the bulk covectors (lines 2461–2462)
+### T31. thm:iv6-2-1, the bulk covectors (lines 2463–2464)
 
 Old (2 lines):
 
@@ -1271,7 +1271,7 @@ New (2 lines):
 timelike (for [[eq:iv6-2-e2]], with −c and the opposite time orientation), with a uniform κ, for 𝔛 large.
 ```
 
-### T32. thm:iv6-2-1, nonzero and infinite frequencies (lines 2464–2466)
+### T32. thm:iv6-2-1, nonzero and infinite frequencies (lines 2466–2468)
 
 Old (3 lines):
 
@@ -1290,7 +1290,7 @@ at T and no cut-off in r (χ_(r,j) := 1) ([Hin26a, (B.36)–(B.37)]). There is n
 square because ±H_Gτ > 0 at future, resp. past, lightlike covectors, dτ being past timelike on supp χ′_(τ,1).
 ```
 
-### T33. thm:iv6-2-1, the symbols at the cone face (lines 2470–2472)
+### T33. thm:iv6-2-1, the symbols at the cone face (lines 2472–2474)
 
 Old (3 lines):
 
@@ -1315,7 +1315,7 @@ with f as there and, χ_cf, χ_cf′ being evaluated at 𝔛ρ_cf and χ₁, χ�
 Since dw/w ≡ (α_cf − 1)dr/r modulo ρ_cf C^∞(M; ^(eb)T*M), the square roots exist for the following reasons.
 ```
 
-### T34. thm:iv6-2-1, the estimates at the cone face (lines 2486–2487)
+### T34. thm:iv6-2-1, the estimates at the cone face (lines 2488–2489)
 
 Old (2 lines):
 
@@ -1341,7 +1341,7 @@ P-G1 C33-20 inserts a paragraph before the old text of T34, which T34 replaces. 
 paragraph of C33-20 before the new text of T34, that is, before its first line, "This gives, by the proof of
 [[prop:iv5-3-1]] (1), …".
 
-### T44. thm:iv6-2-1, the choice of 𝔛 at the cone face (lines 2495–2495)
+### T44. thm:iv6-2-1, the choice of 𝔛 at the cone face (lines 2497–2497)
 
 Old (1 lines):
 
@@ -1356,7 +1356,7 @@ the dilations), that (6) holds on 𝗌𝖿 ∩ {s ∈ [δ_r, v(1 − δ_sf)]}, a
 symbols need. Then:
 ```
 
-### T35. thm:iv6-2-1, item (a) (lines 2497–2497)
+### T35. thm:iv6-2-1, item (a) (lines 2499–2499)
 
 Old (1 lines):
 
@@ -1371,7 +1371,7 @@ New (2 lines):
 {ρ_cf < 4δ_r} ∩ {τ ≥ (2.75/10)T}, globally in t, with a priori sets in
 ```
 
-### T36. thm:iv6-2-1, the combination (lines 2510–2516)
+### T36. thm:iv6-2-1, the combination (lines 2512–2518)
 
 Old (7 lines):
 
@@ -1401,7 +1401,7 @@ and the sink, its a priori sets by (b) and (c). These cover a neighbourhood of o
 extension and restriction. *Adjoint*: the sink,
 ```
 
-### T37. thm:iv6-2-1, the adjoint chain (lines 2519–2522)
+### T37. thm:iv6-2-1, the adjoint chain (lines 2521–2524)
 
 Old (4 lines):
 
@@ -1422,7 +1422,7 @@ estimate, its a priori set {(5/2)δ_r ≤ ρ_cf ≤ 4δ_r} covered by (c) (2) an
 its a priori set
 ```
 
-### T38. thm:iv6-2-1, strong uniqueness (lines 2533–2533)
+### T38. thm:iv6-2-1, strong uniqueness (lines 2535–2535)
 
 Old (1 lines):
 
@@ -1437,7 +1437,7 @@ localisation in (t − 1)/r), together with [[eq:iv5-fib]] on M and the forward 
 forcing that is supported
 ```
 
-### T39. thm:iv6-3-1, the uniformity clause (lines 2541–2541)
+### T39. thm:iv6-3-1, the uniformity clause (lines 2543–2543)
 
 Old (1 lines):
 
@@ -1452,7 +1452,7 @@ uniformly for σ in each set on which fixed orders are admissible ([[def:iv6-0-2
 ([[prop:iv6-1-1]]).
 ```
 
-### T40. thm:iv6-4-1, admissibility of the orders of [[sec:i-c-4]] (lines 2652–2653)
+### T40. thm:iv6-4-1, admissibility of the orders of [[sec:i-c-4]] (lines 2654–2655)
 
 Old (2 lines):
 
@@ -1474,7 +1474,7 @@ at R_out; and the thresholds are those of [[eq:i-a-1-5]] for (□^C_b)^, which a
 
 ### 6.1 The relative index theorem in the index-0 part of prop:iv6-1-1
 
-Steps (i) and (iii) of the index-0 argument (lines 2406–2422) move the b-weight at r = 0 of the map (eq:iv6-1-1) on one
+Steps (i) and (iii) of the index-0 argument (lines 2408–2424) move the b-weight at r = 0 of the map (eq:iv6-1-1) on one
 sector. They read the change of index off [Mel93, Theorem 6.5], which is quoted in Appendix A as thm:std-relative-index.
 
 The quoted theorem is stated for b-elliptic operators on a compact manifold with boundary. The operator here is b at
@@ -1511,23 +1511,23 @@ These are listed in section 2 as (a-G1) and are left to P-G1, whose texts C33-1 
 ## 7. Checks (on the scratch copy)
 
 The scratch copy is the current `chapters/`, `crosswalk/`, `assemble.py` and `lint.py`, in
-/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/pg24b/. T1–T43 were
-applied to chapter 33 at HEAD (md5 9571426c…), with T41 in its variant for the current text, and the 16 crosswalk rows
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/pg24b/. T1–T45 were
+applied to chapter 33 at HEAD (md5 147ca162…), with T41 in its variant for the current text, and the 16 crosswalk rows
 of section 9 were added.
 
 Before the texts were applied:
 
     $ python3 lint.py --chapters
-    chapters: 62 file(s), 4649 label(s) defined, 0 hit(s)
+    chapters: 62 file(s), 4652 label(s) defined, 0 hit(s)
     $ python3 assemble.py --check
-    labels 4649, computations cited 0, problems 0
+    labels 4652, computations cited 0, problems 0
 
 After:
 
     $ python3 lint.py --chapters
-    chapters: 62 file(s), 4665 label(s) defined, 0 hit(s)
+    chapters: 62 file(s), 4668 label(s) defined, 0 hit(s)
     $ python3 assemble.py --check
-    labels 4665, computations cited 0, problems 0
+    labels 4668, computations cited 0, problems 0
     $ python3 assemble.py; python3 lint.py --paper
     PAPER.md: 0 hit(s)
 
@@ -1540,24 +1540,30 @@ Further checks:
   (lint).
 - **Old texts.** Each of the 45 old texts occurs exactly once in the chapter at HEAD, and no two overlap. Applying them
   to that chapter reproduces the checked scratch chapter exactly. The variant A old text of T41 occurs exactly once in
-  the new text of P-G1 C33-11 as P-G1 now stands.
+  the new text of P-G1 C33-11 as P-G1 now stands, and the 45 texts also apply after P-G1's (section 8).
 
 ## 8. Overlap with P-G1
 
-proofs/P-G1.md exists. Its chapter-33 old texts were compared with those of this file in the current chapter.
+proofs/P-G1.md exists. Its chapter-33 old texts, as P-G1 stands in its fix round, were compared with those of this file
+in the chapter at HEAD. P-G1 gives the line numbers of an earlier chapter, two lower than the ones here from line 127 on.
 
 - **C33-11 and T41 overlap.** C33-11 replaces the whole "For Q: …" paragraph, including the sentence that T41 replaces.
-  T41 is therefore given in two variants. Merge C33-11 first and then use variant A, given below T41; its old text is
-  the last sentence of C33-11's new text. If T41 is merged on the current text, C33-11 must end before its last
-  paragraph, and that paragraph's first clause ("the coefficient of ‖Aω‖² is at most −c_0 + (9C₂ + 2)𝔛⁻² + C′_𝔛h,
-  with C₂ independent of 𝔛") must be put into T41's first sentence.
+  T41 is therefore given in two variants. P-G1 merges first, so use variant A, given below T41; its old text is the last
+  two lines of C33-11's new text, which P-G1 states it keeps unchanged. If T41 were merged on the current text instead,
+  C33-11 would have to stop before "Collecting", and its last paragraph ("Collecting, the Q-terms add at most
+  (9C₂ + 2)𝔛⁻² + C′_𝔛h to the coefficient −c_0 of ‖Aω‖², …") would go into T41's first sentence.
+- **C33-12 and T7 share one sentence.** The old text of T7 ends with "[[lem:iv5-0-5]] (6) on supp ψ′." at the start of
+  line 1536, and the old text of C33-12 is that line. Both new texts keep these words in place, so either order works:
+  after C33-12 the old text of T7 is found once, and after T7 the old text of C33-12 is.
 - **C33-20 and T34.** C33-20 inserts a paragraph before the sentence "This gives [Hin26a, (B.39)], …", which T34
-  replaces. If both are merged, insert C33-20's paragraph before T34's new text.
-- **Adjacent but not overlapping.**
-  - C33-10 is line 1506; T5 is line 1505.
-  - C33-12 is the end of line 1534; T7 ends on the same line before it ("… on supp ψ′."). T7 keeps that line ending, so
-    C33-12 still finds its old text.
-- **No other overlap.** C33-1 to C33-9 and C33-13 to C33-19 share no characters with T1–T45.
+  replaces. If both are merged, insert C33-20's paragraph before T34's new text; P-G1 says the same.
+- **Adjacent but not overlapping.** T42 (line 1465) and C33-9 (line 1466); T5 (line 1507) and C33-10 (line 1508).
+- **No other overlap.** C33-1 to C33-10 and C33-13 to C33-19 share no characters with T1–T45; C33-4 inserts before
+  line 1398, which no text here touches.
+- **Simulated merge in P-G1's order.** All of P-G1's chapter-33 texts (C33-1 to C33-20, with C33-4 the new section and
+  C33-3 the deletion) were applied to the chapter at HEAD, and then T1–T45 with variant A for T41. Each of the 45 old
+  texts occurs exactly once in the chapter after P-G1, no two overlap, and the paragraph of C33-20 ends up immediately
+  before the new text of T34. The combined chapter has no line over 121 characters and no backslash.
 
 ## 9. Crosswalk
 

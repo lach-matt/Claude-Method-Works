@@ -764,3 +764,212 @@ solutions. If the data are of size at most Λ in C^(6k+19) and κ-nondegenerate 
 one function on the union, which is smooth, smoothness being local, and solves the equations there; a union of past sets
 relatively open in Q is one. The last statement is [[prop:civp-axes-corner]], a solution on [u_c, u_c + σ] × [v_c, v_c +
 σ] restricting to one on the relatively open past set [u_c, u_c + σ) × [v_c, v_c + σ). ∎
+
+#### Continuation along the generators {#sec:civp-axes-faces}
+
+**Proposition {#prop:civp-axes-faces}** (Continuation along the generators.) Let cone data be given on N_o = {0} ×
+[0, λ_v] and N_i = [0, λ_u] × {0}, Q := [0, λ_u] × [0, λ_v], and let D_max be as in [[cor:civp-axes-maximal]]. Then
+N_o ∪ N_i ⊂ D_max, and there are u*, v* > 0 with ([0, u*] × [0, λ_v]) ∪ ([0, λ_u] × [0, v*]) ⊂ D_max. No estimate of the
+solution inside D_max enters, and no lower bound for u* or v* is asserted.
+
+*Proof.* The four facts used are: (C) the corner theorem, [[prop:civp-axes-corner]], whose σ depends only on norms of the
+data within a fixed distance of the corner sphere; (E) the extension of short pieces of edges, [[lem:civp-axes-extension]]
+(b)–(d); (J) the derivatives across the edges, [[lem:civp-axes-jets]], which exist and are bounded on the whole of each
+edge because they solve linear equations; and (U) uniqueness, [[prop:civp-axes-unique]] and [[cor:civp-axes-maximal]].
+
+*Step 0 (Constants).* By [[lem:civp-axes-extension]] (d), applied along N_i to the data and to every development, we may
+assume b = 0 on N_i. Extend the free functions past the far ends of the edges by [[lem:civp-axes-extension]] (a), in the
+variables v − λ_v and u − λ_u, and solve the constraints by its part (c): this gives cone data of any sign on N_o^+ :=
+{0} × [0, λ_v + ℓ_1] and N_i^+ := [0, λ_u + ℓ_1] × {0}, ℓ_1 ∈ (0, 1], equal to the given data on N_o and N_i. Let m :=
+6k + 19, Λ_0 their size in C^m and κ_0 their nondegeneracy. By [[lem:civp-axes-jets]] the derivatives a_j across N_o^+ and
+b_k across N_i^+ exist on the whole of these edges and are smooth, so
+
+    K′ := the largest of the suprema of |∇̊^i a_j| over N_o^+ and of |∇̊^i b_j| over N_i^+, i, j ≤ m + 4,
+
+is finite. Let C_1 and κ′, ℓ′ be the bound of [[lem:civp-axes-extension]] (b) and the numbers of its part (c) for the order
+m + 3, the size C_(m+3) (K″ + 1) and the nondegeneracy κ_0/2, where K″ bounds, in terms of K′, the derivatives of order
+at most m + 3 at the corner of the functions obtained from a piece of a null hypersurface {v = const} by the change of
+angle of its part (d). Put l := min(ℓ_1, ℓ′), Λ_c := max(Λ_0, C), C the size of part (c), κ_c := min(κ_0, κ′), and σ_c :=
+σ(k, Λ_c, κ_c, l) of [[prop:civp-axes-corner]]. These depend on the data, and not on the point of the edges considered
+below.
+
+*Step 1.* Let V be the supremum of the v ∈ [0, λ_v] with (0, v) ∈ D_max. By [[cor:civp-axes-maximal]], V ≥ σ_c, and
+(0, v) ∈ D_max for v < V, D_max being a past set. Suppose (0, λ_v) ∉ D_max. Put η := min(σ_c/4, V/2) and v_η := V − η.
+
+*Step 2 (An ingoing null hypersurface of the solution).* {0} × [0, V − η/2] is a compact subset of the relatively open
+D_max, so there is w ∈ (0, 1] with [0, w] × [0, V − η/2] ⊂ D_max. On N_η := [0, w] × {v_η} the maximal development
+induces smooth invariant families Ω, b, γ, q_out of (u, θ), with q_out ≥ 0, satisfying Ric(L̲, L̲) = q_out, which agree on
+S_η := {(0, v_η)} × S³ with the data of N_o. With the piece {0} × [v_η, v_η + l] of N_o^+ they are cone data of any sign at
+the corner (0, v_η), nonnegative where v ≤ λ_v.
+
+*Step 3 (Their norms near the corner).* By [[lem:civp-axes-jets]] (iv), applied to the development on [0, w] × [0,
+V − η/2], the u-derivatives at u = 0 of the functions on N_η are a_j(v_η), so their derivatives of order at most m + 4 at
+S_η are bounded by K′, whatever η. Apply [[lem:civp-axes-extension]] (d) to N_η, and then (b) of that lemma, at the order
+m + 3, to the free functions on N_η, with L = L(η) < ∞ a bound for their derivatives of order m + 4 on [0, w] × S³ and
+a = a(η) ≤ min(w, 1/2, 1/(1 + L)) so small that γ ≥ (κ_0/2) γ̊ on [0, a]: the free functions on [0, a] have extensions to
+[0, 1] with C^(m+3) norms at most C_(m+3)(K″ + 1). Part (c) then gives cone data of any sign on [0, a + ℓ′] × {v_η}, equal
+to those of N_η on [0, a], of size at most Λ_c in C^m and κ_c-nondegenerate. Neither w nor a is bounded below as η → 0.
+
+*Step 4 (The corner problem).* [[prop:civp-axes-corner]] at the corner (0, v_η), with the edges {0} × [v_η, v_η + l] and
+[0, a + ℓ′] × {v_η}, both of length at least l, gives a class solution in the gauge g_η on [0, σ_c] × [v_η, v_η + σ_c] ×
+S³ inducing these data; undoing the change of angle of Step 3, it induces the functions of N_η on [0, a] × {v_η}.
+
+*Step 5 (Gluing).* Let 𝒬 := ([0, min(a, σ_c)) × [v_η, v_η + σ_c)) ∩ Q. D_max ∩ 𝒬 is a past set relative to (0, v_η),
+relatively open in [0, min(a, σ_c)] × [v_η, v_η + σ_c] ∩ Q, and the maximal development and g_η are class solutions in
+the gauge on it inducing the same functions on its two edges: the data of N_o on {0} × [v_η, v_η + σ_c] and the
+functions of N_η on [0, min(a, σ_c)) × {v_η}. By [[prop:civp-axes-unique]] they agree there. D_new := D_max ∪ (𝒬 ∩
+{v > v_η}) is a past set relative to (0, 0), since for (u, v) ∈ 𝒬, [0, u] × [0, v_η] ⊂ [0, w] × [0, V − η/2] ⊂ D_max and
+[0, u] × [v_η, v] ⊂ 𝒬, and it is relatively open in Q. The function equal to the maximal development on D_max and to g_η on
+𝒬 is well defined, smooth and a class solution in the gauge inducing the data; so D_new ⊂ D_max. As v_η + σ_c ≥ V + 3σ_c/4,
+this gives (0, v) ∈ D_max for some v > V if V < λ_v, against the definition of V, and (0, λ_v) ∈ D_max if V = λ_v,
+against the assumption. So (0, λ_v) ∈ D_max, and N_o ⊂ D_max.
+
+*Step 6 (The ingoing edge).* The same argument with u and v exchanged, the corner problems being posed at the corners
+(u_η, 0) with ingoing edge a piece of N_i^+ and outgoing edge a piece {u_η} × [0, a] of a null hypersurface of the
+solution, extended by [[lem:civp-axes-extension]] (b) and (c) on an outgoing edge, gives N_i ⊂ D_max; the constants are
+those of Step 0 with the b_k in place of the a_j.
+
+Finally N_o is compact and D_max relatively open in Q, so D_max contains [0, u*] × [0, λ_v] for some u* > 0, and likewise
+[0, λ_u] × [0, v*]. ∎
+
+The continuation asks of the data only the facts (C), (E), (J) and (U), and of the solution only that it is smooth up to
+the cones on the part already constructed. The width w of Step 2 may tend to 0 as the corner moves along the generators;
+only σ_c must not, and it does not, because the corner data of Step 3 are bounded by Λ_0 and by the bound K′ of the
+derivatives across the cone, which does not depend on the point of the cone.
+
+**Remark {#rem:civp-axes-riccati}** (Why the derivatives across the cones must solve linear equations.) In Step 3 the
+bound K′ is finite because the derivatives across a cone solve linear ordinary differential equations along its
+generators ([[lem:civp-axes-jets]] (i)), which have solutions on the whole cone. For a wave equation with a Riccati term
+this fails: for □φ = (∂_u φ)² on ℝ × ℝ × S¹ with □ = −4∂_u∂_v + ∂_y², data φ = 0 on {u = 0} and w := ∂_u φ, the equation at
+u = 0 reads −4∂_v w = w², so w = w_0/(1 + w_0 v/4), which becomes unbounded at v = 4/|w_0| when w_0 < 0; beyond that
+generator there is no solution, smooth up to the cone, that is C¹ near it, and the argument above cannot reach past it.
+For □φ = ∂_u φ ∂_v φ the same computation gives −4∂_v w + ∂_y² φ = w ∂_v φ at u = 0, which is linear in w.
+
+#### The continuation criterion {#sec:civp-axes-criterion}
+
+**Proposition {#prop:civp-axes-criterion}** (Continuation criterion.) In the setting of [[prop:civp-axes-faces]], let
+0 < a ≤ λ_u and 0 < b ≤ λ_v, R_(a,b) := [0, a] × [0, b], and suppose that R_(a,b) ∖ {(a, b)} ⊂ D_max, that on
+(R_(a,b) ∖ {(a, b)}) × S³ the functions ln Ω, b, γ, q_in and q_out of the maximal development have bounded derivatives of
+order at most 6k + 26 in (u, v) and ∇̊, and that γ ≥ κ γ̊ there for some κ > 0. Then (a, b) ∈ D_max, so D_max contains a
+neighbourhood of R_(a,b) relative to Q.
+
+*Proof.* Let K_1 bound the derivatives named and m := 6k + 19. For a corner (a − η, b − η) with 0 < η ≤ min(a, b) the
+edges {a − η} × [b − η, b] and [a − η, a] × {b − η} lie in R_(a,b) ∖ {(a, b)}, and the maximal development induces cone
+data on them. Normalise b on the second by [[lem:civp-axes-extension]] (d), and extend both edges by its parts (b) and (c),
+at the order m + 3, with L := C K_1 and the corner derivatives bounded by C K_1, which is possible for η ≤ 1/(2(1 + L)):
+this gives cone data on edges of length at least ℓ″ > 0, of size at most Λ″ in C^m and κ″-nondegenerate, with ℓ″, Λ″, κ″
+depending only on k, K_1 and κ, and equal to the induced data on the given edges. [[prop:civp-axes-corner]] gives a class
+solution in the gauge on [a − η, a − η + σ″] × [b − η, b − η + σ″] × S³, σ″ := σ(k, Λ″, κ″, ℓ″) independent of η. Take η
+:= min(a, b, σ″/2, 1/(2(1 + L))). As in Step 5 of the proof of [[prop:civp-axes-faces]], this solution agrees with the
+maximal development on their common domain, by [[prop:civp-axes-unique]], and the union of their domains is a relatively
+open past set carrying a class solution in the gauge that induces the data; so it lies in D_max, and it contains (a, b).
+D_max is relatively open, so it contains a relative neighbourhood of the compact R_(a,b). ∎
+
+So D_max = Q, or near a point of its boundary in Q the derivatives of order at most 6k + 26 of the metric functions and
+densities are unbounded or γ degenerates.
+
+#### The theorem {#sec:civp-axes-theorem}
+
+**Lemma {#lem:civp-axes-free-data}** (Cone data from free data through the axes.) On N_o = {0} × [0, λ_v] let G-invariant
+smooth families ln Ω, γ̂ and q_in ≥ 0 be given, and on N_i = [0, λ_u] × {0} likewise ln Ω, γ̂ and q_out ≥ 0, with γ̂
+Riemannian, μ_γ̂ = μ_γ̊, and the two γ̂ and the two Ω agreeing on S_c; and let a positive invariant function ỹ_c on S³,
+invariant functions ỹ_o′, ỹ_i′ and an invariant vector field β_c be given. Solve [[eq:civp-axes-raychaudhuri]] along N_o
+with ỹ = ỹ_c and ∂_v ỹ = ỹ_o′ at v = 0, its analogue along N_i with ∂_u ỹ = ỹ_i′ at u = 0, put γ := ỹ² γ̂, and solve the
+constraint Ric(∂_v, X) = 0 along N_o for b with b = 0 and ∂_v b = β_c at v = 0; put b := 0 on N_i. If ỹ > 0 on both
+edges, these are cone data. If the free functions, ỹ_c, ỹ_o′, ỹ_i′ and β_c equal those of a second set of cone data at
+the points of an invariant open set of S³, the two sets of cone data agree on the generators through it.
+
+*Proof.* [[eq:civp-axes-raychaudhuri]] is a linear ordinary differential equation along each generator with coefficients
+smooth on [0, λ] × S³, axes included, so ỹ is smooth and invariant, by uniqueness. The constraint Ric(∂_v, X) = 0 is, by
+the formula of the proof of [[lem:civp-axes-principal]], a smooth expression in a chart; off the axes it is linear in b,
+through ∂_v b and ∂_v² b, with the leading coefficient (1/(4Ω²)) γ(∂_v² b, X) (the second line of [[eq:loc-cone]]), and
+its part quadratic in b, evaluated on an invariant b, vanishes off the axes and so, by continuity, everywhere; so for
+invariant b it is a linear first-order equation for ∂_v b with smooth coefficients, and b is smooth and invariant. On
+N_i, with b = 0, Ric(L̲, L̲) = q_out is the analogue of [[eq:civp-axes-raychaudhuri]]. The constraints hold by construction,
+and (i) of [[def:civp-axes-data]] by the corner values. The last statement is uniqueness for these equations, whose
+coefficients at a point of S³ are built from the free functions there and their derivatives on S³. ∎
+
+For the cones of [[sec:loc-cones]], ỹ = e^ϕ (sin ϑ cos ϑ)^(−1/3) and γ̂ = (sin ϑ cos ϑ)^(2/3) (e^(2ℓ_1) dϑ² + e^(2ℓ_2) dφ1² +
+e^(2ℓ_3) dφ2²), and [[eq:civp-axes-raychaudhuri]] is the equation for y = e^ϕ in the proof of [[prop:loc-cones]], since
+¼ |∂_v γ̂|²_γ̂ = Σ_i (∂_v ℓ_i)². So the data of [[prop:loc-cones]] and [[lem:loc-cone-in]] whose γ̂ is a smooth tensor field
+on S³ are those of [[lem:civp-axes-free-data]], and they are cone data wherever ỹ stays positive, the axis generators
+included.
+
+**Theorem {#thm:civp-axes}** (Developments of cone data of any size through the axes.) Let k ≥ 6, and let cone data be
+given on N_o = {0} × [0, λ_v] and N_i = [0, λ_u] × {0} ([[def:civp-axes-data]]): any Ω on both edges, any b on N_i,
+densities q_in ≥ 0 and q_out ≥ 0, no smallness, and no condition at the axes beyond smoothness. Put Q := [0, λ_u] ×
+[0, λ_v].
+
+(a) (*Corner.*) Let Λ be the size in C^(6k+19) and κ the nondegeneracy of the data on N_o ∩ {v ≤ l} and N_i ∩ {u ≤ l},
+l := min(1, λ_u, λ_v). There is a class solution in the gauge on [0, σ]² × S³ that induces the data, with σ > 0
+depending only on k, Λ, κ and l.
+
+(b) (*Neighbourhood of the cones.*) There are u*, v* > 0 and a class solution in the gauge on (([0, u*] × [0, λ_v]) ∪
+([0, λ_u] × [0, v*])) × S³ that induces the data. So v and u are the phases of the ingoing and the outgoing family, the
+development contains the strips {u ≤ u*} along N_o and {v ≤ v*} along N_i, and the dust on the cones lies in it.
+
+(c) (*Uniqueness and the maximal development.*) Two class solutions in the gauge on past sets relatively open in Q that
+induce the data agree on the intersection of their domains. The set D_max of [[cor:civp-axes-maximal]] is a past set,
+relatively open in Q, carrying the unique class solution in the gauge that induces the data and restricts to each of
+them. It contains [0, σ)², the set ([0, u*) × [0, λ_v]) ∪ ([0, λ_u] × [0, v*)), and the relatively open past sets on which
+the developments of [[thm:loc-cone-development]], [[thm:civp-large]] and [[pending:tier3-theorem]] are defined, whenever
+the data satisfy their hypotheses; there the development is theirs.
+
+(d) (*Continuation criterion.*) If D_max ⊃ R_(a,b) ∖ {(a, b)} for a rectangle R_(a,b) = [0, a] × [0, b] ⊂ Q, and the
+metric functions and densities of the maximal development have bounded derivatives of order at most 6k + 26 there with
+γ ≥ κγ̊ for some κ > 0, then D_max contains a neighbourhood of R_(a,b) relative to Q.
+
+(e) (*Localisation.*) If a class solution in the gauge on a past set D_0 relatively open in Q, for instance the
+background of [[sec:loc-setting]] or a background of [[prop:two-dust-background]] on a rectangle [0, a) × [0, b), induces
+the data on N ∩ D_0, then D_0 ⊂ D_max and the maximal development equals it on D_0.
+
+*Proof.* (a) is [[prop:civp-axes-corner]]. (b) is [[prop:civp-axes-faces]], restricted to a past set: [0, u*] × [0, λ_v]
+∪ [0, λ_u] × [0, v*] is one. (c) is [[prop:civp-axes-unique]] and [[cor:civp-axes-maximal]]; the developments named there
+are class solutions in the gauge in the sense of [[sec:civp-large]], their metrics being smooth through the axes (they
+equal a background there, or are those of [[pending:tier3-theorem]]), and their domains are past sets whose relative
+interiors in Q are relatively open past sets containing the points concerned; their data are cone data in the sense of
+[[def:civp-axes-data]]. The closed sets of (a) and (b) contain the relatively open past sets [0, σ)², and [0, u*) × [0, λ_v]
+∪ [0, λ_u] × [0, v*). (d) is [[prop:civp-axes-criterion]]. (e) follows from (c), D_0 being the domain of a development. ∎
+
+**Corollary {#cor:civp-axes-cones}** (The cones of the two-dust background.) Let free data on 𝒞_out ∩ {v ≤ λ_v} and on
+𝒞_in ∩ {u ≤ λ_u} be given as in [[prop:loc-cones]] and [[lem:loc-cone-in]], with the background's corner values, of any
+size and with any support in angle, including the axes, such that γ̂ is a smooth tensor field on S³, and suppose that
+the factor e^ϕ of [[prop:loc-cones]] and [[lem:loc-cone-in]] stays positive on every generator, the axis generators
+included. Then these cone data have a development in the gauge [[eq:loc-double-null]] on a neighbourhood ([0, u*] ×
+[0, λ_v]) ∪ ([0, λ_u] × [0, v*]) of the two cones, through the axes, with or without dust; it is unique in the gauge, it
+equals the background on every rectangle [0, a) × [0, b) on whose edges the data are the background's, and it is the
+restriction of the maximal development of [[thm:civp-axes]] (c).
+
+*Proof.* By [[lem:civp-axes-free-data]] and the paragraph after it the data are cone data in the sense of
+[[def:civp-axes-data]], the background being smooth through the axes. Apply [[thm:civp-axes]] (b), (c) and (e). ∎
+
+So every perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5}, of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, and every density
+added on the cones, of any amplitude and reaching the axes or not, has a development near the two cones, provided the
+cones do not focus; for large perturbations that positivity is a hypothesis, and it can fail.
+
+**Corollary {#cor:civp-axes-perturbations}** (Small perturbations of a background that is round.) Let g_0 be a two-dust
+background of [[prop:two-dust-background]], which is round, given in the gauge [[eq:loc-double-null]] on a neighbourhood
+of a rectangle Q_0 := [0, a] × [0, b] in its set G, and assume [[pending:tier3-theorem-general]]: for cone data within
+ε_0 of g_0's on the edges of Q_0 in C^(m_3), axes included, there is a class solution in the gauge on Q_0 × S³ that
+induces them. Then for such data D_max ⊃ Q_0 ∖ ({a} × [0, b] ∪ [0, a] × {b}), relative to the rectangle Q_0, and the
+maximal development of [[thm:civp-axes]] (c) on it is that solution; so small non-round perturbations of the cone data of
+g_0 develop on every rectangle in G, and, these rectangles covering the past set G, on the whole of G.
+
+*Proof.* The solution of [[pending:tier3-theorem-general]] restricted to the relatively open past set [0, a) × [0, b) is a
+development in the sense of [[cor:civp-axes-maximal]]; apply [[thm:civp-axes]] (c) and (e). ∎
+
+**Remark {#rem:civp-axes-scope}** (What [[thm:civp-axes]] does not give.) (i) *The width.* u* and v* are not bounded below
+in terms of the data: the continuation of [[prop:civp-axes-faces]] uses no a priori estimate, and an explicit width would
+need estimates near the axes on a strip of fixed width. For data near the background's, [[thm:loc-cone-development]] and
+[[pending:tier3-theorem]] give explicit domains, and [[thm:civp-large]] gives a width away from the axes through the
+strips of [[thm:std-cctw-strips]]. (ii) *The rectangle.* A development on the whole of Q is not asserted. For data of any
+size the factor ỹ of [[eq:civp-axes-raychaudhuri]] can vanish on a cone, at a focal sphere, beyond which there are no cone
+data, and the round backgrounds of [[prop:two-dust-background]] are constructed only on their set G; D_max and the
+criterion (d) take the place of the rectangle. (iii) *Further families.* The theorem concerns the two adapted families,
+whose phases are the coordinates u and v. The proof uses at the axes that the spheres {u, v = const} of every corner
+problem are leaves of every family present there; a further family has this property only if its phase is constant on
+those spheres, and further families reaching the axes are not treated. (iv) *Regularity.* The data are smooth; the
+corner theorem uses their norms in C^(6k+19) near the corner sphere. Data of finite regularity, densities that are only
+bounded, and shells, are not covered; for the 3 + 1 problem with measure-valued null dusts see [[rem:loc-cone-scope]]
+(iii). (v) *Symmetry.* The T²-symmetry and the two reflections are used throughout; the problem without symmetry is not
+treated.

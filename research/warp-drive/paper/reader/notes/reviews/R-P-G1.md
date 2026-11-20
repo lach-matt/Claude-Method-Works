@@ -525,3 +525,120 @@ occurs exactly once. The only other labelled references to prop:np-10-65-a are t
 - v1 Proposition 5.10 ("Compositions", §5.2, p. 109) concerns the large non-semiclassical 3b-calculus,
   A ∈ Ψ^s_3b(M) + Ψ^(−∞,E)_3b(M), so the old citation did not give a semiclassical calculus.
 - Chapter 27 needs no change.
+
+---
+
+## Final (second reading: proofs/P-G1.md md5 d7105443b0800ac5c3433179b5f4e285, 1,224 lines; fix report F-P-G1.md)
+
+**Final verdict: NOT CONFIRMED.** 0 Major, 1 minor, 2 nits. The one minor is a one-word page correction (F1). With F1
+applied, the file can be merged as specified. Every first-round finding is resolved.
+
+### M1: the new proof of lem:iv5-calc-disjoint (lines 160–233)
+
+The argument holds and uses only statements that [Hin26d] prints. Each quotation in the new (S16) (lines 1091–1127) was
+compared with the saved v1 text, `sources/Hin26d-arXiv-2408.06651v1.txt`, and found verbatim:
+
+- Lemma 3.18 and the norm after it;
+- Lemma 3.20;
+- Proposition 3.22 with (3.19);
+- Lemma 3.24 (1);
+- Definition 3.25;
+- the sentence after Definition 3.31 (p. 44);
+- Definition 3.34 with (3.30). The period before "(3.30) is bounded." is in the source.
+- Definition 3.43, both sentences and the exact sequence with σ^m_𝒱;
+- the Poisson-bracket sentence of Theorem 3.51;
+- Definition 3.54 (p. 57);
+- Proposition 3.55 (1), (2) (p. 57).
+
+In the published text (`sources/Hin26d-published-AMS-excerpts.txt` and a further excerpt fetch), Definition 3.55 and
+Proposition 3.56 (1), (2) have the same wording.
+
+The logic, step by step:
+
+1. **Disjoint essential supports.** E_1 ∩ E_2 = ∅, as before.
+2. **Microlocality.** Proposition 3.55 (2), applied to Op(c_2), then to T, then to Op(c_1), with the weights tracked as
+   in the source, gives WF^(σ−m,ww′,l)(Xu) ⊂ E_2 ∩ E_1 = ∅ for every σ and l. Proposition 3.55 (1) then gives
+   Xu ∈ ww′ρ̄^lH^(σ−m). Its hypothesis u ∈ w′ρ̄^(−∞)H^(−∞) holds.
+3. **Boundedness into Y.** Theorem 3.44 bounds X into Z. The inclusion Y ⊂ Z holds because L ≥ |m| and ρ̄ ≤ 1. The
+   closed graph theorem then gives boundedness into Y; this is correct.
+4. **The adjoint.**
+   - Proposition 3.22 with the weight w′ρ̄^(−L) and order −L identifies the dual with w′⁻¹ρ̄^LH^L = ww″ρ̄^LH^L.
+   - The open mapping theorem gives equivalent norms.
+   - The bounded functional u ↦ ⟨v, Xu⟩ then yields ‖X*v‖ ≤ C‖v‖ for v ∈ C_c^∞; nondegeneracy identifies X*v.
+   - The bound extends by density (Lemma 3.20) and the closed-graph argument through Theorem 3.44.
+   - Monotonicity in L handles L < |m|.
+5. **𝒲-regularity.** On N_(P′), ρ̄ is constant on each slice and ρ̄W ∈ 𝒱. The p. 37 norm and Proposition 3.19 give
+   ‖W_1⋯W_jf‖_(w′H^s) ≤ C‖f‖_(w′ρ̄^jH^(s+j)) ≤ C‖f‖_(w′ρ̄^kH^(s+k)) for j ≤ k. With L = N + k, the domain
+   w′ρ̄^(−N)H^(−N;k) ⊂ w′ρ̄^(−N−k)H^(−N−k) and the target inclusion hold for every N ∈ ℝ, negative N included (checked).
+6. **Definition 3.34.** Both conditions hold, and X maps C_c^∞(N) to itself (p. 44 together with Definition 3.34). So X is
+   residual.
+7. **Conclusion.** The step to wρ̄^LΨ^(−L) = h^LwΨ^(−L) on N_(P′) is right, since ρ̄ = h on each slice. So the lemma, and
+   everything built on it, now rests on printed statements only.
+
+**F1 (minor), line 1091.** Current text: "[Hin26d, Lemma 3.18 and the norm after it, p. 37;".
+
+Lemma 3.18 is on p. 36 of v1: its statement ends just before the running header "SCALED BOUNDED GEOMETRY 37"; the norm is on
+p. 37. Proposed replacement for lines 1091–1092, rewrapped (115 and 112 characters):
+
+```text
+(S16) Residual operators, essential supports and wave front sets [Hin26d, Lemma 3.18, p. 36, and the norm after it,
+p. 37; Lemma 3.20, p. 38; Proposition 3.22, p. 39; Lemma 3.24 (1), p. 40; Definition 3.25, p. 41; the text after
+```
+
+Line 1093 is unchanged.
+
+### The first-round findings, checked in the new file
+
+- **m1.** J ≥ N + max(s, 0) (line 487); the rest of the inequality and the strong sense (lines 489–492).
+- **m2.** The eb cut-off ψ(t/R)ψ(|x|/R)(1 − ψ(R|x|)) (line 277).
+- **m3.** The subscripts w_pw′_p are restored, with the parenthesis that they stand for p_0 (C95-2).
+- **m4.** The numbering note (lines 1130–1140) was checked against the published text: Proposition 2.4 (Compatible
+  metrics), Lemma 3.37 and Remark 3.38, Definition 3.44, Theorems 3.45, 3.52 and 3.53, Remarks 3.47–3.49,
+  Definition 3.55, Proposition 3.56, Remark 3.57, Definitions 3.59 and 3.60, footnote 22, and in Section 4 Proposition
+  4.2, Definitions 4.6, 4.12, 4.15 and 4.21, Propositions 4.16, 4.18, 4.19 and 4.23, (4.2) → (4.3), (4.24a) → (4.25a),
+  (4.25) → (4.26) and (4.28) → (4.29). All agree. Only the pair "(2.3) and (2.6) for (2.3) and (2.5)" could not be
+  seen in the excerpts. The note no longer claims anything about the published (3.38).
+- **m5/n15.** The crosswalk rows go after lem:iv5-0-5 and carry @PIN with ranges. The ranges were checked against the
+  labels. The twelve "G1:" notes are present.
+- **m6.** The identification of subsets of ³ᵇT̄*M₀ with subsets of ∂_ħ, and the removal of the conflicting o (lines
+  145–148).
+- **m7/m8.** Every placement now consists of whole lines; C33-11 has no line starting with "|".
+- **m9.** The C23-1 note (lines 1001–1006).
+- **m10.** No bare source numbers remain in lines 1–575.
+- **m11.** "isomorphism … with bounds independent of h" (line 309).
+- **m12.** The anchor sentence for the two S-lists (lines 11–12).
+- **Nits.** All applied: n1–n3, n5–n8, n10–n14, n16. n4 is worded "add at most … to the coefficient −c_0", which is
+  accurate, since T41 of P-G24b then carries the Cauchy–Schwarz ¼c_0. n9 is left as I advised.
+- The writer's additions are correct: the (S14) scalar reduction, the C95-1 header (Lemma 3.18, (3.19), (3.30); Lemma 3.28
+  and (3.38) dropped), and the C33-6 sentence on the argument with (e).
+
+### Scratch merge at HEAD (04ee0331; chapters unchanged since fb87f2fc, md5s as the file states)
+
+The merge copy is `scratchpad/reader/merge-r2/`. The script is `scratchpad/reader/pg1tools/merge.py`. It applies every
+fenced old/new pair as an exact substring that must occur exactly once, plus the special sites C33-3, C33-4, C33-20 and
+C95-3, the crosswalk deletion, insertion and notes, and P-G24b's T1–T45 with variant A for T41.
+
+- **P-G1 alone.**
+  - All 24 sites apply, each old text exactly once.
+  - Lint: 0 hits (62 files, 4662 labels). Assembly check: 0 problems.
+  - No line over 121 characters in any chapter, nor in the assembled PAPER.md.
+  - No new wrapped line starts with a forbidden prefix.
+  - Crosswalk 33: 213 rows for 213 labels, in chapter order.
+- **P-G1 with the optional C23-1.** Also clean (lint 0, problems 0).
+- **P-G1 then P-G24b.** All 45 T-texts apply, each found exactly once after P-G1. Lint 0 hits (4678 labels), assembly 0
+  problems, no line over 121 characters, raw or in PAPER.md.
+- **P-G24b was edited during this reading** (md5 427ab49c… → 59b55ff2… → 098c9eaa…, last change 20:04 UTC). The merge was
+  run with both of the later versions and is clean with each.
+- **The overlaps are handled correctly.**
+  - C33-11 → T41 variant A: its old text is the last two lines of the new C33-11.
+  - C33-12 → T7: T7's old text ends with "[[lem:iv5-0-5]] (6) on supp ψ′.", which the new first line of C33-12 keeps.
+    The merged line is 106 characters.
+  - C33-20 → T34: C33-20's paragraph stands before T34's new text.
+  - T42/C33-9 and T5/C33-10 are adjacent and do not overlap.
+
+**Nits.**
+
+- **F2.** Line 1180 says "each of the 43 old texts of P-G24b". P-G24b now has 45 (its own §7 says 45). Write "45".
+- **F3.** This one is not in P-G1. P-G24b's §8 still describes the earlier C33-11 ("the coefficient of ‖Aω‖² is at most
+  −c_0 + …") and says "C33-12 is the end of line 1534"; C33-12 is now the whole of line 1534. Neither affects the merge in
+  the stated order, P-G1 first. It is for P-G24b's next round.

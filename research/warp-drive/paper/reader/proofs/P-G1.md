@@ -1088,8 +1088,8 @@ analogous strengthening of Lemma 3.42)."
 Insert after it, with one blank line before and after (49 lines):
 
 ```text
-(S16) Residual operators, essential supports and wave front sets [Hin26d, Lemma 3.18 and the norm after it, p. 37;
-Lemma 3.20, p. 38; Proposition 3.22, p. 39; Lemma 3.24 (1), p. 40; Definition 3.25, p. 41; the text after
+(S16) Residual operators, essential supports and wave front sets [Hin26d, Lemma 3.18, p. 36, and the norm after it,
+p. 37; Lemma 3.20, p. 38; Proposition 3.22, p. 39; Lemma 3.24 (1), p. 40; Definition 3.25, p. 41; the text after
 Definition 3.31, p. 44; Definition 3.34, p. 46; Definition 3.43, p. 51; Theorem 3.51, p. 55; Definition 3.54 and
 Proposition 3.55, p. 57]. Lemma 3.18 (Towards a norm): "There exists a finite subset W ⊂ 𝒲 which spans 𝒲 over
 C^∞_(uni,𝓑)(M)." After it: "We can now define a norm on wH^(s;k)_(𝒱;𝒲)(M) by setting ‖u‖²_(wH^(s;k)_(𝒱;𝒲)) := Σ_(j=0)^k
@@ -1177,7 +1177,7 @@ the current chapter:
 - Adjacent lines, no shared character: T42 (line 1463) and C33-9 (line 1464); T5 (line 1505) and C33-10 (line 1506).
 - No other old text of one file shares a character with an old text of the other.
 
-Checked by script on a scratch copy. In the current chapter each of the 43 old texts of P-G24b occurs exactly once. After
+Checked by script on a scratch copy. In the current chapter each of the 45 old texts of P-G24b occurs exactly once. After
 all texts of this file are applied, each of them other than T41 still occurs exactly once, the old text of variant A of
 T41 occurs exactly once, and the old text of T41 itself no longer occurs, as intended. Applying P-G24b after that
 (T41 by its variant A) leaves the chapters with no lint hit, no assembly problem and no line over 121 characters.
