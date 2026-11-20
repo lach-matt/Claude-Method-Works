@@ -42,9 +42,9 @@ b(l, h) := ¼(24y − (2 + x)² − 16x)^(1/2); ι_v(l, h) is the larger root of
 continuously on h ([[lem:tr-large]], [[lem:tr-c-v]]).
 
 (c) 𝖩 is the set of h ∈ [h_m, 10⁻⁶] for which there are l and an integer n with 3 ≤ n ≤ 51 such that ι_B(l, h),
-resp. ι_P(l, h), is defined (x ≤ 70) and the distance |ι_B(l, h) − n| is below ε_Υ, resp. b(l, h) ≤ 50.2 and
-|Re ι_P(l, h) − n| < ε_Υ; or n ≥ 4 and the distance |ι_v(l, h) − n| is below ε_Υ; or at which P_l has a multiple root
-for some l with 123 ≤ l ≤ 142.
+resp. ι_P(l, h), is defined (x ≤ 70) and the distance |ι_B(l, h) − n| is below ε_Υ, resp. b(l, h) ≤ 50.2 and the
+distance |Re ι_P(l, h) − n| is below ε_Υ, or such that n ≥ 4 and the distance |ι_v(l, h) − n| is below ε_Υ; together
+with the h ∈ [h_m, 10⁻⁶] at which P_l has a multiple root for some l with 123 ≤ l ≤ 142.
 
 **Theorem {#thm:tr-transfer}** (The bounds of [[thm:uc-integer]] at other values of h.) Let h_m ≤ h < 10⁻⁶ with h ∉ 𝖩,
 and suppose that the parameter point (h, 1/100, 1/100) is admissible. Take (v_C, e_C) of [[eq:iv4-0-1]], the index
@@ -424,11 +424,11 @@ numbers ι − 1 with Re ι ≤ 6, the other roots of C, P_l and p_(v) having re
 its polynomial: ι₁ in C, whose other two roots have real part below −100; ι_v(l, h) in p_(v), whose other root is below
 −100; for l ≤ 122 the roots of P_l concerned lie one in each of three disjoint sets, of the three counted with
 multiplicity ([[lem:tr-small]]); for 123 ≤ l ≤ 142, P_l has no multiple root, as h ∉ 𝖩; for l ≥ 143 and x ≤ 70,
-ι_B, ι_P and its conjugate lie each alone in a disc ([[lem:tr-large]] (a), (c)); and for x > 70 no root of P_l has
-|ι − 1| ≤ 50 ([[lem:tr-large]] (d)), so its roots of real part at least 2 and at most 6 are non-real, and these are
-simple by the argument of the proof of [[lem:sp-roots]] (c). Such an ι − 1 is not an integer entry: a non-real one is
-not real, and a real one has |ι − 1| ≤ 5 and is not an integer by (H_ε). It is not a non-integer entry from □^Υ_b of its type
-and degree: those are real, at vector type there are none, and in (1, 5] they are, at scalar type l,
+ι_B, ι_P and its conjugate lie each alone in a disc ([[lem:tr-large]] (a), (c)); and for x > 70 no root of P_l
+has |ι − 1| ≤ 50 ([[lem:tr-large]] (d)), so its roots of real part at least 2 and at most 6 are non-real, and these
+are simple by the argument of the proof of [[lem:sp-roots]] (c). Such an ι − 1 is not an integer entry: a non-real
+one is not real, and a real one has |ι − 1| ≤ 5 and is not an integer by (H_ε). It is not a non-integer entry from
+□^Υ_b of its type and degree: those are real, at vector type there are none, and in (1, 5] they are, at scalar type l,
 l + 2 + d₂(l) for l ≤ 2 and l + 3 + d₁(l) for l = 1 ([[lem:is-roots]] (a)); the entries from □^C of real part in
 (1, 5] are, at scalar type l ≤ 2, the ι − 1 with ι in (2, 3) ([[lem:tr-small]]), which lie in (1, 2), while those
 exceed 3. At scalar type 0 the entry ι₁ − 1 lies in (1, 3/2), where that type has no other entry. With the poles, as in
@@ -480,9 +480,9 @@ and [[lem:uc-phi-loss]] give the same numbers. In [[sec:cs]] the charges are clo
 of [[lem:uc-lambda]] and [[lem:uc-n-iota]], the forward loss, which holds for every γ_C ([[lem:fwd-orders]]), ℓ_tf = 1
 ([[prop:uc-ltf]]), d_BG = 11 ([[prop:uc-dbg]]) and the free choices of [[def:cs-choices]], of which (a) uses
 ϑ_ℋ < ϑ_L + δ with ϑ_L = max(0, 2 − 2a_vγ_Cr_h) < 2 at every γ_C, and (f) the interval (2, 2 + ε_g − 2ε) with
-ε_g = ε_Υ; the step of the proof of [[lem:cs-fourier]] (b) that uses ε_ind uses ε_ind > ε_K, which holds. So [[prop:cs-cstar]],
-[[lem:cs-sharp]] and [[lem:cs-levels]] hold with the same numbers, and so do [[lem:uc-small-orders]] and
-[[prop:uc-d-small]], whose orders are fixed by the same counts. The proof of [[thm:uc-integer]] then runs unchanged.
+ε_g = ε_Υ; the step of the proof of [[lem:cs-fourier]] (b) that uses ε_ind uses ε_ind > ε_K, which holds. So
+[[prop:cs-cstar]], [[lem:cs-sharp]] and [[lem:cs-levels]] hold with the same numbers, and so do [[lem:uc-small-orders]]
+and [[prop:uc-d-small]], whose orders are fixed by the same counts. The proof of [[thm:uc-integer]] then runs unchanged.
 The lower bounds are those of [[prop:ec-rounds]] and [[cor:uc-two-offsets]], which use only ε_K < 1.6417·10⁻¹⁴
 ((G) for the index sets as constructed), ε_Υ < 1.46214·10⁻¹⁰ and ε_ind(h) ≤ δ_50, and hold at every h ∈ (0, 10⁻⁶) at
 which the parameter point (h, 1/100, 1/100) is admissible. ∎
@@ -522,8 +522,8 @@ beyond, and on which 1/2 < x ≤ 70 and κ ≥ (4n/3 − 3.6001)·10⁶. On I �
 root. At h = 10⁻⁶ the roots of P_l are simple ([[prop:t49-simple]]), so that polynomial is not zero, and 𝖩_D(l) is
 finite for each of the twenty degrees 123 ≤ l ≤ 142.
 
-In the first three cases only finitely many l occur, as κ ≤ 70/h_m. The total length is below (0.02659 + 0.06346 + 0.02601)ε_Υ <
-0.1161ε_Υ < 1.698·10⁻¹¹. ∎
+In the first three cases only finitely many l occur, as κ ≤ 70/h_m. The total length is below
+(0.02659 + 0.06346 + 0.02601)ε_Υ < 0.1161ε_Υ < 1.698·10⁻¹¹. ∎
 
 **Proposition {#prop:tr-fail}** (The bound fails near a crossing.) Let 0 < h < 10⁻⁶, and suppose that the parameter
 point (h, 1/100, 1/100) is admissible. If ε_ind(h) < 1.38·10⁻²⁵, every admissible choice of the weights at
@@ -534,7 +534,8 @@ fails at every h with 0 < |h − h_c| < 1.377·10⁻³¹ at which the parameter 
 *Proof.* [[lem:ec-lb-rounds]] applies with Θ_g := ε_ind(h) and Θ_η := δ̄: ε_g ≤ ε_ind ≤ ε_ind(h), ε_K < ε_+ < ε_ind,
 η_2 < ε_+ < ε_ind ≤ δ_50 < δ̄, and 5Θ_g + Θ_η < 2.1·10⁻⁸. It gives R > (1 − 2.1·10⁻⁸)/ε_ind(h)²; so by the argument of
 [[thm:loss-d]] (ii), which does not use the computational point (proof of [[thm:ec-lb-proved]]),
-d_NM ≥ d_acc ≥ 3R > 3(1 − 2.1·10⁻⁸)/(1.38·10⁻²⁵)² > 1.5752·10⁵⁰ > D_acc. At l = 1000, κ = 1002000 and (n − 3)/((l + 1)² − (n − 1)²) = 1/1001992 at n = 4, so ι_v(1000, h_c) = 4
+d_NM ≥ d_acc ≥ 3R > 3(1 − 2.1·10⁻⁸)/(1.38·10⁻²⁵)² > 1.5752·10⁵⁰ > D_acc. At l = 1000, κ = 1002000 and
+(n − 3)/((l + 1)² − (n − 1)²) = 1/1001992 at n = 4, so ι_v(1000, h_c) = 4
 ([[lem:tr-c-v]] (b)) and h_c ∈ 𝖩_v(1000, 4). By [[eq:tr-vslope]], 0 < ∂_hι_v ≤ (l + 1)² = 1002001, so for
 0 < |h − h_c| < 1.377·10⁻³¹, 0 < |ι_v(1000, h) − 4| < 1.38·10⁻²⁵, and the entry ι_v − 1 of ℛ^v_1000, of modulus below
 50 and not an integer, bounds ε_ind(h). ∎
