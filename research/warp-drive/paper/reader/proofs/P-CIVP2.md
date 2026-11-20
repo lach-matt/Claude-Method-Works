@@ -603,7 +603,7 @@ the background; the neighbourhood is not explicit and no estimate of the solutio
 ### Placement
 
 Each item names the place, the old text and the new text. Old and new texts are given as the lines of the chapter
-source, unindented except where the source indents them, each preceded by a line ending "Old:" or "New:". Line numbers
+source, unindented except where the chapter indents them, each preceded by a line ending "Old:" or "New:". Line numbers
 are those of the current chapter sources and serve only to find the place. The section above follows the section of
 [[pending:civp-tier1-theorem]] and uses it at three places, each marked: the analogue of [[prop:loc-cones]] on 𝒞_in
 with the gauge b = 0 there ([[pending:civp-tier1-cin-cones]]), the theorem itself, for comparison, and its proof, for
@@ -619,8 +619,8 @@ eq:civp-large-table, lem:civp-large-reduction, eq:civp-large-reduced, eq:civp-la
 prop:civp-large-system, eq:civp-large-form, sec:civp-large-data, lem:civp-large-data, sec:civp-large-energy,
 lem:civp-large-energy, eq:civp-large-linear, sec:civp-large-local, prop:civp-large-corner, sec:civp-large-theorem,
 thm:civp-large, eq:civp-large-localised, eq:civp-large-delta, rem:civp-large-domain and rem:civp-large-beyond, none of
-which is defined elsewhere; the prefix may be changed to the chapter's prefix loc- without other changes. No number
-already printed in any chapter changes.
+which is defined elsewhere; the prefix may be changed to the chapter's prefix loc- without other changes. Numbers are
+resolved at assembly.
 
 *2. [[ch:localised-data]], its opening paragraph (lines 8–9).* Old:
 
@@ -699,7 +699,7 @@ New:
   the background near the axes ([[thm:civp-large]]); and exactly localised vacuum data
 
 *7. [[app:standard-results]], [[sec:std-characteristic]].* Insert before [[thm:std-ctg-neighbourhood]], with one blank
-line after each item. New:
+line after each item; this defines thm:std-cctw-existence and thm:std-cctw-strips. New:
 
 **Theorem {#thm:std-cctw-existence}** ([CCTW16, (2.1)–(2.2), p. 6; (2.7)–(2.9), p. 7; (3.2), p. 11; Theorem 3.9, pp.
 32–33].) The authors consider "quasi-linear first order symmetric hyperbolic systems of the form Lf = G, (2.1) on

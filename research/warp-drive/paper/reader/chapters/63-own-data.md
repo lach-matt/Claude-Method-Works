@@ -12,16 +12,17 @@ stability theory runs in the wider class with the same index sets.
 
 The argument has five parts. (1) The far part S := Σ^IVP ∩ {r ≥ 4R} of the initial surface has a past domain of
 dependence W for Tangherlini, bounded by S, by an ingoing null cone ℋ on which g_λ is known, and by past null infinity,
-where nothing comes in after the shell (Section [[sec:own-far-part]]). (2) The tail at r^(−5/2) is computed
-(Section [[sec:own-tail]]). (3) The stability theory holds in the half-integer class with the same index sets
-(Section [[sec:own-half-class]]). (4) The constants of the construction from past null infinity are polynomial in λ^(−1)
-at every order, which makes the data of g_λ on ℋ small at every weight that the estimate below uses
-(Sections [[sec:own-orders]] and [[sec:own-sigma]]). (5) After its self-similar terms through r^(−4) are subtracted, g_λ
-continues to W by one weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, whose
-exponents follow from homogeneity under a dilation; the continuation is vacuum, unique in a class of weight below ½, and
-its data on S lie in the half-integer class with small norm (Sections [[sec:far-homogeneity]], [[sec:cutoff-expansion]],
+where nothing comes in after the shell (Section [[sec:own-far-part]]). (2) The tail at r^(−5/2) is computed (Section
+[[sec:own-tail]]). (3) The stability theory holds in the half-integer class with the same index sets (Section
+[[sec:own-half-class]]). (4) The constants of the construction from past null infinity are polynomial in λ^(−1) at every
+order, which makes the data of g_λ on ℋ small at every weight that the estimate below uses (Sections [[sec:own-orders]]
+and [[sec:own-sigma]]). (5) After its self-similar terms through r^(−4) are subtracted, g_λ continues to W by one
+weighted energy estimate at a weight a ∈ (ℓ0 − 1, 3), run on bounded domains of dependence, whose exponents follow from
+homogeneity under a dilation; the continuation is vacuum, unique in a class of weight below ½, and its data on S lie in
+the half-integer class with small norm (Sections [[sec:far-homogeneity]], [[sec:cutoff-expansion]],
 [[sec:own-continuation]] and [[sec:own-vacuum]]). The theorem is assembled in Section [[sec:own-proof]], where the
-development is placed in the maximal globally hyperbolic development of the data ([[lem:own-maximal]]).
+development is placed, off its inner boundary, in the maximal globally hyperbolic development of the data
+([[lem:own-maximal]]).
 
 *Notation.* We use the chart (τ, x) of [[sec:background]], v = τ + r, the background g0 of [[eq:background]] and the
 gauge of [[sec:gauge]]. Ω′ is the domain of the form [[eq:omega]], with constants (T′, δ′0) and inner radius a′ = q0 −
@@ -1889,10 +1890,11 @@ is the part {t_IVP ≥ 0} of the spacetime of [[ch:s27]], which contains M₊. W
 the metric g_(0,0) of [[lem:iii-k-6-2]] on the region 𝒟 of [[prop:iii-k-1-2]]; it is smooth on 𝒟 up to its boundary
 (the proof of [[prop:iii-k-1-2]]), and dt_IVP is past timelike for it on 𝒟 ([[lem:iii-k-6-2]] (a)). So near each point
 of Σ̊, ǧ is the restriction of a smooth Lorentzian metric: of g_(0,0) where r > R_ν, 𝒟 being a two-sided neighbourhood
-of Σ^IVP there, and, where r ≤ R_ν, of an extension of g_(0,0) across {t_IVP = 0} in the coordinates (t_IVP, x) by
-[[thm:std-seeley]], which is Lorentzian near Σ̊; the future unit normal of Σ̊ points into M₊, and ǧ induces (γ, k) on
-Σ̊ with respect to it. On Ω°_*, ǧ − g_(b₀) is small in 𝒢̃^(0,(1,0,0))_(e3b) and t^♭_* is a time function of ǧ, as in
-the proof of [[prop:iii-k-4-2]] ([[lem:s27-below]] (iii)).
+of Σ^IVP there, and, where r ≤ R_ν, of an extension of g_(0,0) across {t_IVP = 0}, given in the coordinates (t_IVP, x)
+by [[thm:std-seeley]] applied after a cut-off near the point, and Lorentzian near the point by continuity; the future
+unit normal of Σ̊ points into M₊, and ǧ induces (γ, k) on Σ̊ with respect to it. On Ω°_*, ǧ − g_(b₀) is small in
+𝒢̃^(0,(1,0,0))_(e3b) and t^♭_* is a time function of ǧ, as in the proof of [[prop:iii-k-4-2]] ([[lem:s27-below]]
+(iii)).
 
 *The data, and a development of them.* Σ̊ is the graph t = ψ_IVP(|x|) over the connected set {|x| > r_♭} ⊂ ℝ⁴, an open
 subset of Σ^IVP and, unlike Σ^IVP, which ends at {r = r_♭}, a manifold without boundary, as [Sbi15, p. 11] asks of

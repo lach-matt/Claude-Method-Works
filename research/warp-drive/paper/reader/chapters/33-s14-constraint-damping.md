@@ -551,8 +551,9 @@ if and only if b_sf < b*, where b* = 0.99340731… is the smaller root of 204795
 (v) the condition 2(1 − e)(v − ρ)²/(e(1 − v²)) > 1 − ρ² of [Hin26a, (5.8)] holds for ρ = r/t in
 [δ_r, v(1 − δ_sf)] ∪ [v(1 + δ_sf), 10], with δ_sf = 1/100 and every δ_r > 0.
 
-Moreover: (a) conditions (4)–(5) of [Hin26a, Proposition 5.1] off 𝗌𝖿, for 0 < ρ_sf ≤ 2δ_r with some δ_r > 0, follow
-from (iv) by continuity, since Tangherlini space differs from its Minkowski model by terms in ρ_sf C^∞ ([Hin26a, p. 39]);
+Moreover: (a) conditions (4)–(5) of [Hin26a, Proposition 5.1], which [[lem:iv4-1-4]] restates, off 𝗌𝖿, for
+0 < ρ_sf ≤ 2δ_r with some δ_r > 0, follow from (iv) by continuity, since Tangherlini space differs from its Minkowski
+model by terms in ρ_sf C^∞ ([Hin26a, p. 39]);
 (b) for every ε ∈ (0, r_0/4] there is a smooth 1-form c_ε equal to c outside (r_0/2 − ε, r_0/2) ∪ (2r_0, 2r_0 + ε),
 so on [r_0/2, 2r_0] and for r ≥ 3r_0, with c_ε − c → 0 uniformly as ε → 0; for ε small enough c_ε satisfies (i) and
 (ii), which involve only the 1-form and not its derivatives ([Hin26a, p. 41]); (c) in the static time t_s the outer

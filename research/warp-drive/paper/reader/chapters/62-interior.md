@@ -230,8 +230,9 @@ past timelike for g_λ on V, and dt_IVP(n) > 0, as n points into B. In the chart
 open shell {r_♭ < |x| < R}, so the coordinates x = (x¹, …, x⁴) of the chart, restricted to Σ, are coordinates on all of
 Σ; every chart below uses them. Let p ∈ Σ, and let Π_0 be a neighbourhood of p in Σ. Near p, g is the restriction to B of
 a smooth Lorentzian metric g̃ on an open set of ℝ × ℝ⁴, g being smooth up to Σ: in the coordinates (t − ψ_IVP(|x|), x),
-in which Σ is {0} × {r_♭ < |x| < R}, [[thm:std-seeley]] extends each component of g smoothly across Σ, and the extension
-is Lorentzian near Σ by continuity. The maps
+in which Σ is {0} × {r_♭ < |x| < R}, [[thm:std-seeley]], applied to each component of g multiplied by a cut-off that
+equals 1 near p and is supported in a neighbourhood of p in ℝ × {r_♭ < |x| < R}, extends that component smoothly across Σ
+near p, and the extension is Lorentzian near p by continuity. The maps
 
     E_λ(s, x) := exp^(g_λ)_x(s n_λ),     Ẽ(s, x) := exp^(g̃)_x(s n)
 
