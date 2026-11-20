@@ -491,20 +491,25 @@ of [[thm:class-kato-stability]] (a). Constants C below depend only on k, Λ, κ 
 nondegeneracy κ_1, both depending only on k, Λ and κ: a class solution in the gauge for the new data gives one for the
 old on the same rectangle, the change of angle not depending on v.
 
-*Step 1 (The formal solution and the constants).* Let C_b and d be the numbers of [[prop:civp-axes-formal]] (b), (c) for
-Λ_1, κ_1 and λ_0 := l. By (b) there, |b̂| ≤ C_b (|u| + |v|) and |b̂| ≤ C_b |v| where u ≥ 2δ_e, with C_b independent of
-δ_e; so the argument of the paragraph on the reference metric in case (II) of [[sec:loc-cone-reduced]], with |X̂ − X̊| ≤
-C_b replaced by these bounds and by (c) there, gives δ_2 > 0, depending only on Λ_1, κ_1 and l, such that
+*Step 1 (The formal solution and the constants).* Let C_b and d be the numbers of [[prop:civp-axes-formal]] (b), (c)
+for Λ_1, κ_1 and λ_0 := l, and let δ_1 ≤ d/4, so that by (c) there Ω̂ ≥ e^(−Λ_1)/2 and γ̂ ≥ (κ_1/2) γ̊ on the set 𝒮 of
+[[eq:loc-cone-collar]], every point of which lies within δ_1 of N and has |u|, |v| ≤ 3δ_1. With δ_c := δ_1/32 and
+δ_e := δ_c/8 as below, let 𝒮′ be the set of the points of 𝒮 with u, v > −δ_c and (u + δ_c)(v + δ_c) ≥ δ_c² e^(−1); there
+u + δ_c, v + δ_c ≤ 4δ_1, so u + δ_c and v + δ_c are at least δ_c² e^(−1)/(4δ_1). For ∂_τ of [[eq:loc-cone-time]],
 
-    4Ĝ(∂_τ, ∂_τ) = −4Ω̂² (u + δ_c)(v + δ_c) + γ̂(b̂, b̂) (u + δ_c)² ≤ −2Ω̂² (u + δ_c)(v + δ_c)
+    4Ĝ(∂_τ, ∂_τ) = −4Ω̂² (u + δ_c)(v + δ_c) + γ̂(b̂, b̂) (u + δ_c)².
 
-on the set 𝒮 of [[eq:loc-cone-collar]] whenever δ_1 ≤ δ_2, ∂_τ being the field of [[eq:loc-cone-time]]. Fix δ_1 :=
+At the points of 𝒮′ with u ≥ 2δ_e, |b̂| ≤ C_b |v| by (b) there, and |v| ≤ δ_c + (v + δ_c), so |b̂|² (u + δ_c)/(v + δ_c)
+≤ 2C_b² (δ_c²/(v + δ_c) + (v + δ_c)) 4δ_1 ≤ 32 e C_b² δ_1² + 32 C_b² δ_1²; at those with u < 2δ_e, |u| ≤ δ_c, u + δ_c ≤
+2δ_c and |b̂| ≤ C_b (|u| + |v|), so |b̂|² (u + δ_c)/(v + δ_c) ≤ 2C_b² (δ_c² + v²) 2δ_c (u + δ_c) e/δ_c² ≤ 8e C_b² (δ_c² +
+16δ_1²). Hence, with |·| the norm of γ̊ and γ̂(b̂, b̂) ≤ C |b̂|², there is δ_2 > 0, depending only on Λ_1, κ_1 and l, such
+that 4Ĝ(∂_τ, ∂_τ) ≤ −2Ω̂² (u + δ_c)(v + δ_c) on 𝒮′ whenever δ_1 ≤ δ_2; this replaces the paragraph on the reference
+metric in case (II) of [[sec:loc-cone-reduced]], where b̂ vanished off the support of the correction. Fix δ_1 :=
 min(l/3, d/4, δ_2), l_u = l_v := 2δ_1 (so that N_o and N_i have length l ≥ 3δ_1 = l_u + δ_1), c_+ := (δ_1/4)², δ_c :=
 √c_+/8 = δ_1/32 and δ_e := δ_c/8, and let X̂, Ĝ, q̂_A be the formal solution of [[prop:civp-axes-formal]] for these data.
-Every point of 𝒮 lies within δ_1 ≤ d of N and has |u|, |v| ≤ 3δ_1, so by (c) there Ĝ is a smooth G-invariant Lorentzian
-metric on 𝒮 × S³, for which u and v are null, ∂_τ is timelike and dτ is timelike with P̂_A(τ) > 0, where P̂_A := Ĝ⁻¹p̂_A,
-p̂_in := −dv and p̂_out := −du; then the block Ĝ^(ab) of the inverse metric on the dy^a is positive definite, as in that
-paragraph. By (a) there ‖X̂‖_(C^(k+3)) ≤ C. Put Θ̂_A := div_Ĝ P̂_A and Û := (Ĝ, p̂_A, Θ̂_A, q̂_A).
+Ĝ is a smooth G-invariant Lorentzian metric on 𝒮 × S³, for which u and v are null; on 𝒮′, ∂_τ is timelike for Ĝ, and dτ
+is timelike with P̂_A(τ) > 0, where P̂_A := Ĝ⁻¹p̂_A, p̂_in := −dv and p̂_out := −du; then the block Ĝ^(ab) of the inverse
+metric on the dy^a is positive definite there, as in that paragraph. By (a) there ‖X̂‖_(C^(k+3)) ≤ C. Put Θ̂_A := div_Ĝ P̂_A and Û := (Ĝ, p̂_A, Θ̂_A, q̂_A).
 
 *Step 2 (Chart, region, and the leaves of Û).* Use the chart (τ, y) of [[eq:loc-cone-time]] with this δ_c, τ_c := 2 ln
 δ_c, the time of the corner sphere, τ_+ := ln c_+, and the region 𝒰 of [[eq:loc-cone-region]] with its lower end τ_init ∈
@@ -524,7 +529,8 @@ are the level sets of u and v there: the round spheres {|y| = r}. At a point of 
 bounded below by a number c_Û > 0 depending only on δ_1, and likewise at axis 1. [[lem:class-leaf-reference]] therefore
 applies with V := Û on every slice, at every axis point of 𝒰, with constants depending only on C^(k+3) bounds of Û, on
 c_Û and on the radius r_Û of its part (o), so only on k, Λ, κ, l. Fix δ ∈ (0, r_Û/8], also at most δ_𝔐 of its part (b′)
-for 𝔐 := 1 + (the bound of 𝔐 for Û), and at most a quarter of the least distance of 𝒰 to {y = 0}; and let χ_ax be a
+for 𝔐 := 1 + (the bound of 𝔐 for Û), at most a quarter of the least distance of 𝒰 to {y = 0}, and so small that the
+sets 𝒰_(2δ) about the axis points of the support of ξ below lie in the interior of 𝒮′; and let χ_ax be a
 smooth G-invariant function of y equal to 1 where dist(y, axes) ≤ δ/2 and to 0 where dist(y, axes) ≥ δ.
 
 *Step 3 (The modified system).* The unknowns U = (g, p_A, Θ_A, q_A), A ∈ {in, out}, and their first-order variables 𝐔 :=
@@ -536,8 +542,8 @@ closure of Step 6 of the proof of [[thm:class-stability]], built near axis 2 fro
 leaves of U in Σ_τ ([[lem:class-leaf-reference]]), and near axis 1 likewise with the two circles exchanged. We write
 𝒜(U) = 0 for this system; its right side at a time depends on the unknowns at that time only.
 
-Let ξ be a smooth function of (u, v), equal to 1 on a neighbourhood 𝒰_1 of 𝒰 and supported in the interior of 𝒮 in the
-chart, χ_♭ and A^μ_♭ as in case (II) with Ĝ⁻¹ and P̂_A in place of g_e⁻¹ and P̊_A (so A^μ_♭ = A^μ(x, 𝐔̂) on supp ξ), and
+Let ξ be a smooth function of (u, v), equal to 1 on a neighbourhood 𝒰_1 of 𝒰 and supported in the interior of 𝒮′,
+which contains 𝒰 as (u + δ_c)(v + δ_c) ≥ δ_c² e^(−1/2) on 𝒰, χ_♭ and A^μ_♭ as in case (II) with Ĝ⁻¹ and P̂_A in place of g_e⁻¹ and P̊_A (so A^μ_♭ = A^μ(x, 𝐔̂) on supp ξ), and
 c_0, r_0, ϒ as there with 𝐔_c := 𝐔̂. For Z := 𝐔 − 𝐔̂ (𝐔̂ needed only on supp ξ) consider
 
     ξ (A^μ(x, 𝐔̂ + ϒ(Z)) ∂_μ(𝐔̂ + Z) − F^♮(x, 𝐔̂ + Z)) + (1 − ξ) A^μ_♭ ∂_μ Z = F̃,
