@@ -292,3 +292,44 @@ Compared afterwards with the writer's notes (§8 of the file): the same majorant
   Λ ∩ {Re < 3 + ε_+}; P-UB2's M9 and M15a repair those (the file's §6 says so). Merge P-UB1 with P-UB2's main set.
 - thm:loss-d (71:1494, "(G) asks ε_K < μ_G") and cor:uc-two-offsets, rem:uc-offset-d0 (1.6417·10⁻¹⁴) stay true and
   weaker; cor:is-lower could be cited there, as the file says.
+
+## Confirmation
+
+Re-read: proofs/P-UB1.md at md5 58b580faf8acbc14503d7c5e33c0b087, 2897 lines, committed in db20bc79 (HEAD); chapters
+71 and 96 unchanged (md5 427412e0…, f577ca62…); P-UB2 now md5 69990efadbb064fb43ca5679c0b9d705.
+
+**The diff against the reviewed version** (git diff 4efdaefb -- proofs/P-UB1.md: 11 hunks, +36 −37 lines) contains
+exactly these changes and nothing else:
+
+- minor 1: the *Counting.* step of lem:is-z3 (T7) is my replacement word for word (7 lines), and T14's *Object.* of
+  sec:tab-is-real adds "Any two entries of the column r differ by more than 2·10⁻²¹.";
+- minor 2: T1 reads "…produces; at the computational point (G) then holds exactly for ε_K < μ_Z ≈ 1.6748·10⁻¹⁷
+  ([[thm:is-gap]]), and on the part of Λ built from the other generators the least excess above 3 is
+  μ_G ≈ 1.6416·10⁻¹⁴.", as given;
+- nits 1–5 as given (the disc paragraph "In [[lem:is-disc]] take the centre c, the radius 10⁻²¹ and M = 7·10²¹…";
+  T12 "for ℰ′_ind 𝔡₁ alone"; T2 "for every ε_K < ε_Υ ([[def:iii-i10-1-3]])"; the heading "… of real part below 3";
+  "The columns p and q give"); nit 6: the §4 merge note now records the joint merge with P-UB2 69990efa as clean;
+- knock-on: "New (130 lines)" for T7 (128 − 5 + 7) and "New (1997 lines)" for T14; the ten crosswalk PENDING numbers
+  (335, 345, 347, 357, 490, 494, 582, 795, 820, 2100), each the line that carries its label, and the sec:tab-is
+  source_name with the new heading; one line of §8 (r entries more than 5.09·10⁻⁷ apart).
+
+No table row, number, input or other text moved: the two tables extracted from the new file (lines 828–2096 and
+2108–2787) are byte-identical to those I checked.
+
+**The table check re-run** from the printed numbers of the new file (rpub1check/check.py on rpub1check/v2): all
+passes, with the same results as in the review — 1269 sign changes, 680 disc criteria (worst ratio 0.0966, majorant
+6.826·10²¹ < 7·10²¹), 1949 least-excess rows with the printed (p, q) the unique minimiser and m its lower bound rounded
+down, μ_Z at (390, 1), (356327, 1116082) in (1.674785657, 1.674785869)·10⁻¹⁷, next 1.1076143·10⁻¹⁵, census 56 / 1144,
+S₁, S₂ and the non-real sum within their printed bounds, N̄_Λ = 909,507,124,095,312, N_Λ > 1.85753·10¹⁴, μ♭_Z and the
+two sums of cor:is-flat, cor:is-lower. The new sentence holds: the least difference of two entries r is
+5.09387·10⁻⁷ (> 2·10⁻²¹; the file's 5.0939·10⁻⁷).
+
+**Placement re-run** on fresh git archives of HEAD db20bc79 (scratch/rpub1/v2): the 14 old texts occur once each at
+the stated lines, pairwise disjoint. Alone: lint.py --chapters 0 hits (4803 → 4813 labels), assemble.py --check and
+assemble.py 0 problems, lint.py --paper 0 hits, longest line 121 characters in chapters 71, 96 and PAPER.md. With
+P-UB2's main set (69990efa; 50 blocks, no overlap): 4815 labels, 0 problems, lint.py --paper 0 hits, longest line 121.
+The fallback set F1–F9, FO1–FO7 overlaps none of T1–T14. No line of the new texts exceeds 121 characters, ends in a
+space or starts a wrapped line with "+ ", "- ", "* ", "> ", "#", "=" or "|"; "now" no longer occurs in them.
+
+**Verdict: CONFIRMED** (0 Major, 0 minor, 0 nits open). The coordinator notes above stand (merge with P-I11 and with
+P-UB2's main set).
