@@ -1750,13 +1750,151 @@ is as in (1), with 𝓛_h*. ∎
 
 #### Energy estimates {#sec:iv5-6}
 
-[Hin26a, Lemma 5.14] is stated for an arbitrary time-oriented Lorentzian vector space, and [Hin26a, Corollary 5.15] on
-ℝ^(1+n) for every n and on n-dimensional manifolds of bounded geometry ([Hin26a, pp. 58–60]). Both are used as stated,
-with n = 4. Near X_0 the bounded geometry is that of the τ-level sets, with preferred charts products of charts on 𝕊³
-with dyadic intervals in r. Near Σ^♯ it is that of the r-level sets, with charts on 𝕊³ times unit intervals in t. The
-data required to lie in a compact subset of C^∞(I × B_3) are g, B, a 3b-connection, ℓ and φ; they do so by
-[[lem:iv5-0-2]] (a), (c), (d), uniformly for b ∈ U. The hypothesis on ℓ, positive definite on future causal covectors,
-is [[lem:iv5-0-4]] ([Hin26a, Lemma 3.5]).
+The energy estimates rest on a quadratic form built from G, a covector η and ℓ, which [Hin26a, (5.61)] writes
+T_(G,η,ℓ), on its positivity ([Hin26a, Lemma 5.14]) and on an integrated inequality drawn from it ([Hin26a, Corollary
+5.15]). They are stated and proved here in the form the proofs below use.
+
+**Lemma {#lem:iv5-6-tform}** (The form T_(G,η,ℓ) and its positivity; [Hin26a, (5.61) and Lemma 5.14] in dimension
+4 + 1.) Let g be a time-oriented Lorentzian inner product on a real vector space V of dimension D ≥ 3, with ⟨·, ·⟩ and
+G(ζ) = ⟨ζ, ζ⟩ taken with g⁻¹, let E be a real vector space with an inner product B, and let ℓ : V* → End E be linear
+with B-self-adjoint values. For η ∈ V* put
+
+    T_(G,η,ℓ)(ζ, ζ′) := ⟨ζ, η⟩ℓ(ζ′) + ⟨ζ′, η⟩ℓ(ζ) − ⟨ζ, ζ′⟩ℓ(η),     T_(G,η,ℓ)(ζ) := T_(G,η,ℓ)(ζ, ζ),     {#eq:iv5-6-t}
+
+so that T_(G,η,ℓ)(ζ) = 2⟨ζ, η⟩ℓ(ζ) − G(ζ)ℓ(η), and let 𝒬_(G,η,ℓ) be the quadratic form on V* ⊗ E of the symmetric
+bilinear form with (ζ ⊗ ω, ζ′ ⊗ ω′) ↦ B(T_(G,η,ℓ)(ζ, ζ′)ω′, ω). For a basis (f^μ) of V* and ξ = Σ_μ f^μ ⊗ ξ_μ,
+𝒬_(G,η,ℓ)(ξ) = Σ_(μ,ν) B(T_(G,η,ℓ)(f^μ, f^ν)ξ_ν, ξ_μ); and 𝒬_(G,η,ℓ)(ζ ⊗ ω) = B(T_(G,η,ℓ)(ζ)ω, ω). T and 𝒬 are linear
+in each of G, η and ℓ. For complex ξ, 𝒬(ξ) := 𝒬(Re ξ) + 𝒬(Im ξ).
+
+(a) If ℓ(ζ) is B-positive definite for every future causal ζ ≠ 0 and η is past timelike, then T_(G,η,ℓ)(ζ) is
+B-positive definite for every ζ ≠ 0.
+
+(b) Let E = V*, let c ∈ V* be past timelike and 0 < e < 2/D, and let ℓ = ℓ_(g,c,e) and B be as in [[eq:s14-ell]]. Then
+𝒬_(G,η,ℓ) is positive semidefinite for every past null η, with nullspace η ⊗ V*, and positive definite for every past
+timelike η.
+
+(c) In (b), let K be a compact set of triples (g, c, η) on a fixed V, with c and η timelike for g and in the same
+cone, each g time-oriented so that c is past timelike, e being fixed, and let (f^μ) be a basis of V*. There is c₀ > 0
+such that 𝒬_(G,η,ℓ)(ξ) ≥ c₀Σ_μ B(ξ_μ, ξ_μ) for every (g, c, η) ∈ K and every ξ.
+
+*Proof.* (a) T_(G,η,ℓ)(ζ) = ℓ(μ) with μ := 2⟨ζ, η⟩ζ − G(ζ)η. Write ζ = sη + ζ′ with ⟨ζ′, η⟩ = 0; as η is timelike,
+G(ζ′) ≥ 0, with equality only for ζ′ = 0. Then G(μ) = G(ζ)²G(η) ≤ 0, and
+⟨μ, η⟩ = 2⟨ζ, η⟩² − G(ζ)G(η) = s²G(η)² − G(ζ′)G(η) > 0 for ζ ≠ 0. So μ is causal and nonzero, and ⟨μ, η⟩ > 0 puts it
+in the cone opposite to that of η: μ is future causal, and ℓ(μ) is B-positive definite.
+
+(b) Replacing c by λc, λ > 0, multiplies ℓ by λ and leaves B unchanged; so let G(c) = −1. As 𝒬 is linear in η, it
+suffices to take η = c + n with n ⊥ c and G(n) = 1: a past null η is αc + η′ with η′ ⊥ c, α = −⟨c, η⟩ > 0 and
+G(η′) = α². Choose an orthonormal basis f⁰ := c, f¹ := n, f^a (2 ≤ a ≤ D − 1) of V*, so that ⟨f^μ, f^ν⟩ = ε_μδ_(μν)
+with ε_0 = −1 and ε_j = 1 for j ≥ 1, and write ξ_μ = Σ_λ x_(μλ)f^λ. By the proof of [[prop:np-10-13]] (i),
+
+    b(ζ; ω, ω′) := B(½ℓ(ζ)ω, ω′) = ⟨ζ, c⟩⟨ω, ω′⟩ − e⟨ζ, ω⟩⟨c, ω′⟩ − e⟨c, ω⟩⟨ζ, ω′⟩ + (1 − e²)⟨ζ, c⟩⟨ω, c⟩⟨ω′, c⟩,
+
+which is symmetric in (ω, ω′). By [[eq:iv5-6-t]], the two terms of T_(G,η,ℓ)(f^μ, f^ν) with ⟨·, η⟩ give equal sums,
+and
+
+    ½𝒬_(G,η,ℓ)(ξ) = 2Σ_μ ⟨η, f^μ⟩β(ξ_μ) − Σ_μ ε_μ b(η; ξ_μ, ξ_μ),     β(w) := Σ_ν b(f^ν; ξ_ν, w).
+
+With ⟨f^ν, c⟩ = −δ_(ν0), ⟨c, ξ_ν⟩ = −x_(ν0), ⟨f^ν, w⟩ = ε_νw_ν for w = Σ_λ w_λf^λ, and tr x := Σ_ν ε_νx_(νν),
+
+    β(w) = −⟨ξ_0, w⟩ + e(tr x)w_0 + eΣ_ν ε_νx_(ν0)w_ν − (1 − e²)x_(00)w_0,
+
+and b(c; ω, ω) = −⟨ω, ω⟩ − (1 + 2e − e²)ω_0², b(n; ω, ω) = 2eω_0ω_1. Inserting these, with y := Σ_a x_(aa) and with the
+sums over j, k ≥ 1 and over a, b ≥ 2,
+
+    ½𝒬_(G,c,ℓ)(ξ) = e(2 − e)x_(00)² − 2ex_(00)(x_(11) + y) + Σ_j x_(0j)² + e(2 − e)Σ_j x_(j0)² − 2eΣ_j x_(0j)x_(j0)
+                    + Σ_(j,k) x_(jk)²,
+    ½𝒬_(G,n,ℓ)(ξ) = −2Σ_j x_(0j)x_(1j) + 2ex_(00)x_(01) − 2e(2 − e)x_(00)x_(10) + 2ex_(10)(x_(11) + y)
+                    + 2eΣ_a x_(1a)x_(a0) − 2eΣ_a x_(a0)x_(a1).
+
+Adding, and writing u_λ := x_(0λ) − x_(1λ) and q := D − 2, the x_(1λ) enter only through the u_λ, and
+
+    ½𝒬_(G,η,ℓ)(ξ) = (u_1 + eu_0)² + q⁻¹(y − equ_0)² + e(2 − De)u_0² + Σ_a ((u_a − ex_(a0))² + (x_(a1) − ex_(a0))²
+                    + e(2 − 3e)x_(a0)²) + Σ_(a≠b) x_(ab)² + Σ_a (x_(aa) − q⁻¹y)².
+
+For 0 < e < 2/D ≤ 2/3 every coefficient is positive. So 𝒬_(G,η,ℓ) ≥ 0, with equality exactly when every square
+vanishes, that is when u_λ = 0 for every λ and x_(aλ) = 0 for every a ≥ 2 and every λ: ξ = (f⁰ + f¹) ⊗ ξ_0 = η ⊗ ξ_0.
+A past timelike η is λ₁η₁ + λ₂η₂ with λ₁, λ₂ > 0 and η₁, η₂ past null and not proportional (the null lines of a plane
+through η and a spacelike covector); so 𝒬_(G,η,ℓ) = λ₁𝒬_(G,η₁,ℓ) + λ₂𝒬_(G,η₂,ℓ) ≥ 0, with nullspace
+(η₁ ⊗ V*) ∩ (η₂ ⊗ V*) = 0.
+
+The positivity in (b) uses the form of ℓ; the hypothesis of (a) alone does not give it. For D = 3, g⁻¹ = diag(−1, 1, 1)
+in a basis f⁰, f¹, f² with f⁰ past timelike, E = ℝ² with the Euclidean B, and ℓ(f⁰) := −Id, ℓ(f¹) := sJ₁,
+ℓ(f²) := sJ₂, where J₁ := diag(1, −1), J₂ has the rows (0, 1) and (1, 0), and 2^(−1/2) < s < 1: a future causal
+ζ = −αf⁰ + θ₁f¹ + θ₂f², α ≥ |θ| and α > 0, gives ℓ(ζ) the eigenvalues α ± s|θ| > 0; but
+𝒬_(G,f⁰,ℓ)(ξ) = Σ_μ |ξ_μ|² − 2sΣ_(j=1,2) J_jξ_j · ξ_0, which is 1 − 2s² < 0 at ξ_0 = u, ξ_j = sJ_ju, |u| = 1.
+
+(c) The minimum of 𝒬_(G,η,ℓ)(ξ) over Σ_μ B(ξ_μ, ξ_μ) = 1 is continuous in (g, c, η), as B, ℓ and T are, and it is
+positive on K by (b). ∎
+
+**Corollary {#cor:iv5-6-energy}** (The energy identity and the integrated inequality; [Hin26a, Corollary 5.15] in
+dimension 4 + 1.) Let N ⊂ ℝ_t × (ℝ⁴ ∖ 0) be open, with the coordinates z⁰ = t, z^i = x^i and r = |x|, a Lorentzian
+metric g, a timelike 1-form c, g being time-oriented so that c is past timelike, and e ∈ (0, 2/5). Let ℓ := ℓ_(g,c,e)
+and B be as in [[eq:s14-ell]], 𝒬 as in
+[[eq:iv5-6-t]] in the frame dz^μ, ∇ the Levi-Civita connection of g and ℓ^λ := ℓ(dz^λ); for a 1-form ω put
+ℓ⟨∇ω⟩ := Σ_λ ℓ^λ∇_λω and |r∇ω|²_B := Σ_μ B(r∇_μω, r∇_μω), and let Bℓ^λ be the bilinear form (ω₁, ω₂) ↦ B(ℓ^λω₁, ω₂).
+
+(i) (*The divergence identity, integrated.*) Let k ∈ {1, 2}, let f_1, …, f_k ∈ C^∞(N) have linearly independent
+differentials at each point where they vanish, and let R := {f_1 ≤ 0, …, f_k ≤ 0}, ∂_iR := R ∩ {f_i = 0}, and σ_i the
+density on {f_i = 0} with |dg| = |df_i| ⊗ σ_i. For real w ∈ C^∞(N) and real ω ∈ C²(N; T*N) with R ∩ supp ω compact,
+
+    ½∫_R 𝒬_(G,−d(w²),ℓ)(∇ω) |dg| + ½Σ_i ∫_(∂_iR) w²𝒬_(G,df_i,ℓ)(∇ω) σ_i
+        = −∫_R B(□_gω, w²ℓ⟨∇ω⟩) |dg| + ∫_R w²𝓡(ω) |dg|,                                                {#eq:iv5-6-energy}
+
+where, with summation over repeated indices,
+
+    𝓡(ω) := (∇^μB)(∇_μω, ℓ⟨∇ω⟩) + B(∇_μω, (∇^μℓ^λ)∇_λω) + B(∇_μω, ℓ^λ[∇^μ, ∇_λ]ω) − ½(∇_λ(Bℓ^λ))(∇_μω, ∇^μω).
+
+For complex ω, (i) is applied to Re ω and Im ω.
+
+(ii) (*The integrated inequality.*) Suppose that at every point of R ∩ supp ω the components of g and of rc in the
+frame dz^μ lie in a compact set K₀ of pairs of a Lorentzian form and a timelike covector, and let κ > 0. There is
+c₀ > 0, depending only on K₀, κ and e, such that at these points
+
+    𝒬_(G,η,ℓ)(ξ) ≥ c₀r⁻⁴|rη| Σ_μ B(rξ_μ, rξ_μ)
+
+for every past timelike η with G(rη) ≤ −κ|rη|², |·| being the Euclidean norm of the components, and every ξ. So if in
+(i) −d(w²) = 2w²η_0 on R ∩ supp ω and df_i on ∂_iR ∩ supp ω are such covectors, the left side of [[eq:iv5-6-energy]]
+is at least
+
+    c₀∫_R w²r⁻⁴|rη_0||r∇ω|²_B |dg| + ½c₀Σ_i ∫_(∂_iR) w²r⁻⁴|r df_i||r∇ω|²_B σ_i.
+
+(iii) (*The remainder.*) If moreover the components of g, g⁻¹ and rc and their derivatives of order at most 2 along
+the vector fields r∂_(z^μ) are bounded on R ∩ supp ω, then |𝓡(ω)| ≤ Cr⁻⁴(|r∇ω|²_B + B(ω, ω)) there, with C depending
+only on these bounds, K₀ and e.
+
+Replacing c by −c replaces ℓ by −ℓ and leaves B unchanged; so (i)–(iii) hold for −ℓ with the time orientation
+reversed.
+
+*Proof.* (i) Write J^λ := G^(μν)B(ℓ^λ∇_μω, ∇_νω). As □_g = −∇^μ∇_μ, for Y := w²ℓ⟨∇ω⟩,
+
+    B(□_gω, Y) = −∇^μ(B(∇_μω, Y)) + (∇^μB)(∇_μω, Y) + B(∇_μω, ∇^μY),
+
+and ∇^μY = (∂^μw²)ℓ⟨∇ω⟩ + w²(∇^μℓ^λ)∇_λω + w²ℓ^λ[∇^μ, ∇_λ]ω + w²ℓ^λ∇_λ∇^μω. In ∇_λJ^λ the two terms with a second
+derivative of ω are equal, ℓ^λ being B-self-adjoint; so B(∇_μω, ℓ^λ∇_λ∇^μω) = B(ℓ^λ∇_μω, ∇_λ∇^μω) equals
+½∇_λJ^λ − ½(∇_λ(Bℓ^λ))(∇_μω, ∇^μω). Hence
+
+    B(□_gω, w²ℓ⟨∇ω⟩) = ∇_μZ^μ + (∂^μw²)B(∇_μω, ℓ⟨∇ω⟩) − ½(∂_λw²)J^λ + w²𝓡(ω),
+    Z^μ := −w²B(∇^μω, ℓ⟨∇ω⟩) + ½w²J^μ.
+
+For a covector η, the definition of 𝒬 gives 𝒬_(G,η,ℓ)(∇ω) = 2⟨dz^μ, η⟩B(∇_μω, ℓ⟨∇ω⟩) − η_λJ^λ, the two terms of
+T_(G,η,ℓ) with ⟨·, η⟩ giving the first term, as ℓ^λ is B-self-adjoint, and ℓ(η) = η_λℓ^λ the second. So the middle
+terms are ½𝒬_(G,d(w²),ℓ)(∇ω) = −½𝒬_(G,−d(w²),ℓ)(∇ω), and (df_i)_μZ^μ = −½w²𝒬_(G,df_i,ℓ)(∇ω). Integrate over R: by the
+divergence theorem on R, whose outward conormal on ∂_iR is df_i, ∫_R ∇_μZ^μ |dg| = Σ_i ∫_(∂_iR) (df_i)_μZ^μ σ_i, as
+Z is C¹ and R ∩ supp Z is compact. This is [[eq:iv5-6-energy]].
+
+(ii) As ℓ_(g,c,e)(ζ) is bilinear in (c, ζ), T is linear in η and ℓ, and B does not change under c ↦ rc,
+
+    𝒬_(G,η,ℓ_(g,c,e))(ξ) = r⁻⁴|rη| 𝒬_(G,η̂,ℓ_(g,rc,e))(rξ),     η̂ := rη/|rη|,  rξ := Σ_μ dz^μ ⊗ rξ_μ.
+
+The triples (g, rc, η̂) lie in the compact set of the (g, ĉ, η̂) with (g, ĉ) ∈ K₀, |η̂| = 1, G(η̂) ≤ −κ and
+⟨ĉ, η̂⟩ ≤ 0, a set as in [[lem:iv5-6-tform]] (c); that lemma gives c₀. The rest follows, as
+½𝒬_(G,2w²η_0,ℓ) = w²𝒬_(G,η_0,ℓ).
+
+(iii) Each term of 𝓡(ω) is a product of components of g⁻¹, of ∇ω ⊗ ∇ω or ∇ω ⊗ ω, and of one of ∇B ⊗ ℓ, ∇ℓ,
+ℓ ⊗ Rm (Rm the curvature of g) and ∇(Bℓ). Under the hypothesis, B, a function of g⁻¹ and rc, and its derivatives along
+r∂_(z^μ) are bounded, and ℓ = r⁻¹ℓ_(g,rc,e) is O(r⁻¹); as ∂_(z^μ) = r⁻¹(r∂_(z^μ)) and ∂_(z^μ)r is bounded, the
+Christoffel symbols are O(r⁻¹), Rm is O(r⁻²), ∇B is O(r⁻¹), and ∇ℓ and ∇(Bℓ) are O(r⁻²). With ∇_μω = r⁻¹(r∇_μω),
+each term is at most Cr⁻⁴(|r∇ω|²_B + B(ω, ω)), B being comparable to the Euclidean inner product on K₀. ∎
 
 **Proposition {#prop:iv5-6-1}** ([Hin26a, Proposition 5.16] in dimension 4 + 1.) Let α_sf, α_K ∈ ℝ.
 
@@ -1791,19 +1929,30 @@ where ℋ_data := ρ_sf^(α_sf)H̄¹_b(X_0, r⁴|dr d𝑔̸|) ⊕ ρ_sf^(α_sf)H
 
 *Proof.* [Hin26a, (5.66)]. Take the multiplier a²L_h with a = ρ_sf^(−α_sf−2)e^(−𝔛τ)H(T_0 − τ)H(r − r_♯) (H the
 Heaviside function), and the pairing [Hin26a, (5.70)],
-h⁻¹Im⟨P_hω, a²L_hω⟩ = ⟨𝒞ω, ω⟩ − h⁻¹‖aL_hω‖². The principal symbol of 𝒞 is aT_(G,da,ℓ) − a²E in the notation of
-[Hin26a, (5.61)], since H_Ga = 2g⁻¹(ζ, da). This leads to the decomposition [Hin26a, (5.71)], whose derivation only
-expands (i/2)(□_h*bL_h − L_h*b□_h) in local coordinates with b = a². Then a da is [Hin26a, (5.72)], and the weight
-identity [Hin26a, (5.73)] holds: aT_(G,−da,ℓ) = ρ_sf⁴T_(ρ_sf⁻²G, −a da, ρ_sf⁻²ℓ), by bilinearity, free of the dimension.
+h⁻¹Im⟨P_hω, a²L_hω⟩ = ⟨𝒞ω, ω⟩ − h⁻¹‖aL_hω‖². The principal symbol of 𝒞 is aT_(G,da,ℓ) − a²E, with T of
+[[eq:iv5-6-t]], since H_Ga = 2g⁻¹(ζ, da). This leads to the decomposition [Hin26a, (5.71)], whose derivation only
+expands (i/2)(□_h*bL_h − L_h*b□_h) in local coordinates with b = a²; its part from □_h and from the principal part
+−ihℓ⟨∇·⟩ of L_h is h² times [[eq:iv5-6-energy]], with the R, f_1, f_2 and w below (for ω vanishing for t < 0 by
+density, each term being continuous in the norm of ρ_sf^(α_sf)H²_(3b,h)). Then a da is [Hin26a, (5.72)], and the
+weight identity [Hin26a, (5.73)] holds: aT_(G,−da,ℓ) = ρ_sf⁴T_(ρ_sf⁻²G, −a da, ρ_sf⁻²ℓ), as T is linear in each of its
+three arguments, free of the dimension.
 
 −a da is past timelike for 𝔛 large, since dτ is past timelike with r²g⁻¹(dτ, dτ) ≤ −¾ ([[lem:iv5-0-3]] (b)) and the
-δ(r − r_♯)-part of −a da is a positive multiple of −dr, past timelike ([[lem:iv5-0-3]] (c)). So [Hin26a, Corollary
-5.15] is integrated over {r ≥ r_♯, 0 ≤ τ ≤ T_0} twice: with dτ and φ² = 𝔛a² + ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(T_0 − τ), and
-with −dr and φ² = ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(r − r_♯). Here the level sets of τ carry r⁴|dr d𝑔̸|,
-which tensored with |dτ| is |dg| ([[lem:iv5-0-2]] (b)). This gives [Hin26a, (5.74)].
+δ(r − r_♯)-part of −a da is a positive multiple of −dr, past timelike ([[lem:iv5-0-3]] (c)). So [[cor:iv5-6-energy]]
+applies on R := {r ≥ r_♯, τ ≤ T_0}, with f_1 := τ − T_0, f_2 := r_♯ − r and w := ρ_sf^(−α_sf−2)e^(−𝔛τ), so that
+a = wH(T_0 − τ)H(r − r_♯). Its bulk term carries −d(w²) = 2w²(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf), and its two boundary terms
+carry dτ on {τ = T_0} and −dr on Σ^♯; these are the parts of −a da with the weights 𝔛a² +
+ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(T_0 − τ) and ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(r − r_♯). The hypotheses of [[cor:iv5-6-energy]] (ii)
+hold uniformly for b ∈ U: the components of g and rc are continuous on Ω ([[lem:iv5-0-2]] (a), (d)), rc is past
+timelike ([[lem:iv5-0-5]] (1)), e = 1/102400 < 2/5, and r(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) = 𝔛(dt − τ dr) − (α_sf + 2)dr,
+r dτ = dt − T_0 dr on {τ = T_0} and −r dr on Σ^♯ satisfy its condition with one κ > 0 for 𝔛 large, by
+[[lem:iv5-0-3]] (b), (c). So each of the three terms is at least c₀ times the corresponding weighted integral of
+|r∇ω|²_B, the bulk term with the factor 𝔛. Here the level sets of τ carry r⁴|dr d𝑔̸|, which tensored with |dτ| is |dg|
+([[lem:iv5-0-2]] (b)). This gives [Hin26a, (5.74)].
 
 The other terms of [Hin26a, (5.71)] carry the total weight ρ_sf⁴ of ∇*T∇ and are bounded by [Hin26a, (5.75)] and its
-companions. The left side of [Hin26a, (5.70)] is at least −½h⁻¹(‖aP_hω‖² + ‖aL_hω‖²), which gives [Hin26a, (5.76)].
+companions. Among them is h² times the term with 𝓡 in [[eq:iv5-6-energy]], bounded by [[cor:iv5-6-energy]] (iii), as
+the components of g, g⁻¹ and rc lie in C^∞(M^♭) and r∂_(z^μ) ∈ 𝒱_3b(M^♭), with r⁻¹ = ρ_sf. The left side of [Hin26a, (5.70)] is at least −½h⁻¹(‖aP_hω‖² + ‖aL_hω‖²), which gives [Hin26a, (5.76)].
 The fundamental theorem of calculus for L_h, [Hin26a, (5.77)], uses [[lem:iv5-0-4]] ([[lem:iv4-1-causal]] (a)) for the
 future timelike covector ρ_sf a d(ρ_sf a). It gives the bulk term C𝔛ρ_sf⁴a² and the two positive δ-terms, hence
 [Hin26a, (5.78)]. Adding [Hin26a, (5.76)] and (5.78) and absorbing for h small gives [Hin26a, (5.66)].
