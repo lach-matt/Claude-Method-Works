@@ -556,3 +556,132 @@ line number is the line of its label.
 - **thm:loc-cone-development**: m = m_0 + 3 = 6k + 21 (y ∈ C^(m−1), b ∈ C^(m−3) = C^(m_0)); δ_* = √c_+/2 with
   2C_0δ_* ≤ η/4; (a), (c), the strips claim; lem:loc-cone-strips (a), (b) (Borel with r = 0, gluing across N), (c)
   (R_v ≥ 0.428 on 𝒞_out; R = 5 − 0.47u ≥ 2.321; R > 1.5 on [5.7, 7.2]).
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Final
+
+File read: `proofs/P-CIVP.md`, md5 280a89e05902d035236edf531de3a5a5 (also at HEAD, commits 30a6cdeb and 6f066bb5), 1279
+lines, 18 proofs, 18 end marks, 36 labels unchanged. Every changed passage was read in full against the findings
+above, and the chapters were checked at HEAD (chapters 01, 03, 83, 90, 95 identical to HEAD). The writer's report
+(scratchpad/reader/reports/F-P-CIVP.md) agrees with the file.
+
+**Verdict: CONFIRMED.** Both Major and all 11 minor findings are resolved as proposed; the nits are applied, with one
+departure (accepted, below); 7 new nits, none of which changes the mathematics, with exact texts below. The
+composition with Tier 2 is clean on a scratch merge, provided Tier 2's own text changes listed in section B are made.
+
+**Checked, finding by finding.**
+
+- Major 1 (lines 841-890): the statement now names the dependence of ε, ε_2 (background, u_1, v_1, band, k); steps
+  (1)-(3) are the replacement, step (4) concludes on all of 𝒟′, and g_e′ is gone. Re-checked: the extension f is smooth
+  on G_* ∪ P (flat on N ∩ G_* by the past-set form of [[lem:loc-cone-jets]] (iv)) and flat on N ∩ G_*^+ beyond G_*
+  because it is smooth and zero on P; the cut-off support stays away from Σ_init ((u + δ_c)(v + δ_c) ≥ (3δ_c/4)² on
+  G_*^+); s = k − 2 ≥ 4 > 3; the constants of the fixed slab do not depend on a point; 𝒟′ ⊂ {17η/8 ≤ ϑ ≤ π/2 − 17η/8},
+  where g″ = g′; Φ fixes P, so Φ(𝒟′) ⊂ F ∩ 𝒰 ∩ {η < ϑ < π/2 − η}; the faces of Φ(𝒟′) are causal for g̃ with the right
+  signs on P̃_in, P̃_out (null faces, the timelike conormal v du + u dv, the angular faces with |b′| ≤ ε_2 against
+  C_*((v + δ_c)/(u + δ_c))^(1/2) > 0); the matrices A^μ(x, 𝐔̃) depend on g̃ and p̃ only, so C⁰-closeness suffices.
+- Major 2 (lines 60-62, 1028-1037): (b) now has the fixed margin η/4 + 2C_0(uv)^(1/2), δ_c is chosen once by
+  2C_0(δ_c(u_1 + v_1 + 1))^(1/2) ≤ η/4 (a condition on the background, u_1, v_1 and the band only), the limit δ_c → 0
+  is gone, and (d) uses the fixed margin η/2 (ϑ_a′ − η/2 > 3η).
+- minor 1 (lines 720-723) G-invariance; minor 2 (lines 621-625, 638-639, 652) B_♭, which makes the first wave row
+  ∂_τ g − g_τ = 0 on the whole slab, as 𝐔̊ satisfies its own row; minor 3 (lines 635-636); minor 4 (lines 820-822); minor
+  5 (lines 825-829, the contraction; the degree is no longer used); minor 6 (lines 541-543, 598-600, 967: C_* and δ_2
+  are now uniform in the corner, and the δ_2 inequality runs the right way); minor 7 (lines 152-156); minor 8 (lines
+  134, 137-138, 381, 954); minor 9 (lines 397-399, 492-493); minor 10 (the merged texts; "domain of influence" and
+  "unique in the gauge off the axes" no longer occur); minor 11 (lines 79-80; item 7 is merged text D).
+- Nits 1-4, 6, 7, 9 (line numbers rebased: 83:8-9, 83:593-600, 01:191-193, 03:375, 90:208; anchors 83:591, 83:602),
+  10 (crosswalk rows now carry the source field the coordinator prescribed; every N is its label's line), 11-17 (nit
+  14 also widens [[prop:loc-cone-formal]] to u_K, v_K ∈ [0, ∞], where the clause is empty for 0; nit 15 is adopted:
+  [[prop:loc-cone-local]] needs the equations only on 𝒪 ∩ {u ≥ u_Q, v ≥ v_Q}, and I checked that the proof uses the
+  background's equations only on F: in lem:loc-cone-system (e) and on F ∩ 𝒰 ∖ K, while on P only Û = Ů off K is used).
+- Nit 5 and the departure: η → ϖ (no η is left in lines 196-532), ε_0 → ε_B, a_0 → λ_e are applied; the rectangle of
+  [[prop:loc-cone-local]] now has no letter ("Let a rectangle … ⊂ Q be given", later "this rectangle"). The departure is
+  sound: 𝒬 beside Q would clash, and nothing refers to the rectangle by a letter.
+
+**Scratch merge, composed with Tier 2** (scratchpad/rpcivp2/, fresh copy of chapters/, crosswalk/, assemble.py, lint.py,
+OUTLINE.md at HEAD). Block A after 83:591; Block B and then Tier 2's section (proofs/P-CIVP2.md, md5 924a45ec…, its
+three pending markers replaced by [[thm:loc-cone-development]], [[lem:loc-cone-in]], [[prop:loc-cone-local]]) before
+the heading of sec:loc-kid; this file's items 3-7 (each old text found exactly once, as whole lines); Tier 2's remaining
+items (the first pair of its item 4 at 90:199, its item 7 before thm:std-ctg-neighbourhood, its item 8 at 98:26) and
+[Ren90] before [RS1]. Every Tier 2 item replaced by a merged text was checked to have the same old text at the same site
+(83:8-9, 83:593-600, 90:208, 03:375; Tier 2's 01:192-193 lies inside this file's 01:191-193). Results:
+`python3 lint.py --chapters` 0 hits, 4717 labels (no label defined twice); `python3 assemble.py --check` 0 problems; the
+assembled PAPER.md has no line over 121 characters, `python3 lint.py --paper` 0 hits, and in the new region (assembled
+lines 74873-76556, maximum 121) no wrapped line starts with "+ ", "- ", "* ", "> ", "#", "=" or "|".
+
+**What composition still requires of Tier 2's file** (not findings against this file; section B items 1-9 stand): the
+merge above substituted the pending markers only, and then Tier 2's text says false things about this file's proof —
+the proof of prop:civp-large-corner (Tier 2 lines 426-440) says the Cauchy problem is solved "there … by
+[[thm:class-kato-stability]] (a) around the background; here … by [[thm:class-kato]] (a)", whereas case (II) of
+[[lem:loc-cone-cauchy]] uses thm:class-kato-stability (a) about Û — so section B items 4-6 (delete the requirement
+paragraph, m := 114, the cited proof) are needed, not optional; the restatement of the small-data theorem (lines 21-26)
+must say Ω the background's on both cones (item 2); and the two terms defined twice in the chapter (item 9) remain.
+
+### New nits
+
+1. Lines 946-950: Q, Q′ and d are used (u_Q, v_Q "the least values of u and v on Q") before they are introduced.
+   Replace lines 946-950, from "m_1 :=" to "depending only on k, η, Λ, d and", by:
+
+       m_1 := 2m_0 + 6 = 12k + 42, the regularity index of this proposition, η ∈ (0, π/8] and Λ > 0. Let 𝒪 be an open set of
+       the (u, v)-plane, Q ⊂ 𝒪 and d ∈ (0, 1] such that the set Q′ of the points (u, v) with |u − u″| ≤ 4d and |v − v″| ≤ 4d for
+       some (u″, v″) ∈ Q is a compact subset of 𝒪, and u_Q, v_Q the least values of u and v on Q. Let a background be given on
+       𝒪, that is a round metric g_e = −2e^(2σ_e) du dv + R_e² dΩ₃², with σ_e and R_e smooth on 𝒪 and R_e > 0, and profiles
+       𝒜(v), ℬ(u) ≥ 0, that solves [[eq:two-dust-limit]] on 𝒪 ∩ {u ≥ u_Q, v ≥ v_Q}. There is σ > 0, depending only on k, η,
+       Λ, d and
+
+   (line 951, "bounds for σ_e, R_e, 1/R_e …", follows unchanged).
+2. Line 186: "(3.6 × 1.5)/ (3 × 25)" has a stray space from the reflow; read "(3.6 × 1.5)/(3 × 25)".
+3. Line 850 (my own replacement text): f is defined "to 0 on P ∩ G_*^+" while the extension domain only "lies in
+   G_* ∪ P"; replace "and to 0 on P ∩ G_*^+ is smooth there" by "and to 0 on P is smooth on G_* ∪ P".
+4. Line 1209, crosswalk Row 12: the note "χ, χ̲, η, ζ, 𝒱" should read "χ, χ̲, ϖ, ζ, 𝒱" after the rename.
+5. Line 1046: "which uses the same texts" is not yet true of the current Tier 2 file, whose items 2, 3, 5, 6 and the
+   second pair of 4 have their own texts; replace "data (its items 2, 3, 5 and 6 and the second pair of its item 4), which
+   uses the same texts, so that every site is" by
+
+       data (its items 2, 3, 5 and 6 and the second pair of its item 4, whose texts are to be replaced by these), so that every
+
+   (the next line, "changed once. …", follows; the line is 120 characters).
+6. The rename η → ϖ that nit 5 proposed ("unused in the file") collides in the merged chapter with Tier 2's
+   ϖ := (1/4) h(e3, ∇_4 e4) of the next section, as χ, χ̲ and ζ already do. Both sections define their symbols, so this
+   is acceptable; a sentence in Tier 2 settles it: after "with ∇ the connection of h and ∇_i := ∇_(e_i)." (Tier 2 line 83)
+   add "These are not the quantities of the same names in [[sec:loc-cone-proof]]."
+7. Item 11 (lines 1175-1180) states the fallback as rules. If exact texts are wanted, without the Tier 2 section the new
+   text of item 3 is
+
+       Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
+       and data localised in an angular band exist exactly ([[prop:loc-cones]], [[lem:loc-cone-in]]); near the background's
+       data, with the band away from the axes, they have a development on a neighbourhood of the two cones, with or without
+       dust, equal to the background outside a slightly wider band and unique in the gauge near the background off the axes
+       ([[thm:loc-cone-development]]). On Σ_τ0 the constraints split, after Rácz
+
+   that of item 4 is
+
+       [[thm:loc-cone-development]] develops these cone data when they are near the background's and their band avoids the
+       axes, with or without dust: on the neighbourhood G_* of the two cones there is a class solution in the gauge
+       [[eq:loc-double-null]] that induces them, equal to the background outside a slightly wider band and unique in the gauge
+       near the background off the axes. Every small perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on
+       𝒞_in ∩ {5.7 < u < 7.2}, and every small density added in the band, supported away from the axes, is of this kind, with
+       v_1 = 4.5 and u_1 = 7.2 ([[lem:loc-cone-strips]] (c)). For vacuum data of any size, before the shell (v_1 < 3) and on
+       𝒞_in before the packet (u_1 < 5.7), a development near the two cones exists by [CTG23, Theorem 1.1]
+       ([[thm:std-ctg-neighbourhood]]); that theorem gives neither uniqueness in the gauge nor localisation. For cone data that
+       carry dust and are not small, and for data whose perturbation reaches an axis, no development is asserted
+       ([[rem:loc-cone-scope]]). No result of the other chapters uses these developments.
+
+   that of item 6 (same old text, chapter 03 line 375) is
+
+         construction of that background does not decide ([[cor:vlasov-two-dust]]); developments in the double-null gauge
+         of data near the background's on the two null cones through the corner sphere of the explicit two-dust background
+         of [[sec:bg-data]], localised in an angular band away from the axes, with or without dust, on an explicit
+         neighbourhood of the two cones, with an estimate, localised and unique in the gauge near the background off the axes
+         ([[thm:loc-cone-development]]); and exactly localised vacuum data
+
+   and that of item 7 is
+
+       small amplitude when the first-order part perturbs the extrinsic curvature alone ([[thm:charge-sign]]). Data localised
+       in angle on the two null cones exist exactly, and near the background's data, with the band away from the axes, they
+       develop, dust included, on a neighbourhood of the cones, equal to the background outside a slightly wider band and
+       unique in the gauge near the background off the axes; developments of dust-carrying cone data that are not small, or
+       whose perturbation reaches an axis, are not established ([[prop:loc-cones]], [[thm:loc-cone-development]],
+       [[rem:loc-cone-scope]]).
+
+   (all lines ≤ 121, no wrapped line starting with a marker; item 5's text needs no change).
