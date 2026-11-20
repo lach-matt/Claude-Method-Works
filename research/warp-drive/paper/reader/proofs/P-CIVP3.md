@@ -387,9 +387,9 @@ radial functions being read as functions on the disc 𝔻_R.
 
 (4) *Integration.* For |z0 − z(p)| < 3δ/2 let R(z0) be the supremum of |y| over the points (h_U(z0, y), y) of O ∩
 𝒰_δ(p), and 0 if there are none. By the hypothesis on O, the arc of the leaf of U from (z0, 0) to such a point lies in the
-closure of O, so every (h_U(z0, y), y) with |y| < R(z0) lies there. The volume of Σ_s near M3 is comparable to the product
-of that of M3 and the length 2πρ1 of the orbit of K_1, with ρ1 bounded above and below on 𝒰_(2δ)(p). By (2), (3) and the
-change of variables of (1), first to (z0, y) and then back,
+closure of O, so every (h_U(z0, y), y) with |y| < R(z0) lies there. For G-invariant functions the volume of Σ_s on
+𝒰_(2δ)(p) is comparable to the product of that of M3 and the length of the orbit of K_1, which is bounded above and below
+there. By (2), (3) and the change of variables of (1), first to (z0, y) and then back,
 
     ∫_(O∩𝒰_δ(p)) |σ_A[U] − σ_A[U′]|² ≤ C ∫_(O∩𝒰_δ(p)) |U − U′|² + C ∫ dz0 ∫_(𝔻_(R(z0))) w(z0, |y|)² dy
                                      ≤ C ∫_(O∩𝒰_(2δ)(p)) |U − U′|²,
