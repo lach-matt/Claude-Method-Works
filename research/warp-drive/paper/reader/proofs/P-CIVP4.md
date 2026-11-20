@@ -320,7 +320,8 @@ laws vanish to infinite order on N. Moreover:
 
 (i) (Linear and triangular.) For j ≥ 1, a_j = (ω, β, h) solves along each generator of N_o the linear system 𝔏_j a_j =
 −𝔖_j: a linear ordinary differential equation in v for (ω, h) at each point of S³, followed by one for β whose
-inhomogeneous term contains (ω, h) and their first derivatives on S³; the initial values at v = 0 are given by the b_k.
+inhomogeneous term contains (ω, h) and their first derivatives on S³; the initial values at v = 0 are the u-derivatives
+of the data of N_i at the corner.
 The same holds on N_i, in the form of [[lem:civp-axes-principal]] with u and v exchanged. No Riccati term occurs at any
 order, and the a_j exist on the whole of N_o and the b_k on the whole of N_i, whatever their lengths.
 
@@ -333,8 +334,9 @@ order, and the a_j exist on the whole of N_o and the b_k on the whole of N_i, wh
 neighbourhood of N in it, that induces the data has ∂_u^j (Ω, b, γ) = a_j on N_o and ∂_v^k (Ω, b, γ) = b_k on N_i, and the
 corresponding densities.
 
-(v) a_j on N_o ∩ {v ≤ v′} depends only on the data on N_o ∩ {v ≤ v′} and on the b_k at the corner, and b_k on N_i ∩
-{u ≤ u′} only on the data on N_i ∩ {u ≤ u′} and the a_j at the corner.
+(v) a_j on N_o ∩ {v ≤ v′} depends only on the data on N_o ∩ {v ≤ v′} and on the derivatives at the corner of the data
+of N_i, and b_k on N_i ∩ {u ≤ u′} only on the data on N_i ∩ {u ≤ u′} and the derivatives at the corner of the data of
+N_o.
 
 *Proof.* *Existence and uniqueness on N_o.* Induction on j. For j ≥ 1, given a_0, …, a_(j−1), [[lem:civp-axes-principal]]
 (b), (c) turns ∂_u^(j−1) ℰ|_(u=0) = 0, for invariant a_j, into the system 𝔏_j a_j = −𝔖_j: by [[eq:civp-axes-principal]]
@@ -342,15 +344,15 @@ the first and third components form a linear system for (ω, h) whose v-derivati
 matrix ((−2/Ω, −½ tr_γ), (0, (1/(2Ω²)) id)), with no derivative on S³ and no β; the second is then a linear equation
 for γ(∂_v β, ·)/(4Ω²) with coefficients and an inhomogeneous term smooth on N_o. Linear ordinary differential equations
 with smooth coefficients have unique solutions on the whole interval, depending smoothly on the point of S³ and on v;
-the solution with the initial values at v = 0 given by the b_k at the corner is invariant, since the system is natural
+the solution with the initial values ∂_u^j b_0 at the corner is invariant, since the system is natural
 and commutes with G and the data are invariant, so its image under each element of G solves it with the same initial
 values. Conversely every invariant a_j with ∂_u^(j−1) ℰ|_(u=0) = 0 solves this system. For the densities put ρ_in :=
 q_in μ_γ and ρ_out := q_out μ_γ: by [[lem:loc-cone-ricci]] (b), written in a chart, the conservation laws are ∂_u ρ_in +
 ℒ_b ρ_in = 0 and ∂_v ρ_out = 0 for these densities on S³, so ∂_u^j ρ_in at u = 0 is ∂_u^(j−1) of −ℒ_b ρ_in, a polynomial
-in lower jets, and ∂_u^j ρ_out is constant along each generator, with its value at the corner from the b_k.
+in lower jets, and ∂_u^j ρ_out is constant along each generator, with its value at the corner given by the data of N_i.
 
 *On N_i* the same, in the form with u and v exchanged given before the lemma, with the generators of N_i, the integral
-curves of ∂_u (b = 0 there), and the initial values at u = 0 from the a_j; the change of form is smooth through the
+curves of ∂_u (b = 0 there), and the initial values at u = 0 the v-derivatives of the data of N_o at the corner; the change of form is smooth through the
 axes, ψ commuting with G.
 
 *Vanishing to infinite order.* For g as in the statement, ∂_u^(j−1) ℰ vanishes on N_o for every j ≥ 1 and the
@@ -398,3 +400,62 @@ vanish to infinite order on N by [[lem:civp-axes-jets]]. The other components of
 proof of [[prop:loc-cone-formal]] (c), which uses the contracted Bianchi identity in the form [[eq:loc-cone-bianchi]] and
 the constraints of the data, and is local in ϑ: it applies off the axes, and at the axes by continuity, E being a smooth
 tensor field. ∎
+
+**Lemma {#lem:civp-axes-extension}** (Extending and normalising cone data.) Let m ≥ 1. Constants C_m depend only on m.
+
+(a) (Past an end.) Let w ∈ (0, 1] and f a smooth family on [−w, 0] × S³ of functions, vector fields or symmetric
+2-tensor fields on S³. There is a smooth family F on [−w, 1] × S³ with F = f on [−w, 0] and ‖F‖_(C^m([−w,1]×S³)) ≤
+C_m w^(−m) ‖f‖_(C^m([−w,0]×S³)), depending linearly on f and G-invariant when f is.
+
+(b) (Short pieces.) Let f be a smooth family on [0, w] × S³, w > 0, let Λ bound |∇̊^i ∂_s^j f| at s = 0 for i, j ≤ m,
+and let L bound |∇̊^i ∂_s^(m+1) f| on [0, w] × S³ for i ≤ m. For 0 < a ≤ min(w, 1/2, 1/(1 + L)) there is a smooth family
+F on [0, 1] × S³, G-invariant when f is, with F = f on [0, a], F = Σ_(j≤m) ∂_s^j f(0) s^j/j! on [2a, 1], and
+‖F‖_(C^m([0,1]×S³)) ≤ C_m (Λ + 1).
+
+(c) (Solving the constraints past an end.) Let cone data of any sign, κ-nondegenerate and of size at most Λ in C^m, be
+given on edges N_o = {0} × [0, λ_v] and N_i = [0, λ_u] × {0}, λ_u, λ_v ≤ 1, with b = 0 on N_i. On each edge let ln Ω,
+the density, and γ̂ := (μ_γ̊/μ_γ)^(2/3) γ be extended to smooth invariant families on [0, 1] with C^m norms at most Λ, γ̂
+positive definite with μ_γ̂ = μ_γ̊, and keep b = 0 on the extension of N_i. There are ℓ ∈ (0, 1], C and κ′ > 0,
+depending only on m, Λ and κ, such that solving the constraints from the corner with the given corner values gives cone
+data of any sign on {0} × [0, max(λ_v, ℓ)] and [0, max(λ_u, ℓ)] × {0}, equal to the given data on N_o and N_i, of size at
+most C in C^(m−3), κ′-nondegenerate, and with these free functions.
+
+(d) (The shift on the ingoing edge.) For cone data with any b on N_i, let ψ_u be the flow on S³ of the vector fields
+b(u, 0, ·): ∂_u ψ_u = b(u, 0, ψ_u), ψ_0 = id. The change of coordinates θ = ψ_u(θ′), independent of v, carries every
+metric in natural double-null form to one in natural double-null form, with Ω′ = Ω ∘ ψ_u, γ′ = ψ_u^* γ and b′ =
+ψ_u^*(b(u, v, ·) − b(u, 0, ·)). It commutes with G, it is the identity on N_o except that b becomes b − b(0, 0, ·) there,
+and b′ = 0 on N_i. The new functions on the edges are cone data, of size in C^m bounded by C_m times a function of the
+size of the old ones in C^(m+1), and κ-nondegeneracy becomes κ″-nondegeneracy with κ″ depending only on κ and that size.
+A class solution in the gauge for the new data gives one for the old data by the inverse change.
+
+*Proof.* (a) By [LY22, Theorem 1 (i)] ([[thm:std-ly-extension]]) there are numbers a_j and b_j > 0, j ∈ ℤ, with
+Σ_j a_j (−b_j)^i = 1 and A_i := Σ_j |a_j| b_j^i < ∞ for every integer i ≥ 0; the second follows from Σ_j 2^(δ_i|j|)
+|a_j| b_j^i < ∞. Let χ be smooth on ℝ with χ = 1 on [−1/3, 0] and χ = 0 on (−∞, −2/3], put f_1(s) := χ(s/w) f(s) for
+−w ≤ s ≤ 0 and f_1 := 0 for s < −w, and F(s) := f(s) for s ≤ 0 and F(s) := Σ_j a_j f_1(−b_j s) for s > 0. The series
+of the derivatives ∂_s^i ∇̊^α converge uniformly, since |∂_s^i ∇̊^α (f_1(−b_j s))| ≤ b_j^i sup |∂^i ∇̊^α f_1|, so F is
+smooth on (0, 1] with |∂_s^i ∇̊^α F| ≤ A_i sup |∂^i ∇̊^α f_1|, and as s → 0⁺, ∂_s^i ∇̊^α F → Σ_j a_j (−b_j)^i ∂^i ∇̊^α f(0)
+= ∂^i ∇̊^α f(0), χ being 1 near 0; so F is smooth on [−w, 1]. The derivatives of χ(s/w) of order i are at most C w^(−i).
+F is linear in f and acts at each point of S³, so it commutes with G.
+
+(b) Let P(s) := Σ_(j≤m) ∂_s^j f(0) s^j/j!, so ‖P‖_(C^m([0,1]×S³)) ≤ C_m Λ, and g := f − P on [0, w]. Every ∇̊^α g with
+|α| ≤ m has vanishing s-derivatives of order at most m at s = 0, and ∂_s^(m+1) P = 0, so by Taylor's formula
+|∂_s^i ∇̊^α g(s)| ≤ L s^(m+1−i) for i ≤ m. Apply (a) to s ↦ g(a + s), −a ≤ s ≤ 0, with w := a, and multiply the extension
+by ψ((s − a)/a), ψ smooth with ψ = 1 on (−∞, 1/2] and ψ = 0 on [1, ∞): the result g_e equals g on [0, a] and vanishes for
+s ≥ 2a. In (a) the bound is A_i sup |∂^i ∇̊^α f_1| with f_1 = χ((s − a)/a) g, at most C_m Σ_(i′≤i) a^(−(i−i′)) L a^(m+1−i′)
+≤ C_m L a^(m+1−i), and the cut-off ψ costs the same powers of a; so ‖g_e‖_(C^m([0,1]×S³)) ≤ C_m L a ≤ C_m. Put F :=
+P + g_e.
+
+(c) The proof of [[lem:loc-cone-extension]] holds with the following changes. The free functions are the given
+extensions, not Borel sums at the end, and are not measured against a background; ϕ and ℓ_i are replaced by ỹ and γ̂,
+and (∗) there by [[eq:civp-axes-raychaudhuri]], whose coefficients have C^(m−1) norms at most C(Λ). On the given edges
+ỹ = (μ_γ/μ_γ̊)^(1/3) ≥ κ^(1/2) and |∂ ln ỹ| ≤ C(Λ), so the Gronwall bound there keeps ỹ ≥ ỹ(λ)/2 on [λ, λ + ℓ] for ℓ
+depending only on m, Λ and κ; with ỹ ≤ C(Λ), γ = ỹ² γ̂ and the C¹ bound of γ̂, γ ≥ κ′ γ̊ after decreasing ℓ. The second
+constraint on N_o is linear in b, through ∂_v b and ∂_v² b, off the axes by the second line of [[eq:loc-cone]] and at the
+axes by continuity, its leading coefficient being (1/(4Ω²)) γ(∂_v ·, X); solving it from the corner values loses the
+derivatives counted there, and the size of the extension is at most C in C^(m−3).
+
+(d) dθ = Dψ_u dθ′ + b(u, 0, ψ_u) du, so dθ − b(u, v, θ) du = Dψ_u (dθ′ − b′ du) with b′ as stated, and γ(Dψ_u ·,
+Dψ_u ·) = ψ_u^* γ. ψ_u commutes with G because b is invariant, and ψ_0 = id. The constraints are components of the
+Ricci tensor of the same metric along the same generators: ∂_v at fixed θ′ is ∂_v at fixed θ, and on N_i, ∂_u at fixed
+θ′ is L̲. The bounds follow from those of ψ_u, whose derivatives of order m are bounded by the derivatives of b of order
+at most m. ∎

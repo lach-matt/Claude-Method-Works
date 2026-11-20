@@ -33,9 +33,10 @@ for σ ≠ 0, and the invertibility of P^C_b, with (H1)–(H4) and ½ + ϑ_ℋ <
 (AP2) the indicial roots of □^C_b satisfy (C4′) of [[sec:iii-f1-1]]: every non-real one with |ι − 1| ≤ 50 has non-integer
 real part;
 
-(AP3) there is a neighbourhood ℬ(γ_(Υ,H)) of b₀ (depending on 𝗉) such that for every b ∈ ℬ(γ_(Υ,H)) and every σ with Im
-σ ≥ 0, (□^Υ_b)^(σ) is invertible, as a map 𝒳_σ → 𝒴_σ when σ ≠ 0, and as a map 𝒳_0 → 𝒴_0 for every s > 3/2 and every α
-with α + 2 ∈ (0, ι^Υ_(s1,2)) when σ = 0 (the spaces of [[sec:iii-d1-1]]); this is the conclusion of [[prop:iii-d1-4-1]];
+(AP3) there is a neighbourhood ℬ(γ_(Υ,H)) of b₀ (depending on 𝗉) such that for every b ∈ ℬ(γ_(Υ,H)) and every σ with
+Im σ ≥ 0, (□^Υ_b)^(σ) is invertible, as a map 𝒳_σ → 𝒴_σ when σ ≠ 0, and as a map 𝒳_0 → 𝒴_0 for every s > 3/2 and every
+α with α + 2 ∈ (0, ι^Υ_(s1,2)) when σ = 0 (the spaces of [[sec:iii-d1-1]]); this is the conclusion of
+[[prop:iii-d1-4-1]];
 
 (AP4) Λ_tf(γ_Υ, e_Υ) < 1 ([[eq:tf-lambda]]), and for every b in a neighbourhood of b₀, (□^C_b)^(·) is tf-admissible
 ([[def:i-c-5-1]]) with every weight in (1, 2), as (4) of [[thm:iii-e-1-1]] asserts with every weight in [−C_0, 2).
@@ -47,7 +48,7 @@ of [[ch:s13]] and [[ch:s15]] stated for z ∈ (0, ½] apply; 2γ_Υ < ½ < s_C a
 tf-admissible with every weight in (0, 1] for b near b₀ ([[prop:iii-f1-3-3]]); Λ_tf(γ_Υ, e_Υ) < 1 holds whenever e_Υ ≤ ½,
 and at (γ_Υ, e_Υ) = (1/100, 1/100) it is below 1.0111·10⁻⁴ ([[prop:tf-gauge-explicit]]).
 
-Each condition is used, and the proof of [[thm:vi-c-adm-holds]] says where: s_C > 100 in its item (f), directly and
+Each condition is used, and the proof of [[thm:vi-c-adm-holds]] says where: s_C > 100 in (f) and (l), directly and
 through γ_Cv_C > 100 and γ_Υ < ½s_C; (C1) in its item (b), which lists its uses, among them the hypothesis of
 [[prop:iii-f1-2-3]] on which (c) and (d) rest, and in (j) as a hypothesis of [[prop:iii-f1-3-3]]; e_Υ < 1 and γ_Υ < ¼ in
 (l), directly and through z_Υ ∈ (0, ¼) and γ_Υ < ⅜, and in (j); (AP1) in (a); (AP2) in (c); (AP3) in (i); and (AP4) in
@@ -1029,9 +1030,9 @@ Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values,
 
 New, the three lines:
 
-Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters; the results
-that [[thm:vi-c-adm-holds]] (1) lists hold as well with γ_C = h⁻¹ at every admissible point ([[def:vi-c-admissible]]).
-The
+Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters; the
+results that [[thm:vi-c-adm-holds]] (1) lists hold as well with γ_C = h⁻¹ at every admissible point
+([[def:vi-c-admissible]]). The
 
 *55. [[ch:s14]], [[sec:s14-pa]], the opening paragraph (line 3130).* Old, the line:
 
@@ -1104,8 +1105,8 @@ after the row of sec:vi-c-1, the third directly after the row of thm:vi-c-2-1. T
 at the line that carries the label.
 
     def:vi-c-admissible	paper/reader/proofs/P-ADM.md@PENDING:20	P-ADM, Definition (admissible points)	new: (AP0)–(AP4)
-    prop:vi-c-adm-exist	paper/reader/proofs/P-ADM.md@PENDING:63	P-ADM, Proposition (existence)	new: replaces rows c2–u5
-    thm:vi-c-adm-holds	paper/reader/proofs/P-ADM.md@PENDING:105	P-ADM, Theorem (admissible points)	new: settling at 𝗉
+    prop:vi-c-adm-exist	paper/reader/proofs/P-ADM.md@PENDING:64	P-ADM, Proposition	new: replaces rows c2–c4 and u2–u5
+    thm:vi-c-adm-holds	paper/reader/proofs/P-ADM.md@PENDING:106	P-ADM, Theorem (admissible points)	new: settling at 𝗉
 
 Notes to add to existing rows. [[ch:s27]]: sec:iii-k-0, "parameters: an admissible point (P-ADM item 19)"; sec:vi-c-1,
 "rows c2–c4 and u2–u5 replaced by def:vi-c-admissible, prop:vi-c-adm-exist and row a1; thresholds of b2, b3, w1, d1, d2
@@ -1197,95 +1198,12 @@ second stating that the exclusions are met at the point although the definition 
 point is admissible is decided by the conditions [[rem:ec-point-outside]] lists as open. Its crosswalk note for
 rem:t49-scope ("rows c2, c3, u5") is replaced by this file's note.
 
-*P-TR (not merged).* Nothing in P-TR's mathematics changes. [[thm:tr-transfer]] is stated at h ∈ 𝖧 ∩ [h₁, 10⁻⁶), within
-the cap, and uses [[thm:ec-lb-proved]] and [[lem:ec-lb-ind]] only there. After this file its hypothesis "the gauge
-parameters e_Υ = γ_Υ = 1/100 meet the conditions that [[thm:vi-c-2-1]] places on them, for some γ_(Υ,H)" means that
-(h, γ_(Υ,H), 1/100, 1/100) is admissible for some γ_(Υ,H), and should say so; in [[rem:tr-scope]], "that (1/100, 1/100)
-lie below the gauge thresholds of [[thm:vi-c-2-1]] at that h" should read "that (h, γ_(Υ,H), 1/100, 1/100) be
-admissible for some γ_(Υ,H), whose open conditions are (AP1), (AP3) and the tf-admissibility of □^C_b in (AP4)
-([[rem:ec-point-outside]])". P-TR may keep h ∈ 𝖧 in its hypotheses; whether its proof needs more of 𝖧 than h < 10⁻⁶ is
-for P-TR to say. Its texts 2–6 change the places of items 32, 33, 41, 50 and 52 of this file. If P-TR merges after this
-file, its texts 2–6 read as follows, against this file's new texts; each new text is P-TR's with its added sentence, and
-in texts 3 and 6 the words about the gauge thresholds follow the definition. P-TR text 2, old (item 32, new):
-
-most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter
-point is not shown to lie in the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at
-it bound what this proof's choices produce, not the optimal loss. The
-
-P-TR text 2, new:
-
-most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter
-point is not shown to lie in the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at it
-bound what this proof's choices produce, not the optimal loss. The same upper bounds hold at the gauge values 1/100 for
-every h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside an explicit set of total length below 1.7·10⁻¹¹, if those gauge values are
-admissible at that h, and they fail near the excluded values of h ([[thm:tr-transfer]], [[prop:tr-fail]]); whether such
-an h exists is not decided ([[rem:tr-scope]]). The
-
-P-TR text 3, old (the last lines of Part C):
-
-[[prop:ec-rounds]]). At every point of the proved set with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of
-z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
-([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
-
-P-TR text 3, new:
-
-[[prop:ec-rounds]]). At every point of the proved set with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of
-z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
-([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]). The upper bounds of [[thm:uc-integer]] hold, with the
-same numbers, at (h, 1/100, 1/100) for h ∈ 𝖧 ∩ [h₁, 10⁻⁶), h₁ = 4.76·10⁻¹¹, outside a set 𝖩 of total length below
-1.7·10⁻¹¹, if that point is admissible for some γ_(Υ,H), which is not decided ([[thm:tr-transfer]]).
-
-P-TR text 4, old (the two lines that follow item 41):
-
-condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶ ([[lem:uc-two-offsets]], [[thm:is-gap]]), and
-is stated at that point only.
-
-P-TR text 4, new:
-
-condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶ ([[lem:uc-two-offsets]], [[thm:is-gap]]), and is
-stated at that point only. Points of the proved set at which an upper bound holds are given, under the same condition on
-(γ_Υ, e_Υ), by [[thm:tr-transfer]]: there d_NM < 1.57157·10⁵⁰ for h ∈ [4.76·10⁻¹¹, 10⁻⁶) outside a set 𝖩 of total length
-below 1.7·10⁻¹¹, and near the points of 𝖩 the bound fails ([[prop:tr-fail]]).
-
-P-TR text 5, old (item 50, new):
-
-  the proof assigns to the tame estimates, and its regularity N_NM = 21d + 6, with explicit lower bounds at every point
-  of the proved set at which γ_C ≥ 10⁶, as functions of the gauge parameter z = 4e_Υγ_Υ² and the damping parameter γ_C
-  that grow like z⁻² and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that is not shown to lie in the proved set,
-  explicit lower bounds ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the
-  weights, orders and inner products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the
-  modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
-  ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
-
-P-TR text 5, new:
-
-  the proof assigns to the tame estimates, and its regularity N_NM = 21d + 6, with explicit lower bounds at every point
-  of the proved set at which γ_C ≥ 10⁶, as functions of the gauge parameter z = 4e_Υγ_Υ² and the damping parameter γ_C
-  that grow like z⁻² and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that is not shown to lie in the proved set,
-  explicit lower bounds ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the
-  weights, orders and inner products ([[thm:uc-integer]]), which hold at the same gauge parameters for
-  h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside a set of length below 1.7·10⁻¹¹ if those gauge parameters are admissible there, a
-  condition not decided ([[thm:tr-transfer]]); through the lower bounds, upper bounds for δ and for the modulus of the
-  initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini ([[ch:resolvent-bounds]]);
-  and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
-
-P-TR text 6, old (item 52, new):
-
-computational point is a point at which the formulas of the proof can be evaluated, and it is not shown to lie in the
-set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in
-the proof of any theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
-
-P-TR text 6, new:
-
-computational point is a point at which the formulas of the proof can be evaluated, and it is not shown to lie in the set
-on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). The upper bounds hold with the same numbers at the points
-(h, 1/100, 1/100) with h ∈ 𝖧 ∩ [4.76·10⁻¹¹, 10⁻⁶) outside a set 𝖩 of total length below 1.7·10⁻¹¹, provided the gauge
-values 1/100 are admissible at h; this conditional statement may be empty, as h_* is not determined and the conditions
-that [[rem:ec-point-outside]] lists as open are not decided, and near the points of 𝖩 the bounds fail
-([[thm:tr-transfer]], [[rem:tr-scope]], [[prop:tr-fail]]). No result of [[ch:explicit-constants]] is used in the proof of
-any theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
-
-Its text 7 ([[rem:s14-eps-ind-scope]] in [[ch:s14]]) does not overlap this file.
+*P-TR (not merged).* P-TR gives its own texts against this file (its form B): its item 1b states its notion of an
+admissible parameter point (h, 1/100, 1/100) through [[def:vi-c-admissible]], and its items 2, 3, 5, 6 and 8 change lines
+of the new texts of items 32, 33 (Part C), 50, 52 and 43 of this file. Its item 4 changes the two lines after item 41,
+and its item 7 lines of [[rem:s14-eps-ind-scope]] after item 56; neither overlaps this file. Each old text of P-TR's
+form B occurs exactly once in the chapters after this file is applied. This file gives no text of P-TR; if its new texts
+of items 32, 33, 43, 50 or 52 change again, P-TR's form B is to be checked against them.
 
 *Other proof files.* P-F123's item 15 changes lines 37–38 of the front matter; item 47 of this file ends at line 36 and
 leaves those lines as they stand, so the two do not overlap. Its item 13 ([[ch:introduction]], lines 157–159) follows the

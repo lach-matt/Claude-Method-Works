@@ -2,13 +2,14 @@
 
 This section constructs the calculi of [[def:iv5-0-1]] and [[sec:iv6-2]] as instances of the parameterised scaled
 bounded geometry calculus of [[thm:std-sbg-calculus]], and proves the facts about them that the chapter uses
-([[prop:np-10-65-a]]). No Gårding inequality is used. Its place is taken by two estimates with explicit margins: a bound
-by the supremum of the principal symbol plus a margin ([[lem:iv5-calc-garding]]), and a lower bound for a
-non-semiclassical operator with positive definite principal symbol ([[lem:iv5-calc-q0]]). The dimension enters only
+([[prop:np-10-65-a]]). The sharp Gårding inequality is not used. Its place is taken by two estimates with explicit
+margins: a bound by the supremum of the principal symbol plus a margin ([[lem:iv5-calc-garding]]), and a lower bound for
+a non-semiclassical operator with positive definite principal symbol ([[lem:iv5-calc-q0]]). The dimension enters only
 through the cells. Throughout, A* is the adjoint of A for the pairing ⟨·, ·⟩ of the notation above, extended to
 M₀° = ℝ_t × ℝ⁴_x with |dg| = |dt dx| and with B extended from M^♭ to a smooth field on M₀ that is uniformly positive
 definite; all operators in this chapter have Schwartz kernels in Ω′ × Ω′ or are differential, so the extension does not
-affect any statement.
+affect any statement. Below, (S1)–(S15) are the items of [[sec:ii-a-3]], which [[thm:std-sbg-calculus]] repeats with
+quotations under the same numbers, and (S16) is the item of [[thm:std-sbg-calculus]].
 
 **Definition {#def:iv5-calc-cells}** (The cells and the calculi.) Let ℬ be the following set of charts of M₀°, each with
 values in (−2, 2)⁵.
@@ -33,14 +34,14 @@ For a countable set P′ ⊂ (0, 1] let N_(P′) := P′ × M₀°, with the sca
 A = (A_h)_(h∈(0,1]) on ℂ⁵-valued functions on M₀° (sections of 𝒯* in the frame dt, dx¹, …, dx⁴) restricts to the
 operator A_(P′) := (A_h)_(h∈P′) on N_(P′). For a weight w on (M₀°, ℬ) and m ∈ ℝ, wΨ^m_(3b,ħ) is the space of the
 families A such that A_(P′) ∈ wΨ^m_𝒱(N_(P′)) for every countable P′ ([[thm:std-sbg-calculus]], (S4), (S14)). This is
-the device by which [Hin26d] proves the uniform boundedness in parameterised settings ((S7), with footnote 13). The
-seminorms of A_(P′) ((S5)) are suprema over h ∈ P′ of seminorms of the A_h; so they are bounded independently of P′,
-for otherwise the union of countably many P′ on which some seminorm exceeds 1, 2, 3, … would be a countable set on which
-it is infinite. We write whΨ^m_(3b,ħ) := {hA : A ∈ wΨ^m_(3b,ħ)} and wh^∞Ψ^(−∞)_(3b,ħ) := ⋂_N wh^NΨ^(−N)_(3b,ħ); a
-family of symbols a = (a_h) lies in wS^m if its restriction to every N_(P′) lies in wS^m(^𝒱T*N_(P′)); and
-Op(a) := (Op_(𝒱_h)(a_h))_h. The principal symbol of A is the class of the symbols of the A_(P′), an element of
-wS^m/whS^(m−1). The classes wΨ^m_3b of the 3b-structure, and wΨ^m_(eb,ħ), wΨ^m_eb on M°, are defined in the same way
-(for the structures with scalings 1, P′ is a single point and h is absent).
+the device by which [Hin26d] proves the uniform boundedness in parameterised settings
+((S7), with [Hin26d, footnote 13]). The seminorms of A_(P′) ((S5)) are suprema over h ∈ P′ of seminorms of the A_h; so
+they are bounded independently of P′, for otherwise the union of countably many P′ on which some seminorm exceeds 1, 2,
+3, … would be a countable set on which it is infinite. We write whΨ^m_(3b,ħ) := {hA : A ∈ wΨ^m_(3b,ħ)} and
+wh^∞Ψ^(−∞)_(3b,ħ) := ⋂_N wh^NΨ^(−N)_(3b,ħ); a family of symbols a = (a_h) lies in wS^m if its restriction to every
+N_(P′) lies in wS^m(^𝒱T*N_(P′)); and Op(a) := (Op_(𝒱_h)(a_h))_h. The principal symbol of A is the class of the symbols
+of the A_(P′), an element of wS^m/whS^(m−1). The classes wΨ^m_3b of the 3b-structure, and wΨ^m_(eb,ħ), wΨ^m_eb on M°,
+are defined in the same way (for the structures with scalings 1, P′ is a single point and h is absent).
 
 The Sobolev spaces are wH^s_(3b,h) := w⟨x⟩^(−5/2)H^s_(𝒱_h)(M₀°; ℂ⁵), normed by
 ‖u‖_(wH^s_(3b,h)) := h^(5/2)‖⟨x⟩^(5/2)u‖_(wH^s_(𝒱_h)) ((S3)); wH^s_3b is the case h = 1; wH^s_(eb,h) and wH^s_eb are
@@ -85,8 +86,8 @@ with |Ω̃_(i′)| = |x^(i′)|/|x^i| ≥ 2^(k′−k−4) on the closure of the
 finitely many smooth maps, each defined near the closure of the corresponding overlap. A chart U_((1),j) meets charts
 U_((2)) only with k ≤ 2, and two charts U_((1)) differ by an integer translation in t of length at most 3. So all
 transition maps are uniformly bounded in C^∞, and ℬ is a bounded geometry structure ((S1)). With constant scalings h,
-condition (1.6) is the uniform C^∞ bound of the transition maps, uniformly in h; so (ℬ^×_h)_h is the semiclassical case
-of [Hin26d, Definition 1.9] ((S7)).
+condition [Hin26d, (1.6)] is the uniform C^∞ bound of the transition maps, uniformly in h; so (ℬ^×_h)_h is the
+semiclassical case of [Hin26d, Definition 1.9] ((S7)).
 
 *Lie algebras.* On the charts U_((2)),
 
@@ -118,18 +119,17 @@ they are r∂_t, r∂_r and fields tangent to the spheres; near 𝗌𝖿 they ar
 ⟨x⟩∂_(x^q)⟨x⟩/⟨x⟩ = x^q/⟨x⟩ and ∂_t⟨x⟩ = 0. If ρ_H defines a boundary hypersurface of M₀ and V is a smooth vector field
 on M₀ tangent to the boundary, then Vρ_H/ρ_H ∈ C^∞(M₀); with (a) this gives the claim for the products. As the weights
 and the charts do not depend on h, the ratios of the weight across overlapping charts of the parameterised structure are
-those for ℬ, which are bounded ((S7), the sufficient condition after Definition 3.58).
+those for ℬ, which are bounded ((S7), the sufficient condition after [Hin26d, Definition 3.58]).
 
 (c) On U_((2),i,±,j,k,m), dt = 2^k dT, dx^i = (ln 2)x^i dX and dx^a = Ω̃_a dx^i + x^i dΩ_a, so the density |dt dx|
 equals (ln 2)2^k|x^i|⁴|dT dX dΩ|; as 2^k/|x^i| ∈ (¼, 4) and ⟨x⟩/|x^i| ∈ [1, 11], ⟨x⟩^(−5)|dt dx| is the Lebesgue
-measure of the chart times a function lying between two positive constants. On U_((1)) this is clear. By (3.14)
-([[rem:std-sbg-sobolev]]) at s = 0, where S_α is the dilation by h⁻¹,
-‖v‖²_(H⁰_(𝒱_h)) = Σ_α ‖(S_α)_*(φ_α)_*(χ_αv)‖²_(L²) = h^(−5) Σ_α ∫ |(φ_α)_*(χ_αv)|² dx. As Σ_α χ_α² lies between two
-positive constants (finite multiplicity, and χ_α = 1 on the sets φ_α⁻¹([−1, 1]⁵), which cover), this is uniformly
-equivalent to h^(−5)‖v‖²_(L²(⟨x⟩^(−5)|dt dx|)). Put v := ⟨x⟩^(5/2)u; the factor h^(5/2) in the norm gives the claim for
-the Euclidean inner product of ℂ⁵, and B is uniformly equivalent to it. On U_(j,k,β), |dt dx| = r³|dt dr dω|, and
-dt = 2^j dT, dr = (ln 2)r dX, so r⁻⁵|dt dx| is the Lebesgue measure of the chart times a function between two positive
-constants.
+measure of the chart times a function lying between two positive constants. On U_((1)) this is clear. By
+[Hin26d, (3.14)] ([[rem:std-sbg-sobolev]]) at s = 0, where S_α is the dilation by h⁻¹, ‖v‖²_(H⁰_(𝒱_h)) = Σ_α
+‖(S_α)_*(φ_α)_*(χ_αv)‖²_(L²) = h^(−5) Σ_α ∫ |(φ_α)_*(χ_αv)|² dx. As Σ_α χ_α² lies between two positive constants
+(finite multiplicity, and χ_α = 1 on the sets φ_α⁻¹([−1, 1]⁵), which cover), this is uniformly equivalent to
+h^(−5)‖v‖²_(L²(⟨x⟩^(−5)|dt dx|)). Put v := ⟨x⟩^(5/2)u; the factor h^(5/2) in the norm gives the claim for the Euclidean
+inner product of ℂ⁵, and B is uniformly equivalent to it. On U_(j,k,β), |dt dx| = r³|dt dr dω|, and dt = 2^j dT,
+dr = (ln 2)r dX, so r⁻⁵|dt dx| is the Lebesgue measure of the chart times a function between two positive constants.
 
 (d) In a chart U_α of ℬ, with coordinates y and the fibre coordinates ξ of (S4), the covector Σ_i ξ_i dy^i/h equals
 h⁻¹Σ_μ ζ_μ dz^μ/⟨x⟩ exactly when ξ = C_α(y)ζ, where C_α(y)_(iμ) := ⟨x⟩⁻¹∂z^μ/∂y^i are the coefficients of ∂_(y^i) in
@@ -143,14 +143,16 @@ satisfy the same estimates, so ρ_∞^(−m) ∈ S^m with uniform bounds; this g
 is the same. ∎
 
 **Definition {#def:iv5-calc-micro}** (Microsupport and elliptic set.) Let ∂_ħ := ({0} × ³ᵇT̄*M₀) ∪ ([0, 1] × ³ᵇS*M₀)
-⊂ 𝒫, where ³ᵇS*M₀ is fibre infinity, and let o := {0} × (zero section). A family of symbols a is *supported in* a closed
-set K ⊂ 𝒫 if a vanishes on 𝒫° ∖ K. An operator B ∈ wΨ^m_(3b,ħ) is *microsupported in* a closed set K ⊂ 𝒫 if Op(1 − y)B
-and BOp(1 − y) lie in wh^∞Ψ^(−∞)_(3b,ħ) for every real y ∈ C^∞(𝒫) equal to 1 on a neighbourhood of K; here
-Op(1 − y) ∈ Ψ⁰_(3b,ħ) by [[lem:iv5-calc-structure]] (d). For A ∈ wΨ^m_(3b,ħ) with principal symbol represented by a, the
-*elliptic set* Ell(A) = Ell_(3b,ħ)(A) is the set of p ∈ ∂_ħ having a neighbourhood U in 𝒫 such that a is invertible on
-U ∩ 𝒫°, with |a⁻¹| ≤ Cw⁻¹ρ_∞^m there for some C, |·| being the operator norm for B. It is open in ∂_ħ, and it does not
-depend on the representative: a changes by whρ_∞^(1−m)e with e bounded, and hρ_∞ is continuous on 𝒫 and vanishes on ∂_ħ.
-For S ⊂ ∂_ħ, *WF′(B) ⊂ S* (WF′ = WF′_(3b,ħ)) means that B is microsupported in a closed set K with K ∩ ∂_ħ ⊂ S, and
+⊂ 𝒫, where ³ᵇS*M₀ is fibre infinity. In statements about WF′ and Ell, a subset S of ³ᵇT̄*M₀, such as the zero section o
+or the set ∂Σ of the notation above, or a set described by a condition |ζ| < 1, stands for
+({0} × S) ∪ ([0, 1] × (S ∩ ³ᵇS*M₀)) ⊂ ∂_ħ. A family of symbols a is *supported in* a closed set K ⊂ 𝒫 if a vanishes on
+𝒫° ∖ K. An operator B ∈ wΨ^m_(3b,ħ) is *microsupported in* a closed set K ⊂ 𝒫 if Op(1 − y)B and BOp(1 − y) lie in
+wh^∞Ψ^(−∞)_(3b,ħ) for every real y ∈ C^∞(𝒫) equal to 1 on a neighbourhood of K; here Op(1 − y) ∈ Ψ⁰_(3b,ħ) by
+[[lem:iv5-calc-structure]] (d). For A ∈ wΨ^m_(3b,ħ) with principal symbol represented by a, the *elliptic set*
+Ell(A) = Ell_(3b,ħ)(A) is the set of p ∈ ∂_ħ having a neighbourhood 𝒰 in 𝒫 such that a is invertible on 𝒰 ∩ 𝒫°,
+with |a⁻¹| ≤ Cw⁻¹ρ_∞^m there for some C, |·| being the operator norm for B. It is open in ∂_ħ, and it does not depend on
+the representative: a changes by whρ_∞^(1−m)e with e bounded, and hρ_∞ is continuous on 𝒫 and vanishes on ∂_ħ. For
+S ⊂ ∂_ħ, *WF′(B) ⊂ S* (WF′ = WF′_(3b,ħ)) means that B is microsupported in a closed set K with K ∩ ∂_ħ ⊂ S, and
 *WF′(B) ∩ S = ∅* means that B is microsupported in a closed set K with K ∩ S = ∅. B has *compact operator wave front set*
 if it is microsupported in a closed set disjoint from [0, 1] × ³ᵇS*M₀. The same definitions are made with 𝒫_eb for the
 eb-calculus.
@@ -170,18 +172,43 @@ if K_1 ∩ K_2 = ∅, then B ∈ h^∞Ψ^(−∞)_(3b,ħ);
 
 The same holds for the eb-calculus.
 
-*Proof.* Fix a countable P′ ⊂ (0, 1], write N := N_(P′), and denote restrictions to P′ by the same letters. Choose a real
-y ∈ C^∞(𝒫) with y = 1 near K_1 and y = 0 near K_2. By [[lem:iv5-calc-structure]] (d), y lies in
-S⁰(^𝒱T*N) = C^∞_(uni,ℬ*)(^𝒱T*N) ((S16), Lemma 3.24 (1)), so its continuous extension j(y) to the uniform compactification
-of ^𝒱T*N is defined ((S16), Definition 3.25); as ^𝒱T*N is dense there, j is linear and j(1) = 1. Let ϖ be a point of
-the microlocalisation locus of N. If j(y)(ϖ) ≠ 1, then χ := 1 − y has j(χ)(ϖ) ≠ 0 and χc_1 = 0, so ϖ is not in the
-essential support of c_1. If j(y)(ϖ) = 1, then χ := y has j(χ)(ϖ) ≠ 0 and χc_2 = 0, so ϖ is not in the essential
-support of c_2. Hence the essential supports of c_1 and c_2 are disjoint. They are the operator wave front sets of
-Op(c_1) and Op(c_2) ([Hin26d, Definition 3.43], (S16)), so two applications of the wave front set inclusion of
-[Hin26d, Theorem 3.51] ((S16)) give WF′(Op(c_1)TOp(c_2)) = ∅. Write Op(c_1)TOp(c_2) = Op(e) + R as in (S4), with
-w := w_1w_2w_3. Then e has empty essential support, so e ∈ wρ̄^∞S^(−∞) by [Hin26d, Lemma 3.28] ((S16)). On N the scaling
-weight is ρ̄ = h, so e ∈ wh^LS^(−L) and R ∈ wρ̄^∞Ψ^(−∞) ⊂ wh^LΨ^(−L) for every L ∈ ℕ; that is, h^(−L)Op(c_1)TOp(c_2)
-restricted to P′ lies in wΨ^(−L)_𝒱(N). As P′ is arbitrary, Op(c_1)TOp(c_2) ∈ wh^LΨ^(−L)_(3b,ħ) for every L.
+*Proof.* Fix a countable P′ ⊂ (0, 1], write N := N_(P′), and denote restrictions to P′ by the same letters; the scaling
+weight of N is ρ̄ = h ≤ 1. By (S14) the entries of Op(c_1)TOp(c_2) are sums of operators of the same form with scalar
+symbols supported in K_1 and K_2 and scalar T, so we may assume c_1, c_2 and T scalar. Choose a real y ∈ C^∞(𝒫) with
+y = 1 near K_1 and y = 0 near K_2. By [[lem:iv5-calc-structure]] (d), y lies in S⁰(^𝒱T*N) = C^∞_(uni,ℬ*)(^𝒱T*N)
+([Hin26d, Lemma 3.24 (1)], (S16)), so its continuous extension j(y) to the uniform compactification of ^𝒱T*N is defined
+([Hin26d, Definition 3.25], (S16)); as ^𝒱T*N is dense there, j is linear and j(1) = 1. Let ϖ be a point of the
+microlocalisation locus of N. If j(y)(ϖ) ≠ 1, then χ := 1 − y has j(χ)(ϖ) ≠ 0 and χc_1 = 0, so ϖ is not in the essential
+support of c_1. If j(y)(ϖ) = 1, then χ := y has j(χ)(ϖ) ≠ 0 and χc_2 = 0, so ϖ is not in the essential support of c_2.
+Hence the essential supports E_1 of c_1 and E_2 of c_2 are disjoint; they are the operator wave front sets of Op(c_1)
+and Op(c_2) ([Hin26d, Definition 3.43], (S16)).
+
+Put w := w_1w_2w_3, m := m_1 + m_2 + m_3 and X := Op(c_1)TOp(c_2). Then X ∈ wΨ^m_𝒱(N) ([Hin26d, Theorem 3.51], (S5)),
+and X maps C_c^∞(N) to itself, as quantisations and residual operators do ([Hin26d, p. 44 and Definition 3.34], (S16)).
+Let w′ be a weight on N, L ≥ |m| and u ∈ w′ρ̄^(−L)H^(−L)_𝒱(N). For all σ, l ∈ ℝ, the microlocality of
+[Hin26d, Proposition 3.55 (2)] ((S16)), applied to Op(c_2), to T and to Op(c_1) in turn, gives
+WF^(σ−m_2,w_2w′,l)_𝒱(Op(c_2)u) ⊂ E_2, then WF^(σ−m_2−m_3,w_3w_2w′,l)_𝒱(TOp(c_2)u) ⊂ E_2, and
+WF^(σ−m,ww′,l)_𝒱(Xu) ⊂ E_2 ∩ E_1 = ∅; so Xu ∈ ww′ρ̄^lH^(σ−m)_𝒱(N) by [Hin26d, Proposition 3.55 (1)]. Thus X maps
+w′ρ̄^(−L)H^(−L)_𝒱(N) into Y := ww′ρ̄^LH^L_𝒱(N). As a map into Z := ww′ρ̄^(−L)H^(−L−m)_𝒱(N) it is bounded
+([Hin26d, Theorem 3.44], (S5)), and Y ⊂ Z with a continuous inclusion, by [Hin26d, (3.14)] ([[rem:std-sbg-sobolev]]) and
+ρ̄ ≤ 1; so X, as a map into Y, has closed graph and is bounded. Next let w″ be a weight on N, put w′ := (ww″)⁻¹, and let
+X* ∈ wΨ^m_𝒱(N) be the formal adjoint of X for a uniformly positive 𝒱-density ([Hin26d, Theorem 3.51]). For u,
+v ∈ C_c^∞(N), ⟨X*v, u⟩ = ⟨v, Xu⟩ and |⟨v, Xu⟩| ≤ C‖v‖_(w″ρ̄^(−L)H^(−L))‖Xu‖_(ww′ρ̄^LH^L), as w″ = (ww′)⁻¹. The duality
+of [Hin26d, Proposition 3.22] ((S16)) identifies ww″ρ̄^LH^L_𝒱(N) = w′⁻¹ρ̄^LH^L_𝒱(N) with the dual of
+w′ρ̄^(−L)H^(−L)_𝒱(N), with equivalent norms by the open mapping theorem; with the density of C_c^∞(N)
+([Hin26d, Lemma 3.20], (S16)) and the bound for X, this gives ‖X*v‖_(ww″ρ̄^LH^L) ≤ C‖v‖_(w″ρ̄^(−L)H^(−L)) for
+v ∈ C_c^∞(N), and so for all v ∈ w″ρ̄^(−L)H^(−L)_𝒱(N), by density and the continuity of X* into the larger space
+ww″ρ̄^(−L)H^(−L−m)_𝒱(N) ([Hin26d, Theorem 3.44]). The spaces decrease as L grows ([Hin26d, (3.14)], ρ̄ ≤ 1), so these
+bounds for L ≥ |m| give them for every L ∈ ℝ.
+
+Finally, every chart of N in {h} × M₀° has all scalings equal to h = ρ̄, so ρ̄W ∈ 𝒱 for W ∈ 𝒲 ((S1)), and ρ̄ is constant
+on each {h} × M₀°. With the norm of wH^(s;k)_(𝒱;𝒲)(N) of [Hin26d, p. 37] ((S16)), [Hin26d, Proposition 3.19] ((S3)),
+applied to the operators (ρ̄W_1)⋯(ρ̄W_j) ∈ Diff^j_𝒱 for j ≤ k, and [Hin26d, (3.14)] give
+‖f‖_(w′H^s) ≤ ‖f‖_(w′H^(s;k)) ≤ C‖f‖_(w′ρ̄^kH^(s+k)) for every weight w′. So the bounds above, with N + k for L, give
+those of [Hin26d, Definition 3.34] ((S16)) for all N and k, and X ∈ wρ̄^∞Ψ^(−∞)_𝒱(N). For the weight wρ̄^L the
+conditions of that definition are those for w, N ranging over ℝ; so X = Op_𝒱(0) + X lies in wρ̄^LΨ^(−L)_𝒱(N) for every L
+([Hin26d, Definition 3.43], (S16)), that is, h^(−L)Op(c_1)TOp(c_2) restricted to P′ lies in wΨ^(−L)_𝒱(N). As P′ is
+arbitrary, Op(c_1)TOp(c_2) ∈ wh^LΨ^(−L)_(3b,ħ) for every L.
 
 (a) If y = 1 on a neighbourhood V of K, then 1 − y is supported in 𝒫 ∖ V, which is closed and disjoint from K; so
 Op(1 − y)Op(c) and Op(c)Op(1 − y) lie in h^∞Ψ^(−∞) (T = I). Products of R with elements of the calculus stay in
@@ -210,17 +237,18 @@ The eb-case is the same. ∎
 h ∈ (0, 1]: C_c^∞ of the set is dense in the subspace of H^s_(𝒱_h) of the elements supported in its closure.
 
 *Proof.* Fix h; the property is qualitative. For fixed h, H^s_(𝒱_h) is the space H^s of ℬ with scalings 1, with an
-equivalent norm, by (3.14): the maps S_α are dilations by h⁻¹, which are isomorphisms of H^s(ℝ⁵). By (S12) we may also
-replace ℬ by a compatible bounded geometry structure. For Ω₁ we keep ℬ. For Ω₃, let R₀ := r_♯ + 1 and R₁ := 200R₀,
-take finitely many charts κ_ℓ : V_ℓ → (−2, 2)⁴ of ℝ⁴ such that the sets κ_ℓ⁻¹((−1, 1)⁴) cover {|x| ≤ R₁}, each V_ℓ
-either disjoint from {|x| = r_♯} or such that κ_ℓ(V_ℓ ∩ {|x| < r_♯}) = {y_1 < 0}, and replace the charts of ℬ that
-meet {|x| ≤ R₀} by the charts (j − 2, j + 2)_t × V_ℓ, (t − j, κ_ℓ(x)), j ∈ ℤ. The charts of ℬ that are kept still
-cover {|x| > R₁}: a chart U_((2)) whose set φ⁻¹((−1, 1)⁵) contains a point with |x| > R₁ has 2^(k−2) > R₁/56 > R₀. The
-charts of ℬ that meet {|x| ≤ R₁} have k ≤ log₂R₁ + 2, so all transition maps between the two families are translates
-in t of finitely many smooth maps; the result is a bounded geometry structure compatible with ℬ. In each chart of the
-structure so obtained that meets ∂Ω (Ω = Ω₁ or Ω₃), with coordinates (T, y), the set Ω is {T > a} or {T > a, y_1 < 0}
-for some a ∈ ℝ, because the charts are products in t with T an affine function of t with positive slope; a chart not
-meeting ∂Ω lies in Ω or in its complement, being connected.
+equivalent norm, by [Hin26d, (3.14)] ([[rem:std-sbg-sobolev]]): the maps S_α are dilations by h⁻¹, which are
+isomorphisms of H^s(ℝ⁵). By (S12) we may also replace ℬ by a compatible bounded geometry structure. For Ω₁ we keep ℬ.
+For Ω₃, let R₀ := r_♯ + 1 and R₁ := 200R₀, take finitely many charts κ_ℓ : V_ℓ → (−2, 2)⁴ of ℝ⁴ such that the sets
+κ_ℓ⁻¹((−1, 1)⁴) cover {|x| ≤ R₁}, each V_ℓ either disjoint from {|x| = r_♯} or such that
+κ_ℓ(V_ℓ ∩ {|x| < r_♯}) = {y_1 < 0}, and replace the charts of ℬ that meet {|x| ≤ R₀} by the charts
+(j − 2, j + 2)_t × V_ℓ, (t − j, κ_ℓ(x)), j ∈ ℤ. The charts of ℬ that are kept still cover {|x| > R₁}: a chart U_((2))
+whose set φ⁻¹((−1, 1)⁵) contains a point with |x| > R₁ has 2^(k−2) > R₁/56 > R₀. The charts of ℬ that meet {|x| ≤ R₁}
+have k ≤ log₂R₁ + 2, so all transition maps between the two families are translates in t of finitely many smooth maps;
+the result is a bounded geometry structure compatible with ℬ. In each chart of the structure so obtained that meets ∂Ω
+(Ω = Ω₁ or Ω₃), with coordinates (T, y), the set Ω is {T > a} or {T > a, y_1 < 0} for some a ∈ ℝ, because the charts are
+products in t with T an affine function of t with positive slope; a chart not meeting ∂Ω lies in Ω or in its complement,
+being connected.
 
 Let e := (1, −1, 0, 0, 0)/√2 in the coordinates (T, y_1, …), and Γ := {Y ∈ ℝ⁵ : Y·e ≥ ¾|Y|}; every Y ∈ Γ ∖ 0 has
 positive T-component and negative y_1-component. Fix ϱ ∈ C_c^∞(ℝ⁵) with ∫ϱ = 1 and supp ϱ ⊂ Γ ∩ {½ ≤ |Y| ≤ 1}, and put
@@ -230,23 +258,25 @@ only on ϱ.
 
 Let χ ∈ C_c^∞((−5/4, 5/4)⁵) be nonnegative and equal to 1 on [−1, 1]⁵, and χ_α := φ_α^*χ/Σ_β φ_β^*χ. For v in H^s
 supported in Ω̄ put w_α := (φ_α)_*(χ_αv) and v_ε := Σ_α φ_α^*(ϱ_ε ∗ w_α); ϱ_ε ∗ w_α is supported in (−3/2, 3/2)⁵. Then
-v_ε is smooth and supported in Ω, at distance at least cε from ∂Ω in every chart. By (3.14), the norm of an element of
-H^s is the square root of Σ_β ‖(φ_β)_*(φ_β^*χ ·)‖²_(H^s(ℝ⁵)); hence ‖Σ_α g_α‖² ≤ L Σ_α ‖g_α‖² for any g_α supported in
-U_α, L being a bound for the number of charts that meet a given chart (finite by the description of the transitions),
-since each term (φ_β)_*(φ_β^*χ Σ_α g_α) involves at most L of the g_α, and since Σ_β ‖(φ_β)_*(φ_β^*χ g_α)‖² is
-‖g_α‖². Moreover, for f ∈ H^s(ℝ⁵) supported in (−3/2, 3/2)⁵, ‖φ_α^*f‖_(H^s) ≤ C‖f‖_(H^s(ℝ⁵)), and Σ_α
-‖w_α‖²_(H^s(ℝ⁵)) ≤ C‖v‖²_(H^s), with C independent of α: H^s(ℝ⁵), for distributions supported in a fixed compact set,
-is invariant under multiplication by functions bounded in C^∞ and under diffeomorphisms bounded in C^∞ together with
-their inverses, and the transition maps and the functions Σ_β φ_β^*χ are so bounded ((S1)). Convolution with ϱ_ε − δ_0
-is the Fourier multiplier ϱ̂(εξ) − 1, bounded by C uniformly in ε and tending to 0 pointwise; so
-‖(ϱ_ε − δ_0) ∗ w_α‖_(H^s(ℝ⁵)) ≤ C‖w_α‖_(H^s(ℝ⁵)), and it tends to 0 for each α. As Σ_α χ_α = 1,
-‖v_ε − v‖²_(H^s) ≤ LC Σ_α ‖(ϱ_ε − δ_0) ∗ w_α‖²_(H^s(ℝ⁵)), which tends to 0 by dominated convergence for the series.
+v_ε is smooth and supported in Ω, at distance at least cε from ∂Ω in every chart. By [Hin26d, (3.14)], the norm of an
+element of H^s is the square root of Σ_β ‖(φ_β)_*(φ_β^*χ ·)‖²_(H^s(ℝ⁵)); hence ‖Σ_α g_α‖² ≤ L Σ_α ‖g_α‖² for any g_α
+supported in U_α, L being a bound for the number of charts that meet a given chart (finite by the description of the
+transitions), since each term (φ_β)_*(φ_β^*χ Σ_α g_α) involves at most L of the g_α, and since Σ_β
+‖(φ_β)_*(φ_β^*χ g_α)‖² is ‖g_α‖². Moreover, for f ∈ H^s(ℝ⁵) supported in (−3/2, 3/2)⁵, ‖φ_α^*f‖_(H^s) ≤ C‖f‖_(H^s(ℝ⁵)),
+and Σ_α ‖w_α‖²_(H^s(ℝ⁵)) ≤ C‖v‖²_(H^s), with C independent of α: H^s(ℝ⁵), for distributions supported in a fixed compact
+set, is invariant under multiplication by functions bounded in C^∞ and under diffeomorphisms bounded in C^∞ together
+with their inverses, and the transition maps and the functions Σ_β φ_β^*χ are so bounded ((S1)). Convolution with
+ϱ_ε − δ_0 is the Fourier multiplier ϱ̂(εξ) − 1, bounded by C uniformly in ε and tending to 0 pointwise; so ‖(ϱ_ε − δ_0)
+∗ w_α‖_(H^s(ℝ⁵)) ≤ C‖w_α‖_(H^s(ℝ⁵)), and it tends to 0 for each α. As Σ_α χ_α = 1, ‖v_ε − v‖²_(H^s) ≤ LC Σ_α
+‖(ϱ_ε − δ_0) ∗ w_α‖²_(H^s(ℝ⁵)), which tends to 0 by dominated convergence for the series.
 
 Finally let ψ ∈ C_c^∞(ℝ) equal 1 near 0 and ψ_R(t, x) := ψ(t/R)ψ(|x|/R), R ≥ 1. The ψ_R are bounded in C^∞_(uni,ℬ)
 uniformly in R, since ⟨x⟩ ≤ CR on supp ψ(|x|/R); so multiplication by ψ_R is bounded on H^s uniformly in R ((S3), (S7)
 with parameter R), and ψ_Rf → f in H^s for f ∈ C_c^∞, hence for every f ∈ H^s, C_c^∞ being dense ([Hin26d, Lemma
 3.20], (S16)). Now ψ_Rv_ε ∈ C_c^∞(Ω), and it tends to v as R → ∞ and then ε → 0. The case of M° is the same, with the
-charts of ℬ_eb, in which {t > 0} is {T > −k}. ∎
+charts of ℬ_eb, in which {t > 0} is {T > −k}, and with ψ_R(t, x) := ψ(t/R)ψ(|x|/R)(1 − ψ(R|x|)), which has compact
+support in M° and is bounded in C^∞_(uni,ℬ_eb) uniformly in R, as |x| ≤ CR on supp ψ(|x|/R) and R|x| ≤ C on
+supp ψ′(R|x|). ∎
 
 **Lemma {#lem:iv5-calc-dual}** (Supported and extendible spaces.) Let w be a weight as in [[lem:iv5-calc-structure]] (b),
 s ∈ ℝ, Ω₁ := {t > 0} and Ω₂ := {r > r_♯} in M₀°, so that Ω° = Ω₁ ∩ Ω₂. Define:
@@ -276,11 +306,11 @@ extendible space w⁻¹H̄^(−s)_(eb,h)(Ω°) are dual in the same sense.
 supports. With μ_h := h^(−5)⟨x⟩^(−5)|dt dx|, a uniformly positive 𝒱_h-density by the proof of
 [[lem:iv5-calc-structure]] (c), one has ⟨u, v⟩ = ∫ (B̂Iu)·(Iv)‾ μ_h, B̂ being the matrix of B in the frame.
 Multiplication by B̂ and by B̂⁻¹ is bounded on every wH^s_(𝒱_h), uniformly in h (differential operators of order 0 with
-coefficients independent of h, (S3), (S7)), and multiplication by w is an isometry of H^s_(𝒱_h) onto wH^s_(𝒱_h) that
-preserves supports. So [[lem:ii-a-7-1]] and [[lem:ii-a-7-3]], which are stated for parameterised scaled bounded geometry
-structures with a uniformly positive density ([[sec:ii-a-7]]), hold for the pairing ⟨·, ·⟩ and the spaces wH^s_(3b,h),
-w⁻¹H^(−s)_(3b,h), with constants independent of h. The open sets Ω₁ and Ω₃ := {t > 0, r < r_♯} have property (D) for
-every order ([[lem:iv5-calc-d]]).
+coefficients independent of h, (S3), (S7)), and multiplication by w is an isomorphism of H^s_(𝒱_h) onto wH^s_(𝒱_h), with
+bounds independent of h ((S3), (S7)), that preserves supports. So [[lem:ii-a-7-1]] and [[lem:ii-a-7-3]], which are
+stated for parameterised scaled bounded geometry structures with a uniformly positive density ([[sec:ii-a-7]]), hold for
+the pairing ⟨·, ·⟩ and the spaces wH^s_(3b,h), w⁻¹H^(−s)_(3b,h), with constants independent of h. The open sets Ω₁ and
+Ω₃ := {t > 0, r < r_♯} have property (D) for every order ([[lem:iv5-calc-d]]).
 
 (a) Let ũ, ũ′ be two choices for u, and ṽ, ṽ′ two for v. Then ũ − ũ′ is supported in cl Ω₁ ∖ Ω₂ = cl Ω₃, so it is the
 limit in wH^s_(3b,h) of elements of C_c^∞(Ω₃), by property (D) of Ω₃; these pair to 0 with ṽ, since ṽ = v vanishes on
@@ -342,9 +372,9 @@ All constants below are independent of h ∈ (0, 1].
 derivatives in the charts, Op(f) is multiplication by f, Op(1) = I and f·Op(a) = Op(fa). A differential operator
 Σ_(|γ|≤k) a_γ(h⟨x⟩∂_z)^γ whose coefficients a_γ, 5 × 5 matrices, are w times elements of C^∞(M₀) lies in wΨ^k_(3b,ħ),
 its principal symbol being the class of its semiclassical principal symbol; this applies to h²□_g, L_h, P_h, P_h*, 𝓛_h
-and 𝓛_h* (with the weight ρ_sf²), to the cut-offs χ_(τ,j), χ_(r,j) and to the weights. For an h-independent
-Q ∈ wDiff^k_3b, h^kQ ∈ wΨ^k_(3b,ħ), with principal symbol the principal symbol of Q evaluated at ζ. The same holds for
-wΨ_3b, without h.
+and 𝓛_h* (with the weight ρ_sf²), to the products χ_(τ,j)χ_(r,j′) of the cut-offs, to χ_(r,j) and to the weights. For an
+h-independent Q ∈ wDiff^k_3b, h^kQ ∈ wΨ^k_(3b,ħ), with principal symbol the principal symbol of Q evaluated at ζ. The
+same holds for wΨ_3b, without h.
 
 (b) (*Algebra.*) Let A_i ∈ w_iΨ^(m_i)_(3b,ħ) have principal symbols a_i. Then A_1A_2 ∈ w_1w_2Ψ^(m_1+m_2)_(3b,ħ) with
 principal symbol a_1a_2, and A_1* ∈ w_1Ψ^(m_1)_(3b,ħ) with principal symbol a_1^(*_B), the B-adjoint. An element of
@@ -371,8 +401,8 @@ h ∈ (0, 1] and every u ∈ wH^(−N)_(3b,h) with GAu ∈ ww′H^(s−m)_(3b,h)
 
 (f) (*Square roots.*) Let w be real, q ∈ w²S^(2k) B-self-adjoint, W ⊂ 𝒫 open and c > 0, with
 B(qv, v) ≥ cw²ρ_∞^(−2k)B(v, v) on W ∩ 𝒫° for all v. Then the B-self-adjoint square roots q^(±1/2), positive definite,
-satisfy on W ∩ 𝒫° the estimates of w^(±1)S^(±k), uniformly. So φq^(±1/2) ∈ w^(±1)S^(±k) for φ ∈ C^∞(𝒫) supported in W,
-and Op(φq^(1/2))*Op(φq^(1/2)) ∈ w²Ψ^(2k)_(3b,ħ) has principal symbol φ²q. If q = fq′, with 0 ≤ f ∈ C^∞(𝒫) scalar,
+satisfy on W ∩ 𝒫° the estimates of w^(±1)S^(±k), uniformly. So φq^(±1/2) ∈ w^(±1)S^(±k) for real φ ∈ C^∞(𝒫) supported in
+W, and Op(φq^(1/2))*Op(φq^(1/2)) ∈ w²Ψ^(2k)_(3b,ħ) has principal symbol φ²q. If q = fq′, with 0 ≤ f ∈ C^∞(𝒫) scalar,
 f^(1/2) ∈ C^∞(𝒫) and q′ as above, then q^(1/2) = f^(1/2)q′^(1/2).
 
 (g) (*Supported and extendible spaces.*) The conclusions of [[lem:iv5-calc-dual]] hold.
@@ -454,12 +484,12 @@ with R′ ∈ h^∞Ψ^(−∞), as B′Op(1 − φ_1) and B′R_1Op(1 − φ_3) 
 
 and Op(φ_3) is microsupported in K″ ⊂ O′ ([[lem:iv5-calc-disjoint]] (a)).
 
-*Iteration.* Let J be an integer with J ≥ s + N, and choose closed sets K′ = K_0 ⊂ K_1 ⊂ ⋯ ⊂ K_J ⊂ O′, each in the
-interior of the next. Apply the step to BOp(yψ) with σ = s and K″ = K_1, then to the operator Op(φ_3) so obtained with
-σ = s − 1 and K″ = K_2, and so on. After J steps the remaining term is at most Ch^J‖u‖_(wH^(s−J)) ≤ Ch^N‖u‖_(wH^(−N)),
-as s − J ≤ −N. This gives [[eq:iv5-calc-ell]]. Each identity B′u = B′Op(φ_1q)GAu + hB′R_1Op(φ_3)u + R′u holds for
-u ∈ wH^(−N), all terms being defined by (d); if GAu ∈ ww′H^(s−m), then, going back from the last step, each Op(φ_3)u
-lies in wH^(σ−1), and so Bu ∈ wH^s.
+*Iteration.* Let J be an integer with J ≥ N + max(s, 0), and choose closed sets K′ = K_0 ⊂ K_1 ⊂ ⋯ ⊂ K_J ⊂ O′, each in
+the interior of the next. Apply the step to BOp(yψ) with σ = s and K″ = K_1, then to the operator Op(φ_3) so obtained
+with σ = s − 1 and K″ = K_2, and so on. After J steps the remaining term is at most
+Ch^J‖u‖_(wH^(s−J)) ≤ Ch^N‖u‖_(wH^(−N)), as J ≥ N and s − J ≤ −N. This gives [[eq:iv5-calc-ell]]. Each identity
+B′u = B′Op(φ_1q)GAu + hB′R_1Op(φ_3)u + R′u holds for u ∈ wH^(−N), all terms being defined by (d); if GAu ∈ ww′H^(s−m),
+then, going back from the last step, each Op(φ_3)u lies in wH^(σ−1), and so Bu ∈ wH^s.
 
 (f) Put q̂ := w⁻²ρ_∞^(2k)q ∈ S⁰. It is B-self-adjoint, and its spectrum lies in [c, C₁] on W ∩ 𝒫°, C₁ := sup|q̂|. With
 γ a fixed contour in {Re z > 0} around [c, C₁], at distance at least c/2 from it, q̂^(±1/2) = (2πi)⁻¹∮_γ z^(±1/2)(z −
@@ -496,9 +526,9 @@ The constant C depends only on M, η and on bounds for T and t in their classes;
 uniform for families depending on a parameter b with such bounds uniform in b.
 
 *Proof.* (a) The symbol M + η − t_R is B-self-adjoint and B((M + η − t_R)v, v) ≥ ηB(v, v) on 𝒫°. By
-[[prop:np-10-65-a]] (f), with k = 0, w = 1, W = 𝒫 and φ = 1, c := (M + η − t_R)^(1/2) ∈ S⁰, and C₀ := Op(c) is such that
-C₀*C₀ has principal symbol M + η − t_R. The operator ½(T + T*) has principal symbol t_R, and Op(1) = I
-([[prop:np-10-65-a]] (a), (b)). So R := (M + η)I − ½(T + T*) − C₀*C₀ ∈ Ψ⁰_(3b,ħ) has principal symbol 0, and
+[[prop:np-10-65-a]] (f), with k = 0, w = 1, W = 𝒫 and φ = 1, θ_η := (M + η − t_R)^(1/2) ∈ S⁰, and Θ_η := Op(θ_η) is such
+that Θ_η*Θ_η has principal symbol M + η − t_R. The operator ½(T + T*) has principal symbol t_R, and Op(1) = I
+([[prop:np-10-65-a]] (a), (b)). So R := (M + η)I − ½(T + T*) − Θ_η*Θ_η ∈ Ψ⁰_(3b,ħ) has principal symbol 0, and
 R ∈ hΨ^(−1)_(3b,ħ) ([[prop:np-10-65-a]] (b)). Pairing with v,
 
     (M + η)‖v‖² − Re⟨Tv, v⟩ = ‖C₀v‖² + ⟨Rv, v⟩ ≥ −Ch‖v‖²_(H^(−1/2)_(3b,h)),
@@ -510,13 +540,13 @@ by [[prop:np-10-65-a]] (d) and the bound of [[lem:ii-a-7-1]] (1), transferred as
 
 (c) The proof is the same ([[prop:np-10-65-a]] (i)). ∎
 
-[[lem:iv5-calc-garding]] is the semiclassical form of [[lem:ii-a1-2-6]]: the remainder of order −1 there becomes a
-remainder of size O(h) here.
+[[lem:iv5-calc-garding]] is a semiclassical analogue of [[lem:ii-a1-2-6]], stated for Re⟨Tv, v⟩ rather than for
+‖Op(z)v‖²: the remainder of order −1 + 2δ there becomes a remainder of size O(h) here.
 
 **Lemma {#lem:iv5-calc-q0}** (A lower bound for a non-semiclassical operator.) Let w be a real weight, and let
-Q ∈ w²Diff²_3b(M₀°; ℂ⁵) be independent of h, with ⟨Qu, v⟩ = ⟨u, Qv⟩ for u, v ∈ C_c^∞(M₀°). Let U ⊂ M₀ be open and
-K ⊂ U closed, and suppose that a representative q of the principal symbol of w⁻¹Qw⁻¹, homogeneous of degree 2,
-satisfies B(q(z, ζ)v, v) ≥ c|ζ|²B(v, v) for z ∈ U ∩ M₀°, all ζ and all v, for some c > 0. Then there is C such that
+Q ∈ w²Diff²_3b(M₀°; ℂ⁵) be independent of h, with ⟨Qu, v⟩ = ⟨u, Qv⟩ for u, v ∈ C_c^∞(M₀°). Let 𝒪 ⊂ M₀ be open and K ⊂ 𝒪
+closed, and suppose that a representative q of the principal symbol of w⁻¹Qw⁻¹, homogeneous of degree 2, satisfies
+B(q(z, ζ)v, v) ≥ c|ζ|²B(v, v) for z ∈ 𝒪 ∩ M₀°, all ζ and all v, for some c > 0. Then there is C such that
 
     ⟨Qv, v⟩ ≥ −C‖wv‖²_(L²)   for every v with wv ∈ H¹_3b and supp v ⊂ K.                              {#eq:iv5-calc-q0}
 
@@ -525,7 +555,7 @@ when the coefficients are bounded and c is bounded below uniformly in b.
 
 *Proof.* Put u := wv and Q̃ := w⁻¹Qw⁻¹ ∈ Diff²_3b. Then ⟨Qv, v⟩ = ⟨Q̃u, u⟩, Q̃ is symmetric, and its principal symbol
 is represented by q, which is B-self-adjoint ([[prop:np-10-65-a]] (a), (b)). Choose φ ∈ C^∞(M₀) with 0 ≤ φ ≤ 1, φ = 1
-near K and supp φ ⊂ U, and put q_* := φ²q + (1 − φ²)|ζ|², where |ζ|² denotes |ζ|² times the identity. Then q_* is
+near K and supp φ ⊂ 𝒪, and put q_* := φ²q + (1 − φ²)|ζ|², where |ζ|² denotes |ζ|² times the identity. Then q_* is
 B-self-adjoint and B((q_* + 1)v, v) ≥ min(c, 1)⟨ζ⟩²B(v, v). By [[prop:np-10-65-a]] (f), (i) (non-semiclassical, with
 k = 1 and W the whole compactified bundle ³ᵇT̄*M₀), θ := (q_* + 1)^(1/2) ∈ S¹ and θ⁻¹ ∈ S^(−1). Put Θ := Op(θ) and Θ′ :=
 Op(θ⁻¹). By [[prop:np-10-65-a]] (b), Θ*Θ − I − Op(q_*) and Q̃ − Op(q) lie in Ψ¹_3b, and Θ′Θ − I ∈ Ψ^(−1)_3b. By
@@ -535,10 +565,10 @@ is symmetric for ⟨·, ·⟩, ⟨φ²Op(q)u, u⟩ = ⟨Op(q)u, u⟩ and ⟨(1 �
     ⟨Q̃u, u⟩ = ‖Θu‖² − ‖u‖² + ⟨Ru, u⟩,     R ∈ Ψ¹_3b.
 
 Now |⟨Ru, u⟩| ≤ C₁‖u‖²_(H^(1/2)_3b) by [[prop:np-10-65-a]] (d) and [[lem:ii-a-7-1]] (1). For ε > 0,
-‖u‖²_(H^(1/2)_3b) ≤ ε‖u‖²_(H¹_3b) + C_ε‖u‖², by (3.14) ([[rem:std-sbg-sobolev]]) with scalings 1, the norms being sums
-of norms on ℝ⁵ of the same functions and ⟨ξ⟩ ≤ ε⟨ξ⟩² + (4ε)⁻¹. And ‖u‖_(H¹_3b) ≤ ‖Θ′Θu‖_(H¹_3b) +
-‖(Θ′Θ − I)u‖_(H¹_3b) ≤ C₂(‖Θu‖ + ‖u‖), by [[prop:np-10-65-a]] (d). With ε := (4C₁C₂²)⁻¹ this gives
-⟨Q̃u, u⟩ ≥ ½‖Θu‖² − C‖u‖² ≥ −C‖u‖², which is [[eq:iv5-calc-q0]]. The eb-case is the same. ∎
+‖u‖²_(H^(1/2)_3b) ≤ ε‖u‖²_(H¹_3b) + C_ε‖u‖², by [Hin26d, (3.14)] ([[rem:std-sbg-sobolev]]) with scalings 1, the norms
+being sums of norms on ℝ⁵ of the same functions and ⟨ξ⟩ ≤ ε⟨ξ⟩² + (4ε)⁻¹. And
+‖u‖_(H¹_3b) ≤ ‖Θ′Θu‖_(H¹_3b) + ‖(Θ′Θ − I)u‖_(H¹_3b) ≤ C₂(‖Θu‖ + ‖u‖), by [[prop:np-10-65-a]] (d). With ε := (4C₁C₂²)⁻¹
+this gives ⟨Q̃u, u⟩ ≥ ½‖Θu‖² − C‖u‖² ≥ −C‖u‖², which is [[eq:iv5-calc-q0]]. The eb-case is the same. ∎
 
 [[lem:iv5-calc-q0]] is applied to h-independent operators of the form h⁻²Re(□_h + CL_h*ρ_sf⁻²L_h), whose principal
 symbol G + Cρ_sf⁻²ℓ² is controlled by [[lem:iv5-0-4]]; only this lower bound is used, not a factorisation of the
@@ -546,397 +576,649 @@ operator.
 
 ## Placement
 
-This section is not part of the edition's text. Each old text below is quoted from chapter 33 as it stands when this
-file was written, from its first to its last word; line breaks inside a quoted sentence may differ after later edits, and
-the sentence is to be found by its words. Line numbers are approximate.
+This section and the two after it are instructions for the merge, not text of the edition. Each old text is copied from
+the chapter as it stands at HEAD (commit fb87f2fc; chapter 33 md5 9571426c902bea231329690543c17455, chapter 95 md5
+66591dd9e2c8ea3b473734520ba92b4a, chapter 23 md5 58661f3220bae91f567080b61ae42d3d, chapter 98 md5
+636613260a16fe478f9e06a7e27cacd4), as whole lines between the fences, and occurs exactly once in its chapter. Each new
+text replaces its old text as a whole, with the line breaks shown; no rewrapping is needed, and every line has at most
+121 characters, also after the labels resolve. Line numbers are those of these files and serve only to find the place.
+P-G1 is merged before P-G24b; see the section on the merge order.
 
 ### Chapter 33
 
-**C33-1. The calculus sentence of def:iv5-0-1** (about line 1272). Old:
+**C33-1. The calculus sentence of def:iv5-0-1** (lines 1275–1277).
 
-> The semiclassical 3b-pseudodifferential calculus Ψ_(3b,ħ)(M^♭) carries with it its principal symbols, the operator wave
-> front set WF′_(3b,ħ), the elliptic set Ell_(3b,ħ), elliptic parametrices, the sharp Gårding inequality and the Sobolev
-> spaces H^s_(3b,h); it exists in this dimension by [[prop:np-10-65-a]]. Write
+Old (3 lines):
 
-New:
+```text
+The semiclassical 3b-pseudodifferential calculus Ψ_(3b,ħ)(M^♭) carries with it its principal symbols, the operator wave
+front set WF′_(3b,ħ), the elliptic set Ell_(3b,ħ), elliptic parametrices, the sharp Gårding inequality and the Sobolev
+spaces H^s_(3b,h); it exists in this dimension by [[prop:np-10-65-a]]. Write
+```
 
-> The semiclassical 3b-pseudodifferential calculus Ψ_(3b,ħ)(M^♭), with its principal symbols, operator wave front sets
-> WF′_(3b,ħ), elliptic sets Ell_(3b,ħ) and Sobolev spaces H^s_(3b,h), is that of [[sec:iv5-calc]]. It is built from the
-> cells of [[def:iv5-calc-cells]], with four spatial coordinates, and the facts used about it are those of
-> [[prop:np-10-65-a]], [[lem:iv5-calc-garding]] and [[lem:iv5-calc-q0]]. Write
+New (4 lines):
 
-**C33-2. The spaces on Ω, end of def:iv5-0-1** (about line 1279). Old:
+```text
+The semiclassical 3b-pseudodifferential calculus Ψ_(3b,ħ)(M^♭), with its principal symbols, operator wave front sets
+WF′_(3b,ħ), elliptic sets Ell_(3b,ħ) and Sobolev spaces H^s_(3b,h), is that of [[sec:iv5-calc]]. It is built from the
+cells of [[def:iv5-calc-cells]], with four spatial coordinates, and the facts used about it are those of
+[[prop:np-10-65-a]], [[lem:iv5-calc-garding]] and [[lem:iv5-calc-q0]]. Write
+```
 
-> On Ω there are three
-> kinds of space: H^(s,(·))_(3b,h)(Ω)^(•,−), restrictions to Ω° of elements with support in {t ≥ 0}, so supported at X_0
-> and extendible at Σ^♯; (·)^(−,•), extendible at X_0 and supported at Σ^♯; and H̄, extendible at both ([Hin26a,
-> Section 2.3]).
+**C33-2. The spaces on Ω, end of def:iv5-0-1** (lines 1281–1284).
 
-New:
+Old (4 lines):
 
-> On Ω there are three
-> kinds of space, defined in [[lem:iv5-calc-dual]]: H^(s,(·))_(3b,h)(Ω)^(•,−), restrictions to {r > r_♯} of elements with
-> support in {t ≥ 0}, so supported at X_0 and extendible at Σ^♯; (·)^(−,•), extendible at X_0 and supported at Σ^♯; and
-> H̄, extendible at both.
+```text
+([Hin26a, (5.19)]), normed with the density |dg| and the fibre inner product B of [[lem:iv5-0-4]]. On Ω there are three
+kinds of space: H^(s,(·))_(3b,h)(Ω)^(•,−), restrictions to Ω° of elements with support in {t ≥ 0}, so supported at X_0
+and extendible at Σ^♯; (·)^(−,•), extendible at X_0 and supported at Σ^♯; and H̄, extendible at both ([Hin26a,
+Section 2.3]). In all of these constructions the dimension enters only as the number of coordinates.
+```
 
-**C33-3. Delete the old prop:np-10-65-a** (about lines 1284–1291): the paragraph that begins with the bold word
-Proposition, the label prop:np-10-65-a and the title (The calculus in every dimension.), through the paragraph
+New (4 lines):
 
-> *Proof.* These are the cited results, stated there for every dimension.
+```text
+([Hin26a, (5.19)]), normed with the density |dg| and the fibre inner product B of [[lem:iv5-0-4]]. On Ω there are three
+kinds of space, defined in [[lem:iv5-calc-dual]]: H^(s,(·))_(3b,h)(Ω)^(•,−), restrictions to {r > r_♯} of elements with
+support in {t ≥ 0}, so supported at X_0 and extendible at Σ^♯; (·)^(−,•), extendible at X_0 and supported at Σ^♯; and
+H̄, extendible at both. In all of these constructions the dimension enters only as the number of coordinates.
+```
 
-together with its end-of-proof mark. Nothing replaces it at that place; the label moves to the new section (C33-4).
+**C33-3. Delete the old prop:np-10-65-a** (lines 1286–1293).
 
-**C33-4. Insert the new section.** Insert the text of this file from its first line, the heading of [[sec:iv5-calc]],
-through the remark that follows [[lem:iv5-calc-q0]] (the paragraph ending "not a factorisation of the operator."),
-immediately before the heading
+Old (8 lines):
 
-> #### Elliptic estimates and the characteristic set at fibre infinity
+```text
+**Proposition {#prop:np-10-65-a}** (The calculus in every dimension.) The semiclassical 3b-calculus of [Hin26a,
+Section 2.3] is constructed on ℝ_t × ℝ^(N−1)_x for every N ([Hin23d, pp. 3, 7, 10–12, and Proposition 5.10, p. 109],
+N the spacetime dimension), as bounded geometry pseudodifferential operators in the sense of [Shu92] ([Hin23d, p. 12]),
+and its bounded geometry construction is that of [Hin26d] for a smooth manifold of any dimension ([Hin26d, Definitions
+1.3 and 1.9 and Section 3], with the 3b-algebra among its examples in every dimension, [Hin26d, p. 14, example (10)]).
+At N = 5 it is the calculus of the compactification M^♭ of [[def:iv5-0-1]], with fibres 𝕊³.
+
+*Proof.* These are the cited results, stated there for every dimension. ∎
+```
+
+New: none.
+
+The lines are deleted together with the blank line that follows them (line 1294), so that one blank line remains between
+the paragraph that ends at line 1284 and **Lemma {#lem:iv5-0-2}**. The label moves to the new section (C33-4).
+
+**C33-4. Insert the new section** (before line 1396).
+
+Insert lines 1–575 of this file, from the heading of [[sec:iv5-calc]] through the remark that follows
+[[lem:iv5-calc-q0]] (the paragraph ending "not a factorisation of the operator."), followed by one blank line,
+immediately before the line
+
+```text
+#### Elliptic estimates and the characteristic set at fibre infinity {#sec:iv5-1}
+```
 
 that is, after the paragraph *Notation* ([Hin26a, (5.19)]) and before [[sec:iv5-1]].
 
-**C33-5. Proof of prop:iv5-1-2** (about line 1416). Old (the end-of-proof mark that follows is kept):
+**C33-5. Proof of prop:iv5-1-2** (lines 1419–1421).
 
-> By [[lem:iv5-1-1]], ρ_sf⁻²P_h is elliptic on WF′(B_1). A microlocal parametrix in
-> the calculus of [[def:iv5-0-1]] gives the estimate; the weights only add terms of lower order, since
-> w⁻¹[P_h, w] ∈ hρ_sf²Diff¹_3b for w = ρ_sf^β ρ_K^(β′).
+Old (3 lines):
 
-New:
+```text
+χ_(τ,2)χ_(r,2)ω = χ_(τ,2)χ_(r,2)ω′. By [[lem:iv5-1-1]], ρ_sf⁻²P_h is elliptic on WF′(B_1). A microlocal parametrix in
+the calculus of [[def:iv5-0-1]] gives the estimate; the weights only add terms of lower order, since
+w⁻¹[P_h, w] ∈ hρ_sf²Diff¹_3b for w = ρ_sf^β ρ_K^(β′). ∎
+```
 
-> By [[lem:iv5-1-1]], ρ_sf⁻²P_h is elliptic on WF′(B_1), and B_1χ_(τ,1)χ_(r,1) is elliptic on
-> WF′(B_0χ_(τ,2)χ_(r,2)), as χ_(•,1) = 1 near supp χ_(•,2) ([[lem:iv5-calc-disjoint]] (b), (c)). So
-> [[prop:np-10-65-a]] (e), applied to ω′ with A := P_h ∈ ρ_sf²Ψ²_(3b,ħ), G := B_1χ_(τ,1)χ_(r,1) and
-> B := B_0χ_(τ,2)χ_(r,2), gives the estimate, in the weighted spaces and in the strong sense. For P_h* the proof is the
-> same, its principal symbol being G + iℓ.
+New (5 lines):
 
-**C33-6. Proof of prop:iv5-1-3, first sentence** (about line 1437). Old:
+```text
+χ_(τ,2)χ_(r,2)ω = χ_(τ,2)χ_(r,2)ω′. By [[lem:iv5-1-1]], ρ_sf⁻²P_h is elliptic on WF′(B_1), and B_1χ_(τ,1)χ_(r,1) is
+elliptic on WF′(B_0χ_(τ,2)χ_(r,2)), as χ_(•,1) = 1 near supp χ_(•,2) ([[lem:iv5-calc-disjoint]] (b), (c)). So
+[[prop:np-10-65-a]] (e), applied to ω′ with A := P_h ∈ ρ_sf²Ψ²_(3b,ħ), G := B_1χ_(τ,1)χ_(r,1) and
+B := B_0χ_(τ,2)χ_(r,2), gives the estimate, in the weighted spaces and in the strong sense. For P_h* the proof is the
+same, its principal symbol being G + iℓ. ∎
+```
 
-> We prove [Hin26a, (5.21)] for ω ∈ H^(s,(α_sf,α_K))_(3b,h); the strong sense follows by the standard
-> regularisation ([Hin26a, p. 45]).
+**C33-6. Proof of prop:iv5-1-3, first sentence** (lines 1438–1439). The rest of the paragraph, from line 1440, is
+unchanged.
 
-New:
+Old (2 lines):
 
-> We prove [Hin26a, (5.21)] for ω ∈ H^(s,(α_sf,α_K))_(3b,h). The strong sense follows by running the same argument with
-> the commutant aj_ε, j_ε := ⟨εζ⟩^(−K) as in [[lem:iv5-calc-reg]] with K so large that every pairing below is finite
-> when the right side of [[eq:iv5-fib]] is. By [[lem:iv5-calc-reg]] (c), H_G(aj_ε) = j_εH_Ga + ϑ_εj_εae_G, so the
-> terms in which j_ε is differentiated are bounded multiples of a²j_ε², uniformly in ε, like the terms in which the
-> weights are differentiated; they join the term hAB̃_2A below and are absorbed in the same way. The estimate then holds
-> with B_0χ_(τ,2)χ_(r,2)ω replaced by J_εB_0χ_(τ,2)χ_(r,2)ω, J_ε := Op(j_ε), with a constant independent of ε. As
-> ε → 0, J_εB_0χ_(τ,2)χ_(r,2)ω tends to B_0χ_(τ,2)χ_(r,2)ω in H^(−N,(α_sf,α_K))_(3b,h) ([[lem:iv5-calc-reg]] (b)) and
-> is bounded in H^(s,(α_sf,α_K))_(3b,h); a weakly convergent subsequence identifies the limit, which therefore lies in
-> H^(s,(α_sf,α_K))_(3b,h) and satisfies the estimate.
+```text
+*Proof.* We prove [Hin26a, (5.21)] for ω ∈ H^(s,(α_sf,α_K))_(3b,h); the strong sense follows by the standard
+regularisation ([Hin26a, p. 45]). By [[prop:iv5-1-2]] it suffices to work in an h-independent neighbourhood of ∂Σ_±;
+```
 
-**C33-7. The commutant of prop:iv5-1-3** (about line 1443). Old:
+New (10 lines):
 
-> and a quantisation A = A* with WF′(A) = supp a. Then [Hin26a, (5.25)] holds:
+```text
+*Proof.* We prove [Hin26a, (5.21)] for ω ∈ H^(s,(α_sf,α_K))_(3b,h). The strong sense follows by running the same
+argument with the commutant aj_ε, j_ε := ⟨εζ⟩^(−K) as in [[lem:iv5-calc-reg]] with K so large that every pairing below
+is finite when the right side of [[eq:iv5-fib]] is. By [[lem:iv5-calc-reg]] (c), H_G(aj_ε) = j_εH_Ga + ϑ_εj_εae_G, so
+the terms in which j_ε is differentiated are bounded multiples of a²j_ε², uniformly in ε, like the terms in which the
+weights are differentiated; they join the term hAB̃_2A below and are absorbed in the same way. The estimate then holds,
+by the argument below with [[prop:np-10-65-a]] (e) and the same iteration, with B_0χ_(τ,2)χ_(r,2)ω replaced by
+J_εB_0χ_(τ,2)χ_(r,2)ω, J_ε := Op(j_ε), and with a constant independent of ε. As ε → 0, J_εB_0χ_(τ,2)χ_(r,2)ω tends to
+B_0χ_(τ,2)χ_(r,2)ω in H^(−N,(α_sf,α_K))_(3b,h) ([[lem:iv5-calc-reg]] (b)) and is bounded in H^(s,(α_sf,α_K))_(3b,h); a
+weakly convergent subsequence identifies the limit, which therefore lies in H^(s,(α_sf,α_K))_(3b,h) and satisfies the
+estimate. By [[prop:iv5-1-2]] it suffices to work in an h-independent neighbourhood of ∂Σ_±;
+```
 
-New:
+**C33-7. The commutant of prop:iv5-1-3** (line 1445).
 
-> and a quantisation A = A* of a ([[prop:np-10-65-a]] (c)), microsupported in a closed neighbourhood of supp a as small
-> as needed below. Then [Hin26a, (5.25)] holds:
+Old (1 line):
 
-**C33-8. (5.26)** (about line 1450). Old:
+```text
+and a quantisation A = A* with WF′(A) = supp a. Then [Hin26a, (5.25)] holds:
+```
 
-> This gives [Hin26a, (5.26)]:
+New (2 lines):
 
-New:
+```text
+and a quantisation A = A* of a ([[prop:np-10-65-a]] (c)), microsupported in a closed neighbourhood of supp a as small as
+needed below. Then [Hin26a, (5.25)] holds:
+```
 
-> With the square roots of [[prop:np-10-65-a]] (f) and the rules of [[prop:np-10-65-a]] (b), this gives [Hin26a, (5.26)],
-> with E microsupported near supp a ([[lem:iv5-calc-disjoint]] (b)):
+**C33-8. (5.26)** (line 1452).
 
-**C33-9. The absorption in prop:iv5-1-3** (about line 1462). Old:
+Old (1 line):
 
-> and absorb h⟨B̃_2Aω, Aω⟩ ≤ Ch‖B̃_0Aω‖² + h^N‖ω‖².
+```text
+subprincipal, □_h having real scalar principal symbol. This gives [Hin26a, (5.26)]:
+```
 
-New:
+New (2 lines):
 
-> and absorb h⟨B̃_2Aω, Aω⟩ ≤ Ch‖B̃_0Aω‖² + h^N‖ω‖², which holds by [[prop:np-10-65-a]] (e), B̃_0 being elliptic on a
-> neighbourhood of supp a in which A is microsupported.
+```text
+subprincipal, □_h having real scalar principal symbol. With the square roots of [[prop:np-10-65-a]] (f) and the rules of
+[[prop:np-10-65-a]] (b), this gives [Hin26a, (5.26)], with E microsupported near supp a ([[lem:iv5-calc-disjoint]] (b)):
+```
 
-**C33-10. The commutant of prop:iv5-2-1 (1)** (about line 1505). Old:
+**C33-9. The absorption in prop:iv5-1-3** (line 1464).
 
-> a = ρ_K^(−α_K)ψ(r)χ_K(𝔛ρ_K)χ_0(𝔛|ζ|), and A = A*. The pairing is [Hin26a, (5.37)–(5.38)]:
+Old (1 line):
 
-New:
+```text
+of the main term, and absorb h⟨B̃_2Aω, Aω⟩ ≤ Ch‖B̃_0Aω‖² + h^N‖ω‖². Iterate in h^(1/2) on the error term
+```
 
-> a = ρ_K^(−α_K)ψ(r)χ_K(𝔛ρ_K)χ_0(𝔛|ζ|), and A = A* a quantisation of a as in [[prop:np-10-65-a]] (c), with Schwartz
-> kernel supported in K × K. The pairing is [Hin26a, (5.37)–(5.38)]:
+New (2 lines):
 
-**C33-11. The Q-terms of prop:iv5-2-1 (1)** (about lines 1523–1527). Old:
+```text
+of the main term, and absorb h⟨B̃_2Aω, Aω⟩ ≤ Ch‖B̃_0Aω‖² + h^N‖ω‖², which holds by [[prop:np-10-65-a]] (e), B̃_0 being
+elliptic on a neighbourhood of supp a in which A is microsupported. Iterate in h^(1/2) on the error term
+```
 
-> For Q: Q_0 has the positive definite principal symbol G + Cρ_sf⁻²ℓ² ([[lem:iv5-0-4]]), so Q_0 = Θ*Θ + R with
-> R ∈ Ψ^(−∞)_3b, which is [Hin26a, (5.44)]; the symbol of h⁻¹h³Q_1 vanishes quadratically at o, so it is O(𝔛⁻²) on
-> supp a, which gives [Hin26a, (5.45)] by Gårding; and the double commutator lies in hΨ and gives [Hin26a, (5.46)].
-> Collecting, fix 𝔛 large and then h small to absorb ‖Aω‖². Then [Hin26a, (5.47)], with WF′(F) ⊂ Ell(𝓛_h), gives
-> [Hin26a, (5.48)], and finitely many iterations in h^(1/2) give [Hin26a, (5.33)], with δ := 𝔛⁻¹.
+**C33-10. The commutant of prop:iv5-2-1 (1)** (line 1506).
 
-New:
+Old (1 line):
 
-> For Q, write −h⁻¹⟨AQAω, ω⟩ = −h⟨Q_0Aω, Aω⟩ − ⟨h²Q_1Aω, Aω⟩, A being self-adjoint.
->
-> *The term with Q_0* ([Hin26a, (5.44)]). Q_0 ∈ ρ_sf²Diff²_3b is independent of h and symmetric, and its principal
-> symbol G + Cρ_sf⁻²ℓ² satisfies B(ρ_sf⁻²(G + Cρ_sf⁻²ℓ²)v, v) ≥ c|ζ|²B(v, v) over a neighbourhood of Ω, by
-> [[lem:iv5-0-4]] and continuity from Ω; near K, ρ_sf lies between two positive constants. As the Schwartz kernel of A
-> lies in K × K, [[lem:iv5-calc-q0]] gives −h⟨Q_0Aω, Aω⟩ ≤ Ch‖Aω‖².
->
-> *The term with Q_1* ([Hin26a, (5.45)]). T := h²Q_1 ∈ ρ_sf²Ψ²_(3b,ħ) is self-adjoint, and its principal symbol q₁₀ is
-> the principal symbol of Q_1 evaluated at ζ, homogeneous of degree 2 ([[prop:np-10-65-a]] (a)). So
-> |q₁₀(z, ζ)| ≤ C₂|ζ|² over a fixed neighbourhood V of K, where C₂ is the supremum of |q₁₀| over the unit sphere
-> bundle above V, independent of 𝔛. Let ã := χ̃(𝔛|ζ|)φ(z), with χ̃ ∈ C_c^∞((−3, 3)), 0 ≤ χ̃ ≤ 1, χ̃ = 1 on
-> [−5/2, 5/2], and φ ∈ C^∞(M₀), 0 ≤ φ ≤ 1, equal to 1 near K and supported in V; put Ã := Op(ã). As χ_0 is supported in
-> (−2, 2), A may be taken microsupported in a closed set near which ã = 1; then (I − Ã)A = Op(1 − ã)A lies in
-> h^∞Ψ^(−∞)_(3b,ħ) ([[lem:iv5-calc-disjoint]]). The self-adjoint operator Ã*TÃ has principal symbol ã²q₁₀, and
-> |ã²q₁₀| ≤ 9C₂𝔛⁻² everywhere. [[lem:iv5-calc-garding]] (a), applied with η := 𝔛⁻² to Ã*TÃ and to −Ã*TÃ, gives
-> |⟨Ã*TÃAω, Aω⟩| ≤ ((9C₂ + 1)𝔛⁻² + C_𝔛h)‖Aω‖². The difference ⟨TAω, Aω⟩ − ⟨Ã*TÃAω, Aω⟩ is a sum of three terms,
-> each containing (I − Ã)Aω = (I − Ã)Aχω, whose norm in every H^k_(3b,h) is O(h^N‖χω‖_(ρ_K^(α_K)H^(−N)_(3b,h)))
-> ([[prop:np-10-65-a]] (d)); so it is at most 𝔛⁻²‖Aω‖² + C_(𝔛,N)h^(2N)‖χω‖²_(ρ_K^(α_K)H^(−N)_(3b,h)). Hence
->
->     |Re h⁻¹⟨Ah³Q_1Aω, ω⟩| ≤ ((9C₂ + 2)𝔛⁻² + C_𝔛h)‖Aω‖² + C_(𝔛,N)h^(2N)‖χω‖²_(ρ_K^(α_K)H^(−N)_(3b,h)),
->
-> which is [Hin26a, (5.45)] with 9C₂ + 2 for 2C and an additional term of the form of the last term in (1).
->
-> *The double commutator* (1/(2h))[A, [A, Q]] lies in hΨ_(3b,ħ), the principal symbol of A being scalar
-> ([[prop:np-10-65-a]] (b)), and gives [Hin26a, (5.46)].
->
-> Collecting, the coefficient of ‖Aω‖² is at most −c_0 + (9C₂ + 2)𝔛⁻² + C′_𝔛h, with C₂ independent of 𝔛: fix 𝔛 large
-> and then h small to absorb ‖Aω‖². Then [Hin26a, (5.47)], with WF′(F) ⊂ Ell(𝓛_h) and [[prop:np-10-65-a]] (e), gives
-> [Hin26a, (5.48)], and finitely many iterations in h^(1/2) give [Hin26a, (5.33)], with δ := 𝔛⁻¹.
+```text
+a = ρ_K^(−α_K)ψ(r)χ_K(𝔛ρ_K)χ_0(𝔛|ζ|), and A = A*. The pairing is [Hin26a, (5.37)–(5.38)]:
+```
 
-**C33-12. prop:iv5-2-1 (2)** (about line 1532). Old (the end-of-proof mark that follows is kept):
+New (2 lines):
 
-> Q enters with a lower bound by [Hin26a, (5.44)–(5.45)], and the iteration is the same.
+```text
+a = ρ_K^(−α_K)ψ(r)χ_K(𝔛ρ_K)χ_0(𝔛|ζ|), and A = A* a quantisation of a as in [[prop:np-10-65-a]] (c), with Schwartz kernel
+supported in K × K. The pairing is [Hin26a, (5.37)–(5.38)]:
+```
 
-New:
+**C33-11. The Q-terms of prop:iv5-2-1 (1)** (lines 1525–1529).
 
-> Q enters with a lower bound, the adjoint pairing containing +h⁻¹⟨AQAω, ω⟩: h⟨Q_0Aω, Aω⟩ ≥ −Ch‖Aω‖² by
-> [[lem:iv5-calc-q0]], and ⟨h²Q_1Aω, Aω⟩ ≥ −((9C₂ + 2)𝔛⁻² + C_𝔛h)‖Aω‖² − C_(𝔛,N)h^(2N)‖χω‖² as in (1), by
-> [[lem:iv5-calc-garding]] applied to −Ã*h²Q_1Ã. The iteration is the same.
+Old (5 lines):
 
-**C33-13. prop:iv5-3-1** (about line 1570). Old:
+```text
+For Q: Q_0 has the positive definite principal symbol G + Cρ_sf⁻²ℓ² ([[lem:iv5-0-4]]), so Q_0 = Θ*Θ + R with
+R ∈ Ψ^(−∞)_3b, which is [Hin26a, (5.44)]; the symbol of h⁻¹h³Q_1 vanishes quadratically at o, so it is O(𝔛⁻²) on
+supp a, which gives [Hin26a, (5.45)] by Gårding; and the double commutator lies in hΨ and gives [Hin26a, (5.46)].
+Collecting, fix 𝔛 large and then h small to absorb ‖Aω‖². Then [Hin26a, (5.47)], with WF′(F) ⊂ Ell(𝓛_h), gives
+[Hin26a, (5.48)], and finitely many iterations in h^(1/2) give [Hin26a, (5.33)], with δ := 𝔛⁻¹.
+```
 
-> c_0⁻¹h⁻²‖ρ_sf⁻¹A𝓛_hω‖² + ¼c_0‖ρ_sfAω‖² produces the weights of [Hin26a, (5.51)]. The rest is the proof of
-> [[prop:iv5-2-1]], with δ := 𝔛⁻¹.
+New (30 lines):
 
-New:
+```text
+For Q, write −h⁻¹⟨AQAω, ω⟩ = −h⟨Q_0Aω, Aω⟩ − ⟨h²Q_1Aω, Aω⟩, A being self-adjoint.
 
-> c_0⁻¹h⁻²‖ρ_sf⁻¹A𝓛_hω‖² + ¼c_0‖ρ_sfAω‖² produces the weights of [Hin26a, (5.51)]. The Q-terms are estimated as in the
-> proof of [[prop:iv5-2-1]], with the weight ρ_sf: [[lem:iv5-calc-q0]] applies to Q_0 with w = ρ_sf, as
-> ρ_sf⁻²(G + Cρ_sf⁻²ℓ²) = ρ_sf⁻²G + C(ρ_sf⁻²ℓ)² is positive definite over Ω ([[lem:iv5-0-4]]), and
-> [[lem:iv5-calc-garding]] (b) applies to Ã*h²Q_1Ã ∈ ρ_sf²Ψ⁰_(3b,ħ), with C₂ the supremum of |ρ_sf⁻²q₁₀| over the unit
-> sphere bundle above a neighbourhood of K; so ‖Aω‖ is replaced by ‖ρ_sfAω‖ in these bounds. The rest is the proof of
-> [[prop:iv5-2-1]], with δ := 𝔛⁻¹.
+*The term with Q_0* ([Hin26a, (5.44)]). Q_0 ∈ ρ_sf²Diff²_3b is independent of h and symmetric, and its principal symbol
+G + Cρ_sf⁻²ℓ² satisfies B(ρ_sf⁻²(G + Cρ_sf⁻²ℓ²)v, v) ≥ c|ζ|²B(v, v) over a neighbourhood of Ω, by [[lem:iv5-0-4]] and
+continuity from Ω; near K, ρ_sf lies between two positive constants. As the Schwartz kernel of A lies in K × K,
+[[lem:iv5-calc-q0]], with w = 1, gives −h⟨Q_0Aω, Aω⟩ ≤ Ch‖Aω‖².
 
-**C33-14. prop:iv5-4-1 (1)** (about line 1608). Old:
+*The term with Q_1* ([Hin26a, (5.45)]). T := h²Q_1 ∈ ρ_sf²Ψ²_(3b,ħ) is self-adjoint, and its principal symbol q₁₀ is the
+principal symbol of Q_1 evaluated at ζ, homogeneous of degree 2 ([[prop:np-10-65-a]] (a)). So |q₁₀(z, ζ)| ≤ C₂|ζ|² over
+a fixed neighbourhood V of K, where C₂ is the supremum of |q₁₀| over the unit sphere bundle above V, independent of 𝔛.
+Let ã := χ̃(𝔛|ζ|)φ(z), with χ̃ ∈ C_c^∞((−3, 3)), 0 ≤ χ̃ ≤ 1, χ̃ = 1 on [−5/2, 5/2], and φ ∈ C^∞(M₀), 0 ≤ φ ≤ 1, equal to
+1 near K and supported in V; put Ã := Op(ã). As χ_0 is supported in (−2, 2), A may be taken microsupported in a closed
+set near which ã = 1; then (I − Ã)A = Op(1 − ã)A lies in h^∞Ψ^(−∞)_(3b,ħ) ([[def:iv5-calc-micro]]). The self-adjoint
+operator Ã*TÃ has principal symbol ã²q₁₀, and |ã²q₁₀| ≤ 9C₂𝔛⁻² everywhere. [[lem:iv5-calc-garding]] (a), applied with
+η := 𝔛⁻² to Ã*TÃ and to −Ã*TÃ, gives |⟨Ã*TÃAω, Aω⟩| ≤ ((9C₂ + 1)𝔛⁻² + C_𝔛h)‖Aω‖². The difference
+⟨TAω, Aω⟩ − ⟨Ã*TÃAω, Aω⟩ is a sum of three terms, each containing (I − Ã)Aω = (I − Ã)Aχω, whose norm in every H^k_(3b,h)
+is O(h^N‖χω‖_(ρ_K^(α_K)H^(−N)_(3b,h))) ([[prop:np-10-65-a]] (d)); so it is at most
+𝔛⁻²‖Aω‖² + C_(𝔛,N)h^(2N)‖χω‖²_(ρ_K^(α_K)H^(−N)_(3b,h)). Hence
 
-> give ‖Eω‖. The rest is the proof of
-> [[prop:iv5-2-1]].
+    |Re h⁻¹⟨Ah³Q_1Aω, ω⟩| ≤ ((9C₂ + 2)𝔛⁻² + C_𝔛h)‖Aω‖² + C_(𝔛,N)h^(2N)‖χω‖²_(ρ_K^(α_K)H^(−N)_(3b,h)),
 
-New:
+which is [Hin26a, (5.45)] with 9C₂ + 2 for 2C and an additional term of the form of the last term in (1).
 
-> give ‖Eω‖. The rest is the proof of
-> [[prop:iv5-2-1]], with the weighted Q-terms of [[prop:iv5-3-1]].
+*The double commutator* (1/(2h))[A, [A, Q]] lies in hΨ_(3b,ħ), the principal symbol of A being scalar
+([[prop:np-10-65-a]] (b)), and gives [Hin26a, (5.46)].
 
-**C33-15. prop:iv5-5-2** (about line 1706). Old:
+Collecting, the Q-terms add at most (9C₂ + 2)𝔛⁻² + C′_𝔛h to the coefficient −c_0 of ‖Aω‖², where C₂ does not depend
+on 𝔛 and C′_𝔛 does not depend on h: fix 𝔛 large
+and then h small to absorb ‖Aω‖². Then [Hin26a, (5.47)], with WF′(F) ⊂ Ell(𝓛_h) and [[prop:np-10-65-a]] (e), gives
+[Hin26a, (5.48)], and finitely many iterations in h^(1/2) give [Hin26a, (5.33)], with δ := 𝔛⁻¹.
+```
 
-> is the proof of [[prop:iv5-2-1]]: 𝓛_h, the Q-terms [Hin26a, (5.44)–(5.46)], and the iteration.
+The last two lines of this new text are the old text of variant A of T41 in P-G24b, unchanged.
 
-New:
+**C33-12. prop:iv5-2-1 (2)** (line 1534).
 
-> is the proof of [[prop:iv5-2-1]]: 𝓛_h, the Q-terms ([[lem:iv5-calc-q0]] and [[lem:iv5-calc-garding]], with the weight
-> ρ_sf as in [[prop:iv5-3-1]] in (b)–(c)), the double commutator, and the iteration.
+Old (1 line):
 
-**C33-16. Strong sense in prop:iv5-7-1** (about line 2036). Old:
+```text
+[[lem:iv5-0-5]] (6) on supp ψ′. Q enters with a lower bound by [Hin26a, (5.44)–(5.45)], and the iteration is the same. ∎
+```
 
-> [[sec:iv5-1]]–[[sec:iv5-5]] hold for every s in the strong sense; near the zero section the order is irrelevant.
+New (3 lines):
 
-New:
+```text
+[[lem:iv5-0-5]] (6) on supp ψ′. Q enters with a lower bound, the adjoint pairing containing +h⁻¹⟨AQAω, ω⟩:
+h⟨Q_0Aω, Aω⟩ ≥ −Ch‖Aω‖² by [[lem:iv5-calc-q0]], and ⟨h²Q_1Aω, Aω⟩ ≥ −((9C₂ + 2)𝔛⁻² + C_𝔛h)‖Aω‖² − C_(𝔛,N)h^(2N)‖χω‖² as
+in (1), by [[lem:iv5-calc-garding]] applied to −Ã*h²Q_1Ã. The iteration is the same. ∎
+```
 
-> [[sec:iv5-1]]–[[sec:iv5-5]] hold for every s in the strong sense: near the zero section the operators have compact
-> operator wave front sets and the order is irrelevant, and at fibre infinity the regularisation in the proof of
-> [[prop:iv5-1-3]] applies.
+The new text keeps "[[lem:iv5-0-5]] (6) on supp ψ′." at the start of its first line, so the old text of T7 in P-G24b,
+which ends with these words, is still found once after this change.
 
-**C33-17. Duality in thm:iv5-7-3 (a)** (about line 2105). Old:
+**C33-13. prop:iv5-3-1** (lines 1572–1573).
 
-> H^(s,(α_sf,α_K))(Ω)^(•,−) and H^(−s,(−α_sf,−α_K))(Ω)^(−,•) ([Hin26a, Section 2.3]). So the Hahn–Banach theorem gives
+Old (2 lines):
 
-New:
+```text
+c_0⁻¹h⁻²‖ρ_sf⁻¹A𝓛_hω‖² + ¼c_0‖ρ_sfAω‖² produces the weights of [Hin26a, (5.51)]. The rest is the proof of
+[[prop:iv5-2-1]], with δ := 𝔛⁻¹.
+```
 
-> H^(s,(α_sf,α_K))(Ω)^(•,−) and H^(−s,(−α_sf,−α_K))(Ω)^(−,•), with constants independent of h ([[lem:iv5-calc-dual]]).
-> So the Hahn–Banach theorem gives
+New (6 lines):
 
-**C33-18. lem:iv5-8-1** (about line 2156). Old:
+```text
+c_0⁻¹h⁻²‖ρ_sf⁻¹A𝓛_hω‖² + ¼c_0‖ρ_sfAω‖² produces the weights of [Hin26a, (5.51)]. The Q-terms are estimated as in the
+proof of [[prop:iv5-2-1]], with the weight ρ_sf: [[lem:iv5-calc-q0]] applies to Q_0 with w = ρ_sf, as
+ρ_sf⁻²(G + Cρ_sf⁻²ℓ²) = ρ_sf⁻²G + C(ρ_sf⁻²ℓ)² is positive definite over Ω ([[lem:iv5-0-4]]), and
+[[lem:iv5-calc-garding]] (b) applies to Ã*h²Q_1Ã ∈ ρ_sf²Ψ⁰_(3b,ħ), with C₂ the supremum of |ρ_sf⁻²q₁₀| over the unit
+sphere bundle above a neighbourhood of K; so ‖Aω‖ is replaced by ‖ρ_sfAω‖ in these bounds. The rest is the proof of
+[[prop:iv5-2-1]], with δ := 𝔛⁻¹.
+```
 
-> The calculus estimates used (composition, elliptic parametrices, the sharp Gårding
-> inequality, L²-boundedness) have constants depending on finitely many seminorms of the symbols involved, which depend
-> continuously on b.
+**C33-14. prop:iv5-4-1 (1)** (lines 1610–1611).
 
-New:
+Old (2 lines):
 
-> The calculus facts used ([[prop:np-10-65-a]], [[lem:iv5-calc-garding]] and [[lem:iv5-calc-q0]]) hold with constants
-> uniform in b by [[prop:np-10-65-a]] (j): the coefficients of P_h and of Q_0, Q_1, the symbols of the commutants, of
-> their square roots and of the auxiliary operators, the ellipticity bounds and the positivity margins are bounded
-> uniformly for b ∈ U. In particular the margin 9C₂ + 2 in the proof of [[prop:iv5-2-1]] is uniform, C₂ being the
-> supremum of a symbol continuous in b over a compact set, and for each fixed 𝔛 the constant C_𝔛 is uniform, the square
-> root in [[lem:iv5-calc-garding]] having the margin η = 𝔛⁻² for every b.
+```text
+e₁ and e₂ are supported away from {|(r/t)/v − 1| ≤ δ_sf, ρ_sf ≤ 𝔛⁻¹} and give ‖Eω‖. The rest is the proof of
+[[prop:iv5-2-1]].
+```
 
-**C33-19. The eb-structure, sec:iv6-2** (about line 2427). Old:
+New (2 lines):
 
-> give the parameterised scaled bounded
-> geometry ([[prop:np-10-65-a]]).
+```text
+e₁ and e₂ are supported away from {|(r/t)/v − 1| ≤ δ_sf, ρ_sf ≤ 𝔛⁻¹} and give ‖Eω‖. The rest is the proof of
+[[prop:iv5-2-1]], with the weighted Q-terms of [[prop:iv5-3-1]].
+```
 
-New:
+**C33-15. prop:iv5-5-2** (line 1708).
 
-> give the parameterised scaled bounded
-> geometry of [[def:iv5-calc-cells]], and [[prop:np-10-65-a]] (i) gives the semiclassical eb-calculus.
+Old (1 line):
 
-**C33-20. The cone face in the proof of thm:iv6-2-1** (about line 2482). Insert before the sentence
+```text
+is the proof of [[prop:iv5-2-1]]: 𝓛_h, the Q-terms [Hin26a, (5.44)–(5.46)], and the iteration.
+```
 
-> This gives [Hin26a, (B.39)], whose a priori term lies in τ ≤ (2.75/10)T, covered by [Hin26a, (B.34)]; and
+New (2 lines):
 
-the paragraph:
+```text
+is the proof of [[prop:iv5-2-1]]: 𝓛_h, the Q-terms ([[lem:iv5-calc-q0]] and [[lem:iv5-calc-garding]], with the weight
+ρ_sf as in [[prop:iv5-3-1]] in (b)–(c)), the double commutator, and the iteration.
+```
 
-> The Q-terms are those of the proof of [[prop:iv5-2-1]] with r⁻¹ for ρ_sf: [[lem:iv5-calc-q0]] in the eb-calculus with
-> w = r⁻¹, the constant C being such that r²G + C(r²ℓ)² is positive definite on the model, as in [[lem:iv5-0-4]]; and
-> [[lem:iv5-calc-garding]] (b), (c) for the term with Q_1.
+**C33-16. Strong sense in prop:iv5-7-1** (line 2038).
+
+Old (1 line):
+
+```text
+[[sec:iv5-1]]–[[sec:iv5-5]] hold for every s in the strong sense; near the zero section the order is irrelevant. They
+```
+
+New (3 lines):
+
+```text
+[[sec:iv5-1]]–[[sec:iv5-5]] hold for every s in the strong sense: near the zero section the operators have compact
+operator wave front sets and the order is irrelevant, and at fibre infinity the regularisation in the proof of
+[[prop:iv5-1-3]] applies. They
+```
+
+**C33-17. Duality in thm:iv5-7-3 (a)** (line 2107).
+
+Old (1 line):
+
+```text
+H^(s,(α_sf,α_K))(Ω)^(•,−) and H^(−s,(−α_sf,−α_K))(Ω)^(−,•) ([Hin26a, Section 2.3]). So the Hahn–Banach theorem gives
+```
+
+New (2 lines):
+
+```text
+H^(s,(α_sf,α_K))(Ω)^(•,−) and H^(−s,(−α_sf,−α_K))(Ω)^(−,•), with constants independent of h ([[lem:iv5-calc-dual]]). So
+the Hahn–Banach theorem gives
+```
+
+**C33-18. lem:iv5-8-1** (lines 2158–2160).
+
+Old (3 lines):
+
+```text
+hence independently of b. The calculus estimates used (composition, elliptic parametrices, the sharp Gårding
+inequality, L²-boundedness) have constants depending on finitely many seminorms of the symbols involved, which depend
+continuously on b. Each absorption step needs h below a threshold determined by these quantities. So each h_0 and C is
+```
+
+New (7 lines):
+
+```text
+hence independently of b. The calculus facts used ([[prop:np-10-65-a]], [[lem:iv5-calc-garding]] and
+[[lem:iv5-calc-q0]]) hold with constants uniform in b by [[prop:np-10-65-a]] (j): the coefficients of P_h and of Q_0,
+Q_1, the symbols of the commutants, of their square roots and of the auxiliary operators, the ellipticity bounds and the
+positivity margins are bounded uniformly for b ∈ U. In particular the constant 9C₂ + 2 in the proof of [[prop:iv5-2-1]]
+is uniform, C₂ being the supremum of a symbol continuous in b over a compact set, and for each fixed 𝔛 the constant C_𝔛
+is uniform, the square root in [[lem:iv5-calc-garding]] having the margin η = 𝔛⁻² for every b. Each absorption step
+needs h below a threshold determined by these quantities. So each h_0 and C is
+```
+
+**C33-19. The eb-structure, sec:iv6-2** (lines 2431–2432).
+
+Old (2 lines):
+
+```text
+(2^j(k − 2), 2^j(k + 2))_t × (2^(j−2), 2^(j+2))_r × U̸_β, with U̸_β charts of 𝕊³, give the parameterised scaled bounded
+geometry ([[prop:np-10-65-a]]). On it P_h := h²□^C = □_h − iL_h ∈ r⁻²Diff²_(eb,ħ)(M; 𝒯*) has principal symbol G − iℓ
+```
+
+New (3 lines):
+
+```text
+(2^j(k − 2), 2^j(k + 2))_t × (2^(j−2), 2^(j+2))_r × U̸_β, with U̸_β charts of 𝕊³, give the parameterised scaled bounded
+geometry of [[def:iv5-calc-cells]], and [[prop:np-10-65-a]] (i) gives the semiclassical eb-calculus. On it
+P_h := h²□^C = □_h − iL_h ∈ r⁻²Diff²_(eb,ħ)(M; 𝒯*) has principal symbol G − iℓ
+```
+
+**C33-20. The cone face in the proof of thm:iv6-2-1** (before line 2486).
+
+Insert the paragraph
+
+```text
+The Q-terms are those of the proof of [[prop:iv5-2-1]] with r⁻¹ for ρ_sf: [[lem:iv5-calc-q0]] in the eb-calculus with
+w = r⁻¹, the constant C being such that r²G + C(r²ℓ)² is positive definite on the model, as in [[lem:iv5-0-4]]; and
+[[lem:iv5-calc-garding]] (b), (c) for the term with Q_1.
+```
+
+followed by one blank line, immediately before the line
+
+```text
+This gives [Hin26a, (B.39)], whose a priori term lies in τ ≤ (2.75/10)T, covered by [Hin26a, (B.34)]; and
+```
+
+which begins a paragraph. If T34 of P-G24b has already replaced that paragraph, insert before the first line of T34's new
+text instead ("This gives, by the proof of [[prop:iv5-3-1]] (1), …").
 
 No other site of chapter 33 changes. The display numbers [Hin26a, (5.44)–(5.48)] and [Hin26a] itself remain as
 attributions.
 
 ### Chapter 23
 
-**C23-1 (optional). The paraphrase (S7) in sec:ii-a-3** (about line 367). Old:
+**C23-1 (optional). The paraphrase (S7) in sec:ii-a-3** (lines 367–369).
 
-> (S7) [Hin26d, Definitions 3.58 and 3.59, p. 59.] For a parameterised scaled b.g. structure (ℬ^(p,×))_(p∈P), with all
-> bounds uniform in p, the above holds uniformly in p; operators are families with uniformly bounded symbols and residual
-> parts, bounded uniformly on the p-dependent spaces.
+Old (3 lines):
 
-New:
+```text
+(S7) [Hin26d, Definitions 3.58 and 3.59, p. 59.] For a parameterised scaled b.g. structure (ℬ^(p,×))_(p∈P), with all
+bounds uniform in p, the above holds uniformly in p; operators are families with uniformly bounded symbols and residual
+parts, bounded uniformly on the p-dependent spaces.
+```
 
-> (S7) [Hin26d, Definitions 3.58 and 3.59 and the text after them, with footnote 13, p. 59.] For a parameterised scaled
-> b.g. structure (ℬ^(p,×))_(p∈P), with all bounds uniform in p, operators are families with uniformly bounded symbols
-> and residual parts; they are bounded uniformly on the p-dependent spaces, and the properties of adjoints,
-> compositions, commutators and principal symbols in [Hin26d, Theorem 3.51] carry over verbatim. The boundedness is
-> [Hin26d, Theorem 3.44] for the scaled b.g. structure on P′ × M, P′ ⊂ P countable.
+New (5 lines):
 
-The uses of (S7) in [[lem:ii-a-7-1]] (a parametrix to finite order, uniformly in σ) need only compositions and
-principal symbols, which this covers.
+```text
+(S7) [Hin26d, Definitions 3.58 and 3.59 and the text after them, with footnote 13, p. 59.] For a parameterised scaled
+b.g. structure (ℬ^(p,×))_(p∈P), with all bounds uniform in p, operators are families with uniformly bounded symbols and
+residual parts; they are bounded uniformly on the p-dependent spaces, and the properties of adjoints, compositions,
+commutators and principal symbols in [Hin26d, Theorem 3.51] carry over verbatim. The boundedness is
+[Hin26d, Theorem 3.44] for the scaled b.g. structure on P′ × M, P′ ⊂ P countable.
+```
+
+(S7) is cited at 23:778 (the proof of [[lem:ii-a-7-1]]: compositions, principal symbols and boundedness, covered by the
+new text), at 27:444 (the proof of [[lem:ii-f-2-2]]: its (a) is covered, while its (c), an elliptic estimate asserted
+uniformly in h and proved at 27:460, used the old words "the above holds uniformly in p") and at 37:824
+(uniform equivalence of norms on a compact set of parameters, not a statement of p. 59). C23-1 is to be applied only
+together with a check of 27:460 and 37:824. The uniformity there can be obtained by the reduction in the proof of
+[[prop:np-10-65-a]] (statements on P′ × M for countable P′).
 
 ### Chapter 27
 
 No change. [Hin23d, Lemma 2.25] (27:1256 and 27:1529) is the same lemma, "Fourier transform of symbols: conormal case",
-with the same statement, in arXiv version 1 (p. 41) and in the published version, arXiv version 2 (p. 43). Neither
-site cites a page.
+with the same statement, in arXiv version 1 (p. 41) and in the published version, arXiv version 2 (p. 43). Neither site
+cites a page.
 
 ### Appendix A (chapter 95)
 
-**C95-1. The header of thm:std-sbg-calculus** (about line 848). Old:
+**C95-1. The header of thm:std-sbg-calculus** (lines 851–853).
 
-> ([Hin26d, Definitions 1.1–4.20, Lemmas 3.24 and 3.42, Propositions 2.3–4.22,
-> Remarks 3.13–3.48, Theorems 3.21–3.52,
+Old (3 lines):
 
-New:
+```text
+**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemmas 3.24 and 3.42, Propositions 2.3–4.22,
+Remarks 3.13–3.48, Theorems 3.21–3.52, (1.6), (2.3), (2.5), (3.2), (3.26), (3.28), (4.24a–b), (4.27), (4.28),
+pp. 2–75].) On a smooth manifold M of any dimension n, without boundary, the following hold.
+```
 
-> ([Hin26d, Definitions 1.1–4.20, Lemmas 3.20, 3.24, 3.28 and 3.42, Propositions 2.3–4.22,
-> Remarks 3.13–3.56, Theorems 3.21–3.52, footnote 13,
+New (4 lines):
 
-**C95-2. (S7)** (about line 890). Old (one line):
+```text
+**Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemmas 3.18, 3.20, 3.24 and 3.42,
+Propositions 2.3–4.22, Remarks 3.13–3.56, Theorems 3.21–3.52, footnote 13, (1.6), (2.3), (2.5), (3.2), (3.19), (3.26),
+(3.28), (3.30), (4.24a–b), (4.27), (4.28), pp. 2–75].) On a smooth manifold M of any dimension n, without boundary, the
+following hold.
+```
 
-> (S7) Parameterised structures [Hin26d, Definitions 3.58–3.59, p. 59].
+**C95-2. (S7)** (line 893).
 
-New:
+Old (1 line):
 
-> (S7) Parameterised structures [Hin26d, Definition 1.9, p. 9; p. 58 and Remark 3.56, p. 58; Definitions 3.58 and 3.59
-> and the text after them, with footnote 13, p. 59]. Definition 1.9 defines a parameterized scaled bounded geometry
-> structure on (M, P) as a collection {𝓑_(p,×)} of scaled b.g. structures 𝓑_(p,×) = {(U_(α_p), φ_(α_p), ρ_(α_p))}, p ∈
-> P, "so that the quantities A and the C^∞ bounds on transition functions in Definition 1.1 as well as the constants
-> C_γ in (1.6) are uniform also in p ∈ P", and continues: "Furthermore, it includes semiclassical bounded geometry
-> settings when P = (0, 1]_h if all 𝓑_(h,×) feature the same b.g. structure {(U_α, φ_α)}, and the scalings are
-> ρ_(α_h,i) = h for h ∈ (0, 1]." On p. 58 the space P × M = ⊔_(p∈P) {p} × M is considered "with P given the discrete
-> topology". Remark 3.56 (Subsets of P): "In applications, one often only works with operators defined for (typically
-> countable) subsets of parameters p ∈ P (e.g. in the semiclassical setting: sequences of semiclassical parameters h_j
-> ↘ 0). Since one can implement this simply by replacing P by such a subset (and then defining the microlocalization
-> locus as in (3.40) for the new set P), we do not explicitly allow for symbols to be defined only on subsets of P
-> here." Definition 3.58: "Let w = (w_p)_(p∈P) be a weight on (P × M, 𝓑^×). Let m ∈ ℝ. Then we say that a family a =
-> (a_p)_(p∈P) lies in wS^m(𝒱T*M) if a_p ∈ w_pS^m(𝒱_pT*M) for all p ∈ P, with uniformly bounded symbol seminorms. …"
-> After it: for w to be a weight, "a sufficient additional condition is that the ratios w_(p,α)/w_(p,β) for α, β ∈ 𝒜_p
-> with U_(p,α) ∩ U_(p,β) ≠ ∅ are uniformly bounded." Definition 3.59: "In the notation of Definition 3.58, a
-> 𝒱-pseudodifferential operator A ∈ wΨ^m_𝒱(M) is a family A = (A_p)_(p∈P) of operators A_p = Op_(𝒱_p)(a_p) + R_p where
-> the quantization map Op_(𝒱_p) is defined as in Definition 3.31, (a_p)_(p∈P) ∈ wS^m(𝒱T*M), and (R_p)_(p∈P) is a
-> family of residual operators R_p on (M, 𝓑_(p,×)) for which the conditions in Definition 3.34 hold with uniform
-> constants and operator norm bounds for all weights w′ in (3.30). The principal symbol of A is the equivalence class
-> of a in wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M). …" The text after it: "An operator A = (A_p)_(p∈P) ∈ wΨ^m_𝒱(M) defines a
-> uniformly bounded family of operators A_p : w′_pH^s_(𝒱_p)(M) → w_pw′_pH^(s−m)_(𝒱_p)(M), and more generally A_p :
-> w′_pH^(s;k)_(𝒱_p;𝒲_p)(M) → w_pw′_pH^(s−m;k)_(𝒱_p;𝒲_p)(M). (This is in fact a special case of Theorem 3.44, applied
-> to the scaled b.g. structure (P × M, 𝓑^×) and the input u = (u_p)_(p∈P) where u_p = 0 for all p ≠ p_0 ∈ P and
-> u_(p_0) ∈ w′_(p_0)H^s_(𝒱_(p_0))(M) with norm ≤ 1, since then Au = (A_pu_p)_(p∈P) has norm ≤ C for some constant C
-> only depending on A; but the norm of Au is bounded from below by the w_(p_0)w′_(p_0)H^(s−m)_(𝒱_(p_0))(M)-norm of
-> A_(p_0)u_(p_0).) The properties of adjoints, compositions, commutators, and principal symbols in Theorem 3.51 carry
-> over verbatim." Footnote 13: "Strictly speaking, one needs to apply this argument for all countable subsets P′ ⊂ P
-> of parameters (so that P′ × M is second countable and the total index set ⊔_(p′∈P′) 𝒜_(p′) is countable, as required
-> in Definition 1.1); but the uniform bound on the operators A_(p′) is independent of P′." And: "The membership A =
-> (A_p)_(p∈P) ∈ wDiff^m_𝒱(M) is characterized by requiring that each A_p is a differential operator, and
-> (φ_(p,α))_*A_p = Σ_(|β|≤m) w_(p,α)a_(p,α,β)(x)(ρ_(p,α)∂_x)^β where the C^∞((−2, 2)^n)-seminorms of the coefficients
-> a_(p,α,β) are uniformly (in p ∈ P, α ∈ 𝒜_p, β ∈ ℕ^n_0) bounded."
+```text
+(S7) Parameterised structures [Hin26d, Definitions 3.58–3.59, p. 59].
+```
 
-**C95-3. New item (S16)**, inserted after the paragraph of (S15), whose last words are "analogous strengthening of
-Lemma 3.42)", and before [[rem:std-sbg-sobolev]]:
+New (34 lines):
 
-> (S16) Essential supports and wave front sets [Hin26d, Lemma 3.20, p. 38; Lemma 3.24 (1), p. 40; Definition 3.25,
-> p. 41; Lemma 3.28, p. 42; Definition 3.43, p. 51; Theorem 3.51, p. 55]. Lemma 3.20 (Density): "The space C_c^∞(M) is
-> dense in wH^s_𝒱(M) for all weights w ∈ C^∞(M) on (M, 𝓑) and s ∈ ℝ, and also in wH^(s;k)_(𝒱;𝒲)(M) for all k ∈ ℕ₀."
-> Lemma 3.24 (1): "S⁰(𝒱T*M) = C^∞_(uni,𝓑*)(𝒱T*M)", 𝓑* being the phase space b.g. structure of (S8). Definition 3.25
-> uses the uniform compactification u𝒱T*M of (𝒱T*M, 𝓑*) and "the continuous extension map
-> j : C⁰_(uni,𝓑*)(𝒱T*M) → C⁰(u𝒱T*M)": "The microlocalization locus of (M, 𝓑^×) is then the set
-> 𝔐 := u𝒱T*M ∩ {j(λρ) = 0}", ρ and λ being the scaling weight (S2) and an elliptic weight (S8), and "The essential
-> support ess supp^w_𝔐 a ⊂ 𝔐 of a ∈ ⋃_(l,m) wρ^(−l)S^m(𝒱T*M) is defined by 𝔐 ∋ ϖ ∉ ess supp^w_𝔐 a ⟺ ∃ χ ∈ S⁰(𝒱T*M),
-> χ(ϖ) ≠ 0 s.t. χa ∈ wρ^∞S^(−∞)(𝒱T*M), where we write wρ^∞S^(−∞) = ⋂_(m,l) wρ^lS^m"; here χ(ϖ) is the value of j(χ).
-> Lemma 3.28 (Trivial essential support): "Let a ∈ ⋃_(l,m) wρ^(−l)S^m(𝒱T*M). Then ess supp^w_𝔐 a = ∅ ⟺
-> a ∈ wρ^∞S^(−∞)(𝒱T*M)." Definition 3.43: "In the notation of Definition 3.25, the principal symbol of A = Op_𝒱(a) + R
-> is σ^(m,w)_𝒱(A) := [a] ∈ wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M), and its operator wave front set is
-> WF′^w_𝒱(A) := ess supp^w_𝔐 a." and "Directly from the definition, we have a short exact sequence
-> 0 → wρΨ^(m−1)_𝒱(M) ↪ wΨ^m_𝒱(M) → wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M) → 0." Theorem 3.51, whose first part is quoted in
-> (S5), is stated for "a uniformly positive 𝒱-density" and continues: "The principal symbol of
-> i[A_1, A_2] ∈ wρ^(−(l_1+l_2−1))Ψ^(m_1+m_2−1)_𝒱(M) is the Poisson bracket of the principal symbols of A_1, A_2.
-> Finally, WF′^(w_1w_2)_𝒱(A_1 ∘ A_2) ⊂ WF′^(w_1)_𝒱(A_1) ∩ WF′^(w_2)_𝒱(A_2). (3.38) The map A ↦ A* is continuous, and
-> the map (A_1, A_2) ↦ A_1 ∘ A_2 is jointly continuous." (The arXiv version prints A_1 in the last place of (3.38); the
-> published version prints A_2.)
->
-> The numbers and pages in (S1)–(S16) are those of arXiv version 1 of [Hin26d]. In the published version, Definitions
-> 1.1, 1.3 and 1.9 and (1.6) are Definitions 1.2, 1.4 and 1.10 and (1.11); Lemmas 3.20, 3.24 and 3.28, Definition 3.25
-> and Definitions 3.31 and 3.34 keep their numbers; and from Remark 3.37 to Definition 3.61 each number is increased by
-> one, so that Definition 3.43, Theorems 3.44 and 3.51, Remark 3.47, Proposition 3.55, Remark 3.56, Definitions 3.58
-> and 3.59 and Definition 3.61 are Definition 3.44, Theorems 3.45 and 3.52, Remark 3.48, Proposition 3.56, Remark 3.57,
-> Definitions 3.59 and 3.60 and Definition 3.62 there; footnote 13 is footnote 22.
+```text
+(S7) Parameterised structures [Hin26d, Definition 1.9, p. 9; p. 58 and Remark 3.56, p. 58; Definitions 3.58 and 3.59 and
+the text after them, with footnote 13, p. 59]. Definition 1.9 defines a parameterized scaled bounded geometry structure
+on (M, P) as a collection {𝓑_(p,×)} of scaled b.g. structures 𝓑_(p,×) = {(U_(α_p), φ_(α_p), ρ_(α_p))}, p ∈ P, "so that
+the quantities A and the C^∞ bounds on transition functions in Definition 1.1 as well as the constants C_γ in (1.6) are
+uniform also in p ∈ P", and two sentences later states: "Furthermore, it includes semiclassical bounded geometry
+settings when P = (0, 1]_h if all 𝓑_(h,×) feature the same b.g. structure {(U_α, φ_α)}, and the scalings are
+ρ_(α_h,i) = h for h ∈ (0, 1]." On p. 58 the space P × M = ⊔_(p∈P) {p} × M is considered "with P given the discrete
+topology". Remark 3.56 (Subsets of P): "In applications, one often only works with operators defined for
+(typically countable) subsets of parameters p ∈ P (e.g. in the semiclassical setting: sequences of semiclassical
+parameters h_j ↘ 0). Since one can implement this simply by replacing P by such a subset
+(and then defining the microlocalization locus as in (3.40) for the new set P), we do not explicitly allow for symbols
+to be defined only on subsets of P here." Definition 3.58: "Let w = (w_p)_(p∈P) be a weight on (P × M, 𝓑^×). Let m ∈ ℝ.
+Then we say that a family a = (a_p)_(p∈P) lies in wS^m(𝒱T*M) if a_p ∈ w_pS^m(𝒱_pT*M) for all p ∈ P, with uniformly
+bounded symbol seminorms. …" After it: for w to be a weight, "a sufficient additional condition is that the ratios
+w_(p,α)/w_(p,β) for α, β ∈ 𝒜_p with U_(p,α) ∩ U_(p,β) ≠ ∅ are uniformly bounded." Definition 3.59: "In the notation of
+Definition 3.58, a 𝒱-pseudodifferential operator A ∈ wΨ^m_𝒱(M) is a family A = (A_p)_(p∈P) of operators
+A_p = Op_(𝒱_p)(a_p) + R_p where the quantization map Op_(𝒱_p) is defined as in Definition 3.31,
+(a_p)_(p∈P) ∈ wS^m(𝒱T*M), and (R_p)_(p∈P) is a family of residual operators R_p on (M, 𝓑_(p,×)) for which the conditions
+in Definition 3.34 hold with uniform constants and operator norm bounds for all weights w′ in (3.30). The principal
+symbol of A is the equivalence class of a in wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M). …" The text after it: "An operator
+A = (A_p)_(p∈P) ∈ wΨ^m_𝒱(M) defines a uniformly bounded family of operators A_p :
+w′_pH^s_(𝒱_p)(M) → w_pw′_pH^(s−m)_(𝒱_p)(M), and more generally A_p :
+w′_pH^(s;k)_(𝒱_p;𝒲_p)(M) → w_pw′_pH^(s−m;k)_(𝒱_p;𝒲_p)(M). (This is in fact a special case of Theorem 3.44, applied to
+the scaled b.g. structure (P × M, 𝓑^×) and the input u = (u_p)_(p∈P) where u_p = 0 for all p ≠ p_0 ∈ P and
+u_(p_0) ∈ w′_(p_0)H^s_(𝒱_(p_0))(M) with norm ≤ 1, since then Au = (A_pu_p)_(p∈P) has norm ≤ C for some constant C only
+depending on A; but the norm of Au is bounded from below by the w_pw′_pH^(s−m)_(𝒱_p)(M)-norm of A_(p_0)u_(p_0).) The
+properties of adjoints, compositions, commutators, and principal symbols in Theorem 3.51 carry over verbatim."
+(In the parenthesis, the subscripts p of the norm that bounds the norm of Au from below stand for p_0.) Footnote 13:
+"Strictly speaking, one needs to apply this argument for all countable subsets P′ ⊂ P of parameters
+(so that P′ × M is second countable and the total index set ⊔_(p′∈P′) 𝒜_(p′) is countable, as required in
+Definition 1.1); but the uniform bound on the operators A_(p′) is independent of P′." And: "The membership
+A = (A_p)_(p∈P) ∈ wDiff^m_𝒱(M) is characterized by requiring that each A_p is a differential operator, and
+(φ_(p,α))_*A_p = Σ_(|β|≤m) w_(p,α)a_(p,α,β)(x)(ρ_(p,α)∂_x)^β where the C^∞((−2, 2)^n)-seminorms of the coefficients
+a_(p,α,β) are uniformly (in p ∈ P, α ∈ 𝒜_p, β ∈ ℕ^n_0) bounded."
+```
+
+**C95-3. New item (S16)**, inserted after line 995, the last line of the paragraph of (S15), and before
+[[rem:std-sbg-sobolev]].
+
+The last line of (S15):
+
+```text
+analogous strengthening of Lemma 3.42)."
+```
+
+Insert after it, with one blank line before and after (49 lines):
+
+```text
+(S16) Residual operators, essential supports and wave front sets [Hin26d, Lemma 3.18 and the norm after it, p. 37;
+Lemma 3.20, p. 38; Proposition 3.22, p. 39; Lemma 3.24 (1), p. 40; Definition 3.25, p. 41; the text after
+Definition 3.31, p. 44; Definition 3.34, p. 46; Definition 3.43, p. 51; Theorem 3.51, p. 55; Definition 3.54 and
+Proposition 3.55, p. 57]. Lemma 3.18 (Towards a norm): "There exists a finite subset W ⊂ 𝒲 which spans 𝒲 over
+C^∞_(uni,𝓑)(M)." After it: "We can now define a norm on wH^(s;k)_(𝒱;𝒲)(M) by setting ‖u‖²_(wH^(s;k)_(𝒱;𝒲)) := Σ_(j=0)^k
+Σ_(W_1,…,W_j∈W) ‖W_1 ⋯ W_ju‖²_(wH^s_𝒱)." Lemma 3.20 (Density): "The space C_c^∞(M) is dense in wH^s_𝒱(M) for all weights
+w ∈ C^∞(M) on (M, 𝓑) and s ∈ ℝ, and also in wH^(s;k)_(𝒱;𝒲)(M) for all k ∈ ℕ₀." Proposition 3.22 (Duality): "Fix a
+uniformly positive 𝒱-density μ on M, by which we mean that (φ_α)_*μ = μ_α(x)|dx¹_α/ρ_(α,1) ⋯ dxⁿ_α/ρ_(α,n)| where
+μ_α ∈ C^∞((−2, 2)ⁿ) is uniformly bounded and inf_α inf_((−2,2)ⁿ) μ_α > 0. Let w ∈ C^∞(M) be a weight on (M, 𝓑), and let
+s ∈ ℝ. Then the L²(M; μ)-pairing (u, v) ↦ ⟨u, v⟩ := ∫_M u v̄ dμ extends from C_c^∞(M) × C_c^∞(M) → ℂ to a nondegenerate
+pairing wH^s_𝒱(M) × w⁻¹H^(−s)_𝒱(M) → ℂ, and thus (wH^s_𝒱(M))* = w⁻¹H^(−s)_𝒱(M). (3.19)" Lemma 3.24 (1):
+"S⁰(𝒱T*M) = C^∞_(uni,𝓑*)(𝒱T*M)", 𝓑* being the phase space b.g. structure of (S8). Definition 3.25 uses the uniform
+compactification u𝒱T*M of (𝒱T*M, 𝓑*) and "the continuous extension map j : C⁰_(uni,𝓑*)(𝒱T*M) → C⁰(u𝒱T*M)": "The
+microlocalization locus of (M, 𝓑^×) is then the set 𝔐 := u𝒱T*M ∩ {j(λρ) = 0}", ρ and λ being the scaling weight (S2) and
+an elliptic weight (S8), and "The essential support ess supp^w_𝔐 a ⊂ 𝔐 of a ∈ ⋃_(l,m) wρ^(−l)S^m(𝒱T*M) is defined by
+𝔐 ∋ ϖ ∉ ess supp^w_𝔐 a ⟺ ∃ χ ∈ S⁰(𝒱T*M), χ(ϖ) ≠ 0 s.t. χa ∈ wρ^∞S^(−∞)(𝒱T*M), where we write wρ^∞S^(−∞) = ⋂_(m,l)
+wρ^lS^m"; here χ(ϖ) is the value of j(χ). After Definition 3.31 (the quantization Op_𝒱 of (S4)): "By property (1) from
+Definition 1.1, and using the standard mapping properties of quantizations of symbols on ℝⁿ, such quantizations Op_𝒱(a)
+define bounded maps on C_c^∞(M), C^∞(M), and indeed w′C^∞_(uni,𝓑)(M) → ww′C^∞_(uni,𝓑)(M) for any weight w′.
+(Thus, they can be composed.)" Definition 3.34 (Residual operators): "Let w ∈ C^∞(M) be a weight on (M, 𝓑); recall the
+scaling weight ρ ∈ C^∞(M) from Definition 3.6. Then the space wρ^∞Ψ^(−∞)_𝒱(M) of residual operators consists of all
+linear operators R : C_c^∞(M) → C_c^∞(M) with the following properties. (1) For all weights w′ ∈ C^∞(M) on (M, 𝓑) and
+for all N ∈ ℝ, k ∈ ℕ₀, the operator R : w′ρ^(−N)H^(−N;k)_(𝒱;𝒲)(M) → ww′ρ^NH^(N;k)_(𝒱;𝒲)(M). (3.30) is bounded. (2) Let
+μ ∈ C^∞_(uni,𝓑)(M; ^𝒱ΩM) be a uniformly positive 𝒱-density. Then also the formal L²(M; μ)-adjoint R* of R is bounded as
+a map (3.30) for all w′, N, k." Definition 3.43: "Let m ∈ ℝ, and let w ∈ C^∞(M) be a weight on (M, 𝓑). Then the space of
+weighted 𝒱-pseudodifferential operators (of order m with weight w) is defined by wΨ^m_𝒱(M) := {Op_𝒱(a) + R :
+a ∈ wS^m(𝒱T*M), R ∈ wρ^∞Ψ^(−∞)_𝒱(M)}. In the notation of Definition 3.25, the principal symbol of A = Op_𝒱(a) + R is
+σ^(m,w)_𝒱(A) := [a] ∈ wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M), and its operator wave front set is WF′^w_𝒱(A) := ess supp^w_𝔐 a." and
+"Directly from the definition, we have a short exact sequence 0 → wρΨ^(m−1)_𝒱(M) ↪ wΨ^m_𝒱(M) →^(σ^m_𝒱)
+wS^m(𝒱T*M)/wρS^(m−1)(𝒱T*M) → 0." Theorem 3.51, whose first part is stated in (S5), is stated for "a uniformly positive
+𝒱-density" and continues: "The principal symbol of i[A_1, A_2] ∈ wρ^(−(l_1+l_2−1))Ψ^(m_1+m_2−1)_𝒱(M) is the Poisson
+bracket of the principal symbols of A_1, A_2." Definition 3.54 (𝒱-Sobolev wave front set): "Let w ∈ C^∞(M) be a weight
+on (M, 𝓑), recall the scaling weight ρ ∈ C^∞(M) from Definition 3.6, and recall the microlocalization locus 𝔐 from
+Definition 3.25. Let u ∈ wρ^(−∞)H^(−∞)_𝒱(M) = ⋃_(m,l) wρ^lH^m_𝒱(M). Then WF^(m,w,l)_𝒱(u) ⊂ 𝔐 is the complement of the
+set of all ϖ ∈ 𝔐 for which there exists an operator A ∈ Ψ⁰_𝒱(M) which is elliptic at ϖ and for which Au ∈ wρ^lH^m_𝒱(M)."
+Proposition 3.55 (Properties of the 𝒱-Sobolev wave front set): "Let u ∈ wρ^(−∞)H^(−∞)_𝒱(M) and A ∈ w′Ψ^(m′)_𝒱(M),
+B ∈ Ψ⁰_𝒱(M). (1) u ∈ wρ^lH^m_𝒱(M) if and only if WF^(m,w,l)_𝒱(u) = ∅. (2) (Microlocality.)
+WF^(m−m′,ww′,l)_𝒱(Au) ⊂ WF^(m,w,l)_𝒱(u) ∩ WF′^(w′)_𝒱(A). …"
+
+The numbers and pages in (S1)–(S16) are those of arXiv version 1 of [Hin26d]. In the published version, Definitions 1.1,
+1.3 and 1.9 and (1.6) are Definitions 1.2, 1.4 and 1.10 and (1.11); Proposition 2.3 is Proposition 2.4, with (2.3) and
+(2.6) for (2.3) and (2.5); in Section 3 the displays and the items up to Definition 3.34 keep their numbers, and from
+Lemma 3.36 to Definition 3.61 each number is increased by one, so that Proposition 3.39, Lemma 3.42, Definition 3.43,
+Theorems 3.44, 3.51 and 3.52, Remarks 3.46–3.48, Definition 3.54, Proposition 3.55, Remark 3.56 and Definitions 3.58 and
+3.59 are Proposition 3.40, Lemma 3.43, Definition 3.44, Theorems 3.45, 3.52 and 3.53, Remarks 3.47–3.49,
+Definition 3.55, Proposition 3.56, Remark 3.57 and Definitions 3.59 and 3.60 there; footnote 13 is footnote 22; and in
+Section 4, Proposition 4.2 and Definition 4.6 keep their numbers, Definitions 4.11, 4.14 and 4.20 and Propositions 4.15,
+4.17, 4.18 and 4.22 are Definitions 4.12, 4.15 and 4.21 and Propositions 4.16, 4.18, 4.19 and 4.23, and each display
+(4.n) is (4.n + 1).
+```
 
 ### Bibliography (chapter 98)
 
-**C98-1. [Hin23d]** (about line 76). Old:
+**C98-1. [Hin23d]** (lines 76–77).
 
-> - [Hin23d] P. Hintz, *Microlocal analysis of operators with asymptotic translation- and dilation-invariances*, preprint
->   (2023). arXiv:2302.13803v1
+Old (2 lines):
 
-New:
+```text
+- [Hin23d] P. Hintz, *Microlocal analysis of operators with asymptotic translation- and dilation-invariances*, preprint
+  (2023). arXiv:2302.13803v1
+```
 
-> - [Hin23d] P. Hintz, *Microlocal analysis of operators with asymptotic translation- and dilation-invariances*, Ars
->   Inven. Anal. (2026), Paper No. 5, 159 pp. doi:10.15781/yw47vq75 arXiv:2302.13803v2
+New (2 lines):
 
-[Hin26d] and [Hin26a] are unchanged; after these changes [Hin23d] is cited only in chapter 27, and [Hin26a] in
-chapter 33 only as an attribution of statements and display numbers.
+```text
+- [Hin23d] P. Hintz, *Microlocal analysis of operators with asymptotic translation- and dilation-invariances*, Ars
+  Inven. Anal. 2026, Paper No. 5, 159 pp. doi:10.15781/yw47vq75 arXiv:2302.13803v2
+```
+
+[Hin26d] and [Hin26a] are unchanged; after these changes [Hin23d] is cited only in chapter 27, and [Hin26a] in chapter 33
+only as an attribution of statements and display numbers.
+
+## Merge order with P-G24b
+
+P-G1 is merged first, then P-G24b. P-G24b copied its old texts from chapter 33 with md5 007858d84d3f7b2ba03c0c84d0338749,
+before the merge of P-T49; the current file differs from it by one line added near line 115 and by the new section at the
+end, so from line 116 on its line numbers are one less than those above. The old texts of the two files were compared in
+the current chapter:
+
+- C33-11 contains the old text of T41. After C33-11, use variant A of T41: its old text is the last two lines of the new
+  text of C33-11, which this revision keeps unchanged.
+- C33-12 and T7 share the words "[[lem:iv5-0-5]] (6) on supp ψ′." at the start of line 1534: the old text of T7 ends with
+  them and that of C33-12 begins with them. The new text of C33-12 keeps them at the start of its first line, so after
+  C33-12 the old text of T7 is found exactly once, and T7 replaces it without touching the rest of the line.
+- C33-20 inserts a paragraph before the line that begins the old text of T34 and changes no character of it; after both,
+  the paragraph of C33-20 stands before the new text of T34, as P-G24b asks.
+- Adjacent lines, no shared character: T42 (line 1463) and C33-9 (line 1464); T5 (line 1505) and C33-10 (line 1506).
+- No other old text of one file shares a character with an old text of the other.
+
+Checked by script on a scratch copy. In the current chapter each of the 43 old texts of P-G24b occurs exactly once. After
+all texts of this file are applied, each of them other than T41 still occurs exactly once, the old text of variant A of
+T41 occurs exactly once, and the old text of T41 itself no longer occurs, as intended. Applying P-G24b after that
+(T41 by its variant A) leaves the chapters with no lint hit, no assembly problem and no line over 121 characters.
 
 ## Crosswalk rows (chapter 33)
 
-The row of prop:np-10-65-a is replaced; the other rows are added after it, with the columns of the chapter's rows.
+Delete the row of prop:np-10-65-a (after the row of def:iv5-0-1), and insert the fourteen rows below, in this order,
+after the row of lem:iv5-0-5 and before the row of sec:iv5-1, with the four tab-separated columns of the chapter's rows.
+PIN stands for the commit that holds this version of this file; the merge pins it, as for the other proof files. The line
+ranges are those of this file.
 
-sec:iv5-calc	paper/reader/proofs/P-G1.md:1	proof G1, the calculi	new section; replaces the citation of preprints
-def:iv5-calc-cells	paper/reader/proofs/P-G1.md:13	proof G1, cells	4 + 1 cells of the 3b- and eb-structures
-lem:iv5-calc-structure	paper/reader/proofs/P-G1.md:49	proof G1, structures	structure, weights, symbols
-def:iv5-calc-micro	paper/reader/proofs/P-G1.md:145	proof G1, microsupport	concrete WF′ and Ell
-lem:iv5-calc-disjoint	paper/reader/proofs/P-G1.md:158	proof G1, disjoint supports	via P′ × M and Lemma 3.28
-lem:iv5-calc-d	paper/reader/proofs/P-G1.md:208	proof G1, property (D)	X_0 and Σ^♯, noncompact boundaries
-lem:iv5-calc-dual	paper/reader/proofs/P-G1.md:251	proof G1, duality	supported and extendible spaces
-lem:iv5-calc-reg	paper/reader/proofs/P-G1.md:305	proof G1, regulariser	J_ε = Op(⟨εζ⟩^(−K))
-prop:np-10-65-a	paper/reader/proofs/P-G1.md:338	proof G1, the calculi	replaces NP 10.65 (a); real proof
-eq:iv5-calc-ell	paper/reader/proofs/P-G1.md:370	proof G1, elliptic estimate	new display
-lem:iv5-calc-garding	paper/reader/proofs/P-G1.md:484	proof G1, margin bound	replaces the sharp Gårding step
-eq:iv5-calc-garding	paper/reader/proofs/P-G1.md:488	proof G1, margin bound	new display
-lem:iv5-calc-q0	paper/reader/proofs/P-G1.md:516	proof G1, lower bound for Q_0	replaces Q_0 = Θ*Θ + R
-eq:iv5-calc-q0	paper/reader/proofs/P-G1.md:521	proof G1, lower bound for Q_0	new display
+```text
+sec:iv5-calc	paper/reader/proofs/P-G1.md@PIN:1-575	proof G1, the calculi	new section; replaces preprint citations
+def:iv5-calc-cells	paper/reader/proofs/P-G1.md@PIN:14-48	proof G1, cells	4 + 1 cells; classes via P' x M
+lem:iv5-calc-structure	paper/reader/proofs/P-G1.md@PIN:50-143	proof G1, structures	structures, weights, symbols
+def:iv5-calc-micro	paper/reader/proofs/P-G1.md@PIN:145-158	proof G1, microsupport	two-sided microsupport, Ell, WF'
+lem:iv5-calc-disjoint	paper/reader/proofs/P-G1.md@PIN:160-233	proof G1, disjoint supports	[Hin26d] Prop. 3.55, Def. 3.34
+lem:iv5-calc-d	paper/reader/proofs/P-G1.md@PIN:235-279	proof G1, property (D)	at X_0 and Sigma^#
+lem:iv5-calc-dual	paper/reader/proofs/P-G1.md@PIN:281-333	proof G1, duality	supported/extendible spaces
+lem:iv5-calc-reg	paper/reader/proofs/P-G1.md@PIN:335-366	proof G1, regulariser	J_eps = Op(<eps zeta>^(-K))
+prop:np-10-65-a	paper/reader/proofs/P-G1.md@PIN:368-512	proof G1, the calculi	replaces NP 10.65 (a); (a)-(j) proved
+eq:iv5-calc-ell	paper/reader/proofs/P-G1.md@PIN:400	proof G1, elliptic estimate	new display
+lem:iv5-calc-garding	paper/reader/proofs/P-G1.md@PIN:514-541	proof G1, margin bound	replaces the sharp Gårding step
+eq:iv5-calc-garding	paper/reader/proofs/P-G1.md@PIN:518	proof G1, margin bound	new display
+lem:iv5-calc-q0	paper/reader/proofs/P-G1.md@PIN:546-571	proof G1, bound for Q_0	replaces Q_0 = Theta*Theta + R
+eq:iv5-calc-q0	paper/reader/proofs/P-G1.md@PIN:551	proof G1, bound for Q_0	new display
+```
+
+Notes to append to existing rows, each after "; " (or as the note, where the note is empty):
+
+```text
+def:iv5-0-1	G1: the calculus is that of sec:iv5-calc; the spaces on Omega defined in lem:iv5-calc-dual (C33-1, C33-2)
+prop:iv5-1-2	G1: proof by prop:np-10-65-a (e) with the cut-offs (C33-5)
+prop:iv5-1-3	G1: regulariser lem:iv5-calc-reg; commutant, (5.26), absorption by prop:np-10-65-a (C33-6 to C33-9)
+prop:iv5-2-1	G1: (5.44) by lem:iv5-calc-q0, (5.45) by lem:iv5-calc-garding, 9C_2 + 2 for 2C (C33-10 to C33-12)
+prop:iv5-3-1	G1: Q-terms with the weight rho_sf (C33-13)
+prop:iv5-4-1	G1: weighted Q-terms of prop:iv5-3-1 (C33-14)
+prop:iv5-5-2	G1: Q-terms by lem:iv5-calc-q0 and lem:iv5-calc-garding (C33-15)
+prop:iv5-7-1	G1: strong sense at fibre infinity by the regularisation in prop:iv5-1-3 (C33-16)
+thm:iv5-7-3	G1: duality of the supported and extendible spaces, uniform in h, by lem:iv5-calc-dual (C33-17)
+lem:iv5-8-1	G1: uniformity in b by prop:np-10-65-a (j) (C33-18)
+sec:iv6-2	G1: eb-structure of def:iv5-calc-cells, calculus by prop:np-10-65-a (i) (C33-19)
+thm:iv6-2-1	G1: Q-terms at the cone face by lem:iv5-calc-q0 and lem:iv5-calc-garding (C33-20)
+```

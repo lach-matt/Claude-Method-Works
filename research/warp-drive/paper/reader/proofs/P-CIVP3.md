@@ -228,9 +228,9 @@ with 𝔪 linear, with smooth G-invariant coefficients, its first two components
 system of ordinary differential equations in v along the generators: for (Z_Ω, Z_γ), with the invertible coefficient
 (Z_Ω, Z_γ) ↦ ((2Ω²)⁻¹ Z_γ, −2Z_Ω − ½ tr_γ Z_γ) of ∂_v, and then for Z_b, whose inhomogeneous term holds ∇̊Z_Ω and
 ∇̊Z_γ. For the densities put Z_in := the solution of ∂_u^(j−1)𝒞_in = 0 at u = 0, in which ∂_u^jq_in enters with the
-factor 1 and nothing else of order j but Z_γ, and let Z_out solve ∂_u^j𝒞_out = 0 at u = 0, the linear equation ∂_vZ_out
-+ tr_γχ Z_out = (terms in a_0, …, a_(j−1) and Z) along the generators. We solve with the initial values at v = 0 the
-j-th u-derivatives at the corner of the data on N_i; the coefficients and the initial values being smooth and
+factor 1 and nothing else of order j but Z_γ, and let Z_out solve ∂_u^j𝒞_out = 0 at u = 0, the linear equation
+∂_vZ_out + tr_γχ Z_out = (terms in a_0, …, a_(j−1) and Z) along the generators. We solve with the initial values at v =
+0 the j-th u-derivatives at the corner of the data on N_i; the coefficients and the initial values being smooth and
 G-invariant and the system G-equivariant, the solution is smooth and G-invariant, and we take it as a_j. Off the axes
 a_j is the derivative of the proof of [[lem:loc-cone-jets]]: both solve ∂_u^(j−1)E′ = 0 and the conservation equations,
 in class functions and in fields respectively, with the same initial values, and those solutions are unique.
@@ -356,10 +356,11 @@ r)/ a_L(r, z, p) − E_L(r, z, p), a_L and E_L those of [[lem:class-leaf]] (c) f
 and also |∂_zG_V| ≤ C (r + |p|), since by that proof E_L = (C3 r + A3 p) N_L²/det₂ − p + r B̃/a_L with B̃ smooth. These
 constants hold the C¹ norms of H_L[V], which hold p_A, Θ_A and first derivatives of the metric, and the C² norms of γ3,
 bounded on 𝔅′ by the Sobolev inequality of [[lem:sobolev]] at the order k − 4 ≥ 2. The map 𝒯 of that proof is C¹ in (p,
-z0) and a contraction uniformly in z0, so z0 ↦ h_V(z0, ·) is C¹, and w := ∂_(z0)h_V solves r ∂_r w(r) = ∫_0^r (∂_zG_V w
-+ ∂_pG_V ∂_r w) dρ with w(0) = 1. So |∂_r w| ≤ C r sup |w| on [0, 2δ] and |w − 1| ≤ C δ² sup |w|, and after decreasing
-δ, w ∈ [1/2, 2] and |∂_(z0) q_V| = |∂_r w|/r ≤ C. Hence (z0, y) ↦ (h_V(z0, y), y), for |z0 − z(p)| < 3δ/2 and |y| < 2δ,
-is a C¹ diffeomorphism onto a neighbourhood of 𝒰_δ(p) ∩ M3 contained in 𝒰_(2δ)(p), with Jacobian in [1/2, 2].
+z0) and a contraction uniformly in z0, so z0 ↦ h_V(z0, ·) is C¹, and w := ∂_(z0)h_V solves r ∂_r w(r) = ∫_0^r (∂_zG_V
+w + ∂_pG_V ∂_r w) dρ with w(0) = 1. So |∂_r w| ≤ C r sup |w| on [0, 2δ] and |w − 1| ≤ C δ² sup |w|, and after
+decreasing δ, w ∈ [1/2, 2] and |∂_(z0) q_V| = |∂_r w|/r ≤ C. Hence (z0, y) ↦ (h_V(z0, y), y), for |z0 − z(p)| < 3δ/2
+and |y| < 2δ, is a C¹ diffeomorphism onto a neighbourhood of 𝒰_δ(p) ∩ M3 contained in 𝒰_(2δ)(p), with Jacobian in [1/2,
+2].
 
 (2) *The leaf through a point.* σ_A[V](x) = 𝔖(x, V(x), q_V(z0, r)) for x = (h_V(z0, y), y), r = |y|, with 𝔖 smooth: by
 [[eq:class-leaf-volterra]], σ_L = ½ H_L[V] − k_φ with k_φ = ν^r/r + ½ ν(log B3) and ν^r/r = −(C3 + A3 q_V)/(det₂^(1/2)
@@ -660,9 +661,9 @@ it equals the solution of [[lem:loc-axis-gauge]] on Q1′ × S³.
 neighbourhood of Q1″ and supported in ((0, u_1′) × (0, v_1′) ∪ P) ∩ 𝒰_1, hence where g″ is defined, and with the frozen
 part taken with the wave operator of g_e. The wave map system is semilinear and local, with coefficients smooth in the
 chart through the axes. φ := 0 satisfies the cut-off system on P exactly, as g″ = Ĝ there, and on F up to the residual
-χ′ 1_F g″^μν (Γ[Ĝ] − Γ[g″])^λ_μν, which is smooth, as it vanishes to infinite order on N ∩ Q1′ by (1), and at most C(ε
-+ ε_2) in C^(k−5). [[thm:class-kato-stability]] (a), with s := k − 5 > 3, gives a smooth G-equivariant solution φ on
-[τ_init, s*] × ℝ⁴, at most C(ε + ε_2)^(1/(4s)) in W^(1,∞); φ = 0 on P ∩ 𝒰^♯, by the argument of the proof of
+χ′ 1_F g″^μν (Γ[Ĝ] − Γ[g″])^λ_μν, which is smooth, as it vanishes to infinite order on N ∩ Q1′ by (1), and at most
+C(ε + ε_2) in C^(k−5). [[thm:class-kato-stability]] (a), with s := k − 5 > 3, gives a smooth G-equivariant solution φ
+on [τ_init, s*] × ℝ⁴, at most C(ε + ε_2)^(1/(4s)) in W^(1,∞); φ = 0 on P ∩ 𝒰^♯, by the argument of the proof of
 [[lem:loc-cone-past]]; and φ solves the wave map system on Q1″, χ′ being 1 there.
 
 (3) For ε and ε_2 small, Φ is a G-equivariant diffeomorphism near the identity, equal to it on P ∩ 𝒰^♯ and so, with all
