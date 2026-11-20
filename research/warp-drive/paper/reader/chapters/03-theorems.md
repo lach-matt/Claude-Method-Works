@@ -311,9 +311,10 @@ is stated for perturbations in Hintz's own data class, where his theorem applies
 determines which decaying perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
 The order K is explicit in the loss d with which the proof applies the Nash–Moser theorem ([[thm:iii-k-3-2]]): with
 the orders that [[prop:uc-data-order]] counts, d_1 = 22d + 292 + L_P and K = 22d + 306 + L_P, where L_P ≤ 43 is an
-explicit number of derivatives. d is not evaluated on the set where [[thm:settling]] is proved; there it is bounded
-below by explicit functions of the gauge and damping parameters ([[thm:ec-lb-proved]]). At the computational
-point of [[def:ec-point]], which lies outside that set ([[rem:ec-point-outside]]), and at one admissible choice of the
+explicit number of derivatives. d is not evaluated on the set where [[thm:settling]] is proved; at its points with
+γ_C ≥ 10⁶ it is bounded below by explicit functions of the gauge and damping parameters ([[thm:ec-lb-proved]]). At the
+computational point of [[def:ec-point]], which is not shown to lie in that set ([[rem:ec-point-outside]]), and at one
+admissible choice of the
 weights, orders and inner products, d is at most an integer below 1.57157 × 10⁵⁰ ([[thm:uc-integer]]), and K at most
 one below 3.45745 × 10⁵¹.
 
@@ -357,12 +358,12 @@ The remaining chapters prove the following; each is stated in full where it is p
   ([[thm:harmonic-rate]]).
 - *The constants of [[thm:settling]].* The loss d with which the Nash–Moser step is applied, at least the loss that
   the proof assigns to the tame estimates, and its regularity N_NM = 21d + 6, with explicit lower bounds at every point
-  of the proved set, as functions of the gauge parameter z = 4e_Υγ_Υ² and the damping parameter γ_C that grow like z⁻²
-  and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that lies outside the proved set, explicit lower bounds
-  ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the weights, orders and inner
-  products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the modulus of the initial family
-  at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini ([[ch:resolvent-bounds]]); and where
-  explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
+  of the proved set at which γ_C ≥ 10⁶, as functions of the gauge parameter z = 4e_Υγ_Υ² and the damping parameter γ_C
+  that grow like z⁻² and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that is not shown to lie in the proved set,
+  explicit lower bounds ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the
+  weights, orders and inner products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the
+  modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
+  ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
 - *More families.* Two crossing radial null dusts, one ingoing and one outgoing, with the background, the
   approximant, the uniform estimate and the data ([[thm:two-dusts]]); Cauchy stability of the class
   Einstein–null-dust system, without smallness, on compact domains of the type of Ω, for caustic-free dusts, the axes

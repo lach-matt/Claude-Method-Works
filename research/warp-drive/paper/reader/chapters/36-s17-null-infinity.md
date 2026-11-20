@@ -1135,7 +1135,8 @@ alone, |σ| = ρ_tf ρ_zf, and the b-vector fields are spanned by σ∂_σ|_r̂,
 [[ch:s10]]), χ_ztf := χ_zf|_tf, and χ_tf := χ₂(ρ + |σ|) with χ₂ ∈ C_c^∞([0, ½ρ₀)) equal to 1 near 0.
 
 *The operator.* L_b is the linearised gauge-fixed Einstein operator of [[ch:s15]], with the parameters and hypotheses of
-[[sec:iii-g2-1]]; in particular z_Υ ∉ Z_exc, so that every indicial root of L̂_b(0) is simple ([[prop:iii-f1-2-3]] (e)).
+[[sec:iii-g2-1]]; in particular every indicial root μ of L̂_b(0) with −101 ≤ Re μ ≤ 0 is real and simple
+([[prop:iii-f1-2-3]] (g)).
 With (ℱu)(σ) = ∫ e^(iσt_*)u dt_* ([[eq:iii-a-2-2]]), so that ∂_(t_*) becomes −iσ, [[lem:iii-f-2-1]] (2) gives exactly
 
     L̄̂(σ) = iσρ(ρ∂_ρ − 3/2 − S̄) + ρ²𝒩,     𝒩 := ρ⁻²L̄̂(0),                                         {#eq:iii-g4-1-2}
@@ -1151,17 +1152,19 @@ on sections over tf of π_tf^*(S²T*X|_(∂X)); P := r̂²N_tf = N₀ + r̂N₁ 
 
 **Lemma {#lem:iii-g4-1-1}** (The tf model.) (1) For σ = ±|σ| ≠ 0, L̄̂(σ) = |σ|²N_tf on {ρ < ρ₀}, in the coordinates
 (σ, r̂, ω) (with N_tf acting at fixed σ). (2) N₀(r̂^zφ) = r̂^z𝒩(−z)φ. So the Mellin family of N₀ (with
-û(λ) := ∫ r̂^(−λ)u dr̂/r̂) is N₀(λ) = 𝒩(−λ), its roots are −μ for the roots μ of L̂_b(0), and at each −μ the inverse
-N₀(λ)⁻¹ has a simple pole whose residue Π_μ has range ker 𝒩(μ). (3) N_tf(2L̂_b, ±1) = 2N_tf ([[eq:i-c-4-1]]).
+û(λ) := ∫ r̂^(−λ)u dr̂/r̂) is N₀(λ) = 𝒩(−λ), its roots are −μ for the roots μ of L̂_b(0), and at each −μ with
+−101 ≤ Re μ ≤ 0 the inverse N₀(λ)⁻¹ has a simple pole whose residue Π_μ has range ker 𝒩(μ).
+(3) N_tf(2L̂_b, ±1) = 2N_tf ([[eq:i-c-4-1]]).
 
 *Proof.* (1) Both sides are b-operators in (ρ∂_ρ, ∂_ω) whose coefficients depend on ω alone, so it suffices to compare
 them on ρ^aφ(ω), a ∈ ℂ. By [[eq:iii-g4-1-2]], L̄̂(σ)(ρ^aφ) = iσρ^(a+1)(a − 3/2 − S̄)φ + ρ^(a+2)𝒩(a)φ, and with
 ρ = |σ|r̂⁻¹, iσ = ±i|σ|, this is |σ|^(a+2)(±i r̂^(−a−1)(a − 3/2 − S̄) + r̂^(−a−2)𝒩(a))φ.
 And |σ|²N_tf(|σ|^a r̂^(−a)φ) is the same, as −r̂∂_r̂ r̂^(−a) = a r̂^(−a).
 
-(2) The first statement is the definition. The roots are simple, so on each isotypic component (type and harmonic) the
-determinant of the matrix polynomial 𝒩(λ) has a simple zero at μ, and 𝒩(λ)⁻¹ = adj 𝒩(λ)/det 𝒩(λ) has a simple pole
-with residue adj 𝒩(μ)/(det 𝒩)′(μ). Its range lies in ker 𝒩(μ), as 𝒩(μ) adj 𝒩(μ) = 0, and it is non-zero, as the
+(2) The first statement is the definition. A root μ with −101 ≤ Re μ ≤ 0 is simple ([[prop:iii-f1-2-3]] (g)), so on
+each isotypic component (type and harmonic) at which it is a root the determinant of the matrix polynomial 𝒩(λ) has a
+simple zero at μ, and 𝒩(λ)⁻¹ = adj 𝒩(λ)/det 𝒩(λ) has a simple pole with residue adj 𝒩(μ)/(det 𝒩)′(μ). Its range
+lies in ker 𝒩(μ), as 𝒩(μ) adj 𝒩(μ) = 0, and it is non-zero, as the
 kernel is one-dimensional, so adj 𝒩(μ) ≠ 0; hence its range is the kernel. Only finitely many components have μ as a
 root ([[prop:iii-f1-2-3]] (f)). Then Π_μ = −res_(x=μ)𝒩(x)⁻¹.
 
@@ -1357,7 +1360,8 @@ N₀R = PR − r̂N₁R and ℳ(r̂N₁R)(λ) = N₁(λ − 1)ℳR(λ − 1), wi
     ℳR(λ) = N₀(λ)⁻¹Φ(λ),     Φ(λ) := ℳ(PR)(λ) − N₁(λ − 1)ℳR(λ − 1),                                   {#eq:iii-g4-3-8}
 
 continues ℳR meromorphically to {Re λ < b̃}. In the strip {b < Re λ < b̃}, of width at most 1, the poles are at the
-roots −μ in it ([[lem:iii-g4-1-1]] (2)) and at the at most one z_j(α) in it, all simple; for D small none is on the
+roots −μ in it, which have −3 < Re μ ≤ 0, as −1 < b < b̃ ≤ w₀ < 3 ([[prop:iii-f1-2-3]] (a)), and so are simple poles
+([[lem:iii-g4-1-1]] (2)), and at the at most one z_j(α) in it, also simple; for D small none is on the
 boundary lines. Moving the contour from {Re λ = b − δ} to {Re λ = b̃},
 
     R = −Σ_p res_(λ=p)(r̂^λℳR(λ)) + R̃,     R̃ := (1/(2πi)) ∫_(Re λ=b̃) r̂^λℳR(λ) dλ ∈ H^(∞,b̃)_b,       {#eq:iii-g4-3-9}
@@ -1420,7 +1424,7 @@ weight by almost 1, so after at most five steps b_i = w₀, the last step taken 
 with 0 ≤ −μ < w₀, that is 𝒲(w₀), each in one step. On supp χ_ztf ⊂ {r̂ < 1}, u_α = v; so [[eq:iii-g4-3-3]] holds with
 u_(α,0) := Σ l_(β_μ)H_(μ,τ)(Y) and u_(α,1) := r̂^(α−2)(U + R) near ztf. [[eq:iii-g4-3-5]] is [[eq:iii-g4-3-4]] written
 out over the rows of the table of [[sec:iii-g2-1]] with c_μ of [[eq:iii-g4-1-4]]; the multiplicities are one per type,
-as each root is simple. ∎
+as each root of 𝒲(w₀) is simple ([[prop:iii-f1-2-3]] (g)). ∎
 
 **Remark {#rem:iii-g4-3-5}** ([Hin26, Remark 9.27] in dimension 4 + 1.) (1) Expanding l_β, the coefficients of
 r̂^(z_(⌊−μ⌋)) and r̂^(−μ) in u_(α,0) are ±β_μ(α)⁻¹φ₀(Y): meromorphic, with simple poles where β_μ(α) = 0, that is at

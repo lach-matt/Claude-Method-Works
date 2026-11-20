@@ -123,7 +123,9 @@ for large |x| up to O(m₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the s
 time t of [[sec:iii-b-3-1]] is the outgoing Kerr–Schild time, whose differential differs from the static one by
 O(m₀|x|⁻²) d|x|, which changes |x|⁻¹(dt − v_C d|x|) by O(m₀|x|⁻³) d|x|.
 
-Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters. The
+Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters; the
+results that [[thm:vi-c-adm-holds]] (1) lists hold as well with γ_C = h⁻¹ at every admissible point
+([[def:vi-c-admissible]]). The
 statements of [Hin26, Theorem 7.1] "for v_C ∈ (0, 1), C_0 > 0 and all sufficiently large γ_C" are proved here at this
 choice: for every γ_C > 1/h_* outside a countable set, which is what every later use requires, as each takes one
 admissible γ_C.
@@ -3127,7 +3129,7 @@ above. Its value is given by [[lem:s14-delta50]], which does not involve h; [[co
 This section determines the number ε_ind(h) of [[prop:np-10-52]] (iii) at h = 10⁻⁶, that is at γ_C = 10⁶, and shows that
 there the real parts of the non-integer roots ι with |ι − 1| ≤ 50 of P_l, P_0 and p_(v) keep a distance of more than
 2.93·10⁻⁶ from the integers. The point h = 10⁻⁶ is the right end of the interval (0, 10⁻⁶] on which [[prop:np-10-52]]
-(iii) defines ε_ind; it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which the theorems of this paper are stated, and
+(iii) defines ε_ind; it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which [[thm:iii-e-1-1]] is stated, and
 [[rem:s14-eps-ind-scope]] says what this section gives for h ∈ 𝖧. As in [[sec:s14-model]], (v, e) = (1/2, 1/102400), κ =
 l(l + 2), and P_l, P_0, p_(v) and C are the polynomials of [[prop:np-10-12]] at this point. Throughout this section
 
@@ -3529,9 +3531,11 @@ C at scalar type 0, those that [[ch:s15]] removes left out. The roots of C are r
 dist(Re(ι − 1), ℤ) = dist(Re ι, ℤ) > 2.93·10⁻⁶ > δ_50 by [[prop:s14-damping-distance]] whenever ι − 1 ∉ ℤ
 and |ι − 1| ≤ 50. So the infimum is a minimum, equal to δ_50, and [[lem:s14-delta50]] gives its value. ∎
 
-**Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) The theorems of this paper take h in 𝖧 = (0, h_*)
-∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧, and [[prop:s14-damping-distance]]
-and [[cor:s14-eps-ind-point]] are used by none of them. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50, which
+**Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) [[thm:iii-e-1-1]] and [[prop:vi-c-adm-exist]]
+take h in 𝖧 = (0, h_*) ∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧.
+[[prop:s14-damping-distance]] and [[cor:s14-eps-ind-point]] are used by no step of the proof of [[thm:settling]]; the
+first shows that (AP2) of [[def:vi-c-admissible]] holds at h = 10⁻⁶ ([[rem:ec-point-outside]]). For h ∈ 𝖧 the theorems
+use only 0 < ε_ind(h) ≤ δ_50, which
 [[prop:np-10-52]] (iii) gives for every such h. [[lem:s14-delta50]] and the sums of the gauge potential offsets of
 [[prop:gap-sums]] concern numbers fixed by the gauge parameters (e_Υ, γ_Υ) alone, not by h, so they hold whatever h is.
 What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
@@ -3579,7 +3583,7 @@ indicial roots of the linearised gauge-fixed Einstein operator at the types l �
 k ∈ [−49, 51], P_l (C if l = 0) has a non-real root of real part k. Outside 𝖹₃ no non-integer entry ι of the lists
 with |ι| ≤ 50 has integer real part, so ε_ind(h) > 0: the set is left out for the condition [Hin26, (8.13)].
 
-(d) Z_exc ([[prop:iii-f1-2-3]] (e)), written 𝖹_exc in row u5 of [[sec:vi-c-1]], is defined at an h at which (C2) and
+(d) Z_exc ([[prop:iii-f1-2-3]] (e)) is defined at an h at which (C2) and
 (C3) hold. It is the set of the z ∈ (0, ½] at which, for some l ≥ 0, a real root of C (l = 0) or of P_l (l ≥ 1) equals
 ι^Υ + 2 or 3 − ι^Υ, for a root ι^Υ = ι^Υ_(s0,2) (l = 0), or ι^Υ = ι^Υ_(sl,l+1) or ι^Υ_(sl,l+2) (l ≥ 1), of the gauge
 potential operator ([[lem:iii-d-4-1]]). There an entry ι − 1 that comes from □^C equals an entry 1 + ι^Υ or 2 − ι^Υ of
@@ -3863,13 +3867,13 @@ h^v_(4,l) with (κ − 8)|h − h^v_(4,l)| < min(η, 1), which contains an open 
 claim, for each n the largest h^v_(n,l) below 10⁻⁶ comes from the least l with κ > (n − 3)·10⁶ + n² − 2n, and the
 largest over 4 ≤ n ≤ 50 is at n = 35, l = 5656, κ = 32001648. ∎
 
-**Remark {#rem:t49-scope}** (What this decides.) At the damping point, the parts of rows c2, c3 and u5 of
-[[sec:vi-c-1]] that concern the indicial roots hold: h = 10⁻⁶ ∉ 𝖹, (C1)–(C4) hold, and Z_exc = ∅ at h = 10⁻⁶, so
-z = 4·10⁻⁶ ∉ Z_exc ([[thm:t49-point]]); every indicial root of L̂_b(0) at the computational point is simple. The
-computational point is not in 𝖧, because 𝖧 ⊂ (0, h_*) and h_* ≤ 10⁻⁶ ([[rem:ec-point-outside]]), and the thresholds
-h_0, h_tf of row c2 and those of rows u2–u4 are not determined. Away from the point, 𝖹₂ is empty and (C3) holds at
-every h ∈ (0, 10⁻⁶], and Z_exc is empty at every h at which (C2) holds ([[thm:t49-uniform]]); so 𝖹 = 𝖹₁ ∪ 𝖹₃, and,
-as (C2) holds at every h ∈ 𝖧, the order of choices in [[thm:vi-c-2-1]] meets no exclusion in z. The set 𝖹 meets I
+**Remark {#rem:t49-scope}** (What this decides.) At the damping point the exclusions of [[eq:iv4-0-1]] and
+[[prop:iii-f1-2-3]] (e) are met, although [[def:vi-c-admissible]] does not ask them: h = 10⁻⁶ ∉ 𝖹, (C1)–(C4) hold, and
+Z_exc = ∅ at h = 10⁻⁶, so z = 4·10⁻⁶ ∉ Z_exc ([[thm:t49-point]]); every indicial root of L̂_b(0) at the computational
+point is simple. The computational point is not in 𝖧, because 𝖧 ⊂ (0, h_*) and h_* ≤ 10⁻⁶, and whether it is admissible
+is decided by the conditions that [[rem:ec-point-outside]] lists as open. Away from the point, 𝖹₂ is empty and (C3) holds
+at every h ∈ (0, 10⁻⁶], and Z_exc is empty at every h at which (C2) holds ([[thm:t49-uniform]]); so 𝖹 = 𝖹₁ ∪ 𝖹₃. The set
+𝖹 meets I
 ([[prop:t49-six]]); whether 𝖹 ∩ I is finite is not decided here. For every interval J ⊂ (0, h_*) of length 2·10⁻⁹,
 ε_ind has no positive lower bound on J ∖ 𝖹 ([[prop:t49-vector]]); [[prop:np-10-52]] (iii) gives only ε_ind(h) > 0
 for h ∈ 𝖧.

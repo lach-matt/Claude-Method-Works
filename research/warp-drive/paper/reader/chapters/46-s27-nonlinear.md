@@ -86,11 +86,15 @@ R_6 := max(R_5, 2(|C′| + C″)); then
 
     F(r) ≥ r/4     for r ≥ R_6.                                                                        {#eq:s27-f}
 
-*Parameters* ([Hin26, Section 13.1, Step 1]). The constraint damping E_C has the constants of [[thm:iii-e-1-1]] fixed
-in [[eq:iv4-0-1]], with C_0 = 100: v_C = ½, e_C = 1/102400 and γ_C = h⁻¹, h ∈ 𝖧; as h < 10⁻⁶,
-s_C := (1 − e_C)(1 − v_C)γ_C > 100. The gauge modification E_Υ = (c_Υ, e_Υ, γ_Υ; c_(Υ,H), γ_(Υ,H)) has c_Υ and c_(Υ,H)
-as in [[sec:iii-d-1]] and [[lem:iii-d1-3-1]], and γ_(Υ,H), e_Υ, γ_Υ small enough for the mode stability of
-[[prop:iii-d1-4-1]] and the tf-admissibility of [[prop:iii-f1-3-3]]. The data index set ℰ_0 and the weight ℓ_0 satisfy
+*Parameters* ([Hin26, Section 13.1, Step 1]). The constraint damping E_C has v_C = ½, e_C = 1/102400 and C_0 = 100
+([[eq:iv4-0-1]]), and γ_C = h⁻¹. The gauge modification E_Υ = (c_Υ, e_Υ, γ_Υ; c_(Υ,H), γ_(Υ,H)) has c_Υ and c_(Υ,H) as in
+[[sec:iii-d-1]] and [[lem:iii-d1-3-1]]. The point (h, γ_(Υ,H), e_Υ, γ_Υ) is admissible ([[def:vi-c-admissible]]):
+s_C := (1 − e_C)(1 − v_C)γ_C > 100, the indicial roots of □^C_b satisfy (C1) of [[sec:iii-f1-1]], 0 < e_Υ < 1 and
+0 < γ_Υ < ¼; □^C_b has the properties (1)–(2) of [[thm:iii-e-1-1]], (C4′) of [[sec:iii-f1-1]] and tf-admissibility with
+the weights in (1, 2); □^Υ_b has the mode stability of [[prop:iii-d1-4-1]]; and Λ_tf(γ_Υ, e_Υ) < 1, so that L_b has the
+tf-admissibility of [[prop:iii-f1-3-3]]. Such points exist: h ∈ 𝖧 ([[eq:iv4-0-1]]) with γ_(Υ,H) ∈ (0, ϵ_0],
+e_Υ ∈ (0, min(ϵ_1, ½)] and γ_Υ ∈ (0, min(ϵ_1, ¼)) ([[prop:vi-c-adm-exist]]). The data index set ℰ_0 and the weight ℓ_0
+satisfy
 the hypotheses of [[thm:iii-c1-3-1]]:
 
     min Re ℰ_0 > 3/2 + 2γ_Υ,     jℰ_0 ⊂ ℰ_0 (j ∈ ℕ),     ℓ_0 > 3,     ℓ_0 ∉ Re π_1ℰ_0,
@@ -1704,51 +1708,97 @@ at ℐ⁺, ι⁺ and K⁺, the data classes and the set of Myers–Perry paramet
 This section lists every such condition with the results that state or use it, and what its threshold depends on;
 [[thm:vi-c-2-1]] shows that they can all be met, in an order in which each threshold depends only on choices already
 made. m₀ > 0 is fixed and R₁ := m₀^(1/2). Conditions that only restate a choice made in another row are omitted. The
-constants v_C, e_C, C_0 and γ_C of the damping are fixed once, in [[eq:iv4-0-1]], at the point where [[thm:iii-e-1-1]]
-is proved, and no result varies them; every result that names them uses that point. The class parameter of
-[[sec:iii-i-1]], the e3b-weight at ℐ⁺ of the admissible operators, is a number in (0, ½) fixed once and for all; it
-carries no threshold and depends on no other choice. [[ch:s19]] writes it ℓ_I as well; in the rows below, ℓ_I is the
-b-weight at ℐ⁺ of the data class of [[thm:iii-c1-3-1]].
+constants v_C, e_C and C_0 of the damping are fixed once, in [[eq:iv4-0-1]] (row c1), and γ_C = h⁻¹ is fixed with the
+gauge parameters at an admissible point (row a1); no result varies them, and every result that names them uses that
+point. The class parameter of [[sec:iii-i-1]], the e3b-weight at ℐ⁺ of the admissible operators, is a number in
+(0, ½) fixed once and for all; it carries no threshold and depends on no other choice. [[ch:s19]] writes it ℓ_I as
+well; in the rows below, ℓ_I is the b-weight at ℐ⁺ of the data class of [[thm:iii-c1-3-1]].
+
+**Definition {#def:vi-c-admissible}** (Admissible points of the damping and gauge parameters.) Let
+(v_C, e_C, C_0) := (½, 1/102400, 100), let c_C be the damping 1-form of [[sec:iv4-0]], and let c_Υ = ζ(|x|)|x|⁻¹dt and
+c_(Υ,H) = −½χ(|x|)d|x| be the gauge 1-forms of row u1. For 𝗉 = (h, γ_(Υ,H), e_Υ, γ_Υ) ∈ (0, ∞)⁴ put γ_C := h⁻¹,
+s_C := (1 − e_C)(1 − v_C)γ_C and z_Υ := 4e_Υγ_Υ², and let □^C_b, □^Υ_b and L_b be the operators of [[eq:iii-e-1-1]],
+[[sec:iii-d-1]] and [[eq:iii-f-1-1]] with the damping (c_C, e_C, γ_C) and the gauge modification
+E_Υ = (c_Υ, e_Υ, γ_Υ; c_(Υ,H), γ_(Υ,H)). The point 𝗉 is *admissible* if:
+
+(AP0) s_C > 100, e_Υ < 1 and γ_Υ < ¼, and for every b in a neighbourhood of b₀ the indicial roots of □^C_b satisfy (C1)
+of [[sec:iii-f1-1]];
+
+(AP1) for every b in a neighbourhood of b₀, □^C_b has the properties (1) and (2) of [[thm:iii-e-1-1]]: mode stability
+for σ ≠ 0, and the invertibility of P^C_b, with (H1)–(H4) and ½ + ϑ_ℋ < −C_0;
+
+(AP2) the indicial roots of □^C_b satisfy (C4′) of [[sec:iii-f1-1]]: every non-real one with |ι − 1| ≤ 50 has non-integer
+real part;
+
+(AP3) there is a neighbourhood ℬ(γ_(Υ,H)) of b₀ (depending on 𝗉) such that for every b ∈ ℬ(γ_(Υ,H)) and every σ with
+Im σ ≥ 0, (□^Υ_b)^(σ) is invertible, as a map 𝒳_σ → 𝒴_σ when σ ≠ 0, and as a map 𝒳_0 → 𝒴_0 for every s > 3/2 and every
+α with α + 2 ∈ (0, ι^Υ_(s1,2)) when σ = 0 (the spaces of [[sec:iii-d1-1]]); this is the conclusion of
+[[prop:iii-d1-4-1]];
+
+(AP4) Λ_tf(γ_Υ, e_Υ) < 1 ([[eq:tf-lambda]]), and for every b in a neighbourhood of b₀, (□^C_b)^(·) is tf-admissible
+([[def:i-c-5-1]]) with every weight in (1, 2), as (4) of [[thm:iii-e-1-1]] asserts with every weight in [−C_0, 2).
+
+Each condition is a property of 𝗉 alone, and [[thm:settling]] holds at every admissible point ([[thm:vi-c-adm-holds]]).
+By (AP0), γ_C > 2s_C > 200, so γ_Cv_C > 100 and (C5) of [[sec:iii-g2-1]], γ_Cv_C ≥ ½, holds; z_Υ ∈ (0, ¼), so the results
+of [[ch:s13]] and [[ch:s15]] stated for z ∈ (0, ½] apply; 2γ_Υ < ½ < s_C and γ_Υ < ⅜, so γ_Υ < min(½s_C, ⅜)
+([[lem:iii-g1-1-1]]); and δ_♯ := (1 − e_Υ)γ_Υ lies in (0, ¼). (C1) and (C4) imply (C4′). By (AP0) and (AP4), L_b^(·) is
+tf-admissible with every weight in (0, 1] for b near b₀ ([[prop:iii-f1-3-3]]); Λ_tf(γ_Υ, e_Υ) < 1 holds whenever e_Υ ≤ ½,
+and at (γ_Υ, e_Υ) = (1/100, 1/100) it is below 1.0111·10⁻⁴ ([[prop:tf-gauge-explicit]]).
+
+Each condition is used, and the proof of [[thm:vi-c-adm-holds]] says where: s_C > 100 in (f) and (l), directly and
+through γ_Cv_C > 100 and γ_Υ < ½s_C; (C1) in its item (b), which lists its uses, among them the hypothesis of
+[[prop:iii-f1-2-3]] on which (c) and (d) rest, and in (j) as a hypothesis of [[prop:iii-f1-3-3]]; e_Υ < 1 and γ_Υ < ¼ in
+(l), directly and through z_Υ ∈ (0, ¼) and γ_Υ < ⅜, and in (j); (AP1) in (a); (AP2) in (c); (AP3) in (i); and (AP4) in
+(e) and (j).
+
+s_C > 100 and (C1) hold whenever h ≤ 10⁻⁶: then s_C ≥ (1 − e_C)·10⁶/2 > 100, and (C1) holds by [[lem:iv4-1-3]] (a).
+The definition does not ask h ≤ 10⁻⁶, h ∈ 𝖧 ([[eq:iv4-0-1]]), the gauge parameters below the thresholds of
+[[prop:iii-d1-4-1]] or of [[lem:iii-d-7-1]] (b), or z_Υ ∉ Z_exc ([[prop:iii-f1-2-3]] (e)): the proofs use those
+requirements only through (AP0)–(AP4), and the simplicity of indicial roots of L̂_b(0) only where (AP0) gives it
+([[prop:iii-f1-2-3]] (g)). [[thm:ec-lb-proved]] and the bounds that rest on it assume h ≤ 10⁻⁶ in addition.
+[[rem:ec-point-outside]] records which conditions are decided at the computational point.
+
+**Proposition {#prop:vi-c-adm-exist}** (Admissible points exist.) Let h ∈ 𝖧 ([[eq:iv4-0-1]]) and γ_C := h⁻¹; let
+γ_(Υ,H) ∈ (0, ϵ_0], with ϵ_0 of [[prop:iii-d1-4-1]] and its ϵ_1 and ℬ(γ_(Υ,H)) at this γ_(Υ,H); and let
+e_Υ ∈ (0, min(ϵ_1, ½)] and γ_Υ ∈ (0, min(ϵ_1, ¼)). Then the point (h, γ_(Υ,H), e_Υ, γ_Υ) is admissible, with the
+neighbourhood ℬ(γ_(Υ,H)) of [[prop:iii-d1-4-1]], intersected with the ball ℬ_VI of [[thm:vi-b1-5-1]], in (AP3). Such
+points exist, with h, e_Υ and γ_Υ arbitrarily small; they include the points that satisfy in addition 4e_Υγ_Υ² ∉ Z_exc
+([[prop:iii-f1-2-3]] (e)), and those with e_Υ and γ_Υ below the threshold of [[lem:iii-d-7-1]] (b).
+
+*Proof.* (AP0): h ∈ 𝖧 gives h < 10⁻⁶, so s_C > (1 − e_C)·10⁶/2 > 100, and (C1) holds by [[lem:iv4-1-3]] (a); e_Υ ≤ ½
+and γ_Υ < ¼ by the choice. (AP1), (AP2) and the second half of (AP4): at h ∈ 𝖧, [[thm:iii-e-1-1]] holds for every b near
+b₀ ([[thm:iv4-2-1]], [[thm:iv6-4-1]]); its (1) and (2) are those of (AP1), its (4) contains the tf-admissibility of
+(AP4), and the clauses of its (3) include (C1) and (C4) of [[sec:iii-f1-1]], which give (C4′). (AP3): (Dyn) holds for b
+near b₀ ([[thm:vi-a-6-1]], [[thm:vi-b1-5-1]]), and γ_(Υ,H) ∈ (0, ϵ_0], e_Υ ∈ [0, ϵ_1] and 0 < γ_Υ < ϵ_1; so
+[[prop:iii-d1-4-1]] gives the invertibility of (AP3) for b ∈ ℬ(γ_(Υ,H)), and (Dyn) holds on its intersection with ℬ_VI.
+The first half of (AP4): e_Υ ≤ ½ and γ_Υ < ¼ give Λ_tf(γ_Υ, e_Υ) ≤ 41/64 ([[prop:tf-gauge-explicit]]). Existence:
+𝖧 = (0, h_*) ∖ 𝖹 with h_* > 0 and 𝖹 countable, so 𝖧 contains points arbitrarily close to 0; and ϵ_0 and ϵ_1 are positive,
+so the conditions on γ_(Υ,H), e_Υ and γ_Υ define non-empty intervals with left end point 0. The further conditions of the
+last sentence are upper bounds on e_Υ and γ_Υ and, at fixed e_Υ, the exclusion from an open interval of the countable set
+{γ > 0 : 4e_Υγ² ∈ Z_exc}, which leaves points. ∎
 
 **c1.** (v_C, e_C, C_0) = (½, 1/102400, 100), the point at which [[thm:iii-e-1-1]] is proved ([[eq:iv4-0-1]],
 [[sec:iii-k-0]]). Threshold: none.
-
-**c2.** γ_C = h⁻¹, h ∈ 𝖧 = (0, h_*) ∖ 𝖹, h_* = min(10⁻⁶, h_0, h_tf), 𝖹 countable ([[eq:iv4-0-1]], [[lem:iv4-1-3]] (b),
-[[prop:np-10-52]] (ii)–(iii)). Threshold: c1.
-
-**c3.** γ_C: (C1)–(C4), the clauses of [[thm:iii-e-1-1]] (3) after its first sentence: the indicial roots of □^C_b are
-simple, avoid the listed sets, and are real where their real part is an integer in [3, 51] (used in [[ch:s15]]).
-Threshold: c1, c2.
-
-**c4.** γ_C: (C5) γ_C v_C ≥ ½ ([[sec:iii-i10-1]], [[sec:iii-g2-1]]), and s_C := (1 − e_C)(1 − v_C)γ_C > 100
-([[sec:iii-f-1]], [[sec:iii-k-0]]). Both hold as γ_C > 10⁶. Threshold: c1.
 
 **u1.** c_Υ, c_(Υ,H), c_C: the fixed 1-forms of [[def:iii-b-6-1]], in the radial forms the proofs use: c_Υ =
 ζ(|x|)|x|⁻¹dt and c_(Υ,H) = −½χ(|x|)d|x| ([[sec:iii-d2-1]], [[lem:iii-d-5-1]]), and c_C of [[sec:iv4-0]]. Threshold:
 c1.
 
-**u2.** γ_(Υ,H) ∈ (0, ε_0], ε_0 that of [[prop:iii-d1-4-1]]. Threshold: none.
-
-**u3.** e_Υ ∈ (0, min(ε_1, ½)], with ε_1 of [[prop:iii-d1-4-1]]. With row u4 this gives the tf-admissibility of
-[[lem:iii-d-7-1]] (a) and of [[prop:iii-f1-3-3]], whose conditions e_Υ ≤ ½ and γ_Υ ≤ ¼ are explicit
-([[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]]). Threshold: ε_1 on u2.
-
-**u4.** 0 < γ_Υ < min(ε_1, 3/8, ½s_C, ¼) ([[prop:iii-d1-4-1]], [[sec:iii-g2-1]], [[eq:iii-c-1-1]],
-[[eq:iii-i9-1-1]]). With e_Υ ≤ ½ this gives z_Υ ≤ ⅛ and Λ_tf(γ_Υ, e_Υ) ≤ 41/64 ([[eq:tf-lambda]]). Threshold: ε_1 on
-u2; ½s_C on c1–c2.
-
-**u5.** z_Υ := 4e_Υγ_Υ² ∈ (0, ½] ∖ 𝖹_exc, 𝖹_exc countable ([[prop:iii-f1-2-3]] (e), [[sec:iii-g2-1]]). Threshold:
-𝖹_exc on c1–c3; u3.
+**a1.** (h, γ_(Υ,H), e_Υ, γ_Υ), with γ_C = h⁻¹: an admissible point ([[def:vi-c-admissible]]), that is (AP0) s_C > 100,
+0 < e_Υ < 1, 0 < γ_Υ < ¼ and (C1) of [[sec:iii-f1-1]], with (AP1)–(AP4): the properties (1)–(2) of [[thm:iii-e-1-1]],
+(C4′) of the same section, the conclusion of [[prop:iii-d1-4-1]], and Λ_tf(γ_Υ, e_Υ) < 1 with the tf-admissibility of
+□^C_b at the weights in (1, 2) ([[sec:iii-f-1]], [[sec:iii-g2-1]], [[sec:iii-i10-1]], [[eq:iii-c-1-1]], [[sec:iii-k-0]],
+[[prop:iii-f1-3-3]]). Threshold: c1, u1; every condition is a property of the point alone.
 
 **b1.** b in the ball ℬ_VI of [[thm:vi-b1-5-1]], on which (Dyn) holds. Threshold: none.
 
-**b2.** b ∈ ℬ(γ_(Υ,H)) ([[prop:iii-d1-4-1]]); with the low-frequency radius c_0 of [[cor:iii-h-4-3]], written c_σ in this
-section and the next to distinguish it from the constant c_0 of [[sec:iii-k-3]], b ∈ ℬ(c_σ) ([[prop:iii-f2-4-1]]) and in
-the neighbourhood of [[cor:iii-h-4-3]]–[[cor:iii-h-4-4]]; and b near b₀ as [[thm:iii-e-1-1]], [[prop:iii-f1-3-3]] and
-[[sec:iii-j-1]] ask. Threshold: c1–c2, u1–u5.
+**b2.** b ∈ ℬ(γ_(Υ,H)), the neighbourhood of (AP3) of [[def:vi-c-admissible]]; with the low-frequency radius c_0 of
+[[cor:iii-h-4-3]], written c_σ in this section and the next to distinguish it from the constant c_0 of [[sec:iii-k-3]],
+b ∈ ℬ(c_σ) ([[prop:iii-f2-4-1]]) and in the neighbourhood of [[cor:iii-h-4-3]]–[[cor:iii-h-4-4]]; and b near b₀ as
+(AP1), (AP4) and [[sec:iii-j-1]] ask. Threshold: c1, u1, a1.
 
 **b3.** ℬ_*: open, with closure in ℬ_1, and (B5) of [[sec:iii-h2-0]]: ‖P − 2L_b‖_((0;d)) < ε_0 on ℬ̄_*. This is the only
-condition on ℬ_* there; b4 shrinks it further. Threshold: b2, u1–u5.
+condition on ℬ_* there; b4 shrinks it further. Threshold: b2, u1, a1.
 
 **b4.** ℬ_*: shrunk so that the states at b are jointly injective ([[lem:iii-i15-1-2]]) and the maps −id + A_k of the
 elimination are invertible at every base point ([[thm:iii-i15-3-1]]); both depend on the row set and on the levels up
@@ -1764,20 +1814,20 @@ stated; and ε_Υ is the constant of [[sec:iii-d2-1]], fixed by the indicial roo
 the conclusion of [[prop:iii-g4-5-1]] is stated. At the gauge parameters of [[prop:np-10-52]], ε_ind ≤ δ_50 = 1.94137… ×
 10⁻⁸ ([[prop:np-10-52]] (iii), [[prop:iii-f1-2-3]] (f); the value by [[lem:s14-delta50]]), and δ_50 is the least distance
 from ℤ among the non-integer entries of modulus at most 50 that do not depend on h; no proof uses its value.
-Threshold: u1–u5, d1–d2.
+Threshold: u1, a1, d1–d2.
 
 **w2.** α: admissible ([[def:iii-i10-1-3]]), with (A_J) ([[def:iii-j-a-j]]) and the exactness conditions (Ex3)–(Ex4) of
 [[def:iii-j3-1-3]], in (4 + ε_K − ε′_0, 4 + ε_K], where such α are dense ([[def:iii-j-a-j]], [[lem:iii-j3-1-4]]).
 Threshold: w1, d1–d2 ((A_J) involves Λ).
 
 **d1.** ℰ_0, ℓ_0: min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 (so that row d2 is nonempty), ℓ_0 ∉ Re π_1ℰ_0
-([[thm:iii-c1-3-1]], [[sec:iii-k-0]], (H4) of [[sec:iii-i10-1]]). Threshold: u4.
+([[thm:iii-c1-3-1]], [[sec:iii-k-0]], (H4) of [[sec:iii-i10-1]]). Threshold: a1.
 
 **d2.** ℓ_I: 3 < ℓ_I < min(ℓ_0, 3/2 + s_C), with row w1's ε_+ < ℓ_I − 3: [[thm:iii-c1-3-1]] asks 3/2 < ℓ_I < ℓ_0, (H4)
 asks ℓ_I > 3 + ε_+, and [[thm:iii-k-4-3]] uses one ℓ_I for both. ℓ_I avoids the exclusion sets of (H4), which are
 discrete: for ℓ_I in a bounded interval, ℰ^C_I ranges over finitely many index sets ([[thm:iii-c1-3-1]]), and
 ℓ_I ∉ Re π_1ℰ^C_I avoids their real parts; and ℓ_I ∉ 3/2 + σ_Υ, σ_Υ = {0, (1 − e_Υ)γ_Υ, γ_Υ, 2γ_Υ} ([[def:iii-c-3-1]],
-[[prop:iii-i1-3-1]], [[sec:iii-i10-1]]). Threshold: c1–c2, u3–u4, d1.
+[[prop:iii-i1-3-1]], [[sec:iii-i10-1]]). Threshold: c1, a1, d1.
 
 **n1.** ε, d_1: the smallness and regularity of [[thm:iii-k-4-3]]. Threshold: all the above.
 
@@ -1788,17 +1838,16 @@ together. Make the choices in this order; at each step the thresholds depend onl
 
 (0) ℬ_VI := {|b − b₀| ≤ ε_VI} of [[thm:vi-b1-5-1]]. It depends on the metrics alone.
 
-(1) (v_C, e_C, C_0) := (½, 1/102400, 100) and h ∈ 𝖧, γ_C := h⁻¹. Then [[thm:iii-e-1-1]] holds at these values
-([[thm:iv4-2-1]] for (1)–(3), [[thm:iv6-4-1]] for (4)), with (C1)–(C4) (row c3), and (C5) and s_C > 100 hold, as
-γ_C > 10⁶.
+(1) The damping and the gauge (row a1). (v_C, e_C, C_0) := (½, 1/102400, 100), and an admissible point
+(h, γ_(Υ,H), e_Υ, γ_Υ) of [[def:vi-c-admissible]], γ_C := h⁻¹. Admissible points exist ([[prop:vi-c-adm-exist]]),
+and at each the results of the stability theory hold ([[thm:vi-c-adm-holds]] (1)).
 
-(2) The gauge. ε_0 of [[prop:iii-d1-4-1]] is uniform. Choose γ_(Υ,H) ∈ (0, ε_0]; this fixes ε_1 and ℬ(γ_(Υ,H)).
-Choose e_Υ ∈ (0, min(ε_1, ½)]. 𝖹_exc is fixed by step (1). Choose γ_Υ in the interval of row u4 with
-4e_Υγ_Υ² ∉ 𝖹_exc. This is possible because the interval is nonempty and open, while {γ > 0 : 4e_Υγ² ∈ 𝖹_exc} is
-countable. Then z_Υ ∈ (0, ⅛], as γ_Υ < ¼ and e_Υ ≤ ½, so that [[lem:iii-d-7-1]] (a) and [[prop:iii-f1-3-3]] hold
-([[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]]). [[prop:iii-d-6-3]] (the invertibility of the spectral family
-of □^Υ_b at |σ| ≥ c_σ) is then implied, for every c_σ and b ∈ ℬ(γ_(Υ,H)), by [[prop:iii-d1-4-1]], which gives it for
-every σ with Im σ ≥ 0; so it imposes no further condition.
+(2) The numbers the point fixes. By (AP0), 0 < e_Υ < 1, 0 < γ_Υ < ¼, z_Υ := 4e_Υγ_Υ² ∈ (0, ¼), s_C > 100 and (C1), and
+γ_Cv_C = γ_C/2 > s_C > 100, so that (C5) holds; by (AP0) and (AP4), L_b^(·) is tf-admissible with every weight in (0, 1]
+([[prop:iii-f1-3-3]]). The point fixes δ_♯ := (1 − e_Υ)γ_Υ ∈ (0, ¼), the set σ_Υ, the constant ε_Υ of [[sec:iii-d2-1]], a
+constant ε_ind ∈ (0, 1] with [[eq:iii-f1-2-2]] ([[prop:iii-f1-2-3]] (f), under (AP2)), and the neighbourhood ℬ(γ_(Υ,H))
+of (AP3). [[prop:iii-d-6-3]] (the invertibility of the spectral family of □^Υ_b for σ with |σ| ≥ c_σ) is implied, for
+every c_σ and b ∈ ℬ(γ_(Υ,H)), by (AP3), which gives it for every σ with Im σ ≥ 0; so it imposes no further condition.
 
 (3) The data classes: ℰ_0 and ℓ_0 > 3 as in row d1, then ℓ_I in the interval (3, min(ℓ_0, 3/2 + s_C)) of row d2,
 minus the four points 3/2 + σ_Υ and the exclusion sets of (H4). This fixes ℰ^C_I ([[thm:iii-c1-3-1]]) and Λ. In the
@@ -1822,16 +1871,82 @@ theory is then taken over ℬ̄_*, a compact set on which (Dyn) holds (step (0))
 (6) ε and d_1 of [[thm:iii-k-4-3]], which depend on all of the above.
 
 *Proof.* Each step's existence claim is the cited statement, read with the quantifiers it has; the last entry of each
-row of [[sec:vi-c-1]] records that no threshold depends on a later choice. In step (2), the ε_0 of [[prop:iii-d1-4-1]]
-is uniform, while its ε_1 and ℬ(γ_(Υ,H)) come after γ_(Υ,H), so the order γ_(Υ,H), e_Υ, γ_Υ meets it. The only
-low-frequency radius that depends on the gauge is the c_σ of [[cor:iii-h-4-3]], and it is used only after the gauge is
-fixed, through [[prop:iii-f2-4-1]], whose neighbourhood is then chosen. In step (5), each neighbourhood of rows b2 and
+row of [[sec:vi-c-1]] records that no threshold depends on a later choice. In steps (1)–(2) every condition is a
+property of the point (h, γ_(Υ,H), e_Υ, γ_Υ) alone (row a1), every number of step (2) is fixed by it, and the results
+that the later steps use hold at it ([[thm:vi-c-adm-holds]] (1)). The only low-frequency radius that depends on the
+gauge is the c_σ of [[cor:iii-h-4-3]], and it is used only after the gauge is fixed, through [[prop:iii-f2-4-1]],
+whose neighbourhood is then chosen. In step (5), each neighbourhood of rows b2 and
 b4 is open and contains b₀, so their intersection with ℬ_VI contains a ball. The ball of [[thm:vi-b1-5-1]] depends on
 no gauge parameter, as the dynamical hypotheses concern the metric alone ([[sec:vi-a-0]]). (K3) holds for every ε
 ([[prop:vi-b1-3-4]]), so ε_VI depends neither on the regularity d_0 of [[thm:ii-c1-1-1]] nor on its order k. ∎
 
 The invertibility of L̂_b(σ) for b ≠ b₀ and 0 < |σ| < c_σ, which [[sec:iii-f2-5]] leaves open, holds for b near b₀ and
 σ ∈ Σ_0, |σ| ≤ c_σ, by [[cor:iii-h-4-3]]; its neighbourhood is one of row b2, so it holds on ℬ̄_*.
+
+**Theorem {#thm:vi-c-adm-holds}** (The stability theory at an admissible point.) Let 𝗉 = (h, γ_(Υ,H), e_Υ, γ_Υ) be
+an admissible point ([[def:vi-c-admissible]]), with γ_C = h⁻¹, the constants of row c1, the 1-forms of row u1 and the
+neighbourhood ℬ(γ_(Υ,H)) of its condition (AP3).
+
+(1) Every result of [[ch:s13]] from [[sec:iii-d2-1]] on, [[lem:iii-d1-5-1]], every result of [[ch:s14]] from
+[[sec:iii-e-2]] to [[sec:iii-e1-3]], and every result of [[ch:s15]] to [[ch:s29]] holds at 𝗉, with its proof.
+
+(2) [[thm:vi-c-2-1]] holds with its step (1) made at 𝗉, and [[thm:iii-k-4-3]], [[cor:s27-rate]],
+[[thm:settling-precise]] and [[thm:settling]] hold with the parameters so chosen.
+
+*Proof.* (1) We list every way in which these proofs use the damping and gauge parameters, and show that each is
+available at 𝗉.
+
+*The damping.* (a) The properties (1) and (2) of [[thm:iii-e-1-1]]: in [[prop:iii-f2-3-1]], [[prop:iii-f3-4-1]], Step 4
+of the proof of [[prop:iii-f4-5-1]] and [[lem:iii-e-2-1]], and through the last in [[prop:iii-e-3-1]] and
+[[prop:iii-e1-3-1]]. These are (AP1). (b) The clause (C1): in the list of [[prop:iii-f1-2-3]] and its parts (a)–(d) and
+(g), in [[lem:iii-e-2-1]] (2), in [[thm:iii-g-5-1]], and in the settings of [[ch:s16]], [[sec:iii-f3-1]],
+[[sec:iii-g2-1]] and [[sec:iii-h-1]]. It is part of (AP0). (c) The clause (C4): only through [[prop:iii-f1-2-3]] (f),
+which assumes only (C4′), that is (AP2). (d) The clauses (C2)–(C3) and the condition z_Υ ∉ Z_exc: only through
+[[prop:iii-f1-2-3]] (e), whose conclusion, the simplicity of the roots of L̂_b(0), is used only for roots with real part
+in (−3, 0]: the root 0 in [[lem:iii-f1-2-5]] and [[lem:iii-g1-1-3]] (b), through (c) of [[prop:iii-f1-2-3]]; the root −2
+at the types s2, v2 and t2 in [[sec:iii-f4-5]]; and the roots of 𝒲(ℓ_K), ℓ_K < ℓ_K^max ≤ 3, in [[lem:iii-g2-1-2]],
+[[thm:iii-g2-3-1]], [[lem:iii-g4-1-1]] (2), [[lem:iii-g4-3-4]], [[thm:iii-g4-3-1]], [[prop:iii-g4-5-1]]
+(through the residues Π_μ) and [[lem:iii-i12-2-3]]. By (c) and (g) of [[prop:iii-f1-2-3]], which use only z_Υ ∈ (0, ½]
+and (C1), every root with real part in [−101, 0] is real and simple at 𝗉, and these proofs cite (c), the list or (g) for
+it. No other proof uses the simplicity of a root of L̂_b(0); those that meet roots of real part below −101 or above 1
+allow them any finite multiplicity ([[lem:iii-g1-1-3]], [[def:iii-i10-1-1]]). (e) The property (4) of [[thm:iii-e-1-1]]:
+only in Step 4 of the proof of [[prop:iii-f1-3-3]], at the weights in (1, 2), which is in (AP4). (f) The inequality
+s_C > 100: in [[sec:iii-f-1]], [[eq:iii-i1-1-1]], [[sec:iii-c1-0]], [[sec:iv2-0]], [[sec:iii-k-0]] and row d2, and
+through the bound ℓ_I < 3/2 + s_C in [[thm:iii-g1-3-1]], [[eq:iii-g3-1-2]] and [[sec:iii-i10-1]]; and (C5), in
+[[sec:iii-g2-1]] and [[sec:iii-i10-1]]. These follow from (AP0): s_C > 100 is part of it, and γ_Cv_C = γ_C/2 > s_C. (g)
+The horizon threshold of [[lem:iii-f2-1-1]] and the bound of [[cor:iii-f2-1-2]] hold for every γ_C. (h) The set 𝖧, the
+thresholds h_0 and h_tf and the sets 𝖹, 𝖹₁, 𝖹₂ and 𝖹₃ enter only through [[thm:iii-e-1-1]] and through
+[[prop:np-10-52]] (ii)–(iii), whose conclusions are those of [[prop:iii-f1-2-3]] (e)–(f) at z = 4·10⁻⁶; so only through
+(a)–(f). The bound h < 10⁻⁶ that h ∈ 𝖧 contains enters these proofs only through s_C > 100 and (C1)
+([[lem:iv4-1-3]] (a)), which (AP0) asks directly.
+
+*The gauge.* (i) The mode stability of □^Υ_b: in the setting of [[sec:iii-d2-1]] and in [[lem:iii-d1-5-1]]
+(the invertibility of (□^Υ_b)^(0)), in [[prop:iii-f2-3-1]], [[rem:iii-f3-2-3]] and [[prop:iii-f3-4-1]] (kernels of □^Υ),
+and through ℬ(γ_(Υ,H)) in row b2; [[prop:iii-d-6-3]] is implied by it. This is (AP3). (j) The tf-admissibility of L_b: in
+[[cor:iii-f1-3-4]], [[prop:iii-g-3-2]], [[sec:iii-g-4-1]], [[lem:iii-g-4-5]], [[thm:iii-g-5-1]], [[sec:iii-h-1]],
+[[thm:iii-h1-1-3]] and [[thm:iii-h2-2-1]]. [[prop:iii-f1-3-3]] gives it at 𝗉: its hypotheses (C1), 0 < e_Υ < 1, γ_Υ > 0,
+z_Υ ≤ ½ and Λ_tf(γ_Υ, e_Υ) < 1 hold by (AP0) and (AP4), and its proof uses besides only (AP4) (in Step 4),
+[[lem:tf-lin-reduction]] and [[prop:tf-gauge-explicit]]. (k) The threshold of [[lem:iii-d-7-1]] (b) is used only in the
+proof of [[prop:iii-d1-4-1]] ([[sec:iii-d1-1]]), outside the results of (1); elsewhere [[lem:iii-d-7-1]] enters through
+its part (a) or through its proof at γ_Υ = 0. (l) The inequalities 0 < e_Υ < 1 and 0 < γ_Υ < ¼: in [[eq:iii-c-1-1]],
+[[prop:np-10-38]], the opening of [[ch:s19]], [[sec:s20-setting]], [[sec:iii-i9-1]], [[sec:iii-c1-0]] and row d1;
+γ_Υ < min(½s_C, ⅜): in [[lem:iii-g1-1-1]], [[thm:iii-g1-3-1]], [[sec:iii-g2-1]], [[sec:iii-g3-1]] and [[lem:iii-g3-1-2]];
+and z_Υ ∈ (0, ½]: in [[lem:iii-d-4-1]], in the constant ε_Υ of [[sec:iii-d2-1]], in (R1)–(R5) of [[sec:iii-d3-1]] with
+[[prop:np-10-29]] and [[prop:np-10-30]], in [[prop:iii-f1-2-3]] and in [[lem:iii-g1-1-3]]. These follow from (AP0), as
+[[def:vi-c-admissible]] records; so do the other uses of these inequalities, of s_C > 100 and of the bound
+ℓ_I < 3/2 + s_C of row d2 in [[ch:s17]] to [[ch:s27]].
+
+*Continuity and the rest.* [[lem:iii-d-5-1]], [[prop:iii-d-6-1]], [[lem:iii-f2-1-1]], [[cor:iii-f2-1-2]],
+[[lem:iii-f1-2-4]] and [[lem:iii-f1-3-2]] hold for parameters in a compact set and are applied with the compact set
+{𝗉}. Every other smallness in [[ch:s18]] to [[ch:s29]] concerns the metric perturbation, the data, neighbourhoods of
+b₀, the thresholds of the Nash–Moser theorem, the cut-off time or the gluing; none of these involves 𝗉 except through
+the numbers s_C, z_Υ, δ_♯, σ_Υ, ε_ind, ε_Υ and Λ and the neighbourhoods of b₀ that 𝗉 fixes.
+
+(2) In [[thm:vi-c-2-1]], steps (0) and (3)–(6) and their thresholds see 𝗉 only through the numbers and the
+neighbourhood of its step (2) and through results that hold at 𝗉 by (1), so its proof applies. [[thm:iii-k-4-3]],
+[[prop:vii-3-2]], [[cor:s27-rate]] and [[cor:vii-2-3]] are results of (1) at the parameters so chosen.
+[[thm:settling-precise]] is proved in [[ch:settling-proof]] from these and from results that do not involve the
+damping and gauge parameters, and [[thm:settling]] is deduced from it there. ∎
 
 ### The symmetry class {#sec:s27-class}
 

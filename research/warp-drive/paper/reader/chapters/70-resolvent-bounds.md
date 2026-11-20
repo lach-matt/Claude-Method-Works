@@ -1692,9 +1692,10 @@ c_(Υ,H) = −½χ(r)dr with χ ∈ C_c^∞ equal to 1 near r_h ([[sec:iii-d1-1]
 thresholds of [[prop:iii-d1-4-1]]. The tensor-type blocks do not depend on ζ, χ, the smoothing of c_C or the
 parameters; the scalar-type blocks do, and every statement below is made for all admissible choices at once unless a
 choice is named. Where numbers are given at (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), they are numbers of the operator with
-those parameters. This point lies outside the set on which the theorems are proved: γ_C = 10⁶ is not of the form h⁻¹
-with h as in [[eq:iv4-0-1]], where h < 10⁻⁶, and (γ_Υ, e_Υ) = (1/100, 1/100) are not shown to lie below the thresholds
-of [[prop:iii-d1-4-1]], which are proved to exist without a value.
+those parameters. This point is not shown to lie in the set on which [[thm:settling]] is proved
+([[rem:ec-point-outside]]): γ_C = 10⁶ is not of the form h⁻¹ with h as in [[eq:iv4-0-1]], where h < 10⁻⁶, so
+[[thm:iii-e-1-1]] is not proved there, and the invertibility (AP3) of [[def:vi-c-admissible]] is not shown at
+(γ_Υ, e_Υ) = (1/100, 1/100), the thresholds of [[prop:iii-d1-4-1]] being proved to exist without a value.
 
 *Scalar type.* For l ≥ 0 and S ∈ 𝒮_l real, a stationary symmetric 2-tensor of scalar type l is
 

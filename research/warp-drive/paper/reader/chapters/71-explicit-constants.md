@@ -16,16 +16,17 @@ quantities of the operators, the index sets and the order of the bounds of the b
 construction contribute their numbers of steps, among them three nested ones. Two of these iterations alone, each of
 their steps being charged at least one derivative for the inverse of the model at the transition face, whose incoming
 threshold is non-negative ([[lem:ec-theta-in]], [[thm:loss-d]]), make d_acc, and so d, larger than
-3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²) at every point of the set on which [[thm:settling]] is proved, where
-z = 4e_Υγ_Υ² and γ_C are the gauge and damping parameters and g(z) = z/27360 + z²/1088; so d is unbounded on that set
-([[thm:ec-lb-proved]]). At one parameter point of the gauge and damping parameters they make d_acc, and so d, larger
+3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²) at every point of the set on which [[thm:settling]] is proved at which
+γ_C ≥ 10⁶, where z = 4e_Υγ_Υ² and γ_C are the gauge and damping parameters and g(z) = z/27360 + z²/1088; so d is
+unbounded on that set ([[thm:ec-lb-proved]]). At one parameter point of the gauge and damping parameters they make d_acc,
+and so d, larger
 than 1.403 × 10²⁰ and N_NM larger than 2.946 × 10²¹ ([[thm:loss-d]]), and larger than 1.2497 × 10²⁴ and 2.624 × 10²⁵
 for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). At that point, at one admissible choice of
 the weights and of the free orders and inner products ([[def:uc-choice]], [[def:cs-choices]]), d_acc and d_NM, the
 latter the d of [[thm:iii-k-3-2]], at least the orders at which its lemmas ask U small ([[prop:uc-d-small]]), are at
 most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter
-point lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at it bound
-what this proof's choices produce, not the optimal loss. The
+point is not shown to lie in the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at
+it bound what this proof's choices produce, not the optimal loss. The
 same formulas bound λ1 by δ, δ by a power of 2 that decreases with d, and the modulus of the initial family
 ([[prop:iii-k-1-2]]) at 2δ by a power of 2 that decreases with d ([[prop:ec-delta-cap]]). The regularity d_1 of
 [[thm:iii-k-4-3]] is 22d + 292 + L_P and the order of the approximant of [[thm:settling]] is K = d_1 + 14, L_P ≤ 43
@@ -52,29 +53,36 @@ the last pair as fixed in [[eq:iv4-0-1]]. At it
 and, by [[cor:s14-eps-ind-point]], ε_ind(10⁻⁶) = δ_50, where 1.941370568463·10⁻⁸ < δ_50 < 1.941370568464·10⁻⁸
 ([[lem:s14-delta50]]). We write δ̄ := 1.94137057·10⁻⁸, so that δ_50 < δ̄.
 
-**Remark {#rem:ec-point-outside}** (The computational point and the proved set.) The computational point lies outside
-the set on which [[thm:settling]] is proved, and it lies outside through h. [[thm:settling]] takes h in the set 𝖧 of
-[[eq:iv4-0-1]], whose supremum h_* = min(10⁻⁶, h_0, h_tf) is at most 10⁻⁶ whatever the values of h_0 and h_tf, and
-𝖧 ⊂ (0, h_*); so h = 10⁻⁶ is not in 𝖧 ([[rem:s14-eps-ind-scope]]). Whether the gauge half of the point lies in the
-proved set is not decided. Of the conditions that [[thm:vi-c-2-1]] places on γ_Υ and e_Υ, the tf-admissibility of
-[[lem:iii-d-7-1]] and [[prop:iii-f1-3-3]] holds for every e_Υ ∈ (0, ½] and γ_Υ ∈ (0, ¼] and every h ∈ 𝖧
-([[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]]; at (γ_Υ, e_Υ) = (1/100, 1/100) the factor of [[eq:tf-lambda]] is
-below 1.0111·10⁻⁴), and the caps 3/8, ½s_C and ¼ of row u4 of [[sec:vi-c-1]] hold there; the exclusion z_Υ ∉ 𝖹_exc
-of row u5 is a separate condition. The threshold ε_1 of [[prop:iii-d1-4-1]] for γ_Υ and e_Υ depends on the parameter
-γ_(Υ,H) ∈ (0, ε_0] of the horizon modification (row u2 of [[sec:vi-c-1]]); ε_0 and ε_1 are proved to exist, their
-values are not determined, and whether (γ_Υ, e_Υ) = (1/100, 1/100) lies below ε_1 for some such γ_(Υ,H) is not
-decided. [[def:ec-point]] does not fix γ_(Υ,H), and no number of this chapter depends on it: the horizon thresholds
-that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]], where y = 0 for the 1-form
-c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not depend on the horizon
-modification ([[sec:iii-d2-1]]). So the computational point is a point at which the formulas of the proof can be
-evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Its damping and gauge parameters
-avoid the countable exclusions: h = 10⁻⁶ ∉ 𝖹, and the set 𝖹_exc of [[prop:iii-f1-2-3]] (e) is empty at h = 10⁻⁶
-([[thm:t49-point]]). Every number of this chapter that depends on the point is stated at it. For h ∈ 𝖧 the theorems
-use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-10-52]] (iii)),
-and the lower bound of [[thm:loss-d]] uses besides only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed
-by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a lower bound for d holds
-as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that
-hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
+**Remark {#rem:ec-point-outside}** (The computational point and the proved set.) [[thm:settling]] holds at every
+admissible point of the gauge and damping parameters ([[def:vi-c-admissible]], [[thm:vi-c-adm-holds]]); no threshold and
+no exceptional set in that definition excludes the computational point. Completed by any γ_(Υ,H) > 0, it satisfies (AP0):
+s_C = 499995.1171875 > 100, (C1) holds at h = 10⁻⁶ ([[lem:iv4-1-3]] (a)), and e_Υ = γ_Υ = 1/100 < ¼; in (AP1), the
+hypotheses (H1)–(H4) with ½ + ϑ_ℋ < −C_0 contained in (2) of [[thm:iii-e-1-1]], by [[lem:iv4-1-5]] and
+[[lem:iv4-1-6]]; (AP2), by [[prop:s14-damping-distance]], since the indicial roots of □^C_b are the roots of P_l, P_0 and
+p_(v); and, in (AP4), Λ_tf(γ_Υ, e_Υ) < 1.0111·10⁻⁴ ([[eq:tf-lambda-point]]). Three conditions are not decided. First, in
+(AP1), the mode stability (1) of [[thm:iii-e-1-1]] and the invertibility of P^C_b in its (2), at γ_C = 10⁶ and b near
+b₀: [[thm:iv4-2-1]] proves them only for h below a threshold of [[thm:iv5-7-3]] whose existence is proved and whose
+value is not determined. Second, in (AP4), the tf-admissibility of □^C_b at γ_C = 10⁶ with the weights in (1, 2), which
+[[thm:iv6-4-1]] proves only for h below the threshold h_tf of [[thm:iv6-3-1]]. Third, (AP3): the invertibility of
+(□^Υ_b)^(σ) for every σ with Im σ ≥ 0 at (e_Υ, γ_Υ) = (1/100, 1/100), for some γ_(Υ,H) > 0 and every b near b₀, which
+[[prop:iii-d1-4-1]] gives only for γ_(Υ,H) ≤ ϵ_0 and e_Υ, γ_Υ below a threshold ϵ_1 that depends on γ_(Υ,H), both proved
+to exist with values not determined. As [[lem:iii-d-7-1]] (a) gives the tf-admissibility of σ ↦ (□^Υ_b)^(σ) at these
+parameters for every b and every γ_(Υ,H), (AP3) follows from its case b = b₀ by the argument of Step 2 of the proof of
+[[prop:iii-d1-4-1]]. [[def:ec-point]] does not fix γ_(Υ,H), and no number of this chapter depends on it: the horizon
+thresholds that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]], where y = 0 for the 1-form
+c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not depend on the horizon modification
+([[sec:iii-d2-1]]). The definition asks no simplicity of the indicial roots of L̂_b(0) beyond what (AP0) gives
+([[prop:iii-f1-2-3]] (g)); at the point every root of real part in [−101, 5] is simple ([[prop:is-mult]]), and the point
+also avoids the countable exclusions of [[eq:iv4-0-1]] and [[prop:iii-f1-2-3]] (e), which the definition does not ask:
+h = 10⁻⁶ ∉ 𝖹, and Z_exc is empty at h = 10⁻⁶ ([[thm:t49-point]]). So the computational point is a point at which the
+formulas of the proof can be evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Every
+number of this chapter that depends on the point is stated at it. At every admissible point with
+(e_Υ, γ_Υ) = (1/100, 1/100) and h ≤ 10⁻⁶ the theorems use only 0 < ε_ind(h) ≤ δ_50 ((AP2) and [[prop:iii-f1-2-3]] (f) for
+the first inequality, [[prop:np-10-52]] (iii) for the second), and the lower bound of [[thm:loss-d]] uses besides
+only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]],
+[[prop:ec-rounds]]). At every point of the proved set with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of
+z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
+([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
 
 ### Sums of the gauge potential offsets {#sec:ec-gap-sums}
 
@@ -1481,8 +1489,8 @@ losses of their single steps, and in finitely many further losses, each assigned
 
 The bounds (ii) are lower bounds for the loss that this proof's choices produce, not for the least loss with which the
 tame estimates hold; for the index sets as the proofs construct them, (G) asks ε_K < μ_G ([[thm:is-gap]]), and the lower
-bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). At every point of the set on which [[thm:settling]] is
-proved, d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²), where R is the number of rounds at that point,
+bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). At every point of the set on which [[thm:settling]] is proved
+at which h ≤ 10⁻⁶, d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²), where R is the number of rounds at that point,
 z = 4e_Υγ_Υ² its gauge parameter (not the value 4·10⁻⁶ fixed in this section) and g the function of [[eq:ec-lb-g]]
 ([[thm:ec-lb-proved]]). The bound (iii) is explicit in the numbers of steps, which
 [[lem:ec-counts]] bounds through the spacing of the levels, below ε_K, and in the further losses, which contain counts of
@@ -1533,7 +1541,8 @@ C_R ≥ 1 be the constant of [[cor:vii-2-3]]. Then δ = ½ε and λ1 satisfy
     λ1 < δ,     ω̃(2δ) ≤ 2^(−(32d+8)),     δ ≤ 2^(−(32d+9)),     log₁₀ δ < −(59/196)(32d + 9).
 
 As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives, at the computational point, log₁₀ δ < −1.351 × 10²¹; at every
-point of the proved set, [[cor:ec-lb-delta]] bounds log₁₀ δ by a function of the gauge and damping parameters.
+point of the proved set with h ≤ 10⁻⁶, [[cor:ec-lb-delta]] bounds log₁₀ δ by a function of the gauge and damping
+parameters.
 
 *Proof.* Replacing C_(2d) by max(C_(2d), 1) and ω̃(t) by max(ω̃(t), t) keeps [[lem:iii-k-2-2]] (d) true,
 and the modulus still tends to 0 with t, which is all that the proof of [[thm:iii-k-3-2]] uses of it; so these are
@@ -1552,13 +1561,13 @@ stop.
 
 ### The lower bound for the loss on the proved set {#sec:ec-lb-proved}
 
-The lower bound of [[thm:loss-d]] (ii) is stated at the computational point, and that point lies outside the set on
-which [[thm:settling]] is proved ([[rem:ec-point-outside]]). This section proves a lower bound for d_acc, and so for
-d_NM and N_NM, and an upper bound for δ, at every point of that set, in terms of the gauge parameter z = 4e_Υγ_Υ² and of
-h = γ_C⁻¹, γ_C being the damping parameter. The proof of [[prop:ec-rounds]] uses the point only through upper bounds for
-ε_g, ε_K and η_2. Here ε_Υ is bounded at every z ∈ (0, ½] ([[lem:ec-lb-gauge]]) and ε_ind at every h ∈ (0, 10⁻⁶]
-([[lem:ec-lb-ind]]), and the count of [[prop:ec-rounds]] is run with general bounds ([[lem:ec-lb-rounds]]);
-[[thm:ec-lb-proved]] assembles them, and [[rem:ec-lb-conditions]] lists the conditions of [[thm:settling]] that the
+The lower bound of [[thm:loss-d]] (ii) is stated at the computational point, which is not shown to lie in the set on
+which [[thm:settling]] is proved ([[rem:ec-point-outside]]). This section proves a lower bound for d_acc, and so for d_NM
+and N_NM, and an upper bound for δ, at every point of that set with h ≤ 10⁻⁶, in terms of the gauge parameter
+z = 4e_Υγ_Υ² and of h = γ_C⁻¹, γ_C being the damping parameter. The proof of [[prop:ec-rounds]] uses the point only
+through upper bounds for ε_g, ε_K and η_2. Here ε_Υ is bounded at every z ∈ (0, ½] ([[lem:ec-lb-gauge]]) and ε_ind at
+every h ∈ (0, 10⁻⁶] ([[lem:ec-lb-ind]]), and the count of [[prop:ec-rounds]] is run with general bounds
+([[lem:ec-lb-rounds]]); [[thm:ec-lb-proved]] assembles them, and [[rem:ec-lb-conditions]] lists the conditions that the
 proof uses. Throughout, (v_C, e_C) = (1/2, 1/102400) as in [[eq:iv4-0-1]], and e := e_C.
 
 **Lemma {#lem:ec-lb-gauge}** (The least distance of ℳ at every gauge point.) Let 0 < z ≤ ½. For l ≥ 1 put u := l + 1
@@ -1713,9 +1722,10 @@ least 4 (as β_(K−1) > α − (α − 4) = 4) and lying within ε_K of c_p. By
 decreases in ε_K on (0, Θ_g], its numerator being positive there, as 3ε_K + 2Θ_g + Θ_η ≤ 5Θ_g + Θ_η < 1; so it exceeds
 its value (1 − 5Θ_g − Θ_η)/Θ_g² at ε_K = Θ_g. ∎
 
-**Theorem {#thm:ec-lb-proved}** (The loss at every point of the proved set.) Let h ∈ 𝖧, γ_C = h⁻¹, the gauge
-parameters (γ_(Υ,H), e_Υ, γ_Υ), the constants ε_Υ and ε_ind, and the weights be chosen as in [[thm:settling]], that is,
-so that the conditions of [[sec:vi-c-1]] hold ([[thm:vi-c-2-1]]). Put z := 4e_Υγ_Υ², let g be the function of
+**Theorem {#thm:ec-lb-proved}** (The loss at every point of the proved set with h ≤ 10⁻⁶.) Let the admissible point
+(h, γ_(Υ,H), e_Υ, γ_Υ) of row a1 of [[sec:vi-c-1]], with h ≤ 10⁻⁶ and γ_C = h⁻¹, the constants ε_Υ and ε_ind, and the
+weights be chosen as in [[thm:settling]], that is, so that the conditions of [[sec:vi-c-1]] hold ([[thm:vi-c-2-1]]).
+Put z := 4e_Υγ_Υ², let g be the function of
 [[eq:ec-lb-g]], and put
 
     Θ_g := min(g(z), 40h/13).
@@ -1733,10 +1743,10 @@ In particular
 
 and, in the gauge parameters, d_acc > 1.4035·10⁸ e_Υ⁻²γ_Υ⁻⁴(1 + 100.6e_Υγ_Υ²)⁻².
 
-*Proof.* *The gaps.* By rows c1–c2 of [[sec:vi-c-1]], (v_C, e_C) = (1/2, 1/102400) and h ∈ 𝖧 ⊂ (0, h_*) with
-h_* ≤ 10⁻⁶; by row u5, z ∈ (0, ½]. [[sec:iii-d2-1]] fixes ε_Υ below half the least distance between distinct points of
-ℳ, so ε_Υ < g(z) by [[lem:ec-lb-gauge]]. By row c3, (C1) holds (it holds at every h ∈ (0, 10⁻⁶], by [[lem:iv4-1-3]]
-(a)), and ε_ind is a constant with [[eq:iii-f1-2-2]] ([[eq:iii-i9-1-1]]); so ε_ind < 40h/13 by [[lem:ec-lb-ind]].
+*Proof.* *The gaps.* By row c1 of [[sec:vi-c-1]], (v_C, e_C) = (1/2, 1/102400); h ≤ 10⁻⁶ by hypothesis; and
+z ∈ (0, ¼) ⊂ (0, ½] by (AP0) of [[def:vi-c-admissible]]. [[sec:iii-d2-1]] fixes ε_Υ below half the least distance between
+distinct points of ℳ, so ε_Υ < g(z) by [[lem:ec-lb-gauge]]. (C1) holds by (AP0), and ε_ind is a constant with
+[[eq:iii-f1-2-2]] ([[eq:iii-i9-1-1]]); so ε_ind < 40h/13 by [[lem:ec-lb-ind]].
 Hence ε_g = min(ε_Υ, ε_ind) < Θ_g ([[def:s21-eps-g]]). Row w1 asks ε_K < ε_+ < ε_ind ([[eq:iii-i9-1-1]]) and
 ε_K < ε_Υ ([[def:iii-i10-1-3]]), so ε_K < ε_g < Θ_g; and [[sec:iii-i11-1]] takes η_2 ∈ (ε_K, ε_+), so η_2 < ε_ind. Put
 Θ_η := 40h/13. Then ε_K < Θ_η, η_2 < Θ_η and Θ_g ≤ Θ_η, and 5Θ_g + Θ_η ≤ 6Θ_η ≤ (240/13)·10⁻⁶ < 1.85·10⁻⁵.
@@ -1772,36 +1782,36 @@ parameter point. As (59/196) · 32 = 472/49 and d_NM > 3(1 − 2·10⁻⁵) max(
 (472/49) · 0.31686 > 3.0522. ∎
 
 **Remark {#rem:ec-lb-conditions}** (What the bound uses.) The proof of [[thm:ec-lb-proved]] uses exactly the following
-conditions of [[thm:settling]], each of which holds at every point of the proved set:
+conditions, each of which, except h ≤ 10⁻⁶, holds at every point of the proved set:
 
 - (v_C, e_C) = (1/2, 1/102400) (row c1 of [[sec:vi-c-1]]), through v = 1/2 and e in P_2 and [[eq:s14-f-two]];
-- h ≤ 10⁻⁶ (row c2: 𝖧 ⊂ (0, h_*) with h_* ≤ 10⁻⁶), for [[lem:ec-lb-ind]] and for 6Θ_η < 2·10⁻⁵;
-- (C1) (row c3), which holds at every h ∈ (0, 10⁻⁶] ([[lem:iv4-1-3]] (a)), to read ι₂(h) − 1 as an indicial root of
-  L_b^(0);
-- (C4) (row c3), only through the existence of the constant ε_ind ([[prop:iii-f1-2-3]] (f));
-- z ∈ (0, ½] (row u5), for [[lem:ec-lb-gauge]];
+- h ≤ 10⁻⁶, the hypothesis of the theorem, for [[lem:ec-lb-ind]] and for 6Θ_η < 2·10⁻⁵;
+- (C1), part of (AP0) of [[def:vi-c-admissible]], to read ι₂(h) − 1 as an indicial root of L_b^(0);
+- (C4′) of [[sec:iii-f1-1]] ((AP2)), only through the existence of the constant ε_ind ([[prop:iii-f1-2-3]] (f));
+- z ∈ (0, ½], which (AP0) gives, for [[lem:ec-lb-gauge]];
 - the definitions of ε_Υ ([[sec:iii-d2-1]]), of ε_ind ([[eq:iii-f1-2-2]]) and of ε_g ([[def:s21-eps-g]]);
 - ε_K < ε_+ < ε_ind and ε_K < ε_Υ (row w1), and α ∈ (4, 4 + ε_K] (row w2);
 - the choices that the proofs of [[thm:iii-i14-3-1]], [[lem:iii-i8-3-2]] and [[prop:iii-i13-2-1]] make at every
   point: the levels, η_2 ∈ (ε_K, ε_+) ([[sec:iii-i11-1]]), and the losses 0 < ε < ½ε_g and ε′ ≤ ε.
 
-It uses none of the thresholds that define the proved set: not h < h_0, h < h_tf or h ∉ 𝖹; not γ_(Υ,H) ≤ ε_0, nor the
-bounds of rows u3 and u4 on e_Υ and γ_Υ; not z ∉ 𝖹_exc; not (C2), (C3) or (C5), nor (C4) beyond the existence of ε_ind;
-not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data classes (rows d1–d2), the parameter set ℬ_*
-(rows b1–b4) or the smallness of row n1. So the bound holds on the proved set without any of those thresholds being
-evaluated. It holds as well at every (h, z) ∈ (0, 10⁻⁶] × (0, ½] at which the constructions of [[sec:ec-floor]] are run
+It uses no other condition: of (AP0) only (C1) and z ∈ (0, ½]; not (AP1), (AP3) or (AP4); not h < h_0, h < h_tf, h ∉ 𝖹,
+γ_(Υ,H) ≤ ϵ_0, e_Υ ≤ ϵ_1, γ_Υ < ϵ_1 or z ∉ Z_exc, by which [[prop:vi-c-adm-exist]] exhibits admissible points; not (C2),
+(C3) or (C5), nor (C4) beyond (C4′); not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data classes
+(rows d1–d2), the parameter set ℬ_* (rows b1–b4) or the smallness of row n1. So the bound holds at every point of the
+proved set with h ≤ 10⁻⁶ without any threshold being evaluated. It holds as well at every (h, z) ∈ (0, 10⁻⁶] × (0, ½] at
+which the constructions of [[sec:ec-floor]] are run
 with constants satisfying the conditions listed. At the computational point it gives
 d_acc > 3(1 − 2·10⁻⁵)g(4·10⁻⁶)⁻² > 1.4032·10²⁰, which implies the bound 1.403 × 10²⁰ of [[thm:loss-d]] (ii).
 
-**Remark {#rem:ec-lb-unbounded}** (No upper bound holds on all of the proved set.) The set 𝖧 = (0, h_*) ∖ 𝖹, with 𝖹
-countable, contains numbers h arbitrarily close to 0, and at each of them [[thm:vi-c-2-1]] completes the choice of the
-parameters; there [[thm:ec-lb-proved]] gives d_NM > 0.3168γ_C² = 0.3168h⁻². So d_NM is unbounded on the proved set, and
-an explicit upper bound for it can hold at points of that set but not on all of it; in particular d_NM exceeds
-1.57157·10⁵⁰, the bound of [[thm:uc-integer]], at every point of the proved set with h ≤ 4.48·10⁻²⁶. Likewise, at a
-fixed h the conditions on (e_Υ, γ_Υ) are upper bounds together with z ∉ 𝖹_exc, 𝖹_exc countable, so z takes values
-arbitrarily close to 0, where the first bound of [[eq:ec-lb-numbers]] grows like z⁻². If (γ_Υ, e_Υ) = (1/100, 1/100)
-is admissible at some h ∈ 𝖧, the theorem gives d_NM > 1.4032·10²⁰ there, as at the computational point, and the larger
-bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
+**Remark {#rem:ec-lb-unbounded}** (No upper bound holds on all of the proved set.) Admissible points exist with h
+arbitrarily close to 0 ([[prop:vi-c-adm-exist]]), and at each of them [[thm:vi-c-2-1]] completes the choice of the
+parameters; at those with h ≤ 10⁻⁶ [[thm:ec-lb-proved]] gives d_NM > 0.3168γ_C² = 0.3168h⁻². So d_NM is unbounded on the
+proved set, and an explicit upper bound for it can hold at points of that set but not on all of it; in particular d_NM
+exceeds 1.57157·10⁵⁰, the bound of [[thm:uc-integer]], at every point of the proved set with h ≤ 4.48·10⁻²⁶. Likewise, at
+a fixed h ∈ 𝖧 the points of [[prop:vi-c-adm-exist]] have e_Υ and γ_Υ arbitrarily small, so z takes values arbitrarily
+close to 0, where the first bound of [[eq:ec-lb-numbers]] grows like z⁻². If (h, γ_(Υ,H), 1/100, 1/100) is an admissible
+point for some h ≤ 10⁻⁶ and some γ_(Υ,H), the theorem gives d_NM > 1.4032·10²⁰ there, as at the computational point, and
+the larger bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
 condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶ ([[lem:uc-two-offsets]], [[thm:is-gap]]), and
 is stated at that point only.
 
@@ -4922,9 +4932,9 @@ applies [[thm:ii-g-2-1]], N_NM = 21d + 6, d_0 is the regularity of [[prop:iii-k-
 which [[prop:iii-k-1-2]] (3) reads the data to bound the initial family at the order k + 2. Its proof gives d_0 as the
 largest, and k′_k as the sum, of finitely many orders of derivatives, and does not evaluate them. This section counts
 those orders ([[lem:uc-data-losses]]) and evaluates d_0, k′_k, d_1, K, k1 and K* in terms of d
-([[prop:uc-data-order]]). The count holds at every choice of the parameters of [[thm:vi-c-2-1]]. The numbers that
-follow from it use the bounds for d at the computational point, which lies outside the set on which
-[[thm:settling]] is proved ([[rem:ec-point-outside]]).
+([[prop:uc-data-order]]). The count holds at every choice of the parameters of [[thm:vi-c-2-1]]. The numbers that follow
+from it use the bounds for d at the computational point, which is not shown to lie in the set on which [[thm:settling]]
+is proved ([[rem:ec-point-outside]]).
 
 *Conventions.* ‖·‖_n is the norm ‖(γ̃, k̃)‖_(H^n) of [[sec:s27-class]], built from ℰ_0 of [[eq:vii-0-1]] or from ℰ_0^½
 of [[eq:half-class]]. Put L_F := 132 = 153 − 21: the data of [[thm:iv3-2-2]] and of [[thm:iv2-3-1]] at the order 153 + k
@@ -5222,9 +5232,10 @@ k1 > 22d > 2.74934·10²⁵, so K*(a, M, k1) > (4/3) · 7.5588·10⁵⁰ > 1.007
 **Remark {#rem:uc-data-order-limits}** (What the count gives and what it does not.) [[prop:uc-data-order]] makes d_1
 and K explicit in d, with the additive terms 292 + L_P and 306 + L_P, L_P ≤ 48, and makes the threshold K* of
 [[thm:own-data]] explicit as a quadratic in d_1; the count is an upper count of the orders the proofs read, and
-smaller orders may serve. It gives no number on the set where [[thm:settling]] is proved, on which d is not evaluated
-and is bounded only from below ([[thm:ec-lb-proved]]); the numbers of its part (d) are those of the computational
-point, outside that set ([[rem:ec-point-outside]]). L_0 and J depend on ℓ_0 and ℓ_I, on the gauge parameters through
+smaller orders may serve. It gives no number on the set where [[thm:settling]] is proved, on which d is not evaluated,
+and at whose points with h ≤ 10⁻⁶ it is bounded only from below ([[thm:ec-lb-proved]]); the numbers of its part (d) are
+those of the computational point, which is not shown to lie in that set ([[rem:ec-point-outside]]). L_0 and J depend on
+ℓ_0 and ℓ_I, on the gauge parameters through
 ℓ^♭_0 and ℓ^♭_I, and on the ν of Step 2 of the proof of [[thm:iii-c1-3-1]]; [[lem:uc-data-losses]] bounds them and
 does not fix them. The number K + 4 + ⌈4β0(k_P)⌉ of stages of the approximant of [[thm:own-data]] involves
 β0(k_P) = max(2, 4C(k_P) + 1), whose constants C(q) of [[eq:near-lines]] are not evaluated, and the thresholds λ1, δ
@@ -5284,14 +5295,15 @@ them.
 **Remark {#rem:ec-not-evaluated}** (Where explicit evaluation stops.) The values of λ1 and δ are not determined in this
 paper; [[prop:ec-delta-cap]] bounds λ1 by δ, δ by a power of 2 that decreases with d, and the modulus at 2δ, and they are
 positive by the proof of [[thm:settling]]. Explicit values stop first upstream of every constant: the proof fixes the
-gauge and damping parameters only below thresholds whose existence it proves ([[thm:vi-c-2-1]]; the conditions of
-tf-admissibility on the gauge are explicit, [[prop:tf-gauge-explicit]]), and the cut-offs and orders of its function
-spaces only up to admissibility, so explicit constants need those choices made with numbers, which
-this chapter does only at a point outside the proved set: [[def:ec-point]] for the gauge and damping parameters, and
-[[def:uc-choice]] and [[def:cs-choices]] for the weights, orders and inner products on which d depends. The lower bound
-for d of [[thm:ec-lb-proved]] needs no such choice: it holds at every point of the proved set as an explicit function
-of the gauge and damping parameters, and it tends to infinity as z tends to 0 or γ_C to infinity, so that no upper
-bound for d holds on all of that set ([[rem:ec-lb-unbounded]]). Among the inputs
+gauge and damping parameters only at admissible points ([[def:vi-c-admissible]]), which it exhibits only below thresholds
+whose existence it proves ([[prop:vi-c-adm-exist]]; the conditions of tf-admissibility on the gauge are explicit,
+[[prop:tf-gauge-explicit]]), and the cut-offs and orders of its function spaces only up to admissibility, so explicit
+constants need those choices made with numbers, which this chapter does only at a point not shown to lie in the proved
+set: [[def:ec-point]] for the gauge and damping parameters, and [[def:uc-choice]] and [[def:cs-choices]] for the
+weights, orders and inner products on which d depends. The lower bound for d of [[thm:ec-lb-proved]] needs no such
+choice: it holds at every point of the proved set with h ≤ 10⁻⁶ as an explicit function of the gauge and damping
+parameters, and it tends to infinity as z tends to 0 or γ_C to infinity, so that no upper bound for d holds on all of
+that set ([[rem:ec-lb-unbounded]]). Among the inputs
 that depend on those choices are the gauge reconstruction, the inverse of the absorbed problem in the norms of [[ch:s01]]
 (invertible by a Fredholm argument, [[lem:rb-absorbed]], which gives no bound), and a lower bound, uniform in the
 harmonic, for the least singular value of the scalar-type blocks at zero energy ([[lem:rb-quasimode]] bounds it from

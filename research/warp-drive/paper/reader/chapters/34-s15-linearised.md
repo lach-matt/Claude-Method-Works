@@ -74,7 +74,9 @@ Fix, as [Hin26, Section 8] does, the gauge modification E_Υ = (c_Υ, e_Υ, γ_�
 with 0 < e_Υ ≪ 1 and 0 < γ_Υ ≪ 1 as [[prop:iii-d1-4-1]] allows, so that the gauge potential operator □^Υ_b is mode
 stable with the indicial roots of [[lem:iii-d-4-1]]; and the constraint damping data v_C, e_C, c_C, γ_C and C_0 = 100
 fixed in [[sec:iv4-0]], for which (1 − e_C)(1 − v_C)γ_C > 100 and the constraint propagation operator □^C_b of
-[[eq:iii-e-1-1]] has the properties of [[thm:iii-e-1-1]]. The *linearised gauge-fixed Einstein operator* is
+[[eq:iii-e-1-1]] has the properties of [[thm:iii-e-1-1]]. Every result below holds as well, with the same proof, at
+every admissible point of the parameters ([[def:vi-c-admissible]], [[thm:vi-c-adm-holds]]). The *linearised
+gauge-fixed Einstein operator* is
 
     L_b := D_(g_b)Ric + δ*_(g_b,E_C) δ_(g_b,E_Υ) G_(g_b),                                                 {#eq:iii-f-1-1}
 
@@ -294,6 +296,10 @@ lies in {1 − l, 2 − l, l + 3, l + 4}.
 
 (C4) Every indicial root of □^C_b whose real part is an integer in [3, 51] is real.
 
+(C4′) Every non-real indicial root ι of □^C_b with |ι − 1| ≤ 50 has non-integer real part. Under (C1), (C4) implies
+(C4′): such a root has |Re ι − 1| ≤ 50, so Re ι ≥ 2 by (C1), and Re ι = 2 only at the real root ι = 2; so an integer
+real part would lie in [3, 51], where (C4) would make the root real.
+
 *Types and representations.* Write H_d for the space of harmonic polynomials of degree d on ℝ⁴, restricted to 𝕊³.
 Under SO(4) ≅ (SU(2) × SU(2))/{±1}, H_d is the irreducible representation of highest weights (d/2, d/2); the
 spatial covectors ℝ⁴ are (½, ½), and the symmetric 2-tensors on ℝ⁴ are (0, 0) ⊕ (1, 1), the trace and the trace-free
@@ -440,7 +446,7 @@ tl, l ≥ 2: −l; l + 2.
 n_L have real part > 1: those before and after the semicolon. (c) 0 is a root only at scalar types 0 and 2, simple
 there, with the indicial solutions of [[lem:iii-f1-2-5]]. (d) The roots with real part ≤ 0 that come from □^C, written
 with superscript C, have real part < −C_0 − 1 = −101. (e) If (C2)–(C3) hold, there is a countable set Z_exc ⊂ (0, ½],
-determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simple. (f) If (C4) holds, then for every R > 0
+determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simple. (f) If (C4′) holds, then for every R > 0
 only finitely many roots have |ι| ≤ R, and no non-integer root with |ι| ≤ 50 has integer real part; so there is
 ε_ind ∈ (0, 1] with
 
@@ -451,7 +457,10 @@ parameters (e_Υ, γ_Υ) = (1/100, 1/100) the roots 2 − ι^Υ_(sl,l+1), which 
 force ε_ind ≤ δ_50, where 2 − ι^Υ_(s50,51) = −49 − δ_50 is a root of modulus below 50 at distance δ_50 from ℤ
 ([[prop:np-10-52]] (i), (iii)). The number δ_50 is a constant of [[ch:s14]], fixed by the gauge parameters alone
 ([[rem:s14-delta50]]), and its value is given by [[lem:s14-delta50]]. The gap (0, 1] of (a) is exact, and
-ε_ind enters only through [[eq:iii-f1-2-2]], never as a number of order one.
+ε_ind enters only through [[eq:iii-f1-2-2]], never as a number of order one. (g) Every root with real part in
+[−C_0 − 1, 0] is real, and at each type and degree at which it is a root it occurs once in the list, so that it is a
+simple zero of the determinant of the indicial matrix N_L there; this needs neither (C2)–(C3) nor z ∉ Z_exc, and it
+covers the roots with real part in (−3, 0] that the later chapters use.
 
 *Proof.* *The list.* By [[lem:iii-f1-2-1]] the roots of each type are, with multiplicity, −l and l + 2, the roots of
 □^Υ plus 1 and the roots of □^C minus 1, less the roots of D. [[lem:iii-d-4-1]] gives those of □^Υ: s0:
@@ -495,8 +504,20 @@ any h ∈ (0, 10⁻⁶] ([[thm:t49-uniform]]).
 with |ι| ≤ R, each finitely many. The non-integer roots with |ι| ≤ 50 are those from □^Υ, which are real and lie in the
 open intervals of the bounds above, so their real parts are not integers, and those ι^C_(·,+) − 1 that are not
 integers (by (d) the roots ι^C_(·,≪) − 1 have |ι| > 101); a non-integer one with integer real part n, 2 ≤ n ≤ 50,
-would make ι^C_(·,+) non-real with real part n + 1 ∈ [3, 51], against (C4). The minimum of d(Re ι, ℤ) over this finite
-set is positive, and ε_ind is any number in (0, 1] not exceeding it. ∎
+would make ι^C_(·,+) = ι + 1 non-real, with |ι^C_(·,+) − 1| = |ι| ≤ 50 and real part n + 1 ∈ [3, 51], against
+(C4′). The minimum of d(Re ι, ℤ) over this finite set is positive, and ε_ind is any number in (0, 1] not exceeding it.
+
+*(g)* By (d), the entries before the semicolons that come from □^C have real part < −C_0 − 1; this includes the root
+−2 − 2γ_Cv_C at v1, which is ι^C_(v1,≪) − 1 by [[lem:iii-f1-2-2]] and (C1). By (b), the entries after the semicolons
+have real part > 1. So a root with real part in [−C_0 − 1, 0] is one of the following entries, all real
+([[lem:iii-d-4-1]]): at s0, 2 − ι^Υ_(s0,2) and 0; at s1, 2 − ι^Υ_(s1,3), 2 − ι^Υ_(s1,2) and −1; at sl, l ≥ 2, −l,
+2 − ι^Υ_(sl,l+2), 2 − ι^Υ_(sl,l+1) and 2 − l; at v1, −1; at vl, l ≥ 2, −l and 1 − l; at tl, −l. At each type and
+degree these entries are pairwise distinct, by the bounds above: at s0, 2 − ι^Υ_(s0,2) ∈ [−z/3, 0); at s1,
+−5/4 < 2 − ι^Υ_(s1,3) < −1 < −¼ < 2 − ι^Υ_(s1,2) < 0; at sl, the chain of the proof of (e),
+−l − ¼ < 2 − ι^Υ_(sl,l+2) < −l < 1 − l − ¼ < 2 − ι^Υ_(sl,l+1) < 1 − l < 2 − l; and at vl, −l < 1 − l. So each such
+root occurs once in the list of each type and degree at which it is a root. The list gives the zeros of det N_L at
+that type and degree with multiplicity ([[lem:iii-f1-2-1]] and the first paragraph of this proof), so each is a
+simple zero. Only z ∈ (0, ½], (C1) and [[lem:iii-f1-2-2]] were used. ∎
 
 **Lemma {#lem:iii-f1-2-4}** (Roots in a strip, uniformly.) Let 𝒯 be a compact parameter space and
 I_τ(ι) = −ι² + a_τ ι + Δ_(𝕊³) + V_τ + b_τ, τ ∈ 𝒯, indicial families of the form of [[lem:i-c-2-4]] on ℂ^(N_E)-valued

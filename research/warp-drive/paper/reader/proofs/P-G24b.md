@@ -925,8 +925,8 @@ sides are continuous in its norm.
 
 *The first estimate of (2)* ([Hin26a, (5.68)]). Let χ = χ(r) be smooth, equal to 1 for r ≤ r_2 and to 0 for r ≥ r_3,
 and ω′ := χω, with ω smooth, vanishing for t < 0 and with compact support. On {t > −r} put ρ_K := r/(t + r), extended
-smoothly and positively to N; on r⁻¹([r_♯, r̂]) ∩ {t ≥ 0} it is ρ_K′/(1 + ρ_K′), ρ_K′ the ρ_K of [[def:iv5-0-1]] near K⁺,
-so the weights are equivalent. Take R := {r ≥ r_1}, f_1 := r_1 − r, I_+ := {1}, Y := 0 and
+smoothly and positively to N; on r⁻¹([r_♯, r̂]) ∩ {t ≥ 0} it is ρ_K′/(1 + ρ_K′), ρ_K′ the ρ_K of [[def:iv5-0-1]]
+near K⁺, so the weights are equivalent. Take R := {r ≥ r_1}, f_1 := r_1 − r, I_+ := {1}, Y := 0 and
 w := ρ_K^(−α_K)e^(𝔛r). With u := −r dr, rη_0 = 𝔛u + α_K(dr − r(dt + dr)/(t + r)) and rη_1 = rη_0 + dr, the added
 covectors having Euclidean norm at most 3|α_K| + 1 on {t ≥ 0}. On r⁻¹([r_1, r_3]) ⊂ r⁻¹([r_♯, r̂]), u is past timelike
 with G(u) ≤ −½|u|² and |u| ≥ r_♯ ([[lem:iv5-0-3]] (c)), and so is r df_1 = u. By (∗) with γ := ½ and m := 3|α_K| + 1,
@@ -1512,31 +1512,35 @@ These are listed in section 2 as (a-G1) and are left to P-G1, whose texts C33-1 
 
 The scratch copy is the current `chapters/`, `crosswalk/`, `assemble.py` and `lint.py`, in
 /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/pg24b/. T1–T43 were
-applied to chapter 33, with T41 in its variant for the current text, and the 16 crosswalk rows of section 9 were added.
+applied to chapter 33 at HEAD (md5 9571426c…), with T41 in its variant for the current text, and the 16 crosswalk rows
+of section 9 were added.
 
 Before the texts were applied:
 
     $ python3 lint.py --chapters
-    chapters: 62 file(s), 4609 label(s) defined, 0 hit(s)
+    chapters: 62 file(s), 4649 label(s) defined, 0 hit(s)
     $ python3 assemble.py --check
-    labels 4609, computations cited 0, problems 0
+    labels 4649, computations cited 0, problems 0
 
 After:
 
     $ python3 lint.py --chapters
-    chapters: 62 file(s), 4625 label(s) defined, 0 hit(s)
+    chapters: 62 file(s), 4665 label(s) defined, 0 hit(s)
     $ python3 assemble.py --check
-    labels 4625, computations cited 0, problems 0
+    labels 4665, computations cited 0, problems 0
+    $ python3 assemble.py; python3 lint.py --paper
+    PAPER.md: 0 hit(s)
 
 Further checks:
 
-- **Resolved lines.** No line of chapter 33 in the assembled PAPER.md exceeds 121 characters. The conservative test,
+- **Resolved lines.** No line of the assembled PAPER.md exceeds 121 characters. The conservative test,
   with every new label resolved as "Proposition 49.999", also finds no line over 121.
-- **Crosswalk.** 197 rows for 197 labels, in chapter order; the old rows keep their order.
+- **Crosswalk.** 216 rows for 216 labels, in chapter order; the 200 old rows keep their order.
 - **Typography.** No backslash in chapter 33. No wrapped line starts with "+ ", "- ", "* ", "> ", "#", "=" or "|"
   (lint).
-- **Old texts.** Each of the 43 old texts occurs exactly once in the current chapter, and no two overlap. The variant A
-  old text of T41 occurs exactly once in the new text of P-G1 C33-11.
+- **Old texts.** Each of the 45 old texts occurs exactly once in the chapter at HEAD, and no two overlap. Applying them
+  to that chapter reproduces the checked scratch chapter exactly. The variant A old text of T41 occurs exactly once in
+  the new text of P-G1 C33-11 as P-G1 now stands.
 
 ## 8. Overlap with P-G1
 

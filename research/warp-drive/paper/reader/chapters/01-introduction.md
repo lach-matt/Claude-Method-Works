@@ -149,11 +149,11 @@ l5²)^(1/4) tends to 0 with l5, the constants then depending on l5; at r = 0 the
 Kretschmann scalar being 72 μ²/r⁸ ([[prop:vaidya]]). The thresholds λ0, λ1 and δ exist by the proofs and are not
 evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point, and [[ch:explicit-constants]] states where the explicit
 evaluation of λ1 and δ stops and bounds the loss d with which the proof of [[thm:settling]] applies the Nash–Moser
-theorem. At every point of the set on which that theorem is proved, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻² and
-d > 0.3168 γ_C², z = 4e_Υγ_Υ² and γ_C being the gauge and damping parameters of [[ch:s13]] and [[ch:s14]]
-([[thm:ec-lb-proved]]), so that d is unbounded on that set. At a point of the gauge and damping parameters outside it,
-d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them, and
-d < 1.57157 × 10⁵⁰ at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]). A
+theorem. At every point of the set on which that theorem is proved at which γ_C ≥ 10⁶, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻²
+and d > 0.3168 γ_C², z = 4e_Υγ_Υ² and γ_C being the gauge and damping parameters of [[ch:s13]] and [[ch:s14]]
+([[thm:ec-lb-proved]]), so that d is unbounded on that set. At a point of the gauge and damping parameters not shown to
+lie in it, d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them,
+and d < 1.57157 × 10⁵⁰ at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]). A
 high-frequency theorem, whose expansion parameter is the wavelength over the curvature length, does not apply at a
 prescribed wavelength of 10 l5; there existence holds where the solution is the seed ([[thm:ten-l5]]). [[ch:scope]]
 collects these statements.

@@ -556,8 +556,9 @@ over the ball ℬ̄_* of [[sec:s23-base-points]], and p⃗_(≤0) = (S, b − b�
 ([[eq:iii-i7-1-3]]). From [[ch:s17]]: the spaces [[eq:iii-g3-1-2]]–[[eq:iii-g3-3-5]], the inverse [[eq:iii-g3-2-2]] of
 N_(ι⁺)(L̄, ·) on partially polyhomogeneous spaces, spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I), [[cor:iii-g3-3-1]],
 Res^k_(ι⁺)(L̄, ℰ^C_I, λ), Res_(ι⁺)(L̄, λ) and the map [[eq:iii-g3-3-6]]. ℓ_I is the one of the class, with
-ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]] holds, s_C being large by (C1). K_ι(λ) denotes the
-order of the pole of [[eq:iii-g3-2-2]] at λ (K(λ) in [[prop:iii-g3-3-7]] and in [[eq:iii-g3-3-6]]). Also from
+ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]] holds, as s_C > 100 ([[sec:iii-f-1]]). K_ι(λ)
+denotes the order of the pole of [[eq:iii-g3-2-2]] at λ (K(λ) in [[prop:iii-g3-3-7]] and in [[eq:iii-g3-3-6]]). Also
+from
 [[ch:s17]]: the table of [[sec:iii-g2-1]], the Minkowski formal solutions ([[def:iii-g2-2-3]]), [[thm:iii-g2-3-1]] and
 [[lem:iii-g2-4-1]]. Two further conditions are imposed, each removing finitely many values.
 

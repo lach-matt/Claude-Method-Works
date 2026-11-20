@@ -63,11 +63,12 @@ at 2δ by 2^(−(32d+8)), d the loss with which the Nash–Moser theorem is appl
 The loss d is at least the loss d_acc that the proof assigns to the tame estimates, and the regularity of the Nash–Moser
 step is N_NM = 21d + 6; d_acc is composed of elementary losses in closed form, of the loss of the forward solution
 operators, at most 20,180, or 20,183 at the backgrounds h + h_rem(q) + h_tot(p⃗), and of the numbers of steps of the
-iterations of the construction ([[thm:loss-d]] (i)). At every point of the set on which [[thm:settling]] is proved,
-with z = 4e_Υγ_Υ² and γ_C the gauge and damping parameters, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻², d > 0.3168 γ_C²,
-N_NM > 4.7158 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and N_NM > 6.654 γ_C², so that log₁₀ δ < −2.163 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and
-log₁₀ δ < −3.052 γ_C² ([[thm:ec-lb-proved]], [[cor:ec-lb-delta]]); these bounds tend to infinity as z or γ_C⁻¹ tends
-to 0, so that no upper bound for d holds on all of that set ([[rem:ec-lb-unbounded]]). At the
+iterations of the construction ([[thm:loss-d]] (i)). At every point of the set on which [[thm:settling]] is proved
+at which γ_C ≥ 10⁶, with z = 4e_Υγ_Υ² and γ_C the gauge and damping parameters, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻²,
+d > 0.3168 γ_C², N_NM > 4.7158 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and N_NM > 6.654 γ_C², so that
+log₁₀ δ < −2.163 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and log₁₀ δ < −3.052 γ_C² ([[thm:ec-lb-proved]], [[cor:ec-lb-delta]]); these
+bounds tend to infinity as z or γ_C⁻¹ tends to 0, so that no upper bound for d holds on all of that set
+([[rem:ec-lb-unbounded]]). At the
 computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 × 10²¹, so that log₁₀ δ < −1.351 × 10²¹
 ([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ at every admissible choice of
 the weights, for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). These are lower bounds for the
@@ -76,16 +77,17 @@ that point, for those index sets and at one admissible choice of the weights and
 d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The order
 of the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of
 derivatives, so that at that point K is at most an integer below 3.45745 × 10⁵¹ ([[prop:uc-data-order]]). The
-computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on which
-[[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the proof of any
-theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
+computational point is a point at which the formulas of the proof can be evaluated, and it is not shown to lie in the
+set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in
+the proof of any theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
 [[prop:fwd-calculus]] proves, and the value N′ = 13 of [[ch:s06]], which rests on [[lem:fwd-orders]], are used only in
 [[ch:explicit-constants]], whose opening states both.
 
 Explicit values stop upstream of every constant of [[thm:settling]]: the proof fixes the gauge and damping parameters
-only below thresholds whose existence it proves (the conditions of tf-admissibility on the gauge are explicit: e_Υ ≤ ½
-and γ_Υ ≤ ¼ suffice, [[prop:tf-gauge-explicit]]), and the cut-offs and orders of its function spaces only up to
-admissibility; arguments by contradiction, compactness and defect measures give constants without a value; and the
+only at admissible points, which it exhibits only below thresholds whose existence it proves (the conditions of
+tf-admissibility on the gauge are explicit: e_Υ ≤ ½ and γ_Υ ≤ ¼ suffice, [[prop:tf-gauge-explicit]]), and the cut-offs
+and orders of its function spaces only up to admissibility; arguments by contradiction, compactness and defect measures
+give constants without a value; and the
 parametrix norms at ι⁺, the tame constants to the order N_NM, the Nash–Moser thresholds of the exterior and slab
 problems and the constants of the gluing are not evaluated. This is a limit of the explicit evaluation, not of
 [[thm:settling]] ([[rem:ec-not-evaluated]]).

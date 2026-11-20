@@ -293,9 +293,10 @@ c′ increasing in s. This holds for t = u + v and for every smooth function of 
 
 (ii) In a chart as above, let V be a state on Σ_s whose A-leaves through the points of the axis near p exist over a
 disc 𝔻_(2δ), and let S ⊂ Σ_s be a G-invariant hypersurface through a point of the axis near p such that S ∩ M3 is a
-graph z = h_S(y) over 𝔻_(2δ) with h_S smooth. Then S ∩ M3 is the A-leaf of V through its point of the axis if and only
-if, along S over 𝔻_(2δ), (a) p_A vanishes on TS and (b) Θ_A = θ_S, where θ_S := −Σ_α p_A(∇_(e_α) e_α) for a
-g-orthonormal frame (e_α) of TS, the expansion of S along g⁻¹p_A computed with the metric of V.
+graph z = h_S(y) over a disc 𝔻_r, r ≤ 2δ, with h_S smooth, and such that p_A vanishes on TS along S over 𝔻_r. Then S
+∩ M3 is, over 𝔻_r, the A-leaf of V through its point of the axis if and only if Θ_A = θ_S along S over 𝔻_r, where θ_S
+:= −Σ_α p_A(∇_(e_α) e_α) for a g-orthonormal frame (e_α) of TS, the expansion of S along g⁻¹p_A computed with the
+metric of V.
 
 (iii) If two states have the same p_A, Θ_A, metric and first derivatives of the metric at the points of S, then S ∩ M3
 is an A-leaf of one if and only if it is one of the other. For Ů and Û, in every chart as above in which the spheres
@@ -308,13 +309,13 @@ points of M3, the fixed set of φ1 ↦ −φ1. For X, Y tangent to S, ∇_XY = �
 := g(∇_Xν, Y), the second fundamental form of S in Σ_s; the last term is that of the proof of [[lem:class-gauss]] (a).
 At the points of M3, TS is the orthogonal sum of TS ∩ TM3, the tangent space of Σ_S := S ∩ M3, and of ℝe_1, e_1 :=
 K_1/|K_1|. As K_1 is a Killing field and |K_1| is invariant, ∇_(e_1)e_1 = −½ |K_1|⁻² ∇g(K_1, K_1) = −∇ψ_1, so
-−p_A(∇_(e_1)e_1) = g⁻¹(p_A, dψ_1) = κ_A1 for every invariant p_A. Assume (a). Then p_A(∇^S_XY) = 0, so −p_A(∇_XY) =
+−p_A(∇_(e_1)e_1) = g⁻¹(p_A, dψ_1) = κ_A1 for every invariant p_A. As p_A vanishes on TS, p_A(∇^S_XY) = 0, so −p_A(∇_XY) =
 p_A(ν) k(X, Y) − p_A(n) K_Σ(X, Y); on TΣ_S, k is the second fundamental form of Σ_S in M3, M3 being totally geodesic
 and ν tangent to it. Taking the trace over a g-orthonormal frame of TS adapted to this sum,
 
     θ_S = κ_A1 + p_A(ν) H_S − p_A(n) tr K_Σ|_(TΣ_S),
 
-H_S the mean curvature of Σ_S in M3 for ν. By (a), p_A^Σ is conormal to S, so Π = TΣ_S along S and p_A^Σ = p_A(∂_z) dF,
+H_S the mean curvature of Σ_S in M3 for ν. As p_A vanishes on TS, p_A^Σ is conormal to S, so Π = TΣ_S along S and p_A^Σ = p_A(∂_z) dF,
 since dF(∂_z) = 1; so p_A(ν) = ±|p_A^Σ| with the sign of p_A(∂_z). Comparing with [[eq:loc-axis-hl]], H_S = H_L[V]
 along S exactly when Θ_A = θ_S. By [[lem:class-leaf]] (c), for every graph H_S = a_L h_S″ + (terms free of h_S″), and
 E_L := rH_S/a_L − (rh_S′)′ is the function of (r, h_S, h_S′) of that lemma; and h_S′(0) = 0, h_S being smooth and

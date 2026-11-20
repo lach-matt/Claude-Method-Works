@@ -67,8 +67,8 @@ the same sense: |(t_*∂_(t_*))^i ∂_x^β (Ψ^*ĝ − g_(m′,0))| ≤ C t_*^(�
 The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. d_1, k1 and K* are explicit in the loss d of
 [[thm:iii-k-3-2]]: d_1 = 22d + 292 + L_P, L_P ≤ 48 an explicit number of derivatives, k1 = d_1 + 4, and
 K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a), which exceeds d_1 + 14, so that the least admissible K is
-quadratic in d_1 ([[prop:uc-data-order]]); d is bounded above only at the computational point of [[def:ec-point]],
-which lies outside the set where the theorem is proved. The order k_P is what the subtracted
+quadratic in d_1 ([[prop:uc-data-order]]); d is bounded above only at the computational point of [[def:ec-point]], which
+is not shown to lie in the set where the theorem is proved. The order k_P is what the subtracted
 expansion of [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
 derivatives of their data on ℋ ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in
 [[sec:own-proof]]; its first step checks every use of k_P.

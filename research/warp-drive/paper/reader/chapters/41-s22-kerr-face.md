@@ -121,7 +121,7 @@ bound ε_g of [[def:s21-eps-g]]. [[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b), 
 (H4) ℓ_I > 3 + ε_+, with ℓ_I off the discrete exclusion sets of [[prop:iii-i1-3-1]] and [[thm:iii-g2-4-2]]. As
 ℓ_I ≤ a_I ([[sec:iii-i8-1]]; this is used in [[lem:iii-i9-2-6]] (a), on which this section relies), (H4) asks
 a_I > 3 + ε_+ of the class; the class of [Hin26] has the ℐ⁺-order 3 + ε_I. The condition ℓ_I < 3/2 + s_C of
-[[thm:iii-g2-4-2]] is no restriction, s_C being large by (C1) of [[ch:s15]].
+[[thm:iii-g2-4-2]] is no restriction, as s_C > 100 ([[sec:iii-f-1]]).
 
 *The sources.* Fix ℰ_src as the least choice in [[eq:iii-i9-1-3]], and put
 
@@ -1202,8 +1202,9 @@ growing boost section h̆²(S′), S′ ≠ 0.
 ρ⁻²L_0X ∈ 𝒜¹, [[lem:iii-a-1-4]] (stated on H^(∞,α)_b; passing from 𝒜^a costs an ε in the weight, which is immaterial
 here) makes X polyhomogeneous modulo 𝒜^(1−ε), with exponents in the indicial roots of real part in (a, 1) plus ℕ₀; a
 logarithm can occur only where a root meets a lower one plus an integer, so the lowest exponent carries none, the roots
-being simple. Let μ_0 be the least real part of an exponent of X, and suppose μ_0 ≤ 0. As every indicial root is simple
-([[sec:iii-g2-1]]), the argument of the proof of [[thm:iii-g2-3-1]] (the lowest term) applies: the top logarithm at μ_0
+of real part in (a, 1) lying in (−3, 0] ([[prop:iii-f1-2-3]] (a)) and being simple ([[prop:iii-f1-2-3]] (g)). Let μ_0
+be the least real part of an exponent of X, and suppose μ_0 ≤ 0. As the roots of real part μ_0 > −3 are simple, the
+argument of the proof of [[thm:iii-g2-3-1]] (the lowest term) applies: the top logarithm at μ_0
 vanishes, μ_0 is a root in 𝒲 (real), and the ρ^(μ_0)-coefficient is Σ_τ h̄_τ(Y_τ) ([[lem:iii-g2-1-2]]). Subtract, for
 every type, the element of ker L_0 listed above with this leading term (for v1 at −1, h̆¹_(b_0,v1)(V)), and for s1 at −1
 the section h̆²(S′), h̄_s1(S′) being the s1-component; then μ_0 rises (the corrections of the states are smaller by

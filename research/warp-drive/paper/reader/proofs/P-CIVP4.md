@@ -566,8 +566,9 @@ bounded in L^∞ on 𝒟_ρ by (a) and [[lem:sobolev]], and by (F2) and the smoo
 for (F3).
 
 *Step 4 (The Cauchy problem, and the time it gives).* Apply [[thm:class-kato]] (a) with d = 4, s = k, on the slab [τ_c −
-1/2, τ_c + 1/2] × ℝ⁴, with u_* := 0 and the radius ρ of Step 3. Its hypotheses are unchanged under translation in τ, and
-by its proof the time T* it gives for the datum Z = 0 at any τ_init ∈ [τ_c − 1/2, τ_c] depends only on c_1, ρ, C_A, the
+1/2, τ_c + 1/2] × ℝ⁴, with u_* := 0 and the radius ρ of Step 3. Its hypotheses hold on [τ_init, τ_c + 1/2] for every
+τ_init ∈ [τ_c − 1/2, τ_c] with the same bounds, as in the continuation part of its proof, and by its proof the time T* it
+gives for the datum Z = 0 at τ_init depends only on c_1, ρ, C_A, the
 constants of [[lem:class-kato-linear]] for bounds of order k of the A^μ_ξ on {|Z| ≤ C_S (1 + ρ)}, and the functions C_F and
 L of (F1), (F2): u_* = 0 enters through nothing else, and ‖u0‖_(H^k) = 0. Each of these is bounded in terms of the C^(k+3)
 norm of X̂ on 𝒮, the chart and the cut-offs, which are fixed by δ_1, and the constants of [[lem:class-leaf-reference]] for
@@ -592,10 +593,10 @@ M bounded. Let e(τ) := ∫_(P∩𝒰∩Σ_τ) ⟨A^0_ξ(x, 0) z, z⟩. The dive
 pairings positive, and on the far cuts, and z = 0 on Σ_init. For the non-local term, P ∩ 𝒰 ∩ Σ_τ has at most two
 components D, each bounded near the axes by round spheres {|y| = r}, and the leaves of Û through points of D near the
 axes, being such spheres, lie in D. Let 𝔼_D be the extension operator from D used in the proof of [[thm:class-stability]]
-(*The adapted domain is a domain of dependence*): Stein's operator ([[thm:std-sy-extension]]) for a fixed ball or annulus,
-transported by a dilation of y and averaged over G. D is a ball, or an annulus whose two radii lie in a compact
-subinterval of (0, ∞) with their quotient bounded below by a number larger than 1, uniformly for τ ∈ [τ_init, τ_end];
-so 𝔼_D is bounded on H^σ, σ ≤ k − 1, uniformly in τ. Put Ŭ := U − 𝔼_D(U − Û) on Σ_τ. Then Ŭ = Û on D with its first
+(*The adapted domain is a domain of dependence*): Stein's operator ([[thm:std-sy-extension]]) for a fixed annulus,
+transported by a radial diffeomorphism of y and averaged over G. D is an annulus {r_1 < |y| < r_2} whose radii lie in a
+compact subinterval of (0, ∞), with r_2/r_1 bounded below by a number larger than 1, uniformly for τ ∈ [τ_init, τ_end];
+so 𝔼_D is bounded on H^σ, σ ≤ k − 1, uniformly in τ, as in the proof of [[thm:class-kato]] (b) (ii). Put Ŭ := U − 𝔼_D(U − Û) on Σ_τ. Then Ŭ = Û on D with its first
 derivatives, and Ŭ lies in the ball 𝔅′ of [[lem:class-leaf-reference]] (b) about Û, ‖Ŭ − Û‖_(H^(k−1)) ≤ (1 + C) ρ, for ρ
 small. For x ∈ D near the axes the leaf of Û through x lies in D, so it solves the leaf equation of Ŭ and is the leaf of
 Ŭ, by the uniqueness in [[lem:class-volterra]]; so σ_A[Ŭ] = σ_A[Û] on D, and by [[lem:class-leaf-reference]] (b)

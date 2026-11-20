@@ -50,8 +50,8 @@ orders of error terms are written M, as in [[ch:s01]] and [[ch:s02]]; in [[sec:i
 spacetime and Ω a domain in it, while elsewhere Ω and Ω_a are rotation fields of 𝕊³ and Ω_(a,b) is a slab. The faces
 ℐ⁺, ι⁺ and K⁺ of the compactified spacetime are those of [[ch:s04]]. The inner radius of the artificial boundary plays
 no role in this chapter: the spectral family lives on Minkowski space, and the grafting of [[sec:iii-g2-4]] takes place
-near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which [[thm:iii-e-1-1]] (3) provides, and
-γ_Υ is as in [[prop:iii-f1-3-3]].
+near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which [[thm:iii-e-1-1]] (3) provides for h ∈ 𝖧
+and (AP0) of [[def:vi-c-admissible]] at every admissible point, and γ_Υ is as in [[prop:iii-f1-3-3]].
 
 ### The spectral family: the operator and the spaces {#sec:iii-g-1}
 
@@ -1421,9 +1421,9 @@ state it needs is constructed in [[ch:s13]] and [[ch:s15]], with at least the co
 
 Throughout this section and the next three we assume (Dyn), the dynamical hypotheses of [[ch:s13]], which hold for
 g_b, b near b_0, by [[thm:vi-a-6-1]] and [[thm:vi-b1-5-1]]; the parameters of [[prop:iii-f1-3-3]] with
-γ_Υ < min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); (C1) of [[sec:iii-f1-1]]; and (C2)–(C3) of [[sec:iii-f1-1]] with
-z_Υ = 4e_Υγ_Υ² outside the exceptional set Z_exc of [[prop:iii-f1-2-3]] (e), so that every indicial root of L̂_b(0) is
-simple. We fix
+γ_Υ < min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); and (C1) of [[sec:iii-f1-1]], with z_Υ = 4e_Υγ_Υ² ∈ (0, ½]. Then every
+indicial root μ of L̂_b(0) with −101 ≤ Re μ ≤ 0 is real and simple ([[prop:iii-f1-2-3]] (g)); the roots used below
+lie in (−3, 0]. We fix
 
     ℓ_K^max := min(3, 2 + 2γ_Cv_C),                                                                     {#eq:iii-g2-1-1}
 
@@ -1432,8 +1432,9 @@ real part ≤ 0 lie below −101 ([[prop:iii-f1-2-3]] (d)). Under the condition
 
 (C5) γ_Cv_C ≥ ½,
 
-ℓ_K^max = 3. The choice of parameters in [[thm:vi-c-2-1]] satisfies (C5), as there v_C = ½ and γ_C > 10⁶. Without
-(C5) every statement below holds with ℓ_K^max = 2 + 2γ_Cv_C, which still serves every graft at
+ℓ_K^max = 3. The choice of parameters in [[thm:vi-c-2-1]] satisfies (C5): at every admissible point
+([[def:vi-c-admissible]]) v_C = ½ and s_C > 100, so γ_Cv_C > 100. Without (C5) every statement below holds with
+ℓ_K^max = 2 + 2γ_Cv_C, which still serves every graft at
 Re ϰ_0 > 2 − 2γ_Cv_C + ε_K used at a K⁺-weight at most 4 + ε_K.
 
 For ℓ_K < ℓ_K^max let 𝒲(ℓ_K) be the set of indicial roots μ of L̂_b(0) ([[prop:iii-f1-2-3]]) with
@@ -1490,8 +1491,9 @@ is {h̄_τ(Y) : Y ∈ 𝒴_τ}. Here h̄_τ(Y) is the ρ^μ-leading term of the 
 −1, of h̆²_(b,s1)(S) and h̆¹_(b,v1)(V)), and Y ↦ h̄_τ(Y) is injective.
 
 *Proof.* On the type-τ sections given by a harmonic Y, the indicial family is a matrix polynomial in μ whose
-determinant has μ as a simple zero (the hypothesis on z_Υ). So its kernel is one-dimensional for each Y in a basis of
-𝒴_τ, and depends linearly on Y. The leading term h̄ = ρ^μφ(ω) of the state lies in the kernel. Indeed it satisfies
+determinant has μ as a simple zero ([[prop:iii-f1-2-3]] (g), as −3 < μ ≤ 0). So its kernel is one-dimensional for
+each Y in a basis of 𝒴_τ, and depends linearly on Y. The leading term h̄ = ρ^μφ(ω) of the state lies in the kernel.
+Indeed it satisfies
 L̄̂(0)h̄ = 0: for the base of a chain this is the leading order of [[eq:iii-g2-2-1]] at m = 0, since
 L̂_b(0) − L̄̂(0) ∈ ρ⁴Diff²_b ([[lem:iii-f-2-1]] (3)); for s1 and v1 it is [[eq:iii-g2-2-4]] at the first index of the
 chain. As 2L̄̂(0) = ρ²L̃(0)(ω, ρ∂_ρ, ∂_ω) ([[eq:iii-g-1-1]]) is dilation invariant, this is N(L̄̂(0), μ)φ = 0. The
@@ -1633,8 +1635,9 @@ Re z < ℓ_K, plus an element of H^(k+2,ℓ_K)_b. We remove the terms in order o
 *The lowest term.* Suppose some coefficient is non-zero, and let z_0 be the least real part of an exponent present. In
 [[eq:iii-g2-3-2]] the right side has exponents of real part ≥ min(ℓ_K, z_0 + 1) > z_0. So the terms of A_0u at real part
 z_0 vanish: for each z with Re z = z_0 and J the top power of log R, N(A_0, z)c_(z,J) = 0 and
-N(A_0, z)c_(z,J−1) + J∂_zN(A_0, z)c_(z,J) = 0. Hence z = −μ for a root μ, which is real, so z = z_0. As μ is a simple
-root, ∂_zN(A_0, z) maps ker N(A_0, z) injectively into a complement of the range of N(A_0, z). So Jc_(z,J) = 0, J = 0,
+N(A_0, z)c_(z,J−1) + J∂_zN(A_0, z)c_(z,J) = 0. Hence z = −μ for a root μ with α < −Re μ < ℓ_K, so −3 < Re μ ≤ 0
+([[prop:iii-f1-2-3]] (a)), and μ is real and simple ([[prop:iii-f1-2-3]] (g)); so z = z_0. As μ is a simple root,
+∂_zN(A_0, z) maps ker N(A_0, z) injectively into a complement of the range of N(A_0, z). So Jc_(z,J) = 0, J = 0,
 and c := c_(z,0) ∈ ker N(A_0, −μ) = ker N(L̄̂(0), μ). The kernel is finite-dimensional (A_0 is elliptic on 𝕊³) and
 splits by type and harmonic. By [[lem:iii-g2-1-2]], c = Σ_τ h̄_τ(Y_τ) with unique Y_τ ∈ 𝒴_τ, and μ ∈ 𝒲(ℓ_K) as z_0 < ℓ_K.
 
