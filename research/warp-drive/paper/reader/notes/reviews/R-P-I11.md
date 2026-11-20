@@ -306,3 +306,139 @@ After applying the items in scratch:
 552–556, 565–568, 570–574, 598–632, 636–686, 688–786, 787–802, 884–889; 43:465–485, 529–545, 547–557, 869–918, 975–990,
 991–1005; 44:55–59, 73–105, 140–206, 228–262; 46:1807–1820, 1852–1860, 1909–1912, 2150–2156; 62:574–586; 63:232–274;
 65:634. That is 49 rows, all correct as H. Also checked: every row marked P and every row marked I.
+
+## Confirmation
+
+Read: proofs/P-I11.md at md5 931e26d50bd8928098a3a870c6c15e62 (898 lines; committed at 8574b722), diffed against the
+version read above (bf3b7c4c…); notes/reports/P-I11.md at 0138b84e…. Scratch merges from a git archive of HEAD
+12c58adb (chapters 41–43, 71 and 96 are byte-identical to c9b40e22): P-I11 alone in
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/rpi11c/,
+and P-I11 + P-UB1 (md5 58b580faf8acbc14503d7c5e33c0b087) + P-UB2 (md5 4b2831564a19e1572794761ce2ef77da) in
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/rpi11joint/
+(script: rpi11calc/jmerge.py). No repository file edited.
+
+**Verdict on P-I11: CONFIRMED.** m1 and n1–n5 are resolved; nothing else moved.
+
+**The delta (diff bf3b7c4c → 931e26d5), chapter text.** Every changed or new block, and nothing else:
+- Item 4: its last three lines are n1's text, word for word. The line count is unchanged at 8.
+- Item 6: its last line is n2's text, word for word.
+- New item 6a (41:522–523): m1 Replacement 2, word for word, at 4 lines.
+- Item 7:
+  - The statement opens with m1 Replacement 1, word for word. Once the hypothesis is taken out, the joined statement
+    paragraph is identical to the old one.
+  - The proof gains the writer's sentence "[[lem:iii-a-1-4]] asks that the order up to which it expands not be the real
+    part of a root: the intermediate orders are chosen so, the roots being finitely many in every strip
+    ([[lem:iii-f1-2-4]]), and q′ − 2 is so by hypothesis." Once that sentence is taken out, the joined proof paragraph
+    equals the old one, so the rest is a rewrap only.
+  - Item 7 has 61 new lines, as stated.
+- Items 1–3, 5 and 8–13 are byte-identical.
+
+**The writer's sentence is correct and in the right place.** The hypothesis of lem:iii-a-1-4 (30:1501) concerns the
+order β up to which it expands. lem:iii-i11-2-1 applies it finitely many times. Each intermediate stopping order can be
+taken off the real parts of the roots, because only finitely many roots lie in every strip |Re ι| ≤ X (lem:iii-f1-2-4,
+as in prop:iii-f1-2-3 (f)). The final order q′ − 2 is off them by the new hypothesis. The sentence also agrees with
+71:4536–4540 ("decreased slightly unless it is the target q′ − 2"), which now holds by that hypothesis.
+
+**The delta, notes.** These match the coordinator's list:
+- The header names the new HEAD and credits items 6a, 4 and 6.
+- §1 item 1 has n2's wording, item 5 has n3's, and item 6 (d) is new.
+- §2 (vii) adds the ε exclusion. Its wording "besides its finite set" sits oddly beside 6a's "that set contains", but it
+  is harmless and in notes only.
+- F1 states that q′ − 2 is off the roots at every level.
+- Two table rows are edited, and the row 60:290–295 is added: 83 rows, counted.
+- §5 gains the def:uc-choice bullet. 71:2592–2593 reads "besides the conditions that [[sec:iii-j2-1]],
+  [[sec:iii-i11-1]] and [[def:iii-i13-1-1]] place on it", so the choice inherits 6a. P-UB1's lem:uc-admissible proof
+  also takes ε "off finite sets" of those sections.
+- §6 names P-UB1 and P-UB2 and asks that this file be merged with them, which settles my o3.
+- The crosswalk row is unindented, with the pin PENDING:386. lem:s22-c-roots is at P-I11 line 386. The notes number
+  eight.
+- §8 is updated.
+
+**P-I11 alone.** At HEAD 12c58adb all 14 old texts occur exactly once, as whole lines, at 41:140, 165, 179, 190, 204,
+215, 522, 571, 721, 823, 1223, 42:898 and 43:794, 805. They are pairwise disjoint, and every "New, the N lines" count
+matches its block. Every new line has at most 121 characters. No wrapped new line starts with "+ ", "- ", "* ", "> ",
+"#", "=", "|", "− " or "<". After the merge:
+- lint.py --chapters: 0 hits, 4834 labels.
+- assemble.py --check: 0 problems.
+- assemble.py, then lint.py --paper: 0 hits.
+- lem:iii-i11-2-1 is Lemma 33.10 and lem:s22-c-roots Lemma 33.11.
+
+**The joint merge P-I11 + P-UB1 + P-UB2.** I parsed 71 blocks: P-I11's 14, P-UB1's T1–T14, and P-UB2's 43 main blocks
+(M1–M26 with their parts, O1–O4, L2–L5 and L4b). P-UB2's retired fallback set is no longer in the file.
+- Every old text occurs exactly once at HEAD 12c58adb, including O1–O4 and L5 in 00, 01, 03 and 90, which changed
+  since c9b40e22.
+- No two blocks overlap. P-I11 touches chapters 41–43 only; P-UB1 and P-UB2 touch 00, 01, 03, 71, 90 and 96, so no
+  file is shared between P-I11 and the other two.
+- No new line exceeds 121 characters.
+- Merged together, lint.py --chapters gives 0 hits and 4846 labels (4833 + 13), and assemble.py --check gives 0
+  problems. assemble.py, then lint.py --paper, gives 0 hits. No line of the merged chapters exceeds 121.
+- The texts agree: P-UB1's "the generator 1 + 𝒵 of [[def:iii-i10-1-1]]" and "1 + 𝒵 = {3} ∪ {ι ∈ Z : Re ι < 4}" match
+  P-I11's definition and its "𝒵 consists of the root 2 and the ι^C_(·,+) − 1".
+
+**Open for the joint merge (not in P-I11's items; in chapter 71).** P-I11 §5 lists every chapter-71 site for that
+chapter's writer. P-UB1 and P-UB2 between them cover all of them except three, and those three then read wrong in the
+merged edition. Exact texts follow, each tested on the joint scratch merge. After all three, lint gives 0 hits, assembly
+0 problems and lint --paper 0 hits. None overlaps a block of the three files.
+
+*J1 (minor). sec:uc-index-sets misquotes def:iii-i10-1-1* (71:2267–2280). It says "By [[def:iii-i10-1-1]], Λ is the
+smallest set … that contains the generators" and lists five, without 1 + 𝒵. After P-I11 this misquotes the definition.
+Old (71:2277–2278), then new (3 lines; widths 109, 12, 92):
+
+```old
+- 2 + π_1ℰ_col, with ℰ_col = ({(0, 0), (1, 0)} ∪ ℰ_ind ∪ (1 + ℰ_ind)) + ℕ₀ ([[lem:iii-i11-1-1]]), a subset of
+  π_1𝒢 + ℕ₀;
+```
+
+```new
+- 2 + π_1ℰ_col, with ℰ_col = ({(0, 0), (1, 0)} ∪ ℰ_ind ∪ (1 + ℰ_ind)) + ℕ₀ ([[lem:iii-i11-1-1]]), a subset of
+  π_1𝒢 + ℕ₀;
+- 1 + 𝒵, with 𝒵 the set of the indicial roots μ of L̂_b(0) with 0 < Re μ < 3 ([[sec:is-z]]);
+```
+
+(sec:is-z is P-UB1's T7.)
+
+*J2 (minor). lem:cs-fourier (b), tf, misstates lem:iii-i11-2-1* (71:4379–4381). It says "By [[lem:iii-i11-2-1]], û_0
+has at ∂X the exponents of (ℰ^♭ − 1) ∪ (1 + ℰ_col) ∪ (2, ·)". After P-I11 the lemma also gives the (μ, ·) for the roots
+μ ∈ 𝒵 below 2 + ε_+ − ε. The conclusion "of real part at least 1" still holds, as 𝒵 ⊂ {Re > 1}. P-UB2's M15a and M15b
+touch only 4396–4406. Old (71:4380–4381), then new (3 lines; widths 113, 113, 93):
+
+```old
+(ℰ^♭ − 1) ∪ (1 + ℰ_col) ∪ (2, ·) and their ℕ₀-shifts, of real part at least 1, as ℰ^♭ ⊂ {Re ≥ 2} and ℰ_col ⊂ {Re ≥ 0}
+([[lem:iii-i11-1-1]]); for j ≥ 1, û_j has exponents of real part at least η_1 > 0 (Step 2), and the factor σ^j adds j at
+```
+
+```new
+(ℰ^♭ − 1) ∪ (1 + ℰ_col) and (μ, ·) for the roots μ ∈ 𝒵 with Re μ < 2 + ε_+ − ε, and their ℕ₀-shifts, of real part
+at least 1, as ℰ^♭ ⊂ {Re ≥ 2}, ℰ_col ⊂ {Re ≥ 0} ([[lem:iii-i11-1-1]]) and 𝒵 ⊂ {Re > 1} ([[def:iii-i10-1-1]]); for
+j ≥ 1, û_j has exponents of real part at least η_1 > 0 (Step 2), and the factor σ^j adds j at
+```
+
+*J3 (nit). sec:sp (d) calls a question open that P-I11 has decided* (71:4039–4040). The text says "whether ι₁, a root ι
+of some P_l or such an ι + 1 lies in Λ is not decided here". After P-I11 all of them lie in Λ:
+- ι₁ − 1 and ι − 1 lie in 𝒵, ι₁ being the simple root of C above 2 (71:3905) and 2 < Re ι ≤ 3 + ε_+.
+- So ι₁ and the roots ι lie in 1 + 𝒵, and the ι + 1 lie in Λ + 1 ⊂ Λ.
+- The proof's "no statement of this section uses whether another pole … lies in Λ" (71:4078–4079) stays true.
+
+Old, then new (3 lines; widths 116, 114, 70):
+
+```old
+simple. Of these poles, 3 lies in Λ ([[def:iii-i10-1-1]]); whether ι₁, a root ι of some P_l or such an ι + 1 lies in
+Λ is not decided here, and no bound depends on it, each raise being at most 1 by (c). The numbers λ_♯ + j,
+```
+
+```new
+simple. All of them lie in Λ ([[def:iii-i10-1-1]]): 3 is a generator; ι₁ and the roots ι lie in the generator 1 + 𝒵,
+as ι₁ − 1 and ι − 1 are indicial roots of L̂_b(0) of real part in (1, 3); and the ι + 1 lie in Λ + 1 ⊂ Λ. No bound
+depends on it, each raise being at most 1 by (c). The numbers λ_♯ + j,
+```
+
+The other chapter-71 sites in P-I11 §5 that no block touches stand as written:
+- the lem:iii-i11-2-1 charges of lem:cs-elem (71:4164, 4220, 4266, 4452–4462): the step count depends on weights, not
+  on the roots met, and the residues are charged 0;
+- lem:uc-fourier-count and lem:uc-phi-loss: general formulas in N_Λ;
+- prop:is-iota and prop:is-mult;
+- rem:ec-not-evaluated: def:uc-choice is admissible again with P-UB1.
+
+**Reply: P-I11 is CONFIRMED.** The joint merge is mechanically clean: no overlaps, lint and assembly clean. Open before
+the three are merged into the edition: J1 and J2 (minor) and J3 (nit), three chapter-71 texts that none of the three
+files carries.

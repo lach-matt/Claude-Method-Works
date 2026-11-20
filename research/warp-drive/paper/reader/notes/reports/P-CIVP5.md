@@ -1,71 +1,135 @@
-# P-CIVP5: Tier 5 (further dust families at the axes), proof file report
+# Report: proofs/P-CIVP5.md, round 2 (Tier 5, further dust families at the axes)
 
-Output: research/warp-drive/paper/reader/proofs/P-CIVP5.md (913 lines). Nothing in chapters/ or crosswalk/ was edited;
-nothing committed. Read: S-T5, GN-T5, GN-T3, S-T3, GN-T4 §1, chapters 81 and 83 (relevant parts), P-CIVP (Tier 1).
-P-CIVP3 (Tier 3) and P-CIVP4 did not exist; Tier 3 is cited by pending markers.
+File: research/warp-drive/paper/reader/proofs/P-CIVP5.md, 1,227 lines, md5 226d1eae5f915d229723114e4b63121b.
+Not committed. No chapter or crosswalk file edited.
 
-## Blocks
-- **A1 (ch 81, after rem:class-leaf-numerics):** lem:class-leaf-arc (two states compared along ONE arc: pointwise one-sided
-  bound eq:class-leaf-arc and L² bound on any G-invariant set closed under the arcs of V only; Volterra + Hardy average,
-  no elliptic step, no ball) = GN-T5 C7 and C2; lem:class-leaf-tame (lem:class-leaf-differences (a) on the lower ball 𝔅′,
-  bound linear in 𝒩_k) = GN-T5's "lighter form".
-- **A2 (ch 81, after rem:class-kato-model):** space-time norms 𝒳^s, trace eq:class-trace, extension E_b;
-  lem:class-mixed-product; lem:class-kato-history (linear problem, forcing in H^s of space-time, history matched);
-  thm:class-kato-memory (memory m; hypotheses (M0) causality, (M1) ‖F(u)‖_{H^s([t1,t2])} ≤ C_F(t2−t1+m)^{1/2},
-  (M2) integrated L² Lipschitz with memory; (a) existence/uniqueness/continuation on a ball, (b) stability with (M1′));
-  rem:class-kato-memory. S-T5 M4 step 3 is not used (C1).
-- **B (ch 83, new section sec:loc-t5 "Further dust families at the axes"):** def:loc-t5-family ((F-a) no density near
-  corner axis circles = C3; (F-b) density only where the family crosses the face, which implies (H×); (F-c) corner
-  compatibility at density points on S); lem:loc-t5-dichotomy; lem:loc-t5-tubes (C3 needed, proved by continuous
-  dependence); carrying families with ξ_A (C4); lem:loc-t5-jets (M0); lem:loc-t5-times with eq:loc-t5-times
-  (t_A := τ0 − χψ_AĜ_Aρ², τ := τ0 + Kρ²χ, K ≥ 1 + sup|Ĝ_A|; (a)–(d) proved); lem:loc-t5-faces (M2); the system with
-  memory; lem:loc-t5-forcing ((M0)–(M2),(M1′) by Fubini over each t_A-foliation; time-extension beyond t̄);
-  lem:loc-t5-residual (M6, in full in the t_A-slicing); lem:loc-t5-existence; lem:loc-t5-energy (integrated Gronwall);
-  lem:loc-t5-past (M5 P, one-sided, C7); lem:loc-t5-constraints (M5 F on F ∩ {τ ≤ s*}, Lie transport for p_A = du_A,
-  tubes 𝒦_A″ closed under arcs); lem:loc-t5-uniqueness (Lemma R on rectangles with past faces in the cones, by
-  exhaustion with triangles {Φ_N ≤ 1}; C5, interior faces excluded with reason); thm:loc-t5; prop:loc-t5-cut
-  (statement W with W1 (N1), W2 (phase unused via ξ_A), W3 (Λ spacelike off the axes), W4 (Λ carries the causal bound,
-  no C0), and N closed under generators (needed: re-solving the constraints changes data beyond the cut on each
-  generator)); rem:loc-t5-scope.
+## The theorem (thm:loc-t5)
+Hypotheses: Tier 3's (k ≥ 9, m_0 = 6k + 18, m_1 = 12k + 42, background on Q1 with margin δ_1, cone data through
+the axes, normalised gauge, nonnegative densities), plus any number of further families (def:loc-t5-family) with:
+- (F-a) no density near the corner circles S_c ∩ axis i;
+- (F-b) density only where the family crosses the edge;
+- (F-c) corner compatibility;
+- fixed neighbourhoods 𝒦_A′ of the supports.
+The exclusions and their reasons are written into the statement. (F-b) is backed by prop:loc-t5-grazing, (F-a) by
+lem:loc-t5-tubes.
 
-## The theorem as stated (thm:loc-t5)
-Data of the Tier 3 theorem, size ε in C^m, plus further families with (F-a)–(F-c) instead of Tier 3's vanishing near
-face–axis points. For ε ≤ ε0: (a) a class solution with N_f families on Q1 × S³, further phases defined near supp q_A,
-**of class C^(k−3)**, double-null form, inducing the data; (b) C^(k−3) estimate Cε; (c) uniqueness on every rectangle
-[0,u′]×[0,v′] ⊂ Q1 among solutions within ε2 (k−2 derivatives) with the same data on its faces; (d) localisation on
-such rectangles. Crossing families: any number. Tangent ("grazing") families with density on a tangency set: only
-prop:loc-t5-cut (development on regions D′ avoiding that axis, bounded by ∂F∖N, a spacelike Λ off the axes and Q1's
-future faces).
+Conclusions match Tier 3:
+- (a) a class solution with the further families on Q1 × S³, smooth through the axes;
+- (b) a Cε estimate in C^(k−4);
+- (c) uniqueness on every Q1′ ⊂ Q1 among solutions within ε_2 in C^(k−4);
+- (d) localisation.
+For N_f = 2 it is thm:loc-axis.
 
-## Pending markers (16 lines) and exactly what each needs from Tier 3
-- t3-setting (7): Q1^η, chart time τ0 = Φ(u,v), Φ_u,Φ_v>0, s* with max_Q1 τ0 < s*, F∩{τ0≤s*}⊂Q1^η; chart x; data
-  extended past u1,v1; Û (= Ů on {τ0 ≤ τ_init}, formal jets on ∂F, ‖Û−Ů‖_{C^{k+3}} ≤ Cε); Ĝ as gauge reference; ξ;
-  system 𝔄_ξ of the form eq:class-kato-system with A^0 ≥ c1 I, local terms vanishing outside a compact set at Ů;
-  gauge residual 𝔄_ξ(Ů) bounded in C^k by Cε; τ0-face sections are the data's double-null spheres.
-- t3-cone-data (1): prop:loc-cones / lem:loc-cone-in through the axis generators (T3-0) with a general smooth stress.
-- t3-jets (2): lem:loc-cone-jets / prop:loc-cone-formal through the axis generators (local residuals flat on ∂F).
-- t3-leaf-criterion (2): GN-T3 §1.2 criterion (S is V's A-leaf iff p_A(TS)=0 and Θ_A = −tr_TS p_A(∇_X Y)), with its proof's
-  mean-curvature identity.
-- t3-residual (1): GN3 for the adapted families on τ0-slices incl. the τ-continuity case at the corner.
-- t3-gauge (1): T3-7 double-null coordinates through the axes (needed at class C^(k−3)).
-- t3-wave-map (2): L10 conversion of a solution in the double-null gauge to the wave gauge relative to Ĝ, identity to
-  infinite order on the faces.
-- t3-theorem (1): the Tier 3 theorem's data hypotheses.
-Placement item 6 asks the Tier 3 section to carry its further families with ξ_A (C4).
+## Smoothness (item 2): the tame estimate route
+Tier 5 now has Tier 3's regularity, a smooth solution.
+- lem:class-leaf-tame (Block A1) gives a linear bound in every H^n, in space-time, on C^5-small balls.
+- Part (c) of thm:class-kato-memory (Block A2) proves persistence of all H^σ norms by a global iteration from u_*.
+  It needs R = 0 on the history interval and the hypothesis (M1_σ).
+- lem:loc-t5-forcing proves (M1_σ) from the tame lemma. lem:loc-t5-existence concludes smoothness.
 
-## What remains open / caveats
-- Smoothness: the solution is given in C^(k−3); persistence of regularity for the memory system (a higher-norm bound
-  linear in the top norm, incl. time derivatives) is not proved (rem:loc-t5-scope (v)). Tier 3 claims smooth.
-- Grazing families through the axis (S-T5 §5.1): open; rem (i) proves the face is characteristic and that no face section
-  of any slicing is a leaf unless a(u0) = 0.
-- lem:class-leaf-tame is written at the level of detail of lem:class-leaf-differences (a) (itself a sketch); readers
-  should check its induction (low orders by lem:class-interior-regularity j=0, high orders tame with ‖ζ‖_{C²}).
-- prop:loc-t5-cut requires N closed under generators; GN-T5's W domain (N on 𝒞_out only near the corner) ignored this.
-- Densities on S off the axes need (F-c) (corner compatibility of phase and density jets).
+## lem:class-leaf-tame (item 4)
+The proof is written in full in seven steps and does not use the proof of lem:class-leaf-differences:
+1. divergence form of the leaf equation, (D), and its fixed point along the arcs, (V);
+2. the planar shear as a smooth function 𝔖 with no division by |y|;
+3. a box in the leaf coordinates (t, z0, y) and Hardy's inequality (H);
+4. C² bounds (L);
+5. a tame composition estimate (C), proved from the Gagliardo–Nirenberg inequality inside the proof of
+   lem:class-composition (a), Hölder's inequality and Stein's extension (thm:std-sy-extension);
+6. induction on the order;
+7. conclusion.
 
-## Checks (scratch copy pcivp5/: chapters + P-CIVP Blocks A,B + this file applied, Tier 1 item 4 + new loss sentences)
-- lint.py --chapters: 17 hits = 16 pending lines + "reference to undefined label thm:civp-large" (Tier 1 text citing
-  Tier 2, not this file).
-- assemble.py --check: labels 4732, 1 problem (the same thm:civp-large).
-- All lines of the file ≤ 121 characters also with every non-pending reference counted as 18 characters and eq tags
-  as "(83.12)"; no wrapped line starts with a Markdown marker.
+I replaced the past-set version I had drafted with this product-box version. The extension E_b handles times beyond
+t2, as F at a time depends only on the past.
+
+## Tier 3 citations (item 1)
+All 16 pending markers are gone; none remain. Citations are to the merged chapter 83 at HEAD.
+
+| Former marker | Now cites |
+|---|---|
+| t3-setting | sec:loc-axis-reduced, eq:loc-axis-time, eq:loc-axis-region, lem:loc-axis-system (a)–(e), eq:loc-cone-modified (F̃ := (1 − θ1_F)𝔄_χ(Û)), sec:loc-cone-reduced (Δ vanishes for τ0 ≤ ln(9δ_c²/16)) |
+| t3-cone-data | lem:loc-axis-constraints (a)–(c), with the further sources added |
+| t3-jets / t3-residual | lem:loc-axis-jets (a)–(c), lem:loc-axis-system (d) |
+| t3-leaf-criterion | lem:loc-axis-leaf (ii), (iii) |
+| t3-gauge | lem:loc-axis-gauge, applied with 𝒯 = F ∩ {τ ≤ s*} in place of 𝔗(s*) |
+| t3-wave-map | steps (1)–(4) of the proof of lem:loc-axis-unique, with lem:loc-t5-uniqueness in place of lem:loc-axis-dependence |
+| t3-theorem | thm:loc-axis and def:loc-axis-data |
+
+Also used:
+- lem:loc-axis-propagation (phases paragraph);
+- lem:loc-axis-past;
+- lem:loc-axis-energy;
+- the paragraphs *The equations* and *Continuity in t* of lem:loc-axis-dependence, including its fixed Taylor bound
+  Cθ^(k+1).
+
+What Tier 3 does not supply, and the file proves:
+- **Uniqueness with further families.** Tier 3's Lemma R needs the slice spheres to be leaves of every family. This
+  fails for further families, and their arcs can leave R′ through the future null faces, which they may be tangent to.
+  The new lem:loc-t5-uniqueness exhausts R′ by triangles T_N := F ∩ {τ^N ≤ 1}, with a bent time built from
+  Φ_N = (ũ/a)^N + (ṽ/b)^N + (ũ + ṽ)/(N(a + b)). On each T_N it argues by continuity in τ^N, as Tier 3 does, so the
+  slices need only be spacelike for W near the set where the two solutions agree. No smallness is assumed.
+- **An integrated energy lemma** (lem:loc-t5-energy).
+- **The edge-section leaf lemma for crossing families** (lem:loc-t5-faces).
+- **Constraint propagation** on the tubes (lem:loc-t5-constraints).
+- **A closure radius δ_♮.** It is fixed after the bend scale δ_* and after the leaf and tame constants in the bent
+  charts. This removes a circularity, since the constants depend on δ_* through third derivatives of the bend.
+
+## Derivative counts (k ≥ 9)
+- k ≥ 9 gives C^5 control by ⟦Z⟧_k (k − 5 > 2), which is the smallness the tame lemma needs.
+- The estimate is C^(k−4), from Ψ − id in C^(k−3), as in Tier 3.
+- Uniqueness assumes ε_2-closeness in C^(k−4), as in Tier 3.
+- Data are in C^(m_1); the extension goes to C^(m_0) by lem:loc-axis-constraints (c), with q_A's Borel extension cut
+  off in v (or u) so that (F-a) and (F-b) persist.
+
+## Grazing families (item 3): excluded, reason proved
+prop:loc-t5-grazing proves three things for a family that is tangent to an edge at an axis:
+- (a) The edge is characteristic for it along the axis generator: ∂_uU_A = 0 there, and the coefficient of ∂_vu_A in
+  the eikonal equation vanishes.
+- (b) Suppose the restriction of U_A − U_A(x_0) to an edge section vanishes to finite order 2j (j = 1 when
+  ½∂²_ϑU_A ≠ 0). Then the level set through the axis point lies strictly on one side of the edge, and points on that
+  side arbitrarily near x_0 have arcs that start on the other side. So the energy estimate on P or on F fails in any
+  slicing.
+- (c) If all edge sections are leaves, U_A is locally constant on the edge and the rays run in it.
+
+One case is stated as not analysed: vanishing to infinite order without vanishing nearby. (F-b) excludes all of these.
+
+prop:loc-t5-cut (statement W) gives, for families violating (F-a)/(F-b), a development on D′ = F ∩ {λ ≤ 0} (λ a time
+function, {λ = 0} away from the axes, D′ ∩ N_c = ∅) and proves it independent of the cut χ_c. It does not give
+uniqueness among other solutions on D′; rem:loc-t5-scope (i) says so. This replaces round 1's uniqueness claim, which
+needed an extension step that does not work on non-rectangular D′.
+
+## Placement
+- **Block A1:** after rem:class-leaf-numerics (81:1367), after Tier 4's lem:class-leaf-reference if present, before
+  sec:class-axes-stability.
+- **Block A2:** after rem:class-kato-model (81:875), before sec:class-off-axes.
+- **Block B:** immediately after the last line of sec:loc-axis (83:3246). It goes before "### Developments of data of
+  any size through the axes {#sec:civp-axes}" if Tier 4 is merged, otherwise before sec:loc-shells (83:3248).
+- **Old/new pairs, all whole lines at HEAD:**
+  - item 4 replaces only line 83:728, inserting the further-families sentences before "No development is". It states
+    only what this section adds and composes with the shared sentence.
+  - item 5 is rem:loc-axis-scope (ii), 83:3244–3245, with a pointer to sec:loc-t5.
+  - item 6 is rem:class-scope, 81:1674–1675.
+- **Unchanged:** chapters 03 and 90 (90:183 concerns the Cauchy problem). No Appendix A entry is needed.
+- **Class-solution notion:** the further-families notion is defined in thm:loc-t5 from def:loc-axis-data. Tier 4's
+  broader notion is not needed.
+
+## Crosswalk
+33 tab-separated rows (4 fields), in chapter order:
+- 5 for 81 after rem:class-kato-model;
+- 4 for 81 after rem:class-leaf-numerics;
+- 24 for 83 after rem:loc-axis-scope.
+
+## Checks
+Scratch merge at
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/pcivp5/merge2: chapters/ and
+crosswalk/ at HEAD a03de14d (Tiers 1–3 and shells merged), plus Blocks A1, A2, B, items 4–6 and the rows. Results:
+- `python3 lint.py --chapters`: 0 hits, 4917 labels;
+- `python3 assemble.py --check`: 0 problems.
+
+Lines are ≤ 120 characters raw, and ≤ 121 with every [[…]] counted as 18 characters. No bad line starts, no backslashes,
+lowercase labels, and no file or program names in the paper text.
+
+## For the reader to check first
+- Step (5) of lem:class-leaf-tame (the composition estimate) and step (6) (the induction).
+- The order of choice of constants: K, δ_*, the leaf and tame constants in the bent charts, δ_♮, ρ, ε.
+- lem:loc-t5-uniqueness: the slab argument on T_N.
+- prop:loc-t5-grazing (b).
