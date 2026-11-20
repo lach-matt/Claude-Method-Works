@@ -1377,3 +1377,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R-I2 0M 1m 4n (notes/reviews/R-I2.md): I-2 and the two R-I1b fixes correct; the minor (30:1291, the reverse norm
   equivalence derived in two lines) and the four nits applied by the coordinator with the reviewer's texts. Coordinator
   edits since their last reading (R-DB-3 nits, R-96b nits, R-I1b fixes, R-I2 fixes) go to one final reading (R-CO).
+- R-CO CONFIRMED 0M 0m 3n (notes/reviews/R-CO.md): the nine commits of coordinator-applied fixes are right; nits 1
+  ([AN00, Theorem 3.1, p. 787], the page read from the authors' copy) and 2 (a b.g. structure with finitely many charts at
+  30:1292) applied in the reviewer's words; nit 3 optional, not taken.

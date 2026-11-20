@@ -1331,22 +1331,21 @@ h ∈ H^(k+d+2,(ℰ_K,ℓ_K))_b near R = 0, as ℓ_K ∉ Re π_1ℰ_K. This prov
 *Meromorphy.* f ↦ F is holomorphic in ϰ, and ϰ ↦ N_sf(ϰ)⁻¹ ∈ ℒ(𝒴_k, 𝒳_k) is finite-meromorphic ([[thm:iii-g-5-1]] (2),
 and (a) above). Multiplication by v^ϰ is holomorphic into weights reduced by any δ > 0. The expansion coefficients of
 (iii)–(iv) are holomorphic in ϰ as well, although the decomposition of [[lem:iii-g1-2-2]] is not (its particular
-solutions have poles where ϰ ∈ π_1G): each coefficient at an exponent z, Re z < ℓ_I, is
-(2πi)⁻¹∮(ζ − z)^jΠ_sℳ(χh(ϰ))(ζ) dζ over a fixed small circle around z, and is holomorphic by the joint holomorphy of
-Step 3 (b), which for f in the weighted space holds on {Re ζ < ℓ_I}: there H_s is the transform of
-−χΠ_sf/(2v) ∈ ρ_I^(ℓ_I)H_b and of terms supported in [½, 1). The remainder, h minus the finite expansion, is
-holomorphic in the weaker weight in which h(ϰ) is, and bounded in the ℓ_I-weighted space locally uniformly in ϰ, the
-constants of Steps 1–5 being built from N_sf(ϰ)⁻¹ and fixed-circle integrals. A locally bounded map g from an open
-subset of ℂ into a Banach space X such that x* ∘ g is holomorphic for every x* in a subspace of X* that separates the
-points of X is holomorphic ([AN00, Theorem 3.1]); applied with X the ℓ_I-weighted
-space and the functionals of the larger space, this shows that the remainder is holomorphic in the ℓ_I-weighted space.
-So [[eq:iii-g1-3-3]] is finite-meromorphic on {Re ϰ < ℓ_I}. Its principal part at ϰ_0 is obtained by expanding R^(±ϰ)
-about ϰ_0: its Laurent coefficients are finite combinations of R^(−ϰ_0)(log R)^iA_(−j)(log R)^(i′)R^(2+ϰ_0), with
-A_(−j) those of N_sf⁻¹. These have finite rank and do not depend on (s, μ), as the inverses agree ([[thm:iii-g-5-1]]
-(2)); so they do not depend on k, ℓ_I or ℓ_K. For f ∈ Ċ^∞(ι⁺), the coefficient of order j is
+solutions have poles where ϰ ∈ π_1G): each coefficient at an exponent z, Re z < ℓ_I, is (2πi)⁻¹∮(ζ − z)^jΠ_sℳ(χh(ϰ))(ζ)
+dζ over a fixed small circle around z, and is holomorphic by the joint holomorphy of Step 3 (b), which for f in the
+weighted space holds on {Re ζ < ℓ_I}: there H_s is the transform of −χΠ_sf/(2v) ∈ ρ_I^(ℓ_I)H_b and of terms supported in
+[½, 1). The remainder, h minus the finite expansion, is holomorphic in the weaker weight in which h(ϰ) is, and bounded in
+the ℓ_I-weighted space locally uniformly in ϰ, the constants of Steps 1–5 being built from N_sf(ϰ)⁻¹ and fixed-circle
+integrals. A locally bounded map g from an open subset of ℂ into a Banach space X such that x* ∘ g is holomorphic for
+every x* in a subspace of X* that separates the points of X is holomorphic ([AN00, Theorem 3.1, p. 787]); applied with X
+the ℓ_I-weighted space and the functionals of the larger space, this shows that the remainder is holomorphic in the
+ℓ_I-weighted space. So [[eq:iii-g1-3-3]] is finite-meromorphic on {Re ϰ < ℓ_I}. Its principal part at ϰ_0 is obtained by
+expanding R^(±ϰ) about ϰ_0: its Laurent coefficients are finite combinations of R^(−ϰ_0)(log R)^iA_(−j)(log
+R)^(i′)R^(2+ϰ_0), with A_(−j) those of N_sf⁻¹. These have finite rank and do not depend on (s, μ), as the inverses agree
+([[thm:iii-g-5-1]] (2)); so they do not depend on k, ℓ_I or ℓ_K. For f ∈ Ċ^∞(ι⁺), the coefficient of order j is
 (2πi)⁻¹∮(ϰ − ϰ_0)^(j−1)N_ι⁺(ϰ)⁻¹f dϰ over a small circle in 𝒪. By (1), with expansion coefficients and remainders
-continuous in ϰ on the circle, it lies in the space of (1). The coefficients have finite rank and Ċ^∞(ι⁺) is dense,
-so their ranges lie there for all f. ∎
+continuous in ϰ on the circle, it lies in the space of (1). The coefficients have finite rank and Ċ^∞(ι⁺) is dense, so
+their ranges lie there for all f. ∎
 
 ### The boundary spectrum {#sec:iii-g1-4}
 

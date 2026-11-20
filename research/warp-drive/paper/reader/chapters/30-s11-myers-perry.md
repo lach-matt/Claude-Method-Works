@@ -1289,10 +1289,11 @@ way ([[sec:i-a-1-2]]).
 Fix smooth vector fields X₁, …, X_q on ∂M spanning T∂M at every point. For an integer k ≥ 0, H^k(∂M) is normed by
 ‖u‖_(H^k) := Σ ‖X_(i₁)⋯X_(i_l)u‖_(L²(∂M,μ)), the sum over l ≤ k and all indices, the fields acting on each component and
 ‖u‖²_(L²(∂M,μ)) := ∫ |u|² μ with |·| the Euclidean norm of ℂ^(N_E); this is the usual Sobolev norm up to equivalence, for
-each component. Indeed, let 𝓑 be a finite atlas of ∂M with all scalings 1 (so that 𝒱 consists of all smooth vector
-fields), its charts so small that on each of them some dim ∂M of the X_i form a frame. Then H^k_𝒱(∂M) is the usual space,
-normed up to equivalence by the sum (3.15) of [[rem:std-sbg-sobolev]] ([Hin26d, Definition 3.14 and Remark 3.15, pp.
-34–35]). Every X_i is bounded from H^s_𝒱 to H^(s−1)_𝒱 (p. 36 there), which bounds ‖u‖_(H^k) by that norm; and on each
+each component. Indeed, let 𝓑 be a b.g. structure of ∂M with finitely many charts ((S1) of [[thm:std-sbg-calculus]]; for
+instance restrictions of charts defined near their closures), with all scalings 1 (so that 𝒱 consists of all smooth
+vector fields), its charts so small that on each of them some dim ∂M of the X_i form a frame. Then H^k_𝒱(∂M) is the usual
+space, normed up to equivalence by the sum (3.15) of [[rem:std-sbg-sobolev]] ([Hin26d, Definition 3.14 and Remark 3.15,
+pp. 34–35]). Every X_i is bounded from H^s_𝒱 to H^(s−1)_𝒱 (p. 36 there), which bounds ‖u‖_(H^k) by that norm; and on each
 chart every ∂_(x^j) is a combination of those X_i with smooth coefficients, which bounds that norm by ‖u‖_(H^k), by
 induction on k (at k = 0 both are comparable to ∫ |u|² μ, μ being smooth and positive). Also ‖u‖_(H^k) = ‖u‖_(L²) + Σ_i
 ‖X_iu‖_(H^(k−1)) for k ≥ 1. For A ∈ Diff^m_b(M; ℂ^(N_E)) elliptic near ρ = 0, N(A, ι) = Σ_j A_j(0)ι^j depends
