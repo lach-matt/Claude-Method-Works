@@ -609,19 +609,19 @@ are smooth, since g and the coordinates are, and by G-equivariance γ is a G-inv
 vector field: this is [[eq:loc-double-null]] with fields smooth through the axes. The rest is as there. ∎
 
 **Lemma {#lem:loc-axis-dependence}** (Dependence on the past faces of a double-null rectangle.) Let Ĝ′ be a smooth
-G-invariant Lorentzian metric, and, for i = 1, 2, let U_i = (g_i, −dv_i, −du_i, div_(g_i) P_i^A, q_i^A) be smooth
-G-invariant states on a neighbourhood 𝒪 of a compact set R′, with u_i and v_i null for g_i on 𝒪 and P_i^in :=
-g_i⁻¹(−dv_i), P_i^out := g_i⁻¹(−du_i) future directed, that solve [[eq:class-system]] on R′ in the gauge D(g_i) = 0
-relative to Ĝ′. Let (u_1, v_1, ω_1), ω_1 ∈ S³, be coordinates on 𝒪 in which g_1 has the form [[eq:loc-double-null]]
-with fields smooth through the axes and R′ = [0, a] × [0, b] × S³. If U_2 and U_1 agree, with all their derivatives, on
-R′ ∩ ({u_1 = 0} ∪ {v_1 = 0}), then U_2 = U_1 on R′. No smallness of U_1, of U_2 or of U_2 − U_1 is assumed.
+G-invariant Lorentzian metric, and, for i = 1, 2, let U_i = (g_i, p_i^in, p_i^out, div_(g_i) P_i^A, q_i^A) be smooth
+G-invariant states on a neighbourhood 𝒪 of a compact set R′, with p_i^A the negative of the differential of a function
+on 𝒪 that is null for g_i, the phase of family A of U_i, and P_i^A := g_i⁻¹p_i^A future directed, that solve
+[[eq:class-system]] on R′ in the gauge D(g_i) = 0 relative to Ĝ′. Let (ũ, ṽ, ω̃), ω̃ ∈ S³, be coordinates on 𝒪 with
+p_1^out = −dũ and p_1^in = −dṽ, in which g_1 has the form [[eq:loc-double-null]] with fields smooth through the axes
+and R′ = [0, a] × [0, b] × S³. If U_2 and U_1 agree, with all their derivatives, on R′ ∩ ({ũ = 0} ∪ {ṽ = 0}), then
+U_2 = U_1 on R′. No smallness of U_1, of U_2 or of U_2 − U_1 is assumed.
 
-*Proof.* *The chart.* Fix μ ≥ 1 with 4μΩ_1² > γ_1(b_1, b_1) on R′, and put t := u_1 + v_1 and x := e^(v_1 − μu_1) ω_1.
-(t, x) is a G-equivariant chart near R′ onto an open set of ℝ × (ℝ⁴ ∖ {0}); dt is timelike for g_1, and ∂_t, a positive
-multiple of ∂_(u_1) + μ ∂_(v_1), is future timelike for g_1 on R′, as g_1(∂_(u_1) + μ∂_(v_1), ∂_(u_1) + μ∂_(v_1)) =
-−4μΩ_1² + γ_1(b_1, b_1). So the first-order form of Step 9 of the proof of [[thm:class-stability-off-axes]] in this
-chart has A^0 positive definite at U_1 on R′. The slices O_s := R′ ∩ {t = s} are unions of spheres {u_1 = c, v_1 = s −
-c}.
+*Proof.* *The chart.* Fix μ ≥ 1 with 4μΩ_1² > γ_1(b_1, b_1) on R′, and put t := ũ + ṽ and x := e^(ṽ − μũ) ω̃. (t, x) is
+a G-equivariant chart near R′ onto an open set of ℝ × (ℝ⁴ ∖ {0}); dt is timelike for g_1, and ∂_t, a positive multiple
+of ∂_ũ + μ ∂_ṽ, is future timelike for g_1 on R′, as g_1(∂_ũ + μ∂_ṽ, ∂_ũ + μ∂_ṽ) = −4μΩ_1² + γ_1(b_1, b_1). So the
+first-order form of Step 9 of the proof of [[thm:class-stability-off-axes]] in this chart has A^0 positive definite at
+U_1 on R′. The slices O_s := R′ ∩ {t = s} are unions of spheres {ũ = c, ṽ = s − c}.
 
 *The equations.* Let x ∈ R′ lie near an axis in a slice {t = s}, and let the level set through x, in that slice, of the
 phase of family A of U_i be, from the axis to x, a graph as in [[lem:loc-axis-leaf]] (ii) that lies in 𝒪, with p_A(∂_z)
@@ -630,31 +630,33 @@ of its part (iii), the phase being null on 𝒪. So σ_A[U_i](x) is its planar s
 [[eq:class-x]] and [[prop:class-axis]] (d) both S_A and S_A^ax equal −|∇²u_A|² − T(P_A, P_A) at x, u_A the phase; by
 [[eq:class-raychaudhuri]], U_i solves at x the rows of 𝒜^ax, with [[eq:loc-axis-closure]], Ĝ′ in place of Ĝ and every
 partition ψ_ax. For U_1 this holds at every point of R′ near an axis: the level sets of its phases in {t = s} are the
-spheres {u_1 = c, v_1 = s − c}, which are therefore the leaves of both families of U_1.
+spheres {ũ = c, ṽ = s − c}, which are therefore the leaves of both families of U_1.
 
 *Continuity in t.* Let t* be the supremum of the s ∈ [0, a + b] with U_2 = U_1 on R′ ∩ {t ≤ s}; the set of these s is
 closed, and it contains 0, R′ ∩ {t ≤ 0} being the corner sphere. Suppose t* < a + b. Take δ, the balls 𝔅 ⊂ 𝔅′ and the
 constants of [[lem:class-leaf-differences]] and [[lem:loc-axis-shear]] for ů := U_1 in this chart, uniform near the
 points of the axes in R′ ∩ {t* ≤ t ≤ t* + 1}. U_2 − U_1 is smooth and vanishes with all derivatives on R′ ∩ {t ≤ t*},
 on the past faces by hypothesis; so for every ϵ′ > 0 there is θ ∈ (0, 1] such that the derivatives of order at most k
-of U_2 − U_1 are at most ϵ′ on the set 𝒩_θ of the points of 𝒪 whose coordinates (u_1, v_1) lie within θ of those of a
-point of R′ ∩ {t ≤ t*}. Let χ_θ be a G-invariant cut-off equal to 1 on 𝒩_(θ/2) and supported in 𝒩_θ, and W := U_1 + χ_θ
-(U_2 − U_1); for ϵ′ small, W ∈ 𝔅′ on the slices. Let s ∈ [t*, t* + θ/8] and let x ∈ O_s lie near an axis. R′ is
-star-shaped about (0, 0) in (u_1, v_1), and the point (t*/s)(u_1, v_1)(x) lies in R′ ∩ {t = t*} within √2 (s − t*) of
-(u_1, v_1)(x); so O_s ⊂ 𝒩_(θ/4), and the arc of the leaf of U_1 through x lies in 𝒩_(θ/4), O_s being a union of its
-leaves. The arc of the leaf of W through x, C¹-close to that one for ϵ′ small, lies in 𝒩_(θ/2), where W = U_2; by the
-uniqueness in [[lem:class-volterra]] it is the arc of the leaf of U_2, and σ_A[W] = σ_A[U_2] on O_s. Likewise the level
-set through x, in O_s, of the phase of family A of U_2, whose differential is within Cϵ′ of that of U_1 on 𝒩_θ, is from
-the axis to x a graph C¹-close to the sphere through x, which lies in 𝒩_(θ/4); for ϵ′ small it lies in 𝒩_(θ/2) ⊂ 𝒪, so
-U_2 solves the rows of 𝒜^ax at x. [[lem:loc-axis-shear]], with U_1 in place of U, O_s being a union of its leaves, and
-W in place of U′, gives ‖σ_A[U_2] − σ_A[U_1]‖_(L²(O_s∩𝒰_δ(p))) ≤ C ‖U_2 − U_1‖_(L²(O_s)) at every such point p of an
-axis. So the difference z of the first-order variables of U_2 and U_1 satisfies on R′ ∩ {t* ≤ t ≤ t* + θ/8} a system
-𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ at U_1, M bounded and ‖𝔫(s)‖ ≤ C ‖z(s)‖. The lateral boundary of this set consists of
-pieces of {u_1 = 0} and {v_1 = 0}, where z = 0, and of {u_1 = a} and {v_1 = b}, whose outward conormals du_1 and dv_1
-are null for g_1, positive on ∂_t and nonnegative on the transport fields of U_1 (du_1(P_1^out) = 0 < du_1(P_1^in) and
-dv_1(P_1^in) = 0 < dv_1(P_1^out)); so the boundary matrix is nonnegative there (the paragraph after
-[[lem:loc-cone-energy]]). [[lem:loc-axis-energy]], with B_0 the slice {t = t*} and the pieces of the past faces, gives
-z = 0 on R′ ∩ {t ≤ t* + θ/8}, against the definition of t*. So t* = a + b. ∎
+of U_2 − U_1 are at most ϵ′ on the set 𝒩_θ of the points of 𝒪 whose coordinates (ũ, ṽ) lie within θ of those of a point
+of R′ ∩ {t ≤ t*}. Let χ_θ be a G-invariant cut-off equal to 1 on 𝒩_(θ/2) and supported in 𝒩_θ, and W := U_1 + χ_θ (U_2
+− U_1); for ϵ′ small, W ∈ 𝔅′ on the slices. Let s ∈ [t*, t* + θ/8] and let x ∈ O_s lie near an axis. R′ is star-shaped
+about (0, 0) in (ũ, ṽ), and the point (t*/s)(ũ, ṽ)(x) lies in R′ ∩ {t = t*} within √2 (s − t*) of (ũ, ṽ)(x); so O_s ⊂
+𝒩_(θ/4), and the arc of the leaf of U_1 through x lies in 𝒩_(θ/4), O_s being a union of its leaves. The arc of the leaf
+of W through x, C¹-close to that one for ϵ′ small, lies in 𝒩_(θ/2), where W = U_2; by the uniqueness in
+[[lem:class-volterra]] it is the arc of the leaf of U_2, and σ_A[W] = σ_A[U_2] on O_s. Likewise the level set through
+x, in O_s, of the phase of family A of U_2, whose differential is within Cϵ′ of that of U_1 on 𝒩_θ, is from the axis to
+x a graph C¹-close to the sphere through x, which lies in 𝒩_(θ/4); for ϵ′ small it lies in 𝒩_(θ/2) ⊂ 𝒪, so U_2 solves
+the rows of 𝒜^ax at x. [[lem:loc-axis-shear]], with U_1 in place of U, O_s being a union of its leaves, and W in place
+of U′, gives ‖σ_A[U_2] − σ_A[U_1]‖_(L²(O_s∩𝒰_δ(p))) ≤ C ‖U_2 − U_1‖_(L²(O_s)) at every such point p of an axis. So the
+difference z of the first-order variables of U_2 and U_1 satisfies on R′ ∩ {t* ≤ t ≤ t* + θ/8} a system 𝐀^μ ∂_μ z =
+Mz + 𝔫, with 𝐀^μ at U_1, M bounded and ‖𝔫(s)‖ ≤ C ‖z(s)‖. The lateral boundary of this set consists of pieces of {ũ =
+0} and {ṽ = 0}, where z = 0, and of {ũ = a} and {ṽ = b}, whose outward conormals dũ and dṽ are null for g_1, positive
+on ∂_t and nonnegative on the transport fields of U_1 (dũ(P_1^out) = 0 < dũ(P_1^in) and dṽ(P_1^in) = 0 < dṽ(P_1^out));
+so the boundary matrix is nonnegative there (the paragraph after [[lem:loc-cone-energy]]). [[lem:loc-axis-energy]],
+with B_0 the slice {t = t*} and the pieces of the past faces, gives z = 0 on R′ ∩ {t ≤ t* + θ/8}, against the
+definition of t*. So t* = a + b. ∎
+
+
 
 **Lemma {#lem:loc-axis-unique}** (Uniqueness in the double-null gauge.) Let k ≥ 9, let Q1′ := [0, u_1′] × [0, v_1′] ⊂
 Q1 with u_1′, v_1′ > 0, and let (g′, q′_in, q′_out) be a class solution in the gauge through the axes on Q1′ × S³ that
@@ -1097,26 +1099,26 @@ through the axes); Ψ = (u_out, u_in, ω′), the form eq:loc-double-null with f
 Row 24. lem:loc-axis-dependence; paper/reader/proofs/P-CIVP3.md@PENDING:611; proof P-CIVP3, Lemma (Dependence on the
 past faces of a double-null rectangle); Lemma R of the scoping report: no smallness; time t = u + v, chart x = e^(v −
 μu) ω, continuity in t, localised comparison state.
-Row 25. lem:loc-axis-unique; paper/reader/proofs/P-CIVP3.md@PENDING:659; proof P-CIVP3, Lemma (Uniqueness in the
+Row 25. lem:loc-axis-unique; paper/reader/proofs/P-CIVP3.md@PENDING:661; proof P-CIVP3, Lemma (Uniqueness in the
 double-null gauge); extension of g′ by thm:std-ly-extension in one variable, wave map relative to Ĝ, then
 lem:loc-axis-dependence; k ≥ 9 for s = k − 5 > 3.
-Row 26. lem:loc-axis-angle; paper/reader/proofs/P-CIVP3.md@PENDING:715; proof P-CIVP3, Lemma (Localisation near an
+Row 26. lem:loc-axis-angle; paper/reader/proofs/P-CIVP3.md@PENDING:717; proof P-CIVP3, Lemma (Localisation near an
 axis); ϑ_a′ ≤ π/4 (ϑ_b′ ≥ π/4) so that one axis only is met; face conormal dϑ + C_* e^(τ_1/2) dτ_1 for every δ′.
-Row 27. sec:loc-axis-example; paper/reader/proofs/P-CIVP3.md@PENDING:749; proof P-CIVP3, subsection; the background of
+Row 27. sec:loc-axis-example; paper/reader/proofs/P-CIVP3.md@PENDING:751; proof P-CIVP3, subsection; the background of
 sec:bg-data on [0, 7.2] × [0, 4.5].
-Row 28. lem:loc-axis-rectangle; paper/reader/proofs/P-CIVP3.md@PENDING:751; proof P-CIVP3, Lemma (The background on the
+Row 28. lem:loc-axis-rectangle; paper/reader/proofs/P-CIVP3.md@PENDING:753; proof P-CIVP3, Lemma (The background on the
 crossing rectangle); [0, 7.2] × [0, 4.5] ⊂ G, R ≥ 1.5, R_v > 0; |R_u(7.2, 0)| ≤ 0.84778, R_v(7.2, 0) ≥ 0.18713, R(7.2,
 3) ≥ 2.0613, f > 0.15 through the shell.
-Row 29. cor:loc-axis-cones; paper/reader/proofs/P-CIVP3.md@PENDING:787; proof P-CIVP3, Corollary (Cone data reaching
+Row 29. cor:loc-axis-cones; paper/reader/proofs/P-CIVP3.md@PENDING:789; proof P-CIVP3, Corollary (Cone data reaching
 the axes for the background of sec:bg-data); shell and packet perturbed at once, densities on either cone, the axes
 included.
-Row 30. rem:loc-axis-constants; paper/reader/proofs/P-CIVP3.md@PENDING:807; proof P-CIVP3, Remark (What the constants
+Row 30. rem:loc-axis-constants; paper/reader/proofs/P-CIVP3.md@PENDING:809; proof P-CIVP3, Remark (What the constants
 depend on); the three places where smallness enters.
-Row 31. rem:loc-axis-scope; paper/reader/proofs/P-CIVP3.md@PENDING:820; proof P-CIVP3, Remark (What thm:loc-axis does
+Row 31. rem:loc-axis-scope; paper/reader/proofs/P-CIVP3.md@PENDING:822; proof P-CIVP3, Remark (What thm:loc-axis does
 not give); large data at the axes; further families (Tier 5); regularity.
 
 Changed row of the crosswalk table of [[ch:class-system]]: lem:class-leaf-differences keeps its label, source and
-source_name fields and appends to its source field "; paper/reader/proofs/P-CIVP3.md:967-987", the lines of item 8 of
+source_name fields and appends to its source field "; paper/reader/proofs/P-CIVP3.md:969-989", the lines of item 8 of
 the placement above, to its source_name field "; proof P-CIVP3, Placement 8", and to its note "; H_L[Θ_A] read with
 p_A(n) and the γ3-orthogonal complement of the spatial part of p_A, a plane fixed by p_A (eq:loc-axis-hl)". The rows of
 rem:loc-cone-scope, rem:loc-cone-local-scope and rem:civp-large-domain append to their notes "; amended by proof
