@@ -83,7 +83,7 @@ holds for every N; its proof reaches the weights (·, N, N) through [[prop:ii-g1
 which asks N ∉ ℕ, as 21/4 is; and every use of u_hi below needs at ι⁺ and at K⁺ weights below 21/4 (the targets are at
 most 3 + η_2 at ι⁺ and α − ε < 5 at K⁺). (d): each step there asks only η < ½, α_I + η below the target, and finitely
 many exclusions. (e) is [[prop:uc-ltf]]. (f): that proof takes any admissible α′ ∈ (2, 3), and the admissible levels
-are the points of (2, 3) off finitely many ([[sec:iii-i8-1]]), so they are dense; α_0 lies in
+are the points of (2, 3) outside a finite set ([[sec:iii-i8-1]]), so (2, 2 + ε_g − 2ε) contains some; α_0 lies in
 (2, min(a_K, 2 + ε_g, 5/2)), and α′ − α_0 < 1 < a_K − 2 for the background of [[thm:iii-i11-4-1]], whose K⁺-order
 a_K is at least 4 + ε_K, so α_0 < α′ are levels as the proof of [[prop:iii-i8-4-1]] asks, with one level step. The
 statements built on [[thm:iii-i11-4-1]] use α′ only as an admissible level in (2, 3), through
@@ -127,12 +127,11 @@ most 9, and the map g ↦ g^(+1) of [[lem:iii-i11-2-2]] at most 2;
 (h) 30: the right inverse of [[prop:iii-g3-3-7]] and [[cor:iii-g3-3-1]] (1).
 
 *Proof.* (a) These are the losses 0 of [[rem:ec-other-losses]] (the finite-dimensional maps of [[lem:iii-j2-2-1]] (c),
-the integrations of its (d), [[cor:iii-h-4-2]] of its (e) and [[lem:iii-i2-4-3]] of its (g)). Multiplications by
-smooth functions with bounded b-derivatives, and by |σ|^z, σ^j, sgn σ (which shift weights only), keep the order k.
-The Mellin inversion of
-[[eq:iii-g4-5-3]] and of [[lem:iii-a-1-4]] gains, by (E1)–(E2) of [[sec:iii-a-1-1]], as many orders as the operator
-has, jointly in the Mellin variable and on the boundary. A Cauchy integral over a fixed circle on which a family is
-holomorphic and bounded at each order keeps the order. The expansions of [[thm:iii-g4-3-1]] and of Step 2 of the proof
+the integrations of its (d), [[cor:iii-h-4-2]] of its (e) and [[lem:iii-i2-4-3]] of its (g)). Multiplications by smooth
+functions with bounded b-derivatives, and by |σ|^z, σ^j, sgn σ (which shift weights only), keep the order k. The Mellin
+inversion of [[eq:iii-g4-5-3]] and of [[lem:iii-a-1-4]] gains, by (E1)–(E2) of [[sec:iii-a-1-1]], as many orders as the
+operator has, jointly in the Mellin variable and on the boundary. A Cauchy integral over a fixed circle on which a family
+is holomorphic and bounded at each order keeps the order. The expansions of [[thm:iii-g4-3-1]] and of Step 2 of the proof
 of [[prop:iii-g4-5-1]] cost nothing, by the first fact in the proof of [[lem:ec-round-charges]]. [[lem:iii-i10-2-4]],
 [[lem:iii-i12-2-1]] (b) and [[lem:iii-i12-2-4]] read coefficients and subtract finitely many terms, each a function of
 t_* with finite-dimensional coefficients times a fixed profile; in [[lem:iii-i12-2-1]] (b) the remainder R is a sum of
@@ -149,13 +148,14 @@ E^ν(W) = L_(h,p⃗)(h^(b₀)_ν − h^b_ν)(W) + δ*_(g_0,E_C)(ϑ^(b₀)_(ν,�
 operators of order at most two with coefficients polynomial in the background, applied to fixed sections and linear
 in the finite-dimensional W; the proof of [[prop:uc-dbg]] applies to them, and they are charged at most 11.
 
-(e) By [[thm:fwd-loss]], [[eq:iii-i-5-2]] holds with d = 20,180 for g = g_0 + h, g_0 = g_(b₀,b₀,−S). At a base point
-with parameter b ∈ ℬ̄_* these operators are those of [[cor:iii-h2-5-1]] ([[lem:iii-j2-2-1]] (a)), for which
-[[eq:iii-i-5-2]] holds with the same d = 20,180 by [[cor:fwd-near-b0]]. By [[lem:iii-j2-2-1]] (a), for the
-backgrounds h̃ = h + h^(−1)(S), h + h_tot(p⃗) and h + h_rem(q) + h_tot(p⃗) it holds with ‖h̃‖_(𝒳^(k+d)) in place of
-‖h‖_(𝒳^(k+d)), the backgrounds g₀ and h_tot(p⃗) adding coefficients smooth in p⃗. By [[lem:iii-i4-2-5]],
-[[lem:iii-i9-2-5]] and the first paragraph of the proof of [[prop:uc-dbg]], ‖h̃‖_(𝒳^m) ≤ C_m(‖h‖_(𝒳^m) + |S| + |p⃗| +
-‖q‖_(𝒬^(m+3))). So these families satisfy [[eq:iii-j2-1-1]] with the loss 20,180 + 3 = 20,183.
+(e) By [[thm:fwd-loss]], [[eq:iii-i-5-2]] holds with d = 20,180 for g = g_0 + h, g_0 = g_(b₀,b₀,−S). At a base point with
+parameter b ∈ ℬ̄_* these operators are those of [[cor:iii-h2-5-1]] ([[lem:iii-j2-2-1]] (a)), for which [[eq:iii-i-5-2]]
+holds with the same d = 20,180 by [[cor:fwd-near-b0]], the order of (B4) of [[sec:iii-h2-0]] being that of
+[[lem:fwd-orders]], as in [[thm:fwd-loss]]. By [[lem:iii-j2-2-1]] (a), for the backgrounds h̃ = h + h^(−1)(S),
+h + h_tot(p⃗) and h + h_rem(q) + h_tot(p⃗) it holds with ‖h̃‖_(𝒳^(k+d)) in place of ‖h‖_(𝒳^(k+d)), the backgrounds g₀
+and h_tot(p⃗) adding coefficients smooth in p⃗. By [[lem:iii-i4-2-5]], [[lem:iii-i9-2-5]] and the first paragraph of the
+proof of [[prop:uc-dbg]], ‖h̃‖_(𝒳^m) ≤ C_m(‖h‖_(𝒳^m) + |S| + |p⃗| + ‖q‖_(𝒬^(m+3))). So these families satisfy
+[[eq:iii-j2-1-1]] with the loss 20,180 + 3 = 20,183.
 
 (f) For [[prop:iii-g4-4-4]] this is the proof of [[lem:ec-round-charges]] (b), which uses nothing particular to the
 levels 1 and 2: the solution costs at most ℓ_tf = 1 and the remainder ℓ_tf + 2 = 3, and the derivatives in α₀ of
@@ -281,13 +281,12 @@ index sets containing the tf-terms, resp. the zf-terms below these weights, of t
 constant coefficients.
 
 *tf.* The pieces at zero energy are σ^jχ_zf û_j. By [[lem:iii-i11-2-1]], û_0 has at ∂X the exponents of
-(ℰ^♭ − 1) ∪ (1 + ℰ_col) ∪ (2, ·) and their ℕ₀-shifts, of real part at least 1, as ℰ^♭ ⊂ {Re ≥ 2} and
-ℰ_col ⊂ {Re ≥ 0} ([[lem:iii-i11-1-1]]); for j ≥ 1, û_j has exponents of real part at least η_1 > 0 (Step 2), and the
-factor σ^j adds j at tf. The pieces σ^ju_((α_0,k)) of [[prop:iii-g4-4-4]] have tf-exponents in
-α_0 − 2 + j + ((0, 0) ∪ ℰ_ind) and, from the term with G^exc_(s1), in 2 + j and α_0 + j with ℰ_ind added (Step 1.1 of
-the proof of [[prop:iii-g4-4-4]]), all of real part at least 1 (level 1: Re α_0 ≥ 2; level 2: Re α_0 ≥ 1 + η_1;
-min Re ℰ_ind > 0). The pieces of level 3 and of the last level
-are conormal at tf, of tf-weight above 2, and so are the column pieces with non-constant coefficients
+(ℰ^♭ − 1) ∪ (1 + ℰ_col) ∪ (2, ·) and their ℕ₀-shifts, of real part at least 1, as ℰ^♭ ⊂ {Re ≥ 2} and ℰ_col ⊂ {Re ≥ 0}
+([[lem:iii-i11-1-1]]); for j ≥ 1, û_j has exponents of real part at least η_1 > 0 (Step 2), and the factor σ^j adds j at
+tf. The pieces σ^ju_((α_0,k)) of [[prop:iii-g4-4-4]] have tf-exponents in α_0 − 2 + j + ((0, 0) ∪ ℰ_ind) and, from the
+term with G^exc_(s1), in 2 + j and α_0 + j with ℰ_ind added (Step 1.1 of the proof of [[prop:iii-g4-4-4]]), all of real
+part at least 1 (level 1: Re α_0 ≥ 2; level 2: Re α_0 ≥ 1 + η_1; min Re ℰ_ind > 0). The pieces of level 3 and of the last
+level are conormal at tf, of tf-weight above 2, and so are the column pieces with non-constant coefficients
 ([[lem:iii-i2-4-3]]: tf-weight at least ℓ_3 + 2 − ε plus the powers of σ they carry). So E_tf ⊂ {Re ≥ 1} and n_ι = 0.
 
 *zf.* By Step 5 (i), (ii) and (iv) of the proof of [[prop:iii-i11-3-1]], and [[lem:iii-i11-2-3]], the zf-terms of the

@@ -1062,12 +1062,13 @@ bounded above and below by an α-independent constant by)
 
     Σ_(|β|≤s) ∫ |(ρ_α∂_x)^β u_α(x)|² dx¹/ρ_(α,1) ⋯ dxⁿ/ρ_(α,n) = Σ_(|β|≤s) ∫ |∂^β_x̃ ũ_α(x̃)|² dx̃,      (3.15)
 
-where we write ũ_α(x̃) = u_α(x) (i.e. ũ_α = (S_α)_*u_α)." Here (3.4) is (ρ_α∂_x)^γ = Π_(i=1)^n (ρ_(α,i)∂_(x^i))^(γ_i).
-On p. 36, H^s_𝒱(M) and w H^s_𝒱(M) are unchanged "(up to equivalence of norms)" when defined with respect to a
-compatible structure, and: "Similarly, these spaces are unchanged when different cutoffs χ are used, or indeed when a
+where we write ũ_α(x̃) = u_α(x) (i.e. ũ_α = (S_α)_*u_α)." Here (3.4) is (ρ_α∂_x)^γ = Π_(i=1)^n (ρ_(α,i)∂_(x^i))^(γ_i). On
+p. 36, H^s_𝒱(M) and w H^s_𝒱(M) are unchanged "(up to equivalence of norms) when defined with respect to a b.g. structure
+compatible with ρ𝓑" ((S13)), and "these spaces are unchanged when defined with respect to a scaled b.g. structure
+compatible with 𝓑^×", and: "Similarly, these spaces are unchanged when different cutoffs χ are used, or indeed when a
 family χ_α ∈ C_c^∞(U_α), α ∈ 𝒜, of cutoffs is used subject only to the conditions that (φ_α)_*χ_α ∈ C_c^∞((−2, 2)ⁿ) is
-uniformly bounded, all χ_α are nonnegative, and inf_M Σ_α χ_α > 0. One can then easily show that every V ∈ 𝒱 defines
-a bounded linear map V : w H^s_𝒱(M) → w H^(s−1)_𝒱(M)."
+uniformly bounded, all χ_α are nonnegative, and inf_M Σ_α χ_α > 0. One can then easily show that every V ∈ 𝒱 defines a
+bounded linear map V : w H^s_𝒱(M) → w H^(s−1)_𝒱(M)."
 
 In [[thm:std-zero-calculus]], [[thm:std-mazzeo-melrose]] and [[cor:std-zero-sobolev]], n denotes the dimension of X,
 as in [Hin23e]. [Usu26] writes n + 1 for the dimension of X; accordingly its exponent −n − 1 is written −n here, also

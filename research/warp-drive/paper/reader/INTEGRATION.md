@@ -1374,3 +1374,6 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R-I1b 0M 1m 1n (notes/reviews/R-I1b.md): I-1 correct in chapters 30-84; the minor (row index ρ → ψ still in 46:1728,
   1769) and the nit (36:1622, (E1) and (E2)) applied by the coordinator with the reviewer's texts; to be checked by the
   I-2 reader. R-DB-3 CONFIRMED P-U71-IS and P-U71-SP (notes/reviews/R-DB-3.md).
+- R-I2 0M 1m 4n (notes/reviews/R-I2.md): I-2 and the two R-I1b fixes correct; the minor (30:1291, the reverse norm
+  equivalence derived in two lines) and the four nits applied by the coordinator with the reviewer's texts. Coordinator
+  edits since their last reading (R-DB-3 nits, R-96b nits, R-I1b fixes, R-I2 fixes) go to one final reading (R-CO).

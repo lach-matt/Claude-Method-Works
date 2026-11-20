@@ -1287,12 +1287,17 @@ written in that frame, an element of Diff^m_b(M; ℂ^(N_E)); the bundles of the 
 way ([[sec:i-a-1-2]]).
 
 Fix smooth vector fields X₁, …, X_q on ∂M spanning T∂M at every point. For an integer k ≥ 0, H^k(∂M) is normed by
-‖u‖_(H^k) := Σ ‖X_(i₁)⋯X_(i_l)u‖_(L²(∂M,μ)), the sum over l ≤ k and all indices, the fields acting on each component
-and ‖u‖²_(L²(∂M,μ)) := ∫ |u|² μ with |·| the Euclidean norm of ℂ^(N_E); this is the usual Sobolev norm up to
-equivalence ([Hin26d, Definition 3.14 and Remark 3.15, pp. 34–35], [[rem:std-sbg-sobolev]], for each component), and
-‖u‖_(H^k) = ‖u‖_(L²) + Σ_i ‖X_iu‖_(H^(k−1)) for k ≥ 1. For A ∈ Diff^m_b(M; ℂ^(N_E)) elliptic near ρ = 0,
-N(A, ι) = Σ_j A_j(0)ι^j depends polynomially on ι and is elliptic on ∂M: its principal symbol, the matrix
-Σ_(|β|=m) a_0β(0, y)η^β, which is that of A at ρ = 0 and ξ = 0, is invertible for η ≠ 0. We use three facts about it.
+‖u‖_(H^k) := Σ ‖X_(i₁)⋯X_(i_l)u‖_(L²(∂M,μ)), the sum over l ≤ k and all indices, the fields acting on each component and
+‖u‖²_(L²(∂M,μ)) := ∫ |u|² μ with |·| the Euclidean norm of ℂ^(N_E); this is the usual Sobolev norm up to equivalence, for
+each component. Indeed, let 𝓑 be a finite atlas of ∂M with all scalings 1 (so that 𝒱 consists of all smooth vector
+fields), its charts so small that on each of them some dim ∂M of the X_i form a frame. Then H^k_𝒱(∂M) is the usual space,
+normed up to equivalence by the sum (3.15) of [[rem:std-sbg-sobolev]] ([Hin26d, Definition 3.14 and Remark 3.15, pp.
+34–35]). Every X_i is bounded from H^s_𝒱 to H^(s−1)_𝒱 (p. 36 there), which bounds ‖u‖_(H^k) by that norm; and on each
+chart every ∂_(x^j) is a combination of those X_i with smooth coefficients, which bounds that norm by ‖u‖_(H^k), by
+induction on k (at k = 0 both are comparable to ∫ |u|² μ, μ being smooth and positive). Also ‖u‖_(H^k) = ‖u‖_(L²) + Σ_i
+‖X_iu‖_(H^(k−1)) for k ≥ 1. For A ∈ Diff^m_b(M; ℂ^(N_E)) elliptic near ρ = 0, N(A, ι) = Σ_j A_j(0)ι^j depends
+polynomially on ι and is elliptic on ∂M: its principal symbol, the matrix Σ_(|β|=m) a_0β(0, y)η^β, which is that of A at
+ρ = 0 and ξ = 0, is invertible for η ≠ 0. We use three facts about it.
 
 (E1) *Large-parameter ellipticity.* For every strip {c₁ ≤ Re ι ≤ c₂} and every integer s ≥ 0 there are R and C such
 that N(A, ι) : H^(s+m)(∂M) → H^s(∂M) is invertible for |Im ι| ≥ R in the strip, with
@@ -1316,19 +1321,18 @@ bijective if ι ∉ spec_b(A) and not injective if ι ∈ spec_b(A); and spec_b(
 The three facts rest on the following results of the literature. All three use the elliptic estimate on a compact
 manifold without boundary, quoted below, and the equivalence of the norms of this section with the usual Sobolev norms,
 [Hin26d, Definition 3.14 and Remark 3.15] ([[rem:std-sbg-sobolev]]). The proof of (E2), on which that of (E3) builds,
-also uses the compact
-inclusion H^(m+1)(∂M) ↪ H^m(∂M), [Hin26d, Theorem 3.21], and analytic Fredholm theory, [[thm:std-analytic-fredholm]];
-(E2) and (E3) also use the Sobolev embedding theorem ([[thm:std-bh-manifold]]) on the compact ∂M, by which C^∞(∂M) is the
-intersection of the H^s(∂M). In the following quotation the letters A, X, E, F, m, s, t, p, u and C are the source's.
-[Shu92, Appendix 1, Lemma 1.4, pp. 69–70] states: "Let A be a C^∞-bounded uniformly elliptic differential operator acting
-as in (1.2) between spaces of sections of vector bundles of bounded geometry. Then for every s, t ∈ ℝ, p ∈ (1, +∞) there
-exists C > 0 such that (1.5) ‖u‖_(s,p) ≤ C(‖Au‖_(s−m,p) + ‖u‖_(t,p)), u ∈ C_0^∞(X, E). Moreover if u ∈ W_p^(−∞)(X, E) and
-Au ∈ W_p^(s−m)(X, F) then u ∈ W_p^s(X, E)." There (p. 69) the principal symbol a_m(x, ξ) of A is a matrix in local
-trivialisations, A "is called elliptic if this matrix is invertible for every (x, ξ) with ξ ≠ 0. It is called uniformly
-elliptic if there exists C > 0 such that (1.4) |a_m⁻¹(x, ξ)| ≤ C|ξ|^(−m), (x, ξ) ∈ T*X, ξ ≠ 0", with |ξ| the length in
-the Riemannian metric of X; W_p^(−∞)(X, E) is the union of the W_p^s(X, E), s ∈ ℝ; and W_2^s(X, E) is the Sobolev space
-of order s, the completion of C_0^∞(X, E) in a norm built from a partition of unity subordinate to coordinate balls and
-Sobolev norms in the coordinates, with W_2^0(X, E) = L²(X, E) (pp. 67–69).
+also uses the compact inclusion H^(m+1)(∂M) ↪ H^m(∂M), [Hin26d, Theorem 3.21], and analytic Fredholm theory,
+[[thm:std-analytic-fredholm]]; (E2) and (E3) also use the Sobolev embedding theorem ([[thm:std-bh-manifold]]) on the
+compact ∂M, by which C^∞(∂M) is the intersection of the H^s(∂M). In the following quotation the letters A, X, E, F, m, s,
+t, p, u and C are the source's. [Shu92, Appendix 1, Lemma 1.4, pp. 69–70] states: "Let A be a C^∞-bounded uniformly
+elliptic differential operator acting as in (1.2) between spaces of sections of vector bundles of bounded geometry. Then
+for every s, t ∈ ℝ, p ∈ (1, +∞) there exists C > 0 such that (1.5) ‖u‖_(s,p) ≤ C(‖Au‖_(s−m,p) + ‖u‖_(t,p)), u ∈ C_0^∞(X,
+E). Moreover if u ∈ W_p^(−∞)(X, E) and Au ∈ W_p^(s−m)(X, F) then u ∈ W_p^s(X, E)." There (p. 69) the principal symbol
+a_m(x, ξ) of A is a matrix in local trivialisations, A "is called elliptic if this matrix is invertible for every (x, ξ)
+with ξ ≠ 0. It is called uniformly elliptic if there exists C > 0 such that (1.4) |a_m⁻¹(x, ξ)| ≤ C|ξ|^(−m), (x, ξ) ∈
+T*X, ξ ≠ 0", with |ξ| the length in the Riemannian metric of X; W_p^(−∞)(X, E) is the union of the W_p^s(X, E), s ∈ ℝ;
+and W_2^s(X, E) is the Sobolev space of order s, the completion of C_0^∞(X, E) in a norm built from a partition of unity
+subordinate to coordinate balls and Sobolev norms in the coordinates, with W_2^0(X, E) = L²(X, E) (pp. 67–69).
 
 Let Z be a compact manifold without boundary, fix a Riemannian metric on it, and let P be a differential operator of
 order m on Z with smooth coefficients, acting on ℂ^(N_E)-valued functions, whose principal symbol is invertible at every
@@ -1479,17 +1483,17 @@ Define
 uses, is the same whether "of order ≥ k + 1" or "of order k + 1" is used). By (E3), π₁Spec_b(A) = spec_b(A), and, the
 pole orders being finite, Spec_b(A) has finitely many elements (ι, k) with c₁ ≤ Re ι ≤ c₂, for all c₁ ≤ c₂.
 
-The Mellin transform is ℳg(ι) := ∫_0^∞ ρ^(−ι) g(ρ) dρ/ρ. In the variable s = −log ρ it is the Fourier–Laplace transform
-∫ e^(ιs) g(e^(−s)) ds, so Plancherel's theorem gives (M1): for g supported in ρ < ρ₀, g ∈ ρ^γ L²(|dρ/ρ|; ℋ) if and only
-if ℳg is holomorphic in Re ι < γ with sup_(c<γ) ∫ |ℳg(c + iη)|² dη < ∞, and then 2π‖ρ^(−γ)g‖² equals the integral on
-Re ι = γ; ℳ(ρ∂_ρ g) = ιℳg; and g = (2πi)⁻¹ ∫_(Re ι=c) ρ^ι ℳg(ι) dι for c ≤ γ. So g ∈ H^(k,γ)_b(M) if and only if
-Σ_(j+|β|≤k) ∫_(Re ι=γ) |ι|^(2j) ‖ℳg(ι)‖²_(H^(|β|)(∂M)) |dι| < ∞ (with the same bound for Re ι < γ). (M2)
-([Hin26, Remark 2.14]) For χ ∈ C_c^∞([0, 1)) equal to 1 near 0,
-ℳ(χρ^z(log ρ)^k a)(ι) = (−1)^k k!(z − ι)^(−k−1) a + e(ι)a with e entire, since ∫_0^1 ρ^(w−ι) dρ/ρ = (w − ι)⁻¹ for
-Re ι < Re w and k derivatives in w give the first term, while (χ − 1_[0,1])ρ^z(log ρ)^k is supported away from 0 and of
-compact support. Hence for g ∈ H^(∞,(F,β))_b supported in ρ < 1, ℳg is holomorphic in Re ι < min(β, min Re F) and
-meromorphic in Re ι < β with poles only at ι ∈ π₁F, of order at most k(F, ι) + 1, and on vertical lines in Re ι < β
-away from the poles |ι|^J ‖ℳg(ι)‖_(H^J(∂M)) is square-integrable for every J, uniformly on compact sets of real parts.
+The Mellin transform is ℳg(ι) := ∫_0^∞ ρ^(−ι) g(ρ) dρ/ρ. In the variable s = −log ρ it is the Fourier–Laplace transform ∫
+e^(ιs) g(e^(−s)) ds, so Plancherel's theorem gives (M1): for g supported in ρ < ρ₀, g ∈ ρ^γ L²(|dρ/ρ|; ℋ), ℋ a Hilbert
+space, if and only if ℳg is holomorphic in Re ι < γ with sup_(c<γ) ∫ |ℳg(c + iη)|² dη < ∞, and then 2π‖ρ^(−γ)g‖² equals
+the integral on Re ι = γ; ℳ(ρ∂_ρ g) = ιℳg; and g = (2πi)⁻¹ ∫_(Re ι=c) ρ^ι ℳg(ι) dι for c ≤ γ. So g ∈ H^(k,γ)_b(M) if and
+only if Σ_(j+|β|≤k) ∫_(Re ι=γ) |ι|^(2j) ‖ℳg(ι)‖²_(H^(|β|)(∂M)) |dι| < ∞ (with the same bound for Re ι < γ). (M2) ([Hin26,
+Remark 2.14]) For χ ∈ C_c^∞([0, 1)) equal to 1 near 0, ℳ(χρ^z(log ρ)^k a)(ι) = (−1)^k k!(z − ι)^(−k−1) a + e(ι)a with e
+entire, since ∫_0^1 ρ^(w−ι) dρ/ρ = (w − ι)⁻¹ for Re ι < Re w and k derivatives in w give the first term, while (χ −
+1_[0,1])ρ^z(log ρ)^k is supported away from 0 and of compact support. Hence for g ∈ H^(∞,(F,β))_b supported in ρ < 1, ℳg
+is holomorphic in Re ι < min(β, min Re F) and meromorphic in Re ι < β with poles only at ι ∈ π₁F, of order at most k(F,
+ι) + 1, and on vertical lines in Re ι < β away from the poles |ι|^J ‖ℳg(ι)‖_(H^J(∂M)) is square-integrable for every J,
+uniformly on compact sets of real parts.
 
 **Lemma {#lem:iii-a-1-4}** ([Hin26, Lemma 2.13], boundary spectrum and polyhomogeneity.) Let
 A ∈ Diff^m_b(M; ℂ^(N_E)) be elliptic near ρ = 0, χ ∈ C_c^∞([0, ½ρ₀)) equal 1 on [0, ¼ρ₀] and χ̃ ∈ C_c^∞([0, ρ₀))

@@ -1,6 +1,7 @@
 <!-- Placement: a new section at the end of ch:s09, after sec:ii-f1-7, or in the chapter of rem:ec-other-losses,
-before that remark. It evaluates the loss d of thm:iii-i-5-3. The statements of other chapters that it cites with
-explicit values are given in the comment at the end of this section. Both comments are deleted at placement. -->
+before that remark. It evaluates the loss d of thm:iii-i-5-3 and of cor:iii-h2-5-1. The statements of other chapters
+that it cites with explicit values are given in the comment at the end of this section. Both comments are deleted at
+placement. -->
 
 ### The loss of the forward solution operators, evaluated {#sec:fwd}
 
@@ -12,7 +13,8 @@ explicit values are given in the comment at the end of this section. Both commen
 with D_0, D_1, d′, d″ of [[eq:ii-f1-3-2]]–[[eq:ii-f1-3-3]] taken for the orders of [[rem:ii-f1-7-1]]. This section
 evaluates each term. The orders d′, d″ and the tame loss D_1 follow from closed forms already in the edition; D_0, the
 number of coefficient derivatives, rests on the calculus of finite regularity of [[sec:ii-a1-2]], whose indices are
-made explicit in [[prop:fwd-calculus]].
+made explicit in [[prop:fwd-calculus]]. [[cor:fwd-near-b0]] carries the value to [[cor:iii-h2-5-1]], at every black
+hole parameter near b₀.
 
 **Theorem {#thm:fwd-loss}** (The forward loss.) In [[thm:iii-i-5-3]] one may take d = 20,180, for every
 β_+ ∈ (½, 3/2) and β_I ∈ (β_+, 3/2). More precisely d′ = 10, d″ = 11, D_1 = 49 and D_0 ≤ 20,104 in [[eq:fwd-split]].
@@ -792,6 +794,69 @@ estimates need d_0 = 2 ([[lem:ii-e-2-5]], [[prop:ii-e-2-7]]) and [[lem:ii-d-4-1]
 *Proof of [[thm:fwd-loss]].* By [[lem:fwd-increments]], D_0 = max(d^E_0, d^S_0, d^T_0, d^U_0) ≤ 𝔐(100) + 4 =
 20,104. By [[lem:fwd-orders]] and [[lem:fwd-tame]], d′ = 10, d″ = 11 and D_1 = 49. So by [[eq:fwd-split]]
 d ≤ 20,104 + 49 + 10 + 11 + 1 + 5 = 20,180, and the theorem holds with any larger d, in particular with d = 20,180. ∎
+
+The same value serves at every black hole parameter near b₀, where the forward solution operators are those of
+[[cor:iii-h2-5-1]], built on [[thm:iii-h2-4-1]]. Below, (B1), (B4) and (B5) are the conditions of [[sec:iii-h2-0]];
+the conditions (B1)–(B5) of [[sec:fwd-box]] are called the box conditions.
+
+**Corollary {#cor:fwd-near-b0}** (The forward loss near b₀.) Let the order 𝗌 of (B4), which is the order of
+[[lem:ii-f1-2-3]] built for 2L_(b₀) that the proof of [[thm:iii-i-5-3]] uses, be that of [[lem:fwd-orders]]
+(s_in = 11, s_out = −10), and let β_+ ∈ (½, 3/2), β_I ∈ (β_+, 3/2), with the weights α_+ = β_+ − 5/2 and
+α_I = β_I − 2 of the proof of [[thm:iii-i-5-3]]. Then [[thm:iii-h2-4-1]], in the form of [[rem:ii-f1-7-1]] with
+margin 1, holds with d = 20,175 at every b ∈ B̄_1, and [[cor:iii-h2-5-1]] holds with d = 20,180 at every b ∈ B̄_*. In
+particular, at every base point with black hole parameter b ∈ ℬ̄_*, the forward solution operators of
+[[lem:iii-j2-2-1]] (a) satisfy [[eq:iii-i-5-2]] with d = 20,180.
+
+*Proof.* By its proof, the d of [[thm:iii-h2-4-1]] at b is the d that the proof of [[thm:ii-f1-1-1]] fixes when it is run
+with P_0 := 2L_b, the order 𝗌 of (B4) (input (iii) of the proof of [[thm:iii-h2-4-1]]) and the results it cites applied
+relative to 2L_b (inputs (i), (iv) and (v)); in the form of [[rem:ii-f1-7-1]] with d̄_ℵ = 1 it is
+
+    d = D_0 + D_1 + d′ + d″ + 1,
+
+with D_0, D_1, d′, d″ of [[eq:ii-f1-3-2]]–[[eq:ii-f1-3-3]] for these orders. [[thm:fwd-loss]] bounds the four numbers
+at b₀. Its proof uses P_0 = 2L_(b₀) at three places, and at each the statement at b ∈ B̄_1 is the statement at b₀.
+
+(1) *The orders.* [[lem:fwd-orders]] checks the thresholds of the construction of [[sec:ii-c-5-2]] for 2L_(b₀). At b the
+order is not built again: by (B4), the order built for 2L_(b₀) is admissible for 2L_b with the same weights and margin.
+So inf 𝗌 = −10, sup 𝗌 = 11, 𝗌_0 = 𝗌 − 3, s_u = −12 and N = N′ = 13 at every b, and d′ = 10, d″ = 11, which are functions
+of 𝗌 alone ([[eq:fwd-dprime]]). [[lem:fwd-tame]] and [[lem:fwd-box]] use 𝗌 also through its constant values 11 near the
+horizon, the trapped set, ∂R_(∂K⁺,in) and ∂R_(ℐ⁺,in,+), and −10 near ∂R_(∂K⁺,out) and ∂R_(ℐ⁺,out). The four sets over ∂K⁺
+and ℐ⁺ are given in the fibre coordinates of [[sec:ii-c-5-2]] and [[def:ii-b-7-1]] over the boundary faces, the same for
+every b, and 𝗌 is the same function. By (3) and (4) of [[def:ii-c-2-4]] for 2L_b, which (B4) gives, 𝗌 is constant over a
+set {r ≤ r_Γ} that contains the horizon and the trapped set Γ_b of 2L_b; the constant is s_in = 11, as 𝗌 = s_in on Ω_♮
+([[lem:ii-f1-2-3]]), which meets that set in its points with r < min(r_Γ, r_0 + 4). So the constant orders (s, s_0) at
+which the radial and trapping estimates are used, (12, 8) at the horizon, ∂R_(ℐ⁺,in,+) and ∂R_(∂K⁺,in), (11, 8) at the
+trapped set and (−10, −13) at ∂R_(∂K⁺,out) and ∂R_(ℐ⁺,out), are those at b₀.
+
+(2) *The cited results.* D_1 and D_0 are maxima of the losses d and of the coefficient indices d_0 of [[thm:ii-e-6-1]],
+[[prop:ii-e-3-4]], [[prop:ii-e-4-3]], [[prop:ii-e-4-4]] and [[lem:ii-f1-2-8]] at the orders of (1), and of
+[[prop:ii-e-3-4]] (i) at s′ = s_u. At b these results are applied relative to 2L_b, at the same orders. The losses d
+are the closed forms [[eq:fwd-dtilde]] that their proofs fix in terms of the orders and of N ([[lem:fwd-tame]]), and
+P_0 enters none of them; so D_1 = 49 at b. For D_0: [[prop:fwd-calculus]] and [[lem:fwd-derived]] concern the calculus
+of [[ch:s04]] alone, symbols and Sobolev spaces of variable order on ρℬ, and involve no operator. In [[lem:fwd-box]],
+the proof of [[thm:ii-f1-1-1]] at b applies the same sites in the same pattern: the radial estimates (R) at the radial
+sets of 2L_b, the estimate (Γ) at Γ_b, which is normally hyperbolic with the data of (B1) and strongly trapping
+admissible ([[prop:iii-h2-1-1]]), and its other sites, from (G) to (F), at the orders of (1), with N′ = 13 and the
+operator order m = 2. So their parameters, and the symbol orders, Sobolev orders, numbers N and numbers of
+quantizations computed from them, are those at b₀, and the box conditions hold at every site. The increments of
+[[lem:fwd-increments]] count the coefficient derivatives that the constructions inside the sites consume: the symbols
+of the radial and trapping estimates, the stable and unstable manifolds of [[prop:ii-c1-3-4]], the extension h̃_F of
+[[lem:ii-e-3-1]], the flow box of [[lem:ii-a1-5-2]] and the tame bounds with d_0 ≥ d_1 + 2. Each is fixed by the proof
+of its site, for every P admissible relative to a smooth stationary P_0, and does not depend on P_0. The results that
+use 2L_b only as a smooth operator, [[thm:iii-h2-3-1]] (with [[sec:ii-f-6]] run with 2L_(b₀) inside it) and
+[[thm:iii-h2-2-1]], are no sites, as at b₀. So D_0 ≤ 𝔐(100) + 4 = 20,104 at b.
+
+(3) *The two raisings.* The margin d̄_ℵ = 1 of [[rem:ii-f1-7-1]] is that with which 2L_b is 2-admissible
+([[thm:iii-h2-2-1]]), as at b₀. So the d of [[thm:iii-h2-4-1]] is at most 20,104 + 49 + 10 + 11 + 1 = 20,175 at
+every b ∈ B̄_1, and every larger d serves. The proof of [[cor:iii-h2-5-1]] is that of [[thm:iii-i-5-3]] with
+P_0 := 2L_b, and it raises this d by 5 as at b₀: (iii) of that proof takes h ∈ 𝒳^(k+d+5) by [[cor:iii-i-5-2]], the 5
+being the two b-derivatives of the metric in the coefficients of P − P_0 and the three of Sobolev embedding in
+dimension five. In the tame form, read with the reference metric g_b, the difference g_(b₀,b,−S) − g_b has every
+seminorm O(|b − b₀| + |S|) ([[lem:iii-i-3-6]]), so ‖P − 2L_b‖_((0;k+d)) ≤ C_k(|b − b₀| + |S| + ‖h‖_(𝒳^(k+d+5))),
+and the constant term contributes C_k(|b − b₀| + |S|)‖f‖_(H^d) ≤ C_k‖f‖_(H^(k+d)), as C_k|S|‖f‖_(H^d) does at b₀.
+So [[cor:iii-h2-5-1]] holds with d = 20,175 + 5 = 20,180 at every b ∈ B̄_*, its proof using b only through b ∈ B̄_1
+and (B5), which is a condition on B̄_*. The last statement follows, as [[lem:iii-j2-2-1]] (a) takes the forward
+solution operators at a base point with parameter b from [[cor:iii-h2-5-1]], and ℬ̄_* ⊂ B̄_*. ∎
 
 **Remark {#rem:fwd-sharpness}** (Sharpness.) Only the term D_0 is crude. The counts of [[prop:fwd-calculus]] at T = 100
 are at most 15,852 (item (f) with six quantizations), so the same proof gives D_0 ≤ 15,858 and d ≤ 15,934; the value

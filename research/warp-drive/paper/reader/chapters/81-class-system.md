@@ -1015,13 +1015,13 @@ Einstein–null-dust development on the whole of Ω, within C ε of the seed.
 
 *Proof.* (H1) and (H2) hold, and Ω is admissible for g̊ by [[lem:domain]]; apply [[thm:class-stability-off-axes]]. ∎
 
-The corollary gives a large background, the seed, carrying any finite number of small non-round families supported
-away from the axes, on the whole domain; the hole grows by O(ε), unlike the growing hole of [[thm:main]]. It assumes
-the data. They are not constructed here: the outward radial solve of [[ch:data]] is built for data depending on the
-wavelength, and a small non-round dust density, with regularity at the axes for a solve that is parabolic in ϑ, is not
-examined (the symmetrizer of that solve exists on every slice, [[lem:vlasov-symmetrizer]], and the solve is carried out
-with constants independent of λ for the data of [[ch:vlasov]]); data localised in an angle are the subject of
-[[ch:localised-data]].
+The corollary gives a large background, the seed, carrying any finite number of small non-round families supported away
+from the axes, on the whole domain; the hole grows by O(ε), unlike the growing hole of [[thm:main]]. It assumes the data.
+They are not constructed here: the outward radial solve of [[ch:data]] is built for data depending on the wavelength, and
+a small non-round dust density, with regularity at the axes for a solve that is parabolic in ϑ, is not examined here (the
+symmetrizer of that solve exists on every slice, [[lem:vlasov-symmetrizer]], and [[ch:vlasov]] carries the solve out for
+its own data, with constants independent of λ, [[prop:vlasov-scaled-correction]]); data localised in an angle are the
+subject of [[ch:localised-data]].
 
 **Corollary {#cor:class-short-time}** (Large data for a short time.) Let a datum on Σ_τ0 satisfy the constraints and the
 gauge condition, with densities vanishing within 2δ of the axes, and let Ω be admissible for a smooth G-invariant metric
