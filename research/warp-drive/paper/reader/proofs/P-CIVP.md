@@ -132,12 +132,16 @@ v and u and densities q_in and q_out, so that Ric(g) = q_in dv ⊗ dv + q_out du
 [[eq:loc-double-null]] with Ω, γ_ϑ, b, A_c, A_s smooth functions of (u, v, ϑ), equal to the background's near the axes.
 
 **Definition {#def:loc-cone-data}** (Cone data at a corner.) Let a background on 𝒮 be given and k ≥ 6. *Cone data* are
-smooth functions ln Ω, ϰ_1 = ½ ln γ_ϑ, ϰ_2 = A_c, ϰ_3 = A_s, b and q_in ≥ 0 of (v, ϑ) on N_o and ln Ω, ϰ_1, ϰ_2, ϰ_3 and
-q_out ≥ 0 of (u, ϑ) on N_i, with b := 0 on N_i, such that: (i) ln Ω and the ϰ_i of the two edges agree on S_c; (ii)
+smooth functions ln Ω, ϰ_1 = ½ ln γ_ϑ, ϰ_2 = A_c, ϰ_3 = A_s, b and q_in ≥ 0 of (v, ϑ) on N_o and ln Ω, ϰ_1, ϰ_2, ϰ_3,
+b and q_out ≥ 0 of (u, ϑ) on N_i, such that: (i) ln Ω, the ϰ_i and b of the two edges agree on S_c; (ii)
 Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o, the left sides being given by [[eq:loc-cone]] in terms of the functions
-on N_o, and Ric(∂_u, ∂_u) = q_out on N_i, the left side being given by [[eq:loc-cone-in]]; (iii) for some numbers
+on N_o, and Ric(L̲, L̲) = q_out on N_i, L̲ := ∂_u + b∂_ϑ, the left side being given by the last line of
+[[eq:loc-cone-frame-ricci]] in terms of the functions on N_i, L̲ being tangent to N_i; (iii) for some numbers
 0 < ϑ_a′ < ϑ_b′ < π/2 they equal the background's at the points with ϑ ∉ [ϑ_a′, ϑ_b′]. Their *size* is the largest
-absolute value of a derivative of order at most m_0 := 6k + 12 of their differences from the background's.
+absolute value of a derivative of order at most m_0 := 6k + 12 of their differences from the background's. They are in
+the *normalised gauge* if b = 0 on N_i; then Ric(L̲, L̲) on N_i is [[eq:loc-cone-in]]. The data consist of the gauge
+functions ln Ω on both edges and b on N_i, which are free, of the conformal data and densities, which are free, and of
+the functions that (ii) determines; the corner values are arbitrary, subject to (i).
 
 The data of [[thm:loc-cone-development]] are cone data at the corner S, with l_u = u_1, l_v = v_1: on 𝒞_out the
 functions of [[prop:loc-cones]], extended to v ≤ v_1 + δ_1 by the background's, and on 𝒞_in those of

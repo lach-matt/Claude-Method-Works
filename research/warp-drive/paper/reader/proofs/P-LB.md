@@ -2,9 +2,9 @@
 
 The lower bound of [[thm:loss-d]] (ii) is stated at the computational point, and that point lies outside the set on
 which [[thm:settling]] is proved ([[rem:ec-point-outside]]). This section proves a lower bound for d_acc, and so for
-d_NM, N_NM and δ, at every point of that set, as an explicit function of the gauge parameter z = 4e_Υγ_Υ² and of
-h = γ_C⁻¹, γ_C being the damping parameter. The proof of [[prop:ec-rounds]] uses the point only through upper bounds
-for ε_g, ε_K and η_2. Here ε_Υ is bounded at every z ∈ (0, ½] ([[lem:ec-lb-gauge]]) and ε_ind at every h ∈ (0, 10⁻⁶]
+d_NM and N_NM, and an upper bound for δ, at every point of that set, in terms of the gauge parameter z = 4e_Υγ_Υ² and of
+h = γ_C⁻¹, γ_C being the damping parameter. The proof of [[prop:ec-rounds]] uses the point only through upper bounds for
+ε_g, ε_K and η_2. Here ε_Υ is bounded at every z ∈ (0, ½] ([[lem:ec-lb-gauge]]) and ε_ind at every h ∈ (0, 10⁻⁶]
 ([[lem:ec-lb-ind]]), and the count of [[prop:ec-rounds]] is run with general bounds ([[lem:ec-lb-rounds]]);
 [[thm:ec-lb-proved]] assembles them, and [[rem:ec-lb-conditions]] lists the conditions of [[thm:settling]] that the
 proof uses. Throughout, (v_C, e_C) = (1/2, 1/102400) as in [[eq:iv4-0-1]], and e := e_C.
@@ -64,8 +64,7 @@ and 6561 · 21600 = 141717600 < 142228224 = 64 · 2222316, d₁(8) ≥ 5z/171 �
 fixes ε_Υ below ½𝔡_ℳ. ∎
 
 At z = 4·10⁻⁶, (c) gives 2.92396·10⁻¹⁰ < d₁(8) − d₂(7) < 2.92428·10⁻¹⁰, in agreement with [[eq:ec-gauge-gap]], where
-[[lem:ec-gauge-gap]] shows 𝔡_ℳ = d₁(8) − d₂(7); and g(4·10⁻⁶) < 1.46214·10⁻¹⁰, the number δ̂ of [[prop:ec-rounds]]. The
-leading coefficient 1/13680 = 5/171 − 7/240 does not depend on z.
+[[lem:ec-gauge-gap]] shows 𝔡_ℳ = d₁(8) − d₂(7); and g(4·10⁻⁶) < 1.46214·10⁻¹⁰, the number δ̂ of [[prop:ec-rounds]].
 
 **Lemma {#lem:ec-lb-ind}** (The index distance at every damping point.) Let 0 < h ≤ 10⁻⁶. The polynomial P_2 of
 [[prop:np-10-12]] (iii), at (v, e) = (1/2, 1/102400), has a real root ι₂(h) with
@@ -90,7 +89,7 @@ with
 For instance, at κ = 8, f₀ = 40h(3e − (1 − e)h + 9h²) and f₁ = −39e − (11 + 159e)h − (251 + 2e)h² − 378h³; so the terms
 of order h are 120e and −39eξ, which give p₁, and those of order h² are −40(1 − e), −(11 + 159e)ξ and (2 + 10e)ξ², the
 last from f₂ = 2 + 10e + O(h). For 0 ≤ ξ ≤ 40/13 and 0 < e < 10⁻⁵, each p_j is bounded by the sum of the moduli of its
-terms, taken at ξ = 40/13 and e = 10⁻⁵:
+terms, each coefficient taken at its largest modulus for 0 ≤ e ≤ 10⁻⁵ and each power of ξ at ξ = 40/13:
 
     |p₃| < 1636,   |p₄| < 2646,   |p₅| < 2856,   |p₆| < 4142,   |p₇| < 2359,   |p₈| < 1655,   |p₉| < 849.
 
@@ -122,54 +121,55 @@ root of L_b^(0) with |ι₂(h) − 1| ≤ 50, and [[eq:iii-f1-2-2]] gives ε_ind
 h ≤ 6.309·10⁻⁹, (40/13)h < δ_50 ([[lem:s14-delta50]]), and the bound improves on ε_ind(h) ≤ δ_50 of
 [[prop:np-10-52]] (iii).
 
-**Lemma {#lem:ec-lb-rounds}** (The number of rounds, from bounds for the gaps.) Let δ̂ > 0 and δ̄ > 0 with
-5δ̂ + δ̄ < 1. Let ε_K, ε_+, η_2, α, the levels and the losses ε, ε′ be admissible for [[thm:iii-i14-3-1]],
+**Lemma {#lem:ec-lb-rounds}** (The number of rounds, from bounds for the gaps.) Let B_g > 0 and B_η > 0 with
+5B_g + B_η < 1. Let ε_K, ε_+, η_2, α, the levels and the losses ε, ε′ be admissible for [[thm:iii-i14-3-1]],
 [[lem:iii-i8-3-2]] and [[prop:iii-i13-2-1]], and suppose that
 
-    ε_g ≤ δ̂,     ε_K < δ̂,     ε_K < δ̄,     η_2 < δ̄.
+    ε_g ≤ B_g,     ε_K < B_g,     ε_K < B_η,     η_2 < B_η.
 
 Then the transition face rounds at the levels below 3 and the level-3 rounds at the levels in (3, 4) of
 [[sec:ec-floor]] number together
 
-    R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂) > (1 − 5δ̂ − δ̄)/δ̂².                                            {#eq:ec-lb-rounds}
+    R > (1 − 3ε_K − 2B_g − B_η)/(ε_K B_g) > (1 − 5B_g − B_η)/B_g².                                     {#eq:ec-lb-rounds}
 
 *Proof.* At every parameter point the admissible choices give: α ∈ (4, 4 + ε_K]; levels α_1 = β_0 < β_1 < ⋯ < β_K = α
 with spacings below α − 4 ≤ ε_K, α_1 ∈ (2, α − 2) and no level equal to 3 ([[sec:ec-floor]]); the loss ε of
 [[lem:iii-i8-3-2]] and [[prop:iii-i13-2-1]] with 0 < ε < ½ε_g ([[lem:iii-i8-3-2]]); and the loss ε′ ≤ ε of
-[[lem:iii-i8-3-2]] (the proof of [[prop:ec-rounds]]). So ε′ ≤ ε < ½ε_g < δ̂, and each round raises the tf-weight by
-ε_g − ε < δ̂. As in the proof of [[prop:ec-rounds]], the count uses the increments only through this upper bound, so it
+[[lem:iii-i8-3-2]] (the proof of [[prop:ec-rounds]]). So ε′ ≤ ε < ½ε_g < B_g, and each round raises the tf-weight by
+ε_g − ε < B_g. As in the proof of [[prop:ec-rounds]], the count uses the increments only through this upper bound, so it
 holds as well if a round raises the weight by less, a forcing of tf-weight κ having every smaller tf-weight.
 
-*Below 3.* At a level β ∈ (2, 3) the rounds start from τ_0 = 2 + ε_g − 2ε < 2 + δ̂, so τ_i < 2 + (i + 1)δ̂, and they run
-for every i ≥ 0 with τ_i ≤ β − ε′, the τ_i being increasing. As ε′ < δ̂, their number is at least the number of i ≥ 0
-with 2 + (i + 1)δ̂ ≤ β − δ̂, which is at least g_1(β)/δ̂ with g_1(x) := (x − 2 − 2δ̂)_+. The levels in (2, 3) form a
-sequence b_1 < ⋯ < b_m with b_1 = α_1 < α − 2 ≤ 2 + ε_K < 2 + 2δ̂, and b_m > 3 − ε_K, because the next level exceeds 3
-and lies within ε_K of b_m. The function g_1 is non-decreasing, vanishes below 2 + 2δ̂ and satisfies
+*Below 3.* At a level β ∈ (2, 3) the rounds start from τ_0 = 2 + ε_g − 2ε < 2 + B_g, so τ_i < 2 + (i + 1)B_g, and
+they run for every i ≥ 0 with τ_i ≤ β − ε′, the τ_i being increasing. As ε′ < B_g, their number is at least the number
+of i ≥ 0 with 2 + (i + 1)B_g ≤ β − B_g, which is at least g_1(β)/B_g with g_1(x) := (x − 2 − 2B_g)_+. The levels in
+(2, 3) form a sequence b_1 < ⋯ < b_m with b_1 = α_1 < α − 2 ≤ 2 + ε_K < 2 + 2B_g, and b_m > 3 − ε_K, because the next
+level exceeds 3 and lies within ε_K of b_m. The function g_1 is non-decreasing, vanishes below 2 + 2B_g and satisfies
 g_1(y) − g_1(x) ≤ y − x for x ≤ y; so by [[lem:ec-level-sum]] with c = ε_K, as b_m − b_1 < 1,
 
-    Σ_j g_1(b_j)/δ̂ ≥ (1/(ε_Kδ̂))(∫_(2+2δ̂)^(3−ε_K) (x − 2 − 2δ̂) dx − ε_K/2) = (1/(ε_Kδ̂))((1 − ε_K − 2δ̂)²/2 − ε_K/2).
+    Σ_j g_1(b_j)/B_g ≥ (1/(ε_K B_g))(∫_(2+2B_g)^(3−ε_K) (x − 2 − 2B_g) dx − ε_K/2)
+                     = (1/(ε_K B_g))((1 − ε_K − 2B_g)²/2 − ε_K/2).
 
-*Between 3 and 4.* At a level β ∈ (3, 4) the rounds start from κ_3 = 1 + η_2 − 2ε < 1 + δ̄, so κ_i < 1 + δ̄ + iδ̂, and
-they run for every i ≥ 0 with κ_i ≤ β − 2; their number is at least the number of i ≥ 0 with 1 + δ̄ + iδ̂ ≤ β − 2,
-which is at least g_2(β)/δ̂ with g_2(x) := (x − 3 − δ̄)_+. The levels in (3, 4) form a sequence c_1 < ⋯ < c_p with
-c_1 < 3 + ε_K < 3 + δ̄, the previous level lying below 3 within ε_K, and c_p > 4 − ε_K, the next level being at least 4
-(as β_(K−1) > α − (α − 4) = 4) and lying within ε_K of c_p. By [[lem:ec-level-sum]] again,
+*Between 3 and 4.* At a level β ∈ (3, 4) the rounds start from κ_3 = 1 + η_2 − 2ε < 1 + B_η, so κ_i < 1 + B_η + iB_g,
+and they run for every i ≥ 0 with κ_i ≤ β − 2; their number is at least the number of i ≥ 0 with 1 + B_η + iB_g ≤ β − 2,
+which is at least g_2(β)/B_g with g_2(x) := (x − 3 − B_η)_+. The levels in (3, 4) form a sequence c_1 < ⋯ < c_p
+with c_1 < 3 + ε_K < 3 + B_η, the previous level lying below 3 within ε_K, and c_p > 4 − ε_K, the next level being at
+least 4 (as β_(K−1) > α − (α − 4) = 4) and lying within ε_K of c_p. By [[lem:ec-level-sum]] again,
 
-    Σ_j g_2(c_j)/δ̂ ≥ (1/(ε_Kδ̂))((1 − ε_K − δ̄)²/2 − ε_K/2).
+    Σ_j g_2(c_j)/B_g ≥ (1/(ε_K B_g))((1 − ε_K − B_η)²/2 − ε_K/2).
 
-*The sum.* Adding, and using (1 − a)²/2 > ½ − a for a > 0, R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂). The right side decreases
-in ε_K on (0, δ̂], its numerator being positive there, as 3ε_K + 2δ̂ + δ̄ ≤ 5δ̂ + δ̄ < 1; so it exceeds its value
-(1 − 5δ̂ − δ̄)/δ̂² at ε_K = δ̂. ∎
+*The sum.* Adding, and using (1 − a)²/2 > ½ − a for a > 0, R > (1 − 3ε_K − 2B_g − B_η)/(ε_K B_g). The right side
+decreases in ε_K on (0, B_g], its numerator being positive there, as 3ε_K + 2B_g + B_η ≤ 5B_g + B_η < 1; so it exceeds
+its value (1 − 5B_g − B_η)/B_g² at ε_K = B_g. ∎
 
 **Theorem {#thm:ec-lb-proved}** (The loss at every point of the proved set.) Let h ∈ 𝖧, γ_C = h⁻¹, the gauge
 parameters (γ_(Υ,H), e_Υ, γ_Υ), the constants ε_Υ and ε_ind, and the weights be chosen as in [[thm:settling]], that is,
 so that the conditions of [[sec:vi-c-1]] hold ([[thm:vi-c-2-1]]). Put z := 4e_Υγ_Υ², let g be the function of
 [[eq:ec-lb-g]], and put
 
-    δ̂ := min(g(z), 40h/13).
+    B_g := min(g(z), 40h/13).
 
 Then, for every admissible choice of η_2, α, the levels and the losses ε, ε′ of [[thm:iii-i14-3-1]], [[lem:iii-i8-3-2]]
-and [[prop:iii-i13-2-1]], the number R of [[lem:ec-lb-rounds]] satisfies R > (1 − 2·10⁻⁵)/δ̂², and
+and [[prop:iii-i13-2-1]], the number R of [[lem:ec-lb-rounds]] satisfies R > (1 − 2·10⁻⁵)/B_g², and
 
     d_NM ≥ d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²),
     N_NM = 21d_NM + 6 > 63(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²).                                        {#eq:ec-lb-bound}
@@ -185,11 +185,12 @@ and, in the gauge parameters, d_acc > 1.4035·10⁸ e_Υ⁻²γ_Υ⁻⁴(1 + 100
 h_* ≤ 10⁻⁶; by row u5, z ∈ (0, ½]. [[sec:iii-d2-1]] fixes ε_Υ below half the least distance between distinct points of
 ℳ, so ε_Υ < g(z) by [[lem:ec-lb-gauge]]. By row c3, (C1) holds (it holds at every h ∈ (0, 10⁻⁶], by [[lem:iv4-1-3]]
 (a)), and ε_ind is a constant with [[eq:iii-f1-2-2]] ([[eq:iii-i9-1-1]]); so ε_ind < 40h/13 by [[lem:ec-lb-ind]].
-Hence ε_g = min(ε_Υ, ε_ind) < δ̂ ([[def:s21-eps-g]]). Row w1 asks ε_K < ε_+ < ε_ind ([[eq:iii-i9-1-1]]) and
-ε_K < ε_Υ ([[def:iii-i10-1-3]]), so ε_K < ε_g < δ̂; and [[sec:iii-i11-1]] takes η_2 ∈ (ε_K, ε_+), so η_2 < ε_ind. Put
-δ̄ := 40h/13. Then ε_K < δ̄, η_2 < δ̄ and δ̂ ≤ δ̄, and 5δ̂ + δ̄ ≤ 6δ̄ ≤ (240/13)·10⁻⁶ < 1.85·10⁻⁵.
+Hence ε_g = min(ε_Υ, ε_ind) < B_g ([[def:s21-eps-g]]). Row w1 asks ε_K < ε_+ < ε_ind ([[eq:iii-i9-1-1]]) and
+ε_K < ε_Υ ([[def:iii-i10-1-3]]), so ε_K < ε_g < B_g; and [[sec:iii-i11-1]] takes η_2 ∈ (ε_K, ε_+), so η_2 < ε_ind. Put
+B_η := 40h/13. Then ε_K < B_η, η_2 < B_η and B_g ≤ B_η, and 5B_g + B_η ≤ 6B_η ≤ (240/13)·10⁻⁶ < 1.85·10⁻⁵.
 
-*The rounds.* [[lem:ec-lb-rounds]] applies with these δ̂ and δ̄, and gives R > (1 − 5δ̂ − δ̄)/δ̂² > (1 − 2·10⁻⁵)/δ̂².
+*The rounds.* [[lem:ec-lb-rounds]] applies with these B_g and B_η, and gives R > (1 − 5B_g − B_η)/B_g² > (1 −
+2·10⁻⁵)/B_g².
 
 *The loss.* Level k + 1 of [[thm:iii-i14-3-1]] takes the solution of level k as input through R_qu, and at each level
 the rounds of [[sec:ec-floor]] are composed one after another, each round's output being the next round's forcing; so
@@ -198,7 +199,7 @@ d_acc ≥ Σ_rounds(2 + ℓ_tf). By [[lem:ec-closed-forms]] (d), ℓ_tf ≥ 1 at
 argument of the proof of [[thm:loss-d]] (ii), and it does not use the computational point: [[lem:ec-round-loss]] holds
 in the accounting at every parameter point, and [[lem:ec-closed-forms]] (d) uses only β_sctf < 3/2 and the
 non-negativity of ϑ_in, which [[lem:ec-theta-in]] (b) proves for L_b at every value of the parameters. Finally
-d_NM ≥ d_acc and N_NM = 21d_NM + 6 by [[thm:loss-d]], and 1/δ̂² = max(g(z)⁻², (13γ_C/40)²), as 1/(40h/13) = 13γ_C/40.
+d_NM ≥ d_acc and N_NM = 21d_NM + 6 by [[thm:loss-d]], and 1/B_g² = max(g(z)⁻², (13γ_C/40)²), as 1/(40h/13) = 13γ_C/40.
 This gives [[eq:ec-lb-bound]].
 
 *The numbers.* g(z) = (z/27360)(1 + 27360z/1088) and 27360/1088 < 25.15, so g(z)⁻² > 27360²z⁻²(1 + 25.15z)⁻²; and
@@ -221,10 +222,11 @@ parameter point. As (59/196) · 32 = 472/49 and d_NM > 3(1 − 2·10⁻⁵) max(
 **Remark {#rem:ec-lb-conditions}** (What the bound uses.) The proof of [[thm:ec-lb-proved]] uses exactly the following
 conditions of [[thm:settling]], each of which holds at every point of the proved set:
 
-- (v_C, e_C) = (1/2, 1/102400) (row c1 of [[sec:vi-c-1]]), through e in P_2;
-- h ≤ 10⁻⁶ (row c2: 𝖧 ⊂ (0, h_*) with h_* ≤ 10⁻⁶), for [[lem:ec-lb-ind]] and for 6δ̄ < 2·10⁻⁵;
+- (v_C, e_C) = (1/2, 1/102400) (row c1 of [[sec:vi-c-1]]), through v = 1/2 and e in P_2 and [[eq:s14-f-two]];
+- h ≤ 10⁻⁶ (row c2: 𝖧 ⊂ (0, h_*) with h_* ≤ 10⁻⁶), for [[lem:ec-lb-ind]] and for 6B_η < 2·10⁻⁵;
 - (C1) (row c3), which holds at every h ∈ (0, 10⁻⁶] ([[lem:iv4-1-3]] (a)), to read ι₂(h) − 1 as an indicial root of
   L_b^(0);
+- (C4) (row c3), only through the existence of the constant ε_ind ([[prop:iii-f1-2-3]] (f));
 - z ∈ (0, ½] (row u5), for [[lem:ec-lb-gauge]];
 - the definitions of ε_Υ ([[sec:iii-d2-1]]), of ε_ind ([[eq:iii-f1-2-2]]) and of ε_g ([[def:s21-eps-g]]);
 - ε_K < ε_+ < ε_ind and ε_K < ε_Υ (row w1), and α ∈ (4, 4 + ε_K] (row w2);
@@ -232,13 +234,13 @@ conditions of [[thm:settling]], each of which holds at every point of the proved
   point: the levels, η_2 ∈ (ε_K, ε_+) ([[sec:iii-i11-1]]), and the losses 0 < ε < ½ε_g and ε′ ≤ ε.
 
 It uses none of the thresholds that define the proved set: not h < h_0, h < h_tf or h ∉ 𝖹; not γ_(Υ,H) ≤ ε_0, nor the
-bounds ε_1, ε_L and γ_1 on e_Υ and γ_Υ; not z ∉ 𝖹_exc; not (C2)–(C5), beyond the existence of the constant ε_ind,
-which (C4) gives ([[prop:iii-f1-2-3]] (f)); not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data
-classes, the parameter set ℬ_* or the smallness of rows d1–d2, b1–b4 and n1. So the bound
+bounds ε_1, ε_L and γ_1 on e_Υ and γ_Υ; not z ∉ 𝖹_exc; not (C2), (C3) or (C5), nor (C4) beyond the existence of ε_ind;
+not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data classes (rows d1–d2), the parameter set ℬ_*
+(rows b1–b4) or the smallness of row n1. So the bound
 holds on the proved set without any of those thresholds being evaluated. It holds as well at every
 (h, z) ∈ (0, 10⁻⁶] × (0, ½] at which the constructions of [[sec:ec-floor]] are run with constants satisfying the
-conditions listed. At the computational point it gives d_acc > 3(1 − 2·10⁻⁵)g(4·10⁻⁶)⁻² > 1.4032·10²⁰, which is the
-bound of [[thm:loss-d]] (ii).
+conditions listed. At the computational point it gives d_acc > 3(1 − 2·10⁻⁵)g(4·10⁻⁶)⁻² > 1.4032·10²⁰, which implies
+the bound 1.403 × 10²⁰ of [[thm:loss-d]] (ii).
 
 **Remark {#rem:ec-lb-unbounded}** (No upper bound holds on all of the proved set.) The set 𝖧 = (0, h_*) ∖ 𝖹, with 𝖹
 countable, contains numbers h arbitrarily close to 0, and at each of them [[thm:vi-c-2-1]] completes the choice of the
@@ -317,10 +319,10 @@ New, the seventeen lines:
 **Remark {#rem:ec-point-outside}** (The computational point and the proved set.) The computational point lies outside
 the set on which [[thm:settling]] is proved, and it lies outside through h. [[thm:settling]] takes h in the set 𝖧 of
 [[eq:iv4-0-1]], whose supremum h_* = min(10⁻⁶, h_0, h_tf) is at most 10⁻⁶ whatever the values of h_0 and h_tf, and 𝖧
-is open at h_*; so h = 10⁻⁶ is not in 𝖧 ([[rem:s14-eps-ind-scope]]). Whether the gauge half of the point lies in the
+⊂ (0, h_*); so h = 10⁻⁶ is not in 𝖧 ([[rem:s14-eps-ind-scope]]). Whether the gauge half of the point lies in the
 proved set is not decided: the parameters γ_Υ and e_Υ are required in [[thm:vi-c-2-1]] to lie below thresholds whose
-existence is proved and whose values are not determined, and whether (γ_Υ, e_Υ) = (1/100, 1/100) lies below them is
-not decided. [[def:ec-point]] does not fix the parameter γ_(Υ,H) of the horizon modification (row u2 of
+existence is proved and whose values are not determined, and (γ_Υ, e_Υ) = (1/100, 1/100) is not shown to lie below them.
+[[def:ec-point]] does not fix the parameter γ_(Υ,H) of the horizon modification (row u2 of
 [[sec:vi-c-1]]), on which the threshold ε_1 of [[prop:iii-d1-4-1]] for γ_Υ and e_Υ depends, and no number of this
 chapter depends on it: the horizon thresholds that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]],
 where y = 0 for the 1-form c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not
@@ -339,13 +341,14 @@ The bounds (ii) are lower bounds for the loss that this proof's choices produce,
 tame estimates hold; for the index sets as the proofs construct them, (G) asks ε_K < μ_G ([[thm:is-gap]]), and the lower
 bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). The bound (iii) is explicit in the numbers of steps, which
 
-New, the five lines:
+New, the six lines:
 
 The bounds (ii) are lower bounds for the loss that this proof's choices produce, not for the least loss with which the
 tame estimates hold; for the index sets as the proofs construct them, (G) asks ε_K < μ_G ([[thm:is-gap]]), and the lower
 bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). At every point of the set on which [[thm:settling]] is
-proved, d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²), an explicit function of the gauge and damping parameters
-([[thm:ec-lb-proved]]). The bound (iii) is explicit in the numbers of steps, which
+proved, d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²), where z = 4e_Υγ_Υ² is that point's gauge parameter, not
+4·10⁻⁶, and g is the function of [[eq:ec-lb-g]] ([[thm:ec-lb-proved]]). The bound (iii) is explicit in the numbers of
+steps, which
 
 *5. [[ch:explicit-constants]], [[prop:ec-delta-cap]] (line 1512).* Old, the line:
 
@@ -368,8 +371,8 @@ orders of its function spaces only up to admissibility, so explicit constants ne
 this chapter does only at a point outside the proved set: [[def:ec-point]] for the gauge and damping parameters, and
 [[def:uc-choice]] and [[def:cs-choices]] for the weights, orders and inner products on which d depends. The lower bound
 for d of [[thm:ec-lb-proved]] needs no such choice: it holds at every point of the proved set as an explicit function
-of the gauge and damping parameters, and it tends to infinity as they tend to 0, so that no upper bound for d holds on
-all of that set ([[rem:ec-lb-unbounded]]). Among the inputs
+of the gauge and damping parameters, and it tends to infinity as z tends to 0 or γ_C to infinity, so that no upper
+bound for d holds on all of that set ([[rem:ec-lb-unbounded]]). Among the inputs
 
 *7. The front matter, the abstract (lines 32–37).* Old, the six lines:
 
@@ -446,10 +449,11 @@ computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 �
 The text that another proposal gives for lines 72–73 of this section does not overlap this one.
 
 *11. Unchanged.* [[def:ec-point]], [[lem:ec-gauge-gap]], [[rem:ec-gauge-gap]], [[prop:ec-rounds]] (whose last sentence,
-on every h ∈ 𝖧 with the same (γ_Υ, e_Υ), stays true and is the case z = 4·10⁻⁶ of [[thm:ec-lb-proved]]), the statement
+on every h ∈ 𝖧 with the same (γ_Υ, e_Υ), stays true and follows from [[thm:ec-lb-proved]] at z = 4·10⁻⁶), the statement
 of [[thm:loss-d]], [[cor:uc-two-offsets]], [[thm:uc-reduction]], [[thm:uc-integer]] with [[eq:uc-lower]], and every
-statement of [[ch:s14]] keep their texts. The numeric lower bound 1.2497 × 10²⁴ stays a statement at the computational
-point: it needs the least excess μ_G of the gap condition, which [[thm:is-gap]] evaluates at z = 4·10⁻⁶ only.
+statement of [[ch:s14]] except [[rem:s14-eps-ind-scope]] (text 12) keep their texts. The numeric lower bound 1.2497 ×
+10²⁴ stays a statement at the computational point: it needs the least excess μ_G of the gap condition, which
+[[thm:is-gap]] evaluates at z = 4·10⁻⁶ only.
 
 ### Crosswalk rows
 
