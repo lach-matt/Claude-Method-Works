@@ -273,13 +273,12 @@ most d_Φ + 8 ([[lem:uc-phi-loss]]). Their proofs ask U small through |U_0| ([[t
 H³ of w = (h″, D_bh″, D²_bh″) that [[lem:ii-g-4-1]] (3) asks, and through [[lem:iii-j2-2-4]] at the faces, whose d_1 = 3
 serves, its proof using [[lem:ii-g-4-1]] with d = 3 only, both of which ‖Φ(U)‖_8 ≤ C‖U‖_(𝒟^(8+d_Φ)) controls (the proof
 of [[lem:uc-phi-loss]]); and at ℐ⁺ through [[cor:iii-i-4-2]] for Φ(U) ([[thm:iii-j-2-4]]), which asks the order 3 of
-h + h_rem(q) + h_tot(p⃗), and through [[cor:iii-c-5-3]] for Ψ(U) ([[lem:iii-k-2-2]] (c)), whose smallness is read at
-an order at most 5 ([[prop:iii-c-4-4]]).
-Besides, [[prop:iii-j2-4-3]] states its bounds for ‖U‖_(𝒟^(3d)) < ε_0, which the domain |U|_(3d) < δ of the proof of
-[[thm:iii-k-3-2]] provides. So d := d_Φ + 8 serves for both. The largest of the three d's is max(d_R, d_* + d_F + d_Φ),
-as d_* ≥ 8. Finally, the construction of ℛ(U) applies that of [[thm:iii-j2-4-1]] at Ψ(U) and assembles U′ from its
-output by maps of non-negative charge (the proof of [[lem:iii-k-2-3]]), so d_F ≤ d_R; and d_acc ≤ d_R by the proof of
-[[thm:loss-d]].
+h + h_rem(q) + h_tot(p⃗), and through [[cor:iii-c-5-3]] for Ψ(U) ([[lem:iii-k-2-2]] (c)), whose smallness is read at an
+order at most 5 ([[prop:iii-c-4-4]]). Besides, [[prop:iii-j2-4-3]] states its bounds for ‖U‖_(𝒟^(3d)) < ε_0, which the
+domain |U|_(3d) < δ of the proof of [[thm:iii-k-3-2]] provides. So d := d_Φ + 8 serves for both. The largest of the
+three d's is max(d_R, d_* + d_F + d_Φ), as d_* ≥ 8. Finally, the construction of ℛ(U) applies that of [[thm:iii-j2-4-1]]
+at Ψ(U) and assembles U′ from its output by maps of non-negative charge (the proof of [[lem:iii-k-2-3]]), so d_F ≤ d_R;
+and d_acc ≤ d_R by the proof of [[thm:loss-d]].
 
 (b) By [[lem:cs-sharp]], d_F ≤ d_R ≤ D_♭; by [[lem:uc-small-orders]] (e), d_* ≤ D_*; and d_Φ ≤ 1,038,326,399,999,940
 ([[lem:uc-lambda]] (d)). So both terms of [[eq:uc-d-small]] are at most D_♭ + D_* + 1,038,326,399,999,940, the
