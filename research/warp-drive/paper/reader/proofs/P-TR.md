@@ -257,15 +257,19 @@ has as many roots in |ι − a| < 2/5 as U, namely the two roots of 𝒬. The di
 this one, so these are three roots of real part greater than 2, all of them ([[prop:np-10-54]] (i)), and
 a ± 2/5 ⊂ (2.1, 2.92) as 2.5 ≤ a ≤ 2.5154.
 
-(c) As y = x/ϖ ≥ max(1/5, x/0.1024), 16b² = 24y − (2 + x)² − 16x ≥ max(4.8 − (2 + x)² − 16x, 214.375x − 4 − x²); the
-first bound decreases and the second increases in x, and they agree at x = 0.02048, where both exceed 0.3899; so b ≥
-0.1561, and b ≥ 2.536, 8.073, 15.579, 21.82 for x ≥ 1/2, 5, 20, 45. By [[eq:tr-split]] U = (ι − ζ)V with V := 2(2 + x −
-ι)(ι − ζ̄), and d := |2 + x − ζ| = (b² + (x − 2)²/16)^(1/2) ≥ b. On |ι − ζ| = r < b we have |U| ≥ 2r(d − r)(2b − r) ≥
-2r(b − r)(2b − r), and U has the single root ζ inside. On that circle |ι − a| ≤ b + r, so by [[eq:tr-aj]], |F| ≤ Σ_j
-Ā_j(x, ϖ̄)(b + r)^j + 10⁻⁶F̄₂(a + b + r, x) + 10⁻¹²F̄₃(a + b + r), where ϖ̄ bounds ϖ: ϖ ≤ 0.1024, ϖ = x/y ≤ 5x, and ϖ ≤
-3x/(2b²), as b² ≤ 3y/2. For b ≤ 56 the following table covers the possible (x, b) by boxes [x_a, x_b] × [b_a, b_b], each
-with r = ϱ; in each, N bounds e|F| (from the values at x_b and b_b, with ϖ̄ := min(0.1024, 5x_b, 3x_b/(2b_a²))) and D :=
-2ϱ(b_a − ϱ)(2b_a − ϱ) bounds |U| from below; the last column is used in [[lem:tr-slopes]]:
+(c) As y = x/ϖ ≥ max(1/5, x/0.1024), 16b² = 24y − (2 + x)² − 16x is at least
+max(4.8 − (2 + x)² − 16x, 214.375x − 4 − x²); the first bound decreases and the second increases in x, and they agree
+at x = 0.02048, where both exceed 0.3899; so b ≥ 0.1561, and b ≥ 2.536, 8.073, 15.579, 21.82 for x ≥ 1/2, 5, 20, 45.
+By [[eq:tr-split]] U = (ι − ζ)V with V := 2(2 + x − ι)(ι − ζ̄), and d := |2 + x − ζ| = (b² + (x − 2)²/16)^(1/2) ≥ b.
+On |ι − ζ| = r < b we have |U| ≥ 2r(d − r)(2b − r) ≥ 2r(b − r)(2b − r), and U has the single root ζ inside. On that
+circle |ι − a| ≤ b + r, so by [[eq:tr-aj]],
+
+    |F| ≤ Σ_j Ā_j(x, ϖ̄)(b + r)^j + 10⁻⁶F̄₂(a + b + r, x) + 10⁻¹²F̄₃(a + b + r),
+
+where ϖ̄ bounds ϖ: ϖ ≤ 0.1024, ϖ = x/y ≤ 5x, and ϖ ≤ 3x/(2b²), as b² ≤ 3y/2. For b ≤ 56 the following table covers
+the possible (x, b) by boxes [x_a, x_b] × [b_a, b_b], each with r = ϱ; in each, N bounds e|F| (from the values at x_b
+and b_b, with ϖ̄ := min(0.1024, 5x_b, 3x_b/(2b_a²))), and D := 2ϱ(b_a − ϱ)(2b_a − ϱ) bounds |U| from below; the last
+column is used in [[lem:tr-slopes]]:
 
 | [x_a, x_b] | [b_a, b_b] | ϱ | ϖ̄ | N ≤ | D ≥ | dev ≤ |
 |---|---|---|---|---|---|---|
@@ -417,15 +421,15 @@ non-real exponent no term of F, all of whose exponents are real, enters, and the
 
 (b) The bound 7 is the first part of the proof of [[prop:is-mult]], which uses (C1) only. On the strip the entries of
 each type are −l, l + 2, the roots of (□^Υ_b)^(0) plus 1 and the roots of □^C minus 1, less those of D, and those from
-□^Υ_b and the integers are distinct within each type ([[prop:iii-f1-2-3]]). The entries from □^C on the strip are the ι
-− 1 with Re ι ≤ 6, the other roots of C, P_l and p_(v) having real part below −100. Each such ι is simple in its
-polynomial, as h ∉ 𝖹₁ ([[lem:iv4-1-3]] (b)). Such an ι − 1 is not an integer entry: a non-real one is not real, and a
-real one has |ι − 1| ≤ 5 and is not an integer by (H_ε). It is not a non-integer entry from □^Υ_b of its type and
-degree: those are real, at vector type there are none, and in (1, 5] they are, at scalar type l, l + 2 + d₂(l) for l ≤ 2
-and l + 3 + d₁(l) for l = 1 ([[lem:is-roots]] (a)); the entries from □^C of real part in (1, 5] are, at scalar type l ≤
-2, the ι − 1 with ι in (2, 3) ([[lem:tr-small]]), which lie in (1, 2) while those exceed 3. At scalar type 0 the entry
-ι₁ − 1 lies in (1, 3/2), where that type has no other entry. With the poles, as in the proof of [[prop:is-mult]], this
-gives (b).
+□^Υ_b and the integers are distinct within each type ([[prop:iii-f1-2-3]]). The entries from □^C on the strip are the
+numbers ι − 1 with Re ι ≤ 6, the other roots of C, P_l and p_(v) having real part below −100. Each such ι is simple in
+its polynomial, as h ∉ 𝖹₁ ([[lem:iv4-1-3]] (b)). Such an ι − 1 is not an integer entry: a non-real one is not real,
+and a real one has |ι − 1| ≤ 5 and is not an integer by (H_ε). It is not a non-integer entry from □^Υ_b of its type
+and degree: those are real, at vector type there are none, and in (1, 5] they are, at scalar type l,
+l + 2 + d₂(l) for l ≤ 2 and l + 3 + d₁(l) for l = 1 ([[lem:is-roots]] (a)); the entries from □^C of real part in
+(1, 5] are, at scalar type l ≤ 2, the ι − 1 with ι in (2, 3) ([[lem:tr-small]]), which lie in (1, 2), while those
+exceed 3. At scalar type 0 the entry ι₁ − 1 lies in (1, 3/2), where that type has no other entry. With the poles, as in
+the proof of [[prop:is-mult]], this gives (b).
 
 (c) The lists are those of the proof of [[lem:sp-roots]] (a), which does not use h, with the roots located by
 [[lem:tr-c-v]] and [[lem:tr-small]]; at l ≥ 3 the condition Re ι ≤ 5 selects the roots. Simplicity is (b). For the
