@@ -33,15 +33,15 @@ curve that meets it leaves D_T there and does not return ([[prop:boundary-spacel
 this fails in a layer at the start of the shell whose width tends to 0 with λ: on every column the boundary has points
 where it is timelike for g_λ, and future timelike curves cross it into D_T ([[thm:layer]], [[cor:layer]]). That the
 domain of [[prop:eq-domain]], whose inner boundary no future causal curve enters, is needed in place of D_T is not shown
-([[cor:layer]]). Inside the layer [[prop:layer-regions]] decides the character of the boundary above the band between the
-levels λ^(3+δ) and λ^(3−δ), on the windows of length 4πλ that start where |env| first reaches a level between λ^P and
-λ^(3+δ), and on the band up to a factor 1 ± 2λ^(1/10) in the ratio of the first-degree amplitude to the margin
-([[rem:edge-criterion]]). For an envelope increasing at its edge with the hypothesis (H_N) of [[def:edge-hypotheses]] the
-band is decided by one switch per column ([[thm:l-24]]), and the very edge for envelopes with the edge hypotheses, which
-hold for env_C ([[thm:very-edge]], [[cor:edge-envelope]]). Some regularity of the edge is needed: for an explicit smooth
-envelope whose intervals of zeros accumulate at the edge, the boundary is spacelike throughout intervals of length 4πλ
-below the level λ^(3+δ), for every small λ ([[prop:edge-dips]]), and at a dip of a general envelope the criterion of
-[[rem:edge-criterion]] decides nothing.
+([[cor:layer]]). Inside the layer, for δ ∈ (0, 1/2] and P > 4, the boundary is spacelike above the band between the
+levels λ^(3+δ) and λ^(3−δ), and it has points of both characters on every window of length 4πλ that starts where |env|
+first reaches a level between λ^P and λ^(3+δ) ([[prop:layer-regions]]); on the band its character is decided up to a
+factor 1 ± 2λ^(1/10) in the ratio of the first-degree amplitude to the margin ([[rem:edge-criterion]]). For an envelope
+increasing at its edge with the hypothesis (H_N) of [[def:edge-hypotheses]] the band is decided by one switch per column
+([[thm:l-24]]), and the very edge for envelopes with the edge hypotheses, which hold for env_C ([[thm:very-edge]],
+[[cor:edge-envelope]]). Some regularity of the edge is needed: for an explicit smooth envelope whose intervals of zeros
+accumulate at the edge, the boundary is spacelike throughout intervals of length 4πλ below the level λ^(3+δ), for every
+small λ ([[prop:edge-dips]]), and at a dip of a general envelope the criterion of [[rem:edge-criterion]] decides nothing.
 
 ### The thresholds and the constants {#sec:scope-constants}
 
@@ -66,11 +66,13 @@ computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 �
 ([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ at every admissible choice of
 the weights, for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). These are lower bounds for the
 loss that this proof's choices produce, not for the least loss with which the tame estimates hold ([[thm:loss-d]]). At
-that point, at one admissible choice of the weights, d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one
-below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The computational point is a point at which the formulas of the proof can be
-evaluated, and it lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of
-[[ch:explicit-constants]] is used in the proof of any theorem of this paper; the explicit indices of [[prop:ii-a1-2-4]]
-and [[lem:ii-a-8-5]], which [[prop:fwd-calculus]] proves, are used only there ([[ch:explicit-constants]]).
+that point, for those index sets and at one admissible choice of the weights and of the free orders and inner products,
+d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The
+computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on which
+[[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the proof of any
+theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
+[[prop:fwd-calculus]] proves, and the value N′ = 13 of [[ch:s06]], which rests on [[lem:fwd-orders]], are used only in
+that chapter ([[ch:explicit-constants]]).
 
 Explicit values stop upstream of every constant of [[thm:settling]]: the proof fixes the gauge and damping parameters
 only below thresholds whose existence it proves, and the cut-offs and orders of its function spaces only up to
@@ -83,10 +85,10 @@ Explicit resolvent bounds are proved for the scalar wave operator on five-dimens
 {6/5 ≤ r ≤ 4}: for every harmonic and every real 0 < |σ| ≤ 3, and with the constant 11.477 for 3 ≤ |σ| ≤ 384
 ([[prop:morawetz-resolvent-l-ge-1]], [[prop:morawetz-l-zero]], [[thm:band]]); the same identities bound the cut-off
 resolvent of every master operator of the 1-form wave operator and of the linearised Einstein operator, at every harmonic
-and every real σ ≠ 0 ([[prop:morawetz-master-potentials]]). The smaller values observed from |σ| = 12 on, and their decay
-in |σ|, are not proved ([[rem:band-observed]]). For the scalar-type blocks of the linearised gauge-fixed operator at zero
-energy, an upper bound for the least singular value obstructs a good constant at a weight next to an indicial root
-([[lem:rb-quasimode]]).
+and every real σ ≠ 0 ([[prop:morawetz-master-potentials]]). For the scalar wave operator, the smaller values observed
+from |σ| = 12 on, and their decay in |σ|, are not proved ([[rem:band-observed]]). For the scalar-type blocks of the
+linearised gauge-fixed operator at zero energy, an upper bound for the least singular value obstructs a good constant at
+a weight next to an indicial root ([[lem:rb-quasimode]]).
 
 The threshold λ_2 of [[thm:own-data]], the threshold λ_L of [[thm:layer]] and the thresholds of [[thm:very-edge]] and
 [[thm:l-24]] are not evaluated ([[thm:own-data]], [[rem:layer-threshold-size]], [[rem:edge-thresholds]]). λ_L is the
@@ -102,9 +104,10 @@ continuation of g_λ beyond the ball, and their development is not one ([[sec:af
 stated for perturbations in Hintz's own data class, and not for a class of decaying data reached by gluing, since gluing
 replaces the data near infinity on which the solution near the hole at late times depends ([[rem:settling-class]]). The
 perturbations that (ii) reaches, directly or through gluing uniformly in the gluing radius, are exactly those small in
-Hintz's class: a perturbation of order of decay a > 3 and small enough size is reached directly, for 3/2 < a ≤ ℓ0 the
-rate does not decide, and the statement that (ii) applies up to the gluing is false for fixed size and large radius at
-every such a ([[thm:after-shell-reach]]).
+Hintz's class: a perturbation of order of decay a > ℓ0 and small enough size is reached directly, which over the
+admissible ℓ0 covers every a > 3 ([[cor:after-shell-every-rate]]), for 3/2 < a ≤ ℓ0 the rate does not decide, and the
+statement that (ii) applies up to the gluing is false for fixed size and large radius at every such a
+([[thm:after-shell-reach]]).
 
 With its inner radius taken as half the radius q_end of the curvature boundary after the shell, the development of
 [[thm:settling]] (i) is defined on all of {r ≥ q_end} to the future of its initial surface and settles there at the

@@ -151,9 +151,10 @@ evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point, and [[ch:expl
 evaluation of λ1 and δ stops and bounds the loss d with which the proof of [[thm:settling]] applies the Nash–Moser
 theorem at a point of the gauge and damping parameters outside the set on which that theorem is proved: there
 d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them, and
-d < 1.57157 × 10⁵⁰ at one ([[thm:uc-integer]]). A high-frequency theorem, whose expansion parameter is the wavelength
-over the curvature length, does not apply at a prescribed wavelength of 10 l5; there existence holds where the solution
-is the seed ([[thm:ten-l5]]). [[ch:scope]] collects these statements.
+d < 1.57157 × 10⁵⁰ at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]). A
+high-frequency theorem, whose expansion parameter is the wavelength over the curvature length, does not apply at a
+prescribed wavelength of 10 l5; there existence holds where the solution is the seed ([[thm:ten-l5]]). [[ch:scope]]
+collects these statements.
 
 ### Organisation of the paper {#sec:organisation}
 
@@ -190,5 +191,6 @@ the proof of [[thm:settling]] makes explicit ([[ch:explicit-constants]]).
 ([[ch:localised-data]]), the boundary at equality ([[ch:equality-layer]], [[ch:equality-edge]]), the threshold λ0 at a
 numerical point ([[ch:lambda0]]), the prescribed wavelength 10 l5 ([[ch:ten-l5]]) and the scope ([[ch:scope]]).
 
-[[app:standard-results]] states the results of the literature that the proofs use, each with its source, number and
-page.
+[[app:standard-results]] states the results of the literature that the proofs use, each cited with its number and
+page where the cited work gives them; [[app:tables]] prints the coefficients of the explicit polynomials, approximants
+and enclosures that the proofs use.
