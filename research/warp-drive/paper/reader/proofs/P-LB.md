@@ -418,7 +418,7 @@ d < 1.57157 × 10⁵⁰ at one admissible choice of the weights, orders and inne
   five-dimensional Tangherlini ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops
   ([[ch:explicit-constants]]).
 
-New, the nine lines:
+New, the eight lines:
 
 - *The constants of [[thm:settling]].* The loss d with which the Nash–Moser step is applied, at least the loss that
   the proof assigns to the tame estimates, and its regularity N_NM = 21d + 6, with explicit lower bounds at every point
