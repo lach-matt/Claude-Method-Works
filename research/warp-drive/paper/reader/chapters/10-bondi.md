@@ -169,7 +169,7 @@ lowest orders). The term ∂_X^γ F_1(X, 0, 0), in E_3, has L² norm at most C t
 C t³; each product has L² norm at most C t^(−2), a coefficient in E_(3/2) or a second factor of u_1 in E_2 times the L²
 factor. So ‖R_γ‖ ≤ C(λ, j) t^(−3/2).
 
-*The approximating solutions.* We do not apply the energy inequality on the region between {v = v_start} and Σ̂_τ: that
+*The approximating solutions.* We do not apply the energy inequality on the region P⁺ ∩ {τ′ ≤ τ}: that
 region is unbounded toward past null infinity ([[lem:past-domain]] (e)), and the flux of ∂^γ u_1 through infinity
 there is known to vanish only at the orders that [[thm:past-construction]] controls. We apply it instead to each
 approximating solution g_n of [[prop:far-region]]. The metric g_n equals g0 on {v ≤ v_start} and solves the same

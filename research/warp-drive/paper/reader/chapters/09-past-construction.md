@@ -43,19 +43,19 @@ infinity (v and x̂ fixed, r → ∞). (f) There is ε_P > 0 such that for every
 decreasing along future causal curves; L0 is transverse to Σ̂_τ; and J⁻(p; g) ∩ {τ ≥ τ1} lies in P for every p in P and
 τ1 ≤ τ(p).
 
-*Proof.* (a) is [[lem:domain]] (a). (b) dΦ_B = dv + h_P′ dτ, with h_P′ = dh_P/dτ = (κ_P/4) t^(−5/4) > 0 because
-dt/dτ = −1. By [[prop:vaidya]] (c)–(d), g0⁻¹(dv, dv) = 0, g0⁻¹(dv, dτ) = −1 and g0⁻¹(dτ, dτ) = −1 − μ/r², so
-g0⁻¹(dΦ_B, dΦ_B) = −2h_P′ − h_P′²(1 + μ/r²) ≤ −2h_P′ = −(κ_P/2) t^(−5/4). For a future causal Y, dv(Y) = −g0(L0, Y) ≥ 0
-and dτ(Y) > 0, so dΦ_B(Y) > 0. (c) At τ0, h_P = κ_P and the condition reads v ≤ V_P − κ_P. (d) On P⁺,
-r = v − τ = v − τ0 − 1 + t with v ∈ [v_start, V_P]; a1 > √μ0 because v_start − τ0 > √μ0 + 1; and d0 ≥ 1 because
-V_P − κ_P = V + 1 + τ_end − τ0 ≥ v_start + 1. (e) Along −L0, v and x̂ are fixed, τ decreases and h_P decreases, so
-v + h_P ≤ V_P is kept, r = v − τ grows without bound, and v ≥ v_start is kept. (f) The inequalities of (a), (b) and of
-[[lem:domain]] (b) are strict, with a margin of at least (κ_P/2) t^(−5/4) in (b) and fixed margins in (a) and in
-[[lem:domain]] (b), the latter holding at r = a < √μ0 whatever τ is; the causal claim follows as in
-[[lem:domain]] (e). ∎
+*Proof.* (a) g0⁻¹(dτ, dτ) = −1 − μ/r² < 0 at every point of P, the contraction of [[lem:domain]] (a). (b) dΦ_B = dv +
+h_P′ dτ, with h_P′ = dh_P/dτ = (κ_P/4) t^(−5/4) > 0 because dt/dτ = −1. By [[prop:vaidya]] (c)–(d), g0⁻¹(dv, dv) = 0,
+g0⁻¹(dv, dτ) = −1 and g0⁻¹(dτ, dτ) = −1 − μ/r², so g0⁻¹(dΦ_B, dΦ_B) = −2h_P′ − h_P′²(1 + μ/r²) ≤ −2h_P′ = −(κ_P/2)
+t^(−5/4). For a future causal Y, dv(Y) = −g0(L0, Y) ≥ 0 and dτ(Y) > 0, so dΦ_B(Y) > 0. (c) At τ0, h_P = κ_P and the
+condition reads v ≤ V_P − κ_P. (d) On P⁺, r = v − τ = v − τ0 − 1 + t with v ∈ [v_start, V_P]; a1 > √μ0 because v_start −
+τ0 > √μ0 + 1; and d0 ≥ 1 because V_P − κ_P = V + 1 + τ_end − τ0 ≥ v_start + 1. (e) Along −L0, v and x̂ are fixed, τ
+decreases and h_P decreases, so v + h_P ≤ V_P is kept, r = v − τ grows without bound, and v ≥ v_start is kept. (f) The
+inequalities of (a), (b) and of [[lem:domain]] (b) are strict, with a margin of at least (κ_P/2) t^(−5/4) in (b) and
+fixed margins in (a) and in [[lem:domain]] (b), the latter holding at r = a < √μ0 whatever τ is; the causal claim follows
+as in [[lem:domain]] (e). ∎
 
 **Lemma {#lem:seed-region}** (The seed region.) Let g solve Ric^H(g) = 0 on P ∩ {τ1 ≤ τ ≤ τ2}, be C², satisfy the
-margin of [[lem:past-domain]] (f), and agree with g0 on Σ̂_τ1 ∩ {v ≤ v_start} together with its first τ-derivative.
+margin of [[lem:past-domain]] (f), and agree with g0 on Σ̂_τ1 ∩ P ∩ {v ≤ v_start} together with its first τ-derivative.
 Then g = g0 on P ∩ {τ1 ≤ τ ≤ τ2, v ≤ v_start}.
 
 *Proof.* g0 is vacuum on {v ≤ v_start}, where μ is constant. For 0 < ε ≤ 1 let R_ε := P ∩ {τ ≥ τ1, v + ε h_P(τ) ≤

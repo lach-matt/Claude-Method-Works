@@ -1128,8 +1128,7 @@ measure u_hi and u_reg at the weight α_sf and the regularity 𝗌, which the hy
 𝗌 + α_sf ≤ ½(−1 + ϑ_in). [Hin26, Remark 10.2] checks only the outgoing radial set, where the condition of
 [[def:ii-c-2-4]] (5) is 𝗌 + α_sf < ½(−1 + ϑ_out) + α_K − 1 = ½(−1 + ϑ_out) − 3; the remark states −½ − 1 there,
 without α_K. Here u_hi is measured at the weight α_sf + 1 − 2ϵ, with ϵ below the margin ([[lem:iii-h1-3-1]]), and
-u_reg at the regularity 𝗌 + 1
-([[lem:iii-h1-4-1]]); both use the margin, and nothing is lost in [[thm:iii-h1-1-3]].
+u_reg at the regularity 𝗌 + 1 ([[lem:iii-h1-4-1]]); both use the margin, and nothing is lost in [[thm:iii-h1-1-3]].
 
 (c) *The neighbourhood of b_0.* The high-energy estimate with k orders of b-regularity needs (k + 1)δ_Γ(−ϵ′) ≤ 1 for some
 ϵ′ > 0 ([[lem:iii-h1-3-1]]). [[prop:iii-f-4-1]] gives strong trapping admissibility at b_0, and, near b_0, the smallness

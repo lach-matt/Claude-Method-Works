@@ -1664,7 +1664,7 @@ independent of t_*, with φ₀^(u/s) = φ_(u/s)(x, z) on the stationary characte
     |∂^αφ̃^u| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 1),        |∂^αφ̃^s| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 2),
 
 derivatives along ∂_(t_*), ∂_x and the fibres, such that, with φ^(u/s) := φ₀^(u/s) + φ̃^(u/s), the field 𝖧_G is tangent
-to Γ^(u/s) := ∂Σ⁺ ∩ U ∩ (φ^(u/s))⁻¹(0). For ϵ ≤ ϵ₁, sup t_*^(ℓ_K)|∂^αφ̃^(u/s)| ≤ 1 over the stated ranges of α. The same
+to Γ^(u/s) := ∂Σ⁺ ∩ U ∩ (φ^(u/s))⁻¹(0). For ϵ ≤ ϵ₂, sup t_*^(ℓ_K)|∂^αφ̃^(u/s)| ≤ 1 over the stated ranges of α. The same
 holds, with uniform constants, for the stationary models of parameters b near b₀ ((K4)).
 
 *Proof.* By [[lem:ii-c1-3-1]] and [[eq:ii-c1-3-3]], [[thm:ii-c1-1-1]] applies on Y with V₀ = 𝖵, k := d₀ − 1 ≥ 2,

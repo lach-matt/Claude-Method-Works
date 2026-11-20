@@ -30,7 +30,7 @@ infinity and at the origin of the transition face. [[sec:i-c-3]] treats the zero
 transition face normal operator, [[sec:i-c-5]] tf-admissibility and the asymptotically Minkowski case, [[sec:i-c-6]]
 the low-energy estimates and the index, and [[sec:i-c-7]] their uniformity in the operator.
 
-*Notation.* As in [[ch:s02]], the rank of the bundle, N in [[sec:i-a-1-2]], is written N_E, and large integers that
+*Notation.* As in [[ch:s02]], the rank of the bundle of [[sec:i-a-1-2]] is N_E, and large integers that
 bound orders of Sobolev spaces are written M. Δ := Δ_(𝕊³) ≥ 0 is the Laplacian of the round metric on 𝕊³. The variable
 of the Mellin transform and of indicial families is ι ∈ ℂ, and an indicial root is a value of ι. Variable decay orders
 are written 𝗋, as in [[sec:i-a-1-4]], and r = |x|. For an operator A on 𝕊³ with End ℂ^(N_E)-valued coefficients (in
@@ -864,8 +864,8 @@ weight β ≥ 2.
 N_tf(1) = e^(−ir̂)(Δ_e − 1)e^(ir̂). Let q := 2 − β, let Y_0 ∈ ℋ_0 be a nonzero constant, let f_1, g_1 be the functions
 of [[lem:i-c-5-4]] at ℓ = 0 and θ = 0, and put w := g_1Y_0 = e^(−ir̂)f_1Y_0 ≠ 0. Then
 N_tf(1)w = e^(−ir̂)(Δ_e − 1)(f_1Y_0) = 0 by [[lem:i-c-5-4]] (a), and w ∈ 𝒜^(3/2) near sctf by [[lem:i-c-5-4]] (b).
-Near ztf, r̂²|w| = r̂|H_1^(1)(r̂)| is bounded on (0, 2], by [DLMF, (10.7.7)] (H_1^(1)(z) ∼ −2i/(πz)) and continuity; so
-‖r̂^(−c)w‖_(L²(μ_b)) is finite on {r̂ < 2} for every c < −2, as ∫_0^2 r̂^(−2c−4) dr̂/r̂ < ∞. Since r̂²N_tf(1) is
+Near ztf, r̂²|w| = r̂|H_1^(1)(r̂)||Y_0| is bounded on (0, 2], by [DLMF, (10.7.7)] (H_1^(1)(z) ∼ −2i/(πz)) and continuity;
+so ‖r̂^(−c)w‖_(L²(μ_b)) is finite on {r̂ < 2} for every c < −2, as ∫_0^2 r̂^(−2c−4) dr̂/r̂ < ∞. Since r̂²N_tf(1) is
 b-elliptic there ((c) of [[sec:i-c-4-1]]), [[lem:i-c-2-5]] and [[lem:i-c-2-2]] (f) give w ∈ 𝒜^c near ztf for every
 c < −2. As w is smooth on tf° and −β_− − ϵ ≤ −2 − ϵ, w ∈ ∩_(ϵ>0) 𝒜^(3/2−ϵ,−β_−−ϵ)(tf), which lies in 𝒳_(tf,0) by
 the converse in [[thm:i-c-4-3]] (5) (S̄ = 0). So N_tf(1) is not injective on 𝒳_(tf,0), and (ii) of [[def:i-c-5-1]]

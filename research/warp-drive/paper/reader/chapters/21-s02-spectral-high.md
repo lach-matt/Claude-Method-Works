@@ -1277,7 +1277,7 @@ O′ ⋐ O a neighbourhood of Γ. We take O so small that it does not meet Σ_(z
 Γ (q_(z_0) ≠ 0 on Σ_(z_0), [[lem:i-b-1-1]] (e)); then by (Γ.1), Γ is the common zero set of φ_u, φ_s and G_(z_0) in O.
 So Γ = ⋂_δ Γ(δ), and the Γ(δ) are compact neighbourhoods of Γ shrinking to it. Fix χ_(O′) ∈ C_c^∞(O),
 0 ≤ χ_(O′) ≤ 1, equal to 1 on Ō′. The set supp χ_(O′) ∖ O′ is compact and disjoint from Γ, so
-max(|φ_u|, |φ_s|, |G_(z_0)|) ≥ δ_O on it, for some δ_O > 0. We take ε_Γ < δ_O, and so small that Γ(ε_Γ) ⊂ O′ and that
+max(|φ_u|, |φ_s|, |G_(z_0)|) ≥ d_O on it, for some d_O > 0. We take ε_Γ < d_O, and so small that Γ(ε_Γ) ⊂ O′ and that
 [[eq:i-b-6-3]] and (Γ.3) hold on Γ(ε_Γ), with
 
     c_Γ ≤ |{φ_u^♮, φ_s^♮}| ≤ C_Γ  on Γ(ε_Γ),     C_Γ := max_(Γ(ε_Γ)) |{φ_u, φ_s}|,

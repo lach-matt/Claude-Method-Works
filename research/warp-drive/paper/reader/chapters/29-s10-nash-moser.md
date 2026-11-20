@@ -1483,6 +1483,6 @@ one choice of orders serves every b. The function δ_Γ is uniformly small by [[
 [[prop:iii-h2-1-1]]. The constants of [[thm:i-a-7-2]] and [[thm:i-b-1-3]], C_0 among them, are uniform by [[thm:i-a-8-1]]
 and [[sec:i-b-9]], whose hypotheses hold for this family (the proof of [[thm:iii-h2-2-1]], (ii) and (iii)).
 [[thm:i-c-6-4]] (4) and [[prop:ii-g1-4-7]] do not apply to 2L_b, which has zero-energy states; the augmented form
-[[thm:iii-h-4-1]] takes their place, and its radii are uniform in b (the proof of [[thm:iii-h2-2-1]], (i)). The forward
-problem is solved uniformly over the same family in [[thm:iii-h2-3-1]] and [[thm:iii-h2-4-1]]. This chapter adds no
-condition to these.
+[[thm:iii-h-4-1]] takes their place ([[lem:iii-i2-4-2]]), and its radii are uniform in b (the proof of
+[[thm:iii-h2-2-1]], (i)). The forward problem is solved uniformly over the same family in [[thm:iii-h2-3-1]] and
+[[thm:iii-h2-4-1]]. This chapter adds no condition to these.
