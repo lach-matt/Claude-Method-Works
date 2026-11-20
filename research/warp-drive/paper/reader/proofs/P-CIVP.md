@@ -654,3 +654,213 @@ nonnegative exactly when ν(∂_τ) ≥ 0, h⁻¹(ν, ν) ≤ 0 and ν(P) ≥ 0 
 In particular it is nonnegative on every piece of boundary whose conormal is future causal for both inverse metrics and
 nonnegative on the transport fields.
 
+**Lemma {#lem:loc-cone-cauchy}** (The Cauchy problem.) In case (I) for ε ≤ ε_0, and in case (II) for σ ≤ σ_0, where
+σ_0 ∈ (0, σ_1] depends only on Λ, η, k, δ_c and the background, the system 𝔄_χ(𝐔) = F̃ has a smooth solution on
+[τ_init, τ_+] × ℝ⁴ with 𝐔 = 𝐔̊ at τ_init, g_τ = ∂_τ g, g_a = ∂_a g, and |𝐔 − 𝐔_c| ≤ r_0. In case (I), sup_τ
+‖𝐔 − 𝐔̊‖_(H^k) ≤ Cε; in case (II), sup |𝐔 − 𝐔̂| + sup |∂(𝐔 − 𝐔̂)| ≤ C(Λ) σ^(1/(4k)).
+
+*Proof.* After the shift t := τ − τ_init the time interval is [0, T], T := ln(4c_+/δ_c²). In case (I) apply
+[[thm:class-kato-stability]] (a), with d = 4, s = k and ρ = ∞, to the system for Z of [[lem:loc-cone-system]] (a), with
+ū := 0 and u0 := 0: ū satisfies [[eq:class-kato-approximate]] with R := −Φ(x, 0) = 𝔄_χ(Ů) − F̃ = R_I, since 𝔄_χ(Ů) =
+χ𝒜(Ů). (F1)–(F3) and (F1′) hold by [[rem:class-kato-local]]; ‖R_I(t)‖_(H^k) ≤ Cε ≤ 1 and sup_t ‖R_I‖ ≤ ε_0′ for ε small;
+and the constants depend only on bounds of order k for the coefficients and on sup_t ‖Φ(t, ·, 0)‖_(H^k)
+([[rem:class-kato-local]], the paragraph after it), which are uniform. So Z exists on [0, T], with sup_t ‖Z‖ ≤ Cε and
+sup_t ‖Z‖_(H^(s′)) ≤ C ε^(1/(4k)) for s′ := k − 1/4 > 3; so sup |Z| ≤ C ε^(1/(4k)) ≤ r_0 for ε small, and the cut-off ϒ
+is not active. For the bound in H^k, Z solves the linear problem of [[lem:class-kato-linear]] with v := Z and f :=
+Φ(x, Z) − Φ(x, 0) − R_I, and ‖Φ(·, Z) − Φ(·, 0)‖_(H^k) ≤ C‖Z‖_(H^k) by [[lem:class-composition]] (b); by part (a) of that
+lemma Z is the solution of its part (b), whose bound and Gronwall's inequality give sup_t ‖Z‖_(H^k) ≤ C sup_t
+‖R_I‖_(H^k) ≤ Cε. In case (II) write the system for Z̃ := 𝐔 − 𝐔̂ and apply the same theorem with ū := 0, u0 := 0 (𝐔̂ =
+𝐔̊ near Σ_init) and R := R_II, whose H^k norm is at most C(Λ)σ by [[lem:loc-cone-system]] (e); the constants depend
+on Λ through the bounds of the coefficients near 𝐔̂, and not on σ, the system and T being fixed apart from F̃. For σ
+small this gives the solution with ‖Z̃‖_(H^(s′)) ≤ C(Λ)σ^(1/(4k)), and ‖Z̃‖_(W^(1,∞)) ≤ C‖Z̃‖_(H^(s′)). The solution is
+smooth by the argument of step (4) of the proof of [[cor:class-kato-sphere]] ([[thm:class-kato]] (a) at every order and
+[[lem:class-kato-linear]] (c)), F̃ being smooth with compact support. The rows of (c) of [[lem:loc-cone-system]] hold at
+τ_init, where 𝐔 = 𝐔̊. ∎
+
+Below U denotes this solution, (g, p_A, Θ_A, q_A) its components and P_A := g⁻¹p_A.
+
+**Lemma {#lem:loc-cone-past}** (The past of the edges.) U = Û on P ∩ 𝒰. So U − Û vanishes, with all its derivatives, on
+N ∩ 𝒰, and g and the densities induce the cone data on N ∩ 𝒰.
+
+*Proof.* On P, 𝔄_χ(𝐔) = F̃ = 𝔄_χ(Û) ([[lem:loc-cone-system]] (d)). 𝔄_χ(𝐔) = A^μ_χ(x, Z) ∂_μ𝐔 − Φ_0(x, Z) with Φ_0 smooth,
+so z := 𝐔 − 𝐔̂ satisfies A^μ_χ(x, Ẑ) ∂_μ z = Mz on P, with Ẑ := 𝐔̂ − 𝐔̊ and M bounded on 𝒰, 𝐔 being C¹. Apply
+[[lem:loc-cone-energy]] on the closure of P ∩ 𝒰, a Lipschitz domain (near S_c it lies below the graph of a Lipschitz
+function in the coordinates u + v, u − v), with B_0 := Σ_init ∩ 𝒰, where z = 0 as 𝐔 = 𝐔̊ = 𝐔̂ there, and B_1 the rest of
+its boundary: N ∩ 𝒰 and pieces of the far cuts. On N the outward conormal is du on {u = 0} and dv on {v = 0}. At Û the
+wave blocks of A^μ_χ have the inverse metrics Ĝ⁻¹ and g_e⁻¹ (convexly combined), for which du and dv are null, with
+du(∂_τ), dv(∂_τ) > 0; the transport fields are P̂_A and P̊_A, with du(P̂_out) = dv(P̂_in) = 0 and du(P̂_in), dv(P̂_out)
+> 0, likewise for P̊_A. On the far cuts the conormals du + κdv and dv + κdu are future timelike for every metric of the
+form [[eq:loc-double-null]], since such metrics have g^(uu) = g^(vv) = 0 and g^(uv) < 0, and positive on future causal
+vectors. So ν_μ 𝐀^μ ≥ 0 on B_1, and z = 0. ∎
+
+**Lemma {#lem:loc-cone-support}** (Localisation.) U = Ů at the points of 𝒰 with ϑ < ϑ_a′ − 2C_* e^(τ/2), at those with
+ϑ > ϑ_b′ + 2C_* e^(τ/2), and at those with u < u_K and v < v_K. In particular U = Ů on 𝒰 where ϑ < 3η/2 or
+ϑ > π/2 − 3η/2.
+
+*Proof.* On 𝒰, 𝔄_χ(𝐔) − 𝔄_χ(Ů) = F̃ − 𝔄_χ(Ů) vanishes outside K ([[lem:loc-cone-system]] (e)), so z := 𝐔 − 𝐔̊
+satisfies A^μ_χ(x, 0) ∂_μ z = Mz on 𝒰 ∖ K, with M bounded. For ι > 0 let 𝒲 := {p ∈ 𝒰 : ϑ ≤ ϑ_a′ − ι − 2C_* e^(τ/2)};
+it does not meet K, and on it 𝐔_c = 𝐔̊, so A^μ_χ(x, 0) = A^μ(x, 𝐔̊), with the inverse metric g_e on its wave block
+and the transport fields P̊_A. Apply [[lem:loc-cone-energy]] on 𝒲 with B_0 := Σ_init ∩ 𝒲 and B_1 the angular face and
+pieces of the far cuts. The angular face lies off the axes, as ϑ_a′ − 2C_* e^(τ/2) ≥ 2η − η/2, and its outward
+conormal is ν := dϑ + C_* e^(τ/2) dτ. Since g_e⁻¹(dϑ, dτ) = 0, g_e⁻¹(dϑ, dϑ) = R_e⁻² and g_e⁻¹(dτ, dτ) = 2g_e^(uv)
+e^(−τ) = −2e^(−2σ_e) e^(−τ),
+
+    g_e⁻¹(ν, ν) = R_e⁻² − 2C_*² e^(−2σ_e) ≤ R_e⁻² − 2R_e⁻² < 0,
+
+as C_* ≥ e^(σ_e)/R_e; ν(∂_τ) = C_* e^(τ/2) > 0, and ν(P̊_A) = C_* e^(τ/2) dτ(P̊_A) > 0, P̊_A having no ∂_ϑ-component. So
+z = 0 on 𝒲 for every ι > 0. The set where ϑ > ϑ_b′ + 2C_* e^(τ/2) is treated in the same way with π/2 − ϑ in place of
+ϑ. For {u ≤ u_K − ι, v ≤ v_K − ι} ∩ 𝒰, which does not meet K, the faces {u = u_K − ι} and {v = v_K − ι} have the
+conormals du and dv, null for g_e with du(P̊_out) = dv(P̊_in) = 0 and du(P̊_in), dv(P̊_out) > 0. Finally ϑ_a′ − 2C_*
+e^(τ/2) ≥ 2η − η/2 on 𝒰. ∎
+
+**Lemma {#lem:loc-cone-constraints}** (The constraints.) On F ∩ 𝒰_σ, g⁻¹(p_A, p_A) = 0, dp_A = 0, D(g) = 0 and Θ_A =
+div_g P_A. There are smooth functions u_in, u_out on 𝒰′ := (P ∩ 𝒰) ∪ (F ∩ 𝒰_σ) with p_in = −du_in, p_out = −du_out,
+u_in = v and u_out = u on P ∩ 𝒰; and (g, u_in, u_out, q_in, q_out) solves [[eq:class-system]] on F ∩ 𝒰_σ, with
+Ric(g) = q_in du_in ⊗ du_in + q_out du_out ⊗ du_out and q_A ≥ 0, in the gauge D(g) = 0 relative to Ĝ.
+
+*Proof.* On F ∩ 𝒰_σ, θ = 1 and F̃ = 0. Let 𝒪_1 be the set of its points with η < ϑ < π/2 − η and 𝒪_2 that of its points
+with ϑ < 3η/2 or ϑ > π/2 − 3η/2; both are open in F ∩ 𝒰_σ and cover it. On 𝒪_1, χ = 1 and |𝐔 − 𝐔_c| ≤ r_0, so 𝒜(U) = 0
+([[lem:loc-cone-system]] (b)). On 𝒪_2, U = Ů ([[lem:loc-cone-support]]) and Ĝ = g_e, so there ν_A := g⁻¹(p_A, p_A),
+dp_A, D := D(g) and Δ_A := Θ_A − div_g P_A vanish identically. By [[lem:loc-cone-past]] all four, with their
+derivatives, vanish on N ∩ 𝒰: on P ∩ 𝒰, U = Û, and for Û they vanish identically.
+
+*The phases.* On 𝒪_1, P_A(ν_A) = 0 by [[prop:class-augmented]] (b), and on 𝒪_2, ν_A = 0; so P_A(ν_A) = 0 on F ∩ 𝒰_σ.
+Through a point of F ∩ 𝒰_σ the integral curve of P_A, followed to the past, cannot leave 𝒰_σ through {τ = ln((δ_c +
+2σ)²)} or the far cuts, which are spacelike for g with 𝒰_σ to their past, and τ decreases along it at a rate bounded
+below; as F ∩ 𝒰_σ ⊂ {τ ≥ 2 ln δ_c}, it reaches N, where ν_A = 0. So ν_A = 0 on F ∩ 𝒰_σ. Then ℒ_(P_A) dp_A = 0 on 𝒪_1
+([[prop:class-augmented]] (b)) and dp_A = 0 on 𝒪_2, so dp_A, transported along the same curves from N, vanishes on
+F ∩ 𝒰_σ. On P ∩ 𝒰, p_A = p̂_A is −dv or −du. So dp_A = 0 on 𝒰′, a simply connected planar set times S³, and p_A =
+−du_A with u_A fixed by its values on the connected set P ∩ 𝒰; g⁻¹(du_A, du_A) = ν_A = 0.
+
+*The gauge and the expansions.* On 𝒪_1, with p_A = −du_A an eikonal and ζ_A = 1, [[prop:class-augmented]] (d) and (e)
+give
+
+    P_A(Δ_A) = −Δ_A (Θ_A + div_g P_A − 2κ_A1 − 2κ_A2) + g(∇_(P_A) D, P_A) + L(P_A, P_A),
+
+and D solves [[eq:class-gauge-wave]] with B_g T = Σ_A Δ_A q_A p_A, the tensor L being built with Γ[g] − Γ[Ĝ]; on 𝒪_2
+all these quantities vanish. In the first-order variables z := (D, ∂_τ D, ∂_y D, Δ_in, Δ_out) this is a linear system
+𝐀^μ ∂_μ z = Mz on F ∩ 𝒰_σ, of the form of Step 9 with the inverse metric g and the transport fields P_A, with C¹
+coefficients. Apply [[lem:loc-cone-energy]] on the closure of F ∩ 𝒰_σ with B_0 := N ∩ 𝒰_σ, where z = 0, and B_1 the
+future face and the far cuts, spacelike for g with future conormals positive on the P_A. So D = 0 and Δ_A = 0 on
+F ∩ 𝒰_σ. Then (Aug1) is Ric(g) = Σ_A q_A p_A ⊗ p_A, by the identity of the proof of [[lem:gauge-propagation]] with Ĝ in
+place of g0, and (Aug4) with Θ_A = div_g P_A is div_g(q_A P_A) = 0; on 𝒪_2 this is the background. The densities are
+transported along the P_A from N, where they are those of the data or, on N_i for q_in and on N_o for q_out, determined
+from their corner values by the conservation law, and so nonnegative. ∎
+
+**Lemma {#lem:loc-cone-gauge}** (The double-null gauge.) Let ϑ′ be the function on 𝒰′ with P_out(ϑ′) = 0 and ϑ′ = ϑ on
+P ∩ 𝒰, and Ψ := (u_out, u_in, ϑ′), acting on the orbit space and fixing φ1, φ2. Then Ψ is a diffeomorphism from F ∩ 𝒰_σ
+onto a set that contains G_* in case (I) and [0, σ]² in case (II) (times the angles), equal to the identity, with its
+differential, on N ∩ 𝒰_σ and on the sets of [[lem:loc-cone-support]]. In the coordinates (u′, v′, ϑ′, φ1, φ2) :=
+(u_out, u_in, ϑ′, φ1, φ2) the metric g has the form [[eq:loc-double-null]], and (g, v′, u′, q_in, q_out) is a class
+solution in the gauge on Ψ(F ∩ 𝒰_σ) × S³ that induces the cone data on the two edges. In case (I) its functions ln Ω,
+½ ln γ_ϑ, b, A_c, A_s, q_in, q_out differ from the background's by at most Cε, with their derivatives of order at most
+k − 4, at the points with η ≤ ϑ ≤ π/2 − η, and equal them elsewhere.
+
+*Proof.* On P ∩ 𝒰, P_out = P̂_out = (2Ω̂²)⁻¹ ∂_v, and the past integral curves of ∂_v from P ∩ 𝒰 stay in P ∩ 𝒰; so
+ϑ′ := ϑ ∘ Φ, Φ following the integral curves of P_out to the past to the set P ∩ 𝒰 ∩ {τ ≤ τ_init + 1}, is well
+defined, smooth and G-invariant, and ϑ′ = ϑ on P ∩ 𝒰. By smoothness, u_out − u, u_in − v and ϑ′ − ϑ vanish with all
+their derivatives on N ∩ 𝒰. Where U = Ů ([[lem:loc-cone-support]]), p_A = p̊_A and P_out = P̊_out ∝ ∂_v on a set that
+contains, with each point, its past integral curves of P_out and meets P ∩ 𝒰; there Ψ is the identity.
+
+*Ψ is near the identity.* In case (I), sup |𝐔 − 𝐔̊| + |∂(𝐔 − 𝐔̊)| ≤ Cε, and the derivatives of order at most k − 3 of
+𝐔 − 𝐔̊ are at most Cε, by [[lem:loc-cone-cauchy]] and the Sobolev inequality on the slices; in case (II) the same
+holds for 𝐔 − 𝐔̂ with C(Λ)σ^(1/(4k)) in place of Cε, at the order one. As d(u_out − u) = −(p_out − p̊_out) and
+d(u_in − v) = −(p_in − p̊_in), and ϑ′ − ϑ solves P_out(ϑ′ − ϑ) = −(P_out − P̊_out)(ϑ) with zero values on P (in case
+(II) with P̂ in place of P̊), Ψ − id is small in C¹ on F ∩ 𝒰_σ, in case (I) at most Cε in C^(k−3). The set F ∩ 𝒰_σ is a
+down-set in (u, v): with (u, v) it contains [0, u] × [0, v]; so two of its points are joined in it by a path of length at
+most 3 times their distance, through the point of least coordinates, and the bound on d(Ψ − id) makes Ψ injective. Ψ is
+the identity on N and moves every point by at most sup |Ψ − id|, smaller than the distance from G_* (or from [0, σ]²)
+to the rest of the boundary of F ∩ 𝒰_σ; by the homotopy invariance of the degree of id + t(Ψ − id), 0 ≤ t ≤ 1, the image
+of Ψ contains these sets.
+
+*The form of the metric.* In the new coordinates g⁻¹(du′, du′) = g⁻¹(dv′, dv′) = 0, and g⁻¹du′ = −P_out annihilates
+du′ and dϑ′ and, by the reflections, dφ1 and dφ2, so g⁻¹du′ = c ∂_(v′) with c ≠ 0. So g^(u′u′) = g^(v′v′) = g^(u′ϑ′) = 0,
+and the inverse of the (u′, v′, ϑ′)-block [[0, c, 0], [c, 0, e], [0, e, f]] is [[e²/(c²f), 1/c, −e/(cf)], [1/c, 0, 0],
+[−e/(cf), 0, 1/f]]: g_(v′v′) = g_(v′ϑ′) = 0, g_(u′v′) = 1/c, g_(ϑ′ϑ′) = 1/f, g_(u′ϑ′) = −e/(cf) and g_(u′u′) = e²/(c²f).
+This is [[eq:loc-double-null]] with −2Ω² = 1/c, γ_ϑ = 1/f and b = e/c. By [[lem:loc-cone-constraints]], v′ = u_in and
+u′ = u_out are the phases of the two families. On N, Ψ and its differential are the identity and g agrees with Ĝ to all
+orders, so the functions of g in the new coordinates and the densities are on N those of Ĝ, the cone data. In case (I)
+the functions involve g ∈ C^(k−2), the densities ∈ C^(k−3), and Ψ⁻¹ with its first derivatives, ∈ C^(k−4); this gives the
+estimate. ∎
+
+**Lemma {#lem:loc-cone-unique}** (Uniqueness.) In case (I), let (g′, q′_in, q′_out) be a class solution in the gauge on
+G_* × S³ that induces the cone data, whose functions differ from the background's by at most ε_2 with their derivatives
+of order at most k at the points with 2η ≤ ϑ ≤ π/2 − 2η. For ε and ε_2 small it equals the solution of
+[[lem:loc-cone-gauge]], in their coordinates, at the points of G_* with 3η ≤ ϑ ≤ π/2 − 3η.
+
+*Proof.* (1) *Derivatives on N.* By [[lem:loc-cone-jets]] (iv) the functions of g′ and of the solution of
+[[lem:loc-cone-gauge]] have the derivatives a_j, b_k across N. So g″ := g′ on G_* and Ĝ on P ∩ 𝒰 is smooth, and so is
+g_e′ := g on F ∩ 𝒰 and Ĝ on P ∩ 𝒰 (here g is the solution in the coordinates (u, v, ϑ) of the construction, in which
+D(g) = 0 relative to Ĝ).
+
+(2) *A wave map.* Fix a point p of G_* with 3η ≤ ϑ(p) ≤ π/2 − 3η, u(p) < u_1 and v(p) < v_1; the remaining points follow
+by continuity. Take δ′ ∈ (0, δ_c/2] and κ′ > 0 so small that p lies in 𝒟′ := {(u, v) : u, v ≥ 0, (u + δ′)(v + δ′) ≤
+δ_*², u + κ′v ≤ u_1, v + κ′u ≤ v_1} × {9η/4 + 2C_*((u + δ′)(v + δ′))^(1/2) ≤ ϑ ≤ π/2 − 9η/4 − 2C_*((u + δ′)(v +
+δ′))^(1/2)}; 𝒟′ lies in G_* ∩ {2η ≤ ϑ ≤ π/2 − 2η}, and 2C_*δ_* ≤ η/4. With τ′ := ln((u + δ′)(v + δ′)) in place of τ,
+the faces of 𝒟′ other than N are spacelike for g_e, with 𝒟′ to their past, as in [[lem:loc-cone-support]], and so for
+every metric close enough to g_e in C⁰ on 𝒟′. Seek Φ = id + φ with id: (𝒟′, (Φ⁻¹)^*g″) → Ĝ a wave map, that is
+
+    g″^(μν) (∂_μ∂_ν Φ^λ − Γ[g″]^ρ_(μν) ∂_ρ Φ^λ + Γ[Ĝ]^λ_(αβ)(Φ) ∂_μΦ^α ∂_νΦ^β) = 0,
+
+a semilinear wave system for φ whose principal part is that of g″. As in [[lem:loc-cone-system]] and
+[[lem:loc-cone-cauchy]], case (I), with the time τ′, the initial slice {τ′ = ln(δ′²/4)} in P, a cut-off in ϑ equal to 1
+on [9η/4, π/2 − 9η/4] and supported in (2η, π/2 − 2η) and a cut-off in (u, v) equal to 1 near 𝒟′, and the frozen part
+taken with the wave operator of g_e: φ := 0 satisfies the cut-off system on P exactly, as g″ = Ĝ there, and on F up to
+the residual 1_F g″^(μν)(Γ[Ĝ] − Γ[g″])^λ_(μν), which vanishes to infinite order on N and is at most C(ε + ε_2) in
+C^(k−1). [[thm:class-kato-stability]] (a) with s = k − 1 > 3 gives a smooth solution φ on the slab with φ small in
+W^(1,∞); φ = 0 on P, by the argument of [[lem:loc-cone-past]] with g″ = Ĝ on N; and on 𝒟′ ∩ F it solves the wave map
+system, the cut-offs being 1 there.
+
+(3) *Comparison.* For ε, ε_2 small, Φ is a diffeomorphism near the identity, equal to it on P and so, with all
+derivatives, on N. Put g̃ := (Φ⁻¹)^*g″, ũ_A := u′_A ∘ Φ⁻¹ with u′_in := v, u′_out := u the phases of g′, p̃_A := −dũ_A,
+Θ̃_A := div_(g̃) P̃_A, q̃_A := q′_A ∘ Φ⁻¹. Then D(g̃) = 0 relative to Ĝ, so (g̃, p̃_A, Θ̃_A, q̃_A) solves 𝒜 = 0 on
+Φ(𝒟′ ∩ F) (off the axes, with [[eq:class-raychaudhuri]] for (Aug3)), and so does U on F ∩ 𝒰 ∩ {η < ϑ < π/2 − η}
+([[lem:loc-cone-constraints]]). Both equal Û, with all derivatives, on N. On a set 𝒟″ ⊂ Φ(𝒟′) ∩ 𝒟′ of the same kind,
+slightly smaller and still containing p, the difference z of their first-order variables satisfies A^μ(x, 𝐔) ∂_μ z =
+Mz, and [[lem:loc-cone-energy]] with B_0 := N ∩ 𝒟″ and B_1 its other faces gives z = 0.
+
+(4) *Conclusion.* So g = (Φ⁻¹)^*g″, p_A = p̃_A, and u_A = ũ_A, both being u or v on P. Hence Φ is an isometry from
+(g′, u, v) to (g, u_out, u_in) on 𝒟′ ∩ F: u = u_out ∘ Φ and v = u_in ∘ Φ. It carries g′⁻¹du to g⁻¹du_out, so ϑ′ ∘ Φ is
+constant along the integral curves of g′⁻¹du and equals ϑ on N_i, where Φ is the identity; as the angle of g′ has the
+same two properties, ϑ′ ∘ Φ = ϑ. So Ψ ∘ Φ is the identity near p, and the functions of g′ at p are those of the
+solution of [[lem:loc-cone-gauge]] at p. ∎
+
+**Proposition {#prop:loc-cone-local}** (Developments near a corner sphere, of any size.) Let a background be given on
+the set 𝒮 of [[eq:loc-cone-collar]] about a corner, and cone data at that corner ([[def:loc-cone-data]]), in any gauge,
+that is with any ln Ω on both edges and any b on the ingoing edge N_i, and with any corner values, equal to the
+background's at the points with ϑ ∉ [2η, π/2 − 2η] for some η ∈ (0, π/8], whose differences from the background's,
+with ln Ω and ½ ln γ_ϑ in place of Ω and γ_ϑ, have C^(m_0) norms at most Λ on N_o ∩ {v ≤ 3δ_1} and N_i ∩ {u ≤ 3δ_1},
+where k ≥ 6 and m_0 = 6k + 18. There is σ > 0, depending only on Λ, η, k, δ_1 and on bounds for σ_e, R_e, 1/R_e and
+their derivatives of order at most m_0 + 2 on 𝒮 ∩ {|u|, |v| ≤ 3δ_1}, and not on l_u, l_v or on the data at distance more
+than 3δ_1 from the corner, such that on [0, σ] × [0, σ] × S³ there is a class solution in the gauge that induces the
+cone data on the two edges and equals the background at the points with ϑ ∉ [η, π/2 − η].
+
+*Proof.* Case (II), with l_u = l_v = 2δ_1: by [[lem:loc-cone-jets]] the derivatives across N on N ∩ {u, v ≤ 3δ_1} use only
+the data there. [[lem:loc-cone-cauchy]] for σ ≤ σ_0, then [[lem:loc-cone-past]], [[lem:loc-cone-support]],
+[[lem:loc-cone-constraints]] and [[lem:loc-cone-gauge]], give the solution on Ψ(F ∩ 𝒰_σ) ⊃ [0, σ]², equal to the
+background where ϑ < 3η/2 or ϑ > π/2 − 3η/2. The constants of these lemmas depend only on the quantities named, once δ_c
+is fixed as a function of δ_1, η and C_*. ∎
+
+The same argument as in [[lem:loc-cone-unique]], with the residual of the wave map localised by the cut-off θ of case
+(II), shows that the development of [[prop:loc-cone-local]] is unique on [0, σ′]² among class solutions in the gauge that
+equal the background where ϑ ∉ [η, π/2 − η] and whose functions have C^(k+1) norms at most Λ′ there, σ′ ≤ σ depending
+also on Λ′; no result here uses this.
+
+*Proof of [[thm:loc-cone-development]].* Take the background of [[lem:loc-cone-strips]] (b) on 𝒮, with l_u = u_1,
+l_v = v_1, and in case (I) use C_* := max(1, C_0), which is at least sup_𝒮 e^(σ_e)/R_e. The free data are ε-close to the
+background's in C^m, m = m_0 + 3 = 6k + 21. The equations of [[prop:loc-cones]] and [[lem:loc-cone-in]] are linear
+ordinary differential equations along the generators whose coefficients differ from the background's by at most Cε in
+C^(m−1); so for ε small e^ϕ stays within Cε of the background's, positive, on [0, v_1 + δ_1] and [0, u_1 + δ_1], ϕ is
+within Cε of the background's in C^(m−1), and b in C^(m−3), r of [[eq:loc-cone-r]] holding two derivatives of the data.
+So the cone data have size at most Cε, are in the normalised gauge, and equal the background's at the points with
+ϑ ∉ [ϑ_a′, ϑ_b′], on 𝒞_out ∩ {v < v_K} and on 𝒞_in ∩ {u < u_K} (the constraints there have the background's coefficients
+and corner values). [[lem:loc-cone-cauchy]], case (I), [[lem:loc-cone-past]], [[lem:loc-cone-support]],
+[[lem:loc-cone-constraints]] and [[lem:loc-cone-gauge]] give a solution with (a) and (c) on G_*; and (d) is
+[[lem:loc-cone-unique]] together with (b) for the solution of (a), which equals the background where ϑ < ϑ_a′ − η/4 or
+ϑ > ϑ_b′ + η/4, so where ϑ < 3η or ϑ > π/2 − 3η. For (b): [[lem:loc-cone-support]] and the last part of
+[[lem:loc-cone-gauge]] give the background at the points of G_* with ϑ < ϑ_a′ − 2C_* ((u + δ_c)(v + δ_c))^(1/2), with
+ϑ > ϑ_b′ + 2C_* ((u + δ_c)(v + δ_c))^(1/2), or with u < u_K and v < v_K. The construction may be made with every smaller
+δ_c, and by (d) the solutions coincide on G_*, all of them equalling the background where ϑ < 3η or ϑ > π/2 − 3η; letting
+δ_c → 0 gives (b), since C_0 ≥ C_* in place of C_* serves in [[lem:loc-cone-support]]. Finally 2C_0 (uv)^(1/2) ≤
+2C_* δ_* ≤ η/4 on G_*, and ϑ_a′ > ϑ_a, ϑ_b′ < ϑ_b. ∎
+

@@ -1093,7 +1093,7 @@ with S̃ smooth, Q ∈ ρ³Diff¹_b, R ∈ ρ²C^∞, P^C_b ∈ ρ²Diff²_b, an
 γ_C{2(1 − v_C), (1 − e_C)(1 − v_C), 1 − v_C (three times)}, all positive.
 
 *Proof.* On 4 + 1 Minkowski space with c = |x|⁻¹(dt − v dr) this is [[prop:np-10-21]] (i), with S̃, Q and R zero: the
-∂_(t_*)∂_ρ-coefficient is 2 Id, there is no ∂_(t_*) times a tangential derivative, and S̄^C is r/2 times the
+∂_(t_*)∂_r-coefficient is 2 Id, there is no ∂_(t_*) times a tangential derivative, and S̄^C is r/2 times the
 ∂_(t_*)-coefficient less (n − 1)/2 = 3/2. (A change of frame by a bundle map depending on x̂ alone, such as
 dt = dt_* + x̂ · dx, commutes with ∂_(t_*) and ρ∂_ρ and preserves each class below.) For g_b and c_C we count as in the
 proof of [[lem:iii-d2-2-1]]. Near ∂X, in the coordinates (t_*, x), the components of g_b, g_b⁻¹, ḡ and ḡ⁻¹ are smooth
@@ -1358,7 +1358,7 @@ they persist on a neighbourhood U of b₀. A future timelike V has dr(V) < 0, so
 (d) is direct. ∎
 
 **Lemma {#lem:iv5-0-4}** (The fibre algebra and the subprincipal symbol; [Hin26a, Lemmas 3.3–3.9, Corollary 3.6] in
-dimension 4 + 1.) At every point of M^♭, [[lem:iv4-1-1]] and [[lem:iv4-1-causal]] hold for (g, c, e), with
+dimension 4 + 1.) At every point of M^♭, [[lem:iv4-1-1]] and [[lem:iv4-1-causal]] hold for (g, rc, e), with
 B := g⁻¹ − (1 + e)G(c)⁻¹c♯ ⊗ c♯. The skew-adjoint part S := (2ih)⁻¹(L_h − L_h*), adjoint for |dg| and B, is the bundle
 map of [[eq:s14-s]], which is [Hin26a, Lemma 3.9] in dimension 4 + 1. There is C > 0, uniform for b ∈ U, such that
 C(ρ_sf⁻²ℓ(ζ))² + ρ_sf⁻²G(ζ) is B-positive definite for 0 ≠ ζ ∈ ³ᵇT*_Ω M^♭.
@@ -1756,8 +1756,8 @@ The energy estimates rest on a quadratic form built from G, a covector η and �
 T_(G,η,ℓ), on its positivity ([Hin26a, Lemma 5.14]) and on an integrated inequality drawn from it ([Hin26a, Corollary
 5.15]). They are stated and proved here in the form the proofs below use.
 
-**Lemma {#lem:iv5-6-tform}** (The form T_(G,η,ℓ) and its positivity; [Hin26a, (5.61) and Lemma 5.14] in dimension
-4 + 1.) Let g be a time-oriented Lorentzian inner product on a real vector space V of dimension D ≥ 3, with ⟨·, ·⟩ and
+**Lemma {#lem:iv5-6-tform}** (The form T_(G,η,ℓ) of [Hin26a, (5.61)] and its positivity, in place of [Hin26a, Lemma
+5.14].) Let g be a time-oriented Lorentzian inner product on a real vector space V of dimension D ≥ 3, with ⟨·, ·⟩ and
 G(ζ) = ⟨ζ, ζ⟩ taken with g⁻¹, let E be a real vector space with an inner product B, and let ℓ : V* → End E be linear
 with B-self-adjoint values. For η ∈ V* put
 
@@ -1819,7 +1819,7 @@ A past timelike η is λ₁η₁ + λ₂η₂ with λ₁, λ₂ > 0 and η₁, �
 through η and a spacelike covector); so 𝒬_(G,η,ℓ) = λ₁𝒬_(G,η₁,ℓ) + λ₂𝒬_(G,η₂,ℓ) ≥ 0, with nullspace
 (η₁ ⊗ V*) ∩ (η₂ ⊗ V*) = 0.
 
-The positivity in (b) uses the form of ℓ; the hypothesis of (a) alone does not give it. For D = 3, g⁻¹ = diag(−1, 1, 1)
+Positivity of 𝒬 on all of V* ⊗ E, as in (b), uses the form of ℓ, not the hypothesis of (a) alone. For D = 3, g⁻¹ =
 in a basis f⁰, f¹, f² with f⁰ past timelike, E = ℝ² with the Euclidean B, and ℓ(f⁰) := −Id, ℓ(f¹) := sJ₁,
 ℓ(f²) := sJ₂, where J₁ := diag(1, −1), J₂ has the rows (0, 1) and (1, 0), and 2^(−1/2) < s < 1: a future causal
 ζ = −αf⁰ + θ₁f¹ + θ₂f², α ≥ |θ| and α > 0, gives ℓ(ζ) the eigenvalues α ± s|θ| > 0; but
@@ -1828,9 +1828,9 @@ in a basis f⁰, f¹, f² with f⁰ past timelike, E = ℝ² with the Euclidean 
 (c) The minimum of 𝒬_(G,η,ℓ)(ξ) over Σ_μ B(ξ_μ, ξ_μ) = 1 is continuous in (g, c, η), as B, ℓ and T are, and it is
 positive on K by (b). ∎
 
-**Corollary {#cor:iv5-6-energy}** (The energy identity and the integrated inequality; [Hin26a, Corollary 5.15] in
-dimension 4 + 1.) Let N ⊂ ℝ_t × (ℝ⁴ ∖ 0) be open, with the coordinates z⁰ = t, z^i = x^i and r = |x|, a Lorentzian
-metric g, a timelike 1-form c, g being time-oriented so that c is past timelike, and e ∈ (0, 2/5). Let ℓ := ℓ_(g,c,e)
+**Corollary {#cor:iv5-6-energy}** (The energy identity and the integrated inequality, in place of [Hin26a, Corollary
+5.15].) Let N ⊂ ℝ_t × (ℝ⁴ ∖ 0) be open, with the coordinates z⁰ = t, z^i = x^i and r = |x|, a smooth Lorentzian metric
+g, a smooth timelike 1-form c, g being time-oriented so that c is past timelike, and e ∈ (0, 2/5). Let ℓ := ℓ_(g,c,e)
 and B be as in [[eq:s14-ell]], 𝒬 as in [[eq:iv5-6-t]] in the frame dz^μ, ∇ the Levi-Civita connection of g and
 ℓ^λ := ℓ(dz^λ); for a 1-form ω put ℓ⟨∇ω⟩ := Σ_λ ℓ^λ∇_λω and |r∇ω|²_B := Σ_μ B(r∇_μω, r∇_μω), and let Bℓ^λ be the
 bilinear form (ω₁, ω₂) ↦ B(ℓ^λω₁, ω₂).
@@ -1945,7 +1945,7 @@ free of the dimension.
 applies, on N := ℝ_t × {r > ½r_♯} and R := {r ≥ r_♯, τ ≤ T_0}, with f_1 := τ − T_0, f_2 := r_♯ − r and
 w := ρ_sf^(−α_sf−2)e^(−𝔛τ), so that a = wH(T_0 − τ)H(r − r_♯). Its bulk term carries
 −d(w²) = 2w²(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf), and its two boundary terms carry dτ on {τ = T_0} and −dr on Σ^♯; these are
-the parts of −a da with the weights 𝔛a² + ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(T_0 − τ) and ρ_sf^(−2α_sf−4)e^(−2𝔛τ)δ(r − r_♯).
+the parts of −a da = −½d(a²) with the weights 𝔛a² + ½w²δ(T_0 − τ) and ½w²δ(r − r_♯).
 The hypotheses of [[cor:iv5-6-energy]] (ii) hold uniformly for b ∈ U. The components of g and rc, continuous on the
 compact Ω and in b ([[lem:iv5-0-2]] (a), (d)), lie in a compact set of pairs, rc being past timelike
 ([[lem:iv5-0-5]] (1)); e = 1/102400 < 2/5; and r(𝔛dτ + (α_sf + 2)dρ_sf/ρ_sf) = 𝔛(dt − τ dr) − (α_sf + 2)dr,
@@ -2369,7 +2369,9 @@ main term, because the b-principal symbol of (□^C)^(0) is ξ_b² + |η_b|², s
 T_j ∈ ρDiff¹_b and R ∈ ρ²Diff¹_b. The rest is subprincipal or elliptic ([Hin26a, p. 90]).
 
 *Uniformity* in σ near ±1 is the limiting absorption principle. At R_out, [[lem:iv6-0-flow]] (c), with the same
-cut-offs for every σ ∈ e^(i[0,π]), gives the main term (2ℓ + 1)(1 − κξ)a² with 1 − κξ ∈ [¾, 5/4] on supp a, and
+cut-offs for every σ ∈ e^(i[0,π]), gives the main term (2ℓ + 1)(1 − κξ)a², where |κξ| ≤ δ₂ on supp a if
+supp χ₂ ⊂ [−δ₂, δ₂]. Take δ₂ ∈ (0, ¼] with δ₂|2ℓ + 1| < m, m := 2h⁻¹(1 − e)(1 − v) − (2ℓ + 1) > 0 the margin of ℓ at
+R_out; then (2ℓ + 1)(1 − κξ) − 2h⁻¹S̄ ≤ −(m − δ₂|2ℓ + 1|) < 0 on supp a for every σ; and the lemma gives
 cut-off terms whose signs, supports and bounds do not depend on σ; the zero-section term (2ℓ + 1 − 2h⁻¹S̄)ρ^(−2ℓ) does
 not depend on σ either, and −AQ_3A has the sign of the main term. So the estimate at R_out holds with constants
 uniform on e^(i[0,π]), as in [[prop:i-a-4-9]]. Over the rest of ρ = 0 the estimates are microlocal near ρ = 0, where
@@ -2377,7 +2379,8 @@ uniform on e^(i[0,π]), as in [[prop:i-a-4-9]]. Over the rest of ρ = 0 the esti
 P₂ = 0 ([[eq:iv6-0-2]]; the ξ of [[ch:s01]] is −ξ here), and with ϑ_in as in [[eq:s14-theta-in]]. So the radial
 estimate at R_(Re σ,in) and the propagation along Char_(Re σ) are [[prop:i-a-4-6]] and [[prop:i-a-5-2]], with
 [[rem:i-a-5-2-uses]] (ii) for the absorption (Im σ)Re T. Their constants are uniform for σ ∈ I + i[0, ν], I a compact
-interval about ±1 not containing 0, the orders being admissible at every real σ₀ ∈ I with uniform margins, as the
+interval about ±1 not containing 0 (for [[prop:i-a-5-2]] by the argument of the proof of [[thm:i-a-7-2]] (1)), the
+orders being admissible at every real σ₀ ∈ I with uniform margins, as the
 orders constructed in the proof of [[lem:i-a-7-1]] are. Near r = 0 the normal operator of r²(□^C)^(σ) does not depend
 on σ, the terms with σ being O(r) there.
 
