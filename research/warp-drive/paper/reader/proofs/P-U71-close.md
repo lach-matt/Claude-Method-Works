@@ -521,9 +521,10 @@ and at the choice of [[def:uc-choice]], 3R > 1.2498·10²⁴, so that D_e < 1.00
 *Proof.* By [[prop:cs-cstar]], c_* < C_*. By [[lem:uc-admissible]] the hypotheses of [[prop:ec-upper]] hold, and by
 [[lem:uc-gaps]] it holds with the T_2 and W of [[eq:uc-t2-w]]. Its first line is less than D_e by [[prop:uc-explicit]],
 and its second line is at most Σ_k c(β_k) + N_b c_b + (N_b + 1)c′_b + c_0 ≤ (K + 2N_b + 2)c_* ≤ M_c C_*, again by
-[[prop:uc-explicit]]. So d_acc ≤ D_e + M_c C_* = D_acc, where M_c C_* = 244,153 · 64,368 · 10⁴⁰ = 15,715,640,304 · 10⁴⁰
-= 157,156,403,040 · 10³⁹; adding D_e = 1,258,700 · 10¹⁸ gives the integer printed, and 21D_acc + 6 is
-21 · 157,156,403,040 · 10³⁹ + 21 · 1,258,700 · 10¹⁸ + 6 = 3,300,284,463,840 · 10³⁹ + 26,432,700 · 10¹⁸ + 6.
+[[prop:uc-explicit]]. So d_acc ≤ D_e + M_c C_* = D_acc. Here M_c C_* = 244,153 · 64,368 · 10⁴⁰, which is
+15,715,640,304 · 10⁴⁰ = 157,156,403,040 · 10³⁹; adding D_e = 1,258,700 · 10¹⁸ gives the integer printed, and
+21D_acc + 6 is 21 · 157,156,403,040 · 10³⁹ + 21 · 1,258,700 · 10¹⁸ + 6, that is
+3,300,284,463,840 · 10³⁹ + 26,432,700 · 10¹⁸ + 6.
 [[lem:uc-dr]] gives the same bound for d_R, its first line being the same and its single-step losses being at most
 c_* < C_*. As d_R ≥ d_acc ≥ 3R > 1.2497·10²⁴ ([[lem:uc-phi-loss]], [[thm:loss-d]], [[cor:uc-two-offsets]]), which
 exceeds 1,038,326,399,999,948 ≥ 62N_Λ + 10 ([[lem:uc-lambda]] (d)), [[lem:uc-dr]] gives d_NM = d_R, and the bounds for
