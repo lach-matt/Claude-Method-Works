@@ -79,18 +79,6 @@ K = supp(u0) ∪ supp(u1) ∪ supp(f)."
 In (4) and (5), ∇ is the connection on E with which [BGP, Section 3.2] poses the Cauchy problem. Globally hyperbolic
 manifolds are connected, by [[thm:std-bgp-causal]] (1).
 
-**Theorem {#thm:std-bgp-riesz}** ([BGP, Definition 1.2.1, p. 10; Lemma 1.2.2 (4), p. 11; Proposition 1.2.4, p. 13],
-after [Rie49].) Let V be an n-dimensional Minkowski space, with ⟨x, y⟩ = −x₁y₁ + x₂y₂ + ⋯ + xₙyₙ and
-γ(X) := −⟨X, X⟩. For Re α > n,
-
-    R_±(α)(X) := C(α, n) γ(X)^((α−n)/2)  for X ∈ J_±(0),   R_±(α)(X) := 0  otherwise,
-
-    C(α, n) := 2^(1−α) π^((2−n)/2) / ((α/2 − 1)! ((α − n)/2)!).
-
-"The map α ↦ R_±(α) extends uniquely to ℂ as a holomorphic family of distributions". For all α ∈ ℂ: "(3)
-□R_±(α + 2) = R_±(α)"; "(4) For every α ∈ ℂ ∖ ({0, −2, −4, …} ∪ {n − 2, n − 4, …}), we have supp(R_±(α)) = J_±(0)
-and sing supp(R_±(α)) ⊂ C_±(0)"; "(7) R_±(0) = δ_0".
-
 **Theorem {#thm:std-hormander-cauchy}** (The Cauchy problem for wave operators on Minkowski space; proved below from
 [BW15, Definition 7 and Theorem 8, p. 13] and [BGP, Definition 3.4.1, pp. 88–89; Corollary 3.4.3, p. 89].) Let
 M = ℝ^(1+n) with the Minkowski metric and the Minkowski time t, and write J_±(A) = A + J_±(0) for the causal future and
@@ -295,34 +283,6 @@ with connection D̂ and Christoffel symbols Γ̂, and for a metric g put W^λ :=
 
 with f̂ "independent of the second derivatives of g".
 
-**Theorem {#thm:std-cbcl-harmonicity}** ([CBCL06, Section 3 and (3.1), p. 5; Section 5.1, p. 9].) "The vacuum Einstein
-equations in wave coordinates on ℝ^(n+1) constitute a set of quasi-diagonal quasi-linear wave equations for the
-components g_μν of the spacetime metric g, which we write symbolically as
-
-    g^(αβ) ∂²g/∂x^α∂x^β = F(g)(∂g/∂x)²,      (3.1)
-
-where the right-hand-side is a quadratic form in the first derivatives of the g's with coefficients polynomials in the
-g's and their contravariant associates." "The spacetime manifold will be a subset V of ℝ^(n+1). The geometric initial
-data on ℝⁿ are a metric ḡ and a symmetric 2-tensor K." In Section 3, p. 5: "We suppose also given on ℝⁿ the lapse N̄,
-shift β̄ as well as their time derivatives, chosen so that the corresponding spacetime metric and its first derivatives
-satisfy on ℝⁿ the harmonicity conditions F^μ = 0. If the initial data ḡ, K satisfy the constraints, a solution of the
-Einstein equations in wave coordinates on V is such that the harmonicity functions F^μ := □_g x^μ satisfy an
-homogeneous linear system of wave equations on (V, g), with also ∂_t F^μ = 0, hence F^μ = 0 if (V, g) is globally
-hyperbolic." In Section 5.1, p. 9, the initial data (ḡ, K) are given "on a manifold ℝⁿ embedded as a submanifold
-M_x := {x⁰ = 2λ} of ℝ^(n+1)_x", and: "We suppose these initial data satisfy the Einstein constraints, and we choose the
-initial lapse and shift so that the harmonicity conditions are everywhere initially zero. Any globally hyperbolic
-solution (V_x ⊂ ℝ^(n+1)_x, g) of the Einstein equations in wave coordinates taking these initial data is then a
-solution of the full Einstein equations. Such a solution exists if the initial data belong to H^loc_(s+1) × H^loc_s,
-s > n/2."
-
-**Theorem {#thm:std-lr-propagation}** ([LR05, (1.3), p. 2; Section 2.2, p. 8].) In 3 + 1 dimensions and wave coordinates
-the reduced Einstein–scalar field equations are "□̃_g g_μν = F_μν(g)(∂g, ∂g) + 2 ∂_μψ ∂_νψ, □̃_g ψ = 0" (1.3), with
-□̃_g := g^(αβ) ∂_α ∂_β; their vacuum case is ψ = 0. With the gauge's data (2.3)–(2.5), p. 8: "any solution of the system
-(2.1) with initial data … compatible with (2.2) and constraint equations, gives rise to a solution of the full Einstein
-system. In addition, thus constructed tensor g_μν will satisfy the wave coordinate condition (2.2) for all times." For
-the verification [LR05, p. 8] refers to Wald: "Verification of the above statements is straightforward and can be found
-in e.g. [Wa]."
-
 **Theorem {#thm:std-hin26a-cform}** ([Hin26a, Proposition 5.1, p. 38].) "Fix any v ∈ (0, 1) and C0 > 0. Fix moreover
 α_sf, α_K ∈ ℝ subject to the conditions α_sf < −1/2 and α_K > α_sf + 1/2. Set ρ_sf = r⁻¹ and ρ_K = r/t; put
 w := ρ_sf^(α_sf+1) ρ_K^(α_K) and w′ := ρ_sf^(α_sf+1). Then for all sufficiently small e > 0, there exists a 1-form
@@ -397,13 +357,6 @@ linearisation of the constraints map at (K, g) reads"
 
     P(Q, h) = ( −K^pq ∇_i h_pq + K^q_i (2∇^j h_qj − ∇_q h^l_l) − 2∇^j Q_ij + 2∇_i tr Q − 2(∇_i K^pq − ∇^q K^p_i) h_pq ,
                 −Δ(tr h) + div div h − ⟨h, Ric(g)⟩ + 2 K^pl K^q_l h_pq − 2⟨K, Q⟩ + 2 tr K (−⟨h, K⟩ + tr Q) ).   (2.2)
-
-**Remark {#rem:std-racz}** ([Rac16, (3.3), p. 6; (4.7), p. 8].) Rácz foliates the initial slice by codimension-one
-surfaces with a transverse coordinate ρ. The momentum constraint becomes the first-order system (3.3) for the mixed
-and trace parts (k_B, K^E_E) of the second fundamental form, with ρ as the evolution parameter, and he observes:
-"Notice that the coefficients of ∂_ρ and ∂_K are symmetric, and that the coefficient of ∂_ρ is also positive definite",
-K = 2, …, n being an index of coordinates on the leaves. The Hamiltonian constraint becomes a parabolic equation for the
-lapse of the foliation, (4.7).
 
 **Theorem {#thm:std-racz-hyperbolic}** ([Rac16, (4.20), (4.21) and Lemma 4.1, p. 12; Theorem 4.3, p. 14].) In the
 notation of [Rac16, Sections 3–4]: the slice Σ is foliated by the level surfaces S_ρ; κ is given algebraically by
@@ -526,16 +479,6 @@ Proposition 5.10.
 
 ### The characteristic initial value problem {#sec:std-characteristic}
 
-**Theorem {#thm:std-wu-characteristic}** ([Wu26, Theorem 2.1, p. 6].) The setting is that of [Wu26]: the Einstein
-vacuum equations in 3 + 1 dimensions, sections S², and the gauge (1.1). "Given initial null hypersurface H0, H̲0 and
-regular initial metric (g, Ω, b) on it, we define χ_AB = (1/2) ℒ_(e4) g_AB on H0 and χ̲_AB = (1/2) ℒ_(e3) g_AB on H̲0.
-Let ζ be a vector field on H0 ∩ H̲0. Suppose
-
-    e4(tr χ) + |χ|² + 2ω tr χ = 0,    e3(tr χ̲) + |χ̲|² + 2ω̲ tr χ̲ = 0
-
-hold on H0, H̲0 respectively, then there is a future open neighborhood of H0 ∪ H̲0 and metric (g, b, Ω) on it solving
-the Einstein vacuum equations and extending the initial data (g, Ω, b) and ζ."
-
 **Theorem {#thm:std-ctg-neighbourhood}** ([CTG23, Theorem 1.1, pp. 2–3].) "The maximal globally hyperbolic development
 of smooth initial data for vacuum Einstein equations with a (possibly zero) cosmological constant Λ ∈ ℝ, on two
 characteristic hypersurfaces intersecting transversally, contains a future neighborhood of the initial data
@@ -644,12 +587,6 @@ positive surface gravity κ_n := (n − 1)/(2r_h)" (20).
 ### Function spaces {#sec:std-function-spaces}
 
 In [BH17], s ∈ ℝ and p ∈ (1, ∞) throughout unless stated otherwise (p. 1).
-
-**Theorem {#thm:std-bh-extension}** ([BH17, Theorem 7.21, p. 55].) "Let Ω ⊂ ℝⁿ be a bounded open set with Lipschitz
-continuous boundary. Then for all s > 0 and for 1 ≤ p < ∞, there exists a continuous linear extension operator P :
-W^(s,p)(Ω) ↪ W^(s,p)(ℝⁿ) such that (Pu)|_Ω = u and ‖Pu‖_(W^(s,p)(ℝⁿ)) ≤ C ‖u‖_(W^(s,p)(Ω)) for some constant C that may
-depend on s, p, and Ω but is independent of u." The spaces are the Sobolev–Slobodeckij spaces of [BH17, Definitions 7.1
-and 7.11].
 
 **Theorem {#thm:std-bh-embedding}** ([BH17, Theorem 7.26, p. 55].) "Let Ω be a nonempty bounded open subset of ℝⁿ with
 Lipschitz continuous boundary or Ω = ℝⁿ. If sp > n, then W^(s,p)(Ω) ↪ L^∞(Ω) ∩ C⁰(Ω) and W^(s,p)(Ω) is a Banach
