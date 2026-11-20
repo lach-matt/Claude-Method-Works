@@ -214,13 +214,15 @@ cones through the corner sphere, data localised in an angular band exist exactly
 gauge on a neighbourhood {min(u, v) ≤ δ} of the cones, without smallness, equal to the background outside a slightly
 wider band and unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]); δ
 depends on the data, and for data near the background's the neighbourhood is explicit and the solution carries an
-estimate ([[thm:loc-cone-development]]). Developments of cone data that differ from the background's near an axis are
-not established ([[rem:loc-cone-scope]]). Cone data with finitely many null shells along leaves of the two cones, with
-densities smooth in angle and supported in a band away from the axes, have developments that are continuous, smooth
-between the shells and solutions in the sense of distributions, on a neighbourhood of the cones on which the shells do
-not cross, and a solution continues through a crossing sphere on a small square; general measure-valued densities and
-shells that are not round at an axis are not treated ([[thm:loc-shells]], [[prop:loc-shell-crossing]],
-[[rem:loc-shell-scope]]).
+estimate ([[thm:loc-cone-development]]). Cone data near the background's, localised in angle or not, have a development
+on the whole rectangle of the two cones, [0, 7.2] × [0, 4.5], in which the two dusts cross, with an estimate and unique
+in the gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Developments of cone data that differ
+from the background's near an axis and are not near the background's are not established ([[rem:loc-cone-scope]],
+[[rem:loc-axis-scope]]). Cone data with finitely many null shells along leaves of the two cones, with densities smooth
+in angle and supported in a band away from the axes, have developments that are continuous, smooth between the shells
+and solutions in the sense of distributions, on a neighbourhood of the cones on which the shells do not cross, and a
+solution continues through a crossing sphere on a small square; general measure-valued densities and shells that are
+not round at an axis are not treated ([[thm:loc-shells]], [[prop:loc-shell-crossing]], [[rem:loc-shell-scope]]).
 
 ### At the prescribed wavelength 10 l5 {#sec:scope-ten-l5}
 

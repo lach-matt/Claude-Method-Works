@@ -637,7 +637,8 @@ with g = ĝ + h Lorentzian, put at each point
     𝔧 := max(𝔰, |Ψ_B|, |D̂Ψ_B| (|B| ≤ N), |D̂²Ψ_B| (|B| ≤ N − 1)),
 
 the maxima over words B in Γ. The tensors in the first line are the low quantities. Let Λ ≥ 1 be a bound at the point
-for the norms of ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z] and ℒ^B R̂ for all words B with |B| ≤ N and all Z ∈ Γ, and put
+for the norms of ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z], D̂ℒ^B Γ′[π^Z] and ℒ^B R̂ for all words B with |B| ≤ N and all
+Z ∈ Γ, and put
 𝔤₀ := √5 + 1/4 and, with the ordered Bell numbers F₀ = F₁ = 1, F₂ = 3, F₃ = 13, F₄ = 75, F₅ = 541,
 F_k = Σ_(r) r! S(k, r) in general,
 
@@ -712,8 +713,8 @@ with the maps of [[def:tl5-hf-coupling]] and 𝔠_n of [[eq:tl5-hf-cn]], and �
 
     𝔰(p) ≤ C_∞(p) ℰ⁰_N(p)^(1/2) + C_(∞,ϱ)(p) ϱ(p),                                                    {#eq:tl5-hf-linfty}
 
-with C_∞ := 2 max(2C_S, C₁, k₁(p) max(C_S, C₁)), C_(∞,ϱ) := 2 max(C_(1,ϱ), k₁(p) C_(1,ϱ) + k₂(p)), C_S of
-[[eq:tl5-hf-cs]] and
+with 𝔐 := Σ_(j≤N−3) 7^j the number of words of length at most N − 3, C_∞ := 2 max(2C_S, C₁, k₁(p) (2𝔐)^(1/2)
+max(C_S, C₁)), C_(∞,ϱ) := 2 max(C_(1,ϱ), k₁(p) (2𝔐)^(1/2) C_(1,ϱ) + k₂(p)), C_S of [[eq:tl5-hf-cs]] and
 
     C₁² := 258 C_(S³)² 𝔭₃ 𝔴(p)⁶ sup_(Σ₁(a,b)) 𝔳⁶ R⁻³ 𝔨₂ ((1 + 18|D̂∂_γ|²)(1 + 6Λ)² + 4|∂_γ|² (72Λ² + 8(k₁ + 1)²)),
     C_(1,ϱ)² := 258 C_(S³)² 𝔭₃ 𝔴(p)⁶ sup_(Σ₁(a,b)) (𝔳⁶ R⁻³ 32 |∂_γ|² k₂²) · ∫_(Σ₁(a,b)) dμ dτ₂/(1 − κκ′).
@@ -744,6 +745,7 @@ by [[eq:tl5-hf-coercive]] and [[lem:tl5-hf-densities]], |Ψ_C|² + |D̂Ψ_C|² �
 
 *Second order at low levels.* For |B| ≤ N − 4 every solution factor of every monomial of ℒ^B N(h) is low, so the proof
 of [[lem:tl5-hf-quadratic]] gives |ℒ^B N(h)| ≤ (𝔠_(|B|) + 1) 𝔰², and the computation above at p, with every term of
-𝒥₁ and of M₂ replaced by the low quantities, gives |D̂²Ψ_B(p)| ≤ k₁ max(C_S, C₁) ℰ⁰_N^(1/2) + (k₁ C_(1,ϱ) + k₂) ϱ +
-k₃ 𝔰(p)²; as k₃ 𝔰(p) ≤ 1/2, the last term is at most 𝔰(p)/2. Taking the maximum of the four bounds and absorbing
+𝒥₁ replaced by L := (Σ_(|C|≤N−3) (|Ψ_C|² + |D̂Ψ_C|²))^(1/2) ≤ (2𝔐)^(1/2) (max(C_S, C₁) ℰ⁰_N^(1/2) + C_(1,ϱ) ϱ), as
+all words involved have length at most N − 3, gives |D̂²Ψ_B(p)| ≤ k₁ L + k₂ ϱ + k₃ 𝔰(p)²; as k₃ 𝔰(p) ≤ 1/2, the
+last term is at most 𝔰(p)/2. Taking the maximum of the four bounds and absorbing
 𝔰(p)/2 gives [[eq:tl5-hf-linfty]]. ∎

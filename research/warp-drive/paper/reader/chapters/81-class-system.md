@@ -1324,9 +1324,13 @@ Hardy-type averages of [[prop:class-flat-model]] (b).
 **Lemma {#lem:class-leaf-differences}** (The planar shear of nearby solutions.) Let ů be a smooth class solution and,
 near a point of axis 2, let h̊ be the leaves of ů_A. For U = (g, p_A, Θ_A, q_A) on a slice let the leaves of family A
 be the graphs z = h(r) through the points of the axis near that point, each solving [[eq:class-leaf-volterra]] with
-H_L := H_L[Θ_A], the formula of step (1) of [[lem:class-planar-shear]] with Θ_A in place of Θ and the spatial part of
-p_A in place of ∇_Σ u; they exist and are unique by [[lem:class-volterra]], and for U near ů they are C¹-close to the
-leaves of ů and foliate a neighbourhood of the axis. Let σ[U] at a point be the planar shear [[eq:class-shear-leaf]] of
+H_L := H_L[Θ_A], the formula of step (1) of [[lem:class-planar-shear]] with Θ_A in place of Θ, the spatial part p_A^Σ
+of p_A in place of ∇_Σ u, p_A(n) in place of n(u), the sign that of p_A(∂_z), and the trace of K_Σ taken over the
+γ3-orthogonal complement of p_A^Σ in TM3 in place of TΣ_L. That plane is fixed by p_A at each point, so H_L[Θ_A] is a
+function of the point, as [[lem:class-volterra]] requires; when p_A is the differential of a phase it is the tangent
+plane of the level set of the phase through the point, and H_L[Θ_A] is the formula of step (1) for that level set. The
+leaves exist and are unique by [[lem:class-volterra]], and for U near ů they are C¹-close to the leaves of ů and
+foliate a neighbourhood of the axis. Let σ[U] at a point be the planar shear [[eq:class-shear-leaf]] of
 the leaf through it. Let k ≥ 6. There are a ball 𝔅 around ů in the norm 𝒩_k, a ball 𝔅′ ⊃ 𝔅 around ů in the norm
 𝒩_(k−1), and C, such that:
 

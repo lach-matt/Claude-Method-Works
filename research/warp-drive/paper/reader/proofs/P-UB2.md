@@ -1,11 +1,11 @@
 # P-UB2: the upper bound of chapter 71 as a function of the admissible choice
 
 Proof file for the coordinator. Nothing in chapters/, crosswalk/ or elsewhere in the repository was edited; this is the
-only file written there. Every old text below is copied from the chapter files at HEAD db20bc79 (equal to the
+only file written there. Every old text below is copied from the chapter files at HEAD 099e8d51 (equal to the
 working tree for these files): 71-explicit-constants.md md5 427412e02c74261f1f87da24b60ddbca,
 00-front.md fcb33a08a5d5df2ae599389726a59dba, 01-introduction.md 9cfc5f6bcd496e6d6100c3bf7ed88ffa,
-03-theorems.md 4c4bc00c635267eef3f73f747efee2d0, 63-own-data.md 2bd560af0194b8699f05a6fc017404a6,
-90-scope.md f8bb7fcc4374ce0cf27c627813c78507. Each old text occurs exactly once in its file as whole lines;
+03-theorems.md 111b543af3582ab25a102e8e74340889, 63-own-data.md 2bd560af0194b8699f05a6fc017404a6,
+90-scope.md f6e86ae39d5845d92bd2ba21e5a059d6. Each old text occurs exactly once in its file as whole lines;
 line numbers are of those files. The texts were merged with P-UB1's texts T1–T14 on a scratch copy made from a git
 archive of HEAD and checked there, through the assembled paper (section 7).
 
@@ -73,8 +73,9 @@ Each is non-decreasing in N̄_Λ, k̄_0, J′ and non-increasing in ε_K ([[prop
 2. **Nothing else in the chain uses a numerical value of an input except through the formulas of 1.2**, and one
    inequality between them: T_11 < T_12, that is 4k̄_max + 24 > I_base + 22,119, which lem:uc-small-orders (d) and
    rem:uc-small-reading use (Steps 4′ and 4 read at an order below T_12). At the choice it holds with a factor
-   1.97 (X_12 = 2,783,094,768,362,907,767,098,404 against I_base + 22,119 = 1,407,588,774,438,516,741,176,921); at N̄_Λ = 909,507,124,095,312 it fails for ε_K below
-   about 8.48·10⁻¹⁸. prop:uc-dependence assumes it (block M12); block M23c prints it at the choice. I_lev, W, the
+   above 1.97: X_12 = 2,783,094,768,362,907,767,098,404, against
+   I_base + 22,119 = 1,407,588,774,438,516,741,176,921. At N̄_Λ = 909,507,124,095,312 it fails for ε_K below about
+   8.48·10⁻¹⁸. prop:uc-dependence assumes it (block M12); block M23c prints it at the choice. I_lev, W, the
    level-2 and level-3 counts, the per-step charges, d_BG and ℓ⁺_tf do not involve ε_K or N_Λ; R_b is ⌊1/Δβ_0⌋ + 2
    (exact) instead of a rounded constant.
 3. **Slack, proved (new): the levels split.** lem:cs-sharp charged every one of the K ≤ K̄ levels C_lev, but at most
@@ -1680,7 +1681,7 @@ and earlier).
   the merged assembly plus one character per label; no wrapped line starts with "+ ", "- ", "* ", "> ", "#", "=", "|"
   or "− "; a number "a × 10ⁿ" is never split across lines; labels lowercase; no unfilled placeholder; each old text
   occurs exactly once as whole lines.
-- **Scratch merge from a git archive of HEAD db20bc79** (nothing run in the repository): P-UB1's 14 texts T1–T14
+- **Scratch merge from a git archive of HEAD 099e8d51** (nothing run in the repository): P-UB1's 14 texts T1–T14
   (located by their old texts) and the 42 main blocks applied together, disjoint. Results:
   lint --chapters: "chapters: 62 file(s), 4815 label(s) defined, 0 hit(s)";
   assemble --check: "labels 4815, computations cited 0, problems 0";
@@ -1701,13 +1702,16 @@ and earlier).
    (e)) now ends "exceeds R_base + 22, so that also T_11 < T_12 in (d)" (the reader's optional change).
 2. **Major 2:** the fallback set is retired (section 6); every reference to it is removed from §§1.4, 4, 7.
 3. **minor 1 (M10):** N̄_Λ = 909,507,124,095,312 is even, so the display of lem:uc-n-iota now reads "where N̄_Λ/2 =
-   454,753,562,047,656" and "4 · 909,507,124,095,312 + 765,000,816 · 454,753,562,047,656 · 909,507,124,095,313 = N_ι"; the generator
-   branches on the parity. N_ι itself is unchanged.
+   454,753,562,047,656" and
+
+       4 · 909,507,124,095,312 + 765,000,816 · 454,753,562,047,656 · 909,507,124,095,313 = N_ι;
+
+   the generator branches on the parity. N_ι itself is unchanged.
 4. **Nits.** M3: no number "a × 10ⁿ" is split across lines (the wrapper keeps " × 10" together; M3 now ends "and N_NM at
    most one below" / "1.59022 × 10⁵⁷."). M25a: "with D_NM := …" → "with D_NM = …". k̄_0 of lem:uc-small-orders (b),
    (c) renamed k̂_0 (M23a, and the new rename blocks M23d, M23e for its proof lines at HEAD 4769–4772 and 4795). The
    generator derives the exponents of M26b (k̄ > 10⁵⁷, 10⁻⁵⁵) and the factor 1.0072 of M5, M12 instead of
-   printing fixed ones. Header md5s are those of HEAD db20bc79. The FO-nits are moot (fallback retired); no kept block
+   printing fixed ones. Header md5s are those of HEAD 099e8d51. The FO-nits are moot (fallback retired); no kept block
    has the same defects.
 5. **Option L applied** (cor:is-lower confirmed and kept): M12's eq:uc-lower "3R > 1.2250·10²⁷, N_NM > 2.5725·10²⁸",
    its proof "[[eq:uc-lower]] is [[cor:is-lower]]."; M7 "against the lower bound 1.2250·10²⁷ ([[cor:is-lower]])";
