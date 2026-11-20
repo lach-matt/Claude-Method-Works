@@ -694,9 +694,9 @@ So the stationary wave-type operators for g are the operators whose spectral fam
 #### Tensor wave operators {#sec:ii-c-1-2}
 
 **Lemma {#lem:ii-c-1-3}** (Tensor wave operators; [Hin26c, Example 5.4] at n = 4.) Identify (p, q)-tensors on ℝ^(1+4)
-with ℂ^(N_E)-valued functions, N_E = 5^(p+q), by the coordinate frame of (t_*, x¹, …, x⁴) (for 1-forms, the frame dt_*, dx^i
-of [[sec:i-a-1-2]]). Let ∇ be the Levi-Civita connection of g and □_g^((p,q)) := −g^(μν)∇_μ∇_ν. Then □_g^((p,q)) is a
-stationary wave-type operator for g with S = 0, so S̄ = 0, and
+with ℂ^(N_E)-valued functions, N_E = 5^(p+q), by the coordinate frame of (t_*, x¹, …, x⁴) (for 1-forms, the frame dt_*,
+dx^i of [[sec:i-a-1-2]]). Let ∇ be the Levi-Civita connection of g and □_g^((p,q)) := −g^(μν)∇_μ∇_ν. Then □_g^((p,q)) is
+a stationary wave-type operator for g with S = 0, so S̄ = 0, and
 
     (□_g^((p,q)))^∧(0) − (□_ḡ^((p,q)))^∧(0) ∈ ρ⁴Diff²_b(X̄; E),                                       {#eq:ii-c-1-2}
 

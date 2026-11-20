@@ -572,7 +572,7 @@ symbol J(ι) = I(−ι) ([[sec:i-c-4-1]] (c)); so a root μ of J is −μ_b, μ_
 **Lemma {#lem:iii-f1-3-1}** (Relative index.) Let β_1 < β_2 < β_1 + 1, neither the real part of a point of spec_b,
 and s ∈ ℤ. Then ind(β_2) − ind(β_1) = dim F, where F := ⊕_μ F_μ over the roots μ of J with −β_2 < Re μ < −β_1 and
 
-    F_μ := {Res_(ι=μ)(ϱ^ι J(ι)⁻¹ g(ι)) : g holomorphic near μ, C^∞(𝕊³; ℂ^(N_E))-valued}.                     {#eq:iii-f1-3-1}
+    F_μ := {Res_(ι=μ)(ϱ^ι J(ι)⁻¹ g(ι)) : g holomorphic near μ, C^∞(𝕊³; ℂ^(N_E))-valued}.                 {#eq:iii-f1-3-1}
 
 dim F_μ is the sum over the finitely many W_π on which μ is a root of ord_μ det(J|_(W_π)), the algebraic
 multiplicity; when J is an indicial family as in [[lem:iii-f1-2-4]], it is the multiplicity of −μ as a root of I on
