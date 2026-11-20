@@ -64,3 +64,16 @@ d_NM ≤ D_NM = 75,724,446,520,791,266,568,624,181,582,042,570,869,522,603,615,6
 rem:ec-lb-unbounded h ≤ 6.46·10⁻²⁹.
 Scratch merge (git archive of HEAD a9ebbff6) with P-UB1's T1–T14: lint --chapters 0 hits (4794 labels), assemble
 --check and assemble 0 problems, lint --paper 0 hits; same for fallback set. Delta list: proof file §8.
+
+## FIX ROUND (R-P-UB2) — proof file md5 75319d6e5051df9521c0a23f6fb6c3ff, 1730 lines
+Major 1: prop:uc-dependence = R-P-UB2's replacement (hypothesis 4k̄_max + 24 > I_base + 22,119, i.e. T_11 < T_12;
+spacings via prop:ec-upper/eq:ec-upper-counts hypotheses; lem:uc-lambda (c) only); M23c prints X_12 > R_base + 22.
+Major 2: fallback retired (§6 says why). minor 1: M10 parity (N̄_Λ even: N̄_Λ/2 · (N̄_Λ + 1)). Nits: no split
+"a × 10ⁿ"; M25a "="; k̂_0 rename (M23a, M23d, M23e); exponents and 1.0072 derived; header md5s at HEAD db20bc79.
+Option L applied (cor:is-lower): eq:uc-lower 3R > 1.2250·10²⁷, N_NM > 2.5725·10²⁸; K > 22d > 2.695·10²⁸;
+K* > 9.684·10⁵⁶; new/extended blocks M1 (71:23), O1, O2 (01:155–156), L2 (thm:loss-d), L3 (rem:ec-lb-unbounded),
+L4 (thm:uc-reduction closing), L5 (90:73–74). Stay: cor:uc-two-offsets, thm:loss-d (ii), prop:ec-delta-cap,
+rem:ec-lb-conditions (any index sets), thm:ec-lb-proved and quotes (every point of the proved set).
+Upper bounds unchanged: D_acc < 3.78623·10⁵⁵, D_NM < 7.57245·10⁵⁵, N_NM < 1.59022·10⁵⁷, K < 1.66594·10⁵⁷,
+K* < 1.11014·10¹¹⁵. Merge at db20bc79 with T1–T14 + 42 blocks: lint --chapters 0 (4815 labels), assemble --check 0,
+assemble 0, lint --paper 0.

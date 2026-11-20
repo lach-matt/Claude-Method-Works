@@ -370,7 +370,7 @@ equation there, as R = 0 on [−m, 0] and F(u^n) = F(u_*) there by (M0). Put Y_n
 coefficients at u^n, gives, as long as the u^j lie in the ball, Y_(n+1)(τ_(i+1)) ≤ B′ Y_(n+1)(τ_i) + B′ θ^(1/2)
 Y_n(τ_(i+1)) + B′ δ. Put M_0 := 0 and M_(i+1) := 2B′ (M_i + δ), and take B′ θ^(1/2) ≤ ¼. If Y_n(τ_j) ≤ M_j for all j,
 then by induction on i, Y_(n+1)(τ_(i+1)) ≤ B′ M_i + M_(i+1)/4 + B′ δ ≤ M_(i+1); as Y_0 = 0, this holds for all n, and
-M_N ≤ (4B′)^N δ ≤ ρ for δ small: every u^n lies in 𝒫_(T0). *Convergence.* δ^(n+1) := u^(n+1) − u^n vanishes on
+M_N ≤ (4B′)^N δ ≤ ρ, δ := ‖R‖_(H^s([−m,T0])) ≤ ε0, for ε0 small: every u^n lies in 𝒫_(T0). *Convergence.* δ^(n+1) := u^(n+1) − u^n vanishes on
 [−2m, 0], and, as in the contraction of (a), ‖δ^(n+1)(t)‖ ≤ C t^(1/2) ‖δ^n‖_(L²([0,t]×R^d)); with Q_n := sup_t e^(−λt)
 ‖δ^n(t)‖, ‖δ^n‖²_(L²([0,t]×R^d)) ≤ Q_n² e^(2λt)/(2λ), so Q_(n+1) ≤ C T0^(1/2) (2λ)^(−1/2) Q_n ≤ ½ Q_n for λ large. So u^n
 converges in C([−2m, T0]; L²); its limit is a solution, as in (a), within ρ of u_*, hence the solution u of (b), by the
