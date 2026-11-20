@@ -563,3 +563,43 @@ Every new line is at most 121 characters, in the source and with labels resolved
 - The upper-bound decimals are unchanged and were re-verified: D_acc < 3.78623·10⁵⁵, D_NM < 7.57245·10⁵⁵,
   N_NM < 1.59022·10⁵⁷, K < 1.66594·10⁵⁷, K* < 1.11014·10¹¹⁵.
 - The Option L numbers check as above.
+
+## Final confirmation
+
+**CONFIRMED.**
+
+**What I read.**
+- proofs/P-UB2.md, md5 4b2831564a19e1572794761ce2ef77da, 1759 lines, at HEAD 96512963.
+- P-UB1, md5 58b580faf8acbc14503d7c5e33c0b087; its T1–T14 are identical to the previous round's.
+
+I edited no repository file.
+
+**The full diff against 75319d6e touches only what §8.0 lists:**
+
+1. **New block L4b** (thm:uc-reduction, end of the proof, chapter 71 lines 2573–2574): exactly my text.
+   - Its old text occurs once, at those lines.
+   - It overlaps neither M8 (2559–2564) nor L4 (2566–2568), nor any of P-UB1's T-blocks.
+   - The proof now reads "The last assertion is [[cor:is-lower]] and [[thm:uc-integer]]. ∎", which proves the closing
+     assertion as L4 raised it.
+2. **M25b**: the word sequence of its last three lines is exactly my C-n1 text. The writer re-wrapped it; with labels
+   resolved, every line is at most 121 characters.
+3. **Header**: P-UB1's md5 is 58b580fa…, and HEAD is 481f86a1. Its chapter md5s equal those at HEAD 96512963.
+4. **§1.4**: the last bullet now names M8, L4 and L4b for thm:uc-reduction, and R6 lists M25b and L4b. The §4.1 and
+   §4.2 tables list L4b and M25b. §§7 and 8 are updated.
+
+No other block changed, and no number changed.
+
+**Scratch merge** (P-UB1's T1–T14 with all 43 P-UB2 blocks, from a git archive of HEAD 96512963):
+
+| copy | lint --chapters | assemble --check | assemble | lint --paper |
+|---|---|---|---|---|
+| merged (ymain/) | 0 hits, 4845 labels | 0 problems | 0 problems | 0 hits |
+| base (ybase/) | 0 hits, 4833 labels | 0 problems | 0 problems | 0 hits |
+
+The scratch copies are under /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/rpub2/.
+
+- All 43 old texts occur exactly once, as whole lines, at their stated lines.
+- No two blocks overlap.
+- Every new line is at most 121 characters, and the wrap rule holds.
+
+No Major, minor or nit remains open.

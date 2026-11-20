@@ -83,20 +83,20 @@ whether or not h ∈ 𝖩 and whether or not h ≥ h_m; at h = 10⁻⁶, μ(h) =
 needs an h ∈ [h_m, 10⁻⁶) at which the parameter point (h, 1/100, 1/100) is admissible, and this paper does not decide
 whether there is one: the conditions of [[def:vi-c-admissible]] that [[rem:ec-point-outside]] lists as not decided at
 the computational point are not decided at any such h either, those on □^C_b being proved only for h below thresholds
-whose existence is proved and whose values are not determined, and the one on □^Υ_b not involving h. Second, it needs (R_h), which [[cor:t49-right]] proves at h = 10⁻⁶ by exact arithmetic at
-that point and which is not decided at any other h. Third, its bound is a number only once μ(h) is known, and μ(h) is
-evaluated only at h = 10⁻⁶, from roots enclosed to within 10⁻²¹ ([[lem:is-z3]], [[lem:is-gap-z]]); elsewhere this
-paper proves 0 < μ(h) ≤ μ_G and nothing more, and μ(h) has no positive lower bound on (h_μ, 10⁻⁶]
-([[prop:tr-mu-small]]). The count N̄(h) is explicit, and the bound of [[prop:uc-dependence]] is at least of the order
-N̄(h)²/ε_K; N̄(h) < 1.512·10¹⁵ at h = 10⁻⁶ and N̄(h) < 1.477·10¹⁷ at h = h_m, against N̄(10⁻⁶) ≤ 909,507,124,095,312
-from the enclosures of [[lem:is-z3]]. The restrictions h ≥ h_m and h ∉ 𝖩 are those under which (a)–(d) carry over with
-their values at h = 10⁻⁶, and besides (R_h) the proof uses no other property of h than h < 10⁻⁶; admissibility is what
-makes the numbers bounds for the loss with which [[thm:settling]] is proved at h. Below 13ε_Υ/40 = 4.751175·10⁻¹¹ the
-root ι₂(h) gives ε_ind(h) < ε_Υ ([[lem:ec-lb-ind]]), so ε_g < ε_Υ and the first line of the bound, which uses
-Δτ_0 = 0.999ε_Υ, changes; it is not evaluated here, and h_m lies within 0.19 % of that value. On 𝖩 the condition
-(H_ε), or the simplicity of [[prop:tr-inputs]] (b), can fail, and where ε_ind(h) < 1.99·10⁻²⁸ the bounds of
-[[thm:uc-integer]] fail for every admissible choice ([[prop:tr-fail]]). The lower bounds of (ii) use only
-admissibility.
+whose existence is proved and whose values are not determined, and the one on □^Υ_b not involving h. Second, it needs
+(R_h), which [[cor:t49-right]] proves at h = 10⁻⁶ by exact arithmetic at that point and which is not decided at any
+other h. Third, its bound is a number only once μ(h) is known, and μ(h) is evaluated only at h = 10⁻⁶, from roots
+enclosed to within 10⁻²¹ ([[lem:is-z3]], [[lem:is-gap-z]]); elsewhere this paper proves 0 < μ(h) ≤ μ_G and nothing more,
+and μ(h) has no positive lower bound on (h_μ, 10⁻⁶] ([[prop:tr-mu-small]]). The count N̄(h) is explicit, and the bound
+of [[prop:uc-dependence]] is at least of the order N̄(h)²/ε_K; N̄(h) < 1.512·10¹⁵ at h = 10⁻⁶ and N̄(h) < 1.477·10¹⁷ at
+h = h_m, against N̄(10⁻⁶) ≤ 909,507,124,095,312 from the enclosures of [[lem:is-z3]]. The restrictions h ≥ h_m and h ∉ 𝖩
+are those under which (a)–(d) carry over with their values at h = 10⁻⁶, and besides (R_h) the proof uses no other
+property of h than h < 10⁻⁶; admissibility is what makes the numbers bounds for the loss with which [[thm:settling]] is
+proved at h. Below 13ε_Υ/40 = 4.751175·10⁻¹¹ the root ι₂(h) gives ε_ind(h) < ε_Υ ([[lem:ec-lb-ind]]), so ε_g < ε_Υ and
+the first line of the bound, which uses Δτ_0 = 0.999ε_Υ, changes; it is not evaluated here, and h_m lies within 0.19 %
+of that value. On 𝖩 the condition (H_ε), or the simplicity of [[prop:tr-inputs]] (b), can fail, and where ε_ind(h) <
+1.99·10⁻²⁸ the bounds of [[thm:uc-integer]] fail for every admissible choice ([[prop:tr-fail]]). The lower bounds of
+(ii) use only admissibility.
 
 #### The sextic in two parameters {#sec:tr-split}
 
@@ -385,7 +385,7 @@ majorants and the factor 1/x at x = 1/2, is at most 0.0138, 0.0073, 0.0041 and 0
 (c) By [[eq:tr-vslope]], with ι_v − 1 ≤ 50.0001 and h ≤ 10⁻⁶, ∂_hι_v ≥ ((l + 1)² − 2501)/1.0001, and
 (l + 1)² = κ + 1 ≥ 999·1001 + 1, for which this is at least 0.99κ. ∎
 
-#### The four inputs {#sec:tr-inputs}
+#### The inputs (a)–(d) {#sec:tr-inputs}
 
 **Proposition {#prop:tr-eps}** (The number ε_ind(h).) (a) Every h ∈ [h_m, 10⁻⁶] ∖ 𝖩 satisfies (H_ε), and then
 ε_Υ ≤ ε_ind(h) ≤ min(δ_50, ι₂(h) − 2), with ι₂(h) of [[lem:ec-lb-ind]].
@@ -490,33 +490,126 @@ At h ∈ 𝖹_Q, the countable set of h at which some root of P_l or p_(v) lies 
 statement of [[thm:sp-spectrum]] (a), spec_ι⁺(L̄) ∩ {Re ≤ 5} = 𝒫 ∩ {Re ≤ 5}, is not shown by [[lem:sp-exceptional]];
 no bound uses it, as (c) gives the orders from above at every h.
 
+#### The exponent set at h {#sec:tr-lambda}
+
+**Definition {#def:tr-excess}** (The roots below 3 and the least excess.) Let 0 < h ≤ 10⁻⁶. Z(h) is the set Z of
+[[prop:is-iota]] at (v, e, h): the root of C greater than 2, the roots ι ≠ 2 of real part greater than 19/10 of P_l, l
+≥ 1, and the larger roots ι_v(l, h) of p_(v), l ≥ 2. Put Z₃(h) := {ι ∈ Z(h) : Re ι < 3} and y_ι := 3 − Re ι for ι ∈
+Z₃(h). With the function m of [[lem:is-reduction]] and μ_G of [[thm:is-gap]],
+
+    μ(h) := inf({μ_G} ∪ {m(y_ι) : ι ∈ Z₃(h)}),
+    N̄(h) := ⌊16,747,200,000,000 + 1,125,001,468,750.5 · Σ_(ι∈Z₃(h)) (y_ι + 1.69·10⁻⁶)²⌋     (Z₃(h) finite).
+
+(R_h) is the condition that no root of P_l with hκ > 70 has real part in [2, 3 + ε_Υ). At h = 10⁻⁶, Z₃(h) is the set Z₃
+of [[lem:is-z3]], μ(h) = μ_Z ([[lem:is-gap-z]]), N̄(h) ≤ 909,507,124,095,312 (proof of [[prop:is-count]] (a)), and (R_h)
+holds ([[cor:t49-right]]).
+
+**Lemma {#lem:tr-z3}** (The roots below 3 at h.) Let h ∈ [h_m, 10⁻⁶] ∖ 𝖩 satisfy (R_h).
+
+(a) No ι ∈ Z(h) has real part in [3, 3 + ε_Υ); every ι ∈ Z(h) has real part greater than 2 + 1.4646·10⁻¹⁰; and every
+non-real ι ∈ Z(h) of real part below 3 has real part greater than 2.1.
+
+(b) Z₃(h) is finite. Its elements are among the root ι₁ of C, the 425 roots other than 2 of real part greater than 19/10
+of the P_l with 1 ≤ l ≤ 142, and, for l ≥ 143, ι_B(l, h) with hκ < 1.01 and ι_P(l, h), ῑ_P(l, h) with hκ < 11/15. It has
+fewer than 426 + 2.7177h^(−1/2) elements, and Σ_(ι∈Z₃(h)) y_ι² < 426 + 0.90257h^(−1/2).
+
+*Proof.* (a) Let ι ∈ Z(h). If |ι − 1| ≤ 50, then dist(Re ι, ℤ) ≥ ε_Υ by (H_ε) ([[prop:tr-eps]] (a)), the excepted
+roots 2 of P_1 and 3 of p_(v) at l = 1 not being in Z(h); so Re ι ∉ [3, 3 + ε_Υ). Let |ι − 1| > 50. The root of C and
+the roots of P_l with l ≤ 142 lie in |ι − 1| < 2 ([[lem:tr-c-v]] (a), [[lem:tr-small]], [[lem:tr-large]] (a), (b)), and
+ι_v(l, h) is real; so ι is a root of P_l with l ≥ 143, or ι_v(l, h) > 51. If hκ > 70, then Re ι ≥ 2
+([[prop:s14-scalar-every-h]]) and (R_h) gives Re ι ≥ 3 + ε_Υ. If hκ ≤ 70, then ι is ι_B(l, h), which is real and so
+above 51, or ι_P(l, h) or its conjugate, and Re ι_P ∈ [3, 3 + ε_Υ) would put h in 𝖩 (the case n = 3 of
+[[def:tr-exceptional]] (c)). For the lower bound: ι₁ > 2 + 7·10⁻⁵; the roots of P_1 other than 2 exceed 2 + 3e; ι₂(h) −
+2 > (40/13)h(1 − 5·10⁴h); the roots of P_l, 3 ≤ l ≤ 122, exceed 2 + 3.1h; for l ≥ 123, ι_B > min(2 + x/2, 2 + x − 1/100)
+≥ 2 + 7687h, and the other two roots of real part greater than 19/10 have real part above 2.1; ι_v(l, h) > 3; and the
+roots with hκ > 70 have real part at least 3 + ε_Υ ([[lem:tr-c-v]], [[lem:tr-small]], [[lem:tr-large]], (R_h)). The
+least of these bounds is that of ι₂(h), and (40/13)h(1 − 5·10⁴h) increases on (0, 10⁻⁶] and exceeds 1.4646·10⁻¹⁰ at h_m.
+The non-real roots: those of C, of p_(v) and of the P_l with l ≤ 122 concerned are real; for 123 ≤ l ≤ 142 the non-real
+ones lie in |ι − a| < 2/5 with a ≥ 5/2 ([[lem:tr-large]] (b)); for l ≥ 143 and hκ ≤ 70, Re ι_P > a − ϱ ≥ 2.45
+([[lem:tr-large]] (c), as h ≥ h_m); and for hκ > 70 there is none of real part below 3 + ε_Υ.
+
+(b) By (a), every element of Z₃(h) is ι₁, a root of P_l with l ≤ 142, or, for l ≥ 143 and hκ ≤ 70, one of ι_B(l, h),
+ι_P(l, h) and ῑ_P(l, h); ι_v(l, h) > 3 ([[lem:tr-c-v]] (b)). For l ≥ 143, ι_B > 2 + x − 1/100 ([[lem:tr-large]] (a)),
+and Re ι_P > a − ϱ, which is 3 + 3(x − 11/15)/4 for x ≤ 20 and above 17 for x > 20 ([[lem:tr-large]] (c)); so ι_B ∈
+Z₃(h) only if x < 1.01, and ι_P only if x < 11/15. For these, y_ι < 1 − x/2 for ι_B with x ≤ 1/2, y_ι < 1.01 − x for ι_B
+with x > 1/2, and y_ι < (3/4)(11/15 − x) for ι_P and ῑ_P ([[lem:tr-large]] (a), (c)); and y_ι < 1 for every element, as
+Re ι > 2. Let g_B(x) := (1 − x/2)² for 0 ≤ x ≤ 1/2, (1.01 − x)² for 1/2 < x < 1.01 and 0 beyond, and g_P(x) :=
+(9/16)(11/15 − x)² for x < 11/15 and 0 beyond. Both are non-increasing, so g(hl(l + 2)) ≤ g(ht²) for l − 1 ≤ t ≤ l, and
+
+    Σ_(l≥143) g(hl(l + 2)) ≤ ∫_0^∞ g(ht²) dt = ½h^(−1/2) ∫_0^∞ g(x)x^(−1/2) dx,
+
+which is below 0.626246h^(−1/2) for g_B and 0.138158h^(−1/2) for g_P; and fewer than (c/h)^(1/2) degrees l have hl(l +
+2) < c. As C and the P_l with l ≤ 142 contribute at most 1 + 2 + 3·141 = 426 elements, each with y_ι < 1, this gives the
+two bounds, as 0.626246 + 2·0.138158 < 0.90257 and 1.01^(1/2) + 2(11/15)^(1/2) < 2.7177. ∎
+
+**Proposition {#prop:tr-lambda}** (The set Λ at h.) Let h be as in [[lem:tr-z3]], Λ_ℬ as in [[prop:is-lambda]], and 0 <
+ε_+ < 10⁻¹³.
+
+(a) Λ ∩ {Re ≤ 3 + ε_+} is the union of Λ_ℬ ∩ {Re ≤ 3 + ε_+}, the set that [[prop:is-lambda]] gives at the computational
+point, and {ι + p𝔡₀ + q𝔡₁ : ι ∈ Z₃(h), p, q ∈ ℕ₀, p𝔡₀ + q𝔡₁ ≤ y_ι + ε_+}. Every element of Λ ∖ Λ_ℬ of real part at most
+3 + ε_+ has real part greater than 2 + 1.4646·10⁻¹⁰, and every element of Λ of real part at most 2.1 is real.
+
+(b) 0 < μ(h) ≤ μ_G. (G) of [[def:iii-i10-1-3]] holds if and only if ε_K < μ(h), and (G⁺) of [[def:iii-j-g-plus]] if and
+only if ε_+ < μ(h).
+
+(c) N_Λ ≤ N̄(h) < 4.961·10¹⁴ + 1.0155·10¹²h^(−1/2).
+
+*Proof.* (a) The proof of [[prop:is-lambda]] applies with Z₃(h) in place of Z₃ and [[lem:tr-z3]] (a) in place of
+[[lem:is-z3]] (a), (c). The generators of Λ_ℬ and the increments of real part below 3/2 are fixed by the gauge
+parameters and by the exponents of ℰ_ind ∪ ℰ^ι_ind of real part below 3/2, which at h are those of the computational
+point ([[prop:tr-inputs]] (a)); so Λ_ℬ ∩ {Re ≤ 3 + ε_+} does not change, and the increments of real part below 1 are 𝔡₀
+and 𝔡₁. (C1) holds at h ([[lem:iv4-1-3]] (a)), so 1 + 𝒵 = {3} ∪ {ι ∈ Z(h) : Re ι < 4} as in that proof. An ι ∈ Z(h) of
+real part at least 3 has real part above 3 + ε_Υ > 3 + ε_+, and so has every sum with it; one of real part below 3 has
+real part above 2 + 1.4646·10⁻¹⁰, so that an increment of real part at least 1 takes it above 3 + ε_+. A non-real
+element of Λ ∖ Λ_ℬ below 3 + ε_+ is ι + p𝔡₀ + q𝔡₁ with ι ∈ Z₃(h) non-real, of real part above 2.1 by [[lem:tr-z3]] (a).
+
+(b) As in the proof of [[thm:is-gap]]: on Λ_ℬ the least excess over the windows of (G) is μ_G; by (a) the elements of Λ
+∖ Λ_ℬ lie outside the first window, as ε_K < ε_Υ < 1.4646·10⁻¹⁰, and the third window lies in the first; in the second,
+the least excess of Λ ∖ Λ_ℬ is the least of the m(y_ι), ι ∈ Z₃(h). As Z₃(h) is finite ([[lem:tr-z3]] (b)) and each
+m(y_ι) is positive, μ(h) is a minimum and positive, and Λ has an element of real part 3 + μ(h). Hence (G) holds exactly
+when ε_K < μ(h), and no element of Λ has real part in (3, 3 + ε_+] exactly when ε_+ < μ(h).
+
+(c) As in the proof of [[prop:is-count]] (a): by (a), N_Λ = #(Λ ∩ {Re < 3 + ε_+}) is at most #(Λ_ℬ ∩ {Re < 3 + ε_+}) +
+Σ_(ι∈Z₃(h)) T(y_ι + ε_+), where the first number is below 1.67472·10¹³ and T(y_ι + ε_+) ≤ (y_ι + 1.69·10⁻⁶)²/(2𝔡₀𝔡₁)
+with 1/(2𝔡₀𝔡₁) < 1,125,001,468,750.5; so N_Λ ≤ N̄(h). By [[lem:tr-z3]] (b) and y_ι < 1, Σ (y_ι + 1.69·10⁻⁶)² < Σ y_ι² +
+3.39·10⁻⁶·#Z₃(h) < 426.0015 + 0.90258h^(−1/2), and 1.67472·10¹³ + 1,125,001,468,750.5·(426.0015 + 0.90258h^(−1/2)) <
+4.961·10¹⁴ + 1.0155·10¹²h^(−1/2). ∎
+
 #### Proof of the transfer {#sec:tr-proof}
 
 *Proof of [[thm:tr-transfer]].* (i) is [[lem:ec-lb-ind]], [[prop:tr-eps]] (a) and [[prop:tr-inputs]].
 
-(ii) We go through the statements of [[sec:ec-gap-sums]]–[[sec:cs-small]] that the proof of [[thm:uc-integer]] and of
-[[prop:uc-d-small]] uses, and show that each holds at (h, 1/100, 1/100) with the same numbers. [[prop:gap-sums]],
-[[lem:ec-gauge-gap]], [[prop:is-ind]], [[thm:is-d0]], [[cor:is-flat]] and [[lem:uc-two-offsets]] concern numbers fixed
-by (γ_Υ, e_Υ); [[prop:is-ci-pp]] and [[thm:is-gap]] use besides ℰ^ι_ind below the real part 1.5099, which by
-[[prop:tr-inputs]] (a) is that of ℰ_ind with the exponent 1, and [[thm:is-gap]] uses μ_G < ε_ind, which holds as
-ε_ind ≥ ε_Υ > μ_G. [[prop:is-lambda]] and [[prop:is-count]] use of ℰ^ι_ind
-only its exponents of real part below 3/2 and its least real part, and by [[prop:tr-inputs]] (a) these are those of
-ℰ_ind and 1; so N_Λ, k̄_0, J_* and η_0 = 𝔡₁ are unchanged, and so are [[lem:uc-gaps]], [[lem:uc-lambda]] and
-[[lem:uc-n-iota]]. [[cor:sp-lstar]] holds by [[prop:tr-inputs]] (d), so l_* = 50 and K_ι ≤ 2. In
-[[lem:uc-admissible]], ε_ind(h) ≥ ε_Υ ([[prop:tr-eps]] (a)) allows ε_ind := min(1, ε_ind(h)) ≥ ε_Υ, so ε_g = ε_Υ as at
-the computational point, and the constants of [[eq:iii-i9-1-1]] ask 0 < ε_K < ε_+ < min(δ_♯, ε_ind), which
-1.6416·10⁻¹⁴ < 1.64160217·10⁻¹⁴ < ε_Υ ≤ ε_ind meets; every other step of that proof uses the index sets, (G) and
-choices that do not involve h. So [[eq:uc-deltas]] holds with Δτ_0 = 0.999ε_Υ, and [[prop:uc-explicit]], [[lem:uc-dr]]
-and [[lem:uc-phi-loss]] give the same numbers. In [[sec:cs]] the charges are closed forms in the weights, the counts
-of [[lem:uc-lambda]] and [[lem:uc-n-iota]], the forward loss, which holds for every γ_C ([[lem:fwd-orders]]), ℓ_tf = 1
-([[prop:uc-ltf]]), d_BG = 11 ([[prop:uc-dbg]]) and the free choices of [[def:cs-choices]], of which (a) uses
-ϑ_ℋ < ϑ_L + δ with ϑ_L = max(0, 2 − 2a_vγ_Cr_h) < 2 at every γ_C, and (f) the interval (2, 2 + ε_g − 2ε) with
-ε_g = ε_Υ; the step of the proof of [[lem:cs-fourier]] (b) that uses ε_ind uses ε_ind > ε_K, which holds. So
-[[prop:cs-cstar]], [[lem:cs-sharp]] and [[lem:cs-levels]] hold with the same numbers, and so do [[lem:uc-small-orders]]
-and [[prop:uc-d-small]], whose orders are fixed by the same counts. The proof of [[thm:uc-integer]] then runs unchanged.
-The lower bounds are those of [[prop:ec-rounds]] and [[cor:uc-two-offsets]], which use only ε_K < 1.6417·10⁻¹⁴
-((G) for the index sets as constructed), ε_Υ < 1.46214·10⁻¹⁰ and ε_ind(h) ≤ δ_50, and hold at every h ∈ (0, 10⁻⁶) at
-which the parameter point (h, 1/100, 1/100) is admissible. ∎
+(ii) Let ε_K be such that (G) holds. For ι ∈ Z₃(h), ι − 1 is an indicial root of L̂_b(0) of real part in (0, 3), as (C1)
+holds at h (proof of [[prop:is-lambda]]); so ι ∈ 1 + 𝒵, and ι + p𝔡₀ + q𝔡₁ ∈ Λ for p, q ∈ ℕ₀ ([[def:iii-i10-1-1]],
+[[prop:is-ind]]). So Λ has an element of real part 3 + m(y_ι) for each ι ∈ Z₃(h), and one of real part 3 + μ_G
+([[thm:is-gap]]); (G) keeps them out of (3, 3 + ε_K], so ε_K ≤ μ(h). The proof of [[prop:ec-rounds]] uses of h only ε_g
+≤ ε_Υ < δ̂ and ε_ind ≤ δ_50 < δ̄, and gives R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂), whose right side decreases in ε_K; as ε_K
+≤ μ(h) ≤ μ_G < 1.6417·10⁻¹⁴, 3ε_K + 2δ̂ + δ̄ < 1.98·10⁻⁸ and R > (1 − 1.98·10⁻⁸)/(1.46214·10⁻¹⁰μ(h)). By the argument of
+[[thm:loss-d]] (ii), which does not use the computational point (proof of [[thm:ec-lb-proved]]), d_NM ≥ d_acc ≥ 3R >
+2.0517·10¹⁰/μ(h), and N_NM = 21d_NM + 6 > 4.3085·10¹¹/μ(h). As μ(h) ≤ μ_G < 1.64160217198·10⁻¹⁴ ([[eq:is-mu]]), these
+exceed 1.2498·10²⁴ and 2.6245·10²⁵. Nothing here uses h ≥ h_m or h ∉ 𝖩, and at h = 10⁻⁶, μ(h) = μ_Z ([[def:tr-excess]]).
+
+(iii) By [[lem:tr-z3]] and [[prop:tr-lambda]], Z₃(h) is finite, 0 < μ(h) ≤ μ_G and N_Λ ≤ N̄(h); so [[prop:is-lambda]],
+[[thm:is-gap]] and [[prop:is-count]] (a) hold at h with Z₃(h), μ(h) and N̄(h) in place of Z₃, μ_Z and N̄_Λ, and with
+the real part 2.514 of [[prop:is-lambda]] replaced by 2.1. [[prop:is-count]] (b), (c) and [[cor:sp-lstar]] hold at h
+with k̄_0 = 3, η_0 = 𝔡₁, J_* = 15,000,015 and l_* = 50: they read the exponents of ℰ_ind ∪ ℰ^ι_ind below 3/2 and the
+orders and multiplicities of (i) ([[prop:tr-inputs]] (a), (d)), and the rows of type s1 that the generator 1 + 𝒵 adds
+have real part equal to that of a root ι ≠ 2 of P_1, which exceeds 2 + 3e ([[lem:tr-small]] (a)), so that the part of
+real part below 2 is unchanged. In [[lem:uc-admissible]], (G) and (G⁺) hold, as ε_K < ε_+ < μ(h) ([[prop:tr-lambda]]
+(b)); ε_ind(h) ≥ ε_Υ ([[prop:tr-eps]] (a)) allows ε_ind := min(1, ε_ind(h)) ≥ ε_Υ, so ε_g = ε_Υ and Δτ_0 = 0.999ε_Υ
+as at the computational point, and 0 < ε_K < ε_+ < 10⁻¹³ < ε_Υ ≤ ε_ind meets the constants of [[eq:iii-i9-1-1]]; η_1 and
+η_2 can be chosen, as Λ ∩ {Re ≤ 3 + ε_+} is finite; and every other step of that proof uses the index sets and choices
+that do not involve h. Of the other statements of [[sec:ec-gap-sums]]–[[sec:cs-small]] that the proofs of
+[[thm:uc-integer]] and [[prop:uc-dependence]] use, [[prop:gap-sums]], [[lem:ec-gauge-gap]], [[prop:is-ind]],
+[[thm:is-d0]], [[cor:is-flat]] and [[lem:uc-two-offsets]] concern numbers fixed by (γ_Υ, e_Υ); [[prop:is-ci-pp]] uses
+ℰ^ι_ind below the real part 1.5099, which by [[prop:tr-inputs]] (a) is that of ℰ_ind with the exponent 1;
+[[lem:uc-gaps]], [[lem:uc-lambda]] and [[lem:uc-n-iota]] use the increments and the counts above; in [[sec:cs]] the
+charges are closed forms in the weights and the counts, the forward loss, which holds for every γ_C
+([[lem:fwd-orders]]), ℓ_tf = 1 ([[prop:uc-ltf]]), d_BG = 11 ([[prop:uc-dbg]]) and the free choices of
+[[def:cs-choices]], of which (a) uses ϑ_ℋ < ϑ_L + δ with ϑ_L = max(0, 2 − 2a_vγ_Cr_h) < 2 at every γ_C, and (f) the
+interval (2, 2 + ε_g − 2ε) with ε_g = ε_Υ; and the proof of [[lem:cs-fourier]] (b) uses ε_ind > ε_K and the reality of
+the elements of Λ of real part at most 2 + ε_K, which [[prop:tr-lambda]] (a) gives. So [[prop:uc-dependence]] applies at
+h with N̄_Λ := N̄(h), k̄_0 = 3, J_* = 15,000,015 and l_* = 50, and gives the bounds. ∎
 
 #### The exceptional set {#sec:tr-exceptional}
 
@@ -557,25 +650,41 @@ In the first three cases only finitely many l occur, as κ ≤ 70/h_m. The total
 (0.02659 + 0.06346 + 0.02601)ε_Υ < 0.1161ε_Υ < 1.698·10⁻¹¹. ∎
 
 **Proposition {#prop:tr-fail}** (The bound fails near a crossing.) Let 0 < h < 10⁻⁶, and suppose that the parameter
-point (h, 1/100, 1/100) is admissible. If ε_ind(h) < 1.38·10⁻²⁵, every admissible choice of the weights at
-(h, 1/100, 1/100) gives d_NM ≥ d_acc > D_acc, with D_acc of [[thm:uc-integer]]. Let h_c := 1/1001992 = 9.98011…·10⁻⁷;
-then h_c ∈ 𝖩, ι_v(1000, h_c) = 4, and ε_ind(h) < 1.38·10⁻²⁵ for 0 < |h − h_c| < 1.377·10⁻³¹. So [[thm:tr-transfer]] (ii)
-fails at every h with 0 < |h − h_c| < 1.377·10⁻³¹ at which the parameter point (h, 1/100, 1/100) is admissible.
+point (h, 1/100, 1/100) is admissible. Every admissible choice of the weights at (h, 1/100, 1/100) gives d_NM ≥ d_acc >
+3(1 − 2.1·10⁻⁸)/ε_ind(h)², which exceeds 7.5755·10⁵⁵, and so the bounds for d_acc and d_NM of [[thm:uc-integer]], when
+ε_ind(h) < 1.99·10⁻²⁸. Let h_c := 1/1001992 = 9.98011…·10⁻⁷; then h_c ∈ 𝖩, ι_v(1000, h_c) = 4, and ε_ind(h) < 1.99·10⁻²⁸
+for 0 < |h − h_c| < 1.986·10⁻³⁴.
 
-*Proof.* [[lem:ec-lb-rounds]] applies with Θ_g := ε_ind(h) and Θ_η := δ̄: ε_g ≤ ε_ind ≤ ε_ind(h), ε_K < ε_+ < ε_ind,
-η_2 < ε_+ < ε_ind ≤ δ_50 < δ̄, and 5Θ_g + Θ_η < 2.1·10⁻⁸. It gives R > (1 − 2.1·10⁻⁸)/ε_ind(h)²; so by the argument of
-[[thm:loss-d]] (ii), which does not use the computational point (proof of [[thm:ec-lb-proved]]),
-d_NM ≥ d_acc ≥ 3R > 3(1 − 2.1·10⁻⁸)/(1.38·10⁻²⁵)² > 1.5752·10⁵⁰ > D_acc. At l = 1000, κ = 1002000 and
-(n − 3)/((l + 1)² − (n − 1)²) = 1/1001992 at n = 4, so ι_v(1000, h_c) = 4
-([[lem:tr-c-v]] (b)) and h_c ∈ 𝖩_v(1000, 4). By [[eq:tr-vslope]], 0 < ∂_hι_v ≤ (l + 1)² = 1002001, so for
-0 < |h − h_c| < 1.377·10⁻³¹, 0 < |ι_v(1000, h) − 4| < 1.38·10⁻²⁵, and the entry ι_v − 1 of ℛ^v_1000, of modulus below
-50 and not an integer, bounds ε_ind(h). ∎
+*Proof.* [[lem:ec-lb-rounds]] applies with Θ_g := ε_ind(h) and Θ_η := δ̄: ε_g ≤ ε_ind ≤ ε_ind(h), ε_K < ε_+ < ε_ind, η_2
+< ε_+ < ε_ind ≤ δ_50 < δ̄, and 5Θ_g + Θ_η < 2.1·10⁻⁸. It gives R > (1 − 2.1·10⁻⁸)/ε_ind(h)²; so by the argument of
+[[thm:loss-d]] (ii), which does not use the computational point (proof of [[thm:ec-lb-proved]]), d_NM ≥ d_acc ≥ 3R > 3(1
+− 2.1·10⁻⁸)/ε_ind(h)², which exceeds 7.5755·10⁵⁵ when ε_ind(h) < 1.99·10⁻²⁸. At l = 1000, κ = 1002000 and (n − 3)/((l +
+1)² − (n − 1)²) = 1/1001992 at n = 4, so ι_v(1000, h_c) = 4 ([[lem:tr-c-v]] (b)) and h_c ∈ 𝖩_v(1000, 4). By
+[[eq:tr-vslope]], 0 < ∂_hι_v ≤ (l + 1)² = 1002001, so for 0 < |h − h_c| < 1.986·10⁻³⁴, 0 < |ι_v(1000, h) − 4| <
+1.99·10⁻²⁸, and the entry ι_v − 1 of ℛ^v_1000, of modulus below 50 and not an integer, bounds ε_ind(h). ∎
 
-The same argument applies near every point of 𝖩 at which ι_B or ι_v equals an integer n ∈ [3, 51], or Re ι_P equals
-such an n with |ι_P − 1| ≤ 50. For h ≤ 13ε_Υ/40 the condition (H_ε) fails, through ι₂(h), and
-ε_g ≤ ε_ind(h) < 40h/13 ≤ ε_Υ; the quantities of [[prop:uc-explicit]] that use ε_g then change, and where the parameter
-point (h, 1/100, 1/100) is admissible [[thm:ec-lb-proved]] gives d_NM > 0.3168h⁻², which exceeds D_acc for
-h ≤ 4.48·10⁻²⁶ ([[rem:ec-lb-unbounded]]).
+**Proposition {#prop:tr-mu-small}** (The least excess has no positive lower bound.) Put w_* := 356327𝔡₀ + 1116082𝔡₁.
+There is h_μ ∈ (5·10⁻⁷, 10⁻⁶) such that ι_B(390, h_μ) + w_* = 3 and ι_B(390, h) + w_* > 3 for h_μ < h ≤ 10⁻⁶, and for
+these h, μ(h) ≤ ι_B(390, h) + w_* − 3, which tends to 0 as h decreases to h_μ. So for every D there is δ > 0 such that
+at every h ∈ (h_μ, h_μ + δ) at which the parameter point (h, 1/100, 1/100) is admissible, every admissible choice of the
+weights gives d_NM > D.
+
+*Proof.* Let l = 390, so κ = 152880 and y = eκ > 1.49 > 1/5; for 0 < h ≤ 10⁻⁶, x = hκ ≤ 0.15288, and ι_B(390, h) is
+defined, depends continuously on h and lies in (2 + x/2, 2 + 3x/2) ([[def:tr-exceptional]] (b), [[lem:tr-large]] (a)).
+At h = 10⁻⁶ the root ι_* of [[lem:is-gap-z]] is real and |ι_* − 2.15288| < 1/100, so ι_* = ι_B(390, 10⁻⁶), and ι_* + w_*
+− 3 = μ_Z > 0 ([[eq:is-mu-z]]). At h = 5·10⁻⁷, x = 0.07644 and ι_B < 2.11466, while w_* < 0.84713 (proof of
+[[lem:is-gap-z]]), so ι_B + w_* < 3. Let h_μ be the largest h ∈ [5·10⁻⁷, 10⁻⁶] with ι_B(390, h) + w_* ≤ 3; by continuity
+h_μ ∈ (5·10⁻⁷, 10⁻⁶), ι_B(390, h_μ) + w_* = 3, and ι_B(390, h) + w_* > 3 for h_μ < h ≤ 10⁻⁶. For such h, ι := ι_B(390,
+h) lies in Z₃(h), as ι < 2 + 3x/2 < 3, and w_* − y_ι = ι + w_* − 3 > 0, so m(y_ι) ≤ ι + w_* − 3 and μ(h) ≤ ι + w_* − 3
+([[def:tr-excess]]); this tends to 0 as h decreases to h_μ. The last assertion is the lower bound of [[thm:tr-transfer]]
+(ii), which holds at every h ∈ (0, 10⁻⁶] at which the parameter point is admissible. ∎
+
+The same argument as for [[prop:tr-fail]] applies near every point of 𝖩 at which ι_B or ι_v equals an integer n ∈ [3,
+51], or Re ι_P equals such an n with |ι_P − 1| ≤ 50; and that of [[prop:tr-mu-small]] near every h at which, for a root
+ι ∈ Z₃(h) that moves continuously with h and some p, q ∈ ℕ₀, Re ι + p𝔡₀ + q𝔡₁ − 3 changes sign. For h ≤ 13ε_Υ/40 the
+condition (H_ε) fails, through ι₂(h), and ε_g ≤ ε_ind(h) < 40h/13 ≤ ε_Υ; the quantities of [[prop:uc-explicit]] that use
+ε_g then change, and where the parameter point (h, 1/100, 1/100) is admissible [[thm:ec-lb-proved]] gives d_NM >
+0.3168h⁻², which exceeds 7.57245·10⁵⁵ for h ≤ 6.46·10⁻²⁹ ([[rem:ec-lb-unbounded]]).
 
 ### Placement
 
