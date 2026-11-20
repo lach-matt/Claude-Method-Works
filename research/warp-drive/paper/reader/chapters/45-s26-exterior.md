@@ -842,8 +842,9 @@ least ½ and the weight is ℓ^♭_I − 1 > ½, so
     P_i ∈ Diff²_(e,b),                                                                                   {#eq:iv2-0-4}
 
 with ã_i bounded (its expansion at ℐ⁺ starts at ρ_I⁰) and ‖ã_i‖_(H^j) ≤ C‖h‖_(H^(j+2)) in these classes (the proof of
-[[prop:iv1-1-2]]: the coefficients are rational in h and in two b-derivatives of it). L denotes L^(g,g₀), or
-L^(χ₀)_(g,g₀) in [[sec:iv2-4]].
+[[prop:iv1-1-2]]: the coefficients are rational in h and in two b-derivatives of it, and the inverse metric is bounded
+by the induction of the proof of [[lem:s19-inverse]], with [[lem:iv1-2-3]] in place of [[lem:s19-products]] and
+[[eq:iv-0-1]] for the bounds in L^∞). L denotes L^(g,g₀), or L^(χ₀)_(g,g₀) in [[sec:iv2-4]].
 
 *Domains.* Ω⁺ := Ω_(ext,r₀) ∩ {t_IVP ≥ 0} and the past slab Ω⁻ := Ω_(ext,r₀) ∩ {t_IVP ≤ 0}. For |x| ≥ R₃,
 t_IVP = t − C″ ([[lem:iii-b-3-7]] (b)), and
