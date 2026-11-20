@@ -8,7 +8,7 @@ which [[prop:iii-k-1-2]] (3) reads the data to bound the initial family at the o
 largest, and k′_k as the sum, of finitely many orders of derivatives, and does not evaluate them. This section counts
 those orders ([[lem:uc-data-losses]]) and evaluates d_0, k′_k, d_1, K, k1 and K* in terms of d
 ([[prop:uc-data-order]]). The count holds at every choice of the parameters of [[thm:vi-c-2-1]]. The numbers that
-follow from it use the upper bound for d at the computational point, which lies outside the set on which
+follow from it use the bounds for d at the computational point, which lies outside the set on which
 [[thm:settling]] is proved ([[rem:ec-point-outside]]).
 
 *Conventions.* ‖·‖_n is the norm ‖(γ̃, k̃)‖_(H^n) of [[sec:s27-class]], built from ℰ_0 of [[eq:vii-0-1]] or from ℰ_0^½
@@ -237,8 +237,8 @@ the solution of [[thm:iv3-2-2]] or of [[thm:iii-c1-2-1]], and (iii) at (S, S⁰)
 the above, and by (i) the data at the order n + 16 + 2L_F = k + 3 + L_P + 280 do. So (3) holds with k′_k := 283 + L_P,
 s_k half the s of this control at η := 1, and ω_k(s) the supremum of the left side of (3) over the parameters and the
 data with ‖(γ̃, k̃)‖_(k+k′_k) ≤ s, which is finite for s ≤ s_k and tends to 0 with s. A constant is non-decreasing in
-k, as (3) asks. (The proofs use (3) only at the orders j + 3 of [[eq:s27-theta]] and k + 3 of [[lem:iii-k-2-2]] (d),
-where m := k + 2 would serve and give 282 + L_P; the one more order makes the count hold at k = 0 as well.)
+k, as (3) asks. (The proofs use (3) only at orders k ≥ 3, by [[eq:s27-theta]] and [[lem:iii-k-2-2]] (d), where
+m := k + 2 would serve and give 282 + L_P; the one more order makes the count hold at k = 0 as well.)
 
 (b) d_1 = max(309, 21d + 6 + d + 3 + 283 + L_P) = 22d + 292 + L_P, as d ≥ 1 and L_P ≥ 7. The proof of
 [[thm:settling-precise]] in [[sec:vii-4]] takes k := d_1 + 5, then the order k + 5 of [[lem:vii-1-1]] (written J there,
@@ -306,14 +306,14 @@ k1 > 22d > 2.74934·10²⁵, so K*(a, M, k1) > (4/3) · 7.5588·10⁵⁰ > 1.007
 
 **Remark {#rem:uc-data-order-limits}** (What the count gives and what it does not.) [[prop:uc-data-order]] makes d_1
 and K explicit in d, with the additive terms 292 + L_P and 306 + L_P, L_P ≤ 48, and makes the threshold K* of
-[[thm:own-data]] explicit as a quadratic in d_1; the count is an upper count of the orders the proofs read, and smaller
-orders may serve. It gives no number on the set where [[thm:settling]] is proved, on which d is not evaluated and is
-bounded only from below, by the lower bounds of this chapter on that set; the numbers of its part (d) are those of the
-computational point, outside that set ([[rem:ec-point-outside]]). L_0 and J depend on ℓ_0 and ℓ_I, on the gauge
-parameters through ℓ^♭_0 and ℓ^♭_I, and on the ν of Step 2 of the proof of [[thm:iii-c1-3-1]]; [[lem:uc-data-losses]]
-bounds them and does not fix them. The number K + 4 + ⌈4β0(k_P)⌉ of stages of the approximant of [[thm:own-data]]
-involves β0(k_P) = max(2, 4C(k_P) + 1), whose constants C(q) of [[eq:near-lines]] are not evaluated, and the thresholds
-λ1, δ and λ_2 are not evaluated ([[rem:ec-not-evaluated]] and the paragraph after [[thm:own-data]]).
+[[thm:own-data]] explicit as a quadratic in d_1; the count is an upper count of the orders the proofs read, and
+smaller orders may serve. It gives no number on the set where [[thm:settling]] is proved, on which d is not evaluated
+and is bounded only from below ([[thm:ec-lb-proved]]); the numbers of its part (d) are those of the computational
+point, outside that set ([[rem:ec-point-outside]]). L_0 and J depend on ℓ_0 and ℓ_I, on the gauge parameters through
+ℓ^♭_0 and ℓ^♭_I, and on the ν of Step 2 of the proof of [[thm:iii-c1-3-1]]; [[lem:uc-data-losses]] bounds them and
+does not fix them. The number K + 4 + ⌈4β0(k_P)⌉ of stages of the approximant of [[thm:own-data]] involves
+β0(k_P) = max(2, 4C(k_P) + 1), whose constants C(q) of [[eq:near-lines]] are not evaluated, and the thresholds λ1, δ
+and λ_2 are not evaluated ([[rem:ec-not-evaluated]] and the paragraph after [[thm:own-data]]).
 
 ### Placement
 
@@ -327,7 +327,7 @@ before the heading "### The first constants of the linear theory {#sec:ec-linear
 after. It defines sec:uc-data-order, lem:uc-data-losses, prop:uc-data-order, eq:uc-data-order, eq:uc-kstar-own and
 rem:uc-data-order-limits, none of which is defined elsewhere. No number already printed in any chapter changes.
 
-*2. [[ch:explicit-constants]], its opening paragraph (lines 26–27).* Old:
+*2. [[ch:explicit-constants]], its opening paragraph (lines 29–30).* Old:
 
 same formulas bound λ1 by δ, δ by a power of 2 that decreases with d, and the modulus of the initial family
 ([[prop:iii-k-1-2]]) at 2δ by a power of 2 that decreases with d ([[prop:ec-delta-cap]]). The chapter ends with the parts
@@ -344,15 +344,16 @@ being an explicit number of derivatives; at the computational point K is at most
 
 determines which decaying perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
 
-New (the same line, followed by six lines that continue its paragraph):
+New (the same line, followed by seven lines that continue its paragraph):
 
 determines which decaying perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
 The order K is explicit in the loss d with which the proof applies the Nash–Moser theorem ([[thm:iii-k-3-2]]): with
 the orders that [[prop:uc-data-order]] counts, d_1 = 22d + 292 + L_P and K = 22d + 306 + L_P, where L_P ≤ 43 is an
 explicit number of derivatives. d is not evaluated on the set where [[thm:settling]] is proved; there it is bounded
-below by explicit functions of the gauge and damping parameters ([[ch:explicit-constants]]). At the computational
-point of [[def:ec-point]], which lies outside that set ([[rem:ec-point-outside]]), d is at most an integer below
-1.57157 × 10⁵⁰, and K at most one below 3.45745 × 10⁵¹.
+below by explicit functions of the gauge and damping parameters ([[thm:ec-lb-proved]]). At the computational
+point of [[def:ec-point]], which lies outside that set ([[rem:ec-point-outside]]), and at one admissible choice of the
+weights, orders and inner products, d is at most an integer below 1.57157 × 10⁵⁰ ([[thm:uc-integer]]), and K at most
+one below 3.45745 × 10⁵¹.
 
 *4. [[ch:s27]], [[prop:iii-k-1-2]] (3) (line 248).* Old:
 
@@ -400,7 +401,7 @@ loss of [[thm:iii-k-3-2]], which is the same for the two classes, with L_P ≤ 4
 ([[prop:uc-data-order]]). None of ε, λ1, δ is evaluated, in either class, and d is bounded above only at the
 computational point. (c) The weights α_1, α′ avoid finitely many more points in each bounded interval.
 
-*8. [[ch:scope]], [[sec:scope-constants]] (lines 72–73).* Old:
+*8. [[ch:scope]], [[sec:scope-constants]] (lines 76–77).* Old:
 
 d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The
 computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on which
@@ -412,7 +413,7 @@ of the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L
 derivatives, so that at that point K is at most an integer below 3.45745 × 10⁵¹ ([[prop:uc-data-order]]). The
 computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on which
 
-*9. [[ch:scope]], [[sec:scope-after]] (lines 130–131).* Old:
+*9. [[ch:scope]], [[sec:scope-after]] (lines 134–135).* Old:
 
 reaches the data at spatial infinity ([[ch:own-data]], [[prop:own-tail]]). The constants ε, d_1 and λ_2 depend on the
 class ([[thm:own-data]]). The continuation of g_λ to the past domain of dependence of the far
@@ -427,11 +428,10 @@ exceed a quadratic in d_1 ([[prop:uc-data-order]]). The continuation of g_λ to 
 in [[ch:settling-proof]], [[ch:after-shell]], [[ch:interior]] and [[ch:own-data]] use d_1 only as a finite order and
 stand. [[lem:viii-2-1]], which takes k′_k as in [[lem:iii-k-2-2]] (d), stands. [[prop:ec-delta-cap]] and its numbers
 stand: the chosen ε is still at most s̃, and only the value of k′_k is named. [[rem:ec-not-evaluated]] keeps its
-statements, as d_1 and K are now explicit in d while d is bounded above only at the computational point; the proposal
-for the lower bounds of d on the proved set rewrites three of its lines (lines 4693–4695), which no text here touches.
-That proposal also rewrites lines 16–25 of the opening of [[ch:explicit-constants]], lines 351–357 of [[ch:theorems]]
-and lines 66–67 of [[ch:scope]]; none of these overlaps texts 2, 3, 8 or 9. [[ch:introduction]] states no value of K or
-d_1.
+statements, as d_1 and K are now explicit in d while d is bounded above only at the computational point. The section
+on the lower bounds of d on the proved set ([[thm:ec-lb-proved]]) is already merged, and this placement applies after
+it: its texts, three lines of that remark among them, overlap none of texts 2, 3, 8 and 9. [[ch:introduction]] states
+no value of K or d_1.
 
 ### Crosswalk rows
 
@@ -441,22 +441,22 @@ location in this file; name; note), to be written with tab separators:
 Row 1. sec:uc-data-order; paper/reader/proofs/P-K.md:1; data-order proof P-K, section heading; new section,
 inserted before sec:ec-linear.
 
-Row 2. lem:uc-data-losses; paper/reader/proofs/P-K.md:39; data-order proof P-K, Lemma (The orders that the
+Row 2. lem:uc-data-losses; paper/reader/proofs/P-K.md:40; data-order proof P-K, Lemma (The orders that the
 initial family reads.); new written count of the orders that prop:iii-k-1-2 (3) reads: gauged data +1, forward and
 exterior solutions +132 above order 21, Step 1 L_0 ≤ 23 (28 for the half class), Step 2 2J, pull-back +2+l (+4+l with
 expansions), derivatives in (S, S⁰) +7 and +6.
 
-Row 3. prop:uc-data-order; paper/reader/proofs/P-K.md:175; data-order proof P-K, Proposition (The regularity d_1
+Row 3. prop:uc-data-order; paper/reader/proofs/P-K.md:176; data-order proof P-K, Proposition (The regularity d_1
 and the order of the approximant.); new: d_0 = 309, k′_k = 283 + L_P for every k (282 + L_P would serve for k ≥ 1),
 d_1 = 22d + 292 + L_P, K = 22d + 306 + L_P ≤ 22d + 349, K*(a, M, k1) of thm:own-data; at the computational point
 K ≤ 22D_acc + 345 < 3.45745·10⁵¹.
 
-Row 4. eq:uc-data-order; paper/reader/proofs/P-K.md:183; data-order proof P-K, display; display of d_1 and K.
+Row 4. eq:uc-data-order; paper/reader/proofs/P-K.md:184; data-order proof P-K, display; display of d_1 and K.
 
-Row 5. eq:uc-kstar-own; paper/reader/proofs/P-K.md:191; data-order proof P-K, display; display of
+Row 5. eq:uc-kstar-own; paper/reader/proofs/P-K.md:192; data-order proof P-K, display; display of
 K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a).
 
-Row 6. rem:uc-data-order-limits; paper/reader/proofs/P-K.md:306; data-order proof P-K, Remark (What the count gives
+Row 6. rem:uc-data-order-limits; paper/reader/proofs/P-K.md:307; data-order proof P-K, Remark (What the count gives
 and what it does not.); what stays open: d on the proved set, β0(k_P), λ1, δ, λ_2.
 
 Notes for existing rows: ch:explicit-constants (opening states d_1 and K, text 2); in the crosswalk table of
