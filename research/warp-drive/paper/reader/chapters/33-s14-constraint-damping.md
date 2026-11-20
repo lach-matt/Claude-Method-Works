@@ -2248,8 +2248,62 @@ which does not change the data at ρ = 0. ∎
 r³|dr d𝑔̸| = ρ⁻⁴(dρ/ρ)|d𝑔̸| and a fibre inner product fixed below. ℓ may be a variable order on
 ^(sc)T*_(∂_sc X)X. Near r = 0, H^(s,β)_b(r³ dr) = H^(s,β−2)_b(dr/r): the b-weight is β − 2
 ([[lem:s14-tf-inputs]] (ii)). The radial sets over ρ = 0 for σ = ±1 are R_out := {ξ = η = 0} (the zero section) and
-R_in := {ξ = 2σ, η = 0}, and for Im σ > 0 the characteristic set over ρ = 0 is R_out ([Hin26a, (B.15)–(B.18)], free of
-the dimension).
+R_in := {ξ = 2σ, η = 0}, and for Im σ > 0 the characteristic set over ρ = 0 is R_out ([[lem:iv6-0-flow]]).
+
+**Lemma {#lem:iv6-0-flow}** (The scattering Hamilton flow over ρ = 0; [Hin26a, (B.15)–(B.18) and (B.23)] in dimension
+4 + 1.) Write the scattering covectors over {ρ < 1} as ξ dρ/ρ² + rη, with ξ ∈ ℝ, η ∈ T*𝕊³ and |η| the round norm. For
+a function p of (ρ, ω, ξ, η), smooth up to ρ = 0, its Hamilton vector field on T*X° is H_p = ρ𝖧_p, where
+
+    𝖧_p = (∂_ξp)(ρ∂_ρ + η·∂_η) − (ρ∂_ρp + η·∂_ηp)∂_ξ + H^(𝕊³)_p,                                        {#eq:iv6-0-flow}
+
+H^(𝕊³)_p is the Hamilton vector field of p(ρ, ·, ξ, ·) on T*𝕊³ and η·∂_η the radial vector field of T*𝕊³; so 𝖧_p is
+smooth up to ρ = 0 and tangent to it. For σ ∈ ℂ ∖ 0 put κ := Re σ⁻¹, p_σ := κ(ξ² + |η|²) − 2ξ and
+q_σ := −(Im σ⁻¹)(ξ² + |η|²), so that σ⁻¹G_σ = p_σ − iq_σ for the symbol G_σ of [[lem:iv6-0-1]] (c), and q_σ ≥ 0 if
+Im σ ≥ 0.
+
+(a) If Im σ > 0, G_σ vanishes at real (ξ, η) only at ξ = η = 0; so the characteristic set over ρ = 0 is R_out.
+
+(b) Let σ = ±1. Then p_σ = σG_σ, and Char_σ := {ρ = 0, G_σ = 0} is the sphere (ξ − σ)² + |η|² = 1 in each fibre over
+𝕊³. On Char_σ, 𝖧_(p_σ) = σ𝖧_(G_σ) vanishes exactly at R_in ∪ R_out; every maximal integral curve of 𝖧_(p_σ) in
+Char_σ ∖ (R_in ∪ R_out) is defined for all times and tends to R_in as s → −∞ and to R_out as s → +∞, uniformly for
+initial points in a compact set; and ρ⁻¹𝖧_(p_σ)ρ = 2 at R_in and −2 at R_out.
+
+(c) Let |σ| = 1, ℓ ∈ ℝ and a := ρ^(−ℓ−½)χ_0(ρ)χ₁(|η|²)χ₂(ξ), with χ_j ≥ 0 smooth, χ_0′ ≤ 0, χ₁′ ≤ 0,
+supp χ₁ ⊂ (−∞, 1/16] and supp χ₂ ⊂ [−¼, ¼]. Then
+
+    𝖧_(p_σ)a = ρ^(−ℓ−½)((2ℓ + 1)(1 − κξ)χ_0χ₁χ₂ + 2(κξ − 1)ρχ_0′χ₁χ₂ + 4(κξ − 1)|η|²χ_0χ₁′χ₂ − 2κ|η|²χ_0χ₁χ₂′),
+
+and on supp a, 1 − κξ ∈ [¾, 5/4] and κξ − 1 ≤ −¾. So the principal symbol aH_(p_σ)a = ρa𝖧_(p_σ)a of (i/2)[P, A²],
+for an operator P with principal symbol p_σ and A with symbol a, is ρ times the sum of the main term
+(2ℓ + 1)(1 − κξ)a², which has the sign of 2ℓ + 1, a term ≥ 0 supported in supp χ_0′, a term ≥ 0 supported in
+supp χ₁′, and a term supported in supp χ₂′; these signs and supports, and the bounds of the four terms, are the same
+for every σ with |σ| = 1.
+
+*Proof.* In the coordinates (ρ, ω), the covector ξ dρ/ρ² + rη has the canonical fibre coordinates P = ρ⁻²ξ and
+W = ρ⁻¹η, η being taken in the coordinates of T*𝕊³ dual to ω. So ∂_P = ρ²∂_ξ, ∂_W = ρ∂_η and
+∂_ρ|_(P,W) = ∂_ρ + 2ρ⁻¹ξ∂_ξ + ρ⁻¹η·∂_η. Inserting these into H_p = (∂_Pp)∂_ρ − (∂_ρp)∂_P + ∂_Wp·∂_ω − ∂_ωp·∂_W, in
+which ∂_ρ is taken at fixed (ω, P, W), the terms ±2ρξ(∂_ξp)∂_ξ cancel and [[eq:iv6-0-flow]] follows. (At ρ = 0 it is
+[[eq:i-a-4-4]] with ξ replaced by −ξ, the covector being written ξ dr + rη there.) As 𝖧_pp = ρ⁻¹H_pp = 0, 𝖧_(p_σ) is tangent to the level sets of p_σ.
+
+(a) Im G_σ = −2(Im σ)ξ vanishes only at ξ = 0, and then G_σ = |η|².
+
+(b) For σ = ±1, σ⁻¹ = σ is real, so q_σ = 0, p_σ = σG_σ and G_σ = (ξ − σ)² + |η|² − 1. By [[eq:iv6-0-flow]], with
+H_(|η|²) the geodesic vector field of T*𝕊³,
+
+    𝖧_(p_σ) = 2(σξ − 1)(ρ∂_ρ + η·∂_η) − 2σ|η|²∂_ξ + σH_(|η|²),     ρ⁻¹𝖧_(p_σ)ρ = 2(σξ − 1).
+
+This vanishes at ρ = 0 where η = 0, and 𝖧_(p_σ)ξ = −2σ|η|² ≠ 0 where η ≠ 0; on Char_σ, η = 0 exactly at R_in, where
+ξ = 2σ, and at R_out, where ξ = 0. On Char_σ, y := σξ − 1 = σ(ξ − σ) lies in [−1, 1], |η|² = 1 − y², and along an
+integral curve ẏ = σ𝖧_(p_σ)ξ = −2(1 − y²). The solutions with |y| < 1 are y(s) = −tanh(2(s − s_0)), defined for all s
+and tending to 1 as s → −∞ and to −1 as s → +∞, with s_0 continuous in the initial point; so ξ tends to 2σ, resp. 0,
+and |η| = sech(2(s − s_0)) tends to 0. The ω-component of 𝖧_(p_σ) is that of σH_(|η|²), of length 2|η|, which is
+integrable in s; so ω converges as s → ±∞, uniformly for initial points in a compact set. At R_in, y = 1 and
+ρ⁻¹𝖧_(p_σ)ρ = 2; at R_out, y = −1 and ρ⁻¹𝖧_(p_σ)ρ = −2.
+
+(c) p_σ does not depend on ρ, so by [[eq:iv6-0-flow]] 𝖧_(p_σ) = 2(κξ − 1)(ρ∂_ρ + η·∂_η) − 2κ|η|²∂_ξ + κH_(|η|²). Hence
+𝖧_(p_σ)ρ^(−ℓ−½) = (2ℓ + 1)(1 − κξ)ρ^(−ℓ−½), 𝖧_(p_σ)χ_0(ρ) = 2(κξ − 1)ρχ_0′, 𝖧_(p_σ)χ₁(|η|²) = 4(κξ − 1)|η|²χ₁′, as
+η·∂_η|η|² = 2|η|² and H_(|η|²)|η|² = 0, and 𝖧_(p_σ)χ₂(ξ) = −2κ|η|²χ₂′. On supp a, |κξ| ≤ ¼ as |κ| = |Re σ̄| ≤ 1,
+which gives the two ranges. The signs follow from χ_0χ_0′ ≤ 0 and χ₁χ₁′ ≤ 0. ∎
 
 **Definition {#def:iv6-0-2}** (Admissible orders; [Hin26a, (B.13)] in dimension 4 + 1.) (s, ℓ, β) is *admissible at σ*
 if β ∈ (0, 2 + C_0], ℓ < −½ + h⁻¹(1 − e)(1 − v) at R_out, and, when σ = ±1, ℓ > −½ − h⁻¹(1 − e)(1 + v) at R_in, with ℓ
