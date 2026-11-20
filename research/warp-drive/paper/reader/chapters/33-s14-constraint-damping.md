@@ -1935,9 +1935,9 @@ h⁻¹Im⟨P_hω, a²L_hω⟩ = ⟨𝒞ω, ω⟩ − h⁻¹‖aL_hω‖². The p
 expands (i/2)(□_h*bL_h − L_h*b□_h) in local coordinates with b = a². Its part from □_h and from the principal part
 −ihℓ⟨∇·⟩ of L_h is h²∫_R B(□_gω, w²ℓ⟨∇ω⟩)|dg| for real ω, and the sum of this for Re ω and Im ω in general, with the
 R and w below; [[eq:iv5-6-energy]] writes it through the 𝒬-terms and 𝓡 (for ω vanishing for t < 0 by density, each
-term being continuous in the norm of ρ_sf^(α_sf)H²_(3b,h)). Then a da is [Hin26a, (5.72)], and the
-weight identity [Hin26a, (5.73)] holds: aT_(G,−da,ℓ) = ρ_sf⁴T_(ρ_sf⁻²G, −a da, ρ_sf⁻²ℓ), as T is linear in each of its
-three arguments, free of the dimension.
+term being continuous in the norm of ρ_sf^(α_sf)H²_(3b,h)). Then a da is [Hin26a, (5.72)], and the weight identity
+[Hin26a, (5.73)] holds: aT_(G,−da,ℓ) = ρ_sf⁴T_(ρ_sf⁻²G, −a da, ρ_sf⁻²ℓ), as T is linear in each of its three arguments,
+free of the dimension.
 
 −a da is past timelike for 𝔛 large, since dτ is past timelike with r²g⁻¹(dτ, dτ) ≤ −¾ ([[lem:iv5-0-3]] (b)) and the
 δ(r − r_♯)-part of −a da is a positive multiple of −dr, past timelike ([[lem:iv5-0-3]] (c)). So [[cor:iv5-6-energy]]
