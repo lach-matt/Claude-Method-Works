@@ -875,6 +875,259 @@ stability statement, the quotient ‖F(u)‖_(H²)/(‖u‖_(L^∞) ‖u‖_(H²
 of the data of size d = 4 × 10⁻³, 2 × 10⁻³, 10⁻³; on [0, 3], past the shock of ū, ‖ū‖_(H²) grew by a factor 420. No
 proof uses these observations.
 
+Kato's iteration also solves [[eq:class-kato-system]] when the forcing term at a time depends on the solution over an
+interval of earlier times and is controlled only in space-time norms. Such forcing terms arise when a non-local term is
+computed on the leaves of hypersurfaces that are not the slices of the time: the estimates of the leaves then give the
+integrated forms of the fixed-time hypotheses (F1)–(F2), and not those hypotheses ([[rem:class-kato-memory]]).
+
+*Space-time norms.* Keep the setting of this section, with the A^μ given, with the properties stated there, for t in an
+interval containing every interval of times used below ([−2m, T0] in [[thm:class-kato-memory]]), the bounds of order σ
+taken over it, and let J = [a, b] be an interval. H^σ(J) is the space of functions on J × R^d with all derivatives ∂_t^j
+∂_x^β, j + |β| ≤ σ, in L²(J × R^d), with the norm of the sum of their squared L² norms. 𝒳^σ(J) is the space of u with
+∂_t^j u ∈ L^∞(J; H^(σ−j)) for 0 ≤ j ≤ σ, the derivatives in the sense of distributions, and ⟦u⟧_(σ,J) := Σ_(j≤σ) ess
+sup_J ‖∂_t^j u‖_(H^(σ−j)). For u ∈ 𝒳^σ(J) and j ≤ σ − 1, ∂_t^j u is Lipschitz into H^(σ−j−1), hence continuous, and its
+value at every t lies in H^(σ−j), with norm at most ⟦u⟧_(σ,J), a closed ball of H^(σ−j) being weakly closed; and
+‖u‖_(H^σ(J)) ≤ (b − a)^(1/2) ⟦u⟧_(σ,J). For f ∈ H^σ(J) and i ≤ σ − 1, ∂_t^i f and ∂_t^(i+1) f lie in L²(J; H^(σ−1−i)),
+so ∂_t^i f is continuous into H^(σ−1−i), with
+
+    ‖∂_t^i f(t) − ∂_t^i f(t′)‖_(H^(σ−1−i)) ≤ |t − t′|^(1/2) ‖f‖_(H^σ([t′,t])),
+    sup_J ‖∂_t^i f‖_(H^(σ−1−i)) ≤ ((b − a)^(−1/2) + (b − a)^(1/2)) ‖f‖_(H^σ(J)),                  {#eq:class-trace}
+
+by ∂_t^i f(t) − ∂_t^i f(t′) = ∫_(t′)^t ∂_t^(i+1) f and the Cauchy–Schwarz inequality, and by averaging the first bound
+over t′ ∈ J. If u ∈ 𝒳^σ([a, b]) and u′ ∈ 𝒳^σ([b, c]) have ∂_t^j u(b) = ∂_t^j u′(b) for j ≤ σ − 1, the function equal to
+u on [a, b] and to u′ on [b, c] lies in 𝒳^σ([a, c]): its distributional derivatives of order j ≤ σ are the piecewise
+ones, since those of order j − 1 are continuous at b. *Extension beyond b.* For an integer N ≥ 1 let c_1, …, c_N solve
+Σ_l c_l (−1/l)^i = 1, 0 ≤ i ≤ N − 1, a Vandermonde system with the distinct nodes −1/l, and for b − a ≥ m > 0 and t ∈
+(b, b + m] put (E_b u)(t) := Σ_l c_l u(b − (t − b)/l), and E_b u := u on [a, b]. Each term takes the values of u on [b −
+m, b]; its j-th derivative is l^(−j) (∂_t^j u)(b − (t − b)/l); so for N = σ + 1, E_b maps 𝒳^σ([a, b]) into 𝒳^σ([a, b +
+m]) with ⟦E_b u⟧_(σ,[a,b+m]) ≤ C_E ⟦u⟧_(σ,[a,b]), C_E := Σ_l |c_l|, the derivatives of order at most σ − 1 matching at
+b, and, the substitution t ↦ b − (t − b)/l multiplying L² norms by l^(1/2), ‖E_b u‖_(H^σ([b,b+m])) ≤ C_E′
+‖u‖_(H^σ([b−m,b])) and ‖E_b u‖_(L²([b,b+m]×R^d)) ≤ C_E′ ‖u‖_(L²([b−m,b]×R^d)), C_E′ := Σ_l |c_l| l^(1/2).
+
+**Lemma {#lem:class-mixed-product}** (Products at one time.) Let σ1, σ2 ≥ σ ≥ 0 be integers with σ1 + σ2 − σ > d/2.
+
+(a) ‖f g‖_(H^σ) ≤ C ‖f‖_(H^(σ1)) ‖g‖_(H^(σ2)), C depending only on d, σ1, σ2.
+
+(b) Let Φ be as in [[lem:class-composition]], v ∈ 𝒳^s(J) with ⟦v⟧_(s,J) ≤ 𝔐, and 0 ≤ a ≤ s − 1. At every t ∈ J, ∂_t^a
+[Φ(t, ·, v(t))] = (∂_t^a Φ)(t, ·, v(t)) + R_a(t) with ‖R_a(t)‖_(H^(s−a)) ≤ C(𝔐), R_0 := 0, and multiplication by (∂_t^a
+Φ)(t, ·, v(t)) is bounded on H^σ, σ ≤ s, with norm at most C(𝔐); R_a depends only on ∂_t^i v, i ≤ a, and its bound on
+bounds of these.
+
+*Proof.* (a) For |γ| ≤ σ, ∂^γ(fg) is a sum of terms ∂^(γ1) f ∂^(γ2) g with |γ1| + |γ2| ≤ σ; put α := σ1 − |γ1| ≥ 0 and β
+:= σ2 − |γ2| ≥ 0, so α + β > d/2. Choose p, q ∈ [2, ∞] with 1/p + 1/q = 1/2: p = ∞, q = 2 if α > d/2; p = 2, q = ∞ if
+β > d/2; otherwise 1/p := 1/2 − α/d + λ and 1/q := 1/2 − β/d + λ with 2λ := (α + β)/d − 1/2 > 0, for which 0 < 1/p, 1/q
+≤ 1/2 since β − α ≤ d/2 and α − β ≤ d/2. On every unit cube Q of the lattice, [[thm:std-bh17-embedding]] (for finite
+exponents, α − d/2 ≥ −d/p) and [[thm:std-bh-embedding]] (for the exponent ∞) give ‖F‖_(L^p(Q)) ≤ C ‖F‖_(H^α(Q)) and
+‖G‖_(L^q(Q)) ≤ C ‖G‖_(H^β(Q)), C independent of Q by translation. With F := ∂^(γ1) f and G := ∂^(γ2) g, Hölder's
+inequality on each cube and summation give ‖FG‖² ≤ Σ_Q C ‖F‖²_(H^α(Q)) ‖G‖²_(H^β(Q)) ≤ C ‖F‖²_(H^α) sup_Q ‖G‖²_(H^β(Q))
+≤ C ‖f‖²_(H^(σ1)) ‖g‖²_(H^(σ2)).
+(b) By the chain rule ∂_t^a [Φ(t, x, v)] − (∂_t^a Φ)(t, x, v) is a sum, with coefficients depending on a, of terms
+(∂_t^(a0) ∂_u^l Φ)(t, x, v)[∂_t^(a1) v, …, ∂_t^(al) v] with l ≥ 1, every a_i ≥ 1 and a0 + a1 + … + al = a. The product
+of the l factors lies in H^(s−a1−…−al) ⊂ H^(s−a) by (a) applied l − 1 times, as (s − a1) + (s − a2) − (s − a1 − a2) =
+s > d/2 and s − a ≥ 1, with the bound C 𝔐^l. A function Ψ(t, x, v) with Ψ smooth as Φ multiplies H^σ, σ ≤ s, with norm
+at most C(𝔐): Ψ(t, x, 0) has bounded derivatives of every order, and ‖Ψ(t, ·, v) − Ψ(t, ·, 0)‖_(H^s) ≤ C(𝔐) by
+[[lem:class-composition]] (b), so (a) with σ1 = s and σ2 = σ applies to it. ∎
+
+**Lemma {#lem:class-kato-history}** (The linear problem with forcing in a space-time space and a history.) Let m > 0,
+J_− := [t1 − m, t1], J := [t1, t2] and J_+ := [t1 − m, t2], with t2 − t1 ≤ T0. Let v ∈ 𝒳^s(J_+) with ⟦v⟧_(s,J_+) ≤ 𝔐,
+𝐀^μ := A^μ(t, x, v), f ∈ H^s(J_+), and w̄ ∈ 𝒳^s(J_−) a solution of 𝐀^0 ∂_t w̄ + 𝐀^j ∂_j w̄ = f on J_−. There is exactly
+one w ∈ C(J_+; L²) equal to w̄ on J_− that solves 𝐀^0 ∂_t w + 𝐀^j ∂_j w = f on J_+ with ∂_t w ∈ C(J_+; L²). It lies in
+𝒳^s(J_+), and for t ∈ J, with E_s of [[lem:class-kato-linear]]:
+
+(i) E_s(t; w)^(1/2) ≤ e^(C(t−t1)) (E_s(t1; w)^(1/2) + C (t − t1)^(1/2) ‖f‖_(H^s([t1,t]))), C depending on d, s, c0, 𝔐
+and bounds of order s for the A^μ;
+
+(ii) for 1 ≤ j ≤ s and almost every t ∈ J, ‖∂_t^j w(t)‖_(H^(s−j)) ≤ B_j (‖w(t)‖_(H^s) + Σ_(i<j) ‖∂_t^i
+f(t)‖_(H^(s−1−i))), B_j depending on d, s, c0, bounds of order s for the A^μ and a bound for ‖∂_t^i v‖_(L^∞(H^(s−i))), i
+≤ j − 1;
+
+(iii) ‖∂_t^i f(t)‖_(H^(s−1−i)) ≤ ‖∂_t^i f(t1)‖_(H^(s−1−i)) + (t − t1)^(1/2) ‖f‖_(H^s([t1,t])) for i ≤ s − 1.
+
+*Proof.* By [[eq:class-trace]], f ∈ C(J_+; H^(s−1)). On J, v satisfies the hypotheses of [[lem:class-kato-linear]], with
+‖v(t)‖_(H^s) ≤ 𝔐 and Lipschitz constant 𝔐 into H^(s−1). For ε ∈ (0, 1] the mollified f_ε := J_ε f lies in C(J; L²) with
+f_ε(t) ∈ H^s and sup_t ‖f_ε(t)‖_(H^s) ≤ C ε⁻¹ sup_t ‖f(t)‖_(H^(s−1)) < ∞, so part (b) of that lemma gives a solution w_ε
+on J with w_ε(t1) = w̄(t1) and E_s(t; w_ε)^(1/2) ≤ e^(C(t−t1)) (E_s(t1; w̄)^(1/2) + C ∫_(t1)^t ‖f‖_(H^s)), J_ε not
+increasing the norms. By part (a) of that lemma, sup_t ‖w_ε − w_(ε′)‖ ≤ C ∫_J ‖f_ε − f_(ε′)‖ → 0, since f_ε → f in C(J;
+L²). As in step (4) of its proof the limit w lies in C(J; L²), w(t) ∈ H^s with the bound (i) (the integral of ‖f‖_(H^s)
+being at most (t − t1)^(1/2) ‖f‖_(L²([t1,t]; H^s)) ≤ (t − t1)^(1/2) ‖f‖_(H^s([t1,t]))), w_ε → w in C(J; H^(s−1)) by
+[[eq:class-interpolation]], and passing to the limit in w_ε(t) = w̄(t1) + ∫_(t1)^t (𝐀^0)⁻¹ (f_ε − 𝐀^j ∂_j w_ε) shows
+that w solves the equation with ∂_t w ∈ C(J; L²). Uniqueness is part (a) of [[lem:class-kato-linear]].
+
+(ii) On J, ∂_t w = (𝐀^0)⁻¹ (f − 𝐀^j ∂_j w). Suppose that ∂_t^i w ∈ L^∞(J; H^(s−i)) for i < j, with the bounds (ii).
+Differentiating j − 1 times in the sense of distributions, ∂_t^j w is a sum of terms ∂_t^a[(𝐀^0)⁻¹] ∂_t^b f and
+∂_t^a[(𝐀^0)⁻¹] ∂_t^(b1)[𝐀^i] ∂_t^(b2) ∂_i w with a + b = a + b1 + b2 = j − 1. Write each factor ∂_t^a[Ψ(v)] as in
+[[lem:class-mixed-product]] (b), a multiplier plus R_a ∈ H^(s−a); ∂_t^b f ∈ H^(s−1−b) and ∂_t^(b2) ∂_i w ∈ H^(s−1−b2).
+By [[lem:class-mixed-product]] (a), every product of factors in H^(s−a), H^(s−b1) and H^(s−1−b2) lies in
+H^(s−1−a−b1−b2) = H^(s−j), each exponent being at least s − j and the sum of any two exceeding the target by at least
+s > d/2; likewise for the terms with f. The bound (ii) follows, with only ∂_t^i v, i ≤ j − 1, entering. The same
+products with one order less show that ∂_t^j w is continuous into H^(s−j−1) for j ≤ s − 1, and ∂_t^s w ∈ L^∞(J; L²). So
+w|_J ∈ 𝒳^s(J). On J_− the same identities hold for w̄, with the same v and f. At t1, w(t1) = w̄(t1), and by induction on
+j ≤ s − 1 the formula gives ∂_t^j w(t1) = ∂_t^j w̄(t1), all its ingredients ∂_t^i v, ∂_t^i f (i ≤ j − 1) and ∂_t^i w (i
+< j) being continuous at t1 into H^(s−j−1). So w ∈ 𝒳^s(J_+), by the concatenation property. (iii) is [[eq:class-trace]].
+∎
+
+Fix m > 0, T0 > 0, a reference path u_* ∈ 𝒳^(s+1)([−2m, T0]) and ρ > 0, and put 𝔐_ρ := ⟦u_*⟧_(s+1,[−2m,T0]) + ρ. For t̄
+∈ (−2m, T0] let 𝒫_t̄ := {u ∈ 𝒳^s([−2m, t̄]) : ⟦u − u_*⟧_(s,[−2m,t̄]) ≤ ρ}; every u ∈ 𝒫_t̄ has ⟦u⟧_(s,[−2m,t̄]) ≤ 𝔐_ρ.
+Let F assign to every t̄ and every u ∈ 𝒫_t̄ a function F(u) ∈ H^s([−m, t̄]) such that, for −m ≤ t1 < t2 ≤ t̄ and u, u′ ∈
+𝒫_t̄, with constants C_F and L:
+
+(M0) if u = u′ on [−2m, t], then F(u) = F(u′) on [−m, t]; and F(u|_([−2m,t])) = F(u) on [−m, t];
+(M1) ‖F(u)‖_(H^s([t1,t2])) ≤ C_F (t2 − t1 + m)^(1/2);
+(M2) ‖F(u) − F(u′)‖_(L²([t1,t2]×R^d)) ≤ L ‖u − u′‖_(L²([t1−m,t2]×R^d)).
+
+A *solution on [−m, t̄]* is a u ∈ 𝒫_t̄ with ∂_t u ∈ C([−m, t̄]; L²) and A^0(t, x, u) ∂_t u + A^j(t, x, u) ∂_j u = F(u)
+on [−m, t̄]. The number m is the *memory*.
+
+**Theorem {#thm:class-kato-memory}** (Kato's iteration with memory.) Assume (M0)–(M2).
+
+(a) There are η ∈ (0, 1] and T* ∈ (0, m], depending only on d, s, c0, bounds of order s for the A^μ, ρ, m, 𝔐_ρ, C_F and
+L, such that every solution on [−m, t1], 0 ≤ t1 < T0, with ⟦u − u_*⟧_(s,[−2m,t1]) ≤ η ρ extends to a solution on [−m,
+min(t1 + T*, T0)]. Two solutions on [−m, t̄] that agree on [−2m, t1] agree. If u is a solution on [−m, t] for every t <
+T2 ≤ T0, with ⟦u − u_*⟧_(s,[−2m,t]) ≤ η ρ for t < T2, then u extends to a solution on [−m, min(T2 + T*/2, T0)].
+
+(b) (Stability.) Assume moreover that u_* satisfies A^0(t, x, u_*) ∂_t u_* + A^j(t, x, u_*) ∂_j u_* = F(u_*) + R on [−m,
+T0], with R ∈ H^s([−m, T0]), and
+
+(M1′) ‖F(u) − F(u_*)‖_(H^s([t1,t2])) ≤ C′ ‖u − u_*‖_(H^s([t1−m,t2])) for u ∈ 𝒫_t̄ and −m ≤ t1 < t2 ≤ t̄.
+
+There are ε0 > 0 and C, depending on the quantities of (a), on C′ and on T0, such that every solution h on [−m, 0] with
+δ := ⟦h − u_*⟧_(s,[−2m,0]) + ‖R‖_(H^s([−m,T0])) ≤ ε0 extends to a solution u on [−m, T0], with ⟦u − u_*⟧_(s,[−2m,T0]) ≤
+C δ.
+
+(c) (Regularity.) Assume moreover that the A^μ and u_* are smooth, with u_* ∈ H^σ([−2m, T0]) for every σ, that R = 0 on
+[−m, 0], that ‖R‖_(H^s([−m,T0])) ≤ ε0, and, for every integer σ > s,
+
+(M1_σ) ‖F(u)‖_(H^σ([t1,t2])) ≤ C_σ(L) (1 + ‖u‖_(H^σ([t1−m,t2]))) for u ∈ 𝒫_t̄ ∩ H^σ([−2m, t̄]) with
+‖u‖_(H^(σ−1)([−2m,t̄])) ≤ L and −m ≤ t1 < t2 ≤ t̄, C_σ(L) an increasing function of L.
+
+Then, for ε0 small, the solution of (b) with the history h := u_* lies in H^σ([−2m, T0]) for every σ.
+
+(d) (A part solved by integration.) Let the unknown split as u = (u_0, u′) ∈ R^(m_0) × R^(m−m_0), let A^0 = diag(I,
+A′^0) and A^j = diag(0, A′^j), with A′^μ depending on (t, x, u), and let the rows of F(u) for u_0 be Πu′ for every path,
+Π a constant matrix, so that the equations for u_0 read ∂_t u_0 = Πu′. In the proofs of (a) and (c) replace the linear
+step by the *split step*: given v and the history h, w′ is the solution of [[lem:class-kato-history]] for the rows for
+u′, A′^μ(t, x, v) ∂_μ w′ = F′(v), with the history h′, and w_0(t) := h_0(t1) + ∫_(t1)^t Πw′ for t ≥ t1, w := h on [−2m,
+t1]. Let 𝒞 be a set of paths such that: (C1) u_* ∈ 𝒞 and ∂_t u_(*0) = Πu′_*; (C2) if v ∈ 𝒞 ∩ 𝒫_(t1+T) and h ∈ 𝒞, the
+path w of the split step lies in 𝒞; (C3) 𝒞 contains the limit in C(L²) of every sequence of its paths bounded in 𝒳^s;
+(C4) every h ∈ 𝒞 on [−2m, t1] is the restriction of some u^0 ∈ 𝒞 on [−2m, t1 + m] with ⟦u^0 − u_*⟧_(s,[−2m,t1+m]) ≤ C_𝒞
+⟦h − u_*⟧_(s,[−2m,t1]). Then (a), (b) and (c) hold with (M0)–(M2), (M1′) and (M1_σ) assumed only for paths of 𝒞, for
+histories in 𝒞, the solutions lying in 𝒞, the constants depending also on C_𝒞 and |Π|.
+
+*Proof.* (a) *Uniqueness.* Let u, ũ be solutions on [−m, t̄] that agree on [−2m, t1]. z := u − ũ solves the linear
+problem with the coefficients at u and the forcing term F(u) − F(ũ) − (A^μ(u) − A^μ(ũ)) ∂_μ ũ, continuous into L² by
+[[eq:class-trace]]; ‖∂ũ‖_(L^∞) ≤ C_S 𝔐_ρ, and z = 0 before t1. By [[lem:class-kato-linear]] (a), the Cauchy–Schwarz
+inequality and (M2), e(t) := ‖z(t)‖² satisfies e(t) ≤ C (t − t1) ∫_(t1)^t (L² + C) e for t ≥ t1, so e = 0.
+
+*Existence.* Let u be a solution on [−m, t1] with ⟦u − u_*⟧_(s,[−2m,t1]) ≤ η ρ, η to be fixed, and h := u. Put u^0 :=
+u_* + E_(t1)(h − u_*) on [−2m, t1 + m], with E_(t1) the extension beyond t1 (N = s + 1), so that ⟦u^0 − u_*⟧_s ≤ C_E η ρ
+≤ ρ/2 for η ≤ 1/(2C_E), and let J := [t1, t1 + T], T ≤ min(T*, T0 − t1). For n ≥ 0 let u^(n+1) := h on [−2m, t1] and, on
+J, the solution of [[lem:class-kato-history]] with v := u^n, f := F(u^n) on [t1 − m, t1 + T] and w̄ := h on [t1 − m,
+t1]; by (M0), F(u^n) = F(h) on [−m, t1], so w̄ solves the linear equation there. Suppose u^n ∈ 𝒫_(t1+T), u^n = h on
+[−2m, t1]. Then u^(n+1) ∈ 𝒳^s([−2m, t1 + T]) by [[lem:class-kato-history]], and w := u^(n+1) − u_* solves on J the
+linear problem with the coefficients 𝐀^μ := A^μ(u^n), the data h(t1) − u_*(t1) and the forcing term f_w := F(u^n) − 𝐀^μ
+∂_μ u_*, to which [[lem:class-kato-history]] applies (with w̄ := h − u_*). By [[lem:class-mixed-product]] at each time,
+‖𝐀^μ ∂_μ u_*‖_(H^s([t1,t])) ≤ (t − t1)^(1/2) C(𝔐_ρ), u_* ∈ 𝒳^(s+1); with (M1), ‖f_w‖_(H^s([t1,t])) ≤ C (T + m)^(1/2). By
+(i), with C_A := sup |A^0| at |u| ≤ C_S 𝔐_ρ, ‖w(t)‖_(H^s) ≤ c0^(−1/2) e^(CT) (C_A^(1/2) η ρ + C T^(1/2) (T + m)^(1/2)).
+On [t1 − m, t1] the equation for h gives f_w = A^μ(h) ∂_μ(h − u_*), and ∂_t^i f_w is continuous into H^(s−1−i) for i ≤ s
+− 1; so by [[lem:class-mixed-product]], ‖∂_t^i f_w(t1)‖_(H^(s−1−i)) ≤ C(𝔐_ρ) ⟦h − u_*⟧_(s,[t1−m,t1]) ≤ C η ρ. By (ii)
+for w and (iii),
+
+    ⟦w⟧_(s,J) ≤ B (η ρ + T^(1/2) (T + m)^(1/2)),
+
+B ≥ 1 depending only on the quantities of (a). Choose η ≤ 1/(4B) and then T* so small that B T*^(1/2) (T* + m)^(1/2) ≤
+ρ/4: then ⟦u^(n+1) − u_*⟧_(s,[−2m,t1+T]) ≤ ⟦h − u_*⟧_(s,[−2m,t1]) + ⟦w⟧_(s,J) ≤ η ρ + ρ/2 ≤ ρ, and u^(n+1) ∈ 𝒫_(t1+T).
+*Contraction.* For n ≥ 1, δ^(n+1) := u^(n+1) − u^n vanishes on [−2m, t1] and solves on J the linear problem with the
+coefficients at u^n, data 0 and the forcing term F(u^n) − F(u^(n−1)) − (A^μ(u^n) − A^μ(u^(n−1))) ∂_μ u^n, whose L²(J ×
+R^d) norm is at most (L + C) T^(1/2) sup_J ‖δ^n‖ by (M2). [[lem:class-kato-linear]] (a) and the Cauchy–Schwarz
+inequality give sup_J ‖δ^(n+1)‖ ≤ C T sup_J ‖δ^n‖ ≤ ½ sup_J ‖δ^n‖ for T* small. *Limit.* So u^n → u in C([−2m, t1 + T];
+L²). For each j ≤ s, ∂_t^j u^n is bounded in L^∞(H^(s−j)), the dual of L¹(H^(j−s)); its weak-* limit points are ∂_t^j u,
+so ∂_t^j u^n converges weak-* to it, and ⟦u − u_*⟧_s ≤ ρ: u ∈ 𝒫_(t1+T). By [[eq:class-interpolation]], u^n → u in
+L^∞(H^(s−1)); by (M2), F(u^n) → F(u) in L²(J × R^d). Passing to the limit in u^(n+1)(t) = h(t1) + ∫_(t1)^t (A^0(u^n))⁻¹
+(F(u^n) − A^j(u^n) ∂_j u^(n+1)) gives the same identity for u, with an integrand continuous into L², F(u) ∈ H^s([−m,
+t1 + T]) being continuous into L². So u is a solution on [−m, t1 + T]. *Continuation.* With t1 := max(T2 − T*/2, 0), the
+solution on [−m, t1 + T*] given by the first part agrees with u on [−2m, T2) by uniqueness.
+
+(b) By (a), the solution u with history h exists on a maximal interval [−m, T_m) ∩ [−m, T0] on which ⟦u − u_*⟧_s ≤ η ρ.
+Let τ1 < τ2 < T_m with τ2 − τ1 ≤ θ, θ ≤ m to be fixed, and z := u − u_*. z solves the linear problem with coefficients
+at u and the forcing term f_z := F(u) − F(u_*) − R − (A^μ(u) − A^μ(u_*)) ∂_μ u_*, and ‖f_z‖_(H^s([τ1,τ])) ≤ C
+(‖z‖_(H^s([τ1−m,τ])) + ‖R‖_(H^s([τ1,τ]))) by (M1′) and [[lem:class-mixed-product]] at each time. Put X(τ) :=
+⟦z⟧_(s,[−2m,τ]); then ‖z‖_(H^s([τ1−m,τ])) ≤ (2m)^(1/2) X(τ). By the two equations, f_z + R = A^μ(u) ∂_μ z on [τ1 − m,
+τ1], so, as in (a), ‖∂_t^i f_z(τ1)‖_(H^(s−1−i)) ≤ C (X(τ1) + ‖R‖_(H^s([−m,T0]))) for i ≤ s − 1, by [[eq:class-trace]]
+for R. Then (i)–(iii) give, for almost every τ ∈ [τ1, τ2],
+
+    Σ_(j≤s) ‖∂_t^j z(τ)‖_(H^(s−j)) ≤ B′ (X(τ1) + θ^(1/2) X(τ2) + ‖R‖_(H^s([−m,T0]))),
+
+so X(τ2) ≤ B′ X(τ1) + B′ θ^(1/2) X(τ2) + B′ δ, and for B′ θ^(1/2) ≤ ½, X(τ2) ≤ 2B′ (X(τ1) + δ). Over the N := ⌈T0/θ⌉
+intervals of length θ this gives X ≤ (4B′)^N δ =: C δ on [−2m, T_m). For C δ ≤ η ρ/2, (a) excludes T_m ≤ T0.
+
+(c) *A global iteration.* Let u^0 := u_* on [−2m, T0] and, for n ≥ 0, u^(n+1) := u_* on [−2m, 0] and, on [0, T0], the
+solution of [[lem:class-kato-history]] with v := u^n, f := F(u^n) and w̄ := u_* on [−m, 0], which solves the linear
+equation there, as R = 0 on [−m, 0] and F(u^n) = F(u_*) there by (M0). Put Y_n(τ) := ⟦u^n − u_*⟧_(s,[−2m,τ]) and fix 0 =
+τ_0 < τ_1 < … < τ_N = T0 with τ_(i+1) − τ_i ≤ θ. The proof of (b), applied to z := u^(n+1) − u_* with the coefficients
+at u^n, gives, as long as the u^j lie in the ball, Y_(n+1)(τ_(i+1)) ≤ B′ Y_(n+1)(τ_i) + B′ θ^(1/2) Y_n(τ_(i+1)) + B′ δ.
+Put M_0 := 0 and M_(i+1) := 2B′ (M_i + δ), and take B′ θ^(1/2) ≤ ¼. If Y_n(τ_j) ≤ M_j for all j, then by induction on i,
+Y_(n+1)(τ_(i+1)) ≤ B′ M_i + M_(i+1)/4 + B′ δ ≤ M_(i+1); as Y_0 = 0, this holds for all n, and M_N ≤ (4B′)^N δ ≤ ρ, δ :=
+‖R‖_(H^s([−m,T0])) ≤ ε0, for ε0 small: every u^n lies in 𝒫_(T0). *Convergence.* δ^(n+1) := u^(n+1) − u^n vanishes on
+[−2m, 0], and, as in the contraction of (a), ‖δ^(n+1)(t)‖ ≤ C t^(1/2) ‖δ^n‖_(L²([0,t]×R^d)); with Q_n := sup_t e^(−λt)
+‖δ^n(t)‖, ‖δ^n‖²_(L²([0,t]×R^d)) ≤ Q_n² e^(2λt)/(2λ), so Q_(n+1) ≤ C T0^(1/2) (2λ)^(−1/2) Q_n ≤ ½ Q_n for λ large. So
+u^n converges in C([−2m, T0]; L²); its limit is a solution, as in (a), within ρ of u_*, hence the solution u of (b), by
+the uniqueness of (a).
+
+*Higher norms.* We show by induction on σ ≥ s that L_σ := sup_n ‖u^n‖_(H^σ([−2m,T0])) < ∞; for σ = s, ‖u^n‖_(H^s) ≤
+(T0 + 2m)^(1/2) 𝔐_ρ. Let σ > s with L_(σ−1) < ∞; for this σ we fix below a new number θ and a partition 0 = τ_0 < … <
+τ_N = T0 with τ_(i+1) − τ_i ≤ θ. For w := u^(n+1) put S_(n+1)(τ) := sup_([0,τ]) E_σ(t; w)^(1/2), with E_σ of
+[[lem:class-kato-linear]]. (i) *Spatial energy.* Part (c) of [[lem:class-kato-linear]] at the order σ, on an interval
+[τ_i, t], with v := u^n and f := F(u^n), gives E_σ(t; w)^(1/2) ≤ e^(C_* θ) (E_σ(τ_i; w)^(1/2) + C_* ∫_(τ_i)^t
+(‖f‖_(H^σ) + K_w ‖v‖_(H^σ))), C_* and K_w bounded by the order s, the ball and bounds of order σ of the A^μ; it applies
+with f and v replaced by J_ε f and J_ε v, whose values at each time lie in H^σ, and the bound passes to the limit ε → 0,
+the solutions converging in C(L²) by part (a) of that lemma and the norms on the right not increasing. With (M1_σ), for
+L := L_(σ−1), and the Cauchy–Schwarz inequality, S_(n+1)(τ_(i+1)) ≤ e^(C_* θ) S_(n+1)(τ_i) + C θ^(1/2) (1 +
+‖u^n‖_(H^σ([−2m,τ_(i+1)]))).
+(ii) *Time derivatives.* On [0, τ], for j ≥ 1 and j + |β| ≤ σ, ∂_t^j ∂_x^β w = ∂_t^(j−1) ∂_x^β[(𝐀^0)⁻¹ (f − 𝐀^l ∂_l w)]
+in the sense of distributions. Extend the factors to R × R^d in t by the operators E_b at both ends, bounded on every
+H^σ′ and on L^∞; by [[thm:std-gn-moser]] (1) and [[lem:class-composition]] (b) in the d + 1 variables (t, x), every
+product in which a derivative falls on (𝐀^0)⁻¹ or 𝐀^l, and every term with f, is bounded in L²([0, τ] × R^d) by C (1 +
+L_(σ−1) + ‖F(u^n)‖_(H^(σ−1)([0,τ]))), the sup norms of v, ∂v, ∂w and f being bounded by the order s (f by
+‖F(u^n)‖_(H^s), as s > (d + 1)/2); and ‖F(u^n)‖_(H^(σ−1)) ≤ C_(σ−1)(L_(σ−2)) (1 + L_(σ−1)) by (M1_(σ−1)) (by (M1) if σ −
+1 = s). The remaining term is (𝐀^0)⁻¹ 𝐀^l ∂_t^(j−1) ∂_x^β ∂_l w, with one time derivative fewer. By induction on j,
+‖w‖_(H^σ([0,τ])) ≤ C (τ^(1/2) S_(n+1)(τ) + 1 + L_(σ−1)). On [−2m, 0], w = u_*, and at t = 0 all derivatives of w equal
+those of u_* from the left, by the equation, as in [[lem:class-kato-history]]; so ‖w‖_(H^σ([−2m,τ])) ≤
+‖u_*‖_(H^σ([−2m,0])) + C (τ^(1/2) S_(n+1)(τ) + 1 + L_(σ−1)). (iii) *Induction in n.* So S_(n+1)(τ_(i+1)) ≤ e^(C_* θ)
+S_(n+1)(τ_i) + C θ^(1/2) (A + T0^(1/2) S_n(τ_(i+1))), A depending on L_(σ−1) and u_*. Let C_A ≥ sup |A^0| over the ball,
+so that E_σ(t; u_*)^(1/2) ≤ C_A^(1/2) ‖u_*(t)‖_(H^σ) for the coefficients of every path in the ball; sup_([0,T0])
+‖u_*‖_(H^σ) is finite by [[eq:class-trace]], u_* lying in H^(σ+1). Put S_0(τ) := C_A^(1/2) sup_([0,τ]) ‖u_*‖_(H^σ), M′_0
+:= S_0(T0) + 1 and M′_(i+1) := 2 (e^(C_* θ) M′_i + C θ^(1/2) A), and take C θ^(1/2) T0^(1/2) ≤ ¼. If S_n(τ_j) ≤ M′_j for
+all j, then S_(n+1)(τ_0) = E_σ(0; u_*)^(1/2) ≤ M′_0 and, by induction on i, S_(n+1)(τ_(i+1)) ≤ ½ M′_(i+1) + ¼ M′_(i+1);
+as S_0(τ_j) ≤ M′_0 ≤ M′_j, this holds for all n, and L_σ < ∞ by (ii). (Each u^n lies in H^σ([−2m, T0]), by induction on
+n with (i), (ii) and (M1_σ), so that (M1_σ) applies to it.) Since u^n → u in C(L²) and the u^n are bounded in H^σ([−2m,
+T0]), u ∈ H^σ([−2m, T0]).
+
+(d) A solution reproduces itself under the split step: on [t1, t̄] its rows for u′ are the linear equation of w′ with v
+:= u, and its rows for u_0 give u_0(t) = u_0(t1) + ∫_(t1)^t Πu′. *(a), uniqueness*, uses (M2) for two solutions, which
+lie in 𝒞, and is unchanged. *(a), existence.* Take u^0 from (C4), in place of u_* + E_(t1)(h − u_*), with C_𝒞 in place
+of C_E, and the split step; the iterates lie in 𝒞 by (C2), and on [t1 − m, t1] the history h′ solves the linear rows for
+u′, as F′(u^n) = F′(h) there by (M0). The rows for u′ form a system of the kind of [[sec:class-kato]] with A′^0 ≥ c0 I,
+so w′ − u′_* is bounded as w − u_* is in the proof of (a). By (C1), ∂_t^j (w_0 − u_(*0)) = Π ∂_t^(j−1) (w′ − u′_*) for j
+≥ 1, and ‖(w_0 − u_(*0))(t)‖_(H^s) ≤ ‖(h_0 − u_(*0))(t1)‖_(H^s) + T |Π| sup_J ‖w′ − u′_*‖_(H^s); so ⟦w_0 − u_(*0)⟧_(s,J)
+≤ η ρ + (1 + T) |Π| ⟦w′ − u′_*⟧_(s,J), and the choice of η and T* in (a), with B replaced by (2 + |Π|) B, gives u^(n+1)
+∈ 𝒫_(t1+T). In the contraction, δ_0^(n+1) = ∫_(t1)^t Π δ′^(n+1), so sup_J ‖δ_0^(n+1)‖ ≤ T |Π| sup_J ‖δ′^(n+1)‖, and
+δ′^(n+1) is bounded through the rows for u′ as there, the forcing term holding the whole δ^n through (M2). The limit
+lies in 𝒞, by (C3), and solves both groups of rows. *(b)* uses the hypotheses for the solution only. *(c).* The global
+iteration starts at u^0 := u_* ∈ 𝒞, uses the split step, and its iterates lie in 𝒞 by (C2); the bounds of the Y_n and
+the convergence follow as in (a), and the higher norms of w′ as in the proof of (c); for w_0, ∂_x^β w_0(t) = ∂_x^β
+u_(*0)(0) + ∫_0^t Π ∂_x^β w′ and ∂_t^j w_0 = Π ∂_t^(j−1) w′ for j ≥ 1, so ‖w_0‖_(H^σ([0,τ])) ≤ C (‖u_*(0)‖_(H^σ) +
+‖w′‖_(H^σ([0,τ]))), and at t = 0 the derivatives of w_0 match those of u_(*0), by (C1). ∎
+
+**Remark {#rem:class-kato-memory}** (Why the hypotheses are integrated.) In the application ([[sec:loc-t5]]) the
+forcing term at a point x of the slice {t = t̄} is computed on the hypersurface through x of a second foliation, tilted
+against the slices, from the state on an arc of that hypersurface from the axis to x, whose other points have earlier
+times. Its value on a slice is then a trace of a function that is controlled in space-time: the square of its space-time
+norm is the integral, over the second foliation, of the squares of norms on its hypersurfaces, which
+[[lem:class-leaf-states]] controls at the order 0; at higher orders [[lem:class-leaf-tame]] bounds the square of the
+planar shear, in which form it enters the closure, in space-time directly. This gives (M1), (M2), (M1′) and (M1_σ); the
+fixed-time hypotheses (F1) and (F2) would ask for bounds on each slice {t = t̄} itself, which these estimates do not
+give. [[thm:class-kato-memory]] uses only the integrated hypotheses. No proof uses this remark.
+
 ### Cauchy stability off the axes {#sec:class-off-axes}
 
 Keep the setting of [[sec:class-augmented]]. For a solution U = (g, p_A, Θ_A, q_A) of the augmented system put w :=
@@ -1906,6 +2159,71 @@ G-invariant functions, the L² norm over a G-invariant set is the L² norm in (z
 f(z, y) dz = ∫ f(h_U(|y|; z0), y) ∂_(z0) h_U dz0 with ∂_(z0) h_U ∈ [1/2, 3/2] almost everywhere. Squaring the bound of
 one leaf, integrating over z0 and changing variables on both sides gives [[eq:class-leaf-wise]]. ∎
 
+**Lemma {#lem:class-leaf-tame}** (Tame bounds for the square of the planar shear in space-time.) Let t be a time
+function and x a G-equivariant chart of its slices on a neighbourhood of I × 𝒰̄_(r_*)(p), where I is a compact interval
+of length between 1 and L_I, p is a point of axis 2 with ρ1(p) > 0, r_* ∈ (0, ρ1(p)/4] and 𝒰_δ(p) is the set defined
+before [[lem:class-planar-shear]] in the chart x, the slices {t = const} being spacelike for the metrics considered; on
+each slice the definitions before [[lem:class-leaf-states]] apply, with r_* and 𝒰 := 𝒰_(r_*)(p). A *family of states* on
+I × 𝒰_(r_*)(p) is a G-invariant (g, p_A, Θ_A, q_A) on it whose restriction to each slice is a state, the first
+derivatives of g being those of g in the chart (t, x); we write W := (g, ∂g, p_A, Θ_A) for it, with all first
+derivatives ∂g in (t, x). Let W̊ be a smooth family with bounds (M, c) on every slice, for family A. There are δ_1 > 0
+and r > 0 such that for every δ ∈ (0, δ_1] and every integer n ≥ 0 there is C_n with the following property. For every
+family of states W on I × 𝒰_(r_*)(p) with ‖W − W̊‖_(C^5) ≤ r there and W − W̊ ∈ H^n(𝒱_4), 𝒱_j := I × 𝒰_(jδ)(p), σ_A[W]²,
+computed on each slice, is defined on 𝒱_1, and
+
+    ‖σ_A[W]² − σ_A[W̊]²‖_(H^n(𝒱_1)) ≤ C_n ‖W − W̊‖_(H^n(𝒱_4)),                                     {#eq:class-leaf-tame}
+
+H^n(𝒪) being the space of functions on 𝒪 with all derivatives in (t, x) of order at most n in L²(𝒪). δ_1 and r depend
+only on M, c, ρ1(p), r_*, L_I, the chart and the C^6 norms of W̊; C_n depends also on n, δ and the C^(n+6) norms of W̊,
+and, for n ≥ 10, on an upper bound for ‖W − W̊‖_(H^(n−1)(𝒱_4)).
+
+*Proof.* For r small the C¹ norms of the components of each W(t) differ from those of W̊(t) by at most C r, and so do
+the quantities bounded below in the definition of bounds; so every W(t) and every W̊(t) is a state with bounds (2M, c/2)
+on its slice. Let r_1 and C_0, …, C_4 be the numbers of [[lem:class-leaf-states]] and its proof for (2M, c/2), and δ_1
+:= min(r_1/4, 1/(9C_0), δ_1′), δ_1′ the number fixed in Step 5 of the proof of [[lem:class-leaf-differences]] for these
+bounds and ů := W̊; all are uniform in t. Let 0 < δ ≤ δ_1. We run Steps 1–7 of the proof of
+[[lem:class-leaf-differences]] (a) for the family W(t), t ∈ I, with U := W and ů := W̊, with every norm taken on I × Q̂,
+I × Q̂_n and I × Q_ρ, that is integrated over t ∈ I as well, in place of the norms at a fixed time, the derivatives D
+and T including ∂_t. The following changes make each step valid; every other line applies verbatim, as each operator
+bound and each elliptic estimate there acts on one disc of fixed (t, z0) and is integrated afterwards.
+
+(i) *Step 1.* Smooth families suffice. Extend g − g̊, p_A − p̊_A and Θ_A − Θ̊_A from I × 𝒰_(r_*)(p) by Stein's operator
+([[thm:std-sy-extension]]), mollify, average over G and restrict, and let W_ν be the family of the resulting metric and
+fields, its ∂g being the derivatives of its metric. Stein's operator is bounded on W^(6,∞) and on H^(n+1), so ‖W_ν −
+W̊‖_(C^5) ≤ C_S r for a constant C_S, and W_ν → W in H^n(𝒱_4) and uniformly. On each slice, [[lem:class-leaf-states]]
+(c), with D the slice, gives σ_A[W_ν] → σ_A[W] in L², with |σ_A| ≤ C; so σ_A[W_ν]² → σ_A[W]² in L²(𝒱_1), and a limit in
+L² of a sequence bounded in H^n lies in H^n with the same bound. So it suffices to treat smooth families with ‖W −
+W̊‖_(C^5) ≤ C_S r, which we do, r being decreased.
+
+(ii) *Step 4.* Differentiating [[eq:class-leaf-s]] up to five times in r, z0 and t, each derivative of s_X solves a
+linear equation whose map has norm at most 1/2, as in Step 7 of the proof of [[lem:class-leaf-states]], with an
+inhomogeneous term holding derivatives of order at most five of W_X and derivatives of s_X and h_X of lower order. So
+the derivatives of order at most five of s_X, h_X, ∂_y h_X, 𝔰_X and W_X ∘ Λ_X, of order at most four of ∂_y² h_X and of
+order at most six of g_X ∘ Λ_X are bounded on I × Q̂ by C, and the same derivatives of η, ∂_y η, δs, δ𝔰, ω ∘ Λ_U, ∂_y² η
+and ω_g ∘ Λ_U by C r, which we take at most 1; here the bound ‖W − W̊‖_(C^5) ≤ r replaces [[eq:class-leaf-sup]] and the
+smallness of 𝒩_k.
+
+(iii) *Rule (P).* A factor that carries a ≤ 4 derivatives is bounded pointwise by (ii). Otherwise a ≥ 5 and, as a ≤ n/2,
+n ≥ 10; the factor is then bounded pointwise by Sobolev's embedding H³ ⊂ L^∞ on the bounded Lipschitz domains I × Q̂, I
+× Q̂_n and I × Q_(4δ) of ℝ⁴ ([[thm:std-bh-embedding]], 3 · 2 > 4) by its norm of order a + 3 ≤ n − 2, bounded before in
+the induction, or by ‖W − W̊‖_(H^(n−1)(𝒱_4)) for a derivative of ω or ω_g. So the L² norm of a product of (P) is at most
+C, and for n ≥ 10 at most C_n with the dependence stated, times the L² norm of its factor of highest order.
+
+(iv) *[[eq:class-leaf-compose]].* It holds on I × Q̂, with Ω_n := ‖ω‖_n + ‖ω_g‖_(n+1) taken on I × Q_(4δ), so that Ω_n ≤
+C ‖W − W̊‖_(H^n(𝒱_4)), the first derivatives of g being components of W, and with sup |Dω| ≤ r in place of C 𝒩_k(U) in
+its last term.
+
+(v) *Steps 5 and 6.* The operator bounds of Step 5 hold on each disc of fixed (t, z0), and integrating over (t, z0) ∈ I
+× (z(p) − 3δ, z(p) + 3δ) gives them on I × Q̂; T includes ∂_t. Step 6 (ii) is applied on each disc of fixed (t, z0) and
+integrated likewise. In Steps 5 and 6, 𝒩_k(U) and 𝒩_m(U) are replaced by ‖W − W̊‖_(H^n(𝒱_4)) at the order n of the
+induction, and the absorption in Step 6 (iii) uses the factor sup |Dω| ≤ r, small for r small. By induction on n,
+[[eq:class-leaf-transverse]] and [[eq:class-leaf-elliptic]] hold on I × Q̂ and I × Q̂_n with the right side C_n ‖W −
+W̊‖_(H^n(𝒱_4)).
+
+(vi) *Steps 2 and 7.* Step 7 then gives ‖σ_A[W]² ∘ Λ_W − σ_A[W̊]² ∘ Λ_(W̊)‖_n ≤ C_n ‖W − W̊‖_(H^n(𝒱_4)) on I × Q̂_n and,
+by (Q) for Λ_W⁻¹, the bound on I × Q_δ; the comparison of the norms of Step 2, at each t with constants not depending on
+t, the factors x_i/ρ1 not depending on t, gives [[eq:class-leaf-tame]]. ∎
+
 ### Cauchy stability with the dusts at the axes {#sec:class-axes-stability}
 
 **Definition {#def:class-adapted}** (Adapted boundaries and the adapted domain.) Let Ω be admissible for g̊ and B a
@@ -2213,4 +2531,6 @@ orientation are not separated at an axis point, so beyond one ingoing and one ou
 have densities vanishing near the axes. For three or more families present at a point, pairwise separation is not
 enough, since at the first stage combinations of three phases occur. The frequency hierarchy that replaces it, the
 polarisation of the waves for a non-radial family, and the limits that carry massless Vlasov matter are taken up in
-[[ch:vlasov]].
+[[ch:vlasov]]. For the characteristic problem the same alternative at an axis, a gradient that is a multiple of dv
+or of du, decides whether a further family crosses a cone along its axis generator or is tangent to it
+([[lem:loc-t5-dichotomy]]).

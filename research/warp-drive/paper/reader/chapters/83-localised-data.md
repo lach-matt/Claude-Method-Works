@@ -735,7 +735,14 @@ reach the axes, with or without dust, have a development in the gauge [[eq:loc-d
 neighbourhood of the two cones, unique in the gauge, and a maximal development with a continuation criterion, provided
 the cones do not focus ([[thm:civp-axes]], [[cor:civp-axes-cones]]); the neighbourhood is not explicit, and for data that
 are not near the background's at an axis a development of the whole rectangle is not asserted ([[rem:loc-axis-scope]],
-[[rem:civp-axes-scope]]). No development is asserted for data of finite regularity or for densities that are not smooth,
+[[rem:civp-axes-scope]]). Near the background's, further null dusts, of phases that are not functions of u or of v, may
+be added to the cone data through the axes, any number of them, when at the points where a cone meets an axis each
+carries density only where it crosses that cone and none near the circles in which the corner sphere meets the axes; the
+development on the whole rectangle is then smooth, with an estimate, and unique in the gauge among nearby solutions
+([[thm:loc-t5]]). A family that carries density where it is tangent to a cone along an axis generator is not
+treated, the construction not applying there ([[prop:loc-t5-grazing]]); such data are developed on regions that avoid
+that axis near those points ([[prop:loc-t5-cut]]). No development is asserted for data of finite regularity or for
+densities that are not smooth,
 except finitely many null shells along leaves of the two cones with densities smooth in angle and data that are smooth
 except across such leaves, where the metric functions are continuous, which [[thm:loc-shells]] develops slab by slab with
 [[thm:civp-large]] and [[thm:loc-cone-development]]; no result of the other chapters uses these developments.
@@ -3252,8 +3259,787 @@ level sets of its phase ([[lem:class-leaf-differences]]), requires its phase to 
 reaches an axis inside F would need its expansion defect to be estimated on a region that contains a whole
 neighbourhood of the axis on which its cut-off ζ_A equals 1, as in Step 10 of the proof of [[thm:class-stability]],
 while ζ_A must vanish near the points where the cones meet the axes. Neither case is treated here, nor are further
-families whose densities avoid the axes. (iii) *Regularity.* The data are smooth and small in C^(m_1); densities that
+families whose densities avoid the axes; [[sec:loc-t5]] treats them, with a closure time for each further family and
+an evolution time bent near the axes, when each carries density only where it crosses a cone and none near the circles
+in which the corner sphere meets the axes ([[thm:loc-t5]]), and shows that this construction does not apply to a
+family with density where it is tangent to a cone at an axis, except possibly in a case it does not analyse
+([[prop:loc-t5-grazing]]). (iii) *Regularity.* The data are smooth and small in C^(m_1); densities that
 are only bounded, or measures, are not covered ([[rem:loc-cone-scope]] (iii)).
+
+### Further dust families at the axes {#sec:loc-t5}
+
+[[thm:loc-axis]] develops cone data through the axes with the two dust families adapted to the cones, of phases v and
+u, and with no other ([[rem:loc-axis-scope]] (ii)). This section adds further null dusts, whose phases are not functions
+of u or of v and whose densities may be nonzero where an edge meets an axis. At a point of an axis the gradient of a
+phase of the class lies in the span of du and dv and is null, so it is a multiple of dv or of du: a further family
+*crosses* the edge N_o along its generator in that axis, transversally, and is *tangent* to N_i along its generator
+there, its rays running in N_i, or the reverse ([[lem:loc-t5-dichotomy]]). Cone data with any number of further families
+that carry density only where they cross the edges, and none near the circles in which the corner sphere meets the axes,
+are developed on the whole rectangle, with the regularity, the estimate and the uniqueness of [[thm:loc-axis]]
+([[thm:loc-t5]]). A family that carries density where it is tangent to an edge at an axis is excluded. Where the
+restriction of its phase to a section of that edge by the slice of a time function vanishes to finite order at the axis,
+the section is not a leaf of the family and points arbitrarily near the axis have arcs that cross the edge, while the
+energy estimates of the construction need the arcs of the points of a region to stay in it; where all these sections are
+leaves, the edge is characteristic for the family; the remaining case is not analysed ([[prop:loc-t5-grazing]]). Such
+families are developed on regions that avoid the axes near the points concerned ([[prop:loc-t5-cut]]).
+
+The closure of the Raychaudhuri equation at an axis computes the planar shear at a point from the leaf through it, on
+the arc from the axis to the point ([[sec:loc-axis-leaves]]). In [[sec:loc-axis-reduced]] the slices of the time are
+unions of spheres of the data, which are leaves of both adapted families. For a further family they are not, and we
+compute its leaves on the slices of a time t_A of its own, whose sections of the edge it crosses are its own sections of
+that edge; the evolution time τ is bent near the axes so that every arc used lies in the past of its end point. The
+forcing term at a time then depends on the solution over an interval of earlier times, and the Cauchy problem is solved
+by [[thm:class-kato-memory]].
+
+*The setting.* We keep the setting and the notation of [[sec:loc-axis-reduced]]: a background on Q1 := [0, u_1] × [0,
+v_1] with margin δ_1, with Q^♯, N_o, N_i, N, F, P, S_c and C_* as there; τ0 denotes the time τ of [[eq:loc-axis-time]],
+in the chart (τ0, y), with the numbers δ_c, s*, τ_init and the sets 𝒰^♯ and 𝔗(s) of [[eq:loc-axis-region]], for which Q1
+⊂ 𝔗(s* − 1); Ů, Û and the reference metric Ĝ, built from Δ of [[lem:loc-axis-jets]] (c) with δ_e := δ_c/8, so that Û = Ů
+on {τ0 ≤ τ_0′}, τ_0′ := ln(9δ_c²/16) > τ_init ([[sec:loc-cone-reduced]]); the cut-offs χ and θ, the compact sets 𝒰_2 ⊂
+𝒰_3, the number δ, the radius ρ_- and the balls 𝔅 ⊂ 𝔅′ of the paragraph *The system* there; and 𝔄_χ, F̃ := (1 − θ 1_F)
+𝔄_χ(Û) of [[eq:loc-cone-modified]], with 𝐔_c := 𝐔̊, ϒ, r_0 and A^μ_♭. Let k ≥ 9, m_0 := 6k + 18 and m_1 := 12k + 42 be
+the numbers of [[thm:loc-axis]], and let the cone data through the axes, of size ε in C^(m_1), be extended to N_o and
+N_i by [[lem:loc-axis-constraints]] (c), with the further sources of [[lem:loc-t5-jets]] (a). C and the smallness
+conditions depend only on k, u_1, v_1, δ_1, the background, the background phases of the further families and the
+numbers fixed below in terms of these, and not on ε.
+
+#### Further families and their type at an axis {#sec:loc-t5-families}
+
+**Definition {#def:loc-t5-family}** (Further families.) A *further family* A ∈ {3, …, N_f} consists of a smooth
+G-invariant eikonal ů_A of g_e on a G-invariant neighbourhood 𝒩 of 𝒰_3, with dů_A ≠ 0 and P̊_A := g_e⁻¹p̊_A, p̊_A :=
+−dů_A, future directed, and of data on the edges of Q1: a phase U_A and a density q_A ≥ 0, smooth and G-invariant on {0}
+× [0, v_1] × S³ and on [0, u_1] × {0} × S³, with U_A − ů_A and q_A of size at most ε in C^(m_1). The family *crosses*
+N_o at a point where g_e⁻¹(du, dů_A) ≠ 0, and N_i where g_e⁻¹(dv, dů_A) ≠ 0; these open sets of the edges are its
+*crossing sets*. Let 𝒦_A := supp q_A. The data satisfy:
+
+(F-a) 𝒦_A has positive distance from the circles S_c ∩ axis 1 and S_c ∩ axis 2;
+(F-b) A crosses N_o at every point of 𝒦_A ∩ N_o and N_i at every point of 𝒦_A ∩ N_i;
+(F-c) at every point of S_c at which A crosses both edges, for every j ≥ 1, the j-th u-derivatives of U_A and q_A along
+N_i equal those that [[lem:loc-t5-jets]] (b) determines from the data on N_o, and the j-th v-derivatives along N_o those
+it determines from the data on N_i.
+
+A is of *ingoing type* at axis i if dů_A is a multiple of dv at the points of axis i in 𝒩, and of *outgoing type* if it
+is a multiple of du there. Its *tangency set* at axis i is N_i ∩ axis i ∩ 𝒩 in the first case and N_o ∩ axis i ∩ 𝒩 in
+the second; it contains the corner circle S_c ∩ axis i.
+
+**Lemma {#lem:loc-t5-dichotomy}** (Crossing and tangency at the axes.) Let 𝒩 ∩ axis i be connected. A further family is
+of ingoing type or of outgoing type at axis i. If it is of ingoing type, it crosses N_o at every point of N_o ∩ axis i ∩
+𝒩, and at the points of its tangency set g_e⁻¹(dv, dů_A) = 0, the rays of ů_A through them being the generators of N_i
+in the axis; likewise for outgoing type with the edges exchanged. So, by (F-b), a further family carries density at a
+point where an edge meets an axis only if it crosses that edge there, and its density vanishes on a neighbourhood, in N,
+of its tangency sets.
+
+*Proof.* τ0 and |y| are functions of (u, v) whose differentials are independent ([[sec:loc-axis-reduced]]), so at a
+point of axis i the span of dτ0 and d|y| is that of du and dv, and dů_A lies in it by the first claim of
+[[lem:class-phase-axis]], whose proof uses of the chart only that G acts on y by its action on ℝ⁴. A null covector of
+that span is a multiple of du or of dv, as g_e⁻¹(du, du) = g_e⁻¹(dv, dv) = 0 and g_e⁻¹(du, dv) ≠ 0. The two lines meet
+only at 0, and dů_A is continuous and nonzero on the connected set 𝒩 ∩ axis i, so it stays on one of them. For ingoing
+type, g_e⁻¹(du, dů_A) = λ g_e⁻¹(du, dv) ≠ 0 at the axis points of N_o, and g_e⁻¹(dv, dů_A) = λ g_e⁻¹(dv, dv) = 0 at
+those of N_i; there P̊_A is a multiple of g_e⁻¹dv, which is tangent to the axis and to N_i, and its integral curves are
+the generators of N_i in the axis. For the last claim, 𝒦_A is closed and contains no point of the compact tangency set,
+by (F-b), so it has positive distance from it. ∎
+
+So the tangency sets are where a family has the orientation of the adapted family whose phase defines that edge, from
+which it is then not angularly separated ([[prop:class-separation]] (c)); at the crossing points it is not separated
+from the other adapted family.
+
+**Lemma {#lem:loc-t5-tubes}** (The tubes avoid the tangency sets.) Let A be a further family and 𝒦′ ⊂ N a compact
+G-invariant set that satisfies (F-a) and (F-b). There are a neighbourhood 𝒲 of the tangency sets of A and ε_t > 0 such
+that, for every smooth future causal vector field P within ε_t of P̊_A in C⁰ on 𝒰_3, no integral curve of P from a point
+of 𝒦′ into F meets 𝒲 ∩ F ∩ 𝒰^♯.
+
+*Proof.* Let p lie in the tangency set at axis i, of ingoing type say; then p = (u_p, 0) on the axis. By
+[[lem:loc-t5-dichotomy]] the integral curve of P̊_A through p, followed backwards, is the axis generator of N_i; it
+reaches the corner circle and then points with u < 0 in 𝒰_3, after a parameter length bounded uniformly in p ∈ 𝒰^♯. On
+future causal vectors du and dv are nonnegative, so along a future causal curve u and v do not decrease, a curve that
+starts in F stays in F, and a point x of F lies on a curve from a point of 𝒦′ exactly when the backward curve through x
+leaves F through a point of 𝒦′. By continuous dependence on the initial point and on the field on a compact parameter
+interval, for x near p and P near P̊_A in C⁰ the backward curve through x stays within any given distance of that
+through p until it reaches u < 0; so it leaves F at a point of N near the segment of the axis generator of N_i from p to
+the corner circle, that is at a point of N_i near its axis generator or of N_o near the corner circle. Neither lies in
+𝒦′, by (F-b) and [[lem:loc-t5-dichotomy]] on N_i and by (F-a) on N_o. Compactness of the tangency set in 𝒰^♯ gives 𝒲 and
+ε_t. ∎
+
+For this construction (F-a) cannot be weakened to the vanishing of the density on the corner circles alone: by the proof
+above, a family of ingoing type at axis i whose density is nonzero at points of N_o arbitrarily close to the corner
+circle has integral curves that come arbitrarily close to its tangency set on N_i.
+
+*Carrying a family near its tube.* For a further family A let 𝒦_A′ be as in [[thm:loc-t5]], a compact G-invariant
+neighbourhood of 𝒦_A in N satisfying (F-a) and (F-b). Fix δ_2, η_2 > 0 and let 𝒦_A^♯ be the union of 𝒦_A′ and, near each
+axis i at which A crosses an edge, of the caps {ρ_i ≤ 3δ_2} of the sections {ů_A = c} of that edge, the background's
+A-sections, that meet the η_2-neighbourhood of 𝒦_A′ ∩ {ρ_i ≤ 3δ_2} in the edge; for δ_2 and η_2 small it is compact,
+G-invariant and satisfies (F-a) and (F-b), lying near 𝒦_A′. Let 𝒯̊_A be the union of the integral curves of P̊_A in F ∩
+𝒰^♯ from 𝒦_A^♯, and let B_A be the set of the points within 2δ_e, in u or in v, of the points of 𝒦_A on the same
+generator of N, which contains the support of the density of the formal state below. Let ξ_A be a smooth G-invariant
+function, supported in the interior of 𝒰_1 and equal to 1 on a neighbourhood of 𝒯̊_A ∪ B_A, whose support meets N only
+in the crossing sets and does not meet the set 𝒲 of [[lem:loc-t5-tubes]] for 𝒦′ := 𝒦_A^♯, 𝒲 being taken disjoint from
+B_A, as we may, shrinking it. This is possible: 𝒯̊_A ∩ N = 𝒦_A^♯ ∩ 𝒰^♯, since a curve that leaves N_o into F has u > 0
+afterwards and one that leaves N_i has v > 0, both being transverse to the edge at the start by (F-b); B_A ∩ N = 𝒦_A;
+and 𝒯̊_A ∪ B_A is compact and disjoint from the tangency sets. In the system below the rows (Aug2)–(Aug4) of family A
+are multiplied by ξ_A and completed by 1 − ξ_A times the first-order form of P̄_A·∂, P̄_A of [[sec:loc-t5-system]],
+acting on the difference of (p_A, Θ_A, q_A) from that of the formal state Û below. Family A enters the other rows only
+through q_A; the row of q_A is homogeneous in q_A where ξ_A < 1, the formal density vanishing there. The phase data of
+family A near its tangency sets, where the edge is characteristic for it and the jets of its phase are not determined by
+the data ([[prop:loc-t5-grazing]] (a)), are never used.
+
+**Lemma {#lem:loc-t5-jets}** (Cone data and jets with further families.) (a) [[lem:loc-axis-constraints]] holds with E
+:= Ric(g) − q_in dv ⊗ dv − q_out du ⊗ du − Σ_A q_A du_A ⊗ du_A, u_A = U_A on the edges, and with q_in + Σ_A q_A
+(∂_vU_A)² in place of q_in in the equation for Y on N_o, q_out + Σ_A q_A (∂_uU_A)² in place of q_out on N_i, and the
+term 4Ω² γ⁻¹(Σ_A q_A ∂_vU_A dU_A|_(S³)) added to the right side of the equation for ∂_vW in its proof, 𝔯 being that of
+its part (a), the sums over the further families. The extension of its part (c) applies to U_A − ů_A and to q_A, the
+Borel sums of q_A beyond v_1 and u_1 being multiplied by β_A(v − v_1), respectively β_A(u − u_1), with β_A smooth, equal
+to 1 near 0 and to 0 beyond a length ℓ_A ≤ δ_1 so small that (F-a) and (F-b) hold for the extended data with the
+extended supports; their sizes are then at most Cε in C^(m_0).
+
+(b) Near every point of the crossing set of N_o the derivatives ∂_u^j u_A and ∂_u^j q_A on N_o of a class solution with
+the data are determined recursively, as smooth G-invariant functions, by the eikonal equation and the transport (Aug4),
+from the u-derivatives of the fields of order at most j − 1 and the derivatives of the data along N_o, and enter the
+equations of [[lem:loc-axis-jets]] (b) for the derivatives of the fields of order j as inhomogeneous terms, through
+∂_u^(j−1) of the stress. On every compact subset of the crossing set, for 5j ≤ m_0, the C^(m_0−5j) norms of the
+differences from the background's of the derivatives of order j of the fields, of u_A and of q_A are at most C_j ε, for
+the extended data of size at most Cε in C^(m_0). The same holds on N_i with u and v exchanged.
+
+*Proof.* (a) On N_o, du_A(∂_v) = ∂_vU_A and du_A(X) = X(U_A) for X tangent to the spheres, while du(∂_v) = dv(∂_v) =
+du(X) = dv(X) = 0; so Ric(g)(∂_v, ∂_v) − q_in is −(3/Y)(…) of [[eq:loc-axis-cone]] and equals Σ_A q_A (∂_vU_A)² when E
+vanishes, and E(∂_v, X) = 0 adds Σ_A q_A ∂_vU_A X(U_A) to the second line of [[eq:loc-axis-cone]]. The added terms are
+smooth G-invariant functions and 1-forms on the edges, dU_A|_(S³) being a smooth G-invariant 1-form on S³; the equation
+for Y stays linear, with the coefficient (1/3)((1/4)|∂_vγ̂|²_γ̂ + q_in + Σ_A q_A (∂_vU_A)²) of Y, and the equation for W
+gains an inhomogeneous term. So the proofs of (b) and (c) of [[lem:loc-axis-constraints]] apply verbatim, the Gronwall
+bounds of (c) holding with these terms, of size Cε in C^(p−1). The Borel extension of q_A has its support, at each v ≥
+v_1, in the angles of supp q_A ∩ {v = v_1}, as every term of the sum vanishes where all v-derivatives of q_A at v_1
+vanish; the crossing sets are open and contain the compact set 𝒦_A ∩ {v = v_1}, so for ℓ_A small the extended support
+lies in them and away from S_c. (b) In the double-null form [[eq:loc-double-null]], g^(uu) = g^(ua) = g^(vv) = 0, so on
+N_o the eikonal equation g⁻¹(du_A, du_A) = 0 reads 2g^(uv) ∂_uu_A ∂_vU_A + 2g^(va) ∂_vU_A ∂_aU_A + g^(ab) ∂_aU_A
+∂_bU_A = 0, linear in ∂_uu_A with the coefficient 2g^(uv) ∂_vU_A = 2g⁻¹(du, du_A), nonzero on the crossing set;
+∂_u^(j−1) of it is linear in ∂_u^j u_A with the same coefficient, the other terms holding ∂_u^i u_A, i < j, and ∂_u^i of
+the fields, i ≤ j − 1. P_A(q_A) + Θ_A q_A = 0 with Θ_A := div_g P_A = □_g(−u_A) is linear in ∂_uq_A with the coefficient
+P_A^u = g^(uv) ∂_vU_A ≠ 0; ∂_u^(j−1) of it holds ∂_u^j q_A with this coefficient, ∂_u^i q_A for i < j, ∂_u^i u_A for i ≤
+j and ∂_u^i of the fields for i ≤ j, as □_g holds no ∂_u² (g^(uu) = 0) and holds the first u-derivatives of the metric
+in the coefficient of ∂_vu_A; so ∂_u^j q_A is determined after the fields' derivatives of order j. In the equations of
+[[lem:loc-axis-jets]] (b) for the fields' derivatives of order j, the stress enters through ∂_u^(j−1)(q_A du_A ⊗ du_A),
+which holds ∂_u^i q_A, i ≤ j − 1, and ∂_u^i u_A, i ≤ j, already determined; it enters 𝔏(0) only, as an inhomogeneous
+term. By induction on j the recursion of [[lem:loc-axis-jets]] (b), with these equations added, determines all
+derivatives, as smooth G-invariant functions near the crossing set, the axis generators included. For the bounds,
+suppose that the derivatives of order i ≤ j of the fields, of u_A and of q_A have the bounds stated. ∂_u^(j+1) u_A holds
+the fields' derivatives of order j and one derivative along N of those of u_A of order at most j, so it lies in
+C^(m_0−5j−1); the equations of [[lem:loc-axis-jets]] (b) at the order j + 1, whose term 𝔏(0) holds derivatives of order
+at most two of the fields' derivatives of order at most j, whose equation for the vector field one derivative along S³
+of the other two components, and whose initial values j + 1 derivatives of the data along the other edge, as in the
+proof of its part (iii), and which now hold the stress through ∂_u^j q_A and ∂_u^(j+1) u_A, give the fields' derivatives
+of order j + 1 in C^(m_0−5j−3); and ∂_u^(j+1) q_A holds in addition, through Θ_A, ∂_v ∂_u^(j+1) u_A and the fields'
+derivatives of order j + 1, so it lies in C^(m_0−5j−3); each bound is linear in ε, the background's quantities solving
+the same equations. As m_0 − 5j − 3 ≥ m_0 − 5(j + 1), the bounds hold at the order j + 1. As m_0 = 6k + 18 ≥ k + 3 + 4j
+for j ≤ k + 3, this gives the derivatives of order j ≤ k + 3 in C^(k+3−j), which [[lem:loc-axis-jets]] (c) uses for ‖Û −
+Ů‖_(C^(k+3)) ≤ Cε. ∎
+
+Let ζ_A be a smooth G-invariant function on N, supported in the crossing sets and equal to 1 near supp ξ_A ∩ N. The
+fields' derivatives a_j, b_k of [[lem:loc-axis-jets]] (b), now with the further families, and ζ_A times those of u_A −
+ů_A and q_A, are smooth on the edges, and at S_c they agree in the sense of (i) of [[def:loc-cone-data]] by (F-c); the
+Borel sums of [[lem:loc-axis-jets]] (a) and (c), at the scale δ_e of Δ, give the formal state Û with further families:
+û_A := ů_A plus the sum for u_A − ů_A, p̂_A := −dû_A, Θ̂_A := div_Ĝ P̂_A, P̂_A := Ĝ⁻¹p̂_A, and q̂_A the sum for q_A,
+supported in B_A, as the derivatives of q_A vanish on N ∖ 𝒦_A; Ů carries family A as (p̊_A, div_(g_e) P̊_A, 0). On a
+neighbourhood of N ∩ {ζ_A = 1}, Ĝ⁻¹(dû_A, dû_A) and P̂_A(q̂_A) + Θ̂_A q̂_A vanish to infinite order on N, and the
+residuals of [[lem:loc-axis-jets]] (c) vanish to infinite order on N with the further stress included. Û = Ů on {τ0 ≤
+τ_0′}, and ‖Û − Ů‖_(C^(k+3)) ≤ Cε.
+
+#### A closure time for each family {#sec:loc-t5-times}
+
+Near axis i let ρ_i be the radius of [[sec:class-phases]] in the coordinates y, let χ_* ∈ C^∞([0, ∞)) equal 1 on [0, ½]
+and 0 on [1, ∞), and put T_o(v) := τ0(0, v) and T_i(u) := τ0(u, 0), the restrictions of τ0 to the edges, which are
+increasing. A further family A is *carried near axis i* if supp ξ_A meets {ρ_i ≤ δ}. Let A be carried near axis i and of
+ingoing type there. By [[lem:loc-t5-dichotomy]], ∂_vů_A ≠ 0 on N_o ∩ axis i ∩ 𝒩, and U_A is within Cε of ů_A in C¹ on
+the extended edge; so near the axis-i generator of N_o the sections {U_A = c} of N_o, its *A-sections*, are the graphs
+v = V_A(c, ω) of smooth G-invariant functions. Fix v_A > 0 such that supp ξ_A ∩ N_o ∩ {ρ_i ≤ δ} lies in {v ≥ 2v_A}
+([[lem:loc-t5-tubes]] and the choice of ξ_A). Then g_A := T_o(v) − T_o(V_A(U_A(v, ω), ω_i)), ω_i a point of S³ in axis
+i, on which nothing depends by invariance, is a smooth G-invariant function on N_o ∩ {v ≥ v_A} near the axis-i
+generator, zero on it; by Taylor's formula, as before [[eq:class-axis-metric]], g_A = Ĝ_A ρ_i² with Ĝ_A smooth and
+G-invariant, and we extend Ĝ_A to a neighbourhood of 𝒰_3 near axis i as a function of (v, ω), independent of u. Let ψ_A
+be a smooth function of (u, v) with values in [0, 1], equal to 1 on a neighbourhood of the points (u, v) of supp ξ_A ∩
+{ρ_i ≤ δ} with u ≤ 2u_A, and to 0 for v ≤ v_A and for u ≥ 3u_A, where u_A > 0 is fixed so small that this is possible.
+For outgoing type the same holds with N_i, U_A(u, ω), T_i and the roles of u and v exchanged. For the adapted families
+put t_in := t_out := τ0, and for a further family
+
+    t_A := τ0 − Σ_i χ_*(ρ_i/δ_*) ψ_A^(i) Ĝ_A^(i) ρ_i²,      τ := τ0 + K Σ_(i=1,2) χ_*(ρ_i/δ_*) ρ_i²,  {#eq:loc-t5-times}
+
+the first sum over the axes near which A is carried, ψ_A^(i), Ĝ_A^(i) the functions above for axis i.
+
+**Lemma {#lem:loc-t5-times}** (The closure times and the evolution time.) Let K := 2 + max_(A,i) sup |Ĝ̊_A^(i)|, the
+supremum over supp ψ_A^(i) ∩ 𝒰_3 ∩ {ρ_i ≤ δ}, Ĝ̊_A^(i) the function Ĝ_A^(i) formed with ů_A in place of U_A; for ε
+small |Ĝ_A^(i) − Ĝ̊_A^(i)| ≤ 1 there, and K ≥ 1 + sup |Ĝ_A^(i)|, the C¹ norms of Ĝ_A^(i) being bounded independently of
+ε. There are δ_* ∈ (0, δ/2] and ε_1 > 0 such that:
+
+(a) on 𝒰_3, τ and every t_A are time functions for every Lorentzian metric within ε_1 of g_e in C⁰; (τ, y) and every
+(t_A, y) are charts, their coordinate fields ∂_τ and ∂_(t_A) being positive multiples of the field ∂_(τ0) of the chart
+(τ0, y), future timelike for g_e; and all of them equal τ0 where ρ1, ρ2 ≥ δ_*;
+(b) on the edge that A crosses at axis i, at the points with ρ_i < δ_*/2 and ψ_A^(i) = 1, t_A is constant on every
+A-section; the sections of N by the slices of τ0 are the spheres S_o(s) and S_i(s);
+(c) let C_L ≥ 1; there is r_L > 0, depending on C_L and on δ_*, such that along every curve z = h(r), 0 ≤ r < r_L, in a
+slice of t_A or of τ0, starting on the axis, with |h′(r)| ≤ C_L r, τ is strictly increasing;
+(d) 0 ≤ τ − t_A ≤ m_* := (K + max sup |Ĝ_A^(i)|) δ_*², 0 ≤ τ − τ0 ≤ K δ_*² ≤ ½, and Q1 ⊂ {τ ≤ s* − ½}.
+
+*Proof.* (a) With ρ := ρ_i, |d(χ_*(ρ/δ_*) ψ_A Ĝ_A ρ²)| ≤ C (δ_*⁻¹ δ_*² + δ_*) ≤ C δ_* on {ρ ≤ δ_*}, and likewise for the
+bend of τ, C depending on K and on the C¹ norms of Ĝ_A and ψ_A, on 𝒰_3. dτ0 is timelike for g_e on the compact set 𝒰_3
+with a margin ([[sec:loc-axis-reduced]]), so for δ_* small τ and t_A are time functions for the metrics within ε_1 of
+g_e, and their derivatives along ∂_(τ0) are 1 + O(δ_*), the bends not depending on τ0 at fixed y beyond through ψ_A and
+Ĝ_A, whose ∂_(τ0)-derivatives are bounded. So (t_A, y) is a chart, and its field ∂_(t_A), which is tangent to the curves
+of constant y, is a positive multiple of ∂_(τ0). (b) On the edge, where χ_* = ψ_A = 1, t_A = T_o(v) − g_A = T_o(V_A(U_A,
+ω_i)), a function of U_A alone. For τ0 this is [[lem:loc-axis-leaf]] (i) and [[sec:loc-axis-reduced]]. (c) On a slice of
+t_A, τ = t_A + f with f := χ_*(ρ/δ_*)(ψ_A Ĝ_A + K) ρ² near axis i, the two bends using the same χ_*. For r < δ_*/2,
+χ_* = 1, and along the curve, with ∂_ρ(ψ_A Ĝ_A) = O(ρ), ψ_A Ĝ_A being smooth and invariant,
+
+    d/dr f(h(r), r) = 2 (ψ_A Ĝ_A + K) r + r² (∂_z(ψ_A Ĝ_A) h′ + ∂_ρ(ψ_A Ĝ_A)) ≥ 2 r − C (1 + C_L) r³ > 0
+
+for r < r_L := min(δ_*/2, (C (1 + C_L))^(−1/2)), as ψ_A Ĝ_A + K ≥ 1. For the slices of τ0 the same holds with ψ_A Ĝ_A
+replaced by 0. (d) f ≥ 0 and f ≤ (K + sup |Ĝ_A|) δ_*². Take K δ_*² ≤ ½; then Q1 ⊂ 𝔗(s* − 1) ⊂ {τ ≤ s* − ½}. ∎
+
+Fix δ_* by (a) and (d). For every family A and every point x of a slice of t_A within r_L of an axis, the arc from the
+axis to x of a curve of (c) lies in {τ ≤ τ(x)} and in {τ ≥ τ(x) − m_*}.
+
+**Lemma {#lem:loc-t5-faces}** (The edge sections are leaves of each family.) Let A be a further family that crosses an
+edge at its axis-i generator, at the points where (b) of [[lem:loc-t5-times]] holds, or an adapted family, and let V be
+a state on a slice of t_A whose p_A, Θ_A, metric and first derivatives of the metric agree with those of Û at the points
+of the edge section S of that slice, and whose A-leaves through the points of the axis near S exist over a disc 𝔻_(2δ′),
+with ζ_A = 1 on S near its point on the axis. Then near its point on the axis S is V's A-leaf through it, and the parts
+of the slice on either side of S near that point are unions of V's A-leaves.
+
+*Proof.* For an adapted family this is [[lem:loc-axis-leaf]] (iii) and [[lem:loc-axis-past]]. Let A be further. By
+[[lem:loc-axis-leaf]] (iii) it suffices to treat Û. S is a G-invariant hypersurface of the slice; the axis meets it
+transversally, as dU_A does not vanish along the axis generator in the direction of the generator, so S ∩ M3 is a graph
+z = h_S(y) with h_S smooth, and p̂_A(∂_z) ≠ 0 there, dû_A being near the axis a multiple of du or dv and ∂_z, the
+direction of the axis in the slice, a combination of ∂_u and ∂_v with both coefficients nonzero, as t_A increases with u
+and v along the axis. û_A = U_A on the edge, constant on S by [[lem:loc-t5-times]] (b), so p̂_A vanishes on TS. On S,
+where ζ_A = 1, û_A is null for Ĝ to infinite order and ∇²û_A(P̂_A, ·) = ½ d(Ĝ⁻¹(dû_A, dû_A)) vanishes, so TS, spacelike,
+orthogonal to the null P̂_A and not containing it, is a screen, and as in the proof of [[lem:loc-axis-leaf]] (iii),
+θ_S = −tr_(TS) ∇²(−û_A) = □_Ĝ(−û_A) = Θ̂_A. By [[lem:loc-axis-leaf]] (ii), S ∩ M3 is Û's A-leaf over the disc on which
+it is a graph. The leaves foliate a neighbourhood of the axis point ([[lem:class-leaf-states]] (a)) and do not cross, so
+a leaf that meets one side of S near it stays on that side. ∎
+
+#### The system with memory {#sec:loc-t5-system}
+
+*The closure radius.* By compactness, as in the paragraph *The system* of [[sec:loc-axis-reduced]], with r_* := ρ_-/8,
+there are M, c > 0, δ′ ∈ (0, δ_*/4], ρ′ > 0 and C_L ≥ 1 such that, near every point p ∈ 𝒰_2 of an axis, in every slice
+of τ0, of τ and of every t_A meeting 𝒰_2, every state within ρ′ of Ů in C^5 in the chart of that time has bounds (M, c),
+[[lem:class-leaf-states]] holds for it with r_1 ≥ 4δ′, its leaves satisfy |h′(r)| ≤ C_L r, and [[lem:class-leaf-tame]]
+holds in the charts (t_A, y) and (τ0, y), with W̊ := Ů, intervals I of length between 1 and L_I := s* − τ_init + 3m_* +
+3, δ := δ′ ≤ δ_1 and r ≥ ρ′. Fix δ_♮ ∈ (0, δ′] such that: (i) δ_♮ ≤ r_L of [[lem:loc-t5-times]] (c) for this C_L; (ii)
+for every further family A and axis i, the points of supp ξ_A within δ_♮ of axis i near which ψ_A^(i) ≠ 1 lie at
+distance more than 2C_L δ_♮² from N in (u, v), which is possible as ψ_A^(i) = 1 near the points of supp ξ_A ∩ {ρ_i ≤ δ}
+with u ≤ 2u_A (or v ≤ 2v_A) and supp ξ_A does not meet 𝒲; (iii) δ_♮ e^(L(s*−τ_c)) ≤ δ_2, with L − 1 a Lipschitz constant
+of the flows of the fields P̊_A on 𝒰_3; (iv) the points of N within 2δ_♮ of supp ξ_A lie in {ζ_A = 1}, possible by
+compactness as ζ_A = 1 on a neighbourhood of supp ξ_A ∩ N. Let ψ_♮ := ψ_♮0(ρ1) + ψ_♮0(ρ2), ψ_♮0 ∈ C^∞(ℝ) equal to 1 on
+[0, δ_♮/4] and to 0 on [δ_♮/2, ∞); it is smooth and G-invariant on 𝒰_3, the sets {ρ1 ≤ δ_♮/2} and {ρ2 ≤ δ_♮/2} being
+disjoint there. Let 𝒰^♭ := {(u, v) : u, v > −δ_c, τ_init ≤ τ ≤ s*, u + κv ≤ l_u + δ_1/2, v + κu ≤ l_v + δ_1/2}. For δ_*
+small it lies in the interior of 𝒰_1, its boundary consists of pieces of {τ = τ_init}, of {τ = s*} and of the far cuts,
+spacelike with 𝒰^♭ to their past as in (2) of [[sec:loc-axis-reduced]], and F ∩ 𝒰^♭ = 𝒯 := F ∩ {τ ≤ s*} ⊂ 𝔗(s*), which
+contains Q1 by [[lem:loc-t5-times]] (d), as τ ≥ τ0 ≥ τ_c > τ_init on F. We take ξ_A supported at positive distance from
+the far cuts, as we may, 𝒯̊_A lying in [0, l_u) × [0, l_v) and the supports of the data in {u ≤ u_1 + ℓ_A} ∪ {v ≤ v_1 +
+ℓ_A}.
+
+*The system.* For G-invariant states U = (g, p_A, Θ_A, q_A), A ∈ {in, out, 3, …, N_f}, let 𝒜^♮(U) = 0 be (Aug1), (Aug2)
+and (Aug4) of [[sec:class-augmented]], with the reduced Ricci tensor and the gauge vector relative to Ĝ, together with,
+in place of (Aug3),
+
+    P_A(Θ_A) = (1 − ψ_♮) S_A + ψ_♮ S_A^ax,
+
+with S_A of (Aug3) and S_A^ax of [[eq:loc-axis-closure]], its sum running over all families, and σ_A[U](x) the planar
+shear at x of the A-leaf through x of the state of U on the slice {t_A = t_A(x)}, defined before
+[[lem:class-leaf-states]] in the chart (t_A, y), the first derivatives of g in that chart being read from the components
+g_τ, g_a of 𝐔 by the chain rule; σ_A enters only through σ_A². For a further family A all four rows of A are multiplied
+by ξ_A and completed as before [[lem:loc-t5-jets]], with P̄_A := χ′ P̊_A + (1 − χ′) ∂_τ, χ′ a G-invariant function equal
+to 1 on 𝒰_2 and supported in 𝒩. Let 𝔄_χ and F̃ := (1 − θ 1_F) 𝔄_χ(Û) be defined by [[eq:loc-cone-modified]] in the chart
+(τ, y), with 𝒜^♮ in place of 𝒜 in the first-order form of Step 9 of the proof of [[thm:class-stability-off-axes]], its
+local terms evaluated at 𝐔̊ + ϒ(𝐔 − 𝐔̊) and its terms in σ_A at 𝐔, with P̄_A as here for the further families in A^μ_♭,
+and with its first row taken as ∂_τ Z_g − Z_(g_τ) = 0 for every Z := 𝐔 − 𝐔̊, which is that row where |Z| ≤ r_0. The
+proofs of (a)–(c) of [[lem:loc-axis-system]] apply: the system has the form [[eq:class-kato-system]], A^μ_χ(x, Z) ∂_μZ =
+F(Z), with A^μ_χ symmetric and A^0_χ ≥ c_1 I, as ∂_τ is future timelike for g_e ([[lem:loc-t5-times]] (a)) and every
+transport field of the rows, among them ξ_A P_A + (1 − ξ_A) P̄_A, has a positive τ-component; F(Z) is Φ(·, Z) of the
+proof of [[lem:loc-axis-system]] (a), with the rows of the further families and the terms in σ_A included; where χ = 1
+and |Z| ≤ r_0, 𝔄_χ(𝐔) = 𝒜^♮(𝐔); and the third row of the wave block is h_χ^(ab)(∂_τ Z_(g_b) − ∂_b Z_(g_τ)) = 0, with h_χ
+positive definite and no forcing term ([[lem:loc-cone-system]] (c)). The value of F(Z) at a point x depends on Z at x
+and, through σ_A, on Z on the arcs used at x, which lie in {τ(x) − m_* ≤ τ ≤ τ(x)} ([[lem:loc-t5-times]], the remark
+after it).
+
+*Compatible paths.* Write Z = (Z_g, Z′), Z_g the components of g − g_e. The components of g are differentiated only in
+the first row, which is ∂_τ Z_g = Z_(g_τ), so the system has the structure of (d) of [[thm:class-kato-memory]], with
+A^μ_χ = diag(δ^μ_0 I, A′^μ) and Π Z′ := Z_(g_τ). Let 𝒞 be the set of paths Z with Z_(g_τ) = ∂_τ Z_g and Z_(g_a) = ∂_a
+Z_g in the sense of distributions. For Z ∈ 𝒞 the first derivatives of the metric of 𝐔̊ + Z are its components g_τ, g_a,
+so its restriction to every slice of τ0, τ or t_A is a state in the sense before [[lem:class-leaf-states]], and
+[[lem:class-leaf-states]] and [[lem:class-leaf-tame]] apply to it. 𝒞 has the properties (C1)–(C4) of that part: (C1) 0 ∈
+𝒞, as g_τ = ∂_τ g_e and g_a = ∂_a g_e for 𝐔̊; (C2) the split step gives ∂_τ w_g = w_(g_τ), and the third row gives ∂_τ
+(w_(g_a) − ∂_a w_g) = ∂_a w_(g_τ) − ∂_a w_(g_τ) = 0, with w_(g_a) = ∂_a w_g at t1, the history lying in 𝒞; (C3) the two
+identities pass to limits in the sense of distributions; (C4) for h ∈ 𝒞 on [−2m, t1], h_g ∈ 𝒳^(k+1)([t1 − m, t1]) with
+⟦h_g⟧_(k+1) ≤ C ⟦h⟧_k, its first derivatives being components of h, and the path u^0 with u^0_g := E_(t1) h_g, formed
+with N := k + 2, u^0_(g_τ) := ∂_τ u^0_g, u^0_(g_a) := ∂_a u^0_g and the other components E_(t1) h, equal to h on [−2m,
+t1] and to these on [t1, t1 + m], lies in 𝒞 with ⟦u^0⟧_k ≤ C ⟦h⟧_k. We apply [[thm:class-kato-memory]], with its part
+(d) for 𝒞, the time t := τ − τ_init, T0 := s* − τ_init, s := k, u_* := 0, the memory m := 2m_* + 2 and a radius ρ ≤
+ρ′/(C_X C_5), where C_X bounds on W^(6,∞) the operator X_b defined in the proof of [[lem:loc-t5-forcing]] and C_5 is
+such that ‖Z‖_(C^5) ≤ C_5 ⟦Z⟧_(k,J) and ‖Z_g‖_(W^(6,∞)) ≤ C_5 ⟦Z⟧_(k,J) for Z ∈ 𝒞 ∩ 𝒳^k(J) on intervals J of length at
+least 1, by [[lem:sobolev]] on the slices, as k − 5 > 2.
+
+**Lemma {#lem:loc-t5-forcing}** (The forcing term.) On the paths of 𝒞, F satisfies (M0), (M1), (M2), (M1′) and, for
+every σ > k, (M1_σ) of [[thm:class-kato-memory]]; the constants depend on the quantities named in the setting, and in
+(M1_σ), for σ ≥ 10, on an upper bound for ‖Z‖_(H^(σ−1)([−2m,t̄])).
+
+*Proof.* For a time b let X_b extend functions of (t, x) from [b − m_* − 1, b] × ℝ⁴ to [b − m_* − 1, b + m_* + 1] × ℝ⁴
+by Stein's extension operator of the interval [b − m_* − 1, b] in t at each x ([[thm:std-sy-extension]]), translated so
+that it does not depend on b; it commutes with ∂_x, so it is bounded on every H^σ and on every W^(j,∞), with constants
+independent of b. Let Z ∈ 𝒞 ∩ 𝒫_t̄, and for t̄′ ≤ t̄ let Z_e be Z on [−2m, t̄′] and, on [t̄′, t̄′ + m_* + 1], (Z_e)_g :=
+X_(t̄′) Z_g, (Z_e)_(g_τ) := ∂_τ (Z_e)_g, (Z_e)_(g_a) := ∂_a (Z_e)_g and the other components X_(t̄′) Z. Then Z_e ∈ 𝒞,
+X_(t̄′) Z_g being Z_g on [t̄′ − m_* − 1, t̄′]; ‖Z_e‖_(C^5) ≤ C_X C_5 ρ ≤ ρ′; and the norms of Z_e of order σ on [t̄′,
+t̄′ + m_* + 1] are at most C_σ times ‖Z‖_(H^σ([t̄′−m_*−1,t̄′])), as ‖X_(t̄′) Z_g‖_(H^(σ+1)) ≤ C_σ ‖Z_g‖_(H^(σ+1)) and
+the first derivatives of Z_g are components of Z. *(M0).* For x with τ(x) ≤ t̄′ the arcs used at x lie in {τ ≤ τ(x)},
+where Z_e = Z; so F(Z) = F(Z_e) on {τ ≤ t̄′}, and the value of F(Z) at a time t depends on Z on [t − m_*, t] only. *The
+local part.* It is a smooth function Φ_loc(x, Z) with every derivative bounded on bounded sets of Z, and Φ_loc(x, Z) −
+Φ_loc(x, 0) = Ψ(x, Z) Z with Ψ smooth. By [[lem:class-composition]] (b) and (c) in the five variables (τ, y), after the
+extension X_b at both ends of [t1, t2], bounded on H^σ and on L^∞, its H^σ norm on [t1, t2] is at most C_σ
+‖Z‖_(H^σ([t1,t2])), and its L² norm on [t1, t2] at most C ‖Z‖_(L²([t1,t2])). *The terms in σ_A.* They are −½ χ ψ_♮
+σ_A[𝐔]² in the rows of the closure, times ξ_A for a further family; χ ψ_♮ ξ_A is smooth with bounded derivatives. Fix t1
+< t2 ≤ t̄ with t1 ≥ −m, let Z_e be the extension above with t̄′ := t2, and cover the axes in 𝒰_2 by finitely many sets
+𝒰_(δ′)(p). At a point x near p with τ(x) ∈ [t1, t2] and ρ_i(x) < δ_♮/2, t_A(x) ∈ [τ(x) − m_*, τ(x)] ⊂ I := [t1 − m_* −
+1, t2]. The states of 𝐔̊ + Z_e on the slices of t_A form a family of states in the sense of [[lem:class-leaf-tame]],
+whose first derivatives of the metric in the chart (t_A, y) are linear combinations of g_τ and g_a with smooth
+coefficients; so that lemma, with W̊ := 𝐔̊, bounds σ_A[𝐔]² − σ_A[𝐔̊]² in H^σ near x by C_σ times the H^σ norm of Z_e on
+I × 𝒰_(4δ′)(p) ⊂ {t1 − m_* − 1 ≤ τ ≤ t2 + m_*}, the change of chart (τ, y) ↦ (t_A, y) having bounded derivatives of
+every order with its inverse. By the bound of the extension the right side is at most C_σ ‖Z‖_(H^σ([t1−m,t2])), with C_σ
+depending, for σ ≥ 10, on an upper bound for ‖Z‖_(H^(σ−1)). *(M1′) and (M1_σ).* So ‖F(Z) − F(0)‖_(H^σ([t1,t2])) ≤ C_σ
+‖Z‖_(H^σ([t1−m,t2])), which is (M1′) at σ = k; F(0) = −R is smooth with compact support in x ([[lem:loc-t5-residual]]),
+so ‖F(0)‖_(H^σ([t1,t2])) ≤ C_σ, which with the above gives (M1_σ). *(M1).* With σ = k, ‖F(0)‖_(H^k([t1,t2])) ≤ C (t2 −
+t1)^(1/2) and ‖Z‖_(H^k([t1−m,t2])) ≤ (t2 − t1 + m)^(1/2) ρ. *(M2).* The local terms are Lipschitz in Z pointwise,
+uniformly for |Z| ≤ C ρ. For two paths Z, Z′ ∈ 𝒞, [[lem:class-leaf-states]] (c), on each slice {t_A = t′} with D the
+whole slice, gives ‖σ_A[𝐔_e] − σ_A[𝐔′_e]‖_(L²(𝒰_(δ′)(p)∩{t_A=t′})) ≤ C ‖𝐔_e − 𝐔′_e‖_(L²(𝒰_(2δ′)(p)∩{t_A=t′})), the
+difference of the states holding that of the first derivatives of the metrics, which are components; with |σ_A| ≤ C
+([[lem:class-leaf-states]] (a)), squaring, integrating over t′ ∈ I by Fubini's theorem in the chart (t_A, y), and the L²
+bound of the extension, this gives (M2). ∎
+
+**Lemma {#lem:loc-t5-residual}** (The residual.) (a) 𝔄_χ(Û) = F̃ on P, and F̃ is smooth and supported in supp χ.
+(b) R := 𝔄_χ(Ů) − F̃ is smooth, supported in supp χ, zero on {τ0 ≤ τ_0′}, and ‖R‖_(H^k(J)) ≤ C ε for every interval J of
+times of length at most s* − τ_init + 2m_* + 2, H^k(J) the space-time norm of [[sec:class-kato]].
+
+*Proof.* (a) On P, θ 1_F = 0. F̃ = 𝔄_χ(Û) − θ 1_F 𝔄_χ(Û), and θ 1_F 𝔄_χ(Û) is smooth if 𝒜^♮(Û), which equals 𝔄_χ(Û) on
+supp θ ⊂ {χ = 1}, |𝐔̂ − 𝐔̊| ≤ r_0 for ε small, vanishes to infinite order on N ∩ 𝒰^♭. Its local rows do, by
+[[lem:loc-axis-system]] (d) and the paragraph after [[lem:loc-t5-jets]]: where ξ_A ≠ 0 near N, ζ_A = 1, and the rows of
+family A vanish to infinite order there, (Aug1) holding the further stress; where ξ_A < 1 the completion vanishes for Û
+identically. For an adapted family σ_A[Û] is that of [[lem:loc-axis-system]] (d), the spheres of the slices of τ0 being
+its leaves, and its closure row is −E(P̂_A, P̂_A) by the proof there, with any partition ψ_♮ and with the further stress
+in T̂. Let A be a further family, carried near axis i, and x near N with ψ_♮ ξ_A(x) ≠ 0; let d(x) be its distance from
+N. x lies near the edge that A crosses at axis i, at a point where (b) of [[lem:loc-t5-times]] holds, since ξ_A vanishes
+near the tangency sets; the slice {t_A = t_A(x)} meets that edge near x in an A-section S. Let W be the state (Ĝ, p̂_A,
+θ_A) on the slice, θ_A(y) the expansion θ_S of [[lem:loc-axis-leaf]] (ii) for the level set of û_A through y in the
+slice. By [[lem:loc-axis-leaf]] (ii) the level sets of û_A near the axis are W's A-leaves; S is one of them. Since
+∇²û_A(P̂_A, ·) = ½ d(Ĝ⁻¹(dû_A, dû_A)), the difference Θ̂_A − θ_A = □_Ĝ(−û_A) − θ_A is a smooth function of (Ĝ, ∂Ĝ, dû_A,
+∇²û_A) vanishing where Ĝ⁻¹(dû_A, dû_A) and its differential vanish, hence O(d^N) for every N near N ∩ {ζ_A = 1}. The
+level set through x lies within C d(x) of S, hence of N, and so does its arc; [[lem:class-leaf-states]] (b) with U := W
+and U′ := Û, W and Û having the same metric and p_A, gives |σ_A[Û](x) − σ(û_A)(x)| ≤ C_N d(x)^N, σ(û_A) := σ_A[W] the
+planar shear of the level sets of û_A. For û_A the identities of [[prop:class-structure]] (b) and (c), with
+[[eq:class-x]], hold up to smooth functions vanishing where Ĝ⁻¹(dû_A, dû_A) and its differential vanish, so the
+closure row of A at Û with σ(û_A) in place of σ_A is −E(P̂_A, P̂_A) up to O(d^N), and the row at Û is O(d^N) for every
+N. It is smooth on a two-sided neighbourhood of N, Û being smooth and its leaves depending smoothly on the point and on
+t_A ([[lem:class-leaf-states]] (a)), and a smooth function that is O(d^N) for every N vanishes to infinite order on N,
+by Taylor's formula across N.
+(b) R = (𝔄_χ(Ů) − 𝔄_χ(Û)) + θ 1_F 𝔄_χ(Û). On {τ0 ≤ τ_0′}, Û = Ů, the arcs used there lying in {τ ≤ τ(x)} ⊂ {τ0 ≤ τ_0′},
+and θ 1_F = 0; so R = 0 there. The local part of the first term is bounded in C^k by C ‖Û − Ů‖_(C^(k+1)) ≤ C ε; its
+terms in σ_A, which hold σ_A only through σ_A², are bounded in H^k by C ε by [[lem:class-leaf-tame]], with W the family
+of states of Û and W̊ that of Ů, on the compact support. On F ∩ supp θ, 𝔄_χ(Û) = (𝔄_χ(Û) − 𝔄_χ(Ů)) + 𝔄_χ(Ů), where
+𝔄_χ(Ů) is the residual of (Aug1) for the reference Ĝ in place of g_e, at most C ε in C^k, Ů solving the background's
+system on F with the true planar shears of its level sets in every slicing ([[lem:class-leaf-differences]], last
+statement) and with zero densities of the further families. As 𝔄_χ(Û) vanishes to infinite order on N, θ 1_F 𝔄_χ(Û) has
+H^k norm at most that of θ 𝔄_χ(Û) on F, at most C ε. ∎
+
+**Lemma {#lem:loc-t5-existence}** (Existence and smoothness.) For ε small the system has a smooth G-invariant solution 𝐔
+on [τ_init, s*] × ℝ⁴ with 𝐔 = 𝐔̊ on {τ ≤ τ_init}, g_τ = ∂_τ g, g_a = ∂_a g and ⟦𝐔 − 𝐔̊⟧_(k,[τ_init−2m,s*]) ≤ C ε; so the
+derivatives of order at most k − 3 of 𝐔 − 𝐔̊ are at most C ε. For every further family A, the integral curves of P_A in
+F ∩ 𝒰^♭ from 𝒦_A^♯ lie in {ξ_A = 1}.
+
+*Proof.* The history Z := 0 on [τ_init − 2m, τ_init], a path of 𝒞, is a solution there, F(0) = −R vanishing on {τ ≤
+τ_init} ⊂ {τ0 ≤ τ_0′}. [[thm:class-kato-memory]] (b) and (d), with (M0)–(M2) and (M1′) on 𝒞 by [[lem:loc-t5-forcing]]
+and δ := ‖R‖_(H^k([τ_init−m,s*])) ≤ C ε by [[lem:loc-t5-residual]], gives a solution Z ∈ 𝒞 on [τ_init, s*] with ⟦Z⟧_k ≤
+C ε; by (c) and (d) of that theorem, with (M1_σ) and R = 0 on [τ_init − m, τ_init], Z lies in H^σ([τ_init − 2m, s*] ×
+ℝ⁴) for every σ, so it is smooth by the Sobolev inequality in the five variables. As Z ∈ 𝒞, g_τ = ∂_τ g and g_a = ∂_a g.
+The rows of (c) of [[lem:loc-cone-system]] hold at τ_init, where 𝐔 = 𝐔̊. The system is invariant under G, the times t_A
+and τ and the cut-offs being invariant, and the image of the solution under an element of G is a solution with the same
+history; by the uniqueness of [[thm:class-kato-memory]] (a) it is the solution. The pointwise bounds follow by
+[[lem:sobolev]] on the slices. With them P_A is within C ε of P̊_A in C⁰, so for ε small the integral curves from
+𝒦_A^♯ ⊃ 𝒦_A′ stay in the neighbourhood of 𝒯̊_A on which ξ_A = 1, by continuous dependence on the field, and they avoid 𝒲
+by [[lem:loc-t5-tubes]]. ∎
+
+Below U denotes this solution, (g, p_A, Θ_A, q_A) its components and P_A := g⁻¹p_A.
+
+#### Dependence on the past and the constraints {#sec:loc-t5-dependence}
+
+**Lemma {#lem:loc-t5-energy}** (Energy with an integrated non-local term.) Let 𝒟, B_0, B_1, 𝐀^μ, M and 𝒟_s be as in
+[[lem:loc-cone-energy]], in a chart (t, x) whose slices are spacelike for the systems concerned and without the
+condition that the pieces of B_1 meet the slices transversally, and let z ∈ C¹(𝒟) solve 𝐀^μ ∂_μ z = Mz + 𝔫 on 𝒟, with
+z = 0 on B_0 and 𝔫 measurable with ∫_(𝒟_s) |𝔫|² ≤ C_𝔫 ∫_(𝒟_s) |z|² for every s. Then z = 0 on 𝒟.
+
+*Proof.* As in the proof of [[lem:loc-axis-energy]], the divergence theorem on the Lipschitz domains 𝒟_s gives e(s) ≤
+∫_(𝒟_s) (C |z|² + 2 |z| |𝔫|) ≤ (C + 1 + C_𝔫) ∫_(𝒟_s) |z|² ≤ C′ ∫_(t_0)^s e, t_0 the least time on 𝒟, the integral over
+B_1 being nonnegative and that over B_0 zero; Gronwall's inequality gives e = 0. ∎
+
+**Lemma {#lem:loc-t5-past}** (The past of the edges.) U = Û on P ∩ 𝒰^♭. So U − Û vanishes with all its derivatives on N
+∩ 𝒰^♭, g, the densities and the further phases induce the data there, and near the points where an edge meets an axis
+the edge sections of the slices of t_A are leaves of U for every family A whose closure is used there.
+
+*Proof.* On P, 𝔄_χ(𝐔) = F̃ = 𝔄_χ(Û) ([[lem:loc-t5-residual]] (a)). As in the proof of [[lem:loc-axis-past]], z := 𝐔 − 𝐔̂
+satisfies on 𝒟 := the closure of P ∩ 𝒰^♭ a system 𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ at 𝐔̂, M bounded and 𝔫 the difference of
+the terms in σ_A, times bounded factors. Let B_0 := 𝒟 ∩ {τ = τ_init}, where z = 0, and B_1 the pieces of N and of the
+far cuts; there the outward conormals are du, dv, du + κdv and dv + κdu, future causal for Ĝ and nonnegative on the
+transport fields, which are future causal or, where ξ_A < 1, convex combinations of P_A and P̄_A; so the boundary matrix
+is nonnegative (the paragraph after [[lem:loc-cone-energy]]). Let x ∈ 𝒟_s at which the closure of a family A is used, so
+ρ_i(x) < δ_♮/2 for an axis i and, for a further family, ξ_A(x) ≠ 0, and let D be the union of the arcs of Û, in the
+slice {t_A = t_A(x)}, through the points y of (𝒟 ∪ {τ ≤ τ_init}) ∩ {τ ≤ s} in that slice at which the closure of A is
+used. D is G-invariant and closed under the arcs of Û, and it lies in (𝒟 ∪ {τ ≤ τ_init}) ∩ {τ ≤ s}: the arc of such a
+point y lies in {τ ≤ τ(y)} by [[lem:loc-t5-times]] (c); in the closure of P, since near a point where an edge meets axis
+i the edge section of the slice is a leaf of Û for A ([[lem:loc-t5-faces]]), A crossing that edge there, ξ_A vanishing
+near the tangency sets, or A being adapted; away from the edges and from the far cuts, the arc being within C_L δ_♮² of
+y, by (ii) of the choice of δ_♮; and ξ_A vanishing near the far cuts, whose slices are unions of spheres, the leaves of
+the adapted families. The arcs in {τ ≤ τ_init} lie where z = 0. [[lem:class-leaf-states]] (c), with δ := δ_♮/2, U := Û
+and U′ := U, gives ‖σ_A[Û] − σ_A[U]‖_(L²(D∩𝒰_(δ_♮/2)(p))) ≤ C ‖z‖_(L²(D∩𝒰_(δ_♮)(p))) at every point p of the axis,
+with |σ_A| ≤ C, so that the terms in σ_A², which are those of the system, have differences bounded in the same way;
+squaring and integrating over t_A(x), by Fubini's theorem in the chart (t_A, y), ∫_(𝒟_s) |𝔫|² ≤ C ∫_(𝒟_s) |z|².
+[[lem:loc-t5-energy]] gives z = 0. The last claim is [[lem:loc-t5-faces]] with V := U. ∎
+
+**Lemma {#lem:loc-t5-constraints}** (The constraints.) Let 𝒦_A″ be the compact set defined in the proof, 𝒦_A′ ⊂ 𝒦_A″ ⊂
+𝒦_A^♯, and 𝒯_A the union of the integral curves of P_A in 𝒯 = F ∩ {τ ≤ s*} from 𝒦_A″. On 𝒯, g⁻¹(p_A, p_A) = 0, dp_A = 0
+and Θ_A = div_g P_A for the adapted families, and on 𝒯_A for every further family A, and D(g) = 0. There are smooth
+G-invariant functions u_in, u_out on 𝒰′ := (P ∩ 𝒰^♭) ∪ 𝒯 and u_A on a neighbourhood of 𝒯_A with p_in = −du_in, p_out =
+−du_out, p_A = −du_A, u_in = v and u_out = u on P ∩ 𝒰^♭ and u_A = û_A on N near 𝒦_A^♯; q_A vanishes on 𝒯 ∖ 𝒯_A; and (g,
+u_in, u_out, u_A, q_in, q_out, q_A) solves [[eq:class-system]] with N_f families on 𝒯, with Ric(g) = Σ_A q_A du_A ⊗
+du_A, in the gauge D(g) = 0 relative to Ĝ, and with q_A ≥ 0 on Q1 for every family.
+
+*Proof.* *The sets.* Near each axis i at which A crosses an edge, let 𝒦_A″ consist of 𝒦_A′ and of the caps {ρ_i ≤ 2δ_2}
+of the A-sections {U_A = c} of that edge that meet 𝒦_A′ ∩ {ρ_i ≤ 2δ_2}. A point of the A-section through a point x of
+𝒦_A′ lies within Cε of the background's section through it, which passes within Cε of x; so for ε small 𝒦_A″ lies, with
+a neighbourhood, in 𝒦_A^♯. 𝒦_A″ is cap-closed: with a point y with ρ_i(y) ≤ 2δ_2 it contains the cap {ρ_i ≤ 2δ_2} of the
+A-section through y, which is the cap of a section meeting 𝒦_A′ when y lies in such a cap. By [[lem:loc-t5-past]] the
+quantities below vanish, with all their derivatives, on N ∩ 𝒰^♭, as they do for Û, on N ∩ {ζ_A = 1} ⊃ 𝒦_A^♯ for a
+further family. Every point of 𝒯 lies on an integral curve of P_A that, followed backwards, stays in 𝒯 until it reaches
+N: τ decreases along it at a rate bounded below, and it cannot leave 𝒯 through its slice in {τ = s*}; for a point of the
+union 𝒯_A^♯ of the curves from 𝒦_A^♯ the curve lies in {ξ_A = 1} ([[lem:loc-t5-existence]]).
+*The phases.* For the adapted families this is the paragraph *The phases* of the proof of [[lem:loc-axis-propagation]],
+with 𝒯 and 𝒰′ in place of 𝔗(s*) and its 𝒰′. For a further family, on 𝒯_A^♯, where ξ_A = 1, (Aug2) holds, and P_A(ν_A) =
+0, ℒ_(P_A) dp_A = d(i_(P_A) dp_A) = 0 where ν_A = 0 ([[prop:class-augmented]] (b)), ν_A := g⁻¹(p_A, p_A); so ν_A = 0 and
+dp_A = 0 on 𝒯_A^♯, these vanishing on N. Then ℒ_(P_A) p_A = d(i_(P_A) p_A) = dν_A = 0. Let u_A be constant along the
+integral curves of P_A and equal to û_A on N near 𝒦_A^♯; then ℒ_(P_A) du_A = 0 and du_A = −p_A on N, so p_A = −du_A on
+𝒯_A^♯, a neighbourhood of 𝒯_A. *The weights.* For a further family A let κ̄_A be a smooth G-invariant function on N with
+values in [0, 1], equal to 1 on 𝒦_A″, supported in the interior of 𝒦_A^♯ and, on {ρ_i ≤ δ_2} near each axis i at which A
+crosses an edge, a function of U_A: as 𝒦_A″ ∩ {ρ_i ≤ 2δ_2} = U_A⁻¹(Γ) ∩ {ρ_i ≤ 2δ_2} for a compact set Γ of values, by
+its cap-closure, take κ̄_A := χ_2(ρ_i) k(U_A) + (1 − χ_2(ρ_i)) κ̃ there, with χ_2 equal to 1 on [0, δ_2] and to 0 on
+[2δ_2, ∞), k equal to 1 on Γ and supported in values whose caps lie in the interior of 𝒦_A^♯, and κ̃ equal to 1 on 𝒦_A″
+and supported in the interior of 𝒦_A^♯. Let κ_A be constant along the integral curves of P_A, equal to κ̄_A at their
+points on 𝒦_A^♯, and 0 on 𝒯 ∖ 𝒯_A^♯. It is smooth: the flow of P_A from the crossing set, to which P_A is transverse, is
+a diffeomorphism onto its image, and the curves from the compact set supp κ̄_A, in the interior of 𝒦_A^♯, form a compact
+subset of 𝒯 in the interior of 𝒯_A^♯ relative to 𝒯. P_A(κ_A) = 0, κ_A = 1 on 𝒯_A, and supp κ_A ⊂ 𝒯_A^♯. For an adapted
+family put κ_A := 1. *The gauge and the expansions.* Let U′ be U with each Θ_A replaced by div_g P_A = □_g(−u_A) on
+𝒯_A^♯. For an eikonal u_A the level sets of u_A in a slice of t_A, near an axis, are leaves of U′, by
+[[lem:loc-axis-leaf]] (ii): p_A vanishes on them, and their expansion is □_g(−u_A), as in the proof of its part (iii).
+For s ≤ s* and t let D_(A,t,s) be the union of the arcs of U′, in the slice {t_A = t}, through the points of supp κ_A ∩
+{τ ≤ s} in that slice within δ_♮/2 of an axis. The arc of such a point x lies in {τ ≤ τ(x)} by [[lem:loc-t5-times]] (c);
+in F, the edge sections being leaves of U′ near the points where an edge meets the axis ([[lem:loc-t5-past]],
+[[lem:loc-axis-leaf]] (iii)) and leaves not crossing; and, for a further family, in supp κ_A, on whose points near the
+axis κ_A is constant along the arcs: the arc lies in the level set of u_A through x, whose points within δ_♮ of the axis
+lie on integral curves of P_A from points of the edge within δ_2 of the axis on one A-section, by (iii) of the choice of
+δ_♮, the axis being invariant under the flow as [P_A, K_i] = 0, and κ̄_A is constant on that part of the section. With
+Δ_A := Θ_A − div_g P_A, subtracting the equation of [[eq:class-raychaudhuri]] for the eikonal from the closure row, as
+in the proof of [[lem:loc-axis-propagation]] and with [[eq:class-defect]] off the axes and [[prop:class-augmented]] (e),
+
+    P_A(Δ_A) = −Δ_A ((1 − ψ_♮)(Θ_A + div_g P_A − 2κ_A1 − 2κ_A2) + ½ ψ_♮ (Θ_A + div_g P_A − 2κ_A⊥))
+               − ½ ψ_♮ (σ_A[U]² − σ_A[U′]²) + g(∇_(P_A) D, P_A) + L(P_A, P_A),
+
+and D solves [[eq:class-gauge-wave]] with B_g T = Σ_A Δ_A q_A p_A. U′ has bounds (M, c) on the slices, the norm of
+[[lem:loc-t5-existence]] controlling div_g P_A at the order k − 1, as in Step 10 of the proof of
+[[thm:class-stability]]. U − U′ has the components Δ_B only, and σ_A depends only on the metric and on p_A and Θ_A. The
+proof of [[lem:class-leaf-states]] (c) integrates the pointwise bound [[eq:class-leaf-pointwise]] over each leaf of its
+first state and then over the axis points; so its bound holds with both sides integrated against a bounded function that
+is constant on the parts of those leaves within its radius. With U := U′, U′ := U, δ := δ_♮/2, D := D_(A,t,s) and the
+weight κ_A, and with |σ_A| ≤ C, it gives ∫ κ_A |σ_A[U]² − σ_A[U′]²|² ≤ C ∫ κ_A |Δ_A|² over D_(A,t,s) ∩ 𝒰_(δ_♮/2)(p) and
+over D_(A,t,s) ∩ 𝒰_(δ_♮)(p), at every point p of the axis. On 𝒯 ∩ {τ ≤ s} the edges are the past boundary, where D, ∂D
+and Δ_A vanish, and {τ = s} is spacelike. Multiply the row of Δ_A by κ_A: as P_A(κ_A) = 0, the divergence identity of
+the proof of [[lem:loc-t5-energy]] for κ_A |Δ_A|² P_A gains no term in dκ_A, so no lateral boundary enters; q_A vanishes
+off 𝒯_A (below), where κ_A = 1, so B_g T = Σ_A κ_A Δ_A q_A p_A. So the energy of the first-order variables of D plus Σ_A
+∫ κ_A |Δ_A|² on 𝒯 ∩ {τ = s} obeys the integrated inequality of the proof of [[lem:loc-t5-energy]], the non-local terms
+being bounded, after integration over t by Fubini's theorem, by these weighted norms, and D = 0 on 𝒯, Δ_A = 0 on {κ_A =
+1} ⊃ 𝒯_A. Then (Aug1) is Ric(g) = Σ_A q_A p_A ⊗ p_A and (Aug4) the conservation law, as in the proof of
+[[lem:loc-cone-constraints]]. *The densities.* The row of q_A is ξ_A (P_A(q_A) + Θ_A q_A) + (1 − ξ_A) P̄_A(q_A − q̂_A) =
+0, and q̂_A vanishes where ξ_A < 1, its support lying in the interior of {ξ_A = 1}; so q_A is transported along the
+integral curves of ξ_A P_A + (1 − ξ_A) P̄_A, which on 𝒯 start on N, homogeneously, and vanishes along those that do not
+start in 𝒦_A, where q_A = q̂_A = 0 on N. The curves from 𝒦_A lie in 𝒯_A, where ξ_A = 1. So q_A vanishes on 𝒯 ∖ 𝒯_A, and
+along each curve keeps the sign of its value on N; a curve that reaches Q1 starts on N ∩ Q1, where the densities are
+nonnegative, u and v not decreasing along it. ∎
+
+#### Families tangent to an edge, uniqueness and the theorem {#sec:loc-t5-theorem}
+
+**Proposition {#prop:loc-t5-grazing}** (Families tangent to an edge at an axis.) Let A be a further family of ingoing
+type at axis i, x_0 a point of N_i ∩ axis i, and U a class solution near x_0 with N_f families in which the phase u_A of
+family A is defined, equals U_A on N_i and satisfies |du_A − dů_A| < |dů_A| at the points of the axis near x_0. Let ϑ_i
+be the distance on S³ from axis i, and a(u) := ½ ∂²U_A/∂ϑ_i² at the point (u, 0) of the axis generator of N_i.
+
+(a) ∂_uU_A = 0 on N_i ∩ axis i near x_0, and the coefficient 2g⁻¹(dv, du_A) of ∂_vu_A in the eikonal equation on N_i
+vanishes there: N_i is characteristic for family A along its axis generator, and the derivatives of u_A across N_i are
+not determined there as in [[lem:loc-t5-jets]] (b).
+
+(b) Let t be a time function near x_0, Σ its slice through x_0 and S := Σ ∩ N_i. If the restriction of U_A − U_A(x_0) to
+S vanishes at x_0 to a finite order 2j in ϑ_i, as it does with j = 1 when a(u(x_0)) ≠ 0, the level set L of u_A in Σ
+through x_0 meets S near x_0 only at x_0, and L ∖ {x_0} lies near x_0 on one side of N_i; and every neighbourhood of x_0
+in Σ contains points on that side whose arcs from the axis along the level sets of u_A through them meet the other side.
+
+(c) If, for every slice Σ′ of t through a point x′ of N_i ∩ axis i near x_0, the level set of u_A in Σ′ through x′
+contains Σ′ ∩ N_i near x′, then U_A is constant on a neighbourhood of x_0 in N_i, du_A is a multiple of dv there, and
+the rays of family A there are generators of N_i.
+
+The same holds for outgoing type, with N_o, u and v exchanged.
+
+*Proof.* (a) At a point of the axis du_A lies in the span of du and dv and is null ([[lem:loc-t5-dichotomy]]), so it is
+a multiple of du or of dv; dů_A is a multiple of dv, and |du_A − dů_A| < |dů_A| excludes a multiple of du. So ∂_uu_A = 0
+there, and on N_i, where u_A = U_A, ∂_uU_A = 0 on the axis generator. In the double-null form, g^(uu) = g^(ua) =
+g^(vv) = 0, so the eikonal equation on N_i reads 2(g^(uv) ∂_uU_A + g^(va) ∂_aU_A) ∂_vu_A + g^(ab) ∂_aU_A ∂_bU_A = 0, and
+the coefficient of ∂_vu_A is 2g⁻¹(dv, du_A). On the axis ∂_aU_A = 0, U_A being G-invariant and so even in ϑ_i, and
+∂_uU_A = 0; so the coefficient vanishes, and ∂_u^(j−1) of the equation does not contain ∂_u^(j−1)∂_vu_A with a nonzero
+factor.
+
+(b) In the coordinates (z, y) of [[lem:class-leaf]] on Σ near x_0 (near axis 2, say), the axis meets N_i and L
+transversally at x_0: its direction ∂_z in Σ is a combination of ∂_u and ∂_v with both coefficients nonzero, t
+increasing with u and with v along the axis, and dv(∂_z) ≠ 0, du_A being a multiple of dv on the axis. So S ∩ M3 and L ∩
+M3 are graphs z = h_S(y) and z = h_L(y) over a disc, with h_S(0) = h_L(0) = z(x_0), and the level sets of u_A in Σ
+through the axis points z_0 near z(x_0) are graphs z = h(y; z_0) with |h(y; z_0) − h_L(y)| ≤ 2 |z_0 − z(x_0)|, as
+∂_(z_0)h → 1 at y = 0. Parametrise S near x_0 by the point of S³ and write it u = u(x_0) + O(ϑ_i²), S being G-invariant
+and transverse to the generators. By (a), U_A = c_0 + a(u) ϑ_i² + O(ϑ_i⁴), c_0 := u_A(x_0), so on S, U_A − c_0 =
+a(u(x_0)) ϑ_i² + O(ϑ_i⁴), and in general U_A − c_0 = b_j ϑ_i^(2j) + O(ϑ_i^(2j+2)) on S with b_j ≠ 0, U_A being even in
+ϑ_i. As u_A − c_0 = ∂_zu_A (z − h_L(y)) + O((z − h_L)²) near x_0 and ϑ_i is comparable with |y| on S, h_S − h_L has, for
+small y ≠ 0, the sign of b_j/∂_zu_A, and |h_S − h_L| ≥ c_1 |y|^(2j) with c_1 > 0. This is the first claim. Let L lie,
+off x_0, on the side z < h_S, say. For d > 0 small take the axis point z_0 := z(x_0) + d, on the other side. Then h(y;
+z_0) − h_S(y) ≤ 2d − c_1 |y|^(2j) < 0 for |y| > (2d/c_1)^(1/(2j)): the level set through z_0 has points on the side of L
+at radii between (2d/c_1)^(1/(2j)) and a fixed r_0, whose arcs from the axis start at z_0, on the other side. As d → 0
+these points tend to x_0.
+
+(c) The slices of t through the points x′ of the axis generator near x_0 meet N_i in the level sets of the restriction
+of t to N_i, which has a nonzero derivative along the generators, dt being timelike and the generators null; so these
+sets cover a neighbourhood of x_0 in N_i, each containing its point x′ of the axis. On Σ′ ∩ N_i near x′, U_A = u_A(x′) =
+c_0, by (a). So U_A = c_0 on a neighbourhood of x_0 in N_i, du_A vanishes on the tangent spaces of N_i there, and du_A
+is a multiple of the conormal dv of N_i; g⁻¹du_A is then tangent to the generators. ∎
+
+So (F-b) excludes the families that carry density near a point x_0 of a tangency set because the construction of this
+section, in any slicing, does not apply to them there, except possibly in a case not analysed. At every point x′ of the
+tangency set near x_0 at which, for the slice through x′, the restriction of U_A − U_A(x′) to the edge section vanishes
+to a finite order, as when a(u(x′)) ≠ 0, the arcs of points on one side of the edge arbitrarily near x′ meet the other
+side by (b), and the estimate of [[lem:loc-t5-past]] (on P) or that of [[lem:loc-t5-constraints]] (on F), which needs
+the slices of the region to contain the arcs of their points, fails for family A near x′: the arcs on the other side
+carry the solution of the other region. If all the edge sections near x_0 are leaves, then by (c) the rays of family A
+run in the edge on an open set, the edge is characteristic for the family there, as in (a), and its density there is not
+free data but must satisfy the transport equation along the generators. In the remaining case the restriction vanishes
+to infinite order at x′ without vanishing near it, and the construction is not analysed.
+
+**Lemma {#lem:loc-t5-uniqueness}** (Dependence on the past faces with further families.) Let Ĝ′ be a smooth G-invariant
+Lorentzian metric and, for i = 1, 2, U_i smooth G-invariant states with N_f families on a neighbourhood 𝒪 of a compact
+set R′, each p_i^A the negative of the differential of a phase null for g_i, P_i^A := g_i⁻¹p_i^A future directed and
+Θ_i^A = div_(g_i) P_i^A, the phases of the further families being defined on the sets given below, that solve
+[[eq:class-system]] with N_f families on R′ in the gauge D(g_i) = 0 relative to Ĝ′. Let (ũ, ṽ, ω̃) be coordinates on 𝒪
+with p_1^out = −dũ and p_1^in = −dṽ, in which g_1 has the form [[eq:loc-double-null]] with fields smooth through the
+axes and R′ = [0, a] × [0, b] × S³. For every further family A let 𝒦_A″ be a compact G-invariant subset of the past
+faces R′ ∩ ({ũ = 0} ∪ {ṽ = 0}) on which family A of U_1 crosses the face it lies in, at positive distance from the
+circles in which {ũ = ṽ = 0} meets the axes, and which contains, with each of its points within δ_2 > 0 of an axis, the
+cap within δ_2 of that axis of the section of the face by the level set of the phase of A of U_1 through the point; let
+𝒯_A be the union of the integral curves of P_1^A in R′ from 𝒦_A″, let 𝒦_A^+ be a compact G-invariant neighbourhood of
+𝒦_A″ in the past faces on which family A of U_1 crosses the face it lies in, let the phases of A of U_1 and U_2 be
+defined on a neighbourhood of the union of the integral curves of P_1^A in R′ from 𝒦_A^+, and let the densities of A of
+both vanish on R′ ∖ 𝒯_A. If U_2 and U_1 agree, with all their derivatives, on the past faces, the components of each
+further family A only on 𝒦_A^+, then U_2 = U_1 on R′, the components of each further family A on 𝒯_A. No smallness of
+U_1, of U_2 or of U_2 − U_1 is assumed.
+
+*Proof.* *Times.* Let μ and x := e^(ṽ−μũ) ω̃ be as in the proof of [[lem:loc-axis-dependence]]. For an integer N ≥ 1 put
+Φ_N := (ũ/a)^N + (ṽ/b)^N + (ũ + ṽ)/(N(a + b)); its derivatives in ũ and ṽ are positive near R′, so dΦ_N is timelike for
+g_1, which has g_1^(ũũ) = g_1^(ṽṽ) = 0 and g_1^(ũṽ) < 0, and (Φ_N, x) is a chart whose field ∂_(Φ_N), a positive
+multiple of ∂_ũ + μ∂_ṽ, is future timelike for g_1. The construction of [[sec:loc-t5-times]], with Φ_N in place of τ0,
+the faces of R′ in place of the edges, the sections of the faces by the level sets of the phases of U_1, the sets 𝒯_A in
+place of the supports of the ξ_A and g_1 in place of g_e, gives times t_A^N, an evolution time τ^N and numbers δ_*(N),
+r_L(N), for which (a)–(d) of [[lem:loc-t5-times]] hold, with δ_*(N) chosen also with K(N) δ_*(N)² ≤ 1/(4N). The proof of
+[[lem:loc-t5-times]] uses of τ0 and g_e only these properties. Let δ_♮(N) be a closure radius for U_1 in these charts as
+in [[sec:loc-t5-system]]. U_1 and U_2, being solutions with null phases, solve the rows of 𝒜^♮ with ψ_♮ of radius
+δ_♮(N), Ĝ′ in place of Ĝ and σ_A computed in the slices of t_A^N, at every point x near an axis at which the level set
+through x of the phase of family A, in the slice through x, is from the axis to x a graph as in [[lem:loc-axis-leaf]]
+(ii) in 𝒪 with p_A(∂_z) ≠ 0: by that lemma it is then the leaf through x, and the paragraph *The equations* of the proof
+of [[lem:loc-axis-dependence]] applies to every family. For U_1 this holds at every point of R′ within δ_♮(N)/2 of an
+axis, after decreasing δ_♮(N), U_1 being smooth on the compact R′ and its leaves satisfying |h′| ≤ C_L r.
+
+*Triangles.* By the proof of [[lem:loc-t5-tubes]], with P_1^A in place of P̊_A and the tangency sets of family A of U_1
+on the faces, 𝒯_A avoids a neighbourhood of those sets, so near the axes the closure of a further family is used only
+near the faces it crosses. Let T_N := {ũ, ṽ ≥ 0} ∩ {τ^N ≤ 1}. As τ^N ≥ Φ_N ≥ (ũ/a)^N, (ṽ/b)^N, T_N ⊂ R′, and every point
+with ũ < a and ṽ < b lies in T_N for N large, since Φ_N tends to 0 there and τ^N − Φ_N ≤ 1/(4N). For a further family A
+let κ_A be the weight of the proof of [[lem:loc-t5-constraints]], built with U_1, its phase of family A in place of U_A,
+its field P_1^A, 𝒦_A″ (which is cap-closed at the width δ_2 by hypothesis) in place of that proof's 𝒦_A″, δ_2/2 in place
+of δ_2, and 𝒦_A^+ in place of 𝒦_A^♯; put κ_A := 1 for an adapted family. For s ≤ 1 let D_(A,t,s) be the union of the
+arcs of U_1, in the slice {t_A^N = t}, through the points of supp κ_A ∩ T_N ∩ {τ^N ≤ s} in that slice within δ_♮(N)/2 of
+an axis. As in the proof of [[lem:loc-t5-constraints]], with U_1 in place of U′, D_(A,t,s) lies in supp κ_A ∩ T_N ∩ {τ^N
+≤ s}, after decreasing δ_♮(N), and κ_A is constant on the parts of the leaves of U_1 within δ_♮(N) of the axes: the
+sections of the faces by the slices of t_A^N are leaves of U_1 near the axes, by the proof of [[lem:loc-t5-faces]] with
+U_1 in place of Û.
+
+*Continuity in τ^N.* Fix N, and let s_* be the supremum of the s ∈ [0, 1] such that U_2 = U_1 on 𝒦_s := T_N ∩ {τ^N ≤ s},
+the components of each further family A only on supp κ_A ∩ 𝒦_s; the set of these s is closed and contains 0, 𝒦_0 lying
+in the past faces. Suppose s_* < 1. The components of U_2 − U_1 other than those of the further families are smooth and
+vanish with all derivatives on 𝒦_(s_*), and on the past faces by hypothesis; those of a further family A on supp κ_A ∩
+𝒦_(s_*), the closure of its interior, and on 𝒦_A″. For θ ∈ (0, 1] let 𝒩_θ be the set of points of 𝒪 whose coordinates
+(ũ, ṽ) lie within θ of those of a point of 𝒦_(s_*) or of the past faces of R′ with the same ω̃; as in the paragraph
+*Continuity in t* of the proof of [[lem:loc-axis-dependence]], Taylor's formula along the segment to a nearest such
+point bounds the derivatives of order at most k of those components of U_2 − U_1 on 𝒩_θ by Cθ^(k+1); and Taylor's
+formula along the integral curves of P_1^A, on which κ_A is constant and τ^N decreases at a rate bounded below, bounds
+the derivatives of order at most k of the components of family A at the points of supp κ_A ∩ {s_* ≤ τ^N ≤ s_* + θ} by
+Cθ^(k+1). Let χ_θ be a G-invariant cut-off equal to 1 on 𝒩_(θ/2), supported in 𝒩_θ, with derivatives of order j at most
+Cθ^(−j), and for each further family A let c_A > 0 bound |p_A(∂_z)| below for U_1 at the axis points of the slices of
+t_A^N in R′, L_A bound the C¹ norm of the difference of the components of family A of U_2 and U_1 where both are
+defined, d_A := min(1, c_A/(4L_A)), taken so small also that the phases of A of both are defined on the
+d_A-neighbourhood of supp κ_A, and χ̃_A a G-invariant cut-off equal to 1 on the d_A/2-neighbourhood of supp κ_A ∩ {τ^N ≤
+s_* + θ} and supported in its d_A-neighbourhood, with |∂χ̃_A| ≤ C/d_A. By the second Taylor bound and the mean value
+theorem, the components of family A of U_2 − U_1 are at most Cθ^(k+1) + L_A d_A on that d_A-neighbourhood, and their
+first derivatives at most L_A. Let W
+be the state whose metric is g_1 + χ_θ (g_2 − g_1), with its own first derivatives, whose components of the adapted
+families are those of U_1 + χ_θ (U_2 − U_1), and whose components of a further family A are those of U_1 + χ̃_A (U_2 −
+U_1). Its metric and adapted components are within Cθ of those of U_1 in C^k, so its slices of every t_A^N are spacelike
+for its metric; its further components have C¹ norms at most those of U_1 plus C (Cθ^(k+1)/d_A + 1 + L_A), and, on the
+axis, |p_A(∂_z)| ≥ c_A − Cθ^(k+1) − L_A d_A ≥ c_A/2 for θ small; so W has bounds (M′, c′) on these slices, M′ and c′
+depending on U_1 and U_2 but not on θ, and δ_♮(N) is taken small also for them. Along the curves of constant x, on which
+τ^N grows at a rate bounded below near R′, every point of T_N ∩ {s_* ≤ τ^N ≤ s_* + θ′} lies within Cθ′ of 𝒦_(s_*) or of
+the past faces; for θ′ := θ/(8C) the slab lies in 𝒩_(θ/8). The arc of U_1 through a point x of the slab near an axis, at
+which the closure of A is used, lies in T_N ∩ {τ^N ≤ s_* + θ′}, and in supp κ_A for a further family, by the properties
+of the sets D_(A,t,s); along it W − U_1 is at most Cθ² in C¹, by the two Taylor bounds, as k ≥ 2 and the derivatives of
+order j of χ_θ are at most Cθ^(−j). So, by the proof of [[lem:class-leaf-states]] (b), the leaf of W through x lies
+within Cθ² of that of U_1 in C¹, hence, for θ small, in 𝒩_(θ/2) and, for a further family, in {χ̃_A = 1}, where W = U_2;
+by the uniqueness in [[lem:class-volterra]] it is the leaf of U_2, and σ_A[W] = σ_A[U_2] at x. Likewise the level set of
+the phase of A of U_2 through x is, from the axis to x, a graph in 𝒪 near that of U_1, the two phases being C¹-close
+there, hence the leaf of U_2 by [[lem:loc-axis-leaf]] (ii), so U_2 solves the rows of 𝒜^♮ at x, with σ_A[W]. So the
+difference z of the first-order variables of U_2 and U_1, for a further family on supp κ_A only, satisfies on 𝒟 := T_N ∩
+{s_* ≤ τ^N ≤ s_* + θ′} a system 𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ at U_1, M bounded and 𝔫 the difference of the terms in
+σ_A², times bounded factors. [[lem:class-leaf-states]] (c), with U := U_1, U′ := W, δ := δ_♮(N)/2, the sets D_(A,t,s)
+and the weight κ_A, as in the proof of [[lem:loc-t5-constraints]], where W − U_1 = z on the slab and 0 on 𝒦_(s_*),
+with |σ_A| ≤ C and Fubini's theorem in the charts (t_A^N, x), gives ∫_(𝒟_s) κ_A |𝔫_A|² ≤ C ∫_(𝒟_s) κ_A |z|², 𝔫_A the
+term of the rows of family A, and κ_A ≤ 1. Multiply the rows of family A by κ_A: as P_1^A(κ_A) = 0 and these rows are
+transports along P_1^A at U_1, the divergence identity gains no term in dκ_A and no lateral boundary enters; the
+densities of A of both vanish off 𝒯_A, where κ_A = 1, so family A enters the other rows only through terms bounded by
+κ_A^(1/2) |z|. The boundary of 𝒟 consists of the slice {τ^N = s_*} and pieces of the past faces, where z = 0 (B_0), and
+of the slices {τ^N = s}, spacelike for g_1. The proof of [[lem:loc-t5-energy]], with the weights κ_A on the rows of the
+further families, gives z = 0 on 𝒟, on supp κ_A for a further family, against the definition of s_*. So s_* = 1, and
+U_2 = U_1 on T_N for every N, hence on R′ ∩ {ũ < a, ṽ < b}, and on R′ by continuity. ∎
+
+**Theorem {#thm:loc-t5}** (Development with further families at the axes.) Let k ≥ 9, m_0 = 6k + 18 and m_1 = 12k + 42,
+let a background on Q1 with margin δ_1 be given, cone data through the axes ([[def:loc-axis-data]]) on {0} × [0, v_1]
+and [0, u_1] × {0}, in the normalised gauge and with nonnegative densities, and further families A = 3, …, N_f
+([[def:loc-t5-family]]) satisfying (F-a), (F-b) and (F-c); fix for each A a compact G-invariant neighbourhood 𝒦_A′ of
+𝒦_A in N satisfying (F-a) and (F-b). Let ε be the largest size in C^(m_1) of the cone data and of the U_A − ů_A and q_A.
+(F-b) excludes the families that carry density where they are tangent to an edge along an axis generator, where the
+construction does not apply ([[prop:loc-t5-grazing]]); (F-a) excludes density near the circles in which the corner
+sphere meets the axes, where the rays of a crossing family approach its tangency set ([[lem:loc-t5-tubes]]).
+
+A *class solution with the further families* on D × S³, D ⊂ F, is a class solution in the gauge through the axes on D ×
+S³ ([[def:loc-axis-data]]) together with, for each further family, a smooth G-invariant density q_A ≥ 0 on D × S³ and a
+smooth G-invariant phase u_A, null for g with −g⁻¹du_A future directed, defined on a neighbourhood of the union 𝒯_A^g of
+the integral curves of −g⁻¹du_A in D × S³ from 𝒦_A′, such that q_A = 0 off 𝒯_A^g, Ric(g) = q_in dv ⊗ dv + q_out du ⊗
+du + Σ_A q_A du_A ⊗ du_A and div_g(q_A g⁻¹du_A) = 0; it *induces the data* on the edges of D if g, q_in and q_out induce
+the cone data and u_A = U_A and q_A equals the data on 𝒦_A′ ∩ D × S³. There are ε_0, C, ε_2 > 0, depending only on k,
+u_1, v_1, δ_1, the background, the ů_A and the 𝒦_A′, such that for ε ≤ ε_0:
+
+(a) *Existence.* There is a class solution with the further families on Q1 × S³ that induces the data on {0} × [0, v_1]
+and [0, u_1] × {0}. Its metric, densities and phases are smooth, the axes included.
+
+(b) *Estimate.* Its fields and densities differ from the background's, and its phases u_A from ů_A, by at most Cε in
+C^(k−4), the phases on the neighbourhoods of the 𝒯_A^g.
+
+(c) *Uniqueness.* Let Q1′ := [0, u_1′] × [0, v_1′] ⊂ Q1, u_1′, v_1′ > 0. A class solution with the further families on
+Q1′ × S³ that induces the data on the edges of Q1′, and whose fields and densities differ from the background's, and
+phases u_A from ů_A, by at most ε_2 in C^(k−4), equals the solution of (a) on Q1′ × S³, with its densities and, on the
+𝒯_A^g, its phases.
+
+(d) *Localisation.* If the cone data equal the background's and every further density vanishes on {0} × [0, v_K) and [0,
+u_K) × {0}, u_K, v_K > 0, the solution equals the background, with zero further densities, at the points of Q1 × S³ with
+u < u_K and v < v_K.
+
+*Proof.* By [[lem:loc-axis-constraints]] (c) and [[lem:loc-t5-jets]] (a), with 2p = m_1, the data extend to N_o and N_i,
+of size at most Cε in C^(m_0), equal to the given ones on the edges of Q1. [[lem:loc-t5-existence]], [[lem:loc-t5-past]]
+and [[lem:loc-t5-constraints]] give a smooth solution of [[eq:class-system]] with N_f families on 𝒯 ⊃ Q1, in the gauge
+D(g) = 0 relative to Ĝ, that induces the data, with the bounds of [[lem:loc-t5-existence]]. [[lem:loc-axis-gauge]],
+whose proof uses the adapted families only, with 𝒯 and the 𝒰′ of [[lem:loc-t5-constraints]] in place of 𝔗(s*) and its
+𝒰′, Q1 ⊂ {τ ≤ s* − ½} lying at positive distance from the slice of 𝒯 in {τ = s*}, gives the map Ψ onto a set containing
+Q1 × S³, in whose coordinates the metric has the form [[eq:loc-double-null]] with fields smooth through the axes within
+Cε of the background's in C^(k−4); the further phases and densities are carried by Ψ, the curves of −g⁻¹du_A from 𝒦_A′
+being those of P_A, and Ψ is the identity with its differential on N, so they induce the data. This gives (a) and (b),
+the densities being nonnegative on Q1 by [[lem:loc-t5-constraints]].
+
+(c) Steps (1) and (2) of the proof of [[lem:loc-axis-unique]] apply to the metric and the adapted densities of the
+second solution and give the extension g″ and the wave map Φ; the further families do not enter them. In step (3), put
+also ũ_A := u′_A ∘ Φ⁻¹ and q̃_A := q′_A ∘ Φ⁻¹, u′_A and q′_A the further phases and densities of the second solution.
+The state of g̃ with these families agrees with U, with all derivatives, on N ∩ Φ(Q1′): for the fields and the adapted
+densities by step (3) there, and for the further families by [[lem:loc-t5-jets]] (b) on the crossing sets, Φ being the
+identity with all derivatives on N, as U = Û on P. Apply [[lem:loc-t5-uniqueness]] with Ĝ′ := Ĝ, U_1 the state of g̃, R′
+:= Φ(Q1′) = [0, u_1′] × [0, v_1′] × S³ in the coordinates (ũ, ṽ, ω̃), U_2 := U, and, for each further family, 𝒦_A″ :=
+the union of the η-neighbourhood of 𝒦_A in N and of the caps within δ_2 of the axes of the A-sections through its points
+within δ_2 of the axes, with η and δ_2 so small that this set lies in the interior of 𝒦_A′ and satisfies the conditions
+there for U_1, for ε and ε_2 small, as these hold with a margin for the background, and 𝒦_A^+ a compact neighbourhood of
+𝒦_A″ in the interior of 𝒦_A′, on which U and the state of g̃ agree with all derivatives. The phases of A of U_1 and of U
+are defined on a neighbourhood of the union of the curves of P_1^A in R′ from 𝒦_A^+, that of U_1 by the hypothesis on
+𝒯_A^g and that of U by [[lem:loc-t5-constraints]], for ε and ε_2 small by continuous dependence on the field; and both
+densities vanish off 𝒯_A, being carried by curves from 𝒦_A, which lie in 𝒯_A for ε and ε_2 small. So U = U_1 on R′, and
+step (4) of the proof of [[lem:loc-axis-unique]] concludes, the further phases and densities being carried along.
+
+(d) Let 0 < u′ < min(u_K, u_1) and 0 < v′ < min(v_K, v_1). All derivatives across N at the points of {0} × [0, v′] and
+[0, u′] × {0} are the background's ([[lem:loc-axis-jets]] (b), [[lem:loc-t5-jets]] (b)), so Δ and the Borel sums of the
+further densities vanish at the points with u < u_K and v < v_K, Δ being supported within 2δ_e of N, and Ĝ = g_e there
+and Û = Ů there except in the phases of the further families. The further densities of U vanish on [0, u′] × [0, v′] ×
+S³, the curves from 𝒦_A entering F at points with v ≥ v_K or u ≥ u_K and keeping that inequality.
+[[lem:loc-t5-uniqueness]], with U_1 := Ů in the coordinates (u, v, ω), which solves [[eq:class-system]] in the gauge
+relative to g_e = Ĝ there, R′ := [0, u′] × [0, v′] × S³, U_2 := U and 𝒦_A″ := ∅, gives U = Ů there, and Ψ is the
+identity there by the last statement of [[lem:loc-axis-gauge]]. ∎
+
+For N_f = 2 there are no further families, and [[thm:loc-t5]] is [[thm:loc-axis]].
+
+**Proposition {#prop:loc-t5-cut}** (Families tangent to an edge: developments away from the axes concerned.) Let the
+data be as in [[thm:loc-t5]] except that, for the further families of a set 𝒢, (F-a) or (F-b) fails. Let N_c ⊂ N and
+N_0 ⊂ N_c be compact and G-invariant, N_0 in the interior of N_c, such that: (N1) the interior of N_0 contains the
+tangency sets of the families of 𝒢 at the axes near which they carry density, and the corner circles of those axes; (N2)
+with a point of N_o (of N_i), N_c contains the points of larger v (of larger u) on its generator; (N3) every family of 𝒢
+satisfies (F-a), (F-b) and (F-c) with supp q_A ∖ int N_0 in place of 𝒦_A; (N4) no family of 𝒢 crosses both edges at a
+point of S_c ∩ (N_c ∖ int N_0). Let λ be a smooth G-invariant function with dλ future timelike for g_e near Q1 × S³,
+such that D′ := F ∩ {λ ≤ 0} lies in Q1 × S³, does not meet N_c, and has {λ = 0} ∩ F at a positive distance w from the
+axes. For ε small, depending also on N_0, N_c, λ and a bound for the C^(m_1) norms of the cut-offs χ_c considered, with
+δ_c small depending on the distance from D′ to N_c:
+
+(a) for every smooth G-invariant χ_c on N, equal to 1 outside N_c and to 0 near N_0, the solution U of the system of
+[[sec:loc-t5-system]] for the data with q_A replaced by χ_c q_A for A ∈ 𝒢, and the constraints solved again, is on D′ a
+class solution with N_f families in the gauge D(g) = 0 relative to Ĝ that induces the given data on D′ ∩ N, and in the
+coordinates Ψ of [[lem:loc-axis-gauge]] it has the form [[eq:loc-double-null]] on Ψ(D′);
+(b) U and Ψ on D′ do not depend on χ_c.
+
+*Proof.* (a) The constraints of [[lem:loc-t5-jets]] (a) change only on the generators through points where χ_c q_A ≠
+q_A, and only at and beyond them, hence only in N_c, by (N2). The new data are of size at most Cε, C depending on the
+C^(m_1) norm of χ_c, satisfy (F-a) and (F-b) by (N1) and (N3), and (F-c) by (N3) and (N4), χ_c being locally constant at
+the points of S_c where a family of 𝒢 crosses both edges, which lie outside N_c or in the interior of N_0; and they
+agree with the old ones on N ∖ N_c. Take 𝒦_A′ for A ∈ 𝒢 a neighbourhood of supp q_A ∖ int N_0, the same for every χ_c,
+and ξ_A, ψ_A, t_A built from it, and take δ_♮ ≤ w/4. [[thm:loc-t5]] and its proof give U, a class solution on 𝒯 ⊃
+D′, and Ψ; D′ ∩ N ⊂ N ∖ N_c, where the data are the given ones. (b) The jets on N at a point outside N_c depend only on
+the data on the generator up to that point ([[lem:loc-cone-jets]], [[lem:loc-t5-jets]] (b)), which lies outside N_c by
+(N2), and the Borel sums at a point within 2δ_e of N hold jets at points of N within 2δ_e of it; so for δ_c small Û and
+Ĝ are the same for two cut-offs χ_c on a neighbourhood 𝒱 of D′, and so is the system there, the closures at points of 𝒱
+using arcs within C δ_♮ of them. Let U and U′ be the two solutions and z their difference. On P ∩ 𝒱 both equal Û
+([[lem:loc-t5-past]]). On D′, z satisfies a system of the form of [[lem:loc-t5-energy]], with B_0 := D′ ∩ N, where z =
+0, and the face {λ = 0}, whose conormal dλ is future timelike for both metrics and positive on their transport fields,
+so that the boundary matrix there is nonnegative. Points of D′ within δ_♮/2 of an axis lie at distance at least w/2 from
+{λ = 0}, and their arcs, within δ_♮ of them, lie in {λ < 0}; near the edges the edge sections are leaves; so the sets D′
+∩ {t_A = t} ∩ {τ ≤ s} contain the arcs of U′ of their points near the axes, and [[lem:class-leaf-states]] (c) bounds the
+non-local terms as in the proof of [[lem:loc-t5-constraints]]. So z = 0 on D′. A past causal curve from a point of D′
+decreases λ and stays in D′ until it meets D′ ∩ N; so the phases u_out, u_in and the angle ω′ of [[lem:loc-axis-gauge]],
+fixed by their values on P ∩ 𝒰^♭ and transported along the curves of P_out, are the same, and so is Ψ. ∎
+
+**Remark {#rem:loc-t5-scope}** (What [[thm:loc-t5]] and [[prop:loc-t5-cut]] do not give.) (i) *Families tangent to an
+edge at an axis.* A further family that carries density where it is tangent to an edge along an axis generator is
+excluded by (F-b); [[prop:loc-t5-grazing]] shows that the construction of this section cannot treat it there in any
+slicing, except possibly where the edge sections are leaves to infinite order only, and that where all of them near a
+point are leaves the edge is characteristic for the family on an open set. [[prop:loc-t5-cut]] develops such data on
+regions bounded by a spacelike hypersurface that avoid those axes near the points concerned, and shows that the
+development there does not depend on how the data are cut near those points; it gives no uniqueness among other
+solutions on D′. (ii) *The condition (F-a).* It cannot be dropped for a family that crosses an edge near a corner
+circle, by the remark after [[lem:loc-t5-tubes]], as long as the family is carried by cut-offs ξ_A. (iii) *Size.* As in
+[[rem:loc-axis-scope]] (i), the data must be near the background's at the axes, the term in σ_A being estimated on balls
+about the background.
+(iv) *Regularity.* The data are smooth and small in C^(m_1), and the development is smooth, with the estimate of
+[[thm:loc-axis]] in C^(k−4); smoothness comes from the tame bound [[eq:class-leaf-tame]] for the square of the planar
+shear, through parts (c) and (d) of [[thm:class-kato-memory]].
 
 ### Developments of data of any size through the axes {#sec:civp-axes}
 
