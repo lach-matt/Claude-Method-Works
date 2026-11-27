@@ -436,7 +436,7 @@ to k + 1 at the points of N₀⁺ be those of the development, which at order 4 
 ### Placement
 
 This part and the crosswalk rows below are instructions for merging; they are not chapter text. Line numbers are those
-of chapters/87-ten-l5.md at the time of writing (HEAD dbf04838; lines 1–2760 are those of edafc288) and serve only to
+of chapters/87-ten-l5.md at the time of writing (HEAD 6bf3f7d7; lines 1–2760 are those of edafc288) and serve only to
 find the place; each old text is quoted exactly, and each new text replaces it as a whole, with the line breaks shown.
 
 *1. Where the subsection goes.* The subsection above, from its heading "#### The conditions (X) and (T) at the first
