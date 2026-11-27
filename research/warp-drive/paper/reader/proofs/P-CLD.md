@@ -11,14 +11,14 @@ totally geodesic M3 := Σ ∩ {φ1 = 0} and the coordinates (z, y) of [[lem:clas
 ρ1(p) > 0, a family A and a radius r_* ∈ (0, ρ1(p)/4], write r := |y|, z(p) for the value of z at p and 𝒰 := 𝒰_(r_*),
 so that 𝒰_δ ∩ M3 = {|z − z(p)| < δ, |y| < δ} for δ ≤ ρ1(p)/4.
 
-A *state* is a G-invariant U = (g, p_A, Θ_A, q_A) on 𝒰 with g a Lorentzian metric of class C² for which Σ is spacelike,
-p_A a covector field and Θ_A a function of class C¹, and p_A(∂_z) ≠ 0 on the axis. We write W_U := (g, ∂g, p_A, Θ_A),
-∂g all first derivatives of the components of g in the chart, and |U − U′| at a point for the sum of the absolute
-values of the components of W_U − W_(U′) there, so that U − U′ includes the difference of the first derivatives of the
-metrics. A state has *bounds* (M, c), M ≥ 1 and c > 0, if on 𝒰 the C² norms of the components of g and the C¹ norms of
-those of p_A and Θ_A are at most M, g(X, X) ≥ |X|²/M for X tangent to Σ, |X| its flat length, −g⁻¹(dτ, dτ) ≥ 1/M,
-and |p_A(∂_z)| ≥ c on the axis. Let p_A^Σ be the spatial part of p_A, tangent to M3 at its points by invariance, ε the
-sign of p_A(∂_z), and, where p_A^Σ ≠ 0,
+A *state* is a G-invariant U = (g, p_A, Θ_A, q_A) on 𝒰, given on Σ ∩ 𝒰 together with the first derivatives of g, with g
+a Lorentzian metric for which Σ is spacelike and p_A(∂_z) ≠ 0 on the axis. We write W_U := (g, ∂g, p_A, Θ_A), ∂g all
+first derivatives of the components of g in the chart, the one normal to Σ included, require W_U to be of class C¹ on Σ
+∩ 𝒰, and write |U − U′| at a point for the sum of the absolute values of the components of W_U − W_(U′) there, so that
+U − U′ includes the difference of the first derivatives of the metrics. A state has *bounds* (M, c), M ≥ 1 and c > 0,
+if on Σ ∩ 𝒰 the C¹ norms of the components of W_U are at most M, g(X, X) ≥ |X|²/M for X tangent to Σ, |X| its flat
+length, −g⁻¹(dτ, dτ) ≥ 1/M, and |p_A(∂_z)| ≥ c on the axis. Let p_A^Σ be the spatial part of p_A, tangent to M3 at its
+points by invariance, ε the sign of p_A(∂_z), and, where p_A^Σ ≠ 0,
 
     H_L[U] := ε (Θ_A − κ_A1 + p_A(n) tr K_Σ|_Π)/|p_A^Σ|,      Π the γ3-orthogonal complement of p_A^Σ in TM3:
 
@@ -86,8 +86,8 @@ N_L² = −(γ_z1 + γ_zz q)², the function G(r, z, q) := r H(z, r)/a_L − E_L
     G(r, z, q) = r (H/a_L − C3 N_L²/det₂ − B̃/a_L) − q (C3 r + γ_zz q)²/det₂.                          {#eq:class-leaf-g}
 
 On R := {0 ≤ r ≤ r_2, |z − z(p)| ≤ r_2, |q| ≤ 1} the first bracket and its first derivatives in z and in q are bounded
-by C, by Step 1 and the C² bounds of g, and ∂_z(C3 r + γ_zz q) = r ∂_z C3 + q ∂_z γ_zz. So G(0, z, q) = −γ_zz q³/γ_22,
-and on R
+by C, by Step 1 and the C¹ bounds of W_U, and ∂_z(C3 r + γ_zz q) = r ∂_z C3 + q ∂_z γ_zz. So G(0, z, q) = −γ_zz
+q³/γ_22, and on R
 
     |G(r, z, 0)| ≤ C_0 r,      |∂_z G| ≤ C_1 (r + |q|),      |∂_q G| ≤ C_2 (r + |q|).           {#eq:class-leaf-g-bounds}
 
@@ -233,12 +233,11 @@ M_0 and c_0. On the Lipschitz domain Σ ∩ 𝒰, Sobolev's embedding ([[thm:std
 
     sup_(Σ∩𝒰) |∂^i (W_U − W_ů)| ≤ C 𝒩_(i+3)(U).                                                      {#eq:class-leaf-sup}
 
-So there is r′ > 0 such that every state with 𝒩_4(U) ≤ r′ has bounds (M, c) := (2M_0, c_0): the C² norms of its metric
-and the C¹ norms of its p_A and Θ_A differ from those of ů by at most C r′, and so do the quantities bounded below in
-the definition of bounds. Let 𝔅′ := {𝒩_(k−1) ≤ r′}, as k − 1 ≥ 4; let r_1 and C_0, …, C_4 be the numbers of
-[[lem:class-leaf-states]] and its proof for (M, c), δ_0 := min(r_1/4, 1/(9C_0), δ_1) with δ_1 > 0 fixed in Step 5
-below, depending only on (M, c) and ů, and 𝔅 := {𝒩_k ≤ r″}, with r″ ∈ (0, r′/2] fixed in Steps 4 and 6 below; let 0 < δ
-≤ δ_0.
+So there is r′ > 0 such that every state with 𝒩_4(U) ≤ r′ has bounds (M, c) := (2M_0, c_0): the C¹ norms of the
+components of its W_U differ from those of ů by at most C r′, and so do the quantities bounded below in the definition
+of bounds. Let 𝔅′ := {𝒩_(k−1) ≤ r′}, as k − 1 ≥ 4; let r_1 and C_0, …, C_4 be the numbers of [[lem:class-leaf-states]]
+and its proof for (M, c), δ_0 := min(r_1/4, 1/(9C_0), δ_1) with δ_1 > 0 fixed in Step 5 below, depending only on (M, c)
+and ů, and 𝔅 := {𝒩_k ≤ r″}, with r″ ∈ (0, r′/2] fixed in Steps 4 and 6 below; let 0 < δ ≤ δ_0.
 
 *(b)* is [[lem:class-leaf-states]] (c) with D := Σ, as 2δ ≤ r_1/2, together with its part (a).
 
@@ -613,7 +612,7 @@ under arcs.
 Row 5. eq:class-leaf-g; paper/reader/proofs/P-CLD.md@PENDING:86; proof P-CLD, display; G = r(…) − q(C3 r + γ_zz q)²/det₂,
 from det₂ − γ_zz N_L² = −(γ_z1 + γ_zz q)².
 Row 6. eq:class-leaf-g-bounds; paper/reader/proofs/P-CLD.md@PENDING:92; proof P-CLD, display; the bounds of G on R,
-|∂_z G| ≤ C_1 (r + |q|) with C² of g.
+including the bound of ∂_z G by C_1 (r + |q|) with C² of g.
 Row 7. eq:class-leaf-shear-s; paper/reader/proofs/P-CLD.md@PENDING:126; proof P-CLD, display; σ at a point of a leaf
 as a smooth function of the point, of W there and of s = h′/r; C3 = ∂_(y2)γ3(∂_z, ∂_(y2)) by invariance.
 Row 8. eq:class-leaf-s; paper/reader/proofs/P-CLD.md@PENDING:140; proof P-CLD, display; the leaf equation in s = h′/r on
@@ -621,28 +620,28 @@ Row 8. eq:class-leaf-s; paper/reader/proofs/P-CLD.md@PENDING:140; proof P-CLD, d
 Rows for lem:class-leaf-differences's displays, after the row of lem:class-leaf-differences and before the row of
 rem:class-leaf-numerics, in this order:
 Row 9. eq:class-leaf-sup; paper/reader/proofs/P-CLD.md@PENDING:234; proof P-CLD, display; Sobolev on Σ ∩ 𝒰.
-Row 10. eq:class-leaf-divergence; paper/reader/proofs/P-CLD.md@PENDING:284; proof P-CLD, display; the mean curvature
+Row 10. eq:class-leaf-divergence; paper/reader/proofs/P-CLD.md@PENDING:283; proof P-CLD, display; the mean curvature
 equation in divergence form, after the divergence form of P-CIVP5's tame lemma.
-Row 11. eq:class-leaf-radial; paper/reader/proofs/P-CLD.md@PENDING:290; proof P-CLD, display; 𝔙 = y 𝔰, 𝔰 the Hardy
+Row 11. eq:class-leaf-radial; paper/reader/proofs/P-CLD.md@PENDING:289; proof P-CLD, display; 𝔙 = y 𝔰, 𝔰 the Hardy
 average of Φ.
-Row 12. eq:class-leaf-inverse; paper/reader/proofs/P-CLD.md@PENDING:296; proof P-CLD, display; ∂_y h = 𝔓(y, h, y 𝔰).
-Row 13. eq:class-leaf-square; paper/reader/proofs/P-CLD.md@PENDING:304; proof P-CLD, display; σ² = 2|χ̸ − ½ (tr χ̸) γ̸|²
+Row 12. eq:class-leaf-inverse; paper/reader/proofs/P-CLD.md@PENDING:295; proof P-CLD, display; ∂_y h = 𝔓(y, h, y 𝔰).
+Row 13. eq:class-leaf-square; paper/reader/proofs/P-CLD.md@PENDING:303; proof P-CLD, display; σ² = 2|χ̸ − ½ (tr χ̸) γ̸|²
 in the frame X_i.
-Row 14. eq:class-leaf-compose; paper/reader/proofs/P-CLD.md@PENDING:334; proof P-CLD, display; composition with the leaf
+Row 14. eq:class-leaf-compose; paper/reader/proofs/P-CLD.md@PENDING:333; proof P-CLD, display; composition with the leaf
 coordinates.
-Row 15. eq:class-leaf-transverse; paper/reader/proofs/P-CLD.md@PENDING:357; proof P-CLD, display; transverse derivatives
+Row 15. eq:class-leaf-transverse; paper/reader/proofs/P-CLD.md@PENDING:356; proof P-CLD, display; transverse derivatives
 by the radial form, the zero-order bound of R-P-CIVP4 Major 5.
-Row 16. eq:class-leaf-elliptic; paper/reader/proofs/P-CLD.md@PENDING:364; proof P-CLD, display; derivatives along the
+Row 16. eq:class-leaf-elliptic; paper/reader/proofs/P-CLD.md@PENDING:363; proof P-CLD, display; derivatives along the
 disc by the flat Laplacian of the radial potential u_X.
 
 Changed rows:
 
-- lem:class-leaf-differences keeps its label; its source field becomes "paper/reader/proofs/P-CLD.md@PENDING:199" followed
-  by the present sources, its source_name field gains "; proof P-CLD (statement and proof replaced)", and its note
-  becomes: "ů any smooth state; (a) for σ², at every order, spacetime derivatives for families; (b) from
-  lem:class-leaf-states (c); (c) the leaves, ∂_(z0)^j δh in L²(I; H^(k+2−j)), j ≤ 2, used by def:class-adapted; the zero
-  order by the radial form (R-P-CIVP4 Major 5); the definitions of the leaves, with P-CIVP3's reading of H_L, moved before
-  lem:class-leaf-states".
+- lem:class-leaf-differences keeps its label; its source field becomes "paper/reader/proofs/P-CLD.md@PENDING:199"
+  followed by the present sources, its source_name field gains "; proof P-CLD (statement and proof replaced)", and its
+  note becomes: "ů any smooth state; (a) for σ², at every order, spacetime derivatives for families; (b) from
+  lem:class-leaf-states (c); (c) the leaves, ∂_(z0)^j δh in L²(I; H^(k+2−j)), j ≤ 2, used by def:class-adapted; the
+  zero order by the radial form (R-P-CIVP4 Major 5); the definitions of the leaves, with P-CIVP3's reading of H_L, moved
+  before lem:class-leaf-states".
 - lem:class-leaf-reference appends to its source field "; paper/reader/proofs/P-CLD.md (Placement 2–4)" and to its note
   "; (a), (b) are lem:class-leaf-differences with ů := V (P-CLD)".
 - def:class-adapted and thm:class-stability append to their notes "; lem:class-leaf-differences (c), and (a) for σ² at

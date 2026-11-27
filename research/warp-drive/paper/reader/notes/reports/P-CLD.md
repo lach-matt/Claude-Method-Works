@@ -1,0 +1,109 @@
+# P-CLD report: lem:class-leaf-differences (chapter 81), full proof
+
+File: research/warp-drive/paper/reader/proofs/P-CLD.md, 706 lines, md5 7f6e5177553ef28e6a48a286fd6827bc.
+Uncommitted. No other repository file was edited. Old texts are quoted from HEAD edafc288, and chapters 81 and 83 are
+unchanged since 29d76871.
+
+## What the file proves
+- Definitions paragraph. Charts are general, as in sec:loc-axis-leaves. The radius r_* ≤ ρ1(p)/4 is a parameter. A state
+  carries W_U = (g, ∂g, p_A, Θ_A), C¹ on the slice. Bounds (M, c) are the C¹ norms of W_U plus lower bounds for g on TΣ,
+  for −g⁻¹(dτ,dτ) and for |p_A(∂_z)| on the axis. H_L[U] is Tier 3's reading (p_A(n), the sign of p_A(∂_z), and Π the
+  γ3-orthogonal complement of p_A^Σ). Leaves, σ[U] and arcs are defined here.
+- NEW lem:class-leaf-states (The leaves of a state). Constants depend on (M, c), ρ1(p) and r_* only.
+  - (a) Foliation. The difference quotients in the axis point lie in [1/2, 3/2], and |Δh′| ≤ C r|Δz0|. Smooth states
+    give smooth leaves, smooth in parameters, and z0[U] is smooth. |σ| ≤ C.
+  - (b) A pointwise bound along one arc.
+  - (c) An L² bound on any set closed under the arcs of the first state, with a constant independent of the set and
+    of δ.
+  - Only C² of g is needed. By invariance C3 = ∂_(y2)γ3(∂_z, ∂_(y2)), a first derivative of g at the point.
+    eq:class-leaf-g gives G = r(…) − q(C3 r + γ_zz q)²/det₂, hence |∂_z G| ≤ C(r + |q|).
+- lem:class-leaf-differences, restated with the same label and title. ů is any smooth state (a solution being one case).
+  Balls are local: 𝒩_m is the sum of the L² norms of ∂^j(W_U − W_ů) on Σ∩𝒰, at most twice eq:class-energy for solutions.
+  The bounds hold for every δ ≤ δ_0 with fixed balls.
+  - (a) ‖∂^α(σ[U]² − σ[ů]²)‖ ≤ C𝒩_k for |α| ≤ k. This holds for states (x-derivatives) and for families or solutions
+    (spacetime derivatives at each time). For m > k, ‖σ[U]² − σ[ů]²‖_(H^m) ≤ C_m 𝒩_m, with C_m depending on 𝒩_(m−1).
+  - (b) The L² Lipschitz bound and |σ| ≤ C on 𝔅′. This is lem:class-leaf-states (c) with D the slice.
+  - (c) The leaves: Σ_(j≤2) ‖∂_(z0)^j δh‖_(L²(I;H^(k+2−j))) ≤ C𝒩_k, which is what def:class-adapted uses. For families,
+    the derivatives of order ≤ k−2 are bounded pointwise.
+  - Last statement: the leaves are the level sets of u_A. The proof is written out.
+- The proof of (a) and (c) has seven steps:
+  - Smooth states suffice, by density together with (b).
+  - Leaf coordinates (z0, y), with the comparison of H^m norms on 𝒰_δ and in (z, y) (weight 2πz, Jacobian in [1/2, 3/2]).
+  - The divergence form, 𝔙 = y𝔰 with 𝔰 the Hardy average of Φ, ∂_y h = 𝔓(y, h, y𝔰), and σ² = 2|χ̸ − ½(tr χ̸)γ̸|² in
+    Cartesian form.
+  - Low-order sup bounds, and rules (P) for products and (Q) for composition.
+  - Transverse derivatives (z0, τ) from the radial Volterra form in s = h′/r, with η = r² ∫ θ δs(θr) dθ. This is the
+    zero-order bound and the shift.
+  - Derivatives along the disc, from the flat Laplacian of the radial potential u_X (lem:class-interior-regularity with
+    L = Δ only).
+  - Back to (z, y) through Λ_U⁻¹.
+- Cited and checked: lem:class-volterra (its proof uses only G(0) and the bounds eq:class-leaf-g-bounds),
+  lem:class-leaf (b), (c), lem:class-gauss (b), (c), step (1) of lem:class-planar-shear, lem:class-interior-regularity,
+  eq:class-leaf-volterra, eq:class-shear-leaf, prop:class-flat-model (b), thm:std-bh-embedding, thm:std-bh17-embedding
+  and thm:std-sy-extension. eq:class-leaf-cartesian and lem:sobolev are not used: lem:sobolev is stated for the annuli
+  A(τ), so Sobolev's embedding is applied directly on Σ∩𝒰.
+
+## Changes from the reader's replacement text (R-P-CIVP4 Major 5)
+Kept: the zero-order bound and the shift by the radial form, the integration over the axis points, and (b) from the
+leaf-by-leaf bound. Changed:
+1. The radial form is used for every transverse derivative, not only for order zero. The reader's |δh| ≤ C r‖F‖ covers
+   order zero only. In the Cartesian form, η = ∫_0^1 ∂_y η(ty)·y dt is not bounded in L² by ∂_y η (a logarithmic loss).
+2. The leaf-by-leaf bound needs C² of g, not C³ (see above). This also settles the reasoning of minor 2 for Tier 4.
+3. The old elliptic step is replaced. It absorbed the quadratic terms across shrinking discs, which fails, and its
+   coefficients carry U's leaf. The replacement is the divergence form plus the flat Laplacian.
+4. STATEMENT CHANGE, FOR DECISION: (a) bounds σ² rather than σ − σ̊.
+   - An H^k bound for σ itself needs a loss-free H^m bound for the coefficient α = T(K2,K2)/|y|² of a G-invariant tensor
+     αδ + β y⊗y. σ contains α of K_Σ and of ∂γ3, through K_Σ(e2,e2) and ν(log B3).
+   - Pointwise |α| ≤ |T| holds. In H^m the provable bound loses one derivative (α = tr T − 𝒜(div(T y))). A loss-free
+     bound needs Rellich-type inequalities for angular mode 2, which the paper does not contain.
+   - Every use of (a) goes through σ², the closure −½σ²: Steps 6, 9 and Smoothness of thm:class-stability,
+     lem:loc-axis-system (a), Tier 4's corner proof and lem:class-leaf-reference (a).
+   - The old step (5) of lem:class-planar-shear relies on the same unproved bound. That is outside this file and is
+     reported here.
+5. Higher orders: C_m depends on 𝒩_(m−1). Placement 6 rewrites thm:class-stability *Smoothness* to work by induction on
+   σ, and that argument is sound.
+
+## Placement (8 replacements; each old text was checked to occur exactly once as whole lines at HEAD)
+- Item 1: 81:1324–1357 (lem:class-leaf-differences) is replaced by the block. Tier 3's item 8 clause is carried in.
+- Items 2–4: lem:class-leaf-reference (Tier 4, merged).
+  - 1373–1374: H_L now refers to the new definitions.
+  - 1388–1391: δ_V := min(δ_0, r_V/8, δ_𝔐), and the dependence is corrected.
+  - 1449–1480: its proof of (a) and (b), whose steps (i)–(vii) were "changes to the proof of lem:class-leaf-differences
+    (a)" and no longer match, becomes "lem:class-leaf-differences with ů := V".
+  - These items are needed together with item 1. Its (o) and (b′) keep their own proofs.
+- Item 5: def:class-adapted 1590–1591 and 1605–1606 now cite lem:class-leaf-differences (c).
+- Item 6: thm:class-stability *Smoothness* 1745–1757, as in change 5.
+- Item 7: chapter 83, lem:loc-axis-system (a), 2933–2934, worded for (a) on σ².
+- Crosswalk: 16 new rows (lem:class-leaf-states and 15 eq: labels), each pinned P-CLD.md@PENDING:N to its label line
+  (all verified). Changed rows: lem:class-leaf-differences, lem:class-leaf-reference, def:class-adapted,
+  thm:class-stability and lem:loc-axis-system.
+
+## How each later tier uses it
+- Tier 3 (merged): its item 8 is absorbed and no statement changes. lem:loc-axis-shear is lem:class-leaf-states (c)
+  with D := Ō. Its uses of 𝔅, 𝔅′, δ and the last statement are served. lem:loc-axis-system (a) needs item 7.
+- Tier 4 (merged as lem:class-leaf-reference):
+  - (o) and (b′) are also lem:class-leaf-states (a) and (c). (c) is stronger: it takes an arc hypothesis and C² of g.
+  - (a) and (b) follow at once, with δ ≤ δ_V and fixed balls as ch83 needs.
+  - Its uses in ch83 go through σ² or (b): (F1), (F2), Smoothness, uniqueness, and the shells.
+  - Outside this file: (o) Step 1 and (b′) bound n, K_Σ and κ_A1 by C² of g without lower bounds for −g⁻¹(dτ,dτ) and
+    for g on TΣ. The bounds (M, c) here include them, and item 3 names them.
+- Tier 5 (P-CIVP5, under reading): compatible.
+  - Its Block A1 goes after lem:class-leaf-reference; the labels do not collide.
+  - lem:class-leaf-arc (a)–(c) equals lem:class-leaf-states (a)–(c) with the two states swapped, so it can be cited
+    instead.
+  - lem:class-leaf-tame step (6): bounding D^α η for transverse α by (H) fails, because the weight s⁻¹ gives a
+    logarithmic loss. Step 5 here (the radial form in s) repairs it.
+  - Its σ = 𝔖(…, 𝒜Φ) meets the coefficient issue of change 4. Stated for σ², it holds.
+  - Its 𝔤-variant (∂g replaced by a free field) is not covered by the divergence-form part here, which uses true
+    derivatives of γ3.
+  - Its text still says "H_L[Θ_A] of lem:class-leaf-differences". After item 1 this should read "defined before
+    lem:class-leaf-states". This is a harmless pointer.
+
+## Scratch merge (git archive of HEAD edafc288, in scratchpad/reader/scratch/pcld/, items 1–8 applied)
+- lint.py --chapters: 62 files, 4944 labels, 0 hits.
+- assemble.py --check: labels 4944, problems 0.
+- assemble.py: problems 0. The new lemmas are Lemma 51.28 (lem:class-leaf-states) and Lemma 51.29
+  (lem:class-leaf-differences); lem:class-leaf-reference becomes 51.31.
+- lint.py --paper: 0 hits.
+- In the assembled region every line is ≤ 121 characters, with no bad wrapped-line starts. In the file, every line is
+  ≤ 121 characters and the only "- " line starts are list items in the non-merged notes.
