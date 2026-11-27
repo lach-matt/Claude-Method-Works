@@ -30,6 +30,19 @@ The author asked for both improvements to be pursued, beside the proved bound (w
 - moving the computational point h from 10^-6 to a better point (about 84x smaller at h = 9.6e-7, numerically), scoped
   first for cost and robustness.
 
+## 2026-11-27: the level of the a priori estimate
+
+The author: "We should also start level 4, if we haven't already. We need to keep level 6, but including the level 4
+version expands on completeness of the paper." So the level-6 estimate (sec:tl5-hf, merged) stays as it is, and a
+level-4 version is added beside it, not in its place, citing the level-independent results of sec:tl5-hf by label.
+Level 3 is not possible for the double-null step (the C^2 distance needs |D^2 h| pointwise; level-3 face energies do
+not give it), as rem:tl5-hf-level records.
+
+## 2026-11-27: the offset d0 and the computational point
+
+P-D0 dropped d0 in full by another route (recording relative to order 1), so h stays at 10^-6; the move to
+gamma_C = 1,007,860 that S-HPT scoped is not needed. New choice: d_NM < 9.12529e43 (under reading).
+
 ## Earlier decisions in this segment
 
 - Admissible points (P-ADM): the cap h <= 10^-6 is removed from the definition; the lower bounds on d state it as an
