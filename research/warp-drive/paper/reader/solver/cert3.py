@@ -208,13 +208,15 @@ def certify(case, zfile, i, j, N, rho, prec=192, K=4, chunk=6, verbose=True):
                     J = cert.node_jets(Gd, (p1, p2, 1 / hv_a), seedJ, v - one / 2, P3[l3], 1)
                     f = cert.residual_at(J, P3[l3], one)
                     for ab in comps: g[ab][l2][l3] = f[ab]
-            for ab in comps: S[ab].append((D2 * arb_mat(g[ab]) * D3t).entries())
+            for ab in comps: S[ab].append(D2 * arb_mat(g[ab]) * D3t)          # kept as compact arb_mat
         if verbose: print('  slabs %d..%d of %d, %.0f s' % (l1a, l1b - 1, N1, time.time() - t0), flush=True)
     t3 = time.time()
     coef = {}
     for ab in comps:
-        ent = (D1 * arb_mat(S[ab])).entries()
+        ent = (D1 * arb_mat([m.entries() for m in S[ab]])).entries()
+        S[ab] = None
         coef[ab] = np.array([float(abs(e).upper()) for e in ent]).reshape(N1, N2, N3)
+        del ent
     alphas = [(a1, a2, a3) for a1 in range(K + 1) for a2 in range(K + 1) for a3 in range(K + 1) if a1 + a2 + a3 <= K]
     S_all = [[cert.Ssum(rho[d], l, 0) for l in range(K + 1)] for d in range(3)]
     S_gt = [[cert.Ssum(rho[d], l, N[d] + 1) for l in range(K + 1)] for d in range(3)]

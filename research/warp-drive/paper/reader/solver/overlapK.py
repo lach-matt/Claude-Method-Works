@@ -252,6 +252,9 @@ def overlapK(case, zfile, i, j, K, prec=256, nsub=(6, 3)):
     miB = MI(K + 2); mi = MI(K); DM.mi = mi
     dxi, dv = float(L['dxi']), float(L['dv'])
     res = []
+    # slivers (width < 1/1000) come from rounding the use interval outward to 1/1000 in (t, sigma): they lie outside
+    # U_ij, where the neighbour sets of overlap.strips do not apply, and are dropped (U_ij is covered by the others)
+    S = [s for s in S if float(s[0][1] - s[0][0]) >= 1e-3 and float(s[1][1] - s[1][0]) >= 1e-3]
     for (xr, vr, kind, nb) in S:
         t0 = time.time()
         xc, xh, vc, vh = (xr[0] + xr[1]) / 2, (xr[1] - xr[0]) / 2, (vr[0] + vr[1]) / 2, (vr[1] - vr[0]) / 2
