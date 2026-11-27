@@ -139,7 +139,7 @@ background at 10 l5. [[sec:tl5-hfv]] sharpens the constants a fifth time, at lev
 Not chapter text. "Proved" refers to the section above; "deduced" marks statements no proof here establishes.
 
 *Closing condition (proved, levels 4 and ≥ 6):* 4 η^(−3/2) (δ_w + η^(−1/2)(ε^v + ε_M^v)) (S_F^v + S_M^v) < 1 with
-η = 1 − max(ϑ₁, ϑ₂) − 𝔯^v > 0, η₀ < 𝔰₁^v, 𝔰_*^v < 𝔰₁^v, and (1 − ϑ₁) a_o, (1 − ϑ₂) a_i admissible for (𝔅_N, E_o^N, E_i^N).
+η = 1 − max(ϑ₁, ϑ₂) − 𝔯^v > 0, η₀ < 𝔰₁^v, 𝔰_*^v < 𝔰₁^v, and (1 − ϑ₁) a_o, (1 − ϑ₂) a_i admissible for 𝔅_N.
 At ϑ₁ = ϑ₂ = 𝔯^v = 1/4 it is the earlier 8(√2 δ_w + 2ε)S < 1.
 
 *Every new factor, as a formula.*
@@ -168,7 +168,7 @@ At ϑ₁ = ϑ₂ = 𝔯^v = 1/4 it is the earlier 8(√2 δ_w + 2ε)S < 1.
    on Σ₂ the 𝔟-flux contains |D̂_(ê₄)Ψ|² with a coefficient of size |H|, and the face density e_i + κe_o controls it only
    with the weight κc; a sharper cap would need the component H(dv, dv), which is not small in general. What carries κ,
    κ′ (unchanged here, for the evaluation's choice): D^κ, τ₁, τ₂, the faces and 1 − κκ′; κ_m in c_*κ_m/2 of 𝔰₁; the cap;
-   𝔨₂ = (1/z̲ + max(1/c, 1/κ′))/(2Ω̂²) (in C₁, C_(1,0) through the densities, in S_M); 𝔨₁ = 3max(1, κ′/c, κ′²b̂²e^(2ζ)/((c +
+   𝔨₂ = (1/z̲ + max(1/c, 1/κ′))/(2Ω̂²) (in C₁, C_(1,0), S_M); 𝔨₁ = 3max(1, κ′/c, κ′²b̂²e^(2ζ)/((c +
    κ′)Ω̂²)) in C_S; ∂_γ = ∂_v − κ′∂_u in |∂_γ|, |D̂∂_γ|, 𝔱_r; (1 + c/κ′)^(1/2) in w_t; the rates (the admissibility
    condition is monotone in κ, κ′); and B ⊂ D^κ for the double-null step (lem:tl5-wg-domains (d)).
 2. C₁^E against C_S^E (not done). The level-3 constant comes from the Sobolev inequality for the rank-3 tensor D̂Ψ_B,
