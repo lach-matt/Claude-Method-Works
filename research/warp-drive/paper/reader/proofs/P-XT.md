@@ -1,12 +1,13 @@
 #### The conditions (X) and (T) at the first stage {#sec:tl5-xt}
 
 This subsection shows that the conditions (X) and (T) of [[thm:tl5-wg-data]] hold at the first stage of the problem at
-10 l5 for an explicit background built from the seed and the data ([[cor:tl5-xt-data]]), and states them for every other
-background as explicit inequalities on its departure from the data along N₁ ([[thm:tl5-xt]]). Three facts make this
+10 l5 when u* < −1, for an explicit background built from the seed and the data ([[cor:tl5-xt-data]]), and that for
+every other background with the seed's values and first derivatives on N₀⁺ they follow from explicit inequalities on
+its departure from the data along N₁ ([[thm:tl5-xt]]). Three facts make this
 possible. (X) follows from (T) ([[lem:tl5-xt-implies]]). On N₀⁺ the development has the seed's partial derivatives of
 order at most 3 ([[lem:tl5-xt-seed-jets]]), so (X) and (T) hold there for every background with the seed's values and
 first derivatives on N₀⁺ ([[lem:tl5-xt-order]]). On N₁, for a background equal to the data at the points of N₁, the
-gauge vector of the development is a multiple of ∂_v whose size is the difference of the transverse derivatives of R
+gauge vector of the development is ∂_v times 3e^(−2W)/(2R) times the difference of the transverse derivatives of R
 ([[lem:tl5-xt-gauge]]), and that derivative of the development is one quadrature of the data ([[lem:tl5-xt-rho]]).
 
 Throughout, a seed is fixed, u* < u⁺ < u₀ with u₀ as in [[lem:tl5-seed]] (a), v* ∈ (1/2, 7/2], κ and κ′ are as in
@@ -95,7 +96,7 @@ seed's partial derivatives of order at most m.
 *Proof.* (a) Put h′ := g′ − ĝ. With D̂ the connection of ĝ, C = Γ(g′) − Γ̂ has the components C^μ_αβ = (1/2) g′^(μλ)
 (D̂_α h′_βλ + D̂_β h′_αλ − D̂_λ h′_αβ), as D̂ĝ = 0. In the coordinates, D̂h′ is ∂h′ plus products of Γ̂ with h′, so its
 components and their partial derivatives of order at most m − 1 vanish on N₀⁺; by the Leibniz rule so do those of C and
-of Υ(g′) = g′^(αβ) C_αβ. Then Y₀ = 0, and ξ₀ = Y₀ (u⁺ + 10) e^(K₀(u⁺ + 10)) = 0.
+of Υ(g′) = g′^(αβ) C_αβ. Then Y₀ = 0, and ξ₀ = Y₀ (u⁺ + 10) e^(K₀(u⁺ + 10)) = 0, K₀ being that of [[thm:tl5-wg-data]].
 
 (b) Use the transport of step (i) of the proof of [[lem:tl5-wg-wavemap]] on N₀⁺, in a chart (u, v, y) used in the domain
 and in the target. For a smooth map Φ near a point of N₀⁺ with Φ = id on N₀⁺, the components of ∂_v^(k−1)τ(Φ) on N₀⁺
@@ -145,7 +146,8 @@ Moreover Ŵ = W, â = ζ and Ω̂ = e^W on N₁, so K₁ = max_(N₁) (√2 ((�
 As ∇̂ĝ = 0, ∇̂_(∂_v) k̂ = 2 (w♭ ⊗ e₀♭ + e₀♭ ⊗ w♭) with w♭ := ĝ(w, ·) and e₀♭ := ĝ(e₀, ·). In the frame
 (e₀, e₁, f₁, f₂, f₃) of [[sec:tl5-wg-equations]], e₀♭ has the components (−1, 0, 0, 0, 0), and w♭ has e₀-component 0, as
 ĝ(w, e₀) = (1/2) ∂_v ĝ(e₀, e₀) = 0; so |∇̂_(∂_v) k̂|² = 8 |w|², and |w|² = (∂_vŴ)² + Ω̂² |â|²_γ̂. In K₁, e₄ = ∂_v and
-trχ = 3∂_vR/R, χ being that of g′, whose leaf metric on N₁ is the data's ([[lem:tl5-leaf-expansion]]).
+trχ = 3∂_vR/R, χ being that of g′, whose leaf metric on N₁ is the data's ([[lem:tl5-leaf-expansion]]); and ∂_vR =
+(f/2) ∂_rR > 0 on N₁ by [[prop:cone-exact]] (a), so (1/2) |trχ| = (3/2) ∂_vR/R.
 
 (b) For a metric g in double-null form, by [[lem:tl5-cip-form]] (a) g^(uu) = g^(uA) = 0 and g^(uv) = −e^(−2W)/2, and in
 the coordinates (u, v, y) the determinant is −4e^(4W) det γ, as in the proof of [[lem:cone-raychaudhuri]]; so the
@@ -231,10 +233,10 @@ By the proof of [[prop:cone-exact]], R(r, x) = r − ∫_(r_s)^r (r − q) w(q, 
 in the integrand, and R has continuous derivatives in x. So ∂_xR(r, x) = −∫_(r_s)^r (r − q)(∂_xw R + w ∂_xR) dq. Let X be
 the maximum of |∂_xR| on [r_s, r_e] × [−1, 1]. Then |∂_xR| ≤ W̄ (r_e + X)(r − r_s)²/2 ≤ 2ℓ² W̄ (r_e + X), so
 X (1 − 2ℓ² W̄) ≤ 2ℓ² W̄ r_e, which is X ≤ X̄. Likewise ∂_x∂_rR = −∫_(r_s)^r (∂_xw R + w ∂_xR) dq, with absolute value at
-most 2ℓ W̄ (r_e + X̄). With 2ℓ² ≤ 1.1064, 2ℓ ≤ 1.4876 and r_e ≤ 11.7351 ([[cor:cone-compare]], [[eq:cone-v]]), at the
-first seed 2ℓ² W̄ ≤ 2.20174 × 10⁻³, X̄ ≤ 0.0258377/0.997798 ≤ 0.025895 and X̄′ ≤ 2.96033 × 10⁻³ × 11.76100 ≤
-0.034817; at the second 2ℓ² W̄ ≤ 9.4598 × 10⁻⁴, X̄ ≤ 0.0111011/0.999054 ≤ 0.011112 and X̄′ ≤ 1.27190 × 10⁻³ × 11.74622
-≤ 0.014940. ∎
+most 2ℓ W̄ (r_e + X̄). With 2ℓ² ≤ 1.1064, 2ℓ ≤ 1.4876 (the proof of [[cor:cone-compare]]) and r_e ≤ 11.7351
+([[eq:cone-v]]), at the first seed 2ℓ² W̄ ≤ 2.20174 × 10⁻³, X̄ ≤ 0.0258377/0.997798 ≤ 0.025895 and X̄′ ≤ 2.96033 ×
+10⁻³ × 11.76100 ≤ 0.034817; at the second 2ℓ² W̄ ≤ 9.4598 × 10⁻⁴, X̄ ≤ 0.0111012/0.999054 ≤ 0.011112 and
+X̄′ ≤ 1.271898 × 10⁻³ × 11.746212 ≤ 0.014940. ∎
 
 **Lemma {#lem:tl5-xt-k1}** (The constant K₁.) Let ĝ be a background with N⁺ ⊂ 𝒪̂ and ĝ = g_N at every point of N₁.
 Then for every v* ∈ (1/2, 7/2]
@@ -268,7 +270,8 @@ likewise. Hence
     |𝔣| ≤ 𝔣̄ := f(r_e) (X̄′/r_s + X̄/r_s² + Θ̄ (1 + X̄/r_s + 𝔭̄)),   Θ̄ := ((9/8) W̄)^(1/2).
 
 As R increases along each generator, |ζ_x(v)| ≤ R(v)⁻³ ∫_(1/2)^v R³ |𝔣| dv′ ≤ (v − 1/2) 𝔣̄. With
-G_x = R² e^(−2(P+Q))/(4(1 − x²)) and |P + Q| = |(1 + x) m + (1 − x) n|/3 ≤ 2φ/3,
+G_x = R² e^(−2(P+Q))/(4(1 − x²)) and |P + Q| = |(1 + x) m + (1 − x) n|/3 ≤ 2φ/3, by the Cauchy–Schwarz inequality
+and h ((1 + x)² + (1 − x)²)^(1/2) = 2,
 
     |ζ|_γ = |ζ_x|/G_x^(1/2) = 2 (1 − x²)^(1/2) e^(P+Q) |ζ_x|/R ≤ ζ̄ := 2 e^(2φ̄/3) · 3 𝔣̄/r_s   on N₁,
 
@@ -297,8 +300,8 @@ Y₁ ≤ 3e₊ ε_R/(√2 r_s) and K₁ ≤ 𝔎, and (X) and (T) hold, so that 
 For v* = 7/2 this holds if ε_R ≤ 0.8329 κ_m at the first seed and if ε_R ≤ 0.8630 κ_m at the second, and for smaller v*
 under the same bounds. If ε_R = 0, it holds for every κ_m, Y₁ = ξ₁ = 0, ξ′ = 0 and G^♯ = g_N at every point of N⁺.
 
-(c) In general, let ε₀ and ε₁ be as in [[lem:tl5-xt-gauge]] (c) and K̄₁ ≥ K₁, for instance the value of the formula of
-[[lem:tl5-xt-gauge]] (a). Then (X) and (T) hold, and G^♯ is data in the wave gauge for g_N, if
+(c) In general, let ε₀ and ε₁ be as in [[lem:tl5-xt-gauge]] (c) and K̄₁ ≥ K₁, for instance K₁ itself, given by the
+formula of [[lem:tl5-xt-gauge]] (a). Then (X) and (T) hold, and G^♯ is data in the wave gauge for g_N, if
 
     2ε₀ + 4.996 (v* − 1/2) e^(K̄₁(v* − 1/2)) ε₁ < κ_m.  {#eq:tl5-xt-condition-general}
 
@@ -315,7 +318,7 @@ is less than κ_m under [[eq:tl5-xt-condition]]. (T) on N₀⁺ is (a), and (X) 
 r_s is c_R ε_R with c_R := 9 (e₊/e₋) e^(3𝔎)/r_s; with e^(0.3114) ≤ 1.3654 and e^(0.27582) ≤ 1.3177, c_R ≤ 9 × 1.001142 ×
 1.3654/10.24756039 ≤ 1.2006 at the first seed and c_R ≤ 9 × 1.001142 × 1.3177/10.24756039 ≤ 1.1587 at the second, and
 0.8329 × 1.2006 < 1 and 0.8630 × 1.1587 < 1. The left side increases with v*. If ε_R = 0, then Y₁ = 0, ξ₁ = 0, |ξ′| ≤
-ξ₁ = 0, and the formula of [[thm:tl5-wg-data]] gives G^♯⁻¹ = g_N⁻¹ on N₁.
+ξ₁ = 0, and the formula of [[thm:tl5-wg-data]] gives G^♯⁻¹ = g_N⁻¹ on N₁; on N₀⁺, G^♯ = g_N by (a).
 
 (c) Under [[eq:tl5-xt-condition-general]], 2ε₀ < κ_m ≤ 1/4, so ε₀ ≤ 1/8 and [[lem:tl5-xt-gauge]] (c) applies. On N₁ the
 norm of e₄ is √2 Ω̂ ≤ √2 e^W (1 − ε₀)^(−1/2), so the left side of (T) on N₁ is at most 2ε₀ + √2 (1 − ε₀)^(−1/2) ξ₁/e₋,
@@ -324,8 +327,8 @@ with ξ₁ ≤ (3/2)(1 + 2ε₀)(√5 + 2ε₀) e₊² ε₁ (v* − 1/2) e^(K̄
 in (b). For v* = 7/2 and K̄₁ ≤ 0.11, 3 × 4.996 × e^(0.33) ≤ 14.988 × 1.39097 ≤ 20.9. ∎
 
 The constant κ_m enters [[eq:tl5-xt-condition]] and [[eq:tl5-xt-condition-general]] linearly: halving it halves the
-admissible departure of ĝ from the data along N₁, and nothing else. Neither condition involves N₀⁺, beyond the agreement
-of ĝ with the seed to first order there.
+departure of ĝ from the data along N₁ that they admit, and nothing else. Neither condition involves N₀⁺, beyond the
+agreement of ĝ with the seed to first order there.
 
 **Definition {#def:tl5-xt-natural}** (A background from the seed and the data.) Suppose u* < −1. The proof of
 [[lem:tl5-seed]] uses −10 ≤ u only through u < 0, so the seed's R_s and W_s are defined, real-analytic, and give a
@@ -369,8 +372,9 @@ smooth G-invariant metric in double-null form on 𝒪̂, that is, a background.
 and E b_N, whose one-sided derivatives in v at v = 1/2 are those of D, λγ_N and b_N. These vanish up to order 3 at
 v = 1/2: the field of [[sec:tl5-cip-staged]] on N is C³ in v and equals the seed's for v ≤ 1/2, so D and b_N vanish to
 order 3 (b_N even to order 4). For λ, the seed along u = −10 satisfies ∂_v(r² ρ_s) = 𝒢_s by [[lem:tl5-xt-rho]] (a), 𝒢_s
-being 𝒢 computed from the seed's fields, since R_s(−10, v) = r ([[lem:tl5-seed]] (d)); and 𝒢 contains derivatives of W, b
-and γ with at most one derivative in v, so 𝒢 − 𝒢_s vanishes to order 2 at v = 1/2. As r_s² ρ_s(1/2) = −r_s² f(r_s)/f(10),
+being 𝒢 computed from the seed's fields, since R_s(−10, v) = r (the proof of [[lem:tl5-seed]] (d)); and 𝒢 contains
+derivatives of W, b and γ with at most one derivative in v, so 𝒢 − 𝒢_s vanishes to order 2 at v = 1/2. As
+r_s² ρ_s(1/2) = −r_s² f(r_s)/f(10),
 R²ρ − r²ρ_s = ∫_(1/2)^v (𝒢 − 𝒢_s) vanishes to order 3, and so does R − r, hence ρ − ρ_s. Since
 
     λ = 2(ρ − ρ_s)/R + 2ρ_s (1/R − 1/r) + (2ρ_s/(3r)) (3 − tr_(γ_N) γ_s¹)
@@ -379,7 +383,7 @@ and tr_(γ_N) γ_s¹ − 3 vanishes to order 3, λ vanishes to order 3. So every
 corrections vanishes at the points of N₀⁺, and (b) follows.
 
 (c) At u = −10, χ = 1 and ∂_uχ = 0, so γ̂ = γ_s¹ + D = γ_N, b̂ = b_N and Ŵ = W_s = W, since W_s(−10, v) is the data's W
-([[lem:tl5-seed]] (d)); and ∂_uγ̂ = ∂_uγ_s + λγ_N. As γ_s = R_s² γ₀, ∂_uγ_s = (2ρ_s/r) γ_s¹ on N₁, so
+(the proof of [[lem:tl5-seed]] (d)); and ∂_uγ̂ = ∂_uγ_s + λγ_N. As γ_s = R_s² γ₀, ∂_uγ_s = (2ρ_s/r) γ_s¹ on N₁, so
 tr_(γ_N) ∂_uγ̂ = (2ρ_s/r) tr_(γ_N) γ_s¹ + 3λ = 6ρ/R. Since R̂⁶ det γ₀ = det γ̂, 6∂_uR̂/R̂ = tr_(γ̂) ∂_uγ̂, and on N₁
 this is 6ρ/R with R̂ = R. ∎
 
@@ -391,7 +395,8 @@ at the points of N₀⁺, and [[thm:tl5-wg]] applies.
 
 *Proof.* By [[lem:tl5-xt-natural]] (b) and (c), [[thm:tl5-xt]] (a) and (b) apply with ε_R = 0. By
 [[lem:tl5-xt-natural]] (b) and [[lem:tl5-xt-seed-jets]] (a), ĝ_♮ − g′ vanishes to order 3 on N₀⁺, and
-[[lem:tl5-xt-order]] (c) with m = 3 gives the order 2. ∎
+[[lem:tl5-xt-order]] (c) with m = 3 gives the order 2. As g_N is smooth data in the gauge on N⁺ satisfying the
+constraints ([[cor:tl5-wg-data-first-stage]]) and ĝ_♮ is a background, [[thm:tl5-wg]] applies. ∎
 
 **Proposition {#prop:tl5-xt-seed}** (The seed as background.) Suppose u* < −1, and let ĝ be the seed, a background on
 the set 𝒪̂ of [[lem:tl5-xt-natural]]. Its values and first derivatives on N₀⁺ are the seed's, so [[thm:tl5-xt]] (a)
@@ -419,20 +424,20 @@ r² e^(−2P)/R² − 1 ≤ 0.988507 × 1.000493 − 1 ≤ −0.01100. The left 
 
 **Remark {#rem:tl5-xt-background}** (The background of the estimate.) ĝ_♮ serves [[thm:tl5-wg]]: it gives data in the
 wave gauge and the local existence, uniqueness and continuation of the reduced problem for the first stage. It is the
-seed outside the strip |u + 10| < η₁, and across the strip it passes from the data to the seed, so its Ricci tensor there
-is not small. A background for an a priori estimate needs a small Ricci tensor on all of D̄, and so carries the incoming
-wave on all of D̄; by [[prop:tl5-xt-seed]] the seed itself does not satisfy (T) for κ_m below 0.019 and 0.011. For such a
-background, if its values and first derivatives on N₀⁺ are the seed's, (X) and (T) reduce to [[eq:tl5-xt-condition]] or
-[[eq:tl5-xt-condition-general]] on N₁ alone. If G^♯ − ĝ is to vanish with its partial derivatives of order at most k on
-N₀⁺, [[lem:tl5-xt-order]] asks that ĝ − g′ vanish to order k + 1 there; for k ≥ 3, by [[lem:tl5-xt-seed-jets]] (b), the
-derivatives in v of ĝ of the orders 4 to k + 1 at the points of N₀⁺ must then be those of the development, which at order
-4 are not the seed's.
+seed outside the strip |u + 10| < η₁, and across the strip it passes from the data to the seed; nothing here bounds its
+Ricci tensor there. A background for an a priori estimate is to have a small Ricci tensor on all of D̄; by
+[[prop:tl5-xt-seed]] the seed itself does not satisfy (T) for κ_m ≤ 0.01967 at the first seed when v* ≥ 9/4, nor for
+κ_m ≤ 0.01100 at the second when v* ≥ 2. For a background whose values and first derivatives on N₀⁺ are the seed's,
+(X) and (T) follow from [[eq:tl5-xt-condition]] or [[eq:tl5-xt-condition-general]], conditions on N₁ alone. For
+G^♯ − ĝ to vanish with its partial derivatives of order at most k on N₀⁺ by [[lem:tl5-xt-order]], ĝ − g′ is to vanish to
+order k + 1 there; for k ≥ 3, by [[lem:tl5-xt-seed-jets]] (b), this asks that the derivatives in v of ĝ of the orders 4
+to k + 1 at the points of N₀⁺ be those of the development, which at order 4 are not the seed's.
 
 ### Placement
 
 This part and the crosswalk rows below are instructions for merging; they are not chapter text. Line numbers are those
-of chapters/87-ten-l5.md at the time of writing (HEAD edafc288) and serve only to find the place; each old text is quoted
-exactly, and each new text replaces it as a whole, with the line breaks shown.
+of chapters/87-ten-l5.md at the time of writing (HEAD dbf04838; lines 1–2760 are those of edafc288) and serve only to
+find the place; each old text is quoted exactly, and each new text replaces it as a whole, with the line breaks shown.
 
 *1. Where the subsection goes.* The subsection above, from its heading "#### The conditions (X) and (T) at the first
 stage {#sec:tl5-xt}" through [[rem:tl5-xt-background]], is inserted in [[ch:ten-l5]] immediately after the proof of
@@ -452,8 +457,9 @@ New:
     the coordinates are wave coordinates relative to ĝ along N⁺, to infinite order. Data in the wave gauge exist for smooth
     data g_N on N⁺ satisfying the constraints, in particular for the data of the first stage of the problem at 10 l5,
     whenever two explicit conditions on N⁺ hold ([[thm:tl5-wg-data]], [[cor:tl5-wg-data-first-stage]]); at the first
-    stage they hold for an explicit background built from the seed and the data ([[cor:tl5-xt-data]]), and for any other
-    background they are explicit inequalities on its departure from the data along N₁ ([[thm:tl5-xt]]). By
+    stage with u* < −1 they hold for an explicit background built from the seed and the data ([[cor:tl5-xt-data]]), and
+    for a background with the seed's values and first derivatives on N₀⁺ they follow from explicit inequalities on its
+    departure from the data along N₁ ([[thm:tl5-xt]]). By
 
 *3. The end of the first paragraph of [[sec:tl5-wg-first-stage]] (line 2500).* Old:
 
@@ -462,7 +468,7 @@ New:
 New:
 
     explicit conditions of [[thm:tl5-wg-data]] for the invertibility of the map and for (W4). [[sec:tl5-xt]] shows that
-    they hold at the first stage.
+    they hold at the first stage when u* < −1, for an explicit background.
 
 *4. Other texts.* No other text of the chapters changes because of this file. The opening paragraph of [[ch:ten-l5]] and
 [[rem:tl5-beyond]] describe the continuation lemma and are unaffected. No number already printed changes.
@@ -471,7 +477,7 @@ New:
 [[lem:tl5-wg-lchart]], [[lem:tl5-wg-tension]] (a), step (i) of the proof of [[lem:tl5-wg-wavemap]], [[lem:tl5-wg-norms]]
 (a) and (b), [[eq:tl5-wg-khat]], [[def:tl5-wg-background]], [[def:tl5-wg-domains]], [[thm:tl5-wg]] and the frame of
 [[sec:tl5-wg-equations]]; from [[sec:tl5-cip]], [[lem:tl5-cip-jets]] (a) with m = 3 and steps (i) and (ii) of its proof
-with k = 4, [[lem:tl5-cip-frame]] ([[eq:tl5-cip-ricci]], [[eq:tl5-cip-connection]]), [[lem:tl5-cip-form]] (a) and (b),
+with k = 4, [[lem:tl5-cip-frame]] ([[eq:tl5-cip-ricci]], [[eq:tl5-cip-connection]]), [[lem:tl5-cip-form]] (a),
 [[lem:tl5-cip-shift]] and the paragraph after it (regularity of R, P, Q and b in v at v = 1/2), the proof of
 [[lem:tl5-cip-extend]] (a) (Seeley's operator in one variable), [[cor:tl5-cip-staged]] (a) and the paragraph before it
 (the field on N is C³ in v); [[lem:tl5-seed]] (a), (b), (d) and the formula ∂_uR = −2e^(2W) of the proof of (c),
@@ -483,16 +489,20 @@ integral equation), [[cor:cone-compare]] (2ℓ² ≤ 1.1064, 2ℓ ≤ 1.4876), [
 *6. Remarks for the writers of the a priori estimate and of the background.* These are not chapter text.
 (i) [[lem:tl5-xt-order]] (c) gives the order of agreement of G^♯ with ĝ on N₀⁺ from that of ĝ with the development:
 order k for G^♯ − ĝ needs order k + 1 for ĝ − g′. A hypothesis that G^♯ − ĝ vanish to order N + 1 on N₀ therefore asks
-ĝ − g′ to vanish to order N + 2 on N₀⁺. By [[lem:tl5-xt-seed-jets]] (b), for a background of the form "seed plus
-(v − 1/2)⁴ times a smooth field" ĝ − g′ vanishes to order 3 and not to order 4, since the development's fourth
-derivatives in v on N₀⁺ are not the seed's; [[lem:tl5-xt-order]] then gives order 2 for G^♯ − ĝ, and no higher order
-is shown. Such a background must carry the development's v-jets of orders 4 to N + 2 on N₀⁺, which solve the linear
-transport equations of the proof of [[lem:tl5-cip-jets]] (a) along N₀⁺, with the seed's coefficients and with initial
-values the data's one-sided v-derivatives at S; or the estimate must carry a data term on N₀ as it does on N₁.
-(ii) For a background that equals the data at the points of N₁, (X) and (T) ask only that ∂_uR̂ match ρ of
-[[eq:tl5-xt-rho]] to 0.8329 κ_m (first seed) or 0.8630 κ_m (second seed) in the maximum over N₁; the other transverse
-derivatives do not enter. For a background that only approximates the data on N₁, they ask 2ε₀ + 4.996 · 3 e^(3K̄₁) ε₁ <
-κ_m, with ε₀ and ε₁ maxima over N₁ in the norm of k̂; in the norm built from E₀ of the multiplier frame, whose ratio to
+ĝ − g′ to vanish to order N + 2 on N₀⁺. What [[lem:tl5-xt-seed-jets]] (b) shows is that the fourth derivatives in v
+of the leaf metric of the development on N₀⁺ are not the seed's (off at most one torus {x = c}). So a background with
+the seed's derivatives of order at most 4 on N₀⁺, for instance "seed plus (v − 1/2)⁵ times a smooth field", has ĝ − g′
+vanishing to order 3 and not to order 4, and [[lem:tl5-xt-order]] gives G^♯ − ĝ to order 2 for it; no higher order is
+shown. For "seed plus (v − 1/2)⁴ times a smooth field G" the fourth v-derivative on N₀⁺ is the seed's plus 4! times the
+value of G at v = 1/2, and ĝ − g′ vanishes to order 4 exactly when that value is the difference of the development's
+and the seed's fourth derivatives divided by 4!. In either form, order N + 2 asks that ĝ carry the development's v-jets
+of orders 4 to N + 2 on N₀⁺, which solve the linear transport equations of the proof of [[lem:tl5-cip-jets]] (a) along
+N₀⁺, with the seed's coefficients and with initial values the data's one-sided v-derivatives at S; the alternative is a
+data term on N₀ in the estimate, as on N₁. This is a sufficient route; that it is necessary is not shown.
+(ii) For a background with the seed's 1-jet on N₀⁺ that equals the data at the points of N₁, (X) and (T) hold if ∂_uR̂
+matches ρ of [[eq:tl5-xt-rho]] to 0.8329 κ_m (first seed) or 0.8630 κ_m (second seed) in the maximum over N₁ (v* = 7/2);
+the other transverse derivatives do not enter. For one that only approximates the data on N₁, they hold if
+2ε₀ + 4.996 · 3 e^(3K̄₁) ε₁ < κ_m, with ε₀ and ε₁ maxima over N₁ in the norm of k̂; in the norm built from E₀ of the multiplier frame, whose ratio to
 that of k̂ on N₁ is bounded by c(−10)^(−r/2) = (f(10)/2)^(−r/2) for tensors of rank r, these are ε₀ ≤ ε₀′/0.495 and
 ε₁ ≤ ε₁′/0.3482.
 
@@ -502,7 +512,7 @@ Rows for the crosswalk of [[ch:ten-l5]], in its four columns (label, source, sou
 chapter order. The source is "paper/reader/proofs/P-XT.md@PENDING:N", N the line of the label in this file and PENDING
 to be replaced by the commit at which this file is merged.
 
-    sec:tl5-xt	paper/reader/proofs/P-XT.md@PENDING:1	P-XT, subsection	new: (X), (T) of thm:tl5-wg-data at the first stage (data item L1 of the plan); after cor:tl5-wg-data-first-stage, before sec:tl5-dn
+    sec:tl5-xt	paper/reader/proofs/P-XT.md@PENDING:1	P-XT, subsection	new: (X), (T) of thm:tl5-wg-data at the first stage for u* < -1 (data item L1 of the plan); after cor:tl5-wg-data-first-stage, before sec:tl5-dn
     eq:tl5-xt-ew	paper/reader/proofs/P-XT.md@PENDING:21	P-XT, display	e^W at v = 1/2 and 7/2 on N1
     lem:tl5-xt-implies	paper/reader/proofs/P-XT.md@PENDING:26	P-XT, Lemma	(T) implies (X) for every background (kappa_m <= 1/4, lem:tl5-wg-norms (b))
     lem:tl5-xt-seed-jets	paper/reader/proofs/P-XT.md@PENDING:40	P-XT, Lemma	development = seed to order 3 on N0+ (lem:tl5-cip-jets (a), m = 3); differs at order 4 off one torus (env C3 not C4)
@@ -514,12 +524,12 @@ to be replaced by the commit at which this file is merged.
     lem:tl5-xt-rx	paper/reader/proofs/P-XT.md@PENDING:217	P-XT, Lemma	|d_x R| and |d_x d_r R| on the data cone, both seeds (|d_x w| <= Wbar)
     lem:tl5-xt-k1	paper/reader/proofs/P-XT.md@PENDING:239	P-XT, Lemma	K1 <= 0.1038 (seed 1), 0.09194 (seed 2), every v* <= 7/2; shift 1-form bounded through the shift constraint
     eq:tl5-xt-k1	paper/reader/proofs/P-XT.md@PENDING:242	P-XT, display	the bound frak K
-    thm:tl5-xt	paper/reader/proofs/P-XT.md@PENDING:286	P-XT, Theorem	(X), (T) on N0+ free; on N1: eps_R < 0.8329 kappa_m (seed 1), 0.8630 kappa_m (seed 2) at v* = 7/2; general 2eps0 + 4.996 (v*-1/2) e^(K1(v*-1/2)) eps1 < kappa_m
+    thm:tl5-xt	paper/reader/proofs/P-XT.md@PENDING:286	P-XT, Theorem	(X), (T) on N0+ free; on N1: eps_R <= 0.8329 kappa_m (seed 1), <= 0.8630 kappa_m (seed 2) at v* = 7/2 (sufficient); general 2eps0 + 4.996 (v*-1/2) e^(K1(v*-1/2)) eps1 < kappa_m
     eq:tl5-xt-condition	paper/reader/proofs/P-XT.md@PENDING:295	P-XT, display	condition for backgrounds equal to the data on N1
     eq:tl5-xt-condition-general	paper/reader/proofs/P-XT.md@PENDING:303	P-XT, display	condition in general
     def:tl5-xt-natural	paper/reader/proofs/P-XT.md@PENDING:330	P-XT, Definition	ghat_natural: seed + data on N1 + transverse R from rho, cut off to a strip at u = -10
     eq:tl5-xt-natural	paper/reader/proofs/P-XT.md@PENDING:343	P-XT, display	the fields of ghat_natural
     lem:tl5-xt-natural	paper/reader/proofs/P-XT.md@PENDING:345	P-XT, Lemma	a background on a set containing Dbar and N+; seed 3-jet on N0+; = data on N1 with d_u Rhat = rho
-    cor:tl5-xt-data	paper/reader/proofs/P-XT.md@PENDING:386	P-XT, Corollary	unconditional data in the wave gauge for the first stage, both seeds, every v* <= 7/2, every kappa
+    cor:tl5-xt-data	paper/reader/proofs/P-XT.md@PENDING:386	P-XT, Corollary	data in the wave gauge for the first stage, both seeds, every u* < -1, every v* <= 7/2, every kappa
     prop:tl5-xt-seed	paper/reader/proofs/P-XT.md@PENDING:396	P-XT, Proposition	the seed as background fails (T) on N1 for kappa_m <= 0.01967 (seed 1), 0.01100 (seed 2)
     rem:tl5-xt-background	paper/reader/proofs/P-XT.md@PENDING:420	P-XT, Remark	ghat_natural serves the local theory, not the estimate; order N+2 on N0+ needs the development's jets
