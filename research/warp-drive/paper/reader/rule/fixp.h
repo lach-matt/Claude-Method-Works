@@ -98,6 +98,20 @@ template<int L, int FL> inline Fx<L, FL> fx_from_mag(const uint64_t* q, bool neg
   fx_check(r); return r;
 }
 
+// magnitude product, product scanning with a three-word accumulator, fully unrolled for fixed limb counts
+template<int LA, int LB> static inline void mulmag(const uint64_t* A, const uint64_t* B, uint64_t* P) {
+  uint64_t c0 = 0, c1 = 0, c2 = 0;
+#pragma GCC unroll 16
+  for (int k = 0; k < LA + LB - 1; k++) {
+#pragma GCC unroll 8
+    for (int i = (k < LB ? 0 : k - LB + 1); i <= (k < LA ? k : LA - 1); i++) {
+      const u128 p = (u128)A[i] * B[k - i];
+      const u128 s = (((u128)c1 << 64) | c0) + p; c2 += (s < p); c0 = (uint64_t)s; c1 = (uint64_t)(s >> 64);
+    }
+    P[k] = c0; c0 = c1; c1 = c2; c2 = 0;
+  }
+  P[LA + LB - 1] = c0;
+}
 // a ⊙ b
 template<int L, int FL> inline Fx<L, FL> operator*(const Fx<L, FL>& a, const Fx<L, FL>& b) {
   uint64_t A[L], Bm[L], P[2 * L];
@@ -106,11 +120,17 @@ template<int L, int FL> inline Fx<L, FL> operator*(const Fx<L, FL>& a, const Fx<
   while (la > 0 && A[la - 1] == 0) la--;
   while (lb > 0 && Bm[lb - 1] == 0) lb--;
   for (int i = 0; i < 2 * L; i++) P[i] = 0;
-  for (int i = 0; i < la; i++) {
-    uint64_t ai = A[i]; if (!ai) continue;
-    u128 c = 0;
-    for (int j = 0; j < lb; j++) { u128 t = (u128)ai * Bm[j] + P[i + j] + (uint64_t)c; P[i + j] = (uint64_t)t; c = t >> 64; }
-    P[i + lb] = (uint64_t)c;
+  if (la == L && lb == L) mulmag<L, L>(A, Bm, P);
+  else if (la == L && lb == L - 1) mulmag<L, L - 1>(A, Bm, P);
+  else if (la == L - 1 && lb == L) mulmag<L - 1, L>(A, Bm, P);
+  else if (la == L - 1 && lb == L - 1) mulmag<L - 1, L - 1>(A, Bm, P);
+  else {
+    for (int i = 0; i < la; i++) {
+      uint64_t ai = A[i]; if (!ai) continue;
+      u128 c = 0;
+      for (int j = 0; j < lb; j++) { u128 t = (u128)ai * Bm[j] + P[i + j] + (uint64_t)c; P[i + j] = (uint64_t)t; c = t >> 64; }
+      P[i + lb] = (uint64_t)c;
+    }
   }
   for (int i = FL + L; i < 2 * L; i++) if (P[i]) fx_fail("overflow in a product");
   uint64_t rnz = 0; for (int i = 0; i < FL; i++) rnz |= P[i];
@@ -124,15 +144,35 @@ template<int L, int FL> inline Fx<L, FL> mul_int(const Fx<L, FL>& a, int64_t n) 
   if ((uint64_t)c) fx_fail("overflow in an integer multiple");
   return fx_from_mag<L, FL>(Q, na != nn, false);
 }
-// a ⊘ n, n a positive integer
-static inline uint64_t divq_(uint64_t hi, uint64_t lo, uint64_t d, uint64_t* rem) {
-  uint64_t q, r; __asm__("divq %4" : "=a"(q), "=d"(r) : "a"(lo), "d"(hi), "rm"(d)); *rem = r; return q;
+// a ⊘ n, n a positive integer: limb-by-limb division with a precomputed reciprocal of the normalized divisor
+// (Möller and Granlund, "Improved division by invariant integers", 2011, Algorithm 4)
+struct DivInv { uint64_t d, v; int s; };
+inline DivInv make_divinv(uint64_t n) {
+  DivInv r; r.s = __builtin_clzll(n); r.d = n << r.s; r.v = (uint64_t)(~(u128)0 / r.d - ((u128)1 << 64)); return r;
+}
+static inline uint64_t udiv_preinv(uint64_t u1, uint64_t u0, uint64_t d, uint64_t v, uint64_t* r) {
+  u128 q = (u128)v * u1; q += ((u128)u1 << 64) | u0;
+  uint64_t q1 = (uint64_t)(q >> 64) + 1, q0 = (uint64_t)q;
+  uint64_t rr = u0 - q1 * d;
+  if (rr > q0) { q1--; rr += d; }
+  if (rr >= d) { q1++; rr -= d; }
+  *r = rr; return q1;
+}
+inline const DivInv& divinv_small(int64_t n) {
+  static DivInv T[128]; static bool init = false;
+  if (!init) { for (int i = 1; i < 128; i++) T[i] = make_divinv(i); init = true; }
+  return T[n];
 }
 template<int L, int FL> inline Fx<L, FL> divi(const Fx<L, FL>& a, int64_t n) {
   if (n <= 0) fx_fail("divi: the divisor must be a positive integer");
   if (n == 1) return a;
-  uint64_t A[L], Q[L]; bool na = fx_abs(a, A); uint64_t r = 0;
-  for (int i = L - 1; i >= 0; i--) Q[i] = divq_(r, A[i], (uint64_t)n, &r);
+  DivInv di = n < 128 ? divinv_small(n) : make_divinv((uint64_t)n);
+  uint64_t A[L], Q[L]; bool na = fx_abs(a, A);
+  uint64_t r = di.s ? A[L - 1] >> (64 - di.s) : 0;
+  for (int i = L - 1; i >= 0; i--) {
+    uint64_t u0 = di.s ? (A[i] << di.s) | (i ? A[i - 1] >> (64 - di.s) : 0) : A[i];
+    Q[i] = udiv_preinv(r, u0, di.d, di.v, &r);
+  }
   return fx_from_mag<L, FL>(Q, na, r != 0);
 }
 // a ⊘ 2^k (k >= 0): arithmetic shift, which is the floor in two's complement
@@ -208,18 +248,21 @@ template<int L, int FL> inline Fx<L, FL> from_sm(const SM<L>& s) {
 template<int L, int FL> struct DotAcc {
   u128 c[2][2 * L]; uint64_t t[2][2 * L];
   inline void clear() { memset(c, 0, sizeof c); memset(t, 0, sizeof t); }
+  template<int LA, int LB> static inline void mac_k(u128* C, uint64_t* T, const uint64_t* A, const uint64_t* B) {
+#pragma GCC unroll 8
+    for (int i = 0; i < LA; i++) {
+#pragma GCC unroll 8
+      for (int j = 0; j < LB; j++) { const u128 p = (u128)A[i] * B[j]; const u128 s = C[i + j] + p; T[i + j] += (s < p); C[i + j] = s; }
+    }
+  }
   inline void mac(const SM<L>& a, const SM<L>& b) {
     const int sg = (int)((a.m[L - 1] ^ b.m[L - 1]) >> 63);
     u128* C = c[sg]; uint64_t* T = t[sg];
-    const uint64_t aT = a.m[L - 1] & ~(1ull << 63), bT = b.m[L - 1] & ~(1ull << 63);
-    const int lb = bT ? L : L - 1;
-    for (int i = 0; i < L; i++) {
-      const uint64_t ai = i < L - 1 ? a.m[i] : aT; if (!ai) continue;
-      for (int j = 0; j < lb; j++) {
-        const uint64_t bj = j < L - 1 ? b.m[j] : bT;
-        const u128 p = (u128)ai * bj; const u128 s = C[i + j] + p; T[i + j] += (s < p); C[i + j] = s;
-      }
-    }
+    uint64_t A[L], B[L];
+    for (int i = 0; i < L; i++) { A[i] = a.m[i]; B[i] = b.m[i]; }
+    A[L - 1] &= ~(1ull << 63); B[L - 1] &= ~(1ull << 63);
+    if (A[L - 1]) { if (B[L - 1]) mac_k<L, L>(C, T, A, B); else mac_k<L, L - 1>(C, T, A, B); }
+    else { if (B[L - 1]) mac_k<L - 1, L>(C, T, A, B); else mac_k<L - 1, L - 1>(C, T, A, B); }
   }
   inline Fx<L, FL> result() const {
     constexpr int W = 2 * L + 2;
