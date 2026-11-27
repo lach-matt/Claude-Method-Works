@@ -145,3 +145,47 @@ leaf-by-leaf bound. Changed:
   - assemble.py: problems 0.
   - lint.py --paper: 0 hits.
   - No line in the file is over 121 characters, and there are no bad wrapped-line starts.
+
+## Round 3 (fix round for R-P-CLD: 1 Major, 6 minor, 10 nits)
+- File: proofs/P-CLD.md is now 914 lines, md5 39e7fd6766b1158ef60fd11b657cc9b7. It was 67d1d46d (797 lines). The delta
+  against HEAD 60527421 is +197 −80 lines.
+- Old texts were re-quoted from HEAD; chapters 81, 82 and 83 are unchanged since 9d133b0c.
+- Major 1: new Placement 13 for lem:loc-lens-dependence (83:447–450 and 508–509), using the reader's text.
+  - The radius r_* := 1/2, a δ ≤ δ_0 uniform over the axis points, finitely many p_i, and χ_Z at the scale δ.
+  - 83:509–511 is moved in the use list to a new "Through δ" entry.
+- minor 1: the reader's text. Steps 5 and 6 form one induction; R_j's top-order terms are absorbed with r″ (r″ is now
+  fixed in Steps 4, 5 and 6); Step 5 holds on Q̂_(j−1).
+- minor 2: the norm in eq:class-leaf-compose is restricted to ‖·‖′_(n+1), which leaves out T^(n+1).
+- minor 3: Step 2 now also compares norms of the components of tensor fields, through the frame (∂_z, ρ1⁻¹K1, ∂_(x3), ∂_(x4)).
+- minor 4: Placement 2 is widened to 81:1371–1376. One definition of *state* remains, and V is smooth up to the closure
+  of 𝒰_(r_*).
+- minor 5: new Placements 10 and 11 for (o) at 81:1378–1379 and (b′) at 81:1393–1395, with the lower bounds for
+  −g⁻¹(dτ,dτ) and for g on TΣ_τ, and with ρ1(p). Placement 4's new text now says "at most twice 𝒩_k^V" and carries the
+  same lower bounds.
+- minor 6: new Placement 14 for 83:2714–2715: "H_L[V] as defined before lem:class-leaf-states".
+- Nits:
+  - nit 1: Placement 12 (81:1137).
+  - nit 2: Placement 7's wording.
+  - nit 3: □_g̊ ů_A.
+  - nit 4: the Lipschitz argument is applied to p_A(∂_z) as well.
+  - nit 5: the mean value clause.
+  - nit 6: 𝔤̂ takes the argument h; the arguments of a_3 are listed.
+  - nit 7: the condition a ≤ m − 4.
+  - nit 8 (mine): a family is required to have its derivatives of order ≤ k continuous in τ into L² of the slices, which
+    the solutions satisfy (C([τ0, τ1]; H^k), τ-derivatives from the equations). The approximations then converge
+    uniformly near the time considered, and the bounds pass to the limit.
+  - nit 9: the last statement is stated for states with g⁻¹(du_A, du_A) = 0, p_A = du_A, Θ_A = □_g u_A and
+    ∂_z u_A ≠ 0, a solution being one case; its proof notes that no field equation is used.
+  - nit 10: ρ1(p) is added to the dependence lists of Placement 3 and of (o) and (b′).
+- Notes: the Tier 5 note now says that Block A1's second definitions of *state*, *bounds (M, c)* and *arc* do not stand
+  (the definitions before lem:class-leaf-states do), and that its H_L pointer must change. The Tier 3 and Tier 4 notes
+  and the changed crosswalk rows are updated: lem:class-leaf-reference, ch:class-system, and in chapter 83
+  lem:loc-lens-dependence and sec:loc-axis-leaves.
+- Placement now has 14 items (17 replacements), each old text exactly once at HEAD.
+- Scratch merge (git archive of HEAD 60527421, all 17 replacements applied):
+  - lint.py --chapters: 62 files, 5079 labels, 0 hits.
+  - assemble.py --check: problems 0.
+  - assemble.py: problems 0.
+  - lint.py --paper: 0 hits.
+  - No assembled line over 121 characters; in the file, no line over 121 and no bad wrapped-line starts.
+- The 16 crosswalk pins were re-pinned to the label lines and checked.
