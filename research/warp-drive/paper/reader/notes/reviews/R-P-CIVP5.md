@@ -864,3 +864,81 @@ before it; no phrase "H_L[Θ_A] of lem:class-leaf-differences" remains.
 Verdict (second reading): NOT CONFIRMED — 0 Major, 4 minor (A–D), 3 nits, each with a replacement text applied and
 checked in the scratch merge on 88ae2d77 (lint 0 hits, assemble --check 0 problems, in-memory `[] 0`, no line over 121
 characters). With minors A–D applied as written, I have no open finding.
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Confirmation
+
+File: proofs/P-CIVP5.md, md5 5536e949d28784c53d757a650bec8c1f, 1,240 lines (writer's round 4, commit 80223c9a). Read:
+the writer's report and the full diff against my second-round copy fix2/P-CIVP5-fix2.md; every changed line was read.
+
+### The diff against fix2
+
+- Minors A–D and nit 2: my fix2 texts, rewrapped only (lines 44–50, 904–913, 935–941, 966–970, 1028–1035, 101–103,
+  482–500 checked word for word against fix2).
+- Nit 1: line 38 now reads "bounded on W^(6,∞) and on H^(n+1)". Right.
+- Placement: rewritten against HEAD with P-CLD merged; item 8 drops the reference to P-CLD's placement. Crosswalk rows
+  regenerated. Nothing else in the mathematics changed.
+
+### The nit-3 construction (lem:loc-t5-uniqueness, lines 954–965)
+
+Correct. c_A bounds |p_A(∂_z)| below for U_1 on the axis, L_A bounds the C¹ norm of the difference of the family-A
+components of U_2 and U_1, d_A := min(1, c_A/(4L_A)) with the phases of both defined on the d_A-neighbourhood of
+supp κ_A, and χ̃_A equals 1 on the d_A/2-neighbourhood of supp κ_A ∩ {τ^N ≤ s_* + θ}, is supported in its
+d_A-neighbourhood, and has |∂χ̃_A| ≤ C/d_A. On supp κ_A ∩ {τ^N ≤ s_* + θ} the difference is at most Cθ^(k+1) (zero
+below s_*, the second Taylor bound in the slab); by the mean value theorem along a segment in the d_A-neighbourhood it is
+at most Cθ^(k+1) + L_A d_A ≤ Cθ^(k+1) + c_A/4 there. So on the axis |p_A(∂_z)| ≥ c_A − Cθ^(k+1) − c_A/4 ≥ c_A/2 for θ
+small. D(χ̃_A (U_2 − U_1)) is at most (C/d_A)(Cθ^(k+1) + L_A d_A) + L_A, so the C¹ norms are bounded independently of θ,
+and (M′, c′) depend on U_1 and U_2 only. The leaf of W through a slab point stays within Cθ² of U_1's arc, which lies in
+supp κ_A ∩ {τ^N ≤ s_* + θ′}, so it lies in {χ̃_A = 1} ∩ 𝒩_(θ/2), where W = U_2, for θ small.
+
+(For the record: the writer's remark that one phase type alone gives no lower bound is stronger than needed — on the
+axis p_A^(i)(∂_z) = λ_i ℓ(∂_z) for one covector ℓ ∈ {−du, −dv} with λ_i bounded below by compactness, so a convex
+combination is bounded below by the smaller bound. The new construction is also correct and does not need U_2's bound.)
+
+One optional nit (not blocking). Line 959 says that the family-A components of U_2 − U_1 are "at most Cθ^(k+1) + L_A
+d_A in C¹". The mean value theorem gives this pointwise; the first derivatives are bounded only by L_A, which is what the
+next sentence uses. Old:
+
+```
+theorem, the components of family A of U_2 − U_1 are at most Cθ^(k+1) + L_A d_A in C¹ on that d_A-neighbourhood. Let W
+```
+
+New:
+
+```
+theorem, the components of family A of U_2 − U_1 are at most Cθ^(k+1) + L_A d_A on that d_A-neighbourhood, and their
+first derivatives at most L_A. Let W
+```
+
+(Applied in fix3/P-CIVP5-fix3.md and merged in m4f/. The checks below are unchanged with it.)
+
+### Scratch merge at HEAD and checks
+
+Base: `git archive HEAD` (0586e434; chapters 81 and 83 and their crosswalks identical to 88ae2d77), in
+scratchpad/rpcivp5/h4/; merged copy m4/ (script tools/merge3.py).
+
+- Anchors, all exactly once, at the lines the Placement names:
+  - A2 between 81:876 and 81:878;
+  - A1 before 81:1909, after lem:class-leaf-reference;
+  - B between 83:3256 and 83:3258;
+  - item 4 at 83:738;
+  - item 5 at 83:3254–3255 (83:3261 after item 4);
+  - item 6 at 81:2215–2216.
+- `python3 lint.py --chapters`: "62 file(s), 5132 label(s) defined, 0 hit(s)".
+- `python3 assemble.py --check`: "labels 5132, computations cited 0, problems 0".
+- In-memory check (`a.number`, `a.resolve`, `lint.report` on the assembled text): `[] 0`. No assembled line is over
+  121 characters.
+- File, before the crosswalk section: no line over 121 characters and no wrapped line starting with "+ ", "- ", "* ",
+  "> ", "#", "=" or "|".
+- Crosswalk:
+  - 31 rows, four tab-separated fields each, and every source line holds its label;
+  - the labels are exactly those the three blocks define;
+  - in chapters 81 and 83 the label order equals the row order (93 and 330).
+
+### Verdict on the second-reading findings: all resolved
+
+Minors A, B, C and D are resolved as written; nits 1, 2 and 3 are resolved (nit 3 by the construction above). Nothing
+from the first or second reading is open; the nit above is optional.
+
+Verdict: CONFIRMED
