@@ -282,13 +282,13 @@ at every point of Q(a, b), a_o and a_i evaluated at τ₁ and τ₂. For a′ �
 
 where ‖f‖²_(1,t) := ∫_(Σ₁(t,b)) e^(−φ) f² dμ dτ₂/(1 − κκ′) and ‖f‖²_(2,t) := ∫_(Σ₂(a,t)) e^(−φ) f² dμ dτ₁/(1 − κκ′). Then
 
-    Y ≤ Y_d + 2𝒮.                                                                                     {#eq:tl5-hf-linear}
+    Y ≤ Y_d + 𝒮.                                                                                      {#eq:tl5-hf-linear}
 
 Moreover, the unweighted energies ℰ⁰ (the same with φ replaced by 0) satisfy ℰ⁰(a′, b′) ≤ e^(Φ_o(a′) + Φ_i(b′)) Y². With
 δ and 𝒮₀ the quantities Y_d and 𝒮 with φ replaced by 0, and y_sep² := sup_(a′ ≤ a) ∫_(Σ₁(a′,b)) ε₁ dμ dτ₂ + sup_(b′ ≤ b)
 ∫_(Σ₂(a,b′)) ε₂ dμ dτ₁, the sum of the two unweighted suprema taken separately,
 
-    y_sep ≤ F (δ + 2𝒮₀),      F² := 2 e^(Φ_o(a) + Φ_i(b)).                                                 {#eq:tl5-hf-f}
+    y_sep ≤ F (δ + 𝒮₀),      F² := 2 e^(Φ_o(a) + Φ_i(b)).                                                  {#eq:tl5-hf-f}
 
 *Proof.* Fix a′ ≤ a and b′ ≤ b. [[lem:tl5-hf-identity]] for each Ψ_ι on Q(a′, b′), summed with the weights, has terms
 on N₁ and on N₀ whose sum is at most Y_d², as e_o, e_i ≥ 0; the term on N₀ is zero if every Ψ_ι vanishes on N₀ ∩ Q(a,
@@ -301,8 +301,8 @@ its bulk is at most ∫_(Q(a′,b′)) e^(−φ) 2Ω̂² s (√e_o + √c √e_i
       ≤ ‖2Ω̂² s‖_(1,t) ℰ(t, b′)^(1/2) ≤ ‖2Ω̂² s‖_(1,t) Y,
 
 since ε₂ ≥ 0 and Q(t, b′) is in the family of the supremum. Integrating over t ∈ [−10, a′] and treating the term with √c
-√e_i alike on the sets Σ₂(a′, t) ⊂ Σ₂(a, t), with e_i/(1 − κκ′) ≤ ε₂, gives ℰ(a′, b′) ≤ Y_d² + 2Y𝒮. Taking the supremum,
-Y² ≤ Y_d² + 2Y𝒮, so Y ≤ 𝒮 + (𝒮² + Y_d²)^(1/2) ≤ Y_d + 2𝒮.
+√e_i alike on the sets Σ₂(a′, t) ⊂ Σ₂(a, t), with e_i/(1 − κκ′) ≤ ε₂, gives ℰ(a′, b′) ≤ Y_d² + Y𝒮. Taking the supremum,
+Y² ≤ Y_d² + Y𝒮, so Y ≤ 𝒮/2 + (𝒮²/4 + Y_d²)^(1/2) ≤ Y_d + 𝒮.
 
 Since a_o, a_i ≥ 0, φ is nondecreasing in τ₁ and τ₂, and on Q(a′, b′) it is at most Φ_o(a′) + Φ_i(b′); hence ℰ⁰(a′, b′) ≤
 e^(Φ_o(a′) + Φ_i(b′)) ℰ(a′, b′). Each of the two suprema in y_sep² is at most a supremum of ℰ⁰ over the family, so y_sep²
@@ -849,7 +849,7 @@ derivatives of G^♯ on N. Put, with s_N of [[eq:tl5-hf-sn]], ϱ and η₀ the f
               + ∫_(1/2)^(v*) sup_(Σ₂(u*,t)) (𝔞_i C_∞ e^(φ/2)) dt),
     𝔯_w := ∫_(−10)^(u*) sup_(Σ₁(t,v*)) (𝔞_o (C_(∞,ϱ) ϱ + C_(∞,0) η₀)) dt
               + ∫_(1/2)^(v*) sup_(Σ₂(u*,t)) (𝔞_i (C_(∞,ϱ) ϱ + C_(∞,0) η₀)) dt,
-    A_w := √2 δ_w + 4ε_w,      B_w := 2 S_F,
+    A_w := √2 δ_w + 2ε_w,      B_w := 2 S_F,
 
 where C_∞, C_(∞,ϱ), C_(∞,0), k₁, k₂ are evaluated at the point of the supremum, and, for a fixed ϑ ∈ (0, 1/4],
 
@@ -904,15 +904,15 @@ Hence the bulk of the weighted sum over I is at most
 
 using 2𝔤_N k₂ 𝔰 ϱ ≤ (1/4)𝔤_N k₂ ϱ.
 
-*Step 3: the inequality.* The first term is bounded as in [[prop:tl5-hf-linear]] by 2Y_s ε_w. For the second, foliate by
+*Step 3: the inequality.* The first term is bounded as in [[prop:tl5-hf-linear]] by Y_s ε_w. For the second, foliate by
 the faces Σ₁(t, b′) and Σ₂(a′, t): with e_o/(1 − κκ′) ≤ ε₁ and du dv = dτ₁ dτ₂/(1 − κκ′), ∫ e^(−φ) 𝔰 𝔞_o e_o ≤ ∫ dt
 sup_(Σ₁(t,v*)) (𝔰 𝔞_o) Y_s², and likewise for the ingoing term. By Step 1 and [[lem:tl5-hf-linfty]], 𝔰 ≤ C_∞ μ^(−N/2)
 e^(φ/2) Y_s + C_(∞,ϱ) ϱ + C_(∞,0) η₀ at every point. So for every a′ ≤ u*, b′ ≤ s,
 
-    (1 − ϑ) Σ_I μ^|I| ℰ_I(a′, b′) ≤ δ_w² + 2Y_s ε_w + 𝔯_w Y_s² + S_F Y_s³,
+    (1 − ϑ) Σ_I μ^|I| ℰ_I(a′, b′) ≤ δ_w² + Y_s ε_w + 𝔯_w Y_s² + S_F Y_s³,
 
-and taking the supremum, with ϑ ≤ 1/4 and 𝔯_w ≤ 1/4, Y_s² ≤ 2δ_w² + 4Y_s ε_w + 2S_F Y_s³. If Y_s ≥ √2 δ_w this gives Y_s
-≤ 2δ_w²/Y_s + 4ε_w + 2S_F Y_s² ≤ √2 δ_w + 4ε_w + 2S_F Y_s², and otherwise the same holds trivially. ∎
+and taking the supremum, with ϑ ≤ 1/4 and 𝔯_w ≤ 1/4, Y_s² ≤ 2δ_w² + 2Y_s ε_w + 2S_F Y_s³. If Y_s ≥ √2 δ_w this gives Y_s
+≤ 2δ_w²/Y_s + 2ε_w + 2S_F Y_s² ≤ √2 δ_w + 2ε_w + 2S_F Y_s², and otherwise the same holds trivially. ∎
 
 The factor F of the linear estimate enters A_w B_w only through e^(φ/2) in S_F, that is linearly: the nonlinear error
 made at a point is amplified from there to the future boundary, and the weight e^(−φ) records that it is quadratic in the
@@ -971,7 +971,7 @@ satisfies η₀ < 𝔰₁;
 
 (c) the constants of [[def:tl5-hf-constants]] satisfy 𝔯_w ≤ 1/4, 𝔰_* < 𝔰₁ and the closing condition
 
-    4 A_w B_w = 8 (√2 δ_w + 4ε_w) S_F < 1.                                                           {#eq:tl5-hf-closing}
+    4 A_w B_w = 8 (√2 δ_w + 2ε_w) S_F < 1.                                                           {#eq:tl5-hf-closing}
 
 Then there is a solution g of the reduced problem on D^κ, and Y_σ(g) ≤ 2A_w for every σ ∈ [1/2, v*]. It is a G-invariant
 vacuum metric in the wave gauge, with |g − ĝ|_k̂ < κ_m/2 and 𝔰 ≤ 𝔰_* on D^κ, and the quantity ε of [[eq:tl5-dn-eps]] for
@@ -1007,7 +1007,11 @@ on S³ uses two rotations, and each further derivative transverse to the leaves 
 A product D̂Ψ_B D̂Ψ_(B′) with |B| + |B′| = N then has a factor bounded at the point exactly when N ≥ 5, which is the
 condition of [[lem:tl5-hf-quadratic]]; at level N + 1, with the bounds of level N only, the same count needs N + 1 ≥ 7,
 that is N ≥ 6, which is the condition of [[lem:tl5-hf-persistence]]. These conditions belong to this way of bounding
-the products, with one factor at a point and the others in the energies.
+the products, with one factor at a point and the others in the energies; the estimate (H1) itself needs N ≥ 5, and
+N ≥ 6 enters only through the proof of (H2). One requirement does not depend on the method: the passage to the
+double-null gauge needs |D̂²h| at every point, the quantity ε of [[eq:tl5-dn-eps]] being a C² distance, bounded through
+[[lem:tl5-hf-conversions]] (b). The face energies of level 3 control D̂²h only in H² of the four-dimensional faces, and
+H² of a four-dimensional manifold does not embed in L^∞; so they give no bound of |D̂²h| at a point.
 
 ### Placement
 
