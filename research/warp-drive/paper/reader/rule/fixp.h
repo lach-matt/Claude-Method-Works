@@ -112,6 +112,15 @@ template<int LA, int LB> static inline void mulmag(const uint64_t* A, const uint
   }
   P[LA + LB - 1] = c0;
 }
+// every pair of limb counts 1..L to its unrolled kernel (small operands are common: most jets are tiny)
+template<int L, int LA, int LB> struct MulTab {
+  static inline void run(int la, int lb, const uint64_t* A, const uint64_t* B, uint64_t* P) {
+    if (la == LA && lb == LB) { mulmag<LA, LB>(A, B, P); return; }
+    if constexpr (LB > 1) MulTab<L, LA, LB - 1>::run(la, lb, A, B, P);
+    else if constexpr (LA > 1) MulTab<L, LA - 1, L>::run(la, lb, A, B, P);
+  }
+};
+template<int L> inline void mul_dispatch(int la, int lb, const uint64_t* A, const uint64_t* B, uint64_t* P) { MulTab<L, L, L>::run(la, lb, A, B, P); }
 // a ⊙ b
 template<int L, int FL> inline Fx<L, FL> operator*(const Fx<L, FL>& a, const Fx<L, FL>& b) {
   uint64_t A[L], Bm[L], P[2 * L];
@@ -120,18 +129,7 @@ template<int L, int FL> inline Fx<L, FL> operator*(const Fx<L, FL>& a, const Fx<
   while (la > 0 && A[la - 1] == 0) la--;
   while (lb > 0 && Bm[lb - 1] == 0) lb--;
   for (int i = 0; i < 2 * L; i++) P[i] = 0;
-  if (la == L && lb == L) mulmag<L, L>(A, Bm, P);
-  else if (la == L && lb == L - 1) mulmag<L, L - 1>(A, Bm, P);
-  else if (la == L - 1 && lb == L) mulmag<L - 1, L>(A, Bm, P);
-  else if (la == L - 1 && lb == L - 1) mulmag<L - 1, L - 1>(A, Bm, P);
-  else {
-    for (int i = 0; i < la; i++) {
-      uint64_t ai = A[i]; if (!ai) continue;
-      u128 c = 0;
-      for (int j = 0; j < lb; j++) { u128 t = (u128)ai * Bm[j] + P[i + j] + (uint64_t)c; P[i + j] = (uint64_t)t; c = t >> 64; }
-      P[i + lb] = (uint64_t)c;
-    }
-  }
+  if (la && lb) mul_dispatch<L>(la, lb, A, Bm, P);
   for (int i = FL + L; i < 2 * L; i++) if (P[i]) fx_fail("overflow in a product");
   uint64_t rnz = 0; for (int i = 0; i < FL; i++) rnz |= P[i];
   return fx_from_mag<L, FL>(P + FL, na != nb, rnz != 0);
@@ -169,7 +167,9 @@ template<int L, int FL> inline Fx<L, FL> divi(const Fx<L, FL>& a, int64_t n) {
   DivInv di = n < 128 ? divinv_small(n) : make_divinv((uint64_t)n);
   uint64_t A[L], Q[L]; bool na = fx_abs(a, A);
   uint64_t r = di.s ? A[L - 1] >> (64 - di.s) : 0;
-  for (int i = L - 1; i >= 0; i--) {
+  int top = L - 1; while (top >= 0 && A[top] == 0) { Q[top] = 0; top--; }    // leading zero limbs: zero quotient, r stays 0
+  if (top < L - 1) r = (di.s && top >= 0) ? A[top] >> (64 - di.s) : 0;   // the shifted dividend's limb top + 1
+  for (int i = top; i >= 0; i--) {
     uint64_t u0 = di.s ? (A[i] << di.s) | (i ? A[i - 1] >> (64 - di.s) : 0) : A[i];
     Q[i] = udiv_preinv(r, u0, di.d, di.v, &r);
   }

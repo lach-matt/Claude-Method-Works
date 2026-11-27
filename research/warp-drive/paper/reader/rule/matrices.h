@@ -1,4 +1,4 @@
-// matrices.h: S-RULE §3.3 -- node sets and the spectral matrices, each entry ⌊e⌋_B of an exact rational e determined
+// matrices.h: P-APPC2 def:appc-nodes -- node families and their matrices, each entry ⌊e⌋_B of an exact rational e determined
 // by the (dyadic) nodes, computed with GMP integers.  The algorithms here are deliberately not the reference's
 // (rule_ref.py builds Lagrange polynomials and integrates them; this file uses closed forms), so that agreement of the
 // two is a check of both.
@@ -12,10 +12,7 @@ struct Mat { int r = 0, c = 0; std::vector<F> a; std::vector<S> s;   // the entr
   void finish() { s.resize(a.size()); for (size_t i = 0; i < a.size(); i++) s[i] = to_sm(a[i]); } };
 
 inline Vec lobatto(int p) { Vec t(p + 1); for (int j = 0; j <= p; j++) t[j] = -chat(j, p); return t; }
-inline Vec radau(int p) {
-  Vec t(p + 1); for (int j = 0; j <= p; j++) t[j] = chat(2 * j, 2 * p + 1);
-  std::sort(t.begin(), t.end(), [](const F& a, const F& b) { return a < b; }); return t;
-}
+inline Vec radau(int p) { Vec t(p + 1); for (int j = 0; j <= p; j++) t[j] = chat(2 * (p - j), 2 * p + 1); return t; }
 inline Vec xnodes(int M) { Vec t(M + 1); for (int k = 0; k <= M; k++) t[k] = chat(k, M); return t; }
 
 inline std::vector<Z> to_ints(const Vec& t) { std::vector<Z> T(t.size()); for (size_t i = 0; i < t.size(); i++) fx_to_mpz(t[i], T[i].v); return T; }
@@ -58,6 +55,37 @@ inline Mat Dmat(const Vec& t) {
         mpz_sub(df.v, T[j].v, T[k].v); mpz_mul(num.v, num.v, df.v); mpz_add(num.v, num.v, den.v); mpz_mul(den.v, den.v, df.v); }
       mpz_mul_2exp(num.v, num.v, 2 * BITS); mpz_fdiv_q(num.v, num.v, den.v); D.a[(size_t)i * n + j] = fx_from_mpz<6, 5>(num.v);
     }
+  }
+  D.finish(); return D;
+}
+// D²_ij = ℓ″_j(τ_i), exactly: with δ_ik = T_i − T_k, d_i = Π_{k≠i} δ_ik and S_i = Σ_{k≠i} 1/δ_ik = N_i/d_i,
+//   off the diagonal ℓ″_j(τ_i) = 2 ℓ′_j(τ_i) (S_i − 1/δ_ij) = 2^(2B+1) (N_i δ_ij − d_i)/(d_j δ_ij²),
+//   on it ℓ″_j(τ_j) = S_j² − Σ_{k≠j} 1/δ_jk² (in units of 2^(2B)).
+inline Mat D2mat(const Vec& t) {
+  int n = t.size(); std::vector<Z> T = to_ints(t), d = denoms(T), N(n), P(n), E(n);
+  Z df, sq, a, b2;
+  for (int i = 0; i < n; i++) {
+    Z num(0), den(1), pn(0), pd(1);
+    for (int k = 0; k < n; k++) if (k != i) {
+      mpz_sub(df.v, T[i].v, T[k].v);
+      mpz_mul(num.v, num.v, df.v); mpz_add(num.v, num.v, den.v); mpz_mul(den.v, den.v, df.v);   // Σ 1/δ
+      mpz_mul(sq.v, df.v, df.v); mpz_mul(pn.v, pn.v, sq.v); mpz_add(pn.v, pn.v, pd.v); mpz_mul(pd.v, pd.v, sq.v);   // Σ 1/δ²
+    }
+    N[i] = num; P[i] = pn; E[i] = pd;                     // den equals d[i]
+  }
+  Mat D; D.r = D.c = n; D.a.resize((size_t)n * n);
+  for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) {
+    Z num, den;
+    if (i != j) {
+      mpz_sub(df.v, T[i].v, T[j].v);
+      mpz_mul(num.v, N[i].v, df.v); mpz_sub(num.v, num.v, d[i].v); mpz_mul_2exp(num.v, num.v, 3 * BITS + 1);
+      mpz_mul(den.v, df.v, df.v); mpz_mul(den.v, den.v, d[j].v);
+    } else {
+      mpz_mul(a.v, N[j].v, N[j].v); mpz_mul(a.v, a.v, E[j].v);           // N² E − P d²
+      mpz_mul(b2.v, d[j].v, d[j].v); mpz_mul(num.v, P[j].v, b2.v); mpz_sub(num.v, a.v, num.v); mpz_mul_2exp(num.v, num.v, 3 * BITS);
+      mpz_mul(den.v, b2.v, E[j].v);
+    }
+    mpz_fdiv_q(num.v, num.v, den.v); D.a[(size_t)i * n + j] = fx_from_mpz<6, 5>(num.v);
   }
   D.finish(); return D;
 }
@@ -115,13 +143,15 @@ inline Mat dotsq(const Mat& A) {
   for (int i = 0; i < n; i++) for (int j = 0; j < n; j++) R.a[(size_t)i * n + j] = dot<6, 5>(&A.s[(size_t)i * n], 1, &col[(size_t)j * n], 1, n);
   R.finish(); return R;
 }
-// C_nm = ⌊(2/N) ε_n ε_m ĉ((nm mod 2N)/N)⌋_B, ε = 1/2 at the two ends
-inline Mat dctmat(int N) {
+// Ĉ^N_na = ⌊2 ω_n ω_a ĉ(n(N − a), N)/N⌋_B (values at the increasing nodes −ĉ(a, N) to Chebyshev coefficients) and
+// Ĉ^(x,M)_nk = ⌊2 ω_n ω_k ĉ(nk, M)/M⌋_B (values at the angular nodes), ω = 1/2 at the two ends
+inline Mat chebmat(int N, bool angular) {
   Mat C; C.r = C.c = N + 1; C.a.resize((size_t)(N + 1) * (N + 1));
   std::vector<F> ch(2 * N); for (int r = 0; r < 2 * N; r++) ch[r] = chat(r, N);
-  for (int n = 0; n <= N; n++) for (int m = 0; m <= N; m++) {
-    long num = 2, den = N; if (n == 0 || n == N) den *= 2; if (m == 0 || m == N) den *= 2;
-    C.a[(size_t)n * (N + 1) + m] = divi(mul_int(ch[((long)n * m) % (2 * N)], num), den);
+  for (int n = 0; n <= N; n++) for (int a = 0; a <= N; a++) {
+    long den = N; if (n == 0 || n == N) den *= 2; if (a == 0 || a == N) den *= 2;
+    long arg = angular ? (long)n * a : (long)n * (N - a);
+    C.a[(size_t)n * (N + 1) + a] = divi(mul_int(ch[arg % (2 * N)], 2), den);
   }
   C.finish(); return C;
 }
@@ -136,11 +166,16 @@ inline void lagr_values(const std::vector<Z>& X, const std::vector<Z>& dn, const
     out[j] = to_sm(fx_from_mpz<6, 5>(num.v));
   }
 }
-// The exact Chebyshev resampling in x from M1 to M2 nodes: R_kl = ⌊ℓ^(M1)_l(x^(M2)_k)⌋_B, the M1-interpolant
-// evaluated at the M2-nodes with one floor per value (extension; S-RULE §6 "per-column M") [Q27]
-inline Mat resample_mat(const Vec& x1, const Vec& x2) {
-  std::vector<Z> X = to_ints(x1), d = denoms(X);
-  Mat R; R.r = x2.size(); R.c = x1.size(); R.a.resize((size_t)R.r * R.c);
-  for (int k = 0; k < R.r; k++) { std::vector<S> lv; lagr_values(X, d, x2[k], lv); for (int l = 0; l < R.c; l++) R.a[(size_t)k * R.c + l] = from_sm<6, 5>(lv[l]); }
-  R.finish(); return R;
+// def:appc-resample: L′_k′ := ⟨(ĉ(n k′, M′))_n, c⟩ with c := Ĉ^(x,M) ⋆_k L
+struct Resampler { int M1 = 0, M2 = 0; Mat CX, EV; };
+inline Resampler make_resampler(int M1, int M2) {
+  Resampler r; r.M1 = M1; r.M2 = M2; r.CX = chebmat(M1, true);
+  r.EV.r = M2 + 1; r.EV.c = M1 + 1; r.EV.a.resize((size_t)(M2 + 1) * (M1 + 1));
+  for (int k = 0; k <= M2; k++) for (int n = 0; n <= M1; n++) r.EV.a[(size_t)k * (M1 + 1) + n] = chat((long)n * k, M2);
+  r.EV.finish(); return r;
+}
+inline void resample_vals(const Resampler& r, const S* L, F* out) {      // L: M1 + 1 values (sign-magnitude)
+  std::vector<S> c(r.M1 + 1);
+  for (int n = 0; n <= r.M1; n++) c[n] = to_sm(dot<6, 5>(&r.CX.s[(size_t)n * (r.M1 + 1)], 1, L, 1, r.M1 + 1));
+  for (int k = 0; k <= r.M2; k++) out[k] = dot<6, 5>(&r.EV.s[(size_t)k * (r.M1 + 1)], 1, c.data(), 1, r.M1 + 1);
 }

@@ -1,5 +1,4 @@
-// exactfn.h: S-RULE §3.2 -- the elementary functions and constants as stated finite computations in the model.
-// Every choice the text leaves open is marked [Qn] (rule/README.md, "Questions for the specification").
+// exactfn.h: P-APPC2 def:appc-functions -- the elementary functions and constants as stated finite computations.
 #pragma once
 #include "fixp.h"
 #include <vector>
@@ -21,13 +20,13 @@ template<class T> inline int bitlen(const T& a) {  // bit length of the (positiv
   return 0;
 }
 
-// the least k >= 0 with |y| <= 2^(k-3), and z = y ⊘ 2^k
+// the least k >= 0 with 8|y| <= 2^k, and z = y ⊘ 2^k
 template<class T> inline int kz(const T& y, T& z) {
   T a = fx_neg(y) ? -y : y; int k = 0;
   while (a > pow2<T>(k - 3)) k++;
   z = shr(y, k); return k;
 }
-// exp(y): E := 1; for n = deg..1: E := 1 + ((z ⊙ E) ⊘ n); then k squarings
+// (a) exp y: E_45 := 1, E_(n-1) := 1 + (z ⊙ E_n) ⊘ n, then k squarings
 template<class T> inline T expF(const T& y, int deg = 45) {
   T z; int k = kz(y, z); const T o = one<T>(); T E = o;
   for (int n = deg; n >= 1; n--) E = o + divi(z * E, n);
@@ -57,26 +56,33 @@ inline void machin(F& pi) {
   pi = fx_from_mpz<6, 5>(r.v);
 }
 
-// log(y), y > 0
+// (c) log y, y > 0: w := y ⊘ 2^m (exact for m <= 0); if w >= 3/2, w := w ⊘ 2, m := m + 1; t := (w − 1) ⊘ (w + 1)
 inline F logF(const F& y) {
   if (fx_neg(y) || fx_iszero(y)) fx_fail("log of a non-positive number");
   int m = bitlen(y) - 1 - BITS;                             // 2^m <= y < 2^(m+1)
-  if (!(y < mul_int(pow2<F>(m - 1), 3))) m++;               // w >= 3/2: w := w/2, m := m + 1
-  F p2 = pow2<F>(m);
-  F t = fdiv(y - p2, y + p2);                               // (w - 1) ⊘ (w + 1), w exact [Q3]
-  F t2 = t * t, P = CS.logc[70];
-  for (int j = 69; j >= 0; j--) P = CS.logc[j] + t2 * P;    // Horner in t ⊙ t [Q5]
+  F w = m > 0 ? shr(y, m) : y;
+  if (m < 0) { for (int i = 0; i < -m; i++) w = mul_int(w, 2); }
+  if (!(w < mul_int(pow2<F>(-1), 3))) { w = shr(w, 1); m++; }
+  const F o = one<F>();
+  F t = fdiv(w - o, w + o), u = t * t, P = CS.logc[70];
+  for (int j = 69; j >= 0; j--) P = CS.logc[j] + u * P;
   return mul_int(CS.l2, m) + mul_int(t * P, 2);
 }
-// (sin y, cos y)
-inline void sincosF(const F& y, F& S, F& C) {
-  F z; int k = kz(y, z);
-  S = CS.sinc[45]; for (int n = 44; n >= 0; n--) S = CS.sinc[n] + z * S;     // Horner in z [Q4]
-  C = CS.cosc[44]; for (int n = 43; n >= 0; n--) C = CS.cosc[n] + z * C;
-  for (int i = 0; i < k; i++) { F S2 = mul_int(S, 2) * C, C2 = C * C - S * S; S = S2; C = C2; }   // [Q2]
+// (b) sin y, cos y: u := z ⊙ z; S_22 = C_22 := 1; S_(j-1) := 1 − (u ⊙ S_j) ⊘ (2j(2j+1)), C_(j-1) := 1 − (u ⊙ C_j) ⊘ ((2j−1)2j);
+// (s, c) := (z ⊙ S_0, C_0); k times (s, c) := (2 (s ⊙ c), c ⊙ c − s ⊙ s)
+inline void sincosF(const F& y, F& s, F& c) {
+  F z; int k = kz(y, z); const F o = one<F>(); F u = z * z, S = o, C = o;
+  for (int j = 22; j >= 1; j--) { S = o - divi(u * S, (int64_t)2 * j * (2 * j + 1)); C = o - divi(u * C, (int64_t)(2 * j - 1) * 2 * j); }
+  s = z * S; c = C;
+  for (int i = 0; i < k; i++) { F s2 = mul_int(s * c, 2), c2 = c * c - s * s; s = s2; c = c2; }
 }
-inline F chat(long num, long den) {                         // ĉ(num/den) = cos(π̂ ⊙ ⌊num/den⌋_B) [Q6]
-  F S, C; sincosF(CS.pi * fl_rat<F>(num, den), S, C); return C;
+// (e) ĉ(j, n), standing for cos(π j/n)
+inline F chat(long j, long n) {
+  j %= 2 * n; if (j < 0) j += 2 * n;
+  if (j == 0) return one<F>();
+  if (j == n) return -one<F>();
+  if (j > n) j = 2 * n - j;
+  F s, c; sincosF(divi(mul_int(CS.pi, j), n), s, c); return c;
 }
 inline void sinhcosh(const F& y, F& sh, F& ch) {
   F e1 = expF(y), e2 = expF(-y); sh = divi(e1 - e2, 2); ch = divi(e1 + e2, 2);
@@ -85,20 +91,10 @@ inline void sinhcosh(const F& y, F& sh, F& ch) {
 inline void init_consts(int seed) {
   machin(CS.pi);
   { Z s(0), num, den, t, three(3); mpz_set_ui(num.v, 1); mpz_mul_2exp(num.v, num.v, BITS);
-    for (int j = 0; j <= 100; j++) { mpz_pow_ui(den.v, three.v, 2 * j + 1); mpz_mul_si(den.v, den.v, 2 * j + 1);
+    for (int j = 0; j <= 110; j++) { mpz_pow_ui(den.v, three.v, 2 * j + 1); mpz_mul_si(den.v, den.v, 2 * j + 1);
       mpz_fdiv_q(t.v, num.v, den.v); mpz_add(s.v, s.v, t.v); }
     mpz_mul_si(s.v, s.v, 2); CS.l2 = fx_from_mpz<6, 5>(s.v); }
   CS.logc.resize(71); for (int j = 0; j <= 70; j++) CS.logc[j] = fl_rat<F>(1, 2 * j + 1);
-  // Taylor coefficients ⌊±1/n!⌋_B (zero where the polynomial has none)
-  CS.sinc.assign(46, fx_zero<6, 5>()); CS.cosc.assign(45, fx_zero<6, 5>());
-  { Z fact(1), one_(1), sgnd;
-    for (int n = 0; n <= 45; n++) {
-      if (n > 0) mpz_mul_si(fact.v, fact.v, n);
-      long sg = 0;
-      if (n % 2 == 1) sg = ((n - 1) / 2) % 2 ? -1 : 1;
-      if (sg) { mpz_set_si(sgnd.v, sg); CS.sinc[n] = fl_ratz<F>(sgnd.v, fact.v); }
-      if (n % 2 == 0 && n <= 44) { mpz_set_si(sgnd.v, (n / 2) % 2 ? -1 : 1); CS.cosc[n] = fl_ratz<F>(sgnd.v, fact.v); }
-    } }
   CS.half = fl_rat<F>(1, 2);
   F o = one<F>();
   CS.xi0 = -logF(fx_int<6, 5>(4500) + fsqrt(fx_int<6, 5>(20250001)));
