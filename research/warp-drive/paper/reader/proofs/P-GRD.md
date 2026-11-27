@@ -16,12 +16,13 @@ Throughout, N ≥ 4 and μ ∈ (0, 1]; for N = 4 the quantities 𝔰, 𝔧 and �
 [[lem:tl5-hf4-linfty]] takes the place of [[lem:tl5-hf-linfty]].
 
 **Definition {#def:tl5-hfg-graded}** (Graded quantities.) Let h be a C^(N+2) symmetric 2-tensor field with g = ĝ + h
-Lorentzian. At a point let Λ₀ ≤ Λ₁ ≤ ⋯ ≤ Λ_N be nonnegative numbers such that Λ_k bounds the norms of ℒ^B R̂ for |B| ≤
-k and, if k ≥ 1, those of ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z] and D̂ℒ^B Γ′[π^Z] for |B| ≤ k − 1 and Z ∈ Γ; for k ≥ 1
-let λ_k bound the norms of ℒ^K ĝ⁻¹ for the words K with |K| = k; and put Λ̄_k := max(Λ_k, Λ_k²), λ₀ := 1, λ̂₀ := √5
-and λ̂_k := λ_k for k ≥ 1. A background factor ℒ^B R̂ carries the |B| letters of B, and ℒ^B π^Z, ℒ^B Γ′[π^Z],
-ℒ^B D̂Γ′[π^Z] and D̂ℒ^B Γ′[π^Z] carry the |B| + 1 letters of B and Z; so a factor of these kinds that carries k letters
-has norm at most Λ_k. For m ≥ 1 and a function f on ℕ^m write
+Lorentzian. At a point let Λ₀ := 0 ≤ Λ₁ ≤ ⋯ ≤ Λ_N be numbers such that, for k ≥ 1, Λ_k bounds the norms of
+ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z] and D̂ℒ^B Γ′[π^Z] for |B| ≤ k − 1 and Z ∈ Γ; for 0 ≤ k ≤ N let Λ^R_k bound the
+norms of ℒ^B R̂ for the words B with |B| = k, and for 1 ≤ k ≤ N let λ_k bound those of ℒ^K ĝ⁻¹ for the words K with
+|K| = k; and put Λ̄_k := max(Λ_k, Λ_k²), λ₀ := 1, λ̂₀ := √5 and λ̂_k := λ_k for k ≥ 1. A background factor ℒ^B R̂
+carries the |B| letters of B, and ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z] and D̂ℒ^B Γ′[π^Z] carry the |B| + 1 letters of B
+and Z; so a factor of the last four kinds that carries at most k letters has norm at most Λ_k. For m ≥ 1 and a function
+f on ℕ^m write
 
     Σ^m_n f := Σ_(k∈ℕ^m, k₁+⋯+k_m=n) (n!/(k₁! ⋯ k_m!)) f(k),
 
@@ -29,9 +30,9 @@ and put, with 𝔤₀ and the ordered Bell numbers F_k of [[def:tl5-hf-levels]],
 
     β₁^g(0) := β₂^g(0) := 1,   β₁^g(k) := 1 + (2^(k+1) − 2) Λ_k,   β₂^g(k) := 1 + (7/3)(4^k − 1) Λ̄_k,
     b_g^g(0) := 𝔤₀,   b_g^g(k) := F_k 𝔤₀^(k+1) (Λ_k + 1)^k,   b_H^g(0) := 1,   b_H^g(k) := (2k + 1) b_g^g(k),
-    𝔠^g_n := Σ²_n b_H^g(k₁) β₂^g(k₂) − 1 + 5 Σ³_n b_H^g(k₁) Λ_(k₂) + 16 Σ⁴_n b_g^g(k₁) b_g^g(k₂) β₁^g(k₃) β₁^g(k₄),
-    𝔠^Q_n := Σ⁴_n λ_(k₁) λ_(k₃) β₂^g(k₄) − 1 + 5 Σ⁵_n λ_(k₁) λ_(k₃) Λ_(k₄) + 16 Σ⁴_n λ̂_(k₁) λ̂_(k₂) β₁^g(k₃) β₁^g(k₄),
-    𝔠^(3)_n := Σ⁶_n b_g^g(k₁) λ_(k₃) λ_(k₅) β₂^g(k₆) − 𝔤₀ + 5 Σ⁷_n b_g^g(k₁) λ_(k₃) λ_(k₅) Λ_(k₆)
+    𝔠^g_n := Σ²_n b_H^g(k₁) β₂^g(k₂) − 1 + 5 Σ³_n b_H^g(k₁) Λ^R_(k₂) + 16 Σ⁴_n b_g^g(k₁) b_g^g(k₂) β₁^g(k₃) β₁^g(k₄),
+    𝔠^Q_n := Σ⁴_n λ_(k₁) λ_(k₃) β₂^g(k₄) − 1 + 5 Σ⁵_n λ_(k₁) λ_(k₃) Λ^R_(k₄) + 16 Σ⁴_n λ̂_(k₁) λ̂_(k₂) β₁^g(k₃) β₁^g(k₄),
+    𝔠^(3)_n := Σ⁶_n b_g^g(k₁) λ_(k₃) λ_(k₅) β₂^g(k₆) − 𝔤₀ + 5 Σ⁷_n b_g^g(k₁) λ_(k₃) λ_(k₅) Λ^R_(k₆)
                + 16 Σ⁶_n b_g^g(k₁) λ_(k₃) (b_g^g(k₄) + λ̂_(k₄)) β₁^g(k₅) β₁^g(k₆),                        {#eq:tl5-hfg-cn}
 
 k ≥ 1 where not stated. Fix 𝔰_♭ ∈ (0, 1/8] and one of the two choices 𝔠^⋆_n := 𝔠^g_n, the first expansion, or 𝔠^⋆_n :=
@@ -51,9 +52,9 @@ The order of a solution factor H, Ψ_B, D̂Ψ_B or D̂²Ψ_B is 0, |B|, |B| + 1 
 low quantity of order o enters 𝔰_g^(m) with the weight μ^((o+2)/2), and o + 2 ≤ N, so 𝔰_g^(N−4) ≤ 𝔰 ≤ μ^(−N/2)
 𝔰_g^(N−4). For μ = 1, 𝒥_g, M_g, 𝔰_g^(N−4) and ℰ_g(p) are 𝒥₁, M₂, 𝔰 and ℰ⁰_N(p) of [[lem:tl5-hf-linfty]].
 
-Every Λ as in [[def:tl5-hf-levels]] or [[def:tl5-hf4-levels]] may be taken for every Λ_k, as it bounds the five kinds
-of factors for words of length at most N; so 𝔠^g_n ≤ 𝔠_n, by Λ ≥ 1 and Σ_(j≤n−k) C(n − k, j) Λ_j ≤ 2^(n−k) Λ, with the
-binomial coefficients C(·, ·). And λ_k := Σ_(r=1)^k r! S(k, r) 5^((r+1)/2) Λ_k^r may be taken, S(k, r) the Stirling
+Every Λ as in [[def:tl5-hf-levels]] or [[def:tl5-hf4-levels]] may be taken for every Λ_k, k ≥ 1, and every Λ^R_k, as
+it bounds the five kinds of factors for words of length at most N; so 𝔠^g_n ≤ 𝔠_n, by Λ ≥ 1 and Σ_(j≤n−k) C(n − k, j)
+Λ^R_j ≤ 2^(n−k) Λ, with the binomial coefficients C(·, ·). And λ_k := Σ_(r=1)^k r! S(k, r) 5^((r+1)/2) Λ_k^r may be taken, S(k, r) the Stirling
 numbers of the second kind: by (iv) of the proof of [[lem:tl5-hf-quadratic]] with h = 0, ℒ^K ĝ⁻¹ is a sum of r! S(k, r)
 products of r + 1 factors ĝ⁻¹, of norm √5, and r factors ℒ^(B′) π^Z, each carrying at most k letters.
 
@@ -68,8 +69,8 @@ the sum over the monomials. Consequently [[eq:tl5-hf-g]] holds with 𝔠^⋆_(|I
 [[eq:tl5-hf4-g]] holds with 𝔠^⋆_(|I|) in place of 𝔠_(|I|) if N = 4, 𝔑^L_I and 𝔑^M_I being formed from the chosen
 expansion.
 
-*Proof.* *The first expansion.* It is that of the proof of [[lem:tl5-hf-quadratic]]. In (i) there, ℒ^J R̂ carries
-the |J| letters of J, so its norm is at most Λ_(|J|). In (ii), with k := |J|, each monomial of R′_J has one coefficient
+*Proof.* *The first expansion.* It is that of the proof of [[lem:tl5-hf-quadratic]]. In (i) there, ℒ^J R̂ has norm at
+most Λ^R_(|J|). In (ii), with k := |J|, each monomial of R′_J has one coefficient
 ℒ^B Γ′[π^Z] whose letters are among those of J, so its norm is at most Λ_k, and ℒ^J D̂h is a sum of monomials of total
 background norm at most β₁^g(k). In (iii) each monomial of R_J has at most two background factors, carrying letters of
 J, so their product is at most Λ̄_k, and the total is at most β₂^g(k). In (iv) each factor ℒ^B ĝ = ℒ^(B′) π^Z carries
@@ -91,7 +92,7 @@ argument, N(h) = Q + R₃ with
 So ℒ^I N(h) − H^(αβ) D̂_αD̂_βΨ_I is the sum of ℒ^I Q − H₁^(αβ) D̂_αD̂_βΨ_I and ℒ^I R₃ − H₂^(αβ) D̂_αD̂_βΨ_I. Expand
 ℒ^I of each term by Leibniz's rule over its factors, as in the proof of [[lem:tl5-hf-quadratic]]: ℒ^J h = Ψ_J;
 ℒ^J D̂h, ℒ^J D̂²h and ℒ^J g⁻¹ by (ii), (iii) and (iv) there, with the bounds β₁^g, β₂^g and b_g^g of the first part;
-ℒ^J R̂ with norm at most Λ_(|J|); and ℒ^K ĝ⁻¹, for K ≠ ∅, as one background factor of norm at most λ_(|K|). The factors
+ℒ^J R̂ with norm at most Λ^R_(|J|); and ℒ^K ĝ⁻¹, for K ≠ ∅, as one background factor of norm at most λ_(|K|). The factors
 ĝ⁻¹ that carry no letter in H₁, in H₂ and in H = −g⁻¹ h ĝ⁻¹ join an index of h to an index of another factor; in the
 frame F, where ĝ^MN = η^MN, such a contraction is bounded by the product of the norms of the two factors, by the
 Cauchy–Schwarz inequality, so these factors count λ₀ = 1. A factor ĝ⁻¹ of 𝒯_m that carries no letter may join two
