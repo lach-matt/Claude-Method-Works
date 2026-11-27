@@ -567,3 +567,86 @@ numbers, merge3.py and fix.py for the scratch merges). They use exact rationals 
 majorant and inequality, and mpmath at 30–60 digits for the integrals and sums. I did not use the writer's scripts.
 
 Verdict: NOT CONFIRMED
+
+---
+
+## Confirmation (P-TR.md md5 20e494d7c5d171be7b1aa6b1ca3f9880, 920 lines; report F3-P-TR)
+
+Base: HEAD 31ee2458. Its chapters are those of ebc73adf, and the working tree equals HEAD for the chapters and for
+P-TR.md. I compared the new file with my P-TR-fixed2.md.
+
+**The body** differs only by the three optional nits:
+- the first line of (iii);
+- the display and the next sentence of def:tr-excess;
+- the proof of (iii), lines 601–621, which is rewrapped because of the two added clauses.
+
+Every text of m1–m8 and of nits 1 and 4–6 is mine, word for word.
+
+**The placement and crosswalk part** follows nit 7:
+- the preamble is against HEAD;
+- items 1 and 8 cite 5499 and 5491;
+- item 1 names its sources, now including [[prop:np-10-54]] and [[prop:uc-dependence]];
+- the notes about proof files are gone.
+
+The crosswalk follows nit 8:
+- rows 1, 4, 27 and 28 carry the new notes;
+- all 28 pins are re-pinned, and each matches the line of its label, in order.
+
+**The three optional changes.**
+- **def:tr-excess.** "Z₃(h) is finite at every such h ([[prop:np-10-54]] (iii)), so μ(h) is a positive minimum and N̄(h)
+  is defined."
+  - prop:np-10-54 (iii) says that, for every h ∈ (0, 10⁻⁶] and every R > 0, only finitely many l have a root of P_l or
+    p_(v) in {|Re ι| ≤ R}. So only finitely many roots lie in that strip.
+  - Z₃(h) ⊂ {2 < Re ι < 3}, and the root of C is a root of P_0, so Z₃(h) is finite.
+  - Each m(y) is a positive minimum, being the infimum of a discrete set of positive numbers p𝔡₀ + q𝔡₁ − y. So μ(h) is
+    a positive minimum at every h, and N̄(h) is a finite sum.
+  - Dropping "(Z₃(h) finite)" from the display is right.
+- **(iii).** "0 < ε_K < ε_+ < μ(h)" replaces "< min(μ(h), 10⁻¹³)", and the proof's chain reads
+  0 < ε_K < ε_+ < μ(h) ≤ μ_G < ε_Υ ≤ ε_ind. Link by link:
+  - μ(h) ≤ μ_G holds at every h, since μ_G is in the set of which μ(h) is the infimum.
+  - μ_G < 1.64160217198·10⁻¹⁴ < 1.4619·10⁻¹⁰ = ε_Υ, by eq:is-mu.
+  - ε_Υ ≤ ε_ind := min(1, ε_ind(h)) needs h ∈ [h_m, 10⁻⁶] ∖ 𝖩 (prop:tr-eps (a)). That is the hypothesis of the theorem.
+    At admissible h outside that set it can fail (prop:tr-eps (b)), but the chain is used only in (iii), under that
+    hypothesis.
+  - ε_+ < μ_G < 10⁻¹³, which is what prop:tr-lambda and prop:uc-dependence ask.
+  - ε_K < ε_+ < ε_ind and δ_♯ = 0.0099 meet the constants of eq:iii-i9-1-1.
+- **𝒵 ⊂ {Re > 1}, at every h ([[prop:iii-f1-2-3]] (a)).** prop:iii-f1-2-3 (a) says, for z ∈ (0, ½] and under (C1), that
+  no indicial root of L̂_b(0) has real part in (0, 1].
+  - z = 4·10⁻⁶ here.
+  - (C1) holds at every h ∈ (0, 10⁻⁶], by lem:iv4-1-3 (a), which the same section cites.
+  - So every μ ∈ 𝒵, that is every root with 0 < Re μ < 3, has Re μ > 1.
+
+**Scratch merge** of HEAD + the new P-TR in
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/rptr2/merged4.
+
+Every old text occurs exactly once at HEAD:
+
+| item | file | line at HEAD |
+|---|---|---|
+| 1 | 71, heading of sec:ec-linear | 5499 |
+| 2 | 71 | 30 |
+| 3 | 71 | 85–86 |
+| 4 | 71 | 1820–1821 |
+| 5 | 03 | 364 |
+| 6 | 90 | 81 |
+| 7 | 33 | 4535–4537 |
+| 8 | 71 | 5491 |
+
+The checks:
+- `lint.py --chapters`: 62 files, 4956 labels, 0 hits.
+- `assemble.py --check`: 0 problems.
+- The in-memory check prints `[] 0`.
+- No line exceeds 121 characters after labels resolve; the longest from P-TR is 121.
+- sec:tr is Section 49.15, thm:tr-transfer Theorem 49.128 and prop:tr-mu-small Proposition 49.142.
+
+**The file:**
+- at most 121 characters per line;
+- no wrapped prose line, in the section or in any New block, starts with "+ ", "- ", "* ", "> ", "#", "=" or "|";
+- labels are lowercase;
+- the chapter text carries no file, program or commit names.
+
+J1–J3 still touch no P-TR text, and the J2 input is now named in the proof of (iii).
+
+All findings of the second reading (m1–m8, nits 1–9) are resolved, and the resolutions are right. Nothing new is open.
+
+Verdict: CONFIRMED
