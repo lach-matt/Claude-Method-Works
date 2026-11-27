@@ -6251,4 +6251,47 @@ a_i. ∎
 the cap 𝔰_(θ,v) at the cost of η and of larger rates a_o = â_o/(1 − ϑ₁), a_i = â_i/(1 − ϑ₂). The cap on the faces Σ₂
 carries κc/(1 + κc), as the density e_i + κ e_o of these faces controls the derivative along ê₄ only through κ e_o; the
 numbers κ, κ′ of [[def:tl5-wg-domains]] are those of the setting. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the
-hypotheses of [[thm:tl5-hfv]] are established in this paper for no background at 10 l5.
+hypotheses of [[thm:tl5-hfv]] are established in this paper for no background at 10 l5. [[sec:tl5-hfw]] sharpens the
+terms with ϱ ([[thm:tl5-hfw]]).
+
+### The terms with ϱ, sharpened {#sec:tl5-hfw}
+
+In the proofs of [[prop:tl5-hf-bootstrap]] and of all its sharpened forms, the part with ϱ of the nonlinear terms (at
+level four, of those other than the terms 𝔑^M_I, whose parts with ϱ go into 𝔯_M and ε_M) is a product of the residual
+with a solution factor bounded by 𝔰, and it is bounded there by (1/4) k₂ ϱ through 𝔰 ≤ 1/8. After Step 1 of the proof
+of [[thm:tl5-hfw]], 𝔰 is at most 𝔰_*^w < 𝔰₁^v on D^κ_s; this section uses that bound instead, at level four and at level
+N ≥ 6, which multiplies the coefficient of ϱ in the error ε by 8𝔰₁^v. The closing condition is [[eq:tl5-hfw-closing]];
+the earlier ones remain valid. The notation is that of [[sec:tl5-hfv]].
+
+**Definition {#def:tl5-hfw-constants}** (The constants with the terms with ϱ sharpened.) In the setting of
+[[def:tl5-hfv-constants]], let 𝔤_ϱ^v be the factor that multiplies (1/4) k₂ ϱ in ε^v: 𝔤_(ϱ,s) for N ≥ 6 with option (a)
+of [[def:tl5-hft-constants]], μ^(−1/2) 𝔤_(𝒥,s) with option (b), and min(𝔤_(ϱ,q), μ^(−1/2) 𝔤_(𝒥,s)) for N = 4. Put
+
+    ε^w := 𝒮[s_N[2R̂ic] + 2𝔰₁^v 𝔤_ϱ^v k₂ ϱ],      A_w^v := η^(−1/2) δ_w + η⁻¹ (ε^w + ε_M^v),            {#eq:tl5-hfw-eps}
+
+and let 𝔰_*^w be 𝔰_*^v with A_w^v in place of A_v.
+
+**Theorem {#thm:tl5-hfw}** (Existence close to an explicit background, with the terms with ϱ sharpened.) In the
+setting of [[thm:tl5-hfv]], suppose (a) and (b) of that theorem and (c) η > 0, 𝔰_*^w < 𝔰₁^v and the closing condition
+
+    4 A_w^v B_v = 4 η^(−3/2) (δ_w + η^(−1/2) (ε^w + ε_M^v)) (S_F^v + S_M^v) < 1.                    {#eq:tl5-hfw-closing}
+
+Then the conclusions of [[thm:tl5-hfv]] hold with A_w^v and 𝔰_*^w in place of A_v and 𝔰_*^v.
+
+*Proof.* The proof of [[thm:tl5-hfv]] applies with ε^w, A_w^v and 𝔰_*^w in place of ε^v, A_v and 𝔰_*^v, with one change
+in Step 2. Step 1 uses only 𝔰_*^w < 𝔰₁^v and gives 𝔰 ≤ 𝔰_*^w < 𝔰₁^v on D^κ_s. In Step 2, the nonlinear terms of level j
+other than 𝔑^M_I contribute to the bulk a part with 𝒥_g, bounded as there, and a part 2Ω̂² 𝔤_ϱ^v 2k₂ 𝔰 ϱ (√e_o + √c
+√e_i): in each monomial the factor bounded by its part with ϱ is multiplied by a factor Φ₁ with |Φ₁| ≤ 𝔰, or, in
+H^(αβ) D̂_αD̂_βΨ_J, by H with |H| ≤ 𝔰, as in the proofs of [[lem:tl5-hfs-products]], [[lem:tl5-hft-products]] and
+[[lem:tl5-hfq-theta]]; the constant 𝔤_ϱ^v is the one of those proofs, and the terms 𝔑^M_I are bounded as there. There
+the bound 2k₂ 𝔰 ϱ ≤ (1/4) k₂ ϱ was used; we use 2k₂ 𝔰 ϱ ≤ 2𝔰₁^v k₂ ϱ, by Step 1. As in the proof of
+[[prop:tl5-hf-linear]], this part together with the forcing term 2Ω̂² s_N[2R̂ic] (√e_o + √c √e_i) is bounded by
+Y_s ε^w, in place of Y_s ε^v. ∎
+
+**Remark {#rem:tl5-hfw-what}** (The split of the error.) The residual enters the hypotheses of [[thm:tl5-hfw]] through
+ε^w and ε_M^v, and through ϱ also in 𝔯^v, and so in η, and in 𝔰_*^w. As 𝒮 is subadditive and positively homogeneous,
+ε^w ≤ 𝒮[s_N[2R̂ic]] + 2𝔰₁^v ϱ 𝒮[𝔤_ϱ^v k₂], and the hypotheses hold whenever they hold with ε^w replaced by this sum; so
+any bounds of 𝒮[s_N[2R̂ic]] and of ϱ with which they hold are admissible, and the theorem does not fix their ratio. The
+coefficient 2𝔰₁^v 𝒮[𝔤_ϱ^v k₂] of ϱ there is 8𝔰₁^v times the one for ε^v, where 𝔰₁^v ≤ 𝔰_♭/2 ≤ 1/16. As for
+[[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfw]] are established in this paper for no background
+at 10 l5.
