@@ -48,7 +48,7 @@ struct Config {
   int ncol[2] = {10, 1}, nrow[2] = {10, 1};       // [0]: away from the corner in +xi / +v; [1]: the other side
   std::vector<Real> xib[2], vbk[2];                // optional explicit breakpoints (from the corner outward)
   std::vector<Elem> el; int maxit = 80; double tol = 1e-33; double ckpt_min = 20; std::string quads = "1234";
-  int threads = 4; int stopcol = -1; int stopcells = -1;
+  int threads = 4; int stopcol = -1; int stopcells = -1; double floor = 1e-28;
 };
 static Config CF;
 static Real A_CH;                                   // 1/500
@@ -71,7 +71,7 @@ static void read_config(const std::string& fn) {
     else if (k == "elem") { Elem e; is >> a >> b >> c >> d >> e.Nt >> e.Ns; e.xlo = dd_from_string(a.c_str());
       e.xhi = dd_from_string(b.c_str()); e.vlo = dd_from_string(c.c_str()); e.vhi = dd_from_string(d.c_str()); CF.el.push_back(e); }
     else if (k == "maxit") is >> CF.maxit; else if (k == "tol") is >> CF.tol; else if (k == "ckpt_minutes") is >> CF.ckpt_min;
-    else if (k == "quadrants") is >> CF.quads; else if (k == "threads") is >> CF.threads; else if (k == "stopcol") is >> CF.stopcol; else if (k == "stopcells") is >> CF.stopcells;
+    else if (k == "quadrants") is >> CF.quads; else if (k == "threads") is >> CF.threads; else if (k == "stopcol") is >> CF.stopcol; else if (k == "stopcells") is >> CF.stopcells; else if (k == "floor") is >> CF.floor;
   }
 }
 
@@ -347,7 +347,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
     co.outer = outer + 1; co.last = rmax / gmax;
     if (verbose) fprintf(stderr, "    outer %d: |P(G) - G|/|G| = %.2e\n", outer, rmax / gmax);
     // stop at the tolerance, or at the rounding floor (no gain by a factor 4 once below 1e-29)
-    bool stall = outer > 0 && rmax / gmax < 1e-29 && rmax / gmax > 0.25 * rprev;
+    bool stall = (outer > 0 && rmax / gmax < 1e-29 && rmax / gmax > 0.25 * rprev) || rmax / gmax < CF.floor;
     rprev = rmax / gmax;
     if (rmax / gmax < CF.tol || stall) { for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + dd(r[i]); break; }
     // inner: d = r + I[Psi(G + d) - Psi(G)] in double, difference arithmetic about the current state

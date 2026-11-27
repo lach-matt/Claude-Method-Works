@@ -444,10 +444,13 @@ condition and (3):
 
 In (iii), by [[eq:class-identity]], |∇²u_in|² = S_loc := (Θ − κ1 − κ2)² + κ1² + κ2² off the axes, and by
 [[eq:class-x]] and continuity ([[prop:class-axis]] (d)), |∇²u_in|² = S_ax := κ1² + ½(Θ − κ1)² + ½σ² near axis 2,
-where σ is the planar shear of the level sets of u_in in the slices {t = s}. Fix δ := 1/2 and the points p_i of axis 2
-in a slice with ρ1(p_i) = 3.4, 3.8, …, 5.8; then δ ≤ ρ1(p_i)/4, and [[lem:class-leaf-differences]], for the background
-and the ingoing family, holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
-0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then on 𝒟,
+where σ is the planar shear of the level sets of u_in in the slices {t = s}. At the points p of axis 2 in these slices
+with 3.39 ≤ ρ1(p) ≤ 5.86, 0 ≤ s ≤ t1, take the radius r_* := 1/2 ≤ ρ1(p)/4 in [[lem:class-leaf-differences]], for the
+background and the ingoing family; its number δ_0, its balls and its constants depend only on ρ1(p), r_* and bounds of
+the background on the sets 𝒰_(r_*)(p), which are uniform over these points and times. Fix δ ∈ (0, 1/8], at most δ_0 at
+all of them, and finitely many such points p_i whose intervals (ρ1(p_i) − δ, ρ1(p_i) + δ) cover [3.39, 5.86]; then
+[[lem:class-leaf-differences]] holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
+0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ δ/2 and to 0 for ρ2 ≥ δ. Then on 𝒟,
 the square |∇²u_in|² is χ_Z S_ax + (1 − χ_Z) S_loc. Where χ_Z ≠ 1, S_loc is a smooth function of (g, ∂g, p, Θ),
 since there g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of [[prop:class-augmented]] (a));
 where χ_Z ≠ 0, S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near axis 2.
@@ -505,8 +508,8 @@ for U on [0, ρ2(y)] ([[lem:class-leaf]] (c)). That equation uses U only along t
 ∂g; so h solves it for Ŭ, and by the uniqueness in [[lem:class-volterra]] the leaf of Ŭ issued from (h(0), 0) is h on
 [0, ρ2(y)]: it is the leaf of Ŭ through y. The planar shear at y is determined by h and h′ at ρ2(y), by H_L there,
 which fixes h″ through the leaf equation, and by the values of Ŭ = U and the 1-jet of γ3 at y
-([[eq:class-shear-leaf]]); so σ[Ŭ](y) = σ(y), and likewise σ[ů] = σ̊. The sets 𝒰_δ(p_i) cover {ρ2 ≤ 1/4} ∩ 𝒟_s, where
-3.39 ≤ ρ1 ≤ 5.86, and [[lem:class-leaf-differences]] (b) gives
+([[eq:class-shear-leaf]]); so σ[Ŭ](y) = σ(y), and likewise σ[ů] = σ̊. The sets 𝒰_δ(p_i) cover {ρ2 < δ} ∩ 𝒟_s, where
+3.39 ≤ ρ1 ≤ 5.86 and outside which χ_Z = 0, and [[lem:class-leaf-differences]] (b) gives
 
     ‖χ_Z (σ − σ̊)‖_(L²(𝒟_s)) ≤ Σ_i ‖σ[Ŭ] − σ[ů]‖_(L²(𝒰_δ(p_i))) ≤ C Σ_i ‖Ŭ − ů‖_(L²(𝒰_2δ(p_i)))
                               ≤ C C_E ‖𝔡(s)‖_(L²(𝒟_s)),
@@ -2711,8 +2714,8 @@ tangent to M3 at the points of M3, by invariance. Put
                                                                                                     {#eq:loc-axis-hl}
 
 the sign that of p_A(∂_z): the formula of step (1) of the proof of [[lem:class-planar-shear]], with Θ_A, p_A^Σ and
-p_A(n) in place of Θ, ∇_Σu and n(u), and with the plane Π fixed by p_A. This is how H_L[Θ_A] of
-[[lem:class-leaf-differences]] is read: a function of the point, as [[lem:class-volterra]] requires, which for a
+p_A(n) in place of Θ, ∇_Σu and n(u), and with the plane Π fixed by p_A. This is H_L[V] as defined before
+[[lem:class-leaf-states]]: a function of the point, as [[lem:class-volterra]] requires, which for a
 solution of the class system with p_A = du_A equals that formula on each level set of u_A, Π being its tangent plane
 there. The *A-leaves* of V are the solutions of [[eq:class-leaf-volterra]] with H_L := H_L[V] through the points of the
 axis, and σ_A[V] at a point is ±2|p_A^Σ| σ_L − p_A(n)(K_Σ(e_r, e_r) − K_Σ(e_2, e_2)) for the leaf through it, the sign
@@ -2930,8 +2933,8 @@ Put Φ(τ, Z) := χ (F_0(x, 𝐔) − A^μ(x, 𝐔̊ + ϒ(Z)) ∂_μ𝐔̊) + (1
 first-order form of 𝒜^ax, its local terms evaluated at 𝐔̊ + ϒ(Z) and its term in σ_A at 𝐔. Its local part satisfies
 (F1)–(F3) and the linear bound, by [[rem:class-kato-local]] and [[lem:class-composition]] (b). Its term in σ_A is −½ χ
 ψ_ax σ_A[𝐔]² in the rows of [[eq:loc-axis-closure]], times bounded factors of the first-order form; by (d), σ_A[Ů] = 0,
-so [[lem:class-leaf-differences]] (a) about Ů, with [[lem:class-composition]] (a) for the square and sup |σ_A| bounded
-on 𝔅, bounds it in H^k by C ‖Z‖_(H^k), which gives (F1) and the linear bound; [[lem:class-leaf-differences]] (b), with
+so [[lem:class-leaf-differences]] (a) about Ů bounds σ_A[𝐔]² = σ_A[𝐔]² − σ_A[Ů]² in H^k by C ‖Z‖_(H^k), with Moser's
+estimate for the bounded factors, which gives (F1) and the linear bound; [[lem:class-leaf-differences]] (b), with
 σ_A bounded on 𝔅′, gives (F2); and (F3) follows from (F2) and the smoothness in τ of the coefficients, as in Step 9 of
 the proof of [[thm:class-stability]]. The term in σ_A at a time depends on the state at that time only. (b) is read
 off, ϒ being inactive where |Z| ≤ r_0, and (c) is proved as there.

@@ -2,10 +2,21 @@
 
 Proof file for the coordinator. Nothing in chapters/, crosswalk/ or elsewhere in the repository was edited; this is
 the only file written there, and nothing was committed. Every old text in section 6 is copied from the chapters at
-HEAD edafc288 (equal to the working tree for these files): chapter 71 md5 ef1085259abb5d8008f7300656235055; chapter 34
-(read, not changed) md5 86555dcd5b63c36b3c3266b8c7e14a3d. Each old text occurs once, as whole lines, and no two
-overlap. All thirteen texts were applied together to a scratch copy of the reader directory: lint --chapters 0 hits,
-assemble --check 0 problems, and, in the scratch copy only, assemble followed by lint --paper 0 hits (section 8).
+HEAD 99e16794 (P-TR merged; equal to the working tree for these files): chapter 71 md5
+bb53f3e845095a3cd821bf51f8c12414; chapter 34 (read, not changed) md5 86555dcd5b63c36b3c3266b8c7e14a3d. Each old text
+occurs once, as whole lines, and no two overlap. All sixteen texts were applied together to a scratch copy of the
+reader directory: lint --chapters 0 hits, assemble --check 0 problems, and, in the scratch copy only, assemble
+followed by lint --paper 0 hits (section 8).
+
+Revised after the review R-P-D0 (no Major), which read this file at ace76b95:
+
+- m1: new texts T14 and T15 qualify the title of thm:is-d0 and add one sentence to its (c) pointing to
+  thm:is-flat-serves.
+- m2: lem:iii-i7-4-1 added to the list of lem:is-flat-uses (T3) and to the audit of section 3.2.
+- m3: new text T16 makes thm:tr-transfer (iii) take the index sets as constructed, so it stays true once T6 lands.
+- n1, n2 and n3 in T3 (cor:is-flat proof, rem:is-cb-open); n4 in T5; n5 in section 7; n6 in section 5.
+- m4: the list of sites in section 4 is replaced by a pointer to the chain's evaluation step, which handles them.
+- The line numbers of section 6 are those of HEAD (the edafc288 numbers + 13 for T1–T13).
 
 ## 0. Outcome
 
@@ -110,8 +121,8 @@ To show c_b ≢ 0 for one set of data it suffices to show 𝔠 ≠ 0 at one poin
 in a₁ at b₀. That needs, at fixed explicit ζ_∞, χ, γ_(Υ,H) (and e_Υ = γ_Υ = 1/100): (1) the vector type 1 radial
 solution of (□^Υ_(b₀))^(0)ω = −η_(b₀)(0, J₁₂) (prop:iii-f3-2-2 (4): ω = r²B(r)V_i dz^i, one scalar second-order ODE on
 r > r_h with the c_Υ and c_(Υ,H) terms, regular at the horizon, decaying); (2) the scalar type 0 part of the first-order
-terms in a₁ of η_((m,a₁J₁₂))(0, J₁₂) + (□^Υ_((m,a₁J₁₂)))^(0)ω (explicit from the second-order Kerr–Schild expansion and
-B); (3) the decaying solution, regular at the horizon, of the 2 × 2 second-order system of scalar type 0 with that
+terms in a₁ of η_((m₀,a₁J₁₂))(0, J₁₂) + (□^Υ_((m₀,a₁J₁₂)))^(0)ω (explicit from the second-order Kerr–Schild expansion
+and B); (3) the decaying solution, regular at the horizon, of the 2 × 2 second-order system of scalar type 0 with that
 right side, and its coefficient of ρ^(2+𝔡₀) (roots 2 + 𝔡₀ and 3 at infinity, separated by about one power of ρ). Two
 linear ODE boundary value problems with one regular singular point at r_h and one at infinity: a certified enclosure
 with interval Taylor integration over a few thousand steps on [r_h, R] and matched asymptotic series at R. Before it,
@@ -171,8 +182,9 @@ rem:iii-f3-2-3, "ω̇", "Ȧ", "ġ_b(0", "ġ(0", "ġ_b(ḃ)", 𝒢 and ℰ_ind in
 - 37:628: result: lem:iii-h-5-2; what it uses: O(ρ³) of ġ(0, Ȧ); holds with ℰ^φ because: (iii)
 - 38:1656: result: lem:iii-i2-4-3; what it uses: 𝒜^q, q = 3; holds with ℰ^φ because: (iii)
 - 39:89–99: result: (BP3), sec:s20-setting; what it uses: 𝒜^(q−δ) with q = 3; holds with ℰ^φ because: (iii)
-- 40:125–148, 282, 444: result: sec:iii-i7-1 (eq:iii-i7-1-1), lem:iii-i7-2-2, sec:iii-i15-2-8; what it uses: ω̇(ḃ) ∈
-  𝒜^((1,0)∪(1+ℰ)), ġ(ḃ) ∈ 𝒜^𝒢; holds with ℰ^φ because: (i)
+- 40:125–148, 282, 444, 532: result: sec:iii-i7-1 (eq:iii-i7-1-1), lem:iii-i7-2-2, sec:iii-i15-2-8, lem:iii-i7-4-1 (b)
+  (ι⁺-order 2 of χ_K ġ_b(ḃ_j), χ_K h_b(Ṡ⁽⁰⁾_j)); what it uses: ω̇(ḃ) ∈ 𝒜^((1,0)∪(1+ℰ)), ġ(ḃ) ∈ 𝒜^𝒢; holds with ℰ^φ
+  because: (i)
 - 41:560–564: result: lem:iii-i11-1-1; what it uses: r²ġ_b(0, Ȧ) ∈ 𝒜^((1,0)∪(1+ℰ)) ⊂ ℰ_col; holds with ℰ^φ because: (ii)
 - 42:154, 330–345, 676–690: result: def:iii-i14-1-2, lem:iii-i14-2-4, lem:iii-j-2-1; what it uses: ġ_b(ḃ) combined;
   ι⁺-exponents in 𝒢; ∂_b h_(b,rem); holds with ℰ^φ because: (i), b-independent index sets
@@ -198,10 +210,14 @@ relative to −2.
   "for ℰ′_ind" changed; everything else verbatim.
 - def:uc-choice, lem:uc-admissible, lem:uc-gaps, lem:uc-lambda: the new choice; thm:uc-reduction (iii), sec:is
   opening, sec:is-smaller opening, rem:is-summary, rem:uc-offset-d0: the narrative.
-- Unchanged and still true: thm:is-d0 (its "if and only if" concerns the memberships in their original form),
-  cor:uc-two-offsets, cor:is-lower, thm:is-gap, prop:is-count, prop:is-lambda (all about the index sets as constructed);
-  Λ^φ ⊂ Λ, so prop:is-lambda's "every element of real part at most 2.514 is real" holds for Λ^φ, which lem:cs-fourier (b)
-  uses.
+- thm:is-d0 (T14, T15): the title says "with the memberships as stated", and (c) ends by pointing to
+  thm:is-flat-serves; its "if and only if" concerns the memberships in their original form and is unchanged.
+- thm:tr-transfer (iii) (T16): "and with the index sets as constructed", so that (iii) names one index set once
+  def:uc-choice takes ℰ^φ_ind; at h other than 10⁻⁶ the paper does not prove thm:is-flat-serves, and (iii) is
+  proved, as before, for the index sets as constructed.
+- Unchanged and still true: cor:uc-two-offsets, cor:is-lower, thm:is-gap, prop:is-count, prop:is-lambda (all about
+  the index sets as constructed); Λ^φ ⊂ Λ, so prop:is-lambda's "every element of real part at most 2.514 is real"
+  holds for Λ^φ, which lem:cs-fourier (b) uses.
 
 ## 4. The new choice and what the chain gives
 
@@ -229,35 +245,35 @@ present choice exactly), with D_e := 2.06834·10²³ ≥ F_1 = 2.0683343797…·
 | 22D_NM + 345 | 2,007,562,081,839,613,002,186,412,700,130,390,709,540,833,811 < 2.00757·10⁴⁵ |
 | 3R at the choice (prop:ec-rounds) | > 2.0538·10²³; D_e < 1.0071 · 3R |
 
-These are guidance for the chain's own evaluation step, which produces the printed integers. The sites that quote
-the bound or the choice and must take the new values (not drafted here, being the chain's): the chapter opening
-(71:20–34), thm:loss-d's last sentence and closing (71:1491–1503), rem:ec-lb-unbounded (71:1810–1819),
-rem:ec-upper-point, rem:ec-upper-open (71:2205–2245), sec:uc-close (71:2255–2270), prop:uc-explicit, lem:uc-n-iota,
-lem:cs-levels, lem:cs-iterations, lem:cs-rest, prop:cs-cstar, lem:cs-sharp, lem:uc-small-orders, rem:uc-small-reading,
-prop:uc-d-small, thm:uc-integer (its "with the index sets as constructed" becomes "with the index sets of
-[[def:uc-choice]]", and eq:uc-lower, which is cor:is-lower, must be stated for the index sets as constructed or replaced
-by 3R > 2.0538·10²³ at the choice), prop:uc-data-order (d); 00-front:37, 01-introduction:155–156, 03-theorems:318–319,
-90-scope:73–79. cor:is-lower stays true but no longer bounds the chosen index sets from below.
+These are guidance for the chain's own evaluation step, which produces the printed integers and changes every site
+that quotes the bound or the choice: in chapter 71, in sec:tr (beyond T16) and in the chapters 00, 01, 03 and 90.
+Those sites are not drafted here; their list at HEAD, including the ones P-TR added, is the review's (R-P-D0, m4) and
+goes with that step. cor:is-lower stays true but no longer bounds the chosen index sets from below.
 
 ## 5. Merge notes
 
-- T1–T13 are in chapter 71, pairwise disjoint, at HEAD line numbers; apply from the bottom up, or by matching the old
+- T1–T16 are in chapter 71, pairwise disjoint, at HEAD line numbers; apply from the bottom up, or by matching the old
   texts, which are unique.
-- T3 replaces cor:is-flat as a whole and inserts the six new results before it, after thm:is-d0.
+- T3 replaces cor:is-flat as a whole and inserts the six new results before it, after thm:is-d0; T14 and T15 change
+  thm:is-d0 itself.
+- T16 is outside the thirteen texts of the original file: it keeps thm:tr-transfer (iii) true after T6. The rest of
+  sec:tr that would change if 𝔡₀ were dropped at other values of h too (the review's m3) needs a proof at h and is
+  not drafted.
 - T12 (lem:uc-lambda) fixes N̄_Λ = 77,112,616,084 so that prop:uc-dependence applies as merged. If the chain's
   inequality 4k̄_max + 24 > I_base + 22,119 is removed or replaced, T12 may take N̄_Λ := 3,683,190,611 and its (c), (d)
   become k̄_max = 2,817,643,822,898,538,579, d̄_Φ = 228,357,817,884 and 62N̄_Λ + 10 = 228,357,817,892.
 - Symbols introduced: ℰ^φ_ind, ℰ^(ι,φ)_ind, Λ^φ, ℰ_(𝔡₀), 𝔠, X_b. None occurs in chapters 71, 34 or 40–46 before (the
-  chapters' ℰ^♭ of prop:iii-i10-3-1 is a different set; 𝔠 occurs only in chapters 46, 63, 64 and 82, unrelated).
+  chapters' ℰ^♭ of prop:iii-i10-3-1 is a different set; 𝔠 occurs only in chapters 46, 63, 64, 82 and 87, unrelated).
 
 ## 6. Placement
 
 This part and the crosswalk rows are instructions for merging; they are not chapter text. Each old text is quoted
 exactly between the fences, and each new text replaces it as a whole, with the line breaks shown. The line numbers
-are those of chapter 71 at HEAD edafc288 and serve only to find the place. Order of the texts below: by the narrative
-(T1–T4), then the choice (T5–T13).
+are those of chapter 71 at HEAD 99e16794 (P-TR merged) and serve only to find the place. Order of the texts below:
+the section sec:is in the chapter's order (T1, T2, T14, T15, T3, T4), then the choice (T5, T13, T6–T12), then sec:tr
+(T16). T14–T16 answer the review (m1, m3).
 
-### T1. sec:is, the opening paragraph: its last part, chapter 71 lines 2898–2906
+### T1. sec:is, the opening paragraph: its last part, chapter 71 lines 2911–2919
 
 Old (9 lines):
 
@@ -290,7 +306,7 @@ serve whatever c_b is ([[thm:is-flat-serves]]); with them (G) holds exactly for 
 ([[cor:is-flat]]). The choice of [[def:uc-choice]] takes them. Whether an admissible ℰ_ind can omit 𝔡₁ is not decided.
 ```
 
-### T2. sec:is-smaller, the opening paragraph, chapter 71 lines 3619–3620
+### T2. sec:is-smaller, the opening paragraph, chapter 71 lines 3632–3633
 
 Old (2 lines):
 
@@ -308,7 +324,40 @@ may also be recorded relative to a lower order, at which its exponent is an offs
 𝔡₀ whatever the coefficients c_b are ([[thm:is-flat-serves]]).
 ```
 
-### T3. six new results before cor:is-flat, and cor:is-flat rewritten, chapter 71 lines 3702–3736
+### T14. thm:is-d0, the title and (a), chapter 71 lines 3670–3671
+
+Old (2 lines):
+
+```old
+**Theorem {#thm:is-d0}** (When ℰ_ind can omit 𝔡₀.) (a) For ℰ_ind as constructed, 𝔡₀ ∈ π_1ℰ_ind
+([[cor:uc-two-offsets]] (b)), at every b.
+```
+
+New (2 lines):
+
+```new
+**Theorem {#thm:is-d0}** (When ℰ_ind can omit 𝔡₀ with the memberships as stated.) (a) For ℰ_ind as constructed,
+𝔡₀ ∈ π_1ℰ_ind ([[cor:uc-two-offsets]] (b)), at every b.
+```
+
+### T15. thm:is-d0 (c), its last sentence, chapter 71 lines 3681–3682
+
+Old (2 lines):
+
+```old
+and at every b with A = 0, and c_(m,OAOᵀ)(OȦOᵀ) = c_(m,A)(Ȧ) for O ∈ SO(4). This paper does not determine c_b at a
+rotating b.
+```
+
+New (3 lines):
+
+```new
+and at every b with A = 0, and c_(m,OAOᵀ)(OȦOᵀ) = c_(m,A)(Ȧ) for O ∈ SO(4). This paper does not determine c_b at a
+rotating b. With the memberships of ω̇_b(0, ·) and ġ^Υ_b(0, ·) read relative to the order 1, index sets that omit 𝔡₀
+serve whatever c_b is ([[thm:is-flat-serves]]).
+```
+
+### T3. six new results before cor:is-flat, and cor:is-flat rewritten, chapter 71 lines 3715–3749
 
 Old (35 lines):
 
@@ -350,7 +399,7 @@ pairwise distinct (proof of [[prop:is-count]] (a)). So 56,436,656 + 1,227,124,25
 3,623,813,354. ∎
 ```
 
-New (233 lines):
+New (234 lines):
 
 ```new
 **Proposition {#prop:is-cb-normal}** (The coefficients c_b in normal form.) Fix the indicial solution of type s0 at
@@ -402,9 +451,10 @@ paper does not decide. By [[prop:is-cb-normal]], c_b = 0 near b₀ is the identi
 (m, a₁, a₂), which no finite set of values decides, while one non-zero value of 𝔠 shows c_b ≠ 0 for the data at which it
 is taken. To first order in a₁, 𝔠 is read from two radial boundary value problems on {r > r_h}, with regularity at the
 horizon sphere and decay at infinity, posed at given ζ_∞, χ and parameters: the problem of vector type 1 that
-ω̇_(b₀)(0, J₁₂) solves ([[prop:iii-f3-2-2]] (4)), and a problem of scalar type 0 for (□^Υ_(b₀))^(0) (the indicial matrix
-[[eq:s13-nsl]] at κ = 0, with the terms of c_Υ and c_(Υ,H)) whose right side is minus the scalar type 0 part of the
-terms of first order in a₁ of η_((m,a₁J₁₂))(0, J₁₂) + (□^Υ_((m,a₁J₁₂)))^(0)ω̇_(b₀)(0, J₁₂); the coefficient of ρ^(2+𝔡₀)
+ω̇_(b₀)(0, J₁₂) solves ([[prop:iii-f3-2-2]] (4)), and a problem of scalar type 0 for (□^Υ_(b₀))^(0), two equations of
+second order whose indicial matrix at infinity is N_s0 (the upper left block of [[eq:s13-nsl]] at κ = 0), with right
+side minus the scalar type 0 part of the
+terms of first order in a₁ of η_((m₀,a₁J₁₂))(0, J₁₂) + (□^Υ_((m₀,a₁J₁₂)))^(0)ω̇_(b₀)(0, J₁₂); the coefficient of ρ^(2+𝔡₀)
 of the second solution gives it. No statement of this paper solves these problems, and no bound of this chapter needs
 them ([[thm:is-flat-serves]]).
 
@@ -478,9 +528,9 @@ memberships of ω̇_b(0, Ȧ) and ġ^Υ_b(0, Ȧ) of [[prop:iii-f3-2-2]] (1), [[eq
 [[rem:iii-f3-2-3]], [[prop:iii-f3-4-1]], [[sec:iii-f4-1]], [[lem:iii-f4-3-1]], [[lem:iii-f4-4-1]], [[sec:iii-h-1]],
 [[rem:iii-h-2-6]], [[lem:iii-h-5-2]], [[lem:iii-i2-4-3]], (BP3) of [[sec:s20-setting]], [[sec:iii-i7-1]],
 [[lem:iii-i11-1-1]], (P3) of [[lem:iii-i15-1-1]] and (iii) of [[sec:iii-i15-3]], and, through [[eq:iii-i7-1-1]], in
-[[lem:iii-i7-2-2]], [[sec:iii-i15-2-8]], [[def:iii-i14-1-2]], [[lem:iii-i14-2-4]], [[lem:iii-j-2-1]], [[prop:iii-j3-5-2]]
-and [[lem:gd-r3-5]]; and they are used there only through the following statements, each of which holds with
-ℰ^φ_ind in place of ℰ_ind when ω̇_b(0, ·) and ġ^Υ_b(0, ·) are taken in the forms [[eq:is-flat-memb]]:
+[[lem:iii-i7-2-2]], [[lem:iii-i7-4-1]], [[sec:iii-i15-2-8]], [[def:iii-i14-1-2]], [[lem:iii-i14-2-4]], [[lem:iii-j-2-1]],
+[[prop:iii-j3-5-2]] and [[lem:gd-r3-5]]; and they are used there only through the following statements, each of which
+holds with ℰ^φ_ind in place of ℰ_ind when ω̇_b(0, ·) and ġ^Υ_b(0, ·) are taken in the forms [[eq:is-flat-memb]]:
 
 (i) for every ḃ ∈ 𝔟, ω̇_b(ḃ) ∈ 𝒜^((1,0)∪(1+ℰ_ind)) and ġ^Υ_b(ḃ) ∈ 𝒜^𝒢 with 𝒢 = (2, 0) ∪ (2 + ℰ_ind) ([[eq:iii-i7-1-1]]
 at b₀ and, by (P3), at b);
@@ -581,14 +631,14 @@ of the second table, where y lies in (0.1313982198300303806313, 0.13139821983003
 gives μ♭_Z with the bounds stated. As μ♭_Z < μ♭, the least excess of Λ over the windows is μ♭_Z, which gives both
 equivalences. *N_Λ.* Each β ∈ ℬ♭ (the 26 rational β < 3, λ_♯ + 1 + 𝔡₀, λ_♯ + 1 + 2𝔡₀, λ_♯ + 1 + δ′₁, λ_♯ + 1 + δ₂
 and 3) contributes ⌊(3 − β)/𝔡₁⌋ + 1 points, as no point lies in [3, 3 + ε_+); the sets of the first 28 and of β = 3
-are pairwise disjoint by [[lem:is-offsets]] (c); the sums with and without λ_♯ + 1 + δ′₁ and λ_♯ + 1 + δ₂ give
+are pairwise disjoint by [[lem:is-offsets]] (c); the sums without and with λ_♯ + 1 + δ′₁ and λ_♯ + 1 + δ₂ give
 56,436,656 and 59,377,257. Each ι ∈ Z₃ contributes the n⁺ + 1 points ι + q𝔡₁, 0 ≤ q ≤ n⁺, as ε_+ < μ♭_Z; the sum of the
 n⁺ + 1 over Z₃ is 3,623,813,354, and over its 1360 non-real elements 1,227,124,256, whose points are not real and
 pairwise distinct (proof of [[prop:is-count]] (a)). So 56,436,656 + 1,227,124,256 ≤ N_Λ ≤ 59,377,257 +
 3,623,813,354. ∎
 ```
 
-### T4. rem:is-summary, its last part, chapter 71 lines 3757–3761
+### T4. rem:is-summary, its last part, chapter 71 lines 3770–3774
 
 Old (5 lines):
 
@@ -610,7 +660,7 @@ are not determined by this paper: the coefficients c_b at a rotating b ([[prop:i
 which no bound of this chapter uses, and whether an admissible ℰ_ind can omit 𝔡₁.
 ```
 
-### T5. rem:uc-offset-d0, its second half, chapter 71 lines 2406–2414
+### T5. rem:uc-offset-d0, its second half, chapter 71 lines 2419–2427
 
 Old (9 lines):
 
@@ -637,12 +687,12 @@ operator commutes with the rotations, and the corrections of the states of types
 type s0. At a rotating b the metric couples the angular types at the order |x|⁻³ ([[eq:iii-d2-2-2]]), and ℰ_ind is one
 index set serving at every b near b₀. Of the constructions of leading order 2 only ω̇_b(0, ·) can have such a term, with
 the coefficients c_b of [[def:is-cb]] ([[thm:is-d0]]), which this paper does not determine at a rotating b. Recorded
-relative to the order 1, as the terms of ω̇_b(1, 0) at the same root are, these terms need the offset 1 + 𝔡₀ only, and
-the index sets ℰ^φ_ind and ℰ^(ι,φ)_ind obtained so omit 𝔡₀ and serve whatever c_b is ([[thm:is-flat-serves]]). With them
-(G) holds for every ε_K < μ♭_Z, where μ♭_Z > ε_Υ ([[cor:is-flat]]).
+relative to the order 1, as the terms of ω̇_b(1, 0) at the same root are, these terms need only the offsets
+1 + 𝔡₀ + ℕ₀, and the index sets ℰ^φ_ind and ℰ^(ι,φ)_ind obtained so omit 𝔡₀ and serve whatever c_b is
+([[thm:is-flat-serves]]). With them (G) holds for every ε_K < μ♭_Z, where μ♭_Z > ε_Υ ([[cor:is-flat]]).
 ```
 
-### T13. thm:uc-reduction (iii), chapter 71 lines 2570–2575
+### T13. thm:uc-reduction (iii), chapter 71 lines 2583–2588
 
 Old (6 lines):
 
@@ -668,7 +718,7 @@ N_Λ ≤ 3,683,190,611 ([[cor:is-flat]]); k̄_0 = 3, l_* = 50 and J_* = 15,000,0
 ([[thm:is-flat-serves]]). Memberships and least real parts alone fix no admissible ε_K ([[prop:uc-no-eps]]).
 ```
 
-### T6. def:uc-choice, the opening and the display eq:uc-choice, chapter 71 lines 2593–2597
+### T6. def:uc-choice, the opening and the display eq:uc-choice, chapter 71 lines 2606–2610
 
 Old (5 lines):
 
@@ -690,7 +740,7 @@ New (5 lines):
     ε_Υ := 1.4619·10⁻¹⁰,     ε_K := 9.99·10⁻¹⁴,     ε_+ := 9.995·10⁻¹⁴,     l_* := 50,     k̄_0 := 3.
 ```
 
-### T7. lem:uc-admissible, the display eq:uc-deltas, chapter 71 lines 2614
+### T7. lem:uc-admissible, the display eq:uc-deltas, chapter 71 lines 2627
 
 Old (1 lines):
 
@@ -704,7 +754,7 @@ New (1 lines):
     Δβ_0 := 0.999²ε_K = 9.97002999·10⁻¹⁴,     Δτ_0 := 0.999ε_Υ = 1.4604381·10⁻¹⁰.                      {#eq:uc-deltas}
 ```
 
-### T8. lem:uc-admissible, proof: the constants, (G) and (G⁺), chapter 71 lines 2620–2625
+### T8. lem:uc-admissible, proof: the constants, (G) and (G⁺), chapter 71 lines 2633–2638
 
 Old (6 lines):
 
@@ -728,7 +778,7 @@ the least excess above 3 of the real parts of the elements of Λ, and ε_+ = 9.9
 part in (3, 3 + ε_+], which is (G⁺) of
 ```
 
-### T9. lem:uc-admissible, proof: ε and α, chapter 71 lines 2635–2637
+### T9. lem:uc-admissible, proof: ε and α, chapter 71 lines 2648–2650
 
 Old (3 lines):
 
@@ -746,7 +796,7 @@ admissible α ≥ 3 is a number in (4 + ε_K − ε′_0, 4 + ε_K], ε′_0 = �
 2.5·10⁻¹⁷, off a finite set ([[def:iii-i10-1-3]]), and (A_J), (Ex3) and (Ex4) exclude finitely many more
 ```
 
-### T10. lem:uc-gaps, statement, chapter 71 lines 2656–2658
+### T10. lem:uc-gaps, statement, chapter 71 lines 2669–2671
 
 Old (3 lines):
 
@@ -764,7 +814,7 @@ New (3 lines):
 of ε_Υ, and [[prop:ec-upper]] holds with
 ```
 
-### T11. lem:uc-gaps, proof: the first sentences, chapter 71 lines 2662–2664
+### T11. lem:uc-gaps, proof: the first sentences, chapter 71 lines 2675–2677
 
 Old (3 lines):
 
@@ -784,7 +834,7 @@ by [[lem:is-flat-memberships]] (c) and [[thm:is-flat-serves]]. The proof of [[le
 lower bound for
 ```
 
-### T12. lem:uc-lambda, statement and proof, chapter 71 lines 2672–2687
+### T12. lem:uc-lambda, statement and proof, chapter 71 lines 2685–2700
 
 Old (16 lines):
 
@@ -830,42 +880,69 @@ gives that k̄_0 = 3, η_0 = 𝔡₁, J_* = 15,000,015 and l_* = 50 are admissib
 with (a), as 62 · 77,112,616,084 = 4,780,982,197,208. ∎
 ```
 
+### T16. thm:tr-transfer (iii), chapter 71 lines 5587–5588
+
+Old (2 lines):
+
+```old
+for any ε_K, ε_+ with 0 < ε_K < ε_+ < μ(h), the choice of [[def:uc-choice]] with these ε_K and ε_+, and that
+of [[def:cs-choices]], is admissible, and d_acc ≤ d_R ≤ D_acc, d_NM ≤ D_NM and N_NM ≤ 21D_NM + 6, with D_acc and D_NM of
+```
+
+New (3 lines):
+
+```new
+for any ε_K, ε_+ with 0 < ε_K < ε_+ < μ(h), the choice of [[def:uc-choice]] with these ε_K and ε_+ and with the
+index sets as constructed, and that of [[def:cs-choices]], is admissible, and d_acc ≤ d_R ≤ D_acc, d_NM ≤ D_NM and
+N_NM ≤ 21D_NM + 6, with D_acc and D_NM of
+```
+
 ## 7. Crosswalk
 
 New rows for the crosswalk of chapter 71, one per bullet; in the file the four fields (label, source, source name,
-note) are separated by tabs. The source lines are those of this file.
+note) are separated by tabs. Insert them after the row of thm:is-d0, in this order. The source lines are those of this
+file at ace76b95, the version the review read. In this revision the same labels are at lines 405, 410, 444, 461, 470,
+472, 480, 526, 566; the texts of rem:is-cb-open and lem:is-flat-uses differ from ace76b95 by n2, n3 and m2. If the
+merge cites the commit that carries this revision, take these lines instead.
 
-- prop:is-cb-normal | paper/reader/proofs/P-D0.md:356 | P-D0, Proposition (The coefficients c_b in normal form.) | new;
-  O(4)-equivariance with reflections reduces c_b on ker ad_A to one function 𝔠(m, a₁, a₂), odd in a₁, even in a₂
-- eq:is-cb-normal | paper/reader/proofs/P-D0.md:361 | P-D0, display of prop:is-cb-normal | new
-- rem:is-cb-open | paper/reader/proofs/P-D0.md:395 | P-D0, Remark (What the coefficients c_b depend on, and what would
-  decide them.) | new; c_b depends on γ_(Υ,H), ζ_∞, χ (free) and e_Υ, γ_Υ; (AP3) undecided at the point; 𝔠 ≡ 0 not
+- prop:is-cb-normal | paper/reader/proofs/P-D0.md@ace76b95:356 | P-D0, Proposition (The coefficients c_b in normal form.)
+  | new; O(4)-equivariance with reflections reduces c_b on ker ad_A to one function 𝔠(m, a₁, a₂), odd in a₁, even in a₂
+- eq:is-cb-normal | paper/reader/proofs/P-D0.md@ace76b95:361 | P-D0, display of prop:is-cb-normal | new
+- rem:is-cb-open | paper/reader/proofs/P-D0.md@ace76b95:395 | P-D0, Remark (What the coefficients c_b depend on, and what
+  would decide them.) | new; c_b depends on γ_(Υ,H), ζ_∞, χ (free) and e_Υ, γ_Υ; (AP3) undecided at the point; 𝔠 ≡ 0 not
   decidable by values
-- def:is-flat-set | paper/reader/proofs/P-D0.md:411 | P-D0, Definition (The index sets ℰ^φ_ind and ℰ^(ι,φ)_ind.) | new;
-  the ℰ′_ind of the proof of thm:is-d0 (c), named; ℰ_(𝔡₀)
-- eq:is-flat-d0 | paper/reader/proofs/P-D0.md:420 | P-D0, display of def:is-flat-set | new
-- lem:is-flat-memberships | paper/reader/proofs/P-D0.md:422 | P-D0, Lemma (The memberships with ℰ^φ_ind.) | new; ω̇_b(0,
-  ·), ġ^Υ_b(0, ·) in ℰ^φ_ind ∪ ℰ_(𝔡₀); 1 + ℰ_(𝔡₀) ⊂ ℰ^φ_ind; 𝔡₀ ∉ π_1
-- eq:is-flat-memb | paper/reader/proofs/P-D0.md:430 | P-D0, display of lem:is-flat-memberships | new
-- lem:is-flat-uses | paper/reader/proofs/P-D0.md:476 | P-D0, Lemma (The uses of the memberships of ω̇_b(0, ·) and
-  ġ^Υ_b(0, ·).) | new; every citation of prop:iii-f3-2-2 (1)–(2), eq:iii-f3-2-2, eq:iii-f3-4-2 listed; only (i) 𝒢, (ii)
-  ℰ_col, (iii) weights
-- thm:is-flat-serves | paper/reader/proofs/P-D0.md:516 | P-D0, Theorem (Index sets without the offset 𝔡₀.) | new;
-  ℰ^φ_ind, ℰ^(ι,φ)_ind serve whatever c_b is; Λ^φ ⊂ Λ; increments below 3/2 generated by 𝔡₁, 1, 1 + δ′₁, 1 + δ₂, 1 + 𝔡₀,
-  1 + 2𝔡₀
+- def:is-flat-set | paper/reader/proofs/P-D0.md@ace76b95:411 | P-D0, Definition (The index sets ℰ^φ_ind and ℰ^(ι,φ)_ind.)
+  | new; the ℰ′_ind of the proof of thm:is-d0 (c), named; ℰ_(𝔡₀)
+- eq:is-flat-d0 | paper/reader/proofs/P-D0.md@ace76b95:420 | P-D0, display of def:is-flat-set | new
+- lem:is-flat-memberships | paper/reader/proofs/P-D0.md@ace76b95:422 | P-D0, Lemma (The memberships with ℰ^φ_ind.) | new;
+  ω̇_b(0, ·), ġ^Υ_b(0, ·) in ℰ^φ_ind ∪ ℰ_(𝔡₀); 1 + ℰ_(𝔡₀) ⊂ ℰ^φ_ind; 𝔡₀ ∉ π_1
+- eq:is-flat-memb | paper/reader/proofs/P-D0.md@ace76b95:430 | P-D0, display of lem:is-flat-memberships | new
+- lem:is-flat-uses | paper/reader/proofs/P-D0.md@ace76b95:476 | P-D0, Lemma (The uses of the memberships of ω̇_b(0, ·)
+  and ġ^Υ_b(0, ·).) | new; every citation of prop:iii-f3-2-2 (1)–(2), eq:iii-f3-2-2, eq:iii-f3-4-2 listed, lem:iii-i7-4-1
+  among them (P-D0 review); only (i) 𝒢, (ii) ℰ_col, (iii) weights
+- thm:is-flat-serves | paper/reader/proofs/P-D0.md@ace76b95:516 | P-D0, Theorem (Index sets without the offset 𝔡₀.) |
+  new; ℰ^φ_ind, ℰ^(ι,φ)_ind serve whatever c_b is; Λ^φ ⊂ Λ; increments below 3/2 generated by 𝔡₁, 1, 1 + δ′₁, 1 + δ₂, 1 +
+  𝔡₀, 1 + 2𝔡₀
 
 Notes to append to existing rows: cor:is-flat ("P-D0 T3: hypothesis c_b = 0 replaced by the index sets of
 thm:is-flat-serves"), def:uc-choice and lem:uc-admissible ("P-D0 T6–T9: ℰ^φ_ind, ε_K = 9.99·10⁻¹⁴, ε_+ = 9.995·10⁻¹⁴"),
 lem:uc-gaps (T10, T11), lem:uc-lambda (T12: N̄_Λ = 77,112,616,084), thm:uc-reduction (T13), sec:is (T1),
-sec:is-smaller (T2), rem:is-summary (T4), rem:uc-offset-d0 (T5).
+sec:is-smaller (T2), rem:is-summary (T4), rem:uc-offset-d0 (T5), eq:uc-choice ("P-D0 T6: ε_K = 9.99·10⁻¹⁴, ε_+ =
+9.995·10⁻¹⁴"), eq:uc-deltas ("P-D0 T7: Δβ_0 = 9.97002999·10⁻¹⁴"), thm:is-d0 ("P-D0 review: title qualified; last
+sentence of (c) points to thm:is-flat-serves"; T14, T15), thm:tr-transfer ("P-D0 review: (iii) with the index sets
+as constructed"; T16).
 
 ## 8. Checks run
 
-- Every old text was read from the chapter at the stated lines and asserted equal before replacement; the four lines
-  of cor:is-flat that T3 retypes (y = 1.4901 … *The elements of Z₃.*) were asserted equal to the chapter.
-- A scratch copy of the reader directory with T1–T13 applied: lint --chapters 0 hits; assemble --check: 4937 labels,
-  0 problems; assemble (in the scratch copy) then lint --paper: 0 hits, so no line exceeds 121 characters after the
-  labels resolve. Every new line has at most 121 characters, and no wrapped line starts with a Markdown marker.
+- Every old text was read from chapter 71 at HEAD 99e16794 at the stated lines and asserted equal before
+  replacement; the four lines of cor:is-flat that T3 retypes (y = 1.4901 … *The elements of Z₃.*) were asserted equal
+  to the chapter, and n1 was asserted to occur once in T3's verbatim tail.
+- A scratch copy of the reader directory at HEAD with T1–T16 applied: lint --chapters 62 files, 5072 labels, 0 hits;
+  assemble --check: 5072 labels, 0 problems; assemble (in the scratch copy) then lint --paper: 0 hits, and no line of
+  the assembled paper exceeds 121 characters. Every new line has at most 121 characters, and no wrapped line starts
+  with a Markdown marker.
+- The same scratch copy with the nine rows of section 7 inserted after thm:is-d0 in the crosswalk of chapter 71:
+  every label of chapter 71 has exactly one row, the rows are in the chapter's order, and each has four fields.
 - The chain formulas of prop:uc-dependence, coded in exact rational arithmetic, reproduce the chapter's D_acc, D_NM and
   21D_NM + 6 at the present choice to every digit; section 4 is their value at the new inputs.
 - Section 2.2 is a numerical observation (50-digit arithmetic with finite differences, not certified); no proof uses it.
