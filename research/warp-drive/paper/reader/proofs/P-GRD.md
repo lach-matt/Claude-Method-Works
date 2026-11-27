@@ -33,7 +33,7 @@ and put, with 𝔤₀ and the ordered Bell numbers F_k of [[def:tl5-hf-levels]],
     𝔠^g_n := Σ²_n b_H^g(k₁) β₂^g(k₂) − 1 + 5 Σ³_n b_H^g(k₁) Λ^R_(k₂) + 16 Σ⁴_n b_g^g(k₁) b_g^g(k₂) β₁^g(k₃) β₁^g(k₄),
     𝔠^Q_n := Σ⁴_n λ_(k₁) λ_(k₃) β₂^g(k₄) − 1 + 5 Σ⁵_n λ_(k₁) λ_(k₃) Λ^R_(k₄) + 16 Σ⁴_n λ̂_(k₁) λ̂_(k₂) β₁^g(k₃) β₁^g(k₄),
     𝔠^(3)_n := Σ⁶_n b_g^g(k₁) λ_(k₃) λ_(k₅) β₂^g(k₆) − 𝔤₀ + 5 Σ⁷_n b_g^g(k₁) λ_(k₃) λ_(k₅) Λ^R_(k₆)
-               + 16 Σ⁶_n b_g^g(k₁) λ_(k₃) (b_g^g(k₄) + λ̂_(k₄)) β₁^g(k₅) β₁^g(k₆),                        {#eq:tl5-hfg-cn}
+               + 16 Σ⁶_n b_g^g(k₁) λ_(k₃) (b_g^g(k₄) + λ̂_(k₄)) β₁^g(k₅) β₁^g(k₆),                       {#eq:tl5-hfg-cn}
 
 k ≥ 1 where not stated. Fix 𝔰_♭ ∈ (0, 1/8] and one of the two choices 𝔠^⋆_n := 𝔠^g_n, the first expansion, or 𝔠^⋆_n :=
 𝔠^Q_n + 𝔰_♭ 𝔠^(3)_n, the second expansion, for all n ≤ N; with the first choice let 𝔰_♭ := 1/8. Finally put
@@ -63,7 +63,7 @@ products of r + 1 factors ĝ⁻¹, of norm √5, and r factors ℒ^(B′) π^Z, 
 is a sum of monomials, each a contraction of background factors and of q ≥ 2 solution factors of the forms and orders
 of [[lem:tl5-hf4-quadratic]] (a), whose background norms ν, with the coefficients, satisfy
 
-    Σ ν 𝔰(p)^(q−2) ≤ 𝔠^⋆_n,                                                                                {#eq:tl5-hfg-sum}
+    Σ ν 𝔰(p)^(q−2) ≤ 𝔠^⋆_n,                                                                             {#eq:tl5-hfg-sum}
 
 the sum over the monomials. Consequently [[eq:tl5-hf-g]] holds with 𝔠^⋆_(|I|) in place of 𝔠_(|I|) if N ≥ 5, and
 [[eq:tl5-hf4-g]] holds with 𝔠^⋆_(|I|) in place of 𝔠_(|I|) if N = 4, 𝔑^L_I and 𝔑^M_I being formed from the chosen
@@ -137,9 +137,9 @@ on Q(a, b), a := τ₁(p), b := τ₂(p), then at every point of Q(a, b)
 
     M_g^(j) ≤ 2(k₁^(j) + 1) 𝒥_g + 2k₂ ϱ(p)      (0 ≤ j ≤ N − 1),                                         {#eq:tl5-hfg-m2}
 
-and at p
+and at p, for 0 ≤ m ≤ N − 4,
 
-    𝔰_g^(m)(p) ≤ C_∞^(m)(p) ℰ_g(p)^(1/2) + C_(∞,ϱ)^(m)(p) ϱ(p) + C_(∞,0)^(m)(p) η₀(p)      (0 ≤ m ≤ N − 4).   {#eq:tl5-hfg-linfty}
+    𝔰_g^(m)(p) ≤ C_∞^(m)(p) ℰ_g(p)^(1/2) + C_(∞,ϱ)^(m)(p) ϱ(p) + C_(∞,0)^(m)(p) η₀(p),                {#eq:tl5-hfg-linfty}
 
 *Proof.* We follow the proof of [[lem:tl5-hf-linfty]], multiplying each bound by the weight of the quantity it bounds;
 for N = 4 that proof applies as in [[lem:tl5-hf4-linfty]]. The bounds of [[lem:tl5-hf-quadratic]] it uses, for words of
@@ -169,7 +169,8 @@ remainders have |C′| ≤ |B| + 1, so the bounds |ℒ^J A| ≤ (1 + 6Λ) 𝒥�
 μ^((|B|+3)/2) |ℒ^J A| ≤ (1 + 6Λ₂) 𝒥_g and μ^((|B|+3)/2) |D̂ℒ^J A| ≤ M_g + 6√2 Λ₂ 𝒥_g. By [[eq:tl5-hf-coercive]] and
 [[lem:tl5-hf-densities]], ∫_(Σ₁(a,b)) 𝒥_g² dμ dτ₂/(1 − κκ′) ≤ sup 𝔨₂ ℰ_g(p), 𝔨₂ as in [[lem:tl5-hf-linfty]], and
 [[eq:tl5-hfg-m2]] with j = N − 1 replaces the bound for M₂; the term on S_a is as there, with μ ≤ 1 and Λ₂ in place of
-Λ. The computation of that proof then gives μ^((|B|+3)/2) |D̂Ψ_B(p)| ≤ C₁^g ℰ_g(p)^(1/2) + C_(1,ϱ) ϱ(p) + C_(1,0)^g η₀(p).
+Λ. The computation of that proof then gives μ^((|B|+3)/2) |D̂Ψ_B(p)| ≤ C₁^g ℰ_g(p)^(1/2) + C_(1,ϱ) ϱ(p) + C_(1,0)^g
+η₀(p).
 
 *Second order at low levels.* Let |B| ≤ m and multiply the bound at p of that proof by μ^((|B|+4)/2). Its first-order
 terms involve Ψ_C and D̂Ψ_C with |C| ≤ |B| + 1 ≤ m + 1 ≤ N − 3, which by the two previous steps are bounded with the
@@ -188,7 +189,7 @@ word with n := |I| ≤ N, 𝔑_I := ℒ^I N(h) − H^(αβ) D̂_αD̂_βΨ_I, an
 [[lem:tl5-hfg-quadratic]] if N = 4. Put 𝔨_g := max(𝔷, 2k₁ + 2) and 𝔰_P := 𝔰_g^(m_P). Then at every point of Q(a, b)
 
     μ^(n/2) |𝔑^L_I| ≤ 𝔠^⋆_n (μ^(−3/2) 𝔨_g 𝔰_P 𝒥_g + 2k₂ 𝔰 ϱ(p)),
-    μ^(n/2) |ℒ^J N(h)| ≤ (𝔠^⋆_(|J|) + 1) (μ^(−3/2) 𝔨_g 𝔰_P 𝒥_g + 2k₂ 𝔰 ϱ(p))      for |J| < n.       {#eq:tl5-hfg-products}
+    μ^(n/2) |ℒ^J N(h)| ≤ (𝔠^⋆_(|J|) + 1) (μ^(−3/2) 𝔨_g 𝔰_P 𝒥_g + 2k₂ 𝔰 ϱ(p))      for |J| < n.     {#eq:tl5-hfg-products}
 
 *Proof.* For a low solution factor Φ of order o put ℓ_P(Φ) := o + 2. For any solution factor Φ let ℓ_E(Φ) be 0 for
 H and h, |C| − 1 for Ψ_C with |C| ≥ 1, |C| for D̂Ψ_C and |C| + 1 for D̂²Ψ_C. For every factor Φ of a monomial of
@@ -274,7 +275,8 @@ the functions of p being evaluated at the point of the supremum. For N = 4 put, 
 Σ₁(t, v*) of the Λ_k and the λ_k,
 
     m_t^g := 98 e^(φ(t,v*)/2) [2Ω̂² (1 + c/κ′)^(1/2)]_t [𝔠^⋆₄]_t 𝔪(t) 𝔛_t^g 𝔜_t,
-    S_(M,g) := μ^(−3/2) ∫_(−10)^(u*) m_t^g [𝔨₂]_t dt,      𝔯_(M,g) := μ^(−3/2) ∫_(−10)^(u*) m_t^g [𝔨₂]_t^(1/2) (2ϱ + η₀) dt,
+    S_(M,g) := μ^(−3/2) ∫_(−10)^(u*) m_t^g [𝔨₂]_t dt,
+    𝔯_(M,g) := μ^(−3/2) ∫_(−10)^(u*) m_t^g [𝔨₂]_t^(1/2) (2ϱ + η₀) dt,
     ε_(M,g) := μ^(−3/2) ϱ (ϱ + η₀) ∫_(−10)^(u*) m_t^g dt,
 
 and for N ≥ 5 let S_(M,g) = 𝔯_(M,g) = ε_(M,g) := 0. Finally
@@ -331,3 +333,66 @@ every point; so for every a′ ≤ u*, b′ ≤ s
     (1 − ϑ) Σ_I μ^|I| ℰ_I(a′, b′) ≤ δ_w² + Y_s (ε_(w,g) + ε_(M,g)) + 𝔯_g Y_s² + (S_(F,g) + S_(M,g)) Y_s³,
 
 and with ϑ ≤ 1/4 and 𝔯_g ≤ 1/4 the conclusion follows as there. ∎
+
+**Theorem {#thm:tl5-hfg}** (Existence close to an explicit background, with the sharpened constants.) In the setting
+of [[thm:tl5-hf]] (N ≥ 6) let the bounds Λ_k, Λ^R_k, λ_k, the number 𝔰_♭ and the choice of 𝔠^⋆ be as in
+[[def:tl5-hfg-graded]], and suppose:
+
+(a) the quantity η₀ of [[def:tl5-hf-constants]] satisfies η₀ < 𝔰₁^⋆;
+
+(b) a_o, a_i are admissible rates for ((1 − ϑ)⁻¹ 𝔅_N, E_o^N, E_i^N);
+
+(c) the constants of [[def:tl5-hfg-constants]] satisfy 𝔯_(w,g) ≤ 1/4, 𝔰_(*,g) < 𝔰₁^⋆ and the closing condition
+
+    4 A_g B_g = 8 (√2 δ_w + 2ε_(w,g)) S_(F,g) < 1.                                                  {#eq:tl5-hfg-closing}
+
+Then the conclusions of [[thm:tl5-hf]] hold with A_g and 𝔰_(*,g) in place of A_w and 𝔰_*.
+
+*Proof.* The proof of [[thm:tl5-hf]] applies with A_g, B_g, [[prop:tl5-hfg-bootstrap]], [[eq:tl5-hfg-h1]] and
+[[eq:tl5-hfg-closing]] in place of A_w, B_w, [[prop:tl5-hf-bootstrap]], [[eq:tl5-hf-h1]] and [[eq:tl5-hf-closing]].
+For (H2), the proof of [[lem:tl5-hf-persistence]] uses [[prop:tl5-hf-bootstrap]] only through its conclusion 𝔰 ≤ 𝔰_*
+on D^κ_s, which gives |H| ≤ 1/8 and θ_H ≤ ϑ, and through the bound Y_σ ≤ 2A_w; [[prop:tl5-hfg-bootstrap]] gives
+𝔰 ≤ 𝔰_(*,g) < 𝔰₁^⋆ ≤ min(1/16, 𝔰_θ) under Y_σ ≤ 2A_g, so that proof gives (H2) with A_g in place of A_w. The bound
+for ε is [[eq:tl5-hf-eps]] with 𝔰 ≤ 𝔰_(*,g). ∎
+
+**Theorem {#thm:tl5-hf4g}** (Level four, with the sharpened constants.) In the setting of [[thm:tl5-hf4]] let the
+bounds Λ_k, Λ^R_k, λ_k, the number 𝔰_♭ and the choice of 𝔠^⋆ be as in [[def:tl5-hfg-graded]] with N = 4, and suppose:
+
+(a) the quantity η₀ of [[def:tl5-hf4-constants]] satisfies η₀ < 𝔰₁^⋆;
+
+(b) a_o, a_i are admissible rates for ((1 − ϑ)⁻¹ 𝔅₄, E_o⁴, E_i⁴);
+
+(c) the constants of [[def:tl5-hfg-constants]] with N = 4 satisfy 𝔯_(w,g) + 𝔯_(M,g) ≤ 1/4, 𝔰_(*,g) < 𝔰₁^⋆ and the
+closing condition
+
+    4 A_g B_g = 8 (√2 δ_w + 2ε_(w,g) + 2ε_(M,g)) (S_(F,g) + S_(M,g)) < 1.                          {#eq:tl5-hf4g-closing}
+
+Then the conclusions of [[thm:tl5-hf4]] hold with A_g and 𝔰_(*,g) in place of A_(w,4) and 𝔰_*.
+
+*Proof.* The proof of [[thm:tl5-hf4]] applies with A_g, B_g, [[prop:tl5-hfg-bootstrap]] for N = 4,
+[[eq:tl5-hfg-h1]] and [[eq:tl5-hf4g-closing]] in place of A_(w,4), B_(w,4), [[prop:tl5-hf4-bootstrap]],
+[[eq:tl5-hf4-h1]] and [[eq:tl5-hf4-closing]]. For (H2), the proof of [[lem:tl5-hf4-persistence]] uses
+[[prop:tl5-hf4-bootstrap]] only through its conclusion 𝔰 ≤ 𝔰_* on D^κ_s, which gives |H| ≤ 1/8 and θ_H ≤ ϑ, through
+the bound Y_σ ≤ 2A_(w,4) and through [[eq:tl5-hf4-m2]], which holds by [[eq:tl5-hfg-m2]] with μ = 1 and j = 3;
+[[prop:tl5-hfg-bootstrap]] gives 𝔰 ≤ 𝔰_(*,g) < 𝔰₁^⋆ ≤ min(1/16, 𝔰_θ) under Y_σ ≤ 2A_g. The bound for ε is
+[[eq:tl5-hf-eps]] with 𝔰 ≤ 𝔰_(*,g). ∎
+
+**Remark {#rem:tl5-hfg-powers}** (What the sharpened constants contain.) In S_(F,g), S_(M,g) and 𝔯_g the only power of μ
+is μ^(−3/2), at every level N ≥ 4, against μ^(−N) in S_F and μ^(−2) in S_M of [[thm:tl5-hf]] and [[thm:tl5-hf4]]:
+𝔤_(N,g), 𝔨_g, 𝔞_(o,g), 𝔞_(i,g), C_P, C_(P,ϱ), C_(P,0) and m_t^g do not depend on μ. The power is that of the count
+[[eq:tl5-hfg-count]], which gives exactly n + 3 for the term D̂Ψ_B · D̂Ψ_(B′) of 2𝔮 with |B| + |B′| = n and |B| ≤ N − 3:
+D̂Ψ_B is bounded at a point through the energies of level |B| + 3, and D̂Ψ_(B′) through those of level |B′|. The
+smallness 𝔰_(*,g) < 𝔰₁^⋆ keeps the factor μ^(−N/2), as the recovery of second derivatives absorbs the ungraded 𝔰.
+
+The recovery constant of the highest level, k₁ = k₁^(N−1), enters S_(F,g) through 𝔨_g and through C₁^g in C_P; in C_P
+it is otherwise replaced by k₁^(m_P), which involves the couplings 𝔄_CJ with |C| ≤ 1 only, and for N = 4 none, as
+𝔄_∅J = 0 by [[def:tl5-hf-coupling]]; and 𝔐^(m_P) = 57 for N ≥ 5 and 8 for N = 4, against 𝔐 = Σ_(j≤N−3) 7^j. The
+smallness constants C_∞^(N−4), C_(∞,ϱ)^(N−4) and C_(∞,0)^(N−4) contain k₁^(N−4) in place of the third k₁ of C_∞. The
+background bounds enter graded: 𝔠^⋆_n through Λ_k, Λ^R_k and λ_k with k ≤ n, C₁^g, C_(1,0)^g and 𝔛_t^g through Λ₂ only.
+If π^Z = 0 for every Z ∈ Γ, as for the seed, then ℒ^K ĝ⁻¹ = 0 and ℒ^K R̂ = 0 for K ≠ ∅, the choices Λ_k = λ_k = 0 for
+k ≥ 1, Λ^R_0 = |R̂| and Λ^R_k = 0 for k ≥ 1 are admissible, and
+
+    𝔠^Q_n = (81 + 5|R̂|) 2^n − 1,
+
+the number of distributions of n letters over the two solution factors of each quadratic term, 2^n, times the norms of
+its coefficients.
