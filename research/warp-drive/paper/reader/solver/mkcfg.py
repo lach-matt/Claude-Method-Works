@@ -21,7 +21,7 @@ def main():
     C = rep.CASES[case]; L = rep.layout(case)
     xlo = min(m - h for m, h in L['xi']); xhi = max(m + h for m, h in L['xi'])
     vlo = min(m - h for m, h in L['v']); vhi = max(m + h for m, h in L['v'])
-    lam = '1' if C['seed'] == 1 else '0.31622776601683793319988935444327185337'
+    lam = '1' if C['seed'] == 1 else '0.3162277660168379331998893544432718533719555139325216826857504852792594438639238221344'
     lines = ['lam %s' % lam, 'amp 1', 'pxi %d' % pxi, 'pv %d' % pv, 'M %d' % M,
              'consts %s' % os.path.abspath('c_%d_%d_%d.bin' % (pxi, pv, M)),
              'domain %s %s %s %s' % (dec(xlo), dec(xhi), dec(vlo), dec(vhi)), 'cells %d %d %d %d' % (c1, c2, r1, r2)]

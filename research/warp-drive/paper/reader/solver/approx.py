@@ -31,14 +31,14 @@ def quantize(hi, lo, p):
         z[t] = round(v)
     return z
 
-def dec_string(hi, lo):
-    """a decimal string with ~34 significant digits of hi + lo (exact sum, rounded)"""
-    v = Fr(float(hi)) + Fr(float(lo))
+def dec_string(parts, nd=70):
+    """a decimal string with nd significant digits of the exact sum of the double parts"""
+    v = sum(Fr(float(q)) for q in parts)
     if v == 0: return '0'
     s = '-' if v < 0 else ''; v = abs(v)
     e = len(str(v.numerator // v.denominator)) if v >= 1 else -len(str(v.denominator // max(v.numerator, 1))) + 1
-    m = round(v * Fr(10) ** (34 - e))
-    return '%s%de%d' % (s, m, e - 34)
+    m = round(v * Fr(10) ** (nd - e))
+    return '%s%de%d' % (s, m, e - nd)
 
 def write_approx(case, blocks, fn, kappa=4):
     L = rep.layout(case)
@@ -59,12 +59,12 @@ def write_approx(case, blocks, fn, kappa=4):
                         for (a, b, k) in nz:
                             f.write('%d %d %d %d\n' % (a, b, k, arr[a, b, k]))
                     else:
-                        hi, lo = arr
-                        nz = list(zip(*np.nonzero(hi != 0)))
-                        sh = hi.shape
+                        parts = arr                     # (nt+1, ns+1, nx+1, NW)
+                        nz = list(zip(*np.nonzero(parts[..., 0] != 0)))
+                        sh = parts.shape
                         f.write('field %d -1 %d %d %d %d\n' % (fi, sh[0] - 1, sh[1] - 1, sh[2] - 1, len(nz)))
                         for (a, b, k) in nz:
-                            f.write('%d %d %d %s\n' % (a, b, k, dec_string(hi[a, b, k], lo[a, b, k])))
+                            f.write('%d %d %d %s\n' % (a, b, k, dec_string(parts[a, b, k])))
 
 def dec(fr):
     fr = Fr(fr); s = '-' if fr < 0 else ''; fr = abs(fr)
