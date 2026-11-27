@@ -556,6 +556,7 @@ static void write_output() {
 }
 
 // ------------------------------------------------------------------------------------------------ the march
+#ifndef BSOLV_NO_MAIN
 int main(int argc, char** argv) {
   if (argc < 2) { fprintf(stderr, "usage: solver config [--fresh]\n"); return 1; }
   read_config(argv[1]); bool fresh = argc > 2 && !strcmp(argv[2], "--fresh");
@@ -640,3 +641,4 @@ int main(int argc, char** argv) {
   fclose(lg);
   return 0;
 }
+#endif
