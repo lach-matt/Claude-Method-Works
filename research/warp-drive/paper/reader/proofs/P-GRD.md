@@ -252,3 +252,81 @@ with |C| ≤ 2; so μ⁴ Σ_Z Σ_J |ℒ^J D̂²Ψ_Z|² ≤ 602 M_g² + 621516 [�
 
 As there, μ² X_i ≤ 𝔛_t^g (𝔍_g + ϱ) and μ^(3/2) Y_i ≤ 𝔜_t (𝔍_g + ϱ + η₀) for i = 1, 2, and μ^(7/2) (X₁² Y₁² +
 X₂² Y₂²)^(1/2) ≤ μ² X₁ μ^(3/2) Y₁ + μ² X₂ μ^(3/2) Y₂ gives the first inequality. ∎
+
+**Definition {#def:tl5-hfg-constants}** (The sharpened constants.) Let N ≥ 5 and the setting be that of
+[[def:tl5-hf-constants]], or N = 4 and the setting that of [[def:tl5-hf4-constants]], with δ_w, ϰ₀, 𝔰_θ, ϱ and η₀ as
+there and 𝒮 of [[eq:tl5-hf-source]] for a = u*, b = v*. With the constants of [[lem:tl5-hfg-linfty]] and
+[[lem:tl5-hfg-products]], C_P := C_∞^(m_P), C_(P,ϱ) := C_(∞,ϱ)^(m_P) and C_(P,0) := C_(∞,0)^(m_P), put
+
+    𝔰₀^⋆ := min(𝔰_♭, 1/(2 sup_(D^κ) k₃^⋆)),      𝔰₁^⋆ := min(𝔰₀^⋆/2, c_* κ_m/2, 𝔰_θ),
+    𝔤_(N,g) := (Σ_(j≤N) (Σ_(j′≤j) 𝔮_(jj′) 7^(j′/2) (𝔠^⋆_(j′) + 1))²)^(1/2),
+    𝔞_(o,g) := ϰ₀/c + (1/2)|T| ‖𝒞_(·0)‖ (1/z̲ + 1/c) + 2Ω̂ 𝔤_(N,g) 𝔨_g (1 + 1/z̲ + 1/c)^(1/2),
+    𝔞_(i,g) := ϰ₀ + (1/2)|T| ‖𝒞_(·0)‖ + 2Ω̂ 𝔤_(N,g) 𝔨_g (1 + 1/z̲ + 1/c)^(1/2),
+    S_(F,g) := μ^(−3/2) (∫_(−10)^(u*) sup_(Σ₁(t,v*)) (𝔞_(o,g) C_P e^(φ/2)) dt
+              + ∫_(1/2)^(v*) sup_(Σ₂(u*,t)) (𝔞_(i,g) C_P e^(φ/2)) dt),
+    𝔯_(w,g) := μ^(−3/2) (∫_(−10)^(u*) sup_(Σ₁(t,v*)) (𝔞_(o,g) (C_(P,ϱ) ϱ + C_(P,0) η₀)) dt
+              + ∫_(1/2)^(v*) sup_(Σ₂(u*,t)) (𝔞_(i,g) (C_(P,ϱ) ϱ + C_(P,0) η₀)) dt),
+    ε_(w,g) := 𝒮[s_N[2R̂ic] + (1/4) 𝔤_(N,g) k₂ ϱ],
+
+the functions of p being evaluated at the point of the supremum. For N = 4 put, with the notation of
+[[lem:tl5-hf4-mixed]] and [[lem:tl5-hfg-mixed]] and with [𝔠^⋆₄]_t the number 𝔠^⋆₄ formed with the suprema over
+Σ₁(t, v*) of the Λ_k and the λ_k,
+
+    m_t^g := 98 e^(φ(t,v*)/2) [2Ω̂² (1 + c/κ′)^(1/2)]_t [𝔠^⋆₄]_t 𝔪(t) 𝔛_t^g 𝔜_t,
+    S_(M,g) := μ^(−3/2) ∫_(−10)^(u*) m_t^g [𝔨₂]_t dt,      𝔯_(M,g) := μ^(−3/2) ∫_(−10)^(u*) m_t^g [𝔨₂]_t^(1/2) (2ϱ + η₀) dt,
+    ε_(M,g) := μ^(−3/2) ϱ (ϱ + η₀) ∫_(−10)^(u*) m_t^g dt,
+
+and for N ≥ 5 let S_(M,g) = 𝔯_(M,g) = ε_(M,g) := 0. Finally
+
+    A_g := √2 δ_w + 2ε_(w,g) + 2ε_(M,g),      B_g := 2 (S_(F,g) + S_(M,g)),      𝔯_g := 𝔯_(w,g) + 𝔯_(M,g),
+    𝔰_(*,g) := sup_(p∈D^κ) (2 C_∞^(N−4)(p) μ^(−N/2) e^(φ(p)/2) A_g + C_(∞,ϱ)^(N−4)(p) ϱ(p) + C_(∞,0)^(N−4)(p) η₀).
+                                                                                                       {#eq:tl5-hfg-constants}
+
+**Proposition {#prop:tl5-hfg-bootstrap}** (The a priori estimate with the sharpened constants.) In the setting of
+[[def:tl5-hfg-constants]], suppose that the rates a_o, a_i are admissible for ((1 − ϑ)⁻¹ 𝔅_N, E_o^N, E_i^N) and that
+
+    𝔯_g ≤ 1/4,      η₀ < 𝔰₁^⋆,      𝔰_(*,g) < 𝔰₁^⋆.                                               {#eq:tl5-hfg-smallness}
+
+Let g be a solution of the reduced problem on D^κ_s with Y_σ(g) ≤ 2A_g for every σ ∈ [1/2, s]. Then 𝔰 ≤ 𝔰_(*,g) on
+D^κ_s; in particular |h|_k̂ < κ_m/2 there, and
+
+    Y_s(g) ≤ A_g + B_g Y_s(g)².                                                                          {#eq:tl5-hfg-h1}
+
+*Proof.* *Step 1.* As in Step 1 of the proof of [[prop:tl5-hf-bootstrap]], with 𝔰₀^⋆, 𝔰₁^⋆ and A_g in place of 𝔰₀,
+𝔰₁ and A_w, and with [[eq:tl5-hfg-linfty]] for m = N − 4 and μ = 1 in place of [[eq:tl5-hf-linfty]]: if 𝔰 ≤ 𝔰₀^⋆ on
+D^κ_σ and p ∈ D^κ_σ, then ℰ⁰_N(p) ≤ μ^(−N) e^(φ(p)) Y_σ(g)² ≤ 4μ^(−N) e^(φ(p)) A_g², so 𝔰(p) ≤ 𝔰_(*,g) < 𝔰₁^⋆ ≤
+𝔰₀^⋆/2. That argument gives 𝔰 ≤ 𝔰_(*,g) < 𝔰₁^⋆ on D^κ_s, |h|_k̂ < κ_m/2 by [[lem:tl5-hf-conversions]] (a), and
+θ_H ≤ ϑ. So [[lem:tl5-hfg-quadratic]], [[lem:tl5-hfg-linfty]] and [[lem:tl5-hfg-products]] apply at every point of
+D^κ_s, and their ϱ(p) and η₀(p) are at most the ϱ and η₀ of [[def:tl5-hfg-constants]].
+
+*Step 2.* Step 2 of the proof of [[prop:tl5-hf-bootstrap]] (for N = 4, of the proof of [[prop:tl5-hf4-bootstrap]])
+holds up to the bound of the nonlinear terms, which we replace as follows. The nonlinear terms of L̂Ψ_I +
+H^(αβ) D̂_αD̂_βΨ_I other than 𝔑^M_I are −Σ_(J≠I) 𝔔_IJ ℒ^J N(h) − 𝔑^L_I, and 𝔔_IJ ≠ 0 with J ≠ I only for |J| < |I|. By
+[[eq:tl5-hfg-products]], by the definition of 𝔮_(jj′) and the Cauchy–Schwarz inequality over the 7^(j′) words of each
+length j′ ≤ |I| ([[def:tl5-hf-coupling]]), the family of these terms over |I| = j has norm at most
+
+    μ^(−j/2) Σ_(j′≤j) 𝔮_(jj′) 7^(j′/2) (𝔠^⋆_(j′) + 1) (μ^(−3/2) 𝔨_g 𝔰_P 𝒥_g + 2k₂ 𝔰 ϱ),
+
+with 𝔮_(jj) = 1. As for the forcing terms in the proof of [[prop:tl5-hf-linear-n]], with the weights μ^|I| and the
+Cauchy–Schwarz inequality over j, their contribution to the bulk is at most 2Ω̂² 𝔤_(N,g) (μ^(−3/2) 𝔨_g 𝔰_P 𝒥_g +
+2k₂ 𝔰 ϱ)(√e_o + √c √e_i), e_o and e_i being the weighted sums. By [[eq:tl5-hf-coercive]], 2Ω̂² 𝒥_g² ≤ (1/z̲ + 1/c) e_o +
+e_i, so, with √e_o + √c √e_i ≤ √2 (e_o + e_i)^(1/2), 2Ω̂² 𝒥_g (√e_o + √c √e_i) ≤ 2Ω̂ (1 + 1/z̲ + 1/c)^(1/2) (e_o + e_i);
+and 2k₂ 𝔰 ϱ ≤ (1/4) k₂ ϱ, as 𝔰 ≤ 1/8. By (a) of [[lem:tl5-hf-quasilinear]], with |D̂H| = |g⁻¹ (D̂h) g⁻¹| ≤ 𝔤₀² |D̂h| ≤
+𝔤₀² μ^(−3/2) 𝔰_P, |H| ≤ μ^(−1) 𝔰_P ≤ μ^(−3/2) 𝔰_P and |D̂Ψ|² ≤ (e_o/c + e_i)/(2Ω̂²) for each field, the weighted sum of
+2Ω̂² |𝔮_H| is at most μ^(−3/2) 𝔰_P times the first two terms of 𝔞_(o,g) e_o + 𝔞_(i,g) e_i. For N = 4 the terms 𝔑^M_I
+are bounded as in the proof of [[prop:tl5-hf4-bootstrap]], with [[eq:tl5-hf4-g]] for 𝔠^⋆₄ and [[lem:tl5-hfg-mixed]] in
+place of [[lem:tl5-hf4-mixed]]: the factors there become 49 [𝔠^⋆₄]_t ‖𝔭_M‖_Σ and at most μ^(−2) Y_s, and 𝔍_g ≤
+[𝔨₂]_t^(1/2) Y_s, so the term is at most ∫_(−10)^(u*) m_t^g μ^(−3/2) (𝔍_g + ϱ)(𝔍_g + ϱ + η₀) Y_s dt ≤ S_(M,g) Y_s³ +
+𝔯_(M,g) Y_s² + ε_(M,g) Y_s. Hence the bulk of the weighted sum over I is at most
+
+    ∫ e^(−φ) (2Ω̂² (s_N[2R̂ic] + (1/4) 𝔤_(N,g) k₂ ϱ)(√e_o + √c √e_i) + μ^(−3/2) 𝔰_P (𝔞_(o,g) e_o + 𝔞_(i,g) e_i)) dμ du dv
+
+plus, for N = 4, S_(M,g) Y_s³ + 𝔯_(M,g) Y_s² + ε_(M,g) Y_s.
+
+*Step 3.* Step 3 of that proof applies with μ^(−3/2) 𝔰_P in place of 𝔰: by [[eq:tl5-hfg-linfty]] for m = m_P, as
+ℰ_g(p) ≤ e^(φ(p)) Y_s², φ being at most φ(p) on Σ₁(τ₁(p), τ₂(p)), 𝔰_P ≤ C_P e^(φ/2) Y_s + C_(P,ϱ) ϱ + C_(P,0) η₀ at
+every point; so for every a′ ≤ u*, b′ ≤ s
+
+    (1 − ϑ) Σ_I μ^|I| ℰ_I(a′, b′) ≤ δ_w² + Y_s (ε_(w,g) + ε_(M,g)) + 𝔯_g Y_s² + (S_(F,g) + S_(M,g)) Y_s³,
+
+and with ϑ ≤ 1/4 and 𝔯_g ≤ 1/4 the conclusion follows as there. ∎
