@@ -86,7 +86,10 @@ polynomials give to the exponents of the construction, which tends
 to 0 as h decreases to some h_μ ∈ (5 × 10⁻⁷, 10⁻⁶); this paper proves upper bounds for d and N_NM there, explicit in μ(h)
 and h, only for h ≥ 4.76 × 10⁻¹¹ outside a set of total length below 1.7 × 10⁻¹¹ and under a condition on the roots of
 the damping polynomials of large degree that is decided only at h = 10⁻⁶, and whether such points are admissible is not
-decided ([[thm:tr-transfer]], [[prop:tr-mu-small]], [[rem:tr-scope]]). No result of [[ch:explicit-constants]] is used in
+decided ([[thm:tr-transfer]], [[prop:tr-mu-small]], [[rem:tr-scope]]). For the smaller index sets of the choice above,
+which serve at these h as well, the same holds with the least excess μ♭(h) ≥ μ(h) that they give in place of μ(h) and
+with some h♭ ∈ (5 × 10⁻⁷, 10⁻⁶) in place of h_μ ([[thm:tr-flat]], [[prop:tr-flat-lower]]).
+No result of [[ch:explicit-constants]] is used in
 the proof of any theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
 [[prop:fwd-calculus]] proves, and the value N′ = 13 of [[ch:s06]], which rests on [[lem:fwd-orders]], are used only in
 [[ch:explicit-constants]], whose opening states both.

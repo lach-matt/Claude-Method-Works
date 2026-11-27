@@ -34,7 +34,10 @@ excess above 3 that the roots of real part below 3 of the damping polynomials gi
 which tends to 0 as h decreases to some h_μ ∈ (5 × 10⁻⁷, 10⁻⁶); upper bounds there are explicit functions of μ(h) and of
 a count bounded by a multiple of h^(−1/2), for h ≥ 4.76 × 10⁻¹¹ outside a set of total length below 1.7 × 10⁻¹¹, under a
 condition on the roots of the damping polynomials of large degree that is decided only at h = 10⁻⁶ ([[thm:tr-transfer]],
-[[prop:tr-mu-small]]). The
+[[prop:tr-mu-small]]). For the smaller index sets of [[def:is-flat-set]], which the choice above takes and which serve at
+these h as well, the same holds with the least excess μ♭(h) ≥ μ(h) that they give in place of μ(h), with some
+h♭ ∈ (5 × 10⁻⁷, 10⁻⁶) in place of h_μ, and with a count below 1.33738 × 10⁹ + 4.0697 × 10⁶h^(−1/2) ([[thm:tr-flat]],
+[[prop:tr-flat-lower]]). The
 same formulas bound λ1 by δ, δ by a power of 2 that decreases with d, and the modulus of the initial family
 ([[prop:iii-k-1-2]]) at 2δ by a power of 2 that decreases with d ([[prop:ec-delta-cap]]). The regularity d_1 of
 [[thm:iii-k-4-3]] is 22d + 292 + L_P and the order of the approximant of [[thm:settling]] is K = d_1 + 14, L_P ≤ 43
@@ -96,7 +99,8 @@ inputs that depend on h enter the proof of [[thm:uc-integer]], run with these in
 the computational point, except the roots of real part below 3 of the damping polynomials, through which the gap of (G)
 and the count N_Λ move with h; at the admissible points among these at which the degrees l with hl(l + 2) > 70 have no
 root of real part in [2, 3 + ε_Υ), a condition decided only at h = 10⁻⁶, the bounds of [[prop:uc-dependence]] hold with
-the gap and the count at h ([[thm:tr-transfer]]).
+the gap and the count at h ([[thm:tr-transfer]]). The same holds for the smaller index sets of [[def:uc-choice]], with
+the gap and the count that they give at h ([[thm:tr-flat]]).
 
 ### Sums of the gauge potential offsets {#sec:ec-gap-sums}
 
@@ -1834,7 +1838,10 @@ of [[cor:is-lower]] rest on the gap condition (G) for the index sets as construc
 ([[lem:uc-two-offsets]]), and the second also at h = 10⁻⁶ ([[thm:is-gap]]); they are stated at the computational point
 only. At the admissible points with (e_Υ, γ_Υ) = (1/100, 1/100) and other h ≤ 10⁻⁶ the second is replaced, for the same
 index sets, by d_NM > 2.0517·10¹⁰/μ(h), with the least excess μ(h) of [[def:tr-excess]] ([[thm:tr-transfer]]); as h
-decreases to a point h_μ ∈ (5·10⁻⁷, 10⁻⁶), μ(h) tends to 0 and this bound to infinity ([[prop:tr-mu-small]]).
+decreases to a point h_μ ∈ (5·10⁻⁷, 10⁻⁶), μ(h) tends to 0 and this bound to infinity ([[prop:tr-mu-small]]). For the
+smaller index sets of [[def:is-flat-set]], which [[thm:uc-integer]] takes, [[prop:tr-flat-lower]] gives there
+d_NM > 2.0517·10¹⁰/μ♭(h), with the least excess μ♭(h) ≥ μ(h) of [[def:tr-flat-excess]], and this bound too tends to
+infinity, as h decreases to a point h♭ ∈ (5·10⁻⁷, 10⁻⁶).
 
 ### An upper bound for the accounted loss {#sec:ec-upper}
 
@@ -5742,10 +5749,10 @@ and λ_2 are not evaluated ([[rem:ec-not-evaluated]] and the paragraph after [[t
 ### The bounds at other values of h {#sec:tr}
 
 [[thm:uc-integer]] bounds d at the computational point, which is not shown to lie in the set on which [[thm:settling]] is
-proved ([[rem:ec-point-outside]]). This section keeps the gauge parameters (γ_Υ, e_Υ) = (1/100, 1/100) and the index sets
-as constructed ([[sec:is]]), and lets h run through [h_m, 10⁻⁶), h_m := 4.76·10⁻¹¹; this paper shows that the smaller
-index sets of [[def:is-flat-set]], which [[thm:uc-integer]] takes, serve at the computational point
-([[thm:is-flat-serves]]), and does not treat them at other h. In the proof of [[thm:uc-integer]], run with the index sets
+proved ([[rem:ec-point-outside]]). This section keeps the gauge parameters (γ_Υ, e_Υ) = (1/100, 1/100) and lets h run
+through [h_m, 10⁻⁶), h_m := 4.76·10⁻¹¹. Up to [[sec:tr-flat]] it takes the index sets as constructed ([[sec:is]]);
+[[sec:tr-flat]] treats the smaller index sets of [[def:is-flat-set]], which [[thm:uc-integer]] takes and which serve at
+the computational point ([[thm:is-flat-serves]]). In the proof of [[thm:uc-integer]], run with the index sets
 as constructed ([[prop:uc-dependence]]), h enters through five inputs: (a) the number
 ε_ind(h) of [[prop:np-10-52]] (iii), through ε_g = min(ε_Υ, ε_ind) and the constants of [[eq:iii-i9-1-1]]
 ([[lem:uc-admissible]]); (b) the exponents of ℰ^ι_ind that come from the roots of □^C ([[prop:is-iota]],
@@ -5776,7 +5783,11 @@ points of total length below 1.7·10⁻¹¹ ([[prop:tr-measure]]), and it cannot
 at which the parameter point is admissible, every admissible choice of the weights gives d_acc above the bounds of
 [[thm:uc-integer]] ([[prop:tr-fail]]). The lower end h_m is fixed by the root ι₂(h) of P_2 near 2, with
 (40/13)h(1 − 5·10⁴h) < ι₂(h) − 2 < 40h/13 ([[lem:ec-lb-ind]]): below 13ε_Υ/40 = 4.751175·10⁻¹¹ no h satisfies (H_ε)
-([[prop:tr-eps]] (b)).
+([[prop:tr-eps]] (b)). With the smaller index sets the same five inputs enter, and (e) gives a least excess
+μ♭(h) ≥ μ(h) in which only multiples of 𝔡₁ are added to the roots of real part below 3, and a bound for the count that
+is linear in the numbers 3 − Re ι, below 1.33738·10⁹ + 4.0697·10⁶h^(−1/2). The upper bound becomes the bound of
+[[prop:uc-dependence]] at that count, for the ε_K and ε_+ that [[thm:tr-flat]] admits, under the same conditions, and the
+lower bound d_NM > 2.0517·10¹⁰/μ♭(h) tends to infinity as h decreases to a point h♭ ∈ (5·10⁻⁷, 10⁻⁶) ([[sec:tr-flat]]).
 
 *Setting.* Throughout this section e := e_C = 1/102400 and v := v_C = 1/2; h ∈ (0, 10⁻⁶] and ϖ := h/e = 102400h, so
 0 < ϖ ≤ 0.1024; for l ≥ 1, κ := l(l + 2), x := hκ and y := eκ, so that x = ϖy and y depends on l alone; P_l,
@@ -5845,8 +5856,9 @@ evaluated here, and h_m lies within 0.19 % of that value. On 𝖩 the condition 
 [[prop:tr-inputs]] (b), can fail, and where ε_ind(h) < 1.45·10⁻¹⁹ the bounds of [[thm:uc-integer]] fail for every
 admissible choice ([[prop:tr-fail]]). The lower bounds of (ii) use only admissibility, and, like [[prop:tr-mu-small]],
 which uses 𝔡₀ as an increment, they are proved for the index sets as constructed; for the smaller index sets of
-[[def:is-flat-set]], which [[thm:uc-integer]] takes, this paper proves [[thm:is-flat-serves]] at the computational point
-only.
+[[def:is-flat-set]], which [[thm:uc-integer]] takes, [[sec:tr-flat]] proves that they serve at these h and gives the
+counterparts of (ii), (iii) and [[prop:tr-mu-small]], the sum 2541391𝔡₁ of increments taking the place of w_*
+([[prop:tr-flat-serves]], [[thm:tr-flat]], [[prop:tr-flat-lower]]).
 
 #### The sextic in two parameters {#sec:tr-split}
 
@@ -6367,7 +6379,9 @@ and the counts, the forward loss, which holds for every γ_C ([[lem:fwd-orders]]
 ([[prop:uc-dbg]]) and the free choices of [[def:cs-choices]], of which (a) uses ϑ_ℋ < ϑ_L + δ with ϑ_L = max(0,
 2 − 2a_vγ_Cr_h) < 2 at every γ_C, and (f) the interval (2, 2 + ε_g − 2ε) with ε_g = ε_Υ; and the proof of
 [[lem:cs-fourier]] (b) uses ε_ind > ε_K and the reality of the elements of Λ of real part at most 2 + ε_K, which
-[[prop:tr-lambda]] (a) gives, and 𝒵 ⊂ {Re > 1}, which holds at every h ([[prop:iii-f1-2-3]] (a)). So the proof of
+[[prop:tr-lambda]] (a) gives, and 𝒵 ⊂ {Re > 1}, which holds at every h ([[prop:iii-f1-2-3]] (a)). The statements
+[[def:is-flat-set]]–[[cor:is-flat]] on the smaller index sets enter only the run with those index sets, in which
+[[cor:is-flat]], which depends on h through Z₃, is replaced by [[prop:tr-flat-lambda]] ([[thm:tr-flat]]). So the proof of
 [[prop:uc-dependence]] applies at h, with the index sets as constructed, N̄_Λ := N̄(h), k̄_0 = 3, J_* = 15,000,015 and
 l_* = 50, and gives the
 bounds. ∎
@@ -6429,7 +6443,7 @@ h_c ∈ 𝖩_v(1000, 4). By [[eq:tr-vslope]], 0 < ∂_hι_v ≤ (l + 1)² = 1002
 There is h_μ ∈ (5·10⁻⁷, 10⁻⁶) such that ι_B(390, h_μ) + w_* = 3 and ι_B(390, h) + w_* > 3 for h_μ < h ≤ 10⁻⁶, and for
 these h, μ(h) ≤ ι_B(390, h) + w_* − 3, which tends to 0 as h decreases to h_μ. So for every D there is δ > 0 such that
 at every h ∈ (h_μ, h_μ + δ) at which the parameter point (h, 1/100, 1/100) is admissible, every admissible choice of the
-weights gives d_NM > D.
+weights with the index sets as constructed gives d_NM > D.
 
 *Proof.* Let l = 390, so κ = 152880 and y = eκ > 1.49 > 1/5; for 0 < h ≤ 10⁻⁶, x = hκ ≤ 0.15288, and ι_B(390, h) is
 defined, depends continuously on h and lies in (2 + x/2, 2 + 3x/2) ([[def:tr-exceptional]] (b), [[lem:tr-large]] (a)).
@@ -6447,6 +6461,298 @@ The same argument as for [[prop:tr-fail]] applies near every point of 𝖩 at wh
 condition (H_ε) fails, through ι₂(h), and ε_g ≤ ε_ind(h) < 40h/13 ≤ ε_Υ; the quantities of [[prop:uc-explicit]] that use
 ε_g then change, and where the parameter point (h, 1/100, 1/100) is admissible [[thm:ec-lb-proved]] gives
 d_NM > 0.3168h⁻², which exceeds 1.42556·10³⁸ for h ≤ 4.71·10⁻²⁰ ([[rem:ec-lb-unbounded]]).
+
+#### The smaller index sets at h {#sec:tr-flat}
+
+The index sets ℰ^φ_ind and ℰ^(ι,φ)_ind of [[def:is-flat-set]], which omit the offset 𝔡₀ and which [[thm:uc-integer]]
+takes, serve at the computational point ([[thm:is-flat-serves]]). This subsection shows that they serve at every h ∈
+(0, 10⁻⁶], with η_0 = 𝔡₁ and J_* = 15,000,015 there and with k̄_0 = 3 and l_* = 50 at every h ∈ [h_m, 10⁻⁶) ∖ 𝖩
+([[prop:tr-flat-serves]]), and gives for them the counterparts of [[def:tr-excess]], [[prop:tr-lambda]] and
+[[thm:tr-transfer]] (iii) and (ii) ([[def:tr-flat-excess]], [[prop:tr-flat-lambda]], [[thm:tr-flat]],
+[[prop:tr-flat-lower]]). Run with these index sets, the proof of [[thm:uc-integer]] meets h through the five inputs
+(a)–(e) of the opening of [[sec:tr]], and only (e) enters differently: as 𝔡₁ is the only increment of real part below
+1, for ε_K < ε_Υ the gap of (G) is a least excess μ♭(h) ≥ μ(h) in which only multiples of 𝔡₁ are added to the roots
+of real part below 3, and the count N_Λ has a bound linear in the numbers 3 − Re ι, where that of [[def:tr-excess]] is
+quadratic. The setting is that of [[sec:tr]]. Λ^φ denotes the set that [[def:iii-i10-1-1]] builds at h from ℰ^φ_ind
+and ℰ^(ι,φ)_ind, with the least ℰ^C_I and the least ℰ_++, and N_Λ := #(Λ^φ ∩ {Re < 3 + ε_+}).
+
+**Proposition {#prop:tr-flat-serves}** (The smaller index sets at h.) Let 0 < h ≤ 10⁻⁶, and let ℰ^φ_ind and ℰ^(ι,φ)_ind
+be built by [[def:is-flat-set]] at the parameter point (h, 1/100, 1/100).
+
+(a) ℰ^φ_ind is the same at every such h. Whatever the coefficients c_b are, ℰ^φ_ind and ℰ^(ι,φ)_ind may be taken for
+ℰ_ind and ℰ^ι_ind in [[sec:uc-index-sets]]: every proof of this paper that uses ℰ_ind and ℰ^ι_ind holds with them, the
+memberships of ω̇_b(0, ·) and ġ^Υ_b(0, ·) being read in the forms [[eq:is-flat-memb]]. Λ^φ lies in the set Λ that
+[[def:iii-i10-1-1]] builds at h from the index sets as constructed; 𝔡₁ ∈ π_1ℰ^φ_ind ∩ π_1ℰ^(ι,φ)_ind and
+𝔡₀ ∉ π_1(ℰ^φ_ind ∪ ℰ^(ι,φ)_ind); the only increment of Λ^φ of real part below 1 is 𝔡₁; every increment of real part at
+most 3/2 is a sum of the increments 𝔡₁, 1, 1 + δ′₁, 1 + δ₂, 1 + 𝔡₀ and 1 + 2𝔡₀; and η_0 = 𝔡₁ and J_* = 15,000,015.
+
+(b) If moreover h_m ≤ h < 10⁻⁶ and h ∉ 𝖩, then k̄_0 = 3 and l_* = 50 are admissible for ℰ^φ_ind and ℰ^(ι,φ)_ind.
+
+*Proof.* (a) We go through the inputs of [[def:is-flat-set]], [[lem:is-flat-memberships]], [[lem:is-flat-uses]] and
+[[thm:is-flat-serves]] and record which of them involve h.
+
+*The operator (□^Υ_b)^(0).* ℰ^φ_ind is built by [[lem:iii-a-1-4]], [[lem:iii-a-1-5]] and [[lem:is-typed]] from the
+constructions (c1)–(c6) of [[sec:is-ind]], from the poles of N(ρ⁻²(□^Υ_b)^(0), ·)⁻¹½(1 ± φ), and from right sides whose
+exponents are integers or exponents of earlier constructions. The operator □^Υ_b = 2δ_(g_b,E_Υ)G_(g_b)δ*_(g_b)
+([[eq:iii-b-6-4]]) involves the gauge modification E_Υ and not the constraint damping E_C, which carries h; so its
+indicial roots, the set R and the offsets 𝔡₀, 𝔡₁, δ′₁ and δ₂ are fixed by z = 4e_Υγ_Υ² ([[lem:is-roots]],
+[[lem:is-offsets]]), and so are the constructions, their right sides and the class roots of (c5). The weights at which
+the constructions invert (□^Υ_b)^(0) lie in [0, 2 + 𝔡₁), where E(α) = R + ℕ₀ does not depend on the weight (proof of
+[[prop:is-ind]]).
+
+*The parity.* φ commutes with □^Υ_b, P_b and L̂_b(0) at every h, as it preserves the 1-form c_C of the constraint damping
+as well as c_Υ and c_(Υ,H) ((P3) of [[lem:iii-i15-1-1]]); and the parities of the constructions, those of the proof of
+[[thm:is-d0]] (b), do not involve h.
+
+*The terms at 2 + 𝔡₀.* [[lem:is-rot-s0]], [[def:is-cb]] and [[thm:is-d0]] concern the rotation corrections, ω̇_b(0, ·)
+and ġ^Υ_b(0, ·), which are built from g_b by inverting (□^Υ_b)^(0) on decaying spaces (proof of [[prop:iii-d2-3-1]],
+[[eq:iii-f3-2-1]]); the constraint damping does not enter them ([[rem:is-cb-open]]), and they do not involve h. So the
+pairs removed in [[def:is-flat-set]], the set ℰ^φ_ind, the forms [[eq:is-flat-memb]], the statements (a) and (b) of
+[[lem:is-flat-memberships]] and those of its (c) on ℰ^φ_ind and ℰ_(𝔡₀) are the same at every h. [[lem:is-flat-uses]]
+lists where and how the proofs of this paper use the memberships of ω̇_b(0, ·) and ġ^Υ_b(0, ·); these proofs are the same
+at every admissible parameter point, and the lemma does not involve h.
+
+*The states of [[thm:iii-g2-4-2]].* ℰ^(ι,φ)_ind is built from the index sets of the states of the proof of
+[[thm:iii-g2-4-2]], those of the table of [[sec:iii-g2-1]] and the s1 and v1 terms (proof of [[prop:is-iota]]): the
+states of [[ch:s13]] and ġ^Υ_b, which are constructions of [[sec:is-ind]] or tensors built from them and do not involve
+h, and the physical states of [[prop:iii-f4-5-1]], built from the roots of L̂_b(0), which do. (C1) holds at every h ∈
+(0, 10⁻⁶] ([[lem:iv4-1-3]] (a)), so every root of L̂_b(0) of positive real part has real part greater than 1
+([[prop:iii-f1-2-3]] (a)), and by the proof of [[prop:is-iota]], which uses of h only (C1) (proof of [[prop:tr-inputs]]
+(a)), the exponents that the physical states add to those of the constructions of [[sec:is-ind]] are integers and the
+numbers ι + 1 + j, ι ∈ Z(h), j ∈ ℕ₀, whose real parts exceed 3 ([[prop:np-10-54]] (ii)); an offset of a physical state is
+an integer, an offset of such a construction other than ω̇_b(0, ·), or a number of real part at least 1 (proof of
+[[prop:is-logs]] (c)). So at h the exponents of ℰ^ι_ind as constructed of real part at most 3 are those of ℰ_ind and
+integers, and the proof of [[lem:is-flat-memberships]] (c) applies at h: the rules [[eq:is-l1]] and [[lem:is-count]] (b)
+are monotone in E(α), ord and F, which does not involve h, so ℰ^(ι,φ)_ind ⊂ ℰ^ι_ind; 𝔡₁ ∈ π_1ℰ^(ι,φ)_ind, as the
+translation corrections enter the s1 terms; and 𝔡₀ ∉ π_1ℰ^(ι,φ)_ind. Hence the exponents of ℰ^φ_ind ∪ ℰ^(ι,φ)_ind of real
+part at most 3/2 are among 1 and the numbers of [[eq:is-low]] other than 𝔡₀, their least real part is 𝔡₁, and their
+logarithmic orders are at most those of ℰ_ind and ℰ^ι_ind as constructed at h.
+
+*The proof of [[thm:is-flat-serves]] at h.* Besides the statements above, that proof uses the conditions on ℰ_+, which
+are conditions on ℰ_+ alone ([[lem:iii-i10-1-2]] (b)), the count of [[lem:iii-i10-1-2]] (c), the six increments, which
+come from the translation and rotation corrections, from ω̇_b(1, 0) and from the class μ_s0, and the inclusions
+ℰ^φ_ind ∪ ℰ_(𝔡₀) ⊂ ℰ_ind and ℰ^(ι,φ)_ind ⊂ ℰ^ι_ind. None of these involves h beyond what was just shown, so that proof
+gives at h the memberships, Λ^φ ⊂ Λ and the statements on the increments. η_0, the least real part of the increments, is
+𝔡₁, and J_* = ⌈5/𝔡₁⌉ + 2 = 15,000,015 ([[prop:is-count]] (c), which reads only 𝔡₁). This proves (a).
+
+(b) l_* bounds, at real part at most 5, the logarithmic orders of ℰ_ind ∪ ℰ^ι_ind ∪ ℰ^C_I, the orders of the poles of
+N_ι⁺(L̄, ·)⁻¹ and the multiplicities of the roots of L̂_b(0); k̄_0 bounds, below 2λ_♯, the logarithmic orders of
+ℰ⁰_src ∪ ℰ_++ ∪ 𝒢 ∪ (2 + ℰ_col), which are built from ℰ_ind and ℰ^ι_ind by unions and sums, so that smaller index sets
+give orders at most as large ([[def:iii-i10-1-1]]); the orders of the poles and the multiplicities do not depend on the
+index sets. By (a), the logarithmic orders for ℰ^φ_ind and ℰ^(ι,φ)_ind are at most those for the index sets as
+constructed at h. For these, [[prop:tr-inputs]] gives at h the exponents of ℰ^ι_ind of real part at most 5 and their
+logarithmic orders, at most 3 at real part at most 3/2 and at most 50 at real part at most 5, the multiplicities, and
+[[cor:sp-lstar]] (a)–(c), so that l_* = 50 is admissible ([[prop:tr-inputs]] (d)); and the proof of [[prop:is-count]] (b)
+reads only the exponents of ℰ_ind ∪ ℰ^ι_ind of real part below 2λ_♯ − λ_♯ = 1.5099, which are those of real part at most
+3/2, and their logarithmic orders, which by [[prop:tr-inputs]] (a) are those of ℰ_ind and the integer 1, with orders at
+most 3, as at the computational point; so k̄_0 = 3 is admissible at h. Both are therefore admissible for ℰ^φ_ind and
+ℰ^(ι,φ)_ind. ∎
+
+On 𝖩, and for h < h_m, part (a) holds and the proof of part (b) is not available: it rests on (H_ε) and on the simplicity
+of [[prop:tr-inputs]] (b), which are proved only for h ≥ h_m off 𝖩 ([[prop:tr-eps]] (a), [[prop:tr-inputs]]); on 𝖩
+they can fail ([[rem:tr-scope]]), and (H_ε) fails at every h ≤ 13ε_Υ/40 ([[prop:tr-eps]] (b)). This is the restriction
+under which [[thm:tr-transfer]] (iii) holds for the index sets as constructed; the smaller index sets add none of their
+own.
+
+**Definition {#def:tr-flat-excess}** (The least excess for the smaller index sets.) Let 0 < h ≤ 10⁻⁶, and let Z₃(h) and
+y_ι be as in [[def:tr-excess]]. For y > 0 let m♭(y) := (⌊y/𝔡₁⌋ + 1)𝔡₁ − y, the least positive number q𝔡₁ − y with q ∈ ℕ₀,
+and with μ♭ = λ_♯ + 4470304𝔡₁ − 3 of [[cor:is-flat]] put
+
+    μ♭(h) := min({μ♭} ∪ {m♭(y_ι) : ι ∈ Z₃(h)}),     N̄♭(h) := 59,377,257 + Σ_(ι∈Z₃(h)) (⌊y_ι/𝔡₁⌋ + 1).
+
+Z₃(h) being finite, μ♭(h) is a positive minimum and N̄♭(h) an integer. As m♭(y) is one of the numbers whose infimum is
+m(y) ([[lem:is-reduction]]), m(y) ≤ m♭(y) ≤ 𝔡₁, and μ_G < μ♭ ([[eq:is-mu]], [[cor:is-flat]]); so μ(h) ≤ μ♭(h) ≤
+μ♭ < 5.0193·10⁻⁸. At h = 10⁻⁶, μ♭(h) = μ♭_Z and N̄♭(h) = 59,377,257 + 3,623,813,354 = 3,683,190,611 (proof of
+[[cor:is-flat]]).
+
+**Proposition {#prop:tr-flat-lambda}** (The set Λ^φ at h.) Let ℬ♭ be the set of the 31 numbers
+
+    λ_♯,  λ_♯ + 1 + δ′₁,  λ_♯ + 1 + δ₂,  λ_♯ + 1 + 𝔡₀,  λ_♯ + 1 + 2𝔡₀,  2 + c (c ∈ σ^(2)),  5/2 + c (c ∈ σ^(3)),  3,
+
+let Λ^φ_ℬ be the smallest set, closed under conjugation, that contains the generators of Λ^φ other than 1 + 𝒵 and
+satisfies Λ^φ_ℬ + w ⊂ Λ^φ_ℬ for every increment w of Λ^φ, and let 0 < ε_+ < ε_Υ.
+
+(a) At every h ∈ (0, 10⁻⁶] and for every ε ∈ (0, δ₂), Λ^φ_ℬ ∩ {Re ≤ 3 + ε} = {β + q𝔡₁ ≤ 3 + ε : β ∈ ℬ♭, q ∈ ℕ₀}, a set of
+real numbers that does not depend on h; and for every ε_K > 0, (G) holds with Λ^φ_ℬ in place of Λ if and only if
+ε_K < μ♭, the element λ_♯ + 4470304𝔡₁ = 3 + μ♭ having the least excess over the windows. If h is as in [[lem:tr-z3]],
+then
+
+    Λ^φ ∩ {Re ≤ 3 + ε_+} = (Λ^φ_ℬ ∩ {Re ≤ 3 + ε_+}) ∪ {ι + q𝔡₁ : ι ∈ Z₃(h), q ∈ ℕ₀, q𝔡₁ ≤ y_ι + ε_+},
+
+every element of Λ^φ ∖ Λ^φ_ℬ of real part at most 3 + ε_+ has real part greater than 2 + 1.4646·10⁻¹⁰, and every element
+of Λ^φ of real part at most 2.1 is real.
+
+(b) Let h be as in [[lem:tr-z3]]. Then 0 < μ♭(h) ≤ μ♭ and μ(h) ≤ μ♭(h). For 0 < ε_K < ε_Υ, (G) of [[def:iii-i10-1-3]]
+holds for Λ^φ if and only if ε_K < μ♭(h), and (G⁺) of [[def:iii-j-g-plus]] holds for Λ^φ if and only if ε_+ < μ♭(h).
+
+(c) Let h be as in [[lem:tr-z3]]. Then N_Λ ≤ 59,377,257 + Σ_(ι∈Z₃(h)) (⌊(y_ι + ε_+)/𝔡₁⌋ + 1); if ε_+ < μ♭(h), this number
+is N̄♭(h); and
+
+    N̄♭(h) < 1.33738·10⁹ + 4.0697·10⁶h^(−1/2).
+
+*Proof.* (a) *The part Λ^φ_ℬ.* Let 0 < ε < δ₂. Every generator of Λ^φ_ℬ has real part at least λ_♯ ([[lem:iii-i10-1-2]]
+(a)) and every increment real part at least 𝔡₁ ([[prop:tr-flat-serves]] (a)), so below 3 + ε only increments of real part
+below 3 + ε − λ_♯ < 3/2 enter. By [[prop:tr-flat-serves]] (a) their sums are the sums of 𝔡₁, 1, 1 + δ′₁, 1 + δ₂, 1 + 𝔡₀
+and 1 + 2𝔡₀, so those below 3/2 are the q𝔡₁ and the t + q𝔡₁ with q ∈ ℕ₀ and t ∈
+T := {1, 1 + δ′₁, 1 + δ₂, 1 + 𝔡₀, 1 + 2𝔡₀}. The generators below 3 + ε: the exponents of ℰ_++ there are λ_♯ plus sums of
+exponents of ℰ^φ_ind ∪ ℰ^(ι,φ)_ind, as an exponent of ℰ_+ adds at least λ_♯ (proof of [[lem:iii-i10-1-2]] (b), with
+ℰ^♯_+ ∩ {Re < 2} = {(λ_♯, 0)} by [[prop:is-ci-pp]] (b)); π_1𝒢 = {2} ∪ (2 + π_1ℰ^φ_ind) and 2 + π_1ℰ_col ⊂ π_1𝒢 + ℕ₀
+consist of 2 plus sums of increments; π_1ℰ^C_I gives 2 + c (c ∈ σ^(2)), 5/2 + c (c ∈ σ^(3)) and 3 ([[prop:is-ci-pp]] (a),
+as ε < 0.0099); and λ_♯ and 3 are generators. So every element of Λ^φ_ℬ below 3 + ε is g + q𝔡₁ or g + t + q𝔡₁ with t ∈ T
+and g in G := {λ_♯, 3} ∪ {2 + c : c ∈ σ^(2)} ∪ {5/2 + c : c ∈ σ^(3)}, and each such number lies in Λ^φ_ℬ. For g ≠ λ_♯,
+g + t ≥ 3, with equality only for 2 + 1, and 2 + t > 3 + ε for t ≠ 1, as δ₂ < δ′₁ < 𝔡₀ ([[lem:is-roots]] (b)); and 2 +
+1 + q𝔡₁ = 3 + q𝔡₁. For g = λ_♯, λ_♯ + 1 = 5/2 + a with a = 0.0099 ∈ σ^(3), and two elements of T give more than λ_♯ + 2.
+This gives the set stated; it does not involve h, and its elements are real.
+
+*Its excesses.* For 0 < ε < δ₂: an element of Λ^φ_ℬ in (2, 2 + ε] is λ_♯ + q𝔡₁, of excess at least m♭(0.4901), or 2 + q𝔡₁
+with q ≥ 1, of excess at least 𝔡₁. A number λ + 𝔡₀ with λ ∈ Λ^φ_ℬ and real part in (2, 2 + ε] has Re λ < 2, as 𝔡₀ > δ₂ >
+ε, so λ = λ_♯ + q𝔡₁, and its excess is at least m♭(0.4901 − 𝔡₀); a number λ + 𝔡₁ lies in Λ^φ_ℬ, 𝔡₁ being an increment. An
+element of Λ^φ_ℬ in (3, 3 + ε] is β + q𝔡₁ with β ∈ ℬ♭, of excess at least m♭(3 − β) if β < 3 and at least 𝔡₁ if β = 3.
+The 30 numbers 3 − β, β ∈ ℬ♭ ∖ {3}, are the 28 numbers y of the table of [[thm:is-gap]] and 0.4901 − 𝔡₀ and 0.4901 − 2𝔡₀.
+By the column "frac" of that table and the values 1470297.2661 and 1470293.2661 of y/𝔡₁ at 0.4901 − 𝔡₀ and 0.4901 − 2𝔡₀
+(proof of [[cor:is-flat]]), m♭(y) = (⌊y/𝔡₁⌋ + 1 − y/𝔡₁)𝔡₁ is least at y = 1.4901, where it is 4470304𝔡₁ − 1.4901 = μ♭,
+and above 1.3888·10⁻⁷ at the other 29 numbers; m♭(0.4901) and m♭(0.4901 − 𝔡₀) exceed 2.446·10⁻⁷. As μ♭ < 1.3888·10⁻⁷ <
+𝔡₁, the least excess of Λ^φ_ℬ over the windows of (G) is μ♭, attained in the second window by λ_♯ + 4470304𝔡₁; so for
+ε_K < μ♭ (G) holds on Λ^φ_ℬ, and for ε_K ≥ μ♭ that element violates it.
+
+*The generator 1 + 𝒵.* Let h be as in [[lem:tr-z3]]. (C1) holds at h ([[lem:iv4-1-3]] (a)), so, as in the proof of
+[[prop:is-lambda]], 1 + 𝒵 = {3} ∪ {ι ∈ Z(h) : Re ι < 4}, and 3 ∈ ℬ♭. Let ι ∈ Z(h) with Re ι < 4. If Re ι ≥ 3, then
+Re ι ≥ 3 + ε_Υ > 3 + ε_+ ([[lem:tr-z3]] (a)), and so is every sum with it. If Re ι < 3, then ι ∈ Z₃(h) and
+Re ι > 2 + 1.4646·10⁻¹⁰ ([[lem:tr-z3]] (a)); an increment of real part at least 1 takes it above
+3 + 1.4646·10⁻¹⁰ > 3 + ε_+, and 𝔡₁ is the only increment of real part below 1 ([[prop:tr-flat-serves]] (a)). So the sums
+with ι of real part at most 3 + ε_+ are the ι + q𝔡₁ with q𝔡₁ ≤ y_ι + ε_+, and each lies in Λ^φ. Z₃(h) is closed under
+conjugation, the polynomials having real coefficients, and a non-real ι ∈ Z₃(h) has real part greater than 2.1
+([[lem:tr-z3]] (a)); with the first part of (a) at ε = ε_+ < ε_Υ < δ₂, this gives the rest of (a).
+
+(b) μ♭(h) is a positive minimum and μ(h) ≤ μ♭(h) ≤ μ♭ ([[def:tr-flat-excess]]). Let 0 < ε_K < ε_Υ, and apply (a) with ε_K
+in place of ε_+. An element of Λ^φ ∖ Λ^φ_ℬ of real part at most 3 + ε_K has real part greater than
+2 + 1.4646·10⁻¹⁰ > 2 + ε_K, and every λ ∈ Λ^φ ∖ Λ^φ_ℬ has real part greater than 2, as the elements of 1 + 𝒵 do
+([[lem:iii-i10-1-2]] (a), proof), so that λ + 𝔡₀ and λ + 𝔡₁ have real part greater than 2 + 𝔡₁ > 2 + ε_K. So the first
+and the third window hold no element coming from Λ^φ ∖ Λ^φ_ℬ, and in the second window such an element is ι + q𝔡₁ or its
+conjugate, ι ∈ Z₃(h), of real part 3 + q𝔡₁ − y_ι, whose excess, if positive, is at least m♭(y_ι) ≥ μ♭(h). With the
+excesses of Λ^φ_ℬ, at least μ♭ ≥ μ♭(h) by (a), (G) holds if ε_K < μ♭(h). Conversely Λ^φ contains λ_♯ + 4470304𝔡₁ = 3 + μ♭
+and, for each ι ∈ Z₃(h), ι + (⌊y_ι/𝔡₁⌋ + 1)𝔡₁, of real part 3 + m♭(y_ι); one of these has real part 3 + μ♭(h), and (G)
+keeps it out of (3, 3 + ε_K], so ε_K < μ♭(h). By (a), the elements of Λ^φ of real part in (3, 3 + ε_+] are elements of
+Λ^φ_ℬ, of excess at least μ♭, and numbers ι + q𝔡₁ and their conjugates, of excess at least m♭(y_ι); so none exists when
+ε_+ < μ♭(h), and the element of real part 3 + μ♭(h) is one when ε_+ ≥ μ♭(h). This is the statement on (G⁺).
+
+(c) By (a), N_Λ is at most #(Λ^φ_ℬ ∩ {Re < 3 + ε_+}) + Σ_(ι∈Z₃(h)) #{q ∈ ℕ₀ : q𝔡₁ < y_ι + ε_+}. For β ∈ ℬ♭ ∖ {3}, the
+q ∈ ℕ₀ with β + q𝔡₁ < 3 + ε_+ number at most ⌊(3 − β)/𝔡₁⌋ + 1, as m♭(3 − β) ≥ μ♭ > ε_Υ > ε_+ by (a); for β = 3 only q = 0
+occurs, as ε_+ < 𝔡₁. By the column n⁺ = ⌊y/𝔡₁⌋ of the table of [[thm:is-gap]], for its 28 numbers y, and the values
+1470297 and 1470293 of ⌊y/𝔡₁⌋ at y = 0.4901 − 𝔡₀ and 0.4901 − 2𝔡₀, the sum of the ⌊(3 − β)/𝔡₁⌋ + 1 over β ∈ ℬ♭ ∖ {3} is
+59,377,256; so Λ^φ_ℬ has at most 59,377,257 elements of real part below 3 + ε_+.
+For y > 0, #{q ∈ ℕ₀ : q𝔡₁ < y + ε_+} ≤ ⌊(y + ε_+)/𝔡₁⌋ + 1, and this is ⌊y/𝔡₁⌋ + 1 when ε_+ < m♭(y), as then
+y + ε_+ < (⌊y/𝔡₁⌋ + 1)𝔡₁. This gives the bound for N_Λ and, when ε_+ < μ♭(h) ≤ m♭(y_ι) for every ι ∈ Z₃(h), its value
+N̄♭(h).
+
+*The bound for N̄♭(h).* As ⌊y/𝔡₁⌋ + 1 ≤ y/𝔡₁ + 1, N̄♭(h) ≤ 59,377,257 + #Z₃(h) + 𝔡₁⁻¹ Σ_(ι∈Z₃(h)) y_ι, and #Z₃(h) <
+426 + 2.7177h^(−1/2) ([[lem:tr-z3]] (b)). By the proof of [[lem:tr-z3]] (b), the at most 426 elements of Z₃(h) that are
+roots of C or of the P_l with l ≤ 142 have y_ι < 1; for l ≥ 143, ι_B(l, h) lies in Z₃(h) only if x < 1.01, with y_ι <
+f_B(x), and ι_P(l, h) and ῑ_P(l, h) only if x < 11/15, with y_ι < f_P(x), where f_B(x) := 1 − x/2 for 0 ≤ x ≤ 1/2,
+f_B(x) := 1.01 − x for 1/2 < x < 1.01 and f_B(x) := 0 for x ≥ 1.01, and f_P(x) := (3/4)(11/15 − x) for x < 11/15 and
+f_P(x) := 0 for x ≥ 11/15 ([[lem:tr-large]] (a), (c)). Both functions are non-increasing, so f(hl(l + 2)) ≤ f(ht²) for
+l − 1 ≤ t ≤ l, and
+
+    Σ_(l≥143) f(hl(l + 2)) ≤ ∫_0^∞ f(ht²) dt = ½h^(−1/2) ∫_0^∞ f(x)x^(−1/2) dx,
+
+which is below 0.728547h^(−1/2) for f_B and 0.313995h^(−1/2) for f_P. So Σ_(ι∈Z₃(h)) y_ι < 426 + 1.356537h^(−1/2), as
+0.728547 + 2 · 0.313995 = 1.356537. With 1/𝔡₁ < 3,000,002.5834 ([[lem:is-offsets]] (b)), 426 · 3,000,002.5834 <
+1,278,001,101 and 3,000,002.5834 · 1.356537 < 4,069,614.6, this gives N̄♭(h) < 59,377,683 + 1,278,001,101 +
+(2.7177 + 4,069,614.6)h^(−1/2) < 1.33738·10⁹ + 4.0697·10⁶h^(−1/2). ∎
+
+**Theorem {#thm:tr-flat}** (The bounds at other values of h for the smaller index sets.) Let h_m ≤ h < 10⁻⁶ with h ∉ 𝖩,
+and suppose that the parameter point (h, 1/100, 1/100) is admissible and that (R_h) holds. Take (v_C, e_C) of
+[[eq:iv4-0-1]], the index sets ℰ^φ_ind and ℰ^(ι,φ)_ind built at h ([[prop:tr-flat-serves]]), and μ♭(h) and N̄♭(h) of
+[[def:tr-flat-excess]]. Then μ(h) ≤ μ♭(h) ≤ μ♭ and N̄♭(h) < 1.33738·10⁹ + 4.0697·10⁶h^(−1/2). For any ε_K, ε_+ with
+0 < ε_K < ε_+ < min(μ♭(h), ε_Υ) and ε_K < 0.998ε_Υ, N_Λ ≤ N̄♭(h); the choice of [[def:uc-choice]] with these ε_K and ε_+
+and with ℰ^φ_ind and ℰ^(ι,φ)_ind built at h, and that of [[def:cs-choices]], is admissible; and d_acc ≤ d_R ≤ D_acc,
+d_NM ≤ D_NM and N_NM ≤ 21D_NM + 6, with D_acc and D_NM of [[prop:uc-dependence]] at k̄_0 := 3, J_* := 15,000,015,
+l_* := 50 and N̄_Λ := N̄♭(h).
+
+At h = 10⁻⁶, μ♭(h) = μ♭_Z and N̄♭(h) = 3,683,190,611 ([[def:tr-flat-excess]]); the numbers ε_K = 1.4589·10⁻¹⁰ and
+ε_+ = 1.459·10⁻¹⁰ of [[eq:uc-choice]] satisfy the conditions above; N_Λ ≤ 3,683,190,611 ([[cor:is-flat]]); and at
+these inputs, with D_e of [[prop:uc-explicit]], D_acc and D_NM of [[prop:uc-dependence]] are the integers of
+[[thm:uc-integer]], so that d_NM < 1.42556·10³⁸ and K < 3.13622·10³⁹ ([[prop:uc-data-order]] (d)).
+
+*Proof.* The first assertions are [[def:tr-flat-excess]] and [[prop:tr-flat-lambda]] (c). Let ε_K and ε_+ be as stated.
+As ε_+ < μ♭(h), N_Λ ≤ N̄♭(h) ([[prop:tr-flat-lambda]] (c)). By [[prop:tr-flat-serves]], ℰ^φ_ind and ℰ^(ι,φ)_ind may be
+taken for ℰ_ind and ℰ^ι_ind at h, and k̄_0 = 3, l_* = 50, η_0 = 𝔡₁ and J_* = 15,000,015 are admissible for them; the
+proof of [[lem:uc-lambda]] (c), which uses only N_Λ ≤ N̄_Λ, these numbers and the order of the elements by their real
+parts, gives its statement at h with N̄_Λ := N̄♭(h). The proof of [[lem:uc-admissible]] applies at h with these ε_K and
+ε_+ and with these index sets: (G) and (G⁺) hold, as ε_K < ε_+ < min(μ♭(h), ε_Υ) ([[prop:tr-flat-lambda]] (b));
+ε_ind(h) ≥ ε_Υ ([[prop:tr-eps]] (a)) allows ε_ind := min(1, ε_ind(h)) ≥ ε_Υ, so ε_g = ε_Υ, and 0 < ε_K < ε_+ < ε_Υ ≤
+ε_ind and ε_+ < δ_♯ = 0.0099 meet the constants of [[eq:iii-i9-1-1]], with ε_K < ε_Υ, as [[def:iii-i10-1-3]] asks; (Ex2)
+holds as there, ℰ^C_I being the same; η_1 and η_2 exist, as Λ^φ ∩ {Re ≤ 4} is finite ([[lem:iii-i10-1-2]] (a)); α can be
+taken with 0.999ε_K ≤ α − 4 ≤ ε_K, off finitely many values; with ε ≤ 10⁻³ε_g, ε_K + ε < 0.999ε_Υ < ε_g and
+ε_K < 0.998ε_Υ ≤ ε_g − 2ε; and every other step uses the index sets and choices that do not involve h. So the hypotheses
+of [[prop:ec-upper]] and of [[eq:ec-upper-counts]] hold with Δβ_0 = 0.999²ε_K and Δτ_0 = 0.999ε_Υ, and ε_K < 0.998ε_Υ, as
+[[prop:uc-dependence]] asks. Of the other statements of [[sec:ec-gap-sums]]–[[sec:cs-small]] that the proofs of
+[[thm:uc-integer]] and [[prop:uc-dependence]] use, [[prop:gap-sums]], [[lem:ec-gauge-gap]], [[prop:is-ind]],
+[[thm:is-d0]] and [[lem:uc-two-offsets]] concern numbers fixed by (γ_Υ, e_Υ); [[def:is-flat-set]]–[[thm:is-flat-serves]]
+hold at h by [[prop:tr-flat-serves]], and [[prop:tr-flat-lambda]] takes the place of [[cor:is-flat]]; [[prop:is-ci-pp]]
+(a) concerns the least ℰ^C_I, fixed by σ_Υ; [[lem:uc-gaps]] holds, as min Re ℰ^φ_ind = min Re ℰ^(ι,φ)_ind = η_0 = 𝔡₁
+([[prop:tr-flat-serves]] (a)), and [[lem:uc-lambda]] and [[lem:uc-n-iota]] use the increments and the counts above; in
+[[sec:cs]] the charges are closed forms in the weights and the counts, the forward loss, which holds for every γ_C
+([[lem:fwd-orders]]), ℓ_tf = 1 ([[prop:uc-ltf]]), d_BG = 11 ([[prop:uc-dbg]]) and the free choices of [[def:cs-choices]],
+of which (a) uses ϑ_ℋ < ϑ_L + δ with ϑ_L = max(0, 2 − 2a_vγ_Cr_h) < 2 at every γ_C, and (f) the interval
+(2, 2 + ε_g − 2ε) with ε_g = ε_Υ; and the proof of [[lem:cs-fourier]] (b) uses ε_ind > ε_K and the reality of the
+elements of Λ^φ of real part at most 2 + ε_K, which [[prop:tr-flat-lambda]] (a) gives, and 𝒵 ⊂ {Re > 1}, which holds at
+every h ([[prop:iii-f1-2-3]] (a)). The proof of [[prop:uc-dependence]] uses, of the index sets, only the least ℰ^C_I,
+min Re ℰ_ind = min Re ℰ^ι_ind = 𝔡₁ and that reality. So it applies at h, with ℰ^φ_ind and ℰ^(ι,φ)_ind, N̄_Λ := N̄♭(h),
+k̄_0 = 3, J_* = 15,000,015 and l_* = 50, and gives the bounds.
+
+*At h = 10⁻⁶.* The values of μ♭(h) and N̄♭(h) are those of [[def:tr-flat-excess]]. The numbers of [[eq:uc-choice]]
+satisfy ε_K < ε_+ < ε_Υ = 1.4619·10⁻¹⁰ < μ♭_Z and ε_K < 0.998ε_Υ = 1.4589762·10⁻¹⁰, and [[def:uc-choice]] takes
+N̄_Λ = 3,683,190,611, k̄_0 = 3, J_* = 15,000,015 and l_* = 50 ([[lem:uc-lambda]]). At these inputs
+[[prop:uc-dependence]], with D_e of [[prop:uc-explicit]], gives the integers D_acc and D_NM of [[thm:uc-integer]], so
+that d_NM ≤ D_NM < 1.42556·10³⁸; [[prop:uc-data-order]] (d) gives K ≤ 22D_NM + 345 < 3.13622·10³⁹; and
+N_Λ ≤ 3,683,190,611 is [[cor:is-flat]]. ∎
+
+**Proposition {#prop:tr-flat-lower}** (Lower bounds for the smaller index sets.) Let 0 < h ≤ 10⁻⁶ be such that the
+parameter point (h, 1/100, 1/100) is admissible, and take ℰ^φ_ind and ℰ^(ι,φ)_ind built at h
+([[prop:tr-flat-serves]] (a)).
+
+(a) Every ε_K with which (G) holds for Λ^φ satisfies ε_K < μ♭(h), and [[def:iii-i10-1-3]] asks ε_K < ε_Υ besides. Every
+admissible choice of the weights with these index sets gives d_NM ≥ d_acc > 2.0517·10¹⁰/min(μ♭(h), ε_Υ), which is at
+least 2.0517·10¹⁰/μ♭(h), and N_NM > 4.3085·10¹¹/min(μ♭(h), ε_Υ).
+
+(b) There is h♭ ∈ (5·10⁻⁷, 10⁻⁶) such that ι_B(390, h♭) + 2541391𝔡₁ = 3 and ι_B(390, h) + 2541391𝔡₁ > 3 for
+h♭ < h ≤ 10⁻⁶, and for these h, μ♭(h) ≤ ι_B(390, h) + 2541391𝔡₁ − 3, which tends to 0 as h decreases to h♭. So for every
+D there is δ > 0 such that at every h ∈ (h♭, h♭ + δ) at which the parameter point (h, 1/100, 1/100) is admissible, every
+admissible choice of the weights with these index sets gives d_NM > D.
+
+*Proof.* (a) By [[prop:tr-flat-serves]] (a), λ_♯ is a generator of Λ^φ and 𝔡₁ an increment, so λ_♯ + 4470304𝔡₁ = 3 + μ♭
+lies in Λ^φ. For ι ∈ Z₃(h), ι − 1 is an indicial root of L̂_b(0) of real part in (0, 3), as (C1) holds at h
+([[lem:iv4-1-3]] (a), proof of [[prop:is-lambda]]), so ι ∈ 1 + 𝒵 and ι + (⌊y_ι/𝔡₁⌋ + 1)𝔡₁ ∈ Λ^φ, of real part
+3 + m♭(y_ι). As Z₃(h) is finite ([[def:tr-excess]]), one of these elements has real part 3 + μ♭(h), and (G) keeps it out
+of (3, 3 + ε_K]; so ε_K < μ♭(h). The proof of [[prop:ec-rounds]] uses of h only ε_g ≤ ε_Υ < δ̂ and ε_ind ≤ δ_50 < δ̄, and
+gives R > (1 − 3ε_K − 2δ̂ − δ̄)/(ε_Kδ̂), whose right side decreases in ε_K. Put m := min(μ♭(h), ε_Υ); then ε_K < m ≤
+1.4619·10⁻¹⁰, so 3m + 2δ̂ + δ̄ < 2.02·10⁻⁸ and R > (1 − 2.02·10⁻⁸)/(δ̂m). By the argument of [[thm:loss-d]] (ii), which
+does not use the computational point (proof of [[thm:ec-lb-proved]]), d_NM ≥ d_acc ≥
+3R > 3(1 − 2.02·10⁻⁸)/(1.46214·10⁻¹⁰m) > 2.0517·10¹⁰/m, and N_NM = 21d_NM + 6 > 4.3085·10¹¹/m.
+
+(b) Let l = 390, so κ = 152880 and y = eκ > 1.49 > 1/5; for 0 < h ≤ 10⁻⁶, x = hκ ≤ 0.15288, and ι_B(390, h) is defined,
+depends continuously on h and lies in (2 + x/2, 2 + 3x/2) ([[def:tr-exceptional]] (b), [[lem:tr-large]] (a)). At h = 10⁻⁶
+the root ι_* of [[lem:is-gap-z]] is real and |ι_* − 2.15288| < 1/100, so ι_* = ι_B(390, 10⁻⁶), and ι_* + 2541391𝔡₁ − 3 =
+2541391𝔡₁ − y_(ι_*) > 1.35·10⁻⁷ (proof of [[lem:is-gap-z]]). At h = 5·10⁻⁷, x = 0.07644 and ι_B < 2.11466, while
+2541391𝔡₁ < 0.8471297 ([[lem:is-offsets]] (b)), so ι_B + 2541391𝔡₁ < 3. Let h♭ be the largest h ∈ [5·10⁻⁷, 10⁻⁶] with
+ι_B(390, h) + 2541391𝔡₁ ≤ 3; by continuity h♭ ∈ (5·10⁻⁷, 10⁻⁶), ι_B(390, h♭) + 2541391𝔡₁ = 3, and
+ι_B(390, h) + 2541391𝔡₁ > 3 for h♭ < h ≤ 10⁻⁶. For such h, ι := ι_B(390, h) lies in Z₃(h), as 2 < ι < 2 + 3x/2 < 3, and
+2541391𝔡₁ − y_ι = ι + 2541391𝔡₁ − 3 > 0, so m♭(y_ι) ≤ ι + 2541391𝔡₁ − 3 and μ♭(h) ≤ ι + 2541391𝔡₁ − 3
+([[def:tr-flat-excess]]); this tends to 0 as h decreases to h♭. The last assertion follows from (a). ∎
+
+**Remark {#rem:tr-flat-scope}** (What the bounds for the smaller index sets assume.) [[thm:tr-flat]] is conditional in
+the three ways of [[rem:tr-scope]]: it needs an h ∈ [h_m, 10⁻⁶) at which the parameter point (h, 1/100, 1/100) is
+admissible, which this paper does not decide; it needs (R_h), which is decided only at h = 10⁻⁶; and its bound is a
+number only once μ♭(h) is known, which is evaluated only at h = 10⁻⁶. Elsewhere this paper proves only μ(h) ≤ μ♭(h) ≤ μ♭
+and, on (h♭, 10⁻⁶], an upper bound for μ♭(h) that tends to 0 at h♭ ([[prop:tr-flat-lower]]); and as
+μ♭(h) ≤ Re ι + q𝔡₁ − 3 whenever ι ∈ Z₃(h), q ∈ ℕ₀ and this number is positive, μ♭(h) tends to 0 wherever such a number,
+for a root that moves continuously with h, tends to 0 from above. The count N̄♭(h) is explicit in the numbers y_ι, and
+its bound in [[prop:tr-flat-lambda]] (c) is below 5.408·10⁹ at h = 10⁻⁶ and below 5.913·10¹¹ at h = h_m, against
+N̄♭(10⁻⁶) = 3,683,190,611. So at the h of [[thm:tr-flat]], N̄♭(h) < 1.67472·10¹³ ≤ N̄(h); and as μ(h) ≤ μ_G < 0.998ε_Υ
+([[eq:is-mu]]) and μ(h) ≤ μ♭(h), every ε_K and ε_+ that [[thm:tr-transfer]] (iii) admits are admitted by [[thm:tr-flat]],
+which then gives a bound at most that of [[thm:tr-transfer]] (iii) when D_e := F_1 in both, D_acc and D_NM being
+non-decreasing in N̄_Λ ([[prop:uc-dependence]]). The lower bounds of [[prop:tr-flat-lower]] use only admissibility.
 
 ### The first constants of the linear theory {#sec:ec-linear}
 

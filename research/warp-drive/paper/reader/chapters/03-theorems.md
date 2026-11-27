@@ -363,7 +363,8 @@ The remaining chapters prove the following; each is stated in full where it is p
   sets, weights, orders and inner products ([[thm:uc-integer]]), and at the other damping parameters h = 1/γ_C ∈ (0,
   10⁻⁶) with the same gauge parameters, for the index sets as the proofs construct them, lower bounds that are unbounded
   near some γ_C ∈ (10⁶, 2 × 10⁶), and, for γ_C ≤ 2.1 × 10¹⁰ outside a set of h of total length below 1.7 × 10⁻¹¹, upper
-  bounds under a condition decided only at γ_C = 10⁶ ([[thm:tr-transfer]], [[prop:tr-mu-small]]); through the lower
+  bounds under a condition decided only at γ_C = 10⁶ ([[thm:tr-transfer]], [[prop:tr-mu-small]]), and the same for the
+  smaller index sets of that choice ([[thm:tr-flat]], [[prop:tr-flat-lower]]); through the lower
   bounds, upper bounds for δ and for the
   modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
   ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
