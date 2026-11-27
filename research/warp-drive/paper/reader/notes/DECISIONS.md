@@ -45,6 +45,14 @@ gamma_C = 1,007,860 that S-HPT scoped is not needed. Merged with the chain re-ev
 inequality removed and its cap relaxed to eps_K < 0.998 eps_Upsilon, both by proof): d_NM < 1.42556e38,
 K < 3.13622e39 at h = 10^-6 (merge a6a0974f).
 
+## 2026-11-27: sharpen the continuation constants
+
+The author: "yes, sharpen the constants". G0c showed that with the constants as written the closing condition of the
+continuation theorem needs a residual near 10^-133 (level 6) or 10^-78 (level 4), which no printable approximant meets.
+P-GRD carries the three restatements (order-graded background bounds, level-matched powers of mu, the sharper chain of
+constants) at both levels, keeping the present closing conditions valid beside the sharper ones; with all three, level 4
+needs about 10^-21 to 10^-29 (quad-double).
+
 ## Earlier decisions in this segment
 
 - Admissible points (P-ADM): the cap h <= 10^-6 is removed from the definition; the lower bounds on d state it as an
