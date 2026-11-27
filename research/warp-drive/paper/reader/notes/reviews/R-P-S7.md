@@ -537,3 +537,71 @@ spot by comparing cells (23:659, 23:1089, 23:1435, 23:2372, 27:1006, 33:1523), s
 - The scratch chapter md5s after the merge equal those the file states for its own scratch merge:
   488db29e…, b30eac97…, 4b866436…, f803ece3…, 8060f7c5….
 - assemble.py was not run in the repository. No repository file was written.
+
+### Second confirmation (proofs/P-S7.md md5 ea6cd0ab6f5f1b5320776d7ac7f6930e, 1542 lines)
+
+**CONFIRMED.** m6 and N1–N3 are resolved. No Major, minor or nit remains open.
+
+- **Nothing else changed.** I diffed against 0571d41d (scratchpad/reader/scratch/ps7/round2/P-S7.0571d41d.md, which is
+  identical to my copy of 0571d41d). The 213 changed lines are exactly:
+  - the header (chapter 28 added, md5s at HEAD a04d936f);
+  - the summary sentence and site-table row for 28:212;
+  - "1432–1440" in sections 1, 3, 6.4 and 9 (no "1432–1436" remains), which is N2;
+  - the new section 4.11;
+  - "nineteen items";
+  - (e)'s first lines (N3);
+  - P-S7-3's scope phrase (N1) and its change note;
+  - the new P-S7-19;
+  - the crosswalk line ranges of the two new lemmas, now 575–717 and 762–788, which match the file;
+  - the new crosswalk row for prop:ii-f-6-2;
+  - sections 8 and 9.2.
+
+  No chapter text other than P-S7-2's (e), P-S7-3's scope phrase and the new P-S7-19 changed.
+- **P-S7-19** (28:212 → 8 lines), line by line:
+  - **Cells and scalings:** for h ∈ [h_0, 1] the cells and scalings are within a factor depending on h_0 and γ_+, so
+    lem:ii-a-3-1 (f) applies, and (d) handles the elliptic families.
+  - **Weights:** ρ_sf and ρ_tf lie between positive constants and ρ_cf ≍ ρ_K. These bounds are uniform in h ≥ h_0, and
+    sec:ii-f-2-1 records them at 27:405–406. So the weights and the sf-order, with ρ̄ ≍ ρ_sf bounded below, change the
+    norms only to equivalent ones.
+  - **The two orders:** "at fibre infinity 𝗌_(0ħ,cħ) and 𝗌_(0,b) are the same function, the pull-back of 𝗌 by a map of
+    phase spaces whose restriction to fibre infinity does not depend on σ ([[sec:ii-f-1-3]]; [Hin26c, Section
+    10.1.1])". This is correct, and each citation states what it is cited for:
+    - sec:ii-f-1-3 (27:224–227) defines both orders "by pull-back along the identifications above". Its covector formulas
+      (27:183–186) make the semiclassical covectors positive multiples of the 0- and b-covectors: by h⁻¹ near ℐ⁺, and by
+      (h + R)/h for cone covectors near K⁺.
+    - I read [Hin26c] (arXiv:2606.28008v1) pp. 204–205 myself. It says: "The restriction of Φ_σ to fiber infinity is
+      independent of σ, and thus s ∘ Φ_σ restricts to ^(0,b)S*ι⁺ as the σ-independent function s_(0,b) in (10.13)".
+      For σ = ±h⁻¹ it writes s ∘ Φ_(±h⁻¹) as s(R, ω; −(Rξ_cħ ± R/(h + R)) dt_*/r + ξ_cħ dr/r + η_cħ), whose
+      "restrictions to fiber infinity ... are independent of the sign of σ, and are given by the function s_(0ħ,cħ)".
+      Near ℐ⁺ it identifies semiclassical and standard 0-covectors "via multiplication by h".
+    - The writer's argument in section 4.11 is therefore right. At fibre infinity the term ±R/(h + R) drops out by
+      homogeneity, and the positive factor (h + R)/h (or h) does not change the direction, so the two restrictions agree.
+    - Citing [Hin26c, Section 10.1.1] for a property of orders that sec:ii-f-1-3 itself defines "as in [Hin26c, Section
+      10.1.1]" is consistent with the chapter.
+  - **The S⁰ bound:** the difference vanishes at fibre infinity, so it is λ times a function smooth on the phase space
+    over h ∈ [h_0, 1]; that function extends smoothly, and lem:ii-f-2-phase puts it in S⁰. With λ log λ bounded, this
+    gives λ^(±(𝗌_(0ħ,cħ)−𝗌_(0,b))) ∈ S⁰.
+  - **The k,+ factors:** h^(−j) lies in [1, h_0^(−k)]. "Moreover" joins the unchanged next line grammatically.
+  - **Line checks:** every line is ≤ 121 characters, also with "Proposition 33.123" in place of each label. The line
+    beginning "[Hin26c, Section 10.1.1])" is not a link-reference definition (no colon), and 27:225 already starts a line
+    the same way.
+  - The new crosswalk row for prop:ii-f-6-2 has 4 fields, is ASCII, and its note is accurate.
+- **N1** (P-S7-3, line 747): applied as given.
+- **N2:** applied throughout.
+- **N3** ((e), lines 655 and 673): "Fix K ∈ ℕ with K/2 ≥ N + |sup 𝗆| + |sup 𝗅|" and "As K/2 ≥ …". The proof is otherwise
+  unchanged, word for word after rewrapping.
+- **Chapter 33 after the P-TR merge** (md5 7b7910a3…, crosswalk 37d65e14…, as the file states): P-S7-18's old text still
+  occurs once, at 1515–1516. The row lem:iv5-calc-structure is unchanged. The (S7) lines of section 4.6 (1432, 1447,
+  1453, 1484, 1516, 1668, 1703–1704, 1747, 1819, 1828, 1904) are unchanged.
+- **Scratch merge** (tree7 = git archive of HEAD 9580b39f, at
+  /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/rps7/tree7/):
+  - all 19 old texts occur exactly once as whole lines, at the stated lines, with no overlaps;
+  - all 11 old crosswalk rows occur once, and the new rows have 4 fields and are ASCII;
+  - before: 4956 labels, 0 hits, 0 problems; after: lint --chapters 4958 labels, 0 hits; assemble --check 0 problems;
+    assemble.py and lint --paper 0 hits;
+  - the longest line of PAPER.md and of each changed chapter is 121 characters;
+  - no wrapped line starts with a forbidden character;
+  - lem:ii-a-3-1 → Lemma 14.15, lem:ii-f-2-phase → Lemma 18.7;
+  - the merged chapter md5s equal the file's: 498bf072…, b3c0e027…, 745e5d3b…, 8c40a5e3…, f803ece3…, 8060f7c5….
+
+  assemble.py was not run in the repository. No repository file was written.
