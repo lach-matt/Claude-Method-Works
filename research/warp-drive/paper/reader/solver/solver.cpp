@@ -14,6 +14,7 @@
 #include <chrono>
 #include <cstring>
 #include <algorithm>
+#include <type_traits>
 
 typedef dd Real;
 typedef Diff<Real> DR;
@@ -172,24 +173,140 @@ static void xapply(const Mat& D, const Real* in, Real* out, int rows) {
 }
 
 // ------------------------------------------------------------------------------------------------ one cell
+// The cell problem is the fixed point G = P(G) := B + I[Psi(G)], B the Goursat boundary terms, I the integration
+// operators, Psi the right-hand sides.  Defect correction: r = P(G) - G in double-double (Psi in difference
+// arithmetic about the seed), then the correction d = r + I[Psi(G + d) - Psi(G)] by Picard sweeps in double, the
+// bracket in difference arithmetic about the current state, and G <- G + d.  Each outer step gains about the
+// precision of double; the converged G is a fixed point of the double-double map.
 struct Edge { std::vector<Real> G; std::vector<Real> sv; };  // G[f][node][k] (f over NF), sv[node][k]
-struct CellOut { int sweeps; double last; double secs; };
+struct CellOut { int sweeps; int outer; double last; double secs; };
 
 static inline size_t IX(int a, int b, int k, int nB) { return ((size_t)a * nB + b) * NX + k; }
+static inline double D_(const Real& a) { return a.hi; }
+static inline double D_(double a) { return a; }
+
+template<class T> struct Work { std::vector<T> Gx, Gxx, Gxi, Gv, Gvx, Psi, Phi; };
+
+static std::vector<double> D1d, D2d;   // x-derivative matrices in double
+template<class T> static void xapplyT(const T* Dm, const T* in, T* out, int rows) {
+  #pragma omp parallel for schedule(static)
+  for (int r = 0; r < rows; r++) {
+    const T* g = in + (size_t)r * NX; T* o = out + (size_t)r * NX;
+    for (int k = 0; k < NX; k++) { const T* d = Dm + (size_t)k * NX; T s(0.0); for (int l = 0; l < NX; l++) s += d[l] * g[l]; o[k] = s; }
+  }
+}
+template<class T> static void derivs(const Geom& g, const std::vector<T>& G, Work<T>& w, const T* D1, const T* D2) {
+  const int nA = g.nA, nB = g.nB; const size_t NN = (size_t)nA * nB * NX;
+  w.Gv.resize(NF * NN); w.Gxi.resize(3 * NN); w.Gx.resize(NF * NN); w.Gxx.resize(4 * NN); w.Gvx.resize(NF * NN);
+  T ihv = T(1.0) / T(g.hv), ihx = T(1.0) / T(g.hxi);
+  std::vector<T> Dv(nB * nB), Dx(nA * nA);
+  for (int i = 0; i < nB * nB; i++) Dv[i] = T(g.Dv->a[i]);
+  for (int i = 0; i < nA * nA; i++) Dx[i] = T(g.Dx->a[i]);
+  #pragma omp parallel for collapse(2) schedule(static)
+  for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) {
+    for (int f = 0; f < NF; f++) for (int k = 0; k < NX; k++) {
+      T sv(0.0); for (int bb = 0; bb < nB; bb++) sv += Dv[b * nB + bb] * G[f * NN + IX(a, bb, k, nB)];
+      w.Gv[f * NN + IX(a, b, k, nB)] = sv * ihv;
+      if (f < 3) { T sx(0.0); for (int aa = 0; aa < nA; aa++) sx += Dx[a * nA + aa] * G[f * NN + IX(aa, b, k, nB)];
+                   w.Gxi[f * NN + IX(a, b, k, nB)] = sx * ihx; }
+    }
+  }
+  xapplyT(D1, G.data(), w.Gx.data(), NF * nA * nB);
+  xapplyT(D2, G.data(), w.Gxx.data(), 4 * nA * nB);
+  xapplyT(D1, w.Gv.data(), w.Gvx.data(), NF * nA * nB);
+}
+static inline Real Rcast(double a) { return dd(a); }
+// the D-jets (perturbation of the fields) at a node from G and its derivative arrays, eps-weights e3 = eps^3, e4 = eps^4
+template<class T> struct DJ { T D[NF], Du[3], Dv[NF], Dx[NF], Dxx[4], Dvx[NF]; };
+template<class T> static inline void djets(const std::vector<T>& G, const Work<T>& w, size_t NN, size_t idx, const T& e3, const T& e4,
+                                           const T& iu, DJ<T>& o) {
+  for (int f = 0; f < NF; f++) {
+    o.D[f] = e4 * G[f * NN + idx]; o.Dx[f] = e4 * w.Gx[f * NN + idx];
+    o.Dv[f] = T(4.0) * e3 * G[f * NN + idx] + e4 * w.Gv[f * NN + idx];
+    o.Dvx[f] = T(4.0) * e3 * w.Gx[f * NN + idx] + e4 * w.Gvx[f * NN + idx];
+    if (f < 4) o.Dxx[f] = e4 * w.Gxx[f * NN + idx];
+    if (f < 3) o.Du[f] = e4 * w.Gxi[f * NN + idx] * iu;
+  }
+}
+// reference (full) state as plain values: R, iR, ES, iES, OM2, iOM2, R_u, R_v, W_v and the field jets
+template<class T> static inline void rhs_node(const T ref[jEND], const DJ<T>& d, const T& x, T out[5]) {
+  // difference arithmetic about ref: ref holds the full values of every jet at the reference state
+  typedef Diff<T> DT; DT J[jEND];
+  const T Rt = ref[jR] + d.D[FR];
+  J[jR] = DT(ref[jR], d.D[FR]); J[jiR] = DT(ref[jiR], -d.D[FR] * ref[jiR] / Rt);
+  T Sd = ((T(1.0) + x) * d.D[FM] + (T(1.0) - x) * d.D[FN]) * T(1.0 / 3.0);
+  if constexpr (std::is_same<T, Real>::value) Sd = ((dd(1.0) + x) * d.D[FM] + (dd(1.0) - x) * d.D[FN]) / dd(3.0);
+  J[jES] = DT(ref[jES], ref[jES] * expm1(Sd)); J[jiES] = DT(ref[jiES], ref[jiES] * expm1(-Sd));
+  J[jOM2] = DT(ref[jOM2], ref[jOM2] * expm1(T(2.0) * d.D[FW])); J[jiOM2] = DT(ref[jiOM2], ref[jiOM2] * expm1(T(-2.0) * d.D[FW]));
+  J[jRu] = DT(ref[jRu], d.Du[FR]); J[jRv] = DT(ref[jRv], d.Dv[FR]); J[jRx] = DT(ref[jRx], d.Dx[FR]);
+  J[jRxx] = DT(ref[jRxx], d.Dxx[FR]); J[jRvx] = DT(ref[jRvx], d.Dvx[FR]);
+  J[jWv] = DT(ref[jWv], d.Dv[FW]); J[jWx] = DT(ref[jWx], d.Dx[FW]); J[jWxx] = DT(ref[jWxx], d.Dxx[FW]); J[jWvx] = DT(ref[jWvx], d.Dvx[FW]);
+  for (int q = 0; q < 2; q++) {
+    int f = q ? FN : FM; int o = q ? jn_ : jm_;
+    J[o] = DT(ref[o], d.D[f]); J[o + 1] = DT(ref[o + 1], d.Du[f]); J[o + 2] = DT(ref[o + 2], d.Dv[f]);
+    J[o + 3] = DT(ref[o + 3], d.Dx[f]); J[o + 4] = DT(ref[o + 4], d.Dxx[f]); J[o + 5] = DT(ref[o + 5], d.Dvx[f]);
+  }
+  J[js_] = DT(ref[js_], d.D[FS]); J[jsv] = DT(ref[jsv], d.Dv[FS]); J[jsx] = DT(ref[jsx], d.Dx[FS]); J[jsvx] = DT(ref[jsvx], d.Dvx[FS]);
+  DT Jp[RHS_NJ]; for (int i = 0; i < jEND; i++) Jp[JI[i]] = J[i];
+  DT o5[5];
+  static thread_local std::vector<T> KT; if (KT.empty()) for (auto& k : KC) KT.push_back(T(D_(k)));
+  if constexpr (std::is_same<T, Real>::value) rhs_eval(Jp, KC.data(), x, o5); else rhs_eval(Jp, KT.data(), x, o5);
+  for (int i = 0; i < 5; i++) out[i] = o5[i].d;
+}
+static inline double expm1(double a) { return std::expm1(a); }
+
+// the linear part of P: out = I[Psi, Phi] (no boundary terms)
+template<class T> static void integrate(const Geom& g, const std::vector<T>& Psi, const std::vector<T>& Phi,
+                                        const std::vector<T>& E, std::vector<T>& out) {
+  const int nA = g.nA, nB = g.nB; const size_t NN = (size_t)nA * nB * NX;
+  out.assign(NF * NN, T(0.0));
+  std::vector<T> Qx(nA * nA), Mv(nB * nB), QQ(nB * nB);
+  for (int i = 0; i < nA * nA; i++) Qx[i] = T(g.Qx->a[i]);
+  const Mat& Wm = g.first ? *g.W4 : *g.Qv;
+  for (int i = 0; i < nB * nB; i++) Mv[i] = T(Wm.a[i]);
+  if (g.first) for (int i = 0; i < nB * nB; i++) QQ[i] = T(g.V4->a[i]);
+  else for (int i = 0; i < nB; i++) for (int j = 0; j < nB; j++) { Real s(0.0); for (int l = 0; l < nB; l++) s += (*g.Qv)(i, l) * (*g.Qv)(l, j); QQ[i * nB + j] = T(D_(s) == 0 ? 0.0 : 0.0); QQ[i * nB + j] = T(0.0) + (T)(std::is_same<T, Real>::value ? T(0.0) : T(0.0)); }
+  // exact QQ in the working type
+  if (!g.first) for (int i = 0; i < nB; i++) for (int j = 0; j < nB; j++) { T s(0.0); for (int l = 0; l < nB; l++) s += T(g.Qv->a[i * nB + l]) * T(g.Qv->a[l * nB + j]); QQ[i * nB + j] = s; }
+  T hx = T(g.hxi), hv = T(g.hv);
+  std::vector<T> E3(nB), E4(nB), E2(nB);
+  for (int b = 0; b < nB; b++) { E2[b] = E[b] * E[b]; E3[b] = E2[b] * E[b]; E4[b] = E3[b] * E[b]; }
+  #pragma omp parallel for schedule(static)
+  for (int f = 0; f < NF; f++) {
+    std::vector<T> t1(NN, T(0.0));
+    if (f < 4) {
+      for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
+        T s(0.0);
+        for (int bb = 0; bb < nB; bb++) { T p = Psi[f * NN + IX(a, bb, k, nB)]; if (g.first) p = p / E3[bb]; s += Mv[b * nB + bb] * p; }
+        t1[IX(a, b, k, nB)] = s;
+      }
+      T fac = g.first ? hx : hx * hv;
+      for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
+        T s(0.0); for (int aa = 0; aa < nA; aa++) s += Qx[a * nA + aa] * t1[IX(aa, b, k, nB)];
+        out[f * NN + IX(a, b, k, nB)] = g.first ? fac * s : fac * s / E4[b];
+      }
+    } else {
+      for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
+        T s(0.0);
+        for (int bb = 0; bb < nB; bb++) { T p = Phi[IX(a, bb, k, nB)]; if (g.first) p = p / E2[bb]; s += QQ[b * nB + bb] * p; }
+        out[FS * NN + IX(a, b, k, nB)] = g.first ? s : hv * hv * s / E4[b];
+      }
+    }
+  }
+}
 
 static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, const Real& vb_bottom,
                           std::vector<Real>& G, std::vector<Real>& svTop) {
   auto t0 = std::chrono::steady_clock::now();
   const int nA = g.nA, nB = g.nB; const size_t NN = (size_t)nA * nB * NX;
-  // seed at the (xi, v) nodes
   std::vector<Seed> sd((size_t)nA * nB);
   for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) sd[a * nB + b] = seed_at(g.xi[a], g.v[b]);
-  std::vector<Real> E(nB), E3(nB), E4(nB);
-  for (int b = 0; b < nB; b++) { E[b] = g.v[b] - V_N0; E3[b] = E[b] * E[b] * E[b]; E4[b] = E3[b] * E[b]; }
-  // bottom-edge D values (non-first rows) and the corner
+  std::vector<Real> E(nB), E3(nB), E4(nB); std::vector<double> Ed(nB), E3d(nB), E4d(nB);
+  for (int b = 0; b < nB; b++) { E[b] = g.v[b] - V_N0; E3[b] = E[b] * E[b] * E[b]; E4[b] = E3[b] * E[b];
+    Ed[b] = E[b].hi; E3d[b] = Ed[b] * Ed[b] * Ed[b]; E4d[b] = E3d[b] * Ed[b]; }
   Real eb = vb_bottom - V_N0, eb4 = eb * eb * eb * eb;
-  G.assign(NF * NN, dd(0.0));
-  // initial guess
+  // boundary terms B
+  std::vector<Real> B(NF * NN, dd(0.0));
   for (int f = 0; f < NF; f++) for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
     Real val(0.0);
     if (g.first) { if (f < 4) val = left.G[((size_t)f * nB + b) * NX + k]; }
@@ -199,118 +316,77 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
                    val = (Db + Dl - Dc) / E4[b]; }
       else val = (Db + (g.v[b] - vb_bottom) * bottom->sv[(size_t)a * NX + k]) / E4[b];
     }
-    G[f * NN + IX(a, b, k, nB)] = val;
+    B[f * NN + IX(a, b, k, nB)] = val;
   }
-  std::vector<Real> Gx(NF * NN), Gxx(4 * NN), Gxi(3 * NN), Gv(NF * NN), Gvx(NF * NN), Psi(4 * NN), Phi(NN), Gn(NF * NN), tmp(NN);
-  CellOut co{0, 1.0, 0.0};
-  double scale[NF];
-  for (int it = 0; it < CF.maxit; it++) {
-    // derivatives in xi (fields R, m, n) and v (all), from the reference matrices
-    #pragma omp parallel for collapse(2) schedule(static)
-    for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) {
-      for (int f = 0; f < NF; f++) for (int k = 0; k < NX; k++) {
-        Real sv(0.0); for (int bb = 0; bb < nB; bb++) sv += (*g.Dv)(b, bb) * G[f * NN + IX(a, bb, k, nB)];
-        Gv[f * NN + IX(a, b, k, nB)] = sv / g.hv;
-        if (f < 3) { Real sx(0.0); for (int aa = 0; aa < nA; aa++) sx += (*g.Dx)(a, aa) * G[f * NN + IX(aa, b, k, nB)];
-                     Gxi[f * NN + IX(a, b, k, nB)] = sx / g.hxi; }
-      }
-    }
-    xapply(*D1x, G.data(), Gx.data(), NF * nA * nB);
-    xapply(*D2x, G.data(), Gxx.data(), 4 * nA * nB);
-    xapply(*D1x, Gv.data(), Gvx.data(), NF * nA * nB);
-    // right-hand sides in difference arithmetic about the seed
+  G = B;
+  Work<Real> w; Work<double> wd;
+  std::vector<Real> Psi(4 * NN), Phi(NN), IP;
+  std::vector<double> Gd(NF * NN), dlt(NF * NN), r(NF * NN), Psid(4 * NN), Phid(NN), IPd, dn(NF * NN);
+  CellOut co{0, 0, 1.0, 0.0};
+  static bool verbose = getenv("BSOLV_VERBOSE") != nullptr;
+  for (int outer = 0; outer < 12; outer++) {
+    // residual in double-double, Psi about the seed
+    derivs(g, G, w, D1x->a.data(), D2x->a.data());
     #pragma omp parallel for schedule(static)
     for (size_t idx = 0; idx < NN; idx++) {
-      int k = idx % NX; size_t ab = idx / NX; int b = ab % nB; int a = ab / nB;
-      const Seed& s = sd[ab]; const Real e3 = E3[b], e4 = E4[b];
-      auto Dv = [&](int f) { return dd(4.0) * e3 * G[f * NN + idx] + e4 * Gv[f * NN + idx]; };
-      auto Dvx = [&](int f) { return dd(4.0) * e3 * Gx[f * NN + idx] + e4 * Gvx[f * NN + idx]; };
-      Real Dval[NF]; for (int f = 0; f < NF; f++) Dval[f] = e4 * G[f * NN + idx];
-      Real iu = dd(1.0) / s.dudxi;
-      const Real& x = XN[k];
-      DR J[jEND];
-      Real Rt = s.R + Dval[FR];
-      J[jR] = DR(s.R, Dval[FR]); J[jiR] = DR(dd(1.0) / s.R, -Dval[FR] / (s.R * Rt));
-      Real Sd = ((dd(1.0) + x) * Dval[FM] + (dd(1.0) - x) * Dval[FN]) / dd(3.0);
-      J[jES] = DR(dd(1.0), expm1(Sd)); J[jiES] = DR(dd(1.0), expm1(-Sd));
-      Real e2w = expm1(dd(2.0) * Dval[FW]), em2w = expm1(dd(-2.0) * Dval[FW]), iO = dd(1.0) / s.OM2;
-      J[jOM2] = DR(s.OM2, s.OM2 * e2w); J[jiOM2] = DR(iO, iO * em2w);
-      J[jRu] = DR(s.Ru, e4 * Gxi[FR * NN + idx] * iu); J[jRv] = DR(s.Rv, Dv(FR));
-      J[jRx] = DR(dd(0.0), e4 * Gx[FR * NN + idx]); J[jRxx] = DR(dd(0.0), e4 * Gxx[FR * NN + idx]); J[jRvx] = DR(dd(0.0), Dvx(FR));
-      J[jWv] = DR(s.Wv, Dv(FW)); J[jWx] = DR(dd(0.0), e4 * Gx[FW * NN + idx]); J[jWxx] = DR(dd(0.0), e4 * Gxx[FW * NN + idx]);
-      J[jWvx] = DR(dd(0.0), Dvx(FW));
-      for (int q = 0; q < 2; q++) {
-        int f = q ? FN : FM; int o = q ? jn_ : jm_;
-        J[o] = DR(dd(0.0), Dval[f]); J[o + 1] = DR(dd(0.0), e4 * Gxi[f * NN + idx] * iu); J[o + 2] = DR(dd(0.0), Dv(f));
-        J[o + 3] = DR(dd(0.0), e4 * Gx[f * NN + idx]); J[o + 4] = DR(dd(0.0), e4 * Gxx[f * NN + idx]); J[o + 5] = DR(dd(0.0), Dvx(f));
-      }
-      J[js_] = DR(dd(0.0), Dval[FS]); J[jsv] = DR(dd(0.0), Dv(FS)); J[jsx] = DR(dd(0.0), e4 * Gx[FS * NN + idx]);
-      J[jsvx] = DR(dd(0.0), Dvx(FS));
-      DR Jp[RHS_NJ]; for (int i = 0; i < RHS_NJ; i++) Jp[JI[i]] = J[i];
-      DR out[5]; rhs_eval(Jp, KC.data(), x, out);
-      Psi[FR * NN + idx] = s.dudxi * out[2].d; Psi[FM * NN + idx] = s.dudxi * out[0].d;
-      Psi[FN * NN + idx] = s.dudxi * out[1].d; Psi[FW * NN + idx] = s.dudxi * out[3].d;
-      Phi[idx] = out[4].d;
+      int k = idx % NX; size_t ab = idx / NX; int b = ab % nB;
+      const Seed& s = sd[ab];
+      Real ref[jEND]; for (int i = 0; i < jEND; i++) ref[i] = dd(0.0);
+      ref[jR] = s.R; ref[jiR] = dd(1.0) / s.R; ref[jES] = dd(1.0); ref[jiES] = dd(1.0); ref[jOM2] = s.OM2; ref[jiOM2] = dd(1.0) / s.OM2;
+      ref[jRu] = s.Ru; ref[jRv] = s.Rv; ref[jWv] = s.Wv;
+      DJ<Real> d; djets(G, w, NN, idx, E3[b], E4[b], dd(1.0) / s.dudxi, d);
+      Real o[5]; rhs_node(ref, d, XN[k], o);
+      Psi[FR * NN + idx] = s.dudxi * o[2]; Psi[FM * NN + idx] = s.dudxi * o[0]; Psi[FN * NN + idx] = s.dudxi * o[1];
+      Psi[FW * NN + idx] = s.dudxi * o[3]; Phi[idx] = o[4];
     }
-    // update
+    integrate(g, Psi, Phi, E, IP);
+    double rmax = 0, gmax = 1e-300;
+    for (size_t i = 0; i < NF * NN; i++) { Real ri = B[i] + IP[i] - G[i]; r[i] = ri.hi + ri.lo; rmax = std::max(rmax, std::fabs(r[i])); gmax = std::max(gmax, std::fabs(G[i].hi)); }
+    co.outer = outer + 1; co.last = rmax / gmax;
+    if (verbose) fprintf(stderr, "    outer %d: |P(G) - G|/|G| = %.2e\n", outer, rmax / gmax);
+    if (rmax / gmax < CF.tol) { for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + dd(r[i]); break; }
+    // inner: d = r + I[Psi(G + d) - Psi(G)] in double, difference arithmetic about the current state
+    for (size_t i = 0; i < NF * NN; i++) Gd[i] = G[i].hi + G[i].lo;
+    derivs(g, Gd, wd, D1d.data(), D2d.data());
+    std::vector<double> refs((size_t)NN * jEND);
     #pragma omp parallel for schedule(static)
-    for (int f = 0; f < NF; f++) {
-      std::vector<Real> t1(NN, dd(0.0)), t2(NN, dd(0.0));
-      if (f < 4) {
-        const Mat& Wv = g.first ? *g.W4 : *g.Qv;
-        for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {   // along v
-          Real s(0.0);
-          for (int bb = 0; bb < nB; bb++) { Real p = Psi[f * NN + IX(a, bb, k, nB)]; if (g.first) p = p / E3[bb]; s += Wv(b, bb) * p; }
-          t1[IX(a, b, k, nB)] = s;
-        }
-        for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {   // along xi
-          Real s(0.0); for (int aa = 0; aa < nA; aa++) s += (*g.Qx)(a, aa) * t1[IX(aa, b, k, nB)];
-          t2[IX(a, b, k, nB)] = s;
-        }
-        for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
-          size_t i = IX(a, b, k, nB); Real val;
-          if (g.first) val = left.G[((size_t)f * nB + b) * NX + k] + g.hxi * t2[i];
-          else {
-            Real Db = eb4 * bottom->G[((size_t)f * nA + a) * NX + k], Dl = E4[b] * left.G[((size_t)f * nB + b) * NX + k];
-            Real Dc = eb4 * bottom->G[((size_t)f * nA + 0) * NX + k];
-            val = (Db + Dl - Dc + g.hxi * g.hv * t2[i]) / E4[b];
-          }
-          Gn[f * NN + i] = val;
-        }
-      } else {
-        for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
-          size_t i = IX(a, b, k, nB); Real val;
-          if (g.first) {
-            Real s(0.0); for (int bb = 0; bb < nB; bb++) s += (*g.V4)(b, bb) * (Phi[IX(a, bb, k, nB)] / (E[bb] * E[bb]));
-            val = s;
-          } else {
-            Real s1(0.0); for (int bb = 0; bb < nB; bb++) s1 += (*g.Qv)(b, bb) * Phi[IX(a, bb, k, nB)];
-            t1[i] = s1;
-          }
-          if (g.first) Gn[FS * NN + i] = val;
-        }
-        if (!g.first) {
-          for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
-            size_t i = IX(a, b, k, nB);
-            Real s2(0.0); for (int bb = 0; bb < nB; bb++) s2 += (*g.Qv)(b, bb) * t1[IX(a, bb, k, nB)];
-            Real Db = eb4 * bottom->G[((size_t)FS * nA + a) * NX + k];
-            Real val = Db + (g.v[b] - vb_bottom) * bottom->sv[(size_t)a * NX + k] + g.hv * g.hv * s2;
-            Gn[FS * NN + i] = val / E4[b];
-          }
-        }
+    for (size_t idx = 0; idx < NN; idx++) {
+      int k = idx % NX; size_t ab = idx / NX; int b = ab % nB; const Seed& s = sd[ab];
+      DJ<double> d; djets(Gd, wd, NN, idx, E3d[b], E4d[b], 1.0 / s.dudxi.hi, d);
+      double* rf = &refs[idx * jEND]; double x = XN[k].hi;
+      double R = s.R.hi + d.D[FR]; rf[jR] = R; rf[jiR] = 1.0 / R;
+      double S = ((1 + x) * d.D[FM] + (1 - x) * d.D[FN]) / 3; rf[jES] = std::exp(S); rf[jiES] = std::exp(-S);
+      rf[jOM2] = s.OM2.hi * std::exp(2 * d.D[FW]); rf[jiOM2] = 1.0 / rf[jOM2];
+      rf[jRu] = s.Ru.hi + d.Du[FR]; rf[jRv] = s.Rv.hi + d.Dv[FR]; rf[jRx] = d.Dx[FR]; rf[jRxx] = d.Dxx[FR]; rf[jRvx] = d.Dvx[FR];
+      rf[jWv] = s.Wv.hi + d.Dv[FW]; rf[jWx] = d.Dx[FW]; rf[jWxx] = d.Dxx[FW]; rf[jWvx] = d.Dvx[FW];
+      for (int q = 0; q < 2; q++) { int f = q ? FN : FM; int o = q ? jn_ : jm_;
+        rf[o] = d.D[f]; rf[o + 1] = d.Du[f]; rf[o + 2] = d.Dv[f]; rf[o + 3] = d.Dx[f]; rf[o + 4] = d.Dxx[f]; rf[o + 5] = d.Dvx[f]; }
+      rf[js_] = d.D[FS]; rf[jsv] = d.Dv[FS]; rf[jsx] = d.Dx[FS]; rf[jsvx] = d.Dvx[FS];
+    }
+    dlt = r;
+    double dprev = 1e300; int inner;
+    for (inner = 0; inner < 400; inner++) {
+      derivs(g, dlt, wd, D1d.data(), D2d.data());
+      #pragma omp parallel for schedule(static)
+      for (size_t idx = 0; idx < NN; idx++) {
+        int k = idx % NX; size_t ab = idx / NX; int b = ab % nB; const Seed& s = sd[ab];
+        DJ<double> d; djets(dlt, wd, NN, idx, E3d[b], E4d[b], 1.0 / s.dudxi.hi, d);
+        double o[5]; rhs_node(&refs[idx * jEND], d, XN[k].hi, o);
+        double du = s.dudxi.hi;
+        Psid[FR * NN + idx] = du * o[2]; Psid[FM * NN + idx] = du * o[0]; Psid[FN * NN + idx] = du * o[1]; Psid[FW * NN + idx] = du * o[3]; Phid[idx] = o[4];
       }
+      integrate(g, Psid, Phid, Ed, IPd);
+      double dm = 0, dx = 1e-300;
+      for (size_t i = 0; i < NF * NN; i++) { dn[i] = r[i] + IPd[i]; dm = std::max(dm, std::fabs(dn[i] - dlt[i])); dx = std::max(dx, std::fabs(dn[i])); }
+      dlt.swap(dn);
+      co.sweeps++;
+      if (dm < 3e-17 * dx || (inner > 6 && dm > 0.7 * dprev && dm < 1e-14 * dx)) break;
+      dprev = dm;
     }
-    double dmax = 0;
-    for (int f = 0; f < NF; f++) {
-      double mx = 0, dm = 0;
-      for (size_t i = 0; i < NN; i++) { mx = std::max(mx, std::fabs(Gn[f * NN + i].hi)); dm = std::max(dm, std::fabs((Gn[f * NN + i] - G[f * NN + i]).hi)); }
-      scale[f] = mx; dmax = std::max(dmax, dm / std::max(mx, 1e-300));
-    }
-    G.swap(Gn);
-    co.sweeps = it + 1; co.last = dmax;
-    if (dmax < CF.tol) break;
+    if (verbose) fprintf(stderr, "      inner sweeps %d\n", inner + 1);
+    for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + dd(dlt[i]);
   }
-  // s_v at the top (end) edge: s_v(end) = s_v(bottom) + int Phi dv (exact integration of the interpolant)
+  // s_v at the end v-node: s_v(bottom) + int Phi dv
   svTop.assign((size_t)nA * NX, dd(0.0));
   for (int a = 0; a < nA; a++) for (int k = 0; k < NX; k++) {
     Real s(0.0); for (int bb = 0; bb < nB; bb++) s += (*g.Qv)(nB - 1, bb) * Phi[IX(a, bb, k, nB)];
@@ -481,6 +557,7 @@ int main(int argc, char** argv) {
   std::string X = "X" + std::to_string(CF.M);
   const Mat& xn = C_(X + "_x"); NX = CF.M + 1; XN.assign(xn.a.begin(), xn.a.end());
   D1x = &C_(X + "_D1"); D2x = &C_(X + "_D2");
+  for (auto& q : D1x->a) D1d.push_back(q.hi + q.lo); for (auto& q : D2x->a) D2d.push_back(q.hi + q.lo);
   for (int i = 0; i < RHS_NJ; i++) JI[jidx(JN[i])] = 0;
   for (int i = 0; i < jEND; i++) JI[i] = jidx(JN[i]);
   for (int i = 0; i < RHS_NK; i++) KC.push_back(dd((double)RHS_KNUM[i]) / dd((double)RHS_KDEN[i]));
@@ -533,7 +610,8 @@ int main(int argc, char** argv) {
         for (int f = 0; f < NF; f++) for (int a = 0; a < g.nA; a++) for (int k = 0; k < NX; k++)
           bottom.G[((size_t)f * g.nA + a) * NX + k] = G[f * NN + IX(a, g.nB - 1, k, g.nB)];
         bottom.sv = svTop; vbot = vb[sv][j + 1];
-        st.cells += 1; st.secs += co.secs; st.sweeps += co.sweeps; csec += co.secs; cmax = std::max(cmax, co.last); smax = std::max(smax, co.sweeps);
+        st.cells += 1; st.secs += co.secs; st.sweeps += co.sweeps;
+        if (getenv("BSOLV_VERBOSE")) fprintf(stderr, "cell (%d,%d): outer %d, inner sweeps %d, %.1f s, last %.1e\n", i, j, co.outer, co.sweeps, co.secs, co.last); csec += co.secs; cmax = std::max(cmax, co.last); smax = std::max(smax, co.sweeps);
         if (co.last > 1e3 * CF.tol) fprintf(lg, "  cell Q%d (%d,%d): not converged, last update %.2e after %d sweeps\n", q + 1, i, j, co.last, co.sweeps);
       }
       st.left = right; st.col = i + 1;
