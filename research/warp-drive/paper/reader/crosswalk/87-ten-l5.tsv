@@ -150,6 +150,27 @@ eq:tl5-wg-transport	paper/reader/proofs/P-H29.md@7ec3756a:655	P-H29, display	tra
 lem:tl5-wg-wavemap	paper/reader/proofs/P-H29.md@7ec3756a:680	P-H29, Lemma	formal wave map: linear transport at every order, corner compatibility, Borel sums via S3 in R4
 thm:tl5-wg-data	paper/reader/proofs/P-H29.md@7ec3756a:741	P-H29, Theorem	G^sharp = Psi_* g-prime with (W1)-(W3); explicit conditions (X), (T) for invertibility and (W4); gluing by an explicit cut-off; Y0, K0, Y1, K1 depend only on g_N and ghat
 cor:tl5-wg-data-first-stage	paper/reader/proofs/P-H29.md@7ec3756a:803	P-H29, Corollary	first stage of the problem at 10 l5; closes the former open item wave-gauge-data
+sec:tl5-xt	paper/reader/proofs/P-XT.md@e280f2f9:1	P-XT, subsection	new: (X), (T) of thm:tl5-wg-data at the first stage for u* < -1 (data item L1 of the plan); after cor:tl5-wg-data-first-stage, before sec:tl5-dn
+eq:tl5-xt-ew	paper/reader/proofs/P-XT.md@e280f2f9:22	P-XT, display	e^W at v = 1/2 and 7/2 on N1
+lem:tl5-xt-implies	paper/reader/proofs/P-XT.md@e280f2f9:27	P-XT, Lemma	(T) implies (X) for every background (kappa_m <= 1/4, lem:tl5-wg-norms (b))
+lem:tl5-xt-seed-jets	paper/reader/proofs/P-XT.md@e280f2f9:41	P-XT, Lemma	development = seed to order 3 on N0+ (lem:tl5-cip-jets (a), m = 3); differs at order 4 off one torus (env C3 not C4)
+lem:tl5-xt-order	paper/reader/proofs/P-XT.md@e280f2f9:78	P-XT, Lemma	ghat - g' to order m on N0+ gives Upsilon to m-1, Psi - id to m, G^sharp - ghat to m-1; (X), (T) on N0+
+lem:tl5-xt-gauge	paper/reader/proofs/P-XT.md@e280f2f9:122	P-XT, Lemma	|nabla_v khat| in closed form; Upsilon(g') = (3e^-2W/2R) d_u(R' - Rhat) d_v when ghat = data on N1; general bound by eps0, eps1
+eq:tl5-xt-upsilon	paper/reader/proofs/P-XT.md@e280f2f9:133	P-XT, display	the gauge vector on N1
+lem:tl5-xt-rho	paper/reader/proofs/P-XT.md@e280f2f9:174	P-XT, Lemma	traced angular vacuum equation: d_v(R^2 d_u R) explicit; transverse derivative of R on N1 by one quadrature of the data
+eq:tl5-xt-rho	paper/reader/proofs/P-XT.md@e280f2f9:191	P-XT, display	rho
+lem:tl5-xt-rx	paper/reader/proofs/P-XT.md@e280f2f9:219	P-XT, Lemma	|d_x R| and |d_x d_r R| on the data cone, both seeds (|d_x w| <= Wbar)
+lem:tl5-xt-k1	paper/reader/proofs/P-XT.md@e280f2f9:241	P-XT, Lemma	K1 <= 0.1038 (seed 1), 0.09194 (seed 2), every v* <= 7/2; shift 1-form bounded through the shift constraint
+eq:tl5-xt-k1	paper/reader/proofs/P-XT.md@e280f2f9:244	P-XT, display	the bound frak K
+thm:tl5-xt	paper/reader/proofs/P-XT.md@e280f2f9:289	P-XT, Theorem	(X), (T) on N0+ free; on N1: eps_R <= 0.8329 kappa_m (seed 1), <= 0.8630 kappa_m (seed 2) at v* = 7/2 (sufficient); general 2eps0 + 4.996 (v*-1/2) e^(K1(v*-1/2)) eps1 < kappa_m
+eq:tl5-xt-condition	paper/reader/proofs/P-XT.md@e280f2f9:298	P-XT, display	condition for backgrounds equal to the data on N1
+eq:tl5-xt-condition-general	paper/reader/proofs/P-XT.md@e280f2f9:306	P-XT, display	condition in general
+def:tl5-xt-natural	paper/reader/proofs/P-XT.md@e280f2f9:333	P-XT, Definition	ghat_natural: seed + data on N1 + transverse R from rho, cut off to a strip at u = -10
+eq:tl5-xt-natural	paper/reader/proofs/P-XT.md@e280f2f9:346	P-XT, display	the fields of ghat_natural
+lem:tl5-xt-natural	paper/reader/proofs/P-XT.md@e280f2f9:348	P-XT, Lemma	a background on a set containing Dbar and N+; seed 3-jet on N0+; = data on N1 with d_u Rhat = rho
+cor:tl5-xt-data	paper/reader/proofs/P-XT.md@e280f2f9:390	P-XT, Corollary	data in the wave gauge for the first stage, both seeds, every u* < -1, every v* <= 7/2, every kappa
+prop:tl5-xt-seed	paper/reader/proofs/P-XT.md@e280f2f9:401	P-XT, Proposition	the seed as background fails (T) on N1 for kappa_m <= 0.01967 (seed 1), 0.01100 (seed 2)
+rem:tl5-xt-background	paper/reader/proofs/P-XT.md@e280f2f9:425	P-XT, Remark	ghat_natural serves the local theory, not the estimate; order N+2 on N0+ needs the development's jets
 sec:tl5-dn	paper/reader/proofs/P-H29.md@7ec3756a:813	P-H29, section	new; L9 of the plan (G0 9.3)
 def:tl5-dn-slice	paper/reader/proofs/P-H29.md@7ec3756a:820	P-H29, Definition	the real great circle slice M_sigma
 lem:tl5-dn-geodesic	paper/reader/proofs/P-H29.md@7ec3756a:824	P-H29, Lemma	slice totally geodesic (fixed set of the reflections)
