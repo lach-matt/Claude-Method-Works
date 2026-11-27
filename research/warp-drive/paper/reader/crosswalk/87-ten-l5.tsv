@@ -398,3 +398,7 @@ lem:tl5-hfx-c1	paper/reader/proofs/P-GRD7.md@7789e2ec:9	P-GRD7, Lemma	C1^x: firs
 eq:tl5-hfx-c1	paper/reader/proofs/P-GRD7.md@7789e2ec:14	P-GRD7, display	new
 thm:tl5-hfx	paper/reader/proofs/P-GRD7.md@7789e2ec:33	P-GRD7, Theorem	thm:tl5-hfw with C1^x in place of C1^nat
 rem:tl5-hfx-what	paper/reader/proofs/P-GRD7.md@7789e2ec:40	P-GRD7, Remark	what changes in C1
+sec:tl5-hfy	paper/reader/proofs/P-GRD8.md@bcf07954:1	P-GRD8, section	new; at the end of ch:ten-l5, after rem:tl5-hfx-what; absorption at the bootstrap smallness
+lem:tl5-hfy-abs	paper/reader/proofs/P-GRD8.md@bcf07954:10	P-GRD8, Lemma	absorption with k3 s <= x = s1^v sup k3 (<= 1/4): factors 2 -> 1/(1 - x)
+thm:tl5-hfy	paper/reader/proofs/P-GRD8.md@bcf07954:32	P-GRD8, Theorem	thm:tl5-hfx with the replaced constants; Step 1 with s <= s1^v
+rem:tl5-hfy-what	paper/reader/proofs/P-GRD8.md@bcf07954:43	P-GRD8, Remark	what changes
