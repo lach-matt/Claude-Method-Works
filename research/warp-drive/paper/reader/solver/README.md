@@ -55,7 +55,11 @@ CASE is s1A, s2A, s2D or s1D (rep.py's names: seed, region). NCOL1/NROW1: cells 
 larger ξ / v; NCOL2/NROW2 the other side (u < −10, v < ½). NT, NS: Lobatto degrees at which the element boxes are
 sampled. Useful keys: `tol` (outer tolerance, relative; 1e-31 dd, 1e-42 qd), `floor` (stop the outer loop below this
 residual; 1e-28 dd, 1e-39 qd production), `lowswitch` (qd builds: outer steps with a residual above it are
-evaluated in dd; 1e-24), `ckpt_minutes` (default 20), `stopcol`, `stopcells`, `threads`.
+evaluated in dd; 1e-24), `incref` (qd builds, default 1: after the one qd residual at the dd floor, the later outer
+residuals are r(G) = r(G_ref) + I[Psi(G) - Psi(G_ref)] - (G - G_ref) with the bracket in dd difference arithmetic about
+the qd reference state; checked against `incref 0` to 3.5e-57 relative, ≈ 1.8× faster per cell; its own floor ≈ 1e-57),
+`ckpt_minutes` (default 20), `stopcol`, `stopcells`, `threads`. `stopcol` writes the outputs when it stops; `stopcells`
+does not (timing only).
 A log line 'not converged, last update …' means the last residual exceeded 1000 × tol; with floor > 1000 × tol it is
 harmless (the cell stopped at the floor). **Resume**: a checkpoint (`PREFIX.ckpt`) is written at the end of a column at least every `ckpt_minutes` and at the
 end of every quadrant; rerunning the same command continues from it. `PREFIX.log` has one line per column.
