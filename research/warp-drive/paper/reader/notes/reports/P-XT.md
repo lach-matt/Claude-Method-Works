@@ -71,3 +71,39 @@ edafc288; 21 crosswalk rows at @PENDING:N. Nothing committed; no other file edit
   marker, no lint hit (hits only in Placement/crosswalk: file names, quoted 4-space-indented old texts).
 - Arithmetic re-run with outward interval enclosures (scratch, pxt/chain2.py, xt_numbers.py, seedlb.py); every printed
   bound dominates.
+
+---
+
+# Fix round (review R-P-XT, NOT CONFIRMED on a9e3d284)
+
+New file: proofs/P-XT.md, 535 lines, **md5 5fa426c0e7a53e4f7787090732711b2f** (the snapshot 6bf3f7d7 holds an
+intermediate 22e141d6 that differs from it in one Placement line, the HEAD reference).
+
+Applied: the reader's apply.py verbatim (M1, m1–m4, n1–n7; its output P-XT.reviewed.md c5cf16af) plus:
+- n8: "K₀ being that of [[thm:tl5-wg-data]]" in the proof of lem:tl5-xt-order (a).
+- the opening paragraph rewrapped (the patch left "possible." alone on a line); no word changed.
+- N1 (report): Y₁ ≤ 0.14658 ε_R (3e₊/(√2 r_s) = 0.1465786, not 0.14657).
+- N2: Placement 6 (i) now states exactly what lem:tl5-xt-seed-jets (b) shows (the development's fourth v-derivatives of
+  the leaf metric on N₀⁺ are not the seed's, off one torus); "seed + (v − ½)⁵ G" gives ĝ − g′ to order 3 exactly and
+  G^♯ − ĝ to order 2; for "seed + (v − ½)⁴ G" order 4 holds exactly when G(·, ½) equals the difference of the fourth
+  derivatives over 4!; the jets route is sufficient, necessity not shown. 6 (ii) phrased as sufficiency.
+- N3: item 5 cites lem:tl5-cip-form (a) only; HEAD reference updated to 6bf3f7d7 (chapter lines 1–2760 identical to
+  edafc288; anchors 2151–2153, 2500, 2757/2759 unchanged; P-HF's sec:tl5-hf, now merged at the end, is not touched).
+- N4: crosswalk notes: sec:tl5-xt and cor:tl5-xt-data say u* < −1; thm:tl5-xt says ≤ and "(sufficient)".
+- All 21 @PENDING:N re-pinned (now 1, 22, 27, 41, 78, 122, 133, 174, 191, 219, 241, 244, 289, 298, 306, 333, 346, 348,
+  390, 401, 425); all checked against the label lines.
+
+Delta in the chapter text (vs a9e3d284): opening and the two one-sentence edits restricted to u* < −1 and to
+backgrounds with the seed's 1-jet on N₀⁺, with "follow from" (M1); lem:tl5-xt-rx second-seed chain 0.0111012/0.999054
+and 1.271898 × 10⁻³ × 11.746212, citation to the proof of cor:cone-compare (m1, n4); rem:tl5-xt-background says only
+what is proved, restores v* ≥ 9/4 and v* ≥ 2, sufficiency wording (m2); lem:tl5-xt-gauge (a) justifies (1/2)|trχ| =
+(3/2)∂_vR/R by ∂_vR = (f/2)∂_rR > 0 (m3); "the proof of [[lem:tl5-seed]] (d)" for R_s(−10, v) = r and W_s(−10, v) = W
+(m4); n1 (G^♯ = g_N on N₀⁺ by (a)), n2 (thm:tl5-wg applies: g_N smooth data, ĝ_♮ a background), n3 (the coefficient
+3e^(−2W)/(2R)), n5 (Cauchy–Schwarz for |P + Q| ≤ 2φ/3), n6 (K̄₁ = K₁ itself), n7 ("the departure they admit"), n8.
+No number, statement or proof changed in substance.
+
+Checks (scratch copy of chapters + crosswalk at HEAD 6bf3f7d7, items 1–3 applied, 21 rows added after
+cor:tl5-wg-data-first-stage): lint.py --chapters → 62 files, 5061 labels, 0 hits; assemble.py --check → labels 5061,
+problems 0; in that scratch copy only, a full assemble shows every line of the subsection ≤ 121 after the labels
+resolve and no unresolved reference. Source lines ≤ 121 (except the 4-space-indented quotes and crosswalk rows), no
+wrapped line starts with a marker.
