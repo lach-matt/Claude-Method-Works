@@ -36,6 +36,7 @@ static Tay tsin(const Tay& a, Tay& co) { // sin and cos of a series
     s.c[i] = ss / Real((double)i); c.c[i] = -cc / Real((double)i); }
   co = c; return s; }
 
+inline bool dz_(const Tay& a) { for (int i = 0; i < KTRUNC; i++) if (a.c[i].hi != 0) return false; return true; }
 typedef Diff<Tay> DTy;
 static DTy operator*(const Real& c, const DTy& a) { return DTy(c * a.s, c * a.d); }
 static DTy operator*(const DTy& a, const Real& c) { return DTy(c * a.s, c * a.d); }

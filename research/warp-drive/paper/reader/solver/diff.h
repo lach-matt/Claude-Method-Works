@@ -12,9 +12,18 @@ template<class C> struct Diff {
 template<class C> inline Diff<C> operator+(const Diff<C>& a, const Diff<C>& b) { return Diff<C>(a.s + b.s, a.d + b.d); }
 template<class C> inline Diff<C> operator-(const Diff<C>& a, const Diff<C>& b) { return Diff<C>(a.s - b.s, a.d - b.d); }
 template<class C> inline Diff<C> operator-(const Diff<C>& a) { return Diff<C>(-a.s, -a.d); }
+inline bool dz_(double a) { return a == 0; }
+template<class C> inline bool dz_(const C& a) { return a.hi == 0; }   // normalized: leading part 0 means 0
 template<class C> inline Diff<C> operator*(const Diff<C>& a, const Diff<C>& b) {
+  // the reference parts of the fields without a seed value (m, n, s and the x-derivatives) are exactly zero:
+  // skip the products that vanish
+  const bool za = dz_(a.s), zb = dz_(b.s);
+  if (za && zb) return Diff<C>(a.s, a.d * b.d);
+  if (za) return Diff<C>(a.s, a.d * (b.s + b.d));
+  if (zb) return Diff<C>(b.s, a.s * b.d + a.d * b.d);
   return Diff<C>(a.s * b.s, a.s * b.d + a.d * (b.s + b.d));
 }
+
 template<class C> inline Diff<C> operator+(const Diff<C>& a, const C& c) { return Diff<C>(a.s + c, a.d); }
 template<class C> inline Diff<C> operator+(const C& c, const Diff<C>& a) { return Diff<C>(c + a.s, a.d); }
 template<class C> inline Diff<C> operator-(const Diff<C>& a, const C& c) { return Diff<C>(a.s - c, a.d); }

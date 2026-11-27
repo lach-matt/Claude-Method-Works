@@ -203,8 +203,11 @@ def dct_mat(Nd):
     return arb_mat(rows)
 
 def strip_coeffs(C, box, el_box, ndeg):
-    """coefficients in the strip variables of the polynomial with element coefficients C (Fractions), the strip box
+    """|coefficients| in the strip variables of the polynomial C = (p, z) (values z 10^-p), the strip box
     (xc, xh, vc, vh) and the element box (mx, hx, mv, hv) (Fractions); ndeg the degrees per direction (>= C's)"""
+    S = strip_coeffs_signed(C, box, el_box, ndeg)
+    return np.array([float(abs(e).upper()) for e in S.ravel()]).reshape(S.shape)
+def _unused_strip_coeffs(C, box, el_box, ndeg):
     xc, xh, vc, vh = box; mx, hx, mv, hv = el_box
     n1, n2, n3 = C.shape; N1, N2, N3 = ndeg
     P1, P2, P3 = lob(N1), lob(N2), lob(N3)
@@ -243,8 +246,7 @@ def coef_bounds(absC, mi, scale):
 
 def overlapK(case, zfile, i, j, K, prec=256, nsub=(6, 3)):
     flint.ctx.prec = prec
-    zs = pickle.load(open(zfile, 'rb'))
-    Z = {k: np.vectorize(lambda q, p=p: Fr(int(q), 10 ** p), otypes=[object])(z) for k, (p, z) in zs.items()}
+    Z = pickle.load(open(zfile, 'rb'))              # (p, z): the block's quantum and integers
     L = rep.layout(case)
     S, _ = overlap.strips(L, i, j)
     miB = MI(K + 2); mi = MI(K); DM.mi = mi
@@ -258,18 +260,17 @@ def overlapK(case, zfile, i, j, K, prec=256, nsub=(6, 3)):
         BG, BD = {}, {}
         for F in FN:
             Ce = Z['%d_%d_%s' % (i, j, F)]
-            nd = list(Ce.shape)
+            nd = list(Ce[1].shape)
             others = [Z['%d_%d_%s' % (a, b, F)] for (a, b) in nb]
-            for o in others: nd = [max(p, q) for p, q in zip(nd, o.shape)]
+            for o in others: nd = [max(p, q) for p, q in zip(nd, o[1].shape)]
             nd = [max(q - 1, 1) for q in nd]
             el = lambda a, b: (L['xi'][a][0], L['xi'][a][1], L['v'][b][0], L['v'][b][1])
             ce = strip_coeffs(Ce, (xc, xh, vc, vh), el(i, j), nd)
             BG[F] = coef_bounds(ce, miB, sc)
             BD[F] = []
             for (a, b), Co in zip(nb, others):
-                # the difference: exact strip coefficients of G_e' minus those of G_e (both as balls) -> transform jointly
-                A_, B_ = overlap.pad(Co, Ce)
-                cd = strip_coeffs_diff(A_, B_, (xc, xh, vc, vh), el(a, b), el(i, j), nd)
+                # the difference: exact strip coefficients of G_e' minus those of G_e (both as balls)
+                cd = strip_coeffs_diff(Co, Ce, (xc, xh, vc, vh), el(a, b), el(i, j), nd)
                 BD[F].append(coef_bounds(cd, miB, sc))
         # (v - 1/2)^4 and its derivatives on the strip; the weights' derivative bounds
         emax = max(abs(float(vr[0]) - 0.5), abs(float(vr[1]) - 0.5))
@@ -377,15 +378,17 @@ def strip_coeffs_diff(A_, B_, box, el_a, el_b, nd):
     return np.array([float(abs(x - y).upper()) for x, y in zip(flat_a, flat_b)]).reshape(ca.shape)
 
 def strip_coeffs_signed(C, box, el_box, ndeg):
-    """as strip_coeffs, returning the balls (object array)"""
+    """the strip coefficients as balls (object array); C = (p, z)"""
+    p, z = C
     xc, xh, vc, vh = box; mx, hx, mv, hv = el_box
-    n1, n2, n3 = C.shape; N1, N2, N3 = ndeg
+    n1, n2, n3 = z.shape; N1, N2, N3 = ndeg
     P1, P2, P3 = lob(N1), lob(N2), lob(N3)
     q = lambda f: arb(fmpq(f.numerator, f.denominator))
     t = [(q(xc) + q(xh) * p - q(mx)) / q(hx) for p in P1]
     s = [(q(vc) + q(vh) * p - q(mv)) / q(hv) for p in P2]
     V1, V2, V3 = cert.vander(t, n1), cert.vander(s, n2), cert.vander(P3, n3)
-    A = arb_mat([[q(C[a, b, k]) if isinstance(C[a, b, k], Fr) else arb(int(C[a, b, k])) for k in range(n3)] for a in range(n1) for b in range(n2)])
+    from flint import fmpz_mat
+    A = arb_mat(fmpz_mat(n1 * n2, n3, [int(w) for w in z.ravel()])) * (arb(10) ** (-p))
     M1 = (A * arb_mat([[V3[l][k] for l in range(N3 + 1)] for k in range(n3)])).entries()
     B2 = arb_mat([[V2[l][b] for b in range(n2)] for l in range(N2 + 1)])
     vals = []

@@ -47,7 +47,7 @@ struct Config {
   int ncol[2] = {10, 1}, nrow[2] = {10, 1};       // [0]: away from the corner in +xi / +v; [1]: the other side
   std::vector<Real> xib[2], vbk[2];                // optional explicit breakpoints (from the corner outward)
   std::vector<Elem> el; int maxit = 80; double tol = 1e-33; double ckpt_min = 20; std::string quads = "1234";
-  int threads = 4; int stopcol = -1; int stopcells = -1; double floor = 1e-28;
+  int threads = 4; int stopcol = -1; int stopcells = -1; double floor = 1e-28; double lowswitch = 1e-24;
 };
 static Config CF;
 static Real A_CH;                                   // 1/500
@@ -70,7 +70,7 @@ static void read_config(const std::string& fn) {
     else if (k == "elem") { Elem e; is >> a >> b >> c >> d >> e.Nt >> e.Ns; e.xlo = R_from_string(a.c_str());
       e.xhi = R_from_string(b.c_str()); e.vlo = R_from_string(c.c_str()); e.vhi = R_from_string(d.c_str()); CF.el.push_back(e); }
     else if (k == "maxit") is >> CF.maxit; else if (k == "tol") is >> CF.tol; else if (k == "ckpt_minutes") is >> CF.ckpt_min;
-    else if (k == "quadrants") is >> CF.quads; else if (k == "threads") is >> CF.threads; else if (k == "stopcol") is >> CF.stopcol; else if (k == "stopcells") is >> CF.stopcells; else if (k == "floor") is >> CF.floor;
+    else if (k == "quadrants") is >> CF.quads; else if (k == "threads") is >> CF.threads; else if (k == "stopcol") is >> CF.stopcol; else if (k == "stopcells") is >> CF.stopcells; else if (k == "floor") is >> CF.floor; else if (k == "lowswitch") is >> CF.lowswitch;
   }
 }
 
@@ -183,9 +183,11 @@ struct CellOut { int sweeps; int outer; double last; double secs; int diverged; 
 static inline size_t IX(int a, int b, int k, int nB) { return ((size_t)a * nB + b) * NX + k; }
 static inline double D_(const Real& a) { return a.hi; }
 static inline double D_(double a) { return a; }
-template<class T> static inline T cvt(const Real& a);
-template<> inline Real cvt<Real>(const Real& a) { return a; }
-template<> inline double cvt<double>(const Real& a) { return lead2(a); }
+template<class T> static inline T cvt(const Real& a) {
+  if constexpr (std::is_same<T, Real>::value) return a;
+  else if constexpr (std::is_same<T, double>::value) return lead2(a);
+  else return T(a.hi, lo1(a));          // double-double from quad-double (the early outer steps of a qd build)
+}
 
 template<class T> struct Work { std::vector<T> Gx, Gxx, Gxi, Gv, Gvx, Psi, Phi; };
 
@@ -231,13 +233,14 @@ template<class T> static inline void djets(const std::vector<T>& G, const Work<T
   }
 }
 // reference (full) state as plain values: R, iR, ES, iES, OM2, iOM2, R_u, R_v, W_v and the field jets
-template<class T> static inline void rhs_node(const T ref[jEND], const DJ<T>& d, const T& x, T out[5]) {
+template<class T> static inline void rhs_node(const T ref[jEND], const DJ<T>& d, const T& x, T out[5], const T* K) {
   // difference arithmetic about ref: ref holds the full values of every jet at the reference state
   typedef Diff<T> DT; DT J[jEND];
   const T Rt = ref[jR] + d.D[FR];
   J[jR] = DT(ref[jR], d.D[FR]); J[jiR] = DT(ref[jiR], -d.D[FR] * ref[jiR] / Rt);
-  T Sd = ((T(1.0) + x) * d.D[FM] + (T(1.0) - x) * d.D[FN]) * T(1.0 / 3.0);
-  if constexpr (std::is_same<T, Real>::value) Sd = ((Real(1.0) + x) * d.D[FM] + (Real(1.0) - x) * d.D[FN]) / Real(3.0);
+  T Sd;
+  if constexpr (std::is_same<T, double>::value) Sd = ((T(1.0) + x) * d.D[FM] + (T(1.0) - x) * d.D[FN]) * T(1.0 / 3.0);
+  else Sd = ((T(1.0) + x) * d.D[FM] + (T(1.0) - x) * d.D[FN]) / T(3.0);
   J[jES] = DT(ref[jES], ref[jES] * expm1(Sd)); J[jiES] = DT(ref[jiES], ref[jiES] * expm1(-Sd));
   J[jOM2] = DT(ref[jOM2], ref[jOM2] * expm1(T(2.0) * d.D[FW])); J[jiOM2] = DT(ref[jiOM2], ref[jiOM2] * expm1(T(-2.0) * d.D[FW]));
   J[jRu] = DT(ref[jRu], d.Du[FR]); J[jRv] = DT(ref[jRv], d.Dv[FR]); J[jRx] = DT(ref[jRx], d.Dx[FR]);
@@ -251,8 +254,7 @@ template<class T> static inline void rhs_node(const T ref[jEND], const DJ<T>& d,
   J[js_] = DT(ref[js_], d.D[FS]); J[jsv] = DT(ref[jsv], d.Dv[FS]); J[jsx] = DT(ref[jsx], d.Dx[FS]); J[jsvx] = DT(ref[jsvx], d.Dvx[FS]);
   DT Jp[RHS_NJ]; for (int i = 0; i < jEND; i++) Jp[JI[i]] = J[i];
   DT o5[5];
-  static thread_local std::vector<T> KT; if (KT.empty()) for (auto& k : KC) KT.push_back(T(D_(k)));
-  if constexpr (std::is_same<T, Real>::value) rhs_eval(Jp, KC.data(), x, o5); else rhs_eval(Jp, KT.data(), x, o5);
+  rhs_eval(Jp, K, x, o5);
   for (int i = 0; i < 5; i++) out[i] = o5[i].d;
 }
 
@@ -295,6 +297,45 @@ template<class T> static void integrate(const Geom& g, const std::vector<T>& Psi
   }
 }
 
+#ifdef USE_QD
+typedef dd LowReal;
+#else
+typedef Real LowReal;
+#endif
+static std::vector<LowReal> D1lo, D2lo, KClo;
+static std::vector<double> KCd;
+template<class T> static void residual_T(const Geom& g, const std::vector<Seed>& sd, const std::vector<Real>& Gq, const std::vector<Real>& Bq,
+                                         const std::vector<Real>& Eq, const T* D1, const T* D2, const T* K, std::vector<double>& r,
+                                         double& rmax, double& gmax, std::vector<Real>* PhiOut) {
+  const int nA = g.nA, nB = g.nB; const size_t NN = (size_t)nA * nB * NX;
+  std::vector<T> G(Gq.size()); for (size_t i = 0; i < G.size(); i++) G[i] = cvt<T>(Gq[i]);
+  std::vector<T> E(nB), E3(nB), E4(nB);
+  for (int b = 0; b < nB; b++) { E[b] = cvt<T>(Eq[b]); E3[b] = E[b] * E[b] * E[b]; E4[b] = E3[b] * E[b]; }
+  Work<T> w; derivs(g, G, w, D1, D2);
+  std::vector<T> Psi(4 * NN), Phi(NN), IP;
+  #pragma omp parallel for schedule(static)
+  for (size_t idx = 0; idx < NN; idx++) {
+    int k = idx % NX; size_t ab = idx / NX; int b = ab % nB;
+    const Seed& s = sd[ab];
+    T ref[jEND]; for (int i = 0; i < jEND; i++) ref[i] = T(0.0);
+    T R = cvt<T>(s.R), O = cvt<T>(s.OM2), du = cvt<T>(s.dudxi);
+    ref[jR] = R; ref[jiR] = T(1.0) / R; ref[jES] = T(1.0); ref[jiES] = T(1.0); ref[jOM2] = O; ref[jiOM2] = T(1.0) / O;
+    ref[jRu] = cvt<T>(s.Ru); ref[jRv] = cvt<T>(s.Rv); ref[jWv] = cvt<T>(s.Wv);
+    DJ<T> d; djets(G, w, NN, idx, E3[b], E4[b], T(1.0) / du, d);
+    T o[5]; rhs_node(ref, d, cvt<T>(XN[k]), o, K);
+    Psi[FR * NN + idx] = du * o[2]; Psi[FM * NN + idx] = du * o[0]; Psi[FN * NN + idx] = du * o[1];
+    Psi[FW * NN + idx] = du * o[3]; Phi[idx] = o[4];
+  }
+  integrate(g, Psi, Phi, E, IP);
+  rmax = 0; gmax = 1e-300;
+  for (size_t i = 0; i < NF * NN; i++) {
+    T ri = cvt<T>(Bq[i]) + IP[i] - G[i];
+    if constexpr (std::is_same<T, Real>::value) r[i] = lead2(ri); else r[i] = ri.hi + ri.lo;
+    rmax = std::max(rmax, std::fabs(r[i])); gmax = std::max(gmax, std::fabs(Gq[i].hi));
+  }
+  if (PhiOut) { PhiOut->resize(NN); for (size_t i = 0; i < NN; i++) { if constexpr (std::is_same<T, Real>::value) (*PhiOut)[i] = Phi[i]; } }
+}
+
 static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, const Real& vb_bottom,
                           std::vector<Real>& G, std::vector<Real>& svTop) {
   auto t0 = std::chrono::steady_clock::now();
@@ -324,31 +365,22 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
   std::vector<double> Gd(NF * NN), dlt(NF * NN), r(NF * NN), Psid(4 * NN), Phid(NN), IPd, dn(NF * NN);
   CellOut co{0, 0, 1.0, 0.0, 0};
   static bool verbose = getenv("BSOLV_VERBOSE") != nullptr;
-  double rprev = 1;
+  double rprev = 1; bool prevfull = false;
   for (int outer = 0; outer < 12; outer++) {
-    // residual in double-double, Psi about the seed
-    derivs(g, G, w, D1x->a.data(), D2x->a.data());
-    #pragma omp parallel for schedule(static)
-    for (size_t idx = 0; idx < NN; idx++) {
-      int k = idx % NX; size_t ab = idx / NX; int b = ab % nB;
-      const Seed& s = sd[ab];
-      Real ref[jEND]; for (int i = 0; i < jEND; i++) ref[i] = Real(0.0);
-      ref[jR] = s.R; ref[jiR] = Real(1.0) / s.R; ref[jES] = Real(1.0); ref[jiES] = Real(1.0); ref[jOM2] = s.OM2; ref[jiOM2] = Real(1.0) / s.OM2;
-      ref[jRu] = s.Ru; ref[jRv] = s.Rv; ref[jWv] = s.Wv;
-      DJ<Real> d; djets(G, w, NN, idx, E3[b], E4[b], Real(1.0) / s.dudxi, d);
-      Real o[5]; rhs_node(ref, d, XN[k], o);
-      Psi[FR * NN + idx] = s.dudxi * o[2]; Psi[FM * NN + idx] = s.dudxi * o[0]; Psi[FN * NN + idx] = s.dudxi * o[1];
-      Psi[FW * NN + idx] = s.dudxi * o[3]; Phi[idx] = o[4];
-    }
-    integrate(g, Psi, Phi, E, IP);
+    // the residual r = P(G) - G, Psi in difference arithmetic about the seed; in a quad-double build the first outer
+    // steps (residual above CF.lowswitch) are evaluated in double-double, the later ones in quad-double
     double rmax = 0, gmax = 1e-300;
-    for (size_t i = 0; i < NF * NN; i++) { Real ri = B[i] + IP[i] - G[i]; r[i] = lead2(ri); rmax = std::max(rmax, std::fabs(r[i])); gmax = std::max(gmax, std::fabs(G[i].hi)); }
+    bool low = (NW == 4) && (outer == 0 || rprev > CF.lowswitch);
+    if (low) residual_T<LowReal>(g, sd, G, B, E, D1lo.data(), D2lo.data(), KClo.data(), r, rmax, gmax, nullptr);
+    else residual_T<Real>(g, sd, G, B, E, D1x->a.data(), D2x->a.data(), KC.data(), r, rmax, gmax, &Phi);
+    if (verbose) fprintf(stderr, "      [residual eval (%s) %.2f s]\n", low ? "low" : "full", std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count());
     co.outer = outer + 1; co.last = rmax / gmax;
     if (verbose) fprintf(stderr, "    outer %d: |P(G) - G|/|G| = %.2e\n", outer, rmax / gmax);
     // stop at the tolerance, or at the rounding floor (no gain by a factor 4 once below 1e-29)
-    bool stall = (outer > 0 && rmax / gmax < 1e-29 && rmax / gmax > 0.25 * rprev) || rmax / gmax < CF.floor;
-    rprev = rmax / gmax;
-    if (rmax / gmax < CF.tol || stall) { for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + Real(r[i]); break; }
+    // stall: no gain by a factor 4 between two evaluations in the working precision, below 1e-29
+    bool stall = (outer > 0 && prevfull && !low && rmax / gmax < 1e-29 && rmax / gmax > 0.25 * rprev) || (!low && rmax / gmax < CF.floor);
+    rprev = rmax / gmax; prevfull = !low;
+    if ((!low && rmax / gmax < CF.tol) || stall) { for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + Real(r[i]); break; }
     // inner: d = r + I[Psi(G + d) - Psi(G)] in double, difference arithmetic about the current state
     for (size_t i = 0; i < NF * NN; i++) Gd[i] = lead2(G[i]);
     derivs(g, Gd, wd, D1d.data(), D2d.data());
@@ -375,7 +407,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
       for (size_t idx = 0; idx < NN; idx++) {
         int k = idx % NX; size_t ab = idx / NX; int b = ab % nB; const Seed& s = sd[ab];
         DJ<double> d; djets(dlt, wd, NN, idx, E3d[b], E4d[b], 1.0 / s.dudxi.hi, d);
-        double o[5]; rhs_node(&refs[idx * jEND], d, XN[k].hi, o);
+        double o[5]; rhs_node(&refs[idx * jEND], d, XN[k].hi, o, KCd.data());
         double du = s.dudxi.hi;
         Psid[FR * NN + idx] = du * o[2]; Psid[FM * NN + idx] = du * o[0]; Psid[FN * NN + idx] = du * o[1]; Psid[FW * NN + idx] = du * o[3]; Phid[idx] = o[4];
       }
@@ -391,7 +423,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
       if (inner > 8 && dm > 1.5 * dprev) { ngrow++; if (ngrow >= 4) { co.diverged++; dlt = bestd; break; } } else ngrow = 0;
       dprev = dm;
     }
-    if (verbose) fprintf(stderr, "      inner sweeps %d\n", inner + 1);
+    if (verbose) fprintf(stderr, "      inner sweeps %d [t = %.2f s]\n", inner + 1, std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count());
     for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + Real(dlt[i]);
   }
   // s_v at the end v-node: s_v(bottom) + int Phi dv
@@ -475,6 +507,8 @@ static void sample_cell(const Geom& g, const std::vector<Real>& G) {
   Real vmin = std::min(g.v.front(), g.v.back(), [](const Real& a, const Real& b) { return a < b; });
   Real vmax = std::max(g.v.front(), g.v.back(), [](const Real& a, const Real& b) { return a < b; });
   if (g.first) { if (g.hv.hi > 0) vmin = V_N0; else vmax = V_N0; }
+  // a node on the cell's boundary is taken by the cell even when rounding puts it 1e-30 outside
+  Real tol(1e-24); xmin = xmin - tol; xmax = xmax + tol; vmin = vmin - tol; vmax = vmax + tol;
   for (size_t e = 0; e < CF.el.size(); e++) {
     const Elem& el = CF.el[e]; int nT = el.Nt + 1, nS = el.Ns + 1;
     for (int a = 0; a < nT; a++) {
@@ -570,6 +604,8 @@ int main(int argc, char** argv) {
   for (int i = 0; i < RHS_NJ; i++) JI[jidx(JN[i])] = 0;
   for (int i = 0; i < jEND; i++) JI[i] = jidx(JN[i]);
   for (int i = 0; i < RHS_NK; i++) KC.push_back(Real((double)RHS_KNUM[i]) / Real((double)RHS_KDEN[i]));
+  for (int i = 0; i < RHS_NK; i++) { KClo.push_back(LowReal((double)RHS_KNUM[i]) / LowReal((double)RHS_KDEN[i])); KCd.push_back((double)RHS_KNUM[i] / (double)RHS_KDEN[i]); }
+  for (auto& q : D1x->a) D1lo.push_back(cvt<LowReal>(q)); for (auto& q : D2x->a) D2lo.push_back(cvt<LowReal>(q));
   for (auto& e : CF.el) {
     for (int a = 0; a <= e.Nt; a++) e.xin.push_back((e.xlo + e.xhi) * Real(0.5) - (e.xhi - e.xlo) * Real(0.5) * cos(R_PI * Real((double)a) / Real((double)e.Nt)));
     for (int b = 0; b <= e.Ns; b++) e.vin.push_back((e.vlo + e.vhi) * Real(0.5) - (e.vhi - e.vlo) * Real(0.5) * cos(R_PI * Real((double)b) / Real((double)e.Ns)));

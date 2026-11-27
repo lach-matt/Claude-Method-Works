@@ -13,7 +13,9 @@ def cheb_derivs(n, t, jmax):
     """T_k^(j)(t) for k < n, j <= jmax (mpf)"""
     T = [[mp.mpf(0)] * n for _ in range(jmax + 1)]
     T[0][0] = mp.mpf(1)
-    if n > 1: T[0][1] = t; T[1][1] = mp.mpf(1) if jmax >= 1 else None
+    if n > 1:
+        T[0][1] = t
+        if jmax >= 1: T[1][1] = mp.mpf(1)
     for k in range(1, n - 1):
         T[0][k + 1] = 2 * t * T[0][k] - T[0][k - 1]
         for j in range(1, jmax + 1):
