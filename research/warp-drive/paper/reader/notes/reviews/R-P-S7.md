@@ -377,3 +377,163 @@ plus M1 (i)–(v)).
   wrapped line starting with "+ ", "- ", "* ", "> ", "#", "=", "|" or "<", no backtick, no backslash.
 - tree2/ (with M1): 4834 labels, lint 0 hits, assemble --check 0 problems, PAPER.md 0 hits, longest line 121.
 - assemble.py was not run in the repository; no repository file was written.
+
+## Confirmation (fix round: proofs/P-S7.md md5 0571d41d9f9ff4f7999f4f76dd73eb55, 1447 lines; report notes/reports/F-P-S7.md)
+
+**NOT CONFIRMED: 0 Major, 1 minor (new, not raised in round 1), 3 nits.** Every finding of round 1 (M1, m1–m5,
+n1–n7) is resolved as proposed or better. I read every changed and new line, using a diff against 16e6e03f (904
+changed lines). The one open item is a further site of the m3 kind, at 28:212. I missed it in round 1 too. Its
+replacement text is below and passes a scratch merge.
+
+### Round-1 findings, one by one
+
+- **M1 (i)–(ii), lem:ii-a-3-1 (g)** (P-S7.md 587–589, 665–681): the statement is as proposed. The proof is as proposed,
+  with 𝔐 and j now introduced in it and three properties of j stated: j(fg) = j(f)j(g), j(f̄) is the conjugate, and
+  j(ψ(f)) = ψ(j(f)) for real f. Each holds by continuity on the dense subset. "Entrywise for matrices ((S14))" is
+  added. Re-checked line by line: correct.
+- **(S16) where cited**: thm:std-sbg-calculus (95:913ff.) has the item "(S16) Residual operators, essential supports and
+  wave front sets" (95:1093). It quotes Definition 3.25 (u𝒱T*M, j, 𝔐, the essential support), Lemma 3.24 (1) and
+  Definition 3.43 (WF′ = ess supp), which is all that (g) takes from it. The first mention is qualified, "(S16) of
+  [[thm:std-sbg-calculus]]", and the second, a sentence later, is "((S16))". This is unambiguous, and chapter 33 cites
+  "(S16)" the same way. Correct.
+- **M1 (iii), weighted WF′** (P-S7-3, 715–717): "For A ∈ Ψ^𝐨 (the order being the one at which A is considered) ... with
+  S^(𝐨−K𝐞)". This is correct and consistent with [Hin26d]'s WF′^w. **The writer's claim about the uses** is checked and
+  true.
+  - Outside the transferred chapter-21 proofs, chapter 27 takes WF′ or "microsupported" only of operators of order 0:
+    27:427 (B ∈ Ψ⁰), 27:600 and 622 (B_*), 27:633 (B), 27:921 (G). In each case it is Ψ⁰ through (D2), and the
+    transferred statements say B, B_* ∈ Ψ^0 (21:682, 21:738, 21:918).
+  - Inside the transferred proofs (Ǎ ∈ Ψ^𝐤, E, J, R), chapter 21's "S^(−M𝟏) for every M" equals "S^(𝐨−M𝟏) for every
+    M", so the weighted condition is the faithful transport.
+  - Elsewhere, only chapter 35 uses this WF′, and only through prop:ii-f-2-4 to 2-6 (35:851–912). Its own WF′ at
+    35:269–384 and 35:805 belongs to the cone calculus and to the chapter-21-type semiclassical calculus (orders
+    (s, 𝖻), h⁻¹), not to 𝒫_ι.
+  - grep finds no other chapter citing sec:ii-f-2, lem:ii-f-2-2, prop:ii-f-2-x or 𝒫_ι, except chapter 28 (see m6).
+- **M1 (iv), lem:ii-f-2-2 (h)** (P-S7-14, P-S7-15): as proposed, with the cut-offs cited from lem:ii-f-2-phase. The ∎
+  moved correctly. Correct.
+- **M1 (v), prop:ii-f-2-3** (P-S7-16): as proposed. **M1 (vi)**: crosswalk notes for lem:ii-a-3-1, sec:ii-f-2-1,
+  lem:ii-f-2-2 and prop:ii-f-2-3 are present (checked in full). The last sentence of (S7) names (g).
+- **m1**: P-S7-1, lines 500–501, and P-S7-18 (33:1515–1516) are as proposed; the crosswalk row of
+  lem:iv5-calc-structure is noted. Correct.
+- **m2**: (b) no longer claims a phase-space-weight class, and its proof cites "((S4), (S8))". Correct.
+- **m3**: P-S7-6, lines 835–842, is as proposed. Correct.
+- **m4**: P-S7-13 is as proposed; the fifth line is the tail of the old line 445. Correct.
+- **m5, option (b)**: (e) is proved by a parametrix (P-S7.md 620–641). Re-derived step by step.
+  - z_k := φ_k(y_2) ∈ S⁰. Then y_1z_0 = y_1 (y_2 = 1 where y_1 ≠ 0), and z_kz_(k+1) = z_k, because z_k ≠ 0 forces
+    |y_2 − 1| < 2^(k−3K−1), where z_(k+1) = 1. Also z_(3K)y_3 = z_(3K), because |y_2 − 1| < ½ forces y_2 ≠ 0, hence
+    y_3 = 1. Iterating gives z_(3j+1)z_(3K) = z_(3j+1).
+  - (1 − z_0)b = (1 − z_0)(1 − y_1)b is residual. qa = y_3, so the principal symbol of Q_jA is z_(3j+1)r_j, and
+    R_(j+1) has principal symbol (1 − z_(3j+1))(1 − z_(3j))r_j, which is residual. With the class of (4.10) at δ = ¼
+    this gives R_(j+1) ∈ Ψ^(−(j+1)/2,−(j+1)/2). The symbol r_(j+1) = r_j − c_j stays in the class of R_j, so it
+    represents the principal symbol, as needed.
+  - (1 − z_(3j+3))r_j is residual, since z_(3j)z_(3j+3) = z_(3j). (1 − z_(3j+3))c_j is residual by (g) with A := Q_j,
+    B := A, y := 1 − z_(3j+2) and y′ := 1 − z_(3j+3). Here ya = (1 − z_(3j+2))z_(3j+1)r_jq = 0 and yy′ = y′; (g) holds
+    for every symbol c_j of the product. All indices stay ≤ 3K.
+  - Telescoping gives B = QA + R_K. The bound follows from the boundedness of Q ∈ w′⁻¹Ψ^(−𝗆′,−𝗅′) and
+    R_K ∈ Ψ^(−K/2,−K/2) ((S7) with Remark 4.9). The remainder comparison is right: 𝗆 − K/2, 𝗅 − K/2 ≤ −N, the first
+    term of the variable-order norm is dominated by the (−N, −N)-norm, and the elliptic family maps that space into
+    H^(𝗋,𝗋′) ⊂ ρ^(inf 𝗋′)H^(inf 𝗋) ⊂ L². Regularity is included. Matrices work in the order (z r_j q)a with
+    qa = y_3 Id.
+  - **No circularity.** The proof of (g) uses only (b), (c), (S5), (S16) and (S14). The proof of (b) uses only the
+    constant-order part of (a). The variable-order part of (a) uses (b). (d), (f) and (g) do not use (e). The proof of
+    (e) cites (g) forward, with "whose proof does not use (e)". No proof of lem:ii-a-3-1 cites lem:ii-a-8-4.
+  - Proposition 3.55 (3) is no longer used, so (e) holds for variable orders, the (S8) classes and systems without an
+    unstated reading.
+- **The two old sites now cite (e).**
+  - P-S7-12 (old 23:1052–1054, 5 new lines): Λ := Op(λ^(−𝗌−1)) is in C^∞_bΨ^(𝗌+1)_e3b, which by 23:513 is the class of the structure, and
+    its symbol has the inverse λ^(𝗌+1) ∈ S^(−𝗌−1). (e) applies with P a point, B = I and y_j = 1. The remainder
+    ‖v‖_(ρ^(−N)H^(−N)) is ≤ C‖v‖_(H^(−N)) since ρ ≤ 1. Correct.
+  - P-S7-17 (old 27:1432–1440, 13 new lines): at fixed σ the scalings, and hence ρ̄, are bounded below. y_j = ψ_j(λ) are nested, and
+    1 − y_1 vanishes where λ < (a constant), so it is residual. On {λ < δ}, |p| ≥ cx_I²ρ_K⁻²λ⁻² (eq:ii-f-1-10 near ℐ⁺,
+    the b-symbol near K⁺, lower-order terms absorbed for δ small), so y_3p⁻¹ ∈ x_I⁻²ρ_K²S^(−2). Correct.
+- **n1** applied (511–513). **n2** applied (827–830). **n3** applied (710–711, 718–721): the h = 1 slice is not a face,
+  its scope reaches *Orders and spaces*, Ell does not depend on the representative, and the principal symbol is "defined
+  below". **n4** applied (597). **n6** applied (section 1, lines 72–73). **n7** recorded (§6.3).
+- **n5, lem:ii-f-2-phase** (P-S7.md 725–751): re-derived.
+  - The 𝒱_ħ-spanning fields are local frames of a smooth bundle over Y = ι⁺_ħ. Near sf ∩ tf the K⁺-frame is
+    (ĥ/(1 + ĥ))(R∂_R − ĥ∂_ĥ) and (ĥ/(1 + ĥ))∂_ω, which is smooth.
+  - On U × B̄⁴, ∂_ζ^γ = ⟨ζ⟩^(−|γ|)Σc_α(⟨ζ⟩∂_ζ)^α with c_α smooth, so |V_1⋯V_k∂_ζ^γ f| ≤ C⟨ζ⟩^(−|γ|).
+  - The b-fields at fixed h lift smoothly to Y, being tangent to {h = 0} and to the blow-up centre.
+  - ρ_i∂_(x^i) = ΣD_(ik)F_k, with D and D⁻¹ uniformly bounded with their ∂_x-derivatives: both are frames of 𝒱_ħ, the
+    F_k by *The structure* and the chart frame by (S1). Then ξ = Dζ and ⟨ξ⟩ ≍ ⟨ζ⟩.
+  - The induction invariant |ν| ≥ |μ| + |γ| is preserved by each derivative: ∂_ξ lowers |μ| or raises |ν|; ∂_x
+    differentiates c, adds a field, or raises |μ| and |ν| together.
+  - Hence |∂_x^β∂_ξ^γ f̃| ≤ C⟨ξ⟩^(−|γ|), uniformly in h and in the cell. Correct.
+  - It is cited in (c) (P-S7-5) and (h). The new label assembles as Lemma 18.7. No chapter refers to a result of
+    chapter 18 by a written-out number, so the renumbering of the later lemmas is harmless.
+
+### Open finding
+
+**m6 (minor, new). 28:212 asserts a uniform equivalence of norms over a compact range of the parameter, which
+[Hin26d] does not give and sec:ii-f-2-1 states only at fixed h.** Chapter 28 (unchanged by P-S7), line 212, in the
+proof of prop:ii-f-6-2:
+
+> ‖·‖_(𝐨;k,+) at h = |ζ|⁻¹ ∈ [h_0, 1] are equivalent to the 0,b-norms uniformly ([[sec:ii-f-2-1]]), and
+
+What is wrong:
+- sec:ii-f-2-1 says (27:405–406) "For fixed h > 0, H^𝐨 is the space H^(𝗌,(a,c))_(0,b)(ι⁺) with an h-dependent
+  equivalent norm". Uniformity over h ∈ [h_0, 1] for the variable orders 𝗌_(0ħ,cħ), 𝖻_± against 𝗌_(0,b) is not stated
+  there.
+- It is the same kind of statement as 37:824 (Remark 3.57: norms of different structures need not be uniformly
+  equivalent). Before P-S7 it could only have rested on the blanket "the above holds uniformly in p" of the old (S7).
+- It is used: the bound on the line for 1 ≤ |ζ| ≤ h_0⁻¹ needs it.
+
+Fix: a new placement item for chapters/28-s09-forward.md, replacing line 212 (one whole line, occurring once at HEAD
+31ee2458; chapter 28 md5 6e4db0694c74fad4469257bec90c24cf) by 7 lines:
+
+```text
+‖·‖_(𝐨;k,+) at h = |ζ|⁻¹ ∈ [h_0, 1] are equivalent to the 0,b-norms uniformly, by [[lem:ii-a-3-1]] (f) and (d):
+for these h the cells are those of the 0,b-structure, with scalings within a factor depending only on h_0 and γ_+ of
+its own; ρ_sf and ρ_tf lie between positive constants and ρ_cf ≍ ρ_K ([[sec:ii-f-2-1]]), so the weights and the
+sf-order change the norms only to equivalent ones; 𝗌_(0ħ,cħ) and 𝗌_(0,b), induced by the same 𝗌, agree at fibre
+infinity ([[sec:ii-f-1-3]]), so that λ^(𝗌_(0ħ,cħ)−𝗌_(0,b)) and its inverse are bounded in S⁰ (the exponent is λ times
+a function bounded in S⁰, and λ log λ is bounded with its derivatives); and the factors h^(−j) of ‖·‖_(𝐨;k,+) lie
+between 1 and h_0^(−k). Moreover
+```
+
+- The next line, "𝒴^(𝗌_(0,b)−2)_k ⊃ H^((𝗌_(0,b)−1;k),(2γ_I+2,γ_cf−2))_(0,b;b) continuously. ...", is unchanged; it now
+  follows "Moreover".
+- Crosswalk 28-s09-forward.tsv, row prop:ii-f-6-2 (its note is empty): add the note "P-S7: the uniform equivalence for
+  h in [h_0, 1] justified by lem:ii-a-3-1 (f), (d)".
+- The writer should confirm one point against sec:ii-f-1-3 and [Hin26c, §10.1.1], which that section cites: that
+  𝗌_(0ħ,cħ) at fibre infinity over h > 0 and 𝗌_(0,b) are the same restriction of 𝗌. They are, if the spectral
+  restriction of a dilation-invariant order is read at fibre infinity, where the τ-dual component drops out. If they
+  were not, the sentence as printed would be false, not merely unproved.
+- The sf-order is harmless because ρ̄ ≍ ρ_sf is bounded below for h ≥ h_0. Then ρ̄^(±𝖻) ∈ S⁰, as in the last sentence of
+  lem:ii-a-3-1 (f), with log ρ_sf of bounded derivatives (lem:ii-f-2-1 (b)).
+- Scratch check (tree5 = tree4 plus this item): lint --chapters 4930 labels, 0 hits; assemble --check 0 problems;
+  PAPER.md 0 hits; longest line 121. Each new line is ≤ 121 characters, also with every [[kind:key]] replaced by
+  "Proposition 33.123", and none starts with a forbidden character.
+
+A grep for other uniform-equivalence claims ("equivalent … uniform" in chapters 20–39) found only sites proved on the
+spot by comparing cells (23:659, 23:1089, 23:1435, 23:2372, 27:1006, 33:1523), sites of the h-independent spanning set
+(27:1074–1078, covered by the boundedness in (S7)), chapter-21-calculus sites (21:438, 21:1128, 29:1090, 29:1206) and
+31:615 (smoothness in a Kerr parameter b). None is an (S7) site.
+
+### nits (this round)
+
+- **N1.** P-S7-3, line 710: "here, in the paragraph *Orders and spaces* above and below, ι⁺_ħ and ..." reads as if the
+  paragraph were both above and below. Suggested: "here and below, and in the paragraph *Orders and spaces* above,
+  ι⁺_ħ and ...". The line stays under 121 characters after rewrap.
+- **N2.** Notes only: sections 1 (line 42), 3 (ii), 6.4 and 9 give 27:1432–1436 for the site of P-S7-17. P-S7-17
+  replaces 27:1432–1440.
+- **N3.** (e), line 620: "Fix K ∈ ℕ." Its condition, K/2 ≥ N + |sup 𝗆| + |sup 𝗅|, appears only at line 637. Saying
+  "Fix K ∈ ℕ with K/2 ≥ N + |sup 𝗆| + |sup 𝗅|" up front reads more easily. No change to the mathematics.
+
+### Placement and checks (fix round)
+
+- HEAD moved during the reading (b657322f → 31ee2458). The chapters 23, 27, 33, 37 and 95 and their crosswalks have
+  the md5s the file states at both. Scratch tree4 is git archive of 31ee2458:
+  /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/rps7/tree4/
+- All 18 old texts occur exactly once as whole lines, at the stated lines, with no overlaps: 23:367, 466, 1052;
+  27:408, 441, 444, 450, 460, 489, 552, 1432; 33:1515; 37:822; 95:914, 956, 989, 1130, 1135. All 10 crosswalk old rows
+  occur once. The new rows have 4 fields and are ASCII; the line ranges 540–681 and 725–751 match the two lemmas in
+  P-S7.md.
+- Before: 4928 labels, 0 hits, 0 problems. After P-S7-1 to P-S7-18 and the crosswalk rows: lint --chapters 4930
+  labels, 0 hits; assemble --check 0 problems; assemble.py and lint --paper 0 hits. The longest line of PAPER.md and of
+  each changed chapter is 121 characters.
+- New texts: none over 121 characters. With every [[kind:key]] replaced by "Proposition 33.123", only the two kept old
+  lines 27:552–553 exceed it, and their real expansions are shorter. No wrapped line starts with a forbidden character;
+  no backtick or backslash. lem:ii-a-3-1 → Lemma 14.15 and lem:ii-f-2-phase → Lemma 18.7.
+- The scratch chapter md5s after the merge equal those the file states for its own scratch merge:
+  488db29e…, b30eac97…, 4b866436…, f803ece3…, 8060f7c5….
+- assemble.py was not run in the repository. No repository file was written.
