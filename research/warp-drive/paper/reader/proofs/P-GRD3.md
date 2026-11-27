@@ -212,7 +212,7 @@ the cost of the factor μ^(−N/2) on the terms with ϱ and η₀ of 𝔰_(*,t) 
 ε_(w,t). With the Sobolev constants of [[lem:tl5-hft-face]], every constant formed from the Sobolev inequality on a
 face, at level four also 𝔛, carries 6C_(E,r)² in place of 6C_(S³)² 𝔭_r, and these constants, 𝔜 and 𝔪 carry the operator
 norms 𝔳₀, 𝔴₀ of the comparison of k with h₀ in place of the Euclidean component norms 𝔳, 𝔴; the numbers α, β, ρ of h₀
-are free for each face. As for
+are free for each face, in (c) for each t. As for
 [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hft]] and [[thm:tl5-hf4t]] are established in this
 paper for no background at 10 l5.
 
@@ -276,9 +276,11 @@ earlier closing conditions stay valid.
                  C_(E,r)² = (1/(2π²)) Σ_(j₁,j₂∈ℕ/2, j₁+j₂∈ℕ) (2j₁+1)(2j₂+1) m_(j₁j₂)(r) / (1 + 2j₁(j₁+1) + 2j₂(j₂+1))²;
                  C_(E,2)² ≤ 0.8942, C_(E,3)² ≤ 3.6375, C_(E,4)² ≤ 15.710, C_(E,0)² = 1/12: the sums over 2j₁ < 3000
                  are 0.89374, 3.63536, 15.6992 (computed), and the tail is at most 5^r/(2π²(3000 − 2r)), as each term
-                 is at most m_(j₁j₂)(r)/((2j₁ + 1)(2j₂ + 1)) and Σ_(j₂) m_(j₁j₂)(r) ≤ 5^r (the values are 0.89416,
-                 3.63744, 15.7096); against C_(S³)² 𝔭_r = 196.1, 981.1, 3088.1: factors 219, 270, 197 in the squares;
-                 h₀ = α² du² + β² dv² + ρ² γ₀ with constants α, β, ρ chosen per face;
+                 is at most m_(j₁j₂)(r)/((2j₁ + 1)(2j₂ + 1)), Σ_(j₂) m_(j₁j₂)(r) ≤ 5^r, m_(j₁j₂)(r) = 0 unless
+                 |j₁ − j₂| ≤ r, so that 2j₂ + 1 ≥ 2j₁ + 1 − 2r, and Σ_(n≥3000) 1/((n + 1)(n + 1 − 2r)) ≤ 1/(3000 − 2r)
+                 (the values are 0.894166, 3.637471, 15.70976, computed); against C_(S³)² 𝔭_r = 196.1, 981.1, 3088.1:
+                 factors 219, 270, 197 in the squares;
+                 h₀ = α² du² + β² dv² + ρ² γ₀ with constants α, β, ρ chosen per face (per t at level four in (c));
                  𝔳₀² = λ_max(M), 𝔴₀² = 1/λ_min(M), M the matrix of k in the h₀-orthonormal basis (∂_u/α, ∂_v/β,
                  e_x/ρ, e_1/ρ, e_2/ρ), e_x = 2(1 − x²)^(1/2) ∂_x, e_1, e_2 the γ₀-unit fields along ∂_φ1, ∂_φ2:
                    M_uu = (2Ω̂²/c + b̂² e^(2ζ))/α²,  M_vv = 2cΩ̂²/β²,  M_ux = −b̂ e^ζ R e^(−(P+Q))/(αρ),
