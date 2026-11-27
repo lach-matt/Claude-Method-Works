@@ -4533,8 +4533,12 @@ use only 0 < ε_ind(h) ≤ δ_50, which
 [[prop:np-10-52]] (iii) gives for every such h. [[lem:s14-delta50]] and the sums of the gauge potential offsets of
 [[prop:gap-sums]] concern numbers fixed by the gauge parameters (e_Υ, γ_Υ) alone, not by h, so they hold whatever h is.
 What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
-every constant, and this paper does not determine ε_ind(h) for h ∈ 𝖧 beyond 0 < ε_ind(h) ≤ δ_50 and the bound
-ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]], which is the smaller for h ≤ 6.309·10⁻⁹. [[cor:s14-eps-ind-point]] shows that
+every constant. For h ∈ 𝖧 this paper gives 0 < ε_ind(h) ≤ δ_50 and the bound ε_ind(h) < 40h/13 of [[lem:ec-lb-ind]],
+which is the smaller for h ≤ 6.309·10⁻⁹; and for every h ∈ [4.76·10⁻¹¹, 10⁻⁶] outside a set of total length below
+1.7·10⁻¹¹ it gives ε_ind(h) ≥ 1.4619·10⁻¹⁰, the value of ε_Υ in [[def:uc-choice]] ([[prop:tr-eps]],
+[[prop:tr-measure]]); that set contains the values of h at which Re ι crosses an integer for a root ι of P_l or
+p_(v) with |ι − 1| ≤ 50, near each of which ε_ind(h) is arbitrarily small ([[prop:tr-fail]]).
+[[cor:s14-eps-ind-point]] shows that
 the upper bound δ_50 is attained at the end h = 10⁻⁶ of the interval on which ε_ind is defined; no positive lower
 bound for ε_ind holds on any subinterval of (0, 10⁻⁶] of length 2·10⁻⁹ with the countable set 𝖹 removed
 ([[prop:t49-vector]]), and the point h = 10⁻⁶ itself lies outside 𝖹 ([[thm:t49-point]]).

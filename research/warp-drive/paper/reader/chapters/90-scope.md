@@ -78,7 +78,13 @@ d is at most an integer below 7.57245 × 10⁵⁵ and N_NM at most one below 1.5
 the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of derivatives,
 so that at that point K is at most an integer below 1.66594 × 10⁵⁷ ([[prop:uc-data-order]]). The
 computational point is a point at which the formulas of the proof can be evaluated, and it is not shown to lie in the
-set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in
+set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). At the admissible parameter points with the same
+gauge values and other values h ∈ (0, 10⁻⁶) of the damping parameter, d > 2.0517 × 10¹⁰/μ(h), μ(h) the least excess above
+3 that the roots of real part below 3 of the damping polynomials give to the exponents of the construction, which tends
+to 0 as h decreases to some h_μ ∈ (5 × 10⁻⁷, 10⁻⁶); this paper proves upper bounds for d and N_NM there, explicit in μ(h)
+and h, only for h ≥ 4.76 × 10⁻¹¹ outside a set of total length below 1.7 × 10⁻¹¹ and under a condition on the roots of
+the damping polynomials of large degree that is decided only at h = 10⁻⁶, and whether such points are admissible is not
+decided ([[thm:tr-transfer]], [[prop:tr-mu-small]], [[rem:tr-scope]]). No result of [[ch:explicit-constants]] is used in
 the proof of any theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
 [[prop:fwd-calculus]] proves, and the value N′ = 13 of [[ch:s06]], which rests on [[lem:fwd-orders]], are used only in
 [[ch:explicit-constants]], whose opening states both.
