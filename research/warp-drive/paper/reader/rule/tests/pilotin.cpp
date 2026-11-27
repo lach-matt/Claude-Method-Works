@@ -7,6 +7,7 @@
 #define BSOLV_NO_MAIN
 #include "solver.cpp"
 #include "gmpmin.h"
+#include <x86intrin.h>
 static long inexact = 0;
 static void put(std::string& o, const Real& a) {              // exact 2^320 a as 6 two's-complement limbs
   Z acc(0), t; double p[4]; to_parts(a, p);

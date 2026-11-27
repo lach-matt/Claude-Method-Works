@@ -11,6 +11,9 @@
 #include "rhs_gen.h"
 
 enum { FR = 0, FM = 1, FN = 2, FW = 3, FS = 4, NF = 5 };
+// For the comparison with the pilot only (rule pilotcell ... compat): the pilot's readings of two formulas, 4(ε³ ⊙ G)
+// for (4ε³) ⊙ G in D_v and D_vx [Q2], and D_m + x ⊙ D_m + D_n − x ⊙ D_n for (1 + x) ⊙ D_m + (1 − x) ⊙ D_n in S [Q12].
+inline bool& compat_pilot() { static bool c = false; return c; }
 
 // ---------------------------------------------------------------------------------------------- grids
 struct Grid {                       // node sets and matrices for one (p_ξ, p_v, M)
@@ -68,6 +71,19 @@ struct Cell {
 
 inline void rhs_at(const F* J, const F& x, F* out) { rhs_eval<F, F>(J, CS.K.data(), x, out); }
 
+// the right-hand side at the seed (D = 0): R = R_s, ES = iES = exp(0) = 1, OM2 = Ω²_s ⊙ 1, the rest the seed's
+inline void cell_seed_rhs(Cell& c) {
+  const Grid* g = c.g; const int nA = g->nA, nB = g->nB, NX = g->NX; const size_t NN = c.NN(); const F o = one<F>();
+  c.Xs.resize(NN * 5);
+  #pragma omp parallel for schedule(static)
+  for (int ab = 0; ab < nA * nB; ab++) {
+    const SeedV& s = c.sd[ab]; F J[RHS_NJ]; for (auto& q : J) q = fx_zero<6, 5>();
+    J[0] = s.R; J[1] = fdiv(o, s.R); J[2] = expF(fx_zero<6, 5>()); J[3] = J[2];
+    J[4] = s.OM2 * J[2]; J[5] = s.iOM2 * J[2]; J[6] = s.Ru; J[7] = s.Rv; J[11] = s.Wv;
+    for (int k = 0; k < NX; k++) rhs_at(J, g->X[k], &c.Xs[(((size_t)ab) * NX + k) * 5]);
+  }
+}
+
 // set up a cell: geometry, the seed at its nodes, the boundary term B, the right-hand side at D = 0 (parallel)
 inline void cell_setup(Cell& c, const Grid* g, int i, int j, const F& xi0, const F& xi1, const F& v0, const F& v1,
                        const LeftEdge& left, const TopEdge* bottom) {
@@ -106,15 +122,7 @@ inline void cell_setup(Cell& c, const Grid* g, int i, int j, const F& xi0, const
       c.Bt[f * NN + c.IX(a, b, k)] = val;
     }
   }
-  // the right-hand side at the seed (D = 0): R = R_s, ES = iES = exp(0) = 1, OM2 = Ω²_s ⊙ 1, the rest the seed's
-  c.Xs.resize(NN * 5);
-  #pragma omp parallel for schedule(static)
-  for (int ab = 0; ab < nA * nB; ab++) {
-    const SeedV& s = c.sd[ab]; F J[RHS_NJ]; for (auto& q : J) q = fx_zero<6, 5>();
-    J[0] = s.R; J[1] = fdiv(o, s.R); J[2] = expF(fx_zero<6, 5>()); J[3] = J[2];
-    J[4] = s.OM2 * J[2]; J[5] = s.iOM2 * J[2]; J[6] = s.Ru; J[7] = s.Rv; J[11] = s.Wv;
-    for (int k = 0; k < NX; k++) rhs_at(J, g->X[k], &c.Xs[(((size_t)ab) * NX + k) * 5]);
-  }
+  cell_seed_rhs(c);
   c.G = c.Bt; c.Gn.resize(NF * NN); c.Psi.resize(NF * NN); c.GS.resize(NF * NN); c.TS.resize(NF * NN);
   c.frozen = false; c.sweeps = 0; c.psi_is_final = false;
 }
@@ -140,15 +148,21 @@ inline void cell_eval_line(Cell& c, int a, int b) {
       F gx = dot<6, 5>(&g->D1x.s[(size_t)k * NX], 1, gl, 1, NX);
       F gvx = dot<6, 5>(&g->D1x.s[(size_t)k * NX], 1, &GvS[(size_t)f * NX], 1, NX);
       D[f] = e4 * gval; Dx[f] = e4 * gx;
-      Dv_[f] = e3x4 * gval + e4 * Gv[(size_t)f * NX + k];                // (4ε³) ⊙ G + ε⁴ ⊙ ∂_v G [Q2]
-      Dvx[f] = e3x4 * gx + e4 * gvx;                                      // [Q11]
+      if (!compat_pilot()) {
+        Dv_[f] = e3x4 * gval + e4 * Gv[(size_t)f * NX + k];              // (4ε³) ⊙ G + ε⁴ ⊙ ∂_v G [Q2]
+        Dvx[f] = e3x4 * gx + e4 * gvx;                                    // [Q11]
+      } else {
+        Dv_[f] = mul_int(c.e3[b] * gval, 4) + e4 * Gv[(size_t)f * NX + k];
+        Dvx[f] = mul_int(c.e3[b] * gx, 4) + e4 * gvx;
+      }
       if (f < 4) Dxx[f] = e4 * dot<6, 5>(&g->D2x.s[(size_t)k * NX], 1, gl, 1, NX);
       if (f < 3) Du[f] = (e4 * Gxi[(size_t)f * NX + k]) * s.idu;
     }
     const F& x = g->X[k];
     F J[RHS_NJ];
     F R = s.R + D[FR];
-    F Sv = divi((o + x) * D[FM] + (o - x) * D[FN], 3);
+    F Sv = !compat_pilot() ? divi((o + x) * D[FM] + (o - x) * D[FN], 3)              // [Q12]
+                           : divi(D[FM] + x * D[FM] + D[FN] - x * D[FN], 3);
     J[0] = R; J[1] = fdiv(o, R); J[2] = expF(Sv); J[3] = expF(-Sv);
     J[4] = s.OM2 * expF(mul_int(D[FW], 2)); J[5] = s.iOM2 * expF(mul_int(D[FW], -2));
     J[6] = s.Ru + Du[FR]; J[7] = s.Rv + Dv_[FR]; J[8] = Dx[FR]; J[9] = Dxx[FR]; J[10] = Dvx[FR];

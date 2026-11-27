@@ -11,6 +11,7 @@
 #include <set>
 #include <sys/stat.h>
 #include <cstdio>
+#include <cmath>   // diagnostics only (printed norms); no value of the rule passes through floating point
 
 Consts CS;
 static double now_s() { return std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count(); }
@@ -542,6 +543,59 @@ static int verify(const std::string& txtfn, const std::string& dgfn) {
   return bad ? 1 : 0;
 }
 
+
+// ---------------------------------------------------------------------------------------------- the pilot's cell
+// rule pilotcell FILE NP [compat] [ownK]: the sweep engine on the pilot's inputs (tests/pilotin.cpp); with compat the
+// pilot's two formula readings and its D2 (the solver's second-derivative matrix) instead of §3.3's dot-product square
+static double tod(const F& a) { Z z; fx_to_mpz(a, z.v); double s = 0; size_t nb = mpz_sizeinbase(z.v, 2); (void)nb;
+  char* str = mpz_get_str(nullptr, 10, z.v); s = atof(str); free(str); return s / 2.1359870359209100823950217061696e96; }
+static int pilotcell(const std::string& fn, int NP, bool compat) {
+  compat_pilot() = compat;
+  std::string b = read_file(fn); if (b.compare(0, 8, "RULEPI1\n")) { fprintf(stderr, "bad pilot input file\n"); return 1; }
+  size_t pos = 8; int32_t d[3]; memcpy(d, b.data() + pos, 12); pos += 12;
+  std::map<std::string, std::vector<F>> A;
+  while (pos < b.size()) { size_t nl = b.find('\n', pos); std::string nm = b.substr(pos, nl - pos); pos = nl + 1; uint64_t n; memcpy(&n, b.data() + pos, 8); pos += 8;
+    std::vector<F> v; get_raw(b, pos, v, n); A[nm] = v; }
+  Grid gp; gp.nA = d[0]; gp.nB = d[1]; gp.NX = d[2]; gp.pxi = d[0] - 1; gp.pv = d[1] - 1; gp.M = d[2] - 1;
+  auto mat = [&](const char* nm, int n) { Mat m; m.r = m.c = n; m.a = A.at(nm); m.finish(); return m; };
+  gp.DvR = mat("Dv", gp.nB); gp.Dxi = mat("Dxi", gp.nA); gp.D1x = mat("D1x", gp.NX); gp.W4 = mat("W4", gp.nB); gp.V4 = mat("V4", gp.nB);
+  gp.Qxi = mat("Qxi", gp.nA); gp.QvR = mat("Qv", gp.nB); gp.D2x = compat ? mat("D2x", gp.NX) : dotsq(gp.D1x); gp.X = A.at("x");
+  CS.K = A.at("K");
+  Cell c; c.g = &gp; c.first = true; const F o = one<F>(); const int nA = gp.nA, nB = gp.nB, NX = gp.NX; const size_t NN = c.NN();
+  c.hxi = A.at("h")[0]; c.hv = A.at("h")[1]; c.ihxi = fdiv(o, c.hxi); c.ihv = fdiv(o, c.hv);
+  c.eps = A.at("eps"); c.e2.resize(nB); c.e3.resize(nB); c.e4.resize(nB); c.e3x4.resize(nB); c.ie2.resize(nB); c.ie3.resize(nB);
+  for (int q = 0; q < nB; q++) { c.e2[q] = c.eps[q] * c.eps[q]; c.e3[q] = c.e2[q] * c.eps[q]; c.e4[q] = c.e3[q] * c.eps[q];
+    c.e3x4[q] = mul_int(c.e3[q], 4); c.ie2[q] = fdiv(o, c.e2[q]); c.ie3[q] = fdiv(o, c.e3[q]); }
+  c.sd.resize((size_t)nA * nB);
+  for (int ab = 0; ab < nA * nB; ab++) { SeedV& s = c.sd[ab]; s.R = A.at("sR")[ab]; s.Ru = A.at("sRu")[ab]; s.Rv = A.at("sRv")[ab]; s.Wv = A.at("sWv")[ab];
+    s.OM2 = A.at("sOM2")[ab]; s.du = A.at("sdu")[ab]; s.iOM2 = fdiv(o, s.OM2); s.idu = fdiv(o, s.du); }
+  c.Bt.assign(NF * NN, fx_zero<6, 5>());
+  for (int f = 0; f < 4; f++) for (int a = 0; a < nA; a++) for (int q = 0; q < nB; q++) for (int k = 0; k < NX; k++)
+    c.Bt[f * NN + c.IX(a, q, k)] = A.at("left")[((size_t)f * nB + q) * NX + k];
+  cell_seed_rhs(c);
+  c.G = c.Bt; c.Gn.resize(NF * NN); c.Psi.resize(NF * NN); c.GS.resize(NF * NN); c.TS.resize(NF * NN);
+  Batch bt; bt.cells.push_back(&c);
+  double tcpu = 0;
+  for (int n = 0; n < NP; n++) {
+    double t0 = now_s(); bt.evaluate(); bt.integrate(); tcpu += now_s() - t0;
+    double dm = 0, gm = 1e-300; for (size_t i = 0; i < c.G.size(); i++) { dm = std::max(dm, std::fabs(tod(c.Gn[i] - c.G[i]))); }
+    for (size_t i = 0; i < c.G.size(); i += 1) gm = std::max(gm, std::fabs(tod(c.Gn[i])));
+    c.G.swap(c.Gn);
+    printf("sweep %3d: |G_new - G|/|G| = %.3e\n", n + 1, dm / gm); fflush(stdout);
+  }
+  unsigned long long h = 1469598103934665603ULL;
+  for (auto& q : c.G) for (int i = 0; i < 6; i++) { h ^= q.w[i]; h *= 1099511628211ULL; }
+  printf("FNV-1a of the fixed-point state: %016llx  (%s, %d sweeps, %.2f s per sweep)\n", h, compat ? "pilot readings and D2" : "the rule's readings", NP, tcpu / NP);
+  if (A.count("Gref")) {
+    const auto& R = A.at("Gref");
+    for (int f = 0; f < NF; f++) { double em = 0, gm = 0; for (size_t i = 0; i < NN; i++) { em = std::max(em, std::fabs(tod(c.G[f * NN + i] - R[f * NN + i]))); gm = std::max(gm, std::fabs(tod(R[f * NN + i]))); }
+      printf("field %d: max|G - G_qd| = %.3e, max|G_qd| = %.3e, relative %.3e\n", f, em, gm, em / gm); }
+  }
+  std::string gt = gtext(c); write_atomic(fn + (compat ? ".G_compat.txt" : ".G_rule.txt"), gt);
+  printf("sha256 of G (text) %s\n", sha256_hex(gt).c_str());
+  return 0;
+}
+
 // ---------------------------------------------------------------------------------------------- main
 static void init_all() {
   omp_set_num_threads(CF.threads);
@@ -560,6 +614,10 @@ int main(int argc, char** argv) {
   }
   std::string cmd = argv[1];
   if (cmd == "verify") return verify(argv[2], argv[3]);
+  if (cmd == "pilotcell") {             // rule pilotcell FILE NP [compat] [threads=N]
+    bool compat = false; int thr = 1; for (int a = 4; a < argc; a++) { std::string t = argv[a]; if (t == "compat") compat = true; else if (!t.compare(0, 8, "threads=")) thr = atoi(t.c_str() + 8); }
+    omp_set_num_threads(thr); init_consts(2); return pilotcell(argv[2], atoi(argv[3]), compat);
+  }
   // options after CFG: out=DIR threads=N batch=N ckpt_minutes=X; a bare number is the segment for 'run'
   std::vector<std::string> pos; std::vector<std::pair<std::string, std::string>> opts;
   for (int a = 3; a < argc; a++) { std::string t = argv[a]; size_t e = t.find('='); if (e == std::string::npos) pos.push_back(t); else opts.push_back({t.substr(0, e), t.substr(e + 1)}); }
