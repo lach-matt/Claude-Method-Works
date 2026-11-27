@@ -271,7 +271,7 @@ prop:tl5-hf-bootstrap	paper/reader/proofs/P-HF.md@e0b27615:860	P-HF, Proposition
 eq:tl5-hf-smallness	paper/reader/proofs/P-HF.md@e0b27615:863	P-HF, display	new
 eq:tl5-hf-h1	paper/reader/proofs/P-HF.md@e0b27615:868	P-HF, display	new
 lem:tl5-hf-persistence	paper/reader/proofs/P-HF.md@e0b27615:921	P-HF, Lemma	(H2), qualitative, N >= 6
-thm:tl5-hf	paper/reader/proofs/P-HF.md@e0b27615:963	P-HF, Theorem	(H1), (H2), (H4) proved, (H3) under the closing condition linear in F; data on N0 carried as data (eta0); existence on D^kappa and double-null form via thm:tl5-dn
+thm:tl5-hf	paper/reader/proofs/P-HF.md@e0b27615:963	P-HF, Theorem	(H1), (H2), (H4) proved, (H3) under the closing condition linear in F; data on N0 carried as data (eta0); existence on D^kappa and double-null form via thm:tl5-dn; sharpened constants in thm:tl5-hfg (P-GRD item 2)
 eq:tl5-hf-closing	paper/reader/proofs/P-HF.md@e0b27615:974	P-HF, display	new
 rem:tl5-hf-level	paper/reader/proofs/P-HF.md@e0b27615:1003	P-HF, Remark	why N >= 5 (estimate) and N >= 6 (proof of (H2)); level 3 gives no pointwise D^2 h for thm:tl5-dn; departs from the plan level 3; points to sec:tl5-hf4, the level-4 version (P-HF34 item 2)
 sec:tl5-hf4	paper/reader/proofs/P-HF34.md@ffc41671:1	P-HF34, section	new; at the end of ch:ten-l5, after rem:tl5-hf-level, beside sec:tl5-hf (author 2026-11-27: keep level 6, add level 4); the level-4 estimate
@@ -295,4 +295,28 @@ eq:tl5-hf4-h1	paper/reader/proofs/P-HF34.md@ffc41671:225	P-HF34, display	new
 lem:tl5-hf4-persistence	paper/reader/proofs/P-HF34.md@ffc41671:263	P-HF34, Lemma	(H2) from level 4, qualitative; face-norm induction with the mixed Hoelder at m = 5, 6; N0 fluxes and traces carried as data (R-P-HF M2 respected)
 thm:tl5-hf4	paper/reader/proofs/P-HF34.md@ffc41671:352	P-HF34, Theorem	thm:tl5-hf at level 4; (a) eta0 < s1 (M1 form), N0 flux in delta_w; double-null step via thm:tl5-dn as at level 6
 eq:tl5-hf4-closing	paper/reader/proofs/P-HF34.md@ffc41671:364	P-HF34, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_w + 2 eps_M)(S_F + S_M) < 1
-rem:tl5-hf4-level	paper/reader/proofs/P-HF34.md@ffc41671:378	P-HF34, Remark	level 4 against level 6 (jets, words, residual derivatives, mu powers); background carries the v-jets 4..5 of g' on N0+ (lem:tl5-xt-order, lem:tl5-xt-seed-jets)
+rem:tl5-hf4-level	paper/reader/proofs/P-HF34.md@ffc41671:378	P-HF34, Remark	level 4 against level 6 (jets, words, residual derivatives, mu powers); background carries the v-jets 4..5 of g' on N0+ (lem:tl5-xt-order, lem:tl5-xt-seed-jets); points to rem:tl5-hfg-powers (P-GRD item 3)
+sec:tl5-hfg	paper/reader/proofs/P-GRD.md@aa184fc7:1	P-GRD, section	new; at the end of ch:ten-l5, after rem:tl5-hf4-level, beside sec:tl5-hf and sec:tl5-hf4 (author: sharpen the constants); graded background bounds, level-matched mu, sharper chain
+def:tl5-hfg-graded	paper/reader/proofs/P-GRD.md@aa184fc7:19	P-GRD, Definition	graded bounds Lambda_k, Lambda^R_k, lambda_k; nonlinear constants c^g_n, c^Q_n, c^(3)_n, choice c*_n and s_flat; weighted quantities J_g, M_g^(j), s_g^(m), E_g
+eq:tl5-hfg-cn	paper/reader/proofs/P-GRD.md@aa184fc7:36	P-GRD, display	new
+lem:tl5-hfg-quadratic	paper/reader/proofs/P-GRD.md@aa184fc7:62	P-GRD, Lemma	Lemma G with graded background bounds (first expansion) and with the exact quadratic part plus a cubic remainder behind s_flat (second expansion)
+eq:tl5-hfg-sum	paper/reader/proofs/P-GRD.md@aa184fc7:67	P-GRD, display	new
+lem:tl5-hfg-linfty	paper/reader/proofs/P-GRD.md@aa184fc7:123	P-GRD, Lemma	lem:tl5-hf-linfty weighted by level, k1 graded by level k1^(j), Lambda_2 in C1, C_inf^(m) for the low second derivatives up to level m
+eq:tl5-hfg-cinf	paper/reader/proofs/P-GRD.md@aa184fc7:132	P-GRD, display	new
+eq:tl5-hfg-m2	paper/reader/proofs/P-GRD.md@aa184fc7:140	P-GRD, display	new
+eq:tl5-hfg-linfty	paper/reader/proofs/P-GRD.md@aa184fc7:144	P-GRD, display	new
+lem:tl5-hfg-products	paper/reader/proofs/P-GRD.md@aa184fc7:188	P-GRD, Lemma	the graded count: two levels add to at most n + 3, so mu^(-3/2); factor at a point never D^2 Psi_B with |B| >= 2
+eq:tl5-hfg-products	paper/reader/proofs/P-GRD.md@aa184fc7:194	P-GRD, display	new
+eq:tl5-hfg-count	paper/reader/proofs/P-GRD.md@aa184fc7:214	P-GRD, display	new
+lem:tl5-hfg-mixed	paper/reader/proofs/P-GRD.md@aa184fc7:230	P-GRD, Lemma	lem:tl5-hf4-mixed weighted, with Lambda_2
+eq:tl5-hfg-mixed	paper/reader/proofs/P-GRD.md@aa184fc7:238	P-GRD, display	new
+def:tl5-hfg-constants	paper/reader/proofs/P-GRD.md@aa184fc7:261	P-GRD, Definition	sharpened constants at levels 6 and 4: s0*, s1*, g_(N,g), a_(o,g), a_(i,g), S_(F,g), r_(w,g), eps_(w,g), m_t^g and the two level-4 triples, A_g, B_g, s_(*,g)
+eq:tl5-hfg-constants	paper/reader/proofs/P-GRD.md@aa184fc7:290	P-GRD, display	new
+prop:tl5-hfg-bootstrap	paper/reader/proofs/P-GRD.md@aa184fc7:292	P-GRD, Proposition	(H1) with the sharpened constants, levels N >= 4
+eq:tl5-hfg-smallness	paper/reader/proofs/P-GRD.md@aa184fc7:295	P-GRD, display	new
+eq:tl5-hfg-h1	paper/reader/proofs/P-GRD.md@aa184fc7:300	P-GRD, display	new
+thm:tl5-hfg	paper/reader/proofs/P-GRD.md@aa184fc7:345	P-GRD, Theorem	thm:tl5-hf (N >= 6) with the sharpened constants; (a) eta0 < s1*
+eq:tl5-hfg-closing	paper/reader/proofs/P-GRD.md@aa184fc7:355	P-GRD, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,g)) S_(F,g) < 1
+thm:tl5-hf4g	paper/reader/proofs/P-GRD.md@aa184fc7:366	P-GRD, Theorem	thm:tl5-hf4 with the sharpened constants; (a) eta0 < s1*
+eq:tl5-hf4g-closing	paper/reader/proofs/P-GRD.md@aa184fc7:376	P-GRD, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,g) + 2 eps_(M,g)) (S_(F,g) + S_(M,g)) < 1
+rem:tl5-hfg-powers	paper/reader/proofs/P-GRD.md@aa184fc7:388	P-GRD, Remark	mu^(-3/2) at every level; where k1, k1^(m_P), M^(m_P) and the graded bounds enter; seed value of c^Q_n
