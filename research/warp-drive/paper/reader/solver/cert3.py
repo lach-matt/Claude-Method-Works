@@ -165,31 +165,34 @@ def certify(case, zfile, i, j, N, rho, prec=192, K=4, chunk=6, verbose=True):
     flint.ctx.prec = prec
     t2 = time.time()
     if verbose: print('  majorant M = %.3e (Re R_seed >= %.3f) in %.0f s' % (M, minfo['ReRs_min'], t2 - t1), flush=True)
-    n1, n2, n3 = G['R'][''][0].shape
+    shp = {F: G[F][''][0].shape for F in FN}
+    n1, n2, n3 = (max(shp[F][d] for F in FN) for d in range(3))
     N1, N2, N3 = N[0] + 1, N[1] + 1, N[2] + 1
     P1, P2, P3 = cert.lobatto(N[0]), cert.lobatto(N[1]), cert.lobatto(N[2])
     V1, V2, V3 = cert.vander(P1, n1), cert.vander(P2, n2), cert.vander(P3, n3)
-    B2 = arb_mat([[V2[l][b] for b in range(n2)] for l in range(N2)])
-    B3t = arb_mat([[V3[l][k] for l in range(N3)] for k in range(n3)])
+    B2f = {F: arb_mat([[V2[l][b] for b in range(shp[F][1])] for l in range(N2)]) for F in FN}
+    B3tf = {F: arb_mat([[V3[l][k] for l in range(N3)] for k in range(shp[F][2])]) for F in FN}
     P1t = [tc + th * q for q in P1]; P2s = [sc + sh * q for q in P2]
     comps = ('ll', 'ln', 'nn', 'lx', 'nx', 'xx', '11', '22')
     D1, D2, D3 = dct_mat(N[0]), dct_mat(N[1]), dct_mat(N[2]); D3t = D3.transpose()
     S = {ab: [] for ab in comps}
     one = arb(1)
     # the integer arrays as fmpz matrices (n1 x n2 n3), scales as balls
-    ZM = {F: {name: (fmpz_mat(n1, n2 * n3, [int(q) for q in Z.ravel()]), arb(fmpq(s.numerator, s.denominator))) for name, (Z, s) in G[F].items()} for F in FN}
+    ZM = {F: {name: (fmpz_mat(shp[F][0], shp[F][1] * shp[F][2], [int(q) for q in Z.ravel()]), arb(fmpq(s.numerator, s.denominator))) for name, (Z, s) in G[F].items()} for F in FN}
+    del G, Q                                                    # the Python integer copies (memory)
     for l1a in range(0, N1, chunk):
         l1b = min(N1, l1a + chunk)
-        B1c = arb_mat([[V1[l][a] for a in range(n1)] for l in range(l1a, l1b)])
         vals = {}
         for F in FN:
             vals[F] = {}
+            m1, m2, m3 = shp[F]
+            B1c = arb_mat([[V1[l][a] for a in range(m1)] for l in range(l1a, l1b)])
             for name, (Zm, s) in ZM[F].items():
-                T1 = (B1c * arb_mat(Zm)).entries()                  # (c) x (n2 n3), row-major
+                T1 = (B1c * arb_mat(Zm)).entries()                  # (c) x (m2 m3), row-major
                 per = []
                 for q in range(l1b - l1a):
-                    Sl = arb_mat([[T1[q * n2 * n3 + b * n3 + k] for k in range(n3)] for b in range(n2)])
-                    per.append((B2 * Sl * B3t * s).entries())     # N2 x N3 values
+                    Sl = arb_mat([[T1[q * m2 * m3 + b * m3 + k] for k in range(m3)] for b in range(m2)])
+                    per.append((B2f[F] * Sl * B3tf[F] * s).entries())     # N2 x N3 values
                 vals[F][name] = per
         for l1 in range(l1a, l1b):
             q = l1 - l1a
@@ -229,7 +232,7 @@ def certify(case, zfile, i, j, N, rho, prec=192, K=4, chunk=6, verbose=True):
     t4 = time.time()
     res = dict(case=case, element=[i + 1, j + 1], sub=[str(q) for q in sub], N=list(N), rho=list(rho), prec=prec, K=K, M=M,
                ReRseed_min=minfo['ReRs_min'], maxQR=minfo['maxQR'], times=dict(prepare=t1 - t0, majorant=t2 - t1, nodes=t3 - t2, bounds=t4 - t3),
-               nodes=N1 * N2 * N3, degrees=[n1 - 1, n2 - 1, n3 - 1], bounds=out)
+               nodes=N1 * N2 * N3, degrees={F: [q - 1 for q in shp[F]] for F in FN}, bounds=out)
     if verbose:
         for l in range(K + 1):
             b = max(max(v['main'] + v['tail'] for kk, v in out[ab].items() if sum(map(int, kk)) == l) for ab in comps)
@@ -239,7 +242,19 @@ def certify(case, zfile, i, j, N, rho, prec=192, K=4, chunk=6, verbose=True):
               {k: round(v) for k, v in res['times'].items()}), flush=True)
     return res
 
+def majorant_only(case, zfile, i, j, rhos):
+    zs = pickle.load(open(zfile, 'rb')); L = rep.layout(case); sub = cert.use_region(L, i, j)
+    G, Q = prepare(zs, case, i, j, sub)
+    for rho in rhos:
+        try:
+            M, info = majorant_from(Q, case, i, j, sub, rho); print('rho', rho, 'M = %.3e' % M, flush=True)
+        except Exception as ex:
+            print('rho', rho, 'failed:', ex, flush=True)
+
 if __name__ == '__main__':
     a = sys.argv[1:]
+    if a[0] == '--majorant':
+        rhos = [tuple(float(q) for q in r.split(',')) for r in a[5:]]
+        majorant_only(a[1], a[2], int(a[3]) - 1, int(a[4]) - 1, rhos); sys.exit(0)
     r = certify(a[0], a[1], int(a[2]) - 1, int(a[3]) - 1, tuple(int(q) for q in a[4:7]), tuple(float(q) for q in a[7:10]), int(a[10]), int(a[11]))
     json.dump(r, open(a[12], 'w'), indent=1)

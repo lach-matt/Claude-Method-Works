@@ -77,3 +77,20 @@ restructured), `bsio.py`, `approx.py` (readers and the approx.txt writer), `cons
 
 See `validation/` (small text files): comparison with the record's run, convergence in p, cell size and M, jets
 against the hierarchy, residuals of the printed tables, certification logs.
+
+## Findings that bear on the printed form (measured; details in the report B-SOLV)
+
+- **The box extensions into the side quadrants.** def:appc-layouts extends the boxes of the elements (1, ·) and
+  (·, 1) beyond u = −10 and below v = ½, where the polynomial must represent the analytic continuation of the
+  solution of the characteristic problem into the quadrants u < −10 < ..., v > ½ and u > −10, v < ½. There the
+  angular modes grow like e^(2l√|ΔuΔv|) (the Riemann function I₀ instead of J₀): measured ρ_x falls from ≈ 2.3 on
+  N₁ ∪ N₀ to 1.52 at the corner (u, v) = (−1.94, 0.4145) (|c₈₀| ≈ 1e-20) and 1.73 at (−10.59, 3.58), against
+  |c₈₀| ≤ 1e-31 everywhere in the region itself. Boxes that start at u = −10 and v = ½ (no inner nine tenths at
+  those two edges) avoid this entirely; `mkcfg.py` configs can carry both layouts (extra `elem` lines).
+- **Double-double noise and the certificate.** The dd coefficients reach a noise floor ≈ 1e-33 (absolute); quanta
+  below it print noise in two directions at once and the polyellipse majorant M explodes. Certifiable dd tables
+  need p ≤ 30–31 (pilot); finer quanta need the qd solution.
+- **The overlaps at derivative order K.** The partition's derivatives up to order K + 2 (φ₆/(2d)⁶ ≈ 4e13 in v)
+  multiply the element mismatch on the strips, bounded by coefficient sums of the exact difference polynomial.
+- **Format**: at p ≳ 30 the block sums S₁, S₂, S₀ have ~p digits and do not fit with their labels on one 121-character
+  line; `tables.py` sets them one per line.

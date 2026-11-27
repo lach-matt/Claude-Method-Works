@@ -1,0 +1,28 @@
+s2A element (1,1) u [-10.60, -3.67] v [0.41, 2.12]
+    R: A 4.7e-05 floor 2e-35  rho (t, s, x) = 5.79 2.99 2.07  (fit points [32, 54, 75]; last degree above 10 x floor [38, 68, 80])
+    m: A 5.5e-03 floor 1e-33  rho (t, s, x) = 5.67 2.93 2.01  (fit points [33, 53, 76]; last degree above 10 x floor [39, 66, 80])
+    n: A 8.6e-03 floor 8e-34  rho (t, s, x) = 5.65 2.92 2.00  (fit points [34, 55, 76]; last degree above 10 x floor [39, 66, 80])
+    W: A 1.9e-04 floor 2e-36  rho (t, s, x) = 5.35 2.91 1.98  (fit points [36, 59, 73]; last degree above 10 x floor [42, 70, 80])
+    s: A 2.3e-04 floor 4e-36  rho (t, s, x) = 6.38 2.85 2.07  (fit points [33, 58, 76]; last degree above 10 x floor [96, 70, 80])
+    S-APP ([-9.104979868664035, -8.006368073822337], u ['-10.00', '-4.00'], v [0.5, 2.0]): R 20.71 2.43 2.48 | m 9.41 3.95 2.79 | n 8.86 4.11 2.83 | W 10.21 2.81 2.59 | s 20.42 3.08 2.42
+s2A element (1,2) u [-10.60, -3.67] v [1.88, 3.59]
+    R: A 6.8e-05 floor 1e-36  rho (t, s, x) = 3.91 3.00 1.99  (fit points [44, 57, 75]; last degree above 10 x floor [96, 69, 80])
+    m: A 1.2e-03 floor 2e-35  rho (t, s, x) = 3.79 3.00 1.96  (fit points [45, 56, 76]; last degree above 10 x floor [96, 66, 80])
+    n: A 3.8e-04 floor 6e-35  rho (t, s, x) = 3.80 3.00 1.95  (fit points [44, 53, 76]; last degree above 10 x floor [93, 65, 80])
+    W: A 1.3e-04 floor 1e-36  rho (t, s, x) = 3.69 2.99 1.97  (fit points [45, 57, 75]; last degree above 10 x floor [52, 67, 80])
+    s: A 1.6e-04 floor 4e-37  rho (t, s, x) = 4.13 3.00 2.16  (fit points [43, 58, 76]; last degree above 10 x floor [96, 68, 80])
+    S-APP ([-9.104979868664035, -8.006368073822337], u ['-10.00', '-4.00'], v [2.0, 3.5]): R 21.09 2.45 2.70 | m 5.10 4.05 2.83 | n 4.75 4.12 2.78 | W 8.89 2.80 2.66 | s 9.33 3.09 2.36
+s2A element (2,1) u [-4.39, -1.94] v [0.41, 2.12]
+    R: A 1.4e-04 floor 3e-35  rho (t, s, x) = 6.56 2.68 1.73  (fit points [31, 62, 75]; last degree above 10 x floor [36, 143, 80])
+    m: A 1.5e-02 floor 4e-33  rho (t, s, x) = 5.52 2.14 1.68  (fit points [34, 75, 76]; last degree above 10 x floor [38, 144, 80])
+    n: A 2.4e-02 floor 4e-33  rho (t, s, x) = 5.41 2.20 1.69  (fit points [34, 74, 76]; last degree above 10 x floor [39, 89, 80])
+    W: A 8.2e-04 floor 6e-36  rho (t, s, x) = 6.11 2.30 1.68  (fit points [34, 75, 75]; last degree above 10 x floor [39, 144, 80])
+    s: A 1.7e-03 floor 1e-34  rho (t, s, x) = 6.52 2.46 1.73  (fit points [32, 70, 76]; last degree above 10 x floor [52, 84, 80])
+    S-APP ([-8.006368073822337, -6.907756278980637], u ['-4.00', '-2.00'], v [0.5, 2.0]): R 21.18 2.44 2.66 | m 7.81 3.46 3.30 | n 8.74 3.54 3.66 | W 11.15 2.82 2.78 | s 14.11 2.91 2.42
+s2A element (2,2) u [-4.39, -1.94] v [1.88, 3.59]
+    R: A 2.1e-04 floor 4e-36  rho (t, s, x) = 5.21 2.78 2.28  (fit points [37, 61, 75]; last degree above 10 x floor [91, 73, 80])
+    m: A 2.9e-03 floor 2e-34  rho (t, s, x) = 4.52 2.75 2.29  (fit points [39, 59, 75]; last degree above 10 x floor [96, 70, 79])
+    n: A 8.7e-04 floor 5e-34  rho (t, s, x) = 4.51 2.76 2.38  (fit points [38, 55, 68]; last degree above 10 x floor [96, 69, 79])
+    W: A 5.4e-04 floor 4e-36  rho (t, s, x) = 4.97 2.68 2.31  (fit points [38, 63, 73]; last degree above 10 x floor [43, 74, 80])
+    s: A 1.1e-03 floor 5e-36  rho (t, s, x) = 5.22 2.71 2.27  (fit points [37, 63, 75]; last degree above 10 x floor [96, 74, 80])
+    S-APP ([-8.006368073822337, -6.907756278980637], u ['-4.00', '-2.00'], v [2.0, 3.5]): R 19.59 2.45 2.86 | m 5.27 3.61 3.18 | n 5.26 3.62 3.21 | W 11.31 2.86 2.80 | s 8.44 3.12 2.28
