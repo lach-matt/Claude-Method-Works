@@ -53,9 +53,11 @@ large outputs live outside the repository (scratchpad `bsolv/`); only code and s
 
 CASE is s1A, s2A, s2D or s1D (rep.py's names: seed, region). NCOL1/NROW1: cells from the corner (−10, ½) toward
 larger ξ / v; NCOL2/NROW2 the other side (u < −10, v < ½). NT, NS: Lobatto degrees at which the element boxes are
-sampled. Useful keys: `tol` (outer tolerance, relative; 1e-31 dd, 1e-61 qd), `floor` (stop the outer loop below this
-residual; 1e-28 dd, 1e-58 qd), `ckpt_minutes` (default 20), `stopcol`, `stopcells`, `threads`.
-**Resume**: a checkpoint (`PREFIX.ckpt`) is written at the end of a column at least every `ckpt_minutes` and at the
+sampled. Useful keys: `tol` (outer tolerance, relative; 1e-31 dd, 1e-42 qd), `floor` (stop the outer loop below this
+residual; 1e-28 dd, 1e-39 qd production), `lowswitch` (qd builds: outer steps with a residual above it are
+evaluated in dd; 1e-24), `ckpt_minutes` (default 20), `stopcol`, `stopcells`, `threads`.
+A log line 'not converged, last update …' means the last residual exceeded 1000 × tol; with floor > 1000 × tol it is
+harmless (the cell stopped at the floor). **Resume**: a checkpoint (`PREFIX.ckpt`) is written at the end of a column at least every `ckpt_minutes` and at the
 end of every quadrant; rerunning the same command continues from it. `PREFIX.log` has one line per column.
 
 ## Outputs
