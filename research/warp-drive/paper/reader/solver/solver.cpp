@@ -1,7 +1,7 @@
 // solver.cpp: characteristic cell-marching solver for the 5D Einstein vacuum class in double-null gauge, in
 // double-double arithmetic, for the reader's edition's certified approximant (Appendix C).
 // See README.md for the formulation, the build, the run, resume and the outputs.
-#include "dd.h"
+#include "real.h"
 #include "diff.h"
 #include "rhs_gen.h"
 #include <omp.h>
@@ -16,7 +16,6 @@
 #include <algorithm>
 #include <type_traits>
 
-typedef dd Real;
 typedef Diff<Real> DR;
 static const int NF = 5;                 // R, m, n, W, s
 enum { FR = 0, FM = 1, FN = 2, FW = 3, FS = 4 };
@@ -31,7 +30,7 @@ static void load_consts(const std::string& fn) {
     char name[17] = {0}; if (!f.read(name, 16)) break;
     int rc[2]; f.read((char*)rc, 8);
     Mat m; m.r = rc[0]; m.c = rc[1]; m.a.resize((size_t)m.r * m.c);
-    for (auto& x : m.a) { double hl[2]; f.read((char*)hl, 16); x = dd(hl[0], hl[1]); }
+    for (auto& x : m.a) { double hl[2]; f.read((char*)hl, 16); x = Real(hl[0], hl[1]); }
     CONST[name] = m;
   }
 }
@@ -59,17 +58,17 @@ static void read_config(const std::string& fn) {
   while (std::getline(f, line)) {
     std::istringstream is(line); std::string k; if (!(is >> k) || k[0] == '#') continue;
     std::string a, b, c, d;
-    if (k == "lam") { is >> a; CF.lam = dd_from_string(a.c_str()); }
-    else if (k == "amp") { is >> a; CF.amp = dd_from_string(a.c_str()); }
+    if (k == "lam") { is >> a; CF.lam = R_from_string(a.c_str()); }
+    else if (k == "amp") { is >> a; CF.amp = R_from_string(a.c_str()); }
     else if (k == "pxi") is >> CF.pxi; else if (k == "pv") is >> CF.pv; else if (k == "M") is >> CF.M;
     else if (k == "consts") is >> CF.consts; else if (k == "out") is >> CF.out;
-    else if (k == "domain") { is >> a >> b >> c >> d; CF.xi_lo = dd_from_string(a.c_str()); CF.xi_hi = dd_from_string(b.c_str());
-      CF.v_lo = dd_from_string(c.c_str()); CF.v_hi = dd_from_string(d.c_str()); }
+    else if (k == "domain") { is >> a >> b >> c >> d; CF.xi_lo = R_from_string(a.c_str()); CF.xi_hi = R_from_string(b.c_str());
+      CF.v_lo = R_from_string(c.c_str()); CF.v_hi = R_from_string(d.c_str()); }
     else if (k == "cells") is >> CF.ncol[0] >> CF.ncol[1] >> CF.nrow[0] >> CF.nrow[1];
     else if (k == "xibreaks" || k == "vbreaks") { int side, n; is >> side >> n; auto& vv = (k == "xibreaks" ? CF.xib : CF.vbk)[side];
-      vv.clear(); for (int i = 0; i < n; i++) { is >> a; vv.push_back(dd_from_string(a.c_str())); } }
-    else if (k == "elem") { Elem e; is >> a >> b >> c >> d >> e.Nt >> e.Ns; e.xlo = dd_from_string(a.c_str());
-      e.xhi = dd_from_string(b.c_str()); e.vlo = dd_from_string(c.c_str()); e.vhi = dd_from_string(d.c_str()); CF.el.push_back(e); }
+      vv.clear(); for (int i = 0; i < n; i++) { is >> a; vv.push_back(R_from_string(a.c_str())); } }
+    else if (k == "elem") { Elem e; is >> a >> b >> c >> d >> e.Nt >> e.Ns; e.xlo = R_from_string(a.c_str());
+      e.xhi = R_from_string(b.c_str()); e.vlo = R_from_string(c.c_str()); e.vhi = R_from_string(d.c_str()); CF.el.push_back(e); }
     else if (k == "maxit") is >> CF.maxit; else if (k == "tol") is >> CF.tol; else if (k == "ckpt_minutes") is >> CF.ckpt_min;
     else if (k == "quadrants") is >> CF.quads; else if (k == "threads") is >> CF.threads; else if (k == "stopcol") is >> CF.stopcol; else if (k == "stopcells") is >> CF.stopcells; else if (k == "floor") is >> CF.floor;
   }
@@ -79,15 +78,15 @@ static void read_config(const std::string& fn) {
 struct Seed { Real R, Ru, Rv, Wv, OM2, dudxi; };
 static Seed seed_at(const Real& xi, const Real& v) {
   Real up1 = A_CH * sinh(xi);              // u + 1 (exact in the chart, no cancellation near the horizon)
-  Real u = up1 - dd(1.0);
-  Real H = v - dd(2.0) * u + log(up1 / (up1 - dd(2.0)));
+  Real u = up1 - Real(1.0);
+  Real H = v - Real(2.0) * u + log(up1 / (up1 - Real(2.0)));
   double Hd = to_double(H), lo = 1 + 1e-14, hi = Hd / 2 + 3;
   for (int i = 0; i < 200; i++) { double mid = 0.5 * (lo + hi); double g = 2 * mid + std::log((mid - 1) / (mid + 1)); if (g < Hd) lo = mid; else hi = mid; }
   Real R(0.5 * (lo + hi));
-  for (int i = 0; i < 3; i++) { Real g = dd(2.0) * R + log((R - dd(1.0)) / (R + dd(1.0))); R = R - (g - H) / (dd(2.0) + dd(2.0) / (R * R - dd(1.0))); }
+  for (int i = 0; i < 3; i++) { Real g = Real(2.0) * R + log((R - Real(1.0)) / (R + Real(1.0))); R = R - (g - H) / (Real(2.0) + Real(2.0) / (R * R - Real(1.0))); }
   Seed s; s.R = R;
-  Real f = dd(1.0) - dd(1.0) / (R * R), g = dd(1.0) - dd(1.0) / (u * u);
-  s.Rv = f * dd(0.5); s.Ru = -f / g; s.OM2 = f / (dd(2.0) * g); s.Wv = dd(0.5) / (R * R * R);
+  Real f = Real(1.0) - Real(1.0) / (R * R), g = Real(1.0) - Real(1.0) / (u * u);
+  s.Rv = f * Real(0.5); s.Ru = -f / g; s.OM2 = f / (Real(2.0) * g); s.Wv = Real(0.5) / (R * R * R);
   s.dudxi = A_CH * cosh(xi);
   return s;
 }
@@ -97,18 +96,18 @@ static Seed seed_at(const Real& xi, const Real& v) {
 // env = sin^4(pi (v - 1/2)/3) continued analytically (no cut-off).  Returned as G = F/eps^4 and F_v/eps^3.
 struct MNdata { Real gm, gn, mv3, nv3; };
 static MNdata mn_data(const Real& v, const Real& x, const Real& r) {
-  Real eps = v - V_N0, z = DD_PI * eps / dd(3.0);
+  Real eps = v - V_N0, z = R_PI * eps / Real(3.0);
   Real sz, cz; sincos(z, sz, cz);
-  Real sc = (DD_PI / dd(3.0)) * (std::fabs(z.hi) > 0 ? sz / z : dd(1.0));   // sin(pi eps/3)/eps
-  Real h = sqrt(dd(2.0) / (dd(1.0) + x * x));
+  Real sc = (R_PI / Real(3.0)) * (std::fabs(z.hi) > 0 ? sz / z : Real(1.0));   // sin(pi eps/3)/eps
+  Real h = sqrt(Real(2.0) / (Real(1.0) + x * x));
   Real st, ct; sincos(v / CF.lam, st, ct);
-  Real r32 = dd(1.0) / (r * sqrt(r));
-  Real pre = h * CF.lam * dd(0.5) * CF.amp * r32;
+  Real r32 = Real(1.0) / (r * sqrt(r));
+  Real pre = h * CF.lam * Real(0.5) * CF.amp * r32;
   Real sc2 = sc * sc, sc3 = sc2 * sc, sc4 = sc2 * sc2;
-  Real f = dd(1.0) - dd(1.0) / (r * r);
+  Real f = Real(1.0) - Real(1.0) / (r * r);
   MNdata o; o.gm = pre * sc4 * ct; o.gn = pre * sc4 * st;
   // d/dv (r^-3/2 env cos) / eps^3 = r^-3/2 [ -(3/4) f/r eps sc^4 cos + (4pi/3) sc^3 cos(z) cos - eps sc^4 sin/lam ]
-  Real a1 = -dd(0.75) * f / r * eps * sc4, a2 = dd(4.0) * DD_PI / dd(3.0) * sc3 * cz, a3 = eps * sc4 / CF.lam;
+  Real a1 = -Real(0.75) * f / r * eps * sc4, a2 = Real(4.0) * R_PI / Real(3.0) * sc3 * cz, a3 = eps * sc4 / CF.lam;
   o.mv3 = pre * ((a1 + a2) * ct - a3 * st);
   o.nv3 = pre * ((a1 + a2) * st + a3 * ct);
   return o;
@@ -122,7 +121,7 @@ static const Mat *D1x, *D2x;
 static std::vector<Real> breaks(const Real& start, const Real& end, int n, const std::vector<Real>& explicit_) {
   if (!explicit_.empty()) { std::vector<Real> b = explicit_; return b; }
   std::vector<Real> b(n + 1);
-  for (int i = 0; i <= n; i++) b[i] = start + (end - start) * dd((double)i) / dd((double)n);
+  for (int i = 0; i <= n; i++) b[i] = start + (end - start) * Real((double)i) / Real((double)n);
   return b;
 }
 
@@ -138,14 +137,14 @@ static Geom make_geom(const Real& x0, const Real& x1, const Real& v0, const Real
   std::string L = "L" + std::to_string(CF.pxi), Lv = "L" + std::to_string(CF.pv), Rv = "R" + std::to_string(CF.pv);
   g.Qx = &C_(L + "_Q"); g.Dx = &C_(L + "_D"); g.wx = &C_(L + "_w");
   const Mat& tx = C_(L + "_t");
-  g.nA = CF.pxi + 1; g.hxi = (x1 - x0) * dd(0.5);
-  for (int a = 0; a < g.nA; a++) g.xi.push_back(x0 + g.hxi * (tx.a[a] + dd(1.0)));
+  g.nA = CF.pxi + 1; g.hxi = (x1 - x0) * Real(0.5);
+  for (int a = 0; a < g.nA; a++) g.xi.push_back(x0 + g.hxi * (tx.a[a] + Real(1.0)));
   std::string vs = first ? Rv : Lv;
   g.Qv = &C_(vs + "_Q"); g.Dv = &C_(vs + "_D"); g.wv = &C_(vs + "_w");
   g.W4 = first ? &C_(Rv + "_W4") : nullptr; g.V4 = first ? &C_(Rv + "_V4") : nullptr; g.TT = first ? &C_(Rv + "_TT") : nullptr;
   const Mat& tv = C_(vs + "_t");
-  g.nB = CF.pv + 1; g.hv = (v1 - v0) * dd(0.5);
-  for (int b = 0; b < g.nB; b++) g.v.push_back(v0 + g.hv * (tv.a[b] + dd(1.0)));
+  g.nB = CF.pv + 1; g.hv = (v1 - v0) * Real(0.5);
+  for (int b = 0; b < g.nB; b++) g.v.push_back(v0 + g.hv * (tv.a[b] + Real(1.0)));
   return g;
 }
 
@@ -218,7 +217,7 @@ template<class T> static void derivs(const Geom& g, const std::vector<T>& G, Wor
   xapplyT(D2, G.data(), w.Gxx.data(), 4 * nA * nB);
   xapplyT(D1, w.Gv.data(), w.Gvx.data(), NF * nA * nB);
 }
-static inline Real Rcast(double a) { return dd(a); }
+static inline Real Rcast(double a) { return Real(a); }
 // the D-jets (perturbation of the fields) at a node from G and its derivative arrays, eps-weights e3 = eps^3, e4 = eps^4
 template<class T> struct DJ { T D[NF], Du[3], Dv[NF], Dx[NF], Dxx[4], Dvx[NF]; };
 template<class T> static inline void djets(const std::vector<T>& G, const Work<T>& w, size_t NN, size_t idx, const T& e3, const T& e4,
@@ -238,7 +237,7 @@ template<class T> static inline void rhs_node(const T ref[jEND], const DJ<T>& d,
   const T Rt = ref[jR] + d.D[FR];
   J[jR] = DT(ref[jR], d.D[FR]); J[jiR] = DT(ref[jiR], -d.D[FR] * ref[jiR] / Rt);
   T Sd = ((T(1.0) + x) * d.D[FM] + (T(1.0) - x) * d.D[FN]) * T(1.0 / 3.0);
-  if constexpr (std::is_same<T, Real>::value) Sd = ((dd(1.0) + x) * d.D[FM] + (dd(1.0) - x) * d.D[FN]) / dd(3.0);
+  if constexpr (std::is_same<T, Real>::value) Sd = ((Real(1.0) + x) * d.D[FM] + (Real(1.0) - x) * d.D[FN]) / Real(3.0);
   J[jES] = DT(ref[jES], ref[jES] * expm1(Sd)); J[jiES] = DT(ref[jiES], ref[jiES] * expm1(-Sd));
   J[jOM2] = DT(ref[jOM2], ref[jOM2] * expm1(T(2.0) * d.D[FW])); J[jiOM2] = DT(ref[jiOM2], ref[jiOM2] * expm1(T(-2.0) * d.D[FW]));
   J[jRu] = DT(ref[jRu], d.Du[FR]); J[jRv] = DT(ref[jRv], d.Dv[FR]); J[jRx] = DT(ref[jRx], d.Dx[FR]);
@@ -307,7 +306,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
     Ed[b] = E[b].hi; E3d[b] = Ed[b] * Ed[b] * Ed[b]; E4d[b] = E3d[b] * Ed[b]; }
   Real eb = vb_bottom - V_N0, eb4 = eb * eb * eb * eb;
   // boundary terms B
-  std::vector<Real> B(NF * NN, dd(0.0));
+  std::vector<Real> B(NF * NN, Real(0.0));
   for (int f = 0; f < NF; f++) for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
     Real val(0.0);
     if (g.first) { if (f < 4) val = left.G[((size_t)f * nB + b) * NX + k]; }
@@ -333,10 +332,10 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
     for (size_t idx = 0; idx < NN; idx++) {
       int k = idx % NX; size_t ab = idx / NX; int b = ab % nB;
       const Seed& s = sd[ab];
-      Real ref[jEND]; for (int i = 0; i < jEND; i++) ref[i] = dd(0.0);
-      ref[jR] = s.R; ref[jiR] = dd(1.0) / s.R; ref[jES] = dd(1.0); ref[jiES] = dd(1.0); ref[jOM2] = s.OM2; ref[jiOM2] = dd(1.0) / s.OM2;
+      Real ref[jEND]; for (int i = 0; i < jEND; i++) ref[i] = Real(0.0);
+      ref[jR] = s.R; ref[jiR] = Real(1.0) / s.R; ref[jES] = Real(1.0); ref[jiES] = Real(1.0); ref[jOM2] = s.OM2; ref[jiOM2] = Real(1.0) / s.OM2;
       ref[jRu] = s.Ru; ref[jRv] = s.Rv; ref[jWv] = s.Wv;
-      DJ<Real> d; djets(G, w, NN, idx, E3[b], E4[b], dd(1.0) / s.dudxi, d);
+      DJ<Real> d; djets(G, w, NN, idx, E3[b], E4[b], Real(1.0) / s.dudxi, d);
       Real o[5]; rhs_node(ref, d, XN[k], o);
       Psi[FR * NN + idx] = s.dudxi * o[2]; Psi[FM * NN + idx] = s.dudxi * o[0]; Psi[FN * NN + idx] = s.dudxi * o[1];
       Psi[FW * NN + idx] = s.dudxi * o[3]; Phi[idx] = o[4];
@@ -349,7 +348,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
     // stop at the tolerance, or at the rounding floor (no gain by a factor 4 once below 1e-29)
     bool stall = (outer > 0 && rmax / gmax < 1e-29 && rmax / gmax > 0.25 * rprev) || rmax / gmax < CF.floor;
     rprev = rmax / gmax;
-    if (rmax / gmax < CF.tol || stall) { for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + dd(r[i]); break; }
+    if (rmax / gmax < CF.tol || stall) { for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + Real(r[i]); break; }
     // inner: d = r + I[Psi(G + d) - Psi(G)] in double, difference arithmetic about the current state
     for (size_t i = 0; i < NF * NN; i++) Gd[i] = G[i].hi + G[i].lo;
     derivs(g, Gd, wd, D1d.data(), D2d.data());
@@ -385,7 +384,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
       for (size_t i = 0; i < NF * NN; i++) { dn[i] = r[i] + IPd[i]; dm = std::max(dm, std::fabs(dn[i] - dlt[i])); dx = std::max(dx, std::fabs(dn[i])); }
       dlt.swap(dn);
       co.sweeps++;
-      if (verbose && (inner < 5 || inner % 10 == 0)) fprintf(stderr, "        inner %d: |dd|/|d| = %.2e\n", inner, dm / dx);
+      if (verbose && (inner < 5 || inner % 10 == 0)) fprintf(stderr, "        inner %d: |Real|/|d| = %.2e\n", inner, dm / dx);
       if (dm < best) { if (dm < 0.5 * best) since = 0; else since++; best = dm; } else since++;
       if (dm < 3e-17 * dx || (since >= 6 && best < 1e-8 * dx)) break;
       if (inner > 8 && dm > 1.5 * dprev) { ngrow++; if (ngrow >= 4) { co.diverged = 1; break; } } else ngrow = 0;
@@ -393,13 +392,13 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
     }
     if (verbose) fprintf(stderr, "      inner sweeps %d\n", inner + 1);
     if (co.diverged) break;
-    for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + dd(dlt[i]);
+    for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + Real(dlt[i]);
   }
   // s_v at the end v-node: s_v(bottom) + int Phi dv
-  svTop.assign((size_t)nA * NX, dd(0.0));
+  svTop.assign((size_t)nA * NX, Real(0.0));
   for (int a = 0; a < nA; a++) for (int k = 0; k < NX; k++) {
     Real s(0.0); for (int bb = 0; bb < nB; bb++) s += (*g.Qv)(nB - 1, bb) * Phi[IX(a, bb, k, nB)];
-    svTop[(size_t)a * NX + k] = (g.first ? dd(0.0) : bottom->sv[(size_t)a * NX + k]) + g.hv * s;
+    svTop[(size_t)a * NX + k] = (g.first ? Real(0.0) : bottom->sv[(size_t)a * NX + k]) + g.hv * s;
   }
   co.secs = std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count();
   return co;
@@ -411,16 +410,16 @@ static void n1_row(const Geom& g, const std::vector<Real>& bottomGR, const std::
                    Edge& out, std::vector<Real>& topGR, std::vector<Real>& topRv) {
   const int nB = g.nB; std::vector<Real> E(nB), E4(nB);
   for (int b = 0; b < nB; b++) { E[b] = g.v[b] - V_N0; E4[b] = E[b] * E[b] * E[b] * E[b]; }
-  out.G.assign((size_t)4 * nB * NX, dd(0.0));
+  out.G.assign((size_t)4 * nB * NX, Real(0.0));
   std::vector<Seed> sd(nB); for (int b = 0; b < nB; b++) sd[b] = seed_at(XI_N1, g.v[b]);
   Real eb = vb - V_N0, eb4 = eb * eb * eb * eb;
-  std::vector<Real> GR((size_t)nB * NX, dd(0.0)), sh6((size_t)nB * NX);
+  std::vector<Real> GR((size_t)nB * NX, Real(0.0)), sh6((size_t)nB * NX);
   for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
     MNdata d = mn_data(g.v[b], XN[k], sd[b].R);
     out.G[((size_t)FM * nB + b) * NX + k] = d.gm; out.G[((size_t)FN * nB + b) * NX + k] = d.gn;
     const Real& x = XN[k];
-    Real Pv = (dd(2.0) * (dd(1.0) + x) * d.mv3 - (dd(1.0) - x) * d.nv3) / dd(3.0);
-    Real Qv = (dd(2.0) * (dd(1.0) - x) * d.nv3 - (dd(1.0) + x) * d.mv3) / dd(3.0);
+    Real Pv = (Real(2.0) * (Real(1.0) + x) * d.mv3 - (Real(1.0) - x) * d.nv3) / Real(3.0);
+    Real Qv = (Real(2.0) * (Real(1.0) - x) * d.nv3 - (Real(1.0) + x) * d.mv3) / Real(3.0);
     sh6[(size_t)b * NX + k] = Pv * Pv + Qv * Qv + (Pv + Qv) * (Pv + Qv);   // shear / eps^6
     if (!g.first) GR[(size_t)b * NX + k] = (eb4 * bottomGR[k] + (g.v[b] - vb) * bottomRv[k]) / E4[b];
   }
@@ -429,10 +428,10 @@ static void n1_row(const Geom& g, const std::vector<Real>& bottomGR, const std::
     for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
       Real gv(0.0); for (int bb = 0; bb < nB; bb++) gv += (*g.Dv)(b, bb) * GR[(size_t)bb * NX + k];
       gv = gv / g.hv;
-      Real DRv = dd(4.0) * E[b] * E[b] * E[b] * GR[(size_t)b * NX + k] + E4[b] * gv;
+      Real DRv = Real(4.0) * E[b] * E[b] * E[b] * GR[(size_t)b * NX + k] + E4[b] * gv;
       Real Rt = sd[b].R + E4[b] * GR[(size_t)b * NX + k];
       // D_R,vv = 2 W_s,v D_R,v - R shear/3
-      rhs[(size_t)b * NX + k] = dd(2.0) * sd[b].Wv * DRv - Rt * sh6[(size_t)b * NX + k] * E4[b] * E[b] * E[b] / dd(3.0);
+      rhs[(size_t)b * NX + k] = Real(2.0) * sd[b].Wv * DRv - Rt * sh6[(size_t)b * NX + k] * E4[b] * E[b] * E[b] / Real(3.0);
     }
     double dm = 0, mx = 1e-300;
     for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) {
@@ -451,11 +450,11 @@ static void n1_row(const Geom& g, const std::vector<Real>& bottomGR, const std::
   }
   for (int b = 0; b < nB; b++) for (int k = 0; k < NX; k++) out.G[((size_t)FR * nB + b) * NX + k] = GR[(size_t)b * NX + k];
   // top: G_R at the end node and D_R,v there (D_R,v(end) = D_R,v(bottom) + int rhs dv)
-  topGR.assign(NX, dd(0.0)); topRv.assign(NX, dd(0.0));
+  topGR.assign(NX, Real(0.0)); topRv.assign(NX, Real(0.0));
   for (int k = 0; k < NX; k++) {
     topGR[k] = GR[(size_t)(nB - 1) * NX + k];
     Real s(0.0); for (int bb = 0; bb < nB; bb++) s += (*g.Qv)(nB - 1, bb) * rhs[(size_t)bb * NX + k];
-    topRv[k] = (g.first ? dd(0.0) : bottomRv[k]) + g.hv * s;
+    topRv[k] = (g.first ? Real(0.0) : bottomRv[k]) + g.hv * s;
   }
 }
 
@@ -463,8 +462,8 @@ static void n1_row(const Geom& g, const std::vector<Real>& bottomGR, const std::
 static std::vector<std::vector<Real>> EOUT;    // per element: [f][a][b][k]
 static std::vector<std::vector<char>> EDONE;    // per element: [a][b]
 static void bary_weights(const std::vector<Real>& nodes, const Mat& w, const Real& t, std::vector<Real>& out) {
-  int n = nodes.size(); out.assign(n, dd(0.0));
-  for (int j = 0; j < n; j++) if (t.hi == nodes[j].hi && t.lo == nodes[j].lo) { out[j] = dd(1.0); return; }
+  int n = nodes.size(); out.assign(n, Real(0.0));
+  for (int j = 0; j < n; j++) if (t.hi == nodes[j].hi && t.lo == nodes[j].lo) { out[j] = Real(1.0); return; }
   Real den(0.0);
   for (int j = 0; j < n; j++) { out[j] = w.a[j] / (t - nodes[j]); den += out[j]; }
   for (int j = 0; j < n; j++) out[j] = out[j] / den;
@@ -502,10 +501,10 @@ static void sample_cell(const Geom& g, const std::vector<Real>& G) {
 static std::vector<Real> JETS[2]; static std::vector<std::vector<Real>> JETXI[2];
 static void record_jets(int side, int col, const Geom& g, const std::vector<Real>& G) {
   const size_t NN = (size_t)g.nA * g.nB * NX; size_t per = (size_t)9 * g.nA * NF * NX;
-  if (JETS[side].size() < (col + 1) * per) JETS[side].resize((col + 1) * per, dd(0.0));
+  if (JETS[side].size() < (col + 1) * per) JETS[side].resize((col + 1) * per, Real(0.0));
   if ((int)JETXI[side].size() < col + 1) JETXI[side].resize(col + 1);
   JETXI[side][col] = g.xi;
-  Real he = g.hv * dd(2.0);                     // eps = he * sigma
+  Real he = g.hv * Real(2.0);                     // eps = he * sigma
   for (int j = 0; j < 9; j++) {
     Real sc(1.0); for (int q = 0; q < j; q++) sc = sc * he;
     for (int a = 0; a < g.nA; a++) for (int f = 0; f < NF; f++) for (int k = 0; k < NX; k++) {
@@ -562,18 +561,18 @@ int main(int argc, char** argv) {
   read_config(argv[1]); bool fresh = argc > 2 && !strcmp(argv[2], "--fresh");
   omp_set_num_threads(CF.threads);
   load_consts(CF.consts);
-  A_CH = dd(1.0) / dd(500.0); XI_N1 = asinh(dd(-9.0) / A_CH); V_N0 = dd(0.5);
+  A_CH = Real(1.0) / Real(500.0); XI_N1 = asinh(Real(-9.0) / A_CH); V_N0 = Real(0.5);
   std::string X = "X" + std::to_string(CF.M);
   const Mat& xn = C_(X + "_x"); NX = CF.M + 1; XN.assign(xn.a.begin(), xn.a.end());
   D1x = &C_(X + "_D1"); D2x = &C_(X + "_D2");
   for (auto& q : D1x->a) D1d.push_back(q.hi + q.lo); for (auto& q : D2x->a) D2d.push_back(q.hi + q.lo);
   for (int i = 0; i < RHS_NJ; i++) JI[jidx(JN[i])] = 0;
   for (int i = 0; i < jEND; i++) JI[i] = jidx(JN[i]);
-  for (int i = 0; i < RHS_NK; i++) KC.push_back(dd((double)RHS_KNUM[i]) / dd((double)RHS_KDEN[i]));
+  for (int i = 0; i < RHS_NK; i++) KC.push_back(Real((double)RHS_KNUM[i]) / Real((double)RHS_KDEN[i]));
   for (auto& e : CF.el) {
-    for (int a = 0; a <= e.Nt; a++) e.xin.push_back((e.xlo + e.xhi) * dd(0.5) - (e.xhi - e.xlo) * dd(0.5) * cos(DD_PI * dd((double)a) / dd((double)e.Nt)));
-    for (int b = 0; b <= e.Ns; b++) e.vin.push_back((e.vlo + e.vhi) * dd(0.5) - (e.vhi - e.vlo) * dd(0.5) * cos(DD_PI * dd((double)b) / dd((double)e.Ns)));
-    EOUT.push_back(std::vector<Real>((size_t)NF * (e.Nt + 1) * (e.Ns + 1) * NX, dd(0.0)));
+    for (int a = 0; a <= e.Nt; a++) e.xin.push_back((e.xlo + e.xhi) * Real(0.5) - (e.xhi - e.xlo) * Real(0.5) * cos(R_PI * Real((double)a) / Real((double)e.Nt)));
+    for (int b = 0; b <= e.Ns; b++) e.vin.push_back((e.vlo + e.vhi) * Real(0.5) - (e.vhi - e.vlo) * Real(0.5) * cos(R_PI * Real((double)b) / Real((double)e.Ns)));
+    EOUT.push_back(std::vector<Real>((size_t)NF * (e.Nt + 1) * (e.Ns + 1) * NX, Real(0.0)));
     EDONE.push_back(std::vector<char>((size_t)(e.Nt + 1) * (e.Ns + 1), 0));
   }
   // breakpoints: side 0 = from the corner toward +xi (Q1, Q3) / +v (Q1, Q2); side 1 the other way
@@ -585,7 +584,7 @@ int main(int argc, char** argv) {
     int nr = vb[sv].size() - 1; if (nr <= 0) continue;
     std::vector<Real> bG, bRv; n1[sv].resize(nr);
     for (int j = 0; j < nr; j++) {
-      Geom g = make_geom(XI_N1, XI_N1 + dd(1e-3), vb[sv][j], vb[sv][j + 1], j == 0);
+      Geom g = make_geom(XI_N1, XI_N1 + Real(1e-3), vb[sv][j], vb[sv][j + 1], j == 0);
       std::vector<Real> tG, tR; n1_row(g, bG, bRv, vb[sv][j], n1[sv][j], tG, tR); bG = tG; bRv = tR;
     }
   }
@@ -612,10 +611,10 @@ int main(int argc, char** argv) {
         if (j == 0 && sv == 0) record_jets(sx, i, g, G);
         // right edge (R, m, n, W at the end xi-node) and top edge (all fields at the end v-node, s_v)
         const size_t NN = (size_t)g.nA * g.nB * NX;
-        right[j].G.assign((size_t)4 * g.nB * NX, dd(0.0));
+        right[j].G.assign((size_t)4 * g.nB * NX, Real(0.0));
         for (int f = 0; f < 4; f++) for (int b = 0; b < g.nB; b++) for (int k = 0; k < NX; k++)
           right[j].G[((size_t)f * g.nB + b) * NX + k] = G[f * NN + IX(g.nA - 1, b, k, g.nB)];
-        bottom.G.assign((size_t)NF * g.nA * NX, dd(0.0));
+        bottom.G.assign((size_t)NF * g.nA * NX, Real(0.0));
         for (int f = 0; f < NF; f++) for (int a = 0; a < g.nA; a++) for (int k = 0; k < NX; k++)
           bottom.G[((size_t)f * g.nA + a) * NX + k] = G[f * NN + IX(a, g.nB - 1, k, g.nB)];
         bottom.sv = svTop; vbot = vb[sv][j + 1];
