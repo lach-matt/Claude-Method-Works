@@ -1,17 +1,19 @@
-# P-S7: the paraphrase (S7) of [Hin26d] in sec:ii-a-3 and the sites that cite it (chapters 23, 27, 33, 37, 95)
+# P-S7: the paraphrase (S7) of [Hin26d] in sec:ii-a-3 and the sites that cite it (chapters 23, 27, 28, 33, 37, 95)
 
 This is a proof file for the coordinator. No file was written in chapters/ or crosswalk/, and none in proofs/ except
-this one. This version answers the reading notes/reviews/R-P-S7.md (1 Major, 5 minor, 7 nits) of the version with md5
-16e6e03f795d2c73d79116cdce206e38; section 9 lists what changed. Every old text below is copied from the chapters at HEAD
-(commit edafc288): chapters/23-s04-compactified.md (md5 58661f3220bae91f567080b61ae42d3d),
-chapters/27-s08-iota-normal.md (3e54a9cf5f565c3705732eaa1c2e2fbc), chapters/33-s14-constraint-damping.md
-(3c9903830291c7d9b1030e40e6ba85b6), chapters/37-s18-augmented.md (c720c56c058bfbc52cef67623816580b) and
-chapters/95-standard-results.md (bdbfff695b2f66f6022311c52e9e4820), equal to the working-tree files. The crosswalk rows
-are from crosswalk/23-s04-compactified.tsv (a54a180aea26fbcca1a2bb3669ea658a), 27-s08-iota-normal.tsv
-(f19be3aa9b3271feb3e8e178d5322e1d), 33-s14-constraint-damping.tsv (6c799c08c4a333be156ff8baae2542c3),
-37-s18-augmented.tsv (a74ee10adbc363846138409aeb43567b) and 95-standard-results.tsv (f18197428a5f85249375febc4c37522b).
-Each old text occurs exactly once in its file as whole lines; line numbers are those of these files. The texts were
-applied to a scratch copy and checked there (section 8).
+this one. This version answers the reading notes/reviews/R-P-S7.md: its first round (1 Major, 5 minor, 7 nits) on the
+version with md5 16e6e03f795d2c73d79116cdce206e38, and its confirmation round (m6, N1–N3) on the version with md5
+0571d41d9f9ff4f7999f4f76dd73eb55; section 9 lists what changed. Every old text below is copied from the chapters at
+HEAD (commit a04d936f): chapters/23-s04-compactified.md (md5 58661f3220bae91f567080b61ae42d3d),
+chapters/27-s08-iota-normal.md (3e54a9cf5f565c3705732eaa1c2e2fbc), chapters/28-s09-forward.md
+(6e4db0694c74fad4469257bec90c24cf), chapters/33-s14-constraint-damping.md (7b7910a30b15a92dc2da1b67c4365c01),
+chapters/37-s18-augmented.md (c720c56c058bfbc52cef67623816580b) and chapters/95-standard-results.md
+(bdbfff695b2f66f6022311c52e9e4820), equal to the working-tree files. The crosswalk rows are from
+crosswalk/23-s04-compactified.tsv (a54a180aea26fbcca1a2bb3669ea658a), 27-s08-iota-normal.tsv
+(f19be3aa9b3271feb3e8e178d5322e1d), 28-s09-forward.tsv (04bd7ef784e04060811729ce313f6441), 33-s14-constraint-damping.tsv
+(37d65e14ae833b82b078f32d970b7f7e), 37-s18-augmented.tsv (a74ee10adbc363846138409aeb43567b) and 95-standard-results.tsv
+(f18197428a5f85249375febc4c37522b). Each old text occurs exactly once in its file as whole lines; line numbers are
+those of these files. The texts were applied to a scratch copy and checked there (section 8).
 
 ## 1. Summary
 
@@ -39,8 +41,9 @@ printed after Definition 3.58, which read literally is false (section 3); the on
 **Sites.** Outside its own item and the appendix entry, (S7) is cited at 23:778, 27:366, 27:444 and 37:824, and at
 eleven lines of chapter 33; the uniformity of the old words is also used, without a citation of (S7), at 27:450. The
 fix round adds the sites that rested on statements [Hin26d] does not give in the form used: the locality of products
-on 𝒫_ι (27:552–556), the microlocal elliptic estimate of (S5) for variable orders (23:1052–1054, 27:1432–1436), and the
-sufficient condition on weights (33:1515–1516). Each is settled as follows (HEAD line numbers).
+on 𝒫_ι (27:552–556), the microlocal elliptic estimate of (S5) for variable orders (23:1052–1054, 27:1432–1440), the
+sufficient condition on weights (33:1515–1516), and a uniform equivalence of norms in chapter 28 (28:212). Each is
+settled as follows (HEAD line numbers).
 
 | Site | Statement used | Status | Text |
 |---|---|---|---|
@@ -55,6 +58,7 @@ sufficient condition on weights (33:1515–1516). Each is settled as follows (HE
 | 27:441–442 and 489–491, lem:ii-f-2-2 | locality of products on 𝒫_ι | not stated in [Hin26d]; (h) added and proved from lem:ii-a-3-1 (g) | P-S7-14, P-S7-15 |
 | 27:552–556, proof of prop:ii-f-2-3 | the list of what the transferred proofs use | locality added to the list | P-S7-16 |
 | 27:1432–1440, proof of lem:ii-f-5-6 (a) | microlocal elliptic estimate of (S5) for a variable order, B = I | proved: lem:ii-a-3-1 (e) | P-S7-17 |
+| 28:212, proof of prop:ii-f-6-2 | the 𝐨-norms at h ∈ [h_0, 1] equivalent to the 0,b-norms uniformly | stated in sec:ii-f-2-1 only at fixed h, and not in [Hin26d]; proved from lem:ii-a-3-1 (f), (d) | P-S7-19 |
 | 33:1515–1516, proof of lem:iv5-calc-structure (b) | the sufficient condition on weights after Definition 3.58 | replaced by the definition | P-S7-18 |
 | 37:822–824, proof of lem:iii-h1-3-1 | uniform equivalence of norms on c/2 ≤ \|σ\| ≤ C_0 | not stated in [Hin26d]; proved from lem:ii-a-3-1 (f), (d) | P-S7-6, with P-S7-2 |
 | 33:1432, 1447, 1453, 1484, 1668, 1703–1704, 1747, 1819, 1828, 1904 | Definition 1.9, weights, footnote 13 and the p. 59 argument, wDiff, uniform boundedness of order-0 differential operators | covered by the new (S7) | none |
@@ -292,7 +296,7 @@ Two readings are made explicit.
   lem:ii-a-3-1 applies it only to single structures, the N_(P′). The microlocal elliptic estimate of Proposition
   3.55 (3), stated for constant orders and scalar operators, is not used outside its scope: lem:ii-a-3-1 (e) proves the
   estimate from the calculus and (g), and the two sites that applied Proposition 3.55 (3) to variable orders through
-  that reading of (S8) (23:1052–1054 and 27:1432–1436) now cite (e) (P-S7-12, P-S7-17).
+  that reading of (S8) (23:1052–1054 and 27:1432–1440) now cite (e) (P-S7-12, P-S7-17).
 
 **The weights.** After Definition 3.58, [Hin26d] states that for w = (w_p) to be a weight of P × M it is necessary but
 not sufficient that each w_p be a weight of ℬ^(p,×), "a sufficient additional condition" being the uniform boundedness
@@ -473,9 +477,40 @@ with B = I), through a reading of (S8) that the edition does not state.
   (1 + |σ|)⁻¹ or ⟨σ⟩⁻¹); y_3p⁻¹ ∈ x_I⁻²ρ_K²S^(−2) by the chain rule. The remainder of (e), with N = M, is bounded by
   ‖u‖_(𝒳^(−M)), as before.
 
+### 4.11 28:212, the proof of prop:ii-f-6-2: uniform equivalence for h ∈ [h_0, 1]; proved (P-S7-19)
+
+The proof bounds the Mellin transform on the line for 1 ≤ |ζ| ≤ h_0⁻¹ by the continuity of σ ↦ N⁰(σ)⁻¹ in the 0,b-spaces,
+and needs the norms ‖·‖_(𝐨_±;k,+) of the Plancherel identity at h = |ζ|⁻¹ ∈ [h_0, 1] to be equivalent to the 0,b-norms
+uniformly in h. It cited sec:ii-f-2-1, which states only that for fixed h > 0 the space H^𝐨 is a 0,b-space with an
+h-dependent equivalent norm (27:405–406); [Hin26d] gives no such uniformity (Remark 3.57). P-S7-19 proves it from
+lem:ii-a-3-1 (f) and (d).
+- For h ∈ [h_0, 1] the semiclassical structure and the 0,b-structure have the same cells, with scalings within a factor
+  depending only on h_0 and γ_+, so (f) gives the same classes and uniformly equivalent norms.
+- ρ_sf ∈ [h_0/2, 1], ρ_tf ∈ [h_0, 2] and ρ_cf = ρ_K/(h + ρ_K) ∈ [ρ_K/2, ρ_K/h_0] there; indeed
+  ρ_cf^(γ_cf)ρ_tf^(γ_cf) = ρ_K^(γ_cf). So the weights and the sf-order (ρ̄ ≍ ρ_sf is bounded below, and log ρ_sf has
+  bounded derivatives, lem:ii-f-2-1 (b)) change the norms only to equivalent ones, by the last sentence of (f).
+- **The point the reader asked to confirm.** [Hin26c, §10.1.1] (pp. 204–205 of arXiv:2606.28008v1) writes the order on
+  the spectral side as s ∘ Φ_σ. For the 0,b-phase space it states: "The restriction of Φ_σ to fiber infinity is
+  independent of σ, and thus s ∘ Φ_σ restricts to ^(0,b)S*ι⁺ as the σ-independent function s_(0,b) in (10.13)". For
+  σ = ±h⁻¹ it writes semiclassical cone covectors as ξ_cħ((h + R)/h) dR/R + ((h + R)/h)η_cħ and s ∘ Φ_(±h⁻¹) as
+  s(R, ω; −(Rξ_cħ ± R/(h + R)) dt_*/r + ξ_cħ dr/r + η_cħ), whose restriction to fibre infinity, "independent of the
+  sign of σ", is s_(0ħ,cħ); near ℐ⁺ it identifies semiclassical and standard 0-covectors "via multiplication by h". At
+  fibre infinity the term ±R/(h + R) drops out by homogeneity, leaving s(R, ω; −Rξ̂ dt_*/r + ξ̂ dr/r + η̂). This is the
+  value of s_(0,b) at the b-covector direction (ξ̂, η̂), which is that of ξ_cħ((h + R)/h) dR/R + ((h + R)/h)η_cħ (the
+  factor (h + R)/h is positive); near ℐ⁺ likewise, the factor being h. So at fibre infinity over h > 0, 𝗌_(0ħ,cħ) and
+  𝗌_(0,b) are the same restriction of 𝗌, as the reader expected, and the sentence as printed is true; it was unproved,
+  not false.
+- Hence 𝗌_(0ħ,cħ) − 𝗌_(0,b), both smooth on the phase space over h ∈ [h_0, 1], vanishes at fibre infinity and is λ times
+  a function bounded in S⁰ (lem:ii-f-2-phase); λ^(𝗌_(0ħ,cħ)−𝗌_(0,b)) and its inverse are bounded in S⁰, so the two
+  orders define the same classes, and (d) makes the variable-order norms equivalent, uniformly.
+- The factors h^(−j) of ‖·‖_(𝐨;k,+) (eq:ii-f-4-1) lie between 1 and h_0^(−k), and both norms carry k b-derivatives
+  along the same fields, which (f) covers.
+
+The crosswalk row prop:ii-f-6-2 of chapter 28 gains a note (section 7).
+
 ## 5. The new chapter texts (placement)
 
-All eighteen items are independent: no two old texts overlap, and they apply in any order (P-S7-14 and P-S7-13 are
+All nineteen items are independent: no two old texts overlap, and they apply in any order (P-S7-14 and P-S7-13 are
 separated by the blank line 443).
 
 ### P-S7-1. chapters/23-s04-compactified.md, the item (S7) of sec:ii-a-3 (lines 367–369)
@@ -531,7 +566,7 @@ The sharp Gårding inequality is not among these statements and is not used: the
 ([[thm:ii-a1-5-4]]) is proved without it.
 ```
 
-New (145 lines):
+New (146 lines):
 
 ```text
 The sharp Gårding inequality is not among these statements and is not used: the real principal type estimate
@@ -617,28 +652,29 @@ E′R^J ∈ w⁻¹Ψ^(𝗆−J/2,𝗅−J/2)_𝒱 maps w_pρ_p^(inf 𝗅)H^(inf 
 by the definition of these spaces, uniformly in p ((S7), (S8)). So ‖E′_pu‖ ≤ C(‖E_pu‖ +
 ‖u‖_(w_pρ_p^(inf 𝗅)H^(inf 𝗆))), and symmetrically.
 
-(e) Fix K ∈ ℕ. For 0 ≤ k ≤ 3K let φ_k ∈ C^∞(ℝ) be real, equal to 1 where |t − 1| ≤ 2^(k−3K−2) and to 0
-where |t − 1| ≥ 2^(k−3K−1), and put z_k := φ_k(y_2), a real family in S⁰ (y_2 is real and bounded; the chain rule). Where
-y_1 ≠ 0, y_2 = 1; where z_k ≠ 0, |y_2 − 1| < 2^(k−3K−1), so z_(k+1) = 1 for k < 3K; and where z_(3K) ≠ 0, y_2 ≠ 0, so
-y_3 = 1. Hence y_1z_0 = y_1, z_kz_(k+1) = z_k and z_(3K)y_3 = z_(3K). Put q := y_3a⁻¹, R_0 := B and r_0 := b; then
-(1 − z_0)r_0 = (1 − z_0)(1 − y_1)b ∈ ρ^∞S^(−∞), as (1 − z_0)y_1 = 0. Suppose that, for some j < K, R_j ∈ Ψ^(−j/2,−j/2)_𝒱
-has the symbol r_j ((S7)) and (1 − z_(3j))r_j ∈ ρ^∞S^(−∞). Put Q_j := Op(z_(3j+1)r_jq) ∈ w′⁻¹Ψ^(−𝗆′−j/2,−𝗅′−j/2)_𝒱 and
-R_(j+1) := R_j − Q_jA. As qa = y_3 (both vanish where y_3 = 0) and z_(3j+1)y_3 = z_(3j+1)z_(3K)y_3 = z_(3j+1) (from
-z_k = z_kz_(k+1)), the principal symbol of Q_jA is z_(3j+1)r_j ((S7), (S8)). So R_(j+1) has principal symbol
-(1 − z_(3j+1))r_j = (1 − z_(3j+1))(1 − z_(3j))r_j, which lies in ρ^∞S^(−∞), and R_(j+1) ∈ Ψ^(−(j+1)/2,−(j+1)/2)_𝒱, the
-principal symbol of (S8) being taken modulo ⋂_δ ρ^(j/2+1−2δ)S^(−j/2−1+2δ) (take δ = ¼). Its symbol r_(j+1) = r_j − c_j,
-c_j the symbol of Q_jA, satisfies (1 − z_(3j+3))r_(j+1) ∈ ρ^∞S^(−∞): (1 − z_(3j+3))r_j = (1 − z_(3j+3))(1 − z_(3j))r_j,
-and (1 − z_(3j+3))c_j lies in ρ^∞S^(−∞) by (g), whose proof does not use (e), applied with y := 1 − z_(3j+2) and
-y′ := 1 − z_(3j+3), as y·z_(3j+1)r_jq = 0 and yy′ = y′. After K steps, B = QA + R_K with
-Q := Σ_(j<K) Q_j ∈ w′⁻¹Ψ^(−𝗆′,−𝗅′)_𝒱 and R_K ∈ Ψ^(−K/2,−K/2)_𝒱. By the uniform boundedness of (S7), with (S8),
+(e) Fix K ∈ ℕ with K/2 ≥ N + |sup 𝗆| + |sup 𝗅|. For 0 ≤ k ≤ 3K let φ_k ∈ C^∞(ℝ) be real, equal to 1
+where |t − 1| ≤ 2^(k−3K−2) and to 0 where |t − 1| ≥ 2^(k−3K−1), and put z_k := φ_k(y_2), a real family in S⁰ (y_2 is real
+and bounded; the chain rule). Where y_1 ≠ 0, y_2 = 1; where z_k ≠ 0, |y_2 − 1| < 2^(k−3K−1), so z_(k+1) = 1 for k < 3K;
+and where z_(3K) ≠ 0, y_2 ≠ 0, so y_3 = 1. Hence y_1z_0 = y_1, z_kz_(k+1) = z_k and z_(3K)y_3 = z_(3K). Put q := y_3a⁻¹,
+R_0 := B and r_0 := b; then (1 − z_0)r_0 = (1 − z_0)(1 − y_1)b ∈ ρ^∞S^(−∞), as (1 − z_0)y_1 = 0. Suppose that, for some
+j < K, R_j ∈ Ψ^(−j/2,−j/2)_𝒱 has the symbol r_j ((S7)) and (1 − z_(3j))r_j ∈ ρ^∞S^(−∞). Put
+Q_j := Op(z_(3j+1)r_jq) ∈ w′⁻¹Ψ^(−𝗆′−j/2,−𝗅′−j/2)_𝒱 and R_(j+1) := R_j − Q_jA. As qa = y_3 (both vanish where y_3 = 0)
+and z_(3j+1)y_3 = z_(3j+1)z_(3K)y_3 = z_(3j+1) (from z_k = z_kz_(k+1)), the principal symbol of Q_jA is z_(3j+1)r_j
+((S7), (S8)). So R_(j+1) has principal symbol (1 − z_(3j+1))r_j = (1 − z_(3j+1))(1 − z_(3j))r_j, which lies in ρ^∞S^(−∞),
+and R_(j+1) ∈ Ψ^(−(j+1)/2,−(j+1)/2)_𝒱, the principal symbol of (S8) being taken modulo ⋂_δ ρ^(j/2+1−2δ)S^(−j/2−1+2δ)
+(take δ = ¼). Its symbol r_(j+1) = r_j − c_j, c_j the symbol of Q_jA, satisfies (1 − z_(3j+3))r_(j+1) ∈ ρ^∞S^(−∞):
+(1 − z_(3j+3))r_j = (1 − z_(3j+3))(1 − z_(3j))r_j, and (1 − z_(3j+3))c_j lies in ρ^∞S^(−∞) by (g), whose proof does not
+use (e), applied with y := 1 − z_(3j+2) and y′ := 1 − z_(3j+3), as y·z_(3j+1)r_jq = 0 and yy′ = y′. After K steps,
+B = QA + R_K with Q := Σ_(j<K) Q_j ∈ w′⁻¹Ψ^(−𝗆′,−𝗅′)_𝒱 and R_K ∈ Ψ^(−K/2,−K/2)_𝒱. By the uniform boundedness of (S7),
+with (S8),
 
     ‖B_pu‖_(w_pH^(𝗆,𝗅)) ≤ C‖A_pu‖_(w_pw′_pH^(𝗆−𝗆′,𝗅−𝗅′)) + C‖u‖_(w_pH^(𝗆−K/2,𝗅−K/2)),
 
-with C independent of p, and B_pu lies in w_pH^(𝗆,𝗅) when the right side is finite. If K/2 ≥ N + |sup 𝗆| + |sup 𝗅|,
-the last norm is at most C‖u‖_(w_pH^(−N,−N)): for orders 𝗍, 𝗍′ ≤ −N, w_pH^(−N,−N) lies in w_pρ_p^(inf 𝗍′)H^(inf 𝗍),
-and the elliptic family that norms w_pH^(𝗍,𝗍′) maps it into H^(𝗋,𝗋′) with 𝗋, 𝗋′ ≥ 0, which lies in
-ρ_p^(inf 𝗋′)H^(inf 𝗋) ⊂ L² by the definition of these spaces, uniformly in p ((S7), (S8)). For ℂ^N-valued functions
-the construction is the same with matrices, a⁻¹ being the inverse matrix and q a = y_3 Id ((S14)).
+with C independent of p, and B_pu lies in w_pH^(𝗆,𝗅) when the right side is finite. As K/2 ≥ N + |sup 𝗆| + |sup 𝗅|, the
+last norm is at most C‖u‖_(w_pH^(−N,−N)): for orders 𝗍, 𝗍′ ≤ −N, w_pH^(−N,−N) lies in w_pρ_p^(inf 𝗍′)H^(inf 𝗍), and the
+elliptic family that norms w_pH^(𝗍,𝗍′) maps it into H^(𝗋,𝗋′) with 𝗋, 𝗋′ ≥ 0, which lies in ρ_p^(inf 𝗋′)H^(inf 𝗋) ⊂ L² by
+the definition of these spaces, uniformly in p ((S7), (S8)). For ℂ^N-valued functions the construction is the same with
+matrices, a⁻¹ being the inverse matrix and q a = y_3 Id ((S14)).
 
 (f) The charts are those of the ℬ^(p,×), and |∂^γ(ρ̃_(p,α,i)∂_iτ^j_(βα))| ≤ C²C_γρ̃_(p,β,j), C_γ the constants of the
 ℬ^(p,×); so the family is a parameterised scaled b.g. structure. Its coefficient Lie algebras are those of the charts,
@@ -683,7 +719,8 @@ subset of P, hence bounded, by (c). The same argument applies to BA. ∎
 
 Against the version 16e6e03f: (b) no longer claims a class with phase space weights (m2); the proof of (a) says that (b)
 uses only its constant-order part (n4); (e) is proved by a parametrix from the calculus and (g) (m5, option (b)); (g) is
-new (M1 (i)–(ii)), with 𝔐 and j defined in its proof and (S16) of the appendix named. The next lines, a blank line and
+new (M1 (i)–(ii)), with 𝔐 and j defined in its proof and (S16) of the appendix named; in the confirmation round, K's
+condition is stated where K is fixed (N3). The next lines, a blank line and
 "### The e3b-calculus in dimension 4 + 1 {#sec:ii-a-4}", are unchanged. lem:ii-a-3-1 is a new label of chapter 23, cited
 from chapters 23 (lem:ii-a-8-4), 27 and 37.
 
@@ -707,7 +744,7 @@ New (43 lines):
 
 ```text
 *Phase space.* 𝒫_ι := ^(0ħ,cħ)T̄*_(sf)ι⁺_ħ ∪ ^(0ħ,cħ)S*ι⁺_ħ is the fibre-compactified phase space over sf together with
-fibre infinity over all of ι⁺_ħ; here, in the paragraph *Orders and spaces* above and below, ι⁺_ħ and ^(0ħ,cħ)T̄*ι⁺_ħ
+fibre infinity over all of ι⁺_ħ; here and below, and in the paragraph *Orders and spaces* above, ι⁺_ħ and ^(0ħ,cħ)T̄*ι⁺_ħ
 include the slice h = 1 (not counted among the four faces, no estimate concerns it), the operators being given for
 h ∈ (0, 1], so 𝒫_ι is compact. The part over sf is a manifold with corners whose boundary hypersurfaces are fibre
 infinity, F_I (over sf ∩ 0f = {x_I = 0}) and F_K (over sf ∩ tf = {R = 0}); F_I ∩ F_K = ∅. On it we use the semiclassical
@@ -753,6 +790,7 @@ orders are smooth on X (*Orders and spaces*). ∎
 
 Changes: the slice h = 1 is included (compactness) and is not counted among the faces (n3); WF′ is defined with the
 weighted classes S^(𝐨−K𝐞) (M1 (iii)); Ell(A) is spelled out, with the independence of the representative (n3);
+the scope phrase reads "here and below, and in the paragraph *Orders and spaces* above" (N1);
 lem:ii-f-2-phase is added after the paragraph and proved (n5). The next lines, a blank line and "**Lemma
 {#lem:ii-f-2-2}** (The calculus.) Uniformly for h ∈ (0, 1]:", are unchanged. lem:ii-f-2-phase is a new label of chapter
 27; assembly numbers it Lemma 18.7, so the numbers of the later lemmas of that chapter increase by one.
@@ -1136,6 +1174,31 @@ so these are weights of the parameterised structure ((S7)).
 The weights by the definition of (S7), not by the sufficient condition after [Hin26d, Definition 3.58] (m1). The next
 lines, a blank line and "(c) On U_((2),i,±,j,k,m), ...", are unchanged.
 
+### P-S7-19. chapters/28-s09-forward.md, the proof of prop:ii-f-6-2, the uniform equivalence of norms for h ∈ [h_0, 1] (line 212)
+
+Old (1 line):
+
+```text
+‖·‖_(𝐨;k,+) at h = |ζ|⁻¹ ∈ [h_0, 1] are equivalent to the 0,b-norms uniformly ([[sec:ii-f-2-1]]), and
+```
+
+New (8 lines):
+
+```text
+‖·‖_(𝐨;k,+) at h = |ζ|⁻¹ ∈ [h_0, 1] are equivalent to the 0,b-norms uniformly, by [[lem:ii-a-3-1]] (f) and (d): for
+these h the cells are those of the 0,b-structure, with scalings within a factor depending only on h_0 and γ_+ of its own;
+ρ_sf and ρ_tf lie between positive constants and ρ_cf ≍ ρ_K ([[sec:ii-f-2-1]]), so the weights and the sf-order change
+the norms only to equivalent ones; at fibre infinity 𝗌_(0ħ,cħ) and 𝗌_(0,b) are the same function, the pull-back of 𝗌 by a
+map of phase spaces whose restriction to fibre infinity does not depend on σ ([[sec:ii-f-1-3]];
+[Hin26c, Section 10.1.1]), so that λ^(𝗌_(0ħ,cħ)−𝗌_(0,b)) and its inverse are bounded in S⁰ (the exponent is λ times a
+smooth function on the phase space, bounded in S⁰ by [[lem:ii-f-2-phase]], and λ log λ is bounded with its derivatives);
+and the factors h^(−j) of ‖·‖_(𝐨;k,+) lie between 1 and h_0^(−k). Moreover
+```
+
+The uniform equivalence proved from lem:ii-a-3-1 (f), (d) and lem:ii-f-2-phase (m6, section 4.11). The next line,
+"𝒴^(𝗌_(0,b)−2)_k ⊃ H^((𝗌_(0,b)−1;k),(2γ_I+2,γ_cf−2))_(0,b;b) continuously. ...", is unchanged; it now follows
+"Moreover". Chapter 28 is a new file for P-S7.
+
 ## 6. Notes for the readers (not chapter text)
 
 ### 6.1 The inputs of lem:ii-a-3-1, part by part
@@ -1205,7 +1268,7 @@ lines, a blank line and "(c) On U_((2),i,±,j,k,m), ...", are unchanged.
 - **(e) through Proposition 3.55 (3) on N_(P′)**, as in the version 16e6e03f, with (S8) read as including that
   proposition. That needs a reading of (S8) that the edition does not state, for variable orders, the (S8) classes and
   systems. The coordinator chose the parametrix (R-P-S7 m5, option (b)), which needs only the calculus and the
-  locality (g); the two older sites that rested on the same reading (23:1052–1054, 27:1432–1436) now cite (e).
+  locality (g); the two older sites that rested on the same reading (23:1052–1054, 27:1432–1440) now cite (e).
 - **Locality on 𝒫_ι through [Hin26d, §3.8]** (WF′ tested with C^∞(T̄*M) for admissible compactifications, and p. 62's
   "Definition 3.61 carries over to this setting mutatis mutandis"). It would need Definition 3.61 (1)–(3) verified for
   the phase space of chapter 27, which the edition uses nowhere. Not chosen; (g) does the translation directly.
@@ -1246,7 +1309,7 @@ Replaced by two rows, the row itself and the new row lem:ii-a-3-1 inserted after
 
 ```text
 sec:ii-a-3	docket68/n1star/proof5/PART-II-A-SETUP.md:343	II.A section 3	quoted [SBG] = [Hin26d] black box (S1)-(S11) as a numbered list; pages added from arXiv:2408.06651v1 (printed page = PDF page); F3-S04: (S15) added ([Hin26d] Prop 2.3 with (2.3), (2.5) pp. 19-20; Lemma 3.42 and proof p. 51; p. 52; proof of Prop 4.22 p. 75), quoted from arXiv v1; list cited as (S1)-(S15); P-S7: (S7) restated from [Hin26d] Def. 1.9 p. 9, pp. 58-59 (Remarks 3.56-3.57, Defs 3.58-3.59, the boundedness paragraph with footnote 13, Theorem 3.51 verbatim, wDiff), p. 64, Remark 4.9 p. 67, p. 74; the words 'the above holds uniformly in p' dropped (not stated there); lem:ii-a-3-1 added after the list; the weights of P x M are those with the bounds of (S2) uniform in p (the sufficient condition after Def. 3.58 is not used)
-lem:ii-a-3-1	paper/reader/proofs/P-S7.md@COMMIT:540-681	proof S7, uniformity in the parameter	new lemma; reduction to P' x M for countable P' ([Hin26d] p. 59, footnote 13); (d) norms of elliptic families by a Neumann parametrix; (e) uniform elliptic estimate by a parametrix with nested cut-off symbols, from the calculus of (S7)-(S8) and (g) only, for variable orders, the (S8) classes and systems; (f) same charts and comparable scalings; (g) locality of products by (3.38) on P' x M translated back to cut-off symbols
+lem:ii-a-3-1	paper/reader/proofs/P-S7.md@COMMIT:575-717	proof S7, uniformity in the parameter	new lemma; reduction to P' x M for countable P' ([Hin26d] p. 59, footnote 13); (d) norms of elliptic families by a Neumann parametrix; (e) uniform elliptic estimate by a parametrix with nested cut-off symbols, from the calculus of (S7)-(S8) and (g) only, for variable orders, the (S8) classes and systems; (f) same charts and comparable scalings; (g) locality of products by (3.38) on P' x M translated back to cut-off symbols
 ```
 
 **crosswalk/23-s04-compactified.tsv, row lem:ii-a-8-4** (line 63; its note was empty).
@@ -1289,7 +1352,7 @@ Replaced by two rows, the row itself and the new row lem:ii-f-2-phase inserted a
 
 ```text
 eq:ii-f-2-2	docket68/n1star/proof5/PART-II-F-IOTA.md:383	II.F (2.2)	
-lem:ii-f-2-phase	paper/reader/proofs/P-S7.md@COMMIT:725-751	proof S7, smooth functions on the phase space	new lemma; smooth functions on the compactified phase space (slice h = 1 included) lie in S^0 uniformly in h, so the orders are variable orders; frames of the semiclassical 0- and cone tangent bundle against the scaled chart frames
+lem:ii-f-2-phase	paper/reader/proofs/P-S7.md@COMMIT:762-788	proof S7, smooth functions on the phase space	new lemma; smooth functions on the compactified phase space (slice h = 1 included) lie in S^0 uniformly in h, so the orders are variable orders; frames of the semiclassical 0- and cone tangent bundle against the scaled chart frames
 ```
 
 **crosswalk/27-s08-iota-normal.tsv, row lem:ii-f-2-2** (line 38).
@@ -1334,6 +1397,20 @@ New row:
 lem:ii-f-5-6	docket68/n1star/proof5/PART-II-F-IOTA.md:1544	II.F Lemma 5.6	N and Z_N written M and Z_M; Mellin variable lambda written zeta; P-S7: Step 1 cites lem:ii-a-3-1 (e) (single structure, B = I, cut-offs in the elliptic weight) in place of (S5) with (S8)
 ```
 
+**crosswalk/28-s09-forward.tsv, row prop:ii-f-6-2** (line 11; its note was empty).
+
+Old row:
+
+```text
+prop:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1836	II.F Proposition 6.2	
+```
+
+New row:
+
+```text
+prop:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1836	II.F Proposition 6.2	P-S7: the uniform equivalence of the norms for h in [h_0, 1] justified by lem:ii-a-3-1 (f), (d) and lem:ii-f-2-phase, with s_(0hbar,chbar) = s_(0,b) at fibre infinity ([Hin26c] Section 10.1.1) in place of a citation of sec:ii-f-2-1 alone
+```
+
 **crosswalk/33-s14-constraint-damping.tsv, row lem:iv5-calc-structure** (line 71).
 
 Old row:
@@ -1376,24 +1453,25 @@ New row:
 thm:std-sbg-calculus	docket68/n1star/N1STAR-PROOF.md:8178-8193; paper/RESPONSE-HL-5D.md:2058-2060	[Hin26d] READ in NP 10.65 (the 3b-calculus in bounded geometry)	P-S7: (S7) also quotes Remark 3.57, p. 64, Remark 4.9 and p. 74, header ranges extended; (S16) quotes Prop. 3.55 (3) and the elliptic set of Defs 3.25 and 3.43; numbering note lists Remark 3.57
 ```
 
+
 ## 8. Checks (on a scratch copy)
 
-The scratch copy is in /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/ps7/tree3/.
-It holds chapters/, crosswalk/, assemble.py, lint.py and OUTLINE.md, taken from HEAD (edafc288) with git archive.
+The scratch copy is in /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/ps7/tree6/.
+It holds chapters/, crosswalk/, assemble.py, lint.py and OUTLINE.md, taken from HEAD (a04d936f) with git archive.
 
 Before:
 
     $ python3 lint.py --chapters
-    chapters: 62 file(s), 4928 label(s) defined, 0 hit(s)
+    chapters: 62 file(s), 4956 label(s) defined, 0 hit(s)
     $ python3 assemble.py --check
-    labels 4928, computations cited 0, problems 0
+    labels 4956, computations cited 0, problems 0
 
-After P-S7-1 to P-S7-18, and the crosswalk rows of section 7:
+After P-S7-1 to P-S7-19, and the crosswalk rows of section 7:
 
     $ python3 lint.py --chapters
-    chapters: 62 file(s), 4930 label(s) defined, 0 hit(s)
+    chapters: 62 file(s), 4958 label(s) defined, 0 hit(s)
     $ python3 assemble.py --check
-    labels 4930, computations cited 0, problems 0
+    labels 4958, computations cited 0, problems 0
     $ python3 assemble.py && python3 lint.py --paper
     PAPER.md: 0 hit(s)
 
@@ -1401,25 +1479,29 @@ The two new labels are lem:ii-a-3-1, assembled as Lemma 14.15, and lem:ii-f-2-ph
 assemble.py was run only in the scratch copy.
 
 Further checks:
-- **Old texts.** Each occurs exactly once, as whole lines, in its chapter at HEAD (edafc288), the five chapter files
-  being unchanged since the version 16e6e03f was written; the same holds for the old crosswalk rows.
+- **Old texts.** Each occurs exactly once, as whole lines, in its chapter at HEAD (a04d936f); the same holds for the old
+  crosswalk rows. Of the files P-S7 touches, only chapter 33 and its crosswalk changed since the version 0571d41d (at
+  line 4533 and in other rows); chapter 28 is new to P-S7.
 - **Line lengths.** No new line exceeds 121 characters, counted as characters. With every [[kind:key]] replaced by
   "Proposition 33.123", the only longer lines are the first two of P-S7-16, which are old lines kept unchanged
   (27:552–553). The longest line of the assembled PAPER.md has 121 characters.
 - **Typography.** No new line after a non-blank line starts with "+ ", "- ", "* ", "> ", "#", "=", "|" or "<". There
   is no backslash and no backtick in the new texts. Labels are lowercase.
 - **Proofs and ∎.** The proofs of the two new lemmas end with ∎. The proof of lem:ii-f-2-2 keeps one ∎, moved to the end
-  of the new proof of (h) (P-S7-15); P-S7-5, P-S7-6, P-S7-13, P-S7-16 and P-S7-17 sit inside proofs whose ∎ is
+  of the new proof of (h) (P-S7-15); P-S7-5, P-S7-6, P-S7-13, P-S7-16, P-S7-17 and P-S7-19 sit inside proofs whose ∎ is
   unchanged. lint's count of proofs against ∎ is clean.
 - **Crosswalk.** The new rows keep four tab-separated fields and are ASCII; each old row occurs once.
-- **md5 of the scratch files after the merge:** chapters 23-s04-compactified.md 488db29ebf71ea8e2735c126a880f30c,
-  27-s08-iota-normal.md b30eac972f9b5fb233f4187c8e31d8e1, 33-s14-constraint-damping.md 4b86643613f7b207c5b127d964e9ee86,
-  37-s18-augmented.md f803ece3e930a233b26f05f94c64394e, 95-standard-results.md 8060f7c5ec3f4d858cfd4281fd01d3e2;
-  crosswalk 23 ca8fc45b24f9bb1d797d3cdef1e47d9e, 27 69331a852abc7689d6c4afdfd836420f, 33
-  3395b3df9caaf9c7625ddc1074d627f4, 37 d5d53ce8a29c7ecfbdf70a98fc6d01b2, 95 8e032fe33e2ba3b95111db1aa4685faf (computed
-  with the two new crosswalk rows carrying placeholders for COMMIT and for the line ranges).
+- **md5 of the scratch files after the merge:** chapters 23-s04-compactified.md 498bf0726d3a50379d0ffb38d01b3489,
+  27-s08-iota-normal.md b3c0e02799f923bc7b0e28991131d57c, 28-s09-forward.md 745e5d3b1ba705eb2fbbaf8b89d56265,
+  33-s14-constraint-damping.md 8c40a5e302ab2a442d800e2765028360, 37-s18-augmented.md f803ece3e930a233b26f05f94c64394e,
+  95-standard-results.md 8060f7c5ec3f4d858cfd4281fd01d3e2; crosswalk 23 ca8fc45b24f9bb1d797d3cdef1e47d9e, 27
+  69331a852abc7689d6c4afdfd836420f, 28 566efd0dfdf4565895ee585bcd6c9bfb, 33 ec6b0539c55ae29939209349c40632c9, 37
+  d5d53ce8a29c7ecfbdf70a98fc6d01b2, 95 8e032fe33e2ba3b95111db1aa4685faf (computed with the two new crosswalk rows
+  carrying placeholders for COMMIT and for the line ranges).
 
-## 9. Changes against the version 16e6e03f (the fix round of R-P-S7)
+## 9. Changes
+
+### 9.1 Changes against the version 16e6e03f (the fix round of R-P-S7)
 
 | Finding | Change | Where |
 |---|---|---|
@@ -1433,7 +1515,7 @@ Further checks:
 | m2 | (b) of lem:ii-a-3-1 no longer claims a class with phase space weights | P-S7-2 |
 | m3 | 1 ≤ \|σ\| ≤ C_0 and the identification with the orders (s_c, 𝗋_σ + β), uniformly | P-S7-6 |
 | m4 | the bound by a seminorm in lem:ii-f-2-2 (a) made uniform in h by a diagonal argument | P-S7-13 (new) |
-| m5 (coordinator: option (b)) | lem:ii-a-3-1 (e) proved by a parametrix from the calculus and (g), for variable orders, the (S8) classes and systems; 23:1052–1054 and 27:1432–1436 cite (e) instead of (S5) with (S8) | P-S7-2, P-S7-12, P-S7-17 (new) |
+| m5 (coordinator: option (b)) | lem:ii-a-3-1 (e) proved by a parametrix from the calculus and (g), for variable orders, the (S8) classes and systems; 23:1052–1054 and 27:1432–1440 cite (e) instead of (S5) with (S8) | P-S7-2, P-S7-12, P-S7-17 (new) |
 | n1 | Remark 3.57 as printed ("strongly compatible, though not uniformly") | P-S7-1 |
 | n2 | the weights of P-S7-6 written w_∗ | P-S7-6 |
 | n3 | the slice h = 1 not counted among the faces, its scope reaching *Orders and spaces*; Ell independent of the representative; the principal symbol "defined below" | P-S7-3 |
@@ -1445,3 +1527,16 @@ Further checks:
 Outside the findings: the old text of P-S7-3 now runs to line 416, so that lem:ii-f-2-phase follows the paragraph;
 the header, sections 1, 3, 4, 6, 7 and 8 are revised accordingly; HEAD moved from a8ecdce7 to edafc288 without a change
 to the five chapter files or their crosswalk rows.
+
+### 9.2 Changes against the version 0571d41d (the confirmation round of R-P-S7)
+
+| Finding | Change | Where |
+|---|---|---|
+| m6 | 28:212 justified by lem:ii-a-3-1 (f), (d) and lem:ii-f-2-phase, with 𝗌_(0ħ,cħ) = 𝗌_(0,b) at fibre infinity confirmed against [Hin26c, §10.1.1]; crosswalk note for prop:ii-f-6-2 | P-S7-19 (new), section 4.11, section 7 |
+| N1 | "here and below, and in the paragraph *Orders and spaces* above" | P-S7-3 |
+| N2 | the site of P-S7-17 given as 27:1432–1440 throughout the notes | sections 1, 3, 6.4, 9 |
+| N3 | (e): "Fix K ∈ ℕ with K/2 ≥ N + \|sup 𝗆\| + \|sup 𝗅\|", and "As K/2 ≥ …" where it is used | P-S7-2 |
+
+HEAD moved from edafc288 to a04d936f. chapters/33-s14-constraint-damping.md and its crosswalk changed in between (a
+merge at line 4533 and in other crosswalk rows); the old text of P-S7-18 and the row lem:iv5-calc-structure are
+unchanged, and the chapter-33 line numbers of section 4.6 are unchanged.
