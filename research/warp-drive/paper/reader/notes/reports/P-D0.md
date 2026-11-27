@@ -152,3 +152,39 @@ The file lists crosswalk rows for the 9 new labels.
 
 Scratch work (scripts, numeric checks, chain evaluation):
 /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/pd0/
+
+## Revision after the review R-P-D0 (no Major)
+
+Proof file now: research/warp-drive/paper/reader/proofs/P-D0.md, md5 1265f3bd480c2df7bf0300e8a43d4c4f, 948 lines
+(was 5f41b63ff6507be43e6c87b5f286c008, 871 lines, as read by the review at ace76b95). Old texts are now from chapter 71
+at HEAD 99e16794 (P-TR merged), md5 bb53f3e845095a3cd821bf51f8c12414. HEAD later moved to 598f56ab; chapter 71 has
+the same md5 there. Not committed; nothing else in the repository was edited.
+
+Delta:
+
+- m1: new T14 (thm:is-d0 title: "with the memberships as stated") and T15 (one sentence appended to (c), pointing to
+  thm:is-flat-serves). These are the review's exact texts. The crosswalk note for thm:is-d0 is added.
+- m2: lem:iii-i7-4-1 is added to the list in lem:is-flat-uses (T3) and to the 40:… row of the audit (section 3.2).
+  The crosswalk row note for lem:is-flat-uses names it.
+- m3: new T16 (thm:tr-transfer (iii): "and with the index sets as constructed"). This is the review's exact text, and
+  a crosswalk note is added. The rest of sec:tr for 𝔡₀ dropped at other h is not drafted; it needs a proof at h.
+- n1 in T3's verbatim tail: "without and with".
+- n2 and n3 in rem:is-cb-open (T3): the review's text. m₀ is now also used in section 2.3.
+- n4 in T5: "only the offsets 1 + 𝔡₀ + ℕ₀".
+- n5: the crosswalk sources are "P-D0.md@ace76b95:<line>", with the lines of the ace76b95 version. Section 7 also
+  gives the labels' lines in this revision: 405, 410, 444, 461, 470, 472, 480, 526, 566.
+- n6: chapter 87 is added to the 𝔠 note in section 5.
+- m4: the section 4 site list is replaced by a pointer to the chain's evaluation step, with the review's list going to
+  that step.
+- Crosswalk notes for eq:uc-choice (T6) and eq:uc-deltas (T7) are added to section 7's list of notes.
+- Placement: T1–T13 line numbers are +13 at HEAD.
+
+Checks, on a fresh scratch merge of all sixteen texts into HEAD's reader directory:
+
+- lint --chapters: 62 files, 5072 labels, 0 hits.
+- assemble --check: 0 problems.
+- assemble, then lint --paper (scratch copy only): 0 hits, and no assembled line is over 121 characters.
+- With the nine crosswalk rows inserted after thm:is-d0:
+  - 280 labels, 280 rows, in chapter order;
+  - each row has 4 fields.
+- In the real directory, with the file copied in: lint --chapters 0 hits, and assemble --check 0 problems.
