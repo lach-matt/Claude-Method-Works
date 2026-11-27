@@ -246,8 +246,8 @@ case ([[sec:appc-parameters]]), and ξ_e and v_e the largest right ends of the �
     ξ^(i) := ξ̂₀ + (i (ξ_e − ξ̂₀)) ⊘ n_c  (0 ≤ i ≤ n_c),       v^(j) := 1/2 + (j (v_e − 1/2)) ⊘ n_r  (0 ≤ j ≤ n_r),
 
 and cell (i, j), 0 ≤ i < n_c, 0 ≤ j < n_r, is [ξ^(i), ξ^(i+1)] × [v^(j), v^(j+1)]. A segment is a set of consecutive
-columns i; each segment has its own angular degree M and sweep count N_P, and a cell takes those of its segment. In cell
-(i, j) put h_ξ := (ξ^(i+1) − ξ^(i)) ⊘ 2 and h_v := (v^(j+1) − v^(j)) ⊘ 2, and let its nodes be
+columns i; each segment has its own angular degree M and iteration counts N_o, N_i, and a cell takes those of its
+segment. In cell (i, j) put h_ξ := (ξ^(i+1) − ξ^(i)) ⊘ 2 and h_v := (v^(j+1) − v^(j)) ⊘ 2, and let its nodes be
 
     ξ_a := ξ^(i) + h_ξ ⊙ (τ^L_a + 1)  (0 ≤ a ≤ p_ξ),       v_b := v^(j) + h_v ⊙ (τ_b + 1)  (0 ≤ b ≤ p_v),
 
@@ -685,12 +685,55 @@ certificate uses it.
 
 #### The iteration in a cell {#sec:appc-iteration}
 
-**Definition {#def:appc-iteration}** (The iteration.) In a cell with the sweep count N_P of its segment, put G⁰ := B and
-G^(n+1) := P(G^n) for n = 0, 1, …, N_P − 1; the cell's values are G := G^(N_P). An execution may stop after a step that
-leaves every number unchanged, since every later step then leaves them unchanged as well.
+The fixed point of P is approached by outer steps: each forms the defect of P in 𝔽 and corrects it by sweeps of the
+linearised map in a short arithmetic whose rounding is relative.
 
-The count is part of the definition: G^(N_P) is defined whether or not the iteration has settled, and how close it is
-to a fixed point of P plays no part in the definition.
+**Definition {#def:appc-short}** (The short arithmetic.) Let 𝔻 be the set of the numbers 0 and ±m 2^e with integers
+1 ≤ m < 2^53 and −1074 ≤ e ≤ 971. Each nonzero element of 𝔻 has exactly one such form with 2^52 ≤ m < 2^53, or with
+e = −1074 and m < 2^52; m is its mantissa. For a real number y with |y| ≤ (2^53 − 1) 2^971, rd y is the element of 𝔻
+nearest to y, and of two equally near the one with even mantissa; rd y is not defined for larger |y|. For x, y ∈ 𝔻 and
+finite families a, g in 𝔻 of equal length n,
+
+    x ⊕ y := rd(x + y),   x ⊖ y := rd(x − y),   x ⊗ y := rd(x y),   x ⊘_𝔻 y := rd(x/y),
+    ⟨a, g⟩_𝔻 := ((⋯((a₁ ⊗ g₁) ⊕ (a₂ ⊗ g₂)) ⊕ ⋯) ⊕ (a_n ⊗ g_n)),                                          {#eq:appc-short}
+
+the sum taken in the order of the index; A ⋆^𝔻_l g is formed from ⟨·,·⟩_𝔻 as A ⋆_l g from ⟨·,·⟩. Negation is exact.
+A sum of more than two terms written in the rule is formed from the left, in the order written. These are the
+operations of the binary64 format of the IEEE standard [[pending:ref-ieee-754]], with rounding to nearest and ties to
+even, each operation rounded once.
+
+**Definition {#def:appc-iteration}** (The iteration.) In a cell with the counts N_o and N_i of its segment, start from
+G := B and carry out N_o outer steps; the cell's values are G after the last one. An outer step is:
+
+(i) the defect r := P(G) − G, formed in 𝔽 by [[def:appc-cell]]; if r = 0 the step leaves G unchanged, and otherwise ν
+is the integer with 2^(−ν) ≤ max |r^F_abk| < 2^(1−ν), the maximum over all entries of r;
+
+(ii) the scaled defect r̃ := rd(2^ν r) entrywise, d := r̃, and then N_i times d := r̃ ⊕ I_𝔻(d) entrywise, with I_𝔻 of
+(iv);
+
+(iii) the update G := G + ⌊2^(−ν) d⌋_B entrywise (2^(−ν) d is a rational number).
+
+(iv) The linearised map. For a family d in 𝔻, I_𝔻(d) is formed in 𝔻 by the operations of [[eq:appc-short]], from the
+jets J̄ := rd J(G) of the current G at each node (each of the thirty-one numbers rounded by rd), and from the cell's
+numbers of [[def:appc-grid]] and [[def:appc-cell]], each replaced by its rd (the matrices, h_ξ, h_v, 1 ⊘ h_ξ, 1 ⊘ h_v,
+e₂, e₃, e₄, 1 ⊘ e₂, 1 ⊘ e₃, u_ξ, 1 ⊘ u_ξ and the angular nodes; a rational constant q stands for rd q):
+- the D-quantities Ḋ^F, Ḋ^F_x, Ḋ^F_xx, Ḋ^F_v, Ḋ^F_vx and Ḋ^F_u are those of (b) of [[def:appc-cell]] with d in place
+  of G, ⊗ in place of ⊙, ⊕ in place of +, ⊘_𝔻 in place of ⊘ and ⋆^𝔻 in place of ⋆ (the integer multiple 4(·) is 4 ⊗ (·));
+- the tangent jets are Ṙ := Ḋ^R, (R⁻¹)˙ := −((R̄⁻¹ ⊗ R̄⁻¹) ⊗ Ḋ^R), Ṡ := (((Ḋ^m ⊕ (x̄ ⊗ Ḋ^m)) ⊕ Ḋ^n) ⊖ (x̄ ⊗ Ḋ^n)) ⊘_𝔻 3,
+  (e^S)˙ := ē^S ⊗ Ṡ, (e^(−S))˙ := −(ē^(−S) ⊗ Ṡ), (Ω²)˙ := Ω̄² ⊗ (2 ⊗ Ḋ^W), (Ω⁻²)˙ := −(Ω̄⁻² ⊗ (2 ⊗ Ḋ^W)), where R̄⁻¹,
+  ē^(±S), Ω̄^(±2) and x̄ are the rd of R⁻¹, e^(±S), Ω^(±2) and x, and for each of the other twenty-four jets the
+  corresponding Ḋ (for R_u it is Ḋ^R_u, for m_vx it is Ḋ^m_vx, and so on);
+- the sequence of (c) is evaluated in 𝔻 for pairs: each symbol carries a value ā and a tangent ȧ, the jets carry the
+  values J̄ and the tangent jets, x and the rational constants carry tangent 0; a product a ⊙ b gives the value ā ⊗ b̄
+  and the tangent (ȧ ⊗ b̄) ⊕ (ā ⊗ ḃ), a sum or difference of terms gives the values and the tangents summed with ⊕ and
+  ⊖ from the left in the order written, and a negation negates both;
+- with the tangents Ẋ_F of the outputs, Ψ̇^F := ū_ξ ⊗ Ẋ_F (F = R, m, n, W) and Φ̇ := Ẋ_s, and I_𝔻(d) is the right side
+  of [[eq:appc-rule-int]] with Ψ̇, Φ̇ in place of Ψ, Φ, the operations of [[eq:appc-short]] in place of those of
+  [[eq:appc-arith]], and the rounded numbers.
+
+In exact arithmetic I_𝔻 is the derivative of I at G, so an outer step is a Newton step whose linear system is solved
+approximately by N_i sweeps; the scaling by 2^ν places the defect where 𝔻 resolves it. The rounding of each outer step
+is fixed by (i)–(iv), so the iteration is part of the definition like every other step.
 
 #### Segments, resampling and the hand-off {#sec:appc-segments}
 
@@ -750,39 +793,41 @@ N_t, N_s and M_e.
 
 The parameters of the three cases are below [[pending:computational-appc-parameters]]. In every case B = 320, the counts
 of [[def:appc-functions]] and [[def:appc-rule-seed]] are as stated there, and N_Ray := 40. The columns form the segments
-listed, each with its angular degree M and its sweep count N_P of [[def:appc-iteration]].
+listed, each with its angular degree M and its counts N_o and N_i of [[def:appc-iteration]].
 
-    case       n_c × n_r   (p_ξ, p_v)   segments (columns: M)                          N_P          (N_t, N_s)    p
-    (1, D_A)   32 × 30     (26, 39)     0–15, 16–23, 24–27, 28–29, 30, 31: M = 184     56           (104, 136)    56
-    (2, D*)    64 × 30     (28, 42)     0–31, 32–47, 48–55, 56–59, 60–61, 62, 63:      64           (152, 184)    61
+    case       n_c × n_r   (p_ξ, p_v)   segments (columns: M)                          (N_o, N_i)   (N_t, N_s)    p
+    (1, D_A)   32 × 30     (26, 39)     0–15, 16–23, 24–27, 28–29, 30, 31: M = 184     (9, 25)      (104, 136)    56
+    (2, D*)    64 × 30     (28, 42)     0–31, 32–47, 48–55, 56–59, 60–61, 62, 63:      (10, 25)     (152, 184)    61
                                         M = 184
-    (1, D*)    64 × 30     (30, 45)     0–31, 32–47: M = 200;                          64           (136, 200)    64
+    (1, D*)    64 × 30     (30, 45)     0–31, 32–47: M = 200;                          (10, 25)     (136, 200)    64
                                         48–55, 56–59, 60–61, 62, 63: M = 328
 
 For the case (2, D_A) the parameters of (1, D_A) serve, with M = 168 and p = 55.
 
 #### Properties {#sec:appc-rule-properties}
 
-**Remark {#rem:appc-rule-defined}** (Where the rule is defined.) Every quantity of the rule is an element of 𝔽, held as
-an integer, every operation of [[eq:appc-arith]] is exact integer arithmetic followed by the floor of a
-rational number, and every loop has a fixed length; so the rule defines integers p and z^(ij,F)_abk, and with them the
-approximant ĝ of [[def:appc-approximant]], as soon as no divisor vanishes and no logarithm or square root meets a
-nonpositive argument. The divisors and arguments that depend on the values the rule forms, and not on the parameters
-alone, are R_s + D^R, Ω_s², u_ξ and the arguments of the logarithms in [[def:appc-rule-seed]]; the others are the
-differences of nodes, h_ξ, h_v, e₂, e₃, e₄ and η₄, fixed by the parameters. For the parameters of
-[[sec:appc-parameters]] all of them are nonzero, and the arguments positive, at every step
-[[pending:computational-appc-parameters]].
+**Remark {#rem:appc-rule-defined}** (Where the rule is defined.) Every quantity of the rule is an element of 𝔽 or of 𝔻
+([[def:appc-short]]), a rational number held by integers, every operation of [[eq:appc-arith]] and [[eq:appc-short]] is
+exact rational arithmetic followed by one rounding, and every loop has a fixed length; so the rule defines integers p
+and z^(ij,F)_abk, and with them the approximant ĝ of [[def:appc-approximant]], as soon as no divisor vanishes, no
+logarithm or square root meets a nonpositive argument and no rounding rd meets a number beyond the range of 𝔻. The
+divisors and arguments that depend on the values the rule forms, and not on the parameters alone, are R_s + D^R, Ω_s²,
+u_ξ and the arguments of the logarithms in [[def:appc-rule-seed]]; the others are the differences of nodes, h_ξ, h_v,
+e₂, e₃, e₄ and η₄, fixed by the parameters. For the parameters of [[sec:appc-parameters]] all of them are nonzero, and
+the arguments positive, at every step [[pending:computational-appc-parameters]].
 
 **Remark {#rem:appc-rule}** (What the rule does not need.) The result of the rule does not depend on the order of the
-summations in its dot products, on how its loops over nodes are distributed among processors, or on how its execution
-is divided into segments. It uses only integers, with no rounding but that of [[eq:appc-arith]] and no function but
-those of [[def:appc-functions]]. Its accuracy as an approximation plays no part in what follows; the certificate of
-[[sec:appc-certification]] is a theorem about its exact output. With zero cone data (m = n = 0 on u = −10) every G is
-0 and every z is 0, since then B = 0 and P(0) = 0 exactly.
+summations in the dot products of [[eq:appc-arith]], which are exact before their one rounding; the order of every sum
+in 𝔻 is fixed by [[def:appc-short]]. It does not depend on how the loops over nodes are distributed among processors or
+on how the execution is divided into segments. It uses no rounding but those of [[eq:appc-arith]] and [[eq:appc-short]]
+and no function but those of [[def:appc-functions]]. Its accuracy as an approximation plays no part in what follows; the
+certificate of [[sec:appc-certification]] is a theorem about its exact output. With zero cone data (m = n = 0 on u =
+−10) every G is 0 and every z is 0, since then B = 0 and P(0) = 0 exactly.
 
-**Remark {#rem:appc-picard}** (Other iterations.) Another iteration with the same fixed points, such as a defect
-correction that forms P(G) − G in 𝔽 and corrects it by sweeps of the linearised map in a shorter arithmetic, defines
-another rule, with other integers. The plain iteration of [[def:appc-iteration]] is the one this appendix uses.
+**Remark {#rem:appc-picard}** (The plain iteration.) Replacing [[def:appc-iteration]] by N_P plain steps G := P(G)
+also defines a rule, with one arithmetic, a shorter statement, the same fixed points of P and other integers. The outer
+steps of [[def:appc-iteration]] are used for the cost of carrying out the rule; nothing that follows depends on the
+choice.
 
 
 ### The output and its digest {#sec:appc-digest}
@@ -1224,15 +1269,21 @@ item 2; assembler check: no problems).
   (exact divisions by 1 ± x and the solution of a 4 × 4 system of determinant −1/(Ω⁸R)), or the remark can be reduced
   to its last two sentences.
 - [[pending:computational-appc-parameters]]: the parameters of [[sec:appc-parameters]] are provisional. They are fixed
-  once the ratio of the order-3 certificate to the quantum is measured on certified output, and N_P once the
-  iteration's convergence is measured at the production M in every row; the remark [[rem:appc-rule-defined]] is then checked by the
-  execution itself.
+  once the ratio of the order-3 certificate to the quantum is measured on certified output, and N_o, N_i once
+  the iteration's convergence is measured at the production M in every row; the remark [[rem:appc-rule-defined]] is
+  then checked by the execution itself.
 - [[pending:computational-appc-targets]]: the targets of [[sec:appc-outcomes]] are the level-four rule targets of the
-  constants as merged (the stricter of f and ϱ, ϱ in every case), divided by ten. A further sharpening may loosen them.
+  constants of [[thm:tl5-hfv]] (the stricter of f and ϱ, ϱ in every case), divided by ten. With sec:tl5-hfw merged the
+  ϱ coefficient falls by 3.8–5 decades and the stricter target becomes f, near 10^−29.5, 10^−32.6 and 10^−36.0 for
+  (1, D_A), (2, D*) and (1, D*); the evaluation of sec:tl5-hfw settles them, the table and the theorem cited are then
+  replaced, and the parameters of [[sec:appc-parameters]] are resized to them.
 - [[pending:computational-appc-1a]], [[pending:computational-appc-2d]], [[pending:computational-appc-1d]] and
   [[pending:computational-appc-spot]]: the certified outcomes and every ⟨to be entered⟩ slot of [[sec:appc-spot]]
   (digests of the cases, blocks and hand-off states, block sums, spot coefficients, the intermediate values of the first
   cells, and the parameters of each element's certificate). The case-independent spot values are entered.
+- [[pending:ref-ieee-754]]: a bibliography entry for the IEEE standard, for example "[IEEE19] IEEE Standard for
+  Floating-Point Arithmetic, IEEE Std 754-2019", cited as [IEEE19]. (A title quoted in the references is exempt from the
+  word list of the lint; elsewhere the text says "binary64 format" and defines the arithmetic itself.)
 - [[pending:ref-fips-180-4]]: a bibliography entry for the Secure Hash Standard, for example "[NIST15] National Institute
   of Standards and Technology, *Secure Hash Standard (SHS)*, Federal Information Processing Standards Publication 180-4
   (2015)", added to the references and cited as [NIST15].
@@ -1308,52 +1359,54 @@ draft; the draft's rows for sec:appc-format, eq:appc-linecheck, lem:appc-checks 
     eq:appc-rule-int	paper/reader/proofs/P-APPC2.md@PENDING:662	P-APPC2, display	Goursat integration (row 0 with W, V; rows >= 1 with Q, QQ)
     rem:appc-rhs-origin	paper/reader/proofs/P-APPC2.md@PENDING:679	P-APPC2, Remark	the sequence is the axis-regular evolution system (pending identity); not used
     sec:appc-iteration	paper/reader/proofs/P-APPC2.md@PENDING:686	P-APPC2, section	new
-    def:appc-iteration	paper/reader/proofs/P-APPC2.md@PENDING:688	P-APPC2, Definition	plain Picard, N_P sweeps per cell from G = B
-    sec:appc-segments	paper/reader/proofs/P-APPC2.md@PENDING:695	P-APPC2, section	new
-    def:appc-resample	paper/reader/proofs/P-APPC2.md@PENDING:697	P-APPC2, Definition	Chebyshev resampling in x between segments
-    def:appc-handoff	paper/reader/proofs/P-APPC2.md@PENDING:708	P-APPC2, Definition	hand-off state of a segment and its canonical string
-    rem:appc-segments	paper/reader/proofs/P-APPC2.md@PENDING:715	P-APPC2, Remark	why segments
-    sec:appc-rule-output	paper/reader/proofs/P-APPC2.md@PENDING:722	P-APPC2, section	new
-    def:appc-element-values	paper/reader/proofs/P-APPC2.md@PENDING:724	P-APPC2, Definition	element nodes, cell of a node, interpolation, DCT, z
-    eq:appc-rule-z	paper/reader/proofs/P-APPC2.md@PENDING:743	P-APPC2, display	coefficients and the integers z
-    sec:appc-parameters	paper/reader/proofs/P-APPC2.md@PENDING:749	P-APPC2, section	new; parameters provisional (pending)
-    sec:appc-rule-properties	paper/reader/proofs/P-APPC2.md@PENDING:764	P-APPC2, section	new
-    rem:appc-rule-defined	paper/reader/proofs/P-APPC2.md@PENDING:766	P-APPC2, Remark	where the rule is defined
-    rem:appc-rule	paper/reader/proofs/P-APPC2.md@PENDING:776	P-APPC2, Remark	order-free, integer-only; zero data give zero
-    rem:appc-picard	paper/reader/proofs/P-APPC2.md@PENDING:783	P-APPC2, Remark	plain Picard as an alternative rule
-    sec:appc-digest	paper/reader/proofs/P-APPC2.md@PENDING:788	P-APPC2, section	new; replaces sec:appc-format
-    def:appc-canonical	paper/reader/proofs/P-APPC2.md@PENDING:793	P-APPC2, Definition	canonical ASCII string of a block and a case
-    def:appc-digest	paper/reader/proofs/P-APPC2.md@PENDING:807	P-APPC2, Definition	SHA-256 digests; block sums
-    eq:appc-sums	paper/reader/proofs/P-APPC2.md@PENDING:815	P-APPC2, display	moved to sec:appc-digest: the exact block checks
-    rem:appc-digest	paper/reader/proofs/P-APPC2.md@PENDING:820	P-APPC2, Remark	what the digest and the sums check
-    sec:appc-regular	paper/reader/proofs/P-APPC2.md@PENDING:831	P-APPC2, section	kept from P-APPC
-    eq:appc-checked	paper/reader/proofs/P-APPC2.md@PENDING:845	P-APPC2, display	kept from P-APPC
-    eq:appc-hat	paper/reader/proofs/P-APPC2.md@PENDING:850	P-APPC2, display	kept from P-APPC
-    eq:appc-sigma	paper/reader/proofs/P-APPC2.md@PENDING:858	P-APPC2, display	kept from P-APPC
-    lem:appc-regular	paper/reader/proofs/P-APPC2.md@PENDING:860	P-APPC2, Lemma	kept from P-APPC
-    eq:appc-regular	paper/reader/proofs/P-APPC2.md@PENDING:867	P-APPC2, display	kept from P-APPC
-    eq:appc-sing	paper/reader/proofs/P-APPC2.md@PENDING:905	P-APPC2, display	kept from P-APPC
-    sec:appc-certification	paper/reader/proofs/P-APPC2.md@PENDING:943	P-APPC2, section	kept from P-APPC
-    sec:appc-exact	paper/reader/proofs/P-APPC2.md@PENDING:953	P-APPC2, section	retitled (no printed coefficients)
-    lem:appc-reexpand	paper/reader/proofs/P-APPC2.md@PENDING:958	P-APPC2, Lemma	kept from P-APPC
-    sec:appc-seed	paper/reader/proofs/P-APPC2.md@PENDING:968	P-APPC2, section	kept from P-APPC
-    eq:appc-seed-eq	paper/reader/proofs/P-APPC2.md@PENDING:972	P-APPC2, display	kept from P-APPC
-    eq:appc-seed-jets	paper/reader/proofs/P-APPC2.md@PENDING:979	P-APPC2, display	kept from P-APPC
-    lem:appc-seed-holo	paper/reader/proofs/P-APPC2.md@PENDING:985	P-APPC2, Lemma	kept from P-APPC
-    lem:appc-newton	paper/reader/proofs/P-APPC2.md@PENDING:993	P-APPC2, Lemma	kept from P-APPC
-    sec:appc-box	paper/reader/proofs/P-APPC2.md@PENDING:1006	P-APPC2, section	kept from P-APPC
-    lem:appc-analytic	paper/reader/proofs/P-APPC2.md@PENDING:1024	P-APPC2, Lemma	kept from P-APPC
-    lem:appc-majorant	paper/reader/proofs/P-APPC2.md@PENDING:1039	P-APPC2, Lemma	kept from P-APPC
-    lem:appc-coefficients	paper/reader/proofs/P-APPC2.md@PENDING:1053	P-APPC2, Lemma	kept from P-APPC
-    eq:appc-ealpha	paper/reader/proofs/P-APPC2.md@PENDING:1059	P-APPC2, display	kept from P-APPC
-    prop:appc-element-bound	paper/reader/proofs/P-APPC2.md@PENDING:1079	P-APPC2, Proposition	kept from P-APPC
-    eq:appc-element-bound	paper/reader/proofs/P-APPC2.md@PENDING:1085	P-APPC2, display	kept from P-APPC
-    sec:appc-overlaps	paper/reader/proofs/P-APPC2.md@PENDING:1100	P-APPC2, section	kept from P-APPC
-    eq:appc-delta	paper/reader/proofs/P-APPC2.md@PENDING:1104	P-APPC2, display	kept from P-APPC
-    lem:appc-lipschitz	paper/reader/proofs/P-APPC2.md@PENDING:1109	P-APPC2, Lemma	kept from P-APPC
-    prop:appc-overlap	paper/reader/proofs/P-APPC2.md@PENDING:1121	P-APPC2, Proposition	kept from P-APPC
-    sec:appc-norm	paper/reader/proofs/P-APPC2.md@PENDING:1136	P-APPC2, section	kept from P-APPC
-    eq:appc-certificate	paper/reader/proofs/P-APPC2.md@PENDING:1140	P-APPC2, display	unchanged; certificate numbers stated rounded upward
-    eq:appc-target	paper/reader/proofs/P-APPC2.md@PENDING:1150	P-APPC2, display	kept from P-APPC
-    sec:appc-outcomes	paper/reader/proofs/P-APPC2.md@PENDING:1156	P-APPC2, section	targets rho_t and f per case (G0h rule targets / 10); outcomes pending
-    sec:appc-spot	paper/reader/proofs/P-APPC2.md@PENDING:1173	P-APPC2, section	new; replaces sec:appc-specimen: constants entered, per-case slots pending
+    def:appc-short	paper/reader/proofs/P-APPC2.md@PENDING:691	P-APPC2, Definition	binary64 arithmetic: rounding to nearest even, ordered sums
+    eq:appc-short	paper/reader/proofs/P-APPC2.md@PENDING:698	P-APPC2, display	the operations of the short arithmetic
+    def:appc-iteration	paper/reader/proofs/P-APPC2.md@PENDING:705	P-APPC2, Definition	defect correction: outer defect steps in B = 320, inner linearised sweeps in binary64
+    sec:appc-segments	paper/reader/proofs/P-APPC2.md@PENDING:738	P-APPC2, section	new
+    def:appc-resample	paper/reader/proofs/P-APPC2.md@PENDING:740	P-APPC2, Definition	Chebyshev resampling in x between segments
+    def:appc-handoff	paper/reader/proofs/P-APPC2.md@PENDING:751	P-APPC2, Definition	hand-off state of a segment and its canonical string
+    rem:appc-segments	paper/reader/proofs/P-APPC2.md@PENDING:758	P-APPC2, Remark	why segments
+    sec:appc-rule-output	paper/reader/proofs/P-APPC2.md@PENDING:765	P-APPC2, section	new
+    def:appc-element-values	paper/reader/proofs/P-APPC2.md@PENDING:767	P-APPC2, Definition	element nodes, cell of a node, interpolation, DCT, z
+    eq:appc-rule-z	paper/reader/proofs/P-APPC2.md@PENDING:786	P-APPC2, display	coefficients and the integers z
+    sec:appc-parameters	paper/reader/proofs/P-APPC2.md@PENDING:792	P-APPC2, section	new; parameters provisional (pending)
+    sec:appc-rule-properties	paper/reader/proofs/P-APPC2.md@PENDING:807	P-APPC2, section	new
+    rem:appc-rule-defined	paper/reader/proofs/P-APPC2.md@PENDING:809	P-APPC2, Remark	where the rule is defined
+    rem:appc-rule	paper/reader/proofs/P-APPC2.md@PENDING:819	P-APPC2, Remark	order-free, integer-only; zero data give zero
+    rem:appc-picard	paper/reader/proofs/P-APPC2.md@PENDING:827	P-APPC2, Remark	plain Picard as an alternative rule
+    sec:appc-digest	paper/reader/proofs/P-APPC2.md@PENDING:833	P-APPC2, section	new; replaces sec:appc-format
+    def:appc-canonical	paper/reader/proofs/P-APPC2.md@PENDING:838	P-APPC2, Definition	canonical ASCII string of a block and a case
+    def:appc-digest	paper/reader/proofs/P-APPC2.md@PENDING:852	P-APPC2, Definition	SHA-256 digests; block sums
+    eq:appc-sums	paper/reader/proofs/P-APPC2.md@PENDING:860	P-APPC2, display	moved to sec:appc-digest: the exact block checks
+    rem:appc-digest	paper/reader/proofs/P-APPC2.md@PENDING:865	P-APPC2, Remark	what the digest and the sums check
+    sec:appc-regular	paper/reader/proofs/P-APPC2.md@PENDING:876	P-APPC2, section	kept from P-APPC
+    eq:appc-checked	paper/reader/proofs/P-APPC2.md@PENDING:890	P-APPC2, display	kept from P-APPC
+    eq:appc-hat	paper/reader/proofs/P-APPC2.md@PENDING:895	P-APPC2, display	kept from P-APPC
+    eq:appc-sigma	paper/reader/proofs/P-APPC2.md@PENDING:903	P-APPC2, display	kept from P-APPC
+    lem:appc-regular	paper/reader/proofs/P-APPC2.md@PENDING:905	P-APPC2, Lemma	kept from P-APPC
+    eq:appc-regular	paper/reader/proofs/P-APPC2.md@PENDING:912	P-APPC2, display	kept from P-APPC
+    eq:appc-sing	paper/reader/proofs/P-APPC2.md@PENDING:950	P-APPC2, display	kept from P-APPC
+    sec:appc-certification	paper/reader/proofs/P-APPC2.md@PENDING:988	P-APPC2, section	kept from P-APPC
+    sec:appc-exact	paper/reader/proofs/P-APPC2.md@PENDING:998	P-APPC2, section	retitled (no printed coefficients)
+    lem:appc-reexpand	paper/reader/proofs/P-APPC2.md@PENDING:1003	P-APPC2, Lemma	kept from P-APPC
+    sec:appc-seed	paper/reader/proofs/P-APPC2.md@PENDING:1013	P-APPC2, section	kept from P-APPC
+    eq:appc-seed-eq	paper/reader/proofs/P-APPC2.md@PENDING:1017	P-APPC2, display	kept from P-APPC
+    eq:appc-seed-jets	paper/reader/proofs/P-APPC2.md@PENDING:1024	P-APPC2, display	kept from P-APPC
+    lem:appc-seed-holo	paper/reader/proofs/P-APPC2.md@PENDING:1030	P-APPC2, Lemma	kept from P-APPC
+    lem:appc-newton	paper/reader/proofs/P-APPC2.md@PENDING:1038	P-APPC2, Lemma	kept from P-APPC
+    sec:appc-box	paper/reader/proofs/P-APPC2.md@PENDING:1051	P-APPC2, section	kept from P-APPC
+    lem:appc-analytic	paper/reader/proofs/P-APPC2.md@PENDING:1069	P-APPC2, Lemma	kept from P-APPC
+    lem:appc-majorant	paper/reader/proofs/P-APPC2.md@PENDING:1084	P-APPC2, Lemma	kept from P-APPC
+    lem:appc-coefficients	paper/reader/proofs/P-APPC2.md@PENDING:1098	P-APPC2, Lemma	kept from P-APPC
+    eq:appc-ealpha	paper/reader/proofs/P-APPC2.md@PENDING:1104	P-APPC2, display	kept from P-APPC
+    prop:appc-element-bound	paper/reader/proofs/P-APPC2.md@PENDING:1124	P-APPC2, Proposition	kept from P-APPC
+    eq:appc-element-bound	paper/reader/proofs/P-APPC2.md@PENDING:1130	P-APPC2, display	kept from P-APPC
+    sec:appc-overlaps	paper/reader/proofs/P-APPC2.md@PENDING:1145	P-APPC2, section	kept from P-APPC
+    eq:appc-delta	paper/reader/proofs/P-APPC2.md@PENDING:1149	P-APPC2, display	kept from P-APPC
+    lem:appc-lipschitz	paper/reader/proofs/P-APPC2.md@PENDING:1154	P-APPC2, Lemma	kept from P-APPC
+    prop:appc-overlap	paper/reader/proofs/P-APPC2.md@PENDING:1166	P-APPC2, Proposition	kept from P-APPC
+    sec:appc-norm	paper/reader/proofs/P-APPC2.md@PENDING:1181	P-APPC2, section	kept from P-APPC
+    eq:appc-certificate	paper/reader/proofs/P-APPC2.md@PENDING:1185	P-APPC2, display	unchanged; certificate numbers stated rounded upward
+    eq:appc-target	paper/reader/proofs/P-APPC2.md@PENDING:1195	P-APPC2, display	kept from P-APPC
+    sec:appc-outcomes	paper/reader/proofs/P-APPC2.md@PENDING:1201	P-APPC2, section	targets rho_t and f per case (G0h rule targets / 10); outcomes pending
+    sec:appc-spot	paper/reader/proofs/P-APPC2.md@PENDING:1218	P-APPC2, section	new; replaces sec:appc-specimen: constants entered, per-case slots pending

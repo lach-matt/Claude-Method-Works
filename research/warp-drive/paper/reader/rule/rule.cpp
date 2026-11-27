@@ -566,6 +566,11 @@ static int pilotcell(const std::string& fn, int NP, bool compat) {
   c.eps = A.at("eps"); c.e2.resize(nB); c.e3.resize(nB); c.e4.resize(nB); c.e3x4.resize(nB); c.ie2.resize(nB); c.ie3.resize(nB);
   for (int q = 0; q < nB; q++) { c.e2[q] = c.eps[q] * c.eps[q]; c.e3[q] = c.e2[q] * c.eps[q]; c.e4[q] = c.e3[q] * c.eps[q];
     c.e3x4[q] = mul_int(c.e3[q], 4); c.ie2[q] = fdiv(o, c.e2[q]); c.ie3[q] = fdiv(o, c.e3[q]); }
+  if (getenv("RULE_PILOT_E")) {              // diagnosis only: the pilot's own (inexact) reciprocals 1/ε³, 1/ε²
+    std::string e = read_file(getenv("RULE_PILOT_E")); int nbad = 0;
+    for (int q = 0; q < nB; q++) { F ie3, ie2; memcpy((void*)&ie3, e.data() + (3 * q + 1) * 48, 48); memcpy((void*)&ie2, e.data() + (3 * q + 2) * 48, 48);
+      nbad += (ie3 != c.ie3[q]) + (ie2 != c.ie2[q]); c.ie3[q] = ie3; c.ie2[q] = ie2; }
+    printf("injected the pilot's reciprocals of eps^3, eps^2: %d of %d differ from the exact floor\n", nbad, 2 * nB); }
   c.sd.resize((size_t)nA * nB);
   for (int ab = 0; ab < nA * nB; ab++) { SeedV& s = c.sd[ab]; s.R = A.at("sR")[ab]; s.Ru = A.at("sRu")[ab]; s.Rv = A.at("sRv")[ab]; s.Wv = A.at("sWv")[ab];
     s.OM2 = A.at("sOM2")[ab]; s.du = A.at("sdu")[ab]; s.iOM2 = fdiv(o, s.OM2); s.idu = fdiv(o, s.du); }
@@ -592,6 +597,9 @@ static int pilotcell(const std::string& fn, int NP, bool compat) {
       printf("field %d: max|G - G_qd| = %.3e, max|G_qd| = %.3e, relative %.3e\n", f, em, gm, em / gm); }
   }
   std::string gt = gtext(c); write_atomic(fn + (compat ? ".G_compat.txt" : ".G_rule.txt"), gt);
+  if (getenv("RULE_DUMP_PSI")) {            // raw limbs: Xs as [i][node] (the pilot's Psi0 layout), then Psi [f][node]
+    std::string o; for (int i = 0; i < 5; i++) for (size_t q = 0; q < NN; q++) o.append((const char*)&c.Xs[q * 5 + i], 48);
+    for (auto& v : c.Psi) o.append((const char*)&v, 48); write_atomic(fn + ".psi.bin", o); }
   printf("sha256 of G (text) %s\n", sha256_hex(gt).c_str());
   return 0;
 }

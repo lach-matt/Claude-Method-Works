@@ -14,9 +14,8 @@ static void put(std::string& o, const Real& a) {              // exact 2^320 a a
   for (int i = 0; i < NW; i++) {
     double d = p[i]; if (d == 0) continue;
     int e; double m = std::frexp(std::fabs(d), &e); long long M = (long long)std::ldexp(m, 53); int sh = e - 53 + 320;
-    mpz_set_si(t.v, M);
+    mpz_set_si(t.v, d < 0 ? -M : M);                         // each part floored to 2^-320 Z (as the pilot's from_double)
     if (sh >= 0) mpz_mul_2exp(t.v, t.v, sh); else { inexact++; mpz_fdiv_q_2exp(t.v, t.v, -sh); }
-    if (d < 0) mpz_neg(t.v, t.v);
     mpz_add(acc.v, acc.v, t.v);
   }
   uint64_t w[6] = {0}; Z mag; mpz_abs(mag.v, acc.v); size_t cnt; mpz_export(w, &cnt, -1, 8, 0, 0, mag.v);
