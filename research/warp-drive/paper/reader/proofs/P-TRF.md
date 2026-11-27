@@ -7,10 +7,10 @@ takes, serve at the computational point ([[thm:is-flat-serves]]). This subsectio
 [[thm:tr-transfer]] (iii) and (ii) ([[def:tr-flat-excess]], [[prop:tr-flat-lambda]], [[thm:tr-flat]],
 [[prop:tr-flat-lower]]). Run with these index sets, the proof of [[thm:uc-integer]] meets h through the five inputs
 (a)–(e) of the opening of [[sec:tr]], and only (e) enters differently: as 𝔡₁ is the only increment of real part below
-1, the gap of (G) is a least excess μ♭(h) ≥ μ(h) in which only multiples of 𝔡₁ are added to the roots of real part below
-3, and the count N_Λ has a bound linear in the numbers 3 − Re ι, where that of [[def:tr-excess]] is quadratic. The
-setting is that of [[sec:tr]]. Λ^φ denotes the set that [[def:iii-i10-1-1]] builds at h from ℰ^φ_ind and ℰ^(ι,φ)_ind,
-with the least ℰ^C_I and the least ℰ_++, and N_Λ := #(Λ^φ ∩ {Re < 3 + ε_+}).
+1, for ε_K < ε_Υ the gap of (G) is a least excess μ♭(h) ≥ μ(h) in which only multiples of 𝔡₁ are added to the roots
+of real part below 3, and the count N_Λ has a bound linear in the numbers 3 − Re ι, where that of [[def:tr-excess]] is
+quadratic. The setting is that of [[sec:tr]]. Λ^φ denotes the set that [[def:iii-i10-1-1]] builds at h from ℰ^φ_ind
+and ℰ^(ι,φ)_ind, with the least ℰ^C_I and the least ℰ_++, and N_Λ := #(Λ^φ ∩ {Re < 3 + ε_+}).
 
 **Proposition {#prop:tr-flat-serves}** (The smaller index sets at h.) Let 0 < h ≤ 10⁻⁶, and let ℰ^φ_ind and ℰ^(ι,φ)_ind
 be built by [[def:is-flat-set]] at the parameter point (h, 1/100, 1/100).
@@ -206,9 +206,9 @@ d_NM ≤ D_NM and N_NM ≤ 21D_NM + 6, with D_acc and D_NM of [[prop:uc-dependen
 l_* := 50 and N̄_Λ := N̄♭(h).
 
 At h = 10⁻⁶, μ♭(h) = μ♭_Z and N̄♭(h) = 3,683,190,611 ([[def:tr-flat-excess]]); the numbers ε_K = 1.4589·10⁻¹⁰ and
-ε_+ = 1.459·10⁻¹⁰ of [[eq:uc-choice]] satisfy the conditions above; and the bounds of [[prop:uc-dependence]] at these
-inputs are those of [[thm:uc-integer]]: N_Λ ≤ 3,683,190,611 ([[cor:is-flat]]), d_NM < 1.42556·10³⁸, and K < 3.13622·10³⁹
-([[prop:uc-data-order]] (d)).
+ε_+ = 1.459·10⁻¹⁰ of [[eq:uc-choice]] satisfy the conditions above; N_Λ ≤ 3,683,190,611 ([[cor:is-flat]]); and at
+these inputs, with D_e of [[prop:uc-explicit]], D_acc and D_NM of [[prop:uc-dependence]] are the integers of
+[[thm:uc-integer]], so that d_NM < 1.42556·10³⁸ and K < 3.13622·10³⁹ ([[prop:uc-data-order]] (d)).
 
 *Proof.* The first assertions are [[def:tr-flat-excess]] and [[prop:tr-flat-lambda]] (c). Let ε_K and ε_+ be as stated.
 As ε_+ < μ♭(h), N_Λ ≤ N̄♭(h) ([[prop:tr-flat-lambda]] (c)). By [[prop:tr-flat-serves]], ℰ^φ_ind and ℰ^(ι,φ)_ind may be
@@ -397,8 +397,8 @@ New:
 ([[prop:tr-eps]] (b)). With the smaller index sets the same five inputs enter, and (e) gives a least excess
 μ♭(h) ≥ μ(h) in which only multiples of 𝔡₁ are added to the roots of real part below 3, and a bound for the count that
 is linear in the numbers 3 − Re ι, below 1.33738·10⁹ + 4.0697·10⁶h^(−1/2). The upper bound becomes the bound of
-[[prop:uc-dependence]] at these, under the same conditions, and the lower bound d_NM > 2.0517·10¹⁰/μ♭(h) tends to
-infinity as h decreases to a point h♭ ∈ (5·10⁻⁷, 10⁻⁶) ([[sec:tr-flat]]).
+[[prop:uc-dependence]] at that count, for the ε_K and ε_+ that [[thm:tr-flat]] admits, under the same conditions, and the
+lower bound d_NM > 2.0517·10¹⁰/μ♭(h) tends to infinity as h decreases to a point h♭ ∈ (5·10⁻⁷, 10⁻⁶) ([[sec:tr-flat]]).
 ```
 
 *7. The last sentence of [[rem:tr-scope]].*
@@ -547,8 +547,9 @@ Not chapter text.
 - In thm:tr-transfer (iii) it follows from ε_+ < μ(h) ≤ μ_G < ε_Υ. For the smaller index sets μ♭(h) may exceed ε_Υ, so
   thm:tr-flat asks 0 < ε_K < ε_+ < min(μ♭(h), ε_Υ) and ε_K < 0.998ε_Υ.
 - It is used twice:
-  - for the description of Λ^φ below 3 + ε_+: an element of Z₃(h) plus 1 has real part above 3 + 1.4646·10⁻¹⁰, and
-    ε_Υ = 1.4619·10⁻¹⁰;
+  - for the description of Λ^φ below 3 + ε_+: lem:tr-z3 (a) keeps the roots of real part at least 3 out of
+    [3, 3 + ε_Υ) only, so a root of real part in [3 + ε_Υ, 3 + ε_+] is not excluded (an element of Z₃(h) plus 1 has
+    real part above 3 + 1.4646·10⁻¹⁰, which alone would allow ε_+ up to that number);
   - for ε_+ < ε_ind(h) in eq:iii-i9-1-1, where only ε_ind(h) ≥ ε_Υ is known.
 - The cap on ε_K is the relaxed one of P-UB3, ε_K < 0.998ε_Υ; ε_K < min(μ♭(h), 0.998ε_Υ) as the brief asks.
 
@@ -637,6 +638,20 @@ Not chapter text.
 - Every new line has at most 121 characters, also with the labels resolved. No continuation line starts with a
   Markdown marker.
 
+*8. The reader's fixes (R-P-TRF).*
+
+- sec:tr-flat, the opening: "the gap of (G) is a least excess μ♭(h)" now carries "for ε_K < ε_Υ", as
+  prop:tr-flat-lambda (b) proves; μ♭(h) can exceed ε_Υ (it does at h = 10⁻⁶), and above ε_Υ the roots of real part in
+  [3 + ε_Υ, 3 + μ♭(h)) are not excluded. Likewise item 6 now says that the upper bound is taken at the ε_K and ε_+
+  that thm:tr-flat admits (below min(μ♭(h), ε_Υ), with ε_K < 0.998ε_Υ), not "at" μ♭(h).
+- thm:tr-flat, the paragraph at h = 10⁻⁶: N_Λ ≤ 3,683,190,611 is cor:is-flat and K < 3.13622·10³⁹ is
+  prop:uc-data-order (d); neither is a bound of prop:uc-dependence, and D_e is that of prop:uc-explicit. Reworded; no
+  number changes.
+- §3 above: the reason ε_+ < ε_Υ is needed for the description of Λ^φ corrected (notes only).
+- Crosswalk notes for the nine existing labels whose text changes (items 2–11) added after the new rows, as P-D0 and
+  P-UB3 recorded theirs.
+- The chapter text above is otherwise unchanged; the crosswalk line numbers are those of this file.
+
 ### Crosswalk rows
 
 Rows for crosswalk/71-explicit-constants.tsv, in its four columns, separated by tabs, in chapter order; they go
@@ -648,3 +663,24 @@ directly after the row of prop:tr-mu-small. The line numbers are those of this f
     thm:tr-flat	paper/reader/proofs/P-TRF.md@PENDING:199	P-TRF, Theorem (The bounds at other values of h for the smaller index sets.)	new: thm:tr-transfer (iii) with ℰ^φ_ind, ℰ^(ι,φ)_ind for 0 < ε_K < ε_+ < min(μ♭(h), ε_Υ), ε_K < 0.998ε_Υ, at N̄_Λ = N̄♭(h), k̄_0 = 3, J_* = 15,000,015, l_* = 50; at h = 10⁻⁶ it gives thm:uc-integer: N_Λ ≤ 3,683,190,611, d_NM < 1.42556·10³⁸, K < 3.13622·10³⁹
     prop:tr-flat-lower	paper/reader/proofs/P-TRF.md@PENDING:247	P-TRF, Proposition (Lower bounds for the smaller index sets.)	new: ε_K < μ♭(h), d_NM > 2.0517·10¹⁰/min(μ♭(h), ε_Υ) at every admissible h ≤ 10⁻⁶; μ♭(h) → 0 as h decreases to some h♭ ∈ (5·10⁻⁷, 10⁻⁶), through ι_B(390, h) + 2541391𝔡₁
     rem:tr-flat-scope	paper/reader/proofs/P-TRF.md@PENDING:280	P-TRF, Remark (What the bounds for the smaller index sets assume.)	admissibility, (R_h) and μ♭(h) decided or evaluated only at h = 10⁻⁶; N̄♭(h) < 5.913·10¹¹ < N̄(h), so the bound is at most that of thm:tr-transfer (iii) at every ε_K, ε_+ that it admits
+
+### Crosswalk notes for the changed labels
+
+Not new rows. For each label below, its existing row in the crosswalk file named before it keeps its fields, and the
+source, source name and note below are appended to its second, third and fourth fields, each after "; " (as P-UB3
+and P-D0 recorded theirs). PENDING is the commit of the merge; N is the line of this file where the new text begins.
+
+crosswalk/71-explicit-constants.tsv:
+    ch:explicit-constants	paper/reader/proofs/P-TRF.md@PENDING:325	P-TRF, item 2	the opening: the sentence on the smaller index sets at the other h added (μ♭(h) in place of μ(h), h♭ in place of h_μ, a count below 1.33738e9 + 4.0697e6h^(−1/2); thm:tr-flat, prop:tr-flat-lower)
+    rem:ec-point-outside	paper/reader/proofs/P-TRF.md@PENDING:343	P-TRF, item 3	last sentence: the same transfer for the smaller index sets of def:uc-choice (thm:tr-flat)
+    rem:ec-lb-unbounded	paper/reader/proofs/P-TRF.md@PENDING:359	P-TRF, item 4	last sentence: d_NM > 2.0517e10/μ♭(h) for the smaller index sets, tending to infinity as h decreases to h♭ (prop:tr-flat-lower)
+    sec:tr	paper/reader/proofs/P-TRF.md@PENDING:379; paper/reader/proofs/P-TRF.md@PENDING:396	P-TRF, items 5, 6	opening: the index sets as constructed up to sec:tr-flat, which treats the smaller ones (item 5); with the smaller index sets, μ♭(h), the linear count and h♭ (item 6)
+    rem:tr-scope	paper/reader/proofs/P-TRF.md@PENDING:417	P-TRF, item 7	last sentence: sec:tr-flat proves that the smaller index sets serve at these h and gives the counterparts of (ii), (iii) and prop:tr-mu-small, 2541391𝔡₁ in place of w_*
+    sec:tr-proof	paper/reader/proofs/P-TRF.md@PENDING:435	P-TRF, item 8	(iii): def:is-flat-set–cor:is-flat enter only the run with the smaller index sets, in which prop:tr-flat-lambda replaces cor:is-flat
+    prop:tr-mu-small	paper/reader/proofs/P-TRF.md@PENDING:452	P-TRF, item 9	last sentence: every admissible choice of the weights "with the index sets as constructed"
+
+crosswalk/03-theorems.tsv:
+    sec:further-results	paper/reader/proofs/P-TRF.md@PENDING:467	P-TRF, item 10	the item on the constants: the same for the smaller index sets of that choice (thm:tr-flat, prop:tr-flat-lower)
+
+crosswalk/90-scope.tsv:
+    sec:scope-constants	paper/reader/proofs/P-TRF.md@PENDING:483	P-TRF, item 11	the sentence on other h: the same for the smaller index sets, with μ♭(h) and h♭ (thm:tr-flat, prop:tr-flat-lower)
