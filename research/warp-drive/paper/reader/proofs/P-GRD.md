@@ -397,3 +397,53 @@ k ≥ 1, Λ^R_0 = |R̂| and Λ^R_k = 0 for k ≥ 1 are admissible, and
 
 the number of distributions of n letters over the two solution factors of each quadratic term, 2^n, times the norms of
 its coefficients.
+
+### Placement
+
+This part, the comparison and the crosswalk rows below are instructions and notes for merging; they are not chapter text.
+The sections sec:tl5-hf (level six) and sec:tl5-hf4 (level four) stay as they are, and their closing conditions remain
+valid: the sharpened constants are added beside them, not in their place, because the new constants interlock (the
+choice of expansion, 𝔰_♭, 𝔰₀^⋆ and 𝔰₁^⋆ enter hypothesis (a) as well as (c)), and a rewrite of the merged lemmas would
+change numbered statements that other text cites. Old texts are quoted exactly from chapters/87-ten-l5.md at HEAD
+1fb4b941, unchanged since the merge 8ceedd0e of the level-4 section; the level-6 parts are those of sec:tl5-hf and the
+level-4 parts those of sec:tl5-hf4 as merged (with the symbols 𝔛_t, 𝔜_t). Line numbers serve only to find the place.
+Each new text replaces its old text as a whole, with the line breaks shown.
+
+*1. Where the section goes.* The section above, from its heading ("The sharpened constants", label sec:tl5-hfg) through
+the last line of [[rem:tl5-hfg-powers]], is inserted at the end of [[ch:ten-l5]], after the last line of
+[[rem:tl5-hf4-level]] (line 5006, "at 10 l5."), with one blank line before it. It is a sibling of sec:tl5-hf and
+sec:tl5-hf4 (a "###" heading) and comes after both. It cites results of sec:tl5-hf and sec:tl5-hf4 as they stand,
+and the proofs of prop:tl5-hf-bootstrap, prop:tl5-hf4-bootstrap, lem:tl5-hf-persistence, lem:tl5-hf4-persistence,
+thm:tl5-hf and thm:tl5-hf4 with the replacements it states. It defines the labels listed in the crosswalk rows, none
+defined elsewhere. No number already printed changes.
+
+*2. The end of the paragraph after [[thm:tl5-hf]] (lines 4594–4596).* Old:
+
+those of [[thm:tl5-dn]], are conditions on the background of the same kind. The derivatives of G^♯ − ĝ on N₀ transverse
+to N₀ need not vanish, so η₀ and the terms on N₀ in δ_w are small only for a background whose transverse derivatives on
+N₀ of order at most N are close to those of G^♯.
+
+New:
+
+those of [[thm:tl5-dn]], are conditions on the background of the same kind. The derivatives of G^♯ − ĝ on N₀ transverse
+to N₀ need not vanish, so η₀ and the terms on N₀ in δ_w are small only for a background whose transverse derivatives on
+N₀ of order at most N are close to those of G^♯. [[thm:tl5-hfg]] gives the conclusions of [[thm:tl5-hf]] under
+sharpened constants, with graded background bounds and the factor μ^(−3/2) in place of μ^(−N) ([[sec:tl5-hfg]]).
+
+*3. The fifth sentence of [[rem:tl5-hf4-level]] (lines 4992–4994).* Old:
+
+explicit in the jets of ĝ of order at most N + 3 = 7, against 9 at N = 6; they involve the Σ_(j≤4) 7^j = 2801 words of
+length at most 4, against 137,257 at N = 6, the derivatives of R̂ic along Γ of order at most 4, against 6, and the
+factor μ^(−N) = μ^(−4) of S_F, against μ^(−6), while S_M carries μ^(−2). On N₀ they involve the derivatives of
+
+New:
+
+explicit in the jets of ĝ of order at most N + 3 = 7, against 9 at N = 6; they involve the Σ_(j≤4) 7^j = 2801 words of
+length at most 4, against 137,257 at N = 6, the derivatives of R̂ic along Γ of order at most 4, against 6, and the
+factor μ^(−N) = μ^(−4) of S_F, against μ^(−6), while S_M carries μ^(−2); with the sharpened constants of
+[[thm:tl5-hf4g]] both carry μ^(−3/2) ([[rem:tl5-hfg-powers]]). On N₀ they involve the derivatives of
+
+*4. Nothing else changes.* No other text of the chapters changes. The opening paragraph of sec:tl5-hf,
+rem:tl5-beyond and lem:tl5-continuation need no change: [[thm:tl5-hfg]] and [[thm:tl5-hf4g]] give (H1), (H2) and
+(H4) of [[lem:tl5-continuation]] and reduce (H3) to [[eq:tl5-hfg-closing]] and [[eq:tl5-hf4g-closing]], as
+[[thm:tl5-hf]] and [[thm:tl5-hf4]] do.
