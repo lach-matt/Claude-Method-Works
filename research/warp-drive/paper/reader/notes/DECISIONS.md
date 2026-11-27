@@ -41,7 +41,9 @@ not give it), as rem:tl5-hf-level records.
 ## 2026-11-27: the offset d0 and the computational point
 
 P-D0 dropped d0 in full by another route (recording relative to order 1), so h stays at 10^-6; the move to
-gamma_C = 1,007,860 that S-HPT scoped is not needed. New choice: d_NM < 9.12529e43 (under reading).
+gamma_C = 1,007,860 that S-HPT scoped is not needed. Merged with the chain re-evaluation (P-UB3: the chain's
+inequality removed and its cap relaxed to eps_K < 0.998 eps_Upsilon, both by proof): d_NM < 1.42556e38,
+K < 3.13622e39 at h = 10^-6 (merge a6a0974f).
 
 ## Earlier decisions in this segment
 
