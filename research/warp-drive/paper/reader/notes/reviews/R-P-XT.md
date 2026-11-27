@@ -285,3 +285,55 @@ is not in apply.py; it was checked for length only.
   - After the fixes, the @PENDING:N line numbers must be recomputed.
 
 Verdict: NOT CONFIRMED
+
+## Confirmation (P-XT.md md5 5fa426c0e7a53e4f7787090732711b2f, 535 lines; HEAD 22033457)
+
+**Diff against my patch output** (P-XT.reviewed.md, c5cf16af). M1, m1–m4 and n1–n7 are in the new file verbatim. The
+other differences are these.
+
+- **Opening paragraph (P-XT 3–11), rewrapped.** The word sequence is identical (compared token by token), and every
+  line is ≤ 121.
+- **n8 (P-XT 99).** "…= 0, K₀ being that of [[thm:tl5-wg-data]]." is as I proposed; the line is 118 characters.
+- **Placement header.** It now reads "HEAD 6bf3f7d7; lines 1–2760 are those of edafc288". This is correct. Chapter 87 at
+  HEAD (md5 3d01b3e2…, 4170 lines) differs from edafc288 only from line 3049 on: the rewrite of sec:tl5-beyond and the
+  merge of sec:tl5-hf. The anchors 87:2151–2153, 2500 and 2757–2759 are unchanged, and I checked them by eye.
+- **Placement 5.** It now cites [[lem:tl5-cip-form]] (a) only. Correct.
+- **Placement 6 (i), restated.** Checked against lem:tl5-xt-seed-jets (a) and (b); it is correct.
+  - A background with the seed's derivatives of order ≤ 4 on N₀⁺, such as seed + (v − 1/2)⁵G, has ĝ − g′ vanishing
+    to order 3, by (a). It does not vanish to order 4, because the development's fourth v-derivatives of the leaf
+    metric differ from the seed's off at most one torus, by (b). lem:tl5-xt-order then gives G^♯ − ĝ to order 2.
+  - For seed + (v − 1/2)⁴G, every partial derivative of order ≤ 4 at v = 1/2 other than ∂_v⁴ is the seed's. The
+    derivatives with at most three in v already agree with g′'s by (a). The derivative ∂_v⁴ is the seed's plus 4! G(·, 1/2, ·).
+    So "order 4 exactly when G(·, 1/2) is the difference of the fourth derivatives divided by 4!" is right.
+  - "Sufficient route; necessity not shown" is right.
+  - "With the seed's coefficients" is right for the coefficients of the top jet in the transport equations. The lower
+    development jets enter only the inhomogeneous terms. This is not chapter text, and it is fine as it stands.
+- **Placement 6 (ii).** It is now stated as sufficiency, with the seed's 1-jet and v* = 7/2. Correct.
+- **Report.** The fix-round section has Y₁ ≤ 0.14658 ε_R, which is a valid upper bound (0.1465786). The first section
+  of the report still shows the old "= 0.14657"; that is history and harmless.
+- **Crosswalk rows.** The notes now carry u* < −1, "≤" and "(sufficient)". All 21 pins match the label lines of the new
+  file (checked mechanically), the rows are in chapter order, and each has four columns.
+
+**Scratch merge at HEAD 22033457** (git archive; chapter 87 includes sec:tl5-hf).
+- The subsection was inserted after 87:2757 and before the sec:tl5-dn heading at 2759.
+- Item 2 applied at 2151, where the old three lines occur exactly once as whole lines; they become six.
+- Item 3 applied at 2500, shifted to 2503 by item 2.
+- The 21 rows were inserted after cor:tl5-wg-data-first-stage in crosswalk/87-ten-l5.tsv.
+- Results: `lint.py --chapters`: 62 files, 5063 labels, 0 hits. `assemble.py --check`: labels 5063, problems 0. The
+  assembled one-liner prints `[] 0`. The longest assembled line in the subsection is 121; the edited lines are 111, 114
+  and 70. No wrapped line starts with a marker.
+
+**Interaction with the newly merged sec:tl5-hf** (not a finding).
+- Placement 4's "no other text changes" still holds. The two new sentences that mention the wave-gauge data stay true
+  with sec:tl5-xt merged: 87:3084–3086 ("…gives data in the wave gauge for them under two explicit conditions on the
+  background along N⁺") and 87:4160–4161 ("The hypotheses (X) and (T) … are conditions on the background of the same
+  kind").
+- Merged thm:tl5-hf (a) is now the N₀ data term η₀ < 𝔰₁, not "G^♯ − ĝ to order N + 1". Placement 6 (i)'s reference to
+  such a hypothesis is therefore a remark for writers only, and it is consistent with the chapter: it names the data
+  term as the alternative.
+- Optionally, rem:tl5-xt-background could now name [[thm:tl5-wg]]'s companion [[thm:tl5-hf]] as "the a priori estimate";
+  this is not required.
+
+Nothing remains open.
+
+Verdict: CONFIRMED
