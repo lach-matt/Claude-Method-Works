@@ -369,7 +369,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
       rf[js_] = d.D[FS]; rf[jsv] = d.Dv[FS]; rf[jsx] = d.Dx[FS]; rf[jsvx] = d.Dvx[FS];
     }
     dlt = r;
-    double dprev = 1e300; int inner, ngrow = 0;
+    double dprev = 1e300, best = 1e300; int inner, ngrow = 0, since = 0;
     for (inner = 0; inner < 400; inner++) {
       derivs(g, dlt, wd, D1d.data(), D2d.data());
       #pragma omp parallel for schedule(static)
@@ -386,7 +386,8 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
       dlt.swap(dn);
       co.sweeps++;
       if (verbose && (inner < 5 || inner % 10 == 0)) fprintf(stderr, "        inner %d: |dd|/|d| = %.2e\n", inner, dm / dx);
-      if (dm < 3e-17 * dx || (inner > 6 && dm > 0.7 * dprev && dm < 1e-14 * dx)) break;
+      if (dm < best) { if (dm < 0.5 * best) since = 0; else since++; best = dm; } else since++;
+      if (dm < 3e-17 * dx || (since >= 6 && best < 1e-8 * dx)) break;
       if (inner > 8 && dm > 1.5 * dprev) { ngrow++; if (ngrow >= 4) { co.diverged = 1; break; } } else ngrow = 0;
       dprev = dm;
     }
