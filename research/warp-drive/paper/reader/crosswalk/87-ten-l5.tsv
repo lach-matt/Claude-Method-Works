@@ -166,6 +166,90 @@ thm:tl5-dn	paper/reader/proofs/P-H29.md@7ec3756a:988	P-H29, Theorem	L9: double-n
 eq:tl5-dn-region	paper/reader/proofs/P-H29.md@7ec3756a:1004	P-H29, display	eta and D-prime
 rem:tl5-dn-use	paper/reader/proofs/P-H29.md@7ec3756a:1095	P-H29, Remark	size of the loss; no double-null uniqueness used
 sec:tl5-beyond	docket68/n1star/CERTIFY-10L5-RESULT.md:2535-2597; paper/RESPONSE-HL-5D.md:1739-1747	CR 9.3	the lead sentence names the assumption (F1)-(F3); the lead sentence names thm:tl5-cip for (F1)-(F3) (P-F123 text 7)
-lem:tl5-continuation	docket68/n1star/CERTIFY-10L5-RESULT.md:2550-2581	CR Lemma 9.C (deduced; cont5 C1-C2)	abstract y; (H2) made precise as C^k bounds in a fixed atlas; the algebraic step (cont5 C2) proved in writing; (F1)-(F3) made hypotheses of the lemma: the uniqueness of the development they need is not in the cited literature (CP12 Section 4.3, CCTW16 proof of Theorem 5.3, quoted); sigma = 1/2 of the openness step from (H3); (F1)-(F3) no longer hypotheses: proved for smooth data in thm:tl5-cip; statement refers to def:tl5-cip-data and eq:tl5-cip-constraints; applies stage by stage at 10 l5 (P-F123 texts 8-10)
-rem:tl5-beyond	docket68/n1star/CERTIFY-10L5-RESULT.md:3097-3100, 5444-5453; paper/RESPONSE-HL-5D.md:1673-1676, 1743-1747	CR 10.0 ((H1) on no region of Lemma 9.C form) and 14.0 M9-A; P section 9	new: Lemma 9.C needs smooth data, and env is C^3 not C^4; names (F1)-(F3); the sentence asserting Theorems 7.L, 8.W, 8.L1 replaced by one that asserts no estimate (no statement depended on it); retitled; regularity no obstruction (cor:tl5-cip-staged); the obstacle is (H1)-(H3) (P-F123 text 11)
-rem:tl5-constants	paper/RESPONSE-HL-5D.md:1720-1727, 1743-1747; docket68/n1star/CERTIFY-10L5-RESULT.md:1108-1132, 2598-2645	P section 9 (linest5, wgron5, blocks5, blockw5); CR 7.4, 9.4 (Lemmas 9.H, 9.B)	class (b) numerical observation; F^2 defined in the remark, as exp(2 int a_o du + 2 int a_i dv); the rectangle cited as def:tl5-chart; the residual size written eps_r
+lem:tl5-continuation	docket68/n1star/CERTIFY-10L5-RESULT.md:2550-2581	CR Lemma 9.C (deduced; cont5 C1-C2)	abstract y; (H2) made precise as C^k bounds in a fixed atlas; the algebraic step (cont5 C2) proved in writing; (F1)-(F3) made hypotheses of the lemma: the uniqueness of the development they need is not in the cited literature (CP12 Section 4.3, CCTW16 proof of Theorem 5.3, quoted); sigma = 1/2 of the openness step from (H3); (F1)-(F3) no longer hypotheses: proved for smooth data in thm:tl5-cip; statement refers to def:tl5-cip-data and eq:tl5-cip-constraints; applies stage by stage at 10 l5 (P-F123 texts 8-10); restated for the tilted domains and the reduced problem in the wave gauge (thm:tl5-wg), y := Y of def:tl5-hf-norm in thm:tl5-hf; (H1), (H2) required only below 2A; (H4) the strict tilt (P-HF texts 3-6)
+rem:tl5-beyond	docket68/n1star/CERTIFY-10L5-RESULT.md:3097-3100, 5444-5453; paper/RESPONSE-HL-5D.md:1673-1676, 1743-1747	CR 10.0 ((H1) on no region of Lemma 9.C form) and 14.0 M9-A; P section 9	new: Lemma 9.C needs smooth data, and env is C^3 not C^4; names (F1)-(F3); the sentence asserting Theorems 7.L, 8.W, 8.L1 replaced by one that asserts no estimate (no statement depended on it); retitled; regularity no obstruction (cor:tl5-cip-staged); the obstacle is (H1)-(H3) (P-F123 text 11); the missing step is the verification of the hypotheses of thm:tl5-hf for a background (P-HF text 7)
+rem:tl5-constants	paper/RESPONSE-HL-5D.md:1720-1727, 1743-1747; docket68/n1star/CERTIFY-10L5-RESULT.md:1108-1132, 2598-2645	P section 9 (linest5, wgron5, blocks5, blockw5); CR 7.4, 9.4 (Lemmas 9.H, 9.B)	class (b) numerical observation; F^2 defined in the remark, as exp(2 int a_o du + 2 int a_i dv); the rectangle cited as def:tl5-chart; the residual size written eps_r; closing condition stated in its own terms (P-HF text 8)
+sec:tl5-hf	paper/reader/proofs/P-HF.md@e0b27615:1	P-HF, section	new; at the end of ch:ten-l5, after rem:tl5-constants; L3-L5 of the plan and the weighted bootstrap (G0 sec 2-5, 8; G0b sec 3)
+sec:tl5-hf-setting	paper/reader/proofs/P-HF.md@e0b27615:29	P-HF, section	new
+def:tl5-hf-frame	paper/reader/proofs/P-HF.md@e0b27615:31	P-HF, Definition	new
+eq:tl5-hf-null-pair	paper/reader/proofs/P-HF.md@e0b27615:39	P-HF, display	new
+lem:tl5-hf-khat	paper/reader/proofs/P-HF.md@e0b27615:51	P-HF, Lemma	conversion factor c^(-r/2) between the norm with c = f(-u)/2 and khat (c = 1)
+def:tl5-hf-operators	paper/reader/proofs/P-HF.md@e0b27615:63	P-HF, Definition	new
+eq:tl5-hf-operators	paper/reader/proofs/P-HF.md@e0b27615:66	P-HF, display	new
+eq:tl5-hf-frame-terms	paper/reader/proofs/P-HF.md@e0b27615:72	P-HF, display	new
+eq:tl5-hf-dk	paper/reader/proofs/P-HF.md@e0b27615:76	P-HF, display	new
+def:tl5-hf-domains	paper/reader/proofs/P-HF.md@e0b27615:89	P-HF, Definition	new
+sec:tl5-hf-identity	paper/reader/proofs/P-HF.md@e0b27615:99	P-HF, section	new
+def:tl5-hf-current	paper/reader/proofs/P-HF.md@e0b27615:101	P-HF, Definition	new
+lem:tl5-hf-densities	paper/reader/proofs/P-HF.md@e0b27615:112	P-HF, Lemma	new
+eq:tl5-hf-coercive	paper/reader/proofs/P-HF.md@e0b27615:116	P-HF, display	new
+lem:tl5-hf-divergence	paper/reader/proofs/P-HF.md@e0b27615:125	P-HF, Lemma	G0 Lemma F0.1, with the tensor commutator term
+eq:tl5-hf-bulk	paper/reader/proofs/P-HF.md@e0b27615:129	P-HF, display	new
+lem:tl5-hf-identity	paper/reader/proofs/P-HF.md@e0b27615:142	P-HF, Lemma	G0 Lemma F0.2 on the tilted corner regions; no axis boundary
+eq:tl5-hf-faces	paper/reader/proofs/P-HF.md@e0b27615:146	P-HF, display	new
+eq:tl5-hf-identity	paper/reader/proofs/P-HF.md@e0b27615:152	P-HF, display	new
+sec:tl5-hf-rates	paper/reader/proofs/P-HF.md@e0b27615:174	P-HF, section	new
+def:tl5-hf-blocks	paper/reader/proofs/P-HF.md@e0b27615:185	P-HF, Definition	new
+lem:tl5-hf-pointwise	paper/reader/proofs/P-HF.md@e0b27615:193	P-HF, Lemma	G0 Lemma F0.3 as exact block norms of the bulk form
+rem:tl5-hf-blocks	paper/reader/proofs/P-HF.md@e0b27615:204	P-HF, Remark	new
+def:tl5-hf-rates	paper/reader/proofs/P-HF.md@e0b27615:226	P-HF, Definition	pointwise admissibility (allocation between the families), tilt-monotone
+eq:tl5-hf-admissible	paper/reader/proofs/P-HF.md@e0b27615:232	P-HF, display	new
+lem:tl5-hf-allocation	paper/reader/proofs/P-HF.md@e0b27615:242	P-HF, Lemma	explicit rates from a measurable allocation and Young parameters
+eq:tl5-hf-alpha	paper/reader/proofs/P-HF.md@e0b27615:249	P-HF, display	new
+prop:tl5-hf-linear	paper/reader/proofs/P-HF.md@e0b27615:268	P-HF, Proposition	G0 Lemma F0.4, weighted estimate, F^2 = 2 e^(A+B)
+eq:tl5-hf-hyp	paper/reader/proofs/P-HF.md@e0b27615:274	P-HF, display	new
+eq:tl5-hf-source	paper/reader/proofs/P-HF.md@e0b27615:281	P-HF, display	new
+eq:tl5-hf-linear	paper/reader/proofs/P-HF.md@e0b27615:285	P-HF, display	new
+eq:tl5-hf-f	paper/reader/proofs/P-HF.md@e0b27615:291	P-HF, display	new
+cor:tl5-hf-level0	paper/reader/proofs/P-HF.md@e0b27615:311	P-HF, Corollary	new
+rem:tl5-hf-weight	paper/reader/proofs/P-HF.md@e0b27615:318	P-HF, Remark	new
+sec:tl5-hf-commutation	paper/reader/proofs/P-HF.md@e0b27615:325	P-HF, section	new
+def:tl5-hf-fields	paper/reader/proofs/P-HF.md@e0b27615:327	P-HF, Definition	new
+lem:tl5-hf-fields	paper/reader/proofs/P-HF.md@e0b27615:336	P-HF, Lemma	G0 sec 3.1; null structure of the deformation tensors (G0b sec 2)
+eq:tl5-hf-lambda	paper/reader/proofs/P-HF.md@e0b27615:340	P-HF, display	new
+lem:tl5-hf-commutator	paper/reader/proofs/P-HF.md@e0b27615:378	P-HF, Lemma	G0 sec 3.2; exact commutator maps (G0b sec 3 items 1-2)
+eq:tl5-hf-k	paper/reader/proofs/P-HF.md@e0b27615:385	P-HF, display	new
+eq:tl5-hf-comm	paper/reader/proofs/P-HF.md@e0b27615:393	P-HF, display	new
+eq:tl5-hf-lie-d	paper/reader/proofs/P-HF.md@e0b27615:410	P-HF, display	new
+eq:tl5-hf-lie	paper/reader/proofs/P-HF.md@e0b27615:414	P-HF, display	new
+def:tl5-hf-triples	paper/reader/proofs/P-HF.md@e0b27615:418	P-HF, Definition	new
+lem:tl5-hf-system	paper/reader/proofs/P-HF.md@e0b27615:430	P-HF, Lemma	commuted equation with all lower-level terms exactly (G0b item 6(a) replaced by exact maps)
+eq:tl5-hf-system	paper/reader/proofs/P-HF.md@e0b27615:433	P-HF, display	new
+lem:tl5-hf-recovery	paper/reader/proofs/P-HF.md@e0b27615:445	P-HF, Lemma	G0 Lemma F3.1 with explicit constants, quasilinear H included
+eq:tl5-hf-recovery	paper/reader/proofs/P-HF.md@e0b27615:454	P-HF, display	new
+def:tl5-hf-coupling	paper/reader/proofs/P-HF.md@e0b27615:482	P-HF, Definition	level-N coupling norms as operator norms of explicit maps (G0b sec 3)
+eq:tl5-hf-bn	paper/reader/proofs/P-HF.md@e0b27615:497	P-HF, display	new
+prop:tl5-hf-linear-n	paper/reader/proofs/P-HF.md@e0b27615:504	P-HF, Proposition	G0 Lemma F3.2 at level N
+eq:tl5-hf-sn	paper/reader/proofs/P-HF.md@e0b27615:509	P-HF, display	new
+sec:tl5-hf-sobolev	paper/reader/proofs/P-HF.md@e0b27615:528	P-HF, section	new
+lem:tl5-hf-sphere	paper/reader/proofs/P-HF.md@e0b27615:530	P-HF, Lemma	H2 to L-infinity on S3 with explicit constant
+eq:tl5-hf-sphere	paper/reader/proofs/P-HF.md@e0b27615:533	P-HF, display	new
+def:tl5-hf-component	paper/reader/proofs/P-HF.md@e0b27615:544	P-HF, Definition	new
+lem:tl5-hf-components	paper/reader/proofs/P-HF.md@e0b27615:554	P-HF, Lemma	new
+lem:tl5-hf-sobolev	paper/reader/proofs/P-HF.md@e0b27615:570	P-HF, Lemma	Sobolev on the tilted future faces; replaces G0 C_S
+eq:tl5-hf-cs	paper/reader/proofs/P-HF.md@e0b27615:576	P-HF, display	new
+eq:tl5-hf-cs-r	paper/reader/proofs/P-HF.md@e0b27615:605	P-HF, display	new
+sec:tl5-hf-quadratic	paper/reader/proofs/P-HF.md@e0b27615:609	P-HF, section	new
+lem:tl5-hf-reduced	paper/reader/proofs/P-HF.md@e0b27615:611	P-HF, Lemma	exact expansion of the reduced Ricci operator about ghat; G0 sec 5
+eq:tl5-hf-n	paper/reader/proofs/P-HF.md@e0b27615:614	P-HF, display	new
+def:tl5-hf-levels	paper/reader/proofs/P-HF.md@e0b27615:643	P-HF, Definition	new
+eq:tl5-hf-cn	paper/reader/proofs/P-HF.md@e0b27615:657	P-HF, display	new
+lem:tl5-hf-quadratic	paper/reader/proofs/P-HF.md@e0b27615:661	P-HF, Lemma	Lemma G: explicit majorant c_n; one high factor for N >= 5
+eq:tl5-hf-g	paper/reader/proofs/P-HF.md@e0b27615:664	P-HF, display	new
+lem:tl5-hf-linfty	paper/reader/proofs/P-HF.md@e0b27615:711	P-HF, Lemma	pointwise bounds of the low quantities from the face energies
+eq:tl5-hf-linfty	paper/reader/proofs/P-HF.md@e0b27615:726	P-HF, display	new
+lem:tl5-hf-quasilinear	paper/reader/proofs/P-HF.md@e0b27615:767	P-HF, Lemma	quasilinear term by an integrated current; strict tilt of the faces
+eq:tl5-hf-qh	paper/reader/proofs/P-HF.md@e0b27615:776	P-HF, display	new
+eq:tl5-hf-theta	paper/reader/proofs/P-HF.md@e0b27615:780	P-HF, display	new
+lem:tl5-hf-conversions	paper/reader/proofs/P-HF.md@e0b27615:800	P-HF, Lemma	khat tilt and the C^2 slice distance eps of thm:tl5-dn
+eq:tl5-hf-eps	paper/reader/proofs/P-HF.md@e0b27615:812	P-HF, display	new
+sec:tl5-hf-bootstrap	paper/reader/proofs/P-HF.md@e0b27615:822	P-HF, section	new
+def:tl5-hf-norm	paper/reader/proofs/P-HF.md@e0b27615:824	P-HF, Definition	new
+def:tl5-hf-constants	paper/reader/proofs/P-HF.md@e0b27615:836	P-HF, Definition	new
+prop:tl5-hf-bootstrap	paper/reader/proofs/P-HF.md@e0b27615:860	P-HF, Proposition	(H1) in the weighted norm; G0 sec 8.2 with explicit constants
+eq:tl5-hf-smallness	paper/reader/proofs/P-HF.md@e0b27615:863	P-HF, display	new
+eq:tl5-hf-h1	paper/reader/proofs/P-HF.md@e0b27615:868	P-HF, display	new
+lem:tl5-hf-persistence	paper/reader/proofs/P-HF.md@e0b27615:921	P-HF, Lemma	(H2), qualitative, N >= 6
+thm:tl5-hf	paper/reader/proofs/P-HF.md@e0b27615:963	P-HF, Theorem	(H1), (H2), (H4) proved, (H3) under the closing condition linear in F; data on N0 carried as data (eta0); existence on D^kappa and double-null form via thm:tl5-dn
+eq:tl5-hf-closing	paper/reader/proofs/P-HF.md@e0b27615:974	P-HF, display	new
+rem:tl5-hf-level	paper/reader/proofs/P-HF.md@e0b27615:1003	P-HF, Remark	why N >= 5 (estimate) and N >= 6 (proof of (H2)); level 3 gives no pointwise D^2 h for thm:tl5-dn; departs from the plan level 3
