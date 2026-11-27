@@ -107,3 +107,41 @@ leaf-by-leaf bound. Changed:
 - lint.py --paper: 0 hits.
 - In the assembled region every line is ≤ 121 characters, with no bad wrapped-line starts. In the file, every line is
   ≤ 121 characters and the only "- " line starts are list items in the non-merged notes.
+
+## Round 2 (the coordinator's two conditions for the σ²-form)
+- File: proofs/P-CLD.md is now 797 lines, md5 67d1d46d29bf60540d4414971c6e34f4. The previous version was 706 lines,
+  md5 7f6e5177. The delta against HEAD is +100 −9 lines. The block, its labels and the crosswalk pins are unchanged.
+- Condition (2): lem:class-planar-shear.
+  - New placement item 8 restates its bound (81:1286) for ‖σ²‖_(H^k).
+  - The same item proves step (5) (81:1318–1319) from the Cartesian form of χ̸ in the frame X_i = ∂_(y_i) + ∂_i h ∂_z,
+    with σ² = 2|χ̸ − ½(tr χ̸)γ̸|² (lem:class-gauss (b)), Moser's estimate, and the sup bounds of step (3).
+  - None of the lemma's uses needs the bound for σ itself. They use steps (1), (3) and (4) or its constants: 81:1437,
+    1445, 1464, 1659, 1757; 83:503; and 81:1327 and 1356 inside the old text of item 1.
+  - New placement item 9 changes the opening paragraph of ch:class-system (81:17–18) to say that the expansion recovers
+    the square of the planar shear.
+- Condition (1): the file's notes now list every use of lem:class-leaf-differences (a) and every H^k bound of σ in all
+  chapter sources at HEAD 9d133b0c (chapters unchanged since 5a238875 and edafc288). Only chapters 81, 82 and 83 contain
+  any. Each entry has its line numbers and how it is handled.
+  - Uses of (a) all go through σ² or need only (c):
+    - 81:1388–1391, 1405, 1449–1474 (lem:class-leaf-reference);
+    - 81:1590–1591 and 1605–1606 (def:class-adapted, the leaves, now (c));
+    - 81:1675 (Step 6) and 81:1704 (Step 9, (F1));
+    - 81:1745–1748 (Smoothness);
+    - 82:2198–2199 and 82:2229 (prop:vlasov-uniform-n);
+    - 83:2933–2934, 2975, 3697–3698, 3714–3716.
+  - H^k bounds of σ itself:
+    - 81:18, reworded by item 9;
+    - 81:1286 and 1318–1319, restated and proved by item 8;
+    - 81:1747, replaced by item 6;
+    - 81:1102–1103, flat model only, already proved in prop:class-flat-model (b);
+    - 81:1137, qualitative.
+  - L² and L^∞ uses are listed as unaffected. Chapter 82's σ2 (82:1802, 1957) is qualitative smoothness with its own
+    proof.
+  - No H^k bound of σ itself remains.
+- Placement now has 9 items (11 replacements). Each old text occurs exactly once at HEAD 9d133b0c (checked by script).
+- Scratch merge (git archive of HEAD 9d133b0c, all 11 replacements applied):
+  - lint.py --chapters: 62 files, 4944 labels, 0 hits.
+  - assemble.py --check: problems 0.
+  - assemble.py: problems 0.
+  - lint.py --paper: 0 hits.
+  - No line in the file is over 121 characters, and there are no bad wrapped-line starts.
