@@ -100,13 +100,13 @@ template<int L, int FL> inline Fx<L, FL> fx_from_mag(const uint64_t* q, bool neg
 
 // magnitude product, product scanning with a three-word accumulator, fully unrolled for fixed limb counts
 template<int LA, int LB> static inline void mulmag(const uint64_t* A, const uint64_t* B, uint64_t* P) {
-  uint64_t c0 = 0, c1 = 0, c2 = 0;
+  unsigned long long c0 = 0, c1 = 0, c2 = 0;
 #pragma GCC unroll 16
   for (int k = 0; k < LA + LB - 1; k++) {
 #pragma GCC unroll 8
     for (int i = (k < LB ? 0 : k - LB + 1); i <= (k < LA ? k : LA - 1); i++) {
-      const u128 p = (u128)A[i] * B[k - i];
-      const u128 s = (((u128)c1 << 64) | c0) + p; c2 += (s < p); c0 = (uint64_t)s; c1 = (uint64_t)(s >> 64);
+      unsigned long long hi, lo = _mulx_u64(A[i], B[k - i], &hi);
+      unsigned char c = _addcarry_u64(0, c0, lo, &c0); c = _addcarry_u64(c, c1, hi, &c1); c2 += c;
     }
     P[k] = c0; c0 = c1; c1 = c2; c2 = 0;
   }
@@ -233,9 +233,9 @@ template<int L, int FL> inline std::string fx_hex(const Fx<L, FL>& a) {         
 
 // ---------------------------------------------------------------------------------------------- exact dot products
 // Operands in sign-magnitude form (the sign in the top bit of the top limb), so that a vector used in many dot
-// products is converted once.  The products are accumulated exactly in 128-bit column sums (with an overflow count
-// per column), positive and negative products apart; the total is formed and floored once at the end.  The result is
-// therefore independent of the order of the terms and of how the work is divided among threads.
+// products is converted once.  Each product is formed exactly and added to (or subtracted from) an exact
+// two's-complement accumulator of 2L + 1 limbs; the total is floored once at the end.  The result is therefore
+// independent of the order of the terms and of how the work is divided among threads.
 template<int L> struct SM { uint64_t m[L]; };
 template<int L, int FL> inline SM<L> to_sm(const Fx<L, FL>& a) {
   SM<L> s; bool n = fx_abs(a, s.m); if (n) s.m[L - 1] |= 1ull << 63; return s;
@@ -246,42 +246,24 @@ template<int L, int FL> inline Fx<L, FL> from_sm(const SM<L>& s) {
 }
 
 template<int L, int FL> struct DotAcc {
-  u128 c[2][2 * L]; uint64_t t[2][2 * L];
-  inline void clear() { memset(c, 0, sizeof c); memset(t, 0, sizeof t); }
-  template<int LA, int LB> static inline void mac_k(u128* C, uint64_t* T, const uint64_t* A, const uint64_t* B) {
-#pragma GCC unroll 8
-    for (int i = 0; i < LA; i++) {
-#pragma GCC unroll 8
-      for (int j = 0; j < LB; j++) { const u128 p = (u128)A[i] * B[j]; const u128 s = C[i + j] + p; T[i + j] += (s < p); C[i + j] = s; }
-    }
-  }
+  uint64_t acc[2 * L + 1];                       // the exact running sum, two's complement
+  inline void clear() { for (int k = 0; k < 2 * L + 1; k++) acc[k] = 0; }
   inline void mac(const SM<L>& a, const SM<L>& b) {
-    const int sg = (int)((a.m[L - 1] ^ b.m[L - 1]) >> 63);
-    u128* C = c[sg]; uint64_t* T = t[sg];
-    uint64_t A[L], B[L];
+    const uint64_t sg = (a.m[L - 1] ^ b.m[L - 1]) >> 63, msk = 0 - sg;
+    uint64_t A[L], B[L], P[2 * L];
     for (int i = 0; i < L; i++) { A[i] = a.m[i]; B[i] = b.m[i]; }
     A[L - 1] &= ~(1ull << 63); B[L - 1] &= ~(1ull << 63);
-    if (A[L - 1]) { if (B[L - 1]) mac_k<L, L>(C, T, A, B); else mac_k<L, L - 1>(C, T, A, B); }
-    else { if (B[L - 1]) mac_k<L - 1, L>(C, T, A, B); else mac_k<L - 1, L - 1>(C, T, A, B); }
+    if (A[L - 1]) { if (B[L - 1]) mulmag<L, L>(A, B, P); else { mulmag<L, L - 1>(A, B, P); P[2 * L - 1] = 0; } }
+    else { if (B[L - 1]) { mulmag<L - 1, L>(A, B, P); P[2 * L - 1] = 0; } else { mulmag<L - 1, L - 1>(A, B, P); P[2 * L - 2] = P[2 * L - 1] = 0; } }
+    unsigned char c = (unsigned char)sg;          // acc += (P xor msk) + sg, i.e. acc -= P for a negative product
+    for (int k = 0; k < 2 * L; k++) c = _addcarry_u64(c, acc[k], P[k] ^ msk, (unsigned long long*)&acc[k]);
+    acc[2 * L] += msk + c;
   }
   inline Fx<L, FL> result() const {
-    constexpr int W = 2 * L + 2;
-    uint64_t v[2][W];
-    for (int s = 0; s < 2; s++) {
-      u128 carry = 0;
-      for (int k = 0; k < 2 * L; k++) {
-        u128 x = (u128)(uint64_t)c[s][k] + (uint64_t)carry;
-        v[s][k] = (uint64_t)x;
-        carry = (x >> 64) + (carry >> 64) + (c[s][k] >> 64) + ((u128)t[s][k] << 64);
-      }
-      v[s][2 * L] = (uint64_t)carry; v[s][2 * L + 1] = (uint64_t)(carry >> 64);
-    }
-    uint64_t d[W]; unsigned char b = 0;
-    for (int k = 0; k < W; k++) b = _subborrow_u64(b, v[0][k], v[1][k], (unsigned long long*)&d[k]);
-    // floor(d / 2^(64 FL)): drop FL limbs of the two's-complement total (arithmetic shift = floor)
-    const uint64_t ext = (int64_t)d[W - 1] < 0 ? ~0ull : 0;
-    for (int k = FL + L; k < W; k++) if (d[k] != ext) fx_fail("overflow in a dot product");
-    Fx<L, FL> r; for (int k = 0; k < L; k++) r.w[k] = d[FL + k];
+    constexpr int W = 2 * L + 1;
+    const uint64_t ext = (int64_t)acc[W - 1] < 0 ? ~0ull : 0;
+    for (int k = FL + L; k < W; k++) if (acc[k] != ext) fx_fail("overflow in a dot product");
+    Fx<L, FL> r; for (int k = 0; k < L; k++) r.w[k] = acc[FL + k];   // dropping FL limbs: the floor
     if (((int64_t)r.w[L - 1] < 0) != (ext != 0)) fx_fail("overflow in a dot product");
     fx_check(r); return r;
   }

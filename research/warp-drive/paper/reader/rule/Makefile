@@ -13,6 +13,6 @@ $(BUILD)/rule: rule.cpp $(HDRS)
 	@sha256sum $(SOLVER)/rhs_gen.h
 $(BUILD)/t_fixp: tests/t_fixp.cpp fixp.h gmpmin.h
 	@mkdir -p $(BUILD)
-	$(CXX) -O2 -std=c++17 -I. -o $@ tests/t_fixp.cpp $(GMPLIB)
+	$(CXX) $(CXXFLAGS) -I. -o $@ tests/t_fixp.cpp $(GMPLIB)
 clean:
 	rm -rf $(BUILD)
