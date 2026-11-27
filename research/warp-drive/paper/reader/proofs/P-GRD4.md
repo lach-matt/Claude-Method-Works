@@ -62,21 +62,25 @@ are of the same kind with b = 0, and the couplings 𝔔_CJ carry μ^((|C|−|J|)
 [[eq:tl5-hfs-sum]] with ν′ = μ and ν′ = ν, the nonlinear part is at most 𝔰 k₃^♮(μ) (2μ^(−(|C|+1)/2) 𝒥_g + the part of
 R_C with 𝒥_g) + 𝔰 k₃^♮(ν) (the part of R_C with ϱ(p)), and 𝔰 k₃^♮(ν) ≤ 1/2 closes the induction.
 
-For [[eq:tl5-hfq-small]] let a_Φ := μ^(−(o+2)/2) and r_Φ := ν^(−(o+2)/2) for a low quantity Φ of order o (with a factor 2
-for H, as |H| ≤ 2|h|). The steps of the proof of [[lem:tl5-hft-small]] (a), with [[eq:tl5-hfq-m2]] in place of
+For [[eq:tl5-hfq-small]] let a_Φ := μ^(−(o+2)/2) and r_Φ := ν^(−(o+2)/2) for a low quantity Φ of order o (for H the
+factor 2 of |H| ≤ 2|h| is taken up by 2C_S and 2C_(0,0) in the constants). The steps of the proof of
+[[lem:tl5-hft-small]] (a), with [[eq:tl5-hfq-m2]] in place of
 [[eq:tl5-hfs-m2]], give for each Φ a bound |Φ(p)| ≤ a_Φ 𝔈 + r_Φ ℜ + 𝔫_Φ, where 2𝔈 := μ^(N/2)·(the part of the right side
 of [[eq:tl5-hfq-small]] with ℰ_g) and 2ℜ := ν^(N/2)·(its part with ϱ and η₀) are formed from the linear terms of those
 steps: for D̂Ψ_B the part with ϱ of D̂²Ψ_(JB) on the face is at most 2k₂ ν^(−(|B|+3)/2) ϱ(p); for D̂²Ψ_B the jets of the
 recovery carry the weights of [[lem:tl5-hfs-linfty]] with μ in their parts with ℰ_g and with ν in their parts with ϱ(p)
-and η₀(p), which gives k₁^(N−4,μ) and k₁^(N−4,ν); the parts with η₀(p) of Ψ_B and D̂Ψ_B are bounded unweighted, and 1 ≤
-r_Φ. Here 𝔫_Φ = 0 unless Φ = D̂²Ψ_B, and then 𝔫_Φ is the nonlinear part, whose factor Φ′ of largest order is a low
+and η₀(p), which gives k₁^(N−4,μ) and k₁^(N−4,ν); the part with η₀(p) of Ψ_B is C_(0,0) η₀(p), with 1 ≤ r_Φ, and in that
+of D̂Ψ_B, on S_a, a coefficient of the remainder of ℒ^J D̂Ψ_B carrying a ≤ 2 letters is at most Λ_a ≤ ν^(−(|B|+3)/2)
+ν^((1+a)/2) Λ_a ≤ ν^(−(|B|+3)/2) Λ₂^ν, which gives r_Φ times the constant C_(1,0) formed with ν. Here 𝔫_Φ = 0 unless
+Φ = D̂²Ψ_B, and then 𝔫_Φ is the nonlinear part, whose factor Φ′ of largest order is a low
 quantity with a_(Φ′) ≤ μ^(b/2) a_Φ and r_(Φ′) ≤ ν^(b/2) r_Φ, b the letters on the background factors. With t :=
 max_Φ |Φ(p)|/(a_Φ 𝔈 + r_Φ ℜ), [[eq:tl5-hfs-sum]] gives 𝔫_Φ ≤ t 𝔰 (k₃^♮(μ) a_Φ 𝔈 + k₃^♮(ν) r_Φ ℜ) ≤ (t/2)(a_Φ 𝔈 + r_Φ ℜ);
 so t ≤ 1 + t/2, t ≤ 2, and max_Φ a_Φ ≤ μ^(−N/2), max_Φ r_Φ ≤ ν^(−N/2) give [[eq:tl5-hfq-small]].
 
 In the proof of [[lem:tl5-hfs-products]] a factor Φ₂ = D̂²Ψ_C has, by [[eq:tl5-hfq-m2]], its part with ϱ(p) at most
-2k₂ ν^(−ℓ_E(Φ₂)/2) ϱ(p); so the term with ϱ(p) of a monomial with b background letters is at most ν 𝔰^(q−1) μ^(n/2)
-ν^(−ℓ_E(Φ₂)/2) 2k₂ ϱ(p), and ℓ_E(Φ₂) ≤ n − b + 1 for b ≥ 1, ℓ_E(Φ₂) ≤ n for b = 0, give μ^(n/2) ν^(−ℓ_E(Φ₂)/2) ≤
+2k₂ ν^(−ℓ_E(Φ₂)/2) ϱ(p); so the term with ϱ(p) of a monomial with b background letters is at most its background norm
+times 𝔰^(q−1) μ^(n/2) ν^(−ℓ_E(Φ₂)/2) 2k₂ ϱ(p), and ℓ_E(Φ₂) ≤ n − b + 1 for b ≥ 1, ℓ_E(Φ₂) ≤ n for b = 0, give
+μ^(n/2) ν^(−ℓ_E(Φ₂)/2) ≤
 μ^((1−θ)n/2) ν^(−1/2) ν^(b/2); [[eq:tl5-hfs-sum]] with ν′ = ν gives the first replacement, and the term H^(αβ)
 D̂_αD̂_βΨ_J, |J| < n, the second. ∎
 
@@ -96,12 +100,14 @@ inequality over the monomials and the weights as there, μ² (Σ_(|B|=2) |R′|�
 remainders R of ℒ^J D̂²Ψ_Z, whose solution factors are D̂Ψ_(σZ) or Ψ_(σZ), which removes the count 7 of the fields Z from
 their part: μ⁴ Σ_Z Σ_J |ℒ^J D̂²Ψ_Z|² ≤ 602 M_g² + 2ϖ₂ 𝒥_g². In the bound of Y₁ only D̂²Ψ_B with |B| = 2 occurs, and
 μ^(3/2) |D̂²Ψ_B| ≤ M_g^(2) ≤ 2(k₁^(2,μ) + 1) 𝒥_g + 2k₂ ϱ by [[lem:tl5-hft-small]] (b); so ‖M_g^(2)‖_Σ ≤ λ_t^(μ,2) 𝔍_g +
-ς_t ϱ takes the place of the bound of ‖M_g‖_Σ there. The rest of that proof holds as written. ∎
+ς_t ϱ takes the place of the bound of ‖M_g‖_Σ there. The rest of that proof holds as written, its bound of ‖M_g‖_Σ
+holding by [[lem:tl5-hfq-theta]]. ∎
 
 **Definition {#def:tl5-hfq-constants}** (The constants at level four sharpened a fourth time.) Let N = 4 and the
 setting be that of [[def:tl5-hfs-constants]], with its constants formed with the chosen Sobolev constants; fix θ ∈
 [0, 1] and put ν := μ^θ, 𝔰₀^q as in [[lem:tl5-hfq-theta]] with the supremum over D^κ, 𝔰₁^q := min(𝔰₀^q/2, c_* κ_m/2,
-𝔰_θ), and, with the notation of [[lem:tl5-hfs-mixed]] and [[lem:tl5-hfq-mixed]],
+𝔰_θ), 𝔰_θ being that of [[def:tl5-hf-constants]], which does not depend on θ, and, with the notation of
+[[lem:tl5-hfs-mixed]] and [[lem:tl5-hfq-mixed]],
 
     𝔤_(ϱ,q) := ν^(−1/2) (Σ_(j≤4) (Σ_(j′≤j) μ^((j−θj′)/2) 𝔮_(jj′) 7^(j′/2) (𝔠^♮_(j′)(ν) + 1))²)^(1/2),
     ε_(w,q) := 𝒮[s₄[2R̂ic] + (1/4) min(𝔤_(ϱ,q), μ^(−1/2) 𝔤_(𝒥,s)) k₂ ϱ],
@@ -164,7 +170,7 @@ Each new text replaces its old text as a whole, with the line breaks shown.
 
 *1. Where the section goes.* The section above, from its heading ("The constants at level four sharpened a fourth time",
 label sec:tl5-hfq) through the last line of [[rem:tl5-hfq-what]], is inserted at the end of [[ch:ten-l5]], after the
-last line of [[rem:tl5-hft-what]] (line 5977, as changed by item 2), with one blank line before it, as a sibling "###"
+last line of [[rem:tl5-hft-what]] (line 5978 once item 2 is applied), with one blank line before it, as a sibling "###"
 section after sec:tl5-hft. It cites results of the earlier sections as they stand and the proofs of
 prop:tl5-hft-bootstrap, prop:tl5-hfs-bootstrap and thm:tl5-hf4t with the replacements it states. It defines the
 labels listed in the crosswalk rows, none defined elsewhere. No number already printed changes.
@@ -254,14 +260,14 @@ are those of this file:
     lem:tl5-hfq-theta	paper/reader/proofs/P-GRD4.md@PENDING:38	P-GRD4, Lemma	absorption weighted in two parts (mu for the energies, mu^theta for rho and eta0); family between options (a) and (b)
     eq:tl5-hfq-m2	paper/reader/proofs/P-GRD4.md@PENDING:43	P-GRD4, display	new
     eq:tl5-hfq-small	paper/reader/proofs/P-GRD4.md@PENDING:48	P-GRD4, display	new
-    lem:tl5-hfq-mixed	paper/reader/proofs/P-GRD4.md@PENDING:83	P-GRD4, Lemma	X1 without the count 49, X2 without the count 7 in its remainder part, Y1 with the level-2 recovery constant
-    def:tl5-hfq-constants	paper/reader/proofs/P-GRD4.md@PENDING:101	P-GRD4, Definition	fourth sharpened constants at level 4: s0^q, s1^q, g_(rho,q), eps_(w,q), S_(M,q), r_(M,q), eps_(M,q), A_q, B_q, s_(*,q)
-    eq:tl5-hfq-constants	paper/reader/proofs/P-GRD4.md@PENDING:114	P-GRD4, display	new
-    prop:tl5-hfq-bootstrap	paper/reader/proofs/P-GRD4.md@PENDING:116	P-GRD4, Proposition	(H1) at level 4 with the fourth sharpened constants
-    eq:tl5-hfq-h1	paper/reader/proofs/P-GRD4.md@PENDING:121	P-GRD4, display	new
-    thm:tl5-hf4q	paper/reader/proofs/P-GRD4.md@PENDING:134	P-GRD4, Theorem	thm:tl5-hf4 with the fourth sharpened constants; theta in [0,1]
-    eq:tl5-hf4q-closing	paper/reader/proofs/P-GRD4.md@PENDING:138	P-GRD4, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,q) + 2 eps_(M,q)) (S_(F,s) + S_(M,q)) < 1
-    rem:tl5-hfq-what	paper/reader/proofs/P-GRD4.md@PENDING:147	P-GRD4, Remark	what the fourth sharpening changes
+    lem:tl5-hfq-mixed	paper/reader/proofs/P-GRD4.md@PENDING:87	P-GRD4, Lemma	X1 without the count 49, X2 without the count 7 in its remainder part, Y1 with the level-2 recovery constant
+    def:tl5-hfq-constants	paper/reader/proofs/P-GRD4.md@PENDING:106	P-GRD4, Definition	fourth sharpened constants at level 4: s0^q, s1^q, g_(rho,q), eps_(w,q), S_(M,q), r_(M,q), eps_(M,q), A_q, B_q, s_(*,q)
+    eq:tl5-hfq-constants	paper/reader/proofs/P-GRD4.md@PENDING:120	P-GRD4, display	new
+    prop:tl5-hfq-bootstrap	paper/reader/proofs/P-GRD4.md@PENDING:122	P-GRD4, Proposition	(H1) at level 4 with the fourth sharpened constants
+    eq:tl5-hfq-h1	paper/reader/proofs/P-GRD4.md@PENDING:127	P-GRD4, display	new
+    thm:tl5-hf4q	paper/reader/proofs/P-GRD4.md@PENDING:140	P-GRD4, Theorem	thm:tl5-hf4 with the fourth sharpened constants; theta in [0,1]
+    eq:tl5-hf4q-closing	paper/reader/proofs/P-GRD4.md@PENDING:144	P-GRD4, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,q) + 2 eps_(M,q)) (S_(F,s) + S_(M,q)) < 1
+    rem:tl5-hfq-what	paper/reader/proofs/P-GRD4.md@PENDING:153	P-GRD4, Remark	what the fourth sharpening changes
 
 Note to change in the existing row of the crosswalk of [[ch:ten-l5]]: rem:tl5-hft-what, add "; points to sec:tl5-hfq
 (P-GRD4 item 2)".
