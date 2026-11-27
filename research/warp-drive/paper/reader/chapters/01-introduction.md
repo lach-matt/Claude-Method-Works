@@ -152,9 +152,9 @@ evaluation of λ1 and δ stops and bounds the loss d with which the proof of [[t
 theorem. At every point of the set on which that theorem is proved at which γ_C ≥ 10⁶, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻²
 and d > 0.3168 γ_C², z = 4e_Υγ_Υ² and γ_C being the gauge and damping parameters of [[ch:s13]] and [[ch:s14]]
 ([[thm:ec-lb-proved]]), so that d is unbounded on that set. At a point of the gauge and damping parameters not shown to
-lie in it, d > 1.2250 × 10²⁷ at every admissible choice of the weights, for the index sets as the proofs construct them
-([[cor:is-lower]]), and d < 7.57245 × 10⁵⁵ at one admissible choice of the weights, orders and inner products
-([[thm:uc-integer]]). A
+lie in it, d > 1.403 × 10²⁰ at every admissible choice of the weights ([[thm:loss-d]]) and d > 1.2250 × 10²⁷ for the
+index sets as the proofs construct them ([[cor:is-lower]]), while d < 1.42556 × 10³⁸ at one admissible choice of the
+index sets, weights, orders and inner products ([[thm:uc-integer]]). A
 high-frequency theorem, whose expansion parameter is the wavelength over the curvature length, does not apply at a
 prescribed wavelength of 10 l5; there existence holds where the solution is the seed and on a strip beyond it whose
 width is not estimated ([[thm:ten-l5]]). [[ch:scope]] collects these statements.

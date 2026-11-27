@@ -71,16 +71,18 @@ bounds tend to infinity as z or γ_C⁻¹ tends to 0, so that no upper bound for
 ([[rem:ec-lb-unbounded]]). At the
 computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 × 10²¹, so that log₁₀ δ < −1.351 × 10²¹
 ([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2250 × 10²⁷ and N_NM > 2.5725 × 10²⁸ at every admissible choice
-of the weights, for the index sets as the proofs construct them ([[cor:is-lower]]). These are lower bounds for the
-loss that this proof's choices produce, not for the least loss with which the tame estimates hold ([[thm:loss-d]]). At
-that point, for those index sets and at one admissible choice of the weights and of the free orders and inner products,
-d is at most an integer below 7.57245 × 10⁵⁵ and N_NM at most one below 1.59022 × 10⁵⁷ ([[thm:uc-integer]]). The order of
+of the weights, for the index sets as the proofs construct them ([[cor:is-lower]]). These are lower bounds for the loss
+that this proof's choices produce, not for the least loss with which the tame estimates hold ([[thm:loss-d]]). At that
+point, at one admissible choice of smaller index sets, which serve as well ([[thm:is-flat-serves]]), of the weights and
+of the free orders and inner products, d is at most an integer below 1.42556 × 10³⁸ and N_NM at most one below
+2.99367 × 10³⁹ ([[thm:uc-integer]]). The order of
 the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of derivatives,
-so that at that point K is at most an integer below 1.66594 × 10⁵⁷ ([[prop:uc-data-order]]). The
+so that at that point K is at most an integer below 3.13622 × 10³⁹ ([[prop:uc-data-order]]). The
 computational point is a point at which the formulas of the proof can be evaluated, and it is not shown to lie in the
 set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). At the admissible parameter points with the same
-gauge values and other values h ∈ (0, 10⁻⁶) of the damping parameter, d > 2.0517 × 10¹⁰/μ(h), μ(h) the least excess above
-3 that the roots of real part below 3 of the damping polynomials give to the exponents of the construction, which tends
+gauge values and other values h ∈ (0, 10⁻⁶) of the damping parameter, and for the index sets as the proofs construct
+them, d > 2.0517 × 10¹⁰/μ(h), μ(h) the least excess above 3 that the roots of real part below 3 of the damping
+polynomials give to the exponents of the construction, which tends
 to 0 as h decreases to some h_μ ∈ (5 × 10⁻⁷, 10⁻⁶); this paper proves upper bounds for d and N_NM there, explicit in μ(h)
 and h, only for h ≥ 4.76 × 10⁻¹¹ outside a set of total length below 1.7 × 10⁻¹¹ and under a condition on the roots of
 the damping polynomials of large degree that is decided only at h = 10⁻⁶, and whether such points are admissible is not
