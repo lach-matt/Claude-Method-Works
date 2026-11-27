@@ -83,6 +83,20 @@ D_A, seed 1 D*, seed 2 D*), reachable in all four cases now that the approximant
 stop, do one more round, or keep tightening (which now only shortens the solver's and the reader's computing time), the
 author chose: keep tightening, round after round toward the floor, alongside the rest of the work.
 
+## 2026-11-27: where the rule is run, and seed 1 on D*
+
+S-RULE (notes/reports/S-RULE.md) costed the rule at about 500-900 core-hours per D_A case, 1,700-2,500 for seed 2's D*
+and 2,300-7,000 for seed 1's D*, and recommended a 32-64-core machine. Asked where the production runs should happen,
+the author chose this machine: "3, but use the Zeno segmentation protocols from the repo corpus to structure the work to
+minimize the risk of container reclamation". The protocol is M-ZENO-SEGMENTATION of the warp tree's record
+(research/warp-drive/docket68/M-RULINGS-2026-10-03.md, item 392, applied in items 393-397 and lemmas/INTERIOR-REQUIRED.md):
+the range cut in halves, each remainder halved again, each segment worked on its own scale with the same fixed effort,
+its end state handed to the next; the method checked first where the answer is known; each run segment with its
+question, criterion and stop, its result deciding whether the next one runs.
+
+Asked whether seed 1 on D* should be computed and certified too (under the rule it is a question of cost, not of reach),
+the author: "Yes, include it". So all three cases are certified: seed 1 on D_A and on D*, seed 2 on D*.
+
 ## Earlier decisions in this segment
 
 - Admissible points (P-ADM): the cap h <= 10^-6 is removed from the definition; the lower bounds on d state it as an
