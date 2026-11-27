@@ -1,24 +1,21 @@
-# Report: P-S7 fix round (answers notes/reviews/R-P-S7.md)
+# Report: P-S7 confirmation round (m6, N1-N3 of notes/reviews/R-P-S7.md)
 
-File: research/warp-drive/paper/reader/proofs/P-S7.md, md5 0571d41d9f9ff4f7999f4f76dd73eb55, 1447 lines
-(was 16e6e03f795d2c73d79116cdce206e38, 955 lines). Only that file was written in the repository; nothing committed.
-HEAD edafc288; the five chapter files (23, 27, 33, 37, 95) and their crosswalks are unchanged since round 1, and every
-old text (18 items) and old crosswalk row (10) occurs exactly once, as whole lines, at HEAD.
+File: research/warp-drive/paper/reader/proofs/P-S7.md, md5 ea6cd0ab6f5f1b5320776d7ac7f6930e, 1542 lines
+(was 0571d41d9f9ff4f7999f4f76dd73eb55, 1447 lines). Only that file written; nothing committed.
 
-Delta (section 9 of the file has the table):
-- M1: lem:ii-a-3-1 (g) locality in cut-off symbols, with proof (P-S7-2); WF′ with S^(𝐨−K𝐞) (P-S7-3); lem:ii-f-2-2 (h)
-  locality with proof (P-S7-14, P-S7-15, new); prop:ii-f-2-3 proof lists locality (P-S7-16, new); crosswalk notes;
-  every use of WF′/Ell of chapter 27 re-read with the weighted WF′ (section 4.9): all fine (WF′ is taken of Ψ⁰
-  operators except in the transferred ch. 21 proofs, where the weighted condition is the faithful transport).
-- m1: (S7) states weights by their definition (P-S7-1); 33:1515–1516 uses it (P-S7-18, new).
-- m2: phase-space-weight claim removed from (b).
-- m3: P-S7-6 extended to 1 ≤ |σ| ≤ C_0 and the identification with orders (s_c, 𝗋_σ + β).
-- m4: 27:444–445 diagonal argument (P-S7-13, new).
-- m5 option (b): (e) proved by a nested-cut-off parametrix from the calculus and (g) only (variable orders, (S8)
-  classes, systems); 23:1052–1054 (P-S7-12) and 27:1432–1440 (P-S7-17) now cite (e).
-- n1–n4 applied; n5: new lem:ii-f-2-phase (smooth functions on the phase space are in S⁰, uniformly in h) with proof,
-  cited in (c) and (h); n6 in the notes; n7 recorded.
+Old texts from HEAD a04d936f (equal at e6fc48f8): all 19 items and 11 crosswalk rows occur once as whole lines.
+Chapter 33 and its crosswalk changed since 0571d41d (line 4533, other rows); P-S7-18 and its row unaffected.
+Chapter 28 (6e4db069...) and crosswalk 28 (04bd7ef7...) are new to P-S7.
 
-Scratch merge (tree3, from edafc288): lint --chapters 4928 → 4930 labels, 0 hits; assemble --check 0 problems;
-assembled PAPER.md 0 hits, longest line 121. New labels: lem:ii-a-3-1 (Lemma 14.15), lem:ii-f-2-phase (Lemma 18.7; the
-later lemma numbers of that chapter rise by one).
+Delta:
+- m6: P-S7-19 (new), 28:212 -> 8 lines justifying the uniform equivalence for h in [h_0, 1] by lem:ii-a-3-1 (f), (d)
+  and lem:ii-f-2-phase; crosswalk note for prop:ii-f-6-2; section 4.11. Confirmed against [Hin26c] Section 10.1.1
+  (pp. 204-205): the restriction of Phi_sigma to fibre infinity is independent of sigma, and at fibre infinity the
+  semiclassical map loses its sigma term by homogeneity, so s_(0hbar,chbar) and s_(0,b) are the same restriction of s
+  (the factors (h+R)/h, resp. h, relating the covectors are positive). The printed sentence was true, only unproved.
+- N1: P-S7-3 scope phrase reworded.
+- N2: 27:1432-1440 in sections 1, 3, 6.4, 9.
+- N3: (e) states K/2 >= N + |sup m| + |sup l| where K is fixed.
+
+Scratch merge (tree6 from a04d936f): lint --chapters 4956 -> 4958 labels, 0 hits; assemble --check 0 problems;
+PAPER.md 0 hits, longest line 121. New crosswalk line ranges: P-S7.md@COMMIT:575-717 and 762-788.
