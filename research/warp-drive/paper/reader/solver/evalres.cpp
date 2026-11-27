@@ -59,8 +59,9 @@ static void block_eval(const Block& B, const dd& t, const dd& s, const dd& x, dd
 }
 // Phi(s) and its first two derivatives
 static void Phi3(const dd& s, dd& p0, dd& p1, dd& p2) {
-  if (!(s.hi > 0)) { p0 = p1 = p2 = dd(0.0); return; }
-  if (!(s.hi < 1)) { p0 = dd(1.0); p1 = p2 = dd(0.0); return; }
+  // below s = 1/500 (above 1 - 1/500) Phi and its derivatives are below e^-400 (1 - Phi likewise): their limits
+  if (!(s.hi > 0.002)) { p0 = p1 = p2 = dd(0.0); return; }
+  if (!(s.hi < 0.998)) { p0 = dd(1.0); p1 = p2 = dd(0.0); return; }
   // f = e^{-1/s}, g = e^{-1/(1-s)}; Phi = f/(f+g) = 1/(1 + e^{1/s - 1/(1-s)}) =: 1/(1+e^h)
   dd h = dd(1.0) / s - dd(1.0) / (dd(1.0) - s);
   dd h1 = -dd(1.0) / (s * s) - dd(1.0) / ((dd(1.0) - s) * (dd(1.0) - s));
