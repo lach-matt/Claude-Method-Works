@@ -607,3 +607,260 @@ lem:loc-t5-times holds", but its proof uses that û_A is null to infinite order 
    [[lem:class-leaf-states]]" if P-CLD lands first: agreed; a merge-order item, not a finding against this file.
 
 Verdict: NOT CONFIRMED
+
+---------------------------------------------------------------------------------------------------------------------
+
+## Second reading: proofs/P-CIVP5.md after the fix round (md5 cb809324233a1f50b9dbfb8e50e02f6a, 1,233 lines)
+
+Read: the writer's report (notes/reports/P-CIVP5.md, fix round 3); every changed part of the file line by line, every
+changed proof in full (Block A1 entire; Block A2 from the space-time norms to the end of rem:class-kato-memory, part (d)
+and its proof in full; Block B: the carrying paragraph, lem:loc-t5-jets, lem:loc-t5-times, lem:loc-t5-faces, the whole
+of sec:loc-t5-system with *Compatible paths*, lem:loc-t5-forcing, -residual, -existence, -past, -constraints with the
+weights, lem:loc-t5-uniqueness entire, thm:loc-t5 (c)–(d), prop:loc-t5-cut's statement, rem:loc-t5-scope); the
+Placement and the crosswalk rows. For the checks against P-CLD: P-CLD 39e7fd67 (from git history, retired at 88ae2d77),
+its definitions, lem:class-leaf-states and the proof of lem:class-leaf-differences Steps 1–7; its merged text in
+chapter 81 at 88ae2d77 agrees with it (checked for Step 4).
+
+Base: `git archive 88ae2d77` (P-CLD merged; chapters 81 and 83 and their crosswalks identical at HEAD f66ff0a2), Tier 4
+included. Scratch: scratchpad/rpcivp5/cld/ (base), m3/ (the file merged as written), fix2/P-CIVP5-fix2.md and
+fix2/fix2.diff (this round's replacement texts applied), m3f/ (that copy merged), script tools/merge3.py.
+
+### Checks
+
+- Placement: items 4, 5, 6 occur exactly once at the base (item 4 at 83:738, item 5 at 83:3254, item 6 at 81:2215;
+  P-CLD's merge moved them from the 735, 3251 and 1839 the file names, which "serve only to find the place"); A1 goes
+  before sec:class-axes-stability after lem:class-leaf-reference; A2 before sec:class-off-axes; B before sec:civp-axes.
+  All anchors once.
+- m3/ (as written): `lint.py --chapters` "62 file(s), 5110 label(s) defined, 0 hit(s)"; `assemble.py --check` "labels
+  5110, computations cited 0, problems 0"; in-memory check `[] 0`; no assembled line over 121 characters.
+- Crosswalk: 31 rows, four tab-separated fields each, every source line holds its label, the labels are exactly those
+  the blocks define, and the label order of chapters 81 and 83 equals the row order (93 and 330 rows). No reference to
+  lem:class-leaf-arc remains anywhere.
+- m3f/ (with the replacement texts below): the same four results.
+
+### Round-1 findings: status
+
+- Major 1 (step (6)): resolved. The tame lemma now runs P-CLD's Steps 1–7, whose Step 5 bounds T^j η through
+  T^j η = r² ∫_0^1 θ T^j δs(θ r) dθ, with the operator bound 9δ² on each disc: no line integral remains.
+- Major 2 (𝔤 ≠ ∂g): resolved. Part (d) and the class 𝒞 are correct (below), and on 𝒞 the first derivatives of the metric
+  are its own, so P-CLD's states, its divergence form and lem:class-leaf-states apply.
+- Major 3 (σ versus σ²): resolved. eq:class-leaf-tame bounds σ² − σ̊² through P-CLD's eq:class-leaf-square (a smooth
+  function of y, h, ∂h, ∂²h and W ∘ Λ, no α-coefficient); lem:loc-t5-forcing and -residual use σ²; (M2) and the energy
+  estimates use lem:class-leaf-states (c) and |σ| ≤ C.
+- minors 1–2: moot (lem:class-leaf-arc removed). minors 3, 4, 5, 7–15 and the nits: resolved as the report says (the
+  closure radius now fixes δ := δ′ ≤ δ_1 and collects (i)–(iv) for δ_♮; 𝒦_A^♯ and K are built from the background;
+  lem:loc-t5-faces assumes ζ_A = 1; (N4) and the χ_c dependence are in prop:loc-t5-cut; the jet bounds are written out).
+  minor 6 is applied, but with the new weights it needs the correction of minor B below.
+
+### The writer's five questions
+
+1. *The six changes to P-CLD's Steps 1–7.* (i) is right (G-averaged smooth families built from a metric and its own
+   derivatives; Stein's operator bounded on W^(6,∞) and on the Sobolev spaces; σ² converges in L² by
+   lem:class-leaf-states (c) and |σ| ≤ C). (iii) is right: in four variables H³ ⊂ L^∞ (3 · 2 > 4), a non-top factor has
+   a ≤ n/2 derivatives, so a ≥ 5 forces n ≥ 10 and a + 3 ≤ n − 2, and the H^(a+3) norms of ω, ω_g are bounded by
+   ‖W − W̊‖_(H^(n−1)); this is the source of the stated dependence of C_n. (iv), (v), (vi) are right: Steps 5 and 6
+   act disc by disc and are integrated over (t, z0), T includes ∂_t, the absorptions use sup |Dω| ≤ r, and Ω_n is
+   bounded by ‖W − W̊‖_(H^n(𝒱_4)) as the first derivatives of g are components of W. (ii) bounds one order too few —
+   minor A.
+2. *Part (d) and (C1)–(C4).* Correct. The block structure holds for the first-order form of Step 9: g is differentiated
+   only in the first row, A^0 = diag(I, A′^0), A^j = diag(0, A′^j), and the first row's forcing is Z_(g_τ) for every Z by
+   the redefinition of that row (which is the row of 𝒜^♮ where |Z| ≤ r_0). The split step: w′ by
+   lem:class-kato-history for the u′ rows (their history solves them, F′(u^n) = F′(h) by (M0)), w_0 by integration;
+   the bounds (⟦w_0 − u_(*0)⟧ ≤ ηρ + (1 + T)|Π| ⟦w′ − u′_*⟧, with (C1)), the contraction (δ_0 = ∫ Π δ′), the limit
+   ((C3)) and the global iteration of (c) (w_0's H^σ norm from w′'s, matching at t = 0 by (C1)) all check. For 𝒞:
+   (C2) from ∂_τ w_g = w_(g_τ) and the third row h_χ^(ab)(∂_τ w_(g_b) − ∂_b w_(g_τ)) = 0, which has no forcing (F_0,
+   A^μ ∂_μ 𝐔̊, B_♭ Z and F̃ have none there); (C4) from ⟦h_g⟧_(k+1) ≤ C ⟦h⟧_k and E_(t1) with N = k + 2. The compatible
+   extension of lem:loc-t5-forcing (X_b on Z_g, its derivatives as the other metric components) lies in 𝒞, and its L²
+   bound in (M2) holds because ∂(Z_g − Z′_g) are components of Z − Z′.
+3. *The weighted lem:class-leaf-states (c).* Correct: its proof integrates eq:class-leaf-pointwise over each leaf of the
+   first state and then over the axis points, so a bounded weight constant on those leaves within the radius passes
+   through. κ_A is constant on the arcs: κ̄_A = k(U_A) on {ρ_i ≤ δ_2}, u_A is constant along P_A and equals U_A on the
+   edge, and the arc points within δ_♮ of the axis come from points of one A-section within δ_2 of the axis by (iii) of
+   the choice of δ_♮. The weighted energy identity gains no term in dκ_A (P_A(κ_A) = 0 on transport rows), and family A
+   enters D's equation only through q_A, which vanishes where κ_A < 1.
+4. *The continuity step of lem:loc-t5-uniqueness.* The structure is right (the auxiliary state W with the metric
+   g_1 + χ_θ(g_2 − g_1) and its own derivatives, the fixed cut-offs χ̃_A, the Taylor bounds along the segments and along
+   P_1^A, the weighted energy), with two corrections: minors B and C.
+5. *The jet count.* Correct in its conclusion (loss five per order, m_0 = 6k + 18 ≥ k + 3 + 4j for j ≤ k + 3); the
+   order of the recursion is misstated — nit 2.
+
+### minor findings (second reading)
+
+#### minor A — lem:class-leaf-tame (ii) bounds one order too few for rule (iii) (lines 44–49)
+
+(iii) bounds every factor with a ≤ 4 derivatives "pointwise by (ii)". Among the factors of (P) are ∂_y² h_X and ∂_y² η
+(P-CLD's Step 7, through eq:class-leaf-square); ∂_y² h_X = s_X I + y ⊗ ∂_y s_X, so four derivatives of it hold five of
+s_X, while (ii) bounds four. For 8 ≤ n ≤ 9 such a factor is not the top one and is covered neither by (ii) nor by the
+H³ rule (which starts at a = 5). Differentiating once more needs only five derivatives of W_X, which ‖W − W̊‖_(C^5) ≤ r
+provides. Old (lines 44–49):
+
+```
+(ii) *Step 4.* Differentiating [[eq:class-leaf-s]] up to four times in r, z0 and t, each derivative of s_X solves a
+linear equation whose map has norm at most 1/2, as in Step 7 of the proof of [[lem:class-leaf-states]], with an
+inhomogeneous term holding derivatives of order at most four of W_X and derivatives of s_X and h_X of lower order. So
+the derivatives of order at most four of s_X, h_X, ∂_y h_X, 𝔰_X, W_X ∘ Λ_X and of order at most five of g_X ∘ Λ_X are
+bounded on I × Q̂ by C, and those of η, ∂_y η, δs, δ𝔰, ω ∘ Λ_U and of order at most five of ω_g ∘ Λ_U by C r, which we
+take at most 1; here the bound ‖W − W̊‖_(C^5) ≤ r replaces [[eq:class-leaf-sup]] and the smallness of 𝒩_k.
+```
+
+New:
+
+```
+(ii) *Step 4.* Differentiating [[eq:class-leaf-s]] up to five times in r, z0 and t, each derivative of s_X solves a
+linear equation whose map has norm at most 1/2, as in Step 7 of the proof of [[lem:class-leaf-states]], with an
+inhomogeneous term holding derivatives of order at most five of W_X and derivatives of s_X and h_X of lower order. So
+the derivatives of order at most five of s_X, h_X, ∂_y h_X, 𝔰_X and W_X ∘ Λ_X, of order at most four of ∂_y² h_X and of
+order at most six of g_X ∘ Λ_X are bounded on I × Q̂ by C, and the same derivatives of η, ∂_y η, δs, δ𝔰, ω ∘ Λ_U, ∂_y² η
+and ω_g ∘ Λ_U by C r, which we take at most 1; here the bound ‖W − W̊‖_(C^5) ≤ r replaces [[eq:class-leaf-sup]] and the
+smallness of 𝒩_k.
+```
+
+#### minor B — lem:loc-t5-uniqueness: the further families must agree on the support of κ_A in the faces, not only on 𝒦_A″ (lines 903–907, 927–931; thm:loc-t5 (c), lines 1028–1032)
+
+κ̄_A is 1 on 𝒦_A″ and supported in "a compact neighbourhood of 𝒦_A″ in the faces", so supp κ_A meets the faces outside
+𝒦_A″. The proof then needs agreement of family A there: "the set of these s … contains 0" (supp κ_A ∩ 𝒦_0 lies in the
+corner sphere, not necessarily in 𝒦_A″), the Taylor bound "along the integral curves of P_1^A" (whose backward curves
+from the slab may reach the faces at points of supp κ_A ∖ 𝒦_A″), and z = 0 on B_0 for the rows of family A. The
+hypothesis gives agreement only on 𝒦_A″. thm (c) has more (agreement to all orders on the crossing sets), so the fix is
+to assume agreement on the neighbourhood and build κ_A from it. Old (lines 904–906):
+
+```
+𝒯_A be the union of the integral curves of P_1^A in R′ from 𝒦_A″, let the phases of A of U_1 and U_2 be defined on a
+neighbourhood of 𝒯_A, and let the densities of A of both vanish on R′ ∖ 𝒯_A. If U_2 and U_1 agree, with all their
+derivatives, on the past faces, the components of each further family A only on 𝒦_A″, then U_2 = U_1 on R′, the
+```
+
+New:
+
+```
+𝒯_A be the union of the integral curves of P_1^A in R′ from 𝒦_A″, let 𝒦_A^+ be a compact G-invariant neighbourhood of
+𝒦_A″ in the past faces on which family A of U_1 crosses the face it lies in, let the phases of A of U_1 and U_2 be
+defined on a neighbourhood of the union of the integral curves of P_1^A in R′ from 𝒦_A^+, and let the densities of A of
+both vanish on R′ ∖ 𝒯_A. If U_2 and U_1 agree, with all their derivatives, on the past faces, the components of each
+further family A only on 𝒦_A^+, then U_2 = U_1 on R′, the
+```
+
+Old (lines 930–931):
+
+```
+of δ_2, and a compact neighbourhood of 𝒦_A″ in the faces, from which the curves of P_1^A lie where the phases are
+defined, in place of 𝒦_A^♯; put κ_A := 1 for an adapted family. For s ≤ 1 let D_(A,t,s) be the union of the arcs of U_1,
+```
+
+New:
+
+```
+of δ_2, and 𝒦_A^+ in place of 𝒦_A^♯; put κ_A := 1 for an adapted family. For s ≤ 1 let D_(A,t,s) be the union of the
+arcs of U_1,
+```
+
+Old (thm:loc-t5 (c), lines 1030–1032):
+
+```
+within δ_2 of the axes, with η and δ_2 so small that this set lies in the interior of 𝒦_A′ and satisfies the conditions
+there for U_1, for ε and ε_2 small, as these hold with a margin for the background. The phases of A of U_1 and of U are
+defined on a neighbourhood of 𝒯_A, the union of the curves of P_1^A in R′ from 𝒦_A″, that of U_1 by the hypothesis on
+```
+
+New:
+
+```
+within δ_2 of the axes, with η and δ_2 so small that this set lies in the interior of 𝒦_A′ and satisfies the conditions
+there for U_1, for ε and ε_2 small, as these hold with a margin for the background, and 𝒦_A^+ a compact neighbourhood of
+𝒦_A″ in the interior of 𝒦_A′, on which U and the state of g̃ agree with all derivatives. The phases of A of U_1 and of U
+are defined on a neighbourhood of the union of the curves of P_1^A in R′ from 𝒦_A^+, that of U_1 by the hypothesis on
+```
+
+(The agreement on 𝒦_A^+ is the one the proof already derives "by lem:loc-t5-jets (b) on the crossing sets", 𝒦_A′ lying
+in them by (F-b); for (d), 𝒦_A″ := ∅ gives 𝒦_A^+ := ∅.)
+
+#### minor C — lem:loc-t5-uniqueness: the C¹ distance of W from U_1 is Cθ², not Cθ (lines 960–962)
+
+"Along it W − U_1 is at most Cθ in C¹ … the leaf of W through x lies within Cθ of that of U_1 in C¹, hence in 𝒩_(θ/2)":
+with a constant C, Cθ need not be below 3θ/8, so the containment in 𝒩_(θ/2), on which W = U_2, does not follow. The two
+Taylor bounds give derivatives ≤ Cθ^(k+1), the cut-offs cost θ^(−1) per derivative, so W − U_1 is at most Cθ^k ≤ Cθ² in
+C¹ (the round-1 text had Cθ²). Old:
+
+```
+D_(A,t,s); along it W − U_1 is at most Cθ in C¹, by the two Taylor bounds. So, by the proof of [[lem:class-leaf-states]]
+(b), the leaf of W through x lies within Cθ of that of U_1 in C¹, hence in 𝒩_(θ/2) and, for a further family, in {χ̃_A =
+1}, where W = U_2; by the uniqueness in [[lem:class-volterra]] it is the leaf of U_2, and σ_A[W] = σ_A[U_2] at x.
+```
+
+New:
+
+```
+D_(A,t,s); along it W − U_1 is at most Cθ² in C¹, by the two Taylor bounds, as k ≥ 2 and the derivatives of order j of
+χ_θ are at most Cθ^(−j). So, by the proof of [[lem:class-leaf-states]] (b), the leaf of W through x lies within Cθ² of
+that of U_1 in C¹, hence, for θ small, in 𝒩_(θ/2) and, for a further family, in {χ̃_A = 1}, where W = U_2; by the
+uniqueness in [[lem:class-volterra]] it is the leaf of U_2, and σ_A[W] = σ_A[U_2] at x.
+```
+
+#### minor D — the extension E_b: the L² and H^σ constant is Σ_l |c_l| l^(1/2), not C_E (lines 101–102; present in round 1 too, missed then)
+
+The substitution t ↦ b − (t − b)/l has dt = l dt′, so the j-th derivative of the l-th term has L² norm l^(1/2 − j) times
+that of ∂_t^j u on [b − m/l, b]; for j = 0 the factor is l^(1/2) > 1. The sup bound ⟦E_b u⟧ ≤ C_E ⟦u⟧ is right. Old:
+
+```
+m]) with ⟦E_b u⟧_(σ,[a,b+m]) ≤ C_E ⟦u⟧_(σ,[a,b]), C_E := Σ_l |c_l|, the derivatives of order at most σ − 1 matching at
+b, and ‖E_b u‖_(H^σ([b,b+m])) ≤ C_E ‖u‖_(H^σ([b−m,b])), ‖E_b u‖_(L²([b,b+m]×R^d)) ≤ C_E ‖u‖_(L²([b−m,b]×R^d)).
+```
+
+New:
+
+```
+m]) with ⟦E_b u⟧_(σ,[a,b+m]) ≤ C_E ⟦u⟧_(σ,[a,b]), C_E := Σ_l |c_l|, the derivatives of order at most σ − 1 matching at
+b, and, the substitution t ↦ b − (t − b)/l multiplying L² norms by l^(1/2), ‖E_b u‖_(H^σ([b,b+m])) ≤ C_E′
+‖u‖_(H^σ([b−m,b])) and ‖E_b u‖_(L²([b,b+m]×R^d)) ≤ C_E′ ‖u‖_(L²([b−m,b]×R^d)), C_E′ := Σ_l |c_l| l^(1/2).
+```
+
+(Nothing depends on the value: the H^σ bound is used only as boundedness in (c) (ii).)
+
+### nits (second reading)
+
+1. lem:class-leaf-tame (i), line 38: "Stein's operator is bounded on W^(6,∞) and on H^n" — the metric component needs
+   H^(n+1) (its first derivatives are in W); read "on H^(n+1)".
+2. lem:loc-t5-jets (b), lines 482 and 488–494: ∂_u^(j−1) Θ_A holds the fields' derivatives of order j (□_g holds the
+   first u-derivatives of the metric in the coefficient of ∂_v u_A), so ∂_u^j q_A comes after the fields of order j, not
+   before; the count still closes, with q_A of order j + 1 in C^(m_0−5j−3). Replacement, applied and checked in fix2/:
+   line 482, "j and ∂_u^i of the fields for i ≤ j − 1, as □_g holds no ∂_u² (g^(uu) = 0). In the equations of
+   [[lem:loc-axis-jets]]" →
+
+   ```
+   j and ∂_u^i of the fields for i ≤ j, as □_g holds no ∂_u² (g^(uu) = 0) and holds the first u-derivatives of the metric
+   in the coefficient of ∂_vu_A; so ∂_u^j q_A is determined after the fields' derivatives of order j. In the equations of
+   [[lem:loc-axis-jets]]
+   ```
+
+   and lines 488–494, from "so it lies in C^(m_0−5j−1); ∂_u^(j+1) q_A holds" to "the background's quantities solving
+   the same equations. As m_0 − 5j − 3 ≥ m_0 − 5(j + 1), the bounds" →
+
+   ```
+   order j and one derivative along N of those of u_A of order at most j, so it lies in C^(m_0−5j−1); the equations of
+   [[lem:loc-axis-jets]] (b) at the order j + 1, whose term 𝔏(0) holds derivatives of order at most two of the fields'
+   derivatives of order at most j, whose equation for the vector field one derivative along S³ of the other two components,
+   and whose initial values j + 1 derivatives of the data along the other edge, as in the proof of its part (iii), and
+   which now hold the stress through ∂_u^j q_A and ∂_u^(j+1) u_A, give the fields' derivatives of order j + 1 in
+   C^(m_0−5j−3); and ∂_u^(j+1) q_A holds in addition, through Θ_A, ∂_v ∂_u^(j+1) u_A and the fields' derivatives of order
+   j + 1, so it lies in C^(m_0−5j−3); each bound is linear in ε, the background's quantities solving the same equations.
+   As m_0 − 5j − 3 ≥ m_0 − 5(j + 1), the bounds
+   ```
+
+   (the first line of this replacement is the unchanged line 488, quoted from its start).
+3. lem:loc-t5-uniqueness, lines 953–956: W's further components have |p_A(∂_z)| bounded below on the axis only if the
+   phases of A of U_1 and U_2 are of the same type (multiples of the same one of du, dv) at the axis points of supp χ̃_A;
+   say that χ̃_A is supported so near supp κ_A that its axis points are joined along the axis, within the tube, to the
+   crossing face, where the two phases agree to all orders (lem:loc-t5-dichotomy keeps the type along a connected piece
+   of the axis).
+
+The crosswalk source lines after line 44 shift when minor A's and nit 2's texts are applied; regenerate them with the
+file.
+
+### P-CLD claims (3) and (5) of the first reading
+
+Settled by the fix round: lem:class-leaf-arc is removed and Block A1 cites lem:class-leaf-states and the definitions
+before it; no phrase "H_L[Θ_A] of lem:class-leaf-differences" remains.
+
+Verdict (second reading): NOT CONFIRMED — 0 Major, 4 minor (A–D), 3 nits, each with a replacement text applied and
+checked in the scratch merge on 88ae2d77 (lint 0 hits, assemble --check 0 problems, in-memory `[] 0`, no line over 121
+characters). With minors A–D applied as written, I have no open finding.
