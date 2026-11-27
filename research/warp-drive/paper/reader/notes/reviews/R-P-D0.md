@@ -389,3 +389,52 @@ relative to the order 1, as the terms of ω̇_b(1, 0) at the same root are, thes
   - lem:uc-gaps (T10, T11) covers both families of index sets.
 
 Verdict: CONFIRMED
+
+## Confirmation (P-D0 at 1265f3bd480c2df7bf0300e8a43d4c4f, 948 lines; commit 5d862c93)
+
+What was checked:
+
+- **The diff against the reviewed version.** I compared it with 5f41b63f, as held at ace76b95. Every change answers a
+  finding of this review or updates placement and bookkeeping:
+  - the header and revision note;
+  - §2.3 now uses m₀;
+  - §3.2 adds the row 40:532, lem:iii-i7-4-1 (b), of kind (i);
+  - §3.3 describes T14–T16;
+  - §4's site list is replaced by a pointer to the chain step, which carries m4's list;
+  - §5 adds chapter 87 and T14–T16;
+  - §6 has HEAD line numbers and new T14, T15 and T16;
+  - §7 has "@ace76b95" sources and the added notes for eq:uc-choice, eq:uc-deltas, thm:is-d0 and thm:tr-transfer;
+  - §8 has the new checks.
+
+  No other text changed.
+- **The scratch merge.** I made a fresh git archive of HEAD, now 768e6e52. Chapter 71 there is still
+  bb53f3e845095a3cd821bf51f8c12414, the same as at 99e16794.
+  - All 16 old texts occur exactly once, as whole lines, at the stated lines, and none overlap: T5 2419, T13 2583,
+    T6 2606, T7 2627, T8 2633, T9 2648, T10 2669, T11 2675, T12 2685, T1 2911, T2 3632, T14 3670, T15 3681, T3 3715,
+    T4 3770, T16 5587.
+  - T3's new text has 234 lines as stated.
+- **Each change is my text.** The merged chapter 71 is byte-identical (md5 1b1056fa…) to my earlier scratch chapter:
+  T1–T13 of 5f41b63f plus exactly the seven replacement blocks of this review (m1 as T14 and T15, m2, m3 as T16, n1,
+  n2 and n3, n4).
+- **Checks at HEAD 768e6e52 with T1–T16 applied:**
+  - `lint.py --chapters`: 62 files, 5088 labels, 0 hits.
+  - `assemble.py --check`: 0 problems.
+  - The required one-liner prints `[] 0`.
+  - No assembled line is longer than 121 characters.
+- **Crosswalk.**
+  - The nine rows of §7, inserted after thm:is-d0, give every chapter-71 label exactly one row, in order, with four
+    fields each.
+  - The ace76b95 line numbers (356 … 516) and the revised ones (405, 410, 444, 461, 470, 472, 480, 526, 566) both point
+    at the right labels.
+  - 5d862c93 holds 1265f3bd.
+- **Numbers.** No mathematical text or number in T1–T13 changed apart from the reviewed blocks. §1–§3 of this review
+  therefore stand unchanged: μ♭_Z, N_Λ, N̄_Λ, D_acc, D_NM and K.
+
+One recommendation for the merger. This is a nit and does not block.
+
+- Two of the cited sources differ from what will be merged: at ace76b95, rem:is-cb-open and lem:is-flat-uses do not
+  yet contain n2, n3 and m2.
+- So cite "paper/reader/proofs/P-D0.md@5d862c93:<line>", with the revised lines that §7 gives.
+- §7 already offers this choice.
+
+Nothing remains open. Verdict: CONFIRMED
