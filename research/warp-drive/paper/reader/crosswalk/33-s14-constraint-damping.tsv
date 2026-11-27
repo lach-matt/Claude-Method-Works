@@ -68,7 +68,7 @@ lem:iv5-0-4	docket68/n1star/proof5/PART-IV6-SOLV.md:171	IV(5) Lemma 0.4	F-G24: s
 lem:iv5-0-5	docket68/n1star/proof5/PART-IV6-SOLV.md:188	IV(5) Lemma 0.5	P-G24b: δ_r < 1/5 added (P-G24b text T3)
 sec:iv5-calc	paper/reader/proofs/P-G1.md@3b715dd5:1-575	proof G1, the calculi	new section; replaces preprint citations
 def:iv5-calc-cells	paper/reader/proofs/P-G1.md@3b715dd5:14-48	proof G1, cells	4 + 1 cells; classes via P' x M
-lem:iv5-calc-structure	paper/reader/proofs/P-G1.md@3b715dd5:50-143	proof G1, structures	structures, weights, symbols
+lem:iv5-calc-structure	paper/reader/proofs/P-G1.md@3b715dd5:50-143	proof G1, structures	structures, weights, symbols; P-S7: (b) the weights of the parameterised structure by the bounds of (S2) uniform in h, in place of the sufficient condition after [Hin26d] Def. 3.58
 def:iv5-calc-micro	paper/reader/proofs/P-G1.md@3b715dd5:145-158	proof G1, microsupport	two-sided microsupport, Ell, WF'
 lem:iv5-calc-disjoint	paper/reader/proofs/P-G1.md@3b715dd5:160-233	proof G1, disjoint supports	[Hin26d] Prop. 3.55, Def. 3.34
 lem:iv5-calc-d	paper/reader/proofs/P-G1.md@3b715dd5:235-279	proof G1, property (D)	at X_0 and Sigma^#

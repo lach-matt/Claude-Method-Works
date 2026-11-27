@@ -8,7 +8,7 @@ eq:ii-f-6-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1800	II.F (6.3)
 lem:ii-f-6-1	docket68/n1star/proof5/PART-II-F-IOTA.md:1817	II.F Lemma 6.1	
 eq:ii-f-6-4	docket68/n1star/proof5/PART-II-F-IOTA.md:1821	II.F (6.4)	
 sec:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1834	II.F §6.2	
-prop:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1836	II.F Proposition 6.2	
+prop:ii-f-6-2	docket68/n1star/proof5/PART-II-F-IOTA.md:1836	II.F Proposition 6.2	P-S7: the uniform equivalence of the norms for h in [h_0, 1] justified by lem:ii-a-3-1 (f), (d) and lem:ii-f-2-phase, with s_(0hbar,chbar) = s_(0,b) at fibre infinity ([Hin26c] Section 10.1.1) in place of a citation of sec:ii-f-2-1 alone
 eq:ii-f-6-5	docket68/n1star/proof5/PART-II-F-IOTA.md:1843	II.F (6.5)	
 sec:ii-f-6-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1857	II.F §6.3	threshold weight shift x_I^(2α) L²(|dg|) = x_I^(2(α+2)) L²(b) written out
 lem:ii-f-6-3	docket68/n1star/proof5/PART-II-F-IOTA.md:1869	II.F Lemma 6.3	dilation parameter written Λ; the Cauchy problem used in the case ℝ^(1+4), Minkowski principal part times Id, citing the appendix entry thm:std-hormander-cauchy (no page claimed)

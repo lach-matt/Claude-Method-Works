@@ -911,7 +911,7 @@ After Theorem 4.8 (p. 26): "By restriction, the analogous statements are true fo
 bundle on M, for instance differential forms of all degrees and symmetric 2-tensors."
 
 **Theorem {#thm:std-sbg-calculus}** ([Hin26d, Definitions 1.1–4.20, Lemmas 3.18, 3.20, 3.24 and 3.42,
-Propositions 2.3–4.22, Remarks 3.13–3.56, Theorems 3.21–3.52, footnote 13, (1.6), (2.3), (2.5), (3.2), (3.19), (3.26),
+Propositions 2.3–4.22, Remarks 3.13–4.9, Theorems 3.21–3.52, footnote 13, (1.6), (2.3), (2.5), (3.2), (3.19), (3.26),
 (3.28), (3.30), (4.24a–b), (4.27), (4.28), pp. 2–75].) On a smooth manifold M of any dimension n, without boundary, the
 following hold.
 
@@ -953,8 +953,9 @@ there exists a compact subset K ⊂ M so that ρ < ϵ on M ∖ K", ρ being a sc
 on |(ρ_α ∂_(x_α))^β ∂_ξ^γ a_α(x_α, ξ)|, corresponding to '𝒱-regular' symbols", together with their derivatives for the
 spaces with k orders of 𝒲-regularity.
 
-(S7) Parameterised structures [Hin26d, Definition 1.9, p. 9; p. 58 and Remark 3.56, p. 58; Definitions 3.58 and 3.59 and
-the text after them, with footnote 13, p. 59]. Definition 1.9 defines a parameterized scaled bounded geometry structure
+(S7) Parameterised structures [Hin26d, Definition 1.9, p. 9; p. 58 and Remark 3.56, p. 58; Remark 3.57, pp. 58–59;
+Definitions 3.58 and 3.59 and the text after them, with footnote 13, p. 59; p. 64; Remark 4.9, p. 67; p. 74].
+Definition 1.9 defines a parameterized scaled bounded geometry structure
 on (M, P) as a collection {𝓑_(p,×)} of scaled b.g. structures 𝓑_(p,×) = {(U_(α_p), φ_(α_p), ρ_(α_p))}, p ∈ P, "so that
 the quantities A and the C^∞ bounds on transition functions in Definition 1.1 as well as the constants C_γ in (1.6) are
 uniform also in p ∈ P", and two sentences later states: "Furthermore, it includes semiclassical bounded geometry
@@ -986,7 +987,18 @@ properties of adjoints, compositions, commutators, and principal symbols in Theo
 Definition 1.1); but the uniform bound on the operators A_(p′) is independent of P′." And: "The membership
 A = (A_p)_(p∈P) ∈ wDiff^m_𝒱(M) is characterized by requiring that each A_p is a differential operator, and
 (φ_(p,α))_*A_p = Σ_(|β|≤m) w_(p,α)a_(p,α,β)(x)(ρ_(p,α)∂_x)^β where the C^∞((−2, 2)^n)-seminorms of the coefficients
-a_(p,α,β) are uniformly (in p ∈ P, α ∈ 𝒜_p, β ∈ ℕ^n_0) bounded."
+a_(p,α,β) are uniformly (in p ∈ P, α ∈ 𝒜_p, β ∈ ℕ^n_0) bounded." Remark 3.57 (Compatibility of different scaled b.g.
+structures): "In applications, two scaled b.g. structures 𝓑_(p,×) and 𝓑_(p′,×) for different values of p, p′ ∈ P are
+often strongly compatible, though not uniformly so in p and p′ ∈ P. (This implies, for example, the equality of all
+Sobolev spaces H^s_(𝒱_p)(M) as sets, but still allows for the norms to not be uniformly equivalent as p varies.) Since
+imposing this condition would not lead to any simplifications, we do not do this here." On p. 64: "Operators with phase
+space weights can also be defined in the parameterized scaled b.g. setting. … We leave the details to the interested
+reader." Remark 4.9 (Parameterized version), p. 67, in the section on variable orders ((S8)): "The discussion in the
+present section generalizes to variable order symbols, ps.d.o.s, and Sobolev spaces depending on a parameter; indeed,
+the discussion in §3.7 applies with only straightforward notational modifications. For example, in a semiclassical
+bounded geometry setting, one can work with variable semiclassical orders." On p. 74, for the commutator 𝒲-vector
+fields of (S10): "We only discuss the scaled b.g. setting, and leave the purely notational modifications for
+parameterized settings to the reader."
 
 (S8) Variable orders [Hin26d, Definition 4.6, p. 66]: for m, l ∈ S⁰(𝒱T*M),
 
@@ -1127,15 +1139,21 @@ Definition 3.25. Let u ∈ wρ^(−∞)H^(−∞)_𝒱(M) = ⋃_(m,l) wρ^lH^m_�
 set of all ϖ ∈ 𝔐 for which there exists an operator A ∈ Ψ⁰_𝒱(M) which is elliptic at ϖ and for which Au ∈ wρ^lH^m_𝒱(M)."
 Proposition 3.55 (Properties of the 𝒱-Sobolev wave front set): "Let u ∈ wρ^(−∞)H^(−∞)_𝒱(M) and A ∈ w′Ψ^(m′)_𝒱(M),
 B ∈ Ψ⁰_𝒱(M). (1) u ∈ wρ^lH^m_𝒱(M) if and only if WF^(m,w,l)_𝒱(u) = ∅. (2) (Microlocality.)
-WF^(m−m′,ww′,l)_𝒱(Au) ⊂ WF^(m,w,l)_𝒱(u) ∩ WF′^(w′)_𝒱(A). …"
+WF^(m−m′,ww′,l)_𝒱(Au) ⊂ WF^(m,w,l)_𝒱(u) ∩ WF′^(w′)_𝒱(A). (3) (Microlocal elliptic regularity.) If WF′_𝒱(B) ⊂
+Ell^(m,w)_𝒱(A), then for any N there exists C_N so that ‖Bu‖_(wρ^lH^m_𝒱(M)) ≤ C_N(‖Au‖_(ww′ρ^lH^(m−m′)_𝒱(M)) +
+‖u‖_(wρ^(−N)H^(−N)_𝒱))." (In (3) the superscripts of the elliptic set stand for those of A, m′ and w′.) The elliptic set
+is that of Definition 3.43, "Ell^(m,w)_𝒱(A) := Ell^(wλ^(−m))_𝔐(σ^(m,w)_𝒱(A))", where Definition 3.25 reads: "Let
+w ∈ C^∞(𝒱T*M) be a weight on (𝒱T*M, 𝓑*). For a symbol a ∈ wS⁰(𝒱T*M), we define its elliptic set by
+Ell^w_𝔐(a) := {ϖ ∈ 𝔐 : ∃ b ∈ w⁻¹S⁰(𝒱T*M), ϖ ∉ supp_(u𝒱T*M)(ab − 1)} ⊂ 𝔐."
 
 The numbers and pages in (S1)–(S16) are those of arXiv version 1 of [Hin26d]. In the published version, Definitions 1.1,
 1.3 and 1.9 and (1.6) are Definitions 1.2, 1.4 and 1.10 and (1.11); Proposition 2.3 is Proposition 2.4, with (2.3) and
 (2.6) for (2.3) and (2.5); in Section 3 the displays and the items up to Definition 3.34 keep their numbers, and from
 Lemma 3.36 to Definition 3.61 each number is increased by one, so that Proposition 3.39, Lemma 3.42, Definition 3.43,
-Theorems 3.44, 3.51 and 3.52, Remarks 3.46–3.48, Definition 3.54, Proposition 3.55, Remark 3.56 and Definitions 3.58 and
-3.59 are Proposition 3.40, Lemma 3.43, Definition 3.44, Theorems 3.45, 3.52 and 3.53, Remarks 3.47–3.49,
-Definition 3.55, Proposition 3.56, Remark 3.57 and Definitions 3.59 and 3.60 there; footnote 13 is footnote 22; and in
+Theorems 3.44, 3.51 and 3.52, Remarks 3.46–3.48, Definition 3.54, Proposition 3.55, Remarks 3.56 and 3.57 and
+Definitions 3.58 and 3.59 are Proposition 3.40, Lemma 3.43, Definition 3.44, Theorems 3.45, 3.52 and 3.53, Remarks
+3.47–3.49, Definition 3.55, Proposition 3.56, Remarks 3.57 and 3.58 and Definitions 3.59 and 3.60 there; footnote 13 is
+footnote 22; and in
 Section 4, Proposition 4.2 and Definition 4.6 keep their numbers, Definitions 4.11, 4.14 and 4.20 and Propositions 4.15,
 4.17, 4.18 and 4.22 are Definitions 4.12, 4.15 and 4.21 and Propositions 4.16, 4.18, 4.19 and 4.23, and each display
 (4.n) is (4.n + 1).

@@ -1512,8 +1512,8 @@ they are r∂_t, r∂_r and fields tangent to the spheres; near 𝗌𝖿 they ar
 (b) By (S2), w > 0 is a weight if Ww/w is bounded with all derivatives in the charts for W ∈ 𝒲. Now
 ⟨x⟩∂_(x^q)⟨x⟩/⟨x⟩ = x^q/⟨x⟩ and ∂_t⟨x⟩ = 0. If ρ_H defines a boundary hypersurface of M₀ and V is a smooth vector field
 on M₀ tangent to the boundary, then Vρ_H/ρ_H ∈ C^∞(M₀); with (a) this gives the claim for the products. As the weights
-and the charts do not depend on h, the ratios of the weight across overlapping charts of the parameterised structure are
-those for ℬ, which are bounded ((S7), the sufficient condition after [Hin26d, Definition 3.58]).
+and the charts do not depend on h, the bounds of (S2) for the parameterised structure are those for ℬ, uniformly in h,
+so these are weights of the parameterised structure ((S7)).
 
 (c) On U_((2),i,±,j,k,m), dt = 2^k dT, dx^i = (ln 2)x^i dX and dx^a = Ω̃_a dx^i + x^i dΩ_a, so the density |dt dx|
 equals (ln 2)2^k|x^i|⁴|dT dX dΩ|; as 2^k/|x^i| ∈ (¼, 4) and ⟨x⟩/|x^i| ∈ [1, 11], ⟨x⟩^(−5)|dt dx| is the Lebesgue

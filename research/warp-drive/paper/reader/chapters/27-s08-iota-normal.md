@@ -406,14 +406,48 @@ by K and keeps the weights. For fixed h > 0, H^𝐨 is the space H^(𝗌,(a,c))_
 ([Hin26c, after (10.31)]): ρ_sf and ρ_tf are then bounded above and below, and ρ_cf ≍ ρ_K.
 
 *Phase space.* 𝒫_ι := ^(0ħ,cħ)T̄*_(sf)ι⁺_ħ ∪ ^(0ħ,cħ)S*ι⁺_ħ is the fibre-compactified phase space over sf together with
-fibre infinity over all of ι⁺_ħ; it is compact. The part over sf is a manifold with corners whose boundary hypersurfaces
-are fibre infinity, F_I (over sf ∩ 0f = {x_I = 0}) and F_K (over sf ∩ tf = {R = 0}); F_I ∩ F_K = ∅. On it we use the
-semiclassical 0-covectors ξ dx_I/(hx_I) + η dω/(hx_I) near F_I and the semiclassical cone covectors of [[sec:ii-f-1-3]]
-near F_K, over sf ξ_cħ dR/h + η_cħ R dω/h. WF′(A) and Ell(A) ⊂ 𝒫_ι are defined as in [[def:i-b-2-9]], with S^(−K𝐞) in
-place of S^(−M𝟏): ϖ ∉ WF′(A) if the symbol of A lies in S^(−K𝐞) on a neighbourhood of ϖ in ^(0ħ,cħ)T̄*ι⁺_ħ for every K.
-The principal symbol of A ∈ Ψ^𝐨 is its symbol modulo S^(𝐨−(1−ϵ)𝐞), ϵ > 0 small (S8); over sf at finite frequencies it is
-determined by its restriction to 𝒫_ι, as a symbol w_𝐨a with a smooth and vanishing at sf lies in S^(𝐨−(0;0,0,0;1)),
-which at finite frequencies is S^(𝐨−𝐞).
+fibre infinity over all of ι⁺_ħ; here and below, and in the paragraph *Orders and spaces* above, ι⁺_ħ and ^(0ħ,cħ)T̄*ι⁺_ħ
+include the slice h = 1 (not counted among the four faces, no estimate concerns it), the operators being given for
+h ∈ (0, 1], so 𝒫_ι is compact. The part over sf is a manifold with corners whose boundary hypersurfaces are fibre
+infinity, F_I (over sf ∩ 0f = {x_I = 0}) and F_K (over sf ∩ tf = {R = 0}); F_I ∩ F_K = ∅. On it we use the semiclassical
+0-covectors ξ dx_I/(hx_I) + η dω/(hx_I) near F_I and the semiclassical cone covectors of [[sec:ii-f-1-3]] near F_K,
+over sf ξ_cħ dR/h + η_cħ R dω/h. For A ∈ Ψ^𝐨 (the order being the one at which A is considered), WF′(A) and Ell(A) ⊂ 𝒫_ι
+are defined as in [[def:i-b-2-9]], with S^(𝐨−K𝐞) in place of S^(−M𝟏): ϖ ∉ WF′(A) if the symbol of A lies in S^(𝐨−K𝐞)
+on a neighbourhood of ϖ in ^(0ħ,cħ)T̄*ι⁺_ħ for every K; and ϖ ∈ Ell(A) if ϖ has a neighbourhood U in ^(0ħ,cħ)T̄*ι⁺_ħ such
+that a representative a of the principal symbol of A (defined below) is invertible, with |a⁻¹| ≤ Cw_𝐨⁻¹, at the points of
+U over h ∈ (0, 1] (at a point over sf this is the condition of [[def:i-b-2-9]], with U inside {h < h_0}; the condition
+does not depend on the representative, after U is shrunk: two representatives differ by w_𝐨 times a symbol bounded by
+C(⟨ζ⟩⁻¹ρ_sf)^(1−ϵ), which is small near 𝒫_ι). The principal symbol of A ∈ Ψ^𝐨 is its symbol modulo S^(𝐨−(1−ϵ)𝐞), ϵ > 0
+small (S8); over sf at finite frequencies it is determined by its restriction to 𝒫_ι, as a symbol w_𝐨a with a smooth and
+vanishing at sf lies in S^(𝐨−(0;0,0,0;1)), which at finite frequencies is S^(𝐨−𝐞).
+
+**Lemma {#lem:ii-f-2-phase}** (Smooth functions on the phase space.) A smooth function on ^(0ħ,cħ)T̄*ι⁺_ħ, taken for
+h ∈ (0, 1], lies in S⁰, uniformly in h as in (S7); in particular the orders 𝗌 and 𝖻 lie in S⁰.
+
+*Proof.* Write Y := ι⁺_ħ and X := ^(0ħ,cħ)T̄*ι⁺_ħ, the fibre-radial compactification of the dual of the bundle
+^(0ħ,cħ)Tι⁺_ħ over Y of which the fields spanning 𝒱_ħ in *The structure* are local frames (with ∂_ω standing for the
+coordinate fields of local coordinates ω on the sphere); its fibre over {h} × (ι⁺)° is ^(𝒱_ħ)T*(ι⁺)°. Let f ∈ C^∞(X). On
+an open set U ⊂ Y on which such fields form a frame F_1, …, F_4, X is U × B̄⁴, B̄⁴ the radial compactification of ℝ⁴,
+whose points ζ ∈ ℝ⁴ are the coordinates of a covector in the dual frame. Finitely many such sets U cover the compact Y,
+and with a partition of unity on Y it suffices to take f supported over a compact subset of one U. The fields ⟨ζ⟩∂_(ζ_k)
+and the functions ζ_k/⟨ζ⟩ are smooth on B̄⁴, so ∂_ζ^γ is ⟨ζ⟩^(−|γ|) times a combination, with coefficients smooth on B̄⁴,
+of products of at most |γ| of the fields ⟨ζ⟩∂_(ζ_k); hence |V_1⋯V_k∂_ζ^γ f| ≤ C⟨ζ⟩^(−|γ|) for smooth vector fields
+V_1, …, V_k on U, acting at fixed ζ.
+
+The fields ρ_K∂_(ρ_K) and ∂_ω near ι⁺ ∩ K⁺, x_I∂_(x_I) and ∂_ω near ι⁺ ∩ ℐ⁺, and coordinate fields in between, which span
+the coefficient Lie algebra C^∞_b𝒱_b(ι⁺) over C^∞_b(ι⁺), are, at fixed h, smooth vector fields on Y, as vector fields
+tangent to {h = 0} and to the centre {0} × (ι⁺ ∩ K⁺) of the blow-up lift to smooth ones (near sf ∩ tf, R∂_R at fixed h is
+R∂_R − ĥ∂_ĥ in the coordinates ĥ, R). Consider a cell of the structure at h, with chart coordinates x and scalings ρ_i.
+The fields ∂_(x^i) lie in the coefficient Lie algebra, so they are combinations of the fields just listed with
+coefficients bounded with all their derivatives ∂_x, uniformly in h and in the cell. The fields ρ_i∂_(x^i) span 𝒱_ħ
+((S1)), and so do F_1, …, F_4, over C^∞_b(ι⁺) uniformly in h (*The structure*); so ρ_i∂_(x^i) = Σ_k D_(ik)F_k with D and
+D⁻¹ bounded with all their derivatives ∂_x, uniformly. The fibre coordinates ξ of the chart, ξ_i the value of a covector
+on ρ_i∂_(x^i), are then ξ = Dζ, and C⁻¹⟨ζ⟩ ≤ ⟨ξ⟩ ≤ C⟨ζ⟩. So f is f̃(x, ξ) = f(x, D(x)⁻¹ξ) in the chart, and, by induction
+on |β| + |γ|, ∂_x^β∂_ξ^γ f̃ is a finite sum of terms c(x)ξ^μ(V_1⋯V_k∂_ζ^ν f)(x, D(x)⁻¹ξ), with c bounded uniformly, the
+V_l among the fields above and |ν| ≥ |μ| + |γ|: a derivative ∂_(ξ_l) lowers |μ| or, through the entries of D⁻¹,
+raises |ν| by one, and a derivative ∂_(x^i) differentiates c, adds a field V_l, or adds a factor ((∂_(x^i)D⁻¹)ξ)_k with a
+derivative ∂_(ζ_k). Each term is bounded by C⟨ξ⟩^(|μ|−|ν|) ≤ C⟨ξ⟩^(−|γ|), uniformly in h and in the cell; so f ∈ S⁰. The
+orders are smooth on X (*Orders and spaces*). ∎
 
 **Lemma {#lem:ii-f-2-2}** (The calculus.) Uniformly for h ∈ (0, 1]:
 
@@ -441,14 +475,21 @@ seminorms bounded by C_Kδ_s^(−K) times seminorms of a. (ii) Let χ_0 ∈ C^�
 (g) (Density.) For fixed h > 0, z and orders 𝐨, C^∞_c((ι⁺)°) is dense in {u ∈ H^𝐨 : P_(ι,h,z)u ∈ H^(𝐨−𝐦+𝐞)} with the
 graph norm, and likewise for P*_(ι,h,z) and the orders −𝐨 + 𝐦 − 𝐞.
 
+(h) (Locality.) WF′(AB) ⊂ WF′(A) ∩ WF′(B) for A ∈ Ψ^𝐨 and B ∈ Ψ^(𝐨′); and if A ∈ Ψ^𝐨 and WF′(A) = ∅, then
+A ∈ Ψ^(𝐨−K𝐞) for every K.
+
 *Proof.* (a) is (S5) with (S7), (S8) and (S11), the weights by [[lem:ii-f-2-1]] (b) and the decay order at ρ̄ ≍ ρ_sf by
-[[lem:ii-f-2-1]] (a). The density μ_b is ρ̄⁴ρ_0f³ times a uniformly positive 𝒱_ħ-density: near cf the scalings multiply
+[[lem:ii-f-2-1]] (a). The bound by a seminorm holds on each N_(P′) of [[lem:ii-a-3-1]] ((S5), and (b) there), and its
+constant and seminorm can be taken independent of P′: otherwise, with q_1 ≤ q_2 ≤ ⋯ the seminorms, there are h_k and
+A_k with ‖(A_k)_(h_k)‖ > kq_k(A_k) for every k, which contradicts the bound on N_(P′) for P′ := {h_k : k ∈ ℕ}. The
+density μ_b is ρ̄⁴ρ_0f³ times a uniformly positive 𝒱_ħ-density: near cf the scalings multiply
 to ρ̄⁴ up to bounded factors, as dim ι⁺ = 4, and near 0f the density dual to hx_I∂_(x_I), hx_IZ_a is h⁻⁴x_I⁻³μ_b, with h
 ∼ ρ_sf there. So L²(μ_b) is ρ_sf⁻²ρ_0f^(−3/2) times the L² space of (S3), up to an equivalent norm: a constant shift of
 the sf order and of the 0f weight, both weights by [[lem:ii-f-2-1]] (b).
 
-(b) is (S5) and (S8): the principal symbol is taken modulo ⋂_δ ρ̄^(−𝖻+1−2δ)S^(𝗌−1+2δ), and σ(i[A_1, A_2]) =
-H_(σ(A_1))σ(A_2). Adjoints with respect to μ_b and 𝔢 differ from those of (S5) (the 𝒱_ħ-density and the Euclidean inner
+(b) is (S5) and (S8), uniformly in h by (S7): the principal symbol is taken modulo ⋂_δ ρ̄^(−𝖻+1−2δ)S^(𝗌−1+2δ), and
+σ(i[A_1, A_2]) = H_(σ(A_1))σ(A_2). Adjoints with respect to μ_b and 𝔢 differ from those of (S5) (the 𝒱_ħ-density and
+the Euclidean inner
 product) by conjugation with the weight ρ_sf⁻⁴ρ_0f⁻³ and with the matrix of 𝔢, which preserve Ψ^𝐨 and the principal
 symbol, by (b) itself and [[lem:ii-f-2-1]] (b). For the commutators, with A′ := A − Op(a Id) and B′ := B − Op(b Id):
 [Op(a Id), Op(b Id)] is a commutator of scalar operators acting componentwise, with principal symbol −iH_a b (S5); [Op(a
@@ -457,8 +498,19 @@ order 𝐨 + 𝐨′ − (1 − ϵ)𝐞; and A′B′, B′A′ are each of orde
 ρ̄_i(∂_(ξ_i)a ∂_(x^i) − ∂_(x^i)a ∂_(ξ_i)), with ρ̄_i ≤ ρ̄ the scalings and (x, ξ) the chart coordinates of (S4), whence
 H_a b ∈ S^(𝐨+𝐨′−𝐞).
 
-(c) is the microlocal elliptic estimate of (S5), with (S8) for variable orders, localised by the composition calculus as
-in the proof of [[prop:i-b-2-10]].
+(c) Let a and g represent the principal symbols of A and G, and let b be the symbol of B ((S7)); by (b), GA ∈ Ψ^(𝐦′) has
+principal symbol ga. Let X := ^(0ħ,cħ)T̄*ι⁺_ħ, which is compact; smooth functions on X lie in S⁰ ([[lem:ii-f-2-phase]]).
+WF′(B) is a closed subset of the compact set 𝒫_ι, so finitely many of the neighbourhoods in the definitions of Ell(A) and
+Ell(G) cover it, and there are an open set O ⊂ X containing WF′(B) and C such that ga is invertible
+with |(ga)⁻¹| ≤ Cw_(𝐦′)⁻¹ at the points of O over h ∈ (0, 1]. Choose real y_1, y_2, y_3 ∈ C^∞(X) with y_1 = 1 near
+WF′(B), y_(j+1) = 1 near supp y_j and supp y_3 ⊂ O. Then y_3(ga)⁻¹ ∈ S^(−𝐦′), by (d) ([[lem:i-b-2-2]] (e)). The
+compact set supp(1 − y_1) is covered by finitely many open sets V_i such that z b ∈ S^(−K𝐞) for every K and every smooth
+function z supported in V_i: neighbourhoods of points of 𝒫_ι outside WF′(B), by the definition of WF′, and sets
+{ρ_sf > δ, |ζ| < C_0} with δ > 0, which cover X ∖ 𝒫_ι, by (f) (i). With a partition of unity subordinate to the V_i,
+(1 − y_1)b ∈ S^(−K𝐞) for every K, that is, (1 − y_1)b ∈ ρ̄^∞S^(−∞), as ρ̄ ≍ ρ_sf ([[lem:ii-f-2-1]] (a)). So
+[[lem:ii-a-3-1]] (e) applies to GA, B and the y_j, in the spaces of (a) with the shift of the density made there; it
+gives (c) with C independent of h, the remainder ‖u‖_(𝐨−K𝐞) bounding the remainder there once N is large, by (a) applied
+to the identity.
 
 (d) The proof of [[lem:i-b-2-2]] uses only the form log w_𝐨 = 𝗌 log⟨ζ⟩ + … + 𝖻 log ρ_sf⁻¹ and the chain rule;
 derivatives along the coefficient Lie algebra of log ρ_F are bounded ([[lem:ii-f-2-1]] (b)), and fibre derivatives of
@@ -488,7 +540,15 @@ tending to 0 in x_I²ρ_K⁻²Ψ^(1+δ)_(0,b) (quantisations of χ(ϵ|ζ|), (S5)
 x_I), whose b-, resp. 0-derivatives are O(j⁻¹), so that [N⁰(σ), χ_j] tends to 0 in x_I²ρ_K⁻²Diff¹_(0,b) with uniformly
 bounded coefficients. Then u_(j,ϵ) := χ_jJ_ϵu ∈ C^∞_c((ι⁺)°) converges to u in the graph norm as ϵ → 0 and then j → ∞,
 as in the proof of [[lem:i-b-3-1]]; the weights x_I^aρ_K^c commute with χ_j and conjugate J_ϵ into a family with the
-same properties. ∎
+same properties.
+
+(h) Let ϖ ∈ 𝒫_ι ∖ WF′(A), let a be the symbol of A, and let U be a neighbourhood of ϖ in X (as in the proof of (c)) on
+which a lies in S^(𝐨−K𝐞) for every K. Choose y, y′ ∈ C^∞(X) supported in U with y = 1 near supp y′ and y′ = 1 near ϖ.
+They lie in S⁰ ([[lem:ii-f-2-phase]]), and ya ∈ S^(𝐨−K𝐞) for every K, that is, ya ∈ wρ̄^∞S^(−∞) with w the weight of 𝐨 at
+0f, cf and tf ([[lem:ii-f-2-1]] (a)). By [[lem:ii-a-3-1]] (g) the symbols c and c′ of AB and BA satisfy
+y′c, y′c′ ∈ S^(𝐨+𝐨′−K𝐞) for every K, so ϖ lies in neither WF′(AB) nor WF′(BA); with A and B exchanged, this gives the
+first statement. If WF′(A) = ∅, the partition of unity of the proof of (c), with WF′(A) in place of WF′(B) and 0 in place
+of y_1, gives a ∈ S^(𝐨−K𝐞) for every K, so A ∈ Ψ^(𝐨−K𝐞). ∎
 
 #### The positive commutator scheme {#sec:ii-f-2-2}
 
@@ -551,9 +611,11 @@ lowered, and [[lem:i-b-5-1]].
 
 *Proof.* The proofs in [[ch:s02]] use of the calculus: the mapping property ([[prop:i-b-2-8]]), the composition and
 adjoint theorems with the principal symbols of products, adjoints and commutators ([[thm:i-b-2-4]], [[thm:i-b-2-5]] and
-[[eq:i-b-2-5]]), the elliptic estimate ([[prop:i-b-2-10]]), the symbol properties of [[lem:i-b-2-2]], the square roots
-of [[lem:i-b-2-11]] and [[lem:i-b-2-12]], and the L² pairing of H^𝐨 with H^(−𝐨). These are [[lem:ii-f-2-2]] (a)–(e)
-here, the pairing being (S3) and (S11) with the weight shift of the proof of [[lem:ii-f-2-2]] (a). [[lem:i-b-4-3]] and
+[[eq:i-b-2-5]]), the locality of products ((iv) of the consequences of [[thm:i-b-2-5]], and WF′_h(AB) ⊂ WF′_h(A) ∩
+WF′_h(B) after [[def:i-b-2-9]]) with the fact that an operator whose WF′_h is empty is residual, the elliptic estimate
+([[prop:i-b-2-10]]), the symbol properties of [[lem:i-b-2-2]], the square roots of [[lem:i-b-2-11]] and
+[[lem:i-b-2-12]], and the L² pairing of H^𝐨 with H^(−𝐨). These are [[lem:ii-f-2-2]] (a)–(e) and (h) here, the pairing
+being (S3) and (S11) with the weight shift of the proof of [[lem:ii-f-2-2]] (a). [[lem:i-b-4-3]] and
 [[lem:i-b-4-4]] are statements about vector fields on a manifold with corners of codimension at most 2 and about one
 function of one variable; 𝒫_ι over sf has codimension at most 2 (F_I ∩ F_K = ∅). The remainder classes of [[ch:s02]] are
 of the form Ψ^(2𝐨−θ𝟏+ϵ𝟏), θ ∈ {½, 1}; here they are Ψ^(2𝐨−θ𝐞+ϵ𝐞), by [[lem:ii-f-2-2]] (b) with (D3), and every place
@@ -1429,14 +1491,18 @@ and the inclusions 𝒳^𝗌 ↪ 𝒵_M and (𝒴^(𝗌−2))* ↪ 𝒵*_M are c
 
 (c) If u ∈ 𝒳^𝗌 and N⁰(σ)u ∈ 𝒴^(𝗌′−2)_k with 𝗌′ ≥ 𝗌 and k ∈ ℕ_0, then u ∈ 𝒳^(𝗌′)_k.
 
-*Proof.* (a) *Step 1: the elliptic estimate.* N⁰(σ) is elliptic in x_I²ρ_K⁻²Diff²_(0,b) ([[sec:ii-f-1-3]]), so
-microlocal elliptic regularity in the calculus of the structure of [[sec:ii-a-6-2]] ((S5) of [[sec:ii-a-3]], with (S8)
-for variable orders, and B = I) gives, as in [[lem:ii-a-8-4]] (c),
+*Proof.* (a) *Step 1: the elliptic estimate.* N⁰(σ) is elliptic in x_I²ρ_K⁻²Diff²_(0,b): its principal symbol in the
+structure of [[sec:ii-a-6-2]] at this σ is p Id with |p| ≥ cx_I²ρ_K⁻²λ⁻² where λ ≤ δ, for some c, δ > 0, λ being the
+elliptic weight of (S8) of [[sec:ii-a-3]] ([[sec:ii-f-1-3]], [[eq:ii-f-1-10]]). Let ψ_1, ψ_2, ψ_3 ∈ C^∞(ℝ) equal
+1 near 0, with ψ_(j+1) = 1 near supp ψ_j and supp ψ_3 ⊂ (−δ, δ), and put y_j := ψ_j(λ) ∈ S⁰. Then 1 − y_1 vanishes where
+λ is small, so it lies in ρ̄^∞S^(−∞), the scaling weight ρ̄ being bounded below at fixed σ; and y_3p⁻¹ ∈ x_I⁻²ρ_K²S^(−2),
+by the chain rule. So the elliptic estimate of [[lem:ii-a-3-1]] (e), for this single structure with B = I and these
+y_j, gives
 
     ‖u‖_(𝒳^𝗌) ≤ C(‖N⁰(σ)u‖_(𝒴^(𝗌−2)) + ‖u‖_(𝒳^(−M)))                                                     {#eq:ii-f-5-8}
 
-(the remainder of (S5) is bounded by ‖u‖_(𝒳^(−M))). Let χ ∈ C^∞_c([0, 2)) equal 1 on [0, 1], read as χ(R), and χ_1(x_I)
-the same function of x_I. Since 1 − χ(R) is supported in {R ≥ 1} = {x_I ≤ 1}, where χ_1(x_I) = 1, ‖u‖_(𝒳^(−M)) ≤
+(the remainder there, with N = M, is bounded by ‖u‖_(𝒳^(−M))). Let χ ∈ C^∞_c([0, 2)) equal 1 on [0, 1], read as χ(R), and
+χ_1(x_I) the same function of x_I. Since 1 − χ(R) is supported in {R ≥ 1} = {x_I ≤ 1}, where χ_1(x_I) = 1, ‖u‖_(𝒳^(−M)) ≤
 ‖χ(R)u‖_(𝒳^(−M)) + C‖χ_1(x_I)u‖_(𝒳^(−M)).
 
 *Step 2: near ι⁺ ∩ K⁺.* There the 0,b-structure is the b-structure of the end ϱ = R, t = −log R, in the sense of

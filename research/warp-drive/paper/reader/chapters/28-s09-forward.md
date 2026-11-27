@@ -209,7 +209,14 @@ since multiplication by h² = ρ_tf² ρ_sf² lowers the tf- and sf-orders by 2,
 spectral norm of [[lem:ii-f-6-1]] for the order 𝗌 − 1 and the weights (2γ_I + 2, γ_+, γ_cf − 2) of τ⁻² f: its sf-order
 is 𝖻_± − 1, and its tf-order equals its cf-weight γ_cf − 2. (ii) For |ζ| ≤ h_0⁻¹, σ ↦ N⁰(σ)⁻¹ ∈ ℒ(𝒴^(𝗌_(0,b)−2)_k,
 𝒳^(𝗌_(0,b))_k) is continuous ([[cor:ii-f-5-9]]), hence bounded on this compact segment; for 1 ≤ |ζ| ≤ h_0⁻¹ the norms
-‖·‖_(𝐨;k,+) at h = |ζ|⁻¹ ∈ [h_0, 1] are equivalent to the 0,b-norms uniformly ([[sec:ii-f-2-1]]), and
+‖·‖_(𝐨;k,+) at h = |ζ|⁻¹ ∈ [h_0, 1] are equivalent to the 0,b-norms uniformly, by [[lem:ii-a-3-1]] (f) and (d): for
+these h the cells are those of the 0,b-structure, with scalings within a factor depending only on h_0 and γ_+ of its own;
+ρ_sf and ρ_tf lie between positive constants and ρ_cf ≍ ρ_K ([[sec:ii-f-2-1]]), so the weights and the sf-order change
+the norms only to equivalent ones; at fibre infinity 𝗌_(0ħ,cħ) and 𝗌_(0,b) are the same function, the pull-back of 𝗌 by a
+map of phase spaces whose restriction to fibre infinity does not depend on σ ([[sec:ii-f-1-3]];
+[Hin26c, Section 10.1.1]), so that λ^(𝗌_(0ħ,cħ)−𝗌_(0,b)) and its inverse are bounded in S⁰ (the exponent is λ times a
+smooth function on the phase space, bounded in S⁰ by [[lem:ii-f-2-phase]], and λ log λ is bounded with its derivatives);
+and the factors h^(−j) of ‖·‖_(𝐨;k,+) lie between 1 and h_0^(−k). Moreover
 𝒴^(𝗌_(0,b)−2)_k ⊃ H^((𝗌_(0,b)−1;k),(2γ_I+2,γ_cf−2))_(0,b;b) continuously. Squaring, integrating in ζ and using
 [[eq:ii-f-6-4]] for u (at the order 𝗌) and for τ⁻² f (at the order 𝗌 − 1): the function u with Mellin transform
 [[eq:ii-f-6-6]] on the line lies in H^((𝗌;k),(2γ_I,γ_+,γ_cf))_(ebe;b)((0, ∞) × ι⁺), and [[eq:ii-f-6-5]] holds. Since
