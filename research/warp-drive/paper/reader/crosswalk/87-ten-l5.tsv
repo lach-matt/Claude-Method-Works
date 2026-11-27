@@ -343,3 +343,22 @@ eq:tl5-hfs-closing	paper/reader/proofs/P-GRD2.md@fe8b4e03:299	P-GRD2, display	cl
 thm:tl5-hf4s	paper/reader/proofs/P-GRD2.md@fe8b4e03:308	P-GRD2, Theorem	thm:tl5-hf4 with the second sharpened constants; (a) eta0 < s1^nat
 eq:tl5-hf4s-closing	paper/reader/proofs/P-GRD2.md@fe8b4e03:313	P-GRD2, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,s) + 2 eps_(M,s)) (S_(F,s) + S_(M,s)) < 1
 rem:tl5-hfs-what	paper/reader/proofs/P-GRD2.md@fe8b4e03:321	P-GRD2, Remark	what the second sharpening changes: mu^(a/2) per background letter, mu^((j-j')/2) on q, k1 once per term, 480/4 in place of 49 c_4
+sec:tl5-hft	paper/reader/proofs/P-GRD3.md@b9bfd6ad:1	P-GRD3, section	new; at the end of ch:ten-l5, after rem:tl5-hfs-what (author: keep tightening by hand); third sharpening: weighted smallness, intrinsic Sobolev
+lem:tl5-hft-leaf	paper/reader/proofs/P-GRD3.md@b9bfd6ad:12	P-GRD3, Lemma	Sobolev on S^3 for tensor bundles via the SO(4)-isotypic decomposition; constant C_(E,r) as an explicit series
+eq:tl5-hft-ce	paper/reader/proofs/P-GRD3.md@b9bfd6ad:17	P-GRD3, display	new
+eq:tl5-hft-leaf	paper/reader/proofs/P-GRD3.md@b9bfd6ad:22	P-GRD3, display	new
+lem:tl5-hft-face	paper/reader/proofs/P-GRD3.md@b9bfd6ad:58	P-GRD3, Lemma	face Sobolev inequalities with 6 C_(E,r)^2 and the operator norms v0, w0 of k against h0 = a^2 du^2 + b^2 dv^2 + r^2 gamma0
+eq:tl5-hft-cs	paper/reader/proofs/P-GRD3.md@b9bfd6ad:67	P-GRD3, display	new
+lem:tl5-hft-small	paper/reader/proofs/P-GRD3.md@b9bfd6ad:90	P-GRD3, Lemma	low quantities for the smallness: (a) weighted energy constant, rho/eta0 apart; (b) weighted absorption k3(mu)
+eq:tl5-hft-small	paper/reader/proofs/P-GRD3.md@b9bfd6ad:96	P-GRD3, display	new
+eq:tl5-hft-smallb	paper/reader/proofs/P-GRD3.md@b9bfd6ad:104	P-GRD3, display	new
+lem:tl5-hft-products	paper/reader/proofs/P-GRD3.md@b9bfd6ad:132	P-GRD3, Lemma	lem:tl5-hfs-products and lem:tl5-hfs-mixed under the weighted absorption
+def:tl5-hft-constants	paper/reader/proofs/P-GRD3.md@b9bfd6ad:145	P-GRD3, Definition	third sharpened constants: options (a), (b) for s1^t, s_(*,t), eps_(w,t); A_t, B_t
+eq:tl5-hft-constants	paper/reader/proofs/P-GRD3.md@b9bfd6ad:156	P-GRD3, display	new
+prop:tl5-hft-bootstrap	paper/reader/proofs/P-GRD3.md@b9bfd6ad:158	P-GRD3, Proposition	(H1) with the third sharpened constants
+eq:tl5-hft-h1	paper/reader/proofs/P-GRD3.md@b9bfd6ad:163	P-GRD3, display	new
+thm:tl5-hft	paper/reader/proofs/P-GRD3.md@b9bfd6ad:179	P-GRD3, Theorem	thm:tl5-hf (N >= 6) with the third sharpened constants
+eq:tl5-hft-closing	paper/reader/proofs/P-GRD3.md@b9bfd6ad:184	P-GRD3, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,t)) S_(F,s) < 1
+thm:tl5-hf4t	paper/reader/proofs/P-GRD3.md@b9bfd6ad:192	P-GRD3, Theorem	thm:tl5-hf4 with the third sharpened constants
+eq:tl5-hf4t-closing	paper/reader/proofs/P-GRD3.md@b9bfd6ad:196	P-GRD3, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,t) + 2 eps_(M,s)) (S_(F,s) + S_(M,s)) < 1
+rem:tl5-hft-what	paper/reader/proofs/P-GRD3.md@b9bfd6ad:206	P-GRD3, Remark	what the third sharpening changes; options (a), (b); intrinsic Sobolev constants
