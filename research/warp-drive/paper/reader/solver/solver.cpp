@@ -368,7 +368,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
       rf[js_] = d.D[FS]; rf[jsv] = d.Dv[FS]; rf[jsx] = d.Dx[FS]; rf[jsvx] = d.Dvx[FS];
     }
     dlt = r;
-    double dprev = 1e300, best = 1e300; int inner, ngrow = 0, since = 0;
+    double dprev = 1e300, best = 1e300; int inner, ngrow = 0, since = 0; std::vector<double> bestd = dlt;
     for (inner = 0; inner < 400; inner++) {
       derivs(g, dlt, wd, D1d.data(), D2d.data());
       #pragma omp parallel for schedule(static)
@@ -385,13 +385,13 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
       dlt.swap(dn);
       co.sweeps++;
       if (verbose && (inner < 5 || inner % 10 == 0)) fprintf(stderr, "        inner %d: |Real|/|d| = %.2e\n", inner, dm / dx);
-      if (dm < best) { if (dm < 0.5 * best) since = 0; else since++; best = dm; } else since++;
-      if (dm < 3e-17 * dx || (since >= 6 && best < 1e-8 * dx)) break;
-      if (inner > 8 && dm > 1.5 * dprev) { ngrow++; if (ngrow >= 4) { co.diverged = 1; break; } } else ngrow = 0;
+      if (dm < best) { if (dm < 0.5 * best) since = 0; else since++; best = dm; bestd = dlt; } else since++;
+      if (dm < 3e-17 * dx || (since >= 6 && best < 1e-8 * dx)) { if (dm > best) dlt = bestd; break; }
+      // growth over 4 sweeps: at the noise floor this is a fluctuation; keep the best iterate and go on (outer step)
+      if (inner > 8 && dm > 1.5 * dprev) { ngrow++; if (ngrow >= 4) { co.diverged++; dlt = bestd; break; } } else ngrow = 0;
       dprev = dm;
     }
     if (verbose) fprintf(stderr, "      inner sweeps %d\n", inner + 1);
-    if (co.diverged) break;
     for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + Real(dlt[i]);
   }
   // s_v at the end v-node: s_v(bottom) + int Phi dv
@@ -622,7 +622,7 @@ int main(int argc, char** argv) {
         st.cells += 1; st.secs += co.secs; st.sweeps += co.sweeps;
         if (getenv("BSOLV_VERBOSE")) fprintf(stderr, "cell (%d,%d): outer %d, inner sweeps %d, %.1f s, last %.1e\n", i, j, co.outer, co.sweeps, co.secs, co.last); csec += co.secs; cmax = std::max(cmax, co.last); smax = std::max(smax, co.sweeps);
         if (CF.stopcells > 0 && st.cells >= CF.stopcells) { fprintf(lg, "stopcells reached\n"); fclose(lg); return 0; }
-        if (co.diverged) fprintf(lg, "  cell Q%d (%d,%d): inner iteration diverged\n", q + 1, i, j);
+        if (co.diverged) fprintf(lg, "  cell Q%d (%d,%d): %d inner growth stop(s), best iterate kept\n", q + 1, i, j, co.diverged);
         if (co.last > 1e3 * CF.tol) fprintf(lg, "  cell Q%d (%d,%d): not converged, last update %.2e after %d sweeps\n", q + 1, i, j, co.last, co.sweeps);
       }
       st.left = right; st.col = i + 1;

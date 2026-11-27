@@ -16,13 +16,12 @@ Throughout, N ≥ 4 and μ ∈ (0, 1]; for N = 4 the quantities 𝔰, 𝔧 and �
 [[lem:tl5-hf4-linfty]] takes the place of [[lem:tl5-hf-linfty]].
 
 **Definition {#def:tl5-hfg-graded}** (Graded quantities.) Let h be a C^(N+2) symmetric 2-tensor field with g = ĝ + h
-Lorentzian. At a point let Λ₀ := 0 ≤ Λ₁ ≤ ⋯ ≤ Λ_N be numbers such that, for k ≥ 1, Λ_k bounds the norms of
-ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z] and D̂ℒ^B Γ′[π^Z] for |B| ≤ k − 1 and Z ∈ Γ; for 0 ≤ k ≤ N let Λ^R_k bound the
-norms of ℒ^B R̂ for the words B with |B| = k, and for 1 ≤ k ≤ N let λ_k bound those of ℒ^K ĝ⁻¹ for the words K with
-|K| = k; and put Λ̄_k := max(Λ_k, Λ_k²), λ₀ := 1, λ̂₀ := √5 and λ̂_k := λ_k for k ≥ 1. A background factor ℒ^B R̂
-carries the |B| letters of B, and ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z] and D̂ℒ^B Γ′[π^Z] carry the |B| + 1 letters of B
-and Z; so a factor of the last four kinds that carries at most k letters has norm at most Λ_k. For m ≥ 1 and a function
-f on ℕ^m write
+Lorentzian. At a point let Λ₀ := 0 ≤ Λ₁ ≤ ⋯ ≤ Λ_N be numbers such that, for k ≥ 1, Λ_k bounds the norms of ℒ^B π^Z, ℒ^B
+Γ′[π^Z], ℒ^B D̂Γ′[π^Z] and D̂ℒ^B Γ′[π^Z] for |B| ≤ k − 1 and Z ∈ Γ; for 0 ≤ k ≤ N let Λ^R_k bound the norms of ℒ^B R̂ for
+the words B with |B| = k, and for 1 ≤ k ≤ N let λ_k bound those of ℒ^K ĝ⁻¹ for the words K with |K| = k; and put Λ̄_k :=
+max(Λ_k, Λ_k²), λ₀ := 1, λ̂₀ := √5 and λ̂_k := λ_k for k ≥ 1. A background factor ℒ^B R̂ carries the |B| letters of B,
+and ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z] and D̂ℒ^B Γ′[π^Z] carry the |B| + 1 letters of B and Z; so a factor of the last
+four kinds that carries at most k letters has norm at most Λ_k. For m ≥ 1 and a function f on ℕ^m write
 
     Σ^m_n f := Σ_(k∈ℕ^m, k₁+⋯+k_m=n) (n!/(k₁! ⋯ k_m!)) f(k),
 
@@ -148,38 +147,37 @@ length at most N − 1, hold with 𝔠^⋆ by [[lem:tl5-hfg-quadratic]], as 𝔰
 inequalities hold with k₃^⋆ in place of k₃, and k₃^⋆ 𝔰 ≤ 1/2. By [[lem:tl5-hfg-quadratic]] the solution factors of a
 monomial of ℒ^J N(h) − H^(αβ) D̂_αD̂_βΨ_J are H, Ψ_C or D̂Ψ_C with |C| ≤ |J|, or D̂²Ψ_C with |C| ≤ |J| − 1.
 
-*Second derivatives.* Let q ∈ Q(a, b), j ≤ N − 1 and |C| ≤ j, and multiply the bound of [[lem:tl5-hf-recovery]] for
-Ψ_C, as used in that proof, by μ^((|C|+1)/2). The words ZC have length |C| + 1, so μ^((|C|+1)/2) (Σ_Z |D̂Ψ_(ZC)|²)^(1/2)
-≤ 𝒥_g. The terms with D̂Ψ_C and Ψ_C, and those of the maps 𝔄_CJ, |J| ≤ |C|, are bounded by the multiples of 𝒥_g that
-bound them by 𝒥₁ there, as μ^((|C|+1)/2) ≤ μ^(|J|/2), with α_𝔄^(j) in place of α_𝔄 as |C| ≤ j; the residual terms by
-k₂ ϱ(p), as μ ≤ 1. In the nonlinear terms, each monomial of ℒ^J N(h) − H^(αβ) D̂_αD̂_βΨ_J, |J| ≤ |C|, has at most one
-high factor, the others being at most 𝔰, and the factor Φ bounded by 𝔧 there satisfies μ^((|C|+1)/2) |Φ| ≤ 2𝒥_g +
-M_g^(j): for Φ = H as |H| ≤ 2|h|, for Ψ_(C′) and D̂Ψ_(C′), |C′| ≤ |J|, as μ^((|C|+1)/2) ≤ μ^(|C′|/2), and for
-D̂²Ψ_(C′), |C′| ≤ |J| − 1 ≤ j, as μ^((|C|+1)/2) ≤ μ^((|C′|+1)/2). Likewise μ^((|C|+1)/2) |H| |D̂²Ψ_J| ≤ 𝔰 M_g^(j) for
-|J| < |C|. So μ^((|C|+1)/2) |D̂²Ψ_C| ≤ k₁^(j) 𝒥_g + k₂ ϱ(p) + k₃^⋆ 𝔰 (2𝒥_g + M_g^(j)), and taking the maximum over C,
-with k₃^⋆ 𝔰 ≤ 1/2, M_g^(j)/2 ≤ (k₁^(j) + 1) 𝒥_g + k₂ ϱ(p).
+*Second derivatives.* Let q ∈ Q(a, b), j ≤ N − 1 and |C| ≤ j, and multiply the bound of [[lem:tl5-hf-recovery]] for Ψ_C,
+as used in that proof, by μ^((|C|+1)/2). The words ZC have length |C| + 1, so μ^((|C|+1)/2) (Σ_Z |D̂Ψ_(ZC)|²)^(1/2) ≤
+𝒥_g. The terms with D̂Ψ_C and Ψ_C, and those of the maps 𝔄_CJ, |J| ≤ |C|, are bounded by the multiples of 𝒥_g that bound
+them by 𝒥₁ there, as μ^((|C|+1)/2) ≤ μ^(|J|/2), with α_𝔄^(j) in place of α_𝔄 as |C| ≤ j; the residual terms by k₂ ϱ(p),
+as μ ≤ 1. In the nonlinear terms, each monomial of ℒ^J N(h) − H^(αβ) D̂_αD̂_βΨ_J, |J| ≤ |C|, has at most one high factor,
+the others being at most 𝔰, and the factor Φ bounded by 𝔧 there satisfies μ^((|C|+1)/2) |Φ| ≤ 2𝒥_g + M_g^(j): for Φ = H
+as |H| ≤ 2|h|, for Ψ_(C′) and D̂Ψ_(C′), |C′| ≤ |J|, as μ^((|C|+1)/2) ≤ μ^(|C′|/2), and for D̂²Ψ_(C′), |C′| ≤ |J| − 1 ≤ j,
+as μ^((|C|+1)/2) ≤ μ^((|C′|+1)/2). Likewise μ^((|C|+1)/2) |H| |D̂²Ψ_J| ≤ 𝔰 M_g^(j) for |J| < |C|. So
+μ^((|C|+1)/2) |D̂²Ψ_C| ≤ k₁^(j) 𝒥_g + k₂ ϱ(p) + k₃^⋆ 𝔰 (2𝒥_g + M_g^(j)), and taking the maximum over C, with k₃^⋆ 𝔰 ≤
+1/2, M_g^(j)/2 ≤ (k₁^(j) + 1) 𝒥_g + k₂ ϱ(p).
 
 *Zeroth order.* For |B| ≤ N − 2, [[lem:tl5-hf-sobolev]] with A := Ψ_B involves the words JB, |J| ≤ 2, of length at
 most |B| + 2, so μ^(|B|+2) Σ_J ∫ ε₁[Ψ_(JB)] dμ dτ₂ ≤ ℰ_g(p); with μ ≤ 1 in the term on S_a, μ^((|B|+2)/2) |Ψ_B(p)| ≤ C_S
 ℰ_g(p)^(1/2) + C_(0,0) η₀(p). And μ |H(p)| ≤ 2μ |h(p)|.
 
-*First order.* For |B| ≤ N − 3 apply [[eq:tl5-hf-cs-r]] to A := D̂Ψ_B, as in that proof. For a word J of rotations with
-|J| ≤ 2 the coefficients of the remainder R′ in ℒ^J A = D̂Ψ_(JB) + R′ carry at most two letters, so their norms and those
-of their derivatives D̂ are at most Λ₂. The words JB have length at most |B| + 2 ≤ N − 1, and the factors Ψ_(C′) of the
-remainders have |C′| ≤ |B| + 1, so the bounds |ℒ^J A| ≤ (1 + 6Λ) 𝒥₁ and |D̂ℒ^J A| ≤ M₂ + 6√2 Λ 𝒥₁ there become
+*First order.* For |B| ≤ N − 3 apply [[eq:tl5-hf-cs-r]] to A := D̂Ψ_B, as in that proof. For a word J of rotations
+with |J| ≤ 2 the coefficients of the remainder R′ in ℒ^J A = D̂Ψ_(JB) + R′ carry at most two letters, so their norms and
+those of their derivatives D̂ are at most Λ₂. The words JB have length at most |B| + 2 ≤ N − 1, and the factors Ψ_(C′) of
+the remainders have |C′| ≤ |B| + 1, so the bounds |ℒ^J A| ≤ (1 + 6Λ) 𝒥₁ and |D̂ℒ^J A| ≤ M₂ + 6√2 Λ 𝒥₁ there become
 μ^((|B|+3)/2) |ℒ^J A| ≤ (1 + 6Λ₂) 𝒥_g and μ^((|B|+3)/2) |D̂ℒ^J A| ≤ M_g + 6√2 Λ₂ 𝒥_g. By [[eq:tl5-hf-coercive]] and
 [[lem:tl5-hf-densities]], ∫_(Σ₁(a,b)) 𝒥_g² dμ dτ₂/(1 − κκ′) ≤ sup 𝔨₂ ℰ_g(p), 𝔨₂ as in [[lem:tl5-hf-linfty]], and
-[[eq:tl5-hfg-m2]] with j = N − 1 replaces the bound for M₂; the term on S_a is as there, with μ ≤ 1 and Λ₂ in place of
-Λ. The computation of that proof then gives μ^((|B|+3)/2) |D̂Ψ_B(p)| ≤ C₁^g ℰ_g(p)^(1/2) + C_(1,ϱ) ϱ(p) + C_(1,0)^g
-η₀(p).
+[[eq:tl5-hfg-m2]] with j = N − 1 replaces the bound for M₂; the term on S_a is as there, with μ ≤ 1 and Λ₂ in place of Λ.
+The argument of that proof then gives μ^((|B|+3)/2) |D̂Ψ_B(p)| ≤ C₁^g ℰ_g(p)^(1/2) + C_(1,ϱ) ϱ(p) + C_(1,0)^g η₀(p).
 
 *Second order at low levels.* Let |B| ≤ m and multiply the bound at p of that proof by μ^((|B|+4)/2). Its first-order
 terms involve Ψ_C and D̂Ψ_C with |C| ≤ |B| + 1 ≤ m + 1 ≤ N − 3, which by the two previous steps are bounded with the
-weights μ^((|C|+2)/2) and μ^((|C|+3)/2); so L is replaced by L_g := (Σ_(|C|≤m+1) (μ^(|C|+2) |Ψ_C|² + μ^(|C|+3)
-|D̂Ψ_C|²))^(1/2) ≤ (2𝔐^(m))^(1/2) (max(C_S, C₁^g) ℰ_g(p)^(1/2) + C_(1,ϱ) ϱ(p) + max(C_(0,0), C_(1,0)^g) η₀(p)), there
-being 𝔐^(m) words of length at most m + 1, and k₁ by k₁^(m), as |B| ≤ m. Its nonlinear terms come from the words J with
-|J| ≤ |B|: in each monomial the factor of largest order o ≤ |B| + 1 is H, Ψ_C or D̂Ψ_C with |C| ≤ |B|, or D̂²Ψ_C with
-|C| ≤ |B| − 1, and in H^(αβ) D̂_αD̂_βΨ_J, |J| < |B|, the factor D̂²Ψ_J; each enters 𝔰_g^(m) with a weight at least
+weights μ^((|C|+2)/2) and μ^((|C|+3)/2); so L is replaced by L_g := (Σ_(|C|≤m+1) (μ^(|C|+2) |Ψ_C|² +
+μ^(|C|+3) |D̂Ψ_C|²))^(1/2) ≤ (2𝔐^(m))^(1/2) (max(C_S, C₁^g) ℰ_g(p)^(1/2) + C_(1,ϱ) ϱ(p) + max(C_(0,0), C_(1,0)^g) η₀(p)),
+there being 𝔐^(m) words of length at most m + 1, and k₁ by k₁^(m), as |B| ≤ m. Its nonlinear terms come from the words J
+with |J| ≤ |B|: in each monomial the factor of largest order o ≤ |B| + 1 is H, Ψ_C or D̂Ψ_C with |C| ≤ |B|, or D̂²Ψ_C
+with |C| ≤ |B| − 1, and in H^(αβ) D̂_αD̂_βΨ_J, |J| < |B|, the factor D̂²Ψ_J; each enters 𝔰_g^(m) with a weight at least
 μ^((|B|+4)/2), and bounding it by 𝔰_g^(m) and the others by 𝔰 gives at most k₃^⋆ 𝔰(p) 𝔰_g^(m)(p) ≤ 𝔰_g^(m)(p)/2. So
 μ^((|B|+4)/2) |D̂²Ψ_B(p)| ≤ k₁^(m) L_g + k₂ ϱ(p) + 𝔰_g^(m)(p)/2.
 
@@ -212,12 +210,12 @@ nor a second derivative, so all factors have order 0 and o₁ = 0. In both cases
 
     ℓ_P(Φ₁) + ℓ_E(Φ₂) ≤ n + 3,      ℓ_E(Φ₂) ≤ n.                                                      {#eq:tl5-hfg-count}
 
-Φ₁ is low. If Φ₁ = D̂²Ψ_B, then Φ₂ is high and not a second derivative, and it is not D̂Ψ_C either, as the derivatives
-D̂ would then number three; so Φ₂ = Ψ_C with |C| ≥ N − 1, every other factor would offer another choice, so q = 2, and
-|B| + 2 + N − 1 ≤ o₁ + o₂ ≤ N + 2 gives |B| ≤ 1; with |B| ≤ N − 4, as Φ₁ is low, |B| ≤ m_P. So Φ₁ is one of the
-quantities of 𝔰_P, and |Φ₁| ≤ μ^(−ℓ_P(Φ₁)/2) 𝔰_P. With |Φ_i| ≤ 𝔰 ≤ 1 for the other factors, (∗) for Φ₂, and |Φ₁|
-bounded by μ^(−ℓ_P(Φ₁)/2) 𝔰_P in the term with 𝒥_g and by 𝔰 in the term with ϱ(p), the monomial times μ^(n/2) is at
-most ν 𝔰^(q−2) times
+Φ₁ is low. If Φ₁ = D̂²Ψ_B, then Φ₂ is high and not a second derivative, and it is not D̂Ψ_C either, as the derivatives D̂
+would then number three; so Φ₂ = Ψ_C with |C| ≥ N − 1, every other factor would offer another choice, so q = 2, and |B| +
+2 + N − 1 ≤ o₁ + o₂ ≤ N + 2 gives |B| ≤ 1; with |B| ≤ N − 4, as Φ₁ is low, |B| ≤ m_P. So Φ₁ is one of the quantities of
+𝔰_P, and |Φ₁| ≤ μ^(−ℓ_P(Φ₁)/2) 𝔰_P. With |Φ_i| ≤ 𝔰 ≤ 1 for the other factors, (∗) for Φ₂, and |Φ₁| bounded by
+μ^(−ℓ_P(Φ₁)/2) 𝔰_P in the term with 𝒥_g and by 𝔰 in the term with ϱ(p), the monomial times μ^(n/2) is at most ν 𝔰^(q−2)
+times
 
     μ^((n − ℓ_P(Φ₁) − ℓ_E(Φ₂))/2) 𝔨_g 𝔰_P 𝒥_g + μ^((n − ℓ_E(Φ₂))/2) 2k₂ 𝔰 ϱ(p) ≤ μ^(−3/2) 𝔨_g 𝔰_P 𝒥_g + 2k₂ 𝔰 ϱ(p),
 
