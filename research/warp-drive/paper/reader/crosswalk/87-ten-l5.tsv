@@ -362,3 +362,17 @@ eq:tl5-hft-closing	paper/reader/proofs/P-GRD3.md@b9bfd6ad:184	P-GRD3, display	cl
 thm:tl5-hf4t	paper/reader/proofs/P-GRD3.md@b9bfd6ad:192	P-GRD3, Theorem	thm:tl5-hf4 with the third sharpened constants
 eq:tl5-hf4t-closing	paper/reader/proofs/P-GRD3.md@b9bfd6ad:196	P-GRD3, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,t) + 2 eps_(M,s)) (S_(F,s) + S_(M,s)) < 1
 rem:tl5-hft-what	paper/reader/proofs/P-GRD3.md@b9bfd6ad:206	P-GRD3, Remark	what the third sharpening changes; options (a), (b); intrinsic Sobolev constants
+sec:tl5-hfq	paper/reader/proofs/P-GRD4.md@a08ce8c0:1	P-GRD4, section	new; at the end of ch:ten-l5, after rem:tl5-hft-what (author: keep tightening by hand); fourth sharpening at level 4
+lem:tl5-hfq-m	paper/reader/proofs/P-GRD4.md@a08ce8c0:15	P-GRD4, Lemma	products with no point factor at level 4 counted exactly also in R3: coefficients 480 + 96 g1 (g0 + sqrt5) s_flat and 4 + 4 g1 s_flat (2 + g1 s_flat)
+eq:tl5-hfq-m	paper/reader/proofs/P-GRD4.md@a08ce8c0:19	P-GRD4, display	new
+lem:tl5-hfq-theta	paper/reader/proofs/P-GRD4.md@a08ce8c0:38	P-GRD4, Lemma	absorption weighted in two parts (mu for the energies, mu^theta for rho and eta0); family between options (a) and (b)
+eq:tl5-hfq-m2	paper/reader/proofs/P-GRD4.md@a08ce8c0:43	P-GRD4, display	new
+eq:tl5-hfq-small	paper/reader/proofs/P-GRD4.md@a08ce8c0:48	P-GRD4, display	new
+lem:tl5-hfq-mixed	paper/reader/proofs/P-GRD4.md@a08ce8c0:87	P-GRD4, Lemma	X1 without the count 49, X2 without the count 7 in its remainder part, Y1 with the level-2 recovery constant
+def:tl5-hfq-constants	paper/reader/proofs/P-GRD4.md@a08ce8c0:106	P-GRD4, Definition	fourth sharpened constants at level 4: s0^q, s1^q, g_(rho,q), eps_(w,q), S_(M,q), r_(M,q), eps_(M,q), A_q, B_q, s_(*,q)
+eq:tl5-hfq-constants	paper/reader/proofs/P-GRD4.md@a08ce8c0:120	P-GRD4, display	new
+prop:tl5-hfq-bootstrap	paper/reader/proofs/P-GRD4.md@a08ce8c0:122	P-GRD4, Proposition	(H1) at level 4 with the fourth sharpened constants
+eq:tl5-hfq-h1	paper/reader/proofs/P-GRD4.md@a08ce8c0:127	P-GRD4, display	new
+thm:tl5-hf4q	paper/reader/proofs/P-GRD4.md@a08ce8c0:140	P-GRD4, Theorem	thm:tl5-hf4 with the fourth sharpened constants; theta in [0,1]
+eq:tl5-hf4q-closing	paper/reader/proofs/P-GRD4.md@a08ce8c0:144	P-GRD4, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,q) + 2 eps_(M,q)) (S_(F,s) + S_(M,q)) < 1
+rem:tl5-hfq-what	paper/reader/proofs/P-GRD4.md@a08ce8c0:153	P-GRD4, Remark	what the fourth sharpening changes
