@@ -12,8 +12,8 @@ def read_elem(fn):
     t_a = -cos(pi a/Nt) ascending, sigma_b likewise, x_k = cos(pi k/M)) holding G = (F - F_seed)/(v - 1/2)^4"""
     out = []
     with open(fn, 'rb') as f:
-        assert f.read(6) == b'BSOLE2'
-        ne, NX, NW = struct.unpack('<iii', f.read(12))
+        hd = f.read(6); assert hd in (b'BSOLE1', b'BSOLE2')
+        ne, NX = struct.unpack('<ii', f.read(8)); NW = struct.unpack('<i', f.read(4))[0] if hd == b'BSOLE2' else 2
         for e in range(ne):
             nt, ns = struct.unpack('<ii', f.read(8)); nd = struct.unpack('<q', f.read(8))[0]
             n = struct.unpack('<q', f.read(8))[0]
