@@ -1369,9 +1369,9 @@ draft; the draft's rows for sec:appc-format, eq:appc-linecheck, lem:appc-checks 
     eq:appc-rule-int	paper/reader/proofs/P-APPC2.md@PENDING:669	P-APPC2, display	Goursat integration (row 0 with W, V; rows >= 1 with Q, QQ)
     rem:appc-rhs-origin	paper/reader/proofs/P-APPC2.md@PENDING:686	P-APPC2, Remark	the sequence is the axis-regular evolution system (pending identity); not used
     sec:appc-iteration	paper/reader/proofs/P-APPC2.md@PENDING:693	P-APPC2, section	new
-    def:appc-short	paper/reader/proofs/P-APPC2.md@PENDING:698	P-APPC2, Definition	binary64 arithmetic: rounding to nearest even (0 even), ordered sums; reciprocals rounded from F
+    def:appc-short	paper/reader/proofs/P-APPC2.md@PENDING:698	P-APPC2, Definition	binary64 arithmetic: rounding to nearest even (0 even), ordered sums
     eq:appc-short	paper/reader/proofs/P-APPC2.md@PENDING:705	P-APPC2, display	the operations of the short arithmetic
-    def:appc-iteration	paper/reader/proofs/P-APPC2.md@PENDING:712	P-APPC2, Definition	defect correction: outer defect steps in B = 320, inner linearised sweeps in binary64
+    def:appc-iteration	paper/reader/proofs/P-APPC2.md@PENDING:712	P-APPC2, Definition	defect correction: outer defect steps in B = 320, inner linearised sweeps in binary64; each reciprocal rounded once from its value in F, divisions in binary64 only by 3 and e4
     sec:appc-segments	paper/reader/proofs/P-APPC2.md@PENDING:747	P-APPC2, section	new
     def:appc-resample	paper/reader/proofs/P-APPC2.md@PENDING:749	P-APPC2, Definition	Chebyshev resampling in x between segments
     def:appc-handoff	paper/reader/proofs/P-APPC2.md@PENDING:760	P-APPC2, Definition	hand-off state of a segment and its canonical string
