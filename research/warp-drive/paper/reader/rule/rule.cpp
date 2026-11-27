@@ -203,8 +203,8 @@ static const Resampler* resampler(int M1, int M2) {
   auto key = std::make_pair(M1, M2); auto it = RESAMP.find(key); if (it != RESAMP.end()) return it->second.get();
   auto r = std::make_unique<Resampler>(make_resampler(M1, M2)); const Resampler* p = r.get(); RESAMP[key] = std::move(r); return p;
 }
-static void resample_edge(LeftEdge& e, int M2) {        // def:appc-resample, for each field and node v_b
-  int M1 = e.NX - 1; if (M1 == M2) return;
+static void resample_edge(LeftEdge& e, int M2) {        // def:appc-resample, for each field and node v_b (also M1 = M2)
+  int M1 = e.NX - 1;
   const Resampler* R = resampler(M1, M2); std::vector<F> G((size_t)4 * e.nB * (M2 + 1)); std::vector<S> in(e.NX);
   for (int f = 0; f < 4; f++) for (int b = 0; b < e.nB; b++) {
     for (int k = 0; k < e.NX; k++) in[k] = to_sm(e.G[((size_t)f * e.nB + b) * e.NX + k]);
@@ -349,15 +349,13 @@ static void run_segment(int s, bool dump) {
     for (int j = 0; j < CF.run_rows; j++) SEG_LEFT.G.insert(SEG_LEFT.G.end(), N1[j].e.G.begin(), N1[j].e.G.end());
   } else {
     LeftEdge all; read_handoff(s - 1, all);
-    if (all.NX != g->NX) {
-      LeftEdge out; out.nB = all.nB; out.NX = g->NX;
-      for (int j = 0; j < CF.run_rows; j++) {
-        LeftEdge e; e.nB = all.nB; e.NX = all.NX;
-        e.G.assign(all.G.begin() + (size_t)j * 4 * all.nB * all.NX, all.G.begin() + (size_t)(j + 1) * 4 * all.nB * all.NX);
-        resample_edge(e, g->M); out.G.insert(out.G.end(), e.G.begin(), e.G.end());
-      }
-      SEG_LEFT = out;
-    } else SEG_LEFT = all;
+    LeftEdge out; out.nB = all.nB; out.NX = g->NX;          // resampled at every segment boundary, also between equal M (m-9)
+    for (int j = 0; j < CF.run_rows; j++) {
+      LeftEdge e; e.nB = all.nB; e.NX = all.NX;
+      e.G.assign(all.G.begin() + (size_t)j * 4 * all.nB * all.NX, all.G.begin() + (size_t)(j + 1) * 4 * all.nB * all.NX);
+      resample_edge(e, g->M); out.G.insert(out.G.end(), e.G.begin(), e.G.end());
+    }
+    SEG_LEFT = out;
   }
   DONE.clear();
   const int c0 = sg.c0, c1 = std::min(sg.c1, CF.run_cols), nr = CF.run_rows;
@@ -396,6 +394,8 @@ static void run_segment(int s, bool dump) {
         std::string st; for (auto& v : r.top.sv) st += fx_dec(v) + "\n"; r.svsha = sha256_hex(st);
         r.spot.push_back(c->G[FM * NN + c->IX(nA - 1, nB - 1, 0)]);      // G^m_(p_ξ p_v 0)
         for (auto& v : c->rmax) r.spot.push_back(v);                       // max |r| per outer step
+        { std::string l; char b[64]; for (auto& v : c->rmax) { snprintf(b, 64, " %.2e", ldexp((double)fx_bitlen_abs(v), 0) > 0 ? rd_fx(v) : 0.0); l += b; }
+          fprintf(stderr, "  cell (%d,%d) max|r| per outer step:%s\n", c->i, c->j, l.c_str()); }    // diagnostic only
         sample_cell(*c, r.rec, r.nrec);
         write_atomic(cellfile(s, c->i, c->j), cell_bytes(r, c->i, c->j));
         if (dump) write_atomic(segdir(s) + "/G_" + std::to_string(c->i) + "_" + std::to_string(c->j) + ".txt", gt);
@@ -405,6 +405,8 @@ static void run_segment(int s, bool dump) {
       double dt = now_s() - t0, dc = cpu_s() - cc0; size_t nodes = (size_t)g->nA * g->nB * g->NX * bt.cells.size();
       fprintf(stderr, "seg %d diag %d cells %zu: setup %.1f s, total %.1f s wall, %.1f s cpu; per node: %.0f us cpu for (N_o, N_i) = (%d, %d) [%d threads]\n",
               s, d, bt.cells.size(), tsetup, dt, dc, 1e6 * (dc - csetup) / (double)nodes, sg.No, sg.Ni, omp_get_max_threads());
+      { SchemeTimes& T = scheme_times(); if (T.nP && T.nI) fprintf(stderr, "  so far: c_P = %.1f us cpu per node per evaluation of P (320-bit), c_I = %.2f us cpu per node per inner sweep (binary64)\n",
+          1e6 * T.tP / T.nP, 1e6 * T.tI / T.nI); }
     }
   }
   if (c1 == sg.c1 && nr == CF.nr) {

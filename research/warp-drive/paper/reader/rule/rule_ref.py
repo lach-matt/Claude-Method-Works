@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""rule_ref.py -- an exact reference implementation of the rule of P-APPC2 (proofs/P-APPC2.md, sec:appc-rule), for
+"""rule_ref.py -- an exact reference implementation of the rule of P-APPC2 (proofs/P-APPC2.md at 446f53e8, md5 fca513ba…, sec:appc-rule), for
 small runs.
 
 Written from the text as directly as possible.  A number x of 𝔽 is the Python int X = 2^320 x; a number of 𝔻 (the
@@ -512,7 +512,8 @@ def main():
             else:
                 left = cells[(i - 1, j)]['right']
                 Mp, Mi = cells[(i - 1, j)]['M'], cs.segs[cs.seg_of(i)][2]
-                if Mp != Mi: left = [[resample(left[f][b], Mp, Mi) for b in range(nB)] for f in range(4)]
+                if cs.seg_of(i - 1) != cs.seg_of(i):          # at every segment boundary, also when Mp = Mi (m-9)
+                    left = [[resample(left[f][b], Mp, Mi) for b in range(nB)] for f in range(4)]
             cells[(i, j)] = solve_cell(i, j, left, cells[(i, j - 1)]['top'] if j else None)
             print('cell', i, j, 'done', file=sys.stderr)
         s = cs.seg_of(i)

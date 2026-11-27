@@ -7,6 +7,11 @@
 #pragma once
 #include "cell.h"
 #include <functional>
+#include <ctime>
+// cpu-time accounting of the two parts of an outer step (diagnostics only)
+struct SchemeTimes { double tP = 0, tI = 0; long nP = 0, nI = 0; };
+inline SchemeTimes& scheme_times() { static SchemeTimes t; return t; }
+inline double scheme_cpu() { timespec t; clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &t); return t.tv_sec + 1e-9 * t.tv_nsec; }
 
 // max |r| over all entries of r (the integer of the largest magnitude), and its bit length
 inline int fx_bitlen_abs(const F& a) { uint64_t m[6]; fx_abs(a, m); for (int i = 5; i >= 0; i--) if (m[i]) return 64 * i + 64 - __builtin_clzll(m[i]); return 0; }
@@ -19,7 +24,9 @@ inline void scheme_defect(Batch& bt, int start_outer, const std::function<void(i
   for (int o = start_outer; o < No; o++) {
     std::vector<Cell*> act; for (Cell* c : bt.cells) if (o < c->No && !c->zero_defect) act.push_back(c);
     if (act.empty()) break;
+    double t0 = scheme_cpu();
     bt.evaluate(act); bt.integrate(act);                         // (i) P(G), and J̄ = rd J(G)
+    scheme_times().tP += scheme_cpu() - t0; for (Cell* c : act) scheme_times().nP += c->NN();
     std::vector<Cell*> corr;
     for (Cell* c : act) {
       const size_t n = c->G.size(); int bl = 0; F rm = fx_zero<6, 5>();
@@ -39,7 +46,7 @@ inline void scheme_defect(Batch& bt, int start_outer, const std::function<void(i
     }
     for (int it = 0; it < (corr.empty() ? 0 : corr[0]->Ni); it++) {   // N_i times d := r̃ ⊕ I_𝔻(d)
       std::vector<Cell*> run; for (Cell* c : corr) if (it < c->Ni) run.push_back(c);
-      bt.lin(run);
+      double t1 = scheme_cpu(); bt.lin(run); scheme_times().tI += scheme_cpu() - t1; for (Cell* c : run) scheme_times().nI += c->NN();
       for (Cell* c : run) {
         const size_t n = c->G.size();
         #pragma omp parallel for schedule(static)
