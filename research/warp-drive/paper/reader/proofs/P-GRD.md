@@ -35,7 +35,7 @@ and put, with 𝔤₀ and the ordered Bell numbers F_k of [[def:tl5-hf-levels]],
                + 16 Σ⁶_n b_g^g(k₁) λ_(k₃) (b_g^g(k₄) + λ̂_(k₄)) β₁^g(k₅) β₁^g(k₆),                       {#eq:tl5-hfg-cn}
 
 k ≥ 1 where not stated. Fix 𝔰_♭ ∈ (0, 1/8] and one of the two choices 𝔠^⋆_n := 𝔠^g_n, the first expansion, or 𝔠^⋆_n :=
-𝔠^Q_n + 𝔰_♭ 𝔠^(3)_n, the second expansion, for all n ≤ N; with the first choice let 𝔰_♭ := 1/8. Finally put
+𝔠^Q_n + 𝔰_♭ 𝔠^(3)_n, the second expansion, for all n ≤ N; with the first choice 𝔰_♭ = 1/8 may be taken. Finally put
 
     𝒥_g := (Σ_(|C|≤N) μ^|C| (|Ψ_C|² + |D̂Ψ_C|²))^(1/2),      M_g^(j) := max_(|C|≤j) μ^((|C|+1)/2) |D̂²Ψ_C|,
     𝔰_g^(m) := max(μ |H|, μ^((|B|+2)/2) |Ψ_B| (|B| ≤ N − 2), μ^((|B|+3)/2) |D̂Ψ_B| (|B| ≤ N − 3),
@@ -132,8 +132,9 @@ for 0 ≤ j ≤ N − 1 and 0 ≤ m ≤ N − 4,
 
 with the maps of [[def:tl5-hf-coupling]] and their norms as in [[lem:tl5-hf-linfty]], C₁^g and C_(1,0)^g the constants
 C₁ and C_(1,0) of [[lem:tl5-hf-linfty]] with Λ₂ in place of Λ, and the Λ_k evaluated at the point of the supremum in
-C₁^g; so k₁^(N−1) = k₁, 𝔐^(N−4) = 𝔐 and k₃^⋆ ≤ k₃ when 𝔠^⋆_n ≤ 𝔠_n. If 𝔰 ≤ 𝔰₀^⋆ := min(𝔰_♭, 1/(2 sup_(Q(a,b)) k₃^⋆))
-on Q(a, b), a := τ₁(p), b := τ₂(p), then at every point of Q(a, b)
+C₁^g; so k₁^(N−1) = k₁, 𝔐^(N−4) = 𝔐 and k₃^⋆ ≤ k₃ when 𝔠^⋆_n ≤ 𝔠_n. None of these constants depends on μ. If 𝔰 ≤
+𝔰₀^⋆ := min(𝔰_♭, 1/(2 sup_(Q(a,b)) k₃^⋆)) on Q(a, b), a := τ₁(p), b := τ₂(p), then for every μ ∈ (0, 1], at every point
+of Q(a, b)
 
     M_g^(j) ≤ 2(k₁^(j) + 1) 𝒥_g + 2k₂ ϱ(p)      (0 ≤ j ≤ N − 1),                                         {#eq:tl5-hfg-m2}
 
@@ -143,8 +144,8 @@ and at p, for 0 ≤ m ≤ N − 4,
 
 *Proof.* We follow the proof of [[lem:tl5-hf-linfty]], multiplying each bound by the weight of the quantity it bounds;
 for N = 4 that proof applies as in [[lem:tl5-hf4-linfty]]. The bounds of [[lem:tl5-hf-quadratic]] it uses, for words of
-length at most N − 1, hold with 𝔠^⋆ by [[lem:tl5-hfg-quadratic]], as 𝔰 ≤ 𝔰_♭ and 𝔑^M_J = 0 for |J| ≤ 3; so its
-inequalities hold with k₃^⋆ in place of k₃, and k₃^⋆ 𝔰 ≤ 1/2. By [[lem:tl5-hfg-quadratic]] the solution factors of a
+length at most N − 1, hold with 𝔠^⋆ by [[lem:tl5-hfg-quadratic]], as 𝔰 ≤ 𝔰_♭ and, for N = 4, 𝔑^M_J = 0 for |J| ≤ 3; so
+its inequalities hold with k₃^⋆ in place of k₃, and k₃^⋆ 𝔰 ≤ 1/2. By [[lem:tl5-hfg-quadratic]] the solution factors of a
 monomial of ℒ^J N(h) − H^(αβ) D̂_αD̂_βΨ_J are H, Ψ_C or D̂Ψ_C with |C| ≤ |J|, or D̂²Ψ_C with |C| ≤ |J| − 1.
 
 *Second derivatives.* Let q ∈ Q(a, b), j ≤ N − 1 and |C| ≤ j, and multiply the bound of [[lem:tl5-hf-recovery]] for Ψ_C,
@@ -278,7 +279,8 @@ the functions of p being evaluated at the point of the supremum. For N = 4 put, 
     𝔯_(M,g) := μ^(−3/2) ∫_(−10)^(u*) m_t^g [𝔨₂]_t^(1/2) (2ϱ + η₀) dt,
     ε_(M,g) := μ^(−3/2) ϱ (ϱ + η₀) ∫_(−10)^(u*) m_t^g dt,
 
-and for N ≥ 5 let S_(M,g) = 𝔯_(M,g) = ε_(M,g) := 0. Finally
+the graded triple, or let S_(M,g), 𝔯_(M,g) and ε_(M,g) be S_M, 𝔯_M and ε_M of [[def:tl5-hf4-constants]] with m_t^g in
+place of m_t, the ungraded triple, the same triple throughout; for N ≥ 5 let S_(M,g) = 𝔯_(M,g) = ε_(M,g) := 0. Finally
 
     A_g := √2 δ_w + 2ε_(w,g) + 2ε_(M,g),      B_g := 2 (S_(F,g) + S_(M,g)),      𝔯_g := 𝔯_(w,g) + 𝔯_(M,g),
     𝔰_(*,g) := sup_(p∈D^κ) (2 C_∞^(N−4)(p) μ^(−N/2) e^(φ(p)/2) A_g
@@ -319,7 +321,10 @@ and 2k₂ 𝔰 ϱ ≤ (1/4) k₂ ϱ, as 𝔰 ≤ 1/8. By (a) of [[lem:tl5-hf-qua
 are bounded as in the proof of [[prop:tl5-hf4-bootstrap]], with [[eq:tl5-hf4-g]] for 𝔠^⋆₄ and [[lem:tl5-hfg-mixed]] in
 place of [[lem:tl5-hf4-mixed]]: the factors there become 49 [𝔠^⋆₄]_t ‖𝔭_M‖_Σ and at most μ^(−2) Y_s, and 𝔍_g ≤
 [𝔨₂]_t^(1/2) Y_s, so the term is at most ∫_(−10)^(u*) m_t^g μ^(−3/2) (𝔍_g + ϱ)(𝔍_g + ϱ + η₀) Y_s dt ≤ S_(M,g) Y_s³ +
-𝔯_(M,g) Y_s² + ε_(M,g) Y_s. Hence the bulk of the weighted sum over I is at most
+𝔯_(M,g) Y_s² + ε_(M,g) Y_s for the graded triple. For the ungraded triple, [[lem:tl5-hfg-mixed]] with μ = 1, where
+𝔍_g = 𝔍, gives the first inequality of [[eq:tl5-hf4-mixed]] with 𝔛_t^g in place of 𝔛_t, and the argument of the
+proof of [[prop:tl5-hf4-bootstrap]], with [𝔠^⋆₄]_t in place of [𝔠₄]_t, bounds the term by S_(M,g) Y_s³ + 𝔯_(M,g) Y_s² +
+ε_(M,g) Y_s. Hence the bulk of the weighted sum over I is at most
 
     ∫ e^(−φ) (2Ω̂² (s_N[2R̂ic] + (1/4) 𝔤_(N,g) k₂ ϱ)(√e_o + √c √e_i) + μ^(−3/2) 𝔰_P (𝔞_(o,g) e_o + 𝔞_(i,g) e_i)) dμ du dv
 
@@ -376,8 +381,9 @@ the bound Y_σ ≤ 2A_(w,4) and through [[eq:tl5-hf4-m2]], which holds by [[eq:t
 [[prop:tl5-hfg-bootstrap]] gives 𝔰 ≤ 𝔰_(*,g) < 𝔰₁^⋆ ≤ min(1/16, 𝔰_θ) under Y_σ ≤ 2A_g. The bound for ε is
 [[eq:tl5-hf-eps]] with 𝔰 ≤ 𝔰_(*,g). ∎
 
-**Remark {#rem:tl5-hfg-powers}** (What the sharpened constants contain.) In S_(F,g), S_(M,g) and 𝔯_g the only power of μ
-is μ^(−3/2), at every level N ≥ 4, against μ^(−N) in S_F and μ^(−2) in S_M of [[thm:tl5-hf]] and [[thm:tl5-hf4]]:
+**Remark {#rem:tl5-hfg-powers}** (What the sharpened constants contain.) In S_(F,g) and 𝔯_(w,g), and with the graded
+triple in S_(M,g), 𝔯_(M,g) and ε_(M,g), the only power of μ is μ^(−3/2), at every level N ≥ 4, against μ^(−N) in S_F
+and μ^(−2) in S_M of [[thm:tl5-hf]] and [[thm:tl5-hf4]]:
 𝔤_(N,g), 𝔨_g, 𝔞_(o,g), 𝔞_(i,g), C_P, C_(P,ϱ), C_(P,0) and m_t^g do not depend on μ. The power is that of the count
 [[eq:tl5-hfg-count]], which gives exactly n + 3 for the term D̂Ψ_B · D̂Ψ_(B′) of 2𝔮 with |B| + |B′| = n and |B| ≤ N − 3:
 D̂Ψ_B is bounded at a point through the energies of level |B| + 3, and D̂Ψ_(B′) through those of level |B′|. The
@@ -445,3 +451,144 @@ factor μ^(−N) = μ^(−4) of S_F, against μ^(−6), while S_M carries μ^(�
 rem:tl5-beyond and lem:tl5-continuation need no change: [[thm:tl5-hfg]] and [[thm:tl5-hf4g]] give (H1), (H2) and
 (H4) of [[lem:tl5-continuation]] and reduce (H3) to [[eq:tl5-hfg-closing]] and [[eq:tl5-hf4g-closing]], as
 [[thm:tl5-hf]] and [[thm:tl5-hf4]] do.
+
+### Comparison and the factors for the evaluation
+
+Not chapter text. "Proved" refers to the section above; "deduced" marks statements about the method that no proof in
+the file establishes; "computed" marks numbers I evaluated (floating point).
+
+*The closing conditions (proved).*
+
+    level 6 as merged:  8 (√2 δ_w + 2ε_w) S_F < 1                              (thm:tl5-hf, eq:tl5-hf-closing)
+    level 6 sharpened:  8 (√2 δ_w + 2ε_(w,g)) S_(F,g) < 1                      (thm:tl5-hfg, eq:tl5-hfg-closing)
+    level 4 as merged:  8 (√2 δ_w + 2ε_w + 2ε_M) (S_F + S_M) < 1               (thm:tl5-hf4, eq:tl5-hf4-closing)
+    level 4 sharpened:  8 (√2 δ_w + 2ε_(w,g) + 2ε_(M,g)) (S_(F,g) + S_(M,g)) < 1   (thm:tl5-hf4g, eq:tl5-hf4g-closing)
+
+with, beside each sharpened one, 𝔯_(w,g) (+ 𝔯_(M,g) at level 4) ≤ 1/4, η₀ < 𝔰₁^⋆ and 𝔰_(*,g) < 𝔰₁^⋆. The merged
+conditions stay valid; either set may be used. δ_w is unchanged.
+
+*Leading μ-powers (proved).* S_(F,g): μ^(−3/2) at both levels (against μ^(−6) at level 6 and μ^(−4) at level 4).
+S_(M,g), 𝔯_(M,g), ε_(M,g) with the graded triple: μ^(−3/2) each (against μ^(−2), μ⁰, μ² in the merged level 4); the
+ungraded triple keeps μ^(−2), μ⁰, μ² with the sharpened m_t^g, and either triple may be used. 𝔯_(w,g): μ^(−3/2)
+(against μ^(−N/2) through 𝔞_o, 𝔞_i). 𝔰_(*,g): μ^(−N/2), unchanged, as the recovery absorbs the ungraded 𝔰. The weights
+μ^j inside 𝔤_N are absorbed: 𝔤_(N,g) has none.
+
+*Every factor, as a formula.* At a point, for words in Γ:
+
+    Λ₀ = 0;  Λ_k (1 ≤ k ≤ N) ≥ |ℒ^B π^Z|, |ℒ^B Γ′[π^Z]|, |ℒ^B D̂Γ′[π^Z]|, |D̂ℒ^B Γ′[π^Z]| for |B| ≤ k − 1, nondecreasing;
+    Λ^R_k ≥ |ℒ^B R̂| for |B| = k;  λ_k ≥ |ℒ^K ĝ⁻¹| for |K| = k (k ≥ 1), admissible λ_k = Σ_r r! S(k,r) 5^((r+1)/2) Λ_k^r;
+    λ₀ = 1, λ̂₀ = √5, λ̂_k = λ_k;  Λ̄_k = max(Λ_k, Λ_k²);  𝔤₀ = √5 + 1/4;  F_k ordered Bell numbers (1, 1, 3, 13, 75,
+    541, 4683);  Σ^m_n f = Σ over k ∈ ℕ^m, Σk_i = n, of n!/(k₁!⋯k_m!) f(k);
+
+    β₁^g(k) = 1 + (2^(k+1) − 2) Λ_k,  β₂^g(k) = 1 + (7/3)(4^k − 1) Λ̄_k  (both 1 at k = 0);
+    b_g^g(k) = F_k 𝔤₀^(k+1) (Λ_k + 1)^k (𝔤₀ at k = 0),  b_H^g(k) = (2k + 1) b_g^g(k) (1 at k = 0);
+    𝔠^g_n = Σ²_n b_H^g(k₁)β₂^g(k₂) − 1 + 5Σ³_n b_H^g(k₁)Λ^R_(k₂) + 16Σ⁴_n b_g^g(k₁)b_g^g(k₂)β₁^g(k₃)β₁^g(k₄);
+    𝔠^Q_n = Σ⁴_n λ_(k₁)λ_(k₃)β₂^g(k₄) − 1 + 5Σ⁵_n λ_(k₁)λ_(k₃)Λ^R_(k₄) + 16Σ⁴_n λ̂_(k₁)λ̂_(k₂)β₁^g(k₃)β₁^g(k₄);
+    𝔠^(3)_n = Σ⁶_n b_g^g(k₁)λ_(k₃)λ_(k₅)β₂^g(k₆) − 𝔤₀ + 5Σ⁷_n b_g^g(k₁)λ_(k₃)λ_(k₅)Λ^R_(k₆)
+              + 16Σ⁶_n b_g^g(k₁)λ_(k₃)(b_g^g(k₄) + λ̂_(k₄))β₁^g(k₅)β₁^g(k₆);
+    𝔠^⋆_n = 𝔠^g_n (with 𝔰_♭ ≤ 1/8), or 𝔠^⋆_n = 𝔠^Q_n + 𝔰_♭ 𝔠^(3)_n (with a chosen 𝔰_♭ ∈ (0, 1/8]), one choice throughout;
+
+    α_𝔄^(j) = √2 max_(|C|≤j) Σ_J ‖𝔄_CJ‖;  k₁^(j) = (6/5)((√3 + 8/3)K_rec(1 + √7(3 max|D̂Z| + 2 max|D̂²Z|)) + 𝔯₀
+              + (4/3)α_𝔄^(j));  k₁ = k₁^(N−1);  k₁^(0) has α_𝔄^(0) = 0;
+    k₂ = (8/5) q₁;  k₃^⋆ = (8/5) max_(|C|≤N−1) (𝔠^⋆_(|C|) + Σ_(J≠C) ‖𝔔_CJ‖ (𝔠^⋆_(|J|) + 1))  (𝔠^⋆_n for n ≤ N − 1);
+    𝔰₀^⋆ = min(𝔰_♭, 1/(2 sup k₃^⋆));  𝔰₁^⋆ = min(𝔰₀^⋆/2, c_* κ_m/2, 𝔰_θ);
+
+    C₁^g² = 258 C_(S³)² 𝔭₃ 𝔴(p)⁶ sup_(Σ₁(a,b)) 𝔳⁶ R⁻³ 𝔨₂ ((1 + 18|D̂∂_γ|²)(1 + 6Λ₂)² + 4|∂_γ|² (72Λ₂² + 8(k₁ + 1)²));
+    C_(1,0)^g² = 516π² C_(S³)² 𝔭₃ 𝔴(p)⁶ sup_(S_a) 𝔳⁶ (1 + 6Λ₂)²;  C_S, C_(0,0), C_(1,ϱ) as in lem:tl5-hf-linfty;
+    𝔐^(m) = Σ_(j≤m+1) 7^j;  m_P = min(1, N − 4)  (𝔐^(m_P) = 57 for N ≥ 5, 8 for N = 4; 𝔐^(N−4) = 𝔐);
+    C_∞^(m) = 2 max(2C_S, C₁^g, k₁^(m) (2𝔐^(m))^(1/2) max(C_S, C₁^g));
+    C_(∞,ϱ)^(m) = 2 max(C_(1,ϱ), k₁^(m) (2𝔐^(m))^(1/2) C_(1,ϱ) + k₂);
+    C_(∞,0)^(m) = 2 max(2C_(0,0), C_(1,0)^g, k₁^(m) (2𝔐^(m))^(1/2) max(C_(0,0), C_(1,0)^g));
+    C_P = C_∞^(m_P) (in S_(F,g)),  C_(P,ϱ), C_(P,0) likewise (in 𝔯_(w,g));  C_∞^(N−4) etc. (in 𝔰_(*,g));
+
+    𝔷 = max_Z (|Z|² + 4|D̂Z|²)^(1/2);  𝔨_g = max(𝔷, 2k₁ + 2);
+    𝔤_(N,g) = (Σ_(j≤N) (Σ_(j′≤j) 𝔮_(jj′) 7^(j′/2) (𝔠^⋆_(j′) + 1))²)^(1/2);
+    𝔞_(o,g) = ϰ₀/c + (1/2)|T| ‖𝒞_(·0)‖ (1/z̲ + 1/c) + 2Ω̂ 𝔤_(N,g) 𝔨_g (1 + 1/z̲ + 1/c)^(1/2);
+    𝔞_(i,g) = ϰ₀ + (1/2)|T| ‖𝒞_(·0)‖ + 2Ω̂ 𝔤_(N,g) 𝔨_g (1 + 1/z̲ + 1/c)^(1/2);
+    S_(F,g) = μ^(−3/2) (∫ sup_(Σ₁(t,v*)) 𝔞_(o,g) C_P e^(φ/2) dt + ∫ sup_(Σ₂(u*,t)) 𝔞_(i,g) C_P e^(φ/2) dt);
+    𝔯_(w,g) = μ^(−3/2) (the same with C_(P,ϱ) ϱ + C_(P,0) η₀ in place of C_P e^(φ/2));
+    ε_(w,g) = 𝒮[s_N[2R̂ic] + (1/4) 𝔤_(N,g) k₂ ϱ];
+    𝔰_(*,g) = sup_p (2C_∞^(N−4) μ^(−N/2) e^(φ/2) A_g + C_(∞,ϱ)^(N−4) ϱ + C_(∞,0)^(N−4) η₀);
+    level 4:  𝔛_t^g = max((𝔭₃ 𝔵₃(t)(1 + 64680[Λ₂]_t²))^(1/2), (𝔭₄𝔵₄(t)/2)^(1/2)(√602 λ_t + 789[Λ̄₂]_t),
+              (𝔭₄𝔵₄(t)/2)^(1/2) √602 ς_t),  λ_t = 2([k₁]_t + 1),  𝔜_t as merged;
+              m_t^g = 98 e^(φ(t,v*)/2) [2Ω̂²(1 + c/κ′)^(1/2)]_t [𝔠^⋆₄]_t 𝔪(t) 𝔛_t^g 𝔜_t;
+              graded triple S_(M,g) = μ^(−3/2) ∫ m_t^g [𝔨₂]_t dt, 𝔯_(M,g) = μ^(−3/2) ∫ m_t^g [𝔨₂]_t^(1/2)(2ϱ + η₀) dt,
+              ε_(M,g) = μ^(−3/2) ϱ(ϱ + η₀) ∫ m_t^g dt.
+
+Here [f]_t is the supremum over the face Σ₁(t, v*), also in [𝔳⁴]_t and [𝔳⁶]_t of 𝔜_t (they are face suprema, not leaf
+suprema), and [𝔠^⋆₄]_t is 𝔠^⋆₄ with the face suprema of the Λ_k, Λ^R_k and λ_k.
+
+*The three levers, item by item.*
+
+1. Graded background bounds (proved). Each background factor carrying k letters is bounded by Λ_k (Λ^R_k for R̂,
+   λ_k for ℒ^K ĝ⁻¹); in the convention of the G0c variant ("Λ_(k−1) for a factor with k letters") the objects are the
+   same and only the index differs. Graded in 𝔠^g_n (so in 𝔤_(N,g), k₃^⋆, 𝔰₀^⋆, 𝔰₁^⋆ and [𝔠^⋆₄]_t), in C₁^g and
+   C_(1,0)^g (Λ₂: the Sobolev step uses two rotations only), and in 𝔛_t^g (Λ₂). k₁ is graded by level: the recovery of
+   D̂²Ψ_C uses k₁^(|C|); C_∞^(m) uses k₁^(m). Computed check: at Λ_k = Λ^R_k = 1 the graded 𝔠^g_n equals 𝔠_n at Λ = 1
+   (104, 1.82e3, 4.14e4, 1.22e6, 4.44e7, 1.93e9, 9.75e10 for n = 0…6), so the gain is entirely in Λ_k against Λ.
+2. Level-matched μ (proved, as in the earlier draft): μ^(−3/2) for every quadratic term at every level, by the count
+   ℓ_P(Φ₁) + ℓ_E(Φ₂) ≤ n + 3 (eq:tl5-hfg-count), sharp for D̂Ψ_B · D̂Ψ_(B′).
+3. The sharper chain.
+   (a) k₁ (proved in part). The factor at a point is never a second derivative of a word of length two or more
+   (lem:tl5-hfg-products), so S_(F,g) uses C_P with k₁^(m_P) (couplings of words of length ≤ 1; none at level 4) and
+   𝔐^(m_P) in place of the third k₁ and 𝔐 of C_∞. The top-level k₁ still enters S_(F,g) twice: in 𝔨_g (the high
+   factor D̂²Ψ_C, |C| ≤ N − 1) and in C₁^g (the ∂_γ-derivative of D̂Ψ_(JB) on the face, |JB| ≤ N − 1). What remains
+   (deduced): in C₁^g only the component D̂²Ψ(E₁, E₁) needs the equation, the other components being recovered from
+   the fields Γ alone; it enters D̂_(∂_γ)D̂Ψ with the coefficient (c + κ′)Ω̂/√c, comparable to |∂_γ|, so splitting it
+   off would not remove k₁ from C₁. The k₁ of 𝔨_g is the recovery at level N − 1 and is needed by this way of bounding.
+   (b) C₁ against C_S (not sharpened beyond Λ → Λ₂). What remains (deduced): 𝔳⁶ 𝔴⁶ and 𝔭₃ come from passing to the
+   Euclidean components on 𝒱 in the Sobolev lemma; a component-free inequality on the leaves (Kato-type, |K|A|| ≤
+   |ℒ_K A|) would remove them but needs the rotations to act isometrically on the norm |·|, which holds for round
+   leaves only; the factor 258 = 6 · 43 counts the 43 rotation words each against the whole 𝒥₁.
+   (c) The nonlinear constant (proved). 𝔠^Q_n expands the exact quadratic part of N(h) with its own coefficient
+   tensors, Leibniz over its factors (no ordered Bell numbers, no 𝔤₀ powers), and puts the cubic remainder behind the
+   factor 𝔰_♭. Computed at all bounds equal to 1: 𝔠^Q_n = 85, 587, 3.74e3, 2.27e4, 1.35e5, 7.87e5, 4.58e6 (n = 0…6)
+   against 𝔠_n above (4.3 decades at n = 6); 𝔠^(3)_n = 200 … 1.21e11, entering with 𝔰_♭. For the seed (π^Z = 0),
+   𝔠^Q_n = (81 + 5|R̂|) 2^n − 1 exactly, that is (81 + 5|R̂|)/9 times G0's c_NL = 9 · 2^N at n = N (computed check:
+   85, 171, …, 5503 at |R̂| = 1). What remains in 𝔤_(N,g) against c_NL (deduced): the word count 7^(j′/2) (an ℓ² count
+   over words would remove it, as the distribution of letters is a bijection between words and tuples of subwords, but
+   needs ℓ² versions of the bounds at a point and of the recovery, with the ℓ² operator norm of the coupling family in
+   place of the row sums of α_𝔄); the cross-level 𝔔-couplings 𝔮_(jj′), which G0's count does not have; and the
+   coefficient normalisation 81 + 5|R̂| against 9 (the 16 units of 2𝔮 count √5 for each inverse metric that may be a
+   trace; a monomial-by-monomial count would lower the 80).
+   (d) (2𝔐)^(1/2) (proved for S_(F,g)): √114 ≈ 10.7 for N ≥ 5 (√800 ≈ 28.3 at N = 6 before), √16 = 4 at level 4
+   (unchanged). The smallness constants keep 𝔐. What remains (deduced): an ℓ² count at the point gives √3 for the
+   undifferentiated part, each word arising as JC in at most three ways.
+
+*Notes for the evaluation.* (i) Whichever 𝔠^⋆ is chosen, it enters k₃^⋆ only through n ≤ N − 1 and 𝔤_(N,g) through
+n ≤ N; at level 4 [𝔠^⋆₄]_t enters m_t^g. (ii) The second expansion requires 𝔰 ≤ 𝔰_♭, so 𝔰₁^⋆ ≤ 𝔰_♭/2 and η₀ < 𝔰₁^⋆:
+𝔰_♭ trades the size of the cubic term against the smallness targets. (iii) C₁^g still contains the top-level k₁,
+which G0c's variant did not grade; the level-graded k₁ enters only C_∞^(m) and the recovery of each level.
+(iv) The merged conditions remain the fallback and are unchanged by this file.
+
+### Crosswalk rows
+
+Rows for the crosswalk of [[ch:ten-l5]], in its four columns, separated by tabs, in chapter order; the line numbers
+are those of this file:
+    sec:tl5-hfg	paper/reader/proofs/P-GRD.md@PENDING:1	P-GRD, section	new; at the end of ch:ten-l5, after rem:tl5-hf4-level, beside sec:tl5-hf and sec:tl5-hf4 (author: sharpen the constants); graded background bounds, level-matched mu, sharper chain
+    def:tl5-hfg-graded	paper/reader/proofs/P-GRD.md@PENDING:18	P-GRD, Definition	graded bounds Lambda_k, Lambda^R_k, lambda_k; nonlinear constants c^g_n, c^Q_n, c^(3)_n, choice c*_n and s_flat; weighted quantities J_g, M_g^(j), s_g^(m), E_g
+    eq:tl5-hfg-cn	paper/reader/proofs/P-GRD.md@PENDING:35	P-GRD, display	new
+    lem:tl5-hfg-quadratic	paper/reader/proofs/P-GRD.md@PENDING:61	P-GRD, Lemma	Lemma G with graded background bounds (first expansion) and with the exact quadratic part plus a cubic remainder behind s_flat (second expansion)
+    eq:tl5-hfg-sum	paper/reader/proofs/P-GRD.md@PENDING:66	P-GRD, display	new
+    lem:tl5-hfg-linfty	paper/reader/proofs/P-GRD.md@PENDING:122	P-GRD, Lemma	lem:tl5-hf-linfty weighted by level, k1 graded by level k1^(j), Lambda_2 in C1, C_inf^(m) for the low second derivatives up to level m
+    eq:tl5-hfg-cinf	paper/reader/proofs/P-GRD.md@PENDING:131	P-GRD, display	new
+    eq:tl5-hfg-m2	paper/reader/proofs/P-GRD.md@PENDING:139	P-GRD, display	new
+    eq:tl5-hfg-linfty	paper/reader/proofs/P-GRD.md@PENDING:143	P-GRD, display	new
+    lem:tl5-hfg-products	paper/reader/proofs/P-GRD.md@PENDING:187	P-GRD, Lemma	the graded count: two levels add to at most n + 3, so mu^(-3/2); factor at a point never D^2 Psi_B with |B| >= 2
+    eq:tl5-hfg-products	paper/reader/proofs/P-GRD.md@PENDING:192	P-GRD, display	new
+    eq:tl5-hfg-count	paper/reader/proofs/P-GRD.md@PENDING:212	P-GRD, display	new
+    lem:tl5-hfg-mixed	paper/reader/proofs/P-GRD.md@PENDING:228	P-GRD, Lemma	lem:tl5-hf4-mixed weighted, with Lambda_2
+    eq:tl5-hfg-mixed	paper/reader/proofs/P-GRD.md@PENDING:235	P-GRD, display	new
+    def:tl5-hfg-constants	paper/reader/proofs/P-GRD.md@PENDING:258	P-GRD, Definition	sharpened constants at levels 6 and 4: s0*, s1*, g_(N,g), a_(o,g), a_(i,g), S_(F,g), r_(w,g), eps_(w,g), m_t^g and the two level-4 triples, A_g, B_g, s_(*,g)
+    eq:tl5-hfg-constants	paper/reader/proofs/P-GRD.md@PENDING:287	P-GRD, display	new
+    prop:tl5-hfg-bootstrap	paper/reader/proofs/P-GRD.md@PENDING:289	P-GRD, Proposition	(H1) with the sharpened constants, levels N >= 4
+    eq:tl5-hfg-smallness	paper/reader/proofs/P-GRD.md@PENDING:292	P-GRD, display	new
+    eq:tl5-hfg-h1	paper/reader/proofs/P-GRD.md@PENDING:297	P-GRD, display	new
+    thm:tl5-hfg	paper/reader/proofs/P-GRD.md@PENDING:341	P-GRD, Theorem	thm:tl5-hf (N >= 6) with the sharpened constants; (a) eta0 < s1*
+    eq:tl5-hfg-closing	paper/reader/proofs/P-GRD.md@PENDING:351	P-GRD, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,g)) S_(F,g) < 1
+    thm:tl5-hf4g	paper/reader/proofs/P-GRD.md@PENDING:362	P-GRD, Theorem	thm:tl5-hf4 with the sharpened constants; (a) eta0 < s1*
+    eq:tl5-hf4g-closing	paper/reader/proofs/P-GRD.md@PENDING:372	P-GRD, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,g) + 2 eps_(M,g)) (S_(F,g) + S_(M,g)) < 1
+    rem:tl5-hfg-powers	paper/reader/proofs/P-GRD.md@PENDING:384	P-GRD, Remark	mu^(-3/2) at every level; where k1, k1^(m_P), M^(m_P) and the graded bounds enter; seed value of c^Q_n
+
+Note to change in the existing rows of the crosswalk of [[ch:ten-l5]]: thm:tl5-hf, add "; sharpened constants in
+thm:tl5-hfg (P-GRD item 2)"; rem:tl5-hf4-level, add "; points to rem:tl5-hfg-powers (P-GRD item 3)".
