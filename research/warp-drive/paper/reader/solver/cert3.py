@@ -78,7 +78,8 @@ def majorant_from(Q, case, i, j, sub, rho, nbox=24, nH=0.08):
     mx, hx = L['xi'][i]; mv, hv = L['v'][j]
     tc, th, sc, sh = (Fr(q) for q in sub)
     def csum(Z, s):
-        a = np.abs(np.array([float(q) for q in Z.ravel()]).reshape(Z.shape)) * float(s)
+        num, den = s.numerator, s.denominator      # exact integer division to float (integers may exceed 1e308)
+        a = np.abs(np.array([int(q) * num / den for q in Z.ravel()]).reshape(Z.shape))
         w = np.multiply.outer(np.multiply.outer(rho[0] ** np.arange(a.shape[0]), rho[1] ** np.arange(a.shape[1])), rho[2] ** np.arange(a.shape[2]))
         return float((a * w).sum()) * (1 + 1e-10)
     BQ = {F: {name: csum(deriv_int(Q[F][0], a), Q[F][1]) for name, a in cert.DER.items()} for F in FN}
