@@ -105,3 +105,96 @@ and of larger rates a_o = â_o/(1 − ϑ₁), a_i = â_i/(1 − ϑ₂). The cap 
 e_i + κ e_o of these faces controls the derivative along ê₄ only through κ e_o; the numbers κ, κ′ of
 [[def:tl5-wg-domains]] are those of the setting. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of
 [[thm:tl5-hfv]] are established in this paper for no background at 10 l5.
+
+### Placement
+
+This part, the comparison and the crosswalk rows below are instructions and notes for merging; they are not chapter text.
+The earlier sections stay as they are and their closing conditions remain valid; this section is added beside them. Old
+texts are quoted exactly from chapters/87-ten-l5.md at HEAD 87e4d2c5 (identical to e047e7e0 for this chapter), where
+sec:tl5-hfq is merged (87:5979–6140, merge 40140118; the chapter is unchanged since). Line numbers serve only to find the
+place. Each new text replaces its old text as a whole, with the line breaks shown.
+
+*1. Where the section goes.* The section above, from its heading ("The constants sharpened a fifth time", label
+sec:tl5-hfv) through the last line of [[rem:tl5-hfv-what]], is inserted at the end of [[ch:ten-l5]], after the last line
+of [[rem:tl5-hfq-what]] (line 6140, as changed by item 2), with one blank line before it, as a sibling "###" section. It
+cites the earlier sections as they stand and the proofs of prop:tl5-hft-bootstrap, prop:tl5-hfq-bootstrap, thm:tl5-hft,
+thm:tl5-hf4q and the persistence lemmas with the replacements it states. It defines the labels listed in the crosswalk
+rows, none defined elsewhere. No number already printed changes.
+
+*2. The last sentence of [[rem:tl5-hfq-what]] (lines 6139–6140).* Old:
+
+[[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hf4q]] are established in this paper for no
+background at 10 l5.
+
+New:
+
+[[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hf4q]] are established in this paper for no
+background at 10 l5. [[sec:tl5-hfv]] sharpens the constants a fifth time, at levels four and N ≥ 6
+([[thm:tl5-hfv]]).
+
+*3. Nothing else changes.*
+
+### Comparison and the factors for the evaluation
+
+Not chapter text. "Proved" refers to the section above; "deduced" marks statements no proof here establishes.
+
+*Closing condition (proved, levels 4 and ≥ 6):* 4 η^(−3/2) (δ_w + η^(−1/2)(ε^v + ε_M^v)) (S_F^v + S_M^v) < 1 with
+η = 1 − max(ϑ₁, ϑ₂) − 𝔯^v > 0, η₀ < 𝔰₁^v, 𝔰_*^v < 𝔰₁^v, and (1 − ϑ₁) a_o, (1 − ϑ₂) a_i admissible for (𝔅_N, E_o^N, E_i^N).
+At ϑ₁ = ϑ₂ = 𝔯^v = 1/4 it is the earlier 8(√2 δ_w + 2ε)S < 1.
+
+*Every new factor, as a formula.*
+
+    𝔰_(θ,v) = min(ϑ₁ (√2 + 1/2)⁻¹ inf min(c, κ′)/(c + κ′), ϑ₂ (√2 + 1/2)⁻¹ inf κc/(1 + κc)),  ϑ₁, ϑ₂ ∈ (0, 1);
+    𝔰₁^v = 𝔰₁^t or 𝔰₁^q with 𝔰_(θ,v) in place of 𝔰_θ;
+    A = 1/z̲ + 1/c,  𝔣₂^o = √2 Ω̂ (A(1 + cA))^(1/2) (in 𝔞_o, 𝔟_o),  𝔣₂^i = √2 Ω̂ (1/A + c)^(1/2) (in 𝔞_i, 𝔟_i),
+        against 𝔣₂ = 2Ω̂ (1 + A)^(1/2) in both;
+    𝔨_B = max(𝔷, 𝔤₁), 𝔤₁ = 1 + 2𝔰_♭ (was max(𝔷, 2));
+    level 4:  𝔷₁ = 3 max|D̂Z|, 𝔷₂ = 2 max|D̂²Z|;
+              𝔨_rec = (6/5)((√3 + 8/3) K_rec √7 (C₁ + 𝔷₁ μ^(1/2) C₁ + 𝔷₂ μ C_S) + μ 𝔯₀ C_S)
+              (was 4 k₁^(0,μ) max(C_S, C₁), k₁^(0,μ) = (6/5)((√3+8/3)K_rec(1 + μ^(1/2)√7(𝔷₁+𝔷₂)) + μ^(1/2)𝔯₀));
+              𝔨_rec^ϱ = (6/5)(√3 + 8/3) K_rec √7 (1 + 𝔷₁ μ^(1/2)) C_(1,ϱ);
+              𝔨_rec^0 = (6/5)((√3 + 8/3) K_rec √7 ((1 + 𝔷₁ μ^(1/2)) C_(1,0) + 𝔷₂ μ C_(0,0)) + μ 𝔯₀ C_(0,0));
+              C_P^v = 2 max(2C_S, C₁, 𝔨_rec),  C_(P,ϱ)^v = 2 max(C_(1,ϱ), 𝔨_rec^ϱ + k₂),
+              C_(P,0)^v = 2 max(2C_(0,0), C_(1,0), 𝔨_rec^0)  (C₁ = C₁^♮, C_(1,0) = C_(1,0)^♮, either Sobolev choice);
+    η = 1 − max(ϑ₁, ϑ₂) − 𝔯^v;  A_v = η^(−1/2) δ_w + η⁻¹ (ε^v + ε_M^v);  B_v = η⁻¹ (S_F^v + S_M^v).
+
+*The briefed items.*
+
+1. The cap 𝔰_θ (proved in part). Where the parameters are fixed: κ, κ′ ∈ (0, 1/4] with κ′(v* − 1/2) < u* + 10 and
+   κ(u* + 10) < v* − 1/2 (def:tl5-wg-domains); ϑ ∈ (0, 1/4] in each theorem, used only in Step 3 (ϑ ≤ 1/4, 𝔯 ≤ 1/4 give
+   the factor 2) and through the rates for (1 − ϑ)⁻¹𝔅_N. Proved: ϑ splits into ϑ₁ (faces Σ₁, cap ∝ min(c, κ′)/(c + κ′))
+   and ϑ₂ (faces Σ₂, cap ∝ κc/(1 + κc)), each free in (0, 1), and the closing is written with η, so the cap rises by up
+   to (1 − η)/ϑ = up to 100 against ϑ = 10⁻² at the price of η and of the rates. Not removable in this proof (deduced):
+   on Σ₂ the 𝔟-flux contains |D̂_(ê₄)Ψ|² with a coefficient of size |H|, and the face density e_i + κe_o controls it only
+   with the weight κc; a sharper cap would need the component H(dv, dv), which is not small in general. What carries κ,
+   κ′ (unchanged here, for the evaluation's choice): D^κ, τ₁, τ₂, the faces and 1 − κκ′; κ_m in c_*κ_m/2 of 𝔰₁; the cap;
+   𝔨₂ = (1/z̲ + max(1/c, 1/κ′))/(2Ω̂²) (in C₁, C_(1,0) through the densities, in S_M); 𝔨₁ = 3max(1, κ′/c, κ′²b̂²e^(2ζ)/((c +
+   κ′)Ω̂²)) in C_S; ∂_γ = ∂_v − κ′∂_u in |∂_γ|, |D̂∂_γ|, 𝔱_r; (1 + c/κ′)^(1/2) in w_t; the rates (the admissibility
+   condition is monotone in κ, κ′); and B ⊂ D^κ for the double-null step (lem:tl5-wg-domains (d)).
+2. C₁^E against C_S^E (not done). The level-3 constant comes from the Sobolev inequality for the rank-3 tensor D̂Ψ_B,
+   whose derivative along the face generator ∂_γ needs D̂²Ψ including its (E₁, E₁) component, obtained only from the
+   equation; the components of D̂Ψ_B along E₀ and the leaves follow from Ψ_(ZB) with rank 2 and no k₁, but the E₁
+   component does not, so the rank 3 (and k₁^μ in C₁) remain in this approach.
+3. 4k₁^(0,μ) (proved in part): 𝔨_rec counts the seven fields once (√7 against 4 = (2𝔐^(0))^(1/2)) and puts μ^(1/2), μ
+   on the lower jets; K_rec itself and the factor (6/5)(√3 + 8/3) of lem:tl5-hf-recovery stay.
+4. The word count 7² in S_F (not done; worth ≤ 0.6 decades in f by G0g's model).
+5. 𝔣₂ (proved: 𝔣₂^o, 𝔣₂^i), 𝔨_B (proved: 𝔤₁ in place of 2), the factor 8√2 (proved: η); 𝔠^♮₄(μ) against 9·2⁴ not done.
+
+### Crosswalk rows
+
+Rows for the crosswalk of [[ch:ten-l5]], in its four columns, separated by tabs, in chapter order; the line numbers
+are those of this file:
+    sec:tl5-hfv	paper/reader/proofs/P-GRD5.md@PENDING:1	P-GRD5, section	new; at the end of ch:ten-l5, after rem:tl5-hfq-what; fifth sharpening, levels 4 and N >= 6
+    lem:tl5-hfv-close	paper/reader/proofs/P-GRD5.md@PENDING:13	P-GRD5, Lemma	two numbers theta1, theta2 in (0,1) for the quasilinear term, cap s_(theta,v), closing with eta
+    eq:tl5-hfv-cap	paper/reader/proofs/P-GRD5.md@PENDING:17	P-GRD5, display	new
+    eq:tl5-hfv-dphi	paper/reader/proofs/P-GRD5.md@PENDING:23	P-GRD5, display	new
+    lem:tl5-hfv-conv	paper/reader/proofs/P-GRD5.md@PENDING:36	P-GRD5, Lemma	conversion of the high factor into the densities by families: f2^o, f2^i
+    lem:tl5-hfv-rec	paper/reader/proofs/P-GRD5.md@PENDING:46	P-GRD5, Lemma	level 4: recovery of D^2 h at a point term by term (sqrt7 against 4)
+    def:tl5-hfv-constants	paper/reader/proofs/P-GRD5.md@PENDING:66	P-GRD5, Definition	constants with index v: replacements in the sets of sec:tl5-hft and sec:tl5-hfq; eta, A_v, B_v
+    eq:tl5-hfv-constants	paper/reader/proofs/P-GRD5.md@PENDING:76	P-GRD5, display	new
+    thm:tl5-hfv	paper/reader/proofs/P-GRD5.md@PENDING:78	P-GRD5, Theorem	thm:tl5-hf and thm:tl5-hf4 with the constants sharpened a fifth time
+    eq:tl5-hfv-closing	paper/reader/proofs/P-GRD5.md@PENDING:83	P-GRD5, display	closing condition: 4 eta^(-3/2) (delta_w + eta^(-1/2)(eps + eps_M)) (S_F + S_M) < 1
+    rem:tl5-hfv-what	paper/reader/proofs/P-GRD5.md@PENDING:101	P-GRD5, Remark	what the fifth sharpening changes
+
+Note to change in the existing row of the crosswalk of [[ch:ten-l5]]: rem:tl5-hfq-what, add "; points to sec:tl5-hfv
+(P-GRD5 item 2)".
