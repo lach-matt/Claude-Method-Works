@@ -12,7 +12,7 @@ polynomials evaluated at the strip's Lobatto points and transformed); the partit
 usage: overlapK.py case tables_z.pkl i j K out.json [prec]"""
 import sys, os, json, math, time, pickle, itertools, numpy as np
 from fractions import Fraction as Fr
-NAPP1 = os.environ.get('NAPP1', '/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/napp1')
+NAPP1 = os.environ.get('NAPP1', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'napp1'))
 sys.path.insert(0, NAPP1)
 import flint
 from flint import arb, arb_mat, fmpq

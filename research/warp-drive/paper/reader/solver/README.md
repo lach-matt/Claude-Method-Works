@@ -71,14 +71,30 @@ end of every quadrant; rerunning the same command continues from it. `PREFIX.log
 
 Post-processing: `tables.py` (quanta, printed blocks with line checks and block sums, read back, page count,
 `_approx.txt` for evalres, `_z.pkl` for the certification), `evalres_*` (the residual of a printed or unquantized
-approximant at sample points, in dd or qd: floating diagnostics), `rates.py` (decay rates against S-APP),
-`cert2.py` (P-APPC's certification of one element from the printed integers, python-flint; N-APP1's procedure,
-restructured), `bsio.py`, `approx.py` (readers and the approx.txt writer), `consts.py` (spectral constants).
+approximant at sample points, in dd or qd: floating diagnostics), `post.py` (that, over a set of quanta), `rates.py`
+(decay rates against S-APP), `jets_*` and `jetcheck.py` (the v-jets on N₀⁺ by the transport hierarchy, and the
+carried jets of a run or a table against them), `bsio.py`, `approx.py` (readers and the approx.txt writer),
+`consts.py` (spectral constants).
+
+## Certification (from the printed integers; python-flint)
+
+    python3 cert3.py CASE TABLE_z.pkl I J N1 N2 N3 RHO1 RHO2 RHO3 PREC K OUT.json   # element's own residual
+    python3 overlapK.py CASE TABLE_z.pkl I J K OUT.json [PREC]                      # the overlaps, orders <= K
+    python3 certsum.py DIR [mu ...]       # B = own + Lambda per order, from DIR/c30_IJ.json and DIR/ovK_IJ.json
+
+`cert3.py` is P-APPC prop:appc-element-bound with exact integer re-expansions (FLINT `fmpz_mat`) and slab-wise ball
+arithmetic, derivative orders ≤ K; `cert3.py --majorant CASE TABLE_z.pkl I J 2,1.5,1.4 2.5,1.6,1.4 ...` scans M over
+choices of ρ before the full run (choose ρ per element: M explodes where the table prints noise). `overlapK.py` is prop:appc-overlap for orders ≤ K with
+(K + 2)-jets (derivative-majorant arithmetic; the seed's derivatives by bivariate Taylor arithmetic in balls).
+`cert2.py`/`overlap2.py` are N-APP1's procedures with one quantum per block (they reproduce N-APP1 exactly).
+`napp1/` holds N-APP1's modules these import (`rep.py` layouts and seed, `cert.py`, `majorant.py`, `overlap.py`,
+`regform.py`), copied unchanged; `NAPP1=dir` points elsewhere. Memory: ≈ 2 GB per element at 2M nodes.
 
 ## Validation outputs here
 
 See `validation/` (small text files): comparison with the record's run, convergence in p, cell size and M, jets
-against the hierarchy, residuals of the printed tables, certification logs.
+against the hierarchy (unquantized and the p = 30 tables), residuals of the printed tables, and the certificate of
+the pilot's p = 30 tables (`cert_s2A_p30.txt`: cert3, overlapK, certsum, and the overlap-lever measurement).
 
 ## Findings that bear on the printed form (measured; details in the report B-SOLV)
 
@@ -93,6 +109,8 @@ against the hierarchy, residuals of the printed tables, certification logs.
   below it print noise in two directions at once and the polyellipse majorant M explodes. Certifiable dd tables
   need p ≤ 30–31 (pilot); finer quanta need the qd solution.
 - **The overlaps at derivative order K.** The partition's derivatives up to order K + 2 (φ₆/(2d)⁶ ≈ 4e13 in v)
-  multiply the element mismatch on the strips, bounded by coefficient sums of the exact difference polynomial.
+  multiply the element mismatch on the strips, bounded by coefficient sums of the exact difference polynomial. On
+  the pilot's p = 30 tables they set the certified bound (≈ 1e-15 at level 0, ≈ 1e-4 at order 4); the mismatch is
+  the tables' truncation (≈ 200 quanta), so the overlap term falls with the quantum.
 - **Format**: at p ≳ 30 the block sums S₁, S₂, S₀ have ~p digits and do not fit with their labels on one 121-character
   line; `tables.py` sets them one per line.

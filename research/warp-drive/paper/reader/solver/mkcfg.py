@@ -1,7 +1,7 @@
 """Write a solver configuration for a case of P-APPC (def:appc-layouts), from rep.py's layout.
 usage: mkcfg.py case M pxi pv ncol1 ncol2 nrow1 nrow2 Nt Ns out_prefix [threads] [quadrants] [extra key=value ...]"""
 import sys, os, math
-sys.path.insert(0, os.environ.get('NAPP1', '/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/napp1'))
+sys.path.insert(0, os.environ.get('NAPP1', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'napp1')))
 import rep
 from fractions import Fraction as Fr
 

@@ -4,7 +4,7 @@ Writes workdir/pts_*.txt, workdir/approx_*.txt and runs evalres (EVALRES env, de
 import sys, os, json, subprocess, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import approx, tables
-NAPP1 = os.environ.get('NAPP1', '/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/napp1')
+NAPP1 = os.environ.get('NAPP1', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'napp1'))
 sys.path.insert(0, NAPP1)
 import rep
 

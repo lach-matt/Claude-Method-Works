@@ -8,7 +8,7 @@ import sys, os, json, math, pickle, numpy as np
 from fractions import Fraction as Fr
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import approx
-NAPP1 = os.environ.get('NAPP1', '/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/napp1')
+NAPP1 = os.environ.get('NAPP1', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'napp1'))
 sys.path.insert(0, NAPP1)
 import rep
 

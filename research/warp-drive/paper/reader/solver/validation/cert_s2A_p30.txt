@@ -1,0 +1,107 @@
+# Certificate of the pilot's p = 30 tables (seed 2, D_A), from the printed integers.
+# certsum.py over cert3.py (own residual, prop:appc-element-bound) and overlapK.py (prop:appc-overlap, K = 4);
+# certified (ball arithmetic); curvature units; derivatives in the element's (t, sigma, x). Commands:
+#   cert3.py s2A tab_30_z.pkl I J N1 N2 N3 rho1 rho2 rho3 192 4 c30_IJ.json ; overlapK.py s2A tab_30_z.pkl I J 4 ovK_IJ.json
+
+## summary (certsum.py; 'mu' lines: indicative weighting only)
+element (1,1): N = [68, 152, 205], rho = [2.5, 1.5, 1.35], M = 3.93e+05, nodes 2174742, 1023 s
+  |alpha| = 0: own 6.41e-19 (sum|c| 2.88e-19, tail 3.52e-19)  overlap 5.51e-16  B 5.51e-16
+  |alpha| = 1: own 7.84e-15 (sum|c| 3.46e-16, tail 7.49e-15)  overlap 4.56e-13  B 4.64e-13
+  |alpha| = 2: own 1.09e-10 (sum|c| 3.23e-13, tail 1.09e-10)  overlap 3.05e-10  B 4.14e-10
+  |alpha| = 3: own 9.54e-07 (sum|c| 2.34e-10, tail 9.53e-07)  overlap 1.7e-07  B 1.12e-06
+  |alpha| = 4: own 0.00596 (sum|c| 1.38e-07, tail 0.00596)  overlap 8.84e-05  B 0.00605
+  mu = 0.001: max_k mu^(k/2) B_k = 6.05e-09 (at |alpha| = 4); level 0..3 only: 3.55e-11
+  mu = 0.0001: max_k mu^(k/2) B_k = 6.05e-11 (at |alpha| = 4); level 0..3 only: 1.12e-12
+element (1,2): N = [85, 144, 173], rho = [2.0, 1.5, 1.4], M = 7.74e+05, nodes 2169780, 946 s
+  |alpha| = 0: own 2.45e-17 (sum|c| 3.78e-18, tail 2.07e-17)  overlap 9.91e-16  B 1.02e-15
+  |alpha| = 1: own 3.06e-13 (sum|c| 2.27e-15, tail 3.04e-13)  overlap 6.61e-13  B 9.67e-13
+  |alpha| = 2: own 3.16e-09 (sum|c| 1.21e-12, tail 3.16e-09)  overlap 3.79e-10  B 3.54e-09
+  |alpha| = 3: own 1.97e-05 (sum|c| 5.86e-10, tail 1.97e-05)  overlap 1.9e-07  B 1.99e-05
+  |alpha| = 4: own 0.0881 (sum|c| 2.6e-07, tail 0.0881)  overlap 8.41e-05  B 0.0882
+  mu = 0.001: max_k mu^(k/2) B_k = 8.82e-08 (at |alpha| = 4); level 0..3 only: 6.3e-10
+  mu = 0.0001: max_k mu^(k/2) B_k = 8.82e-10 (at |alpha| = 4); level 0..3 only: 1.99e-11
+element (2,1): N = [88, 151, 182], rho = [2.0, 1.5, 1.4], M = 1.02e+06, nodes 2475624, 1077 s
+  |alpha| = 0: own 1.82e-18 (sum|c| 4.9e-20, tail 1.77e-18)  overlap 1.46e-16  B 1.48e-16
+  |alpha| = 1: own 2.16e-14 (sum|c| 8.73e-17, tail 2.15e-14)  overlap 1.49e-13  B 1.7e-13
+  |alpha| = 2: own 2.47e-10 (sum|c| 1.01e-13, tail 2.47e-10)  overlap 1.44e-10  B 3.91e-10
+  |alpha| = 3: own 1.7e-06 (sum|c| 1.02e-10, tail 1.7e-06)  overlap 1.19e-07  B 1.82e-06
+  |alpha| = 4: own 0.00839 (sum|c| 8.63e-08, tail 0.00839)  overlap 8.84e-05  B 0.00848
+  mu = 0.001: max_k mu^(k/2) B_k = 8.48e-09 (at |alpha| = 4); level 0..3 only: 5.76e-11
+  mu = 0.0001: max_k mu^(k/2) B_k = 8.48e-11 (at |alpha| = 4); level 0..3 only: 1.82e-12
+element (2,2): N = [72, 141, 194], rho = [2.5, 1.6, 1.4], M = 2.61e+08, nodes 2021370, 887 s
+  |alpha| = 0: own 3.58e-18 (sum|c| 2.56e-19, tail 3.33e-18)  overlap 9.91e-16  B 9.95e-16
+  |alpha| = 1: own 8.12e-14 (sum|c| 1.77e-16, tail 8.1e-14)  overlap 6.61e-13  B 7.42e-13
+  |alpha| = 2: own 1.05e-09 (sum|c| 9.67e-14, tail 1.05e-09)  overlap 3.79e-10  B 1.43e-09
+  |alpha| = 3: own 8.24e-06 (sum|c| 4.42e-11, tail 8.24e-06)  overlap 1.9e-07  B 8.43e-06
+  |alpha| = 4: own 0.0461 (sum|c| 1.74e-08, tail 0.0461)  overlap 8.41e-05  B 0.0462
+  mu = 0.001: max_k mu^(k/2) B_k = 4.62e-08 (at |alpha| = 4); level 0..3 only: 2.67e-10
+  mu = 0.0001: max_k mu^(k/2) B_k = 4.62e-10 (at |alpha| = 4); level 0..3 only: 8.43e-12
+
+## cert3 logs
+  prepared (exact re-expansion, derivatives) in 4 s
+  majorant M = 3.927e+05 (Re R_seed >= 3.095) in 6 s
+  |alpha| = 0: sup_box max_ab |d^alpha f~_ab| <= 6.405e-19  (interpolant part 2.882e-19)
+  |alpha| = 1: sup_box max_ab |d^alpha f~_ab| <= 7.839e-15  (interpolant part 3.461e-16)
+  |alpha| = 2: sup_box max_ab |d^alpha f~_ab| <= 1.094e-10  (interpolant part 3.231e-13)
+  |alpha| = 3: sup_box max_ab |d^alpha f~_ab| <= 9.537e-07  (interpolant part 2.337e-10)
+  |alpha| = 4: sup_box max_ab |d^alpha f~_ab| <= 5.962e-03  (interpolant part 1.378e-07)
+s2A element (1,1): N = (68, 152, 205), rho = (2.5, 1.5, 1.35), M = 3.927e+05, 2174742 nodes; times {'prepare': 4, 'majorant': 6, 'nodes': 957, 'bounds': 56}
+
+  prepared (exact re-expansion, derivatives) in 4 s
+  majorant M = 7.741e+05 (Re R_seed >= 4.208) in 6 s
+  |alpha| = 0: sup_box max_ab |d^alpha f~_ab| <= 2.450e-17  (interpolant part 3.776e-18)
+  |alpha| = 1: sup_box max_ab |d^alpha f~_ab| <= 3.062e-13  (interpolant part 2.267e-15)
+  |alpha| = 2: sup_box max_ab |d^alpha f~_ab| <= 3.160e-09  (interpolant part 1.212e-12)
+  |alpha| = 3: sup_box max_ab |d^alpha f~_ab| <= 1.973e-05  (interpolant part 5.863e-10)
+  |alpha| = 4: sup_box max_ab |d^alpha f~_ab| <= 8.812e-02  (interpolant part 2.596e-07)
+s2A element (1,2): N = (85, 144, 173), rho = (2.0, 1.5, 1.4), M = 7.741e+05, 2169780 nodes; times {'prepare': 4, 'majorant': 6, 'nodes': 892, 'bounds': 44}
+
+  prepared (exact re-expansion, derivatives) in 7 s
+  majorant M = 1.024e+06 (Re R_seed >= 1.847) in 6 s
+  |alpha| = 0: sup_box max_ab |d^alpha f~_ab| <= 1.818e-18  (interpolant part 4.898e-20)
+  |alpha| = 1: sup_box max_ab |d^alpha f~_ab| <= 2.157e-14  (interpolant part 8.729e-17)
+  |alpha| = 2: sup_box max_ab |d^alpha f~_ab| <= 2.467e-10  (interpolant part 1.009e-13)
+  |alpha| = 3: sup_box max_ab |d^alpha f~_ab| <= 1.701e-06  (interpolant part 1.024e-10)
+  |alpha| = 4: sup_box max_ab |d^alpha f~_ab| <= 8.389e-03  (interpolant part 8.634e-08)
+s2A element (2,1): N = (88, 151, 182), rho = (2.0, 1.5, 1.4), M = 1.024e+06, 2475624 nodes; times {'prepare': 7, 'majorant': 6, 'nodes': 1009, 'bounds': 55}
+
+  prepared (exact re-expansion, derivatives) in 5 s
+  majorant M = 2.608e+08 (Re R_seed >= 2.299) in 5 s
+  |alpha| = 0: sup_box max_ab |d^alpha f~_ab| <= 3.584e-18  (interpolant part 2.565e-19)
+  |alpha| = 1: sup_box max_ab |d^alpha f~_ab| <= 8.122e-14  (interpolant part 1.765e-16)
+  |alpha| = 2: sup_box max_ab |d^alpha f~_ab| <= 1.055e-09  (interpolant part 9.672e-14)
+  |alpha| = 3: sup_box max_ab |d^alpha f~_ab| <= 8.244e-06  (interpolant part 4.419e-11)
+  |alpha| = 4: sup_box max_ab |d^alpha f~_ab| <= 4.607e-02  (interpolant part 1.736e-08)
+s2A element (2,2): N = (72, 141, 194), rho = (2.5, 1.6, 1.4), M = 2.608e+08, 2021370 nodes; times {'prepare': 5, 'majorant': 5, 'nodes': 835, 'bounds': 42}
+
+## overlapK logs (strips of width < 1/1000 lie outside U_ij and are not used)
+s2A element (1,1) strip xi xi [-8.0650, -7.9550] v [0.4999, 1.9625]: max|dF| 6.59e-26; Lambda by order (t, sigma, x): 0: 1.46e-16 1: 1.49e-13 2: 1.44e-10 3: 1.19e-07 4: 8.84e-05 (R >= 4.08, 38 s)
+s2A element (1,1) strip xi xi [-8.0650, -7.9550] v [2.0375, 2.0377]: max|dF| 7.91e-27; Lambda by order (t, sigma, x): 0: 6.20e-18 1: 5.58e-15 2: 7.95e-11 3: 5.21e-04 4: 2.89e+03 (R >= 4.81, 37 s)
+s2A element (1,1) strip v xi [-9.1051, -8.0650] v [1.9625, 2.0375]: max|dF| 4.12e-26; Lambda by order (t, sigma, x): 0: 5.51e-16 1: 4.56e-13 2: 3.05e-10 3: 1.70e-07 4: 8.15e-05 (R >= 5.06, 40 s)
+s2A element (1,1) strip v xi [-7.9550, -7.9549] v [1.9625, 2.0375]: max|dF| 6.49e-27; Lambda by order (t, sigma, x): 0: 3.42e-18 1: 2.92e-15 2: 2.00e-12 3: 1.14e-09 4: 1.64e-06 (R >= 4.78, 34 s)
+s2A element (1,1) strip corner xi [-8.0650, -7.9550] v [1.9625, 2.0375]: max|dF| 5.92e-26; Lambda by order (t, sigma, x): 0: 4.37e-17 1: 3.79e-14 2: 2.65e-11 3: 1.55e-08 4: 7.75e-06 (R >= 4.77, 101 s)
+s2A element (1,2) strip xi xi [-8.0650, -7.9550] v [1.9623, 1.9625]: max|dF| 5.62e-27; Lambda by order (t, sigma, x): 0: 3.21e-18 1: 2.54e-15 2: 1.64e-12 3: 8.92e-10 4: 1.35e-05 (R >= 4.77, 37 s)
+s2A element (1,2) strip xi xi [-8.0650, -7.9550] v [2.0375, 3.5001]: max|dF| 7.25e-25; Lambda by order (t, sigma, x): 0: 9.91e-16 1: 6.61e-13 2: 3.79e-10 3: 1.90e-07 4: 8.41e-05 (R >= 4.78, 38 s)
+s2A element (1,2) strip v xi [-9.1051, -8.0650] v [1.9625, 2.0375]: max|dF| 4.12e-26; Lambda by order (t, sigma, x): 0: 5.51e-16 1: 4.56e-13 2: 3.05e-10 3: 1.70e-07 4: 8.15e-05 (R >= 5.06, 38 s)
+s2A element (1,2) strip v xi [-7.9550, -7.9549] v [1.9625, 2.0375]: max|dF| 6.49e-27; Lambda by order (t, sigma, x): 0: 3.42e-18 1: 2.92e-15 2: 2.00e-12 3: 1.14e-09 4: 1.64e-06 (R >= 4.78, 40 s)
+s2A element (1,2) strip corner xi [-8.0650, -7.9550] v [1.9625, 2.0375]: max|dF| 5.76e-26; Lambda by order (t, sigma, x): 0: 4.10e-17 1: 3.53e-14 2: 2.47e-11 3: 1.44e-08 4: 7.20e-06 (R >= 4.77, 115 s)
+s2A element (2,1) strip xi xi [-8.0650, -7.9550] v [0.4999, 1.9625]: max|dF| 6.59e-26; Lambda by order (t, sigma, x): 0: 1.46e-16 1: 1.49e-13 2: 1.44e-10 3: 1.19e-07 4: 8.84e-05 (R >= 4.08, 39 s)
+s2A element (2,1) strip xi xi [-8.0650, -7.9550] v [2.0375, 2.0377]: max|dF| 7.91e-27; Lambda by order (t, sigma, x): 0: 6.20e-18 1: 5.58e-15 2: 7.95e-11 3: 5.21e-04 4: 2.89e+03 (R >= 4.81, 36 s)
+s2A element (2,1) strip v xi [-8.0656, -8.0650] v [1.9625, 2.0375]: max|dF| 9.74e-27; Lambda by order (t, sigma, x): 0: 8.14e-18 1: 7.78e-15 2: 5.84e-12 3: 3.60e-09 4: 9.19e-06 (R >= 5.12, 41 s)
+s2A element (2,1) strip v xi [-7.9550, -6.9077] v [1.9625, 2.0375]: max|dF| 5.79e-26; Lambda by order (t, sigma, x): 0: 1.12e-16 1: 1.01e-13 2: 7.21e-11 3: 4.28e-08 4: 2.16e-05 (R >= 2.77, 45 s)
+s2A element (2,1) strip corner xi [-8.0650, -7.9550] v [1.9625, 2.0375]: max|dF| 7.48e-26; Lambda by order (t, sigma, x): 0: 6.56e-17 1: 6.11e-14 2: 4.51e-11 3: 2.75e-08 4: 1.42e-05 (R >= 4.77, 112 s)
+s2A element (2,2) strip xi xi [-8.0650, -7.9550] v [1.9623, 1.9625]: max|dF| 5.62e-27; Lambda by order (t, sigma, x): 0: 3.21e-18 1: 2.54e-15 2: 1.64e-12 3: 8.92e-10 4: 1.35e-05 (R >= 4.77, 37 s)
+s2A element (2,2) strip xi xi [-8.0650, -7.9550] v [2.0375, 3.5001]: max|dF| 7.25e-25; Lambda by order (t, sigma, x): 0: 9.91e-16 1: 6.61e-13 2: 3.79e-10 3: 1.90e-07 4: 8.41e-05 (R >= 4.78, 37 s)
+s2A element (2,2) strip v xi [-8.0656, -8.0650] v [1.9625, 2.0375]: max|dF| 9.74e-27; Lambda by order (t, sigma, x): 0: 8.14e-18 1: 7.78e-15 2: 5.84e-12 3: 3.60e-09 4: 9.19e-06 (R >= 5.12, 42 s)
+s2A element (2,2) strip v xi [-7.9550, -6.9077] v [1.9625, 2.0375]: max|dF| 5.79e-26; Lambda by order (t, sigma, x): 0: 1.12e-16 1: 1.01e-13 2: 7.21e-11 3: 4.28e-08 4: 2.16e-05 (R >= 2.77, 44 s)
+s2A element (2,2) strip corner xi [-8.0650, -7.9550] v [1.9625, 2.0375]: max|dF| 5.77e-26; Lambda by order (t, sigma, x): 0: 3.72e-17 1: 3.18e-14 2: 2.22e-11 3: 1.30e-08 4: 6.52e-06 (R >= 4.77, 105 s)
+
+## the overlap lever (computed, floating evaluation of the exact 256-bit strip coefficients of G_12 - G_22 on a
+## 63 x 63 x 161 grid of the dominant strip of element (2,2); 'sum|c|' is what prop:appc-overlap uses)
+strip [-8.065, -7.955] [2.0375, 3.50007] neighbours [(0, 1)]
+ m: deg [45, 64, 80], ball rad 4.7e-74; d000 sum|c| 8.89e-27 sup 2.01e-28 (x44); d100 sum|c| 2.74e-26 sup 7.86e-28 (x35); d010 sum|c| 2.20e-25 sup 7.22e-27 (x30); d001 sum|c| 2.42e-24 sup 3.65e-25 (x7); d200 sum|c| 1.26e-25 sup 4.31e-27 (x29); d002 sum|c| 2.03e-21 sup 3.85e-22 (x5); d004 sum|c| 9.14e-16 sup 2.31e-16 (x4); d220 sum|c| 5.32e-23 sup 2.96e-24 (x18) (13 s)
+ n: deg [45, 63, 80], ball rad 4.8e-74; d000 sum|c| 8.95e-27 sup 2.05e-28 (x44); d100 sum|c| 2.75e-26 sup 8.85e-28 (x31); d010 sum|c| 2.16e-25 sup 6.56e-27 (x33); d001 sum|c| 2.40e-24 sup 2.82e-25 (x8); d200 sum|c| 1.28e-25 sup 5.37e-27 (x24); d002 sum|c| 2.00e-21 sup 3.08e-22 (x6); d004 sum|c| 9.77e-16 sup 1.91e-16 (x5); d220 sum|c| 5.35e-23 sup 2.55e-24 (x21) (12 s)
+ R: deg [41, 63, 80], ball rad 3.1e-75; d000 sum|c| 7.70e-27 sup 1.79e-28 (x43); d100 sum|c| 2.07e-26 sup 4.78e-28 (x43); d010 sum|c| 1.88e-25 sup 5.78e-27 (x32); d001 sum|c| 1.99e-24 sup 2.40e-25 (x8); d200 sum|c| 8.39e-26 sup 2.18e-27 (x39); d002 sum|c| 1.58e-21 sup 2.46e-22 (x6); d004 sum|c| 6.48e-16 sup 1.34e-16 (x5); d220 sum|c| 3.33e-23 sup 1.79e-24 (x19) (10 s)
+ W: deg [43, 64, 80], ball rad 1.3e-74; d000 sum|c| 8.44e-27 sup 1.90e-28 (x44); d100 sum|c| 2.26e-26 sup 6.91e-28 (x33); d010 sum|c| 2.07e-25 sup 8.37e-27 (x25); d001 sum|c| 2.28e-24 sup 3.24e-25 (x7); d200 sum|c| 9.49e-26 sup 3.03e-27 (x31); d002 sum|c| 1.97e-21 sup 3.15e-22 (x6); d004 sum|c| 8.76e-16 sup 1.51e-16 (x6); d220 sum|c| 3.57e-23 sup 1.83e-24 (x20) (11 s)
+ s: deg [40, 64, 80], ball rad 2.2e-76; d000 sum|c| 7.89e-27 sup 2.04e-28 (x39); d100 sum|c| 2.04e-26 sup 5.13e-28 (x40); d010 sum|c| 2.02e-25 sup 6.20e-27 (x33); d001 sum|c| 1.90e-24 sup 3.02e-25 (x6); d200 sum|c| 8.18e-26 sup 2.43e-27 (x34); d002 sum|c| 1.54e-21 sup 3.06e-22 (x5); d004 sum|c| 5.79e-16 sup 1.52e-16 (x4); d220 sum|c| 3.48e-23 sup 1.66e-24 (x21) (10 s)
+

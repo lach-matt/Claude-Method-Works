@@ -6,7 +6,7 @@ usage: rates.py case run.coef [sapp_rates.json] [out.json]"""
 import sys, os, json, numpy as np
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import approx
-sys.path.insert(0, approx.os.environ.get('NAPP1', '/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/napp1'))
+sys.path.insert(0, approx.os.environ.get('NAPP1', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'napp1')))
 import rep
 
 def rate(env, lo, hi):
