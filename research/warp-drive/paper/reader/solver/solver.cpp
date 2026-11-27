@@ -325,6 +325,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
   std::vector<double> Gd(NF * NN), dlt(NF * NN), r(NF * NN), Psid(4 * NN), Phid(NN), IPd, dn(NF * NN);
   CellOut co{0, 0, 1.0, 0.0};
   static bool verbose = getenv("BSOLV_VERBOSE") != nullptr;
+  double rprev = 1;
   for (int outer = 0; outer < 12; outer++) {
     // residual in double-double, Psi about the seed
     derivs(g, G, w, D1x->a.data(), D2x->a.data());
@@ -345,7 +346,10 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
     for (size_t i = 0; i < NF * NN; i++) { Real ri = B[i] + IP[i] - G[i]; r[i] = ri.hi + ri.lo; rmax = std::max(rmax, std::fabs(r[i])); gmax = std::max(gmax, std::fabs(G[i].hi)); }
     co.outer = outer + 1; co.last = rmax / gmax;
     if (verbose) fprintf(stderr, "    outer %d: |P(G) - G|/|G| = %.2e\n", outer, rmax / gmax);
-    if (rmax / gmax < CF.tol) { for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + dd(r[i]); break; }
+    // stop at the tolerance, or at the rounding floor (no gain by a factor 4 once below 1e-29)
+    bool stall = outer > 0 && rmax / gmax < 1e-29 && rmax / gmax > 0.25 * rprev;
+    rprev = rmax / gmax;
+    if (rmax / gmax < CF.tol || stall) { for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + dd(r[i]); break; }
     // inner: d = r + I[Psi(G + d) - Psi(G)] in double, difference arithmetic about the current state
     for (size_t i = 0; i < NF * NN; i++) Gd[i] = G[i].hi + G[i].lo;
     derivs(g, Gd, wd, D1d.data(), D2d.data());
