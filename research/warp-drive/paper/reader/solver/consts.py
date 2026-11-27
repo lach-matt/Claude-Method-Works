@@ -9,7 +9,7 @@ Records (name, rows, cols, then rows*cols (hi, lo) pairs, row-major):
   R{p}_TT                          Taylor coefficients at sigma = 0 of the interpolant, orders 0..8 (in sigma)
   X{M}_x, X{M}_D1, X{M}_D2, X{M}_C  x_k = cos(pi k/M), k = 0..M; derivative matrices; values -> Chebyshev coefficients"""
 import sys, struct, mpmath as mp
-mp.mp.dps = 50
+mp.mp.dps = 90
 
 def cheb_T(n, t):
     T = [mp.mpf(1), t]
@@ -130,8 +130,10 @@ def write(recs, fn):
             f.write(name.encode().ljust(16, b'\0')); f.write(struct.pack('<ii', r, c))
             for row in A:
                 for a in row:
-                    hi = float(a); lo = float(a - mp.mpf(hi))
-                    f.write(struct.pack('<dd', hi, lo))
+                    parts = []
+                    for _ in range(4):
+                        h = float(a); parts.append(h); a = a - mp.mpf(h)
+                    f.write(struct.pack('<dddd', *parts))
 
 if __name__ == '__main__':
     pxi, pv, M = (int(a) for a in sys.argv[1:4])

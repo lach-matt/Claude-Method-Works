@@ -12,12 +12,12 @@ def read_coef(fn):
     """list over elements of (hi, lo) arrays shaped (5, Nt+1, Ns+1, M+1)"""
     out = []
     with open(fn, 'rb') as f:
-        assert f.read(6) == b'BSOLC1'
-        ne, NX = struct.unpack('<ii', f.read(8))
+        assert f.read(6) == b'BSOLC2'
+        ne, NX, NW = struct.unpack('<iii', f.read(12))
         for e in range(ne):
             nt, ns = struct.unpack('<ii', f.read(8))
-            a = np.frombuffer(f.read(5 * (nt + 1) * (ns + 1) * NX * 16), dtype='<f8').reshape(5, nt + 1, ns + 1, NX, 2)
-            out.append((a[..., 0].copy(), a[..., 1].copy()))
+            a = np.frombuffer(f.read(5 * (nt + 1) * (ns + 1) * NX * 8 * NW), dtype='<f8').reshape(5, nt + 1, ns + 1, NX, NW)
+            out.append(a.copy())
     return out
 
 def quantize(hi, lo, p):

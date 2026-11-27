@@ -30,7 +30,7 @@ static void load_consts(const std::string& fn) {
     char name[17] = {0}; if (!f.read(name, 16)) break;
     int rc[2]; f.read((char*)rc, 8);
     Mat m; m.r = rc[0]; m.c = rc[1]; m.a.resize((size_t)m.r * m.c);
-    for (auto& x : m.a) { double hl[2]; f.read((char*)hl, 16); x = Real(hl[0], hl[1]); }
+    for (auto& x : m.a) { double hl[4]; f.read((char*)hl, 32); x = from_parts(hl); }
     CONST[name] = m;
   }
 }
@@ -185,7 +185,7 @@ static inline double D_(const Real& a) { return a.hi; }
 static inline double D_(double a) { return a; }
 template<class T> static inline T cvt(const Real& a);
 template<> inline Real cvt<Real>(const Real& a) { return a; }
-template<> inline double cvt<double>(const Real& a) { return a.hi + a.lo; }
+template<> inline double cvt<double>(const Real& a) { return lead2(a); }
 
 template<class T> struct Work { std::vector<T> Gx, Gxx, Gxi, Gv, Gvx, Psi, Phi; };
 
@@ -342,7 +342,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
     }
     integrate(g, Psi, Phi, E, IP);
     double rmax = 0, gmax = 1e-300;
-    for (size_t i = 0; i < NF * NN; i++) { Real ri = B[i] + IP[i] - G[i]; r[i] = ri.hi + ri.lo; rmax = std::max(rmax, std::fabs(r[i])); gmax = std::max(gmax, std::fabs(G[i].hi)); }
+    for (size_t i = 0; i < NF * NN; i++) { Real ri = B[i] + IP[i] - G[i]; r[i] = lead2(ri); rmax = std::max(rmax, std::fabs(r[i])); gmax = std::max(gmax, std::fabs(G[i].hi)); }
     co.outer = outer + 1; co.last = rmax / gmax;
     if (verbose) fprintf(stderr, "    outer %d: |P(G) - G|/|G| = %.2e\n", outer, rmax / gmax);
     // stop at the tolerance, or at the rounding floor (no gain by a factor 4 once below 1e-29)
@@ -350,7 +350,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
     rprev = rmax / gmax;
     if (rmax / gmax < CF.tol || stall) { for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + Real(r[i]); break; }
     // inner: d = r + I[Psi(G + d) - Psi(G)] in double, difference arithmetic about the current state
-    for (size_t i = 0; i < NF * NN; i++) Gd[i] = G[i].hi + G[i].lo;
+    for (size_t i = 0; i < NF * NN; i++) Gd[i] = lead2(G[i]);
     derivs(g, Gd, wd, D1d.data(), D2d.data());
     std::vector<double> refs((size_t)NN * jEND);
     #pragma omp parallel for schedule(static)
@@ -463,7 +463,7 @@ static std::vector<std::vector<Real>> EOUT;    // per element: [f][a][b][k]
 static std::vector<std::vector<char>> EDONE;    // per element: [a][b]
 static void bary_weights(const std::vector<Real>& nodes, const Mat& w, const Real& t, std::vector<Real>& out) {
   int n = nodes.size(); out.assign(n, Real(0.0));
-  for (int j = 0; j < n; j++) if (t.hi == nodes[j].hi && t.lo == nodes[j].lo) { out[j] = Real(1.0); return; }
+  for (int j = 0; j < n; j++) if (req(t, nodes[j])) { out[j] = Real(1.0); return; }
   Real den(0.0);
   for (int j = 0; j < n; j++) { out[j] = w.a[j] / (t - nodes[j]); den += out[j]; }
   for (int j = 0; j < n; j++) out[j] = out[j] / den;
@@ -521,7 +521,7 @@ struct State { int quad_idx = 0, col = 0; std::vector<Edge> left; double cells =
 static void save_ckpt(const State& st) {
   std::string fn = CF.out + ".ckpt", tmpf = fn + ".tmp";
   std::ofstream f(tmpf, std::ios::binary);
-  f.write("BSOLV1", 6); f.write((char*)&st.quad_idx, 4); f.write((char*)&st.col, 4);
+  f.write(NW == 4 ? "BSOLQ1" : "BSOLV1", 6); f.write((char*)&st.quad_idx, 4); f.write((char*)&st.col, 4);
   f.write((char*)&st.cells, 8); f.write((char*)&st.secs, 8); f.write((char*)&st.sweeps, 8);
   int nl = st.left.size(); f.write((char*)&nl, 4);
   for (auto& e : st.left) { wvec(f, e.G); wvec(f, e.sv); }
@@ -532,7 +532,7 @@ static void save_ckpt(const State& st) {
 }
 static bool load_ckpt(State& st) {
   std::ifstream f(CF.out + ".ckpt", std::ios::binary); if (!f) return false;
-  char mg[6]; f.read(mg, 6); if (memcmp(mg, "BSOLV1", 6)) return false;
+  char mg[6]; f.read(mg, 6); if (memcmp(mg, NW == 4 ? "BSOLQ1" : "BSOLV1", 6)) return false;
   f.read((char*)&st.quad_idx, 4); f.read((char*)&st.col, 4);
   f.read((char*)&st.cells, 8); f.read((char*)&st.secs, 8); f.read((char*)&st.sweeps, 8);
   int nl; f.read((char*)&nl, 4); st.left.resize(nl);
@@ -544,14 +544,14 @@ static bool load_ckpt(State& st) {
 }
 static void write_output() {
   std::ofstream f(CF.out + ".elem", std::ios::binary);
-  int ne = CF.el.size(); f.write("BSOLE1", 6); f.write((char*)&ne, 4); f.write((char*)&NX, 4);
+  int ne = CF.el.size(); f.write("BSOLE2", 6); f.write((char*)&ne, 4); f.write((char*)&NX, 4); f.write((char*)&NW, 4);
   for (int e = 0; e < ne; e++) {
     int nt = CF.el[e].Nt, ns = CF.el[e].Ns; f.write((char*)&nt, 4); f.write((char*)&ns, 4);
     long nd = 0; for (char c : EDONE[e]) nd += c; f.write((char*)&nd, 8);
     wvec(f, EOUT[e]);
   }
   std::ofstream g(CF.out + ".jets", std::ios::binary);
-  g.write("BSOLJ1", 6); int pa = CF.pxi + 1; g.write((char*)&pa, 4); g.write((char*)&NX, 4);
+  g.write("BSOLJ2", 6); int pa = CF.pxi + 1; g.write((char*)&pa, 4); g.write((char*)&NX, 4); g.write((char*)&NW, 4);
   for (int s = 0; s < 2; s++) { wvec(g, JETS[s]); int n = JETXI[s].size(); g.write((char*)&n, 4); for (auto& v : JETXI[s]) wvec(g, v); }
 }
 
@@ -565,7 +565,7 @@ int main(int argc, char** argv) {
   std::string X = "X" + std::to_string(CF.M);
   const Mat& xn = C_(X + "_x"); NX = CF.M + 1; XN.assign(xn.a.begin(), xn.a.end());
   D1x = &C_(X + "_D1"); D2x = &C_(X + "_D2");
-  for (auto& q : D1x->a) D1d.push_back(q.hi + q.lo); for (auto& q : D2x->a) D2d.push_back(q.hi + q.lo);
+  for (auto& q : D1x->a) D1d.push_back(lead2(q)); for (auto& q : D2x->a) D2d.push_back(lead2(q));
   for (int i = 0; i < RHS_NJ; i++) JI[jidx(JN[i])] = 0;
   for (int i = 0; i < jEND; i++) JI[i] = jidx(JN[i]);
   for (int i = 0; i < RHS_NK; i++) KC.push_back(Real((double)RHS_KNUM[i]) / Real((double)RHS_KDEN[i]));

@@ -20,12 +20,13 @@ static void dct_mat(int N, bool ascending, std::vector<Real>& D) {   // D[i][a]:
 }
 int main(int argc, char** argv) {
   std::ifstream f(argv[1], std::ios::binary); char mg[6]; f.read(mg, 6);
-  int ne, NX; f.read((char*)&ne, 4); f.read((char*)&NX, 4);
-  std::ofstream o(argv[2], std::ios::binary); o.write("BSOLC1", 6); o.write((char*)&ne, 4); o.write((char*)&NX, 4);
+  int ne, NX, nw; f.read((char*)&ne, 4); f.read((char*)&NX, 4); f.read((char*)&nw, 4);
+  if (nw != NW) { fprintf(stderr, "precision mismatch: file %d, build %d doubles per value\n", nw, NW); return 1; }
+  std::ofstream o(argv[2], std::ios::binary); o.write("BSOLC2", 6); o.write((char*)&ne, 4); o.write((char*)&NX, 4); o.write((char*)&NW, 4);
   int M = NX - 1; std::vector<Real> Dx; dct_mat(M, false, Dx);
   for (int e = 0; e < ne; e++) {
     int nt, ns; long nd; size_t n; f.read((char*)&nt, 4); f.read((char*)&ns, 4); f.read((char*)&nd, 8); f.read((char*)&n, 8);
-    std::vector<Real> V(n); f.read((char*)V.data(), n * 16);
+    std::vector<Real> V(n); f.read((char*)V.data(), n * sizeof(Real));
     std::vector<Real> Dt, Ds; dct_mat(nt, true, Dt); dct_mat(ns, true, Ds);
     std::vector<Real> C(n), T1(n);
     size_t A = nt + 1, B = ns + 1;
@@ -37,8 +38,8 @@ int main(int argc, char** argv) {
       for (size_t a = 0; a < A; a++) for (size_t j = 0; j < B; j++) for (int l = 0; l < NX; l++) { Real s(0.0); for (size_t b = 0; b < B; b++) s += Ds[j * B + b] * t1[(a * B + b) * NX + l]; c[(a * B + j) * NX + l] = s; }
       #pragma omp parallel for
       for (size_t i = 0; i < A; i++) for (size_t j = 0; j < B; j++) for (int l = 0; l < NX; l++) { Real s(0.0); for (size_t a = 0; a < A; a++) s += Dt[i * A + a] * c[(a * B + j) * NX + l]; t1[(i * B + j) * NX + l] = s; }
-      memcpy(c, t1, A * B * NX * 16);
+      memcpy((void*)c, (void*)t1, A * B * NX * sizeof(Real));
     }
-    o.write((char*)&nt, 4); o.write((char*)&ns, 4); o.write((char*)C.data(), n * 16);
+    o.write((char*)&nt, 4); o.write((char*)&ns, 4); o.write((char*)C.data(), n * sizeof(Real));
   }
 }

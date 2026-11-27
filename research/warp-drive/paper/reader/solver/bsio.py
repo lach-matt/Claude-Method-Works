@@ -12,13 +12,13 @@ def read_elem(fn):
     t_a = -cos(pi a/Nt) ascending, sigma_b likewise, x_k = cos(pi k/M)) holding G = (F - F_seed)/(v - 1/2)^4"""
     out = []
     with open(fn, 'rb') as f:
-        assert f.read(6) == b'BSOLE1'
-        ne, NX = struct.unpack('<ii', f.read(8))
+        assert f.read(6) == b'BSOLE2'
+        ne, NX, NW = struct.unpack('<iii', f.read(12))
         for e in range(ne):
             nt, ns = struct.unpack('<ii', f.read(8)); nd = struct.unpack('<q', f.read(8))[0]
             n = struct.unpack('<q', f.read(8))[0]
-            a = np.frombuffer(f.read(n * 16), dtype='<f8').reshape(5, nt + 1, ns + 1, NX, 2)
-            out.append(dict(Nt=nt, Ns=ns, filled=nd, hi=a[..., 0].copy(), lo=a[..., 1].copy()))
+            a = np.frombuffer(f.read(n * 8 * NW), dtype='<f8').reshape(5, nt + 1, ns + 1, NX, NW)
+            out.append(dict(Nt=nt, Ns=ns, filled=nd, hi=a[..., 0].copy(), lo=a[..., 1].copy(), parts=a.copy()))
     return out
 
 def read_jets(fn):
@@ -26,16 +26,16 @@ def read_jets(fn):
     coefficients c_j of G in (v - 1/2) at v = 1/2, j = 0..8 (so c_j is the coefficient of (v - 1/2)^(4+j) in F)"""
     res = []
     with open(fn, 'rb') as f:
-        assert f.read(6) == b'BSOLJ1'
-        nA, NX = struct.unpack('<ii', f.read(8))
+        assert f.read(6) == b'BSOLJ2'
+        nA, NX, NW = struct.unpack('<iii', f.read(12))
         for s in range(2):
             n = struct.unpack('<q', f.read(8))[0]
-            J = np.frombuffer(f.read(n * 16), dtype='<f8').reshape(-1, 9, nA, 5, NX, 2) if n else np.zeros((0, 9, nA, 5, NX, 2))
+            J = np.frombuffer(f.read(n * 8 * NW), dtype='<f8').reshape(-1, 9, nA, 5, NX, NW) if n else np.zeros((0, 9, nA, 5, NX, NW))
             nc = struct.unpack('<i', f.read(4))[0]
             xs = []
             for c in range(nc):
                 m = struct.unpack('<q', f.read(8))[0]
-                xs.append(np.frombuffer(f.read(m * 16), dtype='<f8').reshape(m, 2))
+                xs.append(np.frombuffer(f.read(m * 8 * NW), dtype='<f8').reshape(m, NW))
             res.append((xs, J))
     return res
 
