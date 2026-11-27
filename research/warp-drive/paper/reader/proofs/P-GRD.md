@@ -54,9 +54,10 @@ low quantity of order o enters 𝔰_g^(m) with the weight μ^((o+2)/2), and o + 
 
 Every Λ as in [[def:tl5-hf-levels]] or [[def:tl5-hf4-levels]] may be taken for every Λ_k, k ≥ 1, and every Λ^R_k, as
 it bounds the five kinds of factors for words of length at most N; so 𝔠^g_n ≤ 𝔠_n, by Λ ≥ 1 and Σ_(j≤n−k) C(n − k, j)
-Λ^R_j ≤ 2^(n−k) Λ, with the binomial coefficients C(·, ·). And λ_k := Σ_(r=1)^k r! S(k, r) 5^((r+1)/2) Λ_k^r may be taken, S(k, r) the Stirling
-numbers of the second kind: by (iv) of the proof of [[lem:tl5-hf-quadratic]] with h = 0, ℒ^K ĝ⁻¹ is a sum of r! S(k, r)
-products of r + 1 factors ĝ⁻¹, of norm √5, and r factors ℒ^(B′) π^Z, each carrying at most k letters.
+Λ^R_j ≤ 2^(n−k) Λ, with the binomial coefficients C(·, ·). And λ_k := Σ_(r=1)^k r! S(k, r) 5^((r+1)/2) Λ_k^r may be
+taken, S(k, r) the Stirling numbers of the second kind: by (iv) of the proof of [[lem:tl5-hf-quadratic]] with h = 0,
+ℒ^K ĝ⁻¹ is a sum of r! S(k, r) products of r + 1 factors ĝ⁻¹, of norm √5, and r factors ℒ^(B′) π^Z, each carrying at
+most k letters.
 
 **Lemma {#lem:tl5-hfg-quadratic}** (The quadratic terms with graded background bounds.) Let h be as in
 [[def:tl5-hfg-graded]], p a point with 𝔰(p) ≤ 𝔰_♭, and I a word with n := |I| ≤ N. Then ℒ^I N(h) − H^(αβ) D̂_αD̂_β Ψ_I
@@ -139,7 +140,7 @@ on Q(a, b), a := τ₁(p), b := τ₂(p), then at every point of Q(a, b)
 
 and at p, for 0 ≤ m ≤ N − 4,
 
-    𝔰_g^(m)(p) ≤ C_∞^(m)(p) ℰ_g(p)^(1/2) + C_(∞,ϱ)^(m)(p) ϱ(p) + C_(∞,0)^(m)(p) η₀(p),                {#eq:tl5-hfg-linfty}
+    𝔰_g^(m)(p) ≤ C_∞^(m)(p) ℰ_g(p)^(1/2) + C_(∞,ϱ)^(m)(p) ϱ(p) + C_(∞,0)^(m)(p) η₀(p),               {#eq:tl5-hfg-linfty}
 
 *Proof.* We follow the proof of [[lem:tl5-hf-linfty]], multiplying each bound by the weight of the quantity it bounds;
 for N = 4 that proof applies as in [[lem:tl5-hf4-linfty]]. The bounds of [[lem:tl5-hf-quadratic]] it uses, for words of
@@ -282,8 +283,8 @@ the functions of p being evaluated at the point of the supremum. For N = 4 put, 
 and for N ≥ 5 let S_(M,g) = 𝔯_(M,g) = ε_(M,g) := 0. Finally
 
     A_g := √2 δ_w + 2ε_(w,g) + 2ε_(M,g),      B_g := 2 (S_(F,g) + S_(M,g)),      𝔯_g := 𝔯_(w,g) + 𝔯_(M,g),
-    𝔰_(*,g) := sup_(p∈D^κ) (2 C_∞^(N−4)(p) μ^(−N/2) e^(φ(p)/2) A_g + C_(∞,ϱ)^(N−4)(p) ϱ(p) + C_(∞,0)^(N−4)(p) η₀).
-                                                                                                       {#eq:tl5-hfg-constants}
+    𝔰_(*,g) := sup_(p∈D^κ) (2 C_∞^(N−4)(p) μ^(−N/2) e^(φ(p)/2) A_g
+               + C_(∞,ϱ)^(N−4)(p) ϱ(p) + C_(∞,0)^(N−4)(p) η₀).                                    {#eq:tl5-hfg-constants}
 
 **Proposition {#prop:tl5-hfg-bootstrap}** (The a priori estimate with the sharpened constants.) In the setting of
 [[def:tl5-hfg-constants]], suppose that the rates a_o, a_i are admissible for ((1 − ϑ)⁻¹ 𝔅_N, E_o^N, E_i^N) and that
