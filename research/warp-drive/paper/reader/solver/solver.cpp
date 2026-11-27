@@ -48,6 +48,7 @@ struct Config {
   std::vector<Real> xib[2], vbk[2];                // optional explicit breakpoints (from the corner outward)
   std::vector<Elem> el; int maxit = 80; double tol = 1e-33; double ckpt_min = 20; std::string quads = "1234";
   int threads = 4; int stopcol = -1; int stopcells = -1; double floor = 1e-28; double lowswitch = 1e-24;
+  int incref = 1;                                  // qd builds: later outer residuals incrementally (see residual_inc)
 };
 static Config CF;
 static Real A_CH;                                   // 1/500
@@ -70,7 +71,7 @@ static void read_config(const std::string& fn) {
     else if (k == "elem") { Elem e; is >> a >> b >> c >> d >> e.Nt >> e.Ns; e.xlo = R_from_string(a.c_str());
       e.xhi = R_from_string(b.c_str()); e.vlo = R_from_string(c.c_str()); e.vhi = R_from_string(d.c_str()); CF.el.push_back(e); }
     else if (k == "maxit") is >> CF.maxit; else if (k == "tol") is >> CF.tol; else if (k == "ckpt_minutes") is >> CF.ckpt_min;
-    else if (k == "quadrants") is >> CF.quads; else if (k == "threads") is >> CF.threads; else if (k == "stopcol") is >> CF.stopcol; else if (k == "stopcells") is >> CF.stopcells; else if (k == "floor") is >> CF.floor; else if (k == "lowswitch") is >> CF.lowswitch;
+    else if (k == "quadrants") is >> CF.quads; else if (k == "threads") is >> CF.threads; else if (k == "stopcol") is >> CF.stopcol; else if (k == "stopcells") is >> CF.stopcells; else if (k == "floor") is >> CF.floor; else if (k == "lowswitch") is >> CF.lowswitch; else if (k == "incref") is >> CF.incref;
   }
 }
 
@@ -306,7 +307,8 @@ static std::vector<LowReal> D1lo, D2lo, KClo;
 static std::vector<double> KCd;
 template<class T> static void residual_T(const Geom& g, const std::vector<Seed>& sd, const std::vector<Real>& Gq, const std::vector<Real>& Bq,
                                          const std::vector<Real>& Eq, const T* D1, const T* D2, const T* K, std::vector<double>& r,
-                                         double& rmax, double& gmax, std::vector<Real>* PhiOut) {
+                                         double& rmax, double& gmax, std::vector<Real>* PhiOut,
+                                         std::vector<LowReal>* refsOut = nullptr, std::vector<LowReal>* rOut = nullptr) {
   const int nA = g.nA, nB = g.nB; const size_t NN = (size_t)nA * nB * NX;
   std::vector<T> G(Gq.size()); for (size_t i = 0; i < G.size(); i++) G[i] = cvt<T>(Gq[i]);
   std::vector<T> E(nB), E3(nB), E4(nB);
@@ -325,15 +327,61 @@ template<class T> static void residual_T(const Geom& g, const std::vector<Seed>&
     T o[5]; rhs_node(ref, d, cvt<T>(XN[k]), o, K);
     Psi[FR * NN + idx] = du * o[2]; Psi[FM * NN + idx] = du * o[0]; Psi[FN * NN + idx] = du * o[1];
     Psi[FW * NN + idx] = du * o[3]; Phi[idx] = o[4];
+    if constexpr (std::is_same<T, Real>::value && !std::is_same<LowReal, Real>::value) if (refsOut) {
+      // the full jets at this state, for residual_inc (as the inner sweeps' refs, but in the working precision)
+      T x = XN[k], q[jEND];
+      T Rf = R + d.D[FR], S = ((T(1.0) + x) * d.D[FM] + (T(1.0) - x) * d.D[FN]) / T(3.0), Of = O * exp(T(2.0) * d.D[FW]);
+      q[jR] = Rf; q[jiR] = T(1.0) / Rf; q[jES] = exp(S); q[jiES] = exp(-S); q[jOM2] = Of; q[jiOM2] = T(1.0) / Of;
+      q[jRu] = ref[jRu] + d.Du[FR]; q[jRv] = ref[jRv] + d.Dv[FR]; q[jRx] = d.Dx[FR]; q[jRxx] = d.Dxx[FR]; q[jRvx] = d.Dvx[FR];
+      q[jWv] = ref[jWv] + d.Dv[FW]; q[jWx] = d.Dx[FW]; q[jWxx] = d.Dxx[FW]; q[jWvx] = d.Dvx[FW];
+      for (int qq = 0; qq < 2; qq++) { int f = qq ? FN : FM; int o2 = qq ? jn_ : jm_;
+        q[o2] = d.D[f]; q[o2 + 1] = d.Du[f]; q[o2 + 2] = d.Dv[f]; q[o2 + 3] = d.Dx[f]; q[o2 + 4] = d.Dxx[f]; q[o2 + 5] = d.Dvx[f]; }
+      q[js_] = d.D[FS]; q[jsv] = d.Dv[FS]; q[jsx] = d.Dx[FS]; q[jsvx] = d.Dvx[FS];
+      for (int j = 0; j < jEND; j++) (*refsOut)[idx * jEND + j] = cvt<LowReal>(q[j]);
+    }
   }
   integrate(g, Psi, Phi, E, IP);
   rmax = 0; gmax = 1e-300;
   for (size_t i = 0; i < NF * NN; i++) {
     T ri = cvt<T>(Bq[i]) + IP[i] - G[i];
-    if constexpr (std::is_same<T, Real>::value) r[i] = lead2(ri); else r[i] = ri.hi + ri.lo;
+    if constexpr (std::is_same<T, Real>::value) { r[i] = lead2(ri); if (rOut) (*rOut)[i] = cvt<LowReal>(ri); } else r[i] = ri.hi + ri.lo;
     rmax = std::max(rmax, std::fabs(r[i])); gmax = std::max(gmax, std::fabs(Gq[i].hi));
   }
   if (PhiOut) { PhiOut->resize(NN); for (size_t i = 0; i < NN; i++) { if constexpr (std::is_same<T, Real>::value) (*PhiOut)[i] = Phi[i]; } }
+}
+
+// The residual at G from the residual at a reference state Gref evaluated in the working precision (qd), in the lower
+// precision (dd): r(G) = r(Gref) + I[Psi(G) - Psi(Gref)] - (G - Gref), the bracket in difference arithmetic about the
+// reference jets (rounded to dd; a common offset of the reference cancels to first order in G - Gref). With G - Gref of
+// relative size 1e-29 (the reference is taken at the dd floor) the bracket carries a relative error of ~1e-32 of that,
+// so each outer step after the first in qd costs a dd evaluation instead of a qd one.
+static void residual_inc(const Geom& g, const std::vector<Seed>& sd, const std::vector<Real>& Gq, const std::vector<Real>& Gref,
+                         const std::vector<LowReal>& rref, const std::vector<LowReal>& refs, const std::vector<Real>& Eq,
+                         std::vector<double>& r, double& rmax, double& gmax, std::vector<LowReal>& PhiD) {
+  typedef LowReal T;
+  const int nA = g.nA, nB = g.nB; const size_t NN = (size_t)nA * nB * NX;
+  std::vector<T> dG(Gq.size()); for (size_t i = 0; i < dG.size(); i++) dG[i] = cvt<T>(Gq[i] - Gref[i]);
+  std::vector<T> E(nB), E3(nB), E4(nB);
+  for (int b = 0; b < nB; b++) { E[b] = cvt<T>(Eq[b]); E3[b] = E[b] * E[b] * E[b]; E4[b] = E3[b] * E[b]; }
+  Work<T> w; derivs(g, dG, w, D1lo.data(), D2lo.data());
+  std::vector<T> Psi(4 * NN), Phi(NN), IP;
+  #pragma omp parallel for schedule(static)
+  for (size_t idx = 0; idx < NN; idx++) {
+    int k = idx % NX; size_t ab = idx / NX; int b = ab % nB;
+    T du = cvt<T>(sd[ab].dudxi);
+    DJ<T> d; djets(dG, w, NN, idx, E3[b], E4[b], T(1.0) / du, d);
+    T o[5]; rhs_node(&refs[idx * jEND], d, cvt<T>(XN[k]), o, KClo.data());
+    Psi[FR * NN + idx] = du * o[2]; Psi[FM * NN + idx] = du * o[0]; Psi[FN * NN + idx] = du * o[1];
+    Psi[FW * NN + idx] = du * o[3]; Phi[idx] = o[4];
+  }
+  integrate(g, Psi, Phi, E, IP);
+  rmax = 0; gmax = 1e-300;
+  for (size_t i = 0; i < NF * NN; i++) {
+    T ri = rref[i] + IP[i] - dG[i];
+    r[i] = ri.hi + ri.lo;
+    rmax = std::max(rmax, std::fabs(r[i])); gmax = std::max(gmax, std::fabs(Gq[i].hi));
+  }
+  PhiD.swap(Phi);
 }
 
 static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, const Real& vb_bottom,
@@ -366,14 +414,24 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
   CellOut co{0, 0, 1.0, 0.0, 0};
   static bool verbose = getenv("BSOLV_VERBOSE") != nullptr;
   double rprev = 1; bool prevfull = false;
+  const bool inc = (NW == 4) && CF.incref; bool haveRef = false;
+  std::vector<Real> Gref, PhiRef; std::vector<LowReal> rref, refs, PhiD;
   for (int outer = 0; outer < 12; outer++) {
     // the residual r = P(G) - G, Psi in difference arithmetic about the seed; in a quad-double build the first outer
     // steps (residual above CF.lowswitch) are evaluated in double-double, the later ones in quad-double
     double rmax = 0, gmax = 1e-300;
     bool low = (NW == 4) && (outer == 0 || rprev > CF.lowswitch);
+    const char* lab = low ? "low" : (inc && haveRef) ? "inc" : "full";
     if (low) residual_T<LowReal>(g, sd, G, B, E, D1lo.data(), D2lo.data(), KClo.data(), r, rmax, gmax, nullptr);
-    else residual_T<Real>(g, sd, G, B, E, D1x->a.data(), D2x->a.data(), KC.data(), r, rmax, gmax, &Phi);
-    if (verbose) fprintf(stderr, "      [residual eval (%s) %.2f s]\n", low ? "low" : "full", std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count());
+    else if (inc && haveRef) {
+      residual_inc(g, sd, G, Gref, rref, refs, E, r, rmax, gmax, PhiD);
+      for (size_t i = 0; i < NN; i++) Phi[i] = PhiRef[i] + Real(PhiD[i].hi) + Real(PhiD[i].lo);
+    } else if (inc) {
+      refs.resize(NN * jEND); rref.resize(NF * NN);
+      residual_T<Real>(g, sd, G, B, E, D1x->a.data(), D2x->a.data(), KC.data(), r, rmax, gmax, &Phi, &refs, &rref);
+      Gref = G; PhiRef = Phi; haveRef = true;
+    } else residual_T<Real>(g, sd, G, B, E, D1x->a.data(), D2x->a.data(), KC.data(), r, rmax, gmax, &Phi);
+    if (verbose) fprintf(stderr, "      [residual eval (%s) %.2f s]\n", lab, std::chrono::duration<double>(std::chrono::steady_clock::now() - t0).count());
     co.outer = outer + 1; co.last = rmax / gmax;
     if (verbose) fprintf(stderr, "    outer %d: |P(G) - G|/|G| = %.2e\n", outer, rmax / gmax);
     // stop at the tolerance, or at the rounding floor (no gain by a factor 4 once below 1e-29)
