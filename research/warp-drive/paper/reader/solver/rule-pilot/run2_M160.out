@@ -1,0 +1,154 @@
+    per field |dG|: R 2.09e-05 m 2.63e-04 n 8.11e-04 W 3.15e-06 s 1.50e-05 (x-node of max m: 78); update of m at mid node: low modes 1.20e-04, top quarter 4.21e-19
+sweep   1: |G_new - G|/|G| = 9.005e-02  (15.71 s)
+    per field |dG|: R 1.87e-05 m 1.37e-05 n 4.01e-05 W 3.51e-07 s 1.42e-06 (x-node of max m: 103); update of m at mid node: low modes 2.87e-06, top quarter 1.36e-20
+sweep   2: |G_new - G|/|G| = 4.436e-03  (15.59 s)
+    per field |dG|: R 2.16e-06 m 5.83e-07 n 1.32e-06 W 1.85e-07 s 6.89e-08 (x-node of max m: 111); update of m at mid node: low modes 4.40e-08, top quarter 3.24e-22
+sweep   3: |G_new - G|/|G| = 2.391e-04  (16.21 s)
+    per field |dG|: R 1.21e-07 m 1.94e-08 n 3.27e-08 W 1.37e-08 s 1.83e-09 (x-node of max m: 113); update of m at mid node: low modes 7.54e-10, top quarter 5.69e-24
+sweep   4: |G_new - G|/|G| = 1.332e-05  (16.05 s)
+    per field |dG|: R 4.33e-09 m 4.70e-10 n 6.48e-10 W 5.57e-10 s 4.31e-11 (x-node of max m: 126); update of m at mid node: low modes 1.10e-11, top quarter 6.88e-26
+sweep   5: |G_new - G|/|G| = 4.782e-07  (15.92 s)
+    per field |dG|: R 1.16e-10 m 9.74e-12 n 1.13e-11 W 1.56e-11 s 8.76e-13 (x-node of max m: 140); update of m at mid node: low modes 1.15e-13, top quarter 5.82e-28
+sweep   6: |G_new - G|/|G| = 1.278e-08  (15.80 s)
+    per field |dG|: R 2.46e-12 m 1.99e-13 n 2.04e-13 W 3.39e-13 s 1.36e-14 (x-node of max m: 91); update of m at mid node: low modes 9.04e-16, top quarter 3.74e-30
+sweep   7: |G_new - G|/|G| = 2.722e-10  (16.80 s)
+    per field |dG|: R 4.26e-14 m 3.04e-15 n 3.51e-15 W 6.04e-15 s 3.45e-16 (x-node of max m: 100); update of m at mid node: low modes 5.14e-18, top quarter 3.04e-32
+sweep   8: |G_new - G|/|G| = 4.710e-12  (16.41 s)
+    per field |dG|: R 6.18e-16 m 7.39e-17 n 7.66e-17 W 8.87e-17 s 9.54e-18 (x-node of max m: 109); update of m at mid node: low modes 5.70e-20, top quarter 5.23e-34
+sweep   9: |G_new - G|/|G| = 6.833e-14  (16.95 s)
+    per field |dG|: R 1.07e-17 m 3.09e-18 n 3.07e-18 W 1.10e-18 s 7.95e-20 (x-node of max m: 88); update of m at mid node: low modes 9.92e-22, top quarter 9.16e-36
+sweep  10: |G_new - G|/|G| = 1.185e-15  (17.08 s)
+    per field |dG|: R 1.11e-19 m 3.15e-20 n 3.32e-20 W 2.32e-20 s 3.19e-21 (x-node of max m: 96); update of m at mid node: low modes 6.38e-24, top quarter 4.02e-38
+sweep  11: |G_new - G|/|G| = 1.230e-17  (16.55 s)
+    per field |dG|: R 3.27e-21 m 1.29e-21 n 1.30e-21 W 1.87e-22 s 1.14e-22 (x-node of max m: 86); update of m at mid node: low modes 1.08e-25, top quarter 4.81e-40
+sweep  12: |G_new - G|/|G| = 3.615e-19  (16.90 s)
+    per field |dG|: R 1.54e-22 m 4.92e-23 n 4.83e-23 W 7.54e-24 s 8.32e-25 (x-node of max m: 86); update of m at mid node: low modes 1.61e-27, top quarter 7.90e-42
+sweep  13: |G_new - G|/|G| = 1.706e-20  (15.60 s)
+    per field |dG|: R 9.39e-25 m 3.51e-25 n 3.50e-25 W 2.68e-25 s 5.38e-26 (x-node of max m: 94); update of m at mid node: low modes 6.10e-30, top quarter 5.62e-44
+sweep  14: |G_new - G|/|G| = 1.038e-22  (15.68 s)
+    per field |dG|: R 5.65e-26 m 1.96e-26 n 1.94e-26 W 1.57e-27 s 1.66e-27 (x-node of max m: 85); update of m at mid node: low modes 1.81e-31, top quarter 1.13e-45
+sweep  15: |G_new - G|/|G| = 6.244e-24  (15.95 s)
+    per field |dG|: R 2.20e-27 m 6.80e-28 n 6.63e-28 W 9.74e-29 s 1.35e-29 (x-node of max m: 84); update of m at mid node: low modes 2.38e-33, top quarter 1.36e-47
+sweep  16: |G_new - G|/|G| = 2.432e-25  (15.61 s)
+    per field |dG|: R 9.99e-30 m 4.18e-30 n 3.90e-30 W 3.07e-30 s 7.10e-31 (x-node of max m: 92); update of m at mid node: low modes 1.01e-35, top quarter 8.36e-50
+sweep  17: |G_new - G|/|G| = 1.104e-27  (15.65 s)
+    per field |dG|: R 7.82e-31 m 2.61e-31 n 2.55e-31 W 1.69e-32 s 2.15e-32 (x-node of max m: 84); update of m at mid node: low modes 2.71e-37, top quarter 1.75e-51
+sweep  18: |G_new - G|/|G| = 8.640e-29  (15.41 s)
+    per field |dG|: R 2.79e-32 m 8.58e-33 n 8.37e-33 W 1.09e-33 s 2.00e-34 (x-node of max m: 84); update of m at mid node: low modes 3.25e-39, top quarter 2.10e-53
+sweep  19: |G_new - G|/|G| = 3.082e-30  (15.18 s)
+    per field |dG|: R 1.17e-34 m 5.17e-35 n 4.58e-35 W 3.24e-35 s 8.31e-36 (x-node of max m: 91); update of m at mid node: low modes 1.69e-41, top quarter 1.12e-55
+sweep  20: |G_new - G|/|G| = 1.297e-32  (15.85 s)
+    per field |dG|: R 9.47e-36 m 3.07e-36 n 2.97e-36 W 2.19e-37 s 2.52e-37 (x-node of max m: 83); update of m at mid node: low modes 3.69e-43, top quarter 2.70e-57
+sweep  21: |G_new - G|/|G| = 1.047e-33  (15.33 s)
+    per field |dG|: R 3.23e-37 m 9.97e-38 n 9.65e-38 W 1.10e-38 s 2.54e-39 (x-node of max m: 83); update of m at mid node: low modes 4.19e-45, top quarter 3.08e-59
+sweep  22: |G_new - G|/|G| = 3.570e-35  (15.21 s)
+    per field |dG|: R 1.42e-39 m 6.38e-40 n 6.32e-40 W 3.23e-40 s 8.75e-41 (x-node of max m: 82); update of m at mid node: low modes 2.52e-47, top quarter 1.73e-61
+sweep  23: |G_new - G|/|G| = 1.566e-37  (16.41 s)
+    per field |dG|: R 1.01e-40 m 3.24e-41 n 3.15e-41 W 2.67e-42 s 2.71e-42 (x-node of max m: 83); update of m at mid node: low modes 4.74e-49, top quarter 3.38e-63
+sweep  24: |G_new - G|/|G| = 1.111e-38  (15.70 s)
+    per field |dG|: R 3.39e-42 m 1.05e-42 n 1.01e-42 W 1.01e-43 s 2.90e-44 (x-node of max m: 83); update of m at mid node: low modes 5.17e-51, top quarter 3.82e-65
+sweep  25: |G_new - G|/|G| = 3.745e-40  (15.52 s)
+    per field |dG|: R 1.90e-44 m 7.82e-45 n 7.66e-45 W 2.96e-45 s 8.44e-46 (x-node of max m: 82); update of m at mid node: low modes 3.42e-53, top quarter 2.48e-67
+sweep  26: |G_new - G|/|G| = 2.098e-42  (15.34 s)
+    per field |dG|: R 9.91e-46 m 3.07e-46 n 3.04e-46 W 2.84e-47 s 2.73e-47 (x-node of max m: 82); update of m at mid node: low modes 5.62e-55, top quarter 4.30e-69
+sweep  27: |G_new - G|/|G| = 1.095e-43  (15.55 s)
+    per field |dG|: R 3.37e-47 m 1.03e-47 n 1.01e-47 W 8.60e-49 s 3.03e-49 (x-node of max m: 82); update of m at mid node: low modes 5.90e-57, top quarter 4.54e-71
+sweep  28: |G_new - G|/|G| = 3.729e-45  (15.75 s)
+    per field |dG|: R 2.17e-49 m 8.47e-50 n 8.03e-50 W 2.63e-50 s 7.52e-51 (x-node of max m: 82); update of m at mid node: low modes 4.18e-59, top quarter 2.87e-73
+sweep  29: |G_new - G|/|G| = 2.393e-47  (15.18 s)
+    per field |dG|: R 8.90e-51 m 2.75e-51 n 2.68e-51 W 2.71e-52 s 2.55e-52 (x-node of max m: 82); update of m at mid node: low modes 5.73e-61, top quarter 4.14e-75
+sweep  30: |G_new - G|/|G| = 9.837e-49  (15.62 s)
+    per field |dG|: R 3.09e-52 m 9.58e-53 n 9.05e-53 W 6.83e-54 s 2.90e-54 (x-node of max m: 82); update of m at mid node: low modes 6.01e-63, top quarter 6.37e-77
+sweep  31: |G_new - G|/|G| = 3.418e-50  (19.84 s)
+    per field |dG|: R 2.19e-54 m 8.27e-55 n 8.07e-55 W 2.17e-55 s 6.18e-56 (x-node of max m: 82); update of m at mid node: low modes 9.90e-66, top quarter 3.41e-78
+sweep  32: |G_new - G|/|G| = 2.415e-52  (20.13 s)
+    per field |dG|: R 7.31e-56 m 2.25e-56 n 2.16e-56 W 2.37e-57 s 2.23e-57 (x-node of max m: 82); update of m at mid node: low modes 1.10e-66, top quarter 9.28e-79
+sweep  33: |G_new - G|/|G| = 8.074e-54  (19.04 s)
+    per field |dG|: R 2.62e-57 m 8.19e-58 n 7.97e-58 W 5.00e-59 s 2.57e-59 (x-node of max m: 82); update of m at mid node: low modes 1.61e-68, top quarter 1.14e-79
+sweep  34: |G_new - G|/|G| = 2.898e-55  (18.87 s)
+    per field |dG|: R 1.99e-59 m 7.36e-60 n 7.29e-60 W 1.68e-60 s 4.70e-61 (x-node of max m: 82); update of m at mid node: low modes 1.49e-69, top quarter 3.01e-80
+sweep  35: |G_new - G|/|G| = 2.198e-57  (18.84 s)
+    per field |dG|: R 5.51e-61 m 1.69e-61 n 1.66e-61 W 1.90e-62 s 1.82e-62 (x-node of max m: 82); update of m at mid node: low modes 4.74e-71, top quarter 3.39e-81
+sweep  36: |G_new - G|/|G| = 6.089e-59  (19.87 s)
+    per field |dG|: R 2.07e-62 m 6.50e-63 n 6.39e-63 W 3.39e-64 s 2.12e-64 (x-node of max m: 82); update of m at mid node: low modes 4.17e-73, top quarter 8.82e-82
+sweep  37: |G_new - G|/|G| = 2.283e-60  (20.14 s)
+    per field |dG|: R 1.69e-64 m 6.02e-65 n 5.96e-65 W 1.21e-65 s 3.32e-66 (x-node of max m: 82); update of m at mid node: low modes 4.37e-74, top quarter 9.08e-83
+sweep  38: |G_new - G|/|G| = 1.873e-62  (19.71 s)
+    per field |dG|: R 3.83e-66 m 1.17e-66 n 1.16e-66 W 1.43e-67 s 1.39e-67 (x-node of max m: 82); update of m at mid node: low modes 1.48e-75, top quarter 2.35e-83
+sweep  39: |G_new - G|/|G| = 4.235e-64  (18.64 s)
+    per field |dG|: R 1.54e-67 m 4.80e-68 n 4.67e-68 W 2.13e-69 s 1.64e-69 (x-node of max m: 82); update of m at mid node: low modes 1.48e-77, top quarter 2.11e-84
+sweep  40: |G_new - G|/|G| = 1.698e-65  (19.75 s)
+    per field |dG|: R 1.36e-69 m 4.71e-70 n 4.62e-70 W 8.35e-71 s 2.17e-71 (x-node of max m: 81); update of m at mid node: low modes 1.31e-78, top quarter 5.97e-85
+sweep  41: |G_new - G|/|G| = 1.500e-67  (19.71 s)
+    per field |dG|: R 2.46e-71 m 1.26e-71 n 1.26e-71 W 1.02e-72 s 1.02e-72 (x-node of max m: 160); update of m at mid node: low modes 4.52e-80, top quarter 3.25e-86
+sweep  42: |G_new - G|/|G| = 2.717e-69  (19.74 s)
+    per field |dG|: R 1.11e-72 m 1.44e-71 n 1.44e-71 W 1.15e-74 s 1.08e-74 (x-node of max m: 160); update of m at mid node: low modes 4.05e-82, top quarter 1.68e-86
+sweep  43: |G_new - G|/|G| = 1.593e-69  (21.11 s)
+    per field |dG|: R 9.49e-75 m 1.11e-72 n 1.11e-72 W 5.67e-76 s 2.56e-75 (x-node of max m: 160); update of m at mid node: low modes 3.71e-83, top quarter 9.29e-88
+sweep  44: |G_new - G|/|G| = 1.223e-70  (19.44 s)
+    per field |dG|: R 2.12e-76 m 1.14e-72 n 1.14e-72 W 5.23e-78 s 1.71e-76 (x-node of max m: 160); update of m at mid node: low modes 1.19e-84, top quarter 7.10e-88
+sweep  45: |G_new - G|/|G| = 1.260e-70  (19.85 s)
+    per field |dG|: R 2.96e-77 m 8.89e-74 n 8.89e-74 W 2.65e-78 s 1.94e-76 (x-node of max m: 160); update of m at mid node: low modes 8.51e-87, top quarter 1.75e-88
+sweep  46: |G_new - G|/|G| = 9.824e-72  (19.59 s)
+    per field |dG|: R 1.54e-77 m 8.32e-74 n 8.32e-74 W 5.51e-80 s 1.34e-77 (x-node of max m: 160); update of m at mid node: low modes 9.75e-88, top quarter 4.81e-89
+sweep  47: |G_new - G|/|G| = 9.196e-72  (19.03 s)
+    per field |dG|: R 2.11e-78 m 6.57e-75 n 6.57e-75 W 1.81e-79 s 1.37e-77 (x-node of max m: 160); update of m at mid node: low modes 3.34e-89, top quarter 1.43e-89
+sweep  48: |G_new - G|/|G| = 7.262e-73  (19.40 s)
+    per field |dG|: R 1.04e-78 m 5.62e-75 n 5.62e-75 W 2.34e-81 s 9.69e-79 (x-node of max m: 160); update of m at mid node: low modes 3.59e-89, top quarter 1.14e-89
+sweep  49: |G_new - G|/|G| = 6.209e-73  (19.83 s)
+    per field |dG|: R 1.40e-79 m 4.49e-76 n 4.49e-76 W 1.14e-80 s 8.90e-79 (x-node of max m: 160); update of m at mid node: low modes 4.99e-89, top quarter 1.76e-89
+sweep  50: |G_new - G|/|G| = 4.960e-74  (19.22 s)
+    per field |dG|: R 6.46e-80 m 3.52e-76 n 3.52e-76 W 1.83e-82 s 6.45e-80 (x-node of max m: 160); update of m at mid node: low modes 2.70e-89, top quarter 1.22e-89
+sweep  51: |G_new - G|/|G| = 3.891e-74  (19.51 s)
+    per field |dG|: R 8.58e-81 m 2.84e-77 n 2.84e-77 W 6.72e-82 s 5.38e-80 (x-node of max m: 160); update of m at mid node: low modes 2.47e-90, top quarter 1.83e-90
+sweep  52: |G_new - G|/|G| = 3.141e-75  (19.07 s)
+    per field |dG|: R 3.75e-81 m 2.05e-77 n 2.05e-77 W 1.30e-83 s 3.98e-81 (x-node of max m: 160); update of m at mid node: low modes 8.14e-90, top quarter 2.66e-90
+sweep  53: |G_new - G|/|G| = 2.268e-75  (19.36 s)
+    per field |dG|: R 4.91e-82 m 1.67e-78 n 1.67e-78 W 3.68e-83 s 3.03e-81 (x-node of max m: 160); update of m at mid node: low modes 7.46e-90, top quarter 5.36e-90
+sweep  54: |G_new - G|/|G| = 1.850e-76  (19.61 s)
+    per field |dG|: R 2.03e-82 m 1.12e-78 n 1.12e-78 W 8.34e-85 s 2.29e-82 (x-node of max m: 160); update of m at mid node: low modes 1.10e-90, top quarter 2.56e-91
+sweep  55: |G_new - G|/|G| = 1.233e-76  (19.80 s)
+    per field |dG|: R 2.64e-83 m 9.23e-80 n 9.23e-80 W 1.89e-84 s 1.60e-82 (x-node of max m: 160); update of m at mid node: low modes 1.85e-89, top quarter 1.08e-89
+sweep  56: |G_new - G|/|G| = 1.020e-77  (18.66 s)
+    per field |dG|: R 1.03e-83 m 5.66e-80 n 5.66e-80 W 5.02e-86 s 1.23e-83 (x-node of max m: 160); update of m at mid node: low modes 2.87e-90, top quarter 8.50e-91
+sweep  57: |G_new - G|/|G| = 6.250e-78  (18.45 s)
+    per field |dG|: R 1.33e-84 m 4.81e-81 n 4.81e-81 W 9.04e-86 s 7.84e-84 (x-node of max m: 160); update of m at mid node: low modes 2.24e-90, top quarter 2.27e-90
+sweep  58: |G_new - G|/|G| = 5.320e-79  (19.26 s)
+    per field |dG|: R 4.79e-85 m 2.66e-81 n 2.66e-81 W 2.10e-86 s 6.27e-85 (x-node of max m: 160); update of m at mid node: low modes 1.38e-89, top quarter 6.97e-90
+sweep  59: |G_new - G|/|G| = 2.944e-79  (19.39 s)
+    per field |dG|: R 1.30e-85 m 2.46e-82 n 2.46e-82 W 2.43e-86 s 3.58e-85 (x-node of max m: 160); update of m at mid node: low modes 1.34e-89, top quarter 5.49e-90
+sweep  60: |G_new - G|/|G| = 2.720e-80  (19.20 s)
+    per field |dG|: R 2.02e-85 m 1.14e-82 n 1.14e-82 W 2.19e-86 s 3.15e-86 (x-node of max m: 160); update of m at mid node: low modes 1.08e-89, top quarter 5.65e-90
+sweep  61: |G_new - G|/|G| = 1.265e-80  (19.14 s)
+    per field |dG|: R 1.20e-85 m 1.34e-83 n 1.34e-83 W 2.25e-86 s 1.50e-86 (x-node of max m: 160); update of m at mid node: low modes 1.66e-89, top quarter 4.38e-90
+sweep  62: |G_new - G|/|G| = 1.484e-81  (19.29 s)
+    per field |dG|: R 1.96e-85 m 4.15e-84 n 4.15e-84 W 2.55e-86 s 1.70e-87 (x-node of max m: 160); update of m at mid node: low modes 2.41e-89, top quarter 1.04e-89
+sweep  63: |G_new - G|/|G| = 4.590e-82  (18.83 s)
+    per field |dG|: R 1.59e-85 m 9.01e-85 n 1.45e-84 W 2.49e-86 s 9.98e-88 (x-node of max m: 160); update of m at mid node: low modes 1.35e-89, top quarter 6.42e-90
+sweep  64: |G_new - G|/|G| = 1.603e-82  (19.01 s)
+    per field |dG|: R 1.51e-85 m 2.14e-85 n 1.87e-84 W 2.87e-86 s 6.02e-88 (x-node of max m: 159); update of m at mid node: low modes 1.59e-89, top quarter 6.68e-90
+sweep  65: |G_new - G|/|G| = 2.066e-82  (18.00 s)
+    per field |dG|: R 1.94e-85 m 2.94e-85 n 1.27e-84 W 3.44e-86 s 5.04e-88 (x-node of max m: 160); update of m at mid node: low modes 3.01e-89, top quarter 8.59e-90
+sweep  66: |G_new - G|/|G| = 1.399e-82  (15.62 s)
+    per field |dG|: R 1.10e-85 m 3.67e-85 n 8.42e-85 W 1.72e-86 s 6.07e-88 (x-node of max m: 160); update of m at mid node: low modes 9.90e-90, top quarter 6.94e-90
+sweep  67: |G_new - G|/|G| = 9.308e-83  (15.78 s)
+    per field |dG|: R 1.85e-85 m 1.63e-84 n 9.50e-85 W 3.04e-86 s 7.49e-88 (x-node of max m: 160); update of m at mid node: low modes 2.60e-89, top quarter 1.59e-89
+sweep  68: |G_new - G|/|G| = 1.801e-82  (16.22 s)
+    per field |dG|: R 1.46e-85 m 1.14e-84 n 7.31e-85 W 2.86e-86 s 8.84e-88 (x-node of max m: 160); update of m at mid node: low modes 2.57e-89, top quarter 1.59e-89
+sweep  69: |G_new - G|/|G| = 1.255e-82  (15.90 s)
+    per field |dG|: R 2.01e-85 m 7.96e-85 n 2.16e-84 W 2.76e-86 s 5.77e-88 (x-node of max m: 160); update of m at mid node: low modes 2.79e-89, top quarter 9.95e-90
+sweep  70: |G_new - G|/|G| = 2.388e-82  (15.42 s)
+    per field |dG|: R 1.45e-85 m 1.56e-84 n 1.40e-84 W 2.39e-86 s 3.51e-88 (x-node of max m: 160); update of m at mid node: low modes 2.66e-89, top quarter 5.49e-90
+sweep  71: |G_new - G|/|G| = 1.719e-82  (15.56 s)
+    per field |dG|: R 1.18e-85 m 7.13e-85 n 8.13e-85 W 2.21e-86 s 6.27e-88 (x-node of max m: 160); update of m at mid node: low modes 1.42e-89, top quarter 3.74e-90
+sweep  72: |G_new - G|/|G| = 8.981e-83  (15.20 s)
+    per field |dG|: R 1.60e-85 m 6.70e-85 n 1.02e-84 W 3.13e-86 s 3.36e-88 (x-node of max m: 160); update of m at mid node: low modes 1.59e-89, top quarter 7.29e-90
+sweep  73: |G_new - G|/|G| = 1.127e-82  (15.84 s)
+    per field |dG|: R 1.22e-85 m 7.62e-85 n 8.37e-85 W 2.17e-86 s 5.28e-88 (x-node of max m: 160); update of m at mid node: low modes 4.34e-90, top quarter 2.71e-90
+sweep  74: |G_new - G|/|G| = 9.252e-83  (15.31 s)
+    per field |dG|: R 3.43e-85 m 6.08e-85 n 1.27e-84 W 5.62e-86 s 5.02e-88 (x-node of max m: 160); update of m at mid node: low modes 1.77e-89, top quarter 1.87e-90
+sweep  75: |G_new - G|/|G| = 1.398e-82  (15.69 s)
+    per field |dG|: R 1.60e-85 m 7.94e-85 n 6.90e-85 W 2.67e-86 s 1.48e-87 (x-node of max m: 160); update of m at mid node: low modes 2.67e-89, top quarter 1.75e-89
+sweep  76: |G_new - G|/|G| = 8.771e-83  (15.87 s)
+    per field |dG|: R 2.64e-85 m 1.23e-84 n 3.84e-84 W 4.56e-86 s 8.85e-88 (x-node of max m: 160); update of m at mid node: low modes 5.42e-89, top quarter 2.40e-89
+sweep  77: |G_new - G|/|G| = 4.247e-82  (16.31 s)
