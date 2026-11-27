@@ -184,6 +184,9 @@ struct CellOut { int sweeps; int outer; double last; double secs; };
 static inline size_t IX(int a, int b, int k, int nB) { return ((size_t)a * nB + b) * NX + k; }
 static inline double D_(const Real& a) { return a.hi; }
 static inline double D_(double a) { return a; }
+template<class T> static inline T cvt(const Real& a);
+template<> inline Real cvt<Real>(const Real& a) { return a; }
+template<> inline double cvt<double>(const Real& a) { return a.hi + a.lo; }
 
 template<class T> struct Work { std::vector<T> Gx, Gxx, Gxi, Gv, Gvx, Psi, Phi; };
 
@@ -198,10 +201,10 @@ template<class T> static void xapplyT(const T* Dm, const T* in, T* out, int rows
 template<class T> static void derivs(const Geom& g, const std::vector<T>& G, Work<T>& w, const T* D1, const T* D2) {
   const int nA = g.nA, nB = g.nB; const size_t NN = (size_t)nA * nB * NX;
   w.Gv.resize(NF * NN); w.Gxi.resize(3 * NN); w.Gx.resize(NF * NN); w.Gxx.resize(4 * NN); w.Gvx.resize(NF * NN);
-  T ihv = T(1.0) / T(g.hv), ihx = T(1.0) / T(g.hxi);
+  T ihv = T(1.0) / cvt<T>(g.hv), ihx = T(1.0) / cvt<T>(g.hxi);
   std::vector<T> Dv(nB * nB), Dx(nA * nA);
-  for (int i = 0; i < nB * nB; i++) Dv[i] = T(g.Dv->a[i]);
-  for (int i = 0; i < nA * nA; i++) Dx[i] = T(g.Dx->a[i]);
+  for (int i = 0; i < nB * nB; i++) Dv[i] = cvt<T>(g.Dv->a[i]);
+  for (int i = 0; i < nA * nA; i++) Dx[i] = cvt<T>(g.Dx->a[i]);
   #pragma omp parallel for collapse(2) schedule(static)
   for (int a = 0; a < nA; a++) for (int b = 0; b < nB; b++) {
     for (int f = 0; f < NF; f++) for (int k = 0; k < NX; k++) {
@@ -253,7 +256,6 @@ template<class T> static inline void rhs_node(const T ref[jEND], const DJ<T>& d,
   if constexpr (std::is_same<T, Real>::value) rhs_eval(Jp, KC.data(), x, o5); else rhs_eval(Jp, KT.data(), x, o5);
   for (int i = 0; i < 5; i++) out[i] = o5[i].d;
 }
-static inline double expm1(double a) { return std::expm1(a); }
 
 // the linear part of P: out = I[Psi, Phi] (no boundary terms)
 template<class T> static void integrate(const Geom& g, const std::vector<T>& Psi, const std::vector<T>& Phi,
@@ -261,14 +263,13 @@ template<class T> static void integrate(const Geom& g, const std::vector<T>& Psi
   const int nA = g.nA, nB = g.nB; const size_t NN = (size_t)nA * nB * NX;
   out.assign(NF * NN, T(0.0));
   std::vector<T> Qx(nA * nA), Mv(nB * nB), QQ(nB * nB);
-  for (int i = 0; i < nA * nA; i++) Qx[i] = T(g.Qx->a[i]);
+  for (int i = 0; i < nA * nA; i++) Qx[i] = cvt<T>(g.Qx->a[i]);
   const Mat& Wm = g.first ? *g.W4 : *g.Qv;
-  for (int i = 0; i < nB * nB; i++) Mv[i] = T(Wm.a[i]);
-  if (g.first) for (int i = 0; i < nB * nB; i++) QQ[i] = T(g.V4->a[i]);
-  else for (int i = 0; i < nB; i++) for (int j = 0; j < nB; j++) { Real s(0.0); for (int l = 0; l < nB; l++) s += (*g.Qv)(i, l) * (*g.Qv)(l, j); QQ[i * nB + j] = T(D_(s) == 0 ? 0.0 : 0.0); QQ[i * nB + j] = T(0.0) + (T)(std::is_same<T, Real>::value ? T(0.0) : T(0.0)); }
+  for (int i = 0; i < nB * nB; i++) Mv[i] = cvt<T>(Wm.a[i]);
+  if (g.first) for (int i = 0; i < nB * nB; i++) QQ[i] = cvt<T>(g.V4->a[i]);
   // exact QQ in the working type
-  if (!g.first) for (int i = 0; i < nB; i++) for (int j = 0; j < nB; j++) { T s(0.0); for (int l = 0; l < nB; l++) s += T(g.Qv->a[i * nB + l]) * T(g.Qv->a[l * nB + j]); QQ[i * nB + j] = s; }
-  T hx = T(g.hxi), hv = T(g.hv);
+  if (!g.first) for (int i = 0; i < nB; i++) for (int j = 0; j < nB; j++) { T s(0.0); for (int l = 0; l < nB; l++) s += cvt<T>(g.Qv->a[i * nB + l]) * cvt<T>(g.Qv->a[l * nB + j]); QQ[i * nB + j] = s; }
+  T hx = cvt<T>(g.hxi), hv = cvt<T>(g.hv);
   std::vector<T> E3(nB), E4(nB), E2(nB);
   for (int b = 0; b < nB; b++) { E2[b] = E[b] * E[b]; E3[b] = E2[b] * E[b]; E4[b] = E3[b] * E[b]; }
   #pragma omp parallel for schedule(static)
