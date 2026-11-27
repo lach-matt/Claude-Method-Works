@@ -59,6 +59,23 @@ G0d evaluated P-GRD's proved constants: level 4 needs a residual of about 10^-66
 10^-114, still beyond any printable approximant (46-57 decades short at level 4). Asked whether to scope a
 computer-assisted route, keep tightening by hand, or stop and state it, the author chose: keep tightening by hand.
 
+## 2026-11-27: no printed tables; the approximant is defined by a rule
+
+At the level-4 targets of G0f the certified tables would run to many thousands of pages (S-APP's model about 5,100 for
+seed 1 on D_A and 13,700 for seed 2 on D* with the second residual certified; the solver's pilot measured about 2.5 times
+that model). Asked whether the page count could be reduced, the coordinator answered that no closed form of the
+correction is known, but that the certificate bounds the residual of whatever function the paper defines, so each seed's
+approximant can be defined by a short, exactly specified, deterministic procedure whose output is the coefficient set,
+the paper printing the procedure, a digest of its output and spot values instead of the tables, at the cost of the
+reader's recomputing time. The author: "Yes, that is excellent. Let's eliminate the printed tables and move forward with
+this route please, overruling the decision on novemder 20."
+
+So the decision of 2026-11-20 is overruled in its printing part: there is no final part "Tables of the approximant",
+and Appendix C defines the approximant of each seed by its rule, gives the digest and spot values, and keeps the
+certification procedure. The two seeds, the regions on which each is certified and the order of work stand. The paper
+remains self-contained: it contains the complete definition of the approximant, though not its coefficients. The form
+of the rule is scoped first (S-RULE).
+
 ## Earlier decisions in this segment
 
 - Admissible points (P-ADM): the cap h <= 10^-6 is removed from the definition; the lower bounds on d state it as an
