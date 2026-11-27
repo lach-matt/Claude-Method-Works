@@ -602,7 +602,7 @@ Not chapter text.
 *6. Numbers.*
 
 - No number already printed changes. Every number of each old text occurs unchanged in its new text; this was checked
-  mechanically over the eleven pairs, and the existing chapter text outside them is untouched.
+  mechanically over the ten pairs, and the existing chapter text outside them is untouched.
 - The new numbers were recomputed with exact rational arithmetic, from the bounds of lem:is-offsets (b) and the rows
   of sec:tab-is:
   - Σ_(ι∈Z₃)(⌊y_ι/𝔡₁⌋ + 1) = 3,623,813,354, over the 1269 + 680 rows, a non-real row twice; the non-real part is
@@ -625,8 +625,8 @@ Not chapter text.
 - Scratch trees were made by git archive of paper/reader, at HEAD and at aa181269:
   - /tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/ptrf/ (HEAD);
   - …/scratchpad/reader/ptrf_work/tree_aa181269/.
-- HEAD moved past aa181269 while this file was written (to 40140118, then 9a43974b, both outside chapters 71, 03 and
-  90). The three chapters and the crosswalk touched here are byte-identical at all three commits.
+- HEAD moved past aa181269 while this file was written (to d0b280ab at the last check). None of the commits in
+  between touches chapters 71, 03 or 90 or crosswalk/71, so the files touched here are byte-identical at both ends.
 - A script applied the Placement and the crosswalk rows by parsing this file. Every old text matched exactly once,
   and the new subsection went in at item 1.
 - From each paper/reader root:
