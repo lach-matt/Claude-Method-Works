@@ -53,6 +53,12 @@ P-GRD carries the three restatements (order-graded background bounds, level-matc
 constants) at both levels, keeping the present closing conditions valid beside the sharper ones; with all three, level 4
 needs about 10^-21 to 10^-29 (quad-double).
 
+## 2026-11-27: after G0d, keep tightening by hand
+
+G0d evaluated P-GRD's proved constants: level 4 needs a residual of about 10^-66 to 10^-84, level 6 about 10^-98 to
+10^-114, still beyond any printable approximant (46-57 decades short at level 4). Asked whether to scope a
+computer-assisted route, keep tightening by hand, or stop and state it, the author chose: keep tightening by hand.
+
 ## Earlier decisions in this segment
 
 - Admissible points (P-ADM): the cap h <= 10^-6 is removed from the definition; the lower bounds on d state it as an
