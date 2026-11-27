@@ -1182,7 +1182,7 @@ New:
 In [[thm:tl5-hf]], y_σ is the weighted norm Y_σ of [[def:tl5-hf-norm]]: a supremum of the energies of g − ĝ and of its
 Lie derivatives along the static Killing field and the six rotations of the seed through the future faces of the tilted
 regions, weighted by e^(−φ), with φ the integral of two rates that absorb the linear bulk of the energy identity
-pointwise. There A = A_w is of the size of the data error on N₁ and of the residual of ĝ, and B = B_w the constant of the
+pointwise. There A = A_w is of the size of the data error on N and of the residual of ĝ, and B = B_w the constant of the
 quadratic remainder, in which the amplification e^(φ/2) of the linear estimate enters once; the condition 4AB < 1 of (H3)
 is the closing condition [[eq:tl5-hf-closing]], linear in that amplification.
 
@@ -1210,7 +1210,7 @@ and two stages with smooth data, whose solutions glue in class C³ ([[cor:tl5-ci
 is no obstruction: (F1) of [[thm:tl5-cip]] gives the strip of [[thm:ten-l5]] (b), and the lemma applies stage by stage.
 What is missing for a given region is the verification of the hypotheses of [[thm:tl5-hf]] for a background there: that
 theorem gives (H1), (H2) and (H4) and reduces (H3) to inequalities between suprema and integrals of explicit functions of
-the background, of its residual and of the data on N₁. The estimate (H1) is one on all of D^κ_s, axes included. An
+the background, of its residual and of the data on N. The estimate (H1) is one on all of D^κ_s, axes included. An
 estimate for the linearised problem on a truncated domain of dependence that avoids the axes would not give (H1): no such
 domain contains a region of the form D^κ_s, since D^κ_s contains the axes. The residual bounds of [[sec:tl5-residuals]]
 hold at points and on boxes of the region Π of [[eq:tl5-region]], which is not of the form D^κ_s, and are not bounds of

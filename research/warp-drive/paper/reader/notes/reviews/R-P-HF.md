@@ -997,3 +997,78 @@ New:
     a closing condition of the form 4F²G ε_r < 1, with ε_r the size of the residual and G the constant of a quadratic
     remainder, asks a residual ε_r of order 10⁻⁶⁸/G, against the bounds 3.73 × 10⁻⁵ at points and 5.0 × 10⁻⁴ on sub-boxes
     of [[prop:tl5-points]] and [[prop:tl5-boxes-second]]. No proof uses these observations.
+
+## Confirmation (second reading: proofs/P-HF.md md5 a1d02ef3baa0d281b0b4c47ef20d1c89, 1328 lines; report F-P-HF)
+
+**NOT YET CONFIRMED: one minor remains open (m11 below, a two-word fix). Everything else is confirmed.**
+
+*Diff against my fixed copy* (P-HF-fixed.md, i.e. P-HF f5d9cd38 with all my replacement texts applied). The only
+differences are the writer's four additions; every replacement M1.1-M1.27, M2, m1-m10 and n1-n9 is in the file
+unchanged. The additions:
+
+1. *Sharp factor.* I checked the chain through every place it enters:
+   - prop:tl5-hf-linear: ℰ ≤ Y_d² + Y𝒮 (the Cauchy-Schwarz step gives exactly this), then Y² ≤ Y_d² + Y𝒮, so
+     Y ≤ 𝒮/2 + (𝒮²/4 + Y_d²)^(1/2) ≤ Y_d + 𝒮 (eq:tl5-hf-linear), and y_sep ≤ F Y ≤ F(δ + 𝒮₀) (eq:tl5-hf-f).
+   - Step 3: the first term is at most Y_s ε_w, so (1 − ϑ)Σμ^|I|ℰ_I ≤ δ_w² + Y_s ε_w + 𝔯_w Y_s² + S_F Y_s³. With
+     1 − ϑ ≥ 3/4 and 𝔯_w ≤ 1/4 this gives Y_s² ≤ 2δ_w² + 2Y_s ε_w + 2S_F Y_s³. Then Y_s ≤ √2δ_w + 2ε_w + 2S_F Y_s² when
+     Y_s ≥ √2δ_w, and trivially otherwise.
+   - A_w = √2δ_w + 2ε_w, and eq:tl5-hf-closing 4A_wB_w = 8(√2δ_w + 2ε_w)S_F < 1.
+
+   I grepped P-HF and the merged chapter 87 for every quotation of A_w, ε_w, the closing condition, "2𝒮", "4ε_w" and
+   eq:tl5-hf-linear/eq:tl5-hf-f, and none is stale. 𝔰_*, Step 1 (4μ^(−N)e^φ A_w²), the persistence lemma's P(N), the
+   proof of thm:tl5-hf, Placement item 6 and the remark after the bootstrap use A_w only as a symbol or through
+   Y ≤ 2A_w. cor:tl5-hf-level0, prop:tl5-hf-linear-n and rem:tl5-hf-weight cite eq:tl5-hf-linear without a factor.
+   The A_w of chapter 32 is an unrelated symbol.
+2. *m6 addition* (rem:tl5-hf-level). The added sentences are correct:
+   - (H1) needs N ≥ 5 in this method (lem:tl5-hf-quadratic), and N ≥ 6 comes from the proof of (H2) only.
+   - The double-null step needs |D̂²h| at a point, through ε (eq:tl5-dn-eps, a C² distance) and
+     lem:tl5-hf-conversions (b).
+   - Level-3 face energies give D̂²h only in H² of the four-dimensional faces, which does not embed in L^∞.
+
+   This is question 1 (a) of this review, stated as a remark.
+3. *Placement item 8* is my m8 text, with the right anchor: 87:3143-3145 at HEAD, occurring once.
+4. *Line numbers.*
+   - Items 1-8 now read 3145, 3051-3053, 3055-3071, 3073-3084, 3086-3112, 3114-3117, 3119-3129 and 3143-3145. All are
+     correct at HEAD 766af988; chapter 87's md5 is unchanged, eeaa48e1….
+   - The crosswalk rows' line numbers all match the labels' lines in the new file (84 of 84 checked by script).
+   - Three row notes changed: lem:tl5-hf-conversions "C^2", thm:tl5-hf and rem:tl5-hf-level. The changes are
+     accurate, and the notes for existing rows add rem:tl5-constants.
+
+*Scratch merge at HEAD 766af988* (git archive; P-HF a1d02ef3 at HEAD), in
+/tmp/claude-0/-home-user-Claude-Method-Works/36602a96-aefb-52fa-89f4-29a4ab038dc7/scratchpad/reader/scratch/rphf/. The
+placement items were parsed from the file itself (tools/merge_phf2.py). Items 2-8: each old text occurs exactly once as
+whole lines. Section inserted after rem:tl5-constants, 84 crosswalk rows appended. Results:
+
+- lint.py --chapters: "62 file(s), 5040 label(s) defined, 0 hit(s)", where clean HEAD has 4956;
+- assemble.py --check: "labels 5040, computations cited 0, problems 0";
+- assemble.py: clean;
+- lint.py --paper: "PAPER.md: 0 hit(s)".
+
+No line of P-HF (crosswalk rows aside) or of the merged chapter exceeds 121 characters. The only wrapped lines starting
+with a marker are the pre-existing lists at 87:367 and 87:2944.
+
+### m11 (open, minor). Two placement texts still describe the data as data on N₁ (lines 1185 and 1213)
+
+After M1, A_w contains the flux through N₀ (δ_w), and hypothesis (a) is the bound η₀ < 𝔰₁ on N₀. Two placement texts
+did not follow; this omission is mine, from the first reading. Item 6's new paragraph says A = A_w "is of the size of
+the data error on N₁". Item 7's new rem:tl5-beyond says (H3) is reduced to inequalities "of the data on N₁". Both
+should say N. Exact text:
+
+Line 1185, old:
+
+    pointwise. There A = A_w is of the size of the data error on N₁ and of the residual of ĝ, and B = B_w the constant of the
+
+new:
+
+    pointwise. There A = A_w is of the size of the data error on N and of the residual of ĝ, and B = B_w the constant of the
+
+Line 1213, old:
+
+    the background, of its residual and of the data on N₁. The estimate (H1) is one on all of D^κ_s, axes included. An
+
+new:
+
+    the background, of its residual and of the data on N. The estimate (H1) is one on all of D^κ_s, axes included. An
+
+With these two lines replaced, the merge above passes the same four checks with the same counts (tools/m11_pairs.py,
+tools/P-HF-a1d0.md). Nothing else is open: once these two lines are changed, P-HF is CONFIRMED.
