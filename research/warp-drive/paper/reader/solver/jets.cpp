@@ -36,6 +36,14 @@ static Tay tsin(const Tay& a, Tay& co) { // sin and cos of a series
     s.c[i] = ss / Real((double)i); c.c[i] = -cc / Real((double)i); }
   co = c; return s; }
 
+typedef Diff<Tay> DTy;
+static DTy operator*(const Real& c, const DTy& a) { return DTy(c * a.s, c * a.d); }
+static DTy operator*(const DTy& a, const Real& c) { return DTy(c * a.s, c * a.d); }
+static DTy operator+(const Real& c, const DTy& a) { return DTy(c + a.s, a.d); }
+static DTy operator+(const DTy& a, const Real& c) { return DTy(a.s + c, a.d); }
+static DTy operator-(const Real& c, const DTy& a) { return DTy(c - a.s, -a.d); }
+static DTy operator-(const DTy& a, const Real& c) { return DTy(a.s - c, a.d); }
+
 // the seed's series in e at (u, 1/2): R, R_u, R_v, W_v, OM2
 struct SeedS { Tay R, Ru, Rv, Wv, OM2, Ruv, Wuv; };
 static SeedS seed_series(const Real& xi) {
