@@ -76,6 +76,13 @@ certification procedure. The two seeds, the regions on which each is certified a
 remains self-contained: it contains the complete definition of the approximant, though not its coefficients. The form
 of the rule is scoped first (S-RULE).
 
+## 2026-11-27: after G0g, keep tightening
+
+After the fourth sharpening (G0g) level 4 needs f of about 10^-30.2, 10^-28.5, 10^-36.9 and 10^-33.4 (seed 1 D_A, seed 2
+D_A, seed 1 D*, seed 2 D*), reachable in all four cases now that the approximant is defined by a rule. Asked whether to
+stop, do one more round, or keep tightening (which now only shortens the solver's and the reader's computing time), the
+author chose: keep tightening, round after round toward the floor, alongside the rest of the work.
+
 ## Earlier decisions in this segment
 
 - Admissible points (P-ADM): the cap h <= 10^-6 is removed from the definition; the lower bounds on d state it as an
