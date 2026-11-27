@@ -590,6 +590,43 @@ New:
 so [[lem:class-leaf-differences]] (a) about Ů, which bounds σ_A[𝐔]² − σ_A[Ů]² = σ_A[𝐔]² in H^k, bounds it by C ‖Z‖_(H^k),
 which gives (F1) and the linear bound; [[lem:class-leaf-differences]] (b), with
 
+*8. [[lem:class-planar-shear]], its bound and step (5) of its proof (lines 1286 and 1318–1319).* Its uses are steps
+(1), (3) and (4) of its proof and its constants ([[lem:class-leaf-differences]], [[lem:class-leaf-reference]],
+[[thm:class-stability]], [[ch:localised-data]]); none uses an H^k bound of σ itself, and σ enters [[eq:class-x]] and the
+closure through σ². Two old texts. First old:
+
+    ‖σ‖_(H^k(𝒰_δ)) ≤ C (‖Θ‖_(H^k(𝒰_(2δ))) + ‖dg‖_(H^k(𝒰_(2δ))) + ‖du‖_(H^k(𝒰_(2δ))) + 1),
+
+First new:
+
+    ‖σ²‖_(H^k(𝒰_δ)) ≤ C (‖Θ‖_(H^k(𝒰_(2δ))) + ‖dg‖_(H^k(𝒰_(2δ))) + ‖du‖_(H^k(𝒰_(2δ))) + 1),
+
+Second old:
+
+(5) Then k_L ∈ H^k, and σ ∈ H^k by [[eq:class-shear-leaf]], whose last term is a smooth function of dg and of the leaf's
+tangent. On the axis σ = 0 and κ2 = (Θ − κ1)/2 by [[prop:class-axis]] (d). ∎
+
+Second new:
+
+(5) In the frame X_i := ∂_(y_i) + ∂_i h ∂_z of TΣ_L, the second fundamental form of the leaf for the normal ν of
+[[lem:class-leaf]] (b) is k_L(X_i, X_j) = −(∂_i ∂_j h + Γ[γ3]^c_ab X_i^a X_j^b ∂_c F)/|∇F|, F := z − h, so its components
+lie in H^k by (3) and (4), and so do those of χ̸ = ± |∇_M3 u| k_L − n(u) K_Σ on TΣ_L, the sign that of ∂_z u, by
+Moser's estimate. By [[lem:class-gauss]] (b), σ² = 2 |χ̸ − ½ (tr χ̸) γ̸|² with γ̸_ij = γ3(X_i, X_j), a smooth function
+of these components, of γ3 and of ∂h, which are bounded by step (3), the C² norms of g and the C¹ norms of u; so σ²
+lies in H^k with the bound stated, by Moser's estimate. On the axis σ = 0 and κ2 = (Θ − κ1)/2 by
+[[prop:class-axis]] (d). ∎
+
+*9. [[ch:class-system]], the opening paragraph (lines 17–18).* Old:
+
+shear, the trace-free part of the second fundamental form of the family's level sets in the slice, and elliptic
+regularity of those level sets recovers it from the expansion with no loss ([[lem:class-planar-shear]]). With lateral
+
+New:
+
+shear, the trace-free part of the second fundamental form of the family's level sets in the slice, and elliptic
+regularity of those level sets recovers its square, the form in which it enters the Raychaudhuri equation, from the
+expansion with no loss ([[lem:class-planar-shear]]). With lateral
+
 ### Crosswalk rows
 
 For crosswalk/81-class-system.tsv. Each row is given as its four fields (label; source; source_name; note), to be
@@ -644,6 +681,8 @@ Changed rows:
   before lem:class-leaf-states".
 - lem:class-leaf-reference appends to its source field "; paper/reader/proofs/P-CLD.md (Placement 2–4)" and to its note
   "; (a), (b) are lem:class-leaf-differences with ů := V (P-CLD)".
+- lem:class-planar-shear appends to its note "; bound stated for σ², step (5) by the Cartesian form of χ̸ (P-CLD
+  Placement 8)", and ch:class-system appends "; opening paragraph: the square of the planar shear (P-CLD Placement 9)".
 - def:class-adapted and thm:class-stability append to their notes "; lem:class-leaf-differences (c), and (a) for σ² at
   every order, cited (P-CLD Placement 5, 6)"; lem:loc-axis-system in crosswalk/83-localised-data.tsv appends "; (a) for
   σ² (P-CLD Placement 7)".
@@ -669,19 +708,71 @@ into lem:class-leaf-reference (its (vi) and (vii)). I kept the reader's three po
    absorbed the quadratic terms; that absorption fails across the shrinking discs, and the coefficients carry the leaf of
    U. I replaced it by the divergence form (eq:class-leaf-divergence, after P-CIVP5's Block A1) and the flat Laplacian of
    the radial potential u_X (Step 6), which needs lem:class-interior-regularity for Δ only.
-5. **A statement change, reported for decision.** (a) now bounds σ[U]² − σ[ů]², not σ[U] − σ[ů]. The H^k norm of σ
-   itself needs a bound for the coefficient α of a G-invariant symmetric tensor field αδ + β y ⊗ y on the y-plane
-   (α = T(K2, K2)/|y|²) in H^m by the field in H^m; σ involves α of K_Σ and of ∂γ3 (through K_Σ(e2, e2) and ν(log B3)).
-   Pointwise |α| ≤ |T|, but in H^m the only bound I can prove loses a derivative (α = tr T − 𝒜(div(T y))); a loss-free
-   bound needs Rellich-type inequalities for angular mode 2, which the paper does not contain. σ² = 2|χ̸ − ½(tr χ̸)γ̸|²
-   is a smooth function of the Cartesian quantities, and every use of (a) — Steps 6, 9 and *Smoothness* of
-   thm:class-stability, lem:loc-axis-system (a), Tier 4's corner proof, lem:class-leaf-reference (a) — is through σ²
-   (the closure −½ σ²). The old step (5) of lem:class-planar-shear (σ ∈ H^k "by eq:class-shear-leaf, whose last term is a
-   smooth function of dg and of the leaf's tangent") uses the same unproved bound; it is outside this file.
+5. **A statement change, accepted on two conditions, both met below.** (a) now bounds σ[U]² − σ[ů]², not σ[U] − σ[ů].
+   The H^k norm of σ itself needs a bound for the coefficient α of a G-invariant symmetric tensor field αδ + β y ⊗ y
+   on the y-plane (α = T(K2, K2)/|y|²) in H^m by the field in H^m; σ involves α of K_Σ and of ∂γ3 (through K_Σ(e2, e2)
+   and ν(log B3)). Pointwise |α| ≤ |T|, but in H^m the only bound I can prove loses a derivative (α = tr T − 𝒜(div(T
+   y))); a loss-free bound needs Rellich-type inequalities for angular mode 2, which the paper does not contain. σ² =
+   2|χ̸ − ½(tr χ̸)γ̸|² is a smooth function of the Cartesian quantities, and every use of (a) — Steps 6, 9 and
+   *Smoothness* of thm:class-stability, lem:loc-axis-system (a), Tier 4's corner proof, lem:class-leaf-reference (a) —
+   is through σ² (the closure −½ σ²). The old step (5) of lem:class-planar-shear (σ ∈ H^k "by eq:class-shear-leaf,
+   whose last term is a smooth function of dg and of the leaf's tangent") used the same unproved bound; Placement 8
+   restates that lemma for σ² and proves step (5) from the Cartesian form of χ̸, and Placement 9 adjusts the sentence
+   of the chapter's opening paragraph that cites it. With these, no H^k bound of σ itself remains in the chapters; the
+   list below checks this.
 6. The higher orders: (a) at every order m > k with C_m depending on 𝒩_(m−1)(U); Placement 6 makes *Smoothness* use it
    by induction on σ.
 7. ů may be any smooth state (no equation is used), so lem:class-leaf-reference (a), (b) follow at once (Placement 3, 4).
    The lemma holds for every δ ≤ δ_0 with fixed balls, as Tier 4's δ_V requires.
+
+*Every use of [[lem:class-leaf-differences]] (a), and every H^k bound of σ, in the chapters at HEAD.* Found by grepping
+all chapter sources for the label, for lem:class-leaf-reference, for lem:class-planar-shear, and for the shear (σ_A,
+σ[·], "planar shear", ‖σ‖); only chapters 81, 82 and 83 contain any. Line numbers are those at HEAD 9d133b0c, whose
+chapters are those of 5a238875 and edafc288.
+
+Uses of (a), or of the H^k bounds in its proof:
+- 81:1388–1391, lem:class-leaf-reference (a), (b): the conclusions of (a), (b) for V; after Placement 3 they are the
+  σ²-form, used only as listed below for chapter 83.
+- 81:1405, the remark after lem:class-leaf-reference: "(a) and (b) with V := ů are lem:class-leaf-differences"; no
+  bound of its own; consistent.
+- 81:1449–1474, the proof of lem:class-leaf-reference (a) as changes to the old proof of (a): replaced by Placement 4;
+  through σ².
+- 81:1590–1591, def:class-adapted: the leaves δh in L²(I; H^(k+2−j)), j ≤ 2; no σ; now (c) (Placement 5).
+- 81:1605–1606, def:class-adapted: τ-derivatives of the leaves, for B_U C¹-close to B; no σ; now (c), pointwise.
+- 81:1675, Step 6 of thm:class-stability: ‖∂^α(S_A^ax(U) − S_A^ax(ů))‖ ≤ C 𝒩_k, S_A^ax holding the shear only as
+  −½ σ_A[Θ_A]² (81:1671), its other terms local; through σ².
+- 81:1704, Step 9 of thm:class-stability, (F1): the forcing holds the shear only through S_A^ax; through σ².
+- 81:1745–1748, *Smoothness* of thm:class-stability: ‖σ_A[U] − σ_A[ů]‖_(H^σ); replaced by Placement 6 with the σ²-form
+  and the induction on σ; the forcing holds σ_A only as −½ σ_A².
+- 82:2198–2199 and 82:2229, prop:vlasov-uniform-n (proof): the right side S^ax_𝔨 near the axes and the balls 𝔅, 𝔅′ of
+  the lemma, checked as in Step 6 of thm:class-stability; through σ².
+- 83:2933–2934, lem:loc-axis-system (a): the term −½ χ ψ_ax σ_A[𝐔]² with σ_A[Ů] = 0; through σ² (Placement 7).
+- 83:2975, the smoothness of the solution of lem:loc-axis-cauchy, "by the argument of the paragraph *Smoothness*" of
+  thm:class-stability; through σ², by Placement 6.
+- 83:3697–3698, Step 3 of the proof of prop:civp-axes-corner, (F1): the non-local part −½ ξχ_ax (σ_A[𝐔̂ + Z]² −
+  σ_A[Û]²), by lem:class-leaf-reference (a); through σ².
+- 83:3714–3716, Step 4 there: smoothness by the argument of *Smoothness* with lem:class-leaf-reference (a) at every
+  order; through σ².
+
+H^k bounds of σ itself:
+- 81:18, the opening paragraph: "recovers it from the expansion with no loss ([[lem:class-planar-shear]])"; reworded to
+  the square (Placement 9).
+- 81:1286 and 81:1318–1319, lem:class-planar-shear and step (5) of its proof: restated for σ² and proved (Placement 8).
+  Its uses (81:1327 and 81:1356 in the old text of Placement 1; 81:1437, 1445 and 1464, steps (3) and (4), in
+  lem:class-leaf-reference; 81:1659, its constants in thm:class-stability; 81:1757, step (4) in *Smoothness*; 83:503,
+  step (1)) use steps (1), (3), (4) or its constants, not the bound for σ.
+- 81:1747, *Smoothness*: as above, Placement 6.
+- 81:1102–1103, after prop:class-axis: "σ is nevertheless recovered from the Laplacian with no loss" refers to the flat
+  model and is proved there (prop:class-flat-model (b): σ_pl = ℓ − 2𝒜ℓ, ‖σ_pl‖ = ‖ℓ‖, 𝒜 bounded on every Ḣ^j); no
+  curved claim.
+- 81:1137, "The next section carries the recovery of (b) over to curved metrics": qualitative; in L² it is
+  lem:class-leaf-states (c), in H^k it is the σ²-form of (a).
+
+Bounds of σ in L² or L^∞ only, which are not affected: 81:1717 and 81:1732–1734 (domain of dependence, (b)); 81:1785–1787
+(Step 10: (b) and |σ| ≤ C on 𝔅′); 83:509–511 (eq:loc-lens-shear, (b)); 83:2781 and 83:3095 (lem:loc-axis-shear, the
+case D := Ō of lem:class-leaf-states (c)); 83:2934–2935 and 83:2991 ((b), σ_A bounded on 𝔅′); 83:3738–3740,
+83:3759–3761 and 83:3891–3893 (lem:class-leaf-reference (b), (b′)). Qualitative statements: 82:1802 and 82:1957
+(σ2/ρ2² smooth for a smooth eikonal, with its own proof in chapter 82; no Sobolev bound).
 
 *Tier 3 (merged; its item 8).* Its definitional clause is carried into the definitions before lem:class-leaf-states
 (H_L[U] with p_A(n), the sign of p_A(∂_z), and Π the γ3-orthogonal complement of p_A^Σ); no statement changes.
