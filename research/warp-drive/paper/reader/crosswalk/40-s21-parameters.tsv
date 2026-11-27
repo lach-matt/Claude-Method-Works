@@ -4,6 +4,7 @@ sec:iii-i7-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:23	III.I(7) §1	title
 eq:s21-conv	docket68/n1star/proof5/PART-III-I5-UNBOOST.md:59	III.I(4) (1.2)	private restatement, with identities (i)-(iii) of III.I(4) §1, for the reader
 eq:iii-i7-1-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:38	III.I(7) (1.1)	
 eq:iii-i7-1-2	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:45	III.I(7) (1.2)	
+def:s21-eps-g	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:48-49	III.I(7) section 1: alpha_K in (2, min(a_K, 2 + eps_ind, 5/2)), eps_ind that of III.G'''' Proposition 5.1	ε_g := min(ε_Υ, ε_ind) defined in the edition (S22 reading: the two gaps differ; fix F3-S21); the record writes ε_ind; ε_Υ that of III.D2 section 1
 lem:iii-i7-1-1	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:60	III.I(7) Lemma 1.1	neighbourhood N renamed 𝒩_0 (𝒩 is III.I(9)'s row set)
 def:iii-i7-1-2	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:87	III.I(7) Definition 1.2	
 eq:iii-i7-1-3	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:89	III.I(7) (1.3)	
@@ -81,5 +82,5 @@ lem:iii-i9-2-5	docket68/n1star/proof5/PART-III-I10-CORR4.md:288	III.I(9) Lemma 2
 lem:iii-i9-2-6	docket68/n1star/proof5/PART-III-I10-CORR4.md:296; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:663	III.I(9) Lemma 2.6	(c) stated at b0 (I10:296); (e) is the form at b, III.I(15) (1.1) (I16:663), promoted from the closing paragraph; finding (3) folded
 eq:iii-i9-2-4	docket68/n1star/proof5/PART-III-I10-CORR4.md:314	III.I(9) (2.4)	
 eq:iii-i9-2-5	docket68/n1star/proof5/PART-III-I10-CORR4.md:317	III.I(9) (2.5)	
-eq:iii-i9-2-6	docket68/n1star/proof5/PART-III-I10-CORR4.md:348	III.I(9) (2.6)	
 eq:s21-rows-at-b	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:84; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:663	III.I(15) (1.1) with r and E written out	private; lemma iii-i9-2-6 (e)
+eq:iii-i9-2-6	docket68/n1star/proof5/PART-III-I10-CORR4.md:348	III.I(9) (2.6)	

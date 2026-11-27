@@ -819,9 +819,26 @@ Then, for every ϵ > 0 below the margins of [[lem:iii-h1-1-2]] (a),
 This is [Hin26, (10.44)] with α_sf + 1 − 2ϵ in place of α_sf; the weight α_sf would need a stronger threshold at the
 incoming radial set ([[sec:s18-remarks]]).
 
-*Proof.* Write β := α_sf + 1. The transform û_hi is supported in |σ| ≥ c/2, and on c/2 ≤ |σ| ≤ 1 the sc-b norm at σ
-and the semiclassical norm at the semiclassical parameter |σ|⁻¹ are both equivalent to the fixed norm, uniformly on this
-compact set (the parameterised calculus, (S7) in [[sec:ii-a-3]]). So by [[lem:ii-a-5-2]],
+*Proof.* Write β := α_sf + 1. The transform û_hi is supported in |σ| ≥ c/2, and on c/2 ≤ |σ| ≤ 1 the sc-b norm at σ and
+the semiclassical norm at the semiclassical parameter h := |σ|⁻¹ ∈ [1, 2/c] (given there by the same formula, the space
+being that of the spectral structure at σ) are both equivalent to the fixed norm, the norm with the same orders for the
+structure C^∞_b𝒱_sc(X̃) of [[sec:ii-a-5-1]] (2), the spectral structure at |σ| = 1, uniformly on this compact set.
+Indeed, by the definitions in [[sec:ii-a-5-1]] (2)–(4), the three are norms of spaces w_∗ϱ^(𝗌_σ)H^(𝗌_σ), of the
+variable orders (𝗌_σ, 𝗌_σ) of (S8) at a scaling weight ϱ, with k − j_1 − j_2 further b-derivatives, where ρ := ⟨x⟩⁻¹,
+with w_∗ = ρ_scf^βρ_tf^β and ϱ = ρ_scf for the sc-b norm, w_∗ = ρ^β and ϱ = hρ for the semiclassical one, and w_∗ = ρ^β
+and ϱ = ρ for the fixed one. The spectral structures at σ and at |σ| = 1 have the same cells, with scalings
+(1 + |σ|⟨x⟩)⁻¹ and (1 + ⟨x⟩)⁻¹ whose ratio lies in [1, 2/c]. For c/2 ≤ |σ| ≤ 1, ρ_scf⟨x⟩ = ⟨x⟩/(1 + |σ|⟨x⟩) and
+hρ⟨x⟩ = 1/|σ| lie in [½, 2/c], ρ_tf lies between positive constants, and the logarithms of these functions have bounded
+b-derivatives, all uniformly in σ; so ρ_scf, hρ and ρ are scaling weights of both structures, and ρ_scf^βρ_tf^β and ρ^β
+are equivalent weights, uniformly in σ. The orders 𝗌_σ = S_(z_0)(·, ·/|σ|) ([[def:iii-h1-1-1]]) form a family bounded in
+S⁰, |σ| ranging over a compact subset of (0, ∞). So [[lem:ii-a-3-1]] (f), with (d) there for the choice of the elliptic
+families, gives the uniform equivalence. The same holds for 1 ≤ |σ| ≤ C_0, the scalings (1 + |σ|⟨x⟩)⁻¹ then lying within
+the factor C_0 of (1 + ⟨x⟩)⁻¹; and, uniformly for c/2 ≤ |σ| ≤ C_0, the fixed norm is equivalent to the norm of the same
+structure with the orders (s_c, 𝗋_σ + β), in which [[thm:i-a-7-2]] is applied below. Indeed 𝗌_σ − s_c vanishes at
+fibre infinity ((C1)) and 𝗌_σ − 𝗋_σ over ∂X, so λ^(s_c−𝗌_σ), ρ^(𝗋_σ−𝗌_σ) and their inverses are bounded in S⁰ (each
+exponent is λ, resp. ρ, times a function bounded in S⁰, and λ log λ and ρ log ρ are bounded with their derivatives); so
+the two pairs of orders define the same classes, and the first terms of the two norms ((S8)) are bounded by each other
+modulo the second, as in the proof of [[lem:ii-a-3-1]] (d). So by [[lem:ii-a-5-2]],
 
     ‖u_hi‖² ∼ Σ_(j_1+j_2≤k) ∫_(|σ|≥c/2) ‖σ^(j_1)(σ∂_σ)^(j_2) û_hi(σ)‖²_((𝗌_σ;k−j_1−j_2),𝗌_σ+β,𝗌_σ) dσ,
 
@@ -1128,8 +1145,7 @@ measure u_hi and u_reg at the weight α_sf and the regularity 𝗌, which the hy
 𝗌 + α_sf ≤ ½(−1 + ϑ_in). [Hin26, Remark 10.2] checks only the outgoing radial set, where the condition of
 [[def:ii-c-2-4]] (5) is 𝗌 + α_sf < ½(−1 + ϑ_out) + α_K − 1 = ½(−1 + ϑ_out) − 3; the remark states −½ − 1 there,
 without α_K. Here u_hi is measured at the weight α_sf + 1 − 2ϵ, with ϵ below the margin ([[lem:iii-h1-3-1]]), and
-u_reg at the regularity 𝗌 + 1
-([[lem:iii-h1-4-1]]); both use the margin, and nothing is lost in [[thm:iii-h1-1-3]].
+u_reg at the regularity 𝗌 + 1 ([[lem:iii-h1-4-1]]); both use the margin, and nothing is lost in [[thm:iii-h1-1-3]].
 
 (c) *The neighbourhood of b_0.* The high-energy estimate with k orders of b-regularity needs (k + 1)δ_Γ(−ϵ′) ≤ 1 for some
 ϵ′ > 0 ([[lem:iii-h1-3-1]]). [[prop:iii-f-4-1]] gives strong trapping admissibility at b_0, and, near b_0, the smallness

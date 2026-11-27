@@ -1,5 +1,5 @@
 label	source	source_name	note
-ch:ten-l5	paper/RESPONSE-HL-5D.md:1621-1747; docket68/n1star/CERTIFY-10L5-RESULT.md:4867-4880, 5477-5484	P section 9, Physical wavelengths (from "And a high-frequency theorem"); CR 13.4 and 14.1, what holds at 10 l5	introduction written for the chapter; the chapter carries proofs D1 and D2-D4 and the deductions D1-D2 of CR 1.2; the threshold read as the lambda0 the proof of thm:main delivers, in the operator norm; part (c) stated with its hypotheses (the seed's dv R on C0, the generator condition)
+ch:ten-l5	paper/RESPONSE-HL-5D.md:1621-1747; docket68/n1star/CERTIFY-10L5-RESULT.md:4867-4880, 5477-5484	P section 9, Physical wavelengths (from "And a high-frequency theorem"); CR 13.4 and 14.1, what holds at 10 l5	introduction written for the chapter; the chapter carries proofs D1 and D2-D4 and the deductions D1-D2 of CR 1.2; the threshold read as the lambda0 the proof of thm:main delivers, in the operator norm; part (c) stated with its hypotheses (the seed's dv R on C0, the generator condition); opening: strip beyond the seed; thm:tl5-cip and cor:tl5-cip-staged named (P-F123 text 2)
 sec:tl5-scales	paper/RESPONSE-HL-5D.md:1621-1633; docket68/n1star/N1STAR-PROOF.md:1806-1813	P section 9, the ratios; NP 10.2 (what it would change here)	
 def:tl5-seeds	docket68/n1star/CERTIFY-10L5-RESULT.md:1-7; docket68/n1star/N1STAR-PROOF.md:1823-1827	CR status (seed 1 mu0 = 100 l5^2, seed 2 1000 l5^2); NP 10.2	units r_h = 1 as in proof D1; the first seed has the mu0 and l5 of def:lambda0-point
 prop:tl5-scales	paper/RESPONSE-HL-5D.md:1623-1631; docket68/n1star/N1STAR-PROOF.md:1808-1813	P section 9 ratios 10, 2.91, 0.92, 1.00, 0.32, 1.85, 1.04 (computed, R7)	written derivation in place of response5 R7, with rational bounds
@@ -25,7 +25,7 @@ lem:cone-ellipse	paper/reader/proofs/P-D1-cone.md:195; docket68/n1star/CERTIFY-1
 lem:cone-nodes	paper/reader/proofs/P-D1-cone.md:239; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 (C136, cdata5); CR 2.1	merged from the confirmed proof D1
 lem:cone-residual-bound	paper/reader/proofs/P-D1-cone.md:301; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 (C136, cdata5); CR 2.1	merged from the confirmed proof D1
 sec:cone-exact	paper/reader/proofs/P-D1-cone.md:361; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 (C136, cdata5); CR 2.1	merged from the confirmed proof D1
-prop:cone-exact	paper/reader/proofs/P-D1-cone.md:363; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 (C136, cdata5); CR 2.1	merged from the confirmed proof D1
+prop:cone-exact	paper/reader/proofs/P-D1-cone.md:363; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 (C136, cdata5); CR 2.1	merged from the confirmed proof D1; closing sentence names lem:tl5-cip-shift (P-F123 text 3)
 eq:cone-ode	paper/reader/proofs/P-D1-cone.md:366; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 (C136, cdata5); CR 2.1	merged from the confirmed proof D1
 cor:cone-compare	paper/reader/proofs/P-D1-cone.md:410; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 (C136, cdata5); CR 2.1	merged from the confirmed proof D1
 sec:tl5-problem	docket68/n1star/CERTIFY-10L5-RESULT.md:72-84; paper/RESPONSE-HL-5D.md:1666-1680	CR 1.2 (the gauge); P section 9 (the characteristic problem)	
@@ -33,8 +33,8 @@ lem:tl5-leaf-expansion	docket68/n1star/CERTIFY-10L5-RESULT.md:82-84	CR 1.2 (leav
 lem:tl5-seed	docket68/n1star/CERTIFY-10L5-RESULT.md:82-84; docket68/n1star/CERTIFY-10L5-RESULT.md:264-268	CR 1.2 (first cone v = 0, Tangherlini, u := -r; R_v = (1 - 1/R^2)/2, e^(2W) = 1/2); CR 2.1 (v(r) on u = -10)	new: the seed in closed form in the gauge, real-analytic, vacuum by analytic continuation from the exterior; u0 in (-0.7698, -0.7697); the seed in the form eq:vr-form on all of D_seed (R_u = -2e^(2W))
 eq:tl5-seed-radius	docket68/n1star/CERTIFY-10L5-RESULT.md:82-84	CR 1.2	new closed form
 eq:tl5-seed-lapse	docket68/n1star/CERTIFY-10L5-RESULT.md:82-84	CR 1.2	new closed form
-def:tl5-problem	docket68/n1star/CERTIFY-10L5-RESULT.md:2552-2556; docket68/n1star/CERTIFY-10L5-RESULT.md:82-84, 264-305; paper/RESPONSE-HL-5D.md:1666-1675	CR Lemma 9.C setting; CR 1.2 data on v = 0; CR 2.1 data cone	the shift on the data cone beyond v = 1/2 (Ric_vx) is not treated, as in CR 2.1 and 9.7 item 6
-thm:ten-l5	paper/RESPONSE-HL-5D.md:1739-1747; docket68/n1star/CERTIFY-10L5-RESULT.md:359-367, 4867-4880, 5477-5484	P section 9 ("existence is proved where the solution is the seed and is not claimed beyond it"); CR 2.4; CR 13.4, 14.1	existence on the seed region proved through lem:tl5-seed; part (c) collects D1-D2 of CR 1.2; (b) the whole rectangle only when u* < u0; (c) the innermost point at u <= -1 for every MOTS in D, the band only under the two generator-segment hypotheses of cor:tl5-mots (c), with infimum and supremum
+def:tl5-problem	docket68/n1star/CERTIFY-10L5-RESULT.md:2552-2556; docket68/n1star/CERTIFY-10L5-RESULT.md:82-84, 264-305; paper/RESPONSE-HL-5D.md:1666-1675	CR Lemma 9.C setting; CR 1.2 data on v = 0; CR 2.1 data cone	the shift on the data cone beyond v = 1/2 (Ric_vx) is not treated, as in CR 2.1 and 9.7 item 6; the shift beyond v = 1/2 is the solution of Ric_vx = 0, C4 in v and smooth on each stage (lem:tl5-cip-shift; P-F123 text 4)
+thm:ten-l5	paper/RESPONSE-HL-5D.md:1739-1747; docket68/n1star/CERTIFY-10L5-RESULT.md:359-367, 4867-4880, 5477-5484	P section 9 ("existence is proved where the solution is the seed and is not claimed beyond it"); CR 2.4; CR 13.4, 14.1	existence on the seed region proved through lem:tl5-seed; part (c) collects D1-D2 of CR 1.2; (b) the whole rectangle only when u* < u0; (c) the innermost point at u <= -1 for every MOTS in D, the band only under the two generator-segment hypotheses of cor:tl5-mots (c), with infimum and supremum; (b) extended: for u* < u0 a solution on a strip beyond the seed, of class C3, unique among piecewise smooth ones; closing sentence and proof changed (cor:tl5-cip-staged; P-F123 texts 5-6)
 rem:tl5-runs	paper/RESPONSE-HL-5D.md:1675-1687, 1719-1739; docket68/n1star/CERTIFY-10L5-RESULT.md:4755-4797	P section 9 (dnsolve5, g1curv5, cpaxis5, cp3grid5, late5b, mtrunc5, seed_escape); CR 13.1	class (b) numerical observation; undecided band [1.8, 2.0) at areal radius 1.0-1.2, as in P section 9
 sec:tl5-second-zero	docket68/n1star/CERTIFY-10L5-RESULT.md:56-126; paper/RESPONSE-HL-5D.md:1648-1653	CR 1.1-1.2	a T2-invariant section meets every generator once, U~ a function on C_v (no reuse of D)
 prop:tl5-leaves	docket68/n1star/CERTIFY-10L5-RESULT.md:86-93	CR D1 (deduced; sectexp5 X1)	hypothesis made explicit: dv R = f(R)/2 on C0, which CR lists among the data on v = 0
@@ -84,20 +84,306 @@ prop:tl5-points	paper/reader/proofs/P-D234-residuals.md:353; docket68/n1star/CER
 prop:tl5-box-first	paper/reader/proofs/P-D234-residuals.md:379; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 (C137 rich5, C138 rcert5d, C262 rcert5); CR 6.3, 8.4, 9.2	merged byte for byte from the confirmed proof D2-D4
 prop:tl5-boxes-second	paper/reader/proofs/P-D234-residuals.md:390; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 (C137 rich5, C138 rcert5d, C262 rcert5); CR 6.3, 8.4, 9.2	merged byte for byte from the confirmed proof D2-D4
 rem:tl5-how-checked	paper/reader/proofs/P-D234-residuals.md:411; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 (C137 rich5, C138 rcert5d, C262 rcert5); CR 6.3, 8.4, 9.2	merged byte for byte from the confirmed proof D2-D4
-sec:tl5-beyond	docket68/n1star/CERTIFY-10L5-RESULT.md:2535-2597; paper/RESPONSE-HL-5D.md:1739-1747	CR 9.3	the lead sentence names the assumption (F1)-(F3)
-lem:tl5-continuation	docket68/n1star/CERTIFY-10L5-RESULT.md:2550-2581	CR Lemma 9.C (deduced; cont5 C1-C2)	abstract y; (H2) made precise as C^k bounds in a fixed atlas; the algebraic step (cont5 C2) proved in writing; (F1)-(F3) made hypotheses of the lemma: the uniqueness of the development they need is not in the cited literature (CP12 Section 4.3, CCTW16 proof of Theorem 5.3, quoted); sigma = 1/2 of the openness step from (H3)
-rem:tl5-beyond	docket68/n1star/CERTIFY-10L5-RESULT.md:3097-3100, 5444-5453; paper/RESPONSE-HL-5D.md:1673-1676, 1743-1747	CR 10.0 ((H1) on no region of Lemma 9.C form) and 14.0 M9-A; P section 9	new: Lemma 9.C needs smooth data, and env is C^3 not C^4; names (F1)-(F3); the sentence asserting Theorems 7.L, 8.W, 8.L1 replaced by one that asserts no estimate (no statement depended on it)
-rem:tl5-constants	paper/RESPONSE-HL-5D.md:1720-1727, 1743-1747; docket68/n1star/CERTIFY-10L5-RESULT.md:1108-1132, 2598-2645	P section 9 (linest5, wgron5, blocks5, blockw5); CR 7.4, 9.4 (Lemmas 9.H, 9.B)	class (b) numerical observation; F^2 defined in the remark, as exp(2 int a_o du + 2 int a_i dv); the rectangle cited as def:tl5-chart; the residual size written eps_r
-sec:cone-tables	paper/reader/proofs/T-D1.md:1; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
-sec:cone-table-c1	paper/reader/proofs/T-D1.md:14; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
-sec:cone-table-c2	paper/reader/proofs/T-D1.md:226; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
-sec:cone-table-jumps	paper/reader/proofs/T-D1.md:558; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
-sec:cone-table-n1	paper/reader/proofs/T-D1.md:589; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter); one line start with | rewrapped
-sec:cone-table-n2	paper/reader/proofs/T-D1.md:617; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter); one line start with | rewrapped
-sec:cone-table-constants	paper/reader/proofs/T-D1.md:653; docket68/n1star/CERTIFY-10L5-RESULT.md:264-305	proof D1 tables	merged from the confirmed proof D1 (tables kept in the chapter)
-sec:tab-d-tables	paper/reader/proofs/T-D234.md:1; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
-sec:tab-d-coefficients	paper/reader/proofs/T-D234.md:16; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
-sec:tab-d-constants	paper/reader/proofs/T-D234.md:7492; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
-sec:tab-d-points	paper/reader/proofs/T-D234.md:7606; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
-sec:tab-d-boxes	paper/reader/proofs/T-D234.md:8821; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
-sec:tab-d-worked	paper/reader/proofs/T-D234.md:11248; docket68/n1star/CERTIFY-10L5-RESULT.md:677-723, 1840-1890, 2473-2534	proof D2-D4 tables	merged byte for byte from the confirmed proof D2-D4 (tables kept in the chapter)
+sec:tl5-cip	paper/reader/proofs/P-F123.md@f4542afa:1	P-F123, section	new; before sec:tl5-beyond; (F1)-(F3)
+sec:tl5-cip-form	paper/reader/proofs/P-F123.md@f4542afa:15	P-F123, subsection	new
+def:tl5-cip-null	paper/reader/proofs/P-F123.md@f4542afa:25	P-F123, Definition	double-null form
+lem:tl5-cip-form	paper/reader/proofs/P-F123.md@f4542afa:29	P-F123, Lemma	form in charts; class = G-invariant
+eq:tl5-cip-form	paper/reader/proofs/P-F123.md@f4542afa:32	P-F123, display	metric in double-null form
+lem:tl5-cip-axis	paper/reader/proofs/P-F123.md@f4542afa:63	P-F123, Lemma	class functions smooth at the axes
+lem:tl5-cip-causal	paper/reader/proofs/P-F123.md@f4542afa:110	P-F123, Lemma	u, v monotone; tau; past sets
+lem:tl5-cip-frame	paper/reader/proofs/P-F123.md@f4542afa:133	P-F123, Lemma	frame Ricci components, no symmetry
+eq:tl5-cip-ricci	paper/reader/proofs/P-F123.md@f4542afa:151	P-F123, display	six components of Ric
+eq:tl5-cip-connection	paper/reader/proofs/P-F123.md@f4542afa:160	P-F123, display	frame connection
+sec:tl5-cip-data	paper/reader/proofs/P-F123.md@f4542afa:201	P-F123, subsection	new
+def:tl5-cip-data	paper/reader/proofs/P-F123.md@f4542afa:203	P-F123, Definition	data as a field on N; constraints; D_s
+eq:tl5-cip-constraints	paper/reader/proofs/P-F123.md@f4542afa:212	P-F123, display	the constraints
+lem:tl5-cip-shift	paper/reader/proofs/P-F123.md@f4542afa:222	P-F123, Lemma	shift constraint solved; eq:loc-cone
+eq:tl5-cip-shift	paper/reader/proofs/P-F123.md@f4542afa:232	P-F123, display	Ric_vx in class variables
+sec:tl5-cip-uniqueness	paper/reader/proofs/P-F123.md@f4542afa:280	P-F123, subsection	new
+lem:tl5-cip-extend	paper/reader/proofs/P-F123.md@f4542afa:282	P-F123, Lemma	Seeley; C^m gluing; local zero extension
+lem:tl5-cip-wave	paper/reader/proofs/P-F123.md@f4542afa:324	P-F123, Lemma	one-sided uniqueness, from BGP
+lem:tl5-cip-jets	paper/reader/proofs/P-F123.md@f4542afa:340	P-F123, Lemma	transverse jets on N0, N1; finite order m
+prop:tl5-cip-unique	paper/reader/proofs/P-F123.md@f4542afa:402	P-F123, Proposition	uniqueness; fact (iii)
+sec:tl5-cip-existence	paper/reader/proofs/P-F123.md@f4542afa:486	P-F123, subsection	new
+def:tl5-cip-development	paper/reader/proofs/P-F123.md@f4542afa:488	P-F123, Definition	development; M-tilde built
+lem:tl5-cip-data-extend	paper/reader/proofs/P-F123.md@f4542afa:508	P-F123, Lemma	data extended; constraints kept
+lem:tl5-cip-dn-form	paper/reader/proofs/P-F123.md@f4542afa:575	P-F123, Lemma	double-null form; agreement with data
+lem:tl5-cip-chart	paper/reader/proofs/P-F123.md@f4542afa:601	P-F123, Lemma	double-null chart; fact (ii)
+thm:tl5-cip	paper/reader/proofs/P-F123.md@f4542afa:653	P-F123, Theorem	(F1)-(F3); fact (i)
+rem:tl5-cip-axes	paper/reader/proofs/P-F123.md@f4542afa:691	P-F123, Remark	the axes
+sec:tl5-cip-staged	paper/reader/proofs/P-F123.md@f4542afa:700	P-F123, subsection	new; 10 l5 in two stages
+cor:tl5-cip-staged	paper/reader/proofs/P-F123.md@f4542afa:710	P-F123, Corollary	two smooth stages; C3 gluing
+rem:tl5-cip-regularity	paper/reader/proofs/P-F123.md@f4542afa:776	P-F123, Remark	stages; obstruction (H1)-(H3)
+sec:tl5-wg	paper/reader/proofs/P-H29.md@7ec3756a:1	P-H29, section	new; after rem:tl5-cip-regularity, before sec:tl5-beyond; L2 of the plan
+sec:tl5-wg-equations	paper/reader/proofs/P-H29.md@7ec3756a:21	P-H29, section	new
+def:tl5-wg-background	paper/reader/proofs/P-H29.md@7ec3756a:23	P-H29, Definition	approximant as a G-invariant double-null metric; frame e0 (c = 1) and norm khat
+eq:tl5-wg-khat	paper/reader/proofs/P-H29.md@7ec3756a:37	P-H29, display	khat inverse in the null frame
+def:tl5-wg-gauge	paper/reader/proofs/P-H29.md@7ec3756a:42	P-H29, Definition	Upsilon(g, ghat) and the reduced Ricci tensor = R^(H) of CBCM10 (2.8)
+eq:tl5-wg-def	paper/reader/proofs/P-H29.md@7ec3756a:45	P-H29, display	gauge vector and reduced Ricci
+eq:tl5-wg-reduced	paper/reader/proofs/P-H29.md@7ec3756a:49	P-H29, display	the reduced equation
+eq:tl5-wg-form	paper/reader/proofs/P-H29.md@7ec3756a:60	P-H29, display	quasilinear form, principal part -1/2 g^ab d_a d_b
+lem:tl5-wg-linear	paper/reader/proofs/P-H29.md@7ec3756a:66	P-H29, Lemma	linearisation -1/2 (box + 2 curvature operator), derived in writing (G0 2.1 states it)
+eq:tl5-wg-lin	paper/reader/proofs/P-H29.md@7ec3756a:71	P-H29, display	linearised reduced operator
+sec:tl5-wg-tilted	paper/reader/proofs/P-H29.md@7ec3756a:108	P-H29, section	new; G0 9.2 (F*)
+def:tl5-wg-domains	paper/reader/proofs/P-H29.md@7ec3756a:110	P-H29, Definition	D^kappa_s with tau1, tau2; tilted = |g^-1 - ghat^-1| <= kappa_m; two conditions on kappa added
+eq:tl5-wg-tilted	paper/reader/proofs/P-H29.md@7ec3756a:114	P-H29, display	tau1, tau2, D^kappa, D^kappa_s
+lem:tl5-wg-norms	paper/reader/proofs/P-H29.md@7ec3756a:123	P-H29, Lemma	|g^-1 - ghat^-1| <= 2|h|; convex combinations Lorentzian
+lem:tl5-wg-domains	paper/reader/proofs/P-H29.md@7ec3756a:137	P-H29, Lemma	explicit c0: tilted gives g^-1(dtau,dtau) <= -15 kappa/(32 Omega^2); causal signs on N; inclusions
+sec:tl5-wg-data-solutions	paper/reader/proofs/P-H29.md@7ec3756a:177	P-H29, section	new
+def:tl5-wg-data	paper/reader/proofs/P-H29.md@7ec3756a:187	P-H29, Definition	wave-gauge data as G^sharp with (W1)-(W4) on N+ (N0 extended past u*); existence: thm:tl5-wg-data
+def:tl5-wg-solution	paper/reader/proofs/P-H29.md@7ec3756a:211	P-H29, Definition	solution on D^kappa_s: smooth, tilted, Ric^W = 0, = G^sharp on N
+lem:tl5-wg-jets	paper/reader/proofs/P-H29.md@7ec3756a:215	P-H29, Lemma	transverse jets on N determined (linear transport, k = 1 by integral mean value); metrics on D^kappa_s near N
+lem:tl5-wg-zero	paper/reader/proofs/P-H29.md@7ec3756a:241	P-H29, Lemma	vanishing for linear wave systems with flat data on N; first point of disagreement; zero extension by lem:tl5-cip-extend (d)
+prop:tl5-wg-unique	paper/reader/proofs/P-H29.md@7ec3756a:267	P-H29, Proposition	(F2_W)
+prop:tl5-wg-vacuum	paper/reader/proofs/P-H29.md@7ec3756a:280	P-H29, Proposition	(F4_W): Bianchi gives a wave equation for Upsilon; symmetry from (F2_W)
+sec:tl5-wg-existence	paper/reader/proofs/P-H29.md@7ec3756a:312	P-H29, section	new; method of Ren90 (Rendall)
+lem:tl5-wg-cauchy	paper/reader/proofs/P-H29.md@7ec3756a:319	P-H29, Lemma	local Cauchy problem via DS23 Thms 2.4-2.6 and the first-order reduction of ch. 06 Step 8 (iii); components in (u, v, y)
+lem:tl5-wg-nullfn	paper/reader/proofs/P-H29.md@7ec3756a:374	P-H29, Lemma	local null function with N1 (or N0+) as a level set away from S; coordinate box, signs of u~ + 10 and v~ - 1/2 at S; past sets
+prop:tl5-wg-local	paper/reader/proofs/P-H29.md@7ec3756a:410	P-H29, Proposition	(F1_W) and (F3_W): spacelike-null corner proved, not cited; G0 9.4 said it must be cited or proved; zero extension by lem:tl5-cip-extend (d); corner S via the quadrant in the third past set; agreement only on {tau1 <= u*}
+thm:tl5-wg	paper/reader/proofs/P-H29.md@7ec3756a:521	P-H29, Theorem	(F1_W)-(F4_W) collected
+rem:tl5-wg-continuation	paper/reader/proofs/P-H29.md@7ec3756a:538	P-H29, Remark	what the restated continuation lemma takes from thm:tl5-wg
+sec:tl5-wg-first-stage	paper/reader/proofs/P-H29.md@7ec3756a:548	P-H29, section	new; existence of data in the wave gauge (L1 part of the plan)
+lem:tl5-wg-lchart	paper/reader/proofs/P-H29.md@7ec3756a:556	P-H29, Lemma	double-null development on the L-shaped set D0 u D1 (delta <= u+ + 10), proved: data extended, development, null coordinates, lem:tl5-cip-dn-form on each box; G-invariance
+lem:tl5-wg-tension	paper/reader/proofs/P-H29.md@7ec3756a:642	P-H29, Lemma	tension field; Upsilon(Psi_* g) = -tau(Psi); first-order transport on N0+ and N1 in closed form
+eq:tl5-wg-tension	paper/reader/proofs/P-H29.md@7ec3756a:647	P-H29, display	tension field in coordinates
+eq:tl5-wg-transport	paper/reader/proofs/P-H29.md@7ec3756a:655	P-H29, display	transport of the first transverse derivative of the map
+lem:tl5-wg-wavemap	paper/reader/proofs/P-H29.md@7ec3756a:680	P-H29, Lemma	formal wave map: linear transport at every order, corner compatibility, Borel sums via S3 in R4
+thm:tl5-wg-data	paper/reader/proofs/P-H29.md@7ec3756a:741	P-H29, Theorem	G^sharp = Psi_* g-prime with (W1)-(W3); explicit conditions (X), (T) for invertibility and (W4); gluing by an explicit cut-off; Y0, K0, Y1, K1 depend only on g_N and ghat
+cor:tl5-wg-data-first-stage	paper/reader/proofs/P-H29.md@7ec3756a:803	P-H29, Corollary	first stage of the problem at 10 l5; closes the former open item wave-gauge-data
+sec:tl5-xt	paper/reader/proofs/P-XT.md@e280f2f9:1	P-XT, subsection	new: (X), (T) of thm:tl5-wg-data at the first stage for u* < -1 (data item L1 of the plan); after cor:tl5-wg-data-first-stage, before sec:tl5-dn
+eq:tl5-xt-ew	paper/reader/proofs/P-XT.md@e280f2f9:22	P-XT, display	e^W at v = 1/2 and 7/2 on N1
+lem:tl5-xt-implies	paper/reader/proofs/P-XT.md@e280f2f9:27	P-XT, Lemma	(T) implies (X) for every background (kappa_m <= 1/4, lem:tl5-wg-norms (b))
+lem:tl5-xt-seed-jets	paper/reader/proofs/P-XT.md@e280f2f9:41	P-XT, Lemma	development = seed to order 3 on N0+ (lem:tl5-cip-jets (a), m = 3); differs at order 4 off one torus (env C3 not C4)
+lem:tl5-xt-order	paper/reader/proofs/P-XT.md@e280f2f9:78	P-XT, Lemma	ghat - g' to order m on N0+ gives Upsilon to m-1, Psi - id to m, G^sharp - ghat to m-1; (X), (T) on N0+
+lem:tl5-xt-gauge	paper/reader/proofs/P-XT.md@e280f2f9:122	P-XT, Lemma	|nabla_v khat| in closed form; Upsilon(g') = (3e^-2W/2R) d_u(R' - Rhat) d_v when ghat = data on N1; general bound by eps0, eps1
+eq:tl5-xt-upsilon	paper/reader/proofs/P-XT.md@e280f2f9:133	P-XT, display	the gauge vector on N1
+lem:tl5-xt-rho	paper/reader/proofs/P-XT.md@e280f2f9:174	P-XT, Lemma	traced angular vacuum equation: d_v(R^2 d_u R) explicit; transverse derivative of R on N1 by one quadrature of the data
+eq:tl5-xt-rho	paper/reader/proofs/P-XT.md@e280f2f9:191	P-XT, display	rho
+lem:tl5-xt-rx	paper/reader/proofs/P-XT.md@e280f2f9:219	P-XT, Lemma	|d_x R| and |d_x d_r R| on the data cone, both seeds (|d_x w| <= Wbar)
+lem:tl5-xt-k1	paper/reader/proofs/P-XT.md@e280f2f9:241	P-XT, Lemma	K1 <= 0.1038 (seed 1), 0.09194 (seed 2), every v* <= 7/2; shift 1-form bounded through the shift constraint
+eq:tl5-xt-k1	paper/reader/proofs/P-XT.md@e280f2f9:244	P-XT, display	the bound frak K
+thm:tl5-xt	paper/reader/proofs/P-XT.md@e280f2f9:289	P-XT, Theorem	(X), (T) on N0+ free; on N1: eps_R <= 0.8329 kappa_m (seed 1), <= 0.8630 kappa_m (seed 2) at v* = 7/2 (sufficient); general 2eps0 + 4.996 (v*-1/2) e^(K1(v*-1/2)) eps1 < kappa_m
+eq:tl5-xt-condition	paper/reader/proofs/P-XT.md@e280f2f9:298	P-XT, display	condition for backgrounds equal to the data on N1
+eq:tl5-xt-condition-general	paper/reader/proofs/P-XT.md@e280f2f9:306	P-XT, display	condition in general
+def:tl5-xt-natural	paper/reader/proofs/P-XT.md@e280f2f9:333	P-XT, Definition	ghat_natural: seed + data on N1 + transverse R from rho, cut off to a strip at u = -10
+eq:tl5-xt-natural	paper/reader/proofs/P-XT.md@e280f2f9:346	P-XT, display	the fields of ghat_natural
+lem:tl5-xt-natural	paper/reader/proofs/P-XT.md@e280f2f9:348	P-XT, Lemma	a background on a set containing Dbar and N+; seed 3-jet on N0+; = data on N1 with d_u Rhat = rho
+cor:tl5-xt-data	paper/reader/proofs/P-XT.md@e280f2f9:390	P-XT, Corollary	data in the wave gauge for the first stage, both seeds, every u* < -1, every v* <= 7/2, every kappa
+prop:tl5-xt-seed	paper/reader/proofs/P-XT.md@e280f2f9:401	P-XT, Proposition	the seed as background fails (T) on N1 for kappa_m <= 0.01967 (seed 1), 0.01100 (seed 2)
+rem:tl5-xt-background	paper/reader/proofs/P-XT.md@e280f2f9:425	P-XT, Remark	ghat_natural serves the local theory, not the estimate; order N+2 on N0+ needs the development's jets
+sec:tl5-dn	paper/reader/proofs/P-H29.md@7ec3756a:813	P-H29, section	new; L9 of the plan (G0 9.3)
+def:tl5-dn-slice	paper/reader/proofs/P-H29.md@7ec3756a:820	P-H29, Definition	the real great circle slice M_sigma
+lem:tl5-dn-geodesic	paper/reader/proofs/P-H29.md@7ec3756a:824	P-H29, Lemma	slice totally geodesic (fixed set of the reflections)
+sec:tl5-dn-one	paper/reader/proofs/P-H29.md@7ec3756a:840	P-H29, section	new
+eq:tl5-dn-eps	paper/reader/proofs/P-H29.md@7ec3756a:857	P-H29, display	epsilon = C^2 distance on the slice
+eq:tl5-dn-field	paper/reader/proofs/P-H29.md@7ec3756a:862	P-H29, display	projected null geodesic field
+eq:tl5-dn-normal	paper/reader/proofs/P-H29.md@7ec3756a:871	P-H29, display	initial null normal in closed form
+def:tl5-dn-constants	paper/reader/proofs/P-H29.md@7ec3756a:882	P-H29, Definition	constants as maxima of explicit functions of the jets of ghat; L bounds the null expansions
+eq:tl5-dn-eta	paper/reader/proofs/P-H29.md@7ec3756a:899	P-H29, display	eta0, eta1, eta2 linear in epsilon
+lem:tl5-dn-gronwall	paper/reader/proofs/P-H29.md@7ec3756a:907	P-H29, Lemma	comparison lemma with written Gronwall step
+lem:tl5-dn-family	paper/reader/proofs/P-H29.md@7ec3756a:919	P-H29, Lemma	one family: no caustics, coverage, conormal estimate
+sec:tl5-dn-chart	paper/reader/proofs/P-H29.md@7ec3756a:986	P-H29, section	new
+thm:tl5-dn	paper/reader/proofs/P-H29.md@7ec3756a:988	P-H29, Theorem	L9: double-null chart on D-prime, explicit eta (eta < min(u*+10, v*-1/2) assumed); form and data by lem:tl5-cip-dn-form
+eq:tl5-dn-region	paper/reader/proofs/P-H29.md@7ec3756a:1004	P-H29, display	eta and D-prime
+rem:tl5-dn-use	paper/reader/proofs/P-H29.md@7ec3756a:1095	P-H29, Remark	size of the loss; no double-null uniqueness used
+sec:tl5-beyond	docket68/n1star/CERTIFY-10L5-RESULT.md:2535-2597; paper/RESPONSE-HL-5D.md:1739-1747	CR 9.3	the lead sentence names the assumption (F1)-(F3); the lead sentence names thm:tl5-cip for (F1)-(F3) (P-F123 text 7)
+lem:tl5-continuation	docket68/n1star/CERTIFY-10L5-RESULT.md:2550-2581	CR Lemma 9.C (deduced; cont5 C1-C2)	abstract y; (H2) made precise as C^k bounds in a fixed atlas; the algebraic step (cont5 C2) proved in writing; (F1)-(F3) made hypotheses of the lemma: the uniqueness of the development they need is not in the cited literature (CP12 Section 4.3, CCTW16 proof of Theorem 5.3, quoted); sigma = 1/2 of the openness step from (H3); (F1)-(F3) no longer hypotheses: proved for smooth data in thm:tl5-cip; statement refers to def:tl5-cip-data and eq:tl5-cip-constraints; applies stage by stage at 10 l5 (P-F123 texts 8-10); restated for the tilted domains and the reduced problem in the wave gauge (thm:tl5-wg), y := Y of def:tl5-hf-norm in thm:tl5-hf; (H1), (H2) required only below 2A; (H4) the strict tilt (P-HF texts 3-6)
+rem:tl5-beyond	docket68/n1star/CERTIFY-10L5-RESULT.md:3097-3100, 5444-5453; paper/RESPONSE-HL-5D.md:1673-1676, 1743-1747	CR 10.0 ((H1) on no region of Lemma 9.C form) and 14.0 M9-A; P section 9	new: Lemma 9.C needs smooth data, and env is C^3 not C^4; names (F1)-(F3); the sentence asserting Theorems 7.L, 8.W, 8.L1 replaced by one that asserts no estimate (no statement depended on it); retitled; regularity no obstruction (cor:tl5-cip-staged); the obstacle is (H1)-(H3) (P-F123 text 11); the missing step is the verification of the hypotheses of thm:tl5-hf for a background (P-HF text 7)
+rem:tl5-constants	paper/RESPONSE-HL-5D.md:1720-1727, 1743-1747; docket68/n1star/CERTIFY-10L5-RESULT.md:1108-1132, 2598-2645	P section 9 (linest5, wgron5, blocks5, blockw5); CR 7.4, 9.4 (Lemmas 9.H, 9.B)	class (b) numerical observation; F^2 defined in the remark, as exp(2 int a_o du + 2 int a_i dv); the rectangle cited as def:tl5-chart; the residual size written eps_r; closing condition stated in its own terms (P-HF text 8)
+sec:tl5-hf	paper/reader/proofs/P-HF.md@e0b27615:1	P-HF, section	new; at the end of ch:ten-l5, after rem:tl5-constants; L3-L5 of the plan and the weighted bootstrap (G0 sec 2-5, 8; G0b sec 3)
+sec:tl5-hf-setting	paper/reader/proofs/P-HF.md@e0b27615:29	P-HF, section	new
+def:tl5-hf-frame	paper/reader/proofs/P-HF.md@e0b27615:31	P-HF, Definition	new
+eq:tl5-hf-null-pair	paper/reader/proofs/P-HF.md@e0b27615:39	P-HF, display	new
+lem:tl5-hf-khat	paper/reader/proofs/P-HF.md@e0b27615:51	P-HF, Lemma	conversion factor c^(-r/2) between the norm with c = f(-u)/2 and khat (c = 1)
+def:tl5-hf-operators	paper/reader/proofs/P-HF.md@e0b27615:63	P-HF, Definition	new
+eq:tl5-hf-operators	paper/reader/proofs/P-HF.md@e0b27615:66	P-HF, display	new
+eq:tl5-hf-frame-terms	paper/reader/proofs/P-HF.md@e0b27615:72	P-HF, display	new
+eq:tl5-hf-dk	paper/reader/proofs/P-HF.md@e0b27615:76	P-HF, display	new
+def:tl5-hf-domains	paper/reader/proofs/P-HF.md@e0b27615:89	P-HF, Definition	new
+sec:tl5-hf-identity	paper/reader/proofs/P-HF.md@e0b27615:99	P-HF, section	new
+def:tl5-hf-current	paper/reader/proofs/P-HF.md@e0b27615:101	P-HF, Definition	new
+lem:tl5-hf-densities	paper/reader/proofs/P-HF.md@e0b27615:112	P-HF, Lemma	new
+eq:tl5-hf-coercive	paper/reader/proofs/P-HF.md@e0b27615:116	P-HF, display	new
+lem:tl5-hf-divergence	paper/reader/proofs/P-HF.md@e0b27615:125	P-HF, Lemma	G0 Lemma F0.1, with the tensor commutator term
+eq:tl5-hf-bulk	paper/reader/proofs/P-HF.md@e0b27615:129	P-HF, display	new
+lem:tl5-hf-identity	paper/reader/proofs/P-HF.md@e0b27615:142	P-HF, Lemma	G0 Lemma F0.2 on the tilted corner regions; no axis boundary
+eq:tl5-hf-faces	paper/reader/proofs/P-HF.md@e0b27615:146	P-HF, display	new
+eq:tl5-hf-identity	paper/reader/proofs/P-HF.md@e0b27615:152	P-HF, display	new
+sec:tl5-hf-rates	paper/reader/proofs/P-HF.md@e0b27615:174	P-HF, section	new
+def:tl5-hf-blocks	paper/reader/proofs/P-HF.md@e0b27615:185	P-HF, Definition	new
+lem:tl5-hf-pointwise	paper/reader/proofs/P-HF.md@e0b27615:193	P-HF, Lemma	G0 Lemma F0.3 as exact block norms of the bulk form
+rem:tl5-hf-blocks	paper/reader/proofs/P-HF.md@e0b27615:204	P-HF, Remark	new
+def:tl5-hf-rates	paper/reader/proofs/P-HF.md@e0b27615:226	P-HF, Definition	pointwise admissibility (allocation between the families), tilt-monotone
+eq:tl5-hf-admissible	paper/reader/proofs/P-HF.md@e0b27615:232	P-HF, display	new
+lem:tl5-hf-allocation	paper/reader/proofs/P-HF.md@e0b27615:242	P-HF, Lemma	explicit rates from a measurable allocation and Young parameters
+eq:tl5-hf-alpha	paper/reader/proofs/P-HF.md@e0b27615:249	P-HF, display	new
+prop:tl5-hf-linear	paper/reader/proofs/P-HF.md@e0b27615:268	P-HF, Proposition	G0 Lemma F0.4, weighted estimate, F^2 = 2 e^(A+B)
+eq:tl5-hf-hyp	paper/reader/proofs/P-HF.md@e0b27615:274	P-HF, display	new
+eq:tl5-hf-source	paper/reader/proofs/P-HF.md@e0b27615:281	P-HF, display	new
+eq:tl5-hf-linear	paper/reader/proofs/P-HF.md@e0b27615:285	P-HF, display	new
+eq:tl5-hf-f	paper/reader/proofs/P-HF.md@e0b27615:291	P-HF, display	new
+cor:tl5-hf-level0	paper/reader/proofs/P-HF.md@e0b27615:311	P-HF, Corollary	new
+rem:tl5-hf-weight	paper/reader/proofs/P-HF.md@e0b27615:318	P-HF, Remark	new
+sec:tl5-hf-commutation	paper/reader/proofs/P-HF.md@e0b27615:325	P-HF, section	new
+def:tl5-hf-fields	paper/reader/proofs/P-HF.md@e0b27615:327	P-HF, Definition	new
+lem:tl5-hf-fields	paper/reader/proofs/P-HF.md@e0b27615:336	P-HF, Lemma	G0 sec 3.1; null structure of the deformation tensors (G0b sec 2)
+eq:tl5-hf-lambda	paper/reader/proofs/P-HF.md@e0b27615:340	P-HF, display	new
+lem:tl5-hf-commutator	paper/reader/proofs/P-HF.md@e0b27615:378	P-HF, Lemma	G0 sec 3.2; exact commutator maps (G0b sec 3 items 1-2)
+eq:tl5-hf-k	paper/reader/proofs/P-HF.md@e0b27615:385	P-HF, display	new
+eq:tl5-hf-comm	paper/reader/proofs/P-HF.md@e0b27615:393	P-HF, display	new
+eq:tl5-hf-lie-d	paper/reader/proofs/P-HF.md@e0b27615:410	P-HF, display	new
+eq:tl5-hf-lie	paper/reader/proofs/P-HF.md@e0b27615:414	P-HF, display	new
+def:tl5-hf-triples	paper/reader/proofs/P-HF.md@e0b27615:418	P-HF, Definition	new
+lem:tl5-hf-system	paper/reader/proofs/P-HF.md@e0b27615:430	P-HF, Lemma	commuted equation with all lower-level terms exactly (G0b item 6(a) replaced by exact maps)
+eq:tl5-hf-system	paper/reader/proofs/P-HF.md@e0b27615:433	P-HF, display	new
+lem:tl5-hf-recovery	paper/reader/proofs/P-HF.md@e0b27615:445	P-HF, Lemma	G0 Lemma F3.1 with explicit constants, quasilinear H included
+eq:tl5-hf-recovery	paper/reader/proofs/P-HF.md@e0b27615:454	P-HF, display	new
+def:tl5-hf-coupling	paper/reader/proofs/P-HF.md@e0b27615:482	P-HF, Definition	level-N coupling norms as operator norms of explicit maps (G0b sec 3)
+eq:tl5-hf-bn	paper/reader/proofs/P-HF.md@e0b27615:497	P-HF, display	new
+prop:tl5-hf-linear-n	paper/reader/proofs/P-HF.md@e0b27615:504	P-HF, Proposition	G0 Lemma F3.2 at level N
+eq:tl5-hf-sn	paper/reader/proofs/P-HF.md@e0b27615:509	P-HF, display	new
+sec:tl5-hf-sobolev	paper/reader/proofs/P-HF.md@e0b27615:528	P-HF, section	new
+lem:tl5-hf-sphere	paper/reader/proofs/P-HF.md@e0b27615:530	P-HF, Lemma	H2 to L-infinity on S3 with explicit constant
+eq:tl5-hf-sphere	paper/reader/proofs/P-HF.md@e0b27615:533	P-HF, display	new
+def:tl5-hf-component	paper/reader/proofs/P-HF.md@e0b27615:544	P-HF, Definition	new
+lem:tl5-hf-components	paper/reader/proofs/P-HF.md@e0b27615:554	P-HF, Lemma	new
+lem:tl5-hf-sobolev	paper/reader/proofs/P-HF.md@e0b27615:570	P-HF, Lemma	Sobolev on the tilted future faces; replaces G0 C_S
+eq:tl5-hf-cs	paper/reader/proofs/P-HF.md@e0b27615:576	P-HF, display	new
+eq:tl5-hf-cs-r	paper/reader/proofs/P-HF.md@e0b27615:605	P-HF, display	new
+sec:tl5-hf-quadratic	paper/reader/proofs/P-HF.md@e0b27615:609	P-HF, section	new
+lem:tl5-hf-reduced	paper/reader/proofs/P-HF.md@e0b27615:611	P-HF, Lemma	exact expansion of the reduced Ricci operator about ghat; G0 sec 5
+eq:tl5-hf-n	paper/reader/proofs/P-HF.md@e0b27615:614	P-HF, display	new
+def:tl5-hf-levels	paper/reader/proofs/P-HF.md@e0b27615:643	P-HF, Definition	new
+eq:tl5-hf-cn	paper/reader/proofs/P-HF.md@e0b27615:657	P-HF, display	new
+lem:tl5-hf-quadratic	paper/reader/proofs/P-HF.md@e0b27615:661	P-HF, Lemma	Lemma G: explicit majorant c_n; one high factor for N >= 5
+eq:tl5-hf-g	paper/reader/proofs/P-HF.md@e0b27615:664	P-HF, display	new
+lem:tl5-hf-linfty	paper/reader/proofs/P-HF.md@e0b27615:711	P-HF, Lemma	pointwise bounds of the low quantities from the face energies
+eq:tl5-hf-linfty	paper/reader/proofs/P-HF.md@e0b27615:726	P-HF, display	new
+lem:tl5-hf-quasilinear	paper/reader/proofs/P-HF.md@e0b27615:767	P-HF, Lemma	quasilinear term by an integrated current; strict tilt of the faces
+eq:tl5-hf-qh	paper/reader/proofs/P-HF.md@e0b27615:776	P-HF, display	new
+eq:tl5-hf-theta	paper/reader/proofs/P-HF.md@e0b27615:780	P-HF, display	new
+lem:tl5-hf-conversions	paper/reader/proofs/P-HF.md@e0b27615:800	P-HF, Lemma	khat tilt and the C^2 slice distance eps of thm:tl5-dn
+eq:tl5-hf-eps	paper/reader/proofs/P-HF.md@e0b27615:812	P-HF, display	new
+sec:tl5-hf-bootstrap	paper/reader/proofs/P-HF.md@e0b27615:822	P-HF, section	new
+def:tl5-hf-norm	paper/reader/proofs/P-HF.md@e0b27615:824	P-HF, Definition	new
+def:tl5-hf-constants	paper/reader/proofs/P-HF.md@e0b27615:836	P-HF, Definition	new
+prop:tl5-hf-bootstrap	paper/reader/proofs/P-HF.md@e0b27615:860	P-HF, Proposition	(H1) in the weighted norm; G0 sec 8.2 with explicit constants
+eq:tl5-hf-smallness	paper/reader/proofs/P-HF.md@e0b27615:863	P-HF, display	new
+eq:tl5-hf-h1	paper/reader/proofs/P-HF.md@e0b27615:868	P-HF, display	new
+lem:tl5-hf-persistence	paper/reader/proofs/P-HF.md@e0b27615:921	P-HF, Lemma	(H2), qualitative, N >= 6
+thm:tl5-hf	paper/reader/proofs/P-HF.md@e0b27615:963	P-HF, Theorem	(H1), (H2), (H4) proved, (H3) under the closing condition linear in F; data on N0 carried as data (eta0); existence on D^kappa and double-null form via thm:tl5-dn; sharpened constants in thm:tl5-hfg (P-GRD item 2)
+eq:tl5-hf-closing	paper/reader/proofs/P-HF.md@e0b27615:974	P-HF, display	new
+rem:tl5-hf-level	paper/reader/proofs/P-HF.md@e0b27615:1003	P-HF, Remark	why N >= 5 (estimate) and N >= 6 (proof of (H2)); level 3 gives no pointwise D^2 h for thm:tl5-dn; departs from the plan level 3; points to sec:tl5-hf4, the level-4 version (P-HF34 item 2)
+sec:tl5-hf4	paper/reader/proofs/P-HF34.md@ffc41671:1	P-HF34, section	new; at the end of ch:ten-l5, after rem:tl5-hf-level, beside sec:tl5-hf (author 2026-11-27: keep level 6, add level 4); the level-4 estimate
+sec:tl5-hf4-products	paper/reader/proofs/P-HF34.md@ffc41671:14	P-HF34, section	new
+def:tl5-hf4-levels	paper/reader/proofs/P-HF34.md@ffc41671:16	P-HF34, Definition	low and high quantities at N = 4 by the formulas of def:tl5-hf-levels; orders of factors; p_M of the two products without a factor at a point
+eq:tl5-hf4-pm	paper/reader/proofs/P-HF34.md@ffc41671:26	P-HF34, display	new
+lem:tl5-hf4-quadratic	paper/reader/proofs/P-HF34.md@ffc41671:30	P-HF34, Lemma	Lemma G at level 4: one high factor except D Psi_2 . D Psi_2 and Psi_3 . D^2 Psi_1 at |I| = 4 (R-P-HF level question (d)); order count for persistence
+eq:tl5-hf4-g	paper/reader/proofs/P-HF34.md@ffc41671:40	P-HF34, display	new
+lem:tl5-hf4-face	paper/reader/proofs/P-HF34.md@ffc41671:71	P-HF34, Lemma	mixed-norm Hoelder on the faces, L2_v Linf_omega against Linf_v L2_omega, with the value at v = 1/2; uses lem:tl5-hf-sphere (C^2 = 1/12) and the trace only
+eq:tl5-hf4-holder	paper/reader/proofs/P-HF34.md@ffc41671:96	P-HF34, display	new
+lem:tl5-hf4-linfty	paper/reader/proofs/P-HF34.md@ffc41671:130	P-HF34, Lemma	lem:tl5-hf-linfty holds at N = 4 (it uses Lemma G only below the top level); pointwise recovery bound M2
+eq:tl5-hf4-m2	paper/reader/proofs/P-HF34.md@ffc41671:135	P-HF34, display	new
+lem:tl5-hf4-mixed	paper/reader/proofs/P-HF34.md@ffc41671:143	P-HF34, Lemma	face bound of p_M with explicit constants x_t, y_t
+eq:tl5-hf4-mixed	paper/reader/proofs/P-HF34.md@ffc41671:157	P-HF34, display	new
+sec:tl5-hf4-bootstrap	paper/reader/proofs/P-HF34.md@ffc41671:193	P-HF34, section	new
+def:tl5-hf4-constants	paper/reader/proofs/P-HF34.md@ffc41671:195	P-HF34, Definition	constants of def:tl5-hf-constants at N = 4 plus S_M, r_M, eps_M; A_(w,4) = sqrt2 delta_w + 2 eps_(w,4), B_(w,4) = 2 S_(F,4)
+eq:tl5-hf4-constants	paper/reader/proofs/P-HF34.md@ffc41671:207	P-HF34, display	new
+prop:tl5-hf4-bootstrap	paper/reader/proofs/P-HF34.md@ffc41671:217	P-HF34, Proposition	(H1) at level 4: proof of prop:tl5-hf-bootstrap with the mixed term added in Step 2
+eq:tl5-hf4-smallness	paper/reader/proofs/P-HF34.md@ffc41671:220	P-HF34, display	new
+eq:tl5-hf4-h1	paper/reader/proofs/P-HF34.md@ffc41671:225	P-HF34, display	new
+lem:tl5-hf4-persistence	paper/reader/proofs/P-HF34.md@ffc41671:263	P-HF34, Lemma	(H2) from level 4, qualitative; face-norm induction with the mixed Hoelder at m = 5, 6; N0 fluxes and traces carried as data (R-P-HF M2 respected)
+thm:tl5-hf4	paper/reader/proofs/P-HF34.md@ffc41671:352	P-HF34, Theorem	thm:tl5-hf at level 4; (a) eta0 < s1 (M1 form), N0 flux in delta_w; double-null step via thm:tl5-dn as at level 6
+eq:tl5-hf4-closing	paper/reader/proofs/P-HF34.md@ffc41671:364	P-HF34, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_w + 2 eps_M)(S_F + S_M) < 1
+rem:tl5-hf4-level	paper/reader/proofs/P-HF34.md@ffc41671:378	P-HF34, Remark	level 4 against level 6 (jets, words, residual derivatives, mu powers); background carries the v-jets 4..5 of g' on N0+ (lem:tl5-xt-order, lem:tl5-xt-seed-jets); points to rem:tl5-hfg-powers (P-GRD item 3)
+sec:tl5-hfg	paper/reader/proofs/P-GRD.md@aa184fc7:1	P-GRD, section	new; at the end of ch:ten-l5, after rem:tl5-hf4-level, beside sec:tl5-hf and sec:tl5-hf4 (author: sharpen the constants); graded background bounds, level-matched mu, sharper chain
+def:tl5-hfg-graded	paper/reader/proofs/P-GRD.md@aa184fc7:19	P-GRD, Definition	graded bounds Lambda_k, Lambda^R_k, lambda_k; nonlinear constants c^g_n, c^Q_n, c^(3)_n, choice c*_n and s_flat; weighted quantities J_g, M_g^(j), s_g^(m), E_g
+eq:tl5-hfg-cn	paper/reader/proofs/P-GRD.md@aa184fc7:36	P-GRD, display	new
+lem:tl5-hfg-quadratic	paper/reader/proofs/P-GRD.md@aa184fc7:62	P-GRD, Lemma	Lemma G with graded background bounds (first expansion) and with the exact quadratic part plus a cubic remainder behind s_flat (second expansion)
+eq:tl5-hfg-sum	paper/reader/proofs/P-GRD.md@aa184fc7:67	P-GRD, display	new
+lem:tl5-hfg-linfty	paper/reader/proofs/P-GRD.md@aa184fc7:123	P-GRD, Lemma	lem:tl5-hf-linfty weighted by level, k1 graded by level k1^(j), Lambda_2 in C1, C_inf^(m) for the low second derivatives up to level m
+eq:tl5-hfg-cinf	paper/reader/proofs/P-GRD.md@aa184fc7:132	P-GRD, display	new
+eq:tl5-hfg-m2	paper/reader/proofs/P-GRD.md@aa184fc7:140	P-GRD, display	new
+eq:tl5-hfg-linfty	paper/reader/proofs/P-GRD.md@aa184fc7:144	P-GRD, display	new
+lem:tl5-hfg-products	paper/reader/proofs/P-GRD.md@aa184fc7:188	P-GRD, Lemma	the graded count: two levels add to at most n + 3, so mu^(-3/2); factor at a point never D^2 Psi_B with |B| >= 2
+eq:tl5-hfg-products	paper/reader/proofs/P-GRD.md@aa184fc7:194	P-GRD, display	new
+eq:tl5-hfg-count	paper/reader/proofs/P-GRD.md@aa184fc7:214	P-GRD, display	new
+lem:tl5-hfg-mixed	paper/reader/proofs/P-GRD.md@aa184fc7:230	P-GRD, Lemma	lem:tl5-hf4-mixed weighted, with Lambda_2
+eq:tl5-hfg-mixed	paper/reader/proofs/P-GRD.md@aa184fc7:238	P-GRD, display	new
+def:tl5-hfg-constants	paper/reader/proofs/P-GRD.md@aa184fc7:261	P-GRD, Definition	sharpened constants at levels 6 and 4: s0*, s1*, g_(N,g), a_(o,g), a_(i,g), S_(F,g), r_(w,g), eps_(w,g), m_t^g and the two level-4 triples, A_g, B_g, s_(*,g)
+eq:tl5-hfg-constants	paper/reader/proofs/P-GRD.md@aa184fc7:290	P-GRD, display	new
+prop:tl5-hfg-bootstrap	paper/reader/proofs/P-GRD.md@aa184fc7:292	P-GRD, Proposition	(H1) with the sharpened constants, levels N >= 4
+eq:tl5-hfg-smallness	paper/reader/proofs/P-GRD.md@aa184fc7:295	P-GRD, display	new
+eq:tl5-hfg-h1	paper/reader/proofs/P-GRD.md@aa184fc7:300	P-GRD, display	new
+thm:tl5-hfg	paper/reader/proofs/P-GRD.md@aa184fc7:345	P-GRD, Theorem	thm:tl5-hf (N >= 6) with the sharpened constants; (a) eta0 < s1*
+eq:tl5-hfg-closing	paper/reader/proofs/P-GRD.md@aa184fc7:355	P-GRD, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,g)) S_(F,g) < 1
+thm:tl5-hf4g	paper/reader/proofs/P-GRD.md@aa184fc7:366	P-GRD, Theorem	thm:tl5-hf4 with the sharpened constants; (a) eta0 < s1*
+eq:tl5-hf4g-closing	paper/reader/proofs/P-GRD.md@aa184fc7:376	P-GRD, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,g) + 2 eps_(M,g)) (S_(F,g) + S_(M,g)) < 1
+rem:tl5-hfg-powers	paper/reader/proofs/P-GRD.md@aa184fc7:388	P-GRD, Remark	mu^(-3/2) at every level; where k1, k1^(m_P), M^(m_P) and the graded bounds enter; seed value of c^Q_n; points to sec:tl5-hfs (P-GRD2 item 2)
+sec:tl5-hfs	paper/reader/proofs/P-GRD2.md@fe8b4e03:1	P-GRD2, section	new; at the end of ch:ten-l5, after rem:tl5-hfg-powers, beside sec:tl5-hf, sec:tl5-hf4, sec:tl5-hfg (author: keep tightening by hand); second sharpening
+def:tl5-hfs-bounds	paper/reader/proofs/P-GRD2.md@fe8b4e03:21	P-GRD2, Definition	bounds of their own order: lambda^nat, b_g^nat, beta^nat (no Lambda_k^r), c^nat_n and its mu-weighted form, weighted recovery constant k1^(j,mu), Lambda_2^mu, s_P^0
+eq:tl5-hfs-cn	paper/reader/proofs/P-GRD2.md@fe8b4e03:36	P-GRD2, display	new
+lem:tl5-hfs-quadratic	paper/reader/proofs/P-GRD2.md@fe8b4e03:55	P-GRD2, Lemma	exact expansions of the iterated Lie derivatives with per-factor bounds; background letters weighted; level-4 products with no point factor summed over words (coefficients 480, 4)
+eq:tl5-hfs-sum	paper/reader/proofs/P-GRD2.md@fe8b4e03:69	P-GRD2, display	new
+eq:tl5-hfs-m	paper/reader/proofs/P-GRD2.md@fe8b4e03:75	P-GRD2, display	new
+lem:tl5-hfs-linfty	paper/reader/proofs/P-GRD2.md@fe8b4e03:120	P-GRD2, Lemma	lem:tl5-hfg-linfty with the level weights kept in the recovery (k1^(j,mu)); pointwise split bound of D^2 Psi_C
+eq:tl5-hfs-m2	paper/reader/proofs/P-GRD2.md@fe8b4e03:128	P-GRD2, display	new
+eq:tl5-hfs-linfty	paper/reader/proofs/P-GRD2.md@fe8b4e03:133	P-GRD2, display	new
+lem:tl5-hfs-products	paper/reader/proofs/P-GRD2.md@fe8b4e03:167	P-GRD2, Lemma	background letters cost no mu (mu^((b-3)/2)); top-level k1 once per term (branches A and B)
+eq:tl5-hfs-products	paper/reader/proofs/P-GRD2.md@fe8b4e03:174	P-GRD2, display	new
+lem:tl5-hfs-mixed	paper/reader/proofs/P-GRD2.md@fe8b4e03:189	P-GRD2, Lemma	level-4 mixed products with separate constants X_1 Y_1, X_2 Y_2 (k1 once in each)
+eq:tl5-hfs-mixed	paper/reader/proofs/P-GRD2.md@fe8b4e03:204	P-GRD2, display	new
+def:tl5-hfs-constants	paper/reader/proofs/P-GRD2.md@fe8b4e03:221	P-GRD2, Definition	second sharpened constants at levels 6 and 4: g_(J,s) with mu^((j-j')/2), g_(rho,s) with mu^j, K, a_(o,s), a_(i,s), S_(F,s), r_(w,s), eps_(w,s), S_(M,s), r_(M,s), eps_(M,s), A_s, B_s, s_(*,s)
+eq:tl5-hfs-constants	paper/reader/proofs/P-GRD2.md@fe8b4e03:252	P-GRD2, display	new
+prop:tl5-hfs-bootstrap	paper/reader/proofs/P-GRD2.md@fe8b4e03:254	P-GRD2, Proposition	(H1) with the second sharpened constants, levels N >= 4
+eq:tl5-hfs-smallness	paper/reader/proofs/P-GRD2.md@fe8b4e03:258	P-GRD2, display	new
+eq:tl5-hfs-h1	paper/reader/proofs/P-GRD2.md@fe8b4e03:263	P-GRD2, display	new
+thm:tl5-hfs	paper/reader/proofs/P-GRD2.md@fe8b4e03:294	P-GRD2, Theorem	thm:tl5-hf (N >= 6) with the second sharpened constants; (a) eta0 < s1^nat
+eq:tl5-hfs-closing	paper/reader/proofs/P-GRD2.md@fe8b4e03:299	P-GRD2, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,s)) S_(F,s) < 1
+thm:tl5-hf4s	paper/reader/proofs/P-GRD2.md@fe8b4e03:308	P-GRD2, Theorem	thm:tl5-hf4 with the second sharpened constants; (a) eta0 < s1^nat
+eq:tl5-hf4s-closing	paper/reader/proofs/P-GRD2.md@fe8b4e03:313	P-GRD2, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,s) + 2 eps_(M,s)) (S_(F,s) + S_(M,s)) < 1
+rem:tl5-hfs-what	paper/reader/proofs/P-GRD2.md@fe8b4e03:321	P-GRD2, Remark	what the second sharpening changes: mu^(a/2) per background letter, mu^((j-j')/2) on q, k1 once per term, 480/4 in place of 49 c_4
+sec:tl5-hft	paper/reader/proofs/P-GRD3.md@b9bfd6ad:1	P-GRD3, section	new; at the end of ch:ten-l5, after rem:tl5-hfs-what (author: keep tightening by hand); third sharpening: weighted smallness, intrinsic Sobolev
+lem:tl5-hft-leaf	paper/reader/proofs/P-GRD3.md@b9bfd6ad:12	P-GRD3, Lemma	Sobolev on S^3 for tensor bundles via the SO(4)-isotypic decomposition; constant C_(E,r) as an explicit series
+eq:tl5-hft-ce	paper/reader/proofs/P-GRD3.md@b9bfd6ad:17	P-GRD3, display	new
+eq:tl5-hft-leaf	paper/reader/proofs/P-GRD3.md@b9bfd6ad:22	P-GRD3, display	new
+lem:tl5-hft-face	paper/reader/proofs/P-GRD3.md@b9bfd6ad:58	P-GRD3, Lemma	face Sobolev inequalities with 6 C_(E,r)^2 and the operator norms v0, w0 of k against h0 = a^2 du^2 + b^2 dv^2 + r^2 gamma0
+eq:tl5-hft-cs	paper/reader/proofs/P-GRD3.md@b9bfd6ad:67	P-GRD3, display	new
+lem:tl5-hft-small	paper/reader/proofs/P-GRD3.md@b9bfd6ad:90	P-GRD3, Lemma	low quantities for the smallness: (a) weighted energy constant, rho/eta0 apart; (b) weighted absorption k3(mu)
+eq:tl5-hft-small	paper/reader/proofs/P-GRD3.md@b9bfd6ad:96	P-GRD3, display	new
+eq:tl5-hft-smallb	paper/reader/proofs/P-GRD3.md@b9bfd6ad:104	P-GRD3, display	new
+lem:tl5-hft-products	paper/reader/proofs/P-GRD3.md@b9bfd6ad:132	P-GRD3, Lemma	lem:tl5-hfs-products and lem:tl5-hfs-mixed under the weighted absorption
+def:tl5-hft-constants	paper/reader/proofs/P-GRD3.md@b9bfd6ad:145	P-GRD3, Definition	third sharpened constants: options (a), (b) for s1^t, s_(*,t), eps_(w,t); A_t, B_t
+eq:tl5-hft-constants	paper/reader/proofs/P-GRD3.md@b9bfd6ad:156	P-GRD3, display	new
+prop:tl5-hft-bootstrap	paper/reader/proofs/P-GRD3.md@b9bfd6ad:158	P-GRD3, Proposition	(H1) with the third sharpened constants
+eq:tl5-hft-h1	paper/reader/proofs/P-GRD3.md@b9bfd6ad:163	P-GRD3, display	new
+thm:tl5-hft	paper/reader/proofs/P-GRD3.md@b9bfd6ad:179	P-GRD3, Theorem	thm:tl5-hf (N >= 6) with the third sharpened constants
+eq:tl5-hft-closing	paper/reader/proofs/P-GRD3.md@b9bfd6ad:184	P-GRD3, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,t)) S_(F,s) < 1
+thm:tl5-hf4t	paper/reader/proofs/P-GRD3.md@b9bfd6ad:192	P-GRD3, Theorem	thm:tl5-hf4 with the third sharpened constants
+eq:tl5-hf4t-closing	paper/reader/proofs/P-GRD3.md@b9bfd6ad:196	P-GRD3, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,t) + 2 eps_(M,s)) (S_(F,s) + S_(M,s)) < 1
+rem:tl5-hft-what	paper/reader/proofs/P-GRD3.md@b9bfd6ad:206	P-GRD3, Remark	what the third sharpening changes; options (a), (b); intrinsic Sobolev constants
+sec:tl5-hfq	paper/reader/proofs/P-GRD4.md@a08ce8c0:1	P-GRD4, section	new; at the end of ch:ten-l5, after rem:tl5-hft-what (author: keep tightening by hand); fourth sharpening at level 4
+lem:tl5-hfq-m	paper/reader/proofs/P-GRD4.md@a08ce8c0:15	P-GRD4, Lemma	products with no point factor at level 4 counted exactly also in R3: coefficients 480 + 96 g1 (g0 + sqrt5) s_flat and 4 + 4 g1 s_flat (2 + g1 s_flat)
+eq:tl5-hfq-m	paper/reader/proofs/P-GRD4.md@a08ce8c0:19	P-GRD4, display	new
+lem:tl5-hfq-theta	paper/reader/proofs/P-GRD4.md@a08ce8c0:38	P-GRD4, Lemma	absorption weighted in two parts (mu for the energies, mu^theta for rho and eta0); family between options (a) and (b)
+eq:tl5-hfq-m2	paper/reader/proofs/P-GRD4.md@a08ce8c0:43	P-GRD4, display	new
+eq:tl5-hfq-small	paper/reader/proofs/P-GRD4.md@a08ce8c0:48	P-GRD4, display	new
+lem:tl5-hfq-mixed	paper/reader/proofs/P-GRD4.md@a08ce8c0:87	P-GRD4, Lemma	X1 without the count 49, X2 without the count 7 in its remainder part, Y1 with the level-2 recovery constant
+def:tl5-hfq-constants	paper/reader/proofs/P-GRD4.md@a08ce8c0:106	P-GRD4, Definition	fourth sharpened constants at level 4: s0^q, s1^q, g_(rho,q), eps_(w,q), S_(M,q), r_(M,q), eps_(M,q), A_q, B_q, s_(*,q)
+eq:tl5-hfq-constants	paper/reader/proofs/P-GRD4.md@a08ce8c0:120	P-GRD4, display	new
+prop:tl5-hfq-bootstrap	paper/reader/proofs/P-GRD4.md@a08ce8c0:122	P-GRD4, Proposition	(H1) at level 4 with the fourth sharpened constants
+eq:tl5-hfq-h1	paper/reader/proofs/P-GRD4.md@a08ce8c0:127	P-GRD4, display	new
+thm:tl5-hf4q	paper/reader/proofs/P-GRD4.md@a08ce8c0:140	P-GRD4, Theorem	thm:tl5-hf4 with the fourth sharpened constants; theta in [0,1]
+eq:tl5-hf4q-closing	paper/reader/proofs/P-GRD4.md@a08ce8c0:144	P-GRD4, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,q) + 2 eps_(M,q)) (S_(F,s) + S_(M,q)) < 1
+rem:tl5-hfq-what	paper/reader/proofs/P-GRD4.md@a08ce8c0:153	P-GRD4, Remark	what the fourth sharpening changes
+sec:tl5-hfv	paper/reader/proofs/P-GRD5.md@c3506861:1	P-GRD5, section	new; at the end of ch:ten-l5, after rem:tl5-hfq-what; fifth sharpening, levels 4 and N >= 6
+lem:tl5-hfv-close	paper/reader/proofs/P-GRD5.md@c3506861:13	P-GRD5, Lemma	two numbers theta1, theta2 in (0,1) for the quasilinear term, cap s_(theta,v), closing with eta
+eq:tl5-hfv-cap	paper/reader/proofs/P-GRD5.md@c3506861:17	P-GRD5, display	new
+eq:tl5-hfv-dphi	paper/reader/proofs/P-GRD5.md@c3506861:23	P-GRD5, display	new
+lem:tl5-hfv-conv	paper/reader/proofs/P-GRD5.md@c3506861:36	P-GRD5, Lemma	conversion of the high factor into the densities by families: f2^o, f2^i
+lem:tl5-hfv-rec	paper/reader/proofs/P-GRD5.md@c3506861:51	P-GRD5, Lemma	level 4: recovery of D^2 h at a point term by term (sqrt7 against 4)
+def:tl5-hfv-constants	paper/reader/proofs/P-GRD5.md@c3506861:71	P-GRD5, Definition	constants with index v: replacements in the sets of sec:tl5-hft and sec:tl5-hfq; eta, A_v, B_v
+eq:tl5-hfv-constants	paper/reader/proofs/P-GRD5.md@c3506861:81	P-GRD5, display	new
+thm:tl5-hfv	paper/reader/proofs/P-GRD5.md@c3506861:83	P-GRD5, Theorem	thm:tl5-hf and thm:tl5-hf4 with the constants sharpened a fifth time
+eq:tl5-hfv-closing	paper/reader/proofs/P-GRD5.md@c3506861:88	P-GRD5, display	closing condition: 4 eta^(-3/2) (delta_w + eta^(-1/2)(eps + eps_M)) (S_F + S_M) < 1
+rem:tl5-hfv-what	paper/reader/proofs/P-GRD5.md@c3506861:106	P-GRD5, Remark	what the fifth sharpening changes

@@ -6,16 +6,34 @@ of [[sec:two-dust-background]] with the explicit characteristic data of [[sec:bg
 slice Σ_τ0, τ0 = −0.68, or on a slice bent from it.
 
 Three answers are proved. On the null cones the constraints are ordinary differential equations along the generators,
-and data localised in an angular band exist exactly ([[prop:loc-cones]]). On Σ_τ0 the constraints split, after Rácz
-[Rac16], into a hyperbolic system with the radius as time wherever κK^l_l < 0; this holds on all of Σ_τ0 except one
-band inside the shell, where no foliation of Σ_τ0 is hyperbolic, and on a slice bent from Σ_τ0 by at most 0.0012 it
-holds everywhere, so that data localised in an angle exist on the whole slice ([[thm:loc-bent-slice]]). Localisation
-in angle and radius at once is decided, near the background's data and at second order in the amplitude, by the sign
-of a charge Q: the pairing of the constraints with the static Killing field. On every band of Σ_τ0 on which the
-background is vacuum the mass term of the charge identity is positive, and Q is negative for every perturbation of the
-extrinsic curvature alone. For perturbations of the metric, on every such band, Q takes both signs where the round
-spheres are trapped, f < 0, and where they are not, f > 0, it is negative for every perturbation that is not a gauge
-perturbation ([[thm:charge-sign]]).
+and data localised in an angular band exist exactly ([[prop:loc-cones]], [[lem:loc-cone-in]]); when the band avoids the
+axes they have a development in the double-null gauge on a neighbourhood of the two cones, with or without dust, equal
+to the background outside a slightly wider band: without smallness, on a neighbourhood that depends on the data and
+unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]), and, for data near the
+background's, on an explicit neighbourhood and with an estimate ([[thm:loc-cone-development]]). Data near the
+background's need not be localised away from the axes: they have a development in that gauge on the whole rectangle
+spanned by the two cones, with an estimate, unique in the gauge among nearby solutions ([[thm:loc-axis]],
+[[cor:loc-axis-cones]]). Data of any size that reach the axes have a development on a neighbourhood of the two cones,
+unique in the gauge, and a maximal development, provided the cones do not focus ([[thm:civp-axes]]). On Σ_τ0 the
+constraints split, after Rácz
+[Rac16], into a hyperbolic system with the radius as time wherever κK^l_l < 0; this holds on all of Σ_τ0 except one band
+inside the shell, where no foliation of Σ_τ0 is hyperbolic, and on a slice bent from Σ_τ0 by at most 0.0012 it holds
+everywhere, so that data equal to the background's outside the domain of influence of a compact set away from the axes
+exist on the whole slice, that domain spreading in angle at most linearly as the radius decreases
+([[thm:loc-bent-slice]]). Localisation in angle and radius at once is decided, near the background's data and at second
+order in the amplitude, by the sign of a charge Q: the pairing of the constraints with the static Killing field. On
+every band of Σ_τ0 on which the background is vacuum the mass term of the charge identity is positive, and Q is negative
+for every perturbation of the extrinsic curvature alone. For perturbations of the metric, on every such band, Q takes
+both signs where the round spheres are trapped, f < 0, and where they are not, f > 0, it is negative for every
+perturbation that is not a gauge perturbation ([[thm:charge-sign]]).
+
+The developments extend to cone data that carry finitely many null shells along leaves {v = c} of 𝒞_out and {u = d} of
+𝒞_in, with densities smooth in angle and supported in a band away from the axes: the development is then continuous,
+smooth between the leaves, and a solution of the Einstein–null-dust equations in the sense of distributions with a null
+shell along each leaf, and the junction conditions and the conservation laws of the shells follow from the metric of
+the double-null gauge ([[thm:loc-shells]], [[prop:loc-shell-junction]]). Where two shells cross, the null expansions
+obey a product rule, for round metrics a relation between the masses of the four adjacent regions
+([[prop:loc-shell-crossing]]).
 
 The inequalities on the background that these results use are proved at the end of the chapter, in
 [[sec:bg-below]] and [[sec:margins]], from the tables of [[sec:tab-bg]] and [[sec:table-margins]].
@@ -159,9 +177,10 @@ background's outside 𝒫 and ε-close to them in C^∞, whose matter part e, p_
 two families, with their phases and with densities ≥ 0, and of any number of further families, each with an invariant
 phase that is an eikonal of the background, smooth with nonzero differential on a neighbourhood of the part of
 Σ′ ∪ Σ_τ0 with R ≤ 6, and with a density ≥ 0 supported in 𝒫. Take (k_i, K^l_l) at R = R2 equal to the background's.
-For ε small the system (4.16), (3.2) of [Rac16] has a unique solution on 0.70 ≤ R ≤ R2. The data it determines,
-extended by the background's data for R ≥ R2, satisfy the constraints on Σ′, and equal the background's outside the
-domain of influence, for that system, of 𝒫.
+For ε small the system (4.16), (3.2) of [Rac16] has a unique solution on 0.70 ≤ R ≤ R2. The data it determines, extended
+by the background's data for R ≥ R2, satisfy the constraints on Σ′, and equal the background's outside the domain of
+influence, for that system, of 𝒫. There is c_* > 0, depending only on R2, such that this domain lies in the set of
+points with R ≤ R_𝒫 and ϑ1 − c_*(R_𝒫 − R) ≤ ϑ ≤ π/2 − ϑ1 + c_*(R_𝒫 − R), R_𝒫 the largest value of R on 𝒫.
 
 (c) The development of these data across the lens between Σ′ and Σ_τ0 exists, and the constraint data it induces on
 Σ_τ0 are those of (b) for R ∉ (3.5, 5.75), where Σ_τ0 = Σ′. Let 0 ≤ α ≤ β ≤ π/2, with α < π/2 and β > 0, be such
@@ -170,45 +189,92 @@ depending also on α and β, the data induced on Σ_τ0 equal the background's a
 ϑ < α − 3.3 × 10⁻⁴ or ϑ > β + 3.3 × 10⁻⁴: across the lens the angular support widens by at most 3.3 × 10⁻⁴ rad on
 each side.
 
-So data localised in an angle exist near the background's data on all of Σ_τ0, the band of [[prop:loc-band]]
-included. For perturbations whose radial support avoids [4.2882, 4.5310] the construction of (b) works on Σ_τ0 itself.
-If R2 < 4.2882, integrate from R2 inward as in (b): the split is hyperbolic on Σ_τ0 ∩ {R ≤ 4.2882}
-([[prop:loc-band]]). If R1 > 4.5310, take (k_i, K^l_l) equal to the background's at a radius R_0 ∈ (4.5310, R1) and
-integrate outward, on R_0 ≤ R ≤ b(τ0), where the split is hyperbolic; with the parameter −R in place of R the system
-keeps the form (4.19) of [Rac16] ([[rem:std-racz-characteristic]]), with −B^(K) and −C in place of B^(K) and C and the
-same symmetrizer, and the leaves are again closed, so the proof of (b) applies, the constraints holding in the domain of
-dependence of the sphere R = R_0, which is all of {R_0 ≤ R ≤ b(τ0)}; the data are extended by the background's for
-R ≤ R_0.
+So data near the background's exist on all of Σ_τ0, the band of [[prop:loc-band]] included, that equal the
+background's outside the domain of influence of a compact set 𝒫 away from the axes for R ∉ (3.5, 5.75), and outside a
+range of ϑ for 3.5 < R < 5.75. By (b) that domain lies in R ≤ R_𝒫, with ϑ within c_*(R_𝒫 − R) of [ϑ1, π/2 − ϑ1] at
+radius R. With d := c_* max(0, R_𝒫 − 3.44), (c) applies with α := max(0, ϑ1 − d) and β := min(π/2, π/2 − ϑ1 + d), so
+that for 3.5 < R < 5.75 the data equal the background's where ϑ < α − 3.3 × 10⁻⁴ or ϑ > β + 3.3 × 10⁻⁴. For
+perturbations whose radial support avoids [4.2882, 4.5310] the
+construction of (b) works on Σ_τ0 itself. If R2 < 4.2882, integrate from R2 inward as in (b): the split is hyperbolic on
+Σ_τ0 ∩ {R < 4.2882} ([[prop:loc-band]]). If R1 > 4.5310, take (k_i, K^l_l) equal to the background's at a radius
+R_0 ∈ (4.5310, R1) and integrate outward, on R_0 ≤ R ≤ b(τ0), where the split is hyperbolic; with the parameter −R in
+place of R the system keeps the form (4.19) of [Rac16] ([[rem:std-racz-characteristic]]), with −B^(K) and −C in place of
+B^(K) and C and the same symmetrizer, and the leaves are again closed, so the proof of (b) applies, the constraints
+holding in the domain of dependence of the sphere R = R_0, which is all of {R_0 ≤ R ≤ b(τ0)}; the data are extended by
+the background's for R ≤ R_0. A support on both sides is treated by both constructions at once, inward from an
+R2 < 4.2882 and outward from an R_0 > 4.5310, the data between 4.2882 and 4.5310 being the background's; the
+constraints, being local, hold for the data so combined.
 
 *Proof.* (a) The first two statements are [[cor:margins-lens]]. Σ′ is spacelike: below R = 3.5 it is Σ_τ0, spacelike
 by [[lem:two-dust-domain]] (a); for R ≥ R_* it lies in region I ([[lem:margins-region-one]] (c)), where d(τ − φ) is
 timelike (proof of [[cor:margins-lens]]). The margin for R_* ≤ R is [[thm:margins-hyperbolic]] (a), and for R ≤ R_*,
 where Σ′ = Σ_τ0, it is [[thm:bg-margins]] (c).
 
-(b) Write (4.16), (3.2) of [Rac16] as (4.19) there ([[rem:std-racz-characteristic]]): ∂_ρu + B^(K)∂_Ku + C = 0,
-with u = (k_B, K^E_E), ρ := R, on [0.70, R2] × S³. Where K^E_E ≠ 0, B^(K) and C are smooth functions of (ρ, ω, u)
-and of P, the free data and their derivatives of the orders that enter, κ being given algebraically by [Rac16,
-(4.17)]. The background's data give a smooth solution ū, for the background's free data P̄, and κK^l_l < 0 along
-it by (a). The common symmetrizer H that Rácz exhibits for [Rac16, Lemma 4.1] ([[thm:std-racz-hyperbolic]]),
-[Rac16, (4.21), p. 12], is a rational function of k, K^E_E, κ and γ̂ with only κ in its denominators; so near the
-graph of (ū, P̄) it is a smooth function of (ρ, ω, u, P), symmetric, positive definite at ū, where κK^E_E < 0
-([[thm:std-racz-hyperbolic]]), and HB^(K) is symmetric. With t := R2 − ρ the system reads ∂_tu − B^(K)∂_Ku − C = 0,
-which is [[eq:class-kato-sphere]] with n =
-3, A^0 := H, A^(ab) := −HB^(K)⟨∂_K, W_ab⟩ and F := HC (the remark after [[cor:class-kato-sphere]]), on [0, R2 −
-0.70]; we multiply these coefficients by a smooth cut-off equal to 1 on a neighbourhood 𝒩 of the graph of (ū, P̄)
-and add I times one minus the cut-off to A^0, which makes them smooth and symmetric everywhere and leaves them
-unchanged on 𝒩. Fix r0 ∈ (0, r̄] in [[cor:class-kato-sphere]] so small that the points (t, ω, u, π) with |u − ū(t, ω)|
-≤ r0 and |π − P̄(t, ω)| ≤ r0 lie in 𝒩, and take ε0 ≤ r0. For ε small, ‖P − P̄‖_(C^s) ≤ ε0, and
-[[cor:class-kato-sphere]] (a), (b), with the datum ū(0) at t = 0, gives a smooth solution on the whole interval with
-sup_t ‖u − ū‖_(L²(S³)) ≤ C ‖P − P̄‖_(C⁰), sup_t ‖u‖_(H^s(S³)) ≤ C, s > 3, and sup |u − ū| ≤ C ‖P − P̄‖_(C⁰)^(1/(4s)); so
-sup |u − ū| → 0 as ε → 0, the solution stays in 𝒩 and solves (4.19). The isometries T² × Z2 × Z2 carry solutions of the
-class of [[cor:class-kato-sphere]] (a) with the invariant datum ū(0) to such solutions, so by the uniqueness there the
-solution is invariant. The leaves are three-spheres, so the axes are interior points of the leaves and need no condition.
-By [[cor:class-kato-sphere]] (c), u = ū on every set Ω as there on which P = P̄; outside 𝒫 the free data are the
-background's, and the complement of the union of these sets is the domain of influence of 𝒫 for the system (4.19),
-the condition of [[cor:class-kato-sphere]] (c) being imposed at states in 𝒩, where the coefficients are unchanged. By
-[[thm:std-racz-hyperbolic]] the fields built from the solution and the free data satisfy the constraints in the domain of
-dependence of the initial sphere, which here is all of {0.70 ≤ R ≤ R2}.
+(b) Write (4.16), (3.2) of [Rac16] as (4.19) there ([[rem:std-racz-characteristic]]): ∂_ρu + B^(K)∂_Ku + C = 0, with
+u = (k_B, K^E_E), ρ := R, on [0.70, R2] × S³, each leaf {R = const} identified with the unit sphere S³ by the angles.
+*A global frame.* On the unit sphere S³ of the quaternions ℍ, X_1(x) := xi, X_2(x) := xj and X_3(x) := xk (quaternion
+products) form an orthonormal frame of the round metric ⟨·, ·⟩. We take the mixed part k by its components k(X_1),
+k(X_2), k(X_3), and each tensor among the free data by its components in this frame, so that u is ℝ⁴-valued and the free
+data with their derivatives in R and along the frame, of the orders that enter, form an ℝ^(n_P)-valued function P
+(the q of [[cor:class-kato-sphere]]). With
+𝔉(ω) := diag((⟨∂_K, X_a⟩)_(K,a), 1), so that k(∂_K) = Σ_a ⟨∂_K, X_a⟩ k(X_a), the frame components ũ have u = 𝔉ũ, and the
+system becomes
+
+    ∂_ρũ + 𝔉⁻¹B^(K)𝔉 ∂_Kũ + 𝔉⁻¹(B^(K)(∂_K𝔉)ũ + C) = 0:
+
+B^(K)∂_K becomes the matrix of vector fields 𝔉⁻¹B^(K)𝔉 ∂_K, terms of order zero in ũ are added to C, and a symmetrizer H
+becomes 𝔉ᵀH𝔉, positive definite where H is, with 𝔉ᵀH𝔉 𝔉⁻¹B^(K)𝔉 = 𝔉ᵀHB^(K)𝔉 symmetric. The equations and H being
+tensorial on the leaves, these frame forms are the same in every chart of leaf coordinates, so they are smooth on all of
+S³. An isometry of S³ carries the frame to an orthonormal frame, so it acts on the frame components by an orthogonal
+matrix at each point. Below, u, B^(K), C and H denote the frame forms.
+
+Where K^E_E ≠ 0, B^(K) and C are smooth functions of (ρ, ω, u) and of P, κ being given algebraically by [Rac16, (4.17)].
+The background's data give a smooth solution ū, for the background's free data P̄, and κK^l_l < 0 along it by (a). The
+common symmetrizer H that Rácz exhibits for [Rac16, Lemma 4.1] ([[thm:std-racz-hyperbolic]]), [Rac16, (4.21), p. 12], is
+a rational function of k, K^E_E, κ and γ̂ with only κ in its denominators; so near the graph of (ū, P̄) it is a smooth
+function of (ρ, ω, u, P), symmetric, positive definite at ū, where κK^E_E < 0 ([[thm:std-racz-hyperbolic]]), and HB^(K)
+is symmetric. With t := R2 − ρ the system reads ∂_tu − B^(K)∂_Ku − C = 0, which is [[eq:class-kato-sphere]] with n = 3,
+A^0 := H, A^(ab) := −HB^(K)⟨∂_K, W_ab⟩ and F := HC (the remark after [[cor:class-kato-sphere]]), on [0, R2 − 0.70]. We
+multiply these coefficients by a smooth cut-off supported in a neighbourhood of the graph of (ū, P̄) on which H, B^(K)
+and C are smooth and HB^(K) is symmetric, and equal to 1 on a smaller neighbourhood 𝒪 of the graph, and we add I times
+one minus the cut-off to A^0; this makes them smooth and symmetric everywhere and leaves them unchanged on 𝒪. Fix
+r0 ∈ (0, r̄] in [[cor:class-kato-sphere]] so small that the points (t, ω, u, π) with |u − ū(t, ω)| ≤ r0
+and |π − P̄(t, ω)| ≤ r0 lie in 𝒪 and H is positive definite at them, take ε0 ≤ r0, and fix an integer s ≥ 4, so that
+s > (n + 1)/2 + 1 = 3. For ε small, ‖P − P̄‖_(C^s) ≤ ε0, and [[cor:class-kato-sphere]] (a), (b), with the datum ū(0) at
+t = 0, gives a smooth solution on the whole interval with sup_t ‖u − ū‖_(L²(S³)) ≤ C ‖P − P̄‖_(C⁰), sup_t
+‖u‖_(H^s(S³)) ≤ C and sup |u − ū| ≤ C ‖P − P̄‖_(C⁰)^(1/(4s)); so sup |u − ū| → 0 as ε → 0, the solution stays in 𝒪 and
+solves (4.19). A solution of the class of [[cor:class-kato-sphere]] (a) has its states in 𝒪, where the system is (4.19);
+the isometries T² × Z2 × Z2 preserve (4.19), P, P̄, ū and the pointwise norm of u − ū, so they carry such solutions with
+the invariant datum ū(0) to such solutions, and by the uniqueness there the solution is invariant. The leaves are
+three-spheres, so the axes are interior points of the leaves and need no condition. By [[cor:class-kato-sphere]] (c),
+u = ū on every set Ω as there on which P = P̄; outside 𝒫 the free data are the background's, and the complement of the
+union of these sets is the domain of influence of 𝒫 for the system (4.19), the condition of
+[[cor:class-kato-sphere]] (c) being imposed at states in 𝒪, where the coefficients are unchanged. By
+[[thm:std-racz-hyperbolic]] the fields built from the solution and the free data satisfy the constraints in the domain
+of dependence of the initial sphere, which here is all of {0.70 ≤ R ≤ R2}.
+
+*The domain of influence in angle.* For ξ ∈ T*_ωS³ put B(ξ) := B^(K)ξ(∂_K). At the points (t, ω, u, P̄(t, ω))
+with |u − ū(t, ω)| ≤ r0, H is positive definite and HB(ξ) is symmetric, so the eigenvalues of B(ξ) are real. These
+points, with ξ of length 1 for the round metric, form a compact set; so there is c_* > 0, depending only on R2 (the
+background being fixed, and r0 fixed above in terms of R2 alone), such that the eigenvalues of B(ξ) are at most c_*|ξ|
+in modulus there. Since Σ_(a<b) ⟨∂_K, W_ab⟩
+W_ab = ∂_K (the remark after [[cor:class-kato-sphere]]), a covector ν = c dt + ξ gives ν(∂_t)A^0 + Σ_(a<b)
+ν(W_ab)A^(ab) = H(c − B(ξ)), and for c ≥ c_*|ξ| this matrix is positive semidefinite at these points: it is congruent,
+by H^(−1/2), to the symmetric matrix H^(1/2)(c − B(ξ))H^(−1/2), whose eigenvalues are c minus those of B(ξ), hence ≥ 0.
+Let R_𝒫 < R2 be the largest value of R on 𝒫, and take R′ ∈ (R_𝒫, R2), ϑ_c ∈ (0, ϑ1) and R_b ∈ [0.70, R′) with
+ϑ_c > c_*(R′ − R_b). The set
+
+    Ω_* := {R′ ≤ R ≤ R2} ∪ {R_b ≤ R ≤ R′, ϑ ≤ ϑ_c − c_*(R′ − R)}
+
+does not meet 𝒫, so P = P̄ on it. Its part with R ≥ R3, for R_b ≤ R3 ≤ R2, is {R ≥ max(R3, R′ − max(0, ϑ_c − ϑ)/c_*)},
+the region beyond the graph of a Lipschitz function of ω (ϑ being the distance in S³ from the circle {ϑ = 0}), so a
+Lipschitz domain. Its lateral part consists of pieces of {R = R′, ϑ ≥ ϑ_c}, with outward conormal dt, and of
+{ϑ = ϑ_c − c_*(R′ − R)}, a smooth hypersurface off the axes, as 0 < ϑ_c − c_*(R′ − R) < π/4 there, with outward conormal
+dϑ + c_* dt and |dϑ| = 1. Both satisfy the condition of [[cor:class-kato-sphere]] (c), by the above with (c, ξ) = (1, 0)
+and (c, ξ) = (c_*, dϑ); so u = ū on Ω_*. Every point with R > R_𝒫 lies in such a set, with R′ < R, and so does every
+point with R ≤ R_𝒫 and ϑ < ϑ1 − c_*(R_𝒫 − R), with R′ close to R_𝒫, ϑ_c close to ϑ1 and R_b = R. With π/2 − ϑ, the
+distance from the circle {ϑ = π/2}, in place of ϑ, the same holds where ϑ > π/2 − ϑ1 + c_*(R_𝒫 − R). This is the bound
+on the domain of influence stated in (b).
 
 (c) *A domain containing the lens.* The lens is the set between Σ′ and Σ_τ0, {τ0 + φ(R) ≤ τ ≤ τ0, 3.5 ≤ R ≤ 5.75}, in
 region I ([[lem:margins-region-one]] (c)). Fix δ1 ∈ (0, 0.01] and put t := (τ − τ0 − φ(R))/(δ1 − φ(R)), smooth since
@@ -230,37 +296,57 @@ are pieces of {R = 0.70} and of {v̂ + τ = 2τ0 + 6}, spacelike with Ω_L to th
 strict on the compact Ω_L, so they hold for every Lorentzian metric C⁰-close to g0, and Ω_L is admissible for g0
 ([[def:class-admissible]]) in the chart (t, x).
 
-*The hypotheses of [[thm:class-stability]].* (H1) holds for the background's phases v̂ and u, double-null coordinates
-of g0, smooth with nonzero differentials (proof of [[cor:class-two-dust]]), and for the further phases by (b), once δ1
-is small. For a small η > 0, let S_in be the set of points of Σ′ with v̂(v = 3) − η ≤ v̂ ≤ v̂(v = 4.5) + η, S_out the set
-with u1 − η ≤ u ≤ u2 + η, and take S_in ∪ 𝒫, S_out ∪ 𝒫 for the background's families and 𝒫 for the further ones. On
-Σ′, v̂ − R ∈ [τ0 − 0.0012, τ0], so S_in lies in 3.7 < R < 5.5 ([[sec:table-shell]]: v̂(v = 3) + 0.68 = 3.8253… and
-v̂(v = 4.5) + 0.68 = 5.3724…), and S_out, which is the part of Σ_τ0 with R_u2 ≤ R ≤ R_* when η = 0 ([[prop:bg-seed]] (a),
-[[lem:bg-rstar]]), lies in 1.8 < R < 3.5 for η small. In the chart, g0 = −q²f(dτ + dR)² + 2q(dτ + dR) dR + R²dΩ₃²,
-and qf < 1 on Ω_L for δ1 small (on Σ_τ0 by [[sec:loc-setting]], on the lens as f < 1 in region I); so a future causal
-vector has Ṙ/τ̇ between the roots −1 and qf/(2 − qf) < 1 of (2 − qf)x² + 2(1 − qf)x − qf, that is |Ṙ| ≤ τ̇, and
-R²|Ω̇|² ≤ Cτ̇². Along a dust curve in Ω_L, R therefore changes by at most the τ-thickness of Ω_L, which is δ1 where φ = 0
-and at most 0.0012 + δ1 ≤ 0.0122 elsewhere. Hence the tubes of S_in and S_out stay in 1.7 < R < 5.6, away from the
-lateral boundaries. The background's families are radial, so their tubes over 𝒫 keep its angles, in [ϑ1, π/2 − ϑ1].
-A tube of a further family near a lateral boundary runs where φ = 0, so its angular displacement there is at most Cδ1,
-and for δ1 small it stays away from the axes. So no tube meets a neighbourhood of a point where a lateral boundary
-meets an axis, and (H2′) puts no condition.
+*The hypotheses of [[thm:class-stability]].* (H1) holds for the background's phases v̂ and u, double-null coordinates of
+g0, smooth with nonzero differentials (proof of [[cor:class-two-dust]]), and for the further phases by (b), once δ1 is
+small. Let 𝒫_G be the union of the images of 𝒫 under T² × Z2 × Z2, a compact invariant subset of {R1 < R < R2,
+ϑ1 < ϑ < π/2 − ϑ1}; the invariant data of (b) equal the background's outside 𝒫_G. For a small η > 0, let S_in be the set
+of points of Σ′ with v̂(v = 3) − η ≤ v̂ ≤ v̂(v = 4.5) + η, S_out the set with u1 − η ≤ u ≤ u2 + η, and take S_in ∪ 𝒫_G,
+S_out ∪ 𝒫_G for the background's families and 𝒫_G for the further ones, each intersected with {R ≤ 6}, so that they
+lie in the first slice Σ′ ∩ {R ≤ 6} of Ω_L. These are closed and invariant, and they contain
+the supports on Σ′ of the background's densities, which lie where v̂(v = 3) ≤ v̂ ≤ v̂(v = 4.5) and where u1 ≤ u ≤ u2, 𝒜
+and ℬ being supported in [3, 4.5] and [u1, u2]. On Σ′, v̂ − R ∈ [τ0 − 0.0012, τ0], so S_in lies in 3.7 < R < 5.5
+([[sec:table-shell]]: v̂(v = 3) + 0.68 = 3.8253… and v̂(v = 4.5) + 0.68 = 5.3724…), and S_out, which is the part of Σ_τ0
+with R_u2 ≤ R ≤ R_* when η = 0 ([[prop:bg-seed]] (a), [[lem:bg-rstar]]), lies in 1.8 < R < 3.5 for η small. In the
+chart, g0 = −q²f(dτ + dR)² + 2q(dτ + dR) dR + R²dΩ₃², and qf < 1 on Ω_L for δ1 small (on Σ_τ0 by [[sec:loc-setting]], on
+the lens as f < 1 in region I); so a future causal vector has Ṙ/τ̇ between the roots −1 and qf/(2 − qf) < 1 of
+(2 − qf)x² + 2(1 − qf)x − qf, that is |Ṙ| ≤ τ̇, and R²|Ω̇|² ≤ Cτ̇². Along a dust curve in Ω_L, R therefore changes by at
+most the τ-thickness of Ω_L, which is δ1 where φ = 0 and at most 0.0012 + δ1 ≤ 0.0122 elsewhere. Hence the tubes of S_in
+and S_out stay in 1.7 < R < 5.6, away from the lateral boundaries. The background's families are radial, so their tubes
+over 𝒫_G keep its angles, in [ϑ1, π/2 − ϑ1]. A tube of a further family near a lateral boundary runs where φ = 0, so its
+angular displacement there is at most Cδ1, and for δ1 small it stays away from the axes. So no tube meets a
+neighbourhood of a point where a lateral boundary meets an axis, and (H2′) puts no condition.
 
-*The development.* Complete the constraint data of (b) on Σ′, with their dust phases and densities, to a datum of
-[[thm:class-stability]]: the metric on Σ′ with the background's lapse and shift, and the gauge condition D(g) = 0
-imposed through the transversal derivatives, as in [[thm:data]]. This datum is within Cε of the background's, so for ε
-small [[thm:class-stability]] gives the development on Ω_L, within Cε of g0. Since Σ_τ0 ∩ {3.5 ≤ R ≤ 5.75} lies in Ω_L,
-and Σ_τ0 = Σ′ elsewhere, it induces constraint data on the whole of Σ_τ0; for R ∉ (3.5, 5.75) these are the data of
-(b), which the development attains on Σ′.
+*The datum on the first slice.* The slice {t = 0} of Ω_L is Σ′_L := Σ′ ∩ {R ≤ 6}. Near the axes, where φ = 0, the
+lateral components of Ω_L meet each slice {t = s} in the spheres R = 0.70 and R = 6 − 2sδ1, on which v̂ and u are
+constant (u is constant on the spheres of each slice {v̂ − R = const}, proof of [[cor:class-two-dust]]); so each
+component has the property of [[def:class-adapted]] for both background families. Whichever components are treated as
+adapted there, and to whichever family, the datum's phase of every family is on Σ′ the background's phase of that
+family, by (b), the background's phase ů_A of a further family being the eikonal that (b) gives it. So the constants of
+the normalisation in [[def:class-adapted]] vanish, and at the points of B ∩ Σ′ in 𝒱_B, which contains the sets 𝒰_(2δ_B)
+about the points of B on the axes, for a component B adapted to a family A, the datum's phase of A is ů_A, which equals
+c_B(0) there. By the last paragraph of [[def:class-adapted]], T_(0,U) is the identity and a datum on Σ′_L suffices; the
+constraints and the gauge condition are required on Σ′_L, and the condition on the supports in [[thm:class-stability]]
+is supp q_A ∩ Σ′_L ⊂ S_A for every A. It holds: outside 𝒫_G the densities of the background's families are the
+background's, and those of the further families vanish. The sets 𝒱_B may be taken in {R < 0.8} for the inner component
+and in {R > 5.9} for the outer one, whose spheres have R ≥ 6 − 2δ1 ≥ 5.98. Each T_(s,U) is a diffeomorphism equal to the
+identity outside them, so it maps their union onto itself, and the adapted domain Ω_U of the development agrees with Ω_L
+on {0.8 ≤ R ≤ 5.9}; so it contains the lens and Σ_τ0 ∩ {3.5 ≤ R ≤ 5.75}, which lie in Ω_L there.
 
-*Localisation across the lens.* At a point of Σ_τ0 the induced metric and second fundamental form, and the matter
-part ℋ/2 and ℳ of [[eq:loc-constraints]], are computed from g and its first derivatives and from the differentials of
-the phases and the densities at that point. Let α and β be as in (c). By the last statement of (b), the data of (b)
-equal the background's at the points of Σ′ with 3.44 ≤ R ≤ 5.85 and ϑ < α, and at those with 3.44 ≤ R ≤ 5.85 and
-ϑ > β. If α > 3.3 × 10⁻⁴, [[lem:loc-lens-dependence]] below gives, for ε small, depending also on α, that g with its
-first derivatives, the differential of the ingoing phase and every density equal the background's at the points of
-the lens with ϑ < α − 3.3 × 10⁻⁴; if α ≤ 3.3 × 10⁻⁴ there are no such points. The same holds for ϑ > β + 3.3 × 10⁻⁴.
-At these points of Σ_τ0 the induced data are therefore the background's. ∎
+*The development.* Complete the constraint data of (b) on Σ′_L, with their dust phases and densities, to a datum of
+[[thm:class-stability]] on Σ′_L: the metric on Σ′ with the background's lapse and shift, and the gauge condition
+D(g) = 0 imposed through the transversal derivatives, as in [[thm:data]]. This datum is within Cε of the background's,
+so for ε small [[thm:class-stability]] gives the development on its adapted domain Ω_U, within Cε of g0. Since Σ_τ0 ∩
+{3.5 ≤ R ≤ 5.75} lies in Ω_U, and Σ_τ0 = Σ′ elsewhere, it induces constraint data on the whole of Σ_τ0; for R ∉
+(3.5, 5.75) these are the data of (b), which the development attains on Σ′.
+
+*Localisation across the lens.* At a point of Σ_τ0 the induced metric and second fundamental form, and the matter part
+ℋ/2 and ℳ of [[eq:loc-constraints]], are computed from g and its first derivatives and from the differentials of the
+phases and the densities at that point. Let α and β be as in (c). By (b), the data of (b) equal the background's outside
+the domain of influence of 𝒫, so they equal the background's at the points of Σ′ with 3.44 ≤ R ≤ 5.85 and ϑ < α, and at
+those with 3.44 ≤ R ≤ 5.85 and ϑ > β. If α > 3.3 × 10⁻⁴, [[lem:loc-lens-dependence]] below gives, for ε small, depending
+also on α, that g with its first derivatives, the differential of the ingoing phase and every density equal the
+background's at the points of the lens with ϑ < α − 3.3 × 10⁻⁴; if α ≤ 3.3 × 10⁻⁴ there are no such points. The same
+holds for ϑ > β + 3.3 × 10⁻⁴. At these points of Σ_τ0 the induced data are therefore the background's. ∎
 
 **Lemma {#lem:loc-lens-dependence}** (Dependence across the lens.) Let Ω_L, t and δ1 be as in the proof of
 [[thm:loc-bent-slice]] (c), and let (g, u_A, q_A) be the development constructed there. Let 3.3 × 10⁻⁴ < α < π/2, and
@@ -273,100 +359,104 @@ same holds, for 0 < β < π/2 − 3.3 × 10⁻⁴, with ϑ > β and ϑ > β + 3.
 
 *Proof.* We prove the first statement; the second is proved in the same way, with axis 1 in place of axis 2.
 
-*Notation.* By [[thm:class-stability]] the development solves [[eq:class-system]] on Ω_L in the gauge D(g) = 0 relative
-to g0, and its norm 𝒩_k of [[eq:class-energy]] is at most Cε. Fix k ≥ 6 and apply that theorem with k + 2 in place of
-k: the data are ε-close in C^∞, and by its uniqueness the development is the same. Let u_in be the development's phase
-of the ingoing family, with the sign of [[sec:class-augmented]], so that P := g⁻¹p, p := du_in, is future directed;
-put v_in := −u_in, Θ := □_g u_in and let q be the ingoing density. Then v_in = v̂ on Σ′, by (b), and the derivatives of
-v_in − v̂ of order at most k − 1 are at most Cε on Ω_L. For the background write ů_in := −v̂, p̊, P̊, Θ̊ and q̊. Put
-M := 0.0011596, t1 := M/(δ1 + M), W := 1.015 (δ1 + M)/3.5756 (3.5756 = 3.5 × 1.0216), α′ := α − 4 × 10⁻⁷,
-c_a := τ0 + 3.44, c_b := τ0 + 5.85, λ := 0.05, and
+*Notation.* By [[thm:class-stability]] the development solves [[eq:class-system]] on its adapted domain Ω_U, which
+agrees with Ω_L on {0.8 ≤ R ≤ 5.9} (proof of [[thm:loc-bent-slice]] (c)), in the gauge D(g) = 0 relative to g0, and its
+norm 𝒩_k of [[eq:class-energy]] is at most Cε. Fix k ≥ 6 and apply that theorem with k + 2 in place of k: the data are
+ε-close in C^∞, and by its uniqueness the development is the same. Let u_in be the development's phase of the ingoing
+family, with the sign of [[sec:class-augmented]], so that P := g⁻¹p, p := du_in, is future directed; put v_in := −u_in,
+Θ := □_g u_in and let q_in be the ingoing density. Then v_in = v̂ on Σ′, by (b), and the derivatives of v_in − v̂ of
+order at most k − 1 are at most Cε on Ω_U. For the background write ů_in := −v̂, p̊, P̊, Θ̊ and q̊_in. Put
+τ_L := 0.0011596, the bound on the τ-depth of the lens in [[thm:loc-bent-slice]] (a), t1 := τ_L/(δ1 + τ_L), W := 1.015
+(δ1 + τ_L)/3.5756 (3.5756 = 3.5 × 1.0216), α′ := α − 4 × 10⁻⁷, c_a := τ0 + 3.44, c_b := τ0 + 5.85, c_v := 0.05, and
 
-    𝒟 := {y ∈ Ω_L : t ≤ t1, ϑ ≤ α′ − W t, c_a + λ t ≤ v_in ≤ c_b − λ t}.                       {#eq:loc-lens-region}
+    𝒟 := {y ∈ Ω_U : t ≤ t1, ϑ ≤ α′ − W t, c_a + c_v t ≤ v_in ≤ c_b − c_v t}.                   {#eq:loc-lens-region}
 
-Then W t1 = 1.015 M/3.5756 ≤ 3.2918 × 10⁻⁴, and on 𝒟, ϑ ≤ α′ < π/2 and on its angular face ϑ ≥ α − 3.2958 × 10⁻⁴ > 0.
+Then W t1 = 1.015 τ_L/3.5756 ≤ 3.2918 × 10⁻⁴, and on 𝒟, ϑ ≤ α′ < π/2 and on its angular face ϑ ≥ α − 3.2958 × 10⁻⁴ > 0.
 
-(1) *Where 𝒟 lies.* On Ω_L, τ = τ0 + (1 − t)φ(R) + tδ1 and −M ≤ φ ≤ 0 ([[prop:margins-bend]] (b)); so on 𝒟,
-−M ≤ τ − τ0 ≤ tδ1 ≤ t1δ1 < M, and as |v_in − v̂| ≤ Cε, R = v̂ − τ satisfies
+(1) *Where 𝒟 lies.* By the definition of t, τ = τ0 + (1 − t)φ(R) + tδ1 and −τ_L ≤ φ ≤ 0 ([[prop:margins-bend]] (b)); so
+on 𝒟, −τ_L ≤ τ − τ0 ≤ tδ1 ≤ t1δ1 < τ_L, and as |v_in − v̂| ≤ Cε, R = v̂ − τ satisfies
 
-    3.44 + t(λ − δ1) − Cε ≤ R ≤ 5.85 + M + Cε < 5.86.
+    3.44 + t(c_v − δ1) − Cε ≤ R ≤ 5.85 + τ_L + Cε < 5.86.
 
 Every point of 𝒟 lies in region I. Where τ ≤ τ0 this is [[lem:margins-region-one]] (c), as R ≥ 3.4399 > R_*. Where
 τ > τ0, the ray u = 5.7 is {τ = τ_ray(R)} with dτ_ray/dR = 2/f − 1 ≥ 1 ([[lem:margins-region-one]] (b), (c), its time
-v̂ ≤ τ0 + M + 3.4384 < v̂(v = 3) there), so it meets the slice {τ = const} at a radius at most R_* + (τ − τ0), which is
-at most 3.43719 + tδ1 < 3.44 + t(λ − δ1) − Cε, since λ ≥ 2δ1; and u decreases strictly in R along that slice (proof of
-[[cor:class-two-dust]]), so u < 5.7 at the points of 𝒟. Hence on 𝒟, by [[lem:margins-region-one]] (a),
+v̂ ≤ τ0 + τ_L + 3.4384 < v̂(v = 3) there), so it meets the slice {τ = const} at a radius at most R_* + (τ − τ0), which
+is at most 3.43719 + tδ1 < 3.44 + t(c_v − δ1) − Cε, since c_v ≥ 2δ1; and u decreases strictly in R along that slice
+(proof of [[cor:class-two-dust]]), so u < 5.7 at the points of 𝒟. Hence on 𝒟, by [[lem:margins-region-one]] (a),
 
     g0 = −f dτ² + 2(1 − f) dτ dR + (2 − f) dR² + R² dΩ₃²,      f = 1 − μ/R²,      3/2 ≤ μ ≤ 3.6059,
 
-so 0.69 < f ≤ 1 − 1.5/5.86² ≤ 0.95632; the inverse has g0^(ττ) = −(2 − f), g0^(τR) = 1 − f, g0^(RR) = f,
-g0^(ϑϑ) = R⁻² and no other entry pairing dϑ with dτ or dR. The background's outgoing density vanishes on 𝒟, as ℬ = 0
-in region I. 𝒟 lies in the interior of Ω_L, since R > 0.70, v̂ + τ = 2τ + R < 2τ0 + 6 and t1 < 1. On 𝒟 the coordinate
-field ∂_t of the chart (t, x) is (δ1 − φ)∂_τ, with g0(∂_τ, ∂_τ) = −f < 0 and dτ(∂_τ) = 1: it is future timelike, for g
-as well when ε is small.
+so 0.69 < f ≤ 1 − 1.5/5.86² ≤ 0.95632; the inverse has g0^(ττ) = −(2 − f), g0^(τR) = 1 − f, g0^(RR) = f, g0^(ϑϑ) = R⁻²
+and no other entry pairing dϑ with dτ or dR. The background's outgoing density vanishes on 𝒟, as ℬ = 0 in region I. 𝒟
+lies in the interior of Ω_L, since R > 0.70, v̂ + τ = 2τ + R < 2τ0 + 6 and t1 < 1, and so in the interior of Ω_U, as
+0.8 < R < 5.9 on 𝒟. On 𝒟 the coordinate field ∂_t of the chart (t, x) is (δ1 − φ)∂_τ, with g0(∂_τ, ∂_τ) = −f < 0 and
+dτ(∂_τ) = 1: it is future timelike, for g as well when ε is small.
 
 A point y of the lens with ϑ(y) < α − 3.3 × 10⁻⁴ lies in 𝒟. Indeed τ(y) ≤ τ0 gives t(y) ≤ |φ|/(δ1 + |φ|) ≤ t1, so
-ϑ(y) < α′ − 3.2958 × 10⁻⁴ ≤ α′ − W t(y); and v̂(y) = τ + R lies in [τ0 + 3.5 − M, τ0 + 5.75], so c_a + λ t(y) ≤ τ0 +
-3.49 < v_in(y) < τ0 + 5.8 ≤ c_b − λ t(y) for ε small.
+ϑ(y) < α′ − 3.2958 × 10⁻⁴ ≤ α′ − W t(y); and v̂(y) = τ + R lies in [τ0 + 3.5 − τ_L, τ0 + 5.75], so c_a + c_v t(y) ≤ τ0 +
+3.49 < v_in(y) < τ0 + 5.8 ≤ c_b − c_v t(y) for ε small.
 
-(2) *The lateral faces.* 𝒟 = {y ∈ Ω_L : t ≤ t1, F_1 ≤ 0, F_2 ≤ 0, F_3 ≤ 0} with F_1 := ϑ + W t − α′, F_2 := c_a + λ t −
-v_in and F_3 := v_in + λ t − c_b. We show that at the points of 𝒟 each dF_i is timelike for g and positive on the
+(2) *The lateral faces.* 𝒟 = {y ∈ Ω_U : t ≤ t1, F_1 ≤ 0, F_2 ≤ 0, F_3 ≤ 0} with F_1 := ϑ + W t − α′, F_2 := c_a + c_v t −
+v_in and F_3 := v_in + c_v t − c_b. We show that at the points of 𝒟 each dF_i is timelike for g and positive on the
 nonzero future causal vectors of g. A covector positive on these is timelike: otherwise its kernel would contain a
-nonzero causal vector. As in the proof of [[thm:loc-bent-slice]] (c), dt = η/(δ1 − φ) with η := dτ − κ dR,
-κ := (1 − t)φ′, |κ| ≤ 0.0021370 ([[prop:margins-bend]] (c)), δ1 − φ ≤ δ1 + M ≤ 0.0111596, and
+nonzero causal vector. As in the proof of [[thm:loc-bent-slice]] (c), dt = η/(δ1 − φ) with η := dτ − κ_L dR,
+κ_L := (1 − t)φ′, |κ_L| ≤ 0.0021370 ([[prop:margins-bend]] (c)), δ1 − φ ≤ δ1 + τ_L ≤ 0.0111596, and
 
-    −g0⁻¹(η, η) = (2 − f) + 2κ(1 − f) − κ²f ≥ 1.0216²:
+    −g0⁻¹(η, η) = (2 − f) + 2κ_L(1 − f) − κ_L² f ≥ 1.0216²:
 
 where φ′ ≠ 0, so 3.5 < R < 5.75, the left side is at least 1 + 1.5/5.75² − 2 × 0.002137 × 3.6059/3.5² − 0.002137² ≥
 1.04410; elsewhere it is 2 − f = 1 + μ/R² ≥ 1 + 1.5/5.86² ≥ 1.04368; and 1.0216² ≤ 1.04367. A nonzero future causal
 vector Y of g0 has τ̇ := dτ(Y) > 0 and x := dR(Y)/τ̇ between the roots −1 and f/(2 − f) of (2 − f)x² + 2(1 − f)x − f,
-so that η(Y) = τ̇(1 − κx) ≥ (1 − |κ|)τ̇ and dv̂(Y) = (1 + x)τ̇ ≤ 2τ̇/(2 − f).
+so that η(Y) = τ̇(1 − κ_L x) ≥ (1 − |κ_L|)τ̇ and dv̂(Y) = (1 + x)τ̇ ≤ 2τ̇/(2 − f).
 
 For F_1: since g0⁻¹(dϑ, dϑ) = R⁻² and g0⁻¹(dϑ, η) = 0,
 
     g0⁻¹(dF_1, dF_1) = R⁻² + (W/(δ1 − φ))² g0⁻¹(η, η) ≤ R⁻² − (1.0216 W/(δ1 − φ))².
 
-Where R ≥ 3.5, 1.0216 W/(δ1 − φ) ≥ 1.015/3.5 ≥ 1.015/R; where R < 3.5, φ = 0 and 1.0216 W/δ1 = 1.015 (1 + M/δ1)/3.5 ≥
-0.3236 ≥ 1.1/R, as δ1 ≤ 0.01 and R ≥ 3.43. So g0⁻¹(dF_1, dF_1) ≤ −0.03 R⁻², and dF_1(∂_t) = W > 0. For F_2: dv̂(Y) ≤
-1.9164 τ̇ ≤ 1.9205 η(Y), while λ dt(Y) = λ η(Y)/(δ1 − φ) ≥ 4.48 η(Y); so (λ dt − dv̂)(Y) ≥ 2.5 η(Y) > 0. These bounds
-for F_1 and F_2 are strict, uniformly on the compact 𝒟, and g − g0 and dv_in − dv̂ are at most Cε there; so for ε small
-they hold for g and v_in. For F_3: dF_3 = dv_in + λ dt, where dv_in is null for g and dv_in(Y) = −g(P, Y) ≥ 0 for future
-causal Y; so dF_3 is positive on the nonzero future causal vectors, dt being so.
+Where R ≥ 3.5, 1.0216 W/(δ1 − φ) ≥ 1.015/3.5 ≥ 1.015/R; where R < 3.5, φ = 0 and 1.0216 W/δ1 = 1.015
+(1 + τ_L/δ1)/3.5 ≥ 0.3236 ≥ 1.1/R, as δ1 ≤ 0.01 and R ≥ 3.43. So g0⁻¹(dF_1, dF_1) ≤ −0.03 R⁻², and dF_1(∂_t) = W > 0.
+For F_2: dv̂(Y) ≤ 1.9163 τ̇ ≤ 1.9205 η(Y), while c_v dt(Y) = c_v η(Y)/(δ1 − φ) ≥ 4.48 η(Y); so (c_v dt − dv̂)(Y) ≥ 2.5
+η(Y) > 0. These bounds for F_1 and F_2 are strict, uniformly on the compact 𝒟, and g − g0 and dv_in − dv̂ are at most Cε
+there; so for ε small they hold for g and v_in. For F_3: dF_3 = dv_in + c_v dt, where dv_in is null for g and
+dv_in(Y) = −g(P, Y) ≥ 0 for future causal Y; so dF_3 is positive on the nonzero future causal vectors, dt being so.
 
 Consequently a past directed causal curve γ of g that starts in 𝒟 stays in 𝒟 while t > 0. Let y = γ(s*) be its last
 point with γ([0, s*]) ⊂ 𝒟, and suppose t(y) > 0. Along γ, t decreases, so t ≤ t1 continues to hold; the F_i negative
 at y stay negative near s*; and each F_i with F_i(y) = 0 has derivative dF_i(γ̇) < 0 there, γ̇ being past directed.
-So γ(s) ∈ 𝒟 for s a little beyond s* (𝒟 lying in the interior of Ω_L), against the choice of s*.
+So γ(s) ∈ 𝒟 for s a little beyond s* (𝒟 lying in the interior of Ω_U), against the choice of s*.
 
 (3) *Only the ingoing family carries dust in 𝒟.* The background has no further families, and its outgoing density
 vanishes on 𝒟 by (1). For the development, let A be the outgoing family or a further one and y ∈ 𝒟. The integral curve
 of P_A through y, followed to the past, is a past directed causal curve of g along which t decreases at a rate bounded
-below on the compact Ω_L; by (2) it stays in 𝒟 until it reaches a point y0 of 𝒟 ∩ Σ′. On Σ′, v̂ = τ0 + R + φ(R)
+below on the compact 𝒟; by (2) it stays in 𝒟 until it reaches a point y0 of 𝒟 ∩ Σ′. On Σ′, v̂ = τ0 + R + φ(R)
 increases with R and equals c_a at R = 3.44 and c_b at R = 5.85, where φ = 0; so y0 has 3.44 ≤ R ≤ 5.85 and ϑ ≤ α′ < α,
 and q_A(y0) is the background's, 0. The conservation law of [[eq:class-system]] reads P_A(q_A) = −(□_g u_A) q_A, a
 linear ordinary differential equation along the curve; so q_A(y) = 0. On 𝒟 the stress of either solution is therefore
 that of its ingoing family alone.
 
-(4) *The equations compared.* On 𝒟 both (g, u_in, q) and (g0, ů_in, q̊) satisfy, by [[eq:class-system]], the gauge
+(4) *The equations compared.* On 𝒟 both (g, u_in, q_in) and (g0, ů_in, q̊_in) satisfy, by [[eq:class-system]], the gauge
 condition and (3):
 
-(i) Ric^H(g) = q p ⊗ p, Ric^H the reduced Ricci tensor relative to g0 ([[eq:gauge]]);
+(i) Ric^H(g) = q_in p ⊗ p, Ric^H the reduced Ricci tensor relative to g0 ([[eq:gauge]]);
 (ii) P^b ∂_b p_a = P^b Γ[g]^c_ba p_c, as ∇_P p = ½ d g⁻¹(p, p) = 0;
-(iii) P(Θ) = −|∇²u_in|²_g, which is [[eq:class-raychaudhuri]] with Ric(P, P) = q g⁻¹(p, p)² = 0;
-(iv) P(q) = −Θ q.
+(iii) P(Θ) = −|∇²u_in|²_g, which is [[eq:class-raychaudhuri]] with Ric(P, P) = q_in g⁻¹(p, p)² = 0;
+(iv) P(q_in) = −Θ q_in.
 
 In (iii), by [[eq:class-identity]], |∇²u_in|² = S_loc := (Θ − κ1 − κ2)² + κ1² + κ2² off the axes, and by
 [[eq:class-x]] and continuity ([[prop:class-axis]] (d)), |∇²u_in|² = S_ax := κ1² + ½(Θ − κ1)² + ½σ² near axis 2,
-where σ is the planar shear of the level sets of u_in in the slices {t = s}. Fix δ := 1/2 and the points p_i of axis 2
-in a slice with ρ1(p_i) = 3.4, 3.8, …, 5.8; then δ ≤ ρ1(p_i)/4, and [[lem:class-leaf-differences]], for the background
-and the ingoing family, holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
-0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then on 𝒟,
+where σ is the planar shear of the level sets of u_in in the slices {t = s}. At the points p of axis 2 in these slices
+with 3.39 ≤ ρ1(p) ≤ 5.86, 0 ≤ s ≤ t1, take the radius r_* := 1/2 ≤ ρ1(p)/4 in [[lem:class-leaf-differences]], for the
+background and the ingoing family; its number δ_0, its balls and its constants depend only on ρ1(p), r_* and bounds of
+the background on the sets 𝒰_(r_*)(p), which are uniform over these points and times. Fix δ ∈ (0, 1/8], at most δ_0 at
+all of them, and finitely many such points p_i whose intervals (ρ1(p_i) − δ, ρ1(p_i) + δ) cover [3.39, 5.86]; then
+[[lem:class-leaf-differences]] holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
+0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ δ/2 and to 0 for ρ2 ≥ δ. Then on 𝒟,
 the square |∇²u_in|² is χ_Z S_ax + (1 − χ_Z) S_loc. Where χ_Z ≠ 1, S_loc is a smooth function of (g, ∂g, p, Θ),
 since there g(K2, K2) ≥ c and, ϑ ≤ α′ < π/2 on 𝒟, g(K1, K1) ≥ c(α′) > 0 (proof of [[prop:class-augmented]] (a));
 where χ_Z ≠ 0, S_ax is a smooth function of (g, ∂g, p, Θ, σ), κ1 being smooth near axis 2.
 
-Put w := g − g0 and 𝔡 := (w, ∂_t w, ∂_x w, p − p̊, Θ − Θ̊, q − q̊). Write (i) in the first-order form of Step 9 of the
-proof of [[thm:class-stability-off-axes]], in the chart (t, x), with the difference of the principal parts taken as
+Put w := g − g0 and 𝔡 := (w, ∂_t w, ∂_x w, p − p̊, Θ − Θ̊, q_in − q̊_in). Write (i) in the first-order form of Step 9 of
+the proof of [[thm:class-stability-off-axes]], in the chart (t, x), with the difference of the principal parts taken as
 in Step 4 there, ½(g^(ab) − g0^(ab)) ∂_a ∂_b g0, and (ii)–(iv) as transports along P. Subtracting the background's
 equations from the development's gives on 𝒟 a linear system 𝐀^0 ∂_t 𝔡 + 𝐀^j ∂_j 𝔡 = F_𝔡, with 𝐀^0 = diag(1, −g^(tt),
 g^(ab)) on the wave block and P^t on the transports, 𝐀^j its other matrices, all symmetric and evaluated at the
@@ -396,19 +486,19 @@ r = 0, so |h′(r)| = |∂_r v_in/∂_z v_in| ≤ r sup |∂_r² v_in|/0.97 ≤ 
 {(h(r), r) : 0 ≤ r ≤ ρ2(y)}, with its images under G, lies in 𝒟_s.
 
 *An extension.* The map Φ_s(x) := (v_in(s, x), x/|x|) is a G-equivariant diffeomorphism of a neighbourhood of 𝒟_s onto
-its image in R × S³, under which 𝒟_s is [c_a + λs, c_b − λs] × {ϑ ≤ α′ − Ws}; at s = 0, v_in = v̂. Let A_s be the
-affine map of [c_a, c_b] onto [c_a + λs, c_b − λs], and m_s the flow on S³, for the time Ws, of a G-invariant vector
-field equal to −∂_ϑ on {α′ − W t1 ≤ ϑ ≤ α′} and to 0 near the axes. Then ψ_s := Φ_s⁻¹ ∘ (A_s × m_s) ∘ Φ_0 is a
-G-equivariant diffeomorphism near 𝒟_0, C¹-close to the identity, with ψ_s(𝒟_0) = 𝒟_s, whose derivatives of order at
-most k − 1, and those of its inverse, are bounded independently of s and of ε by the bound on v_in − v̂; we extend it
-to a diffeomorphism of R⁴ equal to the identity outside a compact set. 𝒟_0 = Σ′ ∩ {3.44 ≤ R ≤ 5.85, ϑ ≤ α′} is a
-bounded Lipschitz domain of the x-space. Let E be its extension operator of [[thm:std-sy-extension]] and 𝔼_s f the
-average over G of (E(f ∘ ψ_s)) ∘ ψ_s⁻¹. By [[thm:std-sy-extension]] and [[thm:std-ly-extension]] (Lemma 27 there),
-𝔼_s is bounded on L² and on H^(k−1), the norms of the compositions depending only on bounds for the derivatives of
-ψ_s and ψ_s⁻¹ (chain rule and change of variables, as in the proof of [[thm:class-kato]] (b) (ii)); so its bound C_E
-depends on α but not on s or ε. And 𝔼_s f = f on 𝒟_s for invariant f, 𝒟_s being invariant.
+its image in R × S³, under which 𝒟_s is [c_a + c_v s, c_b − c_v s] × {ϑ ≤ α′ − Ws}; at s = 0, v_in = v̂. Let A_s be the
+affine map of [c_a, c_b] onto [c_a + c_v s, c_b − c_v s], and m_s the flow on S³, for the time Ws, of a G-invariant
+vector field equal to −∂_ϑ on {α′ − W t1 ≤ ϑ ≤ α′} and to 0 near the axes. Then ψ_s := Φ_s⁻¹ ∘ (A_s × m_s) ∘ Φ_0 is a
+G-equivariant diffeomorphism near 𝒟_0, C¹-close to the identity, with ψ_s(𝒟_0) = 𝒟_s, whose derivatives of order at most
+k − 1, and those of its inverse, are bounded independently of s and of ε by the bound on v_in − v̂; we extend it to a
+diffeomorphism of R⁴ equal to the identity outside a compact set. 𝒟_0 = Σ′ ∩ {3.44 ≤ R ≤ 5.85, ϑ ≤ α′} is a bounded
+Lipschitz domain of the x-space. Let E be its extension operator of [[thm:std-sy-extension]] and 𝔼_s f the average over
+G of (E(f ∘ ψ_s)) ∘ ψ_s⁻¹. By [[thm:std-sy-extension]] and [[thm:std-ly-extension]] (Lemma 27 there), 𝔼_s is bounded on
+L² and on H^(k−1), the norms of the compositions depending only on bounds for the derivatives of ψ_s and ψ_s⁻¹ (chain
+rule and change of variables, as in the proof of [[thm:class-kato]] (b) (ii)); so its bound C_E depends on α but not on
+s or ε. And 𝔼_s f = f on 𝒟_s for invariant f, 𝒟_s being invariant.
 
-*The bound.* Let U be the development's state (g, ∂g, p, Θ, q) on 𝒟_s, with Θ = □_g u_in, ů the background's state on
+*The bound.* Let U be the development's state (g, ∂g, p, Θ, q_in) on 𝒟_s, with Θ = □_g u_in, ů the background's state on
 the slice, which the background defines on the sets 𝒰_2δ(p_i) as well, and Ŭ := ů + 𝔼_s 𝔡(s). Then Ŭ = U on 𝒟_s, and
 the distance of Ŭ from ů in the norm 𝒩_(k−1) is at most C_E ‖𝔡(s)‖_(H^(k−1)(𝒟_s)) ≤ C_E C ε; so Ŭ lies in the ball 𝔅′
 of [[lem:class-leaf-differences]] for ε small, depending also on α. Let y ∈ 𝒟_s with ρ2(y) ≤ 1/4 and let h be the
@@ -418,8 +508,8 @@ for U on [0, ρ2(y)] ([[lem:class-leaf]] (c)). That equation uses U only along t
 ∂g; so h solves it for Ŭ, and by the uniqueness in [[lem:class-volterra]] the leaf of Ŭ issued from (h(0), 0) is h on
 [0, ρ2(y)]: it is the leaf of Ŭ through y. The planar shear at y is determined by h and h′ at ρ2(y), by H_L there,
 which fixes h″ through the leaf equation, and by the values of Ŭ = U and the 1-jet of γ3 at y
-([[eq:class-shear-leaf]]); so σ[Ŭ](y) = σ(y), and likewise σ[ů] = σ̊. The sets 𝒰_δ(p_i) cover {ρ2 ≤ 1/4} ∩ 𝒟_s, where
-3.39 ≤ ρ1 ≤ 5.86, and [[lem:class-leaf-differences]] (b) gives
+([[eq:class-shear-leaf]]); so σ[Ŭ](y) = σ(y), and likewise σ[ů] = σ̊. The sets 𝒰_δ(p_i) cover {ρ2 < δ} ∩ 𝒟_s, where
+3.39 ≤ ρ1 ≤ 5.86 and outside which χ_Z = 0, and [[lem:class-leaf-differences]] (b) gives
 
     ‖χ_Z (σ − σ̊)‖_(L²(𝒟_s)) ≤ Σ_i ‖σ[Ŭ] − σ[ů]‖_(L²(𝒰_δ(p_i))) ≤ C Σ_i ‖Ŭ − ů‖_(L²(𝒰_2δ(p_i)))
                               ≤ C C_E ‖𝔡(s)‖_(L²(𝒟_s)),
@@ -441,7 +531,7 @@ integral. e(0) = 0 by (5). By the bound on F_𝔡 in (4) and by [[eq:loc-lens-sh
 C ∫_0^s ‖𝔡(s′)‖²_(L²(𝒟_s′)) ds′ ≤ (C/c0) ∫_0^s e. By Gronwall's inequality e = 0, so 𝔡 = 0 on 𝒟. With (1) and (3) this
 is the first statement.
 
-For the second, use 𝒟 := {y ∈ Ω_L : t ≤ t1, ϑ ≥ β + 4 × 10⁻⁷ + W t, c_a + λ t ≤ v_in ≤ c_b − λ t}, the face function
+For the second, use 𝒟 := {y ∈ Ω_U : t ≤ t1, ϑ ≥ β + 4 × 10⁻⁷ + W t, c_a + c_v t ≤ v_in ≤ c_b − c_v t}, the face function
 β + 4 × 10⁻⁷ + W t − ϑ, whose differential has the norm and the sign of dF_1, axis 1 in place of axis 2, the
 coordinates (ρ2, x1, x2) of M3 := {t = s, φ2 = 0}, and the results of [[sec:class-planar-shear]] at axis 1, where they
 hold with the two planes exchanged and the same proofs. ∎
@@ -520,14 +610,5167 @@ with ϑ ∉ [ϑ_a, ϑ_b] all free data agree with the background's on a neighbou
 equations are the background's there, and with the same initial values at the corner sphere both solutions are the
 background's by uniqueness. ∎
 
-When these cone data carry no dust, their vacuum development near the two cones exists by [CTG23, Theorem 1.1]
-([[thm:std-ctg-neighbourhood]]): this is the case when v_1 < 3, so that 𝒞_out ∩ {v ≤ v_1} lies before the shell, the
-dust densities are left zero there, and 𝒞_in is taken only on u < 5.7, before the packet; both cones then carry
-vacuum data of Tangherlini's metric of mass 3/2 outside the band, and the two cones meet transversally in the corner
-sphere. [CTG23, Theorem 1.1] concerns vacuum data only. For cone data that carry dust, among them every perturbation
-of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2} and every density added in the band,
-no development is asserted here: [[prop:loc-cones]] gives the cone data only, and no result of this paper uses their
-development.
+**Lemma {#lem:loc-cone-in}** (Exact localisation on the ingoing cone.) On the ingoing cone 𝒞_in = {v = 0} take b = 0,
+write γ_ϑ = e^(2ϕ + 2ℓ_1), A_c = ϕ + ℓ_2, A_s = ϕ + ℓ_3 with ℓ_1 + ℓ_2 + ℓ_3 = 0, keep Ω the background's, and let the
+free data (ℓ_1, ℓ_2, ℓ_3) and the outgoing density q_out on 𝒞_in equal the background's outside a compact subset of a
+band {ϑ_a < ϑ < ϑ_b} × [0, u_1], the values of ϕ and ∂_uϕ at u = 0 being the background's. Then on 𝒞_in
+
+    Ric(∂_u, ∂_u) = Σ_(i=1)^3 (−∂_u²ϰ_i − (∂_uϰ_i)² + 2 ∂_u ln Ω ∂_uϰ_i),                       {#eq:loc-cone-in}
+
+so the constraint Ric(∂_u, ∂_u) = T(∂_u, ∂_u) on 𝒞_in determines ϕ on every generator on which e^ϕ stays positive,
+and the resulting data equal the background's on every generator with ϑ ∉ [ϑ_a, ϑ_b]. No smallness is used for the
+localisation; for small perturbations e^ϕ stays positive on [0, u_1]. The component Ric(∂_u, ∂_ϑ) = T(∂_u, ∂_ϑ) = 0
+on 𝒞_in contains the derivative ∂_v b across 𝒞_in: it is a linear transport equation for ∂_v b along the generators,
+and it places no condition on these data ([[lem:loc-cone-ricci]] (a)).
+
+*Proof.* On 𝒞_in, b = 0, so ∂_u b = ∂_ϑ b = 0 there, and g(∂_u, ∂_u) = γ_ϑ b² and g(∂_u, ∂_ϑ) = −γ_ϑ b vanish there. So
+∂_u is null and orthogonal to ∂_u, ∂_ϑ, ∂_(φ1), ∂_(φ2) along 𝒞_in: it is the null normal of 𝒞_in, and the sections {u =
+const} of 𝒞_in carry γ_ϑ dϑ² + e^(2A_c) dφ1² + e^(2A_s) dφ2². With the inverse metric of the proof of
+[[lem:loc-cone-equations]], Γ^u_(uu) = ½ g^(uv)(2∂_u g_(uv) − ∂_v g_(uu)) = 2∂_u ln Ω + ∂_v(γ_ϑ b²)/(4Ω²), and ∂_v(γ_ϑ
+b²) = b (2γ_ϑ ∂_v b + b ∂_vγ_ϑ) = 0 on 𝒞_in; Γ^v_(uu) = ½ g^(vu) ∂_u(γ_ϑ b²) + ½ g^(vϑ)(2∂_u g_(ϑu) − ∂_ϑ g_(uu)) and
+Γ^ϑ_(uu) = ½ g^(ϑv)(2∂_u g_(vu) − ∂_v g_(uu)) + ½ γ_ϑ⁻¹(−2∂_u(γ_ϑ b) − ∂_ϑ(γ_ϑ b²)) vanish there, since g^(vϑ) =
+−b/(2Ω²); and Γ^(φi)_(uu) = 0. So ∇_(∂_u)∂_u = 2∂_u ln Ω ∂_u on 𝒞_in. The field ∂_u commutes with ∂_ϑ, ∂_(φ1), ∂_(φ2), so
+for X, Y among these g(∇_X ∂_u, Y) = −g(∂_u, ∇_X Y) on 𝒞_in is symmetric in X and Y, and the null second fundamental form
+of the sections along ∂_u is half the u-derivative of their metric, with eigenvalues ∂_uϰ_i. The Raychaudhuri equation
+along ∂_u is [[eq:loc-cone-in]], as in the proof of [[lem:loc-cone-equations]]. With y := e^ϕ, T(∂_u, ∂_u) = q_out and
+(ln Ω)′ = 0 on 𝒞_in (there e^(2σ) = 1/2), it reads y″ + (1/3)(Σ_i (ℓ_i′)² + q_out) y = 0, ′ = ∂_u, and the proof of
+[[prop:loc-cones]] applies with u in place of v. ∎
+
+On the corner sphere S = 𝒞_out ∩ 𝒞_in the two cones must induce one metric, γ_ϑ dϑ² + e^(2A_c) dφ1² + e^(2A_s) dφ2²; as ϕ
+is the background's on S on both cones, this holds exactly when the free data of [[prop:loc-cones]] at v = 0 and those of
+[[lem:loc-cone-in]] at u = 0 agree; nothing else is required at S, the density q_in being free on 𝒞_out and q_out on
+𝒞_in. Near the background's data, and with the band away from the axes, these cone data have a development.
+
+**Theorem {#thm:loc-cone-development}** (Development of cone data localised in angle.) Let u_1, v_1 > 0 be such that R >
+a on the segments 𝒞_out ∩ {v ≤ v_1} and 𝒞_in ∩ {u ≤ u_1}, a = q0 − δ0 = 0.70 the inner radius of [[sec:domain]]
+([[sec:loc-setting]]), let R_min be the least value of R on them and C_0 := 2√2/R_min. Let 0 < ϑ_a < ϑ_b < π/2, η :=
+(1/4) min(ϑ_a, π/2 − ϑ_b), k ≥ 6 an integer and m := 6k + 21. Take free data (ℓ_1, ℓ_2, ℓ_3) and q_in ≥ 0 on 𝒞_out ∩ {v ≤
+v_1} as in [[prop:loc-cones]], and (ℓ_1, ℓ_2, ℓ_3) and q_out ≥ 0 on 𝒞_in ∩ {u ≤ u_1} as in [[lem:loc-cone-in]], the two
+sets of free data agreeing on S. Let them be smooth and equal to the background's outside compact sets K_out ⊂ [0, v_1) ×
+(ϑ_a, ϑ_b) and K_in ⊂ [0, u_1) × (ϑ_a, ϑ_b) of the coordinates (v, ϑ) and (u, ϑ), and let ε be the largest absolute value
+of a derivative of order at most m of their differences from the background's. Let [ϑ_a′, ϑ_b′] be the least interval
+that contains the angles of the points of K_out ∪ K_in, u_K the least u on K_in and v_K the least v on K_out (u_K := u_1
+if K_in is empty, v_K := v_1 if K_out is). There is δ_* > 0, depending only on the background, u_1, v_1 and the band, and
+there are ε_0, C, ε_2 > 0, depending also on k, such that for ε ≤ ε_0, with
+
+    G_* := {(u, v) : 0 ≤ u ≤ u_1, 0 ≤ v ≤ v_1, uv ≤ δ_*²},                                          {#eq:loc-cone-domain}
+
+the following hold.
+
+(a) *Existence.* The factors e^ϕ of [[prop:loc-cones]] and [[lem:loc-cone-in]] stay positive, and there is a smooth class
+solution of [[eq:class-system]] on G_* × S³ with two families, an ingoing one with phase v and density q_in and an
+outgoing one with phase u and density q_out, so that Ric(g) = q_in dv ⊗ dv + q_out du ⊗ du, whose metric has the form
+[[eq:loc-double-null]] in the coordinates (u, v, ϑ, φ1, φ2), and which induces on 𝒞_out the functions Ω, γ_ϑ, b, A_c,
+A_s and q_in of [[prop:loc-cones]] and on 𝒞_in those of [[lem:loc-cone-in]], with b = 0. G_* contains the strips
+{u ≤ δ_*²/v_1} and {v ≤ δ_*²/u_1} of the rectangle [0, u_1] × [0, v_1], a future neighbourhood of both cones.
+
+(b) *Localisation.* The solution equals the background at the points of G_* × S³ with ϑ < ϑ_a′ − η/4 − 2C_0 (uv)^(1/2) or
+ϑ > ϑ_b′ + η/4 + 2C_0 (uv)^(1/2), and at those with u < u_K and v < v_K (that clause being empty when u_K = 0 or v_K =
+0). In particular it equals the background where ϑ ≤ ϑ_a − η or ϑ ≥ ϑ_b + η.
+
+(c) *Estimate.* At the points of G_* × S³ with η ≤ ϑ ≤ π/2 − η the functions ln Ω, ½ ln γ_ϑ, b, A_c, A_s, q_in and
+q_out differ from the background's by at most Cε, together with their derivatives of order at most k − 4.
+
+(d) *Uniqueness.* Let a second smooth class solution of the same kind be given on G_* × S³, with the metric in the form
+[[eq:loc-double-null]] in its coordinates (u, v, ϑ, φ1, φ2), inducing the same data, whose functions of (c) differ from
+the background's by at most ε_2, together with their derivatives of order at most k, at the points with 2η ≤ ϑ ≤
+π/2 − 2η. Then it equals the solution of (a) at the points with 3η ≤ ϑ ≤ π/2 − 3η. If moreover it equals the
+background at the points of G_* × S³ with ϑ < 3η or ϑ > π/2 − 3η, it equals the solution of (a) on G_* × S³.
+
+Data with q_in = 0 and q_out = 0 are vacuum data, and their development is vacuum, the densities being transported. The
+theorem is proved in [[sec:loc-cone-proof]]. For the background of [[sec:bg-data]], R ≥ 5 on 𝒞_out and R > 1.5 on
+𝒞_in ∩ {u ≤ 7.2} ([[lem:loc-cone-strips]] (c)); so u_1 = 7.2 and every v_1 > 0 are admissible, and with v_1 = 4.5 the
+data may perturb the shell on 𝒞_out ∩ {3 < v < 4.5} and the packet on 𝒞_in ∩ {5.7 < u < 7.2} at once.
+
+**Remark {#rem:loc-cone-scope}** (What [[thm:loc-cone-development]] does not give.) (i) *Smallness.* The data must be
+near the background's. For cone data that carry dust and are not small the theorem asserts nothing; [[thm:civp-large]]
+develops them on a neighbourhood that depends on the data. For vacuum data of any size [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]) gives a development near the two cones, with neither uniqueness in the gauge nor
+localisation. (ii) *The axes.* The band avoids the axes, and by (b) so does the perturbation in the development. The
+proof uses the augmented system of [[sec:class-augmented]] only where it is local, off the axes; the dusts of the
+background, which reach the axes, are carried there by the background itself. For data whose perturbation reaches an
+axis this proof fails: at an axis the augmented system is not local, and its Cauchy theory ([[thm:class-stability]])
+needs lateral boundaries adapted to the dust. Near the background's such data are developed on the whole rectangle when
+the background is defined on it with a margin, with uniqueness in the gauge among nearby solutions, by a reduction that
+keeps the closure of the Raychaudhuri equation at the axes ([[thm:loc-axis]]); (d) gives uniqueness near the axes only
+among solutions that equal the background there. (iii) *Regularity.* The data are smooth and near the background's in
+C^m, m = 6k + 21. Densities
+that are only bounded, and measure-valued densities in general, are not covered. Finitely many null shells along leaves
+{v = c} of 𝒞_out and {u = d} of 𝒞_in, with densities smooth in angle and supported in the band, and data that are smooth
+except across finitely many such leaves, where the metric functions are continuous, are covered by [[thm:loc-shells]]:
+their development is continuous, smooth between the leaves and a solution in the sense of distributions
+([[def:loc-shell-solution]]), and near the background's data it exists on a neighbourhood of the two cones that does not
+depend on the data ([[thm:loc-shells]] (d)). For the 3 + 1 problem with two families of null dust,
+possibly measure-valued, [LR20, Theorem 4.6, p. 29] states: "Given a strongly angularly regular reduced characteristic
+initial data set … there exists ε > 0 sufficiently small such that whenever u_∗ ∈ (0, I] and u̲_∗ ∈ (0, ε], there exists
+a unique angularly regular weak solution to the Einstein–null dust system … in the domain [0, u_∗] × [0, u̲_∗] × S² which
+achieves the prescribed initial data." (iv) *The domain.* The development is asserted on G_*, a neighbourhood of the
+two cones, and not on the whole rectangle [0, u_1] × [0, v_1]; in particular not where the two dusts cross away from
+the cones. That rectangle is reached by [[thm:loc-axis]] when the background is defined on it with a margin, as the
+background of [[sec:bg-data]] is on [0, 7.2] × [0, v_1] for every v_1 > 0 ([[lem:civp-large-rectangle]] (a),
+[[cor:loc-axis-cones]]).
+
+[[thm:loc-cone-development]] develops these cone data, completed on 𝒞_in by [[lem:loc-cone-in]], when they are near the
+background's and their band avoids the axes, with or without dust: on the explicit neighbourhood G_* of the two cones
+there is a class solution in the gauge [[eq:loc-double-null]] that induces them, with an estimate, equal to the
+background outside a slightly wider band and unique in the gauge near the background off the axes. Every small
+perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} or of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, and every small density
+added in the band, supported away from the axes, is of this kind, with v_1 = 4.5 and u_1 = 7.2
+([[lem:loc-cone-strips]] (c)). Near the background's the restriction to a band can be dropped: cone data given as in
+[[prop:loc-cones]] and [[lem:loc-cone-in]] with no restriction of their supports in angle, their metrics on the spheres
+and their densities smooth through the axes, among them every small perturbation of the shell and of the packet at once
+and every small density added on either cone, the axes included, have a development in the gauge [[eq:loc-double-null]]
+on every rectangle [0, 7.2] × [0, v_1], among them [0, 7.2] × [0, 4.5], in which the two dusts cross, with an estimate,
+unique in that gauge among nearby solutions ([[thm:loc-axis]], [[cor:loc-axis-cones]]). Without smallness, the cone
+data localised in a band, completed on 𝒞_in in the gauge b = 0 ([[def:civp-large-data]]), have a
+development in the gauge [[eq:loc-double-null]] on a neighbourhood {min(u, v) ≤ δ} of the two cones whenever their band
+avoids the axes; among them, with v_1 = 4.5 and u_1 = 7.2, are every perturbation of the shell or of the packet, or of
+both, and every density added in the band, of any amplitude for which e^ϕ stays positive, and such perturbations exist
+of every amplitude ([[lem:civp-large-free]], [[lem:civp-large-rectangle]]). That development equals the background
+outside a slightly wider band and is unique in the gauge among solutions that equal the background near the axes
+([[thm:civp-large]]); the number δ depends on the data. For vacuum data of any size, before the shell (v_1 < 3) and on
+𝒞_in before the packet (u_1 < 5.7), a development near the two cones exists also by [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]), which gives neither uniqueness in the gauge nor localisation. Cone data of any size that
+reach the axes, with or without dust, have a development in the gauge [[eq:loc-double-null]] through the axes on a
+neighbourhood of the two cones, unique in the gauge, and a maximal development with a continuation criterion, provided
+the cones do not focus ([[thm:civp-axes]], [[cor:civp-axes-cones]]); the neighbourhood is not explicit, and for data that
+are not near the background's at an axis a development of the whole rectangle is not asserted ([[rem:loc-axis-scope]],
+[[rem:civp-axes-scope]]). Near the background's, further null dusts, of phases that are not functions of u or of v, may
+be added to the cone data through the axes, any number of them, when at the points where a cone meets an axis each
+carries density only where it crosses that cone and none near the circles in which the corner sphere meets the axes; the
+development on the whole rectangle is then smooth, with an estimate, and unique in the gauge among nearby solutions
+([[thm:loc-t5]]). A family that carries density where it is tangent to a cone along an axis generator is not
+treated, the construction not applying there ([[prop:loc-t5-grazing]]); such data are developed on regions that avoid
+that axis near those points ([[prop:loc-t5-cut]]). No development is asserted for data of finite regularity or for
+densities that are not smooth,
+except finitely many null shells along leaves of the two cones with densities smooth in angle and data that are smooth
+except across such leaves, where the metric functions are continuous, which [[thm:loc-shells]] develops slab by slab with
+[[thm:civp-large]] and [[thm:loc-cone-development]]; no result of the other chapters uses these developments.
+
+### The development of the cone data {#sec:loc-cone-proof}
+
+This section proves [[thm:loc-cone-development]], and, with the same proof, a development near any corner sphere for cone
+data of any size on a small rectangle, the edges being first extended by a fixed length ([[lem:loc-cone-extension]],
+[[prop:loc-cone-local]]). The method is Rendall's reduction of the characteristic problem to the Cauchy problem ([Ren90,
+p. 221]: "A method is described by means of which the characteristic initial value problem can be reduced to the Cauchy
+problem …"), carried out for the augmented system of [[sec:class-augmented]] off the axes. First, the double-null
+equations determine every derivative of the metric functions and the densities across the two cones by linear ordinary
+differential equations along the generators, and the derivatives so found agree at the corner sphere
+([[lem:loc-cone-jets]]). A smooth extension with these derivatives is a formal solution: its residual in every equation
+vanishes to infinite order on the cones ([[prop:loc-cone-formal]]); the constraints that the data satisfy on the cones
+propagate to all orders by the contracted Bianchi identity. In a wave-map gauge whose reference metric is that extension,
+the gauge condition holds identically for the extension. The Cauchy problem for the augmented system, with the formal
+solution's residual as a forcing term to the past of the cones and a cut-off near the axes, where the solution is the
+background, is solved by [[thm:class-kato-stability]] (a) ([[lem:loc-cone-cauchy]]). To the past of the cones the
+solution is the formal solution ([[lem:loc-cone-past]]); so it takes the data, and the gauge condition and the
+constraints hold to infinite order on the cones, and then everywhere to their future ([[lem:loc-cone-constraints]]). The
+two phases and an angle transported along the outgoing generators are double-null coordinates in which the solution takes
+the given data ([[lem:loc-cone-gauge]]), and two solutions in the gauge are compared through a wave map
+([[lem:loc-cone-unique]]).
+
+#### The setting {#sec:loc-cone-setting}
+
+*Corners and edges.* Let l_u, l_v > 0 and δ_1 ∈ (0, min(l_u, l_v)/2], and translate u and v so that the corner is
+(0, 0). Put N_o := {0} × [0, l_v + δ_1], N_i := [0, l_u + δ_1] × {0}, N := N_o ∪ N_i, the corner sphere S_c := {(0, 0)} ×
+S³, F := {u ≥ 0, v ≥ 0}, P := {u < 0} ∪ {v < 0} and
+
+    𝒮 := {(u, v) : −δ_1 ≤ u ≤ l_u + δ_1, −δ_1 ≤ v ≤ l_v + δ_1, min(u, v) ≤ δ_1}.                {#eq:loc-cone-collar}
+
+Points of the (u, v)-plane stand for the corresponding spheres; a set of points is identified with its product with S³. A
+*background* on 𝒮 is a round metric g_e = −2e^(2σ_e) du dv + R_e² dΩ₃² with σ_e and R_e smooth on 𝒮 and R_e > 0, together
+with smooth profiles 𝒜(v), ℬ(u) ≥ 0, such that on 𝒮 ∩ F it solves the two-null-dust equations [[eq:two-dust-limit]],
+Ric(g_e) = (𝒜/R_e³) dv ⊗ dv + (ℬ/R_e³) du ⊗ du. Its double-null functions are Ω_e² = e^(2σ_e)/2, γ_ϑ = R_e², A_c = ln(R_e
+cos ϑ), A_s = ln(R_e sin ϑ), b = 0, and its densities are q̊_in := 𝒜/R_e³ and q̊_out := ℬ/R_e³; so ρ̊_in := 𝒱q̊_in = 𝒜(v)
+sin ϑ cos ϑ and ρ̊_out := ℬ(u) sin ϑ cos ϑ, with 𝒱 of [[sec:loc-cone-equations-frame]]. A *class solution in the gauge*
+on a set D × S³, D ⊂ F, is a smooth class solution of [[eq:class-system]] with two families, phases v and u and densities
+q_in and q_out, so that Ric(g) = q_in dv ⊗ dv + q_out du ⊗ du, whose metric has the form [[eq:loc-double-null]] with Ω,
+γ_ϑ, b, A_c, A_s smooth functions of (u, v, ϑ) ∈ D × (0, π/2), equal to the background's near ϑ = 0 and ϑ = π/2.
+
+**Definition {#def:loc-cone-data}** (Cone data at a corner.) Let a background on 𝒮 be given and k ≥ 6. *Cone data* are
+smooth functions ln Ω, ϰ_1 = ½ ln γ_ϑ, ϰ_2 = A_c, ϰ_3 = A_s, b and q_in ≥ 0 of (v, ϑ) ∈ [0, l_v + δ_1] × (0, π/2) on N_o
+and ln Ω, ϰ_1, ϰ_2, ϰ_3, b and q_out ≥ 0 of (u, ϑ) ∈ [0, l_u + δ_1] × (0, π/2) on N_i, such that: (i) ln Ω, the ϰ_i and b
+of the two edges agree on S_c; (ii) Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o, the left sides being given by
+[[eq:loc-cone]] in terms of the functions on N_o, and Ric(L̲, L̲) = q_out on N_i, L̲ := ∂_u + b∂_ϑ, the left side being
+given by the last line of [[eq:loc-cone-frame-ricci]] in terms of the functions on N_i, L̲ being tangent to N_i; (iii)
+for some numbers 0 < ϑ_a′ < ϑ_b′ < π/2 they equal the background's at the points with ϑ ∉ [ϑ_a′, ϑ_b′]. Their *size* is
+the largest absolute value of a derivative of order at most m_0 := 6k + 18 of their differences from the background's.
+They are in the *normalised gauge* if b = 0 on N_i; then Ric(L̲, L̲) on N_i is [[eq:loc-cone-in]]. The data consist of
+the gauge functions ln Ω on both edges and b on N_i, which are free, of the conformal data and densities, which are free,
+and of the functions that (ii) determines; the corner values are arbitrary, subject to (i). Cone data *of any sign* are
+defined in the same way without the conditions q_in ≥ 0 and q_out ≥ 0. Every statement of this section holds for them, a
+class solution being read as a G-invariant solution of [[eq:class-system]] whose densities may take either sign, except
+the sign of the densities, which [[lem:loc-cone-constraints]] states separately; they arise when data are extended beyond
+the ends of the edges ([[lem:loc-cone-extension]]).
+
+The data of [[thm:loc-cone-development]] are cone data at the corner S, with l_u = u_1, l_v = v_1: on 𝒞_out the functions
+that [[prop:loc-cones]] determines from the free data extended to v ≤ v_1 + δ_1 by the background's, and on 𝒞_in those
+that [[lem:loc-cone-in]] determines from the free data extended likewise to u ≤ u_1 + δ_1; the extended free data are
+smooth, as K_out ⊂ [0, v_1) × (ϑ_a, ϑ_b) and K_in ⊂ [0, u_1) × (ϑ_a, ϑ_b). The background on 𝒮 is provided by the next
+lemma.
+
+**Lemma {#lem:loc-cone-strips}** (The background near the cones.) Let u_1, v_1, R_min and C_0 be as in
+[[thm:loc-cone-development]].
+
+(a) There is δ_1 ∈ (0, min(u_1, v_1)/2] such that the background of [[sec:bg-data]] is defined and smooth on the strips
+S_out := [0, δ_1] × [0, v_1 + δ_1] and S_in := [0, u_1 + δ_1] × [0, δ_1], with R > a and 2e^σ/R ≤ C_0 there.
+
+(b) Decreasing δ_1, there are smooth functions σ_e, R_e on the set 𝒮 of [[eq:loc-cone-collar]] (with l_u = u_1, l_v =
+v_1) equal to σ, R on S_out ∪ S_in = 𝒮 ∩ F, with R_e > a/2 and e^(σ_e)/R_e ≤ C_0 on 𝒮. So g_e := −2e^(2σ_e) du dv +
+R_e² dΩ₃², with the profiles 𝒜 and ℬ of [[eq:bg-profiles]], is a background on 𝒮.
+
+(c) R ≥ 5 on 𝒞_out, and R > 1.5 on 𝒞_in ∩ {u ≤ 7.2}.
+
+*Proof.* (a) By [[lem:two-dust-reparametrisation]] (b), [[prop:two-dust-background]] holds in the coordinates of
+[[sec:bg-data]]: the set G of its part (d) is closed in Q = [0, ∞) × [0, V1′] (V1′ the image of V1, with V1 chosen so
+large that V1′ > v_1 + 1), its boundary in Q lies in {R = a}, and the background is smooth on G. A point p of the segment
+𝒞_in ∩ {u ≤ u_1} lies in G, since J⁻(p) is the part of 𝒞_in with u ≤ u(p), where R ≥ R_min > a, and it is not on the
+boundary of G in Q, since R(p) > a. So p is an interior point of G relative to Q; the same holds on 𝒞_out ∩ {v ≤ v_1},
+and by continuity on the slightly longer segments, R > a there. By compactness a strip of some width δ_1 along each
+segment lies in G. On the cones e^(2σ) = 1/2, so 2e^σ/R = √2/R ≤ √2/R_min = C_0/2 on the segments, and 2e^σ/R ≤ C_0 on
+the strips once δ_1 is small.
+
+(b) Apply [[lem:loc-cone-borel]] below, with r := 0, to the derivatives ∂_u^j σ, ∂_u^j R on {u = 0} and ∂_v^k σ, ∂_v^k R
+on {v = 0}, one-sided where the strips end; they agree at the corner, being derivatives of functions smooth on
+S_out ∪ S_in. The function equal to σ on S_out ∪ S_in and to the extension on 𝒮 ∖ F has, from both sides, the same
+derivatives of every order on N, so it is smooth; likewise for R. By continuity R_e > a/2 and e^(σ_e)/R_e ≤ C_0 on 𝒮
+after decreasing δ_1, since 2e^σ/R ≤ C_0 on S_out ∪ S_in.
+
+(c) On 𝒞_out, e^(2σ) = 1/2 is constant, so [[eq:bg-field]] gives R_vv = −𝒜/(3R²), with R = 5 and R_v = 1/2 at v = 0 and 0
+≤ 𝒜 ≤ 3.6 supported in [3, 4.5] (the bump β is at most 1). While R ≥ 5 on [0, v], R_v(v) ≥ 1/2 − (3.6 × 1.5)/(3 × 25) =
+0.428 > 0; so R increases, and R ≥ 5 on all of 𝒞_out. On 𝒞_in, R = 5 − 0.47u ≥ 2.321 for u ≤ u1 = 5.7, as ℬ = 0 there
+([[lem:bg-reduction]] (a)), and R > 1.5 for 5.7 ≤ u ≤ 7.2 ([[sec:loc-setting]], from [[prop:bg-nprime]]). ∎
+
+For [[prop:loc-cone-local]] the background on 𝒮 is the restriction of a background on a larger open set, which need solve
+the equations only to the future of the least corner; for instance that of this chapter where it is defined on a
+rectangle with a corner at S, σ and R being extended across the two cones as in (b). The proofs below use of it only the
+properties listed above and a number C_* ≥ sup over 𝒮 of e^(σ_e)/R_e, for which C_0 serves in
+[[thm:loc-cone-development]].
+
+#### The equations in the double-null gauge {#sec:loc-cone-equations-frame}
+
+Let g have the form [[eq:loc-double-null]] off the axes, with ϰ_1 = ½ ln γ_ϑ, ϰ_2 = A_c, ϰ_3 = A_s, and put
+
+    L̲ := ∂_u + b ∂_ϑ,   𝒱 := e^(ϰ_1 + ϰ_2 + ϰ_3),   ϖ := ∂_ϑ ln Ω,   ζ := (γ_ϑ/(4Ω²)) ∂_v b,
+    χ_i := ∂_vϰ_i,   χ̲_1 := L̲ϰ_1 + ∂_ϑ b,   χ̲_2 := L̲ϰ_2,   χ̲_3 := L̲ϰ_3,   tr χ := Σ_i χ_i,   tr χ̲ := Σ_i χ̲_i.
+                                                                                                {#eq:loc-cone-quantities}
+
+The χ_i are the eigenvalues of the null second fundamental form of the sections {u, v = const} along ∂_v, the χ̲_i
+those along L̲, which is the null normal field of the hypersurfaces {v = const}: g(L̲, L̲) = g_(uu) + 2b g_(uϑ) +
+b² g_(ϑϑ) = 0 and g(L̲, ∂_ϑ) = g_(uϑ) + b g_(ϑϑ) = 0. With K_i := ∂_(φi), the fields (L̲, ∂_v, ∂_ϑ, K_1, K_2) form a
+frame with
+
+    g(L̲, ∂_v) = −2Ω²,   g(∂_ϑ, ∂_ϑ) = γ_ϑ = e^(2ϰ_1),   g(K_i, K_i) = e^(2ϰ_(i+1)),   all other products 0,
+    [∂_v, L̲] = (∂_v b) ∂_ϑ,   [∂_ϑ, L̲] = (∂_ϑ b) ∂_ϑ,   all other brackets of the frame 0.
+
+**Lemma {#lem:loc-cone-frame}** (The connection.) The covariant derivatives of the frame are
+
+    ∇_L̲ L̲ = 2 (L̲ ln Ω) L̲,      ∇_(∂_v) ∂_v = 2 (∂_v ln Ω) ∂_v,
+    ∇_L̲ ∂_v = (2Ω²/γ_ϑ)(ϖ − ζ) ∂_ϑ,      ∇_(∂_v) L̲ = (2Ω²/γ_ϑ)(ϖ + ζ) ∂_ϑ,
+    ∇_L̲ ∂_ϑ = (ϖ − ζ) L̲ + (L̲ϰ_1) ∂_ϑ,      ∇_(∂_ϑ) L̲ = (ϖ − ζ) L̲ + χ̲_1 ∂_ϑ,
+    ∇_(∂_v) ∂_ϑ = ∇_(∂_ϑ) ∂_v = (ϖ + ζ) ∂_v + χ_1 ∂_ϑ,
+    ∇_(∂_ϑ) ∂_ϑ = (γ_ϑ/(2Ω²))(χ_1 L̲ + χ̲_1 ∂_v) + (∂_ϑϰ_1) ∂_ϑ,
+    ∇_X K_i = ∇_(K_i) X = (Xϰ_(i+1)) K_i  (X = L̲, ∂_v, ∂_ϑ),      ∇_(K_1) K_2 = ∇_(K_2) K_1 = 0,
+    ∇_(K_i) K_i = e^(2ϰ_(i+1)) ((2Ω²)⁻¹ (χ_(i+1) L̲ + χ̲_(i+1) ∂_v) − γ_ϑ⁻¹ (∂_ϑϰ_(i+1)) ∂_ϑ),
+
+where L̲ϰ_(i+1) = χ̲_(i+1) and ∂_vϰ_(i+1) = χ_(i+1).
+
+*Proof.* Each entry is Koszul's formula 2g(∇_X Y, Z) = X g(Y, Z) + Y g(Z, X) − Z g(X, Y) + g([X, Y], Z) − g([Y, Z], X) +
+g([Z, X], Y), with X, Y, Z in the frame, the products and brackets above, and the fact that the products depend on (u, v,
+ϑ) only. For instance 2g(∇_L̲ L̲, ∂_v) = 2L̲ g(L̲, ∂_v) + 2g([∂_v, L̲], L̲) = −4L̲Ω², while g(∇_L̲ L̲, Z) = 0 for Z = L̲,
+∂_ϑ, K_i, which gives the first entry; and 2g(∇_L̲ ∂_v, ∂_ϑ) = L̲ g(∂_v, ∂_ϑ) + ∂_v g(∂_ϑ, L̲) − ∂_ϑ g(L̲, ∂_v) + g([L̲,
+∂_v], ∂_ϑ) − g([∂_v, ∂_ϑ], L̲) + g([∂_ϑ, L̲], ∂_v) = 4Ω²ϖ − γ_ϑ ∂_v b, while 2g(∇_L̲ ∂_v, Z) = 0 for the other frame
+fields, which gives the third. The others follow in the same way. The derivatives of the frame have no K_i-component
+unless the K_i enters, because the reflection φ_i ↦ −φ_i is an isometry that fixes L̲, ∂_v, ∂_ϑ and reverses K_i. As a
+check, ∇_(∂_v) L̲ − ∇_L̲ ∂_v = (4Ω²ζ/γ_ϑ) ∂_ϑ = (∂_v b) ∂_ϑ and ∇_(∂_ϑ) L̲ − ∇_L̲ ∂_ϑ = (χ̲_1 − L̲ϰ_1) ∂_ϑ = (∂_ϑ b) ∂_ϑ,
+the brackets. ∎
+
+**Lemma {#lem:loc-cone-ricci}** (The equations.) Off the axes let g have the form [[eq:loc-double-null]], let q_in and
+q_out be functions, T := q_in dv ⊗ dv + q_out du ⊗ du, E := Ric(g) − T, ρ_in := 𝒱q_in and ρ_out := 𝒱q_out.
+
+(a) The frame components of E are E(K_1, K_2) = E(K_i, X) = 0 for X = L̲, ∂_v, ∂_ϑ, the components E(∂_v, ∂_v) =
+Ric(∂_v, ∂_v) − q_in and E(∂_v, ∂_ϑ) = Ric(∂_v, ∂_ϑ) of [[eq:loc-cone]], and, with □_g the wave operator of g,
+
+    E(K_i, K_i) = −e^(2ϰ_(i+1)) □_g ϰ_(i+1),
+    □_g f = −Ω⁻² (∂_v L̲f + ½ (tr χ̲ ∂_v f + tr χ L̲f − ∂_v b ∂_ϑ f)) + (Ω²𝒱)⁻¹ ∂_ϑ(Ω²𝒱 γ_ϑ⁻¹ ∂_ϑ f),
+    E(∂_ϑ, ∂_ϑ) = (γ_ϑ/Ω²) (∂_v χ̲_1 + ½ (tr χ χ̲_1 + χ_1 tr χ̲) − ½ e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b)) − (γ_ϑ²/(8Ω⁴)) (∂_v b)²
+                 − Σ_(i=2,3) (∂_ϑ²ϰ_i + (∂_ϑϰ_i)² − ∂_ϑϰ_1 ∂_ϑϰ_i) − 2 (∂_ϑϖ + ϖ² − ∂_ϑϰ_1 ϖ),
+    E(L̲, ∂_v) = −2 ∂_v L̲ ln Ω − ∂_v tr χ̲ − Σ_i χ_i χ̲_i + (2Ω²𝒱)⁻¹ ∂_ϑ(Ω²𝒱 ∂_v b) − (γ_ϑ/(4Ω²)) (∂_v b)²
+                 + 𝒱⁻¹ ∂_ϑ(𝒱 γ_ϑ⁻¹ ∂_ϑ Ω²),
+    E(L̲, ∂_ϑ) = −(γ_ϑ/(4Ω²)) (L̲∂_v b + (L̲ ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) + 2∂_ϑ b) ∂_v b) + r̲,
+    r̲ := (ϖ + ∂_ϑϰ_2 + ∂_ϑϰ_3) χ̲_1 + (χ̲_2 + χ̲_3) ϖ − ∂_ϑ L̲ ln Ω − Σ_(i=2,3) (∂_ϑϰ_i χ̲_i + ∂_ϑχ̲_i),
+    E(L̲, L̲) = Σ_i (−L̲χ̲_i − χ̲_i² + 2 L̲ ln Ω χ̲_i) − q_out.                                {#eq:loc-cone-frame-ricci}
+
+(b) √|det g| = 2Ω²𝒱, div_g(q_in g⁻¹dv) = −(2Ω²𝒱)⁻¹ (∂_u ρ_in + ∂_ϑ(b ρ_in)) and div_g(q_out g⁻¹du) =
+−(2Ω²𝒱)⁻¹ ∂_v ρ_out; tr_g T = 0, and div_g T = div_g(q_in g⁻¹dv) dv + div_g(q_out g⁻¹du) du.
+
+(c) Let E′ := (E(L̲, ∂_v), E(∂_ϑ, ∂_ϑ), E(L̲, ∂_ϑ), E(K_1, K_1), E(K_2, K_2)) and a := E(∂_v, ∂_v), β := E(∂_v, ∂_ϑ),
+c := E(L̲, L̲). Then tr_g E = ℓ_0(E′) and
+
+    (div_g E)(L̲) = −(2Ω²)⁻¹ (∂_v c + tr χ c) + ℓ_1(E′),
+    (div_g E)(∂_ϑ) = −(2Ω²)⁻¹ (L̲β + (tr χ̲ + ∂_ϑ b) β) + ℓ_2(E′),
+    (div_g E)(∂_v) = −(2Ω²)⁻¹ (L̲a + tr χ̲ a + ∂_v b β) + γ_ϑ⁻¹ (∂_ϑβ + ∂_ϑ(2 ln Ω + ϰ_2 + ϰ_3 − ϰ_1) β) + ℓ_3(E′),
+                                                                                                  {#eq:loc-cone-bianchi}
+
+with ℓ_0 linear and ℓ_1, ℓ_2, ℓ_3 linear differential operators of first order, all with coefficients that are smooth
+functions of the metric functions and their first derivatives. Moreover div_g E = ½ d(tr_g E) − div_g T.
+
+*Proof.* (a) The reflection φ_i ↦ −φ_i is an isometry that preserves T and reverses K_i, which gives the components with
+one index K_i; T(K_i, ·) = T(L̲, ∂_v) = T(·, ∂_ϑ) = 0 because du and dv vanish on K_i and ∂_ϑ and dv(L̲) = du(∂_v) = 0,
+while T(∂_v, ∂_v) = q_in and T(L̲, L̲) = q_out. By [[lem:warped-ricci]], E(K_1, K_1) = −e^(2A_c)(□_(g3) A_c + |dA_c|² +
+⟨dA_c, dA_s⟩), with g3 the orbit metric, and □_g f = □_(g3) f + ⟨d(A_c + A_s), df⟩ for invariant f, since √|det g| =
+√|det g3| e^(A_c + A_s); so E(K_1, K_1) = −e^(2A_c) □_g A_c, and likewise for K_2. With the inverse metric of the proof
+of [[lem:loc-cone-equations]] and det g = −4Ω⁴γ_ϑ e^(2A_c + 2A_s), √|det g| g^(uv) = −𝒱, √|det g| g^(vϑ) = −b𝒱 and
+√|det g| g^(ϑϑ) = 2Ω²𝒱/γ_ϑ, so 2Ω²𝒱 □_g f = −∂_u(𝒱∂_v f) − ∂_v(𝒱 ∂_u f + b𝒱 ∂_ϑ f) + ∂_ϑ(−b𝒱 ∂_v f + 2Ω²𝒱γ_ϑ⁻¹
+∂_ϑ f); expanding, with ∂_v L̲f = ∂_u∂_v f + b∂_ϑ∂_v f + ∂_v b ∂_ϑ f, L̲ ln 𝒱 + ∂_ϑ b = tr χ̲ and ∂_v ln 𝒱 = tr χ, gives
+the formula for □_g.
+
+The components E(∂_v, ∂_v) and E(∂_v, ∂_ϑ) are [[lem:loc-cone-equations]]. For E(L̲, L̲) and E(L̲, ∂_ϑ), near a point
+let ϑ̃ solve L̲ϑ̃ = 0 with ∂_ϑϑ̃ > 0, and use the coordinates (u, v, ϑ̃, φ1, φ2). In them ∂_u = L̲; with J := ∂ϑ/∂ϑ̃ and
+w := ∂ϑ/∂v at fixed (u, ϑ̃), ∂_(ϑ̃) = J∂_ϑ and the new ∂_v is ∂_v + w∂_ϑ, so
+
+    g = −2Ω² (du ⊗ dv + dv ⊗ du) + γ_ϑ J² (dϑ̃ − b̃ dv)² + e^(2A_c) dφ1² + e^(2A_s) dφ2²,      b̃ := −w/J,
+
+which is [[eq:loc-double-null]] with u and v exchanged and (γ_ϑJ², b̃) in place of (γ_ϑ, b). [[lem:loc-cone-equations]]
+applies to it, with the hypersurfaces {v = const} ruled by ∂_u = L̲. Since L̲ = ∂_u at fixed (v, ϑ̃) and L̲ϑ = b,
+L̲J = ∂_(ϑ̃)b = J∂_ϑ b and L̲w = ∂_v b + w∂_ϑ b (the new ∂_v applied to b), so L̲(½ ln(γ_ϑJ²)) = χ̲_1 and L̲b̃ =
+−J⁻¹ ∂_v b; and L̲(J∂_ϑ f) = J∂_ϑ L̲f, as [L̲, ∂_ϑ] = −(∂_ϑ b) ∂_ϑ. Substituting these in the two lines of
+[[eq:loc-cone]] gives Ric(L̲, L̲) as stated and Ric(L̲, ∂_(ϑ̃)) = J Ric(L̲, ∂_ϑ) with Ric(L̲, ∂_ϑ) as stated: the
+first term of the second line becomes (γ_ϑJ²/(4Ω²))(L̲(−J⁻¹∂_v b) + L̲ ln(γ_ϑ^(3/2)J³e^(A_c + A_s)Ω⁻²)(−J⁻¹∂_v b)),
+and L̲ ln J = ∂_ϑ b; the term r of [[eq:loc-cone-r]] becomes J r̲.
+
+For E(∂_ϑ, ∂_ϑ) and E(L̲, ∂_v) we use R(X, Y)Z := ∇_X∇_Y Z − ∇_Y∇_X Z − ∇_([X,Y]) Z and
+
+    Ric(Y, Z) = −(2Ω²)⁻¹ (g(R(L̲, Y)Z, ∂_v) + g(R(∂_v, Y)Z, L̲)) + γ_ϑ⁻¹ g(R(∂_ϑ, Y)Z, ∂_ϑ)
+                + Σ_i e^(−2ϰ_(i+1)) g(R(K_i, Y)Z, K_i),
+
+the trace in the frame. Lemma [[lem:loc-cone-frame]] gives, by a direct calculation,
+
+    e^(−2ϰ_(i+1)) g(R(K_i, ∂_ϑ)∂_ϑ, K_i) = −(∂_ϑ²ϰ_(i+1) + (∂_ϑϰ_(i+1))² − ∂_ϑϰ_1 ∂_ϑϰ_(i+1)) + (γ_ϑ/(2Ω²))(χ_1χ̲_(i+1)
+                                         + χ̲_1χ_(i+1)),
+    g(R(L̲, ∂_ϑ)∂_ϑ, ∂_v) + g(R(∂_v, ∂_ϑ)∂_ϑ, L̲) = 4Ω² (∂_ϑϖ + ϖ² − ∂_ϑϰ_1 ϖ) + (γ_ϑ²/(4Ω²)) (∂_v b)²
+                                         − 2γ_ϑ (∂_v χ̲_1 + χ_1 χ̲_1 − ½ e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b)),
+
+and R(∂_ϑ, ∂_ϑ) = 0; summing gives E(∂_ϑ, ∂_ϑ), since χ_1χ̲_1 + ½ Σ_(i=2,3) (χ_1χ̲_i + χ̲_1χ_i) = ½(tr χ χ̲_1 + χ_1 tr
+χ̲). Likewise R(L̲, L̲) = 0 and
+
+    g(R(∂_v, L̲)∂_v, L̲) = 4Ω² ∂_v L̲ ln Ω − 4Ω⁴γ_ϑ⁻¹ ϖ² − 2Ω² ϖ ∂_v b + ¾ γ_ϑ (∂_v b)²,
+    γ_ϑ⁻¹ g(R(∂_ϑ, L̲)∂_v, ∂_ϑ) = −(∂_v χ̲_1 + χ_1 χ̲_1) + ½ e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b) + (γ_ϑ/(8Ω²)) (∂_v b)²
+                                + 2Ω²γ_ϑ⁻¹ (∂_ϑϖ + ϖ² − ∂_ϑϰ_1 ϖ),
+    e^(−2ϰ_(i+1)) g(R(K_i, L̲)∂_v, K_i) = −(∂_v χ̲_(i+1) + χ_(i+1) χ̲_(i+1)) + 2Ω²γ_ϑ⁻¹ ϖ ∂_ϑϰ_(i+1)
+                                         + ½ ∂_ϑϰ_(i+1) ∂_v b;
+
+summing gives E(L̲, ∂_v), since 2Ω²γ_ϑ⁻¹(∂_ϑϖ + 2ϖ² + ϖ ∂_ϑ(ϰ_2 + ϰ_3 − ϰ_1)) = 𝒱⁻¹∂_ϑ(𝒱γ_ϑ⁻¹∂_ϑΩ²) and
+½ ∂_ϑ∂_v b + ½ ∂_v b ∂_ϑ ln 𝒱 + ϖ ∂_v b = (2Ω²𝒱)⁻¹ ∂_ϑ(Ω²𝒱 ∂_v b).
+
+(b) The determinant is that of the proof of [[lem:loc-cone-equations]]. div(q P) = |det g|^(−1/2) ∂_μ(|det g|^(1/2) q
+P^μ) with P = g⁻¹dv, P^u = g^(uv), P^ϑ = g^(ϑv), and with P = g⁻¹du = g^(uv) ∂_v. tr_g T = q_in g^(vv) + q_out
+g^(uu) = 0. By [[prop:class-augmented]] (c), div_g T is the stated sum plus q_in ∇_(g⁻¹dv) dv + q_out ∇_(g⁻¹du) du, and
+∇_(g⁻¹dv) dv = ½ d(g⁻¹(dv, dv)) = 0, likewise for du.
+
+(c) In the frame, g⁻¹ = −(2Ω²)⁻¹ (L̲ ⊗ ∂_v + ∂_v ⊗ L̲) + γ_ϑ⁻¹ ∂_ϑ ⊗ ∂_ϑ + Σ_i e^(−2ϰ_(i+1)) K_i ⊗ K_i, so tr_g E = −Ω⁻²
+E(L̲, ∂_v) + γ_ϑ⁻¹ E(∂_ϑ, ∂_ϑ) + Σ_i e^(−2ϰ_(i+1)) E(K_i, K_i) is linear in E′, and (div_g E)(Y) = −(2Ω²)⁻¹ ((∇_L̲
+E)(∂_v, Y) + (∇_(∂_v) E)(L̲, Y)) + γ_ϑ⁻¹ (∇_(∂_ϑ) E)(∂_ϑ, Y) + Σ_i e^(−2ϰ_(i+1)) (∇_(K_i) E)(K_i, Y), with (∇_X E)(Z,
+Y) = X(E(Z, Y)) − E(∇_X Z, Y) − E(Z, ∇_X Y). The terms in E′ and its first derivatives make up the ℓ_j. The rest has only
+a, β, c, and the table of [[lem:loc-cone-frame]] gives, for Y = L̲: (∇_(∂_v) E)(L̲, L̲) = ∂_v c − 2E(∇_(∂_v) L̲, L̲) =
+∂_v c, (∇_L̲ E)(∂_v, L̲) = 0, (∇_(∂_ϑ) E)(∂_ϑ, L̲) = −(γ_ϑ/(2Ω²)) χ_1 c and (∇_(K_i) E)(K_i, L̲) = −(e^(2ϰ_(i+1))/(2Ω²))
+χ_(i+1) c; for Y = ∂_ϑ: (∇_L̲ E)(∂_v, ∂_ϑ) = L̲β − (L̲ϰ_1) β, (∇_(∂_v) E)(L̲, ∂_ϑ) = 0, (∇_(∂_ϑ) E)(∂_ϑ, ∂_ϑ) = −(γ_ϑ/Ω²)
+χ̲_1 β and (∇_(K_i) E)(K_i, ∂_ϑ) = −(e^(2ϰ_(i+1))/(2Ω²)) χ̲_(i+1) β, and 2χ̲_1 − L̲ϰ_1 = χ̲_1 + ∂_ϑ b; for Y = ∂_v: (∇_L̲
+E)(∂_v, ∂_v) = L̲a − (4Ω²/γ_ϑ)(ϖ − ζ) β, (∇_(∂_v) E)(L̲, ∂_v) = −(2Ω²/γ_ϑ)(ϖ + ζ) β, (∇_(∂_ϑ) E)(∂_ϑ, ∂_v) = ∂_ϑβ −
+(γ_ϑ/(2Ω²)) χ̲_1 a − (∂_ϑϰ_1 + ϖ + ζ) β and (∇_(K_i) E)(K_i, ∂_v) = −(e^(2ϰ_(i+1))/(2Ω²)) χ̲_(i+1) a + e^(2ϰ_(i+1))γ_ϑ⁻¹
+∂_ϑϰ_(i+1) β, and 2γ_ϑ⁻¹ζ = (2Ω²)⁻¹ ∂_v b. Summing gives [[eq:loc-cone-bianchi]]. The last identity is the contracted
+Bianchi identity div Ric = ½ d(tr_g Ric), with tr_g Ric = tr_g E + tr_g T = tr_g E. ∎
+
+#### The formal solution {#sec:loc-cone-formal}
+
+**Lemma {#lem:loc-cone-borel}** (Extension of derivatives given on two edges.) Let λ_u, λ_v > 0, Y ⊂ ℝ a closed interval,
+a_j (j ≥ 0) smooth functions of (v, ϑ) on [0, λ_v] × Y and b_k (k ≥ 0) smooth functions of (u, ϑ) on [0, λ_u] × Y, with
+∂_v^k a_j(0, ϑ) = ∂_u^j b_k(0, ϑ) =: c_(jk)(ϑ) for all j, k. Let r ≥ 0 be an integer and γ_0, ε_B ∈ (0, 1]. There is a
+smooth function f on (−∞, λ_u] × (−∞, λ_v] × Y with ∂_u^j f(0, v, ϑ) = a_j(v, ϑ) for 0 ≤ v ≤ λ_v and ∂_v^k f(u, 0, ϑ) =
+b_k(u, ϑ) for 0 ≤ u ≤ λ_u, for all j and k, such that:
+
+(a) f vanishes outside {|u| ≤ 2ε_B, v ≥ −2ε_B} ∪ {|v| ≤ 2ε_B, u ≥ 0}, and at every ϑ at which all a_j and b_k vanish
+identically; if all a_j vanish for v < v_K and all b_k for u < u_K, where u_K, v_K > 0, then f = 0 where u < u_K and
+v < v_K;
+
+(b) with C^r norms over the sets named, ‖f‖_(C^r) ≤ C (max_(j≤r) ‖a_j‖_(C^(2r)) + max_(k≤r) ‖b_k‖_(C^(2r))) + γ_0, C
+depending only on r and ε_B.
+
+*Proof.* Fix χ ∈ C^∞(ℝ) with 0 ≤ χ ≤ 1, χ = 1 on [−1, 1] and supp χ ⊂ (−2, 2). For 0 < ε ≤ 1 and integers i, j ≥
+0, |∂_x^i(χ(x/ε) x^j)| ≤ C(i, j) ε^(j−i) when i ≤ j, since the derivatives of χ(x/ε) are ε^(−l) χ^(l)(x/ε) and vanish
+for |x| ≥ 2ε. So for a smooth function h(z) of further variables z, the term χ(x/ε) x^j h(z)/j! has C^(j−1) norm at most
+C(j) ε ‖h‖_(C^(j−1)) and, for ε = ε_B or j ≥ r, C^r norm at most C(r, j, ε_B) ‖h‖_(C^r). Given smooth h_j, choose ε_j :=
+ε_B for j ≤ r and, for j > r, ε_j ≤ ε_B so small that the C^(j−1) norm of the j-th term is at most 2^(−j) γ_0. Then the
+series Σ_j χ(x/ε_j) x^j h_j(z)/j! converges in every C^p, its terms of index above p + 1 having C^p norms at most 2^(−j)
+γ_0; its sum B is smooth, may be differentiated termwise, and ∂_x^j B(0, z) = h_j(z), as χ = 1 near 0. Call B the Borel
+sum of (h_j).
+
+*Step 1.* For each j let ã_j := a_j on [0, λ_v] × Y and, for v < 0, ã_j := the Borel sum in v of (c_(jk))_k. All
+one-sided v-derivatives of the two pieces at v = 0 are the c_(jk), so ã_j is smooth on (−∞, λ_v] × Y. *Step 2.* Let f_1
+be the Borel sum in u of (ã_j)_j; then ∂_u^j f_1(0, v, ϑ) = ã_j(v, ϑ). *Step 3.* Termwise, ∂_v^k f_1(u, 0, ϑ) = Σ_j
+χ(u/ε_j) u^j c_(jk)(ϑ)/j!, whose u-derivatives at u = 0 are the c_(jk). So d_k := b_k − ∂_v^k f_1(·, 0, ·) on [0, λ_u] ×
+Y has all its u-derivatives zero at u = 0, and extended by 0 to u < 0 it is smooth. Let f := f_1 + the Borel sum in v of
+(d_k)_k. Its u-derivatives at u = 0 are those of f_1, since every d_k vanishes for u ≤ 0, and ∂_v^k f(u, 0, ϑ) = ∂_v^k
+f_1(u, 0, ϑ) + d_k(u, ϑ) = b_k(u, ϑ).
+
+(a) f_1 vanishes for |u| ≥ 2ε_B and, ã_j vanishing for v ≤ −2ε_B, for v ≤ −2ε_B; the second sum vanishes for |v| ≥ 2ε_B
+and for u < 0. The cut-offs depend on u and v only. If all a_j vanish for v < v_K, then all c_(jk) = 0, so ã_j = 0 for
+v < v_K and f_1 = 0 there; and d_k = b_k vanishes for u < u_K.
+
+(b) The terms of index at most r have the cut-off scale ε_B and C^r norms at most C(r, ε_B) times the C^r norms of ã_j,
+respectively d_k; ‖ã_j‖_(C^r) ≤ ‖a_j‖_(C^r) + C max_(k≤r) ‖c_(jk)‖_(C^r) + (the sum of the terms of index above r),
+‖d_k‖_(C^r) ≤ ‖b_k‖_(C^r) + C max_(j≤r) ‖c_(jk)‖_(C^r) + (the like), and ‖c_(jk)‖_(C^r) ≤ ‖a_j‖_(C^(r+k)) ≤
+‖a_j‖_(C^(2r)) for k ≤ r. Choosing every ε of index above r also so small that the C^r norms of the terms it multiplies
+sum, over all three sums, to at most γ_0/2 in total, (b) follows. ∎
+
+In the rest of the section a background on 𝒮 and cone data are fixed, X denotes the list of functions
+(ln Ω, ϰ_1, ϰ_2, ϰ_3, b, ρ_in, ρ_out) of (u, v, ϑ), and X̊ the background's. On N_o let a_0 be the cone data, with
+ρ_in := 𝒱q_in and with ρ_out equal on each generator to the value of 𝒱q_out at the corner; on N_i let b_0 be the cone
+data, with ρ_out := 𝒱q_out and with ρ_in the solution of ∂_u ρ_in + ∂_ϑ(b ρ_in) = 0 along N_i equal to 𝒱q_in at the
+corner (in the normalised gauge, ρ_in is constant along each generator). Then a_0 = b_0 on S_c. On N_i the integral
+curves of L̲ = ∂_u + b∂_ϑ, the generators of N_i, start on S_c and cover N_i: b vanishes outside the band, so dϑ/du = b
+keeps them in [0, π/2].
+
+**Lemma {#lem:loc-cone-jets}** (The derivatives across the edges.) There are unique sequences of functions a_j (j ≥ 0)
+on [0, l_v + δ_1] × (0, π/2) and b_k (k ≥ 0) on [0, l_u + δ_1] × (0, π/2), with values in ℝ⁷ and with a_0, b_0 as above,
+such that a_j − å_j and b_k − b̊_k are smooth (å_j, b̊_k the derivatives of X̊) and, for every smooth X on a
+neighbourhood of N in 𝒮 × (0, π/2) equal to X̊ near the axes and with ∂_u^j X(0, v, ϑ) = a_j(v, ϑ) and ∂_v^k X(u, 0, ϑ) =
+b_k(u, ϑ) for all j and k, the metric g of the form [[eq:loc-double-null]] with the functions X and the densities
+q_A := ρ_A/𝒱 satisfy: E′ of [[lem:loc-cone-ricci]] (c), ∂_u ρ_in + ∂_ϑ(b ρ_in) and ∂_v ρ_out vanish to infinite order
+on N. Moreover:
+
+(i) ∂_v^k a_j(0, ϑ) = ∂_u^j b_k(0, ϑ) for all j and k;
+
+(ii) if the cone data equal the background's at the points with ϑ ∉ [ϑ_a′, ϑ_b′], so do all a_j and b_k; if they equal
+the background's on N_o ∩ {v < v_K} and on N_i ∩ {u < u_K}, with u_K, v_K > 0, then a_j = å_j for v < v_K and b_k = b̊_k
+for u < u_K;
+
+(iii) if the size of the cone data is at most Λ, then ‖a_j − å_j‖_(C^(m_0−4j)) + ‖b_j − b̊_j‖_(C^(m_0−4j)) is at most C_j
+times the size, for 4j ≤ m_0, C_j depending only on j, Λ, the lengths of the edges and the background;
+
+(iv) every class solution in the gauge on D × S³, where D ⊂ F is a past set (with each (u, v) it contains [0, u] × [0,
+v]) whose interior is dense in it, smooth up to N ∩ D, whose functions on N_o ∩ D and N_i ∩ D are the cone data, has
+∂_u^j X = a_j on N_o ∩ D and ∂_v^k X = b_k on N_i ∩ D; in particular å_j and b̊_k are the derivatives of X̊ across N.
+
+No smallness enters, and a_j, b_k depend on the cone data only on N_o ∩ {v′ ≤ v} and N_i ∩ {u′ ≤ u} respectively.
+
+*Proof.* *The equations solved for the mixed derivatives.* In [[eq:loc-cone-frame-ricci]] the second derivatives of
+ln Ω and of the ϰ_i other than ∂_ϑ² enter only through ∂_v L̲ ln Ω and the ∂_v χ̲_i, with ∂_v χ̲_1 = ∂_v L̲ϰ_1 +
+∂_v∂_ϑ b and ∂_v χ̲_i = ∂_v L̲ϰ_i (i = 2, 3), and the second derivatives of b other than ∂_ϑ² b and ∂_v∂_ϑ b only
+through L̲∂_v b in E(L̲, ∂_ϑ). The equations E(∂_ϑ, ∂_ϑ) = E(K_1, K_1) = E(K_2, K_2) = 0 contain ∂_v L̲ϰ_1, ∂_v L̲ϰ_2,
+∂_v L̲ϰ_3 with the factors γ_ϑ/Ω², Ω⁻² and Ω⁻², E(L̲, ∂_v) = 0 contains −2∂_v L̲ ln Ω − Σ_i ∂_v L̲ϰ_i, and
+E(L̲, ∂_ϑ) = 0 contains −(γ_ϑ/(4Ω²)) L̲∂_v b. Solving the first three for ∂_v L̲ϰ_i and then the fourth for
+∂_v L̲ ln Ω, the five equations E′ = 0 are equivalent, off the axes, to
+
+    ∂_v(L̲ Y_l) = Ψ_l  (l = 0, 1, 2, 3),      L̲(∂_v b) = Ψ_4,      (Y_0, …, Y_3) := (ln Ω, ϰ_1, ϰ_2, ϰ_3),
+                                                                                                  {#eq:loc-cone-goursat}
+
+where each Ψ_l is a polynomial in e^(±2 ln Ω), e^(±2ϰ_1), e^(±2ϰ_2), e^(±2ϰ_3), b and derivatives of ln Ω, the ϰ_i and
+b of the kinds below, read off from [[eq:loc-cone-frame-ricci]]:
+
+(Ψ1) the derivatives of ln Ω and the ϰ_i in the Ψ_l are of the forms ∂_ϑ^p, ∂_v, L̲ and ∂_ϑ L̲ (p ≤ 2), those of b of
+the forms ∂_ϑ^p, ∂_v and ∂_ϑ∂_v (p ≤ 2); there is no ∂_u b;
+(Ψ2) each monomial of Ψ_0, …, Ψ_3 contains at most one factor among L̲ ln Ω, the L̲ϰ_i and the ∂_ϑL̲ of these (in fact
+no ∂_ϑ L̲), and at most one among ∂_v ln Ω and the ∂_vϰ_i, besides factors ∂_v b and ∂_ϑ∂_v b;
+(Ψ3) Ψ_4 contains no ∂_v of ln Ω or the ϰ_i and no ∂_ϑ∂_v b, and each of its monomials contains at most one factor among
+L̲ ln Ω, the L̲ϰ_i, ∂_ϑ L̲ ln Ω, ∂_ϑ L̲ϰ_2, ∂_ϑ L̲ϰ_3, and at most one factor ∂_v b.
+
+For instance □_g ϰ_2 = 0 reads ∂_v L̲ϰ_2 = −½(tr χ̲ ∂_vϰ_2 + tr χ χ̲_2 − ∂_v b ∂_ϑϰ_2) + 𝒱⁻¹Ω⁻²∂_ϑ(Ω²𝒱γ_ϑ⁻¹∂_ϑϰ_2), and
+E(L̲, ∂_ϑ) = 0 reads L̲∂_v b = −(L̲ ln(γ_ϑ^(3/2)e^(A_c+A_s)Ω⁻²) + 2∂_ϑ b) ∂_v b + 4Ω²γ_ϑ⁻¹ r̲. With L̲ = ∂_u + b∂_ϑ,
+[[eq:loc-cone-goursat]] is also ∂_u∂_v Y_l = Ψ_l − ∂_v(b ∂_ϑ Y_l) and ∂_u∂_v b = Ψ_4 − b ∂_ϑ∂_v b: every right side holds
+at most first derivatives in u and in v of each factor. The conservation laws are ∂_u ρ_in = −∂_ϑ(b ρ_in) and
+∂_v ρ_out = 0.
+
+*N_o.* Let j ≥ 1 and a_0, …, a_(j−1) be found. Apply ∂_u^(j−1) to [[eq:loc-cone-goursat]] and set u = 0, replacing
+∂_u^i X by a_i. As L̲X = ∂_u X + b ∂_ϑ X, ∂_u^(j−1) ∂_v L̲Y_l = ∂_v ∂_u^j Y_l + ∂_v ∂_u^(j−1)(b ∂_ϑ Y_l), whose second
+part holds u-derivatives of order at most j − 1; likewise ∂_u^(j−1) L̲∂_v b = ∂_v ∂_u^j b + ∂_u^(j−1)(b ∂_ϑ∂_v b). By
+(Ψ1)–(Ψ3) the u-derivatives of order j enter the right sides only through ∂_u^(j−1) of L̲ Y_l and of ∂_ϑ L̲ Y_l, once in
+each monomial, so
+
+    ∂_v a_j^(ϰ_i) = Σ_l M_(il) a_j^(ϰ_l) + h_i,   ∂_v a_j^(ln Ω) = Σ_l M_(0l) a_j^(ϰ_l) + h_0,
+    ∂_v a_j^b = M_4 · (a_j^(ln Ω), a_j^(ϰ_l), ∂_ϑ a_j^(ln Ω), ∂_ϑ a_j^(ϰ_2), ∂_ϑ a_j^(ϰ_3)) + h_4,
+
+after substituting the first lines in the second; the coefficients M are smooth functions of a_0 and of its first
+derivatives in v and ϑ, and the h are polynomials in a_0, …, a_(j−1) and their derivatives in v and ϑ of order at most
+two. This is a system of linear ordinary differential equations in v along each generator, which we solve with the
+initial values a_j(0, ϑ) := ∂_u^j b_0(0, ϑ) for the components ln Ω, ϰ_l, b: first the three ϰ-components, then ln Ω,
+then b. For the densities put a_j^(ρ_in) := −(∂_u^(j−1)∂_ϑ(b ρ_in)) at u = 0, a polynomial in a_0, …, a_(j−1) and
+their ϑ-derivatives, and a_j^(ρ_out)(v, ϑ) := ∂_u^j b_0^(ρ_out)(0, ϑ) for all v.
+
+*N_i.* Let k ≥ 1 and b_0, …, b_(k−1) be found. Apply ∂_v^(k−1) to [[eq:loc-cone-goursat]] and set v = 0. Since ∂_v^k
+(L̲ Y_l) = L̲ ∂_v^k Y_l + Σ_(1≤i≤k) (k choose i) ∂_v^i b ∂_ϑ∂_v^(k−i) Y_l and ∂_v^(k−1)(L̲ ∂_v b) = L̲ ∂_v^k b +
+Σ_(1≤i≤k−1) (k−1 choose i) ∂_v^i b ∂_ϑ∂_v^(k−i) b, the left sides are L̲ applied to the unknowns of order k, plus terms
+with v-derivatives of order at most k − 1 and the term ∂_v^k b ∂_ϑ Y_l. By (Ψ3), the right side for b holds v-derivatives
+of order k only through ∂_v^k b, once in each monomial: a linear equation L̲ b_k^b = M_4′ b_k^b + h_4′ along the
+generators of N_i. By (Ψ2), the other right sides hold them through ∂_v^k(ln Ω, ϰ_l), once in each monomial, and
+through ∂_v^k b and ∂_ϑ∂_v^k b. So, with b_k^b known, these are linear equations along the generators for the
+ϰ-components and then for ln Ω. We solve them with the initial values b_k(0, ϑ) := ∂_v^k a_0(0, ϑ). For the densities
+put b_k^(ρ_out) := 0, and let b_k^(ρ_in) solve L̲ b_k^(ρ_in) = −(∂_ϑ b) b_k^(ρ_in) − ∂_ϑ Σ_(1≤i≤k) (k choose i)
+b_i^b b_(k−i)^(ρ_in), the derivative ∂_v^k of the conservation law, with the initial value ∂_v^k a_0^(ρ_in)(0, ϑ).
+
+*Vanishing to infinite order.* For X as in the statement, ∂_u^(j−1) of the differences of the two sides of
+[[eq:loc-cone-goursat]] vanishes at u = 0 for every j ≥ 1, by the construction on N_o, and ∂_v^(k−1) of them vanishes at
+v = 0 for every k ≥ 1; the derivatives along N of these restrictions vanish too. So the differences vanish to infinite
+order on N, and so does E′, which is obtained from them by multiplying with smooth functions and adding. The
+conservation laws are the same: at order 0 on N_o, ∂_v ρ_out = 0 is the constancy of a_0^(ρ_out) along the generators,
+and on N_i the conservation law for ρ_in is the equation that defines b_0^(ρ_in).
+
+(i) For j = 0 or k = 0 the equality holds by the choice of the initial values and of a_0, b_0, which agree on S_c. For j,
+k ≥ 1 we use induction on n := j + k. Let c^o_(jk) := ∂_v^k a_j(0, ·) and c^i_(jk) := ∂_u^j b_k(0, ·). For the components
+Y_l, c^o_(jk) = ∂_v^(k−1) of the right side of the equation for ∂_v a_j at v = 0, which is the formal mixed derivative
+∂_u^(j−1)∂_v^(k−1) of the right side of the form ∂_u∂_v Y_l = Ψ_l − ∂_v(b ∂_ϑ Y_l) (respectively ∂_u∂_v b = Ψ_4 − b
+∂_ϑ∂_v b) at the corner, expanded by the chain rule into the numbers ∂_ϑ^p c^o_(j′k′); and c^i_(jk) = ∂_u^(j−1) of the
+right side of the equation for ∂_u b_k at u = 0, written in the same form, which is the same expansion in the numbers
+∂_ϑ^p c^i_(j′k′). These right sides hold at most first derivatives in u and in v of each factor, so only pairs with j′ +
+k′ ≤ n − 1 occur, and these agree by induction. For ρ_in and j ≥ 1 both are ∂_u^(j−1)∂_v^k of −∂_ϑ(b ρ_in), expanded in
+the same way with j′ ≤ j − 1, k′ ≤ k; for ρ_out both vanish when k ≥ 1.
+
+(ii) The coefficients, the inhomogeneous terms and the initial values of all the equations at an angle ϑ are built from
+the cone data and their derivatives at ϑ. Where the data equal the background's on a neighbourhood of ϑ, the
+background's derivatives solve the same equations with the same initial values, by (iv) for the background, and by
+uniqueness they are the solutions. Likewise on N_o ∩ {v < v_K}: the equations there use the data on N_o ∩ {v′ ≤ v} and
+the derivatives of b_0 at u = 0, which are the background's since u_K > 0; and on N_i ∩ {u < u_K}.
+
+(iii) For a linear system ∂_v Z = MZ + h in v with Z(0) = Z_0, ‖Z‖_(C^r) ≤ C(r, ‖M‖_(C^r))(‖Z_0‖_(C^r) + ‖h‖_(C^r)),
+by differentiating in ϑ, the v-derivatives being given by the equation; and the difference Z − Z̊ from the background's
+solution solves ∂_v(Z − Z̊) = M(Z − Z̊) + (M − M̊) Z̊ + h − h̊. Suppose the bound for all orders below j. On N_o the
+inhomogeneous terms of the ϰ- and ln Ω-equations hold derivatives of order at most two of a_0, …, a_(j−1), so their
+differences are bounded in C^(m_0−4j+2); M − M̊ is bounded in C^(m_0−1) and the initial values ∂_u^j(b_0 − b̊_0)(0, ·) in
+C^(m_0−j), all by C times the size. So these components of a_j − å_j are bounded in C^(m_0−4j+2); the b-component, whose
+equation holds ∂_ϑ a_j^(ln Ω) and ∂_ϑ a_j^(ϰ_l), in C^(m_0−4j+1), and the densities likewise. On N_i the equations are
+transport equations along L̲, whose flow from u = 0 has derivatives of order r bounded in terms of the C^r norm of b on
+N_i; the same bounds hold for them. The equation for b_k^b holds derivatives of order at most two along N_i of
+b_0, …, b_(k−1) and the initial value ∂_v^k a_0^b(0, ·), so b_k^b − b̊_k^b is bounded in C^(m_0−4k+2); the other
+equations hold ∂_ϑ b_k^b, so the other components are bounded in C^(m_0−4k+1).
+
+(iv) Such a solution satisfies E = 0 and the conservation laws on D, hence, by continuity, their derivatives of every
+order on N ∩ D; so its derivatives across N ∩ D solve the equations above with the same initial values. ∎
+
+**Proposition {#prop:loc-cone-formal}** (The formal solution.) Let the cone data have size at most Λ, equal the
+background's at the points with ϑ ∉ [ϑ_a′, ϑ_b′], on N_o ∩ {v < v_K} and on N_i ∩ {u < u_K}, where u_K, v_K ∈ [0, ∞],
+and let 0 < δ_e ≤ δ_1/4. There are smooth functions Δ = (Δ_l) of (u, v, ϑ) on 𝒮 × [0, π/2] such that, with X̂ := X̊ + Δ,
+the metric Ĝ of the form [[eq:loc-double-null]] with the functions X̂, and q̂_A := ρ̂_A/𝒱̂:
+
+(a) Δ vanishes outside {ϑ_a′ ≤ ϑ ≤ ϑ_b′} ∩ ({|u| ≤ 2δ_e, v ≥ −2δ_e} ∪ {|v| ≤ 2δ_e, u ≥ 0}) and where u < u_K and
+v < v_K, and ‖Δ‖_(C^(k+3)) ≤ C times the size, C depending only on Λ, δ_e, k and the background;
+
+(b) the derivatives of X̂ across N are the a_j and b_k of [[lem:loc-cone-jets]]; so Ĝ and q̂_A induce the cone data on N,
+and Ĝ is a smooth G-invariant Lorentzian metric on 𝒮 × S³, equal to g_e near the axes, for which u and v are null;
+
+(c) E := Ric(Ĝ) − q̂_in dv ⊗ dv − q̂_out du ⊗ du, ∂_u ρ̂_in + ∂_ϑ(b̂ ρ̂_in) and ∂_v ρ̂_out vanish to infinite order on N.
+
+*Proof.* Apply [[lem:loc-cone-borel]] to each component of (a_j − å_j) and (b_k − b̊_k), with Y = [0, π/2], λ_u = l_u +
+δ_1, λ_v = l_v + δ_1, r := k + 3, ε_B := δ_e and γ_0 := min(1, the size) (Δ := 0 if the size is 0); the compatibility at
+the corner holds for the data and for the background by [[lem:loc-cone-jets]] (i). (a) follows from parts (a) and (b)
+there and [[lem:loc-cone-jets]] (ii), (iii), since m_0 − 4(k + 3) = 2(k + 3). (b) The double-null form with Ω̂ > 0 and
+γ̂_ϑ > 0 is Lorentzian, with g^(uu) = g^(vv) = 0. (c) E′ and the conservation laws vanish to infinite order on N by
+[[lem:loc-cone-jets]]. On N_o, E(∂_v, ∂_v) = E(∂_v, ∂_ϑ) = 0, and on N_i, E(L̲, L̲) = 0, by (ii) of
+[[def:loc-cone-data]], these components being expressions in the functions on the edges, L̲ being tangent to N_i. By
+[[lem:loc-cone-ricci]] (b), div T̂ vanishes to infinite order on N, and by (c) there tr E does; so div E does, and by
+[[eq:loc-cone-bianchi]] the three expressions on its right sides, without the terms ℓ_j(E′), vanish to infinite order on
+N. With a := E(∂_v, ∂_v), β := E(∂_v, ∂_ϑ), c := E(L̲, L̲):
+
+*On N_o.* We show by induction on j that ∂_u^i a = ∂_u^i β = 0 on N_o for i ≤ j and ∂_u^i c = 0 on N_o for i ≤ j − 1;
+this holds for j = 0. Given it for j, apply ∂_u^j to the first identity: on N_o, ∂_v(∂_u^j c) + tr χ ∂_u^j c = 0, the
+terms with lower u-derivatives of c vanishing; and ∂_u^j c = 0 at v = 0, since c = 0 on N_i and ∂_u is tangent to N_i. So
+∂_u^j c = 0 on N_o. Applying ∂_u^j to the second identity, all terms other than ∂_u^(j+1) β hold ∂_u^i β with i ≤ j or
+∂_u^j c, so ∂_u^(j+1) β = 0 on N_o; then the third gives ∂_u^(j+1) a = 0.
+
+*On N_i.* We show by induction on k that ∂_v^i c = 0 on N_i for i ≤ k and ∂_v^i a = ∂_v^i β = 0 on N_i for i ≤ k − 1;
+this holds for k = 0. Given it for k, apply ∂_v^k to the second identity: on N_i, ∂_v^k L̲β = L̲ ∂_v^k β plus terms with
+∂_v^i β, i ≤ k − 1, so L̲(∂_v^k β) + (tr χ̲ + ∂_ϑ b) ∂_v^k β = 0 along the generators of N_i, and ∂_v^k β = 0 at u = 0,
+as β = 0 on N_o; so ∂_v^k β = 0 on N_i. Then ∂_v^k of the third gives L̲(∂_v^k a) + tr χ̲ ∂_v^k a = 0 along the
+generators, with ∂_v^k a = 0 at u = 0, so ∂_v^k a = 0. Finally ∂_v^k of the first gives ∂_v^(k+1) c = 0 on N_i.
+
+So a, β and c, with all their derivatives, vanish on N, and E vanishes to infinite order on N. ∎
+
+#### The reduced problem {#sec:loc-cone-reduced}
+
+The cone data, of size at most Λ, now equal the background's at the points with ϑ ∉ [2η, π/2 − 2η], for a number η ∈ (0,
+π/8]; for [[thm:loc-cone-development]], η is the number there, and [ϑ_a′, ϑ_b′] ⊂ (ϑ_a, ϑ_b) ⊂ [4η, π/2 − 4η]. Two cases
+are treated together: (I) small data, the size at most ε ≤ ε_0, and (II) data of any size Λ, with b = 0 on N_i, on a
+small rectangle at the corner. In case (II) we truncate the edges, l_u = l_v := 2δ_1: by [[lem:loc-cone-jets]] the
+derivatives across N near the corner do not depend on the data farther out.
+
+*Constants, coordinates and regions.* Fix a number C_* ≥ sup_𝒮 e^(σ_e)/R_e (in case (I), C_* := C_0, admissible by
+[[lem:loc-cone-strips]] (b); for [[prop:loc-cone-local]], C_* := sup_(Q′) e^(σ_e)/R_e), c_+ := (min(δ_1, η/C_*)/4)², κ :=
+δ_1/(4(l_u + l_v + 1)), and fix δ_c ∈ (0, √c_+/8]. On {u > −δ_c, v > −δ_c} put
+
+    τ := ln((u + δ_c)(v + δ_c)),      y := ((v + δ_c)/(u + δ_c)) ω(ϑ, φ1, φ2),                     {#eq:loc-cone-time}
+
+ω ∈ S³ ⊂ ℝ⁴ the point with angles (ϑ, φ1, φ2). (τ, y) is a G-equivariant chart onto ℝ × (ℝ⁴ ∖ {0}), in which class
+metrics equal to the background's near the axes are smooth; dτ = du/(u + δ_c) + dv/(v + δ_c), and the coordinate
+field ∂_τ = ½((u + δ_c)∂_u + (v + δ_c)∂_v) is future timelike for g_e and for the metrics C⁰-close to it. Let
+τ_init := ln(δ_c²/4), τ_+ := ln c_+, Σ_init := {τ = τ_init} and
+
+    𝒰 := {(u, v) : u, v > −δ_c, τ_init ≤ τ ≤ τ_+, u + κv ≤ l_u + δ_1/2, v + κu ≤ l_v + δ_1/2}.      {#eq:loc-cone-region}
+
+On 𝒰, min(u + δ_c, v + δ_c) ≤ √c_+ ≤ δ_1/4 and u + δ_c ≥ δ_c²/(4(l_v + 2δ_1)), so 𝒰 is a compact subset of the interior
+of 𝒮 inside the chart. Its boundary consists of Σ_init ∩ 𝒰, of a piece of {τ = τ_+} and of pieces of the two far cuts,
+with conormals dτ, du + κdv and dv + κdu; g_e⁻¹ of each with itself is negative (g_e^(uv) = −e^(−2σ_e) is the only entry
+of g_e⁻¹ pairing du, dv), uniformly on 𝒰, so these pieces are spacelike, with 𝒰 to their past, for g_e and for every
+Lorentzian metric close enough to g_e in C⁰. Every metric of the form [[eq:loc-double-null]] has g^(uu) = g^(vv) = 0 and
+g^(uv) < 0, so dτ, du + κdv and dv + κdu are timelike for it and positive on ∂_τ; so these pieces are also spacelike,
+with 𝒰 to their past, for every Lorentzian metric close enough in C⁰ to Ĝ below, which case (II) uses. On 𝒰, 2C_* e^(τ/2)
+≤ 2C_*√c_+ ≤ η/2, and the corner sphere S_c, where τ = 2 ln δ_c, lies in 𝒰, with F ∩ 𝒰 ⊂ {τ ≥ 2 ln δ_c}.
+
+In case (I) put δ_* := √c_+/2 and take δ_c so small also that δ_c(l_u + l_v + 1) ≤ c_+/2; then the set G_* of
+[[eq:loc-cone-domain]] lies in F ∩ 𝒰, since there (u + δ_c)(v + δ_c) ≤ δ_*² + c_+/2 < c_+ and u + κv ≤ l_u + δ_1/4.
+In case (II), for 0 < σ ≤ σ_1 := δ_c/8, put 𝒰_σ := 𝒰 ∩ {τ ≤ ln((δ_c + 2σ)²)}; then [0, σ]² ⊂ F ∩ 𝒰_σ ⊂ [0, 6σ]², and
+(−2σ, 10σ)² ⊂ 𝒰. In case (I) put 𝒰_σ := 𝒰.
+
+*Cut-offs.* Let χ_ϑ be smooth on [0, π/2], equal to 1 on [η, π/2 − η] and to 0 on [0, η/2] ∪ [π/2 − η/2, π/2]; χ_𝒰 a
+smooth function of (u, v), equal to 1 on a neighbourhood 𝒰_1 of 𝒰 and supported in the chart and in the interior of 𝒮;
+χ := χ_ϑ χ_𝒰. In case (I), θ is a smooth function of (u, v) equal to 1 on a neighbourhood of 𝒰 and supported in 𝒰_1; in
+case (II), θ := θ_1(u/σ) θ_1(v/σ), with θ_1 smooth, 0 ≤ θ_1 ≤ 1, θ_1 = 1 on [−1, 9] and supp θ_1 ⊂ (−2, 10), so that
+supp θ ⊂ 𝒰 and θ = 1 on F ∩ 𝒰_σ.
+
+*The reference states.* Take Δ of [[prop:loc-cone-formal]] with δ_e := δ_c/8, so that Δ vanishes where (u + δ_c)(v + δ_c)
+≤ (3δ_c/4)², in particular near Σ_init. Let Ů := (g_e, p̊_in, p̊_out, Θ̊_in, Θ̊_out, q̊_in, q̊_out) with p̊_in := −dv,
+p̊_out := −du, P̊_A := g_e⁻¹p̊_A, Θ̊_A := div_(g_e) P̊_A and q̊_A of [[sec:loc-cone-setting]]; and Û := (Ĝ, −dv, −du,
+Θ̂_A, q̂_A) with Ĝ of the form [[eq:loc-double-null]] with the functions X̊ + χ_𝒰Δ, Θ̂_A := div_Ĝ P̂_A, P̂_A := Ĝ⁻¹p̂_A,
+and q̂_A := (ρ̊_A + χ_𝒰Δ_(ρ_A))/𝒱̂. The fields P̊_A, P̂_A are future directed: P̂_out = (2Ω̂²)⁻¹ ∂_v and P̂_in = (2Ω̂²)⁻¹
+L̲. On {χ_𝒰 = 1}, Û is the formal solution of [[prop:loc-cone-formal]]. Put K := supp(χ_𝒰 Δ); it lies in {ϑ_a′ ≤ ϑ ≤
+ϑ_b′}, outside {u < u_K, v < v_K}, and in {(u + δ_c)(v + δ_c) ≥ (3δ_c/4)²}, and Ĝ = g_e and Û = Ů outside K.
+
+*The reference metric in case (II).* In case (II) let b = 0 on N_i; then b = 0 on S_c, by (i) of [[def:loc-cone-data]].
+We show that there is C_b, depending only on Λ, k and the background, and not on δ_e or δ_c, such that |b̂| ≤
+C_b(|u| + |v|) on 𝒮, |b̂| ≤ C_b|v| where u ≥ 2δ_e, and |X̂ − X̊| ≤ C_b. In the proof of [[lem:loc-cone-borel]], with
+ε_B = δ_e and r = k + 3, take the b-component. The term of index 0 of f_1 is χ(u/δ_e) ã_0, where ã_0 = b on N_o, with |b|
+≤ Λ|v| there as b = 0 at v = 0, and for v < 0 ã_0 is the Borel sum of the c_(0k), with c_(00) = 0, so at most C|v|. Every
+term of f_1 of index j ≥ 1 vanishes at u = 0 and is at most |u| sup |ã_j| for j ≤ r, as |u| ≤ 2ε_j ≤ 1/2 on its support,
+and at most 2^(−j) γ_0 |u| for j > r, its C¹ norm being at most 2^(−j) γ_0. In the second sum d_0 = b_0 − f_1(·, 0, ·) =
+0, since b_0 = 0 and the c_(j0) are the u-derivatives of b_0 at the corner; so each of its terms vanishes at v = 0 and is
+at most C|v| in the same way. And f_1 vanishes where |u| ≥ 2δ_e. The constants are sums of the suprema of the a_j, b_k
+and c_(jk) with j, k ≤ r, bounded by [[lem:loc-cone-jets]] (iii), and of γ_0 ≤ 1; none contains δ_e, since |χ| ≤ 1 and
+2ε_j ≤ 1. The same terms give |X̂ − X̊| ≤ C_b for the other components. So at the points of supp Δ with |u| ≤ 2δ_e, where
+u + δ_c ≤ 5δ_c/4 and v + δ_c ≥ 3δ_c/4, |b̂| ≤ 2C_b(v + δ_c), and at those with u ≥ 2δ_e, where |v| ≤ 2δ_e, |b̂| ≤ C_b
+δ_c/4; with u + δ_c ≤ 4δ_1 and v + δ_c ≤ 4δ_1 on 𝒮, in both cases γ̂_ϑ b̂² (u + δ_c) ≤ 20 γ̂_ϑ C_b² δ_1² (v + δ_c), and
+
+    4Ĝ(∂_τ, ∂_τ) = −4Ω̂² (u + δ_c)(v + δ_c) + γ̂_ϑ b̂² (u + δ_c)² ≤ −2Ω̂² (u + δ_c)(v + δ_c)
+
+on the chart, b̂ vanishing off supp Δ, whenever δ_1 ≤ δ_2 := (e^(−4C_b) inf Ω_e²/(10 C_b² sup R_e²))^(1/2), the infimum
+and the supremum over 𝒮 (for [[prop:loc-cone-local]], over Q′), which is at most (inf Ω̂²/(10 C_b² sup γ̂_ϑ))^(1/2)
+by |X̂ − X̊| ≤ C_b; δ_2 depends only on Λ, k and the background. Then ∂_τ is future timelike for Ĝ, so the block Ĝ^(ab)
+of the inverse metric on the dy^a, which annihilate ∂_τ, is positive definite (a covector ω with ω(∂_τ) = 0 has Ĝ⁻¹(ω,
+ω) = Ĝ(ω^♯, ω^♯) > 0, as ω^♯ is orthogonal to the timelike ∂_τ); dτ is timelike for Ĝ and P̂_A(τ) > 0; so A^0(x, 𝐔̂) of
+the system below is positive definite, without smallness of the data.
+
+*The modified system.* Let 𝒜(U) = 0 denote the augmented system (Aug1)–(Aug4) of [[sec:class-augmented]] for the
+unknowns U = (g, p_A, Θ_A, q_A), A ∈ {in, out}, with ζ_A := 1 and with the reduced Ricci tensor and the gauge vector
+relative to Ĝ, D(g) := g^(ab)(Γ[g] − Γ[Ĝ])_(ab), in place of g̊; it is defined where g(K_i, K_i) > 0, in particular on
+supp χ. In the first-order form of Step 9 of the proof of [[thm:class-stability-off-axes]], in the chart (τ, y), with the
+variables 𝐔 := (g, g_τ, g_a, p_A, Θ_A, q_A) for (g, ∂_τ g, ∂_(y^a) g, …), it reads A^μ(x, 𝐔) ∂_μ𝐔 = F_0(x, 𝐔): the wave
+block is ∂_τ g − g_τ = 0, a row with −g^(ττ) ∂_τ g_τ − 2g^(τa) ∂_a g_τ − g^(ab) ∂_a g_b, and g^(ab)(∂_τ g_b − ∂_b g_τ) =
+0, so that A^0 = diag(1, −g^(ττ), g^(ab)) there and P_A^τ on the transports. The coefficients are smooth functions of x
+and 𝐔 on the states with g Lorentzian, dτ and ∂_τ timelike and P_A^τ > 0, x entering through Ĝ and its derivatives
+of order at most two ([[eq:gauge]] with Ĝ in place of g0).
+
+In case (I) let 𝐔_c := 𝐔̊, in case (II) 𝐔_c := 𝐔̂ (the centre); A^0(x, 𝐔_c) is positive definite for x ∈ supp χ, in case
+(I) as at 𝐔̊, g_e being Lorentzian with dτ and ∂_τ timelike and P̊_A(τ) > 0, and in case (II) by the paragraph on the
+reference metric. Let c_0, r_0 > 0 be such that A^0(x, 𝐔_c + w) ≥ 2c_0 I for x ∈ supp χ and |w| ≤ 2r_0, and ϒ smooth with
+ϒ(w) = w for |w| ≤ r_0 and |ϒ| ≤ 2r_0. Let A^μ_♭ be the first-order form, in the same variables, of the linear operator
+−½ h^(ab) ∂_a∂_b on the wave block and of the transports P̄_A·∂, where h⁻¹ := χ_♭ g_e⁻¹ + (1 − χ_♭)(−∂_τ ⊗ ∂_τ + Σ_a
+∂_(y^a) ⊗ ∂_(y^a)) and P̄_A := χ_♭ P̊_A + (1 − χ_♭) ∂_τ, χ_♭ a smooth function of (u, v) equal to 1 on supp χ_𝒰 and
+supported in the chart and in 𝒮; on supp χ_𝒰, A^μ_♭ = A^μ(x, 𝐔̊). Let B_♭ be the constant matrix with B_♭Z = (Z_(g_τ), 0,
+…, 0), Z_(g_τ) the component of Z in the place of g_τ, so that the first row of A^μ_♭ ∂_μ Z − B_♭Z is ∂_τ Z_g − Z_(g_τ),
+as in Step 9. For Z := 𝐔 − 𝐔̊ put
+
+    𝔄_χ(𝐔) := χ (A^μ(x, 𝐔_c + ϒ(𝐔 − 𝐔_c)) ∂_μ𝐔 − F_0(x, 𝐔_c + ϒ(𝐔 − 𝐔_c))) + (1 − χ)(A^μ_♭ ∂_μ Z − B_♭Z),
+    F̃ := (1 − θ 1_F) 𝔄_χ(Û),                                                                    {#eq:loc-cone-modified}
+
+1_F the indicator function of F. 𝔄_χ(𝐔) involves 𝐔̊ only where χ ≠ 0, so 𝔄_χ(𝐔) = F̃ is a system for Z on
+[τ_init, τ_+] × ℝ⁴.
+
+**Lemma {#lem:loc-cone-system}** (The modified system.) In case (I) let ε be small, in case (II) σ ≤ σ_1.
+
+(a) 𝔄_χ(𝐔) = F̃ has the form A^μ_χ(x, Z) ∂_μ Z = Φ(x, Z) of [[eq:class-kato-system]] on [τ_init, τ_+] × ℝ⁴, with A^μ_χ :=
+χ A^μ(x, 𝐔_c + ϒ(𝐔 − 𝐔_c)) + (1 − χ) A^μ_♭ symmetric, A^0_χ ≥ c_1 I with c_1 > 0, and Φ a local forcing term in the sense
+of [[rem:class-kato-local]]. Every derivative of the A^μ_χ and of Φ is bounded on bounded sets of Z, and their bounds of
+order k + 1, and c_1, depend only on Λ, η, k, δ_c and the background.
+
+(b) Where χ = 1 and |𝐔 − 𝐔_c| ≤ r_0, 𝔄_χ(𝐔) = 𝒜(𝐔); at the points of 𝒰 where χ = 0, 𝔄_χ(𝐔) = A^μ(x, 𝐔̊) ∂_μ(𝐔 − 𝐔̊) −
+B_♭(𝐔 − 𝐔̊).
+
+(c) The first and the third row of the wave block of 𝔄_χ(𝐔) = F̃ are ∂_τ g − g_τ = 0 and h_χ^(ab)(∂_τ g_b − ∂_b g_τ) = 0,
+with h_χ^(ab) positive definite; so g_τ = ∂_τ g and g_a = ∂_a g hold on [τ_init, τ_+] × ℝ⁴ if they hold at τ_init.
+
+(d) 𝔄_χ(Û) = F̃ on P; F̃ is smooth and supported in supp χ_𝒰.
+
+(e) R_I := 𝔄_χ(Ů) − F̃ and R_II := 𝔄_χ(Û) − F̃ are smooth, supported in supp χ_𝒰, and sup_τ ‖R_I(τ)‖_(H^k) ≤ C ε in case
+(I), sup_τ ‖R_II(τ)‖_(H^k) ≤ C σ in case (II), with C depending on Λ in case (II). On 𝒰, F̃ − 𝔄_χ(Ů) vanishes outside K.
+
+*Proof.* (a) A^μ_χ is a convex combination of the matrices of two systems of the form of Step 9, both symmetric; A^0 of
+the first is at least 2c_0 I on supp χ for all Z, by the choice of ϒ, and A^0_♭ = diag(1, −h^(ττ), h^(ab), P̄_A^τ) is
+positive definite, with a lower bound c_♭ > 0 on bounded sets of x and equal to the identity far out; so c_1 := min(2c_0,
+c_♭) serves. Φ(x, Z) := χ (F_0(x, 𝐔_c + ϒ(𝐔 − 𝐔_c)) − A^μ(x, 𝐔_c + ϒ(𝐔 − 𝐔_c)) ∂_μ𝐔̊) + (1 − χ) B_♭Z + F̃(x) is smooth in
+(x, Z), with every derivative bounded on bounded sets of Z, and Φ(x, 0) vanishes for x outside the compact set supp χ_𝒰,
+by (d); so [[rem:class-kato-local]] applies. Its bounds involve Ĝ in C^(k+3), and ‖Δ‖_(C^(k+3)) ≤ C(Λ) by
+[[prop:loc-cone-formal]] (a). (b) is read off, as A^μ_♭ = A^μ(x, 𝐔̊) on supp χ_𝒰. (c) Both systems have these two rows,
+with the matrices g^(ab) of 𝐔_c + ϒ(𝐔 − 𝐔_c) and h^(ab), and F̃ has no component in them, since those of 𝔄_χ(Û) vanish
+(𝐔̂ has ĝ_τ = ∂_τ ĝ, ĝ_a = ∂_a ĝ); so ∂_τ(g_a − ∂_a g) = ∂_a(g_τ − ∂_τ g) = 0.
+
+(d) On P, θ 1_F = 0. F̃ = 𝔄_χ(Û) − θ 1_F 𝔄_χ(Û), and 𝔄_χ(Û) is smooth. On supp θ ⊂ {χ_𝒰 = 1}, 𝐔̂ − 𝐔̊ vanishes where χ_ϑ
+≠ 1 (Δ vanishes for ϑ ∉ [2η, π/2 − 2η]), so the frozen part of 𝔄_χ(Û) vanishes there, and |𝐔̂ − 𝐔_c| ≤ r_0 (in case (I)
+since ‖Δ‖_(C^(k+3)) ≤ Cε); so 𝔄_χ(Û) = χ 𝒜(Û) on supp θ. 𝒜(Û) vanishes to infinite order on N ∩ {χ_𝒰 = 1}: in (Aug1),
+Ric^H_Ĝ(Ĝ) = Ric(Ĝ) since D(Ĝ) = 0, so its residual is E of [[prop:loc-cone-formal]] (c); (Aug2) holds exactly, ∇_(P̂_A)
+p̂_A = ½ d Ĝ⁻¹(p̂_A, p̂_A) = 0 as u and v are null for Ĝ; in (Aug3), off the axes, [[eq:class-raychaudhuri]] for the
+eikonals −v and −u of Ĝ gives P̂_A(Θ̂_A) − S_A(Û) = −E(P̂_A, P̂_A); and (Aug4) is the conservation law, P̂_A(q̂_A) + Θ̂_A
+q̂_A = div_Ĝ(q̂_A P̂_A), which [[lem:loc-cone-ricci]] (b) expresses through the conservation expressions of
+[[prop:loc-cone-formal]] (c). A smooth function that vanishes to infinite order on N, times 1_F, is smooth; so θ 1_F
+𝔄_χ(Û) is smooth.
+
+(e) R_I = 𝔄_χ(Ů) − 𝔄_χ(Û) + θ 1_F 𝔄_χ(Û). 𝔄_χ is a smooth function of (x, 𝐔, ∂𝐔), so the first difference is bounded in
+C^k by C‖𝐔̂ − 𝐔̊‖_(C^(k+1)) ≤ C‖Δ‖_(C^(k+2)) ≤ Cε. On F ∩ supp θ, 𝔄_χ(Û) = χ(𝒜(Û) − 𝒜(Ů)) + χ𝒜(Ů); there 𝒜(Ů) has only
+the residual of (Aug1), Ric^H_Ĝ(g_e) − Ric^H_(g_e)(g_e), Ů solving the background's system on F ∩ 𝒮 (with
+[[eq:class-raychaudhuri]] for (Aug3)); so it is bounded in C^k by C‖Ĝ − g_e‖_(C^(k+2)) ≤ Cε, and as θ 1_F 𝔄_χ(Û) is
+smooth its C^k norm is at most Cε. In case (II), R_II = θ 1_F χ 𝒜(Û). Let x ∈ F ∩ supp θ, with u ≤ v say, so that u ≤
+10σ; all derivatives of 𝒜(Û) vanish at (0, v, ϑ) ∈ N_o, so by Taylor's formula in u each derivative of 𝒜(Û) of order at
+most k − p is at most C(Λ) u^(p+1) ≤ C(Λ)(10σ)^(p+1) at x, C(Λ) bounding the derivatives of order k + 1 of 𝒜(Û), hence
+those of order k + 3 of Ĝ. The derivatives of order p of θ are at most Cσ^(−p). By Leibniz's rule each derivative of
+order at most k of R_II is at most C(Λ)σ, and R_II is supported in the bounded set (−2σ, 10σ)² × S³; the chart (τ, y) has
+bounded derivatives there. Finally, on 𝒰 ∖ K: on P, F̃ − 𝔄_χ(Ů) = 𝔄_χ(Û) − 𝔄_χ(Ů) = 0; on F, it is −θ 𝔄_χ(Ů), and
+𝔄_χ(Ů) = 0 at each point of F ∩ 𝒰 ∖ K, where Ĝ = g_e on a neighbourhood and Ů solves its own system on F ∩ 𝒮. ∎
+
+**Lemma {#lem:loc-cone-energy}** (Energy on a region.) Let 𝒟 be a compact subset of the slab [τ_init, τ_+] × ℝ⁴ such that
+every 𝒟_s := 𝒟 ∩ {τ ≤ s} is empty or a Lipschitz domain whose boundary is the union of 𝒟 ∩ {τ = s}, of a closed set
+B_0 and of a set B_1 that is a finite union of smooth hypersurfaces, meeting one another and the slices transversally.
+Let 𝐀^μ be C¹ symmetric matrices on 𝒟 with 𝐀^0 ≥ cI, c > 0, M a bounded matrix function and z ∈ C¹(𝒟) with
+𝐀^μ ∂_μ z = Mz on 𝒟, z = 0 on B_0 and ν_μ 𝐀^μ ≥ 0 at the points of B_1, ν the outward conormal. Then z = 0 on 𝒟.
+
+*Proof.* The field V^μ := ⟨𝐀^μ z, z⟩ is C¹ in the slab coordinates, with ∂_μ V^μ = ⟨(∂_μ 𝐀^μ) z, z⟩ + 2⟨Mz, z⟩ ≤ C|z|²,
+by the symmetry of the 𝐀^μ. Let e(s) := ∫_(𝒟∩{τ=s}) ⟨𝐀^0 z, z⟩ dy. The divergence theorem on the Lipschitz domain 𝒟_s,
+as in the proof of [[thm:class-kato]] (b) (i), gives e(s) + ∫_(B_1∩{τ≤s}) ⟨ν_μ 𝐀^μ z, z⟩ |ν|⁻¹ dS = ∫_(𝒟_s) ∂_μ V^μ, the
+integral over B_0 vanishing with z. The boundary integral over B_1 is nonnegative, so e(s) ≤ C ∫_(𝒟_s) |z|² ≤ (C/c)
+∫_(τ_init)^s e, and e = 0 by Gronwall's inequality. ∎
+
+For a system of the form of Step 9 with inverse metric h on its wave block and transport fields P, the matrix ν_μ 𝐀^μ is
+nonnegative exactly when ν(∂_τ) ≥ 0, h⁻¹(ν, ν) ≤ 0 and ν(P) ≥ 0 for each transport field P (Step 9 of the proof of
+[[thm:class-stability-off-axes]]); for a convex combination of two such systems it is nonnegative where it is for both.
+In particular it is nonnegative on every piece of boundary whose conormal is future causal for both inverse metrics and
+nonnegative on the transport fields.
+
+**Lemma {#lem:loc-cone-cauchy}** (The Cauchy problem.) In case (I) for ε ≤ ε_0, and in case (II) for σ ≤ σ_0, where
+σ_0 ∈ (0, σ_1] depends only on Λ, η, k, δ_c and the background, the system 𝔄_χ(𝐔) = F̃ has a smooth solution on
+[τ_init, τ_+] × ℝ⁴ with 𝐔 = 𝐔̊ at τ_init, g_τ = ∂_τ g, g_a = ∂_a g, and |𝐔 − 𝐔_c| ≤ r_0. In case (I), sup_τ
+‖𝐔 − 𝐔̊‖_(H^k) ≤ Cε; in case (II), sup |𝐔 − 𝐔̂| + sup |∂(𝐔 − 𝐔̂)| ≤ C(Λ) σ^(1/(4k)).
+
+*Proof.* After the shift t := τ − τ_init the time interval is [0, T], T := ln(4c_+/δ_c²). In case (I) apply
+[[thm:class-kato-stability]] (a), with d = 4, s = k and ρ = ∞, to the system for Z of [[lem:loc-cone-system]] (a), with ū
+:= 0 and u0 := 0: ū satisfies [[eq:class-kato-approximate]] with R := −Φ(x, 0) = 𝔄_χ(Ů) − F̃ = R_I, since 𝔄_χ(Ů) = χ𝒜(Ů).
+(F1)–(F3) and (F1′) hold by [[rem:class-kato-local]]; ‖R_I(t)‖_(H^k) ≤ Cε ≤ 1 and sup_t ‖R_I‖ ≤ ε_0′ for ε small; and the
+constants depend only on bounds of order k for the coefficients and on sup_t ‖Φ(t, ·, 0)‖_(H^k)
+([[rem:class-kato-local]], the paragraph after it), which are uniform. So Z exists on [0, T], with sup_t ‖Z‖ ≤ Cε and
+sup_t ‖Z‖_(H^(s′)) ≤ C ε^(1/(4k)) for s′ := k − 1/4 > 3; so sup |Z| ≤ C ε^(1/(4k)) ≤ r_0 for ε small, and the cut-off ϒ
+is not active. For the bound in H^k, Z solves the linear problem of [[lem:class-kato-linear]] with v := Z and f := Φ(x,
+Z) − Φ(x, 0) − R_I, and ‖Φ(·, Z) − Φ(·, 0)‖_(H^k) ≤ C‖Z‖_(H^k) by [[lem:class-composition]] (b); by part (a) of that
+lemma Z is the solution of its part (b), whose bound and Gronwall's inequality give sup_t ‖Z‖_(H^k) ≤ C sup_t ‖R_I‖_(H^k)
+≤ Cε. In case (II) write the system for Z̃ := 𝐔 − 𝐔̂ and apply the same theorem with ū := 0, u0 := 0 (𝐔̂ = 𝐔̊ near
+Σ_init) and R := R_II, whose H^k norm is at most C(Λ)σ by [[lem:loc-cone-system]] (e); the constants depend on Λ through
+the bounds of the coefficients near 𝐔̂, and not on σ, the system and T being fixed apart from F̃. For σ small this gives
+the solution with ‖Z̃‖_(H^(s′)) ≤ C(Λ)σ^(1/(4k)), and ‖Z̃‖_(W^(1,∞)) ≤ C‖Z̃‖_(H^(s′)). The solution is smooth by the
+argument of step (4) of the proof of [[cor:class-kato-sphere]] ([[thm:class-kato]] (a) at every order and
+[[lem:class-kato-linear]] (c)), F̃ being smooth with compact support. The rows of (c) of [[lem:loc-cone-system]] hold at
+τ_init, where 𝐔 = 𝐔̊. The system is invariant under G: χ, θ, the reference states, h and P̄_A are G-invariant, and G acts
+on the components of 𝐔 in the chart (τ, y) by orthogonal maps fixing 𝐔_c, which preserve |𝐔 − 𝐔_c| ≤ r_0, where ϒ is the
+identity. So the image of the solution under an element of G is a solution with the same data, and by the uniqueness in
+[[thm:class-kato]] (a) it is the solution: U is G-invariant. ∎
+
+Below U denotes this solution, (g, p_A, Θ_A, q_A) its components and P_A := g⁻¹p_A.
+
+**Lemma {#lem:loc-cone-past}** (The past of the edges.) U = Û on P ∩ 𝒰. So U − Û vanishes, with all its derivatives, on
+N ∩ 𝒰, and g and the densities induce the cone data on N ∩ 𝒰.
+
+*Proof.* On P, 𝔄_χ(𝐔) = F̃ = 𝔄_χ(Û) ([[lem:loc-cone-system]] (d)). 𝔄_χ(𝐔) = A^μ_χ(x, Z) ∂_μ𝐔 − Φ_0(x, Z) with Φ_0 smooth,
+so z := 𝐔 − 𝐔̂ satisfies A^μ_χ(x, Ẑ) ∂_μ z = Mz on P, with Ẑ := 𝐔̂ − 𝐔̊ and M bounded on 𝒰, 𝐔 being C¹. Apply
+[[lem:loc-cone-energy]] on the closure of P ∩ 𝒰, a Lipschitz domain (near S_c it lies below the graph of a Lipschitz
+function in the coordinates u + v, u − v), with B_0 := Σ_init ∩ 𝒰, where z = 0 as 𝐔 = 𝐔̊ = 𝐔̂ there, and B_1 the rest of
+its boundary: N ∩ 𝒰 and pieces of the far cuts. On N the outward conormal is du on {u = 0} and dv on {v = 0}. At Û the
+wave blocks of A^μ_χ have the inverse metrics Ĝ⁻¹ and g_e⁻¹ (convexly combined), for which du and dv are null, with
+du(∂_τ), dv(∂_τ) > 0; the transport fields are P̂_A and P̊_A, with du(P̂_out) = dv(P̂_in) = 0 and du(P̂_in), dv(P̂_out) >
+0, likewise for P̊_A. On the far cuts the conormals du + κdv and dv + κdu are future timelike for every metric of the
+form [[eq:loc-double-null]], since such metrics have g^(uu) = g^(vv) = 0 and g^(uv) < 0, and positive on future causal
+vectors. So ν_μ 𝐀^μ ≥ 0 on B_1, and z = 0. ∎
+
+**Lemma {#lem:loc-cone-support}** (Localisation.) U = Ů at the points of 𝒰 with ϑ < ϑ_a′ − 2C_* e^(τ/2), at those with
+ϑ > ϑ_b′ + 2C_* e^(τ/2), and at those with u < u_K and v < v_K. In particular U = Ů on 𝒰 where ϑ < 3η/2 or
+ϑ > π/2 − 3η/2.
+
+*Proof.* On 𝒰, 𝔄_χ(𝐔) − 𝔄_χ(Ů) = F̃ − 𝔄_χ(Ů) vanishes outside K ([[lem:loc-cone-system]] (e)), so z := 𝐔 − 𝐔̊
+satisfies A^μ_χ(x, 0) ∂_μ z = Mz on 𝒰 ∖ K, with M bounded. For ι > 0 let 𝒲 := {p ∈ 𝒰 : ϑ ≤ ϑ_a′ − ι − 2C_* e^(τ/2)};
+it does not meet K, and on it 𝐔_c = 𝐔̊, so A^μ_χ(x, 0) = A^μ(x, 𝐔̊), with the inverse metric g_e on its wave block
+and the transport fields P̊_A. Apply [[lem:loc-cone-energy]] on 𝒲 with B_0 := Σ_init ∩ 𝒲 and B_1 the angular face and
+pieces of the far cuts. The angular face lies off the axes, as ϑ_a′ − 2C_* e^(τ/2) ≥ 2η − η/2, and its outward
+conormal is ν := dϑ + C_* e^(τ/2) dτ. Since g_e⁻¹(dϑ, dτ) = 0, g_e⁻¹(dϑ, dϑ) = R_e⁻² and g_e⁻¹(dτ, dτ) = 2g_e^(uv)
+e^(−τ) = −2e^(−2σ_e) e^(−τ),
+
+    g_e⁻¹(ν, ν) = R_e⁻² − 2C_*² e^(−2σ_e) ≤ R_e⁻² − 2R_e⁻² < 0,
+
+as C_* ≥ e^(σ_e)/R_e; ν(∂_τ) = C_* e^(τ/2) > 0, and ν(P̊_A) = C_* e^(τ/2) dτ(P̊_A) > 0, P̊_A having no ∂_ϑ-component. So
+z = 0 on 𝒲 for every ι > 0. The set where ϑ > ϑ_b′ + 2C_* e^(τ/2) is treated in the same way with π/2 − ϑ in place of
+ϑ. For {u ≤ u_K − ι, v ≤ v_K − ι} ∩ 𝒰, which does not meet K, the faces {u = u_K − ι} and {v = v_K − ι} have the
+conormals du and dv, null for g_e with du(P̊_out) = dv(P̊_in) = 0 and du(P̊_in), dv(P̊_out) > 0. Finally ϑ_a′ − 2C_*
+e^(τ/2) ≥ 2η − η/2 on 𝒰. ∎
+
+**Lemma {#lem:loc-cone-constraints}** (The constraints.) On F ∩ 𝒰_σ, g⁻¹(p_A, p_A) = 0, dp_A = 0, D(g) = 0 and Θ_A =
+div_g P_A. There are smooth functions u_in, u_out on 𝒰′ := (P ∩ 𝒰) ∪ (F ∩ 𝒰_σ) with p_in = −du_in, p_out = −du_out,
+u_in = v and u_out = u on P ∩ 𝒰; and (g, u_in, u_out, q_in, q_out) solves [[eq:class-system]] on F ∩ 𝒰_σ, with densities
+of either sign for cone data of any sign, Ric(g) = q_in du_in ⊗ du_in + q_out du_out ⊗ du_out, in the gauge D(g) = 0
+relative to Ĝ. If the densities of the data are nonnegative on N_o ∩ {v ≤ v̄} and on N_i ∩ {u ≤ ū}, then q_in ≥ 0 where
+u_in ≤ v̄ and q_out ≥ 0 where u_out ≤ ū; for cone data, q_A ≥ 0 on F ∩ 𝒰_σ.
+
+*Proof.* On F ∩ 𝒰_σ, θ = 1 and F̃ = 0. Let 𝒪_1 be the set of its points with η < ϑ < π/2 − η and 𝒪_2 that of its points
+with ϑ < 3η/2 or ϑ > π/2 − 3η/2; both are open in F ∩ 𝒰_σ and cover it. On 𝒪_1, χ = 1 and |𝐔 − 𝐔_c| ≤ r_0, so 𝒜(U) = 0
+([[lem:loc-cone-system]] (b)). On 𝒪_2, U = Ů ([[lem:loc-cone-support]]) and Ĝ = g_e, so there ν_A := g⁻¹(p_A, p_A),
+dp_A, D := D(g) and Δ_A := Θ_A − div_g P_A vanish identically. By [[lem:loc-cone-past]] all four, with their
+derivatives, vanish on N ∩ 𝒰: on P ∩ 𝒰, U = Û, and for Û they vanish identically.
+
+*The phases.* On 𝒪_1, P_A(ν_A) = 0 by [[prop:class-augmented]] (b), and on 𝒪_2, ν_A = 0; so P_A(ν_A) = 0 on F ∩ 𝒰_σ.
+Through a point of F ∩ 𝒰_σ the integral curve of P_A, followed to the past, cannot leave 𝒰_σ through {τ = ln((δ_c +
+2σ)²)} or the far cuts, which are spacelike for g with 𝒰_σ to their past, and τ decreases along it at a rate bounded
+below; as F ∩ 𝒰_σ ⊂ {τ ≥ 2 ln δ_c}, it reaches N, where ν_A = 0. So ν_A = 0 on F ∩ 𝒰_σ. Then ℒ_(P_A) dp_A = 0 on 𝒪_1
+([[prop:class-augmented]] (b)) and dp_A = 0 on 𝒪_2, so dp_A, transported along the same curves from N, vanishes on
+F ∩ 𝒰_σ. On P ∩ 𝒰, p_A = p̂_A is −dv or −du. So dp_A = 0 on 𝒰′, a simply connected planar set times S³, and p_A =
+−du_A with u_A fixed by its values on the connected set P ∩ 𝒰; g⁻¹(du_A, du_A) = ν_A = 0.
+
+*The gauge and the expansions.* On 𝒪_1, with p_A = −du_A an eikonal and ζ_A = 1, [[prop:class-augmented]] (d) and (e)
+give
+
+    P_A(Δ_A) = −Δ_A (Θ_A + div_g P_A − 2κ_A1 − 2κ_A2) + g(∇_(P_A) D, P_A) + L(P_A, P_A),
+
+and D solves [[eq:class-gauge-wave]] with B_g T = Σ_A Δ_A q_A p_A, the tensor L being built with Γ[g] − Γ[Ĝ]; on 𝒪_2 all
+these quantities vanish. In the first-order variables z := (D, ∂_τ D, ∂_y D, Δ_in, Δ_out) this is a linear system 𝐀^μ ∂_μ
+z = Mz on F ∩ 𝒰_σ, of the form of Step 9 with the inverse metric g and the transport fields P_A, with C¹ coefficients.
+Apply [[lem:loc-cone-energy]] on the closure of F ∩ 𝒰_σ with B_0 := N ∩ 𝒰_σ, where z = 0, and B_1 the future face and the
+far cuts, spacelike for g with future conormals positive on the P_A. So D = 0 and Δ_A = 0 on F ∩ 𝒰_σ. Then (Aug1) is
+Ric(g) = Σ_A q_A p_A ⊗ p_A, by the identity of the proof of [[lem:gauge-propagation]] with Ĝ in place of g0, and (Aug4)
+with Θ_A = div_g P_A is div_g(q_A P_A) = 0; on 𝒪_2 this is the background. *The signs.* By (Aug4), q_A is multiplied
+along each integral curve of P_A by a positive factor, and P_A(u_A) = −g⁻¹(du_A, du_A) = 0. So q_A at a point of F ∩ 𝒰_σ
+is a positive multiple of its value at the point of N on the same integral curve, where u_A has the same value, and there
+q_A is that of Û. On N_o, where u_in = v, q_in is the data's; on N_i, where u_in = 0, it is a positive multiple of its
+value at the corner, as L̲ρ̂_in = −(∂_ϑ b̂) ρ̂_in along the generators of N_i. Likewise q_out is the data's on N_i, where
+u_out = u, and on N_o, where u_out = 0, ρ̂_out is constant on each generator, so q_out is a positive multiple of its
+value at the corner. This gives the signs. ∎
+
+**Lemma {#lem:loc-cone-gauge}** (The double-null gauge.) Let ϑ′ be the function on 𝒰′ with P_out(ϑ′) = 0 and ϑ′ = ϑ on
+P ∩ 𝒰, and Ψ := (u_out, u_in, ϑ′), acting on the orbit space and fixing φ1, φ2. Then Ψ is a diffeomorphism from F ∩ 𝒰_σ
+onto a set that contains G_* in case (I) and [0, σ]² in case (II) (times the angles), equal to the identity, with its
+differential, on N ∩ 𝒰_σ and on the sets of [[lem:loc-cone-support]]. In the coordinates (u′, v′, ϑ′, φ1, φ2) :=
+(u_out, u_in, ϑ′, φ1, φ2) the metric g has the form [[eq:loc-double-null]], and (g, v′, u′, q_in, q_out) is a class
+solution in the gauge on Ψ(F ∩ 𝒰_σ) × S³ that induces the cone data on the two edges. In case (I) its functions ln Ω,
+½ ln γ_ϑ, b, A_c, A_s, q_in, q_out differ from the background's by at most Cε, with their derivatives of order at most
+k − 4, at the points with η ≤ ϑ ≤ π/2 − η, and equal them elsewhere.
+
+*Proof.* On P ∩ 𝒰, P_out = P̂_out = (2Ω̂²)⁻¹ ∂_v, and the past integral curves of ∂_v from P ∩ 𝒰 stay in P ∩ 𝒰; so
+ϑ′ := ϑ ∘ Φ, Φ following the integral curves of P_out to the past to the set P ∩ 𝒰 ∩ {τ ≤ τ_init + 1}, is well
+defined, smooth and G-invariant, and ϑ′ = ϑ on P ∩ 𝒰. By smoothness, u_out − u, u_in − v and ϑ′ − ϑ vanish with all
+their derivatives on N ∩ 𝒰. Where U = Ů ([[lem:loc-cone-support]]), p_A = p̊_A and P_out = P̊_out ∝ ∂_v on a set that
+contains, with each point, its past integral curves of P_out and meets P ∩ 𝒰; there Ψ is the identity.
+
+*Ψ is near the identity.* In case (I), sup |𝐔 − 𝐔̊| + |∂(𝐔 − 𝐔̊)| ≤ Cε, and the derivatives of order at most k − 3 of 𝐔 −
+𝐔̊ are at most Cε, by [[lem:loc-cone-cauchy]] and the Sobolev inequality on the slices; in case (II) the same holds for 𝐔
+− 𝐔̂ with C(Λ)σ^(1/(4k)) in place of Cε, at the order one. As d(u_out − u) = −(p_out − p̊_out) and d(u_in − v) = −(p_in −
+p̊_in), and ϑ′ − ϑ solves P_out(ϑ′ − ϑ) = −(P_out − P̊_out)(ϑ) with zero values on P (in case (II) with P̂ in place of
+P̊), Ψ − id is small in C¹ on F ∩ 𝒰_σ, in case (I) at most Cε in C^(k−3). In case (II), Ψ − id vanishes on N and every
+point of F ∩ 𝒰_σ ⊂ [0, 6σ]² is joined to N in it by a segment of length at most 6σ, so |Ψ − id| ≤ 6σ sup |d(Ψ − id)| ≤
+C(Λ) σ^(1 + 1/(4k)), while the points within σ of [0, σ]² lie in 𝒰_σ, as (δ_c + 2σ)² bounds (u + δ_c)(v + δ_c) there. The
+set F ∩ 𝒰_σ is a down-set in (u, v): with (u, v) it contains [0, u] × [0, v]; so two of its points are joined in it by a
+path of length at most 3 times their distance, through the point of least coordinates, and the bound on d(Ψ − id) makes Ψ
+injective. Ψ is the identity on P ∩ 𝒰, where u_out = u, u_in = v and ϑ′ = ϑ, and on the sets of [[lem:loc-cone-support]].
+Let y be a point of G_* (in case (II), of [0, σ]²) and B the closed ball about y of radius 2 sup |Ψ − id|, in the
+coordinates (u, v, ϑ), with Ψ = id where ϑ ∉ [η, π/2 − η]; B lies in 𝒰′ for ε (for σ) small, and x ↦ y − (Ψ(x) − x) maps
+B into B and is a contraction, sup |d(Ψ − id)| being less than 1/2. Its fixed point x satisfies Ψ(x) = y, and x lies in F
+∩ 𝒰_σ, since Ψ fixes the points of P ∩ 𝒰. So the image of Ψ contains G_* (in case (II), [0, σ]²).
+
+*The form of the metric.* In the new coordinates g⁻¹(du′, du′) = g⁻¹(dv′, dv′) = 0, and g⁻¹du′ = −P_out annihilates
+du′ and dϑ′ and, by the reflections, dφ1 and dφ2, so g⁻¹du′ = c ∂_(v′) with c ≠ 0. So g^(u′u′) = g^(v′v′) = g^(u′ϑ′) = 0,
+and the inverse of the (u′, v′, ϑ′)-block [[0, c, 0], [c, 0, e], [0, e, f]] is [[e²/(c²f), 1/c, −e/(cf)], [1/c, 0, 0],
+[−e/(cf), 0, 1/f]]: g_(v′v′) = g_(v′ϑ′) = 0, g_(u′v′) = 1/c, g_(ϑ′ϑ′) = 1/f, g_(u′ϑ′) = −e/(cf) and g_(u′u′) = e²/(c²f).
+This is [[eq:loc-double-null]] with −2Ω² = 1/c, γ_ϑ = 1/f and b = e/c. By [[lem:loc-cone-constraints]], v′ = u_in and
+u′ = u_out are the phases of the two families. On N, Ψ and its differential are the identity and g agrees with Ĝ to all
+orders, so the functions of g in the new coordinates and the densities are on N those of Ĝ, the cone data. In case (I)
+the functions involve g ∈ C^(k−2), the densities ∈ C^(k−3), and Ψ⁻¹ with its first derivatives, ∈ C^(k−4); this gives the
+estimate. ∎
+
+**Lemma {#lem:loc-cone-unique}** (Uniqueness.) In case (I), let (g′, q′_in, q′_out) be a class solution in the gauge on
+G_* × S³ that induces the cone data, whose functions differ from the background's by at most ε_2 with their derivatives
+of order at most k at the points with 2η ≤ ϑ ≤ π/2 − 2η. For ε and ε_2 small, depending only on the background, u_1, v_1,
+the band and k, it equals the solution of [[lem:loc-cone-gauge]], in their coordinates, at the points of G_* with 3η ≤ ϑ
+≤ π/2 − 3η.
+
+*Proof.* (1) *An extension of g′.* By [[lem:loc-cone-jets]] (iv), G_* being a past set, the functions of g′, like those
+of Ĝ, have the derivatives a_j, b_k across N ∩ G_*; so g′ − Ĝ vanishes to infinite order on N ∩ G_*. Let G_*^+ be the set
+of the points of 𝒰 within distance δ_c/4 of G_*, and fix ψ smooth on [0, π/2], equal to 1 on [17η/8, π/2 − 17η/8] and
+supported in (2η, π/2 − 2η). The function f equal to ψ (g′ − Ĝ) on G_* and to 0 on P is smooth on G_* ∪ P; extend it
+to G_*^+, for each ϑ, by the operator of [[thm:std-sy-extension]] for a bounded Lipschitz domain that contains G_* ∪ (P ∩
+G_*^+) and lies in G_* ∪ P, and put g″ := Ĝ + f on G_*^+. Then g″ is smooth, equals Ĝ on P ∩ G_*^+ and g′ at the points
+of G_* with 17η/8 ≤ ϑ ≤ π/2 − 17η/8, g″ − Ĝ vanishes to infinite order on N ∩ G_*^+, being smooth and zero on P there,
+and ‖g″ − Ĝ‖_(C^(k−1)) ≤ C (ε + ε_2), the operator being bounded on W^(k,∞).
+
+(2) *A wave map.* Let 𝒟′ be the set of the points of G_* with 9η/4 + 2C_* e^(τ/2) ≤ ϑ ≤ π/2 − 9η/4 − 2C_* e^(τ/2), τ of
+[[eq:loc-cone-time]]; as G_* ⊂ F ∩ 𝒰, 2C_* e^(τ/2) ≤ η/2 there, so 𝒟′ contains the points of G_* with 3η ≤ ϑ ≤ π/2 − 3η,
+and g″ = g′ on 𝒟′. Seek Φ = id + φ with id: (𝒟′, (Φ⁻¹)^*g″) → Ĝ a wave map, that is
+
+    g″^(μν) (∂_μ∂_ν Φ^λ − Γ[g″]^ρ_(μν) ∂_ρ Φ^λ + Γ[Ĝ]^λ_(αβ)(Φ) ∂_μΦ^α ∂_νΦ^β) = 0,
+
+a semilinear wave system for φ whose principal part is that of g″. As in [[lem:loc-cone-system]] and
+[[lem:loc-cone-cauchy]], case (I), on the slab [τ_init, τ_+] × ℝ⁴, with a cut-off in ϑ equal to 1 on [9η/4, π/2 − 9η/4]
+and supported in (17η/8, π/2 − 17η/8), a cut-off in (u, v) equal to 1 near G_* and supported in G_*^+, and the frozen
+part taken with the wave operator of g_e: φ := 0 satisfies the cut-off system on P exactly, as g″ = Ĝ there, and on F up
+to the residual 1_F g″^(μν)(Γ[Ĝ] − Γ[g″])^λ_(μν), which vanishes to infinite order on N and is at most C(ε + ε_2) in
+C^(k−2). [[thm:class-kato-stability]] (a) with s = k − 2 > 3 gives a smooth solution φ on the slab with φ small in
+W^(1,∞), the constants depending only on the background, u_1, v_1, the band, k and δ_c; φ = 0 on P, by the argument of
+[[lem:loc-cone-past]]; and on 𝒟′ it solves the wave map system, the cut-offs being 1 there.
+
+(3) *Comparison.* For ε, ε_2 small, Φ is a diffeomorphism near the identity, equal to it on P and so, with all
+derivatives, on N. Put g̃ := (Φ⁻¹)^*g″, ũ_A := u′_A ∘ Φ⁻¹ with u′_in := v, u′_out := u the phases of g′, p̃_A := −dũ_A,
+Θ̃_A := div_(g̃) P̃_A and q̃_A := q′_A ∘ Φ⁻¹ on Φ(𝒟′). Then D(g̃) = 0 relative to Ĝ, so (g̃, p̃_A, Θ̃_A, q̃_A) solves 𝒜 =
+0 on Φ(𝒟′) (off the axes, with [[eq:class-raychaudhuri]] for (Aug3)), and so does U on F ∩ 𝒰 ∩ {η < ϑ < π/2 − η}, which
+contains Φ(𝒟′) ([[lem:loc-cone-constraints]]). Both equal Û, with all derivatives, on N. The difference z of their
+first-order variables satisfies A^μ(x, 𝐔̃) ∂_μ z = Mz on Φ(𝒟′), with the matrices of 𝐔̃, whose wave block has the inverse
+metric g̃ and whose transport fields are P̃_A. The faces of 𝒟′ other than N are {uv = δ_*²}, {u = u_1}, {v = v_1} and two
+angular faces. As g′ has the form [[eq:loc-double-null]] in these coordinates, the conormal v du + u dv of the first is
+timelike for it, g′⁻¹(v du + u dv, v du + u dv) = 2uv g′^(uv) < 0; du and dv are null, du vanishes on −g′⁻¹du and is
+positive on −g′⁻¹dv, and dv vanishes on −g′⁻¹dv and is positive on −g′⁻¹du; the angular conormals are timelike as in
+[[lem:loc-cone-support]], g′ being C⁰-close to g_e there, and positive on −g′⁻¹du and −g′⁻¹dv. Φ carries g′ on 𝒟′ to g̃
+and the phases of g′ to the ũ_A, so the outward conormals of the faces of Φ(𝒟′) other than N are future causal for g̃ and
+nonnegative on P̃_in and P̃_out. [[lem:loc-cone-energy]] on Φ(𝒟′), with B_0 := N ∩ 𝒟′ and B_1 its other faces, gives
+z = 0.
+
+(4) *Conclusion.* So g = (Φ⁻¹)^*g″, p_A = p̃_A, and u_A = ũ_A, both being u or v on P. Hence Φ is an isometry from (g′,
+u, v) to (g, u_out, u_in) on 𝒟′: u = u_out ∘ Φ and v = u_in ∘ Φ. It carries g′⁻¹du to g⁻¹du_out, so ϑ′ ∘ Φ is constant
+along the integral curves of g′⁻¹du and equals ϑ on N_i, where Φ is the identity; as the angle of g′ has the same two
+properties, ϑ′ ∘ Φ = ϑ. So Ψ ∘ Φ is the identity on 𝒟′, and the functions of g′ on 𝒟′ are those of the solution of
+[[lem:loc-cone-gauge]]. ∎
+
+**Lemma {#lem:loc-cone-extension}** (Extending cone data beyond the ends of the edges.) Let a background be given on 𝒮, k
+≥ 6, η ∈ (0, π/8] and p := m_0 + 3. Let 0 < l_v′ ≤ l_v + δ_1 and 0 < l_u′ ≤ l_u + δ_1, and let functions as in
+[[def:loc-cone-data]] be given on {0} × [0, l_v′] and on [0, l_u′] × {0}, with b = 0 on the second, that satisfy (i) and
+(ii) there, equal the background's at the points with ϑ ∉ [2η, π/2 − 2η], and whose differences from the background's
+have derivatives of order at most 2p bounded by Λ. There are λ_e ∈ (0, 1/2] and C, depending only on Λ, η, k and bounds
+for σ_e, R_e, 1/R_e and their derivatives of order at most 2p + 2 on 𝒮, such that, if l_v + δ_1 ≤ l_v′ + λ_e and l_u +
+δ_1 ≤ l_u′ + λ_e, the functions extend to cone data of any sign on N_o and N_i, with b = 0 on N_i, equal to the
+background's at the points with ϑ ∉ [2η, π/2 − 2η], of size at most C. Beyond l_v′ and l_u′ the extended densities may be
+negative.
+
+*Proof.* We treat N_o; on N_i the same argument applies with u, q_out and [[eq:loc-cone-in]] in place of v, q_in and the
+first line of [[eq:loc-cone]], b = 0 being kept: with b = 0, L̲ = ∂_u, χ̲_i = ∂_uϰ_i, and the last line of
+[[eq:loc-cone-frame-ricci]] is the right side of [[eq:loc-cone-in]] minus q_out, for every Ω. If l_v′ = l_v + δ_1 there
+is nothing to do. Write ϕ := (ϰ_1 + ϰ_2 + ϰ_3)/3 and ℓ_i := ϰ_i − ϕ. By the proof of [[prop:loc-cones]], whose
+derivation does not use that Ω is the background's, (ii) on N_o says that y := e^ϕ solves
+
+    y″ − 2(ln Ω)′ y′ + (1/3)(Σ_i (ℓ_i′)² + q_in) y = 0,      ′ := ∂_v,                                     (∗)
+
+and that ∂_v b solves the linear first-order equation that the second line of [[eq:loc-cone]] gives, Ric(∂_v, ∂_ϑ) = 0,
+whose leading coefficient is γ_ϑ/(4Ω²), whose other coefficient holds first derivatives of ln Ω and the ϰ_i, and whose
+inhomogeneous term is −r of [[eq:loc-cone-r]], which holds derivatives of order at most two of ln Ω and the ϰ_i.
+
+*The free functions.* For f one of ln Ω, ℓ_1, ℓ_2, ℓ_3 and q_in, with background value f̊, let B_f be the Borel sum in t
+:= v − l_v′ of the sequence h_j := ∂_v^j(f − f̊)(l_v′, ·), j ≥ 0, as in the proof of [[lem:loc-cone-borel]], with ε_j :=
+1/4 for j ≤ p and ε_j ≤ 1/4 for j > p so small that the j-th term has C^p norm at most 2^(−j). Put f̃ := f on [0, l_v′]
+and f̃ := f̊ + B_f on [l_v′, l_v + δ_1]. All v-derivatives of the two pieces agree at v = l_v′, so f̃ is smooth; f̃ = f̊
+at every ϑ at which f = f̊ on the given segment, since there all h_j vanish; and a term of index j ≤ p has C^p norm at
+most C(p) ‖h_j‖_(C^p) ≤ C(p) ‖f − f̊‖_(C^(2p)), so ‖f̃ − f̊‖_(C^p) ≤ C(p)(p + 1)Λ + 1 =: Λ_2 on the edge. Nothing keeps
+q̃_in nonnegative beyond l_v′.
+
+*The constrained functions.* Let C_1 ≥ 1 bound 2|(ln Ω̃)′| + (1/3)|Σ_i (ℓ̃_i′)² + q̃_in| on N_o; it depends only on Λ_2
+and the background. Solve (∗), with these coefficients, on [0, l_v + δ_1] with the values of y and y′ at v = 0; by
+uniqueness the solution is the given y on [0, l_v′], and it is smooth, its coefficients being smooth. At a point of the
+band, on [l_v′, l_v′ + a] with a ≤ 1, w := |y| + |y′| satisfies |w′| ≤ (1 + C_1) w, so w ≤ 2w(l_v′) for a ≤ ln 2/(1 +
+C_1), and then |y − y(l_v′)| ≤ 2a w(l_v′) = 2a (1 + |ϕ′(l_v′)|) y(l_v′) ≤ y(l_v′)/2 for a ≤ 1/(4(1 + |ϕ′(l_v′)|)),
+where |ϕ′| ≤ Λ + sup |∂_v ln R_e|. Let λ_e be the least of 1/2, ln 2/(1 + C_1) and 1/(4(1 + Λ + sup |∂_v ln R_e|)). Then
+y > 0 on [0, l_v + δ_1], and y ≥ y(l_v′)/2 on [l_v′, l_v + δ_1], at the points of the band, and we put ϕ̃ := ln y and
+ϰ̃_i := ϕ̃ + ℓ̃_i. Next solve the equation for ∂_v b with the extended functions, and obtain b by integration from the
+corner, on [0, l_v + δ_1]; again the solution is the given b on [0, l_v′], and it is smooth. At every ϑ ∉ [2η, π/2 − 2η]
+the free functions and their ϑ-derivatives are the background's, so the coefficients of both equations are the
+background's there, and with the background's values at v = 0 both solutions are the background's. The extended functions
+satisfy (i), the corner being untouched, (ii), by construction, and (iii) with [ϑ_a′, ϑ_b′] := [2η, π/2 − 2η]; so they
+are cone data of any sign.
+
+*The size.* On the band, the coefficients of (∗) have C^(p−1) norms at most C(Λ_2), and at v = l_v′ the functions y, 1/y
+and the derivatives of y of order at most 2p are bounded by C, since ϕ − ϕ̊ is bounded by Λ in C^(2p) and ϕ̊ = ln R_e +
+(1/3) ln(sin ϑ cos ϑ) is bounded with its derivatives there. Differentiating (∗) in ϑ, ∂_ϑ^i y solves an equation of the
+form (∗) with an inhomogeneous term in the ∂_ϑ^(i′) y, i′ < i; Gronwall's inequality over [l_v′, l_v + δ_1], of length at
+most λ_e ≤ 1/2, bounds ∂_ϑ^i y and ∂_ϑ^i y′ for i ≤ p − 1, and (∗) then bounds the further v-derivatives. So
+‖y‖_(C^(p−1)) ≤ C, and with y ≥ y(l_v′)/2, ‖ϕ̃ − ϕ̊‖_(C^(p−1)) ≤ C. The equation for ∂_v b then has its coefficients in
+C^(p−2) and its inhomogeneous term in C^(p−3) = C^(m_0), and the same argument gives ‖b̃‖_(C^(m_0)) ≤ C. So the size of
+the extension is at most C. ∎
+
+**Proposition {#prop:loc-cone-local}** (Developments near a corner sphere, without smallness.) Let k ≥ 6, m_0 = 6k + 18,
+m_1 := 2m_0 + 6 = 12k + 42, the regularity index of this proposition, η ∈ (0, π/8] and Λ > 0. Let 𝒪 be an open set of
+the (u, v)-plane, Q ⊂ 𝒪 and d ∈ (0, 1] such that the set Q′ of the points (u, v) with |u − u″| ≤ 4d and |v − v″| ≤ 4d for
+some (u″, v″) ∈ Q is a compact subset of 𝒪, and u_Q, v_Q the least values of u and v on Q. Let a background be given on
+𝒪, that is a round metric g_e = −2e^(2σ_e) du dv + R_e² dΩ₃², with σ_e and R_e smooth on 𝒪 and R_e > 0, and profiles
+𝒜(v), ℬ(u) ≥ 0, that solves [[eq:two-dust-limit]] on 𝒪 ∩ {u ≥ u_Q, v ≥ v_Q}. There is σ > 0, depending only on k, η,
+Λ, d and
+bounds for σ_e, R_e, 1/R_e and their derivatives of order at most m_1 + 2 on Q′, with the following property. Let a
+rectangle [u_c, u_c + λ_u] × [v_c, v_c + λ_v] ⊂ Q be given, with any λ_u, λ_v > 0, N_o := {u_c} × [v_c, v_c + λ_v] and
+N_i := [u_c, u_c + λ_u] × {v_c}. Let smooth functions ln Ω, ϰ_1 = ½ ln γ_ϑ, ϰ_2 = A_c, ϰ_3 = A_s, b and q_in ≥ 0 of (v,
+ϑ) ∈ [v_c, v_c + λ_v] × (0, π/2), and ln Ω, ϰ_1, ϰ_2, ϰ_3 and q_out ≥ 0 of (u, ϑ) ∈ [u_c, u_c + λ_u] × (0, π/2), be
+given, with b = 0 on N_i and with Ω on both edges and b on N_o otherwise arbitrary, that agree on the corner sphere,
+satisfy Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o, by [[eq:loc-cone]], and Ric(∂_u, ∂_u) = q_out on N_i, by
+[[eq:loc-cone-in]], which holds for every Ω when b = 0 ([[eq:loc-cone-frame-ricci]]), equal the background's at the
+points with ϑ ∉ [2η, π/2 − 2η], and whose differences from the background's have C^(m_1) norms at most Λ. Then there is a
+class solution in the gauge on [u_c, u_c + min(λ_u, σ)] × [v_c, v_c + min(λ_v, σ)] × S³ that induces these functions on
+the two edges and equals the background, with its densities, at the points with ϑ ∉ [η, π/2 − η]. No smallness of the
+data is assumed: the smallness of the rectangle takes its place. The number σ is the same for every corner (u_c, v_c) ∈ Q
+and does not depend on λ_u, λ_v.
+
+*Proof.* Translate u and v so that the corner is (0, 0), the background's profiles with them. Constants C below depend
+only on the quantities named in the statement. For δ_1 ≤ d the set 𝒮 of [[eq:loc-cone-collar]] with l_u = l_v = 2δ_1 lies
+in [−δ_1, 3δ_1]², hence in the translate of Q′, and 𝒮 ∩ F lies where u ≥ u_Q and v ≥ v_Q; so the background restricts to
+a background on 𝒮, bounds on Q′ bound it there, and C_* := sup_(Q′) e^(σ_e)/R_e is admissible.
+
+*Step 1: a collar of fixed width.* Let λ_e and C be the numbers of [[lem:loc-cone-extension]] for Λ, η, k and the bounds
+on Q′, and Λ_1 := max(Λ, C). Let δ_2 be the number of the paragraph on the reference metric in case (II) in
+[[sec:loc-cone-reduced]], for the size Λ_1. Fix δ_1 := min(d, λ_e/3, δ_2) and l_u = l_v := 2δ_1. So δ_1 depends only on
+Λ, η, k, d and the background on Q′, and not on the corner or on λ_u, λ_v; it is not tied to the lengths of the given
+edges.
+
+*Step 2: the data on edges of length 3δ_1.* Restrict the given functions to {0} × [0, min(λ_v, 3δ_1)] and [0, min(λ_u,
+3δ_1)] × {0}. Where an edge is shorter than 3δ_1, extend it by [[lem:loc-cone-extension]] with l_v′ := min(λ_v, 3δ_1) and
+l_u′ := min(λ_u, 3δ_1); its hypothesis holds, as l_v + δ_1 = 3δ_1 ≤ λ_e ≤ l_v′ + λ_e, likewise for u, and 2p = m_1. This
+gives cone data of any sign on N_o = {0} × [0, 3δ_1] and N_i = [0, 3δ_1] × {0}, with b = 0 on N_i, equal to the
+background's at the points with ϑ ∉ [2η, π/2 − 2η], of size at most Λ_1 (a restriction has size at most Λ, as m_0 ≤ m_1),
+and equal to the given functions on N_o ∩ {v ≤ λ_v} and on N_i ∩ {u ≤ λ_u}, where their densities are nonnegative.
+
+*Step 3: the smallness of the rectangle in place of that of the data.* Apply case (II) of [[sec:loc-cone-reduced]] to
+these data, with the size Λ_1 and δ_c := √c_+/8, which depends only on δ_1, η and C_*. [[lem:loc-cone-jets]] and
+[[prop:loc-cone-formal]] use no smallness: they give the formal solution Û, whose residual 𝒜(Û) vanishes to infinite
+order on N. Since δ_1 ≤ δ_2, Ĝ serves as the reference metric of the chart (τ, y) without smallness. Where case (I) uses
+that the data are small, case (II) uses that σ is small: the Cauchy problem is posed about Û, not about the background,
+and its residual R_II = θ 1_F χ 𝒜(Û) is at most C(Λ_1)σ in H^k ([[lem:loc-cone-system]] (e)), because 𝒜(Û) vanishes to
+infinite order on N and θ is supported within 10σ of the corner; the closeness of the solution to Û that
+[[lem:loc-cone-constraints]] and [[lem:loc-cone-gauge]] use is C(Λ_1)σ^(1/(4k)) ([[lem:loc-cone-cauchy]]). Let σ := σ_0
+of [[lem:loc-cone-cauchy]], which depends only on Λ_1, η, k, δ_c and the background. Then [[lem:loc-cone-cauchy]],
+[[lem:loc-cone-past]], [[lem:loc-cone-support]], [[lem:loc-cone-constraints]] and [[lem:loc-cone-gauge]] give, on Ψ(F ∩
+𝒰_σ) ⊃ [0, σ]², a metric of the form [[eq:loc-double-null]] and densities, of either sign, that solve
+[[eq:class-system]], induce the data of Step 2 on the two edges, and equal the background and its densities where ϑ <
+3η/2 or ϑ > π/2 − 3η/2.
+
+*Step 4: the rectangle.* On [0, min(λ_u, σ)] × [0, min(λ_v, σ)] the functions induced on the two edges are the given
+ones. In the coordinates of [[lem:loc-cone-gauge]], u_in = v and u_out = u, so by [[lem:loc-cone-constraints]] q_in ≥ 0
+where v ≤ λ_v and q_out ≥ 0 where u ≤ λ_u. So on this rectangle the densities are nonnegative, and the restriction is a
+class solution in the gauge with the stated properties. Every choice above depends only on k, η, Λ, d and the background
+on Q′. ∎
+
+No uniqueness is stated for these developments; the uniqueness of [[thm:loc-cone-development]] (d) concerns data near the
+background's.
+
+**Remark {#rem:loc-cone-local-scope}** (What the size of the rectangle depends on.) The number σ of
+[[prop:loc-cone-local]] depends on the data only through their C^(m_1) norms on the two edges, and not on the lengths
+λ_u, λ_v, on the position of the corner in Q or on any smallness of the data: the edges are first cut, or extended by
+solving the constraints along them, to the fixed length 3δ_1 ([[lem:loc-cone-extension]]). The extension loses half the
+derivatives, which is why m_1 is about twice m_0. σ depends on the background through bounds on Q′, for three reasons,
+which are why the proof needs a background and not only bounds on the data: near the axes the solution is the background,
+since the augmented system is used only off the axes ([[rem:loc-cone-scope]] (ii)); the modified system
+[[eq:loc-cone-modified]] takes the background's coefficients where its cut-off vanishes; and the localisation in angle
+([[lem:loc-cone-support]]) uses the constant C_*. A shift b given on N_i is removed before the proposition is applied, by
+the change of angle ϑ ↦ Φ(u, ϑ) with (∂_u + b∂_ϑ)Φ = 0 and Φ(0, ϑ) = ϑ on the edge N_i cut at length 3δ_1: it keeps the
+form [[eq:loc-double-null]], with γ_ϑ replaced by γ_ϑ/(∂_ϑΦ)² and b by ∂_uΦ + b∂_ϑΦ, so that b becomes 0 on N_i and b −
+b(0, 0, ϑ) on N_o; it is the identity on N_o and off the band; and the C^(m_1) norms of the new functions are bounded in
+terms of the C^(m_1 + 1) norms of the old ones. A statement with no background, the data being prescribed up to the axes,
+is [[prop:civp-axes-corner]]: it carries out the reduction about the formal solution, with the closure of the
+Raychaudhuri equation at the axes in place of the angular cut-off, and its σ depends only on norms of the data near the
+corner sphere; [[thm:loc-axis]] solves the reduced problem through the axes about the background, on the whole rectangle
+when the background is defined on it with a margin.
+
+*Proof of [[thm:loc-cone-development]].* Take the background of [[lem:loc-cone-strips]] (b) on 𝒮, with l_u = u_1, l_v =
+v_1, and C_* = C_0. The free data are ε-close to the background's in C^m, m = m_0 + 3 = 6k + 21. The equations of
+[[prop:loc-cones]] and [[lem:loc-cone-in]] are linear ordinary differential equations along the generators whose
+coefficients differ from the background's by at most Cε in C^(m−1); so for ε small e^ϕ stays within Cε of the
+background's, positive, on [0, v_1 + δ_1] and [0, u_1 + δ_1], ϕ is within Cε of the background's in C^(m−1), and b in
+C^(m−3), r of [[eq:loc-cone-r]] holding two derivatives of the data. So the cone data have size at most Cε, are in the
+normalised gauge, and equal the background's at the points with ϑ ∉ [ϑ_a′, ϑ_b′], on 𝒞_out ∩ {v < v_K} and on 𝒞_in ∩ {u <
+u_K} (the constraints there have the background's coefficients and corner values). In case (I) take δ_c so small also
+that 2C_0 (δ_c(u_1 + v_1 + 1))^(1/2) ≤ η/4, a condition depending only on the background, u_1, v_1 and the band.
+[[lem:loc-cone-cauchy]], case (I), [[lem:loc-cone-past]], [[lem:loc-cone-support]], [[lem:loc-cone-constraints]] and
+[[lem:loc-cone-gauge]] give a solution with (a) and (c) on G_*. For (b): [[lem:loc-cone-support]] and the last part of
+[[lem:loc-cone-gauge]] give the background at the points of G_* with ϑ < ϑ_a′ − 2C_* ((u + δ_c)(v + δ_c))^(1/2), with ϑ >
+ϑ_b′ + 2C_* ((u + δ_c)(v + δ_c))^(1/2), or with u < u_K and v < v_K; on G_*, (u + δ_c)(v + δ_c) ≤ uv + δ_c(u_1 + v_1 +
+1), so 2C_* ((u + δ_c)(v + δ_c))^(1/2) ≤ 2C_0 (uv)^(1/2) + η/4. As 2C_0 (uv)^(1/2) ≤ 2C_* δ_* ≤ η/4 on G_*, ϑ_a′ > ϑ_a
+and ϑ_b′ < ϑ_b, the solution equals the background where ϑ < ϑ_a′ − η/2 or ϑ > ϑ_b′ + η/2, in particular where ϑ ≤ ϑ_a −
+η or ϑ ≥ ϑ_b + η, and where ϑ < 3η or ϑ > π/2 − 3η. So (d) is [[lem:loc-cone-unique]] together with (b) for the solution
+of (a). ∎
+
+### Developments of cone data without smallness {#sec:civp-large}
+
+This section develops the cone data of [[prop:loc-cones]] without smallness; for data near the background's the
+development is that of [[thm:loc-cone-development]]. For cone data of any size that equal the background's outside a
+band away from the axes, with or without dust, a development in the gauge [[eq:loc-double-null]] exists on a
+neighbourhood {min(u, v) ≤ δ} of the two cones, which contains {uv ≤ δ²}; it equals the background outside a slightly
+wider band, and it is unique in the gauge among solutions that equal the background near the axes ([[thm:civp-large]]).
+The number δ depends on the data. The route is that of Cabet, Chruściel and Tagne Wafo [CCTW16]. Off the axes,
+[[prop:reduction]] turns the class system into a three-dimensional one for the conformal orbit metric h, two waves ψ and
+ω and the two densities. In three dimensions the curvature is determined by the Ricci tensor, and the reduction
+expresses the Ricci tensor through the densities and the first derivatives of ψ and ω. So in a double-null frame of h
+the connection coefficients obey transport equations along the two null directions with no angular derivative of an
+unknown on the right, and the waves become first-order systems of the same kind ([[lem:civp-large-frame]]). The
+resulting evolution system has the doubly-null form of [CCTW16, (2.7)–(2.8)] ([[prop:civp-large-system]]), and once it
+is localised in angle their theorem ([[thm:std-cctw-existence]], [[thm:std-cctw-strips]]) gives a solution on two strips
+along the cones. That this solution solves the Einstein equations is shown by the device of the proof of [CCTW16,
+Theorem 5.3, pp. 55–56], which builds the development up in the time u + v; where that proof solves Cauchy and mixed
+problems, the local developments here are those near corner spheres ([[prop:civp-large-corner]]), each of which
+coincides with the strip solution by an energy estimate ([[lem:civp-large-energy]]).
+
+*Notation.* The background g0, the cones 𝒞_out = {u = 0} and 𝒞_in = {v = 0}, the corner sphere S = 𝒞_out ∩ 𝒞_in and the
+gauge [[eq:loc-double-null]] are those of [[sec:loc-cones]], and R is the area radius of g0. We fix u_1, v_1 > 0 such
+that the background is defined and smooth on [0, u_1′] × [0, v_1′] for some u_1′ > u_1 and v_1′ > v_1, and put Q1 := [0,
+u_1] × [0, v_1]; every u_1 ≤ 7.2 and every v_1 > 0 will do ([[lem:civp-large-rectangle]] (a)). On Q1 × S³, in the gauge
+[[eq:loc-double-null]], b = 0, γ_ϑ = R², A_c = ln(R cos ϑ) and A_s = ln(R sin ϑ), Ω is a function of (u, v), and
+Ric(g0) = q̊_in dv ⊗ dv + q̊_out du ⊗ du ([[eq:two-dust-limit]]). We extend Ω and R smoothly across the two cones, as in
+[[lem:civp-large-rectangle]] (a), to an open set 𝒪 of the (u, v)-plane that contains Q1 and on which Ω, R > 0; so g0 =
+−4Ω² du dv + R² dΩ₃² is given on 𝒪 × S³ and solves [[eq:two-dust-limit]] at the points of 𝒪 with u, v ≥ 0. We fix a band
+0 < ϑ_a < ϑ_b < π/2 and put
+
+    η0 := (1/3) min(ϑ_a, π/2 − ϑ_b),      J0 := [ϑ_a − 2η0, ϑ_b + 2η0] ⊂ [η0, π/2 − η0].  {#eq:civp-large-band}
+
+A set D ⊂ Q1 is a *past set* if [0, u] × [0, v] ⊂ D for every (u, v) ∈ D. Class solutions in the gauge on D × S³, D ⊂
+Q1, are those of [[sec:loc-cone-setting]], with the corner at S and g0 as the background; their metrics equal g0 near
+the axes, and so extend smoothly to them.
+
+**Definition {#def:civp-large-data}** (Cone data on Q1.) *Cone data on Q1* consist of smooth functions Ω > 0, γ_ϑ > 0,
+b, A_c, A_s and q_in ≥ 0 of (v, ϑ) ∈ [0, v_1] × (0, π/2) on 𝒞_out, and Ω > 0, γ_ϑ > 0, A_c, A_s and q_out ≥ 0 of (u, ϑ)
+∈ [0, u_1] × (0, π/2) on 𝒞_in, with b = 0 on 𝒞_in, such that:
+
+(i) the two sets of functions agree on S;
+
+(ii) for the metric [[eq:loc-double-null]] that they define, Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on 𝒞_out, and
+Ric(∂_u, ∂_u) = q_out on 𝒞_in (each side involves only the functions given on that cone: on 𝒞_out by
+[[lem:loc-cone-equations]], on 𝒞_in by (F1′) of [[lem:civp-large-frame]] and [[prop:reduction]], since b vanishes
+there);
+
+(iii) they equal the background's outside compact sets K_out ⊂ [0, v_1] × (ϑ_a, ϑ_b) and K_in ⊂ [0, u_1] × (ϑ_a, ϑ_b).
+
+[[prop:loc-cones]] and [[lem:loc-cone-in]] produce cone data on Q1 from free data whenever the conformal factors e^ϕ
+that they determine stay positive, and no smallness is needed for that ([[lem:civp-large-free]]).
+
+**Lemma {#lem:civp-large-free}** (Cone data on Q1 from free data.) Let free data (ℓ_1, ℓ_2, ℓ_3) and q_in ≥ 0 on 𝒞_out ∩
+{v ≤ v_1} be given as in [[prop:loc-cones]], and (ℓ_1, ℓ_2, ℓ_3) and q_out ≥ 0 on 𝒞_in ∩ {u ≤ u_1} as in
+[[lem:loc-cone-in]], smooth, agreeing on S, and equal to the background's outside compact subsets of [0, v_1] × (ϑ_a,
+ϑ_b) and of [0, u_1] × (ϑ_a, ϑ_b). On a generator of either cone let y := e^ϕ be the factor that the constraint
+determines, ′ the derivative along the generator, L := v_1 on 𝒞_out and L := u_1 on 𝒞_in, ρ := Ω^(−2) and p := (1/3)(Σ_i
+(ℓ_i′)² + q), with q := q_in on 𝒞_out and q := q_out on 𝒞_in, and let ẙ := e^(ϕ̊) and p̊ be the background's.
+
+(a) If y > 0 on [0, L] on every generator of both cones, then the functions so determined, Ω, γ_ϑ = e^(2ϕ + 2ℓ_1), b,
+A_c = ϕ + ℓ_2, A_s = ϕ + ℓ_3 and q_in on 𝒞_out, and Ω, γ_ϑ, A_c, A_s and q_out on 𝒞_in, with b = 0 there, are cone data
+on Q1.
+
+(b) On a generator put
+
+    I := ∫_0^L ρ(s) (p − p̊)_+(s) ẙ(s)² ∫_s^L ρ(t)⁻¹ ẙ(t)^(−2) dt ds,      (p − p̊)_+ := max(p − p̊, 0).
+
+If I < 1, then y ≥ (1 − I) ẙ > 0 on [0, L]. In particular y ≥ ẙ on a generator on which p ≤ p̊.
+
+*Proof.* (b) By the first line of [[eq:loc-cone]] and by [[eq:loc-cone-in]], as in the proof of [[prop:loc-cones]], y
+solves y″ − 2(ln Ω)′y′ + py = 0, that is (ρy′)′ + ρpy = 0, since ρ′ = −2(ln Ω)′ρ; the background's ẙ solves (ρẙ′)′ +
+ρp̊ẙ = 0, Ω being the background's; and y and ẙ have the same value and the same derivative at the corner. Put p̃ :=
+p̊ + (p − p̊)_+, so that p ≤ p̃, let z solve (ρz′)′ + ρp̃z = 0 with the same initial values, and put w := z/ẙ. Then
+ρẙ²w′ = ρ(z′ẙ − zẙ′), so (ρẙ²w′)′ = −ρ(p − p̊)_+ẙ²w, with w(0) = 1 and w′(0) = 0. On an interval [0, t_0] on which w ≥ 0
+this gives ρẙ²w′ ≤ 0, so w ≤ 1, and, exchanging the order of integration, for t ≤ t_0
+
+    w(t) = 1 − ∫_0^t (ρẙ²)⁻¹(τ) ∫_0^τ (ρ(p − p̊)_+ẙ²w)(s) ds dτ
+         ≥ 1 − ∫_0^t ρ(s) (p − p̊)_+(s) ẙ(s)² ∫_s^t (ρẙ²)⁻¹(τ) dτ ds ≥ 1 − I.
+
+If w vanished somewhere on [0, L], this bound at its first zero would contradict I < 1; so w ≥ 1 − I on [0, L]. Next, W
+:= ρ(y′z − yz′) vanishes at 0 and has W′ = (ρy′)′z − y(ρz′)′ = ρ(p̃ − p)yz. On an interval [0, t_1) on which y > 0,
+therefore, W ≥ 0, (y/z)′ = W/(ρz²) ≥ 0 and y ≥ z. If y had a first zero t_1 ∈ (0, L], continuity would give y(t_1) ≥
+z(t_1) > 0, which is absurd. So y ≥ z = wẙ ≥ (1 − I)ẙ on [0, L]. If p ≤ p̊, then I = 0.
+
+(a) By [[prop:loc-cones]] and [[lem:loc-cone-in]], the constraints determine ϕ and b on 𝒞_out, and ϕ on 𝒞_in, on every
+generator on which y > 0, as solutions of linear ordinary differential equations along the generators whose coefficients
+and initial values depend smoothly on the angle; so the functions are smooth on [0, v_1] × (0, π/2) and on [0, u_1] ×
+(0, π/2), and Ω, γ_ϑ > 0. Condition (i) of [[def:civp-large-data]] holds: on S the free data agree, ϕ and Ω are the
+background's on both cones, and b vanishes on both, being the background's at v = 0 on 𝒞_out. Condition (ii) holds by
+construction, since T = q_in dv ⊗ dv + q_out du ⊗ du gives T(∂_v, ∂_v) = q_in, T(∂_v, ∂_ϑ) = 0 and T(∂_u, ∂_u) = q_out.
+For (iii) let [ϑ_a″, ϑ_b″] ⊂ (ϑ_a, ϑ_b) contain in its interior the angles of the two compact sets. [[prop:loc-cones]]
+and [[lem:loc-cone-in]], applied with the band (ϑ_a″, ϑ_b″), give the background's functions at every ϑ ∉ [ϑ_a″, ϑ_b″];
+so K_out := [0, v_1] × [ϑ_a″, ϑ_b″] and K_in := [0, u_1] × [ϑ_a″, ϑ_b″] serve. ∎
+
+**Lemma {#lem:civp-large-rectangle}** (The background on a rectangle of the two cones.) Use the coordinates (u, v) of
+[[sec:loc-setting]], let v_1 > 0, and let V1 in [[prop:two-dust-background]] be chosen so large that V1′ > v_1 + 1, as
+in the proof of [[lem:loc-cone-strips]] (a).
+
+(a) The rectangle [0, 7.2] × [0, v_1] lies in the set G of [[prop:two-dust-background]] (d), and R_v > 0 and R ≥
+1.519357 on it. There is δ ∈ (0, 1/2) such that the background is defined and smooth on [0, 7.2 + 2δ] × [0, v_1 + 2δ],
+and Ω and R extend to smooth positive functions on [−δ, 7.2 + δ] × [−δ, v_1 + δ].
+
+(b) Let free data be given as in [[lem:civp-large-free]], with u_1 ≤ 7.2. On 𝒞_out the number I of
+[[lem:civp-large-free]] (b) is at most ∫_0^(v_1) (v_1 − s) (p − p̊)_+(s) ds, and on 𝒞_in it is at most R(7.2, 0)^(−2)
+∫_0^(u_1) R(s, 0)² (u_1 − s) (p − p̊)_+(s) ds, with R(7.2, 0)² ≥ 2.308; and p − p̊ = (1/3)(Σ_i (ℓ_i′)² + q − q̊), q̊ the
+background's density. So e^ϕ stays positive on every generator of a cone in each of the following cases, and when it
+does on both cones the free data give cone data on Q1 ([[lem:civp-large-free]] (a)), the conformal data (ℓ_1, ℓ_2, ℓ_3)
+being the background's and c a smooth function of ϑ with compact support in (ϑ_a, ϑ_b): a density q − q̊ ≥ 0 added on
+𝒞_out with supremum A on an interval of v of length l, if v_1 A l < 3, or on 𝒞_in with supremum A on an interval of u of
+length l, if 26 A l ≤ 1; the density of the shell multiplied by 1 + c with −1 ≤ c ≤ 76, if v_1 = 4.5; and the density of
+the packet multiplied by 1 + c with −1 ≤ c ≤ 4.5, if u_1 = 7.2. In particular there are such data with densities of
+every amplitude.
+
+*Proof.* (a) Let σ be the function of [[eq:bg-field]], e^(2σ) = 2Ω². By [[lem:two-dust-reparametrisation]] (b),
+[[prop:two-dust-background]] holds in these coordinates (proof of [[lem:loc-cone-strips]] (a)): G is closed in Q = [0,
+∞) × [0, V1′], its boundary in Q lies in {R = a}, a = 0.70, the background is smooth on G, and μ ≥ μ0 > 0 on G. G is a
+past set, 𝒟 being one: for p ∈ G and p′ ∈ J⁻(p) = [0, u_p] × [0, v_p], p′ ∈ 𝒟 and J⁻(p′) ⊂ J⁻(p). By
+[[eq:two-dust-evolution]] and [[eq:two-dust-mass]], which hold in these coordinates, σ_uv = 3(e^(2σ) + 2R_uR_v)/(2R²) =
+(3/2)e^(2σ)μ/R⁴ > 0 on G, and σ = −(1/2) ln 2 on both cones; so σ(u, v) = −(1/2) ln 2 + ∫_0^u ∫_0^v σ_uv ≥ −(1/2) ln 2
+on every rectangle J⁻(p), p ∈ G, that is 1/2 ≤ e^(2σ) and e^(−2σ) ≤ 2. Put λ := e^(−2σ)R_v. Then λ_v = −𝒜e^(−2σ)/(3R²)
+([[lem:bg-identities]]) and λ(u, 0) = 2R_v(u, 0) = ℓ_v(u) ([[lem:bg-reduction]] (a)).
+
+*On 𝒞_in.* There R″ = −ℬ/(3R²) ≤ 0, and R′ = −0.47 on [0, u1], u1 = 5.7 ([[lem:bg-reduction]] (a)), so R(·, 0)
+decreases, and R(u, 0) ≥ R(u2, 0) ≥ 1.519357 for u ≤ u2 = 7.2 ([[prop:bg-nprime]] (i)). μ(·, 0) is 3/2 on [0, u1]
+([[lem:bg-reduction]] (b)) and
+at least μ3 > 0 on [u1, u2] ([[prop:bg-nprime]] (iii)), so ℓ_v′ = −μ/R³ < 0 on [0, 7.2] ([[eq:bg-nprime]]) and ℓ_v(u) ≥
+ℓ_v(u2) ≥ 0.529533 for u ≤ 7.2 ([[prop:bg-nprime]] (iii)).
+
+*At a point of G.* Let p ∈ G with u_p ≤ 7.2 and v_p ≤ v_1, and (u, v) ∈ J⁻(p). For v ≤ 3, 𝒜 = 0, so λ(u, v) = ℓ_v(u) ≥
+0.529533 and R_v = e^(2σ)λ ≥ 0.264766. Hence R(u, v) ≥ R(u, 0) ≥ 1.519357 for v ≤ min(v_p, 3), and R(u, 3) ≥ 1.519357 +
+3 × 0.264766 ≥ 2.3136 if v_p ≥ 3. If v_p > 3, let w be the supremum of the v ∈ [3, v_p] such that λ(u, ·) > 0 on [3, v];
+λ(u, 3) > 0, so w > 3. On [3, w], R(u, ·) is nondecreasing, so R ≥ 2.3136, and since 𝒜 ≥ 0 vanishes outside [3, 4.5] and
+∫_3^4.5 𝒜 = 2.7 K ≤ 3.25878, K := ∫_(−1)^1 β ≤ 1.2069549 ([[lem:margins-bump-table]] (a)),
+
+    λ(u, v) = ℓ_v(u) − (1/3) ∫_3^v 𝒜 e^(−2σ)/R² ≥ 0.529533 − (2 × 3.25878)/(3 × 2.3136²) ≥ 0.1236.
+
+By continuity w = v_p. So R_v = e^(2σ)λ > 0 on J⁻(p), and R ≥ R(u, 0) ≥ 1.519357 > a there; in particular R(p) > a, p is
+not on the boundary of G in Q, and G contains a neighbourhood of p in Q.
+
+*Conclusion.* So G ∩ Q_*, Q_* := [0, 7.2] × [0, v_1], is open in Q_*; it is closed in Q_*, G being closed in Q; and it
+contains the corner, which lies in G, R being 5 there. Q_* is connected, so Q_* ⊂ G, and by the previous paragraph R_v >
+0 and R ≥ 1.519357 on Q_*. The points of G with R > a are interior points of G in Q, so they form a set open in Q that
+contains the compact Q_*, hence [0, 7.2 + 2δ] × [0, v_1 + 2δ] for some δ ∈ (0, 1/2); there the background is smooth,
+solves [[eq:two-dust-limit]] and has R > a. [[lem:loc-cone-borel]], with r := 0, applied as in the proof of
+[[lem:loc-cone-strips]] (b) to the derivatives of σ and of R on {0} × [0, v_1 + 2δ] and on [0, 7.2 + 2δ] × {0}, which do
+not depend on ϑ, extends σ and R to smooth functions on (−∞, 7.2 + 2δ] × (−∞, v_1 + 2δ]; after decreasing δ, R > 0 on
+[−δ, 7.2 + δ] × [−δ, v_1 + δ] by continuity, and Ω = e^σ/√2 > 0.
+
+(b) On the cones e^(2σ) = 1/2, so Ω² = 1/4 and ρ = 4; and ẙ = R (sin ϑ cos ϑ)^(1/3), since ϕ̊ = (ϰ̊_1 + ϰ̊_2 + ϰ̊_3)/3
+with ϰ̊_1 = ln R, ϰ̊_2 = ln(R cos ϑ), ϰ̊_3 = ln(R sin ϑ). So ρ and the angular factor cancel in I, and I = ∫_0^L (p −
+p̊)_+(s) ∫_s^L (R(s)/R(t))² dt ds, R taken on the cone. On 𝒞_out, R increases and R ≥ 5 (proof of
+[[lem:loc-cone-strips]] (c)), so the inner integral is at most L − s. On 𝒞_in, R decreases, so for s ≤ t ≤ u_1 ≤ 7.2 it
+is at least R(7.2, 0) ≥ 1.519357, and the inner integral is at most (u_1 − s)R(s, 0)²/R(7.2, 0)². The background's
+ℓ̊_i = ϰ̊_i − ϕ̊ depend on ϑ only, so ℓ̊_i′ = 0 and p − p̊ = (1/3)(Σ_i (ℓ_i′)² + q − q̊). With the conformal data the
+background's, (p − p̊)_+ = (q − q̊)_+/3. For an added density on 𝒞_out, I ≤ v_1 · A l/3 < 1. On 𝒞_in, R(s, 0) ≤ 5, so I
+≤ (25/2.308) · 7.2 · A l/3 ≤ 25.997 A l < 1. For the shell, q̊_in = 𝒜/R³ ≤ 𝒜/125 on 𝒞_out; at an angle with c ≤ 0, p ≤
+p̊, and at one with 0 < c ≤ 76, I ≤ (1.5/3) · 76 · ∫_3^4.5 𝒜/125 ≤ 0.5 × 76 × 3.25878/125 < 0.991, since (q − q̊)_+ = c
+q̊_in vanishes outside [3, 4.5] and v_1 − s ≤ 1.5 there. For the packet, q̊_out = ℬ/R³ with ℬ supported in [u1, u2] and
+∫ ℬ = 1.275 K ≤ 1.53887; at an angle with 0 < c ≤ 4.5, I ≤ (4.5/3) · 1.5 · ∫ ℬ/(R(s, 0) R(7.2, 0)²) ds ≤ 2.25 ×
+1.53887/(1.519357 × 2.308) < 0.988, and where c ≤ 0, p ≤ p̊. In each case [[lem:civp-large-free]] (b) gives e^ϕ > 0. A
+density added on 𝒞_out with supremum A on an interval of length l < 3/(v_1 A) has amplitude A, for every A > 0. ∎
+
+No step of the proof of [[thm:civp-large]] uses the two lemmas, the theorem taking cone data on Q1 as given. Data with
+q_in = q_out = 0 are vacuum data.
+
+*The small-data theorem.* [[thm:loc-cone-development]] is used only for comparison, in [[rem:civp-large-domain]] and
+[[rem:civp-large-beyond]]. Its data are cone data on Q1 in the sense of [[def:civp-large-data]], with Ω the background's
+on both cones, obtained by [[prop:loc-cones]] and [[lem:loc-cone-in]] from free data within ε_0 of the background's in
+C^(6k+21) that equal the background's outside compact subsets of [0, v_1) × (ϑ_a, ϑ_b) and [0, u_1) × (ϑ_a, ϑ_b), with
+u_1, v_1 as in that theorem; it gives a class solution in the gauge [[eq:loc-double-null]] on the explicit past set {uv
+≤ δ_*²} ∩ Q1, times S³, that induces the data and equals (g0, q̊_in, q̊_out) where ϑ ≤ ϑ_a − 3η0/4 or ϑ ≥ ϑ_b + 3η0/4,
+with an estimate of the solution, and its uniqueness in the gauge is stated near the background only.
+
+#### The reduced system in a double-null frame {#sec:civp-large-frame}
+
+Off the axes write a metric of the form [[eq:loc-double-null]] as g = g3 + e^(2A_c) dφ1² + e^(2A_s) dφ2², with
+g3 := −2Ω² (du ⊗ dv + dv ⊗ du) + γ_ϑ (dϑ − b du)². With ψ := A_c + A_s, ω := (A_s − A_c)/2 and h := e^(2ψ) g3 as in
+[[prop:reduction]],
+
+    h = −2e^(2α) (du ⊗ dv + dv ⊗ du) + e^(2β) (dϑ − b du)²,      α := ψ + ln Ω,      β := ψ + (1/2) ln γ_ϑ.
+                                                                                                 {#eq:civp-large-h}
+
+We use the frame
+
+    e3 := e^(−α) (∂_u + b ∂_ϑ),      e4 := e^(−α) ∂_v,      e1 := e^(−β) ∂_ϑ,
+
+for which h(e3, e4) = −2, h(e1, e1) = 1 and all other products vanish: h(e3, e3) = e^(−2α)(e^(2β) b² − 2b e^(2β) b +
+b² e^(2β)) = 0, h(e1, e3) = e^(−α−β)(−e^(2β) b + b e^(2β)) = 0, and h(e4, e4) = h(e1, e4) = 0 because h_vv = h_vϑ = 0.
+Its *connection coefficients* are
+
+    χ := h(∇_1 e4, e1),   χ̲ := h(∇_1 e3, e1),   η := (1/2) h(e1, ∇_3 e4),   η̲ := (1/2) h(e1, ∇_4 e3),
+    ϖ := (1/4) h(e3, ∇_4 e4),   ϖ̲ := (1/4) h(e4, ∇_3 e3),   ζ := (1/2) h(∇_1 e4, e3),
+
+with ∇ the connection of h and ∇_i := ∇_(e_i). These are not the quantities of the same names in [[sec:loc-cone-proof]].
+We write Ric_ij := Ric[h](e_i, e_j) and, for a function F, e_iF for its derivative. The *exchange* is the map e3 ↔ e4, χ
+↔ χ̲, η ↔ η̲, ϖ ↔ ϖ̲, ζ ↔ −ζ; it maps each definition above to another one.
+
+**Lemma {#lem:civp-large-frame}** (The double-null frame of h.) (a) The coefficients are
+
+    χ = e4β,   χ̲ = e3β + e^(−α) ∂_ϑb,   ϖ = −(1/2) e4α,   ϖ̲ = −(1/2) e3α,
+    ζ = −(1/4) e^(β−2α) ∂_vb,   η = ζ + e1α,   η̲ = −ζ + e1α.  {#eq:civp-large-coefficients}
+
+(b) The following hold for every metric of the form [[eq:civp-large-h]], together with their images (F1′)–(F5′) under
+the exchange:
+
+    (F1)  e4χ = −χ² − 2ϖχ − Ric_44,
+    (F2)  e4η = −Ric_41 − χ(η − η̲),
+    (F3)  e3ϖ = 2ϖϖ̲ + (1/2)η̲² − ηη̲ + (1/4)(Ric_34 + Ric_11),
+    (F4)  e3χ = 2 e1η + 2η² + 2ϖ̲χ − χχ̲ + Ric_11,
+    (F5)  e3η = Ric_31 − 2χ̲η − 4 e1ϖ̲ − 2ϖ̲(η + η̲).  {#eq:civp-large-null}
+
+(c) For every function F,
+
+    □_h F = −e3e4F + e1e1F + (2ϖ̲ − (1/2)χ̲) e4F − (1/2)χ e3F + 2η e1F,                              {#eq:civp-large-box}
+
+and the image of the right side under the exchange is also □_h F. For every function q,
+
+    div_h(q h⁻¹dv) = −(1/2) e^(−α) (e3q + χ̲ q),      div_h(q h⁻¹du) = −(1/2) e^(−α) (e4q + χ q).  {#eq:civp-large-dust}
+
+(d) Let g be a metric of the form [[eq:loc-double-null]] off the axes and q a function of (u, v, ϑ). Then
+div_g(q g⁻¹du) = e^(2ψ) div_h(q h⁻¹du) and div_g(q g⁻¹dv) = e^(2ψ) div_h(q h⁻¹dv).
+
+In (F1)–(F5) only (F4), (F5) and their images contain an e1-derivative of a connection coefficient; (F1)–(F3) and
+(F1′)–(F3′) contain none, and the only curvature in them is the Ricci tensor of h.
+
+*Proof.* *The connection table.* Since u is a null coordinate, h⁻¹du = −(1/2) e^(−α) e4 is the gradient of a solution
+of h⁻¹(du, du) = 0, so ∇_(h⁻¹du) h⁻¹du = (1/2) ∇(h⁻¹(du, du)) = 0, and ∇_4 e4 is a multiple of e4; likewise h⁻¹dv =
+−(1/2) e^(−α) e3, and ∇_3 e3 is a multiple of e3. (The formulas for h⁻¹du and h⁻¹dv follow from du(e3) = dv(e4) =
+e^(−α), du(e4) = dv(e3) = du(e1) = dv(e1) = 0 and h(e3, e4) = −2.) A vector V is −(1/2)h(V, e4) e3 − (1/2)h(V, e3) e4 +
+h(V, e1) e1. With the definitions, h(∇_X e_i, e_j) = −h(e_i, ∇_X e_j), h(∇_X e3, e3) = h(∇_X e4, e4) = h(∇_X e1, e1) =
+0, and the two geodesic facts, this gives
+
+    ∇_4e4 = −2ϖ e4,   ∇_4e3 = 2ϖ e3 + 2η̲ e1,   ∇_4e1 = η̲ e4,   ∇_3e3 = −2ϖ̲ e3,   ∇_3e4 = 2ϖ̲ e4 + 2η e1,
+    ∇_3e1 = η e3,   ∇_1e4 = χ e1 − ζ e4,   ∇_1e3 = χ̲ e1 + ζ e3,   ∇_1e1 = (1/2)χ e3 + (1/2)χ̲ e4.
+                                                                                                   {#eq:civp-large-table}
+
+For instance h(∇_4e3, e4) = −h(e3, ∇_4e4) = −4ϖ, h(∇_4e3, e3) = 0 and h(∇_4e3, e1) = 2η̲, so ∇_4e3 = 2ϖ e3 + 2η̲ e1;
+and h(∇_1e1, e4) = −χ, h(∇_1e1, e3) = −χ̲, h(∇_1e1, e1) = 0, so ∇_1e1 = (1/2)χ e3 + (1/2)χ̲ e4. The table is invariant
+under the exchange.
+
+(a) Since ∇ has no torsion, the table gives
+
+    [e4, e3] = 2ϖ e3 − 2ϖ̲ e4 + 2(η̲ − η) e1,   [e4, e1] = (η̲ + ζ) e4 − χ e1,   [e3, e1] = (η − ζ) e3 − χ̲ e1.
+
+From the coordinate expressions, with ∂_v and ∂_u + b∂_ϑ and ∂_ϑ commuting up to [∂_v, ∂_u + b∂_ϑ] = (∂_vb)∂_ϑ and
+[∂_u + b∂_ϑ, ∂_ϑ] = −(∂_ϑb)∂_ϑ,
+
+    [e4, e3] = −(e4α) e3 + (e3α) e4 + e^(β−2α)(∂_vb) e1,   [e4, e1] = (e1α) e4 − (e4β) e1,
+    [e3, e1] = (e1α) e3 − (e3β + e^(−α)∂_ϑb) e1.
+
+Comparing coefficients gives ϖ, ϖ̲, χ, χ̲, η̲ + ζ = e1α = η − ζ, and 2(η̲ − η) = e^(β−2α) ∂_vb; since η − η̲ = 2ζ by
+the previous relation, ζ = −(1/4) e^(β−2α) ∂_vb. This is [[eq:civp-large-coefficients]]. We use below
+
+    [e4, e3] = 2ϖ e3 − 2ϖ̲ e4 − 4ζ e1,   [e4, e1] = (e1α) e4 − χ e1,   [e3, e1] = (e1α) e3 − χ̲ e1,   e1α = (η + η̲)/2.
+
+*The Ricci tensor in the frame.* With the dual frame, Ric(X, Y) = h(R(e1, X)Y, e1) − (1/2)h(R(e3, X)Y, e4) −
+(1/2)h(R(e4, X)Y, e3), where R(X, Y) = ∇_X∇_Y − ∇_Y∇_X − ∇_[X,Y]. By the antisymmetries of h(R(X, Y)Z, W) in (X, Y)
+and in (Z, W), the pair symmetry and the first Bianchi identity, this gives
+
+    Ric_44 = h(R(e1, e4)e4, e1),   Ric_41 = −(1/2) h(R(e4, e3)e4, e1),   Ric_11 = h(R(e3, e1)e4, e1),
+    Ric_34 + Ric_11 = (1/2) K,   K := h(R(e3, e4)e4, e3).
+
+Indeed Ric_11 = −(1/2)(h(R(e3, e1)e1, e4) + h(R(e4, e1)e1, e3)), and by the pair symmetry and the Bianchi identity both
+terms equal L := h(R(e1, e3)e4, e1), so Ric_11 = −L = h(R(e3, e1)e4, e1); and Ric_34 = h(R(e1, e3)e4, e1) −
+(1/2)h(R(e4, e3)e4, e3) = L + (1/2)K. For Ric_41 the terms h(R(e1, e4)e1, e1) and h(R(e4, e4)e1, e3) vanish and
+h(R(e3, e4)e1, e4) = −h(R(e3, e4)e4, e1) = h(R(e4, e3)e4, e1).
+
+(F1) By the table, ∇_4∇_1e4 = (e4χ) e1 + χη̲ e4 − (e4ζ) e4 + 2ζϖ e4, ∇_1∇_4e4 = −2(e1ϖ) e4 − 2ϖ(χ e1 − ζ e4) and
+∇_[e4,e1] e4 = −2ϖ(η̲ + ζ) e4 − χ(χ e1 − ζ e4). The e1-component of R(e4, e1)e4 is therefore e4χ + 2ϖχ + χ², and
+Ric_44 = −h(R(e4, e1)e4, e1).
+
+(F2) 2e4η = e4 h(∇_3e4, e1) = h(∇_4∇_3e4, e1) + h(∇_3e4, ∇_4e1), and the last term vanishes since ∇_4e1 = η̲ e4 and
+h(e4, e1) = h(e4, e4) = 0. Here ∇_4∇_3e4 = R(e4, e3)e4 + ∇_3∇_4e4 + ∇_[e4,e3] e4; the e1-component of ∇_3∇_4e4 =
+∇_3(−2ϖ e4) is −4ϖη, and that of ∇_[e4,e3] e4 = 2ϖ∇_3e4 − 2ϖ̲∇_4e4 − 4ζ∇_1e4 is 4ϖη − 4ζχ. So
+2e4η = h(R(e4, e3)e4, e1) − 4ζχ = −2Ric_41 − 2χ(η − η̲).
+
+(F3) 4e3ϖ = e3 h(e3, ∇_4e4) = h(∇_3e3, ∇_4e4) + h(e3, ∇_3∇_4e4), and h(∇_3e3, ∇_4e4) = 4ϖϖ̲ h(e3, e4) = −8ϖϖ̲. Write
+∇_3∇_4e4 = R(e3, e4)e4 + ∇_4∇_3e4 + ∇_[e3,e4] e4. Then h(e3, R(e3, e4)e4) = K; h(e3, ∇_4∇_3e4) = e4 h(e3, ∇_3e4) −
+h(∇_4e3, ∇_3e4) = −4e4ϖ̲ + 8ϖϖ̲ − 4ηη̲, since h(e3, ∇_3e4) = −h(∇_3e3, e4) = −4ϖ̲; and with [e3, e4] = −2ϖ e3 + 2ϖ̲
+e4 + 4ζ e1, the e4-coefficient of ∇_[e3,e4] e4 = −2ϖ∇_3e4 + 2ϖ̲∇_4e4 + 4ζ∇_1e4 is −8ϖϖ̲ − 4ζ², so that h(e3, ∇_[e3,e4]
+e4) = 16ϖϖ̲ + 8ζ². Hence
+
+    e3ϖ + e4ϖ̲ = (1/4) K + 4ϖϖ̲ + 2ζ² − ηη̲.
+
+On the other hand ϖ = −(1/2)e4α and ϖ̲ = −(1/2)e3α give e3ϖ − e4ϖ̲ = −(1/2)[e3, e4]α = −(1/2)(4ϖϖ̲ − 4ϖ̲ϖ + 4ζ e1α) =
+−2ζ e1α = −(1/2)(η² − η̲²). Half the sum of the two relations, with ζ = (η − η̲)/2 and K = 2(Ric_34 + Ric_11), is (F3).
+
+(F4) e3χ = h(∇_3∇_1e4, e1) + h(∇_1e4, ∇_3e1) = h(∇_3∇_1e4, e1) + 2ζη, since h(χ e1 − ζ e4, η e3) = 2ζη. Here
+∇_3∇_1e4 = R(e3, e1)e4 + ∇_1∇_3e4 + ∇_[e3,e1] e4. The e1-component of ∇_1∇_3e4 = ∇_1(2ϖ̲ e4 + 2η e1) is 2ϖ̲χ + 2e1η,
+and that of ∇_[e3,e1] e4 = (η − ζ)∇_3e4 − χ̲∇_1e4 is 2η(η − ζ) − χχ̲. With h(R(e3, e1)e4, e1) = Ric_11 this is (F4).
+
+(F5) By (a), e3η + e3η̲ = 2e3e1α = 2e1e3α + 2[e3, e1]α = −4e1ϖ̲ + 2(e1α)(e3α) − 2χ̲ e1α = −4e1ϖ̲ − (2ϖ̲ + χ̲)(η + η̲).
+Subtracting (F2′), e3η̲ = −Ric_31 − χ̲(η̲ − η), gives (F5).
+
+The images under the exchange hold by the same derivations with the roles of e3 and e4 exchanged, since the table and
+the formula for Ric are invariant; for (F3′) and (F5′) one uses ϖ = −(1/2)e4α, ϖ̲ = −(1/2)e3α and e1α = (η + η̲)/2,
+which are also invariant.
+
+(c) □_h F = h^(ab)∇_a∇_bF = −(1/2)(∇²F(e3, e4) + ∇²F(e4, e3)) + ∇²F(e1, e1), with ∇²F(X, Y) = X(YF) − (∇_XY)F. By the
+table, ∇²F(e3, e4) = e3e4F − 2ϖ̲ e4F − 2η e1F, ∇²F(e4, e3) = e4e3F − 2ϖ e3F − 2η̲ e1F and ∇²F(e1, e1) = e1e1F −
+(1/2)χ e3F − (1/2)χ̲ e4F. Replacing e4e3F by e3e4F + [e4, e3]F = e3e4F + 2ϖ e3F − 2ϖ̲ e4F + 2(η̲ − η) e1F gives
+[[eq:civp-large-box]]; replacing instead e3e4F by e4e3F − [e4, e3]F gives its image. For the densities, h⁻¹dv =
+−(1/2)e^(−α) e3, so div_h(q h⁻¹dv) = −(1/2)(e3(e^(−α) q) + e^(−α) q div_h e3), and div_h e3 = −(1/2)h(∇_3e3, e4) −
+(1/2)h(∇_4e3, e3) + h(∇_1e3, e1) = −2ϖ̲ + χ̲; with e3(e^(−α)) = 2ϖ̲ e^(−α) this is the first formula, and the second is
+its image.
+
+(d) In coordinates (u, v, ϑ, φ1, φ2), √|det g| = e^ψ √|det g3| and √|det h| = e^(3ψ) √|det g3|, and since q and u do
+not depend on φ1, φ2, g⁻¹du = g3⁻¹du = e^(2ψ) h⁻¹du has no φ-components. Hence div_g(q g⁻¹du) = e^(−ψ) |det g3|^(−1/2)
+∂_a(e^ψ |det g3|^(1/2) q e^(2ψ) (h⁻¹du)^a) = e^(−ψ) |det g3|^(−1/2) ∂_a(|det h|^(1/2) q (h⁻¹du)^a) = e^(2ψ)
+div_h(q h⁻¹du), and the same for dv. ∎
+
+**Lemma {#lem:civp-large-reduction}** (The class system off the axes.) Let g be a metric of the form
+[[eq:loc-double-null]] on an open set of D × (0, π/2) × T², D ⊂ Q1, and q_in, q_out ≥ 0 functions of (u, v, ϑ), and let
+h, ψ, ω be as in [[eq:civp-large-h]]. Then (g, v, u, q_in, q_out) solves [[eq:class-system]] if and only if
+
+    Ric[h] = q_in dv ⊗ dv + q_out du ⊗ du + (3/2) dψ ⊗ dψ + 2 dω ⊗ dω,      □_hψ = □_hω = 0,
+    e3q_in = −χ̲ q_in,      e4q_out = −χ q_out.  {#eq:civp-large-reduced}
+
+*Proof.* g⁻¹(du, du) = g⁻¹(dv, dv) = 0 holds for every metric of the form [[eq:loc-double-null]]. T := q_in dv ⊗ dv +
+q_out du ⊗ du has no φ-components, so in the notation of [[prop:reduction]] the equations Ric(g) = T are R11 = R22 = 0,
+vanishing mixed components and Ric[g]_ab = T_ab on the orbit space; the mixed components vanish for every class metric
+([[lem:warped-ricci]]). By [[prop:reduction]], R11 = R22 = 0 is equivalent to □_hψ = □_hω = 0, and then
+Ric[h]_ab = Ric[g]_ab + (3/2)∂_aψ∂_bψ + 2∂_aω∂_bω, so Ric[g] = T on the orbit space is the first equation. The dust
+equations are div_g(q_in g⁻¹dv) = 0 and div_g(q_out g⁻¹du) = 0, equivalent by [[lem:civp-large-frame]] (d) and
+[[eq:civp-large-dust]] to the last two. ∎
+
+In the frame, T(e4, e4) = e^(−2α) q_in, T(e3, e3) = e^(−2α) q_out and the other components of T vanish, since
+dv(e4) = du(e3) = e^(−α) and dv(e3) = du(e4) = dv(e1) = du(e1) = 0. Only Ric_44 and Ric_33 carry a density.
+
+*The evolution system.* Its unknown is f = (f₃, f₄), in the notation of [CCTW16] f = (ϕ, ψ) with ϕ = f₃ and ψ = f₄
+(the letters f₃, f₄ avoid a clash with the function ψ), with
+
+    f₃ := (χ̲, η̲, ϖ, q_in, ψ°, ψ_4, ψ_1, ω°, ω_4, ω_1),
+    f₄ := (α, β, b, χ, η, ϖ̲, q_out, ψ, ψ_3, ψ′_1, ω, ω_3, ω′_1),
+
+twenty-three real functions of (u, v, ϑ). For Ψ ∈ {ψ, ω}, the unknowns Ψ°, Ψ_4, Ψ_1, Ψ_3, Ψ′_1 stand for Ψ, e4Ψ, e1Ψ, e3Ψ
+and e1Ψ; the others for the quantities of the same name. We put D_3 := ∂_u + b∂_ϑ, k := e^(α−β) and
+
+    M_44 := e^(−2α) q_in + (3/2)ψ_4² + 2ω_4²,      M_33 := e^(−2α) q_out + (3/2)ψ_3² + 2ω_3²,
+    M_34 := (3/2)ψ_3ψ_4 + 2ω_3ω_4,   M_41 := (3/2)ψ_4ψ′_1 + 2ω_4ω′_1,   M_31 := (3/2)ψ_3ψ_1 + 2ω_3ω_1,
+    M_11 := (3/2)ψ′_1² + 2ω′_1²,                                                                  {#eq:civp-large-m}
+
+the frame components of q_in dv² + q_out du² + (3/2)dψ² + 2dω² written with the unknowns. The *evolution system*,
+each equation multiplied by e^α, is, for Ψ ∈ {ψ, ω},
+
+    ∂_vα = −2e^α ϖ,   ∂_vβ = e^α χ,   ∂_vb = −2e^(2α−β) (η − η̲),
+    ∂_vχ = −e^α (χ² + 2ϖχ + M_44),   ∂_vη = −e^α (M_41 + χ(η − η̲)),
+    ∂_vϖ̲ = e^α (2ϖϖ̲ + (1/2)η² − ηη̲ + (1/4)(M_34 + M_11)),   ∂_vq_out = −e^α χ q_out,   ∂_vΨ = e^α Ψ_4,
+    ∂_vΨ_3 − k ∂_ϑΨ_1 = e^α ((2ϖ − (1/2)χ)Ψ_3 − (1/2)χ̲Ψ_4 + 2η̲Ψ_1),
+    ∂_vΨ′_1 − k ∂_ϑΨ_4 = e^α ((1/2)(η + η̲)Ψ_4 − χΨ′_1),
+    D_3χ̲ = −e^α (χ̲² + 2ϖ̲χ̲ + M_33),   D_3η̲ = −e^α (M_31 + χ̲(η̲ − η)),
+    D_3ϖ = e^α (2ϖϖ̲ + (1/2)η̲² − ηη̲ + (1/4)(M_34 + M_11)),   D_3q_in = −e^α χ̲ q_in,   D_3Ψ° = e^α Ψ_3,
+    D_3Ψ_4 − k ∂_ϑΨ′_1 = e^α ((2ϖ̲ − (1/2)χ̲)Ψ_4 − (1/2)χΨ_3 + 2ηΨ′_1),
+    D_3Ψ_1 − k ∂_ϑΨ_3 = e^α ((1/2)(η + η̲)Ψ_3 − χ̲Ψ_1).                                           {#eq:civp-large-system}
+
+The equations of the first five lines have ∂_v and govern f₄; those of the last four have D_3 and govern f₃.
+
+**Proposition {#prop:civp-large-system}** (The doubly-null form.) Write [[eq:civp-large-system]] as A^u∂_uf + A^v∂_vf +
+A^ϑ∂_ϑf = G(f) on ℝ² × Y, Y an interval or a circle, with the Euclidean scalar product on ℝ²³ and the flat connection
+∂. Then A^u, A^v, A^ϑ are symmetric and smooth functions of f, G is a smooth function of f, and
+
+    A^u = diag(I₁₀, 0),      A^v = diag(0, I₁₃),      A^ϑ = (b I₁₀, Q; Qᵀ, 0),  {#eq:civp-large-form}
+
+in the splitting f = (f₃, f₄), where the 10 × 13 matrix Q has exactly four nonzero entries, each equal to −k =
+−e^(α−β), at the pairs (ψ_4, ψ′_1), (ψ_1, ψ_3), (ω_4, ω′_1), (ω_1, ω_3), so that |Q| = e^(α−β) in the operator norm. In
+particular the system has the form (2.7)–(2.8) of [CCTW16] ([[thm:std-cctw-existence]]), with A^u_ϕϕ = I₁₀ > 0 and
+A^v_ψψ = I₁₃ > 0, the scalar product, and the flat connection as both ∇ and ∇̊, preserving the splitting. Moreover:
+
+(a) if (g, v, u, q_in, q_out) is a class solution in the gauge on D × S³, its *reduced fields* (the connection
+coefficients of h, the densities, α, β, b, and Ψ° = Ψ, Ψ_4 = e4Ψ, Ψ_3 = e3Ψ, Ψ_1 = Ψ′_1 = e1Ψ for Ψ ∈ {ψ, ω}) solve
+[[eq:civp-large-system]] on D × (0, π/2);
+
+(b) conversely, let f be a smooth solution of [[eq:civp-large-system]] on an open set U ⊂ D × (0, π/2) that is
+*geometric* there: χ, χ̲, η, η̲, ϖ, ϖ̲ are the connection coefficients of the metric h of [[eq:civp-large-h]] built
+from (α, β, b), Ψ° = Ψ, Ψ_3 = e3Ψ, Ψ_4 = e4Ψ, Ψ_1 = Ψ′_1 = e1Ψ, and Ric[h] equals the tensor with the frame components
+[[eq:civp-large-m]]; and let q_in, q_out ≥ 0 on U. Then g := e^(−2ψ) h + e^(ψ−2ω) dφ1² + e^(ψ+2ω) dφ2², with v, u,
+q_in, q_out, is a solution of [[eq:class-system]] on U × T², of the form [[eq:loc-double-null]] with Ω = e^(α−ψ), γ_ϑ =
+e^(2β−2ψ), A_c = (ψ − 2ω)/2, A_s = (ψ + 2ω)/2.
+
+*Proof.* The coefficients of the derivatives are read off [[eq:civp-large-system]]: each f₃-equation has the operator
+D_3 = ∂_u + b∂_ϑ on its own unknown and no ∂_v, each f₄-equation has ∂_v on its own unknown and no ∂_u, and the only
+other derivatives are −k∂_ϑΨ_1 in the Ψ_3-equation and −k∂_ϑΨ_3 in the Ψ_1-equation, −k∂_ϑΨ_4 in the Ψ′_1-equation and
+−k∂_ϑΨ′_1 in the Ψ_4-equation. So A^ϑ is symmetric with the stated blocks, and A^u, A^v are as stated. The coefficients
+and G are polynomials in f, e^(±α), e^(±β), hence smooth for all values of f; positivity of A^u_ϕϕ, A^v_ψψ needs no
+restriction on f.
+
+(a) Multiplied by e^(−α), the equations are, line by line: [[eq:civp-large-coefficients]] for ϖ, χ and ζ = (η − η̲)/2;
+(F1), (F2), (F3′) and the second formula of [[eq:civp-large-dust]] with [[lem:civp-large-reduction]]; e4Ψ = Ψ_4;
+[[eq:civp-large-box]] (image) with □_hΨ = 0; the commutator [e4, e1]Ψ = (e1α) e4Ψ − χ e1Ψ with e1α = (η + η̲)/2; then
+(F1′), (F2′), (F3) and the first formula of [[eq:civp-large-dust]]; e3Ψ = Ψ_3; [[eq:civp-large-box]] with □_hΨ = 0;
+and [e3, e1]Ψ = (e1α) e3Ψ − χ̲ e1Ψ. In each, Ric[h] is replaced by the tensor of [[eq:civp-large-m]], which is the right
+side of the first equation of [[eq:civp-large-reduced]] in the frame.
+
+(b) By hypothesis the first equation of [[eq:civp-large-reduced]] holds; the equations of [[eq:civp-large-system]] for
+Ψ_3 and Ψ_4, with the geometric identifications and [[eq:civp-large-box]], give □_hψ = □_hω = 0; those for q_in and
+q_out give the dust equations. [[lem:civp-large-reduction]] concludes, and [[eq:civp-large-h]] gives the form. ∎
+
+The equations for χ, η, ϖ̲, χ̲, η̲, ϖ are (F1), (F2), (F3′), (F1′), (F2′), (F3): each connection coefficient is
+transported along e3 or e4, with no angular derivative of an unknown, and the densities enter only the two Raychaudhuri
+equations, through M_44 and M_33. The wave block is the first-order form of [CCTW16, (4.47)–(4.50), p. 47], with their
+ℓ and ω in the roles of e3 and e4; there the first equations of (4.48) and (4.50) are misprinted, and with ϕ0 = ψ0 = h
+they read ℓ(ϕ0) = ψ₋ and ω(ψ0) = ϕ₊, the forms used here. The equations (F4), (F5), their images and the relations of
+[[eq:civp-large-coefficients]] for χ̲, ϖ̲ and η + η̲ are not part of the system; they hold for the reduced fields of a
+solution, and they determine the data on the cones.
+
+#### Data on the two cones {#sec:civp-large-data}
+
+**Lemma {#lem:civp-large-data}** (The data of the evolution system.) (a) Let 𝒬 = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂
+Q1 and let g, g′ be class solutions in the gauge on neighbourhoods of the two edges N_o := {u_c} × [v_c, v_c + l_v] and
+N_i := [u_c, u_c + l_u] × {v_c} (times S³) that induce the same functions Ω, γ_ϑ, b, A_c, A_s, q_in on N_o and the same
+Ω, γ_ϑ, b, A_c, A_s, q_out on N_i. Then their reduced fields have the same f₃-components on N_o and the same
+f₄-components on N_i. More precisely, for the reduced fields of a class solution in the gauge: the values at the corner
+sphere of all reduced fields are given by [[eq:civp-large-coefficients]] in the functions on N_o and N_i near it; on
+N_o the f₃-components other than χ̲ are the functions on N_o and their derivatives along N_o, ϖ and η̲ through
+[[eq:civp-large-coefficients]], and χ̲ solves (F4′) along N_o with M_11 in place of Ric_11; on N_i the f₄-components
+other than η and χ are the functions on N_i and their derivatives along N_i, ϖ̲ through [[eq:civp-large-coefficients]],
+and η and χ solve (F5) (with η̲ = 2e1α − η) and (F4) along the integral curves of e3 in N_i with M_31, M_11 in place of
+Ric_31, Ric_11.
+
+(b) Let cone data on Q1 be given. Define on 𝒞_out, from its functions and with α, β, ψ, ω as in [[eq:civp-large-h]],
+
+    ϖ := −(1/2) e4α,   η̲ := (1/4) e^(β−2α) ∂_vb + e1α,   Ψ° := Ψ,   Ψ_4 := e4Ψ,   Ψ_1 := e1Ψ,
+
+q_in as given, and χ̲ the solution of the linear equation (F4′), e4χ̲ = 2e1η̲ + 2η̲² + 2ϖχ̲ − χχ̲ + M_11 with χ := e4β
+and M_11 := (3/2)(e1ψ)² + 2(e1ω)², whose value at v = 0 is e^(−α)∂_uβ computed on 𝒞_in. Define on 𝒞_in, where b = 0 and
+e3 = e^(−α)∂_u,
+
+    ϖ̲ := −(1/2) e3α,   Ψ_3 := e3Ψ,   Ψ′_1 := e1Ψ,
+
+α, β, b = 0, Ψ and q_out as given, η the solution of the linear equation (F5), e3η = M_31 − 2χ̲η − 4e1ϖ̲ − 4ϖ̲ e1α with
+χ̲ := e3β and M_31 := (3/2)e3ψ e1ψ + 2e3ω e1ω, whose value at u = 0 is (−1/4) e^(β−2α)∂_vb + e1α computed on 𝒞_out, and
+χ the solution of the linear equation (F4), e3χ = 2e1η + 2η² + 2ϖ̲χ − χχ̲ + M_11, whose value at u = 0 is e4β computed
+on 𝒞_out. Let f̄₃ be the first list on 𝒞_out and f̄₄ the second on 𝒞_in. Then:
+
+(i) the restriction of [[eq:civp-large-system]] to 𝒞_out, the f₄-equations with f₃ = f̄₃, with the values of f̄₄ at S
+as initial values, has a solution on all of 𝒞_out ∩ (Q1 × (0, π/2)), and the restriction to 𝒞_in, the f₃-equations
+with f₄ = f̄₄, with the values of f̄₃ at S, has one on all of 𝒞_in ∩ (Q1 × (0, π/2));
+
+(ii) f̄ and the two solutions of (i) equal the background's reduced fields at every point with ϑ ∉ (ϑ_a, ϑ_b);
+
+(iii) the reduced fields of every class solution in the gauge on D × S³, D ⊂ Q1 a past set, that induces the cone data
+have f₃ = f̄₃ on 𝒞_out ∩ D and f₄ = f̄₄ on 𝒞_in ∩ D, and solve the two restricted problems of (i) there.
+
+*Proof.* (a) On N_o the fields e4 and e1 are tangent, and on N_i the fields e3 and e1 are. So on N_o the components ϖ,
+η̲ = −ζ + e1α (by [[eq:civp-large-coefficients]], ζ holding ∂_vb), q_in, Ψ°, Ψ_4, Ψ_1 of either solution are given by
+the induced functions, and χ̲ solves (F4′) along the generators of N_o, with Ric_11 = M_11 by
+[[lem:civp-large-reduction]], a linear equation whose coefficients are given by the induced functions; its value at
+the corner is e3β + e^(−α)∂_ϑb, given by the functions on N_i. On N_i, α, β, b, ϖ̲, q_out, Ψ, Ψ_3, Ψ′_1 are given by
+the induced functions, and η and χ solve (F5) and (F4) along the integral curves of e3, with Ric_31 = M_31 and
+Ric_11 = M_11, linear transport equations with initial values at u = u_c given by the functions on N_o (η = ζ + e1α
+and χ = e4β there). Each integral curve of D_3 = ∂_u + b∂_ϑ in N_i starts on the corner circle, so these values are
+determined.
+
+(b) (iii) is (a) for g and the data, together with [[prop:civp-large-system]] (a); the values at u = 0 or v = 0 used in
+(b) are those of the reduced fields at S. For (i) on 𝒞_out, take for (α, β, b, χ, η, Ψ, Ψ′_1) the functions given by
+the data, with χ := e4β, η := ζ + e1α, ζ := −(1/4)e^(β−2α)∂_vb and Ψ′_1 := e1Ψ. They solve the corresponding equations
+of [[eq:civp-large-system]]: those for α, β, b, Ψ by [[eq:civp-large-coefficients]]; that for χ by (F1) and the
+constraint Ric(∂_v, ∂_v) = q_in, which by [[prop:reduction]] (the term with R11, R22 being multiplied by g3(∂_v, ∂_v) =
+0) reads Ric[h](∂_v, ∂_v) = q_in + (3/2)(∂_vψ)² + 2(∂_vω)², that is Ric_44 = M_44; that for η by (F2) and the
+constraint Ric(∂_v, ∂_ϑ) = 0, which reads Ric_41 = M_41 (g3(∂_v, ∂_ϑ) = 0); and that for Ψ′_1 by the commutator [e4,
+e1]. The remaining equations, for Ψ_3, then ϖ̲, then q_out, are linear in these unknowns with coefficients defined on
+all of 𝒞_out, so they have solutions there. On 𝒞_in, take χ̲ := e3β, η̲ := 2e1α − η, Ψ° := Ψ and Ψ_1 := e1Ψ. The
+equation for χ̲ holds by (F1′) and the constraint Ric(∂_u, ∂_u) = q_out (g3(∂_u, ∂_u) = γ_ϑ b² = 0 on 𝒞_in), that for
+Ψ°, Ψ_1 by the definitions and [e3, e1]; that for η̲ holds because, by the equation defining η and 2e3e1α = −4e1ϖ̲ −
+(2ϖ̲ + χ̲)(η + η̲) (proof of (F5)), D_3η̲ = e^α(2e3e1α − e3η) = −e^α(M_31 + χ̲(η̲ − η)). The equations for Ψ_4, then ϖ,
+then q_in are linear and have solutions on all of 𝒞_in. In each case the initial values at S are those of f̄, so these
+are the solutions of (i).
+
+(ii) Every formula and every coefficient of the equations above at an angle ϑ is built from the functions of the data
+and their derivatives at ϑ, and so are the initial values at S; the equations are ordinary differential equations along
+the lines {ϑ = const}, since b = 0 on 𝒞_in and the f₄-equations contain no ∂_ϑ of an f₄-unknown. At ϑ ∉ (ϑ_a, ϑ_b) the
+data are the background's on a neighbourhood of ϑ, the background's reduced fields solve all the equations used
+([[prop:civp-large-system]] (a)), and by uniqueness for these equations f̄ and the solutions of (i) are the
+background's there. ∎
+
+#### An energy identity {#sec:civp-large-energy}
+
+**Lemma {#lem:civp-large-energy}** (Energy for systems in doubly-null form.) Let 𝒬 := [u_c, u_c + l_u] × [v_c, v_c +
+l_v], let J = [ϑ₋, ϑ₊] be an interval, or an arc of a circle with a coordinate ϑ on it, and let z = (z₃, z₄), of class
+C¹ on 𝒬 × J with values in ℝ^(N₃) × ℝ^(N₄), solve
+
+    ∂_u z₃ + P ∂_ϑ z₃ + Q ∂_ϑ z₄ = B₃ z,      ∂_v z₄ + Qᵀ ∂_ϑ z₃ = B₄ z,  {#eq:civp-large-linear}
+
+with P symmetric, P and Q of class C¹ and B₃, B₄ continuous on 𝒬 × J. Assume z₃ = 0 on {u_c} × [v_c, v_c + l_v] × J
+and z₄ = 0 on [u_c, u_c + l_u] × {v_c} × J.
+
+(a) Let |P| ≤ p and |Q| ≤ q on 𝒬 × J (operator norms), let t > 0, c1 := p + t, c2 := q²/t and w(u, v) := c1(u − u_c) +
+c2(v − v_c). Then z = 0 at every point of 𝒬 × J with ϑ₋ + w(u, v) ≤ ϑ ≤ ϑ₊ − w(u, v).
+
+(b) If z = 0 on 𝒬 × ([ϑ₋, ϑ₋ + ε] ∪ [ϑ₊ − ε, ϑ₊]) for some ε > 0, then z = 0 on 𝒬 × J.
+
+*Proof.* Put A^u := diag(I, 0), A^v := diag(0, I) and A^ϑ := (P, Q; Qᵀ, 0), so that [[eq:civp-large-linear]] reads
+A^μ∂_μz = Bz with B := (B₃; B₄), and for λ ≥ 0 let X^μ := e^(−λ(u+v)) ⟨z, A^μz⟩, μ ∈ {u, v, ϑ}, a C¹ vector field in
+the coordinates (u, v, ϑ). Since the A^μ are symmetric and A^u, A^v are constant,
+
+    ∂_μX^μ = e^(−λ(u+v)) (−λ ⟨z, (A^u + A^v)z⟩ + ⟨z, (∂_ϑA^ϑ)z⟩ + 2⟨z, Bz⟩) ≤ e^(−λ(u+v)) (C₁ − λ) |z|²,
+
+with C₁ := sup_(𝒬×J) (|∂_ϑA^ϑ| + 2|B|), finite since 𝒬 × J is compact, and A^u + A^v = I. Fix λ > C₁.
+
+(a) Fix (u′, v′) ∈ 𝒬 with ϑ₋ + w(u′, v′) ≤ ϑ₊ − w(u′, v′), and let W be the set of (u, v, ϑ) with u_c ≤ u ≤ u′,
+v_c ≤ v ≤ v′ and ϑ₋ + w(u, v) ≤ ϑ ≤ ϑ₊ − w(u, v); since w increases in u and v, its sections are nonempty intervals,
+and W is compact with a piecewise smooth boundary. By the divergence theorem ∫_W ∂_μX^μ = ∫_(∂W) X^μ ν_μ dS, with ν the
+outer unit conormal. On the face u = u′, X^μν_μ = e^(−λ(u+v)) |z₃|² ≥ 0; on v = v′ it is e^(−λ(u+v)) |z₄|² ≥ 0; on
+u = u_c and v = v_c it vanishes, since these faces lie in the sets where z₃, respectively z₄, vanish. On the face
+ϑ = ϑ₊ − w the conormal is a positive multiple of dϑ + c1 du + c2 dv, and on ϑ = ϑ₋ + w one of −dϑ + c1 du + c2 dv, so
+X^μν_μ is a positive multiple of e^(−λ(u+v)) ⟨z, (±A^ϑ + c1A^u + c2A^v)z⟩, and
+
+    ⟨z, (±A^ϑ + c1A^u + c2A^v)z⟩ ≥ (c1 − p)|z₃|² − 2q|z₃||z₄| + c2|z₄|² = (t^(1/2)|z₃| − q t^(−1/2)|z₄|)² ≥ 0.
+
+Hence 0 ≤ ∫_(∂W) X^μν_μ dS = ∫_W ∂_μX^μ ≤ (C₁ − λ) ∫_W e^(−λ(u+v)) |z|², so z = 0 on W, and in particular at (u′, v′)
+for every ϑ with ϑ₋ + w ≤ ϑ ≤ ϑ₊ − w.
+
+(b) Take W := [u_c, u′] × [v_c, v′] × J. The faces u = u′, v = v′, u = u_c, v = v_c contribute as in (a), and on the
+faces ϑ = ϑ± the field X vanishes, since z does. The same inequality gives z = 0 on W. ∎
+
+#### Local developments {#sec:civp-large-local}
+
+**Proposition {#prop:civp-large-corner}** (Developments near a corner sphere, without smallness.) Let m := 114, the
+regularity index m_1 = 12k + 42 of [[prop:loc-cone-local]] for k = 6, and κ ∈ (0, π/8]. For every Λ > 0 there is σ > 0
+with the following property. Let 𝒬 = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ Q1, N_o := {u_c} × [v_c, v_c + l_v] and N_i
+:= [u_c, u_c + l_u] × {v_c}. Let smooth functions Ω > 0, γ_ϑ > 0, b, A_c, A_s and q_in ≥ 0 of (v, ϑ) ∈ [v_c, v_c + l_v]
+× (0, π/2), and Ω > 0, γ_ϑ > 0, A_c, A_s and q_out ≥ 0 of (u, ϑ) ∈ [u_c, u_c + l_u] × (0, π/2), with b = 0 on N_i, be
+given that agree on the corner sphere, satisfy Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(∂_u, ∂_u) =
+q_out on N_i, equal the background's at the points with ϑ ∉ [2κ, π/2 − 2κ], and whose differences from the background's,
+with ln Ω, ln γ_ϑ in place of Ω, γ_ϑ, have C^m norms at most Λ. Then there is a class solution in the gauge on [u_c,
+u_c + min(l_u, σ)] × [v_c, v_c + min(l_v, σ)] × S³ that induces these functions on the two edges and equals (g0, q̊_in,
+q̊_out) at the points with ϑ ∉ [κ, π/2 − κ].
+
+*Proof.* Choose d ∈ (0, 1] such that the open set 𝒪 of the notation at the beginning of this section contains the points
+within 4d of Q1 in each coordinate. In the notation of [[prop:loc-cone-local]], with Q := Q1, k := 6, η := κ, λ_u := l_u
+and λ_v := l_v, the background is g_e = −2e^(2σ_e) du dv + R_e² dΩ₃² with e^(2σ_e) := 2Ω² and R_e := R, solving
+[[eq:two-dust-limit]] on 𝒪 ∩ {u ≥ 0, v ≥ 0}, and the given functions are data of that proposition, with ϰ_1 = ½ ln γ_ϑ,
+ϰ_2 = A_c, ϰ_3 = A_s: the C^m norm of ϰ_1 − ϰ̊_1 is half that of ln γ_ϑ − ln γ̊_ϑ, so each difference has C^m norm at
+most Λ. That proposition gives the solution, with σ depending only on κ, Λ, d and bounds for the background on the
+points within 4d of Q1. ∎
+
+#### The theorem {#sec:civp-large-theorem}
+
+**Theorem {#thm:civp-large}** (Developments of cone data without smallness.) Let cone data on Q1 be given
+([[def:civp-large-data]]), with η0 and J0 as in [[eq:civp-large-band]]; no smallness is assumed. There is δ > 0 such
+that, with 𝒮_δ := {(u, v) ∈ Q1 : min(u, v) ≤ δ}, the following hold.
+
+(a) *Existence.* There is a class solution (g, v, u, q_in, q_out) in the gauge on 𝒮_δ × S³ that induces the cone data.
+So v and u are the phases of the ingoing and the outgoing family of [[eq:class-system]] with N_f = 2, and the
+development contains the strips {u ≤ δ} along 𝒞_out and {v ≤ δ} along 𝒞_in, a future neighbourhood of both cones.
+
+(b) *Localisation.* g = g0, q_in = q̊_in and q_out = q̊_out at the points of 𝒮_δ × S³ with ϑ ∉ [ϑ_a − η0, ϑ_b + η0].
+
+(c) *Uniqueness in the gauge.* Let D′ ⊂ Q1 be a past set and (g′, v, u, q′_in, q′_out) a class solution in the gauge
+on D′ × S³ that induces the cone data on 𝒞_out ∩ D′ and 𝒞_in ∩ D′ and equals (g0, q̊_in, q̊_out) at the points with
+ϑ ∉ [η′, π/2 − η′], for some η′ > 0. Then it equals (g, q_in, q_out) on (D′ ∩ 𝒮_δ) × S³.
+
+(d) *The neighbourhood.* 𝒮_δ ⊃ {(u, v) ∈ Q1 : uv ≤ δ²}, and δ = min(s1, s2) with s1, s2 of [[eq:civp-large-delta]]:
+they are given by constants a*, b* that [[thm:std-cctw-strips]] provides for the localised system
+[[eq:civp-large-localised]] with the data of [[lem:civp-large-data]], for any choice of the cut-off and the extension
+in its definition, and by three suprema of its solution, and they depend on the cone data through these. No lower bound
+for δ in terms of norms of the cone data is asserted.
+
+The proof of (a) uses [[prop:civp-large-corner]]; (b), (c) and (d) do not.
+
+*Proof.* Since uv ≤ δ² implies u ≤ δ or v ≤ δ, 𝒮_δ contains {uv ≤ δ²}.
+
+*Step 1: the localised system.* Let Y := ℝ/πℤ, which contains J0 ⊂ (0, π/2) as an arc. Fix ϱ ∈ C^∞(Y) with 0 ≤ ϱ ≤ 1,
+ϱ = 1 on [ϑ_a − η0, ϑ_b + η0] and supp ϱ ⊂ (ϑ_a − 2η0, ϑ_b + 2η0). Let f̊ be the reduced fields of the background on
+Q1 × (0, π/2), and f̊_e ∈ C^∞(Q1 × Y; ℝ²³) a function that equals f̊ on Q1 × J0 and whose b-component vanishes (b̊ = 0).
+With A^u, A^v, A^ϑ and G of [[prop:civp-large-system]], the *localised system* is
+
+    A^u∂_uf + A^v∂_vf + ϱ A^ϑ(f) ∂_ϑf = ϱ G(f) + (1 − ϱ)(A^u∂_u + A^v∂_v) f̊_e      on Q1 × Y.
+                                                                                               {#eq:civp-large-localised}
+
+It has the form (2.7)–(2.8) of [CCTW16]: A^u = diag(I₁₀, 0) and A^v = diag(0, I₁₃) are unchanged, ϱA^ϑ(f) is symmetric,
+and the coefficients and the right side are smooth functions of f and of (u, v, ϑ). It coincides with
+[[eq:civp-large-system]] where ϱ = 1. The function f̊_e solves it: where ϱ = 0 trivially, and on supp ϱ ⊂ J0 because
+there f̊_e = f̊ solves [[eq:civp-large-system]] ([[prop:civp-large-system]] (a) for g0), so that both sides equal
+A^u∂_uf̊ + A^v∂_vf̊ + ϱA^ϑ(f̊)∂_ϑf̊. Its data are ϕ̄ := f̄₃ on {u = 0} × J0 and f̊_e,₃ on the rest of {u = 0} × Y, and
+ψ̄ := f̄₄ on {v = 0} × J0 and f̊_e,₄ on the rest, with f̄ of [[lem:civp-large-data]] (b); they are smooth, because f̄ =
+f̊ at the points of J0 with ϑ ∉ (ϑ_a, ϑ_b) ([[lem:civp-large-data]] (b) (ii)). The transport equations [CCTW16,
+(3.100)–(3.101)] of [[thm:std-cctw-existence]] for this system are its f₃-equations restricted to {v = 0} and its
+f₄-equations restricted to {u = 0}. They have global solutions: on J0 take the solutions of [[lem:civp-large-data]] (b)
+(i), and on the rest of Y the restrictions of f̊_e. Where ϱ = 1 these are the equations of [[lem:civp-large-data]] (b)
+(i); at the other points of J0 those solutions equal f̊ ([[lem:civp-large-data]] (b) (ii)), which solves the localised
+system; and the two pieces agree near the ends of J0.
+
+*Step 2: the strip solution.* [[thm:std-cctw-existence]] and [[thm:std-cctw-strips]] apply with n = 2, a0 := u_1, b0 :=
+v_1 and any integer ℓ ≥ 6 (ℓ > (n + 9)/2): Y is a compact one-dimensional manifold without boundary, the system has the
+form (2.7)–(2.8) with the scalar product, and the flat connection as both ∇ and ∇̊, preserving the splitting, the data
+are smooth, and the transport equations have global solutions. They give a* ∈ (0, u_1], b* ∈ (0, v_1] and a solution f of
+[[eq:civp-large-localised]] with these data on 𝒰 := ([0, a*] × [0, v_1] ∪ [0, u_1] × [0, b*]) × Y, unique among C¹
+solutions and smooth, the data being smooth.
+
+*Step 3: localisation and δ.* Put z := f − f̊_e on 𝒰. Subtracting the equations for f and f̊_e,
+
+    A^u∂_uz + A^v∂_vz + ϱA^ϑ(f)∂_ϑz = ϱ(G(f) − G(f̊_e)) − ϱ(A^ϑ(f) − A^ϑ(f̊_e))∂_ϑf̊_e,
+
+whose right side is B z with B := ϱ∫_0^1 (dG − (dA^ϑ)∂_ϑf̊_e)(f̊_e + s z) ds continuous. This is [[eq:civp-large-linear]]
+with P := ϱb I₁₀ and Q := ϱQ(f), b and Q(f) evaluated on f. Its data vanish on the arc I := Y ∖ (ϑ_a, ϑ_b). Let
+
+    p1 := sup |b| over [0, a*] × [0, v_1] × Y,      β1 := sup |∂_vb| over [0, u_1] × [0, b*] × Y,
+    q1 := sup e^(α−β) over 𝒰,      s1 := min(a*, η0²/(2p1η0 + 4q1²v_1)),
+    s2 := min(b*, η0/(4u_1β1), η0²/(8q1²u_1)),      δ := min(s1, s2),
+                                                                                             {#eq:civp-large-delta}
+
+with the middle term of s2 omitted if β1 = 0, the components b, α, β being those of f. On [0, s1] × [0, v_1] apply
+[[lem:civp-large-energy]] (a) with J := I, p := p1, q := q1 and t := 2q1²v_1/η0: then c2 = η0/(2v_1), c1 = p1 + t, and
+w = c1u + c2v ≤ c1s1 + η0/2 ≤ η0. On [0, u_1] × [0, s2] the b-component of f vanishes at v = 0, both on J0 (b = 0 on
+𝒞_in) and elsewhere (f̊_e has b = 0), so |b| ≤ β1 v ≤ β1 s2 ≤ η0/(4u_1) =: p there; with t := η0/(4u_1), c1 = p + t ≤
+η0/(2u_1) and c2 = 4q1²u_1/η0, so w ≤ η0/2 + c2s2 ≤ η0. On both strips, therefore, z = 0 at the points of I at distance
+at least η0 from its ends, that is
+
+    f = f̊_e  at the points of 𝒮 × Y with ϑ ∉ (ϑ_a − η0, ϑ_b + η0),   𝒮 := [0, s1] × [0, v_1] ∪ [0, u_1] × [0, s2] ⊃ 𝒮_δ.
+
+Define F on 𝒮_δ × (0, π/2) by F := f on J0 and F := f̊ off J0. It is smooth, since f = f̊_e = f̊ near the ends of J0; it
+equals f̊ at the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0]; and it solves [[eq:civp-large-system]], since ϱ = 1 on [ϑ_a − η0,
+ϑ_b + η0] and f̊ solves [[eq:civp-large-system]]. On 𝒞_out its f₃-components are f̄₃, and its f₄-components solve the
+restriction of Step 1 with the same initial values at S; that restriction is a system of ordinary differential equations
+in v along the lines {ϑ = const} (A^ϑ has no f₄f₄-block), so they are the solution of [[lem:civp-large-data]] (b) (i),
+whose components α, β, b, ψ, ω are the functions of the data. Likewise on 𝒞_in its f₄-components are f̄₄ and its
+f₃-components the solution of [[lem:civp-large-data]] (b) (i), b vanishing there.
+
+*The signs of the densities.* The components q_in and q_out of F are nonnegative on 𝒮_δ × (0, π/2). Let (u′, v′) ∈ 𝒮_δ
+and ϑ′ ∈ (0, π/2). Since 𝒮_δ is a past set, the segments [0, u′] × {v′} and {u′} × [0, v′] lie in it. The component b of
+F is smooth on 𝒮_δ × (0, π/2) and vanishes at the angles outside [ϑ_a − η0, ϑ_b + η0], where F = f̊; so the constant
+functions ϑ_a − η0 and ϑ_b + η0 solve dϑ/du = b(u, v′, ϑ), and by uniqueness the solution ϑ(·) with ϑ(u′) = ϑ′ stays in
+[ϑ_a − η0, ϑ_b + η0] if ϑ′ lies there, and is constant otherwise. It therefore exists on all of [0, u′], with values in
+(0, π/2), and c(u) := (u, v′, ϑ(u)) is an integral curve of D_3 = ∂_u + b∂_ϑ. By the equation D_3q_in = −e^α χ̲ q_in of
+[[eq:civp-large-system]], (q_in ∘ c)′ = −(e^α χ̲ q_in) ∘ c, so
+
+    q_in(u′, v′, ϑ′) = q_in(0, v′, ϑ(0)) exp(−∫_0^(u′) (e^α χ̲)(c(u)) du).
+
+At u = 0, q_in is a component of f̄₃, the q_in of the data, which is nonnegative; so q_in(u′, v′, ϑ′) ≥ 0. Likewise the
+equation ∂_vq_out = −e^α χ q_out gives q_out(u′, v′, ϑ′) = q_out(u′, 0, ϑ′) exp(−∫_0^(v′) (e^α χ)(u′, v, ϑ′) dv), and
+q_out(u′, 0, ϑ′) is a component of f̄₄, the q_out of the data, which is nonnegative.
+
+*Step 4: F is geometric.* Let h_F and g_F be the metrics built from the components α, β, b, ψ, ω of F as in
+[[prop:civp-large-system]] (b); they are defined on all of 𝒮_δ × (0, π/2), times T² for g_F. F is geometric on a set
+when the identities of [[prop:civp-large-system]] (b) hold at its points; on the closure of a set where they hold they
+hold too, F being smooth. Where F is geometric, (g_F, v, u, q_in, q_out), extended by (g0, q̊_in, q̊_out) to the axes,
+is a class solution in the gauge, by that proposition, the densities being nonnegative and F being f̊ off [ϑ_a − η0,
+ϑ_b + η0]. We say that F is *geometric to first order* at a point if there its components χ, χ̲, η, η̲, ϖ, ϖ̲ are the
+connection coefficients of h_F and Ψ° = Ψ, Ψ_3 = e3Ψ, Ψ_4 = e4Ψ, Ψ_1 = Ψ′_1 = e1Ψ for Ψ ∈ {ψ, ω}. We show that F is
+geometric on 𝒮_δ × (0, π/2). As 𝒮_δ = 𝒯₁ ∪ 𝒯₂, 𝒯₁ := [0, δ] × [0, v_1], 𝒯₂ := [0, u_1] × [0, δ], it suffices to treat
+one of them, 𝒯 = [0, l1] × [0, l2].
+
+*Constants.* F is smooth on 𝒮_δ × (0, π/2) and equals f̊ off [ϑ_a − η0, ϑ_b + η0] ⊂ [2η0, π/2 − 2η0]. So the functions
+Ω = e^(α−ψ), γ_ϑ = e^(2β−2ψ), b, A_c = (ψ − 2ω)/2, A_s = (ψ + 2ω)/2, q_in, q_out formed from F on segments {u_c} ×
+[v_c, v_c + l_v] and [u_c, u_c + l_u] × {v_c} in 𝒯, transformed by the change of angle described below, have
+differences from the background's whose C^m norms are bounded by one Λ, for all such segments, because F and its
+derivatives are bounded on 𝒯 × [η0, π/2 − η0] and the change of angle has derivatives bounded by those of b. Let σ be
+given by [[prop:civp-large-corner]] for this Λ and κ := η0, and L := σ/2.
+
+*The corner step.* Let 𝒬 = [u_c, u_c + l_u] × [v_c, v_c + l_v] ⊂ 𝒯 with l_u, l_v ≤ σ and edges N_o, N_i, and assume: F
+is geometric to first order at the points of the corner circle {(u_c, v_c)} × (0, π/2); N_o × (0, π/2) is contained in
+a set on which F is geometric, or u_c = 0; and N_i × (0, π/2) is contained in a set on which F is geometric, or v_c =
+0. We show that F is geometric on 𝒬 × (0, π/2). On N_o take the functions Ω, γ_ϑ, b, A_c, A_s, q_in formed from F, and
+on N_i the functions Ω, γ_ϑ, b, A_c, A_s, q_out. Where an edge lies in 𝒞_out or 𝒞_in these are the cone data (Step 3),
+and they satisfy the constraints by [[def:civp-large-data]] (ii); where F is geometric they are induced by the class
+solution g_F, and the constraints are components of Ric(g_F) = q_in dv² + q_out du². They agree at the corner and equal
+the background's off [2η0, π/2 − 2η0]. If b does not vanish on N_i, let Φ(u, ϑ) solve (∂_u + b(u, v_c, ϑ)∂_ϑ)Φ = 0 with
+Φ(u_c, ϑ) = ϑ; for each u it is a diffeomorphism of (0, π/2) equal to the identity off [ϑ_a − η0, ϑ_b + η0], where b =
+0. The change of angle (u, v, ϑ) ↦ (u, v, Φ(u, ϑ)) maps a metric of the form [[eq:loc-double-null]] to one of the same
+form, with γ_ϑ replaced by γ_ϑ/(∂_ϑΦ)², b by ∂_uΦ + b∂_ϑΦ, and Ω, A_c, A_s unchanged, since Φ does not depend on v and
+dϑ − b du = (dΦ − (∂_uΦ + b∂_ϑΦ) du)/∂_ϑΦ; it commutes with the T² action and the reflections, it is the identity on
+N_o, and after it b = 0 on N_i, while b on N_o becomes b − b(u_c, v_c, ·). [[prop:civp-large-corner]] applies to the
+transformed functions and gives a class solution in the gauge on 𝒬 × S³; changing the angle back gives a class solution
+g_c in the gauge on 𝒬 × S³ that induces the functions above on N_o and N_i and equals (g0, q̊_in, q̊_out) off [η0, π/2
+− η0]. Let f_c be its reduced fields, a solution of [[eq:civp-large-system]] on 𝒬 × (0, π/2)
+([[prop:civp-large-system]] (a)). By [[lem:civp-large-data]] (a), the f₃-components of f_c on N_o and its f₄-components
+on N_i are given by the functions on the edges, through [[eq:civp-large-coefficients]] and the equations (F4′) on N_o
+and (F5), (F4) on N_i, with the values of f_c at the corner, which are given by [[eq:civp-large-coefficients]] in the
+functions near the corner. The same holds for F. At the corner F is geometric to first order, and h_F, ψ, ω induce the
+same functions on the edges as g_c, so F has the same values there as f_c. On an edge on which F is geometric, the
+proof of [[lem:civp-large-data]] (a) applies to F, since it uses only identities that hold at the points of the edge.
+On an edge in 𝒞_out or 𝒞_in it holds by the definition of f̄ in [[lem:civp-large-data]] (b), the linear equations there
+being those used here, with the same coefficients, and the values at the corner being those of F. By uniqueness for
+these linear equations, z := f_c − F has z₃ = 0 on N_o and z₄ = 0 on N_i. It solves the linear system A^μ(F)∂_μz =
+G(f_c) − G(F) − (A^ϑ(f_c) − A^ϑ(F))∂_ϑf_c, of the form [[eq:civp-large-linear]] on 𝒬 × [η0/2, π/2 − η0/2], and z = 0 at
+the points with ϑ ≤ η0 or ϑ ≥ π/2 − η0, where f_c = f̊ = F. By [[lem:civp-large-energy]] (b), z = 0 on 𝒬 × (0, π/2). So
+F is the reduced fields of g_c on 𝒬 × (0, π/2) and is geometric there.
+
+*Continuation in u + v.* For t > 0 let D_t := {(u, v) ∈ 𝒯 : u + v < t}, and let t* be the supremum of the t ∈ (0, l1 +
+l2] such that F is geometric on D_t × (0, π/2), with t* := 0 if there is none. The corner step with 𝒬 = [0, min(L, l1)]
+× [0, min(L, l2)] applies: its corner is S, where F is geometric to first order, because the values of f̄ at S are
+those of [[eq:civp-large-coefficients]] in the cone data, and its edges lie in 𝒞_out and 𝒞_in. So t* ≥ min(L, l1, l2) >
+0. Suppose t* < l1 + l2. F is geometric on the closure of D_t* × (0, π/2). Let Γ := {(u, v) ∈ 𝒯 : u + v = t*}, and for
+p = (u_p, v_p) ∈ Γ let u_c := max(u_p − L/2, 0), v_c := max(v_p − L/2, 0) and 𝒬_p := [u_c, min(u_p + L/2, l1)] × [v_c,
+min(v_p + L/2, l2)], whose sides are at most L < σ. Its corner satisfies u_c + v_c ≤ t*. If v_c > 0, the edge N_i =
+[u_c, min(u_p + L/2, l1)] × {v_c} satisfies u + v ≤ u_p + L/2 + v_p − L/2 = t*, so it lies in the closure of D_t*;
+likewise N_o if u_c > 0. So the corner step applies, and F is geometric on 𝒬_p × (0, π/2). Every (u, v) ∈ 𝒯 with t* ≤
+u + v < t* + L/4 lies in some 𝒬_p: with s := (u + v − t*)/2 < L/8, take p := (u − s, v − s) if this point lies in 𝒯, and
+otherwise the end point of Γ on the side of 𝒯 that it leaves; in both cases u_p − L/4 ≤ u ≤ u_p + L/4 and v_p − L/4 ≤ v
+≤ v_p + L/4. Hence F is geometric on D_(t*+L/4) × (0, π/2), contrary to the choice of t*. So t* = l1 + l2, and F is
+geometric on 𝒯 × (0, π/2).
+
+*Step 5: the solution.* By Step 4 and [[prop:civp-large-system]] (b), g_F with v, u, q_in, q_out is a class solution in
+the gauge on 𝒮_δ × (0, π/2) × T². At the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0] it equals (g0, q̊_in, q̊_out), since
+F = f̊ there; extended by (g0, q̊_in, q̊_out) to the axes it is a class solution in the gauge on 𝒮_δ × S³, which gives
+(a) and (b). It induces the cone data: on 𝒞_out the components α, β, b, ψ, ω of F are the functions of the data and its
+q_in is the data's (Step 3), and on 𝒞_in its f₄-components are f̄₄. By [[eq:civp-large-h]] the functions Ω, γ_ϑ, b, A_c,
+A_s are therefore the data's on both cones.
+
+*Step 6: uniqueness.* Let (g′, q′_in, q′_out) be as in (c) and f′ its reduced fields on D′ × (0, π/2), a solution of
+[[eq:civp-large-system]] ([[prop:civp-large-system]] (a)) with f′₃ = f̄₃ on 𝒞_out ∩ D′ and f′₄ = f̄₄ on 𝒞_in ∩ D′
+([[lem:civp-large-data]] (b) (iii)), and equal to f̊ off [η′, π/2 − η′]. Put η″ := min(η′, η0). D′ ∩ 𝒮_δ is a past
+set; for (u, v) in it, z := f′ − F solves on [0, u] × [0, v] × [η″/2, π/2 − η″/2] a linear system of the form
+[[eq:civp-large-linear]] as in Step 4, with z₃ = 0 at u = 0, z₄ = 0 at v = 0 (Step 3), and z = 0 at ϑ ≤ η″ and at
+ϑ ≥ π/2 − η″, where f′ = f̊ = F. By [[lem:civp-large-energy]] (b), f′ = F on (D′ ∩ 𝒮_δ) × (0, π/2). The metric and the
+densities are determined by α, β, b, ψ, ω, q_in, q_out through [[prop:civp-large-system]] (b), so (g′, q′_in, q′_out) =
+(g, q_in, q_out) there, and both equal (g0, q̊_in, q̊_out) near the axes.
+
+(d) is [[eq:civp-large-delta]] with Steps 2 and 3. ∎
+
+**Remark {#rem:civp-large-domain}** (How the neighbourhood depends on the data.) In [[eq:civp-large-delta]], a* and b*
+are the constants of [[thm:std-cctw-strips]] for the localised system with the data of [[lem:civp-large-data]]; that
+theorem asserts their existence and gives no bound for them (a* does not depend on ℓ by [[thm:std-cctw-existence]], nor
+b* by that theorem with u and v exchanged). p1, q1 and β1 are suprema of the strip solution, the shift, the ratio
+e^(α−β) = Ω γ_ϑ^(−1/2) and ∂_vb, and are not bounded here in terms of the data. So δ depends on the data, on the band
+through η0, on u_1, v_1 and on the choice of the cut-off and the extension, and no lower bound for it in terms of norms
+of the data is asserted. For data near the background's, [[thm:loc-cone-development]] gives a development on the
+explicit set {uv ≤ δ_*²}; it equals g0 near the axes, so by [[thm:civp-large]] (c) the two developments agree where both
+are defined. The data must equal the background's near the axes: the band lies in (0, π/2), and cone data that differ
+from the background's at the axes are not treated, nor are data of finite regularity, densities that are only bounded,
+or measure-valued densities other than finitely many null shells along leaves of the two cones with densities smooth in
+angle; those, and data that are smooth except across finitely many leaves, where the metric functions are continuous,
+are developed slab by slab with [[thm:civp-large]] in [[thm:loc-shells]]. Cone data near the background's that differ
+from it at the axes are developed on the whole rectangle by [[thm:loc-axis]], and cone data of any size that reach the
+axes are developed near the two cones by [[thm:civp-axes]].
+
+**Remark {#rem:civp-large-beyond}** (What the theorem adds.) With [[thm:civp-large]], the cone data of [[sec:loc-cones]]
+that are localised in a band away from the axes have developments without any smallness. With u_1 = 7.2 and v_1 = 4.5,
+which are admissible ([[lem:civp-large-rectangle]] (a)), every perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} and of
+the packet on 𝒞_in ∩ {5.7 < u < 7.2}, together or apart, and every density added in the band, of any amplitude for which
+the factors e^ϕ stay positive on [0, 4.5] and on [0, 7.2], gives cone data on Q1 ([[lem:civp-large-free]] (a)) and so
+has a development. Such data exist with densities of every amplitude: the density of the shell may be multiplied by 1 +
+c with −1 ≤ c ≤ 76, and that of the packet by 1 + c with −1 ≤ c ≤ 4.5, c a smooth function of ϑ with compact support in
+the band, and densities of any supremum may be added on short enough intervals ([[lem:civp-large-rectangle]] (b)). The
+development contains the strip {u ≤ δ} along all of 𝒞_out ∩ {v ≤ v_1} and the strip {v ≤ δ} along all of 𝒞_in ∩ {u ≤
+u_1}, so the dust on the cones lies in it; it is in the double-null gauge of the class, with u and v the phases of the
+two families; it is localised, equal to the background outside {ϑ_a − η0 ≤ ϑ ≤ ϑ_b + η0}, so that localisation on the
+cones is localisation of a spacetime; and it is unique in the gauge among solutions that equal the background near the
+axes. For vacuum cone data (v_1 < 3 and u_1 < 5.7, the densities zero), [CTG23, Theorem 1.1]
+([[thm:std-ctg-neighbourhood]]) gives a vacuum development for data of any size; the theorem adds the double-null gauge,
+uniqueness in it, and localisation. Compared with [[thm:loc-cone-development]], smallness is dropped and uniqueness
+holds among all solutions that equal the background near the axes, not only near the background; the neighbourhood is
+not explicit and no estimate of the solution is given.
+
+### Developments of cone data through the axes {#sec:loc-axis}
+
+This section develops cone data near the background's data whose perturbation reaches the axes, on the whole rectangle
+spanned by the two cones. [[thm:loc-cone-development]] does not apply to such data: its proof uses the augmented system
+of [[sec:class-augmented]] only off the axes, where it is local, and keeps the background near the axes
+([[rem:loc-cone-scope]] (ii)). At an axis the Raychaudhuri equation of a family holds the planar shear of its null
+hypersurfaces, and [[lem:class-leaf-differences]] computes the planar shear at a point from the leaf through it, the
+section of the null hypersurface by a slice, by an integral from the axis along the leaf (Step 6 of the proof of
+[[thm:class-stability]]). An energy estimate on a region therefore needs, at each point of a slice of the region near
+an axis, the arc of the leaf from the axis to that point to lie in the region. For a time that increases with u and
+with v the sections of the cones by the slices are spheres of the data's double-null coordinates, and each of them is a
+leaf of both families of every state that has the right values and first derivatives along it ([[lem:loc-axis-leaf]]).
+The leaves of a state foliate a neighbourhood of an axis and do not cross these spheres, so the part of a slice to the
+past of the cones, and the part between them, consist of arcs of leaves; on such a set the planar shears of two states
+differ in L² by at most a constant times the difference of the states, the constant not depending on the set
+([[lem:loc-axis-shear]]). With these two facts the construction of [[sec:loc-cone-reduced]], case (I), runs with the
+closure of the Raychaudhuri equation at the axes and without a cut-off near them. The constraints propagate on the
+region bounded by the two cones and one slice, which contains the whole rectangle when the time is adapted to it
+([[eq:loc-axis-time]]). Two solutions in one wave gauge that agree to all orders on the past faces of a double-null
+rectangle agree on it, with no smallness of either ([[lem:loc-axis-dependence]]); this gives uniqueness in the
+double-null gauge and localisation.
+
+*The background on a rectangle.* We use the notation of [[sec:loc-cone-setting]] and [[sec:loc-cone-reduced]]. Let u_1,
+v_1 > 0, δ_1 ∈ (0, min(u_1, v_1)/2] and Q1 := [0, u_1] × [0, v_1]. A *background on Q1 with margin δ_1* is a round
+metric g_e = −2e^(2σ_e) du dv + R_e² dΩ₃² with σ_e and R_e > 0 smooth on Q^♯ := [−δ_1, u_1 + 2δ_1] × [−δ_1, v_1 +
+2δ_1], together with smooth profiles 𝒜(v), ℬ(u) ≥ 0, that solves [[eq:two-dust-limit]] on Q^♯ ∩ F. With l_u := u_1 +
+δ_1 and l_v := v_1 + δ_1 the set 𝒮 of [[eq:loc-cone-collar]] lies in Q^♯ and the restriction is a background on 𝒮; so
+N_o = {0} × [0, v_1 + 2δ_1] and N_i = [0, u_1 + 2δ_1] × {0}. The double-null functions, the densities q̊_A and the
+state Ů of those sections are defined on all of Q^♯, and we put C_* := sup over Q^♯ of e^(σ_e)/R_e.
+
+**Theorem {#thm:loc-axis}** (Development of cone data through the axes.) Let k ≥ 9, m_0 = 6k + 18 and m_1 = 12k + 42,
+and let a background on Q1 with margin δ_1 be given. Let cone data through the axes ([[def:loc-axis-data]]) be given on
+{0} × [0, v_1] and [0, u_1] × {0}, in the normalised gauge and with nonnegative densities, and let ε be their size in
+C^(m_1). There are ε_0, C, ε_2 > 0, depending only on k, u_1, v_1, δ_1 and the background, such that for ε ≤ ε_0 the
+following hold.
+
+(a) *Existence.* There is a class solution in the gauge through the axes on Q1 × S³ ([[def:loc-axis-data]]), with an
+ingoing family of phase v and density q_in and an outgoing family of phase u and density q_out, so that Ric(g) = q_in
+dv ⊗ dv + q_out du ⊗ du, that induces the cone data on {0} × [0, v_1] and on [0, u_1] × {0}. Its metric is smooth on Q1
+× S³, the axes included.
+
+(b) *Estimate.* Its fields ln Ω, γ and b and its densities differ from the background's by at most Cε in C^(k−4), in
+the norms of [[def:loc-axis-data]].
+
+(c) *Uniqueness.* Let Q1′ := [0, u_1′] × [0, v_1′] ⊂ Q1 with u_1′, v_1′ > 0. A class solution in the gauge through the
+axes on Q1′ × S³ that induces the cone data on {0} × [0, v_1′] and on [0, u_1′] × {0}, and whose fields differ from the
+background's by at most ε_2 in C^(k−4), equals the solution of (a) on Q1′ × S³.
+
+(d) *Localisation.* If the data equal the background's on {0} × [0, v_K) and on [0, u_K) × {0}, where u_K, v_K > 0, the
+solution equals the background, with its densities, at the points of Q1 × S³ with u < u_K and v < v_K. If the data
+equal the background's at the points with ϑ < ϑ_a′, where ϑ_a′ ∈ (0, π/4], the solution equals the background at the
+points of Q1 × S³ with ϑ < ϑ_a′ − 2C_* (uv)^(1/2); likewise, for ϑ_b′ ∈ [π/4, π/2), with ϑ > ϑ_b′ and ϑ > ϑ_b′ + 2C_*
+(uv)^(1/2).
+
+Data with q_in = 0 and q_out = 0 are vacuum data, and their development is vacuum, the densities being transported.
+Decreasing ε_0 so that Cε_0 ≤ ε_2, by (b) and (c) the solution on Q1′ × S³ depends only on the data on the two edges of
+Q1′; in particular it does not depend on how they are extended beyond u_1 and v_1 in the proof. For data that equal the
+background's near the axes, [[thm:loc-cone-development]] gives a development on the set G_* of [[eq:loc-cone-domain]];
+on every rectangle [0, u′] × [0, v′] ⊂ G_* it coincides with the solution of (a), by (c), its fields being within Cε of
+the background's in C^(k−4) by [[thm:loc-cone-development]] (c). The theorem is proved at the end of
+[[sec:loc-axis-reduced]]; [[cor:loc-axis-cones]] applies it to the background of [[sec:bg-data]].
+
+#### Cone data through the axes {#sec:loc-axis-data}
+
+**Definition {#def:loc-axis-data}** (Fields smooth through the axes.) Let D be a set of the (u, v)-plane or one of the
+edges N_o, N_i. Functions Ω > 0, γ_ϑ > 0, A_c, A_s and b of the points of D and of ϑ ∈ (0, π/2) are *smooth through the
+axes* if the field of symmetric forms [[eq:loc-double-null]] that they define at the points of D × S³ off the axes
+extends to a smooth field of Lorentzian forms on D × S³. Since g(∂_u, ∂_v) = −2Ω², the restriction of g to the tangent
+spaces of the spheres is γ := γ_ϑ dϑ² + e^(2A_c) dφ1² + e^(2A_s) dφ2², and g(∂_u, X) = −γ(b∂_ϑ, X) for X tangent to the
+spheres, this holds exactly when ln Ω extends to a smooth G-invariant function, γ to a smooth family over D of
+G-invariant Riemannian metrics on S³, and b∂_ϑ to a smooth family of G-invariant vector fields on S³. We call ln Ω, γ
+and the vector field b∂_ϑ, which we also write b, the *fields*. A density is smooth through the axes if it extends to a
+smooth G-invariant function. A *class solution in the gauge through the axes* on D × S³, D ⊂ F, is a class solution in
+the gauge ([[sec:loc-cone-setting]]) whose fields are smooth through the axes, in place of being equal to the
+background's near the axes. *Cone data through the axes*, of either sign, are defined as in [[def:loc-cone-data]], with
+(iii) there replaced by: their fields and densities are smooth through the axes. The C^r norm of a field T on an edge
+is the supremum of |∂^i ∇̊^l T| over i + l ≤ r, ∂ the derivative along the edge at a fixed point of S³ and ∇̊, |·| the
+Levi-Civita connection and the norm of the unit round metric dΩ₃²; on a set D the derivatives in u and in v enter
+alike. The *size in C^r* of cone data through the axes is the largest C^r norm, over the two edges, of the differences
+of their fields and densities from the background's.
+
+**Lemma {#lem:loc-axis-constraints}** (The constraints through the axes.) Let ln Ω, γ and b be fields on N_o smooth
+through the axes, q_in a density smooth through the axes, dvol_1 the volume form of dΩ₃², and put
+
+    χ := ½ ∂_vγ,      Y := (dvol_γ/dvol_1)^(1/3),      γ̂ := Y^(−2) γ,      W := ∂_v b.
+
+(a) On N_o, with E := Ric(g) − q_in dv ⊗ dv − q_out du ⊗ du,
+
+    E(∂_v, ∂_v) = −(3/Y)(∂_v²Y − 2 ∂_v ln Ω ∂_vY + (1/12) |∂_vγ̂|²_γ̂ Y) − q_in,
+    E(∂_v, X) = (4Ω²)⁻¹ (γ(∂_vW, X) + (tr_γχ − 2 ∂_v ln Ω) γ(W, X) + 2χ(W, X)) + 𝔯(X),                {#eq:loc-axis-cone}
+
+for X tangent to S³, where 𝔯 is the 1-form X ↦ E(∂_v, X) of the fields ln Ω, γ and 0 in place of b; 𝔯 is smooth and
+G-invariant and depends only on Ω and γ on N_o. In the normalised gauge, on N_i, E(L̲, L̲) = E(∂_u, ∂_u) is given by
+the first line with ∂_u, the fields of N_i and q_out in place of ∂_v, those of N_o and q_in.
+
+(b) Let ln Ω, a smooth family γ̂ of G-invariant Riemannian metrics on S³ with dvol_γ̂ = dvol_1, and q_in, of either
+sign, be given on N_o ∩ {v ≤ v′}, smooth through the axes, together with smooth G-invariant functions Y_0 > 0 and Y_1
+and G-invariant vector fields b_0 and W_0 on S³. Let Y solve E(∂_v, ∂_v) = 0, which by (a) is a linear equation for Y,
+with Y = Y_0 and ∂_vY = Y_1 at v = 0. Then Y is smooth on N_o ∩ {v ≤ v′}; on every N_o ∩ {v ≤ v″} on which Y > 0, γ :=
+Y²γ̂ and the solution b of E(∂_v, ·) = 0 with b = b_0 and ∂_vb = W_0 at v = 0 are smooth through the axes, and ln Ω, γ,
+b and q_in satisfy the constraints of (ii) of [[def:loc-cone-data]] on N_o. Every set of fields and densities smooth
+through the axes that satisfies them arises in this way. The same holds on N_i in the normalised gauge, with the first
+line of (a) only. In the coordinates, γ̂ = (sin ϑ cos ϑ)^(2/3)(e^(2ℓ_1) dϑ² + e^(2ℓ_2) dφ1² + e^(2ℓ_3) dφ2²) and Y =
+e^ϕ (sin ϑ cos ϑ)^(−1/3), with ϕ and the ℓ_i of [[prop:loc-cones]] and [[lem:loc-cone-in]]: their free data are smooth
+through the axes exactly when this γ̂ is a smooth metric on S³. For the background, γ̂ = dΩ₃² and Y = R_e.
+
+(c) Let a background on Q1 with margin δ_1 be given, and cone data through the axes on {0} × [0, v_1] and [0, u_1] ×
+{0}, in the normalised gauge, of size ε in C^(2p), p := m_0 + 3. For ε ≤ ε_0 they extend to cone data of either sign
+through the axes on N_o and N_i, in the normalised gauge, of size at most Cε in C^(m_0) and equal to the background's
+at the points of every G-invariant open set of S³ at which the given data are; ε_0 and C depend only on k, u_1, v_1,
+δ_1 and the background.
+
+*Proof.* (a) Every term is a smooth G-invariant field on N_o, the fields being smooth and Y positive. Off the axes, in
+the coordinates, dvol_γ = e^(ϰ_1 + ϰ_2 + ϰ_3) dϑ dφ1 dφ2 = e^(3ϕ) dϑ dφ1 dφ2 and dvol_1 = sin ϑ cos ϑ dϑ dφ1 dφ2, so Y
+and γ̂ are those stated in (b); γ̂ is diagonal with the entries (sin ϑ cos ϑ)^(2/3) e^(2ℓ_i), so |∂_vγ̂|²_γ̂ = 4 Σ_i
+(∂_vℓ_i)². The proof of [[prop:loc-cones]], which does not use that Ω is the background's, gives E(∂_v, ∂_v) = −3y″/y +
+6 (ln Ω)′ y′/y − Σ_i (ℓ_i′)² − q_in with y := e^ϕ and ′ := ∂_v; as y = Y (sin ϑ cos ϑ)^(1/3), with a factor that does
+not depend on v, y″/y = Y″/Y and y′/y = Y′/Y, which is the first line. With W = (∂_v b) ∂_ϑ and 𝒱 := γ_ϑ^(1/2) e^(A_c +
+A_s), the second line of [[eq:loc-cone]] reads E(∂_v, ∂_ϑ) = (γ_ϑ/(4Ω²))(∂_v²b + ∂_v ln(γ_ϑ 𝒱 Ω⁻²) ∂_v b) + r, with r
+of [[eq:loc-cone-r]], which does not contain b, so that r = 𝔯(∂_ϑ); and ∂_v ln 𝒱 = tr_γχ and γ_ϑ ∂_v ln γ_ϑ ∂_v b =
+2χ(W, ∂_ϑ). This is the second line at X = ∂_ϑ; at X = K_i both sides vanish, by the reflection φ_i ↦ −φ_i, W being a
+multiple of ∂_ϑ and χ diagonal. So both lines hold off the axes and, both sides being continuous, on N_o. On N_i, with
+b = 0, E(∂_u, ∂_u) is the right side of [[eq:loc-cone-in]] minus q_out, the first line of [[eq:loc-cone]] with u in
+place of v ([[lem:loc-cone-in]]), and the same calculation applies.
+
+(b) The equation for Y is linear and of second order in v, with the coefficients −2∂_v ln Ω of ∂_vY and
+(1/3)((1/4) |∂_vγ̂|²_γ̂ + q_in) of Y, smooth G-invariant functions on N_o ∩ {v ≤ v′}; so its solution with smooth
+G-invariant initial values is smooth, by the smooth dependence of the solutions of linear ordinary differential
+equations on parameters, here the point of S³, and G-invariant, by uniqueness. Where Y > 0, γ = Y²γ̂ is a smooth family
+of metrics, so χ and 𝔯 are smooth, and the second line of (a) with E(∂_v, ·) = 0 is the linear equation ∂_vW = −(tr_γχ
+− 2∂_v ln Ω) W − 2γ⁻¹χ(W, ·) − 4Ω² γ⁻¹𝔯 for the vector field W along each generator, with smooth coefficients; its
+solution with W = W_0 at v = 0 is smooth and G-invariant, and so is b := b_0 + ∫_0^v W. By (a) the constraints hold.
+Conversely, fields satisfying the constraints define Y, γ̂ and W as above, which solve these equations with their own
+initial values, and by uniqueness they are the solutions. On N_i the same argument applies to the first line. The
+coordinate expressions were found in the proof of (a); for the background γ = R_e² dΩ₃², whose volume form is R_e³
+dvol_1.
+
+(c) We extend the data on {0} × [0, v_1]; on [0, u_1] × {0} the same argument applies with u, q_out and the first line
+of (a) only, b = 0 being kept. As in the proof of [[lem:loc-cone-extension]], for f each of ln Ω, γ̂ and q_in, with
+background value f̊, let B_f be the Borel sum in t := v − v_1 of the v-derivatives at v = v_1 of f − f̊, G-invariant
+fields on S³, with ε_j := δ_1/4 for j ≤ p and ε_j ≤ δ_1/4 for j > p so small that the j-th term has C^p norm at most
+2^(−j) ε; put f̃ := f on [0, v_1] and f̃ := f̊ + B_f on [v_1, v_1 + 2δ_1]. Then f̃ is smooth and G-invariant, and, a
+term of index j ≤ p having C^p norm at most C(p) ‖f − f̊‖_(C^(p+j)), ‖f̃ − f̊‖_(C^p) ≤ Cε. Replace the extended γ̃ by
+(dvol_1/ dvol_γ̃)^(2/3) γ̃, which has the volume form dvol_1, is unchanged on [0, v_1] and, for ε small, is a metric
+within Cε of dΩ₃² in C^p. Solve the two equations of (b) on [0, v_1 + 2δ_1] with the values of the data at v = 0; by
+uniqueness the solutions are the data on [0, v_1]. R_e and 0 solve the same equations with the background's
+coefficients; the coefficients of the equation for Y differ from these by at most Cε in C^(p−1), and so do its initial
+values. By Gronwall's inequality for the equation and for its derivatives along S³ (∇̊ commutes with ∂_v), the
+v-derivatives being given by the equation, Y − R_e is at most Cε in C^(p−1) on the extended edge, so Y > 0 for ε small.
+Then the coefficients of the equation for W are within Cε of the background's in C^(p−2) and 𝔯 is at most Cε in
+C^(p−3), and b is at most Cε in C^(p−3) = C^(m_0). At the points of a G-invariant open set of S³ at which the given
+data are the background's, every v-derivative of f − f̊ at v = v_1 vanishes, so f̃ = f̊ there, γ̃ is not changed by its
+renormalisation, and the equations of (b) have the background's coefficients and initial values there, so that their
+solutions are the background's. The extended functions satisfy (i) and (ii) of [[def:loc-cone-data]] and are smooth
+through the axes; the extended q_in may be negative beyond v_1. ∎
+
+**Lemma {#lem:loc-axis-jets}** (The formal solution through the axes.) Let a background be given on 𝒮 and cone data
+through the axes, of either sign, on N_o and N_i.
+
+(a) [[lem:loc-cone-borel]] holds with the interval Y replaced by S³, the functions a_j and b_k by G-invariant fields on
+S³ of one tensor type, with the C^r norms of [[def:loc-axis-data]], and f by a G-invariant field of that type; in its
+(a), "at every ϑ" reads "at every point of S³".
+
+(b) [[lem:loc-cone-jets]] holds, with these changes: its a_j and b_k are, at ϑ ∈ (0, π/2), those of its proof, and they
+are the derivatives across N of fields and densities smooth through the axes; in (ii) the first statement reads: if the
+data equal the background's at the points of a G-invariant open set of S³, so do all a_j and b_k; (iii) holds with the
+C^r norms of fields; and (iv) holds for class solutions in the gauge through the axes.
+
+(c) [[prop:loc-cone-formal]] holds, with Δ the difference of fields and densities smooth through the axes and Ĝ a
+smooth G-invariant symmetric form on 𝒮 × S³ of the form [[eq:loc-double-null]], Lorentzian when the size is at most a
+number depending on the background; in its (a), Δ vanishes at the points of every G-invariant open set of S³ at which
+all a_j and b_k are the background's, in place of outside {ϑ_a′ ≤ ϑ ≤ ϑ_b′}, and ‖Δ‖_(C^(k+3)) is measured as in
+[[def:loc-axis-data]].
+
+*Proof.* (a) The proof of [[lem:loc-cone-borel]] uses of the variable ϑ only that the coefficients h_j of the Borel
+sums are smooth functions of further variables with C^r norms; for G-invariant fields on S³ every term χ(x/ε_j) x^j
+h_j/j! is a G-invariant field of the same type, the cut-offs depending on u and v only, and the estimates hold
+verbatim.
+
+*The equations in fields.* For fields X = (ln Ω, γ, b) smooth through the axes and densities q_A on an open set of 𝒮,
+let 𝐄(X) consist of the restriction E|_(S³) of E := Ric(g) − q_in dv ⊗ dv − q_out du ⊗ du to the tangent vectors of the
+spheres, of E(L̲, ∂_v), L̲ := ∂_u + b, and of the 1-form E(L̲, ·)|_(S³), and put 𝒞_in := L̲q_in + tr_γχ̲ q_in and 𝒞_out
+:= ∂_vq_out + tr_γχ q_out, with χ̲ := ½(∂_uγ + ℒ_bγ), ℒ_b the Lie derivative on S³. These are smooth G-invariant
+fields. Off the axes the reflections reduce E|_(S³) to E(∂_ϑ, ∂_ϑ), E(K_1, K_1), E(K_2, K_2) and E(L̲, ·)|_(S³) to
+E(L̲, ∂_ϑ) dϑ, so that 𝐄(X) = 0 is E′ = 0 of [[lem:loc-cone-ricci]] (c); and tr_γχ̲ = L̲ ln 𝒱 + ∂_ϑ b and tr_γχ = ∂_v
+ln 𝒱, so that 𝒞_in = 𝒱⁻¹(∂_u ρ_in + ∂_ϑ(b ρ_in)) and 𝒞_out = 𝒱⁻¹ ∂_v ρ_out, the conservation expressions of
+[[lem:loc-cone-jets]]. The densities do not enter 𝐄, as T(L̲, ∂_v), T(L̲, ·)|_(S³) and T|_(S³) vanish.
+
+*The principal parts.* In coordinates (u, v, θ¹, θ², θ³), with θ^a coordinates on an open set of S³, a metric of the
+form [[eq:loc-double-null]] has g_vv = g_va = 0, g_uv = −2Ω², g_ab = γ_ab, g_ua = −γ_ab b^b, g_uu = γ_ab b^a b^b and
+g^uu = g^ua = g^vv = 0, g^uv = −1/(2Ω²), g^va = b^a g^uv, g^ab = γ^ab, as the frame (L̲, ∂_v, ∂_a) is dual to (du, dv,
+dθ^a − b^a du); and
+
+    Ric_μν = −½ g^ρσ (∂_ρ∂_σ g_μν + ∂_μ∂_ν g_ρσ − ∂_ρ∂_μ g_σν − ∂_ρ∂_ν g_σμ) + Q_μν,
+
+with Q_μν a polynomial in g_αβ, g^αβ and the first derivatives of g_αβ. In the linearisation of 𝐄 at X in the direction
+δX = (δ ln Ω, δγ, δb), the second derivatives of δX come from the first part only, the frame and T holding no
+derivative of the metric, and δg_vv = δg_va = 0. Collecting the terms with a derivative in u, and using g^vb = b^b
+g^uv, by which the terms in ∂_u∂_vδγ of E(L̲, ·) cancel, one finds, up to terms with at most one derivative of δX,
+
+    E(∂_a, ∂_b):   (2Ω²)⁻¹ ∂_u∂_vδγ_ab,
+    E(L̲, ∂_v):    −2 ∂_u∂_vδ ln Ω − ½ γ^ab ∂_u∂_vδγ_ab,
+    E(L̲, ∂_a):    −(4Ω²)⁻¹ γ_ab ∂_u∂_vδb^b + ½ γ^bc ∂_u∂_bδγ_ca − ½ γ^bc ∂_u∂_aδγ_bc − ∂_u∂_aδ ln Ω,
+                                                                                                {#eq:loc-axis-principal}
+
+and, collecting those with a derivative in v other than ∂_v² (the terms in ∂_v²δX cancel: they enter E(L̲, ∂_v) only,
+through ∂_v²(δg_uu + 2b^a δg_ua + b^a b^b δg_ab) = 0), up to terms with at most one derivative of δX,
+
+    E(∂_a, ∂_b):   (2Ω²)⁻¹ (L̲∂_vδγ_ab + ½ (γ_ac ∂_b + γ_bc ∂_a) ∂_vδb^c),
+    E(L̲, ∂_v):    −2 L̲∂_vδ ln Ω − ½ γ^ab L̲∂_vδγ_ab − ½ ∂_a∂_vδb^a,
+    E(L̲, ∂_a):    −(4Ω²)⁻¹ γ_ab L̲∂_vδb^b,
+
+with L̲ = ∂_u + b^c ∂_c applied to components; here the terms in ∂_v∂_cδγ and ∂_u∂_vδγ of E(L̲, ·) cancel in the same
+way. Off the axes these are the second derivatives of [[eq:loc-cone-frame-ricci]].
+
+*The derivatives across N_o.* Let j ≥ 1, and let a_0, …, a_(j−1) be the derivatives across N_o of fields and densities
+smooth through the axes; by (a) there are such fields X♭ and densities q♭ with ∂_u^jX♭ = 0 and ∂_u^jq♭ = 0 on N_o. For
+G-invariant fields Z = (Z_Ω, Z_γ, Z_b) on N_o, a function, a symmetric form and a vector field on the spheres, put 𝔏(Z)
+:= ∂_u^(j−1) 𝐄(X♭ + u^jZ/j!) at u = 0. Ric is linear in the second derivatives of the metric, with coefficients in
+g^αβ, and quadratic in the first, and each derivative of u^jZ/j! of order i holds the factor u^(j−i); so a term of
+degree at least two in Z holds a factor u^(2j−2) and vanishes at u = 0 after ∂_u^(j−1) when j ≥ 2. For j = 1 such terms
+are quadratic forms in the first u-derivatives Z, with smooth coefficients; off the axes they vanish for G-invariant Z,
+since by (Ψ2) and (Ψ3) of the proof of [[lem:loc-cone-jets]] every term of E′ holds at most one factor among the first
+u-derivatives of ln Ω, the ϰ_i and b, and the first u-derivatives at u = 0 of the class functions of X♭ + uZ are affine
+in Z; so they vanish everywhere, by continuity. The terms linear in Z are ∂_u^(j−1) of L(u^jZ/j!) at u = 0, L =
+c^μν∂_μ∂_ν + c^μ∂_μ + c the linearisation of 𝐄 at X♭, that is 2c^uv∂_vZ + 2c^ua∂_aZ + (c^u + (j − 1)∂_uc^uu)Z; by
+[[eq:loc-axis-principal]],
+
+    𝔏(Z) = 𝔏(0) + ((2Ω²)⁻¹ ∂_vZ_γ, −2 ∂_vZ_Ω − ½ tr_γ ∂_vZ_γ, −(4Ω²)⁻¹ γ(∂_vZ_b, ·)) + 𝔪(Z, ∇̊Z_Ω, ∇̊Z_γ),
+
+with 𝔪 linear, with smooth G-invariant coefficients, its first two components free of ∇̊Z and of Z_b, since off the
+axes these two components of 𝐄 hold no u-derivative of b ((Ψ1) of the proof of [[lem:loc-cone-jets]]) and their
+coefficients are continuous. So 𝔏(Z) = 0 is a linear system of ordinary differential equations in v along the
+generators: for (Z_Ω, Z_γ), with the invertible coefficient (Z_Ω, Z_γ) ↦ ((2Ω²)⁻¹ Z_γ, −2Z_Ω − ½ tr_γ Z_γ) of ∂_v, and
+then for Z_b, whose inhomogeneous term holds ∇̊Z_Ω and ∇̊Z_γ. For the densities put Z_in := the solution of
+∂_u^(j−1)𝒞_in = 0 at u = 0, in which ∂_u^jq_in enters with the factor 1 and nothing else of order j but Z_γ, and let
+Z_out solve ∂_u^j𝒞_out = 0 at u = 0, the linear equation ∂_vZ_out + tr_γχ Z_out = (terms in a_0, …, a_(j−1) and Z)
+along the generators. We solve with the initial values at v = 0 the j-th u-derivatives at the corner of the data on
+N_i; the coefficients and the initial values being smooth and G-invariant and the system G-equivariant, the solution is
+smooth and G-invariant, and we take it as a_j. Off the axes a_j is the derivative of the proof of
+[[lem:loc-cone-jets]]: both solve ∂_u^(j−1)E′ = 0 and the conservation equations, in class functions and in fields
+respectively, with the same initial values, and those solutions are unique.
+
+*The derivatives across N_i.* Likewise, with 𝔏′(Z) := ∂_v^(k−1) 𝐄(X♭ + v^kZ/k!) at v = 0 and the second list: the terms
+in ∂_v² contribute only terms without derivatives of Z, and the third component of 𝔏′(Z) − 𝔏′(0) is −(4Ω²)⁻¹ γ(L̲Z_b,
+·) plus terms in Z_b without derivatives, by (Ψ3) of the proof of [[lem:loc-cone-jets]] and continuity, the others
+being (2Ω²)⁻¹ L̲Z_γ and −2L̲Z_Ω − ½ tr_γ L̲Z_γ plus terms in Z and ∇̊Z_b. So 𝔏′(Z) = 0 consists of transport equations
+along L̲, first for Z_b and then for (Z_Ω, Z_γ); Z_out solves ∂_v^(k−1) 𝒞_out = 0 at v = 0, algebraically, and Z_in
+solves ∂_v^k𝒞_in = 0, a transport along L̲. The generators of N_i, the integral curves of L̲, start on S_c and cover
+N_i, b being a smooth vector field on S³. The initial values are the k-th v-derivatives at the corner of the data on
+N_o. For k = 1 the quadratic terms vanish as before.
+
+*The statements.* (i): off the axes it is (i) of [[lem:loc-cone-jets]], whose proof is local in ϑ; both sides are
+continuous. (ii): the coefficients, inhomogeneous terms and initial values of the equations at a point of S³ are built
+from the data and their derivatives at that point and from the derivatives along S³ of the solutions of order j there;
+where the data equal the background's on a G-invariant open set, the background's derivatives solve the same equations
+with the same initial values, and by uniqueness they are the solutions; the second statement is proved as there. (iii):
+𝔏(0) holds derivatives of order at most two of a_0, …, a_(j−1), the equation for Z_b one derivative along S³ of (Z_Ω,
+Z_γ), and the initial values j derivatives along N_i of the data, and likewise on N_i; the induction of the proof of
+(iii) there gives the bound with the C^r norms of fields. (iv): such a solution satisfies 𝐄 = 0 and 𝒞_in = 𝒞_out = 0
+near N in F, hence, by continuity, their derivatives of every order on N, and its derivatives across N solve the
+equations above with the same initial values.
+
+(c) The proof of [[prop:loc-cone-formal]] applies, with (a) applied to the differences from the background's of the
+fields and densities whose derivatives are the a_j and b_k. Ĝ is of the form [[eq:loc-double-null]] with fields smooth
+through the axes, smooth by (a) and (b), and Lorentzian when its metric γ_e + Δ_γ on the spheres is positive definite,
+which holds when ‖Δ‖_(C⁰) is small. The vanishing to infinite order on N of E and of the conservation expressions holds
+off the axes by the proof there, which is local in ϑ, and on N by continuity of every derivative. The support of Δ is
+as stated, by (ii) and the support property of (a). ∎
+
+#### The sections of the cones are leaves {#sec:loc-axis-leaves}
+
+*Leaves in a chart.* Let (t, x) be a chart on an open G-invariant set in which G acts on x ∈ ℝ⁴ ∖ {0} by its action on
+ℝ⁴, and whose slices Σ_s := {t = s} are spacelike for the metrics considered. The constructions of
+[[sec:class-planar-shear]] use of the chart of [[sec:background]] only these properties, through the slice, its future
+unit normal n, its second fundamental form K_Σ, the totally geodesic M3 := Σ_s ∩ {φ1 = 0} near axis 2 and the
+coordinates (z, y) of [[lem:class-leaf]]; we use them in such charts. Let V = (g, p_A, Θ_A, q_A) be a G-invariant state
+on Σ_s near a point p of axis 2 with ρ1(p) > 0, at which the spatial part p_A^Σ of p_A satisfies p_A(∂_z) ≠ 0; p_A^Σ is
+tangent to M3 at the points of M3, by invariance. Put
+
+    H_L[V] := ± (Θ_A − κ_A1 + p_A(n) tr K_Σ|_Π)/|p_A^Σ|,      Π := the γ3-orthogonal complement of p_A^Σ in TM3,
+                                                                                                    {#eq:loc-axis-hl}
+
+the sign that of p_A(∂_z): the formula of step (1) of the proof of [[lem:class-planar-shear]], with Θ_A, p_A^Σ and
+p_A(n) in place of Θ, ∇_Σu and n(u), and with the plane Π fixed by p_A. This is H_L[V] as defined before
+[[lem:class-leaf-states]]: a function of the point, as [[lem:class-volterra]] requires, which for a
+solution of the class system with p_A = du_A equals that formula on each level set of u_A, Π being its tangent plane
+there. The *A-leaves* of V are the solutions of [[eq:class-leaf-volterra]] with H_L := H_L[V] through the points of the
+axis, and σ_A[V] at a point is ±2|p_A^Σ| σ_L − p_A(n)(K_Σ(e_r, e_r) − K_Σ(e_2, e_2)) for the leaf through it, the sign
+that of p_A(∂_z), σ_L of [[eq:class-leaf-volterra]], taken for the normal ν of [[lem:class-leaf]] (b), and e_r the unit
+tangent of the leaf in the meridional plane, which is [[eq:class-shear-leaf]] with p_A in place of du. For a solution
+of [[eq:class-system]] with p_A = du_A and Θ_A = □_g u_A the leaves are the level sets of u_A in the slices, by the
+last statement of [[lem:class-leaf-differences]], whose proof uses only these two properties, and σ_A is the planar
+shear of those level sets. Near axis 1 the same holds with the two planes exchanged, κ_A2 in place of κ_A1.
+
+**Lemma {#lem:loc-axis-leaf}** (The sections of the cones are leaves.) (i) Let t be a smooth function on a
+neighbourhood of N with ∂_vt > 0 on N_o and ∂_ut > 0 on N_i. Then each level set {t = s} meets N_o in at most one
+sphere {(0, c)} × S³ and N_i in at most one sphere {(c′, 0)} × S³, spheres of the data's double-null coordinates, c and
+c′ increasing in s. This holds for t = u + v and for every smooth function of (u, v) that increases with u and with v.
+
+(ii) In a chart as above, let V be a state on Σ_s whose A-leaves through the points of the axis near p exist over a
+disc 𝔻_(2δ), and let S ⊂ Σ_s be a G-invariant hypersurface through a point of the axis near p such that S ∩ M3 is a
+graph z = h_S(y) over a disc 𝔻_r, r ≤ 2δ, with h_S smooth, and such that p_A vanishes on TS along S over 𝔻_r. Then S ∩
+M3 is, over 𝔻_r, the A-leaf of V through its point of the axis if and only if Θ_A = θ_S along S over 𝔻_r, where θ_S :=
+−Σ_α p_A(∇_(e_α) e_α) for a g-orthonormal frame (e_α) of TS, the expansion of S along g⁻¹p_A computed with the metric
+of V.
+
+(iii) If two states have the same p_A, Θ_A, metric and first derivatives of the metric at the points of S, then S ∩ M3
+is an A-leaf of one if and only if it is one of the other. For Ů and Û, in every chart as above in which the spheres
+{(u, v)} × S³ meet M3 in such graphs and p_A(∂_z) ≠ 0, the spheres in Σ_s are the leaves of both families.
+
+*Proof.* (i) t(0, v) is strictly increasing in v and t(u, 0) in u, so each takes the value s at most once.
+
+(ii) Let F := z − h_S(y) and ν := ∇F/|∇F|, the unit normal of S in Σ_s; ν is G-invariant, hence tangent to M3 at the
+points of M3, the fixed set of φ1 ↦ −φ1. For X, Y tangent to S, ∇_XY = ∇^S_XY − k(X, Y) ν + K_Σ(X, Y) n, with k(X, Y)
+:= g(∇_Xν, Y), the second fundamental form of S in Σ_s; the last term is that of the proof of [[lem:class-gauss]] (a).
+At the points of M3, TS is the orthogonal sum of TS ∩ TM3, the tangent space of Σ_S := S ∩ M3, and of ℝe_1, e_1 :=
+K_1/|K_1|. As K_1 is a Killing field and |K_1| is invariant, ∇_(e_1)e_1 = −½ |K_1|⁻² ∇g(K_1, K_1) = −∇ψ_1, so
+−p_A(∇_(e_1)e_1) = g⁻¹(p_A, dψ_1) = κ_A1 for every invariant p_A. As p_A vanishes on TS, p_A(∇^S_XY) = 0, so
+−p_A(∇_XY) = p_A(ν) k(X, Y) − p_A(n) K_Σ(X, Y); on TΣ_S, k is the second fundamental form of Σ_S in M3, M3 being
+totally geodesic and ν tangent to it. Taking the trace over a g-orthonormal frame of TS adapted to this sum,
+
+    θ_S = κ_A1 + p_A(ν) H_S − p_A(n) tr K_Σ|_(TΣ_S),
+
+H_S the mean curvature of Σ_S in M3 for ν. As p_A vanishes on TS, p_A^Σ is conormal to S, so Π = TΣ_S along S and
+p_A^Σ = p_A(∂_z) dF, since dF(∂_z) = 1; so p_A(ν) = ±|p_A^Σ| with the sign of p_A(∂_z). Comparing with
+[[eq:loc-axis-hl]], H_S = H_L[V] along S exactly when Θ_A = θ_S. By [[lem:class-leaf]] (c), for every graph H_S = a_L
+h_S″ + (terms free of h_S″), and E_L := rH_S/a_L − (rh_S′)′ is the function of (r, h_S, h_S′) of that lemma; and
+h_S′(0) = 0, h_S being smooth and invariant. So if H_S = H_L[V], integrating (rh_S′)′ = rH_L[V]/a_L − E_L from 0 shows
+that h_S solves [[eq:class-leaf-volterra]] with h_S(0) its point of the axis, and by the uniqueness in
+[[lem:class-volterra]] it is the leaf of V there. Conversely, if Σ_S is the leaf, differentiating
+[[eq:class-leaf-volterra]] at r > 0, and by continuity at r = 0, gives H_S = H_L[V] along it, hence Θ_A = θ_S.
+
+(iii) [[eq:class-leaf-volterra]] for the curve S ∩ M3 holds H_L[V], a_L and E_L at the points of the curve only, and
+these are functions of p_A, Θ_A, the metric and its first derivatives there ([[eq:loc-axis-hl]], [[lem:class-leaf]]
+(c)); so the curve solves it for one state if and only if it solves it for the other. For Ů and Û, p_in = −dv and
+p_out = −du vanish on the tangent spaces of the spheres. u and v are null for every metric of the form
+[[eq:loc-double-null]], so ∇²v(P, ·) = 0 by [[prop:class-structure]] (b), and the tangent space of a sphere is a screen
+there: it is spacelike, orthogonal to P := Ĝ⁻¹ (−dv), which it does not contain, and so equal to {P, L̄}^⊥ for the null
+L̄ orthogonal to it with Ĝ(P, L̄) = −1. As v is constant on the sphere, −p_in(∇_XX) = dv(∇_XX) = −∇²v(X, X) for X
+tangent to it, so θ_S = −tr_(TS)∇²v = □_Ĝ(−v) = div_Ĝ P̂_in = Θ̂_in, and likewise for the outgoing family and for Ů. By
+(ii), over every disc on which a sphere meets M3 in a graph, the spheres are the leaves. ∎
+
+**Lemma {#lem:loc-axis-shear}** (The planar shear on unions of arcs of leaves.) In a chart as above, let ů be a smooth
+class solution near Σ_s, and let δ, the balls 𝔅 ⊂ 𝔅′ and C_L be those of [[lem:class-leaf-differences]] and
+[[def:class-adapted]] for ů at a point p of axis 2 with ρ1(p) > 0, δ decreased, depending only on 𝔅′ and the chart, so
+that 8C_Lδ ≤ 1, that ξ ∈ [1/2, 2] in step (1) of the proof, and that the A-leaves of the states of 𝔅′ through the
+points of the axis within 2δ of p are graphs over 𝔻_(2δ). Let U, U′ ∈ 𝔅′ be states on Σ_s, U including ∂g among its
+components, and let O ⊂ Σ_s be a G-invariant open set, with boundary of measure zero, such that for every x ∈ O ∩
+𝒰_δ(p) the arc of the A-leaf of U from its point on the axis to x lies in the closure of O. Then
+
+    ‖σ_A[U] − σ_A[U′]‖_(L²(O∩𝒰_δ(p))) ≤ C ‖U − U′‖_(L²(O∩𝒰_(2δ)(p))),                                {#eq:loc-axis-shear}
+
+with C depending only on 𝔅′, δ and the chart near p, and not on O. Near axis 1 the same holds with the planes
+exchanged.
+
+For O the union of the leaves of U over 𝔻_δ through the points of the axis within δ/2 of p, a neighbourhood of the
+points of 𝒰_(δ/4)(p), [[eq:loc-axis-shear]] is a bound of the kind of [[lem:class-leaf-differences]] (b); the proof
+below is that bound written leaf by leaf.
+
+*Proof.* (1) *The leaves.* For V ∈ 𝔅′ write h_V(z0, ·) for its A-leaf through (z0, 0), a function of r = |y| by
+invariance, p_V := ∂_r h_V and q_V := p_V/r. By the proof of [[lem:class-volterra]], with G_V(r, z, p) := r H_L[V](z,
+r)/ a_L(r, z, p) − E_L(r, z, p), a_L and E_L those of [[lem:class-leaf]] (c) for the metric of V,
+
+    r p_V(r) = ∫_0^r G_V(ρ, h_V(ρ), p_V(ρ)) dρ,      |∂_pG_V| ≤ C (r + |p|),      |p_V| ≤ C r,
+
+and also |∂_zG_V| ≤ C (r + |p|), since by that proof E_L = (C3 r + A3 p) N_L²/det₂ − p + r B̃/a_L with B̃ smooth. These
+constants hold the C¹ norms of H_L[V], which hold first derivatives of p_A and Θ_A and second derivatives of the
+metric, and the C² norms of γ3, bounded on 𝔅′ by the Sobolev inequality of [[lem:sobolev]] at the order k − 4 ≥ 2. The
+map 𝒯 of that proof is C¹ in (p, z0) and a contraction uniformly in z0, and the equation is regular for r > 0, so z0 ↦
+h_V(z0, ·) is C¹ on [0, 2δ], and ξ := ∂_(z0)h_V solves r ∂_r ξ(r) = ∫_0^r (∂_zG_V ξ + ∂_pG_V ∂_r ξ) dρ with ξ(0) = 1.
+So |∂_r ξ| ≤ C r sup |ξ| on [0, 2δ] and |ξ − 1| ≤ C δ² sup |ξ|, and after decreasing δ, ξ ∈ [1/2, 2] and |∂_(z0)
+q_V| = |∂_r ξ|/r ≤ C. Hence (z0, y) ↦ (h_V(z0, y), y), for |z0 − z(p)| < 3δ/2 and |y| < 2δ, is a C¹ diffeomorphism onto
+a neighbourhood of 𝒰_δ(p) ∩ M3 contained in 𝒰_(2δ)(p), with Jacobian in [1/2, 2].
+
+(2) *The leaf through a point.* σ_A[V](x) = 𝔖(x, V(x), q_V(z0, r)) for x = (h_V(z0, y), y), r = |y|, with 𝔖 smooth: by
+[[eq:class-leaf-volterra]], σ_L = ½ H_L[V] − k_φ with k_φ = ν^r/r + ½ ν(log B3) and ν^r/r = −(C3 + A3 q_V)/(det₂^(1/2)
+N_L), while N_L, ν and e_r hold h′ = r q_V, the metric and its first derivatives at x. For x ∈ 𝒰_δ(p) let z0 and z0′ be
+the points of the axis of the leaves of U and of U′ through x. As h_U(z0, r) = z(x) = h_(U′)(z0′, r) and ∂_(z0)h_(U′) ≥
+1/2, |z0 − z0′| ≤ 2|h_U(z0, r) − h_(U′)(z0, r)|, so with Δh := h_U(z0, ·) − h_(U′)(z0, ·) and Δq := q_U(z0, ·) −
+q_(U′)(z0, ·),
+
+    |σ_A[U](x) − σ_A[U′](x)| ≤ C (|U − U′|(x) + |Δq(r)| + |q_(U′)(z0, r) − q_(U′)(z0′, r)|)
+                             ≤ C (|U − U′|(x) + |Δq(r)| + |Δh(r)|).
+
+(3) *Two leaves from one point of the axis.* Fix z0, put Δp := ∂_rΔh, and let w(ρ) be |U − U′| at the point (h_U(z0,
+ρ), ρ) of the leaf of U. Subtracting the equations of (1),
+
+    r Δp(r) = ∫_0^r [G_U(ρ, h_U, p_U) − G_(U′)(ρ, h_U, p_U)] + [G_(U′)(ρ, h_U, p_U) − G_(U′)(ρ, h_(U′), p_(U′))] dρ.
+
+The second bracket is at most C(|Δh| + ρ |Δp|). In the first, (ρ, h_U(ρ)) is a point of the leaf of U; H_L[·] is a
+smooth function of p_A, Θ_A, the metric and its first derivatives there, a_L one of γ3 there, and E_L, by the form in
+(1) and |p| ≤ Cρ, differs for two metrics at the same (ρ, z, p) by at most Cρ times the difference of γ3 and its first
+derivatives; so the first bracket is at most Cρ w(ρ). With |Δh(r)| ≤ ∫_0^r |Δp|, r |Δp(r)| ≤ C r ∫_0^r |Δp| + C ∫_0^r ρ
+w(ρ) dρ, and Gronwall's inequality gives |Δp(r)| ≤ C(r 𝒜w(r) + ∫_0^r ρ 𝒜w(ρ) dρ), with 𝒜w(r) := r⁻² ∫_0^r ρ w(ρ) dρ the
+average of [[prop:class-flat-model]] (b). So |Δq| ≤ C(𝒜w + R 𝒜(𝒜w)) and |Δh| ≤ C R² (𝒜(𝒜w) + 𝒜(R 𝒜(𝒜w))) on [0, R], and
+as 𝒜 does not increase the L² norm of radial functions on the plane ([[prop:class-flat-model]] (b) at the order 0, by
+density), and 𝒜f on [0, R] depends only on f there, for every R ≤ 2δ
+
+    ‖Δq‖_(L²(𝔻_R)) + ‖Δh‖_(L²(𝔻_R)) ≤ C ‖w‖_(L²(𝔻_R)),
+
+radial functions being read as functions on the disc 𝔻_R.
+
+(4) *Integration.* For |z0 − z(p)| < 3δ/2 let R(z0) be the supremum of |y| over the points (h_U(z0, y), y) of O ∩
+𝒰_δ(p), and 0 if there are none. By the hypothesis on O, the arc of the leaf of U from (z0, 0) to such a point lies in
+the closure of O, so every (h_U(z0, y), y) with |y| < R(z0) lies there. For G-invariant functions the volume of Σ_s on
+𝒰_(2δ)(p) is comparable to the product of that of M3 and the length of the orbit of K_1, which is bounded above and
+below there. By (2), (3) and the change of variables of (1), first to (z0, y) and then back,
+
+    ∫_(O∩𝒰_δ(p)) |σ_A[U] − σ_A[U′]|² ≤ C ∫_(O∩𝒰_δ(p)) |U − U′|² + C ∫ dz0 ∫_(𝔻_(R(z0))) w(z0, |y|)² dy
+                                     ≤ C ∫_(O∩𝒰_(2δ)(p)) |U − U′|²,
+
+the points (h_U(z0, y), y) with |y| < R(z0) lying in the closure of O ∩ 𝒰_(2δ)(p), whose boundary has measure zero. ∎
+
+#### The reduced problem through the axes {#sec:loc-axis-reduced}
+
+In this subsection a background on Q1 with margin δ_1 is fixed, together with cone data through the axes, of either
+sign, on N_o and N_i, of size at most ε in C^(m_0), with k ≥ 6 and with nonnegative densities on {0} × [0, v_1] and [0,
+u_1] × {0}; ε is as small as needed, and C, ε_0 depend only on k, u_1, v_1, δ_1, the background and the numbers fixed
+below in terms of these. We follow case (I) of [[sec:loc-cone-reduced]], whose notation is kept, with the changes
+stated.
+
+*The chart and the regions.* Fix δ_c ∈ (0, δ_1/8] and a nondecreasing β ∈ C^∞(ℝ) with β = 0 on (−∞, 0] and β = 1 on [1,
+∞), and put s* := ln((u_1 + δ_c)(v_1 + δ_c)) + 1, M := s* − 2 ln δ_c + 1 and, on {u > −δ_c, v > −δ_c},
+
+    τ := ln((u + δ_c)(v + δ_c)) + M (β((u − u_1)/δ_1) + β((v − v_1)/δ_1)),      y := ((v + δ_c)/(u + δ_c)) ω(ϑ, φ1, φ2),
+                                                                                                    {#eq:loc-axis-time}
+
+the chart [[eq:loc-cone-time]] with its time changed by a function of (u, v). Its partial derivatives τ_u ≥ 1/(u + δ_c)
+and τ_v ≥ 1/(v + δ_c) are positive, so along each ray (u + δ_c, v + δ_c) = λ(1, ϱ), λ > 0, τ increases strictly with λ,
+from −∞ to ∞; hence (u, v) ↦ (τ, (v + δ_c)/(u + δ_c)) is a diffeomorphism of {u, v > −δ_c} onto ℝ × (0, ∞), and (τ, y)
+is a G-equivariant chart onto ℝ × (ℝ⁴ ∖ {0}) in which the metrics with fields smooth through the axes are smooth. The
+form dτ = τ_u du + τ_v dv is timelike, and positive on future causal vectors, for g_e, for every metric of the form
+[[eq:loc-double-null]], which has g^uu = g^vv = 0 and g^uv < 0, and for every Lorentzian metric close enough to g_e in
+C⁰ on a compact set; and ∂_τ = λ((u + δ_c)∂_u + (v + δ_c)∂_v), λ := ((u + δ_c)τ_u + (v + δ_c)τ_v)⁻¹, is future timelike
+for g_e. By [[lem:loc-axis-leaf]] (i) the slice Σ_s := {τ = s} meets N_o in at most one sphere S_o(s) and N_i in at
+most one sphere S_i(s); with τ_c := 2 ln δ_c the time of the corner sphere, for τ_c < s ≤ s* + 1 it meets both, for s =
+τ_c both are S_c, and for s < τ_c the slice does not meet F. Put τ_init := ln(δ_c²/4), κ := δ_1/(4(l_u + l_v + 1)) and
+
+    𝒰^♯ := {(u, v) : u, v > −δ_c, τ_init ≤ τ ≤ s*, u + κv ≤ l_u + δ_1/2, v + κu ≤ l_v + δ_1/2},      𝔗(s) := F ∩ {τ ≤ s}.
+                                                                                                    {#eq:loc-axis-region}
+
+Then: (1) Q1 ⊂ 𝔗(s* − 1), the terms in β vanishing on Q1; and 𝔗(s*) ⊂ [0, l_u) × [0, l_v), since at a point of F with u
+≥ l_u = u_1 + δ_1, τ ≥ ln(δ_c²) + M = s* + 1, and likewise for v. As u + κv < l_u + δ_1/4 and v + κu < l_v + δ_1/4 on
+[0, l_u) × [0, l_v), and τ ≥ τ_c > τ_init on F, F ∩ 𝒰^♯ = 𝔗(s*). (2) 𝒰^♯ is a compact subset of the interior of Q^♯ in
+the chart: on it v + δ_c ≤ l_v + δ_1, so τ ≥ τ_init gives u + δ_c ≥ e^(τ_init − 2M)/(l_v + δ_1), and likewise v + δ_c
+is bounded below. Its boundary consists of pieces of Σ_init, of Σ_(s*) and of the two far cuts, with the conormals dτ,
+du + κdv and dv + κdu, timelike and positive on future causal vectors for g_e, for every metric of the form
+[[eq:loc-double-null]] and for the Lorentzian metrics C⁰-close to g_e; so these pieces are spacelike, with 𝒰^♯ to their
+past. (3) Every slice of 𝒰^♯, of P ∩ 𝒰^♯ and of 𝔗(s) is a union of spheres {(u, v)} × S³, these sets being defined by
+conditions on (u, v); for s > τ_c the slice of 𝔗(s*) in Σ_s is bounded by S_o(s) and S_i(s) only. Every time that is a
+function of (u, v), increasing in both, has (3) and the property of [[lem:loc-axis-leaf]] (i); the choice
+[[eq:loc-axis-time]] makes 𝔗(s*), whose slices are bounded by sections of the two cones only, contain the whole of Q1
+while meeting the cones only where the data are given.
+
+*The system.* In case (I) of [[sec:loc-cone-reduced]] take Δ of [[lem:loc-axis-jets]] (c) with δ_e := δ_c/8, extended
+by 0 to Q^♯, smoothly, as it vanishes outside {|u| ≤ 2δ_e} ∪ {|v| ≤ 2δ_e} and 2δ_e < δ_1, so that Δ vanishes near
+Σ_init, where (u + δ_c)(v + δ_c) ≤ δ_c²/4 as the terms in β are nonnegative; χ := χ_𝒰, with no factor χ_ϑ, equal to 1
+on a neighbourhood 𝒰_1 of 𝒰^♯ and supported in a compact set 𝒰_2 in the interior of Q^♯ in the chart; θ equal to 1 on a
+neighbourhood of 𝒰^♯ and supported in 𝒰_1; and Ů, Û, 𝐔_c := 𝐔̊, ϒ and A^μ_♭ as there. Let 𝒰_3 be a compact
+neighbourhood of 𝒰_2 in the interior of Q^♯ in the chart, and ρ_- the least value of |y| on 𝒰_3. By compactness, as in
+step (4) of the proof of [[lem:loc-lens-dependence]], there are δ ∈ (0, ρ_-/4] and balls 𝔅 ⊂ 𝔅′ about Ů for which
+[[lem:class-leaf-differences]], for both families, and [[lem:loc-axis-shear]] hold near every point p ∈ 𝒰_2 of an axis
+in a slice Σ_s, τ_init ≤ s ≤ s*, with the same constants, and the leaves of the states of 𝔅′ through the points of the
+axis within 2δ of such p lie in 𝒰_3. Let ψ_0 ∈ C^∞(ℝ) equal 1 on [0, δ/4] and 0 on [δ/2, ∞), and ψ_ax := ψ_0(ρ1) +
+ψ_0(ρ2), with ρ1, ρ2 the radii of [[sec:class-phases]] in the coordinates y; it is smooth and G-invariant, the sets {ρ1
+≤ δ/2} and {ρ2 ≤ δ/2} being disjoint where |y| ≥ ρ_-. For G-invariant states U = (g, p_A, Θ_A, q_A) near Ů on the
+slices, let 𝒜^ax(U) = 0 be (Aug1), (Aug2) and (Aug4) of [[sec:class-augmented]], with the reduced Ricci tensor and the
+gauge vector relative to Ĝ, together with, in place of (Aug3),
+
+    P_A(Θ_A) = (1 − ψ_ax) S_A + ψ_ax S_A^ax,
+    S_A^ax := −κ_A⊥² − ½ (Θ_A − κ_A⊥)² − ½ σ_A[U]² − Σ_B q_B g⁻¹(p_A, p_B)²,                       {#eq:loc-axis-closure}
+
+A ∈ {in, out}, with S_A of (Aug3), κ_A⊥ := κ_A1 near axis 2 and κ_A⊥ := κ_A2 near axis 1, and σ_A[U] that of the slice
+Σ_s of [[eq:loc-axis-time]] through the point ([[sec:loc-axis-leaves]]): the closure of Step 6 of the proof of
+[[thm:class-stability]], for both families and with no cut-off ζ_A. Let 𝔄_χ and F̃ be defined by
+[[eq:loc-cone-modified]], with 𝒜^ax in place of 𝒜 in the first-order form of Step 9, its local terms evaluated at 𝐔̊ +
+ϒ(𝐔 − 𝐔̊) and its term in σ_A at 𝐔.
+
+**Lemma {#lem:loc-axis-system}** (The modified system through the axes.) Let ρ > 0 be so small that every 𝐔 = 𝐔̊ + Z on
+a slice with ‖Z‖_(H^k) ≤ ρ has |Z| ≤ r_0 and lies, near the points of the axes in 𝒰_2, in the balls 𝔅 and 𝔅′, and let
+𝒟_ρ be the set of [[sec:class-kato]] with s := k, u_* := 0 and the time interval [τ_init, s*]. For ε small:
+
+(a) on 𝒟_ρ, 𝔄_χ(𝐔) = F̃ has the form [[eq:class-kato-system]] for Z, with A^μ_χ symmetric and A^0_χ ≥ c_1 I as in
+[[lem:loc-cone-system]] (a), and with a forcing term Φ(τ, Z) that satisfies (F1)–(F3) and ‖Φ(τ, Z) − Φ(τ, 0)‖_(H^k) ≤ C
+‖Z‖_(H^k); these bounds and c_1 do not depend on ε;
+
+(b) where χ = 1, 𝔄_χ(𝐔) = 𝒜^ax(𝐔) for (τ, Z) ∈ 𝒟_ρ;
+
+(c) (c) of [[lem:loc-cone-system]] holds;
+
+(d) σ_A[Ů] = 0, and σ_A[Û] is the planar shear for Ĝ of the spheres {(u, v)} × S³ in the slices, a smooth function of Ĝ
+and its first derivatives; 𝒜^ax(Û) is a smooth function on supp χ that vanishes to infinite order on N; 𝔄_χ(Û) = F̃ on
+P, and F̃ is smooth and supported in supp χ;
+
+(e) R := 𝔄_χ(Ů) − F̃ is smooth and supported in supp χ, and sup_τ ‖R(τ)‖_(H^k) ≤ Cε.
+
+*Proof.* (a) The matrices and their bounds are those of [[lem:loc-cone-system]] (a) with χ_ϑ := 1, and its proof
+applies, A^0 being positive definite at 𝐔̊ on supp χ, where g_e is Lorentzian with dτ and ∂_τ timelike and P̊_A(τ) > 0.
+Put Φ(τ, Z) := χ (F_0(x, 𝐔) − A^μ(x, 𝐔̊ + ϒ(Z)) ∂_μ𝐔̊) + (1 − χ) B_♭Z + F̃, with F_0(x, 𝐔) the right side of the
+first-order form of 𝒜^ax, its local terms evaluated at 𝐔̊ + ϒ(Z) and its term in σ_A at 𝐔. Its local part satisfies
+(F1)–(F3) and the linear bound, by [[rem:class-kato-local]] and [[lem:class-composition]] (b). Its term in σ_A is −½ χ
+ψ_ax σ_A[𝐔]² in the rows of [[eq:loc-axis-closure]], times bounded factors of the first-order form; by (d), σ_A[Ů] = 0,
+so [[lem:class-leaf-differences]] (a) about Ů bounds σ_A[𝐔]² = σ_A[𝐔]² − σ_A[Ů]² in H^k by C ‖Z‖_(H^k), with Moser's
+estimate for the bounded factors, which gives (F1) and the linear bound; [[lem:class-leaf-differences]] (b), with
+σ_A bounded on 𝔅′, gives (F2); and (F3) follows from (F2) and the smoothness in τ of the coefficients, as in Step 9 of
+the proof of [[thm:class-stability]]. The term in σ_A at a time depends on the state at that time only. (b) is read
+off, ϒ being inactive where |Z| ≤ r_0, and (c) is proved as there.
+
+(d) Along a slice, v increases and u decreases with |y|, so the spheres {(u, v)} × S³ in Σ_s meet M3 in graphs with
+p_A(∂_z) ≠ 0 near the axes, and by [[lem:loc-axis-leaf]] (iii) they are the leaves of both families of Ů and of Û. So
+σ_A[Û] is their planar shear for Ĝ, a smooth function of Ĝ and its first derivatives, and σ_A[Ů] = 0, the null second
+fundamental form of a round sphere for g_e being a multiple of its metric. By [[lem:class-gauss]] (b), σ_A[Û] = Θ_h −
+κ_2 for the eikonal −v, respectively −u, of Ĝ, so by [[eq:class-identity]], [[eq:class-x]] and [[prop:class-axis]] (d),
+(1 − ψ_ax) S_A(Û) + ψ_ax S_A^ax(Û) = −|∇²v|²_Ĝ − T̂(P̂_A, P̂_A), respectively with u, off the axes and by continuity at
+them, T̂ := q̂_in dv ⊗ dv + q̂_out du ⊗ du; and [[eq:class-raychaudhuri]] for that eikonal shows that the residual of
+[[eq:loc-axis-closure]] for Û is −E(P̂_A, P̂_A). The other residuals are those of the proof of [[lem:loc-cone-system]]
+(d). By [[lem:loc-axis-jets]] (c) they vanish to infinite order on N. The rest is the proof of (d) there.
+
+(e) R = 𝔄_χ(Ů) − 𝔄_χ(Û) + θ 1_F 𝔄_χ(Û). By (d) the term in σ_A of each is a smooth function of x and of the 1-jet of
+𝐔̊, respectively of 𝐔̂, vanishing for 𝐔̊; for Ů the residual of [[eq:loc-axis-closure]] vanishes on F, the background
+solving [[eq:class-system]]. So the proof of (e) of [[lem:loc-cone-system]], case (I), applies: R is smooth, supported
+in supp χ, and its C^k norm is at most C ‖Δ‖_(C^(k+3)) ≤ Cε, by [[lem:loc-axis-jets]] (c). ∎
+
+**Lemma {#lem:loc-axis-energy}** (Energy with a non-local term.) [[lem:loc-cone-energy]] holds in every chart (t, x)
+whose slices are spacelike for the systems concerned, with t in place of τ, without the condition that the pieces of
+B_1 meet the slices transversally, and with 𝐀^μ ∂_μ z = Mz + 𝔫 in place of 𝐀^μ ∂_μ z = Mz, where 𝔫 is continuous on 𝒟
+and ‖𝔫‖_(L²(𝒟∩{t=s})) ≤ C ‖z‖_(L²(𝒟∩{t=s})) for every s.
+
+*Proof.* The proof of [[lem:loc-cone-energy]] uses of the boundary only that every 𝒟_s is a Lipschitz domain, for the
+divergence theorem. In it ∂_μ V^μ gains the term 2⟨𝔫, z⟩, whose integral over 𝒟 ∩ {t = s} is at most 2C
+‖z‖²_(L²(𝒟∩{t=s})) ≤ (2C/c) e(s); the rest of the proof is unchanged. ∎
+
+**Lemma {#lem:loc-axis-cauchy}** (The Cauchy problem through the axes.) For ε ≤ ε_0 the system 𝔄_χ(𝐔) = F̃ has a smooth
+G-invariant solution on [τ_init, s*] × ℝ⁴ with 𝐔 = 𝐔̊ at τ_init, g_τ = ∂_τ g, g_a = ∂_a g, (τ, 𝐔 − 𝐔̊) ∈ 𝒟_ρ and sup_τ
+‖𝐔 − 𝐔̊‖_(H^k) ≤ Cε; so the derivatives of order at most k − 3 of 𝐔 − 𝐔̊ are at most Cε.
+
+*Proof.* [[thm:class-kato]] (a), with (F1)–(F3) of [[lem:loc-axis-system]] (a), gives a solution Z with Z = 0 at τ_init
+on a maximal interval [τ_init, τ_m) ∩ [τ_init, s*], continued while ‖Z‖_(H^k) ≤ η_ρ ρ. On it Z solves the linear
+problem of [[lem:class-kato-linear]] with v := Z and f := Φ(τ, Z), ∂_τZ being bounded in H^(k−1) by the equation, and
+by part (a) of that lemma it is the solution of part (b) there. Part (c), with ‖Φ(τ, Z)‖_(H^k) ≤ ‖R(τ)‖_(H^k) + C
+‖Z‖_(H^k), as Φ(τ, 0) = −R, and with K_Z bounded, ‖Z‖_(W^(1,∞)) ≤ C_S ρ and ∂_τZ being bounded by the equation, gives
+E_k(τ; Z)^(1/2) ≤ C ∫_(τ_init)^τ (‖R‖_(H^k) + ‖Z‖_(H^k)), C independent of ε. By Gronwall's inequality and
+[[lem:loc-axis-system]] (e), ‖Z(τ)‖_(H^k) ≤ C_2 ε on the interval. For ε ≤ η_ρ ρ/(2C_2) the continuation of
+[[thm:class-kato]] (a) extends the solution to [τ_init, s*]. [[thm:class-kato-stability]] is not used: it needs ρ = ∞,
+while the term in σ_A is defined on 𝒟_ρ only. The solution is smooth by the argument of the paragraph *Smoothness* of
+the proof of [[thm:class-stability]], without restarts, F̃ being smooth with compact support; and it is G-invariant, as
+the system is G-invariant, σ_A of the image of a state under an element of G being the image of σ_A, and as the
+solution is unique ([[thm:class-kato]] (a)). The rows of (c) of [[lem:loc-cone-system]] hold at τ_init, where 𝐔 = 𝐔̊.
+The pointwise bounds follow by the Sobolev inequality on the slices. ∎
+
+Below U denotes this solution, (g, p_A, Θ_A, q_A) its components and P_A := g⁻¹p_A.
+
+**Lemma {#lem:loc-axis-past}** (The past of the edges.) U = Û on P ∩ 𝒰^♯. So U − Û vanishes with all its derivatives on
+N ∩ 𝒰^♯, g and the densities induce the cone data there, and for τ_c ≤ s ≤ s* the spheres S_o(s) and S_i(s) are leaves
+of both families of U in Σ_s.
+
+*Proof.* On P, 𝔄_χ(𝐔) = F̃ = 𝔄_χ(Û). As in the proof of [[lem:loc-cone-past]], z := 𝐔 − 𝐔̂ satisfies on P ∩ 𝒰^♯ a
+system 𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ := A^μ_χ(x, 𝐔̂ − 𝐔̊), M bounded, and 𝔫 := −½ χ ψ_ax (σ_A[𝐔]² − σ_A[Û]²) in the rows
+of [[eq:loc-axis-closure]], times bounded factors. The slices of P ∩ 𝒰^♯ are unions of spheres {(u, v)} × S³, which are
+the leaves of both families of Û in Σ_s ([[lem:loc-axis-system]] (d)); so [[lem:loc-axis-shear]], with Û in place of U
+and U in place of U′, both in 𝔅′, near the points of the axes in 𝒰_2, with σ_A bounded on 𝔅′, gives ‖𝔫(s)‖ ≤ C ‖z(s)‖
+on the slices of P ∩ 𝒰^♯. [[lem:loc-axis-energy]] on the closure of P ∩ 𝒰^♯, with B_0 := Σ_init ∩ 𝒰^♯ and B_1 the
+pieces of N and of the far cuts, where the boundary matrix is nonnegative as in the proof of [[lem:loc-cone-past]],
+gives z = 0. U and Û are smooth, so they agree with all derivatives on N ∩ 𝒰^♯. By [[lem:loc-axis-leaf]] (iii), S_o(s)
+and S_i(s), which are leaves of both families of Û, are leaves of U. ∎
+
+**Lemma {#lem:loc-axis-propagation}** (The constraints on the slice-triangle.) On 𝔗(s*), g⁻¹(p_A, p_A) = 0, dp_A = 0,
+D(g) = 0 and Θ_A = div_g P_A. There are smooth G-invariant functions u_in, u_out on 𝒰′ := (P ∩ 𝒰^♯) ∪ 𝔗(s*) with p_in =
+−du_in, p_out = −du_out, u_in = v and u_out = u on P ∩ 𝒰^♯; (g, u_in, u_out, q_in, q_out) solves [[eq:class-system]] on
+𝔗(s*), with Ric(g) = q_in du_in ⊗ du_in + q_out du_out ⊗ du_out, in the gauge D(g) = 0 relative to Ĝ; and q_in ≥ 0
+where u_in ≤ v_1 and q_out ≥ 0 where u_out ≤ u_1.
+
+*Proof.* On 𝔗(s*) ⊂ F ∩ 𝒰^♯, θ = 1 and χ = 1, so F̃ = 0 and 𝒜^ax(U) = 0 ([[lem:loc-axis-system]] (b)). An integral
+curve of P_A through a point of 𝔗(s*), followed to the past, decreases τ at a rate bounded below and cannot leave 𝔗(s*)
+through its slice in Σ_(s*), so it reaches N. *The phases.* (Aug2) holds on 𝔗(s*), the axes included, and the argument
+of the paragraph *The phases* of the proof of [[lem:loc-cone-constraints]], with 𝒪_1 := 𝔗(s*), gives ν_A = 0 and dp_A =
+0 on 𝔗(s*), and p_A = −du_A on the simply connected 𝒰′, with u_A fixed by its values on P ∩ 𝒰^♯. *The gauge and the
+expansions.* Put Δ_A := Θ_A − div_g P_A and let U′ be U with Θ_A replaced by div_g P_A. With p_A = −du_A an eikonal on
+𝒰′, [[eq:class-raychaudhuri]] holds for div_g P_A = □_g(−u_A). Near an axis the level sets of u_A in the slices of
+𝔗(s*) are graphs close to the spheres, and they are leaves of U′, by [[lem:loc-axis-leaf]] (ii): p_A vanishes on them,
+and their expansion is □_g(−u_A), as in the proof of its part (iii), u_A being null on 𝒰′. So by [[eq:class-identity]],
+[[eq:class-x]] and [[prop:class-axis]] (d) the right side of [[eq:class-raychaudhuri]] is both S_A and S_A^ax with
+div_g P_A in place of Θ_A, σ_A[U′] in place of σ_A[U] and Ric(g) in place of T. Subtracting it from
+[[eq:loc-axis-closure]] and using [[prop:class-augmented]] (e),
+
+    P_A(Δ_A) = −Δ_A ((1 − ψ_ax)(Θ_A + div_g P_A − 2κ_A1 − 2κ_A2) + ½ ψ_ax (Θ_A + div_g P_A − 2κ_A⊥))
+               − ½ ψ_ax (σ_A[U]² − σ_A[U′]²) + g(∇_(P_A) D, P_A) + L(P_A, P_A),
+
+and D solves [[eq:class-gauge-wave]] with B_g T = Σ_A Δ_A q_A p_A, as ν_A = 0. In the first-order variables z := (D,
+∂_τ D, ∂_y D, Δ_in, Δ_out) this is a system 𝐀^μ ∂_μ z = Mz + 𝔫 on 𝔗(s*) of the form of Step 9, with the inverse metric
+g and the transport fields P_A, and 𝔫 the term in σ_A. For s > τ_c the slice of 𝔗(s*) in Σ_s is bounded by S_o(s) and
+S_i(s), leaves of U ([[lem:loc-axis-past]]); the leaves of U foliate a neighbourhood of each point of an axis, so the
+leaf of U through a point of that slice near an axis lies between these two, and its arc from the axis lies in the
+slice. U′ lies in 𝔅′, 𝒩_k controlling div_g P_A at the order k − 1, as in Step 10 of the proof of
+[[thm:class-stability]]. So [[lem:loc-axis-shear]] gives ‖𝔫(s)‖ ≤ C ‖Δ(s)‖, with C independent of s, also near τ_c,
+where these slices are thin. By [[lem:loc-axis-past]], z vanishes on N ∩ 𝔗(s*), as D(Ĝ) = 0 relative to Ĝ and Θ̂_A =
+div_Ĝ P̂_A. [[lem:loc-axis-energy]] on 𝔗(s*), whose boundary consists of B_0 := N ∩ 𝔗(s*) and of its slice in Σ_(s*),
+gives z = 0. Then (Aug1) is Ric(g) = Σ_A q_A p_A ⊗ p_A and (Aug4) the conservation law, as in the proof of
+[[lem:loc-cone-constraints]], whose paragraph *The signs* gives the signs, the densities of the data being nonnegative
+on {0} × [0, v_1] and on [0, u_1] × {0}. ∎
+
+**Lemma {#lem:loc-axis-gauge}** (The double-null gauge through the axes.) Let ω′ be the map of 𝒰′ into S³ that is
+constant along the integral curves of P_out and equals ω on P ∩ 𝒰^♯, and Ψ := (u_out, u_in, ω′). Then Ψ is a
+G-equivariant diffeomorphism from 𝔗(s*) onto a set that contains Q1 × S³, equal to the identity with its differential
+on N ∩ 𝔗(s*). In the coordinates (u′, v′, ω′) := Ψ the metric g has the form [[eq:loc-double-null]] with fields smooth
+through the axes, and (g, v′, u′, q_in, q_out) is a class solution in the gauge through the axes on Ψ(𝔗(s*)) that
+induces the cone data on the edges. Its fields and densities differ from the background's by at most Cε in C^(k−4) on
+Q1 × S³. Ψ is the identity on every set on which U = Ů that contains, with each point, its past integral curve of P_out
+up to P ∩ 𝒰^♯.
+
+*Proof.* The proof of [[lem:loc-cone-gauge]], case (I), applies, with the point ω′ of S³ in place of the angle ϑ′ and
+𝔗(s*) ⊃ Q1 in place of F ∩ 𝒰_σ ⊃ G_*. The flow of P_out commutes with G, P_out being G-invariant, so ω′ is smooth and
+G-equivariant; Ψ − id is at most Cε in C^(k−3), by [[lem:loc-axis-cauchy]]; 𝔗(s*) is a down-set in (u, v), so Ψ is
+injective; and as Q1 ⊂ 𝔗(s* − 1) lies at positive distance from the slice of 𝔗(s*) in Σ_(s*), the contraction argument
+there gives Ψ(𝔗(s*)) ⊃ Q1 for ε small. In the coordinates (u′, v′, ω′), g⁻¹(du′, du′) = g⁻¹(dv′, dv′) = 0, and g⁻¹du′ =
+−P_out annihilates du′ and dω′; so with coordinates θ^a of S³, g^(u′u′) = g^(v′v′) = g^(u′a) = 0. A metric with such an
+inverse is −2Ω² (du′ ⊗ dv′ + dv′ ⊗ du′) + γ_ab (dθ^a − b^a du′)(dθ^b − b^b du′), with −1/(2Ω²) = g^(u′v′), γ_ab the
+inverse of g^ab and b^a = g^(v′a)/g^(u′v′), as the frame calculation in the proof of [[lem:loc-axis-jets]] shows; these
+are smooth, since g and the coordinates are, and by G-equivariance γ is a G-invariant metric on S³ and b a G-invariant
+vector field: this is [[eq:loc-double-null]] with fields smooth through the axes. The rest is as there. ∎
+
+**Lemma {#lem:loc-axis-dependence}** (Dependence on the past faces of a double-null rectangle.) Let Ĝ′ be a smooth
+G-invariant Lorentzian metric, and, for i = 1, 2, let U_i = (g_i, p_i^in, p_i^out, div_(g_i) P_i^A, q_i^A) be smooth
+G-invariant states on a neighbourhood 𝒪 of a compact set R′, with p_i^A the negative of the differential of a function
+on 𝒪 that is null for g_i, the phase of family A of U_i, and P_i^A := g_i⁻¹p_i^A future directed, that solve
+[[eq:class-system]] on R′ in the gauge D(g_i) = 0 relative to Ĝ′. Let (ũ, ṽ, ω̃), ω̃ ∈ S³, be coordinates on 𝒪 with
+p_1^out = −dũ and p_1^in = −dṽ, in which g_1 has the form [[eq:loc-double-null]] with fields smooth through the axes
+and R′ = [0, a] × [0, b] × S³. If U_2 and U_1 agree, with all their derivatives, on R′ ∩ ({ũ = 0} ∪ {ṽ = 0}), then
+U_2 = U_1 on R′. No smallness of U_1, of U_2 or of U_2 − U_1 is assumed.
+
+*Proof.* *The chart.* Fix μ ≥ 1 with 4μΩ_1² > γ_1(b_1, b_1) on R′, and put t := ũ + ṽ and x := e^(ṽ − μũ) ω̃. (t, x) is
+a G-equivariant chart near R′ onto an open set of ℝ × (ℝ⁴ ∖ {0}); dt is timelike for g_1, and ∂_t, a positive multiple
+of ∂_ũ + μ ∂_ṽ, is future timelike for g_1 on R′, as g_1(∂_ũ + μ∂_ṽ, ∂_ũ + μ∂_ṽ) = −4μΩ_1² + γ_1(b_1, b_1). So the
+first-order form of Step 9 of the proof of [[thm:class-stability-off-axes]] in this chart has A^0 positive definite at
+U_1 on R′. The slices O_s := R′ ∩ {t = s} are unions of spheres {ũ = c, ṽ = s − c}.
+
+*The equations.* Let x ∈ R′ lie near an axis in a slice {t = s}, and let the level set through x, in that slice, of the
+phase of family A of U_i be, from the axis to x, a graph as in [[lem:loc-axis-leaf]] (ii) that lies in 𝒪, with p_A(∂_z)
+≠ 0. Then it is the leaf of U_i through x, by that lemma: p_A vanishes on it, and its expansion is Θ_A, as in the proof
+of its part (iii), the phase being null on 𝒪. So σ_A[U_i](x) is its planar shear, and by [[eq:class-identity]],
+[[eq:class-x]] and [[prop:class-axis]] (d) both S_A and S_A^ax equal −|∇²u_A|² − T(P_A, P_A) at x, u_A the phase; by
+[[eq:class-raychaudhuri]], U_i solves at x the rows of 𝒜^ax, with [[eq:loc-axis-closure]], Ĝ′ in place of Ĝ and every
+partition ψ_ax. For U_1 this holds at every point of R′ near an axis: the level sets of its phases in {t = s} are the
+spheres {ũ = c, ṽ = s − c}, which are therefore the leaves of both families of U_1.
+
+*Continuity in t.* Let t* be the supremum of the s ∈ [0, a + b] with U_2 = U_1 on R′ ∩ {t ≤ s}; the set of these s is
+closed, and it contains 0, R′ ∩ {t ≤ 0} being the corner sphere. Suppose t* < a + b. Take δ, the balls 𝔅 ⊂ 𝔅′ and the
+constants of [[lem:class-leaf-differences]] and [[lem:loc-axis-shear]] for ů := U_1 in this chart (their proofs use of
+ů only that it is a smooth G-invariant state whose p_A are minus the differentials of null phases and whose Θ_A are div
+P_A, which U_1 is on 𝒪), uniform near the points of the axes in R′ ∩ {t* ≤ t ≤ t* + 1}. U_2 − U_1 is smooth and
+vanishes with all derivatives on 𝒦 := R′ ∩ {t ≤ t*}, on the past faces by hypothesis. For θ ∈ (0, 1] let 𝒩_θ be the set
+of the points of 𝒪 whose coordinates (ũ, ṽ) lie within θ of those of a point of 𝒦. 𝒦 is convex in (ũ, ṽ), so for θ
+small each point of 𝒩_θ is joined to its nearest point of 𝒦, with the same ω̃, by a segment in 𝒩_θ ⊂ 𝒪, and Taylor's
+formula along it bounds the derivatives of order at most k of U_2 − U_1 on 𝒩_θ by Cθ^(k+1), C not depending on θ. Let
+χ_θ be a G-invariant cut-off equal to 1 on 𝒩_(θ/2) and supported in 𝒩_θ, whose derivatives of order j are at most
+Cθ^(−j), and W := U_1 + χ_θ (U_2 − U_1); by Leibniz's rule the derivatives of order at most k of W − U_1 are at most
+Cθ, so for θ small W ∈ 𝔅′ on the slices. Let s ∈ [t*, t* + θ/8] and let x ∈ O_s lie near an axis. R′ is star-shaped
+about (0, 0) in (ũ, ṽ), and the point (t*/s)(ũ, ṽ)(x) lies in 𝒦 within √2 (s − t*) of (ũ, ṽ)(x); so O_s ⊂ 𝒩_(θ/4), and
+the arc of the leaf of U_1 through x lies in 𝒩_(θ/4), O_s being a union of its leaves. While the arc of the leaf of W
+through x stays in 𝒩_(θ/2), where W = U_2, it lies within Cθ² of that one in C¹, U_2 − U_1 being at most Cθ² in C¹
+there; for θ small, Cθ² < θ/4, so it stays in 𝒩_(θ/2), and by the uniqueness in [[lem:class-volterra]] it is the arc of
+the leaf of U_2, and σ_A[W] = σ_A[U_2] on O_s. Likewise the level set through x, in O_s, of the phase of family A of
+U_2, whose differential is within Cθ² of that of U_1 on 𝒩_θ, is from the axis to x a graph within Cθ² in C¹ of the
+sphere through x, which lies in 𝒩_(θ/4); for θ small it lies in 𝒩_(θ/2) ⊂ 𝒪, so U_2 solves the rows of 𝒜^ax at x.
+[[lem:loc-axis-shear]], with U_1 in place of U, O_s being a union of its leaves, and W in place of U′, gives ‖σ_A[U_2]
+− σ_A[U_1]‖_(L²(O_s∩𝒰_δ(p))) ≤ C ‖U_2 − U_1‖_(L²(O_s)) at every such point p of an axis. So the difference z of the
+first-order variables of U_2 and U_1 satisfies on R′ ∩ {t* ≤ t ≤ t* + θ/8} a system 𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ at
+U_1, M bounded and ‖𝔫(s)‖ ≤ C ‖z(s)‖. The lateral boundary of this set consists of pieces of {ũ = 0} and {ṽ = 0}, where
+z = 0, and of {ũ = a} and {ṽ = b}, whose outward conormals dũ and dṽ are null for g_1, positive on ∂_t and nonnegative
+on the transport fields of U_1 (dũ(P_1^out) = 0 < dũ(P_1^in) and dṽ(P_1^in) = 0 < dṽ(P_1^out)); so the boundary matrix
+is nonnegative there (the paragraph after [[lem:loc-cone-energy]]). [[lem:loc-axis-energy]], with B_0 the slice {t =
+t*} and the pieces of the past faces, gives z = 0 on R′ ∩ {t ≤ t* + θ/8}, against the definition of t*. So t* = a + b.
+∎
+
+
+
+**Lemma {#lem:loc-axis-unique}** (Uniqueness in the double-null gauge.) Let k ≥ 9, let Q1′ := [0, u_1′] × [0, v_1′] ⊂
+Q1 with u_1′, v_1′ > 0, and let (g′, q′_in, q′_out) be a class solution in the gauge through the axes on Q1′ × S³ that
+induces the cone data on the edges of Q1′, with fields within ε_2 of the background's in C^(k−4). For ε and ε_2 small,
+depending only on k, u_1, v_1, δ_1, the background and the numbers fixed in [[sec:loc-axis-reduced]], it equals the
+solution of [[lem:loc-axis-gauge]] on Q1′ × S³.
+
+*Proof.* (1) *An extension of g′.* By [[lem:loc-axis-jets]] (b) and (iv) of [[lem:loc-cone-jets]], Q1′ being a past set
+in F, the fields and densities of g′, like those of Ĝ, have the derivatives a_j and b_k across N ∩ Q1′, so their
+differences f from those of Ĝ vanish to infinite order on N ∩ Q1′; f is a family over Q1′ of G-invariant functions,
+symmetric 2-tensors and vector fields on S³, and we put f := 0 on P. Fix δ_2 ∈ (0, δ_c/4] so small that Q1^+ := [−δ_2,
+u_1 + δ_2] × [−δ_2, v_1 + δ_2] lies in the interior of 𝒰^♯ and Q1^+ ∩ F in 𝔗(s*), which is possible as Q1 ⊂ 𝔗(s* − 1)
+and τ is continuous, and put Q1′^+ := [−δ_2, u_1′ + δ_2] × [−δ_2, v_1′ + δ_2]. The operator E of
+[[thm:std-ly-extension]] (i) acts at each fixed x′, so it is an operator on functions of one variable on [0, ∞),
+bounded on C^r for every r. Fix ψ ∈ C^∞(ℝ) equal to 1 on (−∞, δ_2/2] and to 0 on [3δ_2/4, ∞). For c ∈ ℝ and h smooth on
+[c − δ_2, c] put X_c h := h on [c − δ_2, c] and (X_c h)(w) := E[ψ h(c − ·)](c − w) for w ∈ (c, c + δ_2], ψ h(c − ·)
+being read as a function on [0, ∞) that vanishes beyond 3δ_2/4. X_c is linear, X_c h is smooth, E[ψ h(c − ·)] being
+smooth on ℝ and equal to h(c − ·) on [0, δ_2/2], and its C^r norm is at most C_r times that of h, C_r depending only on
+r and δ_2. Apply X_(u_1′) in u, at each fixed (v, ω) and in the space of tensors at ω, to f on [−δ_2, u_1′] × [−δ_2,
+v_1′], and then X_(v_1′) in v, at each fixed (u, ω), to the result on [−δ_2, u_1′ + δ_2] × [−δ_2, v_1′]. These
+operators act in (u, v) only and linearly, so they commute with derivatives along S³ and with G; the result f″ is
+smooth on Q1′^+ × S³, G-invariant and smooth through the axes, equals f on Q1′, and its fields are at most C(ε + ε_2)
+in C^(k−4), with C independent of u_1′ and v_1′. As f vanishes where u < 0 and where v < 0, so does f″. Let g″ be the
+metric [[eq:loc-double-null]] whose fields are those of Ĝ plus those of f″ on Q1′^+ and those of Ĝ on P ∩ Q^♯, and q″_A
+the densities of Ĝ plus those of f″, and those of Ĝ on P ∩ Q^♯. For ε and ε_2 small g″ is Lorentzian, and it is smooth
+on Q1′^+ ∪ (P ∩ Q^♯); it equals g′ on Q1′ and Ĝ on P, and g″ − Ĝ vanishes to infinite order on N ∩ Q1′^+, being smooth
+and zero on P there.
+
+(2) *A wave map.* As in step (2) of the proof of [[lem:loc-cone-unique]], seek Φ = id + φ with id: (Φ(Q1′), (Φ⁻¹)^*g″)
+→ Ĝ a wave map, here in the chart [[eq:loc-axis-time]] with the initial slice Σ_init, with no cut-off in ϑ, with the
+cut-off χ′ := β′(u − u_1′) β′(v − v_1′) χ in (u, v), χ that of [[sec:loc-axis-reduced]] and β′ ∈ C^∞(ℝ) equal to 1 on
+(−∞, δ_2/4] and to 0 on [δ_2/2, ∞), and with the frozen part taken with the wave operator of g_e. χ′ equals 1 on a
+neighbourhood of Q1′ and is supported in (Q1′^+ ∪ P) ∩ supp χ, where g″ is defined. The wave map system is semilinear
+and local, with coefficients smooth in the chart through the axes. φ := 0 satisfies the cut-off system on P exactly, as
+g″ = Ĝ there, and on F up to the residual χ′ 1_F g″^(μν) (Γ[Ĝ] − Γ[g″])^λ_(μν), which is smooth, as g″ − Ĝ vanishes to
+infinite order on N ∩ Q1′^+, and at most C(ε + ε_2) in C^(k−5), C independent of u_1′ and v_1′.
+[[thm:class-kato-stability]] (a), with s := k − 5 > 3, gives a smooth G-equivariant solution φ on [τ_init, s*] × ℝ⁴, at
+most C(ε + ε_2)^(1/(4s)) in W^(1,∞); φ = 0 on P ∩ 𝒰^♯, by the argument of the proof of [[lem:loc-cone-past]]; and φ
+solves the wave map system near Q1′, χ′ being 1 there.
+
+(3) *Comparison.* For ε and ε_2 small, Φ is a G-equivariant diffeomorphism near the identity, equal to it on P ∩ 𝒰^♯
+and so, with all derivatives, on N, with Φ(F) ⊂ F near Q1, and Φ(Q1′) and a neighbourhood of it lie in 𝒰′ = (P ∩ 𝒰^♯) ∪
+𝔗(s*), by the choice of δ_2. Put g̃ := (Φ⁻¹)^*g″, ũ := u ∘ Φ⁻¹, ṽ := v ∘ Φ⁻¹, ω̃ := ω ∘ Φ⁻¹ and q̃_A := q″_A ∘ Φ⁻¹ near
+Φ(Q1′). Then g̃ is in the gauge D(g̃) = 0 relative to Ĝ near Φ(Q1′); it has the form [[eq:loc-double-null]] with fields
+smooth through the axes in the coordinates (ũ, ṽ, ω̃), in which Φ(Q1′) = [0, u_1′] × [0, v_1′] × S³ and ũ, ṽ are null
+for g̃; (g̃, ṽ, ũ, q̃_in, q̃_out) solves [[eq:class-system]] on Φ(Q1′); and the state of g̃ agrees with Û, hence with
+U, with all derivatives on N ∩ Φ(Q1′) = N ∩ Q1′. U is, on 𝒰′, of the form required in [[lem:loc-axis-dependence]], its
+phases u_in and u_out being null for g there, and solves [[eq:class-system]] on 𝔗(s*) in the same gauge
+([[lem:loc-axis-propagation]]). [[lem:loc-axis-dependence]], with Ĝ′ := Ĝ, U_1 the state of g̃, R′ := Φ(Q1′) and U_2 :=
+U, gives that U is the state of g̃ on Φ(Q1′).
+
+(4) *Conclusion.* As in step (4) of the proof of [[lem:loc-cone-unique]], with the point ω of S³ in place of ϑ: Φ is an
+isometry from (g′, u, v) to (g, u_out, u_in) on Q1′, with u = u_out ∘ Φ and v = u_in ∘ Φ; it carries g′⁻¹du to
+g⁻¹du_out, so ω′ ∘ Φ is constant along the integral curves of g′⁻¹du, which are the curves of constant u and ω, and
+equals ω on N_i, where Φ is the identity. So Ψ ∘ Φ is the identity on Q1′, and g′ has there the fields of the solution
+of [[lem:loc-axis-gauge]]. ∎
+
+**Lemma {#lem:loc-axis-angle}** (Localisation near an axis.) Let ϑ_a′ ∈ (0, π/4], and let the cone data equal the
+background's at the points with ϑ < ϑ_a′. Then U = Ů at the points of 𝔗(s*) with ϑ < ϑ_a′ − 2C_* (uv)^(1/2), and Ψ is
+the identity there. Likewise, for ϑ_b′ ∈ [π/4, π/2), with ϑ > ϑ_b′ and ϑ > ϑ_b′ + 2C_* (uv)^(1/2).
+
+*Proof.* By [[lem:loc-axis-jets]] (b) all derivatives across N are the background's at the points with ϑ < ϑ_a′, so Δ
+vanishes there ([[lem:loc-axis-jets]] (c)), and Ĝ = g_e and Û = Ů there. There Ů solves 𝒜^ax: the background solves
+[[eq:class-system]], D(g_e) = 0 relative to Ĝ = g_e, and the residual of [[eq:loc-axis-closure]] vanishes for it
+([[lem:loc-axis-system]] (d), (e)). For ι ∈ (0, ϑ_a′/4) and δ′ ∈ (0, δ_c] put α := ϑ_a′ − ι − 2C_* e^(τ_1/2), τ_1 :=
+ln((u + δ′)(v + δ′)), and 𝒲 := 𝔗(s*) ∩ {α ≥ ι, ϑ ≤ α}; τ_1 is smooth on F. In the (u, v)-plane {τ ≤ s} and {α ≥ ι} are
+the sets below the graphs of decreasing smooth functions of u, so every 𝒲 ∩ {τ ≤ s} lies below the graph of their
+minimum, a Lipschitz function, and is a Lipschitz domain, as [[lem:loc-axis-energy]] needs, also where the face {α = ι}
+touches a slice, as it does at the points of Q1 with u = v. Its lateral boundary consists of a piece of N, where U − Ů
+vanishes with all derivatives ([[lem:loc-axis-past]], with Û = Ů there), of a piece of the level set {α = ι} of τ_1,
+with the outward conormal dτ_1, future timelike for g_e and positive on ∂_τ and on the P̊_A, and of the face {ϑ = α},
+which lies off the axes and has the outward conormal ν := dϑ + C_* e^(τ_1/2) dτ_1; as in the proof of
+[[lem:loc-cone-support]], g_e⁻¹(ν, ν) = R_e⁻² − 2C_*² e^(−2σ_e) < 0, ν(∂_τ) > 0 and ν(P̊_A) > 0. So the boundary matrix
+at 𝐔̊ is nonnegative on both faces. z := 𝐔 − 𝐔̊ satisfies on 𝒲, where U and Ů solve 𝒜^ax, a system 𝐀^μ ∂_μ z = Mz + 𝔫
+with 𝐀^μ at 𝐔̊ and 𝔫 the difference of the terms in σ_A. Let O_s be the interior of 𝒲 ∩ Σ_s. Near axis 2 the leaf of Ů
+through a point x of O_s is the sphere {(u(x), v(x))} × S³, and its arc from the axis to x has the same (u, v) and ϑ ≤
+ϑ(x), so it lies in the closure of O_s; near axis 1 there is nothing to estimate, ψ_ax vanishing on {ϑ ≤ π/4} near axis
+1, as ρ1 = |y| cos ϑ ≥ ρ_-/√2 > δ/2 there. So [[lem:loc-axis-shear]], with Ů in place of U and U in place of U′, gives
+‖𝔫(s)‖ ≤ C ‖z(s)‖. [[lem:loc-axis-energy]] on 𝒲, with B_0 the piece of N and B_1 the two faces, gives z = 0. A point of
+𝔗(s*) with ϑ < ϑ_a′ − 2C_* (uv)^(1/2) lies in 𝒲 for ι and δ′ small. The past integral curve of P_out = P̊_out, a
+multiple of ∂_v, from a point of 𝒲 keeps u and ω and decreases v, so α increases along it, and it stays in 𝒲 until it
+meets N_i, and then lies in P; so Ψ is the identity on 𝒲 ([[lem:loc-axis-gauge]]). Near axis 1 the same argument
+applies with π/2 − ϑ in place of ϑ. ∎
+
+*Proof of [[thm:loc-axis]].* By [[lem:loc-axis-constraints]] (c), with 2p = 2m_0 + 6 = m_1, the data extend to cone
+data of either sign through the axes on N_o and N_i, in the normalised gauge, of size at most Cε in C^(m_0), equal to
+the given data, with their nonnegative densities, on {0} × [0, v_1] and [0, u_1] × {0}. For ε small,
+[[lem:loc-axis-cauchy]], [[lem:loc-axis-past]], [[lem:loc-axis-propagation]] and [[lem:loc-axis-gauge]] give (a) and
+(b): in the coordinates of [[lem:loc-axis-gauge]] the phases are v′ and u′, so the densities are nonnegative on Q1 by
+[[lem:loc-axis-propagation]]. (c) is [[lem:loc-axis-unique]]. For the first part of (d), the background is a class
+solution in the gauge through the axes on [0, u′] × [0, v′] × S³ for 0 < u′ < min(u_K, u_1) and 0 < v′ < min(v_K, v_1),
+inducing the data on the edges of that rectangle, so by (c) the solution equals it there. The second part is
+[[lem:loc-axis-angle]], Ψ being the identity on the sets concerned, which contain those of (d) within Q1. ∎
+
+#### The background of this chapter on the crossing rectangle {#sec:loc-axis-example}
+
+**Corollary {#cor:loc-axis-cones}** (Cone data reaching the axes for the background of [[sec:bg-data]].) Let k ≥ 9 and
+v_1 > 0, and let V1 be chosen as in [[lem:civp-large-rectangle]]. On 𝒞_out ∩ {v ≤ v_1} let free data (ℓ_1, ℓ_2, ℓ_3)
+and q_in ≥ 0 be given as in [[prop:loc-cones]], and on 𝒞_in ∩ {u ≤ 7.2} free data and q_out ≥ 0 as in
+[[lem:loc-cone-in]], with Ω the background's on both cones, b = 0 on 𝒞_in, the values of ϕ, ∂_vϕ, b and ∂_vb at v = 0
+on 𝒞_out and of ϕ and ∂_uϕ at u = 0 on 𝒞_in the background's, and the two sets of free data agreeing on S, but with no
+restriction of their supports in angle: the metrics γ̂ of [[lem:loc-axis-constraints]] (b) that they define are smooth
+metrics on S³, the densities are smooth through the axes, and these differ from dΩ₃² and from the background's
+densities by at most ε in C^(m_1 + 3). For ε small the constraints determine cone data through the axes, and their
+development of [[thm:loc-axis]] exists on [0, 7.2] × [0, v_1] × S³, with (b)–(d) there. So, with v_1 = 4.5, every small
+perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5} and of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, at once, and every
+small density added on either cone, the axes included, has a development on the whole rectangle [0, 7.2] × [0, 4.5] in
+which the two dusts cross.
+
+*Proof.* By [[lem:civp-large-rectangle]] (a) there is δ ∈ (0, 1/2) such that the background is smooth on [0, 7.2 + 2δ]
+× [0, v_1 + 2δ] and solves [[eq:two-dust-limit]] there, and Ω and R extend to smooth positive functions on [−δ, 7.2 +
+δ] × [−δ, v_1 + δ]. With δ_1 := min(δ, v_1)/2, σ_e := ln(√2 Ω) and R_e := R there, this is a background on Q1 := [0,
+7.2] × [0, v_1] with margin δ_1, Q^♯ lying in [−δ, 7.2 + δ] × [−δ, v_1 + δ] and Q^♯ ∩ F in [0, 7.2 + 2δ] × [0, v_1 +
+2δ]. By [[lem:loc-axis-constraints]] (b) the constraints determine Y and b along every generator, the axis generators
+included. The coefficients of the equation for Y differ from the background's by at most Cε in C^(m_1 + 2), and its
+initial values are the background's, so Y − R_e is at most Cε in C^(m_1 + 2) and Y > 0 for ε small; then the
+coefficients and the inhomogeneous term of the equation for W are within Cε of the background's in C^(m_1), and b is at
+most Cε in C^(m_1). So the cone data are cone data through the axes in the normalised gauge, of size at most Cε in
+C^(m_1), with nonnegative densities, and [[thm:loc-axis]] applies. ∎
+
+**Remark {#rem:loc-axis-constants}** (What the constants depend on.) [[lem:loc-axis-leaf]] and [[lem:loc-axis-shear]]
+use no smallness: the constant of [[eq:loc-axis-shear]] depends only on the ball 𝔅′ about a solution, that is on bounds
+of the states in C² and on the lower bound of |p_A(∂_z)| at the axis, and on the chart, and not on the set O.
+[[lem:loc-axis-dependence]] uses no smallness of either solution, only the leaf constants of the first one near the
+times up to which the two agree. [[lem:loc-axis-jets]] uses no smallness except for the Lorentzian character of Ĝ, and
+the constraints of [[lem:loc-axis-constraints]] (b) need only Y > 0. In the existence proof smallness enters in four
+places: Û must lie in the ball 𝔅′ about Ů, through ‖Δ‖_(C^(k+3)) ≤ Cε ([[lem:loc-axis-jets]] (c)); the solution must
+stay, over the whole interval [τ_init, s*], in the ball 𝒟_ρ about the background in H^k on which the term in σ_A is
+defined, which the bound of [[lem:loc-axis-system]] (e) gives ([[lem:loc-axis-cauchy]]); Ψ of [[lem:loc-axis-gauge]]
+must be close enough to the identity for its image to contain Q1 × S³; and the extension of the data beyond u_1 and v_1
+must keep Y positive ([[lem:loc-axis-constraints]] (c)), as must the constraints in [[cor:loc-axis-cones]]. The
+uniqueness of [[lem:loc-axis-unique]] needs ε and ε_2 small for its wave map. The radius ρ, the number δ and the leaf
+constants are those of the background, and the constants of [[lem:loc-axis-system]] (a) and of [[lem:loc-axis-cauchy]]
+do not depend on ε.
+
+**Remark {#rem:loc-axis-scope}** (What [[thm:loc-axis]] does not give.) (i) *Large data at the axes.* The term in σ_A
+is defined, through [[lem:class-leaf-differences]], on balls about a solution, and the Cauchy problem is solved about
+the background over the whole interval; for cone data that are not near the background's at the axes nothing is asserted
+there, and near the two cones they are developed by [[thm:civp-axes]]. Off the axes, [[thm:civp-large]] needs no
+smallness. (ii) *Further families.* Only the two families
+adapted to the double-null gauge are treated. A further family with a density at a point where a cone meets an axis
+would need the sections of that cone by the slices to be among its leaves, which for a solution, whose leaves are the
+level sets of its phase ([[lem:class-leaf-differences]]), requires its phase to be constant on them; one whose density
+reaches an axis inside F would need its expansion defect to be estimated on a region that contains a whole
+neighbourhood of the axis on which its cut-off ζ_A equals 1, as in Step 10 of the proof of [[thm:class-stability]],
+while ζ_A must vanish near the points where the cones meet the axes. Neither case is treated here, nor are further
+families whose densities avoid the axes; [[sec:loc-t5]] treats them, with a closure time for each further family and
+an evolution time bent near the axes, when each carries density only where it crosses a cone and none near the circles
+in which the corner sphere meets the axes ([[thm:loc-t5]]), and shows that this construction does not apply to a
+family with density where it is tangent to a cone at an axis, except possibly in a case it does not analyse
+([[prop:loc-t5-grazing]]). (iii) *Regularity.* The data are smooth and small in C^(m_1); densities that
+are only bounded, or measures, are not covered ([[rem:loc-cone-scope]] (iii)).
+
+### Further dust families at the axes {#sec:loc-t5}
+
+[[thm:loc-axis]] develops cone data through the axes with the two dust families adapted to the cones, of phases v and
+u, and with no other ([[rem:loc-axis-scope]] (ii)). This section adds further null dusts, whose phases are not functions
+of u or of v and whose densities may be nonzero where an edge meets an axis. At a point of an axis the gradient of a
+phase of the class lies in the span of du and dv and is null, so it is a multiple of dv or of du: a further family
+*crosses* the edge N_o along its generator in that axis, transversally, and is *tangent* to N_i along its generator
+there, its rays running in N_i, or the reverse ([[lem:loc-t5-dichotomy]]). Cone data with any number of further families
+that carry density only where they cross the edges, and none near the circles in which the corner sphere meets the axes,
+are developed on the whole rectangle, with the regularity, the estimate and the uniqueness of [[thm:loc-axis]]
+([[thm:loc-t5]]). A family that carries density where it is tangent to an edge at an axis is excluded. Where the
+restriction of its phase to a section of that edge by the slice of a time function vanishes to finite order at the axis,
+the section is not a leaf of the family and points arbitrarily near the axis have arcs that cross the edge, while the
+energy estimates of the construction need the arcs of the points of a region to stay in it; where all these sections are
+leaves, the edge is characteristic for the family; the remaining case is not analysed ([[prop:loc-t5-grazing]]). Such
+families are developed on regions that avoid the axes near the points concerned ([[prop:loc-t5-cut]]).
+
+The closure of the Raychaudhuri equation at an axis computes the planar shear at a point from the leaf through it, on
+the arc from the axis to the point ([[sec:loc-axis-leaves]]). In [[sec:loc-axis-reduced]] the slices of the time are
+unions of spheres of the data, which are leaves of both adapted families. For a further family they are not, and we
+compute its leaves on the slices of a time t_A of its own, whose sections of the edge it crosses are its own sections of
+that edge; the evolution time τ is bent near the axes so that every arc used lies in the past of its end point. The
+forcing term at a time then depends on the solution over an interval of earlier times, and the Cauchy problem is solved
+by [[thm:class-kato-memory]].
+
+*The setting.* We keep the setting and the notation of [[sec:loc-axis-reduced]]: a background on Q1 := [0, u_1] × [0,
+v_1] with margin δ_1, with Q^♯, N_o, N_i, N, F, P, S_c and C_* as there; τ0 denotes the time τ of [[eq:loc-axis-time]],
+in the chart (τ0, y), with the numbers δ_c, s*, τ_init and the sets 𝒰^♯ and 𝔗(s) of [[eq:loc-axis-region]], for which Q1
+⊂ 𝔗(s* − 1); Ů, Û and the reference metric Ĝ, built from Δ of [[lem:loc-axis-jets]] (c) with δ_e := δ_c/8, so that Û = Ů
+on {τ0 ≤ τ_0′}, τ_0′ := ln(9δ_c²/16) > τ_init ([[sec:loc-cone-reduced]]); the cut-offs χ and θ, the compact sets 𝒰_2 ⊂
+𝒰_3, the number δ, the radius ρ_- and the balls 𝔅 ⊂ 𝔅′ of the paragraph *The system* there; and 𝔄_χ, F̃ := (1 − θ 1_F)
+𝔄_χ(Û) of [[eq:loc-cone-modified]], with 𝐔_c := 𝐔̊, ϒ, r_0 and A^μ_♭. Let k ≥ 9, m_0 := 6k + 18 and m_1 := 12k + 42 be
+the numbers of [[thm:loc-axis]], and let the cone data through the axes, of size ε in C^(m_1), be extended to N_o and
+N_i by [[lem:loc-axis-constraints]] (c), with the further sources of [[lem:loc-t5-jets]] (a). C and the smallness
+conditions depend only on k, u_1, v_1, δ_1, the background, the background phases of the further families and the
+numbers fixed below in terms of these, and not on ε.
+
+#### Further families and their type at an axis {#sec:loc-t5-families}
+
+**Definition {#def:loc-t5-family}** (Further families.) A *further family* A ∈ {3, …, N_f} consists of a smooth
+G-invariant eikonal ů_A of g_e on a G-invariant neighbourhood 𝒩 of 𝒰_3, with dů_A ≠ 0 and P̊_A := g_e⁻¹p̊_A, p̊_A :=
+−dů_A, future directed, and of data on the edges of Q1: a phase U_A and a density q_A ≥ 0, smooth and G-invariant on {0}
+× [0, v_1] × S³ and on [0, u_1] × {0} × S³, with U_A − ů_A and q_A of size at most ε in C^(m_1). The family *crosses*
+N_o at a point where g_e⁻¹(du, dů_A) ≠ 0, and N_i where g_e⁻¹(dv, dů_A) ≠ 0; these open sets of the edges are its
+*crossing sets*. Let 𝒦_A := supp q_A. The data satisfy:
+
+(F-a) 𝒦_A has positive distance from the circles S_c ∩ axis 1 and S_c ∩ axis 2;
+(F-b) A crosses N_o at every point of 𝒦_A ∩ N_o and N_i at every point of 𝒦_A ∩ N_i;
+(F-c) at every point of S_c at which A crosses both edges, for every j ≥ 1, the j-th u-derivatives of U_A and q_A along
+N_i equal those that [[lem:loc-t5-jets]] (b) determines from the data on N_o, and the j-th v-derivatives along N_o those
+it determines from the data on N_i.
+
+A is of *ingoing type* at axis i if dů_A is a multiple of dv at the points of axis i in 𝒩, and of *outgoing type* if it
+is a multiple of du there. Its *tangency set* at axis i is N_i ∩ axis i ∩ 𝒩 in the first case and N_o ∩ axis i ∩ 𝒩 in
+the second; it contains the corner circle S_c ∩ axis i.
+
+**Lemma {#lem:loc-t5-dichotomy}** (Crossing and tangency at the axes.) Let 𝒩 ∩ axis i be connected. A further family is
+of ingoing type or of outgoing type at axis i. If it is of ingoing type, it crosses N_o at every point of N_o ∩ axis i ∩
+𝒩, and at the points of its tangency set g_e⁻¹(dv, dů_A) = 0, the rays of ů_A through them being the generators of N_i
+in the axis; likewise for outgoing type with the edges exchanged. So, by (F-b), a further family carries density at a
+point where an edge meets an axis only if it crosses that edge there, and its density vanishes on a neighbourhood, in N,
+of its tangency sets.
+
+*Proof.* τ0 and |y| are functions of (u, v) whose differentials are independent ([[sec:loc-axis-reduced]]), so at a
+point of axis i the span of dτ0 and d|y| is that of du and dv, and dů_A lies in it by the first claim of
+[[lem:class-phase-axis]], whose proof uses of the chart only that G acts on y by its action on ℝ⁴. A null covector of
+that span is a multiple of du or of dv, as g_e⁻¹(du, du) = g_e⁻¹(dv, dv) = 0 and g_e⁻¹(du, dv) ≠ 0. The two lines meet
+only at 0, and dů_A is continuous and nonzero on the connected set 𝒩 ∩ axis i, so it stays on one of them. For ingoing
+type, g_e⁻¹(du, dů_A) = λ g_e⁻¹(du, dv) ≠ 0 at the axis points of N_o, and g_e⁻¹(dv, dů_A) = λ g_e⁻¹(dv, dv) = 0 at
+those of N_i; there P̊_A is a multiple of g_e⁻¹dv, which is tangent to the axis and to N_i, and its integral curves are
+the generators of N_i in the axis. For the last claim, 𝒦_A is closed and contains no point of the compact tangency set,
+by (F-b), so it has positive distance from it. ∎
+
+So the tangency sets are where a family has the orientation of the adapted family whose phase defines that edge, from
+which it is then not angularly separated ([[prop:class-separation]] (c)); at the crossing points it is not separated
+from the other adapted family.
+
+**Lemma {#lem:loc-t5-tubes}** (The tubes avoid the tangency sets.) Let A be a further family and 𝒦′ ⊂ N a compact
+G-invariant set that satisfies (F-a) and (F-b). There are a neighbourhood 𝒲 of the tangency sets of A and ε_t > 0 such
+that, for every smooth future causal vector field P within ε_t of P̊_A in C⁰ on 𝒰_3, no integral curve of P from a point
+of 𝒦′ into F meets 𝒲 ∩ F ∩ 𝒰^♯.
+
+*Proof.* Let p lie in the tangency set at axis i, of ingoing type say; then p = (u_p, 0) on the axis. By
+[[lem:loc-t5-dichotomy]] the integral curve of P̊_A through p, followed backwards, is the axis generator of N_i; it
+reaches the corner circle and then points with u < 0 in 𝒰_3, after a parameter length bounded uniformly in p ∈ 𝒰^♯. On
+future causal vectors du and dv are nonnegative, so along a future causal curve u and v do not decrease, a curve that
+starts in F stays in F, and a point x of F lies on a curve from a point of 𝒦′ exactly when the backward curve through x
+leaves F through a point of 𝒦′. By continuous dependence on the initial point and on the field on a compact parameter
+interval, for x near p and P near P̊_A in C⁰ the backward curve through x stays within any given distance of that
+through p until it reaches u < 0; so it leaves F at a point of N near the segment of the axis generator of N_i from p to
+the corner circle, that is at a point of N_i near its axis generator or of N_o near the corner circle. Neither lies in
+𝒦′, by (F-b) and [[lem:loc-t5-dichotomy]] on N_i and by (F-a) on N_o. Compactness of the tangency set in 𝒰^♯ gives 𝒲 and
+ε_t. ∎
+
+For this construction (F-a) cannot be weakened to the vanishing of the density on the corner circles alone: by the proof
+above, a family of ingoing type at axis i whose density is nonzero at points of N_o arbitrarily close to the corner
+circle has integral curves that come arbitrarily close to its tangency set on N_i.
+
+*Carrying a family near its tube.* For a further family A let 𝒦_A′ be as in [[thm:loc-t5]], a compact G-invariant
+neighbourhood of 𝒦_A in N satisfying (F-a) and (F-b). Fix δ_2, η_2 > 0 and let 𝒦_A^♯ be the union of 𝒦_A′ and, near each
+axis i at which A crosses an edge, of the caps {ρ_i ≤ 3δ_2} of the sections {ů_A = c} of that edge, the background's
+A-sections, that meet the η_2-neighbourhood of 𝒦_A′ ∩ {ρ_i ≤ 3δ_2} in the edge; for δ_2 and η_2 small it is compact,
+G-invariant and satisfies (F-a) and (F-b), lying near 𝒦_A′. Let 𝒯̊_A be the union of the integral curves of P̊_A in F ∩
+𝒰^♯ from 𝒦_A^♯, and let B_A be the set of the points within 2δ_e, in u or in v, of the points of 𝒦_A on the same
+generator of N, which contains the support of the density of the formal state below. Let ξ_A be a smooth G-invariant
+function, supported in the interior of 𝒰_1 and equal to 1 on a neighbourhood of 𝒯̊_A ∪ B_A, whose support meets N only
+in the crossing sets and does not meet the set 𝒲 of [[lem:loc-t5-tubes]] for 𝒦′ := 𝒦_A^♯, 𝒲 being taken disjoint from
+B_A, as we may, shrinking it. This is possible: 𝒯̊_A ∩ N = 𝒦_A^♯ ∩ 𝒰^♯, since a curve that leaves N_o into F has u > 0
+afterwards and one that leaves N_i has v > 0, both being transverse to the edge at the start by (F-b); B_A ∩ N = 𝒦_A;
+and 𝒯̊_A ∪ B_A is compact and disjoint from the tangency sets. In the system below the rows (Aug2)–(Aug4) of family A
+are multiplied by ξ_A and completed by 1 − ξ_A times the first-order form of P̄_A·∂, P̄_A of [[sec:loc-t5-system]],
+acting on the difference of (p_A, Θ_A, q_A) from that of the formal state Û below. Family A enters the other rows only
+through q_A; the row of q_A is homogeneous in q_A where ξ_A < 1, the formal density vanishing there. The phase data of
+family A near its tangency sets, where the edge is characteristic for it and the jets of its phase are not determined by
+the data ([[prop:loc-t5-grazing]] (a)), are never used.
+
+**Lemma {#lem:loc-t5-jets}** (Cone data and jets with further families.) (a) [[lem:loc-axis-constraints]] holds with E
+:= Ric(g) − q_in dv ⊗ dv − q_out du ⊗ du − Σ_A q_A du_A ⊗ du_A, u_A = U_A on the edges, and with q_in + Σ_A q_A
+(∂_vU_A)² in place of q_in in the equation for Y on N_o, q_out + Σ_A q_A (∂_uU_A)² in place of q_out on N_i, and the
+term 4Ω² γ⁻¹(Σ_A q_A ∂_vU_A dU_A|_(S³)) added to the right side of the equation for ∂_vW in its proof, 𝔯 being that of
+its part (a), the sums over the further families. The extension of its part (c) applies to U_A − ů_A and to q_A, the
+Borel sums of q_A beyond v_1 and u_1 being multiplied by β_A(v − v_1), respectively β_A(u − u_1), with β_A smooth, equal
+to 1 near 0 and to 0 beyond a length ℓ_A ≤ δ_1 so small that (F-a) and (F-b) hold for the extended data with the
+extended supports; their sizes are then at most Cε in C^(m_0).
+
+(b) Near every point of the crossing set of N_o the derivatives ∂_u^j u_A and ∂_u^j q_A on N_o of a class solution with
+the data are determined recursively, as smooth G-invariant functions, by the eikonal equation and the transport (Aug4),
+from the u-derivatives of the fields of order at most j − 1 and the derivatives of the data along N_o, and enter the
+equations of [[lem:loc-axis-jets]] (b) for the derivatives of the fields of order j as inhomogeneous terms, through
+∂_u^(j−1) of the stress. On every compact subset of the crossing set, for 5j ≤ m_0, the C^(m_0−5j) norms of the
+differences from the background's of the derivatives of order j of the fields, of u_A and of q_A are at most C_j ε, for
+the extended data of size at most Cε in C^(m_0). The same holds on N_i with u and v exchanged.
+
+*Proof.* (a) On N_o, du_A(∂_v) = ∂_vU_A and du_A(X) = X(U_A) for X tangent to the spheres, while du(∂_v) = dv(∂_v) =
+du(X) = dv(X) = 0; so Ric(g)(∂_v, ∂_v) − q_in is −(3/Y)(…) of [[eq:loc-axis-cone]] and equals Σ_A q_A (∂_vU_A)² when E
+vanishes, and E(∂_v, X) = 0 adds Σ_A q_A ∂_vU_A X(U_A) to the second line of [[eq:loc-axis-cone]]. The added terms are
+smooth G-invariant functions and 1-forms on the edges, dU_A|_(S³) being a smooth G-invariant 1-form on S³; the equation
+for Y stays linear, with the coefficient (1/3)((1/4)|∂_vγ̂|²_γ̂ + q_in + Σ_A q_A (∂_vU_A)²) of Y, and the equation for W
+gains an inhomogeneous term. So the proofs of (b) and (c) of [[lem:loc-axis-constraints]] apply verbatim, the Gronwall
+bounds of (c) holding with these terms, of size Cε in C^(p−1). The Borel extension of q_A has its support, at each v ≥
+v_1, in the angles of supp q_A ∩ {v = v_1}, as every term of the sum vanishes where all v-derivatives of q_A at v_1
+vanish; the crossing sets are open and contain the compact set 𝒦_A ∩ {v = v_1}, so for ℓ_A small the extended support
+lies in them and away from S_c. (b) In the double-null form [[eq:loc-double-null]], g^(uu) = g^(ua) = g^(vv) = 0, so on
+N_o the eikonal equation g⁻¹(du_A, du_A) = 0 reads 2g^(uv) ∂_uu_A ∂_vU_A + 2g^(va) ∂_vU_A ∂_aU_A + g^(ab) ∂_aU_A
+∂_bU_A = 0, linear in ∂_uu_A with the coefficient 2g^(uv) ∂_vU_A = 2g⁻¹(du, du_A), nonzero on the crossing set;
+∂_u^(j−1) of it is linear in ∂_u^j u_A with the same coefficient, the other terms holding ∂_u^i u_A, i < j, and ∂_u^i of
+the fields, i ≤ j − 1. P_A(q_A) + Θ_A q_A = 0 with Θ_A := div_g P_A = □_g(−u_A) is linear in ∂_uq_A with the coefficient
+P_A^u = g^(uv) ∂_vU_A ≠ 0; ∂_u^(j−1) of it holds ∂_u^j q_A with this coefficient, ∂_u^i q_A for i < j, ∂_u^i u_A for i ≤
+j and ∂_u^i of the fields for i ≤ j, as □_g holds no ∂_u² (g^(uu) = 0) and holds the first u-derivatives of the metric
+in the coefficient of ∂_vu_A; so ∂_u^j q_A is determined after the fields' derivatives of order j. In the equations of
+[[lem:loc-axis-jets]] (b) for the fields' derivatives of order j, the stress enters through ∂_u^(j−1)(q_A du_A ⊗ du_A),
+which holds ∂_u^i q_A, i ≤ j − 1, and ∂_u^i u_A, i ≤ j, already determined; it enters 𝔏(0) only, as an inhomogeneous
+term. By induction on j the recursion of [[lem:loc-axis-jets]] (b), with these equations added, determines all
+derivatives, as smooth G-invariant functions near the crossing set, the axis generators included. For the bounds,
+suppose that the derivatives of order i ≤ j of the fields, of u_A and of q_A have the bounds stated. ∂_u^(j+1) u_A holds
+the fields' derivatives of order j and one derivative along N of those of u_A of order at most j, so it lies in
+C^(m_0−5j−1); the equations of [[lem:loc-axis-jets]] (b) at the order j + 1, whose term 𝔏(0) holds derivatives of order
+at most two of the fields' derivatives of order at most j, whose equation for the vector field one derivative along S³
+of the other two components, and whose initial values j + 1 derivatives of the data along the other edge, as in the
+proof of its part (iii), and which now hold the stress through ∂_u^j q_A and ∂_u^(j+1) u_A, give the fields' derivatives
+of order j + 1 in C^(m_0−5j−3); and ∂_u^(j+1) q_A holds in addition, through Θ_A, ∂_v ∂_u^(j+1) u_A and the fields'
+derivatives of order j + 1, so it lies in C^(m_0−5j−3); each bound is linear in ε, the background's quantities solving
+the same equations. As m_0 − 5j − 3 ≥ m_0 − 5(j + 1), the bounds hold at the order j + 1. As m_0 = 6k + 18 ≥ k + 3 + 4j
+for j ≤ k + 3, this gives the derivatives of order j ≤ k + 3 in C^(k+3−j), which [[lem:loc-axis-jets]] (c) uses for ‖Û −
+Ů‖_(C^(k+3)) ≤ Cε. ∎
+
+Let ζ_A be a smooth G-invariant function on N, supported in the crossing sets and equal to 1 near supp ξ_A ∩ N. The
+fields' derivatives a_j, b_k of [[lem:loc-axis-jets]] (b), now with the further families, and ζ_A times those of u_A −
+ů_A and q_A, are smooth on the edges, and at S_c they agree in the sense of (i) of [[def:loc-cone-data]] by (F-c); the
+Borel sums of [[lem:loc-axis-jets]] (a) and (c), at the scale δ_e of Δ, give the formal state Û with further families:
+û_A := ů_A plus the sum for u_A − ů_A, p̂_A := −dû_A, Θ̂_A := div_Ĝ P̂_A, P̂_A := Ĝ⁻¹p̂_A, and q̂_A the sum for q_A,
+supported in B_A, as the derivatives of q_A vanish on N ∖ 𝒦_A; Ů carries family A as (p̊_A, div_(g_e) P̊_A, 0). On a
+neighbourhood of N ∩ {ζ_A = 1}, Ĝ⁻¹(dû_A, dû_A) and P̂_A(q̂_A) + Θ̂_A q̂_A vanish to infinite order on N, and the
+residuals of [[lem:loc-axis-jets]] (c) vanish to infinite order on N with the further stress included. Û = Ů on {τ0 ≤
+τ_0′}, and ‖Û − Ů‖_(C^(k+3)) ≤ Cε.
+
+#### A closure time for each family {#sec:loc-t5-times}
+
+Near axis i let ρ_i be the radius of [[sec:class-phases]] in the coordinates y, let χ_* ∈ C^∞([0, ∞)) equal 1 on [0, ½]
+and 0 on [1, ∞), and put T_o(v) := τ0(0, v) and T_i(u) := τ0(u, 0), the restrictions of τ0 to the edges, which are
+increasing. A further family A is *carried near axis i* if supp ξ_A meets {ρ_i ≤ δ}. Let A be carried near axis i and of
+ingoing type there. By [[lem:loc-t5-dichotomy]], ∂_vů_A ≠ 0 on N_o ∩ axis i ∩ 𝒩, and U_A is within Cε of ů_A in C¹ on
+the extended edge; so near the axis-i generator of N_o the sections {U_A = c} of N_o, its *A-sections*, are the graphs
+v = V_A(c, ω) of smooth G-invariant functions. Fix v_A > 0 such that supp ξ_A ∩ N_o ∩ {ρ_i ≤ δ} lies in {v ≥ 2v_A}
+([[lem:loc-t5-tubes]] and the choice of ξ_A). Then g_A := T_o(v) − T_o(V_A(U_A(v, ω), ω_i)), ω_i a point of S³ in axis
+i, on which nothing depends by invariance, is a smooth G-invariant function on N_o ∩ {v ≥ v_A} near the axis-i
+generator, zero on it; by Taylor's formula, as before [[eq:class-axis-metric]], g_A = Ĝ_A ρ_i² with Ĝ_A smooth and
+G-invariant, and we extend Ĝ_A to a neighbourhood of 𝒰_3 near axis i as a function of (v, ω), independent of u. Let ψ_A
+be a smooth function of (u, v) with values in [0, 1], equal to 1 on a neighbourhood of the points (u, v) of supp ξ_A ∩
+{ρ_i ≤ δ} with u ≤ 2u_A, and to 0 for v ≤ v_A and for u ≥ 3u_A, where u_A > 0 is fixed so small that this is possible.
+For outgoing type the same holds with N_i, U_A(u, ω), T_i and the roles of u and v exchanged. For the adapted families
+put t_in := t_out := τ0, and for a further family
+
+    t_A := τ0 − Σ_i χ_*(ρ_i/δ_*) ψ_A^(i) Ĝ_A^(i) ρ_i²,      τ := τ0 + K Σ_(i=1,2) χ_*(ρ_i/δ_*) ρ_i²,  {#eq:loc-t5-times}
+
+the first sum over the axes near which A is carried, ψ_A^(i), Ĝ_A^(i) the functions above for axis i.
+
+**Lemma {#lem:loc-t5-times}** (The closure times and the evolution time.) Let K := 2 + max_(A,i) sup |Ĝ̊_A^(i)|, the
+supremum over supp ψ_A^(i) ∩ 𝒰_3 ∩ {ρ_i ≤ δ}, Ĝ̊_A^(i) the function Ĝ_A^(i) formed with ů_A in place of U_A; for ε
+small |Ĝ_A^(i) − Ĝ̊_A^(i)| ≤ 1 there, and K ≥ 1 + sup |Ĝ_A^(i)|, the C¹ norms of Ĝ_A^(i) being bounded independently of
+ε. There are δ_* ∈ (0, δ/2] and ε_1 > 0 such that:
+
+(a) on 𝒰_3, τ and every t_A are time functions for every Lorentzian metric within ε_1 of g_e in C⁰; (τ, y) and every
+(t_A, y) are charts, their coordinate fields ∂_τ and ∂_(t_A) being positive multiples of the field ∂_(τ0) of the chart
+(τ0, y), future timelike for g_e; and all of them equal τ0 where ρ1, ρ2 ≥ δ_*;
+(b) on the edge that A crosses at axis i, at the points with ρ_i < δ_*/2 and ψ_A^(i) = 1, t_A is constant on every
+A-section; the sections of N by the slices of τ0 are the spheres S_o(s) and S_i(s);
+(c) let C_L ≥ 1; there is r_L > 0, depending on C_L and on δ_*, such that along every curve z = h(r), 0 ≤ r < r_L, in a
+slice of t_A or of τ0, starting on the axis, with |h′(r)| ≤ C_L r, τ is strictly increasing;
+(d) 0 ≤ τ − t_A ≤ m_* := (K + max sup |Ĝ_A^(i)|) δ_*², 0 ≤ τ − τ0 ≤ K δ_*² ≤ ½, and Q1 ⊂ {τ ≤ s* − ½}.
+
+*Proof.* (a) With ρ := ρ_i, |d(χ_*(ρ/δ_*) ψ_A Ĝ_A ρ²)| ≤ C (δ_*⁻¹ δ_*² + δ_*) ≤ C δ_* on {ρ ≤ δ_*}, and likewise for the
+bend of τ, C depending on K and on the C¹ norms of Ĝ_A and ψ_A, on 𝒰_3. dτ0 is timelike for g_e on the compact set 𝒰_3
+with a margin ([[sec:loc-axis-reduced]]), so for δ_* small τ and t_A are time functions for the metrics within ε_1 of
+g_e, and their derivatives along ∂_(τ0) are 1 + O(δ_*), the bends not depending on τ0 at fixed y beyond through ψ_A and
+Ĝ_A, whose ∂_(τ0)-derivatives are bounded. So (t_A, y) is a chart, and its field ∂_(t_A), which is tangent to the curves
+of constant y, is a positive multiple of ∂_(τ0). (b) On the edge, where χ_* = ψ_A = 1, t_A = T_o(v) − g_A = T_o(V_A(U_A,
+ω_i)), a function of U_A alone. For τ0 this is [[lem:loc-axis-leaf]] (i) and [[sec:loc-axis-reduced]]. (c) On a slice of
+t_A, τ = t_A + f with f := χ_*(ρ/δ_*)(ψ_A Ĝ_A + K) ρ² near axis i, the two bends using the same χ_*. For r < δ_*/2,
+χ_* = 1, and along the curve, with ∂_ρ(ψ_A Ĝ_A) = O(ρ), ψ_A Ĝ_A being smooth and invariant,
+
+    d/dr f(h(r), r) = 2 (ψ_A Ĝ_A + K) r + r² (∂_z(ψ_A Ĝ_A) h′ + ∂_ρ(ψ_A Ĝ_A)) ≥ 2 r − C (1 + C_L) r³ > 0
+
+for r < r_L := min(δ_*/2, (C (1 + C_L))^(−1/2)), as ψ_A Ĝ_A + K ≥ 1. For the slices of τ0 the same holds with ψ_A Ĝ_A
+replaced by 0. (d) f ≥ 0 and f ≤ (K + sup |Ĝ_A|) δ_*². Take K δ_*² ≤ ½; then Q1 ⊂ 𝔗(s* − 1) ⊂ {τ ≤ s* − ½}. ∎
+
+Fix δ_* by (a) and (d). For every family A and every point x of a slice of t_A within r_L of an axis, the arc from the
+axis to x of a curve of (c) lies in {τ ≤ τ(x)} and in {τ ≥ τ(x) − m_*}.
+
+**Lemma {#lem:loc-t5-faces}** (The edge sections are leaves of each family.) Let A be a further family that crosses an
+edge at its axis-i generator, at the points where (b) of [[lem:loc-t5-times]] holds, or an adapted family, and let V be
+a state on a slice of t_A whose p_A, Θ_A, metric and first derivatives of the metric agree with those of Û at the points
+of the edge section S of that slice, and whose A-leaves through the points of the axis near S exist over a disc 𝔻_(2δ′),
+with ζ_A = 1 on S near its point on the axis. Then near its point on the axis S is V's A-leaf through it, and the parts
+of the slice on either side of S near that point are unions of V's A-leaves.
+
+*Proof.* For an adapted family this is [[lem:loc-axis-leaf]] (iii) and [[lem:loc-axis-past]]. Let A be further. By
+[[lem:loc-axis-leaf]] (iii) it suffices to treat Û. S is a G-invariant hypersurface of the slice; the axis meets it
+transversally, as dU_A does not vanish along the axis generator in the direction of the generator, so S ∩ M3 is a graph
+z = h_S(y) with h_S smooth, and p̂_A(∂_z) ≠ 0 there, dû_A being near the axis a multiple of du or dv and ∂_z, the
+direction of the axis in the slice, a combination of ∂_u and ∂_v with both coefficients nonzero, as t_A increases with u
+and v along the axis. û_A = U_A on the edge, constant on S by [[lem:loc-t5-times]] (b), so p̂_A vanishes on TS. On S,
+where ζ_A = 1, û_A is null for Ĝ to infinite order and ∇²û_A(P̂_A, ·) = ½ d(Ĝ⁻¹(dû_A, dû_A)) vanishes, so TS, spacelike,
+orthogonal to the null P̂_A and not containing it, is a screen, and as in the proof of [[lem:loc-axis-leaf]] (iii),
+θ_S = −tr_(TS) ∇²(−û_A) = □_Ĝ(−û_A) = Θ̂_A. By [[lem:loc-axis-leaf]] (ii), S ∩ M3 is Û's A-leaf over the disc on which
+it is a graph. The leaves foliate a neighbourhood of the axis point ([[lem:class-leaf-states]] (a)) and do not cross, so
+a leaf that meets one side of S near it stays on that side. ∎
+
+#### The system with memory {#sec:loc-t5-system}
+
+*The closure radius.* By compactness, as in the paragraph *The system* of [[sec:loc-axis-reduced]], with r_* := ρ_-/8,
+there are M, c > 0, δ′ ∈ (0, δ_*/4], ρ′ > 0 and C_L ≥ 1 such that, near every point p ∈ 𝒰_2 of an axis, in every slice
+of τ0, of τ and of every t_A meeting 𝒰_2, every state within ρ′ of Ů in C^5 in the chart of that time has bounds (M, c),
+[[lem:class-leaf-states]] holds for it with r_1 ≥ 4δ′, its leaves satisfy |h′(r)| ≤ C_L r, and [[lem:class-leaf-tame]]
+holds in the charts (t_A, y) and (τ0, y), with W̊ := Ů, intervals I of length between 1 and L_I := s* − τ_init + 3m_* +
+3, δ := δ′ ≤ δ_1 and r ≥ ρ′. Fix δ_♮ ∈ (0, δ′] such that: (i) δ_♮ ≤ r_L of [[lem:loc-t5-times]] (c) for this C_L; (ii)
+for every further family A and axis i, the points of supp ξ_A within δ_♮ of axis i near which ψ_A^(i) ≠ 1 lie at
+distance more than 2C_L δ_♮² from N in (u, v), which is possible as ψ_A^(i) = 1 near the points of supp ξ_A ∩ {ρ_i ≤ δ}
+with u ≤ 2u_A (or v ≤ 2v_A) and supp ξ_A does not meet 𝒲; (iii) δ_♮ e^(L(s*−τ_c)) ≤ δ_2, with L − 1 a Lipschitz constant
+of the flows of the fields P̊_A on 𝒰_3; (iv) the points of N within 2δ_♮ of supp ξ_A lie in {ζ_A = 1}, possible by
+compactness as ζ_A = 1 on a neighbourhood of supp ξ_A ∩ N. Let ψ_♮ := ψ_♮0(ρ1) + ψ_♮0(ρ2), ψ_♮0 ∈ C^∞(ℝ) equal to 1 on
+[0, δ_♮/4] and to 0 on [δ_♮/2, ∞); it is smooth and G-invariant on 𝒰_3, the sets {ρ1 ≤ δ_♮/2} and {ρ2 ≤ δ_♮/2} being
+disjoint there. Let 𝒰^♭ := {(u, v) : u, v > −δ_c, τ_init ≤ τ ≤ s*, u + κv ≤ l_u + δ_1/2, v + κu ≤ l_v + δ_1/2}. For δ_*
+small it lies in the interior of 𝒰_1, its boundary consists of pieces of {τ = τ_init}, of {τ = s*} and of the far cuts,
+spacelike with 𝒰^♭ to their past as in (2) of [[sec:loc-axis-reduced]], and F ∩ 𝒰^♭ = 𝒯 := F ∩ {τ ≤ s*} ⊂ 𝔗(s*), which
+contains Q1 by [[lem:loc-t5-times]] (d), as τ ≥ τ0 ≥ τ_c > τ_init on F. We take ξ_A supported at positive distance from
+the far cuts, as we may, 𝒯̊_A lying in [0, l_u) × [0, l_v) and the supports of the data in {u ≤ u_1 + ℓ_A} ∪ {v ≤ v_1 +
+ℓ_A}.
+
+*The system.* For G-invariant states U = (g, p_A, Θ_A, q_A), A ∈ {in, out, 3, …, N_f}, let 𝒜^♮(U) = 0 be (Aug1), (Aug2)
+and (Aug4) of [[sec:class-augmented]], with the reduced Ricci tensor and the gauge vector relative to Ĝ, together with,
+in place of (Aug3),
+
+    P_A(Θ_A) = (1 − ψ_♮) S_A + ψ_♮ S_A^ax,
+
+with S_A of (Aug3) and S_A^ax of [[eq:loc-axis-closure]], its sum running over all families, and σ_A[U](x) the planar
+shear at x of the A-leaf through x of the state of U on the slice {t_A = t_A(x)}, defined before
+[[lem:class-leaf-states]] in the chart (t_A, y), the first derivatives of g in that chart being read from the components
+g_τ, g_a of 𝐔 by the chain rule; σ_A enters only through σ_A². For a further family A all four rows of A are multiplied
+by ξ_A and completed as before [[lem:loc-t5-jets]], with P̄_A := χ′ P̊_A + (1 − χ′) ∂_τ, χ′ a G-invariant function equal
+to 1 on 𝒰_2 and supported in 𝒩. Let 𝔄_χ and F̃ := (1 − θ 1_F) 𝔄_χ(Û) be defined by [[eq:loc-cone-modified]] in the chart
+(τ, y), with 𝒜^♮ in place of 𝒜 in the first-order form of Step 9 of the proof of [[thm:class-stability-off-axes]], its
+local terms evaluated at 𝐔̊ + ϒ(𝐔 − 𝐔̊) and its terms in σ_A at 𝐔, with P̄_A as here for the further families in A^μ_♭,
+and with its first row taken as ∂_τ Z_g − Z_(g_τ) = 0 for every Z := 𝐔 − 𝐔̊, which is that row where |Z| ≤ r_0. The
+proofs of (a)–(c) of [[lem:loc-axis-system]] apply: the system has the form [[eq:class-kato-system]], A^μ_χ(x, Z) ∂_μZ =
+F(Z), with A^μ_χ symmetric and A^0_χ ≥ c_1 I, as ∂_τ is future timelike for g_e ([[lem:loc-t5-times]] (a)) and every
+transport field of the rows, among them ξ_A P_A + (1 − ξ_A) P̄_A, has a positive τ-component; F(Z) is Φ(·, Z) of the
+proof of [[lem:loc-axis-system]] (a), with the rows of the further families and the terms in σ_A included; where χ = 1
+and |Z| ≤ r_0, 𝔄_χ(𝐔) = 𝒜^♮(𝐔); and the third row of the wave block is h_χ^(ab)(∂_τ Z_(g_b) − ∂_b Z_(g_τ)) = 0, with h_χ
+positive definite and no forcing term ([[lem:loc-cone-system]] (c)). The value of F(Z) at a point x depends on Z at x
+and, through σ_A, on Z on the arcs used at x, which lie in {τ(x) − m_* ≤ τ ≤ τ(x)} ([[lem:loc-t5-times]], the remark
+after it).
+
+*Compatible paths.* Write Z = (Z_g, Z′), Z_g the components of g − g_e. The components of g are differentiated only in
+the first row, which is ∂_τ Z_g = Z_(g_τ), so the system has the structure of (d) of [[thm:class-kato-memory]], with
+A^μ_χ = diag(δ^μ_0 I, A′^μ) and Π Z′ := Z_(g_τ). Let 𝒞 be the set of paths Z with Z_(g_τ) = ∂_τ Z_g and Z_(g_a) = ∂_a
+Z_g in the sense of distributions. For Z ∈ 𝒞 the first derivatives of the metric of 𝐔̊ + Z are its components g_τ, g_a,
+so its restriction to every slice of τ0, τ or t_A is a state in the sense before [[lem:class-leaf-states]], and
+[[lem:class-leaf-states]] and [[lem:class-leaf-tame]] apply to it. 𝒞 has the properties (C1)–(C4) of that part: (C1) 0 ∈
+𝒞, as g_τ = ∂_τ g_e and g_a = ∂_a g_e for 𝐔̊; (C2) the split step gives ∂_τ w_g = w_(g_τ), and the third row gives ∂_τ
+(w_(g_a) − ∂_a w_g) = ∂_a w_(g_τ) − ∂_a w_(g_τ) = 0, with w_(g_a) = ∂_a w_g at t1, the history lying in 𝒞; (C3) the two
+identities pass to limits in the sense of distributions; (C4) for h ∈ 𝒞 on [−2m, t1], h_g ∈ 𝒳^(k+1)([t1 − m, t1]) with
+⟦h_g⟧_(k+1) ≤ C ⟦h⟧_k, its first derivatives being components of h, and the path u^0 with u^0_g := E_(t1) h_g, formed
+with N := k + 2, u^0_(g_τ) := ∂_τ u^0_g, u^0_(g_a) := ∂_a u^0_g and the other components E_(t1) h, equal to h on [−2m,
+t1] and to these on [t1, t1 + m], lies in 𝒞 with ⟦u^0⟧_k ≤ C ⟦h⟧_k. We apply [[thm:class-kato-memory]], with its part
+(d) for 𝒞, the time t := τ − τ_init, T0 := s* − τ_init, s := k, u_* := 0, the memory m := 2m_* + 2 and a radius ρ ≤
+ρ′/(C_X C_5), where C_X bounds on W^(6,∞) the operator X_b defined in the proof of [[lem:loc-t5-forcing]] and C_5 is
+such that ‖Z‖_(C^5) ≤ C_5 ⟦Z⟧_(k,J) and ‖Z_g‖_(W^(6,∞)) ≤ C_5 ⟦Z⟧_(k,J) for Z ∈ 𝒞 ∩ 𝒳^k(J) on intervals J of length at
+least 1, by [[lem:sobolev]] on the slices, as k − 5 > 2.
+
+**Lemma {#lem:loc-t5-forcing}** (The forcing term.) On the paths of 𝒞, F satisfies (M0), (M1), (M2), (M1′) and, for
+every σ > k, (M1_σ) of [[thm:class-kato-memory]]; the constants depend on the quantities named in the setting, and in
+(M1_σ), for σ ≥ 10, on an upper bound for ‖Z‖_(H^(σ−1)([−2m,t̄])).
+
+*Proof.* For a time b let X_b extend functions of (t, x) from [b − m_* − 1, b] × ℝ⁴ to [b − m_* − 1, b + m_* + 1] × ℝ⁴
+by Stein's extension operator of the interval [b − m_* − 1, b] in t at each x ([[thm:std-sy-extension]]), translated so
+that it does not depend on b; it commutes with ∂_x, so it is bounded on every H^σ and on every W^(j,∞), with constants
+independent of b. Let Z ∈ 𝒞 ∩ 𝒫_t̄, and for t̄′ ≤ t̄ let Z_e be Z on [−2m, t̄′] and, on [t̄′, t̄′ + m_* + 1], (Z_e)_g :=
+X_(t̄′) Z_g, (Z_e)_(g_τ) := ∂_τ (Z_e)_g, (Z_e)_(g_a) := ∂_a (Z_e)_g and the other components X_(t̄′) Z. Then Z_e ∈ 𝒞,
+X_(t̄′) Z_g being Z_g on [t̄′ − m_* − 1, t̄′]; ‖Z_e‖_(C^5) ≤ C_X C_5 ρ ≤ ρ′; and the norms of Z_e of order σ on [t̄′,
+t̄′ + m_* + 1] are at most C_σ times ‖Z‖_(H^σ([t̄′−m_*−1,t̄′])), as ‖X_(t̄′) Z_g‖_(H^(σ+1)) ≤ C_σ ‖Z_g‖_(H^(σ+1)) and
+the first derivatives of Z_g are components of Z. *(M0).* For x with τ(x) ≤ t̄′ the arcs used at x lie in {τ ≤ τ(x)},
+where Z_e = Z; so F(Z) = F(Z_e) on {τ ≤ t̄′}, and the value of F(Z) at a time t depends on Z on [t − m_*, t] only. *The
+local part.* It is a smooth function Φ_loc(x, Z) with every derivative bounded on bounded sets of Z, and Φ_loc(x, Z) −
+Φ_loc(x, 0) = Ψ(x, Z) Z with Ψ smooth. By [[lem:class-composition]] (b) and (c) in the five variables (τ, y), after the
+extension X_b at both ends of [t1, t2], bounded on H^σ and on L^∞, its H^σ norm on [t1, t2] is at most C_σ
+‖Z‖_(H^σ([t1,t2])), and its L² norm on [t1, t2] at most C ‖Z‖_(L²([t1,t2])). *The terms in σ_A.* They are −½ χ ψ_♮
+σ_A[𝐔]² in the rows of the closure, times ξ_A for a further family; χ ψ_♮ ξ_A is smooth with bounded derivatives. Fix t1
+< t2 ≤ t̄ with t1 ≥ −m, let Z_e be the extension above with t̄′ := t2, and cover the axes in 𝒰_2 by finitely many sets
+𝒰_(δ′)(p). At a point x near p with τ(x) ∈ [t1, t2] and ρ_i(x) < δ_♮/2, t_A(x) ∈ [τ(x) − m_*, τ(x)] ⊂ I := [t1 − m_* −
+1, t2]. The states of 𝐔̊ + Z_e on the slices of t_A form a family of states in the sense of [[lem:class-leaf-tame]],
+whose first derivatives of the metric in the chart (t_A, y) are linear combinations of g_τ and g_a with smooth
+coefficients; so that lemma, with W̊ := 𝐔̊, bounds σ_A[𝐔]² − σ_A[𝐔̊]² in H^σ near x by C_σ times the H^σ norm of Z_e on
+I × 𝒰_(4δ′)(p) ⊂ {t1 − m_* − 1 ≤ τ ≤ t2 + m_*}, the change of chart (τ, y) ↦ (t_A, y) having bounded derivatives of
+every order with its inverse. By the bound of the extension the right side is at most C_σ ‖Z‖_(H^σ([t1−m,t2])), with C_σ
+depending, for σ ≥ 10, on an upper bound for ‖Z‖_(H^(σ−1)). *(M1′) and (M1_σ).* So ‖F(Z) − F(0)‖_(H^σ([t1,t2])) ≤ C_σ
+‖Z‖_(H^σ([t1−m,t2])), which is (M1′) at σ = k; F(0) = −R is smooth with compact support in x ([[lem:loc-t5-residual]]),
+so ‖F(0)‖_(H^σ([t1,t2])) ≤ C_σ, which with the above gives (M1_σ). *(M1).* With σ = k, ‖F(0)‖_(H^k([t1,t2])) ≤ C (t2 −
+t1)^(1/2) and ‖Z‖_(H^k([t1−m,t2])) ≤ (t2 − t1 + m)^(1/2) ρ. *(M2).* The local terms are Lipschitz in Z pointwise,
+uniformly for |Z| ≤ C ρ. For two paths Z, Z′ ∈ 𝒞, [[lem:class-leaf-states]] (c), on each slice {t_A = t′} with D the
+whole slice, gives ‖σ_A[𝐔_e] − σ_A[𝐔′_e]‖_(L²(𝒰_(δ′)(p)∩{t_A=t′})) ≤ C ‖𝐔_e − 𝐔′_e‖_(L²(𝒰_(2δ′)(p)∩{t_A=t′})), the
+difference of the states holding that of the first derivatives of the metrics, which are components; with |σ_A| ≤ C
+([[lem:class-leaf-states]] (a)), squaring, integrating over t′ ∈ I by Fubini's theorem in the chart (t_A, y), and the L²
+bound of the extension, this gives (M2). ∎
+
+**Lemma {#lem:loc-t5-residual}** (The residual.) (a) 𝔄_χ(Û) = F̃ on P, and F̃ is smooth and supported in supp χ.
+(b) R := 𝔄_χ(Ů) − F̃ is smooth, supported in supp χ, zero on {τ0 ≤ τ_0′}, and ‖R‖_(H^k(J)) ≤ C ε for every interval J of
+times of length at most s* − τ_init + 2m_* + 2, H^k(J) the space-time norm of [[sec:class-kato]].
+
+*Proof.* (a) On P, θ 1_F = 0. F̃ = 𝔄_χ(Û) − θ 1_F 𝔄_χ(Û), and θ 1_F 𝔄_χ(Û) is smooth if 𝒜^♮(Û), which equals 𝔄_χ(Û) on
+supp θ ⊂ {χ = 1}, |𝐔̂ − 𝐔̊| ≤ r_0 for ε small, vanishes to infinite order on N ∩ 𝒰^♭. Its local rows do, by
+[[lem:loc-axis-system]] (d) and the paragraph after [[lem:loc-t5-jets]]: where ξ_A ≠ 0 near N, ζ_A = 1, and the rows of
+family A vanish to infinite order there, (Aug1) holding the further stress; where ξ_A < 1 the completion vanishes for Û
+identically. For an adapted family σ_A[Û] is that of [[lem:loc-axis-system]] (d), the spheres of the slices of τ0 being
+its leaves, and its closure row is −E(P̂_A, P̂_A) by the proof there, with any partition ψ_♮ and with the further stress
+in T̂. Let A be a further family, carried near axis i, and x near N with ψ_♮ ξ_A(x) ≠ 0; let d(x) be its distance from
+N. x lies near the edge that A crosses at axis i, at a point where (b) of [[lem:loc-t5-times]] holds, since ξ_A vanishes
+near the tangency sets; the slice {t_A = t_A(x)} meets that edge near x in an A-section S. Let W be the state (Ĝ, p̂_A,
+θ_A) on the slice, θ_A(y) the expansion θ_S of [[lem:loc-axis-leaf]] (ii) for the level set of û_A through y in the
+slice. By [[lem:loc-axis-leaf]] (ii) the level sets of û_A near the axis are W's A-leaves; S is one of them. Since
+∇²û_A(P̂_A, ·) = ½ d(Ĝ⁻¹(dû_A, dû_A)), the difference Θ̂_A − θ_A = □_Ĝ(−û_A) − θ_A is a smooth function of (Ĝ, ∂Ĝ, dû_A,
+∇²û_A) vanishing where Ĝ⁻¹(dû_A, dû_A) and its differential vanish, hence O(d^N) for every N near N ∩ {ζ_A = 1}. The
+level set through x lies within C d(x) of S, hence of N, and so does its arc; [[lem:class-leaf-states]] (b) with U := W
+and U′ := Û, W and Û having the same metric and p_A, gives |σ_A[Û](x) − σ(û_A)(x)| ≤ C_N d(x)^N, σ(û_A) := σ_A[W] the
+planar shear of the level sets of û_A. For û_A the identities of [[prop:class-structure]] (b) and (c), with
+[[eq:class-x]], hold up to smooth functions vanishing where Ĝ⁻¹(dû_A, dû_A) and its differential vanish, so the
+closure row of A at Û with σ(û_A) in place of σ_A is −E(P̂_A, P̂_A) up to O(d^N), and the row at Û is O(d^N) for every
+N. It is smooth on a two-sided neighbourhood of N, Û being smooth and its leaves depending smoothly on the point and on
+t_A ([[lem:class-leaf-states]] (a)), and a smooth function that is O(d^N) for every N vanishes to infinite order on N,
+by Taylor's formula across N.
+(b) R = (𝔄_χ(Ů) − 𝔄_χ(Û)) + θ 1_F 𝔄_χ(Û). On {τ0 ≤ τ_0′}, Û = Ů, the arcs used there lying in {τ ≤ τ(x)} ⊂ {τ0 ≤ τ_0′},
+and θ 1_F = 0; so R = 0 there. The local part of the first term is bounded in C^k by C ‖Û − Ů‖_(C^(k+1)) ≤ C ε; its
+terms in σ_A, which hold σ_A only through σ_A², are bounded in H^k by C ε by [[lem:class-leaf-tame]], with W the family
+of states of Û and W̊ that of Ů, on the compact support. On F ∩ supp θ, 𝔄_χ(Û) = (𝔄_χ(Û) − 𝔄_χ(Ů)) + 𝔄_χ(Ů), where
+𝔄_χ(Ů) is the residual of (Aug1) for the reference Ĝ in place of g_e, at most C ε in C^k, Ů solving the background's
+system on F with the true planar shears of its level sets in every slicing ([[lem:class-leaf-differences]], last
+statement) and with zero densities of the further families. As 𝔄_χ(Û) vanishes to infinite order on N, θ 1_F 𝔄_χ(Û) has
+H^k norm at most that of θ 𝔄_χ(Û) on F, at most C ε. ∎
+
+**Lemma {#lem:loc-t5-existence}** (Existence and smoothness.) For ε small the system has a smooth G-invariant solution 𝐔
+on [τ_init, s*] × ℝ⁴ with 𝐔 = 𝐔̊ on {τ ≤ τ_init}, g_τ = ∂_τ g, g_a = ∂_a g and ⟦𝐔 − 𝐔̊⟧_(k,[τ_init−2m,s*]) ≤ C ε; so the
+derivatives of order at most k − 3 of 𝐔 − 𝐔̊ are at most C ε. For every further family A, the integral curves of P_A in
+F ∩ 𝒰^♭ from 𝒦_A^♯ lie in {ξ_A = 1}.
+
+*Proof.* The history Z := 0 on [τ_init − 2m, τ_init], a path of 𝒞, is a solution there, F(0) = −R vanishing on {τ ≤
+τ_init} ⊂ {τ0 ≤ τ_0′}. [[thm:class-kato-memory]] (b) and (d), with (M0)–(M2) and (M1′) on 𝒞 by [[lem:loc-t5-forcing]]
+and δ := ‖R‖_(H^k([τ_init−m,s*])) ≤ C ε by [[lem:loc-t5-residual]], gives a solution Z ∈ 𝒞 on [τ_init, s*] with ⟦Z⟧_k ≤
+C ε; by (c) and (d) of that theorem, with (M1_σ) and R = 0 on [τ_init − m, τ_init], Z lies in H^σ([τ_init − 2m, s*] ×
+ℝ⁴) for every σ, so it is smooth by the Sobolev inequality in the five variables. As Z ∈ 𝒞, g_τ = ∂_τ g and g_a = ∂_a g.
+The rows of (c) of [[lem:loc-cone-system]] hold at τ_init, where 𝐔 = 𝐔̊. The system is invariant under G, the times t_A
+and τ and the cut-offs being invariant, and the image of the solution under an element of G is a solution with the same
+history; by the uniqueness of [[thm:class-kato-memory]] (a) it is the solution. The pointwise bounds follow by
+[[lem:sobolev]] on the slices. With them P_A is within C ε of P̊_A in C⁰, so for ε small the integral curves from
+𝒦_A^♯ ⊃ 𝒦_A′ stay in the neighbourhood of 𝒯̊_A on which ξ_A = 1, by continuous dependence on the field, and they avoid 𝒲
+by [[lem:loc-t5-tubes]]. ∎
+
+Below U denotes this solution, (g, p_A, Θ_A, q_A) its components and P_A := g⁻¹p_A.
+
+#### Dependence on the past and the constraints {#sec:loc-t5-dependence}
+
+**Lemma {#lem:loc-t5-energy}** (Energy with an integrated non-local term.) Let 𝒟, B_0, B_1, 𝐀^μ, M and 𝒟_s be as in
+[[lem:loc-cone-energy]], in a chart (t, x) whose slices are spacelike for the systems concerned and without the
+condition that the pieces of B_1 meet the slices transversally, and let z ∈ C¹(𝒟) solve 𝐀^μ ∂_μ z = Mz + 𝔫 on 𝒟, with
+z = 0 on B_0 and 𝔫 measurable with ∫_(𝒟_s) |𝔫|² ≤ C_𝔫 ∫_(𝒟_s) |z|² for every s. Then z = 0 on 𝒟.
+
+*Proof.* As in the proof of [[lem:loc-axis-energy]], the divergence theorem on the Lipschitz domains 𝒟_s gives e(s) ≤
+∫_(𝒟_s) (C |z|² + 2 |z| |𝔫|) ≤ (C + 1 + C_𝔫) ∫_(𝒟_s) |z|² ≤ C′ ∫_(t_0)^s e, t_0 the least time on 𝒟, the integral over
+B_1 being nonnegative and that over B_0 zero; Gronwall's inequality gives e = 0. ∎
+
+**Lemma {#lem:loc-t5-past}** (The past of the edges.) U = Û on P ∩ 𝒰^♭. So U − Û vanishes with all its derivatives on N
+∩ 𝒰^♭, g, the densities and the further phases induce the data there, and near the points where an edge meets an axis
+the edge sections of the slices of t_A are leaves of U for every family A whose closure is used there.
+
+*Proof.* On P, 𝔄_χ(𝐔) = F̃ = 𝔄_χ(Û) ([[lem:loc-t5-residual]] (a)). As in the proof of [[lem:loc-axis-past]], z := 𝐔 − 𝐔̂
+satisfies on 𝒟 := the closure of P ∩ 𝒰^♭ a system 𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ at 𝐔̂, M bounded and 𝔫 the difference of
+the terms in σ_A, times bounded factors. Let B_0 := 𝒟 ∩ {τ = τ_init}, where z = 0, and B_1 the pieces of N and of the
+far cuts; there the outward conormals are du, dv, du + κdv and dv + κdu, future causal for Ĝ and nonnegative on the
+transport fields, which are future causal or, where ξ_A < 1, convex combinations of P_A and P̄_A; so the boundary matrix
+is nonnegative (the paragraph after [[lem:loc-cone-energy]]). Let x ∈ 𝒟_s at which the closure of a family A is used, so
+ρ_i(x) < δ_♮/2 for an axis i and, for a further family, ξ_A(x) ≠ 0, and let D be the union of the arcs of Û, in the
+slice {t_A = t_A(x)}, through the points y of (𝒟 ∪ {τ ≤ τ_init}) ∩ {τ ≤ s} in that slice at which the closure of A is
+used. D is G-invariant and closed under the arcs of Û, and it lies in (𝒟 ∪ {τ ≤ τ_init}) ∩ {τ ≤ s}: the arc of such a
+point y lies in {τ ≤ τ(y)} by [[lem:loc-t5-times]] (c); in the closure of P, since near a point where an edge meets axis
+i the edge section of the slice is a leaf of Û for A ([[lem:loc-t5-faces]]), A crossing that edge there, ξ_A vanishing
+near the tangency sets, or A being adapted; away from the edges and from the far cuts, the arc being within C_L δ_♮² of
+y, by (ii) of the choice of δ_♮; and ξ_A vanishing near the far cuts, whose slices are unions of spheres, the leaves of
+the adapted families. The arcs in {τ ≤ τ_init} lie where z = 0. [[lem:class-leaf-states]] (c), with δ := δ_♮/2, U := Û
+and U′ := U, gives ‖σ_A[Û] − σ_A[U]‖_(L²(D∩𝒰_(δ_♮/2)(p))) ≤ C ‖z‖_(L²(D∩𝒰_(δ_♮)(p))) at every point p of the axis,
+with |σ_A| ≤ C, so that the terms in σ_A², which are those of the system, have differences bounded in the same way;
+squaring and integrating over t_A(x), by Fubini's theorem in the chart (t_A, y), ∫_(𝒟_s) |𝔫|² ≤ C ∫_(𝒟_s) |z|².
+[[lem:loc-t5-energy]] gives z = 0. The last claim is [[lem:loc-t5-faces]] with V := U. ∎
+
+**Lemma {#lem:loc-t5-constraints}** (The constraints.) Let 𝒦_A″ be the compact set defined in the proof, 𝒦_A′ ⊂ 𝒦_A″ ⊂
+𝒦_A^♯, and 𝒯_A the union of the integral curves of P_A in 𝒯 = F ∩ {τ ≤ s*} from 𝒦_A″. On 𝒯, g⁻¹(p_A, p_A) = 0, dp_A = 0
+and Θ_A = div_g P_A for the adapted families, and on 𝒯_A for every further family A, and D(g) = 0. There are smooth
+G-invariant functions u_in, u_out on 𝒰′ := (P ∩ 𝒰^♭) ∪ 𝒯 and u_A on a neighbourhood of 𝒯_A with p_in = −du_in, p_out =
+−du_out, p_A = −du_A, u_in = v and u_out = u on P ∩ 𝒰^♭ and u_A = û_A on N near 𝒦_A^♯; q_A vanishes on 𝒯 ∖ 𝒯_A; and (g,
+u_in, u_out, u_A, q_in, q_out, q_A) solves [[eq:class-system]] with N_f families on 𝒯, with Ric(g) = Σ_A q_A du_A ⊗
+du_A, in the gauge D(g) = 0 relative to Ĝ, and with q_A ≥ 0 on Q1 for every family.
+
+*Proof.* *The sets.* Near each axis i at which A crosses an edge, let 𝒦_A″ consist of 𝒦_A′ and of the caps {ρ_i ≤ 2δ_2}
+of the A-sections {U_A = c} of that edge that meet 𝒦_A′ ∩ {ρ_i ≤ 2δ_2}. A point of the A-section through a point x of
+𝒦_A′ lies within Cε of the background's section through it, which passes within Cε of x; so for ε small 𝒦_A″ lies, with
+a neighbourhood, in 𝒦_A^♯. 𝒦_A″ is cap-closed: with a point y with ρ_i(y) ≤ 2δ_2 it contains the cap {ρ_i ≤ 2δ_2} of the
+A-section through y, which is the cap of a section meeting 𝒦_A′ when y lies in such a cap. By [[lem:loc-t5-past]] the
+quantities below vanish, with all their derivatives, on N ∩ 𝒰^♭, as they do for Û, on N ∩ {ζ_A = 1} ⊃ 𝒦_A^♯ for a
+further family. Every point of 𝒯 lies on an integral curve of P_A that, followed backwards, stays in 𝒯 until it reaches
+N: τ decreases along it at a rate bounded below, and it cannot leave 𝒯 through its slice in {τ = s*}; for a point of the
+union 𝒯_A^♯ of the curves from 𝒦_A^♯ the curve lies in {ξ_A = 1} ([[lem:loc-t5-existence]]).
+*The phases.* For the adapted families this is the paragraph *The phases* of the proof of [[lem:loc-axis-propagation]],
+with 𝒯 and 𝒰′ in place of 𝔗(s*) and its 𝒰′. For a further family, on 𝒯_A^♯, where ξ_A = 1, (Aug2) holds, and P_A(ν_A) =
+0, ℒ_(P_A) dp_A = d(i_(P_A) dp_A) = 0 where ν_A = 0 ([[prop:class-augmented]] (b)), ν_A := g⁻¹(p_A, p_A); so ν_A = 0 and
+dp_A = 0 on 𝒯_A^♯, these vanishing on N. Then ℒ_(P_A) p_A = d(i_(P_A) p_A) = dν_A = 0. Let u_A be constant along the
+integral curves of P_A and equal to û_A on N near 𝒦_A^♯; then ℒ_(P_A) du_A = 0 and du_A = −p_A on N, so p_A = −du_A on
+𝒯_A^♯, a neighbourhood of 𝒯_A. *The weights.* For a further family A let κ̄_A be a smooth G-invariant function on N with
+values in [0, 1], equal to 1 on 𝒦_A″, supported in the interior of 𝒦_A^♯ and, on {ρ_i ≤ δ_2} near each axis i at which A
+crosses an edge, a function of U_A: as 𝒦_A″ ∩ {ρ_i ≤ 2δ_2} = U_A⁻¹(Γ) ∩ {ρ_i ≤ 2δ_2} for a compact set Γ of values, by
+its cap-closure, take κ̄_A := χ_2(ρ_i) k(U_A) + (1 − χ_2(ρ_i)) κ̃ there, with χ_2 equal to 1 on [0, δ_2] and to 0 on
+[2δ_2, ∞), k equal to 1 on Γ and supported in values whose caps lie in the interior of 𝒦_A^♯, and κ̃ equal to 1 on 𝒦_A″
+and supported in the interior of 𝒦_A^♯. Let κ_A be constant along the integral curves of P_A, equal to κ̄_A at their
+points on 𝒦_A^♯, and 0 on 𝒯 ∖ 𝒯_A^♯. It is smooth: the flow of P_A from the crossing set, to which P_A is transverse, is
+a diffeomorphism onto its image, and the curves from the compact set supp κ̄_A, in the interior of 𝒦_A^♯, form a compact
+subset of 𝒯 in the interior of 𝒯_A^♯ relative to 𝒯. P_A(κ_A) = 0, κ_A = 1 on 𝒯_A, and supp κ_A ⊂ 𝒯_A^♯. For an adapted
+family put κ_A := 1. *The gauge and the expansions.* Let U′ be U with each Θ_A replaced by div_g P_A = □_g(−u_A) on
+𝒯_A^♯. For an eikonal u_A the level sets of u_A in a slice of t_A, near an axis, are leaves of U′, by
+[[lem:loc-axis-leaf]] (ii): p_A vanishes on them, and their expansion is □_g(−u_A), as in the proof of its part (iii).
+For s ≤ s* and t let D_(A,t,s) be the union of the arcs of U′, in the slice {t_A = t}, through the points of supp κ_A ∩
+{τ ≤ s} in that slice within δ_♮/2 of an axis. The arc of such a point x lies in {τ ≤ τ(x)} by [[lem:loc-t5-times]] (c);
+in F, the edge sections being leaves of U′ near the points where an edge meets the axis ([[lem:loc-t5-past]],
+[[lem:loc-axis-leaf]] (iii)) and leaves not crossing; and, for a further family, in supp κ_A, on whose points near the
+axis κ_A is constant along the arcs: the arc lies in the level set of u_A through x, whose points within δ_♮ of the axis
+lie on integral curves of P_A from points of the edge within δ_2 of the axis on one A-section, by (iii) of the choice of
+δ_♮, the axis being invariant under the flow as [P_A, K_i] = 0, and κ̄_A is constant on that part of the section. With
+Δ_A := Θ_A − div_g P_A, subtracting the equation of [[eq:class-raychaudhuri]] for the eikonal from the closure row, as
+in the proof of [[lem:loc-axis-propagation]] and with [[eq:class-defect]] off the axes and [[prop:class-augmented]] (e),
+
+    P_A(Δ_A) = −Δ_A ((1 − ψ_♮)(Θ_A + div_g P_A − 2κ_A1 − 2κ_A2) + ½ ψ_♮ (Θ_A + div_g P_A − 2κ_A⊥))
+               − ½ ψ_♮ (σ_A[U]² − σ_A[U′]²) + g(∇_(P_A) D, P_A) + L(P_A, P_A),
+
+and D solves [[eq:class-gauge-wave]] with B_g T = Σ_A Δ_A q_A p_A. U′ has bounds (M, c) on the slices, the norm of
+[[lem:loc-t5-existence]] controlling div_g P_A at the order k − 1, as in Step 10 of the proof of
+[[thm:class-stability]]. U − U′ has the components Δ_B only, and σ_A depends only on the metric and on p_A and Θ_A. The
+proof of [[lem:class-leaf-states]] (c) integrates the pointwise bound [[eq:class-leaf-pointwise]] over each leaf of its
+first state and then over the axis points; so its bound holds with both sides integrated against a bounded function that
+is constant on the parts of those leaves within its radius. With U := U′, U′ := U, δ := δ_♮/2, D := D_(A,t,s) and the
+weight κ_A, and with |σ_A| ≤ C, it gives ∫ κ_A |σ_A[U]² − σ_A[U′]²|² ≤ C ∫ κ_A |Δ_A|² over D_(A,t,s) ∩ 𝒰_(δ_♮/2)(p) and
+over D_(A,t,s) ∩ 𝒰_(δ_♮)(p), at every point p of the axis. On 𝒯 ∩ {τ ≤ s} the edges are the past boundary, where D, ∂D
+and Δ_A vanish, and {τ = s} is spacelike. Multiply the row of Δ_A by κ_A: as P_A(κ_A) = 0, the divergence identity of
+the proof of [[lem:loc-t5-energy]] for κ_A |Δ_A|² P_A gains no term in dκ_A, so no lateral boundary enters; q_A vanishes
+off 𝒯_A (below), where κ_A = 1, so B_g T = Σ_A κ_A Δ_A q_A p_A. So the energy of the first-order variables of D plus Σ_A
+∫ κ_A |Δ_A|² on 𝒯 ∩ {τ = s} obeys the integrated inequality of the proof of [[lem:loc-t5-energy]], the non-local terms
+being bounded, after integration over t by Fubini's theorem, by these weighted norms, and D = 0 on 𝒯, Δ_A = 0 on {κ_A =
+1} ⊃ 𝒯_A. Then (Aug1) is Ric(g) = Σ_A q_A p_A ⊗ p_A and (Aug4) the conservation law, as in the proof of
+[[lem:loc-cone-constraints]]. *The densities.* The row of q_A is ξ_A (P_A(q_A) + Θ_A q_A) + (1 − ξ_A) P̄_A(q_A − q̂_A) =
+0, and q̂_A vanishes where ξ_A < 1, its support lying in the interior of {ξ_A = 1}; so q_A is transported along the
+integral curves of ξ_A P_A + (1 − ξ_A) P̄_A, which on 𝒯 start on N, homogeneously, and vanishes along those that do not
+start in 𝒦_A, where q_A = q̂_A = 0 on N. The curves from 𝒦_A lie in 𝒯_A, where ξ_A = 1. So q_A vanishes on 𝒯 ∖ 𝒯_A, and
+along each curve keeps the sign of its value on N; a curve that reaches Q1 starts on N ∩ Q1, where the densities are
+nonnegative, u and v not decreasing along it. ∎
+
+#### Families tangent to an edge, uniqueness and the theorem {#sec:loc-t5-theorem}
+
+**Proposition {#prop:loc-t5-grazing}** (Families tangent to an edge at an axis.) Let A be a further family of ingoing
+type at axis i, x_0 a point of N_i ∩ axis i, and U a class solution near x_0 with N_f families in which the phase u_A of
+family A is defined, equals U_A on N_i and satisfies |du_A − dů_A| < |dů_A| at the points of the axis near x_0. Let ϑ_i
+be the distance on S³ from axis i, and a(u) := ½ ∂²U_A/∂ϑ_i² at the point (u, 0) of the axis generator of N_i.
+
+(a) ∂_uU_A = 0 on N_i ∩ axis i near x_0, and the coefficient 2g⁻¹(dv, du_A) of ∂_vu_A in the eikonal equation on N_i
+vanishes there: N_i is characteristic for family A along its axis generator, and the derivatives of u_A across N_i are
+not determined there as in [[lem:loc-t5-jets]] (b).
+
+(b) Let t be a time function near x_0, Σ its slice through x_0 and S := Σ ∩ N_i. If the restriction of U_A − U_A(x_0) to
+S vanishes at x_0 to a finite order 2j in ϑ_i, as it does with j = 1 when a(u(x_0)) ≠ 0, the level set L of u_A in Σ
+through x_0 meets S near x_0 only at x_0, and L ∖ {x_0} lies near x_0 on one side of N_i; and every neighbourhood of x_0
+in Σ contains points on that side whose arcs from the axis along the level sets of u_A through them meet the other side.
+
+(c) If, for every slice Σ′ of t through a point x′ of N_i ∩ axis i near x_0, the level set of u_A in Σ′ through x′
+contains Σ′ ∩ N_i near x′, then U_A is constant on a neighbourhood of x_0 in N_i, du_A is a multiple of dv there, and
+the rays of family A there are generators of N_i.
+
+The same holds for outgoing type, with N_o, u and v exchanged.
+
+*Proof.* (a) At a point of the axis du_A lies in the span of du and dv and is null ([[lem:loc-t5-dichotomy]]), so it is
+a multiple of du or of dv; dů_A is a multiple of dv, and |du_A − dů_A| < |dů_A| excludes a multiple of du. So ∂_uu_A = 0
+there, and on N_i, where u_A = U_A, ∂_uU_A = 0 on the axis generator. In the double-null form, g^(uu) = g^(ua) =
+g^(vv) = 0, so the eikonal equation on N_i reads 2(g^(uv) ∂_uU_A + g^(va) ∂_aU_A) ∂_vu_A + g^(ab) ∂_aU_A ∂_bU_A = 0, and
+the coefficient of ∂_vu_A is 2g⁻¹(dv, du_A). On the axis ∂_aU_A = 0, U_A being G-invariant and so even in ϑ_i, and
+∂_uU_A = 0; so the coefficient vanishes, and ∂_u^(j−1) of the equation does not contain ∂_u^(j−1)∂_vu_A with a nonzero
+factor.
+
+(b) In the coordinates (z, y) of [[lem:class-leaf]] on Σ near x_0 (near axis 2, say), the axis meets N_i and L
+transversally at x_0: its direction ∂_z in Σ is a combination of ∂_u and ∂_v with both coefficients nonzero, t
+increasing with u and with v along the axis, and dv(∂_z) ≠ 0, du_A being a multiple of dv on the axis. So S ∩ M3 and L ∩
+M3 are graphs z = h_S(y) and z = h_L(y) over a disc, with h_S(0) = h_L(0) = z(x_0), and the level sets of u_A in Σ
+through the axis points z_0 near z(x_0) are graphs z = h(y; z_0) with |h(y; z_0) − h_L(y)| ≤ 2 |z_0 − z(x_0)|, as
+∂_(z_0)h → 1 at y = 0. Parametrise S near x_0 by the point of S³ and write it u = u(x_0) + O(ϑ_i²), S being G-invariant
+and transverse to the generators. By (a), U_A = c_0 + a(u) ϑ_i² + O(ϑ_i⁴), c_0 := u_A(x_0), so on S, U_A − c_0 =
+a(u(x_0)) ϑ_i² + O(ϑ_i⁴), and in general U_A − c_0 = b_j ϑ_i^(2j) + O(ϑ_i^(2j+2)) on S with b_j ≠ 0, U_A being even in
+ϑ_i. As u_A − c_0 = ∂_zu_A (z − h_L(y)) + O((z − h_L)²) near x_0 and ϑ_i is comparable with |y| on S, h_S − h_L has, for
+small y ≠ 0, the sign of b_j/∂_zu_A, and |h_S − h_L| ≥ c_1 |y|^(2j) with c_1 > 0. This is the first claim. Let L lie,
+off x_0, on the side z < h_S, say. For d > 0 small take the axis point z_0 := z(x_0) + d, on the other side. Then h(y;
+z_0) − h_S(y) ≤ 2d − c_1 |y|^(2j) < 0 for |y| > (2d/c_1)^(1/(2j)): the level set through z_0 has points on the side of L
+at radii between (2d/c_1)^(1/(2j)) and a fixed r_0, whose arcs from the axis start at z_0, on the other side. As d → 0
+these points tend to x_0.
+
+(c) The slices of t through the points x′ of the axis generator near x_0 meet N_i in the level sets of the restriction
+of t to N_i, which has a nonzero derivative along the generators, dt being timelike and the generators null; so these
+sets cover a neighbourhood of x_0 in N_i, each containing its point x′ of the axis. On Σ′ ∩ N_i near x′, U_A = u_A(x′) =
+c_0, by (a). So U_A = c_0 on a neighbourhood of x_0 in N_i, du_A vanishes on the tangent spaces of N_i there, and du_A
+is a multiple of the conormal dv of N_i; g⁻¹du_A is then tangent to the generators. ∎
+
+So (F-b) excludes the families that carry density near a point x_0 of a tangency set because the construction of this
+section, in any slicing, does not apply to them there, except possibly in a case not analysed. At every point x′ of the
+tangency set near x_0 at which, for the slice through x′, the restriction of U_A − U_A(x′) to the edge section vanishes
+to a finite order, as when a(u(x′)) ≠ 0, the arcs of points on one side of the edge arbitrarily near x′ meet the other
+side by (b), and the estimate of [[lem:loc-t5-past]] (on P) or that of [[lem:loc-t5-constraints]] (on F), which needs
+the slices of the region to contain the arcs of their points, fails for family A near x′: the arcs on the other side
+carry the solution of the other region. If all the edge sections near x_0 are leaves, then by (c) the rays of family A
+run in the edge on an open set, the edge is characteristic for the family there, as in (a), and its density there is not
+free data but must satisfy the transport equation along the generators. In the remaining case the restriction vanishes
+to infinite order at x′ without vanishing near it, and the construction is not analysed.
+
+**Lemma {#lem:loc-t5-uniqueness}** (Dependence on the past faces with further families.) Let Ĝ′ be a smooth G-invariant
+Lorentzian metric and, for i = 1, 2, U_i smooth G-invariant states with N_f families on a neighbourhood 𝒪 of a compact
+set R′, each p_i^A the negative of the differential of a phase null for g_i, P_i^A := g_i⁻¹p_i^A future directed and
+Θ_i^A = div_(g_i) P_i^A, the phases of the further families being defined on the sets given below, that solve
+[[eq:class-system]] with N_f families on R′ in the gauge D(g_i) = 0 relative to Ĝ′. Let (ũ, ṽ, ω̃) be coordinates on 𝒪
+with p_1^out = −dũ and p_1^in = −dṽ, in which g_1 has the form [[eq:loc-double-null]] with fields smooth through the
+axes and R′ = [0, a] × [0, b] × S³. For every further family A let 𝒦_A″ be a compact G-invariant subset of the past
+faces R′ ∩ ({ũ = 0} ∪ {ṽ = 0}) on which family A of U_1 crosses the face it lies in, at positive distance from the
+circles in which {ũ = ṽ = 0} meets the axes, and which contains, with each of its points within δ_2 > 0 of an axis, the
+cap within δ_2 of that axis of the section of the face by the level set of the phase of A of U_1 through the point; let
+𝒯_A be the union of the integral curves of P_1^A in R′ from 𝒦_A″, let 𝒦_A^+ be a compact G-invariant neighbourhood of
+𝒦_A″ in the past faces on which family A of U_1 crosses the face it lies in, let the phases of A of U_1 and U_2 be
+defined on a neighbourhood of the union of the integral curves of P_1^A in R′ from 𝒦_A^+, and let the densities of A of
+both vanish on R′ ∖ 𝒯_A. If U_2 and U_1 agree, with all their derivatives, on the past faces, the components of each
+further family A only on 𝒦_A^+, then U_2 = U_1 on R′, the components of each further family A on 𝒯_A. No smallness of
+U_1, of U_2 or of U_2 − U_1 is assumed.
+
+*Proof.* *Times.* Let μ and x := e^(ṽ−μũ) ω̃ be as in the proof of [[lem:loc-axis-dependence]]. For an integer N ≥ 1 put
+Φ_N := (ũ/a)^N + (ṽ/b)^N + (ũ + ṽ)/(N(a + b)); its derivatives in ũ and ṽ are positive near R′, so dΦ_N is timelike for
+g_1, which has g_1^(ũũ) = g_1^(ṽṽ) = 0 and g_1^(ũṽ) < 0, and (Φ_N, x) is a chart whose field ∂_(Φ_N), a positive
+multiple of ∂_ũ + μ∂_ṽ, is future timelike for g_1. The construction of [[sec:loc-t5-times]], with Φ_N in place of τ0,
+the faces of R′ in place of the edges, the sections of the faces by the level sets of the phases of U_1, the sets 𝒯_A in
+place of the supports of the ξ_A and g_1 in place of g_e, gives times t_A^N, an evolution time τ^N and numbers δ_*(N),
+r_L(N), for which (a)–(d) of [[lem:loc-t5-times]] hold, with δ_*(N) chosen also with K(N) δ_*(N)² ≤ 1/(4N). The proof of
+[[lem:loc-t5-times]] uses of τ0 and g_e only these properties. Let δ_♮(N) be a closure radius for U_1 in these charts as
+in [[sec:loc-t5-system]]. U_1 and U_2, being solutions with null phases, solve the rows of 𝒜^♮ with ψ_♮ of radius
+δ_♮(N), Ĝ′ in place of Ĝ and σ_A computed in the slices of t_A^N, at every point x near an axis at which the level set
+through x of the phase of family A, in the slice through x, is from the axis to x a graph as in [[lem:loc-axis-leaf]]
+(ii) in 𝒪 with p_A(∂_z) ≠ 0: by that lemma it is then the leaf through x, and the paragraph *The equations* of the proof
+of [[lem:loc-axis-dependence]] applies to every family. For U_1 this holds at every point of R′ within δ_♮(N)/2 of an
+axis, after decreasing δ_♮(N), U_1 being smooth on the compact R′ and its leaves satisfying |h′| ≤ C_L r.
+
+*Triangles.* By the proof of [[lem:loc-t5-tubes]], with P_1^A in place of P̊_A and the tangency sets of family A of U_1
+on the faces, 𝒯_A avoids a neighbourhood of those sets, so near the axes the closure of a further family is used only
+near the faces it crosses. Let T_N := {ũ, ṽ ≥ 0} ∩ {τ^N ≤ 1}. As τ^N ≥ Φ_N ≥ (ũ/a)^N, (ṽ/b)^N, T_N ⊂ R′, and every point
+with ũ < a and ṽ < b lies in T_N for N large, since Φ_N tends to 0 there and τ^N − Φ_N ≤ 1/(4N). For a further family A
+let κ_A be the weight of the proof of [[lem:loc-t5-constraints]], built with U_1, its phase of family A in place of U_A,
+its field P_1^A, 𝒦_A″ (which is cap-closed at the width δ_2 by hypothesis) in place of that proof's 𝒦_A″, δ_2/2 in place
+of δ_2, and 𝒦_A^+ in place of 𝒦_A^♯; put κ_A := 1 for an adapted family. For s ≤ 1 let D_(A,t,s) be the union of the
+arcs of U_1, in the slice {t_A^N = t}, through the points of supp κ_A ∩ T_N ∩ {τ^N ≤ s} in that slice within δ_♮(N)/2 of
+an axis. As in the proof of [[lem:loc-t5-constraints]], with U_1 in place of U′, D_(A,t,s) lies in supp κ_A ∩ T_N ∩ {τ^N
+≤ s}, after decreasing δ_♮(N), and κ_A is constant on the parts of the leaves of U_1 within δ_♮(N) of the axes: the
+sections of the faces by the slices of t_A^N are leaves of U_1 near the axes, by the proof of [[lem:loc-t5-faces]] with
+U_1 in place of Û.
+
+*Continuity in τ^N.* Fix N, and let s_* be the supremum of the s ∈ [0, 1] such that U_2 = U_1 on 𝒦_s := T_N ∩ {τ^N ≤ s},
+the components of each further family A only on supp κ_A ∩ 𝒦_s; the set of these s is closed and contains 0, 𝒦_0 lying
+in the past faces. Suppose s_* < 1. The components of U_2 − U_1 other than those of the further families are smooth and
+vanish with all derivatives on 𝒦_(s_*), and on the past faces by hypothesis; those of a further family A on supp κ_A ∩
+𝒦_(s_*), the closure of its interior, and on 𝒦_A″. For θ ∈ (0, 1] let 𝒩_θ be the set of points of 𝒪 whose coordinates
+(ũ, ṽ) lie within θ of those of a point of 𝒦_(s_*) or of the past faces of R′ with the same ω̃; as in the paragraph
+*Continuity in t* of the proof of [[lem:loc-axis-dependence]], Taylor's formula along the segment to a nearest such
+point bounds the derivatives of order at most k of those components of U_2 − U_1 on 𝒩_θ by Cθ^(k+1); and Taylor's
+formula along the integral curves of P_1^A, on which κ_A is constant and τ^N decreases at a rate bounded below, bounds
+the derivatives of order at most k of the components of family A at the points of supp κ_A ∩ {s_* ≤ τ^N ≤ s_* + θ} by
+Cθ^(k+1). Let χ_θ be a G-invariant cut-off equal to 1 on 𝒩_(θ/2), supported in 𝒩_θ, with derivatives of order j at most
+Cθ^(−j), and for each further family A let c_A > 0 bound |p_A(∂_z)| below for U_1 at the axis points of the slices of
+t_A^N in R′, L_A bound the C¹ norm of the difference of the components of family A of U_2 and U_1 where both are
+defined, d_A := min(1, c_A/(4L_A)), taken so small also that the phases of A of both are defined on the
+d_A-neighbourhood of supp κ_A, and χ̃_A a G-invariant cut-off equal to 1 on the d_A/2-neighbourhood of supp κ_A ∩ {τ^N ≤
+s_* + θ} and supported in its d_A-neighbourhood, with |∂χ̃_A| ≤ C/d_A. By the second Taylor bound and the mean value
+theorem, the components of family A of U_2 − U_1 are at most Cθ^(k+1) + L_A d_A on that d_A-neighbourhood, and their
+first derivatives at most L_A. Let W
+be the state whose metric is g_1 + χ_θ (g_2 − g_1), with its own first derivatives, whose components of the adapted
+families are those of U_1 + χ_θ (U_2 − U_1), and whose components of a further family A are those of U_1 + χ̃_A (U_2 −
+U_1). Its metric and adapted components are within Cθ of those of U_1 in C^k, so its slices of every t_A^N are spacelike
+for its metric; its further components have C¹ norms at most those of U_1 plus C (Cθ^(k+1)/d_A + 1 + L_A), and, on the
+axis, |p_A(∂_z)| ≥ c_A − Cθ^(k+1) − L_A d_A ≥ c_A/2 for θ small; so W has bounds (M′, c′) on these slices, M′ and c′
+depending on U_1 and U_2 but not on θ, and δ_♮(N) is taken small also for them. Along the curves of constant x, on which
+τ^N grows at a rate bounded below near R′, every point of T_N ∩ {s_* ≤ τ^N ≤ s_* + θ′} lies within Cθ′ of 𝒦_(s_*) or of
+the past faces; for θ′ := θ/(8C) the slab lies in 𝒩_(θ/8). The arc of U_1 through a point x of the slab near an axis, at
+which the closure of A is used, lies in T_N ∩ {τ^N ≤ s_* + θ′}, and in supp κ_A for a further family, by the properties
+of the sets D_(A,t,s); along it W − U_1 is at most Cθ² in C¹, by the two Taylor bounds, as k ≥ 2 and the derivatives of
+order j of χ_θ are at most Cθ^(−j). So, by the proof of [[lem:class-leaf-states]] (b), the leaf of W through x lies
+within Cθ² of that of U_1 in C¹, hence, for θ small, in 𝒩_(θ/2) and, for a further family, in {χ̃_A = 1}, where W = U_2;
+by the uniqueness in [[lem:class-volterra]] it is the leaf of U_2, and σ_A[W] = σ_A[U_2] at x. Likewise the level set of
+the phase of A of U_2 through x is, from the axis to x, a graph in 𝒪 near that of U_1, the two phases being C¹-close
+there, hence the leaf of U_2 by [[lem:loc-axis-leaf]] (ii), so U_2 solves the rows of 𝒜^♮ at x, with σ_A[W]. So the
+difference z of the first-order variables of U_2 and U_1, for a further family on supp κ_A only, satisfies on 𝒟 := T_N ∩
+{s_* ≤ τ^N ≤ s_* + θ′} a system 𝐀^μ ∂_μ z = Mz + 𝔫, with 𝐀^μ at U_1, M bounded and 𝔫 the difference of the terms in
+σ_A², times bounded factors. [[lem:class-leaf-states]] (c), with U := U_1, U′ := W, δ := δ_♮(N)/2, the sets D_(A,t,s)
+and the weight κ_A, as in the proof of [[lem:loc-t5-constraints]], where W − U_1 = z on the slab and 0 on 𝒦_(s_*),
+with |σ_A| ≤ C and Fubini's theorem in the charts (t_A^N, x), gives ∫_(𝒟_s) κ_A |𝔫_A|² ≤ C ∫_(𝒟_s) κ_A |z|², 𝔫_A the
+term of the rows of family A, and κ_A ≤ 1. Multiply the rows of family A by κ_A: as P_1^A(κ_A) = 0 and these rows are
+transports along P_1^A at U_1, the divergence identity gains no term in dκ_A and no lateral boundary enters; the
+densities of A of both vanish off 𝒯_A, where κ_A = 1, so family A enters the other rows only through terms bounded by
+κ_A^(1/2) |z|. The boundary of 𝒟 consists of the slice {τ^N = s_*} and pieces of the past faces, where z = 0 (B_0), and
+of the slices {τ^N = s}, spacelike for g_1. The proof of [[lem:loc-t5-energy]], with the weights κ_A on the rows of the
+further families, gives z = 0 on 𝒟, on supp κ_A for a further family, against the definition of s_*. So s_* = 1, and
+U_2 = U_1 on T_N for every N, hence on R′ ∩ {ũ < a, ṽ < b}, and on R′ by continuity. ∎
+
+**Theorem {#thm:loc-t5}** (Development with further families at the axes.) Let k ≥ 9, m_0 = 6k + 18 and m_1 = 12k + 42,
+let a background on Q1 with margin δ_1 be given, cone data through the axes ([[def:loc-axis-data]]) on {0} × [0, v_1]
+and [0, u_1] × {0}, in the normalised gauge and with nonnegative densities, and further families A = 3, …, N_f
+([[def:loc-t5-family]]) satisfying (F-a), (F-b) and (F-c); fix for each A a compact G-invariant neighbourhood 𝒦_A′ of
+𝒦_A in N satisfying (F-a) and (F-b). Let ε be the largest size in C^(m_1) of the cone data and of the U_A − ů_A and q_A.
+(F-b) excludes the families that carry density where they are tangent to an edge along an axis generator, where the
+construction does not apply ([[prop:loc-t5-grazing]]); (F-a) excludes density near the circles in which the corner
+sphere meets the axes, where the rays of a crossing family approach its tangency set ([[lem:loc-t5-tubes]]).
+
+A *class solution with the further families* on D × S³, D ⊂ F, is a class solution in the gauge through the axes on D ×
+S³ ([[def:loc-axis-data]]) together with, for each further family, a smooth G-invariant density q_A ≥ 0 on D × S³ and a
+smooth G-invariant phase u_A, null for g with −g⁻¹du_A future directed, defined on a neighbourhood of the union 𝒯_A^g of
+the integral curves of −g⁻¹du_A in D × S³ from 𝒦_A′, such that q_A = 0 off 𝒯_A^g, Ric(g) = q_in dv ⊗ dv + q_out du ⊗
+du + Σ_A q_A du_A ⊗ du_A and div_g(q_A g⁻¹du_A) = 0; it *induces the data* on the edges of D if g, q_in and q_out induce
+the cone data and u_A = U_A and q_A equals the data on 𝒦_A′ ∩ D × S³. There are ε_0, C, ε_2 > 0, depending only on k,
+u_1, v_1, δ_1, the background, the ů_A and the 𝒦_A′, such that for ε ≤ ε_0:
+
+(a) *Existence.* There is a class solution with the further families on Q1 × S³ that induces the data on {0} × [0, v_1]
+and [0, u_1] × {0}. Its metric, densities and phases are smooth, the axes included.
+
+(b) *Estimate.* Its fields and densities differ from the background's, and its phases u_A from ů_A, by at most Cε in
+C^(k−4), the phases on the neighbourhoods of the 𝒯_A^g.
+
+(c) *Uniqueness.* Let Q1′ := [0, u_1′] × [0, v_1′] ⊂ Q1, u_1′, v_1′ > 0. A class solution with the further families on
+Q1′ × S³ that induces the data on the edges of Q1′, and whose fields and densities differ from the background's, and
+phases u_A from ů_A, by at most ε_2 in C^(k−4), equals the solution of (a) on Q1′ × S³, with its densities and, on the
+𝒯_A^g, its phases.
+
+(d) *Localisation.* If the cone data equal the background's and every further density vanishes on {0} × [0, v_K) and [0,
+u_K) × {0}, u_K, v_K > 0, the solution equals the background, with zero further densities, at the points of Q1 × S³ with
+u < u_K and v < v_K.
+
+*Proof.* By [[lem:loc-axis-constraints]] (c) and [[lem:loc-t5-jets]] (a), with 2p = m_1, the data extend to N_o and N_i,
+of size at most Cε in C^(m_0), equal to the given ones on the edges of Q1. [[lem:loc-t5-existence]], [[lem:loc-t5-past]]
+and [[lem:loc-t5-constraints]] give a smooth solution of [[eq:class-system]] with N_f families on 𝒯 ⊃ Q1, in the gauge
+D(g) = 0 relative to Ĝ, that induces the data, with the bounds of [[lem:loc-t5-existence]]. [[lem:loc-axis-gauge]],
+whose proof uses the adapted families only, with 𝒯 and the 𝒰′ of [[lem:loc-t5-constraints]] in place of 𝔗(s*) and its
+𝒰′, Q1 ⊂ {τ ≤ s* − ½} lying at positive distance from the slice of 𝒯 in {τ = s*}, gives the map Ψ onto a set containing
+Q1 × S³, in whose coordinates the metric has the form [[eq:loc-double-null]] with fields smooth through the axes within
+Cε of the background's in C^(k−4); the further phases and densities are carried by Ψ, the curves of −g⁻¹du_A from 𝒦_A′
+being those of P_A, and Ψ is the identity with its differential on N, so they induce the data. This gives (a) and (b),
+the densities being nonnegative on Q1 by [[lem:loc-t5-constraints]].
+
+(c) Steps (1) and (2) of the proof of [[lem:loc-axis-unique]] apply to the metric and the adapted densities of the
+second solution and give the extension g″ and the wave map Φ; the further families do not enter them. In step (3), put
+also ũ_A := u′_A ∘ Φ⁻¹ and q̃_A := q′_A ∘ Φ⁻¹, u′_A and q′_A the further phases and densities of the second solution.
+The state of g̃ with these families agrees with U, with all derivatives, on N ∩ Φ(Q1′): for the fields and the adapted
+densities by step (3) there, and for the further families by [[lem:loc-t5-jets]] (b) on the crossing sets, Φ being the
+identity with all derivatives on N, as U = Û on P. Apply [[lem:loc-t5-uniqueness]] with Ĝ′ := Ĝ, U_1 the state of g̃, R′
+:= Φ(Q1′) = [0, u_1′] × [0, v_1′] × S³ in the coordinates (ũ, ṽ, ω̃), U_2 := U, and, for each further family, 𝒦_A″ :=
+the union of the η-neighbourhood of 𝒦_A in N and of the caps within δ_2 of the axes of the A-sections through its points
+within δ_2 of the axes, with η and δ_2 so small that this set lies in the interior of 𝒦_A′ and satisfies the conditions
+there for U_1, for ε and ε_2 small, as these hold with a margin for the background, and 𝒦_A^+ a compact neighbourhood of
+𝒦_A″ in the interior of 𝒦_A′, on which U and the state of g̃ agree with all derivatives. The phases of A of U_1 and of U
+are defined on a neighbourhood of the union of the curves of P_1^A in R′ from 𝒦_A^+, that of U_1 by the hypothesis on
+𝒯_A^g and that of U by [[lem:loc-t5-constraints]], for ε and ε_2 small by continuous dependence on the field; and both
+densities vanish off 𝒯_A, being carried by curves from 𝒦_A, which lie in 𝒯_A for ε and ε_2 small. So U = U_1 on R′, and
+step (4) of the proof of [[lem:loc-axis-unique]] concludes, the further phases and densities being carried along.
+
+(d) Let 0 < u′ < min(u_K, u_1) and 0 < v′ < min(v_K, v_1). All derivatives across N at the points of {0} × [0, v′] and
+[0, u′] × {0} are the background's ([[lem:loc-axis-jets]] (b), [[lem:loc-t5-jets]] (b)), so Δ and the Borel sums of the
+further densities vanish at the points with u < u_K and v < v_K, Δ being supported within 2δ_e of N, and Ĝ = g_e there
+and Û = Ů there except in the phases of the further families. The further densities of U vanish on [0, u′] × [0, v′] ×
+S³, the curves from 𝒦_A entering F at points with v ≥ v_K or u ≥ u_K and keeping that inequality.
+[[lem:loc-t5-uniqueness]], with U_1 := Ů in the coordinates (u, v, ω), which solves [[eq:class-system]] in the gauge
+relative to g_e = Ĝ there, R′ := [0, u′] × [0, v′] × S³, U_2 := U and 𝒦_A″ := ∅, gives U = Ů there, and Ψ is the
+identity there by the last statement of [[lem:loc-axis-gauge]]. ∎
+
+For N_f = 2 there are no further families, and [[thm:loc-t5]] is [[thm:loc-axis]].
+
+**Proposition {#prop:loc-t5-cut}** (Families tangent to an edge: developments away from the axes concerned.) Let the
+data be as in [[thm:loc-t5]] except that, for the further families of a set 𝒢, (F-a) or (F-b) fails. Let N_c ⊂ N and
+N_0 ⊂ N_c be compact and G-invariant, N_0 in the interior of N_c, such that: (N1) the interior of N_0 contains the
+tangency sets of the families of 𝒢 at the axes near which they carry density, and the corner circles of those axes; (N2)
+with a point of N_o (of N_i), N_c contains the points of larger v (of larger u) on its generator; (N3) every family of 𝒢
+satisfies (F-a), (F-b) and (F-c) with supp q_A ∖ int N_0 in place of 𝒦_A; (N4) no family of 𝒢 crosses both edges at a
+point of S_c ∩ (N_c ∖ int N_0). Let λ be a smooth G-invariant function with dλ future timelike for g_e near Q1 × S³,
+such that D′ := F ∩ {λ ≤ 0} lies in Q1 × S³, does not meet N_c, and has {λ = 0} ∩ F at a positive distance w from the
+axes. For ε small, depending also on N_0, N_c, λ and a bound for the C^(m_1) norms of the cut-offs χ_c considered, with
+δ_c small depending on the distance from D′ to N_c:
+
+(a) for every smooth G-invariant χ_c on N, equal to 1 outside N_c and to 0 near N_0, the solution U of the system of
+[[sec:loc-t5-system]] for the data with q_A replaced by χ_c q_A for A ∈ 𝒢, and the constraints solved again, is on D′ a
+class solution with N_f families in the gauge D(g) = 0 relative to Ĝ that induces the given data on D′ ∩ N, and in the
+coordinates Ψ of [[lem:loc-axis-gauge]] it has the form [[eq:loc-double-null]] on Ψ(D′);
+(b) U and Ψ on D′ do not depend on χ_c.
+
+*Proof.* (a) The constraints of [[lem:loc-t5-jets]] (a) change only on the generators through points where χ_c q_A ≠
+q_A, and only at and beyond them, hence only in N_c, by (N2). The new data are of size at most Cε, C depending on the
+C^(m_1) norm of χ_c, satisfy (F-a) and (F-b) by (N1) and (N3), and (F-c) by (N3) and (N4), χ_c being locally constant at
+the points of S_c where a family of 𝒢 crosses both edges, which lie outside N_c or in the interior of N_0; and they
+agree with the old ones on N ∖ N_c. Take 𝒦_A′ for A ∈ 𝒢 a neighbourhood of supp q_A ∖ int N_0, the same for every χ_c,
+and ξ_A, ψ_A, t_A built from it, and take δ_♮ ≤ w/4. [[thm:loc-t5]] and its proof give U, a class solution on 𝒯 ⊃
+D′, and Ψ; D′ ∩ N ⊂ N ∖ N_c, where the data are the given ones. (b) The jets on N at a point outside N_c depend only on
+the data on the generator up to that point ([[lem:loc-cone-jets]], [[lem:loc-t5-jets]] (b)), which lies outside N_c by
+(N2), and the Borel sums at a point within 2δ_e of N hold jets at points of N within 2δ_e of it; so for δ_c small Û and
+Ĝ are the same for two cut-offs χ_c on a neighbourhood 𝒱 of D′, and so is the system there, the closures at points of 𝒱
+using arcs within C δ_♮ of them. Let U and U′ be the two solutions and z their difference. On P ∩ 𝒱 both equal Û
+([[lem:loc-t5-past]]). On D′, z satisfies a system of the form of [[lem:loc-t5-energy]], with B_0 := D′ ∩ N, where z =
+0, and the face {λ = 0}, whose conormal dλ is future timelike for both metrics and positive on their transport fields,
+so that the boundary matrix there is nonnegative. Points of D′ within δ_♮/2 of an axis lie at distance at least w/2 from
+{λ = 0}, and their arcs, within δ_♮ of them, lie in {λ < 0}; near the edges the edge sections are leaves; so the sets D′
+∩ {t_A = t} ∩ {τ ≤ s} contain the arcs of U′ of their points near the axes, and [[lem:class-leaf-states]] (c) bounds the
+non-local terms as in the proof of [[lem:loc-t5-constraints]]. So z = 0 on D′. A past causal curve from a point of D′
+decreases λ and stays in D′ until it meets D′ ∩ N; so the phases u_out, u_in and the angle ω′ of [[lem:loc-axis-gauge]],
+fixed by their values on P ∩ 𝒰^♭ and transported along the curves of P_out, are the same, and so is Ψ. ∎
+
+**Remark {#rem:loc-t5-scope}** (What [[thm:loc-t5]] and [[prop:loc-t5-cut]] do not give.) (i) *Families tangent to an
+edge at an axis.* A further family that carries density where it is tangent to an edge along an axis generator is
+excluded by (F-b); [[prop:loc-t5-grazing]] shows that the construction of this section cannot treat it there in any
+slicing, except possibly where the edge sections are leaves to infinite order only, and that where all of them near a
+point are leaves the edge is characteristic for the family on an open set. [[prop:loc-t5-cut]] develops such data on
+regions bounded by a spacelike hypersurface that avoid those axes near the points concerned, and shows that the
+development there does not depend on how the data are cut near those points; it gives no uniqueness among other
+solutions on D′. (ii) *The condition (F-a).* It cannot be dropped for a family that crosses an edge near a corner
+circle, by the remark after [[lem:loc-t5-tubes]], as long as the family is carried by cut-offs ξ_A. (iii) *Size.* As in
+[[rem:loc-axis-scope]] (i), the data must be near the background's at the axes, the term in σ_A being estimated on balls
+about the background.
+(iv) *Regularity.* The data are smooth and small in C^(m_1), and the development is smooth, with the estimate of
+[[thm:loc-axis]] in C^(k−4); smoothness comes from the tame bound [[eq:class-leaf-tame]] for the square of the planar
+shear, through parts (c) and (d) of [[thm:class-kato-memory]].
+
+### Developments of data of any size through the axes {#sec:civp-axes}
+
+The developments of [[sec:loc-cone-proof]] and [[sec:civp-large]] take cone data equal to the background's near the axes,
+and those of [[sec:loc-axis]] take data near the background's. This section drops both conditions for the two adapted
+families: cone data of any size, reaching the axes, with or without dust, have a development on a neighbourhood of the
+two cones, unique in the double-null gauge, and a maximal development with a continuation criterion ([[thm:civp-axes]]).
+A development of the whole rectangle is not asserted: a large density can make a cone focus, and then the cone data, and
+with them the developments in the gauge, do not extend past the focal sphere ([[rem:civp-axes-scope]]).
+
+The route has four steps. First, the derivatives of the metric functions across each cone obey linear ordinary
+differential equations along the generators, through the axes, when the equations are written on the sections as
+equations for tensor fields ([[lem:civp-axes-principal]], [[lem:civp-axes-jets]]); so they exist and are bounded on the
+whole of each cone. Second, near a corner sphere, Rendall's reduction is carried out with the closure of
+[[ch:class-system]] at the axes, about the formal solution Û rather than about a background, for a short time; this needs
+the planar shear about a state that is not a solution ([[lem:class-leaf-reference]]), and the time obtained depends only
+on norms of the data near the corner ([[prop:civp-axes-corner]]). Third, two developments in the gauge agree, without
+smallness ([[prop:civp-axes-unique]]). Fourth, corner problems at the spheres of the cones and of null hypersurfaces of
+the solution, glued by uniqueness, continue the development along the generators; no a priori estimate is used, the width
+of the development being allowed to shrink ([[prop:civp-axes-faces]]).
+
+#### Data reaching the axes {#sec:civp-axes-data}
+
+Let γ̊ be the round metric of S³ and ∇̊ its connection. For an interval I and a function, a vector field or a symmetric
+2-tensor field X on S³ depending on s ∈ I, ‖X‖_(C^m(I × S³)) is the largest of the suprema of |∂_s^j ∇̊^i X|_γ̊ over j +
+i ≤ m. A metric on D × S³, D a subset of the (u, v)-plane, is in *natural double-null form* if
+
+    g = −2Ω² (du ⊗ dv + dv ⊗ du) + γ(· − b du, · − b du),                                  {#eq:civp-axes-form}
+
+that is g = −2Ω² (du ⊗ dv + dv ⊗ du) + γ_AB (dθ^A − b^A du)(dθ^B − b^B du) in every chart (θ^A) of S³, where for each (u,
+v) the function Ω > 0, the vector field b and the Riemannian metric γ are smooth on S³, and they depend smoothly on (u,
+v). Such a g is a smooth Lorentzian metric on D × S³, for which u and v are null. It is G-invariant with b = b∂_ϑ and γ =
+γ_ϑ dϑ² + e^(2A_c) dφ1² + e^(2A_s) dφ2² exactly when Ω, b and γ are G-invariant, since the reflections φ_i ↦ −φ_i make an
+invariant vector field a multiple of ∂_ϑ and an invariant symmetric tensor diagonal in (ϑ, φ1, φ2); off the axes it is
+then [[eq:loc-double-null]]. Conversely a smooth G-invariant metric on D × S³ that has the form [[eq:loc-double-null]]
+off the axes, among them the metric of a class solution in the gauge of [[sec:loc-cone-setting]], is in this form. Indeed
+g(∂_v, ∂_v) and g(∂_v, X), X tangent to the sections, vanish off the axes and so everywhere; Ω² := −g(∂_u, ∂_v)/2, the
+restriction γ of g to the sections and b with γ(b, ·) = −g(∂_u, ·) on their tangent vectors are smooth on D × S³, because
+g and the coordinate fields of the product are; Ω² > 0 and γ is positive definite at the axes too, since ∂_v is null and
+orthogonal to the sections and g is nondegenerate of Lorentzian signature; and the two sides of [[eq:civp-axes-form]]
+agree off the axes, hence everywhere.
+
+An invariant vector field vanishes at the axes: at a point of axis 2 the rotations of the (x3, x4)-plane fix the point
+and act on the plane normal to the axis without fixed vector, and the reflection in the (x1, x2)-plane through the point
+reverses K1. Near axis 2, with x := ϑ, smoothness of the invariant tensors gives, as for [[eq:class-axis-metric]], that
+Ω, γ_ϑ and e^(2A_c) are even smooth functions of x, that b is odd, and that e^(2A_s) = sin²x e^(2s) with s even and γ_ϑ =
+e^(2s) at x = 0 (the conical condition); near axis 1 the same holds with x := π/2 − ϑ and the roles of A_c and A_s
+exchanged. No step below uses these coordinate conditions: the data are tensor fields on S³, and the conditions are their
+smoothness written in coordinates.
+
+**Definition {#def:civp-axes-data}** (Cone data through the axes.) Let (u_c, v_c) be a point, λ_u, λ_v > 0, N_o := {u_c}
+× [v_c, v_c + λ_v] and N_i := [u_c, u_c + λ_u] × {v_c}, the *edges*, and S_c := {(u_c, v_c)} × S³ the *corner sphere*.
+*Cone data* consist of G-invariant smooth families, in the sense of [[eq:civp-axes-form]], of a function Ω > 0, a vector
+field b, a Riemannian metric γ and a function q_in on N_o, and of Ω, b, γ and q_out on N_i, such that: (i) Ω, b and γ of
+the two edges agree on S_c; (ii) Ric(∂_v, ∂_v) = q_in and Ric(∂_v, X) = 0 for X tangent to the sections on N_o, and
+Ric(L̲, L̲) = q_out on N_i, L̲ := ∂_u + b; and (iii) q_in ≥ 0 and q_out ≥ 0. *Cone data of any sign* omit (iii). Their
+*size* in C^m is the largest of ‖ln Ω‖, ‖b‖, ‖γ‖ and ‖q_A‖ in C^m of the two edges, and they are *κ-nondegenerate*, κ ∈
+(0, 1], if γ ≥ κ γ̊ on both edges.
+
+In (ii), Ric(∂_v, ∂_v) and Ric(∂_v, X) on N_o are those of any metric in natural double-null form inducing the functions
+of N_o, and Ric(L̲, L̲) on N_i those of any such metric inducing the functions of N_i: off the axes they are given by
+[[eq:loc-cone]] and by the last line of [[eq:loc-cone-frame-ricci]] in terms of the functions on that edge, and they are
+continuous up to the axes. The free part of cone data is that of [[def:loc-cone-data]]: Ω on both edges, b on N_i, the
+conformal class of γ and the densities, the corner values being arbitrary subject to (i). In the normalised form γ = ỹ²
+γ̂ with μ_γ̂ = μ_γ̊, μ the Riemannian volume density, ỹ = (μ_γ/μ_γ̊)^(1/3) is a smooth positive function on S³, and by
+the proof of [[prop:loc-cones]], with trace and norm of ½ ∂_v γ taken in γ, the first constraint on N_o reads
+
+    ∂_v² ỹ − 2 ∂_v ln Ω ∂_v ỹ + (1/3)(¼ |∂_v γ̂|²_γ̂ + q_in) ỹ = 0,                        {#eq:civp-axes-raychaudhuri}
+
+a linear ordinary differential equation along each generator with coefficients smooth on S³, axis generators included; on
+N_i with b = 0 the constraint is the same equation with u in place of v. Positivity of ỹ on an edge is the absence of a
+focal sphere there. The constraint Ric(∂_v, X) = 0 is a linear first-order equation for ∂_v b along the generators, with
+the leading coefficient (1/(4Ω²)) γ(∂_v ·, X) (the second line of [[eq:loc-cone]]).
+
+A *class solution in double-null form* on D × S³, for a set D of the (u, v)-plane, is a smooth class solution (g, v, u,
+q_in, q_out) of [[eq:class-system]] with N_f = 2, v the phase of the density q_in and u that of q_out, whose metric is in
+natural double-null form: a class solution in the gauge of [[sec:loc-cone-setting]] without the condition that it equal
+the background near the axes. It *induces* cone data on edges contained in D if its functions Ω, b, γ and the densities
+restrict to them. By the paragraph after [[eq:civp-axes-form]], the class solutions in double-null form on D × S³ with D
+⊂ F are the class solutions in the gauge through the axes of [[def:loc-axis-data]]. A set D is a *past set* relative to
+(u_c, v_c) if [u_c, u] × [v_c, v] ⊂ D for every (u, v) ∈ D. Every statement below holds for cone data of any sign, a
+class solution in double-null form being then read as one whose densities may take either sign; the densities of the
+solutions constructed are nonnegative at the points whose past on the cones carries nonnegative data, by the argument on
+the signs in the proof of [[lem:loc-cone-constraints]].
+
+#### The derivatives across the edges {#sec:civp-axes-jets}
+
+**Lemma {#lem:civp-axes-principal}** (The equations across an outgoing edge.) Let g be a metric in natural double-null
+form on {0 ≤ u < ε} × I × S³, I an interval of v, smooth up to u = 0, q_in and q_out any functions, E := Ric(g) − q_in dv
+⊗ dv − q_out du ⊗ du and ℰ := (E(L̲, ∂_v), E(L̲, ·), E(·, ·)), the last two restricted to vectors tangent to the
+sections: for each (u, v) a function, a 1-form and a symmetric 2-tensor field on S³. Put J_j := ∂_u^j (Ω, b, γ) at u = 0,
+for j ≥ 0.
+
+(a) ℰ contains no second u-derivative of Ω, b, γ, and does not contain q_in or q_out. So for j ≥ 1, ∂_u^(j−1) ℰ at u = 0
+is a smooth expression in J_0, …, J_j and their derivatives along N_o := {0} × I × S³ of order at most two.
+
+(b) For j ≥ 2 it is affine in J_j: ∂_u^(j−1) ℰ|_(u=0) = 𝔏_j J_j + 𝔖_j, with 𝔖_j depending on J_0, …, J_(j−1) only and,
+for J = (ω, β, h),
+
+    𝔏_j J = (−(2/Ω) ∂_v ω − ½ tr_γ ∂_v h, −(1/(4Ω²)) γ(∂_v β, ·), (1/(2Ω²)) ∂_v h) + 𝔏_j′ J,   {#eq:civp-axes-principal}
+
+Ω and γ those of J_0. The operator 𝔏_j′ contains no ∂_v. Its first and third components are linear in (ω, β, h) at each
+point, with no derivative on S³; its second component contains derivatives on S³ of order at most one of ω and h and none
+of β. The coefficients are smooth on N_o, axes included, and built from J_0, J_1 and their first derivatives.
+
+(c) If g is G-invariant, then (b) holds also for j = 1, the coefficients of 𝔏_1 being built from J_0 alone, and for j ≥ 1
+the first and third components of ∂_u^(j−1) ℰ|_(u=0) do not depend on the β-component of J_j.
+
+*Proof.* (a), (b) Work in coordinates (u, v, θ^A), (θ^A) any chart of S³. The components of g are g_uv = −2Ω², g_uA =
+−γ_AB b^B, g_uu = γ_AB b^A b^B, g_AB = γ_AB and g_vv = g_vA = 0, and since g(L̲, ∂_v) = −2Ω², g(L̲, L̲) = g(L̲, ∂_A) = 0
+and g(∂_v, ∂_v) = g(∂_v, ∂_A) = 0, the inverse metric is −(2Ω²)⁻¹ (L̲ ⊗ ∂_v + ∂_v ⊗ L̲) + γ^AB ∂_A ⊗ ∂_B: g^uu = g^uA =
+g^vv = 0, g^uv = −1/(2Ω²), g^vA = −b^A/(2Ω²), g^AB = γ^AB. From the Christoffel symbols,
+
+    Ric_μν = ½ g^αβ (∂_α∂_μ g_βν + ∂_α∂_ν g_βμ − ∂_μ∂_ν g_αβ − ∂_α∂_β g_μν) + Q_μν,
+
+with Q_μν a polynomial in g^αβ and the first derivatives of the g_αβ, quadratic in the latter. A term ∂_u∂_u g_·· can
+arise from the first sum only with α = μ = u, then β = v and ν = u, as g^uβ ≠ 0 only for β = v and g_vν ≠ 0 only for ν =
+u; from the second only with μ = ν = u; from the third only with μ = ν = u; and the fourth would need g^uu ≠ 0. So ∂_u²
+occurs only in Ric_uu, which is not in ℰ: E(L̲, ∂_v) = E_uv + b^A E_Av and E(L̲, ∂_A) = E_uA + b^B E_BA, and T(L̲, ∂_v) =
+T(L̲, ∂_A) = T(∂_A, ∂_B) = 0 because dv(L̲) = du(∂_v) = du(∂_A) = dv(∂_A) = 0. Every term of ℰ is therefore a product of
+factors each containing at most one u-derivative, and ∂_u^(j−1) at u = 0 produces u-derivatives of order at most j. J_j
+appears only where all j − 1 derivatives fall on one factor that already contains ∂_u; for j ≥ 2 at most one factor of a
+term can receive them, so the dependence on J_j is affine, through ∂_u ∂_v g, ∂_u ∂_A g and ∂_u g at u = 0, the
+components of ∂_u^j g being J_j-linear modulo lower jets.
+
+The ∂_u∂_v- and ∂_u∂_C-terms are read off the four sums, with the inverse metric above. In Ric_AB only the fourth sum
+with (α, β) = (u, v), (v, u) contributes, giving (1/(2Ω²)) ∂_u∂_v γ_AB, and there is no ∂_u∂_C-term: the first two sums
+with α = u need g_vB = 0, the fourth with (α, β) = (u, C) needs g^uC = 0. In Ric_uv the four sums contribute (1/(2Ω²) +
+1/(2Ω²) − 1/Ω² − 1/Ω²) ∂_u∂_v Ω² − ½ γ^CD ∂_u∂_v γ_CD and no ∂_u∂_C-term, and Ric_Av contains no second derivative with a
+u at all (its first sum needs β = u, α = v; its second α = u, β = v and g_vA = 0; its fourth vanishes as g_Av ≡ 0). In
+Ric_uA the first sum gives (1/(4Ω²)) ∂_u∂_v b_A − (b^C/(4Ω²)) ∂_u∂_v γ_CA + ½ γ^DC ∂_D∂_u γ_CA, b_A := γ_AC b^C, the
+second (1/(2Ω²)) ∂_u∂_A Ω², the third −(1/Ω²) ∂_u∂_A Ω² − ½ γ^CD ∂_u∂_A γ_CD, and the fourth −(1/(2Ω²)) ∂_u∂_v b_A. With
+∂_u∂_v b_A = γ_AC ∂_u∂_v b^C + b^C ∂_u∂_v γ_AC modulo products of first derivatives, and b^B times the term of Ric_BA,
+
+    E(L̲, ∂_A) = −(1/(4Ω²)) γ_AC ∂_u∂_v b^C + ½ γ^CD (∂_D∂_u γ_CA − ∂_A∂_u γ_CD) − (1/(2Ω²)) ∂_u∂_A Ω²
+                + (terms with at most first derivatives),
+    E(L̲, ∂_v) = −(2/Ω) ∂_u∂_v Ω − ½ γ^CD ∂_u∂_v γ_CD + (terms with at most first derivatives),
+    E(∂_A, ∂_B) = (1/(2Ω²)) ∂_u∂_v γ_AB + (terms with no second derivative containing ∂_u).
+
+Applying ∂_u^(j−1) at u = 0 gives [[eq:civp-axes-principal]] and the statements on 𝔏_j′: derivatives on S³ of J_j arise
+only from the ∂_u∂_C-terms, which occur only in the second component and hold Ω and γ only; the terms with at most first
+derivatives give zero-order terms in J_j. Every coefficient is a polynomial in the components of g, of the inverse metric
+and of their derivatives at u = 0 in the chart, so smooth on N_o; it is independent of the chart, the components of ℰ
+being tensorial on the sections.
+
+(c) Off the axes, in the class, the components of ℰ are linear combinations of E(L̲, ∂_v), E(L̲, ∂_ϑ), E(∂_ϑ, ∂_ϑ) and
+E(K_i, K_i), the others vanishing by the reflections, and [[eq:loc-cone-frame-ricci]] gives them explicitly in terms of
+ln Ω, the ϰ_i and b. Each of their monomials contains at most one factor among L̲ ln Ω, L̲ϰ_i (in χ̲_i and tr χ̲), ∂_v L̲
+ln Ω, ∂_v L̲ϰ_i, L̲∂_v b, ∂_ϑ L̲ ln Ω and ∂_ϑ L̲ϰ_i; with L̲ = ∂_u + b∂_ϑ these are affine in the first u-derivatives at
+u = 0. And ∂_u b and ∂_u ln Ω do not occur in E(∂_ϑ, ∂_ϑ) and E(K_i, K_i), nor ∂_u b in E(L̲, ∂_v). So off the axes, for
+invariant g, ℰ|_(u=0) − 𝔏_1 J_1 − 𝔖_1 = 𝔔(J_1, J_1) vanishes, where 𝔏_1 is the operator of [[eq:civp-axes-principal]]
+with coefficients from J_0 and 𝔔 the quadratic part, a pointwise quadratic form with smooth coefficients; at the axes
+𝔔(J_1, J_1) vanishes by continuity, J_1 being a smooth section. For j ≥ 1 the β-component of J_j enters the first and
+third components through ∂_u b only, after j − 1 further derivatives, so not at all off the axes; at the axes the
+β-component of the invariant J_j vanishes. ∎
+
+On an ingoing edge {v = 0} with b = 0 there, put ψ_(u,v) for the flow of the vector field b(·, v, ·) on S³ in the
+variable u from 0, which commutes with G, and θ̃ := ψ_(u,v)⁻¹(θ). Then dθ − b du = Dψ (dθ̃ − b̃ dv) with b̃ := −Dψ⁻¹ ∂_v
+ψ, and g = −2Ω̃² (du ⊗ dv + dv ⊗ du) + γ̃(· − b̃ dv, · − b̃ dv) with Ω̃ := Ω ∘ ψ and γ̃ := ψ^*γ: the form
+[[eq:civp-axes-form]] with u and v exchanged, equal to the given one on {v = 0}, where ψ = id. The lemma applies there
+with u and v exchanged, and the v-derivatives at v = 0 of (Ω, b, γ) and of (Ω̃, b̃, γ̃) determine one another: ∂_v ψ =
+−Dψ b̃ with ψ = id at v = 0, b = (∂_u ψ) ∘ ψ⁻¹, Ω = Ω̃ ∘ ψ⁻¹ and γ = ψ_*γ̃.
+
+**Lemma {#lem:civp-axes-jets}** (The derivatives across the edges through the axes.) Let cone data of any sign be given
+on edges N_o = {0} × [0, λ_v] and N_i = [0, λ_u] × {0}, with b = 0 on N_i. There are unique sequences a_j (j ≥ 0) on N_o
+and b_k (k ≥ 0) on N_i of G-invariant smooth families of a function, a vector field and a symmetric 2-tensor field on S³,
+with a_0 and b_0 the data, together with unique invariant smooth densities a_j^ρ, b_k^ρ (of q_in μ_γ and q_out μ_γ), such
+that for every metric g in natural double-null form near N := N_o ∪ N_i with ∂_u^j (Ω, b, γ) = a_j on N_o and ∂_v^k (Ω,
+b, γ) = b_k on N_i for all j, k, and densities with the corresponding derivatives, the evolution components ℰ of
+[[lem:civp-axes-principal]] on N_o, the corresponding components with u and v exchanged on N_i, and the conservation laws
+vanish to infinite order on N, and E(L̲, ·) vanishes on N_i. Moreover:
+
+(i) (Linear and triangular.) For j ≥ 1, a_j = (ω, β, h) solves along each generator of N_o the linear system 𝔏_j a_j =
+−𝔖_j: a linear ordinary differential equation in v for (ω, h) at each point of S³, followed by one for β whose
+inhomogeneous term contains (ω, h) and their first derivatives on S³; the initial values at v = 0 are the u-derivatives
+of the data of N_i at the corner. The same holds on N_i, in the form of [[lem:civp-axes-principal]] with u and v
+exchanged, where in addition the shift of that form at v = 0, which carries the first derivative of b across N_i, solves
+a linear ordinary differential equation along the generators. No Riccati term occurs at any order, and the a_j exist on
+the whole of N_o and the b_k on the whole of N_i, whatever their lengths.
+
+(ii) (Corner.) ∂_v^k a_j = ∂_u^j b_k on S_c for all j, k.
+
+(iii) (Bounds.) If the data have size at most Λ in C^m on edges of length at most 1 and are κ-nondegenerate, then for 4j
+≤ m, ‖a_j‖_(C^(m−4j)) + ‖b_j‖_(C^(m−4j)) ≤ C_j, with C_j depending only on j, m, Λ and κ.
+
+(iv) (Solutions.) Every class solution in double-null form on D × S³, D a past set relative to (0, 0) whose interior is
+dense in it, that induces the data on N ∩ D has ∂_u^j (Ω, b, γ) = a_j on N_o ∩ D and ∂_v^k (Ω, b, γ) = b_k on N_i ∩ D,
+and the corresponding densities.
+
+(v) a_j on N_o ∩ {v ≤ v′} depends only on the data on N_o ∩ {v ≤ v′} and on the derivatives at the corner of the data of
+N_i, and b_k on N_i ∩ {u ≤ u′} only on the data on N_i ∩ {u ≤ u′} and the derivatives at the corner of the data of N_o.
+
+*Proof.* *Existence and uniqueness on N_o.* Induction on j. For j ≥ 1, given a_0, …, a_(j−1), [[lem:civp-axes-principal]]
+(b), (c) turns ∂_u^(j−1) ℰ|_(u=0) = 0, for invariant a_j, into the system 𝔏_j a_j = −𝔖_j: by [[eq:civp-axes-principal]]
+the first and third components form a linear system for (ω, h) whose v-derivatives have the invertible coefficient matrix
+((−2/Ω, −½ tr_γ), (0, (1/(2Ω²)) id)), with no derivative on S³ and no β; the second is then a linear equation for γ(∂_v
+β, ·)/(4Ω²) with coefficients and an inhomogeneous term smooth on N_o. Linear ordinary differential equations with smooth
+coefficients have unique solutions on the whole interval, depending smoothly on the point of S³ and on v; the solution
+with the initial values ∂_u^j b_0 at the corner is invariant, since the system is natural and commutes with G and the
+data are invariant, so its image under each element of G solves it with the same initial values. Conversely every
+invariant a_j with ∂_u^(j−1) ℰ|_(u=0) = 0 solves this system. For the densities put ρ_in := q_in μ_γ and ρ_out := q_out
+μ_γ: by [[lem:loc-cone-ricci]] (b), written in a chart, the conservation laws are ∂_u ρ_in + ℒ_b ρ_in = 0 and ∂_v ρ_out =
+0 for these densities on S³, so ∂_u^j ρ_in at u = 0 is ∂_u^(j−1) of −ℒ_b ρ_in, a polynomial in lower jets, and ∂_u^j
+ρ_out is constant along each generator, with its value at the corner given by the data of N_i.
+
+*On N_i* the same, in the form with u and v exchanged given before the lemma, with the generators of N_i, the integral
+curves of ∂_u (b = 0 there), and the initial values at u = 0 the v-derivatives of the data of N_o at the corner, after
+one step that has no analogue on N_o. In that form the shift b̃ at v = 0 is not a datum of N_i: there ψ = id and
+∂_u∂_vψ = ∂_v b, so b̃ = −∫_0^u ∂_v b du′ at v = 0, the first derivative of b across N_i. It is fixed by E(L̲, ·) = 0 on
+N_i, which in that form is the constraint E(∂_u, X) = 0 of the edge: as for Ric(∂_v, X) = 0 on N_o (the paragraph after
+[[def:civp-axes-data]]), a linear first-order equation for ∂_u b̃ along the generators, with coefficients built from Ω
+and γ on N_i, which we solve with b̃ = 0 and ∂_u b̃ = −∂_v b at the corner, the latter a derivative along N_o of the data
+of N_o. The induction for k ≥ 1 then runs with this b̃ in the zeroth jet. The change of form is smooth through the axes,
+ψ commuting with G, and the v-derivatives of (Ω, b, γ) and of (Ω̃, b̃, γ̃) at v = 0 determine one another, those of order
+k of the first through those of order at most k of Ω̃, γ̃ and k − 1 of b̃ and their derivatives along N_i, so the bounds
+of (iii) pass from one to the other with the loss counted there.
+
+*Vanishing to infinite order.* For g as in the statement, ∂_u^(j−1) ℰ vanishes on N_o for every j ≥ 1 and the
+corresponding derivatives on N_i; all their derivatives along N then vanish, and so ℰ and the components on N_i vanish to
+infinite order on N; likewise the conservation laws. And E(L̲, ·) on N_i, which in the form with u and v exchanged is the
+constraint E(∂_u, X) of the edge, depends only on the zeroth jet there, b̃ included, and vanishes by the choice of b̃.
+
+(ii) Off the axes the a_j and b_k solve the equations of the proof of [[lem:loc-cone-jets]] with the same initial values,
+and that proof, being local in ϑ, applies at every ϑ ∈ (0, π/2) to cone data of any sign; so they are the sequences
+constructed there on N ∩ {0 < ϑ < π/2}, and (ii) holds there by [[lem:loc-cone-jets]] (i). At the axes it holds by
+continuity.
+
+(iii) For a linear system ∂_v Z = MZ + h on an interval of length at most 1, ‖Z‖_(C^r) ≤ C(r, ‖M‖_(C^r))(‖Z(0)‖_(C^r) +
+‖h‖_(C^r)), by differentiating with ∇̊ and in v. With Ω ≥ e^(−Λ) and γ ≥ κγ̊ the leading coefficients of
+[[eq:civp-axes-principal]] have inverses bounded in terms of Λ and κ, and the induction of the proof of
+[[lem:loc-cone-jets]] (iii), with the data in place of their differences from a background, gives the bound: 𝔖_j holds
+derivatives of order at most two of a_0, …, a_(j−1), and the β-equation one derivative on S³ of (ω, h).
+
+(iv) Such a solution satisfies E = 0 and the conservation laws on D, hence, the interior of D being dense in it, their
+derivatives of every order on N ∩ D by continuity; its derivatives across N ∩ D are invariant and solve the systems above
+with the same initial values, on the parts of the generators that lie in D, which are intervals from the corner, D being
+a past set.
+
+(v) The systems on N_o at the points with v ≤ v′ involve the data there and the initial values at v = 0 only. ∎
+
+The loss of four derivatives per order in (iii) is that of [[lem:loc-cone-jets]] (iii). On a cone of finite length the
+derivatives across it of every order are bounded, by smoothness on the compact edge; their bounds grow at most
+exponentially in its length, by Gronwall's inequality.
+
+**Lemma {#lem:civp-axes-extension}** (Extending and normalising cone data.) Let m ≥ 1. Constants C_m depend only on m.
+
+(a) (Past an end.) Let w ∈ (0, 1] and f a smooth family on [−w, 0] × S³ of functions, vector fields or symmetric 2-tensor
+fields on S³. There is a smooth family F on [−w, 1] × S³ with F = f on [−w, 0] and ‖F‖_(C^m([−w,1]×S³)) ≤ C_m w^(−m)
+‖f‖_(C^m([−w,0]×S³)), depending linearly on f and G-invariant when f is.
+
+(b) (Short pieces.) Let f be a smooth family on [0, w] × S³, w > 0, let Λ bound |∇̊^i ∂_s^j f| at s = 0 for i, j ≤ m, and
+let L bound |∇̊^i ∂_s^(m+1) f| on [0, w] × S³ for i ≤ m. For 0 < a ≤ min(w, 1/2, 1/(1 + L)) there is a smooth family F on
+[0, 1] × S³, G-invariant when f is, with F = f on [0, a], F = Σ_(j≤m) ∂_s^j f(0) s^j/j! on [2a, 1], and
+‖F‖_(C^m([0,1]×S³)) ≤ C_m (Λ + 1).
+
+(c) (Solving the constraints past an end.) Let cone data of any sign, κ-nondegenerate and of size at most Λ in C^m, be
+given on edges N_o = {0} × [0, λ_v] and N_i = [0, λ_u] × {0}, λ_u, λ_v > 0, with b = 0 on N_i. On each edge let ln Ω, the
+density, and γ̂ := (μ_γ̊/μ_γ)^(2/3) γ be extended to smooth invariant families on [0, λ + 1/2] (λ the length of the edge)
+with C^m norms at most Λ, γ̂ positive definite with μ_γ̂ = μ_γ̊, and keep b = 0 on the extension of N_i. There are ℓ ∈
+(0, 1/2], C and κ′ > 0, depending only on m, Λ and κ, such that solving the constraints from the corner with the given
+corner values gives cone data of any sign on {0} × [0, λ_v + ℓ] and [0, λ_u + ℓ] × {0}, equal to the given data on N_o
+and N_i, of size at most C in C^(m−3), κ′-nondegenerate, and with these free functions.
+
+(d) (The shift on the ingoing edge.) For cone data with any b on N_i, let ψ_u be the flow on S³ of the vector fields b(u,
+0, ·): ∂_u ψ_u = b(u, 0, ψ_u), ψ_0 = id. The change of coordinates θ = ψ_u(θ′), independent of v, carries every metric in
+natural double-null form to one in natural double-null form, with Ω′ = Ω ∘ ψ_u, γ′ = ψ_u^* γ and b′ = ψ_u^*(b(u, v, ·) −
+b(u, 0, ·)). It commutes with G, it is the identity on N_o except that b becomes b − b(0, 0, ·) there, and b′ = 0 on N_i.
+The new functions on the edges are cone data, of size in C^m bounded by C_m times a function of the size of the old ones
+in C^(m+1), and κ-nondegeneracy becomes κ″-nondegeneracy with κ″ depending only on κ and that size. A class solution in
+double-null form for the new data gives one for the old data by the inverse change.
+
+*Proof.* (a) By [LY22, Theorem 1 (i)] ([[thm:std-ly-extension]]) there are numbers a_j and b_j > 0, j ∈ ℤ, with Σ_j a_j
+(−b_j)^i = 1 and A_i := Σ_j |a_j| b_j^i < ∞ for every integer i ≥ 0; the second follows from Σ_j 2^(δ_i|j|) |a_j| b_j^i <
+∞. Let χ be smooth on ℝ with χ = 1 on [−1/3, 0] and χ = 0 on (−∞, −2/3], put f_1(s) := χ(s/w) f(s) for −w ≤ s ≤ 0 and f_1
+:= 0 for s < −w, and F(s) := f(s) for s ≤ 0 and F(s) := Σ_j a_j f_1(−b_j s) for s > 0. The series of the derivatives
+∂_s^i ∇̊^α converge uniformly, since |∂_s^i ∇̊^α (f_1(−b_j s))| ≤ b_j^i sup |∂^i ∇̊^α f_1|, so F is smooth on (0, 1]
+with |∂_s^i ∇̊^α F| ≤ A_i sup |∂^i ∇̊^α f_1|, and as s → 0⁺, ∂_s^i ∇̊^α F → Σ_j a_j (−b_j)^i ∂^i ∇̊^α f(0) = ∂^i ∇̊^α
+f(0), χ being 1 near 0; so F is smooth on [−w, 1]. The derivatives of χ(s/w) of order i are at most C w^(−i). F is linear
+in f and acts at each point of S³, so it commutes with G.
+
+(b) Let P(s) := Σ_(j≤m) ∂_s^j f(0) s^j/j!, so ‖P‖_(C^m([0,1]×S³)) ≤ C_m Λ, and g := f − P on [0, w]. Every ∇̊^α g
+with |α| ≤ m has vanishing s-derivatives of order at most m at s = 0, and ∂_s^(m+1) P = 0, so by Taylor's formula |∂_s^i
+∇̊^α g(s)| ≤ L s^(m+1−i) for i ≤ m. Apply (a) to s ↦ g(a + s), −a ≤ s ≤ 0, with w := a, and multiply the extension by
+ψ((s − a)/a), ψ smooth with ψ = 1 on (−∞, 1/2] and ψ = 0 on [1, ∞): the result g_e equals g on [0, a] and vanishes for s
+≥ 2a. In (a) the bound is A_i sup |∂^i ∇̊^α f_1| with f_1 = χ((s − a)/a) g, at most C_m Σ_(i′≤i) a^(−(i−i′)) L a^(m+1−i′)
+≤ C_m L a^(m+1−i), and the cut-off ψ costs the same powers of a; so ‖g_e‖_(C^m([0,1]×S³)) ≤ C_m L a ≤ C_m. Put F := P +
+g_e.
+
+(c) The proof of [[lem:loc-cone-extension]] holds with the following changes. The free functions are the given
+extensions, not Borel sums at the end, and are not measured against a background; ϕ and ℓ_i are replaced by ỹ and γ̂, and
+(∗) there by [[eq:civp-axes-raychaudhuri]], whose coefficients have C^(m−1) norms at most C(Λ). On the given edges ỹ =
+(μ_γ/μ_γ̊)^(1/3) ≥ κ^(1/2) and |∂ ln ỹ| ≤ C(Λ, κ), so the Gronwall bound there keeps ỹ ≥ ỹ(λ)/2 on [λ, λ + ℓ] for ℓ
+depending only on m, Λ and κ; and γ̂ ≥ Λ⁻² γ̊ on the extension, since μ_γ̂ = μ_γ̊ and γ̂ ≤ Λ γ̊, so γ = ỹ² γ̂ ≥ κ′ γ̊
+with κ′ := κ/(4Λ²). The second constraint on N_o is linear in b, through ∂_v b and ∂_v² b, off the axes by the second
+line of [[eq:loc-cone]] and at the axes by continuity, its leading coefficient being (1/(4Ω²)) γ(∂_v ·, X); solving it
+from the corner values loses the derivatives counted there, and the size of the extension is at most C in C^(m−3).
+
+(d) dθ = Dψ_u dθ′ + b(u, 0, ψ_u) du, so dθ − b(u, v, θ) du = Dψ_u (dθ′ − b′ du) with b′ as stated, and γ(Dψ_u ·, Dψ_u
+·) = ψ_u^* γ. ψ_u commutes with G because b is invariant, and ψ_0 = id. The constraints are components of the Ricci
+tensor of the same metric along the same generators: ∂_v at fixed θ′ is ∂_v at fixed θ, and on N_i, ∂_u at fixed θ′ is
+L̲. The bounds follow from those of ψ_u, whose derivatives of order m are bounded by the derivatives of b of order at
+most m. ∎
+
+**Proposition {#prop:civp-axes-formal}** (The formal solution through the axes.) Let the data of [[lem:civp-axes-jets]]
+have size at most Λ in C^m, m ≥ 6k + 18, on edges of length λ_u, λ_v ∈ [λ_0, 1], be κ-nondegenerate, and let 0 < δ_e ≤
+1/8. Extend a_0 to v ∈ [−1, 0] and b_0 to u ∈ [−1, 0] by [[lem:civp-axes-extension]] (a), and put X_0(u, v) := a_0(v) +
+b_0(u) − a_0(0). There are G-invariant smooth families X̂ = (Ω̂, b̂, γ̂) and ρ̂_in, ρ̂_out on 𝒮_e := [−1, λ_u] × [−1,
+λ_v] with ∂_u^j X̂ = a_j on N_o and ∂_v^k X̂ = b_k on N_i for all j, k, likewise for the densities, such that, with
+constants depending only on k, Λ, κ and λ_0 unless stated otherwise:
+
+(a) ‖X̂‖_(C^(k+3)(𝒮_e)) ≤ C, C depending also on δ_e;
+
+(b) |X̂ − X_0| ≤ C_b (|u| + |v|) on 𝒮_e, and |b̂| ≤ C_b |v| where u ≥ 2δ_e, with C_b not depending on δ_e;
+
+(c) at the points of 𝒮_e with |u|, |v| ≤ d, and at those within distance d of N, for a number d > 0, Ω̂ ≥ e^(−Λ)/2 and γ̂
+≥ (κ/2) γ̊; there the metric Ĝ of [[eq:civp-axes-form]] with the functions X̂ is a smooth G-invariant Lorentzian metric
+for which u and v are null, and Ĝ, q̂_in := ρ̂_in/μ_γ̂ and q̂_out := ρ̂_out/μ_γ̂ induce the data on N;
+
+(d) E := Ric(Ĝ) − q̂_in dv ⊗ dv − q̂_out du ⊗ du and the conservation laws vanish to infinite order on N.
+
+*Proof.* Apply [[lem:loc-cone-borel]] to the components of a_j − ∂_u^j X_0 and b_k − ∂_v^k X_0, which agree at the corner
+by [[lem:civp-axes-jets]] (ii) and vanish for j = 0 and k = 0, in the Cartesian components on ℝ⁴ ⊃ S³ of tensor fields on
+S³, with Y replaced by S³, r := k + 3, ε_B := δ_e and γ_0 := 1, and add X_0. That proof uses Y only as a parameter set,
+the Borel sums being taken in u and v with cut-offs depending on u and v alone; so the sums are G-invariant when their
+coefficients are, and the bound of its part (b) holds with ∇̊-derivatives, which gives (a) by [[lem:civp-axes-jets]]
+(iii), since m − 4(k + 3) ≥ 2(k + 3). (b) is the argument of the paragraph on the reference metric in case (II) of
+[[sec:loc-cone-reduced]], which uses only the form of the Borel sums: the terms of index 0 vanish on N, as the jets of
+order 0 of X − X_0 vanish, every other term vanishes at u = 0 (respectively v = 0) and is at most |u| (respectively |v|)
+times a bound of the jets of order at most k + 3 or 2^(−j); and b vanishes on N_i and on N_o at v = 0, so the shift
+component of b_0 vanishes and |a_0^b(v)| ≤ Λ′ |v|, Λ′ the bound of the extended a_0 and b_0 in C¹. (c) In the notation of
+the proof of [[lem:loc-cone-borel]], every term of the two sums vanishes at u = 0 and at v = 0: those of f_1 as ã_j(0) =
+c_(j0) = 0, those of the second as d_k = 0 for u ≤ 0 and d_0 = 0; and their first derivatives are bounded as in (b),
+independently of δ_e. So |X̂ − X_0| ≤ C_b min(|u|, |v|) on 𝒮_e, and min(|u|, |v|) ≤ dist(·, N). X_0 equals the data on N,
+so |X_0 − X| ≤ 2Λ′ dist(·, N), X the data at the nearest point of N, where Ω ≥ e^(−Λ) and γ ≥ κ γ̊; this gives (c) for d
+a small multiple, depending only on C_b, Λ′, Λ and κ, of min(1, κ, e^(−Λ)), the points with |u|, |v| ≤ d lying within
+distance √2 d of N. (d) The evolution components and the conservation laws vanish to infinite order on N by
+[[lem:civp-axes-jets]]. The other components of E vanish to infinite order on N by the proof of [[prop:loc-cone-formal]]
+(c), which uses the contracted Bianchi identity in the form [[eq:loc-cone-bianchi]] and the constraints and is local in
+ϑ: on N_o as written there, with the constraints Ric(∂_v, ∂_v) = q_in and Ric(∂_v, X) = 0 of the data and E(L̲, L̲) = 0
+on N_i; on N_i in the form with u and v exchanged, the evolution components being those of [[lem:civp-axes-jets]] on N_i
+and the constraints E(L̲, L̲) = 0 of the data and E(L̲, ·) = 0 of that lemma, with E(∂_v, ∂_v) = 0 on N_o. It applies off
+the axes, and at the axes by continuity, E being a smooth tensor field. ∎
+
+#### The corner theorem {#sec:civp-axes-corner}
+
+**Proposition {#prop:civp-axes-corner}** (Developments near a corner sphere through the axes, without smallness.) Let k ≥
+6 and m := 6k + 19. For Λ ≥ 1, κ ∈ (0, 1] and l ∈ (0, 1] there is σ ∈ (0, l/3], depending only on k, Λ, κ and l, with the
+following property. Let cone data be given on edges N_o = {u_c} × [v_c, v_c + λ_v] and N_i = [u_c, u_c + λ_u] × {v_c}
+with λ_u, λ_v ≥ l, with any Ω on both edges and any b on N_i, of size at most Λ in C^m and κ-nondegenerate on N_o ∩ {v ≤
+v_c + l} and on N_i ∩ {u ≤ u_c + l}. Then there is a class solution in double-null form on [u_c, u_c + σ] × [v_c, v_c +
+σ] × S³ that induces the data on N_o ∩ {v ≤ v_c + σ} and on N_i ∩ {u ≤ u_c + σ}. The number σ depends neither on the
+corner, nor on λ_u and λ_v, nor on the data at distance more than l from the corner sphere; no background and no
+smallness of the data enter, and the data may differ from any background at the axes.
+
+*Proof.* We follow case (II) of [[sec:loc-cone-reduced]], with the formal solution Û as the reference state everywhere,
+with the closure of [[ch:class-system]] at the axes in place of the angular cut-off, and with [[thm:class-kato]] (a)
+about Û in place of [[thm:class-kato-stability]] (a). Constants C below depend only on k, Λ, κ and l.
+
+*Step 0 (Reductions).* Translate u and v so that the corner is (0, 0), and restrict the data to edges of length l. By
+[[lem:civp-axes-extension]] (d) we may assume b = 0 on N_i, the size becoming at most Λ_1 in C^(m−1) = C^(6k+18) and the
+nondegeneracy κ_1, both depending only on k, Λ and κ: a class solution in double-null form for the new data gives one for
+the old on the same rectangle, the change of angle not depending on v.
+
+*Step 1 (The formal solution and the constants).* Let C_b and d be the numbers of [[prop:civp-axes-formal]] (b), (c) for
+Λ_1, κ_1 and λ_0 := l, and let δ_1 ≤ d/4, so that by (c) there Ω̂ ≥ e^(−Λ_1)/2 and γ̂ ≥ (κ_1/2) γ̊ on the set 𝒮 of
+[[eq:loc-cone-collar]], every point of which has |u|, |v| ≤ 3δ_1. With δ_c := δ_1/32 and δ_e := δ_c/8 as below, let 𝒮′ be
+the set of the points of 𝒮 with u, v > −δ_c and (u + δ_c)(v + δ_c) ≥ δ_c² e^(−1); there u + δ_c, v + δ_c ≤ 4δ_1, so u +
+δ_c and v + δ_c are at least δ_c² e^(−1)/(4δ_1). For ∂_τ of [[eq:loc-cone-time]],
+
+    4Ĝ(∂_τ, ∂_τ) = −4Ω̂² (u + δ_c)(v + δ_c) + γ̂(b̂, b̂) (u + δ_c)².
+
+At the points of 𝒮′ with u ≥ 2δ_e, |b̂| ≤ C_b |v| by (b) there, and |v| ≤ δ_c + (v + δ_c), so |b̂|² (u + δ_c)/(v + δ_c) ≤
+2C_b² (δ_c²/(v + δ_c) + (v + δ_c)) 4δ_1 ≤ 32 e C_b² δ_1² + 32 C_b² δ_1²; at those with u < 2δ_e, |u| ≤ δ_c, u + δ_c ≤
+2δ_c and |b̂| ≤ C_b (|u| + |v|), so |b̂|² (u + δ_c)/(v + δ_c) ≤ 2C_b² (δ_c² + v²) 2δ_c (u + δ_c) e/δ_c² ≤ 8e C_b² (δ_c² +
+16δ_1²). Hence, with |·| the norm of γ̊ and γ̂(b̂, b̂) ≤ C |b̂|², there is δ_2 > 0, depending only on Λ_1, κ_1 and l,
+such that 4Ĝ(∂_τ, ∂_τ) ≤ −2Ω̂² (u + δ_c)(v + δ_c) on 𝒮′ whenever δ_1 ≤ δ_2; this replaces the paragraph on the reference
+metric in case (II) of [[sec:loc-cone-reduced]], where b̂ vanished off the support of the correction. Fix δ_1 := min(l/3,
+d/4, δ_2), l_u = l_v := 2δ_1 (so that N_o and N_i have length l ≥ 3δ_1 = l_u + δ_1), c_+ := (δ_1/4)², δ_c := √c_+/8 =
+δ_1/32 and δ_e := δ_c/8, and let X̂, Ĝ, q̂_A be the formal solution of [[prop:civp-axes-formal]] for these data. Ĝ is a
+smooth G-invariant Lorentzian metric on 𝒮 × S³, for which u and v are null; on 𝒮′, ∂_τ is timelike for Ĝ, and dτ is
+timelike with P̂_A(τ) > 0, where P̂_A := Ĝ⁻¹p̂_A, p̂_in := −dv and p̂_out := −du; then the block Ĝ^(ab) of the inverse
+metric on the dy^a is positive definite there, as in that paragraph. By (a) there ‖X̂‖_(C^(k+3)) ≤ C. Put Θ̂_A := div_Ĝ
+P̂_A and Û := (Ĝ, p̂_A, Θ̂_A, q̂_A).
+
+*Step 2 (Chart, region, and the leaves of Û).* Use the chart (τ, y) of [[eq:loc-cone-time]] with this δ_c, τ_c := 2 ln
+δ_c, the time of the corner sphere, τ_+ := ln c_+, and the region 𝒰 of [[eq:loc-cone-region]] with its lower end τ_init ∈
+[τ_c − 1/2, τ_c] to be fixed in Step 4 (τ_c − 1/2 > ln(δ_c²/4), so the description of 𝒰 in [[sec:loc-cone-reduced]]
+holds). 𝒰 is a compact subset of the interior of 𝒮 in the chart, and the pieces of its boundary other than Σ_init ∩ 𝒰 are
+spacelike, with 𝒰 to their past, for Ĝ and for every Lorentzian metric C⁰-close to it. The chart is G-equivariant onto ℝ
+× (ℝ⁴ ∖ {0}), and metrics in natural double-null form are smooth in it through the axes, the axes being {y3 = y4 = 0} and
+{y1 = y2 = 0}. On Σ_τ := {τ = const}, (u + δ_c)(v + δ_c) = e^τ and |y| = (v + δ_c)/(u + δ_c), so u and v are functions
+of |y| on each slice: every set {F(u, v) = c} ∩ Σ_τ is a round sphere {|y| = r}, among them the face sections N_o ∩ Σ_τ =
+{|y| = e^τ/δ_c²} and N_i ∩ Σ_τ = {|y| = δ_c² e^(−τ)}. For τ > τ_c, F ∩ Σ_τ is the shell between them and P ∩ Σ_τ consists
+of the ball inside N_i ∩ Σ_τ and the exterior of N_o ∩ Σ_τ; for τ < τ_c, Σ_τ ∩ 𝒰 ⊂ P.
+
+The p̂_A are differentials of the eikonals −v and −u of Ĝ and Θ̂_A = □_Ĝ(−u_A), u_in := v, u_out := u. So, by the last
+statement of [[lem:class-leaf-differences]], whose proof uses no field equation, the leaves of Û of both families in Σ_τ
+are the level sets of u and v there: the round spheres {|y| = r}. At a point of axis 2, |p̂_A(∂_z)| = |du_A(∂_r)| with
+∂_r the radial field of the chart in Σ_τ, and du(∂_r) = −(u + δ_c)/(2|y|), dv(∂_r) = (v + δ_c)/(2|y|); on the support of
+the function ξ of Step 3 they are bounded below in absolute value by a number c_Û > 0 depending only on δ_1, and likewise
+at axis 1. [[lem:class-leaf-reference]] therefore applies with V := Û on every slice, at every axis point p within
+distance r_* of the support of ξ, which does not depend on δ, with r_* > 0, at most ρ1(p)/4 and depending only on δ_1, so
+small that these sets 𝒰_(r_*) lie in the interior of 𝒮′, and with constants depending only on C^(k+3) bounds of Û, on
+c_Û, on r_* and on the radius r_Û of its part (o), so only on k, Λ, κ, l. Let 𝔐_Û be a bound for Û as in its part (b′) on
+these sets and δ_Û the number δ_V of its parts (a), (b) for V := Û. Fix δ ∈ (0, δ_Û], at most a quarter of the least
+distance of 𝒰 to {y = 0}; and let χ_ax be a smooth G-invariant function of y equal to 1 where dist(y, axes) ≤ δ/2 and to
+0 where dist(y, axes) ≥ δ.
+
+*Step 3 (The modified system).* The unknowns U = (g, p_A, Θ_A, q_A), A ∈ {in, out}, and their first-order variables 𝐔 :=
+(g, g_τ, g_a, p_A, Θ_A, q_A) in the chart, are those of case (II), with the reduced Ricci tensor and the gauge vector
+D(g) := g^(ab) (Γ[g] − Γ[Ĝ])_(ab) relative to Ĝ, and with ζ_A := 1. (Aug1), (Aug2) and (Aug4) are as in
+[[sec:class-augmented]], and (Aug3) is P_A(Θ_A) = S_A^♮, S_A^♮ := (1 − χ_ax) S_A + χ_ax S_A^ax, with S_A of
+[[sec:class-augmented]], a smooth function of (g, dg, p_B, Θ_A, q_B) where dist(y, axes) ≥ δ/2, and S_A^ax the axis
+closure of Step 6 of the proof of [[thm:class-stability]], built near axis 2 from κ_A1 and the planar shear σ_A[U] of the
+leaves of U in Σ_τ ([[lem:class-leaf-reference]]), and near axis 1 likewise with the two circles exchanged. We write
+𝒜(U) = 0 for this system; its right side at a time depends on the unknowns at that time only.
+
+Let ξ be a smooth function of (u, v), equal to 1 on a neighbourhood 𝒰_1 of 𝒰 and supported in the interior of 𝒮′, which
+contains 𝒰 as (u + δ_c)(v + δ_c) ≥ δ_c² e^(−1/2) on 𝒰, χ_♭ and A^μ_♭ as in case (II) with Ĝ⁻¹ and P̂_A in place of g_e⁻¹
+and P̊_A and with χ_♭ supported in 𝒮′ (so A^μ_♭ = A^μ(x, 𝐔̂) on supp ξ), and c_0, r_0, ϒ as there with 𝐔_c := 𝐔̂. For Z
+:= 𝐔 − 𝐔̂ (𝐔̂ needed only on supp ξ) consider
+
+    ξ (A^μ(x, 𝐔̂ + ϒ(Z)) ∂_μ(𝐔̂ + Z) − F^♮(x, 𝐔̂ + Z)) + (1 − ξ) A^μ_♭ ∂_μ Z = F̃,
+    F̃ := 1_P ξ 𝒜(Û),                                                                          {#eq:civp-axes-modified}
+
+where A^μ ∂_μ 𝐔 = F^♮ is the first-order form of 𝒜(U) = 0 and 𝒜(Û) := A^μ(x, 𝐔̂) ∂_μ 𝐔̂ − F^♮(x, 𝐔̂). (i) *F̃ is smooth.*
+In (Aug1), Ric^H(Ĝ) = Ric(Ĝ) since D(Ĝ) = 0, so its residual is E of [[prop:civp-axes-formal]] (d); (Aug2) holds exactly,
+∇_(P̂_A) p̂_A = ½ d Ĝ⁻¹(p̂_A, p̂_A) = 0; in (Aug3), for the eikonal u_A of Ĝ, the Raychaudhuri equation of the proof of
+[[prop:class-structure]] (c), which holds everywhere, gives P̂_A(Θ̂_A) = −|∇²u_A|² − Ric(Ĝ)(P̂_A, P̂_A), and |∇²u_A|²
+equals the expression of [[eq:class-identity]] off the axes and that of [[eq:class-x]], with σ the planar shear of the
+level sets of u_A, which is σ_A[Û] by Step 2, and both extend continuously to the axes ([[prop:class-axis]] (d)); so
+S_A(Û) = S_A^ax(Û) wherever both are defined and the residual of (Aug3) is −E(P̂_A, P̂_A); and (Aug4) is the conservation
+law, by [[lem:loc-cone-ricci]] (b) in a chart. So 𝒜(Û) is local in Û and vanishes to infinite order on N, by
+[[prop:civp-axes-formal]] (d), and 1_P ξ 𝒜(Û) is smooth. (ii) *Form.* [[eq:civp-axes-modified]] reads A^μ_ξ(x, Z) ∂_μ Z =
+Φ(τ, Z) with A^μ_ξ := ξ A^μ(x, 𝐔̂ + ϒ(Z)) + (1 − ξ) A^μ_♭ symmetric and A^0_ξ ≥ c_1 I, as in [[lem:loc-cone-system]] (a),
+and Φ(τ, Z) := ξ (F^♮(x, 𝐔̂ + Z) − A^μ(x, 𝐔̂ + ϒ(Z)) ∂_μ 𝐔̂) + F̃. The first and third rows of its wave block give g_τ =
+∂_τ g and g_a = ∂_a g on 𝒰, where ξ = 1, if they hold initially, as in [[lem:loc-cone-system]] (c). (iii) *The forcing.*
+Let ρ > 0 be so small that, for (τ, Z) with ‖Z‖_(H^k) ≤ ρ, C_S ρ ≤ r_0 (so ϒ(Z) = Z) and the states 𝐔̂ + Z lie, at the
+axis points of supp ξχ_ax, in the balls 𝔅 and 𝔅′ of [[lem:class-leaf-reference]] (a), (b) about Û and have their leaves
+foliating the sets 𝒰_δ, as in Step 9 of the proof of [[thm:class-stability]]; ρ depends only on k, Λ, κ, l. We take ρ
+also so small that the conditions on ρ of Steps 5, 6 and 7 hold; their constants depend only on k, Λ, κ and l, through
+bounds that are uniform for τ ∈ [τ_c − 1/2, τ_c + 1/2], and not on T*. On 𝒟_ρ := {‖Z‖_(H^k) ≤ ρ}, with u_* := 0, Φ
+satisfies (F1)–(F3): its local part by [[rem:class-kato-local]], Φ_loc(τ, x, 0) being supported in supp ξ; and its
+non-local part −½ ξχ_ax (σ_A[𝐔̂ + Z]² − σ_A[Û]²) in the Θ-rows, σ_A[Û] being smooth, by [[lem:class-leaf-reference]] (a)
+for (F1), with Moser's estimate ([[cor:std-moser-product]] (1)), by [[lem:class-leaf-reference]] (b) for (F2), σ_A being
+bounded in L^∞ on 𝒟_ρ by (a) and [[lem:sobolev]], and by (F2) and the smoothness in τ of Û, of ξ and of the leaves of Û
+for (F3).
+
+*Step 4 (The Cauchy problem, and the time it gives).* Apply [[thm:class-kato]] (a) with d = 4, s = k, on the slab [τ_c −
+1/2, τ_c + 1/2] × ℝ⁴, with u_* := 0 and the radius ρ of Step 3. Its hypotheses hold on [τ_init, τ_c + 1/2] for every
+τ_init ∈ [τ_c − 1/2, τ_c] with the same bounds, as in the continuation part of its proof, and by its proof the time T* it
+gives for the datum Z = 0 at τ_init depends only on c_1, ρ, C_A, the constants of [[lem:class-kato-linear]] for bounds of
+order k of the A^μ_ξ on {|Z| ≤ C_S (1 + ρ)}, and the functions C_F and L of (F1), (F2): u_* = 0 enters through nothing
+else, and ‖u0‖_(H^k) = 0. Each of these is bounded in terms of the C^(k+3) norm of X̂ on 𝒮, the chart and the cut-offs,
+which are fixed by δ_1, and the constants of [[lem:class-leaf-reference]] for Û, so T* depends only on k, Λ, κ and l; we
+may take T* ≤ 1. Put
+
+    τ_init := τ_c − T*/2,      τ_end := τ_c + T*/2,      σ := δ_c (e^(T*/4) − 1)/2.
+
+Σ_init ⊂ P, every point of it having (u + δ_c)(v + δ_c) < δ_c². [[thm:class-kato]] (a) gives a solution Z on [τ_init,
+τ_end] × ℝ⁴ with Z(τ_init) = 0 and ‖Z(τ)‖_(H^k) ≤ ρ; it is smooth, by the argument of *Smoothness* in the proof of
+[[thm:class-stability]], with [[lem:class-leaf-reference]] (a) at every order in place of [[lem:class-leaf-differences]]
+(a), and G-invariant, the system and the datum being G-invariant and the solution unique. g_τ = ∂_τ g and g_a = ∂_a g
+hold on 𝒰 ∩ {τ ≤ τ_end}, as at τ_init. Below U denotes the corresponding state on 𝒰 ∩ {τ ≤ τ_end}. F ∩ {τ ≤ τ_end} lies
+in {u, v ≥ 0, (u + δ_c)(v + δ_c) ≤ δ_c² e^(1/2)}, inside 𝒰 and away from its far cuts and from {τ = τ_+}, and it contains
+[0, 2σ]².
+
+*Step 5 (The past of the edges).* U = Û on P ∩ 𝒰 ∩ {τ ≤ τ_end}. Indeed, on P, F̃ = ξ 𝒜(Û), so z := 𝐔 − 𝐔̂ satisfies, with
+the coefficients at Û as in [[lem:loc-cone-past]],
+
+    A^μ_ξ(x, 0) ∂_μ z = M z − ½ ξχ_ax (σ_A[U]² − σ_A[Û]²)  (in the Θ-rows),
+
+M bounded. Let e(τ) := ∫_(P∩𝒰∩Σ_τ) ⟨A^0_ξ(x, 0) z, z⟩. The divergence theorem on the Lipschitz domain P ∩ 𝒰 ∩ {τ ≤ s}, as
+in [[lem:loc-cone-past]], has nonnegative boundary terms on N, which is null for Ĝ with du(P̂_out) = dv(P̂_in) = 0 and
+the other pairings positive, and on the far cuts, and z = 0 on Σ_init. For the non-local term, P ∩ 𝒰 ∩ Σ_τ has at most
+two components D, each bounded near the axes by round spheres {|y| = r}, and the leaves of Û through points of D near the
+axes, being such spheres, lie in D. Let 𝔼_D be the extension operator from D used in the proof of [[thm:class-stability]]
+(*The adapted domain is a domain of dependence*): Stein's operator ([[thm:std-sy-extension]]) for a fixed annulus,
+transported by a radial diffeomorphism of y and averaged over G. D is an annulus {r_1 < |y| < r_2} whose radii lie in a
+compact subinterval of (0, ∞), with r_2/r_1 bounded below by a number larger than 1, uniformly for τ ∈ [τ_init, τ_end];
+so 𝔼_D is bounded on H^σ, σ ≤ k − 1, uniformly in τ, as in the proof of [[thm:class-kato]] (b) (ii). Put Ŭ := U − 𝔼_D(U −
+Û) on Σ_τ. Then Ŭ = Û on D with its first derivatives, and Ŭ lies in the ball 𝔅′ of [[lem:class-leaf-reference]] (b)
+about Û, ‖Ŭ − Û‖_(H^(k−1)) ≤ (1 + C) ρ, for ρ small. For x ∈ D near the axes the leaf of Û through x lies in D, so it
+solves the leaf equation of Ŭ and is the leaf of Ŭ, by the uniqueness in [[lem:class-volterra]]; so σ_A[Ŭ] = σ_A[Û] on D,
+and by [[lem:class-leaf-reference]] (b)
+
+    ‖σ_A[U] − σ_A[Û]‖_(L²(D∩𝒰_δ)) = ‖σ_A[U] − σ_A[Ŭ]‖_(L²(D∩𝒰_δ)) ≤ C ‖𝔼_D(U − Û)‖_(L²(𝒰_(2δ))) ≤ C ‖z‖_(L²(D)).
+
+So e(s) ≤ C ∫_(τ_init)^s e, and e = 0. Hence U − Û vanishes with all its derivatives on N ∩ {τ ≤ τ_end}, U carries the
+formal solution's derivatives across N, and g and the densities induce the data on N ∩ {τ ≤ τ_end}.
+
+*Step 6 (The constraints on the slice triangle).* Let 𝒯 := F ∩ {τ ≤ τ_end}, whose slices 𝒯 ∩ Σ_τ are the shells between
+the two face sections, and whose boundary consists of N ∩ {τ ≤ τ_end} and 𝒯 ∩ Σ_(τ_end). On 𝒯, ξ = 1, F̃ = 0 and ϒ(Z) =
+Z, so 𝒜(U) = 0. Then g⁻¹(p_A, p_A) = 0, dp_A = 0 and p_A = −du_A on (P ∩ 𝒰) ∪ 𝒯, with u_in = v and u_out = u on P ∩ 𝒰, as
+in [[lem:loc-cone-constraints]]: ν_A and dp_A are transported along P_A ([[prop:class-augmented]] (b)), and the integral
+curve of P_A through a point of 𝒯, followed to the past, reaches N inside 𝒯, where they vanish by Step 5. For D and Δ_A
+:= Θ_A − div_g P_A: off the axes [[prop:class-augmented]] (d), (e) give P_A(Δ_A) = −Δ_A (Θ_A + div_g P_A − 2κ_A1 −
+2κ_A2) + g(∇_(P_A) D, P_A) + L(P_A, P_A), and near the axes Step 10 of the proof of [[thm:class-stability]] gives the
+same with −½ Δ_A (Θ_A + div_g P_A − 2κ_A1) − ½ (σ_A[U]² − σ_A[U′]²) in place of the first term, U′ := U with Θ_A replaced
+by div_g P_A; on the overlap the equation is the corresponding combination with the weights 1 − χ_ax and χ_ax, since
+S_A(U′) = S_A^ax(U′) there, the leaves of U′ being the level sets of u_A. D solves [[eq:class-gauge-wave]] with B_g T =
+Σ_A Δ_A q_A p_A. On N, U = Û to infinite order and div_Ĝ P̂_A = Θ̂_A, so U′ = U to infinite order there; so the face
+sections, which are leaves of Û, solve the leaf equations of U and of U′ and are their leaves through their axis points,
+by the uniqueness in [[lem:class-volterra]]; the leaves of U foliate the sets 𝒰_δ ([[lem:class-leaf-reference]] (o) for
+U), so the leaf of U through a point of a shell 𝒯 ∩ Σ_τ near the axes lies, over 𝔻_(2δ), between the two face sections,
+in the shell. So [[lem:class-leaf-reference]] (b′), with D the shell, gives
+
+    ‖σ_A[U] − σ_A[U′]‖_(L²(𝒯∩Σ_τ∩𝒰_δ)) ≤ C ‖Δ_A‖_(L²(𝒯∩Σ_τ∩𝒰_(2δ))),
+
+with C depending on bounds of U and U′ that hold on 𝒯, and not on the width of the shell, which tends to 0 as τ → τ_c; U
+and U′ have the bounds of (b′) for 2𝔐_Û and c_Û/2 on the sets 𝒰_(r_*), by ‖Z‖_(H^k) ≤ ρ, k ≥ 6, for ρ small. The energy
+of [[lem:loc-cone-energy]] for z := (D, ∂_τ D, ∂_y D, Δ_in, Δ_out) on 𝒯, with B_0 := N ∩ {τ ≤ τ_end}, where z = 0 by Step
+5, B_1 := 𝒯 ∩ Σ_(τ_end), and the non-local term bounded as above, gives D = 0 and Δ_A = 0 on 𝒯. So (g, u_in, u_out, q_in,
+q_out) solves [[eq:class-system]] on 𝒯, in the gauge D(g) = 0 relative to Ĝ, as in [[lem:loc-cone-constraints]]; q_A ≥ 0
+there by the argument on the signs there, the data being nonnegative.
+
+*Step 7 (The double-null gauge).* Let θ′: 𝒰′ := (P ∩ 𝒰 ∩ {τ ≤ τ_end}) ∪ 𝒯 → S³ be constant along the integral curves of
+P_out and equal to the identity on P ∩ 𝒰: as in [[lem:loc-cone-gauge]], with the past integral curves of P_out reaching P
+∩ 𝒰. It is smooth through the axes and G-equivariant, P_out being smooth and G-invariant, so that its flow commutes with
+G and preserves the zero sets of K_1 and K_2. Put Ψ := (u_out, u_in, θ′). In the coordinates (u′, v′, θ′) := Ψ, g⁻¹(du′,
+du′) = g⁻¹(dv′, dv′) = 0 and g⁻¹du′ = −P_out annihilates the dθ′; so in every chart of S³, g^(u′u′) = g^(v′v′) =
+g^(u′A) = 0, and inverting, g_(v′v′) = g_(v′A) = 0, g_(u′v′) = 1/g^(u′v′), and the (θ′, θ′)-block of g is the inverse of
+that of g⁻¹: g is in natural double-null form [[eq:civp-axes-form]], with −2Ω² = 1/g^(u′v′), γ the inverse of the block
+g^(AB) and b^A = g^(v′A)/g^(u′v′). Ψ and its differential are the identity on N, where g = Ĝ to infinite order, so the
+functions of g in the new coordinates and the densities are the data on N.
+
+Ψ is a diffeomorphism near the identity: d(u_out − u) = −(p_out − p̂_out), d(u_in − v) = −(p_in − p̂_in) and P_out(θ′ −
+θ) = −(P_out − P̂_out)(θ) with zero values on P, and ‖Z‖_(H^k) ≤ ρ bounds 𝐔 − 𝐔̂ and its first derivatives by C_S ρ;
+so |d(Ψ − id)| ≤ C ρ on 𝒯. For ρ small, depending only on k, Λ, κ and l, this is at most 1/4. 𝒯 is a down-set in (u, v),
+so two of its points are joined in it by a path of length at most three times their distance, and Ψ is injective. Ψ − id
+and its differential vanish on N, so a point at distance d′ from N moves by at most C ρ d′; every point of [0, σ]² is at
+distance at least σ/2 from 𝒯 ∩ Σ_(τ_end), as [0, 2σ]² ⊂ 𝒯, and every point of 𝒯 ∩ Σ_(τ_end) lies within distance 2σ of N,
+so moves by at most 2Cρσ; so for C ρ ≤ 1/8 the image Ψ(𝒯) contains [0, σ]², by the homotopy invariance of the degree of
+id + t(Ψ − id), 0 ≤ t ≤ 1, as in [[lem:loc-cone-gauge]]. The smallness of ρ is imposed in Step 3 (iii), before T* is
+fixed in Step 4, so there is no circularity.
+
+So on [0, σ]² × S³ the metric g in the coordinates Ψ, with v′ and u′ the phases and the densities q_in, q_out, is a class
+solution in double-null form that induces the data on the two edges. σ depends only on k, Λ, κ and l through δ_1, δ_c, ρ
+and T*. Undoing the change of angle of Step 0 and the translation gives the proposition. ∎
+
+The proof uses of the data only their restriction to the edges of length l, through the formal solution: so
+[[prop:civp-axes-corner]] is the corner part of Rendall's reduction for data of any size, at the axes, with the size of
+the rectangle bounded below in terms of norms of the data near the corner sphere. The sizes it uses enter at exactly
+these places: the C^(6k+18) norm of the data with b = 0 on N_i, which bounds Û in C^(k+3) ([[prop:civp-axes-formal]]);
+the nondegeneracy, through d and the reference metric; the constants of [[lem:class-leaf-reference]] for Û, which also
+fix δ; and the time T* of [[thm:class-kato]] (a), which depends on Û only through bounds of order k of the coefficients
+and the bounds C_F, L of the forcing, the reference path being 0 in the variable Z.
+
+#### Uniqueness and the maximal development {#sec:civp-axes-unique}
+
+**Proposition {#prop:civp-axes-unique}** (Uniqueness in the gauge, without smallness.) Let cone data be given on edges
+N_o = {u_c} × [v_c, v_c + λ_v] and N_i = [u_c, u_c + λ_u] × {v_c}, put Q := [u_c, u_c + λ_u] × [v_c, v_c + λ_v], and let
+(g, q_in, q_out) on D × S³ and (g′, q′_in, q′_out) on D′ × S³ be class solutions in double-null form that induce the data
+on N ∩ D and N ∩ D′, where D, D′ ⊂ Q are past sets relative to (u_c, v_c), relatively open in Q. Then they are equal on
+(D ∩ D′) × S³. No smallness of either solution is assumed.
+
+*Proof.* *Step 1 (Reductions).* Translate so that the corner is (0, 0), and apply the change of angle of
+[[lem:civp-axes-extension]] (d) to both solutions, which keeps them class solutions in double-null form, with the same
+new data, b = 0 on N_i; it suffices to prove the claim for the new solutions. D″ := D ∩ D′ is a relatively open past set.
+A point (u, v) ∈ D″ with u < λ_u and v < λ_v lies in R := [0, a_R] × [0, b_R] ⊂ D″ for a_R := u, b_R := v, and as R is
+compact and D″ relatively open there is ε > 0 with R_ε := [0, a_R + 2ε] × [0, b_R + 2ε] ⊂ D″. The points of D″ with u <
+λ_u and v < λ_v are dense in D″: with (u, v) every (u − s, v − s), s small, lies in D″ when u, v > 0, and a point with
+u = 0 or v = 0 is a limit of such points or lies on N. The solutions are continuous, so it suffices to show that they
+agree on each such R. By [[lem:civp-axes-jets]] (iv), with R_ε in place of D, both have the derivatives a_j, b_k across N
+∩ R_ε, so their difference vanishes to infinite order on N ∩ R_ε.
+
+*Step 2 (The first disagreement).* Put R′ := [0, a_R + ε] × [0, b_R + ε], t := u + v, Σ_t := {u + v = t} and D_t := R′ ∩
+Σ_t. Let t* be the supremum of the s ∈ [0, a_R + b_R + 2ε] such that the two solutions agree on R′ ∩ {t ≤ s}; the set of
+these s contains 0 and is closed. Suppose t* < a_R + b_R + 2ε. The solutions agree on R′ ∩ {t ≤ t*}, so their difference
+vanishes to infinite order on D_(t*), all its derivatives being limits from the side t < t* or, for t* = 0, vanishing on
+N. We show that they agree on R′ ∩ {t ≤ t* + η′} for some η′ > 0, against the choice of t*.
+
+*Step 3 (A wave map near D_(t*)).* Fix μ ≥ 1 with 4μΩ² > γ(b, b) on R_ε for both solutions, and use the coordinates (t,
+y), y := e^(v−μu) ω, ω ∈ S³ ⊂ ℝ⁴, a G-equivariant chart on which metrics in natural double-null form are smooth through
+the axes. Its slices are the sets {u + v = t}, in which the level sets of u are the spheres {|y| = e^(t−(1+μ)u)}; dt is
+timelike for every such metric, as g⁻¹(dt, dt) = 2 g^(uv) < 0; and ∂_t, a positive multiple of ∂_u + μ∂_v, is timelike
+for both solutions, as g(∂_u + μ∂_v, ∂_u + μ∂_v) = γ(b, b) − 4μΩ² < 0, so that the first-order forms below have A^0
+positive definite, as in the paragraph on the reference metric in case (II) of [[sec:loc-cone-reduced]]. Extend g and its
+densities by [[lem:civp-axes-extension]] (a), applied in u and then in v to Ω, b, γ, q_in and q_out, to a smooth
+G-invariant metric g_e in natural double-null form and densities q_(A,e) on [−ε_1, a_R + 2ε] × [−ε_1, b_R + 2ε] × S³, for
+some ε_1 ∈ (0, ε] so small that 4μΩ_e² > γ_e(b_e, b_e) there, as it holds on R_ε; and put g′_e := g′ and q′_(A,e) := q′_A
+on R_ε and g′_e := g_e and q′_(A,e) := q_(A,e) elsewhere there. These are smooth, g′ − g and q′_A − q_A vanishing to
+infinite order on N ∩ R_ε, and g′_e has the same property. Seek Φ = id + φ with Φ : (g′_e) → (g_e) a wave map,
+
+    g′_e^(μν) (∂_μ∂_ν Φ^λ − Γ[g′_e]^ρ_(μν) ∂_ρ Φ^λ + Γ[g_e]^λ_(αβ)(Φ) ∂_μ Φ^α ∂_ν Φ^β) = 0,
+
+a semilinear wave system for φ with principal part g′_e^(μν) ∂_μ∂_ν, for which φ = 0 is a solution wherever g′_e = g_e.
+Cut it off in (u, v) outside a compact neighbourhood, inside the domain of g′_e, of R′ ∪ ([−ε_1/2, 0] × [0, b_R + ε]) ∪
+([0, a_R + ε] × [−ε_1/2, 0]), with frozen flat coefficients there as for A^μ_♭ in case (II) of [[sec:loc-cone-reduced]],
+and write it in first-order form in the chart; its forcing term is local, so [[thm:class-kato]] (a) with
+[[rem:class-kato-local]] gives a smooth solution φ on [t*, t* + η_1] × ℝ⁴ with φ = 0 and ∂φ = 0 at t = t*, for some η_1 >
+0; it is G-equivariant, by uniqueness. As in [[lem:loc-cone-past]], the energy of [[lem:loc-cone-energy]] on the part of
+{t* ≤ t ≤ t* + η_1} where u ≤ 0 or v ≤ 0 and u, v ≥ −ε_1/2 + 2(t − t*), u ≤ a_R + ε and v ≤ b_R + ε, whose faces {u = 0}
+and {v = 0} are null with outward conormals du and dv future directed and whose faces {u = −ε_1/2 + 2(t − t*)} and {v =
+−ε_1/2 + 2(t − t*)} have the outward conormals 2dv + du and 2du + dv, timelike and future directed for every metric in
+natural double-null form, and whose faces {u = a_R + ε}, {v = b_R + ε} are null with the region to their past, gives φ =
+0 there for 4η_1 ≤ ε_1, where g′_e = g_e. So Φ = id to infinite order on N ∩ R′ ∩ {t ≤ t* + η_1}. And Φ − id vanishes to
+infinite order on D_(t*): the t-derivatives of φ at t = t* are determined, through the equation, by the residual
+g′_e^(μν) (Γ[g_e] − Γ[g′_e])^λ_(μν) of φ = 0 and its derivatives, which vanish on D_(t*), and by derivatives along the
+slice of lower t-derivatives. Put Φ := id on {t ≤ t*}. For η_1 small Φ is a diffeomorphism near the identity, and the
+image under Φ of the points of [−ε_1, a_R + 2ε] × [−ε_1, b_R + 2ε] with t ≤ t* + η_1 contains the set 𝒲 of the points of
+{t* ≤ t ≤ t* + η_1/2} within (u, v)-distance ε_1/2 of R′.
+
+*Step 4 (Comparison in the wave gauge of g).* Put G̃ := (Φ⁻¹)^* g′_e, ũ := u ∘ Φ⁻¹, ṽ := v ∘ Φ⁻¹ and q̃_A := q′_(A,e) ∘
+Φ⁻¹ on 𝒲. The wave map condition says D(G̃) = 0 for the gauge vector relative to g_e, and D(g_e) = 0 relative to g_e. So
+U := (g_e, −dv, −du, □_(g_e)(−v), □_(g_e)(−u), q_(in,e), q_(out,e)) and Ũ := (G̃, −dṽ, −dũ, □_G̃(−ṽ), □_G̃(−ũ), q̃_in,
+q̃_out) are defined on 𝒲, U is a state there in the sense of [[lem:class-leaf-reference]] at each axis point, and on R′ ∩
+{t* ≤ t ≤ t* + η_1/2} they solve the augmented system relative to g with ζ_A := 1 and the closure of [[ch:class-system]]
+at the axes, in the slicing by t: the closure holds for both in every slicing, their leaves being the level sets of their
+phases in the slices (the last statement of [[lem:class-leaf-differences]]) and the right side of
+[[eq:class-raychaudhuri]] being, by [[eq:class-identity]] and [[eq:class-x]], the closure. Ũ − U is smooth on 𝒲 and
+vanishes to infinite order on N ∩ R′ and on R′ ∩ {t ≤ t*}, where Φ = id and g′ = g. Let r_* > 0, at most ρ1(p)/4, be so
+small that 𝒰_(r_*) lies in 𝒲 for every axis point p of D_t, t* ≤ t ≤ t* + η_1/2, ρ1(p) = |y(p)| lying in a compact
+subinterval of (0, ∞) there; let 𝔐_U ≥ 1 and c_U > 0 be bounds for U on these sets as in [[lem:class-leaf-reference]]
+(b′); let δ ∈ (0, δ_𝔐], δ_𝔐 that of (b′) for 2𝔐_U and c_U/2; and let χ_ax be built from δ as in Step 2 of the proof of
+[[prop:civp-axes-corner]]. For t* ≤ s ≤ t* + η_1/2 let R′_s := R′ ∩ {t* ≤ t ≤ s} and z := 𝐔̃ − 𝐔 its first-order
+variables, so that, with the coefficients at U,
+
+    A^μ(x, 𝐔) ∂_μ z = M z − ½ χ_ax (σ_A[Ũ]² − σ_A[U]²)  (in the Θ-rows),      M bounded.
+
+The boundary of R′_s consists of D_(t*), of pieces of N, where z = 0, of D_s, and of the future faces {u = a_R + ε} and
+{v = b_R + ε}, null for g with R′_s to their past, on which the boundary form at U is nonnegative, du(P_out) = dv(P_in) =
+0 and the other pairings positive.
+
+*The non-local term.* D_t is bounded by at most two double-null spheres of g, each on N or on a future face; each is a
+level set of u or of v within Σ_t, hence a leaf of U of both families, and the leaves of U foliate a neighbourhood of
+each axis point, so D_t is closed under the leaves of U. By Taylor's formula, at the points of 𝒲 within (u, v)-distance s
+of R′ ∩ {t ≤ t*} the derivatives of order j ≤ k + 2 of Ũ − U are at most C′ s^(k+2−j), C′ depending only on its
+derivatives of order k + 2 on 𝒲. Let η_2 ∈ (0, min(η_1, ε_1/4)], fixed below, let χ_𝒩 be a G-invariant cut-off in (u, v),
+equal to 1 within (u, v)-distance η_2/2 of R′ ∩ {t ≤ t*} and to 0 beyond η_2, with derivatives of order i at most C
+η_2^(−i), and put W := U + χ_𝒩(Ũ − U) on 𝒲. The derivatives of order at most k of W − U are at most C C′ η_2², so for η_2
+small W has the bounds of (b′) for 2𝔐_U and c_U/2 on the sets 𝒰_(r_*), and, by the steps *One leaf* and *The shear* of
+the proof of (b′), each leaf of W lies within (u, v)-distance C″ η_2² of the leaf of U through the same point, C″ not
+depending on η_2; we take η_2 so small also that C″ η_2² ≤ η_2/4. R′ is star-shaped about (0, 0), so for t* ≤ t ≤ t* +
+η_2/8 the set D_t lies within η_2/8 of R′ ∩ {t ≤ t*}. Let x ∈ D_t lie near an axis, for such t. The leaf of U through x
+lies in D_t; the leaf of W through x lies within η_2/4 of it, so where W = Ũ, and by the uniqueness in
+[[lem:class-volterra]] it is the leaf of Ũ through x; so σ_A[W] = σ_A[Ũ] on D_t, and W = Ũ there.
+[[lem:class-leaf-reference]] (b′) with (U, U′) := (U, W) and D := D_t gives
+
+    ‖σ_A[Ũ] − σ_A[U]‖_(L²(D_t∩𝒰_δ)) ≤ C ‖W − U‖_(L²(D_t∩𝒰_(2δ))) ≤ C ‖z‖_(L²(D_t)),
+
+C depending only on the bounds of U, and not on the width of D_t. So e(s) := ∫_(D_s) ⟨A^0(x, 𝐔) z, z⟩ satisfies e(s) ≤ C
+∫_(t*)^s e for t* ≤ s ≤ t* + η′, η′ := η_2/8, by the divergence theorem on R′_s as in [[lem:loc-cone-energy]]; e(t*) = 0,
+so z = 0 on R′_(t*+η′).
+
+*Step 5 (The coordinates).* So G̃ = g, ũ = u, ṽ = v and q̃_A = q_A on R′ ∩ {t ≤ t* + η′}: Φ is an isometry from g′ to g
+with u ∘ Φ = u and v ∘ Φ = v. In natural double-null form g⁻¹du = g^(uv) ∂_v, as g^(uu) = g^(uA) = 0, so the angle θ of
+the coordinates is constant along the integral curves of g⁻¹du, and likewise for g′. Φ carries g′⁻¹du to g⁻¹du, so θ ∘
+Φ⁻¹ is constant along the integral curves of g⁻¹du; each of these in R′ ∩ {t* ≤ t ≤ t* + η′}, followed to the past, meets
+{t ≤ t*} or N_i, where Φ = id. So θ ∘ Φ⁻¹ = θ, Φ = id, and g′ = g and q′_A = q_A on R′ ∩ {t ≤ t* + η′}. This contradicts
+the choice of t*; so t* = a_R + b_R + 2ε, and the solutions agree on R′ ⊃ R. ∎
+
+**Corollary {#cor:civp-axes-maximal}** (The maximal development.) Let cone data be given on N_o and N_i, with Q as in
+[[prop:civp-axes-unique]]. Let D_max be the union of the sets D, past sets relative to the corner and relatively open in
+Q, that carry a class solution in double-null form inducing the data on N ∩ D. Then D_max is a past set, relatively open
+in Q, and there is exactly one class solution in double-null form on D_max × S³ that induces the data; it restricts to
+each of those solutions. If the data are of size at most Λ in C^(6k+19) and κ-nondegenerate on the parts of the edges
+within distance 1 of the corner sphere, D_max contains [u_c, u_c + σ) × [v_c, v_c + σ), σ the number of
+[[prop:civp-axes-corner]] for Λ, κ and l := min(1, λ_u, λ_v).
+
+*Proof.* By [[prop:civp-axes-unique]] any two of the solutions agree on the intersection of their domains, so they define
+one function on the union, which is smooth, smoothness being local, and solves the equations there; a union of past sets
+relatively open in Q is one. The last statement is [[prop:civp-axes-corner]], a solution on [u_c, u_c + σ] × [v_c, v_c +
+σ] restricting to one on the relatively open past set [u_c, u_c + σ) × [v_c, v_c + σ). ∎
+
+#### Continuation along the generators {#sec:civp-axes-faces}
+
+**Proposition {#prop:civp-axes-faces}** (Continuation along the generators.) Let cone data be given on N_o = {0} × [0,
+λ_v] and N_i = [0, λ_u] × {0}, Q := [0, λ_u] × [0, λ_v], and let D_max be as in [[cor:civp-axes-maximal]]. Then N_o ∪ N_i
+⊂ D_max, and there are u*, v* > 0 with ([0, u*] × [0, λ_v]) ∪ ([0, λ_u] × [0, v*]) ⊂ D_max. No estimate of the solution
+inside D_max enters, and no lower bound for u* or v* is asserted.
+
+*Proof.* The four facts used are: (C) the corner theorem, [[prop:civp-axes-corner]], whose σ depends only on norms of the
+data within a fixed distance of the corner sphere; (E) the extension of short pieces of edges,
+[[lem:civp-axes-extension]] (b)–(d); (J) the derivatives across the edges, [[lem:civp-axes-jets]], which exist and are
+bounded on the whole of each edge because they solve linear equations; and (U) uniqueness, [[prop:civp-axes-unique]] and
+[[cor:civp-axes-maximal]].
+
+*Step 0 (Constants).* By [[lem:civp-axes-extension]] (d), applied along N_i to the data and to every development, we may
+assume b = 0 on N_i. Extend the free functions past the far ends of the edges by [[lem:civp-axes-extension]] (a), in the
+variables v − λ_v and u − λ_u, and solve the constraints by its part (c): this gives cone data of any sign on N_o^+ :=
+{0} × [0, λ_v + ℓ_1] and N_i^+ := [0, λ_u + ℓ_1] × {0}, ℓ_1 ∈ (0, 1/2], equal to the given data on N_o and N_i. Let m :=
+6k + 19, Λ_0 their size in C^m and κ_0 their nondegeneracy. By [[lem:civp-axes-jets]] the derivatives a_j across N_o^+
+and b_k across N_i^+ exist on the whole of these edges and are smooth, so
+
+    K′ := the largest of the suprema of |∇̊^i a_j| over N_o^+ and of |∇̊^i b_j| over N_i^+, i + j ≤ 2m + 8,
+
+is finite. The functions that a class solution in double-null form induces on a piece of a null hypersurface {v = const}
+through a point of N_o, after the change of angle of [[lem:civp-axes-extension]] (d), have u-derivatives at u = 0 that
+are polynomials in the a_j there and their ∇̊-derivatives, the flow of that change being determined by b; let K″ bound,
+in terms of K′, their derivatives ∇̊^i ∂_u^j at u = 0 with i, j ≤ m + 3. Let ℓ′, κ′ and C be the numbers of part (c) of
+that lemma for the order m + 3, the size C_(m+3) (K″ + 1) and the nondegeneracy κ_0/2, C being the bound of the size of
+the extension in C^m. Put l := min(ℓ_1, ℓ′), Λ_c := max(2Λ_0, C, 1), κ_c := min(κ_0, κ′), and σ_c := σ(k, Λ_c, κ_c, l) of
+[[prop:civp-axes-corner]]. These depend on the data, and not on the point of the edges considered below.
+
+*Step 1.* Let V be the supremum of the v ∈ [0, λ_v] with (0, v) ∈ D_max. By [[prop:civp-axes-corner]] at (0, 0), with the
+pieces of length l of N_o^+ and N_i^+, and [[cor:civp-axes-maximal]], V ≥ min(σ_c, λ_v); and (0, v) ∈ D_max for v < V,
+D_max being a past set. Suppose (0, λ_v) ∉ D_max. Put η := min(σ_c/4, V/2) and v_η := V − η.
+
+*Step 2 (An ingoing null hypersurface of the solution).* {0} × [0, V − η/2] is a compact subset of the relatively open
+D_max, so there is w ∈ (0, 1] with [0, w] × [0, V − η/2] ⊂ D_max. On N_η := [0, w] × {v_η} the maximal development
+induces smooth invariant families Ω, b, γ, q_out of (u, θ), with q_out ≥ 0, satisfying Ric(L̲, L̲) = q_out, which agree
+on S_η := {(0, v_η)} × S³ with the data of N_o. With the piece {0} × [v_η, v_η + l] of N_o^+ they are cone data of any
+sign at the corner (0, v_η), nonnegative where v ≤ λ_v.
+
+*Step 3 (Their norms near the corner).* By [[lem:civp-axes-jets]] (iv), applied to the development on [0, w] × [0, V −
+η/2], the u-derivatives at u = 0 of the functions on N_η are a_j(v_η), so their derivatives ∇̊^i ∂_u^j at S_η with i + j
+≤ 2m + 8 are bounded by K′, whatever η. Apply [[lem:civp-axes-extension]] (d) to N_η, and then (b) of that lemma, at the
+order m + 3, to the free functions on N_η, with L = L(η) < ∞ a bound for their derivatives ∇̊^i ∂_u^(m+4), i ≤ m + 3, on
+[0, w] × S³ and a = a(η) ≤ min(w, 1/2, 1/(1 + L)) so small that γ ≥ (κ_0/2) γ̊ on [0, a]: the free functions on [0, a]
+have extensions to [0, 1] with C^(m+3) norms at most C_(m+3)(K″ + 1), and by the estimate of (b) all the functions on [0,
+a] have C^(m+3) norms at most C_(m+3)(K″ + 1). Part (c) then gives cone data of any sign on [0, a + ℓ′] × {v_η}, equal to
+those of N_η on [0, a], of size at most Λ_c in C^m and κ_c-nondegenerate. Neither w nor a is bounded below as η → 0.
+
+*Step 4 (The corner problem).* [[prop:civp-axes-corner]] at the corner (0, v_η), with the edges {0} × [v_η, v_η + l] and
+[0, a + ℓ′] × {v_η}, both of length at least l, of size at most Λ_c in C^m and κ_c-nondegenerate (on the first, after the
+change of angle of Step 3, the shift is b − b(0, v_η, ·), of size at most 2Λ_0), gives a class solution in double-null
+form g_η on [0, σ_c] × [v_η, v_η + σ_c] × S³ inducing these data; undoing the change of angle of Step 3, it induces the
+functions of N_η on [0, a] × {v_η} and the data on the piece of N_o.
+
+*Step 5 (Gluing).* Let ā := min(a, σ_c), Q′ := [0, ā] × [v_η, min(v_η + σ_c, λ_v)] and 𝒬 := ([0, ā) × [v_η, v_η + σ_c)) ∩
+Q. On Q′, g_η has nonnegative densities (the data being nonnegative on N_o ∩ {v ≤ λ_v} and on N_η ∩ {u ≤ a}), so it is a
+class solution in double-null form there. D_max ∩ Q′ is a past set relative to (0, v_η), relatively open in Q′, and the
+maximal development and g_η are class solutions in double-null form on it inducing the same functions on the edges of Q′:
+the data of N_o and the functions of N_η. By [[prop:civp-axes-unique]] they agree there, hence on D_max ∩ 𝒬. D_new :=
+D_max ∪ (𝒬 ∩ {v > v_η}) is a past set relative to (0, 0), since for (u, v) ∈ 𝒬, [0, u] × [0, v_η] ⊂ [0, w] × [0, V − η/2]
+⊂ D_max and [0, u] × [v_η, v] ⊂ 𝒬, and it is relatively open in Q. The function equal to the maximal development on D_max
+and to g_η on 𝒬 is well defined, smooth and a class solution in double-null form inducing the data; so D_new ⊂ D_max. As
+v_η + σ_c ≥ V + 3σ_c/4, this gives (0, v) ∈ D_max for some v > V if V < λ_v, against the definition of V, and (0, λ_v) ∈
+D_max if V = λ_v, against the assumption. So (0, λ_v) ∈ D_max, and N_o ⊂ D_max.
+
+*Step 6 (The ingoing edge).* The same argument with u and v exchanged, the corner problems being posed at the corners
+(u_η, 0) with ingoing edge a piece of N_i^+ and outgoing edge a piece {u_η} × [0, a] of a null hypersurface of the
+solution, extended by [[lem:civp-axes-extension]] (b) and (c) on an outgoing edge, gives N_i ⊂ D_max; the constants are
+those of Step 0 with the b_k in place of the a_j.
+
+Finally N_o is compact and D_max relatively open in Q, so D_max contains [0, u*] × [0, λ_v] for some u* > 0, and likewise
+[0, λ_u] × [0, v*]. ∎
+
+The continuation asks of the data only the facts (C), (E), (J) and (U), and of the solution only that it is smooth up to
+the cones on the part already constructed. The width w of Step 2 may tend to 0 as the corner moves along the generators;
+only σ_c must not, and it does not, because the corner data of Step 3 are bounded by Λ_0 and by the bound K′ of the
+derivatives across the cone, which does not depend on the point of the cone.
+
+**Remark {#rem:civp-axes-riccati}** (Why the derivatives across the cones must solve linear equations.) In Step 3 of the
+proof of [[prop:civp-axes-faces]] the bound K′ is finite because the derivatives across a cone solve linear ordinary
+differential equations along its generators ([[lem:civp-axes-jets]] (i)), which have solutions on the whole cone. For a
+wave equation with a Riccati term this fails: for □φ = (∂_u φ)² on ℝ × ℝ × S¹ with □ = −4∂_u∂_v + ∂_y², data φ = 0 on
+{u = 0} and w := ∂_u φ, the equation at u = 0 reads −4∂_v w = w², so w = w_0/(1 + w_0 v/4), which becomes unbounded at
+v = 4/|w_0| when w_0 < 0; then no solution that is C¹ up to the cone exists on a neighbourhood of {u = 0, 0 ≤ v ≤
+4/|w_0|}, and the argument cannot reach past it. For □φ = ∂_u φ ∂_v φ the same reasoning gives −4∂_v w + ∂_y² φ = w ∂_v φ
+at u = 0, which is linear in w.
+
+#### The continuation criterion {#sec:civp-axes-criterion}
+
+**Proposition {#prop:civp-axes-criterion}** (Continuation criterion.) In the setting of [[prop:civp-axes-faces]], let 0 <
+a_R ≤ λ_u and 0 < b_R ≤ λ_v, R := [0, a_R] × [0, b_R], and suppose that R ∖ {(a_R, b_R)} ⊂ D_max, that on (R ∖ {(a_R,
+b_R)}) × S³ the functions ln Ω, b, γ, q_in and q_out of the maximal development have bounded derivatives of total order
+at most 12k + 46 in (u, v) and ∇̊, and that γ ≥ κ γ̊ there for some κ > 0. Then (a_R, b_R) ∈ D_max, so D_max contains a
+neighbourhood of R relative to Q.
+
+*Proof.* Let K_1 bound the derivatives named and m := 6k + 19. By [[lem:civp-axes-extension]] (d) the derivatives of
+total order at most 2m + 7 of the functions it gives are bounded by a function of those of total order at most 2m + 8 of
+the old ones; let L be its value at 2K_1. Part (b) of that lemma at the order m + 3 uses derivatives of total order at
+most 2m + 7, at the corner of the piece and along it, so L serves there for both of its bounds. Let ℓ″, Λ″ and κ″ be the
+numbers below, which depend only on k, K_1 and κ, let σ″ := σ(k, Λ″, κ″, ℓ″) be that of [[prop:civp-axes-corner]], and
+put η := min(a_R, b_R, σ″/2, 1/(4(1 + L))). The sets [0, a_R] × [0, b_R − η] and [0, a_R − η] × [0, b_R] are compact
+subsets of D_max, which is a relatively open past set; so there is ε ∈ (0, η] such that [0, a_R + ε] × [0, b_R − η/2] and
+[0, a_R − η/2] × [0, b_R + ε], intersected with Q, lie in D_max, and, by continuity, the derivatives named are at most
+2K_1 and γ ≥ (κ/2)γ̊ there. The edges {a_R − η} × [b_R − η, b_R + ε] and [a_R − η, a_R + ε] × {b_R − η}, each cut at the
+edge of Q, lie in D_max, and the maximal development induces cone data on them. Normalise b on the second by
+[[lem:civp-axes-extension]] (d), and extend both by its parts (b) and (c), at the order m + 3, with L for the bounds of
+(b), which is possible as their lengths are at most 2η ≤ 1/(2(1 + L)): this gives cone data on edges of length at least
+ℓ″ > 0, of size at most Λ″ in C^m and κ″-nondegenerate, ℓ″, Λ″, κ″ depending only on k, K_1 and κ, equal to the induced
+data on the given edges. [[prop:civp-axes-corner]] gives a class solution in double-null form on [a_R − η, a_R − η + σ″]
+× [b_R − η, b_R − η + σ″] × S³ that induces them; its restriction to the relatively open part [a_R − η,
+a_R − η + σ″) × [b_R − η, b_R − η + σ″) of that square is a class solution in double-null form on a past set relative to
+the corner (a_R − η, b_R − η), relatively open in the rectangle spanned by the extended edges, whose lengths are at least
+ℓ″ ≥ 3σ″, as in the proof of [[cor:civp-axes-maximal]]. Put 𝒬 := ([a_R − η, a_R + ε) × [b_R − η, b_R + ε)) ∩ Q, which
+lies in that part as σ″ ≥ 2η and ε ≤ η. D_max ∩ 𝒬 ∩ {u < λ_u, v < λ_v} is a past set relative to the corner (a_R − η,
+b_R − η), relatively open in the rectangle spanned by the extended edges, on whose intersection with those edges the
+maximal development and the corner solution induce the same data; so by [[prop:civp-axes-unique]], applied to this set
+and to that relatively open part, the two agree on D_max ∩ 𝒬 ∩ {u < λ_u, v < λ_v}, and by continuity on D_max ∩ 𝒬. Then
+D_max ∪ 𝒬 is a past set: for (u, v) ∈ 𝒬, [0, u] × [0, b_R − η] ⊂ [0, a_R + ε] × [0, b_R − η/2], [0, a_R − η] × [0,
+v] ⊂ [0, a_R − η/2] × [0, b_R + ε], and [a_R − η, u] × [b_R − η, v] ⊂ 𝒬. It is relatively open in Q, the points of 𝒬 with
+u = a_R − η or v = b_R − η lying in D_max, and it carries a class solution in double-null form that induces the data, so
+it lies in D_max; and it contains (a_R, b_R). D_max is relatively open, so it contains a relative neighbourhood of the
+compact R. ∎
+
+So D_max = Q, or near a point of its boundary in Q the derivatives of total order at most 12k + 46 of the metric
+functions and densities are unbounded or γ degenerates.
+
+#### The theorem {#sec:civp-axes-theorem}
+
+**Lemma {#lem:civp-axes-free-data}** (Cone data from free data through the axes.) On N_o = {0} × [0, λ_v] let G-invariant
+smooth families ln Ω, γ̂ and q_in ≥ 0 be given, and on N_i = [0, λ_u] × {0} likewise ln Ω, γ̂ and q_out ≥ 0, with γ̂
+Riemannian, μ_γ̂ = μ_γ̊, and the two γ̂ and the two Ω agreeing on S_c; and let a positive invariant function ỹ_c on S³,
+invariant functions ỹ_o′, ỹ_i′ and an invariant vector field β_c be given. Solve [[eq:civp-axes-raychaudhuri]] along N_o
+with ỹ = ỹ_c and ∂_v ỹ = ỹ_o′ at v = 0, its analogue along N_i with ∂_u ỹ = ỹ_i′ at u = 0, put γ := ỹ² γ̂, and solve the
+constraint Ric(∂_v, X) = 0 along N_o for b with b = 0 and ∂_v b = β_c at v = 0; put b := 0 on N_i. If ỹ > 0 on both
+edges, these are cone data. If the free functions, ỹ_c, ỹ_o′, ỹ_i′ and β_c equal those of a second set of cone data at
+the points of an invariant open set of S³, the two sets of cone data agree on the generators through it.
+
+*Proof.* [[eq:civp-axes-raychaudhuri]] is a linear ordinary differential equation along each generator with coefficients
+smooth on [0, λ] × S³, axes included, so ỹ is smooth and invariant, by uniqueness. The constraint Ric(∂_v, X) = 0 is, by
+the formula of the proof of [[lem:civp-axes-principal]], a smooth expression in a chart; off the axes it is linear in b,
+through ∂_v b and ∂_v² b, with the leading coefficient (1/(4Ω²)) γ(∂_v² b, X) (the second line of [[eq:loc-cone]]), and
+its part nonlinear in b, evaluated on an invariant b, vanishes off the axes and so, by continuity, everywhere; so for
+invariant b it is a linear first-order equation for ∂_v b with smooth coefficients, and b is smooth and invariant. On
+N_i, with b = 0, Ric(L̲, L̲) = q_out is the analogue of [[eq:civp-axes-raychaudhuri]]. The constraints hold by
+construction, and (i) of [[def:civp-axes-data]] by the corner values. The last statement is uniqueness for these
+equations, whose coefficients at a point of S³ are built from the free functions there and their derivatives on S³. ∎
+
+For the cones of [[sec:loc-cones]], ỹ = e^ϕ (sin ϑ cos ϑ)^(−1/3) and γ̂ = (sin ϑ cos ϑ)^(2/3) (e^(2ℓ_1) dϑ² + e^(2ℓ_2)
+dφ1² + e^(2ℓ_3) dφ2²), and [[eq:civp-axes-raychaudhuri]] is the equation for y = e^ϕ in the proof of [[prop:loc-cones]],
+since ¼ |∂_v γ̂|²_γ̂ = Σ_i (∂_v ℓ_i)². So the data of [[prop:loc-cones]] and [[lem:loc-cone-in]] whose γ̂ is a smooth
+tensor field on S³ are those of [[lem:civp-axes-free-data]], and they are cone data wherever ỹ stays positive, the axis
+generators included.
+
+**Theorem {#thm:civp-axes}** (Developments of cone data of any size through the axes.) Let k ≥ 6, and let cone data be
+given on N_o = {0} × [0, λ_v] and N_i = [0, λ_u] × {0} ([[def:civp-axes-data]]): any Ω on both edges, any b on N_i,
+densities q_in ≥ 0 and q_out ≥ 0, no smallness, and no condition at the axes beyond smoothness. Put Q := [0, λ_u] × [0,
+λ_v].
+
+(a) (*Corner.*) Let Λ be the size in C^(6k+19) and κ the nondegeneracy of the data on N_o ∩ {v ≤ l} and N_i ∩ {u ≤ l}, l
+:= min(1, λ_u, λ_v). There is a class solution in double-null form on [0, σ]² × S³ that induces the data, with σ > 0
+depending only on k, Λ, κ and l.
+
+(b) (*Neighbourhood of the cones.*) There are u*, v* > 0 and a class solution in double-null form on (([0, u*] × [0,
+λ_v]) ∪ ([0, λ_u] × [0, v*])) × S³ that induces the data. So v and u are the phases of the ingoing and the outgoing
+family, the development contains the strips {u ≤ u*} along N_o and {v ≤ v*} along N_i, and the dust on the cones lies in
+it.
+
+(c) (*Uniqueness and the maximal development.*) Two class solutions in double-null form on past sets relatively open in Q
+that induce the data agree on the intersection of their domains. The set D_max of [[cor:civp-axes-maximal]] is a past
+set, relatively open in Q, carrying the unique class solution in double-null form that induces the data and restricts to
+each of them. It contains [0, σ)², the set ([0, u*) × [0, λ_v]) ∪ ([0, λ_u] × [0, v*)), and the relatively open past sets
+on which the developments of [[thm:loc-cone-development]], [[thm:civp-large]] and [[thm:loc-axis]] (a) are defined,
+whenever the data satisfy their hypotheses; there the development is theirs.
+
+(d) (*Continuation criterion.*) If D_max ⊃ R ∖ {(a_R, b_R)} for a rectangle R = [0, a_R] × [0, b_R] ⊂ Q, and the metric
+functions and densities of the maximal development have bounded derivatives of total order at most 12k + 46 there with γ
+≥ κγ̊ for some κ > 0, then D_max contains a neighbourhood of R relative to Q.
+
+(e) (*Localisation.*) If a class solution in double-null form on a past set D_0 relatively open in Q, for instance the
+background of [[sec:loc-setting]] or a background of [[prop:two-dust-background]] on a rectangle [0, a_R) × [0, b_R),
+induces the data on N ∩ D_0, then D_0 ⊂ D_max and the maximal development equals it on D_0.
+
+*Proof.* (a) is [[prop:civp-axes-corner]]. (b) is [[prop:civp-axes-faces]], restricted to a past set: [0, u*] × [0, λ_v]
+∪ [0, λ_u] × [0, v*] is one. (c) is [[prop:civp-axes-unique]] and [[cor:civp-axes-maximal]]; the developments named there
+are class solutions in double-null form, their metrics being smooth through the axes (those of
+[[thm:loc-cone-development]] and [[thm:civp-large]] equal a background near the axes, and those of [[thm:loc-axis]] (a)
+are class solutions in the gauge through the axes), and their domains are past sets whose relative interiors in Q are
+relatively open past sets containing the points concerned; their data are cone data in the sense of
+[[def:civp-axes-data]]. The closed sets of (a) and (b) contain the relatively open past sets [0, σ)², and [0, u*) × [0,
+λ_v] ∪ [0, λ_u] × [0, v*). (d) is [[prop:civp-axes-criterion]]. (e) follows from (c), D_0 being the domain of a
+development. ∎
+
+**Corollary {#cor:civp-axes-cones}** (The cones of the two-dust background.) Let free data on 𝒞_out ∩ {v ≤ λ_v} and on
+𝒞_in ∩ {u ≤ λ_u} be given as in [[prop:loc-cones]] and [[lem:loc-cone-in]], with the background's corner values, of any
+size and with any support in angle, including the axes, such that γ̂ is a smooth tensor field on S³, and suppose that the
+factor e^ϕ of [[prop:loc-cones]] and [[lem:loc-cone-in]] stays positive on every generator, the axis generators included.
+Then these cone data have a development in the gauge [[eq:loc-double-null]] on a neighbourhood ([0, u*] × [0, λ_v]) ∪
+([0, λ_u] × [0, v*]) of the two cones, through the axes, with or without dust; it is unique in the gauge, it equals the
+background on every rectangle [0, a_R) × [0, b_R) on whose edges the data are the background's, and it is the restriction
+of the maximal development of [[thm:civp-axes]] (c).
+
+*Proof.* By [[lem:civp-axes-free-data]] and the paragraph after it the data are cone data in the sense of
+[[def:civp-axes-data]], the background being smooth through the axes. Apply [[thm:civp-axes]] (b), (c) and (e). ∎
+
+So every perturbation of the shell on 𝒞_out ∩ {3 < v < 4.5}, of the packet on 𝒞_in ∩ {5.7 < u < 7.2}, and every density
+added on the cones, of any amplitude and reaching the axes or not, has a development near the two cones, provided the
+cones do not focus; for large perturbations that positivity is a hypothesis, and it can fail.
+
+**Corollary {#cor:civp-axes-perturbations}** (Small perturbations of a background that is round.) Let k ≥ 9 and let g_0
+be a two-dust background of [[prop:two-dust-background]], which is round, with the corner of its two cones at (0, 0). Let
+Q_0 := [0, λ_u] × [0, λ_v] have a neighbourhood in F := {u ≥ 0, v ≥ 0} that is contained in the set G of that
+proposition, and let δ_1 > 0 be so small that g_0, with σ and R extended across the two cones as in the proof of
+[[lem:loc-cone-strips]] (b), is a background on Q_0 with margin δ_1 ([[sec:loc-axis]]). Let ε_0 be the number of
+[[thm:loc-axis]] for it. Then for cone data through the axes ([[def:loc-axis-data]]) on the edges of Q_0, in the
+normalised gauge, with nonnegative densities and of size at most ε_0 in C^(12k+42), D_max = Q_0, and the maximal
+development of [[thm:civp-axes]] (c) is the solution of [[thm:loc-axis]] (a). So small non-round perturbations of the
+cone data of g_0, reaching the axes, develop on every such rectangle, ε_0 depending on the rectangle, and on every finite
+union of such rectangles, for data on the edges of the least rectangle that contains the union.
+
+*Proof.* Q_0 is a past set relatively open in itself, and the solution of [[thm:loc-axis]] (a), a class solution in the
+gauge through the axes, is a class solution in double-null form ([[sec:civp-axes-data]]); so it is a development in the
+sense of [[cor:civp-axes-maximal]], and D_max = Q_0. For a finite union of such rectangles let Q′ be the least rectangle
+that contains it, and let the data be given on the edges of Q′, which lie in the union. By compactness each rectangle Q_0
+of the union lies in a slightly larger rectangle Q_0″ of the same kind; Q_0′ := Q_0″ ∩ Q′ is again of that kind, and its
+interior relative to Q′ is a relatively open past set containing Q_0. For data of size at most the least of the numbers
+ε_0 of the rectangles Q_0′, [[thm:loc-axis]] (a) on each Q_0′ gives a development there, so by [[thm:civp-axes]] (c)
+D_max contains every Q_0 of the union, and on each of them the maximal development is that solution. ∎
+
+**Remark {#rem:civp-axes-scope}** (What [[thm:civp-axes]] does not give.) (i) *The width.* u* and v* are not bounded
+below in terms of the data: the continuation of [[prop:civp-axes-faces]] uses no a priori estimate, and an explicit width
+would need estimates near the axes on a strip of fixed width. For data near the background's,
+[[thm:loc-cone-development]] and [[thm:loc-axis]] give explicit domains, and [[thm:civp-large]] gives its width through
+the constants of [[thm:std-cctw-strips]] and suprema of its solution ([[rem:civp-large-domain]]). (ii) *The rectangle.* A
+development on the whole of Q is not asserted. For data of any size the factor ỹ of [[eq:civp-axes-raychaudhuri]] can
+vanish on a cone, at a focal sphere, beyond which there are no cone data, and the round backgrounds of
+[[prop:two-dust-background]] are constructed only on their set G; D_max and the criterion (d) take the place of the
+rectangle. (iii) *Further families.* The theorem concerns the two adapted families, whose phases are the coordinates u
+and v. The proof uses at the axes that the spheres {u, v = const} of every corner problem are leaves of every family
+present there; a further family has this property only if its phase is constant on those spheres, and further families
+reaching the axes are not treated. (iv) *Regularity.* The data are smooth; the corner theorem uses their norms in
+C^(6k+19) near the corner sphere. Data of finite regularity, densities that are only bounded, and shells, are not covered
+here; null shells along leaves of the cones, for data localised in a band away from the axes, are developed in
+[[thm:loc-shells]]. For the 3 + 1 problem with measure-valued null dusts see [[rem:loc-cone-scope]] (iii). (v)
+*Symmetry.* The T²-symmetry and the two reflections are used throughout; the problem without symmetry is not treated.
+
+### Null shells along the leaves {#sec:loc-shells}
+
+This section extends the developments of [[thm:loc-cone-development]] and [[thm:civp-large]] to cone data that carry
+finitely many null shells: an atom m(ϑ) δ(v − c) in the density on 𝒞_out, or n(ϑ) δ(u − d) on 𝒞_in, with m and n smooth
+in ϑ and supported in the band, the other data being smooth between the atoms. The development is continuous, smooth
+between the leaves {v = c} and {u = d} through the atoms, and solves the Einstein–null-dust equations in the sense of
+distributions, with a null shell along each such leaf ([[thm:loc-shells]]). Between the leaves it is a smooth
+characteristic problem, solved by the smooth theorems; at a leaf the pieces are glued by junction conditions, which are
+derived here from the metric [[eq:loc-double-null]] ([[prop:loc-shell-junction]]). Across an ingoing leaf the transverse
+derivative ∂_v b of the shift must be continuous, and this holds on the whole leaf once it holds where the leaf meets
+𝒞_out; the shell's density is the jump of −tr χ, and it is carried along the leaf by the conservation law of a null dust.
+Across an outgoing leaf no condition arises. On the neighbourhood of the cones on which the development is constructed no
+two shells cross. Where two shells cross, the null expansions obey a product rule, which for round metrics is a relation
+between the masses of the four adjacent regions ([[prop:loc-shell-crossing]]).
+
+*Leaves and cells.* Throughout, g0, Q1 = [0, u_1] × [0, v_1], the open set 𝒪 ⊃ Q1 and the band 0 < ϑ_a < ϑ_b < π/2 are
+as in [[sec:civp-large]]: g0 is given, in the gauge [[eq:loc-double-null]], on 𝒪 × S³, and solves [[eq:two-dust-limit]]
+at the points of 𝒪 with u, v ≥ 0. Fix numbers 0 < c_1 < ⋯ < c_p < v_1 and 0 < d_1 < ⋯ < d_q < u_1, where p, q ≥ 0, and
+put c_0 := 0, c_(p+1) := v_1, d_0 := 0 and d_(q+1) := u_1. The sets {v = c_k} (1 ≤ k ≤ p) are the *ingoing leaves*,
+the sets {u = d_j} (1 ≤ j ≤ q) the *outgoing leaves*, their intersections the *crossing spheres*, and the rectangles
+Q_jk := [d_j, d_(j+1)] × [c_k, c_(k+1)] the *cells*; as in [[sec:loc-cone-setting]], points of the (u, v)-plane stand
+for the corresponding spheres. Let D ⊂ Q1 be a past set. A function on D × S³, or off the axes on D × (0, π/2), is
+*cellwise smooth* if its restriction to the intersection of that set with each cell is the restriction of a smooth
+function on a neighbourhood of it; it then has one-sided values and one-sided derivatives of every order on the
+leaves. At a point of an ingoing leaf {v = c_k} that is not on a crossing sphere, the *jump* of a cellwise smooth F is
+[F] := F(c_k⁺) − F(c_k⁻), the difference of the values from the cells above and below; across an outgoing leaf {u = d_j},
+[F] := F(d_j⁺) − F(d_j⁻). A continuous cellwise smooth F has the same restriction to a leaf from both sides, so its
+derivatives along the leaf are continuous across it: [∂_u F] = [∂_ϑ F] = 0 across an ingoing leaf, [∂_v F] = [∂_ϑ F] = 0
+across an outgoing one, and likewise for every derivative along the leaf.
+
+A metric g on D × S³ is *continuous and cellwise smooth* if it is a continuous G-invariant Lorentzian metric whose
+restriction to the intersection of D × S³ with each cell is the restriction of a smooth G-invariant Lorentzian metric on
+a neighbourhood of it, and which off the axes has the form [[eq:loc-double-null]] with Ω > 0, γ_ϑ > 0, b, A_c and A_s
+continuous and cellwise smooth. A *class solution in the gauge* is one in the sense of [[sec:loc-cone-setting]], with the
+corner at S and g0 as the background, as in [[sec:civp-large]]; its functions equal g0's near the axes. A class solution
+in double-null form on D × S³ ([[sec:civp-axes-data]]) is a class solution in the gauge without the condition near the
+axes: off the axes its metric has the form [[eq:loc-double-null]] with Ω, γ_ϑ, b, A_c, A_s smooth functions of (u, v, ϑ)
+∈ D × (0, π/2), and it is smooth on D × S³, the axes included, but need not equal g0 near them. Charts (u, v, y), with
+y = (y¹, y², y³) a chart of S³, cover
+D × S³, the axes included. In such a chart the components of g are continuous with locally bounded first derivatives, and
+its Christoffel symbols Γ^a_bc are locally bounded and cellwise smooth. Its *Ricci tensor in the sense of distributions*
+is, in the chart,
+
+    Ric(g)_bd := ∂_aΓ^a_bd − ∂_dΓ^a_ab + Γ^a_ae Γ^e_bd − Γ^a_de Γ^e_ab,
+
+the derivatives being taken in the sense of distributions on the chart's domain and the products, which are bounded
+functions, pointwise. For a number c, δ(v − c) is the distribution φ ↦ ∫ φ(u, c, y) du d³y of the chart, and for a
+bounded function F on {v = c}, F δ(v − c) is φ ↦ ∫ F φ(u, c, y) du d³y; likewise δ(u − d).
+
+**Definition {#def:loc-shell-solution}** (Solutions with null shells along the leaves.) Let D ⊂ Q1 be a past set. A
+*solution with null shells along the leaves* on D × S³ consists of a continuous and cellwise smooth metric g, the phases
+v and u, cellwise smooth densities q_in ≥ 0 and q_out ≥ 0, and *shell densities*: continuous functions 𝔪_k ≥ 0 on
+(D ∩ {v = c_k}) × S³ (1 ≤ k ≤ p) and 𝔫_j ≥ 0 on (D ∩ {u = d_j}) × S³ (1 ≤ j ≤ q), smooth on the parts of these sets
+between consecutive crossing spheres, all of them invariant under G, such that in every chart (u, v, y), on the interior
+of D × S³ and in the sense of distributions,
+
+    Ric(g) = q_in^♯ dv ⊗ dv + q_out^♯ du ⊗ du,      q_in^♯ := q_in + Σ_k 𝔪_k δ(v − c_k),
+                                                     q_out^♯ := q_out + Σ_j 𝔫_j δ(u − d_j),  {#eq:loc-shell-einstein}
+
+    ∂_a(|det g|^(1/2) q_in^♯ g^(ab) ∂_b v) = 0,      ∂_a(|det g|^(1/2) q_out^♯ g^(ab) ∂_b u) = 0.  {#eq:loc-shell-dust}
+
+In such a chart g^(vv) = g⁻¹(dv, dv) = 0 and g^(uu) = 0, so the first field |det g|^(1/2) g^(ab) ∂_b v has no
+∂_v-component and the second no ∂_u-component, and the products with δ(v − c_k) and δ(u − d_j) in [[eq:loc-shell-dust]]
+are products of continuous functions with these distributions. The solution *induces* the functions Ω, γ_ϑ, b, A_c, A_s
+and q_in of its restriction to 𝒞_out ∩ D, and Ω, γ_ϑ, b, A_c, A_s and q_out of its restriction to 𝒞_in ∩ D, the densities
+being one-sided at the leaves.
+
+Away from the leaves [[eq:loc-shell-einstein]] and [[eq:loc-shell-dust]] are the class system [[eq:class-system]] with
+the two families of [[sec:loc-cone-setting]]. So on the interior of each cell (g, v, u, q_in, q_out) is a class solution
+in double-null form, and by continuity its equations hold on each closed cell for the one-sided values. When p = q = 0 a
+solution with null shells is a class solution in double-null form, and a class solution in the gauge if it equals g0 near
+the axes.
+
+**Lemma {#lem:loc-shell-ricci}** (The curvature of a continuous, cellwise smooth metric.) Let g be continuous and
+cellwise smooth on D × S³, and let Ric_c(g) be its Ricci tensor on each cell, a locally bounded cellwise smooth tensor.
+
+(a) In every chart (u, v, y), on the interior of D × S³,
+
+    Ric(g) = Ric_c(g) + Σ_k 𝔖_k δ(v − c_k) + Σ_j 𝔖′_j δ(u − d_j),
+    𝔖_k := ½ (dv ⊗ Y + Y ⊗ dv) − ½ (tr_g h) dv ⊗ dv,      h := [∂_v g_ab] dx^a ⊗ dx^b,      Y := h(g⁻¹dv, ·),
+                                                                                                {#eq:loc-shell-singular}
+
+with the jumps across {v = c_k}, and with 𝔖′_j given by the same formula with u and the jumps across {u = d_j} in place
+of v and the jumps across {v = c_k}.
+
+(b) Off the axes, in the coordinates (u, v, ϑ, φ1, φ2), with tr χ and tr χ̲ of [[eq:loc-cone-quantities]],
+
+    𝔖_k = −[tr χ] dv ⊗ dv + (γ_ϑ [∂_v b]/(4Ω²)) (dv ⊗ (dϑ − b du) + (dϑ − b du) ⊗ dv),      𝔖′_j = −[tr χ̲] du ⊗ du.
+
+So 𝔖′_j involves no jump of ∂_u b, and neither 𝔖_k nor 𝔖′_j involves the jumps of the derivatives of ln Ω or of the
+ϰ_i − ϕ, ϕ := (ϰ_1 + ϰ_2 + ϰ_3)/3; tr χ = 3 ∂_vϕ, and tr χ̲ = 3 ∂_uϕ where b vanishes identically, as on 𝒞_in.
+
+*Proof.* (a) Let F be bounded and cellwise smooth on the domain of the chart and φ a test function supported in the
+interior of D × S³. For fixed (u, y) the points of D with these coordinates form an interval in v, since D is a past set,
+and the numbers c_k cut it into intervals on each of which v ↦ F is smooth with one-sided limits. Integrating by parts on
+each of them, and using Fubini's theorem,
+
+    ∫ F ∂_vφ du dv d³y = −∫ {∂_vF} φ du dv d³y − Σ_k ∫ [F] φ(u, c_k, y) du d³y,
+
+{∂_vF} denoting the cellwise derivative; the boundary of D does not enter, as φ vanishes near it, and the crossing
+spheres, where [F] is not defined, have measure zero in the leaves. So ∂_vF = {∂_vF} + Σ_k [F] δ(v − c_k); likewise
+∂_uF = {∂_uF} + Σ_j [F] δ(u − d_j), and ∂F/∂y^A = {∂F/∂y^A}, F being smooth in y on each cell. We apply this to the
+Γ^a_bd. On {v = c_k}, g is continuous and its derivatives along the leaf are continuous across it, so [∂_e g_ab] = δ^v_e
+h_ab and
+
+    [Γ^a_bd] = ½ g^(ae) (δ^v_b h_ed + δ^v_d h_eb − δ^v_e h_bd).
+
+With Y_d = g^(ve) h_ed and g^(vv) = 0, [Γ^v_bd] = ½ (δ^v_b Y_d + δ^v_d Y_b), and [Γ^a_ab] = ½ (Y_b + δ^v_b tr_g
+h − Y_b) = ½ δ^v_b tr_g h. So the coefficient of δ(v − c_k) in Ric(g)_bd is [Γ^v_bd] − δ^v_d [Γ^a_ab] = (𝔖_k)_bd. The
+products of the Christoffel symbols are bounded and equal their cellwise values off the leaves, a set of measure zero.
+The outgoing leaves are treated in the same way, with g^(uu) = 0.
+
+(b) The functions Ω, γ_ϑ, b and e^(ϰ_i) are continuous, so the nonzero components of h are
+
+    h_uv = −4Ω² [∂_v ln Ω],   h_uu = b² [∂_vγ_ϑ] + 2γ_ϑ b [∂_v b],   h_uϑ = −b [∂_vγ_ϑ] − γ_ϑ [∂_v b],
+    h_ϑϑ = [∂_vγ_ϑ],   h_(φiφi) = 2 e^(2ϰ_(i+1)) [∂_vϰ_(i+1)].
+
+By the inverse metric of the proof of [[lem:loc-cone-equations]], g⁻¹dv = −(2Ω²)⁻¹ L̲, L̲ = ∂_u + b∂_ϑ, so Y_d = −(2Ω²)⁻¹
+(h_ud + b h_ϑd): Y_u = −(2Ω²)⁻¹ γ_ϑ b [∂_v b], Y_v = 2[∂_v ln Ω], Y_ϑ = (2Ω²)⁻¹ γ_ϑ [∂_v b] and Y_(φi) = 0, that is
+
+    Y = 2 [∂_v ln Ω] dv + (γ_ϑ [∂_v b]/(2Ω²)) (dϑ − b du).
+
+Since g^(ab) ∂_v g_ab = ∂_v ln |det g| on each side and |det g|^(1/2) = 2Ω²𝒱 ([[lem:loc-cone-ricci]] (b)), with ∂_v ln
+𝒱 = tr χ, tr_g h = [∂_v ln |det g|] = 4[∂_v ln Ω] + 2[tr χ]. Substituting in [[eq:loc-shell-singular]] gives 𝔖_k. Across
+an outgoing leaf, h′ := [∂_u g_ab] dx^a ⊗ dx^b has h′(∂_v, ∂_d) = 0 for d ≠ u and h′_vu = −4Ω² [∂_u ln Ω], and
+g⁻¹du = −(2Ω²)⁻¹ ∂_v; so Y′ := h′(g⁻¹du, ·) = 2[∂_u ln Ω] du and tr_g h′ = 4[∂_u ln Ω] + 2[∂_u ln 𝒱], and 𝔖′_j = −[∂_u ln
+𝒱] du ⊗ du. Finally ∂_u ln 𝒱 = L̲ ln 𝒱 − b ∂_ϑ ln 𝒱 = tr χ̲ − ∂_ϑ b − b ∂_ϑ ln 𝒱, and ∂_ϑ b and b ∂_ϑ ln 𝒱 are continuous
+across {u = d_j}; so [∂_u ln 𝒱] = [tr χ̲]. ∎
+
+The next two identities are read off from [[eq:loc-cone-frame-ricci]].
+
+**Lemma {#lem:loc-shell-identities}** (Two identities.) Let g have the form [[eq:loc-double-null]] off the axes, with
+smooth functions, and let L̲, 𝒱, ϖ, χ_i, χ̲_i, tr χ and tr χ̲ be as in [[eq:loc-cone-quantities]] and K_i = ∂_(φi). Then
+
+    Ric(L̲, ∂_ϑ) = −(γ_ϑ/(4Ω²)) (L̲∂_v b + (L̲ ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) + 2∂_ϑ b) ∂_v b) + r̲,
+
+with r̲ of [[eq:loc-cone-frame-ricci]], and
+
+    γ_ϑ⁻¹ Ric(∂_ϑ, ∂_ϑ) + Σ_(i=1,2) e^(−2ϰ_(i+1)) Ric(K_i, K_i)
+        = (Ω²𝒱)⁻¹ (L̲∂_v𝒱 + (∂_ϑ b) ∂_v𝒱 + ½ ∂_ϑ(𝒱 ∂_v b)) − (γ_ϑ/(8Ω⁴)) (∂_v b)² + 𝔞,  {#eq:loc-shell-trace}
+
+    𝔞 := −γ_ϑ⁻¹ Σ_(i=2,3) (∂_ϑ²ϰ_i + (∂_ϑϰ_i)² − ∂_ϑϰ_1 ∂_ϑϰ_i) − 2γ_ϑ⁻¹ (∂_ϑϖ + ϖ² − ∂_ϑϰ_1 ϖ)
+          − (Ω²𝒱)⁻¹ Σ_(i=2,3) ∂_ϑ(Ω²𝒱 γ_ϑ⁻¹ ∂_ϑϰ_i).
+
+The function r̲ contains derivatives of Ω, γ_ϑ, b, A_c, A_s only along L̲ and ∂_ϑ, and 𝔞 only along ∂_ϑ. For a round
+metric (b = 0, γ_ϑ = R², e^(A_c) = R cos ϑ, e^(A_s) = R sin ϑ, Ω² = e^(2σ)/2) both sides of [[eq:loc-shell-trace]] equal
+(6e^(−2σ)/R²)(R R_uv + 2R_u R_v + e^(2σ)), the trace of the angular components of [[lem:two-dust-equations]].
+
+*Proof.* Take q_in = q_out = 0 in [[lem:loc-cone-ricci]], so that E = Ric there. The first identity is the formula for
+E(L̲, ∂_ϑ) in [[eq:loc-cone-frame-ricci]]; r̲ is built from ϖ = ∂_ϑ ln Ω, the ∂_ϑϰ_i, the χ̲_i, ∂_ϑL̲ ln Ω and the
+∂_ϑχ̲_i, and χ̲_1 = L̲ϰ_1 + ∂_ϑ b, χ̲_i = L̲ϰ_i for i = 2, 3. For the second, [[eq:loc-cone-frame-ricci]] gives, for
+i = 1, 2, since ∂_vL̲ϰ_(i+1) = ∂_vχ̲_(i+1),
+
+    e^(−2ϰ_(i+1)) Ric(K_i, K_i) = −□_g ϰ_(i+1) = Ω⁻² (∂_vχ̲_(i+1) + ½ (tr χ̲ χ_(i+1) + tr χ χ̲_(i+1) − ∂_v b ∂_ϑϰ_(i+1)))
+                                   − (Ω²𝒱)⁻¹ ∂_ϑ(Ω²𝒱 γ_ϑ⁻¹ ∂_ϑϰ_(i+1)),
+
+and γ_ϑ⁻¹ Ric(∂_ϑ, ∂_ϑ) is Ω⁻² (∂_vχ̲_1 + ½ (tr χ χ̲_1 + χ_1 tr χ̲) − ½ e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b)) − (γ_ϑ/(8Ω⁴))(∂_v
+b)² plus the first two terms of 𝔞. In the sum, ½ (tr χ χ̲_1 + χ_1 tr χ̲) + ½ Σ_(i=2,3) (tr χ̲ χ_i + tr χ χ̲_i) = tr χ tr
+χ̲ and e^(−ϰ_1) ∂_ϑ(e^(ϰ_1) ∂_v b) + ∂_v b ∂_ϑ(ϰ_2 + ϰ_3) = 𝒱⁻¹ ∂_ϑ(𝒱 ∂_v b), so the left side of [[eq:loc-shell-trace]]
+is Ω⁻² (∂_v tr χ̲ + tr χ tr χ̲ − ½ 𝒱⁻¹ ∂_ϑ(𝒱 ∂_v b)) − (γ_ϑ/(8Ω⁴))(∂_v b)² + 𝔞. Since ∂_v𝒱 = 𝒱 tr χ, 𝒱 tr χ̲ = L̲𝒱 + 𝒱
+∂_ϑ b, and ∂_vL̲ = L̲∂_v + (∂_v b) ∂_ϑ as operators,
+
+    𝒱 (∂_v tr χ̲ + tr χ tr χ̲) = ∂_v(𝒱 tr χ̲) = L̲∂_v𝒱 + (∂_v b) ∂_ϑ𝒱 + (∂_ϑ b) ∂_v𝒱 + 𝒱 ∂_ϑ∂_v b
+                             = L̲∂_v𝒱 + (∂_ϑ b) ∂_v𝒱 + ∂_ϑ(𝒱 ∂_v b),
+
+which gives [[eq:loc-shell-trace]]. For a round metric ϖ = 0, ∂_ϑϰ_1 = 0, ∂_ϑϰ_2 = −tan ϑ, ∂_ϑϰ_3 = cot ϑ and
+Ω²𝒱γ_ϑ⁻¹ = Ω²R sin ϑ cos ϑ, so the first sum in 𝔞 is (tan²ϑ − sec²ϑ) + (cot²ϑ − csc²ϑ) = −2 and the last one is R⁻² (sin
+ϑ cos ϑ)⁻¹ ∂_ϑ(cos²ϑ − sin²ϑ) = −4R⁻², and 𝔞 = 6/R²; with 𝒱 = R³ sin ϑ cos ϑ, (Ω²𝒱)⁻¹
+∂_u∂_v𝒱 = 2e^(−2σ)(R³)_uv/R³ = (6e^(−2σ)/R²)(R R_uv + 2R_u R_v). The left side is R⁻² times the trace over the unit
+sphere of the angular components, which [[lem:two-dust-equations]] gives as the same expression. ∎
+
+**Proposition {#prop:loc-shell-junction}** (The junction conditions.) Let D ⊂ Q1 be a past set, g a continuous
+and cellwise smooth metric on D × S³ and q_in, q_out ≥ 0 cellwise smooth functions, such that on each closed cell
+(g, v, u, q_in, q_out) is a class solution in double-null form. Then the following hold off the axes and off the crossing
+spheres.
+
+(a) *The torsion jump.* On each ingoing leaf,
+
+    L̲ [∂_v b] + (L̲ ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) + 2∂_ϑ b) [∂_v b] = 0,  {#eq:loc-shell-torsion}
+
+and [∂_v b] is continuous at the crossing spheres. So [∂_v b] vanishes along each integral curve of L̲ in the leaf that
+starts at a point of {(0, c_k)} × S³ where it vanishes; when b vanishes near the axes, these curves fill the leaf off the
+axes.
+
+(b) *An ingoing shell.* If [∂_v b] = 0 on {v = c_k}, then there
+
+    ∂_u(𝒱 [tr χ]) + ∂_ϑ(b 𝒱 [tr χ]) = 0,  {#eq:loc-shell-conservation}
+
+and 𝒱[tr χ] is continuous at the crossing spheres; so [tr χ] keeps its sign along each integral curve of L̲ in the leaf.
+
+(c) *An outgoing shell.* On each outgoing leaf ∂_v(𝒱 [tr χ̲]) = 0, and 𝒱[tr χ̲] is continuous at the crossing spheres; so
+[tr χ̲] keeps its sign along each generator of the leaf.
+
+(d) *The junction.* Let 𝔪_k and 𝔫_j be shell densities as in [[def:loc-shell-solution]]. Then (g, v, u, q_in, q_out, 𝔪_k,
+𝔫_j) is a solution with null shells along the leaves on D × S³ if and only if, off the axes and off the crossing spheres:
+
+(J1) [∂_v b] = 0 on every ingoing leaf;
+
+(J2) 𝔪_k = −[tr χ] on {v = c_k} and 𝔫_j = −[tr χ̲] on {u = d_j};
+
+(J3) [q_out] = 0 across every ingoing leaf and [q_in] = 0 across every outgoing leaf.
+
+No condition is placed on the jumps of ∂_u b across an outgoing leaf, of the derivatives of ln Ω, or of the derivatives
+of the ϰ_i − ϕ.
+
+*Proof.* (a) Off the leaves Ric(g) = q_in dv ⊗ dv + q_out du ⊗ du, and dv and du vanish on ∂_ϑ; so on each closed cell
+Ric(L̲, ∂_ϑ) = 0 for the one-sided values. In the first identity of [[lem:loc-shell-identities]], the coefficient of ∂_v
+b and r̲ contain only b, which is continuous, and derivatives along L̲ and ∂_ϑ, which are tangent to {v = c_k}; so they
+are continuous across the leaf, and [L̲∂_v b] = L̲[∂_v b]. The jump of the identity is [[eq:loc-shell-torsion]]. At a
+crossing sphere {(d_j, c_k)} × S³, ∂_v b is a derivative along {u = d_j}, so above the leaf {v = c_k} its values from
+u < d_j and from u > d_j agree on {u = d_j}, and likewise below; hence the jump across {v = c_k} has the same limits from
+u < d_j and from u > d_j. Along an integral curve of L̲ in the leaf, [[eq:loc-shell-torsion]] is a linear homogeneous
+ordinary differential equation for [∂_v b] whose coefficients are locally bounded along the curve and continuous off the
+crossing spheres, at which [∂_v b] is continuous; so [∂_v b] vanishes along the curve if it vanishes at its starting
+point. When b vanishes near the axes, the integral curves of L̲ = ∂_u + b ∂_ϑ in the leaf, the
+solutions of dϑ/du = b(u, c_k, ϑ), b being bounded, continuous and smooth in ϑ, are defined for all u in the leaf, do not
+reach the axes, and through every point of the leaf off the axes passes one of them that starts at u = 0.
+
+(b) By [[eq:loc-shell-einstein]] off the leaves, Ric(∂_ϑ, ∂_ϑ) = Ric(K_i, K_i) = 0 on each closed cell, so the left side
+of [[eq:loc-shell-trace]] vanishes on both sides of {v = c_k}. On its right side Ω²𝒱 and 𝔞 are continuous across the
+leaf, 𝔞 containing only derivatives along ∂_ϑ; [L̲∂_v𝒱] = L̲[∂_v𝒱] and [(∂_ϑ b) ∂_v𝒱] = (∂_ϑ b)[∂_v𝒱]; [∂_ϑ(𝒱 ∂_v
+b)] = ∂_ϑ(𝒱[∂_v b]) = 0; and [(∂_v b)²] = [∂_v b](∂_v b(c_k⁺) + ∂_v b(c_k⁻)) = 0. So L̲[∂_v𝒱] + (∂_ϑ b)[∂_v𝒱] = 0, which
+is [[eq:loc-shell-conservation]], as [∂_v𝒱] = 𝒱[tr χ] and L̲F + (∂_ϑ b)F = ∂_uF + ∂_ϑ(bF). At a crossing sphere, ∂_v𝒱 is
+a derivative along {u = d_j}, and the continuity follows as in (a). Along an integral curve of L̲, L̲(𝒱[tr χ]) = −(∂_ϑ b)
+𝒱[tr χ], so 𝒱[tr χ] keeps its sign, and 𝒱 > 0.
+
+(c) Since L̲F + (∂_ϑ b)F = ∂_uF + ∂_ϑ(bF), [[eq:loc-shell-trace]] with vanishing left side gives on each closed cell
+
+    ∂_v∂_u𝒱 = −∂_ϑ(b ∂_v𝒱) − ½ ∂_ϑ(𝒱 ∂_v b) + (γ_ϑ 𝒱/(8Ω²)) (∂_v b)² − Ω²𝒱 𝔞.
+
+The right side contains Ω, γ_ϑ, b, 𝒱 and derivatives along ∂_v and ∂_ϑ only, which are tangent to {u = d_j}; so it is
+continuous across the leaf, and ∂_v[∂_u𝒱] = [∂_v∂_u𝒱] = 0. By the end of the proof of [[lem:loc-shell-ricci]] (b),
+[∂_u𝒱] = 𝒱[∂_u ln 𝒱] = 𝒱[tr χ̲]. At a crossing sphere, ∂_u𝒱 = L̲𝒱 − b ∂_ϑ𝒱 is built from derivatives along {v = c_k}, so
+it is continuous across that leaf, and the continuity follows as in (a).
+
+(d) By [[lem:loc-shell-ricci]] (a), in a chart (u, v, y), since Ric_c(g) = q_in dv ⊗ dv + q_out du ⊗ du on each cell,
+
+    Ric(g) − q_in^♯ dv ⊗ dv − q_out^♯ du ⊗ du = Σ_k (𝔖_k − 𝔪_k dv ⊗ dv) δ(v − c_k) + Σ_j (𝔖′_j − 𝔫_j du ⊗ du) δ(u − d_j).
+
+The coefficients are bounded functions on the leaves, continuous off the crossing spheres; testing with functions
+supported near a point of one leaf off the others shows that the sum vanishes if and only if every coefficient vanishes
+off the crossing spheres. On each part of a leaf between crossing spheres the coefficients are continuous up to the axes,
+so it suffices that they vanish off the axes, where [[lem:loc-shell-ricci]] (b) applies: since γ_ϑ/(4Ω²) ≠ 0 and
+dv ⊗ (dϑ − b du) + (dϑ − b du) ⊗ dv is not a multiple of dv ⊗ dv, 𝔖_k = 𝔪_k dv ⊗ dv if and only if [∂_v b] = 0 and
+𝔪_k = −[tr χ], and 𝔖′_j = 𝔫_j du ⊗ du if and only if 𝔫_j = −[tr χ̲]. So [[eq:loc-shell-einstein]] holds if and only if
+(J1) and (J2) do.
+
+For [[eq:loc-shell-dust]], let X^a := |det g|^(1/2) g^(av), a continuous and cellwise smooth vector density with X^v = 0.
+By the rule for derivatives in the proof of [[lem:loc-shell-ricci]] (a), applied to X^a q_in and, on the leaf {v = c_k},
+to X^a 𝔪_k as a function of (u, y),
+
+    ∂_a(X^a q_in^♯) = {∂_a(X^a q_in)} + Σ_j [X^u q_in] δ(u − d_j)
+                      + Σ_k ({∂_u(X^u 𝔪_k) + ∂_A(X^A 𝔪_k)} + Σ_j [X^u 𝔪_k] δ(u − d_j)) δ(v − c_k),
+
+the last jump being taken along the leaf at u = d_j; no term at the ingoing leaves comes from the first part, as X^v = 0.
+The cellwise term vanishes by the conservation law on each cell. So the first equation of [[eq:loc-shell-dust]] holds if
+and only if [X^u q_in] = 0 across every outgoing leaf, ∂_u(X^u 𝔪_k) + ∂_A(X^A 𝔪_k) = 0 on the parts of the ingoing leaves
+between crossing spheres, and X^u 𝔪_k is continuous at the crossing spheres. The divergence of a vector density along the
+leaf does not depend on the chart, the functions involved are continuous up to the axes on the parts of the leaves, and
+X^u = |det g|^(1/2) g^(uv) ≠ 0 is continuous; off the axes, in the coordinates (u, v, ϑ, φ1, φ2), X = −𝒱 ∂_u − b𝒱 ∂_ϑ
+([[lem:loc-cone-ricci]] (b)). So these conditions are [q_in] = 0 across the outgoing leaves, ∂_u(𝒱𝔪_k) + ∂_ϑ(b𝒱𝔪_k) = 0
+off the axes, and the continuity of 𝒱𝔪_k at the crossing spheres; given (J1) and (J2), the last two are (b). In the same
+way, with X′^a := |det g|^(1/2) g^(au), which off the axes is −𝒱 δ^a_v, the second equation of [[eq:loc-shell-dust]]
+holds if and only if [q_out] = 0 across the ingoing leaves, ∂_v(𝒱𝔫_j) = 0 and 𝒱𝔫_j is continuous at the crossing spheres,
+and given (J2) the last two are (c). Hence [[eq:loc-shell-einstein]] and [[eq:loc-shell-dust]] hold if and only if
+(J1)–(J3) do. ∎
+
+**Remark {#rem:loc-shell-poisson}** (Null shells in four dimensions.) In four dimensions, Poisson's reformulation of the
+null-shell formalism of Barrabès and Israel associates with the δ-part of the curvature of a metric that is continuous
+across a null hypersurface a surface stress-energy tensor, formed from the δ-part of the Einstein tensor, and gives it
+"a simple characterization in terms of a mass density, a mass current, and an isotropic pressure" [Poi02, p. 1]:
+"S^(αβ) = μk^α k^β + j^A (k^α e^β_A + e^α_A k^β) + p σ^(AB) e^α_A e^β_B" [Poi02, (2.15), p. 4], k tangent to the null
+generators. [[lem:loc-shell-ricci]] is the analogue in five dimensions and in the gauge of the class, proved directly.
+By its part (b), 𝔖_k and 𝔖′_j are trace-free, as g⁻¹(dv, dv) = g⁻¹(du, du) = g⁻¹(dv, dϑ − b du) = 0, so they are also
+the δ-parts of the Einstein tensor. On an ingoing leaf, whose generators are tangent to L̲ = −2Ω² g⁻¹dv, the term in
+dv ⊗ dv is the density, the term in [∂_v b] the current, and no pressure term occurs; a null-dust shell, whose stress is
+a multiple of dv ⊗ dv, is the case of zero current, (J1). A jump of the derivatives of the ϰ_i − ϕ across a leaf
+produces no δ in Ric; in four dimensions such a jump gives a δ in the Weyl tensor, which [Poi02, p. 1] interprets as "an
+independent impulsive tidal wave". No proof here uses [Poi02].
+
+**Definition {#def:loc-shell-data}** (Cone data with shells.) *Cone data with shells along the leaves* consist of
+functions Ω > 0, γ_ϑ > 0, b, A_c and A_s of (v, ϑ) ∈ [0, v_1] × (0, π/2) on 𝒞_out, continuous and smooth on each [c_k,
+c_(k+1)] × (0, π/2), a density q_in ≥ 0 smooth on each of these sets and smooth functions m_k ≥ 0 of ϑ (1 ≤ k ≤ p), and
+of functions Ω > 0, γ_ϑ > 0, A_c and A_s of (u, ϑ) ∈ [0, u_1] × (0, π/2) on 𝒞_in, with b = 0 there, continuous and smooth
+on each [d_j, d_(j+1)] × (0, π/2), a density q_out ≥ 0 smooth on each of these sets and smooth functions n_j ≥ 0 of ϑ
+(1 ≤ j ≤ q), such that:
+
+(i) the two sets of functions agree on S;
+
+(ii) on each [c_k, c_(k+1)] the functions on 𝒞_out satisfy Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0, by
+[[eq:loc-cone]], and at each c_k, [∂_v b] = 0 and [tr χ] = −m_k; on each [d_j, d_(j+1)] the functions on 𝒞_in satisfy
+Ric(∂_u, ∂_u) = q_out, by [[eq:loc-cone-in]], which holds for every Ω when b = 0, and at each d_j, [tr χ̲] = −n_j, where
+tr χ̲ = ∂_u ln 𝒱 on 𝒞_in;
+
+(iii) they equal the background's, and the m_k and n_j vanish, outside compact sets K_out ⊂ [0, v_1] × (ϑ_a, ϑ_b) and
+K_in ⊂ [0, u_1] × (ϑ_a, ϑ_b).
+
+Here the jumps are taken along the cones: [F] := F(c_k⁺) − F(c_k⁻) on 𝒞_out and F(d_j⁺) − F(d_j⁻) on 𝒞_in. With p = q = 0
+these are the cone data on Q1 of [[def:civp-large-data]].
+
+**Proposition {#prop:loc-shell-cones}** (Free data with atoms.) On 𝒞_out write γ_ϑ = e^(2ϕ + 2ℓ_1), A_c = ϕ + ℓ_2 and
+A_s = ϕ + ℓ_3 with ℓ_1 + ℓ_2 + ℓ_3 = 0, and keep Ω the background's. Let the free data (ℓ_1, ℓ_2, ℓ_3) be continuous on
+[0, v_1] × (0, π/2) and smooth on each [c_k, c_(k+1)] × (0, π/2), let q_in ≥ 0 be smooth on each of these sets and the
+m_k ≥ 0 smooth, all equal to the background's, and m_k = 0, outside a compact subset of [0, v_1] × (ϑ_a, ϑ_b), and let
+the corner values of ϕ, ∂_vϕ, b and ∂_v b be the background's. On each generator read the constraints
+
+    Ric(∂_v, ∂_v) = q_in + Σ_k m_k δ(v − c_k),      Ric(∂_v, ∂_ϑ) = 0,
+
+with the left sides of [[eq:loc-cone]], as equations between distributions in v at fixed ϑ for functions ϕ and b that are
+continuous and smooth on each [c_k, c_(k+1)]. They determine ϕ and b on every generator on which e^ϕ stays positive; the
+resulting functions satisfy (ii) of [[def:loc-shell-data]] on 𝒞_out, with [∂_vϕ] = −m_k/3 at c_k, and equal the
+background's at every ϑ outside the band. The same holds on 𝒞_in in the gauge b = 0, with Ω the background's there, with
+the free data there, q_out, the n_j, the points d_j, u and [[eq:loc-cone-in]] in place of the free data on 𝒞_out, q_in,
+the m_k, the points c_k, v and the first line of [[eq:loc-cone]], the corner values of ϕ and ∂_uϕ being the background's;
+then [∂_uϕ] = −n_j/3. No smallness is used; for free data near the background's and small m_k and n_j, e^ϕ stays
+positive on [0, v_1] and on [0, u_1].
+
+*Proof.* As distributions in v, for ϰ_i continuous and smooth on each [c_k, c_(k+1)], ∂_v²ϰ_i = {∂_v²ϰ_i} + Σ_k [∂_vϰ_i]
+δ(v − c_k), as in the proof of [[lem:loc-shell-ricci]] (a), while the other terms of the first line of [[eq:loc-cone]]
+are bounded. So the first constraint holds if and only if it holds on each [c_k, c_(k+1)] and −Σ_i [∂_vϰ_i] = m_k at each
+c_k, that is −3[∂_vϕ] = m_k, as Σ_i ℓ_i = 0; then [tr χ] = −m_k. With y := e^ϕ, on each interval the constraint is, as in
+the proof of [[prop:loc-cones]], the linear equation y″ − 2(ln Ω)′ y′ + (1/3)(Σ_i (ℓ_i′)² + q_in) y = 0, ′ := ∂_v. With
+the corner values and the conditions y′(c_k⁺) = y′(c_k⁻) − (m_k/3) y(c_k) it has exactly one continuous solution that is
+smooth on each interval, and this solution is positive near v = 0 and smooth in (v, ϑ) on each [c_k, c_(k+1)] × (0, π/2),
+by induction on k, the coefficients and the jumps being smooth in ϑ. In the second line of [[eq:loc-cone]] the
+coefficient ∂_v ln(γ_ϑ^(3/2) e^(A_c + A_s) Ω⁻²) and the term r of [[eq:loc-cone-r]] are bounded: r contains ∂_v∂_ϑ ln Ω
+and the ∂_v∂_ϑϰ_i only as derivatives in v of ∂_ϑ ln Ω and of the ∂_ϑϰ_i, which are continuous in v, since ϕ and the ℓ_i
+are continuous and smooth in ϑ on each closed interval. So the δ-part of the second line is (γ_ϑ/(4Ω²)) [∂_v b]
+δ(v − c_k), and the line holds if and only if it holds on each interval and [∂_v b] = 0: a linear first-order equation
+for ∂_v b on each interval, with ∂_v b continuous at the c_k, which with the corner value has exactly one solution; b
+follows by integration from the corner. At an angle outside the band the coefficients, the m_k and the corner values are
+the background's, so ϕ and b are the background's, by uniqueness. On 𝒞_in, [[eq:loc-cone-in]] is treated in the same way,
+and [tr χ̲] = 3[∂_uϕ] = −n_j. For free data near the background's and small m_k and n_j, y is near the background's on
+the compact intervals, by continuous dependence on the coefficients and on the jumps, and so positive. ∎
+
+*The smooth theorems at other corners.* [[thm:civp-large]] and [[thm:loc-cone-development]] are stated at the corner
+sphere S. The proof of [[thm:loc-shells]] applies them at corner spheres on the cones, and [[prop:loc-shell-crossing]]
+(c) at crossing spheres. The next two lemmas state what is used and prove it from the proofs of the two theorems.
+
+**Lemma {#lem:loc-shell-corner-large}** (Developments without smallness at a corner sphere in Q1.) Let 𝒬 = [u_c, u′] ×
+[v_c, v′] ⊂ Q1 with u_c < u′ and v_c < v′, let N_o := {u_c} × [v_c, v′] and N_i := [u_c, u′] × {v_c} be its edges and
+S_𝒬 := {(u_c, v_c)} × S³ its corner sphere, and let 0 < ϑ_a′ < ϑ_b′ < π/2 and η0′ := (1/3) min(ϑ_a′, π/2 − ϑ_b′).
+*Cone data on 𝒬* for the band (ϑ_a′, ϑ_b′) are smooth functions Ω > 0, γ_ϑ > 0, b, A_c, A_s and q_in ≥ 0 of
+(v, ϑ) ∈ [v_c, v′] × (0, π/2) on N_o, and Ω > 0, γ_ϑ > 0, A_c, A_s and q_out ≥ 0 of (u, ϑ) ∈ [u_c, u′] × (0, π/2) on
+N_i, with b = 0 on N_i, that satisfy (i)–(iii) of [[def:civp-large-data]] with S_𝒬, N_o, N_i, [v_c, v′], [u_c, u′] and
+(ϑ_a′, ϑ_b′) in place of S, 𝒞_out, 𝒞_in, [0, v_1], [0, u_1] and (ϑ_a, ϑ_b); Ω on both edges and b on N_o are arbitrary.
+A *past set of 𝒬* is a set D ⊂ 𝒬 with [u_c, u] × [v_c, v] ⊂ D for every (u, v) ∈ D. For cone data on 𝒬 there is
+δ > 0 such that, with 𝒬_δ := {(u, v) ∈ 𝒬 : min(u − u_c, v − v_c) ≤ δ}, the following hold.
+
+(a) There is a class solution in the gauge on 𝒬_δ × S³ that induces the cone data on N_o and on N_i.
+
+(b) It equals (g0, q̊_in, q̊_out) at the points with ϑ ∉ [ϑ_a′ − η0′, ϑ_b′ + η0′].
+
+(c) Let D′ be a past set of 𝒬 and (g′, v, u, q′_in, q′_out) a class solution in the gauge on D′ × S³ that induces the
+cone data on N_o ∩ D′ and on N_i ∩ D′ and equals (g0, q̊_in, q̊_out) at the points with ϑ ∉ [η′, π/2 − η′], for some
+η′ > 0. Then it equals the solution of (a) on (D′ ∩ 𝒬_δ) × S³.
+
+*Proof.* For 𝒬 = Q1 and the band (ϑ_a, ϑ_b) these are (a)–(c) of [[thm:civp-large]]. In general the proof of that
+theorem applies with the following replacements. We go through it in order and name every place where it uses the
+cones 𝒞_out and 𝒞_in, the corner sphere S, the numbers u_1 and v_1, the band, the past sets of Q1, or the function Ω.
+
+*The results that proof uses.* [[lem:civp-large-frame]], [[lem:civp-large-reduction]] and [[prop:civp-large-system]] are
+identities at the points of open sets off the axes, and [[lem:civp-large-energy]] is stated for an arbitrary rectangle
+and interval. [[prop:civp-large-corner]] is stated for an arbitrary rectangle in Q1, with the background on the open set
+𝒪 ⊃ Q1, so it applies to rectangles in 𝒬. [[lem:civp-large-data]] (a) is stated for an arbitrary rectangle in Q1.
+[[lem:civp-large-data]] (b) holds for cone data on 𝒬, with N_o, N_i, S_𝒬, the lines {u = u_c} and {v = v_c} and 𝒬 in
+place of 𝒞_out, 𝒞_in, S, {u = 0}, {v = 0} and Q1. Its proof defines the fields on each edge from the functions given
+there. It solves linear ordinary differential equations along the generators of the edges, with initial values at the
+corner. It uses b = 0 on N_i to write e3 = e^(−α) ∂_u there, and for (ii) only that near each angle outside the band the
+data are the background's. None of this depends on the position of the corner. No step requires Ω to be the background's
+on an edge: [[def:civp-large-data]] leaves Ω free on both cones, and [[lem:civp-large-data]], [[prop:civp-large-corner]]
+and the steps below take the functions on the edges as given.
+
+*Its Step 1.* Q1 × Y becomes 𝒬 × Y. f̊ becomes the restriction of the background's reduced fields to 𝒬 × (0, π/2),
+and f̊_e a function in C^∞(𝒬 × Y; ℝ²³) with the same properties. The band, η0 and J0 become (ϑ_a′, ϑ_b′), η0′ and
+J0′ := [ϑ_a′ − 2η0′, ϑ_b′ + 2η0′], and the cut-off ϱ is taken for them. The data are given on {u_c} × Y and {v_c} × Y,
+and the transport equations are restricted to {v = v_c} and to {u = u_c}.
+
+*Its Step 2.* In the coordinates u − u_c and v − v_c the localised system keeps the form (2.7)–(2.8) of [CCTW16], its
+coefficients and right side being smooth functions of f and of the coordinates. So [[thm:std-cctw-existence]] and
+[[thm:std-cctw-strips]] apply with a0 := u′ − u_c and b0 := v′ − v_c. They give a* and b* and a solution on
+𝒰 := ([u_c, u_c + a*] × [v_c, v′] ∪ [u_c, u′] × [v_c, v_c + b*]) × Y.
+
+*Its Step 3.* In [[eq:civp-large-delta]] the suprema are taken over the corresponding sets, and η0, v_1 and
+u_1 become η0′, v′ − v_c and u′ − u_c. [[lem:civp-large-energy]] (a) is applied on [u_c, u_c + s1] × [v_c, v′]
+and on [u_c, u′] × [v_c, v_c + s2]. On the second set the b-component of f vanishes at v = v_c: on J0′
+because b = 0 on N_i, and elsewhere because f̊_e has b = 0. So |b| ≤ β1 (v − v_c) there. The set 𝒮 becomes
+[u_c, u_c + s1] × [v_c, v′] ∪ [u_c, u′] × [v_c, v_c + s2] ⊃ 𝒬_δ. F is defined on 𝒬_δ × (0, π/2). Its f₃-components on N_o
+are f̄₃ and its f₄-components on N_i are f̄₄, and the other components there are the solutions of [[lem:civp-large-data]]
+(b) (i) in the form above. In the paragraph on the signs of the densities:
+
+- 𝒬_δ is a past set of 𝒬;
+- the segments through a point (u″, v″) are [u_c, u″] × {v″} and {u″} × [v_c, v″];
+- the integral curves of D_3 are followed back to u = u_c;
+- the densities at u = u_c and at v = v_c are those of the data, which are nonnegative.
+
+*Its Step 4.* 𝒯₁ := [u_c, u_c + δ] × [v_c, v′] and 𝒯₂ := [u_c, u′] × [v_c, v_c + δ]; 𝒯 is one of them, with sides l1 and
+l2. The constants Λ, σ and L are found as there, with η0′ in place of η0. In the corner step, the alternatives that the
+corner of the small rectangle has u = 0, or v = 0, become that it has u = u_c, or v = v_c, so that the corresponding edge
+lies in N_o, or in N_i. The edges that lie in 𝒞_out or 𝒞_in become those that lie in N_o or N_i, on which the functions
+are the cone data. In the continuation in u + v:
+
+- D_t := {(u, v) ∈ 𝒯 : (u − u_c) + (v − v_c) < t};
+- the first rectangle is [u_c, u_c + min(L, l1)] × [v_c, v_c + min(L, l2)], with corner sphere S_𝒬, at which F is
+  geometric to first order because the values of f̄ there are those of [[eq:civp-large-coefficients]] in the cone data;
+- Γ := {(u, v) ∈ 𝒯 : (u − u_c) + (v − v_c) = t*};
+- the rectangle about p ∈ Γ has the corner (max(u_p − L/2, u_c), max(v_p − L/2, v_c)), and its edges in N_o or N_i
+  carry the cone data.
+
+*Its Step 5.* The functions induced on N_o and N_i are those of the cone data, by Step 3, as there.
+
+*Its Step 6.* D′ is a past set of 𝒬, f′₃ = f̄₃ on N_o ∩ D′ and f′₄ = f̄₄ on N_i ∩ D′ ([[lem:civp-large-data]] (b) (iii)
+in the form above). For (u, v) ∈ D′ ∩ 𝒬_δ, z := f′ − F is treated on [u_c, u] × [v_c, v] × [η″/2, π/2 − η″/2], with
+z₃ = 0 at u = u_c and z₄ = 0 at v = v_c, and η″ := min(η′, η0′).
+
+No other step refers to the position of the corner, to u_1 or v_1, or to Ω. With these replacements the proof of
+[[thm:civp-large]] proves (a), (b) and (c). ∎
+
+**Lemma {#lem:loc-shell-corner-small}** (Developments near the background's data at a corner sphere in Q1.) Let
+(u_c, v_c) ∈ Q1, l_u, l_v > 0 and δ_1 := min(l_u, l_v)/2. Assume that the set
+
+    𝒮_c := {(u, v) : −δ_1 ≤ u − u_c ≤ l_u + δ_1, −δ_1 ≤ v − v_c ≤ l_v + δ_1, min(u − u_c, v − v_c) ≤ δ_1},
+
+the set [[eq:loc-cone-collar]] at this corner, lies in 𝒪. Let 0 < ϑ_a′ < ϑ_b′ < π/2, η := (1/4) min(ϑ_a′, π/2 − ϑ_b′)
+and k ≥ 6. Put
+
+    C_* := sup over 𝒮_c of √2 Ω/R,      c_+ := (min(δ_1, η/C_*)/4)²,      δ_* := √c_+/2,
+
+Ω and R being g0's. There are ε_0, C > 0, depending only on k, η, l_u, l_v and g0 on 𝒮_c, with the following property.
+Let cone data at the corner (u_c, v_c) be given in the sense of [[def:loc-cone-data]], with the restriction of g0 to 𝒮_c
+as the background. Let them be in the normalised gauge, b = 0 on N_i, equal g0's at the points with ϑ outside a compact
+subset of (ϑ_a′, ϑ_b′), and have size ε ≤ ε_0. Then there is a class solution in the gauge on G_c × S³,
+
+    G_c := {(u, v) : u_c ≤ u ≤ u_c + l_u, v_c ≤ v ≤ v_c + l_v, (u − u_c)(v − v_c) ≤ δ_*²},
+
+with the following properties. It induces the cone data on the two edges. It equals (g0, q̊_in, q̊_out) at the points
+with ϑ ≤ ϑ_a′ − η or ϑ ≥ ϑ_b′ + η. Its functions ln Ω, ½ ln γ_ϑ, b, A_c, A_s, q_in and q_out differ from g0's by at most
+Cε, together with their derivatives of order at most k − 4. The width δ_* depends only on l_u, l_v, η and g0 on 𝒮_c, and
+not on the data.
+
+*Proof.* [[thm:loc-cone-development]] states this only at S. [[prop:loc-cone-local]] holds at every corner, with a
+width that depends on the data only through a bound for their norms, but it gives neither a neighbourhood of the whole
+edges nor an estimate. So we prove it from the proof of [[thm:loc-cone-development]], that is from case (I) of
+[[sec:loc-cone-reduced]], at the corner (u_c, v_c).
+
+Translate u and v so that the corner is (0, 0). Then 𝒮_c is the set 𝒮 of [[eq:loc-cone-collar]], and G_c is the set
+G_* of [[eq:loc-cone-domain]] with l_u and l_v in place of u_1 and v_1.
+
+*The background.* Put e^(2σ_e) := 2Ω², R_e := R and g_e := −2e^(2σ_e) du dv + R_e² dΩ₃², with the profiles 𝒜 and ℬ of
+g0. This is a background on 𝒮 in the sense of [[sec:loc-cone-setting]]: σ_e and R_e are smooth on 𝒮 ⊂ 𝒪, R_e > 0, and
+𝒮 ∩ F lies in the set of the points of 𝒪 with u ≥ u_c ≥ 0 and v ≥ v_c ≥ 0 (in the original coordinates), where g0
+solves [[eq:two-dust-limit]] ([[sec:civp-large]]). Its double-null functions and densities are g0's. This replaces
+[[lem:loc-cone-strips]], which the proof of [[thm:loc-cone-development]] uses only to provide a background on 𝒮 and the
+number C_0. The paragraph after [[lem:loc-cone-strips]] records that [[sec:loc-cone-reduced]] and the lemmas after it use
+of the background only these properties and a number C_* ≥ sup_𝒮 e^(σ_e)/R_e. Here e^(σ_e)/R_e = √2 Ω/R, so the C_*
+above is admissible. It takes the place of C_0.
+
+*The data.* The given data are cone data at the corner of size ε, in the normalised gauge. They equal the background's
+at the points with ϑ ∉ [ϑ_a″, ϑ_b″], the least interval that contains the angles at which they differ from it. Here
+[ϑ_a″, ϑ_b″] ⊂ (ϑ_a′, ϑ_b′) ⊂ [4η, π/2 − 4η], so they equal the background's off [2η, π/2 − 2η]. They are therefore data
+of case (I) of [[sec:loc-cone-reduced]] with this η. This replaces the first part of the proof of
+[[thm:loc-cone-development]], which builds the cone data from free data by [[prop:loc-cones]] and [[lem:loc-cone-in]] and
+bounds their size.
+
+*The steps reused.* The rest of the proof of [[thm:loc-cone-development]] is used as written, with l_u, l_v and C_* in
+place of u_1, v_1 and C_0:
+
+- the choice of δ_c ∈ (0, √c_+/8] with δ_c (l_u + l_v + 1) ≤ c_+/2 ([[sec:loc-cone-reduced]], case (I)),
+  2C_* (δ_c (l_u + l_v + 1))^(1/2) ≤ η/4 and δ_c ≤ 1. So δ_c depends only on l_u, l_v, η and C_*, and G_c ⊂ F ∩ 𝒰;
+- [[lem:loc-cone-cauchy]] in case (I), [[lem:loc-cone-past]], [[lem:loc-cone-support]], [[lem:loc-cone-constraints]] and
+  [[lem:loc-cone-gauge]]. These are stated and proved for cone data at a corner with a background on 𝒮. Their proofs
+  refer to the background only through the properties above and C_*. They give a class solution in the gauge on G_c × S³
+  that induces the cone data on the two edges. By the last sentence of [[lem:loc-cone-gauge]], its functions differ from
+  the background's by at most Cε with their derivatives of order at most k − 4;
+- the localisation, as in the proof of [[thm:loc-cone-development]] (b). By [[lem:loc-cone-support]] and
+  [[lem:loc-cone-gauge]] the solution equals the background where ϑ < ϑ_a″ − 2C_* ((u + δ_c)(v + δ_c))^(1/2) or
+  ϑ > ϑ_b″ + 2C_* ((u + δ_c)(v + δ_c))^(1/2). On G_c, (u + δ_c)(v + δ_c) ≤ uv + δ_c (l_u + l_v + 1), as δ_c ≤ 1, and
+  2C_* (uv)^(1/2) ≤ 2C_* δ_* ≤ η/4, as δ_* ≤ η/(8C_*). With the choice of δ_c this gives
+  2C_* ((u + δ_c)(v + δ_c))^(1/2) ≤ η/2. So the solution equals the background where ϑ < ϑ_a″ − η/2 or
+  ϑ > ϑ_b″ + η/2, and in particular where ϑ ≤ ϑ_a′ − η or ϑ ≥ ϑ_b′ + η.
+
+The steps of that proof not used are the construction of the data, the clause of its part (b) on u_K and v_K, and its
+part (d) with [[lem:loc-cone-unique]].
+
+*The constants.* δ_* = √c_+/2 depends only on δ_1, η and C_*, that is on l_u, l_v, η and g0 on 𝒮_c. ε_0 is the number
+for which [[lem:loc-cone-system]], [[lem:loc-cone-cauchy]] and [[lem:loc-cone-gauge]] hold in case (I), and C is the
+constant of their estimates. They depend only on:
+
+- the bounds for the modified system in [[lem:loc-cone-system]] (a), which depend only on η, k, δ_c and the background
+  on 𝒮, the size being at most ε ≤ 1;
+- the region 𝒰 of [[eq:loc-cone-region]], which is fixed by δ_1, δ_c, c_+ and κ = δ_1/(4(l_u + l_v + 1)).
+
+None of them depends on the data. ∎
+
+**Theorem {#thm:loc-shells}** (Developments of cone data with null shells.) Let cone data with shells along the leaves be
+given ([[def:loc-shell-data]]); no smallness is assumed. Let N := max(p, q) + 1, and define bands by
+(ϑ_a^(0), ϑ_b^(0)) := (ϑ_a, ϑ_b) and
+
+    ϑ_a^(i+1) := ϑ_a^(i) − w_i,      ϑ_b^(i+1) := ϑ_b^(i) + w_i,
+    w_i := ½ min(ϑ_a^(i), π/2 − ϑ_b^(i)),                                                       {#eq:loc-shell-bands}
+
+so that ϑ_a^(N) ≥ 2^(−N) ϑ_a and π/2 − ϑ_b^(N) ≥ 2^(−N) (π/2 − ϑ_b). There is δ ∈ (0, min(c_1, d_1)) such
+that, with 𝒮_δ := {(u, v) ∈ Q1 : min(u, v) ≤ δ}, the following hold.
+
+(a) *Existence.* There is a solution with null shells along the leaves on 𝒮_δ × S³ ([[def:loc-shell-solution]]) that
+induces the cone data. No crossing sphere lies in 𝒮_δ. On every ingoing leaf [∂_v b] = 0; q_out is continuous across the
+ingoing leaves and q_in across the outgoing ones. The shell densities are 𝔪_k = −[tr χ] on {v = c_k}, with 𝔪_k = m_k at
+u = 0 and ∂_u(𝒱𝔪_k) + ∂_ϑ(b𝒱𝔪_k) = 0, and 𝔫_j = −[tr χ̲] on {u = d_j}, with 𝔫_j = n_j at v = 0 and ∂_v(𝒱𝔫_j) = 0.
+
+(b) *Localisation.* The solution equals (g0, q̊_in, q̊_out), and its shell densities vanish, at the points with ϑ ∉
+(ϑ_a^(N), ϑ_b^(N)).
+
+(c) *Uniqueness.* Let D′ ⊂ Q1 be a past set and (g̃, v, u, q̃_in, q̃_out, 𝔪̃_k, 𝔫̃_j) a solution with null shells along
+the same leaves on D′ × S³ that induces the cone data on 𝒞_out ∩ D′ and on 𝒞_in ∩ D′ and equals (g0, q̊_in, q̊_out) at
+the points with ϑ ∉ [η′, π/2 − η′], for some η′ > 0. Then it equals the solution of (a) on (D′ ∩ 𝒮_δ) × S³.
+
+(d) *Small data.* Let u_1 and v_1 be as in [[thm:loc-cone-development]], and let the cone data
+be given by [[prop:loc-shell-cones]] from free data whose pieces extend: for 0 ≤ k ≤ p there are smooth free data
+(ℓ_1^(k), ℓ_2^(k), ℓ_3^(k)) and a density q_in^(k) ≥ 0 on [c_k, v_1] × (0, π/2), equal to the given ones on [c_k,
+c_(k+1)] × (0, π/2) and to the background's outside a compact subset of [0, v_1) × (ϑ_a, ϑ_b), and likewise on 𝒞_in for
+0 ≤ j ≤ q. Let k_(N−1) := 6, k_(i−1) := 6k_i + 23 for 1 ≤ i ≤ N − 1, and m_* := 6k_0 + 21, and let ε be the largest
+absolute value of a derivative of order at most m_* of the differences of these extensions from the background's and of
+the m_k and n_j. There are w ∈ (0, min(c_1, d_1)) and ε_0, C > 0, depending only on g0, u_1, v_1, the leaves and the
+band, such that for ε ≤ ε_0 the conclusions of (a) and (b) hold with 𝒮_w in place of 𝒮_δ; the
+solution equals that of (a) on 𝒮_(min(δ, w)) × S³; and on each closed cell of 𝒮_w its functions ln Ω, ½ ln γ_ϑ, b, A_c,
+A_s, q_in and q_out differ from the background's by at most Cε, together with their first derivatives, one-sided at the
+leaves.
+
+*Proof.* Write 𝒵_k := [c_k, c_(k+1)] and 𝒴_j := [d_j, d_(j+1)]. For a band (ϑ_a′, ϑ_b′), with η0′ := (1/3) min(ϑ_a′,
+π/2 − ϑ_b′) as in [[eq:civp-large-band]] and w′ := ½ min(ϑ_a′, π/2 − ϑ_b′) = (3/2) η0′, the interval [ϑ_a′ − η0′,
+ϑ_b′ + η0′] is a compact subset of (ϑ_a′ − w′, ϑ_b′ + w′). The development is built on the rectangles 𝒫_0 := [0,
+d_1] × [0, c_1], 𝒫_k^out := [0, λ_k^out] × 𝒵_k (1 ≤ k ≤ p) along 𝒞_out and 𝒫_j^in := 𝒴_j × [0, λ_j^in] (1 ≤ j ≤ q) along
+𝒞_in, with numbers λ chosen below; 𝒫_k^out has depth k, 𝒫_j^in depth j and 𝒫_0 depth 0.
+
+*Step 1: the corner rectangle.* The restrictions of the cone data to {0} × [0, c_1] and [0, d_1] × {0} are cone
+data on 𝒫_0 in the sense of [[def:civp-large-data]], with d_1 and c_1 in place of u_1 and v_1: they are smooth
+up to the ends, and (i)–(iii) hold by [[def:loc-shell-data]]. [[thm:civp-large]] gives a class solution in the
+gauge on {(u, v) ∈ 𝒫_0 : min(u, v) ≤ δ} for some δ > 0, inducing these data and equal to (g0, q̊_in, q̊_out) at
+the points with ϑ ∉ [ϑ_a − η0, ϑ_b + η0], so off (ϑ_a^(1), ϑ_b^(1)), and unique in the sense of its part (c). Let
+δ_0 := min(δ, min(c_1, d_1)/2), 𝒮_0 := {(u, v) ∈ 𝒫_0 : min(u, v) ≤ δ_0} and g_0 the restriction of that solution to
+𝒮_0 × S³.
+
+*Step 2: along 𝒞_out.* For k = 1, …, p in turn put λ_k^out := δ_(k−1)^out, with δ_0^out := δ_0; then 𝒫_k^out lies in
+the cell Q_0k, as λ_k^out ≤ δ_0 < d_1. On N_o := {0} × 𝒵_k take the cone data, which are smooth up to the ends of 𝒵_k.
+On N_i := [0, λ_k^out] × {c_k}, which lies in the domain 𝒮_(k−1)^out of g_(k−1)^out (𝒮_0^out := 𝒮_0, g_0^out := g_0),
+take the functions Ω, γ_ϑ, b, A_c, A_s and q_out of g_(k−1)^out. The two agree at (0, c_k), where both are the values
+of the cone data, g_(k−1)^out inducing them; and Ric(L̲, L̲) = q_out on N_i, the left side involving only derivatives
+along N_i ([[def:loc-cone-data]] (ii)), because g_(k−1)^out solves the class system up to {v = c_k}. Let Φ_k(u, ϑ) solve
+(∂_u + b(u, c_k, ϑ) ∂_ϑ) Φ_k = 0 with Φ_k(0, ϑ) = ϑ. As b vanishes on N_i outside a compact subset of (ϑ_a^(k), ϑ_b^(k)),
+where g_(k−1)^out is g0, Φ_k(u, ·) is a diffeomorphism of (0, π/2) equal to the identity off that set. The change of
+angle (u, v, ϑ) ↦ (u, v, Φ_k(u, ϑ)) maps a metric of the form [[eq:loc-double-null]] to one of the same form, with Ω,
+A_c, A_s unchanged, γ_ϑ replaced by γ_ϑ/(∂_ϑΦ_k)² and b by ∂_uΦ_k + b ∂_ϑΦ_k, because Φ_k does not depend on v and dϑ − b
+du = (∂_ϑΦ_k)⁻¹ (dΦ_k − (∂_uΦ_k + b ∂_ϑΦ_k) du). It commutes with the action of G, it is the identity on N_o and off that
+set, and it makes b vanish on N_i, while b on N_o becomes b − b(0, c_k, ·). The transformed functions on N_o and N_i are
+cone data on 𝒬 := 𝒫_k^out for the band (ϑ_a^(k), ϑ_b^(k)) in the sense of [[lem:loc-shell-corner-large]]: the constraints
+are statements about Ric(∂_v, ·) on N_o and Ric(L̲, L̲) on N_i, and the fields ∂_v and L̲, and ∂_ϑ on N_o, are unchanged.
+By [[lem:loc-shell-corner-large]] (a) and (b) there are δ_k^out ∈ (0, λ_k^out] and a class solution in the gauge on
+𝒮_k^out := {(u, v) ∈ 𝒫_k^out : min(u, v − c_k) ≤ δ_k^out} that induces these functions and equals (g0, q̊_in, q̊_out) off
+(ϑ_a^(k+1), ϑ_b^(k+1)); changing the angle back gives g_k^out on 𝒮_k^out × S³, which induces the cone data on N_o and the
+functions of g_(k−1)^out on N_i.
+
+*Step 3: along 𝒞_in.* For j = 1, …, q in turn put λ_j^in := δ_(j−1)^in, with δ_0^in := δ_0, 𝒮_0^in := 𝒮_0 and
+g_0^in := g_0. On N_i := 𝒴_j × {0} ⊂ 𝒞_in take the cone data, with b = 0. On N_o := {d_j} × [0, λ_j^in], which lies in
+𝒮_(j−1)^in, take the functions Ω, γ_ϑ, b, A_c, A_s and q_in of g_(j−1)^in. They agree at (d_j, 0), and Ric(∂_v,
+∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o by [[lem:loc-cone-equations]], since g_(j−1)^in solves the class system up to
+{u = d_j}. No change of angle is needed. By [[lem:loc-shell-corner-large]] (a) and (b), for 𝒬 := 𝒫_j^in and the band
+(ϑ_a^(j), ϑ_b^(j)), there are δ_j^in ∈ (0, λ_j^in] and a class solution g_j^in in the gauge
+on 𝒮_j^in := {(u, v) ∈ 𝒫_j^in : min(u − d_j, v) ≤ δ_j^in} that induces these functions and equals (g0, q̊_in, q̊_out) off
+(ϑ_a^(j+1), ϑ_b^(j+1)).
+
+*Step 4: the glued metric.* Let δ be the least of δ_0, the δ_k^out and the δ_j^in; then δ < min(c_1, d_1). A point of 𝒮_δ
+with v ≥ c_1 has u ≤ δ < d_1, and one with u ≥ d_1 has v ≤ δ < c_1. So no crossing sphere lies in 𝒮_δ, and 𝒮_δ is the
+union of 𝒮_δ ∩ 𝒫_0 ⊂ 𝒮_0, of the sets [0, δ] × 𝒵_k ⊂ 𝒮_k^out and of the sets 𝒴_j × [0, δ] ⊂ 𝒮_j^in, two of which meet
+only along a leaf {v = c_k} or {u = d_j}. Define g, q_in and q_out on 𝒮_δ × S³ by g_0, the g_k^out and the g_j^in. On a
+common leaf the two solutions induce the same functions, by Steps 2 and 3. So g is continuous and cellwise smooth, each
+closed cell carries a class solution in the gauge, and q_out is continuous across the ingoing leaves and q_in across the
+outgoing ones: (J3) of [[prop:loc-shell-junction]] holds.
+
+*Step 5: the junction.* At (0, c_k), the jump of ∂_v b across {v = c_k} is that of the cone data along 𝒞_out, since
+g_(k−1)^out and g_k^out induce b on 𝒞_out; it vanishes by [[def:loc-shell-data]] (ii). As b vanishes near the axes,
+[[prop:loc-shell-junction]] (a) gives [∂_v b] = 0 on {v = c_k} ∩ 𝒮_δ: (J1). At u = 0, −[tr χ] is the jump of −tr χ = −∂_v
+ln 𝒱 of the cone data along 𝒞_out, which is m_k ≥ 0; by [[prop:loc-shell-junction]] (b), 𝔪_k := −[tr χ] ≥ 0 on the leaf
+and ∂_u(𝒱𝔪_k) + ∂_ϑ(b𝒱𝔪_k) = 0. At v = 0, −[tr χ̲] is the jump of −∂_u ln 𝒱 of the cone data along 𝒞_in, where b = 0,
+which is n_j ≥ 0; by [[prop:loc-shell-junction]] (c), 𝔫_j := −[tr χ̲] ≥ 0 on the leaf and ∂_v(𝒱𝔫_j) = 0. These functions
+are smooth and vanish near the axes, the solution being g0 there. So (J1)–(J3) hold with these shell densities, and by
+[[prop:loc-shell-junction]] (d), g is a solution with null shells along the leaves on 𝒮_δ × S³. It induces the cone data:
+on 𝒞_out ∩ 𝒮_δ through g_0 and the g_k^out, and on 𝒞_in ∩ 𝒮_δ through g_0 and the g_j^in. This proves (a).
+
+(b) g_0 equals g0 off (ϑ_a^(1), ϑ_b^(1)), g_k^out off (ϑ_a^(k+1), ϑ_b^(k+1)) and g_j^in off (ϑ_a^(j+1), ϑ_b^(j+1)); these
+bands increase with the index, and k + 1, j + 1 ≤ N. The shell densities are jumps of functions that equal g0's off
+(ϑ_a^(N), ϑ_b^(N)). Finally w_i ≤ ϑ_a^(i)/2 and w_i ≤ (π/2 − ϑ_b^(i))/2, which give the bounds after
+[[eq:loc-shell-bands]] by induction.
+
+(c) Let g̃ be as stated. The set D′ ∩ 𝒫_0 is a past set of 𝒫_0, and the restriction of g̃ to it, which is smooth
+since 𝒫_0 is a cell, is a class solution in the gauge that induces the data of Step 1 and equals g0 near the axes; by
+[[thm:civp-large]] (c), g̃ = g_0 on D′ ∩ 𝒮_0. Suppose that g̃ = g_(k−1)^out on D′ ∩ 𝒮_(k−1)^out. The set D′ ∩ 𝒫_k^out
+is a past set of 𝒫_k^out relative to its corner (0, c_k), g̃ is smooth on it since 𝒫_k^out ⊂ Q_0k, and g̃ induces the
+cone data on N_o ∩ D′ and the functions of g_(k−1)^out on N_i ∩ D′ ⊂ 𝒮_(k−1)^out: Ω, γ_ϑ, b, A_c and A_s by continuity,
+q_out by (J3) of [[prop:loc-shell-junction]] (d). After the change of angle Φ_k, which depends only on these functions,
+[[lem:loc-shell-corner-large]] (c) gives g̃ = g_k^out on D′ ∩ 𝒮_k^out. In the same way, with q_in on N_o by (J3) across
+{u = d_j}, g̃ = g_j^in on D′ ∩ 𝒮_j^in for every j. So g̃ = g on D′ ∩ 𝒮_δ, the densities q̃_in and q̃_out included, and
+the shell densities, which (J2) determines from the metric, agree as well.
+
+(d) We repeat Steps 1–5, with [[thm:loc-cone-development]] at S and [[lem:loc-shell-corner-small]] in place of
+[[lem:loc-shell-corner-large]] at the other corners, and keep track of sizes; C denotes constants that depend only on
+g0, u_1, v_1, the leaves, the band and N. The rectangle of depth i is developed with the index k_i, and its band is
+(ϑ_a^(i), ϑ_b^(i)); the localisation of [[thm:loc-cone-development]] (b) and of [[lem:loc-shell-corner-small]], with
+η = w_i/2, gives g0 off (ϑ_a^(i) − η, ϑ_b^(i) + η), a compact subset of (ϑ_a^(i+1), ϑ_b^(i+1)). As the extensions equal
+the background's near v = v_1 and u = u_1 and 𝒪 is an open neighbourhood of Q1, there is δ_e > 0 such that the extended
+free data, continued by the background's, are defined on [c_k, v_1 + δ_e] and on [d_j, u_1 + δ_e], and such that 𝒪
+contains [−δ_e, 3δ_e] × [−δ_e, v_1 + δ_e] and [−δ_e, u_1 + δ_e] × [−δ_e, 3δ_e].
+
+*Extended data.* On 𝒞_out ∩ {c_k ≤ v ≤ v_1 + δ_e} solve the equations of the proof of [[prop:loc-shell-cones]] with the
+free data (ℓ_i^(k), q_in^(k)) and the values of ϕ, ∂_vϕ, b and ∂_v b of the cone data at c_k⁺. By uniqueness the result
+agrees with the cone data on 𝒵_k. The initial values differ from the background's by at most Cε, with their derivatives
+in ϑ of order at most m_* − 3, as they come from the solutions on the earlier intervals and from the m_k; so, as in the
+proof of [[thm:loc-cone-development]], for ε small e^ϕ stays positive and the result differs from the background's by at
+most Cε in C^(m_* − 3) = C^(6k_0 + 18). These are the *extended cone data of depth k*; likewise on 𝒞_in.
+
+*Depth 0.* [[thm:loc-cone-development]] with the free data (ℓ_i^(0), q_in^(0)) and their analogues on 𝒞_in, k = k_0 and
+m = m_*, gives for ε ≤ ε_0 a solution on {(u, v) ∈ Q1 : uv ≤ δ_*,0²}, within Cε of the background's with the derivatives
+of order at most k_0 − 4, and equal to them off (ϑ_a^(1), ϑ_b^(1)); this set contains [0, λ_1] × [0, v_1] and [0,
+u_1] × [0, λ_1], λ_1 := min(δ_*,0²/max(u_1, v_1), min(c_1, d_1)/2, 3δ_e), and the solution induces the cone data on 𝒵_0
+and 𝒴_0.
+
+*Depth k ≥ 1 along 𝒞_out.* Let λ_k^out be the width found at depth k − 1, so that the solution of depth k − 1
+contains [0, λ_k^out] × 𝒵_(k−1) and is within Cε of the background's there with its derivatives of order at most
+k_(k−1) − 4 (at depth 0 as stated above, at depth k − 1 ≥ 1 by the next paragraph, applied at that depth). Apply
+[[lem:loc-shell-corner-small]] at (0, c_k), with the band (ϑ_a^(k), ϑ_b^(k)), the index k_k, l_u := (2/3) λ_k^out and
+l_v := v_1 − c_k: then δ_1 ≤ λ_k^out/3 ≤ δ_e, so N_i ⊂ [0, λ_k^out] × {c_k}, N_o = {0} × [c_k, v_1 + δ_1] carries
+the extended cone data of depth k, and the set 𝒮_c of that lemma lies in [−δ_e, 3δ_e] × [−δ_e, v_1 + δ_e] ⊂ 𝒪, as
+l_u + δ_1 ≤ λ_k^out ≤ λ_1 ≤ 3δ_e. Its width δ_*,k depends only on λ_k^out, v_1 − c_k, the band and g0, and not on the
+data. On N_i take the functions of the solution of depth k − 1. The map Φ_k(u, ·) is the inverse of the flow from 0
+to u of the u-dependent vector field b(u, c_k, ·) ∂_ϑ on (0, π/2), which is within Cε of 0 in C^(k_(k−1) − 4); such a
+flow and its inverse are within Cε of the identity in C^(k_(k−1) − 4), so Φ_k(u, ϑ) − ϑ and Φ_k(u, ·)⁻¹(ϑ) − ϑ are at
+most Cε with their derivatives in (u, ϑ) of order at most k_(k−1) − 4. The transformed functions are γ_ϑ/(∂_ϑΦ_k)²,
+∂_uΦ_k + b ∂_ϑΦ_k and the other functions, composed in the angle with Φ_k(u, ·)⁻¹; by the argument of the next paragraph,
+with Φ_k(u, ·)⁻¹ in place of Φ_k and k_(k−1) − 5 in place of k_k − 4, they are within Cε of the background's with
+their derivatives of order at most k_(k−1) − 5 = 6k_k + 18, the order m_0 of [[def:loc-cone-data]] for the index k_k.
+On N_o the change of angle subtracts b(0, c_k, ·). So the data have size at most Cε, and for ε small the lemma gives
+a solution on {0 ≤ u ≤ l_u, c_k ≤ v ≤ v_1, u(v − c_k) ≤ δ_*,k²}, which contains [0, λ_(k+1)^out] × [c_k, v_1] with
+λ_(k+1)^out := min(l_u, δ_*,k²/(v_1 − c_k)), and which is within Cε of the background's with its derivatives of order at
+most k_k − 4 in the transformed angle.
+
+*Changing the angle back loses no derivative.* The change back replaces each function F(u, v, ϑ) by F(u, v, Φ_k(u, ϑ)),
+written F ∘ Φ_k, and then multiplies γ_ϑ by (∂_ϑΦ_k)² and replaces b by (b − ∂_uΦ_k)/∂_ϑΦ_k. Let F be one of the
+functions of the solution, within Cε of the background's F̊ in C^(k_k − 4). Then F ∘ Φ_k − F̊ = (F − F̊) ∘ Φ_k +
+(F̊ ∘ Φ_k − F̊). The first term is within Cε in C^(k_k − 4) by the chain rule, the derivatives of Φ_k of order at most
+k_k − 4 being bounded. The second is (Φ_k − ϑ) ∫_0^1 ∂_ϑF̊(u, v, ϑ + t(Φ_k − ϑ)) dt. Here Φ_k(u, ·) is the identity off a
+compact subset K of (0, π/2) and maps K onto K, so the second term vanishes off K, and on K the angles ϑ + t(Φ_k − ϑ)
+lie in the least interval that contains K, a compact subset of (0, π/2) on which F̊ is smooth; so the integral is
+bounded in C^(k_k − 4) on K, and the second term is within Cε in C^(k_k − 4). The factors (∂_ϑΦ_k)², ∂_uΦ_k and
+1/∂_ϑΦ_k, and ln ∂_ϑΦ_k, which the change adds to ½ ln γ_ϑ, are within Cε of 1, 0, 1 and 0 in C^(k_(k−1) − 5), and
+k_(k−1) − 5 = 6k_k + 18 ≥ k_k − 4. As the background's b is 0, the solution of depth k is within Cε of the background's
+with its derivatives of order at most k_k − 4 in the original angle too. Along 𝒞_in the same holds with
+l_v := (2/3) λ_j^in, l_u := u_1 − d_j and no change of angle, the functions on N_o being those of the solution of depth
+j − 1, within Cε with their derivatives of order at most k_(j−1) − 4 ≥ 6k_j + 18, and the set 𝒮_c of
+[[lem:loc-shell-corner-small]] at (d_j, 0) lying in [−δ_e, u_1 + δ_e] × [−δ_e, 3δ_e] ⊂ 𝒪.
+
+All these widths depend only on g0, u_1, v_1, the leaves, the band and the k_i, and not on the data; let w be the least
+of them. Steps 4 and 5 and the proof of (b) apply with w in place of δ, and give a solution with null shells on 𝒮_w × S³
+with the properties of (a) and (b) and the stated estimate, as k_i − 4 ≥ k_(N−1) − 4 = 2 at every depth i. It
+induces the cone data and equals g0 near the axes, and 𝒮_w is a past set; by (c) it equals the solution of (a) on
+𝒮_w ∩ 𝒮_δ = 𝒮_(min(δ, w)). ∎
+
+**Proposition {#prop:loc-shell-crossing}** (Crossing shells.) Let D ⊂ Q1 be a past set, (g, v, u, q_in, q_out, 𝔪_k, 𝔫_j)
+a solution with null shells along the leaves on D × S³, and Z := {(d_j, c_k)} × S³ a crossing sphere in D. Number the
+four cells at Z by (±, ±), the first sign being that of u − d_j and the second that of v − c_k, and write F_(±±) for the
+value at a point of Z, from the cell (±, ±), of a cellwise smooth function F. For a set D′ ⊂ Q1 that meets every line
+{u = const} and every line {v = const} in an interval, a solution with null shells along the leaves on D′ × S³ is
+defined by [[def:loc-shell-solution]], and the definitions before it, with D′ in place of D, and [[lem:loc-shell-ricci]]
+and [[prop:loc-shell-junction]] hold with D′ in place of D, the last sentence of (a) of the latter with any sphere
+{(u′, c_k)} × S³ ⊂ D′ × S³ in place of {(0, c_k)} × S³ and the part of the leaf where u ≥ u′ in place of the leaf. The
+sets 𝔏, 𝔏 ∪ [d_j, d_j + s] × [c_k, c_k + s] and 𝔏 ∪ D″ of (b) and (c) have this property.
+
+(a) *The crossing rule.* If D contains a neighbourhood of (d_j, c_k), then at every point of Z, tr χ_(+−) = tr χ_(−−),
+tr χ_(++) = tr χ_(−+), tr χ̲_(−+) = tr χ̲_(−−) and tr χ̲_(++) = tr χ̲_(+−), so that
+
+    (tr χ tr χ̲)_(++) (tr χ tr χ̲)_(−−) = (tr χ tr χ̲)_(+−) (tr χ tr χ̲)_(−+),
+
+and 𝒱𝔪_k and 𝒱𝔫_j are continuous at Z. If g is round, b = 0, γ_ϑ = R², e^(A_c) = R cos ϑ, e^(A_s) = R sin ϑ and
+Ω² = e^(2σ)/2 with R and σ functions of (u, v), then tr χ = 3R_v/R and tr χ̲ = 3R_u/R, the function f = 1 − μ/R² =
+−2e^(−2σ) R_u R_v of [[eq:two-dust-mass]], μ the mass function, is −(R²/(9Ω²)) tr χ tr χ̲, R and σ are continuous, and on
+Z
+
+    f_(++) f_(−−) = f_(+−) f_(−+),      that is,      (R² − μ_(++)) (R² − μ_(−−)) = (R² − μ_(+−)) (R² − μ_(−+)).
+                                                                                           {#eq:loc-shell-crossing-rule}
+
+Moreover, for round g, R²[R_v] is constant along {v = c_k}, through Z, and R²[R_u] along {u = d_j}; and the mass function
+jumps by [μ] = 2e^(−2σ) R² R_u [R_v] across {v = c_k} and by [μ] = 2e^(−2σ) R² R_v [R_u] across {u = d_j}.
+
+(b) *Round continuation.* Let λ > 0 be less than the distance from (d_j, c_k) to the other leaves, and put
+𝔏 := ([d_j − λ, d_j + λ] × [c_k − λ, c_k + λ]) ∖ ((d_j, d_j + λ] × (c_k, c_k + λ]). If 𝔏 ⊂ D and g is round on 𝔏 × S³,
+there is s ∈ (0, λ] such that the restriction of the solution to 𝔏 × S³ extends to a round solution with null shells
+along the leaves on (𝔏 ∪ [d_j, d_j + s] × [c_k, c_k + s]) × S³; the extension is unique among round ones, and its shells
+continue those of the solution through Z.
+
+(c) *Continuation off the axes.* With λ and 𝔏 as in (b), let 𝔏 ⊂ D and let the solution equal (g0, q̊_in, q̊_out) at the
+points of 𝔏 × S³ with ϑ ∉ [2η, π/2 − 2η], where η ∈ (0, π/8]. There is s ∈ (0, λ] such that its restriction to 𝔏 × S³
+extends to a solution with null shells along the leaves on (𝔏 ∪ [d_j, d_j + s] × [c_k, c_k + s]) × S³ that equals (g0,
+q̊_in, q̊_out) at the points with ϑ ∉ [η, π/2 − η], its shells continuing those of the solution through Z. With
+𝒬 := [d_j, d_j + λ] × [c_k, c_k + λ], there are δ > 0 and such an extension on (𝔏 ∪ 𝒬_δ) × S³, 𝒬_δ := {(u, v) ∈ 𝒬 :
+min(u − d_j, v − c_k) ≤ δ}, and it is unique: a solution with null shells along the leaves on (𝔏 ∪ D″) × S³, D″ a past
+set of 𝒬 relative to its corner, that equals the given one on 𝔏 × S³ and (g0, q̊_in, q̊_out) near the axes, equals it on
+D″ ∩ 𝒬_δ.
+
+(d) *At an axis.* The identities of (a) hold at the points of Z on the axes too, for every solution in the sense of
+[[def:loc-shell-solution]], and so do the junction conditions of [[prop:loc-shell-junction]], by continuity. No
+continuation through a crossing sphere is asserted for solutions that near Z are neither round nor equal to g0 near the
+axes; in particular nothing is asserted for shells that are not round at an axis, whether or not they cross: (b) uses the
+equations of round metrics, and the results used in (c) need data equal to a smooth round background near the axes
+([[rem:loc-cone-scope]] (ii), [[rem:loc-cone-local-scope]]).
+
+*Proof.* *The sets D′.* The proof of [[lem:loc-shell-ricci]] (a) uses of D only that for fixed (u, y) the points of D
+with these coordinates form an interval in v, and for fixed (v, y) an interval in u; the proof of its part (b) works at
+each point separately. The proof of [[prop:loc-shell-junction]] solves linear ordinary differential equations along
+integral curves of L̲ and along generators in a leaf, over the interval in which the line {v = c_k} or {u = d_j} meets
+D, and in (d) applies the rule for derivatives of the proof of [[lem:loc-shell-ricci]] (a) on such intervals and tests
+with functions supported near single points; it uses the sphere {(0, c_k)} × S³ only in the last sentence of (a), where
+the same argument, with the curves started at u = u′, gives the form stated. So both results hold with D′ in place of D.
+The set 𝔏 meets {u = u′} in {u′} × [c_k − λ, c_k + λ] if d_j − λ ≤ u′ ≤ d_j, in {u′} × [c_k − λ, c_k] if
+d_j < u′ ≤ d_j + λ, and nowhere otherwise, and it meets the lines {v = v′} in the same way, with u and v exchanged. For
+s ∈ (0, λ] the set 𝔏 ∪ [d_j, d_j + s] × [c_k, c_k + s] meets {u = u′} in {u′} × [c_k − λ, c_k + s] if
+d_j < u′ ≤ d_j + s and as 𝔏 does otherwise, since {d_j} × [c_k, c_k + s] ⊂ 𝔏. Let D″ be a past set of 𝒬 relative to
+its corner, and d_j ≤ u′ ≤ d_j + λ. If (u′, v) ∈ D″, then {u′} × [c_k, v] ⊂ D″; so D″ meets {u = u′} in the empty set
+or in {u′} × I, I ⊂ [c_k, c_k + λ] an interval that contains c_k. Hence 𝔏 ∪ D″ meets {u = u′} in
+{u′} × ([c_k − λ, c_k] ∪ I), an interval, if u′ > d_j, and as 𝔏 does if u′ = d_j or u′ ∉ [d_j, d_j + λ]. The lines
+{v = v′} are treated in the same way.
+
+(a) Ω, b and 𝒱 are continuous. ∂_v is tangent to {u = d_j}, so tr χ = ∂_v ln 𝒱 has the same values at Z from the
+two cells on the same side of {v = c_k}; L̲ and ∂_ϑ are tangent to {v = c_k}, so tr χ̲ = L̲ ln 𝒱 + ∂_ϑ b has the same
+values at Z from the two cells on the same side of {u = d_j}. Multiplying gives the identity. By
+[[prop:loc-shell-junction]] (d) the solution satisfies (J1) and (J2), so 𝒱𝔪_k = −𝒱[tr χ] and 𝒱𝔫_j = −𝒱[tr χ̲] are
+continuous at Z by [[prop:loc-shell-junction]] (b) and (c). For a round metric 𝒱 = R³ sin ϑ cos ϑ and b = 0, so tr
+χ = 3R_v/R and tr χ̲ = 3R_u/R, and with 2e^(−2σ) = Ω⁻², f = −(R²/(9Ω²)) tr χ tr χ̲. R and Ω are continuous, so the
+identity for tr χ tr χ̲ gives the first form of [[eq:loc-shell-crossing-rule]], and R² − μ = R² f gives the second.
+Further, 𝒱[tr χ] = 3R²[R_v] sin ϑ cos ϑ, so [[prop:loc-shell-junction]] (b), with b = 0, shows that R²[R_v] is constant
+in u along {v = c_k} and continuous at Z; likewise (c) for R²[R_u]. Finally R_u is continuous across {v = c_k}, being a
+derivative along it, so [μ] = −R²[f] = 2e^(−2σ) R² R_u [R_v] there, and likewise across {u = d_j}.
+
+(b) Translate u and v so that Z is {(0, 0)} × S³. A round class solution in double-null form with the phases v and u
+has q_in = 𝒜/R³ and q_out = ℬ/R³ with 𝒜 a function of v and ℬ of u, since its conservation laws are ∂_u(R³ q_in) = 0
+and ∂_v(R³ q_out) = 0; so the cells (−, +) and (+, −) carry round solutions of the two-null-dust equations, with
+smooth profiles 𝒜 on [0, λ] and ℬ on [0, λ]. The functions R, σ and R_v of the cell (−, +) on N_o := {0} × [0, λ],
+and R, σ and R_u of the cell (+, −) on N_i := [0, λ] × {0}, agree at Z and satisfy C_v = 0 on N_o and C_u = 0 on N_i
+([[eq:two-dust-constraints]]), these being equations along the edges. Let r_0 > 0 be the least value of R on N_o ∪ N_i,
+and U := (R, σ, P, Q̄). On [0, s]², s ≤ λ, consider [[eq:two-dust-volterra]] with (u0, v0) := (0, 0), P(·, 0) := R_u on
+N_i and Q̄(0, ·) := R_v on N_o, and let U_D(u, v) := (R(0, v), D[σ](u, v), P(u, 0), Q̄(0, v)) be the part of its right
+sides given by the data. On the set B of continuous U on [0, s]² with |U − U_D| ≤ r_0/2 in each component, R ≥ r_0/2
+and |U| ≤ M_0, with M_0 depending only on the data, and 𝔉 and ℌ are bounded by a number M_1 and Lipschitz with a constant
+L_1. Each single integral in [[eq:two-dust-volterra]] runs over an interval of length at most s and the double one over
+a square of area at most s², so the right sides map B into itself if s(M_0 + M_1) + s²M_1 ≤ r_0/2, and are a contraction
+in the supremum norm if s(1 + 2L_1) + s²L_1 ≤ 1/2. For such s they have exactly one fixed point in B. As in the proof
+of [[prop:two-dust-background]] (d), it solves [[eq:two-dust-evolution]], the constraints [[eq:two-dust-constraints]]
+hold by [[lem:two-dust-equations]], propagated from the edges, and it is smooth on [0, s]², the data being smooth on the
+closed edges; and two continuous solutions of [[eq:two-dust-volterra]] on [0, s]² with R > 0 agree, by the contraction in
+the norm sup e^(−γ(u + v))|U| with γ large used there, applied on the compact set of values of the two solutions.
+
+Extend the solution by the round metric of this (R, σ) on [0, s]², with q_in = 𝒜/R³ and q_out = ℬ/R³. The extended metric
+is continuous and cellwise smooth, and each closed cell carries a class solution in double-null form. (J1) holds, as
+b = 0, and (J3), as 𝒜 depends on v alone, ℬ on u alone, and R is continuous. By [[prop:loc-shell-junction]] (b) and (c),
+applied to the extended metric, 𝒱[tr χ] = 3R²[R_v] sin ϑ cos ϑ is constant along {v = 0} through Z, and 𝒱[tr χ̲] along
+{u = 0}; so 𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j. By [[prop:loc-shell-junction]] (d) the extension
+is a solution with null shells along the leaves. A round extension that is such a solution has R and σ continuous,
+and R_v on N_o and R_u on N_i are derivatives along the edges, so it takes the same data on N_o and N_i and solves
+[[eq:two-dust-volterra]] on the new cell; so it is the one constructed.
+
+(c) Translate u and v so that Z is {(0, 0)} × S³. On N_o := {0} × [0, λ] take the functions Ω, γ_ϑ, b, A_c, A_s and
+q_in of the cell (−, +), and on N_i := [0, λ] × {0} the functions Ω, γ_ϑ, b, A_c, A_s and q_out of the cell (+, −).
+They agree at Z, the metric being continuous; Ric(∂_v, ∂_v) = q_in and Ric(∂_v, ∂_ϑ) = 0 on N_o and Ric(L̲, L̲) = q_out
+on N_i, these being equations along the edges that the two cells satisfy up to their boundaries; and they equal g0's
+at the points with ϑ ∉ [2η, π/2 − 2η]. Change the angle by Φ, with (∂_u + b(u, 0, ϑ) ∂_ϑ) Φ = 0 and Φ(0, ϑ) = ϑ, as
+in Step 2 of the proof of [[thm:loc-shells]], so that b = 0 on N_i; Φ is the identity where ϑ ∉ [2η, π/2 − 2η]. Apply
+[[prop:loc-cone-local]] with the background g0 on the open set 𝒪 of [[sec:civp-large]], Q := Q1 (after the translation),
+d ∈ (0, 1] so small that the points within 4d of Q form a compact subset of 𝒪, the rectangle 𝒬, and Λ the largest C^(m_1)
+norm of the differences of the transformed functions from g0's: it gives s ∈ (0, λ] and a class solution in the gauge
+on [0, s]² × S³ that induces these functions and equals (g0, q̊_in, q̊_out) at the points with ϑ ∉ [η, π/2 − η]; change
+the angle back. The extended metric is continuous and cellwise smooth, each closed cell carries a class solution in the
+gauge, and (J3) holds, the new cell inducing q_in on N_o and q_out on N_i. By [[prop:loc-shell-junction]] (a), applied
+to the extended metric, [∂_v b] on {v = 0} is continuous at Z, where its value from u < 0 vanishes by (J1) for the given
+solution; b vanishing near the axes, it vanishes on the new part of the leaf, by the last sentence of (a) with Z in
+place of {(0, c_k)} × S³, (J1). By [[prop:loc-shell-junction]] (b) and (c), 𝒱[tr χ] and 𝒱[tr χ̲] are continuous at Z and
+keep their signs along the new parts of the two leaves, so 𝔪 := −[tr χ] ≥ 0 and 𝔫 := −[tr χ̲] ≥ 0 continue 𝔪_k and 𝔫_j;
+by [[prop:loc-shell-junction]] (d) the extension is a solution with null shells along the leaves. The same transformed
+functions are cone data on 𝒬 for the band (3η/2, π/2 − 3η/2), in the sense of [[lem:loc-shell-corner-large]], for which
+η0′ = η/2; by its parts (a) and (b) they have a development on 𝒬_δ for some δ > 0 that equals (g0, q̊_in, q̊_out) at
+the points with ϑ ∉ [η, π/2 − η], and it is glued in the same way. If g̃ is a solution on (𝔏 ∪ D″) × S³ as in (c),
+its restriction to D″, which is smooth since 𝒬 lies in a cell, is a class solution in the gauge on a past set of 𝒬
+that equals g0 near the axes and induces on N_o ∩ D″ and N_i ∩ D″ the functions of the given solution, the metric
+functions by continuity and q_in and q_out by (J3) of [[prop:loc-shell-junction]] (d); after the same change of angle,
+[[lem:loc-shell-corner-large]] (c) shows that it equals the development on D″ ∩ 𝒬_δ.
+
+(d) The functions tr χ and tr χ̲ are the expansions of the spheres {u, v = const} along the null normal fields ∂_v and
+L̲ = −2Ω² g⁻¹dv, which are smooth on each closed cell, the axes included. So the values in (a) extend continuously to the
+points of Z on the axes, and the identities of (a) hold there by continuity; likewise the coefficients 𝔖_k and 𝔖′_j of
+[[lem:loc-shell-ricci]] are continuous up to the axes, which is how the junction conditions were extended to the axes in
+the proof of [[prop:loc-shell-junction]] (d). The remaining assertions of (d) state what is not proved. ∎
+
+**Remark {#rem:loc-shell-scope}** (What this section does not give.) (i) *Measures.* Only finitely many atoms along
+leaves, with densities smooth in ϑ, are treated. A density with a continuous singular part in v, atoms on sections
+{v = f(ϑ)} of 𝒞_out that are not leaves, whose supports are not null hypersurfaces of the development, and infinitely
+many atoms accumulating on a cone are not; [LR20, Theorem 4.6] concerns angularly regular measures in 3 + 1 dimensions
+([[rem:loc-cone-scope]] (iii)). Data that are only piecewise smooth, with breaks on finitely many leaves across which the
+metric functions are continuous, and no atoms, are covered by [[thm:loc-shells]] with every m_k and n_j zero; a jump of
+the derivatives of the free data across a leaf gives no singular part of Ric ([[lem:loc-shell-ricci]] (b)).
+(ii) *Domains.* The development of [[thm:loc-shells]] lies
+in a neighbourhood of the cones on which no two shells cross. [[prop:loc-shell-crossing]] continues a solution through
+one crossing sphere: a round solution on a small square, and one that equals the background near the axes also on a
+neighbourhood of the two leaves beyond it; a development on the whole rectangle Q1, where the shells cross away from the
+cones, is not asserted, as for smooth data
+([[rem:loc-cone-scope]] (iv)). (iii) *Backgrounds with shells.* [[thm:loc-shells]] perturbs the smooth background g0. A
+round solution with shells, as in [[prop:loc-shell-crossing]] (b), is smooth only on each cell, and developing
+perturbations of it slab by slab needs [[thm:civp-large]] and [[thm:loc-cone-development]] around a round background that
+is smooth only on a closed rectangle, which are not stated in this paper. (iv) *The axes.* As in [[rem:loc-cone-scope]]
+(ii), the part of the data that is not the background's must avoid the axes; shells that are not round at an axis are not
+treated ([[prop:loc-shell-crossing]] (d)). (v) *Uniqueness.* Uniqueness is asserted among solutions with null shells
+along the same leaves, smooth on each cell and equal to the background near the axes; among continuous or Lipschitz
+metrics with measure-valued densities it is not. (vi) *Limits.* Nothing is asserted about smooth densities that
+concentrate on a leaf: their C^m norms, m = 6k + 21, are not bounded as the width of their support tends to 0, so
+[[thm:loc-cone-development]] does not apply to them uniformly.
 
 ### The static Killing field and the charge {#sec:loc-kid}
 
@@ -666,11 +5909,11 @@ with ‖c_ε‖_(C²) ≤ Cε², by Taylor's formula. So [[prop:loc-projection]]
 
 **Lemma {#lem:loc-continuity}** (Corrections depending continuously on a parameter.) Let U be a band as in
 [[lem:loc-kid]] (b), Ω_c ⊂ U compact, [s_a, s_b] a compact interval, and δ_s, s ∈ [s_a, s_b], seeds on U supported in
-Ω_c, with s ↦ δ_s continuous into C^l(U) for every l. Let ρ_1 be a smooth invariant function supported in Ω_c, possibly
-zero, and J_1 := −ρ_1 dR/|dR|_γ. Fix an integer k ≥ 3. There are a smooth invariant function 𝔴 ≥ 0 with compact
-support in U, positive on a band containing Ω_c, and ε_0 > 0 and C, such that for ε ∈ (0, ε_0] and s ∈ [s_a, s_b]
-there are invariant pairs c_(ε,s) on Σ_τ0 with the following properties. Write D_(ε,s) := bg + εδ_s + c_(ε,s), γ_D for
-its metric and g_(ε,s) for the metric of bg + εδ_s.
+Ω_c, with s ↦ δ_s continuous into C^l(U) for every l. Let ρ_1 ≥ 0 be a smooth invariant function supported in Ω_c,
+possibly zero, and J_1 := −ρ_1 dR/|dR|_γ. Fix an integer k ≥ 3. There are a smooth invariant function 𝔴 ≥ 0 with compact
+support in U, positive on a band containing Ω_c, and ε_0 > 0 and C, such that for ε ∈ (0, ε_0] and s ∈ [s_a, s_b] there
+are invariant pairs c_(ε,s) on Σ_τ0 with the following properties. Write D_(ε,s) := bg + εδ_s + c_(ε,s), γ_D for its
+metric and g_(ε,s) for the metric of bg + εδ_s.
 
 (i) c_(ε,s) is of class C^(k−1), vanishes outside a compact subset of U independent of ε and s, satisfies
 ‖c_(ε,s)‖_(C²) ≤ Cε², and is continuous in s in C². If ρ_1 = 0, c_(ε,s) is smooth.
@@ -858,10 +6101,10 @@ So m(ε, s) has the sign of ε²Q(δ_s) + O(ε³). Hence, if Q(δ_(s_a)) < 0 < Q
 s(ε) ∈ (s_a, s_b) such that bg + εδ_(s(ε)) + c_(ε,s(ε)) satisfies the vacuum constraints exactly on U and equals the
 background's data outside a compact subset of U.
 
-*Proof.* (a) By Taylor's formula, Φ(D_ε) = Φ(bg) + DΦ[εδ + c_ε] + ½ε² D²Φ[δ, δ] + O(ε³), with Φ(bg) = 0 and DΦ[δ] =
-0. Pairing with (N_s, 2Y_s), the term DΦ[c_ε] drops out by [[lem:loc-kid]] (b), which holds for c_ε of class C²
-vanishing outside a compact subset of U by [[lem:loc-kid-space]] (b) and integration by parts, and the quadratic term
-gives ε²Q(δ). Vacuum data have Φ(D_ε) = 0.
+*Proof.* (a) By Taylor's formula, Φ(D_ε) = Φ(bg) + DΦ[εδ + c_ε] + ½ε² D²Φ[δ, δ] + O(ε³), with Φ(bg) = 0 and DΦ[δ] = 0.
+Pairing with (N_s, 2Y_s), the term DΦ[c_ε] drops out by [[lem:loc-kid]] (b), which holds for c_ε of class C² vanishing
+outside a compact subset of U by [[lem:loc-kid-space]] (b) and integration by parts, and the quadratic term gives
+ε²Q(δ). Vacuum data have Φ(D_ε) = 0.
 
 (b) This is [[lem:loc-continuity]] with ρ_1 = 0 and k = 3: by its item (i) the corrections are smooth, and its items
 (ii) and (iii) are the displayed identities. If Q(δ_(s_a)) < 0 < Q(δ_(s_b)), the O(ε³) being uniform in s,
@@ -1269,9 +6512,10 @@ DRic(h) = 0 by [[lem:ix-2-1]] (b), so 2L⁰h = 0, L⁰ := DRic − δ*_gΥ̇⁰ 
 with h|_S = 0 and ∇_n h|_S = 0; [[thm:std-bgp-cauchy]] (3) gives h = 0. ∎
 
 **Lemma {#lem:loc-transfer}** (From the slice to a static slice.) Let U ⊂ {f > 0} be a band of Σ_τ0 on which the
-background is vacuum, of mass μ, with the radial extent of supp δ equal to [R1′, R2′], and let δ be a seed on U.
-Extend the slice to a Cauchy surface of the maximally extended Tangherlini spacetime M_μ, and let h be the linearised
-vacuum solution with data δ in a harmonic gauge with compactly supported gauge data, so that supp h ⊂ J(supp δ). Then:
+background is vacuum, of mass μ, with the radial extent of supp δ equal to [R1′, R2′], and let δ be a seed on U. Extend
+the slice to a Cauchy surface of the maximally extended Tangherlini spacetime M_μ, and let h be the linearised vacuum
+solution with data δ in a harmonic gauge with invariant compactly supported gauge data, so that h is invariant and supp
+h ⊂ J(supp δ). Then:
 
 (1) Q(δ) = 2∫_Σ Ein²[h](ξ, n) dvol, Ein²[h] the ε² coefficient of Ein(g + εh);
 
@@ -1639,8 +6883,8 @@ the identity for ψ_u in (v). ∎
 
 **Lemma {#lem:bg-reduction}** (Reduction to rays.) Let ℛ := {v < 3}.
 
-(a) *The data on 𝒞_in.* R(u) := R(u, 0) solves R″ = −ℬ/(3R²) with R(u1) = 2.321, R′(u1) = −0.47, and S(u) := R²R_v(u,
-0) solves S′ = −R/2 with S(u1) = 2.067575. The functions μ(u) := μ(u, 0) and ℓ_v(u) := 2R_v(u, 0) are
+(a) *The data on 𝒞_in.* R(u) := R(u, 0) solves R″ = −ℬ/(3R²) with R(u1) = 2.321, R′(u1) = −0.47, and S(u) := R²R_v(u, 0)
+solves S′ = −R/2 with S(u1) = 2.067575. The functions μ(u) := μ(u, 0) and ℓ_v(u) := 2R_v(u, 0) are
 
     μ = R² + 4R′S,     ℓ_v = 2S/R²,     μ′ = −(2/3) ℬ ℓ_v,     ℓ_v′ = −μ/R³.                              {#eq:bg-nprime}
 
@@ -2005,14 +7249,14 @@ in Φ̃ ± ε₀, Φ′ in Φ̃′ ± ε₁, Φ″ in Φ̃″ ± ε₂ ([[prop:b
 
 *The packet.* For ρ ∈ [ρ_u2, R_*] the slice point is at the unique u_s(ρ) ∈ [u1, u2] with Ψ(u_s, ρ) = T(ρ): the
 difference Ψ(u, ρ) − T(ρ) is ≥ 0 at u1 (ρ ≥ T(ρ) for ρ ≤ R_*, by [[lem:bg-rstar]]), ≤ 0 at u2 (g(ρ) ≤ 0), and decreasing
-in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decreasing in ρ, since ∂_ρ(Ψ − T) = J − 1/a < 0; hence u_s
-is decreasing in ρ, and so is the inverse ρ_s(u). For each row [u_a, u_b] of [[sec:tab-bg-slice-packet]], Ψ̃(u_a, ρ_hi) +
-ε₀ < T(ρ_hi) and Ψ̃(u_b, ρ_lo) − ε₀ > T(ρ_lo) (by direct evaluation; at u_a = u1 take ρ_hi ≥ R_* from [[lem:bg-rstar]],
-at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice points with u_s ∈ [u_a, u_b] have ρ ∈ [ρ_lo, ρ_hi].
-On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and ℓ_v lie between their values at u_a and u_b (monotone, [[prop:bg-nprime]]
-(iii)), which are μ̃, ℓ̃_v there up to the errors 4.2 × 10⁻⁷ and 5 × 10⁻⁸ of [[prop:bg-nprime]] (iv); ℬ lies between its
-end values, or between the smaller one and 17/10 when 6.45 is inside, by [[lem:bg-tools]] (e); J and K lie in the
-Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)]. Then
+in u (∂_uΨ = G < 0 since f > 0, [[prop:bg-rays]]). It is also decreasing in ρ, since ∂_ρ(Ψ − T) = J − 1/a < 0; hence
+u_s is decreasing in ρ, and so is the inverse ρ_s(u). For each row [u_a, u_b] of [[sec:tab-bg-slice-packet]], Ψ̃(u_a,
+ρ_hi) + ε₀ < T(ρ_hi) and Ψ̃(u_b, ρ_lo) − ε₀ > T(ρ_lo) (by direct evaluation; at u_a = u1 take ρ_hi ≥ R_* from
+[[lem:bg-rstar]], at u_b = u2 take ρ_lo ≤ ρ_u2 from [[prop:bg-seed]] (a)), so the slice points with u_s ∈ [u_a, u_b] have
+ρ ∈ [ρ_lo, ρ_hi]. On the box [u_a, u_b] × [ρ_lo, ρ_hi]: μ and ℓ_v lie between their values at u_a and u_b (monotone,
+[[prop:bg-nprime]] (iii)), which are μ̃, ℓ̃_v there up to the errors 4.2 × 10⁻⁷ and 5 × 10⁻⁸ of [[prop:bg-nprime]] (iv);
+ℬ lies between its end values, or between the smaller one and 17/10 when 6.45 is inside, by [[lem:bg-tools]] (e); J and K
+lie in the Chebyshev enclosures of J̃, K̃ on the box widened by ε₁, ε₂, with J ≤ 1; and R ∈ [T(ρ_lo), T(ρ_hi)]. Then
 [[eq:bg-nk-packet]] and [[lem:bg-tools]] (d) give the enclosures of qf and N_κ in the second table: qf < 1 and N_κ < 0 on
 every row, and the largest upper bound of κK^l_l is −6.00 × 10⁻³, on the row u ∈ [6.05, 6.1]. ∎
 
@@ -2290,8 +7534,8 @@ complete, so
 
     φ(R) = 0.01 (h_P² D(y_P) − l1 h_L K (R − c_L)),     y_P := (R − c_P)/h_P,
 
-with l1 h_L = 54/305. At R = 4.415, 4.43 and 4.445 (y_P = y_21, y_22, y_23) the table gives, with K̃ := C̃_40 and
-rounded to ten decimals,
+with l1 h_L = 54/305. At R = 4.415, 4.43 and 4.445 (y_P = y_21, y_22, y_23) the table of [[sec:table-bump]] gives, with
+K̃ := C̃_40 and rounded to ten decimals,
 
     0.01 (0.09 D̃_j − (54/305) K̃ (R − c_L)) ≈ −0.0011576361,  −0.0011591651,  −0.0011584676,
 
@@ -2680,946 +7924,3 @@ lower ends are columns (a) and (b); their least values are 0.456 and 0.438, whic
 By [[prop:bg-seed]] (c), the background itself lies in the tube of (b), which gives Γ > 0 on its seed region; with
 [[prop:bg-region-three-end]] it follows that Γ > 0 at every point of Σ_τ0 in region III, {0.70 ≤ R ≤ R_u2}, as
 [[cor:loc-charge-seed]] uses.
-
-### Tables for the background below R_* {#sec:tab-bg}
-
-These tables carry the objects and the finite lists of inequalities used in [[sec:bg-below]]; the reference quintic
-ψ_s and the mass μ_s are those of [[sec:table-seed-profile]]. A number written with a decimal point and no exponent in
-the definition of an object (the approximants R̂ and Ψ̃) is an exact decimal. In the rows, the segment ends, the radii
-r of [[sec:tab-bg-nprime-defects]], the u- and ρ-ranges of the seed and slice tables and the entries 0 are exact
-decimals. Every other number in a row is a bound rounded outward: an upper bound, or a lower bound when it is the left
-entry of a range [x, y] or is named a minimum (Ŝ_min). Each row is checked from the rows above it and from the
-objects, by the rule named in its table; later rows use the rounded values as printed, and an entry obtained from
-other entries of its own row uses their unrounded values.
-
-#### The approximant R̂ on 𝒞_in {#sec:tab-bg-nprime}
-
-Used in [[prop:bg-nprime]]. On each segment [a, b] with centre c = (a + b)/2 and half-width h = (b − a)/2,
-R̂(u) = Σ_n q_n x^n with x = (u − c)/h. On [5.7, 5.73], R̂(u) = 2.321 − 0.47 (u − 5.7) exactly; on [7.17, 7.2]
-and on the ten middle segments the coefficients q_0, q_1, … are listed in order.
-
-    [5.73, 5.76], degree 13:
-       2.2998499990950535  −0.0070500035890575  −0.0000000060858802  −0.0000000056421213  −0.0000000029838424
-      −0.0000000008027414  −0.0000000000389979   0.0000000000246103  −0.0000000000001755  −0.0000000000011116
-       0.0000000000002192   0.0000000000000118  −0.0000000000000164   0.0000000000000042
-    [5.76, 5.82], degree 15:
-       2.2786993577610023  −0.0141016088531818   −0.000001586340491  −0.0000007379693574   −0.000000135054667
-       0.0000000061654714    0.000000002299025  −0.0000000006150883   0.0000000000589794   0.0000000000112707
-      −0.0000000000067499   0.0000000000017849  −0.0000000000002774  −0.0000000000000017   0.0000000000000193
-      −0.0000000000000084
-    [5.82, 5.94], degree 16:
-       2.2363516271359387  −0.0282837186015477  −0.0000519583306435  −0.0000122418284956  −0.0000001553492355
-       0.0000001448806995  −0.0000000282960554   0.0000000034633536  −0.0000000000233548  −0.0000000001515256
-       0.0000000000614766  −0.0000000000173817   0.0000000000039655  −0.0000000000007088     0.00000000000007
-       0.0000000000000154  −0.0000000000000127
-    [5.94, 6.18], degree 16:
-       2.1507106159236233  −0.0578222878944627  −0.0006088924305476  −0.0000743592803576   0.0000051739934834
-       −0.000000196256404  −0.0000000375600006   0.0000000218908869  −0.0000000064354619   0.0000000016268568
-      −0.0000000003684261   0.0000000000752613  −0.0000000000131408   0.0000000000015668   0.0000000000001006
-      −0.0000000000001608   0.0000000000000764
-    [6.18, 6.45], degree 12:
-       2.0244713027588781  −0.0688957272089234  −0.0012184273694516  −0.0000557533006197   0.0000055757675211
-      −0.0000000531698062   0.0000000490093513   0.0000000006653872   0.0000000001590086   0.0000000000536128
-      −0.0000000000097832   0.0000000000024203  −0.0000000000004742
-    [6.45, 6.72], degree 13:
-         1.88145090674259  −0.0742543422751787  −0.0014107079525908   −0.000004571052586   0.0000084964203915
-       0.0000007324548516   0.0000000981891648   0.0000000074893653   0.0000000005653132  −0.0000000000216173
-      −0.0000000000165583  −0.0000000000045627  −0.0000000000010113  −0.0000000000002002
-    [6.72, 6.96], degree 17:
-       1.7362595722650483  −0.0705245743098549  −0.0009342760728852   0.0000720510034886   0.0000139979568905
-       0.0000012393137233   0.0000000173638379  −0.0000000355003694  −0.0000000134826554  −0.0000000037602767
-      −0.0000000009124067  −0.0000000001991244  −0.0000000000382667   −0.000000000005813  −0.0000000000003305
-       0.0000000000002365   0.0000000000001464   0.0000000000000597
-    [6.96, 7.08], degree 17:
-       1.6286930628775715  −0.0363129947398262  −0.0000979618268921    0.000020798590445    0.000000467032891
-      −0.0000002664969984  −0.0000000660309664  −0.0000000095694054  −0.0000000004759122   0.0000000002706222
-       0.0000000001315469   0.0000000000399254   0.0000000000096217   0.0000000000018496   0.0000000000002291
-      −0.0000000000000178  −0.0000000000000254  −0.0000000000000116
-    [7.08, 7.14], degree 16:
-       1.5740727877810153  −0.0182353077784798  −0.0000033244579763   0.0000015071548069  −0.0000002559486535
-      −0.0000000186220094   0.0000000044324424   0.0000000014060415   0.0000000001597877  −0.0000000000196339
-      −0.0000000000147541  −0.0000000000041624  −0.0000000000006994   −0.000000000000016   0.0000000000000403
-       0.0000000000000189   0.0000000000000057
-    [7.14, 7.17], degree 14:
-       1.5467160721518957  −0.0091193559889629  −0.0000000134555429   0.0000000123940299   −0.000000006485739
-       0.0000000017045675  −0.0000000000655028  −0.0000000000553616  −0.0000000000011271   0.0000000000024463
-       0.0000000000005198  −0.0000000000000188  −0.0000000000000367  −0.0000000000000098  −0.0000000000000007
-    [7.17, 7.2], degree 1:
-       1.5284773462999573  −0.0091193639012004
-
-The function Ŝ(u) := 2.067575 − (1/2) ∫ from 5.7 to u of R̂ is a polynomial on each segment. Its values at the
-segment ends, rounded to 10 digits (only the exact values enter the rows), are:
-
-    Ŝ(5.7) = 2.0675750000   Ŝ(5.73) = 2.0328657500   Ŝ(5.76) = 1.9983680001   Ŝ(5.82) = 1.9300070360
-    Ŝ(5.94) = 1.7958269796   Ŝ(6.18) = 1.5377659380   Ŝ(6.45) = 1.2645169898   Ŝ(6.72) = 1.0105843680
-    Ŝ(6.96) = 0.8022702543   Ŝ(7.08) = 0.7045506247   Ŝ(7.14) = 0.6573284758   Ŝ(7.17) = 0.6341277349
-    Ŝ(7.2) = 0.6112005747
-
-#### The data on 𝒞_in: the defects {#sec:tab-bg-nprime-defects}
-
-Used in [[prop:bg-nprime]]. For the ten middle segments, δ bounds |R̂″ + ℬ/(3R̂²)| on [a, b] by [[lem:bg-tools]] (b): r =
-(4/5) min(c − 5.7, 7.2 − c) is the radius of the disc, 𝔐 bounds |R̂″| + |ℬ|/(3|R̂|²) on it (with |ℬ| bounded by
-[[eq:bg-bump-disc]]), "tail" is Σ_(n<60) |δ_n| h^n for the Taylor coefficients δ_n of R̂″ + ℬ/(3R̂²) at c, and "rest" is
-𝔐 (h/r)⁶⁰/(1 − h/r). On the two outer segments R̂ is affine and δ := ℬ_max/(3 R̂_min²).
-
-| segment | r | 𝔐 | tail | rest | δ |
-|---|---|---|---|---|---|
-| [5.7, 5.73] | — | — | — | — | 8.40·10⁻⁷ |
-| [5.73, 5.76] | 0.036 | 5.49·10⁻³ | 6.26·10⁻¹⁰ | 1.5·10⁻²⁵ | 6.27·10⁻¹⁰ |
-| [5.76, 5.82] | 0.072 | 0.0589 | 8.62·10⁻¹⁰ | 1.6·10⁻²⁴ | 8.63·10⁻¹⁰ |
-| [5.82, 5.94] | 0.144 | 0.190 | 6.29·10⁻¹⁰ | 5.0·10⁻²⁴ | 6.30·10⁻¹⁰ |
-| [5.94, 6.18] | 0.288 | 0.375 | 8.41·10⁻¹⁰ | 9.9·10⁻²⁴ | 8.42·10⁻¹⁰ |
-| [6.18, 6.45] | 0.492 | 0.547 | 9.51·10⁻¹⁰ | 1.6·10⁻³⁴ | 9.52·10⁻¹⁰ |
-| [6.45, 6.72] | 0.492 | 0.661 | 4.80·10⁻¹⁰ | 1.9·10⁻³⁴ | 4.81·10⁻¹⁰ |
-| [6.72, 6.96] | 0.288 | 0.609 | 6.78·10⁻¹⁰ | 1.7·10⁻²³ | 6.79·10⁻¹⁰ |
-| [6.96, 7.08] | 0.144 | 0.368 | 5.15·10⁻¹⁰ | 9.7·10⁻²⁴ | 5.16·10⁻¹⁰ |
-| [7.08, 7.14] | 0.072 | 0.125 | 4.96·10⁻¹⁰ | 3.3·10⁻²⁴ | 4.97·10⁻¹⁰ |
-| [7.14, 7.17] | 0.036 | 0.0121 | 8.20·10⁻¹⁰ | 3.2·10⁻²⁵ | 8.21·10⁻¹⁰ |
-| [7.17, 7.2] | — | — | — | — | 1.94·10⁻⁶ |
-
-#### The data on 𝒞_in: the comparison {#sec:tab-bg-nprime-chain}
-
-Used in [[prop:bg-nprime]]. On each segment, [R̂_min, R̂_max] encloses R̂ (by q_0 ∓ Σ_(n≥1) |q_n|); ℬ_max is the largest
-value of ℬ there; Λ := ℬ_max (R̂_max + 10⁻⁶ + R̂_max)/(3 (R̂_min − 10⁻⁶)² R̂_min²) is the constant of
-[[lem:bg-comparison]] (a); j₀, j₁ are the jumps of R̂ and R̂′ at the left end; E₀, E₁ bound |R − R̂| and |R′ − R̂′| on
-the segment (they are the values of [[eq:bg-comparison-2]] at its right end); I bounds ∫ from 5.7 to b of |R − R̂|.
-Entries 0 are exact.
-
-| segment | [R̂_min, R̂_max] | ℬ_max | Λ | j₀, j₁ | E₀ | E₁ | I |
-|---|---|---|---|---|---|---|---|
-| [5.7, 5.73] | [2.30689, 2.32101] | 1.34·10⁻⁵ | 7.33·10⁻⁷ | 0, 0 | 3.79·10⁻¹⁰ | 2.53·10⁻⁸ | 1.14·10⁻¹¹ |
-| [5.73, 5.76] | [2.29279, 2.30691] | 6.88·10⁻³ | 3.83·10⁻⁴ | 3.3·10⁻¹², 1.8·10⁻⁹ | 1.20·10⁻⁹ | 2.72·10⁻⁸ | 4.75·10⁻¹¹ |
-| [5.76, 5.82] | [2.26459, 2.29281] | 0.155 | 9.01·10⁻³ | 3.5·10⁻¹⁵, 1.2·10⁻¹² | 2.84·10⁻⁹ | 2.73·10⁻⁸ | 2.18·10⁻¹⁰ |
-| [5.82, 5.94] | [2.20800, 2.26470] | 0.720 | 0.0458 | 9.7·10⁻¹⁵, 1.3·10⁻¹² | 6.13·10⁻⁹ | 2.75·10⁻⁸ | 9.54·10⁻¹⁰ |
-| [5.94, 6.18] | [2.09219, 2.20923] | 1.47 | 0.113 | 3.8·10⁻¹⁴, 7.3·10⁻¹² | 1.28·10⁻⁸ | 2.80·10⁻⁸ | 4.03·10⁻⁹ |
-| [6.18, 6.45] | [1.95429, 2.09465] | 1.71 | 0.164 | 8.6·10⁻¹⁴, 1.4·10⁻¹¹ | 2.05·10⁻⁸ | 2.91·10⁻⁸ | 9.57·10⁻⁹ |
-| [6.45, 6.72] | [1.80577, 1.95713] | 1.71 | 0.210 | 1.1·10⁻¹³, 3.7·10⁻¹² | 2.86·10⁻⁸ | 3.07·10⁻⁸ | 1.73·10⁻⁸ |
-| [6.72, 6.96] | [1.66471, 1.80781] | 1.47 | 0.231 | 6.3·10⁻¹⁴, 2.6·10⁻¹² | 3.62·10⁻⁸ | 3.27·10⁻⁸ | 2.60·10⁻⁸ |
-| [6.96, 7.08] | [1.59226, 1.66513] | 0.720 | 0.125 | 3.3·10⁻¹⁴, 3.8·10⁻¹² | 4.02·10⁻⁸ | 3.34·10⁻⁸ | 3.09·10⁻⁸ |
-| [7.08, 7.14] | [1.55583, 1.59232] | 0.155 | 0.0281 | 4.6·10⁻¹⁵, 2.4·10⁻¹² | 4.23·10⁻⁸ | 3.36·10⁻⁸ | 3.35·10⁻⁸ |
-| [7.14, 7.17] | [1.53759, 1.55584] | 6.88·10⁻³ | 1.28·10⁻³ | 1.8·10⁻¹⁵, 2.4·10⁻¹³ | 4.34·10⁻⁸ | 3.37·10⁻⁸ | 3.49·10⁻⁸ |
-| [7.17, 7.2] | [1.51935, 1.53760] | 1.34·10⁻⁵ | 2.58·10⁻⁶ | 8.0·10⁻¹⁶, 7.8·10⁻¹³ | 4.53·10⁻⁸ | 9.20·10⁻⁸ | 3.63·10⁻⁸ |
-
-#### The ray approximant Ψ̃ {#sec:tab-bg-ray}
-
-Used in [[prop:bg-rays]]. For 5.7 ≤ u ≤ 7.2 and 2.32 ≤ ρ ≤ 3.44,
-
-    Ψ̃(u, ρ) = Σ_(j=0)^(24) Σ_(k=0)^(12) c_(jk) T_j((u − 6.45)/0.75) T_k((ρ − 2.88)/0.56),
-
-T_j the Chebyshev polynomials. The table lists 10¹⁴ c_(jk), an integer, row by row: for each j, the thirteen
-values k = 0, …, 12 (a row continues on the next line when it is long).
-
-    j =  0: 244176616978007 51400021862843 671645233012 −78974944331 7420935757 −484787420 4338070 4564758 −796053 73258
-            −1320 −894 181
-    j =  1: −45699475162490 −4897720259727 713958831794 −80737788821 6673110559 −238128747 −42332061 11013228 −1440062
-            106771 1746 −2007 343
-    j =  2: −2075143227302 −320844165164 45719533864 −1583293384 −930255437 289780173 −52390770 6663225 −532273 −3129
-            10008 −2048 244
-    j =  3: −146521686402 −58127732860 8528288407 −313820324 −166767407 47249585 −6394172 177590 147672 −45039 8043 −966
-            60
-    j =  4: 56737618666 −42087652968 6015022739 −515897661 −2783126 9182790 −1428471 22673 38232 −9862 1284 −20 −31
-    j =  5: 4323029756 −8405479500 1042555013 −15371100 −24817740 6378740 −887131 53245 7794 −2660 333 5 −10
-    j =  6: 966394828 −1983981123 229082323 3847547 −7280779 1528163 −137381 −13607 7604 −1525 171 −2 −4
-    j =  7: −228677984 −265838381 18069334 6117289 −2231302 345646 −10306 −9063 2667 −396 18 8 −2
-    j =  8: −1060053129 388823196 −64198387 9513062 −1198536 92201 7333 −4408 888 −89 −5 4 −1
-    j =  9: −213158599 116609501 −18345428 1785094 7127 −52822 15118 −2798 347 −15 −6 2 0
-    j = 10: −285058764 132360948 −19502032 2007652 −93106 −16335 5208 −752 36 14 −5 1 0
-    j = 11: −44263760 29815889 −4078136 198146 58572 −19813 3480 −374 7 7 −2 0 0
-    j = 12: −16192382 9909126 −1261487 43154 21568 −5961 795 −21 −18 6 −1 0 0
-    j = 13: 2525529 −294014 141162 −44033 9159 −1152 6 39 −11 2 0 0 0
-    j = 14: 21286491 −9016567 1358668 −159671 13637 −396 −145 39 −6 0 0 0 0
-    j = 15: 5943312 −3229500 473158 −34977 −2938 1571 −324 45 −4 0 0 0 0
-    j = 16: 11812749 −5282380 767282 −78180 3936 430 −139 17 0 0 0 0 0
-    j = 17: 2537380 −1464081 203762 −11424 −2322 836 −146 16 −1 0 0 0 0
-    j = 18: 3034515 −1406261 199167 −18039 318 232 −46 4 0 0 0 0 0
-    j = 19: 428361 −272776 35282 −1019 −681 187 −27 2 0 0 0 0 0
-    j = 20: −287304 102205 −17104 2799 −422 49 −2 −1 0 0 0 0 0
-    j = 21: −234497 117001 −17714 1501 52 −49 11 −2 0 0 0 0 0
-    j = 22: −903957 396067 −57831 6074 −359 −20 9 −1 0 0 0 0 0
-    j = 23: −327046 177840 −25268 1593 234 −94 17 −2 0 0 0 0 0
-    j = 24: −448856 199469 −28849 2902 −139 −17 5 −1 0 0 0 0 0
-
-At u = 7.2 every T_j equals 1, so Φ̃(ρ) := Ψ̃(7.2, ρ) = Σ_k C_k T_k((ρ − 2.88)/0.56) with C_k = Σ_j c_(jk).
-
-#### The rays: the defects {#sec:tab-bg-ray-defects}
-
-Used in [[prop:bg-rays]]. The box is [a, b] × [2.32, 3.44]. Ŝ_min = Ŝ(b) (rounded down); [Ψ̃_min, Ψ̃_max] and the
-bounds on the absolute values of J̃ = ∂_ρΨ̃, K̃ = ∂_ρ²Ψ̃, L̃ = ∂_ρ³Ψ̃ are given by [[lem:bg-tools]] (a) from the
-Chebyshev coefficients of these polynomials on the box; 𝔰_m is the sum of the absolute values of the Chebyshev
-coefficients on the box of
-∂_ρ^m P, P the polynomial [[eq:bg-ray-numerator]]; D_m bounds the defect of order m by [[eq:bg-ray-defects]].
-
-| segment | Ŝ_min | [Ψ̃_min, Ψ̃_max] | J̃ bound | K̃ bound | L̃ bound |
-|---|---|---|---|---|---|
-| [5.7, 5.73] | 2.0328657 | [2.30393, 3.44026] | 1.002 | 6.12·10⁻³ | 0.0105 |
-| [5.73, 5.76] | 1.998368 | [2.28930, 3.42323] | 1.002 | 0.0124 | 0.0211 |
-| [5.76, 5.82] | 1.930007 | [2.25847, 3.40643] | 1.003 | 0.0251 | 0.0423 |
-| [5.82, 5.94] | 1.7958269 | [2.19628, 3.37277] | 1.006 | 0.0514 | 0.0850 |
-| [5.94, 6.18] | 1.5377659 | [2.06833, 3.30519] | 1.012 | 0.106 | 0.167 |
-| [6.18, 6.45] | 1.2645169 | [1.92225, 3.16253] | 1.007 | 0.168 | 0.246 |
-| [6.45, 6.72] | 1.0105843 | [1.76700, 2.99167] | 0.9972 | 0.229 | 0.309 |
-| [6.72, 6.96] | 0.80227025 | [1.62083, 2.80758] | 0.9856 | 0.284 | 0.353 |
-| [6.96, 7.08] | 0.70455062 | [1.55270, 2.62984] | 0.9649 | 0.313 | 0.368 |
-| [7.08, 7.14] | 0.65732847 | [1.51904, 2.53658] | 0.9528 | 0.328 | 0.372 |
-| [7.14, 7.17] | 0.63412773 | [1.50249, 2.48877] | 0.9460 | 0.336 | 0.373 |
-| [7.17, 7.2] | 0.61120057 | [1.48321, 2.46481] | 0.9442 | 0.344 | 0.376 |
-
-| segment | 𝔰₀ | 𝔰₁ | 𝔰₂ | 𝔰₃ | D₀ | D₁ | D₂ | D₃ |
-|---|---|---|---|---|---|---|---|---|
-| [5.7, 5.73] | 2.23·10⁻⁵ | 2.79·10⁻⁶ | 6.36·10⁻⁶ | 1.31·10⁻⁴ | 5.17·10⁻⁷ | 5.15·10⁻⁷ | 8.49·10⁻⁷ | 4.68·10⁻⁶ |
-| [5.73, 5.76] | 6.60·10⁻⁶ | 1.61·10⁻⁶ | 3.58·10⁻⁶ | 7.83·10⁻⁵ | 1.58·10⁻⁷ | 1.77·10⁻⁷ | 3.36·10⁻⁷ | 2.56·10⁻⁶ |
-| [5.76, 5.82] | 1.11·10⁻⁵ | 1.79·10⁻⁶ | 3.54·10⁻⁶ | 3.99·10⁻⁵ | 2.82·10⁻⁷ | 2.96·10⁻⁷ | 5.11·10⁻⁷ | 2.05·10⁻⁶ |
-| [5.82, 5.94] | 8.41·10⁻⁶ | 1.72·10⁻⁶ | 3.65·10⁻⁶ | 4.88·10⁻⁵ | 2.43·10⁻⁷ | 2.72·10⁻⁷ | 5.14·10⁻⁷ | 2.52·10⁻⁶ |
-| [5.94, 6.18] | 3.55·10⁻⁶ | 1.80·10⁻⁶ | 3.78·10⁻⁶ | 4.19·10⁻⁵ | 1.35·10⁻⁷ | 2.01·10⁻⁷ | 4.86·10⁻⁷ | 2.80·10⁻⁶ |
-| [6.18, 6.45] | 2.91·10⁻⁶ | 1.30·10⁻⁶ | 2.73·10⁻⁶ | 3.15·10⁻⁵ | 1.56·10⁻⁷ | 2.33·10⁻⁷ | 5.76·10⁻⁷ | 3.24·10⁻⁶ |
-| [6.45, 6.72] | 4.33·10⁻⁶ | 1.14·10⁻⁶ | 2.42·10⁻⁶ | 4.23·10⁻⁵ | 3.44·10⁻⁷ | 4.78·10⁻⁷ | 1.15·10⁻⁶ | 6.65·10⁻⁶ |
-| [6.72, 6.96] | 6.22·10⁻⁶ | 1.04·10⁻⁶ | 2.17·10⁻⁶ | 4.92·10⁻⁵ | 7.38·10⁻⁷ | 1.03·10⁻⁶ | 2.46·10⁻⁶ | 1.35·10⁻⁵ |
-| [6.96, 7.08] | 6.45·10⁻⁶ | 7.41·10⁻⁷ | 1.66·10⁻⁶ | 3.76·10⁻⁵ | 9.50·10⁻⁷ | 1.29·10⁻⁶ | 3.10·10⁻⁶ | 1.54·10⁻⁵ |
-| [7.08, 7.14] | 6.26·10⁻⁶ | 7.21·10⁻⁷ | 1.27·10⁻⁶ | 2.18·10⁻⁵ | 1.04·10⁻⁶ | 1.42·10⁻⁶ | 3.39·10⁻⁶ | 1.46·10⁻⁵ |
-| [7.14, 7.17] | 3.60·10⁻⁶ | 6.40·10⁻⁷ | 1.23·10⁻⁶ | 2.77·10⁻⁵ | 6.29·10⁻⁷ | 9.04·10⁻⁷ | 2.28·10⁻⁶ | 1.23·10⁻⁵ |
-| [7.17, 7.2] | 4.18·10⁻⁶ | 1.01·10⁻⁶ | 1.94·10⁻⁶ | 4.18·10⁻⁵ | 7.78·10⁻⁷ | 1.18·10⁻⁶ | 3.09·10⁻⁶ | 1.81·10⁻⁵ |
-
-#### The rays: the comparison {#sec:tab-bg-ray-chain}
-
-Used in [[prop:bg-rays]]. At u = 5.7 the errors of orders 0 to 3 are at most 1.6·10⁻¹³, 6.1·10⁻¹², 4.5·10⁻¹⁰, 2.2·10⁻⁸:
-the sums of the absolute values of the Chebyshev coefficients of Ψ̃(5.7, ρ) − ρ, J̃(5.7, ρ) − 1, K̃(5.7, ρ) and L̃(5.7,
-ρ). On each segment, R̂′_max bounds |R̂′| (by Σ n|q_n|/h); Δ₁, Δ₂ and γ_m are [[eq:bg-gamma]]; H₂, H₃, H₄ bound |∂_X^m G|
-on the tube [[eq:bg-tube]]; ε_m bounds the error of order m on the segment. In each row ε₀, ε₁, ε₂, ε₃ are the values of
-[[eq:bg-ray-chain]] at b, taken in this order from the printed ε of the row above and the unrounded values of the lower
-orders in the same row, and then rounded up.
-
-| segment | R̂′_max | Δ₁ | Δ₂ | H₂ | H₃ | H₄ |
-|---|---|---|---|---|---|---|
-| [5.7, 5.73] | 0.4701 | 2.79·10⁻⁷ | 4.37·10⁻¹⁰ | 0.302 | 0.524 | 1.14 |
-| [5.73, 5.76] | 0.4701 | 3.10·10⁻⁷ | 1.41·10⁻⁹ | 0.310 | 0.541 | 1.19 |
-| [5.76, 5.82] | 0.4703 | 3.36·10⁻⁷ | 3.46·10⁻⁹ | 0.327 | 0.579 | 1.29 |
-| [5.82, 5.94] | 0.4738 | 3.90·10⁻⁷ | 8.11·10⁻⁹ | 0.366 | 0.666 | 1.52 |
-| [5.94, 6.18] | 0.4941 | 5.19·10⁻⁷ | 2.05·10⁻⁸ | 0.465 | 0.899 | 2.18 |
-| [6.18, 6.45] | 0.5298 | 6.74·10⁻⁷ | 4.06·10⁻⁸ | 0.623 | 1.30 | 3.37 |
-| [6.45, 6.72] | 0.5714 | 8.50·10⁻⁷ | 7.17·10⁻⁸ | 0.872 | 1.98 | 5.59 |
-| [6.72, 6.96] | 0.6056 | 1.02·10⁻⁶ | 1.15·10⁻⁷ | 1.24 | 3.04 | 9.38 |
-| [6.96, 7.08] | 0.6096 | 9.95·10⁻⁷ | 1.39·10⁻⁷ | 1.47 | 3.77 | 12.2 |
-| [7.08, 7.14] | 0.6083 | 9.79·10⁻⁷ | 1.52·10⁻⁷ | 1.60 | 4.21 | 13.9 |
-| [7.14, 7.17] | 0.6080 | 9.71·10⁻⁷ | 1.60·10⁻⁷ | 1.67 | 4.44 | 14.8 |
-| [7.17, 7.2] | 0.6080 | 1.28·10⁻⁶ | 1.72·10⁻⁷ | 1.76 | 4.74 | 16.0 |
-
-| segment | γ₀ | γ₁ | γ₂ | γ₃ | ε₀ | ε₁ | ε₂ | ε₃ |
-|---|---|---|---|---|---|---|---|---|
-| [5.7, 5.73] | 2.65·10⁻⁸ | 2.29·10⁻⁸ | 2.98·10⁻⁸ | 5.16·10⁻⁸ | 1.65·10⁻⁸ | 1.64·10⁻⁸ | 2.75·10⁻⁸ | 1.68·10⁻⁷ |
-| [5.73, 5.76] | 3.03·10⁻⁸ | 2.59·10⁻⁸ | 3.39·10⁻⁸ | 5.92·10⁻⁸ | 2.22·10⁻⁸ | 2.27·10⁻⁸ | 3.94·10⁻⁸ | 2.50·10⁻⁷ |
-| [5.76, 5.82] | 3.47·10⁻⁸ | 2.92·10⁻⁸ | 3.88·10⁻⁸ | 6.87·10⁻⁸ | 4.13·10⁻⁸ | 4.31·10⁻⁸ | 7.56·10⁻⁸ | 3.90·10⁻⁷ |
-| [5.82, 5.94] | 4.45·10⁻⁸ | 3.69·10⁻⁸ | 5.03·10⁻⁸ | 9.16·10⁻⁸ | 7.59·10⁻⁸ | 8.36·10⁻⁸ | 1.59·10⁻⁷ | 7.62·10⁻⁷ |
-| [5.94, 6.18] | 7.10·10⁻⁸ | 5.87·10⁻⁸ | 8.51·10⁻⁸ | 1.65·10⁻⁷ | 1.27·10⁻⁷ | 1.62·10⁻⁷ | 3.64·10⁻⁷ | 1.81·10⁻⁶ |
-| [6.18, 6.45] | 1.12·10⁻⁷ | 9.49·10⁻⁸ | 1.49·10⁻⁷ | 3.09·10⁻⁷ | 2.00·10⁻⁷ | 2.85·10⁻⁷ | 7.38·10⁻⁷ | 3.73·10⁻⁶ |
-| [6.45, 6.72] | 1.72·10⁻⁷ | 1.55·10⁻⁷ | 2.62·10⁻⁷ | 5.93·10⁻⁷ | 3.40·10⁻⁷ | 5.36·10⁻⁷ | 1.59·10⁻⁶ | 8.46·10⁻⁶ |
-| [6.72, 6.96] | 2.52·10⁻⁷ | 2.40·10⁻⁷ | 4.44·10⁻⁷ | 1.10·10⁻⁶ | 5.78·10⁻⁷ | 1.02·10⁻⁶ | 3.36·10⁻⁶ | 1.92·10⁻⁵ |
-| [6.96, 7.08] | 2.76·10⁻⁷ | 2.66·10⁻⁷ | 5.14·10⁻⁷ | 1.33·10⁻⁶ | 7.26·10⁻⁷ | 1.33·10⁻⁶ | 4.60·10⁻⁶ | 2.681·10⁻⁵ |
-| [7.08, 7.14] | 2.89·10⁻⁷ | 2.80·10⁻⁷ | 5.52·10⁻⁷ | 1.46·10⁻⁶ | 8.06·10⁻⁷ | 1.51·10⁻⁶ | 5.33·10⁻⁶ | 3.13·10⁻⁵ |
-| [7.14, 7.17] | 2.96·10⁻⁷ | 2.87·10⁻⁷ | 5.72·10⁻⁷ | 1.53·10⁻⁶ | 8.34·10⁻⁷ | 1.59·10⁻⁶ | 5.681·10⁻⁶ | 3.37·10⁻⁵ |
-| [7.17, 7.2] | 3.77·10⁻⁷ | 3.93·10⁻⁷ | 7.94·10⁻⁷ | 2.14·10⁻⁶ | 8.69·10⁻⁷ | 1.68·10⁻⁶ | 6.10·10⁻⁶ | 3.65·10⁻⁵ |
-
-#### The seed region {#sec:tab-bg-seed}
-
-Used in [[prop:bg-seed]]. The bounds on the partial derivatives of ψ^(k) := Ψ_k in its arguments (Φ, Φ′, Φ″, Φ‴,
-μ3), on the box of [[eq:bg-seed-box]], and the resulting Δ_k of [[eq:bg-seed-delta]]:
-
-|  | ∂/∂Φ | ∂/∂Φ′ | ∂/∂Φ″ | ∂/∂Φ‴ | ∂/∂μ3 | Δ_k |
-|---|---|---|---|---|---|---|
-| k = 0 | 0.720 | 1.45 | 0 | 0 | 0.667 | 3.34·10⁻⁶ |
-| k = 1 | 0.696 | 0.633 | 0.551 | 0 | 0.415 | 5.20·10⁻⁶ |
-| k = 2 | 1.66 | 1.37 | 0.514 | 0.216 | 0.580 | 1.50·10⁻⁵ |
-
-On each interval [ρ_a, ρ_b] of ρ, "Taylor" is Σ_(n≤5) |c_n| h^n for the Taylor coefficients c_n of ẽ_k at the
-midpoint, h = (ρ_b − ρ_a)/2, "rest" bounds |c_6(ξ)| h⁶ for ξ in the interval (both enclosed as in the proof of
-[[prop:bg-seed]] (b), c_6 on twenty equal parts), and "total" = Taylor + rest + Δ_k bounds |e_k| on the interval
-([[eq:bg-seed-split]]). Rest is at most 2·10⁻¹⁰ in every row, and every total is at least the printed Taylor entry
-plus 2·10⁻¹⁰ plus Δ_k.
-
-| ρ | Taylor, k = 0 | k = 1 | k = 2 | total, k = 0 | k = 1 | k = 2 |
-|---|---|---|---|---|---|---|
-| [2.3282, 2.3727] | 2.685·10⁻⁵ | 2.341·10⁻⁴ | 8.407·10⁻⁴ | 3.020·10⁻⁵ | 2.394·10⁻⁴ | 8.558·10⁻⁴ |
-| [2.3727, 2.4172] | 1.088·10⁻⁵ | 1.426·10⁻⁴ | 6.588·10⁻⁴ | 1.423·10⁻⁵ | 1.479·10⁻⁴ | 6.739·10⁻⁴ |
-| [2.4172, 2.4617] | 1.587·10⁻⁵ | 7.349·10⁻⁵ | 4.911·10⁻⁴ | 1.922·10⁻⁵ | 7.870·10⁻⁵ | 5.062·10⁻⁴ |
-| [2.4617, 2.5062] | 1.611·10⁻⁵ | 2.405·10⁻⁵ | 3.435·10⁻⁴ | 1.946·10⁻⁵ | 2.926·10⁻⁵ | 3.586·10⁻⁴ |
-| [2.5062, 2.5507] | 1.576·10⁻⁵ | 3.113·10⁻⁵ | 2.188·10⁻⁴ | 1.911·10⁻⁵ | 3.634·10⁻⁵ | 2.339·10⁻⁴ |
-| [2.5507, 2.5952] | 1.317·10⁻⁵ | 3.924·10⁻⁵ | 1.177·10⁻⁴ | 1.652·10⁻⁵ | 4.445·10⁻⁵ | 1.328·10⁻⁴ |
-| [2.5952, 2.6397] | 9.092·10⁻⁶ | 3.962·10⁻⁵ | 3.927·10⁻⁵ | 1.244·10⁻⁵ | 4.483·10⁻⁵ | 5.428·10⁻⁵ |
-| [2.6397, 2.6842] | 4.734·10⁻⁶ | 3.915·10⁻⁵ | 6.142·10⁻⁵ | 8.075·10⁻⁶ | 4.436·10⁻⁵ | 7.643·10⁻⁵ |
-| [2.6842, 2.7287] | 2.950·10⁻⁶ | 3.427·10⁻⁵ | 8.383·10⁻⁵ | 6.291·10⁻⁶ | 3.948·10⁻⁵ | 9.884·10⁻⁵ |
-| [2.7287, 2.7735] | 5.340·10⁻⁶ | 2.607·10⁻⁵ | 9.330·10⁻⁵ | 8.681·10⁻⁶ | 3.128·10⁻⁵ | 1.084·10⁻⁴ |
-
-#### The slice in region III {#sec:tab-bg-slice-iii}
-
-Used in [[prop:bg-slice]]. For ρ in [ρ_a, ρ_b], R = v̂(ρ) + 0.68 and the enclosures of ψ_III, ψ_III′ (from
-[[prop:bg-rays]] and [[eq:bg-psi3]]) give, by [[lem:bg-tools]] (d) with μ3 in [0.82211214, 0.82211297], the
-enclosures of qf and N_κ = (μ3 q/R³)(qf − 3) − ψ_III′ and the upper bound of κK^l_l in the second table.
-
-| ρ | R | ψ_III | ψ_III′ |
-|---|---|---|---|
-| [2.321,2.3663] | [0.680000,0.804644] | [−0.2796,−0.2206] | [0.07193,0.1627] |
-| [2.3663,2.4116] | [0.804643,0.927553] | [−0.2641,−0.2090] | [0.06752,0.1512] |
-| [2.4116,2.4569] | [0.927552,1.048866] | [−0.2498,−0.1982] | [0.06349,0.1407] |
-| [2.4569,2.5022] | [1.048865,1.168708] | [−0.2366,−0.1883] | [0.05979,0.1310] |
-| [2.5022,2.5475] | [1.168707,1.287190] | [−0.2244,−0.1792] | [0.05640,0.1222] |
-| [2.5475,2.5928] | [1.287189,1.404411] | [−0.2131,−0.1707] | [0.05327,0.1140] |
-| [2.5928,2.6381] | [1.404410,1.520461] | [−0.2026,−0.1628] | [0.05038,0.1065] |
-| [2.6381,2.6834] | [1.520460,1.635420] | [−0.1928,−0.1555] | [0.04770,0.09950] |
-| [2.6834,2.7287] | [1.635419,1.749363] | [−0.1837,−0.1487] | [0.04522,0.09312] |
-| [2.7287,2.77364] | [1.749362,1.861460] | [−0.1751,−0.1425] | [0.04309,0.08704] |
-
-| ρ | qf | N_κ | κK^l_l ≤ |
-|---|---|---|---|
-| [2.321,2.3663] | [−0.649,−0.191] | [−8.26,−3.64] | −2.18 |
-| [2.3663,2.4116] | [−0.232,0.0414] | [−4.46,−2.33] | −1.56 |
-| [2.4116,2.4569] | [0.0237,0.208] | [−2.73,−1.58] | −1.02 |
-| [2.4569,2.5022] | [0.192,0.330] | [−1.83,−1.13] | −0.674 |
-| [2.5022,2.5475] | [0.313,0.422] | [−1.30,−0.843] | −0.454 |
-| [2.5475,2.5928] | [0.403,0.492] | [−0.970,−0.650] | −0.315 |
-| [2.5928,2.6381] | [0.474,0.548] | [−0.751,−0.516] | −0.224 |
-| [2.6381,2.6834] | [0.529,0.593] | [−0.599,−0.419] | −0.163 |
-| [2.6834,2.7287] | [0.575,0.631] | [−0.489,−0.347] | −0.121 |
-| [2.7287,2.77364] | [0.612,0.662] | [−0.407,−0.292] | −0.0930 |
-
-#### The slice in the packet {#sec:tab-bg-slice-packet}
-
-Used in [[prop:bg-slice]]. For u in [u_a, u_b] the slice point lies on a ray with ρ in [ρ_lo, ρ_hi] (the first
-table); μ, ℓ_v, ℬ are enclosed on [u_a, u_b], J = ∂_ρΨ and K = ∂_ρ²Ψ on the box, and R = v̂(ρ) + 0.68; the second
-table gives the enclosures of qf and of N_κ by [[eq:bg-nk-packet]] and the upper bound of κK^l_l.
-
-| u | ρ | R | μ | ℓ_v | ℬ |
-|---|---|---|---|---|---|
-| [5.7, 5.75] | [3.41516, 3.43718007] | [3.3866, 3.4372] | [1.4999, 1.5001] | [0.7615, 0.7677] | [0, 1.98·10⁻³] |
-| [5.75, 5.8] | [3.39319, 3.41519] | [3.3362, 3.3868] | [1.4992, 1.5000] | [0.7552, 0.7616] | [1.97·10⁻³, 0.0832] |
-| [5.8, 5.85] | [3.37125, 3.39322] | [3.2857, 3.3363] | [1.4947, 1.4993] | [0.7487, 0.7553] | [0.0831, 0.288] |
-| [5.85, 5.9] | [3.34934, 3.37128] | [3.2351, 3.2858] | [1.4846, 1.4948] | [0.7421, 0.7488] | [0.287, 0.532] |
-| [5.9, 5.95] | [3.32743, 3.34937] | [3.1845, 3.2353] | [1.4686, 1.4847] | [0.7353, 0.7422] | [0.531, 0.764] |
-| [5.95, 6] | [3.30553, 3.32746] | [3.1338, 3.1847] | [1.4474, 1.4687] | [0.7284, 0.7354] | [0.763, 0.969] |
-| [6, 6.05] | [3.28362, 3.30556] | [3.0829, 3.1339] | [1.4218, 1.4475] | [0.7213, 0.7285] | [0.968, 1.15] |
-| [6.05, 6.1] | [3.26169, 3.28365] | [3.0319, 3.0831] | [1.3927, 1.4219] | [0.7142, 0.7214] | [1.14, 1.29] |
-| [6.1, 6.15] | [3.23973, 3.26172] | [2.9807, 3.0321] | [1.3608, 1.3928] | [0.7069, 0.7143] | [1.28, 1.41] |
-| [6.15, 6.2] | [3.21774, 3.23976] | [2.9294, 2.9809] | [1.3267, 1.3609] | [0.6996, 0.7070] | [1.40, 1.51] |
-| [6.2, 6.25] | [3.19571, 3.21777] | [2.8778, 2.9295] | [1.2910, 1.3268] | [0.6922, 0.6997] | [1.50, 1.58] |
-| [6.25, 6.3] | [3.17363, 3.19574] | [2.8260, 2.8780] | [1.2542, 1.2911] | [0.6848, 0.6923] | [1.57, 1.64] |
-| [6.3, 6.35] | [3.15151, 3.17366] | [2.7739, 2.8261] | [1.2167, 1.2543] | [0.6773, 0.6849] | [1.63, 1.67] |
-| [6.35, 6.4] | [3.12934, 3.15154] | [2.7216, 2.7741] | [1.1789, 1.2168] | [0.6697, 0.6774] | [1.66, 1.70] |
-| [6.4, 6.45] | [3.10713, 3.12937] | [2.6691, 2.7218] | [1.1412, 1.1790] | [0.6621, 0.6698] | [1.69, 1.71] |
-| [6.45, 6.5] | [3.08487, 3.10716] | [2.6163, 2.6693] | [1.1040, 1.1413] | [0.6544, 0.6622] | [1.69, 1.71] |
-| [6.5, 6.55] | [3.06257, 3.0849] | [2.5633, 2.6165] | [1.0675, 1.1041] | [0.6467, 0.6545] | [1.66, 1.70] |
-| [6.55, 6.6] | [3.04023, 3.0626] | [2.5100, 2.5635] | [1.0321, 1.0676] | [0.6389, 0.6468] | [1.63, 1.67] |
-| [6.6, 6.65] | [3.01785, 3.04026] | [2.4565, 2.5102] | [0.99817, 1.0322] | [0.6310, 0.6390] | [1.57, 1.64] |
-| [6.65, 6.7] | [2.99545, 3.01788] | [2.4028, 2.4567] | [0.96600, 0.99818] | [0.6230, 0.6311] | [1.50, 1.58] |
-| [6.7, 6.75] | [2.97304, 2.99548] | [2.3489, 2.4030] | [0.93598, 0.96601] | [0.6149, 0.6231] | [1.40, 1.51] |
-| [6.75, 6.8] | [2.95061, 2.97307] | [2.2948, 2.3491] | [0.90853, 0.93600] | [0.6066, 0.6150] | [1.28, 1.41] |
-| [6.8, 6.85] | [2.9282, 2.95064] | [2.2406, 2.2950] | [0.88409, 0.90855] | [0.5982, 0.6067] | [1.14, 1.29] |
-| [6.85, 6.9] | [2.90581, 2.92823] | [2.1862, 2.2407] | [0.86314, 0.88410] | [0.5896, 0.5983] | [0.968, 1.15] |
-| [6.9, 6.95] | [2.88347, 2.90584] | [2.1318, 2.1864] | [0.84619, 0.86315] | [0.5806, 0.5897] | [0.763, 0.969] |
-| [6.95, 7] | [2.86122, 2.8835] | [2.0774, 2.1320] | [0.83371, 0.84620] | [0.5714, 0.5807] | [0.531, 0.764] |
-| [7, 7.05] | [2.83907, 2.86125] | [2.0231, 2.0776] | [0.82598, 0.83372] | [0.5617, 0.5715] | [0.287, 0.532] |
-| [7.05, 7.1] | [2.81706, 2.8391] | [1.9689, 2.0232] | [0.82266, 0.82599] | [0.5516, 0.5618] | [0.0831, 0.288] |
-| [7.1, 7.15] | [2.79524, 2.81709] | [1.9150, 1.9691] | [0.82211, 0.82268] | [0.5409, 0.5517] | [1.97·10⁻³, 0.0832] |
-| [7.15, 7.2] | [2.77362, 2.79527] | [1.8614, 1.9151] | [0.82211, 0.82212] | [0.5295, 0.5410] | [0, 1.98·10⁻³] |
-
-| u | J | K | qf | N_κ | κK^l_l ≤ |
-|---|---|---|---|---|---|
-| [5.7, 5.75] | [0.9975, 1.000] | [−4.33·10⁻⁵, 2.20·10⁻³] | [0.865, 0.877] | [−0.0827, −0.0781] | −6.47·10⁻³ |
-| [5.75, 5.8] | [0.9948, 0.9976] | [2.14·10⁻³, 4.59·10⁻³] | [0.861, 0.874] | [−0.0867, −0.0793] | −6.79·10⁻³ |
-| [5.8, 5.85] | [0.9919, 0.9949] | [4.52·10⁻³, 7.18·10⁻³] | [0.856, 0.870] | [−0.0887, −0.0766] | −6.76·10⁻³ |
-| [5.85, 5.9] | [0.9889, 0.9921] | [7.11·10⁻³, 9.98·10⁻³] | [0.851, 0.867] | [−0.0871, −0.0722] | −6.56·10⁻³ |
-| [5.9, 5.95] | [0.9857, 0.9890] | [9.91·10⁻³, 0.0130] | [0.846, 0.863] | [−0.0839, −0.0678] | −6.35·10⁻³ |
-| [5.95, 6] | [0.9822, 0.9858] | [0.0129, 0.0163] | [0.840, 0.860] | [−0.0808, −0.0637] | −6.17·10⁻³ |
-| [6, 6.05] | [0.9786, 0.9824] | [0.0161, 0.0198] | [0.834, 0.856] | [−0.0783, −0.0601] | −6.02·10⁻³ |
-| [6.05, 6.1] | [0.9748, 0.9787] | [0.0196, 0.0235] | [0.829, 0.851] | [−0.0764, −0.0577] | −6.00·10⁻³ |
-| [6.1, 6.15] | [0.9708, 0.9749] | [0.0233, 0.0274] | [0.823, 0.847] | [−0.0754, −0.0558] | −6.02·10⁻³ |
-| [6.15, 6.2] | [0.9665, 0.9709] | [0.0273, 0.0317] | [0.817, 0.842] | [−0.0750, −0.0544] | −6.11·10⁻³ |
-| [6.2, 6.25] | [0.9621, 0.9667] | [0.0315, 0.0361] | [0.811, 0.837] | [−0.0750, −0.0541] | −6.33·10⁻³ |
-| [6.25, 6.3] | [0.9574, 0.9622] | [0.0360, 0.0409] | [0.804, 0.831] | [−0.0761, −0.0541] | −6.60·10⁻³ |
-| [6.3, 6.35] | [0.9525, 0.9576] | [0.0407, 0.0459] | [0.798, 0.826] | [−0.0775, −0.0552] | −7.05·10⁻³ |
-| [6.35, 6.4] | [0.9473, 0.9527] | [0.0458, 0.0513] | [0.791, 0.820] | [−0.0801, −0.0564] | −7.53·10⁻³ |
-| [6.4, 6.45] | [0.9419, 0.9475] | [0.0511, 0.0570] | [0.784, 0.814] | [−0.0827, −0.0585] | −8.20·10⁻³ |
-| [6.45, 6.5] | [0.9363, 0.9421] | [0.0568, 0.0630] | [0.777, 0.808] | [−0.0866, −0.0612] | −9.01·10⁻³ |
-| [6.5, 6.55] | [0.9303, 0.9364] | [0.0628, 0.0694] | [0.770, 0.801] | [−0.0920, −0.0645] | −9.96·10⁻³ |
-| [6.55, 6.6] | [0.9240, 0.9305] | [0.0692, 0.0762] | [0.762, 0.794] | [−0.0978, −0.0689] | −0.0112 |
-| [6.6, 6.65] | [0.9175, 0.9242] | [0.0760, 0.0834] | [0.754, 0.787] | [−0.106, −0.0737] | −0.0126 |
-| [6.65, 6.7] | [0.9105, 0.9176] | [0.0832, 0.0910] | [0.746, 0.779] | [−0.114, −0.0804] | −0.0145 |
-| [6.7, 6.75] | [0.9032, 0.9107] | [0.0908, 0.0992] | [0.738, 0.771] | [−0.124, −0.0882] | −0.0167 |
-| [6.75, 6.8] | [0.8955, 0.9034] | [0.0989, 0.108] | [0.729, 0.763] | [−0.137, −0.0984] | −0.0197 |
-| [6.8, 6.85] | [0.8873, 0.8957] | [0.107, 0.117] | [0.720, 0.754] | [−0.151, −0.110] | −0.0234 |
-| [6.85, 6.9] | [0.8785, 0.8875] | [0.116, 0.127] | [0.710, 0.745] | [−0.168, −0.125] | −0.0281 |
-| [6.9, 6.95] | [0.8693, 0.8788] | [0.126, 0.138] | [0.701, 0.735] | [−0.190, −0.144] | −0.0343 |
-| [6.95, 7] | [0.8593, 0.8695] | [0.137, 0.149] | [0.690, 0.724] | [−0.215, −0.168] | −0.0422 |
-| [7, 7.05] | [0.8486, 0.8596] | [0.148, 0.161] | [0.679, 0.714] | [−0.244, −0.196] | −0.0521 |
-| [7.05, 7.1] | [0.8371, 0.8489] | [0.160, 0.174] | [0.668, 0.702] | [−0.274, −0.228] | −0.0643 |
-| [7.1, 7.15] | [0.8246, 0.8374] | [0.173, 0.188] | [0.655, 0.690] | [−0.300, −0.262] | −0.0777 |
-| [7.15, 7.2] | [0.8111, 0.8249] | [0.187, 0.203] | [0.641, 0.679] | [−0.323, −0.289] | −0.0899 |
-
-#### The end of region III: the enclosures {#sec:tab-bg-region-three-end}
-
-Used in [[prop:bg-region-three-end]] (b). The enclosures hold at every point of Σ_τ0 with 1.861 ≤ R ≤ R_u2, on the box
-ρ ∈ [2.7734, 2.7737], μ3 ∈ [0.82211214, 0.82211297], R ∈ [1.861, 1.861441]. The first four rows come from the values of
-Φ̃^(j) at ρ_m = 2.77355, and each later row follows from the rows above it by [[lem:bg-tools]] (d), with the formulas of
-the proof of [[prop:bg-region-three-end]] (b) and 𝔲, m, W, n0, A0, A1, A2, A3 as in [[eq:margins-gamma-form]].
-
-| quantity | enclosure |
-|---|---|
-| Φ | [1.861230, 1.861516] |
-| Φ′ | [0.8110717, 0.8111784] |
-| Φ″ | [0.2025879, 0.2027130] |
-| Φ‴ | [−0.2476464, −0.2474778] |
-| f1 | [0.8049857, 0.8050280] |
-| a | [0.4024928, 0.4025140] |
-| a′ | [0.07029311, 0.07031594] |
-| a″ | [−0.07606108, −0.07602817] |
-| f3(Φ) | [0.7626815, 0.7627548] |
-| h3(Φ) | [0.2032328, 0.2033656] |
-| h3′(Φ) | [−0.3959414, −0.3952924] |
-| ψ_III | [−0.1555110, −0.1552307] |
-| ψ_III′ | [0.06163544, 0.06183038] |
-| ψ_III″ | [−0.03252944, −0.03228970] |
-| q | [0.8559776, 0.8562177] |
-| 𝔲 | [0.1437823, 0.1440225] |
-| m | [0.2372643, 0.2373771] |
-| W | [0.6527881, 0.6530679] |
-| n0 | [0.04255919, 0.04307245] |
-| (2 − W)(1 − W)² | [0.1621192, 0.1624147] |
-| A0 | [7.890107, 8.007751] |
-| A1 | [49.47565, 49.91199] |
-| A2 | [483.3100, 484.9544] |
-| A3 | [72.78488, 72.95588] |
-| Γ/E² | [10.40240, 10.59761] |
-
-### Tables for the margins of the angle-localised families {#sec:table-margins}
-
-These tables carry the objects and the rows that the proofs of [[sec:margins]] use. Every number is a terminating
-decimal. Where a printed number is a rounding of a real number, the proof that uses it states the rounding and absorbs
-it into its error bounds.
-
-#### The bump and its integrals {#sec:table-bump}
-
-The bump is β(y) := exp(1 − 1/(1 − y²)) for |y| < 1 and β(y) := 0 otherwise, and b(x; a, c) := β((2x − a − c)/(c − a)).
-Its integrals are C(y) := ∫_(−1)^y β and D(y) := ∫_(−1)^y C = ∫_(−1)^y (y − s) β(s) ds. With δ := 1/20 and y_j := −1 +
-jδ (j = 0, …, 40) the table lists β(y_j) and β′(y_j), rounded to ten decimals, and the numbers C̃_j, D̃_j defined by
-C̃_0 = D̃_0 = 0 and
-
-    C̃_(j+1) = C̃_j + (δ/2)(β(y_j) + β(y_(j+1))) − (δ²/12)(β′(y_(j+1)) − β′(y_j)),
-    D̃_(j+1) = D̃_j + (δ/2)(C̃_j + C̃_(j+1)) − (δ²/12)(β(y_(j+1)) − β(y_j)),
-
-evaluated with the exact values β(y_j) and β′(y_j), not their printed roundings, and with C̃ unrounded, and then
-rounded to ten decimals. [[lem:margins-bump-table]] shows |C(y_j) − C̃_j| ≤ 5 × 10⁻⁵ and |D(y_j) − D̃_j| ≤ 10⁻⁴.
-The table is used in [[prop:margins-bend]] and, through the values of the bend, in [[thm:margins-hyperbolic]].
-
-| j | y_j | β(y_j) | β′(y_j) | C̃_j | D̃_j |
-|---|---|---|---|---|---|
-| 0 | −1.00 | 0.0000000000 | 0.0000000000 | 0.0000000000 | 0.0000000000 |
-| 1 | −0.95 | 0.0000954975 | 0.0190869472 | −0.0000015890 | −0.0000000596 |
-| 2 | −0.90 | 0.0140777760 | 0.7019389699 | 0.0002104820 | 0.0000022497 |
-| 3 | −0.85 | 0.0740064074 | 1.6337750833 | 0.0022184541 | 0.0000504880 |
-| 4 | −0.80 | 0.1690133154 | 2.0865841408 | 0.0081996119 | 0.0002911465 |
-| 5 | −0.75 | 0.2764530466 | 2.1664891818 | 0.0193196241 | 0.0009567442 |
-| 6 | −0.70 | 0.3825926956 | 2.0593224675 | 0.0358180940 | 0.0023130747 |
-| 7 | −0.65 | 0.4811377191 | 1.8754642074 | 0.0574496582 | 0.0046242383 |
-| 8 | −0.60 | 0.5697828247 | 1.6692856193 | 0.0837656257 | 0.0081361526 |
-| 9 | −0.55 | 0.6481120012 | 1.4653937154 | 0.1142554738 | 0.0130703616 |
-| 10 | −0.50 | 0.7165313106 | 1.2738334410 | 0.1484114650 | 0.0196227810 |
-| 11 | −0.45 | 0.7757550272 | 1.0977557602 | 0.1857553063 | 0.0279646120 |
-| 12 | −0.40 | 0.8265654376 | 0.9371490222 | 0.2258467776 | 0.0382440786 |
-| 13 | −0.35 | 0.8697050571 | 0.7906345435 | 0.2682840638 | 0.0505883622 |
-| 14 | −0.30 | 0.9058322914 | 0.6563209453 | 0.3127004796 | 0.0651054493 |
-| 15 | −0.25 | 0.9355069850 | 0.5321995293 | 0.3587598201 | 0.0818857746 |
-| 16 | −0.20 | 0.9591894571 | 0.4163148685 | 0.4061513738 | 0.1010036206 |
-| 17 | −0.15 | 0.9772449882 | 0.3068253049 | 0.4545850452 | 0.1225182695 |
-| 18 | −0.10 | 0.9899498338 | 0.2020099651 | 0.5037867523 | 0.1464749176 |
-| 19 | −0.05 | 0.9974968724 | 0.1002503122 | 0.5534941199 | 0.1729053671 |
-| 20 | 0.00 | 1.0000000000 | 0.0000000000 | 0.6034524272 | 0.2018285093 |
-| 21 | 0.05 | 0.9974968724 | −0.1002503122 | 0.6534107345 | 0.2332506098 |
-| 22 | 0.10 | 0.9899498338 | −0.2020099651 | 0.7031181021 | 0.2671654030 |
-| 23 | 0.15 | 0.9772449882 | −0.3068253049 | 0.7523198091 | 0.3035539976 |
-| 24 | 0.20 | 0.9591894571 | −0.4163148685 | 0.8007534806 | 0.3423845914 |
-| 25 | 0.25 | 0.9355069850 | −0.5321995293 | 0.8481450343 | 0.3836119882 |
-| 26 | 0.30 | 0.9058322914 | −0.6563209453 | 0.8942043748 | 0.4271769056 |
-| 27 | 0.35 | 0.8697050571 | −0.7906345435 | 0.9386207905 | 0.4730050613 |
-| 28 | 0.40 | 0.8265654376 | −0.9371490222 | 0.9810580768 | 0.5210060204 |
-| 29 | 0.45 | 0.7757550272 | −1.0977557602 | 1.0211495481 | 0.5710717965 |
-| 30 | 0.50 | 0.7165313106 | −1.2738334410 | 1.0584933894 | 0.6230752082 |
-| 31 | 0.55 | 0.6481120012 | −1.4653937154 | 1.0926493806 | 0.6768680315 |
-| 32 | 0.60 | 0.5697828247 | −1.6692856193 | 1.1231392287 | 0.7322790653 |
-| 33 | 0.65 | 0.4811377191 | −1.8754642074 | 1.1494551962 | 0.7891123936 |
-| 34 | 0.70 | 0.3825926956 | −2.0593224675 | 1.1710867604 | 0.8471464728 |
-| 35 | 0.75 | 0.2764530466 | −2.1664891818 | 1.1875852303 | 0.9061353850 |
-| 36 | 0.80 | 0.1690133154 | −2.0865841408 | 1.1987052425 | 0.9658150300 |
-| 37 | 0.85 | 0.0740064074 | −1.6337750833 | 1.2046864003 | 1.0259196142 |
-| 38 | 0.90 | 0.0140777760 | −0.7019389699 | 1.2066943724 | 1.0862166187 |
-| 39 | 0.95 | 0.0000954975 | −0.0190869472 | 1.2069064434 | 1.1465595520 |
-| 40 | 1.00 | 0.0000000000 | 0.0000000000 | 1.2069048544 | 1.2069048544 |
-
-#### The reference profile on the seed region {#sec:table-seed-profile}
-
-The reference profile is the pair (ψ_s, μ_s) with μ_s := 0.8221111759474543 and, for 0 ≤ v̂ ≤ 2.626161920655184,
-
-    ψ_s(v̂) := c_5 v̂⁵ + c_4 v̂⁴ + c_3 v̂³ + c_2 v̂² + c_1 v̂ + c_0,
-
-    c_5 =  0.000036266230280898565,      c_4 = −0.0006828865263100425,     c_3 =  0.005975740440748802,
-    c_2 = −0.032306921548756716,         c_1 =  0.11720807953605501,       c_0 = −0.25734075580969945.
-
-We call ψ_s the reference quintic; [[rem:bg-grid]] relates it to a numerical solution, and no proof uses that relation.
-The seed region R ∈ [0.70, 1.861] of Σ_τ0 has v̂ = τ0 + R ∈ [0.02, 1.181], inside the interval of definition.
-[[prop:margins-seed]] uses the pair, and [[prop:bg-seed]] compares the background with it.
-
-#### Cells of the seed region {#sec:table-seed-cells}
-
-Thirty-two cells [R_a, R_b] cover [0.70, 1.861]. For each, the columns give the values of ψ_s, ψ_s′ and ψ_s″ at v̂ =
-τ0 + R_a and τ0 + R_b (τ0 = −0.68), rounded to seven decimals; by [[lem:margins-profile-monotone]] the exact values are
-the ends of the ranges of ψ_s, ψ_s′ and ψ_s″ on the cell. Each pair of columns lists the smaller value first. Column (a)
-is a lower bound for Γ/E² on the cell for the reference profile, column (b) a lower bound over the tube of
-[[prop:margins-seed]] (b). Both are rounded down to three decimals. They come from [[eq:margins-gamma-form]] evaluated
-by the enclosure rule of [[lem:margins-enclosure]] (a), in the form written there, with q = e^ψ, u = 1 − q and m =
-μ/R², and with each printed end value moved outward by 5 × 10⁻⁸ to cover its rounding.
-
-| R_a | R_b | ψ_s(a) | ψ_s(b) | ψ_s′(b) | ψ_s′(a) | ψ_s″(a) | ψ_s″(b) | (a) | (b) |
-|---|---|---|---|---|---|---|---|---|---|
-| 0.70 | 0.7091 | −0.2550095 | −0.2539572 | 0.1153429 | 0.1159230 | −0.0639000 | −0.0635774 | 0.470 | 0.460 |
-| 0.7091 | 0.7182 | −0.2539572 | −0.2529102 | 0.1147658 | 0.1153429 | −0.0635774 | −0.0632561 | 0.486 | 0.475 |
-| 0.7182 | 0.7272 | −0.2529102 | −0.2518799 | 0.1141980 | 0.1147658 | −0.0632561 | −0.0629397 | 0.503 | 0.493 |
-| 0.7272 | 0.7363 | −0.2518799 | −0.2508433 | 0.1136267 | 0.1141980 | −0.0629397 | −0.0626211 | 0.518 | 0.507 |
-| 0.7363 | 0.7454 | −0.2508433 | −0.2498119 | 0.1130583 | 0.1136267 | −0.0626211 | −0.0623038 | 0.534 | 0.523 |
-| 0.7454 | 0.7544 | −0.2498119 | −0.2487969 | 0.1124989 | 0.1130583 | −0.0623038 | −0.0619913 | 0.553 | 0.542 |
-| 0.7544 | 0.7635 | −0.2487969 | −0.2477757 | 0.1119362 | 0.1124989 | −0.0619913 | −0.0616767 | 0.568 | 0.557 |
-| 0.7635 | 0.7726 | −0.2477757 | −0.2467596 | 0.1113764 | 0.1119362 | −0.0616767 | −0.0613634 | 0.586 | 0.574 |
-| 0.7726 | 0.7907 | −0.2467596 | −0.2447537 | 0.1102713 | 0.1113764 | −0.0613634 | −0.0607442 | 0.456 | 0.445 |
-| 0.7907 | 0.8088 | −0.2447537 | −0.2427677 | 0.1091774 | 0.1102713 | −0.0607442 | −0.0601302 | 0.491 | 0.479 |
-| 0.8088 | 0.8270 | −0.2427677 | −0.2407906 | 0.1080886 | 0.1091774 | −0.0601302 | −0.0595180 | 0.525 | 0.513 |
-| 0.8270 | 0.8451 | −0.2407906 | −0.2388439 | 0.1070168 | 0.1080886 | −0.0595180 | −0.0589144 | 0.565 | 0.553 |
-| 0.8451 | 0.8632 | −0.2388439 | −0.2369165 | 0.1059559 | 0.1070168 | −0.0589144 | −0.0583159 | 0.604 | 0.592 |
-| 0.8632 | 0.8814 | −0.2369165 | −0.2349978 | 0.1049000 | 0.1059559 | −0.0583159 | −0.0577192 | 0.644 | 0.631 |
-| 0.8814 | 0.8995 | −0.2349978 | −0.2331085 | 0.1038606 | 0.1049000 | −0.0577192 | −0.0571309 | 0.689 | 0.675 |
-| 0.8995 | 0.9176 | −0.2331085 | −0.2312380 | 0.1028318 | 0.1038606 | −0.0571309 | −0.0565477 | 0.733 | 0.719 |
-| 0.9176 | 0.9539 | −0.2312380 | −0.2275422 | 0.1008002 | 0.1028318 | −0.0565477 | −0.0553932 | 0.483 | 0.466 |
-| 0.9539 | 0.9902 | −0.2275422 | −0.2239194 | 0.0988100 | 0.1008002 | −0.0553932 | −0.0542587 | 0.573 | 0.551 |
-| 0.9902 | 1.0265 | −0.2239194 | −0.2203681 | 0.0968607 | 0.0988100 | −0.0542587 | −0.0531440 | 0.673 | 0.644 |
-| 1.0265 | 1.0628 | −0.2203681 | −0.2168868 | 0.0949516 | 0.0968607 | −0.0531440 | −0.0520489 | 0.783 | 0.745 |
-| 1.0628 | 1.0991 | −0.2168868 | −0.2134741 | 0.0930818 | 0.0949516 | −0.0520489 | −0.0509732 | 0.904 | 0.855 |
-| 1.0991 | 1.1354 | −0.2134741 | −0.2101286 | 0.0912507 | 0.0930818 | −0.0509732 | −0.0499167 | 1.037 | 0.973 |
-| 1.1354 | 1.2080 | −0.2101286 | −0.2036335 | 0.0877018 | 0.0912507 | −0.0499167 | −0.0478605 | 0.543 | 0.438 |
-| 1.2080 | 1.2805 | −0.2036335 | −0.1973992 | 0.0843041 | 0.0877018 | −0.0478605 | −0.0458812 | 0.817 | 0.663 |
-| 1.2805 | 1.3530 | −0.1973992 | −0.1914060 | 0.0810473 | 0.0843041 | −0.0458812 | −0.0439743 | 1.145 | 0.906 |
-| 1.3530 | 1.4256 | −0.1914060 | −0.1856362 | 0.0779219 | 0.0810473 | −0.0439743 | −0.0421357 | 1.532 | 1.174 |
-| 1.4256 | 1.4982 | −0.1856362 | −0.1800886 | 0.0749275 | 0.0779219 | −0.0421357 | −0.0403664 | 1.990 | 1.466 |
-| 1.4982 | 1.5708 | −0.1800886 | −0.1747537 | 0.0720591 | 0.0749275 | −0.0403664 | −0.0386646 | 2.521 | 1.775 |
-| 1.5708 | 1.6434 | −0.1747537 | −0.1696227 | 0.0693118 | 0.0720591 | −0.0386646 | −0.0370289 | 3.131 | 2.089 |
-| 1.6434 | 1.7159 | −0.1696227 | −0.1646935 | 0.0666845 | 0.0693118 | −0.0370289 | −0.0354595 | 3.828 | 2.399 |
-| 1.7159 | 1.7884 | −0.1646935 | −0.1599507 | 0.0641687 | 0.0666845 | −0.0354595 | −0.0339526 | 4.606 | 2.681 |
-| 1.7884 | 1.861 | −0.1599507 | −0.1553803 | 0.0617566 | 0.0641687 | −0.0339526 | −0.0325045 | 5.469 | 2.910 |
-
-#### The data on the shell {#sec:table-shell}
-
-Along the cone 𝒞_out = {u = 0}, at v_k := 3 + k/80 (k = 0, …, 120), the table lists the shell profile 𝒜_k := 𝒜(v_k) = 3.6
-b(v_k; 3, 4.5) with its first two derivatives (rounded to nine, eight and six decimals), and the numbers R_k, P_k, μ_k,
-v̂_k (rounded to eight decimals) that satisfy the scheme [[eq:margins-scheme]] of [[lem:margins-shell-data]] to within
-10⁻⁸ in each component, the residuals summing to at most 5 × 10⁻⁷ in each component. By that lemma the true radius, its
-v-derivative, the mass and the time v̂ on 𝒞_out at v_k are within 4 × 10⁻⁶, 6 × 10⁻⁷, 10⁻⁵ and 4 × 10⁻⁶ of R_k, P_k, μ_k
-and v̂_k. For k = 0 the values are exact: R_0 = 13/2, P_0 = 1/2, μ_0 = 3/2 and v̂_0 = 3 + √(3/2) ln[(13/2 − √(3/2))(5 +
-√(3/2))/((13/2 + √(3/2))(5 − √(3/2)))].
-
-| k | v_k | 𝒜_k | 𝒜′_k | 𝒜″_k | R_k | P_k | μ_k | v̂_k |
-|---|---|---|---|---|---|---|---|---|
-| 0 | 3.00000 | 0.000000000 | 0.00000000 | 0.000000 | 6.50000000 | 0.50000000 | 1.50000000 | 3.14533158 |
-| 1 | 3.01250 | 0.000000000 | 0.00000000 | 0.000004 | 6.50625000 | 0.50000000 | 1.50000000 | 3.15829125 |
-| 2 | 3.02500 | 0.000002321 | 0.00139249 | 0.723823 | 6.51250000 | 0.50000000 | 1.50000000 | 3.17125000 |
-| 3 | 3.03750 | 0.000343791 | 0.09161735 | 19.525674 | 6.51875000 | 0.49999999 | 1.50000063 | 3.18420784 |
-| 4 | 3.05000 | 0.004178985 | 0.62610242 | 68.728752 | 6.52500000 | 0.49999983 | 1.50001434 | 3.19716477 |
-| 5 | 3.06250 | 0.018686840 | 1.79054550 | 114.156738 | 6.53124999 | 0.49999883 | 1.50009651 | 3.21012079 |
-| 6 | 3.07500 | 0.050679994 | 3.36930706 | 133.887351 | 6.53749996 | 0.49999560 | 1.50036216 | 3.22307591 |
-| 7 | 3.08750 | 0.103284582 | 5.03942381 | 130.223695 | 6.54374985 | 0.49998828 | 1.50096720 | 3.23603012 |
-| 8 | 3.10000 | 0.176061256 | 6.56861192 | 112.972133 | 6.54999962 | 0.49997485 | 1.50207760 | 3.24898344 |
-| 9 | 3.11250 | 0.266423066 | 7.84212040 | 90.418679 | 6.55624918 | 0.49995352 | 1.50384622 | 3.26193586 |
-| 10 | 3.12500 | 0.370910892 | 8.82829232 | 67.591157 | 6.56249840 | 0.49992276 | 1.50640094 | 3.27488739 |
-| 11 | 3.13750 | 0.485989510 | 9.54128992 | 46.966903 | 6.56874718 | 0.49988142 | 1.50984115 | 3.28783802 |
-| 12 | 3.15000 | 0.608447935 | 10.01560388 | 29.469781 | 6.57499537 | 0.49982868 | 1.51423897 | 3.30078776 |
-| 13 | 3.16250 | 0.735553285 | 10.29153655 | 15.201271 | 6.58124282 | 0.49976400 | 1.51964256 | 3.31373661 |
-| 14 | 3.17500 | 0.865072323 | 10.40794361 | 3.882485 | 6.58748939 | 0.49968709 | 1.52608013 | 3.32668456 |
-| 15 | 3.18750 | 0.995230968 | 10.39914807 | −4.904814 | 6.59373492 | 0.49959787 | 1.53356382 | 3.33963162 |
-| 16 | 3.20000 | 1.124650485 | 10.29404567 | −11.597414 | 6.59997926 | 0.49949638 | 1.54209315 | 3.35257778 |
-| 17 | 3.21250 | 1.252279922 | 10.11626190 | −16.596299 | 6.60622226 | 0.49938279 | 1.55165787 | 3.36552304 |
-| 18 | 3.22500 | 1.377333704 | 9.88474784 | −20.246894 | 6.61246376 | 0.49925736 | 1.56224041 | 3.37846740 |
-| 19 | 3.23750 | 1.499237693 | 9.61450397 | −22.836229 | 6.61870362 | 0.49912040 | 1.57381776 | 3.39141085 |
-| 20 | 3.25000 | 1.617584271 | 9.31728540 | −24.597633 | 6.62494170 | 0.49897229 | 1.58636296 | 3.40435339 |
-| 21 | 3.26250 | 1.732095789 | 9.00222820 | −25.718143 | 6.63117786 | 0.49881341 | 1.59984632 | 3.41729502 |
-| 22 | 3.27500 | 1.842595237 | 8.67637893 | −26.346307 | 6.63741197 | 0.49864417 | 1.61423636 | 3.43023574 |
-| 23 | 3.28750 | 1.948982943 | 8.34512998 | −26.599370 | 6.64364390 | 0.49846501 | 1.62950044 | 3.44317552 |
-| 24 | 3.30000 | 2.051218169 | 8.01257097 | −26.569463 | 6.64987353 | 0.49827634 | 1.64560542 | 3.45611438 |
-| 25 | 3.31250 | 2.149304651 | 7.68176962 | −26.328741 | 6.65610075 | 0.49807860 | 1.66251797 | 3.46905230 |
-| 26 | 3.32500 | 2.243279271 | 7.35499430 | −25.933562 | 6.66232544 | 0.49787221 | 1.68020494 | 3.48198927 |
-| 27 | 3.33750 | 2.333203204 | 7.03388983 | −25.427835 | 6.66854751 | 0.49765758 | 1.69863358 | 3.49492530 |
-| 28 | 3.35000 | 2.419155029 | 6.71961584 | −24.845677 | 6.67476683 | 0.49743511 | 1.71777170 | 3.50786036 |
-| 29 | 3.36250 | 2.501225363 | 6.41295542 | −24.213520 | 6.68098334 | 0.49720521 | 1.73758778 | 3.52079446 |
-| 30 | 3.37500 | 2.579512718 | 6.11440052 | −23.551765 | 6.68719692 | 0.49696827 | 1.75805106 | 3.53372759 |
-| 31 | 3.38750 | 2.654120288 | 5.82421880 | −22.876085 | 6.69340750 | 0.49672464 | 1.77913160 | 3.54665973 |
-| 32 | 3.40000 | 2.725153494 | 5.54250614 | −22.198449 | 6.69961500 | 0.49647471 | 1.80080030 | 3.55959088 |
-| 33 | 3.41250 | 2.792718098 | 5.26922765 | −21.527922 | 6.70581933 | 0.49621881 | 1.82302888 | 3.57252103 |
-| 34 | 3.42500 | 2.856918782 | 5.00424990 | −20.871302 | 6.71202043 | 0.49595728 | 1.84578993 | 3.58545017 |
-| 35 | 3.43750 | 2.917858077 | 4.74736601 | −20.233615 | 6.71821823 | 0.49569045 | 1.86905685 | 3.59837828 |
-| 36 | 3.45000 | 2.975635575 | 4.49831531 | −19.618503 | 6.72441266 | 0.49541865 | 1.89280388 | 3.61130537 |
-| 37 | 3.46250 | 3.030347355 | 4.25679856 | −19.028534 | 6.73060367 | 0.49514216 | 1.91700601 | 3.62423142 |
-| 38 | 3.47500 | 3.082085575 | 4.02248987 | −18.465445 | 6.73679119 | 0.49486130 | 1.94163900 | 3.63715641 |
-| 39 | 3.48750 | 3.130938206 | 3.79504581 | −17.930331 | 6.74297517 | 0.49457633 | 1.96667934 | 3.65008035 |
-| 40 | 3.50000 | 3.176988849 | 3.57411246 | −17.423798 | 6.74915557 | 0.49428755 | 1.99210419 | 3.66300321 |
-| 41 | 3.51250 | 3.220316649 | 3.35933075 | −16.946080 | 6.75533234 | 0.49399521 | 2.01789137 | 3.67592500 |
-| 42 | 3.52500 | 3.260996249 | 3.15034054 | −16.497134 | 6.76150543 | 0.49369957 | 2.04401931 | 3.68884569 |
-| 43 | 3.53750 | 3.299097800 | 2.94678353 | −16.076713 | 6.76767481 | 0.49340088 | 2.07046704 | 3.70176527 |
-| 44 | 3.55000 | 3.334686999 | 2.74830549 | −15.684424 | 6.77384044 | 0.49309940 | 2.09721411 | 3.71468374 |
-| 45 | 3.56250 | 3.367825146 | 2.55455774 | −15.319777 | 6.78000228 | 0.49279534 | 2.12424058 | 3.72760109 |
-| 46 | 3.57500 | 3.398569225 | 2.36519818 | −14.982218 | 6.78616031 | 0.49248894 | 2.15152699 | 3.74051729 |
-| 47 | 3.58750 | 3.426971988 | 2.17989188 | −14.671157 | 6.79231449 | 0.49218042 | 2.17905432 | 3.75343235 |
-| 48 | 3.60000 | 3.453082046 | 1.99831137 | −14.385992 | 6.79846481 | 0.49187000 | 2.20680394 | 3.76634625 |
-| 49 | 3.61250 | 3.476943962 | 1.82013668 | −14.126126 | 6.80461123 | 0.49155790 | 2.23475762 | 3.77925898 |
-| 50 | 3.62500 | 3.498598350 | 1.64505522 | −13.890981 | 6.81075374 | 0.49124431 | 2.26289743 | 3.79217053 |
-| 51 | 3.63750 | 3.518081957 | 1.47276146 | −13.680005 | 6.81689233 | 0.49092944 | 2.29120579 | 3.80508088 |
-| 52 | 3.65000 | 3.535427756 | 1.30295652 | −13.492687 | 6.82302697 | 0.49061349 | 2.31966536 | 3.81799002 |
-| 53 | 3.66250 | 3.550665020 | 1.13534769 | −13.328554 | 6.82915766 | 0.49029665 | 2.34825906 | 3.83089795 |
-| 54 | 3.67500 | 3.563819402 | 0.96964783 | −13.187184 | 6.83528438 | 0.48997910 | 2.37697005 | 3.84380465 |
-| 55 | 3.68750 | 3.574912994 | 0.80557480 | −13.068205 | 6.84140714 | 0.48966105 | 2.40578163 | 3.85671011 |
-| 56 | 3.70000 | 3.583964392 | 0.64285076 | −12.971297 | 6.84752591 | 0.48934267 | 2.43467731 | 3.86961432 |
-| 57 | 3.71250 | 3.590988741 | 0.48120150 | −12.896200 | 6.85364070 | 0.48902415 | 2.46364069 | 3.88251727 |
-| 58 | 3.72500 | 3.595997777 | 0.32035575 | −12.842706 | 6.85975151 | 0.48870566 | 2.49265551 | 3.89541895 |
-| 59 | 3.73750 | 3.598999861 | 0.16004445 | −12.810669 | 6.86585834 | 0.48838738 | 2.52170555 | 3.90831933 |
-| 60 | 3.75000 | 3.600000000 | 0.00000000 | −12.800000 | 6.87196120 | 0.48806949 | 2.55077467 | 3.92121843 |
-| 61 | 3.76250 | 3.598999861 | −0.16004445 | −12.810669 | 6.87806009 | 0.48775217 | 2.57984674 | 3.93411621 |
-| 62 | 3.77500 | 3.595997777 | −0.32035575 | −12.842706 | 6.88415501 | 0.48743558 | 2.60890562 | 3.94701267 |
-| 63 | 3.78750 | 3.590988741 | −0.48120150 | −12.896200 | 6.89024598 | 0.48711990 | 2.63793515 | 3.95990781 |
-| 64 | 3.80000 | 3.583964392 | −0.64285076 | −12.971297 | 6.89633301 | 0.48680531 | 2.66691909 | 3.97280160 |
-| 65 | 3.81250 | 3.574912994 | −0.80557480 | −13.068205 | 6.90241612 | 0.48649198 | 2.69584114 | 3.98569405 |
-| 66 | 3.82500 | 3.563819402 | −0.96964783 | −13.187184 | 6.90849532 | 0.48618008 | 2.72468487 | 3.99858513 |
-| 67 | 3.83750 | 3.550665020 | −1.13534769 | −13.328554 | 6.91457063 | 0.48586978 | 2.75343370 | 4.01147484 |
-| 68 | 3.85000 | 3.535427756 | −1.30295652 | −13.492687 | 6.92064208 | 0.48556127 | 2.78207090 | 4.02436316 |
-| 69 | 3.86250 | 3.518081957 | −1.47276146 | −13.680005 | 6.92670968 | 0.48525471 | 2.81057953 | 4.03725009 |
-| 70 | 3.87500 | 3.498598350 | −1.64505522 | −13.890981 | 6.93277346 | 0.48495029 | 2.83894242 | 4.05013561 |
-| 71 | 3.88750 | 3.476943962 | −1.82013668 | −14.126126 | 6.93883345 | 0.48464818 | 2.86714215 | 4.06301973 |
-| 72 | 3.90000 | 3.453082046 | −1.99831137 | −14.385992 | 6.94488968 | 0.48434856 | 2.89516101 | 4.07590241 |
-| 73 | 3.91250 | 3.426971988 | −2.17989188 | −14.671157 | 6.95094218 | 0.48405162 | 2.92298096 | 4.08878366 |
-| 74 | 3.92500 | 3.398569225 | −2.36519818 | −14.982218 | 6.95699099 | 0.48375755 | 2.95058363 | 4.10166347 |
-| 75 | 3.93750 | 3.367825146 | −2.55455774 | −15.319777 | 6.96303614 | 0.48346653 | 2.97795023 | 4.11454183 |
-| 76 | 3.95000 | 3.334686999 | −2.74830549 | −15.684424 | 6.96907767 | 0.48317876 | 3.00506160 | 4.12741872 |
-| 77 | 3.96250 | 3.299097800 | −2.94678353 | −16.076713 | 6.97511563 | 0.48289443 | 3.03189810 | 4.14029414 |
-| 78 | 3.97500 | 3.260996249 | −3.15034054 | −16.497134 | 6.98115005 | 0.48261374 | 3.05843959 | 4.15316808 |
-| 79 | 3.98750 | 3.220316649 | −3.35933075 | −16.946080 | 6.98718100 | 0.48233691 | 3.08466545 | 4.16604053 |
-| 80 | 4.00000 | 3.176988849 | −3.57411246 | −17.423798 | 6.99320850 | 0.48206413 | 3.11055446 | 4.17891148 |
-| 81 | 4.01250 | 3.130938206 | −3.79504581 | −17.930331 | 6.99923263 | 0.48179562 | 3.13608484 | 4.19178092 |
-| 82 | 4.02500 | 3.082085575 | −4.02248987 | −18.465445 | 7.00525342 | 0.48153161 | 3.16123416 | 4.20464886 |
-| 83 | 4.03750 | 3.030347355 | −4.25679856 | −19.028534 | 7.01127094 | 0.48127232 | 3.18597931 | 4.21751526 |
-| 84 | 4.05000 | 2.975635575 | −4.49831531 | −19.618503 | 7.01728526 | 0.48101798 | 3.21029651 | 4.23038014 |
-| 85 | 4.06250 | 2.917858077 | −4.74736601 | −20.233615 | 7.02329643 | 0.48076883 | 3.23416121 | 4.24324348 |
-| 86 | 4.07500 | 2.856918782 | −5.00424990 | −20.871302 | 7.02930451 | 0.48052512 | 3.25754810 | 4.25610528 |
-| 87 | 4.08750 | 2.792718098 | −5.26922765 | −21.527922 | 7.03530959 | 0.48028709 | 3.28043107 | 4.26896552 |
-| 88 | 4.10000 | 2.725153494 | −5.54250614 | −22.198449 | 7.04131173 | 0.48005501 | 3.30278318 | 4.28182421 |
-| 89 | 4.11250 | 2.654120288 | −5.82421880 | −22.876085 | 7.04731100 | 0.47982914 | 3.32457662 | 4.29468133 |
-| 90 | 4.12500 | 2.579512718 | −6.11440052 | −23.551765 | 7.05330750 | 0.47960976 | 3.34578275 | 4.30753688 |
-| 91 | 4.13750 | 2.501225363 | −6.41295542 | −24.213520 | 7.05930129 | 0.47939715 | 3.36637202 | 4.32039086 |
-| 92 | 4.15000 | 2.419155029 | −6.71961584 | −24.845677 | 7.06529247 | 0.47919159 | 3.38631406 | 4.33324326 |
-| 93 | 4.16250 | 2.333203204 | −7.03388983 | −25.427835 | 7.07128113 | 0.47899339 | 3.40557765 | 4.34609407 |
-| 94 | 4.17500 | 2.243279271 | −7.35499430 | −25.933562 | 7.07726735 | 0.47880285 | 3.42413077 | 4.35894329 |
-| 95 | 4.18750 | 2.149304651 | −7.68176962 | −26.328741 | 7.08325125 | 0.47862027 | 3.44194074 | 4.37179092 |
-| 96 | 4.20000 | 2.051218169 | −8.01257097 | −26.569463 | 7.08923291 | 0.47844597 | 3.45897425 | 4.38463694 |
-| 97 | 4.21250 | 1.948982943 | −8.34512998 | −26.599370 | 7.09521245 | 0.47828026 | 3.47519762 | 4.39748137 |
-| 98 | 4.22500 | 1.842595237 | −8.67637893 | −26.346307 | 7.10118997 | 0.47812345 | 3.49057694 | 4.41032419 |
-| 99 | 4.23750 | 1.732095789 | −9.00222820 | −25.718143 | 7.10716559 | 0.47797586 | 3.50507845 | 4.42316540 |
-| 100 | 4.25000 | 1.617584271 | −9.31728540 | −24.597633 | 7.11313943 | 0.47783779 | 3.51866895 | 4.43600501 |
-| 101 | 4.26250 | 1.499237693 | −9.61450397 | −22.836229 | 7.11911160 | 0.47770954 | 3.53131630 | 4.44884300 |
-| 102 | 4.27500 | 1.377333704 | −9.88474784 | −20.246894 | 7.12508223 | 0.47759137 | 3.54299020 | 4.46167938 |
-| 103 | 4.28750 | 1.252279922 | −10.11626190 | −16.596299 | 7.13105145 | 0.47748352 | 3.55366309 | 4.47451414 |
-| 104 | 4.30000 | 1.124650485 | −10.29404567 | −11.597414 | 7.13701939 | 0.47738621 | 3.56331135 | 4.48734729 |
-| 105 | 4.31250 | 0.995230968 | −10.39914807 | −4.904814 | 7.14298617 | 0.47729957 | 3.57191685 | 4.50017883 |
-| 106 | 4.32500 | 0.865072323 | −10.40794361 | 3.882485 | 7.14895194 | 0.47722367 | 3.57946885 | 4.51300876 |
-| 107 | 4.33750 | 0.735553285 | −10.29153655 | 15.201271 | 7.15491683 | 0.47715848 | 3.58596644 | 4.52583707 |
-| 108 | 4.35000 | 0.608447935 | −10.01560388 | 29.469781 | 7.16088097 | 0.47710386 | 3.59142147 | 4.53866377 |
-| 109 | 4.36250 | 0.485989510 | −9.54128992 | 46.966903 | 7.16684449 | 0.47705947 | 3.59586201 | 4.55148886 |
-| 110 | 4.37500 | 0.370910892 | −8.82829232 | 67.591157 | 7.17280752 | 0.47702480 | 3.59933632 | 4.56431235 |
-| 111 | 4.38750 | 0.266423066 | −7.84212040 | 90.418679 | 7.17877017 | 0.47699910 | 3.60191686 | 4.57713423 |
-| 112 | 4.40000 | 0.176061256 | −6.56861192 | 112.972133 | 7.18473254 | 0.47698133 | 3.60370370 | 4.58995451 |
-| 113 | 4.41250 | 0.103284582 | −5.03942381 | 130.223695 | 7.19069474 | 0.47697019 | 3.60482575 | 4.60277320 |
-| 114 | 4.42500 | 0.050679994 | −3.36930706 | 133.887351 | 7.19665683 | 0.47696413 | 3.60543725 | 4.61559029 |
-| 115 | 4.43750 | 0.018686840 | −1.79054550 | 114.156738 | 7.20261887 | 0.47696148 | 3.60570580 | 4.62840579 |
-| 116 | 4.45000 | 0.004178985 | −0.62610242 | 68.728752 | 7.20858088 | 0.47696066 | 3.60578888 | 4.64121971 |
-| 117 | 4.46250 | 0.000343791 | −0.09161735 | 19.525674 | 7.21454289 | 0.47696052 | 3.60580273 | 4.65403205 |
-| 118 | 4.47500 | 0.000002321 | −0.00139249 | 0.723823 | 7.22050489 | 0.47696051 | 3.60580338 | 4.66684281 |
-| 119 | 4.48750 | 0.000000000 | 0.00000000 | 0.000004 | 7.22646690 | 0.47696051 | 3.60580338 | 4.67965200 |
-| 120 | 4.50000 | 0.000000000 | 0.00000000 | 0.000000 | 7.23242891 | 0.47696051 | 3.60580338 | 4.69245962 |
-
-#### The slice Σ_τ0 over the shell {#sec:table-sigma0}
-
-Row k is the point of Σ_τ0 on the ingoing ray v = v_k: R0_k := v̂_k + 0.68 (seven decimals), a_k := (3/2) 𝒜_k w_k² with
-w_k := (1 − μ_k/R_k²)/(3P_k) (six decimals), and N_k := −2μ_k ρ⁻³ − μ_k² ρ⁻⁵ + (1/2) a ρ⁻² (eight decimals), from the
-shell table, where ρ := v̂_k + 0.68 and a := (3/2) 𝒜_k w_k² are taken before rounding. By the proof of
-[[thm:margins-hyperbolic]] the true value of N_κ at the point is within 5 × 10⁻⁶ of N_k. On the cell v ∈ [v_k, v_(k+1)],
-𝔐_k (rounded up to two decimals) is the bound of [[lem:margins-curvature]] (a) for the second v-derivative of N_κ along
-Σ_τ0, built from S_0, S_1 and S_2 := sup|𝒜″|, for which the printed column S2_k (rounded up to one decimal) is used. By
-the monotone pieces of [[lem:margins-bump]], S_0 and S_1 are the larger end values of 𝒜 and |𝒜′| on the cell, taken from
-the shell table with 5 × 10⁻¹⁰ and 5 × 10⁻⁹ added for its rounding, except that S_1 = 4.8 × 2.17036 on the cells k = 14
-and 105, which contain v = 3.75 ∓ 0.75 × 3^(−1/4); and S_2 is the larger end value of |𝒜″|, except on the cells k = 6,
-23, 96 and 113, which contain a zero of β‴ in the variable y = (4v − 15)/3, where the extremal value of
-[[lem:margins-bump]] (c) times 6.4 is used. The sign column is − when max(N_k, N_(k+1)) + 5 × 10⁻⁶ + 𝔐_k/51200 < 0, +
-when min(N_k, N_(k+1)) − 5 × 10⁻⁶ − 𝔐_k/51200 > 0, and 0 otherwise. The bound column prints that maximum (rounded up) or
-minimum (rounded down). The three cells marked 0 are treated in the proof of [[thm:margins-hyperbolic]].
-
-| k | R0_k | a_k | N_k | S2_k | 𝔐_k | sign | bound |
-|---|---|---|---|---|---|---|---|
-| 0 | 3.8253316 | 0.000000 | −0.05634060 | 0.1 | 0.18 | − | −0.055744 |
-| 1 | 3.8382912 | 0.000000 | −0.05575350 | 0.8 | 0.19 | − | −0.055165 |
-| 2 | 3.8512500 | 0.000001 | −0.05517458 | 19.6 | 0.65 | − | −0.054579 |
-| 3 | 3.8642078 | 0.000213 | −0.05459672 | 68.8 | 1.86 | − | −0.053913 |
-| 4 | 3.8771648 | 0.002593 | −0.05395527 | 114.2 | 3.02 | − | −0.053042 |
-| 5 | 3.8901208 | 0.011597 | −0.05310635 | 133.9 | 3.59 | − | −0.051844 |
-| 6 | 3.9030759 | 0.031457 | −0.05191945 | 135.0 | 3.72 | − | −0.050265 |
-| 7 | 3.9160301 | 0.064117 | −0.05034351 | 130.3 | 3.70 | − | −0.048323 |
-| 8 | 3.9289834 | 0.109310 | −0.04840080 | 113.0 | 3.37 | − | −0.046084 |
-| 9 | 3.9419359 | 0.165435 | −0.04615542 | 90.5 | 2.89 | − | −0.043624 |
-| 10 | 3.9548874 | 0.230349 | −0.04368620 | 67.6 | 2.40 | − | −0.041018 |
-| 11 | 3.9678380 | 0.301859 | −0.04107046 | 47.0 | 1.94 | − | −0.038333 |
-| 12 | 3.9807878 | 0.377972 | −0.03837623 | 29.5 | 1.54 | − | −0.035624 |
-| 13 | 3.9937366 | 0.456994 | −0.03565964 | 15.3 | 1.22 | − | −0.032936 |
-| 14 | 4.0066846 | 0.537538 | −0.03296508 | 5.0 | 0.98 | − | −0.030302 |
-| 15 | 4.0196316 | 0.618501 | −0.03032645 | 11.6 | 1.15 | − | −0.027741 |
-| 16 | 4.0325778 | 0.699028 | −0.02776880 | 16.6 | 1.27 | − | −0.025280 |
-| 17 | 4.0455230 | 0.778464 | −0.02531002 | 20.3 | 1.36 | − | −0.022930 |
-| 18 | 4.0584674 | 0.856322 | −0.02296232 | 22.9 | 1.42 | − | −0.020700 |
-| 19 | 4.0714109 | 0.932243 | −0.02073345 | 24.6 | 1.45 | − | −0.018594 |
-| 20 | 4.0843534 | 1.005974 | −0.01862778 | 25.8 | 1.47 | − | −0.016613 |
-| 21 | 4.0972950 | 1.077342 | −0.01664704 | 26.4 | 1.48 | − | −0.014757 |
-| 22 | 4.1102357 | 1.146234 | −0.01479105 | 26.6 | 1.47 | − | −0.013024 |
-| 23 | 4.1231755 | 1.212589 | −0.01305815 | 26.8 | 1.46 | − | −0.011412 |
-| 24 | 4.1361144 | 1.276381 | −0.01144568 | 26.6 | 1.45 | − | −0.009916 |
-| 25 | 4.1490523 | 1.337610 | −0.00995022 | 26.4 | 1.43 | − | −0.008534 |
-| 26 | 4.1619893 | 1.396299 | −0.00856784 | 26.0 | 1.41 | − | −0.007261 |
-| 27 | 4.1749253 | 1.452485 | −0.00729430 | 25.5 | 1.38 | − | −0.006093 |
-| 28 | 4.1878604 | 1.506217 | −0.00612516 | 24.9 | 1.36 | − | −0.005024 |
-| 29 | 4.2007945 | 1.557549 | −0.00505592 | 24.3 | 1.33 | − | −0.004051 |
-| 30 | 4.2137276 | 1.606543 | −0.00408207 | 23.6 | 1.30 | − | −0.003168 |
-| 31 | 4.2266597 | 1.653262 | −0.00319912 | 22.9 | 1.27 | − | −0.002372 |
-| 32 | 4.2395909 | 1.697770 | −0.00240272 | 22.2 | 1.25 | − | −0.001659 |
-| 33 | 4.2525210 | 1.740134 | −0.00168861 | 21.6 | 1.22 | − | −0.001023 |
-| 34 | 4.2654502 | 1.780417 | −0.00105271 | 20.9 | 1.19 | − | −0.000462 |
-| 35 | 4.2783783 | 1.818682 | −0.00049105 | 20.3 | 1.17 | 0 | · |
-| 36 | 4.2913054 | 1.854992 | 0.00000012 | 19.7 | 1.14 | 0 | · |
-| 37 | 4.3042314 | 1.889404 | 0.00042441 | 19.1 | 1.12 | + | 0.000397 |
-| 38 | 4.3171564 | 1.921976 | 0.00078526 | 18.5 | 1.09 | + | 0.000758 |
-| 39 | 4.3300804 | 1.952763 | 0.00108592 | 18.0 | 1.07 | + | 0.001060 |
-| 40 | 4.3430032 | 1.981815 | 0.00132949 | 17.5 | 1.05 | + | 0.001303 |
-| 41 | 4.3559250 | 2.009181 | 0.00151889 | 17.0 | 1.03 | + | 0.001493 |
-| 42 | 4.3688457 | 2.034907 | 0.00165689 | 16.5 | 1.01 | + | 0.001632 |
-| 43 | 4.3817653 | 2.059037 | 0.00174612 | 16.1 | 0.99 | + | 0.001721 |
-| 44 | 4.3946837 | 2.081610 | 0.00178903 | 15.7 | 0.97 | + | 0.001764 |
-| 45 | 4.4076011 | 2.102664 | 0.00178795 | 15.4 | 0.96 | + | 0.001721 |
-| 46 | 4.4205173 | 2.122234 | 0.00174508 | 15.0 | 0.94 | + | 0.001639 |
-| 47 | 4.4334324 | 2.140353 | 0.00166247 | 14.7 | 0.92 | + | 0.001519 |
-| 48 | 4.4463463 | 2.157049 | 0.00154207 | 14.4 | 0.90 | + | 0.001363 |
-| 49 | 4.4592590 | 2.172351 | 0.00138568 | 14.2 | 0.89 | + | 0.001172 |
-| 50 | 4.4721705 | 2.186283 | 0.00119503 | 13.9 | 0.88 | + | 0.000949 |
-| 51 | 4.4850809 | 2.198867 | 0.00097170 | 13.7 | 0.86 | + | 0.000695 |
-| 52 | 4.4979900 | 2.210123 | 0.00071719 | 13.5 | 0.85 | + | 0.000411 |
-| 53 | 4.5108979 | 2.220069 | 0.00043291 | 13.4 | 0.84 | + | 0.000098 |
-| 54 | 4.5238047 | 2.228720 | 0.00012015 | 13.2 | 0.82 | 0 | · |
-| 55 | 4.5367101 | 2.236089 | −0.00021986 | 13.1 | 0.81 | − | −0.000199 |
-| 56 | 4.5496143 | 2.242187 | −0.00058599 | 13.0 | 0.80 | − | −0.000565 |
-| 57 | 4.5625173 | 2.247024 | −0.00097721 | 12.9 | 0.79 | − | −0.000956 |
-| 58 | 4.5754189 | 2.250604 | −0.00139252 | 12.9 | 0.78 | − | −0.001372 |
-| 59 | 4.5883193 | 2.252934 | −0.00183104 | 12.9 | 0.77 | − | −0.001811 |
-| 60 | 4.6012184 | 2.254015 | −0.00229195 | 12.9 | 0.77 | − | −0.002271 |
-| 61 | 4.6141162 | 2.253848 | −0.00277448 | 12.9 | 0.78 | − | −0.002754 |
-| 62 | 4.6270127 | 2.252430 | −0.00327796 | 12.9 | 0.79 | − | −0.003257 |
-| 63 | 4.6399078 | 2.249759 | −0.00380175 | 13.0 | 0.80 | − | −0.003781 |
-| 64 | 4.6528016 | 2.245827 | −0.00434529 | 13.1 | 0.81 | − | −0.004324 |
-| 65 | 4.6656941 | 2.240627 | −0.00490810 | 13.2 | 0.82 | − | −0.004887 |
-| 66 | 4.6785851 | 2.234148 | −0.00548972 | 13.4 | 0.84 | − | −0.005468 |
-| 67 | 4.6914748 | 2.226377 | −0.00608977 | 13.5 | 0.85 | − | −0.006068 |
-| 68 | 4.7043632 | 2.217301 | −0.00670793 | 13.7 | 0.86 | − | −0.006686 |
-| 69 | 4.7172501 | 2.206902 | −0.00734392 | 13.9 | 0.88 | − | −0.007321 |
-| 70 | 4.7301356 | 2.195160 | −0.00799753 | 14.2 | 0.89 | − | −0.007975 |
-| 71 | 4.7430197 | 2.182053 | −0.00866860 | 14.4 | 0.90 | − | −0.008646 |
-| 72 | 4.7559024 | 2.167559 | −0.00935700 | 14.7 | 0.92 | − | −0.009334 |
-| 73 | 4.7687837 | 2.151650 | −0.01006268 | 15.0 | 0.94 | − | −0.010039 |
-| 74 | 4.7816635 | 2.134297 | −0.01078563 | 15.4 | 0.96 | − | −0.010761 |
-| 75 | 4.7945418 | 2.115469 | −0.01152590 | 15.7 | 0.97 | − | −0.011501 |
-| 76 | 4.8074187 | 2.095131 | −0.01228356 | 16.1 | 0.99 | − | −0.012259 |
-| 77 | 4.8202941 | 2.073246 | −0.01305877 | 16.5 | 1.01 | − | −0.013034 |
-| 78 | 4.8331681 | 2.049775 | −0.01385170 | 17.0 | 1.03 | − | −0.013826 |
-| 79 | 4.8460405 | 2.024675 | −0.01466260 | 17.5 | 1.05 | − | −0.014637 |
-| 80 | 4.8589115 | 1.997900 | −0.01549175 | 18.0 | 1.07 | − | −0.015465 |
-| 81 | 4.8717809 | 1.969403 | −0.01633947 | 18.5 | 1.09 | − | −0.016313 |
-| 82 | 4.8846489 | 1.939132 | −0.01720613 | 19.1 | 1.12 | − | −0.017179 |
-| 83 | 4.8975153 | 1.907032 | −0.01809215 | 19.7 | 1.14 | − | −0.018064 |
-| 84 | 4.9103801 | 1.873048 | −0.01899799 | 20.3 | 1.17 | − | −0.018970 |
-| 85 | 4.9232435 | 1.837120 | −0.01992412 | 20.9 | 1.19 | − | −0.019895 |
-| 86 | 4.9361053 | 1.799184 | −0.02087106 | 21.6 | 1.22 | − | −0.020842 |
-| 87 | 4.9489655 | 1.759178 | −0.02183936 | 22.2 | 1.25 | − | −0.021809 |
-| 88 | 4.9618242 | 1.717035 | −0.02282956 | 22.9 | 1.27 | − | −0.022799 |
-| 89 | 4.9746813 | 1.672687 | −0.02384224 | 23.6 | 1.30 | − | −0.023811 |
-| 90 | 4.9875369 | 1.626066 | −0.02487794 | 24.3 | 1.33 | − | −0.024846 |
-| 91 | 5.0003909 | 1.577102 | −0.02593718 | 24.9 | 1.36 | − | −0.025905 |
-| 92 | 5.0132433 | 1.525730 | −0.02702044 | 25.5 | 1.38 | − | −0.026988 |
-| 93 | 5.0260941 | 1.471885 | −0.02812813 | 26.0 | 1.41 | − | −0.028095 |
-| 94 | 5.0389433 | 1.415508 | −0.02926052 | 26.4 | 1.43 | − | −0.029227 |
-| 95 | 5.0517909 | 1.356547 | −0.03041773 | 26.6 | 1.45 | − | −0.030384 |
-| 96 | 5.0646369 | 1.294962 | −0.03159966 | 26.8 | 1.46 | − | −0.031566 |
-| 97 | 5.0774814 | 1.230727 | −0.03280592 | 26.6 | 1.47 | − | −0.032772 |
-| 98 | 5.0903242 | 1.163837 | −0.03403571 | 26.4 | 1.48 | − | −0.034001 |
-| 99 | 5.1031654 | 1.094317 | −0.03528772 | 25.8 | 1.47 | − | −0.035254 |
-| 100 | 5.1160050 | 1.022226 | −0.03655996 | 24.6 | 1.45 | − | −0.036526 |
-| 101 | 5.1288430 | 0.947675 | −0.03784960 | 22.9 | 1.42 | − | −0.037816 |
-| 102 | 5.1416794 | 0.870838 | −0.03915265 | 20.3 | 1.36 | − | −0.039121 |
-| 103 | 5.1545141 | 0.791970 | −0.04046375 | 16.6 | 1.27 | − | −0.040433 |
-| 104 | 5.1673473 | 0.711434 | −0.04177569 | 11.6 | 1.15 | − | −0.041748 |
-| 105 | 5.1801788 | 0.629723 | −0.04307903 | 5.0 | 0.98 | − | −0.043054 |
-| 106 | 5.1930088 | 0.547504 | −0.04436149 | 15.3 | 1.22 | − | −0.044332 |
-| 107 | 5.2058371 | 0.465649 | −0.04560738 | 29.5 | 1.54 | − | −0.045572 |
-| 108 | 5.2186638 | 0.385280 | −0.04679688 | 47.0 | 1.94 | − | −0.046753 |
-| 109 | 5.2314889 | 0.307815 | −0.04790551 | 67.6 | 2.40 | − | −0.047853 |
-| 110 | 5.2443124 | 0.234985 | −0.04890378 | 90.5 | 2.89 | − | −0.048842 |
-| 111 | 5.2571342 | 0.168831 | −0.04975765 | 113.0 | 3.37 | − | −0.049686 |
-| 112 | 5.2699545 | 0.111597 | −0.05043040 | 130.3 | 3.70 | − | −0.050353 |
-| 113 | 5.2827732 | 0.065483 | −0.05088732 | 135.0 | 3.72 | − | −0.050809 |
-| 114 | 5.2955903 | 0.032140 | −0.05110454 | 133.9 | 3.59 | − | −0.051007 |
-| 115 | 5.3084058 | 0.011854 | −0.05108298 | 114.2 | 3.02 | − | −0.050799 |
-| 116 | 5.3212197 | 0.002651 | −0.05086333 | 68.8 | 1.86 | − | −0.050484 |
-| 117 | 5.3340320 | 0.000218 | −0.05052603 | 19.6 | 0.65 | − | −0.050135 |
-| 118 | 5.3468428 | 0.000001 | −0.05015321 | 0.8 | 0.19 | − | −0.049771 |
-| 119 | 5.3596520 | 0.000000 | −0.04978040 | 0.1 | 0.18 | − | −0.049402 |
-| 120 | 5.3724596 | 0.000000 | −0.04941133 |  |  |  |  |
-
-#### The bent slice over the shell {#sec:table-sigma-bent}
-
-Row k is the point of Σ′ = {v̂ − R − φ(R) = τ0} on the ingoing ray v = v_k. Its radius R′_k (seven decimals)
-satisfies |R′_k + φ_k − R0_k| ≤ 10⁻⁷. The numbers φ_k, φ′_k and φ″_k are the bend of [[prop:margins-bend]] and its
-derivatives at R′_k, rounded to seven, six and seven decimals ([[lem:margins-bump-table]] (c) reproduces φ_k and φ′_k
-from the bump table to within 10⁻⁶ and 1.7 × 10⁻⁶). Ξ_k (seven decimals) is the numerator [[eq:margins-xi]] at the
-printed radius R = R′_k, with μ = μ_k and with μ̇ = (3/2) 𝒜_k w_k², V′ = 1 + φ′(R′_k) and V″ = φ″(R′_k) taken before
-rounding. On the cell v ∈ [v_k, v_(k+1)], Φ4_k (rounded up to three decimals) is an upper bound for the supremum of |φ⁗|
-over R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], an interval that contains the true radii of the cell's points of
-Σ′; it is found from the monotone pieces of β″ ([[lem:margins-bump]] (c)) in the variable of each lobe that meets the
-interval, with the extremal values of [[lem:margins-bump]] (c) at interior extremal points. 𝔐′_k (rounded up to two
-decimals) is the bound of [[lem:margins-curvature]] (b), built from the printed Φ4_k and S2_k and from S_0 and S_1 as in
-[[sec:table-sigma0]]. And c_k (rounded down to five decimals) is the lower bound for c := 3(1 − fV)/(R V²(2 − fV)²) on
-the cell of the proof of [[thm:margins-hyperbolic]], with R ∈ [R′_k − 5.3 × 10⁻⁶, R′_(k+1) + 5.3 × 10⁻⁶], μ ∈ [μ_k −
-10⁻⁵, μ_(k+1) + 10⁻⁵] and V in the interval given there. The bound column (rounded up to seven decimals) is −c_k
-(min(Ξ_k, Ξ_(k+1)) − 5 × 10⁻⁶ − 𝔐′_k/51200), an upper bound for κ′K′^l_l on the cell.
-
-| k | R′_k | φ_k | φ′_k | φ″_k | Ξ_k | Φ4_k | 𝔐′_k | c_k | bound |
-|---|---|---|---|---|---|---|---|---|---|
-| 0 | 3.8254920 | −0.0001604 | −0.001390 | −0.0062174 | 0.0499927 | 0.199 | 0.48 | 0.06612 | −0.0032740 |
-| 1 | 3.8384702 | −0.0001789 | −0.001470 | −0.0060859 | 0.0495307 | 0.213 | 0.51 | 0.06559 | −0.0032201 |
-| 2 | 3.8514485 | −0.0001985 | −0.001548 | −0.0059209 | 0.0491107 | 0.229 | 0.99 | 0.06506 | −0.0031686 |
-| 3 | 3.8644269 | −0.0002191 | −0.001623 | −0.0057201 | 0.0487278 | 0.249 | 2.23 | 0.06454 | −0.0031154 |
-| 4 | 3.8774054 | −0.0002406 | −0.001696 | −0.0054808 | 0.0483206 | 0.271 | 3.41 | 0.06403 | −0.0030528 |
-| 5 | 3.8903839 | −0.0002631 | −0.001765 | −0.0051996 | 0.0477494 | 0.296 | 4.02 | 0.06352 | −0.0029730 |
-| 6 | 3.9033623 | −0.0002864 | −0.001831 | −0.0048728 | 0.0468883 | 0.321 | 4.18 | 0.06301 | −0.0028735 |
-| 7 | 3.9163407 | −0.0003106 | −0.001892 | −0.0044963 | 0.0456909 | 0.343 | 4.19 | 0.06253 | −0.0027573 |
-| 8 | 3.9293190 | −0.0003355 | −0.001947 | −0.0040658 | 0.0441839 | 0.355 | 3.87 | 0.06206 | −0.0026285 |
-| 9 | 3.9422970 | −0.0003611 | −0.001997 | −0.0035776 | 0.0424348 | 0.356 | 3.40 | 0.06161 | −0.0024922 |
-| 10 | 3.9552747 | −0.0003873 | −0.002040 | −0.0030303 | 0.0405236 | 0.338 | 2.89 | 0.06119 | −0.0023535 |
-| 11 | 3.9682520 | −0.0004140 | −0.002075 | −0.0024269 | 0.0385240 | 0.263 | 2.34 | 0.06079 | −0.0022151 |
-| 12 | 3.9812289 | −0.0004411 | −0.002103 | −0.0017809 | 0.0364900 | 0.357 | 2.06 | 0.06043 | −0.0020786 |
-| 13 | 3.9942052 | −0.0004686 | −0.002121 | −0.0011271 | 0.0344426 | 1.098 | 2.63 | 0.06010 | −0.0019410 |
-| 14 | 4.0071807 | −0.0004962 | −0.002132 | −0.0005379 | 0.0323530 | 1.788 | 3.23 | 0.05980 | −0.0017979 |
-| 15 | 4.0201555 | −0.0005239 | −0.002136 | −0.0001341 | 0.0301342 | 1.796 | 3.41 | 0.05953 | −0.0016460 |
-| 16 | 4.0331294 | −0.0005516 | −0.002137 | −0.0000039 | 0.0277225 | 0.687 | 2.19 | 0.05929 | −0.0014961 |
-| 17 | 4.0461023 | −0.0005793 | −0.002137 | 0.0000000 | 0.0252828 | 0.001 | 1.45 | 0.05908 | −0.0013539 |
-| 18 | 4.0590744 | −0.0006070 | −0.002137 | 0.0000000 | 0.0229498 | 0.000 | 1.50 | 0.05891 | −0.0012194 |
-| 19 | 4.0720456 | −0.0006347 | −0.002137 | 0.0000000 | 0.0207349 | 0.000 | 1.54 | 0.05876 | −0.0010933 |
-| 20 | 4.0850158 | −0.0006624 | −0.002137 | 0.0000000 | 0.0186426 | 0.000 | 1.56 | 0.05865 | −0.0009758 |
-| 21 | 4.0979852 | −0.0006902 | −0.002137 | 0.0000000 | 0.0166745 | 0.032 | 1.60 | 0.05856 | −0.0008663 |
-| 22 | 4.1109536 | −0.0007179 | −0.002137 | 0.0000000 | 0.0148304 | 1.846 | 3.79 | 0.05850 | −0.0007645 |
-| 23 | 4.1239211 | −0.0007456 | −0.002137 | 0.0000396 | 0.0131483 | 2.344 | 4.38 | 0.05845 | −0.0006881 |
-| 24 | 4.1368877 | −0.0007733 | −0.002135 | 0.0003569 | 0.0118636 | 2.167 | 4.15 | 0.05843 | −0.0006401 |
-| 25 | 4.1498532 | −0.0008009 | −0.002126 | 0.0010213 | 0.0110419 | 1.186 | 2.95 | 0.05842 | −0.0006117 |
-| 26 | 4.1628176 | −0.0008284 | −0.002107 | 0.0018879 | 0.0105344 | 0.366 | 1.93 | 0.05842 | −0.0005934 |
-| 27 | 4.1757808 | −0.0008555 | −0.002077 | 0.0028209 | 0.0102007 | 0.338 | 1.87 | 0.05843 | −0.0005792 |
-| 28 | 4.1887425 | −0.0008821 | −0.002034 | 0.0037393 | 0.0099555 | 0.435 | 1.96 | 0.05845 | −0.0005675 |
-| 29 | 4.2017026 | −0.0009082 | −0.001980 | 0.0046028 | 0.0097536 | 0.462 | 1.97 | 0.05848 | −0.0005573 |
-| 30 | 4.2146610 | −0.0009334 | −0.001915 | 0.0053942 | 0.0095736 | 0.465 | 1.95 | 0.05852 | −0.0005479 |
-| 31 | 4.2276175 | −0.0009578 | −0.001841 | 0.0061084 | 0.0094057 | 0.454 | 1.90 | 0.05857 | −0.0005391 |
-| 32 | 4.2405719 | −0.0009811 | −0.001757 | 0.0067465 | 0.0092470 | 0.431 | 1.85 | 0.05862 | −0.0005308 |
-| 33 | 4.2535243 | −0.0010032 | −0.001666 | 0.0073124 | 0.0090970 | 0.401 | 1.78 | 0.05868 | −0.0005232 |
-| 34 | 4.2664744 | −0.0010242 | −0.001568 | 0.0078111 | 0.0089567 | 0.371 | 1.72 | 0.05874 | −0.0005162 |
-| 35 | 4.2794221 | −0.0010438 | −0.001464 | 0.0082475 | 0.0088273 | 0.342 | 1.66 | 0.05881 | −0.0005100 |
-| 36 | 4.2923674 | −0.0010621 | −0.001355 | 0.0086266 | 0.0087099 | 0.317 | 1.60 | 0.05888 | −0.0005045 |
-| 37 | 4.3053103 | −0.0010789 | −0.001241 | 0.0089525 | 0.0086053 | 0.294 | 1.55 | 0.05896 | −0.0004999 |
-| 38 | 4.3182506 | −0.0010942 | −0.001123 | 0.0092292 | 0.0085140 | 0.275 | 1.50 | 0.05903 | −0.0004959 |
-| 39 | 4.3311883 | −0.0011079 | −0.001002 | 0.0094598 | 0.0084360 | 0.259 | 1.46 | 0.05912 | −0.0004929 |
-| 40 | 4.3441233 | −0.0011201 | −0.000879 | 0.0096470 | 0.0083712 | 0.247 | 1.43 | 0.05920 | −0.0004905 |
-| 41 | 4.3570557 | −0.0011307 | −0.000753 | 0.0097930 | 0.0083187 | 0.237 | 1.39 | 0.05929 | −0.0004888 |
-| 42 | 4.3699853 | −0.0011396 | −0.000626 | 0.0098994 | 0.0082776 | 0.229 | 1.36 | 0.05938 | −0.0004878 |
-| 43 | 4.3829121 | −0.0011468 | −0.000497 | 0.0099675 | 0.0082466 | 0.225 | 1.34 | 0.05947 | −0.0004872 |
-| 44 | 4.3958362 | −0.0011524 | −0.000368 | 0.0099981 | 0.0082242 | 0.223 | 1.32 | 0.05956 | −0.0004870 |
-| 45 | 4.4087574 | −0.0011563 | −0.000239 | 0.0099915 | 0.0082084 | 0.226 | 1.30 | 0.05965 | −0.0004871 |
-| 46 | 4.4216759 | −0.0011586 | −0.000110 | 0.0099477 | 0.0081971 | 0.232 | 1.29 | 0.05975 | −0.0004874 |
-| 47 | 4.4345915 | −0.0011592 | 0.000018 | 0.0098662 | 0.0081879 | 0.240 | 1.29 | 0.05984 | −0.0004875 |
-| 48 | 4.4475044 | −0.0011581 | 0.000145 | 0.0097461 | 0.0081780 | 0.251 | 1.28 | 0.05993 | −0.0004874 |
-| 49 | 4.4604144 | −0.0011555 | 0.000269 | 0.0095861 | 0.0081644 | 0.264 | 1.28 | 0.06003 | −0.0004870 |
-| 50 | 4.4733217 | −0.0011512 | 0.000392 | 0.0093845 | 0.0081437 | 0.281 | 1.29 | 0.06012 | −0.0004858 |
-| 51 | 4.4862262 | −0.0011454 | 0.000511 | 0.0091389 | 0.0081120 | 0.302 | 1.30 | 0.06021 | −0.0004837 |
-| 52 | 4.4991280 | −0.0011380 | 0.000628 | 0.0088465 | 0.0080652 | 0.325 | 1.31 | 0.06030 | −0.0004804 |
-| 53 | 4.5120271 | −0.0011292 | 0.000739 | 0.0085041 | 0.0079986 | 0.352 | 1.34 | 0.06040 | −0.0004757 |
-| 54 | 4.5249236 | −0.0011189 | 0.000847 | 0.0081077 | 0.0079071 | 0.381 | 1.36 | 0.06049 | −0.0004690 |
-| 55 | 4.5378175 | −0.0011074 | 0.000948 | 0.0076530 | 0.0077851 | 0.411 | 1.38 | 0.06058 | −0.0004601 |
-| 56 | 4.5507088 | −0.0010945 | 0.001044 | 0.0071351 | 0.0076269 | 0.439 | 1.40 | 0.06067 | −0.0004486 |
-| 57 | 4.5635978 | −0.0010805 | 0.001132 | 0.0065492 | 0.0074265 | 0.459 | 1.42 | 0.06077 | −0.0004342 |
-| 58 | 4.5764843 | −0.0010654 | 0.001212 | 0.0058906 | 0.0071784 | 0.465 | 1.41 | 0.06086 | −0.0004166 |
-| 59 | 4.5893686 | −0.0010493 | 0.001283 | 0.0051563 | 0.0068787 | 0.459 | 1.40 | 0.06095 | −0.0003958 |
-| 60 | 4.6022508 | −0.0010324 | 0.001345 | 0.0043466 | 0.0065270 | 0.415 | 1.34 | 0.06104 | −0.0003722 |
-| 61 | 4.6151309 | −0.0010147 | 0.001395 | 0.0034694 | 0.0061304 | 0.287 | 1.20 | 0.06114 | −0.0003474 |
-| 62 | 4.6280091 | −0.0009965 | 0.001434 | 0.0025470 | 0.0057106 | 0.562 | 1.54 | 0.06123 | −0.0003233 |
-| 63 | 4.6408856 | −0.0009778 | 0.001461 | 0.0016287 | 0.0053163 | 1.471 | 2.65 | 0.06133 | −0.0003056 |
-| 64 | 4.6537605 | −0.0009589 | 0.001476 | 0.0008087 | 0.0050410 | 2.317 | 3.69 | 0.06142 | −0.0003041 |
-| 65 | 4.6666339 | −0.0009398 | 0.001483 | 0.0002328 | 0.0050297 | 2.344 | 3.73 | 0.06151 | −0.0003045 |
-| 66 | 4.6795059 | −0.0009207 | 0.001484 | 0.0000139 | 0.0053947 | 1.286 | 2.47 | 0.06159 | −0.0003289 |
-| 67 | 4.6923765 | −0.0009016 | 0.001484 | 0.0000000 | 0.0059834 | 0.001 | 0.92 | 0.06167 | −0.0003675 |
-| 68 | 4.7052457 | −0.0008826 | 0.001484 | 0.0000000 | 0.0066041 | 0.000 | 0.94 | 0.06174 | −0.0004062 |
-| 69 | 4.7181135 | −0.0008635 | 0.001484 | 0.0000000 | 0.0072428 | 0.000 | 0.95 | 0.06181 | −0.0004462 |
-| 70 | 4.7309800 | −0.0008444 | 0.001484 | 0.0000000 | 0.0078992 | 0.000 | 0.97 | 0.06187 | −0.0004872 |
-| 71 | 4.7438450 | −0.0008253 | 0.001484 | 0.0000000 | 0.0085731 | 0.000 | 0.98 | 0.06192 | −0.0005293 |
-| 72 | 4.7567086 | −0.0008062 | 0.001484 | 0.0000000 | 0.0092645 | 0.000 | 1.00 | 0.06196 | −0.0005725 |
-| 73 | 4.7695708 | −0.0007871 | 0.001484 | 0.0000000 | 0.0099733 | 0.000 | 1.01 | 0.06200 | −0.0006168 |
-| 74 | 4.7824315 | −0.0007680 | 0.001484 | 0.0000000 | 0.0106994 | 0.000 | 1.03 | 0.06203 | −0.0006621 |
-| 75 | 4.7952908 | −0.0007489 | 0.001484 | 0.0000000 | 0.0114430 | 0.000 | 1.05 | 0.06206 | −0.0007085 |
-| 76 | 4.8081486 | −0.0007299 | 0.001484 | 0.0000000 | 0.0122040 | 0.000 | 1.07 | 0.06208 | −0.0007560 |
-| 77 | 4.8210049 | −0.0007108 | 0.001484 | 0.0000000 | 0.0129827 | 0.000 | 1.08 | 0.06209 | −0.0008044 |
-| 78 | 4.8338598 | −0.0006917 | 0.001484 | 0.0000000 | 0.0137793 | 0.000 | 1.11 | 0.06209 | −0.0008539 |
-| 79 | 4.8467132 | −0.0006726 | 0.001484 | 0.0000000 | 0.0145939 | 0.001 | 1.13 | 0.06208 | −0.0009043 |
-| 80 | 4.8595650 | −0.0006536 | 0.001484 | 0.0000000 | 0.0154268 | 0.041 | 1.20 | 0.06207 | −0.0009557 |
-| 81 | 4.8724154 | −0.0006345 | 0.001484 | −0.0000003 | 0.0162782 | 0.218 | 1.44 | 0.06205 | −0.0010080 |
-| 82 | 4.8852643 | −0.0006154 | 0.001484 | −0.0000097 | 0.0171395 | 0.285 | 1.54 | 0.06202 | −0.0010608 |
-| 83 | 4.8981116 | −0.0005964 | 0.001483 | −0.0000531 | 0.0179863 | 0.284 | 1.57 | 0.06199 | −0.0011127 |
-| 84 | 4.9109575 | −0.0005773 | 0.001482 | −0.0001417 | 0.0188079 | 0.233 | 1.53 | 0.06194 | −0.0011628 |
-| 85 | 4.9238018 | −0.0005583 | 0.001480 | −0.0002682 | 0.0196119 | 0.150 | 1.45 | 0.06189 | −0.0012117 |
-| 86 | 4.9366446 | −0.0005393 | 0.001475 | −0.0004197 | 0.0204120 | 0.078 | 1.39 | 0.06183 | −0.0012600 |
-| 87 | 4.9494859 | −0.0005204 | 0.001469 | −0.0005842 | 0.0212205 | 0.026 | 1.36 | 0.06177 | −0.0013088 |
-| 88 | 4.9623258 | −0.0005016 | 0.001460 | −0.0007530 | 0.0220467 | 0.033 | 1.39 | 0.06169 | −0.0013580 |
-| 89 | 4.9751642 | −0.0004829 | 0.001450 | −0.0009204 | 0.0228969 | 0.046 | 1.44 | 0.06161 | −0.0014086 |
-| 90 | 4.9880013 | −0.0004644 | 0.001437 | −0.0010827 | 0.0237754 | 0.053 | 1.48 | 0.06152 | −0.0014605 |
-| 91 | 5.0008369 | −0.0004460 | 0.001422 | −0.0012375 | 0.0246849 | 0.056 | 1.51 | 0.06142 | −0.0015140 |
-| 92 | 5.0136712 | −0.0004279 | 0.001405 | −0.0013838 | 0.0256269 | 0.057 | 1.53 | 0.06131 | −0.0015690 |
-| 93 | 5.0265041 | −0.0004100 | 0.001386 | −0.0015210 | 0.0266025 | 0.057 | 1.56 | 0.06119 | −0.0016256 |
-| 94 | 5.0393356 | −0.0003923 | 0.001366 | −0.0016490 | 0.0276121 | 0.056 | 1.58 | 0.06106 | −0.0016838 |
-| 95 | 5.0521659 | −0.0003749 | 0.001344 | −0.0017678 | 0.0286555 | 0.054 | 1.59 | 0.06093 | −0.0017437 |
-| 96 | 5.0649948 | −0.0003579 | 0.001321 | −0.0018778 | 0.0297324 | 0.052 | 1.61 | 0.06078 | −0.0018049 |
-| 97 | 5.0778224 | −0.0003411 | 0.001296 | −0.0019794 | 0.0308421 | 0.050 | 1.61 | 0.06063 | −0.0018677 |
-| 98 | 5.0906488 | −0.0003246 | 0.001270 | −0.0020728 | 0.0319832 | 0.047 | 1.62 | 0.06046 | −0.0019314 |
-| 99 | 5.1034739 | −0.0003085 | 0.001243 | −0.0021586 | 0.0331542 | 0.045 | 1.61 | 0.06028 | −0.0019963 |
-| 100 | 5.1162978 | −0.0002927 | 0.001215 | −0.0022370 | 0.0343525 | 0.042 | 1.59 | 0.06010 | −0.0020624 |
-| 101 | 5.1291204 | −0.0002774 | 0.001185 | −0.0023086 | 0.0355750 | 0.040 | 1.55 | 0.05990 | −0.0021288 |
-| 102 | 5.1419417 | −0.0002623 | 0.001155 | −0.0023736 | 0.0368172 | 0.038 | 1.49 | 0.05969 | −0.0021955 |
-| 103 | 5.1547619 | −0.0002477 | 0.001125 | −0.0024323 | 0.0380735 | 0.037 | 1.40 | 0.05947 | −0.0022623 |
-| 104 | 5.1675808 | −0.0002335 | 0.001093 | −0.0024851 | 0.0393362 | 0.035 | 1.28 | 0.05923 | −0.0023281 |
-| 105 | 5.1803985 | −0.0002197 | 0.001061 | −0.0025323 | 0.0405958 | 0.034 | 1.11 | 0.05899 | −0.0023931 |
-| 106 | 5.1932151 | −0.0002063 | 0.001028 | −0.0025740 | 0.0418395 | 0.032 | 1.34 | 0.05873 | −0.0024554 |
-| 107 | 5.2060304 | −0.0001934 | 0.000995 | −0.0026105 | 0.0430515 | 0.031 | 1.66 | 0.05847 | −0.0025150 |
-| 108 | 5.2188446 | −0.0001808 | 0.000961 | −0.0026419 | 0.0442117 | 0.030 | 2.06 | 0.05819 | −0.0025700 |
-| 109 | 5.2316576 | −0.0001687 | 0.000927 | −0.0026685 | 0.0452954 | 0.029 | 2.51 | 0.05790 | −0.0026194 |
-| 110 | 5.2444694 | −0.0001571 | 0.000893 | −0.0026903 | 0.0462729 | 0.029 | 3.01 | 0.05760 | −0.0026616 |
-| 111 | 5.2572801 | −0.0001459 | 0.000858 | −0.0027075 | 0.0471100 | 0.028 | 3.48 | 0.05729 | −0.0026947 |
-| 112 | 5.2700896 | −0.0001351 | 0.000824 | −0.0027201 | 0.0477699 | 0.028 | 3.81 | 0.05698 | −0.0027174 |
-| 113 | 5.2828980 | −0.0001248 | 0.000789 | −0.0027283 | 0.0482178 | 0.028 | 3.82 | 0.05666 | −0.0027275 |
-| 114 | 5.2957052 | −0.0001149 | 0.000754 | −0.0027320 | 0.0484297 | 0.028 | 3.69 | 0.05633 | −0.0027224 |
-| 115 | 5.3085112 | −0.0001055 | 0.000719 | −0.0027313 | 0.0484067 | 0.028 | 3.12 | 0.05600 | −0.0026949 |
-| 116 | 5.3213162 | −0.0000965 | 0.000684 | −0.0027261 | 0.0481896 | 0.028 | 1.96 | 0.05568 | −0.0026623 |
-| 117 | 5.3341200 | −0.0000879 | 0.000649 | −0.0027165 | 0.0478591 | 0.028 | 0.74 | 0.05535 | −0.0026279 |
-| 118 | 5.3469227 | −0.0000799 | 0.000614 | −0.0027024 | 0.0474974 | 0.029 | 0.29 | 0.05503 | −0.0025935 |
-| 119 | 5.3597242 | −0.0000722 | 0.000580 | −0.0026837 | 0.0471405 | 0.030 | 0.27 | 0.05470 | −0.0025589 |
-| 120 | 5.3725246 | −0.0000650 | 0.000546 | −0.0026603 | 0.0467919 |  |  |  |  |

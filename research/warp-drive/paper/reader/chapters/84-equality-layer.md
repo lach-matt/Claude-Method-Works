@@ -540,7 +540,7 @@ most C (|k(Φ0♯, ·)| + |k|²) since |k| ≤ 1. ∎
 
 ### Flat-edge bounds {#sec:layer-flat}
 
-*Two structural facts.* (F1) Every monomial of the forcing term −Π_osc(𝒲(m_m, φ_m) + 𝒦_m) of [[eq:stage-system]] (c),
+*Two structural facts.* (F1) Every monomial of the forcing term −Π_osc(𝒲(m_m, φ_m) + 𝒴_m) of [[eq:stage-system]] (c),
 and of the known part of the data of ĝ_(m+1) in [[lem:stage-data]] (i), contains an oscillating factor among W, χ and
 ĝ_l (l ≤ m), carrying at most two derivatives in the first case and at most one in the second; its other factors are
 profiles of [[thm:approximant]], bounded globally, or coefficients built from g0. Indeed a monomial without an
@@ -657,7 +657,7 @@ equations, each costing one radial derivative of the forcing terms, that is one 
 algebraic in these and in known quantities ([[lem:stage-data]] (ii)).
 
 *(a).* Z_(m+1) := ∂_θ ĝ_(m+1) solves the transport of [[lem:layer-transport]] (b) with the 𝓜 above and F :=
-−Π_osc(𝒲(m_m, φ_m) + 𝒦_m). By (F1) each monomial of F has an oscillating factor among W, χ, ĝ_l (l ≤ m), with at most
+−Π_osc(𝒲(m_m, φ_m) + 𝒴_m). By (F1) each monomial of F has an oscillating factor among W, χ, ĝ_l (l ≤ m), with at most
 two derivatives, the other factors bounded globally: F has cost i + 2m at order i. Its data, −Pol⁺(Λ_m(γ_m) + known),
 are bilinear in γ_m (bounded globally) and ∂_θ W, and the known part has an oscillating factor with at most one
 derivative (F1); Pol⁺ is smooth and pointwise: cost i + 2m − 1. [[lem:layer-transport]] (b), commuted to order i, gives
@@ -682,9 +682,9 @@ harmonic are exactly λ⁻¹ k 𝒯 + R_X and λ⁻¹ i k Pol + D_X, so [[eq:lay
 oscillating profiles; Pol Pol⁺ = 1. Hence ∂_θ δ_(m+1) solves the transport of [[lem:layer-transport]] (b) with the
 seed's 𝓜_0 and the forcing term
 
-    −[Π_osc(𝒲 + 𝒦_m) − R_X(Re[H_m e^(iθ)])] − (𝓜 − 𝓜_0) Z_(m+1),
+    −[Π_osc(𝒲 + 𝒴_m) − R_X(Re[H_m e^(iθ)])] − (𝓜 − 𝓜_0) Z_(m+1),
 
-whose bracket is R_X(δ_m) + (R_X^(g0) − R_X)(ĝ_m) + (the monomials of Π_osc 𝒦_m with two or more oscillating
+whose bracket is R_X(δ_m) + (R_X^(g0) − R_X)(ĝ_m) + (the monomials of Π_osc 𝒴_m with two or more oscillating
 factors) + Π_osc 𝒲(m_m, φ_m), R_X^(g0) the operator with g0's coefficients. By (c), (a) at the earlier stages, by (b)
 at stage m and |μ − μ0| ≤ C ε², each part is at most C ε_(i+2m+3)(v)²; 𝓜 − 𝓜_0 has coefficients W, χ, m_1, φ_1,
 μ − μ0, so (𝓜 − 𝓜_0) Z_(m+1) is at most C ε². The data differ by (Pol⁺_(g0) − Pol⁺_seed)(·) + Pol⁺(Λ_m(γ_m)) +
@@ -732,7 +732,7 @@ sense of [[eq:layer-identification]].
 linearised Ric^H on H e^(ikθ) is exactly λ⁻¹ k 𝒯H + R_X H, with no λ⁻² part and R_X independent of k, and its linearised
 D is λ⁻¹ i k Pol(H) + D_X H. So the order-m coefficient of the two-scale expansion, restricted to the terms linear in the
 oscillating profiles and with the seed's coefficients, is Re[(𝒯H_(m+1) + R_X H_m) e^(iθ)] (the term T̂ ĝ_(m+1) of
-[[eq:stage-m]] and the part of 𝒦_m linear in ĝ_m), and the order-m oscillating part of D is Re[(i Pol H_(m+1) + D_X H_m)
+[[eq:stage-m]] and the part of 𝒴_m linear in ĝ_m), and the order-m oscillating part of D is Re[(i Pol H_(m+1) + D_X H_m)
 e^(iθ)]; [[lem:stage-data]] (i) solves the latter on Σ_τ0 by i Pol⁺(D_X H_m). (ii) *The means and phases have no part of
 first degree:* this is [[lem:layer-flat]] (b), which rests on (F2). (iii) *The fixed-phase rewriting.* By the proof of
 [[thm:approximant]], g_j is the λ^j coefficient of the means and of the sum Σ_l λ^l ĝ_l(X, θ + φ1 + λΨ), Ψ := Σ_(i≥2)
@@ -845,21 +845,38 @@ ones multiply lower levels, so the same triangular argument applies there. Step 
 m ≥ 2. Put E_f(v) := sup_(v′≤v) |f(v′)| and M_m(v) := sup_(v′≤v) |f^(m)(v′)|. For 0 < i < m and every v,
 
     sup_(v′≤v) |f^(i)(v′)| ≤ C_(i,m) E_f(v)^(1−i/m) M_m(v)^(i/m),
-    C_(i,m) := min_(κ>0) [Λ_(i,m) κ^(−i) + ((m − 1) κ)^(m−i)/(m − i)!],                         {#eq:layer-interpolation}
+    C_(i,m) := min_(κ>0) [2^i T_(m−1)^(i)(1) κ^(−i) + κ^(m−i)/(m − i)!],                    {#eq:layer-interpolation}
 
-where Λ_(i,m) := Σ_k |l_k^(i)(0)| for the Lagrange basis (l_k) on the nodes 0, −1, …, −(m − 1). In particular
-C_(i,m) ≤ Λ_(i,m) + (m − 1)^(m−i).
+where T_n, T_n(cos θ) = cos nθ, is the Chebyshev polynomial of degree n, and
+T_n^(i)(1) = Π_(j=0)^(i−1) (n² − j²)/(2j + 1) ([[thm:std-duffin-schaeffer]]). The minimum is attained: with
+a := 2^i T_(m−1)^(i)(1),
+
+    C_(i,m) = (m a/(m − i))^(1−i/m) (m/(i (m − i)!))^(i/m),   so   C_(1,m) = m ((2m − 2)^(m−1)/(m − 1)!)^(1/m).
 
 *Proof.* If M_m(v) = 0, f is a polynomial of degree less than m on (−∞, v] vanishing on (−∞, v_s], hence zero there,
-and so is the left side; likewise if E_f(v) = 0. Otherwise let u ≤ v and h > 0, and let P be the polynomial of degree
-at most m − 1 interpolating f at u, u − h, …, u − (m − 1)h, all in (−∞, v]. Then P^(i)(u) = h^(−i) Σ_k f(u − kh)
-l_k^(i)(0), so |P^(i)(u)| ≤ Λ_(i,m) E_f(v) h^(−i). The difference g := f − P vanishes at the m nodes, which lie in an
-interval I of length (m − 1)h, so by Rolle's theorem g^(i) vanishes at m − i distinct points of I; and (g^(i))^(m−i) =
-f^(m), since P has degree at most m − 1. A function with m − i zeros x_1, …, x_(m−i) in I equals, at a point x of I,
-its divided difference on the points x_1, …, x_(m−i), x times Π(x − x_j), and that divided difference is a value of its
-(m − i)-th derivative divided by (m − i)!. So |g^(i)(u)| ≤ M_m(v) ((m − 1)h)^(m−i)/(m − i)!. With h := κ (E_f(v)/
-M_m(v))^(1/m), |f^(i)(u)| ≤ E_f^(1−i/m) M_m^(i/m) (Λ_(i,m) κ^(−i) + ((m − 1)κ)^(m−i)/(m − i)!); minimise over κ.
-κ = 1 gives the last claim. ∎
+and so is the left side; likewise if E_f(v) = 0. Otherwise put n := m − 1, let u ≤ v and H > 0, and let P be the
+polynomial of degree at most n interpolating f at the m points x_k := u − H/2 + (H/2) cos(kπ/n), k = 0, …, n. They are
+distinct, they lie in I := [u − H, u] ⊂ (−∞, v], and x_0 = u. The polynomial Q(s) := P(u − H/2 + (H/2) s)/E_f(v) has
+degree at most n and real coefficients, and |Q(cos(kπ/n))| = |f(x_k)|/E_f(v) ≤ 1 for k = 0, …, n; so by
+[[thm:std-duffin-schaeffer]], |Q^(i)(s)| ≤ T_n^(i)(1) for −1 ≤ s ≤ 1 and 1 ≤ i ≤ n. If Q has degree less than n, the
+theorem applies instead to (Q + εT_n)/(1 + ε) for ε > 0, which has degree n and modulus at most 1 at the points
+cos(kπ/n), since |T_n| = 1 there; letting ε → 0 gives the same bound. Since P^(i)(u) = (2/H)^i E_f(v) Q^(i)(1), the
+bound at s = 1 is |P^(i)(u)| ≤ 2^i T_n^(i)(1) E_f(v) H^(−i). The difference g := f − P vanishes at the m nodes, so by
+Rolle's theorem g^(i) vanishes at m − i distinct points of I; and (g^(i))^(m−i) = f^(m), since P has degree at most n.
+A function with m − i zeros x′_1, …, x′_(m−i) in I equals, at a point x of I, its divided difference on the points
+x′_1, …, x′_(m−i), x times Π(x − x′_j), and that divided difference is a value of its (m − i)-th derivative at a point
+of I divided by (m − i)!. So |g^(i)(u)| ≤ M_m(v) H^(m−i)/(m − i)!. With H := κ (E_f(v)/M_m(v))^(1/m),
+
+    |f^(i)(u)| ≤ E_f(v)^(1−i/m) M_m(v)^(i/m) (2^i T_n^(i)(1) κ^(−i) + κ^(m−i)/(m − i)!)
+
+for every κ > 0 and u ≤ v. The bracket is a κ^(−i) + b κ^(m−i) with b := 1/(m − i)!. By the weighted arithmetic and
+geometric mean inequality with weights (m − i)/m and i/m, in which the powers of κ cancel,
+
+    a κ^(−i) + b κ^(m−i) ≥ (m a κ^(−i)/(m − i))^((m−i)/m) (m b κ^(m−i)/i)^(i/m) = (m a/(m − i))^(1−i/m) (m b/i)^(i/m),
+
+with equality at the one κ > 0 where m a κ^(−i)/(m − i) = m b κ^(m−i)/i. This gives the inequality of the lemma and the
+value of C_(i,m). At i = 1, a = 2(m − 1)², so C_(1,m) = (2m(m − 1))^((m−1)/m) (m/(m − 1)!)^(1/m), which is
+m ((2m − 2)^(m−1)/(m − 1)!)^(1/m). ∎
 
 **Corollary {#cor:layer-interpolation-band}** (The costs against the level.) Let c ≥ 1 and m ≥ 2c. Wherever E(v) ≤ 1,
 
@@ -1294,8 +1311,8 @@ c_(j,j−2)(r0) = 0, so κ_(j+1,j−1) = 0 and c_(j+1,j−1) = i c_(j,j−2); fo
 family, c_(j+1,j−2) = κ_(j+1,j−2) + i ∂_(r0) c_(j,j−2) + i c_(j,j−3). By the induction hypothesis c_(j,j−2) = i^(j−2)
 c_(2,0) and c_(j,j−3) = (j − 2) i^(j−3) c_(3,0); and c_(3,0) = κ_(3,0) + i ∂_(r0) c_(2,0). Then κ_(j+1,j−2) − i^(j−2)
 κ_(3,0) solves 𝒯(·) = 0 with data at r0 equal to −(j − 2) i^(j−2) (1 − Π) c_(3,0)(r0) = 0, so κ_(j+1,j−2) = i^(j−2)
-κ_(3,0), and c_(j+1,j−2) = i^(j−2)(c_(3,0) − i ∂_(r0) c_(2,0)) + i^(j−1) ∂_(r0) c_(2,0) + (j − 2) i^(j−2) c_(3,0) = (j −
-1) i^(j−2) c_(3,0). The motion of r0 cancels.
+κ_(3,0), and c_(j+1,j−2) = i^(j−2)(c_(3,0) − i ∂_(r0) c_(2,0)) + i^(j−1) ∂_(r0) c_(2,0) + (j − 2)
+i^(j−2) c_(3,0) = (j − 1) i^(j−2) c_(3,0). The motion of r0 cancels.
 
 (c) c_(2,0) has no vv component (H_2 ∈ 𝔖), and c_(3,0),vv(√μ0) = A d ν by [[prop:layer-linear]] (c), (d), where
 H_3,vv = env c_(3,0),vv, c_(3,1) = i c_(2,0) having no vv component. With (b) this is the formula, and
@@ -1354,12 +1371,65 @@ formula for dν/dρ in [[prop:layer-linear]] (d); then η1 := min(1, T) may be t
 **Remark {#rem:layer-threshold-size}** (The size of λ_L.) λ0, C1, C_Φ, C_L11, C_L4 and C_q are not evaluated, and η1
 depends on env and τ0, so the threshold [[eq:layer-threshold]] is not evaluated either; it is the threshold that the
 proof delivers, not the largest λ for which [[thm:layer]] holds. For the envelope env_C of [[eq:envelope]], however, it
-is at most 10^(−430) whatever those constants are, for every l5, A, τ0, T and K that [[thm:layer]] admits. Indeed
-m ≥ 56 · 26 = 1456, as N ≥ 9. The envelope env_C has support [1/2, 7/2], so v_s = 1/2, and its maximum c_e > 1 is taken
-at v = 2 = v_s + 3/2 ([[lem:envelope-constant]]); all its derivatives vanish at v_s, so Taylor's formula gives
-c_e ≤ M_m (3/2)^m/m!, that is M_m ≥ m! c_e (2/3)^m, and with m! ≥ (m/e)^m, M_m^(1/m) ≥ (2/3)(m/e) ≥ 357. For the
-constant of [[eq:layer-interpolation]] at i = 1: by Lagrange's formula |l_k′(0)| = C(m − 1, k)/k for 1 ≤ k ≤ m − 1, so
-Λ_(1,m) ≥ C(m − 1, ⌊(m − 1)/2⌋)/m ≥ 2^(m−1)/m² ≥ 10^430. In the minimum of [[eq:layer-interpolation]], for κ ≤ 1 the
-first term is at least Λ_(1,m), and for κ ≥ 1 the second is at least (m − 1)^(m−1)/(m − 1)! ≥ e^(m−2)/(m − 1) ≥ 10^600,
-using n! ≤ n^(n+1) e^(1−n). So C_(1,m) ≥ 10^430, the base of Λ_4 exceeds 10^430, and since m/(m − p) ≥ 1,
-λ_L ≤ Λ_4 ≤ 10^(−430).
+is below 2.71·10⁻¹² whatever those constants are, for every l5, A, τ0, T and K that [[thm:layer]] admits: with
+Δτ = τ_end − τ0,
+
+    λ_L ≤ Λ_4 < 2.709·10⁻¹² (1 + C1 Δτ/(2π))^(−1456/1442)   for K = 6,      λ_L ≤ Λ_4 < 2.3·10⁻¹²   for K ≥ 7.
+
+Indeed λ_L ≤ Λ_4 by [[eq:layer-threshold]]. Here p = 14 and m = 56 M = 112 K + 784, as M = 2N + 8 and N = K + 3; so
+m = 1456 for K = 6 and m ≥ 1568 for K ≥ 7. Since 4π + 2 C1 Δτ = 4π (1 + C1 Δτ/(2π)), and C1 Δτ ≥ 0, as C1 ≥ 0 and
+τ_end ≥ v_start − q0 > τ0,
+
+    Λ_4 = (1 + C1 Δτ/(2π))^(−m/(m−p)) B_m^(−m/(m−p)) ≤ B_m^(−m/(m−p)),      B_m := 32π 2^(−1/m) C_(1,m) M_m^(1/m).
+                                                                                                 {#eq:layer-size-base}
+
+*The interpolation constant.* Put n := m − 1. By [[lem:layer-interpolation]], C_(1,m) = m ((2n)^n/n!)^(1/m). The
+trapezoidal rule for the concave function ln on each interval [k, k + 1], 1 ≤ k ≤ n − 1, gives
+ln n! − (1/2) ln n ≤ ∫_1^n ln x dx = n ln n − n + 1. Hence, using n < m for the second form,
+
+    ln C_(1,m) ≥ ln m + (n ln 2 + n − 1 − (1/2) ln n)/m ≥ ln(2e m) − (ln(2e²) + (1/2) ln m)/m.        {#eq:layer-size-c}
+
+At m = 1456, as ln 1456 = 7.2834482…, 1455 ln 2 = 1008.5291477… and (1/2) ln 1455 = 3.6413805…, the first form gives
+ln C_(1,1456) ≥ 7.283448 + 2458.887766/1456 > 8.972244.
+
+*The derivative bound.* All derivatives of env_C vanish at v_s = 1/2, env_C being smooth and zero on (−∞, 1/2]
+([[lem:envelope-constant]] (a)). So Taylor's formula with Lagrange's remainder gives, for 0 < x < 3, a point ξ with
+env_C(1/2 + x) = env_C^(m)(ξ) x^m/m!, and
+
+    M_m ≥ m! env_C(1/2 + x) x^(−m)      for 0 < x < 3.                                            {#eq:layer-size-taylor}
+
+Put t := 2x/3 ∈ (0, 2). At v = 1/2 + x the argument of β in [[eq:envelope]] is y = t − 1, so cos(πy/2) = sin(πt/2),
+1 − y² = t(2 − t) and y²/(1 − y²) = 1/(t(2 − t)) − 1 = 1/(2t) + 1/(4 − 2t) − 1. With c_e > 1
+([[lem:envelope-constant]] (b)),
+
+    env_C(1/2 + x) ≥ sin¹²(πt/2) exp(1 − 1/(2t) − 1/(4 − 2t)).                                      {#eq:layer-size-edge}
+
+*K = 6.* Take x = 3/5776 in [[eq:layer-size-taylor]], so t = 1/2888, 1/(2t) = 1444 and 1/(4 − 2t) = 1444/5775. With
+s := π/5776 and w := s²/6 < 4.94·10⁻⁸, sin s ≥ s − s³/6 = s (1 − w) and ln(1 − w) ≥ −w/(1 − w) > −10⁻⁷. The midpoint
+rule for the concave function ln on each interval [k − 1/2, k + 1/2], 2 ≤ k ≤ 1456, gives
+ln 1456! ≥ ∫_(3/2)^(1456.5) ln x dx = 1456.5 ln 1456.5 − 1455 − 1.5 ln 1.5. So [[eq:layer-size-taylor]] and
+[[eq:layer-size-edge]] give
+
+    ln M_1456 ≥ (1456.5 ln 1456.5 − 1455 − 1.5 ln 1.5) + (12 ln s − 12·10⁻⁷) − (1443 + 1444/5775) + 1456 ln(5776/3).
+
+As 1456.5 ln 1456.5 = 10608.842431…, 1.5 ln 1.5 = 0.6081976…, ln s = −7.5167367…, 1444/5775 = 0.2500432… and
+1456 ln(5776/3) = 11011.515994…, the four groups exceed 9153.2342, −90.200843, −1443.250044 and 11011.515994; so
+ln M_1456 > 18631.299 and (1/1456) ln M_1456 > 12.796221. With ln(32π) = 4.6104657… and (ln 2)/1456 = 0.0004760…,
+
+    ln B_1456 > 4.610465 − 0.000477 + 8.972244 + 12.796221 = 26.378453,
+
+and (1456/1442) · 26.378453 > 26.63455, while ln(2.709·10⁻¹²) = −26.634441…. So B_1456^(−1456/1442) < 2.709·10⁻¹², and
+[[eq:layer-size-base]] gives the bound for K = 6.
+
+*K ≥ 7.* Here m ≥ 1568. Take x = 3/(4m), so t = 1/(2m) ≤ 1, 1/(2t) = m and 1/(4 − 2t) ≤ 1/2; and sin(πt/2) ≥ t, sin
+being concave on [0, π/2]. So env_C(1/2 + x) ≥ (2m)^(−12) e^(1/2 − m) by [[eq:layer-size-edge]], and with m! ≥ (m/e)^m,
+which follows from e^m ≥ m^m/m!, [[eq:layer-size-taylor]] gives M_m ≥ e^(1/2) (2m)^(−12) (4m²/(3e²))^m. With the second
+form of [[eq:layer-size-c]],
+
+    ln B_m ≥ β(m) := ln(256π/(3e)) + 3 ln m − (14 ln 2 + 3/2 + (25/2) ln m)/m,
+
+and β′(m) ≥ 3/m − 25/(2m²) > 0 for m ≥ 5. As ln(256π/(3e)) = 4.5912950…, ln 2 = 0.6931471…, ln 1568 = 7.3575562… and
+ln 1680 = 7.4265490…, β(1568) > 26.598 and β(1680) > 26.809. For K = 7, m = 1568, and [[eq:layer-size-base]] gives
+Λ_4 ≤ e^(−(1568/1554) · 26.598) < e^(−26.837) < 2.22·10⁻¹². For K ≥ 8, m ≥ 1680, so ln B_m ≥ β(1680) > 26.809 > 0 and
+m/(m − p) > 1, and Λ_4 ≤ B_m^(−1) < e^(−26.809) < 2.28·10⁻¹². The three bounds 2.709·10⁻¹², 2.22·10⁻¹² and 2.28·10⁻¹²
+are below 2.71·10⁻¹².

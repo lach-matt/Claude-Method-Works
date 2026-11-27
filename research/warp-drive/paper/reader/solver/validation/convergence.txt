@@ -1,0 +1,8 @@
+# convergence study, seed 2 D_A, quadrant 1, first 3 columns (u in [-10, -8.9])
+# cX: M p_xi p_v cells; cA 40 10 12 30x30, cB 40 12 16 30x30, cD 40 12 16 45x45, cC 40 14 20 30x30, cE 56 12 16 30x30, cF 80 12 16 30x30
+cA vs cB: max|dG|/max|G| R 4.1e-16 m 3.1e-19 n 3.3e-20 W 2.2e-17 s 1.3e-18 | max|dF| R 3.5e-22 m 7.9e-22 n 6.2e-22 W 2.9e-22 s 6.2e-24
+cB vs cD: max|dG|/max|G| R 1.3e-22 m 7.5e-24 n 4.3e-24 W 4.6e-23 s 1.7e-24 | max|dF| R 3.2e-26 m 6.1e-24 n 4.2e-24 W 1.8e-25 s 1.5e-26
+cB vs cC: max|dG|/max|G| R 1.3e-22 m 7.5e-24 n 4.3e-24 W 4.6e-23 s 1.7e-24 | max|dF| R 3.2e-26 m 6.1e-24 n 4.2e-24 W 1.8e-25 s 1.5e-26
+cD vs cC: max|dG|/max|G| R 9.6e-26 m 1.1e-26 n 1.1e-26 W 1.4e-25 s 4.3e-27 | max|dF| R 9.7e-29 m 8.9e-27 n 1.1e-26 W 5.4e-28 s 3.8e-29
+cB (M=40) vs cE (M=56): max|dG|/max|G| R 1.1e-15 m 7.9e-17 n 4.4e-17 W 7.3e-15 s 2.2e-15
+cE (M=56) vs cF (M=80): max|dG|/max|G| R 1.3e-21 m 1.2e-22 n 8.7e-23 W 4.5e-21 s 2.4e-21

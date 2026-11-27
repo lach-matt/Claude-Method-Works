@@ -327,10 +327,11 @@ are used below are at most C(‖F‖ + |W⃗_free|), C uniform in b and in (h, p
 with p⃗′_<-component 0 and row components W⃗ = (W_ν)_(ν∈𝒩′⊔𝒩_rot) (the split below), as in Step 1. For Ψ ∈ 𝒴(α_1) let
 p⃗′_(α_1)(Ψ) ∈ 𝒫_(α_1) be the parameter that [[prop:iii-i8-4-1]], for P_5 at (h, p⃗, q) (Step 1), assigns to the forcing
 Ψ: the unique one for which the forward solution u_Ψ of L_(h″,p⃗)u_Ψ = Ψ − D_(p⃗)P_5(h, p⃗, q)(p⃗′_(α_1)(Ψ)) lies in
-𝒵_(α_1). By (i) of that proposition, Ψ ↦ p⃗′_(α_1)(Ψ) is linear and |p⃗′_(α_1)(Ψ)| ≤ C‖Ψ‖_(𝒴(α_1)), with C uniform in b
-and in (h, p⃗, q) small. A point of 𝒫 is p⃗′_< ⊕ W⃗, with p⃗′_< ∈ 𝒫_(α_1) (the motion coordinates and the motions of
-ℳ_(α_1)) and W⃗ = (W_ν)_(ν∈𝒩′⊔𝒩_rot) the other row coordinates (Step 1). By [[eq:iii-i14-3-1]] and the linearity of
-D_(p⃗)P_5(h, p⃗, q) in the direction, u(p⃗′_< ⊕ W⃗) is the forward solution of
+𝒵_(α_1). By (i) of that proposition, Ψ ↦ p⃗′_(α_1)(Ψ) is linear and |p⃗′_(α_1)(Ψ)| ≤ C‖Ψ‖^+_(𝒴(α_1)), with
+‖·‖^+_(𝒴(α_1)) the seminorm of that (i) and C uniform in b and in (h, p⃗, q) small. A point of 𝒫 is p⃗′_< ⊕ W⃗, with
+p⃗′_< ∈ 𝒫_(α_1) (the motion coordinates and the motions of ℳ_(α_1)) and W⃗ = (W_ν)_(ν∈𝒩′⊔𝒩_rot) the other row
+coordinates (Step 1). By [[eq:iii-i14-3-1]] and the linearity of D_(p⃗)P_5(h, p⃗, q) in the direction, u(p⃗′_< ⊕ W⃗) is
+the forward solution of
 
     L_(h″,p⃗)u = (F − D_(W⃗)P_5(W⃗)) − D_(p⃗)P_5(h, p⃗, q)(p⃗′_<),
 
@@ -355,8 +356,10 @@ m_ν(W)), and D_(W⃗)P_5(W⃗) is real; so e_rows(W⃗) is real.
 
 (2) *The remainder is small.* The class 𝒴(α_1) contains the class 𝒴_2(α_1) of [[sec:iii-i8-1]], which holds every
 conormal section supported in supp χ_K ⊂ supp χ^♯_K ([[eq:iii-i-1-2]]) of K⁺-weight above α_1 and plain ι⁺-weight
-above 4 (below the weight 4 − ε its ι⁺-index set ℰ_++ + 2 is then not used); the 𝒴(α_1)-norm of such a section is at
-most a seminorm of it in those weights. The four kinds of terms of e_rows(W⃗):
+above 4 (below the weight 4 − ε its ι⁺-index set ℰ_++ + 2 is then not used); the seminorm ‖·‖^+_(𝒴(α_1)) of such a
+section is at most a seminorm of it in those weights at the same regularity, and the bounds below hold in that
+seminorm, d and the order of the seminorm of q being large ([[sec:iii-i8-1]], [[sec:iii-i14-1]]). The four kinds of
+terms of e_rows(W⃗):
 
 - r^ν_(h,p⃗)(W) is supported in supp χ_K and lies in the class [[eq:iii-i9-2-5]], of plain ι⁺-weight
   Re λ + 2 + λ_♯ − ε > 4 and K⁺-weight Re e_ν + a_K − ε > α_1, with norm at most C|W|(‖h‖ + |p⃗|), uniformly on ℬ̄_*
@@ -372,7 +375,7 @@ most a seminorm of it in those weights. The four kinds of terms of e_rows(W⃗):
 
 So, as |p⃗| ≤ |p⃗ − p⃗_b| + |p⃗_b| = |p⃗ − p⃗_b| + |b − b₀|,
 
-    ‖e_rows(W⃗)‖_(𝒴(α_1)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|W⃗|,     C uniform in b.
+    ‖e_rows(W⃗)‖^+_(𝒴(α_1)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + ‖q‖ + |b − b₀|)|W⃗|,     C uniform in b.
 
 (3) *The rows carry no parameter.* m_rows(W⃗) vanishes for t^♭_* < 10 ([[lem:iii-i9-2-2]] (c)), so it is the forward
 solution of L_(h″,p⃗)u = L_(h″,p⃗)m_rows(W⃗) (Step 0). It lies in 𝒵_(α_1). Every row of 𝒩′ has K⁺-rate above

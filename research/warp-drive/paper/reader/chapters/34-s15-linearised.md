@@ -43,11 +43,11 @@ Everything else is proved here from [[ch:s01]]–[[ch:s14]].
 metric alone. For g_b, b near b_0, they hold by [[thm:vi-a-6-1]] and [[thm:vi-b1-5-1]], for every operator with
 principal symbol G Id.
 
-*The inner radius.* The radii 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h are those of [[sec:i-a-1-1]]. The steps below the
-horizon are [[lem:iii-f2-2-3]], on (r_0 − δ_0, r_h), whose radial equation is regular wherever f < 0, and the interior
-uniqueness of [[prop:iii-d-6-2]] (d), which holds on (r_0, r_h) for every r_0 > 0; the pairings of [[sec:iii-f4-2]]
-use only that one factor vanishes on {r_0 < |x| < r_h}, and the independence of the dual states only that
-{|x| > r_0} is connected. Every other step reaches the inner boundary through the theorems of [[ch:s01]]–[[ch:s03]],
+*The inner radius.* The radii 0 < r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 < r_h are those of [[sec:i-a-1-1]]. The steps below
+the horizon are [[lem:iii-f2-2-3]], on (r_0 − δ_0, r_h), whose radial equation is regular wherever f < 0, and the
+interior uniqueness of [[prop:iii-d-6-2]] (d), which holds on (r_0, r_h) for every r_0 > 0; the pairings of
+[[sec:iii-f4-2]] use only that one factor vanishes on {r_0 < |x| < r_h}, and the independence of the dual states only
+that {|x| > r_0} is connected. Every other step reaches the inner boundary through the theorems of [[ch:s01]]–[[ch:s03]],
 which hold with r_0 as a parameter. So every result of this chapter holds with the inner radius r_0 as a parameter.
 
 *Small frequencies near b_0.* For b ≠ b_0 and 0 < |σ| < c_0, invertibility of the spectral family of L_b is not
@@ -74,7 +74,9 @@ Fix, as [Hin26, Section 8] does, the gauge modification E_Υ = (c_Υ, e_Υ, γ_�
 with 0 < e_Υ ≪ 1 and 0 < γ_Υ ≪ 1 as [[prop:iii-d1-4-1]] allows, so that the gauge potential operator □^Υ_b is mode
 stable with the indicial roots of [[lem:iii-d-4-1]]; and the constraint damping data v_C, e_C, c_C, γ_C and C_0 = 100
 fixed in [[sec:iv4-0]], for which (1 − e_C)(1 − v_C)γ_C > 100 and the constraint propagation operator □^C_b of
-[[eq:iii-e-1-1]] has the properties of [[thm:iii-e-1-1]]. The *linearised gauge-fixed Einstein operator* is
+[[eq:iii-e-1-1]] has the properties of [[thm:iii-e-1-1]]. Every result below holds as well, with the same proof, at
+every admissible point of the parameters ([[def:vi-c-admissible]], [[thm:vi-c-adm-holds]]). The *linearised
+gauge-fixed Einstein operator* is
 
     L_b := D_(g_b)Ric + δ*_(g_b,E_C) δ_(g_b,E_Υ) G_(g_b),                                                 {#eq:iii-f-1-1}
 
@@ -256,7 +258,7 @@ for |dx| and dt_*; they agree at b_0, and near b_0 the change adds a scalar O(|b
 
 *Near b_0.* Extend h_Γ to a stationary inner product near Γ_(b_0). p_1^Γ for 2L_b is built from the subprincipal
 symbol of 2L_b and h_Γ, continuous in b uniformly near Γ_(b_0), and Γ_b → Γ_(b_0) by (Dyn); so
-sup_(Γ_b) λ_max(p_1^Γ) < ϵ for b near b_0. ν_min and β_0 are continuous in b by (Dyn) and positive at b_0. ∎
+sup_(Γ_b) λ_max(p_1^Γ) < ϵ for b near b_0. ν_min and β_Γ are continuous in b by (Dyn) and positive at b_0. ∎
 
 ### The setting of the indicial analysis {#sec:iii-f1-1}
 
@@ -293,6 +295,10 @@ scalar type l ≥ 2 three, ι^C_(sl,≪,j) and ι^C_(sl,+,j); at vector type l �
 lies in {1 − l, 2 − l, l + 3, l + 4}.
 
 (C4) Every indicial root of □^C_b whose real part is an integer in [3, 51] is real.
+
+(C4′) Every non-real indicial root ι of □^C_b with |ι − 1| ≤ 50 has non-integer real part. Under (C1), (C4) implies
+(C4′): such a root has |Re ι − 1| ≤ 50, so Re ι ≥ 2 by (C1), and Re ι = 2 only at the real root ι = 2; so an integer
+real part would lie in [3, 51], where (C4) would make the root real.
 
 *Types and representations.* Write H_d for the space of harmonic polynomials of degree d on ℝ⁴, restricted to 𝕊³.
 Under SO(4) ≅ (SU(2) × SU(2))/{±1}, H_d is the irreducible representation of highest weights (d/2, d/2); the
@@ -440,7 +446,7 @@ tl, l ≥ 2: −l; l + 2.
 n_L have real part > 1: those before and after the semicolon. (c) 0 is a root only at scalar types 0 and 2, simple
 there, with the indicial solutions of [[lem:iii-f1-2-5]]. (d) The roots with real part ≤ 0 that come from □^C, written
 with superscript C, have real part < −C_0 − 1 = −101. (e) If (C2)–(C3) hold, there is a countable set Z_exc ⊂ (0, ½],
-determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simple. (f) If (C4) holds, then for every R > 0
+determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simple. (f) If (C4′) holds, then for every R > 0
 only finitely many roots have |ι| ≤ R, and no non-integer root with |ι| ≤ 50 has integer real part; so there is
 ε_ind ∈ (0, 1] with
 
@@ -450,8 +456,11 @@ which is [Hin26, (8.13)], and (0, ε_ind] ⊂ (0, 1] lies in the indicial gap. T
 parameters (e_Υ, γ_Υ) = (1/100, 1/100) the roots 2 − ι^Υ_(sl,l+1), which approach the integers 1 − l as l grows,
 force ε_ind ≤ δ_50, where 2 − ι^Υ_(s50,51) = −49 − δ_50 is a root of modulus below 50 at distance δ_50 from ℤ
 ([[prop:np-10-52]] (i), (iii)). The number δ_50 is a constant of [[ch:s14]], fixed by the gauge parameters alone
-([[rem:s14-delta50]]), and its value is given by [[cor:s14-eps-ind-point]]. The gap (0, 1] of (a) is exact, and
-ε_ind enters only through [[eq:iii-f1-2-2]], never as a number of order one.
+([[rem:s14-delta50]]), and its value is given by [[lem:s14-delta50]]. The gap (0, 1] of (a) is exact, and
+ε_ind enters only through [[eq:iii-f1-2-2]], never as a number of order one. (g) Every root with real part in
+[−C_0 − 1, 0] is real, and at each type and degree at which it is a root it occurs once in the list, so that it is a
+simple zero of the determinant of the indicial matrix N_L there; this needs neither (C2)–(C3) nor z ∉ Z_exc, and it
+covers the roots with real part in (−3, 0] that the later chapters use.
 
 *Proof.* *The list.* By [[lem:iii-f1-2-1]] the roots of each type are, with multiplicity, −l and l + 2, the roots of
 □^Υ plus 1 and the roots of □^C minus 1, less the roots of D. [[lem:iii-d-4-1]] gives those of □^Υ: s0:
@@ -487,28 +496,42 @@ degree. Each ι^Υ is a strictly increasing function of z: ι^Υ_(s0,2) = ½ + (
 Q_l(s) = s² − (2 + 2κ + z)s + κ(κ + 1) + zκ ([[lem:iii-d-4-1]]), where Q_l(κ) = −κ < 0 puts κ strictly between the
 two roots, so that ∂_z s_(l,j) = (s_(l,j) − κ)/∂_s Q_l(s_(l,j)) > 0 for both (numerator and denominator have the same
 sign). The roots of □^C_b do not depend on z (its parameters are fixed first), and there are countably many of them, by
-type and degree; so each coincidence happens at at most one z, and Z_exc, the set of those z, is countable.
+type and degree; so each coincidence happens at at most one z, and Z_exc, the set of those z, is countable. At the
+constants of [[eq:iv4-0-1]] it is empty: no root of C or of P_l equals ι^Υ + 2 or 3 − ι^Υ, for any z ∈ (0, ½] and
+any h ∈ (0, 10⁻⁶] ([[thm:t49-uniform]]).
 
 *(f)* By [[lem:iii-f1-2-4]] below, with the strip |Re ι| ≤ R, only finitely many isotypic components carry roots
 with |ι| ≤ R, each finitely many. The non-integer roots with |ι| ≤ 50 are those from □^Υ, which are real and lie in the
 open intervals of the bounds above, so their real parts are not integers, and those ι^C_(·,+) − 1 that are not
 integers (by (d) the roots ι^C_(·,≪) − 1 have |ι| > 101); a non-integer one with integer real part n, 2 ≤ n ≤ 50,
-would make ι^C_(·,+) non-real with real part n + 1 ∈ [3, 51], against (C4). The minimum of d(Re ι, ℤ) over this finite
-set is positive, and ε_ind is any number in (0, 1] not exceeding it. ∎
+would make ι^C_(·,+) = ι + 1 non-real, with |ι^C_(·,+) − 1| = |ι| ≤ 50 and real part n + 1 ∈ [3, 51], against
+(C4′). The minimum of d(Re ι, ℤ) over this finite set is positive, and ε_ind is any number in (0, 1] not exceeding it.
+
+*(g)* By (d), the entries before the semicolons that come from □^C have real part < −C_0 − 1; this includes the root
+−2 − 2γ_Cv_C at v1, which is ι^C_(v1,≪) − 1 by [[lem:iii-f1-2-2]] and (C1). By (b), the entries after the semicolons
+have real part > 1. So a root with real part in [−C_0 − 1, 0] is one of the following entries, all real
+([[lem:iii-d-4-1]]): at s0, 2 − ι^Υ_(s0,2) and 0; at s1, 2 − ι^Υ_(s1,3), 2 − ι^Υ_(s1,2) and −1; at sl, l ≥ 2, −l,
+2 − ι^Υ_(sl,l+2), 2 − ι^Υ_(sl,l+1) and 2 − l; at v1, −1; at vl, l ≥ 2, −l and 1 − l; at tl, −l. At each type and
+degree these entries are pairwise distinct, by the bounds above: at s0, 2 − ι^Υ_(s0,2) ∈ [−z/3, 0); at s1,
+−5/4 < 2 − ι^Υ_(s1,3) < −1 < −¼ < 2 − ι^Υ_(s1,2) < 0; at sl, the chain of the proof of (e),
+−l − ¼ < 2 − ι^Υ_(sl,l+2) < −l < 1 − l − ¼ < 2 − ι^Υ_(sl,l+1) < 1 − l < 2 − l; and at vl, −l < 1 − l. So each such
+root occurs once in the list of each type and degree at which it is a root. The list gives the zeros of det N_L at
+that type and degree with multiplicity ([[lem:iii-f1-2-1]] and the first paragraph of this proof), so each is a
+simple zero. Only z ∈ (0, ½], (C1) and [[lem:iii-f1-2-2]] were used. ∎
 
 **Lemma {#lem:iii-f1-2-4}** (Roots in a strip, uniformly.) Let 𝒯 be a compact parameter space and
-I_τ(ι) = −ι² + a_τ ι + Δ_(𝕊³) + V_τ + b_τ, τ ∈ 𝒯, indicial families of the form of [[lem:i-c-2-4]] on ℂ^N-valued
+I_τ(ι) = −ι² + a_τ ι + Δ_(𝕊³) + V_τ + b_τ, τ ∈ 𝒯, indicial families of the form of [[lem:i-c-2-4]] on ℂ^(N_E)-valued
 functions on 𝕊³ (the Cartesian frame of T* or S²T* of ℝ^(1+4)), with coefficients continuous in τ and commuting with
 the action of SO(4) that rotates both the base and the Cartesian components. For an irreducible representation π let
-W_π be the π-isotypic subspace, finite-dimensional, and d(π) the least d with W_π ∩ (H_d ⊗ ℂ^N) ≠ 0. Then for every
+W_π be the π-isotypic subspace, finite-dimensional, and d(π) the least d with W_π ∩ (H_d ⊗ ℂ^(N_E)) ≠ 0. Then for every
 X > 0 there is d_0 such that for all τ ∈ 𝒯, all π with d(π) ≥ d_0 and all ι with |Re ι| ≤ X, I_τ(ι) is invertible on
 W_π. On each W_π, det(I_τ(ι)|_(W_π)) is a polynomial of degree 2 dim W_π with leading coefficient (−1)^(dim W_π), so its
 roots, with multiplicity, depend continuously on τ.
 
-*Proof.* H_d ⊗ ℂ^N is invariant under the action (the rotation of components is by constant matrices), and
-Δ = κ_d := d(d + 2) on it. The representation on ℂ^N has irreducible constituents of highest weights (a, b) with
+*Proof.* H_d ⊗ ℂ^(N_E) is invariant under the action (the rotation of components is by constant matrices), and
+Δ = κ_d := d(d + 2) on it. The representation on ℂ^(N_E) has irreducible constituents of highest weights (a, b) with
 a + b ≤ 2 (for S²(ℝ ⊕ ℝ⁴), ℝ⁴ = (½, ½)), and H_d = (d/2, d/2); by the Clebsch–Gordan rule for SU(2) × SU(2),
-π = (j_1, j_2) occurs in H_d ⊗ ℂ^N only if |j_1 + j_2 − d| ≤ 2, so W_π ⊂ ⊕_(|d−d(π)|≤4) H_d ⊗ ℂ^N, a
+π = (j_1, j_2) occurs in H_d ⊗ ℂ^(N_E) only if |j_1 + j_2 − d| ≤ 2, so W_π ⊂ ⊕_(|d−d(π)|≤4) H_d ⊗ ℂ^(N_E), a
 finite-dimensional space preserved by I_τ(ι), on which κ_(d(π)) ≤ Δ ≤ κ_(d(π)+4). By [[lem:i-c-2-4]] (a), whose
 constants depend on finitely many seminorms of the coefficients and so are uniform in τ, there is μ_0 with I_τ(ι)
 invertible on all of H² for |Re ι| ≤ X, |Im ι| ≥ μ_0. For |ι| ≤ X + μ_0 and u ∈ W_π write I_τ(ι) = (1 + Δ) + R,
@@ -558,7 +581,7 @@ N(P⁽⁰⁾) is (2L̄)^(0) ([[lem:iii-f-2-1]] (2)–(3)); since 2L̄ = −2∂_
 [[eq:i-c-4-2]] with ς = 1). The same holds for □^C_b with its model □̄^C: the ∂_(t_*)-coefficient of □̄^C is
 −2ρ(ρ∂_ρ − 3/2 − S̄^C) exactly (□̄ gives −2ρ(ρ∂_ρ − 3/2), and 2δ̄ḠĒ^C gives ρS̄^C as in [[lem:iii-f-3-1]]), and the
 rest is stationary and dilation homogeneous. And it holds for the operators of [[lem:iii-f-2-1]] with the parameters
-(γ_C, γ_Υ) replaced by (τγ_C, τγ_Υ), τ ∈ [0, 1], or by (0, γ_Υ), which satisfy (H1)–(H2) by the proof of
+(γ_C, γ_Υ) replaced by (τγ_C, τγ_Υ), τ ∈ [0, 1], which satisfy (H1)–(H2) by the proof of
 [[lem:iii-f-2-1]], which does not use the values of the parameters; at τ = 0 the model is □̄ on S²T*, componentwise in
 the Cartesian frame. For all of them spec S̄ ⊂ [0, ∞) ([[eq:iii-f-3-1]], the γ's being ≥ 0), and spec S̄^C ⊂ (0, ∞)
 ([[sec:iii-e-1]]). Here P^(·) denotes the family σ ↦ P^(σ).
@@ -570,9 +593,9 @@ indicial root. Near ztf, N_tf = r̂⁻²L, with L as at the end of [[sec:i-c-2-5
 symbol J(ι) = I(−ι) ([[sec:i-c-4-1]] (c)); so a root μ of J is −μ_b, μ_b ∈ spec_b, and 𝒳(β) is H^s_(b,−β) there.
 
 **Lemma {#lem:iii-f1-3-1}** (Relative index.) Let β_1 < β_2 < β_1 + 1, neither the real part of a point of spec_b,
-and s ∈ ℤ. Then ind(β_2) − ind(β_1) = dim F, where F := ⊕_μ F_μ over the roots μ of J with −β_2 < Re μ < −β_1 and
+and s ∈ ℤ, s ≥ 2. Then ind(β_2) − ind(β_1) = dim F, where F := ⊕_μ F_μ over the roots μ of J with −β_2 < Re μ < −β_1 and
 
-    F_μ := {Res_(ι=μ)(ϱ^ι J(ι)⁻¹ g(ι)) : g holomorphic near μ, C^∞(𝕊³; ℂ^N)-valued}.                     {#eq:iii-f1-3-1}
+    F_μ := {Res_(ι=μ)(ϱ^ι J(ι)⁻¹ g(ι)) : g holomorphic near μ, C^∞(𝕊³; ℂ^(N_E))-valued}.                 {#eq:iii-f1-3-1}
 
 dim F_μ is the sum over the finitely many W_π on which μ is a root of ord_μ det(J|_(W_π)), the algebraic
 multiplicity; when J is an indicial family as in [[lem:iii-f1-2-4]], it is the multiplicity of −μ as a root of I on
@@ -632,14 +655,67 @@ principal symbol, up to positive multiples ([[sec:i-a-4]]). Take 𝗋_in above t
 which satisfies (O1)–(O3) of [[sec:i-a-1]] for each operator. On compact subsets of (0, π) the constant order 𝗋_out is
 allowed for each ([[thm:i-c-4-3]] (2)). ∎
 
-**Proposition {#prop:iii-f1-3-3}** (tf-admissibility; [Hin26, Proposition 8.6] in dimension 4 + 1.) Assume e_Υ > 0
-and (C1), and fix all parameters but γ_Υ. There is γ_1 > 0 such that for γ_Υ ∈ (0, γ_1) (so that
-z = 4e_Υγ_Υ² ∈ (0, ½]) and every b near b_0, L_b^(·) is tf-admissible ([[def:i-c-5-1]]) with every weight β ∈ (0, 1].
+**Lemma {#lem:tf-lin-reduction}** (The kernel at the transition face, reduced to the gauge potential operator.) Assume
+(C1) and z = 4e_Υγ_Υ² ∈ (0, ½]. Let s ∈ ℤ and α_+ be given, and let the orders be admissible at once
+([[lem:iii-f1-3-2]]) for (2L_b)^(·), for (□^Υ_b)^(·) at the given gauge parameters and at γ_Υ = 0, and for (2L_b)^(·)
+with (γ_C, γ_Υ) replaced by (0, 0), whose model is □̄ on S²T*, componentwise in the Cartesian frame
+([[sec:iii-f1-3]]). Let θ ∈ [0, π], σ̂ := e^(iθ) and β ∈ (0, ½), and let u_0 ∈ 𝒳(β) satisfy
+N_tf((2L_b)^(·), σ̂)u_0 = 0 and (δ̄_(Ē_Υ)Ḡ)^(σ̂)u_0 = 0. Then u_0 = (δ̄*)^(σ̂)ω_0 for some ω_0 in the space 𝒳_(tf,θ)
+of (□^Υ_b)^(·) at the weight ½ with N_tf((□^Υ_b)^(·), σ̂)ω_0 = 0.
+
+*Proof.* *The decay of u_0 at ztf.* By [[prop:iii-f1-2-3]] (a) and (c), the indicial gap of L_b(0) that contains
+(0, 1] is (0, β_+) with β_+ > 1. By [[thm:i-c-4-3]] (5), u_0 ∈ ρ_ztf^(−β′)C^∞_b near ztf for every β′ > 0, and so
+u_0 ∈ H^∞_(b,−2β′) there ([[lem:i-c-2-2]] (f)).
+
+*The equations.* N_tf((2L_b)^(·), σ̂) = (2L̄)^(σ̂) (the start of [[sec:iii-f1-3]]), and
+2L̄ = 2D Ric + 2δ̄*_(Ē_C)δ̄_(Ē_Υ)Ḡ, D Ric the linearisation at ḡ. The operators are stationary, so their spectral
+families compose. As (δ̄_(Ē_Υ)Ḡ)^(σ̂)u_0 = 0 and δ̄_(Ē_Υ) = δ̄ + Ē^Υ, where Ē^ΥḠ is a bundle map and equals its
+spectral family,
+
+    (D Ric)^(σ̂)u_0 = 0,     (δ̄Ḡ)^(σ̂)u_0 = −ξ_0,     ξ_0 := Ē^ΥḠ u_0.
+
+As c̄_Υ = r⁻¹dt̄, Ē^ΥḠ = ρ̂B with B a bundle map homogeneous of degree 0.
+
+*The flat gauge 1-form.* Let N_ω be the transition face operator at σ̂ of (□^Υ_b)^(·) at γ_Υ = 0. Its data at ρ = 0
+are those of □̄ on 1-forms in the Cartesian frame, S_0 = 0, N(P⁽⁰⁾) = (−(ρ∂_ρ)² + 2ρ∂_ρ + Δ_𝕊)Id and H_0 = Id (proof of
+[[lem:iii-d-7-1]] at γ_Υ = 0), so this family is tf-admissible with every weight in (0, 2) ([[prop:i-c-5-3]]), and by
+[[cor:i-c-5-2]] (a) N_ω maps its space 𝒳_(tf,θ) at the weight ½, that is at q = 3/2, invertibly onto
+𝒴_(tf,θ) = H_(sc,b)^(s−2,(𝗋+α_++1,−1/2)). ξ_0 lies in this space: near sctf, u_0 ∈ H_sc^(s,𝗋+α_+), which
+multiplication by ρ̂B maps into H_sc^(s,𝗋+α_++1); near ztf, ξ_0 ∈ r̂^(−1−β′)C^∞_b ⊂ H^∞_(b,−1−2β′) for every β′ > 0,
+which lies in H^(s−2)_(b,−5/2), the space of 𝒴_(tf,θ) there, once 2β′ < 3/2; in between, ξ_0 is smooth. Let
+ω_0 := N_ω⁻¹(−2ξ_0). On 1-forms of Minkowski space 2δ̄Ḡδ̄* = □̄ (proof of [[lem:iii-f1-2-1]]), so
+N_ω = 2(δ̄Ḡ)^(σ̂)(δ̄*)^(σ̂), and (δ̄Ḡ)^(σ̂)(δ̄*)^(σ̂)ω_0 = −ξ_0.
+
+*The tensor part vanishes.* Put h_0 := u_0 − (δ̄*)^(σ̂)ω_0. Then (δ̄Ḡ)^(σ̂)h_0 = −ξ_0 + ξ_0 = 0, and
+(D Ric)^(σ̂)h_0 = −(D Ric δ̄*)^(σ̂)ω_0 = 0, as D Ric ∘ δ̄* = 0 on Minkowski space (proof of [[lem:iii-f1-2-1]]). On
+symmetric 2-tensors of Minkowski space 2D Ric = □̄ − 2δ̄*δ̄Ḡ ([[eq:iii-f-1-2]] and the identity used there, the curvature
+term being 0), so (□̄)^(σ̂)h_0 = 2(D Ric)^(σ̂)h_0 + 2(δ̄*)^(σ̂)(δ̄Ḡ)^(σ̂)h_0 = 0: h_0 lies in the kernel of the
+transition face operator N_h at σ̂ of (2L_b)^(·) with (γ_C, γ_Υ) replaced by (0, 0), whose model is □̄ on S²T*. On
+stationary sections a Cartesian derivative acts as ∂_(x^i)|_(t_*), which lies in ρ𝒱_b and is homogeneous, plus
+(dt_*)_μ∂_(t_*), and ∂_(t_*) acts as −iσ̂ in the spectral family; so (δ̄*)^(σ̂) = ρ̂B_1 + σ̂B_0 with
+B_1 := ρ⁻¹(δ̄*)^(0) ∈ Diff¹_b and B_0 := −i dt_* ⊗_s ·, both homogeneous of degree 0. Hence, near ztf,
+(δ̄*)^(σ̂)ω_0 ∈ r̂⁻¹H^(s−1)_(b,−1/2) = H^(s−1)_(b,−3/2), and u_0 ∈ H^∞_(b,−2β′) ⊂ H^(s−1)_(b,−3/2) once 2β′ < 3/2;
+near sctf both lie in H_sc^(s−1,𝗋+α_+), as ρ̂B_1 ∈ Diff¹_sc and B_0 is bounded; in between both are in H^(s−1)_loc. So
+h_0 ∈ H_(sc,b)^(s−1,(𝗋+α_+,1/2)), the space of N_h at the regularity s − 1 and the weight 3/2 ∈ (0, 2), and as
+N_h h_0 = 0, h_0 lies in its 𝒳_(tf,θ). By [[prop:i-c-5-3]] this family is tf-admissible with every
+weight in (0, 2), and by [[thm:i-c-4-3]] (3) its kernel does not depend on the regularity. So h_0 = 0.
+
+*The gauge potential operator.* So u_0 = (δ̄*)^(σ̂)ω_0. As □̄^Υ = □̄ + 2Ē^ΥḠδ̄* on 1-forms ([[sec:iii-d-2]]),
+
+    N_tf((□^Υ_b)^(·), σ̂)ω_0 = N_ω ω_0 + 2Ē^ΥḠ(δ̄*)^(σ̂)ω_0 = −2ξ_0 + 2Ē^ΥḠu_0 = 0.
+
+ω_0 lies in H_(sc,b)^(s,(𝗋+α_+,3/2)), the orders are admissible for (□^Υ_b)^(·), and the weight ½ lies in its indicial
+gap (0, ι^Υ_(s1,2)) ([[lem:iii-d-4-1]]). So ω_0 lies in the space 𝒳_(tf,θ) of (□^Υ_b)^(·) at the weight ½. ∎
+
+**Proposition {#prop:iii-f1-3-3}** (tf-admissibility; [Hin26, Proposition 8.6] in dimension 4 + 1.) Assume (C1),
+0 < e_Υ ≤ ½ and 0 < γ_Υ ≤ ¼ (so that z = 4e_Υγ_Υ² ∈ (0, ⅛]), or more generally (C1), 0 < e_Υ < 1, γ_Υ > 0, z ≤ ½
+and Λ_tf(γ_Υ, e_Υ) < 1 ([[eq:tf-lambda]]). Then for every b near b_0, L_b^(·) is tf-admissible ([[def:i-c-5-1]]) with
+every weight β ∈ (0, 1].
 
 *Proof.* (i) of [[def:i-c-5-1]]: (0, 1] lies in an indicial gap, by [[prop:iii-f1-2-3]] (a), and the gap contains
 (0, β_+) with β_+ > 1. As N_tf depends only on the model, b plays no role. Fix α_+, s ∈ ℤ large, and by
-[[lem:iii-f1-3-2]] orders admissible at once for (2L_b)^(·), (□^C_b)^(·), the operator P̂′ with parameters (0, γ_Υ), and
-the operators P̂_τ with parameters (τγ_C, τγ_Υ), uniformly for γ_Υ ∈ [0, 1] and τ ∈ [0, 1]; by [[thm:i-c-4-3]] (3)
+[[lem:iii-f1-3-2]] orders admissible at once for (2L_b)^(·), (□^C_b)^(·), (□^Υ_b)^(·) at the given gauge parameters and
+at γ_Υ = 0, and the operators P̂_τ with parameters (τγ_C, τγ_Υ), uniformly for τ ∈ [0, 1]; by [[thm:i-c-4-3]] (3)
 kernels, annihilators and indices do not depend on these choices or on q with 2 − q in the gap.
 
 *(ii) The kernel.* Let θ ∈ [0, π], σ̂ := e^(iθ), β ∈ (0, ½) (by [[thm:i-c-4-3]] (3) this covers every weight in the
@@ -662,26 +738,19 @@ weight β_C, which lies in the gap (−C_0, 2) of □^C_b (C1).
 
 *Step 4.* By [[thm:iii-e-1-1]] (4), (□^C_b)^(·) is tf-admissible with the weight β_C ∈ [−C_0, 2), so η_0 = 0.
 
-*Step 5: the unmodified gauge.* With η_0 = 0, (2L̄)^(σ̂)u_0 = 2(D Ric)^(σ̂)u_0 = (2L̄′)^(σ̂)u_0,
-L̄′ := D Ric + δ̄*δ̄_(Ē_Υ)Ḡ, the model of P̂′ (parameters (0, γ_Υ)). So N_tf(P̂′, σ̂)u_0 = 0.
-2L̄′ = □̄ + 2δ̄*Ē^ΥḠ does not involve γ_C.
-
-*Step 6: small γ_Υ.* u_0 ∈ 𝒳_(P̂′)(1): near ztf u_0 ∈ H^s_(b,−1), as u_0 = O(r̂^(−β′)) with b-regularity and β′ < 1;
-near sctf it is as before. At γ_Υ = 0, P̂′ = □^(·) on S²T*, componentwise in the Cartesian frame, tf-admissible with
-every weight in (0, 2) ([[prop:i-c-5-3]]), so by [[cor:i-c-5-2]] (b) at the weight 1, uniformly in θ over the three
-sectors, ‖w‖ ≤ C‖N⁰_tf w‖. The difference N_tf(P̂′, e^(iθ)) − N⁰_tf(e^(iθ)) = −2ie^(iθ)ρ̂S̄′ + ρ̂²M′, with S̄′ and
-M′ ∈ Diff¹_b homogeneous and O(γ_Υ), is bounded from the space of 𝒳 into that of 𝒴 with norm C′γ_Υ, uniformly in θ,
-exactly as in [[lem:iii-d-7-1]]; so ‖u_0‖ ≤ C‖N_tf(P̂′, e^(iθ))u_0‖ + CC′γ_Υ‖u_0‖, and u_0 = 0 once CC′γ_Υ ≤ ½. This
-fixes γ_1; it depends on the orders, hence on γ_C, which is fixed first. The weight 1 lies in the indicial gap of
-P̂′(0) for small γ_Υ: its roots are within O(γ_Υ) of the integer roots of □̄ on S²T* ([[lem:iii-a1-2-3]]), none in
-(0, 2), on the finitely many components that meet the strip |Re ι − 1| ≤ ½ ([[lem:iii-f1-2-4]]), and on no other.
+*Step 5: reduction to the gauge potential operator.* By Steps 1–4, u_0 ∈ 𝒳(β), N_tf((2L_b)^(·), σ̂)u_0 = 0 and
+(δ̄_(Ē_Υ)Ḡ)^(σ̂)u_0 = η_0 = 0. By [[lem:tf-lin-reduction]], u_0 = (δ̄*)^(σ̂)ω_0 with ω_0 in the kernel of
+N_tf((□^Υ_b)^(·), σ̂) on its space 𝒳_(tf,θ) at the weight ½. By [[prop:tf-gauge-explicit]] (a), whose hypotheses are
+those of the statement, ω_0 = 0. So u_0 = 0, for every θ ∈ [0, π].
 
 *(iii) The adjoint.* By [[thm:i-c-4-3]] (3) the annihilator of the range of
 N_tf((2L_b)^(·), 1) : 𝒳(β) → 𝒴(β) is ker_(𝒳*) N_tf(1)^(*h); by (ii) the operator is injective, so it suffices that its
 index is 0. Consider the family P̂_τ, τ ∈ [0, 1], at θ = 0 with the common orders. P̂_1 = (2L_b)^(·) and P̂_0 = □^(·) on
-S²T*. 𝒳 does not depend on τ, and τ ↦ N_tf(P̂_τ, 1) is continuous in the norm of bounded maps 𝒳 → 𝒴 (the differences are
-as in Step 6). Let I_τ be the indicial family of P̂_τ(0), apply [[lem:iii-f1-2-4]] with X := 2 and 𝒯 = [0, 1], and for β″
-not the real part of a root of I_τ, |β″ − β| < 1, put
+S²T*. 𝒳 does not depend on τ, and τ ↦ N_tf(P̂_τ, 1) is continuous in the norm of bounded maps 𝒳 → 𝒴: the differences
+are −2iρ̂ times a bundle map plus ρ̂² times an operator in Diff¹_b, homogeneous of degree 0 and polynomial in τ, which
+are bounded from the space of 𝒳 into that of 𝒴 as in the proof of [[lem:iii-d-7-1]]. Let I_τ be the indicial family
+of P̂_τ(0), apply [[lem:iii-f1-2-4]] with X := 2 and 𝒯 = [0, 1], and for a β″ with |β″ − β| < 1 that is not the
+real part of a root of I_τ, put
 
     G(τ) := ind_τ(β″) − Σ_π (n_π(τ, β″) − dim W_π),
 
@@ -709,20 +778,19 @@ Then there is ℓ ∈ ℕ_0 such that for all k ∈ ℕ_0 and ϵ > 0
 
     N_tf(L_b^(·), ±1)⁻¹ : H_b^(k+ℓ, β_sctf+1, β_ztf−2)(tf) → H_b^(k, β_sctf−ϵ, β_ztf)(tf) is bounded.    {#eq:iii-f1-3-3}
 
-*Proof.* *The threshold at R_out.* [[sec:i-a-1]] asks 𝗋 + α_+ < −½ + S̄_L there,
-S̄_L := ½ inf_(∂X) λ_min(S̄ + S̄^(*h)) for a fibre inner product h of our choice ([[prop:i-a-4-9]]). For every δ > 0 some
-smooth h gives S̄_L ≥ −δ, as min Re spec S̄ = 0 ([[eq:iii-f-3-1]]): at each ω, a Jordan basis of S̄(ω) rescaled so that
-the off-diagonal entries are at most δ/2 defines h_ω with Re h_ω((S̄ + δ)u, u) ≥ (δ/2)h_ω(u, u), a strict inequality,
-which persists for S̄(ω′), ω′ near ω; the condition is convex in h, so a partition of unity on 𝕊³ glues these. *The
-orders.* Take β := −β_ztf ∈ (0, 1], q := 2 − β, α_+ := 0, δ := ¼(3/2 − β_sctf), ϵ < δ (it suffices to prove
-[[eq:iii-f1-3-3]] for small ϵ), 𝗋_out := β_sctf − 2 − ϵ/2 < −½ − δ, and the orders 𝗋_± of [[lem:i-a-7-1]] at
-σ_* = ±1 with that outgoing value, constant near R_out. By [[prop:iii-f1-3-3]] and [[cor:i-c-5-2]] (a)–(b), with
-[[thm:i-c-4-3]] (4) for k further b-derivatives, N_tf(±1)⁻¹ is bounded from H^((s−2;k),(𝗋+1,q−2))_(sc,b;b) to
-H^((s;k),(𝗋,q))_(sc,b;b). Near ztf these are H^(s−2+k)_(b,β_ztf−2) and H^(s+k)_(b,β_ztf) for the b-density
-([[def:i-c-4-1]]). Near sctf, on the end of ℝ⁴_(x̂), [[lem:ii-g1-4-1]] ((4.1a)–(4.1b) there, on ℝ⁴ without the
-artificial boundary) gives H_b^(k+ℓ,β_sctf+1) ↪ H^((s−1;k),𝗋+1) and H^((s;k),𝗋) ↪ H_b^(k−ℓ̃,β_sctf−ϵ) with the losses
-ℓ, ℓ̃ of that lemma (𝗋_out + 3 + ϵ/2 = β_sctf + 1 and 𝗋_out + 2 − ϵ/2 = β_sctf − ϵ). Replacing k by k + ℓ̃ and enlarging
-ℓ gives [[eq:iii-f1-3-3]], with ℓ independent of ϵ as in [[cor:ii-g1-4-2]]. ∎
+*Proof.* *The threshold at R_out.* [[sec:i-a-1]] asks 𝗋 + α_+ < −½ + S̄_L there, S̄_L := ½ inf_(∂X) λ_min(S̄ + S̄^(*h))
+for a fibre inner product h of our choice ([[prop:i-a-4-9]]). For every δ > 0 some smooth h gives S̄_L ≥ −δ, as min Re
+spec S̄ = 0 ([[eq:iii-f-3-1]]): at each ω, a Jordan basis of S̄(ω) rescaled so that the off-diagonal entries are at most
+δ/2 defines h_ω with Re h_ω((S̄ + δ)u, u) ≥ (δ/2)h_ω(u, u), a strict inequality, which persists for S̄(ω′), ω′ near ω;
+the condition is convex in h, so a partition of unity on 𝕊³ glues these. *The orders.* Take β := −β_ztf ∈ (0, 1], q := 2
+− β, α_+ := 0, δ := ¼(3/2 − β_sctf), ϵ < δ (it suffices to prove [[eq:iii-f1-3-3]] for small ϵ), 𝗋_out := β_sctf − 2 −
+ϵ/2 < −½ − δ, and the orders 𝗋_± of [[lem:i-a-7-1]] at σ_* = ±1 with that outgoing value, constant near R_out. By
+[[prop:iii-f1-3-3]] and [[cor:i-c-5-2]] (a)–(b), with [[thm:i-c-4-3]] (4) for k further b-derivatives, N_tf(±1)⁻¹ is
+bounded from H^((s−2;k),(𝗋+1,q−2))_(sc,b;b) to H^((s;k),(𝗋,q))_(sc,b;b). Near ztf these are H^(s−2+k)_(b,β_ztf−2) and
+H^(s+k)_(b,β_ztf) for the b-density ([[def:i-c-4-1]]). Near sctf, on the end of ℝ⁴_(x̂), [[lem:ii-g1-4-1]] ((4.1a)–(4.1b)
+there, on ℝ⁴ without the artificial boundary) gives H_b^(k+ℓ,β_sctf+1) ↪ H^((s−1;k),𝗋+1) and H^((s;k),𝗋) ↪
+H_b^(k−ℓ̃,β_sctf−ϵ) with the losses ℓ, ℓ̃ of that lemma (𝗋_out + 3 + ϵ/2 = β_sctf + 1 and 𝗋_out + 2 − ϵ/2 = β_sctf − ϵ).
+Replacing k by k + ℓ̃ and enlarging ℓ gives [[eq:iii-f1-3-3]], with ℓ independent of ϵ as in [[cor:ii-g1-4-2]]. ∎
 
 ### The horizon threshold and the hypotheses of the spectral theory {#sec:iii-f2-1}
 

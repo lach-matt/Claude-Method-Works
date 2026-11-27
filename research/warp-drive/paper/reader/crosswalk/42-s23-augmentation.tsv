@@ -22,7 +22,7 @@ eq:iii-i14-3-3	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:327	III.I(14) (3.
 eq:iii-i14-3-4	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:343	III.I(14) (3.4)	
 eq:iii-i14-3-5	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:377	III.I(14) (3.5)	
 rem:iii-i14-3-2	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:446	III.I(14) Remark 3.2	
-sec:iii-j-1	docket68/n1star/proof5/PART-III-J-PARAM.md:31	III.J section 1	heading: The data space
+sec:iii-j-1	docket68/n1star/proof5/PART-III-J-PARAM.md:31	III.J section 1	heading: The data space; s_C > 100 cited to sec:iii-f-1 (P-ADM text 18)
 def:iii-j-g-plus	docket68/n1star/proof5/PART-III-J-PARAM.md:48	III.J (G+)	cited by VI.C row w1 and the paper's Theorem 4 (chapter 3 cites "(G+) of ch:s23"); the paragraph after (G+) (J:48-51) placed inside the definition
 def:iii-j-a-j	docket68/n1star/proof5/PART-III-J-PARAM.md:53	III.J (A_J)	with the density statement (57), cited by VI.C row w2; eps_+ < delta_sharp < 1/4 by eq:iii-i9-1-1 (J:56 says eps_+ < 1/4); eps'_0 cited to def:iii-i10-1-3
 def:iii-j-classes	docket68/n1star/proof5/PART-III-J-PARAM.md:59	III.J "Classes" paragraph	X_J, F, Q_J; private key
@@ -44,7 +44,7 @@ eq:iii-j-2-5	docket68/n1star/proof5/PART-III-J-PARAM.md:310	III.J (2.5)
 rem:iii-j-2-5	docket68/n1star/proof5/PART-III-J-PARAM.md:364	III.J Remark 2.5	
 rem:iii-j-2-6	docket68/n1star/proof5/PART-III-J-PARAM.md:369	III.J Remark 2.6	"pure gauge (for g_b0)" from III.I(15) item (viii), I16:774-775
 sec:iii-j1-1	docket68/n1star/proof5/PART-III-J2-LINEAR.md:20	III.J1 section 1	heading: The iota+-order of the linear solutions
-lem:iii-j1-1-1	docket68/n1star/proof5/PART-III-J2-LINEAR.md:29	III.J1 Lemma 1.1	
+lem:iii-j1-1-1	docket68/n1star/proof5/PART-III-J2-LINEAR.md:29	III.J1 Lemma 1.1	the order of the zero energy solve written q' (P-I11 text 11)
 sec:iii-j1-2	docket68/n1star/proof5/PART-III-J2-LINEAR.md:67	III.J1 section 2	
 thm:iii-j1-2-1	docket68/n1star/proof5/PART-III-J2-LINEAR.md:69	III.J1 Theorem 2.1	stated at b0 as in the source; at b by III.I(15) Cor 3.2 (S25)
 eq:iii-j1-2-1	docket68/n1star/proof5/PART-III-J2-LINEAR.md:72	III.J1 (2.1)	

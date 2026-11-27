@@ -1,0 +1,1341 @@
+diff --git a/research/warp-drive/paper/reader/chapters/00-front.md b/research/warp-drive/paper/reader/chapters/00-front.md
+index 6b41d8b3..d5ae872b 100644
+--- a/research/warp-drive/paper/reader/chapters/00-front.md
++++ b/research/warp-drive/paper/reader/chapters/00-front.md
+@@ -30,9 +30,10 @@ Further, the development of the continued data also reaches inside the black hol
+ boundary; the development of g_λ's own data settles without gluing, in a class wider by half-integer orders; the
+ construction extends to two crossing null dusts and to restricted massless Vlasov limits; the constants are stated as
+ far as they are explicit, among them an upper bound for λ0 at a numerical point; for the loss d with which the settling
+-proof applies the Nash–Moser theorem, a lower bound at every point of the set on which settling is proved, which grows
+-like the inverse square of the gauge parameter and like the square of the damping parameter, so that d is unbounded on
+-that set, and, at a parameter point outside it, for one admissible choice of the weights, orders and inner products and
+-the index sets as the proofs construct them, 1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰; at equality, μ0 = √72 l5², timelike
++proof applies the Nash–Moser theorem, a lower bound at every point of the set on which settling is proved at which the
++damping parameter is at least 10⁶, which grows like the inverse square of the gauge parameter and like the square of the
++damping parameter, so that d is unbounded on that set, and, at a parameter point not shown to lie in it, for one
++admissible choice of the weights, orders and inner products and the index sets as the proofs construct them,
++1.2497 × 10²⁴ < d < 1.57157 × 10⁵⁰; at equality, μ0 = √72 l5², timelike
+ curves of g_λ cross the boundary in a layer whose width tends to zero with λ; and at the physical wavelength 10 l5
+ there is no separation of scales, existence holding where the solution is the seed.
+diff --git a/research/warp-drive/paper/reader/chapters/01-introduction.md b/research/warp-drive/paper/reader/chapters/01-introduction.md
+index c807661a..d44c0e21 100644
+--- a/research/warp-drive/paper/reader/chapters/01-introduction.md
++++ b/research/warp-drive/paper/reader/chapters/01-introduction.md
+@@ -149,11 +149,11 @@ l5²)^(1/4) tends to 0 with l5, the constants then depending on l5; at r = 0 the
+ Kretschmann scalar being 72 μ²/r⁸ ([[prop:vaidya]]). The thresholds λ0, λ1 and δ exist by the proofs and are not
+ evaluated; [[prop:lambda0]] bounds λ0 above at a numerical point, and [[ch:explicit-constants]] states where the explicit
+ evaluation of λ1 and δ stops and bounds the loss d with which the proof of [[thm:settling]] applies the Nash–Moser
+-theorem. At every point of the set on which that theorem is proved, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻² and
+-d > 0.3168 γ_C², z = 4e_Υγ_Υ² and γ_C being the gauge and damping parameters of [[ch:s13]] and [[ch:s14]]
+-([[thm:ec-lb-proved]]), so that d is unbounded on that set. At a point of the gauge and damping parameters outside it,
+-d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them, and
+-d < 1.57157 × 10⁵⁰ at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]). A
++theorem. At every point of the set on which that theorem is proved at which γ_C ≥ 10⁶, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻²
++and d > 0.3168 γ_C², z = 4e_Υγ_Υ² and γ_C being the gauge and damping parameters of [[ch:s13]] and [[ch:s14]]
++([[thm:ec-lb-proved]]), so that d is unbounded on that set. At a point of the gauge and damping parameters not shown to
++lie in it, d > 1.2497 × 10²⁴ at every admissible choice of the weights, for the index sets as the proofs construct them,
++and d < 1.57157 × 10⁵⁰ at one admissible choice of the weights, orders and inner products ([[thm:uc-integer]]). A
+ high-frequency theorem, whose expansion parameter is the wavelength over the curvature length, does not apply at a
+ prescribed wavelength of 10 l5; there existence holds where the solution is the seed ([[thm:ten-l5]]). [[ch:scope]]
+ collects these statements.
+diff --git a/research/warp-drive/paper/reader/chapters/03-theorems.md b/research/warp-drive/paper/reader/chapters/03-theorems.md
+index baf59ddf..91ff9c0b 100644
+--- a/research/warp-drive/paper/reader/chapters/03-theorems.md
++++ b/research/warp-drive/paper/reader/chapters/03-theorems.md
+@@ -311,9 +311,10 @@ is stated for perturbations in Hintz's own data class, where his theorem applies
+ determines which decaying perturbations it reaches, directly or through gluing. The rate holds for every ε < ε_K.
+ The order K is explicit in the loss d with which the proof applies the Nash–Moser theorem ([[thm:iii-k-3-2]]): with
+ the orders that [[prop:uc-data-order]] counts, d_1 = 22d + 292 + L_P and K = 22d + 306 + L_P, where L_P ≤ 43 is an
+-explicit number of derivatives. d is not evaluated on the set where [[thm:settling]] is proved; there it is bounded
+-below by explicit functions of the gauge and damping parameters ([[thm:ec-lb-proved]]). At the computational
+-point of [[def:ec-point]], which lies outside that set ([[rem:ec-point-outside]]), and at one admissible choice of the
++explicit number of derivatives. d is not evaluated on the set where [[thm:settling]] is proved; at its points with
++γ_C ≥ 10⁶ it is bounded below by explicit functions of the gauge and damping parameters ([[thm:ec-lb-proved]]). At the
++computational point of [[def:ec-point]], which is not shown to lie in that set ([[rem:ec-point-outside]]), and at one
++admissible choice of the
+ weights, orders and inner products, d is at most an integer below 1.57157 × 10⁵⁰ ([[thm:uc-integer]]), and K at most
+ one below 3.45745 × 10⁵¹.
+ 
+@@ -357,12 +358,12 @@ The remaining chapters prove the following; each is stated in full where it is p
+   ([[thm:harmonic-rate]]).
+ - *The constants of [[thm:settling]].* The loss d with which the Nash–Moser step is applied, at least the loss that
+   the proof assigns to the tame estimates, and its regularity N_NM = 21d + 6, with explicit lower bounds at every point
+-  of the proved set, as functions of the gauge parameter z = 4e_Υγ_Υ² and the damping parameter γ_C that grow like z⁻²
+-  and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that lies outside the proved set, explicit lower bounds
+-  ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the weights, orders and inner
+-  products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the modulus of the initial family
+-  at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini ([[ch:resolvent-bounds]]); and where
+-  explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
++  of the proved set at which γ_C ≥ 10⁶, as functions of the gauge parameter z = 4e_Υγ_Υ² and the damping parameter γ_C
++  that grow like z⁻² and γ_C² ([[thm:ec-lb-proved]]); at a parameter point that is not shown to lie in the proved set,
++  explicit lower bounds ([[thm:loss-d]]) and explicit upper bounds for d and N_NM at one admissible choice of the
++  weights, orders and inner products ([[thm:uc-integer]]); through the lower bounds, upper bounds for δ and for the
++  modulus of the initial family at 2δ (and λ1 < δ); explicit resolvent bounds on five-dimensional Tangherlini
++  ([[ch:resolvent-bounds]]); and where explicit evaluation of λ1 and δ stops ([[ch:explicit-constants]]).
+ - *More families.* Two crossing radial null dusts, one ingoing and one outgoing, with the background, the
+   approximant, the uniform estimate and the data ([[thm:two-dusts]]); Cauchy stability of the class
+   Einstein–null-dust system, without smallness, on compact domains of the type of Ω, for caustic-free dusts, the axes
+diff --git a/research/warp-drive/paper/reader/chapters/33-s14-constraint-damping.md b/research/warp-drive/paper/reader/chapters/33-s14-constraint-damping.md
+index 76c3045a..3db09f93 100644
+--- a/research/warp-drive/paper/reader/chapters/33-s14-constraint-damping.md
++++ b/research/warp-drive/paper/reader/chapters/33-s14-constraint-damping.md
+@@ -123,7 +123,9 @@ for large |x| up to O(m₀|x|⁻³) d|x|: [[prop:np-10-14]] states this in the s
+ time t of [[sec:iii-b-3-1]] is the outgoing Kerr–Schild time, whose differential differs from the static one by
+ O(m₀|x|⁻²) d|x|, which changes |x|⁻¹(dt − v_C d|x|) by O(m₀|x|⁻³) d|x|.
+ 
+-Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters. The
++Every result of this chapter that names (v_C, e_C, C_0, γ_C) uses these values, and so do all later chapters; the
++results that [[thm:vi-c-adm-holds]] (1) lists hold as well with γ_C = h⁻¹ at every admissible point
++([[def:vi-c-admissible]]). The
+ statements of [Hin26, Theorem 7.1] "for v_C ∈ (0, 1), C_0 > 0 and all sufficiently large γ_C" are proved here at this
+ choice: for every γ_C > 1/h_* outside a countable set, which is what every later use requires, as each takes one
+ admissible γ_C.
+@@ -3127,7 +3129,7 @@ above. Its value is given by [[lem:s14-delta50]], which does not involve h; [[co
+ This section determines the number ε_ind(h) of [[prop:np-10-52]] (iii) at h = 10⁻⁶, that is at γ_C = 10⁶, and shows that
+ there the real parts of the non-integer roots ι with |ι − 1| ≤ 50 of P_l, P_0 and p_(v) keep a distance of more than
+ 2.93·10⁻⁶ from the integers. The point h = 10⁻⁶ is the right end of the interval (0, 10⁻⁶] on which [[prop:np-10-52]]
+-(iii) defines ε_ind; it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which the theorems of this paper are stated, and
++(iii) defines ε_ind; it does not lie in the set 𝖧 of [[eq:iv4-0-1]] on which [[thm:iii-e-1-1]] is stated, and
+ [[rem:s14-eps-ind-scope]] says what this section gives for h ∈ 𝖧. As in [[sec:s14-model]], (v, e) = (1/2, 1/102400), κ =
+ l(l + 2), and P_l, P_0, p_(v) and C are the polynomials of [[prop:np-10-12]] at this point. Throughout this section
+ 
+@@ -3529,9 +3531,11 @@ C at scalar type 0, those that [[ch:s15]] removes left out. The roots of C are r
+ dist(Re(ι − 1), ℤ) = dist(Re ι, ℤ) > 2.93·10⁻⁶ > δ_50 by [[prop:s14-damping-distance]] whenever ι − 1 ∉ ℤ
+ and |ι − 1| ≤ 50. So the infimum is a minimum, equal to δ_50, and [[lem:s14-delta50]] gives its value. ∎
+ 
+-**Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) The theorems of this paper take h in 𝖧 = (0, h_*)
+-∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧, and [[prop:s14-damping-distance]]
+-and [[cor:s14-eps-ind-point]] are used by none of them. For h ∈ 𝖧 the theorems use only 0 < ε_ind(h) ≤ δ_50, which
++**Remark {#rem:s14-eps-ind-scope}** (The point h = 10⁻⁶ and the set 𝖧.) [[thm:iii-e-1-1]] and [[prop:vi-c-adm-exist]]
++take h in 𝖧 = (0, h_*) ∖ 𝖹 ([[eq:iv4-0-1]]), and h_* = min(10⁻⁶, h_0, h_tf) ≤ 10⁻⁶; so h = 10⁻⁶ is not in 𝖧.
++[[prop:s14-damping-distance]] and [[cor:s14-eps-ind-point]] are used by no step of the proof of [[thm:settling]]; the
++first shows that (AP2) of [[def:vi-c-admissible]] holds at h = 10⁻⁶ ([[rem:ec-point-outside]]). For h ∈ 𝖧 the theorems
++use only 0 < ε_ind(h) ≤ δ_50, which
+ [[prop:np-10-52]] (iii) gives for every such h. [[lem:s14-delta50]] and the sums of the gauge potential offsets of
+ [[prop:gap-sums]] concern numbers fixed by the gauge parameters (e_Υ, γ_Υ) alone, not by h, so they hold whatever h is.
+ What changes for h ∈ 𝖧 is the location of the roots of P_l, P_0 and p_(v): the arguments of this section use h = 10⁻⁶ in
+@@ -3579,7 +3583,7 @@ indicial roots of the linearised gauge-fixed Einstein operator at the types l 
+ k ∈ [−49, 51], P_l (C if l = 0) has a non-real root of real part k. Outside 𝖹₃ no non-integer entry ι of the lists
+ with |ι| ≤ 50 has integer real part, so ε_ind(h) > 0: the set is left out for the condition [Hin26, (8.13)].
+ 
+-(d) Z_exc ([[prop:iii-f1-2-3]] (e)), written 𝖹_exc in row u5 of [[sec:vi-c-1]], is defined at an h at which (C2) and
++(d) Z_exc ([[prop:iii-f1-2-3]] (e)) is defined at an h at which (C2) and
+ (C3) hold. It is the set of the z ∈ (0, ½] at which, for some l ≥ 0, a real root of C (l = 0) or of P_l (l ≥ 1) equals
+ ι^Υ + 2 or 3 − ι^Υ, for a root ι^Υ = ι^Υ_(s0,2) (l = 0), or ι^Υ = ι^Υ_(sl,l+1) or ι^Υ_(sl,l+2) (l ≥ 1), of the gauge
+ potential operator ([[lem:iii-d-4-1]]). There an entry ι − 1 that comes from □^C equals an entry 1 + ι^Υ or 2 − ι^Υ of
+@@ -3863,13 +3867,13 @@ h^v_(4,l) with (κ − 8)|h − h^v_(4,l)| < min(η, 1), which contains an open
+ claim, for each n the largest h^v_(n,l) below 10⁻⁶ comes from the least l with κ > (n − 3)·10⁶ + n² − 2n, and the
+ largest over 4 ≤ n ≤ 50 is at n = 35, l = 5656, κ = 32001648. ∎
+ 
+-**Remark {#rem:t49-scope}** (What this decides.) At the damping point, the parts of rows c2, c3 and u5 of
+-[[sec:vi-c-1]] that concern the indicial roots hold: h = 10⁻⁶ ∉ 𝖹, (C1)–(C4) hold, and Z_exc = ∅ at h = 10⁻⁶, so
+-z = 4·10⁻⁶ ∉ Z_exc ([[thm:t49-point]]); every indicial root of L̂_b(0) at the computational point is simple. The
+-computational point is not in 𝖧, because 𝖧 ⊂ (0, h_*) and h_* ≤ 10⁻⁶ ([[rem:ec-point-outside]]), and the thresholds
+-h_0, h_tf of row c2 and those of rows u2–u4 are not determined. Away from the point, 𝖹₂ is empty and (C3) holds at
+-every h ∈ (0, 10⁻⁶], and Z_exc is empty at every h at which (C2) holds ([[thm:t49-uniform]]); so 𝖹 = 𝖹₁ ∪ 𝖹₃, and,
+-as (C2) holds at every h ∈ 𝖧, the order of choices in [[thm:vi-c-2-1]] meets no exclusion in z. The set 𝖹 meets I
++**Remark {#rem:t49-scope}** (What this decides.) At the damping point the exclusions of [[eq:iv4-0-1]] and
++[[prop:iii-f1-2-3]] (e) are met, although [[def:vi-c-admissible]] does not ask them: h = 10⁻⁶ ∉ 𝖹, (C1)–(C4) hold, and
++Z_exc = ∅ at h = 10⁻⁶, so z = 4·10⁻⁶ ∉ Z_exc ([[thm:t49-point]]); every indicial root of L̂_b(0) at the computational
++point is simple. The computational point is not in 𝖧, because 𝖧 ⊂ (0, h_*) and h_* ≤ 10⁻⁶, and whether it is admissible
++is decided by the conditions that [[rem:ec-point-outside]] lists as open. Away from the point, 𝖹₂ is empty and (C3) holds
++at every h ∈ (0, 10⁻⁶], and Z_exc is empty at every h at which (C2) holds ([[thm:t49-uniform]]); so 𝖹 = 𝖹₁ ∪ 𝖹₃. The set
++𝖹 meets I
+ ([[prop:t49-six]]); whether 𝖹 ∩ I is finite is not decided here. For every interval J ⊂ (0, h_*) of length 2·10⁻⁹,
+ ε_ind has no positive lower bound on J ∖ 𝖹 ([[prop:t49-vector]]); [[prop:np-10-52]] (iii) gives only ε_ind(h) > 0
+ for h ∈ 𝖧.
+diff --git a/research/warp-drive/paper/reader/chapters/34-s15-linearised.md b/research/warp-drive/paper/reader/chapters/34-s15-linearised.md
+index 61c1a16e..f72b8f2a 100644
+--- a/research/warp-drive/paper/reader/chapters/34-s15-linearised.md
++++ b/research/warp-drive/paper/reader/chapters/34-s15-linearised.md
+@@ -74,7 +74,9 @@ Fix, as [Hin26, Section 8] does, the gauge modification E_Υ = (c_Υ, e_Υ, γ_
+ with 0 < e_Υ ≪ 1 and 0 < γ_Υ ≪ 1 as [[prop:iii-d1-4-1]] allows, so that the gauge potential operator □^Υ_b is mode
+ stable with the indicial roots of [[lem:iii-d-4-1]]; and the constraint damping data v_C, e_C, c_C, γ_C and C_0 = 100
+ fixed in [[sec:iv4-0]], for which (1 − e_C)(1 − v_C)γ_C > 100 and the constraint propagation operator □^C_b of
+-[[eq:iii-e-1-1]] has the properties of [[thm:iii-e-1-1]]. The *linearised gauge-fixed Einstein operator* is
++[[eq:iii-e-1-1]] has the properties of [[thm:iii-e-1-1]]. Every result below holds as well, with the same proof, at
++every admissible point of the parameters ([[def:vi-c-admissible]], [[thm:vi-c-adm-holds]]). The *linearised
++gauge-fixed Einstein operator* is
+ 
+     L_b := D_(g_b)Ric + δ*_(g_b,E_C) δ_(g_b,E_Υ) G_(g_b),                                                 {#eq:iii-f-1-1}
+ 
+@@ -294,6 +296,10 @@ lies in {1 − l, 2 − l, l + 3, l + 4}.
+ 
+ (C4) Every indicial root of □^C_b whose real part is an integer in [3, 51] is real.
+ 
++(C4′) Every non-real indicial root ι of □^C_b with |ι − 1| ≤ 50 has non-integer real part. Under (C1), (C4) implies
++(C4′): such a root has |Re ι − 1| ≤ 50, so Re ι ≥ 2 by (C1), and Re ι = 2 only at the real root ι = 2; so an integer
++real part would lie in [3, 51], where (C4) would make the root real.
++
+ *Types and representations.* Write H_d for the space of harmonic polynomials of degree d on ℝ⁴, restricted to 𝕊³.
+ Under SO(4) ≅ (SU(2) × SU(2))/{±1}, H_d is the irreducible representation of highest weights (d/2, d/2); the
+ spatial covectors ℝ⁴ are (½, ½), and the symmetric 2-tensors on ℝ⁴ are (0, 0) ⊕ (1, 1), the trace and the trace-free
+@@ -440,7 +446,7 @@ tl, l ≥ 2: −l; l + 2.
+ n_L have real part > 1: those before and after the semicolon. (c) 0 is a root only at scalar types 0 and 2, simple
+ there, with the indicial solutions of [[lem:iii-f1-2-5]]. (d) The roots with real part ≤ 0 that come from □^C, written
+ with superscript C, have real part < −C_0 − 1 = −101. (e) If (C2)–(C3) hold, there is a countable set Z_exc ⊂ (0, ½],
+-determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simple. (f) If (C4) holds, then for every R > 0
++determined by the roots of □^C_b, such that for z ∉ Z_exc every root is simple. (f) If (C4′) holds, then for every R > 0
+ only finitely many roots have |ι| ≤ R, and no non-integer root with |ι| ≤ 50 has integer real part; so there is
+ ε_ind ∈ (0, 1] with
+ 
+@@ -451,7 +457,10 @@ parameters (e_Υ, γ_Υ) = (1/100, 1/100) the roots 2 − ι^Υ_(sl,l+1), which
+ force ε_ind ≤ δ_50, where 2 − ι^Υ_(s50,51) = −49 − δ_50 is a root of modulus below 50 at distance δ_50 from ℤ
+ ([[prop:np-10-52]] (i), (iii)). The number δ_50 is a constant of [[ch:s14]], fixed by the gauge parameters alone
+ ([[rem:s14-delta50]]), and its value is given by [[lem:s14-delta50]]. The gap (0, 1] of (a) is exact, and
+-ε_ind enters only through [[eq:iii-f1-2-2]], never as a number of order one.
++ε_ind enters only through [[eq:iii-f1-2-2]], never as a number of order one. (g) Every root with real part in
++[−C_0 − 1, 0] is real, and at each type and degree at which it is a root it occurs once in the list, so that it is a
++simple zero of the determinant of the indicial matrix N_L there; this needs neither (C2)–(C3) nor z ∉ Z_exc, and it
++covers the roots with real part in (−3, 0] that the later chapters use.
+ 
+ *Proof.* *The list.* By [[lem:iii-f1-2-1]] the roots of each type are, with multiplicity, −l and l + 2, the roots of
+ □^Υ plus 1 and the roots of □^C minus 1, less the roots of D. [[lem:iii-d-4-1]] gives those of □^Υ: s0:
+@@ -495,8 +504,20 @@ any h ∈ (0, 10⁻⁶] ([[thm:t49-uniform]]).
+ with |ι| ≤ R, each finitely many. The non-integer roots with |ι| ≤ 50 are those from □^Υ, which are real and lie in the
+ open intervals of the bounds above, so their real parts are not integers, and those ι^C_(·,+) − 1 that are not
+ integers (by (d) the roots ι^C_(·,≪) − 1 have |ι| > 101); a non-integer one with integer real part n, 2 ≤ n ≤ 50,
+-would make ι^C_(·,+) non-real with real part n + 1 ∈ [3, 51], against (C4). The minimum of d(Re ι, ℤ) over this finite
+-set is positive, and ε_ind is any number in (0, 1] not exceeding it. ∎
++would make ι^C_(·,+) = ι + 1 non-real, with |ι^C_(·,+) − 1| = |ι| ≤ 50 and real part n + 1 ∈ [3, 51], against
++(C4′). The minimum of d(Re ι, ℤ) over this finite set is positive, and ε_ind is any number in (0, 1] not exceeding it.
++
++*(g)* By (d), the entries before the semicolons that come from □^C have real part < −C_0 − 1; this includes the root
++−2 − 2γ_Cv_C at v1, which is ι^C_(v1,≪) − 1 by [[lem:iii-f1-2-2]] and (C1). By (b), the entries after the semicolons
++have real part > 1. So a root with real part in [−C_0 − 1, 0] is one of the following entries, all real
++([[lem:iii-d-4-1]]): at s0, 2 − ι^Υ_(s0,2) and 0; at s1, 2 − ι^Υ_(s1,3), 2 − ι^Υ_(s1,2) and −1; at sl, l ≥ 2, −l,
++2 − ι^Υ_(sl,l+2), 2 − ι^Υ_(sl,l+1) and 2 − l; at v1, −1; at vl, l ≥ 2, −l and 1 − l; at tl, −l. At each type and
++degree these entries are pairwise distinct, by the bounds above: at s0, 2 − ι^Υ_(s0,2) ∈ [−z/3, 0); at s1,
++−5/4 < 2 − ι^Υ_(s1,3) < −1 < −¼ < 2 − ι^Υ_(s1,2) < 0; at sl, the chain of the proof of (e),
++−l − ¼ < 2 − ι^Υ_(sl,l+2) < −l < 1 − l − ¼ < 2 − ι^Υ_(sl,l+1) < 1 − l < 2 − l; and at vl, −l < 1 − l. So each such
++root occurs once in the list of each type and degree at which it is a root. The list gives the zeros of det N_L at
++that type and degree with multiplicity ([[lem:iii-f1-2-1]] and the first paragraph of this proof), so each is a
++simple zero. Only z ∈ (0, ½], (C1) and [[lem:iii-f1-2-2]] were used. ∎
+ 
+ **Lemma {#lem:iii-f1-2-4}** (Roots in a strip, uniformly.) Let 𝒯 be a compact parameter space and
+ I_τ(ι) = −ι² + a_τ ι + Δ_(𝕊³) + V_τ + b_τ, τ ∈ 𝒯, indicial families of the form of [[lem:i-c-2-4]] on ℂ^(N_E)-valued
+diff --git a/research/warp-drive/paper/reader/chapters/35-s16-iota-plus.md b/research/warp-drive/paper/reader/chapters/35-s16-iota-plus.md
+index 1fbee913..d440d323 100644
+--- a/research/warp-drive/paper/reader/chapters/35-s16-iota-plus.md
++++ b/research/warp-drive/paper/reader/chapters/35-s16-iota-plus.md
+@@ -50,8 +50,8 @@ orders of error terms are written M, as in [[ch:s01]] and [[ch:s02]]; in [[sec:i
+ spacetime and Ω a domain in it, while elsewhere Ω and Ω_a are rotation fields of 𝕊³ and Ω_(a,b) is a slab. The faces
+ ℐ⁺, ι⁺ and K⁺ of the compactified spacetime are those of [[ch:s04]]. The inner radius of the artificial boundary plays
+ no role in this chapter: the spectral family lives on Minkowski space, and the grafting of [[sec:iii-g2-4]] takes place
+-near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which [[thm:iii-e-1-1]] (3) provides, and
+-γ_Υ is as in [[prop:iii-f1-3-3]].
++near infinity. Throughout, condition (C1) of [[sec:iii-f1-1]] is assumed, which [[thm:iii-e-1-1]] (3) provides for h ∈ 𝖧
++and (AP0) of [[def:vi-c-admissible]] at every admissible point, and γ_Υ is as in [[prop:iii-f1-3-3]].
+ 
+ ### The spectral family: the operator and the spaces {#sec:iii-g-1}
+ 
+@@ -1421,9 +1421,9 @@ state it needs is constructed in [[ch:s13]] and [[ch:s15]], with at least the co
+ 
+ Throughout this section and the next three we assume (Dyn), the dynamical hypotheses of [[ch:s13]], which hold for
+ g_b, b near b_0, by [[thm:vi-a-6-1]] and [[thm:vi-b1-5-1]]; the parameters of [[prop:iii-f1-3-3]] with
+-γ_Υ < min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); (C1) of [[sec:iii-f1-1]]; and (C2)–(C3) of [[sec:iii-f1-1]] with
+-z_Υ = 4e_Υγ_Υ² outside the exceptional set Z_exc of [[prop:iii-f1-2-3]] (e), so that every indicial root of L̂_b(0) is
+-simple. We fix
++γ_Υ < min(½s_C, ⅜) ([[lem:iii-g1-1-1]]); and (C1) of [[sec:iii-f1-1]], with z_Υ = 4e_Υγ_Υ² ∈ (0, ½]. Then every
++indicial root μ of L̂_b(0) with −101 ≤ Re μ ≤ 0 is real and simple ([[prop:iii-f1-2-3]] (g)); the roots used below
++lie in (−3, 0]. We fix
+ 
+     ℓ_K^max := min(3, 2 + 2γ_Cv_C),                                                                     {#eq:iii-g2-1-1}
+ 
+@@ -1432,8 +1432,9 @@ real part ≤ 0 lie below −101 ([[prop:iii-f1-2-3]] (d)). Under the condition
+ 
+ (C5) γ_Cv_C ≥ ½,
+ 
+-ℓ_K^max = 3. The choice of parameters in [[thm:vi-c-2-1]] satisfies (C5), as there v_C = ½ and γ_C > 10⁶. Without
+-(C5) every statement below holds with ℓ_K^max = 2 + 2γ_Cv_C, which still serves every graft at
++ℓ_K^max = 3. The choice of parameters in [[thm:vi-c-2-1]] satisfies (C5): at every admissible point
++([[def:vi-c-admissible]]) v_C = ½ and s_C > 100, so γ_Cv_C > 100. Without (C5) every statement below holds with
++ℓ_K^max = 2 + 2γ_Cv_C, which still serves every graft at
+ Re ϰ_0 > 2 − 2γ_Cv_C + ε_K used at a K⁺-weight at most 4 + ε_K.
+ 
+ For ℓ_K < ℓ_K^max let 𝒲(ℓ_K) be the set of indicial roots μ of L̂_b(0) ([[prop:iii-f1-2-3]]) with
+@@ -1490,8 +1491,9 @@ is {h̄_τ(Y) : Y ∈ 𝒴_τ}. Here h̄_τ(Y) is the ρ^μ-leading term of the
+ −1, of h̆²_(b,s1)(S) and h̆¹_(b,v1)(V)), and Y ↦ h̄_τ(Y) is injective.
+ 
+ *Proof.* On the type-τ sections given by a harmonic Y, the indicial family is a matrix polynomial in μ whose
+-determinant has μ as a simple zero (the hypothesis on z_Υ). So its kernel is one-dimensional for each Y in a basis of
+-𝒴_τ, and depends linearly on Y. The leading term h̄ = ρ^μφ(ω) of the state lies in the kernel. Indeed it satisfies
++determinant has μ as a simple zero ([[prop:iii-f1-2-3]] (g), as −3 < μ ≤ 0). So its kernel is one-dimensional for
++each Y in a basis of 𝒴_τ, and depends linearly on Y. The leading term h̄ = ρ^μφ(ω) of the state lies in the kernel.
++Indeed it satisfies
+ L̄̂(0)h̄ = 0: for the base of a chain this is the leading order of [[eq:iii-g2-2-1]] at m = 0, since
+ L̂_b(0) − L̄̂(0) ∈ ρ⁴Diff²_b ([[lem:iii-f-2-1]] (3)); for s1 and v1 it is [[eq:iii-g2-2-4]] at the first index of the
+ chain. As 2L̄̂(0) = ρ²L̃(0)(ω, ρ∂_ρ, ∂_ω) ([[eq:iii-g-1-1]]) is dilation invariant, this is N(L̄̂(0), μ)φ = 0. The
+@@ -1633,8 +1635,9 @@ Re z < ℓ_K, plus an element of H^(k+2,ℓ_K)_b. We remove the terms in order o
+ *The lowest term.* Suppose some coefficient is non-zero, and let z_0 be the least real part of an exponent present. In
+ [[eq:iii-g2-3-2]] the right side has exponents of real part ≥ min(ℓ_K, z_0 + 1) > z_0. So the terms of A_0u at real part
+ z_0 vanish: for each z with Re z = z_0 and J the top power of log R, N(A_0, z)c_(z,J) = 0 and
+-N(A_0, z)c_(z,J−1) + J∂_zN(A_0, z)c_(z,J) = 0. Hence z = −μ for a root μ, which is real, so z = z_0. As μ is a simple
+-root, ∂_zN(A_0, z) maps ker N(A_0, z) injectively into a complement of the range of N(A_0, z). So Jc_(z,J) = 0, J = 0,
++N(A_0, z)c_(z,J−1) + J∂_zN(A_0, z)c_(z,J) = 0. Hence z = −μ for a root μ with α < −Re μ < ℓ_K, so −3 < Re μ ≤ 0
++([[prop:iii-f1-2-3]] (a)), and μ is real and simple ([[prop:iii-f1-2-3]] (g)); so z = z_0. As μ is a simple root,
++∂_zN(A_0, z) maps ker N(A_0, z) injectively into a complement of the range of N(A_0, z). So Jc_(z,J) = 0, J = 0,
+ and c := c_(z,0) ∈ ker N(A_0, −μ) = ker N(L̄̂(0), μ). The kernel is finite-dimensional (A_0 is elliptic on 𝕊³) and
+ splits by type and harmonic. By [[lem:iii-g2-1-2]], c = Σ_τ h̄_τ(Y_τ) with unique Y_τ ∈ 𝒴_τ, and μ ∈ 𝒲(ℓ_K) as z_0 < ℓ_K.
+ 
+diff --git a/research/warp-drive/paper/reader/chapters/36-s17-null-infinity.md b/research/warp-drive/paper/reader/chapters/36-s17-null-infinity.md
+index 8be3d35d..27ab7b7e 100644
+--- a/research/warp-drive/paper/reader/chapters/36-s17-null-infinity.md
++++ b/research/warp-drive/paper/reader/chapters/36-s17-null-infinity.md
+@@ -1135,7 +1135,8 @@ alone, |σ| = ρ_tf ρ_zf, and the b-vector fields are spanned by σ∂_σ|_r̂,
+ [[ch:s10]]), χ_ztf := χ_zf|_tf, and χ_tf := χ₂(ρ + |σ|) with χ₂ ∈ C_c^∞([0, ½ρ₀)) equal to 1 near 0.
+ 
+ *The operator.* L_b is the linearised gauge-fixed Einstein operator of [[ch:s15]], with the parameters and hypotheses of
+-[[sec:iii-g2-1]]; in particular z_Υ ∉ Z_exc, so that every indicial root of L̂_b(0) is simple ([[prop:iii-f1-2-3]] (e)).
++[[sec:iii-g2-1]]; in particular every indicial root μ of L̂_b(0) with −101 ≤ Re μ ≤ 0 is real and simple
++([[prop:iii-f1-2-3]] (g)).
+ With (ℱu)(σ) = ∫ e^(iσt_*)u dt_* ([[eq:iii-a-2-2]]), so that ∂_(t_*) becomes −iσ, [[lem:iii-f-2-1]] (2) gives exactly
+ 
+     L̄̂(σ) = iσρ(ρ∂_ρ − 3/2 − S̄) + ρ²𝒩,     𝒩 := ρ⁻²L̄̂(0),                                         {#eq:iii-g4-1-2}
+@@ -1151,17 +1152,19 @@ on sections over tf of π_tf^*(S²T*X|_(∂X)); P := r̂²N_tf = N₀ + r̂N₁
+ 
+ **Lemma {#lem:iii-g4-1-1}** (The tf model.) (1) For σ = ±|σ| ≠ 0, L̄̂(σ) = |σ|²N_tf on {ρ < ρ₀}, in the coordinates
+ (σ, r̂, ω) (with N_tf acting at fixed σ). (2) N₀(r̂^zφ) = r̂^z𝒩(−z)φ. So the Mellin family of N₀ (with
+-û(λ) := ∫ r̂^(−λ)u dr̂/r̂) is N₀(λ) = 𝒩(−λ), its roots are −μ for the roots μ of L̂_b(0), and at each −μ the inverse
+-N₀(λ)⁻¹ has a simple pole whose residue Π_μ has range ker 𝒩(μ). (3) N_tf(2L̂_b, ±1) = 2N_tf ([[eq:i-c-4-1]]).
++û(λ) := ∫ r̂^(−λ)u dr̂/r̂) is N₀(λ) = 𝒩(−λ), its roots are −μ for the roots μ of L̂_b(0), and at each −μ with
++−101 ≤ Re μ ≤ 0 the inverse N₀(λ)⁻¹ has a simple pole whose residue Π_μ has range ker 𝒩(μ).
++(3) N_tf(2L̂_b, ±1) = 2N_tf ([[eq:i-c-4-1]]).
+ 
+ *Proof.* (1) Both sides are b-operators in (ρ∂_ρ, ∂_ω) whose coefficients depend on ω alone, so it suffices to compare
+ them on ρ^aφ(ω), a ∈ ℂ. By [[eq:iii-g4-1-2]], L̄̂(σ)(ρ^aφ) = iσρ^(a+1)(a − 3/2 − S̄)φ + ρ^(a+2)𝒩(a)φ, and with
+ ρ = |σ|r̂⁻¹, iσ = ±i|σ|, this is |σ|^(a+2)(±i r̂^(−a−1)(a − 3/2 − S̄) + r̂^(−a−2)𝒩(a))φ.
+ And |σ|²N_tf(|σ|^a r̂^(−a)φ) is the same, as −r̂∂_r̂ r̂^(−a) = a r̂^(−a).
+ 
+-(2) The first statement is the definition. The roots are simple, so on each isotypic component (type and harmonic) the
+-determinant of the matrix polynomial 𝒩(λ) has a simple zero at μ, and 𝒩(λ)⁻¹ = adj 𝒩(λ)/det 𝒩(λ) has a simple pole
+-with residue adj 𝒩(μ)/(det 𝒩)′(μ). Its range lies in ker 𝒩(μ), as 𝒩(μ) adj 𝒩(μ) = 0, and it is non-zero, as the
++(2) The first statement is the definition. A root μ with −101 ≤ Re μ ≤ 0 is simple ([[prop:iii-f1-2-3]] (g)), so on
++each isotypic component (type and harmonic) at which it is a root the determinant of the matrix polynomial 𝒩(λ) has a
++simple zero at μ, and 𝒩(λ)⁻¹ = adj 𝒩(λ)/det 𝒩(λ) has a simple pole with residue adj 𝒩(μ)/(det 𝒩)′(μ). Its range
++lies in ker 𝒩(μ), as 𝒩(μ) adj 𝒩(μ) = 0, and it is non-zero, as the
+ kernel is one-dimensional, so adj 𝒩(μ) ≠ 0; hence its range is the kernel. Only finitely many components have μ as a
+ root ([[prop:iii-f1-2-3]] (f)). Then Π_μ = −res_(x=μ)𝒩(x)⁻¹.
+ 
+@@ -1357,7 +1360,8 @@ N₀R = PR − r̂N₁R and ℳ(r̂N₁R)(λ) = N₁(λ − 1)ℳR(λ − 1), wi
+     ℳR(λ) = N₀(λ)⁻¹Φ(λ),     Φ(λ) := ℳ(PR)(λ) − N₁(λ − 1)ℳR(λ − 1),                                   {#eq:iii-g4-3-8}
+ 
+ continues ℳR meromorphically to {Re λ < b̃}. In the strip {b < Re λ < b̃}, of width at most 1, the poles are at the
+-roots −μ in it ([[lem:iii-g4-1-1]] (2)) and at the at most one z_j(α) in it, all simple; for D small none is on the
++roots −μ in it, which have −3 < Re μ ≤ 0, as −1 < b < b̃ ≤ w₀ < 3 ([[prop:iii-f1-2-3]] (a)), and so are simple poles
++([[lem:iii-g4-1-1]] (2)), and at the at most one z_j(α) in it, also simple; for D small none is on the
+ boundary lines. Moving the contour from {Re λ = b − δ} to {Re λ = b̃},
+ 
+     R = −Σ_p res_(λ=p)(r̂^λℳR(λ)) + R̃,     R̃ := (1/(2πi)) ∫_(Re λ=b̃) r̂^λℳR(λ) dλ ∈ H^(∞,b̃)_b,       {#eq:iii-g4-3-9}
+@@ -1420,7 +1424,7 @@ weight by almost 1, so after at most five steps b_i = w₀, the last step taken
+ with 0 ≤ −μ < w₀, that is 𝒲(w₀), each in one step. On supp χ_ztf ⊂ {r̂ < 1}, u_α = v; so [[eq:iii-g4-3-3]] holds with
+ u_(α,0) := Σ l_(β_μ)H_(μ,τ)(Y) and u_(α,1) := r̂^(α−2)(U + R) near ztf. [[eq:iii-g4-3-5]] is [[eq:iii-g4-3-4]] written
+ out over the rows of the table of [[sec:iii-g2-1]] with c_μ of [[eq:iii-g4-1-4]]; the multiplicities are one per type,
+-as each root is simple. ∎
++as each root of 𝒲(w₀) is simple ([[prop:iii-f1-2-3]] (g)). ∎
+ 
+ **Remark {#rem:iii-g4-3-5}** ([Hin26, Remark 9.27] in dimension 4 + 1.) (1) Expanding l_β, the coefficients of
+ r̂^(z_(⌊−μ⌋)) and r̂^(−μ) in u_(α,0) are ±β_μ(α)⁻¹φ₀(Y): meromorphic, with simple poles where β_μ(α) = 0, that is at
+diff --git a/research/warp-drive/paper/reader/chapters/41-s22-kerr-face.md b/research/warp-drive/paper/reader/chapters/41-s22-kerr-face.md
+index 195f2bc9..72b29669 100644
+--- a/research/warp-drive/paper/reader/chapters/41-s22-kerr-face.md
++++ b/research/warp-drive/paper/reader/chapters/41-s22-kerr-face.md
+@@ -121,7 +121,7 @@ bound ε_g of [[def:s21-eps-g]]. [[def:iii-i9-2-1]] and [[lem:iii-i9-2-2]] (b),
+ (H4) ℓ_I > 3 + ε_+, with ℓ_I off the discrete exclusion sets of [[prop:iii-i1-3-1]] and [[thm:iii-g2-4-2]]. As
+ ℓ_I ≤ a_I ([[sec:iii-i8-1]]; this is used in [[lem:iii-i9-2-6]] (a), on which this section relies), (H4) asks
+ a_I > 3 + ε_+ of the class; the class of [Hin26] has the ℐ⁺-order 3 + ε_I. The condition ℓ_I < 3/2 + s_C of
+-[[thm:iii-g2-4-2]] is no restriction, s_C being large by (C1) of [[ch:s15]].
++[[thm:iii-g2-4-2]] is no restriction, as s_C > 100 ([[sec:iii-f-1]]).
+ 
+ *The sources.* Fix ℰ_src as the least choice in [[eq:iii-i9-1-3]], and put
+ 
+@@ -1202,8 +1202,9 @@ growing boost section h̆²(S′), S′ ≠ 0.
+ ρ⁻²L_0X ∈ 𝒜¹, [[lem:iii-a-1-4]] (stated on H^(∞,α)_b; passing from 𝒜^a costs an ε in the weight, which is immaterial
+ here) makes X polyhomogeneous modulo 𝒜^(1−ε), with exponents in the indicial roots of real part in (a, 1) plus ℕ₀; a
+ logarithm can occur only where a root meets a lower one plus an integer, so the lowest exponent carries none, the roots
+-being simple. Let μ_0 be the least real part of an exponent of X, and suppose μ_0 ≤ 0. As every indicial root is simple
+-([[sec:iii-g2-1]]), the argument of the proof of [[thm:iii-g2-3-1]] (the lowest term) applies: the top logarithm at μ_0
++of real part in (a, 1) lying in (−3, 0] ([[prop:iii-f1-2-3]] (a)) and being simple ([[prop:iii-f1-2-3]] (g)). Let μ_0
++be the least real part of an exponent of X, and suppose μ_0 ≤ 0. As the roots of real part μ_0 > −3 are simple, the
++argument of the proof of [[thm:iii-g2-3-1]] (the lowest term) applies: the top logarithm at μ_0
+ vanishes, μ_0 is a root in 𝒲 (real), and the ρ^(μ_0)-coefficient is Σ_τ h̄_τ(Y_τ) ([[lem:iii-g2-1-2]]). Subtract, for
+ every type, the element of ker L_0 listed above with this leading term (for v1 at −1, h̆¹_(b_0,v1)(V)), and for s1 at −1
+ the section h̆²(S′), h̄_s1(S′) being the s1-component; then μ_0 rises (the corrections of the states are smaller by
+diff --git a/research/warp-drive/paper/reader/chapters/42-s23-augmentation.md b/research/warp-drive/paper/reader/chapters/42-s23-augmentation.md
+index ddce3df1..b901e476 100644
+--- a/research/warp-drive/paper/reader/chapters/42-s23-augmentation.md
++++ b/research/warp-drive/paper/reader/chapters/42-s23-augmentation.md
+@@ -556,8 +556,9 @@ over the ball ℬ̄_* of [[sec:s23-base-points]], and p⃗_(≤0) = (S, b − b
+ ([[eq:iii-i7-1-3]]). From [[ch:s17]]: the spaces [[eq:iii-g3-1-2]]–[[eq:iii-g3-3-5]], the inverse [[eq:iii-g3-2-2]] of
+ N_(ι⁺)(L̄, ·) on partially polyhomogeneous spaces, spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I), [[cor:iii-g3-3-1]],
+ Res^k_(ι⁺)(L̄, ℰ^C_I, λ), Res_(ι⁺)(L̄, λ) and the map [[eq:iii-g3-3-6]]. ℓ_I is the one of the class, with
+-ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]] holds, s_C being large by (C1). K_ι(λ) denotes the
+-order of the pole of [[eq:iii-g3-2-2]] at λ (K(λ) in [[prop:iii-g3-3-7]] and in [[eq:iii-g3-3-6]]). Also from
++ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]] holds, as s_C > 100 ([[sec:iii-f-1]]). K_ι(λ)
++denotes the order of the pole of [[eq:iii-g3-2-2]] at λ (K(λ) in [[prop:iii-g3-3-7]] and in [[eq:iii-g3-3-6]]). Also
++from
+ [[ch:s17]]: the table of [[sec:iii-g2-1]], the Minkowski formal solutions ([[def:iii-g2-2-3]]), [[thm:iii-g2-3-1]] and
+ [[lem:iii-g2-4-1]]. Two further conditions are imposed, each removing finitely many values.
+ 
+diff --git a/research/warp-drive/paper/reader/chapters/46-s27-nonlinear.md b/research/warp-drive/paper/reader/chapters/46-s27-nonlinear.md
+index aa6bb8a0..9407a33d 100644
+--- a/research/warp-drive/paper/reader/chapters/46-s27-nonlinear.md
++++ b/research/warp-drive/paper/reader/chapters/46-s27-nonlinear.md
+@@ -86,11 +86,15 @@ R_6 := max(R_5, 2(|C′| + C″)); then
+ 
+     F(r) ≥ r/4     for r ≥ R_6.                                                                        {#eq:s27-f}
+ 
+-*Parameters* ([Hin26, Section 13.1, Step 1]). The constraint damping E_C has the constants of [[thm:iii-e-1-1]] fixed
+-in [[eq:iv4-0-1]], with C_0 = 100: v_C = ½, e_C = 1/102400 and γ_C = h⁻¹, h ∈ 𝖧; as h < 10⁻⁶,
+-s_C := (1 − e_C)(1 − v_C)γ_C > 100. The gauge modification E_Υ = (c_Υ, e_Υ, γ_Υ; c_(Υ,H), γ_(Υ,H)) has c_Υ and c_(Υ,H)
+-as in [[sec:iii-d-1]] and [[lem:iii-d1-3-1]], and γ_(Υ,H), e_Υ, γ_Υ small enough for the mode stability of
+-[[prop:iii-d1-4-1]] and the tf-admissibility of [[prop:iii-f1-3-3]]. The data index set ℰ_0 and the weight ℓ_0 satisfy
++*Parameters* ([Hin26, Section 13.1, Step 1]). The constraint damping E_C has v_C = ½, e_C = 1/102400 and C_0 = 100
++([[eq:iv4-0-1]]), and γ_C = h⁻¹. The gauge modification E_Υ = (c_Υ, e_Υ, γ_Υ; c_(Υ,H), γ_(Υ,H)) has c_Υ and c_(Υ,H) as in
++[[sec:iii-d-1]] and [[lem:iii-d1-3-1]]. The point (h, γ_(Υ,H), e_Υ, γ_Υ) is admissible ([[def:vi-c-admissible]]):
++s_C := (1 − e_C)(1 − v_C)γ_C > 100, the indicial roots of □^C_b satisfy (C1) of [[sec:iii-f1-1]], 0 < e_Υ < 1 and
++0 < γ_Υ < ¼; □^C_b has the properties (1)–(2) of [[thm:iii-e-1-1]], (C4′) of [[sec:iii-f1-1]] and tf-admissibility with
++the weights in (1, 2); □^Υ_b has the mode stability of [[prop:iii-d1-4-1]]; and Λ_tf(γ_Υ, e_Υ) < 1, so that L_b has the
++tf-admissibility of [[prop:iii-f1-3-3]]. Such points exist: h ∈ 𝖧 ([[eq:iv4-0-1]]) with γ_(Υ,H) ∈ (0, ϵ_0],
++e_Υ ∈ (0, min(ϵ_1, ½)] and γ_Υ ∈ (0, min(ϵ_1, ¼)) ([[prop:vi-c-adm-exist]]). The data index set ℰ_0 and the weight ℓ_0
++satisfy
+ the hypotheses of [[thm:iii-c1-3-1]]:
+ 
+     min Re ℰ_0 > 3/2 + 2γ_Υ,     jℰ_0 ⊂ ℰ_0 (j ∈ ℕ),     ℓ_0 > 3,     ℓ_0 ∉ Re π_1ℰ_0,
+@@ -1704,51 +1708,97 @@ at ℐ⁺, ι⁺ and K⁺, the data classes and the set of Myers–Perry paramet
+ This section lists every such condition with the results that state or use it, and what its threshold depends on;
+ [[thm:vi-c-2-1]] shows that they can all be met, in an order in which each threshold depends only on choices already
+ made. m₀ > 0 is fixed and R₁ := m₀^(1/2). Conditions that only restate a choice made in another row are omitted. The
+-constants v_C, e_C, C_0 and γ_C of the damping are fixed once, in [[eq:iv4-0-1]], at the point where [[thm:iii-e-1-1]]
+-is proved, and no result varies them; every result that names them uses that point. The class parameter of
+-[[sec:iii-i-1]], the e3b-weight at ℐ⁺ of the admissible operators, is a number in (0, ½) fixed once and for all; it
+-carries no threshold and depends on no other choice. [[ch:s19]] writes it ℓ_I as well; in the rows below, ℓ_I is the
+-b-weight at ℐ⁺ of the data class of [[thm:iii-c1-3-1]].
++constants v_C, e_C and C_0 of the damping are fixed once, in [[eq:iv4-0-1]] (row c1), and γ_C = h⁻¹ is fixed with the
++gauge parameters at an admissible point (row a1); no result varies them, and every result that names them uses that
++point. The class parameter of [[sec:iii-i-1]], the e3b-weight at ℐ⁺ of the admissible operators, is a number in
++(0, ½) fixed once and for all; it carries no threshold and depends on no other choice. [[ch:s19]] writes it ℓ_I as
++well; in the rows below, ℓ_I is the b-weight at ℐ⁺ of the data class of [[thm:iii-c1-3-1]].
++
++**Definition {#def:vi-c-admissible}** (Admissible points of the damping and gauge parameters.) Let
++(v_C, e_C, C_0) := (½, 1/102400, 100), let c_C be the damping 1-form of [[sec:iv4-0]], and let c_Υ = ζ(|x|)|x|⁻¹dt and
++c_(Υ,H) = −½χ(|x|)d|x| be the gauge 1-forms of row u1. For 𝗉 = (h, γ_(Υ,H), e_Υ, γ_Υ) ∈ (0, ∞)⁴ put γ_C := h⁻¹,
++s_C := (1 − e_C)(1 − v_C)γ_C and z_Υ := 4e_Υγ_Υ², and let □^C_b, □^Υ_b and L_b be the operators of [[eq:iii-e-1-1]],
++[[sec:iii-d-1]] and [[eq:iii-f-1-1]] with the damping (c_C, e_C, γ_C) and the gauge modification
++E_Υ = (c_Υ, e_Υ, γ_Υ; c_(Υ,H), γ_(Υ,H)). The point 𝗉 is *admissible* if:
++
++(AP0) s_C > 100, e_Υ < 1 and γ_Υ < ¼, and for every b in a neighbourhood of b₀ the indicial roots of □^C_b satisfy (C1)
++of [[sec:iii-f1-1]];
++
++(AP1) for every b in a neighbourhood of b₀, □^C_b has the properties (1) and (2) of [[thm:iii-e-1-1]]: mode stability
++for σ ≠ 0, and the invertibility of P^C_b, with (H1)–(H4) and ½ + ϑ_ℋ < −C_0;
++
++(AP2) the indicial roots of □^C_b satisfy (C4′) of [[sec:iii-f1-1]]: every non-real one with |ι − 1| ≤ 50 has non-integer
++real part;
++
++(AP3) there is a neighbourhood ℬ(γ_(Υ,H)) of b₀ (depending on 𝗉) such that for every b ∈ ℬ(γ_(Υ,H)) and every σ with
++Im σ ≥ 0, (□^Υ_b)^(σ) is invertible, as a map 𝒳_σ → 𝒴_σ when σ ≠ 0, and as a map 𝒳_0 → 𝒴_0 for every s > 3/2 and every
++α with α + 2 ∈ (0, ι^Υ_(s1,2)) when σ = 0 (the spaces of [[sec:iii-d1-1]]); this is the conclusion of
++[[prop:iii-d1-4-1]];
++
++(AP4) Λ_tf(γ_Υ, e_Υ) < 1 ([[eq:tf-lambda]]), and for every b in a neighbourhood of b₀, (□^C_b)^(·) is tf-admissible
++([[def:i-c-5-1]]) with every weight in (1, 2), as (4) of [[thm:iii-e-1-1]] asserts with every weight in [−C_0, 2).
++
++Each condition is a property of 𝗉 alone, and [[thm:settling]] holds at every admissible point ([[thm:vi-c-adm-holds]]).
++By (AP0), γ_C > 2s_C > 200, so γ_Cv_C > 100 and (C5) of [[sec:iii-g2-1]], γ_Cv_C ≥ ½, holds; z_Υ ∈ (0, ¼), so the results
++of [[ch:s13]] and [[ch:s15]] stated for z ∈ (0, ½] apply; 2γ_Υ < ½ < s_C and γ_Υ < ⅜, so γ_Υ < min(½s_C, ⅜)
++([[lem:iii-g1-1-1]]); and δ_♯ := (1 − e_Υ)γ_Υ lies in (0, ¼). (C1) and (C4) imply (C4′). By (AP0) and (AP4), L_b^(·) is
++tf-admissible with every weight in (0, 1] for b near b₀ ([[prop:iii-f1-3-3]]); Λ_tf(γ_Υ, e_Υ) < 1 holds whenever e_Υ ≤ ½,
++and at (γ_Υ, e_Υ) = (1/100, 1/100) it is below 1.0111·10⁻⁴ ([[prop:tf-gauge-explicit]]).
++
++Each condition is used, and the proof of [[thm:vi-c-adm-holds]] says where: s_C > 100 in (f) and (l), directly and
++through γ_Cv_C > 100 and γ_Υ < ½s_C; (C1) in its item (b), which lists its uses, among them the hypothesis of
++[[prop:iii-f1-2-3]] on which (c) and (d) rest, and in (j) as a hypothesis of [[prop:iii-f1-3-3]]; e_Υ < 1 and γ_Υ < ¼ in
++(l), directly and through z_Υ ∈ (0, ¼) and γ_Υ < ⅜, and in (j); (AP1) in (a); (AP2) in (c); (AP3) in (i); and (AP4) in
++(e) and (j).
++
++s_C > 100 and (C1) hold whenever h ≤ 10⁻⁶: then s_C ≥ (1 − e_C)·10⁶/2 > 100, and (C1) holds by [[lem:iv4-1-3]] (a).
++The definition does not ask h ≤ 10⁻⁶, h ∈ 𝖧 ([[eq:iv4-0-1]]), the gauge parameters below the thresholds of
++[[prop:iii-d1-4-1]] or of [[lem:iii-d-7-1]] (b), or z_Υ ∉ Z_exc ([[prop:iii-f1-2-3]] (e)): the proofs use those
++requirements only through (AP0)–(AP4), and the simplicity of indicial roots of L̂_b(0) only where (AP0) gives it
++([[prop:iii-f1-2-3]] (g)). [[thm:ec-lb-proved]] and the bounds that rest on it assume h ≤ 10⁻⁶ in addition.
++[[rem:ec-point-outside]] records which conditions are decided at the computational point.
++
++**Proposition {#prop:vi-c-adm-exist}** (Admissible points exist.) Let h ∈ 𝖧 ([[eq:iv4-0-1]]) and γ_C := h⁻¹; let
++γ_(Υ,H) ∈ (0, ϵ_0], with ϵ_0 of [[prop:iii-d1-4-1]] and its ϵ_1 and ℬ(γ_(Υ,H)) at this γ_(Υ,H); and let
++e_Υ ∈ (0, min(ϵ_1, ½)] and γ_Υ ∈ (0, min(ϵ_1, ¼)). Then the point (h, γ_(Υ,H), e_Υ, γ_Υ) is admissible, with the
++neighbourhood ℬ(γ_(Υ,H)) of [[prop:iii-d1-4-1]], intersected with the ball ℬ_VI of [[thm:vi-b1-5-1]], in (AP3). Such
++points exist, with h, e_Υ and γ_Υ arbitrarily small; they include the points that satisfy in addition 4e_Υγ_Υ² ∉ Z_exc
++([[prop:iii-f1-2-3]] (e)), and those with e_Υ and γ_Υ below the threshold of [[lem:iii-d-7-1]] (b).
++
++*Proof.* (AP0): h ∈ 𝖧 gives h < 10⁻⁶, so s_C > (1 − e_C)·10⁶/2 > 100, and (C1) holds by [[lem:iv4-1-3]] (a); e_Υ ≤ ½
++and γ_Υ < ¼ by the choice. (AP1), (AP2) and the second half of (AP4): at h ∈ 𝖧, [[thm:iii-e-1-1]] holds for every b near
++b₀ ([[thm:iv4-2-1]], [[thm:iv6-4-1]]); its (1) and (2) are those of (AP1), its (4) contains the tf-admissibility of
++(AP4), and the clauses of its (3) include (C1) and (C4) of [[sec:iii-f1-1]], which give (C4′). (AP3): (Dyn) holds for b
++near b₀ ([[thm:vi-a-6-1]], [[thm:vi-b1-5-1]]), and γ_(Υ,H) ∈ (0, ϵ_0], e_Υ ∈ [0, ϵ_1] and 0 < γ_Υ < ϵ_1; so
++[[prop:iii-d1-4-1]] gives the invertibility of (AP3) for b ∈ ℬ(γ_(Υ,H)), and (Dyn) holds on its intersection with ℬ_VI.
++The first half of (AP4): e_Υ ≤ ½ and γ_Υ < ¼ give Λ_tf(γ_Υ, e_Υ) ≤ 41/64 ([[prop:tf-gauge-explicit]]). Existence:
++𝖧 = (0, h_*) ∖ 𝖹 with h_* > 0 and 𝖹 countable, so 𝖧 contains points arbitrarily close to 0; and ϵ_0 and ϵ_1 are positive,
++so the conditions on γ_(Υ,H), e_Υ and γ_Υ define non-empty intervals with left end point 0. The further conditions of the
++last sentence are upper bounds on e_Υ and γ_Υ and, at fixed e_Υ, the exclusion from an open interval of the countable set
++{γ > 0 : 4e_Υγ² ∈ Z_exc}, which leaves points. ∎
+ 
+ **c1.** (v_C, e_C, C_0) = (½, 1/102400, 100), the point at which [[thm:iii-e-1-1]] is proved ([[eq:iv4-0-1]],
+ [[sec:iii-k-0]]). Threshold: none.
+ 
+-**c2.** γ_C = h⁻¹, h ∈ 𝖧 = (0, h_*) ∖ 𝖹, h_* = min(10⁻⁶, h_0, h_tf), 𝖹 countable ([[eq:iv4-0-1]], [[lem:iv4-1-3]] (b),
+-[[prop:np-10-52]] (ii)–(iii)). Threshold: c1.
+-
+-**c3.** γ_C: (C1)–(C4), the clauses of [[thm:iii-e-1-1]] (3) after its first sentence: the indicial roots of □^C_b are
+-simple, avoid the listed sets, and are real where their real part is an integer in [3, 51] (used in [[ch:s15]]).
+-Threshold: c1, c2.
+-
+-**c4.** γ_C: (C5) γ_C v_C ≥ ½ ([[sec:iii-i10-1]], [[sec:iii-g2-1]]), and s_C := (1 − e_C)(1 − v_C)γ_C > 100
+-([[sec:iii-f-1]], [[sec:iii-k-0]]). Both hold as γ_C > 10⁶. Threshold: c1.
+-
+ **u1.** c_Υ, c_(Υ,H), c_C: the fixed 1-forms of [[def:iii-b-6-1]], in the radial forms the proofs use: c_Υ =
+ ζ(|x|)|x|⁻¹dt and c_(Υ,H) = −½χ(|x|)d|x| ([[sec:iii-d2-1]], [[lem:iii-d-5-1]]), and c_C of [[sec:iv4-0]]. Threshold:
+ c1.
+ 
+-**u2.** γ_(Υ,H) ∈ (0, ε_0], ε_0 that of [[prop:iii-d1-4-1]]. Threshold: none.
+-
+-**u3.** e_Υ ∈ (0, min(ε_1, ½)], with ε_1 of [[prop:iii-d1-4-1]]. With row u4 this gives the tf-admissibility of
+-[[lem:iii-d-7-1]] (a) and of [[prop:iii-f1-3-3]], whose conditions e_Υ ≤ ½ and γ_Υ ≤ ¼ are explicit
+-([[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]]). Threshold: ε_1 on u2.
+-
+-**u4.** 0 < γ_Υ < min(ε_1, 3/8, ½s_C, ¼) ([[prop:iii-d1-4-1]], [[sec:iii-g2-1]], [[eq:iii-c-1-1]],
+-[[eq:iii-i9-1-1]]). With e_Υ ≤ ½ this gives z_Υ ≤ ⅛ and Λ_tf(γ_Υ, e_Υ) ≤ 41/64 ([[eq:tf-lambda]]). Threshold: ε_1 on
+-u2; ½s_C on c1–c2.
+-
+-**u5.** z_Υ := 4e_Υγ_Υ² ∈ (0, ½] ∖ 𝖹_exc, 𝖹_exc countable ([[prop:iii-f1-2-3]] (e), [[sec:iii-g2-1]]). Threshold:
+-𝖹_exc on c1–c3; u3.
++**a1.** (h, γ_(Υ,H), e_Υ, γ_Υ), with γ_C = h⁻¹: an admissible point ([[def:vi-c-admissible]]), that is (AP0) s_C > 100,
++0 < e_Υ < 1, 0 < γ_Υ < ¼ and (C1) of [[sec:iii-f1-1]], with (AP1)–(AP4): the properties (1)–(2) of [[thm:iii-e-1-1]],
++(C4′) of the same section, the conclusion of [[prop:iii-d1-4-1]], and Λ_tf(γ_Υ, e_Υ) < 1 with the tf-admissibility of
++□^C_b at the weights in (1, 2) ([[sec:iii-f-1]], [[sec:iii-g2-1]], [[sec:iii-i10-1]], [[eq:iii-c-1-1]], [[sec:iii-k-0]],
++[[prop:iii-f1-3-3]]). Threshold: c1, u1; every condition is a property of the point alone.
+ 
+ **b1.** b in the ball ℬ_VI of [[thm:vi-b1-5-1]], on which (Dyn) holds. Threshold: none.
+ 
+-**b2.** b ∈ ℬ(γ_(Υ,H)) ([[prop:iii-d1-4-1]]); with the low-frequency radius c_0 of [[cor:iii-h-4-3]], written c_σ in this
+-section and the next to distinguish it from the constant c_0 of [[sec:iii-k-3]], b ∈ ℬ(c_σ) ([[prop:iii-f2-4-1]]) and in
+-the neighbourhood of [[cor:iii-h-4-3]]–[[cor:iii-h-4-4]]; and b near b₀ as [[thm:iii-e-1-1]], [[prop:iii-f1-3-3]] and
+-[[sec:iii-j-1]] ask. Threshold: c1–c2, u1–u5.
++**b2.** b ∈ ℬ(γ_(Υ,H)), the neighbourhood of (AP3) of [[def:vi-c-admissible]]; with the low-frequency radius c_0 of
++[[cor:iii-h-4-3]], written c_σ in this section and the next to distinguish it from the constant c_0 of [[sec:iii-k-3]],
++b ∈ ℬ(c_σ) ([[prop:iii-f2-4-1]]) and in the neighbourhood of [[cor:iii-h-4-3]]–[[cor:iii-h-4-4]]; and b near b₀ as
++(AP1), (AP4) and [[sec:iii-j-1]] ask. Threshold: c1, u1, a1.
+ 
+ **b3.** ℬ_*: open, with closure in ℬ_1, and (B5) of [[sec:iii-h2-0]]: ‖P − 2L_b‖_((0;d)) < ε_0 on ℬ̄_*. This is the only
+-condition on ℬ_* there; b4 shrinks it further. Threshold: b2, u1–u5.
++condition on ℬ_* there; b4 shrinks it further. Threshold: b2, u1, a1.
+ 
+ **b4.** ℬ_*: shrunk so that the states at b are jointly injective ([[lem:iii-i15-1-2]]) and the maps −id + A_k of the
+ elimination are invertible at every base point ([[thm:iii-i15-3-1]]); both depend on the row set and on the levels up
+@@ -1764,20 +1814,20 @@ stated; and ε_Υ is the constant of [[sec:iii-d2-1]], fixed by the indicial roo
+ the conclusion of [[prop:iii-g4-5-1]] is stated. At the gauge parameters of [[prop:np-10-52]], ε_ind ≤ δ_50 = 1.94137… ×
+ 10⁻⁸ ([[prop:np-10-52]] (iii), [[prop:iii-f1-2-3]] (f); the value by [[lem:s14-delta50]]), and δ_50 is the least distance
+ from ℤ among the non-integer entries of modulus at most 50 that do not depend on h; no proof uses its value.
+-Threshold: u1–u5, d1–d2.
++Threshold: u1, a1, d1–d2.
+ 
+ **w2.** α: admissible ([[def:iii-i10-1-3]]), with (A_J) ([[def:iii-j-a-j]]) and the exactness conditions (Ex3)–(Ex4) of
+ [[def:iii-j3-1-3]], in (4 + ε_K − ε′_0, 4 + ε_K], where such α are dense ([[def:iii-j-a-j]], [[lem:iii-j3-1-4]]).
+ Threshold: w1, d1–d2 ((A_J) involves Λ).
+ 
+ **d1.** ℰ_0, ℓ_0: min Re ℰ_0 > 3/2 + 2γ_Υ, jℰ_0 ⊂ ℰ_0, ℓ_0 > 3 (so that row d2 is nonempty), ℓ_0 ∉ Re π_1ℰ_0
+-([[thm:iii-c1-3-1]], [[sec:iii-k-0]], (H4) of [[sec:iii-i10-1]]). Threshold: u4.
++([[thm:iii-c1-3-1]], [[sec:iii-k-0]], (H4) of [[sec:iii-i10-1]]). Threshold: a1.
+ 
+ **d2.** ℓ_I: 3 < ℓ_I < min(ℓ_0, 3/2 + s_C), with row w1's ε_+ < ℓ_I − 3: [[thm:iii-c1-3-1]] asks 3/2 < ℓ_I < ℓ_0, (H4)
+ asks ℓ_I > 3 + ε_+, and [[thm:iii-k-4-3]] uses one ℓ_I for both. ℓ_I avoids the exclusion sets of (H4), which are
+ discrete: for ℓ_I in a bounded interval, ℰ^C_I ranges over finitely many index sets ([[thm:iii-c1-3-1]]), and
+ ℓ_I ∉ Re π_1ℰ^C_I avoids their real parts; and ℓ_I ∉ 3/2 + σ_Υ, σ_Υ = {0, (1 − e_Υ)γ_Υ, γ_Υ, 2γ_Υ} ([[def:iii-c-3-1]],
+-[[prop:iii-i1-3-1]], [[sec:iii-i10-1]]). Threshold: c1–c2, u3–u4, d1.
++[[prop:iii-i1-3-1]], [[sec:iii-i10-1]]). Threshold: c1, a1, d1.
+ 
+ **n1.** ε, d_1: the smallness and regularity of [[thm:iii-k-4-3]]. Threshold: all the above.
+ 
+@@ -1788,17 +1838,16 @@ together. Make the choices in this order; at each step the thresholds depend onl
+ 
+ (0) ℬ_VI := {|b − b₀| ≤ ε_VI} of [[thm:vi-b1-5-1]]. It depends on the metrics alone.
+ 
+-(1) (v_C, e_C, C_0) := (½, 1/102400, 100) and h ∈ 𝖧, γ_C := h⁻¹. Then [[thm:iii-e-1-1]] holds at these values
+-([[thm:iv4-2-1]] for (1)–(3), [[thm:iv6-4-1]] for (4)), with (C1)–(C4) (row c3), and (C5) and s_C > 100 hold, as
+-γ_C > 10⁶.
++(1) The damping and the gauge (row a1). (v_C, e_C, C_0) := (½, 1/102400, 100), and an admissible point
++(h, γ_(Υ,H), e_Υ, γ_Υ) of [[def:vi-c-admissible]], γ_C := h⁻¹. Admissible points exist ([[prop:vi-c-adm-exist]]),
++and at each the results of the stability theory hold ([[thm:vi-c-adm-holds]] (1)).
+ 
+-(2) The gauge. ε_0 of [[prop:iii-d1-4-1]] is uniform. Choose γ_(Υ,H) ∈ (0, ε_0]; this fixes ε_1 and ℬ(γ_(Υ,H)).
+-Choose e_Υ ∈ (0, min(ε_1, ½)]. 𝖹_exc is fixed by step (1). Choose γ_Υ in the interval of row u4 with
+-4e_Υγ_Υ² ∉ 𝖹_exc. This is possible because the interval is nonempty and open, while {γ > 0 : 4e_Υγ² ∈ 𝖹_exc} is
+-countable. Then z_Υ ∈ (0, ⅛], as γ_Υ < ¼ and e_Υ ≤ ½, so that [[lem:iii-d-7-1]] (a) and [[prop:iii-f1-3-3]] hold
+-([[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]]). [[prop:iii-d-6-3]] (the invertibility of the spectral family
+-of □^Υ_b at |σ| ≥ c_σ) is then implied, for every c_σ and b ∈ ℬ(γ_(Υ,H)), by [[prop:iii-d1-4-1]], which gives it for
+-every σ with Im σ ≥ 0; so it imposes no further condition.
++(2) The numbers the point fixes. By (AP0), 0 < e_Υ < 1, 0 < γ_Υ < ¼, z_Υ := 4e_Υγ_Υ² ∈ (0, ¼), s_C > 100 and (C1), and
++γ_Cv_C = γ_C/2 > s_C > 100, so that (C5) holds; by (AP0) and (AP4), L_b^(·) is tf-admissible with every weight in (0, 1]
++([[prop:iii-f1-3-3]]). The point fixes δ_♯ := (1 − e_Υ)γ_Υ ∈ (0, ¼), the set σ_Υ, the constant ε_Υ of [[sec:iii-d2-1]], a
++constant ε_ind ∈ (0, 1] with [[eq:iii-f1-2-2]] ([[prop:iii-f1-2-3]] (f), under (AP2)), and the neighbourhood ℬ(γ_(Υ,H))
++of (AP3). [[prop:iii-d-6-3]] (the invertibility of the spectral family of □^Υ_b for σ with |σ| ≥ c_σ) is implied, for
++every c_σ and b ∈ ℬ(γ_(Υ,H)), by (AP3), which gives it for every σ with Im σ ≥ 0; so it imposes no further condition.
+ 
+ (3) The data classes: ℰ_0 and ℓ_0 > 3 as in row d1, then ℓ_I in the interval (3, min(ℓ_0, 3/2 + s_C)) of row d2,
+ minus the four points 3/2 + σ_Υ and the exclusion sets of (H4). This fixes ℰ^C_I ([[thm:iii-c1-3-1]]) and Λ. In the
+@@ -1822,10 +1871,11 @@ theory is then taken over ℬ̄_*, a compact set on which (Dyn) holds (step (0))
+ (6) ε and d_1 of [[thm:iii-k-4-3]], which depend on all of the above.
+ 
+ *Proof.* Each step's existence claim is the cited statement, read with the quantifiers it has; the last entry of each
+-row of [[sec:vi-c-1]] records that no threshold depends on a later choice. In step (2), the ε_0 of [[prop:iii-d1-4-1]]
+-is uniform, while its ε_1 and ℬ(γ_(Υ,H)) come after γ_(Υ,H), so the order γ_(Υ,H), e_Υ, γ_Υ meets it. The only
+-low-frequency radius that depends on the gauge is the c_σ of [[cor:iii-h-4-3]], and it is used only after the gauge is
+-fixed, through [[prop:iii-f2-4-1]], whose neighbourhood is then chosen. In step (5), each neighbourhood of rows b2 and
++row of [[sec:vi-c-1]] records that no threshold depends on a later choice. In steps (1)–(2) every condition is a
++property of the point (h, γ_(Υ,H), e_Υ, γ_Υ) alone (row a1), every number of step (2) is fixed by it, and the results
++that the later steps use hold at it ([[thm:vi-c-adm-holds]] (1)). The only low-frequency radius that depends on the
++gauge is the c_σ of [[cor:iii-h-4-3]], and it is used only after the gauge is fixed, through [[prop:iii-f2-4-1]],
++whose neighbourhood is then chosen. In step (5), each neighbourhood of rows b2 and
+ b4 is open and contains b₀, so their intersection with ℬ_VI contains a ball. The ball of [[thm:vi-b1-5-1]] depends on
+ no gauge parameter, as the dynamical hypotheses concern the metric alone ([[sec:vi-a-0]]). (K3) holds for every ε
+ ([[prop:vi-b1-3-4]]), so ε_VI depends neither on the regularity d_0 of [[thm:ii-c1-1-1]] nor on its order k. ∎
+@@ -1833,6 +1883,71 @@ no gauge parameter, as the dynamical hypotheses concern the metric alone ([[sec:
+ The invertibility of L̂_b(σ) for b ≠ b₀ and 0 < |σ| < c_σ, which [[sec:iii-f2-5]] leaves open, holds for b near b₀ and
+ σ ∈ Σ_0, |σ| ≤ c_σ, by [[cor:iii-h-4-3]]; its neighbourhood is one of row b2, so it holds on ℬ̄_*.
+ 
++**Theorem {#thm:vi-c-adm-holds}** (The stability theory at an admissible point.) Let 𝗉 = (h, γ_(Υ,H), e_Υ, γ_Υ) be
++an admissible point ([[def:vi-c-admissible]]), with γ_C = h⁻¹, the constants of row c1, the 1-forms of row u1 and the
++neighbourhood ℬ(γ_(Υ,H)) of its condition (AP3).
++
++(1) Every result of [[ch:s13]] from [[sec:iii-d2-1]] on, [[lem:iii-d1-5-1]], every result of [[ch:s14]] from
++[[sec:iii-e-2]] to [[sec:iii-e1-3]], and every result of [[ch:s15]] to [[ch:s29]] holds at 𝗉, with its proof.
++
++(2) [[thm:vi-c-2-1]] holds with its step (1) made at 𝗉, and [[thm:iii-k-4-3]], [[cor:s27-rate]],
++[[thm:settling-precise]] and [[thm:settling]] hold with the parameters so chosen.
++
++*Proof.* (1) We list every way in which these proofs use the damping and gauge parameters, and show that each is
++available at 𝗉.
++
++*The damping.* (a) The properties (1) and (2) of [[thm:iii-e-1-1]]: in [[prop:iii-f2-3-1]], [[prop:iii-f3-4-1]], Step 4
++of the proof of [[prop:iii-f4-5-1]] and [[lem:iii-e-2-1]], and through the last in [[prop:iii-e-3-1]] and
++[[prop:iii-e1-3-1]]. These are (AP1). (b) The clause (C1): in the list of [[prop:iii-f1-2-3]] and its parts (a)–(d) and
++(g), in [[lem:iii-e-2-1]] (2), in [[thm:iii-g-5-1]], and in the settings of [[ch:s16]], [[sec:iii-f3-1]],
++[[sec:iii-g2-1]] and [[sec:iii-h-1]]. It is part of (AP0). (c) The clause (C4): only through [[prop:iii-f1-2-3]] (f),
++which assumes only (C4′), that is (AP2). (d) The clauses (C2)–(C3) and the condition z_Υ ∉ Z_exc: only through
++[[prop:iii-f1-2-3]] (e), whose conclusion, the simplicity of the roots of L̂_b(0), is used only for roots with real part
++in (−3, 0]: the root 0 in [[lem:iii-f1-2-5]] and [[lem:iii-g1-1-3]] (b), through (c) of [[prop:iii-f1-2-3]]; the root −2
++at the types s2, v2 and t2 in [[sec:iii-f4-5]]; and the roots of 𝒲(ℓ_K), ℓ_K < ℓ_K^max ≤ 3, in [[lem:iii-g2-1-2]],
++[[thm:iii-g2-3-1]], [[lem:iii-g4-1-1]] (2), [[lem:iii-g4-3-4]], [[thm:iii-g4-3-1]], [[prop:iii-g4-5-1]]
++(through the residues Π_μ) and [[lem:iii-i12-2-3]]. By (c) and (g) of [[prop:iii-f1-2-3]], which use only z_Υ ∈ (0, ½]
++and (C1), every root with real part in [−101, 0] is real and simple at 𝗉, and these proofs cite (c), the list or (g) for
++it. No other proof uses the simplicity of a root of L̂_b(0); those that meet roots of real part below −101 or above 1
++allow them any finite multiplicity ([[lem:iii-g1-1-3]], [[def:iii-i10-1-1]]). (e) The property (4) of [[thm:iii-e-1-1]]:
++only in Step 4 of the proof of [[prop:iii-f1-3-3]], at the weights in (1, 2), which is in (AP4). (f) The inequality
++s_C > 100: in [[sec:iii-f-1]], [[eq:iii-i1-1-1]], [[sec:iii-c1-0]], [[sec:iv2-0]], [[sec:iii-k-0]] and row d2, and
++through the bound ℓ_I < 3/2 + s_C in [[thm:iii-g1-3-1]], [[eq:iii-g3-1-2]] and [[sec:iii-i10-1]]; and (C5), in
++[[sec:iii-g2-1]] and [[sec:iii-i10-1]]. These follow from (AP0): s_C > 100 is part of it, and γ_Cv_C = γ_C/2 > s_C. (g)
++The horizon threshold of [[lem:iii-f2-1-1]] and the bound of [[cor:iii-f2-1-2]] hold for every γ_C. (h) The set 𝖧, the
++thresholds h_0 and h_tf and the sets 𝖹, 𝖹₁, 𝖹₂ and 𝖹₃ enter only through [[thm:iii-e-1-1]] and through
++[[prop:np-10-52]] (ii)–(iii), whose conclusions are those of [[prop:iii-f1-2-3]] (e)–(f) at z = 4·10⁻⁶; so only through
++(a)–(f). The bound h < 10⁻⁶ that h ∈ 𝖧 contains enters these proofs only through s_C > 100 and (C1)
++([[lem:iv4-1-3]] (a)), which (AP0) asks directly.
++
++*The gauge.* (i) The mode stability of □^Υ_b: in the setting of [[sec:iii-d2-1]] and in [[lem:iii-d1-5-1]]
++(the invertibility of (□^Υ_b)^(0)), in [[prop:iii-f2-3-1]], [[rem:iii-f3-2-3]] and [[prop:iii-f3-4-1]] (kernels of □^Υ),
++and through ℬ(γ_(Υ,H)) in row b2; [[prop:iii-d-6-3]] is implied by it. This is (AP3). (j) The tf-admissibility of L_b: in
++[[cor:iii-f1-3-4]], [[prop:iii-g-3-2]], [[sec:iii-g-4-1]], [[lem:iii-g-4-5]], [[thm:iii-g-5-1]], [[sec:iii-h-1]],
++[[thm:iii-h1-1-3]] and [[thm:iii-h2-2-1]]. [[prop:iii-f1-3-3]] gives it at 𝗉: its hypotheses (C1), 0 < e_Υ < 1, γ_Υ > 0,
++z_Υ ≤ ½ and Λ_tf(γ_Υ, e_Υ) < 1 hold by (AP0) and (AP4), and its proof uses besides only (AP4) (in Step 4),
++[[lem:tf-lin-reduction]] and [[prop:tf-gauge-explicit]]. (k) The threshold of [[lem:iii-d-7-1]] (b) is used only in the
++proof of [[prop:iii-d1-4-1]] ([[sec:iii-d1-1]]), outside the results of (1); elsewhere [[lem:iii-d-7-1]] enters through
++its part (a) or through its proof at γ_Υ = 0. (l) The inequalities 0 < e_Υ < 1 and 0 < γ_Υ < ¼: in [[eq:iii-c-1-1]],
++[[prop:np-10-38]], the opening of [[ch:s19]], [[sec:s20-setting]], [[sec:iii-i9-1]], [[sec:iii-c1-0]] and row d1;
++γ_Υ < min(½s_C, ⅜): in [[lem:iii-g1-1-1]], [[thm:iii-g1-3-1]], [[sec:iii-g2-1]], [[sec:iii-g3-1]] and [[lem:iii-g3-1-2]];
++and z_Υ ∈ (0, ½]: in [[lem:iii-d-4-1]], in the constant ε_Υ of [[sec:iii-d2-1]], in (R1)–(R5) of [[sec:iii-d3-1]] with
++[[prop:np-10-29]] and [[prop:np-10-30]], in [[prop:iii-f1-2-3]] and in [[lem:iii-g1-1-3]]. These follow from (AP0), as
++[[def:vi-c-admissible]] records; so do the other uses of these inequalities, of s_C > 100 and of the bound
++ℓ_I < 3/2 + s_C of row d2 in [[ch:s17]] to [[ch:s27]].
++
++*Continuity and the rest.* [[lem:iii-d-5-1]], [[prop:iii-d-6-1]], [[lem:iii-f2-1-1]], [[cor:iii-f2-1-2]],
++[[lem:iii-f1-2-4]] and [[lem:iii-f1-3-2]] hold for parameters in a compact set and are applied with the compact set
++{𝗉}. Every other smallness in [[ch:s18]] to [[ch:s29]] concerns the metric perturbation, the data, neighbourhoods of
++b₀, the thresholds of the Nash–Moser theorem, the cut-off time or the gluing; none of these involves 𝗉 except through
++the numbers s_C, z_Υ, δ_♯, σ_Υ, ε_ind, ε_Υ and Λ and the neighbourhoods of b₀ that 𝗉 fixes.
++
++(2) In [[thm:vi-c-2-1]], steps (0) and (3)–(6) and their thresholds see 𝗉 only through the numbers and the
++neighbourhood of its step (2) and through results that hold at 𝗉 by (1), so its proof applies. [[thm:iii-k-4-3]],
++[[prop:vii-3-2]], [[cor:s27-rate]] and [[cor:vii-2-3]] are results of (1) at the parameters so chosen.
++[[thm:settling-precise]] is proved in [[ch:settling-proof]] from these and from results that do not involve the
++damping and gauge parameters, and [[thm:settling]] is deduced from it there. ∎
++
+ ### The symmetry class {#sec:s27-class}
+ 
+ *The group.* G := O(2) × O(2) acts on ℝ⁴ = ℝ² × ℝ² by the rotations of the planes (x¹, x²) and (x³, x⁴) and by the
+diff --git a/research/warp-drive/paper/reader/chapters/63-own-data.md b/research/warp-drive/paper/reader/chapters/63-own-data.md
+index 8716dd67..6fa1639b 100644
+--- a/research/warp-drive/paper/reader/chapters/63-own-data.md
++++ b/research/warp-drive/paper/reader/chapters/63-own-data.md
+@@ -67,8 +67,8 @@ the same sense: |(t_*∂_(t_*))^i ∂_x^β (Ψ^*ĝ − g_(m′,0))| ≤ C t_*^(
+ The threshold λ_2 is not evaluated, and ε, d_1, λ_2 depend on the class. d_1, k1 and K* are explicit in the loss d of
+ [[thm:iii-k-3-2]]: d_1 = 22d + 292 + L_P, L_P ≤ 48 an explicit number of derivatives, k1 = d_1 + 4, and
+ K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a), which exceeds d_1 + 14, so that the least admissible K is
+-quadratic in d_1 ([[prop:uc-data-order]]); d is bounded above only at the computational point of [[def:ec-point]],
+-which lies outside the set where the theorem is proved. The order k_P is what the subtracted
++quadratic in d_1 ([[prop:uc-data-order]]); d is bounded above only at the computational point of [[def:ec-point]], which
++is not shown to lie in the set where the theorem is proved. The order k_P is what the subtracted
+ expansion of [[sec:own-sigma]] needs: a Cartesian derivative of order j of its terms costs 2j + 2 angular
+ derivatives of their data on ℋ ([[lem:own-self-similar]]), and the estimates use j ≤ k1 + 4. The proof is in
+ [[sec:own-proof]]; its first step checks every use of k_P.
+diff --git a/research/warp-drive/paper/reader/chapters/70-resolvent-bounds.md b/research/warp-drive/paper/reader/chapters/70-resolvent-bounds.md
+index e96e0d4e..a507e972 100644
+--- a/research/warp-drive/paper/reader/chapters/70-resolvent-bounds.md
++++ b/research/warp-drive/paper/reader/chapters/70-resolvent-bounds.md
+@@ -1692,9 +1692,10 @@ c_(Υ,H) = −½χ(r)dr with χ ∈ C_c^∞ equal to 1 near r_h ([[sec:iii-d1-1]
+ thresholds of [[prop:iii-d1-4-1]]. The tensor-type blocks do not depend on ζ, χ, the smoothing of c_C or the
+ parameters; the scalar-type blocks do, and every statement below is made for all admissible choices at once unless a
+ choice is named. Where numbers are given at (γ_C, γ_Υ, e_Υ) = (10⁶, 1/100, 1/100), they are numbers of the operator with
+-those parameters. This point lies outside the set on which the theorems are proved: γ_C = 10⁶ is not of the form h⁻¹
+-with h as in [[eq:iv4-0-1]], where h < 10⁻⁶, and (γ_Υ, e_Υ) = (1/100, 1/100) are not shown to lie below the thresholds
+-of [[prop:iii-d1-4-1]], which are proved to exist without a value.
++those parameters. This point is not shown to lie in the set on which [[thm:settling]] is proved
++([[rem:ec-point-outside]]): γ_C = 10⁶ is not of the form h⁻¹ with h as in [[eq:iv4-0-1]], where h < 10⁻⁶, so
++[[thm:iii-e-1-1]] is not proved there, and the invertibility (AP3) of [[def:vi-c-admissible]] is not shown at
++(γ_Υ, e_Υ) = (1/100, 1/100), the thresholds of [[prop:iii-d1-4-1]] being proved to exist without a value.
+ 
+ *Scalar type.* For l ≥ 0 and S ∈ 𝒮_l real, a stationary symmetric 2-tensor of scalar type l is
+ 
+diff --git a/research/warp-drive/paper/reader/chapters/71-explicit-constants.md b/research/warp-drive/paper/reader/chapters/71-explicit-constants.md
+index dd21edde..5f3fb32a 100644
+--- a/research/warp-drive/paper/reader/chapters/71-explicit-constants.md
++++ b/research/warp-drive/paper/reader/chapters/71-explicit-constants.md
+@@ -16,16 +16,17 @@ quantities of the operators, the index sets and the order of the bounds of the b
+ construction contribute their numbers of steps, among them three nested ones. Two of these iterations alone, each of
+ their steps being charged at least one derivative for the inverse of the model at the transition face, whose incoming
+ threshold is non-negative ([[lem:ec-theta-in]], [[thm:loss-d]]), make d_acc, and so d, larger than
+-3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²) at every point of the set on which [[thm:settling]] is proved, where
+-z = 4e_Υγ_Υ² and γ_C are the gauge and damping parameters and g(z) = z/27360 + z²/1088; so d is unbounded on that set
+-([[thm:ec-lb-proved]]). At one parameter point of the gauge and damping parameters they make d_acc, and so d, larger
++3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²) at every point of the set on which [[thm:settling]] is proved at which
++γ_C ≥ 10⁶, where z = 4e_Υγ_Υ² and γ_C are the gauge and damping parameters and g(z) = z/27360 + z²/1088; so d is
++unbounded on that set ([[thm:ec-lb-proved]]). At one parameter point of the gauge and damping parameters they make d_acc,
++and so d, larger
+ than 1.403 × 10²⁰ and N_NM larger than 2.946 × 10²¹ ([[thm:loss-d]]), and larger than 1.2497 × 10²⁴ and 2.624 × 10²⁵
+ for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). At that point, at one admissible choice of
+ the weights and of the free orders and inner products ([[def:uc-choice]], [[def:cs-choices]]), d_acc and d_NM, the
+ latter the d of [[thm:iii-k-3-2]], at least the orders at which its lemmas ask U small ([[prop:uc-d-small]]), are at
+ most an integer below 1.57157 × 10⁵⁰, and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). That parameter
+-point lies outside the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at it bound
+-what this proof's choices produce, not the optimal loss. The
++point is not shown to lie in the set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]), and the bounds at
++it bound what this proof's choices produce, not the optimal loss. The
+ same formulas bound λ1 by δ, δ by a power of 2 that decreases with d, and the modulus of the initial family
+ ([[prop:iii-k-1-2]]) at 2δ by a power of 2 that decreases with d ([[prop:ec-delta-cap]]). The regularity d_1 of
+ [[thm:iii-k-4-3]] is 22d + 292 + L_P and the order of the approximant of [[thm:settling]] is K = d_1 + 14, L_P ≤ 43
+@@ -52,29 +53,36 @@ the last pair as fixed in [[eq:iv4-0-1]]. At it
+ and, by [[cor:s14-eps-ind-point]], ε_ind(10⁻⁶) = δ_50, where 1.941370568463·10⁻⁸ < δ_50 < 1.941370568464·10⁻⁸
+ ([[lem:s14-delta50]]). We write δ̄ := 1.94137057·10⁻⁸, so that δ_50 < δ̄.
+ 
+-**Remark {#rem:ec-point-outside}** (The computational point and the proved set.) The computational point lies outside
+-the set on which [[thm:settling]] is proved, and it lies outside through h. [[thm:settling]] takes h in the set 𝖧 of
+-[[eq:iv4-0-1]], whose supremum h_* = min(10⁻⁶, h_0, h_tf) is at most 10⁻⁶ whatever the values of h_0 and h_tf, and
+-𝖧 ⊂ (0, h_*); so h = 10⁻⁶ is not in 𝖧 ([[rem:s14-eps-ind-scope]]). Whether the gauge half of the point lies in the
+-proved set is not decided. Of the conditions that [[thm:vi-c-2-1]] places on γ_Υ and e_Υ, the tf-admissibility of
+-[[lem:iii-d-7-1]] and [[prop:iii-f1-3-3]] holds for every e_Υ ∈ (0, ½] and γ_Υ ∈ (0, ¼] and every h ∈ 𝖧
+-([[prop:tf-gauge-explicit]], [[lem:tf-lin-reduction]]; at (γ_Υ, e_Υ) = (1/100, 1/100) the factor of [[eq:tf-lambda]] is
+-below 1.0111·10⁻⁴), and the caps 3/8, ½s_C and ¼ of row u4 of [[sec:vi-c-1]] hold there; the exclusion z_Υ ∉ 𝖹_exc
+-of row u5 is a separate condition. The threshold ε_1 of [[prop:iii-d1-4-1]] for γ_Υ and e_Υ depends on the parameter
+-γ_(Υ,H) ∈ (0, ε_0] of the horizon modification (row u2 of [[sec:vi-c-1]]); ε_0 and ε_1 are proved to exist, their
+-values are not determined, and whether (γ_Υ, e_Υ) = (1/100, 1/100) lies below ε_1 for some such γ_(Υ,H) is not
+-decided. [[def:ec-point]] does not fix γ_(Υ,H), and no number of this chapter depends on it: the horizon thresholds
+-that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]], where y = 0 for the 1-form
+-c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not depend on the horizon
+-modification ([[sec:iii-d2-1]]). So the computational point is a point at which the formulas of the proof can be
+-evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Its damping and gauge parameters
+-avoid the countable exclusions: h = 10⁻⁶ ∉ 𝖹, and the set 𝖹_exc of [[prop:iii-f1-2-3]] (e) is empty at h = 10⁻⁶
+-([[thm:t49-point]]). Every number of this chapter that depends on the point is stated at it. For h ∈ 𝖧 the theorems
+-use only 0 < ε_ind(h) ≤ δ_50 ([[prop:np-10-52]] (iii)),
+-and the lower bound of [[thm:loss-d]] uses besides only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed
+-by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]], [[prop:ec-rounds]]). At every point of the proved set a lower bound for d holds
+-as an explicit function of z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that
+-hold at every such point ([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
++**Remark {#rem:ec-point-outside}** (The computational point and the proved set.) [[thm:settling]] holds at every
++admissible point of the gauge and damping parameters ([[def:vi-c-admissible]], [[thm:vi-c-adm-holds]]); no threshold and
++no exceptional set in that definition excludes the computational point. Completed by any γ_(Υ,H) > 0, it satisfies (AP0):
++s_C = 499995.1171875 > 100, (C1) holds at h = 10⁻⁶ ([[lem:iv4-1-3]] (a)), and e_Υ = γ_Υ = 1/100 < ¼; in (AP1), the
++hypotheses (H1)–(H4) with ½ + ϑ_ℋ < −C_0 contained in (2) of [[thm:iii-e-1-1]], by [[lem:iv4-1-5]] and
++[[lem:iv4-1-6]]; (AP2), by [[prop:s14-damping-distance]], since the indicial roots of □^C_b are the roots of P_l, P_0 and
++p_(v); and, in (AP4), Λ_tf(γ_Υ, e_Υ) < 1.0111·10⁻⁴ ([[eq:tf-lambda-point]]). Three conditions are not decided. First, in
++(AP1), the mode stability (1) of [[thm:iii-e-1-1]] and the invertibility of P^C_b in its (2), at γ_C = 10⁶ and b near
++b₀: [[thm:iv4-2-1]] proves them only for h below a threshold of [[thm:iv5-7-3]] whose existence is proved and whose
++value is not determined. Second, in (AP4), the tf-admissibility of □^C_b at γ_C = 10⁶ with the weights in (1, 2), which
++[[thm:iv6-4-1]] proves only for h below the threshold h_tf of [[thm:iv6-3-1]]. Third, (AP3): the invertibility of
++(□^Υ_b)^(σ) for every σ with Im σ ≥ 0 at (e_Υ, γ_Υ) = (1/100, 1/100), for some γ_(Υ,H) > 0 and every b near b₀, which
++[[prop:iii-d1-4-1]] gives only for γ_(Υ,H) ≤ ϵ_0 and e_Υ, γ_Υ below a threshold ϵ_1 that depends on γ_(Υ,H), both proved
++to exist with values not determined. As [[lem:iii-d-7-1]] (a) gives the tf-admissibility of σ ↦ (□^Υ_b)^(σ) at these
++parameters for every b and every γ_(Υ,H), (AP3) follows from its case b = b₀ by the argument of Step 2 of the proof of
++[[prop:iii-d1-4-1]]. [[def:ec-point]] does not fix γ_(Υ,H), and no number of this chapter depends on it: the horizon
++thresholds that enter do not involve it ([[lem:iii-d-5-1]], and [[lem:iii-f2-1-1]], where y = 0 for the 1-form
++c_(Υ,H) = −½χ dr), and the indicial roots of (□^Υ_b)^(0), which fix ℳ and ε_Υ, do not depend on the horizon modification
++([[sec:iii-d2-1]]). The definition asks no simplicity of the indicial roots of L̂_b(0) beyond what (AP0) gives
++([[prop:iii-f1-2-3]] (g)); at the point every root of real part in [−101, 5] is simple ([[prop:is-mult]]), and the point
++also avoids the countable exclusions of [[eq:iv4-0-1]] and [[prop:iii-f1-2-3]] (e), which the definition does not ask:
++h = 10⁻⁶ ∉ 𝖹, and Z_exc is empty at h = 10⁻⁶ ([[thm:t49-point]]). So the computational point is a point at which the
++formulas of the proof can be evaluated, not one at which the hypotheses of [[thm:settling]] are shown to hold. Every
++number of this chapter that depends on the point is stated at it. At every admissible point with
++(e_Υ, γ_Υ) = (1/100, 1/100) and h ≤ 10⁻⁶ the theorems use only 0 < ε_ind(h) ≤ δ_50 ((AP2) and [[prop:iii-f1-2-3]] (f) for
++the first inequality, [[prop:np-10-52]] (iii) for the second), and the lower bound of [[thm:loss-d]] uses besides
++only ε_Υ < 1.46214·10⁻¹⁰, which holds at every h, ε_Υ being fixed by (γ_Υ, e_Υ) ([[lem:ec-gauge-gap]],
++[[prop:ec-rounds]]). At every point of the proved set with h ≤ 10⁻⁶ a lower bound for d holds as an explicit function of
++z = 4e_Υγ_Υ² and h, with no threshold evaluated, through bounds for ε_Υ and ε_ind(h) that hold at every such point
++([[lem:ec-lb-gauge]], [[lem:ec-lb-ind]], [[thm:ec-lb-proved]]).
+ 
+ ### Sums of the gauge potential offsets {#sec:ec-gap-sums}
+ 
+@@ -1481,8 +1489,8 @@ losses of their single steps, and in finitely many further losses, each assigned
+ 
+ The bounds (ii) are lower bounds for the loss that this proof's choices produce, not for the least loss with which the
+ tame estimates hold; for the index sets as the proofs construct them, (G) asks ε_K < μ_G ([[thm:is-gap]]), and the lower
+-bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). At every point of the set on which [[thm:settling]] is
+-proved, d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²), where R is the number of rounds at that point,
++bound rises to 3R > 1.2497 × 10²⁴ ([[cor:uc-two-offsets]]). At every point of the set on which [[thm:settling]] is proved
++at which h ≤ 10⁻⁶, d_acc ≥ 3R > 3(1 − 2·10⁻⁵) max(g(z)⁻², (13γ_C/40)²), where R is the number of rounds at that point,
+ z = 4e_Υγ_Υ² its gauge parameter (not the value 4·10⁻⁶ fixed in this section) and g the function of [[eq:ec-lb-g]]
+ ([[thm:ec-lb-proved]]). The bound (iii) is explicit in the numbers of steps, which
+ [[lem:ec-counts]] bounds through the spacing of the levels, below ε_K, and in the further losses, which contain counts of
+@@ -1533,7 +1541,8 @@ C_R ≥ 1 be the constant of [[cor:vii-2-3]]. Then δ = ½ε and λ1 satisfy
+     λ1 < δ,     ω̃(2δ) ≤ 2^(−(32d+8)),     δ ≤ 2^(−(32d+9)),     log₁₀ δ < −(59/196)(32d + 9).
+ 
+ As d ≥ d_acc, the bound of [[thm:loss-d]] (ii) gives, at the computational point, log₁₀ δ < −1.351 × 10²¹; at every
+-point of the proved set, [[cor:ec-lb-delta]] bounds log₁₀ δ by a function of the gauge and damping parameters.
++point of the proved set with h ≤ 10⁻⁶, [[cor:ec-lb-delta]] bounds log₁₀ δ by a function of the gauge and damping
++parameters.
+ 
+ *Proof.* Replacing C_(2d) by max(C_(2d), 1) and ω̃(t) by max(ω̃(t), t) keeps [[lem:iii-k-2-2]] (d) true,
+ and the modulus still tends to 0 with t, which is all that the proof of [[thm:iii-k-3-2]] uses of it; so these are
+@@ -1552,13 +1561,13 @@ stop.
+ 
+ ### The lower bound for the loss on the proved set {#sec:ec-lb-proved}
+ 
+-The lower bound of [[thm:loss-d]] (ii) is stated at the computational point, and that point lies outside the set on
+-which [[thm:settling]] is proved ([[rem:ec-point-outside]]). This section proves a lower bound for d_acc, and so for
+-d_NM and N_NM, and an upper bound for δ, at every point of that set, in terms of the gauge parameter z = 4e_Υγ_Υ² and of
+-h = γ_C⁻¹, γ_C being the damping parameter. The proof of [[prop:ec-rounds]] uses the point only through upper bounds for
+-ε_g, ε_K and η_2. Here ε_Υ is bounded at every z ∈ (0, ½] ([[lem:ec-lb-gauge]]) and ε_ind at every h ∈ (0, 10⁻⁶]
+-([[lem:ec-lb-ind]]), and the count of [[prop:ec-rounds]] is run with general bounds ([[lem:ec-lb-rounds]]);
+-[[thm:ec-lb-proved]] assembles them, and [[rem:ec-lb-conditions]] lists the conditions of [[thm:settling]] that the
++The lower bound of [[thm:loss-d]] (ii) is stated at the computational point, which is not shown to lie in the set on
++which [[thm:settling]] is proved ([[rem:ec-point-outside]]). This section proves a lower bound for d_acc, and so for d_NM
++and N_NM, and an upper bound for δ, at every point of that set with h ≤ 10⁻⁶, in terms of the gauge parameter
++z = 4e_Υγ_Υ² and of h = γ_C⁻¹, γ_C being the damping parameter. The proof of [[prop:ec-rounds]] uses the point only
++through upper bounds for ε_g, ε_K and η_2. Here ε_Υ is bounded at every z ∈ (0, ½] ([[lem:ec-lb-gauge]]) and ε_ind at
++every h ∈ (0, 10⁻⁶] ([[lem:ec-lb-ind]]), and the count of [[prop:ec-rounds]] is run with general bounds
++([[lem:ec-lb-rounds]]); [[thm:ec-lb-proved]] assembles them, and [[rem:ec-lb-conditions]] lists the conditions that the
+ proof uses. Throughout, (v_C, e_C) = (1/2, 1/102400) as in [[eq:iv4-0-1]], and e := e_C.
+ 
+ **Lemma {#lem:ec-lb-gauge}** (The least distance of ℳ at every gauge point.) Let 0 < z ≤ ½. For l ≥ 1 put u := l + 1
+@@ -1713,9 +1722,10 @@ least 4 (as β_(K−1) > α − (α − 4) = 4) and lying within ε_K of c_p. By
+ decreases in ε_K on (0, Θ_g], its numerator being positive there, as 3ε_K + 2Θ_g + Θ_η ≤ 5Θ_g + Θ_η < 1; so it exceeds
+ its value (1 − 5Θ_g − Θ_η)/Θ_g² at ε_K = Θ_g. ∎
+ 
+-**Theorem {#thm:ec-lb-proved}** (The loss at every point of the proved set.) Let h ∈ 𝖧, γ_C = h⁻¹, the gauge
+-parameters (γ_(Υ,H), e_Υ, γ_Υ), the constants ε_Υ and ε_ind, and the weights be chosen as in [[thm:settling]], that is,
+-so that the conditions of [[sec:vi-c-1]] hold ([[thm:vi-c-2-1]]). Put z := 4e_Υγ_Υ², let g be the function of
++**Theorem {#thm:ec-lb-proved}** (The loss at every point of the proved set with h ≤ 10⁻⁶.) Let the admissible point
++(h, γ_(Υ,H), e_Υ, γ_Υ) of row a1 of [[sec:vi-c-1]], with h ≤ 10⁻⁶ and γ_C = h⁻¹, the constants ε_Υ and ε_ind, and the
++weights be chosen as in [[thm:settling]], that is, so that the conditions of [[sec:vi-c-1]] hold ([[thm:vi-c-2-1]]).
++Put z := 4e_Υγ_Υ², let g be the function of
+ [[eq:ec-lb-g]], and put
+ 
+     Θ_g := min(g(z), 40h/13).
+@@ -1733,10 +1743,10 @@ In particular
+ 
+ and, in the gauge parameters, d_acc > 1.4035·10⁸ e_Υ⁻²γ_Υ⁻⁴(1 + 100.6e_Υγ_Υ²)⁻².
+ 
+-*Proof.* *The gaps.* By rows c1–c2 of [[sec:vi-c-1]], (v_C, e_C) = (1/2, 1/102400) and h ∈ 𝖧 ⊂ (0, h_*) with
+-h_* ≤ 10⁻⁶; by row u5, z ∈ (0, ½]. [[sec:iii-d2-1]] fixes ε_Υ below half the least distance between distinct points of
+-ℳ, so ε_Υ < g(z) by [[lem:ec-lb-gauge]]. By row c3, (C1) holds (it holds at every h ∈ (0, 10⁻⁶], by [[lem:iv4-1-3]]
+-(a)), and ε_ind is a constant with [[eq:iii-f1-2-2]] ([[eq:iii-i9-1-1]]); so ε_ind < 40h/13 by [[lem:ec-lb-ind]].
++*Proof.* *The gaps.* By row c1 of [[sec:vi-c-1]], (v_C, e_C) = (1/2, 1/102400); h ≤ 10⁻⁶ by hypothesis; and
++z ∈ (0, ¼) ⊂ (0, ½] by (AP0) of [[def:vi-c-admissible]]. [[sec:iii-d2-1]] fixes ε_Υ below half the least distance between
++distinct points of ℳ, so ε_Υ < g(z) by [[lem:ec-lb-gauge]]. (C1) holds by (AP0), and ε_ind is a constant with
++[[eq:iii-f1-2-2]] ([[eq:iii-i9-1-1]]); so ε_ind < 40h/13 by [[lem:ec-lb-ind]].
+ Hence ε_g = min(ε_Υ, ε_ind) < Θ_g ([[def:s21-eps-g]]). Row w1 asks ε_K < ε_+ < ε_ind ([[eq:iii-i9-1-1]]) and
+ ε_K < ε_Υ ([[def:iii-i10-1-3]]), so ε_K < ε_g < Θ_g; and [[sec:iii-i11-1]] takes η_2 ∈ (ε_K, ε_+), so η_2 < ε_ind. Put
+ Θ_η := 40h/13. Then ε_K < Θ_η, η_2 < Θ_η and Θ_g ≤ Θ_η, and 5Θ_g + Θ_η ≤ 6Θ_η ≤ (240/13)·10⁻⁶ < 1.85·10⁻⁵.
+@@ -1772,36 +1782,36 @@ parameter point. As (59/196) · 32 = 472/49 and d_NM > 3(1 − 2·10⁻⁵) max(
+ (472/49) · 0.31686 > 3.0522. ∎
+ 
+ **Remark {#rem:ec-lb-conditions}** (What the bound uses.) The proof of [[thm:ec-lb-proved]] uses exactly the following
+-conditions of [[thm:settling]], each of which holds at every point of the proved set:
++conditions, each of which, except h ≤ 10⁻⁶, holds at every point of the proved set:
+ 
+ - (v_C, e_C) = (1/2, 1/102400) (row c1 of [[sec:vi-c-1]]), through v = 1/2 and e in P_2 and [[eq:s14-f-two]];
+-- h ≤ 10⁻⁶ (row c2: 𝖧 ⊂ (0, h_*) with h_* ≤ 10⁻⁶), for [[lem:ec-lb-ind]] and for 6Θ_η < 2·10⁻⁵;
+-- (C1) (row c3), which holds at every h ∈ (0, 10⁻⁶] ([[lem:iv4-1-3]] (a)), to read ι₂(h) − 1 as an indicial root of
+-  L_b^(0);
+-- (C4) (row c3), only through the existence of the constant ε_ind ([[prop:iii-f1-2-3]] (f));
+-- z ∈ (0, ½] (row u5), for [[lem:ec-lb-gauge]];
++- h ≤ 10⁻⁶, the hypothesis of the theorem, for [[lem:ec-lb-ind]] and for 6Θ_η < 2·10⁻⁵;
++- (C1), part of (AP0) of [[def:vi-c-admissible]], to read ι₂(h) − 1 as an indicial root of L_b^(0);
++- (C4′) of [[sec:iii-f1-1]] ((AP2)), only through the existence of the constant ε_ind ([[prop:iii-f1-2-3]] (f));
++- z ∈ (0, ½], which (AP0) gives, for [[lem:ec-lb-gauge]];
+ - the definitions of ε_Υ ([[sec:iii-d2-1]]), of ε_ind ([[eq:iii-f1-2-2]]) and of ε_g ([[def:s21-eps-g]]);
+ - ε_K < ε_+ < ε_ind and ε_K < ε_Υ (row w1), and α ∈ (4, 4 + ε_K] (row w2);
+ - the choices that the proofs of [[thm:iii-i14-3-1]], [[lem:iii-i8-3-2]] and [[prop:iii-i13-2-1]] make at every
+   point: the levels, η_2 ∈ (ε_K, ε_+) ([[sec:iii-i11-1]]), and the losses 0 < ε < ½ε_g and ε′ ≤ ε.
+ 
+-It uses none of the thresholds that define the proved set: not h < h_0, h < h_tf or h ∉ 𝖹; not γ_(Υ,H) ≤ ε_0, nor the
+-bounds of rows u3 and u4 on e_Υ and γ_Υ; not z ∉ 𝖹_exc; not (C2), (C3) or (C5), nor (C4) beyond the existence of ε_ind;
+-not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data classes (rows d1–d2), the parameter set ℬ_*
+-(rows b1–b4) or the smallness of row n1. So the bound holds on the proved set without any of those thresholds being
+-evaluated. It holds as well at every (h, z) ∈ (0, 10⁻⁶] × (0, ½] at which the constructions of [[sec:ec-floor]] are run
++It uses no other condition: of (AP0) only (C1) and z ∈ (0, ½]; not (AP1), (AP3) or (AP4); not h < h_0, h < h_tf, h ∉ 𝖹,
++γ_(Υ,H) ≤ ϵ_0, e_Υ ≤ ϵ_1, γ_Υ < ϵ_1 or z ∉ Z_exc, by which [[prop:vi-c-adm-exist]] exhibits admissible points; not (C2),
++(C3) or (C5), nor (C4) beyond (C4′); not (G) beyond ε_K < ε_Υ, nor (G⁺), (Ex1)–(Ex4) or (A_J); and not the data classes
++(rows d1–d2), the parameter set ℬ_* (rows b1–b4) or the smallness of row n1. So the bound holds at every point of the
++proved set with h ≤ 10⁻⁶ without any threshold being evaluated. It holds as well at every (h, z) ∈ (0, 10⁻⁶] × (0, ½] at
++which the constructions of [[sec:ec-floor]] are run
+ with constants satisfying the conditions listed. At the computational point it gives
+ d_acc > 3(1 − 2·10⁻⁵)g(4·10⁻⁶)⁻² > 1.4032·10²⁰, which implies the bound 1.403 × 10²⁰ of [[thm:loss-d]] (ii).
+ 
+-**Remark {#rem:ec-lb-unbounded}** (No upper bound holds on all of the proved set.) The set 𝖧 = (0, h_*) ∖ 𝖹, with 𝖹
+-countable, contains numbers h arbitrarily close to 0, and at each of them [[thm:vi-c-2-1]] completes the choice of the
+-parameters; there [[thm:ec-lb-proved]] gives d_NM > 0.3168γ_C² = 0.3168h⁻². So d_NM is unbounded on the proved set, and
+-an explicit upper bound for it can hold at points of that set but not on all of it; in particular d_NM exceeds
+-1.57157·10⁵⁰, the bound of [[thm:uc-integer]], at every point of the proved set with h ≤ 4.48·10⁻²⁶. Likewise, at a
+-fixed h the conditions on (e_Υ, γ_Υ) are upper bounds together with z ∉ 𝖹_exc, 𝖹_exc countable, so z takes values
+-arbitrarily close to 0, where the first bound of [[eq:ec-lb-numbers]] grows like z⁻². If (γ_Υ, e_Υ) = (1/100, 1/100)
+-is admissible at some h ∈ 𝖧, the theorem gives d_NM > 1.4032·10²⁰ there, as at the computational point, and the larger
+-bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
++**Remark {#rem:ec-lb-unbounded}** (No upper bound holds on all of the proved set.) Admissible points exist with h
++arbitrarily close to 0 ([[prop:vi-c-adm-exist]]), and at each of them [[thm:vi-c-2-1]] completes the choice of the
++parameters; at those with h ≤ 10⁻⁶ [[thm:ec-lb-proved]] gives d_NM > 0.3168γ_C² = 0.3168h⁻². So d_NM is unbounded on the
++proved set, and an explicit upper bound for it can hold at points of that set but not on all of it; in particular d_NM
++exceeds 1.57157·10⁵⁰, the bound of [[thm:uc-integer]], at every point of the proved set with h ≤ 4.48·10⁻²⁶. Likewise, at
++a fixed h ∈ 𝖧 the points of [[prop:vi-c-adm-exist]] have e_Υ and γ_Υ arbitrarily small, so z takes values arbitrarily
++close to 0, where the first bound of [[eq:ec-lb-numbers]] grows like z⁻². If (h, γ_(Υ,H), 1/100, 1/100) is an admissible
++point for some h ≤ 10⁻⁶ and some γ_(Υ,H), the theorem gives d_NM > 1.4032·10²⁰ there, as at the computational point, and
++the larger bound d_NM > 0.3168γ_C² when h < 4.75·10⁻¹¹. The bound 1.2497·10²⁴ of [[cor:uc-two-offsets]] rests on the gap
+ condition (G) for the index sets as constructed, evaluated at z = 4·10⁻⁶ ([[lem:uc-two-offsets]], [[thm:is-gap]]), and
+ is stated at that point only.
+ 
+@@ -4922,9 +4932,9 @@ applies [[thm:ii-g-2-1]], N_NM = 21d + 6, d_0 is the regularity of [[prop:iii-k-
+ which [[prop:iii-k-1-2]] (3) reads the data to bound the initial family at the order k + 2. Its proof gives d_0 as the
+ largest, and k′_k as the sum, of finitely many orders of derivatives, and does not evaluate them. This section counts
+ those orders ([[lem:uc-data-losses]]) and evaluates d_0, k′_k, d_1, K, k1 and K* in terms of d
+-([[prop:uc-data-order]]). The count holds at every choice of the parameters of [[thm:vi-c-2-1]]. The numbers that
+-follow from it use the bounds for d at the computational point, which lies outside the set on which
+-[[thm:settling]] is proved ([[rem:ec-point-outside]]).
++([[prop:uc-data-order]]). The count holds at every choice of the parameters of [[thm:vi-c-2-1]]. The numbers that follow
++from it use the bounds for d at the computational point, which is not shown to lie in the set on which [[thm:settling]]
++is proved ([[rem:ec-point-outside]]).
+ 
+ *Conventions.* ‖·‖_n is the norm ‖(γ̃, k̃)‖_(H^n) of [[sec:s27-class]], built from ℰ_0 of [[eq:vii-0-1]] or from ℰ_0^½
+ of [[eq:half-class]]. Put L_F := 132 = 153 − 21: the data of [[thm:iv3-2-2]] and of [[thm:iv2-3-1]] at the order 153 + k
+@@ -5222,9 +5232,10 @@ k1 > 22d > 2.74934·10²⁵, so K*(a, M, k1) > (4/3) · 7.5588·10⁵⁰ > 1.007
+ **Remark {#rem:uc-data-order-limits}** (What the count gives and what it does not.) [[prop:uc-data-order]] makes d_1
+ and K explicit in d, with the additive terms 292 + L_P and 306 + L_P, L_P ≤ 48, and makes the threshold K* of
+ [[thm:own-data]] explicit as a quadratic in d_1; the count is an upper count of the orders the proofs read, and
+-smaller orders may serve. It gives no number on the set where [[thm:settling]] is proved, on which d is not evaluated
+-and is bounded only from below ([[thm:ec-lb-proved]]); the numbers of its part (d) are those of the computational
+-point, outside that set ([[rem:ec-point-outside]]). L_0 and J depend on ℓ_0 and ℓ_I, on the gauge parameters through
++smaller orders may serve. It gives no number on the set where [[thm:settling]] is proved, on which d is not evaluated,
++and at whose points with h ≤ 10⁻⁶ it is bounded only from below ([[thm:ec-lb-proved]]); the numbers of its part (d) are
++those of the computational point, which is not shown to lie in that set ([[rem:ec-point-outside]]). L_0 and J depend on
++ℓ_0 and ℓ_I, on the gauge parameters through
+ ℓ^♭_0 and ℓ^♭_I, and on the ν of Step 2 of the proof of [[thm:iii-c1-3-1]]; [[lem:uc-data-losses]] bounds them and
+ does not fix them. The number K + 4 + ⌈4β0(k_P)⌉ of stages of the approximant of [[thm:own-data]] involves
+ β0(k_P) = max(2, 4C(k_P) + 1), whose constants C(q) of [[eq:near-lines]] are not evaluated, and the thresholds λ1, δ
+@@ -5284,14 +5295,15 @@ them.
+ **Remark {#rem:ec-not-evaluated}** (Where explicit evaluation stops.) The values of λ1 and δ are not determined in this
+ paper; [[prop:ec-delta-cap]] bounds λ1 by δ, δ by a power of 2 that decreases with d, and the modulus at 2δ, and they are
+ positive by the proof of [[thm:settling]]. Explicit values stop first upstream of every constant: the proof fixes the
+-gauge and damping parameters only below thresholds whose existence it proves ([[thm:vi-c-2-1]]; the conditions of
+-tf-admissibility on the gauge are explicit, [[prop:tf-gauge-explicit]]), and the cut-offs and orders of its function
+-spaces only up to admissibility, so explicit constants need those choices made with numbers, which
+-this chapter does only at a point outside the proved set: [[def:ec-point]] for the gauge and damping parameters, and
+-[[def:uc-choice]] and [[def:cs-choices]] for the weights, orders and inner products on which d depends. The lower bound
+-for d of [[thm:ec-lb-proved]] needs no such choice: it holds at every point of the proved set as an explicit function
+-of the gauge and damping parameters, and it tends to infinity as z tends to 0 or γ_C to infinity, so that no upper
+-bound for d holds on all of that set ([[rem:ec-lb-unbounded]]). Among the inputs
++gauge and damping parameters only at admissible points ([[def:vi-c-admissible]]), which it exhibits only below thresholds
++whose existence it proves ([[prop:vi-c-adm-exist]]; the conditions of tf-admissibility on the gauge are explicit,
++[[prop:tf-gauge-explicit]]), and the cut-offs and orders of its function spaces only up to admissibility, so explicit
++constants need those choices made with numbers, which this chapter does only at a point not shown to lie in the proved
++set: [[def:ec-point]] for the gauge and damping parameters, and [[def:uc-choice]] and [[def:cs-choices]] for the
++weights, orders and inner products on which d depends. The lower bound for d of [[thm:ec-lb-proved]] needs no such
++choice: it holds at every point of the proved set with h ≤ 10⁻⁶ as an explicit function of the gauge and damping
++parameters, and it tends to infinity as z tends to 0 or γ_C to infinity, so that no upper bound for d holds on all of
++that set ([[rem:ec-lb-unbounded]]). Among the inputs
+ that depend on those choices are the gauge reconstruction, the inverse of the absorbed problem in the norms of [[ch:s01]]
+ (invertible by a Fredholm argument, [[lem:rb-absorbed]], which gives no bound), and a lower bound, uniform in the
+ harmonic, for the least singular value of the scalar-type blocks at zero energy ([[lem:rb-quasimode]] bounds it from
+diff --git a/research/warp-drive/paper/reader/chapters/90-scope.md b/research/warp-drive/paper/reader/chapters/90-scope.md
+index b9690bc9..da615e4d 100644
+--- a/research/warp-drive/paper/reader/chapters/90-scope.md
++++ b/research/warp-drive/paper/reader/chapters/90-scope.md
+@@ -63,11 +63,12 @@ at 2δ by 2^(−(32d+8)), d the loss with which the Nash–Moser theorem is appl
+ The loss d is at least the loss d_acc that the proof assigns to the tame estimates, and the regularity of the Nash–Moser
+ step is N_NM = 21d + 6; d_acc is composed of elementary losses in closed form, of the loss of the forward solution
+ operators, at most 20,180, or 20,183 at the backgrounds h + h_rem(q) + h_tot(p⃗), and of the numbers of steps of the
+-iterations of the construction ([[thm:loss-d]] (i)). At every point of the set on which [[thm:settling]] is proved,
+-with z = 4e_Υγ_Υ² and γ_C the gauge and damping parameters, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻², d > 0.3168 γ_C²,
+-N_NM > 4.7158 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and N_NM > 6.654 γ_C², so that log₁₀ δ < −2.163 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and
+-log₁₀ δ < −3.052 γ_C² ([[thm:ec-lb-proved]], [[cor:ec-lb-delta]]); these bounds tend to infinity as z or γ_C⁻¹ tends
+-to 0, so that no upper bound for d holds on all of that set ([[rem:ec-lb-unbounded]]). At the
++iterations of the construction ([[thm:loss-d]] (i)). At every point of the set on which [[thm:settling]] is proved
++at which γ_C ≥ 10⁶, with z = 4e_Υγ_Υ² and γ_C the gauge and damping parameters, d > 2.2456 × 10⁹ z⁻²(1 + 25.15z)⁻²,
++d > 0.3168 γ_C², N_NM > 4.7158 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and N_NM > 6.654 γ_C², so that
++log₁₀ δ < −2.163 × 10¹⁰ z⁻²(1 + 25.15z)⁻² and log₁₀ δ < −3.052 γ_C² ([[thm:ec-lb-proved]], [[cor:ec-lb-delta]]); these
++bounds tend to infinity as z or γ_C⁻¹ tends to 0, so that no upper bound for d holds on all of that set
++([[rem:ec-lb-unbounded]]). At the
+ computational point of [[def:ec-point]], d > 1.403 × 10²⁰ and N_NM > 2.946 × 10²¹, so that log₁₀ δ < −1.351 × 10²¹
+ ([[thm:loss-d]] (ii), [[prop:ec-delta-cap]]), and d > 1.2497 × 10²⁴ and N_NM > 2.624 × 10²⁵ at every admissible choice of
+ the weights, for the index sets as the proofs construct them ([[cor:uc-two-offsets]]). These are lower bounds for the
+@@ -76,16 +77,17 @@ that point, for those index sets and at one admissible choice of the weights and
+ d is at most an integer below 1.57157 × 10⁵⁰ and N_NM at most one below 3.30029 × 10⁵¹ ([[thm:uc-integer]]). The order
+ of the approximant of [[thm:settling]] is K = d_1 + 14 = 22d + 306 + L_P, with L_P ≤ 43 an explicit number of
+ derivatives, so that at that point K is at most an integer below 3.45745 × 10⁵¹ ([[prop:uc-data-order]]). The
+-computational point is a point at which the formulas of the proof can be evaluated, and it lies outside the set on which
+-[[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in the proof of any
+-theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
++computational point is a point at which the formulas of the proof can be evaluated, and it is not shown to lie in the
++set on which [[thm:settling]] is proved ([[rem:ec-point-outside]]). No result of [[ch:explicit-constants]] is used in
++the proof of any theorem outside that chapter; the explicit indices of [[prop:ii-a1-2-4]] and [[lem:ii-a-8-5]], which
+ [[prop:fwd-calculus]] proves, and the value N′ = 13 of [[ch:s06]], which rests on [[lem:fwd-orders]], are used only in
+ [[ch:explicit-constants]], whose opening states both.
+ 
+ Explicit values stop upstream of every constant of [[thm:settling]]: the proof fixes the gauge and damping parameters
+-only below thresholds whose existence it proves (the conditions of tf-admissibility on the gauge are explicit: e_Υ ≤ ½
+-and γ_Υ ≤ ¼ suffice, [[prop:tf-gauge-explicit]]), and the cut-offs and orders of its function spaces only up to
+-admissibility; arguments by contradiction, compactness and defect measures give constants without a value; and the
++only at admissible points, which it exhibits only below thresholds whose existence it proves (the conditions of
++tf-admissibility on the gauge are explicit: e_Υ ≤ ½ and γ_Υ ≤ ¼ suffice, [[prop:tf-gauge-explicit]]), and the cut-offs
++and orders of its function spaces only up to admissibility; arguments by contradiction, compactness and defect measures
++give constants without a value; and the
+ parametrix norms at ι⁺, the tame constants to the order N_NM, the Nash–Moser thresholds of the exterior and slab
+ problems and the constants of the gluing are not evaluated. This is a limit of the explicit evaluation, not of
+ [[thm:settling]] ([[rem:ec-not-evaluated]]).
+diff --git a/research/warp-drive/paper/reader/crosswalk/01-introduction.tsv b/research/warp-drive/paper/reader/crosswalk/01-introduction.tsv
+index ae239d61..9e5a5a27 100644
+--- a/research/warp-drive/paper/reader/crosswalk/01-introduction.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/01-introduction.tsv
+@@ -6,5 +6,5 @@ sec:huneau-luk	paper/RESPONSE-HL-5D.md:68-97	P 1.2	[HL18] Theorem 4.2 quoted wit
+ sec:what-is-proved	paper/RESPONSE-HL-5D.md:98-132	P 1.3	results cited by edition keys; "supplement (proof5/)" replaced by the stability parts; the development of the continued data (not the data) settles; "at n = 4" written as spacetime dimension n + 1 = 5
+ sec:why-five	paper/RESPONSE-HL-5D.md:134-148	P 1.4	"(section 6)" replaced by prop:boundary-spacelike
+ sec:relation	paper/RESPONSE-HL-5D.md:705-751	P section 7	"READ" dropped; Theorem A and Lemma 5.1 replaced by keys/chapters
+-sec:introduction-scope	paper/RESPONSE-HL-5D.md:1748-1787; paper/RESPONSE-HL-5D.md:1604-1627; paper/RESPONSE-HL-5D.md:1599-1603	P 9 Beyond the boundary, Physical wavelengths, Settling (first and closing sentences)	r_q -> 0 as l5 -> 0 written out in place of the cited check (innerr5); the scope sentence names the past domain beside D_T and Ω (Theorems 2-3 live there, P 371-441); lower bound on the proved set (P-LB text 8)
++sec:introduction-scope	paper/RESPONSE-HL-5D.md:1748-1787; paper/RESPONSE-HL-5D.md:1604-1627; paper/RESPONSE-HL-5D.md:1599-1603	P 9 Beyond the boundary, Physical wavelengths, Settling (first and closing sentences)	r_q -> 0 as l5 -> 0 written out in place of the cited check (innerr5); the scope sentence names the past domain beside D_T and Ω (Theorems 2-3 live there, P 371-441); lower bound on the proved set (P-LB text 8); the lower bound on the proved set at γ_C ≥ 10⁶; the point not shown to lie in the proved set (P-ADM text 48)
+ sec:organisation	-	-	new; part and chapter keys of OUTLINE.md
+diff --git a/research/warp-drive/paper/reader/crosswalk/03-theorems.tsv b/research/warp-drive/paper/reader/crosswalk/03-theorems.tsv
+index 0646e2c1..264567fb 100644
+--- a/research/warp-drive/paper/reader/crosswalk/03-theorems.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/03-theorems.tsv
+@@ -17,6 +17,6 @@ thm:bondi-law	paper/RESPONSE-HL-5D.md:413-441; paper/RESPONSE-HL-5D.md:676-680	P
+ eq:bondi-form	paper/RESPONSE-HL-5D.md:418-419	P (3.2)	θ_B renamed ϑ_B
+ eq:bondi-law	paper/RESPONSE-HL-5D.md:430	P (3.3)	squares written (d_v p_i)^2
+ eq:flux-mean	paper/RESPONSE-HL-5D.md:679	P (6.1) = NP (9.10) with the factor 1 - π/2	
+-sec:settling-statement	paper/RESPONSE-HL-5D.md:1180-1269; paper/RESPONSE-HL-5D.md:777-796	P 8.7-8.8, 8.2	the paragraph after thm:settling states K explicit in d (P-K text 3)
++sec:settling-statement	paper/RESPONSE-HL-5D.md:1180-1269; paper/RESPONSE-HL-5D.md:777-796	P 8.7-8.8, 8.2	the paragraph after thm:settling states K explicit in d (P-K text 3); the lower bound on the proved set at γ_C ≥ 10⁶; the point not shown to lie in the proved set (P-ADM text 49)
+ thm:settling	paper/RESPONSE-HL-5D.md:1239-1259; docket68/n1star/proof5/PART-VII-ASSEMBLY.md:94-96	P Theorem 4 = proof5 Part VII Theorem 0.2	parameters cited by the stability keys eq:iii-i9-1-1, eq:iii-f1-2-2, def:iii-j-g-plus, def:iii-i9-gap, def:iii-i10-1-3 and ch:s27 (row w1); former pending stability-parameters resolved; (ii) states the norm < delta of Part VII Theorem 0.2 (ii)
+-sec:further-results	paper/RESPONSE-HL-5D.md:1486-1863 (first sentences)	P section 9	qualifiers restored from P 1499-1501 (harmonic gauge), 1792-1795 (class stability), 1798-1803 (Vlasov), 1820-1837 (localised data), 1609-1620 (the mean correction is not a proved value); G-SWEEP C3: the Vlasov two-dust summary carries the hypothesis of cor:class-two-dust and cor:vlasov-two-dust that the outgoing packet does not reach R = a; constants item: lower bounds on the proved set (P-LB text 9)
++sec:further-results	paper/RESPONSE-HL-5D.md:1486-1863 (first sentences)	P section 9	qualifiers restored from P 1499-1501 (harmonic gauge), 1792-1795 (class stability), 1798-1803 (Vlasov), 1820-1837 (localised data), 1609-1620 (the mean correction is not a proved value); G-SWEEP C3: the Vlasov two-dust summary carries the hypothesis of cor:class-two-dust and cor:vlasov-two-dust that the outgoing packet does not reach R = a; constants item: lower bounds on the proved set (P-LB text 9); the lower bound on the proved set at γ_C ≥ 10⁶; the point not shown to lie in the proved set (P-ADM text 50)
+diff --git a/research/warp-drive/paper/reader/crosswalk/33-s14-constraint-damping.tsv b/research/warp-drive/paper/reader/crosswalk/33-s14-constraint-damping.tsv
+index 5f37d1f8..7d1e91d0 100644
+--- a/research/warp-drive/paper/reader/crosswalk/33-s14-constraint-damping.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/33-s14-constraint-damping.tsv
+@@ -4,7 +4,7 @@ sec:iii-e-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:18	III.E section 1
+ eq:iii-e-1-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:25	III.E (1.1)	
+ eq:iii-e-1-2	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:30	III.E (1.2)	
+ thm:iii-e-1-1	docket68/n1star/proof5/PART-III-E-CONSTRAINT.md:37	III.E Theorem 1.1 as proved by IV(4) Theorem 2.1 and IV(6) Theorem 4.1	constants of IV(4) (0.1), gamma_C = 1/h with h in H (IV(4) findings 1-2 folded); C_0 in [3/2,100] from IV(6) T4.1
+-sec:iv4-0	docket68/n1star/proof5/PART-IV5-CDMODES.md:17	IV(4) section 0	damping constants fixed once (replaces VI.C section 3)
++sec:iv4-0	docket68/n1star/proof5/PART-IV5-CDMODES.md:17	IV(4) section 0	damping constants fixed once (replaces VI.C section 3); the theorems at admissible points; 𝖧 is where thm:iii-e-1-1 is stated (P-ADM text 54)
+ eq:s14-lh	docket68/n1star/proof5/PART-IV5-CDMODES.md:23-24	IV(4) section 0, display of h^2 box^C ([Hin26a] (3.2) with L_(g,c,e,h))	the display formerly keyed eq:iv4-0-2 (row removed), now under this key
+ eq:iv4-0-1	docket68/n1star/proof5/PART-IV5-CDMODES.md:31	IV(4) (0.1)	Z also contains the countable set of NP 10.54 (d) / 10.52; names sec:s14-exceptional: 𝖹₂ empty, 10⁻⁶ ∉ 𝖹, 𝖹 meets [5·10⁻¹¹, 10⁻⁶] (P-T49 text 3)
+ sec:s14-model	docket68/n1star/N1STAR-PROOF.md:3414	NP 10.12-10.14, 10.21-10.22, 10.54, 10.79	program steps written as derivations
+@@ -156,7 +156,7 @@ sec:s14-simple	docket68/n1star/N1STAR-PROOF.md:7259	NP 10.52 setting
+ prop:np-10-52	docket68/n1star/N1STAR-PROOF.md:7269	NP 10.52 Proposition 10.43 with 10.54 (d) and VI.C row w1	stated off a countable set of h; eq:s14-theta proved; the value of δ_50 in lem:s14-delta50 and ε_ind(10^-6) = δ_50 in cor:s14-eps-ind-point (proof A)
+ eq:s14-theta	docket68/n1star/N1STAR-PROOF.md:7272-7274; docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:192-194	NP 10.52 Proposition 10.43 (i) (Q's roots in s); III.D Lemma 4.1 (the z -> 0 expansions)	closed forms of d₁, d₂ and the bounds on θ₁, θ₂ derived by hand in prop:np-10-52 (i); no record display
+ rem:s14-delta50	docket68/n1star/N1STAR-PROOF.md:7291-7296; docket68/n1star/N1STAR-PROOF.md:7427-7428; paper/reader/proofs/P-A-indicial.md@0a8a4fa:24	NP 10.52 Deduced (the bound attained at box^Ups's root near 1 - l, l = 50); NP 10.54 (d); proof A Lemma lem:s14-delta50	distinguishes ε_ind(h), ch:s15's ε_ind and δ_50; δ_50's value is proof A's lem:s14-delta50 (merged in sec:s14-pa)
+-sec:s14-pa	paper/reader/proofs/P-A-indicial.md@0a8a4fa:1-407	proof A, the indicial roots at the damping point gamma_C = 10^6	merged verbatim from the confirmed proof A, as a section after sec:s14-simple; its section on the sums of the gauge potential offsets (P-A-indicial.md:409-482, sec:pa-gap-sums, prop:gap-sums, rem:gap-sums) not merged, chapter 71 carries prop:gap-sums and rem:gap-sums; cor:s14-remote-point moved in from proof A3; rewrapped at the 14 lines that began with a bar, no word changed; rem:s14-eps-point, which restated the section, deleted
++sec:s14-pa	paper/reader/proofs/P-A-indicial.md@0a8a4fa:1-407	proof A, the indicial roots at the damping point gamma_C = 10^6	merged verbatim from the confirmed proof A, as a section after sec:s14-simple; its section on the sums of the gauge potential offsets (P-A-indicial.md:409-482, sec:pa-gap-sums, prop:gap-sums, rem:gap-sums) not merged, chapter 71 carries prop:gap-sums and rem:gap-sums; cor:s14-remote-point moved in from proof A3; rewrapped at the 14 lines that began with a bar, no word changed; rem:s14-eps-point, which restated the section, deleted; the theorems at admissible points; 𝖧 is where thm:iii-e-1-1 is stated (P-ADM text 55)
+ eq:s14-pa-sqrt	paper/reader/proofs/P-A-indicial.md@0a8a4fa:18	proof A, the elementary square-root bounds	merged verbatim from the confirmed proof A
+ sec:s14-pa-delta	paper/reader/proofs/P-A-indicial.md@0a8a4fa:22-45	proof A, the number delta_50	merged verbatim from the confirmed proof A
+ lem:s14-delta50	paper/reader/proofs/P-A-indicial.md@0a8a4fa:24-45	proof A Lemma, the value of delta_50	merged verbatim from the confirmed proof A; cited by rem:s14-delta50, cor:s14-eps-ind-point and rem:s14-eps-ind-scope, and by chapter 71
+@@ -179,9 +179,9 @@ lem:s14-crossings	paper/reader/proofs/P-A-indicial.md@0a8a4fa:313-345	proof A Le
+ sec:s14-pa-distance	paper/reader/proofs/P-A-indicial.md@0a8a4fa:347-407	proof A, the distance from the integers and eps_ind at gamma_C = 10^6	merged verbatim from the confirmed proof A
+ prop:s14-damping-distance	paper/reader/proofs/P-A-indicial.md@0a8a4fa:349-381	proof A Proposition, the roots of the constraint damping polynomials at gamma_C = 10^6	merged verbatim from the confirmed proof A, rewrapped where 2 lines began with a bar (no word changed)
+ cor:s14-eps-ind-point	paper/reader/proofs/P-A-indicial.md@0a8a4fa:383-398	proof A Corollary, eps_ind at gamma_C = 10^6	merged verbatim from the confirmed proof A, rewrapped where 1 line began with a bar (no word changed); cited by rem:s14-delta50 and rem:s14-eps-ind-scope, and by chapters 34 and 71
+-rem:s14-eps-ind-scope	paper/reader/proofs/P-A-indicial.md@0a8a4fa:400-407	proof A Remark, the point h = 10^-6 and the set H	merged verbatim from the confirmed proof A except the last sentence, which names cor:s14-eps-ind-point ("The corollary shows") as the section now holds two corollaries; prop:gap-sums resolves to chapter 71; cited by chapter 71; prop:gap-sums named as the sums of the gauge potential offsets, and the paragraph rewrapped; cites lem:ec-lb-ind for ε_ind(h) < 40h/13 (P-LB text 12); last sentence extended by prop:t49-vector and thm:t49-point (P-T49 text 4)
++rem:s14-eps-ind-scope	paper/reader/proofs/P-A-indicial.md@0a8a4fa:400-407	proof A Remark, the point h = 10^-6 and the set H	merged verbatim from the confirmed proof A except the last sentence, which names cor:s14-eps-ind-point ("The corollary shows") as the section now holds two corollaries; prop:gap-sums resolves to chapter 71; cited by chapter 71; prop:gap-sums named as the sums of the gauge potential offsets, and the paragraph rewrapped; cites lem:ec-lb-ind for ε_ind(h) < 40h/13 (P-LB text 12); last sentence extended by prop:t49-vector and thm:t49-point (P-T49 text 4); the theorems at admissible points; 𝖧 is where thm:iii-e-1-1 is stated (P-ADM text 56)
+ sec:s14-exceptional	paper/reader/proofs/P-T49.md@6ab0a0d0:1	P-T49, section	new; after rem:s14-eps-ind-scope
+-rem:t49-sets	paper/reader/proofs/P-T49.md@6ab0a0d0:14-47	P-T49, Remark (the four sets)	definitions
++rem:t49-sets	paper/reader/proofs/P-T49.md@6ab0a0d0:14-47	P-T49, Remark (the four sets)	definitions; no rows named; the exclusions met at the point although not asked (P-ADM text 57)
+ sec:s14-exc-shifted	paper/reader/proofs/P-T49.md@6ab0a0d0:49	P-T49, subsection	values near ±κ^(1/2)
+ eq:t49-coeffs	paper/reader/proofs/P-T49.md@6ab0a0d0:61	P-T49, display	coefficients of P
+ eq:t49-shift	paper/reader/proofs/P-T49.md@6ab0a0d0:66	P-T49, display	cubic in K
+@@ -198,4 +198,4 @@ sec:s14-exc-interval	paper/reader/proofs/P-T49.md@6ab0a0d0:237	P-T49, subsection
+ eq:t49-delta	paper/reader/proofs/P-T49.md@6ab0a0d0:241	P-T49, display	Δ_l(h)
+ prop:t49-six	paper/reader/proofs/P-T49.md@6ab0a0d0:246-292	P-T49, Proposition (six points)	l = 130–135
+ prop:t49-vector	paper/reader/proofs/P-T49.md@6ab0a0d0:294-321	P-T49, Proposition (vector crossings)	ε_ind
+-rem:t49-scope	paper/reader/proofs/P-T49.md@6ab0a0d0:323-332	P-T49, Remark (what is decided)	rows c2, c3, u5
++rem:t49-scope	paper/reader/proofs/P-T49.md@6ab0a0d0:323-332	P-T49, Remark (what is decided)	no rows named; the exclusions met at the point although not asked (P-ADM text 58)
+diff --git a/research/warp-drive/paper/reader/crosswalk/34-s15-linearised.tsv b/research/warp-drive/paper/reader/crosswalk/34-s15-linearised.tsv
+index 7237d7e0..27e2de60 100644
+--- a/research/warp-drive/paper/reader/crosswalk/34-s15-linearised.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/34-s15-linearised.tsv
+@@ -1,6 +1,6 @@
+ label	source	source_name	note
+ ch:s15	docket68/n1star/proof5/PART-III-F-LINEARISED.md:10-215; docket68/n1star/proof5/PART-III-F2-INDICIAL.md:14-492; docket68/n1star/proof5/PART-III-F3-MODES.md:17-270; docket68/n1star/proof5/PART-III-F4-ZERO.md:17-457; docket68/n1star/proof5/PART-III-F5-PAIRINGS.md:16-330	III.F, III.F1-III.F4 (kept ranges)	intro composed from the status sentences and intros; inner radius per docket68/n1star/BEYOND5-R0-PROOF.md:186-240
+-sec:iii-f-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:17-32	III.F section 1	
++sec:iii-f-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:17-32	III.F section 1	results hold at admissible points (P-ADM text 1)
+ eq:iii-f-1-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:26	III.F (1.1)	
+ eq:iii-f-1-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:28	III.F (1.2)	
+ sec:iii-f-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:34-89	III.F section 2	
+@@ -15,12 +15,12 @@ sec:iii-f-4	docket68/n1star/proof5/PART-III-F-LINEARISED.md:133-214	III.F sectio
+ prop:iii-f-4-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:141-214	III.F Proposition 4.1	grading computations written out monomial by monomial (lgrade5 G1, strap5 P2-P3 parenthetical dropped)
+ eq:iii-f-4-1	docket68/n1star/proof5/PART-III-F-LINEARISED.md:150-152	III.F (4.1)	
+ eq:iii-f-4-2	docket68/n1star/proof5/PART-III-F-LINEARISED.md:168	III.F (4.2)	rotation function renamed varkappa (kappa is l(l+2) in this chapter)
+-sec:iii-f1-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:14-58	III.F1 section 1	(C1)-(C4) read from thm:iii-e-1-1 (3); parameter-point paragraph replaced; types-and-representations paragraph moved here from 245-251
++sec:iii-f1-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:14-58	III.F1 section 1	(C1)-(C4) read from thm:iii-e-1-1 (3); parameter-point paragraph replaced; types-and-representations paragraph moved here from 245-251; (C4′) added (P-ADM text 2)
+ sec:iii-f1-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:60-263	III.F1 section 2	
+ lem:iii-f1-2-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:68-76	III.F1 Lemma 2.1	new written proof (block determinant identity + flat case by Clebsch-Gordan) replacing lin5.py E2; c = (-1)^k determined
+ eq:iii-f1-2-1	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:69-72	III.F1 (2.1)	
+ lem:iii-f1-2-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:89-102	III.F1 Lemma 2.2	linroots5 R1 parenthetical dropped
+-prop:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:104-188	III.F1 Proposition 2.3	(f): numeral eps_ind<3e-6 replaced by eps_ind<=delta_50 (VI.C row w1, PART-VI4-PARAMS.md:38), citing prop:np-10-52; proof of (e): Z_exc empty at the constants (P-T49 text 5)
++prop:iii-f1-2-3	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:104-188	III.F1 Proposition 2.3	(f): numeral eps_ind<3e-6 replaced by eps_ind<=delta_50 (VI.C row w1, PART-VI4-PARAMS.md:38), citing prop:np-10-52; proof of (e): Z_exc empty at the constants (P-T49 text 5); (f) under (C4′); (g) simplicity on [−101, 0] for every z ∈ (0, ½] (P-ADM texts 3–5)
+ eq:iii-f1-2-2	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:130-132	III.F1 (2.2)	
+ lem:iii-f1-2-4	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:190-243	III.F1 Lemma 2.4	
+ lem:iii-f1-2-5	docket68/n1star/proof5/PART-III-F2-INDICIAL.md:226-263	III.F1 Lemma 2.5	linroots5 R2-R3 parenthetical dropped
+diff --git a/research/warp-drive/paper/reader/crosswalk/35-s16-iota-plus.tsv b/research/warp-drive/paper/reader/crosswalk/35-s16-iota-plus.tsv
+index 5bad7adb..bc5f1f5d 100644
+--- a/research/warp-drive/paper/reader/crosswalk/35-s16-iota-plus.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/35-s16-iota-plus.tsv
+@@ -1,5 +1,5 @@
+ label	source	source_name	note
+-ch:s16	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:15-41; docket68/n1star/proof5/PART-III-G2-IOTA.md:3-13; docket68/n1star/proof5/PART-III-G3-GRAFT.md:12-26	III.G intro (What n = 4 changes, Method); III.G1 and III.G2 status sentences; III.G2 window paragraph	intro composed; status paragraphs and history dropped; window stated as a condition on the grafted order; gamma as in prop:iii-f1-3-3, not small (P-T78 text 13)
++ch:s16	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:15-41; docket68/n1star/proof5/PART-III-G2-IOTA.md:3-13; docket68/n1star/proof5/PART-III-G3-GRAFT.md:12-26	III.G intro (What n = 4 changes, Method); III.G1 and III.G2 status sentences; III.G2 window paragraph	intro composed; status paragraphs and history dropped; window stated as a condition on the grafted order; gamma as in prop:iii-f1-3-3, not small (P-T78 text 13); (C1) at admissible points from (AP0) (P-ADM text 6)
+ sec:iii-g-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:42	III.G section 1	
+ sec:iii-g-1-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:44-135	III.G section 1.1	
+ eq:iii-g-1-1	docket68/n1star/proof5/PART-III-G-SPECTRAL.md:48-50	III.G (1.1)	
+@@ -93,10 +93,10 @@ def:iii-g1-4-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:423-426	III.G1 Definit
+ lem:iii-g1-4-2	docket68/n1star/proof5/PART-III-G2-IOTA.md:428-454	III.G1 Lemma 4.2	
+ lem:iii-g1-4-3	docket68/n1star/proof5/PART-III-G2-IOTA.md:456-467	III.G1 Lemma 4.3	(4.1) derived by hand (sf5 S10)
+ eq:iii-g1-4-1	docket68/n1star/proof5/PART-III-G2-IOTA.md:461-463	III.G1 (4.1)	
+-sec:iii-g2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:27-94	III.G2 section 1	window paragraph from the intro, 14-26
++sec:iii-g2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:27-94	III.G2 section 1	window paragraph from the intro, 14-26; simplicity from prop:iii-f1-2-3 (g); (C5) at admissible points (P-ADM texts 7, 8)
+ eq:iii-g2-1-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:33	III.G2 (1.1)	(C5) with its verification by VI.C Theorem 2.1
+ def:iii-g2-table-1-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:44-71	III.G2 Table 1.1	table as an enumerated definition; column K renamed m_0; factor (lambda + l) named by its root -l
+-lem:iii-g2-1-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:73-94	III.G2 Lemma 1.2	
++lem:iii-g2-1-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:73-94	III.G2 Lemma 1.2	simplicity from (g) (P-ADM text 9)
+ sec:iii-g2-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:96	III.G2 section 2	
+ sec:iii-g2-2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:98-127	III.G2 section 2.1	
+ lem:iii-g2-2-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:103-113	III.G2 Lemma 2.1	tower length K renamed m_0
+@@ -115,7 +115,7 @@ def:iii-g2-2-5	docket68/n1star/proof5/PART-III-G3-GRAFT.md:180-183	III.G2 Defini
+ eq:iii-g2-2-7	docket68/n1star/proof5/PART-III-G3-GRAFT.md:181-183	III.G2 (2.7)	
+ lem:iii-g2-2-6	docket68/n1star/proof5/PART-III-G3-GRAFT.md:185-198	III.G2 Lemma 2.6	
+ sec:iii-g2-3	docket68/n1star/proof5/PART-III-G3-GRAFT.md:200-255	III.G2 section 3	
+-thm:iii-g2-3-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:202-246	III.G2 Theorem 3.1 = [Hin26] Proposition 9.9	
++thm:iii-g2-3-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:202-246	III.G2 Theorem 3.1 = [Hin26] Proposition 9.9	simplicity from (g) (P-ADM text 10)
+ eq:iii-g2-3-1	docket68/n1star/proof5/PART-III-G3-GRAFT.md:205-207	III.G2 (3.1)	
+ eq:iii-g2-3-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:217	III.G2 (3.2)	
+ cor:iii-g2-3-2	docket68/n1star/proof5/PART-III-G3-GRAFT.md:248-255	III.G2 Corollary 3.2	
+diff --git a/research/warp-drive/paper/reader/crosswalk/36-s17-null-infinity.tsv b/research/warp-drive/paper/reader/crosswalk/36-s17-null-infinity.tsv
+index 34883a26..8c4de5a6 100644
+--- a/research/warp-drive/paper/reader/crosswalk/36-s17-null-infinity.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/36-s17-null-infinity.tsv
+@@ -81,11 +81,11 @@ rem:iii-g3-3-9	docket68/n1star/proof5/PART-III-G4-RESONANT.md:400	III.G3 Remark
+ sec:s17-radiative	docket68/n1star/N1STAR-PROOF.md:6085	N1STAR 10.38	section carrying NP 10.38
+ prop:np-10-38	docket68/n1star/N1STAR-PROOF.md:6108; docket68/n1star/proof5/PART-III-C-EXTERIOR.md:293; docket68/n1star/proof5/PART-III-G4-RESONANT.md:233	N1STAR Proposition 10.35 (i)-(iii) and (a)-(e) of section 10.38, final form via III.C L4.2, P4.4, (C3) and III.G3 C2.6, R3.8; III.G1 L4.2(a)	(1) = 10.35(i) proved by hand (replaces scri5.py C1), with the general-n formula giving [Hin26] (5.28) at n = 3; (2) = 10.35(ii) (det over slots); (3) = 10.38(a),(c) as proved in III.C; (4) = 10.35(iii) and 10.38(d) replaced by the proved III.G1 Lemma 4.2(a) and III.G3 Cor 2.6 (the floating-point C3 is superseded); 10.38(e) alpha_5 = 2 for the nonlinear iteration is not stated (a deduction on readings)
+ eq:s17-abar	docket68/n1star/N1STAR-PROOF.md:6110	N1STAR Proposition 10.35 (i)	entries of A-bar
+-sec:iii-g4-1	docket68/n1star/proof5/PART-III-G5-TF.md:24	III.G4 §1 (with the 'What n = 4 changes' paragraph)	
++sec:iii-g4-1	docket68/n1star/proof5/PART-III-G5-TF.md:24	III.G4 §1 (with the 'What n = 4 changes' paragraph)	simplicity only on [−101, 0], from (g) (P-ADM text 11)
+ eq:iii-g4-1-1	docket68/n1star/proof5/PART-III-G5-TF.md:30	III.G4 (1.1)	
+ eq:iii-g4-1-2	docket68/n1star/proof5/PART-III-G5-TF.md:55	III.G4 (1.2)	
+ eq:iii-g4-1-3	docket68/n1star/proof5/PART-III-G5-TF.md:61	III.G4 (1.3)	
+-lem:iii-g4-1-1	docket68/n1star/proof5/PART-III-G5-TF.md:65	III.G4 Lemma 1.1	tfgraft5.py T1(a) dropped
++lem:iii-g4-1-1	docket68/n1star/proof5/PART-III-G5-TF.md:65	III.G4 Lemma 1.1	tfgraft5.py T1(a) dropped; simplicity only on [−101, 0], from (g) (P-ADM texts 12, 13)
+ lem:iii-g4-1-2	docket68/n1star/proof5/PART-III-G5-TF.md:89	III.G4 Lemma 1.2	
+ eq:iii-g4-1-4	docket68/n1star/proof5/PART-III-G5-TF.md:116	III.G4 (1.4)	tfgraft5.py T3 dropped (c_mu values from the table of III.G2 §1)
+ sec:iii-g4-2	docket68/n1star/proof5/PART-III-G5-TF.md:124	III.G4 §2	
+@@ -98,13 +98,13 @@ lem:iii-g4-2-4	docket68/n1star/proof5/PART-III-G5-TF.md:162	III.G4 Lemma 2.4
+ sec:iii-g4-3	docket68/n1star/proof5/PART-III-G5-TF.md:184	III.G4 §3	
+ eq:iii-g4-3-1	docket68/n1star/proof5/PART-III-G5-TF.md:189	III.G4 (3.1)	D247/verifier parenthetical rewritten without history
+ eq:iii-g4-3-2	docket68/n1star/proof5/PART-III-G5-TF.md:196	III.G4 (3.2)	
+-thm:iii-g4-3-1	docket68/n1star/proof5/PART-III-G5-TF.md:208	III.G4 Theorem 3.1	
++thm:iii-g4-3-1	docket68/n1star/proof5/PART-III-G5-TF.md:208	III.G4 Theorem 3.1	simplicity only on [−101, 0], from (g) (P-ADM text 15)
+ eq:iii-g4-3-3	docket68/n1star/proof5/PART-III-G5-TF.md:215	III.G4 (3.3)	
+ eq:iii-g4-3-4	docket68/n1star/proof5/PART-III-G5-TF.md:220	III.G4 (3.4)	
+ eq:iii-g4-3-5	docket68/n1star/proof5/PART-III-G5-TF.md:230	III.G4 (3.5)	
+ lem:iii-g4-3-2	docket68/n1star/proof5/PART-III-G5-TF.md:237	III.G4 Lemma 3.2	
+ lem:iii-g4-3-3	docket68/n1star/proof5/PART-III-G5-TF.md:243	III.G4 Lemma 3.3	D247 parenthetical replaced by the reference to [Hin26]'s Case 1
+-lem:iii-g4-3-4	docket68/n1star/proof5/PART-III-G5-TF.md:267	III.G4 Lemma 3.4	tfgraft5.py T2 replaced by a two-line inequality in the pairing paragraph
++lem:iii-g4-3-4	docket68/n1star/proof5/PART-III-G5-TF.md:267	III.G4 Lemma 3.4	tfgraft5.py T2 replaced by a two-line inequality in the pairing paragraph; simplicity only on [−101, 0], from (g) (P-ADM text 14)
+ eq:iii-g4-3-6	docket68/n1star/proof5/PART-III-G5-TF.md:272	III.G4 (3.6)	
+ eq:iii-g4-3-7	docket68/n1star/proof5/PART-III-G5-TF.md:286	III.G4 (3.7)	
+ eq:iii-g4-3-8	docket68/n1star/proof5/PART-III-G5-TF.md:292	III.G4 (3.8)	
+diff --git a/research/warp-drive/paper/reader/crosswalk/41-s22-kerr-face.tsv b/research/warp-drive/paper/reader/crosswalk/41-s22-kerr-face.tsv
+index 2962bae3..5fe8523d 100644
+--- a/research/warp-drive/paper/reader/crosswalk/41-s22-kerr-face.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/41-s22-kerr-face.tsv
+@@ -1,7 +1,7 @@
+ label	source	source_name	note
+ ch:s22	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:15; docket68/n1star/proof5/PART-III-I12-SPECTRAL.md:14; docket68/n1star/proof5/PART-III-I13-EXPANSION.md:13; docket68/n1star/proof5/PART-III-I14-LEVELS.md:16	III.I(10)-(13) intros	heading and introduction composed from the four parts' kept intros (what n = 4 changes)
+ sec:s22-setting	docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:23; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:37; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:158; docket68/n1star/proof5/PART-III-I16-BASEPOINTS.md:645	III.I(15) intro, L1.1 (P1)-(P6), T3.1 items (i), (iii), (vi)	private key: the base point b, statements at b, v1 terms at a rotating b; inner radius per BEYOND5-R0-PROOF section 5
+-sec:iii-i10-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:28	III.I(10) section 1	
++sec:iii-i10-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:28	III.I(10) section 1	s_C > 100 cited to sec:iii-f-1, not to (C1) (P-ADM text 16)
+ eq:iii-i10-1-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:54	III.I(10) (1.1)	
+ def:iii-i10-1-1	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:66	III.I(10) Def 1.1	K(lambda), L_0, N_* written kbar(lambda), kbar_0, J_*; E_col independent of b by III.I(15) T3.1 (iii)
+ eq:iii-i10-1-2	docket68/n1star/proof5/PART-III-I11-SPACETIME.md:81	III.I(10) (1.2)	
+@@ -47,7 +47,7 @@ lem:iii-i12-2-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:90	III.I(12) Le
+ eq:iii-i12-2-1	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:96	III.I(12) (2.1)	
+ lem:iii-i12-2-2	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:129	III.I(12) Lemma 2.2	Taylor variable theta written s
+ eq:iii-i12-2-2	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:136	III.I(12) (2.2)	
+-lem:iii-i12-2-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:171	III.I(12) Lemma 2.3 at b_0	space G written G_*; b-form lem:iii-i15-2-9 (a)-(b)
++lem:iii-i12-2-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:171	III.I(12) Lemma 2.3 at b_0	space G written G_*; b-form lem:iii-i15-2-9 (a)-(b); simplicity from (g) (P-ADM text 17)
+ lem:iii-i12-2-4	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:216	III.I(12) Lemma 2.4 at b_0	exponent set I written I_*; b-form lem:iii-i15-2-9 (c)
+ eq:iii-i12-2-3	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:217	III.I(12) (2.3)	
+ eq:iii-i12-2-4	docket68/n1star/proof5/PART-III-I13-EXPANSION.md:224	III.I(12) (2.4)	
+diff --git a/research/warp-drive/paper/reader/crosswalk/42-s23-augmentation.tsv b/research/warp-drive/paper/reader/crosswalk/42-s23-augmentation.tsv
+index 778520a6..d0cdfcad 100644
+--- a/research/warp-drive/paper/reader/crosswalk/42-s23-augmentation.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/42-s23-augmentation.tsv
+@@ -22,7 +22,7 @@ eq:iii-i14-3-3	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:327	III.I(14) (3.
+ eq:iii-i14-3-4	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:343	III.I(14) (3.4)	
+ eq:iii-i14-3-5	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:377	III.I(14) (3.5)	
+ rem:iii-i14-3-2	docket68/n1star/proof5/PART-III-I15-AUGMENT5.md:446	III.I(14) Remark 3.2	
+-sec:iii-j-1	docket68/n1star/proof5/PART-III-J-PARAM.md:31	III.J section 1	heading: The data space
++sec:iii-j-1	docket68/n1star/proof5/PART-III-J-PARAM.md:31	III.J section 1	heading: The data space; s_C > 100 cited to sec:iii-f-1 (P-ADM text 18)
+ def:iii-j-g-plus	docket68/n1star/proof5/PART-III-J-PARAM.md:48	III.J (G+)	cited by VI.C row w1 and the paper's Theorem 4 (chapter 3 cites "(G+) of ch:s23"); the paragraph after (G+) (J:48-51) placed inside the definition
+ def:iii-j-a-j	docket68/n1star/proof5/PART-III-J-PARAM.md:53	III.J (A_J)	with the density statement (57), cited by VI.C row w2; eps_+ < delta_sharp < 1/4 by eq:iii-i9-1-1 (J:56 says eps_+ < 1/4); eps'_0 cited to def:iii-i10-1-3
+ def:iii-j-classes	docket68/n1star/proof5/PART-III-J-PARAM.md:59	III.J "Classes" paragraph	X_J, F, Q_J; private key
+diff --git a/research/warp-drive/paper/reader/crosswalk/46-s27-nonlinear.tsv b/research/warp-drive/paper/reader/crosswalk/46-s27-nonlinear.tsv
+index c39853bd..e6ed5acd 100644
+--- a/research/warp-drive/paper/reader/crosswalk/46-s27-nonlinear.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/46-s27-nonlinear.tsv
+@@ -1,7 +1,7 @@
+ label	source	source_name	note
+ ch:s27	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:1	III.K, IV(3), VI.C, VII (parts)	chapter; intro from III.K 14-19 and the S27 entry; F2: notation: gluing constant C_g of lem:ii-c-3-2 taken >= max(4(r_0'+1), 32, 16R_1) (all its conditions are lower bounds; lem:ii-e-1-2 (iv) precedent), used by lem:s27-below (iii); F3: intro: forward problem on D+ from Sigma^IVP alone, backward on K- (R3 M1)
+ eq:s27-motion	docket68/n1star/proof5/PART-III-I8-UNPARAM.md:87-91	III.I(7) Definition 1.2, the composite in (1.3)	private key; φ_(S,S⁰) := ψ_(S⁰) ∘ φ_S stated as a map (review R-S27 M1)
+-sec:iii-k-0	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:21	III.K section 0	inner radius r_♭ per R0P section 5 (docket68/n1star/BEYOND5-R0-PROOF.md:282); C_♭ for II.C's C′; T_K threshold in III.I (1.2); F3: "lem:s27-below uses all three bounds" (R3 n2); l_I = b-weight at I+ of def:iii-i-1-1, not the class parameter of sec:iii-i-1 (R3 n7)
++sec:iii-k-0	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:21	III.K section 0	inner radius r_♭ per R0P section 5 (docket68/n1star/BEYOND5-R0-PROOF.md:282); C_♭ for II.C's C′; T_K threshold in III.I (1.2); F3: "lem:s27-below uses all three bounds" (R3 n2); l_I = b-weight at I+ of def:iii-i-1-1, not the class parameter of sec:iii-i-1 (R3 n7); parameters: an admissible point (P-ADM text 19)
+ eq:s27-f	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:42	III.K section 0, the two time functions	F(r) ≥ r/4 for r ≥ R_6
+ sec:iii-k-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:70	III.K section 1	
+ lem:iii-k-1-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:72	III.K Lemma 1.1	(d) with ν_0 = min(1/4, r_♭/8) per R0P (docket68/n1star/BEYOND5-R0-PROOF.md:285)
+@@ -49,9 +49,12 @@ lem:iii-k-4-1	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:424	III.K Lemma 4.1
+ prop:iii-k-4-2	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:437	III.K Proposition 4.2 with the D378, D621 brackets (464-466) folded	compact sets from L6.1 (c)
+ thm:iii-k-4-3	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:471	III.K Theorem 4.3 ([Hin26] Theorem 13.1)	'conditional on Part IV' dropped (Part IV is proved); issue-1
+ rem:iii-k-4-4	docket68/n1star/proof5/PART-III-K-NONLINEAR.md:500	III.K Remark 4.4	
+-sec:vi-c-1	docket68/n1star/proof5/PART-VI4-PARAMS.md:16	VI.C section 1, the table (rows w1 per D390/D621, n1 per D621)	rows re-keyed from file:line to results; (G), (E1)-(E4) added: issue-3; F2: row w1 cites def:s21-eps-g and the condition eps_K < eps_Upsilon of def:iii-i10-1-3 (R2 n2); F3: sentence on the class parameter of sec:iii-i-1 (fixed in (0, 1/2), no threshold) (R3 n7); rows u3 and u4 without epsilon_L and gamma_1 (P-T78 text 6)
++sec:vi-c-1	docket68/n1star/proof5/PART-VI4-PARAMS.md:16	VI.C section 1, the table (rows w1 per D390/D621, n1 per D621)	rows re-keyed from file:line to results; (G), (E1)-(E4) added: issue-3; F2: row w1 cites def:s21-eps-g and the condition eps_K < eps_Upsilon of def:iii-i10-1-3 (R2 n2); F3: sentence on the class parameter of sec:iii-i-1 (fixed in (0, 1/2), no threshold) (R3 n7); rows u3 and u4 without epsilon_L and gamma_1 (P-T78 text 6); rows c2–c4 and u2–u5 replaced by def:vi-c-admissible, prop:vi-c-adm-exist and row a1; thresholds of b2, b3, w1, d1, d2 re-keyed (P-ADM texts 20–27)
++def:vi-c-admissible	paper/reader/proofs/P-ADM.md@6f066bb5:20	P-ADM, Definition (admissible points)	new: (AP0)–(AP4)
++prop:vi-c-adm-exist	paper/reader/proofs/P-ADM.md@6f066bb5:64	P-ADM, Proposition	new: replaces rows c2–c4 and u2–u5
+ sec:vi-c-2	docket68/n1star/proof5/PART-VI4-PARAMS.md:44	VI.C section 2	
+-thm:vi-c-2-1	docket68/n1star/proof5/PART-VI4-PARAMS.md:46	VI.C Theorem 2.1, steps (0)-(6)	VI.C 128-134 kept as one sentence; section 3's enumeration replaced by the fixing of the constants in S14; F2: step (4): eps_K < eps_Upsilon of def:iii-i10-1-3 (R2 n2); step (2) (P-T78 text 7)
++thm:vi-c-2-1	docket68/n1star/proof5/PART-VI4-PARAMS.md:46	VI.C Theorem 2.1, steps (0)-(6)	VI.C 128-134 kept as one sentence; section 3's enumeration replaced by the fixing of the constants in S14; F2: step (4): eps_K < eps_Upsilon of def:iii-i10-1-3 (R2 n2); step (2) (P-T78 text 7); steps (1)–(2): an admissible point and the numbers it fixes; proof sentence on steps (1)–(2); thm:vi-c-adm-holds after it (P-ADM texts 28–30)
++thm:vi-c-adm-holds	paper/reader/proofs/P-ADM.md@6f066bb5:106	P-ADM, Theorem (admissible points)	new: settling at 𝗉
+ sec:s27-class	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:31	VII section 0: the group, the data class, the norm	private section key (S30 carries VII section 0's statement); μ_0 general; F2: weight convention cited to sec:iii-c1-0 (R2 n6)
+ eq:vii-0-1	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:45	VII (0.1)	
+ lem:vii-0-1	docket68/n1star/proof5/PART-VII-ASSEMBLY.md:56	VII Lemma 0.1	
+diff --git a/research/warp-drive/paper/reader/crosswalk/63-own-data.tsv b/research/warp-drive/paper/reader/crosswalk/63-own-data.tsv
+index 9298ec7c..267ec288 100644
+--- a/research/warp-drive/paper/reader/crosswalk/63-own-data.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/63-own-data.tsv
+@@ -1,6 +1,6 @@
+ label	source	source_name	note
+ ch:own-data	paper/RESPONSE-HL-5D.md:1757-1778; docket68/n1star/SETTLE-GLAM5.md:9-36	P Beyond the boundary (own data); SG section 0	intro composed from P's final wording
+-thm:own-data	docket68/n1star/SETTLE-GLAM5.md:1942-1971	SG Theorem R5.1 (R6-E..R10-E status: proved)	k_P = 2k1+14 in place of k1+5 (issue-1, proved in the first step of the proof); rate region r_flat as cor:s27-rate; strip from R9.1(iii)(a); 4R >= 8 added to the notation; item (3) restated: the development on {t_IVP >= 0} settles and embeds in the maximal globally hyperbolic development of the data on the open surface (G-SWEEP fix F-G3, via lem:own-maximal); d_1, k1 and K* explicit in d (P-K texts 6–7)
++thm:own-data	docket68/n1star/SETTLE-GLAM5.md:1942-1971	SG Theorem R5.1 (R6-E..R10-E status: proved)	k_P = 2k1+14 in place of k1+5 (issue-1, proved in the first step of the proof); rate region r_flat as cor:s27-rate; strip from R9.1(iii)(a); 4R >= 8 added to the notation; item (3) restated: the development on {t_IVP >= 0} settles and embeds in the maximal globally hyperbolic development of the data on the open surface (G-SWEEP fix F-G3, via lem:own-maximal); d_1, k1 and K* explicit in d (P-K texts 6–7); point not shown to lie in the proved set (P-ADM text 46)
+ sec:own-far-part	docket68/n1star/SETTLE-GLAM5.md:3358-3483	SG R9-B setting	cites lem:interior-far-part (ch 62) for R9.1 (i)-(v)
+ eq:own-wedge	docket68/n1star/SETTLE-GLAM5.md:1222-1236	SG R4-D setting	
+ lem:own-wedge	docket68/n1star/SETTLE-GLAM5.md:1222-1236, 2779-2790	SG R4-D setting (B4e) and R7-A conormals	the wedge paragraph of proof project G is this lemma's (b)
+diff --git a/research/warp-drive/paper/reader/crosswalk/70-resolvent-bounds.tsv b/research/warp-drive/paper/reader/crosswalk/70-resolvent-bounds.tsv
+index 1761a1ef..71381fe7 100644
+--- a/research/warp-drive/paper/reader/crosswalk/70-resolvent-bounds.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/70-resolvent-bounds.tsv
+@@ -97,7 +97,7 @@ eq:rb-high-energy	docket68/n1star/INVERSE5-SIX.md:796-800	INVERSE5-SIX R4.2 sing
+ lem:rb-interpolation	docket68/n1star/INVERSE5-SIX.md:144-156, 710-716	INVERSE5-SIX Lemma R4 with R3.3 n6 (iv)	C'_a the constant after absorption (from eq:i-b-6-apriori, labelled in chapter 21); h_0 <= 1 in the hypothesis; the three-lines application written out; F <= 1.002659 proved by hand (replaces K6), with c s_* > 5.35367; kappa = 2^(-3/2) derived from thm:vi-a-6-1
+ lem:rb-gluing	docket68/n1star/INVERSE5-SIX.md:165-180	INVERSE5-SIX Lemma R6 with R3.3 n6 (ii)	abstract j, k form with kW and Wj bounded and C_D on W(Z) (the source's e_Y = norm of chi from L^2(I) into Y is infinite where Y has positive order); Z = the space of lem:rb-schur; the withdrawn "absorption covers the photon sphere" clause not used; K8 dropped
+ lem:rb-absorbed	docket68/n1star/INVERSE5-SIX.md:560-576, 702-705, 822-826	INVERSE5-SIX Lemma R9 with R3.3 n4, R4.4 nit 3	radial q; sign written epsilon_sigma; A4 identity written out
+-sec:rb-scalar-blocks	docket68/n1star/INVERSE5-SCALAR.md:76-105	INVERSE5-SCALAR A.1	record's point described without process words; c_U, gam_U, e_U, c_H, gam_H written c_Upsilon, ...
++sec:rb-scalar-blocks	docket68/n1star/INVERSE5-SCALAR.md:76-105	INVERSE5-SCALAR A.1	record's point described without process words; c_U, gam_U, e_U, c_H, gam_H written c_Upsilon, ...; point not shown to lie in the proved set (P-ADM text 45)
+ eq:rb-scalar-type	docket68/n1star/INVERSE5-SCALAR.md:109-116	INVERSE5-SCALAR A.2 decomposition	S_AB written delta-bar*_0 dS
+ lem:rb-block-structure	docket68/n1star/INVERSE5-SCALAR.md:107-129	INVERSE5-SCALAR A.2 (S1)	structural claims proved by representation theory; the 7x7x3 table itself not printed (nothing uses it beyond pending items)
+ lem:rb-block-identities	docket68/n1star/INVERSE5-SCALAR.md:131-139	INVERSE5-SCALAR A.3 (S2-S4)	proved for every tensor, not only the block
+diff --git a/research/warp-drive/paper/reader/crosswalk/71-explicit-constants.tsv b/research/warp-drive/paper/reader/crosswalk/71-explicit-constants.tsv
+index 7658e4fe..59dffc78 100644
+--- a/research/warp-drive/paper/reader/crosswalk/71-explicit-constants.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/71-explicit-constants.tsv
+@@ -1,8 +1,8 @@
+ label	source	source_name	note
+-ch:explicit-constants	paper/RESPONSE-HL-5D.md:1507-1603	P s.9 Settling item, constants of Theorem 4	opening rewritten without status words; the paragraph's program citations become proofs, remarks or the pending marker; d is the Nash–Moser loss d_NM ≥ d_acc; the δ, λ1 sentence follows prop:ec-delta-cap (λ1 < δ, modulus at 2δ); d-bound integration: lines 12-22 replaced by the plan's text CH-71 (b), with cor:fwd-near-b0 cited beside thm:fwd-loss; 'δ by a power of 2 that decreases with d' added to the δ, λ1 sentence; F-DINT-b: the upper bound's hypotheses name the free orders and inner products as well as the weights (def:uc-choice, def:cs-choices); 'No result of this chapter is used in the proof of any theorem of this paper outside it', and the explicit indices of prop:ii-a1-2-4 and lem:ii-a-8-5 (prop:fwd-calculus) and N′ = 13 of ch:s06 (lem:fwd-orders), which rest on this chapter, are used only in it; P-U71-small: d_NM, the d of thm:iii-k-3-2, is at least the orders at which its lemmas ask U small (prop:uc-d-small); the integers stand (text 13); opening states the lower bound on the proved set (P-LB text 2); opening states d_1 and K (P-K text 2)
++ch:explicit-constants	paper/RESPONSE-HL-5D.md:1507-1603	P s.9 Settling item, constants of Theorem 4	opening rewritten without status words; the paragraph's program citations become proofs, remarks or the pending marker; d is the Nash–Moser loss d_NM ≥ d_acc; the δ, λ1 sentence follows prop:ec-delta-cap (λ1 < δ, modulus at 2δ); d-bound integration: lines 12-22 replaced by the plan's text CH-71 (b), with cor:fwd-near-b0 cited beside thm:fwd-loss; 'δ by a power of 2 that decreases with d' added to the δ, λ1 sentence; F-DINT-b: the upper bound's hypotheses name the free orders and inner products as well as the weights (def:uc-choice, def:cs-choices); 'No result of this chapter is used in the proof of any theorem of this paper outside it', and the explicit indices of prop:ii-a1-2-4 and lem:ii-a-8-5 (prop:fwd-calculus) and N′ = 13 of ch:s06 (lem:fwd-orders), which rest on this chapter, are used only in it; P-U71-small: d_NM, the d of thm:iii-k-3-2, is at least the orders at which its lemmas ask U small (prop:uc-d-small); the integers stand (text 13); opening states the lower bound on the proved set (P-LB text 2); opening states d_1 and K (P-K text 2); admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM texts 31, 32)
+ sec:ec-point	docket68/n1star/CONSTANTS5.md:3510-3533	C5 R13.2 the parameter point	heading
+ def:ec-point	docket68/n1star/CONSTANTS5.md:3510-3533; paper/RESPONSE-HL-5D.md:1526-1531	C5 R13.2; P "the record's computational point"	γ_C = 10⁶, γ_Υ = e_Υ = 1/100 with (v_C, e_C) as fixed in eq:iv4-0-1 (parameters of ch:s13 and ch:s14); δ_50 cited from lem:s14-delta50, ε_ind(10⁻⁶) from cor:s14-eps-ind-point; δ̄ introduced
+-rem:ec-point-outside	paper/RESPONSE-HL-5D.md:1526-1531; docket68/n1star/CONSTANTS5.md:3512-3520	P; C5 R13.2 READ bullet with its R14 bracket folded	h = 10⁻⁶ ∉ 𝖧; (γ_Υ, e_Υ) admissibility undecided, not refuted; d-bound integration: last sentence by the plan's text CH-71 (c) (the lower bound uses ε_Υ < 1.46214e-10 besides, lem:ec-gauge-gap); rewritten: outside through h, gauge half undecided, γ_(Υ,H) not fixed and not used; last sentence cites thm:ec-lb-proved (P-LB text 3); the tf conditions hold at the point (prop:tf-gauge-explicit, lem:tf-lin-reduction), the gauge half is undecided only through epsilon_1, Z_exc a separate condition (P-T78 text 8); one sentence: 10⁻⁶ ∉ 𝖹, 𝖹_exc = ∅ (P-T49 text 7)
++rem:ec-point-outside	paper/RESPONSE-HL-5D.md:1526-1531; docket68/n1star/CONSTANTS5.md:3512-3520	P; C5 R13.2 READ bullet with its R14 bracket folded	h = 10⁻⁶ ∉ 𝖧; (γ_Υ, e_Υ) admissibility undecided, not refuted; d-bound integration: last sentence by the plan's text CH-71 (c) (the lower bound uses ε_Υ < 1.46214e-10 besides, lem:ec-gauge-gap); rewritten: outside through h, gauge half undecided, γ_(Υ,H) not fixed and not used; last sentence cites thm:ec-lb-proved (P-LB text 3); the tf conditions hold at the point (prop:tf-gauge-explicit, lem:tf-lin-reduction), the gauge half is undecided only through epsilon_1, Z_exc a separate condition (P-T78 text 8); one sentence: 10⁻⁶ ∉ 𝖹, 𝖹_exc = ∅ (P-T49 text 7); admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM text 33)
+ sec:ec-gap-sums	paper/reader/proofs/P-A-indicial.md@0a8a4fa:409-420	proof A, Sums of the gauge potential offsets	merged here (INTEGRATION: prop:gap-sums belongs in chapter 71); P-A's copy must not also be merged into chapter 33; opening restricted to the set 𝒮 of prop:gap-sums ("on these exponents", rem:gap-sums); A renamed A₂
+ eq:ec-sqrt	paper/reader/proofs/P-A-indicial.md@0a8a4fa:16-20	proof A (eq:s14-pa-sqrt)	restated under a key of this chapter so that the section does not depend on the merge of proof A
+ prop:gap-sums	paper/reader/proofs/P-A-indicial.md@0a8a4fa:421-467	proof A, prop:gap-sums (LOSS-D LD9 G7; C5 2.2)	copied; eq reference renamed to eq:ec-sqrt; the C5 2.2 value 3 + 5.0191e-8 agrees
+@@ -63,10 +63,10 @@ lem:ec-gauge-gap	paper/reader/proofs/P-U71-assembly.md@d1509feb:11	d-bound proof
+ eq:ec-gauge-gap	paper/reader/proofs/P-U71-assembly.md@d1509feb:14	d-bound proof assembly, display	merged verbatim from the confirmed d-bound proof assembly
+ rem:ec-gauge-gap	paper/reader/proofs/P-U71-assembly.md@d1509feb:78	d-bound proof assembly, Remark (The two gaps.)	merged verbatim from the confirmed d-bound proof assembly
+ prop:ec-rounds	paper/reader/proofs/P-U71-assembly.md@d1509feb:85	d-bound proof assembly, Proposition (The number of rounds.)	merged verbatim from the confirmed d-bound proof assembly, replaces the chapter's earlier version (plan CH-71 (a))
+-thm:loss-d	paper/reader/proofs/P-U71-assembly.md@d1509feb:127	d-bound proof assembly, Theorem (The loss d and the regularity N_NM.)	merged verbatim from the confirmed d-bound proof assembly, exported key; replaces the chapter's earlier version (plan CH-71 (a)); F-DINT-b: last sentence of the proof of (ii) reads 'Every lower bound for d_acc in this chapter holds for d_NM and N_NM as well'; P-U71-small: d_NM is the largest of the three results' d's (smallness orders included), as prop:uc-d-small fixes them; the paragraph after (iii) cites lem:uc-small-orders and prop:uc-d-small for the orders; the proof of d_NM ≥ d_acc reads d_NM as the largest of the d's (texts 2-4); the d's are those their proofs fix, prop:uc-d-small at the computational point; paragraph after the statement cites thm:ec-lb-proved (P-LB text 4)
++thm:loss-d	paper/reader/proofs/P-U71-assembly.md@d1509feb:127	d-bound proof assembly, Theorem (The loss d and the regularity N_NM.)	merged verbatim from the confirmed d-bound proof assembly, exported key; replaces the chapter's earlier version (plan CH-71 (a)); F-DINT-b: last sentence of the proof of (ii) reads 'Every lower bound for d_acc in this chapter holds for d_NM and N_NM as well'; P-U71-small: d_NM is the largest of the three results' d's (smallness orders included), as prop:uc-d-small fixes them; the paragraph after (iii) cites lem:uc-small-orders and prop:uc-d-small for the orders; the proof of d_NM ≥ d_acc reads d_NM as the largest of the d's (texts 2-4); the d's are those their proofs fix, prop:uc-d-small at the computational point; paragraph after the statement cites thm:ec-lb-proved (P-LB text 4); admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM text 34)
+ sec:ec-delta	docket68/n1star/CONSTANTS5.md:315-326	C5 3.3	heading
+-prop:ec-delta-cap	paper/reader/proofs/P-U71-assembly.md@d1509feb:186	d-bound proof assembly, Proposition (The thresholds δ and λ1.)	merged verbatim from the confirmed d-bound proof assembly, lines 186-212 with the paragraph after it, under the chapter's sec:ec-delta heading; replaces the chapter's earlier version and its paragraph (plan CH-71 (a)); F-DINT-b: s_P attributed to lem:iii-k-2-2 (d), ω_(2d+3) and s_(2d+3) to prop:iii-k-1-2 (3); the choice C_(2d)ω̃(ε) < ε_NM strict, as the proof of thm:iii-k-3-2 asks (conclusions unchanged); P-U71-small: d ≥ d_R ≥ d_acc, citing prop:uc-d-small; the proof uses only d ≥ d_acc and is unchanged (text 5); d_R named at its first use; cites cor:ec-lb-delta (P-LB text 5)
+-sec:ec-lb-proved	paper/reader/proofs/P-LB.md@2690f667:1	P-LB, section	new; after sec:ec-delta
++prop:ec-delta-cap	paper/reader/proofs/P-U71-assembly.md@d1509feb:186	d-bound proof assembly, Proposition (The thresholds δ and λ1.)	merged verbatim from the confirmed d-bound proof assembly, lines 186-212 with the paragraph after it, under the chapter's sec:ec-delta heading; replaces the chapter's earlier version and its paragraph (plan CH-71 (a)); F-DINT-b: s_P attributed to lem:iii-k-2-2 (d), ω_(2d+3) and s_(2d+3) to prop:iii-k-1-2 (3); the choice C_(2d)ω̃(ε) < ε_NM strict, as the proof of thm:iii-k-3-2 asks (conclusions unchanged); P-U71-small: d ≥ d_R ≥ d_acc, citing prop:uc-d-small; the proof uses only d ≥ d_acc and is unchanged (text 5); d_R named at its first use; cites cor:ec-lb-delta (P-LB text 5); admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM text 35)
++sec:ec-lb-proved	paper/reader/proofs/P-LB.md@2690f667:1	P-LB, section	new; after sec:ec-delta; admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM text 36)
+ lem:ec-lb-gauge	paper/reader/proofs/P-LB.md@2690f667:12	P-LB, Lemma (ℳ, every gauge point)	new: 𝔡_ℳ ≤ z/13680 + z²/544
+ eq:ec-lb-g	paper/reader/proofs/P-LB.md@2690f667:29	P-LB, display	g(z) = z/27360 + z²/1088 bounds ε_Υ
+ lem:ec-lb-ind	paper/reader/proofs/P-LB.md@2690f667:69	P-LB, Lemma (index distance, every h)	new: ε_ind(h) < 40h/13
+@@ -76,12 +76,12 @@ eq:ec-lb-rho	paper/reader/proofs/P-LB.md@2690f667:98	P-LB, display	remainder bel
+ rem:ec-lb-ind	paper/reader/proofs/P-LB.md@2690f667:117	P-LB, Remark (root ι₂(h))	consistency at 10⁻⁶; sharpness
+ lem:ec-lb-rounds	paper/reader/proofs/P-LB.md@2690f667:124	P-LB, Lemma (rounds, general)	prop:ec-rounds with Θ_g, Θ_η
+ eq:ec-lb-rounds	paper/reader/proofs/P-LB.md@2690f667:133	P-LB, display	R > (1 − 5Θ_g − Θ_η)/Θ_g²
+-thm:ec-lb-proved	paper/reader/proofs/P-LB.md@2690f667:164	P-LB, Theorem (proved set)	new: functional lower bound
++thm:ec-lb-proved	paper/reader/proofs/P-LB.md@2690f667:164	P-LB, Theorem (proved set)	new: functional lower bound; admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM texts 37, 38)
+ eq:ec-lb-bound	paper/reader/proofs/P-LB.md@2690f667:175	P-LB, display	d_acc, N_NM against 1/Θ_g²
+ eq:ec-lb-numbers	paper/reader/proofs/P-LB.md@2690f667:180	P-LB, display	2.2456e9/z², 0.3168γ_C²
+ cor:ec-lb-delta	paper/reader/proofs/P-LB.md@2690f667:210	P-LB, Corollary (δ, proved set)	from prop:ec-delta-cap
+-rem:ec-lb-conditions	paper/reader/proofs/P-LB.md@2690f667:222	P-LB, Remark (what is used)	conditions used and unused; epsilon_L and gamma_1 replaced by the bounds of rows u3-u4 (P-T78 text 9)
+-rem:ec-lb-unbounded	paper/reader/proofs/P-LB.md@2690f667:244	P-LB, Remark (unbounded)	d unbounded on the proved set
++rem:ec-lb-conditions	paper/reader/proofs/P-LB.md@2690f667:222	P-LB, Remark (what is used)	conditions used and unused; epsilon_L and gamma_1 replaced by the bounds of rows u3-u4 (P-T78 text 9); admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM texts 39, 40)
++rem:ec-lb-unbounded	paper/reader/proofs/P-LB.md@2690f667:244	P-LB, Remark (unbounded)	d unbounded on the proved set; admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM text 41)
+ sec:ec-upper	paper/reader/proofs/P-U71-assembly.md@d1509feb:214	d-bound proof assembly, section: An upper bound for the accounted loss	merged verbatim from the confirmed d-bound proof assembly, lines 214-634, placed after sec:ec-delta (plan CH-71 (a))
+ lem:ec-split-loss	paper/reader/proofs/P-U71-assembly.md@d1509feb:222	d-bound proof assembly, Lemma (Families with a split loss.)	merged verbatim from the confirmed d-bound proof assembly; F-DINT-b: the paragraph after it gives the forward solution operators split loss (d_F; d_F, d_F) at the backgrounds h, h + h^(−1)(S), h + h_tot(p⃗), and (d_F; d_F + 3, d_F), so (d_F + 3; d_F + 3, d_F + 3), at h + h_rem(q) + h_tot(p⃗), the charge of lem:cs-elem (e)
+ eq:ec-split-loss	paper/reader/proofs/P-U71-assembly.md@d1509feb:225	d-bound proof assembly, display	merged verbatim from the confirmed d-bound proof assembly
+@@ -221,15 +221,15 @@ eq:uc-small-diff	paper/reader/proofs/P-U71-small.md@4c08cac1:101	d-bound proof s
+ rem:uc-small-reading	paper/reader/proofs/P-U71-small.md@4c08cac1:221	d-bound proof small, Remark (Fixed seminorms that also bound the remainders.)	if the fixed seminorms must also bound the remainder maps (sec:iii-i8-1), the regularities grow down the levels and d_* ≤ D′_* < 2.6193·10⁴⁹
+ prop:uc-d-small	paper/reader/proofs/P-U71-small.md@4c08cac1:241	d-bound proof small, Proposition (The loss with which the Nash–Moser theorem is applied.)	d_NM = max(d_R, d_* + d_F + d_Φ) ≥ d_R ≥ d_acc; d_NM < 2.6193·10⁴⁹ at the fixed seminorms of lem:uc-small-orders (d), < 5.2386·10⁴⁹ under rem:uc-small-reading, below D_acc in either case; every lower bound for d_acc holds for d_NM and N_NM; the paragraph after it compares the two readings
+ eq:uc-d-small	paper/reader/proofs/P-U71-small.md@4c08cac1:251	d-bound proof small, display	display: d_NM = max(d_R, d_* + d_F + d_Φ), d_F ≤ d_R, d_acc ≤ d_R ≤ d_NM
+-sec:uc-data-order	paper/reader/proofs/P-K.md@6de81a35:1	data-order proof P-K, section heading	new section, inserted before sec:ec-linear
++sec:uc-data-order	paper/reader/proofs/P-K.md@6de81a35:1	data-order proof P-K, section heading	new section, inserted before sec:ec-linear; admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM text 42)
+ lem:uc-data-losses	paper/reader/proofs/P-K.md@6de81a35:40	data-order proof P-K, Lemma (The orders that the initial family reads.)	new written count of the orders that prop:iii-k-1-2 (3) reads: gauged data +1, forward and exterior solutions +132 above order 21, Step 1 L_0 ≤ 23 (28 for the half class), Step 2 2J, pull-back +2+l (+4+l with expansions), derivatives in (S, S⁰) +7 and +6
+ prop:uc-data-order	paper/reader/proofs/P-K.md@6de81a35:176	data-order proof P-K, Proposition (The regularity d_1 and the order of the approximant.)	new: d_0 = 309, k′_k = 283 + L_P for every k (282 + L_P would serve for k ≥ 1), d_1 = 22d + 292 + L_P, K = 22d + 306 + L_P ≤ 22d + 349, K*(a, M, k1) of thm:own-data; at the computational point K ≤ 22D_acc + 345 < 3.45745·10⁵¹
+ eq:uc-data-order	paper/reader/proofs/P-K.md@6de81a35:184	data-order proof P-K, display	display of d_1 and K
+ eq:uc-kstar-own	paper/reader/proofs/P-K.md@6de81a35:192	data-order proof P-K, display	display of K*(a, M, k1) = k1 + 4 + (4k1 + 35)(k1 + a)/(7 − 2a)
+-rem:uc-data-order-limits	paper/reader/proofs/P-K.md@6de81a35:307	data-order proof P-K, Remark (What the count gives and what it does not.)	what stays open: d on the proved set, β0(k_P), λ1, δ, λ_2
++rem:uc-data-order-limits	paper/reader/proofs/P-K.md@6de81a35:307	data-order proof P-K, Remark (What the count gives and what it does not.)	what stays open: d on the proved set, β0(k_P), λ1, δ, λ_2; admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM text 43)
+ sec:ec-linear	paper/RESPONSE-HL-5D.md:1556-1588	P constants of the linear theory	prose citing chapter 70's results; 308.46 with the weight ψ of prop:morawetz-weight (unweighted at l = 1); 1.002659 at b_0 (κ_Γ = 2^(−3/2)), h_0 ≤ 1
+ lem:ec-test-function	paper/RESPONSE-HL-5D.md:1562-1566	P "test functions with compact support in the interval (for which the resolvent is inverted exactly)"	new written proof of the principle, from prop:resolvent-outgoing (a)
+ eq:ec-test-function	paper/RESPONSE-HL-5D.md:1562-1566	P	display
+ rem:ec-lower-bounds-observed	paper/RESPONSE-HL-5D.md:1562-1566	P, e2lower5 values	numerical observation: degree-159 test functions not printed; ratios recomputed against prop:band-points (19.8 to 93.5)
+ rem:ec-linear-observed	paper/RESPONSE-HL-5D.md:1572-1578; docket68/n1star/INVERSE5-SIX.md:215-277	P in-hand list; INVERSE5-SIX s.3 (K1, K3)	numerical observation: 2.81, 3.94, trapped-set data, η < 16.48γ_C^(−1/2), cond η^(−16); d-bound integration: β_0^Γ written β_Γ (I-1's deferred item 71:642)
+-rem:ec-not-evaluated	paper/RESPONSE-HL-5D.md:1588-1603; docket68/n1star/EFFECTIVE-CONSTANTS.md:298-357; docket68/n1star/CONSTANTS5.md:277-314	P "values not computed"; EFFECTIVE-CONSTANTS s.3 (four kinds); C5 3.1-3.2 (closed graph kind)	what is not evaluated, without the census counts; prop:ec-delta-cap bounds λ1 by δ and the modulus at 2δ; d-bound integration: prop:ec-delta-cap also bounds δ by a power of 2 that decreases with d (as the opening says); F-DINT-b: the numerical choices credited to def:ec-point (gauge and damping parameters) and to def:uc-choice and def:cs-choices (weights, orders and inner products on which d depends); the lower bound needs no numeric choice (P-LB text 6); the tf conditions on the gauge explicit (prop:tf-gauge-explicit) (P-T78 text 10)
++rem:ec-not-evaluated	paper/RESPONSE-HL-5D.md:1588-1603; docket68/n1star/EFFECTIVE-CONSTANTS.md:298-357; docket68/n1star/CONSTANTS5.md:277-314	P "values not computed"; EFFECTIVE-CONSTANTS s.3 (four kinds); C5 3.1-3.2 (closed graph kind)	what is not evaluated, without the census counts; prop:ec-delta-cap bounds λ1 by δ and the modulus at 2δ; d-bound integration: prop:ec-delta-cap also bounds δ by a power of 2 that decreases with d (as the opening says); F-DINT-b: the numerical choices credited to def:ec-point (gauge and damping parameters) and to def:uc-choice and def:cs-choices (weights, orders and inner products on which d depends); the lower bound needs no numeric choice (P-LB text 6); the tf conditions on the gauge explicit (prop:tf-gauge-explicit) (P-T78 text 10); admissible points; the lower bound on the proved set at h ≤ 10⁻⁶; the computational point not shown to lie in the proved set (P-ADM text 44)
+diff --git a/research/warp-drive/paper/reader/crosswalk/90-scope.tsv b/research/warp-drive/paper/reader/crosswalk/90-scope.tsv
+index e8a39d82..7213ab3e 100644
+--- a/research/warp-drive/paper/reader/crosswalk/90-scope.tsv
++++ b/research/warp-drive/paper/reader/crosswalk/90-scope.tsv
+@@ -1,7 +1,7 @@
+ label	source	source_name	note
+ ch:scope	paper/RESPONSE-HL-5D.md:1782-1787, 1599-1603, 1604-1621, 1739-1747	P section 9: Below the inner boundary (1784-1787); Settling, the limit of explicit constants (1599-1603); Physical wavelengths, closing sentences (1619-1621); at 10 l5, closing sentence (1743-1747)	collection chapter; every sentence cites the chapter result it summarises; composed with the edition as it stands, the chapters being the authority; markers pending:scope-d-upper (ch 71 upper bound for d) and pending:scope-two-dust-radial (ch 82 radial two-dust corollary) await those merges
+ sec:scope-domain	paper/RESPONSE-HL-5D.md:1748-1749, 1784-1787; chapters 01 (sec:why-five, sec:introduction-scope), 02 (sec:domain, prop:vaidya), 03 (rem:envelope-regularity, prop:boundary-spacelike, prop:one-zero, prop:mean-mass), 08 (rem:round-family, rem:mean-mass-aspect), 10 (prop:bondi-hierarchy, rem:bondi-scope), 84 (thm:layer, cor:layer, prop:eq-domain, prop:layer-regions), 85 (def:edge-hypotheses, thm:l-24, thm:very-edge, cor:edge-envelope, prop:edge-dips, rem:edge-criterion)	P Beyond the boundary, first and last sentences (Theorems 1-3 on D_T and Omega; l5 arbitrary; r = 0 singular, innerr5 I1-I2); no inner or Cauchy horizon from ch 1	innerr5 I1-I2 replaced by the elementary fact that r_q tends to 0 with l5 (sec:domain) and the Kretschmann scalar of prop:vaidya (b); the equality, envelope, round-family, mass-aspect and Bondi items collected from the scope remarks of chapters 3, 8, 10, 84 and 85
+-sec:scope-constants	paper/RESPONSE-HL-5D.md:1585-1603, 1604-1621; chapters 03 (sec:main-statement), 86 (def:lambda0-point, prop:lambda0, sec:lambda0-bound, rem:m22-value), 71 (thm:loss-d, def:ec-point, prop:ec-delta-cap, sec:ec-delta, rem:ec-point-outside, rem:ec-not-evaluated), 70 (prop:morawetz-resolvent-l-ge-1, prop:morawetz-l-zero, thm:band, rem:band-observed, lem:rb-quasimode), 63 (thm:own-data), 84 (rem:layer-threshold-size), 85 (rem:edge-thresholds)	P Settling, explicit constants (lambda1, delta not computed; where explicit computation stops); P Physical wavelengths (certified bounds on lambda0, M_22 not certified)	changed from the source: lambda0 is bounded above at the numerical point in three readings (prop:lambda0), no lower bound given; lambda1 < delta and the modulus bound of prop:ec-delta-cap; d stated with the lower bounds of thm:loss-d and a pending marker for the upper bound being proved in ch 71; the observed integer for d is not carried here; lower bounds on the proved set, δ included (P-LB text 10); K and d_1 explicit in d (P-K texts 8–9); the tf conditions on the gauge explicit: e <= 1/2 and gamma <= 1/4 suffice (prop:tf-gauge-explicit) (P-T78 text 11)
++sec:scope-constants	paper/RESPONSE-HL-5D.md:1585-1603, 1604-1621; chapters 03 (sec:main-statement), 86 (def:lambda0-point, prop:lambda0, sec:lambda0-bound, rem:m22-value), 71 (thm:loss-d, def:ec-point, prop:ec-delta-cap, sec:ec-delta, rem:ec-point-outside, rem:ec-not-evaluated), 70 (prop:morawetz-resolvent-l-ge-1, prop:morawetz-l-zero, thm:band, rem:band-observed, lem:rb-quasimode), 63 (thm:own-data), 84 (rem:layer-threshold-size), 85 (rem:edge-thresholds)	P Settling, explicit constants (lambda1, delta not computed; where explicit computation stops); P Physical wavelengths (certified bounds on lambda0, M_22 not certified)	changed from the source: lambda0 is bounded above at the numerical point in three readings (prop:lambda0), no lower bound given; lambda1 < delta and the modulus bound of prop:ec-delta-cap; d stated with the lower bounds of thm:loss-d and a pending marker for the upper bound being proved in ch 71; the observed integer for d is not carried here; lower bounds on the proved set, δ included (P-LB text 10); K and d_1 explicit in d (P-K texts 8–9); the tf conditions on the gauge explicit: e <= 1/2 and gamma <= 1/4 suffice (prop:tf-gauge-explicit) (P-T78 text 11); the lower bound on the proved set at γ_C ≥ 10⁶; the point not shown to lie in the proved set; the parameters fixed only at admissible points (P-ADM texts 51–53)
+ sec:scope-after	paper/RESPONSE-HL-5D.md:1748-1784; chapters 03 (thm:settling), 60 (rem:settling-class, rem:vii-4-1), 61 (sec:after-shell-gluing, thm:after-shell-reach), 62 (prop:interior, lem:interior-one-spacetime, rem:interior-one-spacetime, rem:interior-reach), 63 (ch:own-data, thm:own-data, prop:own-tail, prop:own-uniqueness, rem:own-low-weight)	P Beyond the boundary (BEYOND5 Props 6.1-6.2, Lemma 6.3; SETTLE-GLAM5 Thm R5.1, Prop 3.1)	the source states the interior and own-data results; their limits (reach of the common development not decided, acausality not decided, no threshold uniform in the past domain, the uniqueness class, weight at most 1/2 not attempted) are collected from chapters 60-63; K and d_1 explicit in d (P-K texts 8–9)
+ sec:scope-gauges	chapters 48 (cor:ix-2-3, rem:ix-2-4), 64 (thm:rw-settling, rem:rw-zeta, thm:rwg-1, thm:rwg-2, thm:rwg-2-prime, prop:np-10-1, lem:np-10-1b), 65 (thm:gd-2-3, prop:gd-r2-13), 66 (thm:harmonic-rate)	outline-M Ch 27 item: the decay of the components in other gauges and its exact weights	collected statement by statement from the chapters; no limitation added beyond those they state
+ sec:scope-families	paper/RESPONSE-HL-5D.md:1788-1830; chapters 80 (thm:two-dusts, rem:two-dust-scope), 81 (thm:class-stability, cor:class-two-dust, rem:class-scope), 82 (thm:vlasov, lem:vlasov-open, prop:vlasov-nonempty, rem:vlasov-obstructions; radial two-dust corollary pending), 83 (ch:localised-data, sec:bg-data, thm:loc-bent-slice, prop:loc-band, thm:charge-sign)	P More families	the radial two-dust sentence carries pending:scope-two-dust-radial until the corollary and its scope remark are merged into ch 82; then cite cor:vlasov-two-dust and rem:vlasov-radial-scope

@@ -1316,3 +1316,70 @@ Items found while chapters were written in parallel; each is settled once, editi
 - R5-81 CONFIRMED: chapter 81 CONFIRMED; its three optional nits applied (Step 6 smallness, connectedness, 𝒰_(2δ_B)).
 - R4-82 CONFIRMED (reviews/R4-82.md): chapter 82 CONFIRMED. Its five wording nits go in with the P-K82 merge (after
   R2-P-K82), followed by one confirming reading of the merged chapter 82 and the chapter 03 block.
+- New session after the restart (2026-11-14), branch restarted from main after PR #139: relaunched F3-83,
+  F2-P-U71-IS, F-P-U71-SP, R2-P-K82 and XW-1 from the committed files. Reviews and reports of this session are kept
+  in the session scratchpad and copied into notes/ when a later step needs them.
+- F2-P-U71-IS done (notes/reports/F2-P-U71-IS.md): root distinctness for 134 ≤ l ≤ 172 completed with exact constants;
+  no number moves (l_* = 50, K_ι ≤ 52). F-P-U71-SP done (notes/reports/F-P-U71-SP.md): SP cites IS only for simplicity
+  on [−101, 5], L ∈ [39, 50] and M ≤ 7; the least ℰ^C_I facts from chapter 36; finite-rank operator renamed 𝔉.
+  R3-IS-SP (combined confirming reading of both) and W-DB (the integer upper bound on d from IS and SP, in P-U71-close
+  and P-U71-assembly) running in parallel.
+- XW-1 done (notes/reports/XW-1.md): every crosswalk matches its chapter's label sequence (one row per {#kind:key}),
+  except 03, missing rem:envelope-regularity (to add with the P-K82 merge). P-C-lambda0 retired (all 16 labels in 86).
+  Unmerged proof files: P-A-indicial, P-A3-every-h, T-A (M-33 merging them into 33 and opening Appendix B), P-K82, the
+  five P-U71 texts. Sources not located: thm:std-bgp-riesz, thm:std-bh17-embedding (crosswalk notes say so).
+- M-33 done (notes/reports/M-33.md): proofs A and A3 merged into chapter 33 (A3 at the end of sec:s14-model, A after
+  sec:s14-simple, cor:s14-remote-point moved into A, gap-sums left to chapter 71); Appendix B (chapters/96-tables.md)
+  opened with T-A (B.1) and the computed numerator table B.2, every coefficient and bound of chapter 33 holding.
+  lint --chapters 2 hits (pending markers in 35, 82). R-M33 reading.
+- W-96 done (notes/reports/W-96.md): the table sections of chapters 70 (sec:tb-morawetz, sec:tb2) and 87 (sec:cone-tables,
+  sec:tab-d-tables) moved byte for byte to Appendix B as B.3-B.6 (only six ### → #### heading changes); no sentence
+  needed changing. Chapter 83's tables move after R4-83. A reader of the whole of Appendix B (R-96) follows.
+- R2-P-K82 0M 3m 9n (notes/reviews/R2-P-K82.md); M-82 applies them and merges P-K82 into 82 and 03 with R4-82's nits.
+- R3-83 0M 2m 4n (notes/reviews/R3-83.md); F4-83 applies them.
+- 2026-11-14 to 2026-11-20: every running agent stopped at the weekly usage limit; resumed from their transcripts on
+  2026-11-20 (W-DB, M-82, F4-83, R3-IS-SP, R-M33).
+- R-96 CONFIRMED 0M 0m 4n (notes/reviews/R-96.md): the move of the tables of chapters 70 and 87 into Appendix B is
+  byte for byte with six heading levels changed. Nits 1-2 (96:1108) applied by the coordinator in the reviewer's words;
+  nit 3 (87:351-353, "with the tables of [[sec:cone-table-n1]] and [[sec:cone-table-n2]]") after I-1; nit 4 (crosswalk/96
+  notes "; moved to Appendix B") after F-M33.
+- R4-83 CONFIRMED 0M 0m 0n (notes/reviews/R4-83.md): chapter 83 CONFIRMED. For chapter 81 (after I-1): replace 81:1659
+  "data localised in an angle are constructed in [[ch:localised-data]]." by the reviewer's accepted text: "the stated
+  supports; data equal to the background's outside the domain of influence, for the constraints solved with the radius
+  as time, of a compact set away from the axes are constructed in [[ch:localised-data]] on a slice bent from Σ_τ0, and
+  carried to Σ_τ0 by their development." Chapter 83's tables (sec:tab-bg, sec:table-margins) to Appendix B next.
+- W-90 done (notes/reports/W-90.md): chapter 90 written, 218 lines, two markers (scope-d-upper after the c_* project;
+  scope-two-dust-radial after R5-82). λ0 said to be bounded, not evaluated, as chapter 86 states. F-M33 done; R2-M33,
+  R5-82, W-96b (chapter 83 tables to Appendix B), I-1 and P-U71-cstar running; a container restart stopped all five
+  on 2026-11-20, and each was resumed from its transcript.
+- R-96b CONFIRMED 0M 0m 2n (notes/reviews/R-96b.md): chapter 83's tables in Appendix B as B.5 and B.6, byte for byte;
+  both nits applied by the coordinator in the reviewer's words (notation sentences in B.5, B.6; 83 "the table of
+  [[sec:table-bump]]"). Appendix B now B.1-B.8. R5-82 CONFIRMED (notes/reviews/R5-82.md): chapter 82 CONFIRMED; chapter 90
+  cites cor:vlasov-two-dust in place of its marker.
+- P-U71-cstar written (notes/reports/P-U71-cstar.md): c_* < C_* = 6.4368·10³⁵, so thm:uc-integer gives d_acc, d_NM ≤
+  D_acc < 1.57157·10⁵⁰ and N_NM < 3.30029·10⁵¹ (lower bound 3R > 1.2497·10²⁴ for every admissible choice). Combined
+  reading running: R-DB-1 (cstar and thm:uc-integer), R-DB-2 (close and assembly in full), R-DB-3 (IS and SP fixes).
+- I-1 done (notes/reports/I-1.md, notes/reports/I-1-items.tsv): 182 items, 73 done, 32 applied in 31 chapters, 66
+  deferred, 11 dropped. R-I1a (chapters ≤ 29) and R-I1b (chapters ≥ 30) reading. Coordinator's decisions on the deferred
+  items: to the d-bound integration round: 71:642 β_Γ; chapter 3 ṁ for μ̇. To I-2 after the I-1 readings: 82:651 (L1);
+  83 cites lem:two-dust-reparametrisation; 33 (E3) citation and the d_s0 clash; 07:230 and 07:261 texts (I-1 report);
+  81:1659 (R4-83 text) and the optional pointer at 81:1022; 87:351-353 (R-96 nit 3); 61 prop:after-shell-profiles (a)
+  cut to a citation of lem:np-10-50-a; the compact part 𝒦 of 46, 48, 65 renamed 𝔒; 24:979 (ρ_a ≤ c_V², the order of
+  choice) checked and fixed if needed; Appendix A statements still missing ([Hin26c, Lemma 3.5], [Hin26d, Remark 3.15],
+  [Hin23a, Cor. 3.36]) stated from their sources with pages, or the use rewritten; uncited Appendix A and bibliography
+  entries pruned at the end. Not done, by decision: the global λ → ϰ rename in 36-46 and N → M for large orders in
+  20-48 (both risk more than they cure; each chapter defines its symbols locally; a notation sentence at the start of
+  the stability theory says so); the statement-changing optional nits (ε_g sweep, 38's M° → Ω_*, S20 zf-weight, S17
+  λ_♯-pole sentences), declined by their readers; the lost-review nits whose intent cannot be recovered.
+- R-I1b 0M 1m 1n (notes/reviews/R-I1b.md): I-1 correct in chapters 30-84; the minor (row index ρ → ψ still in 46:1728,
+  1769) and the nit (36:1622, (E1) and (E2)) applied by the coordinator with the reviewer's texts; to be checked by the
+  I-2 reader. R-DB-3 CONFIRMED P-U71-IS and P-U71-SP (notes/reviews/R-DB-3.md).
+- R-I2 0M 1m 4n (notes/reviews/R-I2.md): I-2 and the two R-I1b fixes correct; the minor (30:1291, the reverse norm
+  equivalence derived in two lines) and the four nits applied by the coordinator with the reviewer's texts. Coordinator
+  edits since their last reading (R-DB-3 nits, R-96b nits, R-I1b fixes, R-I2 fixes) go to one final reading (R-CO).
+- R-CO CONFIRMED 0M 0m 3n (notes/reviews/R-CO.md): the nine commits of coordinator-applied fixes are right; nits 1
+  ([AN00, Theorem 3.1, p. 787], the page read from the authors' copy) and 2 (a b.g. structure with finitely many charts at
+  30:1292) applied in the reviewer's words; nit 3 optional, not taken.
+- Assembled-width rewrap (coordinator): paragraphs in chapters 34, 47, 61, 65, 83 and 85 rewrapped so that every line
+  also fits in 121 characters after assembly resolves its references; a word-sequence comparison shows no word changed.
+  Chapter 71 (one line, 3164) after its reading.

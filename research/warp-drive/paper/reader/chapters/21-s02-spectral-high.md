@@ -6,7 +6,7 @@ normally hyperbolic trapped set, their b-regular versions, invertibility of P̂(
 the inverse in σ. The main result, [[thm:i-b-1-3]], is [Hin26c, Theorem 9.16] in dimension 4 + 1, for operators on a
 trivial bundle of any rank, with constants uniform in the operator ([[sec:i-b-9]]). As in [[ch:s01]] the regularity
 order is constant ([[rem:i-a-1-1]]); the decay and semiclassical orders may vary. Every input is proved here or in
-[[ch:s01]], except the facts of Fourier analysis used in [[sec:i-b-2]] and the results of [HJS] used in [[ch:s01]]. In
+[[ch:s01]], except the facts of Fourier analysis used in [[sec:i-b-2]] and the results of [Mel94] used in [[ch:s01]]. In
 particular the semiclassical scattering calculus with matrix-valued symbols and variable orders is proved in
 [[sec:i-b-2]].
 
@@ -30,9 +30,9 @@ with a subscript, for closed subsets of phase space (K_0, K_1, K_E, K_Γ, …), 
 
 The space X̄ ⊂ ℝ̄⁴, the radii r_0, δ_0, r_2, r_h, the bundle E = X̃ × ℂ^(N_E), fibre inner products h = ⟨H·,·⟩ and
 h-adjoints A^(*h) = H⁻¹A*H, and the family P̂(σ) = P̂(0) + σT + σ²P_2 are those of [[sec:i-a-1]], and (H1)–(H5) of
-[[sec:i-a-1-3]] are assumed. The radii enter only through the ordering 0 < r_0 − 2δ_0 < r_0 < r_2 < r_h, the domains
-of the hypotheses and the slabs of [[sec:i-b-7]]; constants depend on them, but no particular value of them is used.
-We write ρ = |x|⁻¹ near ∂X, scattering covectors as ξ dr + r η, and use [[lem:i-a-4-4]]: at the boundary face T has
+[[sec:i-a-1-3]] are assumed. The radii enter only through the ordering 0 < r_0 − 2δ_0 < r_0 < r_0 + δ_0 < r_2 < r_h, the
+domains of the hypotheses and the slabs of [[sec:i-b-7]]; constants depend on them, but no particular value of them is
+used. We write ρ = |x|⁻¹ near ∂X, scattering covectors as ξ dr + r η, and use [[lem:i-a-4-4]]: at the boundary face T has
 principal symbol 2ξ Id, and Im_h T = −ρ(S + S^(*h)) + T_2 with T_2 ∈ Ψ^(1,−2).
 
 #### The Lorentzian structure {#sec:i-b-1-2}
@@ -140,11 +140,11 @@ with Γ_(u/s) := {φ_(u/s) = 0} ∩ Σ^♭_(z_0) ∩ O:
 - (Γ.2) 𝖧_(z_0) φ_u = −ν_u φ_u and 𝖧_(z_0) φ_s = ν_s φ_s on Σ^♭_(z_0) ∩ O, with
   ν_min := min(inf_Γ ν_u, inf_Γ ν_s) > 0;
 - (Γ.3) {φ_u, φ_s} > 0 and dG_(z_0) ≠ 0 on Γ;
-- (Γ.4) with β_0 := ½ min_Γ |q_(z_0)| > 0, a fibre inner product h_Γ on π*E over a neighbourhood of Γ (it may depend
+- (Γ.4) with β_Γ := ½ min_Γ |q_(z_0)| > 0, a fibre inner product h_Γ on π*E over a neighbourhood of Γ (it may depend
   on the covector; one from the base is a special case), p_1^Γ := z_0 p_1^(h_Γ)(z_0)|_Γ with p_1^(h_Γ) of
   [[eq:i-b-6-0]] in [[lem:i-b-6-0]] (an h_Γ-self-adjoint endomorphism, the symbol of h⁻¹ Im P computed in h_Γ, and
-  p_1 when h_Γ is the standard inner product) and q^Γ := z_0 q_(z_0)|_Γ ≥ 2β_0, the function
-  f(η) := sup_(ϖ∈Γ) max spec(p_1^Γ(ϖ) − η q^Γ(ϖ)) is continuous and decreases at least at the rate 2β_0; let
+  p_1 when h_Γ is the standard inner product) and q^Γ := z_0 q_(z_0)|_Γ ≥ 2β_Γ, the function
+  f(η) := sup_(ϖ∈Γ) max spec(p_1^Γ(ϖ) − η q^Γ(ϖ)) is continuous and decreases at least at the rate 2β_Γ; let
 
         f(γ_+) = 0,     f(γ_−) = ½ ν_min,
         δ_Γ(η) := min(1, max((γ_+ − η)/(γ_+ − γ_−), 0)) ∈ [0, 1],                                       {#eq:i-b-1-4}
@@ -173,7 +173,7 @@ describes the flow on the whole characteristic set. The global sets in (a) canno
 force that curve to tend backward to the radial sets, whereas by (D2) of [[sec:i-b-6-1]] it tends to Γ.
 
 (H5) is extended to (H6)–(H8): g, Γ, φ_(u/s), ν_(u/s) and h_Γ may depend continuously on the parameter b ∈ ℬ (into
-C^∞), with ν_min, β_0, γ_± and the convergence in (H8) uniform. For the operators to which this chapter is applied in
+C^∞), with ν_min, β_Γ, γ_± and the convergence in (H8) uniform. For the operators to which this chapter is applied in
 the stability theory, (H6)–(H8) are verified in [[ch:s12]] and the chapters that treat each operator; they are not
 verified here.
 
@@ -228,7 +228,7 @@ rescaled.
 dimension 4 + 1 in three points. The regularity order is constant ([[rem:i-a-1-1]]). The orders are required to be
 monotone on a neighbourhood of the characteristic set, not on it alone, because the weight log(1/h) multiplies 𝖧𝖻 on
 the whole support of a commutant ([[prop:i-b-4-5]]). And γ_± are the exact thresholds [[eq:i-b-1-4]], with γ_− < 0
-assumed in (H7). The value of γ_− in [Hin26c, (9.80)] divides by 2β_0 = min_Γ q. For Im σ < 0, which the interpolation
+assumed in (H7). The value of γ_− in [Hin26c, (9.80)] divides by 2β_Γ = min_Γ q. For Im σ < 0, which the interpolation
 of [Hin26c, Lemma 9.33] uses on its lower line, −ηq ≤ |η| max_Γ q, so the loss-one argument needs
 sup_Γ max spec(p_1 − ηq) < ½ν_min; this follows from the condition printed there only if q is constant on Γ (as for a
 static spherically symmetric metric, with Γ at one radius). The thresholds [[eq:i-b-1-4]] agree with [Hin26c, (9.80)]
@@ -240,7 +240,7 @@ which is part of (H7) here.
 ### The semiclassical scattering calculus {#sec:i-b-2}
 
 The high-frequency estimates need the semiclassical scattering calculus of Vasy and Zworski. [Hin26c, (3.33)–(3.36)]
-defines it and refers to [VZ00] and [Hin25a, Section 6.6]; [HJS] treats only the non-semiclassical calculus. We prove
+defines it and refers to [VZ00] and [Hin25a, Section 6.6]; [Mel94] treats only the non-semiclassical calculus. We prove
 what we use in this section, on ℝ^n for every n ≥ 1, with matrix-valued symbols and variable orders, from Fourier
 analysis, integration by parts and Schur's test. The proofs are the standard ones.
 
@@ -1254,7 +1254,7 @@ replaced by 1. Write H := H_(G_(z_0)), ℓ := Im z/h ≥ 0, and, on a neighbourh
 
     p^♮ := z_0 p_1(z_0),     q^♮ := z_0 q_(z_0),     V := ςH.                                              {#eq:i-b-6-1}
 
-q^♮ ≥ 2β_0 on Γ by (H7) and [[lem:i-b-1-1]] (e), p^♮ is the endomorphism p_1^Γ of [[eq:i-b-1-4]] on Γ, and both depend
+q^♮ ≥ 2β_Γ on Γ by (H7) and [[lem:i-b-1-1]] (e), p^♮ is the endomorphism p_1^Γ of [[eq:i-b-1-4]] on Γ, and both depend
 on Re z = z_0 only ([[lem:i-b-1-1]] (b)). For a real scalar a ∈ C_c^∞ near Γ and A = A* quantising a Id, the operator C
 of [[eq:i-b-3-1]] for 𝐏, with A in place of Ǎ², satisfies, by [[eq:i-b-4-3]],
 
@@ -1277,7 +1277,7 @@ O′ ⋐ O a neighbourhood of Γ. We take O so small that it does not meet Σ_(z
 Γ (q_(z_0) ≠ 0 on Σ_(z_0), [[lem:i-b-1-1]] (e)); then by (Γ.1), Γ is the common zero set of φ_u, φ_s and G_(z_0) in O.
 So Γ = ⋂_δ Γ(δ), and the Γ(δ) are compact neighbourhoods of Γ shrinking to it. Fix χ_(O′) ∈ C_c^∞(O),
 0 ≤ χ_(O′) ≤ 1, equal to 1 on Ō′. The set supp χ_(O′) ∖ O′ is compact and disjoint from Γ, so
-max(|φ_u|, |φ_s|, |G_(z_0)|) ≥ δ_O on it, for some δ_O > 0. We take ε_Γ < δ_O, and so small that Γ(ε_Γ) ⊂ O′ and that
+max(|φ_u|, |φ_s|, |G_(z_0)|) ≥ d_O on it, for some d_O > 0. We take ε_Γ < d_O, and so small that Γ(ε_Γ) ⊂ O′ and that
 [[eq:i-b-6-3]] and (Γ.3) hold on Γ(ε_Γ), with
 
     c_Γ ≤ |{φ_u^♮, φ_s^♮}| ≤ C_Γ  on Γ(ε_Γ),     C_Γ := max_(Γ(ε_Γ)) |{φ_u, φ_s}|,
@@ -1340,7 +1340,7 @@ smooth matrix function, smooth),
 
     ςC = −B*B − F_s*F_s + E_u*E_u + J𝐏′ − 2(ℓ − γ)Ǎ ςϵ_♭𝒬 Ǎ + R,     R ∈ h^(1/2)Ψ^0,
 
-where ςϵ_♭𝒬 = z_0𝒬 has principal symbol q^♮ ≥ β_0 on supp ǎ; since 0 ≤ ℓ − γ ≤ 3h⁻¹, the paragraph on positivity
+where ςϵ_♭𝒬 = z_0𝒬 has principal symbol q^♮ ≥ β_Γ on supp ǎ; since 0 ≤ ℓ − γ ≤ 3h⁻¹, the paragraph on positivity
 of absorbing terms in [[sec:i-b-3-3]] makes 2(ℓ − γ)Ǎz_0𝒬Ǎ a term F of [[lem:i-b-3-3]], with the double commutator in
 R. [[lem:i-b-3-3]] and [[lem:i-b-3-4]], with Λ := Γ and the sets Γ(√(2/M_1)) for an increasing sequence of M_1 in
 [M_0, 2M_0] (and M_Σ := CM_1), give [[eq:i-b-6-4]] with E elliptic on the union of the sets supp e_u, which lie in
@@ -1487,11 +1487,11 @@ Cδ^(−2κ′) on {δ/2 ≤ |φ_s^♮| ≤ δ}. Hence c_3(𝗆(δ_1/2) − 𝗆
 *Step 4.* With [[eq:i-b-6-9]], 𝗆(δ_1/2) ≤ (1 + Cδ^(−2κ′))C_2δ → 0 as δ → 0, since 2κ′ < 1. So 𝗆(δ_1/2) = 0,
 contradicting ‖Bu‖ = 1 as explained. ∎
 
-[Hin26c] writes the range in this proof as −β ≤ h⁻¹ Im z and p_z ≤ p_1 + 2ββ_0, while its theorem is stated for
+[Hin26c] writes the range in this proof as −β ≤ h⁻¹ Im z and p_z ≤ p_1 + 2ββ_Γ, while its theorem is stated for
 Im(h⁻¹z) ≥ β. With the range η ≥ β the bound used is p_η ≤ max spec(p^♮ − βq^♮), and Steps 1 and 3 need exactly
 sup_Γ max spec(p_1^Γ − βq^♮) < ½ν_min, which is the definition of β > γ_− in [[eq:i-b-1-4]]. When β < 0 this
 involves the largest value of q^♮ on Γ, not the smallest, which is why [[eq:i-b-1-4]] defines γ_± as these thresholds
-and not through β_0 alone ([[rem:i-b-relation]]). The steps and the use of {φ_u, φ_s} follow [Hin26c], which follows
+and not through β_Γ alone ([[rem:i-b-relation]]). The steps and the use of {φ_u, φ_s} follow [Hin26c], which follows
 [Dya16]; the matrix-valued measure enters only through tr and max spec ([[lem:i-b-6-2]]).
 
 #### Complex absorption {#sec:i-b-6-5}
@@ -1949,7 +1949,7 @@ C|σ|^((l+1)(−1+δ)+l) ≤ C|σ|^(−1+(j+1)δ), as l ≤ j and |σ| ≥ 1. Th
 
 Let P̂ depend on b ∈ ℬ as in (H5)–(H8). Every constant above depends on finitely many seminorms of the symbols involved
 and on finitely many lower bounds: ellipticity constants, β_*, c_1 and c_𝒯 in [[lem:i-b-5-1]], the margins in the
-thresholds, c_0 in [[prop:i-b-4-5]], ν_min, β_0, c_Γ and the thresholds γ_± in [[sec:i-b-6]], the lengths of the curves
+thresholds, c_0 in [[prop:i-b-4-5]], ν_min, β_Γ, c_Γ and the thresholds γ_± in [[sec:i-b-6]], the lengths of the curves
 in the chains of [[sec:i-b-8]], and the constants of [[prop:i-b-7-1]]. Each depends continuously on b, by (H5)–(H8),
 and the constructions (flow boxes by [[lem:i-b-4-3]] with b among the parameters; the commutants; the absorbing
 operator of [[sec:i-b-6-5]], with Γ(δ) defined through φ_(u/s), which depend continuously on b) can be made with b in a
@@ -1967,8 +1967,8 @@ that treat each operator.
 **Remark {#rem:i-b-comparison}** (Comparison with [Hin26c, Section 9.3].) Besides the changes of statement in
 [[rem:i-b-relation]], the following points differ from [Hin26c]. (a) [Hin26c, Theorem 9.28] states that B is
 semiclassically elliptic "at ∂ℛ_+"; the estimate is at the trapped set, and B is elliptic at Γ ([[thm:i-b-6-8]]). (b) In
-the proof of [Hin26c, (9.83)] a constant is fixed in (inf_Γ p_1/(2β_0), γ); positivity of −2p_1 + 4β_0γ_0 on Γ needs
-γ_0 > sup_Γ p_1/(2β_0) = γ_+. [[prop:i-b-6-1]] avoids the constant by writing p − ℓq = (p − γq) − (ℓ − γ)q. (c)
+the proof of [Hin26c, (9.83)] a constant is fixed in (inf_Γ p_1/(2β_Γ), γ); positivity of −2p_1 + 4β_Γγ_0 on Γ needs
+γ_0 > sup_Γ p_1/(2β_Γ) = γ_+. [[prop:i-b-6-1]] avoids the constant by writing p − ℓq = (p − γq) − (ℓ − γ)q. (c)
 [Hin26c, Theorem 9.28 (2)] states the adjoint estimate for z ∈ 1 + i[−hβ, ν]. For β < 0 that range misses the real
 axis, which the adjoint estimate at Im z = 0 in [Hin26c, (9.59)] needs. The symbol calculus gives the same threshold for
 P* as for P ([[sec:i-b-6-1]] defines p^♮ and q^♮ with the field of each, and [[eq:i-b-1-4]] reads the same), so the

@@ -26,7 +26,7 @@ prop:np-10-18	docket68/n1star/N1STAR-PROOF.md:3928-3956	NP 10.18, Prop 10.15 (i)
 prop:np-10-19-i	docket68/n1star/N1STAR-PROOF.md:4000-4004; docket68/n1star/N1STAR-PROOF.md:4034-4036	NP 10.19, Prop 10.16 (i); deduced (a), first clause	(a), (b) derived by hand (A_w = -gamma M_D, A_w + S-bar = Xi S-bar Xi, Xi the radial reflection); (c) is deduced (a), fixing A_w against p_in of S1; replaces hienergy5.py V1
 lem:iii-d-5-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:249-264	III.D Lemma 5.1	computed sentence 240-247 replaced by prop:np-10-18 (iii)
 sec:iii-d-5-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:269-288	III.D §5.2	facts (a)-(d); NP 10.17 (i), (iii)-(v), 10.19 (iii) carried here, (ii) and 10.19 (ii) cited to S12
-prop:np-10-17-i	docket68/n1star/N1STAR-PROOF.md:3854-3855	NP 10.17, Prop 10.14 (i)	derived in coordinates; replaces trap5.py T0
+prop:np-10-17-i	docket68/n1star/N1STAR-PROOF.md:3854-3855	NP 10.17, Prop 10.14 (i)	derived in coordinates; replaces trap5.py T0; header cites [Hin17, Proposition 4.1, p. 20] (arXiv 1502.03183v2), the 1-form case; quoted in Appendix A (G-SWEEP minor item)
 prop:np-10-17-iii	docket68/n1star/N1STAR-PROOF.md:3860-3862	NP 10.17, Prop 10.14 (iii)	Gram matrix and H_G C = 0 derived; replaces trap5.py T2
 prop:np-10-17-iv	docket68/n1star/N1STAR-PROOF.md:3863	NP 10.17, Prop 10.14 (iv)	connection derived in the static chart; replaces trap5.py T3
 prop:np-10-17-v	docket68/n1star/N1STAR-PROOF.md:3864-3865	NP 10.17, Prop 10.14 (v)	eigenvalues of a 3x3 matrix; replaces trap5.py T4
@@ -40,7 +40,18 @@ prop:iii-d-6-2	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:360-422	III.D Propo
 prop:iii-d-6-3	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:424-435	III.D Proposition 6.3	
 sec:iii-d-7	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:437-466	III.D §7	
 prop:np-10-20	docket68/n1star/N1STAR-PROOF.md:4122-4141	NP 10.20, Prop 10.17 (i)-(iii)	Hankel limits by [DLMF] in place of a numerical check
-lem:iii-d-7-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:439-466	III.D Lemma 7.1	
+lem:iii-d-7-1	docket68/n1star/proof5/PART-III-D-GAUGEPOT.md:439-466	III.D Lemma 7.1	statement split into (a), explicit for e in [0, 1/2], gamma in [0, 1/4], proved by prop:tf-gauge-explicit, and (b), the former statement (P-T78 text 2)
+sec:tf-explicit	paper/reader/proofs/P-T78.md@59de7926:1	explicit tf-admissibility proof P-T78, section heading	new section, inserted in ch:s13 after sec:iii-d-7; proves lem:iii-d-7-1 (a)
+lem:tf-damped-helmholtz	paper/reader/proofs/P-T78.md@59de7926:24	explicit tf-admissibility proof P-T78, Lemma (Damped Helmholtz inequalities.)	new: the two weighted inequalities for the damped Helmholtz operator on R^4 at every theta in [0, pi], from Green's formula with v and with v/r
+eq:tf-dh-bounds	paper/reader/proofs/P-T78.md@59de7926:27	explicit tf-admissibility proof P-T78, display	the bounds at 0 and at infinity under which the inequalities hold
+eq:tf-dh-zero	paper/reader/proofs/P-T78.md@59de7926:31	explicit tf-admissibility proof P-T78, display	the zeroth-order inequality
+eq:tf-dh-one	paper/reader/proofs/P-T78.md@59de7926:33	explicit tf-admissibility proof P-T78, display	the first-order inequality
+lem:tf-gauge-modes	paper/reader/proofs/P-T78.md@59de7926:76	explicit tf-admissibility proof P-T78, Lemma (The transition face operator of the gauge potential operator, conjugated.)	new: N_tf of the gauge potential operator, conjugated by e^(i sigma r), in the frame (dt-bar, dx^i): two coupled damped Helmholtz systems
+eq:tf-modes	paper/reader/proofs/P-T78.md@59de7926:82	explicit tf-admissibility proof P-T78, display	the components F_0, F_i
+prop:tf-gauge-explicit	paper/reader/proofs/P-T78.md@59de7926:106	explicit tf-admissibility proof P-T78, Proposition (tf-admissibility of the gauge potential operator at explicit parameters.)	new: injectivity of N_tf for every theta and tf-admissibility for gamma > 0, 0 <= e < 1, z <= 1/2, Lambda_tf < 1; Lambda_tf <= 41/64 on e <= 1/2, gamma <= 1/4; Lambda_tf < 1.0111e-4 at (1/100, 1/100); (iii) by the index along gamma -> tau gamma
+eq:tf-lambda	paper/reader/proofs/P-T78.md@59de7926:109	explicit tf-admissibility proof P-T78, display	definition of Lambda_tf
+eq:tf-lambda-point	paper/reader/proofs/P-T78.md@59de7926:121	explicit tf-admissibility proof P-T78, display	Lambda_tf = 250248044601/2475062500000000 at the computational gauge point
+rem:tf-sign	paper/reader/proofs/P-T78.md@59de7926:191	explicit tf-admissibility proof P-T78, Remark (Where the sign of gamma enters.)	why gamma > 0 is used; (b) of lem:iii-d-7-1 stays
 sec:iii-d1-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:14-65	III.D1 intro and §1	the 'how it differs' paragraph opens the section
 eq:iii-d1-1-1	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:47-51	III.D1 (1.1)	
 eq:iii-d1-1-2	docket68/n1star/proof5/PART-III-D2-ZEROENERGY.md:62	III.D1 (1.2)	

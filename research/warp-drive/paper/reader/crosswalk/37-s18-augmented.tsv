@@ -49,7 +49,7 @@ sec:iii-h1-2	docket68/n1star/proof5/PART-III-H2-ADMISS.md:136	III.H1 section 2	c
 lem:iii-h1-2-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:147	III.H1 Lemma 2.1	
 eq:iii-h1-2-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:148-150	III.H1 (2.1)	
 sec:iii-h1-3	docket68/n1star/proof5/PART-III-H2-ADMISS.md:174	III.H1 section 3	
-lem:iii-h1-3-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:176	III.H1 Lemma 3.1	tagged parenthesis at 222-223 dropped; (3.1) kept with its 2 epsilon; the loss parameter of I.B T1.3 (5) written epsilon-prime (source reuses epsilon); proof bounds the weight beta, then beta - 2 epsilon
+lem:iii-h1-3-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:176	III.H1 Lemma 3.1	tagged parenthesis at 222-223 dropped; (3.1) kept with its 2 epsilon; the loss parameter of I.B T1.3 (5) written epsilon-prime (source reuses epsilon); proof bounds the weight beta, then beta - 2 epsilon; P-S7: on c/2 <= |sigma| <= 1 the semiclassical norm at h = 1/|sigma| >= 1 and the fixed norm (spectral structure at |sigma| = 1) defined; uniform equivalence of the three norms by lem:ii-a-3-1 (f), (d) in place of the citation of (S7); the same for 1 <= |sigma| <= C_0, and the fixed norm identified with the orders (s_c, r_sigma + beta) uniformly
 eq:iii-h1-3-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:178-179	III.H1 (3.1)	
 sec:iii-h1-4	docket68/n1star/proof5/PART-III-H2-ADMISS.md:232	III.H1 section 4	
 eq:iii-h1-4-1	docket68/n1star/proof5/PART-III-H2-ADMISS.md:235-236	III.H1 (4.1)	

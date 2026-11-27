@@ -308,10 +308,10 @@ two-scale operator at the first stage, applied to λY.
 **Lemma {#lem:first-entry}** (Where each unknown first enters.) ℛ^(−1) = 0. ℛ^(0) is the coefficient of λ⁰ of R[g0 + λ W]
 at (X, θ), minus (1/2) e_1 ∂_θ² W. For m ≥ 1,
 
-    ℛ^(m) = T̂ ĝ_(m+1) − (1/2) e_(m+1) ∂_θ² W + 𝒲(m_m, φ_m) + 𝒦_m,                                     {#eq:stage-m}
+    ℛ^(m) = T̂ ĝ_(m+1) − (1/2) e_(m+1) ∂_θ² W + 𝒲(m_m, φ_m) + 𝒴_m,                                     {#eq:stage-m}
 
 where 𝒲 is linear in m_m and in φ_m: in m_m to second order, its θ-mean part being −(1/2) □̃ m_m plus terms of first
-order; in φ_m through dφ_m and □̃φ_m, the latter only as −(1/2)(□̃φ_m) ∂_θ W. 𝒦_m depends only on m_i, φ_i (i < m) and
+order; in φ_m through dφ_m and □̃φ_m, the latter only as −(1/2)(□̃φ_m) ∂_θ W. 𝒴_m depends only on m_i, φ_i (i < m) and
 ĝ_i (i ≤ m).
 
 *Proof.* We count weights. A factor of stage m + 1 has weight m + 1 (ĝ_(m+1), m_(m+1)) or contributes the derivative λ^m
@@ -418,12 +418,12 @@ restricted to Ω solves [[eq:linear-wave]]. ∎
 
 **Lemma {#lem:stage-system}** (Each stage is a linear hyperbolic system.) Let m ≥ 1 and let everything of earlier stages
 be given and smooth. Write the θ-mean of 𝒲(m_m, 0) as −(1/2) □̃ m_m + B̄·∂m_m + C̄ m_m, put 𝒲_φ(φ_m) := 𝒲(0, φ_m),
-𝒮_m := −⟨𝒦_m⟩, and let Π_osc := 1 − ⟨·⟩ be the projection onto zero θ-mean. Impose e_m = 0, the θ-mean of
+𝒮_m := −⟨𝒴_m⟩, and let Π_osc := 1 − ⟨·⟩ be the projection onto zero θ-mean. Impose e_m = 0, the θ-mean of
 [[eq:stage-m]], and its oscillating part without the e_(m+1) term:
 
     (a) −(1/2) □̃ m_m + B̄·∂m_m + C̄ m_m = 𝒮_m − ⟨𝒲_φ(φ_m)⟩ − ⟨T̂ ĝ_(m+1)⟩,
     (b) L0 φ_m = −(1/2) m_m(ℓ, ℓ) − (1/2) q_m,
-    (c) Π_osc T̂ ĝ_(m+1) = −Π_osc (𝒲(m_m, φ_m) + 𝒦_m),                                                {#eq:stage-system}
+    (c) Π_osc T̂ ĝ_(m+1) = −Π_osc (𝒲(m_m, φ_m) + 𝒴_m),                                                {#eq:stage-system}
 
 with data (m_m, ∂_τ m_m), φ_m and ĝ_(m+1) on Σ_τ0. This system has a unique smooth solution on Ω.
 

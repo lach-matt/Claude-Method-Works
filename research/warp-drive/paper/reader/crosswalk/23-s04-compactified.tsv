@@ -26,7 +26,8 @@ eq:ii-a-2-2	docket68/n1star/proof5/PART-II-A-SETUP.md:287	II.A (2.2)
 sec:ii-a-2-6	docket68/n1star/proof5/PART-II-A-SETUP.md:294	II.A section 2.6	
 lem:ii-a-2-10	docket68/n1star/proof5/PART-II-A-SETUP.md:296	II.A Lemma 2.10	
 lem:ii-a-2-11	docket68/n1star/proof5/PART-II-A-SETUP.md:321	II.A Lemma 2.11	
-sec:ii-a-3	docket68/n1star/proof5/PART-II-A-SETUP.md:343	II.A section 3	quoted [SBG] = [Hin26d] black box (S1)-(S11) as a numbered list; pages added from arXiv:2408.06651v1 (printed page = PDF page); F3-S04: (S15) added ([Hin26d] Prop 2.3 with (2.3), (2.5) pp. 19-20; Lemma 3.42 and proof p. 51; p. 52; proof of Prop 4.22 p. 75), quoted from arXiv v1; list cited as (S1)-(S15)
+sec:ii-a-3	docket68/n1star/proof5/PART-II-A-SETUP.md:343	II.A section 3	quoted [SBG] = [Hin26d] black box (S1)-(S11) as a numbered list; pages added from arXiv:2408.06651v1 (printed page = PDF page); F3-S04: (S15) added ([Hin26d] Prop 2.3 with (2.3), (2.5) pp. 19-20; Lemma 3.42 and proof p. 51; p. 52; proof of Prop 4.22 p. 75), quoted from arXiv v1; list cited as (S1)-(S15); P-S7: (S7) restated from [Hin26d] Def. 1.9 p. 9, pp. 58-59 (Remarks 3.56-3.57, Defs 3.58-3.59, the boundedness paragraph with footnote 13, Theorem 3.51 verbatim, wDiff), p. 64, Remark 4.9 p. 67, p. 74; the words 'the above holds uniformly in p' dropped (not stated there); lem:ii-a-3-1 added after the list; the weights of P x M are those with the bounds of (S2) uniform in p (the sufficient condition after Def. 3.58 is not used)
+lem:ii-a-3-1	paper/reader/proofs/P-S7.md@9580b39f:575	proof S7, uniformity in the parameter	new lemma; reduction to P' x M for countable P' ([Hin26d] p. 59, footnote 13); (d) norms of elliptic families by a Neumann parametrix; (e) uniform elliptic estimate by a parametrix with nested cut-off symbols, from the calculus of (S7)-(S8) and (g) only, for variable orders, the (S8) classes and systems; (f) same charts and comparable scalings; (g) locality of products by (3.38) on P' x M translated back to cut-off symbols
 sec:ii-a-4	docket68/n1star/proof5/PART-II-A-SETUP.md:448	II.A section 4	
 sec:ii-a-4-1	docket68/n1star/proof5/PART-II-A-SETUP.md:450	II.A section 4.1	
 sec:ii-a-4-2	docket68/n1star/proof5/PART-II-A-SETUP.md:482	II.A section 4.2	
@@ -60,7 +61,7 @@ lem:ii-a-8-2	docket68/n1star/proof5/PART-II-A-SETUP.md:844	II.A Lemma 8.2
 sec:ii-a-8-2	docket68/n1star/proof5/PART-II-A-SETUP.md:859	II.A section 8.2	
 def:ii-a-8-3	docket68/n1star/proof5/PART-II-A-SETUP.md:861	II.A Definition 8.3	
 sec:ii-a-8-3	docket68/n1star/proof5/PART-II-A-SETUP.md:877	II.A section 8.3	F3-S04: Cut-offs cite (S15) for d_B, Lemma 3.42 and (2.3); truncated operators stay in the subalgebra of (S10) (p. 75), so [[eq:ii-a-4-1]] and Lemma 8.4 (a) apply; (R3) subword order reversed (R3-S04 n1)
-lem:ii-a-8-4	docket68/n1star/proof5/PART-II-A-SETUP.md:893	II.A Lemma 8.4	
+lem:ii-a-8-4	docket68/n1star/proof5/PART-II-A-SETUP.md:893	II.A Lemma 8.4	P-S7: (d) cites lem:ii-a-3-1 (e) (single structure, B = I, Lambda elliptic in that lemma's sense) in place of (S5) with (S8)
 sec:ii-a-8-4	docket68/n1star/proof5/PART-II-A-SETUP.md:936	II.A section 8.4	
 lem:ii-a-8-5	docket68/n1star/proof5/PART-II-A-SETUP.md:938	II.A Lemma 8.5	F-S04 (R-S04 finding 1): (b) proved by the commutator expansion eq:ii-a-comm-split, index d_0(s, s_0) independent of B, B#; (a) closed graph unchanged
 eq:ii-a-comm-split	none (added in F-S04)	—	private key; the identity BT(I-B#) = B(I-Y)T(I-B#) + BTY(I-B#) + B(ad_Y T)(I-B#) of R-S04 finding 1 (i)

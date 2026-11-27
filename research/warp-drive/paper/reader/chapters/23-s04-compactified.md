@@ -358,15 +358,37 @@ compact subset of M [Hin26d, Definition 3.27, p. 41].
 (S6) [Hin26d, Remark 3.33, p. 45]; [Hin26c, Lemma 3.5, p. 49]. The boundedness
 Op_𝒱(a) : w′H^((s;k))_(𝒱;𝒲) → ww′H^((s−m;k))_(𝒱;𝒲) requires only uniform bounds ⟨ξ⟩^(m−|γ|) on
 (ρ_α∂_x)^β ∂_x^(β′) ∂_ξ^γ a_α for |β′| ≤ k (𝒱-regular symbols with x-derivatives up to order k) [Hin26d, Remark 3.33].
-[Hin26c, Lemma 3.5] states: given a compact interval I ⊂ ℝ, there exist d_0 ∈ ℕ and C such that for all s, m ∈ I and
+[Hin26c, Lemma 3.5] states: given a compact set I ⊂ ℝ, there exist d_0 ∈ ℕ and C such that for all s, m ∈ I and
 all symbols a of order m with d_0 bounded 𝒱-derivatives, ‖Op_𝒱(a)‖_(ℒ(H^s_𝒱, H^(s−m)_𝒱)) ≤ C‖a‖_(C^(d_0)_𝒱 S^m), and,
 for the same d_0 and all k, the same bound between H^((s;k))_(𝒱;𝒲) and H^((s−m;k))_(𝒱;𝒲) with the norm of a in
 C^((d_0;k))_(𝒱;𝒲) S^m. Neither statement is used below: the bounds of this kind that the chapter needs are proved in
 [[sec:ii-a-8]] and [[sec:ii-a1-2]].
 
-(S7) [Hin26d, Definitions 3.58 and 3.59, p. 59.] For a parameterised scaled b.g. structure (ℬ^(p,×))_(p∈P), with all
-bounds uniform in p, the above holds uniformly in p; operators are families with uniformly bounded symbols and residual
-parts, bounded uniformly on the p-dependent spaces.
+(S7) [Hin26d, Definition 1.9, p. 9; Section 3.7, pp. 58–59: Remarks 3.56 and 3.57, Definitions 3.58 and 3.59 and the text
+after them, with footnote 13; p. 64; Remark 4.9, p. 67; p. 74.] A *parameterised scaled b.g. structure* on M with
+parameter set P is a family (ℬ^(p,×))_(p∈P) of scaled b.g. structures ℬ^(p,×) = {(U_(p,α), φ_(p,α), ρ_(p,α)) : α ∈ 𝒜_p}
+for which the bound on the multiplicity and the C^∞ bounds on the transition maps in (S1), and the constants C_γ of its
+scaling condition, are uniform in p; it is *semiclassical* if P = (0, 1]_h, all ℬ^(h,×) have the same charts and all
+scalings equal h. The space P × M = ⊔_(p∈P) {p} × M carries the discrete topology in p. Its weights w = (w_p) are those
+of (S2) for the cells of all the ℬ^(p,×) together, that is, with the bounds of (S2) uniform in p (that each w_p be a
+weight of ℬ^(p,×) is necessary but not sufficient), and the scaling weights ρ = (ρ_p) and elliptic weights λ = (λ_p)
+((S8)) are taken with bounds uniform in p. A family a = (a_p) lies in wS^m if a_p ∈ w_pS^m(^(𝒱_p)T*M) for all p, with
+seminorms bounded uniformly in p; wΨ^m_𝒱 consists of the families A = (A_p), A_p = Op_(𝒱_p)(a_p) + R_p, with (a_p) ∈ wS^m
+and residual R_p of ℬ^(p,×) for which the conditions of (S4) hold with constants and operator norms uniform in p, for all
+weights w′; the principal symbol of A is the class of a in wS^m/wρS^(m−1); and wDiff^m_𝒱 consists of the families of
+differential operators A_p with (φ_(p,α))_*A_p = Σ_(|β|≤m) w_(p,α)a_(p,α,β)(x)(ρ_(p,α)∂_x)^β, the coefficients bounded in
+C^∞ uniformly in p, α and β. Such an A defines maps A_p : w′_pH^((s;k))_(𝒱_p;𝒲_p) → w_pw′_pH^((s−m;k))_(𝒱_p;𝒲_p) bounded
+uniformly in p. This is the boundedness of (S5) for the scaled b.g. structure P′ × M, P′ ⊂ P countable, with the cells
+{p} × U_(p,α), applied to inputs supported in one slice {p} × M (P′ must be countable for (S1), and the bound does not
+depend on P′). The properties of adjoints, compositions, commutators and principal symbols in [Hin26d, Theorem 3.51]
+carry over verbatim. P may be replaced by a subset, such as a sequence h_j ↘ 0 (Remark 3.56); the ℬ^(p,×) for different p
+may be strongly compatible, though not uniformly in p, so that their Sobolev spaces agree as sets while their norms need
+not be uniformly equivalent (Remark 3.57). By Remark 4.9 the variable orders of (S8), with their operators and Sobolev
+spaces, generalise to the parameterised setting, the discussion above applying with only notational changes; operators
+with phase space weights ((S11)) can be defined there as well (p. 64), and the notational changes for (S10) are left to
+the reader (p. 74). Microlocal elliptic estimates and the comparison of different structures are not stated in [Hin26d]
+for parameterised structures; [[lem:ii-a-3-1]] gives the uniform versions that are used, and the locality of products
+in terms of cut-off symbols ((g) there).
 
 (S8) [Hin26d, Definition 4.6 and the paragraph after it, p. 66; Section 4.2.] Variable orders 𝗆, 𝗅 ∈ S⁰: the symbols
 ρ^(−𝗅)λ^(−𝗆)a_0 with a_0 ∈ ⋂_(δ∈(0,1/2)) S⁰_(1−δ,δ), λ being an *elliptic weight*, a positive symbol of order −1 whose
@@ -466,6 +488,150 @@ Proposition 4.22 (p. 75): "the conclusion in Proposition 3.39 can be strengthene
 The sharp Gårding inequality is not among these statements and is not used: the real principal type estimate
 ([[thm:ii-a1-5-4]]) is proved without it.
 
+**Lemma {#lem:ii-a-3-1}** (Uniformity in the parameter.) Let (ℬ^(p,×))_(p∈P) be a parameterised scaled b.g. structure on
+M ((S7)), with operator and coefficient Lie algebras 𝒱_p and 𝒲_p. For a countable set P′ ⊂ P let N_(P′) := P′ × M, with
+the charts {p} × U_(p,α) → (−2, 2)ⁿ, (p, x) ↦ φ_(p,α)(x), and the scalings ρ_(p,α), for p ∈ P′ and α ∈ 𝒜_p. A family
+f = (f_p) of functions, symbols or operators restricts to the function, symbol or operator f_(P′) on N_(P′) that is
+f_p on {p} × M, an operator acting slice by slice. We write wS^(𝗆,𝗅) := wρ^(−𝗅)S^𝗆, wΨ^(𝗆,𝗅)_𝒱 and
+wH^(𝗆,𝗅) := wρ^𝗅H^𝗆 for the classes and spaces of (S8) in the setting of (S7), constant orders included, and take L²,
+pairings and adjoints for a family μ of uniformly positive 𝒱_p-densities with bounds uniform in p. A family
+E ∈ w⁻¹Ψ^(𝗆,𝗅)_𝒱 is *elliptic* if its principal symbol has a representative e with e⁻¹ ∈ wS^(−𝗆,−𝗅); for variable
+orders the space w_pH^(𝗆,𝗅)_(𝒱_p) is normed by ‖u‖² := ‖u‖²_(w_pρ_p^(inf 𝗅)H^(inf 𝗆)) + ‖E_pu‖²_(L²), with a fixed
+elliptic family E. All of this applies to ℂ^N-valued functions, the operators being matrices of such families ((S14)).
+
+(a) N_(P′) is a scaled b.g. structure. A weight w of P × M restricts to a weight of N_(P′), and ρ and λ restrict to a
+scaling weight and an elliptic weight of it. For s ∈ ℝ and v = (v_p) on N_(P′),
+
+    ‖v‖²_(w_(P′)H^s_𝒱(N_(P′))) = Σ_(p∈P′) ‖v_p‖²_(w_pH^s_(𝒱_p)(M)),
+
+the norms being those of (S3) with a weight family of w that is one of every N_(P′) (such as the suprema of w over the
+sets φ_(p,α)⁻¹((−3/2, 3/2)ⁿ), [Hin26d, Lemma 3.5]). The same holds with k further derivatives along a finite set W of
+families of vector fields whose restrictions span the coefficient Lie algebras of the N_(P′), and for variable orders,
+the space of N_(P′) being normed with E_(P′).
+
+(b) If A ∈ wΨ^(𝗆,𝗅)_𝒱, A = Op(a) + R as in (S7), then A_(P′) lies in w_(P′)Ψ^(𝗆,𝗅)_𝒱(N_(P′)), with principal symbol
+the class of a_(P′), for every countable P′ ⊂ P.
+
+(c) A function on P with values in [0, ∞] that is bounded on every countable subset of P is bounded.
+
+(d) Two elliptic families in w⁻¹Ψ^(𝗆,𝗅)_𝒱 give norms of the spaces w_pH^(𝗆,𝗅)_(𝒱_p) that are equivalent uniformly
+in p.
+
+(e) (*Elliptic estimate.*) Let A ∈ w′Ψ^(𝗆′,𝗅′)_𝒱 have principal symbol represented by a, let B = Op(b) + R ∈ Ψ^(0,0)_𝒱
+as in (S7), and let y_1, y_2, y_3 ∈ S⁰ be real families with y_jy_(j+1) = y_j (j = 1, 2), such that
+(1 − y_1)b ∈ ρ^∞S^(−∞), a is invertible where y_3 ≠ 0, and y_3a⁻¹, set to 0 where y_3 = 0, lies in w′⁻¹S^(−𝗆′,−𝗅′).
+Then for every weight w, all orders 𝗆, 𝗅 and every N there is C, independent of p, such that for u ∈ w_pH^(−N,−N)_(𝒱_p)
+
+    ‖B_pu‖_(w_pH^(𝗆,𝗅)) ≤ C(‖A_pu‖_(w_pw′_pH^(𝗆−𝗆′,𝗅−𝗅′)) + ‖u‖_(w_pH^(−N,−N))),
+
+the right side being possibly infinite.
+
+(f) (*Comparable scalings.*) Let ℬ̃^(p,×) consist of the charts of ℬ^(p,×) with scalings ρ̃_(p,α) such that
+C⁻¹ρ_(p,α,i) ≤ ρ̃_(p,α,i) ≤ Cρ_(p,α,i), with C independent of p, α and i. Then (ℬ̃^(p,×))_(p∈P) is a parameterised scaled
+b.g. structure with the same operator and coefficient Lie algebras, scaling weights, elliptic weights, symbol classes,
+quantisations and residual families as (ℬ^(p,×))_(p∈P), hence the same classes Ψ_𝒱; and for every weight, all orders
+and every k, the spaces of the two structures at p coincide, with norms equivalent uniformly in p (for variable orders
+both normed with the same E). For variable orders the classes and spaces do not change, the norms up to equivalence
+uniform in p, when ρ is replaced by another scaling weight and w by a weight w̃ with w/w̃ and w̃/w bounded with all their
+derivatives along the 𝒲_p uniformly in p, E being replaced by (w/w̃)E.
+
+(g) (*Locality.*) Let A ∈ wΨ^(𝗆,𝗅)_𝒱 and B ∈ w′Ψ^(𝗆′,𝗅′)_𝒱 be Op(a) + R and Op(b) + R′ as in (S7), and let y, y′ ∈ S⁰
+be families with yy′ = y′ and ya ∈ wρ^∞S^(−∞). If AB = Op(c) + R″ and BA = Op(c′) + R‴ as in (S7), then y′c and y′c′
+lie in ww′ρ^∞S^(−∞).
+
+*Proof.* (a) N_(P′) is a smooth manifold, and its set of charts is countable, as P′ and the 𝒜_p are. Charts in different
+slices are disjoint, so the multiplicity bound, the covering, the bounds on the transition maps in (S1) and the scaling
+condition hold with the constants of the ℬ^(p,×), which are uniform in p ((S7)). The conditions defining weights, scaling
+weights and elliptic weights ((S2), (S8)) are bounds in the charts, uniform over the charts, so they pass to the
+restrictions. The cut-offs φ^*χ of (S3) for N_(P′) are those of the slices, so the norm (S3) of N_(P′) is the sum over p
+of the norms of the slices; the fields of W act slice by slice, which gives the statement with k derivatives. For
+variable orders, E_(P′) is elliptic in the class of N_(P′) by (b), whose proof uses only the constant-order part of (a)
+(the symbol e⁻¹ restricts to N_(P′) with the same bounds), so it defines the space of N_(P′) ((S8)), and its norm is the
+sum over p of the norms of the slices, by the constant-order case and as L²(μ_(P′)) is the sum of the L²(μ_p).
+
+(b) The seminorms of a_(P′), the constants in the estimates of (S4) over the cells of N_(P′), are at most the suprema
+over p of those of the a_p, which are finite ((S7)). The quantisation of (S4) for N_(P′) is a sum over its cells, with
+the cut-offs φ_(p,α)^*χ/Σ_β φ_(p,β)^*χ, the sum running over the cells that meet the point, all of which lie in its
+slice; so Op_𝒱(a_(P′)) is Op_(𝒱_p)(a_p) on each slice. A weight of N_(P′) extends to a weight of P × M, equal to 1 on the
+other slices. By (S7) the norms of the maps R_p and R_p^* of (S4) for this weight are bounded uniformly in p, so by (a)
+R_(P′) and its adjoint for μ_(P′) are bounded, and R_(P′) maps C_c^∞(N_(P′)), the families with finitely many members
+≠ 0, each in C_c^∞(M), into itself. So R_(P′) is residual, and A_(P′) = Op_𝒱(a_(P′)) + R_(P′) lies in the class of
+N_(P′), with principal symbol the class of a_(P′) ((S4), (S8)).
+
+(c) Otherwise there are p_ℓ ∈ P with values at least ℓ for ℓ ∈ ℕ, and the function is unbounded on {p_ℓ : ℓ ∈ ℕ}.
+
+(d) Let E, E′ be elliptic, e as in the definition, and B_0 := Op(e⁻¹) ∈ wΨ^(−𝗆,−𝗅)_𝒱. By (S7) and (S8), B_0E has
+principal symbol 1, so R := I − B_0E ∈ Ψ^(−1/2,−1/2)_𝒱 (the principal symbol of (S8) is taken modulo
+⋂_δ ρ^(1−2δ)S^(−1+2δ); take δ = ¼). For J ∈ ℕ put B := Σ_(j<J) R^jB_0; then BE = I − R^J, so E′ = E′BE + E′R^J. Here
+E′B ∈ Ψ^(0,0)_𝒱 is bounded on L² uniformly in p, and, once J/2 ≥ 1 + sup 𝗆 − inf 𝗆 + sup 𝗅 − inf 𝗅,
+E′R^J ∈ w⁻¹Ψ^(𝗆−J/2,𝗅−J/2)_𝒱 maps w_pρ_p^(inf 𝗅)H^(inf 𝗆) into H^(𝗆″,𝗅″) with 𝗆″, 𝗅″ ≥ 1, which lies in ρ_pH¹ ⊂ L²
+by the definition of these spaces, uniformly in p ((S7), (S8)). So ‖E′_pu‖ ≤ C(‖E_pu‖ +
+‖u‖_(w_pρ_p^(inf 𝗅)H^(inf 𝗆))), and symmetrically.
+
+(e) Fix K ∈ ℕ with K/2 ≥ N + |sup 𝗆| + |sup 𝗅|. For 0 ≤ k ≤ 3K let φ_k ∈ C^∞(ℝ) be real, equal to 1
+where |t − 1| ≤ 2^(k−3K−2) and to 0 where |t − 1| ≥ 2^(k−3K−1), and put z_k := φ_k(y_2), a real family in S⁰ (y_2 is real
+and bounded; the chain rule). Where y_1 ≠ 0, y_2 = 1; where z_k ≠ 0, |y_2 − 1| < 2^(k−3K−1), so z_(k+1) = 1 for k < 3K;
+and where z_(3K) ≠ 0, y_2 ≠ 0, so y_3 = 1. Hence y_1z_0 = y_1, z_kz_(k+1) = z_k and z_(3K)y_3 = z_(3K). Put q := y_3a⁻¹,
+R_0 := B and r_0 := b; then (1 − z_0)r_0 = (1 − z_0)(1 − y_1)b ∈ ρ^∞S^(−∞), as (1 − z_0)y_1 = 0. Suppose that, for some
+j < K, R_j ∈ Ψ^(−j/2,−j/2)_𝒱 has the symbol r_j ((S7)) and (1 − z_(3j))r_j ∈ ρ^∞S^(−∞). Put
+Q_j := Op(z_(3j+1)r_jq) ∈ w′⁻¹Ψ^(−𝗆′−j/2,−𝗅′−j/2)_𝒱 and R_(j+1) := R_j − Q_jA. As qa = y_3 (both vanish where y_3 = 0)
+and z_(3j+1)y_3 = z_(3j+1)z_(3K)y_3 = z_(3j+1) (from z_k = z_kz_(k+1)), the principal symbol of Q_jA is z_(3j+1)r_j
+((S7), (S8)). So R_(j+1) has principal symbol (1 − z_(3j+1))r_j = (1 − z_(3j+1))(1 − z_(3j))r_j, which lies in ρ^∞S^(−∞),
+and R_(j+1) ∈ Ψ^(−(j+1)/2,−(j+1)/2)_𝒱, the principal symbol of (S8) being taken modulo ⋂_δ ρ^(j/2+1−2δ)S^(−j/2−1+2δ)
+(take δ = ¼). Its symbol r_(j+1) = r_j − c_j, c_j the symbol of Q_jA, satisfies (1 − z_(3j+3))r_(j+1) ∈ ρ^∞S^(−∞):
+(1 − z_(3j+3))r_j = (1 − z_(3j+3))(1 − z_(3j))r_j, and (1 − z_(3j+3))c_j lies in ρ^∞S^(−∞) by (g), whose proof does not
+use (e), applied with y := 1 − z_(3j+2) and y′ := 1 − z_(3j+3), as y·z_(3j+1)r_jq = 0 and yy′ = y′. After K steps,
+B = QA + R_K with Q := Σ_(j<K) Q_j ∈ w′⁻¹Ψ^(−𝗆′,−𝗅′)_𝒱 and R_K ∈ Ψ^(−K/2,−K/2)_𝒱. By the uniform boundedness of (S7),
+with (S8),
+
+    ‖B_pu‖_(w_pH^(𝗆,𝗅)) ≤ C‖A_pu‖_(w_pw′_pH^(𝗆−𝗆′,𝗅−𝗅′)) + C‖u‖_(w_pH^(𝗆−K/2,𝗅−K/2)),
+
+with C independent of p, and B_pu lies in w_pH^(𝗆,𝗅) when the right side is finite. As K/2 ≥ N + |sup 𝗆| + |sup 𝗅|, the
+last norm is at most C‖u‖_(w_pH^(−N,−N)): for orders 𝗍, 𝗍′ ≤ −N, w_pH^(−N,−N) lies in w_pρ_p^(inf 𝗍′)H^(inf 𝗍), and the
+elliptic family that norms w_pH^(𝗍,𝗍′) maps it into H^(𝗋,𝗋′) with 𝗋, 𝗋′ ≥ 0, which lies in ρ_p^(inf 𝗋′)H^(inf 𝗋) ⊂ L² by
+the definition of these spaces, uniformly in p ((S7), (S8)). For ℂ^N-valued functions the construction is the same with
+matrices, a⁻¹ being the inverse matrix and q a = y_3 Id ((S14)).
+
+(f) The charts are those of the ℬ^(p,×), and |∂^γ(ρ̃_(p,α,i)∂_iτ^j_(βα))| ≤ C²C_γρ̃_(p,β,j), C_γ the constants of the
+ℬ^(p,×); so the family is a parameterised scaled b.g. structure. Its coefficient Lie algebras are those of the charts,
+and V = Σ V^iρ̃_(p,α,i)∂_i = Σ (V^iρ̃_(p,α,i)/ρ_(p,α,i))ρ_(p,α,i)∂_i gives the same operator Lie algebras. As ρ̄̃_(p,α)
+and ρ̄_(p,α) differ by a factor in [C⁻¹, C], the scaling weights are the same. In a chart, a covector is
+Σ_i ξ_i dx^i/ρ_(p,α,i) = Σ_i ξ̃_i dx^i/ρ̃_(p,α,i) with ξ = Dξ̃, D := diag(ρ_(p,α,i)/ρ̃_(p,α,i)), whose entries lie in
+[C⁻¹, C]; so the local expressions ã(x, ξ̃) = a(x, Dξ̃) of a function on T*M satisfy ∂_x^β∂_ξ̃^γ ã =
+D^γ(∂_x^β∂_ξ^γ a)(x, Dξ̃), with C⁻¹⟨ξ̃⟩ ≤ ⟨Dξ̃⟩ ≤ C⟨ξ̃⟩, and the classes S^m and the classes S^m_(1−δ,δ) of (S8) are the
+same, with seminorms equivalent uniformly in p; hence so are the elliptic weights and, with the same ρ and λ, the classes
+of (S8). In the local quantisation of (S4), the substitution ξ̃ = D⁻¹ξ turns the phase Σ_j (x^j − x′^j)ξ̃_j/ρ̃_j and the
+factor dξ̃/(ρ̃_1⋯ρ̃_n) into Σ_j (x^j − x′^j)ξ_j/ρ_j and dξ/(ρ_1⋯ρ_n), and the cut-offs depend on the charts only; so the
+quantisations are the same. In (S3), the dilation S̃_(p,α) is D ∘ S_(p,α), so f := (S_(p,α))_*g is replaced by f ∘ D⁻¹,
+and ‖f ∘ D⁻¹‖_(H^s(ℝⁿ)) = |det D|^(1/2)‖⟨D⁻¹η⟩^s f̂(η)‖_(L²) lies between C^(∓(n/2+|s|))‖f‖_(H^s(ℝⁿ)); so the norms of
+the weighted spaces of the two structures are equivalent uniformly in p, and so are those with k derivatives along W, the
+coefficient Lie algebras being the same. A uniformly positive density of one structure is one of the other, the factors
+ρ̃_(p,α,1)⋯ρ̃_(p,α,n)/(ρ_(p,α,1)⋯ρ_(p,α,n)) lying in [C^(−n), Cⁿ]; so the conditions of (S4) on residual operators are
+the same, with uniformly equivalent bounds, and the classes Ψ_𝒱 coincide. For variable orders the norms of (a) with the
+same E differ only in the first term, which is of constant order. Finally, for another scaling weight ρ′ the logarithm
+log(ρ′/ρ) and its derivatives along the 𝒲_p are bounded uniformly in p ((S2), the two being equivalent to the same weight
+family), so (ρ′/ρ)^(±𝗅) = exp(±𝗅 log(ρ′/ρ)) lie in S⁰ uniformly, and ρ′^(−𝗅)S^𝗆 = ρ^(−𝗅)S^𝗆; the first term of the norm
+changes to an equivalent one; and (w/w̃)E is elliptic in w̃⁻¹Ψ^(𝗆,𝗅)_𝒱 with ‖(w/w̃)E_pu‖ and ‖E_pu‖ comparable, as
+multiplication by w/w̃ and its inverse is bounded on L² uniformly in p.
+
+(g) Fix a countable P′ ⊂ P and write N := N_(P′). Let 𝔐 be the microlocalisation locus of N and j the continuous
+extension of the uniformly continuous functions on ^𝒱T*N to its uniform compactification
+((S16) of [[thm:std-sbg-calculus]]); S⁰ consists of such functions ([Hin26d, Lemma 3.24 (1)]), and j(fg) = j(f)j(g),
+j(f̄) is the complex conjugate of j(f), and j(ψ(f)) = ψ(j(f)) for real f and ψ ∈ C^∞(ℝ) (ψ(f) lies in S⁰ by the chain
+rule), both sides being continuous and equal on the dense subset ^𝒱T*N. By (b), A_(P′), B_(P′) and
+(AB)_(P′) = A_(P′)B_(P′) lie in the classes of N, with the symbols a_(P′), b_(P′) and c_(P′). If ϖ ∈ 𝔐 and j(y)(ϖ) ≠ 0,
+then ϖ is not in the essential support of a_(P′), which is WF′(A_(P′)) ((S16)); so, by the locality of products of (S5),
+with (S8) for variable orders and entrywise for matrices ((S14)), the essential support of c_(P′) lies in {j(y) = 0}. The
+set Z := 𝔐 ∩ supp j(y′) is compact and lies in {j(y) = 1}, as j(y′)(1 − j(y)) = j(y′(1 − y)) = 0. Each point of Z has a
+χ ∈ S⁰ with j(χ) ≠ 0 there and χc_(P′) ∈ ww′ρ^∞S^(−∞); finitely many, χ_1, …, χ_n, give g := Σ_i |χ_i|² ∈ S⁰ with
+j(g) > ε on a neighbourhood O of Z, for some ε > 0. Let ψ ∈ C^∞(ℝ) vanish on (−∞, ε/2] and equal 1 on [ε, ∞), and put
+θ := ψ(g) ∈ S⁰. Then y′θc_(P′) = y′(ψ(g)/g)Σ_i χ̄_i(χ_ic_(P′)) lies in ww′ρ^∞S^(−∞), ψ(s)/s being smooth. And
+f := y′(1 − θ) ∈ S⁰ has j(f) = 0 on O and off supp j(y′), hence on a neighbourhood of 𝔐 = {j(ρλ) = 0}; so j(ρλ) ≥ δ on
+the compact set supp j(f) for some δ > 0, f vanishes where ρλ < δ, and fc_(P′) ∈ ww′ρ^∞S^(−∞), as ρ and λ are bounded
+below on the support of f. So y′c_(P′) = y′θc_(P′) + fc_(P′) lies in ww′ρ^∞S^(−∞) on N. Each seminorm of y′c_(P′) is the
+supremum over p ∈ P′ of that of y′c_p; so, as a function of p, each seminorm of y′c_p is bounded on every countable
+subset of P, hence bounded, by (c). The same argument applies to BA. ∎
+
 ### The e3b-calculus in dimension 4 + 1 {#sec:ii-a-4}
 
 This section sets up the e3b-calculus as an instance of the calculus of [[sec:ii-a-3]]: its unit cells, its operators
@@ -547,7 +713,7 @@ spaces.
 
 #### Bundles {#sec:ii-a-4-3}
 
-Operators on the trivial bundle ℂ^N (the bundles of [[sec:i-a-1-2]]) are N × N matrices of scalar operators; all
+Operators on the trivial bundle ℂ^(N_E) (the bundles of [[sec:i-a-1-2]]) are N_E × N_E matrices of scalar operators; all
 statements above and below hold for them with matrix-valued symbols, the principal symbols multiplying as matrices
 ((S14), for differential and for pseudodifferential operators). Where a
 scalar principal symbol is needed (commutators lowering the order), it is assumed and said.
@@ -1050,8 +1216,10 @@ asymptotic summation is needed.
 (c) Bu = B(χu) = QAχu + R_Jχu = QAu + R_Jχu, because Aχ = A and Bχ = B. Take J ≥ sup 𝗌 + N and use (a).
 
 (d) By [[lem:ii-a-4-1]] (with (S8) for variable orders), an elliptic Λ ∈ C^∞_b Ψ^(𝗌+1)_e3b is Σ_(l=0)^N Λ_lV_l with
-Λ_l ∈ C^∞_b Ψ^𝗌_e3b. Microlocal elliptic regularity (S5), with I in place of B, gives
-‖v‖_(H^(𝗌+1)) ≤ C(‖Λv‖_(L²) + ‖v‖_(H^(−N))) ≤ C Σ_l ‖V_lv‖_(H^𝗌). Apply this to v = V^J u, |J| ≤ k − 1, and sum, using
+Λ_l ∈ C^∞_b Ψ^𝗌_e3b; we take Λ elliptic in the sense of [[lem:ii-a-3-1]], for instance Op(λ^(−𝗌−1)), λ the elliptic
+weight of (S8). The elliptic estimate of [[lem:ii-a-3-1]] (e), for this single structure (P a point) with B = I and
+y_1 = y_2 = y_3 = 1, gives ‖v‖_(H^(𝗌+1)) ≤ C(‖Λv‖_(L²) + ‖v‖_(H^(−N))) ≤ C Σ_l ‖V_lv‖_(H^𝗌), the remainder there being at
+most C‖v‖_(H^(−N)). Apply this to v = V^J u, |J| ≤ k − 1, and sum, using
 [[eq:ii-a-8-1]]. Iterating gives the second claim. For the third, H^(s̄)_b is by definition the space of u with
 V^J u ∈ L² for |J| ≤ s̄. ∎
 
@@ -1067,6 +1235,9 @@ pseudolocality in the proof of [Hin26c, Proposition 3.28].) Let 𝗌 and 𝗌_0 
 (b) There is d_0 ∈ ℕ, depending only on 𝗌 and 𝗌_0, with the following property. Let B, B^♯ ∈ C^∞_b Ψ⁰_e3b with
 WF′_e3b(I − B^♯) ∩ WF′_e3b(B) = ∅. Then there is C, depending on B and B^♯, with
 ‖Bℓ(I − B^♯)u‖_(H^𝗌_e3b) ≤ C‖ℓ‖_(C^(d_0)_e3b)‖u‖_(H^(𝗌_0)_e3b) for all ℓ ∈ C^(d_0)_e3b.
+
+For Θ ∈ ℕ, d_0 = 200Θ + 100 serves in (a) when 𝗌 has values in [−Θ, Θ], and in (b) when 𝗌_0 has values in [−Θ, Θ]
+and sup 𝗌 − inf 𝗌_0 ≤ Θ ([[prop:fwd-calculus]] with T := Θ, which proves (b) without the commutator expansion).
 
 *Proof.* *Smooth coefficients.* Let C^∞_e3b be the space of functions all of whose e3b-derivatives are bounded. With the
 seminorms ‖·‖_(C^d_e3b) it is a Fréchet space. Such a function ℓ is a symbol of order 0, independent of the fibre
@@ -1460,7 +1631,12 @@ the support of u.
 **Proposition {#prop:ii-a1-2-4}** (Finite regularity.) Let 𝗍 be a variable order, ν ∈ ℕ_0, and 𝗆, 𝗆_1, 𝗆_2 orders,
 constant or variable. There are M and C, depending on these orders, on ν and on δ > 0, with the following properties,
 for symbols in C^((M+2))_ν S̃ of the stated orders (symbols of different indices are taken in the largest). Throughout,
-"order 𝗋" means bounded from H^𝗍 to H^(𝗍−𝗋).
+"order 𝗋" means bounded from H^𝗍 to H^(𝗍−𝗋). For Θ ∈ ℕ, when 𝗍 and the orders of all quantized symbols have values in
+[−Θ, Θ] (of any index ν), M := 200Θ + 98 serves in (a)–(d); in (e) for N ≤ Θ and expressions with at most six
+quantizations in each product (B_1, B_2 and the localisers included); and in (f) for expressions with at most six
+quantizations in each product whose formal symbol in every chart is a sum of terms of pointwise order at most μ, an order
+function with values in [−6Θ − 3, 6Θ + 3] ([[prop:fwd-calculus]] with T := Θ, which proves (e) without the commutator
+expansion).
 
 (a) Op(a) extends from C_c^∞ to a bounded operator of order 𝗆, without loss, with norm at most C‖a‖_((M);ν,𝗆).
 
@@ -1920,35 +2096,35 @@ near fibre infinity and supported where (z, y) are defined and in {ρ_∞ < 1}, 
 derivatives are supported in a set compact in the fibres, where every symbol has order −∞.
 
 *Commutant.* With 𝗄 := 𝗌 − (m − 1)/2 (the restriction to fibre infinity), the regulariser φ_ε of [[sec:ii-a1-2-3]] with
-exponent κ, and a large constant M, put
+exponent κ, and a large constant C_z, put
 
-    ǎ_ε := χ_∞ ρ_∞^(−𝗄) φ_ε e^(−Mz) χ_s(z) χ_e(z) ψ_y.
+    ǎ_ε := χ_∞ ρ_∞^(−𝗄) φ_ε e^(−C_z z) χ_s(z) χ_e(z) ψ_y.
 
 Its factors other than ρ_∞^(−𝗄)φ_ε have d_0 − 1 bounded derivatives ([[lem:ii-a1-5-2]]), so ǎ_ε is bounded in
 C^((d_0−1)) S̃^𝗄 (index 0), and lies in C^((d_0−1)) S̃^(𝗄−κ) for each ε. Since 𝖧_fz = 1 and 𝖧_fψ_y = 0,
 [[eq:ii-a1-2-1]] gives, where χ_∞ = 1,
 
-    𝖧_f(ǎ_ε²) = ρ_∞^(−2𝗄) φ_ε² ψ_y² e^(−2Mz) [−χ_s²χ_e² Q_ε + χ_e² ∂_z(χ_s²) + χ_s² ∂_z(χ_e²)],
-    Q_ε := 2M + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ + 2(𝖧_f𝗄) log ρ_∞,     𝗄_ε := 𝗄 − κθ_ε.
+    𝖧_f(ǎ_ε²) = ρ_∞^(−2𝗄) φ_ε² ψ_y² e^(−2C_z z) [−χ_s²χ_e² Q_ε + χ_e² ∂_z(χ_s²) + χ_s² ∂_z(χ_e²)],
+    Q_ε := 2C_z + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ + 2(𝖧_f𝗄) log ρ_∞,     𝗄_ε := 𝗄 − κθ_ε.
 
 On the support, 𝖧_f𝗄 = 𝖧_f𝗌 ≤ 0 and log ρ_∞ < 0, so the last term of Q_ε is nonnegative. These two signs hold on the
 set W where (z, y) are defined, 𝖧_f𝗌 ≤ 0 and ρ_∞ < 1, a neighbourhood of the box
 {z ∈ [−2δ, T + 2δ], |y| ≤ 2δ_1} ∩ supp χ_∞; off W, Q_ε need not be positive, nor even defined. Fix
 ζ ∈ C^∞(ᵉ³ᵇT̄*M̃) with values in [0, 1], equal to 1 near that box and supported in W, and choose
-M ≥ 1 + sup_(supp ζ) |2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞|, uniformly in ε as 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ M on supp ζ; M will be enlarged
-once more below. Put
+C_z ≥ 1 + sup_(supp ζ) |2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞|, uniformly in ε as 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ C_z on supp ζ; C_z will be
+enlarged once more below. Put
 
-    Q̃_ε := ζQ_ε + (1 − ζ)M = Q̃_(0,ε) + ζλ,     Q̃_(0,ε) := ζQ_(0,ε) + (1 − ζ)M,
+    Q̃_ε := ζQ_ε + (1 − ζ)C_z = Q̃_(0,ε) + ζλ,     Q̃_(0,ε) := ζQ_(0,ε) + (1 − ζ)C_z,
 
-with Q_(0,ε) := 2M + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ and λ := 2(𝖧_f𝗄) log ρ_∞. Then Q̃_ε is defined on all of phase space,
-Q̃_(0,ε) ≥ M and ζλ ≥ 0 everywhere, so Q̃_ε ≥ M everywhere, and Q̃_ε = Q_ε near the box. Q̃_(0,ε) has d_0 − 2 bounded
+with Q_(0,ε) := 2C_z + 2𝗄_ε ρ_∞⁻¹ 𝖧_fρ_∞ and λ := 2(𝖧_f𝗄) log ρ_∞. Then Q̃_ε is defined on all of phase space,
+Q̃_(0,ε) ≥ C_z and ζλ ≥ 0 everywhere, so Q̃_ε ≥ C_z everywhere, and Q̃_ε = Q_ε near the box. Q̃_(0,ε) has d_0 − 2 bounded
 derivatives, and ζλ has d_0 − 2 derivatives bounded by C⟨log ρ_∞⟩, uniformly in ε ([[lem:ii-a1-5-1]] (b),
 [[def:ii-a1-1-3]], and [[lem:ii-a1-1-1]] for ζ). By [[lem:ii-a1-2-5]] (ii) with ν = 0, Q̃_ε^(−1/2) is bounded in
 C^((d_0−2))_1 S̃⁰ and Q̃_ε^(1/2) in C^((d_0−2))_1 S̃^δ for every δ > 0. Put
 
-    b_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_s χ_e Q̃_ε^(1/2) χ_∞,
-    b_(e,ε) := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_s (−∂_z(χ_e²))^(1/2) χ_∞,
-    e_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−Mz) χ_e (∂_z(χ_s²))^(1/2) χ_∞,
+    b_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−C_z z) χ_s χ_e Q̃_ε^(1/2) χ_∞,
+    b_(e,ε) := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−C_z z) χ_s (−∂_z(χ_e²))^(1/2) χ_∞,
+    e_ε := μ^(1/2) ρ_∞^(−𝗄) φ_ε ψ_y e^(−C_z z) χ_e (∂_z(χ_s²))^(1/2) χ_∞,
     z_ε := μ^(−1/2) Q̃_ε^(−1/2).
 
 Then ςH_ℓ(ǎ_ε²) = μ𝖧_f(ǎ_ε²) = −b_ε² − b_(e,ε)² + e_ε² modulo symbols of order −∞ (from χ_∞), as Q̃_ε = Q_ε on the
@@ -1956,8 +2132,8 @@ supports, and ǎ_ε = z_εb_ε exactly, on all of phase space. The factor μρ_�
 and d_0 − 2 derivatives, b_ε is bounded in the class of order 𝗌 + δ for every δ > 0 (the factor Q̃_ε^(1/2)), e_ε and
 b_(e,ε) in that of order 𝗌, and z_ε, a global symbol, in that of order −(m − 1)/2, on which it acts without loss
 ([[prop:ii-a1-2-4]] (a)). e_ε is supported in {z ∈ [−δ, −δ/2]}, inside Ell(E) and away from γ([0, T]). b_0 is elliptic
-on γ([0, T]), where χ_s = χ_e = ψ_y = 1 and Q̃_0 ≥ M: on the open set U′ := {z ∈ (−δ/2, T + δ/2), |y|² < δ_1²/2}, near
-fibre infinity, b_0⁻¹ = ρ_∞^𝗌 e^(Mz) Q̃_0^(−1/2) lies in C^((d_0−2))_1 S̃^(−𝗌).
+on γ([0, T]), where χ_s = χ_e = ψ_y = 1 and Q̃_0 ≥ C_z: on the open set U′ := {z ∈ (−δ/2, T + δ/2), |y|² < δ_1²/2}, near
+fibre infinity, b_0⁻¹ = ρ_∞^𝗌 e^(C_z z) Q̃_0^(−1/2) lies in C^((d_0−2))_1 S̃^(−𝗌).
 
 *Localisers.* The symbols ǎ_ε, b_ε and b_(e,ε) are supported in the closed set
 K_1 := {z ∈ [−δ, T + δ], |y| ≤ δ_1} ∩ supp χ_∞, and e_ε in K_E := {z ∈ [−δ, −δ/2], |y| ≤ δ_1} ∩ supp χ_∞. Choose
@@ -2007,15 +2183,15 @@ fibres, so its quantization has every order. So
 
 dropping −‖B_(e,ε)w‖² ≤ 0. For the L_I term, fix elliptic operators Λ_± of orders ±(m − 1)/2 defining the norms of
 H^(±(m−1)/2), and let C_I be the norm of L_I between these spaces. It depends on finitely many norms of the coefficients
-and not on M or ε. Take Λ_+ := Op(λ_+) with λ_+ classical. Then Λ_+Ǎ = Op(λ_+z_ε)B_ε + (order 𝗌 − 1 + 2δ)
-([[prop:ii-a1-2-4]] (b), with ǎ_ε = z_εb_ε), where λ_+z_ε ∈ C^((d_0−2))_1 S̃⁰. Its supremum is at most C_ΛM^(−1/2), with
-C_Λ := sup |λ_+μ^(−1/2)|, as Q̃_ε ≥ M on all of phase space. [[lem:ii-a1-2-6]] with η := M⁻¹ and δ/2 in place of
+and not on C_z or ε. Take Λ_+ := Op(λ_+) with λ_+ classical. Then Λ_+Ǎ = Op(λ_+z_ε)B_ε + (order 𝗌 − 1 + 2δ)
+([[prop:ii-a1-2-4]] (b), with ǎ_ε = z_εb_ε), where λ_+z_ε ∈ C^((d_0−2))_1 S̃⁰. Its supremum is at most C_ΛC_z^(−1/2),
+with C_Λ := sup |λ_+μ^(−1/2)|, as Q̃_ε ≥ C_z on all of phase space. [[lem:ii-a1-2-6]] with η := C_z⁻¹ and δ/2 in place of
 δ, applied to B_εw, and (a + b)² ≤ 2a² + 2b² give
 
-    ‖Ǎw‖²_((m−1)/2) ≤ 2(C_Λ² + 1)M⁻¹‖B_εw‖² + C‖w‖²_(𝗌−1/2+δ),
+    ‖Ǎw‖²_((m−1)/2) ≤ 2(C_Λ² + 1)C_z⁻¹‖B_εw‖² + C‖w‖²_(𝗌−1/2+δ),
 
-where ‖B_εw‖_(−1/2+δ/2) ≤ C‖w‖_(𝗌−1/2+δ), b_ε being bounded in the class of order 𝗌 + δ/2. Enlarge M so that
-4C_I(C_Λ² + 1)M⁻¹ ≤ 1/2. Then
+where ‖B_εw‖_(−1/2+δ/2) ≤ C‖w‖_(𝗌−1/2+δ), b_ε being bounded in the class of order 𝗌 + δ/2. Enlarge C_z so that
+4C_I(C_Λ² + 1)C_z⁻¹ ≤ 1/2. Then
 
     ς⟨C_(ǎ_ε)w, w⟩ ≤ −(1/2)‖B_εw‖² + ‖E_εw‖² + C‖w‖²_(𝗌−1/2+δ).
 
@@ -2031,7 +2207,7 @@ misses Γ. There is no threshold, so τ is arbitrary. Take τ ≥ sup 𝗌 + N; 
 ℂ^(N′) the commutant is scalar and L_I is matrix-valued; nothing above used a scalar L_I.
 
 The uniformity: all constants are bounded by finitely many norms of the coefficients, by the bounds of
-[[lem:ii-a1-5-2]], and by M, δ and δ_1. Let L′ be a perturbation small in C^(d_0), with field 𝖧′, let γ′ be the
+[[lem:ii-a1-5-2]], and by C_z, δ and δ_1. Let L′ be a perturbation small in C^(d_0), with field 𝖧′, let γ′ be the
 integral curve of 𝖧′_f with γ′(T) = γ(T), and build the coordinates (z′, y′) of [[lem:ii-a1-5-2]] for 𝖧′ with the same
 slice {σ = 0} and the same ỹ, shifted so that γ′(t) = (t, 0). As 𝖧′ → 𝖧, the integral curves of 𝖧′ from points of the
 slice near p_0 converge to those of 𝖧 uniformly on the compact time interval ([[lem:ii-a1-5-1]] (c)). So the
@@ -2039,8 +2215,8 @@ compactness argument for the injectivity in [[lem:ii-a1-5-2]] (a curve meets the
 close to 𝖧, (z′, y′) is defined and injective on a fixed neighbourhood of γ([−3δ′, T + 3δ′]), with the derivative bounds
 of [[lem:ii-a1-5-2]] uniform, and (z′, y′) → (z, y) uniformly there. The box {z′ ∈ [−δ, T + δ], |y′| ≤ δ_1} then lies in
 the box of 𝖧 with 2δ and 2δ_1, which has the properties required above by the choice of the margin, given that
-𝖧′_f𝗌 ≤ 0 on the same neighbourhood. With M chosen with a margin too, as the bounds it must exceed depend continuously on
-the coefficients, the same δ, δ_1 and M serve, and so do the same ζ and the same localisers once (z′, y′) is within
+𝖧′_f𝗌 ≤ 0 on the same neighbourhood. With C_z chosen with a margin too, as the bounds it must exceed depend continuously
+on the coefficients, the same δ, δ_1 and C_z serve, and so do the same ζ and the same localisers once (z′, y′) is within
 min(δ/16, δ_1/2) of (z, y). Indeed φ_0 and ζ are 1 near the box of 𝖧 with 2δ and 2δ_1. φ_E is 1 near
 {z ∈ [−3δ/2, −δ/4], |y| ≤ 3δ_1/2}, which contains the E-set {z′ ∈ [−δ, −δ/2], |y′| ≤ δ_1} of 𝖧′, as there
 z ∈ (−17δ/16, −7δ/16) and |y| < 3δ_1/2. And supp φ_E ⊂ {z ≤ −δ/8} misses γ′([0, T]) ⊂ {z > −δ/16}. ∎
@@ -2165,7 +2341,7 @@ The two estimates without b-regularity are [Hin26c, Propositions 3.23 and 3.24] 
 commutator arguments. For variable orders it cites [Vas18, Theorem 5.3], with the sharp Gårding inequality on each unit
 cell and a commutant as in [dHUV15], and it takes the coefficient regularity d_0 finite because the arguments use the
 boundedness of finitely many operators on a fixed range of spaces. [Hin26d] does not treat propagation (its Section 3.6
-says so), and [HJS] has constant differential orders. In this edition the two estimates are [[thm:ii-a1-3-1]] and
+says so), and [Mel94] has constant orders. In this edition the two estimates are [[thm:ii-a1-3-1]] and
 [[thm:ii-a1-5-4]], proved in [[sec:ii-a1-1]] to [[sec:ii-a1-5]] without the sharp Gårding inequality. We refer to them
 as (L3) and (L4) and recall their content.
 

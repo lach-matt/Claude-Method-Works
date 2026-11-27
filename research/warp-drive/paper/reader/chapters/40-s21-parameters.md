@@ -490,9 +490,12 @@ the boost parameter of [[prop:iii-i4-4-1]] (1) for L_(h,p⃗), read at b with th
 Ṡ is determined by the forward solution, as the coefficient of t_* at K⁺ (S ↦ h_b(S) being injective,
 [[lem:s20-injective]]). If Ṡ_(h,p⃗)(f) = 0, write Q_(h,p⃗)(f) := (ḃ, Ṡ⁽⁰⁾_1) ∈ 𝔟 ⊕ 𝒮_1 for its parameters in
 [[eq:iii-i6-2-1]] at b, which are determined by the forward solution: a stationary tensor of positive K⁺-weight
-vanishes, and (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective ([[sec:iii-i7-1]]). Forcings converge in the finite-regularity
-spaces on which the bounds of [[lem:iii-i7-2-5]] (c) hold, which, d being large, is what [[lem:iii-i7-3-1]] (c) gives
-for h → 0 in 𝒳^d; ‖·‖_𝒴 is the norm of one such space, fixed once and for all. For α and α_+ as above let
+vanishes, and (ḃ, S) ↦ ġ_b(ḃ) + h_b(S) is injective ([[sec:iii-i7-1]]). F_j → F in 𝒴 means convergence in each of
+the finite-regularity spaces on which the bounds of [[lem:iii-i7-2-5]] (c) hold, up to a regularity that d, being
+large, allows; this is what [[lem:iii-i7-3-1]] (c) gives for h → 0 in 𝒳^d. It is not convergence in ‖·‖_𝒴 alone,
+which is the norm of one such space, fixed once and for all: the proof of [[lem:iii-i7-4-1]] reads u_j two orders
+above the norm in which it reads the parameters, and bounds u_j by F_j through a forward solution. For α and α_+ as
+above let
 𝒴^S_(α,α_+) := H^(∞,(⟨ℰ^C_I+1⟩′,ℓ_I+1),α_++2,α)_b(Ω_*; S²T*)^(•,−) be the space of forcings of [[prop:iii-i4-4-1]] (1)
 at the K⁺-weight α, normed in the same way; it contains 𝒴 with ‖·‖_(𝒴^S_(α,α_+)) ≤ C‖·‖_𝒴, and Ṡ_(h,p⃗) is bounded on
 it uniformly for (h, p⃗) small and b ∈ ℬ̄_* ([[lem:iii-i7-2-5]] (c)).
@@ -583,25 +586,29 @@ h-derivative by [[eq:iii-i4-3-1]], the p⃗-derivative by the count of [[eq:iii-
 in the differences of the metrics, with coefficients smooth in their inverses. The mean value theorem along the segment
 from (0, p⃗_b) gives the bound.
 
-(2) For F ∈ 𝒴, |Ṡ_(h,p⃗)(F) − Ṡ_(0,p⃗_b)(F)| ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖_𝒴. And for F_1, F_2 ∈ 𝒴 with
-Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), where alone Q_(h,p⃗) and Q_(0,p⃗_b) are defined,
+(2) Let ‖·‖^+_𝒴 be a norm of the same kind as ‖·‖_𝒴 at a larger regularity and a smaller ε, in which the bounds of
+[[lem:iii-i7-2-5]] (c) bound the forward solutions u_1 of the count below at the regularity of ‖·‖_𝒴 plus 2, d being
+large enough for [[lem:iii-i7-3-1]] (c) in it as well. For F ∈ 𝒴, Ṡ_(h,p⃗)(F) − Ṡ_(0,p⃗_b)(F) has norm at most
+C(‖h‖ + |p⃗ − p⃗_b|)‖F‖^+_𝒴.
+And for F_1, F_2 ∈ 𝒴 with Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), where alone Q_(h,p⃗) and Q_(0,p⃗_b) are defined,
 
-    |Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2)| ≤ C‖F_1 − F_2‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴.
+    |Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2)| ≤ C‖F_1 − F_2‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴.
 
-This is the comparison of [[lem:iii-i7-4-1]] made quantitative. Let u_1, u_2 be the forward solutions of
+This is the comparison of [[lem:iii-i7-4-1]] made quantitative. The second norm is not ‖·‖_𝒴: the count below reads
+u_1 two orders above ‖·‖_𝒴, and bounds it by F_1 through a forward solution. Let u_1, u_2 be the forward solutions of
 L_(h,p⃗)u_1 = F_1 and L_(0,p⃗_b)u_2 = F_2. Then L_(0,p⃗_b)(u_1 − u_2) = R := F_1 − F_2 − (L_(h,p⃗) − L_(0,p⃗_b))u_1. Both
 backgrounds equal g_b near K⁺ ([[lem:iii-i-3-6]]), so L_(h,p⃗) − L_(0,p⃗_b) has coefficients of K⁺-weight a_K there; at
 ι⁺ it gains as in the proof of [[lem:iii-i7-4-1]]; and its coefficients have size O(‖h‖ + |p⃗ − p⃗_b|).
 *The boost parameters.* Fix α ∈ (1, min(a_K − 1, 3/2)) and α_+ ∈ (α, 2). For a general F_1 ∈ 𝒴, u_1 carries a boost
 term of K⁺-weight −1 − ε, so (L_(h,p⃗) − L_(0,p⃗_b))u_1 has K⁺-weight only a_K − 1 − ε, which may lie below α_K: R need
 not lie in 𝒴. It lies in 𝒴^S_(α,α_+) of [[sec:iii-i7-4]], by the count of the proof of [[lem:iii-i7-4-1]] (a), with
-‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, u_1 being bounded by F_1 through
+‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴, u_1 being bounded by F_1 through
 [[prop:iii-i4-4-1]] (1) for L_(h,p⃗), uniformly ([[lem:iii-i7-2-5]] (c)). With F_1 = F_2 = F, the boost terms of u_1
 and u_2 are built from the same state at b, so the difference of the boost parameters is Ṡ_(0,p⃗_b)(R), of size at
-most C‖R‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖_𝒴. *The parameters Q.* Under the condition
+most C‖R‖_(𝒴^S_(α,α_+)) ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F‖^+_𝒴. *The parameters Q.* Under the condition
 Ṡ_(h,p⃗)(F_1) = 0 = Ṡ_(0,p⃗_b)(F_2), u_1 has no boost term, so it has K⁺-weight −ε and is bounded by F_1 in the space of
 [[prop:iii-i6-2-1]] for L_(h,p⃗), uniformly; as in the proof of [[lem:iii-i7-4-1]] (b), the K⁺-weight a_K − ε ≥ α_K
-then gives ‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_𝒴 ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖_𝒴, and R ∈ 𝒴. Also u_1 − u_2 has no boost term,
+then gives ‖(L_(h,p⃗) − L_(0,p⃗_b))u_1‖_𝒴 ≤ C(‖h‖ + |p⃗ − p⃗_b|)‖F_1‖^+_𝒴, and R ∈ 𝒴. Also u_1 − u_2 has no boost term,
 so Ṡ_(0,p⃗_b)(R) = 0, and Q_(h,p⃗)(F_1) − Q_(0,p⃗_b)(F_2) = Q_(0,p⃗_b)(R), by the uniqueness in the proof of
 [[lem:iii-i7-4-1]] (b), which uses the injectivity of (ḃ, Ṡ) ↦ ġ_b(ḃ) + h_b(Ṡ). Its size is at most C‖R‖_𝒴.
 
@@ -612,7 +619,8 @@ Hence
     S^(−1)_(h,p⃗)(S′) − S′ = Ṡ_(h,p⃗)(f^S_(h,p⃗)(S′) − f^S_(0,p⃗_b)(S′)) + (Ṡ_(h,p⃗) − Ṡ_(0,p⃗_b))(f^S_(0,p⃗_b)(S′))
                             + Ṡ_(0,p⃗_b)(E^mot_b(S′, 0, 0)),
 
-and by (1), (2) and [[lem:iii-i15-2-11]] the three terms are at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S′|.
+and by (1), (2) and [[lem:iii-i15-2-11]] the three terms are at most C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S′|, as
+‖f^S_(0,p⃗_b)(S′)‖^+_𝒴 ≤ C|S′| ([[lem:iii-i7-3-1]] (c)).
 
 *The reduced map.* At (0, p⃗_b), [[eq:s21-boost-choice]] gives
 S′_0 := A_(0,p⃗_b)p⃗′^(=0) = −(S^(−1)_(0,p⃗_b))⁻¹Ṡ_(0,p⃗_b)(f^(=0)_(0,p⃗_b)(b′, S″)). By [[eq:iii-i15-2-7]],
@@ -624,11 +632,13 @@ K⁺-weight −ε > −1, so no boost term, and Q_(0,p⃗_b) of that forcing is 
 
 whence |M_(0,p⃗_b) + id| ≤ C|b − b₀|. For (h, p⃗) near (0, p⃗_b), M_(h,p⃗)(p⃗′^(=0)) = Q_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) with
 Ṡ_(h,p⃗)(F_(h,p⃗)(p⃗′^(=0))) = 0, and likewise at (0, p⃗_b). So (2), for the pair (F_(h,p⃗), F_(0,p⃗_b)), bounds
-M_(h,p⃗) − M_(0,p⃗_b) by C‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|) per unit p⃗′^(=0); and (1) bounds
-‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴, with A_(h,p⃗) − A_(0,p⃗_b) bounded the same way through [[eq:s21-boost-choice]], (1), (2)
-and the bound on the boost map. This proves the bound on A_(h,p⃗) and [[eq:iii-i15-2-8]], and the Neumann series gives
-the inverses. The proofs of [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and [[cor:iii-i7-4-6]] below, and the base step of
-[[prop:iii-i8-4-1]], use, beyond [[lem:iii-i7-2-5]] (c), only these inverses and their bounds. ∎
+M_(h,p⃗) − M_(0,p⃗_b) by C‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴 + C(‖h‖ + |p⃗ − p⃗_b|) per unit p⃗′^(=0), F_(h,p⃗) and
+f^(=0)_(0,p⃗_b) being bounded per unit p⃗′^(=0) in ‖·‖^+_𝒴 ([[lem:iii-i7-3-1]] (c), with the inverse of the boost map,
+of norm at most 2); and (1) bounds ‖F_(h,p⃗) − F_(0,p⃗_b)‖_𝒴, with A_(h,p⃗) − A_(0,p⃗_b) bounded the same way through
+[[eq:s21-boost-choice]], (1), (2) and the bound on the boost map. This proves the bound on A_(h,p⃗) and
+[[eq:iii-i15-2-8]], and the Neumann series gives the inverses. The proofs of [[lem:iii-i7-4-3]], [[lem:iii-i7-4-5]] and
+[[cor:iii-i7-4-6]] below, and the base step of [[prop:iii-i8-4-1]], use, beyond [[lem:iii-i7-2-5]] (c), only these
+inverses and their bounds. ∎
 
 **Lemma {#lem:iii-i7-4-3}** ([Hin26, Lemma 11.43] in dimension 4 + 1.) For (h, p⃗) small as in
 [[prop:iii-i15-2-12]], with parameter b ∈ ℬ̄_*, f ∈ 𝒴 and p⃗′^(=0) ∈ 𝔟 ⊕ 𝒮_1 there is a unique
@@ -736,10 +746,18 @@ parameter b ∈ ℬ̄_*, as throughout. 𝒴(α) is a Fréchet space, and bounds
 ‖·‖_(𝒴(α)): the quotient norm on 𝒴_1(α) + 𝒴_2(α) of the two defining spaces at one finite regularity and one ε > 0.
 The regularity is taken so large, and ε so small, that the linear maps used below, which are continuous on 𝒴(α)
 uniformly for (h, p⃗) small and b ∈ ℬ̄_* (in the proof of [[lem:iii-i8-3-2]], the maps from the forcing f′ of its
-Step 0 to the coefficients and to the remainder; and those of [[prop:iii-i8-4-1]] (i)), are bounded in this seminorm;
-and d is taken so large that the bounds of [[lem:iii-i8-2-6]] (b) and [[lem:s21-motions-at-b]] in it are bounds by
-‖h‖. In the same way ‖·‖_(α′) is one fixed seminorm of the space of the hypothesis of [[lem:iii-i8-3-2]] at the level
-α′.
+Step 0 to the coefficients and to the remainder), are bounded in this seminorm. In the same way ‖·‖_(α′) is one fixed
+seminorm of the space of the hypothesis of [[lem:iii-i8-3-2]] at the level α′, of regularity at least that of
+‖·‖_(𝒴(α)) plus 2, α the level above α′ there, as Step 0 of the proof of that lemma bounds (L − L_b)u in ‖·‖_(𝒴(α))
+by ‖u‖_(α′). The bounds of [[prop:iii-i8-4-1]] (i) are taken in a second seminorm ‖·‖^+_(𝒴(α)), the same quotient
+norm at a larger regularity and a smaller ε, which depends on the seminorm of the solution bounded and is fixed in the
+proof: its step bounds the solution at a lower level α′ in ‖·‖_(α′) by (i) at α′, so its seminorm of the forcing must
+bound the seminorm of (i) at α′ as well as ‖·‖_(𝒴(α)). For each seminorm that (i) bounds these choices are finitely
+many and are made first; d is then taken so large that the bounds and the continuity used below hold in them,
+uniformly for h small: those of [[lem:iii-i8-2-6]] (b)–(c) and [[lem:s21-motions-at-b]], and the count of Step 0 of
+the proof of [[lem:iii-i8-3-2]]. F_j → F in 𝒴(α) is meant as F_j → F in 𝒴 is in [[sec:iii-i7-4]], at the regularities
+that d allows: the step of [[prop:iii-i8-4-1]] (ii) applies (ii) at the level below to forcings that converge only as
+[[lem:iii-i8-2-6]] (c) allows for h_j → 0 in 𝒳^d.
 
 ### Corrections of the third kind and the operator {#sec:iii-i8-2}
 
@@ -1124,8 +1142,10 @@ satisfies
 
     u ∈ ⋂_(ε>0) H^(∞,(⟨ℰ^C_I⟩,ℓ_I),β_+,α−2−ε)_b(Ω_*; S²T*)^(•,−)   for every β_+ < min(3/2, min Re ℰ_+). {#eq:iii-i8-4-2}
 
-Moreover (i) p⃗′_(h,p⃗) and F ↦ u are linear, with bounds uniform for (h, p⃗ − p⃗_b) small and b ∈ ℬ̄_*; (ii) at fixed
-b, if (h_j, p⃗_j) → (0, p⃗_b) and F_j → F in 𝒴(α), then p⃗′_(h_j,p⃗_j)(F_j) → p⃗′_(0,p⃗_b)(F). In compact spatial sets
+Moreover (i) p⃗′_(h,p⃗) and F ↦ u are linear, with bounds uniform for (h, p⃗ − p⃗_b) small and b ∈ ℬ̄_*: for each fixed
+seminorm ‖·‖_(α) of the space of [[eq:iii-i8-4-2]] there are a seminorm ‖·‖^+_(𝒴(α)) of 𝒴(α), as in [[sec:iii-i8-1]],
+and C with |p⃗′_(h,p⃗)(F)| + ‖u‖_(α) ≤ C‖F‖^+_(𝒴(α)), d being large for ‖·‖_(α) ([[sec:iii-i8-1]]); (ii) at fixed b,
+if (h_j, p⃗_j) → (0, p⃗_b) and F_j → F in 𝒴(α), then p⃗′_(h_j,p⃗_j)(F_j) → p⃗′_(0,p⃗_b)(F). In compact spatial sets
 u = O(t_*^(−α+2+ε)), almost O(t_*⁻¹) as α → 3.
 
 *Proof.* Choose admissible α_0 < α_1 < ⋯ < α_n = α with α_0 ∈ (2, min(a_K, 2 + ε_g, 5/2)) and
@@ -1133,15 +1153,25 @@ u = O(t_*^(−α+2+ε)), almost O(t_*⁻¹) as α → 3.
 Write p⃗′_(h,p⃗,α_i) for the map at the level α_i.
 
 *Base.* ℳ_(α_0) = ∅, as Re λ − 1 ≥ λ_♯ − 1 > 1/2 > α_0 − 2. By [[lem:iii-i8-3-1]], [[cor:iii-i7-4-6]] gives existence,
-uniqueness and linearity. The bounds are uniform by [[lem:iii-i7-2-5]] (c) and [[prop:iii-i15-2-12]], the
-finite-dimensional maps inverted in [[lem:iii-i7-4-3]] and [[lem:iii-i7-4-5]] lying within
+uniqueness and linearity. Its maps are continuous on 𝒴(α_0), so each fixed seminorm of their values is bounded by a
+seminorm ‖·‖^+_(𝒴(α_0)) of 𝒴(α_0), as (i) states. The bounds are uniform by [[lem:iii-i7-2-5]] (c) and
+[[prop:iii-i15-2-12]], the finite-dimensional maps inverted in [[lem:iii-i7-4-3]] and [[lem:iii-i7-4-5]] lying within
 C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|) of ±id; and (ii) holds as those maps converge at fixed b (by their construction and
 [[lem:iii-i7-4-1]], which allows forcings varying with j).
 
 *Step.* Let the statement hold at α′ := α_i, and let α″ := α_(i+1), ℳ′ := ℳ_(α″) ∖ ℳ_(α′) and
-F ∈ 𝒴(α″) ⊂ 𝒴(α′). For S⃗ = (S_ν)_(ν∈ℳ′) conjugation-symmetric ([[sec:iii-i8-1]]; the map T_(h,p⃗) below preserves
-these, L_(h,p⃗) and F being real) put F(S⃗) := F − Σ_(ν∈ℳ′) f^ν_(h,p⃗)(S_ν) ∈ 𝒴(α″) ([[lem:iii-i8-2-6]] (b)), and let
-u(S⃗) be the forward solution of
+F ∈ 𝒴(α″) ⊂ 𝒴(α′).
+
+*The seminorms.* Fix the seminorm ‖·‖_(α″) of (i) at α″. Take ‖·‖_(𝒴(α″)) and ‖·‖_(α′) as in [[sec:iii-i8-1]] for
+[[lem:iii-i8-3-2]] at the levels α′ < α″, with the remainder in ‖·‖_(α″); let ‖·‖^+_(𝒴(α′)) be the seminorm of (i) at
+α′ for ‖·‖_(α′), and ‖·‖^+_(𝒴(α″)) the quotient norm of [[sec:iii-i8-1]] on 𝒴(α″) at a regularity at least those of
+‖·‖_(𝒴(α″)) and ‖·‖^+_(𝒴(α′)) and an ε at most theirs. On 𝒴(α″) it bounds ‖·‖_(𝒴(α″)), and ‖·‖^+_(𝒴(α′)) up to a
+constant: each defining space at α″ lies in the one at α′, its norm bounding that at a lower regularity and a larger
+ε, as the K⁺-weight α″ exceeds α′.
+
+For S⃗ = (S_ν)_(ν∈ℳ′) conjugation-symmetric ([[sec:iii-i8-1]]; the map T_(h,p⃗) below preserves these, L_(h,p⃗) and F
+being real) put F(S⃗) := F − Σ_(ν∈ℳ′) f^ν_(h,p⃗)(S_ν) ∈ 𝒴(α″) ([[lem:iii-i8-2-6]] (b)), and let u(S⃗) be the forward
+solution of
 
     L_(h,p⃗)u(S⃗) = G(S⃗) := F(S⃗) − D_p⃗P_3(h, p⃗)(p⃗′_(h,p⃗,α′)(F(S⃗))) ∈ 𝒴(α″),
 
@@ -1159,15 +1189,15 @@ solution of L_(h,p⃗)u = G_1(S⃗) is Σ_ν m_ν(S_ν) + v(S⃗), where v(S⃗)
 
     L_(h,p⃗)v(S⃗) = R(S⃗) := Σ_ν e^ν_(h,p⃗)(S_ν) − D_p⃗P_3(h, p⃗)(p⃗′_(h,p⃗,α′)(Σ_ν e^ν_(h,p⃗)(S_ν))).
 
-By [[lem:s21-motions-at-b]] (α″ < min(a_K, 3)) and (i) at α′, ‖R(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S⃗|.
-The forward solution of G_1(S⃗) = G(0) − G(S⃗) is u(0) − u(S⃗), which lies in [[eq:iii-i8-4-2]] at α′, and so does
-Σ_ν m_ν(S_ν); hence v(S⃗) = u(0) − u(S⃗) − Σ_ν m_ν(S_ν) satisfies the hypothesis of [[lem:iii-i8-3-2]]. Moreover
-‖v(S⃗)‖_(α′) ≤ C|S⃗|: u(0) − u(S⃗) is the solution of [[eq:iii-i8-4-1]] at α′ for the forcing Σ_ν f^ν_(h,p⃗)(S_ν), of
-norm at most C|S⃗| by [[lem:iii-i8-2-6]] (b), so (i) at α′ bounds it by C|S⃗|, and ‖m_ν(S_ν)‖_(α′) ≤ C|S_ν| by
-[[lem:iii-i8-2-2]]. The coefficients of [[lem:iii-i8-3-2]] are read from the forcing f′ = R(S⃗) − (L_(h,p⃗) − L_b)v(S⃗)
-of Step 0 of its proof by maps fixed by L_b, and the count of that step gives
-‖(L_(h,p⃗) − L_b)v(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗|)‖v(S⃗)‖_(α′), the coefficients of L_(h,p⃗) − L_b having size
-O(‖h‖ + |p⃗|). So the coefficients of v(S⃗) satisfy
+By [[lem:s21-motions-at-b]] (α″ < min(a_K, 3)), in ‖·‖_(𝒴(α″)) and in ‖·‖^+_(𝒴(α′)) ([[sec:iii-i8-1]]), and (i) at α′,
+‖R(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S⃗|. The forward solution of G_1(S⃗) = G(0) − G(S⃗) is u(0) − u(S⃗),
+which lies in [[eq:iii-i8-4-2]] at α′, and so does Σ_ν m_ν(S_ν); hence v(S⃗) = u(0) − u(S⃗) − Σ_ν m_ν(S_ν) satisfies
+the hypothesis of [[lem:iii-i8-3-2]]. Moreover ‖v(S⃗)‖_(α′) ≤ C|S⃗|: u(0) − u(S⃗) is the solution of [[eq:iii-i8-4-1]]
+at α′ for the forcing Σ_ν f^ν_(h,p⃗)(S_ν), of norm at most C|S⃗| in ‖·‖^+_(𝒴(α′)) by [[lem:iii-i8-2-6]] (b), so (i) at
+α′ bounds it by C|S⃗|, and ‖m_ν(S_ν)‖_(α′) ≤ C|S_ν| by [[lem:iii-i8-2-2]]. The coefficients of [[lem:iii-i8-3-2]] are
+read from the forcing f′ = R(S⃗) − (L_(h,p⃗) − L_b)v(S⃗) of Step 0 of its proof by maps fixed by L_b, and the count of
+that step gives ‖(L_(h,p⃗) − L_b)v(S⃗)‖_(𝒴(α″)) ≤ C(‖h‖ + |p⃗|)‖v(S⃗)‖_(α′), the coefficients of L_(h,p⃗) − L_b having
+size O(‖h‖ + |p⃗|). So the coefficients of v(S⃗) satisfy
 
     |S^(h,p⃗)(R(S⃗))| ≤ C‖R(S⃗)‖_(𝒴(α″)) + C(‖h‖ + |p⃗|)‖v(S⃗)‖_(α′) ≤ C(‖h‖ + |p⃗ − p⃗_b| + |b − b₀|)|S⃗|,
 
@@ -1184,14 +1214,15 @@ lies in [[eq:iii-i8-4-2]] at α″. *Uniqueness:* if p⃗″ ∈ 𝒫_(α″) al
 then its solution lies in [[eq:iii-i8-4-2]] at α′ with the forcing F(S⃗″) − D_p⃗P_3(h, p⃗)(q⃗), q⃗ ∈ 𝒫_(α′), so
 q⃗ = p⃗′_(h,p⃗,α′)(F(S⃗″)) by uniqueness at α′, the solution is u(S⃗″), and C(S⃗″) = 0 gives S⃗″ = S⃗.
 
-*(i) at α″.* Linearity holds by construction. Write ‖F‖ := ‖F‖_(𝒴(α″)). By (i) at α′ and [[lem:iii-i8-2-6]],
-‖G(0)‖_(𝒴(α″)) ≤ C‖F‖, and u(0), the solution of [[eq:iii-i8-4-1]] at α′ for the forcing F, has ‖u(0)‖_(α′) ≤ C‖F‖;
-so the bound of [[lem:iii-i8-3-2]] gives |C(0)| ≤ C‖F‖, and |S⃗| ≤ 2|C(0)| ≤ C‖F‖. Then ‖F(S⃗)‖_(𝒴(α″)) ≤ C‖F‖
-([[lem:iii-i8-2-6]] (b)), and (i) at α′, with [[lem:iii-i8-2-6]] for G(S⃗), bounds p⃗′_(h,p⃗,α′)(F(S⃗)), G(S⃗) and
-u(S⃗), the solution of [[eq:iii-i8-4-1]] at α′ for F(S⃗), by C‖F‖ in 𝒫_(α′), 𝒴(α″) and ‖·‖_(α′).
-So |p⃗′_(h,p⃗,α″)(F)| ≤ C‖F‖, and the bound of [[lem:iii-i8-3-2]] on the remainder, which is u(S⃗) itself, gives
-‖u(S⃗)‖_(α″) ≤ C‖F‖. The constants are uniform for (h, p⃗ − p⃗_b) small and b ∈ ℬ̄_*, as those of (i) at α′, of
-[[lem:iii-i8-3-2]] and the bound on T_(h,p⃗)⁻¹ are.
+*(i) at α″.* Linearity holds by construction. Write ‖F‖ := ‖F‖^+_(𝒴(α″)), which bounds ‖F‖_(𝒴(α″)), and
+‖F‖^+_(𝒴(α′)) up to a constant (*The seminorms*). By (i) at α′ and [[lem:iii-i8-2-6]], ‖G(0)‖_(𝒴(α″)) ≤ C‖F‖, and
+u(0), the solution of [[eq:iii-i8-4-1]] at α′ for the forcing F, has ‖u(0)‖_(α′) ≤ C‖F‖^+_(𝒴(α′)) ≤ C‖F‖; so the
+bound of [[lem:iii-i8-3-2]] gives |C(0)| ≤ C‖F‖, and |S⃗| ≤ 2|C(0)| ≤ C‖F‖. Then
+‖F(S⃗)‖_(𝒴(α″)) + ‖F(S⃗)‖^+_(𝒴(α′)) ≤ C‖F‖ ([[lem:iii-i8-2-6]] (b)), and (i) at α′, with [[lem:iii-i8-2-6]] for G(S⃗),
+bounds p⃗′_(h,p⃗,α′)(F(S⃗)), G(S⃗) and u(S⃗), the solution of [[eq:iii-i8-4-1]] at α′ for F(S⃗), by C‖F‖ in 𝒫_(α′),
+𝒴(α″) and ‖·‖_(α′). So |p⃗′_(h,p⃗,α″)(F)| ≤ C‖F‖, and the bound of [[lem:iii-i8-3-2]] on the remainder, which is u(S⃗)
+itself, gives ‖u(S⃗)‖_(α″) ≤ C‖F‖. The constants are uniform for (h, p⃗ − p⃗_b) small and b ∈ ℬ̄_*, as those of (i) at
+α′, of [[lem:iii-i8-3-2]] and the bound on T_(h,p⃗)⁻¹ are, and that of the comparison of the seminorms.
 
 *(ii) at α″, at fixed b.* Let (h_j, p⃗_j) → (0, p⃗_b) and F_j → F in 𝒴(α″). Write T_j, C_j for the objects above at
 (h_j, p⃗_j) with the forcing F_j, and T, C for those at (0, p⃗_b) with F. We first show: *if Φ_j → Φ in 𝒴(α″), and w_j,
@@ -1206,12 +1237,14 @@ D_p⃗P_3(h, p⃗) is linear in the direction, bounded uniformly and continuous 
 
     L_(0,p⃗_b)(w_j − w) = R_j := Ψ_j − Ψ − (L_(h_j,p⃗_j) − L_(0,p⃗_b))w_j.
 
-The w_j are bounded in ‖·‖_(α′) by (i) at α′, and the coefficients of L_(h_j,p⃗_j) − L_(0,p⃗_b) have norm
-O(‖h_j‖ + |p⃗_j − p⃗_b|) and gain a_K near K⁺, where both backgrounds are g_b; so the count of Step 0 of the proof of
-[[lem:iii-i8-3-2]] gives ‖(L_(h_j,p⃗_j) − L_(0,p⃗_b))w_j‖_(𝒴(α″)) → 0, and R_j → 0 in 𝒴(α″) ⊂ 𝒴(α′); R_j is real.
-w_j − w lies in [[eq:iii-i8-4-2]] at α′, as w_j and w do. So p⃗′ = 0 has, for (0, p⃗_b) and the forcing R_j, the
-property of the statement at α′; by uniqueness at α′, p⃗′_(0,p⃗_b,α′)(R_j) = 0 and w_j − w is the solution of
-[[eq:iii-i8-4-1]] at α′ for R_j, and (i) at α′ gives ‖w_j − w‖_(α′) ≤ C‖R_j‖_(𝒴(α′)) → 0.
+The Φ_j converge in 𝒴(α″) ⊂ 𝒴(α′), so, by (i) at α′, the w_j are bounded in each fixed seminorm of the space of
+[[eq:iii-i8-4-2]] at α′, among them one of regularity two above that of ‖·‖^+_(𝒴(α′)). The coefficients of
+L_(h_j,p⃗_j) − L_(0,p⃗_b) have norm O(‖h_j‖ + |p⃗_j − p⃗_b|) and gain a_K near K⁺, where both backgrounds are g_b; so the
+count of Step 0 of the proof of [[lem:iii-i8-3-2]], in ‖·‖^+_(𝒴(α′)), gives (L_(h_j,p⃗_j) − L_(0,p⃗_b))w_j → 0 there,
+and R_j → 0 in ‖·‖^+_(𝒴(α′)), with R_j ∈ 𝒴(α″) ⊂ 𝒴(α′) real. w_j − w lies in [[eq:iii-i8-4-2]] at α′, as w_j and w
+do. So p⃗′ = 0 has, for (0, p⃗_b) and the forcing R_j, the property of the statement at α′; by uniqueness at α′,
+p⃗′_(0,p⃗_b,α′)(R_j) = 0 and w_j − w is the solution of [[eq:iii-i8-4-1]] at α′ for R_j, and (i) at α′ gives
+‖w_j − w‖_(α′) ≤ C‖R_j‖^+_(𝒴(α′)) → 0.
 
 For fixed S⃗ take Φ_j := Σ_ν f^ν_(h_j,p⃗_j)(S_ν) and Φ := Σ_ν f^ν_(0,p⃗_b)(S_ν), so that Φ_j → Φ ([[lem:iii-i8-2-6]]
 (c)); then Ψ_j and Ψ are G_1(S⃗) at (h_j, p⃗_j) and at (0, p⃗_b), and w_j, w their forward solutions, so

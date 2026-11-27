@@ -15,7 +15,8 @@ expansion, and the Einstein–null-dust system, augmented by the expansions, is 
 caustic-free solution whose dusts avoid the axes, with no smallness of the solution ([[thm:class-stability-off-axes]]).
 At an axis one entry becomes a second derivative ([[prop:class-axis]]). The quantity to be recovered there is the planar
 shear, the trace-free part of the second fundamental form of the family's level sets in the slice, and elliptic
-regularity of those level sets recovers it from the expansion with no loss ([[lem:class-planar-shear]]). With lateral
+regularity of those level sets recovers its square, the form in which it enters the Raychaudhuri equation, from the
+expansion with no loss ([[lem:class-planar-shear]]). With lateral
 boundaries adapted to the dusts where they meet an axis, the system is then Cauchy-stable with the dusts at the axes
 ([[thm:class-stability]]), and the two-dust background of [[ch:two-dusts]], which is round, carries every small
 non-round perturbation on its whole adapted domain, provided its outgoing packet does not reach the inner sphere
@@ -874,6 +875,259 @@ stability statement, the quotient ‖F(u)‖_(H²)/(‖u‖_(L^∞) ‖u‖_(H²
 of the data of size d = 4 × 10⁻³, 2 × 10⁻³, 10⁻³; on [0, 3], past the shock of ū, ‖ū‖_(H²) grew by a factor 420. No
 proof uses these observations.
 
+Kato's iteration also solves [[eq:class-kato-system]] when the forcing term at a time depends on the solution over an
+interval of earlier times and is controlled only in space-time norms. Such forcing terms arise when a non-local term is
+computed on the leaves of hypersurfaces that are not the slices of the time: the estimates of the leaves then give the
+integrated forms of the fixed-time hypotheses (F1)–(F2), and not those hypotheses ([[rem:class-kato-memory]]).
+
+*Space-time norms.* Keep the setting of this section, with the A^μ given, with the properties stated there, for t in an
+interval containing every interval of times used below ([−2m, T0] in [[thm:class-kato-memory]]), the bounds of order σ
+taken over it, and let J = [a, b] be an interval. H^σ(J) is the space of functions on J × R^d with all derivatives ∂_t^j
+∂_x^β, j + |β| ≤ σ, in L²(J × R^d), with the norm of the sum of their squared L² norms. 𝒳^σ(J) is the space of u with
+∂_t^j u ∈ L^∞(J; H^(σ−j)) for 0 ≤ j ≤ σ, the derivatives in the sense of distributions, and ⟦u⟧_(σ,J) := Σ_(j≤σ) ess
+sup_J ‖∂_t^j u‖_(H^(σ−j)). For u ∈ 𝒳^σ(J) and j ≤ σ − 1, ∂_t^j u is Lipschitz into H^(σ−j−1), hence continuous, and its
+value at every t lies in H^(σ−j), with norm at most ⟦u⟧_(σ,J), a closed ball of H^(σ−j) being weakly closed; and
+‖u‖_(H^σ(J)) ≤ (b − a)^(1/2) ⟦u⟧_(σ,J). For f ∈ H^σ(J) and i ≤ σ − 1, ∂_t^i f and ∂_t^(i+1) f lie in L²(J; H^(σ−1−i)),
+so ∂_t^i f is continuous into H^(σ−1−i), with
+
+    ‖∂_t^i f(t) − ∂_t^i f(t′)‖_(H^(σ−1−i)) ≤ |t − t′|^(1/2) ‖f‖_(H^σ([t′,t])),
+    sup_J ‖∂_t^i f‖_(H^(σ−1−i)) ≤ ((b − a)^(−1/2) + (b − a)^(1/2)) ‖f‖_(H^σ(J)),                  {#eq:class-trace}
+
+by ∂_t^i f(t) − ∂_t^i f(t′) = ∫_(t′)^t ∂_t^(i+1) f and the Cauchy–Schwarz inequality, and by averaging the first bound
+over t′ ∈ J. If u ∈ 𝒳^σ([a, b]) and u′ ∈ 𝒳^σ([b, c]) have ∂_t^j u(b) = ∂_t^j u′(b) for j ≤ σ − 1, the function equal to
+u on [a, b] and to u′ on [b, c] lies in 𝒳^σ([a, c]): its distributional derivatives of order j ≤ σ are the piecewise
+ones, since those of order j − 1 are continuous at b. *Extension beyond b.* For an integer N ≥ 1 let c_1, …, c_N solve
+Σ_l c_l (−1/l)^i = 1, 0 ≤ i ≤ N − 1, a Vandermonde system with the distinct nodes −1/l, and for b − a ≥ m > 0 and t ∈
+(b, b + m] put (E_b u)(t) := Σ_l c_l u(b − (t − b)/l), and E_b u := u on [a, b]. Each term takes the values of u on [b −
+m, b]; its j-th derivative is l^(−j) (∂_t^j u)(b − (t − b)/l); so for N = σ + 1, E_b maps 𝒳^σ([a, b]) into 𝒳^σ([a, b +
+m]) with ⟦E_b u⟧_(σ,[a,b+m]) ≤ C_E ⟦u⟧_(σ,[a,b]), C_E := Σ_l |c_l|, the derivatives of order at most σ − 1 matching at
+b, and, the substitution t ↦ b − (t − b)/l multiplying L² norms by l^(1/2), ‖E_b u‖_(H^σ([b,b+m])) ≤ C_E′
+‖u‖_(H^σ([b−m,b])) and ‖E_b u‖_(L²([b,b+m]×R^d)) ≤ C_E′ ‖u‖_(L²([b−m,b]×R^d)), C_E′ := Σ_l |c_l| l^(1/2).
+
+**Lemma {#lem:class-mixed-product}** (Products at one time.) Let σ1, σ2 ≥ σ ≥ 0 be integers with σ1 + σ2 − σ > d/2.
+
+(a) ‖f g‖_(H^σ) ≤ C ‖f‖_(H^(σ1)) ‖g‖_(H^(σ2)), C depending only on d, σ1, σ2.
+
+(b) Let Φ be as in [[lem:class-composition]], v ∈ 𝒳^s(J) with ⟦v⟧_(s,J) ≤ 𝔐, and 0 ≤ a ≤ s − 1. At every t ∈ J, ∂_t^a
+[Φ(t, ·, v(t))] = (∂_t^a Φ)(t, ·, v(t)) + R_a(t) with ‖R_a(t)‖_(H^(s−a)) ≤ C(𝔐), R_0 := 0, and multiplication by (∂_t^a
+Φ)(t, ·, v(t)) is bounded on H^σ, σ ≤ s, with norm at most C(𝔐); R_a depends only on ∂_t^i v, i ≤ a, and its bound on
+bounds of these.
+
+*Proof.* (a) For |γ| ≤ σ, ∂^γ(fg) is a sum of terms ∂^(γ1) f ∂^(γ2) g with |γ1| + |γ2| ≤ σ; put α := σ1 − |γ1| ≥ 0 and β
+:= σ2 − |γ2| ≥ 0, so α + β > d/2. Choose p, q ∈ [2, ∞] with 1/p + 1/q = 1/2: p = ∞, q = 2 if α > d/2; p = 2, q = ∞ if
+β > d/2; otherwise 1/p := 1/2 − α/d + λ and 1/q := 1/2 − β/d + λ with 2λ := (α + β)/d − 1/2 > 0, for which 0 < 1/p, 1/q
+≤ 1/2 since β − α ≤ d/2 and α − β ≤ d/2. On every unit cube Q of the lattice, [[thm:std-bh17-embedding]] (for finite
+exponents, α − d/2 ≥ −d/p) and [[thm:std-bh-embedding]] (for the exponent ∞) give ‖F‖_(L^p(Q)) ≤ C ‖F‖_(H^α(Q)) and
+‖G‖_(L^q(Q)) ≤ C ‖G‖_(H^β(Q)), C independent of Q by translation. With F := ∂^(γ1) f and G := ∂^(γ2) g, Hölder's
+inequality on each cube and summation give ‖FG‖² ≤ Σ_Q C ‖F‖²_(H^α(Q)) ‖G‖²_(H^β(Q)) ≤ C ‖F‖²_(H^α) sup_Q ‖G‖²_(H^β(Q))
+≤ C ‖f‖²_(H^(σ1)) ‖g‖²_(H^(σ2)).
+(b) By the chain rule ∂_t^a [Φ(t, x, v)] − (∂_t^a Φ)(t, x, v) is a sum, with coefficients depending on a, of terms
+(∂_t^(a0) ∂_u^l Φ)(t, x, v)[∂_t^(a1) v, …, ∂_t^(al) v] with l ≥ 1, every a_i ≥ 1 and a0 + a1 + … + al = a. The product
+of the l factors lies in H^(s−a1−…−al) ⊂ H^(s−a) by (a) applied l − 1 times, as (s − a1) + (s − a2) − (s − a1 − a2) =
+s > d/2 and s − a ≥ 1, with the bound C 𝔐^l. A function Ψ(t, x, v) with Ψ smooth as Φ multiplies H^σ, σ ≤ s, with norm
+at most C(𝔐): Ψ(t, x, 0) has bounded derivatives of every order, and ‖Ψ(t, ·, v) − Ψ(t, ·, 0)‖_(H^s) ≤ C(𝔐) by
+[[lem:class-composition]] (b), so (a) with σ1 = s and σ2 = σ applies to it. ∎
+
+**Lemma {#lem:class-kato-history}** (The linear problem with forcing in a space-time space and a history.) Let m > 0,
+J_− := [t1 − m, t1], J := [t1, t2] and J_+ := [t1 − m, t2], with t2 − t1 ≤ T0. Let v ∈ 𝒳^s(J_+) with ⟦v⟧_(s,J_+) ≤ 𝔐,
+𝐀^μ := A^μ(t, x, v), f ∈ H^s(J_+), and w̄ ∈ 𝒳^s(J_−) a solution of 𝐀^0 ∂_t w̄ + 𝐀^j ∂_j w̄ = f on J_−. There is exactly
+one w ∈ C(J_+; L²) equal to w̄ on J_− that solves 𝐀^0 ∂_t w + 𝐀^j ∂_j w = f on J_+ with ∂_t w ∈ C(J_+; L²). It lies in
+𝒳^s(J_+), and for t ∈ J, with E_s of [[lem:class-kato-linear]]:
+
+(i) E_s(t; w)^(1/2) ≤ e^(C(t−t1)) (E_s(t1; w)^(1/2) + C (t − t1)^(1/2) ‖f‖_(H^s([t1,t]))), C depending on d, s, c0, 𝔐
+and bounds of order s for the A^μ;
+
+(ii) for 1 ≤ j ≤ s and almost every t ∈ J, ‖∂_t^j w(t)‖_(H^(s−j)) ≤ B_j (‖w(t)‖_(H^s) + Σ_(i<j) ‖∂_t^i
+f(t)‖_(H^(s−1−i))), B_j depending on d, s, c0, bounds of order s for the A^μ and a bound for ‖∂_t^i v‖_(L^∞(H^(s−i))), i
+≤ j − 1;
+
+(iii) ‖∂_t^i f(t)‖_(H^(s−1−i)) ≤ ‖∂_t^i f(t1)‖_(H^(s−1−i)) + (t − t1)^(1/2) ‖f‖_(H^s([t1,t])) for i ≤ s − 1.
+
+*Proof.* By [[eq:class-trace]], f ∈ C(J_+; H^(s−1)). On J, v satisfies the hypotheses of [[lem:class-kato-linear]], with
+‖v(t)‖_(H^s) ≤ 𝔐 and Lipschitz constant 𝔐 into H^(s−1). For ε ∈ (0, 1] the mollified f_ε := J_ε f lies in C(J; L²) with
+f_ε(t) ∈ H^s and sup_t ‖f_ε(t)‖_(H^s) ≤ C ε⁻¹ sup_t ‖f(t)‖_(H^(s−1)) < ∞, so part (b) of that lemma gives a solution w_ε
+on J with w_ε(t1) = w̄(t1) and E_s(t; w_ε)^(1/2) ≤ e^(C(t−t1)) (E_s(t1; w̄)^(1/2) + C ∫_(t1)^t ‖f‖_(H^s)), J_ε not
+increasing the norms. By part (a) of that lemma, sup_t ‖w_ε − w_(ε′)‖ ≤ C ∫_J ‖f_ε − f_(ε′)‖ → 0, since f_ε → f in C(J;
+L²). As in step (4) of its proof the limit w lies in C(J; L²), w(t) ∈ H^s with the bound (i) (the integral of ‖f‖_(H^s)
+being at most (t − t1)^(1/2) ‖f‖_(L²([t1,t]; H^s)) ≤ (t − t1)^(1/2) ‖f‖_(H^s([t1,t]))), w_ε → w in C(J; H^(s−1)) by
+[[eq:class-interpolation]], and passing to the limit in w_ε(t) = w̄(t1) + ∫_(t1)^t (𝐀^0)⁻¹ (f_ε − 𝐀^j ∂_j w_ε) shows
+that w solves the equation with ∂_t w ∈ C(J; L²). Uniqueness is part (a) of [[lem:class-kato-linear]].
+
+(ii) On J, ∂_t w = (𝐀^0)⁻¹ (f − 𝐀^j ∂_j w). Suppose that ∂_t^i w ∈ L^∞(J; H^(s−i)) for i < j, with the bounds (ii).
+Differentiating j − 1 times in the sense of distributions, ∂_t^j w is a sum of terms ∂_t^a[(𝐀^0)⁻¹] ∂_t^b f and
+∂_t^a[(𝐀^0)⁻¹] ∂_t^(b1)[𝐀^i] ∂_t^(b2) ∂_i w with a + b = a + b1 + b2 = j − 1. Write each factor ∂_t^a[Ψ(v)] as in
+[[lem:class-mixed-product]] (b), a multiplier plus R_a ∈ H^(s−a); ∂_t^b f ∈ H^(s−1−b) and ∂_t^(b2) ∂_i w ∈ H^(s−1−b2).
+By [[lem:class-mixed-product]] (a), every product of factors in H^(s−a), H^(s−b1) and H^(s−1−b2) lies in
+H^(s−1−a−b1−b2) = H^(s−j), each exponent being at least s − j and the sum of any two exceeding the target by at least
+s > d/2; likewise for the terms with f. The bound (ii) follows, with only ∂_t^i v, i ≤ j − 1, entering. The same
+products with one order less show that ∂_t^j w is continuous into H^(s−j−1) for j ≤ s − 1, and ∂_t^s w ∈ L^∞(J; L²). So
+w|_J ∈ 𝒳^s(J). On J_− the same identities hold for w̄, with the same v and f. At t1, w(t1) = w̄(t1), and by induction on
+j ≤ s − 1 the formula gives ∂_t^j w(t1) = ∂_t^j w̄(t1), all its ingredients ∂_t^i v, ∂_t^i f (i ≤ j − 1) and ∂_t^i w (i
+< j) being continuous at t1 into H^(s−j−1). So w ∈ 𝒳^s(J_+), by the concatenation property. (iii) is [[eq:class-trace]].
+∎
+
+Fix m > 0, T0 > 0, a reference path u_* ∈ 𝒳^(s+1)([−2m, T0]) and ρ > 0, and put 𝔐_ρ := ⟦u_*⟧_(s+1,[−2m,T0]) + ρ. For t̄
+∈ (−2m, T0] let 𝒫_t̄ := {u ∈ 𝒳^s([−2m, t̄]) : ⟦u − u_*⟧_(s,[−2m,t̄]) ≤ ρ}; every u ∈ 𝒫_t̄ has ⟦u⟧_(s,[−2m,t̄]) ≤ 𝔐_ρ.
+Let F assign to every t̄ and every u ∈ 𝒫_t̄ a function F(u) ∈ H^s([−m, t̄]) such that, for −m ≤ t1 < t2 ≤ t̄ and u, u′ ∈
+𝒫_t̄, with constants C_F and L:
+
+(M0) if u = u′ on [−2m, t], then F(u) = F(u′) on [−m, t]; and F(u|_([−2m,t])) = F(u) on [−m, t];
+(M1) ‖F(u)‖_(H^s([t1,t2])) ≤ C_F (t2 − t1 + m)^(1/2);
+(M2) ‖F(u) − F(u′)‖_(L²([t1,t2]×R^d)) ≤ L ‖u − u′‖_(L²([t1−m,t2]×R^d)).
+
+A *solution on [−m, t̄]* is a u ∈ 𝒫_t̄ with ∂_t u ∈ C([−m, t̄]; L²) and A^0(t, x, u) ∂_t u + A^j(t, x, u) ∂_j u = F(u)
+on [−m, t̄]. The number m is the *memory*.
+
+**Theorem {#thm:class-kato-memory}** (Kato's iteration with memory.) Assume (M0)–(M2).
+
+(a) There are η ∈ (0, 1] and T* ∈ (0, m], depending only on d, s, c0, bounds of order s for the A^μ, ρ, m, 𝔐_ρ, C_F and
+L, such that every solution on [−m, t1], 0 ≤ t1 < T0, with ⟦u − u_*⟧_(s,[−2m,t1]) ≤ η ρ extends to a solution on [−m,
+min(t1 + T*, T0)]. Two solutions on [−m, t̄] that agree on [−2m, t1] agree. If u is a solution on [−m, t] for every t <
+T2 ≤ T0, with ⟦u − u_*⟧_(s,[−2m,t]) ≤ η ρ for t < T2, then u extends to a solution on [−m, min(T2 + T*/2, T0)].
+
+(b) (Stability.) Assume moreover that u_* satisfies A^0(t, x, u_*) ∂_t u_* + A^j(t, x, u_*) ∂_j u_* = F(u_*) + R on [−m,
+T0], with R ∈ H^s([−m, T0]), and
+
+(M1′) ‖F(u) − F(u_*)‖_(H^s([t1,t2])) ≤ C′ ‖u − u_*‖_(H^s([t1−m,t2])) for u ∈ 𝒫_t̄ and −m ≤ t1 < t2 ≤ t̄.
+
+There are ε0 > 0 and C, depending on the quantities of (a), on C′ and on T0, such that every solution h on [−m, 0] with
+δ := ⟦h − u_*⟧_(s,[−2m,0]) + ‖R‖_(H^s([−m,T0])) ≤ ε0 extends to a solution u on [−m, T0], with ⟦u − u_*⟧_(s,[−2m,T0]) ≤
+C δ.
+
+(c) (Regularity.) Assume moreover that the A^μ and u_* are smooth, with u_* ∈ H^σ([−2m, T0]) for every σ, that R = 0 on
+[−m, 0], that ‖R‖_(H^s([−m,T0])) ≤ ε0, and, for every integer σ > s,
+
+(M1_σ) ‖F(u)‖_(H^σ([t1,t2])) ≤ C_σ(L) (1 + ‖u‖_(H^σ([t1−m,t2]))) for u ∈ 𝒫_t̄ ∩ H^σ([−2m, t̄]) with
+‖u‖_(H^(σ−1)([−2m,t̄])) ≤ L and −m ≤ t1 < t2 ≤ t̄, C_σ(L) an increasing function of L.
+
+Then, for ε0 small, the solution of (b) with the history h := u_* lies in H^σ([−2m, T0]) for every σ.
+
+(d) (A part solved by integration.) Let the unknown split as u = (u_0, u′) ∈ R^(m_0) × R^(m−m_0), let A^0 = diag(I,
+A′^0) and A^j = diag(0, A′^j), with A′^μ depending on (t, x, u), and let the rows of F(u) for u_0 be Πu′ for every path,
+Π a constant matrix, so that the equations for u_0 read ∂_t u_0 = Πu′. In the proofs of (a) and (c) replace the linear
+step by the *split step*: given v and the history h, w′ is the solution of [[lem:class-kato-history]] for the rows for
+u′, A′^μ(t, x, v) ∂_μ w′ = F′(v), with the history h′, and w_0(t) := h_0(t1) + ∫_(t1)^t Πw′ for t ≥ t1, w := h on [−2m,
+t1]. Let 𝒞 be a set of paths such that: (C1) u_* ∈ 𝒞 and ∂_t u_(*0) = Πu′_*; (C2) if v ∈ 𝒞 ∩ 𝒫_(t1+T) and h ∈ 𝒞, the
+path w of the split step lies in 𝒞; (C3) 𝒞 contains the limit in C(L²) of every sequence of its paths bounded in 𝒳^s;
+(C4) every h ∈ 𝒞 on [−2m, t1] is the restriction of some u^0 ∈ 𝒞 on [−2m, t1 + m] with ⟦u^0 − u_*⟧_(s,[−2m,t1+m]) ≤ C_𝒞
+⟦h − u_*⟧_(s,[−2m,t1]). Then (a), (b) and (c) hold with (M0)–(M2), (M1′) and (M1_σ) assumed only for paths of 𝒞, for
+histories in 𝒞, the solutions lying in 𝒞, the constants depending also on C_𝒞 and |Π|.
+
+*Proof.* (a) *Uniqueness.* Let u, ũ be solutions on [−m, t̄] that agree on [−2m, t1]. z := u − ũ solves the linear
+problem with the coefficients at u and the forcing term F(u) − F(ũ) − (A^μ(u) − A^μ(ũ)) ∂_μ ũ, continuous into L² by
+[[eq:class-trace]]; ‖∂ũ‖_(L^∞) ≤ C_S 𝔐_ρ, and z = 0 before t1. By [[lem:class-kato-linear]] (a), the Cauchy–Schwarz
+inequality and (M2), e(t) := ‖z(t)‖² satisfies e(t) ≤ C (t − t1) ∫_(t1)^t (L² + C) e for t ≥ t1, so e = 0.
+
+*Existence.* Let u be a solution on [−m, t1] with ⟦u − u_*⟧_(s,[−2m,t1]) ≤ η ρ, η to be fixed, and h := u. Put u^0 :=
+u_* + E_(t1)(h − u_*) on [−2m, t1 + m], with E_(t1) the extension beyond t1 (N = s + 1), so that ⟦u^0 − u_*⟧_s ≤ C_E η ρ
+≤ ρ/2 for η ≤ 1/(2C_E), and let J := [t1, t1 + T], T ≤ min(T*, T0 − t1). For n ≥ 0 let u^(n+1) := h on [−2m, t1] and, on
+J, the solution of [[lem:class-kato-history]] with v := u^n, f := F(u^n) on [t1 − m, t1 + T] and w̄ := h on [t1 − m,
+t1]; by (M0), F(u^n) = F(h) on [−m, t1], so w̄ solves the linear equation there. Suppose u^n ∈ 𝒫_(t1+T), u^n = h on
+[−2m, t1]. Then u^(n+1) ∈ 𝒳^s([−2m, t1 + T]) by [[lem:class-kato-history]], and w := u^(n+1) − u_* solves on J the
+linear problem with the coefficients 𝐀^μ := A^μ(u^n), the data h(t1) − u_*(t1) and the forcing term f_w := F(u^n) − 𝐀^μ
+∂_μ u_*, to which [[lem:class-kato-history]] applies (with w̄ := h − u_*). By [[lem:class-mixed-product]] at each time,
+‖𝐀^μ ∂_μ u_*‖_(H^s([t1,t])) ≤ (t − t1)^(1/2) C(𝔐_ρ), u_* ∈ 𝒳^(s+1); with (M1), ‖f_w‖_(H^s([t1,t])) ≤ C (T + m)^(1/2). By
+(i), with C_A := sup |A^0| at |u| ≤ C_S 𝔐_ρ, ‖w(t)‖_(H^s) ≤ c0^(−1/2) e^(CT) (C_A^(1/2) η ρ + C T^(1/2) (T + m)^(1/2)).
+On [t1 − m, t1] the equation for h gives f_w = A^μ(h) ∂_μ(h − u_*), and ∂_t^i f_w is continuous into H^(s−1−i) for i ≤ s
+− 1; so by [[lem:class-mixed-product]], ‖∂_t^i f_w(t1)‖_(H^(s−1−i)) ≤ C(𝔐_ρ) ⟦h − u_*⟧_(s,[t1−m,t1]) ≤ C η ρ. By (ii)
+for w and (iii),
+
+    ⟦w⟧_(s,J) ≤ B (η ρ + T^(1/2) (T + m)^(1/2)),
+
+B ≥ 1 depending only on the quantities of (a). Choose η ≤ 1/(4B) and then T* so small that B T*^(1/2) (T* + m)^(1/2) ≤
+ρ/4: then ⟦u^(n+1) − u_*⟧_(s,[−2m,t1+T]) ≤ ⟦h − u_*⟧_(s,[−2m,t1]) + ⟦w⟧_(s,J) ≤ η ρ + ρ/2 ≤ ρ, and u^(n+1) ∈ 𝒫_(t1+T).
+*Contraction.* For n ≥ 1, δ^(n+1) := u^(n+1) − u^n vanishes on [−2m, t1] and solves on J the linear problem with the
+coefficients at u^n, data 0 and the forcing term F(u^n) − F(u^(n−1)) − (A^μ(u^n) − A^μ(u^(n−1))) ∂_μ u^n, whose L²(J ×
+R^d) norm is at most (L + C) T^(1/2) sup_J ‖δ^n‖ by (M2). [[lem:class-kato-linear]] (a) and the Cauchy–Schwarz
+inequality give sup_J ‖δ^(n+1)‖ ≤ C T sup_J ‖δ^n‖ ≤ ½ sup_J ‖δ^n‖ for T* small. *Limit.* So u^n → u in C([−2m, t1 + T];
+L²). For each j ≤ s, ∂_t^j u^n is bounded in L^∞(H^(s−j)), the dual of L¹(H^(j−s)); its weak-* limit points are ∂_t^j u,
+so ∂_t^j u^n converges weak-* to it, and ⟦u − u_*⟧_s ≤ ρ: u ∈ 𝒫_(t1+T). By [[eq:class-interpolation]], u^n → u in
+L^∞(H^(s−1)); by (M2), F(u^n) → F(u) in L²(J × R^d). Passing to the limit in u^(n+1)(t) = h(t1) + ∫_(t1)^t (A^0(u^n))⁻¹
+(F(u^n) − A^j(u^n) ∂_j u^(n+1)) gives the same identity for u, with an integrand continuous into L², F(u) ∈ H^s([−m,
+t1 + T]) being continuous into L². So u is a solution on [−m, t1 + T]. *Continuation.* With t1 := max(T2 − T*/2, 0), the
+solution on [−m, t1 + T*] given by the first part agrees with u on [−2m, T2) by uniqueness.
+
+(b) By (a), the solution u with history h exists on a maximal interval [−m, T_m) ∩ [−m, T0] on which ⟦u − u_*⟧_s ≤ η ρ.
+Let τ1 < τ2 < T_m with τ2 − τ1 ≤ θ, θ ≤ m to be fixed, and z := u − u_*. z solves the linear problem with coefficients
+at u and the forcing term f_z := F(u) − F(u_*) − R − (A^μ(u) − A^μ(u_*)) ∂_μ u_*, and ‖f_z‖_(H^s([τ1,τ])) ≤ C
+(‖z‖_(H^s([τ1−m,τ])) + ‖R‖_(H^s([τ1,τ]))) by (M1′) and [[lem:class-mixed-product]] at each time. Put X(τ) :=
+⟦z⟧_(s,[−2m,τ]); then ‖z‖_(H^s([τ1−m,τ])) ≤ (2m)^(1/2) X(τ). By the two equations, f_z + R = A^μ(u) ∂_μ z on [τ1 − m,
+τ1], so, as in (a), ‖∂_t^i f_z(τ1)‖_(H^(s−1−i)) ≤ C (X(τ1) + ‖R‖_(H^s([−m,T0]))) for i ≤ s − 1, by [[eq:class-trace]]
+for R. Then (i)–(iii) give, for almost every τ ∈ [τ1, τ2],
+
+    Σ_(j≤s) ‖∂_t^j z(τ)‖_(H^(s−j)) ≤ B′ (X(τ1) + θ^(1/2) X(τ2) + ‖R‖_(H^s([−m,T0]))),
+
+so X(τ2) ≤ B′ X(τ1) + B′ θ^(1/2) X(τ2) + B′ δ, and for B′ θ^(1/2) ≤ ½, X(τ2) ≤ 2B′ (X(τ1) + δ). Over the N := ⌈T0/θ⌉
+intervals of length θ this gives X ≤ (4B′)^N δ =: C δ on [−2m, T_m). For C δ ≤ η ρ/2, (a) excludes T_m ≤ T0.
+
+(c) *A global iteration.* Let u^0 := u_* on [−2m, T0] and, for n ≥ 0, u^(n+1) := u_* on [−2m, 0] and, on [0, T0], the
+solution of [[lem:class-kato-history]] with v := u^n, f := F(u^n) and w̄ := u_* on [−m, 0], which solves the linear
+equation there, as R = 0 on [−m, 0] and F(u^n) = F(u_*) there by (M0). Put Y_n(τ) := ⟦u^n − u_*⟧_(s,[−2m,τ]) and fix 0 =
+τ_0 < τ_1 < … < τ_N = T0 with τ_(i+1) − τ_i ≤ θ. The proof of (b), applied to z := u^(n+1) − u_* with the coefficients
+at u^n, gives, as long as the u^j lie in the ball, Y_(n+1)(τ_(i+1)) ≤ B′ Y_(n+1)(τ_i) + B′ θ^(1/2) Y_n(τ_(i+1)) + B′ δ.
+Put M_0 := 0 and M_(i+1) := 2B′ (M_i + δ), and take B′ θ^(1/2) ≤ ¼. If Y_n(τ_j) ≤ M_j for all j, then by induction on i,
+Y_(n+1)(τ_(i+1)) ≤ B′ M_i + M_(i+1)/4 + B′ δ ≤ M_(i+1); as Y_0 = 0, this holds for all n, and M_N ≤ (4B′)^N δ ≤ ρ, δ :=
+‖R‖_(H^s([−m,T0])) ≤ ε0, for ε0 small: every u^n lies in 𝒫_(T0). *Convergence.* δ^(n+1) := u^(n+1) − u^n vanishes on
+[−2m, 0], and, as in the contraction of (a), ‖δ^(n+1)(t)‖ ≤ C t^(1/2) ‖δ^n‖_(L²([0,t]×R^d)); with Q_n := sup_t e^(−λt)
+‖δ^n(t)‖, ‖δ^n‖²_(L²([0,t]×R^d)) ≤ Q_n² e^(2λt)/(2λ), so Q_(n+1) ≤ C T0^(1/2) (2λ)^(−1/2) Q_n ≤ ½ Q_n for λ large. So
+u^n converges in C([−2m, T0]; L²); its limit is a solution, as in (a), within ρ of u_*, hence the solution u of (b), by
+the uniqueness of (a).
+
+*Higher norms.* We show by induction on σ ≥ s that L_σ := sup_n ‖u^n‖_(H^σ([−2m,T0])) < ∞; for σ = s, ‖u^n‖_(H^s) ≤
+(T0 + 2m)^(1/2) 𝔐_ρ. Let σ > s with L_(σ−1) < ∞; for this σ we fix below a new number θ and a partition 0 = τ_0 < … <
+τ_N = T0 with τ_(i+1) − τ_i ≤ θ. For w := u^(n+1) put S_(n+1)(τ) := sup_([0,τ]) E_σ(t; w)^(1/2), with E_σ of
+[[lem:class-kato-linear]]. (i) *Spatial energy.* Part (c) of [[lem:class-kato-linear]] at the order σ, on an interval
+[τ_i, t], with v := u^n and f := F(u^n), gives E_σ(t; w)^(1/2) ≤ e^(C_* θ) (E_σ(τ_i; w)^(1/2) + C_* ∫_(τ_i)^t
+(‖f‖_(H^σ) + K_w ‖v‖_(H^σ))), C_* and K_w bounded by the order s, the ball and bounds of order σ of the A^μ; it applies
+with f and v replaced by J_ε f and J_ε v, whose values at each time lie in H^σ, and the bound passes to the limit ε → 0,
+the solutions converging in C(L²) by part (a) of that lemma and the norms on the right not increasing. With (M1_σ), for
+L := L_(σ−1), and the Cauchy–Schwarz inequality, S_(n+1)(τ_(i+1)) ≤ e^(C_* θ) S_(n+1)(τ_i) + C θ^(1/2) (1 +
+‖u^n‖_(H^σ([−2m,τ_(i+1)]))).
+(ii) *Time derivatives.* On [0, τ], for j ≥ 1 and j + |β| ≤ σ, ∂_t^j ∂_x^β w = ∂_t^(j−1) ∂_x^β[(𝐀^0)⁻¹ (f − 𝐀^l ∂_l w)]
+in the sense of distributions. Extend the factors to R × R^d in t by the operators E_b at both ends, bounded on every
+H^σ′ and on L^∞; by [[thm:std-gn-moser]] (1) and [[lem:class-composition]] (b) in the d + 1 variables (t, x), every
+product in which a derivative falls on (𝐀^0)⁻¹ or 𝐀^l, and every term with f, is bounded in L²([0, τ] × R^d) by C (1 +
+L_(σ−1) + ‖F(u^n)‖_(H^(σ−1)([0,τ]))), the sup norms of v, ∂v, ∂w and f being bounded by the order s (f by
+‖F(u^n)‖_(H^s), as s > (d + 1)/2); and ‖F(u^n)‖_(H^(σ−1)) ≤ C_(σ−1)(L_(σ−2)) (1 + L_(σ−1)) by (M1_(σ−1)) (by (M1) if σ −
+1 = s). The remaining term is (𝐀^0)⁻¹ 𝐀^l ∂_t^(j−1) ∂_x^β ∂_l w, with one time derivative fewer. By induction on j,
+‖w‖_(H^σ([0,τ])) ≤ C (τ^(1/2) S_(n+1)(τ) + 1 + L_(σ−1)). On [−2m, 0], w = u_*, and at t = 0 all derivatives of w equal
+those of u_* from the left, by the equation, as in [[lem:class-kato-history]]; so ‖w‖_(H^σ([−2m,τ])) ≤
+‖u_*‖_(H^σ([−2m,0])) + C (τ^(1/2) S_(n+1)(τ) + 1 + L_(σ−1)). (iii) *Induction in n.* So S_(n+1)(τ_(i+1)) ≤ e^(C_* θ)
+S_(n+1)(τ_i) + C θ^(1/2) (A + T0^(1/2) S_n(τ_(i+1))), A depending on L_(σ−1) and u_*. Let C_A ≥ sup |A^0| over the ball,
+so that E_σ(t; u_*)^(1/2) ≤ C_A^(1/2) ‖u_*(t)‖_(H^σ) for the coefficients of every path in the ball; sup_([0,T0])
+‖u_*‖_(H^σ) is finite by [[eq:class-trace]], u_* lying in H^(σ+1). Put S_0(τ) := C_A^(1/2) sup_([0,τ]) ‖u_*‖_(H^σ), M′_0
+:= S_0(T0) + 1 and M′_(i+1) := 2 (e^(C_* θ) M′_i + C θ^(1/2) A), and take C θ^(1/2) T0^(1/2) ≤ ¼. If S_n(τ_j) ≤ M′_j for
+all j, then S_(n+1)(τ_0) = E_σ(0; u_*)^(1/2) ≤ M′_0 and, by induction on i, S_(n+1)(τ_(i+1)) ≤ ½ M′_(i+1) + ¼ M′_(i+1);
+as S_0(τ_j) ≤ M′_0 ≤ M′_j, this holds for all n, and L_σ < ∞ by (ii). (Each u^n lies in H^σ([−2m, T0]), by induction on
+n with (i), (ii) and (M1_σ), so that (M1_σ) applies to it.) Since u^n → u in C(L²) and the u^n are bounded in H^σ([−2m,
+T0]), u ∈ H^σ([−2m, T0]).
+
+(d) A solution reproduces itself under the split step: on [t1, t̄] its rows for u′ are the linear equation of w′ with v
+:= u, and its rows for u_0 give u_0(t) = u_0(t1) + ∫_(t1)^t Πu′. *(a), uniqueness*, uses (M2) for two solutions, which
+lie in 𝒞, and is unchanged. *(a), existence.* Take u^0 from (C4), in place of u_* + E_(t1)(h − u_*), with C_𝒞 in place
+of C_E, and the split step; the iterates lie in 𝒞 by (C2), and on [t1 − m, t1] the history h′ solves the linear rows for
+u′, as F′(u^n) = F′(h) there by (M0). The rows for u′ form a system of the kind of [[sec:class-kato]] with A′^0 ≥ c0 I,
+so w′ − u′_* is bounded as w − u_* is in the proof of (a). By (C1), ∂_t^j (w_0 − u_(*0)) = Π ∂_t^(j−1) (w′ − u′_*) for j
+≥ 1, and ‖(w_0 − u_(*0))(t)‖_(H^s) ≤ ‖(h_0 − u_(*0))(t1)‖_(H^s) + T |Π| sup_J ‖w′ − u′_*‖_(H^s); so ⟦w_0 − u_(*0)⟧_(s,J)
+≤ η ρ + (1 + T) |Π| ⟦w′ − u′_*⟧_(s,J), and the choice of η and T* in (a), with B replaced by (2 + |Π|) B, gives u^(n+1)
+∈ 𝒫_(t1+T). In the contraction, δ_0^(n+1) = ∫_(t1)^t Π δ′^(n+1), so sup_J ‖δ_0^(n+1)‖ ≤ T |Π| sup_J ‖δ′^(n+1)‖, and
+δ′^(n+1) is bounded through the rows for u′ as there, the forcing term holding the whole δ^n through (M2). The limit
+lies in 𝒞, by (C3), and solves both groups of rows. *(b)* uses the hypotheses for the solution only. *(c).* The global
+iteration starts at u^0 := u_* ∈ 𝒞, uses the split step, and its iterates lie in 𝒞 by (C2); the bounds of the Y_n and
+the convergence follow as in (a), and the higher norms of w′ as in the proof of (c); for w_0, ∂_x^β w_0(t) = ∂_x^β
+u_(*0)(0) + ∫_0^t Π ∂_x^β w′ and ∂_t^j w_0 = Π ∂_t^(j−1) w′ for j ≥ 1, so ‖w_0‖_(H^σ([0,τ])) ≤ C (‖u_*(0)‖_(H^σ) +
+‖w′‖_(H^σ([0,τ]))), and at t = 0 the derivatives of w_0 match those of u_(*0), by (C1). ∎
+
+**Remark {#rem:class-kato-memory}** (Why the hypotheses are integrated.) In the application ([[sec:loc-t5]]) the
+forcing term at a point x of the slice {t = t̄} is computed on the hypersurface through x of a second foliation, tilted
+against the slices, from the state on an arc of that hypersurface from the axis to x, whose other points have earlier
+times. Its value on a slice is then a trace of a function that is controlled in space-time: the square of its space-time
+norm is the integral, over the second foliation, of the squares of norms on its hypersurfaces, which
+[[lem:class-leaf-states]] controls at the order 0; at higher orders [[lem:class-leaf-tame]] bounds the square of the
+planar shear, in which form it enters the closure, in space-time directly. This gives (M1), (M2), (M1′) and (M1_σ); the
+fixed-time hypotheses (F1) and (F2) would ask for bounds on each slice {t = t̄} itself, which these estimates do not
+give. [[thm:class-kato-memory]] uses only the integrated hypotheses. No proof uses this remark.
+
 ### Cauchy stability off the axes {#sec:class-off-axes}
 
 Keep the setting of [[sec:class-augmented]]. For a solution U = (g, p_A, Θ_A, q_A) of the augmented system put w :=
@@ -980,11 +1234,11 @@ development on Ω in the gauge D(g) = 0, with the same datum and 𝒩_(k−1) �
 u_A. With p_A := du_A, (Aug1) and (Aug2) hold, since Ric^H(g) = Ric(g) = T and ∇_(P_A) du_A = ½ d g⁻¹(du_A, du_A) = 0.
 Let Θ_A solve (Aug3) with the data □_g u_A on Σ_τ0. On the tube of supp q_A ∩ Σ_τ0, which contains supp q_A and lies in
 {ζ_A = 1} for ε2 small (as in Step 3), Θ_A and □_g u_A solve the same ordinary differential equation along P_A
-([[prop:class-structure]] (c)) with the same data, so they agree, and (Aug4) is the conservation law there; off it q_A =
-0. So the development gives a solution of the augmented system on Ω, within C ε2 of ů in 𝒩_(k−1) by the estimate of Step
-6 at the order k − 1. For ε2 small both it and the solution constructed lie within r_b of ů pointwise, and the argument
-of [[thm:class-kato]] (b) (i), which uses the solutions on Ω only, at the order s = k − 1 > 3, shows that they agree on
-Ω.
+([[prop:class-structure]] (c)) with the same data, so they agree, and (Aug4) is the conservation law there; off it
+q_A = 0. So the development gives a solution of the augmented system on Ω, within C ε2 of ů in 𝒩_(k−1) by the estimate of
+Step 6 at the order k − 1. For ε2 small both it and the solution constructed lie within r_b of ů pointwise, and the
+argument of [[thm:class-kato]] (b) (i), which uses the solutions on Ω only, at the order s = k − 1 > 3, shows that they
+agree on Ω.
 
 *Step 10 (constraints).* On Σ_τ0, ν_A = 0 by the choice of p_A, and P_A(ν_A) = 0 with P_A^τ ≠ 0 gives ∂_τ ν_A = 0
 there, so dν_A = 0 on Σ_τ0. Then i_(P_A) dp_A = ∇_(P_A) p_A − ½ dν_A = 0 on Σ_τ0 ([[prop:class-augmented]] (b)); the
@@ -1015,11 +1269,13 @@ Einstein–null-dust development on the whole of Ω, within C ε of the seed.
 
 *Proof.* (H1) and (H2) hold, and Ω is admissible for g̊ by [[lem:domain]]; apply [[thm:class-stability-off-axes]]. ∎
 
-The corollary gives a large background, the seed, carrying any finite number of small non-round families supported
-away from the axes, on the whole domain; the hole grows by O(ε), unlike the growing hole of [[thm:main]]. It assumes
-the data. They are not constructed here: the outward radial solve of [[ch:data]] is built for data depending on the
-wavelength, and a small non-round dust density, with regularity at the axes for a solve that is parabolic in ϑ, is not
-examined; data localised in an angle are the subject of [[ch:localised-data]].
+The corollary gives a large background, the seed, carrying any finite number of small non-round families supported away
+from the axes, on the whole domain; the hole grows by O(ε), unlike the growing hole of [[thm:main]]. It assumes the data.
+They are not constructed here: the outward radial solve of [[ch:data]] is built for data depending on the wavelength, and
+a small non-round dust density, with regularity at the axes for a solve that is parabolic in ϑ, is not examined here (the
+symmetrizer of that solve exists on every slice, [[lem:vlasov-symmetrizer]], and [[ch:vlasov]] carries the solve out for
+its own data, with constants independent of λ, [[prop:vlasov-scaled-correction]]); data localised in an angle are the
+subject of [[ch:localised-data]].
 
 **Corollary {#cor:class-short-time}** (Large data for a short time.) Let a datum on Σ_τ0 satisfy the constraints and the
 gauge condition, with densities vanishing within 2δ of the axes, and let Ω be admissible for a smooth G-invariant metric
@@ -1132,7 +1388,8 @@ At an axis point the family's generator runs along the axis ([[lem:class-phase-a
 integral in ρ from the axis, across every generator: no transport along P_A supplies it, and it loses nothing, 𝒜 being
 bounded on every Ḣ^j. The families concerned are those whose densities are nonzero at an axis, in particular the round
 ingoing and outgoing dusts of [[ch:two-dusts]], for which σ ≡ 0 on the round background and which every non-round
-perturbation perturbs. The next section carries the recovery of (b) over to curved metrics.
+perturbation perturbs. The next section carries the recovery of (b) over to curved metrics, for σ in L² and for σ² in
+every H^k.
 
 ### The planar shear at an axis {#sec:class-planar-shear}
 
@@ -1281,7 +1538,7 @@ class with g⁻¹(du, du) = 0, near a point p of axis 2 with ρ1(p) > 0, and Θ 
 on δ, on lower bounds for |∇_Σ u| and |∂_z u| on 𝒰_(2δ), on C² norms of g, on C¹ norms of u and on sup |Θ| over
 𝒰_(2δ), such that
 
-    ‖σ‖_(H^k(𝒰_δ)) ≤ C (‖Θ‖_(H^k(𝒰_(2δ))) + ‖dg‖_(H^k(𝒰_(2δ))) + ‖du‖_(H^k(𝒰_(2δ))) + 1),
+    ‖σ²‖_(H^k(𝒰_δ)) ≤ C (‖Θ‖_(H^k(𝒰_(2δ))) + ‖dg‖_(H^k(𝒰_(2δ))) + ‖du‖_(H^k(𝒰_(2δ))) + 1),
 
 H^k in all directions: along the axis, in the planes, and in τ through the equations. On the axis σ = 0 and κ2 =
 (Θ − κ1)/2, and |χ̸ − ½ (tr χ̸) γ̸| = |σ|/√2 ([[lem:class-gauss]] (b)).
@@ -1313,42 +1570,444 @@ and the 1-jet of γ3: this is why C² norms of u are not needed.
 derivative gives the same elliptic equation, linearised at h, for ∂_c h (or ∂_τ h), with a right side one order lower and
 coefficients again of first order in γ3, and ∂_c (H_L(h(y), y)) = ∂_z H_L ∂_c h. The change of variables (z, y) ↔ (c, y)
 has the Jacobian 1/∂_z u, in H^k. Induction on the number of transverse derivatives gives the bound in all directions.
-(5) Then k_L ∈ H^k, and σ ∈ H^k by [[eq:class-shear-leaf]], whose last term is a smooth function of dg and of the leaf's
-tangent. On the axis σ = 0 and κ2 = (Θ − κ1)/2 by [[prop:class-axis]] (d). ∎
+(5) In the frame X_i := ∂_(y_i) + ∂_i h ∂_z of TΣ_L, the second fundamental form of the leaf for the normal ν of
+[[lem:class-leaf]] (b) is k_L(X_i, X_j) = −(∂_i ∂_j h + Γ[γ3]^c_ab X_i^a X_j^b ∂_c F)/|∇F|, F := z − h, so its components
+lie in H^k by (3) and (4), and so do those of χ̸ = ± |∇_M3 u| k_L − n(u) K_Σ on TΣ_L, the sign that of ∂_z u, by
+Moser's estimate. By [[lem:class-gauss]] (b), σ² = 2 |χ̸ − ½ (tr χ̸) γ̸|² with γ̸_ij = γ3(X_i, X_j), a smooth function
+of these components, of γ3 and of ∂h, which are bounded by step (3), the C² norms of g and the C¹ norms of u; so σ²
+lies in H^k with the bound stated, by Moser's estimate. On the axis σ = 0 and κ2 = (Θ − κ1)/2 by
+[[prop:class-axis]] (d). ∎
 
 The radial form [[eq:class-leaf-volterra]] is step (3) in the radial variable: the bound appears directly, through the
 Hardy-type averages of [[prop:class-flat-model]] (b).
 
-**Lemma {#lem:class-leaf-differences}** (The planar shear of nearby solutions.) Let ů be a smooth class solution and,
-near a point of axis 2, let h̊ be the leaves of ů_A. For U = (g, p_A, Θ_A, q_A) on a slice let the leaves of family A
-be the graphs z = h(r) through the points of the axis near that point, each solving [[eq:class-leaf-volterra]] with
-H_L := H_L[Θ_A], the formula of step (1) of [[lem:class-planar-shear]] with Θ_A in place of Θ and the spatial part of
-p_A in place of ∇_Σ u; they exist and are unique by [[lem:class-volterra]], and for U near ů they are C¹-close to the
-leaves of ů and foliate a neighbourhood of the axis. Let σ[U] at a point be the planar shear [[eq:class-shear-leaf]] of
-the leaf through it. Let k ≥ 6. There are a ball 𝔅 around ů in the norm 𝒩_k, a ball 𝔅′ ⊃ 𝔅 around ů in the norm
-𝒩_(k−1), and C, such that:
+Let Σ be a slice {τ = const} of a chart (τ, x) on a G-invariant open set in which G acts on x ∈ ℝ⁴ by its action on ℝ⁴
+and Σ is spacelike for the metrics considered. The chart of [[sec:background]] is one, and the constructions of this
+section use of it only these properties, through the future unit normal n and the second fundamental form K_Σ of Σ, the
+totally geodesic M3 := Σ ∩ {φ1 = 0} and the coordinates (z, y) of [[lem:class-leaf]]. Fix a point p of axis 2 with
+ρ1(p) > 0, a family A and a radius r_* ∈ (0, ρ1(p)/4], write r := |y|, z(p) for the value of z at p and 𝒰 := 𝒰_(r_*),
+so that 𝒰_δ ∩ M3 = {|z − z(p)| < δ, |y| < δ} for δ ≤ ρ1(p)/4.
 
-(a) ‖∂^α(σ[U] − σ[ů])‖_(L²(𝒰_δ)) ≤ C 𝒩_k(U) for |α| ≤ k and U ∈ 𝔅;
-(b) ‖σ[U] − σ[U′]‖_(L²(𝒰_δ)) ≤ C ‖U − U′‖_(L²(𝒰_(2δ))) for U, U′ ∈ 𝔅′, where U includes ∂g among its components.
+A *state* is a G-invariant U = (g, p_A, Θ_A, q_A) on 𝒰, given on Σ ∩ 𝒰 together with the first derivatives of g, with g
+a Lorentzian metric for which Σ is spacelike and p_A(∂_z) ≠ 0 on the axis. We write W_U := (g, ∂g, p_A, Θ_A), ∂g all
+first derivatives of the components of g in the chart, the one normal to Σ included, require W_U to be of class C¹ on Σ
+∩ 𝒰, and write |U − U′| at a point for the sum of the absolute values of the components of W_U − W_(U′) there, so that
+U − U′ includes the difference of the first derivatives of the metrics. A state has *bounds* (M, c), M ≥ 1 and c > 0,
+if on Σ ∩ 𝒰 the C¹ norms of the components of W_U are at most M, g(X, X) ≥ |X|²/M for X tangent to Σ, |X| its flat
+length, −g⁻¹(dτ, dτ) ≥ 1/M, and |p_A(∂_z)| ≥ c on the axis. Let p_A^Σ be the spatial part of p_A, tangent to M3 at its
+points by invariance, ε the sign of p_A(∂_z), and, where p_A^Σ ≠ 0,
 
-The constants use C¹ norms of the phases and sup |Θ_A|, not C² norms of the phases. For a solution of the class system
-with Θ_A = □_g u_A the leaves are the level sets of u_A near the axis, by [[lem:class-leaf]] (c) and the uniqueness in
-[[lem:class-volterra]].
+    H_L[U] := ε (Θ_A − κ_A1 + p_A(n) tr K_Σ|_Π)/|p_A^Σ|,      Π the γ3-orthogonal complement of p_A^Σ in TM3:
 
-*Proof.* (a) The difference δh of the leaves solves L_ů δh = δH_L − (terms in δγ3 and its first derivatives) + Q(δh),
-with L_ů the mean curvature operator of [[eq:class-leaf-cartesian]] linearised at h̊, smooth and uniformly elliptic on
-the disc with the axis interior, and Q collecting the terms at least quadratic in (δh, ∂δh, ∂²δh), with smooth
-coefficients. [[lem:class-interior-regularity]] with j = k, the quadratic terms absorbed on 𝔅, bounds δh in
-H^(k+2) along the disc. Derivatives transverse to the disc commute with L_ů up to operators of lower order with smooth
-coefficients, so ∂_⊥ δh obeys the same equation with a right side controlled by the previous step; induction on the
-number of transverse derivatives gives (a) for all |α| ≤ k. The shift δc of the foliation enters as (∂_c σ[ů]) δc, the
-derivative falling on ů.
-(b) The same with [[lem:class-interior-regularity]] for j = 0 applied to the difference of the leaves of U and U′, on a
-ball 𝔅′ small enough that L_U − L_ů is absorbed. The constant of that lemma at j = 0 holds the sup norms of the
-coefficients of L_U and of their first derivatives, that is, of first and second derivatives of the leaves and of first
-derivatives of g; on 𝔅′ these are bounded by the Sobolev inequality of [[lem:sobolev]] at the order k − 4 ≥ 2 and by the
-bound of step (3) of [[lem:class-planar-shear]]. The shift of the foliation costs ∂_c σ, bounded on 𝔅′. The bound
-needs the coefficients of L_U, which hold first derivatives of g, among the components of U. ∎
+the formula of step (1) of the proof of [[lem:class-planar-shear]] with Θ_A, p_A^Σ and p_A(n) in place of Θ, ∇_Σ u and
+n(u), and with the plane Π, which p_A fixes at each point, in place of TΣ_L. So H_L[U] is a function of the point, as
+[[lem:class-volterra]] requires; when p_A is the differential of a phase, Π is the tangent plane of the level set of
+the phase in M3 through the point, and H_L[U] is that formula for the level set. The *leaves* of U are the solutions
+h(·; z0) of [[eq:class-leaf-volterra]] with H_L(ρ) := H_L[U](h(ρ), ρ) and h(0) = z0, read as the graphs z = h(|y|; z0).
+For a point x on a leaf, σ[U](x) := ε |p_A^Σ| (k_r − k_φ) − p_A(n)(K_Σ(e_r, e_r) − K_Σ(e2, e2)) at x, with k_r and k_φ
+the principal curvatures of the leaf in M3 for the normal ν of [[lem:class-leaf]] (b), e_r its unit tangent in the
+meridional plane and e2 := K2/|K2|: this is [[eq:class-shear-leaf]] with p_A in place of du, the normal ν_L there being
+εν. The *arc* of U through x is {(h(t; z0), t y(x)/r_x) : 0 ≤ t ≤ r_x}, with r_x := |y(x)| and z0 the axis point of the
+leaf through x. Near axis 1 the same holds with the two planes exchanged and κ_A2 in place of κ_A1.
+
+**Lemma {#lem:class-leaf-states}** (The leaves of a state.) Let M ≥ 1 and c > 0. There are r_1 ∈ (0, r_*/8] and C,
+depending only on M, c, ρ1(p) and r_*, such that for all states U and U′ with bounds (M, c):
+
+(a) (Foliation.) For |z0 − z(p)| ≤ r_1 the leaf h(·; z0) of U is defined on [0, r_1], with |h′(r; z0)| ≤ C r, and for
+two such axis points z0 ≠ z0′ and 0 ≤ r ≤ r_1
+
+    1/2 ≤ (h(r; z0) − h(r; z0′))/(z0 − z0′) ≤ 3/2,
+    |h′(r; z0) − h′(r; z0′)| ≤ C r |z0 − z0′|.                                                  {#eq:class-leaf-quotient}
+
+Every point x of 𝒰_(r_1/2) lies on exactly one of these leaves; we write z0[U](x) for its axis point. The arc of U
+through a point of 𝒰_δ, δ ≤ r_1/2, lies in 𝒰_(2δ), and |σ[U]| ≤ C on 𝒰_(r_1/2). If U is smooth, the map (z0, y) ↦
+h(|y|; z0) and the function z0[U] are smooth, and they depend smoothly on parameters on which U depends smoothly.
+
+(b) (Along one arc.) For x ∈ 𝒰_(r_1/2), with r_x := |y(x)| and f(t) := |U − U′| at the point of the arc of U through x
+at radius t,
+
+    |σ[U](x) − σ[U′](x)|
+        ≤ C (f(r_x) + r_x⁻² ∫_0^(r_x) t f(t) dt + (∫_0^(r_x) t f(t)² dt)^(1/2)).  {#eq:class-leaf-pointwise}
+
+(c) (On sets closed under arcs.) Let 0 < δ ≤ r_1/2, and let D ⊂ Σ be a measurable G-invariant set such that the arc of
+U through every point of D ∩ 𝒰_δ lies in D. Then
+
+    ‖σ[U] − σ[U′]‖_(L²(D∩𝒰_δ)) ≤ C ‖U − U′‖_(L²(D∩𝒰_(2δ))).                                         {#eq:class-leaf-sets}
+
+Only the values of U − U′ on the arcs of U enter (b) and (c), and C depends neither on D nor on δ.
+
+*Proof.* Constants C, C_0, C_1, … depend only on M, c, ρ1(p) and r_*.
+
+*Step 1 (H_L).* At a point of the axis every rotation of y fixes the point, so the invariant covector p_A^Σ has no
+component along dy there, p_A^Σ = p_A(∂_z) dz, and γ3 has no component along dz dy (as in the proof of
+[[lem:class-leaf]] (a)); so |p_A^Σ| = |p_A(∂_z)| A3^(−1/2) ≥ c M^(−1/2), as A3 ≤ M. The function |p_A^Σ|² has Lipschitz
+constant at most C, and so has p_A(∂_z); so there is r_2 ∈ (0, r_*/4] with |p_A^Σ| ≥ c M^(−1/2)/2 and |p_A(∂_z)| ≥ c/2
+on 𝒰_(4r_2), where p_A(∂_z) has the constant sign ε. There H_L[U](x) = ℋ(x, W_U(x)), with ℋ a smooth function, the same
+for all states, on the set of (x, w) with ρ1 ≥ ρ1(p)/2 at which the components of w satisfy the lower bounds g(X, X)
+≥ |X|²/(2M), −g⁻¹(dτ, dτ) ≥ 1/(2M) and |p_A^Σ| ≥ c M^(−1/2)/4: n, K_Σ and γ3 are smooth functions of the metric and its
+first derivatives, κ_A1 = g⁻¹(p_A, dψ1) with ψ1 = ½ log g(K1, K1) and g(K1, K1) ≥ ρ1²/M, and Π and the trace of K_Σ
+over it are smooth functions of γ3, K_Σ and p_A^Σ ≠ 0. As W_U is of class C¹ with C¹ norm at most C, so is H_L[U] on
+𝒰_(4r_2).
+
+*Step 2 (The function G).* At the point (z, (r, 0)) write γ_zz := γ3(∂_z, ∂_z) = A3, γ_z1 := γ3(∂_z, ∂_(y1)) = C3 r,
+γ_11 := γ3(∂_(y1), ∂_(y1)) = B3 + D3 r² and γ_22 := γ3(∂_(y2), ∂_(y2)) = B3. By invariance γ3(∂_z, ∂_(y_i)) = C3 y_i
+near the axis, a vector field on the y-plane invariant under its rotations and reflections being a multiple of y by a
+function of |y|; so C3 = ∂_(y2) γ3(∂_z, ∂_(y2)) at (z, (r, 0)), a component of the first derivatives of g there. With h
+:= z and h′ := q, det₂ = γ_zz γ_11 − γ_z1² ≥ M⁻² and N_L² = γ3(∂_(y1) + q ∂_z, ∂_(y1) + q ∂_z) ≥ (1 + q²)/M. By the
+proof of [[lem:class-volterra]], E_L = ν^r/a_L − q + r B̃/a_L, with ν^r/a_L = (γ_z1 + γ_zz q) N_L²/det₂ and B̃ the part
+of H_L free of h″ and of ν^r/r in the divergence formula of the proof of [[lem:class-leaf]] (c); in that formula (det
+γ3)^(1/2) = r (γ_22 det₂)^(1/2), ν^z = (γ_11 + γ_z1 q)/(det₂^(1/2) N_L) and ν^r = −(γ_z1 + γ_zz q)/(det₂^(1/2) N_L), so
+B̃ is a smooth function of q and of the components of γ3 and their first derivatives at the point. As det₂ − γ_zz
+N_L² = −(γ_z1 + γ_zz q)², the function G(r, z, q) := r H(z, r)/a_L − E_L of that proof, H(z, r) := H_L[U] at (z, (r,
+0)), is
+
+    G(r, z, q) = r (H/a_L − C3 N_L²/det₂ − B̃/a_L) − q (C3 r + γ_zz q)²/det₂.                          {#eq:class-leaf-g}
+
+On R := {0 ≤ r ≤ r_2, |z − z(p)| ≤ r_2, |q| ≤ 1} the first bracket and its first derivatives in z and in q are bounded
+by C, by Step 1 and the C¹ bounds of W_U, and ∂_z(C3 r + γ_zz q) = r ∂_z C3 + q ∂_z γ_zz. So G(0, z, q) = −γ_zz
+q³/γ_22, and on R
+
+    |G(r, z, 0)| ≤ C_0 r,      |∂_z G| ≤ C_1 (r + |q|),      |∂_q G| ≤ C_2 (r + |q|).           {#eq:class-leaf-g-bounds}
+
+Every factor of [[eq:class-leaf-g]] is a smooth function of r, q and the values of W_U at the point, with ℋ in place of
+H; so for a second state U′ with bounds (M, c) and the same (r, z, q) ∈ R, |G_U − G_(U′)| ≤ C (r + |q|) |U − U′| at (z,
+(r, 0)), G_U and G_(U′) the functions [[eq:class-leaf-g]] of the two states: by the mean value theorem where |U − U′|
+is so small that the segment between W_U and W_(U′) lies in the set of Step 1, and elsewhere as both |G_U| and |G_(U′)|
+are at most C (r + |q|); the same holds for the function 𝔖 of Step 6, which is bounded by C.
+
+*Step 3 (One leaf).* Put δ_p := min(1, 1/(8C_2)) and r_0 := min(1, r_2/2, δ_p/C_0, 1/(8C_2), 1/(4C_1),
+(r_2/C_0)^(1/2)). For |z0 − z(p)| ≤ r_2/2 consider the map 𝒯 of the proof of [[lem:class-volterra]] on {p ∈ C([0, r_0])
+: sup |p| ≤ δ_p}, which uses of G only G(0, z, q) = −γ_zz q³/γ_22 and bounds of the form [[eq:class-leaf-g-bounds]],
+here with |∂_z G| ≤ 2C_1 on R. As there, |𝒯p(r)| ≤ C_0 r/2 + C_2 (r_0 + δ_p) δ_p ≤ δ_p and 𝒯 has Lipschitz constant at
+most C_1 r_0 + C_2 (r_0 + δ_p) ≤ 1/2; its fixed point is the leaf on [0, r_0], with |h′(r)| ≤ C_0 r ≤ 1 and |h(r) − z0|
+≤ C_0 r²/2 ≤ r_2/2, so that it stays in R, and that proof gives its uniqueness among the C¹ solutions with h(0) = z0.
+
+*Step 4 (Two axis points).* For |z_i − z(p)| ≤ r_2/2, i = 1, 2, let h_i be the leaves, w_i := h_i′, Δz := z_1 − z_2 and
+D(r) := sup_[0,r] |w_1 − w_2|. Along both leaves, and on the segment between their values, |q| ≤ C_0 ρ, so by
+[[eq:class-leaf-g-bounds]] the values of G at (ρ, h_1, w_1) and at (ρ, h_2, w_2) differ by at most C_4 ρ (|h_1 −
+h_2| + |w_1 − w_2|), C_4 := (C_1 + C_2)(1 + C_0); and |h_1 − h_2|(ρ) ≤ |Δz| + ρ D(ρ). Subtracting the two Volterra
+equations, r |w_1 − w_2|(r) ≤ C_4 r² (|Δz| + 2D(r))/2 for r ≤ r_0, so D(r) ≤ C_4 r |Δz|/2 + C_4 r D(r), and for C_4 r ≤
+1/2
+
+    |h_1′(r) − h_2′(r)| ≤ C_4 r |Δz|,      |h_1(r) − h_2(r) − Δz| ≤ C_4 r² |Δz|/2.
+
+*Step 5 (Foliation).* Put r_1 := min(r_0, 1/(2C_4), 1/(2C_0)), so that r_1 ≤ r_*/8 and C_4 r_1² ≤ 1. For |z0 − z(p)| ≤
+r_1 the leaf is defined on [0, r_1] with |h′| ≤ C_0 r, and Step 4 gives [[eq:class-leaf-quotient]] with C := C_4.
+For |y| = r ≤ r_1 the map z0 ↦ h(r; z0) on [z(p) − r_1, z(p) + r_1] is continuous and strictly increasing, and |h(r;
+z0) − z0| ≤ C_0 r²/2 ≤ r_1/4; so its image contains [z(p) − 3r_1/4, z(p) + 3r_1/4], and every point x of 𝒰_(r_1/2) lies
+on exactly one leaf, with |z0[U](x) − z(p)| ≤ 3r_1/4. For t ≤ r_x the point of the arc of x at radius t has |h(t; z0) −
+z(x)| ≤ C_0 (r_x² − t²)/2 ≤ r_x/4, so the arc of a point of 𝒰_δ lies in 𝒰_(5δ/4) ⊂ 𝒰_(2δ).
+
+*Step 6 (The shear on a leaf).* Let x̄ = (h(r), (r, 0)), r > 0, be a point of a leaf of U and s := h′(r)/r. The graph
+has mean curvature H_L[U] at x̄: by the definition of E_L in [[lem:class-leaf]] (c), (r h′)′ = r H_L[U]/a_L − E_L says
+exactly that. So k_r = H_L[U] − k_φ, with k_φ = ν^r/r + ½ ν(log γ_22) and ν^r/r = −(C3 + γ_zz s)/(det₂^(1/2) N_L) by
+[[lem:class-leaf]] (c), e_r = (∂_(y1) + q ∂_z)/N_L with q = r s, and e2 = ∂_(y2)/γ_22^(1/2). Hence
+
+    σ[U](x̄) = 𝔖(x̄, W_U(x̄), s),                                                                {#eq:class-leaf-shear-s}
+
+with 𝔖 a smooth function, the same for all states, on the set of Step 1 times {|s| ≤ C_0}: every quantity entering is a
+smooth function of s, of the point and of the components of W there, C3 by Step 2. Since r⁻² ∫_0^r G dρ = h′(r)/r and
+G(ρ, h, h′)/ρ is continuous by [[eq:class-leaf-g]], s has a limit at r = 0, |s| ≤ C_0, and [[eq:class-leaf-shear-s]]
+holds there by continuity. So |σ[U]| ≤ C on 𝒰_(r_1/2); |∂_s 𝔖| ≤ C; along each line {y = const} the function x̄ ↦ 𝔖(x̄,
+W_U(x̄), s) is Lipschitz with constant C, W_U being of class C¹; and |𝔖(x̄, W_U(x̄), s) − 𝔖(x̄, W_(U′)(x̄), s)| ≤ C |U
+− U′|(x̄).
+
+*Step 7 (Smoothness).* Let U be smooth. The components at (z, (r, 0)), r ∈ (−r_2, r_2), are smooth in (z, r), and G(−r,
+z, −q) = −G(r, z, q), by the parities of [[lem:class-leaf]] (c). So 𝔤(r, z, s) := G(r, z, r s)/r, which by
+[[eq:class-leaf-g]] is the first bracket there at q = r s minus r² s (C3 + γ_zz s)²/det₂, is smooth and even in r. With
+h′ = r s the leaf equation reads, on [−r_1, r_1], the leaf being even,
+
+    s(r) = ∫_0^1 t 𝔤(r t, h(r t), s(r t)) dt,      h(r) = z0 + ∫_0^r ρ s(ρ) dρ.                        {#eq:class-leaf-s}
+
+Its right side defines a map 𝒦 of {s ∈ C([−r_1, r_1]) : sup |s| ≤ C_0} into itself, smooth in s, in z0 and in the
+parameters on which U depends smoothly, and a contraction with constant at most 1/2, since |∂_s 𝔤| = |∂_q G| ≤ C_2 (1 +
+C_0) |r|, |∂_z 𝔤| ≤ C_1 (1 + C_0) and the values of h for two functions s differ by at most r² sup |Δs|/2.
+Differentiating [[eq:class-leaf-s]] j times in r, the j-th derivative of 𝒦s is ∫_0^1 t^(1+j) (∂_s 𝔤 · s^(j) + R_j)(r t)
+dt, with R_j a polynomial in the derivatives of s of order below j and in derivatives of 𝔤 and of h; so 𝒦 maps {Σ_(i≤j)
+sup |s^(i)| ≤ K_j} into itself for K_j large, its iterates are bounded there and converge uniformly to s, and s ∈
+C^(j−1) for every j, by the theorem of Arzelà and Ascoli. The implicit function theorem in C([−r_1, r_1]) makes s
+smooth in z0 and in the parameters; its derivatives in them solve linear equations of the form [[eq:class-leaf-s]], and
+the same argument makes them smooth in r. s is even, s(−·) solving the same equation. So the graph z0 + |y|² ∫_0^1 θ
+s(θ |y|) dθ is smooth in y: by Taylor's formula s(r) = Σ_(i<N) a_i r^(2i) + r^(2N) R_N(r) with R_N smooth and even, and
+y ↦ |y|^(2N) R_N(|y|) is of class C^N. By [[eq:class-leaf-quotient]], ∂_(z0) h ∈ [1/2, 3/2], and the implicit function
+theorem makes z0[U] smooth.
+
+(a) is Steps 3–7.
+
+(b) Let x ∈ 𝒰_(r_1/2); by invariance we may take x = (h_U(r; z0), (r, 0)) with r := r_x and z0 := z0[U](x). Let ĥ :=
+h_U(·; z0) and h̃ := h_(U′)(·; z0), the leaf of U′ from the same axis point, δh := ĥ − h̃, δq := ĥ′ − h̃′, D(r) :=
+sup_[0,r] |δq|, ŝ := ĥ′(r)/r, s̃ := h̃′(r)/r and x′ := (h̃(r), (r, 0)). By Step 6,
+
+    σ[U](x) − σ[U′](x) = (𝔖(x, W_U, ŝ) − 𝔖(x, W_(U′), ŝ)) + (𝔖(x, W_(U′), ŝ) − 𝔖(x, W_(U′), s̃))
+                        + (𝔖(x, W_(U′), s̃) − 𝔖(x′, W_(U′), s̃)) + (σ[U′](x′) − σ[U′](x)),
+
+each W at the point written first, and the first three terms are at most C f(r), C |δq(r)|/r and C |δh(r)|. The point x
+lies on the leaf of U′ with axis point ζ := z0[U′](x), and |ζ − z0| ≤ 2 |δh(r)| by [[eq:class-leaf-quotient]] for U′;
+along the line {y = (r, 0)} the function ζ′ ↦ σ[U′](h_(U′)(r; ζ′), (r, 0)) = 𝔖(·, W_(U′), h_(U′)′(r; ζ′)/r) is
+Lipschitz with constant C, by Step 6 and [[eq:class-leaf-quotient]]; so the fourth term is at most C |δh(r)|.
+Subtracting the Volterra equations of the two leaves,
+
+    r δq(r) = ∫_0^r ((G_U − G_(U′))(ρ, ĥ, ĥ′) + G_(U′)(ρ, ĥ, ĥ′) − G_(U′)(ρ, h̃, h̃′)) dρ.
+
+By Step 2 the first difference is at most C ρ f(ρ), as |ĥ′| ≤ C_0 ρ, and as in Step 4 the second is at most C_4 ρ
+(|δh| + |δq|), with |δh(ρ)| ≤ ρ D(ρ) since δh(0) = 0. So |δq(r)| ≤ C_4 r D(r) + C r⁻¹ ∫_0^r ρ f(ρ) dρ; with r⁻¹ ∫_0^r ρ
+f dρ ≤ (∫_0^r ρ f² dρ)^(1/2)/√2, by the Cauchy–Schwarz inequality, and C_4 r ≤ 1/2,
+
+    D(r) ≤ C (∫_0^r t f(t)² dt)^(1/2),      |δh(r)| ≤ r D(r),      |δq(r)|/r ≤ C_4 D(r) + C r⁻² ∫_0^r t f(t) dt,
+
+which with r ≤ 1 give [[eq:class-leaf-pointwise]].
+
+(c) For a G-invariant function F ≥ 0 on 𝒰_ρ, ρ ≤ ρ1(p)/4, ∫_(Σ∩𝒰_ρ) F = 2π ∫ F(z, y) z dz dy over 𝒰_ρ ∩ M3, the flat
+measure of ℝ⁴ being ρ1 dρ1 dφ1 dy, with z = ρ1 ∈ [3ρ1(p)/4, 5ρ1(p)/4]. For fixed y the map z0 ↦ h_U(|y|; z0) is
+increasing with difference quotients in [1/2, 3/2], hence absolutely continuous with derivative in [1/2, 3/2] almost
+everywhere, and ∫ F(z, y) dz = ∫ F(h_U(|y|; z0), y) ∂_(z0) h_U dz0. For |z0 − z(p)| ≤ 3r_1/4 let Y(z0) be the set of y
+with (h_U(|y|; z0), y) ∈ D ∩ 𝒰_δ, R(z0) the supremum of |y| over Y(z0) (0 if Y(z0) is empty), and f_(z0)(t) := |U − U′|
+at (h_U(t; z0), (t, 0)). If y ∈ Y(z0), the arc of U through that point lies in D, by hypothesis, and in 𝒰_(2δ), by (a);
+by G-invariance, every point (h_U(|y′|; z0), y′) with |y′| < R(z0) lies in D ∩ 𝒰_(2δ). The arc of U through (h_U(|y|;
+z0), y) is that leaf over [0, |y|], so [[eq:class-leaf-pointwise]] gives
+
+    ∫_(Y(z0)) |σ[U] − σ[U′]|²(h_U(|y|; z0), y) dy
+        ≤ C ∫_(𝔻_(R(z0))) (f_(z0)² + (𝒜f_(z0))² + ∫_0^(|y|) t f_(z0)(t)² dt) dy,
+
+with f_(z0) and 𝒜f(r) := r⁻² ∫_0^r t f dt = ∫_0^1 s f(s r) ds read at |y|. As ‖f(s ·)‖_(L²(𝔻_R)) ≤ s⁻¹ ‖f‖_(L²(𝔻_R))
+for radial f, Minkowski's inequality gives ‖𝒜f‖_(L²(𝔻_R)) ≤ ‖f‖_(L²(𝔻_R)), as in [[prop:class-flat-model]] (b), and the
+last term is at most (R²/2) ‖f‖²_(L²(𝔻_R)) ≤ ‖f‖²_(L²(𝔻_R)). So the right side is at most C ∫_(𝔻_(R(z0))) f_(z0)(|y|)²
+dy, an integral over points of D ∩ 𝒰_(2δ). Every point of D ∩ 𝒰_δ is (h_U(|y|; z0), y) with y ∈ Y(z0) and |z0 − z(p)| ≤
+δ + C_0 δ²/2 ≤ 3r_1/4. Integrating over z0 and changing variables on both sides, with the Jacobian ∂_(z0) h_U ∈ [1/2,
+3/2] and the weights 2π z, gives [[eq:class-leaf-sets]]. ∎
+
+**Lemma {#lem:class-leaf-differences}** (The planar shear of nearby solutions.) Let ů be a smooth state on a
+neighbourhood of the closure of 𝒰, for instance a smooth class solution with ∂_z ů_A ≠ 0 on the axis, p_A := dů_A and
+Θ_A := □_g̊ ů_A; its leaves h̊ and its planar shear σ[ů] are those defined before [[lem:class-leaf-states]], as are the
+leaves and the planar shear of every state U. For a state U on Σ and m ≥ 0 let
+
+    𝒩_m(U) := Σ_(j≤m) ‖∂^j (W_U − W_ů)‖_(L²(Σ∩𝒰)),
+
+∂^j all derivatives of order j in x; for a family U(τ) of states on the slices Σ_τ of an interval, for instance a
+solution, with the spacetime derivatives of W_U of order at most k continuous in τ with values in L²(Σ_τ ∩ 𝒰), let
+𝒩_m(U)(τ) be the same expression on Σ_τ with ∂^j all spacetime derivatives of order j. When ů and U are solutions, 𝒩_m
+is at most twice [[eq:class-energy]]. Let k ≥ 6. There are δ_0 > 0, a ball 𝔅 around ů in the norm 𝒩_k and a ball 𝔅′ ⊃ 𝔅
+around ů in the norm 𝒩_(k−1), and for every δ ∈ (0, δ_0] a number C, such that the states of 𝔅′ have bounds (M, c) for
+which 4δ_0 ≤ r_1, r_1 of [[lem:class-leaf-states]], and for 0 < δ ≤ δ_0:
+
+(a) ‖∂^α(σ[U]² − σ[ů]²)‖_(L²(𝒰_δ)) ≤ C 𝒩_k(U) for |α| ≤ k, both for a state U ∈ 𝔅, ∂^α the derivatives in x, and for a
+family of states in 𝔅, ∂^α the spacetime derivatives and 𝒩_k(U) taken at the time considered; and for m > k and a state
+U ∈ 𝔅 with 𝒩_m(U) < ∞, ‖σ[U]² − σ[ů]²‖_(H^m(𝒰_δ)) ≤ C_m 𝒩_m(U), C_m depending also on m and on an upper bound for
+𝒩_(m−1)(U);
+(b) ‖σ[U] − σ[U′]‖_(L²(𝒰_δ)) ≤ C ‖U − U′‖_(L²(𝒰_(2δ))) and |σ[U]| ≤ C on 𝒰_δ, for U, U′ ∈ 𝔅′;
+(c) for U ∈ 𝔅, δh(z0, y) := h_U(|y|; z0) − h̊(|y|; z0), the difference of the leaves through one axis point, and I :=
+[z(p) − δ, z(p) + δ], Σ_(j≤2) ‖∂_(z0)^j δh‖_(L²(I; H^(k+2−j)(𝔻_δ))) ≤ C 𝒩_k(U); and for a family of states in 𝔅, every
+derivative of δh in (τ, z0, y) of order at most k − 2 is bounded on I × 𝔻_δ by C 𝒩_k(U).
+
+C depends only on k, δ, ρ1(p), r_*, the bounds of ů and a bound for the derivatives of order at most k + 2 of the
+components of W_ů (of order at most m + 2 for C_m), and in (b) only on (M, c), ρ1(p) and r_*. The planar shear enters
+[[eq:class-x]], and the closure of the Raychaudhuri equation at an axis, through σ². For a state with p_A = du_A and
+Θ_A = □_g u_A near the axis, u_A a phase in the class with g⁻¹(du_A, du_A) = 0 and ∂_z u_A ≠ 0 there, for instance a
+solution of the class system with p_A = du_A
+and Θ_A = □_g u_A, the leaves are the level sets of u_A near the axis, and σ[U] is the planar shear
+[[eq:class-shear-leaf]] of those level sets.
+
+*Proof.* Constants C depend only on the quantities named in the statement, and C_m also on m and on an upper bound for
+𝒩_(m−1)(U).
+
+*The balls.* As ů is smooth up to the closure of 𝒰, with p_A(∂_z) ≠ 0 on the axis, it has bounds (M_0, 2c_0) for some
+M_0 and c_0. On the Lipschitz domain Σ ∩ 𝒰, Sobolev's embedding ([[thm:std-bh-embedding]], 3 · 2 > 4) gives sup |f| ≤ C
+Σ_(j≤3) ‖∂^j f‖; applied to the derivatives of W_U − W_ů, spacetime ones for a family,
+
+    sup_(Σ∩𝒰) |∂^i (W_U − W_ů)| ≤ C 𝒩_(i+3)(U).                                                      {#eq:class-leaf-sup}
+
+So there is r′ > 0 such that every state with 𝒩_4(U) ≤ r′ has bounds (M, c) := (2M_0, c_0): the C¹ norms of the
+components of its W_U differ from those of ů by at most C r′, and so do the quantities bounded below in the definition
+of bounds. Let 𝔅′ := {𝒩_(k−1) ≤ r′}, as k − 1 ≥ 4; let r_1 and C_0, …, C_4 be the numbers of [[lem:class-leaf-states]]
+and its proof for (M, c), δ_0 := min(r_1/4, 1/(9C_0), δ_1) with δ_1 > 0 fixed in Step 5 below, depending only on (M, c)
+and ů, and 𝔅 := {𝒩_k ≤ r″}, with r″ ∈ (0, r′/2] fixed in Steps 4, 5 and 6 below; let 0 < δ ≤ δ_0.
+
+*(b)* is [[lem:class-leaf-states]] (c) with D := Σ, as 2δ ≤ r_1/2, together with its part (a).
+
+*The last statement.* Let g⁻¹(du_A, du_A) = 0, p_A = du_A, Θ_A = □_g u_A and ∂_z u_A ≠ 0 near the axis; no field
+equation is used. By [[lem:class-leaf]] (b) the level set of u_A through an axis point (z0, 0) is, near it, an
+invariant smooth graph z = h(y) with h(0) = z0, and du_A = ∂_z u_A dF along it, F := z − h(y); so |∇_M3 u_A| = |p_A^Σ|,
+ν_L = εν, and Π is its tangent plane TΣ_L. By [[lem:class-gauss]] (b), tr χ̸ = |∇_M3 u_A| tr k_L − n(u_A) tr
+K_Σ|_(TΣ_L) = Θ_A − κ_A1, k_L taken for ν_L; so its mean curvature for ν is H_L[U], as in step (1) of the proof of
+[[lem:class-planar-shear]]. By [[lem:class-leaf]] (c), h′(0) = 0 and (r h′)′ = r H_L[U]/a_L − E_L for r > 0;
+integrating from 0 gives [[eq:class-leaf-volterra]], and h is the leaf of U through z0, by the uniqueness in
+[[lem:class-volterra]]. Then k_r, k_φ, e_r and e2 are those of the level set, and σ[U] is [[eq:class-shear-leaf]] for
+it.
+
+*(a) and (c).* *Step 1 (Smooth states suffice).* It suffices to prove (a) and (c) for smooth states, or smooth
+families, with 𝒩_k(U) ≤ 2r″, with constants that do not depend on their smoothness. Indeed, for U ∈ 𝔅 let U_n be
+obtained by extending the components of g, ∂_τ g, p_A and Θ_A from Σ ∩ 𝒰 by Stein's operator
+([[thm:std-sy-extension]]), mollifying, averaging over G, which acts by isometries of ℝ⁴, and restricting; for a
+family, Stein's operator acts in x on each slice, so that it commutes with ∂_τ, the family is extended in τ past the
+ends of its interval by a reflection of order k, and the mollification is in (τ, x). Then Σ_(j≤m) ‖∂^j (W_(U_n) −
+W_U)‖ → 0 for every m with 𝒩_m(U) < ∞, so 𝒩_k(U_n) ≤ 2r″ for n
+large; for a family the convergence holds uniformly for τ near the time considered, as the derivatives of W_U of order
+at most k are continuous in τ with values in L² of the slices, and the bounds below, uniform in τ, pass to the limit at
+every time. By (b), σ[U_n] → σ[U] in L²(𝒰_δ), and these functions are bounded by C, so σ[U_n]² → σ[U]² in L²(𝒰_δ); a
+sequence bounded in H^m and convergent in L² has its limit in H^m, with the same bound. For (c), the proof of
+[[lem:class-leaf-states]] (b) gives sup |h_(U_n) − h_U| ≤ C sup |U_n − U| → 0 on the leaves, and the bounds pass to the
+limit in the same way. From now on U is smooth, or a smooth family, with 𝒩_k(U) ≤ 2r″.
+
+*Step 2 (Leaf coordinates and norms).* Let Q_ρ := 𝒰_ρ ∩ M3 in the coordinates (z, y), Q̂ := {(z0, y) : |z0 − z(p)| <
+3δ, |y| < 3δ}, and, for X ∈ {U, ů}, Λ_X(z0, y) := (h_X(|y|; z0), y), which is smooth, injective on Q̂ and has Jacobian
+∂_(z0) h_X ∈ [1/2, 3/2] ([[lem:class-leaf-states]] (a)). As |h_X − z0| ≤ C_0 (3δ)²/2 ≤ δ/2, Λ_X(Q̂) ⊂ Q_(4δ), and Λ_X
+maps {|z0 − z(p)| < 3δ, |y| < ρ} onto a set containing Q_δ for ρ ≥ δ. For a G-invariant function f on 𝒰_ρ, ρ ≤ 4δ, the
+H^m norms of f on Σ ∩ 𝒰_ρ and of f(z, y) on Q_ρ agree up to factors depending only on m and ρ1(p): the volume elements
+differ by the factor 2π z of the proof of [[lem:class-leaf-states]] (c), and ∂_(x_i) f = (x_i/ρ1) ∂_z f for i = 1, 2
+and ∂_z f = Σ_(i≤2) (x_i/ρ1) ∂_(x_i) f, the functions x_i/ρ1 having bounded derivatives of every order where ρ1 ≥
+ρ1(p)/2. The same holds for each component in the chart x of a G-invariant tensor field: its components in the frame
+(∂_z, ρ1⁻¹K1, ∂_(x3), ∂_(x4)) are functions of (ρ1, x3, x4), equal to its components in the chart x at the points of
+M3, and they are obtained from those by a change of frame with bounded derivatives of every order where ρ1 ≥ ρ1(p)/2.
+Below, D denotes the derivatives in (z0, y), or in (z, y), and, for a family, also in τ; T denotes ∂_(z0) and, for a
+family, also ∂_τ; all norms are taken at the time considered, and a norm without index on Q̂, on Q_(4δ) or on a subset
+is that of L², ‖f‖_n := Σ_(|α|≤n) ‖D^α f‖. Put ω := W_U − W_ů and ω_g := g_U − g_ů on Q_(4δ), and Ω_n := ‖ω‖_n +
+‖ω_g‖_(n+1) on Q_(4δ); then Ω_n ≤ C 𝒩_n(U), the first derivatives of g being components of W.
+
+*Step 3 (The divergence form).* Let X ∈ {U, ů}. For a C¹ G-invariant function h on a disc of the y-plane put F := z −
+h(y), let ν be the unit normal γ3⁻¹dF/|dF| of the graphs z = h(y) + const, a field near the graph that depends on (z,
+y) and on ∂h(y), let √γ := (det γ3)^(1/2) in the coordinates (z, y), and 𝔙(y, z, P; w) := √γ ν^y at (z, y), with ∂h
+replaced by P ∈ ℝ², ν^y := (ν^(y1), ν^(y2)) and w the value of g_X there. The mean curvature of a C² graph at its
+points is (√γ)⁻¹ ∂_a(√γ ν^a), and along the graph ∂_(y_i)[𝔙^i(y, h, ∂h)] = (∂_i(√γ ν^i) + ∂_z(√γ ν^i) ∂_i h)|_(z=h(y)),
+∂_z at fixed ∂h. So the graph has mean curvature H_L[X] at its points exactly when
+
+    div_y 𝔙(y, h, ∂h) = Φ_X(y, h, ∂h),
+    Φ_X := (√γ H_L[X] − ∂_z(√γ ν^z) + ∂_z(√γ ν^i) ∂_i h)|_(z=h(y)),                           {#eq:class-leaf-divergence}
+
+Φ_X a smooth function of (y, h, ∂h) and of W_X at (h(y), y). The leaf h_X(·; z0) satisfies [[eq:class-leaf-divergence]]
+off the axis (Step 6 of the proof of [[lem:class-leaf-states]]), and 𝔙(y, h_X, ∂h_X) is an invariant vector field,
+v(|y|) y, with (r² v)′ = r div(v y) = r Φ_X for r > 0 and r² v → 0; so
+
+    𝔙(y, h_X, ∂h_X) = y 𝔰_X,      𝔰_X(y) := ∫_0^1 t Φ_X(t y) dt.                                  {#eq:class-leaf-radial}
+
+By [[lem:class-leaf]] (b), ∂_P 𝔙 = −√γ |dF|⁻¹ (γ3^(ij) − ν^i ν^j)_(i,j) is negative definite, with eigenvalues in
+[−Λ_1, −1/Λ_1] for |P| ≤ 1, Λ_1 depending only on M; so P ↦ 𝔙(y, z, P; w) is injective on {|P| ≤ 1}, its inverse 𝔓(y,
+z, ·; w) is smooth on the image, and
+
+    ∂_y h_X = 𝔓(y, h_X, y 𝔰_X; g_X(h_X, y)).                                                     {#eq:class-leaf-inverse}
+
+On the tangent plane TΣ_L of the graph, spanned by X_i := ∂_(y_i) + ∂_i h ∂_z, the second fundamental form for ν is
+k_L(X_i, X_j) = −(∂_i ∂_j h + Γ[γ3]^c_ab X_i^a X_j^b ∂_c F)/|dF|. The form χ̸ := ε |p_A^Σ| k_L − p_A(n) K_Σ on TΣ_L is
+diagonal in the frame (e_r, e2), by the reflection y2 ↦ −y2 at the points (z, (r, 0)), and χ̸(e_r, e_r) − χ̸(e2, e2) =
+σ[X]; so σ[X]² = 2 |χ̸ − ½ (tr χ̸) γ̸|², γ̸ the induced metric, a symmetric form on a plane with eigenvalues a and b
+having trace-free part of squared norm (a − b)²/2. In the frame (X_i) this reads
+
+    σ[X]² ∘ Λ_X = 𝔗(y, h_X, ∂_y h_X, ∂_y² h_X; W_X ∘ Λ_X),                                        {#eq:class-leaf-square}
+
+𝔗 a smooth function, the same for all states, the contractions being taken with γ̸_ij = γ3(X_i, X_j).
+
+*Step 4 (Bounds of low order).* For X ∈ {U, ů} write s_X := h_X′/r, the solution of [[eq:class-leaf-s]]; it is smooth
+and even (Step 7 of the proof of [[lem:class-leaf-states]]), and by Step 2 of that proof the integrand of
+[[eq:class-leaf-s]] is 𝔤̂(r t, h, s, W_X(h, (r t, 0))) with 𝔤̂ smooth, the same for all states. Differentiating
+[[eq:class-leaf-s]] once or twice in r, z0 and, for a family, τ, each derivative of s_X solves a linear equation whose
+map has norm at most 1/2, as in that Step 7, and whose inhomogeneous term holds derivatives of order at most 2 of W_X
+and derivatives of s_X and h_X of lower order; with [[eq:class-leaf-sup]] at i ≤ 2, so 𝒩_5 ≤ 𝒩_k, the derivatives of
+order at most 2 of s_X, of h_X = z0 + |y|² ∫_0^1 θ s_X(θ |y|) dθ, of ∂_y h_X = s_X y, of W_X ∘ Λ_X, of g_X ∘ Λ_X and of
+𝔰_X = ∫_0^1 t Φ_X(t ·) dt are bounded on Q̂ by C. The same equations for the differences η := h_U − h_ů, δs := s_U −
+s_ů, with the terms in ω ∘ Λ_U as inhomogeneous terms, bound the derivatives of order at most 2 of η, ∂_y η, δs, δ𝔰 :=
+𝔰_U − 𝔰_ů, ω ∘ Λ_U and ω_g ∘ Λ_U on Q̂ by C 𝒩_k(U). We fix r″ so small that these bounds are at most 1.
+
+*Product and composition rules.* (P) The terms estimated below at an order n, n ≤ k + 1, or n ≤ m + 1 in the second
+part of (a), are sums of products of a bounded smooth function with derivatives of factors among h_X, ∂_y h_X, s_X,
+𝔰_X, y 𝔰_X, W_X ∘ Λ_X, g_X ∘ Λ_X, ∂_y² h_X and their differences, in which the numbers of derivatives add to at most n.
+Every factor but the one carrying the most derivatives carries a ≤ n/2 of them. If a ≤ 1, it is bounded by Step 4. If
+two factors carry two derivatives each and n = 4, Hölder's inequality and H¹(Q̂) ⊂ L⁴ ([[thm:std-bh17-embedding]])
+bound their product by norms of order 3. Otherwise a ≤ n − 3, and the factor is bounded pointwise by Sobolev's
+embedding H²(Q̂) ⊂ L^∞ ([[thm:std-bh-embedding]], 2 · 2 > 3) and its norm of order a + 2, below the order of the term
+and bounded before, or, for a derivative of ω or ω_g, by [[eq:class-leaf-sup]], with 𝒩_(a+3) ≤ 𝒩_k for n ≤ k + 1, k ≥
+6, and 𝒩_(a+3) ≤ 𝒩_(m−1) for n ≤ m + 1 if a ≤ m − 4, the first bound serving if not. So the L² norm of such a product
+is at most C, or C_m, times the L² norm of its factor of highest order, or the norms of order below n just named. (Q)
+For F on Q_(4δ) and |α| ≤ n, D^α(F ∘ Λ_U) is a sum of products of (D^β F) ∘ Λ_U, |β| ≥ 1, with factors D^(α_i)
+Λ_U, |α_i| ≥ 1, Σ |α_i| = |α|; counting D^(α_i) Λ_U as a derivative of order |α_i| − 1 of DΛ_U, the orders add to |α|.
+(P) applies, and the change of variables Λ_U, with Jacobian at least 1/2, gives ‖(D^β F) ∘ Λ_U‖ ≤ √2 ‖D^β F‖ on Q_(4δ).
+With F := ω, and F := ω_g at the order n + 1, the term in which all of D^α falls on h_U being multiplied by sup |Dω| ≤
+C 𝒩_k(U), and with ‖·‖′_(n+1) the sum of the norms of the derivatives of order at most n + 1 other than the T^(n+1),
+for which that term would hold T^(n+1) η,
+
+    ‖ω ∘ Λ_U‖_n + ‖ω_g ∘ Λ_U‖′_(n+1) ≤ C (Ω_n + 𝒩_k(U) (‖η‖_n + ‖∂_y η‖_n)).                     {#eq:class-leaf-compose}
+
+The same holds with Λ_U⁻¹ in place of Λ_U, for functions on Q̂: DΛ_U⁻¹ = B ∘ Λ_U⁻¹ with B a smooth function of Dh_U,
+∂_(z0) h_U ≥ 1/2, so the derivatives of Λ_U⁻¹ are polynomials in the derivatives of h_U composed with Λ_U⁻¹, and the
+Jacobian of Λ_U⁻¹ lies in [2/3, 2].
+
+*Step 5 (Transverse derivatives).* 𝔤̂(r t, h_U, s_U, W_U(h_U, ·)) − 𝔤̂(r t, h_ů, s_ů, W_ů(h_ů, ·)) = a_1 · (ω ∘ Λ_U) +
+a_2 δs + a_3 η at the point (r t, 0) of the leaves, with a_1, a_2, a_3 smooth functions of r t, h_U, h_ů, s_U, s_ů, W_U
+∘ Λ_U, W_ů ∘ Λ_U, W_ů ∘ Λ_ů and ∫_0^1 ∂_z W_ů(h_ů + θη, ·) dθ, the factor of η in W_ů ∘ Λ_U − W_ů ∘ Λ_ů;
+and |a_2| = |∂_s 𝔤̂| ≤ C_2 (1 + C_0) r t and |a_3| ≤ C. Let j ≤ k, or j ≤ m. Applying T^j to the difference of the
+equations [[eq:class-leaf-s]],
+
+    T^j δs(r) = ∫_0^1 t (a_2 T^j δs + a_3 T^j η + a_1 · T^j(ω ∘ Λ_U) + R_j)(r t) dt,
+    T^j η(r) = r² ∫_0^1 θ T^j δs(θ r) dθ,
+
+R_j the terms of Leibniz's rule in which δs, η or ω ∘ Λ_U carries fewer than j derivatives. As ‖F(t ·)‖_(L²(𝔻_ρ)) ≤ t⁻¹
+‖F‖_(L²(𝔻_ρ)), Minkowski's inequality bounds the operators F ↦ ∫_0^1 t F(t ·) dt and F ↦ |y|² ∫_0^1 θ F(θ ·) dθ on
+L²(𝔻_ρ), ρ ≤ 3δ, by 1 and by 9δ², on each disc of fixed (τ, z0), as in the proof of [[lem:class-leaf-states]] (c). So
+‖T^j η‖ ≤ 9δ² ‖T^j δs‖ and ‖T^j δs‖ ≤ (3C_2 (1 + C_0) δ + 9C δ²) ‖T^j δs‖ + C ‖T^j(ω ∘ Λ_U)‖ + ‖R_j‖ on Q̂. Fix δ_1
+with 3C_2 (1 + C_0) δ_1 + 9C δ_1² ≤ 1/2. Steps 5 and 6 are one induction on the order: at the order j this step uses
+[[eq:class-leaf-elliptic]] at j − 1, and Step 6 at the order n uses this step at orders at most n. The operator bounds
+above hold on every disc 𝔻_ρ, ρ ≤ 3δ, so the bounds of this step hold on the set Q̂_(j−1) of Step 6, Q̂_(−1) := Q̂. In
+R_j the coefficients a_1, a_2, a_3 carry the derivatives that δs, η and ω ∘ Λ_U do not. A term in which all j fall on a
+coefficient has δs, η or ω ∘ Λ_U as a factor without derivatives, at most C 𝒩_k(U) ≤ 2C r″, times at most C (1 + ‖T^j
+δs‖ + ‖T^j η‖ + ‖T^j(ω ∘ Λ_U)‖), by (Q) for the coefficients; the other terms are covered by (P), whose norms of order
+below j are bounded by [[eq:class-leaf-elliptic]] at j − 1 and by Step 4. So ‖R_j‖ ≤ C (Ω_j + 𝒩_k(U)) + C r″ (‖T^j
+δs‖ + ‖T^j η‖ + ‖T^j(ω ∘ Λ_U)‖) for j ≤ k, and the same with C_m in place of C for k < j ≤ m. By (Q), ‖T^j(ω ∘ Λ_U)‖ ≤
+C (Ω_j + 𝒩_k(U) ‖T^j η‖) plus terms bounded by (P) and the derivatives of η of order below j. With ∂_y η = δs y and Ω_j
+≤ C 𝒩_j(U), the terms in r″ being absorbed for r″ small, induction on j gives, on Q̂_(j−1),
+
+    ‖T^j δs‖ + ‖T^j η‖ + ‖T^j ∂_y η‖ ≤ C 𝒩_k(U) for j ≤ k,      ≤ C_m 𝒩_m(U) for k < j ≤ m.   {#eq:class-leaf-transverse}
+
+*Step 6 (Derivatives along the disc).* Let ρ_n := (3/2 + 3 · 2^(−n−2)) δ and Q̂_n := {|z0 − z(p)| < 3δ, |y| < ρ_n}, and
+for functions on Q̂_n let ‖f‖_(j,n) be the L² norm in z0 of the H^(n+2−j) norm in y on 𝔻_(ρ_n). We show, by induction
+on n, for n ≤ k, and for n ≤ m in the second part of (a),
+
+    Σ_(j≤n) ‖T^j η‖_(j,n) ≤ C 𝒩_k(U) for n ≤ k,      Σ_(j≤n) ‖T^j η‖_(j,n) ≤ C_m 𝒩_m(U) for k < n ≤ m,
+                                                                                                {#eq:class-leaf-elliptic}
+
+T^j any product of j transverse derivatives; for n − 1 it holds by induction (it is empty for n = 0), and with Step 5
+it bounds all norms of order below n + 2 of η, ∂_y η, δs, δ𝔰 and of order below n + 1 of ω ∘ Λ_U that (P) uses. We
+write the bound for n ≤ k; for n > k the same lines give C_m 𝒩_m(U).
+
+(i) δΦ := Φ_U(y, h_U, ∂_y h_U; W_U ∘ Λ_U) − Φ_ů(y, h_ů, ∂_y h_ů; W_ů ∘ Λ_ů) is a smooth function of these arguments
+times (η, ∂_y η, ω ∘ Λ_U, W_ů ∘ Λ_U − W_ů ∘ Λ_ů), the last being (∫_0^1 ∂_z W_ů(h_ů + θη, ·) dθ) η. For j + |β| ≤ n,
+T^j ∂_y^β δΦ is a sum of terms linear in T^j ∂_y^β of η, ∂_y η and ω ∘ Λ_U, with bounded coefficients, and of products
+of lower order covered by (P). The derivatives T^j ∂_y^β ∂_y η, n + 1 derivatives of η, are bounded by
+[[eq:class-leaf-elliptic]] at n − 1 for j ≤ n − 1 and by [[eq:class-leaf-transverse]] for j = n; those of η by both;
+those of ω ∘ Λ_U by [[eq:class-leaf-compose]]. So Σ_(j+|β|≤n) ‖T^j ∂_y^β δΦ‖ ≤ C 𝒩_k(U) on Q̂_(n−1), Q̂_(−1) := Q̂.
+
+(ii) Put u_X(y) := |y|² ∫_0^1 t 𝔰_X(t y) dt, a radial function with ∇_y u_X = y 𝔰_X and, by [[eq:class-leaf-radial]],
+Δ_y u_X = div_y(y 𝔰_X) = Φ_X. So δu := u_U − u_ů satisfies Δ_y T^j δu = T^j δΦ on each disc of fixed (τ, z0). By
+[[lem:class-interior-regularity]] with L := Δ_y, c_a = 1 and j := n − j, whose proof applies to any two concentric
+discs, here 𝔻_(ρ_n) ⊂ 𝔻_(ρ_(n−1)), with C depending also on their radii,
+
+    ‖T^j δu‖_(H^(n−j+2)(𝔻_(ρ_n))) ≤ C (‖T^j δΦ‖_(H^(n−j)(𝔻_(ρ_(n−1)))) + ‖T^j δu‖_(L²(𝔻_(ρ_(n−1))))),
+
+and the last norm is at most 9δ² ‖T^j δΦ‖_(L²(𝔻_(ρ_(n−1)))), by the operator bounds of Step 5 applied to δ𝔰 = ∫_0^1 t
+δΦ(t ·) dt and to δu. Squaring, integrating over z0 and using (i), Σ_(j≤n) ‖T^j ∇_y δu‖_(L²(H^(n+1−j))) ≤ C 𝒩_k(U) on
+Q̂_n.
+
+(iii) By [[eq:class-leaf-inverse]], ∂_y η = 𝔓(y, h_U, ∇_y u_U; g_U ∘ Λ_U) − 𝔓(y, h_ů, ∇_y u_ů; g_ů ∘ Λ_ů), a smooth
+function of these arguments times (η, ∇_y δu, ω_g ∘ Λ_U, g_ů ∘ Λ_U − g_ů ∘ Λ_ů). For j ≤ n and |β| ≤ n + 1 − j, T^j
+∂_y^β ∂_y η is a sum of terms linear in T^j ∂_y^β of η, ∇_y δu and ω_g ∘ Λ_U, with bounded coefficients, and of
+products covered by (P), with n + 1 derivatives in all. The derivatives of ∇_y δu are bounded by (ii); those of η,
+which carry |β| ≥ 1 derivatives in y as j ≤ n, by [[eq:class-leaf-elliptic]] at n − 1 for j ≤ n − 1 and by
+[[eq:class-leaf-transverse]] for j = n; and those of ω_g ∘ Λ_U by [[eq:class-leaf-compose]], whose term in ∂_y η of
+order n + 1 carries the factor C 𝒩_k(U) ≤ 2C r″ and is absorbed for r″ small. So Σ_(j≤n) ‖T^j ∂_y η‖_(L²(H^(n+1−j))) ≤
+C 𝒩_k(U) on Q̂_n, which with [[eq:class-leaf-transverse]] for ‖T^j η‖ is [[eq:class-leaf-elliptic]] at n.
+
+*Step 7 (Conclusion).* By [[eq:class-leaf-square]], S := σ[U]² ∘ Λ_U − σ[ů]² ∘ Λ_ů is a smooth function times (η, ∂_y
+η, ∂_y² η, ω ∘ Λ_U, W_ů ∘ Λ_U − W_ů ∘ Λ_ů). Its derivatives of order at most k are bounded in L²(Q̂_k) by (P),
+[[eq:class-leaf-elliptic]] at n = k, which bounds T^j ∂_y^β ∂_y² η for j + |β| ≤ k, and [[eq:class-leaf-compose]]:
+‖S‖_k ≤ C 𝒩_k(U) on Q̂_k, and likewise ‖S‖_m ≤ C_m 𝒩_m(U) on Q̂_m. Write S̊ := σ[ů]² ∘ Λ_ů, a smooth function on Q̂.
+Then σ[U]² − σ[ů]² = S ∘ Λ_U⁻¹ + S̊ ∘ Λ_U⁻¹ − S̊ ∘ Λ_ů⁻¹, and as h_U(|y|; z0[U]) = z, Λ_ů ∘ Λ_U⁻¹(z, y) = (z −
+η(Λ_U⁻¹(z, y)), y), so that
+
+    S̊ ∘ Λ_U⁻¹ − S̊ ∘ Λ_ů⁻¹ = −(∫_0^1 ∂_z(S̊ ∘ Λ_ů⁻¹)(z − θ η ∘ Λ_U⁻¹, y) dθ) η ∘ Λ_U⁻¹.
+
+Λ_U maps Q̂_k onto a set containing Q_δ (Step 2, ρ_k > δ), and (Q) for Λ_U⁻¹, with (P), gives ‖σ[U]² −
+σ[ů]²‖_(H^k(Q_δ)) ≤ C (‖S‖_k + ‖η‖_k) ≤ C 𝒩_k(U), and at the order m the bound C_m 𝒩_m(U). By Step 2 these are the
+bounds of (a) on 𝒰_δ, with the derivatives in x for a state and the spacetime derivatives for a family. For (c),
+[[eq:class-leaf-elliptic]] at n = k with j ≤ 2, restricted to I × 𝔻_δ ⊂ Q̂_k, is the first bound; for a family it
+bounds every derivative of η of order at most k in (τ, z0, y) in L²(Q̂_k), and Sobolev's embedding H²(Q̂_k) ⊂ L^∞ gives
+the second. ∎
 
 **Remark {#rem:class-leaf-numerics}** (Numerical observation.) On a metric γ3 of the form [[eq:class-m3-metric]] with
 non-constant A3, B3, C3, D3, whose leaf z = 0 has mean curvature of order one, the leaves h_ε = ε² exp(−r²/ε²) for ε =
@@ -1359,6 +2018,211 @@ quotients ‖δσ_L‖/‖δH_L‖ were 0.49713, 0.49928, 0.49982, 0.49996, tend
 orders 0 and 1 only. Integrating [[eq:class-leaf-volterra]] from the axis with h′ = 0 there and H_L given recovered h′
 within 4.1 × 10⁻¹¹ and σ_L within 8.0 × 10⁻¹⁰, while the flat equation h″ + h′/r = H_L in its place missed them by
 0.146 and 2.91. No proof uses these observations.
+
+**Lemma {#lem:class-leaf-reference}** (The planar shear about a reference that is not a solution.) Near a point p of axis
+2 with ρ1(p) > 0, on a slice Σ_τ, fix a family A, use the coordinates (z, y) of [[lem:class-leaf]] and fix r_* ∈ (0,
+ρ1(p)/4]; norms and bounds below are taken on 𝒰_(r_*). States, their functions H_L[U], their *leaves* h(·; z0) and their
+planar shear σ[U] are those defined before [[lem:class-leaf-states]] for this radius; for a state V, 𝒩_k^V(U) is
+[[eq:class-energy]] with V in place of ů. Let V be a smooth state on a neighbourhood of the closure of 𝒰_(r_*) such
+that |p_V(∂_z)| ≥ c > 0 on the axis near p.
+
+(o) (Foliation.) There are r_V ∈ (0, r_*/2] and C_V, depending only on ρ1(p), r_*, c, lower bounds for A3, B3 and det₂
+of the metric γ3 of V, for −g_V⁻¹(dτ, dτ) and for g_V on TΣ_τ, and bounds for the C² norms of g_V and the C¹ norms of
+p_V and Θ_V, such that for |z0 − z(p)| ≤ r_V the
+leaf h_V(·; z0) is defined on [0, r_V] with |h_V′(r; z0)| ≤ C_V r, and for |z0 − z(p)| ≤ r_V, |z0′ − z(p)| ≤ r_V, z0 ≠
+z0′ and 0 ≤ r ≤ r_V
+
+    1/2 ≤ (h_V(r; z0) − h_V(r; z0′))/(z0 − z0′) ≤ 3/2.                                    {#eq:class-leaf-lipschitz}
+
+Every point x of 𝒰_(r_V/4) lies on exactly one of these leaves; we write z0^V(x) for its axis point. The map (z0, y) ↦
+h_V(|y|; z0) is smooth, and so is z0^V.
+
+(a), (b) The conclusions (a) and (b) of [[lem:class-leaf-differences]] hold with ů replaced by V, 𝒩_k by 𝒩_k^V and 0 < δ
+≤ δ_V, the balls 𝔅 and 𝔅′ being balls about V. Here δ_V := min(δ_0, r_V/8, δ_𝔐), δ_0 the number of
+[[lem:class-leaf-differences]] for ů := V and the radius r_*, δ_𝔐 the number of (b′) below for 2𝔐_V in place of 𝔐 and
+c/2 in place of c, 𝔐_V ≥ 1 a bound for V as in (b′); the balls and C depend only on k, δ, ρ1(p), r_*, c, r_V, 𝔐_V,
+lower bounds for −g_V⁻¹(dτ, dτ) and for g_V on TΣ_τ, and bounds for the derivatives of order at most k + 2 of W_V.
+
+(b′) (Leaf by leaf.) Let 𝔐 ≥ 1 bound the C³ norms of g and the C¹ norms of p_A and Θ_A of two states U and U′, the
+inverses of lower bounds for A3, B3, det₂ of their metrics γ3, for −g⁻¹(dτ, dτ) and for g on TΣ_τ, and the inverse of
+a lower bound for |p_A^Σ|, and let |p_A(∂_z)| ≥ c on the axis for both. There are δ_𝔐 ∈ (0, r_*/16] and C, depending
+only on ρ1(p), r_*, 𝔐 and c, such that for
+0 < δ ≤ δ_𝔐 and every set D ⊂ Σ_τ for which the leaf of U through each point of D ∩ 𝒰_δ lies, over the disc 𝔻_(2δ), in D,
+
+    ‖σ[U] − σ[U′]‖_(L²(D∩𝒰_δ)) ≤ C ‖U − U′‖_(L²(D∩𝒰_(2δ))),                               {#eq:class-leaf-wise}
+
+where U − U′ includes the difference of the first derivatives of the metrics. No ball about a reference state and no
+extension operator enters, and C does not depend on D.
+
+Here V need not solve any equation: the leaves are defined by [[eq:class-leaf-volterra]] from H_L[V], and no phase is
+involved. For a solution of the class system with Θ_A = □_g u_A they are the level sets of u_A
+([[lem:class-leaf-differences]]), so (a) and (b) with V := ů are [[lem:class-leaf-differences]].
+
+*Proof.* Constants C below depend only on the quantities named in the part concerned. Write G(r, z, q) := r H(z, r)/
+a_L(r, z, q) − E_L(r, z, q) as in the proof of [[lem:class-volterra]], with H := H_L[V] in (o), so that a leaf solves r
+h′(r) = ∫_0^r G(ρ, h(ρ), h′(ρ)) dρ.
+
+(o) *Step 1.* At an axis point the spatial part of p_V is p_V(∂_z) dz ([[lem:class-phase-axis]]), of γ3-length at least c
+(sup A3)^(−1/2); so |p_V^Σ| ≥ c (sup A3)^(−1/2)/2 on a neighbourhood of the axis whose size depends only on c, r_* and
+the C¹ bounds, and there H_L[V] is C¹, with H and its first derivatives bounded in terms of c, the C² norms of g_V (which
+bound n, K_Σ, κ_A1 and γ3 with its first two derivatives) and the C¹ norms of p_V and Θ_V. [[lem:class-volterra]] applies
+at every z0 with |z0 − z(p)| ≤ r_1, r_1 ≤ r_*/2 depending only on these bounds and r_*, with one r0 and one C_0 for all
+such z0, since its constants are bounds over a neighbourhood of (z0, 0) that hold uniformly. Its proof provides C_1, C_2
+and δ_p with |∂_z G| ≤ C_1, |∂_q G| ≤ C_2 (r + |q|), C_2 (r0 + δ_p) ≤ 1/4, C_1 r0 ≤ 1/2 and C_0 r0 ≤ δ_p, and it
+gives |h′| ≤ C_0 r ≤ δ_p on [0, r0].
+
+*Step 2.* Let h_1, h_2 be the leaves through z_1, z_2 and w_i := h_i′. As |h_1(ρ) − h_2(ρ)| ≤ |z_1 − z_2| + ρ
+sup_[0,ρ] |w_1 − w_2| and both |w_i| ≤ δ_p,
+
+    |w_1(r) − w_2(r)| ≤ r⁻¹ ∫_0^r (C_1 |h_1 − h_2| + C_2 (ρ + δ_p) |w_1 − w_2|) dρ
+                     ≤ C_1 |z_1 − z_2| + (C_1 r + 1/4) sup_[0,r] |w_1 − w_2|,
+
+and C_1 r + 1/4 ≤ 3/4; so sup_[0,r] |w_1 − w_2| ≤ 4C_1 |z_1 − z_2| and |h_1(r) − h_2(r) − (z_1 − z_2)| ≤ 4C_1 r |z_1 −
+z_2|. Put r_V := min(r0, r_1, 1/(8C_1), 1/C_0, r_*/2) and C_V := C_0; the leaves over [0, r_V] lie in 𝒰_(r_*), as |h_V −
+z(p)| ≤ r_V + C_0 r_V²/2 ≤ 3r_V/2. Then [[eq:class-leaf-lipschitz]] holds.
+
+*Step 3.* For |y| = r ≤ r_V/4 the map z0 ↦ h_V(r; z0) on [z(p) − r_V, z(p) + r_V] is continuous and strictly increasing,
+and |h_V(r; z0) − z0| ≤ C_0 r²/2 ≤ r_V/32; so its image contains [z(p) − 3r_V/4, z(p) + 3r_V/4], and each point of
+𝒰_(r_V/4) lies on exactly one leaf.
+
+*Step 4.* For r > 0 the leaf equation is the regular ordinary differential equation (r h′)′ = r H/a_L − E_L with smooth
+coefficients, so each leaf is smooth on (0, r_V], and the graph y ↦ h_V(|y|; z0) is C¹ on 𝔻_(r_V) with mean curvature
+H_L[V] off the axis ([[lem:class-leaf]] (c)). The bound on the second derivatives in step (3) of the proof of
+[[lem:class-planar-shear]] uses only these facts; it gives |h″| ≤ C on (0, r_V], so the first derivatives of the graph
+are Lipschitz on 𝔻_(r_V) and the graph lies in H²(𝔻_(r_V)), and it solves [[eq:class-leaf-cartesian]] there in the sense
+of distributions, a point being removable for a C¹ function with bounded second derivatives off it. The induction of that
+step, applied with H_L[V] smooth, gives the graph in H^(j+2) on smaller discs for every j, so it is smooth. The map (z0,
+w) ↦ r⁻¹ ∫_0^r G(ρ, z0 + ∫_0^ρ w, w(ρ)) dρ is smooth from an interval times a ball of C([0, r_V]) into C([0, r_V]), and
+by Step 2 its differential in w has norm at most 3/4; by the implicit function theorem the leaf depends smoothly on z0
+with values in C¹([0, r_V]). Differentiating [[eq:class-leaf-cartesian]] in z0, each ∂_(z0)^j of the graph solves that
+equation linearised at the leaf, with a right side holding lower derivatives in z0, and [[lem:class-interior-regularity]]
+at every order gives all derivatives in y, as in step (4) of the proof of [[lem:class-planar-shear]] with z0 in place of
+the value of the phase. So (z0, y) ↦ h_V(|y|; z0) is smooth, and by [[eq:class-leaf-lipschitz]], ∂_(z0) h_V ∈ [1/2, 3/2];
+the implicit function theorem gives z0^V smooth.
+
+(a), (b) [[lem:class-leaf-differences]] holds for every smooth state ů on a neighbourhood of the closure of 𝒰_(r_*), r_*
+being the radius of its setting; its proof uses no equation satisfied by ů. With ů := V it gives (a) and (b), its balls
+being balls about V and its norm 𝒩_k at most twice 𝒩_k^V. For U in its ball 𝔅′, decreased if necessary, the C³ norms of
+g and the C¹ norms of p_A and Θ_A are within C 𝒩_(k−1)^V(U) of those of V, by Sobolev's embedding
+([[thm:std-bh-embedding]]) and k − 1 ≥ 5, and so are |p_A^Σ|, |p_A(∂_z)| and the lower bounds for A3, B3, det₂,
+−g⁻¹(dτ, dτ) and g on TΣ_τ; so U has the bounds of (b′) for 2𝔐_V and c/2.
+
+(b′) Apply Steps 1–3 of (o) to U and to U′; they use only the bounds named in (b′) and give r_V, C_0, C_1, C_2, δ_p for
+both, depending only on r_*, 𝔐 and c. In addition |∂_z G(r, z, q)| ≤ C_3 (r + |q|³) for |q| ≤ δ_p, for G built from
+either state: ∂_z G = r ∂_z(H/a_L) − ∂_z E_L, where ∂_z(H/a_L) is bounded by the C² norms of g and the C¹ norms of p_A,
+Θ_A; E_L(0, z, q) = A3 q³/B3 by the proof of [[lem:class-volterra]], so ∂_z E_L(0, z, q) = ∂_z(A3/B3) q³; and ∂_r∂_z E_L,
+which holds derivatives of the metric of order at most three, is bounded by its C³ norms. Along a leaf |q| = |h′| ≤ C_0
+r, so there |∂_z G| ≤ C_4 r and |∂_q G| ≤ C_4 r with C_4 := C_3 (1 + C_0³ r_V²) + C_2 (1 + C_0).
+
+*One leaf.* Fix z0 and let h := h_U(·; z0), h̃ := h_(U′)(·; z0), δh := h − h̃, δw := h′ − h̃′ (so δh(0) = 0) and ω(r)
+:= |δw(r)|/r, which is bounded since |δw| ≤ 2C_0 r. Subtracting the two Volterra equations, and writing the difference of
+the integrands as G_U − G_(U′) at (ρ, h(ρ), h′(ρ)) plus G_(U′)(ρ, h(ρ), h′(ρ)) − G_(U′)(ρ, h̃(ρ), h̃′(ρ)),
+
+    r δw(r) = ∫_0^r (ρ F(ρ) + θ_1(ρ) δh(ρ) + θ_2(ρ) δw(ρ)) dρ,      |θ_1|, |θ_2| ≤ C_4 ρ,
+
+where |F(ρ)| ≤ C |U − U′| at the point (h(ρ), ρ) of the leaf of U: H_L[U] − H_L[U′] there is bounded by C |U − U′|, since
+H_L holds Θ_A, p_A and the metric with its first derivatives, and E_L(ρ, z, q) for the two metrics differs by at most C
+(ρ + |q|³) times the difference of the 1-jets of γ3, its value at ρ = 0 being A3 q³/B3. As |δh(ρ)| ≤ ∫_0^ρ t ω(t) dt,
+
+    ω(r) ≤ 𝒜|F|(r) + C_4 (T_1 ω + T_2 ω)(r),   𝒜f(r) := r⁻² ∫_0^r ρ f dρ,   T_1 ω(r) := r⁻² ∫_0^r ρ ∫_0^ρ t ω dt dρ,
+    T_2 ω(r) := r⁻² ∫_0^r ρ² ω dρ.
+
+On L²(r dr; [0, R]): 𝒜f(r) = ∫_0^1 s f(rs) ds and ‖f(·s)‖ ≤ s⁻¹ ‖f‖ give ‖𝒜f‖ ≤ ‖f‖, as in [[prop:class-flat-model]] (b);
+T_2 ω(r) = r ∫_0^1 s² ω(rs) ds gives ‖T_2 ω‖ ≤ (R/2) ‖ω‖; and |∫_0^ρ t ω dt| ≤ (ρ/√2) ‖ω‖ by the Cauchy–Schwarz
+inequality, so |T_1 ω(r)| ≤ (r/(3√2)) ‖ω‖ and ‖T_1 ω‖ ≤ R² ‖ω‖. With C_4 (R/2 + R²) ≤ 1/2,
+
+    ‖ω‖_(L²(r dr; [0,R])) ≤ 2 ‖F‖_(L²(r dr; [0,R])),      |δh(r)| ≤ √2 r ‖F‖_(L²(r dr; [0,R])),      |δw| ≤ R ω.
+
+Let δ_𝔐 := min(R_0/2, r_V/8, 1/(3C_0)) with C_4 (R_0/2 + R_0²) ≤ 1/2, and take R := 2δ ≤ R_0.
+
+*The shear.* By [[eq:class-shear-leaf]] and [[eq:class-leaf-volterra]], σ = 2 |p_A^Σ| σ_L − p_A(n)(K_Σ(e_r, e_r) −
+K_Σ(e2, e2)) for p_A(∂_z) > 0, and with the factor −1 on the first term otherwise, where σ_L = ½ H_L − k_φ, k_φ = ν^r/r +
+½ ν(log B3) and ν^r = −(C3 r + A3 h′)/(det₂^(1/2) N_L): at a point of a leaf, σ is a smooth function of the point, of h′,
+of h′/r and of the values of Θ_A, p_A and of the metric with its first derivatives there, with derivatives bounded in
+terms of 𝔐 and c. Let x = (h(|y|), y) be the point of the leaf of U over y and x̃ = (h̃(|y|), y). Then |σ[U](x) −
+σ[U′](x̃)| ≤ C (|δw| + ω + |U − U′|(x) + |δh|), the last term from moving the point of evaluation of U′, whose 1-jet is
+Lipschitz with constant 𝔐. Let z0′ be the axis point of the leaf of U′ through x. By [[eq:class-leaf-lipschitz]] for
+U′, |z0′ − z0| ≤ 2 |δh(|y|)|. Along the leaves of U′ through (ζ, y), the position and h′ are Lipschitz in ζ by Step 2,
+and so is h′/r: by Step 2 and |∂_z G|, |∂_q G| ≤ C_4 ρ, |Δh′(r)|/r ≤ r⁻² ∫_0^r C_4 ρ (|Δh| + |Δh′|) dρ ≤ C_4 (3/2 +
+4C_1) |Δζ|. So σ[U′] on the leaf with axis point ζ, over y, is Lipschitz in ζ with a constant depending only on 𝔐 and c,
+and |σ[U′](x) − σ[U′](x̃)| ≤ C |δh(|y|)|. Hence
+
+    ‖σ[U] − σ[U′]‖_(L²(𝔻_δ)) ≤ C ‖F‖_(L²(r dr; [0,2δ])) + C ‖(U − U′)(h(|y|), y)‖_(L²(𝔻_δ)),
+
+the L² norms over the leaf of U, in the variable y; the norm of F is at most C times the L² norm of U − U′ on that leaf
+over 𝔻_(2δ).
+
+*All leaves.* For x ∈ D ∩ 𝒰_δ the axis point z0 of the leaf of U through x satisfies |z0 − z(p)| ≤ δ + C_0 δ², and over
+𝔻_(2δ) that leaf lies in D, by the hypothesis on D, and in 𝒰_(2δ), as |h − z(p)| ≤ δ + 3C_0 δ² ≤ 2δ. In the slice, for
+G-invariant functions, the L² norm over a G-invariant set is the L² norm in (z, y) with the weight 2π ρ1, and ρ1 ∈
+[ρ1(p)/2, 2ρ1(p)] on 𝒰_(2δ). For fixed y, z0 ↦ h_U(|y|; z0) is increasing with difference quotients in [1/2, 3/2], so ∫
+f(z, y) dz = ∫ f(h_U(|y|; z0), y) ∂_(z0) h_U dz0 with ∂_(z0) h_U ∈ [1/2, 3/2] almost everywhere. Squaring the bound of
+one leaf, integrating over z0 and changing variables on both sides gives [[eq:class-leaf-wise]]. ∎
+
+**Lemma {#lem:class-leaf-tame}** (Tame bounds for the square of the planar shear in space-time.) Let t be a time
+function and x a G-equivariant chart of its slices on a neighbourhood of I × 𝒰̄_(r_*)(p), where I is a compact interval
+of length between 1 and L_I, p is a point of axis 2 with ρ1(p) > 0, r_* ∈ (0, ρ1(p)/4] and 𝒰_δ(p) is the set defined
+before [[lem:class-planar-shear]] in the chart x, the slices {t = const} being spacelike for the metrics considered; on
+each slice the definitions before [[lem:class-leaf-states]] apply, with r_* and 𝒰 := 𝒰_(r_*)(p). A *family of states* on
+I × 𝒰_(r_*)(p) is a G-invariant (g, p_A, Θ_A, q_A) on it whose restriction to each slice is a state, the first
+derivatives of g being those of g in the chart (t, x); we write W := (g, ∂g, p_A, Θ_A) for it, with all first
+derivatives ∂g in (t, x). Let W̊ be a smooth family with bounds (M, c) on every slice, for family A. There are δ_1 > 0
+and r > 0 such that for every δ ∈ (0, δ_1] and every integer n ≥ 0 there is C_n with the following property. For every
+family of states W on I × 𝒰_(r_*)(p) with ‖W − W̊‖_(C^5) ≤ r there and W − W̊ ∈ H^n(𝒱_4), 𝒱_j := I × 𝒰_(jδ)(p), σ_A[W]²,
+computed on each slice, is defined on 𝒱_1, and
+
+    ‖σ_A[W]² − σ_A[W̊]²‖_(H^n(𝒱_1)) ≤ C_n ‖W − W̊‖_(H^n(𝒱_4)),                                     {#eq:class-leaf-tame}
+
+H^n(𝒪) being the space of functions on 𝒪 with all derivatives in (t, x) of order at most n in L²(𝒪). δ_1 and r depend
+only on M, c, ρ1(p), r_*, L_I, the chart and the C^6 norms of W̊; C_n depends also on n, δ and the C^(n+6) norms of W̊,
+and, for n ≥ 10, on an upper bound for ‖W − W̊‖_(H^(n−1)(𝒱_4)).
+
+*Proof.* For r small the C¹ norms of the components of each W(t) differ from those of W̊(t) by at most C r, and so do
+the quantities bounded below in the definition of bounds; so every W(t) and every W̊(t) is a state with bounds (2M, c/2)
+on its slice. Let r_1 and C_0, …, C_4 be the numbers of [[lem:class-leaf-states]] and its proof for (2M, c/2), and δ_1
+:= min(r_1/4, 1/(9C_0), δ_1′), δ_1′ the number fixed in Step 5 of the proof of [[lem:class-leaf-differences]] for these
+bounds and ů := W̊; all are uniform in t. Let 0 < δ ≤ δ_1. We run Steps 1–7 of the proof of
+[[lem:class-leaf-differences]] (a) for the family W(t), t ∈ I, with U := W and ů := W̊, with every norm taken on I × Q̂,
+I × Q̂_n and I × Q_ρ, that is integrated over t ∈ I as well, in place of the norms at a fixed time, the derivatives D
+and T including ∂_t. The following changes make each step valid; every other line applies verbatim, as each operator
+bound and each elliptic estimate there acts on one disc of fixed (t, z0) and is integrated afterwards.
+
+(i) *Step 1.* Smooth families suffice. Extend g − g̊, p_A − p̊_A and Θ_A − Θ̊_A from I × 𝒰_(r_*)(p) by Stein's operator
+([[thm:std-sy-extension]]), mollify, average over G and restrict, and let W_ν be the family of the resulting metric and
+fields, its ∂g being the derivatives of its metric. Stein's operator is bounded on W^(6,∞) and on H^(n+1), so ‖W_ν −
+W̊‖_(C^5) ≤ C_S r for a constant C_S, and W_ν → W in H^n(𝒱_4) and uniformly. On each slice, [[lem:class-leaf-states]]
+(c), with D the slice, gives σ_A[W_ν] → σ_A[W] in L², with |σ_A| ≤ C; so σ_A[W_ν]² → σ_A[W]² in L²(𝒱_1), and a limit in
+L² of a sequence bounded in H^n lies in H^n with the same bound. So it suffices to treat smooth families with ‖W −
+W̊‖_(C^5) ≤ C_S r, which we do, r being decreased.
+
+(ii) *Step 4.* Differentiating [[eq:class-leaf-s]] up to five times in r, z0 and t, each derivative of s_X solves a
+linear equation whose map has norm at most 1/2, as in Step 7 of the proof of [[lem:class-leaf-states]], with an
+inhomogeneous term holding derivatives of order at most five of W_X and derivatives of s_X and h_X of lower order. So
+the derivatives of order at most five of s_X, h_X, ∂_y h_X, 𝔰_X and W_X ∘ Λ_X, of order at most four of ∂_y² h_X and of
+order at most six of g_X ∘ Λ_X are bounded on I × Q̂ by C, and the same derivatives of η, ∂_y η, δs, δ𝔰, ω ∘ Λ_U, ∂_y² η
+and ω_g ∘ Λ_U by C r, which we take at most 1; here the bound ‖W − W̊‖_(C^5) ≤ r replaces [[eq:class-leaf-sup]] and the
+smallness of 𝒩_k.
+
+(iii) *Rule (P).* A factor that carries a ≤ 4 derivatives is bounded pointwise by (ii). Otherwise a ≥ 5 and, as a ≤ n/2,
+n ≥ 10; the factor is then bounded pointwise by Sobolev's embedding H³ ⊂ L^∞ on the bounded Lipschitz domains I × Q̂, I
+× Q̂_n and I × Q_(4δ) of ℝ⁴ ([[thm:std-bh-embedding]], 3 · 2 > 4) by its norm of order a + 3 ≤ n − 2, bounded before in
+the induction, or by ‖W − W̊‖_(H^(n−1)(𝒱_4)) for a derivative of ω or ω_g. So the L² norm of a product of (P) is at most
+C, and for n ≥ 10 at most C_n with the dependence stated, times the L² norm of its factor of highest order.
+
+(iv) *[[eq:class-leaf-compose]].* It holds on I × Q̂, with Ω_n := ‖ω‖_n + ‖ω_g‖_(n+1) taken on I × Q_(4δ), so that Ω_n ≤
+C ‖W − W̊‖_(H^n(𝒱_4)), the first derivatives of g being components of W, and with sup |Dω| ≤ r in place of C 𝒩_k(U) in
+its last term.
+
+(v) *Steps 5 and 6.* The operator bounds of Step 5 hold on each disc of fixed (t, z0), and integrating over (t, z0) ∈ I
+× (z(p) − 3δ, z(p) + 3δ) gives them on I × Q̂; T includes ∂_t. Step 6 (ii) is applied on each disc of fixed (t, z0) and
+integrated likewise. In Steps 5 and 6, 𝒩_k(U) and 𝒩_m(U) are replaced by ‖W − W̊‖_(H^n(𝒱_4)) at the order n of the
+induction, and the absorption in Step 6 (iii) uses the factor sup |Dω| ≤ r, small for r small. By induction on n,
+[[eq:class-leaf-transverse]] and [[eq:class-leaf-elliptic]] hold on I × Q̂ and I × Q̂_n with the right side C_n ‖W −
+W̊‖_(H^n(𝒱_4)).
+
+(vi) *Steps 2 and 7.* Step 7 then gives ‖σ_A[W]² ∘ Λ_W − σ_A[W̊]² ∘ Λ_(W̊)‖_n ≤ C_n ‖W − W̊‖_(H^n(𝒱_4)) on I × Q̂_n and,
+by (Q) for Λ_W⁻¹, the bound on I × Q_δ; the comparison of the norms of Step 2, at each t with constants not depending on
+t, the factors x_i/ρ1 not depending on t, gives [[eq:class-leaf-tame]]. ∎
 
 ### Cauchy stability with the dusts at the axes {#sec:class-axes-stability}
 
@@ -1416,8 +2280,8 @@ Let U be a solution of the augmented system on [τ0, τ] × R⁴ whose states li
 [[lem:class-leaf-differences]], 𝒩_k(τ′) being the norm of the state at τ′. Every derivative of order at most k of T_(τ,U)
 − id is bounded by C (sup_(τ′≤τ) 𝒩_k(τ′) + ε). Indeed, let δh(z0, y) be the difference of the leaves of U and of ů
 through the axis point z0, for z0 in I := {|z0 − z̊_B(τ)| ≤ δ_B}; their graphs over D_B lie in 𝒰_δ about z̊_B(τ). The
-proof of [[lem:class-leaf-differences]] (a), through its induction on the derivatives transverse to the disc, bounds
-∂_(z0)^j δh, j ≤ 2, in L² over I with values in H^(k+2−j)(D_B) by C 𝒩_k(τ). So for |β| ≤ k, ∂_y^β δh lies in H² of (z0,
+bounds of [[lem:class-leaf-differences]] (c), at the axis point z̊_B(τ), bound ∂_(z0)^j δh, j ≤ 2, in L² over I with
+values in H^(k+2−j)(D_B) by C 𝒩_k(τ). So for |β| ≤ k, ∂_y^β δh lies in H² of (z0,
 y) ∈ I × D_B with norm at most C 𝒩_k(τ), and [[thm:std-bh-embedding]] in three variables (2 · 2 > 3) bounds it pointwise
 by C 𝒩_k(τ): the leaves of U and of ů through one point of I differ in W^(k,∞)(D_B) by at most C 𝒩_k(τ). Next, on the
 axis near z̊_B(τ) the axis phase is within C (sup_(τ′≤τ) 𝒩_k(τ′) + ε) of ů_A: the integral curves of P_A and of P̊_A in
@@ -1432,7 +2296,7 @@ satisfies the bound. So for U near ů, T_(τ,U) − id is small in W^(k,∞), an
 R⁴, equal to the identity outside the 𝒱_B: G-equivariant, as χ_B and d_B(y) are invariant and e is equivariant;
 injective, as |T_(τ,U)(x) − T_(τ,U)(x′)| ≥ |x − x′|/2; onto, the map x ↦ x′ − (T_(τ,U)(x) − x) being a contraction for
 each x′; and of class C^(k−1), with bounded derivatives of order k and invertible differential. The same argument for the
-τ-derivatives, which the proof of [[lem:class-leaf-differences]] (a) bounds as well, shows that B_U is a C¹-small
+τ-derivatives, which [[lem:class-leaf-differences]] (c) bounds pointwise as well, shows that B_U is a C¹-small
 perturbation of B, so it stays spacelike with Ω_U to its past, these being open conditions; so (a) and (b) of
 [[def:class-admissible]] hold on Ω_U for the metric of U.
 
@@ -1571,19 +2435,20 @@ by 𝔼, bounded on H^k uniformly, as ‖T_(τ_i,U) − id‖_(W^(k,∞)) ≤ C 
 solution determines on its closure ([[def:class-adapted]]). The bootstrap of Steps 3–8, run on the adapted domain, keeps
 𝒩_k ≤ C ε there, hence the extended data within η_ρ ρ of 0, so the solution exists on the whole adapted domain.
 
-*Smoothness.* Let σ ≥ k be an integer. The proof of [[lem:class-leaf-differences]] (a), with
-[[lem:class-interior-regularity]] at j = σ, the quadratic terms absorbed on 𝔅 and Moser's estimate for the terms of lower
-order, gives ‖σ_A[U] − σ_A[ů]‖_(H^σ(𝒰_δ)) ≤ C_σ (1 + ‖U‖_(H^σ)) for U ∈ 𝔅 ∩ H^σ; with [[lem:class-composition]] (b) for
-the local terms, ‖F(τ, U)‖_(H^σ) ≤ C_σ (1 + ‖U‖_(H^σ)) for U ∈ 𝒟_ρ ∩ H^σ. The proof of [[thm:class-kato]] (a) then runs
-at the order σ with the ball 𝒟_ρ kept in H^k (the step *Boundedness* at the order σ, the others at the order k), and its
-continuation holds while sup_τ ‖U(τ)‖_(H^σ) < ∞ and ‖U(τ)‖_(H^k) ≤ η_ρ ρ. On each interval of the restarts the extended
-data lie in H^σ: the data are smooth on the slice by induction over the intervals, so are the leaves through the axis
-points, by [[lem:class-interior-regularity]] at every order, hence d_B, Stein's operator being bounded on every W^(m,∞),
-and T_(τ_i,U); and E_⋆ is bounded on every H^σ. So the solution in H^σ exists for a short time, equals the solution in
-H^k by uniqueness, and [[lem:class-kato-linear]] (c) at the order σ, with the bound on F(τ, U) in H^σ and K_U bounded by
-the H^k bound, gives a linear Gronwall inequality for ‖U(τ)‖_(H^σ), so that it lies in H^σ on the whole interval. By the
-equation, and by differentiating [[eq:class-leaf-volterra]] in τ as in step (4) of the proof of
-[[lem:class-planar-shear]], every ∂_τ^j U is bounded in every H^σ, by induction on j. So the solution is smooth.
+*Smoothness.* Let σ ≥ k be an integer. [[lem:class-leaf-differences]] (a) at the order σ gives ‖σ_A[U]² −
+σ_A[ů]²‖_(H^σ(𝒰_δ)) ≤ C_σ (1 + ‖U‖_(H^σ)) for U ∈ 𝔅 ∩ H^σ, with C_σ depending also on an upper bound for ‖U‖_(H^(σ−1));
+with [[lem:class-composition]] (b) for the local terms, ‖F(τ, U)‖_(H^σ) ≤ C_σ (1 + ‖U‖_(H^σ)) for U ∈ 𝒟_ρ ∩ H^σ, with C_σ
+of the same kind. We argue by induction on σ, so that ‖U(τ)‖_(H^(σ−1)) is bounded on each interval of the restarts and
+C_σ is a constant there. The proof of [[thm:class-kato]] (a) then runs at the order σ with the ball 𝒟_ρ kept in H^k (the
+step *Boundedness* at the order σ, the others at the order k), and its continuation holds while sup_τ ‖U(τ)‖_(H^σ) < ∞
+and ‖U(τ)‖_(H^k) ≤ η_ρ ρ. On each interval of the restarts the extended data lie in H^σ: the data are smooth on the slice
+by induction over the intervals, so are the leaves through the axis points, by [[lem:class-leaf-states]] (a), hence d_B,
+Stein's operator being bounded on every W^(m,∞), and T_(τ_i,U); and E_⋆ is bounded on every H^σ. So the solution in H^σ
+exists for a short time, equals the solution in H^k by uniqueness, and [[lem:class-kato-linear]] (c) at the order σ,
+with the bound on F(τ, U) in H^σ and K_U bounded by the H^k bound, gives a linear Gronwall inequality for ‖U(τ)‖_(H^σ),
+so that it lies in H^σ on the whole interval. By the equation, and by differentiating [[eq:class-leaf-volterra]] in τ as
+in step (4) of the proof of [[lem:class-planar-shear]], every ∂_τ^j U is bounded in every H^σ, by induction on j. So the
+solution is smooth.
 
 *Uniqueness.* A smooth G-invariant development in the gauge D(g) = 0 on its own adapted domain Ω′, with the same datum
 and 𝒩_(k−1) ≤ ε2 ≤ ρ, gives a solution U′ of the augmented system there as in that Step 9, its Θ_A on the tubes being □_g
@@ -1656,7 +2521,9 @@ ingoing family has tubes, near those of the outer boundary at most the outgoing 
 
 Whether the outgoing packet stays off the inner sphere is a property of the background that [[prop:two-dust-background]]
 does not decide; it is assumed here. Data for the corollary are any small invariant solutions of the constraints with
-the stated supports; data localised in an angle are constructed in [[ch:localised-data]].
+the stated supports; data equal to the background's outside the domain of influence, for the constraints solved with
+the radius as time, of a compact set away from the axes are constructed in [[ch:localised-data]] on a slice bent from
+Σ_τ0, and carried to Σ_τ0 by their development.
 
 **Remark {#rem:class-scope}** (What the theorems do not give.) [[thm:class-stability]] constructs the background; the
 high-frequency construction over a non-round background needs more. By [[prop:class-separation]], two families of one
@@ -1664,4 +2531,6 @@ orientation are not separated at an axis point, so beyond one ingoing and one ou
 have densities vanishing near the axes. For three or more families present at a point, pairwise separation is not
 enough, since at the first stage combinations of three phases occur. The frequency hierarchy that replaces it, the
 polarisation of the waves for a non-radial family, and the limits that carry massless Vlasov matter are taken up in
-[[ch:vlasov]].
+[[ch:vlasov]]. For the characteristic problem the same alternative at an axis, a gradient that is a multiple of dv
+or of du, decides whether a further family crosses a cone along its axis generator or is tangent to it
+([[lem:loc-t5-dichotomy]]).

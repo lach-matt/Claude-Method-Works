@@ -24,9 +24,9 @@ and order functions monotone along the flow of every nearby metric are construct
 unstable hypersurfaces ([[sec:ii-c1-1]]–[[sec:ii-c1-3]]) is proved by a graph transform, quantitatively, from the
 defining functions of the trapped set and the tangential growth bound of (K3).
 
-The radii 0 < r₀ − 2δ₀ < r₀ < r₂ < r_h are those of [[sec:i-a-1-1]]. Nothing in this chapter depends on them beyond
-these inequalities: they enter as the domains of the hypotheses, and every constant chosen from them below (the radius
-r^♮ and the constant c₁ of [[lem:ii-c-3-2]], the radius r_Γ of [[sec:ii-c-5-2]]) is chosen by an inequality that a
+The radii 0 < r₀ − 2δ₀ < r₀ < r₀ + δ₀ < r₂ < r_h are those of [[sec:i-a-1-1]]. Nothing in this chapter depends on them
+beyond these inequalities: they enter as the domains of the hypotheses, and every constant chosen from them below (the
+radius r^♮ and the constant c₁ of [[lem:ii-c-3-2]], the radius r_Γ of [[sec:ii-c-5-2]]) is chosen by an inequality that a
 smaller r₀ does not make harder. The inner radius r₀ is therefore a free parameter of every result of this chapter.
 
 ### The stationary model {#sec:ii-b-1}
@@ -474,8 +474,8 @@ a positive factor ([[lem:ii-b-2-3]]). By (H4) it tends backward to ∂ℛ₊ ∪
 disjoint, compact and invariant; and it reaches {r < r₀ − δ₀} forward at a finite parameter.
 
 *σ < 0.* γ = Φ₋₁ ∘ γ̃ with γ̃ a maximal integral curve of the future field in Σ⁺₋₁, which lies over {r < R₁}
-([[lem:ii-b-2-3]] (d)), so its limit points are not over ∂X. Γ₋₁ ⊂ Σ^♭₋₁ = Σ⁻₋₁, and q₋₁ ≤ −2β₀ on Γ₋₁, with β₀ the
-constant of (Γ.4) (q^Γ = −q₋₁ ≥ 2β₀ there), hence q₋₁ < 0 near Γ₋₁, while q₋₁ > 0 on γ̃; so γ̃ lies in neither Γ̄_u nor
+([[lem:ii-b-2-3]] (d)), so its limit points are not over ∂X. Γ₋₁ ⊂ Σ^♭₋₁ = Σ⁻₋₁, and q₋₁ ≤ −2β_Γ on Γ₋₁, with β_Γ the
+constant of (Γ.4) (q^Γ = −q₋₁ ≥ 2β_Γ there), hence q₋₁ < 0 near Γ₋₁, while q₋₁ > 0 on γ̃; so γ̃ lies in neither Γ̄_u nor
 Γ̄_s. By (H8) (a), γ̃ tends backward to ∂ℛ₊ (not to ∂ℛ₋, as before, nor to R_(−1,in), which lies over ∂X), and reaches
 {r < r₀ − δ₀} forward (not R_out, over ∂X). ∎
 
@@ -643,8 +643,8 @@ terms of the present class.
 
 #### The class {#sec:ii-c-1-1}
 
-Throughout, g is the stationary metric of [[sec:ii-b-1-1]], which satisfies (K1)–(K4), E_X := X̃ × ℂ^N is the trivial
-bundle of [[sec:i-a-1-2]], and E := π_X^*E_X is its pullback along π_X(t_*, x) := x. Sections of E are ℂ^N-valued
+Throughout, g is the stationary metric of [[sec:ii-b-1-1]], which satisfies (K1)–(K4), E_X := X̃ × ℂ^(N_E) is the trivial
+bundle of [[sec:i-a-1-2]], and E := π_X^*E_X is its pullback along π_X(t_*, x) := x. Sections of E are ℂ^(N_E)-valued
 functions, and ∂_(t_*) and ρ∂_ρ act componentwise; the connection of [Hin26c, Remark 5.3], needed for non-trivial
 bundles, is not needed here. We write G(ζ) := g⁻¹(ζ, ζ) and ρ := r⁻¹, and ρ₁ is that of [[sec:i-a-1-1]]. The density
 is |dt_* dx| = |dt dx|, the Euclidean density of [[sec:i-a-1-1]] times |dt_*|, and for a fibre inner product h
@@ -656,7 +656,7 @@ t_*-translation-invariant P₀ ∈ Diff²(ℝ_(t_*) × X̃°; E) is a *stationar
 
     P₀ = −2∂_(t_*)ρ(ρ∂_ρ − 3/2 − S) + P̂₀(0) + Q∂_(t_*) − g₀₀∂_(t_*)²,                                 {#eq:ii-c-1-1}
 
-with g₀₀ := g⁻¹(dt_*, dt_*) and, all t_*-independent, P̂₀(0) ∈ ρ²Diff²_b(X̄; E), S ∈ C^∞(X̄; End ℂ^N) and
+with g₀₀ := g⁻¹(dt_*, dt_*) and, all t_*-independent, P̂₀(0) ∈ ρ²Diff²_b(X̄; E), S ∈ C^∞(X̄; End ℂ^(N_E)) and
 Q ∈ ρ³Diff¹_b(X̄; E). Put ([Hin26c, (5.2)])
 
     S̄ := inf_(p∈∂X) min Re spec S(p).
@@ -694,9 +694,9 @@ So the stationary wave-type operators for g are the operators whose spectral fam
 #### Tensor wave operators {#sec:ii-c-1-2}
 
 **Lemma {#lem:ii-c-1-3}** (Tensor wave operators; [Hin26c, Example 5.4] at n = 4.) Identify (p, q)-tensors on ℝ^(1+4)
-with ℂ^N-valued functions, N = 5^(p+q), by the coordinate frame of (t_*, x¹, …, x⁴) (for 1-forms, the frame dt_*, dx^i
-of [[sec:i-a-1-2]]). Let ∇ be the Levi-Civita connection of g and □_g^((p,q)) := −g^(μν)∇_μ∇_ν. Then □_g^((p,q)) is a
-stationary wave-type operator for g with S = 0, so S̄ = 0, and
+with ℂ^(N_E)-valued functions, N_E = 5^(p+q), by the coordinate frame of (t_*, x¹, …, x⁴) (for 1-forms, the frame dt_*,
+dx^i of [[sec:i-a-1-2]]). Let ∇ be the Levi-Civita connection of g and □_g^((p,q)) := −g^(μν)∇_μ∇_ν. Then □_g^((p,q)) is
+a stationary wave-type operator for g with S = 0, so S̄ = 0, and
 
     (□_g^((p,q)))^∧(0) − (□_ḡ^((p,q)))^∧(0) ∈ ρ⁴Diff²_b(X̄; E),                                       {#eq:ii-c-1-2}
 
@@ -845,12 +845,12 @@ t_*-translation-invariant 𝗌 ∈ C^∞(³ᵇS*M̃₀), over {r > r₀ − 2δ�
 
 Each threshold is computed in a fibre inner product chosen for its radial set.
 
-**Lemma {#lem:ii-c-2-5}** (Inner products adapted to S.) Let S ∈ C^∞(X̄; End ℂ^N) and ϵ > 0. There is a fibre inner
+**Lemma {#lem:ii-c-2-5}** (Inner products adapted to S.) Let S ∈ C^∞(X̄; End ℂ^(N_E)) and ϵ > 0. There is a fibre inner
 product h on E_X with λ_min(½(S + S^(*h))) ≥ S̄ − ϵ on ∂X. For every fibre inner product,
 inf_(∂X) λ_min(½(S + S^(*h))) ≤ S̄. This is [Hin23c, Proposition B.1].
 
 *Proof.* For p ∈ ∂X write S(p) = A(D + N)A⁻¹ in Jordan form, D diagonal and N with entries 0 or 1 on the first
-superdiagonal. With Λ := diag(1, δ⁻¹, …, δ^(1−N)), ΛNΛ⁻¹ = δN. Put h_p(v, w) := ⟨ΛA⁻¹v, ΛA⁻¹w⟩_(ℂ^N); for
+superdiagonal. With Λ := diag(1, δ⁻¹, …, δ^(1−N_E)), ΛNΛ⁻¹ = δN. Put h_p(v, w) := ⟨ΛA⁻¹v, ΛA⁻¹w⟩_(ℂ^(N_E)); for
 u := ΛA⁻¹v, Re h_p(S(p)v, v) = Re⟨(D + δN)u, u⟩ ≥ (min Re spec S(p) − δ)|u|² ≥ (S̄ − δ)h_p(v, v). As
 λ_min(½(S + S^(*h))) = min_(h(v,v)=1) Re h(Sv, v), the constant inner product h_p gives λ_min ≥ S̄ − 2δ on a
 neighbourhood U_p of p, by continuity of (q, v) ↦ Re h_p(S(q)v, v) on {h_p(v, v) = 1}. Take a finite cover of ∂X by
@@ -954,9 +954,9 @@ r^♮ := ½(r₀ + r₂). There are ϵ_G > 0, C′ ∈ (0, 1), r′₀ > r₂ an
 such that for every g = g₀ + h with ‖h‖_(𝒢̃^(0,(2ℓ,0,0))_(e3b)) < ϵ_G: (1) dr is future timelike for g on
 {r₀ ≤ r ≤ r^♮}; (2) dt^♭_* is past timelike for g on Ω°.
 
-*Proof.* *Bounds on g⁻¹.* By [[lem:ii-a-2-5]], near ℐ⁺ the covectors x_I⁻¹dt_*, x_I dr and r dω span
-ρ₊⁻¹x_I⁻¹C^∞(ᵉᵇT*), so the pointwise dual vectors x_I∂_(t_*), x_I⁻¹∂_r, r⁻¹∂_ω span ρ₊x_I C^∞(ᵉᵇT), and the
-symmetric products
+*Proof.* *Bounds on g⁻¹.* Fix c_V > 0 so small that the description of [[lem:ii-a-2-5]] used below holds on {x_I < c_V}.
+By that lemma, on {x_I < c_V} the covectors x_I⁻¹dt_*, x_I dr and r dω span ρ₊⁻¹x_I⁻¹C^∞(ᵉᵇT*), so the pointwise dual
+vectors x_I∂_(t_*), x_I⁻¹∂_r, r⁻¹∂_ω span ρ₊x_I C^∞(ᵉᵇT), and the symmetric products
 
     ρ_I∂_(t_*)²,   ∂_(t_*) ⊗_s ∂_r,   x_I∂_(t_*) ⊗_s r⁻¹∂_ω,   ρ_I⁻¹∂_r²,   x_I⁻¹∂_r ⊗_s r⁻¹∂_ω,
     r⁻¹∂_ω ⊗_s r⁻¹∂_ω,        ρ_I := x_I² = t_*/r,
@@ -976,12 +976,11 @@ evaluated on (A dt_* + B dr)^(⊗2) give ρA², O(|AB|), 0, ρ⁻¹B², 0, 0, al
 
     g⁻¹(d(t_*F₁), d(t_*F₁)) ≤ −2ℓρ^(ℓ+1)(1 − 2ρ^ℓ) + ρ^(2ℓ+2) + C₂(ϵ_G + ρ^(1−ℓ))ρ^(ℓ+1) ≤ −ℓρ^(ℓ+1)
 
-for ρ ≤ ρ_a and ϵ_G ≤ ϵ_a, with ρ_a, ϵ_a small depending on ℓ and C₂ (the error is of the order of the main term,
-which is why ϵ_G must be small). This is timelike. It is past directed: V := t∂_t + r∂_r is future timelike for g on
-{r ≥ R₂} ∩ Ω. For g₀ this is [[sec:ii-b-7]], with |g₀(V, V)| ≥ ½(t_*² + 2t_*r). For g, fix c_V > 0 so small that the
-description of [[lem:ii-a-2-5]] used above holds on {x_I < c_V}. There, near ℐ⁺, |h(V, V)|
-≤ Cϵ_G x_I^(2ℓ) r t_* ≤ Cϵ_G|g₀(V, V)|. Where x_I ≥ c_V, the same membership of h, in the frames listed above,
-gives |h(V, V)| ≤ Cϵ_G(t_* + r)², with C depending on c_V; there r ≤ c_V⁻²t_*, so
+for ρ ≤ ρ_a and ϵ_G ≤ ϵ_a, with ρ_a < c_V² and ρ_a, ϵ_a small depending on ℓ and C₂ (the error is of the order of the
+main term, which is why ϵ_G must be small). This is timelike. It is past directed: V := t∂_t + r∂_r is future timelike
+for g on {r ≥ R₂} ∩ Ω. For g₀ this is [[sec:ii-b-7]], with |g₀(V, V)| ≥ ½(t_*² + 2t_*r). For g: where x_I < c_V, we
+have |h(V, V)| ≤ Cϵ_G x_I^(2ℓ) r t_* ≤ Cϵ_G|g₀(V, V)|. Where x_I ≥ c_V, the same membership of h, in the frames listed
+above, gives |h(V, V)| ≤ Cϵ_G(t_* + r)², with C depending on c_V; there r ≤ c_V⁻²t_*, so
 ½(t_*² + 2t_*r) ≥ c_V²(1 + 2c_V²)⁻¹(t_* + r)², and again |h(V, V)| ≤ Cϵ_G|g₀(V, V)|. The orientation is continuous
 along g₀ + τh, so V is future timelike for g once ϵ_G is small. Moreover d(t_*F₁)(V) = At_* + Br > 0, as Vt_* = t_* and
 Vr = r; a timelike covector that is positive on a future timelike vector is past timelike.
@@ -1042,14 +1041,14 @@ operator P ∈ Diff²(Ω°; E) is *admissible* (relative to P₀) *of class* ((d
 
 (2) with a cut-off χ_I = χ_I(x_I), equal to 1 near 0 and supported in {x_I < 1}, there are
 
-    p₀, p̃₁ ∈ ρ₊^(ℓ₊)C^(k+d₀)_b(ℐ⁺ ∩ Ω; End ℂ^N)                                                       {#eq:ii-c-3-1}
+    p₀, p̃₁ ∈ ρ₊^(ℓ₊)C^(k+d₀)_b(ℐ⁺ ∩ Ω; End ℂ^(N_E))                                                       {#eq:ii-c-3-1}
 
 (extended to supp χ_I independently of x_I) with
 
     P̃ := P − [P₀ + χ_I ½x_I²ρ₊²(2p̃₁(x_I∂_(x_I) − 2ρ₊∂_(ρ₊)) + p₀)]
          ∈ x_I²ρ₊² C^((d₀;k),(2ℓ_I,ℓ₊,ℓ_K))_(e3b;b) Diff²_(e3b)(Ω; E);                                  {#eq:ii-c-3-2}
 
-(3) there is a splitting ℂ^N = ⊕_(j=1)^J E_j, over ∂X, in which p₁ := S|_(∂X) + p̃₁ is lower triangular with diagonal
+(3) there is a splitting ℂ^(N_E) = ⊕_(j=1)^J E_j, over ∂X, in which p₁ := S|_(∂X) + p̃₁ is lower triangular with diagonal
 blocks of real spectrum, and p₀ is strictly lower triangular.
 
 P is *weakly admissible* if only ℓ_I ∈ (0, ½], ℓ₊ > 0 and ℓ_K > 0 are assumed ([Hin26c, (5.26)]).
@@ -1574,7 +1573,7 @@ over the stationary one, the flow is pulled back to it, and the theorem gives th
 Let Γ := Γ₁ ⊂ Σ^♭₁ ⊂ T*X̃° be the trapped set of (H7) at z₀ = 1, with O, φ_u, φ_s, ν_u, ν_s as there, let
 q₁ = 2g₀⁻¹(−dt_* + ζ, dt_*) ([[lem:i-b-1-1]] and (K3)), and let 𝖵 := q₁⁻¹H_(G₁) on Σ^♭₁ near Γ, where
 G₁(x, ζ) := G₀(−dt_* + ζ) and G₀(ν) = g₀⁻¹(ν, ν). By (Γ.3), dG₁ ≠ 0 near Γ, so Y := Σ^♭₁ ∩ O₀, for a small
-neighbourhood O₀ of Γ, is a smooth hypersurface of T*X̃°; q₁ ≥ 2β₀ > 0 on Γ by (Γ.4), hence q₁ ≥ β₀ on O₀. Wherever
+neighbourhood O₀ of Γ, is a smooth hypersurface of T*X̃°; q₁ ≥ 2β_Γ > 0 on Γ by (Γ.4), hence q₁ ≥ β_Γ on O₀. Wherever
 injectivity on (−c, c) × Y is used below, Y is replaced by a relatively compact open neighbourhood of Γ in it.
 
 **Lemma {#lem:ii-c1-3-1}** Y, V₀ := 𝖵, Γ and the restrictions to Y of φ_u, φ_s and of ν_u/q₁, ν_s/q₁ satisfy
@@ -1587,7 +1586,7 @@ p ∈ Γ, a dφ_u + b dφ_s vanishes on T_pY for some (a, b) ≠ 0; as T_pY = ke
 Poisson bracket with φ_s gives a{φ_u, φ_s} = c{G₁, φ_s} = c H_(G₁)φ_s = c ν_sφ_s = 0 at p, so a = 0 by (Γ.3); with φ_u,
 likewise b = 0. (iii): Γ is invariant, 𝖵 being tangent to Γ_u and Γ_s (Γ.1); the bound is the tangential part of (K3)
 for 𝖵. Uniformity: (H5), extended to (H6)–(H8) in [[sec:i-b-1-5]], and (K4) give continuity in b of Γ, φ_(u/s),
-ν_(u/s) and q₁ into C^∞, and uniform ν_min, β₀ and C_ε; the choices of [[sec:ii-c1-2-1]] can then be made uniformly for
+ν_(u/s) and q₁ into C^∞, and uniform ν_min, β_Γ and C_ε; the choices of [[sec:ii-c1-2-1]] can then be made uniformly for
 b near any b₀, and ℬ is compact. ∎
 
 #### The slice and the projected flow {#sec:ii-c1-3-2}
@@ -1642,7 +1641,7 @@ Lipschitz constant sup|Ng̃| ≤ Cϵ < 1, so it has a unique fixed point F(t_*, 
 of the identity F + g̃(t_*, e^(FN)w) = 0 expresses ∂^αF through derivatives of g̃, each O(ϵt_*^(−ℓ_K)), and lower
 derivatives of F. Ψ̂ is then C^(d₀)-close to Ψ̂₀, hence a diffeomorphism near f = 0. ∎
 
-Near Γ, Ŵt_* = z·∂_zp₁ − 2p₁, which is ≥ ½β₀ near Γ for ϵ small: at ϵ = 0 it is exactly q₁, as
+Near Γ, Ŵt_* = z·∂_zp₁ − 2p₁, which is ≥ ½β_Γ near Γ for ϵ small: at ϵ = 0 it is exactly q₁, as
 z·∂_zG₁ = 2g₀⁻¹(−dt_* + z, z) = 2G₁ + q₁. Put V^h := Ŵ/(Ŵt_*), a C^(d₀−1) vector field near (T_♭, ∞) × Γ with
 V^ht_* = 1, tangent to {p₁ = 0} ([[lem:ii-c1-3-2]]), and V⁰ := Ŵ₀/(Ŵ₀t_*) = ∂_(t_*) + H_(G₁)/q₁ for g₀ (where
 ∂_(t_*)G₁ = 0). By [[eq:ii-c1-3-1]] and [[eq:ii-c1-3-2]], V^h − V⁰ has coefficients with derivatives of order ≤ d₀ − 1
@@ -1664,8 +1663,8 @@ independent of t_*, with φ₀^(u/s) = φ_(u/s)(x, z) on the stationary characte
     |∂^αφ̃^u| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 1),        |∂^αφ̃^s| ≤ Cϵt_*^(−ℓ_K)  (|α| ≤ d₀ − 2),
 
 derivatives along ∂_(t_*), ∂_x and the fibres, such that, with φ^(u/s) := φ₀^(u/s) + φ̃^(u/s), the field 𝖧_G is tangent
-to Γ^(u/s) := ∂Σ⁺ ∩ U ∩ (φ^(u/s))⁻¹(0). For ϵ ≤ ϵ₁, sup t_*^(ℓ_K)|∂^αφ̃^(u/s)| ≤ 1 over the stated ranges of α. The same
-holds, with uniform constants, for the stationary models of parameters b near b₀ ((K4)).
+to Γ^(u/s) := ∂Σ⁺ ∩ U ∩ (φ^(u/s))⁻¹(0). There is ϵ₂ > 0 such that, for ϵ ≤ ϵ₂, sup t_*^(ℓ_K)|∂^αφ̃^(u/s)| ≤ 1 over the
+stated ranges of α. The same holds, with uniform constants, for the stationary models of parameters b near b₀ ((K4)).
 
 *Proof.* By [[lem:ii-c1-3-1]] and [[eq:ii-c1-3-3]], [[thm:ii-c1-1-1]] applies on Y with V₀ = 𝖵, k := d₀ − 1 ≥ 2,
 ℓ := ℓ_K and T₀ := T_♭ (the metric is defined on Ω_* by [[eq:ii-c-4-1]], and Ω_* ⊃ {t_* ≥ T_♭} because t^♭_* ≥ C′t_*

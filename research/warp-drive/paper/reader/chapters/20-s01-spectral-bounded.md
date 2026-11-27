@@ -21,6 +21,12 @@ commutator lemma for b-regularity, [[sec:i-a-5]] the elliptic and propagation es
 estimates near an artificial boundary inside the horizon. [[sec:i-a-7]] proves the theorem and [[sec:i-a-8]] its
 uniformity in the operator.
 
+*Notation.* The stability theory, from [[ch:s01]] to [[ch:s29]], does not use the number N of stages of the
+approximant, and it uses the wavelength λ of the main construction only where [[ch:s28]] applies the gluing to the data
+of the solution g_λ ([[cor:vii-2-3]]). Elsewhere in these chapters λ, with or without indices, and N denote other
+objects (exponents, parameters, eigenvalues and orders among them), each defined by its chapter where it is introduced;
+λ is also a tensor index, and λ_max and λ_min are the largest and the least eigenvalue.
+
 ### Setting and hypotheses {#sec:i-a-1}
 
 #### The space {#sec:i-a-1-1}
@@ -167,65 +173,199 @@ The spaces are those of [Hin26c, Theorem 9.5]:
     H̄^(s,𝗋) := H̄^(s,𝗋)_sc(X̄; E),     Ḣ^(s,𝗋) := Ḣ^(s,𝗋)_sc(X̄; E),
 
 extendible, respectively supported, at ∂_♯X ([[sec:i-a-6-1]]), built componentwise from the scattering Sobolev spaces
-of [HJS, Definition 10.2] on ℝ⁴ (constant regularity order, variable decay order).
+of (C6) in [[sec:i-a-2-1]] on ℝ⁴ (constant regularity order, variable decay order).
 
 **Remark {#rem:i-a-1-1}** (Constant regularity order.) [Hin26c] lets the regularity order vary at fibre infinity over a
-region {r > r_Γ}, r_Γ > r_e, where P̂(σ) is elliptic. The calculus of [HJS] used here takes the differential order
-constant ([HJS, p. 77]: "we will take the differential order to be constant, and the spatial order to be variable"),
-and every proof below uses only s ≡ s_c, so [[thm:i-a-7-2]] is stated and proved for constant s. The semiclassical
-calculus of [[ch:s02]] has variable orders in all three senses; with the semiclassical parameter equal to 1 it would
-supply the elliptic estimate at a variable s over {r > r_Γ}, but no result of this chapter needs it.
+region {r > r_Γ}, r_Γ > r_e, where P̂(σ) is elliptic. The calculus used here ([[sec:i-a-2-1]]) takes the differential
+order constant and lets only the decay order vary, and every proof below uses only s ≡ s_c, so [[thm:i-a-7-2]] is
+stated and proved for constant s. The semiclassical calculus of [[ch:s02]] has variable orders in all three senses;
+with the semiclassical parameter equal to 1 it would supply the elliptic estimate at a variable s over {r > r_Γ}, but
+no result of this chapter needs it.
 
 ### The calculus {#sec:i-a-2}
 
 #### The statements used {#sec:i-a-2-1}
 
-The following statements of [HJS] are used as black boxes. They are stated in [HJS] on ℝⁿ for every n, so they hold at
-n = 4; page numbers are those printed in [HJS]. Every operator below has Schwartz kernel supported in X̃ × X̃, and
-X̄ ⊂ ℝ̄⁴, so the calculus on ℝ⁴ is the calculus used.
+The calculus is Melrose's scattering calculus [Mel94, Sections 4, 5 and 7]. For every n, [Mel94, Definition 1,
+p. 13] defines Ψ^(m,l)_scc as the operators on 𝒮(ℝⁿ) with Schwartz kernels (2π)^(−n) ∫ e^(i(z−z′)·ζ) a(z, ζ) dζ, the
+amplitude satisfying |D_z^α D_ζ^β a(z, ζ)| ≤ C_αβ (1 + |z|)^(−l−|α|) (1 + |ζ|)^(m−|β|) [Mel94, (4.1)–(4.2),
+pp. 12–13], transferred to the half-sphere by stereographic projection. [Mel94, Section 1, (1.1), p. 4] calls this the
+radial compactification of ℝⁿ, with boundary defining function |z|⁻¹ and collar coordinates (|z|⁻¹, z/|z|): the
+half-sphere is ℝ̄ⁿ. [Mel94] measures the decay of amplitudes and operators with the sign opposite to ours, while its
+Sobolev orders have our sign. We write S^(m,ℓ)_sc for the amplitudes with |∂_x^α ∂_ξ^β a| ≤ C_αβ ⟨x⟩^(ℓ−|α|) ⟨ξ⟩^(m−|β|),
+Op(a) for the operator with that kernel, and Ψ^(m,ℓ)_sc := Op(S^(m,ℓ)_sc), which is [Mel94]'s Ψ^(m,−ℓ)_scc; and
 
-(C1) (Composition, [HJS, (2.1), p. 9]; principal symbol, [HJS, pp. 49–50].) Ψ^(m,ℓ)_sc ∘ Ψ^(m′,ℓ′)_sc ⊂
-Ψ^(m+m′,ℓ+ℓ′)_sc. By [HJS, Proposition 7.4], "A ∈ Ψ^(m,l)_sc(M) ⇒ A∗ ∈ Ψ^(m,l)_sc(M)", and
-"σ_(m₁+m₂,l₁+l₂)(AB) = σ_(m₁,l₁)(A) σ_(m₂,l₂)(B)" [HJS, (7.29)], the principal symbol taking values in
-S^(m,l)_sc/S^(m−1,l−1)_sc [HJS, Definition 7.2].
+    H^(s,r)_sc := {u ∈ 𝒮′ : ⟨D⟩^s ⟨x⟩^r u ∈ L²},     ‖u‖_(s,r) := ‖⟨D⟩^s ⟨x⟩^r u‖_(L²).
 
-(C2) (Commutators, [HJS, Proposition 7.5, p. 50].) "[A, B] ∈ Ψ^(m₁+m₂−1,l₁+l₂−1)_sc(M) and
-σ(i[A, B]) = {σ(A), σ(B)}", the Poisson bracket being H_p a, with the scattering Hamilton vector field of
-[HJS, (7.34)].
+This is [Mel94]'s H^(s,r)_sc [Mel94, (5.27), p. 19]: ⟨D⟩^s⟨x⟩^r lies in [Mel94]'s Ψ^(s,−r)_sc, its factors having
+the classical amplitudes ⟨ξ⟩^s and ⟨x⟩^r [Mel94, Definition 2 and (5.1)], and every element of it is ⟨D⟩^s⟨x⟩^r
+followed by an operator of order (0, 0), which is bounded on L² by (C3). Pages of [Mel94] are those of the author's
+online edition.
+Its statements hold on every compact manifold with boundary, in particular on ℝ̄ⁿ for every n, so at n = 4. Every
+operator below has Schwartz kernel supported in X̃ × X̃, and X̄ ⊂ ℝ̄⁴, so the calculus on ℝ⁴ is the calculus used.
+[Mel94] treats constant orders and states neither adjoints nor duality. What it does not state is proved after the
+list, from [Mel94] and from the semiclassical calculus of [[sec:i-b-2]]. That calculus is proved there from Fourier
+analysis alone, for every h ∈ (0, 1], and is used here at h = 1: an amplitude independent of h is a family in the
+classes of [[def:i-b-2-1]], with ζ = ξ, and Op_1 = Op.
 
-(C3) (Boundedness, [HJS, Proposition 3.11 and Remark 3.12, p. 20].) "If A ∈ Ψ^(m,l)_sc, then, for all s, r ∈ ℝ, A maps
-A : H^(s,r)_sc → H^(s−m,r−l)_sc … and does so boundedly"; and "Op(a), viewed as an element of
-L(H^(s,r)_sc, H^(s−m,r−l)_sc), depends continuously on a". Since a ↦ Op(a) is linear and continuous from the Fréchet
-space S^(m,l)_sc to a Banach space, it is bounded by one seminorm: a family bounded in Ψ^(m,l) is uniformly bounded
-H^(s,r) → H^(s−m,r−l).
+(C1) (Composition, principal symbol, asymptotic sums, adjoints.) Ψ^(m,ℓ)_sc ∘ Ψ^(m′,ℓ′)_sc ⊂ Ψ^(m+m′,ℓ+ℓ′)_sc
+[Mel94, (5.1), p. 15]. The principal symbol σ(A) of Op(a) ∈ Ψ^(m,ℓ)_sc is the class of a in
+S^(m,ℓ)_sc/S^(m−1,ℓ−1)_sc; the symbol map is onto, its kernel is Ψ^(m−1,ℓ−1)_sc, and σ(AB) = σ(A)σ(B) [Mel94,
+(5.11)–(5.14), p. 17]. For a ∈ S^(m,ℓ)_sc and a′ ∈ S^(m′,ℓ′)_sc, Op(a)Op(a′) = Op(a#a′) by [[thm:i-b-2-4]] at h = 1,
+where a#a′ − Σ_(|α|<N) (1/α!) ∂_ξ^α a D_x^α a′ lies in S^(m+m′−N+δ,ℓ+ℓ′−N+δ)_sc for every N ≥ 1 and δ > 0, each
+seminorm of a#a′ and of this remainder being bounded by a product of seminorms of a and a′; so if a vanishes on an open
+set U, a#a′ and a′#a are of order (−∞, −∞) on every open set with closure in U. If A_j ∈ Ψ^(m−j,ℓ−j)_sc for j ∈ ℕ₀,
+there is A ∈ Ψ^(m,ℓ)_sc with A − Σ_(j<N) A_j ∈ Ψ^(m−N,ℓ−N)_sc for every N [Mel94, Lemma 6, p. 20]; if the A_j depend
+on a parameter b and are bounded in their classes, A can be chosen bounded in Ψ^(m,ℓ)_sc, with A − Σ_(j<N) A_j bounded
+in Ψ^(m−N,ℓ−N)_sc, and continuous in b if the A_j are. A ∈ Ψ^(m,ℓ)_sc ⇒ A∗ ∈ Ψ^(m,ℓ)_sc, with σ(A∗) = σ(A)∗.
 
-(C4) (Compactness, [HJS, Proposition 3.13, p. 20]; duality, [HJS, Proposition 3.7, p. 19].) "For any s, s′, r, r′,
-with s < s′ and r < r′, the embedding H^(s′,r′)_sc ↪ H^(s,r)_sc is compact." The L² pairing identifies (H^(s,r)_sc)∗
-with H^(−s,−r)_sc.
+(C2) (Commutators.) For A ∈ Ψ^(m₁,ℓ₁)_sc and B ∈ Ψ^(m₂,ℓ₂)_sc, [A, B] ∈ Ψ^(m₁+m₂−1,ℓ₁+ℓ₂−1)_sc, since the principal
+symbols commute, and σ(i[A, B]) = {σ(A), σ(B)}, a symbol of order (m₁ + m₂ − 1, ℓ₁ + ℓ₂ − 1) [Mel94, Proposition 4,
+(5.16), p. 18], read at these orders ([[thm:std-melrose-sc]]: as printed, (5.16) carries the orders (m₁ + m₂, ℓ₁ + ℓ₂),
+at which both of its sides vanish). Here {a, b} = ∂_ξa·∂_xb − ∂_xa·∂_ξb = H_ab is the Poisson bracket of T∗ℝⁿ, which
+[Mel94, (5.22), p. 19] writes in coordinates near the boundary; the order of {a, b} follows from it by the symbol
+estimates. If a is ⟨ξ⟩^(m₁)⟨x⟩^(ℓ₁) times a function smooth on the
+compactified phase space, then H_a is ⟨ξ⟩^(m₁−1)⟨x⟩^(ℓ₁−1) times a smooth vector field tangent to both boundary faces
+[Mel94, Lemma 5, (5.17), p. 18].
 
-(C5) (Ellipticity, [HJS, Propositions 2.3, 4.9, 4.10 and 10.1, pp. 12, 27–29, 79].) "Every elliptic element of the
-scattering calculus has a parametrix" (Proposition 2.3). There is a microlocal parametrix at a closed subset of the
-elliptic set (Proposition 4.10: "AB − 1, BA − 1 have WF′_sc disjoint from p. This also applies with p replaced by any
-closed subset"), also for variable orders (Proposition 10.1). Microlocality (Proposition 4.9):
-"WF^(s,r)_sc(Au) ⊆ WF^(s+m,r+l)_sc(u) ∩ WF′_sc(A)".
+(C3) (Boundedness.) Every A ∈ Ψ^(m,ℓ)_sc is bounded H^(s,r)_sc → H^(s−m,r−ℓ)_sc for all s, r [Mel94, Proposition 5,
+(5.28), p. 20], with norm bounded by a seminorm of its amplitude in S^(m,ℓ)_sc. So a family bounded in Ψ^(m,ℓ)_sc is
+uniformly bounded H^(s,r)_sc → H^(s−m,r−ℓ)_sc.
 
-(C6) (Variable orders, [HJS, Sections 10.1–10.3, pp. 77–80].) The symbol classes S^(m,l)_sc with l variable are defined
-with the vector fields ⟨x⟩^(−δ)𝒱_b [HJS, (10.3)–(10.4)], so that "the logarithmic factor" in derivatives of
-⟨x⟩^(l(x,ξ)) costs an arbitrary δ > 0; composition and the principal symbol are as in [HJS, Section 10.2]; and the
-spaces [HJS, Definition 10.2 and Section 10.3] are independent of the choices and Hilbert, with Ψ^(m,l)_sc bounded on
-them.
+(C4) (Compactness, duality.) For s < s′ and r < r′ the embedding H^(s′,r′)_sc ↪ H^(s,r)_sc is compact, and the L²
+pairing identifies (H^(s,r)_sc)∗ with H^(−s,−r)_sc. Compactness is proved below from the criterion of [Mel94,
+Proposition 5, p. 20]: an operator whose amplitude is its weight times a function smooth on the compactified phase
+space is compact between the spaces of (C3) if and only if its principal symbol vanishes.
 
-(C7) (Bundles, [HJS, Section 7.5, pp. 52–53].) "Ψ^(m,l)_sc(M; E, F) := C^∞(X; Hom(E, F)) ⊗ Ψ^(m,l)_sc(M) …
-Equivalently, an element in Ψ^(m,l)_sc(M; E, F) is a matrix with entries in Ψ^(m,l)_sc(M)."
+(C5) (Ellipticity, microlocality.) The operator wavefront set WF′(A) is the closed subset of the boundary of phase
+space off which the amplitude of A is locally of order (−∞, −∞); WF′(AB) ⊂ WF′(A) ∩ WF′(B), and WF′(A) = ∅ if and
+only if A ∈ Ψ^(−∞,−∞)_sc [Mel94, (7.1), (7.2) and (7.6), p. 23]. A is elliptic at a point of the boundary of phase
+space if its amplitude a is invertible near it with |a⁻¹| ≤ C⟨ξ⟩^(−m)⟨x⟩^(−ℓ); Ell(A) is the open set of such points.
+If A is elliptic on a neighbourhood of a closed set K, there is B ∈ Ψ^(−m,−ℓ)_sc with WF′(AB − Id) ∩ K = ∅ and
+WF′(BA − Id) ∩ K = ∅; if A is elliptic everywhere, there is B with AB − Id and BA − Id in Ψ^(−∞,−∞)_sc. This is
+proved below; for elliptic A it follows the construction that [Mel94, (6.2)–(6.5), pp. 21–22] makes for Δ + V − z.
+Hence the microlocal elliptic estimate: if G, Q ∈ Ψ^(0,0)_sc and WF′(Q) ⊂ Ell(A) ∩ Ell(G), then
+‖Qu‖_(s,r) ≤ C(‖GAu‖_(s−m,r−ℓ) + ‖u‖_(−M,−M)) for every M.
 
-(C8) (A regularising family, [HJS, Lemma 12.5, p. 95].) T_t := χ(t⟨z⟩) Op(χ(⟨tζ⟩)) ∈ Ψ^(−∞,−∞)_sc, t ∈ (0, t₀], with
-T_t → Id strongly on each H^(s,r)_sc; the proof of [HJS, Lemma 12.5] records "T_r being uniformly bounded in
-Ψ^(0,0)_sc and T_r → Id in the operator topology of Ψ^(δ,δ)_sc".
+(C6) (Variable orders.) A variable order is a real function 𝗅 on ℝ⁴ × ℝ⁴ that is smooth on ℝ̄⁴ × ℝ̄⁴, so that its
+derivatives obey |∂_x^α ∂_ξ^β 𝗅| ≤ C_αβ ⟨x⟩^(−|α|) ⟨ξ⟩^(−|β|) ([[sec:i-b-2-1]]). For constant m, S^(m,𝗅)_sc is the
+space of smooth matrix functions a with |a| ≤ C⟨ξ⟩^m⟨x⟩^𝗅 and, for (α, β) ≠ 0,
+
+    |∂_x^α ∂_ξ^β a| ≤ C_αβ ⟨ξ⟩^m ⟨x⟩^𝗅 ⟨x⟩^(−|α|) ⟨ξ⟩^(−|β|) (1 + log⟨x⟩ + log⟨ξ⟩)^(μ_αβ),
+
+the class S^𝐨 of [[def:i-b-2-1]] at h = 1 with 𝐨 = (m, 𝗅, 0). For a constant 𝗅 = ℓ it is the logarithmic class of
+order (m, ℓ): it contains S^(m,ℓ)_sc and lies in S^(m+δ,ℓ+δ)_sc for every δ > 0. By [[thm:i-b-2-4]], [[thm:i-b-2-5]]
+and [[eq:i-b-2-5]] at h = 1 these classes are closed under composition and adjoints, and every term after the first
+of the expansions there gains 1 − δ in both orders, for every δ > 0. So the principal symbol is the class of the
+amplitude modulo the class of order (m − 1 + δ, 𝗅 − 1 + δ) for every δ > 0; it is multiplicative; σ(A∗) = σ(A)∗; and
+if σ(A) = a Id is scalar, [A, B] has order (m + m′ − 1 + δ, 𝗅 + 𝗅′ − 1 + δ) for every δ > 0, with
+σ(i[A, B]) = H_aσ(B) if moreover A = Op(a Id) or σ(B) is scalar. Operators of order (0, 0) are bounded on L²
+([[thm:i-b-2-7]] at h = 1). For constant s, a variable order 𝗋, E := Op(⟨ξ⟩^s⟨x⟩^𝗋 Id) and an integer
+N ≥ max(−s, −inf 𝗋) + 1, let
+
+    H^(s,𝗋)_sc := {u ∈ H^(−N,−N)_sc : Eu ∈ L²},     ‖u‖²_(s,𝗋) := ‖Eu‖²_(L²) + ‖u‖²_(−N,−N).
+
+Asymptotic sums exist; H^(s,𝗋)_sc is a Hilbert space, independent of N and, up to equivalent norms, of the elliptic
+operator of order (s, 𝗋) used in place of E, and it is H^(s,r)_sc for constant 𝗋 = r; and (C3), (C4) and (C5) hold
+with variable orders, the compactness of the embedding requiring the decay order to drop by a positive constant. These
+statements are proved below.
+
+(C7) (Bundles.) On the trivial bundle ℂ^N the operators of order (m, ℓ) are the N × N matrices with entries in
+Ψ^(m,ℓ)_sc; [Mel94, Proposition 3, (5.10), p. 17] states the symbol sequence for operators between bundles.
+
+(C8) (A regularising family.) Fix χ ∈ C_c^∞(ℝ⁴) equal to 1 near 0, and let T_t := Op(τ_t) with
+τ_t(x, ξ) := χ(tx)χ(tξ), t ∈ (0, 1]. Then T_t ∈ Ψ^(−∞,−∞)_sc, which maps 𝒮′ to 𝒮 [Mel94, (5.34), p. 21]; T_t is
+bounded in Ψ^(0,0)_sc, T_t → Id in Ψ^(δ,δ)_sc for every δ > 0, and T_t → Id strongly on every H^(s,𝗋)_sc. This is
+proved below; [Mel94, (5.30), p. 20] states that such approximating sequences exist.
 
 In the interior, at fibre infinity, the scattering calculus restricted to kernels supported in a compact set is the
 classical calculus, and the scattering principal symbol there is the classical one: over a compact set ⟨x⟩ is bounded
 above and below, so the scattering estimates of order (m, ℓ) for symbols supported over it are the Kohn–Nirenberg
 estimates of order m.
+
+*Proofs of the statements not taken from [Mel94].* *Adjoints (C1).* For a ∈ S^(m,ℓ)_sc, [[thm:i-b-2-5]] at h = 1
+gives Op(a)∗ = Op(a^♮), where a^♮ − Σ_(|α|<4) (1/α!) ∂_ξ^α D_x^α a∗ obeys the bounds of [[def:i-b-2-1]] of order
+(m − 2, ℓ − 2), so lies in S^(m−1,ℓ−1)_sc, the logarithms costing any δ > 0. The terms with α ≠ 0 lie in
+S^(m−1,ℓ−1)_sc. So a^♮ ∈ S^(m,ℓ)_sc and a^♮ − a∗ ∈ S^(m−1,ℓ−1)_sc.
+
+*Uniform asymptotic sums (C1).* Let a_j^b be the amplitudes of the A_j, χ as in (C8), and ψ_t(x, ξ) := 1 − χ(tx)χ(tξ).
+As in the proof of (C8), ψ_t is bounded in S^(0,0)_sc for t ∈ (0, 1] and ⟨x⟩⟨ξ⟩ ≥ c/t on its support, so the
+seminorm of order k of ψ_t a_j^b in S^(m−j+1,ℓ−j+1)_sc is at most C_k t p_(j,k), where p_(j,k) is the supremum over b
+of the seminorm of order k of a_j^b in S^(m−j,ℓ−j)_sc and C_k increases with k. Choose t_j ∈ (0, 1] with
+C_j t_j (1 + p_(j,j)) ≤ 2^(−j). For each N and k, the terms with j > max(N, k) of a^b := Σ_j ψ_(t_j) a_j^b have
+seminorms of order k at most 2^(−j) in S^(m−N,ℓ−N)_sc, so the series converges there, uniformly in b. As
+(1 − ψ_t)a_j^b has compact support, a^b − Σ_(j<N) a_j^b is bounded in S^(m−N,ℓ−N)_sc for every N, and a^b is continuous
+in b if the a_j^b are, each partial sum being so. Op(a^b) is the sum A.
+
+*Seminorm bounds (C3).* For fixed s and r, the map a ↦ Op(a) from the Fréchet space S^(m,ℓ)_sc to the Banach space of
+bounded operators H^(s,r)_sc → H^(s−m,r−ℓ)_sc is linear and has closed graph. Indeed, if a_j → a and Op(a_j) → T, then
+Op(a_j)u = (2π)^(−n) ∫ e^(ix·ξ) a_j(x, ξ) û(ξ) dξ → Op(a)u pointwise for u ∈ 𝒮, so T = Op(a) on 𝒮, which is dense in
+H^(s,r)_sc because ⟨D⟩^s⟨x⟩^r maps 𝒮 onto 𝒮. By the closed graph theorem the map is continuous, so the norm of Op(a)
+is bounded by a seminorm of a. The same argument on L² gives the seminorm bound for the operators of order (0, 0) of
+(C6).
+
+*Compactness (C4).* Let k ∈ ℕ with δ := 1/k ≤ min(s′ − s, r′ − r), and A := ⟨D⟩^(−δ/2) ⟨x⟩^(−δ) ⟨D⟩^(−δ/2), a
+nonnegative operator on L². Each factor has as amplitude its weight times a function smooth on the compactified phase
+space, and [Mel94, (5.1)] keeps this property, so A^k, of order (−1, −1), is such an operator of order (0, 0) with
+vanishing principal symbol [Mel94, Proposition 3, (5.10), p. 17]. By [Mel94, Proposition 5], A^k is compact on L².
+Then A = (A^k)^(1/k), a norm limit of polynomials in A^k without constant term, is compact. The embedding
+H^(δ,δ)_sc ↪ L² is A ∘ A⁻¹, with A⁻¹ = ⟨D⟩^(δ/2) ⟨x⟩^δ ⟨D⟩^(δ/2) bounded from H^(δ,δ)_sc to L² by (C3), so it is
+compact. The embedding H^(s′,r′)_sc ↪ H^(s,r)_sc is the bounded embedding into H^(s+δ,r+δ)_sc followed by
+⟨x⟩^(−r)⟨D⟩^(−s) J ⟨D⟩^s⟨x⟩^r, where J is the compact embedding H^(δ,δ)_sc ↪ L².
+
+*Duality (C4).* With Λ_(s,r) := ⟨D⟩^s⟨x⟩^r, u ↦ Λ_(s,r)u is unitary from H^(s,r)_sc onto L² and v ↦ Λ_(−s,−r)v from
+H^(−s,−r)_sc onto L², and ⟨u, v⟩ = ⟨Λ_(s,r)u, Λ_(−s,−r)v⟩ for u, v ∈ 𝒮, since Λ_(−s,−r) = (Λ_(s,r)⁻¹)∗. So the
+pairing extends to H^(s,r)_sc × H^(−s,−r)_sc with |⟨u, v⟩| ≤ ‖u‖_(s,r)‖v‖_(−s,−r), 𝒮 being dense in both, and by the
+Riesz theorem in L² every bounded functional on H^(s,r)_sc is ⟨·, v⟩ for exactly one v ∈ H^(−s,−r)_sc, of equal norm.
+
+*Ellipticity (C5).* Let χ ∈ S^(0,0)_sc equal 1 near K, with a elliptic near its support, and B₀ := Op(χa⁻¹), which
+lies in Ψ^(−m,−ℓ)_sc. By (C1), AB₀ = Op(χ) + R₀ with R₀ ∈ Ψ^(−1,−1)_sc. Let C ∼ Σ_j (−R₀)^j (C1), so that
+(Id + R₀)C − Id ∈ Ψ^(−∞,−∞)_sc, and B := B₀C. Then Id − AB = (Id − Op(χ))C + E with E ∈ Ψ^(−∞,−∞)_sc, whose WF′
+misses K, as χ = 1 near K. A left parametrix B′ is built in the same way, and B′ − B = B′(Id − AB) − (Id − B′A)B has
+WF′ disjoint from K, so BA − Id has too. If A is elliptic everywhere, take for K the whole boundary of phase space:
+then 1 − χ has compact support and Id − Op(χ) ∈ Ψ^(−∞,−∞)_sc. For the estimate, let B be such an
+operator for GA, which is elliptic near K := WF′(Q). Then Q = QBGA + Q(Id − BGA), where the last operator has empty
+WF′ and so lies in Ψ^(−∞,−∞)_sc, and (C3) gives the estimate. With variable orders the same holds by (C6), R₀ gaining
+1 − δ in both orders. By the seminorm bounds and the uniform asymptotic sums of (C1), if A depends on a parameter, is
+bounded in Ψ^(m,ℓ)_sc and is uniformly elliptic near K, then B can be chosen bounded in Ψ^(−m,−ℓ)_sc, and continuous
+in the parameter if the amplitude of A is.
+
+*Variable orders (C6).* Asymptotic sums: let A_j have order (m − j + δ, 𝗅 − j + δ) for a fixed δ ∈ [0, 1). With
+δ′ := (1 + δ)/2 and ω := sup 𝗅 − inf 𝗅, A_j lies in Ψ^(m−j+δ′,sup𝗅−j+δ′)_sc, and an asymptotic sum A there [Mel94,
+Lemma 6] has A − Σ_(j<N) A_j of order (m − N + δ′, sup 𝗅 − N + δ′), so of variable order (m, 𝗅) − (N − ω − 1)(1, 1),
+for every N; by the uniform version in (C1), A is bounded, or continuous, in a parameter if the A_j are. *Spaces.*
+Let E⁻ be a parametrix of E ((C5)). If u ∈ H^(−N,−N)_sc and Eu ∈ L², then u = E⁻Eu + (Id − E⁻E)u lies in
+H^(−N₁,−N₁)_sc, with norm at most C(‖Eu‖ + ‖u‖_(−N,−N)), for every integer
+N₁ ≥ max(−s, −inf 𝗋) + 1, by (C3) in constant orders, E⁻ lying in Ψ^(−s+δ,−inf𝗋+δ)_sc for δ ∈ (0, 1); so the space
+and its norm do not depend on N. If E₁ is elliptic of order (s, 𝗋), then
+E₁u = (E₁E⁻)Eu + E₁(Id − E⁻E)u, so ‖E₁u‖ ≤ C(‖Eu‖ + ‖u‖_(−N,−N)), and symmetrically. For constant 𝗋 = r take
+E₁ := ⟨D⟩^s⟨x⟩^r. The norm comes from an inner product, and the space is complete: if Eu_j → f in L² and u_j → u in
+H^(−N,−N)_sc, then Eu_j → Eu in 𝒮′, so Eu = f. *Boundedness.* Let B have order (m, 𝗅), and let
+E′ := Op(⟨ξ⟩^(s−m)⟨x⟩^(𝗋−𝗅) Id). For u ∈ H^(s,𝗋)_sc, E′Bu = (E′BE⁻)Eu + E′B(Id − E⁻E)u, where E′BE⁻ has order (0, 0)
+and E′B(Id − E⁻E) ∈ Ψ^(−∞,−∞)_sc; and Bu ∈ H^(−N′,−N′)_sc for N′ := N + |m| + sup |𝗅| + 1, B having the constant
+order (m + 1, sup 𝗅 + 1). So B is bounded H^(s,𝗋)_sc → H^(s−m,𝗋−𝗅)_sc, with norm bounded by a seminorm of its
+amplitude, by the seminorm bounds of [[thm:i-b-2-4]] and of (C3). With B = Id, H^(s,𝗋)_sc ⊂ H^(s′,𝗋′)_sc for s′ ≤ s
+and 𝗋′ ≤ 𝗋. *Compactness.* Let s′ < s and 𝗋′ ≤ 𝗋 − c with a constant c > 0, τ := min(s − s′, c, 1), and
+E′ := Op(⟨ξ⟩^(s′)⟨x⟩^(𝗋′) Id). Then E′ is bounded from H^(s,𝗋)_sc to H^(τ,τ)_sc, which embeds compactly in L². Take
+N ≥ max(−s′, −inf 𝗋′) + 1, admissible for both pairs; then H^(s,𝗋)_sc ⊂ H^(−N,−N)_sc embeds compactly in
+H^(−N−1,−N−1)_sc by the constant case, and with N + 1 in place of N in the norm of H^(s′,𝗋′)_sc, the embedding
+H^(s,𝗋)_sc ↪ H^(s′,𝗋′)_sc is compact. *Duality.*
+For u ∈ 𝒮 and v ∈ H^(−s,−𝗋)_sc, ⟨u, v⟩ = ⟨Eu, (E⁻)∗v⟩ + ⟨u, (Id − E⁻E)∗v⟩, where (E⁻)∗ maps H^(−s,−𝗋)_sc to L² and
+(Id − E⁻E)∗ ∈ Ψ^(−∞,−∞)_sc maps it to H^(N,N)_sc; so |⟨u, v⟩| ≤ C‖u‖_(s,𝗋)‖v‖_(−s,−𝗋). Conversely, u ↦ (Eu, u)
+embeds H^(s,𝗋)_sc isometrically into L² × H^(−N,−N)_sc, so by the Hahn–Banach theorem and (C4) a bounded functional on
+H^(s,𝗋)_sc is u ↦ ⟨Eu, f⟩ + ⟨u, g⟩ with f ∈ L² and g ∈ H^(N,N)_sc, that is u ↦ ⟨u, E∗f + g⟩ with
+E∗f + g ∈ H^(−s,−𝗋)_sc. As 𝒮 is dense in H^(s,𝗋)_sc ((C8)), v ↦ ⟨·, v⟩ is a bounded bijection from H^(−s,−𝗋)_sc onto
+the dual of H^(s,𝗋)_sc, and the open mapping theorem gives equivalent norms.
+
+*The regularising family (C8).* τ_t ∈ C_c^∞(ℝ⁸), so T_t ∈ Ψ^(−∞,−∞)_sc. For α ≠ 0, ∂_x^α(χ(tx)) = t^|α| (∂^αχ)(tx)
+is supported where |tx| is bounded above and below, so it is O(⟨x⟩^(−|α|)) uniformly in t, and likewise in ξ; so τ_t
+is bounded in S^(0,0)_sc. On the support of 1 − τ_t, ⟨x⟩⟨ξ⟩ ≥ c/t, so the seminorms of 1 − τ_t in S^(δ,δ)_sc are
+O(t^δ). By (C3), T_t − Id → 0 in norm from H^(s+δ,r+δ)_sc to H^(s,r)_sc, and T_t is bounded on H^(s,r)_sc uniformly in
+t; as 𝒮 is dense in H^(s,r)_sc, T_t → Id strongly there. For a variable order 𝗋,
+‖(T_t − Id)u‖_(s,𝗋) ≤ ‖(T_t − Id)Eu‖ + ‖[E, T_t]u‖ + ‖(T_t − Id)u‖_(−N,−N). The first and last terms tend to 0 by the
+constant case. [E, T_t] = [E, T_t − Id] has an amplitude that tends to 0 in the class of order (s − ½, 𝗋 − ½), by the
+expansion of [[thm:i-b-2-4]] with its seminorm bounds, its first term vanishing; so [E, T_t]u → 0 in L² by the
+boundedness just proved.
 
 #### Matrix-valued operators {#sec:i-a-2-2}
 
@@ -253,7 +393,7 @@ order k being O(⟨x⟩^(−k)). Then (a) gives (b). (c) [ã Id, B]_ij = [ã, B_
 write A = ã Id + A′ and B = b̃ Id + B′, with A′ ∈ Ψ^(m−1,ℓ−1) and B′ ∈ Ψ^(m′−1,ℓ′−1). Then
 [A′, B′] ∈ Ψ^(m+m′−2,ℓ+ℓ′−2) by (a); [ã Id, B′] and [A′, b̃ Id] lie there by the first statement; and [ã, b̃] gives
 H_a b. (d) Boundedness, compactness and duality are statements about each entry. For an elliptic A, take
-B₀ := Op(σ(A)⁻¹χ) for a cut-off χ, and run the Neumann series of [HJS, Proposition 2.3] with matrices: AB₀ = Id − R₁,
+B₀ := Op(σ(A)⁻¹χ) for a cut-off χ, and run the Neumann series of (C5) with matrices: AB₀ = Id − R₁,
 R₁ ∈ Ψ^(−1,−1) by (a), and the asymptotic sum Σ_j R₁^j exists entrywise. The microlocal versions are identical. ∎
 
 **Lemma {#lem:i-a-2-2}** (Square roots.) Let 𝒦 be a compact set of h-self-adjoint endomorphisms with spectra in
@@ -367,13 +507,13 @@ This is algebra: 2 Im⟨Ǎ_εPw, Ǎ_εw⟩ = (1/i)⟨(Ǎ_ε²P − P^(∗h)Ǎ_ε
 top order it need not act on H^(𝐬−κ𝟏). As t → 0, w_t → v in H^(𝐬−κ𝟏), and Ǎ_εw_t → Ǎ_εv in H^(½(𝐦−𝟏)).
 
 Write Pv = ΦPu + [P, Φ]u (Step 0), so that Ǎ_εPw_t = Ǎ_εT_tΦPu + Ǎ_εT_t[P, Φ]u + Ǎ_ε[P, T_t]v. (This avoids
-[Ǎ_ε, T_t], which for a variable decay order is bounded only in ⋂_δ Ψ^(𝐤−κ𝟏−𝟏+(0,δ)) [HJS, p. 79].) The first term
+[Ǎ_ε, T_t], which for a variable decay order is bounded only in ⋂_δ Ψ^(𝐤−κ𝟏−𝟏+δ𝟏), by (C6).) The first term
 tends to Ǎ_εΦPu in H^(½(𝟏−𝐦)+κ𝟏), since T_t → Id strongly on H^(𝐬−𝐦+𝟏) and Ǎ_ε ∈ Ψ^(𝐤−κ𝟏) for the fixed ε. The
 second is bounded in Ψ^(−∞,−∞) uniformly in t, as Ǎ_ε and [P, Φ] have disjoint microsupports and T_t is bounded in
 Ψ^(0,0), and it tends to Ǎ_ε[P, Φ]u. In the third, [P, T_t] is bounded in Ψ^(𝐦−𝟏) and tends to 0 in Ψ^(𝐦−𝟏+δ𝟏)
 ([[lem:i-a-2-1]] (c); P has constant orders), so the term is bounded in H^(½(𝟏−𝐦)), since v ∈ H^(𝐬−κ𝟏), and tends to
-0 as distributions, hence weakly in H^(½(𝟏−𝐦)). A weakly null sequence paired with a strongly convergent one tends to
-0. So ⟨Ǎ_εPw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εPv, Ǎ_εv⟩.
+0 as distributions, hence weakly in H^(½(𝟏−𝐦)). A weakly null sequence paired with a strongly convergent one
+tends to 0. So ⟨Ǎ_εPw_t, Ǎ_εw_t⟩ → ⟨Ǎ_εPv, Ǎ_εv⟩.
 
 *Step 2: the estimate.* By [[eq:i-a-3-1]] and [[eq:i-a-3-4]], for Schwartz w,
 
@@ -445,11 +585,14 @@ qualitative hypothesis of each step, 𝒢_(j−1)u ∈ H^(𝐬_(j−1)), is the 
 
 **Remark {#rem:i-a-3-3}** (Logarithmic losses.) With variable orders, symbols of the commutants carry factors log ϱ
 (C6). Suppose, in [[lem:i-a-3-1]], that B_ε is only bounded in Ψ^(𝐬+δ𝟏) for every δ > 0, and R_ε only in
-Ψ^(2𝐬−𝟏+δ𝟏), while the other hypotheses hold as stated, κ < ½, and B₀ has principal symbol bounded below by c > 0
-times an elliptic weight of order 𝐬. Then the conclusion holds with the a priori term ‖Gu‖_(𝐬−κ𝟏). The proof is
-unchanged, except that (e) is bounded by C‖v‖²_(𝐬−½𝟏+δ𝟏) ≤ C‖v‖²_(𝐬−κ𝟏) for δ ≤ ½ − κ, and
-‖Bu‖_𝐬 ≤ C(‖B₀u‖ + ‖u‖_(−𝐌)) for B microsupported in Ell(B₀): b₀⁻¹ is bounded by the inverse weight, so it is a
-symbol of order −𝐬 in the class of (C6). [[lem:i-a-3-2]] holds with this variant, since its steps have κ ≤ ¼. For
+Ψ^(2𝐬−𝟏+δ𝟏), while the other hypotheses hold as stated, κ < ½, and B₀ has principal symbol w φ Q^(1/2) of the form of
+[[lem:i-b-2-12]] at h = 1, with w an elliptic weight of order 𝐬 and φ a scalar symbol of order 0. Then the conclusion
+holds with the a priori term ‖Gu‖_(𝐬−κ𝟏). The proof is unchanged, except that (e) is bounded by
+C‖v‖²_(𝐬−½𝟏+δ𝟏) ≤ C‖v‖²_(𝐬−κ𝟏) for δ ≤ ½ − κ, and ‖Bu‖_𝐬 ≤ C(‖B₀u‖ + ‖u‖_(−𝐌)) for B microsupported in an open
+set on which φ ≥ c > 0: there, by [[lem:i-b-2-12]] at h = 1, φ′b₀⁻¹ is a symbol of order −𝐬 in the class of (C6) for
+φ′ ∈ S^(0,0)_sc supported in that set, and the microlocal elliptic estimate holds for B₀ at the order 𝐬, the
+construction of (C5) starting from Op(φ′b₀⁻¹). [[lem:i-a-3-2]] holds with this variant, ellipticity of B₀^(j) on a
+set meaning φ ≥ c > 0 there, since its steps have κ ≤ ¼. For
 fixed ε, B_ε lies only in Ψ^(𝐬−κ𝟏+δ𝟏), so in Step 2 the left side is not known to converge. Instead,
 B_εw_t → B_εv in H^(−δ𝟏), and ‖B_εw_t‖² is bounded by the right side at w_t, which converges to the right side at v;
 so B_εv ∈ L² and, by weak lower semicontinuity, ‖B_εv‖² ≤ lim inf ‖B_εw_t‖² is bounded by the right side at v.
@@ -489,13 +632,13 @@ By [[eq:i-a-1-4]], p₁(σ) = p₁(0) ± (Im σ)ρ_∞τ₁ Id. So by [[eq:i-a-1
 
     β₀⁻¹p₁(σ) ≤ (ϑ_± − β Im σ) Id     at ∂ℛ.                                                             {#eq:i-a-4-1}
 
-**Lemma {#lem:i-a-4-1}** (A defining function in S∗X̃°.) There are C_y, c′ > 0 and a neighbourhood W of ∂ℛ in S∗X̃°
-such that q̃ := q_ext + C_y(ρ_∞²G₀)² is a quadratic defining function of ∂ℛ in S∗X̃° and 𝖧q̃ ≥ c′q̃ on W. Here
-q_ext := q_± ∘ π for a smooth retraction π of a neighbourhood of ∂ℛ onto ∂Σ₀, an extension with dq_ext = 0 on ∂ℛ (an
+**Lemma {#lem:i-a-4-1}** (A defining function in S∗X̃°.) Let y := ρ_∞²G₀. There are C_y, c′ > 0 and a neighbourhood W
+of ∂ℛ in S∗X̃° such that q̃ := q_ext + C_y y² is a quadratic defining function of ∂ℛ in S∗X̃° and 𝖧q̃ ≥ c′q̃ on W.
+Here q_ext := q_± ∘ π for a smooth retraction π of a neighbourhood of ∂ℛ onto ∂Σ₀, an extension with dq_ext = 0 on ∂ℛ (an
 arbitrary extension may carry a term linear in ρ_∞²G₀, and then q̃ need not be a defining function), and 𝖧 is given
 near ∂ℛ by the same formula off Σ₀.
 
-*Proof.* At ∂ℛ, 𝖧ρ_∞ = β₀ρ_∞ ≠ 0, so H_(G₀) ≠ 0 and dG₀ ≠ 0; hence y := ρ_∞²G₀ defines ∂Σ₀ near ∂ℛ. Since 𝖧G₀ = 0,
+*Proof.* At ∂ℛ, 𝖧ρ_∞ = β₀ρ_∞ ≠ 0, so H_(G₀) ≠ 0 and dG₀ ≠ 0; hence y defines ∂Σ₀ near ∂ℛ. Since 𝖧G₀ = 0,
 𝖧y = 2β₀y, with β₀ := ρ_∞⁻¹𝖧ρ_∞ extended as a smooth function, ≥ b₀ > 0 near ∂ℛ. 𝖧 vanishes on ∂ℛ, which consists of
 radial points. So q_ext and 𝖧q_ext vanish to second order at ∂ℛ, and so does Z := 𝖧q_ext − (c/2)q_ext. In local
 coordinates (y, z, w) near a point of ∂ℛ, with ∂ℛ = {y = 0, z = 0}: Z(0, z, w) ≥ (c/2)q_± ≥ c₁|z|²;
@@ -624,7 +767,9 @@ Im_h(−iQ) = −Re_h Q ∈ ρ³Diff¹_b ⊂ Ψ^(1,−2). The statement on Im_h 
 ρ²Diff¹_b = ρ · ρDiff¹_b with ρDiff¹_b ⊂ Diff¹_sc. The symbol of ρDiff¹_b at ρ = 0 is linear in (ξ, η): its
 zeroth-order part lies in ρC^∞. Self-adjointness follows from [[lem:i-a-2-1]] (b).
 
-(c) By [HJS, (7.33)–(7.34), p. 50], for covectors τ dx/x² + μ·dy/x,
+(c) With fibre coordinates (ξ′, η′) dual to (x, y), so that τ = x²ξ′ and μ = xη′ [Mel94, (5.20), p. 18], the chain
+rule turns H_p = ∂_(ξ′)p ∂_x − ∂_xp ∂_(ξ′) + ∂_(η′)p·∂_y − ∂_yp·∂_(η′) [Mel94, (5.22), p. 19] into, for covectors
+τ dx/x² + μ·dy/x,
 
     H_p = ∂_τp (x²∂_x) + ∂_μp (x∂_y) − (x²∂_xp + xμ·∂_μp)∂_τ − (x∂_yp − x(∂_τp)μ)·∂_μ.
 
@@ -770,7 +915,7 @@ of 𝔰𝔬(4) acting on functions on 𝕊³, which is Δ_(𝕊³). All act comp
 
 **Lemma {#lem:i-a-4-7}** (Sum of squares; [Hin26c, (9.49)] on E.) Near ∂X,
 Re_h P̂(0) = Σ_j W_j^(∗h)W_j + R₁ + R₂, with W_j ∈ ρDiff¹_b acting componentwise, R₁ ∈ ρ²Diff¹_b and
-R₂ ∈ ρ³Diff²_b, both h-self-adjoint. The σ-independent symbols r₁ := σ(ρ⁻¹R₁) and r₂ := σ(ρ⁻¹R₂) at ρ = 0 are
+R₂ ∈ ρ³Diff²_b, both h-self-adjoint. The σ-independent symbols 𝔯₁ := σ(ρ⁻¹R₁) and 𝔯₂ := σ(ρ⁻¹R₂) at ρ = 0 are
 homogeneous of degrees 1 and 2 in (ξ, η), and so vanish at R_out.
 
 *Proof.* Re_h P̂(0) = P̂(0) − i Im_h P̂(0) with Im_h P̂(0) ∈ ρ²Diff¹_b. So by (H2),
@@ -834,8 +979,8 @@ and 𝖧̃g̃ = 0. By Im_h(cA) = (Re c) Im_h A + (Im c) Re_h A, [[lem:i-a-4-4]] 
     Im_h P̃ = P̃_I^(0) − ι_σ Σ_j W_j^(∗h)W_j,
     P̃_I^(0) := Im_h T + κ_σ Im_h P̂(0) − ι_σ(R₁ + R₂) + σ₁g₀₀ ∈ Ψ^(2,−1).                                 {#eq:i-a-4-12}
 
-(Here Im_h(σ⁻¹σ²g₀₀) = σ₁g₀₀.) P̃_I^(0) has symbol ρp̃ at ρ = 0, with p̃ := −(S + S^(∗h)) + κ_σr₃ − ι_σ(r₁ + r₂) and
-r₃ := σ(ρ⁻¹Im_h P̂(0)). The last three terms vanish at R_out, so p̃ = −(S + S^(∗h)) there.
+(Here Im_h(σ⁻¹σ²g₀₀) = σ₁g₀₀.) P̃_I^(0) has symbol ρp̃ at ρ = 0, with p̃ := −(S + S^(∗h)) + κ_σ𝔯₃ − ι_σ(𝔯₁ + 𝔯₂) and
+𝔯₃ := σ(ρ⁻¹Im_h P̂(0)). The last three terms vanish at R_out, so p̃ = −(S + S^(∗h)) there.
 
 **Proposition {#prop:i-a-4-9}** (Radial estimate at R_out.) Let 𝒟 be a compact subset of {σ ≠ 0, Im σ ≥ 0}, U a
 neighbourhood of R_out, s, M ∈ ℝ, and h a fibre inner product.
@@ -942,8 +1087,9 @@ two boundary faces of phase space, with defining function ϱ (ρ_∞ at fibre in
 Suppose the following.
 
 (a) Near a compact set Λ ⊂ F, P_R = Re_h P has principal symbol p Id with p real. Then H_p = μ𝖵 near Λ, where μ > 0
-is a weight of order 𝐦 − 𝟏 and 𝖵 is a smooth vector field tangent to F ([HJS, (7.34)]; at fibre infinity 𝖵 = ρ_∞H_p
-for 𝐦 = 2, and over ∂X it is given by [[eq:i-a-4-4]]). Fix a sign ε_f and set 𝖧_f := ε_f𝖵, the *forward* field.
+is a weight of order 𝐦 − 𝟏 and 𝖵 is a smooth vector field tangent to F ([Mel94, Lemma 5, (5.17), p. 18]; at fibre
+infinity 𝖵 = ρ_∞H_p for 𝐦 = 2, and over ∂X it is given by [[eq:i-a-4-4]]). Fix a sign ε_f and set 𝖧_f := ε_f𝖵, the
+*forward* field.
 
 (b) P_I = P_I^sub + P_I^abs, where P_I^sub ∈ Ψ^(𝐦−𝟏) is h-self-adjoint and ε_fP_I^abs = −c L^(∗h)L + K′ with c ≥ 0
 a constant, L of order ½𝐦 and WF′(K′) ∩ W̄ = ∅ for a neighbourhood W of Λ.
@@ -990,9 +1136,10 @@ bounded on O (it has order 0 relative to μ), and
 Choose C_z ≥ 1 + sup_O (2|𝗄_εϱ⁻¹𝖧_fϱ| + 2‖p′‖), uniformly in ε since 𝗄_ε ∈ (𝗄 − κ, 𝗄]. Then Q_ε ≥ C_z Id. It is a
 symbol of the logarithmic class of (C6), and so is Q_ε^(1/2). To see this, write Q_ε = Q₀ + Λ_ϱ Id with
 Q₀ := (2C_z + 2𝗄_εϱ⁻¹𝖧_fϱ) Id − 2p′ ≥ C_z Id, bounded, and Λ_ϱ := 2(𝖧_f𝗄) log ϱ ≥ 0, scalar. By Cauchy's formula as in
-[[lem:i-a-2-2]], ∂_Λ^j(Q₀ + Λ)^(1/2) = O((C_z + Λ)^(½−j)), and the derivatives of Q₀ and of Λ_ϱ along the vector fields
-⟨x⟩^(−δ)𝒱_b of (C6) are bounded; by the chain rule Q_ε^(1/2) lies in the class for every δ > 0. ([[lem:i-a-2-2]] does
-not apply to Q_ε/(1 + |log ϱ|), which is not bounded below where 𝖧_f𝗄 = 0; [HJS, p. 81] notes the point.)
+[[lem:i-a-2-2]], ∂_Λ^j(Q₀ + Λ)^(1/2) = O((C_z + Λ)^(½−j)); each derivative of Q₀ and of Λ_ϱ gains its weight up to a
+power of 1 + log⟨x⟩ + log⟨ξ⟩, and Λ_ϱ is bounded by such a power. By the chain rule Q_ε^(1/2) lies in the class of (C6)
+of order (δ, δ) for every δ > 0, as in [[lem:i-b-2-12]]. ([[lem:i-a-2-2]] does not apply to Q_ε/(1 + |log ϱ|), which
+is not bounded below where 𝖧_f𝗄 = 0.)
 
 *Decomposition.* As in [[sec:i-a-4]], σ(ε_fC_ε) = μ[𝖧_f(ǎ_ε²) Id + 2ǎ_ε²p′] + ε_fσ(Ǎ²P_I^abs + P_I^absǍ²), and
 
@@ -1380,15 +1527,15 @@ threshold, by (O3)). Elsewhere the adjoint estimates are below threshold or prop
 condition.
 
 *Local constancy of the index.* Let σ_* be in one of the settings, and fix orders admissible for all σ near σ_*:
-[[lem:i-a-7-1]] if σ_* is real, any 𝗋 as in (2) if Im σ_* > 0. Let 𝒩 := ker P̂(σ_*). Let 𝒲 ⊂ C_c^∞(X̄°; E) be a
+[[lem:i-a-7-1]] if σ_* is real, any 𝗋 as in (2) if Im σ_* > 0. Let 𝔑 := ker P̂(σ_*). Let 𝒲 ⊂ C_c^∞(X̄°; E) be a
 complement of the closed, finite-codimensional range in 𝒴_(σ_*); it exists because C_c^∞(X̄°) is dense in 𝒴_(σ_*).
-Let E₀₁ : ℂ^(dim 𝒲) → 𝒲 be an isomorphism and E₁₀u := (⟨u, v_j⟩)_j with v_j ∈ C_c^∞(X̄°) chosen so that E₁₀|_𝒩 is an
+Let E₀₁ : ℂ^(dim 𝒲) → 𝒲 be an isomorphism and E₁₀u := (⟨u, v_j⟩)_j with v_j ∈ C_c^∞(X̄°) chosen so that E₁₀|_𝔑 is an
 isomorphism. Then the operator
 
     P^♯(σ) := ( P̂(σ)   E₀₁ )
               ( E₁₀     0  )
 
-has index ind P̂(σ) + dim 𝒲 − dim 𝒩, and is invertible at σ_*.
+has index ind P̂(σ) + dim 𝒲 − dim 𝔑, and is invertible at σ_*.
 
 *Injectivity.* P^♯(σ) is injective for σ near σ_*. Otherwise there are σ_j → σ_* and (u_j, c_j) ≠ 0 in the kernel,
 normalised by ‖u_j‖_(−𝐌) + |c_j| = 1. By [[eq:i-a-7-1]], ‖u_j‖_𝐬 ≤ C(|c_j| + ‖u_j‖_(−𝐌)) ≤ C. Pass to a subsequence
@@ -1396,7 +1543,7 @@ with u_j ⇀ u in H̄^𝐬, hence u_j → u in H̄^(−𝐌) (compactness), and 
 P̂(σ_j)u_j → P̂(σ_*)u as distributions, so P̂(σ_*)u = −E₀₁c and u ∈ 𝒳_(σ_*), and E₁₀u = lim E₁₀u_j = 0. This
 contradicts the invertibility of P^♯(σ_*).
 
-So ind P̂(σ) ≤ dim 𝒩 − dim 𝒲 = ind P̂(σ_*) near σ_*. The same argument for the adjoint family, with [[eq:i-a-7-2]],
+So ind P̂(σ) ≤ dim 𝔑 − dim 𝒲 = ind P̂(σ_*) near σ_*. The same argument for the adjoint family, with [[eq:i-a-7-2]],
 gives ind P̂^(∗h)(σ) ≤ ind P̂^(∗h)(σ_*), that is ind P̂(σ) ≥ ind P̂(σ_*). So the index is locally constant, and by
 independence of the orders it does not depend on the local choice of orders. The set {σ ≠ 0, Im σ ≥ 0} is connected
 and covered by these neighbourhoods, so the index is constant. ∎

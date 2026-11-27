@@ -556,8 +556,9 @@ over the ball ℬ̄_* of [[sec:s23-base-points]], and p⃗_(≤0) = (S, b − b�
 ([[eq:iii-i7-1-3]]). From [[ch:s17]]: the spaces [[eq:iii-g3-1-2]]–[[eq:iii-g3-3-5]], the inverse [[eq:iii-g3-2-2]] of
 N_(ι⁺)(L̄, ·) on partially polyhomogeneous spaces, spec^(<ℓ_I)_(ι⁺)(L̄, ℰ^C_I), [[cor:iii-g3-3-1]],
 Res^k_(ι⁺)(L̄, ℰ^C_I, λ), Res_(ι⁺)(L̄, λ) and the map [[eq:iii-g3-3-6]]. ℓ_I is the one of the class, with
-ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]] holds, s_C being large by (C1). K_ι(λ) denotes the
-order of the pole of [[eq:iii-g3-2-2]] at λ (K(λ) in [[prop:iii-g3-3-7]] and in [[eq:iii-g3-3-6]]). Also from
+ℓ_I > 3 + ε_+ ((H4) of [[sec:iii-i10-1]]), and [[eq:iii-g3-1-2]] holds, as s_C > 100 ([[sec:iii-f-1]]). K_ι(λ)
+denotes the order of the pole of [[eq:iii-g3-2-2]] at λ (K(λ) in [[prop:iii-g3-3-7]] and in [[eq:iii-g3-3-6]]). Also
+from
 [[ch:s17]]: the table of [[sec:iii-g2-1]], the Minkowski formal solutions ([[def:iii-g2-2-3]]), [[thm:iii-g2-3-1]] and
 [[lem:iii-g2-4-1]]. Two further conditions are imposed, each removing finitely many values.
 
@@ -894,7 +895,7 @@ and q′ ∈ 𝒬^∞_J.
 
 *Proof.* In [[prop:iii-i11-3-1]], η_2 enters as the threshold of level 2 (Step 3 of its proof: the tf-exponents α_0 of
 g_2 with Re α_0 < 2 + η_2 are treated), as the order μ_2 = 2 + η_2 of the zero-energy solve there ([[lem:iii-i11-2-1]]
-with μ′ = 2 + ε_+ − ε), and through the resulting tf-weight τ_3 = 1 + η_2 − 2ε of g_3, a lower bound; with the
+with q′ = 2 + ε_+ − ε), and through the resulting tf-weight τ_3 = 1 + η_2 − 2ε of g_3, a lower bound; with the
 conditions η_2 ∈ (ε_K, ε_+), η_2 > η_1, no λ ∈ Λ of real part 3 + η_2, and 2ε < ε_+ − η_2. The tf-exponents of the
 sources at level 2 (of g_2 and of the remainders α_0 + ℰ_ind of the rounds of the loop) are u-exponents minus 1, so they
 lie in Λ − 1: at level 2 the tf-exponent α_0 is the u-exponent α_0 + 1 ([[sec:iii-i11-3]]; [[lem:iii-i10-1-2]] (c)). By

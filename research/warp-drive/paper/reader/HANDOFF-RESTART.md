@@ -1,5 +1,8 @@
 # Handoff after the container restart (2026-11-14)
 
+> **Done (2026-11-20).** The five relaunched tasks and every item of "Next after those" are complete, and every chapter is
+> confirmed (STATUS.md). The assembled paper is PAPER.md, and the PDF is ../pdf/FIVE-DIMENSIONAL-VAIDYA-READERS-EDITION.pdf.
+
 Bash could not start in the old session after a container restart. The SessionStart hook had appended the same Lean
 environment block to that session's env file 209 times (about 130 KB), and the file is inlined into every bash call, over
 the 128 KiB argument limit. `.claude/hooks/session-start.sh` now skips a block already present. A new session is needed
