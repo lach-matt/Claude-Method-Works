@@ -1,16 +1,18 @@
 ### The constants sharpened a second time {#sec:tl5-hfs}
 
 This section sharpens the constants of [[sec:tl5-hfg]] further and proves [[thm:tl5-hf]] and [[thm:tl5-hf4]] with them.
-Five changes are made, each a proved restatement. First, every background factor is bounded by a bound of its own order,
-also inside the iterated Lie derivatives of ĝ⁻¹, of g⁻¹, of D̂h and of D̂²h, so that no power Λ_k^r of one bound occurs
-([[def:tl5-hfs-bounds]], [[lem:tl5-hfs-quadratic]]). Second, the letters that a quadratic term of level n places on
+Four changes are made, each a proved restatement. First, every background factor is bounded by a bound of its own order,
+also inside the iterated Lie derivatives of ĝ⁻¹, of g⁻¹, of D̂h and of D̂²h, so that in every product of bounds the
+orders add up to at most the number of letters of the term ([[def:tl5-hfs-bounds]], [[lem:tl5-hfs-quadratic]]). Second,
+the letters that a quadratic term of level n places on
 background factors cost no power of μ: a term whose background factors carry b letters is bounded with the factor
 μ^((b−3)/2), and the forcing of level j′ in the equation of level j keeps the weight μ^((j−j′)/2)
 ([[lem:tl5-hfs-products]]). Third, the recovery of second derivatives keeps the weights of the levels it couples, so
 its constant k₁ becomes k₁^(j,μ), and the top-level recovery constant enters each quadratic term once: a term whose
 factor in the energies is a second derivative has no derivative on the factor at a point ([[lem:tl5-hfs-linfty]],
 [[lem:tl5-hfs-products]]). Fourth, at level four the products with no factor at a point are summed over the words
-before the Hölder inequality, which removes the word count and the coefficient 𝔠₄ from them ([[lem:tl5-hfs-mixed]]).
+before the Hölder inequality, which removes the word count and the coefficient 𝔠₄ from their terms of second order, the
+terms of higher order keeping 49 𝔰_♭ 𝔠^(3♮)₄ ([[lem:tl5-hfs-quadratic]], [[lem:tl5-hfs-mixed]]).
 The closing conditions are [[eq:tl5-hfs-closing]] and [[eq:tl5-hf4s-closing]]; those of [[thm:tl5-hf]],
 [[thm:tl5-hf4]], [[thm:tl5-hfg]] and [[thm:tl5-hf4g]] remain valid, and any of them may be used. Throughout, N ≥ 4,
 μ ∈ (0, 1], the notation is that of [[sec:tl5-hfg]] with the second expansion of [[def:tl5-hfg-graded]], and for N = 4
@@ -179,8 +181,9 @@ carries no derivative D̂, as there are at most two in all, so it is H, h or Ψ_
 μ^(−ℓ_P(Φ₁)/2) 𝔰_P⁰. Otherwise μ^(ℓ_E(Φ₂)/2) |Φ₂| ≤ 𝔨_B 𝒥_g, by the proof of (∗) there, and |Φ₁| ≤ μ^(−ℓ_P(Φ₁)/2) 𝔰_P, by
 that proof. With |Φ₁| ≤ 𝔰 in the term with ϱ(p) and |Φ_i| ≤ 𝔰 for the other factors, the monomial times μ^(n/2) is at
 most ν 𝔰^(q−2) (μ^((n − ℓ_P(Φ₁) − ℓ_E(Φ₂))/2) 𝔓 𝒥_g + μ^(n/2) 2k₂ 𝔰 ϱ(p)), and μ^((n − ℓ_P − ℓ_E)/2) ≤ μ^(−3/2) μ^(b/2).
-By [[eq:tl5-hfs-sum]] with ν′ = μ and with ν′ = 1 this gives the first inequality. For |J| < n, μ^(n/2) |𝔑_J| =
-μ^((n−|J|)/2) μ^(|J|/2) |𝔑_J| is bounded by the first inequality for J, and in H^(αβ) D̂_αD̂_βΨ_J the factor D̂²Ψ_J is
+By [[eq:tl5-hfs-sum]] with ν′ = μ and with ν′ = 1 this gives the first inequality. For |J| < n, 𝔑_J = 𝔑^L_J, also for
+N = 4 as |J| ≤ 3, and μ^(n/2) |𝔑_J| = μ^((n−|J|)/2) μ^(|J|/2) |𝔑_J| is bounded by the first inequality for J; in
+H^(αβ) D̂_αD̂_βΨ_J the factor D̂²Ψ_J is
 the factor Φ₂ of the first kind, with Φ₁ = H, b = 0 and ℓ_P(H) + ℓ_E(D̂²Ψ_J) = |J| + 3. ∎
 
 **Lemma {#lem:tl5-hfs-mixed}** (The products of level four, summed over the words.) Let N = 4, and let g, h, t, b, Σ,
@@ -221,7 +224,7 @@ as there, and with the constants of [[lem:tl5-hfs-linfty]] and [[lem:tl5-hfs-pro
 C_(P,ϱ)^♮ := C_((∞,ϱ),μ)^(m_P), C_(P,0)^♮ := C_((∞,0),μ)^(m_P), 𝔣₀ := ϰ₀/c + (1/2)|T| ‖𝒞_(·0)‖ (1/z̲ + 1/c), 𝔣₁ := ϰ₀ +
 (1/2)|T| ‖𝒞_(·0)‖ and 𝔣₂ := 2Ω̂ (1 + 1/z̲ + 1/c)^(1/2). Put
 
-    𝔰₁^♮ := min(𝔰₀^♮/2, c_* κ_m/2, 𝔰_θ),
+    𝔰₀^♮ := min(𝔰_♭, 1/(2 sup_(D^κ) k₃^♮)),      𝔰₁^♮ := min(𝔰₀^♮/2, c_* κ_m/2, 𝔰_θ),
     𝔤_(𝒥,s) := (Σ_(j≤N) (Σ_(j′≤j) μ^((j−j′)/2) 𝔮_(jj′) 7^(j′/2) (𝔠^♮_(j′)(μ) + 1))²)^(1/2),
     𝔤_(ϱ,s) := (Σ_(j≤N) μ^j (Σ_(j′≤j) 𝔮_(jj′) 7^(j′/2) (𝔠^♮_(j′) + 1))²)^(1/2),
     𝔎 := max(2C_S 𝔨_A, C_P^♮ 𝔨_B),   𝔎_ϱ := C_(P,ϱ)^♮ 𝔨_B,   𝔎₀ := max(2C_(0,0) 𝔨_A, C_(P,0)^♮ 𝔨_B),
@@ -317,11 +320,12 @@ Then the conclusions of [[thm:tl5-hf4]] hold with A_s and 𝔰_(*,s) in place of
 
 **Remark {#rem:tl5-hfs-what}** (What the second sharpening changes.) A background factor that carries a letters enters
 𝔤_(𝒥,s) as μ^(a/2) Λ_a or μ^(a/2) Λ^R_a, and the forcing of level j′ in the equation of level j as μ^((j−j′)/2) 𝔮_(jj′),
-the weights of the coupling 𝔒 of [[eq:tl5-hf-bn]]; no product of one bound Λ_k with itself occurs beyond those in
-β₂^♮ and in b^♮_g, where the letters of the factors add up to at most k. The constant of the terms with ϱ, 𝔤_(ϱ,s), has
-the weights μ^j of 𝔤_N of [[def:tl5-hf-constants]]. The recovery constant of the highest level enters 𝔎 through 𝔨_A
+the weights of the coupling 𝔒 of [[eq:tl5-hf-bn]]; a product of bounds Λ_(a₁) ⋯ Λ_(a_r) occurs only with a₁ + ⋯ + a_r
+at most the number of letters of the term, against the powers Λ_k^r of [[def:tl5-hfg-graded]]. The constant of the term
+with ϱ in ε_(w,s), 𝔤_(ϱ,s), has the weights μ^j of 𝔤_N of [[def:tl5-hf-constants]]; in 𝔯_(w,s), 𝔯_(M,s) and ε_(M,s), ϱ
+carries μ^(−3/2) as in [[sec:tl5-hfg]]. The recovery constant of the highest level enters 𝔎 through 𝔨_A
 in the first entry and through C₁^♮ in the second, not as a product; it enters as k₁^μ, whose couplings 𝔄_CJ carry
-the weights μ^((|C|+1−|J|)/2) ≤ μ^(1/2), as do its terms with 𝔯₀ and the fields Γ other than K_rec. At level four,
+the weights μ^((|C|+1−|J|)/2) ≤ μ^(1/2), as do its terms with 𝔯₀ and with D̂Z and D̂²Z. At level four,
 S_(M,s) contains the coefficients 𝔠^M₁ = 480 + 49 𝔰_♭ 𝔠^(3♮)₄ and 𝔠^M₂ = 4 + 49 𝔰_♭ 𝔠^(3♮)₄ in place of 49 [𝔠^⋆₄]_t, and
 k₁^μ once in each of the two products 𝔛_(1,t) 𝔜_(1,t) and 𝔛_(2,t) 𝔜_(2,t). The smallness 𝔰_(*,s) < 𝔰₁^♮ keeps the
 constants of [[eq:tl5-hfg-cinf]] and the factor μ^(−N/2), for the reasons given in [[rem:tl5-hfg-powers]]. As for
@@ -340,7 +344,7 @@ breaks shown.
 
 *1. Where the section goes.* The section above, from its heading ("The constants sharpened a second time", label
 sec:tl5-hfs) through the last line of [[rem:tl5-hfs-what]], is inserted at the end of [[ch:ten-l5]], after the last line
-of [[rem:tl5-hfg-powers]] (line 5423, as changed by item 2), with one blank line before it. It is a sibling of
+of [[rem:tl5-hfg-powers]] (line 5424 once item 2 is applied), with one blank line before it. It is a sibling of
 sec:tl5-hf, sec:tl5-hf4 and sec:tl5-hfg (a "###" heading) and comes after them. It cites results of those three sections
 as they stand and the proofs of prop:tl5-hfg-bootstrap, prop:tl5-hf4-bootstrap, thm:tl5-hfg and thm:tl5-hf4g with the
 replacements it states. It defines the labels listed in the crosswalk rows, none defined elsewhere. No number already
@@ -430,8 +434,9 @@ A(k) the compositions a = (a₁, …, a_r) of k; ν^(a/2)-weighted numbers by re
    monomial of level n with b background letters gets μ^((b−3)/2), so 𝔤_(𝒥,s) uses 𝔠^♮(μ) with μ^(a/2)Λ_a; this
    suppresses exactly the single-factor Λ_N growth (the factor carrying all letters gets μ^(N/2)). (ii) The forcing of
    level j′ in the equation of level j keeps μ^((j−j′)/2) on 𝔮_(jj′). Computed illustration (not a background): with
-   Λ_a = Λ^R_a = 10^(a+1) and μ = 10⁻⁵, 𝔠^(2♮)_6(μ) = 1.44e5 against 𝔠^(2♮)_6 = 1.47e18. The ϱ-part keeps the merged
-   weights μ^j (𝔤_(ϱ,s), the target ϱ of the merged set, m4); η₀ enters 𝔯 and 𝔰_* as in P-GRD.
+   Λ_a = Λ^R_a = 10^(a+1) and μ = 10⁻⁵, 𝔠^(2♮)_6(μ) = 1.44e5 against 𝔠^(2♮)_6 = 1.47e18. The ϱ-part of ε_(w,s) keeps
+   the merged weights μ^j (𝔤_(ϱ,s), the target ϱ of the merged set, m4); in 𝔯_(w,s), 𝔯_(M,s) and ε_(M,s), ϱ and η₀
+   carry μ^(−3/2) as in P-GRD, and 𝔰_* is as in P-GRD.
 3. The top-level k₁ (proved in part). (i) It enters each quadratic term once: 𝔎 = max(2C_S 𝔨_A, C_P^♮ 𝔨_B), and at
    level 4 the products are 𝔛₁𝔜₁ (k₁ only in 𝔜₁) and 𝔛₂𝔜₂ (k₁ only in 𝔛₂). (ii) It enters as k₁^μ, whose couplings
    carry μ^((|C|+1−|J|)/2) ≤ μ^(1/2) and whose 𝔯₀ and 𝔷-terms carry μ^(1/2); only (6/5)(√3 + 8/3)K_rec is unweighted.
@@ -449,8 +454,9 @@ A(k) the compositions a = (a₁, …, a_r) of k; ν^(a/2)-weighted numbers by re
 5. The 𝔮 couplings and the word count. The couplings now carry μ^((j−j′)/2) (item 2 (ii); proved). The count 7^(j′/2)
    remains (not done): an ℓ² sum over the words removes the count of the letters on the factor in the energies only;
    the letters on the factor at a point and on background factors keep √7 each, and the choice of the energy factor
-   would have to enter the Leibniz count. At level 4 the products with no factor at a point have no count left: they
-   are summed over the words exactly (lem:tl5-hfs-quadratic (c)), which also removes [𝔠^⋆₄]_t from S_M (proved).
+   would have to enter the Leibniz count. At level 4 the terms of second order of the products with no factor at a
+   point have no count left: they are summed over the words exactly (lem:tl5-hfs-quadratic (c)), which replaces
+   49 [𝔠^⋆₄]_t in S_M by 480 and 4; the terms of higher order keep 49 𝔰_♭ [𝔠^(3♮)₄]_t (proved).
 6. O1 (proved): λ^♮_k has no factor 5^((r+1)/2); λ^♮_1 = Λ₁; at Λ ≡ 1, λ^♮_k = F_k.
 
 *Notes for the evaluation.* (i) 𝔠^♮_n(μ) at μ < 1 is computed by weighting each Λ_a, Λ^R_a by μ^(a/2) before forming
@@ -463,28 +469,28 @@ fallbacks.
 Rows for the crosswalk of [[ch:ten-l5]], in its four columns, separated by tabs, in chapter order; the line numbers
 are those of this file:
     sec:tl5-hfs	paper/reader/proofs/P-GRD2.md@PENDING:1	P-GRD2, section	new; at the end of ch:ten-l5, after rem:tl5-hfg-powers, beside sec:tl5-hf, sec:tl5-hf4, sec:tl5-hfg (author: keep tightening by hand); second sharpening
-    def:tl5-hfs-bounds	paper/reader/proofs/P-GRD2.md@PENDING:19	P-GRD2, Definition	bounds of their own order: lambda^nat, b_g^nat, beta^nat (no Lambda_k^r), c^nat_n and its mu-weighted form, weighted recovery constant k1^(j,mu), Lambda_2^mu, s_P^0
-    eq:tl5-hfs-cn	paper/reader/proofs/P-GRD2.md@PENDING:34	P-GRD2, display	new
-    lem:tl5-hfs-quadratic	paper/reader/proofs/P-GRD2.md@PENDING:53	P-GRD2, Lemma	exact expansions of the iterated Lie derivatives with per-factor bounds; background letters weighted; level-4 products with no point factor summed over words (coefficients 480, 4)
-    eq:tl5-hfs-sum	paper/reader/proofs/P-GRD2.md@PENDING:67	P-GRD2, display	new
-    eq:tl5-hfs-m	paper/reader/proofs/P-GRD2.md@PENDING:73	P-GRD2, display	new
-    lem:tl5-hfs-linfty	paper/reader/proofs/P-GRD2.md@PENDING:118	P-GRD2, Lemma	lem:tl5-hfg-linfty with the level weights kept in the recovery (k1^(j,mu)); pointwise split bound of D^2 Psi_C
-    eq:tl5-hfs-m2	paper/reader/proofs/P-GRD2.md@PENDING:126	P-GRD2, display	new
-    eq:tl5-hfs-linfty	paper/reader/proofs/P-GRD2.md@PENDING:131	P-GRD2, display	new
-    lem:tl5-hfs-products	paper/reader/proofs/P-GRD2.md@PENDING:165	P-GRD2, Lemma	background letters cost no mu (mu^((b-3)/2)); top-level k1 once per term (branches A and B)
-    eq:tl5-hfs-products	paper/reader/proofs/P-GRD2.md@PENDING:172	P-GRD2, display	new
-    lem:tl5-hfs-mixed	paper/reader/proofs/P-GRD2.md@PENDING:186	P-GRD2, Lemma	level-4 mixed products with separate constants X_1 Y_1, X_2 Y_2 (k1 once in each)
-    eq:tl5-hfs-mixed	paper/reader/proofs/P-GRD2.md@PENDING:201	P-GRD2, display	new
-    def:tl5-hfs-constants	paper/reader/proofs/P-GRD2.md@PENDING:218	P-GRD2, Definition	second sharpened constants at levels 6 and 4: g_(J,s) with mu^((j-j')/2), g_(rho,s) with mu^j, K, a_(o,s), a_(i,s), S_(F,s), r_(w,s), eps_(w,s), S_(M,s), r_(M,s), eps_(M,s), A_s, B_s, s_(*,s)
-    eq:tl5-hfs-constants	paper/reader/proofs/P-GRD2.md@PENDING:249	P-GRD2, display	new
-    prop:tl5-hfs-bootstrap	paper/reader/proofs/P-GRD2.md@PENDING:251	P-GRD2, Proposition	(H1) with the second sharpened constants, levels N >= 4
-    eq:tl5-hfs-smallness	paper/reader/proofs/P-GRD2.md@PENDING:255	P-GRD2, display	new
-    eq:tl5-hfs-h1	paper/reader/proofs/P-GRD2.md@PENDING:260	P-GRD2, display	new
-    thm:tl5-hfs	paper/reader/proofs/P-GRD2.md@PENDING:291	P-GRD2, Theorem	thm:tl5-hf (N >= 6) with the second sharpened constants; (a) eta0 < s1^nat
-    eq:tl5-hfs-closing	paper/reader/proofs/P-GRD2.md@PENDING:296	P-GRD2, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,s)) S_(F,s) < 1
-    thm:tl5-hf4s	paper/reader/proofs/P-GRD2.md@PENDING:305	P-GRD2, Theorem	thm:tl5-hf4 with the second sharpened constants; (a) eta0 < s1^nat
-    eq:tl5-hf4s-closing	paper/reader/proofs/P-GRD2.md@PENDING:310	P-GRD2, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,s) + 2 eps_(M,s)) (S_(F,s) + S_(M,s)) < 1
-    rem:tl5-hfs-what	paper/reader/proofs/P-GRD2.md@PENDING:318	P-GRD2, Remark	what the second sharpening changes: mu^(a/2) per background letter, mu^((j-j')/2) on q, k1 once per term, 480/4 in place of 49 c_4
+    def:tl5-hfs-bounds	paper/reader/proofs/P-GRD2.md@PENDING:21	P-GRD2, Definition	bounds of their own order: lambda^nat, b_g^nat, beta^nat (no Lambda_k^r), c^nat_n and its mu-weighted form, weighted recovery constant k1^(j,mu), Lambda_2^mu, s_P^0
+    eq:tl5-hfs-cn	paper/reader/proofs/P-GRD2.md@PENDING:36	P-GRD2, display	new
+    lem:tl5-hfs-quadratic	paper/reader/proofs/P-GRD2.md@PENDING:55	P-GRD2, Lemma	exact expansions of the iterated Lie derivatives with per-factor bounds; background letters weighted; level-4 products with no point factor summed over words (coefficients 480, 4)
+    eq:tl5-hfs-sum	paper/reader/proofs/P-GRD2.md@PENDING:69	P-GRD2, display	new
+    eq:tl5-hfs-m	paper/reader/proofs/P-GRD2.md@PENDING:75	P-GRD2, display	new
+    lem:tl5-hfs-linfty	paper/reader/proofs/P-GRD2.md@PENDING:120	P-GRD2, Lemma	lem:tl5-hfg-linfty with the level weights kept in the recovery (k1^(j,mu)); pointwise split bound of D^2 Psi_C
+    eq:tl5-hfs-m2	paper/reader/proofs/P-GRD2.md@PENDING:128	P-GRD2, display	new
+    eq:tl5-hfs-linfty	paper/reader/proofs/P-GRD2.md@PENDING:133	P-GRD2, display	new
+    lem:tl5-hfs-products	paper/reader/proofs/P-GRD2.md@PENDING:167	P-GRD2, Lemma	background letters cost no mu (mu^((b-3)/2)); top-level k1 once per term (branches A and B)
+    eq:tl5-hfs-products	paper/reader/proofs/P-GRD2.md@PENDING:174	P-GRD2, display	new
+    lem:tl5-hfs-mixed	paper/reader/proofs/P-GRD2.md@PENDING:189	P-GRD2, Lemma	level-4 mixed products with separate constants X_1 Y_1, X_2 Y_2 (k1 once in each)
+    eq:tl5-hfs-mixed	paper/reader/proofs/P-GRD2.md@PENDING:204	P-GRD2, display	new
+    def:tl5-hfs-constants	paper/reader/proofs/P-GRD2.md@PENDING:221	P-GRD2, Definition	second sharpened constants at levels 6 and 4: g_(J,s) with mu^((j-j')/2), g_(rho,s) with mu^j, K, a_(o,s), a_(i,s), S_(F,s), r_(w,s), eps_(w,s), S_(M,s), r_(M,s), eps_(M,s), A_s, B_s, s_(*,s)
+    eq:tl5-hfs-constants	paper/reader/proofs/P-GRD2.md@PENDING:252	P-GRD2, display	new
+    prop:tl5-hfs-bootstrap	paper/reader/proofs/P-GRD2.md@PENDING:254	P-GRD2, Proposition	(H1) with the second sharpened constants, levels N >= 4
+    eq:tl5-hfs-smallness	paper/reader/proofs/P-GRD2.md@PENDING:258	P-GRD2, display	new
+    eq:tl5-hfs-h1	paper/reader/proofs/P-GRD2.md@PENDING:263	P-GRD2, display	new
+    thm:tl5-hfs	paper/reader/proofs/P-GRD2.md@PENDING:294	P-GRD2, Theorem	thm:tl5-hf (N >= 6) with the second sharpened constants; (a) eta0 < s1^nat
+    eq:tl5-hfs-closing	paper/reader/proofs/P-GRD2.md@PENDING:299	P-GRD2, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,s)) S_(F,s) < 1
+    thm:tl5-hf4s	paper/reader/proofs/P-GRD2.md@PENDING:308	P-GRD2, Theorem	thm:tl5-hf4 with the second sharpened constants; (a) eta0 < s1^nat
+    eq:tl5-hf4s-closing	paper/reader/proofs/P-GRD2.md@PENDING:313	P-GRD2, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,s) + 2 eps_(M,s)) (S_(F,s) + S_(M,s)) < 1
+    rem:tl5-hfs-what	paper/reader/proofs/P-GRD2.md@PENDING:321	P-GRD2, Remark	what the second sharpening changes: mu^(a/2) per background letter, mu^((j-j')/2) on q, k1 once per term, 480/4 in place of 49 c_4
 
 Note to change in the existing row of the crosswalk of [[ch:ten-l5]]: rem:tl5-hfg-powers, add "; points to sec:tl5-hfs
 (P-GRD2 item 2)".
