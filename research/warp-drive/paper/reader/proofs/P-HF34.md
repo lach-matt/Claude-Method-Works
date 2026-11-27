@@ -1,7 +1,7 @@
 ### The a priori estimate at level four {#sec:tl5-hf4}
 
 [[thm:tl5-hf]] is proved at a level N ≥ 6: the energies of h = g − ĝ are commuted with the seven fields of Γ up to
-order N. This section proves the same statement at level four, with N := 4 throughout. The results of [[sec:tl5-hf]]
+order N. This section proves its counterpart at level four, with N := 4 throughout. The results of [[sec:tl5-hf]]
 up to [[lem:tl5-hf-reduced]], and [[lem:tl5-hf-quasilinear]], [[lem:tl5-hf-conversions]] and [[def:tl5-hf-norm]], do
 not depend on the level, and are used here at N = 4 as they stand. [[def:tl5-hf-levels]], [[lem:tl5-hf-quadratic]] and
 [[lem:tl5-hf-linfty]] are replaced by [[def:tl5-hf4-levels]], [[lem:tl5-hf4-quadratic]] and [[lem:tl5-hf4-linfty]], and
@@ -69,8 +69,9 @@ so they are H or h, bounded by 𝔰 ≤ 1. The product of the two high factors i
 the monomial is bounded by its background norm times 𝔭_M, and summing gives the bound for 𝔑^M_I. ∎
 
 **Lemma {#lem:tl5-hf4-face}** (A Hölder inequality in mixed norms on a face.) Let t ∈ [−10, u*] and b ∈ [1/2, v*] be
-such that Σ := Σ₁(t, b) is not empty, and let γ_ω(v) := (t − κ′(v − 1/2), v, ω), 1/2 ≤ v ≤ v_Σ, ω ∈ S³, be the curves
-of the proof of [[lem:tl5-hf-sobolev]] that fill Σ, starting on the leaf S_t := {t} × {1/2} × S³ of N₀. Let φ be as in
+such that Σ := Σ₁(t, b) is not empty, and let γ_ω(v) := (t − κ′(v − 1/2), v, ω), 1/2 ≤ v ≤ v_Σ, ω ∈ S³, with v_Σ the
+largest value of v on Σ, be the curves of the proof of [[lem:tl5-hf-sobolev]] that fill Σ, with velocity
+∂_γ := ∂_v − κ′∂_u, starting on the leaf S_t := {t} × {1/2} × S³ of N₀. Let φ be as in
 [[prop:tl5-hf-linear]]. For a tensor field A on Q(t, b), with A_e as in [[def:tl5-hf-component]], put
 
     ‖A‖_Σ² := ∫_Σ e^(−φ) |A|² dμ dτ₂/(1 − κκ′),
@@ -83,7 +84,7 @@ supremum over Σ₁(t, v*), and put, with 𝔭_r := 1 + 12r² + 144r⁴ as in [[
     𝔵_r(t) := [𝔳^(2r) R⁻³]_t,      𝔪(t) := [max(1, 𝔴)⁶ R^(3/2)]_t,
     𝔱_r(t) := [𝔳^(2r) R⁻³ max(1 + 2r² |D̂∂_γ|², 2|∂_γ|²)]_t.
 
-Then for every smooth covariant tensor field A of rank r ≤ 4 on Q(t, b):
+Then for every smooth covariant tensor field A of rank r with 1 ≤ r ≤ 4 on Q(t, b):
 
 (a) ⟦A⟧_(∞,2)² ≤ [𝔳^(2r)]_t ∫_(S_t) |A|² dω + 𝔱_r(t) (‖A‖_Σ² + ‖D̂A‖_Σ²);
 
@@ -142,17 +143,17 @@ bounding |ℒ^J(2R̂ic)|, |J| ≤ 3, on Q(τ₁(p), τ₂(p)). ∎
 **Lemma {#lem:tl5-hf4-mixed}** (The products with no factor at a point.) Let g be a solution of the reduced problem on
 D^κ_s, h := g − ĝ, t ∈ [−10, u*] and b ∈ [1/2, s] with Σ := Σ₁(t, b) not empty, and suppose that 𝔰 ≤ 𝔰₀ on Q(t, b), with
 𝔰₀ as in [[lem:tl5-hf4-linfty]]. Let ϱ ≥ max_(|J|≤3) |ℒ^J(2R̂ic)| on Q(t, b), and η₀ ≥ max(𝔰, |Ψ_C| (|C| ≤ 4), |D̂Ψ_C|
-(|C| ≤ 3)) on N₀ ∩ Q(t, b). With the notation of [[lem:tl5-hf4-face]], 𝒥₁, k₁ and k₂ as in [[lem:tl5-hf-linfty]] and 𝔨₂
+(|C| ≤ 3)) on N₀ ∩ Q(t, b). With the notation of [[lem:tl5-hf4-face]], 𝒥₁, k₁ and k₂ as in [[lem:tl5-hf4-linfty]] and 𝔨₂
 := (1/z̲ + max(1/c, 1/κ′))/(2Ω̂²), put 𝔍 := ‖𝒥₁‖_Σ and
 
     λ_t := 2([k₁]_t + 1),      ς_t := 2[k₂]_t (∫_(Σ₁(t,v*)) dμ dτ₂/(1 − κκ′))^(1/2),
-    𝔵_t := max((𝔭₃ 𝔵₃(t) (1 + 64680 [Λ]_t²))^(1/2), (𝔭₄ 𝔵₄(t)/2)^(1/2) (√602 λ_t + 789 [Λ]_t²),
+    𝔛_t := max((𝔭₃ 𝔵₃(t) (1 + 64680 [Λ]_t²))^(1/2), (𝔭₄ 𝔵₄(t)/2)^(1/2) (√602 λ_t + 789 [Λ]_t²),
                (𝔭₄ 𝔵₄(t)/2)^(1/2) √602 ς_t),
-    𝔶_t := max(𝔱₃(t)^(1/2) (1 + 7λ_t), 7 𝔱₃(t)^(1/2) ς_t, 𝔱₂(t)^(1/2), π (98 [𝔳⁶]_t)^(1/2), π (686 [𝔳⁴]_t)^(1/2)).
+    𝔜_t := max(𝔱₃(t)^(1/2) (1 + 7λ_t), 7 𝔱₃(t)^(1/2) ς_t, 𝔱₂(t)^(1/2), π (98 [𝔳⁶]_t)^(1/2), π (686 [𝔳⁴]_t)^(1/2)).
 
 Then
 
-    ‖𝔭_M‖_Σ ≤ 2 e^(φ(t,b)/2) 𝔪(t) 𝔵_t 𝔶_t (𝔍 + ϱ) (𝔍 + ϱ + η₀),
+    ‖𝔭_M‖_Σ ≤ 2 e^(φ(t,b)/2) 𝔪(t) 𝔛_t 𝔜_t (𝔍 + ϱ) (𝔍 + ϱ + η₀),
     𝔍² ≤ [𝔨₂]_t Σ_(|I|≤4) ∫_Σ e^(−φ) ε₁[Ψ_I] dμ dτ₂.                                                  {#eq:tl5-hf4-mixed}
 
 *Proof.* On Σ, |Ψ_C|² + |D̂Ψ_C|² ≤ 𝔨₂ (e_o[Ψ_C] + κ′ e_i[Ψ_C]) = 𝔨₂ (1 − κκ′) ε₁[Ψ_C] by [[eq:tl5-hf-coercive]] and
@@ -186,7 +187,7 @@ monomials, m₁ = 7, m₂ = 35, each with at most two background factors of norm
 
 there being 343 words of length 3.
 
-With ‖M₂‖_Σ ≤ λ_t 𝔍 + ς_t ϱ these give X_i ≤ 𝔵_t (𝔍 + ϱ) and Y_i ≤ 𝔶_t (𝔍 + ϱ + η₀) for i = 1, 2, and (X₁² Y₁² +
+With ‖M₂‖_Σ ≤ λ_t 𝔍 + ς_t ϱ these give X_i ≤ 𝔛_t (𝔍 + ϱ) and Y_i ≤ 𝔜_t (𝔍 + ϱ + η₀) for i = 1, 2, and (X₁² Y₁² +
 X₂² Y₂²)^(1/2) ≤ X₁ Y₁ + X₂ Y₂ gives the first inequality. ∎
 
 #### The bootstrap at level four {#sec:tl5-hf4-bootstrap}
@@ -195,11 +196,11 @@ X₂² Y₂²)^(1/2) ≤ X₁ Y₁ + X₂ Y₂ gives the first inequality. ∎
 a_o, a_i for (𝔅₄, E_o⁴, E_i⁴) and φ as in [[prop:tl5-hf-linear]], and let Y_σ be the norm of [[def:tl5-hf-norm]], whose
 definition and properties do not use N ≥ 5, with N = 4. Let G^♯ be data in the wave gauge, and let δ_w, ε_w, 𝔤₄, ϰ₀,
 𝔞_o, 𝔞_i, S_F, 𝔯_w, 𝔰₀, 𝔰_θ and 𝔰₁ be given by the formulas of [[def:tl5-hf-constants]] with N = 4, the quantities of
-[[def:tl5-hf4-levels]] and the constants of [[lem:tl5-hf4-linfty]], ϱ and η₀ being those of [[lem:tl5-hf-linfty]] for a
+[[def:tl5-hf4-levels]] and the constants of [[lem:tl5-hf4-linfty]], ϱ and η₀ being those of [[lem:tl5-hf4-linfty]] for a
 point p with τ₁(p) = u*, τ₂(p) = v*. Put, with the notation of [[lem:tl5-hf4-face]] and [[lem:tl5-hf4-mixed]] and with
 [𝔠₄]_t the number 𝔠₄ formed with [Λ]_t in place of Λ,
 
-    m_t := 98 e^(φ(t,v*)/2) [2Ω̂² (1 + c/κ′)^(1/2)]_t [𝔠₄]_t 𝔪(t) 𝔵_t 𝔶_t,
+    m_t := 98 e^(φ(t,v*)/2) [2Ω̂² (1 + c/κ′)^(1/2)]_t [𝔠₄]_t 𝔪(t) 𝔛_t 𝔜_t,
     S_M := μ^(−2) ∫_(−10)^(u*) m_t [𝔨₂]_t dt,      𝔯_M := ∫_(−10)^(u*) m_t [𝔨₂]_t^(1/2) (2ϱ + η₀) dt,
     ε_M := μ² ϱ (ϱ + η₀) ∫_(−10)^(u*) m_t dt,
     S_(F,4) := S_F + S_M,      𝔯_(w,4) := 𝔯_w + 𝔯_M,      ε_(w,4) := ε_w + ε_M,
@@ -223,9 +224,10 @@ D^κ_s; in particular |h|_k̂ < κ_m/2 there, and
 
     Y_s(g) ≤ A_(w,4) + B_(w,4) Y_s(g)².                                                                {#eq:tl5-hf4-h1}
 
-*Proof.* Step 1 of the proof of [[prop:tl5-hf-bootstrap]] holds as written with N = 4, A_(w,4) in place of A_w and
-[[lem:tl5-hf4-linfty]] in place of [[lem:tl5-hf-linfty]]: it gives 𝔰 ≤ 𝔰_* < 𝔰₁ ≤ 𝔰₀/2 on D^κ_s, |h|_k̂ < κ_m/2 and
-θ_H ≤ ϑ.
+*Proof.* The first paragraph and Step 1 of the proof of [[prop:tl5-hf-bootstrap]] hold as written with N = 4, A_(w,4)
+in place of A_w and [[lem:tl5-hf4-linfty]] in place of [[lem:tl5-hf-linfty]]: g is vacuum and has on N ∩ D^κ_s the
+derivatives of G^♯, so that the quantities on N₀ bounded by η₀ are those of g; and 𝔰 ≤ 𝔰_* < 𝔰₁ ≤ 𝔰₀/2 on D^κ_s, so
+that |h|_k̂ < κ_m/2 and θ_H ≤ ϑ.
 
 Step 2 of that proof holds with N = 4, [[lem:tl5-hf4-quadratic]] and [[lem:tl5-hf4-linfty]] in place of
 [[lem:tl5-hf-quadratic]] and [[lem:tl5-hf-linfty]], except at one place: |ℒ^J N(h)| ≤ (𝔠_(|J|) + 1) 𝔰 𝔧 for |J| ≤ 3, as
@@ -265,7 +267,7 @@ its components and their partial derivatives of order at most k, and the compone
 the coordinates (u, v, y) of a fixed finite atlas of S³.
 
 *Proof.* By [[prop:tl5-hf4-bootstrap]], 𝔰 ≤ 𝔰_* on D^κ_s; in particular |H| ≤ 1/8, which bounds g⁻¹ = ĝ⁻¹ + H, and
-θ_H ≤ ϑ. A constant is a number depending only on the data listed, Λ now bounding the quantities of
+θ_H ≤ ϑ. A constant is a number depending only on the data listed, Λ here bounding the quantities of
 [[def:tl5-hf4-levels]] for words of every length that occurs. A face is a nonempty Σ := Σ₁(t, b) with t ≤ u* and b ≤
 s; for a weight φ as in [[prop:tl5-hf-linear]] we use the norms of [[lem:tl5-hf4-face]], and write ‖·‖_(Σ,0) and
 ⟦·⟧⁰ for those with φ replaced by 0, to which that lemma applies with zero rates. For m ≥ 4 let P(m) be the statement:
@@ -378,16 +380,18 @@ the solution as there. The bound for ε is [[eq:tl5-hf-eps]], as |h|, |D̂h| and
 explicit in the jets of ĝ of order at most N + 3 = 7, against 9 at N = 6; they involve the Σ_(j≤4) 7^j = 2801 words of
 length at most 4, against 137,257 at N = 6, the derivatives of R̂ic along Γ of order at most 4, against 6, and the
 factor μ^(−N) = μ^(−4) of S_F, against μ^(−6), while S_M carries μ^(−2). On N₀ they involve the derivatives of
-G^♯ − ĝ of order at most 4, through η₀ and the fluxes in δ_w, which vanish when G^♯ − ĝ vanishes together with its
-partial derivatives of order at most 4 at the points of N₀. At the first stage of the problem at 10 l5, by
+G^♯ − ĝ of order at most 4, through η₀ and the fluxes in δ_w, and of order 5 in the terms 𝔟 of δ_w, which carry the
+factor H; all of these vanish when G^♯ − ĝ vanishes together with its partial derivatives of order at most 4 at the
+points of N₀. At the first stage of the problem at 10 l5, by
 [[lem:tl5-xt-order]] (c) with m = 5, this holds when (X) holds and the components of ĝ − g′ and their partial
 derivatives of order at most 5 vanish at the points of N₀⁺, g′ being the metric of [[thm:tl5-wg-data]] as in
 [[sec:tl5-xt]]. By [[lem:tl5-xt-seed-jets]], the partial derivatives of g′ of order at most 3 at those points are the
 seed's, and the fourth derivatives in v of its leaf metric differ from the seed's at every point with −1 < x < 1 off
 at most one torus {x = c}. So this condition asks the background to carry the derivatives in v of g′ of orders 4 and
-5 on N₀⁺, and a background with the seed's jets there does not satisfy it. Level three is excluded by the count of
-[[rem:tl5-hf-level]]: its face energies give no bound of |D̂²h| at a point, which the passage to the double-null gauge
-needs.
+5 on N₀⁺, and a background with the seed's jets there does not satisfy it. At level three the face energies give no
+bound of |D̂²h| at a point ([[rem:tl5-hf-level]]), which the passage to the double-null gauge needs. As for
+[[thm:tl5-hf]] ([[rem:tl5-beyond]]), the hypotheses of [[thm:tl5-hf4]] are established in this paper for no background
+at 10 l5.
 
 ### Placement
 
@@ -415,9 +419,9 @@ H² of a four-dimensional manifold does not embed in L^∞; so they give no boun
 New:
 
 [[lem:tl5-hf-conversions]] (b). The face energies of level 3 control D̂²h only in H² of the four-dimensional faces, and
-H² of a four-dimensional manifold does not embed in L^∞; so they give no bound of |D̂²h| at a point. [[sec:tl5-hf4]]
-proves [[thm:tl5-hf]] at level four, where two kinds of products have no factor bounded at a point; it bounds them on
-the faces by a Hölder inequality in mixed norms ([[thm:tl5-hf4]]).
+H² of a four-dimensional manifold does not embed in L^∞; so they give no bound of |D̂²h| at a point. With another
+bound of the products, [[sec:tl5-hf4]] proves the counterpart [[thm:tl5-hf4]] of [[thm:tl5-hf]] at level four, where two
+kinds of products have no factor bounded at a point; it bounds them on the faces by a Hölder inequality in mixed norms.
 
 *3. Nothing else changes.* No other text of the chapters changes. In particular the opening paragraph of sec:tl5-hf,
 rem:tl5-beyond and lem:tl5-continuation need no change: [[thm:tl5-hf4]] gives (H1), (H2) and (H4) of
