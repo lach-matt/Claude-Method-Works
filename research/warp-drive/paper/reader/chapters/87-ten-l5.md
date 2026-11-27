@@ -6294,4 +6294,51 @@ Y_s ε^w, in place of Y_s ε^v. ∎
 any bounds of 𝒮[s_N[2R̂ic]] and of ϱ with which they hold are admissible, and the theorem does not fix their ratio. The
 coefficient 2𝔰₁^v 𝒮[𝔤_ϱ^v k₂] of ϱ there is 8𝔰₁^v times the one for ε^v, where 𝔰₁^v ≤ 𝔰_♭/2 ≤ 1/16. As for
 [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfw]] are established in this paper for no background
-at 10 l5.
+at 10 l5. [[sec:tl5-hfx]] counts the first-order constant over the words ([[thm:tl5-hfx]]).
+
+### The first-order constant, counted over the words {#sec:tl5-hfx}
+
+In the first-order step of the proof of [[lem:tl5-hf-linfty]], and in its weighted forms, each of the 43 words J of
+rotations with |J| ≤ 2 is bounded by the whole of 𝒥₁, which gives the factor 258 = 6 · 43 of C₁. This section counts
+the terms that are first derivatives over the words, as the words JB are distinct, and keeps the count 43 only for the
+second derivatives, which are bounded through their maximum; it applies to the constant C₁^♮ of [[lem:tl5-hfs-linfty]]
+with either choice of Sobolev constants, at every level N ≥ 4. The notation is that of [[sec:tl5-hfw]].
+
+**Lemma {#lem:tl5-hfx-c1}** (The first-order constant.) Let ρ′₁ := 2μΛ₁, ρ′₂ := 4μΛ₁ + 2μ^(3/2)Λ₂ and ϖ′ := 6ρ′₁² +
+36ρ′₂², and let C₁^x be the smaller of C₁^♮ and the number formed as C₁^♮ with (1 + ϖ′^(1/2))²/43 in place of
+(1 + 6Λ₂^μ)² and with (2(43)^(1/2)(k₁^μ + 1) + (2ϖ′)^(1/2))²/43 in place of 72(Λ₂^μ)² + 8(k₁^μ + 1)²:
+
+    C₁^x² = min(C₁^♮², 6 C² 𝔴(p)⁶ sup_(Σ₁(a,b)) 𝔳⁶ R⁻³ 𝔨₂ ((1 + 18|D̂∂_γ|²)(1 + ϖ′^(1/2))²
+            + 4|∂_γ|² (2(43)^(1/2) (k₁^μ + 1) + (2ϖ′)^(1/2))²)),                                        {#eq:tl5-hfx-c1}
+
+6C² 𝔴⁶ 𝔳⁶ standing for 6C_(S³)² 𝔭₃ 𝔴⁶ 𝔳⁶ or 6C_(E,3)² 𝔴₀⁶ 𝔳₀⁶. Then [[lem:tl5-hfs-linfty]], [[lem:tl5-hft-small]] and
+[[lem:tl5-hfq-theta]] hold with C₁^x in place of C₁^♮.
+
+*Proof.* In the first-order step for A := D̂Ψ_B, |B| ≤ N − 3, write ℒ^J A = D̂Ψ_(JB) + R′_J and D̂ℒ^J A = D̂²Ψ_(JB) +
+D̂R′_J. The words JB are distinct for distinct J, so Σ_J μ^(|B|+3) |D̂Ψ_(JB)|² ≤ 𝒥_g², as μ^(|B|+3) ≤ μ^(|JB|). By
+[[lem:tl5-hfs-quadratic]] (a) with Ψ_B in place of h, R′_J has 2 monomials whose coefficient carries one letter if |J| =
+1, and 4 with one letter and 2 with two letters if |J| = 2, each contracted with a Ψ_C, |C| = |JB| − a; with μ^(|B|+3)
+≤ μ^(1+a) μ^(|C|), μ^((|B|+3)/2) |R′_J| ≤ ρ′_(|J|) 𝒥_g and μ^((|B|+3)/2) |D̂R′_J| ≤ √2 ρ′_(|J|) 𝒥_g, so that, by
+Minkowski's inequality over the words, (Σ_J μ^(|B|+3) |ℒ^J A|²)^(1/2) ≤ (1 + ϖ′^(1/2)) 𝒥_g and (Σ_J μ^(|B|+3) |D̂ℒ^J
+A|²)^(1/2) ≤ 43^(1/2) max_J μ^((|B|+3)/2) |D̂²Ψ_(JB)| + (2ϖ′)^(1/2) 𝒥_g. By [[eq:tl5-hfs-m2]] (or [[eq:tl5-hfq-m2]], or
+the bound of M_g in [[lem:tl5-hft-small]] (b)), μ^((|B|+3)/2) |D̂²Ψ_(JB)| ≤ 2(k₁^μ + 1) 𝒥_g + (its part with ϱ). In the
+Sobolev inequality [[eq:tl5-hf-cs-r]] (or that of [[lem:tl5-hft-face]]) with r = 3, insert these bounds in place of
+the bounds of the 43 words by 𝒥 used in the proof of [[lem:tl5-hf-linfty]], separate the parts with 𝒥_g from those with
+ϱ by (x + y)² ≤ 2x² + 2y² as there, and use ∫ 𝒥_g² dμ dτ₂/(1 − κκ′) ≤ sup 𝔨₂ ℰ_g; this gives the part with ℰ_g of the
+bound with the second entry of [[eq:tl5-hfx-c1]], and parts with ϱ and η₀ at most those of that proof, the part with ϱ
+being 2^(−1/2) times it. The bound with C₁^♮ holds as well, with the same parts with ϱ and η₀; so it holds with C₁^x. ∎
+
+**Theorem {#thm:tl5-hfx}** (Existence with the first-order constant counted over the words.) The conclusions of
+[[thm:tl5-hfw]] hold under its hypotheses with every constant formed with C₁^x in place of C₁^♮, in particular in C_P^v
+(directly, and at level four also through 𝔨_rec), hence in 𝔎 and S_F^v, and in C_(∞,μ)^(N−4) of 𝔰_*^w.
+
+*Proof.* The proofs of [[thm:tl5-hfw]] and of the results it rests on use C₁^♮ only through the bounds of
+[[lem:tl5-hfs-linfty]], [[lem:tl5-hft-small]] and [[lem:tl5-hfq-theta]], which hold with C₁^x by [[lem:tl5-hfx-c1]]. ∎
+
+**Remark {#rem:tl5-hfx-what}** (What changes.) In the second entry of [[eq:tl5-hfx-c1]] the count 43 remains only with
+the recovery constant k₁^μ, whose coefficient is 4 · 43 · 4 against 4 · 43 · 8 in C₁^♮; the terms without k₁^μ carry
+(1 + ϖ′^(1/2))² and 4|∂_γ|² · 2ϖ′ against 43(1 + 6Λ₂^μ)² and 4|∂_γ|² · 43 · 72(Λ₂^μ)², and the cross term
+4|∂_γ|² · 4 · 43^(1/2)(k₁^μ + 1)(2ϖ′)^(1/2) has no counterpart. As ϖ′ ≤ 1320(Λ₂^μ)², the second entry is the smaller if
+8Λ₂^μ ≤ k₁^μ + 1 on Σ₁(a, b); otherwise the cross term can make it the larger, and the minimum keeps C₁^x ≤ C₁^♮. As
+for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfx]] are established in this paper for no
+background at 10 l5.
