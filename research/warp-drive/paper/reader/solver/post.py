@@ -34,13 +34,14 @@ def main():
     open(os.path.join(wd, 'pts.txt'), 'w').write('\n'.join(pts) + '\n')
     res = {}
     skipraw = os.environ.get('SKIPRAW')
-    # the unquantized approximant (coefficients below 1e-36 of the block maximum dropped)
+    rawdrop = float(os.environ.get('RAWDROP', '1e-36'))     # qd runs: RAWDROP=1e-60
+    # the unquantized approximant (coefficients below RAWDROP (1e-36) of the block maximum dropped)
     blocks = {}; e = 0
     for i in range(len(L['xi']) if not skipraw else 0):
         for j in range(len(L['v'])):
             for f in range(5):
                 parts = C[e][f].copy()
-                mx = np.abs(parts[..., 0]).max(); parts[np.abs(parts[..., 0]) < 1e-36 * mx] = 0
+                mx = np.abs(parts[..., 0]).max(); parts[np.abs(parts[..., 0]) < rawdrop * mx] = 0
                 nz = np.argwhere(parts[..., 0] != 0); hi = nz.max(0) + 1
                 blocks[(i, j, f)] = (-1, parts[:hi[0], :hi[1], :hi[2]])
             e += 1
