@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""rule_ref.py -- an exact reference implementation of the rule of P-APPC2 (proofs/P-APPC2.md at 446f53e8, md5 fca513ba…, sec:appc-rule), for
+"""rule_ref.py -- an exact reference implementation of the rule of P-APPC2 (proofs/P-APPC2.md as confirmed at ebdddecc, md5 47a32377…, sec:appc-rule), for
 small runs.
 
 Written from the text as directly as possible.  A number x of 𝔽 is the Python int X = 2^320 x; a number of 𝔻 (the

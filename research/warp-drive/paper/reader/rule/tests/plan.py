@@ -1,21 +1,23 @@
 #!/usr/bin/env python3
 """Cost model and Zeno-segmented production plan for the rule of P-APPC2 (report I-RULE, the plan).
-usage: plan.py CP80 CP160 CI80 CI160 SETUP [BYTES_PER_INT]
-  CPm: cpu microseconds per node per evaluation of P (320-bit) at M = 80, 160; CIm: per node per inner sweep (binary64);
-  SETUP: cpu microseconds per node of a cell's setup (seed, X(J_s), B) and its finishing (edges, element values).
-  The model is linear in M + 1 for each part, as measured."""
+usage: plan.py CP80 CP160 CI80 CI160 SETUP CP_PROD CI_PROD [BYTES_PER_INT]
+  CPm: cpu microseconds per node per evaluation of P (320-bit) at M = 80, 160 with (p_xi, p_v) = (16, 24); CIm: per node
+  per inner sweep (binary64); SETUP: per node of a cell's setup (seeds, X(J_s), B); CP_PROD, CI_PROD: the same at
+  (26, 39, 184), which fixes the dependence on p_xi + p_v.  Each part is linear in M and in p_xi + p_v, as measured."""
 import sys, math
-cp80, cp160, ci80, ci160, setup = (float(a) for a in sys.argv[1:6]); bpi = float(sys.argv[6]) if len(sys.argv) > 6 else 40.5
-lin = lambda a80, a160: (lambda M: a80 + (a160 - a80) * (M - 80) / 80.0)
-cP, cI = lin(cp80, cp160), lin(ci80, ci160)
+cp80, cp160, ci80, ci160, setup, cpp, cip = (float(a) for a in sys.argv[1:8]); bpi = float(sys.argv[8]) if len(sys.argv) > 8 else 40.5
+sP, sI = (cp160 - cp80) / 80.0, (ci160 - ci80) / 80.0
+tP, tI = (cpp - (cp80 + sP * 104)) / 25.0, (cip - (ci80 + sI * 104)) / 25.0
+cP = lambda M, px=16, pv=24: cp80 + sP * (M - 80) + tP * (px + pv - 40)
+cI = lambda M, px=16, pv=24: ci80 + sI * (M - 80) + tI * (px + pv - 40)
 def cell_core_s(px, pv, M, No, Ni):
     n = (px + 1) * (pv + 1) * (M + 1)
-    return n * (No * cP(M) + No * Ni * cI(M) + setup) * 1e-6
+    return n * (No * cP(M, px, pv) + No * Ni * cI(M, px, pv) + setup) * 1e-6
 def xi(u): y = (u + 1) / 0.002; return math.copysign(math.log(abs(y) + math.sqrt(y * y + 1)), y)
 def u_of(x): return 0.002 * math.sinh(x) - 1
 XI0 = xi(-10)
-for M in (80, 160, 176, 184, 192, 200, 320, 328):
-    print('M %3d: c_P %.0f us, c_I %.1f us per node' % (M, cP(M), cI(M)))
+for M, px, pv in ((80, 16, 24), (160, 16, 24), (184, 26, 39), (176, 24, 36), (184, 28, 42), (200, 30, 45), (328, 30, 45), (192, 28, 42), (320, 28, 42)):
+    print('M %3d, (%d, %d): c_P %.0f us, c_I %.2f us per node' % (M, px, pv, cP(M, px, pv), cI(M, px, pv)))
 
 def plan(title, cases, cores, eff, speed=1.0):
     print('\n' + title)
@@ -39,10 +41,13 @@ prov = [('(1, D_A)', -3421 / 500, 32, 30, 26, 39, zeno32(184), (9, 25), (104, 13
         ('(2, D*)', -4473 / 1000, 64, 30, 28, 42, zeno64(184), (10, 25), (152, 184), 4, 61),
         ('(1, D*)', -4517 / 1000, 64, 30, 30, 45, zeno64(200, 328), (10, 25), (136, 200), 6, 64)]
 plan('P-APPC2 provisional parameters, this machine (3 free cores):', prov, 3, 0.9)
-# resized to the G0i targets (S-RULE §1's conversion, accuracy three decades below the quantum, §4's rates)
-g0i = [('(1, D_A)', -3421 / 500, 32, 30, 24, 36, zeno32(176), (8, 25), (104, 136), 4, 54),
+# resized to the G0k targets 10^-28.5, 10^-32.1, 10^-35.3 (S-RULE §1's conversion p = ceil(T + 1 + 23.28) (+1 on D*),
+# accuracy three decades below the quantum, §4's rates for M, §5.3's degrees with >= 3.5 decades of margin, N_o from the
+# measured outer-step gains of about 9.4 decades per step at M = 184)
+g0k = [('(1, D_A)', -3421 / 500, 32, 30, 24, 36, zeno32(176), (8, 25), (104, 136), 4, 53),
        ('(2, D*)', -4473 / 1000, 64, 30, 26, 39, zeno64(176), (8, 25), (152, 184), 4, 58),
-       ('(1, D*)', -4517 / 1000, 64, 30, 28, 42, zeno64(192, 320), (9, 25), (136, 200), 6, 62)]
-plan('Resized to the G0i targets, this machine (3 free cores):', g0i, 3, 0.9)
+       ('(1, D*)', -4517 / 1000, 64, 30, 28, 42, zeno64(184, 312), (9, 25), (136, 200), 6, 61)]
+plan('Resized to the G0k targets, this machine (3 free cores):', g0k, 3, 0.9)
+s2DA = [('(2, D_A)', -3421 / 500, 32, 30, 26, 39, zeno32(168), (9, 25), (104, 136), 4, 55)]
 for cores in (32, 64):
-    plan('P-APPC2 provisional parameters, %d cores at 1.5x this machine per core:' % cores, prov, cores, 0.9, 1.5)
+    plan('P-APPC2 provisional parameters, %d cores at 1.5x this machine per core:' % cores, prov + s2DA, cores, 0.9, 1.5)

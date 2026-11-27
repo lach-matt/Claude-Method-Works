@@ -121,7 +121,11 @@ inline DP operator+(const DP& a, const DP& b) { return DP{a.v + b.v, a.t + b.t};
 inline DP operator-(const DP& a, const DP& b) { return DP{a.v - b.v, a.t - b.t}; }
 inline DP operator-(const DP& a) { return DP{-a.v, -a.t}; }
 struct DConsts { std::vector<DP> K; };
-inline DConsts& dconsts() { static DConsts d; if (d.K.empty()) for (int i = 0; i < RHS_NK; i++) d.K.push_back(DP{rd_rat(RHS_KNUM[i], RHS_KDEN[i]), 0.0}); return d; }
+// a function-local static with an initializer is initialized once, thread-safely (C++11), before any thread uses it
+inline const DConsts& dconsts() {
+  static const DConsts d = [] { DConsts x; for (int i = 0; i < RHS_NK; i++) x.K.push_back(DP{rd_rat(RHS_KNUM[i], RHS_KDEN[i]), 0.0}); return x; }();
+  return d;
+}
 
 // the right-hand side at the seed (D = 0): J_s
 inline void cell_seed_rhs(Cell& c) {

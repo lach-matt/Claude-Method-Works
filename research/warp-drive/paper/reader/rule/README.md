@@ -1,7 +1,7 @@
 # rule/: the approximant's rule (P-APPC2), production implementation and exact reference
 
 An independent implementation of the rule that defines the approximant of each seed, as specified by the Appendix C
-text proofs/P-APPC2.md, the reviewed fixed copy at 446f53e8 (md5 fca513ba…; review notes/reviews/R-P-APPC2.md): fixed point with B = 320 fractional bits (every product and
+text proofs/P-APPC2.md, as confirmed at ebdddecc (md5 47a32377…; the rule text is that of the reviewed fixed copy 446f53e8, review notes/reviews/R-P-APPC2.md): fixed point with B = 320 fractional bits (every product and
 quotient floored, every dot product exact and floored once), the stated elementary functions, the seed by bisection
 and Newton, the cone data with 40 Raychaudhuri sweeps, cells with Goursat boundary terms, and **defect correction**:
 N_o outer steps, each a defect in 320-bit fixed point corrected by N_i sweeps of the linearised map in **binary64**
@@ -24,7 +24,7 @@ The right-hand side eq:appc-rhs is the solver's generated program solver/rhs_gen
 | `sha256.h` | SHA-256 (FIPS 180-4), lowercase hex |
 | `rule_ref.py` | the second implementation: Python integers for 𝔽 and Python floats (IEEE binary64) for 𝔻, as direct a transcription of the text as possible; small runs |
 | `tests/` | `t_fixp.*` (𝔽 against Python's integers), `rhs_vs_text.py`, `segtests.sh`, `cmp_cells.py`, `pilotin.cpp` (the pilot cell's inputs and the solver's quad-double cell), `plan.py` (cost model), `bench.cpp` |
-| `cfg/` | test configurations: tA2 (four cells), tB2 (a complete tiny case in three segments, M = 4, 6, 8), tB3 (M = 6, 6, 8: a boundary between equal M, resampled by m-9), tR2/tR3 (resume) |
+| `cfg/` | test configurations: tA2 (four cells), tB2 (a complete tiny case in three segments, M = 4, 6, 8), tB3 (M = 6, 6, 8: a boundary between equal M, resampled by m-9), tR2/tR3 (resume), tK (a pilot-size cell: the real-size determinism and resume test) |
 
 ## Build
 
@@ -85,6 +85,9 @@ fused multiply-add, no reordering, and x86-64 doubles are SSE2 (no extended prec
     BUILD/rule run cfg/tB2.cfg out=X && BUILD/rule assemble cfg/tB2.cfg out=X
     python3 rule_ref.py cfg/tB2.cfg Y && cmp X/case.txt Y.txt && diff X/digests.txt Y.digests
     tests/segtests.sh BUILD cfg         # segments one at a time; 2 threads and another batching; kill and resume
+    # real size (about 50 s of cpu): cell (0,0) of cfg/tK.cfg has the same sha256 with threads=1, with threads=2, and
+    # when the run is killed after an outer step (ckpt_minutes=0) and resumed with threads=2:
+    BUILD/rule cells cfg/tK.cfg out=K1; BUILD/rule cells cfg/tK.cfg out=K2 threads=2; grep '^cell' K1/cells.dump K2/cells.dump
 
 (`rule_ref.py` reads solver/rhs_gen.h relative to itself, or from `RULE_RHS`.)
 

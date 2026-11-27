@@ -156,11 +156,8 @@ static inline uint64_t udiv_preinv(uint64_t u1, uint64_t u0, uint64_t d, uint64_
   if (rr >= d) { q1++; rr -= d; }
   *r = rr; return q1;
 }
-inline const DivInv& divinv_small(int64_t n) {
-  static DivInv T[128]; static bool init = false;
-  if (!init) { for (int i = 1; i < 128; i++) T[i] = make_divinv(i); init = true; }
-  return T[n];
-}
+struct DivInvTable { DivInv T[128]; DivInvTable() { for (int i = 1; i < 128; i++) T[i] = make_divinv(i); } };
+inline const DivInv& divinv_small(int64_t n) { static const DivInvTable t; return t.T[n]; }   // thread-safe initialization
 template<int L, int FL> inline Fx<L, FL> divi(const Fx<L, FL>& a, int64_t n) {
   if (n <= 0) fx_fail("divi: the divisor must be a positive integer");
   if (n == 1) return a;
