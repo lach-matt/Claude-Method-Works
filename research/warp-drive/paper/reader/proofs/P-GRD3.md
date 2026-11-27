@@ -34,10 +34,13 @@ The irreducible representations of SO(4) are the π = (j₁, j₂) of SU(2) × S
 rule, to [|j₁ − j₂|] ⊕ ⋯ ⊕ [j₁ + j₂]. By the Peter–Weyl theorem and Frobenius reciprocity, L²(S³, E) is the orthogonal
 sum of the isotypic subspaces V_π, each finite-dimensional, made of smooth sections, of dimension dim π · dim
 Hom_(SO(3))(π, E_o) = (2j₁ + 1)(2j₂ + 1) m_(j₁j₂)(r). The operator Ω := −Σ_(a<b) ℒ_(K_ab)² is the Casimir operator of
-the invariant form for which the K_ab are orthonormal; on V_π it is the number c_π := 2j₁(j₁ + 1) + 2j₂(j₂ + 1), as
-so(4) is the sum of two copies of su(2) in which Σ_(a<b) K_ab² is twice the sum of the two Casimir operators of su(2)
-(on the representation ℝ⁴ = (1/2, 1/2) both sides are −3, each K_ab² being minus the projection onto its plane, and
-on the functions of degree n, (n/2, n/2), they are −n(n + 2), the eigenvalue of the Laplacian of γ₀).
+the invariant form for which the K_ab are orthonormal; on V_π it is the number c_π := 2j₁(j₁ + 1) + 2j₂(j₂ + 1).
+Indeed, with L₁ := K₂₃, L₂ := −K₁₃, L₃ := K₁₂ and M_i := K_(i4), the fields J_i^± := (L_i ± M_i)/2 satisfy
+[J₁^±, J₂^±] = −J₃^± and the cyclic relations, and [J_i⁺, J_l⁻] = 0; so they span the two copies of su(2) in so(4),
+of spins j₁ and j₂ on π, −Σ_i (J_i⁺)² and −Σ_i (J_i⁻)² are j₁(j₁ + 1) and j₂(j₂ + 1) on V_π, and Σ_(a<b) K_ab² =
+Σ_i (L_i² + M_i²) = 2 Σ_i ((J_i⁺)² + (J_i⁻)²). (On the representation ℝ⁴ = (1/2, 1/2) both sides are −3, each K_ab²
+being minus the projection onto its plane, and on the functions of degree n, (n/2, n/2), they are −n(n + 2), the
+eigenvalue of the Laplacian of γ₀.)
 
 For an orthonormal basis (s_k) of V_π the function Σ_k |s_k(ω)|₀² does not depend on the basis, so it is invariant under
 SO(4), which acts transitively on S³; its integral is dim V_π, so it is dim V_π/(2π²). Hence for A_π ∈ V_π, by the
@@ -53,8 +56,8 @@ fields. For r = 0, m_(j₁j₂)(0) = 1 if j₁ = j₂ and 0 otherwise, and with 
 1/12. ∎
 
 **Lemma {#lem:tl5-hft-face}** (The Sobolev inequalities on the faces, intrinsic.) Let h₀ be as in [[lem:tl5-hft-leaf]],
-with numbers α, β, ρ fixed for each face Σ₁(a, b), and at each point let 𝔳₀ := sup |X|/|X|₀ and 𝔴₀ := sup |X|₀/|X| over
-the nonzero vectors X, |X| the norm of k. Then:
+with numbers α, β, ρ fixed for each face Σ₁(a, b), in (c) the same for all the faces Σ₁(t, b) with one t, and at each
+point let 𝔳₀ := sup |X|/|X|₀ and 𝔴₀ := sup |X|₀/|X| over the nonzero vectors X, |X| the norm of k. Then:
 
 (a) [[eq:tl5-hf-cs-r]] holds with 6 C_(E,r)², 𝔳₀ and 𝔴₀ in place of 6 C_(S³)² 𝔭_r, 𝔳 and 𝔴;
 
@@ -207,8 +210,9 @@ are bounded through the energies of level N. In option (b) the threshold 𝔰₁
 nonlinear constants carry the weights μ^(b/2) of the background letters and μ^((|C|−|J|)/2) of the couplings 𝔔_CJ, at
 the cost of the factor μ^(−N/2) on the terms with ϱ and η₀ of 𝔰_(*,t) and of μ^(−1/2) 𝔤_(𝒥,s) in place of 𝔤_(ϱ,s) in
 ε_(w,t). With the Sobolev constants of [[lem:tl5-hft-face]], every constant formed from the Sobolev inequality on a
-face, at level four also 𝔛 and 𝔜, carries 6C_(E,r)² and the operator norms 𝔳₀, 𝔴₀ of the comparison of k with h₀ in
-place of 6C_(S³)² 𝔭_r and the Euclidean component norms 𝔳, 𝔴; the numbers α, β, ρ of h₀ are free for each face. As for
+face, at level four also 𝔛, carries 6C_(E,r)² in place of 6C_(S³)² 𝔭_r, and these constants, 𝔜 and 𝔪 carry the operator
+norms 𝔳₀, 𝔴₀ of the comparison of k with h₀ in place of the Euclidean component norms 𝔳, 𝔴; the numbers α, β, ρ of h₀
+are free for each face. As for
 [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hft]] and [[thm:tl5-hf4t]] are established in this
 paper for no background at 10 l5.
 
@@ -222,7 +226,7 @@ serve only to find the place. Each new text replaces its old text as a whole, wi
 
 *1. Where the section goes.* The section above, from its heading ("The constants sharpened a third time", label
 sec:tl5-hft) through the last line of [[rem:tl5-hft-what]], is inserted at the end of [[ch:ten-l5]], after the last line
-of [[rem:tl5-hfs-what]] (line 5758, as changed by item 2), with one blank line before it, as a sibling "###" section
+of [[rem:tl5-hfs-what]] (line 5759 once item 2 is applied), with one blank line before it, as a sibling "###" section
 after sec:tl5-hfs. It cites results of the four earlier sections as they stand and the proofs of prop:tl5-hfs-bootstrap,
 thm:tl5-hfs, thm:tl5-hf4s and lem:tl5-hf4-persistence with the replacements it states. It defines the labels listed in
 the crosswalk rows, none defined elsewhere. No number already printed changes.
@@ -270,8 +274,10 @@ earlier closing conditions stay valid.
                  r = 2: (e₀, e₁, e₂) = (5, 5, 1);  r = 3: (15, 21, 8, 1);  r = 4: (51, 86, 46, 11, 1)  (computed);
                  m_(j₁j₂)(r) = Σ_(j=|j₁−j₂|)^(j₁+j₂) e_j(r);
                  C_(E,r)² = (1/(2π²)) Σ_(j₁,j₂∈ℕ/2, j₁+j₂∈ℕ) (2j₁+1)(2j₂+1) m_(j₁j₂)(r) / (1 + 2j₁(j₁+1) + 2j₂(j₂+1))²;
-                 C_(E,2)² ≈ 0.894, C_(E,3)² ≈ 3.635, C_(E,4)² ≈ 15.70, C_(E,0)² = 1/12 (computed, series summed to
-                 2j₁ < 3000), against C_(S³)² 𝔭_r = 196.1, 981.1, 3088.1: factors 219, 270, 197 in the squares;
+                 C_(E,2)² ≤ 0.8942, C_(E,3)² ≤ 3.6375, C_(E,4)² ≤ 15.710, C_(E,0)² = 1/12: the sums over 2j₁ < 3000
+                 are 0.89374, 3.63536, 15.6992 (computed), and the tail is at most 5^r/(2π²(3000 − 2r)), as each term
+                 is at most m_(j₁j₂)(r)/((2j₁ + 1)(2j₂ + 1)) and Σ_(j₂) m_(j₁j₂)(r) ≤ 5^r (the values are 0.89416,
+                 3.63744, 15.7096); against C_(S³)² 𝔭_r = 196.1, 981.1, 3088.1: factors 219, 270, 197 in the squares;
                  h₀ = α² du² + β² dv² + ρ² γ₀ with constants α, β, ρ chosen per face;
                  𝔳₀² = λ_max(M), 𝔴₀² = 1/λ_min(M), M the matrix of k in the h₀-orthonormal basis (∂_u/α, ∂_v/β,
                  e_x/ρ, e_1/ρ, e_2/ρ), e_x = 2(1 − x²)^(1/2) ∂_x, e_1, e_2 the γ₀-unit fields along ∂_φ1, ∂_φ2:
@@ -284,7 +290,7 @@ earlier closing conditions stay valid.
                  C_(S,0)^E² = 6 C_(E,2)² 𝔴₀(p)⁴ sup_(S_a) 𝔳₀⁴,  C_(0,0)^E² = 86π² C_(S,0)^E²;
                  C₁^E² = 258 C_(E,3)² 𝔴₀(p)⁶ sup_(Σ₁(a,b)) 𝔳₀⁶ R⁻³ 𝔨₂ ((1 + 18|D̂∂_γ|²)(1 + 6Λ₂^μ)²
                          + 4|∂_γ|² (72 (Λ₂^μ)² + 8(k₁^μ + 1)²))  (with Λ₂, k₁ at μ = 1 for the unweighted C₁^g);
-                 C_(1,0)^E² = 516π² C_(E,3)² 𝔴₀(p)⁶ sup_(S_a) 𝔳₀⁶ (1 + 6Λ₂)²;
+                 C_(1,0)^E² = 516π² C_(E,3)² 𝔴₀(p)⁶ sup_(S_a) 𝔳₀⁶ (1 + 6Λ₂)²  (with Λ₂^μ for C_(1,0)^♮, option (b));
                  C_(1,ϱ)^E² = 258 C_(E,3)² 𝔴₀(p)⁶ sup_(Σ₁(a,b)) (𝔳₀⁶ R⁻³ 32 |∂_γ|² k₂²) ∫_(Σ₁(a,b)) dμ dτ₂/(1 − κκ′);
                  level 4:  𝔵_r(t) = [𝔳₀^(2r) R⁻³]_t,  𝔱_r(t) = [𝔳₀^(2r) R⁻³ max(1 + 2r²|D̂∂_γ|², 2|∂_γ|²)]_t,
                            𝔪(t) = [max(1, 𝔴₀)⁶ R^(3/2)]_t,  [𝔳⁴]_t → [𝔳₀⁴]_t,  [𝔳⁶]_t → [𝔳₀⁶]_t,
@@ -319,21 +325,21 @@ are those of this file:
     lem:tl5-hft-leaf	paper/reader/proofs/P-GRD3.md@PENDING:12	P-GRD3, Lemma	Sobolev on S^3 for tensor bundles via the SO(4)-isotypic decomposition; constant C_(E,r) as an explicit series
     eq:tl5-hft-ce	paper/reader/proofs/P-GRD3.md@PENDING:17	P-GRD3, display	new
     eq:tl5-hft-leaf	paper/reader/proofs/P-GRD3.md@PENDING:22	P-GRD3, display	new
-    lem:tl5-hft-face	paper/reader/proofs/P-GRD3.md@PENDING:55	P-GRD3, Lemma	face Sobolev inequalities with 6 C_(E,r)^2 and the operator norms v0, w0 of k against h0 = a^2 du^2 + b^2 dv^2 + r^2 gamma0
-    eq:tl5-hft-cs	paper/reader/proofs/P-GRD3.md@PENDING:64	P-GRD3, display	new
-    lem:tl5-hft-small	paper/reader/proofs/P-GRD3.md@PENDING:87	P-GRD3, Lemma	low quantities for the smallness: (a) weighted energy constant, rho/eta0 apart; (b) weighted absorption k3(mu)
-    eq:tl5-hft-small	paper/reader/proofs/P-GRD3.md@PENDING:93	P-GRD3, display	new
-    eq:tl5-hft-smallb	paper/reader/proofs/P-GRD3.md@PENDING:101	P-GRD3, display	new
-    lem:tl5-hft-products	paper/reader/proofs/P-GRD3.md@PENDING:129	P-GRD3, Lemma	lem:tl5-hfs-products and lem:tl5-hfs-mixed under the weighted absorption
-    def:tl5-hft-constants	paper/reader/proofs/P-GRD3.md@PENDING:142	P-GRD3, Definition	third sharpened constants: options (a), (b) for s1^t, s_(*,t), eps_(w,t); A_t, B_t
-    eq:tl5-hft-constants	paper/reader/proofs/P-GRD3.md@PENDING:153	P-GRD3, display	new
-    prop:tl5-hft-bootstrap	paper/reader/proofs/P-GRD3.md@PENDING:155	P-GRD3, Proposition	(H1) with the third sharpened constants
-    eq:tl5-hft-h1	paper/reader/proofs/P-GRD3.md@PENDING:160	P-GRD3, display	new
-    thm:tl5-hft	paper/reader/proofs/P-GRD3.md@PENDING:176	P-GRD3, Theorem	thm:tl5-hf (N >= 6) with the third sharpened constants
-    eq:tl5-hft-closing	paper/reader/proofs/P-GRD3.md@PENDING:181	P-GRD3, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,t)) S_(F,s) < 1
-    thm:tl5-hf4t	paper/reader/proofs/P-GRD3.md@PENDING:189	P-GRD3, Theorem	thm:tl5-hf4 with the third sharpened constants
-    eq:tl5-hf4t-closing	paper/reader/proofs/P-GRD3.md@PENDING:193	P-GRD3, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,t) + 2 eps_(M,s)) (S_(F,s) + S_(M,s)) < 1
-    rem:tl5-hft-what	paper/reader/proofs/P-GRD3.md@PENDING:203	P-GRD3, Remark	what the third sharpening changes; options (a), (b); intrinsic Sobolev constants
+    lem:tl5-hft-face	paper/reader/proofs/P-GRD3.md@PENDING:58	P-GRD3, Lemma	face Sobolev inequalities with 6 C_(E,r)^2 and the operator norms v0, w0 of k against h0 = a^2 du^2 + b^2 dv^2 + r^2 gamma0
+    eq:tl5-hft-cs	paper/reader/proofs/P-GRD3.md@PENDING:67	P-GRD3, display	new
+    lem:tl5-hft-small	paper/reader/proofs/P-GRD3.md@PENDING:90	P-GRD3, Lemma	low quantities for the smallness: (a) weighted energy constant, rho/eta0 apart; (b) weighted absorption k3(mu)
+    eq:tl5-hft-small	paper/reader/proofs/P-GRD3.md@PENDING:96	P-GRD3, display	new
+    eq:tl5-hft-smallb	paper/reader/proofs/P-GRD3.md@PENDING:104	P-GRD3, display	new
+    lem:tl5-hft-products	paper/reader/proofs/P-GRD3.md@PENDING:132	P-GRD3, Lemma	lem:tl5-hfs-products and lem:tl5-hfs-mixed under the weighted absorption
+    def:tl5-hft-constants	paper/reader/proofs/P-GRD3.md@PENDING:145	P-GRD3, Definition	third sharpened constants: options (a), (b) for s1^t, s_(*,t), eps_(w,t); A_t, B_t
+    eq:tl5-hft-constants	paper/reader/proofs/P-GRD3.md@PENDING:156	P-GRD3, display	new
+    prop:tl5-hft-bootstrap	paper/reader/proofs/P-GRD3.md@PENDING:158	P-GRD3, Proposition	(H1) with the third sharpened constants
+    eq:tl5-hft-h1	paper/reader/proofs/P-GRD3.md@PENDING:163	P-GRD3, display	new
+    thm:tl5-hft	paper/reader/proofs/P-GRD3.md@PENDING:179	P-GRD3, Theorem	thm:tl5-hf (N >= 6) with the third sharpened constants
+    eq:tl5-hft-closing	paper/reader/proofs/P-GRD3.md@PENDING:184	P-GRD3, display	closing condition at level N >= 6: 8 (sqrt2 delta_w + 2 eps_(w,t)) S_(F,s) < 1
+    thm:tl5-hf4t	paper/reader/proofs/P-GRD3.md@PENDING:192	P-GRD3, Theorem	thm:tl5-hf4 with the third sharpened constants
+    eq:tl5-hf4t-closing	paper/reader/proofs/P-GRD3.md@PENDING:196	P-GRD3, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_(w,t) + 2 eps_(M,s)) (S_(F,s) + S_(M,s)) < 1
+    rem:tl5-hft-what	paper/reader/proofs/P-GRD3.md@PENDING:206	P-GRD3, Remark	what the third sharpening changes; options (a), (b); intrinsic Sobolev constants
 
 Note to change in the existing row of the crosswalk of [[ch:ten-l5]]: rem:tl5-hfs-what, add "; points to sec:tl5-hft
 (P-GRD3 item 2)".
