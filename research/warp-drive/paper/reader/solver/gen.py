@@ -33,10 +33,10 @@ def main():
     r = {k: polyform(d[k][1]) for k in ('E1', 'E2', 'E3', 'E4', 'E5')}
     R = sp.Symbol('R')
     Xm = -OM2 * r['E1']; Xn = -OM2 * r['E2']
-    XR = R * (((1 + x) * sp.Symbol('Xm') + (1 - x) * sp.Symbol('Xn')) / 3 - OM2 * r['E3'])
-    XW = OM2 * r['E4'] - sp.Rational(3, 2) * iR * sp.Symbol('XR')
+    XR = R * (((1 + x) * Xm + (1 - x) * Xn) / 3 - OM2 * r['E3'])
+    XW = OM2 * r['E4'] - sp.Rational(3, 2) * iR * XR
     Svv = -8 * ES * OM2 * iR * r['E5']
-    exprs = [sp.expand(Xm), sp.expand(Xn), sp.expand(XR), XW, sp.expand(Svv)]
+    exprs = [sp.expand(Xm), sp.expand(Xn), sp.expand(XR), sp.expand(XW), sp.expand(Svv)]
     allsyms = set().union(*[e.free_symbols for e in exprs]) - {sp.Symbol('Xm'), sp.Symbol('Xn'), sp.Symbol('XR')}
     assert allsyms <= set(sp.Symbol(s) for s in JET) | {x}, allsyms - set(sp.Symbol(s) for s in JET)
     repl, red = sp.cse(exprs, symbols=sp.numbered_symbols('t'), optimizations='basic')
