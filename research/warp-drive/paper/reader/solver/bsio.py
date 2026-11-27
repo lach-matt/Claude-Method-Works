@@ -26,8 +26,8 @@ def read_jets(fn):
     coefficients c_j of G in (v - 1/2) at v = 1/2, j = 0..8 (so c_j is the coefficient of (v - 1/2)^(4+j) in F)"""
     res = []
     with open(fn, 'rb') as f:
-        assert f.read(6) == b'BSOLJ2'
-        nA, NX, NW = struct.unpack('<iii', f.read(12))
+        hd = f.read(6); assert hd in (b'BSOLJ1', b'BSOLJ2')
+        nA, NX = struct.unpack('<ii', f.read(8)); NW = struct.unpack('<i', f.read(4))[0] if hd == b'BSOLJ2' else 2
         for s in range(2):
             n = struct.unpack('<q', f.read(8))[0]
             J = np.frombuffer(f.read(n * 8 * NW), dtype='<f8').reshape(-1, 9, nA, 5, NX, NW) if n else np.zeros((0, 9, nA, 5, NX, NW))
@@ -41,3 +41,17 @@ def read_jets(fn):
 
 def element_nodes(lo, hi, N):
     return 0.5 * (lo + hi) - 0.5 * (hi - lo) * np.cos(np.pi * np.arange(N + 1) / N)
+
+
+def read_hier(fn):
+    """the transport hierarchy's jets (jets.cpp): dict with nA, NX, K, and per node (side, col, xi (parts), array
+    (K-4, 5, NX, NW)) for orders 4..K-1 and fields R, m, n, W, s"""
+    with open(fn, 'rb') as f:
+        assert f.read(6) == b'BSOLH1'
+        nA, NX, NW, K, nn = struct.unpack('<iiiii', f.read(20))
+        nodes = []
+        for _ in range(nn):
+            sd, c = struct.unpack('<ii', f.read(8)); xi = np.frombuffer(f.read(8 * NW), dtype='<f8')
+            arr = np.frombuffer(f.read((K - 4) * 5 * NX * 8 * NW), dtype='<f8').reshape(K - 4, 5, NX, NW)
+            nodes.append((sd, c, xi, arr))
+    return dict(nA=nA, NX=NX, K=K, NW=NW, nodes=nodes)
