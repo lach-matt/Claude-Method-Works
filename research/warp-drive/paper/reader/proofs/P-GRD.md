@@ -3,11 +3,12 @@
 This section sharpens the constants of [[thm:tl5-hf]] and [[thm:tl5-hf4]] in three ways and proves both theorems with
 the sharpened constants. First, each background factor of a quadratic term is bounded by a bound for the derivatives of
 ĝ of its own order, instead of the uniform bound Λ, and the constant of the recovery of second derivatives is taken at
-the level where it is used ([[lem:tl5-hfg-quadratic]], [[lem:tl5-hfg-linfty]]). Second, in Step 2 of the proof of
-[[prop:tl5-hf-bootstrap]] the low quantities are bounded through the unweighted face energy of level N, at the cost
-μ^(−N/2), and the high factor through 𝒥₁, at the cost μ^(−N/2) again; here each factor is bounded by the energies of
-the lowest level that controls it, and in every term of level n the two levels used add up to at most n + 3, so that
-the factor becomes μ^(−3/2) at every level N ≥ 4 ([[lem:tl5-hfg-products]]). Third, the quadratic part of N(h) is
+the level where it is used ([[lem:tl5-hfg-quadratic]], [[lem:tl5-hfg-linfty]]). Second, in Steps 2 and 3 of the proof
+of [[prop:tl5-hf-bootstrap]] the low quantities are bounded through the unweighted face energy of level N, at the cost
+μ^(−N/2), and the high factor through 𝒥₁, at the cost μ^(−N/2) again, of which the weight of level j in 𝔤_N returns
+μ^(j/2); here each factor is bounded by the energies of the lowest level that controls it, and in every term of level n
+the two levels used add up to at most n + 3, so that the factor becomes μ^(−3/2) at every level N ≥ 4
+([[lem:tl5-hfg-products]]). Third, the quadratic part of N(h) is
 expanded with its own coefficients, the terms of higher order carrying a factor 𝔰 ([[lem:tl5-hfg-quadratic]]), and the
 factor bounded at a point is never a second derivative of a word of length two or more ([[lem:tl5-hfg-products]]). The
 closing conditions are [[eq:tl5-hfg-closing]] at level N ≥ 6 and [[eq:tl5-hf4g-closing]] at level four
@@ -131,10 +132,10 @@ for 0 ≤ j ≤ N − 1 and 0 ≤ m ≤ N − 4,
     C_(∞,0)^(m) := 2 max(2C_(0,0), C_(1,0)^g, k₁^(m) (2𝔐^(m))^(1/2) max(C_(0,0), C_(1,0)^g)),          {#eq:tl5-hfg-cinf}
 
 with the maps of [[def:tl5-hf-coupling]] and their norms as in [[lem:tl5-hf-linfty]], C₁^g and C_(1,0)^g the constants
-C₁ and C_(1,0) of [[lem:tl5-hf-linfty]] with Λ₂ in place of Λ, and the Λ_k evaluated at the point of the supremum in
-C₁^g; so k₁^(N−1) = k₁, 𝔐^(N−4) = 𝔐 and k₃^⋆ ≤ k₃ when 𝔠^⋆_n ≤ 𝔠_n. None of these constants depends on μ. If 𝔰 ≤
-𝔰₀^⋆ := min(𝔰_♭, 1/(2 sup_(Q(a,b)) k₃^⋆)) on Q(a, b), a := τ₁(p), b := τ₂(p), then for every μ ∈ (0, 1], at every point
-of Q(a, b)
+C₁ and C_(1,0) of [[lem:tl5-hf-linfty]] with Λ₂ in place of Λ, Λ₂ evaluated at the points of the suprema in C₁^g and
+C_(1,0)^g; so k₁^(N−1) = k₁, 𝔐^(N−4) = 𝔐 and k₃^⋆ ≤ k₃ when 𝔠^⋆_n ≤ 𝔠_n. None of these constants depends on μ. If
+𝔰 ≤ 𝔰₀^⋆ := min(𝔰_♭, 1/(2 sup_(Q(a,b)) k₃^⋆)) on Q(a, b), a := τ₁(p), b := τ₂(p), then for every μ ∈ (0, 1], at every
+point of Q(a, b)
 
     M_g^(j) ≤ 2(k₁^(j) + 1) 𝒥_g + 2k₂ ϱ(p)      (0 ≤ j ≤ N − 1),                                         {#eq:tl5-hfg-m2}
 
@@ -184,9 +185,10 @@ with |C| ≤ |B| − 1, and in H^(αβ) D̂_αD̂_βΨ_J, |J| < |B|, the factor 
 
 Taking the largest of the four bounds and absorbing 𝔰_g^(m)(p)/2 gives [[eq:tl5-hfg-linfty]]. ∎
 
-**Lemma {#lem:tl5-hfg-products}** (The quadratic terms, graded.) In the setting of [[lem:tl5-hfg-linfty]] let I be a
-word with n := |I| ≤ N, 𝔑_I := ℒ^I N(h) − H^(αβ) D̂_αD̂_βΨ_I, and 𝔑^L_I := 𝔑_I if N ≥ 5, 𝔑^L_I as in
-[[lem:tl5-hfg-quadratic]] if N = 4. Put 𝔨_g := max(𝔷, 2k₁ + 2) and 𝔰_P := 𝔰_g^(m_P). Then at every point of Q(a, b)
+**Lemma {#lem:tl5-hfg-products}** (The quadratic terms, graded.) In the setting of [[lem:tl5-hfg-linfty]] suppose that
+𝔰 ≤ 𝔰₀^⋆ on Q(a, b), and let I be a word with n := |I| ≤ N, 𝔑_I := ℒ^I N(h) − H^(αβ) D̂_αD̂_βΨ_I, and 𝔑^L_I := 𝔑_I
+if N ≥ 5, 𝔑^L_I as in [[lem:tl5-hfg-quadratic]] if N = 4. Put 𝔨_g := max(𝔷, 2k₁ + 2) and 𝔰_P := 𝔰_g^(m_P). Then at
+every point of Q(a, b)
 
     μ^(n/2) |𝔑^L_I| ≤ 𝔠^⋆_n (μ^(−3/2) 𝔨_g 𝔰_P 𝒥_g + 2k₂ 𝔰 ϱ(p)),
     μ^(n/2) |ℒ^J N(h)| ≤ (𝔠^⋆_(|J|) + 1) (μ^(−3/2) 𝔨_g 𝔰_P 𝒥_g + 2k₂ 𝔰 ϱ(p))      for |J| < n.     {#eq:tl5-hfg-products}
@@ -226,7 +228,8 @@ times
 ≤ n and 2 + |J| + 1 ≤ n + 2; the same splitting bounds μ^(n/2) |H| |D̂²Ψ_J| by μ^(−3/2) 𝔨_g 𝔰_P 𝒥_g + 2k₂ 𝔰 ϱ(p). ∎
 
 **Lemma {#lem:tl5-hfg-mixed}** (The products of level four, graded.) Let N = 4, and let g, h, t, b, Σ, ϱ and η₀ be as
-in [[lem:tl5-hf4-mixed]], with 𝔰 ≤ 𝔰₀^⋆ on Q(t, b). With the notation of that lemma, 𝔍_g := ‖𝒥_g‖_Σ and
+in [[lem:tl5-hf4-mixed]], with 𝔰 ≤ 𝔰₀^⋆ on Q(t, b). With the notation of that lemma, whose λ_t = 2([k₁]_t + 1) is not
+one of the bounds λ_k, 𝔍_g := ‖𝒥_g‖_Σ and
 
     𝔛_t^g := max((𝔭₃ 𝔵₃(t) (1 + 64680 [Λ₂]_t²))^(1/2), (𝔭₄ 𝔵₄(t)/2)^(1/2) (√602 λ_t + 789 [Λ̄₂]_t),
                  (𝔭₄ 𝔵₄(t)/2)^(1/2) √602 ς_t),
@@ -272,7 +275,7 @@ there and 𝒮 of [[eq:tl5-hf-source]] for a = u*, b = v*. With the constants of
 
 the functions of p being evaluated at the point of the supremum. For N = 4 put, with the notation of
 [[lem:tl5-hf4-mixed]] and [[lem:tl5-hfg-mixed]] and with [𝔠^⋆₄]_t the number 𝔠^⋆₄ formed with the suprema over
-Σ₁(t, v*) of the Λ_k and the λ_k,
+Σ₁(t, v*) of the Λ_k, the Λ^R_k and the λ_k,
 
     m_t^g := 98 e^(φ(t,v*)/2) [2Ω̂² (1 + c/κ′)^(1/2)]_t [𝔠^⋆₄]_t 𝔪(t) 𝔛_t^g 𝔜_t,
     S_(M,g) := μ^(−3/2) ∫_(−10)^(u*) m_t^g [𝔨₂]_t dt,
@@ -296,9 +299,10 @@ D^κ_s; in particular |h|_k̂ < κ_m/2 there, and
 
     Y_s(g) ≤ A_g + B_g Y_s(g)².                                                                          {#eq:tl5-hfg-h1}
 
-*Proof.* *Step 1.* As in Step 1 of the proof of [[prop:tl5-hf-bootstrap]], with 𝔰₀^⋆, 𝔰₁^⋆ and A_g in place of 𝔰₀,
-𝔰₁ and A_w, and with [[eq:tl5-hfg-linfty]] for m = N − 4 and μ = 1 in place of [[eq:tl5-hf-linfty]]: if 𝔰 ≤ 𝔰₀^⋆ on
-D^κ_σ and p ∈ D^κ_σ, then ℰ⁰_N(p) ≤ μ^(−N) e^(φ(p)) Y_σ(g)² ≤ 4μ^(−N) e^(φ(p)) A_g², so 𝔰(p) ≤ 𝔰_(*,g) < 𝔰₁^⋆ ≤
+*Proof.* *Step 1.* As in the first paragraph and Step 1 of the proof of [[prop:tl5-hf-bootstrap]], with 𝔰₀^⋆, 𝔰₁^⋆
+and A_g in place of 𝔰₀, 𝔰₁ and A_w, and with [[eq:tl5-hfg-linfty]] for m = N − 4 and μ = 1 in place of
+[[eq:tl5-hf-linfty]]: if 𝔰 ≤ 𝔰₀^⋆ on D^κ_σ and p ∈ D^κ_σ, then ℰ⁰_N(p) ≤ μ^(−N) e^(φ(p)) Y_σ(g)² ≤ 4μ^(−N) e^(φ(p)) A_g²,
+so 𝔰(p) ≤ 𝔰_(*,g) < 𝔰₁^⋆ ≤
 𝔰₀^⋆/2. That argument gives 𝔰 ≤ 𝔰_(*,g) < 𝔰₁^⋆ on D^κ_s, |h|_k̂ < κ_m/2 by [[lem:tl5-hf-conversions]] (a), and
 θ_H ≤ ϑ. So [[lem:tl5-hfg-quadratic]], [[lem:tl5-hfg-linfty]] and [[lem:tl5-hfg-products]] apply at every point of
 D^κ_s, and their ϱ(p) and η₀(p) are at most the ϱ and η₀ of [[def:tl5-hfg-constants]].
@@ -383,24 +387,31 @@ the bound Y_σ ≤ 2A_(w,4) and through [[eq:tl5-hf4-m2]], which holds by [[eq:t
 
 **Remark {#rem:tl5-hfg-powers}** (What the sharpened constants contain.) In S_(F,g) and 𝔯_(w,g), and with the graded
 triple in S_(M,g), 𝔯_(M,g) and ε_(M,g), the only power of μ is μ^(−3/2), at every level N ≥ 4, against μ^(−N) in S_F
-and μ^(−2) in S_M of [[thm:tl5-hf]] and [[thm:tl5-hf4]]:
-𝔤_(N,g), 𝔨_g, 𝔞_(o,g), 𝔞_(i,g), C_P, C_(P,ϱ), C_(P,0) and m_t^g do not depend on μ. The power is that of the count
+and μ^(−2) in S_M of [[thm:tl5-hf]] and [[thm:tl5-hf4]]: for given rates,
+𝔤_(N,g), 𝔨_g, 𝔞_(o,g), 𝔞_(i,g), C_P, C_(P,ϱ), C_(P,0) and m_t^g do not depend on μ. If 𝔠^⋆_n = 𝔠_n, then 𝔤_(N,g) is the
+value at μ = 1 of 𝔤_N of [[def:tl5-hf-constants]], and the weights μ^j of 𝔤_N give 𝔤_N ≤ 𝔤_(N,g) ≤ μ^(−N/2) 𝔤_N; so
+ε_(w,g) ≥ ε_w, and in S_F and 𝔯_w these weights offset part of the powers μ^(−N) and μ^(−N/2). The power μ^(−3/2)
+is that of the count
 [[eq:tl5-hfg-count]], which gives exactly n + 3 for the term D̂Ψ_B · D̂Ψ_(B′) of 2𝔮 with |B| + |B′| = n and |B| ≤ N − 3:
 D̂Ψ_B is bounded at a point through the energies of level |B| + 3, and D̂Ψ_(B′) through those of level |B′|. The
-smallness 𝔰_(*,g) < 𝔰₁^⋆ keeps the factor μ^(−N/2), as the recovery of second derivatives absorbs the ungraded 𝔰.
+smallness 𝔰_(*,g) < 𝔰₁^⋆ keeps the factor μ^(−N/2): it bounds the unweighted 𝔰, which the absorption in the recovery of
+second derivatives and the hypothesis of [[lem:tl5-hfg-quadratic]] require, and whose quantities of order N − 2 are
+bounded through the energies of level N only.
 
 The recovery constant of the highest level, k₁ = k₁^(N−1), enters S_(F,g) through 𝔨_g and through C₁^g in C_P; in C_P
 it is otherwise replaced by k₁^(m_P), which involves the couplings 𝔄_CJ with |C| ≤ 1 only, and for N = 4 none, as
 𝔄_∅J = 0 by [[def:tl5-hf-coupling]]; and 𝔐^(m_P) = 57 for N ≥ 5 and 8 for N = 4, against 𝔐 = Σ_(j≤N−3) 7^j. The
-smallness constants C_∞^(N−4), C_(∞,ϱ)^(N−4) and C_(∞,0)^(N−4) contain k₁^(N−4) in place of the third k₁ of C_∞. The
-background bounds enter graded: 𝔠^⋆_n through Λ_k, Λ^R_k and λ_k with k ≤ n, C₁^g, C_(1,0)^g and 𝔛_t^g through Λ₂ only.
+smallness constants C_∞^(N−4), C_(∞,ϱ)^(N−4) and C_(∞,0)^(N−4) contain k₁^(N−4) in place of the k₁ of the third entry
+of C_∞. The background bounds enter graded: 𝔠^⋆_n through Λ_k, Λ^R_k and λ_k with k ≤ n, C₁^g, C_(1,0)^g and 𝔛_t^g
+through Λ₂ only.
 If π^Z = 0 for every Z ∈ Γ, as for the seed, then ℒ^K ĝ⁻¹ = 0 and ℒ^K R̂ = 0 for K ≠ ∅, the choices Λ_k = λ_k = 0 for
 k ≥ 1, Λ^R_0 = |R̂| and Λ^R_k = 0 for k ≥ 1 are admissible, and
 
     𝔠^Q_n = (81 + 5|R̂|) 2^n − 1,
 
 the number of distributions of n letters over the two solution factors of each quadratic term, 2^n, times the norms of
-its coefficients.
+its coefficients, less 1 for the subtracted term. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of
+[[thm:tl5-hfg]] and [[thm:tl5-hf4g]] are established in this paper for no background at 10 l5.
 
 ### Placement
 
@@ -432,7 +443,7 @@ New:
 those of [[thm:tl5-dn]], are conditions on the background of the same kind. The derivatives of G^♯ − ĝ on N₀ transverse
 to N₀ need not vanish, so η₀ and the terms on N₀ in δ_w are small only for a background whose transverse derivatives on
 N₀ of order at most N are close to those of G^♯. [[thm:tl5-hfg]] gives the conclusions of [[thm:tl5-hf]] under
-sharpened constants, with graded background bounds and the factor μ^(−3/2) in place of μ^(−N) ([[sec:tl5-hfg]]).
+sharpened constants: graded background bounds, and μ^(−3/2) in place of the factor μ^(−N) of S_F ([[sec:tl5-hfg]]).
 
 *3. The fifth sentence of [[rem:tl5-hf4-level]] (lines 4992–4994).* Old:
 
@@ -444,8 +455,8 @@ New:
 
 explicit in the jets of ĝ of order at most N + 3 = 7, against 9 at N = 6; they involve the Σ_(j≤4) 7^j = 2801 words of
 length at most 4, against 137,257 at N = 6, the derivatives of R̂ic along Γ of order at most 4, against 6, and the
-factor μ^(−N) = μ^(−4) of S_F, against μ^(−6), while S_M carries μ^(−2); with the sharpened constants of
-[[thm:tl5-hf4g]] both carry μ^(−3/2) ([[rem:tl5-hfg-powers]]). On N₀ they involve the derivatives of
+factor μ^(−N) = μ^(−4) of S_F, against μ^(−6), while S_M carries μ^(−2); with the constants of [[thm:tl5-hf4g]]
+and the graded triple both carry μ^(−3/2) ([[rem:tl5-hfg-powers]]). On N₀ they involve the derivatives of
 
 *4. Nothing else changes.* No other text of the chapters changes. The opening paragraph of sec:tl5-hf,
 rem:tl5-beyond and lem:tl5-continuation need no change: [[thm:tl5-hfg]] and [[thm:tl5-hf4g]] give (H1), (H2) and
