@@ -48,7 +48,7 @@ struct Config {
   int ncol[2] = {10, 1}, nrow[2] = {10, 1};       // [0]: away from the corner in +xi / +v; [1]: the other side
   std::vector<Real> xib[2], vbk[2];                // optional explicit breakpoints (from the corner outward)
   std::vector<Elem> el; int maxit = 80; double tol = 1e-33; double ckpt_min = 20; std::string quads = "1234";
-  int threads = 4; int stopcol = -1;
+  int threads = 4; int stopcol = -1; int stopcells = -1;
 };
 static Config CF;
 static Real A_CH;                                   // 1/500
@@ -71,7 +71,7 @@ static void read_config(const std::string& fn) {
     else if (k == "elem") { Elem e; is >> a >> b >> c >> d >> e.Nt >> e.Ns; e.xlo = dd_from_string(a.c_str());
       e.xhi = dd_from_string(b.c_str()); e.vlo = dd_from_string(c.c_str()); e.vhi = dd_from_string(d.c_str()); CF.el.push_back(e); }
     else if (k == "maxit") is >> CF.maxit; else if (k == "tol") is >> CF.tol; else if (k == "ckpt_minutes") is >> CF.ckpt_min;
-    else if (k == "quadrants") is >> CF.quads; else if (k == "threads") is >> CF.threads; else if (k == "stopcol") is >> CF.stopcol;
+    else if (k == "quadrants") is >> CF.quads; else if (k == "threads") is >> CF.threads; else if (k == "stopcol") is >> CF.stopcol; else if (k == "stopcells") is >> CF.stopcells;
   }
 }
 
@@ -179,7 +179,7 @@ static void xapply(const Mat& D, const Real* in, Real* out, int rows) {
 // bracket in difference arithmetic about the current state, and G <- G + d.  Each outer step gains about the
 // precision of double; the converged G is a fixed point of the double-double map.
 struct Edge { std::vector<Real> G; std::vector<Real> sv; };  // G[f][node][k] (f over NF), sv[node][k]
-struct CellOut { int sweeps; int outer; double last; double secs; };
+struct CellOut { int sweeps; int outer; double last; double secs; int diverged; };
 
 static inline size_t IX(int a, int b, int k, int nB) { return ((size_t)a * nB + b) * NX + k; }
 static inline double D_(const Real& a) { return a.hi; }
@@ -323,7 +323,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
   Work<Real> w; Work<double> wd;
   std::vector<Real> Psi(4 * NN), Phi(NN), IP;
   std::vector<double> Gd(NF * NN), dlt(NF * NN), r(NF * NN), Psid(4 * NN), Phid(NN), IPd, dn(NF * NN);
-  CellOut co{0, 0, 1.0, 0.0};
+  CellOut co{0, 0, 1.0, 0.0, 0};
   static bool verbose = getenv("BSOLV_VERBOSE") != nullptr;
   double rprev = 1;
   for (int outer = 0; outer < 12; outer++) {
@@ -369,7 +369,7 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
       rf[js_] = d.D[FS]; rf[jsv] = d.Dv[FS]; rf[jsx] = d.Dx[FS]; rf[jsvx] = d.Dvx[FS];
     }
     dlt = r;
-    double dprev = 1e300; int inner;
+    double dprev = 1e300; int inner, ngrow = 0;
     for (inner = 0; inner < 400; inner++) {
       derivs(g, dlt, wd, D1d.data(), D2d.data());
       #pragma omp parallel for schedule(static)
@@ -385,10 +385,13 @@ static CellOut solve_cell(const Geom& g, const Edge& left, const Edge* bottom, c
       for (size_t i = 0; i < NF * NN; i++) { dn[i] = r[i] + IPd[i]; dm = std::max(dm, std::fabs(dn[i] - dlt[i])); dx = std::max(dx, std::fabs(dn[i])); }
       dlt.swap(dn);
       co.sweeps++;
+      if (verbose && (inner < 5 || inner % 10 == 0)) fprintf(stderr, "        inner %d: |dd|/|d| = %.2e\n", inner, dm / dx);
       if (dm < 3e-17 * dx || (inner > 6 && dm > 0.7 * dprev && dm < 1e-14 * dx)) break;
+      if (inner > 8 && dm > 1.5 * dprev) { ngrow++; if (ngrow >= 4) { co.diverged = 1; break; } } else ngrow = 0;
       dprev = dm;
     }
     if (verbose) fprintf(stderr, "      inner sweeps %d\n", inner + 1);
+    if (co.diverged) break;
     for (size_t i = 0; i < NF * NN; i++) G[i] = G[i] + dd(dlt[i]);
   }
   // s_v at the end v-node: s_v(bottom) + int Phi dv
@@ -617,6 +620,8 @@ int main(int argc, char** argv) {
         bottom.sv = svTop; vbot = vb[sv][j + 1];
         st.cells += 1; st.secs += co.secs; st.sweeps += co.sweeps;
         if (getenv("BSOLV_VERBOSE")) fprintf(stderr, "cell (%d,%d): outer %d, inner sweeps %d, %.1f s, last %.1e\n", i, j, co.outer, co.sweeps, co.secs, co.last); csec += co.secs; cmax = std::max(cmax, co.last); smax = std::max(smax, co.sweeps);
+        if (CF.stopcells > 0 && st.cells >= CF.stopcells) { fprintf(lg, "stopcells reached\n"); fclose(lg); return 0; }
+        if (co.diverged) fprintf(lg, "  cell Q%d (%d,%d): inner iteration diverged\n", q + 1, i, j);
         if (co.last > 1e3 * CF.tol) fprintf(lg, "  cell Q%d (%d,%d): not converged, last update %.2e after %d sweeps\n", q + 1, i, j, co.last, co.sweeps);
       }
       st.left = right; st.col = i + 1;
