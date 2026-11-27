@@ -259,10 +259,10 @@ and, as there, with ϑ ≤ 1/4 and 𝔯_(w,4) ≤ 1/4, Y_s² ≤ 2δ_w² + 2Y_s 
 [[eq:tl5-hf4-h1]]. ∎
 
 **Lemma {#lem:tl5-hf4-persistence}** (Persistence of regularity at level four.) Suppose the hypotheses of
-[[prop:tl5-hf4-bootstrap]] hold. For every k ≥ 0 there is C_k, depending only on k, ĝ, G^♯, κ, κ′, μ, ϑ, the rates and
-A_(w,4), such that every solution g of the reduced problem on a D^κ_s with Y_σ(g) ≤ 2A_(w,4) for all σ ∈ [1/2, s] has
-its components and their partial derivatives of order at most k, and the components of g⁻¹, bounded by C_k on D^κ_s,
-in the coordinates (u, v, y) of a fixed finite atlas of S³.
+[[prop:tl5-hf4-bootstrap]] hold. For every k ≥ 0 there is C_k, depending only on k, ĝ, G^♯, κ, κ′, μ, ϑ, z, z̲, the rates
+and A_(w,4), such that every solution g of the reduced problem on a D^κ_s with Y_σ(g) ≤ 2A_(w,4) for all σ ∈ [1/2, s] has
+its components and their partial derivatives of order at most k, and the components of g⁻¹, bounded by C_k on D^κ_s, in
+the coordinates (u, v, y) of a fixed finite atlas of S³.
 
 *Proof.* By [[prop:tl5-hf4-bootstrap]], 𝔰 ≤ 𝔰_* on D^κ_s; in particular |H| ≤ 1/8, which bounds g⁻¹ = ĝ⁻¹ + H, and
 θ_H ≤ ϑ. A constant is a number depending only on the data listed, Λ now bounding the quantities of
@@ -315,26 +315,27 @@ the residual. So, for every weight, ‖D̂²Ψ_B‖_Σ is at most a constant tim
 U_φ(Σ) ≤ c_m (1 + 𝔈_φ(Σ)^(1/2)) with a constant c_m and 𝔈_φ(Σ) := Σ_(|I|≤m) ∫_Σ e^(−φ) ε₁[Ψ_I] dμ dτ₂, by
 [[eq:tl5-hf-coercive]] and [[eq:tl5-hf-lie]].
 
-*(iii) The energies.* By [[lem:tl5-hf-allocation]] there are constant rates A, A′ admissible for ((1 − ϑ)⁻¹ 𝔅_m, E_o^m,
-E_i^m), all entries being bounded on D^κ; for a constant Ã ≥ 0 take a_o := A + Ã, a_i := A′, which are admissible too,
-as [[eq:tl5-hf-admissible]] is monotone in the rates, and the weight φ := (A + Ã)(τ₁ + 10) + A′(τ₂ − 1/2). For |I| ≤ m
-apply [[lem:tl5-hf-identity]] to J̃ := J[Ψ_I] − 𝔟[Ψ_I] on Q(a′, b′) ⊂ D^κ_s, with weights 1, as in Step 2 of the proof
-of [[prop:tl5-hf-bootstrap]] at level m, which uses [[def:tl5-hf-coupling]] and the argument of
-[[prop:tl5-hf-linear-n]] at level m: the face densities are at least 1 − ϑ times ε₁ and ε₂, the terms on N₁ and N₀ are
-fluxes of derivatives of G^♯ − ĝ of order at most m + 1 ([[thm:tl5-wg]] (F4_W)) and so constants, and the linear
-bulk, with the weight and the terms 𝔟 in it, is at most −(1 − ϑ) Ã (e_o + κ′ e_i) plus the forcing term of the
-residual: as there, 2Ω̂² dφ(J) = (a_o + κa_i) e_o + (a_i + κ′a_o) e_i and 2Ω̂² |dφ(𝔟)| is at most ϑ times this, and the
-part of (1 − ϑ)((a_o + κa_i) e_o + (a_i + κ′a_o) e_i) with the rates A, A′ dominates ñᵀ𝔅_m ñ by their admissibility,
-the rest being (1 − ϑ) Ã (e_o + κ′ e_i). The term 𝔮_H is at most a constant times e_o + e_i ≤
-(1 + 1/κ′)(e_o + κ′e_i), as in Step 2 of that proof. The nonlinear terms of L̂Ψ_I + H^(αβ)D̂_αD̂_βΨ_I are the monomials
-of (i) and the terms 𝔔_IJ ℒ^J N(h), |J| < |I|, whose terms H^(αβ)D̂_αD̂_βΨ_J are bounded by (ii); foliating by the faces
-Σ₁(t, b′) as in the proof of [[prop:tl5-hf4-bootstrap]], their contribution is at most ∫ dt c (1 + 𝔈_φ(Σ₁(t, b′)))
-with a constant c, by (i), (ii) and 2x ≤ 1 + x². The term −(1 − ϑ) Ã (e_o + κ′ e_i) contributes −(1 − ϑ) Ã ∫ dt
-𝔈_φ(Σ₁(t, b′)), since ∫_Q e^(−φ) (e_o + κ′ e_i) dμ du dv = ∫ dt ∫_(Σ₁(t,b′)) e^(−φ) ε₁ dμ dτ₂. With Ã so large that
-(1 − ϑ) Ã exceeds c and the constant of 𝔮_H, and with the residual bounded as in [[prop:tl5-hf-linear]], the
-supremum Y_m² of the weighted level-m energies over the corner regions in D^κ_s satisfies Y_m² ≤ c′ + 𝒮_m Y_m with
-constants c′ and 𝒮_m. So Y_m is bounded by a constant, and so are the unweighted energies, which are at most
-e^((A+Ã)(u*+10) + A′(v*−1/2)) Y_m², and by (ii) the norms ‖D̂²Ψ_B‖_(Σ,0), |B| = m − 1.
+*(iii) The energies.* By [[lem:tl5-hf-allocation]] there are constant rates A, A′ admissible for
+((1 − ϑ)⁻¹ 𝔅_m, E_o^m, E_i^m), all entries being bounded on D^κ; for a constant Ã ≥ 0 take a_o := A + Ã and a_i := A′,
+which are admissible too, as [[eq:tl5-hf-admissible]] is monotone in the rates, and the weight
+φ := (A + Ã)(τ₁ + 10) + A′(τ₂ − 1/2). For |I| ≤ m apply [[lem:tl5-hf-identity]] to J̃ := J[Ψ_I] − 𝔟[Ψ_I] on
+Q(a′, b′) ⊂ D^κ_s, with weights 1 and with 𝔅_m formed with μ = 1, as in Step 2 of the proof of
+[[prop:tl5-hf-bootstrap]] at level m, which uses [[def:tl5-hf-coupling]] and the argument of [[prop:tl5-hf-linear-n]]
+at level m. The face densities are at least 1 − ϑ times ε₁ and ε₂; the terms on N₁ and N₀ are fluxes of derivatives
+of G^♯ − ĝ of order at most m + 1 ([[thm:tl5-wg]] (F4_W)), and so constants; and the linear bulk, with the weight and
+the terms 𝔟 in it, is at most −(1 − ϑ) Ã (e_o + κ′ e_i) plus the forcing term of the residual. Indeed, as there,
+2Ω̂² dφ(J) = (a_o + κa_i) e_o + (a_i + κ′a_o) e_i and 2Ω̂² |dφ(𝔟)| is at most ϑ times this; and of (1 − ϑ) times
+this, the part with the rates A, A′ dominates ñᵀ𝔅_m ñ by their admissibility, and the rest is
+(1 − ϑ) Ã (e_o + κ′ e_i). The term 𝔮_H is at most a constant times e_o + e_i ≤ (1 + 1/κ′)(e_o + κ′e_i), as in Step 2
+of that proof. The nonlinear terms of L̂Ψ_I + H^(αβ)D̂_αD̂_βΨ_I are the monomials of (i) and the terms 𝔔_IJ ℒ^J N(h)
+with |J| < |I|, whose terms H^(αβ)D̂_αD̂_βΨ_J are bounded by (ii); foliating by the faces Σ₁(t, b′) as in the proof of
+[[prop:tl5-hf4-bootstrap]], their contribution is at most ∫ dt c (1 + 𝔈_φ(Σ₁(t, b′))) with a constant c, by (i), (ii)
+and 2x ≤ 1 + x². The term −(1 − ϑ) Ã (e_o + κ′ e_i) contributes −(1 − ϑ) Ã ∫ dt 𝔈_φ(Σ₁(t, b′)), since
+∫_Q e^(−φ) (e_o + κ′ e_i) dμ du dv = ∫ dt ∫_(Σ₁(t,b′)) e^(−φ) ε₁ dμ dτ₂. With Ã so large that (1 − ϑ) Ã exceeds c and
+the constant of 𝔮_H, and with the residual bounded as in [[prop:tl5-hf-linear]], the supremum Y_m² of the weighted
+level-m energies over the corner regions in D^κ_s satisfies Y_m² ≤ c′ + 𝒮_m Y_m with constants c′ and 𝒮_m. So Y_m is
+bounded by a constant, and so are the unweighted energies, which are at most e^((A+Ã)(u*+10) + A′(v*−1/2)) Y_m², and
+by (ii) the norms ‖D̂²Ψ_B‖_(Σ,0), |B| = m − 1.
 
 *(iv) Bounds at a point.* [[lem:tl5-hf-sobolev]] and [[eq:tl5-hf-cs-r]], whose terms on S_a are derivatives of G^♯ − ĝ on
 N₀ of order at most m, bound |Ψ_B| (|B| ≤ m − 2) and |D̂Ψ_B| (|B| ≤ m − 3) at every point by the face energies of level m
@@ -390,20 +391,20 @@ needs.
 
 ### Placement
 
-This part, the comparison and the crosswalk rows below are instructions and notes for merging; they are not chapter
-text. The level-six section sec:tl5-hf stays as it is (the author's decision of 2026-11-27: level 4 is added beside
-level 6, not in its place). Old texts are quoted exactly from chapters/87-ten-l5.md at HEAD f99f4a13, where sec:tl5-hf
-and sec:tl5-xt are merged; line numbers serve only to find the place. Each new text replaces its old text as a whole,
-with the line breaks shown.
+This part, the comparison and the crosswalk rows below are instructions and notes for merging; they are not chapter text.
+The level-six section sec:tl5-hf stays as it is (the author's decision of 2026-11-27: level 4 is added beside level 6,
+not in its place). Old texts are quoted exactly from chapters/87-ten-l5.md at HEAD f99f4a13 (unchanged at 60527421),
+where sec:tl5-hf and sec:tl5-xt are merged; line numbers serve only to find the place. Each new text replaces its old
+text as a whole, with the line breaks shown.
 
-*1. Where the section goes.* The section above, from its heading "### The a priori estimate at level four
-{#sec:tl5-hf4}" through the last line of [[rem:tl5-hf4-level]], is inserted at the end of [[ch:ten-l5]], after the last
+*1. Where the section goes.* The section above, from its heading ("The a priori estimate at level four", label
+sec:tl5-hf4) through the last line of [[rem:tl5-hf4-level]], is inserted at the end of [[ch:ten-l5]], after the last
 line of [[rem:tl5-hf-level]] (line 4609, "H² of a four-dimensional manifold does not embed in L^∞; so they give no
 bound of |D̂²h| at a point."), with one blank line before it. It is a sibling of sec:tl5-hf (a "###" heading) and comes
 after it. It cites, as they stand, results of sec:tl5-hf (the level-independent ones, and the proofs of
 prop:tl5-hf-bootstrap, lem:tl5-hf-persistence and thm:tl5-hf with the replacements it states), of sec:tl5-wg,
 sec:tl5-dn and sec:tl5-xt (lem:tl5-xt-order, lem:tl5-xt-seed-jets), and def:tl5-wg-domains, thm:tl5-wg-data,
-sec:cone-constraint. It defines the 19 labels listed in the crosswalk rows, none defined elsewhere. No number already
+sec:cone-constraint. It defines the 22 labels listed in the crosswalk rows, none defined elsewhere. No number already
 printed changes.
 
 *2. The last sentence of [[rem:tl5-hf-level]] (lines 4608–4609).* Old:
@@ -421,3 +422,114 @@ the faces by a Hölder inequality in mixed norms ([[thm:tl5-hf4]]).
 *3. Nothing else changes.* No other text of the chapters changes. In particular the opening paragraph of sec:tl5-hf,
 rem:tl5-beyond and lem:tl5-continuation need no change: [[thm:tl5-hf4]] gives (H1), (H2) and (H4) of
 [[lem:tl5-continuation]] and reduces (H3) to [[eq:tl5-hf4-closing]], exactly as [[thm:tl5-hf]] does at level six.
+
+### Comparison with level 6
+
+Not chapter text. Formulas are those of the two theorems as written: thm:tl5-hf at N = 6 (Theorem 57.145 in the
+assembled paper) and thm:tl5-hf4 (Theorem 57.155). "Computed" marks the numbers I evaluated; everything else is read off
+the definitions.
+
+*The closing conditions.*
+
+    level 6:  8 (√2 δ_w + 2ε_w) S_F < 1,                 δ_w, ε_w, S_F of def:tl5-hf-constants at N = 6;
+    level 4:  8 (√2 δ_w + 2ε_w + 2ε_M) (S_F + S_M) < 1,   δ_w, ε_w, S_F of the same formulas at N = 4.
+
+The smallness conditions have the same form (𝔯 ≤ 1/4, η₀ < 𝔰₁, 𝔰_* < 𝔰₁), with 𝔯_(w,4) = 𝔯_w + 𝔯_M at level 4.
+
+*Powers of μ.* In def:tl5-hf-constants every level is bounded by the top one: the low quantity 𝔰 through the
+unweighted face energy of level N (μ^(−N/2) in S_F and in 𝔰_*), and the high factor through 𝒥₁ (μ^(−N/2) in 𝔞_o, 𝔞_i).
+So:
+
+    term                                   level 6        level 4
+    S_F, part with 𝔤_N (2Ω̂𝔤_N(2k₁+4)…)     μ^(−6)          μ^(−4)
+    S_F, part with ϰ₀ and 𝒞_(·0)            μ^(−3)          μ^(−2)
+    S_M (products of lem:tl5-hf4-mixed)     —               μ^(−2)
+    𝔰_*, data term 2C_∞ e^(φ/2) A           μ^(−3)          μ^(−2)
+    ε_M = μ² ϱ(ϱ + η₀) ∫ m_t                —               μ²
+    s_N, 𝔤_N: Σ_(j≤N) μ^j (…)²              j ≤ 6           j ≤ 4
+
+At μ = 10⁻⁴ the leading factor of S_F is 10^24 at level 6 and 10^16 at level 4 (computed): 8 decades in the closing
+condition, which is linear in S_F. Against G0b's level-3 scoping, which priced the level weights as μ^(−3/2) (about 6
+decades at μ = 10⁻⁴), the level-4 theorem as written costs μ^(−4) (16 decades). The difference is the bookkeeping, not
+the level. Deduced, and not part of any proof in the file: for every monomial of level n the two norms used in its bound
+(the factor at a point and the factor in the energy, or the two mixed norms) need energies of levels ℓ₁ + ℓ₂ ≤ n + 3,
+so a graded count, bounding each factor by the lowest level that controls it and weighting the source of level n by
+μ^(n/2), would put at most μ^(−3/2) in front of every quadratic term, at level 4 and at level 6 alike. That needs graded
+versions of lem:tl5-hf-linfty and of Step 2 of the bootstrap, which are not written; until then the scoping should
+use μ^(−N) for S_F.
+
+*Cross-level couplings and the linear estimate.* The bulk matrix 𝔅_N has size 4(N + 1): 28 at level 6, 20 at level 4.
+Its coupling blocks 𝔒_((j,σ),(j′,ϰ)) = √c Ω̂³ μ^((j−j′)/2) ℭ_(jj′ϰ) run over 0 ≤ j′ ≤ j ≤ N: 28 level pairs against 15.
+The maps 𝔄_IJ, 𝔔_IJ (hence ℭ_(jj′ϰ), 𝔮_(jj′), α_𝔄, q₁, k₁, k₂, k₃) are built from the jets of ĝ and of Γ of order at
+most N + 3 (9 against 7) and from 𝔏-iterates of 𝒦[π^Z] with at most N − 1 Lie derivatives (5 against 3); Λ bounds
+ℒ^B π^Z, ℒ^B Γ′[π^Z], ℒ^B D̂Γ′[π^Z], D̂ℒ^B Γ′[π^Z] and ℒ^B R̂ for |B| ≤ N. The rates must be admissible for
+(1 − ϑ)⁻¹ 𝔅_N; at level 4 the larger couplings μ^((j−j′)/2) ℭ with j − j′ = 5, 6 are absent.
+
+*Word counts and term counts (computed).*
+
+    quantity                                    level 6       level 4
+    words of length ≤ N, Σ_(j≤N) 7^j             137,257       2,801
+    words of length N, 7^N                       117,649       2,401
+    𝔐 = Σ_(j≤N−3) 7^j (in C_∞, C_(∞,ϱ), C_(∞,0))  400           8
+    ordered Bell number F_N in 𝔠_N               4,683         75
+    𝔠_N at Λ = 1                                 9.75 × 10^10  4.44 × 10^7
+    𝔠_N at Λ = 3                                 8.54 × 10^12  9.64 × 10^8
+
+with 𝔠₀, …, 𝔠₆ = 1.04 × 10², 1.82 × 10³, 4.14 × 10⁴, 1.22 × 10⁶, 4.44 × 10⁷, 1.93 × 10⁹, 9.75 × 10^10 at Λ = 1
+(computed from eq:tl5-hf-cn, floating point). 𝔠_n enters 𝔤_N and k₃ (so 𝔰₀) for n ≤ N, and, at level 4, m_t through
+[𝔠₄]_t.
+
+*Constants only at level 4 (the products of lem:tl5-hf4-mixed).* m_t = 98 e^(φ(t,v*)/2) [2Ω̂²(1 + c/κ′)^(1/2)]_t
+[𝔠₄]_t 𝔪(t) 𝔵_t 𝔶_t, with 𝔵_t, 𝔶_t built from the face suprema of 𝔳^(2r) R⁻³ (r = 2, 3, 4), 𝔳⁴ and 𝔳⁶ on the leaf
+S_t, max(1, 𝔴)⁶ R^(3/2), |∂_γ|, |D̂∂_γ|, k₁, k₂ and Λ, and the numbers 𝔭₃ = 11,773, 𝔭₄ = 37,057, 64,680, √602 ≈ 24.5,
+789, π√98 ≈ 31.1 and π√686 ≈ 82.3 (computed). These come from counting monomials and from the Cauchy–Schwarz
+inequality over words, and are crude; they enter S_M, 𝔯_M and ε_M linearly. C_(S³)² = 1/12 exactly (proved in
+lem:tl5-hf-sphere), so 6C_(S³)² = 1/2 in lem:tl5-hf4-face (b).
+
+*Data.* δ_w contains, at level N, the fluxes of Ψ_I, |I| ≤ N, through N₁ and N₀ and the terms 𝔟[Ψ_I], which contain
+D̂Ψ_I: derivatives of G^♯ − ĝ of order at most N + 1 (7 against 5), the transverse ones on N₁ being ∂_u-derivatives
+of the data computed by transport along N₁. η₀ uses derivatives of order at most N on N₀ (6 against 4).
+
+*Order of vanishing on N₀ and the jets carried by the background.* η₀ and the N₀ terms of δ_w vanish when G^♯ − ĝ
+vanishes to order N on N₀ (the 𝔟-terms with H). By lem:tl5-xt-order (c) this holds when ĝ − g′ vanishes to order N + 1
+on N₀⁺, and by lem:tl5-xt-seed-jets the background must carry g′'s v-jets of orders 4, …, N + 1: orders 4–7 at level 6
+(contact order κ = N + 2 = 8 in N-APP1's terms) against orders 4–5 at level 4 (κ = 6). Any enclosure error of these jets
+enters through η₀ < 𝔰₁ and through the N₀ fluxes in δ_w, beside the N₁ data error.
+
+*Derivatives of the residual to enclose.* ε_w uses s_N[2R̂ic], that is ℒ^J(2R̂ic) for |J| ≤ N (6 against 4), and
+(1/4)𝔤_N k₂ ϱ with ϱ = sup over D^κ of |ℒ^J(2R̂ic)|, |J| ≤ N − 1 (5 against 3); ϱ also enters 𝔯_w, 𝔰_* and, at level
+4, 𝔯_M and ε_M.
+
+*The double-null step.* At both levels ε ≤ ε_𝔰 𝔰_*, |D̂²h| being a low quantity for N ≥ 4. Level 3 cannot give it
+(rem:tl5-hf-level), so level 4 is the lowest level for the theorem in this form.
+
+### Crosswalk rows
+
+Rows for the crosswalk of [[ch:ten-l5]], in its four columns, separated by tabs, in chapter order; the line numbers
+are those of this file:
+
+    sec:tl5-hf4	paper/reader/proofs/P-HF34.md@PENDING:1	P-HF34, section	new; at the end of ch:ten-l5, after rem:tl5-hf-level, beside sec:tl5-hf (author 2026-11-27: keep level 6, add level 4); the level-4 estimate
+    sec:tl5-hf4-products	paper/reader/proofs/P-HF34.md@PENDING:14	P-HF34, section	new
+    def:tl5-hf4-levels	paper/reader/proofs/P-HF34.md@PENDING:16	P-HF34, Definition	low and high quantities at N = 4 by the formulas of def:tl5-hf-levels; orders of factors; p_M of the two products without a factor at a point
+    eq:tl5-hf4-pm	paper/reader/proofs/P-HF34.md@PENDING:26	P-HF34, display	new
+    lem:tl5-hf4-quadratic	paper/reader/proofs/P-HF34.md@PENDING:30	P-HF34, Lemma	Lemma G at level 4: one high factor except D Psi_2 . D Psi_2 and Psi_3 . D^2 Psi_1 at |I| = 4 (R-P-HF level question (d)); order count for persistence
+    eq:tl5-hf4-g	paper/reader/proofs/P-HF34.md@PENDING:40	P-HF34, display	new
+    lem:tl5-hf4-face	paper/reader/proofs/P-HF34.md@PENDING:71	P-HF34, Lemma	mixed-norm Hoelder on the faces, L2_v Linf_omega against Linf_v L2_omega, with the value at v = 1/2; uses lem:tl5-hf-sphere (C^2 = 1/12) and the trace only
+    eq:tl5-hf4-holder	paper/reader/proofs/P-HF34.md@PENDING:95	P-HF34, display	new
+    lem:tl5-hf4-linfty	paper/reader/proofs/P-HF34.md@PENDING:129	P-HF34, Lemma	lem:tl5-hf-linfty holds at N = 4 (it uses Lemma G only below the top level); pointwise recovery bound M2
+    eq:tl5-hf4-m2	paper/reader/proofs/P-HF34.md@PENDING:134	P-HF34, display	new
+    lem:tl5-hf4-mixed	paper/reader/proofs/P-HF34.md@PENDING:142	P-HF34, Lemma	face bound of p_M with explicit constants x_t, y_t
+    eq:tl5-hf4-mixed	paper/reader/proofs/P-HF34.md@PENDING:156	P-HF34, display	new
+    sec:tl5-hf4-bootstrap	paper/reader/proofs/P-HF34.md@PENDING:192	P-HF34, section	new
+    def:tl5-hf4-constants	paper/reader/proofs/P-HF34.md@PENDING:194	P-HF34, Definition	constants of def:tl5-hf-constants at N = 4 plus S_M, r_M, eps_M; A_(w,4) = sqrt2 delta_w + 2 eps_(w,4), B_(w,4) = 2 S_(F,4)
+    eq:tl5-hf4-constants	paper/reader/proofs/P-HF34.md@PENDING:206	P-HF34, display	new
+    prop:tl5-hf4-bootstrap	paper/reader/proofs/P-HF34.md@PENDING:216	P-HF34, Proposition	(H1) at level 4: proof of prop:tl5-hf-bootstrap with the mixed term added in Step 2
+    eq:tl5-hf4-smallness	paper/reader/proofs/P-HF34.md@PENDING:219	P-HF34, display	new
+    eq:tl5-hf4-h1	paper/reader/proofs/P-HF34.md@PENDING:224	P-HF34, display	new
+    lem:tl5-hf4-persistence	paper/reader/proofs/P-HF34.md@PENDING:261	P-HF34, Lemma	(H2) from level 4, qualitative; face-norm induction with the mixed Hoelder at m = 5, 6; N0 fluxes and traces carried as data (R-P-HF M2 respected)
+    thm:tl5-hf4	paper/reader/proofs/P-HF34.md@PENDING:350	P-HF34, Theorem	thm:tl5-hf at level 4; (a) eta0 < s1 (M1 form), N0 flux in delta_w; double-null step via thm:tl5-dn as at level 6
+    eq:tl5-hf4-closing	paper/reader/proofs/P-HF34.md@PENDING:362	P-HF34, display	closing condition at level 4: 8 (sqrt2 delta_w + 2 eps_w + 2 eps_M)(S_F + S_M) < 1
+    rem:tl5-hf4-level	paper/reader/proofs/P-HF34.md@PENDING:376	P-HF34, Remark	level 4 against level 6 (jets, words, residual derivatives, mu powers); background carries the v-jets 4..5 of g' on N0+ (lem:tl5-xt-order, lem:tl5-xt-seed-jets)
+
+Note to change in the existing row of the crosswalk of [[ch:ten-l5]]: rem:tl5-hf-level, add "; points to sec:tl5-hf4,
+the level-4 version (P-HF34 item 2)".

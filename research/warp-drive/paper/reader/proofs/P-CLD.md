@@ -64,12 +64,13 @@ Only the values of U − U′ on the arcs of U enter (b) and (c), and C depends 
 *Step 1 (H_L).* At a point of the axis every rotation of y fixes the point, so the invariant covector p_A^Σ has no
 component along dy there, p_A^Σ = p_A(∂_z) dz, and γ3 has no component along dz dy (as in the proof of
 [[lem:class-leaf]] (a)); so |p_A^Σ| = |p_A(∂_z)| A3^(−1/2) ≥ c M^(−1/2), as A3 ≤ M. The function |p_A^Σ|² has Lipschitz
-constant at most C, so there is r_2 ∈ (0, r_*/4] with |p_A^Σ| ≥ c M^(−1/2)/2 on 𝒰_(4r_2), where p_A(∂_z) then has the
-constant sign ε. There H_L[U](x) = ℋ(x, W_U(x)), with ℋ a smooth function, the same for all states, on the set of (x,
-w) with ρ1 ≥ ρ1(p)/2 at which the components of w satisfy the lower bounds g(X, X) ≥ |X|²/(2M), −g⁻¹(dτ, dτ) ≥ 1/(2M)
-and |p_A^Σ| ≥ c M^(−1/2)/4: n, K_Σ and γ3 are smooth functions of the metric and its first derivatives, κ_A1 = g⁻¹(p_A,
-dψ1) with ψ1 = ½ log g(K1, K1) and g(K1, K1) ≥ ρ1²/M, and Π and the trace of K_Σ over it are smooth functions of γ3,
-K_Σ and p_A^Σ ≠ 0. As W_U is of class C¹ with C¹ norm at most C, so is H_L[U] on 𝒰_(4r_2).
+constant at most C, and so has p_A(∂_z); so there is r_2 ∈ (0, r_*/4] with |p_A^Σ| ≥ c M^(−1/2)/2 and |p_A(∂_z)| ≥ c/2
+on 𝒰_(4r_2), where p_A(∂_z) has the constant sign ε. There H_L[U](x) = ℋ(x, W_U(x)), with ℋ a smooth function, the same
+for all states, on the set of (x, w) with ρ1 ≥ ρ1(p)/2 at which the components of w satisfy the lower bounds g(X, X)
+≥ |X|²/(2M), −g⁻¹(dτ, dτ) ≥ 1/(2M) and |p_A^Σ| ≥ c M^(−1/2)/4: n, K_Σ and γ3 are smooth functions of the metric and its
+first derivatives, κ_A1 = g⁻¹(p_A, dψ1) with ψ1 = ½ log g(K1, K1) and g(K1, K1) ≥ ρ1²/M, and Π and the trace of K_Σ
+over it are smooth functions of γ3, K_Σ and p_A^Σ ≠ 0. As W_U is of class C¹ with C¹ norm at most C, so is H_L[U] on
+𝒰_(4r_2).
 
 *Step 2 (The function G).* At the point (z, (r, 0)) write γ_zz := γ3(∂_z, ∂_z) = A3, γ_z1 := γ3(∂_z, ∂_(y1)) = C3 r,
 γ_11 := γ3(∂_(y1), ∂_(y1)) = B3 + D3 r² and γ_22 := γ3(∂_(y2), ∂_(y2)) = B3. By invariance γ3(∂_z, ∂_(y_i)) = C3 y_i
@@ -93,7 +94,9 @@ q³/γ_22, and on R
 
 Every factor of [[eq:class-leaf-g]] is a smooth function of r, q and the values of W_U at the point, with ℋ in place of
 H; so for a second state U′ with bounds (M, c) and the same (r, z, q) ∈ R, |G_U − G_(U′)| ≤ C (r + |q|) |U − U′| at (z,
-(r, 0)), G_U and G_(U′) the functions [[eq:class-leaf-g]] of the two states.
+(r, 0)), G_U and G_(U′) the functions [[eq:class-leaf-g]] of the two states: by the mean value theorem where |U − U′|
+is so small that the segment between W_U and W_(U′) lies in the set of Step 1, and elsewhere as both |G_U| and |G_(U′)|
+are at most C (r + |q|); the same holds for the function 𝔖 of Step 6, which is bounded by C.
 
 *Step 3 (One leaf).* Put δ_p := min(1, 1/(8C_2)) and r_0 := min(1, r_2/2, δ_p/C_0, 1/(8C_2), 1/(4C_1),
 (r_2/C_0)^(1/2)). For |z0 − z(p)| ≤ r_2/2 consider the map 𝒯 of the proof of [[lem:class-volterra]] on {p ∈ C([0, r_0])
@@ -198,16 +201,17 @@ dy, an integral over points of D ∩ 𝒰_(2δ). Every point of D ∩ 𝒰_δ is
 
 **Lemma {#lem:class-leaf-differences}** (The planar shear of nearby solutions.) Let ů be a smooth state on a
 neighbourhood of the closure of 𝒰, for instance a smooth class solution with ∂_z ů_A ≠ 0 on the axis, p_A := dů_A and
-Θ_A := □ů_A; its leaves h̊ and its planar shear σ[ů] are those defined before [[lem:class-leaf-states]], as are the
+Θ_A := □_g̊ ů_A; its leaves h̊ and its planar shear σ[ů] are those defined before [[lem:class-leaf-states]], as are the
 leaves and the planar shear of every state U. For a state U on Σ and m ≥ 0 let
 
     𝒩_m(U) := Σ_(j≤m) ‖∂^j (W_U − W_ů)‖_(L²(Σ∩𝒰)),
 
 ∂^j all derivatives of order j in x; for a family U(τ) of states on the slices Σ_τ of an interval, for instance a
-solution, let 𝒩_m(U)(τ) be the same expression on Σ_τ with ∂^j all spacetime derivatives of order j. When ů and U are
-solutions, 𝒩_m is at most twice [[eq:class-energy]]. Let k ≥ 6. There are δ_0 > 0, a ball 𝔅 around ů in the norm 𝒩_k
-and a ball 𝔅′ ⊃ 𝔅 around ů in the norm 𝒩_(k−1), and for every δ ∈ (0, δ_0] a number C, such that the states of 𝔅′ have
-bounds (M, c) for which 4δ_0 ≤ r_1, r_1 of [[lem:class-leaf-states]], and for 0 < δ ≤ δ_0:
+solution, with the spacetime derivatives of W_U of order at most k continuous in τ with values in L²(Σ_τ ∩ 𝒰), let
+𝒩_m(U)(τ) be the same expression on Σ_τ with ∂^j all spacetime derivatives of order j. When ů and U are solutions, 𝒩_m
+is at most twice [[eq:class-energy]]. Let k ≥ 6. There are δ_0 > 0, a ball 𝔅 around ů in the norm 𝒩_k and a ball 𝔅′ ⊃ 𝔅
+around ů in the norm 𝒩_(k−1), and for every δ ∈ (0, δ_0] a number C, such that the states of 𝔅′ have bounds (M, c) for
+which 4δ_0 ≤ r_1, r_1 of [[lem:class-leaf-states]], and for 0 < δ ≤ δ_0:
 
 (a) ‖∂^α(σ[U]² − σ[ů]²)‖_(L²(𝒰_δ)) ≤ C 𝒩_k(U) for |α| ≤ k, both for a state U ∈ 𝔅, ∂^α the derivatives in x, and for a
 family of states in 𝔅, ∂^α the spacetime derivatives and 𝒩_k(U) taken at the time considered; and for m > k and a state
@@ -220,8 +224,9 @@ derivative of δh in (τ, z0, y) of order at most k − 2 is bounded on I × �
 
 C depends only on k, δ, ρ1(p), r_*, the bounds of ů and a bound for the derivatives of order at most k + 2 of the
 components of W_ů (of order at most m + 2 for C_m), and in (b) only on (M, c), ρ1(p) and r_*. The planar shear enters
-[[eq:class-x]], and the closure of the Raychaudhuri equation at an axis, through σ². For a solution of the class system
-with p_A = du_A and Θ_A = □_g u_A the leaves are the level sets of u_A near the axis, and σ[U] is the planar shear
+[[eq:class-x]], and the closure of the Raychaudhuri equation at an axis, through σ². For a state with g⁻¹(du_A, du_A) =
+0, p_A = du_A, Θ_A = □_g u_A and ∂_z u_A ≠ 0 near the axis, for instance a solution of the class system with p_A = du_A
+and Θ_A = □_g u_A, the leaves are the level sets of u_A near the axis, and σ[U] is the planar shear
 [[eq:class-shear-leaf]] of those level sets.
 
 *Proof.* Constants C depend only on the quantities named in the statement, and C_m also on m and on an upper bound for
@@ -237,25 +242,28 @@ So there is r′ > 0 such that every state with 𝒩_4(U) ≤ r′ has bounds (M
 components of its W_U differ from those of ů by at most C r′, and so do the quantities bounded below in the definition
 of bounds. Let 𝔅′ := {𝒩_(k−1) ≤ r′}, as k − 1 ≥ 4; let r_1 and C_0, …, C_4 be the numbers of [[lem:class-leaf-states]]
 and its proof for (M, c), δ_0 := min(r_1/4, 1/(9C_0), δ_1) with δ_1 > 0 fixed in Step 5 below, depending only on (M, c)
-and ů, and 𝔅 := {𝒩_k ≤ r″}, with r″ ∈ (0, r′/2] fixed in Steps 4 and 6 below; let 0 < δ ≤ δ_0.
+and ů, and 𝔅 := {𝒩_k ≤ r″}, with r″ ∈ (0, r′/2] fixed in Steps 4, 5 and 6 below; let 0 < δ ≤ δ_0.
 
 *(b)* is [[lem:class-leaf-states]] (c) with D := Σ, as 2δ ≤ r_1/2, together with its part (a).
 
-*The last statement.* Let g⁻¹(du_A, du_A) = 0, p_A = du_A, Θ_A = □_g u_A and ∂_z u_A ≠ 0 near the axis. By
-[[lem:class-leaf]] (b) the level set of u_A through an axis point (z0, 0) is, near it, an invariant smooth graph z =
-h(y) with h(0) = z0, and du_A = ∂_z u_A dF along it, F := z − h(y); so |∇_M3 u_A| = |p_A^Σ|, ν_L = εν, and Π is its
-tangent plane TΣ_L. By [[lem:class-gauss]] (b), tr χ̸ = |∇_M3 u_A| tr k_L − n(u_A) tr K_Σ|_(TΣ_L) = Θ_A − κ_A1, k_L
-taken for ν_L; so its mean curvature for ν is H_L[U], as in step (1) of the proof of [[lem:class-planar-shear]]. By
-[[lem:class-leaf]] (c), h′(0) = 0 and (r h′)′ = r H_L[U]/a_L − E_L for r > 0; integrating from 0 gives
-[[eq:class-leaf-volterra]], and h is the leaf of U through z0, by the uniqueness in [[lem:class-volterra]]. Then k_r,
-k_φ, e_r and e2 are those of the level set, and σ[U] is [[eq:class-shear-leaf]] for it.
+*The last statement.* Let g⁻¹(du_A, du_A) = 0, p_A = du_A, Θ_A = □_g u_A and ∂_z u_A ≠ 0 near the axis; no field
+equation is used. By [[lem:class-leaf]] (b) the level set of u_A through an axis point (z0, 0) is, near it, an
+invariant smooth graph z = h(y) with h(0) = z0, and du_A = ∂_z u_A dF along it, F := z − h(y); so |∇_M3 u_A| = |p_A^Σ|,
+ν_L = εν, and Π is its tangent plane TΣ_L. By [[lem:class-gauss]] (b), tr χ̸ = |∇_M3 u_A| tr k_L − n(u_A) tr
+K_Σ|_(TΣ_L) = Θ_A − κ_A1, k_L taken for ν_L; so its mean curvature for ν is H_L[U], as in step (1) of the proof of
+[[lem:class-planar-shear]]. By [[lem:class-leaf]] (c), h′(0) = 0 and (r h′)′ = r H_L[U]/a_L − E_L for r > 0;
+integrating from 0 gives [[eq:class-leaf-volterra]], and h is the leaf of U through z0, by the uniqueness in
+[[lem:class-volterra]]. Then k_r, k_φ, e_r and e2 are those of the level set, and σ[U] is [[eq:class-shear-leaf]] for
+it.
 
 *(a) and (c).* *Step 1 (Smooth states suffice).* It suffices to prove (a) and (c) for smooth states, or smooth
 families, with 𝒩_k(U) ≤ 2r″, with constants that do not depend on their smoothness. Indeed, for U ∈ 𝔅 let U_n be
 obtained by extending the components of g, ∂_τ g, p_A and Θ_A from Σ ∩ 𝒰 by Stein's operator
 ([[thm:std-sy-extension]]), mollifying, averaging over G, which acts by isometries of ℝ⁴, and restricting; for a
 family, likewise in (τ, x). Then Σ_(j≤m) ‖∂^j (W_(U_n) − W_U)‖ → 0 for every m with 𝒩_m(U) < ∞, so 𝒩_k(U_n) ≤ 2r″ for n
-large. By (b), σ[U_n] → σ[U] in L²(𝒰_δ), and these functions are bounded by C, so σ[U_n]² → σ[U]² in L²(𝒰_δ); a
+large; for a family the convergence holds uniformly for τ near the time considered, as the derivatives of W_U of order
+at most k are continuous in τ with values in L² of the slices, and the bounds below, uniform in τ, pass to the limit at
+every time. By (b), σ[U_n] → σ[U] in L²(𝒰_δ), and these functions are bounded by C, so σ[U_n]² → σ[U]² in L²(𝒰_δ); a
 sequence bounded in H^m and convergent in L² has its limit in H^m, with the same bound. For (c), the proof of
 [[lem:class-leaf-states]] (b) gives sup |h_(U_n) − h_U| ≤ C sup |U_n − U| → 0 on the leaves, and the bounds pass to the
 limit in the same way. From now on U is smooth, or a smooth family, with 𝒩_k(U) ≤ 2r″.
@@ -267,9 +275,12 @@ maps {|z0 − z(p)| < 3δ, |y| < ρ} onto a set containing Q_δ for ρ ≥ δ. F
 H^m norms of f on Σ ∩ 𝒰_ρ and of f(z, y) on Q_ρ agree up to factors depending only on m and ρ1(p): the volume elements
 differ by the factor 2π z of the proof of [[lem:class-leaf-states]] (c), and ∂_(x_i) f = (x_i/ρ1) ∂_z f for i = 1, 2
 and ∂_z f = Σ_(i≤2) (x_i/ρ1) ∂_(x_i) f, the functions x_i/ρ1 having bounded derivatives of every order where ρ1 ≥
-ρ1(p)/2. Below, D denotes the derivatives in (z0, y), or in (z, y), and, for a family, also in τ; T denotes ∂_(z0) and,
-for a family, also ∂_τ; all norms are taken at the time considered, and a norm without index on Q̂, on Q_(4δ) or on a
-subset is that of L², ‖f‖_n := Σ_(|α|≤n) ‖D^α f‖. Put ω := W_U − W_ů and ω_g := g_U − g_ů on Q_(4δ), and Ω_n := ‖ω‖_n +
+ρ1(p)/2. The same holds for each component in the chart x of a G-invariant tensor field: its components in the frame
+(∂_z, ρ1⁻¹K1, ∂_(x3), ∂_(x4)) are functions of (ρ1, x3, x4), equal to its components in the chart x at the points of
+M3, and they are obtained from those by a change of frame with bounded derivatives of every order where ρ1 ≥ ρ1(p)/2.
+Below, D denotes the derivatives in (z0, y), or in (z, y), and, for a family, also in τ; T denotes ∂_(z0) and, for a
+family, also ∂_τ; all norms are taken at the time considered, and a norm without index on Q̂, on Q_(4δ) or on a subset
+is that of L², ‖f‖_n := Σ_(|α|≤n) ‖D^α f‖. Put ω := W_U − W_ů and ω_g := g_U − g_ů on Q_(4δ), and Ω_n := ‖ω‖_n +
 ‖ω_g‖_(n+1) on Q_(4δ); then Ω_n ≤ C 𝒩_n(U), the first derivatives of g being components of W.
 
 *Step 3 (The divergence form).* Let X ∈ {U, ů}. For a C¹ G-invariant function h on a disc of the y-plane put F := z −
@@ -306,7 +317,7 @@ having trace-free part of squared norm (a − b)²/2. In the frame (X_i) this re
 
 *Step 4 (Bounds of low order).* For X ∈ {U, ů} write s_X := h_X′/r, the solution of [[eq:class-leaf-s]]; it is smooth
 and even (Step 7 of the proof of [[lem:class-leaf-states]]), and by Step 2 of that proof the integrand of
-[[eq:class-leaf-s]] is 𝔤̂(r t, s, W_X(h, (r t, 0))) with 𝔤̂ smooth, the same for all states. Differentiating
+[[eq:class-leaf-s]] is 𝔤̂(r t, h, s, W_X(h, (r t, 0))) with 𝔤̂ smooth, the same for all states. Differentiating
 [[eq:class-leaf-s]] once or twice in r, z0 and, for a family, τ, each derivative of s_X solves a linear equation whose
 map has norm at most 1/2, as in that Step 7, and whose inhomogeneous term holds derivatives of order at most 2 of W_X
 and derivatives of s_X and h_X of lower order; with [[eq:class-leaf-sup]] at i ≤ 2, so 𝒩_5 ≤ 𝒩_k, the derivatives of
@@ -323,23 +334,26 @@ two factors carry two derivatives each and n = 4, Hölder's inequality and H¹(Q
 bound their product by norms of order 3. Otherwise a ≤ n − 3, and the factor is bounded pointwise by Sobolev's
 embedding H²(Q̂) ⊂ L^∞ ([[thm:std-bh-embedding]], 2 · 2 > 3) and its norm of order a + 2, below the order of the term
 and bounded before, or, for a derivative of ω or ω_g, by [[eq:class-leaf-sup]], with 𝒩_(a+3) ≤ 𝒩_k for n ≤ k + 1, k ≥
-6, and 𝒩_(a+3) ≤ 𝒩_(m−1) for n ≤ m + 1, m ≥ 7. So the L² norm of such a product is at most C, or C_m, times the L² norm
-of its factor of highest order, or the norms of order below n just named. (Q) For F on Q_(4δ) and |α| ≤ n, D^α(F ∘ Λ_U)
-is a sum of products of (D^β F) ∘ Λ_U, |β| ≥ 1, with factors D^(α_i) Λ_U, |α_i| ≥ 1, Σ |α_i| = |α|; counting D^(α_i)
-Λ_U as a derivative of order |α_i| − 1 of DΛ_U, the orders add to |α|. (P) applies, and the change of variables Λ_U,
-with Jacobian at least 1/2, gives ‖(D^β F) ∘ Λ_U‖ ≤ √2 ‖D^β F‖ on Q_(4δ). With F := ω, and F := ω_g at the order n + 1,
-the term in which all of D^α falls on h_U being multiplied by sup |Dω| ≤ C 𝒩_k(U),
+6, and 𝒩_(a+3) ≤ 𝒩_(m−1) for n ≤ m + 1 if a ≤ m − 4, the first bound serving if not. So the L² norm of such a product
+is at most C, or C_m, times the L² norm of its factor of highest order, or the norms of order below n just named. (Q)
+For F on Q_(4δ) and |α| ≤ n, D^α(F ∘ Λ_U) is a sum of products of (D^β F) ∘ Λ_U, |β| ≥ 1, with factors D^(α_i)
+Λ_U, |α_i| ≥ 1, Σ |α_i| = |α|; counting D^(α_i) Λ_U as a derivative of order |α_i| − 1 of DΛ_U, the orders add to |α|.
+(P) applies, and the change of variables Λ_U, with Jacobian at least 1/2, gives ‖(D^β F) ∘ Λ_U‖ ≤ √2 ‖D^β F‖ on Q_(4δ).
+With F := ω, and F := ω_g at the order n + 1, the term in which all of D^α falls on h_U being multiplied by sup |Dω| ≤
+C 𝒩_k(U), and with ‖·‖′_(n+1) the sum of the norms of the derivatives of order at most n + 1 other than the T^(n+1),
+for which that term would hold T^(n+1) η,
 
-    ‖ω ∘ Λ_U‖_n + ‖ω_g ∘ Λ_U‖_(n+1) ≤ C (Ω_n + 𝒩_k(U) (‖η‖_n + ‖∂_y η‖_n)).                      {#eq:class-leaf-compose}
+    ‖ω ∘ Λ_U‖_n + ‖ω_g ∘ Λ_U‖′_(n+1) ≤ C (Ω_n + 𝒩_k(U) (‖η‖_n + ‖∂_y η‖_n)).                     {#eq:class-leaf-compose}
 
 The same holds with Λ_U⁻¹ in place of Λ_U, for functions on Q̂: DΛ_U⁻¹ = B ∘ Λ_U⁻¹ with B a smooth function of Dh_U,
 ∂_(z0) h_U ≥ 1/2, so the derivatives of Λ_U⁻¹ are polynomials in the derivatives of h_U composed with Λ_U⁻¹, and the
 Jacobian of Λ_U⁻¹ lies in [2/3, 2].
 
-*Step 5 (Transverse derivatives).* For X ∈ {U, ů}, 𝔤̂(r t, s_U, W_U(h_U, ·)) − 𝔤̂(r t, s_ů, W_ů(h_ů, ·)) = a_1 · (ω ∘
-Λ_U) + a_2 δs + a_3 η at the point (r t, 0) of the leaves, with a_1, a_2, a_3 smooth functions of r t, s_U, s_ů, W_U ∘
-Λ_U, W_ů ∘ Λ_U and W_ů ∘ Λ_ů, the last difference being (∫_0^1 ∂_z W_ů(h_ů + θη, ·) dθ) η; and |a_2| = |∂_s 𝔤̂| ≤ C_2
-(1 + C_0) r t and |a_3| ≤ C. Let j ≤ k, or j ≤ m. Applying T^j to the difference of the equations [[eq:class-leaf-s]],
+*Step 5 (Transverse derivatives).* 𝔤̂(r t, h_U, s_U, W_U(h_U, ·)) − 𝔤̂(r t, h_ů, s_ů, W_ů(h_ů, ·)) = a_1 · (ω ∘ Λ_U) +
+a_2 δs + a_3 η at the point (r t, 0) of the leaves, with a_1, a_2, a_3 smooth functions of r t, h_U, h_ů, s_U, s_ů, W_U
+∘ Λ_U, W_ů ∘ Λ_U, W_ů ∘ Λ_ů and ∫_0^1 ∂_z W_ů(h_ů + θη, ·) dθ, the factor of η in W_ů ∘ Λ_U − W_ů ∘ Λ_ů;
+and |a_2| = |∂_s 𝔤̂| ≤ C_2 (1 + C_0) r t and |a_3| ≤ C. Let j ≤ k, or j ≤ m. Applying T^j to the difference of the
+equations [[eq:class-leaf-s]],
 
     T^j δs(r) = ∫_0^1 t (a_2 T^j δs + a_3 T^j η + a_1 · T^j(ω ∘ Λ_U) + R_j)(r t) dt,
     T^j η(r) = r² ∫_0^1 θ T^j δs(θ r) dθ,
@@ -348,10 +362,16 @@ R_j the terms of Leibniz's rule in which δs, η or ω ∘ Λ_U carries fewer th
 ‖F‖_(L²(𝔻_ρ)), Minkowski's inequality bounds the operators F ↦ ∫_0^1 t F(t ·) dt and F ↦ |y|² ∫_0^1 θ F(θ ·) dθ on
 L²(𝔻_ρ), ρ ≤ 3δ, by 1 and by 9δ², on each disc of fixed (τ, z0), as in the proof of [[lem:class-leaf-states]] (c). So
 ‖T^j η‖ ≤ 9δ² ‖T^j δs‖ and ‖T^j δs‖ ≤ (3C_2 (1 + C_0) δ + 9C δ²) ‖T^j δs‖ + C ‖T^j(ω ∘ Λ_U)‖ + ‖R_j‖ on Q̂. Fix δ_1
-with 3C_2 (1 + C_0) δ_1 + 9C δ_1² ≤ 1/2. By (P), and by induction on j, ‖R_j‖ ≤ C (Ω_j + 𝒩_k(U)) for j ≤ k, the factors
-of R_j other than δs, η and ω ∘ Λ_U being bounded in the norms of order j by Step 4 and (Q), and ‖R_j‖ ≤ C_m (Ω_j +
-𝒩_k(U)) for k < j ≤ m. By (Q), ‖T^j(ω ∘ Λ_U)‖ ≤ C (Ω_j + 𝒩_k(U) ‖T^j η‖) plus terms bounded by (P) and the derivatives
-of η of order below j. With ∂_y η = δs y and Ω_j ≤ C 𝒩_j(U), induction on j gives, on Q̂,
+with 3C_2 (1 + C_0) δ_1 + 9C δ_1² ≤ 1/2. Steps 5 and 6 are one induction on the order: at the order j this step uses
+[[eq:class-leaf-elliptic]] at j − 1, and Step 6 at the order n uses this step at orders at most n. The operator bounds
+above hold on every disc 𝔻_ρ, ρ ≤ 3δ, so the bounds of this step hold on the set Q̂_(j−1) of Step 6, Q̂_(−1) := Q̂. In
+R_j the coefficients a_1, a_2, a_3 carry the derivatives that δs, η and ω ∘ Λ_U do not. A term in which all j fall on a
+coefficient has δs, η or ω ∘ Λ_U as a factor without derivatives, at most C 𝒩_k(U) ≤ 2C r″, times at most C (1 + ‖T^j
+δs‖ + ‖T^j η‖ + ‖T^j(ω ∘ Λ_U)‖), by (Q) for the coefficients; the other terms are covered by (P), whose norms of order
+below j are bounded by [[eq:class-leaf-elliptic]] at j − 1 and by Step 4. So ‖R_j‖ ≤ C (Ω_j + 𝒩_k(U)) + C r″ (‖T^j
+δs‖ + ‖T^j η‖ + ‖T^j(ω ∘ Λ_U)‖) for j ≤ k, and the same with C_m in place of C for k < j ≤ m. By (Q), ‖T^j(ω ∘ Λ_U)‖ ≤
+C (Ω_j + 𝒩_k(U) ‖T^j η‖) plus terms bounded by (P) and the derivatives of η of order below j. With ∂_y η = δs y and Ω_j
+≤ C 𝒩_j(U), the terms in r″ being absorbed for r″ small, induction on j gives, on Q̂_(j−1),
 
     ‖T^j δs‖ + ‖T^j η‖ + ‖T^j ∂_y η‖ ≤ C 𝒩_k(U) for j ≤ k,      ≤ C_m 𝒩_m(U) for k < j ≤ m.   {#eq:class-leaf-transverse}
 
@@ -457,16 +477,22 @@ needs the coefficients of L_U, which hold first derivatives of g, among the comp
 
 New: the text of the Block above, as described.
 
-*2. [[lem:class-leaf-reference]], the reference for H_L[U] (lines 1373–1374).* Old:
+*2. [[lem:class-leaf-reference]], its definitions (lines 1371–1376).* One definition of *state* stands, that before
+[[lem:class-leaf-states]], and V is taken smooth up to the closure of 𝒰_(r_*), as Placement 4 needs. Old:
 
+ρ1(p)/4]; norms and bounds below are taken on 𝒰_(r_*). A *state* is a G-invariant U = (g, p_A, Θ_A, q_A) on 𝒰_(r_*), with
+g of class C², p_A and Θ_A of class C¹, g Lorentzian, Σ_τ spacelike for g and p_A(∂_z) ≠ 0 on the axis. Its function
 H_L[U] is that of [[lem:class-leaf-differences]], its *leaves* are the solutions h(·; z0) of [[eq:class-leaf-volterra]]
 with H_L(ρ) := H_L[U](h(ρ), ρ) and h(0) = z0, its planar shear σ[U] at a point is [[eq:class-shear-leaf]] for the leaf
+through that point, with |p_A^Σ| in place of |∇_M3 u| and p_A(n) in place of n(u), and for a state V, 𝒩_k^V(U) is
+[[eq:class-energy]] with V in place of ů. Let V be a smooth state with |p_V(∂_z)| ≥ c > 0 on the axis near p.
 
 New:
 
-H_L[U] is that defined before [[lem:class-leaf-states]], its *leaves* are the solutions h(·; z0) of
-[[eq:class-leaf-volterra]] with H_L(ρ) := H_L[U](h(ρ), ρ) and h(0) = z0, its planar shear σ[U] at a point is
-[[eq:class-shear-leaf]] for the leaf
+ρ1(p)/4]; norms and bounds below are taken on 𝒰_(r_*). States, their functions H_L[U], their *leaves* h(·; z0) and their
+planar shear σ[U] are those defined before [[lem:class-leaf-states]] for this radius; for a state V, 𝒩_k^V(U) is
+[[eq:class-energy]] with V in place of ů. Let V be a smooth state on a neighbourhood of the closure of 𝒰_(r_*) such
+that |p_V(∂_z)| ≥ c > 0 on the axis near p.
 
 *3. [[lem:class-leaf-reference]], the statement of (a) and (b) (lines 1388–1391).* Old:
 
@@ -480,8 +506,8 @@ New:
 (a), (b) The conclusions (a) and (b) of [[lem:class-leaf-differences]] hold with ů replaced by V, 𝒩_k by 𝒩_k^V and 0 < δ
 ≤ δ_V, the balls 𝔅 and 𝔅′ being balls about V. Here δ_V := min(δ_0, r_V/8, δ_𝔐), δ_0 the number of
 [[lem:class-leaf-differences]] for ů := V and the radius r_*, δ_𝔐 the number of (b′) below for 2𝔐_V in place of 𝔐 and
-c/2 in place of c, 𝔐_V ≥ 1 a bound for V as in (b′); the balls and C depend only on k, δ, r_*, c, r_V, 𝔐_V, lower
-bounds for −g_V⁻¹(dτ, dτ) and for g_V on TΣ_τ, and bounds for the derivatives of order at most k + 2 of W_V.
+c/2 in place of c, 𝔐_V ≥ 1 a bound for V as in (b′); the balls and C depend only on k, δ, ρ1(p), r_*, c, r_V, 𝔐_V,
+lower bounds for −g_V⁻¹(dτ, dτ) and for g_V on TΣ_τ, and bounds for the derivatives of order at most k + 2 of W_V.
 
 *4. [[lem:class-leaf-reference]], the proof of (a) and (b) (lines 1449–1480).* Old:
 
@@ -522,10 +548,10 @@ New:
 
 (a), (b) [[lem:class-leaf-differences]] holds for every smooth state ů on a neighbourhood of the closure of 𝒰_(r_*), r_*
 being the radius of its setting; its proof uses no equation satisfied by ů. With ů := V it gives (a) and (b), its balls
-being balls about V and its norm 𝒩_k at most 𝒩_k^V. For U in its ball 𝔅′, decreased if necessary, the C³ norms of g and
-the C¹ norms of p_A and Θ_A are within C 𝒩_(k−1)^V(U) of those of V, by Sobolev's embedding ([[thm:std-bh-embedding]])
-and k − 1 ≥ 5, and so are |p_A^Σ|, |p_A(∂_z)| and the lower bounds for A3, B3 and det₂; so U has the bounds of (b′) for
-2𝔐_V and c/2.
+being balls about V and its norm 𝒩_k at most twice 𝒩_k^V. For U in its ball 𝔅′, decreased if necessary, the C³ norms of
+g and the C¹ norms of p_A and Θ_A are within C 𝒩_(k−1)^V(U) of those of V, by Sobolev's embedding
+([[thm:std-bh-embedding]]) and k − 1 ≥ 5, and so are |p_A^Σ|, |p_A(∂_z)| and the lower bounds for A3, B3, det₂,
+−g⁻¹(dτ, dτ) and g on TΣ_τ; so U has the bounds of (b′) for 2𝔐_V and c/2.
 
 *5. [[def:class-adapted]], the bound on T_(τ,U) − id (lines 1590–1591 and 1605–1606).* Two old texts. First old:
 
@@ -587,8 +613,8 @@ on 𝔅, bounds it in H^k by C ‖Z‖_(H^k), which gives (F1) and the linear bo
 
 New:
 
-so [[lem:class-leaf-differences]] (a) about Ů, which bounds σ_A[𝐔]² − σ_A[Ů]² = σ_A[𝐔]² in H^k, bounds it by C ‖Z‖_(H^k),
-which gives (F1) and the linear bound; [[lem:class-leaf-differences]] (b), with
+so [[lem:class-leaf-differences]] (a) about Ů bounds σ_A[𝐔]² = σ_A[𝐔]² − σ_A[Ů]² in H^k by C ‖Z‖_(H^k), with Moser's
+estimate for the bounded factors, which gives (F1) and the linear bound; [[lem:class-leaf-differences]] (b), with
 
 *8. [[lem:class-planar-shear]], its bound and step (5) of its proof (lines 1286 and 1318–1319).* Its uses are steps
 (1), (3) and (4) of its proof and its constants ([[lem:class-leaf-differences]], [[lem:class-leaf-reference]],
@@ -627,6 +653,80 @@ shear, the trace-free part of the second fundamental form of the family's level 
 regularity of those level sets recovers its square, the form in which it enters the Raychaudhuri equation, from the
 expansion with no loss ([[lem:class-planar-shear]]). With lateral
 
+*10. [[lem:class-leaf-reference]] (o), its dependence (lines 1378–1379).* Its proof bounds n, K_Σ and κ_A1, which needs
+lower bounds for −g_V⁻¹(dτ, dτ) and for g_V on TΣ_τ (the direction of K1 is not in M3). Old:
+
+(o) (Foliation.) There are r_V ∈ (0, r_*/2] and C_V, depending only on r_*, c, lower bounds for A3, B3 and det₂ of the
+metric γ3 of V and bounds for the C² norms of g_V and the C¹ norms of p_V and Θ_V, such that for |z0 − z(p)| ≤ r_V the
+
+New:
+
+(o) (Foliation.) There are r_V ∈ (0, r_*/2] and C_V, depending only on ρ1(p), r_*, c, lower bounds for A3, B3 and det₂
+of the metric γ3 of V, for −g_V⁻¹(dτ, dτ) and for g_V on TΣ_τ, and bounds for the C² norms of g_V and the C¹ norms of
+p_V and Θ_V, such that for |z0 − z(p)| ≤ r_V the
+
+*11. [[lem:class-leaf-reference]] (b′), its hypotheses (lines 1393–1395).* The same lower bounds, for both states. Old:
+
+(b′) (Leaf by leaf.) Let 𝔐 ≥ 1 bound the C³ norms of g and the C¹ norms of p_A and Θ_A of two states U and U′, the
+inverses of lower bounds for A3, B3, det₂ of their metrics γ3 and the inverse of a lower bound for |p_A^Σ|, and
+let |p_A(∂_z)| ≥ c on the axis for both. There are δ_𝔐 ∈ (0, r_*/16] and C, depending only on r_*, 𝔐 and c, such that for
+
+New:
+
+(b′) (Leaf by leaf.) Let 𝔐 ≥ 1 bound the C³ norms of g and the C¹ norms of p_A and Θ_A of two states U and U′, the
+inverses of lower bounds for A3, B3, det₂ of their metrics γ3, for −g⁻¹(dτ, dτ) and for g on TΣ_τ, and the inverse of
+a lower bound for |p_A^Σ|, and let |p_A(∂_z)| ≥ c on the axis for both. There are δ_𝔐 ∈ (0, r_*/16] and C, depending
+only on ρ1(p), r_*, 𝔐 and c, such that for
+
+*12. [[ch:class-system]], after [[prop:class-flat-model]] (line 1137).* Old:
+
+perturbation perturbs. The next section carries the recovery of (b) over to curved metrics.
+
+New:
+
+perturbation perturbs. The next section carries the recovery of (b) over to curved metrics, for σ in L² and for σ² in
+every H^k.
+
+*13. [[ch:localised-data]], the proof of [[lem:loc-lens-dependence]], steps (4) and (6) (lines 447–450 and 508–509 of
+that chapter).* [[lem:class-leaf-differences]] now holds for δ ≤ δ_0 only, and step (4) fixed δ := 1/2. The radius
+r_* := 1/2 takes the place of that δ, δ is taken at most δ_0 uniformly over the axis points, finitely many points cover
+the range of ρ1, and χ_Z moves inside {ρ2 < δ}; the leaf argument of step (6) is unchanged. Two old texts. First old:
+
+where σ is the planar shear of the level sets of u_in in the slices {t = s}. Fix δ := 1/2 and the points p_i of axis 2
+in a slice with ρ1(p_i) = 3.4, 3.8, …, 5.8; then δ ≤ ρ1(p_i)/4, and [[lem:class-leaf-differences]], for the background
+and the ingoing family, holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
+0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ 1/8 and to 0 for ρ2 ≥ 1/4. Then on 𝒟,
+
+First new:
+
+where σ is the planar shear of the level sets of u_in in the slices {t = s}. At the points p of axis 2 in these slices
+with 3.39 ≤ ρ1(p) ≤ 5.86, 0 ≤ s ≤ t1, take the radius r_* := 1/2 ≤ ρ1(p)/4 in [[lem:class-leaf-differences]], for the
+background and the ingoing family; its number δ_0, its balls and its constants depend only on ρ1(p), r_* and bounds of
+the background on the sets 𝒰_(r_*)(p), which are uniform over these points and times. Fix δ ∈ (0, 1/8], at most δ_0 at
+all of them, and finitely many such points p_i whose intervals (ρ1(p_i) − δ, ρ1(p_i) + δ) cover [3.39, 5.86]; then
+[[lem:class-leaf-differences]] holds near each p_i, with balls 𝔅, 𝔅′ and a constant C common to these points and to
+0 ≤ s ≤ t1. Let χ_Z be a G-invariant function of ρ2 equal to 1 for ρ2 ≤ δ/2 and to 0 for ρ2 ≥ δ. Then on 𝒟,
+
+Second old:
+
+([[eq:class-shear-leaf]]); so σ[Ŭ](y) = σ(y), and likewise σ[ů] = σ̊. The sets 𝒰_δ(p_i) cover {ρ2 ≤ 1/4} ∩ 𝒟_s, where
+3.39 ≤ ρ1 ≤ 5.86, and [[lem:class-leaf-differences]] (b) gives
+
+Second new:
+
+([[eq:class-shear-leaf]]); so σ[Ŭ](y) = σ(y), and likewise σ[ů] = σ̊. The sets 𝒰_δ(p_i) cover {ρ2 < δ} ∩ 𝒟_s, where
+3.39 ≤ ρ1 ≤ 5.86 and outside which χ_Z = 0, and [[lem:class-leaf-differences]] (b) gives
+
+*14. [[ch:localised-data]], [[sec:loc-axis-leaves]], the pointer to H_L (lines 2714–2715 of that chapter).* Old:
+
+p_A(n) in place of Θ, ∇_Σu and n(u), and with the plane Π fixed by p_A. This is how H_L[Θ_A] of
+[[lem:class-leaf-differences]] is read: a function of the point, as [[lem:class-volterra]] requires, which for a
+
+New:
+
+p_A(n) in place of Θ, ∇_Σu and n(u), and with the plane Π fixed by p_A. This is H_L[V] as defined before
+[[lem:class-leaf-states]]: a function of the point, as [[lem:class-volterra]] requires, which for a
+
 ### Crosswalk rows
 
 For crosswalk/81-class-system.tsv. Each row is given as its four fields (label; source; source_name; note), to be
@@ -646,43 +746,48 @@ Row 3. eq:class-leaf-pointwise; paper/reader/proofs/P-CLD.md@PENDING:53; proof P
 point by f, its Hardy average and its weighted L² norm along the arc.
 Row 4. eq:class-leaf-sets; paper/reader/proofs/P-CLD.md@PENDING:58; proof P-CLD, display; the L² bound on sets closed
 under arcs.
-Row 5. eq:class-leaf-g; paper/reader/proofs/P-CLD.md@PENDING:86; proof P-CLD, display; G = r(…) − q(C3 r + γ_zz q)²/det₂,
+Row 5. eq:class-leaf-g; paper/reader/proofs/P-CLD.md@PENDING:87; proof P-CLD, display; G = r(…) − q(C3 r + γ_zz q)²/det₂,
 from det₂ − γ_zz N_L² = −(γ_z1 + γ_zz q)².
-Row 6. eq:class-leaf-g-bounds; paper/reader/proofs/P-CLD.md@PENDING:92; proof P-CLD, display; the bounds of G on R,
+Row 6. eq:class-leaf-g-bounds; paper/reader/proofs/P-CLD.md@PENDING:93; proof P-CLD, display; the bounds of G on R,
 including the bound of ∂_z G by C_1 (r + |q|) with C² of g.
-Row 7. eq:class-leaf-shear-s; paper/reader/proofs/P-CLD.md@PENDING:126; proof P-CLD, display; σ at a point of a leaf
+Row 7. eq:class-leaf-shear-s; paper/reader/proofs/P-CLD.md@PENDING:129; proof P-CLD, display; σ at a point of a leaf
 as a smooth function of the point, of W there and of s = h′/r; C3 = ∂_(y2)γ3(∂_z, ∂_(y2)) by invariance.
-Row 8. eq:class-leaf-s; paper/reader/proofs/P-CLD.md@PENDING:140; proof P-CLD, display; the leaf equation in s = h′/r on
+Row 8. eq:class-leaf-s; paper/reader/proofs/P-CLD.md@PENDING:143; proof P-CLD, display; the leaf equation in s = h′/r on
 [−r_1, r_1].
 Rows for lem:class-leaf-differences's displays, after the row of lem:class-leaf-differences and before the row of
 rem:class-leaf-numerics, in this order:
-Row 9. eq:class-leaf-sup; paper/reader/proofs/P-CLD.md@PENDING:234; proof P-CLD, display; Sobolev on Σ ∩ 𝒰.
-Row 10. eq:class-leaf-divergence; paper/reader/proofs/P-CLD.md@PENDING:283; proof P-CLD, display; the mean curvature
+Row 9. eq:class-leaf-sup; paper/reader/proofs/P-CLD.md@PENDING:239; proof P-CLD, display; Sobolev on Σ ∩ 𝒰.
+Row 10. eq:class-leaf-divergence; paper/reader/proofs/P-CLD.md@PENDING:294; proof P-CLD, display; the mean curvature
 equation in divergence form, after the divergence form of P-CIVP5's tame lemma.
-Row 11. eq:class-leaf-radial; paper/reader/proofs/P-CLD.md@PENDING:289; proof P-CLD, display; 𝔙 = y 𝔰, 𝔰 the Hardy
+Row 11. eq:class-leaf-radial; paper/reader/proofs/P-CLD.md@PENDING:300; proof P-CLD, display; 𝔙 = y 𝔰, 𝔰 the Hardy
 average of Φ.
-Row 12. eq:class-leaf-inverse; paper/reader/proofs/P-CLD.md@PENDING:295; proof P-CLD, display; ∂_y h = 𝔓(y, h, y 𝔰).
-Row 13. eq:class-leaf-square; paper/reader/proofs/P-CLD.md@PENDING:303; proof P-CLD, display; σ² = 2|χ̸ − ½ (tr χ̸) γ̸|²
+Row 12. eq:class-leaf-inverse; paper/reader/proofs/P-CLD.md@PENDING:306; proof P-CLD, display; ∂_y h = 𝔓(y, h, y 𝔰).
+Row 13. eq:class-leaf-square; paper/reader/proofs/P-CLD.md@PENDING:314; proof P-CLD, display; σ² = 2|χ̸ − ½ (tr χ̸) γ̸|²
 in the frame X_i.
-Row 14. eq:class-leaf-compose; paper/reader/proofs/P-CLD.md@PENDING:333; proof P-CLD, display; composition with the leaf
+Row 14. eq:class-leaf-compose; paper/reader/proofs/P-CLD.md@PENDING:346; proof P-CLD, display; composition with the leaf
 coordinates.
-Row 15. eq:class-leaf-transverse; paper/reader/proofs/P-CLD.md@PENDING:356; proof P-CLD, display; transverse derivatives
+Row 15. eq:class-leaf-transverse; paper/reader/proofs/P-CLD.md@PENDING:376; proof P-CLD, display; transverse derivatives
 by the radial form, the zero-order bound of R-P-CIVP4 Major 5.
-Row 16. eq:class-leaf-elliptic; paper/reader/proofs/P-CLD.md@PENDING:363; proof P-CLD, display; derivatives along the
+Row 16. eq:class-leaf-elliptic; paper/reader/proofs/P-CLD.md@PENDING:383; proof P-CLD, display; derivatives along the
 disc by the flat Laplacian of the radial potential u_X.
 
 Changed rows:
 
-- lem:class-leaf-differences keeps its label; its source field becomes "paper/reader/proofs/P-CLD.md@PENDING:199"
+- lem:class-leaf-differences keeps its label; its source field becomes "paper/reader/proofs/P-CLD.md@PENDING:202"
   followed by the present sources, its source_name field gains "; proof P-CLD (statement and proof replaced)", and its
   note becomes: "ů any smooth state; (a) for σ², at every order, spacetime derivatives for families; (b) from
   lem:class-leaf-states (c); (c) the leaves, ∂_(z0)^j δh in L²(I; H^(k+2−j)), j ≤ 2, used by def:class-adapted; the
   zero order by the radial form (R-P-CIVP4 Major 5); the definitions of the leaves, with P-CIVP3's reading of H_L, moved
   before lem:class-leaf-states".
-- lem:class-leaf-reference appends to its source field "; paper/reader/proofs/P-CLD.md (Placement 2–4)" and to its note
-  "; (a), (b) are lem:class-leaf-differences with ů := V (P-CLD)".
+- lem:class-leaf-reference appends to its source field "; paper/reader/proofs/P-CLD.md (Placement 2–4, 10, 11)" and to
+  its note "; one definition of state (before lem:class-leaf-states); V smooth up to the closure of 𝒰_(r_*); (a), (b)
+  are lem:class-leaf-differences with ů := V; (o), (b′) with the lower bounds for −g⁻¹(dτ, dτ) and g on TΣ_τ (P-CLD)".
+- In crosswalk/83-localised-data.tsv, lem:loc-lens-dependence appends to its note "; δ ≤ δ_0 of
+  lem:class-leaf-differences with r_* := 1/2, finitely many axis points, χ_Z at the scale δ (P-CLD Placement 13)", and
+  sec:loc-axis-leaves appends "; H_L[V] as defined before lem:class-leaf-states (P-CLD Placement 14)".
 - lem:class-planar-shear appends to its note "; bound stated for σ², step (5) by the Cartesian form of χ̸ (P-CLD
-  Placement 8)", and ch:class-system appends "; opening paragraph: the square of the planar shear (P-CLD Placement 9)".
+  Placement 8)", and ch:class-system appends "; opening paragraph: the square of the planar shear (P-CLD Placement 9);
+  after prop:class-flat-model, the recovery for σ in L² and σ² in H^k (P-CLD Placement 12)".
 - def:class-adapted and thm:class-stability append to their notes "; lem:class-leaf-differences (c), and (a) for σ² at
   every order, cited (P-CLD Placement 5, 6)"; lem:loc-axis-system in crosswalk/83-localised-data.tsv appends "; (a) for
   σ² (P-CLD Placement 7)".
@@ -766,10 +871,17 @@ H^k bounds of σ itself:
   model and is proved there (prop:class-flat-model (b): σ_pl = ℓ − 2𝒜ℓ, ‖σ_pl‖ = ‖ℓ‖, 𝒜 bounded on every Ḣ^j); no
   curved claim.
 - 81:1137, "The next section carries the recovery of (b) over to curved metrics": qualitative; in L² it is
-  lem:class-leaf-states (c), in H^k it is the σ²-form of (a).
+  lem:class-leaf-states (c), in H^k it is the σ²-form of (a); Placement 12 says so.
+
+Through δ: 83:447–450 and 83:508–511, the proof of lem:loc-lens-dependence, fix δ := 1/2 and cover {ρ2 ≤ 1/4} by the sets
+𝒰_δ(p_i) before applying (b); the lemma now holds for δ ≤ δ_0 only, so Placement 13 takes the radius r_* := 1/2, a δ at
+most δ_0 uniformly over the axis points, finitely many points p_i and χ_Z inside {ρ2 < δ}. 83:2890–2891 ("By
+compactness, as in step (4) of the proof of [[lem:loc-lens-dependence]], there are δ ∈ (0, ρ_-/4] and balls …") is
+consistent with it. 83:2714–2715, the pointer of sec:loc-axis-leaves to an H_L[Θ_A] of lem:class-leaf-differences, is
+updated by Placement 14.
 
 Bounds of σ in L² or L^∞ only, which are not affected: 81:1717 and 81:1732–1734 (domain of dependence, (b)); 81:1785–1787
-(Step 10: (b) and |σ| ≤ C on 𝔅′); 83:509–511 (eq:loc-lens-shear, (b)); 83:2781 and 83:3095 (lem:loc-axis-shear, the
+(Step 10: (b) and |σ| ≤ C on 𝔅′); 83:2781 and 83:3095 (lem:loc-axis-shear, the
 case D := Ō of lem:class-leaf-states (c)); 83:2934–2935 and 83:2991 ((b), σ_A bounded on 𝔅′); 83:3738–3740,
 83:3759–3761 and 83:3891–3893 (lem:class-leaf-reference (b), (b′)). Qualitative statements: 82:1802 and 82:1957
 (σ2/ρ2² smooth for a smooth eikonal, with its own proof in chapter 82; no Sobolev bound).
@@ -777,17 +889,22 @@ case D := Ō of lem:class-leaf-states (c)); 83:2934–2935 and 83:2991 ((b), σ_
 *Tier 3 (merged; its item 8).* Its definitional clause is carried into the definitions before lem:class-leaf-states
 (H_L[U] with p_A(n), the sign of p_A(∂_z), and Π the γ3-orthogonal complement of p_A^Σ); no statement changes.
 lem:loc-axis-shear is lem:class-leaf-states (c) with D := Ō (Ō closed, arcs of its points in Ō by continuity, ∂O null);
-lem:loc-axis-system (a) needs the wording of Placement 7, as (a) now bounds σ². Its uses of 𝔅, 𝔅′, δ and the last
-statement are served.
+lem:loc-axis-system (a) needs the wording of Placement 7, as (a) now bounds σ², and its paragraph's pointer to H_L
+Placement 14. Its uses of 𝔅, 𝔅′, δ and the last statement are served.
 
 *Tier 4 (merged as lem:class-leaf-reference).* (o) and (b′) keep their own proofs and are also lem:class-leaf-states (a)
 and (c) (whose arc hypothesis is weaker than (b′)'s disc hypothesis; (b′) asks C³ of g, (c) only C²). (a), (b) become
 lem:class-leaf-differences with ů := V (Placements 3, 4); their uses in the corner proof (F1), (F2), *Smoothness* and
-the uniqueness proof go through σ² or (b). One point outside this file: (o) Step 1 and (b′) bound n, K_Σ and κ_A1 by C²
-norms of g, which needs also lower bounds for −g⁻¹(dτ, dτ) and for g on TΣ_τ; the bounds (M, c) of this file include
-them, and Placement 3 names them for (a), (b).
+the uniqueness proof go through σ² or (b). (o) Step 1 and (b′) bound n, K_Σ and κ_A1 by C² norms of g, which needs also
+lower bounds for −g⁻¹(dτ, dτ) and for g on TΣ_τ; the bounds (M, c) of this file include them, Placements 10 and 11 add
+them to (o) and (b′), and Placements 3 and 4 to (a), (b) and to the states of its ball 𝔅′. These are open conditions,
+held by the reference states of chapter 83 and by the states near them. Placement 2 leaves one definition of *state*.
 
-*Tier 5 (P-CIVP5, fix round).* lem:class-leaf-arc (a), (b), (c) is lem:class-leaf-states (a), (b), (c) with the roles of
+*Tier 5 (P-CIVP5, fix round).* Its Block A1 defines *state*, *bounds (M, c)* and *arc* again in the same section, with
+different content; the definitions before lem:class-leaf-states are the ones that stand, and Block A1 should use them
+(its free field 𝔤 for ∂g is a separate notion, not covered here). Its reference "H_L[Θ_A] of
+[[lem:class-leaf-differences]]" should read "H_L[V] defined before lem:class-leaf-states". lem:class-leaf-arc (a), (b),
+(c) is lem:class-leaf-states (a), (b), (c) with the roles of
 the two states exchanged ((b) and (c) here take f on the arcs of the first state); it can be cited instead. For
 lem:class-leaf-tame (a lighter form of (a), on past sets, in spacetime norms): its step (6) bounds D^α η, for α
 transverse, by (H) applied to ∫_0^1 D^α π(sy) · y ds; for transverse α the weight is s⁻¹ and (H) does not apply (the
