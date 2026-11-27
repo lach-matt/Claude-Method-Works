@@ -121,3 +121,134 @@ multiply by e^(−φ), constant on the leaf, integrate over v and use dω dv = R
     ∫∫ e^(−φ) |X_e|² |Y_e|² dω dv ≤ e^(φ(t,b)) ∫ (e^(−φ) sup_ω |X_e|²) (e^(−φ) ∫ |Y_e|² dω) dv
       ≤ e^(φ(t,b)) ⟦X⟧_(2,∞)² ⟦Y⟧_(∞,2)².                                                              ∎
 
+**Lemma {#lem:tl5-hf4-linfty}** (The low quantities at level four.) Let g be a solution of the reduced problem on
+D^κ_s, h := g − ĝ, p ∈ D^κ_s, and let 𝔰₀ and the other quantities of [[lem:tl5-hf-linfty]] be formed with N = 4 and the
+quantities of [[def:tl5-hf4-levels]]. If 𝔰 ≤ 𝔰₀ on Q(τ₁(p), τ₂(p)), then [[eq:tl5-hf-linfty]] holds at p, and at every
+point of Q(τ₁(p), τ₂(p))
+
+    M₂ ≤ 2(k₁ + 1) 𝒥₁ + 2k₂ ϱ(p),      M₂ = max_(|C|≤3) |D̂²Ψ_C|.                                      {#eq:tl5-hf4-m2}
+
+*Proof.* The proof of [[lem:tl5-hf-linfty]] uses the level only through [[lem:tl5-hf-quadratic]], which it applies to
+the words of length at most N − 1 = 3 and, in its last step, to the word of length N − 4 = 0, whose monomials have only
+low solution factors. For these words [[lem:tl5-hf4-quadratic]] (b) gives the bounds used there, as 𝔑^M vanishes on
+them. Every other step holds for N = 4 as written, and its step on second derivatives gives [[eq:tl5-hf4-m2]], ϱ(p)
+bounding |ℒ^J(2R̂ic)|, |J| ≤ 3, on Q(τ₁(p), τ₂(p)). ∎
+
+**Lemma {#lem:tl5-hf4-mixed}** (The products with no factor at a point.) Let g be a solution of the reduced problem on
+D^κ_s, h := g − ĝ, t ∈ [−10, u*] and b ∈ [1/2, s] with Σ := Σ₁(t, b) not empty, and suppose that 𝔰 ≤ 𝔰₀ on Q(t, b),
+with 𝔰₀ as in [[lem:tl5-hf4-linfty]]. Let ϱ ≥ max_(|J|≤3) |ℒ^J(2R̂ic)| on Q(t, b), and η₀ ≥ max(𝔰, |Ψ_C| (|C| ≤ 4),
+|D̂Ψ_C| (|C| ≤ 3)) on N₀ ∩ Q(t, b). With the notation of [[lem:tl5-hf4-face]], 𝒥₁, k₁ and k₂ as in [[lem:tl5-hf-linfty]]
+and 𝔨₂ := (1/z̲ + max(1/c, 1/κ′))/(2Ω̂²), put 𝔍 := ‖𝒥₁‖_Σ and
+
+    λ_t := 2([k₁]_t + 1),      ς_t := 2[k₂]_t (∫_(Σ₁(t,v*)) dμ dτ₂/(1 − κκ′))^(1/2),
+    𝔵_t := max((𝔭₃ 𝔵₃(t) (1 + 64680 [Λ]_t²))^(1/2), (𝔭₄ 𝔵₄(t)/2)^(1/2) (√602 λ_t + 789 [Λ]_t²),
+               (𝔭₄ 𝔵₄(t)/2)^(1/2) √602 ς_t),
+    𝔶_t := max(𝔱₃(t)^(1/2) (1 + 7λ_t), 7 𝔱₃(t)^(1/2) ς_t, 𝔱₂(t)^(1/2), π (98 [𝔳⁶]_t)^(1/2), π (686 [𝔳⁴]_t)^(1/2)).
+
+Then
+
+    ‖𝔭_M‖_Σ ≤ 2 e^(φ(t,b)/2) 𝔪(t) 𝔵_t 𝔶_t (𝔍 + ϱ) (𝔍 + ϱ + η₀),
+    𝔍² ≤ [𝔨₂]_t Σ_(|I|≤4) ∫_Σ e^(−φ) ε₁[Ψ_I] dμ dτ₂.                                                      {#eq:tl5-hf4-mixed}
+
+*Proof.* On Σ, |Ψ_C|² + |D̂Ψ_C|² ≤ 𝔨₂ (e_o[Ψ_C] + κ′ e_i[Ψ_C]) = 𝔨₂ (1 − κκ′) ε₁[Ψ_C] by [[eq:tl5-hf-coercive]] and
+[[lem:tl5-hf-densities]], which gives the second inequality. By [[eq:tl5-hf4-m2]] at the points of Σ, with e^(−φ) ≤ 1
+and Σ ⊂ Σ₁(t, v*), ‖M₂‖_Σ ≤ λ_t 𝔍 + ς_t ϱ.
+
+The function 𝔭_M² is a sum of products |X|² |Y|² over the pairs (X, Y) := (D̂Ψ_B, D̂Ψ_(B′)), |B| = |B′| = 2, of ranks
+3 and 3, and (X, Y) := (D̂²Ψ_Z, Ψ_B), |B| = 3, Z ∈ Γ, of ranks 4 and 2. So ‖𝔭_M‖_Σ² is the sum of ‖|X| |Y|‖_Σ² over
+these pairs, and by [[eq:tl5-hf4-holder]] it is at most e^(φ(t,b)) 𝔪(t)² (X₁² Y₁² + X₂² Y₂²), with
+
+    X₁² := Σ_(|B|=2) ⟦D̂Ψ_B⟧_(2,∞)²,   Y₁² := Σ_(|B|=2) ⟦D̂Ψ_B⟧_(∞,2)²,
+    X₂² := Σ_(Z∈Γ) ⟦D̂²Ψ_Z⟧_(2,∞)²,   Y₂² := Σ_(|B|=3) ⟦Ψ_B⟧_(∞,2)².
+
+*X₁.* By (ii) of the proof of [[lem:tl5-hf-quadratic]], applied with Ψ_B in place of h, for a word J of rotations with
+|J| ≤ 2, ℒ^J D̂Ψ_B = D̂Ψ_(JB) + R′ with R′ a sum of at most m′_(|J|) monomials, m′₀ = 0, m′₁ = 2, m′₂ = 6, each the
+contraction of a coefficient of norm at most Λ with some Ψ_C, |C| ≤ 3; so |R′| ≤ m′_(|J|) Λ 𝒥₁. The words JB are
+distinct and of length at most 4, there are 49 words B of length 2, and Σ_(|J|≤2) m′_(|J|)² = 6 · 4 + 36 · 36 = 1320;
+so Σ_B Σ_J |ℒ^J D̂Ψ_B|² ≤ 2𝒥₁² + 2 · 49 · 1320 Λ² 𝒥₁² at every point, and by [[lem:tl5-hf4-face]] (b) with r = 3,
+X₁ ≤ (𝔭₃ 𝔵₃(t) (1 + 64680 [Λ]_t²))^(1/2) 𝔍.
+
+*X₂.* By (iii) of that proof, applied with Ψ_Z in place of h, ℒ^J D̂²Ψ_Z = D̂²Ψ_(JZ) + R with R a sum of at most m_(|J|)
+monomials, m₁ = 7, m₂ = 35, each with at most two background factors of norm at most Λ and one solution factor D̂Ψ_C or
+Ψ_C with |C| ≤ 2; so |R| ≤ m_(|J|) Λ² 𝒥₁, while |D̂²Ψ_(JZ)| ≤ M₂ as |JZ| ≤ 3. There are 7 fields Z and 43 words J, and
+Σ_(|J|≤2) m_(|J|)² = 6 · 49 + 36 · 35² = 44394; so Σ_Z Σ_J |ℒ^J D̂²Ψ_Z|² ≤ 602 M₂² + 621516 Λ⁴ 𝒥₁², and by
+[[lem:tl5-hf4-face]] (b) with r = 4 and √621516 < 789, X₂ ≤ (𝔭₄ 𝔵₄(t)/2)^(1/2) (√602 ‖M₂‖_Σ + 789 [Λ]_t² 𝔍).
+
+*Y₁ and Y₂.* On S_t ⊂ N₀ ∩ Q(t, b), |D̂Ψ_B| ≤ η₀ for |B| ≤ 3 and |Ψ_B| ≤ η₀ for |B| ≤ 4, and ∫_(S_t) dω = 2π². By
+[[lem:tl5-hf4-face]] (a) with r = 3 and r = 2, as Σ_(|B|=2) |D̂²Ψ_B|² ≤ 49 M₂² and Σ_(|B|=2) |D̂Ψ_B|² ≤ 𝒥₁²,
+
+    Y₁² ≤ 98π² [𝔳⁶]_t η₀² + 𝔱₃(t) (𝔍² + 49 ‖M₂‖_Σ²),      Y₂² ≤ 686π² [𝔳⁴]_t η₀² + 𝔱₂(t) 𝔍²,
+
+there being 343 words of length 3.
+
+With ‖M₂‖_Σ ≤ λ_t 𝔍 + ς_t ϱ these give X_i ≤ 𝔵_t (𝔍 + ϱ) and Y_i ≤ 𝔶_t (𝔍 + ϱ + η₀) for i = 1, 2, and (X₁² Y₁² +
+X₂² Y₂²)^(1/2) ≤ X₁ Y₁ + X₂ Y₂ gives the first inequality. ∎
+
+#### The bootstrap at level four {#sec:tl5-hf4-bootstrap}
+
+**Definition {#def:tl5-hf4-constants}** (The constants at level four.) Fix μ ∈ (0, 1], weights z, z̲, admissible rates
+a_o, a_i for (𝔅₄, E_o⁴, E_i⁴) and φ as in [[prop:tl5-hf-linear]], and let Y_σ be the norm of [[def:tl5-hf-norm]], whose
+definition and properties do not use N ≥ 5, with N = 4. Let G^♯ be data in the wave gauge, and let δ_w, ε_w, 𝔤₄, ϰ₀,
+𝔞_o, 𝔞_i, S_F, 𝔯_w, 𝔰₀, 𝔰_θ and 𝔰₁ be given by the formulas of [[def:tl5-hf-constants]] with N = 4, the quantities of
+[[def:tl5-hf4-levels]] and the constants of [[lem:tl5-hf4-linfty]], ϱ and η₀ being those of [[lem:tl5-hf-linfty]] for a
+point p with τ₁(p) = u*, τ₂(p) = v*. Put, with the notation of [[lem:tl5-hf4-face]] and [[lem:tl5-hf4-mixed]] and with
+[𝔠₄]_t the number 𝔠₄ formed with [Λ]_t in place of Λ,
+
+    m_t := 98 e^(φ(t,v*)/2) [2Ω̂² (1 + c/κ′)^(1/2)]_t [𝔠₄]_t 𝔪(t) 𝔵_t 𝔶_t,
+    S_M := μ^(−2) ∫_(−10)^(u*) m_t [𝔨₂]_t dt,      𝔯_M := ∫_(−10)^(u*) m_t [𝔨₂]_t^(1/2) (2ϱ + η₀) dt,
+    ε_M := μ² ϱ (ϱ + η₀) ∫_(−10)^(u*) m_t dt,
+    S_(F,4) := S_F + S_M,      𝔯_(w,4) := 𝔯_w + 𝔯_M,      ε_(w,4) := ε_w + ε_M,
+    A_(w,4) := √2 δ_w + 2ε_(w,4),      B_(w,4) := 2 S_(F,4),                                             {#eq:tl5-hf4-constants}
+
+and let 𝔰_* be given by the formula of [[def:tl5-hf-constants]] with N = 4 and A_(w,4) in place of A_w:
+
+    𝔰_* := sup_(p∈D^κ) (2 C_∞(p) μ^(−2) e^(φ(p)/2) A_(w,4) + C_(∞,ϱ)(p) ϱ(p) + C_(∞,0)(p) η₀).
+
+As in [[def:tl5-hf-constants]], δ_w contains the fluxes of the Ψ_I and of 𝔟[Ψ_I], |I| ≤ 4, through N₀ and through N₁,
+and η₀ and these fluxes are computed from the derivatives of G^♯ − ĝ on N of order at most 4, and of order 5 in the
+terms 𝔟 on N₁.
+
+**Proposition {#prop:tl5-hf4-bootstrap}** (The a priori estimate at level four.) In the setting of
+[[def:tl5-hf4-constants]], suppose that the rates a_o, a_i are admissible for ((1 − ϑ)⁻¹ 𝔅₄, E_o⁴, E_i⁴) and that
+
+    𝔯_(w,4) ≤ 1/4,      η₀ < 𝔰₁,      𝔰_* < 𝔰₁.                                                    {#eq:tl5-hf4-smallness}
+
+Let g be a solution of the reduced problem on D^κ_s with Y_σ(g) ≤ 2A_(w,4) for every σ ∈ [1/2, s]. Then 𝔰 ≤ 𝔰_* on
+D^κ_s; in particular |h|_k̂ < κ_m/2 there, and
+
+    Y_s(g) ≤ A_(w,4) + B_(w,4) Y_s(g)².                                                                {#eq:tl5-hf4-h1}
+
+*Proof.* Step 1 of the proof of [[prop:tl5-hf-bootstrap]] holds as written with N = 4, A_(w,4) in place of A_w and
+[[lem:tl5-hf4-linfty]] in place of [[lem:tl5-hf-linfty]]: it gives 𝔰 ≤ 𝔰_* < 𝔰₁ ≤ 𝔰₀/2 on D^κ_s, |h|_k̂ < κ_m/2 and
+θ_H ≤ ϑ.
+
+Step 2 of that proof holds with N = 4, [[lem:tl5-hf4-quadratic]] and [[lem:tl5-hf4-linfty]] in place of
+[[lem:tl5-hf-quadratic]] and [[lem:tl5-hf-linfty]], except at one place: |ℒ^J N(h)| ≤ (𝔠_(|J|) + 1) 𝔰 𝔧 for |J| ≤ 3, as
+there, but for |I| = 4 only |𝔑_I − 𝔑^M_I| ≤ 𝔠₄ 𝔰 𝔧. With 𝔑_I − 𝔑^M_I in place of 𝔑_I that step goes through, and the
+terms 𝔑^M_I add to the bulk of the weighted sum over I, by the proof of the second inequality of
+[[lem:tl5-hf-pointwise]], at most
+
+    ∫_(Q(a′,b′)) e^(−φ) μ⁴ Σ_(|I|=4) 2Ω̂² |𝔑^M_I| (√e_o[Ψ_I] + √c √e_i[Ψ_I]) dμ du dv.
+
+By the Cauchy–Schwarz inequality, √e_o + √c √e_i ≤ (1 + c/κ′)^(1/2) (e_o + κ′ e_i)^(1/2) = (1 + c/κ′)^(1/2) ((1 −
+κκ′) ε₁)^(1/2). Foliate Q(a′, b′) by the faces Σ₁(t, b′), −10 ≤ t ≤ a′, with du dv = dτ₁ dτ₂/(1 − κκ′), and apply the
+Cauchy–Schwarz inequality on each nonempty face Σ := Σ₁(t, b′) and over I: the term is at most
+
+    ∫_(−10)^(a′) [2Ω̂² (1 + c/κ′)^(1/2)]_t μ⁴ (Σ_(|I|=4) ‖𝔑^M_I‖_Σ²)^(1/2) (Σ_(|I|=4) ∫_Σ e^(−φ) ε₁[Ψ_I] dμ dτ₂)^(1/2) dt.
+
+By [[eq:tl5-hf4-g]], ‖𝔑^M_I‖_Σ ≤ [𝔠₄]_t ‖𝔭_M‖_Σ, and there are 7⁴ = 49² words of length 4. The last factor is at most
+μ^(−2) Y_s. By Step 1, 𝔰 ≤ 𝔰₀ on D^κ_s, so [[lem:tl5-hf4-mixed]] applies, with the ϱ and η₀ of
+[[def:tl5-hf4-constants]], and with 𝔍² ≤ [𝔨₂]_t μ^(−4) Y_s², as Σ_(|I|≤4) ∫_Σ e^(−φ) ε₁[Ψ_I] dμ dτ₂ ≤ μ^(−4) Y_s². With
+e^(φ(t,b′)) ≤ e^(φ(t,v*)), the term is at most
+
+    ∫_(−10)^(u*) m_t μ² (𝔍 + ϱ)(𝔍 + ϱ + η₀) Y_s dt ≤ S_M Y_s³ + 𝔯_M Y_s² + ε_M Y_s,
+
+by μ²(𝔍 + ϱ)(𝔍 + ϱ + η₀) ≤ [𝔨₂]_t μ^(−2) Y_s² + [𝔨₂]_t^(1/2) (2ϱ + η₀) Y_s + μ² ϱ (ϱ + η₀).
+
+Step 3 of that proof, with this term added, gives for every a′ ≤ u*, b′ ≤ s
+
+    (1 − ϑ) Σ_I μ^|I| ℰ_I(a′, b′) ≤ δ_w² + Y_s ε_(w,4) + 𝔯_(w,4) Y_s² + S_(F,4) Y_s³,
+
+and, as there, with ϑ ≤ 1/4 and 𝔯_(w,4) ≤ 1/4, Y_s² ≤ 2δ_w² + 2Y_s ε_(w,4) + 2S_(F,4) Y_s³, whence
+[[eq:tl5-hf4-h1]]. ∎
+
