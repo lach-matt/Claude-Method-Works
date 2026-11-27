@@ -599,4 +599,164 @@ in the paper (I did not settle it). The note's arguments for the change are righ
 - Format of the merged text: self-contained, no file or program names, no process language in the block or the new
   texts, labels lowercase, lines ≤ 121, no bad wrapped-line starts.
 
-Verdict: NOT CONFIRMED
+Verdict (first reading, 67d1d46d): NOT CONFIRMED
+
+-----------------------------------------------------------------------------------------------------------------------
+
+## Confirmation
+
+Re-read: proofs/P-CLD.md, md5 39e7fd6766b1158ef60fd11b657cc9b7, 914 lines (commit 5c0c1bfd), diffed line by line against
+67d1d46d (git show ea33ac6a:…/proofs/P-CLD.md); notes/reports/P-CLD.md, round 3. Chapters 81, 82, 83 and their crosswalks
+are unchanged between ea33ac6a and HEAD; chapter 95 changed, but not thm:std-bh-embedding, thm:std-bh17-embedding or
+thm:std-sy-extension.
+
+### Every change against my texts
+
+A whitespace-normalised comparison finds each of my 19 tested texts in the new file word for word, up to rewrapping.
+The two exceptions are intended: (o) and (b′) (Placements 10, 11) also add ρ1(p), which is nit 10. In detail:
+
+- Major 1 → Placement 13 (83:447–450, 508–509): my text exactly. **Resolved.**
+- minor 1 → the Step 5 text exactly (Steps 5 and 6 one induction, bounds on Q̂_(j−1), top-order terms of R_j absorbed),
+  and "r″ … fixed in Steps 4, 5 and 6". **Resolved.**
+- minor 2 → eq:class-leaf-compose with ‖·‖′_(n+1) exactly. **Resolved.**
+- minor 3 → the frame sentence of Step 2 exactly. **Resolved.**
+- minor 4 → Placement 2 widened to 81:1371–1376. Its old text is HEAD's six lines, which occur exactly once, and its
+  new text is mine. One definition of *state* stands, and V is smooth up to the closure. **Resolved.**
+- minor 5 → Placements 10 and 11, Placement 4's "at most twice 𝒩_k^V" and the lower bounds for −g⁻¹(dτ, dτ) and g on
+  TΣ_τ. Note the proof of (b′) at 81:1482–1483 still says its Steps 1–3 constants depend "only on r_*, 𝔐 and c". That is
+  correct for r_V, C_0, …, δ_p; ρ1(p) enters only through the weight in *All leaves*. Nothing to change. **Resolved.**
+- minor 6 → Placement 14 exactly. **Resolved.**
+- nits 1–7 and 10: applied as written (Placements 12 and 7; □_g̊ ů_A; p_A(∂_z) in Step 1; the mean value clause; 𝔤̂(r t,
+  h, …) and the arguments of a_3; "a ≤ m − 4"; ρ1(p) in Placement 3, (o) and (b′)).
+
+### Nit 8: the new hypothesis on families
+
+The statement now defines a family as one "with the spacetime derivatives of W_U of order at most k continuous in τ with
+values in L²(Σ_τ ∩ 𝒰)". Step 1 uses this for the convergence of the approximations near the time considered.
+
+The family forms are used at exactly three places:
+- (a) with spacetime ∂^α in Step 6 of the proof of thm:class-stability (81:1675). It bounds the forcing in the bootstrap
+  of Steps 3–8 on the constructed development.
+- (c) for the τ-derivatives in def:class-adapted (81:1605–1606). This makes B_U C¹-close to B, for the constructed
+  solution, the solution of each restart interval, and the development U′ of the uniqueness proof.
+- prop:vlasov-uniform-n (82:2198–2199, 2229), which runs those same steps.
+
+Each of these families is a smooth solution on a compact set:
+- by Step 9 of the proof of thm:class-stability-off-axes and the paragraph *Smoothness* of thm:class-stability;
+- the uniqueness proof assumes U′ smooth;
+- chapter 82's developments are smooth for each n.
+
+So the hypothesis holds at every use. There is no circularity: *Smoothness* (Placement 6) and its τ-derivatives use
+only the state form of (a), and differentiating eq:class-leaf-volterra in τ. Every use in chapter 83 is a state form:
+lem:loc-axis-system (a), 83:2975, the corner and *Smoothness* uses of lem:class-leaf-reference (a), and all the L² uses.
+
+One point about the report, not the merged text: it justifies the hypothesis for solutions by C([τ0, τ1]; H^k) with
+τ-derivatives from the equations. For a merely H^k solution that would need τ-derivatives of the non-local term, i.e. the
+family form itself. The correct reason is smoothness, as above, and the merged text ("for instance a solution", with the
+continuity required) is right for the smooth solutions the paper uses.
+
+Residual nit A (optional). Step 1 still says "for a family, likewise in (τ, x)". If Stein's operator is applied in
+(τ, x) to the space-time cylinder, the result is H^k in space-time. That does not give the order-k traces continuous in
+τ, which is what uniform convergence near the time considered needs. Acting in x on each slice does, since the operator
+then commutes with ∂_τ; add an extension in τ past the ends and mollify in (τ, x). Since every family used is smooth, no
+approximation is needed there, so this concerns only the general statement.
+
+Old (P-CLD 262–263):
+
+```
+([[thm:std-sy-extension]]), mollifying, averaging over G, which acts by isometries of ℝ⁴, and restricting; for a
+family, likewise in (τ, x). Then Σ_(j≤m) ‖∂^j (W_(U_n) − W_U)‖ → 0 for every m with 𝒩_m(U) < ∞, so 𝒩_k(U_n) ≤ 2r″ for n
+```
+
+New:
+
+```
+([[thm:std-sy-extension]]), mollifying, averaging over G, which acts by isometries of ℝ⁴, and restricting; for a
+family, Stein's operator acts in x on each slice, so that it commutes with ∂_τ, the family is extended in τ past the
+ends of its interval by a reflection of order k, and the mollification is in (τ, x). Then Σ_(j≤m) ‖∂^j (W_(U_n) −
+W_U)‖ → 0 for every m with 𝒩_m(U) < ∞, so 𝒩_k(U_n) ≤ 2r″ for n
+```
+
+### Nit 9: the widened last statement
+
+The statement is now: "For a state with g⁻¹(du_A, du_A) = 0, p_A = du_A, Θ_A = □_g u_A and ∂_z u_A ≠ 0 near the axis,
+for instance a solution of the class system …, the leaves are the level sets of u_A near the axis, and σ[U] is the
+planar shear eq:class-shear-leaf of those level sets." Its proof, which notes that no field equation is used, proves
+exactly this, with one caveat. It cites lem:class-leaf (b) ("an invariant smooth graph") and lem:class-gauss (b), and
+both are stated for "a phase in the class": a smooth G-invariant function with du ≠ 0.
+
+All five places that cite the statement have a smooth phase:
+- 81:1636–1638, the datum's u_A;
+- 83:2722, solutions;
+- 83:3078, U_1;
+- 83:3650, the eikonals −v, −u of Ĝ;
+- 83:3863, the phases −v, −u for g_e and G̃.
+
+So nothing breaks, and all five now read the statement directly. The identities used are pointwise and hold for u_A of
+class C² as well.
+
+Residual nit B (optional). Name the phase, so that the statement matches the hypotheses of the two lemmas its proof
+cites:
+
+Old (P-CLD 227–228):
+
+```
+[[eq:class-x]], and the closure of the Raychaudhuri equation at an axis, through σ². For a state with g⁻¹(du_A, du_A) =
+0, p_A = du_A, Θ_A = □_g u_A and ∂_z u_A ≠ 0 near the axis, for instance a solution of the class system with p_A = du_A
+```
+
+New:
+
+```
+[[eq:class-x]], and the closure of the Raychaudhuri equation at an axis, through σ². For a state with p_A = du_A and
+Θ_A = □_g u_A near the axis, u_A a phase in the class with g⁻¹(du_A, du_A) = 0 and ∂_z u_A ≠ 0 there, for instance a
+solution of the class system with p_A = du_A
+```
+
+### Placement 13: the uniformity claim
+
+- r_* := 1/2 ≤ ρ1(p)/4 holds for ρ1(p) ≥ 2, so for all of [3.39, 5.86].
+- The closure of 𝒰_(1/2)(p) is {|ρ1 − ρ1(p)| ≤ 1/2, ρ2 ≤ 1/2}, so ρ1 lies in [2.89, 6.36]. That set lies inside the sets
+  𝒰_1(p_i), ρ1(p_i) = 3.4, …, 5.8, on which the old text already had the background define the state of the slice. Each
+  ρ1(p) ∈ [3.39, 5.86] is within 0.2 of some ρ1(p_i), and 0.5 + 0.2 < 1. So ů is a smooth state on a neighbourhood of
+  that closure, as lem:class-leaf-differences requires.
+- δ_0 = min(r_1/4, 1/(9C_0), δ_1) is explicit. r_1 and C_0 depend only on (M, c), ρ1(p) and r_*. δ_1 depends on (M, c)
+  and on the C¹ bound of W_ů, through |a_1| and |a_3|.
+- The balls (r′, r″) and C depend on the same quantities and on derivatives of W_ů of order at most k + 2.
+- These quantities are uniform over the compact set of axis points p with ρ1(p) ∈ [3.39, 5.86] and times s ∈ [0, t1].
+  The background state is smooth near it, and ρ1 ∈ [ρ1(p)/2, 2ρ1(p)] ⊂ [1.69, 11.72] enters ℋ through bounded smooth
+  functions. The lower bound on the axis is uniform too: ∂_z v̂ = V′z/R ≥ 0.98 (83:475), and v_in is within Cε of it.
+- So a δ ∈ (0, 1/8] at most every δ_0 exists. Finitely many intervals (ρ1(p_i) − δ, ρ1(p_i) + δ) cover the compact
+  [3.39, 5.86], and the sets 𝒰_δ(p_i) cover {ρ2 < δ} ∩ 𝒟_s, outside which χ_Z = 0.
+- The rest of step (6) is unchanged and still holds: Ŭ ∈ 𝔅′, since the local norm is at most the global one; the leaf
+  through y ∈ 𝒟_s with ρ2(y) ≤ 1/4 ⊃ {ρ2 < δ} is the leaf of Ŭ; and S_loc is smooth where χ_Z ≠ 1, with c depending on
+  the fixed δ. 83:2890–2891 is consistent with it. **Confirmed.**
+
+### Scratch merge at HEAD
+
+The merge is a git archive of HEAD (5c0c1bfd) in scratchpad/rpcld4/, with all 17 replacements of the 14 items. Each old
+text occurs exactly once as whole lines at HEAD:
+- in chapter 81 at 1324, 1371, 1388, 1449, 1590, 1605, 1745, 1286, 1318, 17, 1378, 1393 and 1137;
+- in chapter 83 at 2933, 447, 508 and 2714.
+
+The checks:
+- lint.py --chapters: 62 files, 5079 labels, 0 hits.
+- assemble.py --check: problems 0.
+- The assembled check prints `[] 0`. The longest assembled line is 121 characters.
+- In the file, no line exceeds 121 characters and no wrapped line starts badly.
+- The new lemmas assemble as Lemma 51.28 and 51.29; lem:class-leaf-reference becomes 51.31.
+- The crosswalk is complete: all 16 PENDING:N equal their label lines (36, 43, 53, 58, 87, 93, 129, 143, 239, 294, 300,
+  306, 314, 346, 376, 383), and lem:class-leaf-differences is at 202. The changed rows include lem:loc-lens-dependence
+  and sec:loc-axis-leaves, both present in crosswalk/83-localised-data.tsv.
+- With residual nits A and B applied on top (scratchpad/rpcld5/), the same checks pass: 0 hits, problems 0, `[] 0`,
+  max 121.
+
+### Tier 5
+
+The note now says that Block A1's second definitions of *state*, *bounds (M, c)* and *arc* do not stand, and that its
+H_L pointer must change. There is still no label collision. The H^n bound of σ itself in lem:class-leaf-tame remains a
+point for P-CIVP5's reader, as stated above.
+
+No Major or minor finding remains open. Residual nits A and B are optional.
+
+Verdict: CONFIRMED
