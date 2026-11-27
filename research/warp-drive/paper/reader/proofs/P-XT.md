@@ -1,14 +1,14 @@
 #### The conditions (X) and (T) at the first stage {#sec:tl5-xt}
 
 This subsection shows that the conditions (X) and (T) of [[thm:tl5-wg-data]] hold at the first stage of the problem at
-10 l5 when u* < −1, for an explicit background built from the seed and the data ([[cor:tl5-xt-data]]), and that for
-every other background with the seed's values and first derivatives on N₀⁺ they follow from explicit inequalities on
-its departure from the data along N₁ ([[thm:tl5-xt]]). Three facts make this
-possible. (X) follows from (T) ([[lem:tl5-xt-implies]]). On N₀⁺ the development has the seed's partial derivatives of
-order at most 3 ([[lem:tl5-xt-seed-jets]]), so (X) and (T) hold there for every background with the seed's values and
-first derivatives on N₀⁺ ([[lem:tl5-xt-order]]). On N₁, for a background equal to the data at the points of N₁, the
-gauge vector of the development is ∂_v times 3e^(−2W)/(2R) times the difference of the transverse derivatives of R
-([[lem:tl5-xt-gauge]]), and that derivative of the development is one quadrature of the data ([[lem:tl5-xt-rho]]).
+10 l5 when u* < −1, for an explicit background built from the seed and the data ([[cor:tl5-xt-data]]), and that for every
+other background with the seed's values and first derivatives on N₀⁺ they follow from explicit inequalities on its
+departure from the data along N₁ ([[thm:tl5-xt]]). Three facts make this possible. (X) follows from (T)
+([[lem:tl5-xt-implies]]). On N₀⁺ the development has the seed's partial derivatives of order at most 3
+([[lem:tl5-xt-seed-jets]]), so (X) and (T) hold there for every background with the seed's values and first derivatives
+on N₀⁺ ([[lem:tl5-xt-order]]). On N₁, for a background equal to the data at the points of N₁, the gauge vector of the
+development is ∂_v times 3e^(−2W)/(2R) times the difference of the transverse derivatives of R ([[lem:tl5-xt-gauge]]),
+and that derivative of the development is one quadrature of the data ([[lem:tl5-xt-rho]]).
 
 Throughout, a seed is fixed, u* < u⁺ < u₀ with u₀ as in [[lem:tl5-seed]] (a), v* ∈ (1/2, 7/2], κ and κ′ are as in
 [[def:tl5-wg-domains]], g_N is the data of the first stage of [[cor:tl5-wg-data-first-stage]], and δ, g′, Ψ, ξ, ξ′, Y₀,
@@ -502,9 +502,9 @@ data term on N₀ in the estimate, as on N₁. This is a sufficient route; that 
 (ii) For a background with the seed's 1-jet on N₀⁺ that equals the data at the points of N₁, (X) and (T) hold if ∂_uR̂
 matches ρ of [[eq:tl5-xt-rho]] to 0.8329 κ_m (first seed) or 0.8630 κ_m (second seed) in the maximum over N₁ (v* = 7/2);
 the other transverse derivatives do not enter. For one that only approximates the data on N₁, they hold if
-2ε₀ + 4.996 · 3 e^(3K̄₁) ε₁ < κ_m, with ε₀ and ε₁ maxima over N₁ in the norm of k̂; in the norm built from E₀ of the multiplier frame, whose ratio to
-that of k̂ on N₁ is bounded by c(−10)^(−r/2) = (f(10)/2)^(−r/2) for tensors of rank r, these are ε₀ ≤ ε₀′/0.495 and
-ε₁ ≤ ε₁′/0.3482.
+2ε₀ + 4.996 · 3 e^(3K̄₁) ε₁ < κ_m, with ε₀ and ε₁ maxima over N₁ in the norm of k̂; in the norm built from E₀ of the
+multiplier frame, whose ratio to that of k̂ on N₁ is bounded by c(−10)^(−r/2) = (f(10)/2)^(−r/2) for tensors of rank r,
+these are ε₀ ≤ ε₀′/0.495 and ε₁ ≤ ε₁′/0.3482.
 
 ### Crosswalk rows
 
@@ -513,23 +513,23 @@ chapter order. The source is "paper/reader/proofs/P-XT.md@PENDING:N", N the line
 to be replaced by the commit at which this file is merged.
 
     sec:tl5-xt	paper/reader/proofs/P-XT.md@PENDING:1	P-XT, subsection	new: (X), (T) of thm:tl5-wg-data at the first stage for u* < -1 (data item L1 of the plan); after cor:tl5-wg-data-first-stage, before sec:tl5-dn
-    eq:tl5-xt-ew	paper/reader/proofs/P-XT.md@PENDING:21	P-XT, display	e^W at v = 1/2 and 7/2 on N1
-    lem:tl5-xt-implies	paper/reader/proofs/P-XT.md@PENDING:26	P-XT, Lemma	(T) implies (X) for every background (kappa_m <= 1/4, lem:tl5-wg-norms (b))
-    lem:tl5-xt-seed-jets	paper/reader/proofs/P-XT.md@PENDING:40	P-XT, Lemma	development = seed to order 3 on N0+ (lem:tl5-cip-jets (a), m = 3); differs at order 4 off one torus (env C3 not C4)
-    lem:tl5-xt-order	paper/reader/proofs/P-XT.md@PENDING:77	P-XT, Lemma	ghat - g' to order m on N0+ gives Upsilon to m-1, Psi - id to m, G^sharp - ghat to m-1; (X), (T) on N0+
-    lem:tl5-xt-gauge	paper/reader/proofs/P-XT.md@PENDING:121	P-XT, Lemma	|nabla_v khat| in closed form; Upsilon(g') = (3e^-2W/2R) d_u(R' - Rhat) d_v when ghat = data on N1; general bound by eps0, eps1
-    eq:tl5-xt-upsilon	paper/reader/proofs/P-XT.md@PENDING:132	P-XT, display	the gauge vector on N1
-    lem:tl5-xt-rho	paper/reader/proofs/P-XT.md@PENDING:172	P-XT, Lemma	traced angular vacuum equation: d_v(R^2 d_u R) explicit; transverse derivative of R on N1 by one quadrature of the data
-    eq:tl5-xt-rho	paper/reader/proofs/P-XT.md@PENDING:189	P-XT, display	rho
-    lem:tl5-xt-rx	paper/reader/proofs/P-XT.md@PENDING:217	P-XT, Lemma	|d_x R| and |d_x d_r R| on the data cone, both seeds (|d_x w| <= Wbar)
-    lem:tl5-xt-k1	paper/reader/proofs/P-XT.md@PENDING:239	P-XT, Lemma	K1 <= 0.1038 (seed 1), 0.09194 (seed 2), every v* <= 7/2; shift 1-form bounded through the shift constraint
-    eq:tl5-xt-k1	paper/reader/proofs/P-XT.md@PENDING:242	P-XT, display	the bound frak K
-    thm:tl5-xt	paper/reader/proofs/P-XT.md@PENDING:286	P-XT, Theorem	(X), (T) on N0+ free; on N1: eps_R <= 0.8329 kappa_m (seed 1), <= 0.8630 kappa_m (seed 2) at v* = 7/2 (sufficient); general 2eps0 + 4.996 (v*-1/2) e^(K1(v*-1/2)) eps1 < kappa_m
-    eq:tl5-xt-condition	paper/reader/proofs/P-XT.md@PENDING:295	P-XT, display	condition for backgrounds equal to the data on N1
-    eq:tl5-xt-condition-general	paper/reader/proofs/P-XT.md@PENDING:303	P-XT, display	condition in general
-    def:tl5-xt-natural	paper/reader/proofs/P-XT.md@PENDING:330	P-XT, Definition	ghat_natural: seed + data on N1 + transverse R from rho, cut off to a strip at u = -10
-    eq:tl5-xt-natural	paper/reader/proofs/P-XT.md@PENDING:343	P-XT, display	the fields of ghat_natural
-    lem:tl5-xt-natural	paper/reader/proofs/P-XT.md@PENDING:345	P-XT, Lemma	a background on a set containing Dbar and N+; seed 3-jet on N0+; = data on N1 with d_u Rhat = rho
-    cor:tl5-xt-data	paper/reader/proofs/P-XT.md@PENDING:386	P-XT, Corollary	data in the wave gauge for the first stage, both seeds, every u* < -1, every v* <= 7/2, every kappa
-    prop:tl5-xt-seed	paper/reader/proofs/P-XT.md@PENDING:396	P-XT, Proposition	the seed as background fails (T) on N1 for kappa_m <= 0.01967 (seed 1), 0.01100 (seed 2)
-    rem:tl5-xt-background	paper/reader/proofs/P-XT.md@PENDING:420	P-XT, Remark	ghat_natural serves the local theory, not the estimate; order N+2 on N0+ needs the development's jets
+    eq:tl5-xt-ew	paper/reader/proofs/P-XT.md@PENDING:22	P-XT, display	e^W at v = 1/2 and 7/2 on N1
+    lem:tl5-xt-implies	paper/reader/proofs/P-XT.md@PENDING:27	P-XT, Lemma	(T) implies (X) for every background (kappa_m <= 1/4, lem:tl5-wg-norms (b))
+    lem:tl5-xt-seed-jets	paper/reader/proofs/P-XT.md@PENDING:41	P-XT, Lemma	development = seed to order 3 on N0+ (lem:tl5-cip-jets (a), m = 3); differs at order 4 off one torus (env C3 not C4)
+    lem:tl5-xt-order	paper/reader/proofs/P-XT.md@PENDING:78	P-XT, Lemma	ghat - g' to order m on N0+ gives Upsilon to m-1, Psi - id to m, G^sharp - ghat to m-1; (X), (T) on N0+
+    lem:tl5-xt-gauge	paper/reader/proofs/P-XT.md@PENDING:122	P-XT, Lemma	|nabla_v khat| in closed form; Upsilon(g') = (3e^-2W/2R) d_u(R' - Rhat) d_v when ghat = data on N1; general bound by eps0, eps1
+    eq:tl5-xt-upsilon	paper/reader/proofs/P-XT.md@PENDING:133	P-XT, display	the gauge vector on N1
+    lem:tl5-xt-rho	paper/reader/proofs/P-XT.md@PENDING:174	P-XT, Lemma	traced angular vacuum equation: d_v(R^2 d_u R) explicit; transverse derivative of R on N1 by one quadrature of the data
+    eq:tl5-xt-rho	paper/reader/proofs/P-XT.md@PENDING:191	P-XT, display	rho
+    lem:tl5-xt-rx	paper/reader/proofs/P-XT.md@PENDING:219	P-XT, Lemma	|d_x R| and |d_x d_r R| on the data cone, both seeds (|d_x w| <= Wbar)
+    lem:tl5-xt-k1	paper/reader/proofs/P-XT.md@PENDING:241	P-XT, Lemma	K1 <= 0.1038 (seed 1), 0.09194 (seed 2), every v* <= 7/2; shift 1-form bounded through the shift constraint
+    eq:tl5-xt-k1	paper/reader/proofs/P-XT.md@PENDING:244	P-XT, display	the bound frak K
+    thm:tl5-xt	paper/reader/proofs/P-XT.md@PENDING:289	P-XT, Theorem	(X), (T) on N0+ free; on N1: eps_R <= 0.8329 kappa_m (seed 1), <= 0.8630 kappa_m (seed 2) at v* = 7/2 (sufficient); general 2eps0 + 4.996 (v*-1/2) e^(K1(v*-1/2)) eps1 < kappa_m
+    eq:tl5-xt-condition	paper/reader/proofs/P-XT.md@PENDING:298	P-XT, display	condition for backgrounds equal to the data on N1
+    eq:tl5-xt-condition-general	paper/reader/proofs/P-XT.md@PENDING:306	P-XT, display	condition in general
+    def:tl5-xt-natural	paper/reader/proofs/P-XT.md@PENDING:333	P-XT, Definition	ghat_natural: seed + data on N1 + transverse R from rho, cut off to a strip at u = -10
+    eq:tl5-xt-natural	paper/reader/proofs/P-XT.md@PENDING:346	P-XT, display	the fields of ghat_natural
+    lem:tl5-xt-natural	paper/reader/proofs/P-XT.md@PENDING:348	P-XT, Lemma	a background on a set containing Dbar and N+; seed 3-jet on N0+; = data on N1 with d_u Rhat = rho
+    cor:tl5-xt-data	paper/reader/proofs/P-XT.md@PENDING:390	P-XT, Corollary	data in the wave gauge for the first stage, both seeds, every u* < -1, every v* <= 7/2, every kappa
+    prop:tl5-xt-seed	paper/reader/proofs/P-XT.md@PENDING:401	P-XT, Proposition	the seed as background fails (T) on N1 for kappa_m <= 0.01967 (seed 1), 0.01100 (seed 2)
+    rem:tl5-xt-background	paper/reader/proofs/P-XT.md@PENDING:425	P-XT, Remark	ghat_natural serves the local theory, not the estimate; order N+2 on N0+ needs the development's jets
