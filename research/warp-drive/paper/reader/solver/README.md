@@ -73,6 +73,11 @@ end of every quadrant; rerunning the same command continues from it. `PREFIX.log
 | PREFIX.coef | `coef_dd PREFIX.elem PREFIX.coef`: Chebyshev coefficients per element and field (`approx.read_coef`) |
 | PREFIX.log, PREFIX.ckpt | progress (one line per column) and the checkpoint |
 
+`ckptline.py RUN.cfg RUN.ckpt OUT.npz` extracts from a checkpoint the state on the line where its last column ended
+(G of R, m, n, W at the rows' v-nodes and the x-nodes, all double parts, with the coordinates, following the quadrant
+being marched and any explicit `xibreaks`/`vbreaks`); `test_ckptline.py` is its regression test (synthetic checkpoints
+in Q1 with explicit breakpoints and in Q4).
+
 Post-processing: `tables.py` (quanta, printed blocks with line checks and block sums, read back, page count,
 `_approx.txt` for evalres, `_z.pkl` for the certification), `evalres_*` (the residual of a printed or unquantized
 approximant at sample points, in dd or qd: floating diagnostics), `post.py` (that, over a set of quanta), `rates.py`
