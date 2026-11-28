@@ -62,6 +62,10 @@ fused multiply-add, no reordering, and x86-64 doubles are SSE2 (no extended prec
 - **The march.** Columns outward, rows upward; the cells of each anti-diagonal of a segment are independent and are
   iterated together in batches of `batch` cells, OpenMP over the nodes of all of them. Results do not depend on the
   thread count or the batching (every 𝔽 sum is exact; every 𝔻 sum is formed in the stated order inside one thread).
+- **Damaged files.** Every file the run reads back is checked before use. Cell files and batch checkpoints end with the
+  SHA-256 of their contents, and every field is read with its length checked; a short, damaged or foreign file is
+  rejected, so the cell is recomputed or the batch restarts from B. A hand-off or element file is checked against its
+  `.sha256` and parsed the same way; if it is bad the run stops with a message naming the segment to rerun.
 - **Resume.** Rerun the same command. A finished cell is `DIR/seg_SS/cell_IIII_JJJJ.bin` (edges, top values, the
   element values it owns), written atomically; a batch in progress is checkpointed after an outer step at most every
   `ckpt_minutes` (`DIR/seg_SS/batch.ckpt`: G and the residual log). An outer step depends on G alone, so a resumed
@@ -85,6 +89,9 @@ fused multiply-add, no reordering, and x86-64 doubles are SSE2 (no extended prec
     BUILD/rule run cfg/tB2.cfg out=X && BUILD/rule assemble cfg/tB2.cfg out=X
     python3 rule_ref.py cfg/tB2.cfg Y && cmp X/case.txt Y.txt && diff X/digests.txt Y.digests
     tests/segtests.sh BUILD cfg         # segments one at a time; 2 threads and another batching; kill and resume
+    tests/cachetests.sh BUILD cfg       # damaged files: a cell file cut at ten offsets or with a flipped byte is rejected
+                                        # and the cell recomputed (identical output); a cut batch checkpoint is ignored; a
+                                        # cut hand-off or element file is a clean error (exit 1)
     tests/fixtests.sh BUILD cfg rule_ref.py ../solver/rhs_gen.h   # the review fixes: batch=0 refused; an exact zero
                                         # defect (cfg/tZ.cfg) keeps N_o entries of max|r|; stop and resume; element order
     # real size (about 50 s of cpu): cell (0,0) of cfg/tK.cfg has the same sha256 with threads=1, with threads=2, and

@@ -169,13 +169,31 @@ static void put_int(std::string& o, const F& a) {       // compact storage: sign
   int len = 48; while (len > 0 && by[len - 1] == 0) len--;
   o.push_back((char)((n && len ? 0x80 : 0) | len)); o.append((const char*)by, len);
 }
-static F get_int(const std::string& s, size_t& pos) {
-  unsigned char h = (unsigned char)s.at(pos++); int len = h & 0x7f; bool n = h & 0x80; uint64_t m[6] = {0};
-  for (int i = 0; i < len; i++) m[i / 8] |= (uint64_t)(unsigned char)s.at(pos++) << (8 * (i % 8));
-  return fx_from_mag<6, 5>(m, n, false);
+// Every reader of a file the run wrote checks the bytes it has before each field: a short or damaged file is rejected,
+// never read past its end.  Cell files and batch checkpoints end with the SHA-256 (64 hex digits) of what precedes it.
+struct Rd {
+  const std::string& b; size_t pos; bool ok = true;
+  Rd(const std::string& s, size_t p) : b(s), pos(p <= s.size() ? p : s.size()), ok(p <= s.size()) {}
+  bool left(size_t n) const { return ok && n <= b.size() - pos; }
+  bool take(void* dst, size_t n) { if (!left(n)) return ok = false; memcpy(dst, b.data() + pos, n); pos += n; return true; }
+  bool str(std::string& out, size_t n) { if (!left(n)) return ok = false; out = b.substr(pos, n); pos += n; return true; }
+  bool raw(std::vector<F>& v, size_t n) { if (!ok || n > (b.size() - pos) / sizeof(F)) return ok = false; v.resize(n); memcpy((void*)v.data(), b.data() + pos, n * sizeof(F)); pos += n * sizeof(F); return true; }
+  bool fx(F& out) {                                     // one compact integer (put_int's form: at most 48 bytes)
+    if (!left(1)) { return ok = false; }
+    const unsigned char h = (unsigned char)b[pos]; const int len = h & 0x7f;
+    if (len > 48 || !left(1 + (size_t)len)) { return ok = false; }
+    uint64_t m[6] = {0};
+    for (int i = 0; i < len; i++) m[i / 8] |= (uint64_t)(unsigned char)b[pos + 1 + i] << (8 * (i % 8));
+    if (m[5] >> 60) { return ok = false; }
+    pos += 1 + len; out = fx_from_mag<6, 5>(m, h & 0x80, false); return true;
+  }
+};
+static std::string with_sha(const std::string& payload) { return payload + sha256_hex(payload); }
+static bool strip_sha(const std::string& b, std::string& payload) {   // false unless b = payload + SHA-256(payload)
+  if (b.size() < 64) { return false; }
+  payload = b.substr(0, b.size() - 64); return sha256_hex(payload) == b.substr(b.size() - 64);
 }
 static void put_raw(std::string& o, const std::vector<F>& v) { o.append((const char*)v.data(), v.size() * sizeof(F)); }
-static void get_raw(const std::string& s, size_t& pos, std::vector<F>& v, size_t n) { v.resize(n); memcpy((void*)v.data(), s.data() + pos, n * sizeof(F)); pos += n * sizeof(F); }
 static std::string read_file(const std::string& fn) { std::ifstream f(fn, std::ios::binary); std::ostringstream o; o << f.rdbuf(); return o.str(); }
 static bool file_exists(const std::string& fn) { struct stat st; return stat(fn.c_str(), &st) == 0; }
 static void write_atomic(const std::string& fn, const std::string& data) {
@@ -265,24 +283,34 @@ static void sample_cell(Cell& c, std::string& rec, long& nrec) {
 struct CellResult { LeftEdge right; TopEdge top; std::string gsha, svsha; std::vector<F> spot; std::string rec; long nrec = 0; int M = 0; };
 static std::map<std::pair<int, int>, CellResult> DONE;
 static std::string cell_bytes(const CellResult& r, int i, int j) {
-  std::string o = "RULECL2\n" + CF.digest + "\n"; int32_t h[3] = {i, j, r.M}; o.append((const char*)h, 12);
+  std::string o = "RULECL3\n" + CF.digest + "\n"; int32_t h[3] = {i, j, r.M}; o.append((const char*)h, 12);
   int32_t d[4] = {r.right.nB, r.right.NX, r.top.nA, r.top.NX}; o.append((const char*)d, 16);
   put_raw(o, r.right.G); put_raw(o, r.top.G); put_raw(o, r.top.sv);
   o += r.gsha + r.svsha; int32_t nl = r.spot.size(); o.append((const char*)&nl, 4); put_raw(o, r.spot);
   int64_t nr = r.nrec; o.append((const char*)&nr, 8); int64_t rl = r.rec.size(); o.append((const char*)&rl, 8); o += r.rec;
-  return o;
+  return with_sha(o);
 }
-static bool load_cell(int s, int i, int j, CellResult& r) {
+// a finished cell's file, accepted only if whole, its checksum right and every size that of this case's grid
+static bool load_cell(int s, int i, int j, CellResult& r, const Grid* g) {
   std::string fn = cellfile(s, i, j); if (!file_exists(fn)) return false;
-  std::string b = read_file(fn); std::string hd = "RULECL2\n" + CF.digest + "\n"; if (b.compare(0, hd.size(), hd)) return false;
-  size_t pos = hd.size(); int32_t h[3]; memcpy(h, b.data() + pos, 12); pos += 12; r.M = h[2];
-  int32_t d[4]; memcpy(d, b.data() + pos, 16); pos += 16;
-  r.right.nB = d[0]; r.right.NX = d[1]; r.top.nA = d[2]; r.top.NX = d[3];
-  get_raw(b, pos, r.right.G, (size_t)4 * d[0] * d[1]); get_raw(b, pos, r.top.G, (size_t)NF * d[2] * d[3]); get_raw(b, pos, r.top.sv, (size_t)d[2] * d[3]);
-  r.gsha = b.substr(pos, 64); r.svsha = b.substr(pos + 64, 64); pos += 128;
-  int32_t nl; memcpy(&nl, b.data() + pos, 4); pos += 4; get_raw(b, pos, r.spot, nl);
-  int64_t nr, rl; memcpy(&nr, b.data() + pos, 8); pos += 8; memcpy(&rl, b.data() + pos, 8); pos += 8;
-  r.nrec = nr; r.rec = b.substr(pos, rl); return true;
+  std::string file = read_file(fn), b; std::string hd = "RULECL3\n" + CF.digest + "\n";
+  auto reject = [&](const char* why) { fprintf(stderr, "  cell (%d,%d): cache file rejected (%s); the cell is recomputed\n", i, j, why); return false; };
+  if (!strip_sha(file, b)) return reject("short or damaged: checksum");
+  if (b.compare(0, hd.size(), hd)) return reject("not of this case");
+  Rd rd(b, hd.size()); int32_t h[3], d[4];
+  if (!rd.take(h, 12) || !rd.take(d, 16)) return reject("short header");
+  if (h[0] != i || h[1] != j || h[2] != g->M || d[0] != g->nB || d[1] != g->NX || d[2] != g->nA || d[3] != g->NX) return reject("sizes");
+  r.M = h[2]; r.right.nB = d[0]; r.right.NX = d[1]; r.top.nA = d[2]; r.top.NX = d[3];
+  int32_t nl; int64_t nr, rl;
+  if (!rd.raw(r.right.G, (size_t)4 * d[0] * d[1]) || !rd.raw(r.top.G, (size_t)NF * d[2] * d[3]) || !rd.raw(r.top.sv, (size_t)d[2] * d[3]) ||
+      !rd.str(r.gsha, 64) || !rd.str(r.svsha, 64) || !rd.take(&nl, 4) || nl < 0 || nl > 1 + 100000 || !rd.raw(r.spot, nl) ||
+      !rd.take(&nr, 8) || !rd.take(&rl, 8) || nr < 0 || rl < 0 || !rd.str(r.rec, (size_t)rl) || rd.pos != b.size()) return reject("short payload");
+  size_t p = 0;                                            // the element records: (e, a, b, NXe) and 5 NXe values each
+  for (int64_t q = 0; q < nr; q++) { int32_t h4[4]; if (r.rec.size() - p < 16) return reject("records"); memcpy(h4, r.rec.data() + p, 16);
+    if (h4[0] < 0 || h4[0] >= (int)CF.el.size() || h4[3] < 1 || h4[3] > 100000) return reject("records");
+    size_t sz = 16 + (size_t)NF * h4[3] * sizeof(F); if (r.rec.size() - p < sz) return reject("records"); p += sz; }
+  if (p != r.rec.size()) return reject("records");
+  r.nrec = nr; return true;
 }
 static std::vector<N1Row> N1;
 static LeftEdge SEG_LEFT;
@@ -326,29 +354,43 @@ static void write_handoff(int s) {
 static std::string read_handoff(int s, LeftEdge& all) {
   std::string b = read_file(handofffile(s));
   if (sha256_hex(b) != read_file(handofffile(s) + ".sha256").substr(0, 64)) { fprintf(stderr, "hand-off %d: file checksum mismatch\n", s); exit(1); }
-  size_t nl = b.find('\n', 8); std::istringstream is(b.substr(8, nl - 8)); std::string k, dig, hdig; int seg, col, nr, pv, M;
+  auto fatal = [&](const char* why) { fprintf(stderr, "hand-off %d: %s; rerun segment %d to rewrite it\n", s, why, s); exit(1); };
+  if (b.compare(0, 8, "RULEHO2\n")) fatal("not a hand-off file");
+  size_t nl = b.find('\n', 8); if (nl == std::string::npos) fatal("no header");
+  std::istringstream is(b.substr(8, nl - 8)); std::string k, dig, hdig; int seg = -1, col = -1, nr = -1, pv = -1, M = -1;
   is >> k >> dig >> k >> seg >> k >> col >> k >> nr >> k >> pv >> k >> M >> k >> hdig;
-  if (dig != CF.digest || seg != s || nr != CF.nr || pv != CF.pv) { fprintf(stderr, "hand-off %d does not belong to this case\n", s); exit(1); }
-  size_t pos = nl + 1; all.nB = CF.pv + 1; all.NX = M + 1; all.G.resize((size_t)nr * 4 * all.nB * all.NX);
-  for (auto& v : all.G) v = get_int(b, pos);
-  if (sha256_hex(handoff_canonical(all, nr)) != hdig) { fprintf(stderr, "hand-off %d: digest mismatch\n", s); exit(1); }
+  if (!is || dig != CF.digest || seg != s || nr != CF.nr || pv != CF.pv || M != CF.segs[s].M || col != CF.segs[s].c1 || hdig.size() != 64) fatal("header does not belong to this case");
+  Rd rd(b, nl + 1); all.nB = CF.pv + 1; all.NX = M + 1; all.G.resize((size_t)nr * 4 * all.nB * all.NX);
+  for (auto& v : all.G) if (!rd.fx(v)) fatal("short or malformed");
+  if (rd.pos != b.size()) fatal("trailing bytes");
+  if (sha256_hex(handoff_canonical(all, nr)) != hdig) fatal("digest of the canonical string mismatch");
   return hdig;
 }
 static void save_batch_ckpt(int s, const std::vector<Cell*>& cells, int o) {
-  std::string out = "RULEBC2\n" + CF.digest + "\n"; int32_t h[2] = {(int32_t)cells.size(), o}; out.append((const char*)h, 8);
+  std::string out = "RULEBC3\n" + CF.digest + "\n"; int32_t h[2] = {(int32_t)cells.size(), o}; out.append((const char*)h, 8);
   for (Cell* c : cells) { int32_t ij[2] = {c->i, c->j}; out.append((const char*)ij, 8); put_raw(out, c->G);
     int32_t nr = c->rmax.size(); out.append((const char*)&nr, 4); put_raw(out, c->rmax); }
-  write_atomic(segdir(s) + "/batch.ckpt", out);
+  write_atomic(segdir(s) + "/batch.ckpt", with_sha(out));
 }
+// the batch's checkpoint, used only if whole, checksummed, of this case and of exactly this batch; else the batch restarts
 static int load_batch_ckpt(int s, const std::vector<Cell*>& cells) {
   std::string fn = segdir(s) + "/batch.ckpt"; if (!file_exists(fn)) return 0;
-  std::string b = read_file(fn); std::string hd = "RULEBC2\n" + CF.digest + "\n"; if (b.compare(0, hd.size(), hd)) return 0;
-  size_t pos = hd.size(); int32_t h[2]; memcpy(h, b.data() + pos, 8); pos += 8;
-  if (h[0] != (int)cells.size()) return 0;
-  size_t p2 = pos;
-  for (Cell* c : cells) { int32_t ij[2]; memcpy(ij, b.data() + p2, 8); p2 += 8; if (ij[0] != c->i || ij[1] != c->j) return 0;
-    p2 += c->G.size() * sizeof(F); int32_t nr; memcpy(&nr, b.data() + p2, 4); p2 += 4 + nr * sizeof(F); }
-  for (Cell* c : cells) { pos += 8; get_raw(b, pos, c->G, c->G.size()); int32_t nr; memcpy(&nr, b.data() + pos, 4); pos += 4; get_raw(b, pos, c->rmax, nr); }
+  std::string file = read_file(fn), b; std::string hd = "RULEBC3\n" + CF.digest + "\n";
+  auto ignore = [&](const char* why) { fprintf(stderr, "  batch checkpoint ignored (%s); the batch starts from B\n", why); return 0; };
+  if (!strip_sha(file, b)) return ignore("short or damaged: checksum");
+  if (b.compare(0, hd.size(), hd)) return ignore("not of this case");
+  Rd rd(b, hd.size()); int32_t h[2];
+  if (!rd.take(h, 8) || h[0] != (int)cells.size()) return ignore("another batch");
+  int No = 0; for (Cell* c : cells) No = std::max(No, c->No);
+  if (h[1] < 1 || h[1] > No) return ignore("outer step");
+  std::vector<std::vector<F>> G(cells.size()), rm(cells.size());
+  for (size_t q = 0; q < cells.size(); q++) {
+    int32_t ij[2], nr;
+    if (!rd.take(ij, 8) || ij[0] != cells[q]->i || ij[1] != cells[q]->j) return ignore("another batch");
+    if (!rd.raw(G[q], cells[q]->G.size()) || !rd.take(&nr, 4) || nr != h[1] || !rd.raw(rm[q], nr)) return ignore("short payload");
+  }
+  if (rd.pos != b.size()) return ignore("trailing bytes");
+  for (size_t q = 0; q < cells.size(); q++) { cells[q]->G.swap(G[q]); cells[q]->rmax.swap(rm[q]); }
   fprintf(stderr, "  resumed the batch from its checkpoint after outer step %d\n", h[1]);
   return h[1];
 }
@@ -376,7 +418,7 @@ static void run_segment(int s, bool dump) {
   for (int d = 0; d <= (c1 - 1 - c0) + (nr - 1); d++) {
     std::vector<std::pair<int, int>> diag, todo;
     for (int t = 0; t <= d; t++) { int i = c0 + t, j = d - t; if (i < c1 && j >= 0 && j < nr) diag.push_back({i, j}); }
-    for (auto& ij : diag) { CellResult r; if (load_cell(s, ij.first, ij.second, r)) DONE[ij] = r; else todo.push_back(ij); }
+    for (auto& ij : diag) { CellResult r; if (load_cell(s, ij.first, ij.second, r, g)) DONE[ij] = r; else todo.push_back(ij); }
     for (size_t q0 = 0; q0 < todo.size(); q0 += CF.batch) {
       size_t q1 = std::min(todo.size(), q0 + (size_t)CF.batch);
       std::vector<std::unique_ptr<Cell>> own; Batch bt; double t0 = now_s(), cc0 = cpu_s();
@@ -454,12 +496,12 @@ static void spot_lines(std::ostringstream& o) {
     << "\nspot G_m(N1, row 0, v_pv, x_0) " << fx_dec(e.G[((size_t)FM * nB + nB - 1) * NX]) << "\nspot G_R(N1, row 0, v_pv, x_0) " << fx_dec(e.G[((size_t)FR * nB + nB - 1) * NX]) << "\n";
 }
 static void cell_spots(std::ostringstream& o) {
-  CellResult r;
-  if (load_cell(0, 0, 0, r)) {
+  CellResult r; const Grid* g0 = grid_for(CF.segs[0].M);
+  if (load_cell(0, 0, 0, r, g0)) {
     for (size_t q = 1; q < r.spot.size(); q++) o << "spot max|r| cell (0,0) outer " << q << " " << fx_dec(r.spot[q]) << "\n";
     o << "spot G_m(p_xi,p_v,0) cell (0,0) " << fx_dec(r.spot[0]) << "\n";
   }
-  CellResult r1; if (CF.run_rows > 1 && load_cell(0, 0, 1, r1)) o << "spot G_m(p_xi,p_v,0) cell (0,1) " << fx_dec(r1.spot[0]) << "\n";
+  CellResult r1; if (CF.run_rows > 1 && load_cell(0, 0, 1, r1, g0)) o << "spot G_m(p_xi,p_v,0) cell (0,1) " << fx_dec(r1.spot[0]) << "\n";
 }
 
 // ---------------------------------------------------------------------------------------------- assembly (eq:appc-rule-z)
@@ -472,14 +514,21 @@ static void assemble() {
     LeftEdge tmp; hdigs.push_back(read_handoff(s, tmp));
     std::string b = read_file(elemfile(s));
     if (sha256_hex(b) != read_file(elemfile(s) + ".sha256").substr(0, 64)) { fprintf(stderr, "element file %zu: checksum mismatch\n", s); exit(1); }
-    size_t nl = b.find('\n', 8); std::istringstream is(b.substr(8, nl - 8)); std::string k, dig; int seg; size_t nrec;
-    is >> k >> dig >> k >> seg >> k >> nrec; if (dig != CF.digest) { fprintf(stderr, "element file %zu does not belong to this case\n", s); exit(1); }
-    size_t pos = nl + 1;
+    auto fatal = [&](const char* why) { fprintf(stderr, "element file %zu: %s; rerun segment %zu to rewrite it\n", s, why, s); exit(1); };
+    if (b.compare(0, 8, "RULEEL2\n")) fatal("not an element file");
+    size_t nl = b.find('\n', 8); if (nl == std::string::npos) fatal("no header");
+    std::istringstream is(b.substr(8, nl - 8)); std::string k, dig; int seg = -1; size_t nrec = 0;
+    is >> k >> dig >> k >> seg >> k >> nrec; if (!is || dig != CF.digest || seg != (int)s) fatal("header does not belong to this case");
+    Rd rd(b, nl + 1);
     for (size_t q = 0; q < nrec; q++) {
-      int32_t h4[4]; memcpy(h4, b.data() + pos, 16); pos += 16; int e = h4[0], a = h4[1], bb = h4[2], NXe = h4[3]; const ElemCfg& c = CF.el[e];
-      for (int f = 0; f < NF; f++) for (int kk = 0; kk < NXe; kk++) V[e][(((size_t)f * (c.Nt + 1) + a) * (c.Ns + 1) + bb) * NXe + kk] = get_int(b, pos);
+      int32_t h4[4]; if (!rd.take(h4, 16)) fatal("short");
+      int e = h4[0], a = h4[1], bb = h4[2], NXe = h4[3];
+      if (e < 0 || e >= (int)CF.el.size() || a < 0 || a > CF.el[e].Nt || bb < 0 || bb > CF.el[e].Ns || NXe != EG[e].Me + 1) fatal("malformed record");
+      const ElemCfg& c = CF.el[e];
+      for (int f = 0; f < NF; f++) for (int kk = 0; kk < NXe; kk++) if (!rd.fx(V[e][(((size_t)f * (c.Nt + 1) + a) * (c.Ns + 1) + bb) * NXe + kk])) fatal("short or malformed");
       got[e][(size_t)a * (c.Ns + 1) + bb] = 1;
     }
+    if (rd.pos != b.size()) fatal("trailing bytes");
   }
   for (size_t e = 0; e < CF.el.size(); e++) for (char q : got[e]) if (!q) { fprintf(stderr, "element %zu: node values missing\n", e); exit(1); }
   Sha256 hcase; std::ofstream txt(CF.out + "/case.txt", std::ios::binary); std::ostringstream dg;
