@@ -8036,3 +8036,193 @@ words Z′JZ, which begin with each of the seven fields, only as a term of the f
 Sobolev constants, the weights 𝔲₀, 𝔲₁, 𝔲_M, 𝔶₀, 𝔶₁ and 𝔶₀^h, the constants of one word, the thresholds 𝔰₀ and 𝔰₁^v and
 the rates are unchanged, and at the levels N ≥ 6 nothing changes. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the
 hypotheses of [[thm:tl5-hfk]] are established in this paper for no background at 10 l5.
+[[sec:tl5-hfn]] bounds the second derivatives at low levels word by word, at the levels N ≥ 6 ([[thm:tl5-hfn]]).
+
+### The second derivatives at low levels word by word, through the map of the recovery {#sec:tl5-hfn}
+
+This section makes one change, at the levels N ≥ 6. In the step on second derivatives at low levels
+([[lem:tl5-hfp-low]]) the bound of D̂²Ψ_B(p), |B| ≤ m, is the recovery of Ψ_B at p. Its linear part consists of the
+leading term, through the first derivatives of the seven words ZB, Z ∈ Γ; the terms with 𝔷_Z and with 𝔯_♯, through D̂Ψ_B
+and Ψ_B; and the couplings 𝔄_BJ, through the jets of words J of length at most |B| that the substitutions of
+[[def:tl5-hf-coupling]] bring in. The step bounds all these jets together by the norm L_g of the jets of all the words
+of length at most m + 1, so that its constant k₁^(m,μ,p) 𝔐_p^(m) counts the families of all 7^b words of each length b ≤
+m + 1. But 𝔰_g^(m) is the largest of its quantities, and the bound of each D̂²Ψ_B needs only the jets of its own
+recovery. So we bound, for each word B, the leading term through the family of the seven words ZB alone, by the
+first-order bound of [[lem:tl5-hfp-c1]] for that family and through the image under the map 𝒳_p of [[lem:tl5-hfk-rec]],
+as [[lem:tl5-hfk-fam]] does at level four for the seven fields ([[lem:tl5-hfn-fam]]); the terms with 𝔷_Z, with the
+weights of their fields as in [[eq:tl5-hfk-rec]], and with 𝔯_♯ through the bounds of D̂Ψ_B and Ψ_B of the one word B;
+and only the couplings through L_g ([[lem:tl5-hfn-low]]). The constant 𝔐_n^(m) so formed takes the place of k₁^(m,μ,p)
+𝔐_p^(m) in the part with ℰ_g of the bounds at a point, the parts with ϱ and η₀ being kept, and so enters C_P^♮, through
+it the closing condition, and the term of 𝔰_* with A ([[def:tl5-hfn-constants]], [[thm:tl5-hfn]]). The closing condition
+is [[eq:tl5-hfn-closing]]; every new constant is at most the one it replaces, and the earlier closing conditions remain
+valid. The notation is that of [[sec:tl5-hfk]].
+
+**Lemma {#lem:tl5-hfn-fam}** (The seven words ZB through the map of the recovery.) Let N ≥ 6, let the setting be that of
+[[lem:tl5-hfp-low]], with 𝔰 ≤ 𝔰₁^v on Q(a, b) and the constants with index l, and let 𝒳_p, |·|_Γ and 𝔨_Γ be as in
+[[lem:tl5-hfk-rec]], formed with the numbers |T(p)|, λ_M(p) and c^ab_j(p) of the point p. For a word B with |B| ≤ N − 4
+let ΓB be the family of the seven words ZB, Z ∈ Γ, which are distinct and have the length |B| + 1 ≤ N − 3. At each point
+of Σ₁(a, b) let 𝔞_𝔄^k(ΓB) be the operator norm of the map that defines 𝔞_𝔄(ΓB) in [[def:tl5-hfp-constants]], its
+components of the pairs (J, TB) multiplied by |T(p)|⁻¹ and those of the pairs (J, K_ab B) by λ_M(p)^(−1/2). Let
+C₁^k(ΓB)(p) be K_rec(p) times the constant C₁^l(ΓB)(p) of [[eq:tl5-hfe-constants]] formed with 43^(1/2) 𝔨_Γ/K_rec(p) in
+place of 301^(1/2), the count (43 · 7)^(1/2) of the family, and with 𝔞_𝔄^k(ΓB)/K_rec(p) in place of 𝔞_𝔄(ΓB), in 𝔩_D(ΓB)
+and 𝔩_J(ΓB) at every point of the face. Then
+
+    |𝒳_p (D̂Ψ_(ZB)(p))_(Z∈Γ)| ≤ μ^(−(|B|+4)/2) C₁^k(ΓB) ℰ_g(p)^(1/2) + 𝔨_Γ (w C_(1,ϱ)^l ϱ(p) + E₀),    {#eq:tl5-hfn-fam}
+
+with w and the part E₀ with η₀ as in [[lem:tl5-hfp-c1]] for 𝔚 = ΓB. Moreover 𝔞_𝔄^k(ΓB) ≤ K_rec(p) 𝔞_𝔄(ΓB) and C₁^k(ΓB) ≤
+K_rec(p) C₁^l(ΓB).
+
+*Proof.* Let A_Z := D̂Ψ_(ZB) for Z ∈ Γ. The proof of [[lem:tl5-hfk-fam]] applies with these A_Z, with the family ΓB in
+place of Γ in [[lem:tl5-hfp-c1]] and [[lem:tl5-hfp-words]], with the pairs (J, ZB) and the words JZB, Z′JZB and σZB in
+place of the pairs (J, Z) and the words JZ, Z′JZ and σZ, σ being the subword of J that a monomial of a remainder leaves,
+and with the factors μ^(|B|+4) and μ^(−(|B|+4)/2) in place of μ⁴ and μ^(−2). That proof uses of the family Γ and of N =
+4 only the following, which hold here at every level N ≥ 6. The fields Ã₀ := |T(p)|⁻¹ A_T and Ã_j := Σ_(a<b) c^ab_j(p)
+A_(K_ab), j = 2, 3, 4, are combinations of the A_Z with constant coefficients, so Σ_i |Ã_i(p)|² = |𝒳_p (A_Z(p))_Z|², and
+by [[lem:tl5-hf-fields]] (a) at p, applied to the tensors at each point, Σ_i |ℒ^J Ã_i|² ≤ |(|ℒ^J A_Z|)_Z|_Γ² and
+Σ_i |D̂ℒ^J Ã_i|² ≤ |(|D̂ℒ^J A_Z|)_Z|_Γ² at every point of the face and of S_a, for every word J. [[lem:tl5-hfp-c1]]
+holds for the family ΓB, in the form that the proof of [[thm:tl5-hfe]] gives it, as its words are distinct and have one
+length at most N − 3. The bounds of its proof for each pair are of the three kinds of the proof of [[lem:tl5-hfk-fam]].
+(i) The bounds of the leading terms D̂Ψ_(JZB), of the remainders R′_(J,ZB) and D̂R′_(J,ZB), and, in the bound of
+D̂²Ψ_(JZB) by [[lem:tl5-hfz-rec]] at the point of the face, of its leading term through the words Z′JZB and of its terms
+with 𝔷_(Z′) and with 𝔯_♯ |Ψ_(JZB)|: they form over the pairs a family whose Euclidean norm the proof bounds through 𝒟_g
+or 𝒥_g, as the words JZB, the words Z′JZB and, for each σ, the words σZB are distinct for distinct indices; by
+[[lem:tl5-hfk-rec]] (a) each of these parts is at most K_rec(p) times its bound there. (ii) The bounds u_J that do not
+depend on Z: those of the nonlinear part and of the part with ϱ of the bound of D̂²Ψ_(JZB), which by the proof of
+[[lem:tl5-hfp-words]] depend only on J and on the length of JZB, and on S_a the bound of ℒ^J A_Z that the step uses for
+every J; for a family y of numbers over the pairs with y_(J,Z) = u_J, the weighted norm |y|_Γ :=
+(Σ_J |(y_(J,Z))_Z|_Γ²)^(1/2) of that proof is 𝔨_Γ (Σ_J u_J²)^(1/2), where the Euclidean norm is √7 (Σ_J u_J²)^(1/2).
+(iii) The terms with 𝔄, whose family over the pairs, multiplied by 𝔬_J and weighted, has the norm |·|_Γ at most (1 −
+𝔰₁^v)⁻¹ 𝔞_𝔄^k(ΓB) 𝒥_g, by the definition of 𝔞_𝔄^k(ΓB) and Σ_K μ^|K| (|D̂Ψ_K|² + |Ψ_K|²) ≤ 𝒥_g². So the rest of the proof
+of [[lem:tl5-hfk-fam]] gives [[eq:tl5-hfn-fam]], with C₁^k(ΓB) in its part with ℰ_g and with 𝔨_Γ in place of the factor
+√7 of the parts with ϱ(p) and η₀ of [[eq:tl5-hfp-family]]. The last claims follow as there: the map that defines
+𝔞_𝔄^k(ΓB) is that defining 𝔞_𝔄(ΓB) followed by the multiplication of its components by numbers at most K_rec(p), so
+𝔞_𝔄^k(ΓB) ≤ K_rec(p) 𝔞_𝔄(ΓB); 43^(1/2) 𝔨_Γ/K_rec(p) ≤ 301^(1/2) by [[lem:tl5-hfk-rec]] (a); and the functions in
+C₁^(U,l)(ΓB), C₁^(D,l)(ΓB) and C₁^(J,l)(ΓB) are nondecreasing in that count and in 𝔞_𝔄(ΓB), as k₁^p ≥ k₁^D, so
+C₁^k(ΓB) ≤ K_rec(p) C₁^l(ΓB). ∎
+
+**Lemma {#lem:tl5-hfn-low}** (The step at low levels, word by word.) Let N ≥ 6, let the setting be that of
+[[lem:tl5-hfp-low]], with 𝔰 ≤ 𝔰₁^v on Q(a, b) and the constants with index f, and let 0 ≤ m ≤ N − 4. For a word B
+with |B| ≤ m put, at p, with 𝔷₁^k and 𝔷₂^k as in [[lem:tl5-hfk-rec]], C₁^k(ΓB) as in [[lem:tl5-hfn-fam]], C₁^l({B}) as
+in [[eq:tl5-hfe-constants]], C_S^f as in [[lem:tl5-hff-zero]] and α_𝔄^(m,μ) as in [[def:tl5-hfs-bounds]],
+
+    𝔨_rec^n(B) := 𝔨_♯ (C₁^k(ΓB) + 𝔷₁^k μ^(1/2) C₁^l({B}) + 𝔷₂^k μ C_S^f) + (1 − 𝔰₁^v)⁻¹ μ 𝔯_♯ C_S^f,
+    𝔐_n^(m) := max_(|B|≤m) 𝔨_rec^n(B) + (1 − 𝔰₁^v)⁻¹ α_𝔄^(m,μ) 𝔐_p^(m),                                {#eq:tl5-hfn-low}
+
+for B = ∅ with C_S^h of [[lem:tl5-hff-zero]] in place of C_S^f, and with 𝔐_p^(m) in its form with index f. Then the step
+on second derivatives at low levels of the lemma in use holds with 𝔐_n^(m) in place of k₁^(m,μ,p) 𝔐_p^(m) in its part
+with ℰ_g, its parts with ϱ and η₀ being as they are. Moreover 𝔐_n^(m) ≤ k₁^(m,μ,p) 𝔐_p^(m), and C₁^l(𝔚′) ≤ C₁^l(𝔚) for
+families 𝔚′ ⊂ 𝔚 of words of one length.
+
+*Proof.* Let |B| ≤ m. In the step, the bound of D̂²Ψ_B(p) is the recovery of Ψ_B at p with 𝔥 = 𝔰₁^v, as |H(p)| ≤ 𝔰(p) ≤
+𝔰₁^v, with 𝔣 = Σ_J 𝔄_BJ(D̂Ψ_J, Ψ_J) + Σ_J 𝔔_BJ ℒ^J(2R̂ic) − 𝔑′_B as in the proof of [[lem:tl5-hfz-words]] (b). Use
+[[lem:tl5-hfk-rec]] (b) for it in place of [[lem:tl5-hfz-rec]]. Its linear part consists of the leading term 𝔨_♯ |𝒳_p
+(D̂Ψ_(ZB)(p))_Z|, as ℒ_ZΨ_B = Ψ_(ZB); the terms 𝔨_♯ (𝔷₁^k |D̂Ψ_B| + 𝔷₂^k |Ψ_B|) and (1 − 𝔰₁^v)⁻¹ 𝔯_♯ |Ψ_B|, which
+involve only the word B; and the couplings (1 − 𝔰₁^v)⁻¹ |Σ_J 𝔄_BJ(D̂Ψ_J, Ψ_J)|, |J| ≤ |B|. The residual and the
+nonlinear part are bounded as in the step, by k₂^z ϱ(p) and through the absorption. The step multiplies the bound by
+μ^((|B|+4)/2), bounds the jets of the linear part by L_g with the coefficients of k₁^(m,μ,p), and L_g by
+[[lem:tl5-hfp-low]]. Let ē_ϱ and ē₀ be the largest of the parts with ϱ(p) and with η₀(p) of the bounds of one jet that
+the zeroth- and first-order steps give, with the weights of the step in these parts, and let ν′ := μ, or ν′ := 1 in
+[[lem:tl5-hft-small]] (a), whose jets are not weighted in these parts. As in the proof of [[lem:tl5-hfp-low]], the step
+bounds the parts with ϱ(p) and η₀(p) of its linear part by k₁^(m,ν′,p) (2𝔐^(m))^(1/2) ē_ϱ and k₁^(m,ν′,p) (2𝔐^(m))^(1/2)
+ē₀, and these are its parts with ϱ(p) and η₀(p).
+
+Here we bound the four terms apart, with the weight μ^((|B|+4)/2). By [[eq:tl5-hfn-fam]], μ^((|B|+4)/2) |𝒳_p
+(D̂Ψ_(ZB)(p))_Z| is at most C₁^k(ΓB) ℰ_g(p)^(1/2) plus parts with ϱ(p) and η₀(p) at most 𝔨_Γ ē_ϱ and 𝔨_Γ ē₀, as w
+C_(1,ϱ)^l ϱ(p) + E₀ is the part with ϱ(p) and η₀(p) of the bound of |D̂Ψ_(ZB)(p)| that the first-order step gives for
+the one word ZB, whose weight in the step is μ^((|B|+4)/2). As μ^((|B|+4)/2) = μ^(1/2) μ^((|B|+3)/2) = μ μ^((|B|+2)/2),
+the first-order step, by [[lem:tl5-hfp-c1]] with 𝔚 = {B}, and the zeroth-order step, by [[lem:tl5-hff-zero]], bound
+μ^((|B|+4)/2) |D̂Ψ_B| by μ^(1/2) C₁^l({B}) ℰ_g(p)^(1/2) and μ^((|B|+4)/2) |Ψ_B| by μ C_S^f ℰ_g(p)^(1/2), with C_S^h for
+B = ∅, plus parts with ϱ(p) and η₀(p) at most ν′^(1/2) ē_ϱ and ν′^(1/2) ē₀, and ν′ ē₀. The couplings are bounded as in
+the step: their part with ℰ_g by (1 − 𝔰₁^v)⁻¹ α_𝔄^(m,μ) 𝔐_p^(m) ℰ_g(p)^(1/2), through L_g and [[lem:tl5-hfp-low]], and
+their parts with ϱ(p) and η₀(p) by (1 − 𝔰₁^v)⁻¹ α_𝔄^(m,ν′) (2𝔐^(m))^(1/2) times ē_ϱ and ē₀. So the part with ℰ_g of the
+linear part is at most (𝔨_rec^n(B) + (1 − 𝔰₁^v)⁻¹ α_𝔄^(m,μ) 𝔐_p^(m)) ℰ_g(p)^(1/2) ≤ 𝔐_n^(m) ℰ_g(p)^(1/2), and its parts
+with ϱ(p) and η₀(p) are at most
+
+    (𝔨_♯ 𝔨_Γ + 𝔨_♯ ν′^(1/2) 𝔷₁^k + (1 − 𝔰₁^v)⁻¹ α_𝔄^(m,ν′) (2𝔐^(m))^(1/2)) ē_ϱ,
+    (𝔨_♯ 𝔨_Γ + 𝔨_♯ (ν′^(1/2) 𝔷₁^k + ν′ 𝔷₂^k) + (1 − 𝔰₁^v)⁻¹ (ν′ 𝔯_♯ + α_𝔄^(m,ν′) (2𝔐^(m))^(1/2))) ē₀.
+
+As 𝔐^(m) ≥ 1 + 7, (2𝔐^(m))^(1/2) ≥ 4; by [[lem:tl5-hfk-rec]] (a), 𝔨_Γ ≤ √7 K_rec and 𝔷₁^k + 𝔷₂^k ≤ K_rec (𝔷₁′ + 𝔷₂′) ≤
+√2 K_rec 𝔷′; and ν′ ≤ ν′^(1/2) ≤ 1. So both coefficients are at most k₁^(m,ν′,p) (2𝔐^(m))^(1/2), and these parts are at
+most those of the step. In [[lem:tl5-hft-small]] (a), where the step bounds |D̂²Ψ_B(p)| without the weight, the same
+bounds, not multiplied by μ^((|B|+4)/2), give the part with ℰ_g with the factor μ^(−(|B|+4)/2) and the parts with ϱ(p)
+and η₀(p) with ν′ = 1. As 𝔰_g^(m) is the largest of its quantities, and 𝔐_n^(m) bounds the part with ℰ_g for every B
+with |B| ≤ m, this gives the claim.
+
+For the last claims, let 𝔚′ ⊂ 𝔚 be families of words of one length. The map that defines 𝔞_𝔄(𝔚′) is that defining 𝔞_𝔄(𝔚)
+followed by the restriction to the components of the pairs (J, C) with C ∈ 𝔚′, of norm at most 1, so 𝔞_𝔄(𝔚′) ≤ 𝔞_𝔄(𝔚);
+the functions in C₁^(U,l), C₁^(D,l) and C₁^(J,l) are nondecreasing in the number of the words of the family, through the
+counts of the nonlinear parts of 𝔩_D and 𝔩_J, and in 𝔞_𝔄, as k₁^p ≥ k₁^D; so C₁^l(𝔚′) ≤ C₁^l(𝔚). With 𝔚_b as in
+[[def:tl5-hfp-constants]], [[lem:tl5-hfn-fam]] and ΓB ⊂ 𝔚_(|B|+1) give C₁^k(ΓB) ≤ K_rec C₁^l(ΓB) ≤ K_rec C₁^l(𝔚_(|B|+1))
+≤ K_rec 𝔐_p^(m), as |B| + 1 ≤ m + 1. As {B} ⊂ 𝔚_(|B|), the Cauchy–Schwarz inequality, 𝔷₁^k² + 𝔷₂^k² ≤ K_rec² 𝔷′² by
+[[lem:tl5-hfk-rec]] (a), and μ ≤ μ^(1/2) give 𝔷₁^k μ^(1/2) C₁^l({B}) + 𝔷₂^k μ C_S^f ≤ μ^(1/2) K_rec 𝔷′ (C₁^l(𝔚_(|B|))² +
+C_S^f²)^(1/2) ≤ μ^(1/2) K_rec 𝔷′ 𝔐_p^(m), the two numbers in the root being terms of 𝔐_p^(m) with b = |B| (with C_S^h
+for B = ∅); and μ 𝔯_♯ C_S^f ≤ μ^(1/2) 𝔯_♯ 𝔐_p^(m). So 𝔨_rec^n(B) ≤ (𝔨_♯ K_rec (1 + μ^(1/2) 𝔷′) + (1 − 𝔰₁^v)⁻¹ μ^(1/2)
+𝔯_♯) 𝔐_p^(m) for every B, and 𝔐_n^(m) ≤ k₁^(m,μ,p) 𝔐_p^(m). ∎
+
+**Definition {#def:tl5-hfn-constants}** (The constants with index n.) Let N ≥ 6, let the setting be that of
+[[def:tl5-hff-constants]], with either route of [[eq:tl5-hff-routes]], and let 𝔐_n^(m), 0 ≤ m ≤ N − 4, be as in
+[[eq:tl5-hfn-low]], at each point p. The constants with index n are the constants with index f formed with 𝔐_n^(m) in
+place of the entry k₁^(m,μ,p) 𝔐_p^(m) of C_(∞,μ)^(m), in its form with index f, for 0 ≤ m ≤ N − 4, and in every constant
+formed from these, among them C_P^♮ = C_(∞,μ)^(m_P) and 𝔎 of [[def:tl5-hfs-constants]], 𝔎^D of
+[[def:tl5-hfd-constants]], S_F and 𝔰_*. Let S_F^n and 𝔯^n be S_F^f and 𝔯^f formed with them, ε^n := ε^f, and
+
+    η_n := 1 − max(ϑ₁, ϑ₂) − 𝔯^n,      A_n := η_n^(−1/2) δ_w + η_n⁻¹ ε^n,      B_n := η_n⁻¹ S_F^n.
+
+For a number 𝔜 ≥ 0 let 𝔰_*^n[𝔜] be 𝔰_*^f[𝔜] formed with the constants with index n, and, when 4A_n B_n < 1, put
+
+    Y_n := 2A_n/(1 + (1 − 4A_n B_n)^(1/2)),      𝔰_*^n := 𝔰_*^n[Y_n].                            {#eq:tl5-hfn-constants}
+
+**Theorem {#thm:tl5-hfn}** (Existence with the second derivatives at low levels word by word.) Let N ≥ 6. In the setting
+of [[thm:tl5-hff]], with either route of [[eq:tl5-hff-routes]] and the constants with index n of
+[[def:tl5-hfn-constants]], suppose: (a) η₀ < 𝔰₁^v; (b) the rates (1 − ϑ₁) a_o, (1 − ϑ₂) a_i are admissible for (𝔅_N,
+E_o^N, E_i^N); (c) η_n > 0, the closing condition
+
+    4 A_n B_n = 4 η_n^(−3/2) (δ_w + η_n^(−1/2) ε^n) S_F^n < 1,                                     {#eq:tl5-hfn-closing}
+
+and 𝔰_*^n < 𝔰₁^v. Then there is a solution g of the reduced problem on D^κ with Y_σ(g) ≤ Y_n for every σ ∈ [1/2, v*],
+and the other conclusions of [[thm:tl5-hf]] hold with 𝔰_*^n in place of 𝔰_*. Each constant with index n is at most the
+one with index f it replaces, ε^n = ε^f, η_n ≥ η_f, A_n ≤ A_f, B_n ≤ B_f, Y_n ≤ Y_f and 𝔰_*^n ≤ 𝔰_*^f; so the hypotheses
+of [[thm:tl5-hff]] at N ≥ 6 imply these.
+
+*Proof.* The proof of [[thm:tl5-hff]] with the chosen route applies with the constants with index n, ε^n, 𝔯^n, η_n, A_n,
+B_n, Y_n, 𝔰_*^n[𝔜] and [[eq:tl5-hfn-closing]] in place of those with index f, S_M and ε_M being 0 at N ≥ 6, with one
+change: the bounds at a point of 𝔰_g^(m), 0 ≤ m ≤ N − 4, and of 𝔰 that it uses hold with C_(∞,μ)^(m) formed with 𝔐_n^(m)
+in place of k₁^(m,μ,p) 𝔐_p^(m).
+
+To see this, let p be a point at which such a bound is formed. Then 𝔰 ≤ 𝔰₁^v on Q(a, b): in Step 1, for the σ of the set
+Σ_* of the proof of [[thm:tl5-hfy]] and p ∈ D^κ_σ, as Q(τ₁(p), τ₂(p)) ⊂ D^κ_σ, and in Steps 2 and 3, as 𝔰 ≤ 𝔰₁^v on
+D^κ_s. So [[lem:tl5-hfn-low]] applies at p: the step on second derivatives at low levels of the lemma in use holds with
+𝔐_n^(m) in place of k₁^(m,μ,p) 𝔐_p^(m) in its part with ℰ_g, and with its parts with ϱ(p) and η₀(p) as they are. The
+bounds at p of 𝔰_g^(m) and of 𝔰 are formed from the steps of zeroth, first and second order, the absorption and the
+largest of the bounds, in the same way for all values of their constants, as in the proof of [[thm:tl5-hfe]]; so they
+hold with C_(∞,μ)^(m) so formed, and with the constants of their parts with ϱ(p) and η₀(p) unchanged. The proofs on
+which that of [[thm:tl5-hff]] rests use the entry k₁^(m,μ,p) 𝔐_p^(m) only through these bounds: in Step 1 through the
+bound of 𝔰, in 𝔰_*, and in Step 3 through the bound of 𝔰_P = 𝔰_g^(m_P), in C_P^♮, from which 𝔎, 𝔎^D and S_F are formed
+in the same way for all values of these numbers. So they hold with the constants with index n.
+
+For the last claim, 𝔐_n^(m) ≤ k₁^(m,μ,p) 𝔐_p^(m) by [[lem:tl5-hfn-low]], and every constant with index f is
+nondecreasing in this entry, through maxima, sums, products and suprema with nonnegative coefficients; so each constant
+with index n is at most the one it replaces, and ε^n = ε^f. Then η_n ≥ η_f, A_n ≤ A_f, B_n ≤ B_f and 4A_n B_n ≤ 4A_f
+B_f, as in the proof of [[thm:tl5-hff]]; the smaller root 2A/(1 + (1 − 4AB)^(1/2)) is nondecreasing in A and in B, so
+Y_n ≤ Y_f, and 𝔰_*^n ≤ 𝔰_*^n[Y_f] ≤ 𝔰_*^f[Y_f] = 𝔰_*^f, 𝔰_*^n[𝔜] being nondecreasing in 𝔜 and in the constants. ∎
+
+**Remark {#rem:tl5-hfn-what}** (What changes.) The quantity 𝔰_g^(m) is the largest of its weighted quantities, so the
+step on second derivatives at low levels may bound each D̂²Ψ_B, |B| ≤ m, through its own recovery at p. Its leading term
+involves the first derivatives of the seven words ZB only, the terms with 𝔷_Z and 𝔯_♯ the jets of B only, and only the
+couplings 𝔄_BJ the jets of the words of length at most |B| that the substitutions bring in. The step bounded all of
+these by the one number L_g, and so by 𝔐_p^(m), the Euclidean norm over the lengths b ≤ m + 1 of C_S and of the
+constants C₁(𝔚_b) of the families of all 7^b words of length b, whose nonlinear parts carry the count (43 · 7^b)^(1/2),
+with the coefficient k₁^(m,μ,p) in front of all of it. In 𝔐_n^(m) the leading term carries the family of the seven words
+ZB at every length, through the map 𝒳_p, its nonlinear parts carrying 43^(1/2) 𝔨_Γ where those of the family of length b
+carried K_rec(p) (43 · 7^b)^(1/2), and the terms with 𝔷_Z and 𝔯_♯ carry the constants C₁^l({B}) and C_S^f, or C_S^h, of
+the one word B, with the weights of the fields in 𝔷₁^k and 𝔷₂^k; only the couplings keep 𝔐_p^(m), with the coefficient
+(1 − 𝔰₁^v)⁻¹ α_𝔄^(m,μ). The parts with ϱ(p) and η₀(p) that the new bound gives are at most those of the step, by
+(2𝔐^(m))^(1/2) ≥ 4 and the bounds of [[lem:tl5-hfk-rec]] (a), so those of the step are kept. In C₁^k(ΓB), as in
+[[rem:tl5-hfk-what]], the terms bounded through 𝒟_g and 𝒥_g over the pairs keep the factor K_rec(p), the terms with one
+bound for the seven words take 𝔨_Γ, and the couplings the norm 𝔞_𝔄^k(ΓB) of their weighted map. For B = ∅, 𝔨_rec^n(∅)
+has the form of 𝔨_rec^k of [[def:tl5-hfk-constants]], the constant of the same step for h at level four, with C₁^l({∅})
+in place of C₁^l. The entry 𝔐_n^(m) enters C_(∞,μ)^(m), so C_P^♮ for m = m_P, and through it 𝔎, 𝔎^D and S_F, and the
+term of 𝔰_* with A for m = N − 4. The counts of the products, the Sobolev and leaf constants, the constants of one word,
+the parts with ϱ and η₀ of the bounds at a point, the weights 𝔲₀, 𝔲₁, 𝔶₀, 𝔶₁ and 𝔶₀^h, the routes, the thresholds 𝔰₀ and
+𝔰₁^v and the rates are unchanged, and at level four nothing changes. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the
+hypotheses of [[thm:tl5-hfn]] are established in this paper for no background at 10 l5.
