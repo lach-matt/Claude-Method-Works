@@ -1,9 +1,9 @@
 """Collect the certificate of each element: its own residual (cert3.py, prop:appc-element-bound) and the overlap
 correction (overlapK.py, prop:appc-overlap), per derivative order |alpha| <= K in the element's (t, sigma, x).
 
-    python3 certsum.py CERTDIR [mu ...]
+    python3 certsum.py CERTDIR [mu ...]          (CERTPREFIX=c37_ OVPREFIX=ov37_ for other names)
 
-reads CERTDIR/c30_ij.json and CERTDIR/ovK_ij.json and prints, per element and order, the own bound, the largest
+reads CERTDIR/c30_ij.json and CERTDIR/ovK_ij.json (by default) and prints, per element and order, the own bound, the largest
 overlap Lambda over the element's strips, and B = own + Lambda (the certificate eq:appc-certificate on U_ij); with mu
 given, also max_|alpha|<=K mu^(|alpha|/2) B_alpha -- an indicative weighting only: the level-K norm weights the Lie
 derivatives along the commutation fields, which are combinations of these (pending:lem-tl5-f3-residual).
@@ -11,9 +11,12 @@ derivatives along the commutation fields, which are combinations of these (pendi
 import json, os, sys
 from fractions import Fraction
 
+CP = os.environ.get('CERTPREFIX', 'c30_'); OP = os.environ.get('OVPREFIX', 'ovK_')
+
 def load(d, ij):
-    c = json.load(open(os.path.join(d, 'c30_%d%d.json' % ij)))
-    o = json.load(open(os.path.join(d, 'ovK_%d%d.json' % ij)))
+    c = json.load(open(os.path.join(d, CP + '%d%d.json' % ij)))
+    op = os.path.join(d, OP + '%d%d.json' % ij)
+    o = json.load(open(op)) if os.path.exists(op) else []
     K = c['K']
     own = [0.0] * (K + 1); main = [0.0] * (K + 1)
     for ab, per in c['bounds'].items():
@@ -33,7 +36,7 @@ def load(d, ij):
 def main():
     d = sys.argv[1]; mus = [float(m) for m in sys.argv[2:]]
     for ij in [(1, 1), (1, 2), (2, 1), (2, 2)]:
-        if not os.path.exists(os.path.join(d, 'c30_%d%d.json' % ij)):
+        if not os.path.exists(os.path.join(d, CP + '%d%d.json' % ij)):
             print('element', ij, ': no certificate yet'); continue
         c, own, mn, lam = load(d, ij)
         print('element (%d,%d): N = %s, rho = %s, M = %.3g, nodes %d, %d s' % (ij + (c['N'], c['rho'], c['M'],

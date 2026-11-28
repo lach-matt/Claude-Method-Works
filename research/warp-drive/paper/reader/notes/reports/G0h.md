@@ -207,3 +207,87 @@ Pricing it fully would need the tilted domain and faces, which the present grids
 | `levelV_s{1,2}_46_-2.0_-1.1_nw.json`, `nw_*.log` | word-count hypothetical |
 | `sumV.py`, `tablesV.py`, `reachV.py` | tables |
 | `G0h.md` | copy of this report |
+
+---
+
+## G0h.rule Addendum: the parameters that maximise min(f, ϱ) at level 4 (computed)
+
+**Why this addendum.** The approximant is now computed by a rule whose cost grows like the 4.5th power of the decades it
+must reach. So the figure that matters is the stricter of f and ϱ. §G0h.0 maximises f; at that optimum ϱ is 2.5–6 decades
+below f. Here every parameter is chosen to maximise min(f, ϱ).
+
+**What is held fixed.** "P-GRD5" means sec:tl5-hfv as merged, with the same intrinsic Sobolev constants, approximants and
+targets as above, at level 4.
+
+**What is searched:**
+- θ ∈ {0, ¼, 0.375, ½, 0.625, ¾, 0.875, 1};
+- ϑ₂ ∈ {0.003, 0.01, 0.03, 0.1}, with ϑ₁ cap-matched or equal;
+- 𝔯 ∈ {0.01, 0.03, 0.1};
+- μ ∈ {10⁻⁴, …, 10⁻⁶};
+- 𝔰_♭ ∈ {1/8, …, 10⁻¹²};
+- one more free choice: **the split of ε between f and ϱ**. The closing bounds only their sum, ε^v = 𝒮[s₄]f + 𝒮[¼ min(𝔤_(ϱ,q),
+  μ^(−1/2)𝔤_(𝒥,s))k₂]ϱ + ε_M, and §G0h.0 gave each half. Here the fraction s that goes to f ranges over {½, 0.3, 0.1,
+  0.03, 0.01, 0.003, 0.001}.
+
+**What sets ϱ.** In every optimum it is the ε budget, the term 𝒮[¼ min(𝔤_(ϱ,q), μ^(−1/2)𝔤_(𝒥,s))k₂]ϱ. It is not 𝔯, and
+not the ν^(−2) term of 𝔰_\*.
+
+| | **seed 1, D_A** | seed 2, D_A | **seed 1, D\*** | **seed 2, D\*** |
+|---|---|---|---|---|
+| **max min(f, ϱ), P-GRD5** | **10^−31.3** | **10^−29.9** | **10^−38.6** | **10^−35.9** |
+| f / ϱ there | −31.2 / −31.3 | −29.6 / −29.9 | −38.5 / −38.6 | −35.4 / −35.9 |
+| η₀ there | −22.9 | −21.5 | −28.3 | −25.0 |
+| θ | 0.375 | ½ | 0.625 | 0.625 |
+| ϑ₁ / ϑ₂ | 0.0019 / 0.01 | 0.001 / 0.003 | 0.0013 / 0.03 | 0.001 / 0.003 |
+| 𝔯 | 0.01 | 0.01 | 0.01 | 0.01 |
+| μ | 10⁻⁵ | 3 × 10⁻⁵ | 3 × 10⁻⁶ | 3 × 10⁻⁶ |
+| 𝔰_♭ | 10⁻⁴ | 10⁻⁴ | 10⁻⁴ | 10⁻⁴ |
+| share of ε given to f | 0.01 | 0.01 | 0.003 | 0.01 |
+| what binds the closing | closing and 𝔰_\* (0.0) | 𝔰_\* by 0.1 | 𝔰_\* by 0.2 | 𝔰_\* by 1.1 |
+| the same with ε split half and half | −31.6 (f −29.5, ϱ −31.6) | −30.2 (f −27.9, ϱ −30.2) | −38.9 (f −36.3, ϱ −38.9) | −36.2 (f −33.8, ϱ −36.2) |
+| **G0g under the same criterion** (half split; G0g's ϱ is also set by the ε budget) | **−32.4** (θ 0.375; f −30.2, ϱ −32.4) | −30.8 (θ 0.4375) | **−39.4** (θ 0.5625; f −37.0, ϱ −39.4) | **−36.6** (θ 0.6875; f −33.8, ϱ −36.6) |
+| gain of P-GRD5 over G0g in min(f, ϱ): half split; best split | 0.8; 1.1 | 0.6; 0.9 | 0.5; 0.8 | 0.4; 0.7 |
+| rule cost relative to G0g, (decades ratio)^4.5 | 0.86 | 0.88 | 0.92 | 0.92 |
+| G0h's best f (§G0h.0), for comparison | −29.5 | −27.7 | −36.0 | −32.6 |
+
+**Reading the table:**
+- **ϱ is the stricter quantity in every case.** At the max-min point the rule should target f ≈ ϱ ≈ 10^−31.3 (seed 1 D_A),
+  10^−38.6 (seed 1 D\*) and 10^−35.9 (seed 2 D\*), not the f of §G0h.0.
+- **Optimising the ε split is worth ≈ 0.3 decades in every case.** That is the ceiling log₁₀ 2, reached by giving almost
+  all of ε to ϱ. It costs f 1.4–2.2 decades, which f can afford.
+- **G0g with the best split** would gain at most the same 0.3, since its ϱ is set by the ε budget too: about −32.1,
+  −30.5, −39.1 and −36.3. P-GRD5's gain over G0g is then 0.6–0.8 at equal treatment.
+- **The max-min θ lies below the f-optimal θ** in every case (0.375–0.625 against ½–1), as in G0g.
+
+**A hypothetical lever on the ϱ requirement** (computed; the ϱ coefficient of ε^v scaled by a factor):
+
+| factor on the ϱ coefficient | seed 1, D_A | seed 2, D_A | seed 1, D\* | seed 2, D\* |
+|---|---|---|---|---|
+| 1 (proved) | −31.3 | −29.9 | −38.6 | −35.9 |
+| 10⁻¹ | −30.4 | −29.0 | −37.6 | −35.0 |
+| 10⁻² | −29.6 | −28.2 | −36.8 | −34.0 |
+| 10⁻³ | −29.5 (f binds) | −27.7 (f binds) | −36.2 | −33.2 |
+| **room: best f − max-min** | **1.9** | **2.2** | **2.6** | **3.3** |
+| rule cost if all the room is taken | ×0.76 | ×0.71 | ×0.73 | ×0.64 |
+
+- **Each decade off the ϱ coefficient raises min(f, ϱ) by about one decade**, until f takes over (×10⁻¹ gives 0.9–1.0).
+  After that, f (the closing and 𝔰_\*) binds.
+- **A ϱ lever is worth at most 1.9, 2.2, 2.6 and 3.3 decades,** with seed 2 D\* gaining most.
+- **That ranks it first among the open levers at level 4 for the rule.** The levers of §G0h.4 that act on f buy nothing in
+  min(f, ϱ) until ϱ catches up.
+- **What a ϱ lever would have to shrink:**
+  - the conversion 𝒮;
+  - min(𝔤_(ϱ,q), μ^(−1/2)𝔤_(𝒥,s)), which carries 7^(j′/2), 𝔠^♮(ν) + 1 and the factor ν^(−1/2) or μ^(−1/2);
+  - k₂ = (8/5) max_j 𝔮_j, the coupling sums.
+  - None is sharpened in P-GRD5. A full ϱ lever is worth the room above.
+
+Scripts: `levelR.py` (`levelV` with the ε split and a factor on the ϱ coefficient, `G0H_RULE=1`), output
+`levelV_s{1,2}_4_{-2.0,-1.1}_rule.json`, table `ruleV.py`; G0g's figures from `scratchpad/g0g/levelQ_*.json`.
+
+---
+
+**Note (coordinator, 2026-11-28, from R-P-GRD11).** The lever "𝔠^♮₄(μ) → 9·2⁴" priced in this report is a comparison
+count, not a proved target: the terms with no background letters already give 𝔠^♮₄(μ) + 1 ≥ 2⁴ + 16·5·2⁴ = 1296 =
+9²·2⁴ for every μ (eq:tl5-hfs-cn), and going below that needs a bound of the bilinear form 2𝔮̂ (about 8 against
+16λ̂₀² = 80) that the chapter does not state. The figures given for this lever are therefore upper bounds for a target
+the text does not reach (at most log₁₀ 9 = 0.954 decades less is available).

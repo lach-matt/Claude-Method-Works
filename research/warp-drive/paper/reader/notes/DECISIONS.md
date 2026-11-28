@@ -97,6 +97,14 @@ question, criterion and stop, its result deciding whether the next one runs.
 Asked whether seed 1 on D* should be computed and certified too (under the rule it is a question of cost, not of reach),
 the author: "Yes, include it". So all three cases are certified: seed 1 on D_A and on D*, seed 2 on D*.
 
+## 2026-11-28: where the runs' hand-off files are kept
+
+Each Zeno segment of the production runs ends with a hand-off file (the exact solution on its last line, from which
+the run restarts): 32-65 MB each, about 750 MB over the three cases (I-RULE). Asked where they should be kept (a separate
+checkpoint branch never merged, this branch, or local disk only), the author chose a separate branch: the hand-offs are
+pushed to a dedicated checkpoint branch that is never merged, so main and the paper's PR stay small, and which can be
+deleted once the runs are certified. The author's choice of that option is the permission to push to that branch.
+
 ## Earlier decisions in this segment
 
 - Admissible points (P-ADM): the cap h <= 10^-6 is removed from the definition; the lower bounds on d state it as an

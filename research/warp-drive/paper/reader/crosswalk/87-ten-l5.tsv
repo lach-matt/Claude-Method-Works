@@ -387,3 +387,116 @@ eq:tl5-hfv-constants	paper/reader/proofs/P-GRD5.md@c3506861:81	P-GRD5, display	n
 thm:tl5-hfv	paper/reader/proofs/P-GRD5.md@c3506861:83	P-GRD5, Theorem	thm:tl5-hf and thm:tl5-hf4 with the constants sharpened a fifth time
 eq:tl5-hfv-closing	paper/reader/proofs/P-GRD5.md@c3506861:88	P-GRD5, display	closing condition: 4 eta^(-3/2) (delta_w + eta^(-1/2)(eps + eps_M)) (S_F + S_M) < 1
 rem:tl5-hfv-what	paper/reader/proofs/P-GRD5.md@c3506861:106	P-GRD5, Remark	what the fifth sharpening changes
+sec:tl5-hfw	paper/reader/proofs/P-GRD6.md@30025949:1	P-GRD6, section	new; at the end of ch:ten-l5, after rem:tl5-hfv-what; the terms with rho bounded through s <= s1 instead of 1/8
+def:tl5-hfw-constants	paper/reader/proofs/P-GRD6.md@30025949:10	P-GRD6, Definition	eps^w with coefficient 2 s1^v in place of 1/4 on the rho term; A_w^v, s_*^w
+eq:tl5-hfw-eps	paper/reader/proofs/P-GRD6.md@30025949:14	P-GRD6, display	new
+thm:tl5-hfw	paper/reader/proofs/P-GRD6.md@30025949:18	P-GRD6, Theorem	thm:tl5-hfv with the terms with rho sharpened; levels 4 and N >= 6
+eq:tl5-hfw-closing	paper/reader/proofs/P-GRD6.md@30025949:21	P-GRD6, display	closing condition: 4 eta^(-3/2)(delta_w + eta^(-1/2)(eps^w + eps_M))(S_F + S_M) < 1
+rem:tl5-hfw-what	paper/reader/proofs/P-GRD6.md@30025949:35	P-GRD6, Remark	the split of the error between the residual and rho is free; coefficient ratio 8 s1^v
+sec:tl5-hfx	paper/reader/proofs/P-GRD7.md@7789e2ec:1	P-GRD7, section	new; at the end of ch:ten-l5, after rem:tl5-hfw-what; first-order constant counted over the words
+lem:tl5-hfx-c1	paper/reader/proofs/P-GRD7.md@7789e2ec:9	P-GRD7, Lemma	C1^x: first derivatives counted over the 43 words, count 43 kept only with k1^mu
+eq:tl5-hfx-c1	paper/reader/proofs/P-GRD7.md@7789e2ec:14	P-GRD7, display	new
+thm:tl5-hfx	paper/reader/proofs/P-GRD7.md@7789e2ec:33	P-GRD7, Theorem	thm:tl5-hfw with C1^x in place of C1^nat
+rem:tl5-hfx-what	paper/reader/proofs/P-GRD7.md@7789e2ec:40	P-GRD7, Remark	what changes in C1
+sec:tl5-hfy	paper/reader/proofs/P-GRD8.md@bcf07954:1	P-GRD8, section	new; at the end of ch:ten-l5, after rem:tl5-hfx-what; absorption at the bootstrap smallness
+lem:tl5-hfy-abs	paper/reader/proofs/P-GRD8.md@bcf07954:10	P-GRD8, Lemma	absorption with k3 s <= x = s1^v sup k3 (<= 1/4): factors 2 -> 1/(1 - x)
+thm:tl5-hfy	paper/reader/proofs/P-GRD8.md@bcf07954:32	P-GRD8, Theorem	thm:tl5-hfx with the replaced constants; Step 1 with s <= s1^v
+rem:tl5-hfy-what	paper/reader/proofs/P-GRD8.md@bcf07954:43	P-GRD8, Remark	what changes
+sec:tl5-hfz	paper/reader/proofs/P-GRD9.md@0584a614:1	P-GRD9, section	new; at the end of ch:ten-l5, after rem:tl5-hfy-what; recovery sharpened and counted over the words
+lem:tl5-hfz-rec	paper/reader/proofs/P-GRD9.md@0584a614:15	P-GRD9, Lemma	recovery with |H| <= h and the entry (1,1) apart: k#(h) = (1 + (2 + sqrt2 h)^2/(1 - h)^2)^(1/2) for (6/5)(sqrt3 + 8/3), 1/(1 - h) for 8/5, (2|R| + |C|)/(1 - h) for (6/5)r0
+eq:tl5-hfz-rec	paper/reader/proofs/P-GRD9.md@0584a614:23	P-GRD9, display	new
+def:tl5-hfz-constants	paper/reader/proofs/P-GRD9.md@0584a614:47	P-GRD9, Definition	constants with index z: k1^(j,nu,z), k2^z, k3^z, x^z = (5/8)(1 - s1^v)^-1 x, krec^z, coupling norm a_A(B) over the words, l0, l, C1^z, C1rho^z
+eq:tl5-hfz-c1	paper/reader/proofs/P-GRD9.md@0584a614:70	P-GRD9, display	new
+lem:tl5-hfz-abs	paper/reader/proofs/P-GRD9.md@0584a614:77	P-GRD9, Lemma	the lemmas of lem:tl5-hfy-abs with the recovery constants of index z; each at most the old one
+lem:tl5-hfz-words	paper/reader/proofs/P-GRD9.md@0584a614:97	P-GRD9, Lemma	second derivatives of the words JB in l2 over the 43 words: leading term once, couplings through a_A (Schur bound), nonlinear part with sqrt43
+eq:tl5-hfz-words	paper/reader/proofs/P-GRD9.md@0584a614:110	P-GRD9, display	new
+lem:tl5-hfz-c1	paper/reader/proofs/P-GRD9.md@0584a614:135	P-GRD9, Lemma	first-order bound with C1^z, C1rho^z by the triangle inequality in L2 of the face; C1^z <= C1^x, C1rho^z <= C1rho
+thm:tl5-hfz	paper/reader/proofs/P-GRD9.md@0584a614:165	P-GRD9, Theorem	thm:tl5-hfy with the constants with index z; contains it
+eq:tl5-hfz-closing	paper/reader/proofs/P-GRD9.md@0584a614:176	P-GRD9, display	closing condition: 4 eta_z^(-3/2)(delta_w + eta_z^(-1/2)(eps^z + eps_M^z))(S_F^z + S_M^z) < 1
+rem:tl5-hfz-what	paper/reader/proofs/P-GRD9.md@0584a614:191	P-GRD9, Remark	what changes
+sec:tl5-hfp	paper/reader/proofs/P-GRD10.md@3d5ec668:1	P-GRD10, section	new; at the end of ch:ten-l5, after rem:tl5-hfz-what; sharp leaf Sobolev constant, weights of the words, the seven fields together
+lem:tl5-hfp-leaf	paper/reader/proofs/P-GRD10.md@3d5ec668:16	P-GRD10, Lemma	Sobolev inequality on the leaves with its own constant C#^2 = (1/2pi^2) sum d/(1 + c + c^2) <= (4/3) C^2 = (2/9) 6C^2, and with weights y0, y1 on the words of lengths 0, 1
+eq:tl5-hfp-leaf	paper/reader/proofs/P-GRD10.md@3d5ec668:24	P-GRD10, display	new
+def:tl5-hfp-constants	paper/reader/proofs/P-GRD10.md@3d5ec668:44	P-GRD10, Definition	constants with index p: weights y0 <= mu^-2, y1 <= mu^-1, z', k1^(j,nu,p), k1^D, k2', D_g, a_A(W), l_D, l_J, C1(W) = min(C1^U, C1^D + C1^J), C1^p, C1^Gamma, T(y), C_S^p, M_p^(m), krec^p
+eq:tl5-hfp-c1	paper/reader/proofs/P-GRD10.md@3d5ec668:65	P-GRD10, display	new
+lem:tl5-hfp-abs	paper/reader/proofs/P-GRD10.md@3d5ec668:84	P-GRD10, Lemma	the face lemma with C#^2 and with weights; k1 with z'; refined per-word bound with D_g; zeroth-order bound with C_S^p, also over a family of words
+lem:tl5-hfp-words	paper/reader/proofs/P-GRD10.md@3d5ec668:128	P-GRD10, Lemma	second derivatives over a family of n words, with weights: leading term once through D_g, nonlinear part with (43n)^(1/2), couplings through a_A(W)
+eq:tl5-hfp-words	paper/reader/proofs/P-GRD10.md@3d5ec668:134	P-GRD10, display	new
+lem:tl5-hfp-c1	paper/reader/proofs/P-GRD10.md@3d5ec668:160	P-GRD10, Lemma	first-order bound over a family with C1(W); C1(W) <= n^(1/2) max C1^U({B}); C1^U({B}) <= C1^z at y0 = y1 = 1
+eq:tl5-hfp-family	paper/reader/proofs/P-GRD10.md@3d5ec668:164	P-GRD10, display	new
+lem:tl5-hfp-rec	paper/reader/proofs/P-GRD10.md@3d5ec668:211	P-GRD10, Lemma	lem:tl5-hfv-rec with krec^p: the seven fields as one family, C1^Gamma in place of sqrt7 C1^z
+lem:tl5-hfp-low	paper/reader/proofs/P-GRD10.md@3d5ec668:222	P-GRD10, Lemma	second derivatives at low levels with M_p^(m) in place of (2M^(m))^(1/2) max(C_S, C1)
+thm:tl5-hfp	paper/reader/proofs/P-GRD10.md@3d5ec668:236	P-GRD10, Theorem	thm:tl5-hfz with the constants with index p and the intrinsic Sobolev constants; contains it at y0 = y1 = 1
+eq:tl5-hfp-closing	paper/reader/proofs/P-GRD10.md@3d5ec668:247	P-GRD10, display	closing condition: 4 eta_p^(-3/2)(delta_w + eta_p^(-1/2)(eps^z + eps_M^p))(S_F^p + S_M^p) < 1
+rem:tl5-hfp-what	paper/reader/proofs/P-GRD10.md@3d5ec668:266	P-GRD10, Remark	what changes; K_rec is the operator norm of its step
+sec:tl5-hfu	paper/reader/proofs/P-GRD11.md@6c7bbfad:1	P-GRD11, section	new; at the end of ch:ten-l5, after rem:tl5-hfp-what; the weights, the leaf constant and the families of words in S_M, r_M and eps_M at level four
+lem:tl5-hfu-face	paper/reader/proofs/P-GRD11.md@6c7bbfad:18	P-GRD11, Lemma	lem:tl5-hf4-face (b) with the weights y and C_(E,r)(y)^2 (intrinsic form), and (a) with the coefficients of |A|^2 and |DA|^2 apart: t_(r,0), t_(r,1)
+eq:tl5-hfu-face	paper/reader/proofs/P-GRD11.md@6c7bbfad:28	P-GRD11, display	new
+lem:tl5-hfu-fam	paper/reader/proofs/P-GRD11.md@6c7bbfad:40	P-GRD11, Lemma	second derivatives over a weighted family of n distinct words: leading term once, couplings through a_A(V), nonlinear part with n^(1/2); l(V) <= n^(1/2)(k1 + 2x)/(1 - x)
+eq:tl5-hfu-fam	paper/reader/proofs/P-GRD11.md@6c7bbfad:55	P-GRD11, display	new
+def:tl5-hfu-constants	paper/reader/proofs/P-GRD11.md@6c7bbfad:78	P-GRD11, Definition	constants with index u: families V_2 (49 words of length two) and V_Gamma (301 words JZ); X^u_(1,t), X^u_(2,t), X'^u_(2,t), Y^u_(1,t), Y'^u_(1,t), Y''^u_(1,t), Y''^u_(2,t); S_M^u, r_M^u, eps_M^u
+eq:tl5-hfu-constants	paper/reader/proofs/P-GRD11.md@6c7bbfad:98	P-GRD11, display	new
+lem:tl5-hfu-mixed	paper/reader/proofs/P-GRD11.md@6c7bbfad:100	P-GRD11, Lemma	eq:tl5-hfs-mixed with the constants with index u; each at most the old one for y0, y1 >= 1
+thm:tl5-hfu	paper/reader/proofs/P-GRD11.md@6c7bbfad:146	P-GRD11, Theorem	thm:tl5-hfp at N = 4 with S_M^u, r_M^u, eps_M^u; contains it for y0, y1 >= 1
+eq:tl5-hfu-closing	paper/reader/proofs/P-GRD11.md@6c7bbfad:157	P-GRD11, display	closing condition: 4 eta_u^(-3/2)(delta_w + eta_u^(-1/2)(eps^z + eps_M^u))(S_F^p + S_M^u) < 1
+rem:tl5-hfu-what	paper/reader/proofs/P-GRD11.md@6c7bbfad:175	P-GRD11, Remark	what changes
+sec:tl5-hfd	paper/reader/proofs/P-GRD12.md@bb003245:1	P-GRD12, section	new; at the end of ch:ten-l5, after rem:tl5-hfu-what; one leaf constant C_(E,0)(y) for every rank, and the products of type D summed over the words in S_F
+lem:tl5-hfd-leaf	paper/reader/proofs/P-GRD12.md@bb003245:19	P-GRD12, Lemma	the leaf kernel is a multiple of the identity on each isotypic part of the fibre; S_j(y) <= S_0(y) = C_(E,0)(y)^2, so the leaf inequality holds with C_(E,0)(y) for every rank; C_(E,r)^2 <= 5^r C_(E,0)^2
+eq:tl5-hfd-leaf	paper/reader/proofs/P-GRD12.md@bb003245:28	P-GRD12, display	new
+lem:tl5-hfd-words	paper/reader/proofs/P-GRD12.md@bb003245:61	P-GRD12, Lemma	products over the words of one length: the monomials of 2q-hat with both factors DPsi counted with c^(D,7)_n and s_P, the others with 7^(n/2)(c_n - c^D_n) and P
+eq:tl5-hfd-words	paper/reader/proofs/P-GRD12.md@bb003245:74	P-GRD12, display	new
+def:tl5-hfd-constants	paper/reader/proofs/P-GRD12.md@bb003245:109	P-GRD12, Definition	constants with index d: C_(E,0)(y), C_(E,0)^# in every face constant; K^D, K^D_rho, K^D_0 in place of g_(J,s)K, g_(J,s)K_rho, g_(J,s)K_0 in S_F and r_(w,s); eta_d, A_d, B_d, s_*^d
+thm:tl5-hfd	paper/reader/proofs/P-GRD12.md@bb003245:133	P-GRD12, Theorem	thm:tl5-hfp (N >= 6) and thm:tl5-hfu (N = 4) with the constants with index d; contains both for all weights
+eq:tl5-hfd-closing	paper/reader/proofs/P-GRD12.md@bb003245:137	P-GRD12, display	closing condition: 4 eta_d^(-3/2)(delta_w + eta_d^(-1/2)(eps^z + eps_M^d))(S_F^d + S_M^d) < 1
+rem:tl5-hfd-what	paper/reader/proofs/P-GRD12.md@bb003245:165	P-GRD12, Remark	what changes
+sec:tl5-hfe	paper/reader/proofs/P-GRD13.md@8d188871:1	P-GRD13, section	new; at the end of ch:ten-l5, after rem:tl5-hfd-what; a weight u in the transport along the curves, 2<B, L B> <= u|B|^2 + u^-1 |L B|^2, and the parts with rho of the products counted over the second derivatives
+lem:tl5-hfe-face	paper/reader/proofs/P-GRD13.md@8d188871:20	P-GRD13, Lemma	the transport along the curves with a positive continuous weight u: eq:tl5-hf-cs-r, lem:tl5-hf-sobolev and eq:tl5-hfu-face with u + 2r^2 u^-1 |D d_gamma|^2 and 2u^-1 |d_gamma|^2 in place of 1 + 2r^2 |D d_gamma|^2 and 2|d_gamma|^2
+eq:tl5-hfe-face	paper/reader/proofs/P-GRD13.md@8d188871:29	P-GRD13, display	new
+lem:tl5-hfe-rho	paper/reader/proofs/P-GRD13.md@8d188871:69	P-GRD13, Lemma	the monomials with a second derivative are those of H_1 D^2 h and H_2 D^2 h with the term D^2 Psi_K, counted by c^rho_n; the parts with rho of the products hold with c^rho_n in place of c_n; 0 <= c^rho_n <= c_n - c^D_n
+eq:tl5-hfe-rho	paper/reader/proofs/P-GRD13.md@8d188871:75	P-GRD13, display	new
+def:tl5-hfe-constants	paper/reader/proofs/P-GRD13.md@8d188871:126	P-GRD13, Definition	constants with index l: C_S^l (weight u_0), C_1^l(W) and C_(1,rho)^l (u_1), Y^l_(1,t) and Y'^l_(1,t) (u_M); g^l_(rho,s), g^l_(rho,t), g^l_(rho,q) with c^rho; eps^l, eta_l, A_l, B_l, s_*^l
+eq:tl5-hfe-constants	paper/reader/proofs/P-GRD13.md@8d188871:142	P-GRD13, display	new
+thm:tl5-hfe	paper/reader/proofs/P-GRD13.md@8d188871:164	P-GRD13, Theorem	thm:tl5-hfd with the constants with index l; for u_0 = u_1 = u_M = 1 its hypotheses imply these
+eq:tl5-hfe-closing	paper/reader/proofs/P-GRD13.md@8d188871:169	P-GRD13, display	closing condition: 4 eta_l^(-3/2)(delta_w + eta_l^(-1/2)(eps^l + eps_M^l))(S_F^l + S_M^l) < 1
+rem:tl5-hfe-what	paper/reader/proofs/P-GRD13.md@8d188871:215	P-GRD13, Remark	what changes
+sec:tl5-hfc	paper/reader/proofs/P-GRD14.md@a6c47821:1	P-GRD14, section	new; at the end of ch:ten-l5, after rem:tl5-hfe-what; the continuation with any threshold Y between the roots of By^2 - y + A, so s_* with the smaller root Y_- in place of 2A; and |H| <= g_1 |h| in place of |H| <= 2|h| in the bounds at a point
+lem:tl5-hfc-cont	paper/reader/proofs/P-GRD14.md@a6c47821:15	P-GRD14, Lemma	lem:tl5-continuation with any threshold Y in (Y_-, Y_+) in place of 2A; the solution has y_sigma <= Y_- = 2A/(1 + (1 - 4AB)^(1/2)); A <= Y_- < 2A
+eq:tl5-hfc-y	paper/reader/proofs/P-GRD14.md@a6c47821:18	P-GRD14, display	new
+lem:tl5-hfc-h	paper/reader/proofs/P-GRD14.md@a6c47821:39	P-GRD14, Lemma	|H| <= g_1 |h| where s <= s_flat; the bounds at a point with g_1 C_S and g_1 C_(0,0) in place of 2C_S and 2C_(0,0)
+def:tl5-hfc-constants	paper/reader/proofs/P-GRD14.md@a6c47821:60	P-GRD14, Definition	constants with index c: g_1 C_S, g_1 C_(0,0) in C_P^v, C_(P,0)^v, K, K_0, C_infinity; eta_c, A_c, B_c; Y_c = 2A_c/(1 + (1 - 4A_c B_c)^(1/2)); s_*^c = s_*^c[Y_c]
+eq:tl5-hfc-constants	paper/reader/proofs/P-GRD14.md@a6c47821:72	P-GRD14, display	new
+thm:tl5-hfc	paper/reader/proofs/P-GRD14.md@a6c47821:74	P-GRD14, Theorem	thm:tl5-hfe with the constants with index c and the threshold Y_c; Y_sigma <= Y_c; its hypotheses are implied by those of thm:tl5-hfe
+eq:tl5-hfc-closing	paper/reader/proofs/P-GRD14.md@a6c47821:78	P-GRD14, display	closing condition: 4 eta_c^(-3/2)(delta_w + eta_c^(-1/2)(eps^c + eps_M^c))(S_F^c + S_M^c) < 1
+rem:tl5-hfc-what	paper/reader/proofs/P-GRD14.md@a6c47821:121	P-GRD14, Remark	what changes
+sec:tl5-hff	paper/reader/proofs/P-GRD15.md@7cad931e:1	P-GRD15, section	new; at the end of ch:ten-l5, after rem:tl5-hfc-what; the parts with rho of the products through the bound of s_P^0 at a point, into r (route (r), N >= 6, option (b)); the zeroth-order step through the energies of the shorter words, and a leaf weight y_0^h for the word h
+lem:tl5-hff-rho	paper/reader/proofs/P-GRD15.md@7cad931e:22	P-GRD15, Lemma	N >= 6, option (b): the terms with rho(p) of lem:tl5-hft-products hold with mu^(-1) s_P^0 in place of s
+eq:tl5-hff-rho	paper/reader/proofs/P-GRD15.md@7cad931e:30	P-GRD15, display	new
+lem:tl5-hff-zero	paper/reader/proofs/P-GRD15.md@7cad931e:53	P-GRD15, Lemma	the zeroth-order step with C_S^f for |B| >= 1 and its families (|Psi_(ZC)|^2 through the energy of C: coefficient 6 mu z^2 k_2, 7 for the words shared in a family, the smaller bound at each point) and with C_S^h, C_(0,0)^h for h, with its own leaf weight y_0^h; C_S^f <= C_S^l
+eq:tl5-hff-cs	paper/reader/proofs/P-GRD15.md@7cad931e:61	P-GRD15, display	new
+def:tl5-hff-constants	paper/reader/proofs/P-GRD15.md@7cad931e:107	P-GRD15, Definition	constants with index f: C_P^0 = max(g_1 C_S^h, C_S^f), C_(P,0)^0 = max(g_1 C_(0,0)^h, C_(0,0)) in place of g_1 C_S^l, g_1 C_(0,0); C_S^h in k_rec^p; C_S^h, C_S^f in M_p^(m); max(C_(0,0)^h, C_(0,0)) in the eta_0 parts of lem:tl5-hfp-low; routes (s), (r) for the parts with rho; eta_f, A_f, B_f, Y_f, s_*^f
+eq:tl5-hff-routes	paper/reader/proofs/P-GRD15.md@7cad931e:118	P-GRD15, display	route (s): eps^f = eps^l, r_rho^f = 0; route (r): eps^f = S[s_N + mu^(-1)(1 - x^z)^(-1) g^l_(rho,t) k_2^z C_(P,0)^0 eta_0 rho], r_rho^f = rho S[mu^(-1)(1 - x^z)^(-1) g^l_(rho,t) k_2^z C_P^0 e^(phi/2)]
+eq:tl5-hff-constants	paper/reader/proofs/P-GRD15.md@7cad931e:127	P-GRD15, display	new
+thm:tl5-hff	paper/reader/proofs/P-GRD15.md@7cad931e:129	P-GRD15, Theorem	thm:tl5-hfc with the constants with index f and either route; Y_sigma <= Y_f; for y_0^h = y_0 and route (s) its hypotheses are implied by those of thm:tl5-hfc
+eq:tl5-hff-closing	paper/reader/proofs/P-GRD15.md@7cad931e:134	P-GRD15, display	closing condition: 4 eta_f^(-3/2)(delta_w + eta_f^(-1/2)(eps^f + eps_M^f))(S_F^f + S_M^f) < 1
+rem:tl5-hff-what	paper/reader/proofs/P-GRD15.md@7cad931e:173	P-GRD15, Remark	what changes
+sec:tl5-hfk	paper/reader/proofs/P-GRD16.md@810ef3a6:1	P-GRD16, section	new; at the end of ch:ten-l5, after rem:tl5-hff-what; N = 4: the recovery of D^2 h at p through the image under its map X_p of the seven fields, bounded by the Sobolev inequality of the face for the four fields that X_p makes; K_rec(p) on the terms bounded in the Euclidean norm, k_Gamma = (|T|^-2 + 6 lambda_M^-1)^(1/2) in place of sqrt7 K_rec on the terms with one bound for the seven fields, the couplings through their weighted map
+lem:tl5-hfk-rec	paper/reader/proofs/P-GRD16.md@810ef3a6:23	P-GRD16, Lemma	X_p, |.|_Gamma, k_Gamma, z_1^k, z_2^k; |X_p x| <= |(|x_Z|)|_Gamma <= K_rec |x|; the recovery of lem:tl5-hfz-rec with |X_p (D L_Z Psi)_Z| + z_1^k |D Psi| + z_2^k |Psi| in place of K_rec ((sum |D L_Z Psi|^2)^(1/2) + (sum z_Z^2)^(1/2))
+eq:tl5-hfk-rec	paper/reader/proofs/P-GRD16.md@810ef3a6:37	P-GRD16, display	new
+lem:tl5-hfk-fam	paper/reader/proofs/P-GRD16.md@810ef3a6:58	P-GRD16, Lemma	N = 4: |X_p (D Psi_Z(p))_Z| <= mu^(-2) C_1^k E_g(p)^(1/2) + k_Gamma (w C_(1,rho)^l rho(p) + E_0); C_1^k = K_rec(p) C_1^l(Gamma) with 43^(1/2) k_Gamma/K_rec for 301^(1/2) and a_A^k/K_rec for a_A(Gamma); a_A^k <= K_rec a_A(Gamma), C_1^k <= K_rec C_1^(Gamma,l)
+eq:tl5-hfk-fam	paper/reader/proofs/P-GRD16.md@810ef3a6:67	P-GRD16, display	new
+def:tl5-hfk-constants	paper/reader/proofs/P-GRD16.md@810ef3a6:116	P-GRD16, Definition	constants with index k (N = 4, route (s)): k_rec^k, k_rec^(rho,k), k_rec^(0,k) in place of k_rec^p, k_rec^(rho,p), k_rec^(0,p) in their forms with index f, in C_P^v, C_(P,rho)^v, C_(P,0)^v and every constant formed from these; eps^k = eps^f; eta_k, A_k, B_k, Y_k, s_*^k
+eq:tl5-hfk-krec	paper/reader/proofs/P-GRD16.md@810ef3a6:123	P-GRD16, display	k_rec^k = k_sharp (C_1^k + z_1^k mu^(1/2) C_1^l + z_2^k mu C_S^h) + (1 - s_1^v)^(-1) mu r_sharp C_S^h; k_rec^(rho,k) = k_sharp (k_Gamma + z_1^k mu^(1/2)) C_(1,rho)^l; k_rec^(0,k) = k_sharp ((k_Gamma + z_1^k mu^(1/2)) C_(1,0)^p + z_2^k mu C_(0,0)^h) + (1 - s_1^v)^(-1) mu r_sharp C_(0,0)^h
+eq:tl5-hfk-constants	paper/reader/proofs/P-GRD16.md@810ef3a6:138	P-GRD16, display	new
+thm:tl5-hfk	paper/reader/proofs/P-GRD16.md@810ef3a6:140	P-GRD16, Theorem	N = 4: thm:tl5-hff (route (s)) with the constants with index k; Y_sigma <= Y_k; its hypotheses are implied by those of thm:tl5-hff at N = 4
+eq:tl5-hfk-closing	paper/reader/proofs/P-GRD16.md@810ef3a6:144	P-GRD16, display	closing condition: 4 eta_k^(-3/2)(delta_w + eta_k^(-1/2)(eps^k + eps_M^k))(S_F^k + S_M^k) < 1
+rem:tl5-hfk-what	paper/reader/proofs/P-GRD16.md@810ef3a6:178	P-GRD16, Remark	what changes
+sec:tl5-hfn	paper/reader/proofs/P-GRD17.md@b19817d3:1	P-GRD17, section	new; at the end of ch:ten-l5, after rem:tl5-hfk-what; N >= 6: the step on second derivatives at low levels bounded word by word, each D^2 Psi_B(p) through its own recovery: the leading term through the family of the seven words ZB and the map X_p, the terms with z_Z and r_sharp through the one word B, only the couplings through L_g; M_n^(m) in place of k_1^(m,mu,p) M_p^(m) in C_(inf,mu)^(m)
+lem:tl5-hfn-fam	paper/reader/proofs/P-GRD17.md@b19817d3:20	P-GRD17, Lemma	N >= 6, |B| <= N - 4, GammaB = (ZB)_Z: |X_p (D Psi_(ZB)(p))_Z| <= mu^(-(|B|+4)/2) C_1^k(GammaB) E_g(p)^(1/2) + k_Gamma (w C_(1,rho)^l rho(p) + E_0); C_1^k(GammaB) = K_rec(p) C_1^l(GammaB) with 43^(1/2) k_Gamma/K_rec for 301^(1/2) and a_A^k(GammaB)/K_rec for a_A(GammaB); the proof of lem:tl5-hfk-fam for the family GammaB
+eq:tl5-hfn-fam	paper/reader/proofs/P-GRD17.md@b19817d3:30	P-GRD17, display	new
+lem:tl5-hfn-low	paper/reader/proofs/P-GRD17.md@b19817d3:63	P-GRD17, Lemma	N >= 6, 0 <= m <= N - 4: the step on second derivatives at low levels with M_n^(m) in place of k_1^(m,mu,p) M_p^(m) in its part with E_g, its parts with rho and eta_0 as they are; M_n^(m) <= k_1^(m,mu,p) M_p^(m); C_1^l(W') <= C_1^l(W) for subfamilies
+eq:tl5-hfn-low	paper/reader/proofs/P-GRD17.md@b19817d3:69	P-GRD17, display	k_rec^n(B) = k_sharp (C_1^k(GammaB) + z_1^k mu^(1/2) C_1^l({B}) + z_2^k mu C_S^f) + (1 - s_1^v)^(-1) mu r_sharp C_S^f (C_S^h for B empty); M_n^(m) = max_(|B|<=m) k_rec^n(B) + (1 - s_1^v)^(-1) alpha_A^(m,mu) M_p^(m)
+def:tl5-hfn-constants	paper/reader/proofs/P-GRD17.md@b19817d3:122	P-GRD17, Definition	constants with index n (N >= 6, either route): M_n^(m) in place of the entry k_1^(m,mu,p) M_p^(m) of C_(inf,mu)^(m), 0 <= m <= N - 4, in its form with index f, and in every constant formed from these (C_P^natural, K, K^D, S_F, s_*); eps^n = eps^f; eta_n, A_n, B_n, Y_n, s_*^n
+eq:tl5-hfn-constants	paper/reader/proofs/P-GRD17.md@b19817d3:133	P-GRD17, display	new
+thm:tl5-hfn	paper/reader/proofs/P-GRD17.md@b19817d3:135	P-GRD17, Theorem	N >= 6: thm:tl5-hff (either route) with the constants with index n; Y_sigma <= Y_n; its hypotheses are implied by those of thm:tl5-hff at N >= 6
+eq:tl5-hfn-closing	paper/reader/proofs/P-GRD17.md@b19817d3:140	P-GRD17, display	closing condition: 4 eta_n^(-3/2)(delta_w + eta_n^(-1/2) eps^n) S_F^n < 1
+rem:tl5-hfn-what	paper/reader/proofs/P-GRD17.md@b19817d3:169	P-GRD17, Remark	what changes
