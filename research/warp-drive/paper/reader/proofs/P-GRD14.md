@@ -224,15 +224,16 @@ What they give, deduced, not evaluated; upper figures. At G0p's interim optima o
 −20.70 / −29.14 / −26.02; level 6: −32.01 / −28.82 / −40.54 / −34.82). Assumptions:
 - every supremum at one point: the falls below are those of the leading entry at its supremum; with the new factors the
   supremum, or the leading entry, may move, so the figures are upper figures;
-- the term with A of 𝔰_* is its binding part (its ϱ and η₀ terms 9.5–13 decades away, G0l), B fixed, and the part of
-  A that moves is ε with the shares of f and ϱ fixed;
+- the term with A of 𝔰_* is its binding part (its term with ϱ 9.5–13 decades away, G0l; its term with η₀ not
+  reported), B fixed, and the part of A that moves is ε with the shares of f and ϱ fixed;
 - G0p's margins 0.09 / 0.24 / 0.30 in the three level-4 cases where 𝔰_* binds are read as the closing condition's
   spare, x₀ := 4A₀B₀ = 10^(−spare); the closing binds at seed 2 D_A.
-Lever 1. If 𝔰_* binds before and both bind after, the term of 𝔰_* with A fixed gives 2A/(1 + (1 − x)^½) = 2A₀, with
-x = 4AB; so 1 − (1 − x)^½ = x₀, x = 2x₀ − x₀² and A/A₀ = 2 − x₀.
+Lever 1. If 𝔰_* binds before and after, the term of 𝔰_* with A fixed gives 2A/(1 + (1 − x)^½) = 2A₀, with x = 4AB;
+so 1 − (1 − x)^½ = x₀, x = 2x₀ − x₀² < 1 (the closing does not bind after) and A/A₀ = 2 − x₀.
 - Level 4: +0.07 / +0.15 / +0.18 in the three cases where 𝔰_* binds; 0 at seed 2 D_A (x₀ = 1).
 - Level 6: 4AB is several decades below 1 (G0o: 𝔰_* sets ε, 5.9 below the closing), so A/A₀ → 2: +0.30 on the ε budget,
-  which f and ϱ share; ϱ binds there and f is 0.02–0.5 above, so both move by about +0.30.
+  which f and ϱ share; at G0p's interim optima they lie within 0.02–0.07 of each other (ϱ binds at seed 1, f at
+  seed 2), so both move by about +0.30.
 Lever 2. The entry of C_P^v that bounds μ|H| falls by 2/𝔤₁ (log₁₀ = 0.301 at 𝔰_♭ = 10⁻⁴).
 - Level 4: G0p's 𝔲₁ makes 2C_S the leading entry of C_P^v at 83–100 % of the points; C_P^v falls by the smaller of 0.30
   and the margin of the next entry, max(C₁^l, 𝔨_rec^l), below 2C_S, which is not reported. At the measured 1:1 rate of
