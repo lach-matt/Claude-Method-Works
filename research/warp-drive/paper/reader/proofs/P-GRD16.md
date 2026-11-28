@@ -8,7 +8,7 @@ norm of the family, and [[lem:tl5-hfp-c1]] bounds this norm for the family Γ. W
 ([[lem:tl5-hfk-rec]]). The coefficients of 𝒳_p at p are numbers, so the Sobolev inequality of the face applies to the
 four fields that 𝒳_p makes of the D̂Ψ_Z, and at each point of the face the sum of the squares of their Lie derivatives
 along a word J is at most the sum of |T(p)|⁻² |ℒ^J D̂Ψ_T|² and of the λ_M(p)⁻¹ |ℒ^J D̂Ψ_Z|² of the six rotations, and
-likewise with D̂ℒ^J. In the bound of the family that results, two kinds of terms take different factors
+likewise with D̂ℒ^J. In the bound of the family that results, three kinds of terms take different factors
 ([[lem:tl5-hfk-fam]]). The terms whose bounds for the seven fields form a family bounded in the Euclidean norm through
 𝒟_g and 𝒥_g, that is the leading terms D̂Ψ_(JZ), the remainders, and the leading term and the terms with 𝔷 and 𝔯_♯ of
 the recovery of D̂²Ψ_(JZ), take the factor K_rec(p), as before. The terms with one bound for all seven fields, that is
@@ -20,11 +20,11 @@ weights. The change enters the recovery constants with index k, through them C_P
 [[eq:tl5-hfk-closing]]; every new constant is at most the one it replaces, and the earlier closing conditions remain
 valid. The notation is that of [[sec:tl5-hff]].
 
-**Lemma {#lem:tl5-hfk-rec}** (The recovery through the map of the seven fields.) Let p, H, Ψ, 𝔣, 𝔷_Z, ‖𝓡̂‖, ‖𝒞_(·1)‖, 𝔥,
-𝔨_♯(𝔥) and 𝔯_♯ be as in [[lem:tl5-hfz-rec]], and let |T|, λ_M and the coefficients c^ab_j (j = 2, 3, 4) be those of
-[[def:tl5-hf-frame]] and [[lem:tl5-hf-fields]] (a) at p. For a family x = (x_Z)_(Z∈Γ) of tensors at p of one type let
-𝒳_p x be the family (|T|⁻¹ x_T, (Σ_(a<b) c^ab_j x_(K_ab))_(j=2,3,4)), and |𝒳_p x| its Euclidean norm, formed with the
-norm |·| of its four members; for a family y = (y_Z)_(Z∈Γ) of numbers put |y|_Γ := (|T|⁻² y_T² + λ_M⁻¹ Σ_(a<b)
+**Lemma {#lem:tl5-hfk-rec}** (The recovery through the map of the seven fields.) Let p, H, Ψ, 𝔣, K_rec, 𝔷_Z, ‖𝓡̂‖,
+‖𝒞_(·1)‖, 𝔥, 𝔨_♯(𝔥) and 𝔯_♯ be as in [[lem:tl5-hfz-rec]], and let |T|, λ_M and the coefficients c^ab_j (j = 2, 3, 4) be
+those of [[def:tl5-hf-frame]] and [[lem:tl5-hf-fields]] (a) at p. For a family x = (x_Z)_(Z∈Γ) of tensors at p of one
+type let 𝒳_p x be the family (|T|⁻¹ x_T, (Σ_(a<b) c^ab_j x_(K_ab))_(j=2,3,4)), and |𝒳_p x| its Euclidean norm, formed
+with the norm |·| of its four members; for a family y = (y_Z)_(Z∈Γ) of numbers put |y|_Γ := (|T|⁻² y_T² + λ_M⁻¹ Σ_(a<b)
 y_(K_ab)²)^(1/2); and put
 
     𝔨_Γ := (|T|⁻² + 6λ_M⁻¹)^(1/2),      𝔷₁^k := 3 |(|D̂Z|)_(Z∈Γ)|_Γ,      𝔷₂^k := 2 |(|D̂²Z|)_(Z∈Γ)|_Γ.
@@ -46,13 +46,14 @@ do the bounds of 𝔨_Γ, 𝔷₁^k and 𝔷₂^k, as 𝔷₁′ = 3 (Σ_Z |D̂Z
 (b) In the proof of [[lem:tl5-hf-recovery]] the frame directions F_B with B ≠ 1 are E₀ and the f_j, and for every A,
 D̂²Ψ(A, 0) = |T|⁻¹ (D̂_A ℒ_TΨ − 𝔷_(T,A)) and D̂²Ψ(A, j) = Σ_(a<b) c^ab_j (D̂_A ℒ_(K_ab)Ψ − 𝔷_(K_ab,A)). For Z ∈ Γ let
 u_Z := D̂ℒ_ZΨ and let w_Z be the tensor of rank three with w_Z(F_A, ·, ·) := 𝔷_(Z,A); so |w_Z| ≤ 𝔷_Z by that proof, and,
-as |B|² = Σ_A |B(F_A, ·, ·)|² for a tensor B of rank three, the number X of that proof, the sum of the |D̂²Ψ(A, B)|²
-over all A and all B ≠ 1, is |𝒳_p (u − w)|². As 𝒳_p is linear, Minkowski's inequality gives X^(1/2) ≤ |𝒳_p u| + |𝒳_p w|,
-and by (a) and Minkowski's inequality in the weighted Euclidean norm |·|_Γ, |𝒳_p w| ≤ |(𝔷_Z)_Z|_Γ ≤
-3 |(|D̂Z|)_Z|_Γ |D̂Ψ| + 2 |(|D̂²Z|)_Z|_Γ |Ψ| = 𝔷₁^k |D̂Ψ| + 𝔷₂^k |Ψ|. The proof of [[lem:tl5-hfz-rec]] uses the bound of
-X only as a number 𝔟 with X^(1/2) ≤ 𝔟, there K_rec ((Σ_Z |D̂ℒ_ZΨ|²)^(1/2) + (Σ_Z 𝔷_Z²)^(1/2)), and gives |D̂²Ψ| ≤ 𝔨_♯(𝔥)
-𝔟 + (1 − 𝔥)⁻¹ (|𝔣| + 𝔯_♯ |Ψ|); with 𝔟 := |𝒳_p u| + 𝔷₁^k |D̂Ψ| + 𝔷₂^k |Ψ| this is [[eq:tl5-hfk-rec]]. The last claim
-follows from (a), as (Σ_Z 𝔷_Z²)^(1/2) ≤ 𝔷₁′ |D̂Ψ| + 𝔷₂′ |Ψ| by Minkowski's inequality over Z. ∎
+as the squared norm of a tensor of rank three is the sum over A of those of its values at (F_A, ·, ·), the number X of
+that proof, the sum of the |D̂²Ψ(A, B)|² over all A and all B ≠ 1, is |𝒳_p (u − w)|². As 𝒳_p is linear, Minkowski's
+inequality gives X^(1/2) ≤ |𝒳_p u| + |𝒳_p w|, and by (a) and Minkowski's inequality in the weighted Euclidean
+norm |·|_Γ, |𝒳_p w| ≤ |(𝔷_Z)_Z|_Γ ≤ 3 |(|D̂Z|)_Z|_Γ |D̂Ψ| + 2 |(|D̂²Z|)_Z|_Γ |Ψ| = 𝔷₁^k |D̂Ψ| + 𝔷₂^k |Ψ|. The proof of
+[[lem:tl5-hfz-rec]] uses the bound of X only as a number 𝔟 with X^(1/2) ≤ 𝔟, there K_rec ((Σ_Z |D̂ℒ_ZΨ|²)^(1/2) + (Σ_Z
+𝔷_Z²)^(1/2)), and gives |D̂²Ψ| ≤ 𝔨_♯(𝔥) 𝔟 + (1 − 𝔥)⁻¹ (|𝔣| + 𝔯_♯ |Ψ|); with 𝔟 := |𝒳_p u| + 𝔷₁^k |D̂Ψ| + 𝔷₂^k |Ψ| this is
+[[eq:tl5-hfk-rec]]. The last claim follows from (a), as (Σ_Z 𝔷_Z²)^(1/2) ≤ 𝔷₁′ |D̂Ψ| + 𝔷₂′ |Ψ| by Minkowski's inequality
+over Z. ∎
 
 **Lemma {#lem:tl5-hfk-fam}** (The seven fields through the map of the recovery.) Let N = 4, let the setting be that of
 [[lem:tl5-hfp-rec]], with 𝔰 ≤ 𝔰₁^v on Q(a, b) and the constants with index l, and let 𝒳_p, |·|_Γ and 𝔨_Γ be as in
@@ -90,9 +91,9 @@ D̂²Ψ_(JZ), which multiplied by 𝔬_J are at most 𝔵^z (k₁^D 𝒟_g + (k�
 proof of [[lem:tl5-hfp-words]]; and on S_a the bound of ℒ^J A_Z that the step uses for every J. For these |y|_Γ = 𝔨_Γ
 (Σ_J u_J²)^(1/2), where the Euclidean norm is √7 (Σ_J u_J²)^(1/2); so their parts are those of the proof with 𝔨_Γ in
 place of n^(1/2) = √7, that is with 43^(1/2) 𝔨_Γ in place of (43n)^(1/2) in the nonlinear parts of 𝔩_D(Γ) and 𝔩_J(Γ) and
-in y, and with 𝔨_Γ in place of n^(1/2) in the parts with ϱ(p) and η₀ of [[eq:tl5-hfp-family]]. (iii) The terms with 𝔄,
-whose family over the pairs, multiplied by 𝔬_J and weighted, has the norm |·|_Γ at most (1 − 𝔰₁^v)⁻¹ 𝔞_𝔄^k 𝒥_g, by the
-definition of 𝔞_𝔄^k and Σ_K μ^|K| (|D̂Ψ_K|² + |Ψ_K|²) ≤ 𝒥_g², as in that proof.
+in the term y of that proof, and with 𝔨_Γ in place of n^(1/2) in the parts with ϱ(p) and η₀ of [[eq:tl5-hfp-family]].
+(iii) The terms with 𝔄, whose family over the pairs, multiplied by 𝔬_J and weighted, has the norm |·|_Γ at most (1 −
+𝔰₁^v)⁻¹ 𝔞_𝔄^k 𝒥_g, by the definition of 𝔞_𝔄^k and Σ_K μ^|K| (|D̂Ψ_K|² + |Ψ_K|²) ≤ 𝒥_g², as in that proof.
 
 So, with K := K_rec(p) and 𝔩_D^k and 𝔩_J^k the functions 𝔩_D(Γ) and 𝔩_J(Γ) formed with 43^(1/2) 𝔨_Γ/K and 𝔞_𝔄^k/K in
 place of 301^(1/2) and 𝔞_𝔄(Γ), at each point of the face
@@ -241,10 +242,10 @@ Equality holds where |T|⁻¹ = λ_M^(−½) at p, as then both weights of |·|_
 closing conditions stay valid beside the new one: no earlier theorem is changed, and thm:tl5-hff (N = 4) is the case
 just named.
 
-**Both constraints.** The change enters 𝔨_rec^(·,k), hence C_P^v, C_(P,ϱ)^v and C_(P,0)^v (lem:tl5-hfv-rec). These
-enter 𝔰_* through its terms with A, ϱ and η₀, and the closing condition through S_F (𝔣₀C_P,
-𝔣₁C_P and 𝔎 = max(C_P⁰𝔨_A, C_P^v𝔨_B), so 𝔎^D) and through 𝔯 (𝔎_ϱ, 𝔎₀, 𝔎^D_ϱ, 𝔎^D₀), so through B_k and η_k, which
-enter A_k, Y_k and 𝔰_*^k as well.
+**Both constraints.** The change enters 𝔨_rec^(·,k), hence C_P^v, C_(P,ϱ)^v and C_(P,0)^v (lem:tl5-hfv-rec). These enter
+𝔰_* through its terms with A, ϱ and η₀, and the closing condition through S_F (𝔣₀C_P, 𝔣₁C_P and 𝔎 = max(C_P⁰𝔨_A,
+C_P^v𝔨_B), so 𝔎^D) and through 𝔯 (𝔣₀ and 𝔣₁ times C_(P,ϱ) and C_(P,0), 𝔎_ϱ, 𝔎₀, 𝔎^D_ϱ, 𝔎^D₀), so through B_k and η_k,
+which enter A_k, Y_k and 𝔰_*^k as well.
 
 Unchanged: all counts of the products (𝔠^♮, 𝔠^D, 𝔠^(D,7), 𝔠^ϱ, 𝔠^Mq), the Sobolev and leaf constants, the
 recovery constants at the points of the face (𝔨_♯, K_rec, k₁^D, k₁, k₂^z, 𝔷′), the first-order constants of one word
@@ -324,24 +325,29 @@ The factor at the supremum of 𝔨_rec^p (G0q §G0q.2 item 2, seed 1 D_A / seed 
   with 𝔞_𝔄 is negligible, and equals it only if all of C₁^(Γ,l) were of the second kind. The fall of the C₁ term is at
   most 0.31 / 0.29 / 0.20 / 0.20 decades, or 0.46 / 0.44 / 0.26 / 0.26 if the couplings led it; the first kind keeps
   its size. The C₁ term is 95.8 / 94.2 / 98.6 / 98.0 % of 𝔨_rec^p there (the rest is the 𝔷₁ term, which falls by at
-  most the floor figure), so 𝔨_rec^k falls by at most about the first figures (0.311 at seed 1 D_A with the 𝔷₁ term at
-  the floor), and by at most the second in all cases.
+  most the floor figure), so 𝔨_rec^k falls by at most 0.311 / 0.301 / 0.199 / 0.198 (the first figures with the 𝔷₁
+  term at the floor) where the part with 𝔞_𝔄 is negligible, and by at most the second figures in all cases.
 - A deduced figure for the split (G0p §G0p.0, 𝔵^z = 0.068 / 0.047 / 0.109 / 0.122 at G0p's level-4 optima): in
   𝔩_D(Γ) = k₁^D(1 + u), u = 301^½𝔵^z/(1 − 𝔵^z) = 1.27 / 0.86 / 2.12 / 2.41, the nonlinear part is 0.56 / 0.46 / 0.68
-  / 0.71 of the whole, and 1 + u → 1 + 0.495u etc. is a fall of 0.14 / 0.11 / 0.13 / 0.13 decades of 𝔩_D(Γ). 𝔩_J(Γ)'s
+  / 0.71 of the whole, and 1 + u → 1 + 0.495u etc. is a fall of 0.14 / 0.11 / 0.12 / 0.13 decades of 𝔩_D(Γ). 𝔩_J(Γ)'s
   nonlinear part u(k₁^p − k₁^D + 2) falls by the full equal-shares figure; its share is not reported. With 𝔲₁ at its
-  pointwise optimum the bracket of C₁^(U,l) is 2(XY)^½ (rem:tl5-hfe-what), so where 2𝔲₁⁻¹|∂_γ|²𝔩′² leads Y the fall of
+  pointwise optimum the bracket of C₁^(U,l) is 2(XY)^½ (rem:tl5-hfe-what), so where 2|∂_γ|²𝔩′² leads Y the fall of
   C₁ is half that of 𝔩′ = 𝔩_D + 𝔩_J + (2ϖ′)^½, and with 𝔲₁ = 1 all of it. The evaluation may re-choose 𝔲₁ for C₁^k;
   any 𝔲₁ is admissible, but it is one function for all first-order steps.
 Through the theorem, at level 4 (G0q §G0q.2 items 1 and 3).
-- The gain is nondecreasing in the fall. Alone, on the P-GRD14 constants: at most G0q's price of the C₁ term ÷ 2
-  (a fall of 0.30), +0.09 / +0.24 / +0.06 / +0.29. At seed 1 that price is already capped by 𝔤₁C_S, which takes the
-  supremum back once 𝔨_rec^p has fallen by 0.098 / 0.185 (sup 𝔨_rec^p over sup 𝔤₁C_S, item 1), so a larger fall gives
-  no more there; at seed 2 the falls above are at most 0.29 (D_A) and 0.26 (D*), unless the part with 𝔞_𝔄 leads
-  C₁^(Γ,l) at seed 2 D_A (up to 0.44, not priced).
-- With C_P⁰ lowered by 0.30 as well (P-GRD15's lever 3a, C_S ÷ 2 in G0q): at most G0q's price of both together,
-  +0.26 / +0.25 / +0.30 / +0.29. A larger fall of C_P⁰ is not priced; how far C_P⁰ falls at the supremum is G0r's
-  measurement.
+- The gain is nondecreasing in the fall of 𝔨_rec^p. G0q's price of the C₁ term ÷ 2 halves that term alone, a fall of
+  𝔨_rec^p of 0.283 / 0.277 / 0.295 / 0.292 at the supremum, the 𝔷₁ term keeping its size; here 𝔨_rec^k falls by at most
+  0.311 / 0.301 / 0.199 / 0.198, or 0.46 / 0.44 / 0.26 / 0.26 if the couplings led C₁^(Γ,l) (above). Alone, on the
+  P-GRD14 constants: at most that price, +0.09 / +0.24 / +0.06 / +0.29, except at seed 2 D_A. At seed 1 the price is
+  already capped by 𝔤₁C_S, which takes the supremum back once 𝔨_rec^p has fallen by 0.098 / 0.185 (sup 𝔨_rec^p over sup
+  𝔤₁C_S, item 1), so a larger fall gives no more there; at seed 2 D* the fall here is the smaller. At seed 2 D_A it may
+  exceed the priced fall by 0.02, through the 𝔷₁ term, or by 0.16 if the couplings led, so +0.24 is not an upper figure
+  there; the excess is not priced.
+- With C_P⁰ lowered by 0.30 as well (P-GRD15's lever 3a, C_S ÷ 2 in G0q): G0q's price of both together, +0.26 / +0.25 /
+  +0.30 / +0.29, is an upper figure at the two D* points, where the fall here is the smaller. At the two D_A points it
+  may exceed the priced fall by 0.03 / 0.02, or by 0.18 / 0.16 if the couplings led, and at seed 1 D_A 𝔤₁C_S, lowered as
+  well, no longer caps it before a fall of 0.40; this excess is not priced. A larger fall of C_P⁰ is not priced; how far
+  C_P⁰ falls at the supremum is G0r's measurement.
 - The parts with ϱ(p) and η₀(p): 𝔨_rec^(ϱ,k) and the C_(1,0)^p part of 𝔨_rec^(0,k) fall on their parts with 𝔨_Γ by
   the equal-shares figure at that point, 0.31 / 0.29 / 0.20 / 0.20, and enter C_(P,ϱ)^v, C_(P,0)^v, the terms of 𝔰_*
   with ϱ and η₀, and 𝔎_ϱ, 𝔎₀. Not priced; G0q §G0q.1 has ϱ 0.04–0.44 above f, with f binding.
@@ -387,11 +393,11 @@ are those of this file:
     sec:tl5-hfk	paper/reader/proofs/P-GRD16.md@PENDING:1	P-GRD16, section	new; at the end of ch:ten-l5, after rem:tl5-hff-what; N = 4: the recovery of D^2 h at p through the image under its map X_p of the seven fields, bounded by the Sobolev inequality of the face for the four fields that X_p makes; K_rec(p) on the terms bounded in the Euclidean norm, k_Gamma = (|T|^-2 + 6 lambda_M^-1)^(1/2) in place of sqrt7 K_rec on the terms with one bound for the seven fields, the couplings through their weighted map
     lem:tl5-hfk-rec	paper/reader/proofs/P-GRD16.md@PENDING:23	P-GRD16, Lemma	X_p, |.|_Gamma, k_Gamma, z_1^k, z_2^k; |X_p x| <= |(|x_Z|)|_Gamma <= K_rec |x|; the recovery of lem:tl5-hfz-rec with |X_p (D L_Z Psi)_Z| + z_1^k |D Psi| + z_2^k |Psi| in place of K_rec ((sum |D L_Z Psi|^2)^(1/2) + (sum z_Z^2)^(1/2))
     eq:tl5-hfk-rec	paper/reader/proofs/P-GRD16.md@PENDING:37	P-GRD16, display	new
-    lem:tl5-hfk-fam	paper/reader/proofs/P-GRD16.md@PENDING:57	P-GRD16, Lemma	N = 4: |X_p (D Psi_Z(p))_Z| <= mu^(-2) C_1^k E_g(p)^(1/2) + k_Gamma (w C_(1,rho)^l rho(p) + E_0); C_1^k = K_rec(p) C_1^l(Gamma) with 43^(1/2) k_Gamma/K_rec for 301^(1/2) and a_A^k/K_rec for a_A(Gamma); a_A^k <= K_rec a_A(Gamma), C_1^k <= K_rec C_1^(Gamma,l)
-    eq:tl5-hfk-fam	paper/reader/proofs/P-GRD16.md@PENDING:66	P-GRD16, display	new
-    def:tl5-hfk-constants	paper/reader/proofs/P-GRD16.md@PENDING:115	P-GRD16, Definition	constants with index k (N = 4, route (s)): k_rec^k, k_rec^(rho,k), k_rec^(0,k) in place of k_rec^p, k_rec^(rho,p), k_rec^(0,p) in their forms with index f, in C_P^v, C_(P,rho)^v, C_(P,0)^v and every constant formed from these; eps^k = eps^f; eta_k, A_k, B_k, Y_k, s_*^k
-    eq:tl5-hfk-krec	paper/reader/proofs/P-GRD16.md@PENDING:122	P-GRD16, display	k_rec^k = k_sharp (C_1^k + z_1^k mu^(1/2) C_1^l + z_2^k mu C_S^h) + (1 - s_1^v)^(-1) mu r_sharp C_S^h; k_rec^(rho,k) = k_sharp (k_Gamma + z_1^k mu^(1/2)) C_(1,rho)^l; k_rec^(0,k) = k_sharp ((k_Gamma + z_1^k mu^(1/2)) C_(1,0)^p + z_2^k mu C_(0,0)^h) + (1 - s_1^v)^(-1) mu r_sharp C_(0,0)^h
-    eq:tl5-hfk-constants	paper/reader/proofs/P-GRD16.md@PENDING:137	P-GRD16, display	new
-    thm:tl5-hfk	paper/reader/proofs/P-GRD16.md@PENDING:139	P-GRD16, Theorem	N = 4: thm:tl5-hff (route (s)) with the constants with index k; Y_sigma <= Y_k; its hypotheses are implied by those of thm:tl5-hff at N = 4
-    eq:tl5-hfk-closing	paper/reader/proofs/P-GRD16.md@PENDING:143	P-GRD16, display	closing condition: 4 eta_k^(-3/2)(delta_w + eta_k^(-1/2)(eps^k + eps_M^k))(S_F^k + S_M^k) < 1
-    rem:tl5-hfk-what	paper/reader/proofs/P-GRD16.md@PENDING:177	P-GRD16, Remark	what changes
+    lem:tl5-hfk-fam	paper/reader/proofs/P-GRD16.md@PENDING:58	P-GRD16, Lemma	N = 4: |X_p (D Psi_Z(p))_Z| <= mu^(-2) C_1^k E_g(p)^(1/2) + k_Gamma (w C_(1,rho)^l rho(p) + E_0); C_1^k = K_rec(p) C_1^l(Gamma) with 43^(1/2) k_Gamma/K_rec for 301^(1/2) and a_A^k/K_rec for a_A(Gamma); a_A^k <= K_rec a_A(Gamma), C_1^k <= K_rec C_1^(Gamma,l)
+    eq:tl5-hfk-fam	paper/reader/proofs/P-GRD16.md@PENDING:67	P-GRD16, display	new
+    def:tl5-hfk-constants	paper/reader/proofs/P-GRD16.md@PENDING:116	P-GRD16, Definition	constants with index k (N = 4, route (s)): k_rec^k, k_rec^(rho,k), k_rec^(0,k) in place of k_rec^p, k_rec^(rho,p), k_rec^(0,p) in their forms with index f, in C_P^v, C_(P,rho)^v, C_(P,0)^v and every constant formed from these; eps^k = eps^f; eta_k, A_k, B_k, Y_k, s_*^k
+    eq:tl5-hfk-krec	paper/reader/proofs/P-GRD16.md@PENDING:123	P-GRD16, display	k_rec^k = k_sharp (C_1^k + z_1^k mu^(1/2) C_1^l + z_2^k mu C_S^h) + (1 - s_1^v)^(-1) mu r_sharp C_S^h; k_rec^(rho,k) = k_sharp (k_Gamma + z_1^k mu^(1/2)) C_(1,rho)^l; k_rec^(0,k) = k_sharp ((k_Gamma + z_1^k mu^(1/2)) C_(1,0)^p + z_2^k mu C_(0,0)^h) + (1 - s_1^v)^(-1) mu r_sharp C_(0,0)^h
+    eq:tl5-hfk-constants	paper/reader/proofs/P-GRD16.md@PENDING:138	P-GRD16, display	new
+    thm:tl5-hfk	paper/reader/proofs/P-GRD16.md@PENDING:140	P-GRD16, Theorem	N = 4: thm:tl5-hff (route (s)) with the constants with index k; Y_sigma <= Y_k; its hypotheses are implied by those of thm:tl5-hff at N = 4
+    eq:tl5-hfk-closing	paper/reader/proofs/P-GRD16.md@PENDING:144	P-GRD16, display	closing condition: 4 eta_k^(-3/2)(delta_w + eta_k^(-1/2)(eps^k + eps_M^k))(S_F^k + S_M^k) < 1
+    rem:tl5-hfk-what	paper/reader/proofs/P-GRD16.md@PENDING:178	P-GRD16, Remark	what changes
