@@ -2,21 +2,22 @@
 
 This section makes two changes. First, in the products with a factor at a point the part with ϱ of a monomial is the
 residual of the recovery of its factor D̂²Ψ_C times its factor Φ₁, which is H, h or a Ψ_B, and Step 2 of the bootstrap
-bounds Φ₁ by 𝔰 ≤ 𝔰₁^v, which puts the part into ε. At the levels N ≥ 6 with option (b) of [[def:tl5-hft-constants]], Φ₁
-is a quantity of 𝔰_P⁰, and |Φ₁| ≤ μ^(−ℓ_P(Φ₁)/2) 𝔰_P⁰ leaves the factor μ^(−3/2) μ^(b/2) that the parts with 𝒥_g carry,
-so these parts hold with μ^(−1) 𝔰_P⁰ in place of 𝔰 ([[lem:tl5-hff-rho]]). Step 3 bounds 𝔰_P⁰ by C_P⁰ e^(φ/2) Y_s +
-C_(P,0)⁰ η₀, which has no part with ϱ; the weight e^(−φ) of 𝒮 takes up the factor e^(φ/2), so the part with ϱ gives a
-term 𝔯_ϱ^f Y_s², which enters 𝔯, and a part of ε with ϱ η₀. The two routes put the part in different places, and the
-theorem takes either. Second, the zeroth-order step bounds the part |Ψ_(JB)|² of the density of each word JB through the
-energy of JB itself, whose weight 𝔶_(|J|) μ^(|B|+2) is at most μ^(|JB|), with equality at the largest weights. For JB =
-ZC, Z its first letter, the bound |Ψ_(ZC)| ≤ 𝔷 (|D̂Ψ_C|² + |Ψ_C|²)^(1/2) of (∗) in the proof of [[lem:tl5-hfg-products]]
-passes it to the energy of the shorter word C, whose weight leaves a factor μ; its coefficient 1/(2Ω̂² z̲) becomes 6μ 𝔷²
-𝔨₂, six words ZC sharing each C, or at most 7μ 𝔷² 𝔨₂ for the words that the first letters of a family share, and at each
-point of the face the smaller of the two bounds is taken ([[lem:tl5-hff-zero]]). The word h has no shorter word; its
-step takes its own leaf weight 𝔶₀^h, which multiplies its own part by 𝔶₀^h μ². Both changes enter the constants with
-index f ([[def:tl5-hff-constants]], [[thm:tl5-hff]]). The closing condition is [[eq:tl5-hff-closing]]; with 𝔶₀^h = 𝔶₀
-and the first route every new constant is at most the one it replaces, and the earlier closing conditions remain valid.
-The notation is that of [[sec:tl5-hfc]].
+bounds Φ₁ by 𝔰 ≤ 𝔰₁^v, which puts the part into ε. But Φ₁ is a quantity of 𝔰_P⁰, and at the levels N ≥ 6 with option (b)
+of [[def:tl5-hft-constants]], where the part with ϱ of the bound of D̂²Ψ_C carries the weight μ^(−(|C|+1)/2), |Φ₁| ≤
+μ^(−ℓ_P(Φ₁)/2) 𝔰_P⁰ leaves the factor μ^(−3/2) μ^(b/2) that the parts with 𝒥_g carry, so these parts hold with μ^(−1)
+𝔰_P⁰ in place of 𝔰 ([[lem:tl5-hff-rho]]). Step 3 bounds 𝔰_P⁰ by C_P⁰ e^(φ/2) Y_s + C_(P,0)⁰ η₀, which has no part with
+ϱ; the weight e^(−φ) of 𝒮 takes up the factor e^(φ/2), so the part with ϱ gives a term 𝔯_ϱ^f Y_s², which enters 𝔯, and a
+part of ε with ϱ η₀. The two routes put the part in different places, and the theorem takes either. Second, the
+zeroth-order step bounds the part |Ψ_(JB)|² of the density of each word JB through the energy of JB itself, whose weight
+𝔶_(|J|) μ^(|B|+2) is at most μ^(|JB|), with equality at the largest weights. For JB = ZC, Z its first letter, the
+bound |Ψ_(ZC)| ≤ 𝔷 (|D̂Ψ_C|² + |Ψ_C|²)^(1/2) in the proof of (∗) of [[lem:tl5-hfg-products]] passes it to the energy of
+the shorter word C, whose weight leaves a factor μ; its coefficient 1/(2Ω̂² z̲) becomes 6μ 𝔷² 𝔨₂, six words ZC sharing
+each C, or at most 7μ 𝔷² 𝔨₂ for the words that the first letters of a family share, and at each point of the face the
+smaller of the two bounds is taken ([[lem:tl5-hff-zero]]). The word h has no shorter word; its step takes its own leaf
+weight 𝔶₀^h, which multiplies its own part by 𝔶₀^h μ². Both changes enter the constants with index f
+([[def:tl5-hff-constants]], [[thm:tl5-hff]]). The closing condition is [[eq:tl5-hff-closing]]; with 𝔶₀^h = 𝔶₀ and the
+first route every new constant is at most the one it replaces, and the earlier closing conditions remain valid. The
+notation is that of [[sec:tl5-hfc]].
 
 **Lemma {#lem:tl5-hff-rho}** (The parts with ϱ through the bound of 𝔰_P⁰.) Let N ≥ 6, with option (b) of
 [[def:tl5-hft-constants]], and let the setting be that of [[lem:tl5-hft-products]] with 𝔰 ≤ 𝔰₁^v on Q(a, b) and the
@@ -107,8 +108,9 @@ For 𝔶₀^h = 𝔶₀, C_(E,0)(𝔶^h) = C_(E,0)(𝔶), so C_S^h ≤ C_S^l for
 𝔶₀^h ∈ (0, μ⁻²], let C_S^f, C_S^h and C_(0,0)^h be as in [[lem:tl5-hff-zero]], and put C_P⁰ := max(𝔤₁ C_S^h, C_S^f) and
 C_(P,0)⁰ := max(𝔤₁ C_(0,0)^h, C_(0,0)). The constants with index f are the constants with index c formed with C_P⁰ and
 C_(P,0)⁰ in place of 𝔤₁ C_S^l and 𝔤₁ C_(0,0) at the sites of [[lem:tl5-hfc-h]] and in 𝔎 and 𝔎₀, with C_S^h and C_(0,0)^h
-in place of C_S^p and C_(0,0)^p in 𝔨_rec^p and 𝔨_rec^(0,p), and with C_S^h for b = 0 and C_S^f for b ≥ 1 in place of
-C_S^p in 𝔐_p^(m), each in its form with index l, and in every constant formed from these. Fix one of the two routes
+in place of C_S^p and C_(0,0)^p in 𝔨_rec^p and 𝔨_rec^(0,p), with C_S^h for b = 0 and C_S^f for b ≥ 1 in place of C_S^p
+in 𝔐_p^(m), and with max(C_(0,0)^h, C_(0,0)) in place of C_(0,0)^p in the parts with η₀ of the step of
+[[lem:tl5-hfp-low]], each in its form with index l, and in every constant formed from these. Fix one of the two routes
 below for the parts with ϱ, the second only for N ≥ 6 with option (b) of [[def:tl5-hft-constants]]:
 
     route (𝔰):  ε^f := ε^l,   𝔯_ϱ^f := 0;
@@ -155,11 +157,11 @@ terms with ϱ of the family of level j are bounded as in the proof of [[thm:tl5-
 the weights μ^|I| they contribute to the bulk at most 2Ω̂² μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z 𝔰_P⁰ ϱ (√e_o + √c √e_i) at
 each point, where that proof has 𝔰₁^v in place of μ⁻¹ 𝔰_P⁰. As ℰ_g(p) ≤ e^(φ(p)) Y_s² at every point p of D^κ_s, the
 bound of 𝔰_P⁰ gives 𝔰_P⁰ ≤ C_P⁰ e^(φ/2) Y_s + C_(P,0)⁰ η₀ there. So this part together with the forcing term is at most
-2Ω̂² s (√e_o + √c √e_i), with s := s_N[2R̂ic] + s₀ + Y_s s₁, s₀ := μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z C_(P,0)⁰ η₀ ϱ and s₁
-:= μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z C_P⁰ e^(φ/2) ϱ. As in the proof of [[prop:tl5-hf-linear]], its integral with the
-weight e^(−φ) over Q(a′, b′) is at most Y_s 𝒮[s]; and 𝒮 is subadditive and positively homogeneous, so Y_s 𝒮[s] ≤ Y_s
-ε^f + 𝔯_ϱ^f Y_s². The inequality of Step 3 then holds with ε^f in place of ε^c and with 𝔯^f in place of 𝔯^c, and gives
-(H1) with A_f and B_f.
+2Ω̂² s^f (√e_o + √c √e_i), with s^f := s_N[2R̂ic] + s₀^f + Y_s s₁^f, s₀^f := μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z C_(P,0)⁰ η₀
+ϱ and s₁^f := μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z C_P⁰ e^(φ/2) ϱ. As in the proof of [[prop:tl5-hf-linear]], its integral
+with the weight e^(−φ) over Q(a′, b′) is at most Y_s 𝒮[s^f]; and 𝒮 is subadditive and positively homogeneous, so Y_s
+𝒮[s^f] ≤ Y_s ε^f + 𝔯_ϱ^f Y_s². The inequality of Step 3 then holds with ε^f in place of ε^c and with 𝔯^f in place of
+𝔯^c, and gives (H1) with A_f and B_f.
 
 The rest of the proof of [[thm:tl5-hfc]], with A_f, B_f, Y_f and 𝔰_*^f[𝔜], holds as written. For the last claim, let
 𝔶₀^h = 𝔶₀ and take route (𝔰). By [[lem:tl5-hff-zero]], C_S^h ≤ C_S^l, C_S^f ≤ C_S^l and C_(0,0)^h = C_(0,0), so C_P⁰ ≤
@@ -209,7 +211,7 @@ New (one line added, of 117 characters; the two old lines are unchanged):
 
 rates are unchanged. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfc]] are established in
 this paper for no background at 10 l5.
-[[sec:tl5-hff]] moves the parts with ϱ into 𝔯 and takes the zeroth order through the shorter words ([[thm:tl5-hff]]).
+[[sec:tl5-hff]] can put the parts with ϱ in 𝔯 and takes the zeroth order through the shorter words ([[thm:tl5-hff]]).
 
 *3. Nothing else changes.* No earlier text is edited: the sites listed in the Comparison keep their texts, and the new
 constants are defined in def:tl5-hff-constants by reference to them.
@@ -250,16 +252,19 @@ factor 𝔤₁, the rule of the threshold (Y_f has the form of Y_c), S_M, ε_M, 
      lem:tl5-hfs-products), a quantity of 𝔰_P⁰, whose bound at a point has no part with ϱ. So there is no ϱ² term: the
      route gives a Y_s² term in 𝔯 and a ϱη₀ term in ε only.
    - The sites, at HEAD bea115c4, old → new in route (𝔯):
-     - 87:5607 (lem:tl5-hfs-products, "With |Φ₁| ≤ 𝔰 in the term with ϱ(p)"), 87:5898–5899 (lem:tl5-hft-products, "is
+     - 87:5607 (lem:tl5-hfs-products, "With |Φ₁| ≤ 𝔰 in the term with ϱ(p)"), 87:5899–5900 (lem:tl5-hft-products, "is
        then at most ν 𝔰^(q−1) μ^((n − ℓ_E(Φ₂))/2) 2k₂ ϱ(p)") and 87:5902 ("μ^((n−|J|−1)/2) 𝔰 2k₂ ϱ(p)")
          → the two terms of eq:tl5-hff-rho, μ^(−1) 𝔰_P⁰ in place of 𝔰; the lemmas themselves are kept;
      - 87:6287 (thm:tl5-hfw, "we use 2k₂ 𝔰 ϱ ≤ 2𝔰₁^v k₂ ϱ, by Step 1"), 87:6385 (thm:tl5-hfy, "k₂ 𝔰 ϱ/(1 − 𝔵) ≤ 𝔰₁^v
-       k₂ ϱ/(1 − 𝔵)") and 87:7471 (proof of thm:tl5-hfe, "With the bound 𝔰 ≤ 𝔰₁^v of Step 1")
+       k₂ ϱ/(1 − 𝔵)"), 87:6578–6579 (thm:tl5-hfz, "k₂^z 𝔰 ϱ/(1 − 𝔵^z) ≤ 𝔰₁^v k₂^z ϱ/(1 − 𝔵^z)") and 87:7471
+       (proof of thm:tl5-hfe, "With the bound 𝔰 ≤ 𝔰₁^v of Step 1")
          → 𝔰_P⁰ ≤ C_P⁰ e^(φ/2) Y_s + C_(P,0)⁰ η₀ at each point, with μ⁻¹;
      - 87:7426 (def:tl5-hfe-constants, "ε^l := 𝒮[s_N[2R̂ic] + 𝔰₁^v (1 − 𝔵^z)⁻¹ 𝔤_ϱ^l k₂^z ϱ]")
          → ε^f, the factor 𝔰₁^v of the coefficient of ϱ replaced by μ⁻¹ C_(P,0)⁰ η₀; and 𝔯^f := 𝔯^c + 𝔯_ϱ^f.
-   - Not offered at N = 4 or with option (a), where the products carry 𝔠^ϱ at other arguments (ν; 1 with the level
-     weights μ^(n/2)); their forms with 𝔰_P⁰ are not proved here.
+   - Not offered with option (a), where the products carry 𝔠^ϱ at the argument 1 with the level weights μ^(n/2), nor
+     at N = 4, where 𝔤_ϱ^l is a minimum with 𝔤^l_(ϱ,q), of argument ν, and the parts 𝔑^M_I stand apart; their forms
+     with 𝔰_P⁰ are not proved here. The argument of lem:tl5-hff-rho itself uses only lem:tl5-hft-products, which
+     lem:tl5-hfq-theta gives at N = 4 as well; the level-four theorem with the route is not drafted.
    - An option, not a minimum: route (𝔰) puts the part into ε, route (𝔯) into 𝔯 (and ϱη₀ into ε). Each theorem holds
      with its route's ε^f and 𝔯^f; neither set of constants is at most the other.
 2. Lever 3a, the zeroth order through the shorter words (lem:tl5-hff-zero).
@@ -270,8 +275,8 @@ factor 𝔤₁, the rule of the threshold (Y_f has the form of Y_c), S_M, ε_M, 
      C_S^h for h, with its own leaf weight 𝔶₀^h.
    - The word h: of the note's two options, the first is taken, the step for h with its own leaf weight 𝔶₀^h ≤ μ⁻².
      The reason: h carries the entry 𝔤₁C_S^h of μ|H| in C_P⁰ = max(𝔤₁C_S^h, C_S^f). With the second option, h's own
-     part kept and the gain taken only for |B| ≥ 1, C_P⁰ = 𝔤₁C_S^l and the entry does not move. The second option is
-     the case 𝔶₀^h = 𝔶₀ of the first, so nothing is lost by taking the first.
+     part kept and the gain taken only for |B| ≥ 1, C_P⁰ = 𝔤₁C_S^l and the entry does not move. At 𝔶₀^h = 𝔶₀ the
+     first gives C_S^h ≤ C_S^l, the constant the second keeps for h, so nothing is lost by taking the first.
    - The bookkeeping (proof of lem:tl5-hff-zero): the classes of words JB with |J| = 2, JB with |J| ≤ 1, and B′, of
      lengths |B| + 2, |B| + 1 or |B|, and |B| − 1; preimages 6 (the rotations as first letter of J) and, for B′, 1 for a
      single word and at most 7 for a family (Z ∈ Γ). The weights: 𝔶_(|J|) μ^(|B|+2) ≤ μ μ^(|C|) in every case, from
@@ -279,7 +284,10 @@ factor 𝔤₁, the rule of the threshold (Y_f has the form of Y_c), S_M, ε_M, 
    - The sites, at HEAD bea115c4, old → new: the entries 𝔤₁C_S^l and 𝔤₁C_(0,0) of μ|H| and the Ψ_B (the sites of
      lem:tl5-hfc-h, among them eq:tl5-hfs-linfty, eq:tl5-hfg-cinf and its forms, C_P^v and C_(P,0)^v, and 𝔎, 𝔎₀ of
      def:tl5-hfs-constants, 87:5655) → C_P⁰, C_(P,0)⁰; 87:6675 and 87:6677 (𝔨_rec^p, "𝔷₂′ μ C_S^p) + (1 − 𝔰₁^v)⁻¹ μ
-     𝔯_♯ C_S^p", and 𝔨_rec^(0,p)) → C_S^h, C_(0,0)^h; 87:6672 (𝔐_p^(m)) → C_S^h at b = 0, C_S^f at b ≥ 1.
+     𝔯_♯ C_S^p", and 𝔨_rec^(0,p)) → C_S^h, C_(0,0)^h; 87:6672 (𝔐_p^(m)) → C_S^h at b = 0, C_S^f at b ≥ 1; 87:6824–6825
+     (lem:tl5-hfp-low, "its parts with ϱ and η₀ being formed with C_(1,ϱ)^p, C_(1,0)^p and C_(0,0)^p", the largest of
+     them taken; the part of the word h, b = 0, is formed with C_(0,0)^h) → max(C_(0,0)^h, C_(0,0)) in place of
+     C_(0,0)^p.
 3. The closing condition eq:tl5-hff-closing is eq:tl5-hfc-closing with the constants with index f; it also defines
    Y_f, through 4A_fB_f < 1.
 
@@ -322,7 +330,8 @@ Lever 3a.
 - Level 6. G0p's price of C_S ÷ 2 is +0.22 / +0.06 / +0.18 / +0.02 (§G0p.4, before P-GRD14); C_S acts there through
   𝔐_p^(2), which carries C_S without the factor of H, and through S_F. Where both C_S^f and C_S^h fall by 0.30 or more
   at the points that matter, the point attaining that price stays admissible, so lever 3a pays at least it; the falls
-  above at the level-6 μ exceed 0.30 in every case. Beyond 0.30 it is capped where the C₁ part of 𝔐_p^(2) leads;
+  of C_S^f above at the level-6 μ exceed 0.30 in every case, while that of C_S^h needs 𝔶₀^h μ² of about X′/X or less
+  and its cost is not evaluated. Beyond 0.30 it is capped where the C₁ part of 𝔐_p^(2) leads;
   G0p gives 𝔐_p^(2)/C₁ = 0.92–1.29 decades, but not the split of 𝔐_p^(2) between its parts.
 The two levers act on different factors (the coefficient of ϱ in ε; C_S in 𝔐_p, C_P⁰ and 𝔎), so at level 6 their gains
 add at most; they are not evaluated together.
@@ -339,9 +348,10 @@ Not done (P-GRD16 if G0q leaves room).
   - so the parts that split give at most max(|T|⁻², λ_M⁻¹) times their present coefficient squared, that is K_rec² times
     it: no gain in the worst case; only the parts that do not split gain, their count (43n)^½ becoming (43|T|⁻² +
     258λ_M⁻¹)^½ against 301^½ K_rec, and 𝔞_𝔄 likewise;
-  - on those parts the factor is between (258/301)^½ = 0.93 (λ_M^(−½) ≥ |T|⁻¹) and (43/301)^½ = 0.38 (|T|⁻¹ ≫
-    λ_M^(−½)); in 𝔩_D(Γ) they are the part 301^½ 𝔵^z/(1 − 𝔵^z) of 1 + 301^½ 𝔵^z/(1 − 𝔵^z), 1.27 of 2.27 at
-    𝔵^z = 0.068 (G0p §G0p.0, seed 1 D_A);
+  - on those parts the factor is at most 1, with equality at |T|⁻¹ = λ_M^(−½), and at least (258/301)^½ = 0.93 for
+    λ_M^(−½) ≥ |T|⁻¹ and (43/301)^½ = 0.38 in all, the two bounds approached as λ_M^(−½)/|T|⁻¹ grows or falls; in
+    𝔩_D(Γ) they are the part 301^½ 𝔵^z/(1 − 𝔵^z) of 1 + 301^½ 𝔵^z/(1 − 𝔵^z), 1.27 of 2.27 at 𝔵^z = 0.068 (G0p §G0p.0,
+    seed 1 D_A);
   - the bound is plausible but not proved: it needs the face energies split by the last letter of the words, which no
     lemma of the chapter gives, and whether it gains turns on |T|⁻¹ against λ_M^(−½) at the supremum, which G0q is
     measuring.
@@ -353,13 +363,13 @@ Not done (P-GRD16 if G0q leaves room).
 Rows for the crosswalk of [[ch:ten-l5]], in its four columns, separated by tabs, in chapter order; the line numbers
 are those of this file:
     sec:tl5-hff	paper/reader/proofs/P-GRD15.md@PENDING:1	P-GRD15, section	new; at the end of ch:ten-l5, after rem:tl5-hfc-what; the parts with rho of the products through the bound of s_P^0 at a point, into r (route (r), N >= 6, option (b)); the zeroth-order step through the energies of the shorter words, and a leaf weight y_0^h for the word h
-    lem:tl5-hff-rho	paper/reader/proofs/P-GRD15.md@PENDING:21	P-GRD15, Lemma	N >= 6, option (b): the terms with rho(p) of lem:tl5-hft-products hold with mu^(-1) s_P^0 in place of s
-    eq:tl5-hff-rho	paper/reader/proofs/P-GRD15.md@PENDING:29	P-GRD15, display	new
-    lem:tl5-hff-zero	paper/reader/proofs/P-GRD15.md@PENDING:52	P-GRD15, Lemma	the zeroth-order step with C_S^f for |B| >= 1 and its families (|Psi_(ZC)|^2 through the energy of C: coefficient 6 mu z^2 k_2, 7 for the words shared in a family, the smaller bound at each point) and with C_S^h, C_(0,0)^h for h, with its own leaf weight y_0^h; C_S^f <= C_S^l
-    eq:tl5-hff-cs	paper/reader/proofs/P-GRD15.md@PENDING:60	P-GRD15, display	new
-    def:tl5-hff-constants	paper/reader/proofs/P-GRD15.md@PENDING:106	P-GRD15, Definition	constants with index f: C_P^0 = max(g_1 C_S^h, C_S^f), C_(P,0)^0 = max(g_1 C_(0,0)^h, C_(0,0)) in place of g_1 C_S^l, g_1 C_(0,0); C_S^h in k_rec^p; C_S^h, C_S^f in M_p^(m); routes (s), (r) for the parts with rho; eta_f, A_f, B_f, Y_f, s_*^f
-    eq:tl5-hff-routes	paper/reader/proofs/P-GRD15.md@PENDING:116	P-GRD15, display	route (s): eps^f = eps^l, r_rho^f = 0; route (r): eps^f = S[s_N + mu^(-1)(1 - x^z)^(-1) g^l_(rho,t) k_2^z C_(P,0)^0 eta_0 rho], r_rho^f = rho S[mu^(-1)(1 - x^z)^(-1) g^l_(rho,t) k_2^z C_P^0 e^(phi/2)]
-    eq:tl5-hff-constants	paper/reader/proofs/P-GRD15.md@PENDING:125	P-GRD15, display	new
-    thm:tl5-hff	paper/reader/proofs/P-GRD15.md@PENDING:127	P-GRD15, Theorem	thm:tl5-hfc with the constants with index f and either route; Y_sigma <= Y_f; for y_0^h = y_0 and route (s) its hypotheses are implied by those of thm:tl5-hfc
-    eq:tl5-hff-closing	paper/reader/proofs/P-GRD15.md@PENDING:132	P-GRD15, display	closing condition: 4 eta_f^(-3/2)(delta_w + eta_f^(-1/2)(eps^f + eps_M^f))(S_F^f + S_M^f) < 1
-    rem:tl5-hff-what	paper/reader/proofs/P-GRD15.md@PENDING:171	P-GRD15, Remark	what changes
+    lem:tl5-hff-rho	paper/reader/proofs/P-GRD15.md@PENDING:22	P-GRD15, Lemma	N >= 6, option (b): the terms with rho(p) of lem:tl5-hft-products hold with mu^(-1) s_P^0 in place of s
+    eq:tl5-hff-rho	paper/reader/proofs/P-GRD15.md@PENDING:30	P-GRD15, display	new
+    lem:tl5-hff-zero	paper/reader/proofs/P-GRD15.md@PENDING:53	P-GRD15, Lemma	the zeroth-order step with C_S^f for |B| >= 1 and its families (|Psi_(ZC)|^2 through the energy of C: coefficient 6 mu z^2 k_2, 7 for the words shared in a family, the smaller bound at each point) and with C_S^h, C_(0,0)^h for h, with its own leaf weight y_0^h; C_S^f <= C_S^l
+    eq:tl5-hff-cs	paper/reader/proofs/P-GRD15.md@PENDING:61	P-GRD15, display	new
+    def:tl5-hff-constants	paper/reader/proofs/P-GRD15.md@PENDING:107	P-GRD15, Definition	constants with index f: C_P^0 = max(g_1 C_S^h, C_S^f), C_(P,0)^0 = max(g_1 C_(0,0)^h, C_(0,0)) in place of g_1 C_S^l, g_1 C_(0,0); C_S^h in k_rec^p; C_S^h, C_S^f in M_p^(m); max(C_(0,0)^h, C_(0,0)) in the eta_0 parts of lem:tl5-hfp-low; routes (s), (r) for the parts with rho; eta_f, A_f, B_f, Y_f, s_*^f
+    eq:tl5-hff-routes	paper/reader/proofs/P-GRD15.md@PENDING:118	P-GRD15, display	route (s): eps^f = eps^l, r_rho^f = 0; route (r): eps^f = S[s_N + mu^(-1)(1 - x^z)^(-1) g^l_(rho,t) k_2^z C_(P,0)^0 eta_0 rho], r_rho^f = rho S[mu^(-1)(1 - x^z)^(-1) g^l_(rho,t) k_2^z C_P^0 e^(phi/2)]
+    eq:tl5-hff-constants	paper/reader/proofs/P-GRD15.md@PENDING:127	P-GRD15, display	new
+    thm:tl5-hff	paper/reader/proofs/P-GRD15.md@PENDING:129	P-GRD15, Theorem	thm:tl5-hfc with the constants with index f and either route; Y_sigma <= Y_f; for y_0^h = y_0 and route (s) its hypotheses are implied by those of thm:tl5-hfc
+    eq:tl5-hff-closing	paper/reader/proofs/P-GRD15.md@PENDING:134	P-GRD15, display	closing condition: 4 eta_f^(-3/2)(delta_w + eta_f^(-1/2)(eps^f + eps_M^f))(S_F^f + S_M^f) < 1
+    rem:tl5-hff-what	paper/reader/proofs/P-GRD15.md@PENDING:173	P-GRD15, Remark	what changes
