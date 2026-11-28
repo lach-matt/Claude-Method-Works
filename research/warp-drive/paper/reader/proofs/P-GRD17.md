@@ -55,9 +55,10 @@ every J; for a family y of numbers over the pairs with y_(J,Z) = u_J, the weight
 𝔰₁^v)⁻¹ 𝔞_𝔄^k(ΓB) 𝒥_g, by the definition of 𝔞_𝔄^k(ΓB) and Σ_K μ^|K| (|D̂Ψ_K|² + |Ψ_K|²) ≤ 𝒥_g². So the rest of the proof
 of [[lem:tl5-hfk-fam]] gives [[eq:tl5-hfn-fam]], with C₁^k(ΓB) in its part with ℰ_g and with 𝔨_Γ in place of the factor
 √7 of the parts with ϱ(p) and η₀ of [[eq:tl5-hfp-family]]. The last claims follow as there: the map that defines
-𝔞_𝔄^k(ΓB) is that defining 𝔞_𝔄(ΓB) followed by the multiplication of its components by numbers at most K_rec(p),
-43^(1/2) 𝔨_Γ/K_rec(p) ≤ 301^(1/2) by [[lem:tl5-hfk-rec]] (a), and the functions in C₁^(U,l)(ΓB), C₁^(D,l)(ΓB) and
-C₁^(J,l)(ΓB) are nondecreasing in that count and in 𝔞_𝔄(ΓB), as k₁^p ≥ k₁^D. ∎
+𝔞_𝔄^k(ΓB) is that defining 𝔞_𝔄(ΓB) followed by the multiplication of its components by numbers at most K_rec(p), so
+𝔞_𝔄^k(ΓB) ≤ K_rec(p) 𝔞_𝔄(ΓB); 43^(1/2) 𝔨_Γ/K_rec(p) ≤ 301^(1/2) by [[lem:tl5-hfk-rec]] (a); and the functions in
+C₁^(U,l)(ΓB), C₁^(D,l)(ΓB) and C₁^(J,l)(ΓB) are nondecreasing in that count and in 𝔞_𝔄(ΓB), as k₁^p ≥ k₁^D, so
+C₁^k(ΓB) ≤ K_rec(p) C₁^l(ΓB). ∎
 
 **Lemma {#lem:tl5-hfn-low}** (The step at low levels, word by word.) Let N ≥ 6, let the setting be that of
 [[lem:tl5-hfp-low]], with 𝔰 ≤ 𝔰₁^v on Q(a, b) and the constants with index f, and let 0 ≤ m ≤ N − 4. For a word B
@@ -108,7 +109,7 @@ and η₀(p) with ν′ = 1. As 𝔰_g^(m) is the largest of its quantities, and
 with |B| ≤ m, this gives the claim.
 
 For the last claims, let 𝔚′ ⊂ 𝔚 be families of words of one length. The map that defines 𝔞_𝔄(𝔚′) is that defining 𝔞_𝔄(𝔚)
-followed by the restriction to the components of the pairs (J, B) with B ∈ 𝔚′, of norm at most 1, so 𝔞_𝔄(𝔚′) ≤ 𝔞_𝔄(𝔚);
+followed by the restriction to the components of the pairs (J, C) with C ∈ 𝔚′, of norm at most 1, so 𝔞_𝔄(𝔚′) ≤ 𝔞_𝔄(𝔚);
 the functions in C₁^(U,l), C₁^(D,l) and C₁^(J,l) are nondecreasing in the number of the words of the family, through the
 counts of the nonlinear parts of 𝔩_D and 𝔩_J, and in 𝔞_𝔄, as k₁^p ≥ k₁^D; so C₁^l(𝔚′) ≤ C₁^l(𝔚). With 𝔚_b as in
 [[def:tl5-hfp-constants]], [[lem:tl5-hfn-fam]] and ΓB ⊂ 𝔚_(|B|+1) give C₁^k(ΓB) ≤ K_rec C₁^l(ΓB) ≤ K_rec C₁^l(𝔚_(|B|+1))
@@ -165,8 +166,8 @@ with index n is at most the one it replaces, and ε^n = ε^f. Then η_n ≥ η_f
 B_f, as in the proof of [[thm:tl5-hff]]; the smaller root 2A/(1 + (1 − 4AB)^(1/2)) is nondecreasing in A and in B, so
 Y_n ≤ Y_f, and 𝔰_*^n ≤ 𝔰_*^n[Y_f] ≤ 𝔰_*^f[Y_f] = 𝔰_*^f, 𝔰_*^n[𝔜] being nondecreasing in 𝔜 and in the constants. ∎
 
-**Remark {#rem:tl5-hfn-what}** (What changes.) The quantity 𝔰_g^(m) is the largest of the low quantities, so the step on
-second derivatives at low levels may bound each D̂²Ψ_B, |B| ≤ m, through its own recovery at p. Its leading term
+**Remark {#rem:tl5-hfn-what}** (What changes.) The quantity 𝔰_g^(m) is the largest of its weighted quantities, so the
+step on second derivatives at low levels may bound each D̂²Ψ_B, |B| ≤ m, through its own recovery at p. Its leading term
 involves the first derivatives of the seven words ZB only, the terms with 𝔷_Z and 𝔯_♯ the jets of B only, and only the
 couplings 𝔄_BJ the jets of the words of length at most |B| that the substitutions bring in. The step bounded all of
 these by the one number L_g, and so by 𝔐_p^(m), the Euclidean norm over the lengths b ≤ m + 1 of C_S and of the
@@ -231,8 +232,8 @@ where thm:tl5-hff contains it. Exactly where:
   parts are at most these, by (2𝔐^(m))^½ ≥ 4 ≥ √7, 𝔷₁^k + 𝔷₂^k ≤ √2K_rec𝔷′ and ν′ ≤ ν′^½ (lem:tl5-hfn-low);
 - every constant with index f is nondecreasing in the entry; ε^n = ε^f; Y_n ≤ Y_f, the smaller root being
   nondecreasing in A and in B; 𝔰_*^n ≤ 𝔰_*^f.
-The present closing conditions stay valid beside the new one: no earlier theorem is changed, and thm:tl5-hff at N ≥ 6 is
-implied by the hypotheses of thm:tl5-hfn.
+The present closing conditions stay valid beside the new one: no earlier theorem is changed, and the hypotheses of
+thm:tl5-hff at N ≥ 6 imply those of thm:tl5-hfn.
 
 **Both constraints.** The change enters the entry k₁^(m,μ,p)𝔐_p^(m) of C_(∞,μ)^(m) for every m ≤ N − 4. Through
 C_P^♮ = C_(∞,μ)^(m_P), m_P = 1, it enters 𝔎 = max(C_P⁰𝔨_A, C_P^♮𝔨_B), 𝔎^D (𝔠^(D,7)C_P + 7^(j′/2)(…)𝔎), 𝔞_(o,s) and
@@ -273,12 +274,13 @@ form of Y_f), ε and the rates. Level four is untouched.
      length |B| + 1 ≤ N − 3), with the map 𝒳_p (lem:tl5-hfn-fam); (b) through the one-word steps, C₁^l({B}) and C_S^f or
      C_S^h; (c) through α_𝔄^(m,μ)L_g, as before. It holds for every m ≤ N − 4, both options and both routes, so both
      𝔐_p^(1) (in C_P^♮) and 𝔐_p^(2) (in 𝔰_* at N = 6) are replaced.
-   - The weighted image of round 16 (lem:tl5-hfk-rec, lem:tl5-hfk-fam) applies to this step at every N ≥ 6: the proof
-     of lem:tl5-hfk-fam uses of Γ and of N = 4 only that the family is seven distinct words of one length at most
-     N − 3, one for each field, and the three kinds are the same with the words JZB, Z′JZB and σZB
-     (lem:tl5-hfn-fam). So the second kind of C₁(ΓB) (the nonlinear part, the part with ϱ, the terms on S_a) takes
-     𝔨_Γ in place of √7K_rec, the factor ω = 𝔨_Γ/(√7K_rec) of G0r §G0r.4, the third kind 𝔞_𝔄^k(ΓB) ≤ K_rec𝔞_𝔄(ΓB),
-     and the terms 𝔷_Z at p take 𝔷₁^k and 𝔷₂^k. The first kind keeps K_rec(p), as at level four.
+   - The weighted image of round 16 (lem:tl5-hfk-rec, lem:tl5-hfk-fam) applies to this step at every N ≥ 6: the proof of
+     lem:tl5-hfk-fam uses of Γ and of N = 4 only that the family is seven distinct words of one length at most N − 3,
+     one for each field, and the three kinds are the same with the words JZB, Z′JZB and σZB (lem:tl5-hfn-fam). So the
+     second kind (the nonlinear part of C₁(ΓB), and the part with ϱ and the terms on S_a, which lie in the parts with
+     ϱ(p) and η₀ of eq:tl5-hfn-fam) takes 𝔨_Γ in place of √7K_rec, the factor ω = 𝔨_Γ/(√7K_rec) of G0r §G0r.4, the third
+     kind 𝔞_𝔄^k(ΓB) ≤ K_rec𝔞_𝔄(ΓB), and the terms 𝔷_Z at p take 𝔷₁^k and 𝔷₂^k. The first kind keeps K_rec(p), as at
+     level four.
    - The parts with ϱ and η₀ of the new bound are at most those of the step (lem:tl5-hfn-low), so they are kept and no
      constant with ϱ or η₀ is redefined; P-GRD16's scoping had proposed new ones there too, which is not needed.
 2. Lever B (level 4, kind 1 of C₁^(Γ,l)): no honest route; the obstruction, exactly. Nothing drafted.
@@ -289,9 +291,9 @@ form of Y_f), ε and the rates. Level four is untouched.
      E_T and E_R the weighted face energies of the words ending in T and in a rotation.
    - The energies. Every bound of the chapter enters the face energies only through ℰ_g(p) (87:6794, 87:7720), and
      ℰ_g(p) ≤ e^(φ(p))Y_s² (87:7604–7605, 87:7802). Given only E_T + E_R ≤ ℰ_g(p), the supremum of the weighted sum is
-     K_rec(p)²ℰ_g(p). What would be needed: E_T ≤ θℰ_g(p) at the supremum with θ < 1, which would give kind 1 the factor
-     (θ|T|⁻² + (1 − θ)λ_M⁻¹)^½ where |T|⁻¹ > λ_M^(−½) (the T part leads K_rec at every level-4 face point, G0r
-     §G0r.3 item 1). Nothing in the chapter gives θ, and no report measures the split.
+     K_rec(p)²ℰ_g(p). What would be needed: E_T ≤ θ_Tℰ_g(p) at the supremum with θ_T < 1, which would give kind 1 the
+     factor (θ_T|T|⁻² + (1 − θ_T)λ_M⁻¹)^½ where |T|⁻¹ > λ_M^(−½) (the T part leads K_rec at every level-4 face point,
+     G0r §G0r.3 item 1). Nothing in the chapter gives θ_T, and no report measures the split.
    - The bootstrap quantity. Y_s is one number for all the words (87:6241–6243). What would be needed: a bootstrap for
      the energies split by last letter, Σ_I w_(ℓ(I)) μ^|I| ℰ_I with constant weights, carried through
      prop:tl5-hf-linear-n (87:4099–4122): the couplings ℭ_(jj′ϰ) of 𝔅_N split by last letter (the commutator terms
@@ -317,10 +319,11 @@ form of Y_f), ε and the rates. Level four is untouched.
      of C₁^(Γ,l) at level 4, G0r §G0r.4 item 1), the factors (1 − 𝔵^z)⁻¹ of every C_∞ and C_P and the
      (k₁ + 2𝔵^z)/(1 − 𝔵^z) of the bounds of the second derivatives. Every lemma of sec:tl5-hfs to sec:tl5-hfy that uses
      𝔰 ≤ 𝔰₀ or 𝔵 ≤ 1/4 would need restating.
-   - A smaller k₃ that keeps 𝔵^z, worth log₁₀ q for a factor q as G0r says, needs smaller counts 𝔠^♮ or sums of the
-     ‖𝔔_CJ‖ in the absorption; no section has them. (A sketch, not checked: the second-derivative factors of the
-     nonlinear terms have shorter words, lem:tl5-hfg-quadratic, so an induction over the length could replace the
-     absorption of M_g and of the step at low levels; it trades the threshold for a factor polynomial in 𝔵^z.)
+   - A smaller k₃ that keeps 𝔵^z, worth log₁₀ q in D_A for a factor q, as f ∝ 𝔰₁^v = 1/(4 sup k₃) there (G0r §G0r.1;
+     deduced), needs smaller counts 𝔠^♮ or sums of the ‖𝔔_CJ‖ in the absorption; no section has them. (A sketch, not
+     checked: the second-derivative factors of the nonlinear terms have shorter words, lem:tl5-hfg-quadratic, so an
+     induction over the length could replace the absorption of M_g and of the step at low levels; it trades the
+     threshold for a factor polynomial in 𝔵^z.)
    - Either way the rise of 𝔰₁^v in D_A is capped by ϑ's cap, 1.48 and 1.14 times higher (G0r §G0r.1), and at seed 1 by
      𝔰₀ ≤ 𝔰_♭ = 10⁻⁴, 1.25 times 𝔰₀ = 2 × 4.0 × 10⁻⁵ there (deduced from the 𝔰₁^v of G0r §G0r.0), unless 𝔰_♭ is raised.
      So lever C is worth at most +0.10 (+0.17 with 𝔰_♭ raised) / +0.06 at the present ϑ₂ in D_A, before the cost
@@ -338,23 +341,26 @@ form of Y_f), ε and the rates. Level four is untouched.
 What it gives, deduced, not evaluated. Assumptions:
 - every supremum at one point: each fall below is that of the leading entry at the point where G0r measured it, on the
   P-GRD15 optimum; with the new entry the supremum, or the leading entry, may move, so the falls are upper figures for
-  the falls of the suprema, and the gains through the theorem are upper figures;
+  the falls of the suprema, and the gains through the theorem are upper figures at the parameters of that optimum (a
+  re-optimisation of μ, x or ϑ may add to them, as round 15's did, G0r §G0r.0);
 - the G0r figures are on P-GRD15 (sec:tl5-hff) with route (𝔯) at level 6; sec:tl5-hfk acts at N = 4 only.
 Level 6, through the term of 𝔰_* with A (G0r §G0r.1: f binds alone there, f ∝ 𝔰₁^v/sup(C_(∞,μ)^(2)μ^(−3)e^(φ/2)); ϱ
 is 4.0–7.9 decades above f and the closing 2.9–5.2 decades away, so f keeps binding under a rise of less than 2.9).
-- The entry at the point holding sup k₁𝔐_p^(2), seed 1 D_A / seed 2 D_A / seed 1 D* / seed 2 D*. G0r §G0r.4 item 2:
-  log₁₀ C₁^l({ZB})/𝔐_p^(2) = −0.62 / −0.61 / −0.61 / −0.59 at x = 𝔵_D and −0.70 / −0.70 / −0.66 / −0.68 at the
-  optimum's x (−0.62 / −0.60 / −0.62 / −0.59 and −0.70 / −0.69 / −0.67 / −0.68 with the suprema taken apart);
-  C₁^l({ZB}) is 0.08 / 0.08 / 0.08 / 0.08 and 0.11 / 0.11 / 0.09 / 0.10 above the one-word C₁; α_𝔄 is 0.3 / 0.3 /
-  0.2 / 0.3 % of k₁ there.
+- The entry, seed 1 D_A / seed 2 D_A / seed 1 D* / seed 2 D*, at the point where G0r §G0r.4 item 2 measures it, the one
+  holding sup C_P^v, where k₁𝔐_p^(1) leads: log₁₀ C₁^l({ZB})/𝔐_p^(2) = −0.62 / −0.61 / −0.61 / −0.59 at x = 𝔵_D and
+  −0.70 / −0.70 / −0.66 / −0.68 at the optimum's x (−0.62 / −0.60 / −0.62 / −0.59 and −0.70 / −0.69 / −0.67 / −0.68 with
+  the suprema taken apart), C₁^l({ZB}) being C₁^l(ΓB); C₁^l({ZB}) is 0.08 / 0.08 / 0.08 / 0.08 and 0.11 / 0.11 / 0.09 /
+  0.10 above the one-word C₁; α_𝔄 is 0.1 / 0.2 / 0.1 / 0.1 % of k₁ there and 0.3 / 0.3 / 0.2 / 0.3 % at the point
+  holding sup k₁𝔐_p^(2), where 𝔰_*'s supremum sits. The figures below take r at G0r's point and the larger α, as if the
+  two points were one (the first assumption); the larger α gives the smaller lower figures.
 - With r := C₁^l({ZB})/𝔐_p^(2): the leading term 𝔨_♯C₁^k(ΓB) is at most r times its counterpart 𝔨_♯K_rec𝔐_p^(2); the
-  terms with 𝔷 are at most (C₁^l² + μC_S²)^½/𝔐_p^(2) ≤ r times theirs, as C₁^l({B}) ≤ C₁^l is below C₁^l({ZB}); the
-  term with 𝔯_♯ is at most μ^½C_S/𝔐_p^(2) times its; the couplings keep their size. So 𝔐_n^(2)/(k₁𝔐_p^(2)) ≤
-  r + (1 − r) × (α_𝔄's share), and at that point, at fixed parameters, the entry falls by at least about 0.61 / 0.60 /
-  0.60 / 0.58 at x = 𝔵_D and 0.69 / 0.69 / 0.65 / 0.67 at the optimum's x, to the rounding of G0r's two-place figures
-  (−log₁₀(r + (1 − r)α) = 0.616 / 0.606 / 0.607 / 0.586 and 0.695 / 0.695 / 0.657 / 0.675 with the printed r and α;
-  with the suprema apart, 0.616 / 0.596 / 0.617 / 0.586 and 0.695 / 0.685 / 0.667 / 0.675). These are lower figures
-  for the fall at that point, not upper ones.
+  terms with 𝔷 are at most (C₁^l² + μC_S²)^½/𝔐_p^(2) ≤ r times theirs, as C₁^l({B}) ≤ C₁^l is below C₁^l({ZB}); the term
+  with 𝔯_♯ is at most μ^½C_S/𝔐_p^(2) times its; the couplings keep their size. So
+  𝔐_n^(2)/(k₁𝔐_p^(2)) ≤ r + (1 − r) × (α_𝔄's share), and at that point, at fixed parameters, the entry falls by at least
+  about 0.61 / 0.60 / 0.60 / 0.58 at x = 𝔵_D and 0.69 / 0.69 / 0.65 / 0.67 at the optimum's x, to the rounding of G0r's
+  two-place figures (−log₁₀(r + (1 − r)α) = 0.616 / 0.606 / 0.607 / 0.586 and 0.695 / 0.695 / 0.657 / 0.675 with the
+  printed r and the larger α; with the suprema apart, 0.616 / 0.596 / 0.617 / 0.586 and 0.695 / 0.685 / 0.667 / 0.675).
+  These are lower figures for the fall at that point, not upper ones.
 - Upper figures. (i) The entry is at least its leading term, so it falls by at most −log₁₀ r + log₁₀ s + w, with
   s := k₁/(𝔨_♯K_rec) at that point and w the fall of C₁^k(ΓB) below K_rec C₁^l(ΓB) through the map; neither is
   reported at level 6 (G0r gives k₁ ≈ 𝔨_♯K_rec(1 + μ^½𝔷′) + μ^½𝔯_♯/(1 − 𝔰₁^v) to 99.7 %, without the split; at
@@ -362,10 +368,10 @@ is 4.0–7.9 decades above f and the closing 2.9–5.2 decades away, so f keeps 
   §G0r.4 item 1). (ii) The other entries of C_(∞,μ)^(2) do not move, so its supremum cannot fall below that of
   (1 − 𝔵^z)⁻¹C₁^l, 1.1–1.3 decades below sup k₁𝔐_p^(2) (§G0r.4 item 2), nor below that of C_P⁰ (not reported for
   m = 2; for m = 1, sup C_P^v/sup C_P⁰ = +1.02 / +1.17 / +1.20 / +1.43, §G0r.3 item 3).
-- So the gain of the level-6 target is at most the smaller of 1.1–1.3 and the fall, and the fall at the optimum's x
-  lies between about 0.69 / 0.69 / 0.65 / 0.67 and 0.70 / 0.70 / 0.66 / 0.68 + log₁₀ s + w. G0r's ÷ 2 price of
-  𝔐_p's C₁ part, +0.286 / +0.295 / +0.276 / +0.295 (§G0r.3 item 3), shows the target answering nearly one to one to
-  a fall of the entry there.
+- So at fixed parameters the gain of the level-6 target is at most the smaller of 1.1–1.3 and the fall, and the fall at
+  the optimum's x lies between about 0.69 / 0.69 / 0.65 / 0.67 and 0.70 / 0.70 / 0.66 / 0.68 + log₁₀ s + w. G0r's ÷ 2
+  price of 𝔐_p's C₁ part, +0.286 / +0.295 / +0.276 / +0.295 (§G0r.3 item 3), shows the target answering nearly one to
+  one to a fall of the entry there.
 - Through the closing condition: C_P^♮'s entry falls by about the ratio C₁^l({ZB})/𝔐_p^(1), 0.32–0.37 decades
   (§G0r.4 item 2, at the point holding sup C_P^v, before the factor k₁ and the terms with 𝔷 and 𝔯_♯); at level 6 the
   closing is 2.9–5.2 decades away, so this gives nothing there.
@@ -387,10 +393,10 @@ are those of this file:
     sec:tl5-hfn	paper/reader/proofs/P-GRD17.md@PENDING:1	P-GRD17, section	new; at the end of ch:ten-l5, after rem:tl5-hfk-what; N >= 6: the step on second derivatives at low levels bounded word by word, each D^2 Psi_B(p) through its own recovery: the leading term through the family of the seven words ZB and the map X_p, the terms with z_Z and r_sharp through the one word B, only the couplings through L_g; M_n^(m) in place of k_1^(m,mu,p) M_p^(m) in C_(inf,mu)^(m)
     lem:tl5-hfn-fam	paper/reader/proofs/P-GRD17.md@PENDING:20	P-GRD17, Lemma	N >= 6, |B| <= N - 4, GammaB = (ZB)_Z: |X_p (D Psi_(ZB)(p))_Z| <= mu^(-(|B|+4)/2) C_1^k(GammaB) E_g(p)^(1/2) + k_Gamma (w C_(1,rho)^l rho(p) + E_0); C_1^k(GammaB) = K_rec(p) C_1^l(GammaB) with 43^(1/2) k_Gamma/K_rec for 301^(1/2) and a_A^k(GammaB)/K_rec for a_A(GammaB); the proof of lem:tl5-hfk-fam for the family GammaB
     eq:tl5-hfn-fam	paper/reader/proofs/P-GRD17.md@PENDING:30	P-GRD17, display	new
-    lem:tl5-hfn-low	paper/reader/proofs/P-GRD17.md@PENDING:62	P-GRD17, Lemma	N >= 6, 0 <= m <= N - 4: the step on second derivatives at low levels with M_n^(m) in place of k_1^(m,mu,p) M_p^(m) in its part with E_g, its parts with rho and eta_0 as they are; M_n^(m) <= k_1^(m,mu,p) M_p^(m); C_1^l(W') <= C_1^l(W) for subfamilies
-    eq:tl5-hfn-low	paper/reader/proofs/P-GRD17.md@PENDING:68	P-GRD17, display	k_rec^n(B) = k_sharp (C_1^k(GammaB) + z_1^k mu^(1/2) C_1^l({B}) + z_2^k mu C_S^f) + (1 - s_1^v)^(-1) mu r_sharp C_S^f (C_S^h for B empty); M_n^(m) = max_(|B|<=m) k_rec^n(B) + (1 - s_1^v)^(-1) alpha_A^(m,mu) M_p^(m)
-    def:tl5-hfn-constants	paper/reader/proofs/P-GRD17.md@PENDING:121	P-GRD17, Definition	constants with index n (N >= 6, either route): M_n^(m) in place of the entry k_1^(m,mu,p) M_p^(m) of C_(inf,mu)^(m), 0 <= m <= N - 4, in its form with index f, and in every constant formed from these (C_P^natural, K, K^D, S_F, s_*); eps^n = eps^f; eta_n, A_n, B_n, Y_n, s_*^n
-    eq:tl5-hfn-constants	paper/reader/proofs/P-GRD17.md@PENDING:132	P-GRD17, display	new
-    thm:tl5-hfn	paper/reader/proofs/P-GRD17.md@PENDING:134	P-GRD17, Theorem	N >= 6: thm:tl5-hff (either route) with the constants with index n; Y_sigma <= Y_n; its hypotheses are implied by those of thm:tl5-hff at N >= 6
-    eq:tl5-hfn-closing	paper/reader/proofs/P-GRD17.md@PENDING:139	P-GRD17, display	closing condition: 4 eta_n^(-3/2)(delta_w + eta_n^(-1/2) eps^n) S_F^n < 1
-    rem:tl5-hfn-what	paper/reader/proofs/P-GRD17.md@PENDING:168	P-GRD17, Remark	what changes
+    lem:tl5-hfn-low	paper/reader/proofs/P-GRD17.md@PENDING:63	P-GRD17, Lemma	N >= 6, 0 <= m <= N - 4: the step on second derivatives at low levels with M_n^(m) in place of k_1^(m,mu,p) M_p^(m) in its part with E_g, its parts with rho and eta_0 as they are; M_n^(m) <= k_1^(m,mu,p) M_p^(m); C_1^l(W') <= C_1^l(W) for subfamilies
+    eq:tl5-hfn-low	paper/reader/proofs/P-GRD17.md@PENDING:69	P-GRD17, display	k_rec^n(B) = k_sharp (C_1^k(GammaB) + z_1^k mu^(1/2) C_1^l({B}) + z_2^k mu C_S^f) + (1 - s_1^v)^(-1) mu r_sharp C_S^f (C_S^h for B empty); M_n^(m) = max_(|B|<=m) k_rec^n(B) + (1 - s_1^v)^(-1) alpha_A^(m,mu) M_p^(m)
+    def:tl5-hfn-constants	paper/reader/proofs/P-GRD17.md@PENDING:122	P-GRD17, Definition	constants with index n (N >= 6, either route): M_n^(m) in place of the entry k_1^(m,mu,p) M_p^(m) of C_(inf,mu)^(m), 0 <= m <= N - 4, in its form with index f, and in every constant formed from these (C_P^natural, K, K^D, S_F, s_*); eps^n = eps^f; eta_n, A_n, B_n, Y_n, s_*^n
+    eq:tl5-hfn-constants	paper/reader/proofs/P-GRD17.md@PENDING:133	P-GRD17, display	new
+    thm:tl5-hfn	paper/reader/proofs/P-GRD17.md@PENDING:135	P-GRD17, Theorem	N >= 6: thm:tl5-hff (either route) with the constants with index n; Y_sigma <= Y_n; its hypotheses are implied by those of thm:tl5-hff at N >= 6
+    eq:tl5-hfn-closing	paper/reader/proofs/P-GRD17.md@PENDING:140	P-GRD17, display	closing condition: 4 eta_n^(-3/2)(delta_w + eta_n^(-1/2) eps^n) S_F^n < 1
+    rem:tl5-hfn-what	paper/reader/proofs/P-GRD17.md@PENDING:169	P-GRD17, Remark	what changes
