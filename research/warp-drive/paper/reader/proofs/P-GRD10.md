@@ -333,12 +333,13 @@ no Sobolev constant); 𝔨₂ and z̲, so the rates; the word counts of the prod
        𝔗(𝔶)² = (𝔶₀ + 6𝔶₁ + 36)/43           under lem:tl5-hfs-linfty and lem:tl5-hft-small (a),
        𝔗(𝔶)² = (μ²𝔶₀ + 6μ𝔶₁ + 36)/43        under lem:tl5-hft-small (b)  (≤ 1 for all admissible weights),
        𝔗(𝔶)² = (ν²𝔶₀ + 6ν𝔶₁ + 36)/43        under lem:tl5-hfq-theta, ν = μ^θ.
-   Summed ratios q_r := C_(E,r)(𝔶)/C_(E,r)^♯, rank 3 (rank 2 in brackets):
-       𝔶 = (μ⁻², μ⁻¹):       μ = 10⁻⁴: 0.1211 (0.1092);   10⁻⁵: 0.0674 (0.0608);   3 × 10⁻⁶: 0.0493 (0.0444)
-       𝔶 = (μ⁻¹, μ^(−1/2)):  μ = 10⁻⁴: 0.3820 (0.3454);   10⁻⁵: 0.2876 (0.2596);   3 × 10⁻⁶: 0.2476 (0.2233)
+   Summed ratios q_r := C_(E,r)(𝔶)/C_(E,r)^♯, rank 3 (rank 2 in brackets), j₁ ≤ 40000 and the tail extrapolated (the
+   cut j₁ ≤ 4000 is too short when 𝔶₁ is large):
+       𝔶 = (μ⁻², μ⁻¹):       μ = 10⁻⁴: 0.1216 (0.1097);   10⁻⁵: 0.0684 (0.0617);   3 × 10⁻⁶: 0.0506 (0.0456)
+       𝔶 = (μ⁻¹, μ^(−1/2)):  μ = 10⁻⁴: 0.3821 (0.3456);   10⁻⁵: 0.2878 (0.2598);   3 × 10⁻⁶: 0.2478 (0.2236)
    The parts with ℰ_g fall by q_r, those with ϱ and η₀ by q_r 𝔗(𝔶). At G0l's level-4 optima (μ = 10⁻⁵, 10⁻⁴,
-   3 × 10⁻⁶, 10⁻⁵; θ = 0.6875, 0.8125, 0.75, 0.875) under lem:tl5-hfq-theta, rank 3: q₃ 𝔗 = 0.41, 0.186, 0.207, 0.0914
-   at 𝔶 = (μ⁻², μ⁻¹), and 0.266, 0.351, 0.227, 0.263 at 𝔶 = (μ⁻¹, μ^(−1/2)). Under lem:tl5-hft-small (b) (G0l's level-6
+   3 × 10⁻⁶, 10⁻⁵; θ = 0.6875, 0.8125, 0.75, 0.875) under lem:tl5-hfq-theta, rank 3: q₃ 𝔗 = 0.416, 0.187, 0.212, 0.0928
+   at 𝔶 = (μ⁻², μ⁻¹), and 0.266, 0.351, 0.228, 0.264 at 𝔶 = (μ⁻¹, μ^(−1/2)). Under lem:tl5-hft-small (b) (G0l's level-6
    option) at 𝔶 = (μ⁻², μ⁻¹), 𝔗 = 1 and every part falls by q_r. Under lem:tl5-hfs-linfty and lem:tl5-hft-small (a)
    𝔗 grows, q₃ 𝔗 = 185–2500 at (μ⁻², μ⁻¹) and 6–22 at (μ⁻¹, μ^(−1/2)) for these μ: there the weights trade the part
    with ℰ_g against those with ϱ and η₀, and 𝔶 = 1 remains available.
@@ -393,8 +394,8 @@ is G0l's price of 1/z̲ out of 𝔨₂ (C₁ ÷ 2) read back; all suprema at one
 
 Level 4 (lem:tl5-hfq-theta), at 𝔶 = (μ⁻², μ⁻¹), for seed 1 D_A, seed 2 D_A, seed 1 D*, seed 2 D*:
 - every constant formed with a Sobolev inequality on a face: −0.375 (item 1);
-- the parts with ℰ_g of C_S, C₁ and 𝔨_rec: further −1.17, −0.92, −1.31, −1.17 (q₃); the parts with ϱ and η₀: further
-  −0.39, −0.73, −0.68, −1.04 (q₃ 𝔗);
+- the parts with ℰ_g of C_S, C₁ and 𝔨_rec: further −1.165, −0.915, −1.296, −1.165 (q₃); the parts with ϱ and η₀:
+  further −0.381, −0.729, −0.673, −1.033 (q₃ 𝔗);
 - C₁ by the split alone: further −0.23, −0.18, −0.19, −0.19;
 - the leading term of 𝔨_rec by the family Γ: further −0.27, −0.30, −0.15, −0.13 (trivial bound of 𝔞_𝔄(Γ); −0.33, −0.36,
   −0.17, −0.16 with 𝔞_𝔄(Γ) = √7 α_𝔄), and with the split −0.45, −0.45, −0.30, −0.28;
@@ -408,7 +409,7 @@ Level 4 (lem:tl5-hfq-theta), at 𝔶 = (μ⁻², μ⁻¹), for seed 1 D_A, seed 
   lem:tl5-hf4-face alone, so the gap would close to about 0.4–1.0 decades and S_M cost up to about 0.15; the parts with
   ϱ and η₀ fall less than C_P^v, and ϱ sits 0.02–0.12 above f; and the 𝔰_* slack, which items 1, 2 and 6 move as well.
 Level 6 (lem:tl5-hft-small (b), G0l.4), at 𝔶 = (μ⁻², μ⁻¹), 𝔗 = 1:
-- every Sobolev-formed constant, the parts with ϱ and η₀ included: −0.375 and further −1.17, −0.92, −1.31, −1.17;
+- every Sobolev-formed constant, the parts with ϱ and η₀ included: −0.375 and further −1.165, −0.915, −1.296, −1.165;
 - the leading terms of C_(∞,μ)^(1) (= C_P at level 6) and C_(∞,μ)^(2) (in 𝔰_*) by 𝔐_p: further −0.57 to −0.73 and
   −0.69 to −1.01 (𝔵^z = 0.002–0.011, 𝔞_𝔄({B}) between 0 and its trivial bound; 𝔐_p^(1)/C₁ = 1.98–2.90 against
   √114 = 10.7, 𝔐_p^(2)/C₁ = 2.76–5.73 against √800 = 28.3), and about −0.2 by the split;
