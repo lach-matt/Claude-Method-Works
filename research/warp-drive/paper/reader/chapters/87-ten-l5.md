@@ -6596,4 +6596,288 @@ inequality on the face halves the term with |∂_γ|² of the square of C₁^z a
 [[eq:tl5-hfx-c1]], and quarters the square of C_(1,ϱ)^z against the two splits of C_(1,ϱ); it is at least as good as
 (x + y)² ≤ (1 + δ)x² + (1 + 1/δ)y² for every δ > 0, which would move a factor between the two parts, so no such number
 is needed. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfz]] are established in this paper
-for no background at 10 l5.
+for no background at 10 l5. [[sec:tl5-hfp]] sharpens the Sobolev constants and the bound of D̂²h ([[thm:tl5-hfp]]).
+
+### The leaf constant, the weights of the words and the seven fields {#sec:tl5-hfp}
+
+This section sharpens the constants of [[sec:tl5-hfz]] in five ways, with the intrinsic Sobolev constants of
+[[lem:tl5-hft-face]]. First, the sum over the 43 words in [[eq:tl5-hft-leaf]] is diagonal on the representations of
+SO(4), so that inequality holds with its own constant C_(E,r)^♯ ≤ (2/9)^(1/2) (6C_(E,r)²)^(1/2), and also with weights
+𝔶₀, 𝔶₁ on the words of lengths zero and one ([[lem:tl5-hfp-leaf]]). Second, in the bounds of Ψ_B(p) and of D̂Ψ_B(p) the
+words J of length k ≤ 2 carry weights 𝔶_k ≤ μ^(k−2), which their energies allow, in place of the weight of the longest
+words. Third, the first-order bound is proved for a family of words B of one length at once, which counts the seven
+fields of the bound of D̂²h at level four together, and at the levels N ≥ 6 the words of each length in the second
+derivatives at low levels ([[lem:tl5-hfp-words]], [[lem:tl5-hfp-c1]], [[lem:tl5-hfp-rec]], [[lem:tl5-hfp-low]]). Fourth,
+the leading term of the recovery is bounded through the energy of the first derivatives alone, whose density carries 𝔨₂
+without its part 1/(2Ω̂²z̲). Fifth, the fields enter the terms 𝔷_Z through (Σ_Z |D̂Z|²)^(1/2) and (Σ_Z |D̂²Z|²)^(1/2).
+The closing condition is [[eq:tl5-hfp-closing]]; with 𝔶₀ = 𝔶₁ = 1 every new constant is at most the one it replaces, and
+the earlier closing conditions remain valid. The notation is that of [[sec:tl5-hfz]].
+
+**Lemma {#lem:tl5-hfp-leaf}** (The Sobolev inequality on the leaves, with its own constant and with weights.) In the
+setting of [[lem:tl5-hft-leaf]] let 𝔶₀, 𝔶₁ > 0, put 𝔶₂ := 1, c_(j₁j₂) := 2j₁(j₁ + 1) + 2j₂(j₂ + 1) and
+
+    C_(E,r)(𝔶)² := (1/(2π²)) Σ_(j₁,j₂) (2j₁ + 1)(2j₂ + 1) m_(j₁j₂)(r) / (𝔶₀ + 𝔶₁ c_(j₁j₂) + c_(j₁j₂)²).
+
+Then for every C² covariant tensor field A of rank r on S_(u,v) and every ω ∈ S³, with the sum over the words J of
+length at most two in the six rotations,
+
+    |A(ω)|₀² ≤ C_(E,r)(𝔶)² Σ_(|J|≤2) 𝔶_(|J|) ∫_(S³) |ℒ^J A|₀² dω.                                     {#eq:tl5-hfp-leaf}
+
+C_(E,r)(𝔶) is nonincreasing in 𝔶₀ and in 𝔶₁, and C_(E,r)^♯ := C_(E,r)(1, 1) satisfies C_(E,r)^♯² ≤ (4/3) C_(E,r)² =
+(2/9) · 6C_(E,r)². For r = 0, [[eq:tl5-hf-sphere]] holds with C_(E,0)^♯² in place of 6C_(S³)² = 1/2.
+
+*Proof.* In the proof of [[lem:tl5-hft-leaf]], the orthogonal projection of L²(S³, E) onto V_π commutes with the action
+of SO(4), hence with each ℒ_(K_ab), and Ω = c_π on V_π. As ℒ_(K_ab) is skew-adjoint, Σ_(a<b) ‖ℒ_(K_ab) B‖² = ⟨ΩB, B⟩ for
+B ∈ V_π; with B = A_π and with B = ℒ_(K_cd) A_π ∈ V_π this gives Σ_(|J|≤2) 𝔶_(|J|) ‖ℒ^J A_π‖² = (𝔶₀ + 𝔶₁ c_π + c_π²)
+‖A_π‖², the 36 words of length two being the ordered pairs of rotations. Summed over π, as the V_π are orthogonal, the
+left side is Σ_(|J|≤2) 𝔶_(|J|) ‖ℒ^J A‖². With |A_π(ω)|₀² ≤ (dim V_π/(2π²)) ‖A_π‖² as there, the Cauchy–Schwarz
+inequality over π gives
+
+    |A(ω)|₀ ≤ Σ_π |A_π(ω)|₀ ≤ C_(E,r)(𝔶) (Σ_π (𝔶₀ + 𝔶₁ c_π + c_π²) ‖A_π‖²)^(1/2),
+
+which is [[eq:tl5-hfp-leaf]]. The series converges, as 𝔶₀ + 𝔶₁ c + c² ≥ min(𝔶₀, 𝔶₁, 1)(1 + c)²/2 bounds its terms by
+2/min(𝔶₀, 𝔶₁, 1) times those of C_(E,r)²; and its terms do not increase with 𝔶₀ and 𝔶₁. Since (4/3)(1 + c + c²) − (1 +
+c)² = (1 − c)²/3 ≥ 0, C_(E,r)^♯² ≤ (4/3) C_(E,r)². For r = 0, E is the trivial bundle, |·|₀ is the absolute value and
+ℒ_K f = K f, so with 𝔶₀ = 𝔶₁ = 1 the right side of [[eq:tl5-hfp-leaf]] is C_(E,0)^♯² times the integral of
+[[eq:tl5-hf-sphere]]. ∎
+
+**Definition {#def:tl5-hfp-constants}** (The constants with index p.) In the setting of [[def:tl5-hfz-constants]], with
+the intrinsic Sobolev constants, fix 𝔶₀ ∈ (0, μ⁻²] and 𝔶₁ ∈ (0, μ⁻¹], put 𝔶₂ := 1, let C_(E,r)(𝔶) and C_(E,r)^♯ be as in
+[[lem:tl5-hfp-leaf]], and put, for 0 ≤ j ≤ N − 1 and ν′ ∈ (0, 1],
+
+    𝔷₁′ := 3 (Σ_(Z∈Γ) |D̂Z|²)^(1/2),   𝔷₂′ := 2 (Σ_(Z∈Γ) |D̂²Z|²)^(1/2),   𝔷′ := (𝔷₁′² + 𝔷₂′²)^(1/2),
+    k₁^(j,ν′,p) := 𝔨_♯ K_rec (1 + ν′^(1/2) 𝔷′) + (1 − 𝔰₁^v)⁻¹ (ν′^(1/2) 𝔯_♯ + α_𝔄^(j,ν′)),   k₁^p := k₁^(N−1,μ,p),
+    k₁^D := 𝔨_♯ K_rec,   𝔨₂′ := max(1/c, 1/κ′)/(2Ω̂²),   𝒟_g := (Σ_(|C|≤N) μ^|C| |D̂Ψ_C|²)^(1/2).
+
+For a family 𝔚 of n distinct words of one length b ≤ N − 3 let 𝔞_𝔄(𝔚) be, at each point, the operator norm of the map
+
+    (ξ_K)_(|K|≤b+2) ↦ (Σ_K (𝔶_(|J|) μ^(b+3−|K|))^(1/2) 𝔄_(JB,K) ξ_K)_((J,B)),
+
+the pairs (J, B) running over the words J of rotations with |J| ≤ 2 and the B ∈ 𝔚, 𝔄_(JB,K) := 0 for |K| > |JB|, normed
+as in [[def:tl5-hfz-constants]], and put
+
+    𝔩_D(𝔚) := k₁^D (1 + (43n)^(1/2) 𝔵^z/(1 − 𝔵^z)),
+    𝔩_J(𝔚) := μ^(1/2) (k₁^D 𝔷′ + (1 − 𝔰₁^v)⁻¹ 𝔯_♯) + (1 − 𝔰₁^v)⁻¹ 𝔞_𝔄(𝔚) + (43n)^(1/2) 𝔵^z (k₁^p − k₁^D + 2)/(1 − 𝔵^z),
+    C₁^U(𝔚)² := C_(E,3)(𝔶)² 𝔴₀(p)⁶ sup_(Σ₁(a,b)) 𝔳₀⁶ R⁻³ 𝔨₂ ((1 + 18|D̂∂_γ|²)(μ^(1/2) + ϖ′^(1/2))²
+                + 2|∂_γ|² (𝔩_D(𝔚) + 𝔩_J(𝔚) + (2ϖ′)^(1/2))²),
+    C₁^D(𝔚)² := C_(E,3)(𝔶)² 𝔴₀(p)⁶ sup_(Σ₁(a,b)) 𝔳₀⁶ R⁻³ 𝔨₂′ (μ (1 + 18|D̂∂_γ|²) + 2|∂_γ|² 𝔩_D(𝔚)²),
+    C₁^J(𝔚)² := C_(E,3)(𝔶)² 𝔴₀(p)⁶ sup_(Σ₁(a,b)) 𝔳₀⁶ R⁻³ 𝔨₂ ((1 + 18|D̂∂_γ|²) ϖ′ + 2|∂_γ|² (𝔩_J(𝔚) + (2ϖ′)^(1/2))²),
+    C₁(𝔚) := min(C₁^U(𝔚), C₁^D(𝔚) + C₁^J(𝔚)),                                                           {#eq:tl5-hfp-c1}
+
+with ϖ′ as in [[lem:tl5-hfx-c1]]. Let C₁^p be the largest of the C₁({B}), |B| ≤ N − 3, and for N = 4 put C₁^Γ := C₁(Γ),
+the seven fields being words of length one. Put 𝔗(𝔶)² := (𝔶₀ + 6𝔶₁ + 36)/43 for the steps of [[lem:tl5-hfs-linfty]] and
+[[lem:tl5-hft-small]] (a), 𝔗(𝔶)² := (μ²𝔶₀ + 6μ𝔶₁ + 36)/43 for those of [[lem:tl5-hft-small]] (b) and 𝔗(𝔶)² := (ν²𝔶₀ +
+6ν𝔶₁ + 36)/43 for those of [[lem:tl5-hfq-theta]]. Let C_S^p be C_S^E of [[eq:tl5-hft-cs]] with C_(E,2)(𝔶)² in place of
+6C_(E,2)², and C_(1,ϱ)^p, C_(1,0)^p and C_(0,0)^p the constants C_(1,ϱ)^z, C_(1,0) and C_(0,0) of the lemma in use
+formed with C_(E,r)(𝔶)² 𝔗(𝔶)² in place of 6C_(E,r)² (r = 3, 3 and 2). For 0 ≤ m ≤ N − 4 put 𝔐_p^(m) := (Σ_(b≤m+1)
+(C_S^p² + C₁(𝔚_b)²))^(1/2), 𝔚_b being the family of the 7^b words of length b, and for N = 4 put
+
+    𝔨_rec^p := 𝔨_♯ K_rec (C₁^Γ + 𝔷₁′ μ^(1/2) C₁^p + 𝔷₂′ μ C_S^p) + (1 − 𝔰₁^v)⁻¹ μ 𝔯_♯ C_S^p,
+    𝔨_rec^(ϱ,p) := 𝔨_♯ K_rec (√7 + 𝔷₁′ μ^(1/2)) C_(1,ϱ)^p,
+    𝔨_rec^(0,p) := 𝔨_♯ K_rec ((√7 + 𝔷₁′ μ^(1/2)) C_(1,0)^p + 𝔷₂′ μ C_(0,0)^p) + (1 − 𝔰₁^v)⁻¹ μ 𝔯_♯ C_(0,0)^p.
+
+The constants with index p are the constants with index z of [[thm:tl5-hfz]] formed with k₁^(j,·,p), C₁^p, C_S^p,
+C_(1,ϱ)^p, C_(1,0)^p, C_(0,0)^p and the 𝔨_rec^(·,p) in place of k₁^(j,·,z), C₁^z, C_S^E, C_(1,ϱ)^z, C_(1,0), C_(0,0) and
+the 𝔨_rec^(·,z), with 𝔐_p^(m) in place of (2𝔐^(m))^(1/2) max(C_S, C₁) in C_(∞,μ)^(m) and its forms, and with C_(E,r)^♯²
+in place of 6C_(E,r)² in every other constant formed with a Sobolev inequality on a face.
+
+**Lemma {#lem:tl5-hfp-abs}** (The bounds with index p.) (a) [[lem:tl5-hft-face]] holds with C_(E,r)^♯² in place of
+6C_(E,r)², and its parts (a) and (b) hold also with every sum over the words J weighted by 𝔶_(|J|) and with C_(E,r)(𝔶)²
+in place of 6C_(E,r)², for all 𝔶₀, 𝔶₁ > 0.
+
+(b) In the setting of [[lem:tl5-hfz-abs]], with 𝔰 ≤ 𝔰₁^v on Q(a, b), the lemmas named there hold with k₁^(j,·,p) in
+place of k₁^(j,·,z); and the bounds [[eq:tl5-hfs-m2]], [[eq:tl5-hfq-m2]] and those of M_g^(j), in the lemmas that state
+them, hold with k₁^D 𝒟_g + (k₁^(j,μ,p) − k₁^D + 2𝔵^z) 𝒥_g in place of (k₁^(j,μ,z) + 2𝔵^z) 𝒥_g.
+
+(c) In that setting, the zeroth-order step of the lemma in use gives its bound of Ψ_B(p), |B| ≤ N − 2, with C_S^p and
+C_(0,0)^p in place of C_S^E and C_(0,0); and for a family 𝔚 of n distinct words of one length b ≤ N − 2 it gives the
+same bound of (Σ_(B∈𝔚) |Ψ_B(p)|²)^(1/2), with n^(1/2) times its part with η₀.
+
+Moreover k₁^(j,ν′,p) ≤ k₁^(j,ν′,z), and for 𝔶₀ = 𝔶₁ = 1, 𝔗(𝔶) ≤ 1, C_S^p ≤ C_S^E and C_(0,0)^p ≤ C_(0,0).
+
+*Proof.* (a) The proof of [[lem:tl5-hft-face]] uses [[eq:tl5-hft-leaf]] only through its form, applied on the leaves
+through γ_ω(v) to A and to ℒ_(∂_γ)A; [[lem:tl5-hfp-leaf]] gives that form with C_(E,r)^♯² in place of 6C_(E,r)², and
+with the weights 𝔶_(|J|) and C_(E,r)(𝔶)². The weights pass through the proofs of (a) and (b) there, since (d/dv)|ℒ^J
+A|₀² ≤ |ℒ^J A|₀² + |ℒ_(∂_γ) ℒ^J A|₀² holds for each J and is multiplied by 𝔶_(|J|) > 0 before the sum over J, and every
+later step bounds the terms of each J separately.
+
+(b) By Minkowski's inequality over Z and the Cauchy–Schwarz inequality, (Σ_Z 𝔷_Z²)^(1/2) ≤ 𝔷₁′ |D̂Ψ| + 𝔷₂′ |Ψ| ≤ 𝔷′
+(|D̂Ψ|² + |Ψ|²)^(1/2), and 𝔷′ ≤ 𝔷₁′ + 𝔷₂′ ≤ √7 (3 max_Z |D̂Z| + 2 max_Z |D̂²Z|); in the proofs of these lemmas the jets
+of the terms 𝔷_Z are bounded through (|D̂Ψ_C|² + |Ψ_C|²)^(1/2), so k₁^(j,·,p) may replace k₁^(j,·,z). In the bound of
+the second derivatives the leading term of [[eq:tl5-hfz-rec]] for Ψ_C is 𝔨_♯ K_rec (Σ_Z |D̂Ψ_(ZC)|²)^(1/2) ≤ k₁^D
+μ^(−(|C|+1)/2) 𝒟_g, the words ZC having length |C| + 1. As 𝒟_g ≤ 𝒥_g, the inductions of the proofs of
+[[lem:tl5-hfy-abs]] and [[lem:tl5-hfz-abs]] then close with the stated coefficients: with X_𝒟 ≤ X the weighted 𝒟_g and
+𝒥_g of a word and ϱ′ its part with ϱ, R := (k₁^D X_𝒟 + (k₁ − k₁^D + 2𝔵^z) X + k₂^z ϱ′)/(1 − 𝔵^z) satisfies k₁^D X_𝒟 +
+(k₁ − k₁^D) X + k₂^z ϱ′ + 𝔵^z (2X + R) = R.
+
+(c) The step applies [[lem:tl5-hf-sobolev]], in the form of [[lem:tl5-hft-face]] (b), to A := Ψ_B; by (a) it holds with
+the weights 𝔶_(|J|) and C_(E,2)(𝔶)². As ℒ^J Ψ_B = Ψ_(JB), the words JB are distinct and 𝔶_(|J|) μ^(|B|+2) ≤ μ^(|JB|),
+the face term is at most μ^(−(|B|+2)) C_S^p² ℰ_g(p). On S_a, |Ψ_(JB)| ≤ η₀(p) for every J, and for |J| = k this bound,
+divided by the weight of the step, is at most 𝔢_k times the one the step uses for every J, with 𝔢_k := 1 in
+[[lem:tl5-hfs-linfty]] and [[lem:tl5-hft-small]] (a); 𝔢_k := μ^((2−k)/2) in [[lem:tl5-hft-small]] (b), where the step
+multiplies by μ^((|B|+2)/2) and uses μ^((|B|+2)/2) η₀(p) ≤ η₀(p), while η₀(p) ≤ μ^((2−k)/2) μ^(−(|B|+2)/2) η₀(p); and
+𝔢_k := ν^((2−k)/2) in [[lem:tl5-hfq-theta]], where the step uses r_Φ η₀(p) with r_Φ = ν^(−(|B|+2)/2), while η₀(p) ≤
+ν^((2−k)/2) r_Φ η₀(p). As 𝔶₀𝔢₀² + 6𝔶₁𝔢₁² + 36 = 43 𝔗(𝔶)², the sum over J of the squares, with the weights 𝔶_(|J|), is at
+most 43 𝔗(𝔶)² times the square of that bound, which gives C_(0,0)^p. For a family, sum the inequality over B ∈ 𝔚: the
+words JB are distinct for distinct pairs (J, B), as the B have one length, so the face terms still add up to at most
+μ^(−(b+2)) C_S^p² ℰ_g(p), and the terms on S_a to n times those of one word.
+
+Finally (b) gives k₁^(j,ν′,p) ≤ k₁^(j,ν′,z); for 𝔶₀ = 𝔶₁ = 1, 𝔗(𝔶)² ≤ 1 as μ, ν ≤ 1, C_(E,2)(𝔶) = C_(E,2)^♯ and
+C_(E,2)^♯² ≤ 6C_(E,2)² by [[lem:tl5-hfp-leaf]]. ∎
+
+**Lemma {#lem:tl5-hfp-words}** (The second derivatives over a family of words, with weights.) In the setting of
+[[lem:tl5-hfz-abs]] and [[def:tl5-hfp-constants]], with 𝔰 ≤ 𝔰₁^v on Q(a, b), let 𝔚 be a family of n distinct words of
+one length b ≤ N − 3, and let P_ϱ be as in [[lem:tl5-hfz-words]] (b). Then at the points of Σ₁(a, b), the sum being over
+the words J of rotations with |J| ≤ 2 and the B ∈ 𝔚,
+
+    (Σ_(J,B) 𝔶_(|J|) μ^(b+3) |D̂²Ψ_(JB)|²)^(1/2)
+        ≤ 𝔩_D(𝔚) 𝒟_g + 𝔩_J(𝔚) 𝒥_g + (43n)^(1/2) 𝔗(𝔶) μ^((b+3)/2) P_ϱ.                                {#eq:tl5-hfp-words}
+
+Moreover 𝔞_𝔄(𝔚) ≤ (43n/2)^(1/2) α_𝔄^(N−1,μ) and 𝔞_𝔄(𝔚) ≤ (Σ_(B∈𝔚) 𝔞_𝔄({B})²)^(1/2).
+
+*Proof.* By [[lem:tl5-hfp-abs]] (b) and the proof of [[lem:tl5-hfz-words]] (b), the step bounds |D̂²Ψ_C| at the points
+of the face, for every word C with |C| = b + k ≤ b + 2, by μ^(−(|C|+1)/2) (k₁^D 𝒟_g + (k₁^p − k₁^D + 2𝔵^z) 𝒥_g)/(1 −
+𝔵^z) + P_C, with P_C := 𝔢_k P_ϱ ≥ k₂^z ϱ(p)/(1 − 𝔵^z), where 𝔢_k is as in the proof of [[lem:tl5-hfp-abs]] (c): the
+bound of the part with ϱ is uniform in [[lem:tl5-hfs-linfty]] and [[lem:tl5-hft-small]] (a), and carries
+μ^(−(|C|+1)/2) = μ^((2−k)/2) μ^(−(b+3)/2) in [[lem:tl5-hft-small]] (b) and ν^(−(|C|+1)/2) in [[lem:tl5-hfq-theta]]. So
+𝔶₀𝔢₀² + 6𝔶₁𝔢₁² + 36 = 43 𝔗(𝔶)², the numbers of the words J of lengths 0, 1 and 2 being 1, 6 and 36. Let q be a point of
+Σ₁(a, b), (J, B) a pair and C := JB, and put 𝔬_J := (𝔶_(|J|) μ^(b+3))^(1/2), so that 𝔬_J ≤ μ^((|C|+1)/2), as 𝔶_k ≤
+μ^(k−2). Apply [[lem:tl5-hfz-rec]] with 𝔥 = 𝔰₁^v to Ψ_C at q, as there, with (Σ_Z 𝔷_Z²)^(1/2) ≤ 𝔷′
+(|D̂Ψ_C|² + |Ψ_C|²)^(1/2); multiply by 𝔬_J, take the Euclidean norm over the 43n pairs and apply Minkowski's inequality
+to each kind of term. The words ZJB are distinct for distinct (Z, J, B), as the B have one length, and 𝔬_J² ≤ μ^(|ZJB|);
+so the leading term contributes at most k₁^D 𝒟_g. The words JB are distinct and 𝔬_J² ≤ μ μ^(|JB|), so the terms with 𝔷_Z
+and with 𝔯_♯ |Ψ_C| contribute at most μ^(1/2) (k₁^D 𝔷′ + (1 − 𝔰₁^v)⁻¹ 𝔯_♯) 𝒥_g, and the terms with 𝔄 at most (1 −
+𝔰₁^v)⁻¹ 𝔞_𝔄(𝔚) 𝒥_g, by the definition of 𝔞_𝔄(𝔚) and Σ_K μ^|K| (|D̂Ψ_K|² + |Ψ_K|²) ≤ 𝒥_g². For each pair, (1 −
+𝔰₁^v)⁻¹ |Σ_K 𝔔_CK ℒ^K(2R̂ic)| ≤ k₂^z ϱ(p) ≤ (1 − 𝔵^z) P_C, and, as in the proof of the bound of |D̂²Ψ_C|, (1 −
+𝔰₁^v)⁻¹ |𝔑′_C| ≤ 𝔵^z (2μ^(−(|C|+1)/2) 𝒥_g + 𝔐), where 𝔐 is the bound above for the words of length |C|, which bounds the
+second derivatives of the words of length at most |C|. So 𝔬_J times these two terms is at most 𝔵^z (k₁^D 𝒟_g + (k₁^p −
+k₁^D + 2) 𝒥_g)/(1 − 𝔵^z) + 𝔬_J P_C. The Euclidean norm over the pairs of the first part is (43n)^(1/2) times it, and
+that of the second is (n (𝔶₀𝔢₀² + 6𝔶₁𝔢₁² + 36) μ^(b+3))^(1/2) P_ϱ. Adding the parts gives [[eq:tl5-hfp-words]]. The row
+of (J, B) of the map defining 𝔞_𝔄(𝔚) has the sum Σ_K (𝔶_(|J|) μ^(b+3−|K|))^(1/2) ‖𝔄_(JB,K)‖ ≤ Σ_K μ^((|JB|+1−|K|)/2)
+‖𝔄_(JB,K)‖ ≤ 2^(−1/2) α_𝔄^(N−1,μ), and the argument of [[lem:tl5-hfz-words]] (a) with 43n rows gives the first bound;
+the map is the family over B ∈ 𝔚 of the maps for {B}, which gives the second. ∎
+
+**Lemma {#lem:tl5-hfp-c1}** (The first-order bound over a family of words.) In the setting of [[lem:tl5-hfp-words]], at
+p
+
+    (Σ_(B∈𝔚) |D̂Ψ_B(p)|²)^(1/2)
+        ≤ μ^(−(b+3)/2) C₁(𝔚) ℰ_g(p)^(1/2) + n^(1/2) (w C_(1,ϱ)^p ϱ(p) + E₀),                        {#eq:tl5-hfp-family}
+
+w being the weight of P_ϱ in [[lem:tl5-hfz-words]] (b) and E₀ the part with η₀ of the bound of |D̂Ψ_B(p)| that the
+first-order step of the lemma in use gives, divided by its weight where the step bounds a weighted quantity, formed with
+C_(E,3)(𝔶)² 𝔗(𝔶)² in place of 6C_(E,3)². In particular that step gives its bound of D̂Ψ_B(p), |B| ≤ N − 3, with C₁^p,
+C_(1,ϱ)^p and C_(1,0)^p in place of C₁^z, C_(1,ϱ)^z and C_(1,0). Moreover C₁(𝔚) ≤ C₁^U(𝔚) ≤ n^(1/2) max_(B∈𝔚) C₁^U({B}),
+and for 𝔶₀ = 𝔶₁ = 1, C₁^U({B}) ≤ C₁^z.
+
+*Proof.* For B ∈ 𝔚 let A_B := D̂Ψ_B. By [[lem:tl5-hfp-abs]] (a), [[eq:tl5-hf-cs-r]] with r = 3, in its intrinsic form,
+holds with the weights 𝔶_(|J|) and C_(E,3)(𝔶)². Sum it over B ∈ 𝔚 and multiply by μ^(b+3). Let ∫ denote the integral
+over Σ₁(a, b) with dμ dτ₂/(1 − κκ′), f := 𝔳₀⁶ R⁻³ (1 + 18|D̂∂_γ|²) and W := 2|∂_γ|² 𝔳₀⁶ R⁻³. At the points of the face
+ℒ^J A_B = D̂Ψ_(JB) + R′_(J,B), as in the proof of [[lem:tl5-hfx-c1]]. The words JB are distinct and 𝔶_(|J|) μ^(b+3) ≤ μ
+μ^(|JB|), so (Σ_(J,B) 𝔶_(|J|) μ^(b+3) |D̂Ψ_(JB)|²)^(1/2) ≤ μ^(1/2) 𝒟_g. Each monomial of R′_(J,B) is a coefficient
+carrying a ≥ 1 letters of J, of norm at most Λ_a, contracted with Ψ_(σB), σ the subword of J left; B ↦ σB is injective,
+and 𝔶_(|J|) μ^(b+3) ≤ μ^(1+a) μ^(|σB|) for |J| ≥ 1; so Minkowski's inequality over the monomials and over the words
+gives (Σ_(J,B) 𝔶_(|J|) μ^(b+3) |R′_(J,B)|²)^(1/2) ≤ ϖ′^(1/2) 𝒥_g, as in the proof of [[lem:tl5-hfq-mixed]], and likewise
+(2ϖ′)^(1/2) 𝒥_g for the D̂R′_(J,B). With [[eq:tl5-hfp-words]], at each point of the face
+
+    (Σ_(J,B) 𝔶_(|J|) μ^(b+3) |ℒ^J A_B|²)^(1/2) ≤ μ^(1/2) 𝒟_g + ϖ′^(1/2) 𝒥_g,
+    (Σ_(J,B) 𝔶_(|J|) μ^(b+3) |D̂ℒ^J A_B|²)^(1/2) ≤ 𝔩_D(𝔚) 𝒟_g + (𝔩_J(𝔚) + (2ϖ′)^(1/2)) 𝒥_g + y,
+
+with y := (43n)^(1/2) 𝔗(𝔶) μ^((b+3)/2) P_ϱ. Put F_D² := ∫ f μ 𝒟_g², F_J² := ∫ f ϖ′ 𝒥_g², P_D² := ∫ W 𝔩_D(𝔚)² 𝒟_g², P_J²
+:= ∫ W (𝔩_J(𝔚) + (2ϖ′)^(1/2))² 𝒥_g², V² := ∫ W y² and S the sum over B of the terms on S_a, times μ^(b+3). By
+Minkowski's inequality in L² of the face and then in ℝ³, the square root of the right side is at most
+
+    C_(E,3)(𝔶) 𝔴₀(p)³ ((F_D² + P_D²)^(1/2) + (F_J² + P_J²)^(1/2) + V + S^(1/2)),
+
+and, as 𝒟_g ≤ 𝒥_g, also at most C_(E,3)(𝔶) 𝔴₀(p)³ ((F² + P²)^(1/2) + V + S^(1/2)), where F² := ∫ f (μ^(1/2) + ϖ′^(1/2))²
+𝒥_g² and P² := ∫ W (𝔩_D(𝔚) + 𝔩_J(𝔚) + (2ϖ′)^(1/2))² 𝒥_g². By [[eq:tl5-hf-coercive]], on the face |D̂Ψ_C|² ≤ 𝔨₂′
+(e_o[Ψ_C] + κ′ e_i[Ψ_C]), and |Ψ_C|² + |D̂Ψ_C|² ≤ 𝔨₂ (e_o[Ψ_C] + κ′ e_i[Ψ_C]) as in the proof of [[lem:tl5-hf-linfty]];
+so ∫ g 𝒟_g² ≤ sup (g 𝔨₂′) ℰ_g(p) and ∫ g 𝒥_g² ≤ sup (g 𝔨₂) ℰ_g(p) for every function g ≥ 0, and C_(E,3)(𝔶)² 𝔴₀(p)⁶ times
+F_D² + P_D², F_J² + P_J² and F² + P² is at most C₁^D(𝔚)², C₁^J(𝔚)² and C₁^U(𝔚)² times ℰ_g(p). As P_ϱ = w k₂^z ϱ(p)/(1 −
+𝔵^z), C_(E,3)(𝔶)² 𝔴₀(p)⁶ V² ≤ n μ^(b+3) w² C_(1,ϱ)^p² ϱ(p)². On S_a, for |J| = k, the bound of ℒ^J A_B that the step
+uses for every J, divided by its weight, may be replaced by 𝔢_k times it, 𝔢_k as in the proof of [[lem:tl5-hfp-abs]]
+(c): in [[lem:tl5-hft-small]] (b) the weight is μ^((b+3)/2) = μ^((2−k)/2) μ^((|JB|+1)/2), and μ^((|JB|+1)/2) |D̂Ψ_(JB)|
+≤ η₀(p) and μ^((|JB|+1)/2) Λ_a ≤ μ^((1+a)/2) Λ_a for the coefficients of R′_(J,B), as |JB| ≥ a; in [[lem:tl5-hfq-theta]]
+likewise with ν and the factor ν^(−(b+3)/2) of the step. So the terms on S_a, with the weights 𝔶_(|J|), give n^(1/2)
+μ^((b+3)/2) E₀, and dividing by μ^((b+3)/2) gives [[eq:tl5-hfp-family]]. For n = 1 the bound of the step follows, with
+C₁({B}) ≤ C₁^p.
+
+For the last claims, (43n)^(1/2) = n^(1/2) 43^(1/2) gives 𝔩_D(𝔚) ≤ n^(1/2) 𝔩_D({B}), and [[lem:tl5-hfp-words]] gives
+𝔞_𝔄(𝔚) ≤ n^(1/2) max_B 𝔞_𝔄({B}), so 𝔩_J(𝔚) ≤ n^(1/2) max_B 𝔩_J({B}); as 𝔩_D({B}) does not depend on B, the integrand of
+C₁^U(𝔚)² is at most n times the largest of those of the C₁^U({B})², and the supremum over the face of that largest one
+is the largest of the suprema. For 𝔶₀ = 𝔶₁ = 1, C_(E,3)(𝔶) = C_(E,3)^♯ and C_(E,3)^♯² ≤ 6C_(E,3)², μ^(1/2) ≤ 1, and
+𝔩_D({B}) + 𝔩_J({B}) is 𝔩 of [[eq:tl5-hfz-c1]] with 𝔷′, k₁^p and 𝔞_𝔄({B}) ≤ 𝔞_𝔄 in place of √7 (3 max_Z |D̂Z| + 2
+max_Z |D̂²Z|), k₁^z and 𝔞_𝔄, each at most the one it replaces by [[lem:tl5-hfp-abs]] (b); so C₁^U({B}) ≤ C₁^z. ∎
+
+**Lemma {#lem:tl5-hfp-rec}** (The recovery of D̂²h with the seven fields together.) Let N = 4 and, in the setting of
+[[lem:tl5-hfz-abs]], 𝔰 ≤ 𝔰₁^v on Q(a, b). Then [[lem:tl5-hfv-rec]], with the constants with index z, holds with 𝔨_rec^p,
+𝔨_rec^(ϱ,p) and 𝔨_rec^(0,p) in place of 𝔨_rec^z, 𝔨_rec^(ϱ,z) and 𝔨_rec^(0,z), and with C_S^p, C₁^p, C_(1,ϱ)^p, C_(1,0)^p
+and C_(0,0)^p in place of C_S^E, C₁^z, C_(1,ϱ)^z, C_(1,0) and C_(0,0) in C_P^v, C_(P,ϱ)^v and C_(P,0)^v.
+
+*Proof.* In the proof of [[lem:tl5-hfv-rec]], use [[lem:tl5-hfz-rec]] for h at p with 𝔥 = 𝔰₁^v, and bound (Σ_Z
+𝔷_Z²)^(1/2) by 𝔷₁′ |D̂h| + 𝔷₂′ |h|, by Minkowski's inequality over Z. Bound μ² (Σ_Z |D̂Ψ_Z|²)^(1/2) by
+[[eq:tl5-hfp-family]] with 𝔚 = Γ, b = 1 and n = 7, that is by C₁^Γ ℰ_g^(1/2) + √7 (C_(1,ϱ)^p ϱ(p) + C_(1,0)^p η₀(p))
+with the weights of the step, in place of √7 times the bound of one field; bound μ^(3/2) |D̂h| by [[lem:tl5-hfp-c1]]
+with B = ∅ and μ |h| by [[lem:tl5-hfp-abs]] (c). The rest is the proof of [[lem:tl5-hfv-rec]]. ∎
+
+**Lemma {#lem:tl5-hfp-low}** (The second derivatives at low levels, with the words of each length together.) In the
+setting of [[lem:tl5-hfp-abs]] (c), let 0 ≤ m ≤ N − 4. Then the step on second derivatives at low levels of the lemma in
+use holds with 𝔐_p^(m) in place of (2𝔐^(m))^(1/2) max(C_S, C₁) in its part with ℰ_g, its parts with ϱ and η₀ being
+formed with C_(1,ϱ)^p, C_(1,0)^p and C_(0,0)^p; and for 𝔶₀ = 𝔶₁ = 1, 𝔐_p^(m) ≤ (2𝔐^(m))^(1/2) max(C_S^E, C₁^z).
+
+*Proof.* In that step, L_g² is the sum over b ≤ m + 1 of Σ_(|C|=b) (μ^(b+2) |Ψ_C|² + μ^(b+3) |D̂Ψ_C|²), with the weights
+of the step, and there are 7^b words of length b. By [[lem:tl5-hfp-abs]] (c) and [[eq:tl5-hfp-family]] with 𝔚 = 𝔚_b and
+n = 7^b, the two sums over |C| = b are at most the squares of C_S^p ℰ_g(p)^(1/2) + 7^(b/2) e_b and of C₁(𝔚_b)
+ℰ_g(p)^(1/2) + 7^(b/2) e′_b, where e_b and e′_b are the parts with ϱ and η₀ of the bounds of one word. Minkowski's
+inequality in the Euclidean norm over b and the two kinds gives L_g ≤ 𝔐_p^(m) ℰ_g(p)^(1/2) + (Σ_b 7^b (e_b² +
+e′_b²))^(1/2), and Σ_(b≤m+1) 2 · 7^b = 2𝔐^(m), so the second term is at most (2𝔐^(m))^(1/2) times the largest of these
+parts, as there. For 𝔶₀ = 𝔶₁ = 1, C₁(𝔚_b) ≤ 7^(b/2) C₁^z by [[lem:tl5-hfp-c1]], and C_S^p ≤ C_S^E; so 𝔐_p^(m)² ≤ Σ_b 7^b
+(C_S^E² + C₁^z²) ≤ 2𝔐^(m) max(C_S^E, C₁^z)². ∎
+
+**Theorem {#thm:tl5-hfp}** (Existence with the leaf constant, the weights of the words and the seven fields.) In the
+setting of [[thm:tl5-hfz]], with the intrinsic Sobolev constants of [[lem:tl5-hft-face]], let 𝔶₀ ∈ (0, μ⁻²] and 𝔶₁ ∈ (0,
+μ⁻¹], let S_F^p, S_M^p, ε_M^p and 𝔯^p be S_F^z, S_M^z, ε_M^z and 𝔯^z formed with the constants with index p of
+[[def:tl5-hfp-constants]], and put
+
+    η_p := 1 − max(ϑ₁, ϑ₂) − 𝔯^p,      A_p := η_p^(−1/2) δ_w + η_p⁻¹ (ε^z + ε_M^p),      B_p := η_p⁻¹ (S_F^p + S_M^p),
+
+and let 𝔰_*^p be 𝔰_*^z formed with the constants with index p and with A_p in place of A_z. Suppose: (a) η₀ < 𝔰₁^v; (b)
+the rates (1 − ϑ₁) a_o, (1 − ϑ₂) a_i are admissible for (𝔅_N, E_o^N, E_i^N); (c) η_p > 0, 𝔰_*^p < 𝔰₁^v and the closing
+condition
+
+    4 A_p B_p = 4 η_p^(−3/2) (δ_w + η_p^(−1/2) (ε^z + ε_M^p)) (S_F^p + S_M^p) < 1.                 {#eq:tl5-hfp-closing}
+
+Then the conclusions of [[thm:tl5-hf]] (N ≥ 6) or [[thm:tl5-hf4]] (N = 4) hold with A_p and 𝔰_*^p in place of A_w (or
+A_(w,4)) and 𝔰_*. For 𝔶₀ = 𝔶₁ = 1 each constant with index p, and each of A_p, B_p and 𝔰_*^p, is at most the one of
+[[thm:tl5-hfz]] it replaces, and η_p ≥ η_z; so the hypotheses of [[thm:tl5-hfz]], with the intrinsic Sobolev constants,
+imply these.
+
+*Proof.* The proof of [[thm:tl5-hfz]] applies with [[lem:tl5-hfp-abs]], [[lem:tl5-hfp-c1]], [[lem:tl5-hfp-low]] and, for
+N = 4, [[lem:tl5-hfp-rec]] in place of [[lem:tl5-hfz-abs]], [[lem:tl5-hfz-c1]], the step at low levels and
+[[lem:tl5-hfv-rec]]. Step 1 is the same and gives 𝔰(p) ≤ 𝔰_*^p < 𝔰₁^v. The bounds at p and on the faces that Steps 2 and
+3 use hold with the constants with index p, by these lemmas and, for the constants of the products of level four with no
+factor at a point, by [[lem:tl5-hfp-abs]] (a); ε^z is unchanged, as its coefficient of ϱ contains no Sobolev constant.
+The rest is the proof of [[thm:tl5-hfv]] with A_p, B_p and [[eq:tl5-hfp-closing]]. For 𝔶₀ = 𝔶₁ = 1, [[lem:tl5-hfp-leaf]]
+gives C_(E,r)^♯² ≤ 6C_(E,r)², and [[lem:tl5-hfp-abs]] gives 𝔗(𝔶) ≤ 1, k₁^(j,·,p) ≤ k₁^(j,·,z) and C_S^p ≤ C_S^E; so
+C_(1,ϱ)^p ≤ C_(1,ϱ)^z, C_(1,0)^p ≤ C_(1,0) and C_(0,0)^p ≤ C_(0,0). By [[lem:tl5-hfp-c1]], C₁^p ≤ C₁^z and, at level
+four, C₁^Γ ≤ √7 max_Z C₁^U({Z}) ≤ √7 C₁^z; with 𝔷₁′ ≤ √7 𝔷₁, 𝔷₂′ ≤ √7 𝔷₂ and C_S^p ≤ C_S^E this gives 𝔨_rec^(·,p) ≤
+𝔨_rec^(·,z), and [[lem:tl5-hfp-low]] gives 𝔐_p^(m) ≤ (2𝔐^(m))^(1/2) max(C_S^E, C₁^z). Every constant of [[thm:tl5-hfz]]
+is nondecreasing in these numbers, which gives the last claim as there. ∎
+
+**Remark {#rem:tl5-hfp-what}** (What changes.) The constant of [[eq:tl5-hft-leaf]] comes from ‖(1 + Ω)A‖² ≤ 6 Σ_(|J|≤2)
+‖ℒ^J A‖², while on each V_π the sum over the 43 words is exactly (1 + c_π + c_π²) ‖A_π‖²; so C_(E,r)^♯ is at most
+(2/9)^(1/2) < 0.48 times (6C_(E,r)²)^(1/2), in every constant formed with a Sobolev inequality on a face. In the bounds
+at a point the words J of length k < 2 take the weights 𝔶_k ≤ μ^(k−2), which the energies of the words JB and ZJB allow,
+against the weight 1 of the words of length two; the terms of C_(E,r)(𝔶)² are divided by 𝔶₀ + 𝔶₁ c_π + c_π² in place of
+1 + c_π + c_π², so the representations with small c_π are bounded through the words of lengths zero and one. The parts
+with ϱ and η₀ carry 𝔗(𝔶), which is at most 1 for all admissible weights in [[lem:tl5-hft-small]] (b) and equals ((ν²𝔶₀ +
+6ν𝔶₁ + 36)/43)^(1/2) at level four; in [[lem:tl5-hfs-linfty]] and [[lem:tl5-hft-small]] (a) it grows with the weights,
+which then trade the part with ℰ_g against those with ϱ and η₀. In 𝔨_rec the seven fields are counted together: where √7
+C₁^z counts the leading term of the recovery √7 times, C₁^Γ counts it once over the 301 words JZ, the nonlinear part
+keeping the count 301^(1/2) = (7 · 43)^(1/2) and the parts with ϱ and η₀ the factor √7; at the levels N ≥ 6, 𝔐_p^(m)
+counts the words of each length in the same way, in place of (2𝔐^(m))^(1/2) times the bound of one word. The leading
+term of the recovery is the one term bounded through 𝒟_g, whose density carries 𝔨₂′ = 𝔨₂ − 1/(2Ω̂²z̲); the minimum in
+[[eq:tl5-hfp-c1]] keeps C₁(𝔚) ≤ C₁^U(𝔚). The number K_rec = max(|T|⁻¹, λ_M^(−1/2)) is the operator norm of the map
+(v_Z)_Z ↦ (|T|⁻¹ v_T, (Σ_(a<b) c^ab_j v_(K_ab))_j) of the proof of [[lem:tl5-hf-recovery]], by [[lem:tl5-hf-fields]]
+(a), so it is the best constant of that step for vectors v_Z of any size; a smaller one would need bounds that separate
+the words beginning with T from those beginning with a rotation, which 𝒥_g and 𝒟_g do not give. As for [[thm:tl5-hf]]
+and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfp]] are established in this paper for no background at 10 l5.
