@@ -4,16 +4,17 @@ This section makes two changes. First, the Sobolev inequality on the leaves of [
 [[lem:tl5-hfp-leaf]] bounds |A(ω)|₀ through the functions Σ_k |s_k(ω)|₀² of the isotypic subspaces V_π, that is through
 the traces of their kernels at ω. The trace counts every copy of every representation of the isotropy group in the fibre
 at ω, whose dimension is 5^r. The kernel itself commutes with the isotropy group, so on each isotypic component of the
-fibre it is a multiple of the identity, and the largest of these multiples, summed over π with the weights, is at most
-the constant of the functions ([[lem:tl5-hfd-leaf]]). So the inequality holds for tensors of every rank with the
-constant C_(E,0)(𝔶) of the functions, which is also the best constant for each rank, and every constant formed with a
-Sobolev inequality on a face takes it. Second, in the products with a factor at a point, the monomials of 2𝔮̂ whose two
-factors are first derivatives D̂Ψ are summed over the words of each length before they are bounded: the factor in the
-energies is then counted by 𝒥_g once for all its words, and the factor at a point by the number of its own words, in
-place of the count 7^(j′/2) of all the words of the level, and these monomials need no recovery constant
-([[lem:tl5-hfd-words]]). Both changes enter the constants with index d ([[def:tl5-hfd-constants]], [[thm:tl5-hfd]]). The
-closing condition is [[eq:tl5-hfd-closing]]; every new constant is at most the one it replaces, for all weights, and the
-earlier closing conditions remain valid. The notation is that of [[sec:tl5-hfp]] and, for N = 4, of [[sec:tl5-hfu]].
+fibre it is a multiple of the identity; summed over π with the weights, these multiples give one number for each spin,
+the largest being that of spin zero, the constant of the functions ([[lem:tl5-hfd-leaf]]). So the inequality holds for
+tensors of every rank with the constant C_(E,0)(𝔶) of the functions, which is also the best constant for each rank, and
+every constant formed with a Sobolev inequality on a face takes it. Second, in the products with a factor at a point,
+the monomials of 2𝔮̂ whose two factors are first derivatives D̂Ψ are summed over the words of each length before they
+are bounded: the factor in the energies is then counted by 𝒥_g once for all its words, and the factor at a point by the
+square root of the number of its own words, in place of 7^(j′/2), that of all the words of the level, and these
+monomials need no recovery constant ([[lem:tl5-hfd-words]]). Both changes enter the constants with index d
+([[def:tl5-hfd-constants]], [[thm:tl5-hfd]]). The closing condition is [[eq:tl5-hfd-closing]]; every new constant is at
+most the one it replaces, for all weights, and the earlier closing conditions remain valid. The notation is that of
+[[sec:tl5-hfp]] and, for N = 4, of [[sec:tl5-hfu]].
 
 **Lemma {#lem:tl5-hfd-leaf}** (One leaf constant for every rank.) In the setting of [[lem:tl5-hfp-leaf]] let 𝔶₀, 𝔶₁ > 0
 and 𝔶₂ := 1, and for j ∈ ℕ put
@@ -138,7 +139,8 @@ setting of [[thm:tl5-hfp]] (N ≥ 6) or of [[thm:tl5-hfu]] (N = 4), suppose: (a)
 Then the conclusions of [[thm:tl5-hf]] (N ≥ 6) or [[thm:tl5-hf4]] (N = 4) hold with A_d and 𝔰_*^d in place of A_w (or
 A_(w,4)) and 𝔰_*. For all admissible weights each constant with index d is at most the one it replaces, η_d ≥ η_p (or
 η_u), and A_d, B_d and 𝔰_*^d are at most A_p, B_p and 𝔰_*^p (or A_u, B_u and 𝔰_*^u); so the hypotheses of
-[[thm:tl5-hfp]] and of [[thm:tl5-hfu]] imply these.
+[[thm:tl5-hfp]] (N ≥ 6) and of [[thm:tl5-hfu]] (N = 4) imply these, and for N = 4 and 𝔶₀, 𝔶₁ ≥ 1 so do those of
+[[thm:tl5-hfp]].
 
 *Proof.* By [[lem:tl5-hfd-leaf]], [[eq:tl5-hfp-leaf]] holds for every rank r and all weights with C_(E,0)(𝔶) in place of
 C_(E,r)(𝔶), and so with C_(E,0)^♯ in place of C_(E,r)^♯ for 𝔶₀ = 𝔶₁ = 1. The proofs of [[lem:tl5-hft-face]],
@@ -162,8 +164,9 @@ is nondecreasing in the Sobolev constants. By [[lem:tl5-hfd-words]], 𝔠^(D,7)_
 
 **Remark {#rem:tl5-hfd-what}** (What changes.) In [[lem:tl5-hft-leaf]] the bound |A_π(ω)|₀² ≤ (dim V_π/(2π²)) ‖A_π‖²
 takes the trace of the kernel at ω, the sum of its eigenvalues over the 5^r dimensions of the fibre, where the pointwise
-bound needs only the largest; the kernel is a multiple of the identity on each isotypic component of the fibre for the
-isotropy group, so the largest eigenvalue, summed over π with the weights, is 𝔖_j(𝔶) for some spin j of the fibre, and
+bound needs only the largest eigenvalue of the kernels summed over π with the weights, the Cauchy–Schwarz inequality
+being taken over π and the basis together for one direction in the fibre; each kernel is a multiple of the identity on
+each isotypic component of the fibre for the isotropy group, so that sum is 𝔖_j(𝔶) on the component of spin j, and
 𝔖_j(𝔶) ≤ 𝔖_0(𝔶). So C_(E,r)(𝔶)² = Σ_j e_j(r) (2j + 1) 𝔖_j(𝔶) becomes 𝔖_0(𝔶) = C_(E,0)(𝔶)², a factor between 1 and 5^r;
 the rank enters the Sobolev constants on the faces only through the comparison factors 𝔳₀^r and 𝔴₀^r and the coefficient
 1 + 2r²|D̂∂_γ|² of the step along the curves. No smaller constant holds for any rank with these weights: for A := f du ⊗
@@ -197,11 +200,11 @@ as changed by item 2), with one blank line before it, as a sibling "###" section
 nor a power is gained there. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfu]] are
 established in this paper for no background at 10 l5.
 
-New (one line added, of 105 characters; the two old lines are unchanged):
+New (one line added, of 120 characters; the two old lines are unchanged):
 
 nor a power is gained there. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfu]] are
 established in this paper for no background at 10 l5.
-[[sec:tl5-hfd]] gives the Sobolev inequality on the leaves one constant for every rank ([[thm:tl5-hfd]]).
+[[sec:tl5-hfd]] gives the leaves one Sobolev constant for every rank and sums products over the words ([[thm:tl5-hfd]]).
 
 *3. Nothing else changes.*
 
@@ -227,10 +230,10 @@ Unchanged: ε^z and 𝔤_(ϱ,s) (the coefficients of ϱ, which carry no Sobolev 
    Summed (2j₁ < 80000, the tail extrapolated in 1/j₁):
        𝔶                     C_(E,0)(𝔶)²    C_(E,0)(𝔶)/C_(E,r)(𝔶) for r = 2, 3, 4
        1                     0.08725        0.3022 (−0.52)   0.1499 (−0.82)   0.0722 (−1.14)
-       (μ⁻², μ⁻¹), μ = 10⁻⁴   4.5946 × 10⁻⁴  0.2000 (−0.70)   0.0894 (−1.05)   0.0400 (−1.40)
+       (μ⁻², μ⁻¹), μ = 10⁻⁴   4.5946 × 10⁻⁴  0.2000 (−0.70)   0.0895 (−1.05)   0.0400 (−1.40)
        μ = 10⁻⁵              1.4529 × 10⁻⁴  the same to four digits, 5^(−r/2)
        μ = 10⁻⁶              4.5944 × 10⁻⁵  the same to four digits
-   with 𝔖_j(1) = 0.0873, 0.0291, 0.0165, 0.0116, 0.0090 for j = 0, …, 4. Against the original 6C_(E,3)² of
+   with 𝔖_j(1) = 0.0873, 0.0291, 0.0165, 0.0116, 0.0089 for j = 0, …, 4. Against the original 6C_(E,3)² of
    lem:tl5-hft-leaf, C_(E,0)^♯ is (0.0873/21.825)^(1/2) = 0.0632 times (6C_(E,3)²)^(1/2), −1.20 decades.
 2. The products over the words (lem:tl5-hfd-words). In 𝔞_(o,s), 𝔞_(i,s), 𝔟_(o,s) and 𝔟_(i,s), in their forms with
    index p,
@@ -246,8 +249,8 @@ Unchanged: ε^z and 𝔤_(ϱ,s) (the coefficients of ϱ, which carry no Sobolev 
        7^(n/2) 𝔠^D_n = 7^(n/2) 80·2^n 80    423   2240   11853   62720       62720       331883   1756160
        𝔠^(D,7)_n                      80    160   583    1430    1853        5213        13477    49132
        decades                       0     −0.42 −0.58  −0.92   −1.53       −1.08       −1.39    −1.55
-   The rest, 𝔠^♮_n − 𝔠^D_n, is 2^n − 1 at Λ = 0 (15 at n = 4); the type-D terms carry C_P where the old carried
-   𝔎 = max(2C_S 𝔨_A, C_P 𝔨_B), 𝔨_B = max(𝔷, 𝔤₁).
+   The rest, 𝔠^♮_n − 𝔠^D_n, is 2^n − 1 + 𝔰_♭𝔠^(3♮)_n at Λ = 0 (15 + 𝔰_♭𝔠^(3♮)₄ at n = 4); the type-D terms carry C_P
+   where the old carried 𝔎 = max(2C_S 𝔨_A, C_P 𝔨_B), 𝔨_B = max(𝔷, 𝔤₁).
 3. The closing condition eq:tl5-hfd-closing is eq:tl5-hfp-closing (N ≥ 6) or eq:tl5-hfu-closing (N = 4) formed with the
    constants with index d.
 
@@ -269,9 +272,12 @@ Level 4:
     S_F without C_P leads.
 - The words, on the j′ = 4 term of 𝔤_(𝒥,s)𝔎:
   - Old: 49 (𝔠^♮₄ + 1) 𝔎 ≈ (6.6–6.9) × 10⁴ 𝔎.
-  - New: 1853 C_P + 49 (𝔠^♮₄ − 𝔠^D₄ + 1) 𝔎 ≈ (1853/𝔨_B + 49 · (24 to 122)) 𝔎 ≈ (1.5–6.4) × 10³ 𝔎, the rest
-    𝔠^♮₄ − 𝔠^D₄ lying between 15 + 𝔰_♭𝔠^(3♮)₄ ≈ 23 and 1401 − 1280 = 121.
-  - That is −1.0 to −1.7 decades. The j′ = 3 term falls −0.9 to −1.5 on the same reckoning.
+  - New: 𝔠^(D,7)₄(μ) C_P + 49 (𝔠^♮₄ − 𝔠^D₄ + 1) 𝔎. With x := 𝔠^D₄(μ) − 1280, the type-D part above the floor,
+    𝔠^(D,7)₄(μ) lies between 1853 + 7^(1/2) x and 1853 + 49 x, and the rest 𝔠^♮₄ − 𝔠^D₄ between 15 + 𝔰_♭𝔠^(3♮)₄ ≈ 23
+    and 1401 − 1280 = 121.
+  - The part above the floor all in the rest (x = 0): (1853/𝔨_B + 49 · (58 to 122)) 𝔎 ≈ (3.2–6.4) × 10³ 𝔎, −1.0 to
+    −1.3 decades. All of type D: ((1853 + (7^(1/2) to 49) x)/𝔨_B + 49 · 24) 𝔎 ≈ (1.5–2.8) × 10³ 𝔎, −1.4 to −1.65.
+  - That is −1.0 to −1.65 decades. The j′ = 3 term falls −0.9 to −1.5 on the same reckoning.
   - So S_F falls about 1.0–1.7 decades beyond the leaf lever's fall, if these terms lead 𝔤_(𝒥,s)𝔎.
   - 𝔰_* binds here (G0n.1), so this acts as G0n's priced "word count 7² in S_F" (+0.28 / +0.44 / 0.00 / +0.34 for
     −1.69 on that term), through a larger ϑ.
@@ -309,11 +315,11 @@ Not done.
 Rows for the crosswalk of [[ch:ten-l5]], in its four columns, separated by tabs, in chapter order; the line numbers
 are those of this file:
     sec:tl5-hfd	paper/reader/proofs/P-GRD12.md@PENDING:1	P-GRD12, section	new; at the end of ch:ten-l5, after rem:tl5-hfu-what; one leaf constant C_(E,0)(y) for every rank, and the products of type D summed over the words in S_F
-    lem:tl5-hfd-leaf	paper/reader/proofs/P-GRD12.md@PENDING:18	P-GRD12, Lemma	the leaf kernel is a multiple of the identity on each isotypic part of the fibre; S_j(y) <= S_0(y) = C_(E,0)(y)^2, so the leaf inequality holds with C_(E,0)(y) for every rank; C_(E,r)^2 <= 5^r C_(E,0)^2
-    eq:tl5-hfd-leaf	paper/reader/proofs/P-GRD12.md@PENDING:27	P-GRD12, display	new
-    lem:tl5-hfd-words	paper/reader/proofs/P-GRD12.md@PENDING:60	P-GRD12, Lemma	products over the words of one length: the monomials of 2q-hat with both factors DPsi counted with c^(D,7)_n and s_P, the others with 7^(n/2)(c_n - c^D_n) and P
-    eq:tl5-hfd-words	paper/reader/proofs/P-GRD12.md@PENDING:73	P-GRD12, display	new
-    def:tl5-hfd-constants	paper/reader/proofs/P-GRD12.md@PENDING:108	P-GRD12, Definition	constants with index d: C_(E,0)(y), C_(E,0)^# in every face constant; K^D, K^D_rho, K^D_0 in place of g_(J,s)K, g_(J,s)K_rho, g_(J,s)K_0 in S_F and r_(w,s); eta_d, A_d, B_d, s_*^d
-    thm:tl5-hfd	paper/reader/proofs/P-GRD12.md@PENDING:132	P-GRD12, Theorem	thm:tl5-hfp (N >= 6) and thm:tl5-hfu (N = 4) with the constants with index d; contains both for all weights
-    eq:tl5-hfd-closing	paper/reader/proofs/P-GRD12.md@PENDING:136	P-GRD12, display	closing condition: 4 eta_d^(-3/2)(delta_w + eta_d^(-1/2)(eps^z + eps_M^d))(S_F^d + S_M^d) < 1
-    rem:tl5-hfd-what	paper/reader/proofs/P-GRD12.md@PENDING:163	P-GRD12, Remark	what changes
+    lem:tl5-hfd-leaf	paper/reader/proofs/P-GRD12.md@PENDING:19	P-GRD12, Lemma	the leaf kernel is a multiple of the identity on each isotypic part of the fibre; S_j(y) <= S_0(y) = C_(E,0)(y)^2, so the leaf inequality holds with C_(E,0)(y) for every rank; C_(E,r)^2 <= 5^r C_(E,0)^2
+    eq:tl5-hfd-leaf	paper/reader/proofs/P-GRD12.md@PENDING:28	P-GRD12, display	new
+    lem:tl5-hfd-words	paper/reader/proofs/P-GRD12.md@PENDING:61	P-GRD12, Lemma	products over the words of one length: the monomials of 2q-hat with both factors DPsi counted with c^(D,7)_n and s_P, the others with 7^(n/2)(c_n - c^D_n) and P
+    eq:tl5-hfd-words	paper/reader/proofs/P-GRD12.md@PENDING:74	P-GRD12, display	new
+    def:tl5-hfd-constants	paper/reader/proofs/P-GRD12.md@PENDING:109	P-GRD12, Definition	constants with index d: C_(E,0)(y), C_(E,0)^# in every face constant; K^D, K^D_rho, K^D_0 in place of g_(J,s)K, g_(J,s)K_rho, g_(J,s)K_0 in S_F and r_(w,s); eta_d, A_d, B_d, s_*^d
+    thm:tl5-hfd	paper/reader/proofs/P-GRD12.md@PENDING:133	P-GRD12, Theorem	thm:tl5-hfp (N >= 6) and thm:tl5-hfu (N = 4) with the constants with index d; contains both for all weights
+    eq:tl5-hfd-closing	paper/reader/proofs/P-GRD12.md@PENDING:137	P-GRD12, display	closing condition: 4 eta_d^(-3/2)(delta_w + eta_d^(-1/2)(eps^z + eps_M^d))(S_F^d + S_M^d) < 1
+    rem:tl5-hfd-what	paper/reader/proofs/P-GRD12.md@PENDING:165	P-GRD12, Remark	what changes
