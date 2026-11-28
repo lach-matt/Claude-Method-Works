@@ -7640,3 +7640,198 @@ of 2𝒥_g in the nonlinear parts of the absorption, which comes from |H| ≤ 2|
 The counts, the recovery constants, the Sobolev constants, the weights 𝔲₀, 𝔲₁, 𝔲_M, the thresholds 𝔰₀ and 𝔰₁^v and the
 rates are unchanged. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfc]] are established in
 this paper for no background at 10 l5.
+[[sec:tl5-hff]] can put the parts with ϱ in 𝔯 and takes the zeroth order through the shorter words ([[thm:tl5-hff]]).
+
+### The parts with ϱ through the bound at a point, and the zeroth order through the shorter words {#sec:tl5-hff}
+
+This section makes two changes. First, in the products with a factor at a point the part with ϱ of a monomial is the
+residual of the recovery of its factor D̂²Ψ_C times its factor Φ₁, which is H, h or a Ψ_B, and Step 2 of the bootstrap
+bounds Φ₁ by 𝔰 ≤ 𝔰₁^v, which puts the part into ε. But Φ₁ is a quantity of 𝔰_P⁰, and at the levels N ≥ 6 with option (b)
+of [[def:tl5-hft-constants]], where the part with ϱ of the bound of D̂²Ψ_C carries the weight μ^(−(|C|+1)/2), |Φ₁| ≤
+μ^(−ℓ_P(Φ₁)/2) 𝔰_P⁰ leaves the factor μ^(−3/2) μ^(b/2) that the parts with 𝒥_g carry, so these parts hold with μ^(−1)
+𝔰_P⁰ in place of 𝔰 ([[lem:tl5-hff-rho]]). Step 3 bounds 𝔰_P⁰ by C_P⁰ e^(φ/2) Y_s + C_(P,0)⁰ η₀, which has no part with
+ϱ; the weight e^(−φ) of 𝒮 takes up the factor e^(φ/2), so the part with ϱ gives a term 𝔯_ϱ^f Y_s², which enters 𝔯, and a
+part of ε with ϱ η₀. The two routes put the part in different places, and the theorem takes either. Second, the
+zeroth-order step bounds the part |Ψ_(JB)|² of the density of each word JB through the energy of JB itself, whose weight
+𝔶_(|J|) μ^(|B|+2) is at most μ^(|JB|), with equality at the largest weights. For JB = ZC, Z its first letter, the
+bound |Ψ_(ZC)| ≤ 𝔷 (|D̂Ψ_C|² + |Ψ_C|²)^(1/2) in the proof of (∗) of [[lem:tl5-hfg-products]] passes it to the energy of
+the shorter word C, whose weight leaves a factor μ; its coefficient 1/(2Ω̂² z̲) becomes 6μ 𝔷² 𝔨₂, six words ZC sharing
+each C, or at most 7μ 𝔷² 𝔨₂ for the words that the first letters of a family share, and at each point of the face the
+smaller of the two bounds is taken ([[lem:tl5-hff-zero]]). The word h has no shorter word; its step takes its own leaf
+weight 𝔶₀^h, which multiplies its own part by 𝔶₀^h μ². Both changes enter the constants with index f
+([[def:tl5-hff-constants]], [[thm:tl5-hff]]). The closing condition is [[eq:tl5-hff-closing]]; with 𝔶₀^h = 𝔶₀ and the
+first route every new constant is at most the one it replaces, and the earlier closing conditions remain valid. The
+notation is that of [[sec:tl5-hfc]].
+
+**Lemma {#lem:tl5-hff-rho}** (The parts with ϱ through the bound of 𝔰_P⁰.) Let N ≥ 6, with option (b) of
+[[def:tl5-hft-constants]], and let the setting be that of [[lem:tl5-hft-products]] with 𝔰 ≤ 𝔰₁^v on Q(a, b) and the
+replacements of [[lem:tl5-hfy-abs]] and [[lem:tl5-hfz-abs]], so that the bounds of the second derivatives carry k₂^z
+ϱ(p)/(1 − 𝔵^z) in place of 2k₂ ϱ(p). Then at every point of Q(a, b), for every word I with n := |I| ≤ N and every word J
+with |J| < n, the two inequalities of [[lem:tl5-hft-products]], with 𝔠^ϱ in their terms with ϱ(p) as in
+[[lem:tl5-hfe-rho]] (b), hold with
+
+    μ^(−3/2) 𝔠^ϱ_n(μ) (1 − 𝔵^z)⁻¹ k₂^z 𝔰_P⁰ ϱ(p),
+    μ^((n−|J|−3)/2) (𝔠^ϱ_(|J|)(μ) + 1) (1 − 𝔵^z)⁻¹ k₂^z 𝔰_P⁰ ϱ(p)                                      {#eq:tl5-hff-rho}
+
+in place of their terms with ϱ(p), that is with μ^(−1) 𝔰_P⁰ in place of 𝔰 there; and the parts 𝔡_n and 𝔡′_(j′) of
+[[eq:tl5-hfd-words]] take these forms.
+
+*Proof.* By [[lem:tl5-hfe-rho]] (b) and the proofs of [[lem:tl5-hfs-products]] and [[lem:tl5-hft-products]], a monomial
+of 𝔑^L_I has a term with ϱ(p) only if its factor Φ₂ is a second derivative D̂²Ψ_C, and then Φ₁ carries no derivative D̂,
+as there are at most two in all, so it is H, h or Ψ_B with |B| ≤ N − 2, and |Φ₁| ≤ μ^(−ℓ_P(Φ₁)/2) 𝔰_P⁰, with ℓ_P as in
+the proof of [[lem:tl5-hfg-products]]. The part with ϱ(p) of the bound of Φ₂ is μ^(−ℓ_E(Φ₂)/2) k₂^z ϱ(p)/(1 − 𝔵^z), by
+[[lem:tl5-hft-small]] (b) with the replacements. With |Φ_i| ≤ 𝔰 for the other factors, the term with ϱ(p) of the
+monomial times μ^(n/2) is at most ν 𝔰^(q−2) μ^((n − ℓ_P(Φ₁) − ℓ_E(Φ₂))/2) 𝔰_P⁰ k₂^z ϱ(p)/(1 − 𝔵^z), with ν its
+background norm with the coefficient, q the number of its solution factors and b the number of letters on its background
+factors; and ℓ_P(Φ₁) + ℓ_E(Φ₂) ≤ n − b + 3, as in the proof of [[lem:tl5-hfs-products]], so μ^((n − ℓ_P(Φ₁) −
+ℓ_E(Φ₂))/2) ≤ μ^(−3/2) μ^(b/2). The proof of [[lem:tl5-hft-products]] bounds the same term by ν 𝔰^(q−2) 𝔰 μ^(−1/2)
+μ^(b/2) times the same factor k₂^z ϱ(p)/(1 − 𝔵^z), through |Φ₁| ≤ 𝔰; so the new bound is that one with μ^(−1) 𝔰_P⁰ in
+place of 𝔰, and the sum over the monomials with a factor D̂²Ψ_C, by [[lem:tl5-hfe-rho]] (a) with ν′ = μ, gives the first
+term of [[eq:tl5-hff-rho]]. For |J| < n, ℒ^J N(h) = 𝔑_J + H^(αβ) D̂_αD̂_βΨ_J. As there, μ^(n/2) |𝔑_J| = μ^((n−|J|)/2)
+μ^(|J|/2) |𝔑_J|, and the first term for J bounds the part with ϱ(p) of μ^(|J|/2) |𝔑_J|. In H^(αβ) D̂_αD̂_βΨ_J the factor
+Φ₁ is H, with ℓ_P(H) = 2 and |H| ≤ μ⁻¹ 𝔰_P⁰, and the part with ϱ(p) of the bound of D̂²Ψ_J is μ^(−(|J|+1)/2) k₂^z
+ϱ(p)/(1 − 𝔵^z); so μ^(n/2) times their product is at most μ^((n−|J|−3)/2) 𝔰_P⁰ k₂^z ϱ(p)/(1 − 𝔵^z), where the proof of
+[[lem:tl5-hft-products]] has μ^((n−|J|−1)/2) 𝔰. Adding the two gives the second term. The parts 𝔡_n and 𝔡′_(j′) are
+those of the lemma in use, so they take these forms. ∎
+
+**Lemma {#lem:tl5-hff-zero}** (The zeroth-order step through the shorter words.) In the setting of [[lem:tl5-hfp-abs]]
+(c), with the weights 𝔶₀, 𝔶₁ and 𝔲₀ and the constants with index l of [[def:tl5-hfe-constants]], let 𝔶₀^h ∈ (0, μ⁻²] and
+𝔶^h := (𝔶₀^h, 𝔶₁), let 𝔷 be as in [[def:tl5-hfg-graded]], 𝔨₁ as in [[lem:tl5-hf-sobolev]] and 𝔨₂ as in
+[[lem:tl5-hf-linfty]], put 𝔲₀^♯ := 𝔲₀ + 8𝔲₀⁻¹ |D̂∂_γ|², and, with the suprema over Σ₁(a, b),
+
+    C_S^f(p)² := C_(E,0)(𝔶)² 𝔴₀(p)⁴ sup 𝔳₀⁴ R⁻³ min(𝔲₀^♯/(2Ω̂² z̲) + 2𝔲₀⁻¹ 𝔨₁,
+                  max(6μ 𝔷² 𝔨₂ 𝔲₀^♯ + 2𝔲₀⁻¹ 𝔨₁, 7μ 𝔷² 𝔨₂ 𝔲₀^♯)),
+    C_S^h(p)² := C_(E,0)(𝔶^h)² 𝔴₀(p)⁴ sup 𝔳₀⁴ R⁻³ min(𝔲₀^♯/(2Ω̂² z̲) + 2𝔲₀⁻¹ 𝔨₁,
+                  6μ 𝔷² 𝔨₂ 𝔲₀^♯ + max(2𝔲₀⁻¹ 𝔨₁, 𝔶₀^h μ² (𝔲₀^♯/(2Ω̂² z̲) + 2𝔲₀⁻¹ 𝔨₁))),                  {#eq:tl5-hff-cs}
+
+and let C_(0,0)^h be the constant C_(0,0) of the lemma in use, in its form with index l, formed with 𝔶^h in place of
+(𝔶₀, 𝔶₁). Then the zeroth-order step of the lemma in use gives its bound of Ψ_B(p) for 1 ≤ |B| ≤ N − 2, and its bound of
+(Σ_(B∈𝔚) |Ψ_B(p)|²)^(1/2) for a family 𝔚 of n distinct such words of one length, with C_S^f in place of C_S^l and the
+same parts with η₀; and it gives its bound of h(p) with C_S^h and C_(0,0)^h in place of C_S^l and C_(0,0). Moreover
+C_S^f ≤ C_S^l, and for 𝔶₀^h = 𝔶₀, C_S^h ≤ C_S^l and C_(0,0)^h = C_(0,0).
+
+*Proof.* In the proof of [[lem:tl5-hfp-abs]] (c), in the form that the proof of [[thm:tl5-hfe]] gives it with
+[[lem:tl5-hfe-face]] (b) and 𝔲 = 𝔲₀, the step for a word B multiplies by μ^(|B|+2) the inequality of
+[[lem:tl5-hfe-face]] (b) for A := Ψ_B, and for a family it adds these over B ∈ 𝔚. As ℒ^J Ψ_B = Ψ_(JB), the face term of
+that inequality is, by its proof, Σ_(|J|≤2) 𝔶_(|J|) ∫_Σ 𝔳₀⁴ R⁻³ (𝔲₀^♯ |Ψ_(JB)|² + 2𝔲₀⁻¹ |D̂_(∂_γ)Ψ_(JB)|²) dμ dτ₂/(1 −
+κκ′), Σ := Σ₁(a, b). There, at each point, |D̂_(∂_γ)Ψ_(JB)|² ≤ 𝔨₁ (e_o + κ′ e_i)[Ψ_(JB)] and |Ψ_(JB)|² ≤ (e_o + κ′
+e_i)[Ψ_(JB)]/(2Ω̂² z̲), and (e_o + κ′ e_i)/(1 − κκ′) = ε₁; with 𝔶_(|J|) μ^(|B|+2) ≤ μ^(|JB|) every word JB, these words
+being distinct, carries at most 𝔳₀⁴ R⁻³ (𝔲₀^♯/(2Ω̂² z̲) + 2𝔲₀⁻¹ 𝔨₁) times μ^(|JB|) ε₁[Ψ_(JB)] dμ dτ₂, which gives C_S^l,
+as Σ_W μ^(|W|) ∫_Σ ε₁[Ψ_W] dμ dτ₂ ≤ ℰ_g(p) for distinct words W of length at most N. Call this the first way of bounding
+the parts with |Ψ_(JB)|².
+
+Let 1 ≤ |B| ≤ N − 2. Each word JB is ZC with Z its first letter: Z is the first letter of J and C = J′B if J = ZJ′, and
+Z ∈ Γ and C = B′ if J = ∅ and B = ZB′. As in the proof of (∗) of [[lem:tl5-hfg-products]], [[eq:tl5-hf-lie]] and the
+Cauchy–Schwarz inequality give |Ψ_(ZC)|² ≤ 𝔷² (|D̂Ψ_C|² + |Ψ_C|²), and |D̂Ψ_C|² + |Ψ_C|² ≤ 𝔨₂ (e_o + κ′ e_i)[Ψ_C], as in
+the proof of [[lem:tl5-hf-linfty]]. As 𝔶_k ≤ μ^(k−2) and 𝔶₂ = 1, 𝔶_(|J|) μ^(|B|+2) ≤ μ μ^(|C|) in each case. Bound the
+part with |Ψ_(JB)|² in this way for every pair (J, B), the second way, and the part with |D̂_(∂_γ)Ψ_(JB)|² as before.
+Then the word JB with |J| = 2 carries 2𝔲₀⁻¹ 𝔨₁ at most; the word JB with |J| ≤ 1 carries at most 2𝔲₀⁻¹ 𝔨₁ + 6μ 𝔷² 𝔨₂
+𝔲₀^♯, the words ZJB with Z a rotation being six; and the word B′ with |B′| = |B| − 1 carries at most 7μ 𝔷² 𝔨₂ 𝔲₀^♯, the
+words ZB′ in 𝔚 being at most seven, as Z ∈ Γ, and one for a single word; each times 𝔳₀⁴ R⁻³ and μ^(|W|) ε₁[Ψ_W] dμ dτ₂
+for the word W. These three classes have the lengths |B| + 2, |B| + 1 or |B|, and |B| − 1, so they are disjoint, and in
+each the words are distinct, as the B ∈ 𝔚 have one length. At each point of the face use, for all the pairs at once, the
+way for which the largest of the coefficients is the smaller; the set of the points where the first way is used is
+closed, as all the functions are continuous. Every word then carries at most 𝔳₀⁴ R⁻³ times the minimum in C_S^f(p)², so
+the face term, times μ^(|B|+2), is at most C_S^f(p)² ℰ_g(p) divided by C_(E,0)(𝔶)² 𝔴₀(p)⁴. The terms on S_a are those of
+the proof of [[lem:tl5-hfp-abs]] (c), and the rest of the step gives its bounds with C_S^f in place of C_S^l.
+
+For the word h, B = ∅, apply the step with the weights 𝔶^h: [[lem:tl5-hfe-face]] (b) holds with them and C_(E,0)(𝔶^h),
+its proof using [[lem:tl5-hfd-leaf]], which holds for all weights, and the step holds with them, as 𝔶₀^h μ² ≤ 1. The
+words of the step are the J with |J| ≤ 2. For J = ZJ′ put C := J′; then 𝔶_(|J|) μ² ≤ μ μ^(|J′|), as above. The word h
+itself has no shorter word, and its part with |h|² is bounded as before, with the weight 𝔶₀^h μ². In the second way the
+word J with |J| = 2 carries at most 2𝔲₀⁻¹ 𝔨₁, the word J with |J| = 1 at most 2𝔲₀⁻¹ 𝔨₁ + 6μ 𝔷² 𝔨₂ 𝔲₀^♯, and h at most
+𝔶₀^h μ² (𝔲₀^♯/(2Ω̂² z̲) + 2𝔲₀⁻¹ 𝔨₁) + 6μ (𝔶₁ μ) 𝔷² 𝔨₂ 𝔲₀^♯, with 𝔶₁ μ ≤ 1; each of these is at most the second entry of
+the minimum in C_S^h(p)². In the first way every word carries at most 𝔲₀^♯/(2Ω̂² z̲) + 2𝔲₀⁻¹ 𝔨₁, as 𝔶₁ μ ≤ 1 and 𝔶₀^h μ²
+≤ 1, each times 𝔳₀⁴ R⁻³. Choosing at each point as above gives C_S^h, and the terms on S_a, formed with 𝔶^h by the proof
+of [[lem:tl5-hfp-abs]] (c), give C_(0,0)^h.
+
+Finally, the first entry of the minimum in C_S^f(p)² is the function whose supremum gives C_S^l(p)², so C_S^f ≤ C_S^l.
+For 𝔶₀^h = 𝔶₀, C_(E,0)(𝔶^h) = C_(E,0)(𝔶), so C_S^h ≤ C_S^l for the same reason, and C_(0,0)^h = C_(0,0). ∎
+
+**Definition {#def:tl5-hff-constants}** (The constants with index f.) In the setting of [[def:tl5-hfc-constants]], let
+𝔶₀^h ∈ (0, μ⁻²], let C_S^f, C_S^h and C_(0,0)^h be as in [[lem:tl5-hff-zero]], and put C_P⁰ := max(𝔤₁ C_S^h, C_S^f) and
+C_(P,0)⁰ := max(𝔤₁ C_(0,0)^h, C_(0,0)). The constants with index f are the constants with index c formed with C_P⁰ and
+C_(P,0)⁰ in place of 𝔤₁ C_S^l and 𝔤₁ C_(0,0) at the sites of [[lem:tl5-hfc-h]] and in 𝔎 and 𝔎₀, with C_S^h and C_(0,0)^h
+in place of C_S^p and C_(0,0)^p in 𝔨_rec^p and 𝔨_rec^(0,p), with C_S^h for b = 0 and C_S^f for b ≥ 1 in place of C_S^p
+in 𝔐_p^(m), and with max(C_(0,0)^h, C_(0,0)) in place of C_(0,0)^p in the parts with η₀ of the step of
+[[lem:tl5-hfp-low]], each in its form with index l, and in every constant formed from these. Fix one of the two routes
+below for the parts with ϱ, the second only for N ≥ 6 with option (b) of [[def:tl5-hft-constants]]:
+
+    route (𝔰):  ε^f := ε^l,   𝔯_ϱ^f := 0;
+    route (𝔯):  ε^f := 𝒮[s_N[2R̂ic] + μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z C_(P,0)⁰ η₀ ϱ],
+                𝔯_ϱ^f := ϱ 𝒮[μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z C_P⁰ e^(φ/2)],                          {#eq:tl5-hff-routes}
+
+with 𝒮 of [[eq:tl5-hf-source]] for a = u*, b = v* and the functions of the point evaluated at it. Let S_F^f, S_M^f and
+ε_M^f be S_F^c, S_M^c and ε_M^c formed with the constants with index f, let 𝔯^f be 𝔯^c so formed plus 𝔯_ϱ^f, and put
+
+    η_f := 1 − max(ϑ₁, ϑ₂) − 𝔯^f,      A_f := η_f^(−1/2) δ_w + η_f⁻¹ (ε^f + ε_M^f),      B_f := η_f⁻¹ (S_F^f + S_M^f).
+
+For a number 𝔜 ≥ 0 let 𝔰_*^f[𝔜] be 𝔰_*^c[𝔜] formed with the constants with index f, and, when 4A_f B_f < 1, put
+
+    Y_f := 2A_f/(1 + (1 − 4A_f B_f)^(1/2)),      𝔰_*^f := 𝔰_*^f[Y_f].                            {#eq:tl5-hff-constants}
+
+**Theorem {#thm:tl5-hff}** (Existence with the parts with ϱ through the bound at a point and the zeroth order through
+the shorter words.) In the setting of [[thm:tl5-hfc]], with 𝔶₀^h ∈ (0, μ⁻²], one of the routes of [[eq:tl5-hff-routes]]
+and the constants with index f of [[def:tl5-hff-constants]], suppose: (a) η₀ < 𝔰₁^v; (b) the rates (1 − ϑ₁) a_o, (1 −
+ϑ₂) a_i are admissible for (𝔅_N, E_o^N, E_i^N); (c) η_f > 0, the closing condition
+
+    4 A_f B_f = 4 η_f^(−3/2) (δ_w + η_f^(−1/2) (ε^f + ε_M^f)) (S_F^f + S_M^f) < 1,                 {#eq:tl5-hff-closing}
+
+and 𝔰_*^f < 𝔰₁^v. Then there is a solution g of the reduced problem on D^κ with Y_σ(g) ≤ Y_f for every σ ∈ [1/2, v*],
+and the other conclusions of [[thm:tl5-hf]] (N ≥ 6) or [[thm:tl5-hf4]] (N = 4) hold with 𝔰_*^f in place of 𝔰_*. For
+𝔶₀^h = 𝔶₀ and route (𝔰) each constant with index f is at most the one with index c it replaces, ε^f = ε^c, η_f ≥ η_c,
+A_f ≤ A_c, B_f ≤ B_c, Y_f ≤ Y_c and 𝔰_*^f ≤ 𝔰_*^c; so the hypotheses of [[thm:tl5-hfc]] imply these.
+
+*Proof.* The proof of [[thm:tl5-hfc]] applies with the constants with index f, ε^f, 𝔯^f, η_f, A_f, B_f, Y_f, 𝔰_*^f[𝔜]
+and [[eq:tl5-hff-closing]] in place of those with index c, with two changes.
+
+*The zeroth order.* By [[lem:tl5-hff-zero]], the zeroth-order step of the lemma in use gives its bounds of h(p), of
+Ψ_B(p) with 1 ≤ |B| ≤ N − 2 and of the families of words of one length with C_S^h and C_(0,0)^h for h and with C_S^f and
+C_(0,0) for the others. With [[lem:tl5-hfc-h]], μ |H(p)| ≤ 𝔤₁ μ |h(p)|, so 𝔰_P⁰(p) ≤ C_P⁰(p) ℰ_g(p)^(1/2) + C_(P,0)⁰(p)
+η₀(p). The bounds at a point that the proof of [[thm:tl5-hfc]] uses take the zeroth-order step only through these
+bounds: through the quantities of 𝔰_P⁰, in the entries of [[lem:tl5-hfc-h]] and in 𝔎 and 𝔎₀, which Step 3 of the proof
+of [[prop:tl5-hfs-bootstrap]] forms from the bound of 𝔰_P⁰; through μ |h(p)| in [[lem:tl5-hfp-rec]]; and through the
+families of the words of each length in [[lem:tl5-hfp-low]]. Each is formed from the bounds of the step in the same way
+for all values of their constants, so they hold with the constants with index f.
+
+*The parts with ϱ.* With route (𝔰) the proof of [[thm:tl5-hfc]] bounds them as written, with ε^c = ε^f. With route (𝔯),
+after Step 1, 𝔰 ≤ 𝔰₁^v on D^κ_s, so [[lem:tl5-hff-rho]] applies at every point of D^κ_s, with ϱ(p) ≤ ϱ. In Step 2 the
+terms with ϱ of the family of level j are bounded as in the proof of [[thm:tl5-hfe]], through Step 2 of the proof of
+[[prop:tl5-hft-bootstrap]] with 𝔠^ϱ and the replacements, now with μ⁻¹ 𝔰_P⁰ in place of 𝔰 by [[lem:tl5-hff-rho]]. With
+the weights μ^|I| they contribute to the bulk at most 2Ω̂² μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z 𝔰_P⁰ ϱ (√e_o + √c √e_i) at
+each point, where that proof has 𝔰₁^v in place of μ⁻¹ 𝔰_P⁰. As ℰ_g(p) ≤ e^(φ(p)) Y_s² at every point p of D^κ_s, the
+bound of 𝔰_P⁰ gives 𝔰_P⁰ ≤ C_P⁰ e^(φ/2) Y_s + C_(P,0)⁰ η₀ there. So this part together with the forcing term is at most
+2Ω̂² s^f (√e_o + √c √e_i), with s^f := s_N[2R̂ic] + s₀^f + Y_s s₁^f, s₀^f := μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z C_(P,0)⁰ η₀
+ϱ and s₁^f := μ⁻¹ (1 − 𝔵^z)⁻¹ 𝔤^l_(ϱ,t) k₂^z C_P⁰ e^(φ/2) ϱ. As in the proof of [[prop:tl5-hf-linear]], its integral
+with the weight e^(−φ) over Q(a′, b′) is at most Y_s 𝒮[s^f]; and 𝒮 is subadditive and positively homogeneous, so Y_s
+𝒮[s^f] ≤ Y_s ε^f + 𝔯_ϱ^f Y_s². The inequality of Step 3 then holds with ε^f in place of ε^c and with 𝔯^f in place of
+𝔯^c, and gives (H1) with A_f and B_f.
+
+The rest of the proof of [[thm:tl5-hfc]], with A_f, B_f, Y_f and 𝔰_*^f[𝔜], holds as written. For the last claim, let
+𝔶₀^h = 𝔶₀ and take route (𝔰). By [[lem:tl5-hff-zero]], C_S^h ≤ C_S^l, C_S^f ≤ C_S^l and C_(0,0)^h = C_(0,0), so C_P⁰ ≤
+𝔤₁ C_S^l and C_(P,0)⁰ = 𝔤₁ C_(0,0), as 𝔤₁ ≥ 1; every constant with index c is nondecreasing in these numbers, so each
+constant with index f is at most the one it replaces; and 𝔯_ϱ^f = 0 and ε^f = ε^c. Then η_f ≥ η_c, A_f ≤ A_c, B_f ≤ B_c
+and 4A_f B_f ≤ 4A_c B_c. The smaller root 2A/(1 + (1 − 4AB)^(1/2)) is nondecreasing in A and in B, so Y_f ≤ Y_c, and
+𝔰_*^f ≤ 𝔰_*^f[Y_c] ≤ 𝔰_*^c[Y_c] = 𝔰_*^c, as 𝔰_*^c[𝔜] is nondecreasing in 𝔜 and in the constants. ∎
+
+**Remark {#rem:tl5-hff-what}** (What changes.) In the products with a factor at a point, the part with ϱ of a monomial
+is the residual of the recovery of its factor D̂²Ψ_C times its factor Φ₁, which is H, h or a Ψ_B. The bound |Φ₁| ≤ 𝔰 ≤
+𝔰₁^v makes it a forcing term with the factor 𝔰₁^v ϱ, which enters ε, and so A, the closing condition and the term of 𝔰_*
+with A, which carries μ^(−N/2). In route (𝔯), Φ₁ is bounded as a quantity of 𝔰_P⁰, at the cost of a factor μ⁻¹, the
+weights leaving μ^(−3/2) μ^(b/2) in place of μ^(−1/2) μ^(b/2), and 𝔰_P⁰ by its bound at the point, which comes from the
+energies and from η₀ alone. The factor e^(φ/2) of that bound is taken up by the weight e^(−φ) of 𝒮, as e^(φ/2) is in
+S_F, so the part gives the term 𝔯_ϱ^f Y_s², which enters 𝔯, and a part of ε with ϱ η₀: in the coefficient of ϱ in ε, μ⁻¹
+C_(P,0)⁰ η₀ takes the place of 𝔰₁^v, and 𝔯_ϱ^f carries μ⁻¹ C_P⁰ where ε^l carries 𝔰₁^v. The two routes put the part in
+different places, ε against 𝔯, so the theorem takes either; it takes route (𝔯) only for N ≥ 6 with option (b), where the
+bounds of the second derivatives carry the weight μ^(−(|C|+1)/2) on their parts with ϱ. In the zeroth-order step, the
+part |Ψ_(JB)|² of the density of a word JB is bounded through the energy of JB itself, with the weight 𝔶_(|J|)
+μ^(|B|+2), which is μ^(|JB|) at the largest weights 𝔶_k = μ^(k−2), so its coefficient 1/(2Ω̂² z̲) has no factor μ.
+Through the shorter word C with JB = ZC the weight leaves the factor μ, and the coefficient becomes 6μ 𝔷² 𝔨₂, or at most
+7μ 𝔷² 𝔨₂ for the words B′ that the first letters of a family share; the part with |D̂_(∂_γ)Ψ_(JB)|² stays with its own
+word. At each point the smaller bound is taken, so C_S^f ≤ C_S^l for all weights. The word h has no shorter word, and
+its own part keeps the coefficient 1/(2Ω̂² z̲) with the factor 𝔶₀^h μ²; a weight 𝔶₀^h < 𝔶₀ lowers it, at the cost of
+C_(E,0)(𝔶^h) ≥ C_(E,0)(𝔶), whose square has the term 1/(2π² 𝔶₀^h) with j₁ = j₂ = 0. The entry C_P⁰ that bounds μ |H| and
+the Ψ_B is the larger of 𝔤₁ C_S^h and C_S^f, so it falls only if both do, which is why the step for h takes its own
+weight. The counts, the recovery constants, the first-order constants, the weights 𝔲₀, 𝔲₁, 𝔲_M, the thresholds 𝔰₀ and
+𝔰₁^v and the rates are unchanged. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hff]] are
+established in this paper for no background at 10 l5.
