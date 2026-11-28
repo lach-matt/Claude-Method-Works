@@ -272,7 +272,8 @@ supremum at one point.
 - 𝔛_(2,t): q₄ and 𝔩(𝔙_Γ) ≈ 3.7, 4.8, 4.3, 7.4 against √602 λ^μ ≈ 59, 68, 60, 64: −2.3, −2.2, −2.5, −2.1, so the term
   with 𝔠^Mq₂ falls at least as far as the term with 𝔠^Mq₁.
 - S_M therefore falls by about 1.8–2.3 decades, from 0.22, 0.25, 0.85, 0.48 above S_F (G0m.2) to about 1.3–1.9 below.
-- 𝔯_M: its terms with ϱ fall by about q₃ (μ/ν)^(3/2) (−2.6 to −3.6) and q₄ 2^(−1/2) (μ/ν)² 𝔗 (−2.9 to −3.6);
+- 𝔯_M: its terms with ϱ fall by about q₃ (μ/ν)^(3/2) (−3.04, −3.17, −3.66, −2.57) and q₄ 2^(−1/2) (μ/ν)² 𝔗 (−3.27,
+  −3.34, −3.81, −2.87);
   its terms with η₀ and ε_M by μ^(3/2) more (−7.5, −6.8, −9.0, −7.5 decades).
 - min(f, ϱ): every term of S_M^u is at most the corresponding term of G0m's hypothetical lever "S_M with the weighted
   constants as well" (its ℰ_g part × q), and 𝔯_M^u, ε_M^u are at most the unchanged ones of that lever. So the gain is
