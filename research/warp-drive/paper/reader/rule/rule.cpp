@@ -31,6 +31,7 @@ struct Cfg {
   int seed = 2; Rat xi_e, v_e; int nc = 0, nr = 0, pxi = 0, pv = 0, NRay = 40, p = 56;
   std::vector<SegCfg> segs; std::vector<ElemCfg> el;
   int run_cols = -1, run_rows = -1, threads = 1, batch = 4; double ckpt_min = 30; std::string out = "out";
+  int zero_data = 0;                 // tests only: zero cone data (rem:appc-rule: then every G and every z is 0)
   std::string canon, digest;
 };
 static Cfg CF;
@@ -53,18 +54,28 @@ static void read_cfg(const std::string& fn) {
     else if (k == "run_cols") is >> CF.run_cols; else if (k == "run_rows") is >> CF.run_rows;
     else if (k == "threads") is >> CF.threads; else if (k == "batch") is >> CF.batch;
     else if (k == "ckpt_minutes") is >> CF.ckpt_min; else if (k == "out") is >> CF.out;
+    else if (k == "zero_data") is >> CF.zero_data;
     else { fprintf(stderr, "unknown key %s\n", k.c_str()); exit(1); }
   }
+  // the blocks and "the first element" are in increasing order of (i, j) (def:appc-canonical, sec:appc-spot)
+  std::stable_sort(CF.el.begin(), CF.el.end(), [](const ElemCfg& a, const ElemCfg& b) { return std::make_pair(a.i, a.j) < std::make_pair(b.i, b.j); });
   if (CF.run_cols < 0) CF.run_cols = CF.nc;
   if (CF.run_rows < 0) CF.run_rows = CF.nr;
   int c = 0; for (auto& s : CF.segs) { if (s.c0 != c || s.c1 <= s.c0) { fprintf(stderr, "the segments must tile the columns\n"); exit(1); } c = s.c1; }
   if (c != CF.nc) { fprintf(stderr, "the segments must tile the columns\n"); exit(1); }
+  auto bad = [](const char* w) { fprintf(stderr, "invalid configuration: %s\n", w); exit(1); };
+  if (CF.nc < 1 || CF.nr < 1 || CF.pxi < 1 || CF.pv < 1 || CF.NRay < 0) bad("ncol, nrow, pxi, pv must be >= 1 and NRay >= 0");
+  if (CF.run_cols < 1 || CF.run_cols > CF.nc || CF.run_rows < 1 || CF.run_rows > CF.nr) bad("run_cols, run_rows must lie in 1..ncol, 1..nrow");
+  for (auto& s : CF.segs) if (s.M < 1 || s.No < 1 || s.Ni < 0) bad("a segment needs M >= 1, N_o >= 1, N_i >= 0");
+  for (size_t e = 0; e < CF.el.size(); e++) { if (CF.el[e].Nt < 1 || CF.el[e].Ns < 1) bad("an element needs N_t, N_s >= 1");
+    if (e && CF.el[e].i == CF.el[e - 1].i && CF.el[e].j == CF.el[e - 1].j) bad("two elements with the same (i, j)"); }
   std::ostringstream o;
   o << "rule P-APPC2 B 320\nseed " << CF.seed << "\nxi_e " << CF.xi_e.n << "/" << CF.xi_e.d << "\nv_e " << CF.v_e.n << "/" << CF.v_e.d
     << "\nncol " << CF.nc << "\nnrow " << CF.nr << "\npxi " << CF.pxi << "\npv " << CF.pv << "\nNRay " << CF.NRay << "\np " << CF.p << "\n";
   for (auto& s : CF.segs) o << "segment " << s.c0 << " " << s.c1 << " " << s.M << " " << s.No << " " << s.Ni << "\n";
   for (auto& e : CF.el) o << "elem " << e.i << " " << e.j << " " << e.xlo.n << "/" << e.xlo.d << " " << e.xhi.n << "/" << e.xhi.d << " "
                           << e.vlo.n << "/" << e.vlo.d << " " << e.vhi.n << "/" << e.vhi.d << " " << e.Nt << " " << e.Ns << "\n";
+  if (CF.zero_data) o << "zero_data " << CF.zero_data << "\n";
   CF.canon = o.str(); CF.digest = sha256_hex(CF.canon);
 }
 static int seg_of_col(int c) { for (size_t s = 0; s < CF.segs.size(); s++) if (c >= CF.segs[s].c0 && c < CF.segs[s].c1) return s; return -1; }
@@ -115,6 +126,7 @@ static void n1_row(const Grid* g, int j, const N1Row* prev, N1Row& out) {
       const F& x = g->X[k];
       F h = fsqrt(fdiv(fx_int<6, 5>(2), o + x * x));
       F kap = divi(h * CS.lam, 2) * ir32;
+      if (CF.zero_data) kap = fx_zero<6, 5>();                         // tests only
       out.e.G[((size_t)FM * nB + b) * NX + k] = (kap * q4) * ct; out.e.G[((size_t)FN * nB + b) * NX + k] = (kap * q4) * st;
       F m3 = kap * ((a1 + a2) * ct - a3 * st), n3 = kap * ((a1 + a2) * st + a3 * ct);
       F P3 = divi(mul_int(o + x, 2) * m3 - (o - x) * n3, 3), Q3 = divi(mul_int(o - x, 2) * n3 - (o + x) * m3, 3);
@@ -376,7 +388,11 @@ static void run_segment(int s, bool dump) {
       }
       int start = load_batch_ckpt(s, bt.cells);
       double tsetup = now_s() - t0, csetup = cpu_s() - cc0, tlast = now_s();
-      scheme_defect(bt, start, [&](int o) { if (now_s() - tlast > 60 * CF.ckpt_min && o < sg.No) { save_batch_ckpt(s, bt.cells, o); tlast = now_s(); } });
+      static const int stop_after = getenv("RULE_STOP_AFTER_OUTER") ? atoi(getenv("RULE_STOP_AFTER_OUTER")) : -1;   // tests only
+      scheme_defect(bt, start, [&](int o) {
+        if (now_s() - tlast > 60 * CF.ckpt_min && o < sg.No) { save_batch_ckpt(s, bt.cells, o); tlast = now_s(); }
+        if (o == stop_after && o > start) { save_batch_ckpt(s, bt.cells, o); fprintf(stderr, "stopped after outer step %d (RULE_STOP_AFTER_OUTER)\n", o); _exit(9); }
+      });
       for (Cell* c : bt.cells) {
         const int nA = g->nA, nB = g->nB, NX = g->NX; const size_t NN = c->NN();
         CellResult r; r.M = g->M;
@@ -552,6 +568,7 @@ int main(int argc, char** argv) {
   for (auto& o : opts) { if (o.first == "out") CF.out = o.second; else if (o.first == "threads") CF.threads = atoi(o.second.c_str());
     else if (o.first == "batch") CF.batch = atoi(o.second.c_str()); else if (o.first == "ckpt_minutes") CF.ckpt_min = atof(o.second.c_str());
     else { fprintf(stderr, "unknown option %s\n", o.first.c_str()); return 1; } }
+  if (CF.batch < 1 || CF.threads < 1) { fprintf(stderr, "invalid configuration: batch and threads must be >= 1\n"); return 1; }
   omp_set_num_threads(CF.threads);
   init_consts(CF.seed);
   CS.K.resize(RHS_NK); for (int i = 0; i < RHS_NK; i++) CS.K[i] = fl_rat<F>(RHS_KNUM[i], RHS_KDEN[i]);
@@ -559,6 +576,7 @@ int main(int argc, char** argv) {
   if (cmd == "params") { printf("%s---\nparameter digest %s\n", CF.canon.c_str(), CF.digest.c_str()); return 0; }
   if (cmd == "run") { if (!pos.empty()) run_segment(atoi(pos[0].c_str()), false); else for (size_t s = 0; s < CF.segs.size(); s++) run_segment(s, false); return 0; }
   if (cmd == "cells") {
+    if (CF.run_rows < CF.nr && CF.segs.size() > 1 && CF.segs[0].c1 < CF.run_cols) { fprintf(stderr, "cells: a run past the first segment needs every row (the hand-off covers all rows)\n"); return 1; }
     std::ostringstream o; std::vector<std::string> hd; std::map<std::pair<int, int>, CellResult> all;
     for (size_t s = 0; s < CF.segs.size() && CF.segs[s].c0 < CF.run_cols; s++) {
       run_segment(s, true); for (auto& kv : DONE) all[kv.first] = kv.second;

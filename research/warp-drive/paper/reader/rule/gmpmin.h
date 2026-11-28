@@ -6,6 +6,8 @@
 #if __has_include(<gmp.h>) && !defined(RULE_GMPMIN)
 #include <gmp.h>
 #else
+// The declarations below are GMP's ABI on LP64 platforms (long and unsigned long of 64 bits), and only there.
+static_assert(sizeof(long) == 8 && sizeof(unsigned long) == 8, "gmpmin.h's fallback GMP declarations are for LP64 only; install gmp.h");
 #include <cstddef>
 extern "C" {
 typedef unsigned long mp_limb_t;
@@ -78,6 +80,9 @@ mp_size_t __gmpn_sqrtrem(mp_limb_t*, mp_limb_t*, const mp_limb_t*, mp_size_t);
 #define mpn_sqrtrem __gmpn_sqrtrem
 #define mpz_sgn(z) ((z)->_mp_size < 0 ? -1 : (z)->_mp_size > 0)
 #endif
+
+// The rule passes arrays of uint64_t to GMP's mpn functions as limb arrays: GMP must have 64-bit limbs.
+static_assert(sizeof(mp_limb_t) == 8, "the rule needs a GMP with 64-bit limbs");
 
 // A small owning wrapper (no operators: every operation is spelled out).
 struct Z {

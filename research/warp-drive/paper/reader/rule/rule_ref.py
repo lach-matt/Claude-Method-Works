@@ -244,7 +244,7 @@ JETS, KC, KD, RHS, RHS_PAIR = load_rhs(RHS_PATH)
 # ------------------------------------------------------------------------------------------- configuration
 class Case:
     def __init__(self, fn):
-        self.elems = []; self.run_cols = None; self.run_rows = None; self.NRay = 40; self.segs = []
+        self.elems = []; self.run_cols = None; self.run_rows = None; self.NRay = 40; self.segs = []; self.zero_data = 0
         for line in open(fn):
             t = line.split('#')[0].split()
             if not t: continue
@@ -262,10 +262,13 @@ class Case:
             elif k == 'run_cols': self.run_cols = int(t[1])
             elif k == 'run_rows': self.run_rows = int(t[1])
             elif k == 'elem': self.elems.append((int(t[1]), int(t[2])) + tuple(Fr(a) for a in t[3:7]) + (int(t[7]), int(t[8])))
+            elif k == 'zero_data': self.zero_data = int(t[1])       # tests only: zero cone data
             elif k in ('threads', 'batch', 'ckpt_minutes', 'out'): pass
             else: raise ValueError('unknown key ' + k)
         if self.run_cols is None: self.run_cols = self.nc
         if self.run_rows is None: self.run_rows = self.nr
+        self.elems.sort(key=lambda e: (e[0], e[1]))                 # blocks in increasing order of (i, j)
+        assert all(sg[2] >= 1 and sg[3] >= 1 and sg[4] >= 0 for sg in self.segs)
     def seg_of(self, i):
         for s, sg in enumerate(self.segs):
             if sg[0] <= i < sg[1]: return s
@@ -324,6 +327,7 @@ def main():
                 x = X0[k]
                 h = fsqrt(div(2 * ONE, ONE + mul(x, x)))
                 kap = mul(divi(mul(h, lam), 2), div(ONE, mul(r, fsqrt(r))))
+                if cs.zero_data: kap = 0                            # tests only
                 Gm[b][k] = mul(mul(kap, q4), ct); Gn[b][k] = mul(mul(kap, q4), st)
                 m3 = mul(kap, mul(a1 + a2, ct) - mul(a3, st)); n3 = mul(kap, mul(a1 + a2, st) + mul(a3, ct))
                 P3 = divi(mul(2 * (ONE + x), m3) - mul(ONE - x, n3), 3)

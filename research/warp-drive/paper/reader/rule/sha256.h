@@ -1,6 +1,7 @@
 // sha256.h: SHA-256 (FIPS 180-4), self-contained.
 #pragma once
 #include <cstdint>
+#include <cstdio>
 #include <cstring>
 #include <string>
 struct Sha256 {

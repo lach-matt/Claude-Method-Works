@@ -20,10 +20,19 @@ inline int fx_bitlen_abs(const F& a) { uint64_t m[6]; fx_abs(a, m); for (int i =
 // 2^(1−ν)), corrects by N_i sweeps d := r̃ ⊕ I_𝔻(d) in 𝔻, and updates G := G + ⌊2^(−ν) d⌋_B.  r = 0 leaves G unchanged.
 inline void scheme_defect(Batch& bt, int start_outer, const std::function<void(int)>& ckpt) {
   int No = 0; for (Cell* c : bt.cells) No = std::max(No, c->No);
+  // A cell whose defect was exactly 0 keeps G, and every later step forms the same P(G) and the same r = 0; such a
+  // cell is not evaluated again, but each of its later steps still records max |r| = 0, so that the history has N_o
+  // entries as in the text, whether or not the run was resumed.  (A checkpoint stores G and the history, not this
+  // flag: a resumed run evaluates such a cell once more, finds r = 0 again, and so also recomputes the Φ the top
+  // values need.)
   for (Cell* c : bt.cells) c->zero_defect = false;
   for (int o = start_outer; o < No; o++) {
-    std::vector<Cell*> act; for (Cell* c : bt.cells) if (o < c->No && !c->zero_defect) act.push_back(c);
-    if (act.empty()) break;
+    std::vector<Cell*> act;
+    for (Cell* c : bt.cells) {
+      if (o >= c->No) continue;
+      if (c->zero_defect) { c->rmax.push_back(fx_zero<6, 5>()); c->outer_done = o + 1; } else act.push_back(c);
+    }
+    if (act.empty()) { ckpt(o + 1); continue; }
     double t0 = scheme_cpu();
     bt.evaluate(act); bt.integrate(act);                         // (i) P(G), and J̄ = rd J(G)
     scheme_times().tP += scheme_cpu() - t0; for (Cell* c : act) scheme_times().nP += c->NN();
@@ -44,7 +53,8 @@ inline void scheme_defect(Batch& bt, int start_outer, const std::function<void(i
       #pragma omp parallel for schedule(static)
       for (size_t q = 0; q < n; q++) { c->rt[q] = rd_fx(c->Gn[q], c->nu); c->d[q] = c->rt[q]; }
     }
-    for (int it = 0; it < (corr.empty() ? 0 : corr[0]->Ni); it++) {   // N_i times d := r̃ ⊕ I_𝔻(d)
+    int Ni = 0; for (Cell* c : corr) Ni = std::max(Ni, c->Ni);
+    for (int it = 0; it < Ni; it++) {                             // N_i times d := r̃ ⊕ I_𝔻(d), each cell its own N_i
       std::vector<Cell*> run; for (Cell* c : corr) if (it < c->Ni) run.push_back(c);
       double t1 = scheme_cpu(); bt.lin(run); scheme_times().tI += scheme_cpu() - t1; for (Cell* c : run) scheme_times().nI += c->NN();
       for (Cell* c : run) {
