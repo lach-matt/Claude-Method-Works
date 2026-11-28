@@ -7,15 +7,15 @@ curves in the products with no factor at a point, carry integrals over the leave
 and, at level four, one for the products with no factor at a point ([[lem:tl5-hfe-face]]). A bracket 𝔲X + 𝔲⁻¹Y with X,
 Y > 0 has the least value 2(XY)^(1/2), at 𝔲 = (Y/X)^(1/2), against X + Y for 𝔲 = 1. In the bracket of the first-order
 constant, X = (μ^(1/2) + ϖ′^(1/2))² comes from the first derivatives ℒ^J D̂Ψ_B, whose leading terms D̂Ψ_(JB) the weights
-of the step bound with the factor μ^(1/2) over their energies, and Y from their derivatives D̂ℒ^J D̂Ψ_B, which carry the
-recovery constant. Second, in the products with a factor at a point the part with ϱ comes only from the monomials whose
-factor in the energies is a second derivative D̂²Ψ_C, through the residual of its recovery. These are among the
-monomials of H₁^(λσ) D̂_λD̂_σh and H₂^(λσ) D̂_λD̂_σh in which the factor D̂²h gives its leading term, and a number 𝔠^ϱ_n
-counts the latter in place of 𝔠^♮_n ([[lem:tl5-hfe-rho]]); when all Λ_k and Λ^R_k vanish, 𝔠^ϱ_n + 1 = 2^n against
-𝔠^♮_n + 1 = 81 · 2^n, up to terms with the factor 𝔰_♭. Both changes enter the constants with index l
-([[def:tl5-hfe-constants]], [[thm:tl5-hfe]]). The closing condition is [[eq:tl5-hfe-closing]]; with the weights equal to
-1 every new constant is at most the one it replaces, and the earlier closing conditions remain valid. The notation is
-that of [[sec:tl5-hfd]] and, for N = 4, of [[sec:tl5-hfu]].
+of the step bound with the factor μ^(1/2) over their energies, and Y from their Lie derivatives along the curves, that
+is from their derivatives D̂ℒ^J D̂Ψ_B, which carry the recovery constant, and from the terms with D̂∂_γ. Second, in the
+products with a factor at a point the part with ϱ comes only from the monomials whose factor in the energies is a second
+derivative D̂²Ψ_C, through the residual of its recovery. These are among the monomials of H₁^(λσ) D̂_λD̂_σh and H₂^(λσ)
+D̂_λD̂_σh in which the factor D̂²h gives its leading term, and a number 𝔠^ϱ_n counts the latter in place of 𝔠^♮_n
+([[lem:tl5-hfe-rho]]); when all Λ_k and Λ^R_k vanish, 𝔠^ϱ_n + 1 = 2^n against 𝔠^♮_n + 1 = 81 · 2^n, up to terms with the
+factor 𝔰_♭. Both changes enter the constants with index l ([[def:tl5-hfe-constants]], [[thm:tl5-hfe]]). The closing
+condition is [[eq:tl5-hfe-closing]]; with the weights equal to 1 every new constant is at most the one it replaces, and
+the earlier closing conditions remain valid. The notation is that of [[sec:tl5-hfd]] and, for N = 4, of [[sec:tl5-hfu]].
 
 **Lemma {#lem:tl5-hfe-face}** (The transport along the curves with a weight.) Let 𝔲 be a positive continuous function on
 D̄, p ∈ D^κ, a := τ₁(p), b := τ₂(p), S_a, the curves γ_ω, ∂_γ and 𝔨₁ as in [[lem:tl5-hf-sobolev]], h₀, 𝔳₀ and 𝔴₀ as in
@@ -334,9 +334,9 @@ thresholds 𝔰₀, 𝔰₁^v and the cap; the rates.
        ratio                     0.0123 in every column (−1.91 decades)
    The 𝔠^♮₄ + 1 = 1304.1 at 𝔰_♭ = 10⁻⁴ is the floor 1303 of G0n. At G0o's medians (n = 4), 𝔠^♮₄ − 𝔠^D₄ + 1 = 55–117
    bounds 𝔠^ϱ₄ + 1 from above, against 𝔠^♮₄ + 1 = 1338–1402: the j′ = 4 terms fall by at least −1.06 to −1.40 decades,
-   and by −1.91 where the Λ-parts are at the floor. The parts of 𝔠^♮ − 𝔠^D above the floor that 𝔠^ϱ drops are those of
-   5Σ⁵λλΛ^R (whose terms with k₄ = 0 carry Λ^R₀ = |R̂| undamped by ν′), of the β₁ − 1 and λ̂_(k≥1) in 16Σ⁴λ̂λ̂β₁β₁, and
-   of β₂ − 1.
+   and by −1.91 where the Λ-parts are at the floor. Of 𝔠^♮ − 𝔠^D, 𝔠^ϱ drops 5Σ⁵λλΛ^R (whose terms with k₄ = 0 carry
+   Λ^R₀ = |R̂| undamped by ν′), 16Σ⁴λ̂λ̂(β₁β₁ − 1), Σ⁴λλ(β₂ − 1) and the corresponding parts of 𝔰_♭𝔠^(3♮), and keeps
+   Σ⁴λλ − 1 and 𝔰_♭(Σ⁶b_gλλ − 𝔤₀).
 3. The closing condition eq:tl5-hfe-closing is eq:tl5-hfd-closing with the constants with index l.
 
 What it gives, deduced, not evaluated. At G0o's optima. Assumptions:
@@ -345,7 +345,9 @@ What it gives, deduced, not evaluated. At G0o's optima. Assumptions:
   and the rest (1 + 18|D̂∂_γ|²)(1 + ϖ′^½)² ≥ 1 at 4.5–7 %, so Y ≥ 0.93/0.07 ≈ 13; 𝔩′ for the seven fields Γ carries
   301^½𝔵^z where that 𝔩 carried 43^½𝔵^z;
 - X = (μ^½ + ϖ′^½)² ≈ μ, as ϖ′^½ ≈ 24μΛ₁ is small against μ^½ at μ ≤ 10⁻⁴;
-- μ = 10⁻⁵ / 10⁻⁴ / 10⁻⁶ / 10⁻⁵ (seed 1 D_A / seed 2 D_A / seed 1 D* / seed 2 D*), and μ fixed.
+- μ = 10⁻⁵ / 10⁻⁴ / 10⁻⁶ / 10⁻⁵ (seed 1 D_A / seed 2 D_A / seed 1 D* / seed 2 D*), and μ fixed;
+- every supremum at one point: the falls below are those at the supremum of each constant for 𝔲 = 1. With the
+  weights the supremum may move to points where Y/X is smaller, where the fall is less, so these are upper figures.
 Level 4:
 - 𝔲₁: C₁ is multiplied by at most (2(μ/13)^½)^½, that is −1.38 / −1.13 / −1.63 / −1.38 decades or more, at the
   supremum.
@@ -381,10 +383,11 @@ Not done.
   halves the part 2|∂_γ|²𝔩′² of Y and so lowers C₁ by at most 2^(−¼) (−0.075 decades), and nothing once 2C_S leads,
   which the weight reaches at seed 1 D_A and seed 1 D* on these assumptions and may reach at the other two. Not done.
 - 𝔨₂: the 1/z̲ split (𝒟_g) was worth 0.00 at the supremum (G0m); not redone.
-- The √7 on 𝔞_𝔄(Γ): ≤ 0.03 (G0n); skipped.
+- The √7 on 𝔞_𝔄(Γ): skipped. No report prices it; G0n takes 𝔞_𝔄 at its trivial bounds (G0n.4).
 - The weight in 𝔜_(2,t) (rank 2, the 343 words of length three): both parts have the weight μ³ of the step and are
-  bounded together by 𝒥_g², so the balance gives nothing there; and in the steps with a leaf only (𝔛^u, the parts on
-  S_a) there is no transport. Not done.
+  bounded together by 𝒥_g², so the bound is max(𝔱_(2,0)(t; 𝔲), 𝔱_(2,1)(t; 𝔲)) 𝒥_g², and a weight lowers that maximum
+  where the two coefficients differ; it acts only on S_M's term with 𝔠^Mq₂, and S_M is 1.1–1.7 decades below S_F
+  (G0o.1). In the steps with a leaf only (𝔛^u, the parts on S_a) there is no transport. Not done.
 - k₁^D = 𝔨_♯K_rec → √5K_rec: sharp in this argument (sec:tl5-hfz, sec:tl5-hfp).
 
 ### Crosswalk rows
