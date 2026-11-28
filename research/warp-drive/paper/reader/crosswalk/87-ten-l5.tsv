@@ -459,3 +459,12 @@ eq:tl5-hfe-constants	paper/reader/proofs/P-GRD13.md@8d188871:142	P-GRD13, displa
 thm:tl5-hfe	paper/reader/proofs/P-GRD13.md@8d188871:164	P-GRD13, Theorem	thm:tl5-hfd with the constants with index l; for u_0 = u_1 = u_M = 1 its hypotheses imply these
 eq:tl5-hfe-closing	paper/reader/proofs/P-GRD13.md@8d188871:169	P-GRD13, display	closing condition: 4 eta_l^(-3/2)(delta_w + eta_l^(-1/2)(eps^l + eps_M^l))(S_F^l + S_M^l) < 1
 rem:tl5-hfe-what	paper/reader/proofs/P-GRD13.md@8d188871:215	P-GRD13, Remark	what changes
+sec:tl5-hfc	paper/reader/proofs/P-GRD14.md@a6c47821:1	P-GRD14, section	new; at the end of ch:ten-l5, after rem:tl5-hfe-what; the continuation with any threshold Y between the roots of By^2 - y + A, so s_* with the smaller root Y_- in place of 2A; and |H| <= g_1 |h| in place of |H| <= 2|h| in the bounds at a point
+lem:tl5-hfc-cont	paper/reader/proofs/P-GRD14.md@a6c47821:15	P-GRD14, Lemma	lem:tl5-continuation with any threshold Y in (Y_-, Y_+) in place of 2A; the solution has y_sigma <= Y_- = 2A/(1 + (1 - 4AB)^(1/2)); A <= Y_- < 2A
+eq:tl5-hfc-y	paper/reader/proofs/P-GRD14.md@a6c47821:18	P-GRD14, display	new
+lem:tl5-hfc-h	paper/reader/proofs/P-GRD14.md@a6c47821:39	P-GRD14, Lemma	|H| <= g_1 |h| where s <= s_flat; the bounds at a point with g_1 C_S and g_1 C_(0,0) in place of 2C_S and 2C_(0,0)
+def:tl5-hfc-constants	paper/reader/proofs/P-GRD14.md@a6c47821:60	P-GRD14, Definition	constants with index c: g_1 C_S, g_1 C_(0,0) in C_P^v, C_(P,0)^v, K, K_0, C_infinity; eta_c, A_c, B_c; Y_c = 2A_c/(1 + (1 - 4A_c B_c)^(1/2)); s_*^c = s_*^c[Y_c]
+eq:tl5-hfc-constants	paper/reader/proofs/P-GRD14.md@a6c47821:72	P-GRD14, display	new
+thm:tl5-hfc	paper/reader/proofs/P-GRD14.md@a6c47821:74	P-GRD14, Theorem	thm:tl5-hfe with the constants with index c and the threshold Y_c; Y_sigma <= Y_c; its hypotheses are implied by those of thm:tl5-hfe
+eq:tl5-hfc-closing	paper/reader/proofs/P-GRD14.md@a6c47821:78	P-GRD14, display	closing condition: 4 eta_c^(-3/2)(delta_w + eta_c^(-1/2)(eps^c + eps_M^c))(S_F^c + S_M^c) < 1
+rem:tl5-hfc-what	paper/reader/proofs/P-GRD14.md@a6c47821:121	P-GRD14, Remark	what changes

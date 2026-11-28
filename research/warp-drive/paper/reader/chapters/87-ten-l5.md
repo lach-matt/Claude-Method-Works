@@ -7502,3 +7502,141 @@ the Lie derivatives of D̂²h first derivatives or none. When all Λ_k and Λ^R_
 corresponding one of 𝔤_ϱ^v; in general 𝔠^ϱ_n ≤ 𝔠^♮_n − 𝔠^D_n. The counts 𝔠^Mq₁ and 𝔠^Mq₂ of the products with no factor
 at a point, the leaf constant C_(E,0)(𝔶), 𝔨₂, K_rec, 𝔨_♯, 𝔵^z and the thresholds are unchanged. As for [[thm:tl5-hf]]
 and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfe]] are established in this paper for no background at 10 l5.
+[[sec:tl5-hfc]] takes the threshold of the continuation at the smaller root and the factor 𝔤₁ for H ([[thm:tl5-hfc]]).
+
+### The threshold of the continuation, and the factor of H at a point {#sec:tl5-hfc}
+
+This section makes two changes. First, [[lem:tl5-continuation]] extends solutions under the a priori bound y_σ ≤ 2A, and
+every smallness condition of this chapter is formed with that bound: Step 1 of the a priori estimate applies the bounds
+at a point with ℰ_g(p) ≤ e^(φ(p)) Y_σ² ≤ 4e^(φ(p)) A², which gives the term with A of 𝔰_*. The argument needs only a
+number 𝔜 at which q(y) := By² − y + A is negative, and every 𝔜 between the two roots Y₋ < Y₊ of q serves; the solution
+then satisfies y_σ ≤ Y₋ = 2A/(1 + (1 − 4AB)^(1/2)), which lies between A and 2A and is close to A when 4AB is small
+([[lem:tl5-hfc-cont]]). So 𝔰_* may be formed with Y₋ in place of 2A. Second, the bounds at a point carry the factor 2
+of |H| ≤ 2|h| in the products 2C_S and 2C_(0,0). Under 𝔰 ≤ 𝔰_♭ the identity H = −g⁻¹ h ĝ⁻¹ gives |H| ≤ 𝔤₁ |h|, as it
+does in the constant 𝔨_B, so these products become 𝔤₁ C_S and 𝔤₁ C_(0,0) ([[lem:tl5-hfc-h]]). Both changes enter the
+constants with index c ([[def:tl5-hfc-constants]], [[thm:tl5-hfc]]). The closing condition is [[eq:tl5-hfc-closing]];
+every new constant is at most the one it replaces, and the earlier closing conditions remain valid. The notation is that
+of [[sec:tl5-hfe]].
+
+**Lemma {#lem:tl5-hfc-cont}** (Existence by continuity with a threshold below 2A.) In the setting of
+[[lem:tl5-continuation]] let A, B > 0 with 4AB < 1, and put
+
+    Y₋ := 2A/(1 + (1 − 4AB)^(1/2)),      Y₊ := (1 + (1 − 4AB)^(1/2))/(2B),                               {#eq:tl5-hfc-y}
+
+the roots of q(y) := By² − y + A, so that q < 0 on (Y₋, Y₊), q ≥ 0 on [0, Y₋], and A ≤ Y₋ < 2A < 1/(2B) ≤ Y₊. Let 𝔜 ∈
+(Y₋, Y₊), and suppose that every solution g on every D^κ_s with y_σ(g) ≤ 𝔜 for all σ ∈ [1/2, s] satisfies (H1), (H2) and
+(H4) of [[lem:tl5-continuation]], and that y_(1/2)(g) ≤ A for every solution g. Then there is a solution g on D^κ, and
+y_σ(g) ≤ Y₋ for every σ ∈ [1/2, v*]. For 𝔜 = 2A the hypotheses are those of [[lem:tl5-continuation]].
+
+*Proof.* With x := 4AB ∈ (0, 1), the roots of q are (1 ∓ (1 − x)^(1/2))/(2B), and (1 − (1 − x)^(1/2))/(2B) = x/(2B (1 +
+(1 − x)^(1/2))) = Y₋. As 1 < 1 + (1 − x)^(1/2) ≤ 2, A ≤ Y₋ < 2A; 2A < 1/(2B) as x < 1; and 1/(2B) ≤ Y₊. As q has
+positive leading coefficient and q(0) = A > 0, q < 0 exactly on (Y₋, Y₊), and q ≥ 0 on [0, Y₋]. So if y ≥ 0 satisfies y
+≤ A + By² and y ≤ 𝔜, then q(y) ≥ 0 and y ≤ 𝔜 < Y₊ give y ≤ Y₋ < 𝔜; this takes the place of the first paragraph of the
+proof of [[lem:tl5-continuation]], whose rest holds with 𝔜 in place of 2A. Let I be the set of s ∈ (1/2, v*] for which
+there is a solution g on D^κ_s with y_σ(g) ≤ 𝔜 for all σ ∈ [1/2, s]. It is not empty, as y_(1/2)(g) ≤ A ≤ Y₋ < 𝔜 and y_σ
+is continuous in σ. It is open: for s ∈ I, s < v*, and the solution g on D^κ_s, (H1) for the restrictions of g to the
+D^κ_σ, σ ∈ (1/2, s], and y_σ(g) ≤ 𝔜 give y_σ(g) ≤ Y₋ < 𝔜, so y_s(g) < 𝔜; (H4) and (F3_W) of [[thm:tl5-wg]] extend g to a
+solution g′ on some D^κ_(s′), s′ > s, and y_σ(g′) ≤ 𝔜 on [1/2, s″] for some s″ ∈ (s, s′] by continuity. It is closed, by
+the argument of that proof with (H2), the bound y_σ ≤ 𝔜 passing to the limit as the bound y_σ ≤ 2A does there. So v* ∈
+I. For the solution g on D^κ and σ ∈ (1/2, v*], the restriction of g to D^κ_σ is a solution with y_σ′ ≤ 𝔜 for σ′ ≤ σ, so
+(H1) gives y_σ(g) ≤ Y₋, and y_(1/2)(g) ≤ A ≤ Y₋. For 𝔜 = 2A, which lies in (Y₋, Y₊), the hypotheses are (H1), (H2), (H4)
+and (H3) of [[lem:tl5-continuation]]. ∎
+
+**Lemma {#lem:tl5-hfc-h}** (The factor of H at a point.) Let h be as in [[def:tl5-hfg-graded]] and q a point with 𝔰(q) ≤
+𝔰_♭. Then |H(q)| ≤ 𝔤₁ |h(q)|, with 𝔤₁ = 1 + 2𝔰_♭ of [[def:tl5-hfs-bounds]]. Consequently, under their hypotheses and in
+the forms that the later lemmas of this chapter give them, [[lem:tl5-hfg-linfty]], [[lem:tl5-hfs-linfty]],
+[[lem:tl5-hft-small]], [[lem:tl5-hfq-theta]] and [[lem:tl5-hfv-rec]] hold with 𝔤₁ C_S and 𝔤₁ C_(0,0) in place of 2C_S
+and 2C_(0,0): in the first inequality of [[eq:tl5-hfs-linfty]], in C_∞^(m) and C_(∞,0)^(m) of [[eq:tl5-hfg-cinf]] and
+their forms with μ and with ν, and in C_P^v and C_(P,0)^v of [[lem:tl5-hfv-rec]].
+
+*Proof.* By [[lem:tl5-wg-norms]] (a), |H(q)| ≤ 2|h(q)| ≤ 2𝔰(q) ≤ 2𝔰_♭, as |h| ≤ 𝔰 and 𝔰_♭ ≤ 1/8. As g⁻¹ − ĝ⁻¹ = −g⁻¹ h
+ĝ⁻¹, as in the proof of [[lem:tl5-hfg-quadratic]], H = −g⁻¹ h ĝ⁻¹. In the frame F, where ĝ^MN = η^MN, raising an index
+with ĝ⁻¹ does not change the norm and a contraction with H multiplies it by at most |H|, so a factor g⁻¹ = ĝ⁻¹ + H that
+raises an index costs at most 1 + |H| ≤ 1 + 2𝔰_♭ = 𝔤₁, as in the proofs of [[lem:tl5-hfs-quadratic]] (a) and
+[[thm:tl5-hfv]]; this gives |H(q)| ≤ 𝔤₁ |h(q)|. In each lemma named, the hypothesis on Q(a, b), 𝔰 ≤ 𝔰₀^⋆, 𝔰₀^♮, 𝔰₀^μ or
+𝔰₀^q, or 𝔰 ≤ 𝔰₁^v ≤ 𝔰₀/2 with the replacements of [[lem:tl5-hfy-abs]], each at most 𝔰_♭, gives 𝔰(p) ≤ 𝔰_♭ at the point p
+of the bound. There the factors 2 of 2C_S and 2C_(0,0) are those of |H(p)| ≤ 2|h(p)| in the step of zeroth order, which
+bounds μ |H(p)| by 2μ |h(p)| and μ |h(p)| by C_S ℰ_g(p)^(1/2) + C_(0,0) η₀(p), with the weights of the lemma in use (for
+H in [[lem:tl5-hfq-theta]] the factor 2 is taken up by 2C_S and 2C_(0,0), as stated there, and in [[lem:tl5-hft-small]]
+(a) the bound is that of |H(p)| by 2|h(p)|); each other quantity of 𝔰_P⁰, of 𝔰_g^(m) and of 𝔰 enters these maxima with
+its own constant. With |H(p)| ≤ 𝔤₁ |h(p)| in place of |H(p)| ≤ 2|h(p)| the bound of μ |H(p)| has the factor 𝔤₁, and as
+𝔤₁ ≥ 1 the entries 𝔤₁ C_S and 𝔤₁ C_(0,0) also bound the quantities Ψ_B that the entries 2C_S and 2C_(0,0) bounded; so
+the maxima hold with 𝔤₁ C_S and 𝔤₁ C_(0,0). ∎
+
+**Definition {#def:tl5-hfc-constants}** (The constants with index c.) In the setting of [[def:tl5-hfe-constants]], the
+constants with index c are the constants with index l formed with 𝔤₁ C_S^l and 𝔤₁ C_(0,0) in place of 2C_S^l and
+2C_(0,0), C_(0,0) in its form with index l: at the sites of [[lem:tl5-hfc-h]], in 𝔎 and 𝔎₀ of [[def:tl5-hfs-constants]],
+which Step 3 of the proof of [[prop:tl5-hfs-bootstrap]] forms from the bound of 𝔰_P⁰, and in every constant formed from
+these, among them 𝔎^D and 𝔎^D₀, C_P, C_(P,0), C_(∞,μ)^(m) and C_((∞,0),μ)^(m) with their forms with ν, S_F, 𝔯 and 𝔰_*.
+Let S_F^c, S_M^c, ε_M^c and 𝔯^c be S_F^l, S_M^l, ε_M^l and 𝔯^l formed with them, ε^c := ε^l, and
+
+    η_c := 1 − max(ϑ₁, ϑ₂) − 𝔯^c,      A_c := η_c^(−1/2) δ_w + η_c⁻¹ (ε^c + ε_M^c),      B_c := η_c⁻¹ (S_F^c + S_M^c).
+
+For a number 𝔜 ≥ 0 let 𝔰_*^c[𝔜] be 𝔰_*^l formed with the constants with index c and with 𝔜/2 in place of A_l, so that
+its term with A_l carries 𝔜 in place of 2A_l, and, when 4A_c B_c < 1, put
+
+    Y_c := 2A_c/(1 + (1 − 4A_c B_c)^(1/2)),      𝔰_*^c := 𝔰_*^c[Y_c].                            {#eq:tl5-hfc-constants}
+
+**Theorem {#thm:tl5-hfc}** (Existence with the threshold Y_c and the factor 𝔤₁.) In the setting of [[thm:tl5-hfe]], with
+the constants with index c of [[def:tl5-hfc-constants]], suppose: (a) η₀ < 𝔰₁^v; (b) the rates (1 − ϑ₁) a_o, (1 − ϑ₂)
+a_i are admissible for (𝔅_N, E_o^N, E_i^N); (c) η_c > 0, the closing condition
+
+    4 A_c B_c = 4 η_c^(−3/2) (δ_w + η_c^(−1/2) (ε^c + ε_M^c)) (S_F^c + S_M^c) < 1,                 {#eq:tl5-hfc-closing}
+
+and 𝔰_*^c < 𝔰₁^v. Then there is a solution g of the reduced problem on D^κ with Y_σ(g) ≤ Y_c for every σ ∈ [1/2, v*],
+and the other conclusions of [[thm:tl5-hf]] (N ≥ 6) or [[thm:tl5-hf4]] (N = 4) hold with 𝔰_*^c in place of 𝔰_*. Each
+constant with index c is at most the one with index l it replaces, η_c ≥ η_l, A_c ≤ A_l, B_c ≤ B_l, Y_c ≤ 2A_c ≤ 2A_l
+and 𝔰_*^c ≤ 𝔰_*^l; so the hypotheses of [[thm:tl5-hfe]] imply these.
+
+*Proof.* If A_c = 0, the proof of [[thm:tl5-hf]] gives ĝ as the solution, with Y_σ(ĝ) = 0 = Y_c. Otherwise A_c > 0 and
+B_c > 0, as S_F^c > 0, and Y_c < 2A_c by [[lem:tl5-hfc-cont]]. The term of 𝔰_*^c[𝔜] with A_l is a(p) 𝔜 with a(p) ≥ 0,
+and its other terms do not depend on 𝔜 and are nonnegative, so 𝔰_*^c[𝔜] ≤ (𝔜/Y_c) 𝔰_*^c for 𝔜 ≥ Y_c; fix 𝔜 with Y_c < 𝔜
+≤ 2A_c and 𝔜 𝔰_*^c < Y_c 𝔰₁^v, so that 𝔰_*^c[𝔜] < 𝔰₁^v.
+
+*The factor of H.* By [[lem:tl5-hfc-h]], the bounds at a point that the proof of [[thm:tl5-hfe]] uses hold with the
+constants with index c. The proofs on which it rests use the products 2C_S and 2C_(0,0) only through these bounds and
+through 𝔎 and 𝔎₀, which Step 3 of the proof of [[prop:tl5-hfs-bootstrap]] forms from 𝔰_P⁰ ≤ 2C_S e^(φ/2) Y_s + 2C_(0,0)
+η₀, with 𝔤₁ in place of 2 by [[lem:tl5-hfc-h]]. So that proof applies with the constants with index c, and gives (H1)
+with A_c and B_c, under the a priori bound it uses.
+
+*The threshold.* In the proof of [[thm:tl5-hfe]] and in the proofs on which it rests, the a priori bound Y_σ ≤ 2A, A the
+number of the theorem in use (A_w, A_(w,4), A_g, …, A_l), enters at three places, and we use Y_σ ≤ 𝔜 at each of them.
+(i) In the a priori estimate, [[prop:tl5-hf-bootstrap]] and its forms, it enters only Step 1, through ℰ_g(p) ≤ e^(φ(p))
+Y_σ(g)² ≤ 4e^(φ(p)) A² for p ∈ D^κ_σ, as φ ≤ φ(p) on Σ₁(τ₁(p), τ₂(p)). With ℰ_g(p) ≤ e^(φ(p)) 𝔜² in its place, the
+bounds at p and the argument with Σ_* of the proof of [[thm:tl5-hfy]] give 𝔰 ≤ 𝔰_*^c[𝔜] < 𝔰₁^v on D^κ_s; Steps 2 and 3
+use this smallness and Y_s itself, not the a priori bound, and so give Y_s ≤ A_c + B_c Y_s². (ii) In
+[[lem:tl5-hf-persistence]] and [[lem:tl5-hf4-persistence]], as in the proofs of [[thm:tl5-hfg]] and [[thm:tl5-hf4g]],
+the a priori estimate enters only through 𝔰 ≤ 𝔰_*, which gives |H| ≤ 1/8 and the bounds of θ_H, θ_H^(1) and θ_H^(2) (as
+in the proof of [[thm:tl5-hfv]]) and, at level four, the bound of |D̂²Ψ_B|, |B| ≤ 3, by a constant (as in the proof of
+[[thm:tl5-hf4t]]); and the a priori bound enters only P(N), through the bound μ^(−N) e^(Φ_o(u*) + Φ_i(v*)) 4A² of the
+energies of level N. Under Y_σ ≤ 𝔜, (i) gives the first, with 𝔰_*^c[𝔜] < 𝔰₁^v, and P(N) holds with 𝔜² in place of 4A²;
+so (H2) holds, and (H4) follows from |h|_k̂ < κ_m/2 as there. (iii) In the proof of [[thm:tl5-hf]] or of
+[[thm:tl5-hf4]], [[lem:tl5-continuation]] is applied with y_σ := Y_σ; apply [[lem:tl5-hfc-cont]] with A := A_c, B := B_c
+and 𝔜, which lies in (Y_c, Y₊) as 𝔜 ≤ 2A_c < Y₊. Its hypotheses are (H1), (H2) and (H4) for the solutions with Y_σ ≤ 𝔜,
+given by the factor of H and by (i) and (ii), 4A_c B_c < 1 and Y_(1/2) = 0 ≤ A_c. It gives a solution g on D^κ with
+Y_σ(g) ≤ Y_c for every σ ∈ [1/2, v*].
+
+As Y_σ(g) ≤ Y_c and 𝔰_*^c[Y_c] = 𝔰_*^c < 𝔰₁^v, (i) with Y_c in place of 𝔜 and s = v* gives 𝔰 ≤ 𝔰_*^c on D^κ, |h|_k̂ <
+κ_m/2 and the bounds of θ_H; the rest of the conclusions follows from these as in the proofs of [[thm:tl5-hf]] and
+[[thm:tl5-hf4]], the bound for ε being [[eq:tl5-hf-eps]] with 𝔰 ≤ 𝔰_*^c. For the last claim, 𝔤₁ ≤ 5/4 < 2 as 𝔰_♭ ≤ 1/8,
+and every constant with index l is nondecreasing in the products it contains, so each constant with index c is at most
+the one it replaces; then η_c ≥ η_l, A_c ≤ A_l, B_c ≤ B_l and 4A_c B_c ≤ 4A_l B_l, as in the proof of [[thm:tl5-hfe]].
+Y_c ≤ 2A_c as 1 + (1 − 4A_c B_c)^(1/2) ≥ 1, and 𝔰_*^c[𝔜] is nondecreasing in 𝔜 and in the constants, so 𝔰_*^c ≤
+𝔰_*^c[2A_c] ≤ 𝔰_*^l. ∎
+
+**Remark {#rem:tl5-hfc-what}** (What changes.) The continuation needs, for the solutions it extends, a bound y_σ ≤ 𝔜
+that (H1) makes strict, and q(𝔜) < 0 is what makes y ≤ A + By² and y ≤ 𝔜 give y ≤ Y₋ < 𝔜. The threshold 2A of
+[[lem:tl5-continuation]] is one such number, with q(2A) = A(4AB − 1); every number between the roots serves, and the
+bound of the solution is the smaller root Y₋ = 2A/(1 + (1 − 4AB)^(1/2)) = A + A²B + 2A³B² + ⋯, which tends to A as 4AB
+tends to 0 and to 2A as 4AB tends to 1. The term of 𝔰_* with A carries the a priori bound, so it takes the factor 2/(1 +
+(1 − 4A_c B_c)^(1/2)) in place of 2: when the closing condition holds with room this nearly halves that term, and when
+the closing condition is close to binding the gain is small. As 𝔰_*^c < 𝔰₁^v is strict, a number 𝔜 slightly above Y_c
+keeps 𝔰_*^c[𝔜] < 𝔰₁^v, and the solutions with Y_σ ≤ 𝔜 are those the continuation extends; Steps 2 and 3, the persistence
+of regularity and the conclusions use the a priori bound only through the smallness it gives and through a bound of the
+energies by a constant. The factor 2 of 2C_S and 2C_(0,0) is that of |H| ≤ 2|h|, which holds for |h| ≤ 1/2; at every
+point where a bound at a point is formed, 𝔰 ≤ 𝔰_♭ holds, and there |H| ≤ 𝔤₁ |h|, the bound already used for 𝔨_B. So the
+entry of C_P^v, of 𝔎 and of C_∞^(m) that bounds μ |H| loses its factor 2, the other entries keeping theirs; the factor 2
+of 2𝒥_g in the nonlinear parts of the absorption, which comes from |H| ≤ 2|h| as well and enters only with 𝔵^z, is kept.
+The counts, the recovery constants, the Sobolev constants, the weights 𝔲₀, 𝔲₁, 𝔲_M, the thresholds 𝔰₀ and 𝔰₁^v and the
+rates are unchanged. As for [[thm:tl5-hf]] and [[thm:tl5-hf4]], the hypotheses of [[thm:tl5-hfc]] are established in
+this paper for no background at 10 l5.
