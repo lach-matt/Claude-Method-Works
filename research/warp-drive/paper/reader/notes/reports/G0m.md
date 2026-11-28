@@ -277,3 +277,11 @@ four cases.
 | `levelV_s{1,2}_{4,6}_{-2.0,-1.1}_p.json`, `*_pbase.json`, `*_p{noy,nofam,nosplit,tlin,smq,hy,c1h}.json`, `p_*.log` | the runs |
 | `ruleP.py` | tables (`python3 ruleP.py _p g0l x` adds θ × s and the constant diagnostics); it prints S_F itself |
 | `G0m.md` | copy of this report |
+
+---
+
+**Note (coordinator, 2026-11-28, from R-P-GRD11).** The lever "𝔠^♮₄(μ) → 9·2⁴" priced in this report is a comparison
+count, not a proved target: the terms with no background letters already give 𝔠^♮₄(μ) + 1 ≥ 2⁴ + 16·5·2⁴ = 1296 =
+9²·2⁴ for every μ (eq:tl5-hfs-cn), and going below that needs a bound of the bilinear form 2𝔮̂ (about 8 against
+16λ̂₀² = 80) that the chapter does not state. The figures given for this lever are therefore upper bounds for a target
+the text does not reach (at most log₁₀ 9 = 0.954 decades less is available).

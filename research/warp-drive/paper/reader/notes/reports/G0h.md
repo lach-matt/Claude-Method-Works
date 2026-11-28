@@ -283,3 +283,11 @@ not the ν^(−2) term of 𝔰_\*.
 
 Scripts: `levelR.py` (`levelV` with the ε split and a factor on the ϱ coefficient, `G0H_RULE=1`), output
 `levelV_s{1,2}_4_{-2.0,-1.1}_rule.json`, table `ruleV.py`; G0g's figures from `scratchpad/g0g/levelQ_*.json`.
+
+---
+
+**Note (coordinator, 2026-11-28, from R-P-GRD11).** The lever "𝔠^♮₄(μ) → 9·2⁴" priced in this report is a comparison
+count, not a proved target: the terms with no background letters already give 𝔠^♮₄(μ) + 1 ≥ 2⁴ + 16·5·2⁴ = 1296 =
+9²·2⁴ for every μ (eq:tl5-hfs-cn), and going below that needs a bound of the bilinear form 2𝔮̂ (about 8 against
+16λ̂₀² = 80) that the chapter does not state. The figures given for this lever are therefore upper bounds for a target
+the text does not reach (at most log₁₀ 9 = 0.954 decades less is available).

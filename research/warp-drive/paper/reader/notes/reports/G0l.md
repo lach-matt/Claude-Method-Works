@@ -277,3 +277,11 @@ refinement gained there is 0.06 (seed 2, D\*).
 | `levelV_s{1,2}_{4,6}_*_zvalg.json`, `*_zw301.json`, `*_znl2.json`, `*_zc1h.json`, `levelV_s1_4_-2.0_zval.json` | the baseline, the levers and the check |
 | `ruleZ.py` | tables (`python3 ruleZ.py _zfine _z x` adds the per-μ constant diagnostics) |
 | `G0l.md` | copy of this report |
+
+---
+
+**Note (coordinator, 2026-11-28, from R-P-GRD11).** The lever "𝔠^♮₄(μ) → 9·2⁴" priced in this report is a comparison
+count, not a proved target: the terms with no background letters already give 𝔠^♮₄(μ) + 1 ≥ 2⁴ + 16·5·2⁴ = 1296 =
+9²·2⁴ for every μ (eq:tl5-hfs-cn), and going below that needs a bound of the bilinear form 2𝔮̂ (about 8 against
+16λ̂₀² = 80) that the chapter does not state. The figures given for this lever are therefore upper bounds for a target
+the text does not reach (at most log₁₀ 9 = 0.954 decades less is available).
