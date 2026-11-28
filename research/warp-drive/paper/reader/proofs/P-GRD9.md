@@ -7,10 +7,10 @@ second derivatives with that smallness and with the entry (1, 1) kept apart ([[l
 factors by 𝔨_♯(𝔰₁^v) < 2.45, (1 − 𝔰₁^v)⁻¹ and (1 − 𝔰₁^v)⁻¹ 𝔯_♯. It then bounds the second derivatives of the words JB of
 the first-order step in the Euclidean norm over the 43 words J ([[lem:tl5-hfz-words]]): the leading term of the recovery
 counts once, the couplings 𝔄 count through the operator norm of their family over the words, and the count 43 remains
-only with the nonlinear part. Finally the parts with 𝒥_g and with ϱ of the first-order step are separated by the
-triangle inequality on the face, in place of (x + y)² ≤ 2x² + 2y² ([[lem:tl5-hfz-c1]]). The closing condition is
-[[eq:tl5-hfz-closing]]; every new constant is at most the one it replaces, and the earlier closing conditions remain
-valid. The notation is that of [[sec:tl5-hfy]].
+only with the nonlinear part and in the bounds of that norm. Finally the parts with 𝒥_g and with ϱ of the first-order
+step are separated by the triangle inequality on the face, in place of (x + y)² ≤ 2x² + 2y² ([[lem:tl5-hfz-c1]]). The
+closing condition is [[eq:tl5-hfz-closing]]; every new constant is at most the one it replaces, and the earlier closing
+conditions remain valid. The notation is that of [[sec:tl5-hfy]].
 
 **Lemma {#lem:tl5-hfz-rec}** (The recovery with the entry (1, 1) apart.) Let p, H, Ψ, 𝔣, K_rec, 𝔷_Z, ‖𝓡̂‖ and ‖𝒞_(·1)‖
 be as in [[lem:tl5-hf-recovery]], except that |H| ≤ 𝔥 at p for a number 𝔥 ∈ [0, 1) in place of |H| ≤ 1/4, and put
@@ -117,15 +117,16 @@ Each term of a sum over J is at most r_B, so c_B ≤ 43 r_B. As |B| + 3 ≥ |JB|
 𝔵^z)(43^(1/2) k₁^z − 𝔩₀) ≥ 0.
 
 (b) Let q be a point of Σ₁(a, b) and C := JB. As |H(q)| ≤ 𝔰(q) ≤ 𝔰₁^v, [[lem:tl5-hfz-rec]] with 𝔥 = 𝔰₁^v applies to Ψ_C,
-with 𝔣 = Σ_K 𝔄_CK(D̂Ψ_K, Ψ_K) + Σ_K 𝔔_CK ℒ^K(2R̂ic) − 𝔑_C, 𝔑_C the nonlinear terms of the proof of
-[[lem:tl5-hf-linfty]]. Take the Euclidean norm over J and apply Minkowski's inequality to each kind of term. The words
+with 𝔣 = Σ_K 𝔄_CK(D̂Ψ_K, Ψ_K) + Σ_K 𝔔_CK ℒ^K(2R̂ic) − 𝔑′_C, where 𝔑′_C := Σ_(K≠C) 𝔔_CK ℒ^K N(h) + ℒ^C N(h) −
+H^(αβ) D̂_αD̂_βΨ_C collects the nonlinear terms of the proof of [[lem:tl5-hf-linfty]]. Take the Euclidean norm over J
+and apply Minkowski's inequality to each kind of term. The words
 ZJB are distinct for distinct (Z, J) and have length at most |B| + 3 ≤ N, so (Σ_J Σ_Z |D̂Ψ_(ZJB)|²)^(1/2) ≤
 μ^(−(|B|+3)/2) 𝒥_g. The words JB are distinct and have length at most |B| + 2, and (Σ_Z 𝔷_Z²)^(1/2) ≤ √7
 (3 max_Z |D̂Z| + 2 max_Z |D̂²Z|)(|D̂Ψ_C|² + |Ψ_C|²)^(1/2); so the terms with 𝔷_Z and with 𝔯_♯ |Ψ_C| contribute at most
 μ^(1/2) μ^(−(|B|+3)/2) 𝒥_g times their coefficients. As Σ_K μ^|K| (|D̂Ψ_K|² + |Ψ_K|²) ≤ 𝒥_g², the definition of 𝔞_𝔄(B)
 bounds the terms with 𝔄 by (1 − 𝔰₁^v)⁻¹ μ^(−(|B|+3)/2) 𝔞_𝔄(B) 𝒥_g. Together these contribute at most μ^(−(|B|+3)/2) 𝔩₀
 𝒥_g. For each J, (1 − 𝔰₁^v)⁻¹ |Σ_K 𝔔_CK ℒ^K(2R̂ic)| ≤ k₂^z ϱ(p) ≤ (1 − 𝔵^z) P_ϱ, as w ≥ 1; and, as in the proof of the
-bound of |D̂²Ψ_C| that the step uses, (1 − 𝔰₁^v)⁻¹ |𝔑_C| ≤ 𝔵^z (2μ^(−(|C|+1)/2) 𝒥_g + 𝔐), 𝔐 that bound for the second
+bound of |D̂²Ψ_C| that the step uses, (1 − 𝔰₁^v)⁻¹ |𝔑′_C| ≤ 𝔵^z (2μ^(−(|C|+1)/2) 𝒥_g + 𝔐), 𝔐 that bound for the second
 derivatives of the words of length at most |C|, whose weights are at most μ^(−(|B|+3)/2) and w as |C| + 1 ≤ |B| + 3; so
 𝔐 ≤ μ^(−(|B|+3)/2) 𝒥_g (k₁^z + 2𝔵^z)/(1 − 𝔵^z) + P_ϱ. For each J these two terms are thus at most P_ϱ + μ^(−(|B|+3)/2)
 𝒥_g 𝔵^z (k₁^z + 2)/(1 − 𝔵^z), which does not depend on J, so their Euclidean norm over the 43 words J is at most
@@ -192,11 +193,12 @@ coefficient √3 + 8/3 of K_rec becomes 𝔨_♯, which lies between √5 and �
 8/3) > 5.27 becomes about √5 < 2.24 when 𝔰₁^v is small, in k₁^(j,·), in 𝔨_rec, and through the bounds of the second
 derivatives in 𝔨_A, λ_t^μ, λ_t^(μ,2) and C₁^z. The factor 8/5 in front of the residual and of the nonlinear terms
 becomes (1 − 𝔰₁^v)⁻¹ ≤ 16/15, which lowers k₂ and k₃, and with k₃ the number 𝔵, by the factor (5/8)(1 − 𝔰₁^v)⁻¹ ≤ 2/3.
-In the part of C₁^z with 𝒥_g the count 43 of the words remains only in the nonlinear part 43^(1/2) 𝔵^z (k₁^z + 2)/(1 −
-𝔵^z), against 43^(1/2) (k₁^μ + 2𝔵)/(1 − 𝔵) in [[eq:tl5-hfx-c1]] with the replacements of [[lem:tl5-hfy-abs]]: the
-nonlinear terms are bounded through the largest second derivative and are not absorbed over the words, so no condition
-on 43^(1/2) 𝔵^z is needed. The couplings 𝔄 enter through the norm 𝔞_𝔄 of their family over the words, which any bound of
-it may replace, Schur's (r_B c_B)^(1/2) among them, and which is at most (43/2)^(1/2) α_𝔄^(N−1,μ). The triangle
+In the part of C₁^z with 𝒥_g the count 43 of the words remains in the nonlinear part 43^(1/2) 𝔵^z (k₁^z + 2)/(1 − 𝔵^z)
+and in the bounds of 𝔞_𝔄 below, against 43^(1/2) (k₁^μ + 2𝔵)/(1 − 𝔵) in [[eq:tl5-hfx-c1]] with the replacements of
+[[lem:tl5-hfy-abs]]: the nonlinear terms are bounded through the largest second derivative and are not absorbed over
+the words, so no condition on 43^(1/2) 𝔵^z is needed. The couplings 𝔄 enter through the norm 𝔞_𝔄 of their family over
+the words, which any bound of it may replace, Schur's (r_B c_B)^(1/2) among them, and which is at most (43/2)^(1/2)
+α_𝔄^(N−1,μ). The triangle
 inequality on the face halves the term with |∂_γ|² of the square of C₁^z against the split (x + y)² ≤ 2x² + 2y² of
 [[eq:tl5-hfx-c1]], and quarters the square of C_(1,ϱ)^z against the two splits of C_(1,ϱ); it is at least as good as
 (x + y)² ≤ (1 + δ)x² + (1 + 1/δ)y² for every δ > 0, which would move a factor between the two parts, so no such number
@@ -252,14 +254,15 @@ thm:tl5-hfy (its last sentence). The thresholds 𝔰₀, 𝔰₁^v (and the cap 
 5. The coupling norm over the words. 𝔞_𝔄 = max_B 𝔞_𝔄(B), 𝔞_𝔄(B) the operator norm of the block matrix
    (μ^((|B|+3−|K|)/2) 𝔄_(JB,K))_(J,K), J over the 43 rotation words, K over the words with |K| ≤ |B| + 2. Any upper bound
    may be used: Schur's (r_B c_B)^(1/2) (largest row sum times largest column sum of the block norms, under the root), or
-   the trivial (43/2)^(1/2) α_𝔄^(N−1,μ), which already gives 𝔩₀ ≤ √43 k₁^z. At G0k's points every coupling carries a weight
-   μ^(1/2) or smaller (μ = 10⁻⁶ … 10⁻⁴), so 𝔞_𝔄 is negligible against 𝔨_♯ K_rec whichever bound is used, and the
-   Schur bound only matters at larger μ.
+   the trivial (43/2)^(1/2) α_𝔄^(N−1,μ), which already gives 𝔩₀ ≤ √43 k₁^z. At G0k's points every coupling carries a
+   weight μ^(1/2) or smaller (μ = 10⁻⁶ … 10⁻⁴), so 𝔞_𝔄 is negligible against 𝔨_♯ K_rec whichever bound is used, and
+   the Schur bound only matters at larger μ.
 6. C_(1,ϱ)^z: 2(k₂^z)²/(1 − 𝔵^z)² in place of 8k₂²/(1 − 𝔵)² of thm:tl5-hfy (32k₂² in lem:tl5-hf-linfty); with k₂^z this
    is C_(1,ϱ) × (1/2)(5/8)(1 − 𝔰₁^v)⁻¹ (1 − 𝔵)/(1 − 𝔵^z) ≈ × 0.30 (−0.52 decades). It enters C_(∞,ϱ), 𝔨_rec^(ϱ,z),
    C_(P,ϱ)^v, 𝔎_ϱ, 𝔯, and the terms with ϱ of 𝔰_*.
 7. ε^z: coefficient of ϱ 𝔰₁^v (1 − 𝔵^z)⁻¹ 𝔤_ϱ^v k₂^z in place of 𝔰₁^v (1 − 𝔵)⁻¹ 𝔤_ϱ^v k₂, ratio (5/8)(1 − 𝔰₁^v)⁻¹(1 −
-   𝔵)/(1 − 𝔵^z) ≈ 0.63 (−0.20 decades).
+   𝔵)/(1 − 𝔵^z): 0.607, 0.600, 0.604, 0.587 at G0k's level-4 𝔵 (−0.217, −0.222, −0.219, −0.231 decades) and
+   0.609–0.624 at its level-6 𝔵 (−0.205 to −0.216); the factor 5/8 alone is −0.204.
 8. The closing condition eq:tl5-hfz-closing has the form of eq:tl5-hfw-closing with η_z, ε^z, ε_M^z, S_F^z, S_M^z.
 
 The optimised split (target 3). Not needed as a parameter: the triangle inequality in L² of the face gives the factors
@@ -304,10 +307,10 @@ are those of this file:
     lem:tl5-hfz-abs	paper/reader/proofs/P-GRD9.md@PENDING:77	P-GRD9, Lemma	the lemmas of lem:tl5-hfy-abs with the recovery constants of index z; each at most the old one
     lem:tl5-hfz-words	paper/reader/proofs/P-GRD9.md@PENDING:97	P-GRD9, Lemma	second derivatives of the words JB in l2 over the 43 words: leading term once, couplings through a_A (Schur bound), nonlinear part with sqrt43
     eq:tl5-hfz-words	paper/reader/proofs/P-GRD9.md@PENDING:110	P-GRD9, display	new
-    lem:tl5-hfz-c1	paper/reader/proofs/P-GRD9.md@PENDING:134	P-GRD9, Lemma	first-order bound with C1^z, C1rho^z by the triangle inequality in L2 of the face; C1^z <= C1^x, C1rho^z <= C1rho
-    thm:tl5-hfz	paper/reader/proofs/P-GRD9.md@PENDING:164	P-GRD9, Theorem	thm:tl5-hfy with the constants with index z; contains it
-    eq:tl5-hfz-closing	paper/reader/proofs/P-GRD9.md@PENDING:175	P-GRD9, display	closing condition: 4 eta_z^(-3/2)(delta_w + eta_z^(-1/2)(eps^z + eps_M^z))(S_F^z + S_M^z) < 1
-    rem:tl5-hfz-what	paper/reader/proofs/P-GRD9.md@PENDING:190	P-GRD9, Remark	what changes
+    lem:tl5-hfz-c1	paper/reader/proofs/P-GRD9.md@PENDING:135	P-GRD9, Lemma	first-order bound with C1^z, C1rho^z by the triangle inequality in L2 of the face; C1^z <= C1^x, C1rho^z <= C1rho
+    thm:tl5-hfz	paper/reader/proofs/P-GRD9.md@PENDING:165	P-GRD9, Theorem	thm:tl5-hfy with the constants with index z; contains it
+    eq:tl5-hfz-closing	paper/reader/proofs/P-GRD9.md@PENDING:176	P-GRD9, display	closing condition: 4 eta_z^(-3/2)(delta_w + eta_z^(-1/2)(eps^z + eps_M^z))(S_F^z + S_M^z) < 1
+    rem:tl5-hfz-what	paper/reader/proofs/P-GRD9.md@PENDING:191	P-GRD9, Remark	what changes
 
 Note to change in the existing row of the crosswalk of [[ch:ten-l5]]: rem:tl5-hfy-what, add "; points to sec:tl5-hfz
 (P-GRD9 item 2)".
